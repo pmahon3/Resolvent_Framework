@@ -182,7 +182,7 @@ $$
 $$
 However if $C(t)$ is strongly but not uniformly continuous then $A$ is not bounded and $e^{At}$ need not converge.
 
-The $C_0$-semigroup provides a good, however insufficient, basis for understanding the relationships of locality and the higher order terms of the generating process for $X_t$. Specifically, it fails to 
+The $C_0$-semigroup provides a good, however insufficient, basis for understanding the relationships of locality and the higher order terms of the generator for $X_t$. 
 \subsection{$C_0^n$-semigroup}
 
  $C_0$-semigroup to be a special case of a more general strongly continuous one parameter semigroup, the nonlinear $C^n_0$-semigroup, whose infinitesimal generator expresses higher order effects in the limit of ever smaller finite differences. 
@@ -191,43 +191,65 @@ The $C_0$-semigroup provides a good, however insufficient, basis for understandi
  
 The upshot is that the $C^n_0$-semigroup and it's infinitesimal generator can carry intuition regarding continuity and nonlinearity over to pragmatic operator theory approaches, wherein we are better suited to investigate locality.
 
-\subsubsection{The Hille generator for nonlinear semigroups}
-Consider the finite difference operator,
+\subsubsection{The Hille Operator for nonlinear semigroups}
+
+We can relate the forward differences to the map of $C$ where,
 $$
-    \Delta^k_h x(t) = x(t) - x(t-kh)
-$$
-We relate the map,
-$$
-    x(t+kh) = C^k_h(t) x(t)
-$$
-to the difference operator:
+    \Delta_h^1 x(t) = x(t+h) - x(t) = C_h^1 x(t) - x(t)\\
+$$. 
+
+For higher order differences the difference operator series is
 \begin{align}
-    \Delta^{k}_h x(t) &= x(t) - x(t-hk) \nonumber\\
-    &= \left(C^k_h(t) x(t) - x(t)\right) \nonumber\\
-    \Delta^{-k}_h x(t+kh) &= \left(C^{k}_h(t) - I\right) x(t)
+    \Delta_h^n x(t) &= \sum_{k=0}^n (-1)^{n-k} {n \choose k} x(t+kh) \nonumber \\
+    &= \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k x(t) \label{eq:delta_c}
 \end{align}
 
-We generalize the definition of strong continuity, (\ref{eq:continuity}); the infinitesimal generator $A_h$ for a strongly continuous nonlinear semigroup satisfies
+If we define the $n$-order generator,
+$$
+    A_h^n = \frac{\Delta_h^n}{h^n}
+$$
+
+The the $n$-order generators of the semigroup, $A_h^n$, describe higher-order terms of the expansion when viewed as finite-difference corrections to the first-order dynamics, $A_h^1$, capturing more detailed behavior of the system.
+
+A semigroup can be defined over the sum of the $n$-order generators,
+\begin{align}
+    C_h(t) = e^{A_h t} &:= \sum_{n=0}^\infty \frac{t^n}{n!} A^n_h \nonumber\\
+    &:= \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n} \label{eq:hille_operator}
+\end{align}
+
+In the limit of difference size $h$ we get
 \begin{align*}
-    A_h x(t) &= \lim_{t\rightarrow0^+}  \frac{1}{t}  \sum_{k=0}^\infty (C^k_h(t) - I) x(t)\\
-    x(t+h) &= \lim_{t\rightarrow0^+} \frac{1}{t}  \sum_{k=0}^\infty  \Delta^k_h x(t+kh) \\
+    \lim_{h\rightarrow0^+} C_h(t) &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n}\\
+    H(t) &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n}
 \end{align*}
-wherever this limit exists. The domain of $A$, $D(A)$, is the set of $x\in X$ for which this limit exists. Furthermore we define uniform continuity, (\ref{eq:uniformity}), where if
+where we call $H(t)$ the \textit{Hille operator}. On application to $x(t)$, this operator yields the Hille series expansion
 \begin{align*}
-    \lim_{t\rightarrow0^+} \lim_{h\rightarrow0^+} || \sum_{k=0}^\infty C^k_h(t) x_0 - x_0 || \rightarrow 0
+    H(t) x(t) &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n x(t)}{h^n} 
 \end{align*}
-then the semigroup is uniformly continuous.
 
+Thus, the Hille Operator provides a way to generalize the semigroup dynamics to include higher-order effects via the Hille Series, defining a strongly and uniformly continuous one parameter nonlinear semigroup. We denote the order of the semigroup as $C_0^n$-semigroup. Where $n$ is non finite we have the strongly nonlinear $C_0^\infty$-semigroup. 
 
+We can reintroduce (\ref{eq:delta_c}) so,
+\begin{align*}
+    H(t)  &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n} \\
+    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n} 
+\end{align*}
 
-We define the higher powers of the infinitesimal generator,
-$$
-A^k_h = \frac{\Delta^k_h}{h^k}
-$$
-and restate uniformly continuous semigroup as the exponential according to a new definition
-$$
-    T(t) = e^{At} := \sum_0^{\infty} \frac{A^k}{k!} t^k \label{eq:generator}
-$$
+We can now reintroduce a parameterization of local dependencies to $H(t)$. We have
+\begin{align*}
+    x(t+kh) = C_h^k(t) x(t)
+\end{align*}
+where
+\begin{align*}
+    W_t^\theta X_{t+kh} &= W_t^\theta X_{t} C_h^k(t)\\
+    X_{t}^{-1}  {W_t^\theta}^{-1} {W_t^\theta} X_{t+kh} &=  C_h^k(t)
+\end{align*}
+Therefor
+\begin{align*}
+    H(t)  &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n}\\ 
+    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\sum_{k=0}^n (-1)^{n-k} {n \choose k}   X_{t}^{-1}  {W_t^\theta}^{-1} {W_t^\theta} X_{t+kh}}{h^n}\\
+    &= \lim_{h\rightarrow0^+} X_{t}^{-1}  {W_t^\theta}^{-1} {W_t^\theta} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\sum_{k=0}^n (-1)^{n-k} {n \choose k}}{h^n} X_{t+kh}\\
+\end{align*}
 
 \section{Applications}
 

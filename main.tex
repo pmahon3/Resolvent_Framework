@@ -232,23 +232,47 @@ Thus, the Hille Operator provides a way to generalize the semigroup dynamics to 
 We can reintroduce (\ref{eq:delta_c}) so,
 \begin{align*}
     H(t)  &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n} \\
-    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n} 
+    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n}
 \end{align*}
 
-We can now reintroduce a parameterization of local dependencies to $H(t)$. We have
+\subsection{The resolvent of $C^n_0$}
+
+The resolvent 
+$$
+    R(\lambda, A) = (\lambda I - A)^{-1}
+$$
+is an important because it tells us whether the operator $A$ has an inverse for certain values of $\lambda$. This can help define the spectrum and growth behavior of the semigroup.
+
+For
 \begin{align*}
-    x(t+kh) = C_h^k(t) x(t)
+    H(t) &= \sum_{n=0}^\infty \frac{t^n}{n!} A^n_h \nonumber\\
+    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n}
 \end{align*}
-where
+we are interested in the resolvent set that provides a well definied inverse,
+$$
+    \rho(A^n) = \left\{ n\in\Z, \lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - A^n_h \right) ^{-1}\right\}
+$$ 
+We have
 \begin{align*}
-    W_t^\theta X_{t+kh} &= W_t^\theta X_{t} C_h^k(t)\\
-    X_{t}^{-1}  {W_t^\theta}^{-1} {W_t^\theta} X_{t+kh} &=  C_h^k(t)
+     R(\lambda, A^n) &= \lim_{h\rightarrow0^+}\left( \lambda I - A^n_h\right) ^{-1}\\
+      &= \lim_{h\rightarrow0^+}\left( \lambda I - \frac{\Delta^n_h}{h^n} \right) ^{-1}
+\end{align*}
+so,
+\begin{align*}
+    \lim_{h\rightarrow0^+} \left( \lambda I- \frac{\Delta^n_h}{h^n}\right)x(t) = y(t)
+\end{align*}
+where,
+\begin{align*}
+     0 &\neq \lim_{h\rightarrow0^+} \left| \lambda I- \frac{\Delta^n_h}{h^n} \right| \\
+      0 &\neq \lim_{h\rightarrow0^+} \left| \lambda I - \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n} \right|
+\end{align*}
+So in short the members of the resolvent set cannot belong to the spectrum of the $n$ order finite difference approximations of the nonlinear generator,
+\begin{align*}
+    A^h = \sum_{n} \frac{\sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n}
 \end{align*}
 Therefor
-\begin{align*}
-    H(t)  &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n}\\ 
-    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\sum_{k=0}^n (-1)^{n-k} {n \choose k}   X_{t}^{-1}  {W_t^\theta}^{-1} {W_t^\theta} X_{t+kh}}{h^n}\\
-    &= \lim_{h\rightarrow0^+} X_{t}^{-1}  {W_t^\theta}^{-1} {W_t^\theta} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\sum_{k=0}^n (-1)^{n-k} {n \choose k}}{h^n} X_{t+kh}\\
-\end{align*}
-
+$$
+    \rho(A_h) = \bigcap_n \rho(A^n_h) = \C / \left\{\bigcup_n \sigma(A^n_h)\right\}
+$$ 
+where $\sigma(A^n_h)$ is the spectrum of the $n$ order finite difference approximation.
 \end{document}

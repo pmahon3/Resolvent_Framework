@@ -20,6 +20,7 @@
 \newcommand{\X}{\text{x}}
 \newcommand{\W}{\text{w}}
 \newcommand{\Rho}{\mathrm{P}}
+\newcommand{\Lgr}{\mathcal{L}}
 
 \glsxtrnewsymbol[description={Banach space $(X, ||\cdot||$)}]{X}{$X$}
 
@@ -239,40 +240,69 @@ We can reintroduce (\ref{eq:delta_c}) so,
 
 The resolvent 
 $$
-    R(\lambda, A) = (\lambda I - A)^{-1}
+    R(\lambda, H(t)) = (\lambda I - H(t))^{-1}
 $$
-is an important because it tells us whether the operator $A$ has an inverse for certain values of $\lambda$. This can help define the spectrum and growth behavior of the semigroup.
+is important because it tells us whether the Hille operator $H(t)$ has an inverse for certain values of $\lambda$. This can help define the spectrum and growth behavior of the $C^n_0$ semigroup.
 
-For
-\begin{align*}
-    H(t) &= \sum_{n=0}^\infty \frac{t^n}{n!} A^n_h \nonumber\\
-    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n}
-\end{align*}
-we are interested in the resolvent set that provides a well definied inverse,
+We are interested in the resolvent set that provides a well defined inverse,
 $$
-    \rho(A^n) = \left\{ n\in\Z, \lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - A^n_h \right) ^{-1}\right\}
+    \rho(H) = \left\{ n\in\Z, \lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - H(t) \right) ^{-1}\right\}
 $$ 
 We have
 \begin{align*}
-     R(\lambda, A^n) &= \lim_{h\rightarrow0^+}\left( \lambda I - A^n_h\right) ^{-1}\\
-      &= \lim_{h\rightarrow0^+}\left( \lambda I - \frac{\Delta^n_h}{h^n} \right) ^{-1}
+     R(\lambda, H(t)) &= \lim_{h\rightarrow0^+}\left( \lambda I - H(t)\right) ^{-1}\\
+     &= \lim_{h\rightarrow0^+}\left( \lambda I - \sum_n \frac{t^n}{n!} \frac{A^n_h}{h^n}\right) ^{-1}
 \end{align*}
 so,
 \begin{align*}
-    \lim_{h\rightarrow0^+} \left( \lambda I- \frac{\Delta^n_h}{h^n}\right)x(t) = y(t)
+     0 &\neq \lim_{h\rightarrow0^+} \left| \lambda I - H(t) \right|
 \end{align*}
-where,
+We want $\lambda \in \rho(H(t))$ where
 \begin{align*}
-     0 &\neq \lim_{h\rightarrow0^+} \left| \lambda I- \frac{\Delta^n_h}{h^n} \right| \\
-      0 &\neq \lim_{h\rightarrow0^+} \left| \lambda I - \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n} \right|
+    \rho(H(t)) &=\C /  \sigma\left(H(t)\right)\\
+    &= \C /  \sigma\left(\lim_{h\rightarrow0^+} \sum_n \frac{t^n}{n!} \frac{A^n_h}{h^n}\right)
 \end{align*}
-So in short the members of the resolvent set cannot belong to the spectrum of the $n$ order finite difference approximations of the nonlinear generator,
+There are a number of options to resolve $\sigma(H(t))$ in non-empirical settings. These include, among others, methods from functional calculus, operator, theory, and perturbation theory.
+\section{An Empirical Hille Operator}
+In an empirical setting the coefficients, $a_n$, of the operator,
 \begin{align*}
-    A^h = \sum_{n} \frac{\sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n}
+    H(t) &= \lim_{h\rightarrow0^+} \sum_n a^n \frac{\Delta^n_h}{h^n}
 \end{align*}
-Therefor
+may not ensure convergence. In such cases we have to consider how to treat the distribution of coefficients, 
 $$
-    \rho(A_h) = \bigcap_n \rho(A^n_h) = \C / \left\{\bigcup_n \sigma(A^n_h)\right\}
-$$ 
-where $\sigma(A^n_h)$ is the spectrum of the $n$ order finite difference approximation.
+    P(a_n) \sim f(n)
+$$
+assuming it is some function of the order $n$. In this case the only required constraint is normalization
+$$
+\sum_n P(a_n) = 1
+$$
+Beyond this many natural systems may or may not exhibit further constraints including bounded higher order moments. How should we, \textit{a priori}, evaluate methods to estimate $P(a_n)$ 
+
+If we seek the least biased estimate of the dynamics described by $H(t)$ then we should adopt a maximum entropy approach. Following such a solution we may assess the spectra of the ensemble, $\sigma(<H(t)x(t)>)$, where
+$$
+    <H(t) x(t) > = \sum_n P(a_n)\, a_n \frac{\Delta^n_h x(t)}{h^n}
+$$
+
+\subsection{Maximum Entropy Estimates of $H(t)$}
+Given a set of trajectory data, $\{X_t\}_t\geq0$, we propose the following application of the empirical Hille operator,
+\begin{align*}
+    H(t)x(t) &= \sum_n P(a_n) \, a_n \frac{\Delta^n_h x(t)}{h^n}\\
+    &= \sum_{n} P(a_n) \, a_n \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k(t)}{h^n}\\
+    &= \sum_{n} P(a_n) \, a_n \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} X_t^{-1} X_{t+kh}}{h^n}\\
+    &= \sum_{n} X_t^{-1} P(a_n) \, a_n  \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} X_{t+kh}}{h^n}
+\end{align*}
+
+The entropy of $P(a_n)$ is given by
+$$
+    S(P) = - \sum_n P(a_n) \log P(a_n)
+$$
+where,
+$$
+    \sum_n P(a_n) = 1
+$$
+We seek the solution to the Lagrangian,
+$$
+     \Lgr = -\sum_n P(a_n) \log P(a_n) + \lambda \left( \sum_n P(a_n) -1\right)
+$$
+
 \end{document}

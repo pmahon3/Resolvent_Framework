@@ -1,5 +1,5 @@
 \documentclass{article}
-\usepackage[left=2cm, right=2cm]{geometry}
+\usepackage{geometry}
 \usepackage[parfill]{parskip}
 \usepackage{graphicx}
 \usepackage{amsmath} 
@@ -7,6 +7,7 @@
 \newtheorem{definition}{Definition}
 \usepackage{amssymb}
 \usepackage{mathtools}
+\usepackage{tcolorbox}
 \usepackage[colorlinks]{hyperref}
 \usepackage[symbols,nogroupskip,sort=none]{glossaries-extra}
 \renewcommand*{\glspostdescription}{\medskip}
@@ -36,7 +37,7 @@
 
 \section{Definitions}
 \begin{definition}
-The process-$t$ matrix, read  ``process until $t$ matrix'' or more simply ``process until $t$'', is 
+$X_t$ is a matrix of a sequence of elements, $x \in X$, indexed by $t\geq0$
 $$ X_t = 
 \begin{bmatrix}
     x_t \\ 
@@ -45,11 +46,10 @@ $$ X_t =
     \vdots
 \end{bmatrix}
 $$
-where rows belong to $X$.
 \end{definition}
 
 \begin{definition}
-The $t$-weighting matrix of the process-$i$ is given by $$W(X_i, x_t, \theta) =
+The $t$-weighting matrix of $X_i$ is given by $$W(X_i, x_t, \theta) =
 \begin{bmatrix}
     w(x_j, x_t, \theta) & 0 & 0 &\cdots \\
     0 & w(x_{j-h}, x_t, \theta) & 0 &  \cdots\\
@@ -66,46 +66,48 @@ $W_t^\theta X_{i}$ is short hand for the the product $W(X_i, x_t, \theta) X_i$
         \vdots
 \end{bmatrix}
 \end{align*}
-which is the $t$-weighting of the process-$i$.
 \end{definition}
 
 \section{Introduction}
 
-\subsection{$C_t$ as a globally linear map}
+\subsection{$C$ as a globally linear map}
 Consider the map 
-$$
-    C: x_t \mapsto x_{t+h}
-$$
-for $x_i \in X_t \subset X$ and
+\begin{align*}
+    C(\cdot)&: X \rightarrow X\\
+\end{align*}
+$C$ may describe a time evolving map
+\begin{align*}
+    C(\cdot)&: x_t \mapsto x_{t+h}    &h\geq0,\,x_i \in X
+\end{align*}
+and may be state dependent, $C(x)$, non-autonomous, $C(t)$, or both, $C(t, x)$. If, for the autonomous state-independent case
 \begin{align*}
     x_{t+h} & = C x_t
 \end{align*}
-C may be state dependent, $C(x(t))$, non-autonomous, $C(t)$, or both, C(t, x(t)). We denote the possibility of any such case as $C_t$.
+$C$ is globally linear, then,
+\begin{align*}
+    X_{t+h} = X_t C\\
+    C = X_{t}^{-1} X_{t+h}
+\end{align*}
+provides the solution. 
 
-If $C_t$ is globally linear then
-\begin{align*}
-    X_{t+h} = X_t C_t
-\end{align*}
-which is solved via,
-\begin{align*}
-    C_t = X_{t}^{-1} X_{t+h}
-\end{align*}
-In an applied time series setting this solution for $C_t$ is the \textit{auto-regressive} or $AR$ model for the process $X_t$.
+In an applied time series setting, this corresponds to an auto-regressive (AR) model for the process \( X_t \), where future states depend linearly on past states through the operator \( C \). The AR model is a discrete-time example of how a system evolves over time.
+
 
 \subsection{$C_t^\theta$ as a locally linear map}
-If $C$ is not globally linear than the $t$-weighting can be introduced such that
+If \( C \) is not globally linear, it must exhibit either non-autonomous behavior or state dependence. In many empirical settings, implicit non-autonomy arises naturally through state dependence, where \( C(x(t)) \) depends on the system's evolving state, effectively introducing time dependence via the state trajectory.
+
+To try to account for this dependence we can introduce the $t$-weighting to the AR solution,
 \begin{align*}
     W_t^\theta X_{t+h} & = W_t^\theta X_t C_t^\theta \\
+    C_t^\theta & = (W_t^\theta X_t)^{-1} W_t^\theta X_{t+h} \\
 \end{align*}
-where the weighting kernel, $w$, of  $W_t^\theta$ is parameterized by $\theta$. The exact local weighting at $x_t$ is achieved as,
-\begin{align*}
-    \lim_{\theta\rightarrow\infty} w(x_i, x_t, \theta) = \delta(x_i - x_t)
-\end{align*}
-for all $x_i \in X_t$. Typically the kernel is chosen so $w \sim e^{-\theta}$. The solution for $C_t^\theta$ is
-\begin{align*}
-    C_t^\theta &= {(W_t^\theta X_t)}^{-1} W_t^\theta X_{t+h} \\
-    &= X_t^{-1} (W_t^\theta)^{-1} W_t^\theta X_{t+h}
-\end{align*}
+To capture local linearity, the weighting kernel \( w(x_i, x_t, \theta) \), parameterized by \( \theta \), emphasizes states close to \( x_t \). As \( \theta \to \infty \), the local weighting becomes exact, with:
+$$
+    \lim_{\theta\rightarrow\infty} w(x_i, x_t, \theta) = \delta(x_i - x_t),
+$$
+where the Dirac delta function selects only states arbitrarily close to \( x_t \). This applies to each \( x_i \in X_t \), localizing the influence of nearby states.
+
+Typically the kernel is chosen so $w \sim e^{-\theta}$. 
 Taking the limit, $W_t^\theta$ reduces to,
 \begin{align*}
     \lim_{\theta\rightarrow\infty} W_t^\theta = 
@@ -119,134 +121,159 @@ $$
     (W_t^\theta)_{1,1} = 1
 $$
 
-If $X_t$ is periodic at frequency $k$ the set of all indices $i$ on the diagonal where $(W_t^\theta)_{i=j} = 1$, is 
-$$ 
-    \{W_t^\theta\}_1 = \{n\in\N: i = 1+nk \}
+If \( X_t \) exhibits periodicity with frequency \( k \), then only every \( k \)-th diagonal element of \( W_t^\theta \) remains non-zero, reflecting the periodic return to the same state:
 $$
-
-If $X_t$ is ergodic than the rank depends on the nature and frequency of close returns to neighbourhoods containing $x_t$, e.g. 
+    (W_t^\theta)_{i,j} = 
+    \begin{cases}
+        1  &\text{ if } i=j=t+nk,\, n\in\N\\
+        0  &\text{ otherwise}
+    \end{cases}
 $$
-    U = \{x\in X, \delta = a \in \R: w(x, x_t, \theta) < \delta \}
-$$ 
-could be used to define ``close''.
+For ergodic processes, the rank of \( W_t^\theta \) reflects the frequency and nature of returns to neighborhoods around \( x_t \), with proximity defined by:
+$$
+    U = \{x \in X, \delta \in \mathbb{R}: w(x, x_t, \theta) < \delta\}
+$$
+This provides a natural way to define "closeness" in ergodic settings.
 
 \section{One Parameter Semigroups}
-Placing $C_t^\theta$ in the theory of semigroups can help us understand the relationship between locality, $\theta$, and the potential higher order terms for some generating process of the elements of $X_t$. The study of one parameter semigroups provides useful tools that connect the operators which generate the semigroup to the semigroups themselves, by way of \textit{generating theorems}. We start by generalizing $C_t$ as a semigroup.
+Semigroup theory provides a powerful framework for understanding the evolution of systems, especially when dealing with local linearity and the influence of higher-order terms. By introducing one-parameter semigroups, we gain tools to connect the operators that generate the semigroup with the semigroup's overall dynamics. This helps us explore the relationship between locality (controlled by \( \theta \)) and the time evolution of the elements in \( X_t \).
 
-\subsection{$C_t$ as a one parameter semigroup}
 
-We define $C_t$
+\subsection{$C(h)$ as a one parameter semigroup}
+
+We define $C(h)$
 \begin{align*}
-    C(t)&: t \rightarrow \G \nonumber &t\in\R_{\geq0}
+    C(h)&: \R_{\geq0} \times X \rightarrow X \nonumber
 \end{align*}
-where we take the group $\G$ as $\{X_t\}_{t\geq0}$ 
-\begin{align*}
-    C(t)&: t \rightarrow X_{t+h} \nonumber &X_{t+h}\in X
-\end{align*}
-with $(X, ||\cdot||)$ being Banach. 
-
-$\{C(t)\}_{t\geq 0}$ forms a one parameter semigroup if the the following requirements are met:
+$\{C(h)\}_{h\geq 0}$ forms a one parameter semigroup if the the following requirements are met:
 
 \qquad Associativity:
 \begin{equation}
-    \forall t,s\geq0: C(t+s) = C(t)C(s) \label{eq:associativity}
+    \forall h,s\geq0: C(h+s) = C(h)C(s) \label{eq:associativity}
 \end{equation}
 \qquad Identity: 
 \begin{equation}
     C(0) = I \label{eq:identity}
 \end{equation}
 
-\subsection{$C_0$-semigroup}
+In the context of global and local linear maps, the parameter \( t \) referred to specific time points in the system’s evolution, and \( h \) represented the time step or interval over which the system evolved. 
 
-Continuity for one parameter semigroups are often defined by the following properties:
+In this context, $h$ describes the continuous evolution of the operator family $\{C(h)\}_{h\geq 0}$, functioning similarly to the time step 
+$h$ in the discrete-time models. However, here 
+$h$ represents the time duration over which the system evolves, extending the discrete case into a continuous framework.
 
-\qquad Strongly Continuous: \\
+\subsubsection{$C_0$-semigroup}
 
-\qquad\qquad For the \textit{infinitesimal generator}, $A$, defined on the domain $D(A)$
-\begin{equation}
-    Ax =  \lim_{t\downarrow0} \frac{1}{t} (C(t) - I)x \label{eq:continuity}
-\end{equation}
-\qquad\qquad the limit must exist. 
+Continuity for one-parameter semigroups is defined by the following properties:
 
-The strongly continuous one parameter semigroups is denoted as the $C_0$-semigroup. This semigroup provides a generalization of the exponential in the case where it is also uniformly continuous;
-
-\qquad Uniform continuity:
-
-\qquad\qquad
+\paragraph{Uniform Continuity:}
+A one-parameter semigroup \( \{C(h)\}_{h \geq 0} \) is uniformly continuous if:
 \begin{align}
-    &{\lim_{t \downarrow 0} || C(t) x(0) - x(0) || \rightarrow 0}  &\forall x(0) \in X \label{eq:uniformity}
+    \lim_{h \to 0^+} || C(h) x - x || = 0, \quad \forall x \in X \label{eq:uniformity}
 \end{align}
+Uniform continuity implies that the operator family \( C(h) \) behaves "smoothly" as \( h \to 0^+ \), ensuring that the system’s evolution is well-behaved and bounded. 
 
-The linear operator $A$ is the infinitesimal generator of a uniformly continuous semigroup if and only if $A$ is a bounded linear operator. In this case the infinitesimal generator $A$ of the semigroup $C(t)$ must satisfy
+The linear operator \( A \) is the infinitesimal generator of a uniformly continuous semigroup if and only if \( A \) is a \textit{bounded linear operator}. In this case, the infinitesimal generator \( A \) of the semigroup \( C(h) \) must satisfy:
+\begin{align}
+    C(h) = e^{Ah} := \sum_{k=0}^{\infty} \frac{A^k}{k!} h^k \label{eq:generator}
+\end{align}
+This exponential form provides a strong connection to the classical matrix exponential, commonly seen in linear systems.
+
+\paragraph{Strong Continuity:}
+If the semigroup is not uniformly continuous but still exhibits strong continuity, it is called a \textit{$C_0$-semigroup}. This requires that for any \( x \in X \):
+\begin{align}
+    \lim_{h \to 0^+} || C(h) x - x || = 0, \quad \forall x \in X \label{eq:strong_continuity}
+\end{align}
+This property ensures that the semigroup \( C(h) \) is \textit{strongly continuous}, even if the system's evolution is not uniformly bounded.
+
+For a strongly continuous semigroup, we define the \textit{infinitesimal generator} \( A \), acting on the domain \( D(A) \), as:
+\begin{equation}
+    Ax =  \lim_{h\rightarrow0^+} \frac{1}{h} (C(h) - I)x \label{eq:continuity}
+\end{equation}
+The limit must exist for \( x \in D(A) \), but unlike the uniformly continuous case, the generator \( A \) need not be bounded.
+
+In this more general case, the semigroup \( C(h) \) is still governed by the operator \( A \), but the series \( e^{Ah} \) need not converge if \( A \) is unbounded.
+
+The $C_0$-semigroup provides a strong foundation for understanding time evolution in terms of linear operators, but it does not fully capture the role of locality or the higher-order terms in systems like \( X_t \). To extend this, we will need to explore additional terms and relationships in the generator.
+
+\subsection{$C_n$-semigroup}
+
+The $C_0$-semigroup can be viewed as a special case of a more general continuous one-parameter semigroup, the nonlinear $C_n$-semigroup. This semigroup's infinitesimal generator expresses higher-order effects through the limit of ever smaller finite differences.
+
+We guide and justify the definition of such a semigroup based on the fact that the exponential of the infinitesimal generator yields a well-known generalization of the Taylor series—using the infinitesimal limit of finite differences—known as the Hille series.
+
+The key advantage of the $C_n$-semigroup and its infinitesimal generator is that they carry intuition regarding continuity and nonlinearity into a more pragmatic operator-theoretic framework. This makes the $C_n$-semigroup particularly well-suited for investigating local dynamics and the role of locality in nonlinear systems.
+
+\subsubsection{The Hille Operator for Nonlinear Semigroups}
+
+We can relate the forward differences to the semigroup where:
 $$
-    C(t) = e^{At} := \sum_0^{\infty} \frac{A^k}{k!} t^k \label{eq:generator}
-$$
-However if $C(t)$ is strongly but not uniformly continuous then $A$ is not bounded and $e^{At}$ need not converge.
+    \Delta_h^1 x(t) = x(t+h) - x(t) = C_1(h) x(t) - x(t).
+$$ 
 
-The $C_0$-semigroup provides a good, however insufficient, basis for understanding the relationships of locality and the higher order terms of the generator for $X_t$. 
-\subsection{$C_0^n$-semigroup}
-
- $C_0$-semigroup to be a special case of a more general strongly continuous one parameter semigroup, the nonlinear $C^n_0$-semigroup, whose infinitesimal generator expresses higher order effects in the limit of ever smaller finite differences. 
- 
- We both guide and justify the definition such a semigroup on the basis that the exponential of the infinitesimal generator yields a well known generalization of the Taylor series that uses the infinitesimal limit of finite differences. This is the Hille series. 
- 
-The upshot is that the $C^n_0$-semigroup and it's infinitesimal generator can carry intuition regarding continuity and nonlinearity over to pragmatic operator theory approaches, wherein we are better suited to investigate locality.
-
-\subsubsection{The Hille Operator for nonlinear semigroups}
-
-We can relate the forward differences to the map of $C$ where,
-$$
-    \Delta_h^1 x(t) = x(t+h) - x(t) = C_h^1 x(t) - x(t)\\
-$$. 
-
-For higher order differences the difference operator series is
+For higher-order differences, the difference operator series is:
 \begin{align}
     \Delta_h^n x(t) &= \sum_{k=0}^n (-1)^{n-k} {n \choose k} x(t+kh) \nonumber \\
-    &= \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k x(t) \label{eq:delta_c}
+    &= \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_k(h) x(t) \label{eq:delta_c}
 \end{align}
 
-If we define the $n$-order generator,
+If we define the $n$-order generator of a strongly continuous nonlinear semigroup:
 $$
-    A_h^n = \frac{\Delta_h^n}{h^n}
+    A^n x = \lim_{h\rightarrow0^+} \frac{1}{h^n} (C_n(h) - I) x,
 $$
+then the higher-order generators, $\{A^n\}_{n\geq2}$, describe higher-order terms of the semigroup, capturing corrections to the first-order dynamics \( A^1 \).
 
-The the $n$-order generators of the semigroup, $A_h^n$, describe higher-order terms of the expansion when viewed as finite-difference corrections to the first-order dynamics, $A_h^1$, capturing more detailed behavior of the system.
-
-A semigroup can be defined over the sum of the $n$-order generators,
-\begin{align}
-    C_h(t) = e^{A_h t} &:= \sum_{n=0}^\infty \frac{t^n}{n!} A^n_h \nonumber\\
-    &:= \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n} \label{eq:hille_operator}
-\end{align}
-
-In the limit of difference size $h$ we get
+We can express local continuity of the nonlinear $C_n$-semigroup as the matrix exponential of the $n$-order generators,
 \begin{align*}
-    \lim_{h\rightarrow0^+} C_h(t) &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n}\\
-    H(t) &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n}
+    e^{Ah} &:= \sum_{k=0}^n \frac{h^k}{k!} A^k\\
+     &:= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^n(h) - I}{h^n} 
 \end{align*}
-where we call $H(t)$ the \textit{Hille operator}. On application to $x(t)$, this operator yields the Hille series expansion
+If the $C_n$-semigroup possesses uniform continuity for $t\in\R_{\geq0}$, then,
 \begin{align*}
-    H(t) x(t) &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n x(t)}{h^n} 
+    C_n(t) = e^{(e^{Ah})t} &:= \sum_{m=0}^\infty \frac{t^m}{m!} \left(\sum_{k=0}^n \frac{h^k}{k!} A^k\right)^m\\
 \end{align*}
+where $t$ is the global parameter governing the semigroup's evolution in time and the inner sum $\sum_{k=0}^n \frac{h^k}{k!} A^k$ represents the local action up to $n$-orders over an infinitesimal $h$. 
 
-Thus, the Hille Operator provides a way to generalize the semigroup dynamics to include higher-order effects via the Hille Series, defining a strongly and uniformly continuous one parameter nonlinear semigroup. We denote the order of the semigroup as $C_0^n$-semigroup. Where $n$ is non finite we have the strongly nonlinear $C_0^\infty$-semigroup. 
-
-We can reintroduce (\ref{eq:delta_c}) so,
+\begin{tcolorbox}[colback=gray!10, colframe=gray!40, width=\textwidth, boxrule=0pt, sharp corners, leftrule=4mm]
+    \textbf{Aside:}
+    In a way the recursive operation of the exponential extends the semigroup across different measures. The first application, $e^{Ah}$, yields the local semigroup action at a set of measure-$0$. The second, $e^{(e^{Ah}) t}$ yields the action across  a trajectory set of measure-$1$, We could apply once more for a manifold of measure-$2$, 
+    $$
+        \exp(A, h, 3) ={e^{(e^{(e^{Ah})t_1})t_2}
+    $$
+    I Should probably explore this elsewhere though as a formalization of multiparameter semigroups and investigate connections to concepts in other fields like the exponential map in Riemannian geometry, which takes a tangent vector (local direction) and maps it to a geodesic (global trajectory). This could provide a nice supplemental perspective when investigating locality and curvature across dimensions.
+\end{tcolorbox}
+Returning to the inner sum, in the limit
 \begin{align*}
-    H(t)  &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{\Delta_h^n}{h^n} \\
-    &= \lim_{h\rightarrow0^+} \sum_{n=0}^\infty \frac{t^n}{n!} \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k}{h^n}
+    \lim_{h\rightarrow0^+} C(h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \\
+    H &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^n(h) - I}{h^n}
 \end{align*}
+we call $H$ the \textit{Hille operator}. Upon application, \( Hx(t) \), this operator yields a special case of the Hille series:
+\begin{align*}
+    H x(t) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^k(h) - I}{h^k} x(t)\\
+     &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^k(h)x(t) - x(t)}{h^k}\\
+      &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{x(t+kh) - x(t)}{h^k}\\
+    x(t+h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^\infty \frac{\Delta_h^k x(t) }{k!} 
+\end{align*}
+Again, the notation can be a little confusing here. In our formulation we identify $h$ as both the span over which we apply the operator and the higher-order infinitesimals. This offers the simplification of the time dependent and infinitesimal terms to yield the local expansion at $t$. Whereas in the more general Hille series,
+$$
+x(a+t) = \lim_{h\rightarrow0^+}\sum_{k=0}^\infty \frac{t^k}{k!} \frac{\Delta^k_h x(a)}{h^k} 
+$$
+$t$ is the independent time parameter and $h$ is the infinitesimal step size. The simplification merely arises from the fact that, for a one parameter semigroup, $a=t\in \R_{\geq0}$
+
+The result is $H$ provides a way to generalize the semigroup dynamics to include higher-order effects via the Hille like expansion, defining the locally continuous action of a one-parameter nonlinear semigroup. Uniform continuity is obtained upon recursively applying the matrix exponential yielding the general class of $C_n$-semigroups. Where \( n \) is not finite, we have the strongly nonlinear $C_\infty$-semigroup.
+
 
 \subsection{The resolvent of $C^n_0$}
 
 The resolvent 
 $$
-    R(\lambda, H(t)) = (\lambda I - H(t))^{-1}
+    R(\lambda, H(h)) = (\lambda I - H(h))^{-1}
 $$
-is important because it tells us whether the Hille operator $H(t)$ has an inverse for certain values of $\lambda$. This can help define the spectrum and growth behavior of the $C^n_0$ semigroup.
+is important because it tells us whether the Hille operator $H(h)$ has an inverse for certain values of $\lambda$. This can help define the spectrum and growth behavior of the $C^n_0$ semigroup.
 
 We are interested in the resolvent set that provides a well defined inverse,
 $$
-    \rho(H) = \left\{ n\in\Z, \lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - H(t) \right) ^{-1}\right\}
+    \rho(H) = \left\{ n\in\Z, \lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - H(h) \right) ^{-1}\right\}
 $$ 
 We have
 \begin{align*}

@@ -22,6 +22,7 @@
 \newcommand{\W}{\text{w}}
 \newcommand{\Rho}{\mathrm{P}}
 \newcommand{\Lgr}{\mathcal{L}}
+\mathchardef\Re="023C
 
 \glsxtrnewsymbol[description={Banach space $(X, ||\cdot||$)}]{X}{$X$}
 
@@ -68,7 +69,7 @@ $W_t^\theta X_{i}$ is short hand for the the product $W(X_i, x_t, \theta) X_i$
 \end{align*}
 \end{definition}
 
-\section{Introduction}
+\section{Introduction and Motivation}
 
 \subsection{$C$ as a globally linear map}
 Consider the map 
@@ -135,7 +136,7 @@ $$
 $$
 This provides a natural way to define "closeness" in ergodic settings.
 
-\section{One Parameter Semigroups}
+\section{One Parameter Linear and Nonlinear Semigroups}
 Semigroup theory provides a powerful framework for understanding the evolution of systems, especially when dealing with local linearity and the influence of higher-order terms. By introducing one-parameter semigroups, we gain tools to connect the operators that generate the semigroup with the semigroup's overall dynamics. This helps us explore the relationship between locality (controlled by \( \theta \)) and the time evolution of the elements in \( X_t \).
 
 
@@ -194,7 +195,7 @@ The limit must exist for \( x \in D(A) \), but unlike the uniformly continuous c
 
 In this more general case, the semigroup \( C(h) \) is still governed by the operator \( A \), but the series \( e^{Ah} \) need not converge if \( A \) is unbounded.
 
-The $C_0$-semigroup provides a strong foundation for understanding time evolution in terms of linear operators, but it does not fully capture the role of locality or the higher-order terms in systems like \( X_t \). To extend this, we will need to explore additional terms and relationships in the generator.
+The $C_0$-semigroup provides a strong foundation for understanding time evolution in terms of linear operators, but it does not fully capture the role of locality or the higher-order terms in systems like \( X_t \). We now extend the $C_0$-semigroup to the more general $C_n$-semigroup, which accounts for higher-order effects via finite differences and their infinitesimal generators.
 
 \subsection{$C_n$-semigroup}
 
@@ -225,111 +226,176 @@ then the higher-order generators, $\{A^n\}_{n\geq2}$, describe higher-order term
 
 We can express local continuity of the nonlinear $C_n$-semigroup as the matrix exponential of the $n$-order generators,
 \begin{align*}
-    e^{Ah} &:= \sum_{k=0}^n \frac{h^k}{k!} A^k\\
+     C_n(h) = e^{Ah} &:= \sum_{k=0}^n \frac{h^k}{k!} A^k\\
      &:= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^n(h) - I}{h^n} 
 \end{align*}
-If the $C_n$-semigroup possesses uniform continuity for $t\in\R_{\geq0}$, then,
+In the limit
 \begin{align*}
-    C_n(t) = e^{(e^{Ah})t} &:= \sum_{m=0}^\infty \frac{t^m}{m!} \left(\sum_{k=0}^n \frac{h^k}{k!} A^k\right)^m\\
-\end{align*}
-where $t$ is the global parameter governing the semigroup's evolution in time and the inner sum $\sum_{k=0}^n \frac{h^k}{k!} A^k$ represents the local action up to $n$-orders over an infinitesimal $h$. 
-
-\begin{tcolorbox}[colback=gray!10, colframe=gray!40, width=\textwidth, boxrule=0pt, sharp corners, leftrule=4mm]
-    \textbf{Aside:}
-    In a way the recursive operation of the exponential extends the semigroup across different measures. The first application, $e^{Ah}$, yields the local semigroup action at a set of measure-$0$. The second, $e^{(e^{Ah}) t}$ yields the action across  a trajectory set of measure-$1$, We could apply once more for a manifold of measure-$2$, 
-    $$
-        \exp(A, h, 3) ={e^{(e^{(e^{Ah})t_1})t_2}
-    $$
-    I Should probably explore this elsewhere though as a formalization of multiparameter semigroups and investigate connections to concepts in other fields like the exponential map in Riemannian geometry, which takes a tangent vector (local direction) and maps it to a geodesic (global trajectory). This could provide a nice supplemental perspective when investigating locality and curvature across dimensions.
-\end{tcolorbox}
-Returning to the inner sum, in the limit
-\begin{align*}
-    \lim_{h\rightarrow0^+} C(h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \\
+    \lim_{h\rightarrow0^+} C_n(h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \\
     H &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^n(h) - I}{h^n}
 \end{align*}
-we call $H$ the \textit{Hille operator}. Upon application, \( Hx(t) \), this operator yields a special case of the Hille series:
+We call $H$ the \textit{Hille operator}. Upon application, \( Hx(t) \), this operator yields a special case of the Hille series:
 \begin{align*}
     H x(t) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^k(h) - I}{h^k} x(t)\\
      &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^k(h)x(t) - x(t)}{h^k}\\
       &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{x(t+kh) - x(t)}{h^k}\\
     x(t+h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^\infty \frac{\Delta_h^k x(t) }{k!} 
 \end{align*}
-Again, the notation can be a little confusing here. In our formulation we identify $h$ as both the span over which we apply the operator and the higher-order infinitesimals. This offers the simplification of the time dependent and infinitesimal terms to yield the local expansion at $t$. Whereas in the more general Hille series,
-$$
-x(a+t) = \lim_{h\rightarrow0^+}\sum_{k=0}^\infty \frac{t^k}{k!} \frac{\Delta^k_h x(a)}{h^k} 
-$$
-$t$ is the independent time parameter and $h$ is the infinitesimal step size. The simplification merely arises from the fact that, for a one parameter semigroup, $a=t\in \R_{\geq0}$
+\begin{tcolorbox}[colback=gray!10, colframe=gray!40, width=\textwidth, boxrule=0pt, sharp corners, leftrule=4mm]
 
-The result is $H$ provides a way to generalize the semigroup dynamics to include higher-order effects via the Hille like expansion, defining the locally continuous action of a one-parameter nonlinear semigroup. Uniform continuity is obtained upon recursively applying the matrix exponential yielding the general class of $C_n$-semigroups. Where \( n \) is not finite, we have the strongly nonlinear $C_\infty$-semigroup.
+    The notation can be a little confusing here. In our formulation we identify $h$ as both the span over which we apply the operator and the higher-order infinitesimals. This offers the simplification of the time dependent and infinitesimal terms to yield the local expansion at $t$. Whereas in the more general Hille series,
+    $$
+    x(a+t) = \lim_{h\rightarrow0^+}\sum_{k=0}^\infty \frac{t^k}{k!} \frac{\Delta^k_h x(a)}{h^k} 
+    $$
+    $t$ is the independent time parameter and $h$ is the infinitesimal step size. The simplification merely arises from the fact that, for a one parameter semigroup, $a=t\in \R_{\geq0}$
 
+\end{tcolorbox}
 
-\subsection{The resolvent of $C^n_0$}
+ $H$ provides a way to generalize the semigroup dynamics to include higher-order effects via the Hille like expansion, defining the locally continuous action of a one-parameter nonlinear semigroup. This generalization, where each term captures the evolution of the semigroup through increasingly higher-order dynamics, allows us to track the local nonlinear behavior of the system, much like a Taylor expansion tracks higher-order terms in a polynomial.
+
+If the $C_n$-semigroup possesses uniform continuity for $t\in\R_{\geq0}$, then,
+\begin{align*}
+    C_n(t) = e^{(e^{Ah})t} &:= \sum_{m=0}^\infty \frac{t^m}{m!} \left(\lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k\right)^m\\
+\end{align*}
+where $t$ is the global parameter governing the semigroup's evolution in time and the inner sum $\sum_{k=0}^n \frac{h^k}{k!} A^k$ represents the local action up to $n$-orders over an infinitesimal $h$. 
+
+The recursive application of the matrix exponential provides a mechanism for capturing higher-order corrections to local continuity. Uniform continuity is obtained if the generators $A^n$ remain bounded, extending the notion of smooth evolution across higher-order dynamics.
+
+\begin{tcolorbox}[colback=gray!10, colframe=gray!40, width=\textwidth, boxrule=0pt, sharp corners, leftrule=4mm]
+    \textbf{Aside:}
+    In a way the recursive operation of the exponential extends the semigroup across different measures. The first application, $e^{Ah}$, yields the local semigroup action at a set of measure-$0$. The second, $e^{(e^{Ah}) t}$ yields the action across  a trajectory set of measure-$1$, We could apply once more for a manifold of measure-$2$, 
+    $$
+        \exp(A, h, 3) =e^{(e^{(e^{Ah})t_1})t_2}
+    $$
+    This could be explored elsewhere though as a formalization of multiparameter semigroups and investigate connections to concepts in other fields like the exponential map in Riemannian geometry, which takes a tangent vector (local direction) and maps it to a geodesic (global trajectory). This could provide a nice supplemental perspective when investigating locality and curvature across dimensions.
+\end{tcolorbox}
+
+Taking the limit as $n \rightarrow \infty$ allows us to transition from discrete higher-order semigroups to continuous generators, capturing nonlinear interactions across all scales.
+
+\subsubsection{$C_\infty$-semigroup}
+If taking $n$ at the limit $\lim\rightarrow\infty$ we argue for a continuous integration over the set of local operators,
+\begin{align*}
+   \lim_{n\rightarrow\infty} \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \ &=\lim_{h\rightarrow0^+} \lim_{n\rightarrow\infty}  \sum_{k=0}^n \frac{h^k}{k!} A^k \\
+    \lim_{n\rightarrow\infty} \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \ &=\lim_{h\rightarrow0^+} \int_0^\infty \frac{h^r}{\Gamma(r+1)} A^r dr
+\end{align*}
+
+Consider the continuous forward difference operator,
+\begin{align*}
+    \Delta^r_h x(t) = \sum_{k=0}^\infty (-1)^k \frac{\Gamma(r+1)}{\Gamma(k+1)\Gamma(r-k+1)} x(t+kh)
+\end{align*}
+We redefine $A^n$ in terms of the continuous order parameter $r\in\R_{\geq0}$,
+\begin{align*}
+    A^r x(t) = \lim_{h\rightarrow0^+} \frac{1}{h^r} (C^r(h) - I) x(t)
+\end{align*}
+If $C^r(h)x(t) = x(t+rh)$, then
+\begin{align*}
+    A^r x(t) &= \lim_{h\rightarrow0^+} \frac{1}{h^r} (C^r(h) - I) x(t)\\
+    &= \lim_{h\rightarrow0^+} \frac{1}{h^r} (C^r(h)x(t) - x(t))  \\
+    &= \lim_{h\rightarrow0^+} \frac{1}{h^r} (x(t+rh) - x(t)) \\
+    &= \lim_{h\rightarrow0^+} \frac{\Delta^r_h }{h^r}x(t)
+\end{align*}
+The matrix exponential
+\begin{align*}
+    A(h) &= e^{\int Ah}\\
+    &:= \int_0^\infty \frac{h^r}{\Gamma(r+1)} A^r dr\\
+    &:= \int_0^\infty \frac{h^r}{\Gamma(r+1)} \frac{\Delta^r_h }{h^r} dr\\
+    &:= \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr
+\end{align*}
+yields the strongly nonlinear Hille operator in the limit,
+\begin{align*}
+    H &= \lim_{h\rightarrow0^+}  e^{\int Ah}\\
+    &=\lim_{h\rightarrow0^+} \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr
+\end{align*}
+which we take as the infinitesimal generator for the $C_\infty$-semigroup
+\begin{align*}
+    C_\infty(t) &= e^{Ht}\\
+    &:= \sum_{n=0}^\infty \frac{t^n}{n!}  \int_0^\infty \frac{\lim_{h\rightarrow0^+} \Delta^r_h}{\Gamma(r+1)} dr
+\end{align*}
+
+ 
+\subsection{The resolvents of the $C_n$ and $C_\infty$ semigroups}
 
 The resolvent 
 $$
-    R(\lambda, H(h)) = (\lambda I - H(h))^{-1}
+    R(\lambda, H) = \lim_{h\rightarrow0^+}(\lambda I - H)^{-1}
 $$
-is important because it tells us whether the Hille operator $H(h)$ has an inverse for certain values of $\lambda$. This can help define the spectrum and growth behavior of the $C^n_0$ semigroup.
+defines the spectrum and growth behavior of the semigroup.
 
 We are interested in the resolvent set that provides a well defined inverse,
 $$
-    \rho(H) = \left\{ n\in\Z, \lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - H(h) \right) ^{-1}\right\}
+    \rho(H) = \left\{\lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - H \right) ^{-1}\right\}
 $$ 
-We have
+For the discrete case we have,
 \begin{align*}
-     R(\lambda, H(t)) &= \lim_{h\rightarrow0^+}\left( \lambda I - H(t)\right) ^{-1}\\
-     &= \lim_{h\rightarrow0^+}\left( \lambda I - \sum_n \frac{t^n}{n!} \frac{A^n_h}{h^n}\right) ^{-1}
+     R(\lambda, H_n) &= \lim_{h\rightarrow0^+}\left( \lambda I - H\right) ^{-1}\\
+     &= \left( \lambda I - \lim_{h\rightarrow0^+} \sum_n \frac{\Delta^n_h}{n!}\right) ^{-1} &n\in\N
 \end{align*}
-so,
+and for the continuum,
 \begin{align*}
-     0 &\neq \lim_{h\rightarrow0^+} \left| \lambda I - H(t) \right|
+    R(\lambda, H_\infty ) &= \left( \lambda I - \lim_{h\rightarrow0^+} \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr\right) ^{-1} &r\in\R_{\geq0}
 \end{align*}
-We want $\lambda \in \rho(H(t))$ where
+We need $\lambda \in \rho(H)$ such that
 \begin{align*}
-    \rho(H(t)) &=\C /  \sigma\left(H(t)\right)\\
-    &= \C /  \sigma\left(\lim_{h\rightarrow0^+} \sum_n \frac{t^n}{n!} \frac{A^n_h}{h^n}\right)
+    \rho(H) &=\C /  \sigma\left(H\right)\\
 \end{align*}
-There are a number of options to resolve $\sigma(H(t))$ in non-empirical settings. These include, among others, methods from functional calculus, operator, theory, and perturbation theory.
-\section{An Empirical Hille Operator}
-In an empirical setting the coefficients, $a_n$, of the operator,
-\begin{align*}
-    H(t) &= \lim_{h\rightarrow0^+} \sum_n a^n \frac{\Delta^n_h}{h^n}
-\end{align*}
-may not ensure convergence. In such cases we have to consider how to treat the distribution of coefficients, 
-$$
-    P(a_n) \sim f(n)
-$$
-assuming it is some function of the order $n$. In this case the only required constraint is normalization
-$$
-\sum_n P(a_n) = 1
-$$
-Beyond this many natural systems may or may not exhibit further constraints including bounded higher order moments. How should we, \textit{a priori}, evaluate methods to estimate $P(a_n)$ 
+where $\sigma(h)$ represents the spectrum of the Hille operator generating the semigroup 
 
-If we seek the least biased estimate of the dynamics described by $H(t)$ then we should adopt a maximum entropy approach. Following such a solution we may assess the spectra of the ensemble, $\sigma(<H(t)x(t)>)$, where
-$$
-    <H(t) x(t) > = \sum_n P(a_n)\, a_n \frac{\Delta^n_h x(t)}{h^n}
-$$
-
-\subsection{Maximum Entropy Estimates of $H(t)$}
-Given a set of trajectory data, $\{X_t\}_t\geq0$, we propose the following application of the empirical Hille operator,
+The resolvent set $\rho(H)$ is crucial for understanding the stability and long-term behavior of the semigroup. In particular, the spectral bound, 
 \begin{align*}
-    H(t)x(t) &= \sum_n P(a_n) \, a_n \frac{\Delta^n_h x(t)}{h^n}\\
-    &= \sum_{n} P(a_n) \, a_n \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_h^k(t)}{h^n}\\
-    &= \sum_{n} P(a_n) \, a_n \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} X_t^{-1} X_{t+kh}}{h^n}\\
-    &= \sum_{n} X_t^{-1} P(a_n) \, a_n  \frac{ \sum_{k=0}^n (-1)^{n-k} {n \choose k} X_{t+kh}}{h^n}
+    s(H) = \sup \{\Re(\lambda): \lambda \in \sigma(H) \}
 \end{align*}
+governs the growth rate of the semigroup. If 
+$$
+    s(H) \leq 0 
+$$
+then the semigroup is stable and contracts over time, while positive values indicate exponential growth.
 
-The entropy of $P(a_n)$ is given by
-$$
-    S(P) = - \sum_n P(a_n) \log P(a_n)
-$$
-where,
-$$
-    \sum_n P(a_n) = 1
-$$
-We seek the solution to the Lagrangian,
-$$
-     \Lgr = -\sum_n P(a_n) \log P(a_n) + \lambda \left( \sum_n P(a_n) -1\right)
-$$
+\section{$C_n$-semigroup Operating On Matrices}
+
+A relatively trivial right translation of $C_n$-semigroup allows meaningful operation on state space matrices of trajectories in $X$. We reframe 
+\begin{align*}
+    x(t+kh) = C_k(h) x(t) 
+\end{align*}
+as a right translation
+\begin{align*}
+    X(t+kh) = X(t) C_k(h)
+\end{align*}
+of the semigroup.
+
+We have,
+\begin{align*}
+    \Delta_h^n X(t) = \sum_{k=0}^n (-1)^{n-k} {n \choose k} X(t+kh)
+\end{align*}
+and define the right $n$-order generator of a strongly continuous nonlinear semigroup:
+\begin{align*}
+    X A^n = \lim_{h\rightarrow0^+} \frac{1}{h^n} X (C_n(h) - I)
+\end{align*}
+The matrix exponential requiring right multiplication is
+\begin{align*}
+    C(h) = e^{hA} &:= \sum_{k=0}^n  A^k \frac{h^k}{k!}\\
+     &:= \lim_{h\rightarrow0^+} \sum_{k=0}^n  \frac{C^n(h) - I}{h^n} \frac{h^k}{k!}
+\end{align*}
+where the corresponding Hille operator
+\begin{align*}
+    \lim_{h\rightarrow0^+} C(h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n A^k \frac{h^k}{k!}  \\
+    H &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{C^n(h) - I}{h^n} \frac{h^k}{k!} \\
+\end{align*}
+which upon right application gives, 
+\begin{align*}
+    X(t) H &= \lim_{h\rightarrow0^+} \sum_{k=0}^n X(t)  \frac{C^k(h) - I}{h^k} \frac{h^k}{k!} \\
+     &= \lim_{h\rightarrow0^+} \sum_{k=0}^n  \frac{X(t) C^k(h) - X(t)}{h^k} \frac{h^k}{k!}\\
+      &= \lim_{h\rightarrow0^+} \sum_{k=0}^n  \frac{X(t+kh) - X(t)}{h^k} \frac{h^k}{k!}\\
+    X(t+h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^\infty \frac{\Delta_h^k X(t) }{k!} 
+\end{align*}
+Uniform continuity is given by
+\begin{align*}
+    C_n(t) = e^{t(e^{hA})} &:= \sum_{m=0}^\infty  \left(\sum_{k=0}^n  A^k \frac{h^k}{k!}\right)^m \frac{t^m}{m!}\\
+\end{align*}
+As before we consider the achievement of the limit of $n$ as a continuous extension,
+\begin{align*}
+    H &= \lim_{h\rightarrow0^+}  e^{\int hA}\\
+    &= \int_0^\infty  A^r \frac{h^r}{\Gamma(r+1)} dr\\
+    &=\lim_{h\rightarrow0^+} \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr
+\end{align*}
 
 \end{document}

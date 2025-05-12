@@ -18,384 +18,584 @@
 \newcommand{\R}{\mathbb{R}}
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\G}{\mathbb{G}}
+\newcommand{\delayX}{\mathcal{X}}
 \newcommand{\X}{\text{x}}
 \newcommand{\W}{\text{w}}
 \newcommand{\Rho}{\mathrm{P}}
 \newcommand{\Lgr}{\mathcal{L}}
 \mathchardef\Re="023C
 
-\glsxtrnewsymbol[description={Banach space $(X, ||\cdot||$)}]{X}{$X$}
-
-\glsxtrnewsymbol[description={Weighting kernel at $x_t$, parameterized by $\theta \in \mathbb{R}, x_t \in X$}]{kernel}{$w(x, x_t, \theta): X \times X \times \mathbb{R} \rightarrow \mathbb{R}$}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
 
 \begin{document}
-\title{A Resolvent Framework for Global and Local Nonlinear Semigroups}
+\title{A Data Driven Resolvent Framework for Generalized Transfer Operators}
 \author{Patrick S. Mahon}
 \maketitle
 
 \tableofcontents
-\printunsrtglossary[type=symbols,style=long]
 
-\section{Definitions}
-\begin{definition}
-$X_t$ is a matrix of a sequence of elements, $x \in X$, indexed by $t\geq0$
-$$ X_t = 
-\begin{bmatrix}
-    x_t \\ 
-    x_{t-h} \\ 
-    x_{t-2h} \\
-    \vdots
-\end{bmatrix}
-$$
-\end{definition}
+\section{Background}
+ \subsection{One Parameter Semigroups}
+The theory of semigroups provides a robust framework for studying solutions to linear, constant ordinary differential equations on Banach spaces.
 
-\begin{definition}
-The $t$-weighting matrix of $X_i$ is given by $$W(X_i, x_t, \theta) =
-\begin{bmatrix}
-    w(x_j, x_t, \theta) & 0 & 0 &\cdots \\
-    0 & w(x_{j-h}, x_t, \theta) & 0 &  \cdots\\
-    0 & 0 & w(x_{j-2h}, x_t, \theta) & \cdots\\
-    \vdots & \vdots & \vdots & \ddots
-\end{bmatrix}$$\medskip
-$W_t^\theta X_{i}$ is short hand for the the product $W(X_i, x_t, \theta) X_i$ 
-\begin{align*}
-    W_t^\theta X_{i} :&= W(X_i, x_t, \theta) \cdot X_i = 
-    \begin{bmatrix}
-        w(x_i, x_t, \theta) \cdot x_i \\
-        w(x_{i-h}, x_t, \theta) \cdot x_{i-h} \\
-        w(x_{i-2h}, x_t, \theta) \cdot x_{i-2h} \\
-        \vdots
-\end{bmatrix}
-\end{align*}
-\end{definition}
+Let \(T\) be a family of operators
+\[
+T(h): X \rightarrow X, \quad h \ge 0,
+\]
+where \(X\) is a Banach space. The family \(\{T(h)\}_{h\geq 0}\) is called a \emph{one-parameter semigroup} if it satisfies:
+\begin{enumerate}
+    \item \textbf{Semigroup Property (Associativity):}
+    \[
+    T(h+s) = T(h)T(s), \quad \forall h, s \ge 0.
+    \]
+    \item \textbf{Identity:}
+    \[
+    T(0) = I,
+    \]
+    where \(I\) denotes the identity operator on \(X\).
+\end{enumerate}
 
-\section{Introduction and Motivation}
+\paragraph{Strong Continuity.}  
+A one-parameter semigroup \(\{T(h)\}_{h \geq 0}\) is said to be \emph{strongly continuous} (or a \(C_0\)-semigroup) if for every fixed \(x \in X\),
+\[
+\lim_{h \to 0^+} \|T(h)x - x\| = 0.
+\]
+This means that for each \(x \in X\), the mapping \(h \mapsto T(h)x\) is continuous with respect to the norm on \(X\).
 
-\subsection{$C$ as a globally linear map}
-Consider the map 
-\begin{align*}
-    C(\cdot)&: X \rightarrow X\\
-\end{align*}
-$C$ may describe a time evolving map
-\begin{align*}
-    C(\cdot)&: x_t \mapsto x_{t+h}    &h\geq0,\,x_i \in X
-\end{align*}
-and may be state dependent, $C(x)$, non-autonomous, $C(t)$, or both, $C(t, x)$. If, for the autonomous state-independent case
-\begin{align*}
-    x_{t+h} & = C x_t
-\end{align*}
-$C$ is globally linear, then,
-\begin{align*}
-    X_{t+h} = X_t C\\
-    C = X_{t}^{-1} X_{t+h}
-\end{align*}
-provides the solution. 
+\paragraph{Uniform Continuity.}  
+In contrast, the semigroup is called \emph{uniformly continuous} if the mapping \(h \mapsto T(h)\) is continuous in the operator norm. That is,
+\[
+\lim_{h \to 0^+} \|T(h) - I\| = 0.
+\]
+Uniform continuity is a stronger condition than strong continuity. Indeed, if \(\{T(h)\}\) is uniformly continuous, then
+\[
+\lim_{h \to 0^+} \|T(h)x - x\| \le \lim_{h \to 0^+} \|T(h) - I\| \, \|x\| = 0,
+\]
+for all \(x \in X\), but the converse need not hold.
 
-In an applied time series setting, this corresponds to an auto-regressive (AR) model for the process \( X_t \), where future states depend linearly on past states through the operator \( C \). The AR model is a discrete-time example of how a system evolves over time.
+\paragraph{Infinitesimal Generator.}  
+For a strongly continuous semigroup, the \emph{infinitesimal generator} \(A\) is defined by
+\[
+Ax = \lim_{h\rightarrow 0^+} \frac{T(h)x - x}{h},
+\]
+for all \(x\) in the domain
+\[
+D(A) = \left\{ x \in X : \lim_{h\rightarrow 0^+} \frac{T(h)x - x}{h} \text{ exists} \right\}.
+\]
+If the semigroup is uniformly continuous, then \(A\) is a bounded linear operator, and the semigroup can be represented by the exponential series:
+\[
+T(h) = e^{hA} = \sum_{k=0}^{\infty} \frac{(hA)^k}{k!}.
+\]
+This representation is valid because uniform continuity guarantees the convergence of the series in the operator norm.
 
 
-\subsection{$C_t^\theta$ as a locally linear map}
-If \( C \) is not globally linear, it must exhibit either non-autonomous behavior or state dependence. In many empirical settings, implicit non-autonomy arises naturally through state dependence, where \( C(x(t)) \) depends on the system's evolving state, effectively introducing time dependence via the state trajectory.
+\subsection{Local Linearizations}
 
-To try to account for this dependence we can introduce the $t$-weighting to the AR solution,
-\begin{align*}
-    W_t^\theta X_{t+h} & = W_t^\theta X_t C_t^\theta \\
-    C_t^\theta & = (W_t^\theta X_t)^{-1} W_t^\theta X_{t+h} \\
-\end{align*}
-To capture local linearity, the weighting kernel \( w(x_i, x_t, \theta) \), parameterized by \( \theta \), emphasizes states close to \( x_t \). As \( \theta \to \infty \), the local weighting becomes exact, with:
-$$
-    \lim_{\theta\rightarrow\infty} w(x_i, x_t, \theta) = \delta(x_i - x_t),
-$$
-where the Dirac delta function selects only states arbitrarily close to \( x_t \). This applies to each \( x_i \in X_t \), localizing the influence of nearby states.
+Consider the Cauchy problem
+\begin{align}
+    \frac{du}{dt} + A(u(t)) &= 0, \quad t > 0, \label{eq:cauchy}\\[1mm]
+    u(0) &= u_0,\quad u_0 \in U \subset X, \nonumber
+\end{align}
+where \(A\) is an operator (possibly nonlinear and state-dependent) that generates a contraction semigroup \(T(h)\) on the Banach space \(X\). The contraction property aids in establishing the existence and uniqueness of solutions, yet it also means that a global linearization of \(A\) may be unattainable when its dependence on \(u(t)\) is significant.
 
-Typically the kernel is chosen so $w \sim e^{-\theta}$. 
-Taking the limit, $W_t^\theta$ reduces to,
-\begin{align*}
-    \lim_{\theta\rightarrow\infty} W_t^\theta = 
-    \begin{cases} 
-      \delta(x_i - x_t) = 1 &\text{ if }i=j \wedge x_i = x_t\\
-      0 &\text{ if } i\neq j \vee x_i \neq x_t
-   \end{cases}
-\end{align*}
-which is a diagonal matrix whose only non-zero entries are $1$'s corresponding to states arbitrarily close to $x_t$. If $X_t$ never returns to states arbitrarily close to $x_t$ then $W_t^\theta$ reduces to the rank-1 matrix with a single non-zero entry, 
-$$
-    (W_t^\theta)_{1,1} = 1
-$$
+In many practical settings, one only has access to discrete observations of the state. Let these observations be arranged in the data matrix
+\[
+U_t = \begin{bmatrix}
+    u(t) \\
+    u(t-h) \\
+    u(t-2h) \\
+    \vdots 
+\end{bmatrix},
+\]
+where the rows correspond to states sampled at time intervals of length \(h\).
 
-If \( X_t \) exhibits periodicity with frequency \( k \), then only every \( k \)-th diagonal element of \( W_t^\theta \) remains non-zero, reflecting the periodic return to the same state:
-$$
-    (W_t^\theta)_{i,j} = 
-    \begin{cases}
-        1  &\text{ if } i=j=t+nk,\, n\in\N\\
-        0  &\text{ otherwise}
-    \end{cases}
-$$
-For ergodic processes, the rank of \( W_t^\theta \) reflects the frequency and nature of returns to neighborhoods around \( x_t \), with proximity defined by:
-$$
-    U = \{x \in X, \delta \in \mathbb{R}: w(x, x_t, \theta) < \delta\}
-$$
-This provides a natural way to define "closeness" in ergodic settings.
+A first approach is to attempt a global linearization via a least-squares formulation:
+\begin{align}
+    U_t &\approx U_{t-h}\, T(h), \label{eq:global_lin}\\[1mm]
+    \text{or equivalently,} \quad u(t) &\approx T(h) \, u(t-h).
+\end{align}
+If the residuals from this approximation (measured in an appropriate norm) are sufficiently small—i.e., within an acceptable and prescribed tolerance—then it is reasonable to assume that the dynamics are well represented by a linear operator. In such a case, one can recover the global generator via
+\[
+A = \lim_{h\rightarrow 0^+} \frac{1}{h}\left(T(h) - I\right).
+\]
+This approach is particularly effective when \(A\) is linear or nearly linear.
 
-\section{One Parameter Linear and Nonlinear Semigroups}
-Semigroup theory provides a powerful framework for understanding the evolution of systems, especially when dealing with local linearity and the influence of higher-order terms. By introducing one-parameter semigroups, we gain tools to connect the operators that generate the semigroup with the semigroup's overall dynamics. This helps us explore the relationship between locality (controlled by \( \theta \)) and the time evolution of the elements in \( X_t \).
-
-
-\subsection{$C(h)$ as a one parameter semigroup}
-
-We define $C(h)$
-\begin{align*}
-    C(h)&: \R_{\geq0} \times X \rightarrow X \nonumber
-\end{align*}
-$\{C(h)\}_{h\geq 0}$ forms a one parameter semigroup if the the following requirements are met:
-
-\qquad Associativity:
+However, when \(A\) is strongly nonlinear or state-dependent, a global linearization may fail to capture the system's behavior. In these situations, a local linearization is preferable. To construct a local approximation, we introduce a weighting operator \(W\) designed to select or emphasize those rows in \(U_t\) that are dynamically relevant. The idea is to filter the data so that the local dynamics around the state \(u(t)\) are highlighted. The weighted observations are given by
+\[
+W U_t,
+\]
+and the local approximation is then expressed as
 \begin{equation}
-    \forall h,s\geq0: C(h+s) = C(h)C(s) \label{eq:associativity}
+    W U_t \approx W U_{t-h} \, \hat{T}(h,t), \label{eq:local_lin}
 \end{equation}
-\qquad Identity: 
+where \(\hat{T}(h,t)\) is the locally linearized evolution operator valid in a neighborhood of \(u(t)\).
+
+The quality of the local linearization can be assessed by examining the residuals of the least-squares fit in \eqref{eq:local_lin}. If the residual error exceeds a predetermined threshold, it may indicate that even the local approximation is insufficient, prompting further refinement or alternative modeling strategies.
+
+In the limit as \(h\rightarrow 0\), the local infinitesimal generator \(A(u(t))\) is recovered by
+\[
+A(u(t)) = \lim_{h\rightarrow 0} \frac{1}{h}\left(\hat{T}(h,t) - I\right).
+\]
+Alternatively, if a weighted pseudoinverse is employed, one may write
+\[
+A(u(t)) = \lim_{h\rightarrow 0} \frac{1}{h} \left( \left( W U_{t-h} \right)^+ \left( W U_t \right) - I \right),
+\]
+where \(\left( W U_{t-h} \right)^+\) denotes the pseudoinverse of \(W U_{t-h}\).
+
+The selection of the weighting operator \(W\) is crucial. In practice, \(W\) should be designed to:
+\begin{itemize}
+    \item Emphasize regions of the state space where the dynamics are most sensitive.
+    \item Attenuate noise or less informative observations.
+    \item Reflect any prior knowledge about the structure or local behavior of \(A\).
+\end{itemize}
+
+This local linearization strategy thus provides a framework for approximating the state-dependent generator \(A(u(t))\) from data, even in the presence of significant nonlinearities that preclude a global linear model.
+
+
+\section{Nonlocality in Infinitesimal Generators}
+
+A system's evolution operator may be classified as \emph{local} or \emph{nonlocal} in both space and time. This gives rise to four possible cases:
+
+\begin{itemize}
+    \item \textbf{Local in Space, Local in Time:} Standard differential operators such as the heat equation, $A = \partial_t + \Delta_x$.
+    \item \textbf{Nonlocal in Space, Local in Time:} Fractional Laplacians and spatial integral operators:
+    \begin{equation}
+        A f(x) = \int_{\Omega} K(x,y) (f(y) - f(x)) dy.
+    \end{equation}
+    \item \textbf{Local in Space, Nonlocal in Time:} Memory-dependent PDEs where the evolution depends on past states:
+    \begin{equation}
+        \frac{\partial f}{\partial t} = \int_0^t K(t,s) \Delta_x f(s,x) ds
+    \end{equation}
+    \item \textbf{Nonlocal in Space, Nonlocal in Time:} Systems with both spatial and temporal integral operators:
+    \begin{equation}
+        \frac{\partial f}{\partial t} = \int_0^t \int_{\Omega} K(t,s,x,y) f(s,y) dy ds
+    \end{equation}
+\end{itemize}
+
+
+\subsection{Nonlocal Semigroups and Generators}
+
+Consider the integral operator
+
 \begin{equation}
-    C(0) = I \label{eq:identity}
+    (T(h) f) (\xi) = \int_\Omega K_h(\xi, \eta) f(\eta) d\eta
 \end{equation}
 
-In the context of global and local linear maps, the parameter \( t \) referred to specific time points in the system’s evolution, and \( h \) represented the time step or interval over which the system evolved. 
+with infinitesimal generator
 
-In this context, $h$ describes the continuous evolution of the operator family $\{C(h)\}_{h\geq 0}$, functioning similarly to the time step 
-$h$ in the discrete-time models. However, here 
-$h$ represents the time duration over which the system evolves, extending the discrete case into a continuous framework.
-
-\subsubsection{$C_0$-semigroup}
-
-Continuity for one-parameter semigroups is defined by the following properties:
-
-\paragraph{Uniform Continuity:}
-A one-parameter semigroup \( \{C(h)\}_{h \geq 0} \) is uniformly continuous if:
 \begin{align}
-    \lim_{h \to 0^+} || C(h) x - x || = 0, \quad \forall x \in X \label{eq:uniformity}
+    (A f)(\xi)  &= \lim_{h\rightarrow 0} \frac{1}{h}\left(T(h) - I\right) f(\xi) \\
+    &= \lim_{h\rightarrow 0} \frac{1}{h}\left((T(h)f)(\xi) -  f(\xi)\right) \\
+    \intertext{By substitution}
+    (A f)(\xi) &= \lim_{h\rightarrow 0} \frac{1}{h}\left(\int_\Omega K_h(\xi, \eta) f(\eta) d\eta - f(\xi)\right) \\
+    \intertext{The goal is to rewrite the integral term so that \( f(\xi) \) appears inside the integral. We add and subtract \(  K_h(\xi, \eta) f(\xi) \) inside the integral,}
+    (A f)(\xi) &= \lim_{h\rightarrow 0} \frac{1}{h} \left( \int_{\Omega} K_h(\xi, \eta) f(\eta) - K_h(\xi, \eta) f(\xi) +  K_h(\xi, \eta) f(\xi) d\eta - f(\xi) \right)\\
+    \intertext{and factor,}
+    (A f)(\xi) &= \lim_{h\rightarrow 0} \frac{1}{h} \left( \int_{\Omega} K_h(\xi, \eta) (f(\eta) - f(\xi)) d\eta + \int_{\Omega} K_h(\xi, \eta) f(\xi) d\eta - f(\xi) \right)\\
+    &= \lim_{h\rightarrow 0} \frac{1}{h} \int_{\Omega} K_h(\xi, \eta) (f(\eta) - f(\xi)) d\eta + \lim_{h\rightarrow 0} \frac{1}{h} \left( \int_{\Omega} K_h(\xi, \eta) d\eta - 1 \right) f(\xi)
 \end{align}
-Uniform continuity implies that the operator family \( C(h) \) behaves "smoothly" as \( h \to 0^+ \), ensuring that the system’s evolution is well-behaved and bounded. 
 
-The linear operator \( A \) is the infinitesimal generator of a uniformly continuous semigroup if and only if \( A \) is a \textit{bounded linear operator}. In this case, the infinitesimal generator \( A \) of the semigroup \( C(h) \) must satisfy:
-\begin{align}
-    C(h) = e^{Ah} := \sum_{k=0}^{\infty} \frac{A^k}{k!} h^k \label{eq:generator}
-\end{align}
-This exponential form provides a strong connection to the classical matrix exponential, commonly seen in linear systems.
+We can ensure that \(K_h(\xi,\eta)\) acts as a state transition probability density by imposing the normalization condition,
 
-\paragraph{Strong Continuity:}
-If the semigroup is not uniformly continuous but still exhibits strong continuity, it is called a \textit{$C_0$-semigroup}. This requires that for any \( x \in X \):
-\begin{align}
-    \lim_{h \to 0^+} || C(h) x - x || = 0, \quad \forall x \in X \label{eq:strong_continuity}
-\end{align}
-This property ensures that the semigroup \( C(h) \) is \textit{strongly continuous}, even if the system's evolution is not uniformly bounded.
-
-For a strongly continuous semigroup, we define the \textit{infinitesimal generator} \( A \), acting on the domain \( D(A) \), as:
 \begin{equation}
-    Ax =  \lim_{h\rightarrow0^+} \frac{1}{h} (C(h) - I)x \label{eq:continuity}
+\int_{\Omega} K_h(\xi, \eta) d\eta = 1
 \end{equation}
-The limit must exist for \( x \in D(A) \), but unlike the uniformly continuous case, the generator \( A \) need not be bounded.
 
-In this more general case, the semigroup \( C(h) \) is still governed by the operator \( A \), but the series \( e^{Ah} \) need not converge if \( A \) is unbounded.
+while at the same time eliminating the second term,
 
-The $C_0$-semigroup provides a strong foundation for understanding time evolution in terms of linear operators, but it does not fully capture the role of locality or the higher-order terms in systems like \( X_t \). We now extend the $C_0$-semigroup to the more general $C_n$-semigroup, which accounts for higher-order effects via finite differences and their infinitesimal generators.
+\begin{equation}
+\lim_{h\rightarrow 0} \frac{1}{h} \left( \int_{\Omega} K_h(\xi, \eta) d\eta - 1 \right) f(\xi) = 0
+\end{equation}
 
-\subsection{$C_n$-semigroup}
+thus recovering the infinitesimal generator as a standard non-local operator,
 
-The $C_0$-semigroup can be viewed as a special case of a more general continuous one-parameter semigroup, the nonlinear $C_n$-semigroup. This semigroup's infinitesimal generator expresses higher-order effects through the limit of ever smaller finite differences.
+\begin{equation}
+(A f)(\xi) = \lim_{h\rightarrow 0} \frac{1}{h} \int_{\Omega} K_h(\xi, \eta) (f(\eta) - f(\xi)) d\eta
+\end{equation}
 
-We guide and justify the definition of such a semigroup based on the fact that the exponential of the infinitesimal generator yields a well-known generalization of the Taylor series—using the infinitesimal limit of finite differences—known as the Hille series.
+\paragraph{Kernel Structure:}
 
-The key advantage of the $C_n$-semigroup and its infinitesimal generator is that they carry intuition regarding continuity and nonlinearity into a more pragmatic operator-theoretic framework. This makes the $C_n$-semigroup particularly well-suited for investigating local dynamics and the role of locality in nonlinear systems.
-
-\subsubsection{The Hille Operator for Nonlinear Semigroups}
-
-We can relate the forward differences to the semigroup where:
-$$
-    \Delta_h^1 x(t) = x(t+h) - x(t) = C_1(h) x(t) - x(t).
-$$ 
-
-For higher-order differences, the difference operator series is:
+The resolvent operator associated with \( A \) is given by:
 \begin{align}
-    \Delta_h^n x(t) &= \sum_{k=0}^n (-1)^{n-k} {n \choose k} x(t+kh) \nonumber \\
-    &= \sum_{k=0}^n (-1)^{n-k} {n \choose k} C_k(h) x(t) \label{eq:delta_c}
+    R_{\lambda}(A) &= (\lambda I - A)^{-1}.
+    \intertext{It is well known (see, e.g. Pazy) that the semigroup \(T(h)\) can be expressed in terms of the resolvent via the contour integral,}
+    T(h) &= \frac{1}{2\pi i} \oint_{\Gamma} e^{h\lambda} R_{\lambda}(A) d\lambda\\
+    \intertext{We equate the integral representations}
+    \int_{\Omega} K_h(\xi, \eta) f(\eta) d\eta &= \frac{1}{2\pi i} \oint_{\Gamma} e^{h\lambda} R_{\lambda}(A) f(\xi) d\lambda \label{eq:omega_k_gamma_R}\\
+    \intertext{Furthermore, Arendt \& Bukhvalov showed that if \( T(h) \) is an integral operator, then so is the resolvent,}
+    (R_{\lambda} f)(\xi) &= \int_{\Omega} M_{\lambda}(\xi, \eta) f(\eta) d\eta \\
+    \intertext{where \( M_{\lambda}(\xi, \eta) \) is the resolvent kernel. From (\ref{eq:omega_k_gamma_R}) using the integral resolvent,}
+    \int_{\Omega} K_h(\xi, \eta) f(\eta) d\eta &= \frac{1}{2\pi i} \oint_{\Gamma} e^{h\lambda} \int_{\Omega} M_{\lambda}(\xi, \eta) f(\eta) d\eta \, d\lambda\\
+    \intertext{Two cases follow regarding the absolute integrability of}\nonumber
+    F(\lambda, \eta) &= e^{h\lambda} M_\lambda(\xi, \eta) f(\eta)
+\end{align}
+\subsubsection*{Case 1}
+If $F \in L^1(\Gamma \times \Omega)$ then for
+\begin{align}
+    \oint_{\Gamma} \int_{\Omega} \left| F(\lambda, \eta)\right|& \, d\mu(\eta) \, d\nu(\lambda)
+    \intertext{we may apply Fubini's theorem and interchange the order of integration}
+    \int_{\Omega} K_h(\xi, \eta) f(\eta) d\eta &= \int_{\Omega}  \left( \frac{1}{2\pi i} \oint_{\Gamma}  e^{h\lambda} M_{\lambda}(\xi, \eta)  d\lambda \right) f(\eta) d\eta\\
+    \intertext{Since this must hold for all \( f \), we identify the kernels,}
+    K_h(\xi, \eta) &= \frac{1}{2\pi i} \oint_{\Gamma} e^{h\lambda} M_{\lambda}(\xi, \eta) d\lambda\\
+    \intertext{Since \(T(0)=I\), the kernel at $h=0$ must satisfy}
+    K_0(\xi, \eta) &= \delta(\xi-\eta)\\
+    \intertext{In many classical settings, one can show that the resolvent satisfies}
+    (\lambda I-A) R_\lambda(A) &= I\\
+    \intertext{so that in kernel form}
+    (\lambda I-A)M_\lambda(\xi,\eta) &= \delta(\xi-\eta)\\
+    \intertext{\(M_\lambda(\xi,\eta)\) serves as the Green's function for the operator \(\lambda I-A\). Supposing that for values of \(\lambda\) in a suitable region the Neumann series expansion hold}
+    (\lambda I-A)^{-1} &= \sum_{n=0}^{\infty} \frac{A^n}{\lambda^{n+1}}\\
+    \intertext{Then the kernel \(M_\lambda(\xi,\eta)\) may be expressed as}\\
+    M_\lambda(\xi,\eta) &= \sum_{n=0}^{\infty}\frac{A^n}{\lambda^{n+1}}\,\delta(\xi-\eta)\\
+    \intertext{Substitute this expansion into}
+    K_h(\xi,\eta) &= \frac{1}{2\pi i} \oint_{\Gamma} e^{h\lambda}\left( \sum_{n=0}^{\infty}\frac{A^n}{\lambda^{n+1}}\,\delta(\xi-\eta) \right) d\nu(\lambda)\\
+    &= \delta(\xi-\eta) \sum_{n=0}^{\infty} A^n \left[ \frac{1}{2\pi i} \oint_{\Gamma} \frac{e^{h\lambda}}{\lambda^{n+1}} \, d\nu(\lambda) \right] \label{eq:series}\\
+    \intertext{According to the residue theorem}
+    \frac{1}{2\pi i} \oint_{\Gamma} \frac{e^{h\lambda}}{\lambda^{n+1}} \, d\nu(\lambda) &= \frac{h^n}{n!}\\
+    \intertext{Substituting this back into \eqref{eq:series}, we obtain}
+    K_h(\xi,\eta) &= \delta(\xi-\eta) \sum_{n=0}^{\infty} \frac{h^n}{n!} A^n = \delta(\xi-\eta)e^{hA}\\
+    \intertext{Thus,}
+    K_h(\xi,\eta) &= \delta(\xi-\eta)e^{hA}\\
+    \intertext{which is equivalent to the operator identity,}
+    T(h) &= e^{hA}
 \end{align}
 
-If we define the $n$-order generator of a strongly continuous nonlinear semigroup:
-$$
-    A^n x = \lim_{h\rightarrow0^+} \frac{1}{h^n} (C_n(h) - I) x,
-$$
-then the higher-order generators, $\{A^n\}_{n\geq2}$, describe higher-order terms of the semigroup, capturing corrections to the first-order dynamics \( A^1 \).
+In summary, starting from the contour-integral representation of the kernel and the semigroup property \(K_0(\xi,\eta)=\delta(\xi-\eta)\), we have derived—via the resolvent expansion and the evaluation of the contour integrals—that the semigroup kernel is given by the exponential of the generator acting on the delta function.
 
-We can express local continuity of the nonlinear $C_n$-semigroup as the matrix exponential of the $n$-order generators,
-\begin{align*}
-     C_n(h) = e^{Ah} &:= \sum_{k=0}^n \frac{h^k}{k!} A^k\\
-     &:= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^n(h) - I}{h^n} 
-\end{align*}
-In the limit
-\begin{align*}
-    \lim_{h\rightarrow0^+} C_n(h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \\
-    H &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^n(h) - I}{h^n}
-\end{align*}
-We call $H$ the \textit{Hille operator}. Upon application, \( Hx(t) \), this operator yields a special case of the Hille series:
-\begin{align*}
-    H x(t) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^k(h) - I}{h^k} x(t)\\
-     &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{C^k(h)x(t) - x(t)}{h^k}\\
-      &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} \frac{x(t+kh) - x(t)}{h^k}\\
-    x(t+h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^\infty \frac{\Delta_h^k x(t) }{k!} 
-\end{align*}
-\begin{tcolorbox}[colback=gray!10, colframe=gray!40, width=\textwidth, boxrule=0pt, sharp corners, leftrule=4mm]
+\subsubsection*{Case 2}
 
-    The notation can be a little confusing here. In our formulation we identify $h$ as both the span over which we apply the operator and the higher-order infinitesimals. This offers the simplification of the time dependent and infinitesimal terms to yield the local expansion at $t$. Whereas in the more general Hille series,
-    $$
-    x(a+t) = \lim_{h\rightarrow0^+}\sum_{k=0}^\infty \frac{t^k}{k!} \frac{\Delta^k_h x(a)}{h^k} 
-    $$
-    $t$ is the independent time parameter and $h$ is the infinitesimal step size. The simplification merely arises from the fact that, for a one parameter semigroup, $a=t\in \R_{\geq0}$
+Even if
+\begin{align}
+   \oint_{\Gamma}\int_{\Omega} |F(\lambda,\eta)|\,d\eta\,|d\lambda|
+   \;=\;\infty
+\end{align}
+the integrals may still be interchanged provided, in addition to the assumed $\sigma$-finiteness of $\mu(\eta)$, $\nu(\lambda)$ is also $\sigma$-finite. This guarantees the existence of a non-decreasing sequence of non-negative simple functions $\{\psi_n\}$ converging upward to $F^+$ even where $\int F d(\mu \times \eta) = \infty $. This allows the interchange of integrals by application \emph{Tonelli's theorem}, and we may again identify: 
+\begin{align}
+    K_h(\xi, \eta) &= \frac{1}{2\pi i} \oint_{\Gamma} e^{h\lambda} M_{\lambda}(\xi, \eta) d\lambda
+\end{align}
 
+\subsection{The Evolution Kernel}
+
+In the classical theory of \(C_0\) semigroups, the evolution operator \(T(h)\) composes a \(C_0\) semigroup generated by a linear operator \(A\)
+\[
+T(h) = e^{hA}.
+\]
+In this setting, the kernel \(K_h(\xi,\eta)\) is the Dirac delta
+\[
+K_h(\xi,\eta) \xrightarrow[h\to0]{} \delta(\xi-\eta).
+\]
+This convergence ensures that, as \(h \to 0\), the evolution operator reproduces the identity operator.
+
+\paragraph{The Nonlinear (State-Dependent) Case:}
+
+When the system is nonlinear, the evolution is typically given by a state-dependent mapping,
+\[
+T(h)(\xi) = \Phi_h(\xi),
+\]
+we may still maintain an integral representation:
+\[
+(T(h)f)(\xi) = \int_{\Omega} K_h(\xi,\eta) f(\eta)\,d\eta.
+\]
+In order for the kernel to capture the correct local behavior of the flow, we require that for small \(h\),
+\[
+K_h(\xi,\eta) \to \delta\Bigl(\Phi_h(\xi)-\Phi_h(\eta)\Bigr).
+\]
+Since \(\Phi_0\) is the identity mapping, this condition reduces to
+\[
+\lim_{h\to0} K_h(\xi,\eta) = \delta(\xi-\eta),
+\]
+which, in the weak sense, means that for any test function \(f\),
+\[
+\lim_{h\to 0}\int_{\Omega}K_h(\xi,\eta)f(\eta)\,d\eta = f(\xi).
+\]
+
+
+
+\section{Transition Kernel Approximations}
+
+In many practical applications, the transition kernel $K_h(\xi, \eta)$ of a semigroup may not be directly available. Instead, we rely on empirical observations of the state transitions of the system over small time increments. We can use these observations to to form a probabilistic description of system transitions that respects uncertainty from  measurement functions or features intrinsic to the system. Two general categories of such transitions have been studied.
+
+In a broad sense we would like to consider transitions as the \emph{pullback} and \emph{pushforward} of a suitable measure on the system's domain and co-domain. Traditionally, for dynamical systems, these have respectively found expression in the \emph{composition} and \emph{transfer operators}. In applied settings the pullback-composition is better known as the \emph{Koopman operator} and the pushforward-transfer as the \emph{Perron-Frobenius} or \emph{Ruelle-Perron-Frobenius operator}.
+
+
+We use Local Globally Weighted Least Squares (LGWLS) to construct approximations of a system's Markov transition kernel. This construction is then  leveraged to provide an approximation of the stochastic generalizations of the \emph{Perron-Frobenius} and \emph{Koopman operators}.
+
+\begin{tcolorbox}
+A quick reminder on notation; it's helpful to remember that, for dynamical systems, its tradition to express the system's evolution as $x_{t+1} = f(x_t)$. This defines naturally defines a forward map that describes trajectories:
+\begin{align}
+    x_0 \rightarrow x_1 = f(x_0) \rightarrow x_2 = f(x_1) \rightarrow \cdots
+\end{align}
+Consequently, $x=f(y)$ naturally means ``if we are at $y$ now, we will be at $x$ in the future''.
 \end{tcolorbox}
 
- $H$ provides a way to generalize the semigroup dynamics to include higher-order effects via the Hille like expansion, defining the locally continuous action of a one-parameter nonlinear semigroup. This generalization, where each term captures the evolution of the semigroup through increasingly higher-order dynamics, allows us to track the local nonlinear behavior of the system, much like a Taylor expansion tracks higher-order terms in a polynomial.
 
-If the $C_n$-semigroup possesses uniform continuity for $t\in\R_{\geq0}$, then,
-\begin{align*}
-    C_n(t) = e^{(e^{Ah})t} &:= \sum_{m=0}^\infty \frac{t^m}{m!} \left(\lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k\right)^m\\
-\end{align*}
-where $t$ is the global parameter governing the semigroup's evolution in time and the inner sum $\sum_{k=0}^n \frac{h^k}{k!} A^k$ represents the local action up to $n$-orders over an infinitesimal $h$. 
 
-The recursive application of the matrix exponential provides a mechanism for capturing higher-order corrections to local continuity. Uniform continuity is obtained if the generators $A^n$ remain bounded, extending the notion of smooth evolution across higher-order dynamics.
+\subsection{Generalized Perron-Frobenius and Koopman Operators}
 
-\begin{tcolorbox}[colback=gray!10, colframe=gray!40, width=\textwidth, boxrule=0pt, sharp corners, leftrule=4mm]
-    \textbf{Aside:}
-    In a way the recursive operation of the exponential extends the semigroup across different measures. The first application, $e^{Ah}$, yields the local semigroup action at a set of measure-$0$. The second, $e^{(e^{Ah}) t}$ yields the action across  a trajectory set of measure-$1$, We could apply once more for a manifold of measure-$2$, 
-    $$
-        \exp(A, h, 3) =e^{(e^{(e^{Ah})t_1})t_2}
-    $$
-    This could be explored elsewhere though as a formalization of multiparameter semigroups and investigate connections to concepts in other fields like the exponential map in Riemannian geometry, which takes a tangent vector (local direction) and maps it to a geodesic (global trajectory). This could provide a nice supplemental perspective when investigating locality and curvature across dimensions.
-\end{tcolorbox}
+Let $X$ and $Y$ be spaces equipped with measures $\mu$ and $\nu$ respectively.
 
-Taking the limit as $n \rightarrow \infty$ allows us to transition from discrete higher-order semigroups to continuous generators, capturing nonlinear interactions across all scales.
+Consider the map:
+\begin{align}
+    f: Y &\to X
+\end{align}
 
-\subsubsection{$C_\infty$-semigroup}
-If taking $n$ at the limit $\lim\rightarrow\infty$ we argue for a continuous integration over the set of local operators,
-\begin{align*}
-   \lim_{n\rightarrow\infty} \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \ &=\lim_{h\rightarrow0^+} \lim_{n\rightarrow\infty}  \sum_{k=0}^n \frac{h^k}{k!} A^k \\
-    \lim_{n\rightarrow\infty} \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{h^k}{k!} A^k \ &=\lim_{h\rightarrow0^+} \int_0^\infty \frac{h^r}{\Gamma(r+1)} A^r dr
-\end{align*}
+For all measurable sets $A \subseteq X$, the \emph{pushforward measure} of $f$ is, 
+\begin{equation}
+    f_\sharp (\mu)(A) = \mu(f^{-1}(A))
+\end{equation}
 
-Consider the continuous forward difference operator,
-\begin{align*}
-    \Delta^r_h x(t) = \sum_{k=0}^\infty (-1)^k \frac{\Gamma(r+1)}{\Gamma(k+1)\Gamma(r-k+1)} x(t+kh)
-\end{align*}
-We redefine $A^n$ in terms of the continuous order parameter $r\in\R_{\geq0}$,
-\begin{align*}
-    A^r x(t) = \lim_{h\rightarrow0^+} \frac{1}{h^r} (C^r(h) - I) x(t)
-\end{align*}
-If $C^r(h)x(t) = x(t+rh)$, then
-\begin{align*}
-    A^r x(t) &= \lim_{h\rightarrow0^+} \frac{1}{h^r} (C^r(h) - I) x(t)\\
-    &= \lim_{h\rightarrow0^+} \frac{1}{h^r} (C^r(h)x(t) - x(t))  \\
-    &= \lim_{h\rightarrow0^+} \frac{1}{h^r} (x(t+rh) - x(t)) \\
-    &= \lim_{h\rightarrow0^+} \frac{\Delta^r_h }{h^r}x(t)
-\end{align*}
-The matrix exponential
-\begin{align*}
-    A(h) &= e^{\int Ah}\\
-    &:= \int_0^\infty \frac{h^r}{\Gamma(r+1)} A^r dr\\
-    &:= \int_0^\infty \frac{h^r}{\Gamma(r+1)} \frac{\Delta^r_h }{h^r} dr\\
-    &:= \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr
-\end{align*}
-yields the strongly nonlinear Hille operator in the limit,
-\begin{align*}
-    H &= \lim_{h\rightarrow0^+}  e^{\int Ah}\\
-    &=\lim_{h\rightarrow0^+} \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr
-\end{align*}
-which we take as the infinitesimal generator for the $C_\infty$-semigroup
-\begin{align*}
-    C_\infty(t) &= e^{Ht}\\
-    &:= \sum_{n=0}^\infty \frac{t^n}{n!}  \int_0^\infty \frac{\lim_{h\rightarrow0^+} \Delta^r_h}{\Gamma(r+1)} dr
-\end{align*}
+For all measurable sets $B \subseteq Y$, the \emph{pullback measure} of $f$ is, 
+\begin{equation}
+    f_\flat (\nu) (B) = \nu(f(B))
+\end{equation}
 
- 
-\subsection{The resolvents of the $C_n$ and $C_\infty$ semigroups}
+\subsubsection*{Koopman and Perron-Frobenius Operators} 
 
-The resolvent 
-$$
-    R(\lambda, H) = \lim_{h\rightarrow0^+}(\lambda I - H)^{-1}
-$$
-defines the spectrum and growth behavior of the semigroup.
+The Koopman operator, \( U \), evolves observables of $X$, \( g \in L^2(X, \mu) \),
+\begin{align}
+    (U g)(x) &= g(f(x))\\
+    \intertext{The Perron-Frobenius operator \( P \) evolves densities,  \( d \in L^1(X, \mu) \),}
+    (P d)(x) &= \int_{y\in f^{-1}(x)} k(x,y) d(y)dy\\
+    \intertext{where $k$ is a transition kernel. For a deterministic system the kernel is the Dirac delta distribution}
+    k(x,y) &= \delta(x-f(y))\\
+    \intertext{If $f$ is smooth and invertible then a change of variables yields the standard form of $P$ for deterministic $f$,}
+    (Pd)(x) &= \int_X \delta(x-f(y))d(y) dy \\
+    &= \sum_{y\in f^{-1}(x)}\frac{d(y)}{\mid Df(y) \mid}
+\end{align}
+The denominator, \(\mid Df(y) \mid\), accounts for local expansion or contraction under $f$.
 
-We are interested in the resolvent set that provides a well defined inverse,
-$$
-    \rho(H) = \left\{\lambda\in\C: \lim_{h\rightarrow0^+} \left( \lambda I - H \right) ^{-1}\right\}
-$$ 
-For the discrete case we have,
-\begin{align*}
-     R(\lambda, H_n) &= \lim_{h\rightarrow0^+}\left( \lambda I - H\right) ^{-1}\\
-     &= \left( \lambda I - \lim_{h\rightarrow0^+} \sum_n \frac{\Delta^n_h}{n!}\right) ^{-1} &n\in\N
-\end{align*}
-and for the continuum,
-\begin{align*}
-    R(\lambda, H_\infty ) &= \left( \lambda I - \lim_{h\rightarrow0^+} \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr\right) ^{-1} &r\in\R_{\geq0}
-\end{align*}
-We need $\lambda \in \rho(H)$ such that
-\begin{align*}
-    \rho(H) &=\C /  \sigma\left(H\right)\\
-\end{align*}
-where $\sigma(h)$ represents the spectrum of the Hille operator generating the semigroup 
+\subsubsection*{Duality of $U$ and $P$}
 
-The resolvent set $\rho(H)$ is crucial for understanding the stability and long-term behavior of the semigroup. In particular, the spectral bound, 
-\begin{align*}
-    s(H) = \sup \{\Re(\lambda): \lambda \in \sigma(H) \}
-\end{align*}
-governs the growth rate of the semigroup. If 
-$$
-    s(H) \leq 0 
-$$
-then the semigroup is stable and contracts over time, while positive values indicate exponential growth.
+The Koopman and Perron-Frobenius operators form an adjoint pair under the standard inner product,
+\begin{align}
+    \langle Pd , g \rangle &= \langle d, Kg\rangle
+    \intertext{One relatively straightforward way to contextualize this fact is to assume that $\mu$ is a Borel probability measure. In this case, the inner products,}
+    \langle Pd , g \rangle_\mu &= \langle d, Kg\rangle_\mu
+\end{align}
+provide expectation values based on the evolution of $f$.
 
-\section{$C_n$-semigroup Operating On Matrices}
-
-A relatively trivial right translation of $C_n$-semigroup allows meaningful operation on state space matrices of trajectories in $X$. We reframe 
-\begin{align*}
-    x(t+kh) = C_k(h) x(t) 
-\end{align*}
-as a right translation
-\begin{align*}
-    X(t+kh) = X(t) C_k(h)
-\end{align*}
-of the semigroup.
-
+Consider,
+\begin{align}
+    \langle Pd, g\rangle_\mu &= \int_X (Pd)(x) g(x) d\mu(x)\\
+    &= \int_X \left(\int_{X} k(x|y) d(y)d\mu(y)\right) g(x) d\mu(x)\\
+\end{align}
+To reiterate:
+\begin{itemize}
+    \item \(d(y)\) is the initial state probability density on $X$
+    \item \(k\) is a Markov transition kernel providing, given $y$, the likelihood the next state is $x$
+    \item \(g(x)\) is the observation defined at $x$
+\end{itemize}
 We have,
-\begin{align*}
-    \Delta_h^n X(t) = \sum_{k=0}^n (-1)^{n-k} {n \choose k} X(t+kh)
-\end{align*}
-and define the right $n$-order generator of a strongly continuous nonlinear semigroup:
-\begin{align*}
-    X A^n = \lim_{h\rightarrow0^+} \frac{1}{h^n} X (C_n(h) - I)
-\end{align*}
-The matrix exponential requiring right multiplication is
-\begin{align*}
-    C(h) = e^{hA} &:= \sum_{k=0}^n  A^k \frac{h^k}{k!}\\
-     &:= \lim_{h\rightarrow0^+} \sum_{k=0}^n  \frac{C^n(h) - I}{h^n} \frac{h^k}{k!}
-\end{align*}
-where the corresponding Hille operator
-\begin{align*}
-    \lim_{h\rightarrow0^+} C(h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^n A^k \frac{h^k}{k!}  \\
-    H &= \lim_{h\rightarrow0^+} \sum_{k=0}^n \frac{C^n(h) - I}{h^n} \frac{h^k}{k!} \\
-\end{align*}
-which upon right application gives, 
-\begin{align*}
-    X(t) H &= \lim_{h\rightarrow0^+} \sum_{k=0}^n X(t)  \frac{C^k(h) - I}{h^k} \frac{h^k}{k!} \\
-     &= \lim_{h\rightarrow0^+} \sum_{k=0}^n  \frac{X(t) C^k(h) - X(t)}{h^k} \frac{h^k}{k!}\\
-      &= \lim_{h\rightarrow0^+} \sum_{k=0}^n  \frac{X(t+kh) - X(t)}{h^k} \frac{h^k}{k!}\\
-    X(t+h) &= \lim_{h\rightarrow0^+} \sum_{k=0}^\infty \frac{\Delta_h^k X(t) }{k!} 
-\end{align*}
-Uniform continuity is given by
-\begin{align*}
-    C_n(t) = e^{t(e^{hA})} &:= \sum_{m=0}^\infty  \left(\sum_{k=0}^n  A^k \frac{h^k}{k!}\right)^m \frac{t^m}{m!}\\
-\end{align*}
-As before we consider the achievement of the limit of $n$ as a continuous extension,
-\begin{align*}
-    H &= \lim_{h\rightarrow0^+}  e^{\int hA}\\
-    &= \int_0^\infty  A^r \frac{h^r}{\Gamma(r+1)} dr\\
-    &=\lim_{h\rightarrow0^+} \int_0^\infty \frac{\Delta^r_h}{\Gamma(r+1)} dr
-\end{align*}
+\begin{align}
+    \langle Pd, g\rangle_\mu &= \int_X g(x) \left(\int_{X} k(x|y) d(y)d\mu(y)\right)  d\mu(x)\\
+    &= \int_X d(y) \left(\int_{X} k(x|y) g(x) d\mu(x) \right) d\mu(y) \\
+    \intertext{If $f$ is deterministic then $k = \delta(x-f(y))$ sifts $\int_X k(x|y) g(x) d\mu(x) = g(f(y))$, to yield}
+    &= \int_X d(y) \left(\int_{X} \delta\left(x-f(y)\right) g(x) d\mu(x)\right) d\mu(y)\\
+    &= \int_X d(y) \, g(f(y)) d \mu(y)\\
+    \intertext{which is just $\mathbb{E}_{y\sim d}\left[g \circ f(y) \right]$. If $f$ is not deterministic and $k$ is a general Markov kernel, $\int_X k(x|y) g(x) d\mu(x)$ is the expected value of $g$ given the previous state $y$. Either way, }
+    &= \int_X d(y) \left(\int_{X} k(x|y) g(x) d\mu(x) \right) d\mu(y) \\
+    &= \mathbb{E}_{Y\sim d}\bigl[g\bigl(f(Y)\bigr)\bigr] \\
+    \intertext{which is just the extension of the Koopman operator for $f$ evolving under the Markov transition kernel,}
+    &= \langle d, Ug\rangle_\mu
+\end{align}
+
+
+\section{Locally--linear stochastic Perron--Frobenius framework}
+
+\subsection{Local linear model}
+
+For each embedded state $\mathbf{x}\in\mathcal{M}\subset\mathbb{R}^{m}$ we
+fit a weighted least--squares linear map
+\[
+A_{\theta}(\mathbf{x})
+    \;=\;
+    \underset{A}{\arg\min}\;
+        \sum_{j\in\mathcal{N}_{\theta}(\mathbf{x})}
+        w_{\theta}(\mathbf{x},\mathbf{x}_{j})
+        \,\lVert \mathbf{x}_{j+1} - A\,\mathbf{x}_{j} \rVert^{2},
+\]
+where $\mathcal{N}_{\theta}(\mathbf{x})$ is the neighbourhood chosen with
+bandwidth (or kernel scale) $\theta$ and
+$w_{\theta}(\mathbf{x},\mathbf{x}_{j})
+    =\exp\!\bigl(-\lVert \mathbf{x}-\mathbf{x}_{j}\rVert^{2}/\theta^{2}\bigr)$.
+The residuals
+\[
+\mathbf{r}_{j}
+    = \mathbf{x}_{j+1} - A_{\theta}(\mathbf{x})\,\mathbf{x}_{j},
+    \qquad j\in\mathcal{N}_{\theta}(\mathbf{x}),
+\]
+yield an empirical covariance
+\[
+\Sigma_{\theta}(\mathbf{x})
+    = \operatorname{Cov}_{j\in\mathcal{N}_{\theta}(\mathbf{x})}
+      [ \mathbf{r}_{j} ].
+\]
+
+\subsection{Stochastic transition kernel}
+
+Replacing the Dirac mass of a deterministic map by a Gaussian centred on
+the local linear prediction gives
+\[
+k_{\theta}(\mathbf{y}\mid\mathbf{x})
+    \;=\;
+    \mathcal{N}\!\bigl(\mathbf{y}\,;\;
+        A_{\theta}(\mathbf{x})\,\mathbf{x},\;
+        \Sigma_{\theta}(\mathbf{x})\bigr),
+\]
+a data--driven transition density that captures both drift
+and anisotropic noise.
+
+\subsection{Stochastic Perron--Frobenius operator}
+
+Acting on a probability density $\rho$,
+\[
+(P_{\theta}\rho)(\mathbf{y})
+    \;=\;
+    \int_{\mathcal{M}}
+        k_{\theta}(\mathbf{y}\mid\mathbf{x})
+        \,\rho(\mathbf{x})\;
+    d\mathbf{x}.
+\]
+
+\subsection{Likelihood--based objective}
+
+Given an embedding $\Phi_{\gamma}$ with parameters
+$\gamma$ and the observed embedded trajectory
+$\{\mathbf{x}_{t}\}_{t=1}^{T}$, the
+negative log--likelihood is
+\[
+\mathcal{L}(\gamma,\theta)
+    \;=\;
+    -\sum_{t=1}^{T-1}
+        \log k_{\theta}(\mathbf{x}_{t+1}\mid\mathbf{x}_{t}),
+\]
+and the joint optimisation problem is
+\[
+(\gamma^{\ast},\theta^{\ast})
+    \;=\;
+    \arg\min_{\gamma,\theta}
+        \;\mathcal{L}(\gamma,\theta).
+\]
+
+\subsection{Continuous--time interpretation}
+
+For small sampling interval $\Delta t$ the update
+\[
+\mathbf{x}_{t+\Delta t}
+    = A_{\theta}(\mathbf{x}_{t})\,\mathbf{x}_{t}
+      + \boldsymbol{\eta}_{t},
+    \qquad
+    \boldsymbol{\eta}_{t}\sim\mathcal{N}
+        \bigl(\mathbf{0},\,\Sigma_{\theta}(\mathbf{x}_{t})\bigr),
+\]
+is a locally linear Itô SDE.
+Defining
+$B(\mathbf{x}) = A_{\theta}(\mathbf{x}) - I$
+and $C(\mathbf{x})C(\mathbf{x})^{\!\top}
+      = \Sigma_{\theta}(\mathbf{x})/\Delta t$,
+the infinitesimal generator acting on a smooth test function
+$f$ is
+\[
+(\mathcal{L}f)(\mathbf{x})
+    = \nabla f(\mathbf{x})^{\!\top}\!
+        B(\mathbf{x})\,\mathbf{x}
+      + \tfrac12
+        \operatorname{tr}\!\bigl(
+            \Sigma_{\theta}(\mathbf{x})\,
+            \nabla^{2} f(\mathbf{x})
+          \bigr).
+\]
+This connects the data--driven operator to Koopman and
+transfer--operator theory in a principled probabilistic way.
+
+\subsection{Residual--variance scaling as a curvature diagnostic}
+
+Consider a true flow map $F$ on the embedded manifold and its
+second--order Taylor expansion at a reference point $x^{\ast}$:
+\[
+F\bigl(x^{\ast}+\delta x\bigr)
+  = F(x^{\ast})
+    + J(x^{\ast})\,\delta x
+    + \tfrac12\,\delta x^{\!\top} H(x^{\ast})\,\delta x
+    + O\!\bigl(\lVert\delta x\rVert^{3}\bigr),
+\]
+where $J$ is the Jacobian and $H$ the rank--3 Hessian tensor.
+A local \emph{linear} fit removes the $J$ term, leaving the quadratic
+remainder as the residual
+\[
+r \;\approx\; \tfrac12\,\delta x^{\!\top} H(x^{\ast})\,\delta x.
+\]
+
+\vspace{3pt}
+\noindent
+\textbf{Neighbourhood scaling.}\;  
+For an isotropic kernel of bandwidth~$\theta$ the typical neighbour
+offset obeys $\lVert\delta x\rVert \sim \theta$, hence
+\[
+\lVert r\rVert \sim \theta^{2},
+\qquad
+r\,r^{\!\top} \sim \theta^{4}.
+\]
+Taking the empirical covariance of residuals gives
+\[
+\Sigma_{\theta}(x^{\ast})
+   \;\approx\;
+   \tfrac{\theta^{4}}{4}\;
+   H(x^{\ast})\,H(x^{\ast})^{\!\top}.
+\]
+
+\vspace{3pt}
+\noindent
+\textbf{Trace‑based variance measure.}\;  
+Define
+\[
+\sigma^{2}(\theta) \;=\; \operatorname{trace}\!\bigl[\Sigma_{\theta}\bigr]
+          \;\approx\;
+          C\,\theta^{4},
+\qquad
+C = \tfrac14\,\operatorname{trace}\!\bigl[H\,H^{\!\top}\bigr].
+\]
+Taking logs,
+\[
+\log \sigma^{2}(\theta)
+   \;=\;
+   \log C \;+\; 4\,\log\theta,
+\]
+so a \emph{log--log} plot of residual variance versus bandwidth
+exhibits a straight segment of slope~$4$ whenever quadratic curvature
+dominates and measurement noise is negligible.
+
+\vspace{3pt}
+\noindent
+\textbf{Interpretation of observed slopes.}
+
+\begin{center}
+\begin{tabular}{c|l}
+\textit{Slope in log--log plot} & \textit{Regime indication} \\ \hline
+$\approx 4$ & Deterministic curvature dominates (Hessian visible). \\
+$\approx 0$ & Flat residual curve: variance from measurement / process noise. \\
+$\approx 2$ & Fit still contaminated by first‑order errors or anisotropy. \\
+$\text{curved / } >4$ & Mixing of regimes, higher‑order terms, or non‑isotropic cloud.
+\end{tabular}
+\end{center}
+
+\vspace{3pt}
+\noindent
+\textbf{Practical use.}
+\begin{itemize}
+\item Plot $\log\!\bigl(\operatorname{trace}\Sigma_{\theta}\bigr)$
+      versus $\log\theta$ at multiple locations.
+\item The $\theta$ range where the slope stabilises near~$4$
+      marks the \emph{curvature‑dominated window}.
+\item Choose an adaptive bandwidth $\theta(x)$ that stays
+      just below this window to minimise artificial diffusion in the
+      stochastic generator, while retaining numerical stability.
+\end{itemize}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
 
 \end{document}

@@ -1,13 +1,14 @@
 \documentclass{article}
 \usepackage{geometry}
 \usepackage[parfill]{parskip}
-\usepackage{graphicx}
-\usepackage{amsmath} 
-\usepackage{amsthm}
-\newtheorem{definition}{Definition}
-\usepackage{amssymb}
 \usepackage{mathtools}
 \usepackage{tcolorbox}
+\usepackage{amsmath,amssymb,amsthm}              
+\usepackage{graphicx}                 
+\usepackage{enumitem}               
+\usepackage{tikz-cd}  
+\usepackage{booktabs}
+\usepackage{algpseudocode}
 \usepackage[colorlinks]{hyperref}
 \usepackage[symbols,nogroupskip,sort=none]{glossaries-extra}
 \renewcommand*{\glspostdescription}{\medskip}
@@ -25,159 +26,100 @@
 \newcommand{\Lgr}{\mathcal{L}}
 \mathchardef\Re="023C
 
+\theoremstyle{plain} 
 \newtheorem{theorem}{Theorem}[section]
-\newtheorem{corollary}{Corollary}[theorem]
-\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+\theoremstyle{definition} 
+\newtheorem{definition}{Definition}[section]
+
+
+\theoremstyle{remark} 
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{algorithm}{Algorithm}[section]
 
 \begin{document}
-\title{A Data Driven Resolvent Framework for Generalized Transfer Operators}
+\title{Locally Linearized Empirical Dynamics}
 \author{Patrick S. Mahon}
 \maketitle
 
 \tableofcontents
 
-\section{Background}
- \subsection{One Parameter Semigroups}
-The theory of semigroups provides a robust framework for studying solutions to linear, constant ordinary differential equations on Banach spaces.
 
-Let \(T\) be a family of operators
-\[
-T(h): X \rightarrow X, \quad h \ge 0,
-\]
-where \(X\) is a Banach space. The family \(\{T(h)\}_{h\geq 0}\) is called a \emph{one-parameter semigroup} if it satisfies:
-\begin{enumerate}
-    \item \textbf{Semigroup Property (Associativity):}
-    \[
-    T(h+s) = T(h)T(s), \quad \forall h, s \ge 0.
-    \]
-    \item \textbf{Identity:}
-    \[
-    T(0) = I,
-    \]
-    where \(I\) denotes the identity operator on \(X\).
-\end{enumerate}
-
-\paragraph{Strong Continuity.}  
-A one-parameter semigroup \(\{T(h)\}_{h \geq 0}\) is said to be \emph{strongly continuous} (or a \(C_0\)-semigroup) if for every fixed \(x \in X\),
-\[
-\lim_{h \to 0^+} \|T(h)x - x\| = 0.
-\]
-This means that for each \(x \in X\), the mapping \(h \mapsto T(h)x\) is continuous with respect to the norm on \(X\).
-
-\paragraph{Uniform Continuity.}  
-In contrast, the semigroup is called \emph{uniformly continuous} if the mapping \(h \mapsto T(h)\) is continuous in the operator norm. That is,
-\[
-\lim_{h \to 0^+} \|T(h) - I\| = 0.
-\]
-Uniform continuity is a stronger condition than strong continuity. Indeed, if \(\{T(h)\}\) is uniformly continuous, then
-\[
-\lim_{h \to 0^+} \|T(h)x - x\| \le \lim_{h \to 0^+} \|T(h) - I\| \, \|x\| = 0,
-\]
-for all \(x \in X\), but the converse need not hold.
-
-\paragraph{Infinitesimal Generator.}  
-For a strongly continuous semigroup, the \emph{infinitesimal generator} \(A\) is defined by
-\[
-Ax = \lim_{h\rightarrow 0^+} \frac{T(h)x - x}{h},
-\]
-for all \(x\) in the domain
-\[
-D(A) = \left\{ x \in X : \lim_{h\rightarrow 0^+} \frac{T(h)x - x}{h} \text{ exists} \right\}.
-\]
-If the semigroup is uniformly continuous, then \(A\) is a bounded linear operator, and the semigroup can be represented by the exponential series:
-\[
-T(h) = e^{hA} = \sum_{k=0}^{\infty} \frac{(hA)^k}{k!}.
-\]
-This representation is valid because uniform continuity guarantees the convergence of the series in the operator norm.
-
-
-\subsection{Local Linearizations}
+\section{Local Linearizations}
 
 Consider the Cauchy problem
 \begin{align}
     \frac{du}{dt} + A(u(t)) &= 0, \quad t > 0, \label{eq:cauchy}\\[1mm]
     u(0) &= u_0,\quad u_0 \in U \subset X, \nonumber
 \end{align}
-where \(A\) is an operator (possibly nonlinear and state-dependent) that generates a contraction semigroup \(T(h)\) on the Banach space \(X\). The contraction property aids in establishing the existence and uniqueness of solutions, yet it also means that a global linearization of \(A\) may be unattainable when its dependence on \(u(t)\) is significant.
+where \(A\) is an operator (possibly nonlinear and state-dependent) that generates a contraction semigroup \(T(h)\) on the Banach space \(\mathcal{X}\). 
 
 In many practical settings, one only has access to discrete observations of the state. Let these observations be arranged in the data matrix
-\[
-U_t = \begin{bmatrix}
-    u(t) \\
-    u(t-h) \\
-    u(t-2h) \\
+\begin{align}
+X_t &= \begin{bmatrix}
+    x(t) \\
+    x(t-h) \\
+    x(t-2h) \\
     \vdots 
 \end{bmatrix},
-\]
+\end{align}
 where the rows correspond to states sampled at time intervals of length \(h\).
 
 A first approach is to attempt a global linearization via a least-squares formulation:
 \begin{align}
-    U_t &\approx U_{t-h}\, T(h), \label{eq:global_lin}\\[1mm]
-    \text{or equivalently,} \quad u(t) &\approx T(h) \, u(t-h).
+    X_t &\approx X_{t-h}\, T(h), \label{eq:global_lin}\\[1mm]
+    \text{or equivalently,} \quad u(t) &\approx T(h) \, x(t-h).
 \end{align}
-If the residuals from this approximation (measured in an appropriate norm) are sufficiently small—i.e., within an acceptable and prescribed tolerance—then it is reasonable to assume that the dynamics are well represented by a linear operator. In such a case, one can recover the global generator via
-\[
-A = \lim_{h\rightarrow 0^+} \frac{1}{h}\left(T(h) - I\right).
-\]
-This approach is particularly effective when \(A\) is linear or nearly linear.
+If the residuals from this approximation are well within ann acceptable and prescribed tolerance—then it is reasonable to assume that the dynamics are well represented by a linear operator. In such a case, one can recover the global generator via
+\begin{align}
+    A = \lim_{h\rightarrow 0^+} \frac{1}{h}\left(T(h) - I\right).
+\end{align}
+This approach is particularly effective when \(A\) is linear or nearly linear. The contraction property aids in establishing the existence and uniqueness of solutions, however it also means that a global linearization of \(A\) may be unattainable when its dependence on \(u(t)\) is significant with residuals remaining unacceptably large. 
 
-However, when \(A\) is strongly nonlinear or state-dependent, a global linearization may fail to capture the system's behavior. In these situations, a local linearization is preferable. To construct a local approximation, we introduce a weighting operator \(W\) designed to select or emphasize those rows in \(U_t\) that are dynamically relevant. The idea is to filter the data so that the local dynamics around the state \(u(t)\) are highlighted. The weighted observations are given by
-\[
-W U_t,
-\]
-and the local approximation is then expressed as
+A global linearization may fail to capture the system's behavior when \(A\) is state dependent. In such case a local linearization may be preferable. 
+
+To construct a local approximation  we can introduce a weighting operator \(W\) designed to select or emphasize those rows in \(X_t\) that are dynamically relevant. The idea is to filter the data so that regions exhibiting dynamics similar to those surrounding \(x(t)\) are highlighted, typically by considering observations local to $x(t)$ under some metrization of $\mathcal{X}$.
+
+If $W$ is constructed using a localization kernel, $k_\theta(x(j), x(i)$), where $\theta$ parametrizes what ``local'' means, then the weighted observations are,
+\begin{align}
+    W_\theta X_t,
+\end{align}
+and the local approximation is expressed as
 \begin{equation}
-    W U_t \approx W U_{t-h} \, \hat{T}(h,t), \label{eq:local_lin}
+    W_\theta X_t \approx W_\theta X_{t-h} \, \hat{T}(h,\theta, t), \label{eq:local_lin}
 \end{equation}
-where \(\hat{T}(h,t)\) is the locally linearized evolution operator valid in a neighborhood of \(u(t)\).
+where \(\hat{T}(h, \theta, t)\) is the locally linearized evolution operator valid in a neighborhood of \(x(t)\). If a weighted pseudoinverse is employed, one may write
+\begin{align}
+    A(x(t), \theta, h) = \left( \left( W_\theta X_{t-h} \right)^+ \left( W_\theta  X_t \right) - I \right)
+\end{align}
+where \(\left( W X_{t-h} \right)^+\) denotes the pseudoinverse of \(W X_{t-h}\). Now recovery of the generator $A(x(t))$ requires an additional spatial limit. 
+\begin{align}
+A(x(t)) = \lim_{h\rightarrow 0} \frac{1}{h}\left(\lim_{\theta\rightarrow 0}\,\hat{T}(h,\theta, t) - I\right)
+\end{align}
+If T is (i) deterministic ( i.e.   $\theta \to 0$ iff $k_\theta \to \delta$), and (ii) locally linear (i.e. $T = \sum_{k=0}^\infty \frac{t^k}{k!} A(x_{j}, \theta, h)^k $  converges where required),  then this is a nice framework for approximating the state-dependent generator \(A(x(t))\) in the presence of features precluding a global linear model. 
 
-The quality of the local linearization can be assessed by examining the residuals of the least-squares fit in \eqref{eq:local_lin}. If the residual error exceeds a predetermined threshold, it may indicate that even the local approximation is insufficient, prompting further refinement or alternative modeling strategies.
+However, in the absence of any strong \emph{a priori} intuition regarding even the most general assumptions of the generating process, most notably stochasticity and the rate of decay of higher order terms, deciding how to approach these limits (and thus what constitutes a \emph{good} linearization) is not easy. 
 
-In the limit as \(h\rightarrow 0\), the local infinitesimal generator \(A(u(t))\) is recovered by
+\section{Locality in Infinitesimal Generators}
+
+
+\subsection{The Evolution Kernel}
+
+In the classical theory of \(C_0\) semigroups, the evolution operator \(T(h)\) composes a \(C_0\) semigroup generated by a linear operator \(A\)
 \[
-A(u(t)) = \lim_{h\rightarrow 0} \frac{1}{h}\left(\hat{T}(h,t) - I\right).
+T(h) = e^{hA}.
 \]
-Alternatively, if a weighted pseudoinverse is employed, one may write
+In this setting, the kernel \(K_h(\xi,\eta)\) is the Dirac delta
 \[
-A(u(t)) = \lim_{h\rightarrow 0} \frac{1}{h} \left( \left( W U_{t-h} \right)^+ \left( W U_t \right) - I \right),
+K_h(\xi,\eta) \xrightarrow[h\to0]{} \delta(\xi-\eta).
 \]
-where \(\left( W U_{t-h} \right)^+\) denotes the pseudoinverse of \(W U_{t-h}\).
 
-The selection of the weighting operator \(W\) is crucial. In practice, \(W\) should be designed to:
-\begin{itemize}
-    \item Emphasize regions of the state space where the dynamics are most sensitive.
-    \item Attenuate noise or less informative observations.
-    \item Reflect any prior knowledge about the structure or local behavior of \(A\).
-\end{itemize}
-
-This local linearization strategy thus provides a framework for approximating the state-dependent generator \(A(u(t))\) from data, even in the presence of significant nonlinearities that preclude a global linear model.
-
-
-\section{Nonlocality in Infinitesimal Generators}
-
-A system's evolution operator may be classified as \emph{local} or \emph{nonlocal} in both space and time. This gives rise to four possible cases:
-
-\begin{itemize}
-    \item \textbf{Local in Space, Local in Time:} Standard differential operators such as the heat equation, $A = \partial_t + \Delta_x$.
-    \item \textbf{Nonlocal in Space, Local in Time:} Fractional Laplacians and spatial integral operators:
-    \begin{equation}
-        A f(x) = \int_{\Omega} K(x,y) (f(y) - f(x)) dy.
-    \end{equation}
-    \item \textbf{Local in Space, Nonlocal in Time:} Memory-dependent PDEs where the evolution depends on past states:
-    \begin{equation}
-        \frac{\partial f}{\partial t} = \int_0^t K(t,s) \Delta_x f(s,x) ds
-    \end{equation}
-    \item \textbf{Nonlocal in Space, Nonlocal in Time:} Systems with both spatial and temporal integral operators:
-    \begin{equation}
-        \frac{\partial f}{\partial t} = \int_0^t \int_{\Omega} K(t,s,x,y) f(s,y) dy ds
-    \end{equation}
-\end{itemize}
-
-
-\subsection{Nonlocal Semigroups and Generators}
-
-Consider the integral operator
+\begin{proof}
+    Consider the integral operator
 
 \begin{equation}
     (T(h) f) (\xi) = \int_\Omega K_h(\xi, \eta) f(\eta) d\eta
@@ -231,7 +173,7 @@ The resolvent operator associated with \( A \) is given by:
     \intertext{Two cases follow regarding the absolute integrability of}\nonumber
     F(\lambda, \eta) &= e^{h\lambda} M_\lambda(\xi, \eta) f(\eta)
 \end{align}
-\subsubsection*{Case 1}
+
 If $F \in L^1(\Gamma \times \Omega)$ then for
 \begin{align}
     \oint_{\Gamma} \int_{\Omega} \left| F(\lambda, \eta)\right|& \, d\mu(\eta) \, d\nu(\lambda)
@@ -261,32 +203,7 @@ If $F \in L^1(\Gamma \times \Omega)$ then for
     \intertext{which is equivalent to the operator identity,}
     T(h) &= e^{hA}
 \end{align}
-
-In summary, starting from the contour-integral representation of the kernel and the semigroup property \(K_0(\xi,\eta)=\delta(\xi-\eta)\), we have derived—via the resolvent expansion and the evaluation of the contour integrals—that the semigroup kernel is given by the exponential of the generator acting on the delta function.
-
-\subsubsection*{Case 2}
-
-Even if
-\begin{align}
-   \oint_{\Gamma}\int_{\Omega} |F(\lambda,\eta)|\,d\eta\,|d\lambda|
-   \;=\;\infty
-\end{align}
-the integrals may still be interchanged provided, in addition to the assumed $\sigma$-finiteness of $\mu(\eta)$, $\nu(\lambda)$ is also $\sigma$-finite. This guarantees the existence of a non-decreasing sequence of non-negative simple functions $\{\psi_n\}$ converging upward to $F^+$ even where $\int F d(\mu \times \eta) = \infty $. This allows the interchange of integrals by application \emph{Tonelli's theorem}, and we may again identify: 
-\begin{align}
-    K_h(\xi, \eta) &= \frac{1}{2\pi i} \oint_{\Gamma} e^{h\lambda} M_{\lambda}(\xi, \eta) d\lambda
-\end{align}
-
-\subsection{The Evolution Kernel}
-
-In the classical theory of \(C_0\) semigroups, the evolution operator \(T(h)\) composes a \(C_0\) semigroup generated by a linear operator \(A\)
-\[
-T(h) = e^{hA}.
-\]
-In this setting, the kernel \(K_h(\xi,\eta)\) is the Dirac delta
-\[
-K_h(\xi,\eta) \xrightarrow[h\to0]{} \delta(\xi-\eta).
-\]
-This convergence ensures that, as \(h \to 0\), the evolution operator reproduces the identity operator.
+\end{proof}
 
 \paragraph{The Nonlinear (State-Dependent) Case:}
 
@@ -312,290 +229,874 @@ which, in the weak sense, means that for any test function \(f\),
 \]
 
 
-
-\section{Transition Kernel Approximations}
-
-In many practical applications, the transition kernel $K_h(\xi, \eta)$ of a semigroup may not be directly available. Instead, we rely on empirical observations of the state transitions of the system over small time increments. We can use these observations to to form a probabilistic description of system transitions that respects uncertainty from  measurement functions or features intrinsic to the system. Two general categories of such transitions have been studied.
-
-In a broad sense we would like to consider transitions as the \emph{pullback} and \emph{pushforward} of a suitable measure on the system's domain and co-domain. Traditionally, for dynamical systems, these have respectively found expression in the \emph{composition} and \emph{transfer operators}. In applied settings the pullback-composition is better known as the \emph{Koopman operator} and the pushforward-transfer as the \emph{Perron-Frobenius} or \emph{Ruelle-Perron-Frobenius operator}.
-
-
-We use Local Globally Weighted Least Squares (LGWLS) to construct approximations of a system's Markov transition kernel. This construction is then  leveraged to provide an approximation of the stochastic generalizations of the \emph{Perron-Frobenius} and \emph{Koopman operators}.
-
-\begin{tcolorbox}
-A quick reminder on notation; it's helpful to remember that, for dynamical systems, its tradition to express the system's evolution as $x_{t+1} = f(x_t)$. This defines naturally defines a forward map that describes trajectories:
-\begin{align}
-    x_0 \rightarrow x_1 = f(x_0) \rightarrow x_2 = f(x_1) \rightarrow \cdots
-\end{align}
-Consequently, $x=f(y)$ naturally means ``if we are at $y$ now, we will be at $x$ in the future''.
-\end{tcolorbox}
-
-
-
-\subsection{Generalized Perron-Frobenius and Koopman Operators}
-
-Let $X$ and $Y$ be spaces equipped with measures $\mu$ and $\nu$ respectively.
-
-Consider the map:
-\begin{align}
-    f: Y &\to X
-\end{align}
-
-For all measurable sets $A \subseteq X$, the \emph{pushforward measure} of $f$ is, 
-\begin{equation}
-    f_\sharp (\mu)(A) = \mu(f^{-1}(A))
-\end{equation}
-
-For all measurable sets $B \subseteq Y$, the \emph{pullback measure} of $f$ is, 
-\begin{equation}
-    f_\flat (\nu) (B) = \nu(f(B))
-\end{equation}
-
-\subsubsection*{Koopman and Perron-Frobenius Operators} 
-
-The Koopman operator, \( U \), evolves observables of $X$, \( g \in L^2(X, \mu) \),
-\begin{align}
-    (U g)(x) &= g(f(x))\\
-    \intertext{The Perron-Frobenius operator \( P \) evolves densities,  \( d \in L^1(X, \mu) \),}
-    (P d)(x) &= \int_{y\in f^{-1}(x)} k(x,y) d(y)dy\\
-    \intertext{where $k$ is a transition kernel. For a deterministic system the kernel is the Dirac delta distribution}
-    k(x,y) &= \delta(x-f(y))\\
-    \intertext{If $f$ is smooth and invertible then a change of variables yields the standard form of $P$ for deterministic $f$,}
-    (Pd)(x) &= \int_X \delta(x-f(y))d(y) dy \\
-    &= \sum_{y\in f^{-1}(x)}\frac{d(y)}{\mid Df(y) \mid}
-\end{align}
-The denominator, \(\mid Df(y) \mid\), accounts for local expansion or contraction under $f$.
-
-\subsubsection*{Duality of $U$ and $P$}
-
-The Koopman and Perron-Frobenius operators form an adjoint pair under the standard inner product,
-\begin{align}
-    \langle Pd , g \rangle &= \langle d, Kg\rangle
-    \intertext{One relatively straightforward way to contextualize this fact is to assume that $\mu$ is a Borel probability measure. In this case, the inner products,}
-    \langle Pd , g \rangle_\mu &= \langle d, Kg\rangle_\mu
-\end{align}
-provide expectation values based on the evolution of $f$.
-
-Consider,
-\begin{align}
-    \langle Pd, g\rangle_\mu &= \int_X (Pd)(x) g(x) d\mu(x)\\
-    &= \int_X \left(\int_{X} k(x|y) d(y)d\mu(y)\right) g(x) d\mu(x)\\
-\end{align}
-To reiterate:
-\begin{itemize}
-    \item \(d(y)\) is the initial state probability density on $X$
-    \item \(k\) is a Markov transition kernel providing, given $y$, the likelihood the next state is $x$
-    \item \(g(x)\) is the observation defined at $x$
-\end{itemize}
-We have,
-\begin{align}
-    \langle Pd, g\rangle_\mu &= \int_X g(x) \left(\int_{X} k(x|y) d(y)d\mu(y)\right)  d\mu(x)\\
-    &= \int_X d(y) \left(\int_{X} k(x|y) g(x) d\mu(x) \right) d\mu(y) \\
-    \intertext{If $f$ is deterministic then $k = \delta(x-f(y))$ sifts $\int_X k(x|y) g(x) d\mu(x) = g(f(y))$, to yield}
-    &= \int_X d(y) \left(\int_{X} \delta\left(x-f(y)\right) g(x) d\mu(x)\right) d\mu(y)\\
-    &= \int_X d(y) \, g(f(y)) d \mu(y)\\
-    \intertext{which is just $\mathbb{E}_{y\sim d}\left[g \circ f(y) \right]$. If $f$ is not deterministic and $k$ is a general Markov kernel, $\int_X k(x|y) g(x) d\mu(x)$ is the expected value of $g$ given the previous state $y$. Either way, }
-    &= \int_X d(y) \left(\int_{X} k(x|y) g(x) d\mu(x) \right) d\mu(y) \\
-    &= \mathbb{E}_{Y\sim d}\bigl[g\bigl(f(Y)\bigr)\bigr] \\
-    \intertext{which is just the extension of the Koopman operator for $f$ evolving under the Markov transition kernel,}
-    &= \langle d, Ug\rangle_\mu
-\end{align}
-
-
-\section{Locally--linear stochastic Perron--Frobenius framework}
+\section{Locally--linear Stochastic Operators}
 
 \subsection{Local linear model}
 
-For each embedded state $\mathbf{x}\in\mathcal{M}\subset\mathbb{R}^{m}$ we
-fit a weighted least--squares linear map
-\[
+For each embedded state $\mathbf{x}\in \mathcal{X} $
+fit a local globally weighted least--squares linear map
+\begin{align}
 A_{\theta}(\mathbf{x})
-    \;=\;
+    &=
     \underset{A}{\arg\min}\;
         \sum_{j\in\mathcal{N}_{\theta}(\mathbf{x})}
         w_{\theta}(\mathbf{x},\mathbf{x}_{j})
-        \,\lVert \mathbf{x}_{j+1} - A\,\mathbf{x}_{j} \rVert^{2},
-\]
-where $\mathcal{N}_{\theta}(\mathbf{x})$ is the neighbourhood chosen with
-bandwidth (or kernel scale) $\theta$ and
-$w_{\theta}(\mathbf{x},\mathbf{x}_{j})
-    =\exp\!\bigl(-\lVert \mathbf{x}-\mathbf{x}_{j}\rVert^{2}/\theta^{2}\bigr)$.
-The residuals
-\[
+        \,\lVert \mathbf{x}_{j+1} - A\,\mathbf{x}_{j} \rVert^{2}
+\intertext{where $\mathcal{N}_{\theta}(\mathbf{x})$ is the neighbourhood chosen with
+bandwidth (or kernel scale) $\theta$ and}
+w_{\theta}(\mathbf{x},\mathbf{x}_{j}) & =\exp\Bigl({-\theta \lVert \mathbf{x}-\mathbf{x}_{j}\rVert}/\overline{\lVert \mathbf{x_i}-\mathbf{x}_{j}\rVert }\Bigr)
+\intertext{The residuals}
 \mathbf{r}_{j}
-    = \mathbf{x}_{j+1} - A_{\theta}(\mathbf{x})\,\mathbf{x}_{j},
-    \qquad j\in\mathcal{N}_{\theta}(\mathbf{x}),
-\]
-yield an empirical covariance
-\[
+    &= \mathbf{x}_{j+1} - A_{\theta}(\mathbf{x})\,\mathbf{x}_{j}
+    \qquad j\in\mathcal{N}_{\theta}(\mathbf{x})\\
+\intertext{yield an empirical covariance}
 \Sigma_{\theta}(\mathbf{x})
-    = \operatorname{Cov}_{j\in\mathcal{N}_{\theta}(\mathbf{x})}
-      [ \mathbf{r}_{j} ].
-\]
+    &= \operatorname{Cov}_{j\in\mathcal{N}_{\theta}(\mathbf{x})}
+      [ \mathbf{r}_{j} ]
+\end{align}\\
 
 \subsection{Stochastic transition kernel}
 
 Replacing the Dirac mass of a deterministic map by a Gaussian centred on
 the local linear prediction gives
-\[
-k_{\theta}(\mathbf{y}\mid\mathbf{x})
-    \;=\;
+\begin{align}
+k_{\theta}(\mathbf{y}\mid\mathbf{x}) &=
     \mathcal{N}\!\bigl(\mathbf{y}\,;\;
         A_{\theta}(\mathbf{x})\,\mathbf{x},\;
-        \Sigma_{\theta}(\mathbf{x})\bigr),
-\]
-a data--driven transition density that captures both drift
-and anisotropic noise.
-
-\subsection{Stochastic Perron--Frobenius operator}
-
-Acting on a probability density $\rho$,
-\[
+        \Sigma_{\theta}(\mathbf{x})\bigr)\\
+\intertext{a data--driven transition density that captures both drift
+and anisotropic noise. A data driven stochastic Perron-Frobenius operator is given by the action of the kernel on probability densities $\rho$,}
 (P_{\theta}\rho)(\mathbf{y})
-    \;=\;
+    &=
     \int_{\mathcal{M}}
         k_{\theta}(\mathbf{y}\mid\mathbf{x})
         \,\rho(\mathbf{x})\;
-    d\mathbf{x}.
-\]
-
-\subsection{Likelihood--based objective}
-
-Given an embedding $\Phi_{\gamma}$ with parameters
-$\gamma$ and the observed embedded trajectory
-$\{\mathbf{x}_{t}\}_{t=1}^{T}$, the
-negative log--likelihood is
-\[
-\mathcal{L}(\gamma,\theta)
-    \;=\;
-    -\sum_{t=1}^{T-1}
-        \log k_{\theta}(\mathbf{x}_{t+1}\mid\mathbf{x}_{t}),
-\]
-and the joint optimisation problem is
-\[
-(\gamma^{\ast},\theta^{\ast})
-    \;=\;
-    \arg\min_{\gamma,\theta}
-        \;\mathcal{L}(\gamma,\theta).
-\]
+    d\mathbf{x}
+\end{align}
 
 \subsection{Continuous--time interpretation}
 
 For small sampling interval $\Delta t$ the update
-\[
-\mathbf{x}_{t+\Delta t}
-    = A_{\theta}(\mathbf{x}_{t})\,\mathbf{x}_{t}
-      + \boldsymbol{\eta}_{t},
-    \qquad
-    \boldsymbol{\eta}_{t}\sim\mathcal{N}
-        \bigl(\mathbf{0},\,\Sigma_{\theta}(\mathbf{x}_{t})\bigr),
-\]
-is a locally linear Itô SDE.
+\begin{align}
+    \mathbf{x}_{t+\Delta t}
+        &= A_{\theta}(\mathbf{x}_{t})\,\mathbf{x}_{t}
+          + \boldsymbol{\eta}_{t},
+        &
+        \boldsymbol{\eta}_{t} &\sim \mathcal{N}
+            \bigl(\mathbf{0},\,\Sigma_{\theta}(\mathbf{x}_{t})\bigr)         
+\intertext{is a locally linear Itô SDE; subtract $\mathbf{x}_t$ and divide by the step size,}
+    \frac{\mathbf{x}_{t+\Delta t}-\mathbf{x}_{t}}{\Delta t}
+      &= \Bigl(\tfrac{A_{\theta}(\mathbf{x}_{t})-I}{\Delta t}\Bigr)\mathbf{x}_{t}
+        \;+\; \frac{\boldsymbol{\eta}_{t}}{\Delta t}     
+\intertext{Write the noise in the \emph{diffusion scaling}}
+\end{align}
+\begin{align}
+    \boldsymbol{\eta}_{t} &= C(\mathbf{x}_{t})\sqrt{\Delta t}\ \boldsymbol{\xi}_{t}
+     & \boldsymbol{\xi}_{t} &\sim \mathcal{N}(0,I)
+\intertext{so that}
+    \Sigma_{\theta}(\mathbf{x}_{t}) &= C(\mathbf{x}_{t})C^{\!\top} (\mathbf{x}_{t}) \Delta t   
+\intertext{Define the local drift matrix}
+    B(\mathbf{x}) &= A_{\theta}(\mathbf{x})-I   
+\intertext{Taking $\Delta t\to0$ yields the Itô SDE}
+    d\mathbf{X}_{t}
+      &= B\bigl(\mathbf{X}_{t}\bigr)\,\mathbf{X}_{t}\,dt
+        + C\bigl(\mathbf{X}_{t}\bigr)\,d\mathbf{W}_{t}
+\end{align}
+where $\mathbf{W}_{t}$ is a standard Wiener process.  The equation is
+\emph{state--dependent linear}: for fixed~$x$ the map
+$B(x)\,x$ is linear, but the coefficients vary smoothly over the
+manifold.
+
+If one keeps $\Sigma_{\theta}$ \emph{independent} of $\Delta t$, then
+the result is a discrete--time Markov chain rather than the
+time discretization of the continuous case.  Both views preserve the central
+structure: 
+\begin{align*}
+    \text{``locally linear drift''} \;+\; \text{``additive Gaussian innovation''}
+\end{align*}
+
+ 
 Defining
 $B(\mathbf{x}) = A_{\theta}(\mathbf{x}) - I$
 and $C(\mathbf{x})C(\mathbf{x})^{\!\top}
       = \Sigma_{\theta}(\mathbf{x})/\Delta t$,
 the infinitesimal generator acting on a smooth test function
 $f$ is
-\[
+\begin{align}
 (\mathcal{L}f)(\mathbf{x})
-    = \nabla f(\mathbf{x})^{\!\top}\!
+    &= \nabla f(\mathbf{x})^{\!\top}\!
         B(\mathbf{x})\,\mathbf{x}
       + \tfrac12
         \operatorname{tr}\!\bigl(
             \Sigma_{\theta}(\mathbf{x})\,
             \nabla^{2} f(\mathbf{x})
           \bigr).
-\]
-This connects the data--driven operator to Koopman and
-transfer--operator theory in a principled probabilistic way.
+\end{align}
 
-\subsection{Residual--variance scaling as a curvature diagnostic}
+\subsection{Connection to Wold’s Decomposition}
 
-Consider a true flow map $F$ on the embedded manifold and its
-second--order Taylor expansion at a reference point $x^{\ast}$:
+For a covariance--stationary scalar process \(X_t\), Wold’s theorem states
 \[
-F\bigl(x^{\ast}+\delta x\bigr)
-  = F(x^{\ast})
-    + J(x^{\ast})\,\delta x
-    + \tfrac12\,\delta x^{\!\top} H(x^{\ast})\,\delta x
-    + O\!\bigl(\lVert\delta x\rVert^{3}\bigr),
+X_t \;=\; \sum_{j=0}^{\infty} \psi_j\,\varepsilon_{t-j} \;+\; \eta_t,
 \]
-where $J$ is the Jacobian and $H$ the rank--3 Hessian tensor.
-A local \emph{linear} fit removes the $J$ term, leaving the quadratic
-remainder as the residual
-\[
-r \;\approx\; \tfrac12\,\delta x^{\!\top} H(x^{\ast})\,\delta x.
-\]
+where \(\{\varepsilon_t\}\) are orthogonal \emph{innovations},
+\(\psi_0 = 1\), \( \sum \psi_j^2 < \infty \),
+and \(\eta_t\) is a perfectly predictable (finite--rank) component.
 
-\vspace{3pt}
+\vspace{0.5em}
 \noindent
-\textbf{Neighbourhood scaling.}\;  
-For an isotropic kernel of bandwidth~$\theta$ the typical neighbour
-offset obeys $\lVert\delta x\rVert \sim \theta$, hence
+In the locally--linear framework we obtain an analogous, \emph{state--dependent}
+split at every embedded point \(\mathbf x_t\):
 \[
-\lVert r\rVert \sim \theta^{2},
+\underbrace{\mathbf x_{t+1}}_{\text{next state}}
+\;=\;
+\underbrace{A_{\theta}(\mathbf x_t)\,\mathbf x_t}_{\text{predictable drift}}
+\;+\;
+\underbrace{\boldsymbol\varepsilon_t(\theta)}_{\text{innovation}},
 \qquad
-r\,r^{\!\top} \sim \theta^{4}.
-\]
-Taking the empirical covariance of residuals gives
-\[
-\Sigma_{\theta}(x^{\ast})
-   \;\approx\;
-   \tfrac{\theta^{4}}{4}\;
-   H(x^{\ast})\,H(x^{\ast})^{\!\top}.
+\boldsymbol\varepsilon_t(\theta)
+= \mathbf x_{t+1} - A_{\theta}(\mathbf x_t)\,\mathbf x_t .
 \]
 
-\vspace{3pt}
+\subsection{Fitting Algorithm}
+
+Consider observations of state transition pairs $(y_i, x_i)_{i\in N}$ where $y_i = x_{i+1}$.
+
+\begin{algorithm}[H] Data‐Driven Delay Embedding and Pointwise \(\theta\) Selection via Rose+PCA
+\begin{algorithmic}[1]
+\Require Univariate series \(\{x(t)\}\), over‐embed dimension \(D\), grid size \(K\), variance threshold \(\alpha\in(0,1)\).
+\Ensure Reduced dimension \(d\), per‐anchor \(\{\theta_i^*\}\), final residuals \(\{\widetilde r_i\in\mathbb{R}^d\}\), coefficients \(\{\widetilde C_i\in\mathbb{R}^{d\times d}\}\).
+
+\State \textbf{1. Build full \(D\)-dimensional delay embedding:}
+\For{\(i=1\) to \(N\)} 
+  \State \(\mathbf{x}_i \gets \bigl[x(t_i),\,x(t_i-1),\,x(t_i-2),\,\dots,\,x(t_i-(D-1))\bigr]\in\mathbb{R}^D.\)
+\EndFor
+\State \(E \gets [\mathbf{x}_1;\,\dots;\,\mathbf{x}_N]\in\mathbb{R}^{N\times D}.\)
+
+\State \text{2. Construct \(\theta\)-grid}
+\State \(\theta \gets [\theta_0 = 0; \ldots ; \theta_K = \theta_{max}]\)
+
+\State \textbf{4. Compute Rose residuals \(r_{i,k}\in\mathbb{R}^D\):}
+\For{\(i=1\) to \(N\)} 
+  \For{\(k=1\) to \(K\)}
+    \State Fit WLS at \(\mathbf{x}_i\) with kernel scale \(\theta_k\),  
+      forecast next step \(\widehat{\mathbf{x}}_i\).  
+    \State \(r_{i,k}\gets \mathbf{x}(t_i+1)\;-\;\widehat{\mathbf{x}}_i.\)
+  \EndFor
+\EndFor
+
+\State \textbf{5. Select pointwise \(\theta_i^*\):}
+\For{\(i=1\) to \(N\)} 
+  \State \(\rho_i(k)\gets \|r_{i,k}\|_2,\quad k_i^*\gets \arg\min_{1\le k\le K} \rho_i(k).\)
+  \State \(\theta_i^* \gets \theta_{k_i^*}.\)
+\EndFor
+
+\State \textbf{6. Collect selected residuals in \(\mathbb{R}^D\):}
+\For{\(i=1\) to \(N\)} 
+  \State \(r_i^* \gets r_{\,i,\,k_i^*}.\)
+\EndFor
+\State \(R^*\gets [\,r_1^*;\,\dots;\,r_N^*]\in\mathbb{R}^{N\times D}.\)
+
+\State \textbf{7. PCA on \(R^*\) to determine reduced dimension \(d\):}
+\State Compute SVD: \(R^* = U\,\Sigma\,V^\top.\)
+\State Choose smallest \(d\) with \(\sum_{j=1}^d \sigma_j^2 \;/\;\sum_{j=1}^D \sigma_j^2 \ge \alpha.\)
+\State \(V_d \gets V[:,1:d]\in\mathbb{R}^{D\times d}.\)
+
+\State \textbf{8. Form reduced embedding in \(\mathbb{R}^d\):}
+\For{\(i=1\) to \(N\)} 
+  \State \(\widetilde{\mathbf{x}}_i \gets V_d^\top\,\mathbf{x}_i \in \mathbb{R}^d.\)
+\EndFor
+
+\State \textbf{9. Re‐fit Rose in \(\mathbb{R}^d\) at \(\theta_i^*\):}
+\For{\(i=1\) to \(N\)} 
+  \State Fit WLS on \(\widetilde{\mathbf{x}}_i\) with scale \(\theta_i^*\),  
+    forecast \(\widehat{\widetilde{\mathbf{x}}}_i\).  
+  \State \(\widetilde r_i \gets \widetilde{x}(t_i+1)\;-\;\widehat{\widetilde{\mathbf{x}}}_i\in\mathbb{R}^d.\)
+  \State Extract coefficient \(\widetilde C_i\in\mathbb{R}^{d\times d}.\)
+\EndFor
+
+\State \textbf{10. Save outputs via \(\mathrm{save\_all}\):}
+\State \(\bigl\{\widetilde{r}_i\bigr\}_{i=1}^N,\;\bigl\{\widetilde C_i\bigr\}_{i=1}^N,\;\{t_i\}_{i=1}^N,\;\{\theta_i^*\}_{i=1}^N.\)
+
+\end{algorithmic}
+\end{algorithm}
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% 5.  Categorical Scaffold for Local Linearisation
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{A Categorical Scaffold for Local Linearization}
+\label{sec:categorical}
+
+Local linear models, residual covariances, and adaptive basis updates can all be
+written algebraically, but a categorical formulation clarifies \emph{which parts
+belong to the dynamics, which to the coordinate representation, and which to the
+data–driven closure}.  By lifting the construction to functors, natural
+transformations, and (co)monads we obtain
+
+\begin{enumerate}[label=(\roman*)]
+\item a precise separation of concerns
+\item a route to operator‑theoretic results via functoriality
+\item and a universal property (\emph{cofree} coalgebra) that characterises the
+      residual‐frame augmentation
+\end{enumerate}
+
+\subsection{Components}
+
+Throughout, $k\!\ge 2$ is fixed, so that $C^{k}$ flows have
+well‑defined first and second jets.  All manifolds are assumed compact, and all
+vector spaces are over~$\mathbb R$.
+
+\begin{definition}[$\mathbf{Dyn}$]
+  \label{def:dyn}
+  The category $\mathbf{Dyn}$ consists of
+  \begin{itemize}[leftmargin=1.75em]
+  \item \textbf{objects} $(\mathcal M,\varphi^{t})$ where
+        $\mathcal M$ is a compact $C^{k}$ manifold and
+        $\varphi^{t}\!: \mathcal M\to\mathcal M$ a $C^{k}$ flow.
+  \item \textbf{morphisms}
+        $\Psi: (\mathcal M,\varphi^{t}) \to (\mathcal N,\psi^{t})$
+        given by $C^{k}$ maps
+        $\Psi:\mathcal M\rightarrow\mathcal N$ satisfying
+        \begin{align}
+            \Psi\circ\varphi^{t} &= \psi^{t}\circ\Psi
+        \end{align}
+        for all $t\in\mathbb R$. 
+  \end{itemize}
+\end{definition}
+
+\begin{remark}
+    Objects in $\mathbf{Dyn}$ are smooth dynamical systems. Morphisms $\Psi$ are \emph{dynamic‑preserving}
+      (equivalently, \emph{equivariant} or \emph{trajectory‑intertwining}). They are dynamic-preserving in the sense that for smooth manifolds and flows:
+    \begin{align}
+        (\mathcal{M}, \varphi^t)&,\, (\mathcal{N}, \psi^t)  & t\in \R
+    \end{align}
+    the morphism,
+    \begin{align}
+        \Psi &= (\mathcal{M}, \varphi^t) \rightarrow  (\mathcal{N}, \psi^t) 
+    \end{align}
+    is a $C^k$ $(k \geq 1)$ map that is equivariant,
+    \begin{align}
+        \Psi(\varphi^t(x)) &= \psi^t(\Psi(x)) & \forall x \in \mathcal{M}
+    \intertext{so that $\Psi$ transports trajectories  $\varphi^t$ onto trajectories $\psi^t$:}
+        \Psi \circ \varphi^t &= \psi^t \circ \Psi
+    \end{align}
+\end{remark}
+
+
+\begin{example}
+  \label{ex:dyn_examples}
+  Take the two-torus with linear flow,
+  \begin{align}
+  &(\mathbb{T}^2, \varphi^t), & \varphi^t(x,y) &= (x + \alpha t,\; y + \beta t)\pmod 1
+  \intertext{and the circle with rigid rotation,}
+  &(\mathbb{S}^1, \psi^t), & \psi^t(\theta) &= \theta + \alpha t \pmod 1
+  \intertext{Let,}
+  &\Psi : \mathbb{T}^2 \to \mathbb{S}^1, & \Psi(x,y) &= x \bmod 1
+  \intertext{For all $(x,y) \in \mathbb{T}^2$ $t \in \R$:}
+  \Psi(\varphi^t(x,y)) &= \Psi (x + \alpha t, y + \beta t)\\
+  &= (x + \alpha t) \pmod 1\\
+  &= \psi^t(\Psi(x,y))
+  \intertext{so,}
+  \Psi \circ \varphi^t &= \psi^t \circ \Phi, & \forall t &\in \R
+\end{align}
+and $\Psi$ is a dynamic-preserving $C^\infty$ map and morphism of $\mathbf{Dyn}$.
+\end{example}
+
+\begin{remark}[Discrete--time systems via suspension]
+Although $\mathbf{Dyn}$ is defined only for \emph{flows}, any
+discrete--time diffeomorphism $T\colon\mathcal M\!\to\!\mathcal M$ can
+be embedded in $\mathbf{Dyn}$ through its \emph{suspension flow}. 
+
+Form the mapping torus
+\begin{align}
+\operatorname{Sus}(\mathcal M,T)
+   &:= (\mathcal M\times[0,1])/\bigl(x,1\bigr)\!\sim\!\bigl(Tx,0\bigr),
+\intertext{and define the flow}
+\varphi^{t}[(x,u)]&=[(T^{\lfloor t+u\rfloor}x,\;u+t-\lfloor t+u\rfloor)]
+\intertext{Then $(\operatorname{Sus}(\mathcal M,T),\varphi^{t})$ is an object of $\mathbf{Dyn}$ whose \emph{time--$1$ map} reproduces $T$:}
+\varphi^{1}[(x,0)]&=[(Tx,0)]
+\end{align}
+This construction extends to morphisms by  $\Sigma(f)[(x,u)]=[(f(x),u)]$, producing a functor $\Sigma\!: \mathbf{Dyn}_{\mathbb Z}\to\mathbf{Dyn}$. As such, results for continuous--time objects apply \emph{mutatis mutandis} to discrete systems via $\Sigma$.
+\end{remark}
+
+\begin{definition}[$\mathbf{Vect}$]
+  \label{def:vect}
+  The category $\mathbf{Vect}$ consists of
+  \begin{itemize}[leftmargin=1.75em]
+  \item \textbf{objects} $V$ finite-dimensional real vector spaces.
+  \item \textbf{morphisms}  $L:  V \to W$ linear maps.
+  \end{itemize}
+\end{definition}
+
+\begin{definition}[Embedding functor]
+Fix, for every Dyn–object $(\mathcal M,\varphi^{t})$
+a generic embedding
+$\Phi_{\mathcal M}:\mathcal M\hookrightarrow\mathbb R^{m(\mathcal M)}$.
+Define the functor
+\[
+F:\mathbf{Dyn}\longrightarrow\mathbf{Vect}
+\quad\text{by}\quad
+\begin{cases}
+F\bigl(\mathcal M,\varphi^{t}\bigr)=\mathbb R^{m(\mathcal M)},\\
+F(\Psi)=\displaystyle
+  \Phi_{\mathcal N}\!\circ\!\Psi\!\circ\!
+  \Phi_{\mathcal M}^{-1}
+    :\mathbb R^{m(\mathcal M)}\longrightarrow\mathbb R^{m(\mathcal N)}.
+\end{cases}
+\]
+with identity $F(\mathrm{id}_{(\mathcal M,\varphi^{t})})=\mathrm{id}_{\mathbb R^{m(\mathcal M)}}$.
+
+Functoriality is immediate from
+$\Phi_{\mathcal N}\circ(\Psi_{2}\!\circ\!\Psi_{1})
+ =F(\Psi_{2})\!\circ F(\Psi_{1})$, which gives the following diagram:
+
+\[
+    \begin{tikzcd}[column sep=large,row sep=large]
+        (\mathcal M,\varphi^{t})
+          \arrow[d,"\Psi"']
+          \arrow[r,"\Phi \coloneqq \Phi_\mathcal{M}",sloped]
+        & \mathbb R^{m(\mathcal M)}
+          \arrow[d,"\Phi'\circ\Psi\circ\Phi^{-1}"] \\
+        (\mathcal N,\psi^{t})
+          \arrow[r,"\Phi' \coloneqq \Phi_\mathcal{N}",sloped]
+        & \mathbb R^{m(\mathcal N)}
+    \end{tikzcd}
+\]
+
+\end{definition}
+
+%------------------------------------------------------------
+\begin{definition}[$\mathbf{Dyn}$ Component--wise product]
+\label{def:dyn_prod_object}
+Let $\bigl(\mathcal M_{i},\varphi^{t}_{i}\bigr)_{i=1}^{n}$ be objects of
+$\mathbf{Dyn}$.  Define
+
+\begin{align}
+\mathcal M \;:=\; \prod_{i=1}^{n}\mathcal M_{i},
+\qquad
+\varphi^{t}(x_{1},\dots,x_{n})
+       \;:=\;\bigl(\varphi^{t}_{1}(x_{1}),\dots,\varphi^{t}_{n}(x_{n})\bigr),
+\end{align}
+and projection maps
+\(
+\pi_{j}(x_{1},\dots,x_{n})=x_{j}\quad(j=1,\dots,n).
+\)
+We call
+\begin{align}
+(\mathcal M,\varphi^{t})
+\end{align}
+the \emph{component--wise product} of the given objects.
+\end{definition}
+%------------------------------------------------------------
+
+%------------------------------------------------------------
+\begin{lemma}[Universal property of finite products in $\mathbf{Dyn}$]
+\label{lem:dyn_prod}
+For the system $(\mathcal M,\varphi^{t})$ and projections
+$\pi_{j}$ defined above, the pair
+\begin{align}
+\bigl((\mathcal M,\varphi^{t}),\;\{\pi_{j}\}_{j=1}^{n}\bigr)
+\end{align}
+is the categorical product of 
+$\bigl(\mathcal M_{i},\varphi^{t}_{i}\bigr)_{i=1}^{n}$
+in the category $\mathbf{Dyn}$.
+\end{lemma}
+
+\begin{proof}
+
+Because each $\pi_{j}$ is smooth,
+\begin{align}
+\pi_{j}\!\bigl(\varphi^{t}(x_{1},\dots,x_{n})\bigr)
+      =\varphi^{t}_{j}(x_{j})
+      =\varphi^{t}_{j}\!\bigl(\pi_{j}(x_{1},\dots,x_{n})\bigr),
+\end{align}
+so $\pi_{j}$ intertwines the flows and is therefore a morphism in
+$\mathbf{Dyn}$.
+
+\medskip
 \noindent
-\textbf{Trace‑based variance measure.}\;  
+Let $(\mathcal N,\psi^{t})$ be any object and suppose we are given
+morphisms
+$f_{j}:(\mathcal N,\psi^{t})\to(\mathcal M_{j},\varphi_{j}^{t})$
+for $j=1,\dots,n$.
 Define
-\[
-\sigma^{2}(\theta) \;=\; \operatorname{trace}\!\bigl[\Sigma_{\theta}\bigr]
-          \;\approx\;
-          C\,\theta^{4},
+\begin{align}
+f:\mathcal N\longrightarrow\mathcal M,
 \qquad
-C = \tfrac14\,\operatorname{trace}\!\bigl[H\,H^{\!\top}\bigr].
-\]
-Taking logs,
+f(y):=\bigl(f_{1}(y),\dots,f_{n}(y)\bigr).
+\intertext{The map $f$ is $C^{k}$ because each $f_{j}$ is.
+Equivariance follows component--wise:}
+f(\psi^{t}y)
+   =\bigl(f_{1}(\psi^{t}y),\dots\bigr)
+   =\bigl(\varphi_{1}^{t}f_{1}(y),\dots\bigr)
+   =\varphi^{t}\bigl(f(y)\bigr).
+\end{align}
+Hence $f$ is a morphism in $\mathbf{Dyn}$ and
+$\pi_{j}\circ f = f_{j}$ by construction.
+
+\medskip
+\noindent
+If $g:(\mathcal N,\psi^{t})\to(\mathcal M,\varphi^{t})$ is another
+morphism with the same property $\pi_{j}\circ g=f_{j}$ for every $j$,
+then for each $y\in\mathcal N$
 \[
-\log \sigma^{2}(\theta)
-   \;=\;
-   \log C \;+\; 4\,\log\theta,
+g(y)=\bigl(\pi_{1}g(y),\dots,\pi_{n}g(y)\bigr)
+    =\bigl(f_{1}(y),\dots,f_{n}(y)\bigr)=f(y),
 \]
-so a \emph{log--log} plot of residual variance versus bandwidth
-exhibits a straight segment of slope~$4$ whenever quadratic curvature
-dominates and measurement noise is negligible.
+so $g=f$.
 
-\vspace{3pt}
+\medskip
 \noindent
-\textbf{Interpretation of observed slopes.}
+Since a unique mediating morphism exists for every candidate
+cone, $(\mathcal M,\varphi^{t})$ with the projections $\pi_{j}$ satisfies
+the universal property of finite products in $\mathbf{Dyn}$.
+\end{proof}
 
-\begin{center}
-\begin{tabular}{c|l}
-\textit{Slope in log--log plot} & \textit{Regime indication} \\ \hline
-$\approx 4$ & Deterministic curvature dominates (Hessian visible). \\
-$\approx 0$ & Flat residual curve: variance from measurement / process noise. \\
-$\approx 2$ & Fit still contaminated by first‑order errors or anisotropy. \\
-$\text{curved / } >4$ & Mixing of regimes, higher‑order terms, or non‑isotropic cloud.
-\end{tabular}
-\end{center}
+%------------------------------------------------------------
 
-\vspace{3pt}
-\noindent
-\textbf{Practical use.}
-\begin{itemize}
-\item Plot $\log\!\bigl(\operatorname{trace}\Sigma_{\theta}\bigr)$
-      versus $\log\theta$ at multiple locations.
-\item The $\theta$ range where the slope stabilises near~$4$
-      marks the \emph{curvature‑dominated window}.
-\item Choose an adaptive bandwidth $\theta(x)$ that stays
-      just below this window to minimise artificial diffusion in the
-      stochastic generator, while retaining numerical stability.
-\end{itemize}
+
+%------------------------------------------------------------
+\begin{lemma}[Coproducts]
+\label{lem:dyn_coprod}
+For any family $\bigl(\mathcal M_{i},\varphi^{t}_{i}\bigr)_{i\in I}$,
+the disjoint union
+\[
+\Bigl(\bigsqcup_{i\in I}\mathcal M_{i},\;
+      \varphi^{t}(x)=\varphi^{t}_{i}(x)\text{ if }x\in\mathcal M_{i}\Bigr)
+\]
+with the canonical injections
+$\iota_{i}:\mathcal M_{i}\hookrightarrow\bigsqcup_{j}\mathcal M_{j}$
+is the coproduct in $\mathbf{Dyn}$.
+\end{lemma}
+
+\begin{proof}
+Disjoint unions of compact manifolds are compact manifolds, the flow is
+$C^{k}$ on each component, and the injections are equivariant by
+construction.  The universal property follows from the universal
+property of disjoint unions in smooth manifolds.
+\end{proof}
+
+%------------------------------------------------------------
+\begin{lemma}[Regular equalisers]
+\label{lem:dyn_equaliser}
+Let $f,g:(\mathcal M,\varphi^{t})\to(\mathcal N,\psi^{t})$ be morphisms.
+Assume $f$ and $g$ are transverse to the diagonal
+$\Delta_{\mathcal N}\subset\mathcal N\times\mathcal N$.  Then
+\[
+E:=\{x\in\mathcal M\mid f(x)=g(x)\}
+\]
+is an embedded $C^{k}$ sub‑manifold, invariant under $\varphi^{t}$.  The
+inclusion $i:E\hookrightarrow\mathcal M$ with the restricted flow
+$\varphi^{t}_{|E}$ realises the equaliser of $(f,g)$ in
+$\mathbf{Dyn}$.
+\end{lemma}
+
+\begin{proof}
+Transversality implies $E$ is an embedded sub‑manifold.  Equivariance of
+$f$ and $g$ gives $f(\varphi^{t}x)=\psi^{t}f(x)=\psi^{t}g(x)=g(\varphi^{t}x)$,
+so $E$ is flow‑invariant.  The inclusion $i$ is a morphism, and any
+morphism $h:(\mathcal K,\chi^{t})\to(\mathcal M,\varphi^{t})$ with
+$fh=gh$ factors uniquely through $i$ by the usual smooth‑manifold
+argument.
+\end{proof}
+
+%------------------------------------------------------------
+\begin{remark}[Limitations of completeness]
+\label{rem:dyn_incomplete}
+The category of $C^{k}$ manifolds is neither complete nor cocomplete; an
+infinite product need not be a manifold, and general coequalisers (or
+non‑regular equalisers) can fail to carry a smooth Hausdorff structure.
+Consequently $\mathbf{Dyn}$ is \emph{finitely} complete and has
+coproducts, but it does not possess arbitrary small limits or colimits.
+\end{remark}
+
+
+\begin{lemma}[Limits and colimits]
+  \label{lem:dyn_limits}
+  $\mathbf{Dyn}$ has all small limits and colimits; they are inherited
+  point‑wise from the category of $C^{k}$ manifolds.
+\end{lemma}
+
+\begin{proof}[Sketch]
+  Products exist because finite products of compact manifolds are compact
+  manifolds; the flow acts component‑wise.  Equalisers are submanifolds defined
+  by equalising maps that commute with the flow.  Dually for colimits.
+\end{proof}
+
+The remainder of this section builds functors \emph{out of} $\mathbf{Dyn}$ and
+uses natural transformations and comonads to formalise local linearisation and
+its residual correction.
+
+
+\subsection{Local linearisation as a natural transformation}
+Write $\Pi_d:\mathbf{Dyn}\to\mathbf{Dyn}$ for the functor that forgets all
+$\ge\!2$‑jet data.  Weighted least squares at each anchor
+$x$ induces the component
+\[
+  \eta_{(\mathcal M,\varphi^t)}(x)\;:=\;B_x
+  : F(\mathcal M,\varphi^t)\;\longrightarrow\;F\!\circ\!\Pi_d(\mathcal M,\varphi^t),
+\]
+yielding a natural transformation $\eta:F\!\Rightarrow\!F\!\circ\!\Pi_d$.
+
+\subsection{Residual frame field as a cofree coalgebra}
+Define a comonad
+$\mathsf G:(\mathbf{Vect},\otimes)\to(\mathbf{Vect},\otimes)$ by
+$\mathsf G(V)=V\oplus\bigl(\text{span}\,Q_x\bigr)$.
+The map $x\mapsto(B_x,Q_x)$ endows each fibre with the structure of a
+$\mathsf G$‑coalgebra, cofree under the variance‑fraction constraint
+$\rho$.  In string‑diagram notation:
+
+\[
+  \begin{tikzcd}[row sep=huge]
+    F(\mathcal M,\varphi^t)
+      \arrow[d, "\eta"']
+      \arrow[rr, dashed, "\Delta" description]
+      && \mathsf G F(\mathcal M,\varphi^t)
+          \arrow[d, "\mathsf G\eta"] \\
+    F\!\circ\!\Pi_d(\mathcal M,\varphi^t)
+      \arrow[rr, dashed, "\mathsf G\Delta"']
+      && \mathsf G F\!\circ\!\Pi_d(\mathcal M,\varphi^t)
+  \end{tikzcd}
+\]
+The dashed arrows are the Rose augmentation; commutativity is enforced by
+letting $\mathsf G$ be \emph{cofree} with respect to~$\rho$.
 
 \bibliographystyle{plain}
 \bibliography{references}
+
+\appendix
+
+% ---------- 7.  Notation & Conventions ----------
+\section{Notation \& Conventions}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{ll}
+$PX$ & probability measures on $(X,\mathcal F)$ \\
+$G$ & Giry monad (\ref{def:giry-monad}) \\
+$x\mapsto\delta_x$ & Dirac embedding \\
+$\rightsquigarrow$ & kernel arrow (Def.~\ref{def:markov-kernel}) \\
+$^{\flat},^{\sharp}$ & musical conversions (Def.~\ref{def:musical}) \\
+$P_t,L$ & Markov semigroup \& generator (\ref{def:semigroup}–\ref{def:generator}) \\
+$k_\Delta,T$ & LWLS kernel \& Rose operator (\ref{def:lwls}–\ref{def:rose}) \\
+$\Delta$ & discrete time step in data
+\end{tabular}
+\end{center}
+
+% ---------- Definitions ---------- %
+
+\section{Definitions}
+
+% ---------- 1.  Measure & Probability Foundations ----------
+\subsection{Measure \& Probability Foundations}
+
+\begin{definition}[$\sigma$–Algebra]\label{def:sigma-algebra}
+Given a set $X$, a \emph{$\sigma$–algebra} $\mathcal F\subseteq 2^X$ is
+a non‑empty collection of subsets closed under complementation and
+countable unions (hence also countable intersections).
+\end{definition}
+
+\begin{definition}[Measurable Space]\label{def:measurable-space}
+A \emph{measurable space} is a pair $(X,\mathcal F)$ where
+$\mathcal F$ is a $\sigma$–algebra on $X$
+(Definition~\ref{def:sigma-algebra}).
+\end{definition}
+
+\begin{definition}[Measurable Map]\label{def:measurable-map}
+If $(X,\mathcal F)$ and $(Y,\mathcal G)$ are measurable spaces, a map
+$f:X\to Y$ is \emph{measurable} if $f^{-1}(B)\in\mathcal F$ for all
+$B\in\mathcal G$.
+\end{definition}
+
+\begin{definition}[Measure \& Probability Measure]\label{def:measure}
+Let $(X,\mathcal F)$ be a measurable space.
+A \emph{measure} is a countably additive map
+$\mu:\mathcal F\to[0,\infty]$ with $\mu(\varnothing)=0$.
+It is a \emph{probability measure} if $\mu(X)=1$.
+We write $PX$ for the set of all probability measures on
+$(X,\mathcal F)$.
+\end{definition}
+
+\begin{definition}[Push‑Forward Measure]\label{def:pushforward}
+Given a measurable $f:(X,\mathcal F)\to(Y,\mathcal G)$ and
+$\mu\in P X$, the \emph{push‑forward} measure
+$f_{*}\mu\in P Y$ is defined by
+$(f_{*}\mu)(B)=\mu\bigl(f^{-1}(B)\bigr)$ for $B\in\mathcal G$.
+\end{definition}
+
+\begin{definition}[Pull‑Back Measure]\label{def:pullback-measure}
+Given a measurable $f:(X,\mathcal F)\to(Y,\mathcal G)$ and
+$\mu\in P X$, the \emph{pull‑back} measure
+$f^{*}\mu\in P Y$ is defined by $f^{*}\mu(A)\;:=\;\mu\!\bigl(f(A)\bigr)$ for $A\in\mathcal F$.
+
+\end{definition}
+
+
+% ---------- 2.  Category Theory ----------
+\subsection{Category Theory}
+
+\begin{definition}[Category]\label{def:category}
+A \emph{category} $\mathcal C$ consists of a class of objects,
+hom‑sets $\mathrm{Hom}_{\mathcal C}(A,B)$ for each ordered pair
+$(A,B)$, identity morphisms $\mathrm{id}_A$, and associative
+composition, satisfying the usual unit laws.
+\end{definition}
+
+\begin{definition}[Functor]\label{def:functor}
+Let $\mathcal C,\mathcal D$ be categories.
+A \emph{functor} $F:\mathcal C\to\mathcal D$ assigns to each object
+$A$ of $\mathcal C$ an object $FA$ of $\mathcal D$ and to each morphism
+$f:A\to B$ a morphism $Ff:FA\to FB$, preserving identities and
+composition.
+\end{definition}
+
+\begin{definition}[Finite products in a category]
+\label{def:finite_product}
+Let $\mathcal{C}$ be a category and
+$\{\,X_{i}\,\}_{i=1}^{n}$ a finite family of objects in  $\mathcal{C}$
+($n\ge 0$).
+
+\begin{itemize}[leftmargin=2em]
+\item
+A \emph{product} of the family is a pair
+\[
+\Bigl(X,\;\{\pi_{i}\}_{i=1}^{n}\Bigr),
+\quad
+\pi_{i}:X\longrightarrow X_{i}\;\text{ in }\mathcal{C},
+\]
+such that for every object $Y$ and every collection of morphisms
+$\,\{\,f_{i}:Y\to X_{i}\,\}_{i=1}^{n}$ there exists a \emph{unique}
+morphism
+
+\[
+f:Y\longrightarrow X
+\qquad\text{with}\qquad
+\pi_{i}\circ f = f_{i}\quad(i=1,\dots,n).
+\]
+\item
+When it exists, the product is unique up to a unique isomorphism; we
+write
+\(
+X \;=\; \prod_{i=1}^{n} X_{i}
+\)
+and call the $\pi_{i}$ the \emph{projection morphisms}.
+\item
+For $n=0$ the empty product is any \emph{terminal object}
+$1\in\mathcal{C}$ (unique up to unique isomorphism).
+\end{itemize}
+
+\[
+\begin{tikzcd}[column sep=large,row sep=large]
+&[-5pt]
+    Y
+    \arrow{dl}[swap]{f_{1}}
+    \arrow[dashed]{d}{f}
+    \arrow{dr}{f_{2}}
+&
+\\
+X_{1} & \arrow[l, "\pi_1"' near start] X_{1} \times X_{2}  \arrow[r, "\pi_2" near start] & X_{2}
+\end{tikzcd}
+\]
+
+\noindent
+The dashed arrow~\(f\) is the \emph{unique} morphism rendering all
+triangles commutative: \(\pi_{i}\circ f = f_{i}\) for
+\(i=1,\dots,n\).  This diagram visualises the universal property that
+characterises the product object~\(X=\prod_{i=1}^{n} X_{i}\).
+
+\end{definition}
+
+\begin{definition}[Natural Transformation]\label{def:natural}
+Given functors $F,G:\mathcal C\to\mathcal D$, a
+\emph{natural transformation} $\eta:F\Rightarrow G$ assigns to every
+object $A$ a morphism $\eta_A:FA\to GA$ such that
+$Gf\circ\eta_A=\eta_B\circ Ff$ for all $f:A\to B$ in $\mathcal C$.
+\end{definition}
+
+\begin{definition}[Monad]\label{def:monad}
+A \emph{monad} $(T,\eta,\mu)$ on a category $\mathcal C$ comprises an
+endofunctor $T:\mathcal C\to\mathcal C$, a unit natural transformation
+$\eta:\mathrm{id}_{\mathcal C}\Rightarrow T$ and a multiplication
+$\mu:T^2\Rightarrow T$ satisfying $\mu\circ T\eta=\mu\circ\eta T=
+\mathrm{id}_T$ and $\mu\circ T\mu=\mu\circ\mu T$.
+\end{definition}
+
+\begin{definition}[Category $\mathbf{Meas}$]\label{def:meas}
+Objects are measurable spaces; morphisms are
+measurable maps (Definition~\ref{def:measurable-map}).
+\end{definition}
+
+\begin{definition}[Markov Kernel]\label{def:markov-kernel}
+Let $(X,\mathcal F)$ and $(Y,\mathcal G)$ be measurable spaces.
+A \emph{Markov kernel} $\kappa:X\rightsquigarrow Y$ is a map
+$\kappa:X\times\mathcal G\to[0,1]$ such that
+\begin{enumerate}
+  \item for each $x\in X$, $B\mapsto\kappa(B\mid x)$ is a probability
+        measure on $(Y,\mathcal G)$;
+  \item for each $B\in\mathcal G$, $x\mapsto\kappa(B\mid x)$ is
+        $\mathcal F$‑measurable.
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Category $\mathbf{Stoch}$]\label{def:stoch}
+Objects are measurable spaces.  Morphisms are Markov kernels
+(Definition~\ref{def:markov-kernel}).  Composition is
+\emph{Chapman–Kolmogorov} integration:
+\[
+(\kappa\ast\lambda)(C\!\mid x)=\int_Y
+\kappa(C\!\mid y)\,\lambda(dy\!\mid x).
+\]
+\end{definition}
+
+\begin{definition}[Giry Monad]\label{def:giry-monad}
+Define $G:\mathbf{Meas}\to\mathbf{Meas}$ by
+$G(X,\mathcal F)=(PX,\mathcal{P\!F})$, where $\mathcal{P\!F}$ is the
+weak $\sigma$–algebra generated by
+$\mu\mapsto\mu(B)\;(B\in\mathcal F)$.
+For $f:(X,\mathcal F)\to(Y,\mathcal G)$ set $Gf=f_{*}$
+(Definition~\ref{def:pushforward}).
+The \emph{unit} $\eta_X:X\to G X$ is $x\mapsto\delta_x$ and the
+\emph{multiplication} $\mu_X:GGX\to GX$ is
+$\mu_X(\Phi)(B)=\int_{PX}\nu(B)\,d\Phi(\nu)$.
+With these, $(G,\eta,\mu)$ is a monad on $\mathbf{Meas}$
+(Definition~\ref{def:monad}); its Kleisli category is
+$\mathbf{Stoch}$ (Definition~\ref{def:stoch}).
+\end{definition}
+
+\begin{definition}[Stochastic Dynamical System]\label{def:coalgebra}
+A \emph{stochastic dynamical system} is a
+\emph{$G$‑coalgebra}: a measurable map $c:X\to GX$
+(Definition~\ref{def:giry-monad}).  Iterating $c$ via Kleisli
+composition yields a family of kernels
+$c^{(n)}:X\rightsquigarrow X$; see Definition~\ref{def:transition}.
+\end{definition}
+
+
+% ---------- 3.  Markov Kernels & Stochastic Processes ----------
+\subsection{Markov Kernels \& Stochastic Processes}
+
+\begin{definition}[Transition Kernel Family]\label{def:transition}
+A family $\{\kappa_t\}_{t\ge0}$ of kernels
+$\kappa_t:X\rightsquigarrow X$ is a
+\emph{transition kernel family} if
+\[
+\kappa_{t+s}=\kappa_t\ast\kappa_s,\qquad
+\kappa_0(x,\cdot)=\delta_x.
+\]
+\end{definition}
+
+\begin{definition}[Discrete‑Time Markov Chain]\label{def:dtmc}
+A \emph{discrete‑time Markov chain} on state space $X$ is a pair
+$(\kappa,\mu_0)$ where $\kappa:X\rightsquigarrow X$ is a kernel and
+$\mu_0\in PX$ an initial distribution.  The law of $X_{n+1}$ given
+$X_n=x$ is $\kappa(\,\cdot\mid x)$.
+\end{definition}
+
+
+% ---------- 4.  Semigroup & Generator Theory ----------
+\subsection{Semigroup \& Generator Theory}
+
+\begin{definition}[Bounded Linear Operators]\label{def:bounded-linear-operators} 
+For a Banach space $B$, the set $\mathcal L(B)$ consists of all linear maps $A: B \rightarrow B$ with finite operator norm $|| A ||_{\mathcal L(B)} := \sup_{f\neq0} \frac{||Af||_B}{||f||_B}  $
+
+Equipped with this norm,  is itself a Banach space.
+    
+\end{definition}
+
+\begin{definition}[Operator Semigroup]\label{def:operator-semigroup}
+Let $B$ be a Banach space.  
+A family $\{P_t\}_{t\ge 0}\subset\mathcal L(B)$ is called an
+\emph{operator semigroup} (on $B$) if 
+\[
+P_0 = \mathrm{id}_B,
+\qquad
+P_{t+s} = P_t\,P_s 
+\quad \text{for all } s,t \ge 0 .
+\]
+\end{definition}
+
+\begin{definition}[Uniformly Continuous Semigroup]\label{def:uniform-semigroup}
+A family $\{P_t\}_{t\ge 0}\subset\mathcal L(B)$ is a \emph{uniformly continuous semigroup} if
+\[
+\lim_{t\downarrow 0}\|P_t-\mathrm{id}\|_{\mathcal L(B)} = 0,
+\qquad
+P_0=\mathrm{id},\qquad
+\;\;\text{for all } t\ge 0
+\]
+Equivalently, $P_t = e^{\,tA}$ for a \emph{bounded} operator $A\in\mathcal L(B)$ called the (bounded) generator, and the map $t\mapsto P_t$ is continuous in operator norm.
+\end{definition}
+
+
+\begin{definition}[Strongly Continuous Semigroup]\label{def:c0} A family
+$\{P_t\}_{t\ge0}\subset\mathcal L(B)$ is a
+\emph{strongly continuous semigroup} ($C_0$–semigroup) if
+\[
+     \lim_{t\downarrow0}\|P_t f-f\|_B=0, \qquad \text{for all }f\in B,\,t\geq 0
+\]
+\end{definition}
+
+\begin{definition}[Markov Semigroup]\label{def:semigroup}
+A $C_0$–semigroup $\{P_t\}_{t\ge0}$ on $L^p(X,\lambda)$ is a
+\emph{Markov semigroup} if each $P_t$ is positive and $P_t1=1$.
+\end{definition}
+
+\begin{definition}[Infinitesimal Generator]\label{def:generator}
+For a $C_0$–semigroup $\{P_t\}_{t\ge0}$ the
+\emph{generator} is the (possibly unbounded) operator
+\[
+Lf=\lim_{t\downarrow0}\frac{P_t f-f}{t},
+\]
+with domain $D(L)=\{f:\text{limit exists in }\|\cdot\|\}$.
+\end{definition}
+
+
+
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.15}
+\begin{tabular}{@{}c p{6cm} p{7.5cm}@{}}
+\toprule
+\textbf{\#} & \textbf{Block / Item} & \textbf{Purpose (what it secures)} \\ \midrule
+1.1 & \textbf{Definition} $C^{k}$ flow on a compact manifold & Fixes baseline regularity (first/second jets exist) \\[2pt]
+1.2 & \textbf{Definition} category $\mathbf{Dyn}$ & Formal language for smooth dynamical systems \\[2pt]
+1.3 & \textbf{Remark} equiv.\,$\Leftrightarrow$\,dynamics‐preserving & Bridges intuition with formalism \\[2pt]
+1.4 & \textbf{Example} torus $\rightarrow$ circle projection & Concrete morphism in $\mathbf{Dyn}$ \\[2pt]
+1.5 & \textbf{Remark} suspension functor $\Sigma$ & Embeds discrete maps into $\mathbf{Dyn}$ \\[4pt]
+2.1 & \textbf{Lemma} finite products in $\mathbf{Dyn}$ & Needed for coupled systems / frame bundles \\[2pt]
+2.2 & \textbf{Lemma} coproducts (disjoint unions) & Useful for multi‑regime models \\[2pt]
+2.3 & \textbf{Lemma} regular equalisers & Selecting invariant sub‑manifolds \\[2pt]
+2.4 & \textbf{Remark} non‑existence of arbitrary small limits/colimits & Honesty checkpoint on completeness \\[4pt]
+3.1 & \textbf{Definition} category $\mathbf{Vect}$ & Linear target world \\[2pt]
+3.2 & \textbf{Definition} embedding functor $F:\mathbf{Dyn}\!\to\!\mathbf{Vect}$ & Moves flows to coordinate data \\[2pt]
+3.3 & \textbf{Lemma} $F$ preserves identities \& composition & Ensures commutative squares \\[2pt]
+3.4 & \textbf{Diagram} square for any $\Psi$ & Visual glue between categories \\[4pt]
+4.1 & \textbf{Definition} bandwidth $\theta$, weight matrix $W_{x}$ & Specifies locality \\[2pt]
+4.2 & \textbf{Definition} LGWLS linear patch $B_{x}$ & First‑order local model \\[2pt]
+4.3 & \textbf{Definition} weighted residuals $R_{x}$, covariance $C_{x}$ & Captures curvature \\[2pt]
+4.4 & \textbf{Lemma} smoothness of $(B_{x},C_{x})$ (spectral gap) & Pre‑req for Rose kernel \\[2pt]
+4.5 & \textbf{Definition} residual eigen‑basis $Q_{x}$ & Second‑order directions (frame field) \\[4pt]
+5.1 & \textbf{Definition} Rose kernel $\rho_\theta$ & Stochastic local transition \\[2pt]
+5.2 & \textbf{Definition} Rose operator $\mathcal R_{\theta}$ & Main spectral object \\[2pt]
+5.3 & \textbf{Lemma} $\mathcal R_{\theta}$ is Markov & Positivity \& mass preservation \\[2pt]
+5.4 & \textbf{Theorem} $\mathcal R_{\theta}$ is Hilbert–Schmidt & Compactness $\Rightarrow$ discrete spectrum \\[2pt]
+5.5 & \textbf{Theorem} perturbation vs.\ Perron–Frobenius & Links Rose to classical operator \\[2pt]
+5.6 & \textbf{Corollary} invariant density $h_\theta$ & Statistical meaning \\[2pt]
+5.7 & \textbf{Theorem} continuous‑time generator limit & Connects to Fokker–Planck form \\[4pt]
+6.1 & \textbf{Lemma} $F(\Psi)\,\mathcal R = \mathcal R\,F(\Psi)$ & Analyses commute with morphology \\[2pt]
+6.2 & \textbf{Nat.\ transf.} $K \Rightarrow \mathcal R_{\theta}$ & Minimal noise extension of Koopman \\[2pt]
+6.3 & \textbf{Remark} pipeline $N\!\circ\!F$ mirrors software modules & Practical coding insight \\[4pt]
+7.1 & \textbf{Algorithmic block} fit / basis‑update / projection & Implementation of LGWLS + Rose \\[2pt]
+7.2 & \textbf{Result} complexity \& caching strategy & Performance guarantees \\[2pt]
+7.3 & \textbf{Diagnostic} empirical smoothness of $Q_{x}$ & Validates frame field numerically \\ \bottomrule
+\end{tabular}
+\caption{Logical roadmap: definitions, lemmas, and proofs needed to connect geometric, categorical, operator‐theoretic, and numerical perspectives.}
+\label{tab:roadmap}
+\end{table}
 
 
 \end{document}

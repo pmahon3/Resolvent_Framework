@@ -1,4 +1,4 @@
-Across nonlinear dynamics, machine learning, and statistical physics, two operator viewpoints dominate: the Koopman perspective, which treats dynamics as deterministic composition on observables, and the Perron–Frobenius (transfer) perspective, which treats evolution as the spreading of densities. Each excels in its own regime but leaves an interpretive gap between “pure chaos” and “pure noise.”
+Across nonlinear dynamics, machine learning, and statistical physics, two operator viewpoints remain prevalent: the Koopman perspective, which treats dynamics as deterministic composition on observables, and the Perron–Frobenius (transfer) perspective, which treats evolution as the spreading of densities. Each excels in its own regime but leaves an interpretive gap between “pure chaos” and “pure noise.”
 
 We propose a bridge: a data‑driven, two‑dial Rose operator family. One dial controls how local the estimated drift is; the other controls how strongly residual variability is interpreted as diffusion. Sweeping the dials traces a continuous surface whose edges recover the Koopman and Perron–Frobenius pictures and whose interior supplies every intermediate mixture.
 

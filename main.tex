@@ -5,10 +5,13 @@
 \usepackage{tcolorbox}
 \usepackage{amsmath,amssymb,amsthm}              
 \usepackage{graphicx}                 
-\usepackage{enumitem}               
-\usepackage{tikz-cd}  
+\usepackage{enumitem}      
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usepackage{tikz-cd}
+
 \usepackage{booktabs}
-\usepackage{algpseudocode}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e} 
 \usepackage{lineno}
 \usepackage[colorlinks]{hyperref}
 \usepackage[symbols,nogroupskip,sort=none]{glossaries-extra}
@@ -39,7 +42,6 @@
 \theoremstyle{remark} 
 \newtheorem{remark}{Remark}[section]
 \newtheorem{example}{Example}[section]
-\newtheorem{algorithm}{Algorithm}[section]
 \newtheorem{assumption}{Assumption}[section]
 
 \begin{document}
@@ -232,7 +234,7 @@ bandwidth scales for engineering clarity.}
 with the following properties:
 
 \begin{enumerate}
-  \item \textbf{Koopman corner}:  
+  \item  
         \(\displaystyle
            \lim_{\theta\to0,\;\sigma\to0}
            \mathcal R_{\theta,\sigma}^{\flat}=K\)  
@@ -241,7 +243,7 @@ with the following properties:
            \lim_{\theta\to0,\;\sigma\to0}
            \mathcal R_{\theta,\sigma}^{\sharp}=P_\delta\)
         (the deterministic PF operator with Dirac kernel).
-  \item \textbf{Maximally diffusive edge}:  
+  \item
         \(\displaystyle
            \lim_{\theta,\sigma\to\infty}
            \mathcal R_{\theta,\sigma}^{\sharp}=P_\infty\)  
@@ -249,7 +251,7 @@ with the following properties:
         kernel is a spatially uniform density, and
         \(\mathcal R_{\theta,\sigma}^{\flat}\) collapses observables to
         the corresponding constant.
-  \item \textbf{Continuity and commutativity}:  
+  \item
         The map \((\theta,\sigma)\mapsto
         (\mathcal R_{\theta,\sigma}^{\flat},
          \mathcal R_{\theta,\sigma}^{\sharp})\) is jointly continuous in
@@ -496,6 +498,40 @@ ordering of the two dials commutes exactly; for general radial kernels
 one obtains the stated error estimate by Young’s inequality.
 \end{proof}
 
+\begin{figure}[h!]
+\centering
+\begin{tikzpicture}[>=stealth,
+                    node distance=4cm,
+                    every node/.style={font=\small}]
+  %--- corner nodes -------------------------------------------
+  \node (K)                     {$(K, P_\delta)$};
+  \node (RthetaInf) [right of=K] {$(R^\flat_{\theta,\infty}, R^\sharp_{\theta,\infty})$};
+  \node (RinfZero) [below of=K]  {$(R^\flat_{\infty,\sigma}, R^\sharp_{\infty,\sigma})$};
+  \node (P)         [right of=RinfZero] {$(P^*_\infty, P_{\infty})$};
+
+  %--- arrows --------------------------------------------------
+  \draw[->] (K)          -- node[above] {$\sigma$} (RthetaInf);
+  \draw[->] (K)          -- node[left]  {$\theta$} (RinfZero);
+  \draw[->] (RthetaInf)  -- node[right] {$\theta$} (P);
+  \draw[->] (RinfZero)   -- node[below] {$\sigma$} (P);
+
+  %--- 2-cell label -------------------------------------------
+  \node at ($(K)!0.5!(P)$) {$\boxed{H(\theta,\sigma)}$};
+
+\end{tikzpicture}
+\caption{Homotopy square for 2-cell (homotopy of homotopies) that continuously deforms the Koopman operator~$K$ into the maximally diffusive transfer operator~$P_\infty$.}
+\label{fig:rose_square}
+\end{figure}
+
+
+
+
+
+
+
+
+
+
 % =============================================================
 \section{Continuous–Time Limit and Stochastic Interpretation}
 \label{sec:continuous_time}
@@ -595,70 +631,227 @@ the Itô SDE, with the discrete Rose operators furnishing time‑\(h\)
 stepping schemes that are consistent with both perspectives.
 \end{remark}
 
-\section{Fitting Algorithm}
+\section{Fitting}
 
-Consider observations of state transition pairs $(y_i, x_i)_{i\in N}$ where $y_i = x_{i+1}$.
+% ------------------------------------------------------------
+\subsection{Bandwidth selection via validation likelihood}
+\label{sec:bandwidth_selection}
+% ------------------------------------------------------------
 
-\begin{algorithm}[H] Data‐Driven Delay Embedding and Pointwise \(\theta\) Selection via Rose+PCA
-\begin{algorithmic}[1]
-\Require Univariate series \(\{x(t)\}\), over‐embed dimension \(D\), grid size \(K\), variance threshold \(\alpha\in(0,1)\).
-\Ensure Reduced dimension \(d\), per‐anchor \(\{\theta_i^*\}\), final residuals \(\{\widetilde r_i\in\mathbb{R}^d\}\), coefficients \(\{\widetilde C_i\in\mathbb{R}^{d\times d}\}\).
+To turn the candidate grid
+\((\theta,\sigma)\in\Theta\times\Sigma\) in
+Algorithm~\ref{alg:rose_fit} into a single “best” pair we minimise the
+\emph{negative Gaussian log-likelihood} on a hold-out set
+\(\mathcal V\subset\{0,\dots,N-1\}\).
+Throughout \(x\) denotes a fixed anchor; superscripts \((\theta,\sigma)\)
+are omitted when clear.
 
-\State \textbf{1. Build full \(D\)-dimensional delay embedding:}
-\For{\(i=1\) to \(N\)} 
-  \State \(\mathbf{x}_i \gets \bigl[x(t_i),\,x(t_i-1),\,x(t_i-2),\,\dots,\,x(t_i-(D-1))\bigr]\in\mathbb{R}^D.\)
-\EndFor
-\State \(E \gets [\mathbf{x}_1;\,\dots;\,\mathbf{x}_N]\in\mathbb{R}^{N\times D}.\)
+% ----------------------------------------------------------------
+\paragraph{Predictive distribution on the validation set.}
+With drift matrix \(C_x^{(\theta)}\), residual mean
+\(\bar r_x^{(\theta,\sigma)}\), and covariance
+\(\Sigma_x^{(\theta,\sigma)}\) computed from the \emph{training} points
+$t\notin\mathcal V$, the one-step prediction for a validation pair
+\((x_t,x_{t+h})\) is Gaussian
+\[
+    x_{t+h}\mid x_t
+      \;\sim\;
+      \mathcal N\!\bigl(
+          \widehat m_t,\;
+          \Sigma_x^{(\theta,\sigma)}
+      \bigr),
+      \qquad
+      \widehat m_t := C_x^{(\theta)}x_t+\bar r_x^{(\theta,\sigma)} .
+\]
 
-\State \text{2. Construct \(\theta\)-grid}
-\State \(\theta \gets [\theta_0 = 0; \ldots ; \theta_K = \theta_{max}]\)
+% ----------------------------------------------------------------
+\paragraph{Per-sample log-likelihood.}
+Up to an additive constant \(\tfrac d2\log 2\pi\) independent of
+\((\theta,\sigma)\), the negative log-likelihood of observing
+\(y=x_{t+h}\) is
+\[
+    \ell_t(\theta,\sigma)
+       = \tfrac12\Bigl[
+              (y-\widehat m_t)^{\!\top}
+                 \Sigma^{-1}(y-\widehat m_t)
+            + \log\det\Sigma
+         \Bigr]
+\]
+\begin{itemize}
+  \item The first term is \emph{Mahalanobis error} that measures how far the prediction misses, normalized by the local covariance.
+  \item The second term penalizes excessively broad covariances that would otherwise drive the Mahalanobis error down.
+\end{itemize}
 
-\State \textbf{4. Compute Rose residuals \(r_{i,k}\in\mathbb{R}^D\):}
-\For{\(i=1\) to \(N\)} 
-  \For{\(k=1\) to \(K\)}
-    \State Fit WLS at \(\mathbf{x}_i\) with kernel scale \(\theta_k\),  
-      forecast next step \(\widehat{\mathbf{x}}_i\).  
-    \State \(r_{i,k}\gets \mathbf{x}(t_i+1)\;-\;\widehat{\mathbf{x}}_i.\)
-  \EndFor
-\EndFor
+% ----------------------------------------------------------------
+\paragraph{Validation loss.}
+Summing \(\ell_t\) over the validation indices gives the criterion
+\[
+   \mathcal L(x;\theta,\sigma)
+     = \sum_{t\in\mathcal V}
+         \Bigl[
+            (x_{t+h}-\widehat m_t)^{\!\top}
+               \Sigma^{-1}(x_{t+h}-\widehat m_t)
+          \;+\;
+            \log\det\Sigma
+         \Bigr]
+\]
+The optimal bandwidths for anchor \(x\) are
+\(
+   (\theta^{\star}(x),\sigma^{\star}(x))
+   =\arg\min_{(\theta,\sigma)}
+         \mathcal L(x;\theta,\sigma)
+\).
+Aggregating the loss across anchors before minimization yields
+global bandwidths \((\theta^{\star},\sigma^{\star})\).
 
-\State \textbf{5. Select pointwise \(\theta_i^*\):}
-\For{\(i=1\) to \(N\)} 
-  \State \(\rho_i(k)\gets \|r_{i,k}\|_2,\quad k_i^*\gets \arg\min_{1\le k\le K} \rho_i(k).\)
-  \State \(\theta_i^* \gets \theta_{k_i^*}.\)
-\EndFor
+% ----------------------------------------------------------------
+\paragraph{Interpretation.}
+\begin{enumerate}
+  \item When \(\theta,\sigma\downarrow0\) in a purely deterministic system, both the Mahalanobis term and \(\log\det\Sigma\) shrink,
+        driving the loss down and reproducing the Koopman limit.
+  \item If irreducible noise is present, shrinking \(\theta\) past the curvature scale stops improving the Mahalanobis term, while \(\log\det\Sigma\) inflates; the optimum stabilizes at a positive
+\(\sigma\), signaling diffusion.
+  \item The loss is proportional to the \emph{cross-entropy} between the empirical distribution of the validation pairs and the Gaussian model induced by \((\theta,\sigma)\); thus minimizing it selects the bandwidths that best balance drift bias, residual variance and uncertainty calibration.
+\end{enumerate}
 
-\State \textbf{6. Collect selected residuals in \(\mathbb{R}^D\):}
-\For{\(i=1\) to \(N\)} 
-  \State \(r_i^* \gets r_{\,i,\,k_i^*}.\)
-\EndFor
-\State \(R^*\gets [\,r_1^*;\,\dots;\,r_N^*]\in\mathbb{R}^{N\times D}.\)
+% ------------------------------------------------------------
+\subsection*{Proof sketches for the validation–loss heuristics}
+% ------------------------------------------------------------
 
-\State \textbf{7. PCA on \(R^*\) to determine reduced dimension \(d\):}
-\State Compute SVD: \(R^* = U\,\Sigma\,V^\top.\)
-\State Choose smallest \(d\) with \(\sum_{j=1}^d \sigma_j^2 \;/\;\sum_{j=1}^D \sigma_j^2 \ge \alpha.\)
-\State \(V_d \gets V[:,1:d]\in\mathbb{R}^{D\times d}.\)
+Throughout, write
+\(
+   \widehat \Sigma:=\Sigma_x^{(\theta,\sigma)},\;
+   \widehat m_t:=C_x^{(\theta)}x_t+\bar r_x^{(\theta,\sigma)}.
+\)
+The validation loss for anchor \(x\) is
+\[
+   \mathcal L(x;\theta,\sigma)
+      =\sum_{t\in\mathcal V}
+        \bigl[
+           (x_{t+h}-\widehat m_t)^{\!\top}
+               \widehat\Sigma^{-1}(x_{t+h}-\widehat m_t)
+           +\log\det\widehat\Sigma
+        \bigr].
+\]
+We take \(h>0\) fixed and consider \(\theta,\sigma\downarrow0\)
+(simultaneously) or \(\theta\downarrow0\) with \(\sigma\) fixed.
 
-\State \textbf{8. Form reduced embedding in \(\mathbb{R}^d\):}
-\For{\(i=1\) to \(N\)} 
-  \State \(\widetilde{\mathbf{x}}_i \gets V_d^\top\,\mathbf{x}_i \in \mathbb{R}^d.\)
-\EndFor
+\paragraph{(1) Deterministic limit \(\theta,\sigma\downarrow0\).}
+Under Assumption~\ref{ass:flow_plus_kernels} the flow is \(C^{2}\), so
+Lemma~\ref{lem:first_order} gives
+\(
+   \|\widehat m_t-T_hx_t\|=O(h\theta)
+\)
+and
+\(
+   \|\widehat\Sigma\|=O(h\theta^{2}+h\sigma^{2})
+\).
+Inserting these into \(\mathcal L\) and using
+\(\widehat\Sigma^{-1}=O\!\bigl((h\theta^{2}+h\sigma^{2})^{-1}\bigr)\),
+each Mahalanobis term is \(O(h\theta^{2}+h\sigma^{2})\) and
+\(\log\det\widehat\Sigma
+      =d\log(h\theta^{2}+h\sigma^{2})+O(1)\).
+Therefore, both contributions decrease monotonically to
+\(0\) as \(\theta,\sigma\to0\), reproducing the Koopman corner.
 
-\State \textbf{9. Re‐fit Rose in \(\mathbb{R}^d\) at \(\theta_i^*\):}
-\For{\(i=1\) to \(N\)} 
-  \State Fit WLS on \(\widetilde{\mathbf{x}}_i\) with scale \(\theta_i^*\),  
-    forecast \(\widehat{\widetilde{\mathbf{x}}}_i\).  
-  \State \(\widetilde r_i \gets \widetilde{x}(t_i+1)\;-\;\widehat{\widetilde{\mathbf{x}}}_i\in\mathbb{R}^d.\)
-  \State Extract coefficient \(\widetilde C_i\in\mathbb{R}^{d\times d}.\)
-\EndFor
+\paragraph{(2) Irreducible noise \((\theta\downarrow0,\;\sigma\text{ fixed})\).}
+Assume the observations satisfy
+\(x_{t+h}=T_hx_t+\eta_t\) with
+\(\eta_t\sim\mathcal N(0,\Sigma_0)\), \(\Sigma_0\succ0\).
+Then
+\(
+   \widehat\Sigma
+      =\Sigma_0+O(h\theta^{2})
+\)
+and
+\(
+   \widehat m_t=T_hx_t+O(h\theta).
+\)
+Shrinking \(\theta\) below the curvature scale
+does not change the leading term \(\Sigma_0\), so
+\(\log\det\widehat\Sigma\) stabilizes, while the Mahalanobis term is
+already \(O(1)\).
+Decreasing \(\sigma\) below the intrinsic noise level
+inflates the Mahalanobis term (under-dispersion), whereas increasing
+\(\sigma\) inflates \(\log\det\widehat\Sigma\) (over-dispersion).  Hence
+the loss attains its minimum at a positive
+\(\sigma^{\star}\approx\sqrt{\operatorname{tr}\Sigma_0}\),
+signalling diffusion.
 
-\State \textbf{10. Save outputs via \(\mathrm{save\_all}\):}
-\State \(\bigl\{\widetilde{r}_i\bigr\}_{i=1}^N,\;\bigl\{\widetilde C_i\bigr\}_{i=1}^N,\;\{t_i\}_{i=1}^N,\;\{\theta_i^*\}_{i=1}^N.\)
+\paragraph{(3) Information–theoretic interpretation.}
+Let
+\(p_{\theta,\sigma}(y\mid x)=
+  \mathcal N(y;\widehat m(x),\widehat\Sigma(x))\)
+denote the Rose kernel, and
+\(q_{\text{emp}}\) the empirical distribution of validation pairs.
+Then up to an additive constant
+\[
+  \frac{1}{|\mathcal V|}\mathcal L(x;\theta,\sigma)
+   = H\!\bigl(q_{\text{emp}},p_{\theta,\sigma}\bigr)
+     = H(q_{\text{emp}})+
+       \mathrm{KL}\!\bigl(q_{\text{emp}}\,\|\,p_{\theta,\sigma}\bigr),
+\]
+where \(H\) is cross-entropy and \(\mathrm{KL}\) the Kullback–Leibler
+divergence.
+Since \(H(q_{\text{emp}})\) is constant in \((\theta,\sigma)\),
+minimising \(\mathcal L\) is equivalent to minimising
+\(\mathrm{KL}\bigl(q_{\text{emp}}\|p_{\theta,\sigma}\bigr)\): the chosen
+bandwidths give the Gaussian model closest (in information distance) to
+the empirical distribution, balancing drift bias, residual variance, and
+uncertainty calibration.
 
-\end{algorithmic}
+
+% ----------------------------------------------------------------
+\paragraph{Robust and regularized variants.}
+Heavy-tailed residuals can be handled by replacing the Mahalanobis
+quadratic with a Huber distance.
+If spatial smoothness of \((\theta^{\star},\sigma^{\star})\) is desired,
+add a penalty \(\gamma (\theta^{-p}+\sigma^{-q})\) to \(\mathcal L\),
+tuning \(\gamma\) by outer cross-validation.
+
+
+% ------------------------------------------------------------
+\begin{algorithm}[H]
+\caption{Rose–kernel fitting with bandwidth selection\label{alg:rose_fit}}
+\DontPrintSemicolon
+\SetAlgoLined
+\KwIn{time-lag pairs $\{(x_t,x_{t+h})\}_{t=0}^{N-1}$;\;
+      candidate locality radii $\Theta=\{\theta_k\}_{k=1}^{K}$;\;
+      residual widths $\Sigma=\{\sigma_\ell\}_{\ell=1}^{L}$;\;
+      hold-out index set $\mathcal V$ (validation)}
+\KwOut{selected $(\theta^{\star}(x),\sigma^{\star}(x))$;\;
+       $C_x^{(\theta^{\star})}$,\;
+       $\Sigma_x^{(\theta^{\star},\sigma^{\star})}$,\;
+       eigenvalues $\{\lambda_i(x)\}$}
+\BlankLine
+\For{$x\in\text{AnchorSet}$}{
+    $\text{bestLoss}\gets\infty$;\;
+    \For{$\theta\in\Theta$}{
+        compute weights $w_t\gets\phi_\theta(\|x_t-x\|)$\;
+        $C\gets(Y W)(X W)^{\dagger}$\;
+        $r_t\gets x_{t+h}-C x_t$\;
+        \For{$\sigma\in\Sigma$}{
+            $g_t\gets g_\sigma(r_t)$,\;
+            form $\Sigma$ and $\bar r$ as in Section~\ref{sec:rose_operator}\;
+            \tcp{--- validation loss ---}
+            $\text{loss}\gets 
+               \displaystyle
+               \sum_{t\in\mathcal V}
+               \bigl\|x_{t+h}-C x_t-\bar r\bigr\|_{\Sigma^{-1}}^{2}
+               +\log\det\Sigma$\;
+            \If{$\text{loss}<\text{bestLoss}$}{
+                 store $\theta^{\star}\leftarrow\theta$,
+                       $\sigma^{\star}\leftarrow\sigma$,
+                       $C_x^{(\theta^{\star})}\leftarrow C$,
+                       $\Sigma_x^{(\theta^{\star},\sigma^{\star})}\leftarrow\Sigma$,
+                       $\text{bestLoss}\leftarrow\text{loss}$\;
+            }
+        }
+    }
+    $\{\lambda_i(x)\}\gets\text{eigvals}\!\bigl(\Sigma_x^{(\theta^{\star},\sigma^{\star})}\bigr)$\;
+}
 \end{algorithm}
-
-
+% ------------------------------------------------------------
 
 \bibliographystyle{plain}
 \bibliography{references}

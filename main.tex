@@ -163,36 +163,110 @@ persistent homology—highlighting a promising intersection of statistical dynam
   \subsection{Organisation of the paper}
 
 \section{Rose kernels and dials}
-  \subsection{Product-form kernels and minimal assumptions (K0–K3)}
-  \subsection{Local–linear residual construction (canonical example)}
-  \subsection{Scaled kernels and notation for the rest of the paper}
+
+ 
+ 	\subsection{Product-form kernels and minimal assumptions (K0–K3)}
+	
+	%-- Displacement notation ----------------------------------
+	\[
+   		z := y-x,  \qquad r := \|z\|.
+	\]
+
+	\begin{assumptionlist}[label=(W\arabic*)]
+		\item \label{W1}(\textbf{Radial weight}) $w:[0,\infty)\to[0,\infty)$ is $C^{1}$, radial, $\int_{\R^{d}} w(\|z\|)\,dz = 1$,  $\int\|z\|^{2} w(\|z\|)\,dz < \infty$, and $w\in L^{2}(\R^{d})$.
+
+		\item \label{W2} (\textbf{Centred residual}) $g:\R^{d}\to[0,\infty)$ is $C^{1}$,  $\int g(z)\,dz = 1$,  $\int z\,g(z)\,dz = 0$, $\int zz^{\top} g(z)\,dz < \infty$,  and $\nabla g\in L^{2}(\R^{d})$.
+	\end{assumptionlist}
+	
+	\begin{definition}[Rose kernel]
+		For $(\theta,\sigma)\in(0,\infty)^{2}$ set
+		\[
+			w_\theta(r):=\theta^{-d}w\!\bigl(r/\theta\bigr),  \quad g_\sigma(z):=\sigma^{-d}g\!\bigl(z/\sigma\bigr), \quad k_{\theta,\sigma}(y\mid x):=  \frac{w_\theta(\|x-y\|)\,g_\sigma(y-x)} {\displaystyle\int_X w_\theta(\|x-y'\|)\,g_\sigma(y'-x)\,dy'} 
+		\]
+	\end{definition}
+
+	\begin{assumptionlist}[label=(K\arabic*)]
+		\item \label{K0} (\textbf{Markov}) $k_{\theta,\sigma}(y\mid x)\ge0$ and $\int_X k_{\theta,\sigma}(y\mid x)\,dy = 1$.
+
+		\item \label{K1} (\textbf{Score in $L^{2}$}) $S_{\theta,\sigma}(y\mid x):=\nabla_y\log k_{\theta,\sigma}(y\mid x) \in L^{2}(dy\,dx)$.
+		
+		\item \label{K2} (\textbf{Second-moment scaling}) $\displaystyle\int_X\|y-x\|^{2}k_{\theta,\sigma}(y\mid x)\,dy = O(\theta^{2})$ as $\theta\downarrow 0$.
+
+		\item \label{K3} (\textbf{$C^{1}$ in dials}) $\partial_\theta\log k_{\theta,\sigma},  \partial_\sigma\log k_{\theta,\sigma}\in L^{2}(dy\,dx)$.
+	\end{assumptionlist}
+	
+  	\subsection{Local–linear residual construction (canonical example)}
+ 	\subsection{Scaled kernels and notation for the rest of the paper}
 
 \section{Population theory}
   %-------- assumption block -------------
-  \begin{assumptionbox}
-    (K0)–(K2) as in Sec. 3.0 — Markov, score $L^2$, second-moment scaling.
-  \end{assumptionbox}
+  	\begin{assumptionbox}
+    		(K0)–(K2) as in Sec. 3.0 — Markov, score $L^2$, second-moment scaling.
+ 	 \end{assumptionbox}
 
-  \subsection{CGF $\Rightarrow$ Fisher $\Rightarrow$ Landau}
-    % include 6–8 line boxed “Legendre dual = Landau” reminder
-  \subsection{Fisher–curvature–entropy bridge}
-  \subsection{Introducing the dial plane}
-    \begin{assumptionbox}
-      (K3) C$^1$ regularity in $(\theta,\sigma)$
-    \end{assumptionbox}
-  \subsection{KL gradient and the \emph{little-rose} optimiser}
-  \subsection{Why it matters (P1–P5 summary)}
+  	\subsection{CGF $\Rightarrow$ Fisher $\Rightarrow$ Landau}
+		\begin{definition}[One–step CGF]\label{def:CGF}
+			% as in backbone
+		\end{definition}
+
+		\begin{proposition}[CGF–Fisher correspondence]\label{prop:CGF}
+			% statement only
+		\end{proposition}
+
+		\begin{remark}[Legendre dual = Landau stiffness]
+			A two–line box reminding readers that the Legendre transform of $\Lambda$ yields a quadratic Landau free energy.
+		\end{remark}
+
+  	\subsection{Fisher–curvature–entropy bridge}
+  
+  		\begin{lemma}[Curvature identity]\label{lem:curv}
+			% statement
+		\end{lemma}
+
+		\begin{lemma}[Discrete de Bruijn]\label{lem:deBruijn}
+			% statement
+		\end{lemma}
+
+		\begin{theorem}[Fisher–curvature–entropy bridge]\label{thm:bridge}
+			% statement
+		\end{theorem}
+
+ 	 \subsection{Introducing the dial plane}
+		\begin{assumptionbox}
+ 			 \textbf{(K\arabic{assumption}) C$^{1}$ regularity in dials.} The maps $(\theta,\sigma)\mapsto\log k_{\theta,\sigma}$ are $C^{1}$ …
+		\end{assumptionbox}
+	
+  	\subsection{KL gradient and the \emph{little-rose} optimiser}
+  
+  		\begin{theorem}[KL gradient]\label{thm:KL}
+			% statement
+		\end{theorem}
+
+		\begin{definition}[Little‑rose]\label{def:littleRose}
+			% statement
+		\end{definition}
+
+		\begin{corollary}[Unified optimality]\label{cor:opt}
+			% statement
+		\end{corollary}
+	
+ 	 \subsection{Why it matters (P1–P5 summary)}
 
 \section{Finite-sample dial selection}
-  \subsection{Goldenshluger–Lepski selector}
-  \subsection{Risk bounds for PF and Koopman estimates}
-  \subsection{Illustrative experiment}
-    % one synthetic or real example; plots, error curves
+ 	\subsection{Goldenshluger–Lepski selector}
+ 	 \subsection{Risk bounds for PF and Koopman estimates}
+  
+  		\begin{theorem}[GL selector, risk bound]\label{thm:GL}
+			% statement
+		\end{theorem}
+	
+ 	 \subsection{Illustrative experiment}
+   		 % one synthetic or real example; plots, error curves
 
 \section{Discussion and Outlook}
-  \subsection{What we achieved}
-  \subsection{Dial-graph viewpoint and future TDA work}
-  \subsection{Other open directions (entropy production, curvature flow, etc.)}
+ 	 \subsection{What we achieved}
+ 	 \subsection{Dial-graph viewpoint and future TDA work}
+ 	 \subsection{Other open directions (entropy production, curvature flow, etc.)}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendices

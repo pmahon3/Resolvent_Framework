@@ -264,9 +264,36 @@ persistent homology—highlighting a promising intersection of statistical dynam
    		 % one synthetic or real example; plots, error curves
 
 \section{Discussion and Outlook}
- 	 \subsection{What we achieved}
- 	 \subsection{Dial-graph viewpoint and future TDA work}
- 	 \subsection{Other open directions (entropy production, curvature flow, etc.)}
+	\subsection{Key implications}   % ← distilled pay-off list P1–P4
+		\begin{enumerate}[label=\textbf{(I\arabic*)},leftmargin=*]
+ 			\item \textbf{Unified diagnostic of fluctuation strength}\\ The Fisher load $\mathcal I_{\theta,\sigma}$ is \emph{simultaneously} the variance coefficient, the synthetic–curvature prefactor, and the entropy–production rate.  A single dial pair $(\theta, \sigma)$ governs them all.
+			
+			\item \textbf{Automatic bias–variance balance}\\ 
+				Steepest descent of $\mathrm{KL}(\mu_1\parallel k_{\theta,\sigma}\!\#\mu_0)$ is steepest \emph{ascent} of $\mathcal I_{\theta,\sigma}$, so the statistically most informative kernel is found with no cross-validation.
+			
+			\item \textbf{One-step Schrödinger bridge}\\ 
+				The little-rose kernel realises the discrete entropic transport $\mu_0\!\to\!\mu_1$, linking operator learning to optimal-transport theory.
+			
+			\item \textbf{Landau lens on data}\\
+				The Legendre transform of the CGF equips any observable with a Landau-type free-energy landscape whose stiffness is data-computable.
+		\end{enumerate}
+
+	\subsection{Future directions}
+  		% brief notes on directed curvature, TDA, entropy cycles, etc.
+		
+		\begin{enumerate}[label=\textbf{(F\arabic*)},leftmargin=*]
+ 			
+			 \item \textbf{Directed discrete curvature}\\
+        				Dial matrices $(\Theta_{ij},\Sigma_{ij})$ define a doubly-weighted digraph, opening analytic work on Ollivier/Bakry–Émery curvature for non-reversible kernels.
+				
+			\item \textbf{Multiparameter persistent homology}\\
+				The two weights furnish a natural bifiltration, inviting multi-parameter TDA of dynamical data sets.
+		\end{enumerate}
+
+	\subsection{Limitations}
+  		% e.g. local bandwidth assumption, high-dim sparsity
+
+	\subsection{Conclusion}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Appendices

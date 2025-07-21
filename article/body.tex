@@ -1,0 +1,467 @@
+\section{Rose kernels and dials}
+
+ 
+ 	\subsection{Product-form kernels and minimal assumptions}
+	
+		%-- Displacement notation ----------------------------------
+		\[
+   			z := y-x,  \qquad r := \|z\|.
+		\]
+
+		\begin{assumptionlist}[label=(W\arabic*)]
+			\item \label{W1}(\textbf{Radial weight}) $w:[0,\infty)\to[0,\infty)$ is $C^{1}$, radial, $\int_{\R^{d}} w(\|z\|)\,dz = 1$,  $\int\|z\|^{2} w(\|z\|)\,dz < \infty$, and $w\in L^{2}(\R^{d})$.
+
+			\item \label{W2} (\textbf{Centred residual}) $g:\R^{d}\to[0,\infty)$ is $C^{1}$,  $\int g(z)\,dz = 1$,  $\int z\,g(z)\,dz = 0$, $\int zz^{\top} g(z)\,dz < \infty$,  and $\nabla g\in L^{2}(\R^{d})$.
+			
+		\end{assumptionlist}
+	
+		\begin{definition}[Rose kernel]\label{def:RoseKernel}
+			For $(\theta,\sigma)\in(0,\infty)^{2}$ set
+			\[
+				w_\theta(r):=\theta^{-d}w\!\bigl(r/\theta\bigr),  \quad g_\sigma(z):=\sigma^{-d}g\!\bigl(z/\sigma\bigr), \quad k_{\theta,\sigma}(y\mid x):=  \frac{w_\theta(\|x-y\|)\,g_\sigma(y-x)} {\displaystyle\int_X w_\theta(\|x-y'\|)\,g_\sigma(y'-x)\,dy'} 
+			\]
+		\end{definition}
+		
+		\begin{lemma}[Normalisation and basic bounds]\label{lem:k-norm-bounds}
+			Under Assumptions~\ref{W1}--\ref{W2}
+			the expression in Definition~\ref{def:RoseKernel} defines a
+			measurable Markov transition density $k_{\theta,\sigma}(y\mid x)$:
+			\[
+  				0 \le k_{\theta,\sigma}(y\mid x) \le
+  				\frac{w_\theta(\|x-y\|)\,g_\sigma(y-x)}{\inf_{x}\!Z_{\theta,\sigma}(x)},
+  				\qquad
+  				\int_X k_{\theta,\sigma}(y\mid x)\,d\mu(y)=1,
+			\]
+			where $Z_{\theta,\sigma}(x)$ is the denominator in
+			Definition~\ref{def:RoseKernel} and satisfies
+			$0<\inf_x Z_{\theta,\sigma}(x)\le \sup_x Z_{\theta,\sigma}(x) < \infty$.
+		\end{lemma}
+
+		\begin{assumptionlist}[label=(K\arabic*)]
+			\item \label{K0} (\textbf{Markov}) $k_{\theta,\sigma}(y\mid x)\ge0$ and $\int_X k_{\theta,\sigma}(y\mid x)\,dy = 1$.
+
+			\item \label{K1} (\textbf{Score in $L^{2}$}) $S_{\theta,\sigma}(y\mid x):=\nabla_y\log k_{\theta,\sigma}(y\mid x) \in L^{2}(dy\,dx)$.
+		
+			\item \label{K2} (\textbf{Second-moment scaling}) $\displaystyle\int_X\|y-x\|^{2}k_{\theta,\sigma}(y\mid x)\,dy = O(\theta^{2})$ as $\theta\downarrow 0$.
+
+			\item \label{K3} (\textbf{$C^{1}$ in dials}) $\partial_\theta\log k_{\theta,\sigma},  \partial_\sigma\log k_{\theta,\sigma}\in L^{2}(dy\,dx)$.
+		\end{assumptionlist}
+	
+  	\subsection{Local–linear residual construction (canonical example)}
+	
+ 	\subsection{Scaled kernels and notation for the rest of the paper}
+	
+	\subsection{Neutral (reversible) Rose operator}
+	
+		\begin{itemize}[nosep,leftmargin=*]
+      			\item Define $k^{\natural}(y\mid x)=\tfrac12[k(y\mid x)+k(x\mid y)]$.
+      			\item Self‑adjoint \(\mathcal R^{\natural}\); serves as equilibrium baseline.
+    		\end{itemize}
+
+\section{Population theory}
+  %-------- assumption block -------------
+  	\begin{assumptionbox}
+    		(K0)–(K2) as in Sec. 3.0 — Markov, score $L^2$, second-moment scaling.
+ 	 \end{assumptionbox}
+
+  	\subsection{CGF $\Rightarrow$ Fisher $\Rightarrow$ Landau}
+		\begin{definition}[One–step CGF]\label{def:CGF}
+			% as in backbone
+		\end{definition}
+		
+		\begin{definition}[Symmetric Fisher load]\label{def:Fisher-load}
+			Given a Rose kernel $k_{\theta,\sigma}(y\mid x)$ with score
+			$S_{\theta,\sigma}(y\mid x):=\nabla_y\log k_{\theta,\sigma}(y\mid x)$
+			and anchor/target measures $\mu_0,\mu_1$,
+			define for $f\in W^{1,2}(X,\mu)$
+			\[
+  				\mathcal I_{\theta,\sigma}[f]
+  				\;:=\;
+  				\iint_{X\times X}
+    				\big\langle \nabla f(y),\,S_{\theta,\sigma}(y\mid x)\big\rangle^{2}
+    				\,d\mu_0(x)\,d\mu_1(y).
+			\]
+			Similarly, for a density $\rho\ll\mu$,
+			\[
+ 				\mathcal I_{\theta,\sigma}[\rho]
+  				\;:=\;
+ 				 \iint_{X\times X}
+    				\big\langle \nabla\log\rho(y),\,S_{\theta,\sigma}(y\mid x)\big\rangle^{2}
+    				\,d\mu_0(x)\,d\mu_1(y).
+			\]
+		\end{definition}
+
+		\begin{proposition}[CGF–Fisher correspondence]\label{prop:CGF}
+			For every $(\theta,\sigma)\in(0,\infty)^2$ and every centred observable
+			$f\in W^{1,2}(X,\mu)$,
+			\[
+  				\Lambda_{\theta,\sigma}(\lambda;f)
+				= \frac{\lambda^{2}}{2}\,\mathcal I_{\theta,\sigma}[f]
+    				+ O(\lambda^{3}),
+  				\qquad \lambda\to0,
+			\]
+			where
+			\(
+  				\mathcal I_{\theta,\sigma}[f]
+  		 		= \iint\!\langle\nabla f(y),S_{\theta,\sigma}(y\mid x)\rangle^{2}\,
+     				d\mu_0(x)\,d\mu_1(y).
+			\)
+		\end{proposition}
+
+
+		\begin{remark}[Legendre dual = Landau stiffness]
+			A two–line box reminding readers that the Legendre transform of $\Lambda$ yields a quadratic Landau free energy.
+		\end{remark}
+	
+	\subsection{Dirichlet energy as common source}
+     		\begin{definition}[Symmetrised kernel and Dirichlet form]\label{def:Dirichlet}
+			Let
+				$k^{\natural}_{\theta,\sigma}(y\mid x):=
+				\frac12\bigl(k_{\theta,\sigma}(y\mid x)+k_{\theta,\sigma}(x\mid y)\bigr)$
+			and let $\mu_\natural$ be any reference measure absolutely continuous
+			w.r.t.\ both $\mu_0$ and $\mu_1$ (often $\mu_\natural=\tfrac12(\mu_0+\mu_1)$).
+			Define the associated Dirichlet form
+			\[
+ 				 \mathcal E_{\theta,\sigma}(f)
+  				:=
+  				\frac12
+  				\iint_{X\times X}
+   			 	\bigl(f(y)-f(x)\bigr)^{2}
+    				\,k^{\natural}_{\theta,\sigma}(y\mid x)\,
+    				d\mu_\natural(x)\,d\mu_\natural(y).
+			\]
+		\end{definition}
+		
+		\begin{lemma}[Fisher load from Dirichlet energy]\label{lem:I-from-E}
+			Under Assumptions~\ref{K0}--\ref{K2},
+			there exists a dial-dependent coefficient $c_{\theta,\sigma}>0$ such that
+			\[
+ 				\mathcal I_{\theta,\sigma}[f]
+  				\;=\;
+  				c_{\theta,\sigma}\,\mathcal E_{\theta,\sigma}(f)
+ 			 	\;+\; o(1)
+  				\qquad (\theta\downarrow0),
+			\]
+			with $c_{\theta,\sigma}
+  			= 4/\theta^{2} + o(\theta^{-2})$ in the isotropic small-locality regime.
+		\end{lemma}
+     
+     	\subsection*{Remark: Reversible baseline and operator split}
+     	% 5‑line remark splitting $\mathcal R^{\flat}=\mathcal R^{\natural}+A$
+
+  	\subsection{Fisher–curvature–entropy bridge}
+  
+		\begin{lemma}[Iterated carré–du–champ]\label{lem:curv}
+			Under Assumptions~\ref{K0}–\ref{K2}, for every
+			$f\in W^{1,2}(X,\mu)$,
+			\[
+  				\Gamma_{2}^{(\theta,\sigma)}(f)
+  				= \frac{\theta^{2}}{2}\,
+   				\mathcal I_{\theta,\sigma}[f] + o(\theta^{2}),
+  				\qquad \theta\downarrow0 .
+			\]
+		\end{lemma}
+
+		\begin{lemma}[Discrete de Bruijn Identity]\label{lem:deBruijn}
+			Fix $\theta>0$.  
+			For every density $\rho\ll\mu$ with $\mathcal I_{\theta,\sigma}[\rho]<\infty$,
+			\[
+  				\frac{d}{d\sigma}
+  				H\!\bigl(R^{\sharp}_{\theta,\sigma}\rho\bigr)
+  				= -\frac12\,\mathcal I_{\theta,\sigma}[\rho],
+  				\qquad \sigma>0 .
+			\]
+		\end{lemma}
+
+
+		\begin{theorem}[Fisher–curvature–entropy bridge]\label{thm:bridge}
+			With Assumptions~\ref{K0}–\ref{K2},
+			\[
+ 		 		\boxed{\;
+    				\mathcal I_{\theta,\sigma}
+    				= \frac{2}{\theta^{2}}\,
+        				\Gamma_{2}^{(\theta,\sigma)}
+    				= -2\,\frac{d}{d\sigma}
+        				H\!\bigl(R^{\sharp}_{\theta,\sigma}\rho\bigr)
+ 		 		\;}
+  				\;+\; o(1).
+			\]
+		\end{theorem}
+		
+		\begin{corollary}[Discrete fluctuation--dissipation]\label{cor:FDT}
+			Combine Lemma~\ref{lem:curv} and Lemma~\ref{lem:deBruijn}.
+			In the small--locality regime $\theta\downarrow0$,
+			the response coefficient obtained by differentiating the
+			one--step entropy $H(R^{\sharp}_{\theta,\sigma}\rho)$ w.r.t.\ the
+			noise dial $\sigma$ equals (up to the universal factor $2/\theta^{2}$)
+			the curvature prefactor $\Gamma_{2}^{(\theta,\sigma)}(f)$, i.e.
+			\[
+  				\frac{d}{d\sigma}H\bigl(R^{\sharp}_{\theta,\sigma}\rho\bigr)
+  				\;=\;
+  				-\frac{1}{\theta^{2}}\,
+   				\Gamma_{2}^{(\theta,\sigma)}(f)
+  				\;+\; o(1).
+			\]
+			Thus fluctuations (Fisher load) determine dissipation (entropy
+			production) in exact analogy with the Onsager reciprocal relations.
+		\end{corollary}
+		
+	\subsection{Discrete Onsager--Machlup functional}\label{subsec:OM}
+		\begin{corollary}[Discrete OM action]\label{cor:action}
+			Let $\mathbf x=(x_0,\dots,x_n)$ be a trajectory sampled every $h$ and
+			let $k_{\theta,\sigma}$ satisfy \textnormal{(K0)--(K2)}.
+			With local drift $m_\theta$ and quadratic forms
+			$\Gamma_t^{2}:=\Gamma^{(\theta,\sigma)}_2(f_t)$,
+			$\dot H_t:=\partial_\sigma H(R^{\sharp}_{\theta,\sigma}\rho_t)$,
+			\[
+  				\mathcal A_{\theta,\sigma}[\mathbf x]
+				\;=\;
+    				\frac{1}{\theta^{2}}\sum_{t}\Gamma_t^{2}
+   				\;-\;
+    				\frac{1}{\sigma^{2}}\sum_{t}\dot H_t
+    				\;+\; o(1)
+			\]
+			as $(\theta,\sigma)\!\downarrow0$.  If $k=k^{\natural}$ and
+			$\sigma^{2}=2Dh$ with $h\to0$, this reduces to the classical
+			continuous Onsager--Machlup functional.
+		\end{corollary}
+
+		\begin{remark}[Data‑driven OM]\label{rem:datadrivenOM}
+			Any consistent drift estimate (e.g. LWLS–1) may replace $m_\theta$
+			without changing the quadratic structure of
+			$\mathcal A_{\theta,\sigma}[\mathbf x]$.
+		\end{remark}
+
+	%---------------------------------------------------------------------------
+	% Deterministic limit & KL ⇔ least action
+	%---------------------------------------------------------------------------
+
+	\subsection{Deterministic limit and least–action equivalence}
+		\begin{remark}[Classical Lagrangian limit]\label{rem:classical_L}
+			In the joint limit $\theta,h\to0$ with $\sigma^{2}=2Dh$, the discrete
+			action density converges to
+			$\tfrac{1}{4D}\!\int_{0}^{T}\|\dot x(t)-b(x(t))\|^{2}dt$,
+			the standard Onsager–Machlup Lagrangian for diffusions.
+		\end{remark}
+
+		\begin{theorem}[KL--least–action equivalence]\label{thm:KL_eq_action}
+			For every Rose kernel $k_{\theta,\sigma}$ let
+				\[
+  					J(\theta,\sigma)
+  					:= \mathrm{KL}\!\bigl(\mu_1 \,\Vert\, k_{\theta,\sigma}\!\#\mu_0\bigr),
+ 			 		\qquad
+ 					 \mathcal A_{\theta,\sigma}^{\mathrm{pop}}
+  					:= \E_{\mu_0}\bigl[\mathcal A_{\theta,\sigma}[X_{0:n}]\bigr]
+				\]
+				denote, respectively, the population Kullback–Leibler functional and the
+				population Onsager–Machlup action introduced in
+				Corollary~\ref{cor:action}.
+				Under Assumptions \textnormal{(K0)--(K3)}
+				\[
+  					\boxed{\;
+    					\nabla_{(\theta,\sigma)} J
+    					\;=\;
+   					\nabla_{(\theta,\sigma)} \mathcal A_{\theta,\sigma}^{\mathrm{pop}}
+  					\;}
+ 	 				\quad\text{for all }(\theta,\sigma)\in(0,\infty)^2.
+				\]
+		\end{theorem}
+		
+		\begin{remark}
+		The pair
+		\[
+  			(\theta^{\star},\sigma^{\star})
+  			:=\arg\min_{(\theta,\sigma)} J(\theta,\sigma)
+ 		 	= \arg\min_{(\theta,\sigma)} \mathcal A_{\theta,\sigma}^{\mathrm{pop}}
+		\]
+		maximises the likelihood of the observed path ensemble within the two‑dial Rose family; 
+		equivalently, it minimises the expected Onsager–Machlup action. Hence trajectories 
+		generated under the little‑rose kernel are the most probable (in the maximum‑likelihood 
+		sense) among all trajectories that can be produced by Rose kernels.
+		\end{remark}
+
+
+ 	 \subsection{Introducing the dial plane}
+		\begin{assumptionbox}
+ 			 \textbf{(K4) C$^{1}$ regularity in dials.}
+			$(\theta,\sigma)\mapsto\log k_{\theta,\sigma}$ is $C^{1}$ and
+			$\partial_\theta\log k_{\theta,\sigma},
+			\partial_\sigma\log k_{\theta,\sigma}\in L^{2}(d\mu_0d\mu_1)$.
+		\end{assumptionbox}
+	
+	\subsection{Edge‑wise dial oracle}  % ← moved up
+		\begin{assumptionbox}[frametitle={Oracle axioms}]
+			\begin{enumerate}[label=\textbf{(A\arabic*)},leftmargin=*]
+ 		 		\item \emph{Reversibility consistency.}
+       					If $k(y\mid x)=k(x\mid y)$ then ${\cal O}(x_i,x_j)={\cal O}(x_j,x_i)$.
+ 	 			\item \emph{Permutation equivariance.}
+      					${\cal O}(\pi(i),\pi(j))={\cal O}(x_i,x_j)$ for any permutation $\pi$.
+  				\item \emph{Strict‑convex minimal risk.}
+        					${\cal O}(x_i,x_j)=\arg\min_{(\theta,\sigma)}\mathcal J_{ij}(\theta,\sigma)$ with $\mathcal J$ strictly convex.
+				\item\label{A4}\textbf{Positive empirical mass.}  
+      					Empirical anchor weights satisfy $\displaystyle\inf_{i\in V}\,\widehat{\mu}_0(i)\;>\;0$.
+			\end{enumerate}
+		\end{assumptionbox}
+		
+		\begin{definition}[Edge KL functional]\label{def:edge-KL}
+			Given observed transitions from anchor $x_i$,
+			let $\widehat{k}_{ij}$ denote the empirical conditional probability that
+			a step from $x_i$ lands in $x_j$.
+			Define the edge-wise KL at dials $(\theta,\sigma)$:
+			\[
+  				\mathcal J_{ij}(\theta,\sigma)
+  				:=
+  				\sum_{j}
+    				\widehat{k}_{ij}\,
+    				\log\frac{\widehat{k}_{ij}}{k_{\theta,\sigma}(x_j\mid x_i)}.
+			\]
+			(For continuous $X$, replace the sum by an integral against the
+			empirical conditional measure $\widehat{k}_{i}$.)
+		\end{definition}
+		
+		\begin{proposition}[Edge‑wise KL gradient]\label{prop:edgeKLgrad}
+			For every ordered pair $(x_i,x_j)$ and all $(\theta,\sigma)$,
+			\[
+  				\nabla_{(\theta,\sigma)}
+  				\mathcal J_{ij}(\theta,\sigma)
+  				= -\frac12\,
+    				\nabla_{(\theta,\sigma)}
+    				\mathcal I_{ij}(\theta,\sigma).
+			\]
+			Consequently the oracle dials
+			$(\theta^{\star}_{ij},\sigma^{\star}_{ij})$ maximise the Fisher load
+			and minimise the edge‑wise KL.
+		\end{proposition}
+
+
+		\begin{definition}[Little‑rose operator]\label{def:littleRose}
+			Assign each edge its oracle dials $(\theta_{ij}^{\star},\sigma_{ij}^{\star})$ and denote by $\mathcal R_{\star}^{\flat/\sharp}$ the resulting pull‑back and push‑forward operators.  We call this pair the \emph{little‑rose} operator.
+		\end{definition}
+
+	\subsection{Global KL gradient corollary}
+		\begin{corollary}[Global KL gradient]\label{cor:globalKL}
+			Summing Proposition~\ref{prop:edgeKLgrad} over all edges with weights $\mu_0(i)$ yields
+			\[
+  				\nabla_{(\theta,\sigma)}
+  				\mathrm{KL}\!\bigl(\mu_1
+        				\parallel k_{\theta,\sigma}\!\#\mu_0\bigr)
+ 				= -\;\tfrac12\,
+   				\nabla_{(\theta,\sigma)}
+    				\mathcal I_{\theta,\sigma},
+			\]
+			hence the little‑rose operator is the unique minimiser of KL and maximiser of the Fisher load.
+		\end{corollary}
+
+\section{Finite-sample dial selection}
+ 	\subsection{Goldenshluger–Lepski selector}
+	
+		\begin{lemma}[Bias--variance decomposition]\label{lem:bv}
+			For either PF or Koopman risk,
+			\[
+ 	 			\E\,\widehat{\mathcal R}^{\square}(\theta,\sigma)
+ 			 	\;=\;
+  				\mathrm{Bias}^{2}_{\square}(\theta,\sigma)
+  				\;+\;
+  				\mathrm{Var}_{\square}(\theta,\sigma),
+			\]
+			where the bias term is the squared $L^{2}$ distance between the
+			population Rose operator at $(\theta,\sigma)$ and the “oracle” operator
+			that best fits the data class, and the variance term scales as
+			\[
+  				\mathrm{Var}_{\square}(\theta,\sigma)
+  				\;\lesssim\;
+  				\frac{ \mathrm{trace}\bigl(\Sigma_{\theta,\sigma}^{\square}\bigr) }{n_{\mathrm{eff}}(\theta)},
+			\]
+			with an effective sample size $n_{\mathrm{eff}}(\theta)$ determined by the
+			local weight $w_\theta$ (see Appendix~\ref{app:GL}).
+		\end{lemma}
+  
+  		\begin{theorem}[GL selector: non‑asymptotic risk]\label{thm:GL}
+			Let $\widehat{\theta},\widehat{\sigma}$ be chosen by the GL rule
+			with penalty parameter $\alpha$. Then with probability at least
+			$1-\delta$,
+			\[
+  				\mathcal R\bigl(\widehat{\theta},\widehat{\sigma}\bigr)
+ 				\;\le\;
+  				C_{\alpha}\,\inf_{(\theta,\sigma)\in\mathcal G}
+      				\mathcal R(\theta,\sigma)
+  				\;+\;
+  				C\frac{\log(1/\delta)}{n},
+			\]
+			where $\mathcal R$ denotes either PF or Koopman $L^{2}$‑risk and
+			$C_{\alpha},C$ are explicit constants (see Appendix~\ref{app:GL}).
+		\end{theorem}
+		
+		\begin{definition}[Sample risks]\label{def:sample-risk}
+			Let $\widehat{R}^{\sharp}_{\theta,\sigma}$ and
+			$\widehat{R}^{\flat}_{\theta,\sigma}$ denote the empirical PF and
+			Koopman estimators built from the sample.
+			Given a test class $\mathcal F\subset L^{2}(X,\mu)$ and
+			$\mathcal P\subset L^{1}(X,\mu)$ define
+			\[
+				\widehat{\mathcal R}^{\mathrm{PF}}(\theta,\sigma)
+  				:= \sup_{\rho\in\mathcal P}
+       				\big\| \widehat{R}^{\sharp}_{\theta,\sigma}\rho
+            			- R^{\sharp}_{\theta,\sigma}\rho \big\|_{L^{2}}^{2},
+ 				 \qquad
+  				\widehat{\mathcal R}^{\mathrm{K}}(\theta,\sigma)
+  				:= \sup_{f\in\mathcal F}
+       				\big\| \widehat{R}^{\flat}_{\theta,\sigma}f
+            			- R^{\flat}_{\theta,\sigma}f \big\|_{L^{2}}^{2}.
+			\]
+		\end{definition}
+
+\section{Directed curvature and reversibility diagnostics}
+	\subsection{Curvature proxy on the dial graph}
+	\subsection{Irreversibility measure via antisymmetric current}
+	
+		\begin{definition}[Antisymmetric weight \& current]\label{def:Aij}
+			For a Rose kernel $k_{\theta,\sigma}$ define the log--ratio antisymmetry
+			\[
+  				A_{ij} := \frac12
+ 		 		\Bigl(
+    					\log k_{\theta,\sigma}(x_j\mid x_i)
+    					- \log k_{\theta,\sigma}(x_i\mid x_j)
+ 				\Bigr)
+			\]
+			Given a reference mass $\pi_i>0$ on vertices (e.g.\ stationary or
+			empirical mass), the probability current is
+			\[
+  				J_{ij} := \pi_i k_{\theta,\sigma}(x_j\mid x_i)
+         	 		- \pi_j k_{\theta,\sigma}(x_i\mid x_j),
+			\]
+			satisfying $J_{ij}=-J_{ji}$.
+			Detailed balance holds iff all $A_{ij}=0$ (equivalently $J_{ij}=0$).
+		\end{definition}
+		
+		\begin{lemma}[Graph Helmholtz split]\label{lem:graph-Helmholtz}
+			Let $J$ be an antisymmetric edge flow on a finite connected graph
+			$(V,E)$ with vertex weights $\pi$.
+			Then there exists a potential $\phi:V\to\R$ and a cycle flow
+			$h\in \ker B^{\top}$ (where $B$ is the weighted incidence matrix)
+			such that
+			\[
+  				J_{ij} = \pi_i k^{\natural}_{ij}(\phi_j-\phi_i) + h_{ij},
+			\]
+			with $\sum_{j} \pi_i k^{\natural}_{ij}(\phi_j-\phi_i)=0$ at stationarity.
+			The decomposition is unique up to an additive constant in $\phi$.
+			Moreover $h=0$ iff detailed balance holds.
+		\end{lemma}
+	
+		\begin{remark}[Loschmidt symmetry and the Fisher clock]
+ 			Setting every antisymmetric weight to zero, $A_{ij}=0$, collapses the
+ 			kernel to its neutral form $k^{\natural}$ and makes the Rose operator
+  			exactly time–reversal symmetric, matching Loschmidt’s objection to
+  			irreversible entropy growth.
+
+  			Turning on any $A\neq0$ injects a directed cycle curvature
+  			$F=\sum_{\text{cycle}}A$, and the Fisher–curvature–entropy bridge
+  			(Thm.~\ref{thm:bridge}) yields
+ 			 \[
+     				F \;=\; \frac{1}{2}\,\mathcal I_{\theta,\sigma}\;=\; \text{entropy production per step}.
+  			\]
+  			A non‑zero curvature therefore acts as an intrinsic \emph{Fisher
+  			clock}—time emerges only once detailed balance is broken.  In the
+  			Loschmidt‑symmetric limit $A\!\to\!0$ the clock halts and the macroscopic
+  			arrow of time disappears.
+		\end{remark}

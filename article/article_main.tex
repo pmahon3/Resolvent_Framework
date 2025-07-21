@@ -1,0 +1,123 @@
+\documentclass{article}
+\usepackage{subfiles}
+
+\input{../macros.tex}
+
+\begin{document}
+
+\title{Geometry, Entropy, and Operator Learning with Tunable Kernels}
+\author{Patrick S. Mahon}
+\maketitle
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Main paper skeleton
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{abstract}
+	We study a two-dial family of kernels  
+	\[
+  		k_{\theta,\sigma}(y\mid x)
+    		\propto w_\theta\!\bigl(\|x-y\|\bigr)\;
+      		g_\sigma(y-x),
+	\]
+	whose product form covers any radial weight \(w_\theta\) and centred
+	residual density \(g_\sigma\) that satisfy minimal smoothness and
+	moment conditions.  To give the theory a concrete footing—and to obtain
+	closed-form bias constants in our finite-sample analysis—we instantiate
+	this family with a data-adaptive \emph{local-linear} construction, but
+	all results hold for the broader class.
+
+	For every observable \(f\) we compute the one-step cumulant-generating
+	function (CGF) and show that its quadratic coefficient
+	\(
+  		\mathcal I_{\theta,\sigma}[f]
+	\)
+	serves simultaneously as  
+	(i) a \emph{Fisher load},  
+	(ii) \(\tfrac{2}{\theta^{2}}\) times the synthetic Ricci curvature
+	\(\Gamma_{2}^{(\theta,\sigma)}(f)\), and  
+	(iii) \(-2\,\partial_{\sigma}\) of the one-step Shannon entropy.
+	This \emph{Fisher–curvature–entropy bridge} yields a single quadratic
+	objective whose minimiser in the dial plane,
+	\((\theta^{\star},\sigma^{\star})\)—the \emph{little-rose}—optimises
+	curvature bias, entropy production, and operator-learning risk at once.	
+	We prove
+	\[
+  		\nabla_{(\theta,\sigma)} \mathrm{KL}\bigl(\mu_1\parallel k_{\theta,\sigma}\!\#\mu_0\bigr) 
+		\;=\;
+ 		-\tfrac12\, \nabla_{(\theta,\sigma)}\mathcal I_{\theta,\sigma},
+	\]
+	so steepest KL descent converges to the little-rose with no
+	hyper-parameters.  A data-driven Goldenshluger–Lepski selector recovers
+	\((\hat\theta_\star,\hat\sigma_\star)\) from finite samples, and we give
+	non-asymptotic risk bounds for both Perron–Frobenius and Koopman
+	estimates.
+
+	The resulting dial matrices \( (\Theta_{ij},\Sigma_{ij}) \)
+	form a directed, doubly-weighted graph, opening avenues toward discrete
+	curvature flows, entropy production on cycles, and multiparameter
+	persistent homology—highlighting a promising intersection of statistical dynamics, information geometry, and topological data analysis.
+\end{abstract}
+
+\tableofcontents
+
+
+\section{Introduction}
+  \subsection{Why tune local kernels?}
+    % Drift–diffusion ambiguity in data-driven operators
+  \subsection{Key contributions}
+    \begin{itemize}[leftmargin=*,nosep]
+    \item Closed-form bridge: CGF curvature $\to$ Fisher load $\to$ curvature \& entropy.
+    \item Single KL optimisation (little-rose) jointly tunes \textbf{two} dials $(\theta,\sigma)$.
+    \item Finite-sample Goldenshluger–Lepski selector with risk guarantees.
+    \end{itemize}
+  \subsection{Organisation of the paper}
+
+\subfile{body.tex}
+
+\section{Discussion and Outlook}
+	\subsection{Key implications}   % ← distilled pay-off list P1–P4
+		\begin{enumerate}[label=\textbf{(I\arabic*)},leftmargin=*]
+ 			\item \textbf{Unified diagnostic of fluctuation strength}\\ The Fisher load $\mathcal I_{\theta,\sigma}$ is \emph{simultaneously} the variance coefficient, the synthetic–curvature prefactor, and the entropy–production rate.  A single dial pair $(\theta, \sigma)$ governs them all.
+			
+			\item \textbf{Automatic bias–variance balance}\\ 
+				Steepest descent of $\mathrm{KL}(\mu_1\parallel k_{\theta,\sigma}\!\#\mu_0)$ is steepest \emph{ascent} of $\mathcal I_{\theta,\sigma}$, so the statistically most informative kernel is found with no cross-validation.
+			
+			\item \textbf{One-step Schrödinger bridge}\\ 
+				The little-rose kernel realises the discrete entropic transport $\mu_0\!\to\!\mu_1$, linking operator learning to optimal-transport theory.
+			
+			\item \textbf{Landau lens on data}\\
+				The Legendre transform of the CGF equips any observable with a Landau-type free-energy landscape whose stiffness is data-computable.
+				
+			\item \textbf{Lag–dimension selection.}
+      				Remark~\ref{rem:delay} suggests using the little‑rose Fisher load as a principled criterion for choosing delay‑embedding parameters.
+
+		\end{enumerate}
+
+	\subsection{Future directions}
+  		% brief notes on directed curvature, TDA, entropy cycles, etc.
+		
+		\begin{enumerate}[label=\textbf{(F\arabic*)},leftmargin=*]
+ 			
+			 \item \textbf{Directed discrete curvature}\\
+        				Dial matrices $(\Theta_{ij},\Sigma_{ij})$ define a doubly-weighted digraph, opening analytic work on Ollivier/Bakry–Émery curvature for non-reversible kernels.
+				
+			\item \textbf{Multiparameter persistent homology}\\
+				The two weights furnish a natural bifiltration, inviting multi-parameter TDA of dynamical data sets.
+		\end{enumerate}
+
+	\subsection{Limitations}
+  		% e.g. local bandwidth assumption, high-dim sparsity
+
+	\subsection{Conclusion}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Appendices
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\appendix
+\section{Proof details for Sec.~3}
+\section{GL selector derivations}
+\section{Additional experiments}
+\section{Dial-graph topology (exploratory)}
+
+\end{document}

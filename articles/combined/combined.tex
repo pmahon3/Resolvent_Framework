@@ -1,0 +1,820 @@
+\documentclass[11pt]{article}
+
+% ----------- Packages -----------
+\usepackage[numbers]{natbib}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[hidelinks]{hyperref}
+
+% nicer comments
+\algrenewcommand{\algorithmiccomment}[1]{\hfill\(\triangleright\) #1}
+
+
+% ----------- Theorems -----------
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+% ----------- Macros -----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\KL}{\mathrm{D}_{\mathrm{KL}}}
+\newcommand{\Df}{\mathrm{D}_f}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\push}{\#}
+
+\title{An Empirical Logic for the Co-Primality of Geometry and Probability\\[2pt]
+\large From Philosophy to Foundations to Operations}
+\author{~}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We take an empirical stance: a representation is \emph{faithful} if it reproduces one-step transport. Geometry (embeddings) and probability (kernels) are thus \emph{co-primitive}: the primitive object is $(\nu,K,D)$ acting through the joint edge law $\Gamma=\nu\otimes K$ with a divergence $D$.
+
+Under weak axioms, admissible losses reduce to Csiszár $f$-divergences, and minimizing this \emph{least-information action} (LIA) yields a chart-invariant, compositional principle. In Gaussian limits, LIA recovers least physical action. Locally, smooth $f$ induce the Fisher--Rao metric; globally, with a Takens embedding, vanishing edge divergence is equivalent to measure conjugacy. Finite-data behavior is governed by two exponents: locality $\eta=2s$ (smoothness) and learning $\zeta=2s/(2s+d)$ (dimension).
+
+We build on this foundation—combining the axiomatic reduction of losses to $f$-divergences with Amari’s dual-affine geometry linking Fisher locality to global equality—and extend it with a finite-data theory. The diagnostics $(\eta,\zeta)$ tie smoothness and dimension to convergence rates, while operational tests certify when an empirical representation is not only predictive but faithfully aligned with the underlying dynamics.
+\end{abstract}
+
+
+\section{Philosophy}
+\noindent\textbf{Primitive object.} The empirical unit is $(\nu,K,D)$ via $\Gamma=\nu\otimes K$ and a divergence.
+
+\medskip
+\noindent\textbf{Least-information action (LIA).} Fidelity is quantified by edge divergence between data and model edge laws, optimized over representation and kernel.
+
+\medskip
+\noindent\textbf{Continuity with physics and control.} This principle unifies:
+\begin{itemize}
+\item Schrödinger bridges / entropic transport,
+\item Onsager–Machlup in small-noise diffusion,
+\item KL-control in stochastic control.
+\end{itemize}
+
+\begin{remark}[Relation to Maximum Caliber]
+MaxCal constructs a path law by maximizing path entropy (equivalently, minimizing path-KL to a reference) under linear constraints on trajectory statistics. LIA instead compares observed one-step transport to a model via a divergence on joint edge laws and selects/validates a representation (coordinates + kernel). Under KL, first-order Markov structure, and exponential-family parameterization of the kernel, LIA equals the e-projection that MaxCal yields; outside that regime (other \(f\)-divergences, non-Markov memory, nonconvex parametrizations, or explicit embedding search) they part ways.
+\end{remark}
+
+% =========================================================
+\section{Foundations (assumptions $\to$ definitions $\to$ results)}
+We now fix notation and state minimal assumptions before developing the divergence-based geometry and its consequences.
+
+\subsection{Standing assumptions (minimal)}
+\begin{assumption}[Embedding]
+There exists a Takens embedding \(h=\Psi_k:X\to Y\) that is a diffeomorphism onto \(h(A)\) on the attractor \(A\).
+\end{assumption}
+\begin{assumption}[Stationarity]
+The source process is stationary with invariant \(\mu\) on \(A\); its pushforward on \(Y\) is \(\nu=h_\push\mu\).
+\end{assumption}
+\begin{assumption}[Domination or discretization]
+When invoking ``zero divergence implies equality'', assume absolute continuity of edge laws (or work on a common finite partition / add a tiny noise floor to avoid singularities).
+\end{assumption}
+
+\subsection{Objects}
+Let \(K(y_0,\mathrm dy_1)\) be a Markov kernel on \(Y\).
+\begin{definition}[Joint edge law]
+\(\Gamma_K(\mathrm dy_0,\mathrm dy_1)=\nu(\mathrm dy_0)\,K(y_0,\mathrm dy_1)\).
+\end{definition}
+\begin{definition}[Edge divergence]
+For an \(f\)-divergence \(D_f\), define
+\[
+\Df^{\nu}(K_1,K_2):=\Df\!\big(\Gamma_{K_1}\,\big\|\,\Gamma_{K_2}\big).
+\]
+\end{definition}
+\begin{definition}[Primitive empirical object]
+The \emph{primitive empirical object} is the triple \((\nu,K,D_f)\), i.e.\ a source law, a one-step kernel, and an \(f\)-divergence acting on their joint edge law.
+\end{definition}
+
+\begin{definition}[Delay-embedded edge law]
+For a (Takens-style) delay map $\Psi:Y\to Y^k$, define the embedded edge law as the pushforward
+\[
+\Psi(\Gamma_K) \;:=\; (\Psi\times \Psi)_{\push}\,\Gamma_K,
+\]
+i.e.\ the law of $(\Psi(Y_t),\Psi(Y_{t+1}))$ when $(Y_t,Y_{t+1})\sim \Gamma_K$.
+\end{definition}
+
+\begin{definition}[Rose condition]
+Given an embedding \(h\) and source \(\nu=h_\push\mu\), the \emph{Rose condition} holds if the edge divergence between the observed kernel and the pushforward of the source kernel is zero:
+\[
+\Df^{\nu}\!\big(K_Y,\ h_\push K_X\big)=0.
+\]
+\end{definition}
+
+\begin{definition}[Delay-embedded faithfulness]
+Let $\Gamma$ be the ideal edge law and $\Gamma_K$ the empirical/model edge law.
+We say $\Gamma_K$ is \emph{faithful} to $\Gamma$ (via $\Psi$) if there exists a diffeomorphic delay embedding $\Psi$ such that
+\[
+D_f\!\big(\Gamma_K,\; \Psi(\Gamma)\big)=0.
+\]
+\end{definition}
+With objects in place, we first show why neither geometry nor probability alone is empirically decisive.
+
+
+\subsection{Irreducibility (no-reduction) lemmata}
+\begin{lemma}[Geometry-only insufficient]\label{lem:G}
+There exist systems with identical smooth map \(\psi:Y\to Y\) but distinct kernels \(K^{(1)}(y,\cdot)=\delta_{\psi(y)}\) and \(K^{(2)}(y,\cdot)=\mathcal N(\psi(y),\sigma^2 I)\) having different edge laws and likelihoods. Hence geometry alone cannot decide empirical equivalence of one-step transport.
+\end{lemma}
+\begin{proof}[Sketch]
+Both share orbits/topological features; their one-step conditionals differ on sets of positive \(\nu\)-measure, so likelihoods and \(\Gamma\) differ.
+\end{proof}
+
+\begin{lemma}[Probability-only insufficient]\label{lem:P}
+There exist measure-isomorphic systems that are not topologically/smoothly conjugate. Tasks such as delay reconstruction and smooth invertibility depend on continuity/differentiability absent from the measure category. Hence probability alone cannot settle geometric equivalence questions needed in practice.
+\end{lemma}
+\begin{proof}[Sketch]
+Classical counterexamples from ergodic theory; measure isomorphism preserves entropy but not smooth structure nor embedding properties.
+\end{proof}
+
+\subsection{Axioms for admissible empirical loss}
+Let \(\mathcal L(\nu,K_1,K_2)\) be a loss used to compare dynamics. We posit:
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+\item \textbf{A1 (Coordinate invariance)}: For bijective measurable \(h\),
+\(\mathcal L(\nu,K_1,K_2)=\mathcal L(h_\push\nu,h_\push K_1,h_\push K_2)\).
+\item \textbf{A2 (Data processing)}: For any Markov \(M\),
+\(\mathcal L(\nu,K_1M,K_2M)\le \mathcal L(\nu,K_1,K_2)\) and 
+\(\mathcal L(M_\push\nu,MK_1,MK_2)\le \mathcal L(\nu,K_1,K_2)\).
+\item \textbf{A3 (Temporal additivity)}: For independent edges/blocks, \(\mathcal L\) adds over products.
+\item \textbf{A4 (Locality/continuity)}: Small changes in joint edge laws yield small changes in \(\mathcal L\).
+\end{itemize}
+
+\begin{proposition}[Representation: axioms force divergence on edge laws]\label{prop:representation}
+Under A1--A4, \(\mathcal L\) factors through the joint edge laws and is (up to equivalence) an \(f\)-divergence on \(\Gamma\):
+\[
+\mathcal L(\nu,K_1,K_2)=\Df\!\big(\Gamma_{K_1}\,\big\|\,\Gamma_{K_2}\big).
+\]
+\end{proposition}
+\begin{proof}[Sketch]
+On finite partitions, A2 and A3 characterize Csisz\'ar \(f\)-divergences; A1 enforces invariance under bijections; A4 supports stability and passage to limits/refinements. Hence \(\mathcal L\) depends only on \(\Gamma\) and coincides with some \(f\)-divergence (or a symmetric mixture such as JS).
+\end{proof}
+Having identified admissible losses with $f$-divergences on edge laws, we next separate coordinate effects (isometry) from dynamical equivalence (conjugacy).
+
+\subsection{Information--isometry and conjugacy (kept distinct)}
+\begin{definition}[Information--isometry]
+A bijection \(h\) is information--isometric if for all \(K_1,K_2\),
+\(
+\Df^{\nu}(K_1,K_2)=\Df^{h_\push\nu}(h_\push K_1,h_\push K_2).
+\)
+This is a \emph{coordinate} property, independent of the true dynamics.
+\end{definition}
+
+\begin{lemma}[Zero divergence $\Rightarrow$ kernel equality]\label{lem:zero}
+If \(\Df(\Gamma_{K_1}\|\Gamma_{K_2})=0\) and \(\Gamma_{K_1}\ll \Gamma_{K_2}\) (or conversely), then \(K_1(y_0,\cdot)=K_2(y_0,\cdot)\) for \(\nu\)-a.e. \(y_0\).
+\end{lemma}
+
+\begin{lemma}[Diffeomorphism $\Rightarrow$ sufficiency $\Rightarrow$ Fisher equality]
+If $\Psi$ is a diffeomorphism onto its image, then $\Psi$ is sufficient for $\Gamma$.
+Consequently, for any smooth Csiszár $f$-divergence with $f''(1)>0$, the local quadratic form is preserved:
+\[
+I_{\Gamma}(\theta) \;=\; I_{\Psi(\Gamma)}(\theta),
+\]
+i.e.\ the Fisher information matrices coincide.
+\end{lemma}
+
+\begin{remark}[Sufficiency is local; conjugacy is global]
+Sufficiency (via a diffeomorphic $\Psi$) preserves Fisher information (local, second order), but does \emph{not} imply equality of edge laws.
+Measure conjugacy requires the \emph{global} condition $D_f(\Gamma_{K_Y}\,\|\,\Psi(\Gamma_{K_X}))=0$ (or equivalently $K_Y=\Psi_{\push}K_X$ a.e.).
+\end{remark}
+
+
+\begin{theorem}[Takens + Rose $\Longleftrightarrow$ measure conjugacy]\label{thm:bicond}
+Let \(h=\Psi_k\) be a Takens embedding and \(\nu=h_\push\mu\). With \(K_X\) the kernel on \(X\) and \(K_Y\) on \(Y\),
+\[
+\text{(measure conjugacy via }h)\quad\Longleftrightarrow\quad \Df^{\nu}\!\big(K_Y,\ h_\push K_X\big)=0.
+\]
+\end{theorem}
+\begin{proof}[Sketch]
+Assume $\Df^{\nu}(K_Y, h_\push K_X)=0$ and domination. By Lemma~\ref{lem:zero}, $K_Y(y,\cdot)= h_\push K_X(y,\cdot)$ for $\nu$-a.e.\ $y$. Since $h$ is a diffeomorphism, iterate to obtain equality of all $n$-step cylinder measures, hence measure conjugacy.
+\end{proof}
+
+\begin{proposition}[Faithfulness $\Rightarrow$ measure conjugacy]
+If $\Gamma_K$ is faithful to $\Gamma$ via a diffeomorphic $\Psi$, i.e.\ $D_f(\Gamma_K,\Psi(\Gamma))=0$, then $\Gamma_K$ and $\Gamma$ are measure-conjugate through $\Psi$.
+\end{proposition}
+\begin{proof}[Sketch]
+Zero $f$-divergence implies equality of the embedded edge laws (under a mild domination or finite-partition assumption).
+Since $\Psi$ is a diffeomorphism, equality transfers back to the original space, yielding equality of all $n$-step cylinder measures and hence conjugacy.
+\end{proof}
+
+\subsection{Rates of Divergence and Dynamical Critical Exponents}
+
+The asymptotic decay of divergences under e- and m-projections reflects the same scaling laws that ergodic theory encodes in its critical exponents. In the limit $n,t\to\infty$, both projections converge to zero if the empirical law $\Gamma_K$ is faithful to the embedded truth $\Psi(\Gamma)$, but the \emph{rates} of convergence reveal which features of the dynamics are bulk-driven (typical set) and which are tail-driven (rare events). This section outlines a dictionary between divergence rates and classical dynamical exponents.
+
+\paragraph{Dictionary.}
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Exponent} & \textbf{Dynamics meaning} & \textbf{Divergence signal} \\
+\hline
+Entropy $h$ & Orbit complexity growth & Rate of per-step KL (cross-entropy) \\
+Lyapunov $\lambda$ & Stretching of trajectories & Tail sensitivity, rare-event amplification \\
+Recurrence $\rho$ & Return-time scaling & Limits e-projection convergence (tails) \\
+Dimension $d_\mu$ & Mass scaling/fractality & Gap between e- and m-projection rates \\
+Mixing $\alpha$ & Decay of correlations & Divergence contraction $\sim t^{-\alpha}$ \\
+Spectral $\beta$ & Transfer/Koopman decay & Exponential decay via spectral gap \\
+\hline
+\end{tabular}
+\end{center}
+
+
+% Defer detailed lemmas/proofs to the appendix
+\paragraph{Bridge theorem (informal).}
+Classical ergodic exponents (entropy, Lyapunov, recurrence, dimension, mixing, spectrum)
+manifest directly as rates at which divergences vanish.
+Proof sketches and detailed statements are collected in the appendix.
+
+
+
+\subsection{Local geometry}
+
+If $K_\theta$ is a smooth family and $f$ is smooth with $f''(1)>0$, then
+\[
+\Df^\nu(K_{\theta+\delta\theta},K_\theta)=\tfrac12\,\delta\theta^\top I_f(\theta)\,\delta\theta+o(\|\delta\theta\|^2),
+\]
+which defines the Fisher–Rao (information) metric $I_f$ on the parameter manifold~$\Theta$. This is the intrinsic, reparameterization–invariant geometry relevant for local inference.
+
+\paragraph{State-space pullback (practical tool, not a physical claim).}
+Viewing $y\mapsto K(\cdot|y)$ as a map into a statistical manifold, pulling back Fisher yields
+\[
+G(y)\ :=\ \E_{K(\cdot|y)}\!\big[\nabla_y \log k(Y_1|y)\,\nabla_y \log k(Y_1|y)^\top\big],
+\]
+a tensor field that measures how distinguishable outgoing conditionals are under small moves in $y$.
+
+We use $G$ as an \emph{information-relevant} metric (e.g., for basis/lag selection). In practice we use the stable mean-only proxy $J(y)\approx(\partial_y\mu(y))^\top\Sigma(y)^{-1}(\partial_y\mu(y))$ (the exact $G$ adds a known covariance-variation term if $\Sigma$ depends on $y$), and select bases/lags by maximizing Fisher capture $\mathrm{trace}(L^\top\bar J L)$ (or $\log\det(L^\top\bar J L)$), where $\bar J:=\E_\nu[J(Y)]$.
+
+\paragraph{Gaussian local model (useful approximation).}
+If $K(y,\cdot)\approx \mathcal N(\mu(y),\Sigma(y))$ with smooth $\mu,\Sigma$, then neglecting $\partial_y\Sigma$ gives
+\[
+J(y)\ \approx\ (\partial_y\mu(y))^\top\,\Sigma(y)^{-1}\,(\partial_y\mu(y)),
+\]
+the familiar Gauss--Newton/Fisher form. In a local linear fit $Y_{t+1}\approx A(y_t)Y_t+b(y_t)$,
+we set $\partial_y\mu(y)\!\approx\!A(y)$ so $J(y)\!\approx\!A(y)^\top \Sigma(y)^{-1} A(y)$.
+
+\begin{remark}[Minimality of the triple $(\nu,K,D_f)$]
+Remove \(K\) \(\Rightarrow\) no transport/prediction; remove \(D_f\) \(\Rightarrow\) no ruler/decision; remove \(\nu\) \(\Rightarrow\) no source weighting. Add path laws and additivity collapses them back to edge laws. Hence $(\nu,K,D_f)$ is both sufficient and minimal for empirical comparison.
+\end{remark}
+
+\begin{remark}[Why one-step is primitive]
+Pathwise divergences (e.g.\ KL) decompose into sums of edge-level terms for Markov/i.i.d.\ blocks; thus the edge divergence is the atomic unit, with path ``action'' an additive aggregate.
+\end{remark}
+
+The Fisher quadratic governs local behavior; globally, the dual affine structure explains orthogonal decompositions and projections (next subsection).
+
+% ====== INSERTED: Dual affine geometry now lives in Foundations ======
+\subsection{Dual affine geometry of divergence}
+
+The Fisher metric $g$ equips the statistical manifold of kernels with a Riemannian structure,
+but curvature alone does not explain why divergences decompose additively or why certain
+parameterizations are privileged. A further refinement is provided by \emph{dual affine
+connections}, which pair with the Fisher metric to yield a dually flat structure.
+
+\begin{definition}[Dual connections]
+Let $(\mathcal M,g)$ be a statistical manifold with Fisher metric $g$.
+Two affine connections $\nabla$ and $\nabla^\ast$ are said to be \emph{dual} with respect
+to $g$ if for all vector fields $X,Y,Z$,
+\[
+X[g(Y,Z)] \;=\; g(\nabla_X Y,Z) \;+\; g(Y,\nabla^\ast_X Z).
+\]
+\end{definition}
+
+Amari's $\alpha$--connections $\{\nabla^{(\alpha)} : \alpha\in\mathbb R\}$ form
+a one-parameter family of mutually dual connections. Of particular importance are
+$\alpha=1$ (the exponential or $e$--connection) and $\alpha=-1$ (the mixture or $m$--connection).
+
+\begin{remark}[Exponential and mixture flatness]
+Exponential families are affine under $\nabla^{(e)}$, so their natural parameters form an
+$e$--flat coordinate system. Mixture families are affine under $\nabla^{(m)}$, so their
+mixture weights form an $m$--flat coordinate system. The two are Legendre dual via the
+log-partition function.
+\end{remark}
+
+\begin{definition}[Amari projections]
+Given a distribution $p$ and a model family $\mathcal M$,
+\begin{align*}
+\text{m-projection:} & \quad q^\ast = \arg\min_{q\in\mathcal M} D_{\mathrm{KL}}(p\|q), \\
+\text{e-projection:} & \quad q^\ast = \arg\min_{q\in\mathcal M} D_{\mathrm{KL}}(q\|p).
+\end{align*}
+The m-projection is orthogonal with respect to the $m$--connection,
+while the e-projection is orthogonal with respect to the $e$--connection.
+\end{definition}
+
+\begin{theorem}[Pythagorean theorem for KL divergence]
+If $\mathcal M$ is $e$--flat and $\mathcal N$ is $m$--flat, then for $p\in\mathcal N$ and
+$q^\ast$ the m-projection of $p$ onto $\mathcal M$,
+\[
+D_{\mathrm{KL}}(p\|q) \;=\; D_{\mathrm{KL}}(p\|q^\ast) + D_{\mathrm{KL}}(q^\ast\|q),
+\qquad \forall q\in\mathcal M.
+\]
+Thus KL divergence decomposes orthogonally into increments along the dual affine flats.
+\end{theorem}
+
+\begin{corollary}[Edge laws as dual projections]
+Let $\Gamma_{\text{data}}$ denote the empirical edge law, and let
+$\mathcal M=\{\Gamma_K : K \in \mathcal K\}$ be an $e$--flat family of candidate kernels.
+Then the $m$--projection of $\Gamma_{\text{data}}$ onto $\mathcal M$ is the model kernel
+$\Gamma_{K^\ast}$ minimizing the divergence,
+\[
+\Gamma_{K^\ast} = \arg\min_{\Gamma_K \in \mathcal M} D_{\mathrm{KL}}(\Gamma_{\text{data}}\|\Gamma_K).
+\]
+For any $\Gamma_K \in \mathcal M$,
+\[
+D_{\mathrm{KL}}(\Gamma_{\text{data}}\|\Gamma_K)
+= D_{\mathrm{KL}}(\Gamma_{\text{data}}\|\Gamma_{K^\ast})
++ D_{\mathrm{KL}}(\Gamma_{K^\ast}\|\Gamma_K).
+\]
+Thus the excess divergence of any model candidate decomposes into the irreducible divergence
+between data and its $m$--projection, plus the divergence between this projection and the candidate.
+\end{corollary}
+
+\begin{corollary}[General $f$--divergences]
+For a smooth $f$--divergence with $f''(1)>0$, the exact Pythagorean relation does not hold,
+but the local quadratic approximation is preserved. For $q^\ast$ the $m$--projection of
+$p$ onto $\mathcal M$,
+\[
+D_f(p\|q) \;=\; D_f(p\|q^\ast) + \tfrac{1}{2}\,\delta\theta^\top I_f(\theta^\ast)\,\delta\theta
+\;+\; o(\|\delta\theta\|^2),
+\]
+where $\delta\theta$ is the displacement from $q^\ast$ to $q$ in parameter space and
+$I_f$ is the Fisher information metric induced by $D_f$. Thus the decomposition holds
+up to second order, with increments governed by Fisher geometry. \emph{In particular, the
+quadratic term controls the growth rates of local divergence, and hence directly determines
+the locality and learning exponents $(\eta,\zeta)$ introduced earlier.}
+\end{corollary}
+
+\begin{proposition}[Rose condition as intersection of dual flats]
+Empirical edge laws, constructed as mixtures of observed conditionals, live on an $m$--flat
+submanifold. Candidate kernels, parameterized as local exponential families, live on an
+$e$--flat submanifold. The Rose condition
+\[
+D_f(\Gamma_{\text{data}},\Gamma_{K}) = 0
+\]
+is equivalent to $\Gamma_{\text{data}}$ lying in the intersection of the $m$--flat and
+$e$--flat submanifolds. In this case, the $m$--projection coincides with the model itself,
+and the divergence vanishes.
+\end{proposition}
+% ====== END INSERT ======
+
+% ====== MOVED HERE: Rates section after Dual affine geometry ======
+\subsection{Rates of divergence and dynamical critical exponents}
+
+The asymptotic decay of divergences under e- and m-projections reflects the same scaling laws that ergodic theory encodes in its critical exponents. In the limit $n,t\to\infty$, both projections converge to zero if the empirical law $\Gamma_K$ is faithful to the embedded truth $\Psi(\Gamma)$, but the \emph{rates} of convergence reveal which features of the dynamics are bulk-driven (typical set) and which are tail-driven (rare events). Here the slopes $(\zeta,\eta)$ operationalize these rates: $\eta$ reflects local Fisher curvature, while $\zeta$ interpolates smoothness and effective dimension.
+
+\paragraph{Dictionary.}
+\begin{center}
+\begin{tabular}{|l|l|l|}
+\hline
+\textbf{Exponent} & \textbf{Dynamics meaning} & \textbf{Divergence signal} \\
+\hline
+Entropy $h$ & Orbit complexity growth & Rate of per-step KL (cross-entropy) \\
+Lyapunov $\lambda$ & Stretching of trajectories & Tail sensitivity, rare-event amplification \\
+Recurrence $\rho$ & Return-time scaling & Limits e-projection convergence (tails) \\
+Dimension $d_\mu$ & Mass scaling/fractality & Gap between e- and m-projection rates \\
+Mixing $\alpha$ & Decay of correlations & Divergence contraction $\sim t^{-\alpha}$ \\
+Spectral $\beta$ & Transfer/Koopman decay & Exponential decay via spectral gap \\
+\hline
+\end{tabular}
+\end{center}
+
+% Defer detailed lemmas/proofs to the appendix
+\paragraph{Bridge theorem (informal).}
+Classical ergodic exponents (entropy, Lyapunov, recurrence, dimension, mixing, spectrum)
+manifest directly as rates at which divergences vanish.
+Proof sketches and detailed statements are collected in the appendix.
+% ====== END MOVE ======
+
+% =========================================================
+\section{Finite data: convergence \& irreducible randomness}
+
+\paragraph{Two asymptotic lenses (empirical diagnostics).}
+Let \(\widehat{\mathcal A}\) denote the estimated edge action on held-out data.
+\begin{itemize}[leftmargin=1.7em,itemsep=1.5pt,topsep=2pt]
+\item \textbf{Learning curve (sample size)}: with model capacity tuned by CV at each size \(n\),
+\[
+\widehat{\mathcal A}(n) \;\approx\; \mathcal A_\infty \;+\; C_{\mathrm{learn}}\, n_{\mathrm{eff}}^{-\zeta}, \quad n_{\mathrm{eff}}:=n/\tau_{\mathrm{mix}}.
+\]
+\item \textbf{Locality curve (bandwidth)}: for large \(n\), with a local estimator of scale \(h\),
+\[
+\widehat{\mathcal A}(h) \;\approx\; \mathcal A_0 \;+\; C_{\mathrm{loc}}\, h^{\eta}.
+\]
+\end{itemize}
+Here \(\tau_{\mathrm{mix}}\) is an integrated autocorrelation time (effective sample-size correction). The asymptotes \(\mathcal A_\infty\) and \(\mathcal A_0\) coincide (up to measurement-noise corrections) in well-specified settings.
+
+\begin{proposition}[Bias--variance law for excess edge action]
+For a Markov system with Hölder smooth conditional of order \(s>0\), a local polynomial estimator of order matching \(s\), embedding dimension \(d\), and effective size \(n_{\mathrm{eff}}\), the excess action admits the decomposition
+\[
+\E\big[\widehat{\mathcal A}(h,n)\big]-\mathcal A_0
+\;\approx\;
+C_b\, h^{2s} \;+\; C_v\,\frac{1}{n_{\mathrm{eff}}\,h^{d}},
+\]
+where \(C_b\) (curvature/Fisher-weighted) and \(C_v\) (noise/mixing-dependent) are positive constants.
+\end{proposition}
+
+\begin{corollary}[Linking exponents to smoothness and dimension]
+If variance is negligible (large \(n\)), then \(\widehat{\mathcal A}(h)-\mathcal A_0\propto h^{\eta}\) with
+\[
+\boxed{\ \eta=2s\ }.
+\]
+Balancing bias and variance gives the optimal scale \(h^\star\asymp n_{\mathrm{eff}}^{-1/(2s+d)}\) and the learning rate
+\[
+\boxed{\ \zeta=\frac{2s}{2s+d}\ }.
+\]
+Thus \(\eta\) reveals smoothness \(s\approx \eta/2\), and with \(\zeta\) one can back out an \emph{effective} dimension
+\[
+\boxed{\ d \approx \frac{2s(1-\zeta)}{\zeta}\ }.
+\]
+\end{corollary}
+
+\begin{remark}[Stochastic floors and irreducible randomness]
+If (after correcting for measurement noise) both asymptotes satisfy
+\(\ \mathcal A_\infty \approx \mathcal A_0 > 0\), then no further geometric refinement (embedding), capacity growth, or locality contraction will collapse the action: this is a \emph{signature of irreducible process noise}. If either asymptote tends to \(0\), the apparent randomness was due to aliasing, underfitting, or finite data.
+\end{remark}
+
+% =========================================================
+\section{Pathwise and deterministic limits (how least physical action emerges)}
+We recover least physical action as a continuum limit of summed edge actions under forward-KL and Gaussian local models.
+\begin{proposition}[Gaussian forward-KL $\Rightarrow$ quadratic path action]
+Let time be discretized with step \(\Delta t\). Suppose the model kernel is locally Gaussian:
+\[
+K_\theta(y,dy') \approx \mathcal N\!\big(y+\mu_\theta(y)\,\Delta t,\ \Sigma(y)\,\Delta t\big).
+\]
+Then the summed edge action \(\sum_t \KL\big(\Gamma_{\text{data}}^{(t)}\ \|\ \Gamma_{K_\theta}^{(t)}\big)\)
+Riemann-sums to a quadratic path functional
+\[
+\mathcal A_{\mathrm{path}}(\theta)
+= \tfrac12\,\E\!\int_0^T \big\|\dot y_t-\mu_\theta(y_t)\big\|^2_{\Sigma(y_t)^{-1}}\,dt\ +\ \text{const}.
+\]
+\end{proposition}
+
+\begin{remark}[Onsager--Machlup/Girsanov bridge]
+For diffusions \(dY_t=b(Y_t)\,dt+\sigma\,dW_t\), changing drift to \(b+u\) yields a path-space KL equal to
+\(\tfrac12\E\!\int_0^T \|u_t\|^2_{(\sigma\sigma^\top)^{-1}}\,dt\). Thus most-probable paths under small noise extremize the quadratic stochastic action, aligning LIA with Onsager--Machlup.
+\end{remark}
+
+\begin{proposition}[Small-noise/continuum limit $\Rightarrow$ least physical action]
+In the limit of vanishing noise and \(\Delta t\to 0\), stationary paths of \(\mathcal A_{\mathrm{path}}\) satisfy Euler--Lagrange/Hamilton--Jacobi equations associated with the induced quadratic Lagrangian. Hence classical least action is recovered as a limit of LIA.
+\end{proposition}
+
+% =========================================================
+\section{Operations (how it collapses practice)}
+This section collapses the theory into a single scalar diagnostic (edge action) with two slopes $(\zeta,\eta)$ and an information-guided selector.
+
+\paragraph{One scalar: edge action.}
+Fix a representation and divergence; estimate on a held-out block the \emph{edge action}
+\[
+\mathcal A\ :=\ \widehat{\Df}^{\nu}\!\big(K_{\text{data}},\ K_{\text{model}}\big),
+\]
+with a block-bootstrap confidence interval. Decision: CI contains \(0\) (and mean tiny) \(\Rightarrow\) empirical Rose pass; with Takens, invoke Theorem~\ref{thm:bicond}. Else, adjust basis or kernel.
+
+\paragraph{Two robust implementations (pick one).}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+\item \textbf{VQ--JS (discrete, stable):} global codebook on \(y_1\) (k-means, \(M\) cells). For each held-out \(y_0\):
+empirical conditional (kNN over edges) \(\to\) histogram \(p\) (smoothed);
+model conditional (sample from local Gaussian kernel) \(\to\) histogram \(q\) (same cells, smoothed);
+compute \(\mathrm{JS}(p,q)\) and average across \(y_0\).
+\item \textbf{Parzen--KL (continuous, MC):} smooth empirical conditional \(\hat p_b(y_1|y_0)\) (Parzen); approximate \(\KL(\hat p_b\|\hat K)\) by Monte Carlo; average across \(y_0\).
+\end{itemize}
+
+\paragraph{Kernel estimator (model).}
+Local linear mean via weighted least squares \(Y_{t+1}\approx A(y_0)Y_t+b(y_0)\), residual diffusion
+\[
+\Sigma(y_0)=\frac{\sum w_t r_t r_t^\top}{\sum w_t}+\lambda I,\quad r_t=Y_{t+1}-A(y_0)Y_t-b(y_0),
+\]
+and \(\hat K(y_0,\cdot)=\mathcal N(\mu(y_0),\Sigma(y_0))\) (mixtures as needed).
+Tune neighborhood scale \(h\), ridge \(\lambda\) (and mixture size) by held-out conditional log-likelihood.
+
+\paragraph{Information-guided basis and lag selection.}
+Aggregate the pullback metric by visitation to obtain a global selector
+\[
+\bar J\ :=\ \E_\nu[J(Y)]\ \approx\ \frac{\sum_t w_t\,A_t^\top\,\Sigma_t^{-1}\,A_t}{\sum_t w_t},
+\]
+using the same locality weights $w_t$ as in the kernel fit.
+
+\emph{Basis (rotation).} For a linear projection $L\in\R^{d\times r}$ with $L^\top L=I_r$, maximize the
+\emph{Fisher capture} $\mathrm{trace}(L^\top \bar J L)$. The optimizer is given by the top-$r$
+eigenvectors of $\bar J$ (information-PCA). This choice is invariant to invertible linear reparameterizations.
+
+\emph{Lag (subset) selection.} When $y$ is a delay stack, $\bar J$ is block-structured by lags.
+Two principled criteria are:
+\begin{itemize}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item \textbf{A-optimal (trace):} choose $S$ to maximize $\mathrm{trace}(\bar J_{SS})$;
+\item \textbf{D-optimal (log-det):} choose $S$ to maximize $\log\det(\bar J_{SS})$ (encourages non-redundant lags).
+\end{itemize}
+A stable greedy D-optimal procedure:
+\begin{enumerate}[leftmargin=1.4em,itemsep=1pt,topsep=2pt]
+\item Initialize $S\gets\varnothing$.
+\item For each candidate $\ell\notin S$, compute the Schur-complement gain
+$\Delta_\ell=\log\det\!\big(J_{\ell\ell}-J_{\ell S}J_{SS}^{-1}J_{S\ell}\big)$.
+\item Add $\ell^\star=\arg\max_\ell \Delta_\ell$ to $S$ and iterate until $\Delta_{\ell^\star}$ is below a tolerance or a CV-selected budget is reached.
+\end{enumerate}
+
+\emph{Refit \& certify.} After selecting $L$ (and/or $S$), refit the kernel in the new representation and
+recompute (i) the edge action with a block-bootstrap CI and (ii) the learning/locality exponents $(\zeta,\eta)$.
+A better basis typically lowers the edge action (or tightens its CI), increases $\zeta$, and steepens~$\eta$.
+
+\emph{Notes.} Pre-whiten $y$ for stability; use a small ridge on $\Sigma_t$.
+If $\Sigma(y)$ varies strongly, include the covariance-variation contribution to $J(y)$; otherwise the mean term dominates in practice.
+
+
+\paragraph{Outputs.}
+Report \(\mathcal A\) with CI (primary), predictive NLL (sanity), and optionally moment gaps / quick spectral snapshot. 
+
+% =========================================================
+\section{Checklist (what this logically establishes)}
+\begin{enumerate}[leftmargin=2em,itemsep=2pt,topsep=2pt]
+\item \textbf{Irreducibility:} Lemmas~\ref{lem:G}, \ref{lem:P} show neither side alone suffices.
+\item \textbf{Axioms $\Rightarrow$ representation:} Proposition~\ref{prop:representation} forces admissible empirical loss to be an \(f\)-divergence on edge laws $\Rightarrow$ co-primality.
+\item \textbf{Zero-divergence lemma:} Lemma~\ref{lem:zero} justifies equality-from-zero.
+\item \textbf{Takens+Rose biconditional:} Theorem~\ref{thm:bicond} ties zero edge-divergence to measure conjugacy for the true pair.
+\item \textbf{Operational closure:} A single scalar edge action with CI implements the theory; Fisher--Rao is the local differential of the same divergence. Finite-data diagnostics via \((\zeta,\eta)\) make irreducible randomness empirically testable. In Gaussian/forward-KL limits, LIA recovers least physical action.
+\end{enumerate}
+
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{lia_refs}
+\appendix
+
+\section{Divergences and Critical Exponents}
+\label{app:exponents}
+
+This section collects the technical lemmas linking divergence decay rates to classical
+dynamical critical exponents.
+
+\begin{lemma}[Contraction under transfer operator]
+Let $P$ be the Perron–Frobenius operator with invariant measure $\nu$. For any $f$-divergence,
+\[
+D_f(P\mu \Vert P\nu) \le \eta_f(P)\, D_f(\mu \Vert \nu),
+\]
+where $\eta_f(P)\in[0,1]$ is a contraction coefficient. If $P$ has a spectral gap with decay $e^{-\gamma t}$, then $D_f(P^t\mu\Vert P^t\nu)$ decays at rate $\gamma$, corresponding to the system's mixing/spectral exponent.
+\end{lemma}
+
+\begin{lemma}[Entropy rate]
+For stationary processes,
+\[
+\frac{1}{n} D_{\mathrm{KL}}(\Gamma^{\otimes n}\Vert \Gamma_K^{\otimes n}) \to H(\Gamma \Vert \Gamma_K),
+\]
+the cross-entropy rate. If $\Gamma=\Gamma_K$, the limit vanishes and the slope constants are controlled by the entropy rate $h$.
+\end{lemma}
+
+\begin{lemma}[Recurrence tails]
+If return times $\tau_\varepsilon$ satisfy $\mathbb P(\tau_\varepsilon > t) \sim t^{-\rho}$, then under-coverage of rare returns limits the rate of e-projection convergence by $\rho$.
+\end{lemma}
+
+\begin{lemma}[Dimension exponent]
+Locality and learning curves obey
+\[
+\hat A(h,n)-A_0 \asymp C_b h^{2s} + \frac{C_v}{n_{\mathrm{eff}} h^{d_\mu}},
+\]
+so the effective dimension $d_\mu$ appears as the scaling exponent in divergence decay. The gap between e- and m-projections is larger when $d_\mu$ is small (singular measures).
+\end{lemma}
+
+\begin{theorem}[Bridge between divergences and exponents]
+Let $P$ be the transfer operator of a stationary dynamical system with invariant measure $\nu$, admitting a spectral gap with decay exponent $\gamma$. Suppose $\Psi$ is a diffeomorphic delay embedding. Then for any smooth $f$-divergence,
+\[
+D_f\!\big(P^t\Gamma_K \,\Vert\, P^t\Psi(\Gamma)\big) \,\vee\, D_f\!\big(P^t\Psi(\Gamma)\,\Vert\, P^t\Gamma_K\big)
+\;\le\; C e^{-\gamma t} + R_n,
+\]
+where $R_n$ is the finite-sample estimation error scaling with smoothness $s$, dimension $d_\mu$, and recurrence exponent $\rho$. In particular, as $n,t\to\infty$, both projections vanish, and the relative convergence rates diagnose whether the dynamics are tail-driven (slower e) or bulk-driven (slower m).
+\end{theorem}
+
+\paragraph{Remark.} These results establish the dictionary promised in the main text.
+
+\section{Computational Routine for LIA}
+
+This appendix provides a step-by-step description of how the least-information action (LIA) is evaluated in practice when the edge divergence is chosen as the Maximum Mean Discrepancy (MMD). The routine collapses the theoretical framework to an implementable sequence of computations.
+
+\subsection{Primitive Setup}
+\begin{enumerate}
+    \item \textbf{Inputs.} A time series $\{y_t\}_{t=0}^n$, a kernel $k$ (RBF or Fisher), kernel scale $\ell$, and a candidate representation (embedding $h$, neighborhood metric/bandwidths).
+    \item \textbf{Objective.} Estimate the \emph{edge action}
+    \[
+        A \;=\; \widehat{D}_{\mathrm{MMD}}^\nu \big( K_{\mathrm{data}}, K_{\mathrm{model}} \big)
+        \;\approx\; \frac{1}{|\mathcal Q|} \sum_{Y_0 \in \mathcal Q} 
+        \mathrm{MMD}^2\!\big( \widehat K_{\mathrm{data}}(\cdot|Y_0),\,\widehat K_{\mathrm{model}}(\cdot|Y_0) \big),
+    \]
+    where $\mathcal Q$ is a set of query points drawn from the test block, and report a block-bootstrap confidence interval (CI). If the CI contains $0$ and the mean is small, the empirical Rose condition is considered satisfied.
+\end{enumerate}
+
+\subsection{Local Mean Fit (for representation and geometry)}
+\begin{enumerate}
+    \item \textbf{Local linear mean.} For each query point $Y_0 \in \mathcal Q$, estimate
+    \[
+        Y_{t+1} \approx A(Y_0) Y_t + b(Y_0),
+    \]
+    using weighted least squares with exponential weights
+    \[
+        w_t = \exp\!\left(-\frac{\| \widetilde Y_t - \widetilde Y_0\|_2}{h}\right),
+    \]
+    where each coordinate of $Y$ is z-scored on the training block.
+    \item \textbf{Residuals (for bootstrap).} Define $r_t = y_{t+1} - A(Y_0)^\top Y_t - b(Y_0)$; the weighted empirical residual law
+    \(
+      \widehat R_{Y_0} \propto \sum_t w_t \,\delta_{r_t}
+    \)
+    will be used to generate model-side fluctuations nonparametrically.
+\end{enumerate}
+
+\subsection{Divergence Estimation (MMD)}
+For each $Y_0 \in \mathcal Q$, construct both empirical and model conditionals:
+
+\begin{enumerate}
+    \item \textbf{Empirical conditional.} Using the test block, form weights 
+    \( \omega_t(Y_0) \propto \exp(-\|\widetilde Y_t-\widetilde Y_0\|_2/h_p) \)
+    and define
+    \(
+      \widehat K_{\mathrm{data}}(\cdot|Y_0) = \sum_t \pi_t \,\delta_{y_{t+1}},\quad
+      \pi_t = \omega_t / \sum_{t'} \omega_{t'}.
+    \)
+
+    \item \textbf{Model conditional (pushforward + residual bootstrap).} Draw $\epsilon \sim \widehat R_{Y_0}$ and set
+    \(
+      \tilde y_{t+1} = A(Y_0)^\top Y_0 + b(Y_0) + \epsilon,
+    \)
+    repeating $L$ times to obtain bootstrap samples from $\widehat K_{\mathrm{model}}(\cdot|Y_0)$.
+
+    \item \textbf{MMD estimate.} With kernel $k_\ell(y,y')$, compute
+    \[
+    \mathrm{MMD}^2(\widehat P_{Y_0},\widehat Q_{Y_0})
+    = \sum_{t,t'}\pi_t\pi_{t'}\,k_\ell(y_{t+1},y_{t'+1})
+    + \frac{1}{L^2}\sum_{j,j'} k_\ell(\tilde y_j,\tilde y_{j'})
+    - \frac{2}{L}\sum_{j}\sum_t \pi_t\,k_\ell(\tilde y_j,y_{t+1}).
+    \]
+    \item \textbf{Aggregate.} Average over $Y_0\in\mathcal Q$ to obtain $\widehat A$.
+\end{enumerate}
+
+\paragraph{Kernel choices.}
+\begin{itemize}
+  \item \textbf{RBF (default).} $k_\ell(y,y')=\exp(-\tfrac{(y-y')^2}{2\ell^2})$, with $\ell$ chosen by median heuristic or small validation sweep.
+  \item \textbf{Fisher kernel (local FR geometry).} For local Gaussian mean model at $Y_0$,
+  \[
+    k_{Y_0}(y,y') = \frac{(y-\widehat\mu(Y_0))(y'-\widehat\mu(Y_0))}{\widehat\sigma(Y_0)^2},
+  \]
+  aligning MMD’s quadratic form with the Fisher–Rao metric.
+\end{itemize}
+
+\subsection{Information-Guided Basis and Lag Selection}
+\begin{enumerate}
+    \item \textbf{Pullback Fisher proxy.} Compute
+    \[
+        \bar{J} \;=\; \mathbb{E}_\nu[J(Y)] 
+        \;\approx\; \frac{\sum_t w_t A_t^\top \big(\widehat{\mathrm{Var}}[r_t|Y_t]\big)^{-1} A_t}{\sum_t w_t}.
+    \]
+    \item \textbf{Basis selection.} For a linear projection $L \in \mathbb{R}^{d\times r}$ with $L^\top L = I_r$, maximize $\mathrm{trace}(L^\top \bar J L)$ (information PCA).
+    \item \textbf{Lag selection.} Perform greedy D-optimal selection of lags by maximizing marginal gains in $\log \det (\bar J_{SS})$ via Schur complement.
+\end{enumerate}
+
+\subsection{Diagnostics}
+\begin{itemize}
+    \item \textbf{Learning curves.} Estimate $\hat A(n)$ versus $n$ on log--log scale, fit slope $\zeta$, and recover asymptotic error $A_\infty$.
+    \item \textbf{Locality curves.} Estimate $\hat A(h)$ versus $h$ on log--log scale, fit slope $\eta$, and recover limiting error $A_0$.
+    \item \textbf{Interpretation.} $\zeta,\eta$ identify effective smoothness $s$ and dimension $d$; $A_\infty \approx A_0 > 0$ signals an irreducible process-noise floor.
+\end{itemize}
+
+\section{Simulation Protocols}
+\label{app:sim}
+
+\subsection{Logistic Map with Tunable Diffusion}
+
+\paragraph{Purpose.}
+A minimal nonlinear, scalar system that demonstrates: near-zero edge action under good representation, recovery of learning/locality exponents $(\zeta,\eta)$, information-guided lag selection, and the emergence of an irreducible process-noise floor as diffusion increases.
+
+\subsubsection{Data-Generating Model}
+Let $x_t \in [0,1]$ evolve by
+\[
+x_{t+1} \;=\; r\,x_t\,(1-x_t) \;+\; \eta_t, 
+\qquad r = 3.8,\quad \eta_t \sim \mathcal{N}(0,\sigma^2).
+\]
+Observations are $y_t := x_t$. Diffusion strength is swept over $\sigma \in \{0,\;0.005,\;0.01,\;0.02,\;0.05\}$.
+
+\subsubsection{Protocol}
+\begin{enumerate}
+  \item \textbf{Trajectories.} For each $\sigma$, simulate $n=100{,}000$ points; discard a burn-in of $10{,}000$.
+  \item \textbf{Splits.} Use contiguous $60\%/20\%/20\%$ train/val/test blocks.
+  \item \textbf{Representation.} Delay-embed $y_t$ into $k$ lags: 
+  $\;Y_t = [y_t, y_{t-1},\dots,y_{t-k+1}]^\top$, 
+  with $k \in \{2,\dots,8\}$.
+  \item \textbf{Local mean fit.}  
+  For each $Y_0$ in the test block, fit $y_{t+1} \approx a(Y_0)^\top Y_t + b(Y_0)$ with exponential weights 
+  \(
+    w_t = \exp(-\|\widetilde Y_t-\widetilde Y_0\|_2/h).
+  \)
+  Record residuals $r_t$ and the weighted empirical residual law $\widehat R_{Y_0}$.
+  \item \textbf{Hyperparameters.} Tune $h$ (and ridge) by validation conditional log-likelihood. Sweep $h$ on a log grid from $c_{\min}\cdot\mathrm{median}(d_t)$ to $c_{\max}\cdot\mathrm{median}(d_t)$ with $c_{\min}=0.25$, $c_{\max}=8$, using $m\in\{10,12,16\}$ points.
+  \item \textbf{Edge divergence (MMD).}  
+  For each test query $Y_0$:
+  \begin{enumerate}
+    \item Empirical: build $\widehat P_{Y_0}$ with test-block weights $h_p$.
+    \item Model: bootstrap $L$ residual samples to form $\widehat Q_{Y_0}$.
+    \item Compute $\mathrm{MMD}^2(\widehat P_{Y_0},\widehat Q_{Y_0})$ with kernel $k_\ell$.
+  \end{enumerate}
+  \item \textbf{Uncertainty.} Block bootstrap the test block with block length $B \approx 5\,\tau_{\mathrm{mix}}$ to produce a $95\%$ CI for $\widehat{A}$.
+  \item \textbf{Information-guided lag selection.}  
+  Estimate $\bar J$ on the training block. Perform greedy D-optimal lag selection over $\{1,\dots,8\}$; refit and recompute $\widehat{A}$.
+  \item \textbf{Learning and locality exponents.}  
+  (i) Compute $\widehat{A}(n)$ for subsample sizes $n\in\{10^3,2\!\times\!10^3,\dots,10^5\}$ and fit $\widehat{A}(n)\approx A_\infty + Cn_{\mathrm{eff}}^{-\zeta}$. \\
+  (ii) Sweep $h$ across the log grid and fit $\widehat{A}(h)\approx A_0 + C h^\eta$.
+\end{enumerate}
+
+\subsubsection{Expected Recoveries}
+\begin{itemize}
+  \item \textbf{Edge action.} Adequate embeddings yield $\widehat{A}\approx 0$ with CI covering zero when $\sigma \approx 0$; misspecified embeddings yield $\widehat{A}>0$.
+  \item \textbf{Exponents.} $\eta \approx 2s$ recovers smoothness $s$, while $\zeta \approx \tfrac{2s}{2s+d}$ identifies effective dimension $d$.
+  \item \textbf{Noise floor.} As $\sigma$ grows, $A_\infty$ and $A_0$ coalesce above zero, revealing irreducible process noise.
+  \item \textbf{Lag selection.} D-optimal lag choice stabilizes estimation, typically selecting $k\in\{3,4\}$ at $r{=}3.8$.
+\end{itemize}
+
+\subsubsection{Default Knobs}
+\begin{itemize}
+  \item Kernel: RBF with scale $\ell$ (median heuristic) or Fisher kernel.  
+  \item Locality $h \in \{0.5,1,2,4\}\cdot n^{-1/5}$; decouple $(h_p,h_r)$ via multipliers $(\gamma_{hp},\gamma_{hr})$.  
+  \item Model samples $L=5{,}000$.  
+  \item Bootstrap resamples $=500$; block length $B \approx 5\,\tau_{\mathrm{mix}}$.  
+\end{itemize}
+
+\begin{algorithm}[H]
+\caption{LIA with exponential kernel and conditional MMD}
+\begin{algorithmic}[1]
+\State \textbf{Input:} $\{y_t\}$, lag set $\mathcal K$, kernel $k$ (RBF or Fisher), resamples $B$
+\State Split into Train/Val/Test; build delay embeddings for each $k\in\mathcal K$
+\For{$h$ in log-grid,\; query $Y_0$ in Train/Val}
+  \State Fit $y_{t+1}\approx a(Y_0)^\top Y_t+b(Y_0)$ by WLS with $w_t$; store residuals $r_t$
+\EndFor
+\State Choose $h$ by validation log-likelihood; set kernel scale $\ell$
+\For{Test $Y_0$}
+  \State \emph{Empirical} $\widehat P_{Y_0}$: weights $\omega_t \propto \exp(-\|\widetilde Y_t-\widetilde Y_0\|_2/h_p)$ on Test
+  \State \emph{Model} $\widehat Q_{Y_0}$: sample $\epsilon \sim \widehat R_{Y_0}$; set $\tilde y = a(Y_0)^\top Y_0 + b(Y_0)+\epsilon$; repeat $L$ times
+  \State Compute $\mathrm{MMD}^2(\widehat P_{Y_0},\widehat Q_{Y_0})$ with kernel $k_\ell$
+\EndFor
+\State $\widehat A \gets$ average MMD$^2$ over test queries; moving-block bootstrap ($B$ resamples) for CI
+\State $\bar J \gets \tfrac{\sum w_t A_t^\top \widehat{\mathrm{Var}}[r_t|Y_t]^{-1} A_t}{\sum w_t}$; D-optimal lag selection $\to S^\star$; refit and recompute $\widehat A$ with CI
+\State Build $\widehat A(n)$ and $\widehat A(h)$; fit slopes $(\zeta,\eta)$ and limits $(A_\infty,A_0)$
+\State \textbf{Output:} $\widehat A$+CI, $S^\star$, $(\zeta,\eta)$, $A_\infty,A_0$, $\bar J$ spectrum and D-optimal gains
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Numerical Demonstration Plan}
+
+\subsubsection{Guiding Principle}
+The theoretical results (Proposition~2 and Corollary~1 on bias--variance rates, Theorem~1 on measure conjugacy, and the new divergence--exponent bridge) require concrete simulation studies to validate the framework. The goal is to balance clarity with scope: provide simple, transparent evidence in this paper, while reserving extended stress tests and elaborations for a companion paper.
+
+\subsubsection{Core Simulations (to include in this manuscript)}
+\begin{enumerate}
+    \item \textbf{Tier 1: One--dimensional controlled dynamics.} 
+    \begin{itemize}
+        \item System: autoregressive or scalar Markov process with conditional mean $\mu(y) = \mathrm{sign}(y)|y|^q + \eta_t$.
+        \item Purpose: verify $\eta = 2s$ from locality curves and $\zeta = \tfrac{2s}{2s+d}$ from learning curves with $d=1$.
+        \item Deliverables: 
+            \begin{itemize}
+                \item Log--log plot of $A(h)-A_0$ vs.\ $h$ (bias slope $\eta$).
+                \item Learning curve $\min_h A_n(h)-A_0$ vs.\ $n$ (rate $\zeta$).
+                \item Table: recovered $(\hat s, \hat d)$ compared to ground truth $(s,d)$.
+            \end{itemize}
+    \end{itemize}
+    
+    \item \textbf{Tier 3: Nonlinear 2D system with delay embedding.}
+    \begin{itemize}
+        \item System: H\'enon map with small noise; observation $Z_t = x_t$, embedded as $Y_t = [Z_t, Z_{t-1}, \dots, Z_{t-k+1}]$.
+        \item Purpose: demonstrate Takens embedding + Rose equality $\Rightarrow$ measure conjugacy.
+        \item Deliverables:
+            \begin{itemize}
+                \item Divergence (MMD--JS or JS) between empirical edge law $K_Y$ and pushforward $h_\#K_X$; report near-zero values (conjugacy test).
+                \item Log--log locality and learning curves in embedded space, recovering effective $d$ smaller than ambient $k$.
+                \item Witness heatmap for model misspecification (e.g.\ perturbed H\'enon parameter).
+            \end{itemize}
+    \end{itemize}
+
+    \item \textbf{Tier 6: Dynamical exponents link.}
+    \begin{itemize}
+        \item \emph{Entropy/Lyapunov:} Logistic or H\'enon map, where true entropy rate and Lyapunov exponents are known. Purpose: check that divergence slopes align with known entropy growth and Lyapunov stretching.
+        \item \emph{Mixing/Spectral:} Simple AR(1) or OU process, where correlation decay is exponential. Purpose: verify divergence contraction mirrors the mixing exponent (spectral gap).
+        \item Deliverables:
+            \begin{itemize}
+                \item Divergence decay curves vs.\ $t$, compared to theoretical entropy/Lyapunov or mixing rates.
+                \item Highlight slower e-projection in tail-driven regimes (recurrence), versus slower m-projection in bulk-driven regimes.
+            \end{itemize}
+    \end{itemize}
+\end{enumerate}
+
+\subsubsection{Extended Simulations (reserve for follow-up paper or appendix)}
+\begin{enumerate}
+    \item \textbf{Tier 2: State-dependent noise (heteroskedasticity).} Witness maps highlight local variance pockets invisible to RMSE.
+    \item \textbf{Tier 4: Ornstein--Uhlenbeck with nonlinear drift.} Demonstrates path-action connection (Proposition~3), stability gains from quadratic action regularization.
+    \item \textbf{Tier 5: Intrinsic vs.\ ambient dimension.} Synthetic manifold in high-dimensional space; estimator recovers effective dimension $d_\star$ rather than ambient dimension.
+\end{enumerate}
+
+\subsubsection{Summary}
+\begin{itemize}
+    \item \emph{This paper:} Tiers 1, 3, and 6 --- minimal but sufficient demonstrations linking theoretical rates, conjugacy, and dynamical exponents to concrete simulations.
+    \item \emph{Companion work:} Tiers 2, 4, 5 --- richer stress tests and methodological elaborations, aimed at an applied ML or dynamical systems audience.
+\end{itemize}
+
+
+\end{document}

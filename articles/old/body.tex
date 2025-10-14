@@ -1,0 +1,340 @@
+% ==============================================
+% Section 2 — Analytic Setting (Operators + Kernels)
+% ==============================================
+% Assumes theorem-like environments are defined in the preamble:
+%   \newtheorem{assumption}{Assumption}[section]
+%   \newtheorem{lemma}{Lemma}[section]
+%   \newtheorem{theorem}{Theorem}[section]
+%   \newtheorem{remark}{Remark}[section]
+% If not, please add them accordingly.
+
+\section{Setting the Stage: Operators, Kernels, and Dials}
+\label{sec:setting}
+
+We work on a measurable state space $(X,\mathcal B)$ endowed with two reference probability measures $\mu_0,\mu_1\in\mathcal P(X)$.  A smooth finite-dimensional parameter manifold $\Theta\subset\mathbb R^p$ indexes the models we consider.  Our goal is to connect 
+\emph{(i)} descriptive fit (via relative entropy of $\mu_1$ to the model prediction $k_\eta\,\#\,\mu_0$), 
+\emph{(ii)} geometric curvature (via a Fisher-type quadratic), and 
+\emph{(iii)} dynamical cost (via an abstract action)
+through a single identity---the Rose Equality.
+
+Crucially, the kernels $k_\eta(y\mid x)$ of interest here serve \emph{simultaneously} as the integral kernels for the composition (Koopman) operator on observables and for the transfer (Perron--Frobenius) operator on densities.  This duality fixes the analytic objects we must control.
+
+\subsection{Composition and transfer viewpoints}
+\label{subsec:operators}
+
+Let $\mathcal{F}$ be a suitable function space (e.g. $L^2(X,\mu_0)$).  For each $\eta\in\Theta$ we define:
+\begin{align*}
+    \mathcal C_\eta f(x)
+        &:= \int_X f(y)\,k_\eta(y\mid x)\,dy,\qquad \text{(composition/Koopman action on observables)},\\
+    \mathcal T_\eta \rho(y)
+        &:= \int_X k_\eta(y\mid x)\,\rho(x)\,d\mu_0(x),\qquad \text{(transfer/Perron--Frobenius action on densities)}.
+\end{align*}
+The two operators are adjoint with respect to the pairing $\langle f,\rho\rangle = \int f\rho\,d\mu_0$ whenever $k_\eta$ is absolutely continuous with respect to $\mu_0\otimes\mu_0$ and mild boundedness holds.  Throughout we take the kernel representation as primitive; the operators above are merely different faces of the same object.
+
+\subsection{Parameter manifold and kernel family}
+\label{subsec:param-kernel}
+
+\begin{itemize}
+    \item \textbf{Parameter manifold.} $\Theta\subset\mathbb R^p$ is a $C^1$ (indeed $C^\infty$) embedded manifold.  Coordinates are denoted $\eta=(\eta^1,\dots,\eta^p)$; gradients in parameter space are $\nabla_\eta$.
+    \item \textbf{Kernel family.} $\eta\mapsto k_\eta(\cdot\mid\cdot)$ is $C^1$ in $\eta$ in the sense of Assumption~\ref{assump:param-reg}.  For each $\eta$, $k_\eta(\cdot\mid x)$ is a probability measure on $(X,\mathcal B)$ and $x\mapsto k_\eta(\cdot\mid x)$ is measurable.
+    \item \textbf{Push-forward.} The model prediction after one step is
+    \[
+        \mu_{0,\eta} \;:=\; k_\eta\,\#\,\mu_0,
+        \qquad \mu_{0,\eta}(B) = \int_X k_\eta(B\mid x)\,\mu_0(dx),\; B\in\mathcal B.
+    \]
+\end{itemize}
+
+\subsection{Score field, Fisher load, and abstract action}
+\label{subsec:score-fisher-action}
+
+The \emph{score field} is
+\[
+    S_\eta(x,y) := \nabla_y \log k_\eta(y\mid x),
+\]
+interpreted weakly if necessary.  Let $\rho$ be a test density on $X\times X$ with $\nabla\rho\in L^2$.  Define the Fisher-type quadratic (``Fisher load'')
+\begin{equation}
+    I_\eta[\rho]
+      := \iint_{X\times X} \big\langle \nabla\rho(x,y), S_\eta(x,y)\big\rangle^2\,d\mu_0(x)\,d\mu_1(y).
+      \label{eq:Fisher-load}
+\end{equation}
+The corresponding \emph{abstract action} is normalised as
+\begin{equation}
+    \mathcal A_\eta := \tfrac12\,I_\eta.
+    \label{eq:abstract-action}
+\end{equation}
+This choice anticipates the Gaussian/Onsager--Machlup slice where the factor $1/2$ is standard.
+
+\begin{remark}[Canonical evaluation]
+\label{rem:canonical-A}
+While $I_\eta[\rho]$ is defined for any admissible $\rho$, the central results of Section~\ref{sec:rose-equality} take $\rho$ to be the \emph{canonical residual potential}
+\[
+    \psi_\eta(y) \;:=\; \log\!\Big(\frac{d\mu_1}{d\mu_{0,\eta}}(y)\Big),
+\]
+and then set
+\[
+    \mathcal A_\eta \;=\; \tfrac12\, I_\eta[\psi_\eta].
+\]
+This choice couples the Fisher quadratic to the population KL in a way that makes their parameter gradients coincide.
+\end{remark}
+
+\subsection{Population Kullback--Leibler functional}
+\label{subsec:KL}
+
+Data--model mismatch is quantified by
+\begin{equation}
+    J(\eta)
+     := \mathrm{KL}\big(\mu_1\,\Vert\,\mu_{0,\eta}\big)
+     = \int_X \log\!\left(\frac{d\mu_1}{d\mu_{0,\eta}}(y)\right)\,\mu_1(dy),
+     \label{eq:J-KL}
+\end{equation}
+when $\mu_1\ll \mu_{0,\eta}$; otherwise $J(\eta)=+\infty$.  Absolute continuity will be automatic in the kernel classes we study.
+
+\subsection{Standing analytic axioms}
+\label{subsec:axioms}
+
+Our main theorem requires only the following three hypotheses.
+
+\begin{assumption}[Square-integrable score]
+\label{assump:score-L2}
+For every $\eta\in\Theta$, $S_\eta\in L^2(\mu_0\otimes\mu_1)$, i.e.
+\[
+    \iint \|S_\eta(x,y)\|^2\,d\mu_0(x)\,d\mu_1(y) < \infty.
+\]
+\end{assumption}
+
+\begin{assumption}[Parameter regularity]
+\label{assump:param-reg}
+Each partial derivative $\partial_{\eta^i}k_\eta(y\mid x)$ exists and belongs to $L^2(\mu_0\otimes\mu_1)$.  Equivalently, $\partial_{\eta^i}S_\eta$ exists in the distributional sense and is square-integrable.
+\end{assumption}
+
+\begin{assumption}[Differentiable KL functional]
+\label{assump:KL-C1}
+The map $\eta\mapsto J(\eta)$ defined in~\eqref{eq:J-KL} is $C^1$ on $\Theta$.  Differentiation under the integral is justified by dominated convergence (or an envelope theorem), yielding a continuous $\nabla_\eta J$.
+\end{assumption}
+
+Assumptions~\ref{assump:score-L2}--\ref{assump:KL-C1} guarantee that (i) the cumulant generating functional of $S_\eta$ is finite near the origin, (ii) the Fisher load is well-defined, and (iii) gradients with respect to $\eta$ can be exchanged with integration. 
+
+% ==== End Section 2 ====
+
+
+% ==============================================
+% Section 3 — The Rose Equality
+% ==============================================
+% Assumes environments defined in preamble:
+%   \newtheorem{assumption}{Assumption}[section]
+%   \newtheorem{lemma}{Lemma}[section]
+%   \newtheorem{proposition}{Proposition}[section]
+%   \newtheorem{theorem}{Theorem}[section]
+%   \newtheorem{remark}{Remark}[section]
+% If not, please add them.
+
+\section{The Rose Equality}
+\label{sec:rose-equality}
+
+Throughout this section Assumptions~\ref{assump:score-L2}--\ref{assump:KL-C1} of Section~\ref{sec:setting} are in force. 
+We first connect the score field to a single quadratic form via its cumulant generating functional, then (optionally) note how this quadratic coincides with a Dirichlet energy in semigroup slices, and finally prove that the gradient of the population KL coincides with the gradient of the abstract action.
+
+\subsection{Score CGF and the Fisher load}
+\label{subsec:CGF-Fisher}
+
+For each $\eta\in\Theta$ define the \emph{cumulant generating functional} (CGF) of the score
+\begin{equation}
+    \mathcal G_\eta(\lambda)
+      := \log \iint \exp\!\big(\langle \lambda, S_\eta(x,y)\rangle\big)\,
+           d\mu_0(x)\,d\mu_1(y),
+    \qquad \lambda\in\mathbb R^{d_y}.
+    \label{eq:CGF}
+\end{equation}
+Assumption~\ref{assump:score-L2} ensures $\mathcal G_\eta(\lambda)$ is finite on a neighbourhood of $\lambda=0$ and twice differentiable there.
+
+\begin{lemma}[Hessian identity]
+\label{lem:hessian}
+For every $\eta\in\Theta$,
+\[
+    \big.\nabla^2_{\lambda}\mathcal G_\eta\big|_{\lambda=0}
+    \;=\;
+    \iint S_\eta(x,y)\otimes S_\eta(x,y)\,
+         d\mu_0(x)\,d\mu_1(y).
+\]
+Consequently, for any admissible test density $\rho$,
+\[
+    I_\eta[\rho]
+    \;=\;
+    \big\langle \nabla\rho,\;
+               \big.\nabla^2_{\lambda}\mathcal G_\eta\big|_{\lambda=0}\;
+               \nabla\rho \big\rangle,
+\]
+where $I_\eta$ is given by \eqref{eq:Fisher-load}.
+\end{lemma}
+
+\begin{proof}
+Differentiate \eqref{eq:CGF} under the integral sign, justified by dominated convergence from Assumption~\ref{assump:score-L2}. The first derivative at $\lambda=0$ vanishes by symmetry (the score has zero mean under $\mu_0\otimes\mu_1$), and the second derivative gives the stated tensor. Contracting with $\nabla\rho$ on both indices yields the scalar form.
+\end{proof}
+
+\begin{theorem}[Rose Equality]
+\label{thm:rose-equality}
+Under Assumptions~\ref{assump:score-L2}--\ref{assump:KL-C1},
+\[
+    \boxed{
+    \nabla_\eta\, J(\eta)
+    \;=\;
+    \nabla_\eta\, \mathcal A_\eta,
+    \qquad
+    \mathcal A_\eta = \tfrac12\, I_\eta[\psi_\eta]
+    }
+\]
+for every $\eta\in\Theta$ with $\mu_1\ll\mu_{0,\eta}$.
+\end{theorem}
+
+\begin{proof}
+Let $\psi_\eta=\log\big(\frac{d\mu_1}{d\mu_{0,\eta}}\big)$. Then
+\[
+    J(\eta)=\int \psi_\eta(y)\,\mu_1(dy),\qquad
+    \partial_{\eta^i}J(\eta)=\int \partial_{\eta^i}\psi_\eta(y)\,\mu_1(dy)
+    = -\int \partial_{\eta^i}\log \mu_{0,\eta}(y)\,\mu_1(dy).
+\]
+Since $\mu_{0,\eta}(y)=\int k_\eta(y\mid x)\,\mu_0(dx)$,
+\[
+    \partial_{\eta^i}\log \mu_{0,\eta}(y)
+    = \int \partial_{\eta^i}\log k_\eta(y\mid x)\,
+         \pi_\eta(dx\mid y),\qquad
+    \pi_\eta(dx\mid y):=\frac{k_\eta(y\mid x)\,\mu_0(dx)}{\mu_{0,\eta}(y)}.
+\]
+Hence
+\begin{equation}
+\label{eq:KL-grad}
+    \partial_{\eta^i}J(\eta)
+    = -\iint \partial_{\eta^i}\log k_\eta(y\mid x)\,
+                    \pi_\eta(dx\mid y)\,\mu_1(dy).
+\end{equation}
+On the other hand,
+\[
+    \mathcal A_\eta=\tfrac12\int \langle\nabla\psi_\eta,\,M_\eta\,\nabla\psi_\eta\rangle\,\mu_1,
+    \qquad
+    M_\eta=\int S_\eta\otimes S_\eta\,\mu_0.
+\]
+Differentiate:
+\[
+\partial_{\eta^i}\mathcal A_\eta
+=\tfrac12\int \langle\nabla\psi_\eta,(\partial_{\eta^i}M_\eta)\nabla\psi_\eta\rangle\,\mu_1
+  +\int \langle\nabla(\partial_{\eta^i}\psi_\eta),\,M_\eta\nabla\psi_\eta\rangle\,\mu_1.
+\]
+Using $\partial_{\eta^i}M_\eta=\int(\partial_{\eta^i}S_\eta\otimes S_\eta+S_\eta\otimes\partial_{\eta^i}S_\eta)\,\mu_0$ and integrating by parts in $y$ for the second term, one obtains the identity
+\[
+\partial_{\eta^i}\mathcal A_\eta
+=\iint \langle\nabla\psi_\eta,\partial_{\eta^i}S_\eta\rangle\,\langle\nabla\psi_\eta,S_\eta\rangle\,\mu_0\mu_1
+   -\iint \partial_{\eta^i}\log k_\eta(y\mid x)\,\pi_\eta(dx\mid y)\,\mu_1(dy).
+\]
+The last integral equals $\partial_{\eta^i}J(\eta)$ by \eqref{eq:KL-grad}, while the first integral is exactly $\tfrac12\,\partial_{\eta^i}I_\eta[\psi_\eta]$ by Lemma~\ref{lem:hessian}. Therefore $\partial_{\eta^i}\mathcal A_\eta=\partial_{\eta^i}J(\eta)$, and collecting components gives $\nabla_\eta \mathcal A_\eta=\nabla_\eta J(\eta)$.
+\end{proof}
+
+\begin{corollary}[Stationary-point equivalence]
+\label{cor:stationary}
+Any $\eta^\ast$ that minimises $J(\eta)$ (subject to admissibility) also minimises $\mathcal A_\eta$; conversely, any stationary point of $\mathcal A_\eta$ is a stationary point of $J(\eta)$.
+\end{corollary}
+
+% ============================================================
+\section{Embedding and Measure-Conjugate Reconstruction}
+\label{sec:rose_takens}
+% ============================================================
+
+We now connect the Rose equality with Takens’ classical embedding theorem
+to obtain sufficient conditions for not only reconstructing the geometry
+of a dynamical system but also recovering its measure dynamics.
+
+% ------------------------------------------------------------
+\subsection{Takens’ embedding}
+\label{subsec:takens}
+% ------------------------------------------------------------
+\begin{theorem}[Takens \cite{Takens1981}]
+Let $M$ be a compact $d$–dimensional manifold, $\varphi^t:M\to M$ a smooth
+flow, and $h:M\to\mathbb R$ a generic $C^2$ observation function.
+Then the delay map
+\[
+   \Phi_h(x) := \bigl(h(x),h(\varphi^\tau(x)),\dots,h(\varphi^{2d\tau}(x))\bigr)
+\]
+is an embedding for generic $h$, i.e.\ a diffeomorphism onto its image.
+\end{theorem}
+
+\noindent
+This ensures that trajectories can be reconstructed up to smooth conjugacy,
+but it does not guarantee preservation of invariant measures or transport.
+
+% ------------------------------------------------------------
+\subsection{Rose equality and transport fidelity}
+\label{subsec:rose_transport}
+% ------------------------------------------------------------
+Recall from \S\ref{sec:rose_operator} that the Rose equality asserts
+\[
+   D_{\mathrm{KL}}\!\left(
+      K^{(\theta)}_\sharp \mu
+      \,\Big\|\, 
+      \varphi_\sharp \mu
+   \right)
+   \;=\;
+   \sup_{f \in \mathcal F}
+   \Bigl\{ \mathbb E_\mu[f] - \log \mathbb E_\mu[e^f] \Bigr\}
+   \;=\; \mathcal I(\theta),
+\]
+where $K^{(\theta)}$ is the parameterized empirical kernel,
+$\varphi$ the true flow map, and $\mathcal I$ the Fisher load functional.
+
+This identity gives a statistical certificate for when the empirical
+pushforward matches the true pushforward in law.
+
+% ------------------------------------------------------------
+\subsection{Measure–conjugate reconstruction}
+\label{subsec:measure_conjugacy}
+% ------------------------------------------------------------
+\begin{theorem}[Takens $\,+\,$ Rose = Measure–Conjugacy]
+\label{thm:measure_conjugacy}
+Let $(M,\varphi,\mu)$ be a smooth dynamical system with invariant
+measure $\mu$.  
+Suppose $h:M\to\mathbb R$ is a generic $C^2$ observable and consider
+the delay embedding $\Phi_h$ of dimension $2d+1$.  
+Assume further that the Rose equality holds on the embedded coordinates:
+\[
+   D_{\mathrm{KL}}\!\left(
+      K^{(\theta)}_\sharp \mu
+      \,\big\|\, 
+      \varphi_\sharp \mu
+   \right) \;=\; 0.
+\]
+Then the reconstructed system $(\Phi_h(M),K^{(\theta)}_\sharp,\mu_h)$
+is \emph{measure–conjugate} to $(M,\varphi,\mu)$, i.e.\ there exists
+an isomorphism $\Phi_h$ such that
+\[
+   \Phi_h \circ \varphi = K^{(\theta)} \circ \Phi_h,
+   \qquad
+   \Phi_{h\sharp}\mu = \mu_h.
+\]
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+\begin{enumerate}
+  \item Takens gives that $\Phi_h$ is a diffeomorphism, hence invertible
+        on its image.
+  \item The Rose equality enforces that the empirical pushforward kernel
+        and the true flow pushforward agree in law under $\mu$.
+  \item Together, (i) topological conjugacy and (ii) equality of transport
+        measures imply \emph{measure conjugacy}: not only do orbits match
+        geometrically, but the invariant measure is preserved under the
+        conjugacy.
+\end{enumerate}
+\end{proof}
+
+% ------------------------------------------------------------
+\subsection{Corollaries and outlook}
+% ------------------------------------------------------------
+\begin{corollary}[Minimal observable set]
+The joint conditions of Takens + Rose identify when a finite family of
+observables suffices to reconstruct not only the phase space up to
+diffeomorphism but also the full measure–theoretic dynamics.
+\end{corollary}
+
+\noindent
+This extends Takens’ guarantee from geometric recovery to statistical
+recovery, bridging embedding theory and information–theoretic transport.
+
+
+% ==== End Section 3 ====

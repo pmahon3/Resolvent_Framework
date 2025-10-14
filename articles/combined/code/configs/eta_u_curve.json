@@ -1,0 +1,73 @@
+{
+  "experiment": "eta_u_transition_curve",
+  "description": "Reproduce theoretical η(u) transition curve from cusp (η=2q) to interior (η=4)",
+
+  "system": {
+    "q": 1.5,
+    "sigma": 0.01,
+    "n": 40000,
+    "seed": 46
+  },
+
+  "queries": {
+    "percentile_range": [50, 95],
+    "n_queries": 200,
+    "bins": {
+      "method": "quantiles_10"
+    }
+  },
+
+  "bandwidth": {
+    "method": "geometric_grid",
+    "h_span_mult": 40.0,
+    "h_star_multipliers": [
+      1.0, 1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 3.5,
+      4.0, 4.5, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
+      12.0, 14.0, 16.0, 18.0, 20.0, 22.0, 25.0,
+      28.0, 30.0, 35.0, 40.0
+    ],
+    "fit_start_multiplier": 1.6,
+    "min_span_decades": 1.0,
+    "use_robust_slope": true,
+    "curvature_guard_threshold": 0.08
+  },
+
+  "kernels": {
+    "primary": "tricube",
+    "control": "gaussian",
+    "locality_guards": {
+      "tricube": {"r_eff_min": 0.35, "r_eff_max": 0.45},
+      "gaussian": {"r_eff_min": 0.95, "r_eff_max": 1.05}
+    }
+  },
+
+  "bootstrap": {
+    "n_resamples": 200,
+    "method": "query_resample",
+    "seed": 101,
+    "parallel": false
+  },
+
+  "theory": {
+    "transition_sharpness_p": 2.0,
+    "cusp_band": {"u_max": 0.7, "eta_tolerance": 0.3},
+    "interior_band": {"u_min": 2.0, "eta_min": 3.4, "eta_max": 4.0}
+  },
+
+  "output": {
+    "results_json": "results/eta_u_curve.json",
+    "figure_overlay": "results/figures/eta_u_overlay.png",
+    "figure_panels": "results/figures/eta_u_per_bin_panels.png",
+    "table": "results/tables/eta_u_summary.csv"
+  },
+
+  "acceptance_criteria": {
+    "fit_span_decades_min": 1.0,
+    "cusp_eta_min": 2.7,
+    "cusp_eta_max": 3.3,
+    "interior_eta_min": 3.6,
+    "bootstrap_ci_width_max": 0.4,
+    "locality_guard_pass_rate_min": 0.8,
+    "monotone_increasing": true
+  }
+}

@@ -1,0 +1,91 @@
+\usepackage{geometry}
+\usepackage[parfill]{parskip}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\usepackage{amsmath,amssymb,amsthm}              
+\usepackage{graphicx}
+\usepackage{enumitem}
+\usepackage{tikz}
+\usepackage{mathrsfs}  
+\usetikzlibrary{calc}
+\usepackage{tikz-cd}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e} 
+\usepackage{lineno}
+\usepackage[colorlinks]{hyperref}
+\usepackage{mdframed}
+\usepackage[symbols,nogroupskip,sort=none]{glossaries-extra}
+\renewcommand*{\glspostdescription}{\medskip}
+
+\newtheorem*{theorem*}{Theorem}
+\newtheorem*{proposition*}{Proposition}
+\newtheorem*{corollary*}{Corollary}
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\G}{\mathbb{G}}
+\newcommand{\delayX}{\mathcal{X}}
+\newcommand{\X}{\text{x}}
+\newcommand{\W}{\text{w}}
+\newcommand{\Rho}{\mathrm{P}}
+\newcommand{\Lgr}{\mathcal{L}}
+\mathchardef\Re="023C
+\newcommand{\GLdelay}{\mathrm{GL}_{\mathrm{delay}}}    
+\newcommand{\Hrose}{\mathscr{H}} 
+\newcommand{\krose}{k_{\theta,\sigma}}
+
+
+\theoremstyle{plain} 
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}{Corollary}[section]
+\newtheorem{proposition}{Proposition}[section]
+
+
+\theoremstyle{definition} 
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark} 
+\newtheorem{remark}{Remark}[section]
+\newtheorem{example}{Example}[section]
+\newtheorem{assumption}{Assumption}[section]
+
+\DeclareMathOperator{\diag}{diag}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\DeclareMathOperator{\E}{\mathbb{E}}
+
+% a grey framed box with small padding
+\newmdenv[
+  linecolor=gray!60,
+  linewidth=.8pt,
+  topline=true,
+  bottomline=true,
+  skipabove=\baselineskip,
+  skipbelow=\baselineskip,
+  innerleftmargin=6pt,
+  innerrightmargin=6pt,
+  innertopmargin=4pt,
+  innerbottommargin=4pt,
+  backgroundcolor=gray!5,
+  frametitlefont=\normalfont\bfseries,
+]{assumptionbox}
+
+
+% ------------------------------------------------------------------
+% A numbered list tailored for assumptions:
+%   (W1) ..., (W2) ...   or   (K1) ..., (K2) ...
+% ------------------------------------------------------------------
+\newlist{assumptionlist}{enumerate}{1}          % base = enumerate, depth = 1
+\setlist[assumptionlist]{
+    leftmargin=1.4cm,                          % indent
+    labelsep=0.2cm,                            % space after label
+    itemsep=0.4\baselineskip,                  % vertical gap between items
+    label=\textbf{(\Alph*)}                    % default label (over-ridden per list)
+}
+
+\pagecolor{white}

@@ -1,0 +1,8 @@
+bin,eta,gap_from_theory,gap_percent,kernel,locality_pass_rate,n_fit_points,n_queries,r_eff_over_h_median,span_decades,y_range_max,y_range_min
+global,2.2832,-0.7168,-23.9,tricube,1.00,11,,0.381,0.60,,
+global,1.9615,-1.0385,-34.6,gaussian,0.56,9,,1.007,0.60,,
+lower,2.6565,-0.3435,-11.4,tricube,,,17,,,0.0122,0.0000
+middle,3.3329,0.3329,11.1,tricube,,,16,,,0.0142,0.0122
+upper,1.9609,-1.0391,-34.6,tricube,,,16,,,0.0184,0.0142
+weighted,2.6502,-0.3498,-11.7,tricube,,,,,,,
+weighted,2.2795,-0.7205,-24.0,gaussian,,,,,,,

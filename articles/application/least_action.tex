@@ -1,0 +1,222 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bm}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage[ruled,vlined]{algorithm2e}
+
+% --- If you prefer biblatex, uncomment below and comment out natbib in your toolchain ---
+% \usepackage[backend=biber,style=authoryear,maxcitenames=2]{biblatex}
+% \addbibresource{refs.bib}
+
+% ---------- Macros ----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\KL}{\mathrm{D}_{\mathrm{KL}}}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\T}{\top}
+\newcommand{\Khat}{\widehat{K}}
+\newcommand{\nuY}{\nu}
+\newcommand{\Gammahat}{\widehat{\Gamma}}
+\newcommand{\Y}{\mathcal{Y}}
+
+% ---------- Title ----------
+\title{Least-Information Action on Delay Embeddings: \\
+Testing Rose--Takens with Local Linear Diffusion Kernels}
+\author{%
+  % TODO: Authors
+}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+% TODO (120--150 words): one-sentence problem; least-information (edge-KL) action; local linear + residual diffusion kernel; Rose test $\Rightarrow$ empirical evidence for measure + spectral equivalence; brief results line.
+\end{abstract}
+
+% =========================================================
+\section{Introduction}
+% One-paragraph gap: Takens (geometry) vs statistics/spectra.
+% One-paragraph idea: minimize one-step KL "action" between empirical and model edge laws.
+% Bulleted contributions: kernel estimator; KL-action test; optional spectral/geometry checks; basis selection note.
+
+\paragraph{Thesis (applied).}
+Choose coordinates and a local diffusion kernel that minimize the one-step KL \emph{edge action} between data and model; when the action is $\approx 0$ (the Rose condition), the reconstruction attains measure and spectral equivalence.
+
+% =========================================================
+\section{Setup and Principle}
+\label{sec:setup}
+Let $x_t$ evolve on an attractor $A$; form a delay vector $y_t=\Psi_k(x_t)\in\R^{k+1}$.
+Optionally reduce with a linear basis $z_t=Ly_t\in\R^{m}$, $m\ge 2d+1$.
+Let $\nu$ be the stationary law on $\Y$ (either $Y$ or $Z$ space).
+
+\paragraph{Kernel and edge law.}
+A one-step transition kernel $K(y_0,\mathrm{d}y_1)$ induces the joint edge measure
+\begin{equation}
+\Gamma(\mathrm{d}y_0,\mathrm{d}y_1)=\nu(\mathrm{d}y_0)\,K(y_0,\mathrm{d}y_1).
+\end{equation}
+
+\paragraph{Least-information action.}
+Given a fitted model kernel $\Khat$, define the \emph{edge action}
+\begin{equation}
+\label{eq:edge-action}
+\mathcal{A}_{\text{edge}}
+\;=\;
+\KL\!\big(\Gamma_{\text{data}} \,\|\, \Gamma_{\text{model}}\big)
+\;=\;
+\KL\!\big(\nu(\mathrm{d}y_0)K\,\|\,\nu(\mathrm{d}y_0)\Khat\big).
+\end{equation}
+The \emph{Rose test} accepts when $\mathcal{A}_{\text{edge}}\approx 0$ (with uncertainty), evidencing kernel equality on support.
+
+% =========================================================
+\section{Methods}
+\label{sec:methods}
+
+\subsection{Basis (optional) and neighborhoods}
+\label{subsec:basis}
+% Keep it minimal; you can expand later.
+We over-embed via $\Psi_k$ and optionally choose a well-conditioned linear basis $L$ (e.g., PCA-whiten $Y_t$ then apply a small random rotation; or use a Fisher/CCA basis). Neighborhoods around a query state $y_0$ (or $z_0$) are built with kNN or kernel weights $w_t=w(\|y_t-y_0\|/h)$.
+
+\subsection{Local linear diffusion kernel}
+\label{subsec:kernel}
+For a query $y_0$, fit a locally weighted linear map
+\begin{equation}
+\label{eq:local-mean}
+(A(y_0),b(y_0)) \;=\; \arg\min_{A,b} \sum_t w_t\,\|y_{t+1}-A y_t - b\|^2,
+\qquad
+\mu(y_0)=A(y_0)\,y_0+b(y_0).
+\end{equation}
+Residual covariance (ridge-stabilized):
+\begin{equation}
+\label{eq:local-cov}
+\Sigma(y_0)
+=
+\frac{\sum_t w_t\, r_t r_t^\T}{\sum_t w_t}
++\lambda I,
+\quad
+r_t=y_{t+1}-A(y_0) y_t - b(y_0).
+\end{equation}
+Define the empirical kernel (single-Gaussian; mixture optional):
+\begin{equation}
+\label{eq:kernel}
+\Khat(y_0,\mathrm{d}y_1)=\mathcal{N}\!\big(\mu(y_0),\Sigma(y_0)\big)\,\mathrm{d}y_1.
+\end{equation}
+
+\subsection{Hyperparameters}
+\label{subsec:hyper}
+Choose $h$ (neighborhood scale), $\lambda$ (ridge), and optional mixture size by maximizing held-out conditional log-likelihood
+$\sum \log \Khat(y_t,y_{t+1})$ (equivalently, minimizing forward KL).
+
+\subsection{Estimating the edge action (Rose test)}
+\label{subsec:rose}
+Use a time-blocked hold-out set $\mathcal{H}$ of edges to estimate
+\begin{equation}
+\widehat{\mathcal{A}}_{\text{edge}}
+=
+\frac{1}{|\mathcal{H}|}
+\sum_{(y_0,y_1)\in\mathcal{H}}
+\log\frac{\hat p_{\text{emp}}(y_1\mid y_0)}{\Khat(y_0,y_1)},
+\end{equation}
+where $\hat p_{\text{emp}}(\cdot\mid y_0)$ is a light-smoothing baseline (e.g., coarse bins or kNN) ensuring domination. Report a bootstrap CI; accept Rose if CI contains $0$. Optionally report a symmetric proxy (JS divergence).
+
+\subsection{Optional: Spectral/geometry diagnostics}
+\label{subsec:spectral}
+(i) Koopman correlation moments $c_k=\langle h, U^k h\rangle$ vs empirical; 
+(ii) Diffusion maps from a symmetrized affinity
+$W(y_i,y_j)=\tfrac12\big[\Khat(y_i,y_j)\nu(y_i)+\Khat(y_j,y_i)\nu(y_j)\big]$
+to compare leading spectra.
+
+% =========================================================
+\section{Algorithms (concise)}
+\label{sec:algs}
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetAlgoLined
+\caption{FitLocalDiffusionKernel($y_0$, data, $h$, $\lambda$)}
+Compute weights $w_t=w(\|y_t-y_0\|/h)$.\;
+Solve \eqref{eq:local-mean} for $(A,b)$; set $\mu(y_0)=A y_0+b$.\;
+Compute $\Sigma(y_0)$ via \eqref{eq:local-cov}.\;
+Return $\Khat(y_0,\cdot)=\mathcal{N}(\mu(y_0),\Sigma(y_0))$.\;
+\end{algorithm}
+
+\begin{algorithm}[H]
+\DontPrintSemicolon
+\SetAlgoLined
+\caption{RoseTest(data, $\Khat$)}
+Hold out a time block $\mathcal{H}$; build $\hat p_{\text{emp}}(\cdot\mid y_0)$.\;
+Compute $\widehat{\mathcal{A}}_{\text{edge}}$ and a bootstrap CI.\;
+\textbf{Decision:} accept Rose if CI contains $0$.\;
+\end{algorithm}
+
+% =========================================================
+\section{Experiments}
+\label{sec:expts}
+% Brief, task-focused template; expand with specifics later.
+
+\paragraph{Datasets.}
+% TODO: logistic, Hénon, Lorenz (discrete sample); optional real series.
+
+\paragraph{Protocol.}
+Over-embed $\Psi_k$; optional basis $L$; time-blocked train/val/test; prevent leakage.
+
+\paragraph{Baselines.}
+Ulam counts (partition), kNN/KDE conditional.
+
+\paragraph{Metrics.}
+KL-action (and CI), predictive NLL, optional spectral/DMAPS checks.
+
+% =========================================================
+\section{Results}
+\label{sec:results}
+% Tables/figures with minimal commentary. Expand later.
+% TODO: Figure placeholders
+% \begin{figure}[h!]
+%   \centering
+%   \includegraphics[width=.48\textwidth]{fig_dmaps.pdf}
+%   \includegraphics[width=.48\textwidth]{fig_kl_vs_h_lambda.pdf}
+%   \caption{Left: DMAPS; Right: KL-action vs hyperparameters.}
+% \end{figure}
+
+% =========================================================
+\section{Discussion}
+% When local Gaussian suffices; interpreting Rose failure (insufficient basis, sample size, misspecification); deterministic (vanishing-viscosity) note.
+
+% =========================================================
+\section{Conclusion}
+% One-paragraph recap: least-information action; Rose test; evidence for measure+spectral equivalence; quick guidance.
+
+% =========================================================
+\paragraph{Reproducibility.}
+% Code/data availability statement; seeds; config table (appendix).
+
+% =========================================================
+% \printbibliography % (if using biblatex)
+
+\appendix
+
+\section{Least-Information Action (reference)}
+\label{app:action}
+Path-space variant (optional): for a Markov model $Q$ vs data/reference $P$,
+\begin{equation}
+\KL(\Pbb_Q\|\Pbb_P)
+=
+\KL(Q_0\|P_0)
++\sum_{t=0}^{T-1}\E_Q\!\Big[\log \tfrac{K_Q(Y_t,Y_{t+1})}{K_P(Y_t,Y_{t+1})}\Big].
+\end{equation}
+Near a minimum, the Fisher--Rao quadratic supplies a local metric:
+$\KL(\theta+\delta\theta\|\theta)=\tfrac12\,\delta\theta^\T I(\theta)\,\delta\theta+o(\|\delta\theta\|^2)$.
+
+\end{document}

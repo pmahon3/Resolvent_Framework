@@ -47,10 +47,13 @@ classical notion of a sufficient statistic.  The geometric perspective --- f-div
 Fisher--Rao geometry, and the Rose condition --- arises as the natural metric structure
 on the space of predictive laws, closing the loop from foundations to computation.
 
-\emph{Status}: working note.  The delay query system is now fully verified as a
-query system satisfying all hypotheses of Paper~1 (Propositions 1--3), including
-sequential upper-directedness at incommensurable lags via the lag-gcd construction.
-The sufficiency characterization and geometric sections are in progress.
+\emph{Status}: working note.  The delay query system is fully verified as a query
+system satisfying all hypotheses of Paper~1 (Propositions 1--4): query system
+axioms, sequential upper-directedness at all lags via the lag-gcd construction,
+realizability, and compatibility of induced marginals for any measure $P$.
+Stationarity is identified as the condition for time-homogeneity of the predictive
+operator (Paper~3), not for compatibility (Paper~1).  Three open questions remain:
+sufficient embedding dimension, locality and tightness, and operator specialization.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -303,26 +306,114 @@ of a specific dynamical system.
 \label{sec:compatible}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{remark}[Applying the extension theorem]
-A compatible family $\{\nu_{d,\tau}\}$ for the delay query system consists
-of probability measures on $X^d$ satisfying
-$(\pi_{(d,\tau),(d',\tau')})_\sharp\, \nu_{d',\tau'} = \nu_{d,\tau}$
-whenever $(d,\tau) \preceq (d', \tau')$.  By the Observational Extension
-Theorem (Paper~1, Theorem~6.1), any such compatible family determines a
-unique probability measure $P$ on $(\Omega, \Fcal)$ whose delay marginals
-are $\{\nu_{d,\tau}\}$.  The hypotheses of Paper~1 are now fully verified
-for the delay query system:
+\begin{proposition}[Compatibility from refinement structure]\label{prop:compat}
+Let $P$ be any probability measure on $(\Omega, \Fcal)$.  Then the induced
+family $\nu_{d,\tau} = (\mathrm{eval}_{d,\tau})_\sharp P$ is a compatible
+family for the delay query system: whenever $(d,\tau) \preceq (d',\tau')$
+with refinement map $\pi : X^{d'} \to X^d$,
+\[
+  \pi_\sharp\, \nu_{d',\tau'} = \nu_{d,\tau}.
+\]
+No stationarity assumption on $P$ is required.
+\end{proposition}
+
+\begin{proof}
+By definition of the refinement order, $\pi \circ \mathrm{eval}_{d',\tau'}
+= \mathrm{eval}_{d,\tau}$ identically on $\Omega$.  Therefore
+\[
+  \pi_\sharp\, \nu_{d',\tau'}
+  = \pi_\sharp\, (\mathrm{eval}_{d',\tau'})_\sharp P
+  = (\pi \circ \mathrm{eval}_{d',\tau'})_\sharp P
+  = (\mathrm{eval}_{d,\tau})_\sharp P
+  = \nu_{d,\tau},
+\]
+where the second equality is functoriality of pushforward.
+\end{proof}
+
+\begin{remark}[The extension theorem applies to any $P$]
+Propositions~\ref{prop:is-qs}, \ref{prop:upper-directed-general},
+\ref{prop:realizability}, and \ref{prop:compat} together verify all
+hypotheses of Paper~1 for the delay query system.  The Observational
+Extension Theorem (Paper~1, Theorem~6.1) therefore applies: any compatible
+family $\{\nu_{d,\tau}\}$ --- not just one induced by a pre-existing $P$
+--- determines a unique probability measure on $(\Omega, \Fcal)$ recovering
+the prescribed marginals.  The two directions are inverse to one another:
+starting from $P$ gives marginals by Proposition~\ref{prop:compat};
+starting from compatible marginals recovers $P$ by the Extension Theorem.
+\end{remark}
+
+\begin{proposition}[Stationarity and time-homogeneity]\label{prop:stationarity}
+Let $\sigma : \Omega \to \Omega$ be the shift map $\sigma(\omega)_n = \omega_{n+1}$.
+If $P$ is stationary (i.e.\ $\sigma_\sharp P = P$), then:
+\begin{enumerate}
+  \item The delay marginals are time-translation invariant: for every
+    $(d,\tau)$ and every $s \in \mathbb{Z}$,
+    \[
+      (\mathrm{eval}_{d,\tau}^{(s)})_\sharp P = (\mathrm{eval}_{d,\tau})_\sharp P
+      = \nu_{d,\tau},
+    \]
+    where $\mathrm{eval}_{d,\tau}^{(s)}(\omega)
+    = (\omega_s, \omega_{s-\tau}, \ldots, \omega_{s-(d-1)\tau})$ is the
+    evaluation anchored at time $s$.
+  \item The predictive law map is time-homogeneous: the conditional
+    distribution of the future given the past does not depend on the
+    time anchor $s$, only on the delay vector value.
+  \item Consequently, the predictive operator $K_t$ of Paper~3 is
+    time-homogeneous: $K_t^{(s)} = K_t^{(0)}$ for all $s$, so $\{K_t\}$
+    is a genuine one-parameter operator semigroup indexed by elapsed time.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+\textit{Part 1.}  Note that
+$\mathrm{eval}_{d,\tau}^{(s)} = \mathrm{eval}_{d,\tau} \circ \sigma^{-s}$,
+since
+\[
+  (\mathrm{eval}_{d,\tau} \circ \sigma^{-s})(\omega)
+  = \mathrm{eval}_{d,\tau}(\sigma^{-s}\omega)
+  = ((\sigma^{-s}\omega)_0, (\sigma^{-s}\omega)_{-\tau}, \ldots)
+  = (\omega_s, \omega_{s-\tau}, \ldots).
+\]
+By stationarity $(\sigma^{-s})_\sharp P = P$, so
+\[
+  (\mathrm{eval}_{d,\tau}^{(s)})_\sharp P
+  = (\mathrm{eval}_{d,\tau} \circ \sigma^{-s})_\sharp P
+  = (\mathrm{eval}_{d,\tau})_\sharp (\sigma^{-s})_\sharp P
+  = (\mathrm{eval}_{d,\tau})_\sharp P
+  = \nu_{d,\tau}.
+\]
+
+\textit{Part 2.}  The predictive law map at anchor $s$ is
+$\varphi_{d,\tau}^{(s)}(y)(A) = P(\omega_{s+1} \in A \mid
+\mathrm{eval}_{d,\tau}^{(s)} = y)$.  Since the joint distribution of
+$(\mathrm{eval}_{d,\tau}^{(s)}(\omega), \omega_{s+1})$ equals the joint
+distribution of $(\mathrm{eval}_{d,\tau}(\omega), \omega_1)$ by
+stationarity, we have $\varphi_{d,\tau}^{(s)} = \varphi_{d,\tau}^{(0)}$
+for all $s$.
+
+\textit{Part 3.}  The predictive operator at anchor $s$ and lag $t$ is
+$K_t^{(s)} g(q) = \mathbb{E}_P[g(F_{s+t}) \mid Q_*^{(s)} = q]$.  By
+Part~2 and shift-invariance, this equals $K_t^{(0)} g(q)$ for all $s$.
+\end{proof}
+
+\begin{remark}[Separation of concerns]
+Propositions~\ref{prop:compat} and~\ref{prop:stationarity} separate two
+concerns that are easy to conflate:
 \begin{itemize}
-  \item Query system axioms: Proposition~\ref{prop:is-qs}.
-  \item Sequential upper-directedness: Proposition~\ref{prop:upper-directed-general}.
-  \item Realizability: Proposition~\ref{prop:realizability}.
+  \item \emph{Compatibility} is a structural consequence of the refinement
+    order --- it holds for any $P$, stationary or not.  It is a Paper~1
+    condition.
+  \item \emph{Time-homogeneity} is a dynamical consequence of stationarity
+    --- it is what makes the predictive operator a semigroup.  It is a
+    Paper~3 condition.
 \end{itemize}
-The Observational Extension Theorem therefore applies without further
-qualification to the full delay query system across all lags.
+The delay query framework is therefore valid for non-stationary processes;
+stationarity is an additional assumption that enriches the dynamical
+structure but is not required for the foundational representation.
 \end{remark}
 
 \begin{remark}[The delay probability problem]
-In practice, the marginals $\nu_{d,\tau}$ are estimated from a finite
+In practice the marginals $\nu_{d,\tau}$ are estimated from a finite
 observed segment of the stream.  Three questions then arise naturally:
 \begin{enumerate}
   \item When are empirically estimated marginals compatible (or
@@ -452,31 +543,25 @@ connecting the query-theoretic and information-geometric perspectives.
 The following questions mark the current frontier of this bridge.
 
 \begin{enumerate}
-  \item \textbf{Compatible marginals from stationarity.}  If $P$ is a
-    stationary measure on $\Omega = X^{\mathbb{Z}}$, do the induced
-    marginals $\{\nu_{d,\tau}\}$ form a compatible family in the sense
-    of Paper~1?  This is expected but needs verification, particularly
-    for the refinement maps at incommensurable lags (now given by
-    Proposition~\ref{prop:upper-directed-general}).
-
   \item \textbf{Sufficient embedding dimension.}  Under what conditions
     on $P$ does a finite embedding dimension $(d, \tau)$ achieve
     predictive sufficiency?  The Takens theorem gives a topological
-    sufficient condition; the predictive framework should give a
-    probabilistic necessary and sufficient condition.
+    sufficient condition (Corollary, Paper~2); the predictive framework
+    should give a probabilistic necessary and sufficient condition in
+    terms of the predictive law map $\varphi_{d,\tau}$.
 
   \item \textbf{Locality and compact outcome spaces.}  The computational
     experiments (Tricube kernel, locality exponent $\eta$) suggest that
     compact support of the refinement kernel is important.  In the
     query-theoretic framework this should connect to the tightness
-    conditions of the Prokhorov extension route.
+    conditions of the Prokhorov extension route (Paper~1, Section~7).
 
   \item \textbf{Operator theory specialization.}  What does the
     predictive operator $K_t$ of Paper~3 become when specialized to
-    the delay query system?  The natural answer is a Koopman-type
-    operator on $O_{Q_*} \subseteq \Pcal(X)$, but the precise
-    connection to the residual stochastic local linear maps used in
-    computation needs to be made explicit.
+    the delay query system?  By Proposition~\ref{prop:stationarity},
+    stationarity makes $K_t$ time-homogeneous.  The remaining question
+    is the precise connection to the residual stochastic local linear
+    maps used in computation.
 \end{enumerate}
 
 \section*{Acknowledgements}

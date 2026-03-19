@@ -1,0 +1,212 @@
+Topological Extension Route: Lean–Manuscript Alignment Memo
+Branch: topological-query-extension | Date: 2026-03-08
+
+================================================================================
+CONVENTION TRANSLATION DICTIONARY
+================================================================================
+
+The Lean formalization uses the OPPOSITE ordering convention from note.tex.
+
+  note.tex:   le i j means "i is finer than j" (i is MORE informative)
+              refinement maps go fine → coarse
+              compatible marginals: map (π ij) (ν i) = ν j  (fine pushes to coarse)
+
+  Lean:       le i j means "i is coarser than j" (j is MORE informative)
+              refinement maps go coarse → fine  (π hij : Outcome_i → Outcome_j)
+              compatible marginals: map (π hij) (ν i) = ν j  (coarse pushes to fine)
+
+  Translation: Lean's le = note.tex's le reversed.
+               Lean's LowerDirected = "any two queries have a common coarsening"
+                                    = note.tex's "lower-directedness" (same name,
+                                      same meaning, opposite arrow direction).
+
+This is a consistent global reversal and causes no mathematical error, but must
+be kept in mind when reading Lean proofs against manuscript statements.
+
+================================================================================
+WHAT IS PROVED (ZERO SORRIES)
+================================================================================
+
+--- Layer A: Observational Algebra (QuerySystem.lean) ---
+
+  QuerySystem          Preordered family of measurable spaces with refinement maps
+  Omega                Projective limit: coherent families of query outcomes
+  eval i               Coordinate projection Omega → Outcome_i
+  Cyl i A              Cylinder set {ω | eval i ω ∈ A}
+  sigmaQ               Observable σ-field = generateFrom(cylinders)
+  CompatibleMarginals  map (π hij) (ν i) = ν j
+  LowerDirected        ∀ i j, ∃ k, le k i ∧ le k j
+
+  measurable_eval              eval i is measurable
+  isPiSystem_CylGen            cylinder family is a π-system (under LowerDirected)
+  observational_determination  P = P' iff all marginals agree (π-λ theorem)
+  observational_determination_prob  probability measure version
+
+--- Layer B: Finite Premeasure Infrastructure (QuerySystem.lean) ---
+
+  FinCyl s A                   Finite intersection of cylinders
+  lowerBound_finset             Finite index sets have a common lower bound
+  finCyl_eq_cyl_of_lowerBound  Finite cylinder = single cylinder at lower bound
+  preμAt / preμ / preμ_eq      Premeasure value at an explicit lower bound
+  preμ_wellDefined              preμ independent of lower bound choice
+  preμAt_single_eq_marginal    preμAt on singleton = ν i (A i)
+
+  EvalSurjective               Named realizability hypothesis (NOT in note.tex)
+  preμ_respects_finCyl_eq      Well-definedness: equal sets → equal mass
+  preμ_disjoint_union          Finite additivity
+  isSetSemiring_CylGen         CylGen is a set semiring
+  cylGen_addContent            AddContent ℝ≥0∞ CylGen  ← algebraic layer COMPLETE
+
+--- Layer C: Topological Enrichment (TopologicalQuerySystem.lean) ---
+
+  TopologicalQuery             Query + TopologicalSpace + BorelSpace compatibility
+  PolishQuery                  Query + PolishSpace
+  TopologicalRefine            Continuous (hence measurable) refinement map
+  TopologicalQuerySystem       Parallel of QuerySystem with topological structure
+  toQuerySystem                Forgetful functor to measurable core
+
+  instTopOmega                 Projective-limit topology on Omega (subtype of Pi)
+  continuous_eval              eval i is continuous
+  measurable_eval'             eval i is measurable (from continuity)
+  sigmaQ_le_borel              sigmaQ ⊆ Borel(Omega)  ← key structural bridge
+
+  IsPolish                     Hypothesis: all outcome spaces are Polish
+  RadonCompatibleMarginals     Hypothesis: compatible + inner-regular marginals
+
+================================================================================
+WHAT IS STATED (ONE SORRY)
+================================================================================
+
+  topological_observational_extension
+  (TopologicalQuerySystem.lean, line ~280)
+
+    Hypotheses:
+      T : TopologicalQuerySystem
+      dir : T.toQuerySystem.LowerDirected
+      polish : T.IsPolish
+      ν : compatible Radon probability marginals
+
+    Conclusion:
+      ∃ P : Measure T.toQuerySystem.Omega,
+        IsProbabilityMeasure P ∧
+        ∀ i, Measure.map (T.toQuerySystem.eval i) P = ν i
+
+    Status: sorry — blocked by the Kolmogorov extension theorem (see below).
+
+================================================================================
+WHAT IS MISSING IN MATHLIB
+================================================================================
+
+The Kolmogorov extension theorem — the existence of a projective limit of a
+compatible family of Radon probability measures on Polish spaces — is explicitly
+noted as NOT YET IN MATHLIB in:
+
+  Mathlib.MeasureTheory.Constructions.ProjectiveFamilyContent
+  (line 27, comment)
+
+What IS in Mathlib:
+  IsProjectiveMeasureFamily    Compatible families indexed by finite sets
+  IsProjectiveLimit            Global measure recovering finite marginals
+  IsProjectiveLimit.unique     Uniqueness of projective limits (Projective.lean:151)
+  projectiveFamilyContent      Additive content on measurable cylinders
+  IsTightMeasureSet            Tightness of measure families (Tight.lean:55)
+  isCompact_closure_of_isTightMeasureSet  Prokhorov theorem (Prokhorov.lean:497)
+
+The gap: σ-subadditivity of projectiveFamilyContent under Polish/Radon hypotheses.
+This is the missing analytic step in both Mathlib's Projective.lean and in our
+QuerySystem's cylGen_addContent_isSigmaSubadditive.
+
+================================================================================
+HYPOTHESIS ALIGNMENT WITH NOTE.TEX
+================================================================================
+
+  Hypothesis            Note.tex    Lean (measurable)   Lean (topological)
+  ─────────────────────────────────────────────────────────────────────────
+  LowerDirected         YES         YES                 YES
+  CompatibleMarginals   YES         YES                 YES (part of Radon)
+  EvalSurjective        NO          YES (needed for     not needed (replaced
+                                    well-definedness)   by Polish + Radon)
+  IsPolish              NO          not present         YES (new hypothesis)
+  Radon marginals       NO          not present         YES (new hypothesis)
+  ─────────────────────────────────────────────────────────────────────────
+
+Summary of gaps:
+  Measurable route:    requires EvalSurjective (realizability)
+  Topological route:   requires IsPolish + RadonCompatibleMarginals
+
+Both gaps represent hypotheses not currently stated in note.tex.
+
+================================================================================
+WHAT THE MANUSCRIPT SHOULD NOW CLAIM
+================================================================================
+
+Recommended three-layer structure for the manuscript:
+
+Theorem 1 — Observational Determination (fully formalized)
+
+  "Two probability measures on the observational horizon are equal if and only
+  if they have equal marginals at every query level."
+
+  Hypotheses: LowerDirected + CompatibleMarginals (for uniqueness direction).
+  Status: complete in Lean, no further hypotheses needed.
+
+Proposition 2 — Finite Premeasure (fully formalized)
+
+  "The compatible marginals determine a well-defined, finitely additive
+  premeasure on the algebra of finite-cylinder events."
+
+  Hypotheses: LowerDirected + CompatibleMarginals + EvalSurjective.
+  Status: complete in Lean. EvalSurjective should be flagged explicitly
+  as a realizability condition on the horizon.
+
+Theorem 3 — Topological Observational Extension (skeleton)
+
+  "Under topological regularity of the outcome spaces (Polish) and Radon
+  regularity of the compatible marginals, there exists a unique probability
+  measure on the observational horizon recovering all marginals."
+
+  Hypotheses: LowerDirected + IsPolish + RadonCompatibleMarginals.
+  Status: correctly stated in Lean; sorry pending Kolmogorov extension
+  theorem in Mathlib.
+
+================================================================================
+REDUCTION PATH TO MATHLIB (once Kolmogorov is formalized)
+================================================================================
+
+Step 1  From T : TopologicalQuerySystem with dir and Polish outcome spaces,
+        construct P_fin : ∀ J : Finset T.ι, Measure (∀ j : J, (T.q j).Outcome)
+        by compressing compatible marginals to finite products via finCyl_eq_cyl_of_lowerBound.
+
+Step 2  Verify IsProjectiveMeasureFamily P_fin using CompatibleMarginals + π_trans.
+
+Step 3  Apply the Kolmogorov extension theorem (to be added to Mathlib) to obtain
+        P_full : Measure (∀ i, (T.q i).Outcome) with IsProjectiveLimit P_full P_fin.
+
+Step 4  Show P_full (Omegaᶜ) = 0 using coherence of T.toQuerySystem.Omega, so that
+        P_full concentrates on the projective limit subspace.
+
+Step 5  Restrict P_full to Omega. The restricted measure satisfies
+        Measure.map (eval i) P = ν i by IsProjectiveLimit + marginal recovery.
+
+Step 6  Uniqueness follows from observational_determination (already proved).
+
+================================================================================
+FUTURE LEMMA FLAGGED
+================================================================================
+
+sigmaQ = Borel(Omega)
+
+The current proof shows sigmaQ ⊆ Borel(Omega).  The reverse inclusion
+Borel(Omega) ⊆ sigmaQ holds because the projective-limit topology on Omega
+is generated by the evaluation maps (subtype of Pi = generated by projections),
+and these projections generate exactly sigmaQ.
+
+Proving this equality would confirm:
+
+  "The observable σ-field is exactly the Borel structure of the
+   observational horizon."
+
+This is the correct mathematical form of the philosophical claim that the
+observational horizon carries its own natural structure.
+
+Target lemma name: TopologicalQuerySystem.sigmaQ_eq_borel

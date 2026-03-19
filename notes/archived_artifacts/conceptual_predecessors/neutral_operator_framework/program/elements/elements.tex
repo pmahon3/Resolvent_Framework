@@ -1,0 +1,2830 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[numbers]{natbib}
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{hyperref}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta, positioning, cd}
+\usepackage{float}
+
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Dcal}{\mathcal{D}}
+
+\newcommand{\Psf}{\mathsf{P}}
+\newcommand{\Lsf}{\mathsf{L}}
+\newcommand{\Rsf}{\mathsf{R}}
+
+\newcommand{\push}{\sharp}     % pushforward
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\Ebb}{\mathbb{E}} % if you want expectation too
+\newcommand{\Fib}{\mathrm{Fib}} % compatibility fibre
+
+
+\pagecolor{white}
+
+
+\begin{document}
+
+\tableofcontents
+
+\section*{Reader's guide (what is being built, and from what)}
+\addcontentsline{toc}{section}{Reader's guide (what is being built, and from what)}
+
+\paragraph{Three kinds of objects.}
+Throughout, we explicitly distinguish three kinds of objects.
+
+\begin{itemize}[leftmargin=1.6em]
+\item \textbf{State/representation objects:} spaces $X,Y,Z$ and maps between them (e.g.\ $h:X\to Y$, representations $r$, and canonical readouts $\pi_0:Z\to Y$ for delays).
+\item \textbf{Boundary probability objects:} boundary horizons (stationary path laws) $\mathbb P\in\Pcal(\cdot^{\mathbb Z})$, derived edge laws $\Gamma^{(\Delta t)}:=(\pi_{0,\Delta t})_\#\mathbb P\in\Pcal(\cdot\times\cdot)$ for chosen lags/resolutions $\Delta t$ (often over a shared horizon $H$), pushforwards $(\cdot)_\#$, boundary maps $\partial_\infty$ and $\partial_{\Delta t}$, compatibility fibres $\Fib(\mathbb P)$ and $\Fib_{\varepsilon,H}(\mathbb P)$, and (when it exists) Markov completion as a closure/limit.
+\item \textbf{Information-geometric objects:} statistical model families inside $\Pcal(\cdot)$ equipped with divergence/Fisher geometry, and IG leaves (equivalence classes defined by preserved IG structure).
+\end{itemize}
+
+\paragraph{Boundary horizon (primitive).}
+The only empirical primitive we assume is a \emph{boundary horizon}: a stationary path law
+\[
+\mathbb P_Y \in \Pcal\bigl(Y^{\mathbb Z}\bigr)
+\qquad
+(\text{equivalently, a Kolmogorov-consistent projective family of finite-dimensional marginals}).
+\]
+For any chosen lag/resolution $\Delta t$ (and any agreed coarse-graining, if present), we \emph{derive} an edge record
+\[
+\Gamma_Y^{(\Delta t)} := (\pi_{0,\Delta t})_\# \mathbb P_Y \in \Pcal(Y\times Y),
+\]
+where $\pi_{0,\Delta t}$ projects a bi-infinite path to the pair $(Y_0,Y_{\Delta t})$ (with $\Delta t\in\mathbb N$ in discrete time).
+Thus a single $\Gamma_Y\in\Pcal(Y\times Y)$ is never primitive ``by decree'': it is a statistic of the shared horizon.
+All ``interior'' objects are judged by how they reproduce the boundary horizon (or an agreed family of derived edge records across a shared set of lags), without assuming any completion a priori.
+
+\paragraph{Realization, fibre, leaf, completion.}
+A \emph{realization} is an interior space equipped with a stationary path law together with a boundary readout map.
+The \emph{boundary horizon map} $\partial_\infty$ sends a realization to its induced observed path law on $Y^{\mathbb Z}$, while each \emph{derived edge map} $\partial_{\Delta t}$ extracts an edge record $\Gamma_Y^{(\Delta t)}\in\Pcal(Y\times Y)$ at a chosen lag/resolution $\Delta t$.
+The \emph{compatibility fibre} over the horizon, $\Fib(\mathbb P_Y)$, is the class of realizations whose boundary horizon equals (or approximately equals, across a shared set of lags) the observed horizon; the one-lag fibre $\Fib(\Gamma_Y)$ is recovered once a particular $\Delta t^\star$ is fixed (Definition~\ref{def:compatibility-fibre}).
+An \emph{IG leaf} is an equivalence class in the realization space obtained by identifying realizations that induce the same information--geometric structure (information-geometric level) on their boundary models.
+A \emph{completion} is \emph{not assumed}: it is \emph{derived} as a limit/closure when the boundary-derived operators are semigroup-consistent across resolutions.
+
+\section*{Outline (minimal working-memory ordering)}
+\addcontentsline{toc}{section}{Outline (minimal working-memory ordering)}
+\begin{enumerate}[leftmargin=1.8em]
+\item \S\ref{sec:boundary-core}: define the boundary horizon, derived edge records, realizations, boundary maps, compatibility fibres, and ``delay is an '' (boundary $	o$ state/representation) with the key commuting square.
+\item \S\ref{sec:ig-notions}: introduce only the IG notions that we actually use for comparing realizations: divergence $\Rightarrow$ Fisher metric $\Rightarrow$ $e/m$-projections $\Rightarrow$ Pythagorean identity, and then define IG leaves (information-geometric level).
+\item \S\ref{sec:completion-closure}: formulate completion as a closure problem (approximate semigroup $\Rightarrow$ generator limit $\Rightarrow$ semigroup) rather than an assumption (boundary-probability level).
+\item The remainder of the note develops the neutral-operator framework and worked examples, now referenced back to the primitives above.
+\end{enumerate}
+
+\section*{Commitment ledger (what is assumed where)}
+\addcontentsline{toc}{section}{Commitment ledger (what is assumed where)}
+\subsection*{state/representation level: state/representation assumptions (only when invoked)}
+\begin{itemize}[leftmargin=1.6em]
+\item Measurability of maps ($h,\rho,\pi_0$); smoothness is \emph{optional} and only invoked for statements about topological/coordinate fidelity.
+\end{itemize}
+
+\subsection*{boundary-probability level: boundary-probability assumptions (default viewpoint)}
+\begin{itemize}[leftmargin=1.6em]
+\item Existence of a boundary horizon $\mathbb P_Y\in\Pcal(Y^{\mathbb Z})$ (or an equivalent Kolmogorov-consistent projective family) and pushforwards of boundary statistics along measurable readouts.
+\item Edge laws $\Gamma_Y^{(\Delta t)}\in\Pcal(Y\times Y)$ at specific lags/resolutions are \emph{derived} from the horizon once $\Delta t$ (and any coarse-graining) is fixed.
+\item Markov kernels/semigroups are \emph{not assumed}; they are derived under explicit semigroup-consistency and generator-limit hypotheses across a shared horizon of resolutions.
+\end{itemize}
+
+\subsection*{information-geometric level: statistical/IG assumptions (only for IG comparisons)}
+\begin{itemize}[leftmargin=1.6em]
+\item Dominated statistical families with smooth densities so Fisher information and $\alpha$-connections exist.
+\item IG equivalence/leaf statements refer to preserved IG structure on \emph{families} (not to smooth coordinate changes of state spaces unless stated).
+\end{itemize}
+
+\section{Boundary-first core objects}
+\label{sec:boundary-core}
+
+
+\paragraph{Roadmap.}
+We begin with the \emph{boundary horizon} (a stationary path law, equivalently a consistent family of finite-dimensional marginals) as the only primitive empirical object; stepwise edge laws are derived once a lag/resolution is fixed.
+We then define \emph{realizations} and the associated \emph{boundary horizon/edge maps}, so that the \emph{compatibility fibre} is simply the preimage of the observed horizon (or, after fixing a lag, of a derived edge record).
+Finally, we show how step operators and (when limits exist) continuous-time Markov completions arise as \emph{derived} objects rather than assumptions.
+\medskip
+We now introduce the \emph{minimal} objects used throughout, and we use each immediately.
+
+\subsection{Boundary horizon and boundary maps (boundary-probability level)}
+
+\begin{definition}[boundary-probability level: boundary horizon]
+\label{def:boundary-record}
+Let $Y$ be a measurable space. A \emph{boundary horizon} is a stationary path law
+\[
+\mathbb P_Y \in \Pcal\bigl(Y^{\mathbb Z}\bigr).
+\]
+Equivalently, one may specify a Kolmogorov-consistent projective family of finite-dimensional marginals
+$\{\mathbb P_{t_0,\dots,t_k}\in\Pcal(Y^{k+1})\}_{k\ge 0,\ t_0<\cdots<t_k}$.
+For any chosen lag/resolution $\Delta t$ (an integer in discrete time), the \emph{derived edge record at lag $\Delta t$} is
+\[
+\Gamma_Y^{(\Delta t)} := (\pi_{0,\Delta t})_\# \mathbb P_Y \in \Pcal(Y\times Y),
+\]
+where $\pi_{0,\Delta t}:Y^{\mathbb Z}\to Y\times Y$ is the coordinate projection $\pi_{0,\Delta t}((y_t))=(y_0,y_{\Delta t})$.
+When a particular lag $\Delta t^\star$ is fixed by the observational protocol, we suppress the superscript and write
+$\Gamma_Y := \Gamma_Y^{(\Delta t^\star)}$.
+\end{definition}
+
+\paragraph{Neutrality clause: no privileged step, partition, or edge statistic.}
+Shared experience does not canonically determine a discretization $\Delta t$, a preferred $\sigma$-algebra/partition on $Y$, or a unique ``edge'' statistic.
+Accordingly, we treat the horizon $\mathbb P_Y$ as primitive, and view each $\Gamma_Y^{(\Delta t)}\in\Pcal(Y\times Y)$ as a derived boundary statistic \emph{relative to auxiliary choices} (lag/resolution, and any agreed coarse-graining).
+Dynamical structure on $Y$ (Markov kernels, semigroups) is therefore \emph{earned} only as a closure/limit across a shared horizon of resolutions (cf.\ \S\ref{sec:completion-closure}), never assumed from a privileged one-step object.
+
+
+\begin{definition}[boundary-probability level: realization and boundary maps]
+\label{def:realization-boundarymap}
+A \emph{realization} of a boundary horizon is a triple
+\[
+\mathsf R=(S,\mathbb P_S,q),
+\]
+where:
+\begin{itemize}[leftmargin=1.6em]
+\item $S$ is an interior measurable space;
+\item $\mathbb P_S$ is a \emph{stationary path law} on $S^{\mathbb Z}$ (no Markov assumption is made);
+\item $q:S\to Y$ is a measurable \emph{boundary readout} map.
+\end{itemize}
+Let $q^{\mathbb Z}:S^{\mathbb Z}\to Y^{\mathbb Z}$ denote the coordinatewise map,
+\[
+q^{\mathbb Z}\bigl((s_t)_{t\in\mathbb Z}\bigr):=\bigl(q(s_t)\bigr)_{t\in\mathbb Z},
+\]
+and define the induced observed path law on $Y^{\mathbb Z}$ by
+\[
+\mathbb P_Y^{\mathsf R}:= (q^{\mathbb Z})_\#\mathbb P_S \in \Pcal\bigl(Y^{\mathbb Z}\bigr).
+\]
+
+\emph{Boundary horizon map.} We set
+\[
+\partial_\infty(\mathsf R) := \mathbb P_Y^{\mathsf R}.
+\]
+
+\emph{Derived edge maps.} For any chosen lag/resolution $\Delta t\in\mathbb N$, define
+\[
+\partial_{\Delta t}(\mathsf R)
+:= (\pi_{0,\Delta t})_\#\mathbb P_Y^{\mathsf R}
+\in \Pcal(Y\times Y),
+\]
+where $\pi_{0,\Delta t}((y_t))=(y_0,y_{\Delta t})$.
+
+Equivalently, if we define the interior lag-$\Delta t$ marginal (edge law)
+\[
+\Gamma_S^{(\Delta t)} := (\pi_{0,\Delta t})_\#\mathbb P_S \in \Pcal(S\times S),
+\]
+then
+\[
+\partial_{\Delta t}(\mathsf R) = (q\otimes q)_\# \Gamma_S^{(\Delta t)}.
+\]
+
+When a particular lag $\Delta t^\star$ is fixed by the observational protocol, we write
+\[
+\partial(\mathsf R):=\partial_{\Delta t^\star}(\mathsf R),
+\qquad
+\Gamma_S:=\Gamma_S^{(\Delta t^\star)},
+\qquad
+\Gamma_Y := \Gamma_Y^{(\Delta t^\star)}.
+\]
+When only the lag-$\Delta t^\star$ marginal is used, we may suppress $\mathbb P_S$ and write the associated \emph{edge realization} as $(S,\Gamma_S,q)$.
+\end{definition}
+
+
+\begin{definition}[boundary-probability level: compatibility fibres]
+\label{def:compatibility-fibre}
+Let $\mathbb P_Y\in\Pcal(Y^{\mathbb Z})$ be a boundary horizon.
+
+\smallskip
+\noindent\textbf{Horizon fibre.} The \emph{compatibility fibre over the horizon} is
+\[
+\Fib(\mathbb P_Y) := \{\mathsf R : \partial_\infty(\mathsf R)=\mathbb P_Y\}.
+\]
+
+\smallskip
+\noindent\textbf{Edge fibres across a shared horizon of resolutions.}
+Fix a set of lags/resolutions $H\subseteq\mathbb N$ representing the \emph{shared observational horizon}, and let
+$\Gamma_Y^{(\Delta t)}:=(\pi_{0,\Delta t})_\#\mathbb P_Y$ denote the corresponding derived edge records.
+Given a divergence $D_f$ on $\Pcal(Y\times Y)$, we define the $\varepsilon$-fibre controlled on $H$ by
+\[
+\Fib_{\varepsilon,H}(\mathbb P_Y)
+:=
+\left\{\mathsf R:\ \sup_{\Delta t\in H} D_f\!\bigl(\partial_{\Delta t}(\mathsf R),\Gamma_Y^{(\Delta t)}\bigr)\le \varepsilon \right\}.
+\]
+
+\smallskip
+\noindent\textbf{Conditional one-lag fibre.} When a particular lag $\Delta t^\star$ is fixed and we write $\Gamma_Y:=\Gamma_Y^{(\Delta t^\star)}$ and $\partial:=\partial_{\Delta t^\star}$, we recover the one-lag fibre
+\[
+\Fib(\Gamma_Y) := \{\mathsf R : \partial(\mathsf R)=\Gamma_Y\},
+\]
+and its $\varepsilon$-version $\Fib_\varepsilon(\Gamma_Y):=\{\mathsf R: D_f(\partial(\mathsf R),\Gamma_Y)\le \varepsilon\}$.
+\end{definition}
+
+
+
+
+\begin{remark}[Signpost: where information geometry enters]\label{rem:signpost-ig}
+The boundary-first core objects are \emph{probabilistic}: horizon laws, derived edge laws, and their compatibility fibres.
+Information geometry enters only after we fix a derived edge law (a chosen lag/resolution) and regard the compatible realizations as a statistical family.
+See \S\ref{sec:ig-notions} for the IG constructions (projections, leaves, and the neutral-operator viewpoint).
+\end{remark}
+
+
+
+\subsection{IG leaves versus compatibility fibres (information-geometric level over boundary-probability level)}
+\label{sec:ig-notions}
+
+\begin{definition}[Boundary statistical family]
+\label{def:statistical-family-boundary}
+A \emph{boundary statistical family} for a derived edge record $\Gamma_Y\in\Pcal(Y\times Y)$ (at a fixed observational lag $\Delta t^\star$ as in Definition~\ref{def:boundary-record}) is a smooth statistical model
+$\Mcal_Y\subseteq\Pcal(Y\times Y)$ (typically dominated by a reference measure) with $\Gamma_Y\in\Mcal_Y$.
+It provides the ambient information--geometric structure (Fisher metric and dual connections) used to compare realizations.
+\end{definition}
+
+\begin{definition}[information-geometric level: $e$- and $m$-projections]
+\label{def:em-projections}
+Let $\mathcal M$ be a statistical manifold with divergence $D(\cdot\Vert\cdot)$.
+Given a submanifold $\mathcal N\subset\mathcal M$ and $p\in\mathcal M$:
+\begin{itemize}[leftmargin=1.6em]
+\item the \emph{$m$-projection} of $p$ onto $\mathcal N$ is a point $q\in\mathcal N$ minimizing $D(p\Vert q)$ over $q\in\mathcal N$ (when it exists),
+\item the \emph{$e$-projection} of $p$ onto $\mathcal N$ is a point $q\in\mathcal N$ minimizing $D(q\Vert p)$ over $q\in\mathcal N$ (when it exists).
+\end{itemize}
+\end{definition}
+
+\begin{proposition}[information-geometric level: Pythagorean relation (pushforward-ready form)]
+\label{prop:pythagorean}
+Let $(\mathcal M,D)$ be a dually flat statistical manifold with Fisher metric $g$.
+Let $p,q,r\in\mathcal M$ such that the $\nabla$-geodesic from $p$ to $q$ is $g$-orthogonal at $q$ to the $\nabla^\ast$-geodesic from $q$ to $r$.
+Then
+\[
+D(p\Vert r) = D(p\Vert q) + D(q\Vert r).
+\]
+\end{proposition}
+
+\begin{remark}[How this interfaces with the boundary-first program]
+In our setting, the role of $p,q,r$ is played by \emph{boundary laws} in $\Pcal(Y\times Y)$:
+for example, $q=\Gamma_Y$ (boundary record), while $p$ and $r$ can be boundary images $\partial(\mathsf R)=(q\otimes q)_\#\Gamma_S$ from different realizations.
+The usefulness of Proposition~\ref{prop:pythagorean} depends on (i) choosing a divergence $D_f$ that yields a well-behaved IG structure, and (ii) specifying the submanifolds that encode the constraints/ans\"atze for realizations.
+\end{remark}
+
+
+
+
+
+\begin{remark}[Preview: IG leaves and IG-equivalence]\label{rem:ig-leaves-preview}
+The information--geometric comparison of realizations is organized by an
+equivalence relation $\cong_{\mathrm{IG}}$ on the realization space
+$\Rcal(\Gamma_Y)$, whose equivalence classes (``IG leaves'')
+partition $\Rcal(\Gamma_Y)$.
+We give the formal definitions later in
+\S\ref{subsec:ig-equivalence-neutral-operator}
+(Definitions~\ref{def:ig-equivalence} and~\ref{def:ig-leaf}).
+For the boundary-first development here, it suffices to remember that
+IG leaves encode ``mutually intelligible'' interior interpretations that
+share the same boundary record at the chosen resolution.
+\end{remark}
+
+
+
+\begin{remark}[Fibre intersects many leaves]
+The fibre $\Fib(\Gamma_Y)$ is a \emph{boundary constraint} (boundary-probability level), while IG leaves are \emph{internal geometric identifications} (information-geometric level).
+In general,
+\[
+\Fib(\Gamma_Y)\ \text{intersects many IG leaves.}
+\]
+Our selection problem is therefore: find (or characterize) the IG leaves whose representatives lie in (or near) $\Fib(\Gamma_Y)$.
+\end{remark}
+
+% (cut: commuting comparison diagram moved/removed)
+
+
+\subsection{From an edge law to a step operator (boundary-probability level)}
+
+Given a derived edge record $\Gamma_Y^{(\Delta t)}\in\Pcal(Y\times Y)$, if it admits a disintegration
+$\Gamma_Y(dy_0,dy_1)=\mu(dy_0)\,K(y_0,dy_1)$, then $K$ defines a one-step Markov operator
+$T f(y):=\int f(y')K(y,dy')$ on a chosen function space $\Xcal$.
+We treat this as \emph{derived structure}: disintegration is a property of $\Gamma_Y^{(\Delta t)}$ relative to a reference marginal $\mu$ (and depends on the chosen lag $\Delta t$).
+
+\subsection{Semigroup consistency and generator limits (boundary-probability level)}
+
+\label{sec:completion-closure}
+\begin{definition}[boundary-probability level: empirical semigroup consistency]
+\label{def:empirical-semigroup-consistency-v2}
+Let $\{T_{\Delta t}\}_{\Delta t\in(0,\Delta t_0]}$ be operators on a Banach space $\Xcal$ extracted from boundary records at different resolutions (e.g.\ from $\Gamma_Y^{(\Delta t)}$).
+We say the family is \emph{empirically semigroup-consistent} if:
+\begin{enumerate}[label=(MC\arabic*),leftmargin=1.8em]
+\item \textbf{Approximate semigroup:} $\|T_{t+s}-T_tT_s\|_{\Bcal(\Xcal)}\to 0$ as $\max\{t,s\}\to 0$ for rational $t,s$ with $t+s\le \Delta t_0$;
+\item \textbf{Continuity at $0$:} $T_0=I$ and $\|T_{\Delta t}-I\|_{\Bcal(\Xcal)}\to 0$ as $\Delta t\to 0$;
+\item \textbf{Generator tightness:} the difference quotients $L_{\Delta t}:=(T_{\Delta t}-I)/\Delta t$ are dissipative and satisfy the standard Hille--Yosida type bounds needed for a contraction semigroup limit (when it exists).
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[boundary-probability level: existence of a continuous-time Markov completion (closure form)]
+\label{prop:continuous-markov-completion-v2}
+Assume Definition~\ref{def:empirical-semigroup-consistency-v2} and suppose $L_{\Delta t}\to L$ in strong resolvent sense to a closed, densely defined operator $L$ on $\Xcal$.
+Then there exists a strongly continuous contraction semigroup $(P_t)_{t\ge 0}$ on $\Xcal$ with generator $L$ such that
+\[
+P_{\Delta t} f = \lim_{n\to\infty} (T_{\Delta t/n})^n f,
+\qquad f\in\Xcal.
+\]
+In particular, a continuous-time Markov completion is obtained as a \emph{closure} of the boundary-derived skeleton, not as a primitive assumption.
+\end{proposition}
+
+\begin{remark}[Design choice: completion target class]
+The ``biconditional'' language in the prose should be read as an existence/fixed-point statement relative to a chosen target class:
+\emph{given} a boundary record and a class of admissible semigroups (e.g.\ Feller, diffusion, jump processes), completion means showing that the boundary-derived operators admit a closure within that class.
+Different target classes lead to different notions of completion.
+\end{remark}
+\section{Neutral operator framework (technical backbone)}
+
+
+\paragraph{Roadmap.}
+This section defines the neutral operator as a boundary-factorized functional and isolates the design choice of a completion target class.
+The key message is that any Markov semigroup structure enters only through stated approximation/limit hypotheses (semigroup consistency, generator convergence), not by stipulation.
+\medskip
+This note collects the core definitions, theorems, and relations used in Part~I,
+without narrative. The standing objects are:
+\begin{itemize}[leftmargin=1.5em]
+  \item a measurable observation space $Y$;
+  \item an observed bi-infinite time series $(Y_t)_{t\in\mathbb{Z}}$ taking values in $Y$;
+  \item an empirical one-step marginal $\Gamma_Y \in \Pcal(Y\times Y)$, estimated from data.
+\end{itemize}
+
+In this section we shift from 
+boundary-first compatibility (path-level horizons) to the 
+information--geometric comparison of interior realizations.
+Since the IG structure is carried by a \emph{finite-dimensional} 
+boundary statistic, we implicitly fix a lag/resolution $\Delta t^\star$
+and work with the derived edge law $\Gamma_Y:=\Gamma_Y^{(\Delta t^\star)}$.
+When needed (e.g.\ for completion), we consider a family of lags $H$
+and the corresponding collection $\{\Gamma_Y^{(\Delta t)}\}_{\Delta t\in H}$
+as derived shadows of the same boundary horizon.
+
+\subsection*{1. Empirical, representation, and latent operators}
+
+\begin{definition}[Boundary-readable realization]
+\label{def:boundary-readable-representation}
+Fix a boundary horizon $\mathbb P_Y\in\Pcal(Y^{\mathbb Z})$ and (when needed) a lag $\Delta t^\star$ with derived edge record $\Gamma_Y:=\Gamma_Y^{(\Delta t^\star)}\in\Pcal(Y\times Y)$. A \emph{boundary-readable realization} of $\Gamma_Y$
+is a triple $(S,\Gamma_S,q)$ where $S$ is a measurable space, $q:S\to Y$ is a measurable \emph{readout},
+and $\Gamma_S\in\Pcal(S\times S)$ is a stepwise law such that
+\[
+  (q\otimes q)_\sharp\Gamma_S=\Gamma_Y.
+\]
+We write $\partial(S,\Gamma_S,q):=(q\otimes q)_\sharp\Gamma_S$ for the induced \emph{boundary map}.
+\end{definition}
+
+
+
+
+\begin{lemma}[Pushforward-only comparison on a representation boundary]
+\label{lem:pushforward-only-repboundary}
+Let $\Gamma_Y\in\Pcal(Y\times Y)$ be a boundary record and let $\rho:Y\to Z$ be
+any measurable \emph{representation statistic}.  For any candidate boundary law
+$\Gamma_Y'\in\Pcal(Y\times Y)$ (for example, $\Gamma_Y'=(h\times h)_\sharp\Gamma_X$
+coming from a latent realization $(X,\Gamma_X,h)$), define the induced
+representation-boundary records
+\[
+  \Gamma_{Y,\rho}:=(\rho\times\rho)_\sharp\Gamma_Y
+  \in \Pcal(Z\times Z),
+  \qquad
+  \Gamma_{Y',\rho}:=(\rho\times\rho)_\sharp\Gamma_Y'
+  \in \Pcal(Z\times Z).
+\]
+Then any divergence $D_f$ on probability laws may be evaluated \emph{entirely at
+the representation boundary} via
+\[
+  D_f(\Gamma_{Y,\rho}\,\Vert\,\Gamma_{Y',\rho}),
+\]
+without requiring an inverse map $(\rho\times\rho)^{-1}$ or a decoder $Z\to Y$.
+\end{lemma}
+
+
+
+
+
+
+
+\begin{lemma}[Invariance under measurable isomorphisms]
+\label{lem:realization-relabel}
+Let $(S,\Gamma_S,q)$ be a realization in $\mathcal{R}(\Gamma_Y)$ and let
+$\psi:S\to \tilde S$ be a bimeasurable bijection with measurable inverse.
+Define
+\[
+  \tilde \Gamma
+  := (\psi\times\psi)_{\sharp}\Gamma_S,
+  \qquad
+  \tilde q := q\circ\psi^{-1}.
+\]
+Then $(\tilde S,\tilde\Gamma,\tilde q)$ is again a realization in
+$\mathcal{R}(\Gamma_Y)$, and
+$(S,\Gamma_S,q)\cong_{\mathrm{IG}}(\tilde S,\tilde\Gamma,\tilde q)$.
+In particular, IG leaves and the neutral operator are invariant under
+measurable relabellings of state spaces.
+\end{lemma}
+
+\begin{proof}
+First, $(\tilde S,\tilde\Gamma,\tilde q)\in\mathcal R(\Gamma_Y)$.
+Since $(S,\Gamma_S,q)$ is a realization, we have
+\[
+  (q\times q)_\sharp \Gamma_S = \Gamma_Y.
+\]
+Using functoriality of pushforwards and $\tilde q\circ\psi = q$, we compute
+\[
+  (\tilde q\times\tilde q)_\sharp \tilde\Gamma
+  = ( (q\circ\psi^{-1}) \times (q\circ\psi^{-1}) )_\sharp
+    (\psi\times\psi)_\sharp \Gamma_S
+  = (q\times q)_\sharp \Gamma_S
+  = \Gamma_Y,
+\]
+so $(\tilde S,\tilde\Gamma,\tilde q)$ is a realization of $\Gamma_Y$.
+
+For IG-equivalence, choose a disintegration
+$\Gamma_S(ds_0,ds_1)=\nu_S(ds_0)\,K_S(s_0,ds_1)$ and define the
+corresponding disintegration of $\tilde\Gamma$ by transport along $\psi$:
+\[
+  \tilde\nu := \psi_\sharp\nu_S, \qquad
+  \tilde K(\tilde s_0,\cdot)
+  := (\psi)_\sharp\bigl(K_S(\psi^{-1}(\tilde s_0),\cdot)\bigr).
+\]
+Then the conditional-law maps into $\Pcal(Y)$ satisfy
+\[
+  \Phi_{\tilde S}(\tilde s)
+  := \mathbb P(Y_{t+1}\in\cdot \mid \tilde S_t=\tilde s)
+  = \mathbb P(Y_{t+1}\in\cdot \mid S_t=\psi^{-1}(\tilde s))
+  = \Phi_S(\psi^{-1}(\tilde s))
+  = \Phi_S\circ\psi^{-1}(\tilde s).
+\]
+In particular, $\Phi_{\tilde S}(\tilde S)=\Phi_S(S)$, so the image statistical
+manifold $\mathcal M_0\subset\Pcal(Y)$ is the same for both realizations.
+
+Because $\psi$ is a measurable bijection with measurable inverse, the pullback
+of the Fisher metric and dual connections along $\psi$ is an isomorphism of
+dualistic manifolds:
+\[
+  g_{\tilde S} = \psi_\sharp g_S, \qquad
+  \nabla^{\tilde S} = \psi_\sharp \nabla^S,
+  \qquad
+  (\nabla^{\tilde S})^\ast = \psi_\sharp (\nabla^S)^\ast.
+\]
+Equivalently, taking $S_0=S$ and $\tilde S_0=\tilde S$, the map
+$\varphi := \psi^{-1}:\tilde S_0\to S_0$ satisfies the hypotheses of the
+IG-embedding theorem, and shows that
+$(S,\Gamma_S,q)\cong_{\mathrm{IG}}(\tilde S,\tilde\Gamma,\tilde q)$.
+\end{proof}
+
+\subsection*{2. IG structure on $\Pcal(Y\times Y)$}
+
+On any smooth statistical model
+$\theta\mapsto \Gamma_\theta\in\Pcal(Y\times Y)$, the second variation of
+$D_f$ at $\theta$ yields:
+
+\begin{definition}[Fisher--Rao metric and dual connections]
+Let $\{\Gamma_\theta : \theta\in\Theta\}$ be a smooth statistical model.
+The Riemannian metric $g$ on $\Theta$ with local components
+\[
+  g_{ij}(\theta)
+  :=
+  \left.
+  \frac{\partial^2}{\partial \epsilon_i\,\partial \epsilon_j}
+  D_f(\Gamma_\theta \Vert \Gamma_{\theta+\epsilon})
+  \right|_{\epsilon=0}
+\]
+is the \emph{Fisher--Rao metric}. There exist two affine connections
+$\nabla$ and $\nabla^\ast$, dual with respect to $g$, such that for all
+vector fields $X,Y,Z$ on $\Theta$,
+\[
+  Y \bigl\langle X,Z \bigr\rangle
+  = \bigl\langle \nabla_Y X, Z \bigr\rangle
+    + \bigl\langle X, \nabla^\ast_Y Z \bigr\rangle.
+\]
+The triple $(g,\nabla,\nabla^\ast)$ is the \emph{dualistic structure}
+(independent of $f$ up to scale, for regular Csiszár--Amari $\alpha$-divergences).
+\end{definition}
+
+\subsection*{3. Conditional-law maps and Fisher immersions}
+
+Given $\Gamma_Y\in\Pcal(Y\times Y)$, choose a disintegration
+\[
+  \Gamma_Y(\mathrm dy_0,\mathrm dy_1)
+  = \nu_Y(\mathrm dy_0) \, K_Y(y_0,\mathrm dy_1),
+\]
+with source law $\nu_Y$ and Markov kernel $K_Y$.
+
+\begin{definition}[Conditional-law map]
+\label{def:conditional-law-map}
+For a realization $(S,\Gamma_S,q)\in\mathcal R(\Gamma_Y)$, with
+disintegration
+\[
+  \Gamma_S(\mathrm ds_0,\mathrm ds_1)
+  = \nu_S(\mathrm ds_0)\,K_S(s_0,\mathrm ds_1),
+\]
+the \emph{conditional-law map} with respect to $Y$ is
+\[
+  \Phi_S : S \to \Pcal(Y),
+  \qquad
+  \Phi_S(s) := \mathbb{P}(Y_{t+1}\in\cdot \mid S_t=s).
+\]
+When $S=Y$ and $q=\mathrm{id}_Y$, this reduces to $y\mapsto K_Y(y,\cdot)$.
+\end{definition}
+
+Pulling back the dualistic structure along $\Phi_S$ gives:
+
+\begin{definition}[Induced IG structure on a realization]
+Let $(g,\nabla,\nabla^\ast)$ be the dualistic structure on a smooth
+submanifold $\mathcal M\subset \Pcal(Y)$ containing the image of $\Phi_S$.
+The \emph{induced IG structure} on $S$ is
+\[
+  g_S := \Phi_S^\ast g,
+  \qquad
+  \nabla^S := \Phi_S^\ast \nabla,
+  \qquad
+  (\nabla^S)^\ast := \Phi_S^\ast \nabla^\ast.
+\]
+\end{definition}
+
+\begin{definition}[Fisher immersion]
+Let $S$ be a smooth manifold and $\Phi_S:S\to\mathcal M\subset\Pcal(Y)$
+smooth. We say $\Phi_S$ is a \emph{Fisher immersion of rank $d$} on a
+subset $S_0\subseteq S$ if the pullback metric $g_S$ has constant rank $d$
+on $S_0$ and the induced map $\Phi_S|_{S_0}$ is an immersion of $S_0$ into
+$\mathcal M$.
+\end{definition}
+
+\subsection*{4. IG embedding and IG-equivalence}
+
+\begin{theorem}[IG-embedding theorem]
+\label{thm:ig-embedding-early}
+Let $(X,\Gamma_X,h)$ be a latent hypothesis and $(Z,\Gamma_Z,r)$ a
+representation, both in $\mathcal R(\Gamma_Y)$, such that:
+
+\begin{enumerate}[leftmargin=1.8em]
+  \item \textbf{Rose condition:} the pushforward of $\Gamma_X$ satisfies
+  \[
+    (h\times h)_{\push}\Gamma_X = \Gamma_Y.
+  \]
+  \item \textbf{Fisher immersions:} there exist subsets $X_0\subseteq X$,
+  $Z_0\subseteq Z$ and a common statistical manifold
+  $\mathcal M_0\subset \Pcal(Y)$ such that
+  \[
+    \Phi_X(X_0) = \Phi_Z(Z_0) = \mathcal M_0,
+  \]
+  and $\Phi_X|_{X_0}$, $\Phi_Z|_{Z_0}$ are Fisher immersions of the same
+  rank $d$.
+\end{enumerate}
+
+Then:
+\begin{itemize}[leftmargin=1.5em]
+  \item there is a canonical smooth coordinate changes
+  \[
+    \varphi := (\Phi_X|_{X_0})^{-1}\circ(\Phi_Z|_{Z_0}) : Z_0\to X_0;
+  \]
+  \item $\varphi$ is an isomorphism of dualistic manifolds:
+  \[
+    g_Z = \varphi^\ast g_X,
+    \qquad
+    \nabla^Z = \varphi^\ast \nabla^X,
+    \qquad
+    (\nabla^Z)^\ast = \varphi^\ast (\nabla^X)^\ast;
+  \]
+  \item $\varphi$ intertwines the stepwise marginals on the supports:
+  \[
+    \Gamma_Z|_{Z_0\times Z_0}
+    = (\varphi^{-1}\times\varphi^{-1})_{\push}
+      \bigl(\Gamma_X|_{X_0\times X_0}\bigr).
+  \]
+\end{itemize}
+\end{theorem}
+
+\begin{definition}[IG-equivalence]
+Two realizations $(S,\Gamma_S,q)$ and $(S',\Gamma_{S'},q')$ in
+$\mathcal R(\Gamma_Y)$ are \emph{information--geometrically equivalent}
+(IG-equivalent), written
+\[
+  (S,\Gamma_S,q) \cong_{\mathrm{IG}} (S',\Gamma_{S'},q'),
+\]
+if there exist subsets $S_0\subseteq S$, $S'_0\subseteq S'$ and a common
+statistical manifold $\mathcal M_0\subset\Pcal(Y)$ such that:
+\begin{itemize}[leftmargin=1.5em]
+  \item $\Phi_S(S_0) = \Phi_{S'}(S'_0) = \mathcal M_0$;
+  \item $\Phi_S|_{S_0}$ and $\Phi_{S'}|_{S'_0}$ are Fisher immersions of
+  the same rank;
+  \item the induced map
+  $\varphi := (\Phi_S|_{S_0})^{-1}\circ(\Phi_{S'}|_{S'_0})$ is a
+  dualistic isomorphism and intertwines the restricted stepwise marginals
+  as above.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[IG leaf and foliation]
+For any realization $(S,\Gamma_S,q)\in\mathcal R(\Gamma_Y)$, the
+\emph{information--geometric leaf} (IG leaf) through $(S,\Gamma_S,q)$ is
+the IG-equivalence class
+\[
+  [S,\Gamma_S,q]_{\mathrm{IG}}
+  :=
+  \bigl\{
+    (S',\Gamma_{S'},q')\in\mathcal R(\Gamma_Y)
+    \,\big|\,
+    (S',\Gamma_{S'},q')\cong_{\mathrm{IG}}(S,\Gamma_S,q)
+  \bigr\}.
+\]
+Assuming $\mathcal R(\Gamma_Y)$ carries a smooth (or stratified) manifold
+structure and the constructions above depend smoothly on
+$(S,\Gamma_S,q)$, the family of leaves
+\[
+  \bigl\{[S,\Gamma_S,q]_{\mathrm{IG}} : (S,\Gamma_S,q)\in\mathcal R(\Gamma_Y)\bigr\}
+\]
+partitions $\mathcal R(\Gamma_Y)$ into disjoint immersed submanifolds
+(\emph{leaves}). When this partition satisfies the usual local product
+condition, it defines a foliation of $\mathcal R(\Gamma_Y)$ by IG leaves.
+\end{definition}
+
+\begin{definition}[Neutral operator]
+\label{def:neutral-operator}
+Fix an empirical stepwise marginal $\Gamma_Y \in \mathcal{P}(Y\times Y)$ (e.g.\ $\Gamma_Y=\Gamma_Y^{(\Delta t^\star)}$ derived from a boundary horizon as in Definition~\ref{def:boundary-record})
+and a regular Csiszár--Amari $f$-divergence $D_f$ on
+$\mathcal{P}(Y\times Y)$. The associated \emph{neutral operator} is the
+triple
+\[
+  \Ncal(\Gamma_Y,D_f)
+  :=
+  \bigl(\Gamma_Y,\; \mathcal{R}(\Gamma_Y),\; \cong_{\mathrm{IG}}\bigr),
+\]
+where $\mathcal{R}(\Gamma_Y)$ is the realization space of $\Gamma_Y$
+and $\cong_{\mathrm{IG}}$ is IG-equivalence on
+$\mathcal{R}(\Gamma_Y)$ induced by $D_f$.
+The IG-equivalence classes
+$\{[S,\Gamma_S,q]_{\mathrm{IG}}\}$ are called the
+\emph{information--geometric leaves} (IG leaves) of the neutral operator.
+\end{definition}
+
+%----------------------------------------------------------
+\subsection{Markov completion of a stepwise marginal}
+\label{subsec:markov-completion-discrete}
+
+We now make explicit the sense in which a stepwise marginal
+$\Gamma_Y\in\Pcal(Y\times Y)$ canonically determines a discrete-time
+Markov representation, while keeping this representation conceptually
+separate from the neutral operator $\Ncal(\Gamma_Y,D_f)$.
+
+By disintegration there exist a \emph{source law}
+$\nu_Y\in \Pcal(Y)$ and a Markov kernel $K_Y:Y\times\Bcal(Y)\to[0,1]$
+such that
+\begin{equation}
+  \Gamma_Y(dy_0,dy_1)
+  = \nu_Y(dy_0)\,K_Y(y_0,dy_1).
+  \label{eq:gammaY-disintegration}
+\end{equation}
+The pair $(\nu_Y,K_Y)$ is unique up to $\nu_Y$-null sets on $Y$.
+
+\begin{definition}[Discrete-time Markov completion of $\Gamma_Y$]
+\label{def:discrete-markov-completion}
+A \emph{discrete-time Markov completion} of the stepwise marginal
+$\Gamma_Y$ is the stationary Markov chain
+$(Y_t)_{t\in\mathbb{Z}}$ on $Y$ with initial law $Y_0\sim\nu_Y$ and
+transition kernel $K_Y$ as in~\eqref{eq:gammaY-disintegration}, i.e.
+\[
+  \Pbb(Y_{t+1}\in A \mid Y_t = y)
+  = K_Y(y,A),
+  \qquad
+  \Pbb(Y_t\in A) = \nu_Y(A)
+\]
+for all $A\in\Bcal(Y)$ and $t\in\mathbb{Z}$. Equivalently, the lag-$1$
+joint law of $(Y_t)$ is precisely $\Gamma_Y$:
+\[
+  \Pbb(Y_t\in A, Y_{t+1}\in B)
+  = \Gamma_Y(A\times B).
+\]
+\end{definition}
+
+\begin{proposition}[Existence and uniqueness up to versions]
+\label{prop:discrete-markov-completion-uniq}
+For every $\Gamma_Y\in\Pcal(Y\times Y)$ there exists a discrete-time
+Markov completion in the sense of
+Definition~\ref{def:discrete-markov-completion}, and it is unique up to
+versions of the disintegration~\eqref{eq:gammaY-disintegration}.
+\end{proposition}
+
+\begin{proof}
+Existence and uniqueness of the disintegration
+$\Gamma_Y(dy_0,dy_1) = \nu_Y(dy_0)K_Y(y_0,dy_1)$ are standard under
+mild regularity hypotheses on $(Y,\Bcal(Y))$ (e.g.\ standard Borel
+space). The Kolmogorov extension theorem then yields a unique (in law)
+stationary Markov chain with one-step kernel $K_Y$ and invariant law
+$\nu_Y$. Any other stationary Markov chain whose lag-$1$ joint law is
+$\Gamma_Y$ must admit a disintegration of the same form, hence coincides
+with this completion up to versions of $(\nu_Y,K_Y)$ on $\nu_Y$-null
+sets.
+\end{proof}
+
+\begin{remark}[Static nature of the neutral operator]
+\label{rmk:neutral-static}
+The neutral operator $\Ncal(\Gamma_Y,D_f)$ from
+Definition~\ref{def:neutral-operator} is a \emph{static} object: it
+organizes realizations of the edge marginal $\Gamma_Y$ and their
+information--geometric relations, independently of any particular choice
+of Markov chain or path-space dynamics. The discrete-time Markov
+completion $(Y_t)$ is one convenient representation of $\Gamma_Y$, but
+it is not singled out ontologically by the neutral operator; it is
+merely a canonical way to extend the edge marginal to a path measure.
+\end{remark}
+
+%----------------------------------------------------------
+\subsection{Continuous-time Markov completions from empirical limits}
+\label{subsec:markov-completion-continuous}
+
+We now describe how a continuous-time Markov semigroup can arise as a
+\emph{completion} of an empirically observed family of stepwise
+marginals at different time scales, rather than being postulated
+a priori.
+
+\begin{definition}[Empirical edge-marginal family]
+\label{def:empirical-edge-family}
+An \emph{empirical edge-marginal family} on $Y$ is a collection
+\[
+  \bigl\{\Gamma_Y^{(\Delta t)}\bigr\}_{\Delta t\in(0,\Delta t_0]}
+  \subset \Pcal(Y\times Y)
+\]
+such that for each $\Delta t$,
+\[
+  \Gamma_Y^{(\Delta t)}(dy_0,dy_1)
+  = \nu_Y(dy_0)\,K_Y^{(\Delta t)}(y_0,dy_1)
+\]
+for a common source law $\nu_Y$ and some Markov kernel
+$K_Y^{(\Delta t)}$ on $Y$.
+\end{definition}
+
+Let $\Xcal$ denote a Banach space of observables on $Y$ (e.g.\ bounded
+measurable functions, or a suitable $L^p$ space with respect to
+$\nu_Y$). Each kernel $K_Y^{(\Delta t)}$ induces a bounded linear
+operator $T_{\Delta t}:\Xcal\to\Xcal$ by
+\[
+  T_{\Delta t}f(y)
+  := \int f(y')\,K_Y^{(\Delta t)}(y,dy').
+\]
+
+\begin{definition}[Empirical semigroup consistency]
+\label{def:empirical-semigroup-consistency}
+We say that an empirical edge-marginal family
+$\{\Gamma_Y^{(\Delta t)}\}$ is \emph{empirically semigroup-consistent}
+on $\Xcal$ if the associated operators $\{T_{\Delta t}\}$ satisfy:
+\begin{enumerate}[label=(MC\arabic*),leftmargin=1.8em]
+  \item \textbf{Approximate semigroup property:} For rational times
+  $t,s>0$ with $t,s,t+s\le \Delta t_0$, we have
+  \[
+    \bigl\|T_{t+s} - T_t T_s\bigr\|_{\Bcal(\Xcal)}
+    \xrightarrow[\max\{t,s\}\to 0]{} 0.
+  \]
+  \item \textbf{Continuity at $0$:} $T_0 := I$ on $\Xcal$, and
+  \[
+    \bigl\|T_{\Delta t} - I\bigr\|_{\Bcal(\Xcal)}
+    \xrightarrow[\Delta t\to 0]{} 0.
+  \]
+  \item \textbf{Uniform boundedness and dissipativity:} The scaled
+  difference operators
+  \[
+    L_{\Delta t}
+    := \frac{T_{\Delta t} - I}{\Delta t}
+  \]
+  are uniformly bounded and satisfy the usual positivity / contraction
+  properties that guarantee, via Hille--Yosida, that their limit (if it
+  exists) is the generator of a Markov semigroup on $\Xcal$.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[Existence of a continuous-time Markov completion]
+\label{prop:continuous-markov-completion}
+Let $\{\Gamma_Y^{(\Delta t)}\}$ be an empirical edge-marginal family
+that is empirically semigroup-consistent on $\Xcal$ in the sense of
+Definition~\ref{def:empirical-semigroup-consistency}. Suppose that
+$L_{\Delta t}$ converges in the strong operator topology on $\Xcal$ to a
+closed, densely defined operator $L$:
+\[
+  L_{\Delta t} f \xrightarrow[\Delta t\to 0]{} Lf,
+  \qquad f\in\Dcal(L).
+\]
+Then there exists a strongly continuous Markov semigroup
+$(P_t)_{t\ge 0}$ on $\Xcal$ with generator $L$, such that
+\[
+  P_{\Delta t} f
+  = \lim_{n\to\infty} \bigl(T_{\Delta t/n}\bigr)^n f
+\]
+for all $f\in\Xcal$ and $\Delta t\in(0,\Delta t_0]$. In particular, the
+operators $T_{\Delta t}$ are approximations of the skeleton
+$\{P_{\Delta t}\}$ of the continuous-time semigroup.
+\end{proposition}
+
+\begin{proof}[Sketch of proof]
+Under (MC1)–(MC3), the family $\{T_{\Delta t}\}$ defines an approximate
+semigroup of contractions on $\Xcal$ which is uniformly bounded and
+strongly continuous at $0$. The convergence of $L_{\Delta t}$ to a
+closed, densely defined operator $L$ satisfying the Hille--Yosida
+conditions implies that $L$ is the generator of a unique strongly
+continuous contraction semigroup $(P_t)_{t\ge 0}$ on $\Xcal$. Standard
+Trotter--Kato approximation theorems then yield the convergence
+\[
+  \bigl(T_{\Delta t/n}\bigr)^n f \to P_{\Delta t} f
+\]
+for each fixed $\Delta t$ and $f\in\Xcal$.
+\end{proof}
+
+\begin{definition}[Continuous-time Markov completion]
+\label{def:continuous-markov-completion}
+Any strongly continuous Markov semigroup $(P_t)_{t\ge 0}$ on $\Xcal$
+obtained as in Proposition~\ref{prop:continuous-markov-completion} is
+called a \emph{continuous-time Markov completion} of the empirical
+edge-marginal family $\{\Gamma_Y^{(\Delta t)}\}$. When, in addition, the
+conditional-law manifold $\Mcal_0\subset \Pcal(Y)$ is equipped with the
+canonical dualistic structure $(g,\nabla,\nabla^\ast)$ from
+the canonical Fisher structure on $\Mcal_0$, the semigroup $(P_t)$ induces a
+Markov semigroup $(P_t^\ast)$ on $\Mcal_0$ compatible with this
+information--geometric structure.
+\end{definition}
+
+\begin{remark}[From neutral operator to dynamical neutral operator]
+\label{rmk:from-neutral-to-dyn}
+In what follows, a \emph{dynamical neutral operator} will always be
+understood as a neutral operator $\Ncal(\Gamma_Y,D_f)$ together with a
+choice of continuous-time Markov completion $(P_t^\ast)_{t\ge 0}$ on the
+canonical conditional-law manifold $\Mcal_0$ associated to
+$\Gamma_Y$. Different Markov completions that agree on the induced
+semigroup on $\Mcal_0$ (up to IG-equivalence) live in the same
+dynamical neutral operator in the sense of the next subsection.
+\end{remark}
+
+\subsection*{5. Fidelity notions (Rose--Fisher ladder)}
+
+\paragraph{Measure fidelity (Rose condition).}
+
+\begin{definition}[Edge divergence and Rose condition]
+Let $D_f$ be a smooth $f$-divergence on $\Pcal(Y\times Y)$. For a
+candidate factorization $\Gamma_Z\in\Pcal(Y\times Y)$, define the
+\emph{edge divergence}
+\[
+  \mathcal A_f^Y(\Gamma_Z)
+  := D_f\bigl(\Gamma_Y \,\Vert\, \Gamma_Z\bigr).
+\]
+We say that $\Gamma_Z$ satisfies the \emph{Rose condition} if
+\[
+  \mathcal A_f^Y(\Gamma_Z) = 0.
+\]
+Under the usual domination assumptions this is equivalent to
+$\Gamma_Z=\Gamma_Y$ almost everywhere, i.e.\ exact one-step measure
+conjugacy.
+\end{definition}
+
+\paragraph{Geometric fidelity (separability vs intrinsic coupling).}
+
+Let $(S,\Gamma_S,q)\in\mathcal R(\Gamma_Y)$ with induced IG structure
+$(g_S,\nabla^S,(\nabla^S)^\ast)$, and let
+$S \cong S^A\times S^B$ be a product decomposition of coordinates
+(e.g.\ two sensor groups, delay blocks, or latent/observed splits).
+
+\begin{definition}[Geometric fidelity across a cut]
+\label{def:geom-fidelity-across-cut}
+We say that the cut $(S^A,S^B)$ has \emph{geometric fidelity} if there
+exist local coordinates $(\theta^A,\theta^B)$ on $S$ such that:
+\begin{enumerate}[label=(G\arabic*),leftmargin=1.8em]
+  \item (\emph{metric separability}) $g_S$ is block-diagonal:
+  \[
+    g_S = g^A \oplus g^B;
+  \]
+  \item (\emph{dual-connection separability}) the Christoffel symbols of
+  $\nabla^S$ and $(\nabla^S)^\ast$ have no mixed components in these
+  coordinates, i.e.\ they split as products of connections on $S^A$ and
+  $S^B$.
+\end{enumerate}
+In this case the dualistic structure factors as a product of two Fisher
+subsystems on $S^A$ and $S^B$.
+\end{definition}
+
+\begin{definition}[Intrinsic coupling]
+If no local reparameterization of $S$ can be found that simultaneously
+satisfies (G1) and (G2) for the cut $(S^A,S^B)$, we say that the cut
+exhibits \emph{intrinsic coupling}. In this case the joint information
+geometry contains irreducible cross-terms that cannot be removed within
+the IG leaf.
+\end{definition}
+
+\begin{remark}[Rose--Fisher ladder]
+Topological fidelity (via Fisher immersions), measure fidelity (Rose
+condition), and geometric fidelity (separability vs intrinsic coupling)
+form a three-level hierarchy:
+\[
+  \text{State-space (optional)}
+  \;\Rightarrow\;
+  \text{Measure}
+  \;\Rightarrow\;
+  \text{Geometric},
+\]
+in the sense that each level adds additional structure on top of
+$\Gamma_Y$ while remaining neutral with respect to the choice of
+Csiszár--Amari $\alpha$-divergence.
+\end{remark}
+
+% =========================================================
+\section{Core results of the neutral operator framework}
+\label{sec:core-results}
+
+
+\paragraph{Roadmap.}
+Here we collect the main structural statements used later: how neutrality forces dependence only on the boundary record, how fibres organise admissible interiors, and how completion classes behave under the boundary map.
+These results are the formal bridge between the boundary-first definitions and the empirical/algorithmic constructions.
+\medskip
+In this section we collect the main structural results used throughout.
+We assume the background from Section~\ref{sec:background}:
+stepwise marginals $\Gamma_S\in\mathcal{P}(S\times S)$, Csiszár--Morimoto
+$f$-divergences, Fisher--Rao metrics and dual connections, and the
+realization space $\mathcal{R}(\Gamma_Y)$ and IG-equivalence defined
+elsewhere.
+
+%----------------------------------------------------------
+\subsection{Rose condition and transport equivalence}
+
+We start by making precise the sense in which the Rose condition
+captures equality of one-step transport.
+
+\begin{theorem}[Rose condition and equality of stepwise marginals]
+\label{thm:rose-condition}
+Let $D_f$ be a Csiszár--Morimoto $f$-divergence on
+$\mathcal{P}(Y\times Y)$ induced by a strictly convex function
+$f:(0,\infty)\to\mathbb{R}$ with $f(1)=0$. Let
+$\Gamma_Y,\Gamma_Z\in\mathcal{P}(Y\times Y)$ be two stepwise marginals
+such that $\Gamma_Y\ll\lambda$ and $\Gamma_Z\ll\lambda$ for some common
+reference measure $\lambda$ on $Y\times Y$, and write
+$\rho := \frac{\mathrm d\Gamma_Y}{\mathrm d\Gamma_Z}$ whenever
+$\Gamma_Y\ll\Gamma_Z$.
+
+Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item If $D_f(\Gamma_Y\Vert\Gamma_Z)=0$, then
+  $\Gamma_Y=\Gamma_Z$ $\lambda$-almost everywhere.
+  \item Conversely, if $\Gamma_Y=\Gamma_Z$ $\lambda$-almost everywhere,
+  then $D_f(\Gamma_Y\Vert\Gamma_Z)=0$.
+\end{enumerate}
+
+In particular, for any such $D_f$ the Rose condition
+\[
+  D_f(\Gamma_Y\Vert\Gamma_Z)=0
+\]
+is equivalent to equality of stepwise marginals, and hence to equality
+of the associated one-step transport (up to null sets).
+\end{theorem}
+
+\begin{proof}
+If $\Gamma_Y\not\ll\Gamma_Z$ then $D_f(\Gamma_Y\Vert\Gamma_Z)=+\infty$
+by definition, so $D_f(\Gamma_Y\Vert\Gamma_Z)=0$ implies
+$\Gamma_Y\ll\Gamma_Z$. In this case,
+\[
+  D_f(\Gamma_Y\Vert\Gamma_Z)
+  = \int f(\rho)\,\Gamma_Z(\mathrm dy_0,\mathrm dy_1),
+  \qquad
+  \rho := \frac{\mathrm d\Gamma_Y}{\mathrm d\Gamma_Z}.
+\]
+Strict convexity of $f$ with $f(1)=0$ implies $f(x)\ge 0$ with equality
+if and only if $x=1$. Thus $D_f(\Gamma_Y\Vert\Gamma_Z)=0$ forces
+$f(\rho)=0$ $\Gamma_Z$-a.e., hence $\rho=1$ $\Gamma_Z$-a.e., i.e.
+$\Gamma_Y=\Gamma_Z$ $\lambda$-a.e. The converse is immediate from the
+definition.
+\end{proof}
+
+Throughout we use the shorthand \emph{Rose condition} for the equality
+$D_f(\Gamma_Y\Vert\Gamma_Z)=0$ for a chosen regular $f$-divergence.
+
+\begin{corollary}[Conditional-law equivalence for realizations]
+\label{cor:conditional-law-equivalence}
+Let $(S,\Gamma_S,q)$ and $(S',\Gamma_{S'},q')$ be realizations in
+$\mathcal{R}(\Gamma_Y)$ with disintegrations
+\[
+  \Gamma_S(\mathrm ds_0,\mathrm ds_1)
+    = \nu_S(\mathrm ds_0)\,K_S(s_0,\mathrm ds_1),\qquad
+  \Gamma_{S'}(\mathrm ds'_0,\mathrm ds'_1)
+    = \nu_{S'}(\mathrm ds'_0)\,K_{S'}(s'_0,\mathrm ds'_1).
+\]
+Assume each realization pushes forward to the same empirical operator:
+\[
+  (q\times q)_{\sharp}\Gamma_S
+  = (q'\times q')_{\sharp}\Gamma_{S'}
+  = \Gamma_Y.
+\]
+Then the following are equivalent:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em]
+  \item $\Gamma_S = \Gamma_{S'}$ up to null sets on $S\times S$;
+  \item $(\nu_S,K_S) = (\nu_{S'},K_{S'})$ up to null sets on $S$ and $S'$;
+  \item the conditional-law maps $\Phi_S$ and $\Phi_{S'}$ into
+  $\mathcal{P}(Y)$ coincide almost everywhere with respect to the
+  corresponding source laws.
+\end{enumerate}
+\end{corollary}
+
+%----------------------------------------------------------
+\subsection{Neutrality of $\alpha$-divergences for IG structure}
+
+We next record the sense in which Csiszár--Amari $\alpha$-divergences
+are \emph{neutral} with respect to the induced information geometry.
+
+\begin{theorem}[$\alpha$-neutrality of IG structure]
+\label{thm:alpha-neutrality}
+Let $\{\Gamma_\theta : \theta\in\Theta\}$ be a smooth statistical model
+of stepwise marginals on $Y\times Y$, with corresponding parameter
+manifold $\Theta$. For each $\alpha$ in the regular range, let
+$D_\alpha$ be the Csiszár--Amari $\alpha$-divergence on
+$\mathcal{P}(Y\times Y)$, and let $(g^{(\alpha)},\nabla^{(\alpha)},
+(\nabla^{(\alpha)})^\ast)$ denote the metric and dual affine connections
+induced on $\Theta$ by $D_\alpha$.
+
+Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item For any $\alpha,\beta$ in the regular range and any
+  $\Gamma_Y,\Gamma_Z\in\mathcal{P}(Y\times Y)$,
+  \[
+    D_\alpha(\Gamma_Y\Vert\Gamma_Z)=0
+    \quad\Longleftrightarrow\quad
+    D_\beta(\Gamma_Y\Vert\Gamma_Z)=0,
+  \]
+  and both are equivalent to $\Gamma_Y=\Gamma_Z$ almost everywhere.
+  \item The metrics $g^{(\alpha)}$ and $g^{(\beta)}$ are proportional:
+  there exists a constant $c_{\alpha,\beta}>0$ such that
+  $g^{(\alpha)} = c_{\alpha,\beta}\,g^{(\beta)}$.
+  \item The dualistic structures
+  $(g^{(\alpha)},\nabla^{(\alpha)},(\nabla^{(\alpha)})^\ast)$ and
+  $(g^{(\beta)},\nabla^{(\beta)},(\nabla^{(\beta)})^\ast)$ are equivalent
+  up to this overall scaling and smooth reparametrization of $\Theta$.
+\end{enumerate}
+
+In particular, IG-equivalence classes and IG leaves in the realization
+space $\mathcal{R}(\Gamma_Y)$ do not depend on the choice of $\alpha$.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+Part (a) follows from Theorem~\ref{thm:rose-condition} applied to each
+$D_\alpha$ separately, since each $D_\alpha$ is itself an
+$f$-divergence generated by a strictly convex $f_\alpha$ with
+$f_\alpha(1)=0$.
+
+For (b) and (c), it is a standard result of information geometry that
+the Fisher--Rao metric is essentially the unique monotone Riemannian
+metric on a statistical manifold (Čencov's theorem), and that the family
+of $\alpha$-divergences all induce, up to a constant factor, the same
+Fisher metric and associated dualistic structure on $\Theta$; see, e.g.,
+Amari~\cite{Amari2016} for a detailed treatment. We simply
+record this neutrality in the present notation.
+\end{proof}
+
+%----------------------------------------------------------
+\subsection{IG-equivalence, IG leaves, and the neutral operator}
+\label{subsec:ig-equivalence-neutral-operator}
+
+We now formalize the information--geometric equivalence between realizations
+and package it into the neutral operator. Throughout we fix a regular
+Csisz\'ar--Morimoto $f$-divergence $D_f$ on $\Pcal(Y\times Y)$, and let
+$(g,\nabla,\nabla^\ast)$ denote the dualistic structure induced on smooth
+statistical models by $D_f$ as in Definition~\ref{def:fisher-metric-dual}.
+
+By C\v{e}n\v{c}ov's characterization of monotone metrics (together with the
+$\alpha$-neutrality of Theorem~\ref{thm:alpha-neutrality}), the Fisher
+metric and associated dual affine connections are \emph{canonical} up to an
+overall constant factor among Riemannian metrics that are monotone under
+Markov morphisms. In particular, once $D_f$ is fixed, the induced IG
+structure on any conditional-law manifold is unique up to scale.
+
+\begin{theorem}[Information--geometric embedding]
+\label{thm:ig-embedding}
+Let $(X,\Gamma_X,h)$ and $(Z,\Gamma_Z,r)$ be realizations in
+$\Rcal(\Gamma_Y)$, with
+\[
+  \Gamma_Y = (h\times h)_\sharp \Gamma_X,
+  \qquad
+  \Gamma_Z = (r\times r)_\sharp \Gamma_Y.
+\]
+Let $\Phi_X:X\to\Pcal(Y)$ and $\Phi_Z:Z\to\Pcal(Y)$ be the associated
+conditional-law maps from Definition~\ref{def:conditional-law-map}, and
+let $D_f$ induce a Fisher metric $g$ on their common image.
+
+Assume there exist subsets $X_0\subseteq X$ and $Z_0\subseteq Z$ and a
+statistical manifold $\Mcal_0\subseteq \Pcal(Y)$ such that:
+\begin{enumerate}[label=(E\arabic*),leftmargin=1.8em]
+  \item $\Phi_X(X_0) = \Phi_Z(Z_0) = \Mcal_0$;
+  \item the restricted maps
+  $\Phi_X|_{X_0}:X_0\to \Mcal_0$ and
+  $\Phi_Z|_{Z_0}:Z_0\to \Mcal_0$ are Fisher immersions of the same rank
+  $d$.
+\end{enumerate}
+Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item There is a canonical smooth map
+  \[
+    \varphi
+    := (\Phi_X|_{X_0})^{-1}\circ (\Phi_Z|_{Z_0})
+    : Z_0 \to X_0
+  \]
+  which is a smooth coordinate changes onto its image, with smooth inverse on each
+  connected component supporting the dynamics.
+  \item The map $\varphi$ is a dualistic isomorphism: it is a Fisher
+  isometry between $(Z_0,g_{Z_0})$ and $(X_0,g_{X_0})$ and intertwines the
+  dual connections induced by $D_f$:
+  \[
+    g_{Z_0} = \varphi^\ast g_{X_0},
+    \qquad
+    \nabla^{Z_0} = \varphi^\ast \nabla^{X_0},
+    \qquad
+    (\nabla^{Z_0})^\ast = \varphi^\ast (\nabla^{X_0})^\ast.
+  \]
+  \item The restricted stepwise marginals are related by pushforward:
+  \[
+    \Gamma_Z\big|_{Z_0\times Z_0}
+    = (\varphi^{-1}\times \varphi^{-1})_\sharp
+      \bigl(\Gamma_X\big|_{X_0\times X_0}\bigr).
+  \]
+\end{enumerate}
+In this situation we say that $(Z,\Gamma_Z,r)$ is an
+\emph{information--geometric embedding} of $(X,\Gamma_X,h)$ on
+$(Z_0,X_0)$.
+\end{theorem}
+
+\begin{definition}[IG-equivalence]
+\label{def:ig-equivalence}
+Two realizations $(S,\Gamma_S,q)$ and $(S',\Gamma_{S'},q')$ in
+$\Rcal(\Gamma_Y)$ are \emph{information--geometrically equivalent}
+(IG-equivalent), written
+\[
+  (S,\Gamma_S,q) \cong_{\mathrm{IG}} (S',\Gamma_{S'},q'),
+\]
+if there exist subsets $S_0\subseteq S$, $S'_0\subseteq S'$ and a common
+statistical manifold $\Mcal_0\subseteq \Pcal(Y)$ such that:
+\begin{itemize}[leftmargin=1.6em]
+  \item $\Phi_S(S_0) = \Phi_{S'}(S'_0) = \Mcal_0$;
+  \item the restrictions
+  $\Phi_S|_{S_0}$ and $\Phi_{S'}|_{S'_0}$ are Fisher immersions of the
+  same rank;
+  \item the induced map
+  \[
+    \varphi
+    := (\Phi_S|_{S_0})^{-1}\circ(\Phi_{S'}|_{S'_0})
+    : S'_0 \to S_0
+  \]
+  is a dualistic isomorphism and intertwines the restricted stepwise
+  marginals as in Theorem~\ref{thm:ig-embedding}.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[IG leaf]
+\label{def:ig-leaf}
+For any realization $(S,\Gamma_S,q)\in\Rcal(\Gamma_Y)$, the
+\emph{information--geometric leaf} (IG leaf) through $(S,\Gamma_S,q)$ is
+the IG-equivalence class
+\[
+  [S,\Gamma_S,q]_{\mathrm{IG}}
+  :=
+  \bigl\{
+    (S',\Gamma_{S'},q')\in\Rcal(\Gamma_Y)
+    \;\big|\;
+    (S',\Gamma_{S'},q')\cong_{\mathrm{IG}}(S,\Gamma_S,q)
+  \bigr\}.
+\]
+\end{definition}
+
+\begin{proposition}[IG-equivalence is an equivalence relation]
+\label{prop:ig-equivalence-relation}
+The relation $\cong_{\mathrm{IG}}$ on $\Rcal(\Gamma_Y)$ is an equivalence
+relation: it is reflexive, symmetric, and transitive (up to null sets on
+the relevant supports). Consequently, the IG leaves
+$\{[S,\Gamma_S,q]_{\mathrm{IG}}\}$ form a partition of $\Rcal(\Gamma_Y)$
+into disjoint classes.
+\end{proposition}
+
+
+
+%----------------------------------------------------------
+\subsection{Foliation by IG leaves}
+
+Under additional regularity assumptions we can regard these
+IG-equivalence classes as leaves of a foliation.
+
+\begin{theorem}[Foliation by IG leaves]
+\label{thm:ig-foliation}
+Suppose the realization space $\mathcal{R}(\Gamma_Y)$ admits the
+structure of a smooth (or stratified) manifold such that:
+\begin{enumerate}[label=(F\arabic*),leftmargin=1.8em]
+  \item for each realization $(S,\Gamma_S,q)$, the IG-equivalence class
+  \[
+    [S,\Gamma_S,q]_{\mathrm{IG}}
+    :=
+    \bigl\{
+      (S',\Gamma_{S'},q')\in\mathcal{R}(\Gamma_Y)
+      \;\big|\;
+      (S',\Gamma_{S'},q')\cong_{\mathrm{IG}}(S,\Gamma_S,q)
+    \bigr\}
+  \]
+  is an immersed connected submanifold of $\mathcal{R}(\Gamma_Y)$;
+  \item the dependence of the induced dualistic structure on
+  $(S,\Gamma_S,q)$ is smooth and the IG-equivalence classes vary
+  smoothly in local charts.
+\end{enumerate}
+Then the collection of IG leaves
+\[
+  \bigl\{[S,\Gamma_S,q]_{\mathrm{IG}}
+  : (S,\Gamma_S,q)\in\mathcal{R}(\Gamma_Y)\bigr\}
+\]
+defines a foliation of $\mathcal{R}(\Gamma_Y)$ in the sense of
+Definition~\ref{def:foliation}.
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+By Proposition~\ref{prop:ig-equivalence-relation} the sets
+$[S,\Gamma_S,q]_{\mathrm{IG}}$ form a partition of
+$\mathcal{R}(\Gamma_Y)$ into disjoint subsets. Assumption (F1)
+identifies each equivalence class with an immersed connected submanifold
+(the candidate leaf), and (F2) ensures that in local
+coordinates the classes intersect coordinate patches in slices that are
+diffeomorphic to $\mathbb{R}^p\times\{y_0\}$ for some $p,q$, yielding
+the local product structure required by the definition of a foliation.
+\end{proof}
+
+%----------------------------------------------------------
+\subsection{Geometric fidelity, empirical separability, and product structure}
+\label{subsec:geom-fidelity-emp-separability}
+
+We now make precise how geometric fidelity across a cut is reflected in
+the product structure of the induced dualistic geometry, and how this
+yields a notion of empirical separability.
+
+\begin{proposition}[Geometric fidelity and product dualistic structure]
+\label{prop:geom-fidelity-product}
+Let $(S,\Gamma_S,q)\in\Rcal(\Gamma_Y)$ be a realization with induced
+dualistic structure $(g_S,\nabla^S,(\nabla^S)^\ast)$ on a parameter
+manifold $\Theta_S$. Suppose $\Theta_S$ admits a decomposition
+$\Theta_S \cong \Theta^A \times \Theta^B$ corresponding to a cut of the
+representation into two blocks $(A,B)$.
+
+Then the following are equivalent:
+\begin{enumerate}[label=(G\arabic*),leftmargin=1.8em]
+  \item The cut $(A,B)$ has geometric fidelity in the sense of
+  Definition~\ref{def:geom-fidelity-across-cut}: there exist local
+  coordinates $(\theta^A,\theta^B)$ such that the Fisher metric is
+  block-diagonal with respect to the cut and there are no mixed Fisher
+  components between $A$ and $B$.
+  \item Locally, $(\Theta_S,g_S,\nabla^S,(\nabla^S)^\ast)$ is
+  isomorphic, as a dualistic manifold, to the product
+  \[
+    (\Theta^A,g^A,\nabla^A,(\nabla^A)^\ast)
+    \times
+    (\Theta^B,g^B,\nabla^B,(\nabla^B)^\ast),
+  \]
+  i.e.\ there exist local coordinates $(\theta^A,\theta^B)$ in which
+  \[
+    g_S \;=\; g^A \oplus g^B,
+  \]
+  and the Christoffel symbols of $\nabla^S$ and $(\nabla^S)^\ast$ have
+  no mixed components between $\theta^A$ and $\theta^B$.
+\end{enumerate}
+
+When these conditions hold we say that the cut $(A,B)$ is
+\emph{geometrically separable}. Otherwise we speak of intrinsic
+coupling across the cut.
+\end{proposition}
+
+\begin{remark}[Dualistic interpretation of empirical separability]
+\label{rem:dualistic-emp-separability}
+Let $M_0 \subset \Pcal(Y)$ be a conditional-law manifold carrying a
+dualistic structure $(g,\nabla,\nabla^\ast)$ induced by some regular
+$f$-divergence. Each realization $(S,\Gamma_S,q)$ with conditional-law
+map $\Phi_S : S \to M_0$ defines a distinguished subbundle
+\[
+  H^S_\mu \;:=\; d\Phi_S(T_s S) \;\subset\; T_\mu M_0,
+  \qquad \mu = \Phi_S(s),
+\]
+consisting of directions in $M_0$ reachable by perturbing $S$.
+
+For instance, a latent hypothesis $(X,\Gamma_X,h)$, the empirical
+realization $(Y,\Gamma_Y,\mathrm{id}_Y)$, and a representation
+$(Z,\Gamma_Z,r)$ induce subbundles
+\[
+  H^X,\, H^Y,\, H^Z \;\subset\; TM_0.
+\]
+If we choose smooth vector fields
+\[
+  X \in \Gamma(H^X),\quad
+  Y \in \Gamma(H^Y),\quad
+  Z \in \Gamma(H^Z),
+\]
+the duality relation
+\[
+  Y\langle X,Z\rangle
+  \;=\;
+  \langle \nabla_Y X, Z\rangle
+  \;+\;
+  \langle X, \nabla^\ast_Y Z\rangle
+\]
+admits the following empirical reading:
+\begin{itemize}[leftmargin=1.6em]
+  \item $\langle X,Z\rangle$ is the Fisher inner product between a
+  latent direction and a representation direction at a fixed conditional
+  law;
+  \item $Y\langle X,Z\rangle$ measures how this inner product changes
+  when we move along an observed direction;
+  \item the two terms on the right-hand side describe how $X$ and $Z$
+  are ``bent'' along $Y$ under the dual connections $\nabla$ and
+  $\nabla^\ast$.
+\end{itemize}
+
+If, after reparameterization within an IG leaf, one can arrange that
+\[
+  \langle X,Z\rangle
+  \;=\;
+  \langle \nabla_Y X, Z\rangle
+  \;=\;
+  \langle X, \nabla^\ast_Y Z\rangle
+  \;=\; 0
+\]
+for all choices of $X \in H^X$, $Z \in H^Z$, $Y \in H^Y$ in some
+region, then the latent and representation subbundles remain orthogonal
+and invariant along observed directions: latent and representation
+directions do not shear into each other as we move along $Y$. This is
+exactly the situation of geometric separability.
+
+If no such reparameterization exists inside the IG leaf, the cross
+terms cannot be removed, and we say that the corresponding split
+exhibits intrinsic coupling: the one-step empirical transport encodes an
+irreducible interaction between latent and representation directions
+along the observed manifold.
+\end{remark}
+
+\begin{definition}[Empirical separability across an observed cut]
+\label{def:emp-separability-cut}
+Let $\Gamma_Y \in \Pcal(Y\times Y)$ be fixed, and let
+$\mathcal{R}(\Gamma_Y)$ be its realization space. Consider a decomposition of
+the observation space $Y \cong Y^A \times Y^B$ (for instance, two
+sensor groups or coarse/fine coordinates), and let $(A,B)$ denote the
+corresponding cut.
+
+We say that the cut $(A,B)$ is \emph{empirically separable} for
+$\Gamma_Y$ if there exists at least one realization
+$(S,\Gamma_S,q) \in \mathcal{R}(\Gamma_Y)$ and a decomposition
+$S \cong S^A \times S^B$ such that:
+\begin{enumerate}[label=(E\arabic*),leftmargin=1.8em]
+  \item the map $q : S \to Y$ respects the cut, in the sense that
+  $q(s^A,s^B) = (q^A(s^A),q^B(s^B))$ for measurable $q^A,q^B$;
+  \item the cut $(S^A,S^B)$ is geometrically separable in the sense of
+  Proposition~\ref{prop:geom-fidelity-product}.
+\end{enumerate}
+
+If no such realization and decomposition exist inside $\mathcal{R}(\Gamma_Y)$,
+we say that the cut $(A,B)$ is \emph{empirically intrinsically coupled}
+for $\Gamma_Y$.
+\end{definition}
+
+\begin{definition}[Empirical separability for $(X,Y,Z)$]
+\label{def:emp-separability-XYZ}
+Let $\Gamma_Y \in \Pcal(Y\times Y)$ be fixed, and let
+\[
+  (X,\Gamma_X,h),\qquad
+  (Y,\Gamma_Y,\mathrm{id}_Y),\qquad
+  (Z,\Gamma_Z,r)
+\]
+be realizations in $\mathcal{R}(\Gamma_Y)$, with $h:X\to Y$ a latent
+hypothesis and $r:Y\to Z$ a representation.
+
+We say that the triple $(X,Y,Z)$ is \emph{empirically separable along
+the latent/observed/representation split} if there exists a realization
+$(S,\Gamma_S,q)\in\mathcal{R}(\Gamma_Y)$ and a product decomposition
+\[
+  S \;\cong\; S^X \times S^Y \times S^Z
+\]
+such that:
+\begin{enumerate}[label=(ES\arabic*),leftmargin=1.8em]
+  \item the map $q : S \to Y$ factors coordinatewise,
+  $q(s^X,s^Y,s^Z) = q^Y(s^Y)$, and $h$ and $r$ are obtained from
+  $S^X$ and $S^Z$ via suitable measurable maps composed with $q$
+  (as in the neutral diagram);
+  \item the induced dualistic structure on the parameter manifold for
+  $(S,\Gamma_S)$ is locally a product
+  \[
+    (g_S,\nabla^S,(\nabla^S)^\ast)
+    \;\cong\;
+    (g^X,\nabla^X,(\nabla^X)^\ast)
+    \times
+    (g^Y,\nabla^Y,(\nabla^Y)^\ast)
+    \times
+    (g^Z,\nabla^Z,(\nabla^Z)^\ast),
+  \]
+  i.e.\ there are local coordinates in which the Fisher metric and both
+  dual connections have no mixed components across the three blocks.
+\end{enumerate}
+
+If no such $(S,\Gamma_S,q)$ and decomposition exist within
+$\mathcal{R}(\Gamma_Y)$, we say that the triple $(X,Y,Z)$ is \emph{empirically
+intrinsically coupled} along the latent/observed/representation split.
+\end{definition}
+
+\section{Information--geometric dynamical systems}
+\label{sec:ig-dynamical-systems}
+
+
+\paragraph{Roadmap.}
+We introduce the information-geometric structure needed to compare realizations beyond measure-level fidelity: statistical families over boundary records, the Fisher metric, dual affine connections, and projection geometry.
+This is where \emph{IG leaves} become a concrete equivalence notion and where Pythagorean identities can be used as optional decompositions of boundary discrepancies.
+\medskip
+In this section we make explicit the level at which dynamics, information, and
+geometry meet. The basic objects are:
+\begin{itemize}[leftmargin=1.5em]
+  \item a statistical manifold $\Mcal_0 \subset \Pcal(Y)$ of conditional laws;
+  \item a dualistic structure $(g,\nabla,\nabla^\ast)$ on $\Mcal_0$ induced by a
+  regular Csiszár--Amari $f$-divergence $D_f$;
+  \item a Markov semigroup $(P_t^\ast)_{t\ge 0}$ on $\Mcal_0$ describing the
+  time evolution of laws.
+\end{itemize}
+We first give an abstract definition, then specialize to the empirical setting
+associated with a fixed stepwise marginal $\Gamma_Y$ and the neutral operator
+$\Ncal(\Gamma_Y,D_f)$.
+
+%----------------------------------------------------------
+
+\subsection{Dynamical neutral operator and IG--spectral embeddings}
+\label{subsec:dyn-neutral-operator-ig-spectral}
+
+We now add dynamics to the neutral operator by choosing a continuous-time
+Markov completion on the canonical conditional-law manifold $\Mcal_0$.
+Let $(P_t^\ast)_{t\ge 0}$ be a strongly continuous Markov semigroup
+acting on $\Mcal_0\subset \Pcal(Y)$, with generator $\Lsf$ and resolvent
+$\Rsf(\lambda)$ on a suitable Banach space of observables. For each
+realization $(S,\Gamma_S,q)$ with conditional-law map
+$\Phi_S:S\to\Mcal_0$, we obtain an induced semigroup
+$(P_t^{S})_{t\ge 0}$ on observables over $S$, with generator $\Lsf^S$
+and resolvent $\Rsf^S(\lambda)$, by pullback along $\Phi_S$.
+
+
+
+\begin{definition}[Dynamical neutral operator]
+\label{def:dynamical-neutral-operator}
+A \emph{dynamical neutral operator} for $\Gamma_Y$ and $D_f$ is a
+quadruple
+\[
+  \Ncal_{\mathrm{dyn}}(\Gamma_Y,D_f,(P_t^\ast)_{t\ge 0})
+  :=
+  \bigl(
+    \Gamma_Y,\;
+    \Rcal(\Gamma_Y),\;
+    \cong_{\mathrm{IG}},\;
+    (P_t^\ast)_{t\ge 0}
+  \bigr),
+\]
+where $\Ncal(\Gamma_Y,D_f)$ is the neutral operator from
+Definition~\ref{def:neutral-operator}, and $(P_t^\ast)_{t\ge 0}$ is a
+semigroup on $\Mcal_0$ whose generator and resolvent are compatible with
+the canonical Fisher structure induced by $D_f$.
+\end{definition}
+
+\begin{theorem}[IG--spectral embedding]
+\label{thm:ig-spectral-embedding}
+Let
+\[
+  (X,\Gamma_X,h),
+  \qquad
+  (Z,\Gamma_Z,r)
+  \in \Rcal(\Gamma_Y)
+\]
+be two realizations belonging to the same IG leaf
+$[S,\Gamma_S,q]_{\mathrm{IG}}$ of the neutral operator
+$\Ncal(\Gamma_Y,D_f)$. Let
+\[
+  \Phi_X:X\to\Mcal_0,
+  \qquad
+  \Phi_Z:Z\to\Mcal_0
+\]
+be their conditional-law maps into the canonical conditional-law manifold
+$(\Mcal_0,g,\nabla,\nabla^\ast)$, and suppose that the induced semigroups
+$(P_t^X)_{t\ge 0}$ and $(P_t^Z)_{t\ge 0}$ on observables over $X$ and $Z$
+are obtained by pullback from $(P_t^\ast)_{t\ge 0}$:
+\begin{equation}
+  P_t^X f
+  = f\circ (\Phi_X|_{X_0})^{-1}\circ P_t^\ast\circ \Phi_X,
+  \qquad
+  P_t^Z g
+  = g\circ (\Phi_Z|_{Z_0})^{-1}\circ P_t^\ast\circ \Phi_Z,
+  \label{eq:pullback-semigroups}
+\end{equation}
+where $X_0\subseteq X$ and $Z_0\subseteq Z$ support the dynamics and the
+compositions are defined on the corresponding invariant subspaces.
+
+Assume:
+\begin{enumerate}[label=(S\arabic*),leftmargin=1.8em]
+  \item $\Phi_X|_{X_0}$ and $\Phi_Z|_{Z_0}$ are Fisher immersions of the
+  same rank $d$ with common image $\Mcal_0$:
+  \[
+    \Phi_X(X_0) = \Phi_Z(Z_0) = \Mcal_0.
+  \]
+  \item The pullback representation~\eqref{eq:pullback-semigroups} holds
+  for $\{P_t^X\}$ and $\{P_t^Z\}$ on the invariant subspaces generated by
+  $X_0$ and $Z_0$.
+\end{enumerate}
+Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item There is a canonical dualistic isomorphism
+  \[
+    \varphi
+    := (\Phi_X|_{X_0})^{-1}\circ (\Phi_Z|_{Z_0})
+    : Z_0 \to X_0
+  \]
+  between the supports, and the pullback
+  $\varphi^\sharp$ on observables conjugates the generators:
+  \[
+    \Lsf^Z \circ \varphi^\sharp
+    = \varphi^\sharp \circ \Lsf^X
+  \]
+  on the invariant subspaces linked by $\varphi^\sharp$.
+  \item Their resolvents are likewise conjugate:
+  \[
+    \Rsf^Z(\lambda)\circ \varphi^\sharp
+    = \varphi^\sharp \circ \Rsf^X(\lambda)
+  \]
+  for all $\lambda$ in the common resolvent set of $\Lsf^X$ and $\Lsf^Z$.
+  \item In particular, the spectral data agree:
+  \[
+    \sigma(\Lsf^X) = \sigma(\Lsf^Z),
+  \]
+  including algebraic multiplicities, on the invariant subspaces
+  connected by $\varphi^\sharp$.
+\end{enumerate}
+\end{theorem}
+
+\begin{remark}[Relation to the hypothesis form]
+Theorem~\ref{thm:ig-spectral-embedding} is the conceptual form (``same IG leaf'').
+For later use it is sometimes convenient to work with an explicit hypothesis list; a sufficient set of such hypotheses is recorded below.
+\end{remark}
+
+\begin{proposition}[IG--spectral embedding (hypothesis form)]
+\label{prop:ig-spectral-embedding-hyp}
+Let $\Ncal_{\mathrm{dyn}}(\Gamma_Y,D_f)$ be a dynamical neutral operator.
+Let $(X,\Gamma_X,h)$ and $(Z,\Gamma_Z,r)$ be realizations in
+$\Rcal(\Gamma_Y)$ with conditional-law maps
+$\Phi_X:X\to\Mcal_0$ and $\Phi_Z:Z\to\Mcal_0$ and induced IG structures
+$(g_X,\nabla^X,(\nabla^X)^\ast)$ and
+$(g_Z,\nabla^Z,(\nabla^Z)^\ast)$.
+
+Assume there exist subsets $X_0\subseteq X$ and $Z_0\subseteq Z$
+such that:
+\begin{enumerate}[label=(I\arabic*),leftmargin=1.8em]
+  \item (\emph{IG-embedding hypotheses})
+  \begin{itemize}[leftmargin=1.4em]
+    \item $\Phi_X(X_0) = \Phi_Z(Z_0) = \Mcal_0^{(0)}$ for some
+    statistical submanifold
+    $\Mcal_0^{(0)} \subseteq \Mcal_0$;
+    \item the restrictions
+    $\Phi_X|_{X_0}:X_0\to\Mcal_0^{(0)}$ and
+    $\Phi_Z|_{Z_0}:Z_0\to\Mcal_0^{(0)}$ are Fisher immersions of
+    the same rank.
+  \end{itemize}
+  \item (\emph{Dynamical compatibility})
+  There exist Markov semigroups $(\Psf_t^X)_{t\ge 0}$ and
+  $(\Psf_t^Z)_{t\ge 0}$ with generators $\Lsf^X$ and $\Lsf^Z$ and
+  resolvents $\Rsf^X(\lambda)$ and $\Rsf^Z(\lambda)$ such that, on
+  $X_0$ and $Z_0$,
+  \[
+    \Phi_X \circ \Psf_t^X
+    = \Psf_t^\ast \circ \Phi_X,
+    \qquad
+    \Phi_Z \circ \Psf_t^Z
+    = \Psf_t^\ast \circ \Phi_Z,
+    \qquad t\ge 0.
+  \]
+\end{enumerate}
+
+Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item There is a canonical dualistic isomorphism
+  \[
+    \varphi
+    :=
+    \bigl(\Phi_X|_{X_0}\bigr)^{-1}
+      \circ
+    \bigl(\Phi_Z|_{Z_0}\bigr)
+    : Z_0 \to X_0
+  \]
+  (as in the IG-embedding theorem), which is a smooth coordinate changes onto
+  its image and satisfies
+  \[
+    g_Z = \varphi^\ast g_X, \quad
+    \nabla^Z = \varphi^\ast \nabla^X, \quad
+    (\nabla^Z)^\ast = \varphi^\ast (\nabla^X)^\ast
+  \]
+  on $Z_0$.
+
+  \item The pullback map on observables
+  \[
+    \varphi^\sharp : B_X \to B_Z,
+    \qquad
+    (\varphi^\sharp f)(z) := f\bigl(\varphi(z)\bigr),
+  \]
+  conjugates the semigroups:
+  \[
+    \Psf_t^Z \circ \varphi^\sharp
+    = \varphi^\sharp \circ \Psf_t^X,
+    \qquad t\ge 0,
+  \]
+  and hence their generators and resolvents:
+  \[
+    \Lsf^Z \circ \varphi^\sharp
+    = \varphi^\sharp \circ \Lsf^X,
+    \qquad
+    \Rsf^Z(\lambda)\circ \varphi^\sharp
+    = \varphi^\sharp \circ \Rsf^X(\lambda)
+  \]
+  for all $\lambda$ in the common resolvent set.
+
+  \item In particular, the spectra coincide on the invariant
+  subspaces connected by $\varphi^\sharp$:
+  \[
+    \sigma(\Lsf^Z) = \sigma(\Lsf^X),
+  \]
+  including algebraic multiplicities, on those subspaces.
+\end{enumerate}
+\end{proposition}
+
+
+\begin{remark}[Spectral stabilization inside an IG leaf]
+Once a pair of realizations lie in the same IG leaf and share a common
+dynamical neutral operator, Theorem~\ref{thm:ig-spectral-embedding}
+guarantees that their generators and resolvents are spectrally
+indistinguishable up to conjugacy on the relevant invariant subspaces.
+This is the abstract basis for defining spectrally faithful observation
+dimensions and for the stabilization principles used in the Rose
+hierarchy.
+\end{remark}
+
+%--------------------------------------------------------------
+
+\subsection{Abstract IG dynamical systems}
+
+\begin{definition}[Information--geometric dynamical system]
+\label{def:ig-dynamical-system}
+Let $\Mcal_0 \subset \Pcal(Y)$ be a statistical manifold of probability
+measures on a measurable space $Y$, equipped with a dualistic structure
+$(g,\nabla,\nabla^\ast)$ induced by a regular Csiszár--Amari
+$f$-divergence $D_f$.
+
+An \emph{information--geometric dynamical system} (IGDS) on
+$(\Mcal_0,g,\nabla,\nabla^\ast)$ is a strongly continuous Markov
+semigroup $(P_t^\ast)_{t\ge 0}$ on $\Mcal_0$ such that:
+\begin{enumerate}[label=(IG\arabic*),leftmargin=1.8em]
+  \item (\emph{Semigroup invariance}) For every $t\ge 0$,
+  $P_t^\ast : \Mcal_0 \to \Mcal_0$ and
+  $P_0^\ast = \mathrm{id}_{\Mcal_0}$, with
+  $P_{t+s}^\ast = P_t^\ast \circ P_s^\ast$.
+  \item (\emph{Monotonicity of $f$-divergence})
+  For all $\mu,\nu \in \Mcal_0$ and $t\ge 0$,
+  \[
+    D_f\bigl(P_t^\ast \mu \,\Vert\, P_t^\ast \nu\bigr)
+    \;\le\;
+    D_f(\mu\Vert\nu).
+  \]
+  \item (\emph{Generator as a geometric vector field})
+  The infinitesimal generator $L^\ast$ of $(P_t^\ast)$,
+  defined on a suitable domain in $\Mcal_0$, induces a (time-independent)
+  smooth vector field
+  \[
+    X(\mu) := \left.\frac{d}{dt} P_t^\ast \mu\right|_{t=0}
+    \in T_\mu \Mcal_0,
+  \]
+  and $X$ is compatible with the dualistic structure in the sense that
+  the covariant derivatives $\nabla_X X$ and $(\nabla^\ast)_X X$ are
+  well-defined tangent fields on $\Mcal_0$.
+\end{enumerate}
+
+We write
+\[
+  \bigl(\Mcal_0,\; g,\nabla,\nabla^\ast;\; (P_t^\ast)_{t\ge 0}\bigr)
+\]
+for such an information--geometric dynamical system, and we refer to
+$L^\ast$ (or equivalently $X$) as its \emph{information--geometric
+generator}.
+\end{definition}
+
+This definition packages:
+\begin{itemize}[leftmargin=1.5em]
+  \item the \emph{information} aspect via the divergence $D_f$ and its
+  monotonicity under $(P_t^\ast)$;
+  \item the \emph{geometric} aspect via the dualistic structure
+  $(g,\nabla,\nabla^\ast)$;
+  \item the \emph{dynamical} aspect via the semigroup $(P_t^\ast)$ and
+  its generator $L^\ast$.
+\end{itemize}
+
+%----------------------------------------------------------
+\subsection{Empirical IG dynamical systems from the neutral operator}
+
+We now specialize this construction to the empirical setting of a fixed
+stepwise marginal $\Gamma_Y$ and the neutral operator
+$\Ncal(\Gamma_Y,D_f)$.
+
+\begin{definition}[Empirical IG dynamical system for $\Gamma_Y$]
+\label{def:empirical-igds}
+Fix an empirical stepwise marginal $\Gamma_Y \in \Pcal(Y\times Y)$ and a
+regular Csiszár--Amari $f$-divergence $D_f$ on $\Pcal(Y\times Y)$. Let
+$\Mcal_0 \subset \Pcal(Y)$ be a statistical manifold of conditional laws
+carrying the induced dualistic structure $(g,\nabla,\nabla^\ast)$.
+
+Assume that the one-step dynamics on $Y$ extends to a Markov semigroup
+$(P_t^\ast)_{t\ge 0}$ on $\Pcal(Y)$ which:
+\begin{enumerate}[label=(EIG\arabic*),leftmargin=1.8em]
+  \item leaves $\Mcal_0$ invariant:
+  \[
+    P_t^\ast(\Mcal_0) \subseteq \Mcal_0
+    \qquad \forall\,t\ge 0;
+  \]
+  \item is monotone for $D_f$ on $\Mcal_0$, in the sense that for all
+  $\mu,\nu\in\Mcal_0$ and $t\ge 0$,
+  \[
+    D_f\bigl(P_t^\ast\mu \,\Vert\, P_t^\ast\nu\bigr)
+    \;\le\; D_f(\mu\Vert\nu).
+  \]
+\end{enumerate}
+Then
+\[
+  \bigl(\Mcal_0,\; g,\nabla,\nabla^\ast;\; (P_t^\ast)_{t\ge 0}\bigr)
+\]
+is an information--geometric dynamical system in the sense of
+Definition~\ref{def:ig-dynamical-system}. We call this the
+\emph{empirical IG dynamical system associated with $\Gamma_Y$}.
+\end{definition}
+
+In the neutral-operator viewpoint, $\Gamma_Y$ and $D_f$ fix the IG
+kind of object, while the choice of $(P_t^\ast)$ encodes the dynamical hypothesis
+for how conditional laws evolve in time.
+
+%----------------------------------------------------------
+\subsection{Realizations as IG dynamical subbundles}
+
+Finally, we relate realizations in $\mathcal{R}(\Gamma_Y)$ to immersed IG
+dynamical subsystems of the empirical IGDS on $\Mcal_0$.
+
+\begin{proposition}[Realizations as IG dynamical subbundles]
+\label{prop:realizations-as-sub-bundles}
+Let $\Gamma_Y$, $D_f$, $\Mcal_0$ and $(P_t^\ast)$ be as in
+Definition~\ref{def:empirical-igds}, and let
+\[
+  (S,\Gamma_S,q) \in \mathcal{R}(\Gamma_Y)
+\]
+be a realization with conditional-law map
+$\Phi_S : S \to \Mcal_0$ and induced IG structure
+$(g_S,\nabla^S,(\nabla^S)^\ast)$.
+
+Suppose that:
+\begin{enumerate}[label=(R\arabic*),leftmargin=1.8em]
+  \item the image $\Phi_S(S)$ is contained in $\Mcal_0$ and supports the
+  dynamics, in the sense that
+  \[
+    P_t^\ast\bigl(\Phi_S(S)\bigr) \subseteq \Mcal_0
+    \qquad \forall\,t\ge 0;
+  \]
+  \item the induced Fisher metric $g_S := \Phi_S^\ast g$ has constant
+  rank $d$ on a subset $S_0\subseteq S$, so that
+  $\Phi_S|_{S_0}:S_0\to\Mcal_0$ is a Fisher immersion of rank $d$;
+  \item there exists a Markov semigroup $(P_t^S)_{t\ge 0}$ on $S$
+  (induced by $\Gamma_S$) such that for all $t\ge 0$,
+  \[
+    \Phi_S \circ P_t^S
+    \;=\;
+    P_t^\ast \circ \Phi_S
+    \quad\text{on } S_0.
+  \]
+\end{enumerate}
+Then:
+\begin{itemize}[leftmargin=1.6em]
+  \item $\Phi_S$ identifies $(S_0,g_S,\nabla^S,(\nabla^S)^\ast)$ with a
+  $d$-dimensional immersed submanifold of
+  $(\Mcal_0,g,\nabla,\nabla^\ast)$;
+  \item the generator $L^\ast$ of $(P_t^\ast)$ restricts along $\Phi_S$
+  to a vector field $X^S$ on $S_0$, giving an induced IG dynamical
+  system
+  \[
+    \bigl(S_0,\; g_S,\nabla^S,(\nabla^S)^\ast;\; (P_t^S)_{t\ge 0}\bigr)
+  \]
+  that is information--geometrically equivalent to the restriction of
+  $(\Mcal_0,g,\nabla,\nabla^\ast;(P_t^\ast))$ to $\Phi_S(S_0)$.
+\end{itemize}
+
+In particular, each IG leaf in $\mathcal{R}(\Gamma_Y)$ selects, via its
+conditional-law manifold, a distinguished immersed IG dynamical
+subsystem of the empirical IG dynamical system on $\Mcal_0$.
+\end{proposition}
+
+%----------------------------------------------------------
+%----------------------------------------------------------
+\subsection{IG embeddings for observation families}
+\label{subsec:ig-observation-embeddings}
+
+We first formalize families of observation-based realizations and their
+information--geometric embeddings.
+
+\begin{definition}[Observation realization family]
+\label{def:observation-realization-family}
+Let $\Gamma_Y \in \Pcal(Y\times Y)$ be a fixed empirical operator.
+An \emph{observation realization family} for $\Gamma_Y$ is a collection
+\[
+  \bigl\{(Z^{(k)},\Gamma_{Z^{(k)}},r_k)\bigr\}_{k\in\mathcal I}
+  \subset \mathcal{R}(\Gamma_Y),
+\]
+indexed by a set $\mathcal I \subseteq \mathbb N$, such that for each
+$k\in\mathcal I$:
+\begin{enumerate}[label=(O\arabic*),leftmargin=1.8em]
+  \item $Z^{(k)}$ is a measurable space;
+  \item $r_k : Y \to Z^{(k)}$ is a measurable \emph{observation map},
+  typically of the form
+  \[
+    r_k(y)
+    = \bigl(h_1(y),\dots,h_k(y)\bigr)
+  \]
+  for scalar observation functions $h_i:Y\to\mathbb R$;
+  \item the stepwise marginal on $Z^{(k)}$ is induced by $\Gamma_Y$:
+  \[
+    \Gamma_{Z^{(k)}} := (r_k\times r_k)_{\sharp}\Gamma_Y
+    \;\in\; \Pcal(Z^{(k)}\times Z^{(k)}).
+  \]
+\end{enumerate}
+Each triple $(Z^{(k)},\Gamma_{Z^{(k)}},r_k)$ is a representation in
+$\mathcal R(\Gamma_Y)$.
+\end{definition}
+
+\begin{assumption}[Reference realization]
+\label{ass:reference-realization}
+There exists a \emph{reference realization}
+\[
+  (X,\Gamma_X,h_X) \in \mathcal{R}(\Gamma_Y)
+\]
+(e.g.\ a latent dynamical model) with conditional-law map
+$\Phi_X : X \to \Pcal(Y)$ and induced dualistic structure
+$(g_X,\nabla^X,(\nabla^X)^\ast)$ obtained by pulling back the
+Fisher--Rao dualistic structure on a statistical manifold
+$\mathcal M_0 \subset \Pcal(Y)$.
+\end{assumption}
+
+\begin{assumption}[IG compatibility of an observation index]
+\label{ass:ig-compatibility-observation}
+Let $k\in\mathcal I$. We say that $k$ is \emph{IG-compatible} with the
+reference realization if there exist:
+\begin{itemize}[leftmargin=1.6em]
+  \item subsets $X_0\subseteq X$ and $Z^{(k)}_0\subseteq Z^{(k)}$
+  supporting the dynamics;
+  \item a statistical manifold
+  $\mathcal M_0 \subseteq \Pcal(Y)$ containing the images of the
+  conditional-law maps;
+  \item conditional-law maps
+  $\Phi_{Z^{(k)}} : Z^{(k)} \to \mathcal M_0$
+\end{itemize}
+such that:
+\begin{enumerate}[label=(IC\arabic*),leftmargin=1.8em]
+  \item $\Phi_X(X_0) = \Phi_{Z^{(k)}}(Z^{(k)}_0) = \mathcal M_0$;
+  \item the restricted maps
+  \[
+    \Phi_X|_{X_0} : X_0 \to \mathcal M_0,
+    \qquad
+    \Phi_{Z^{(k)}}|_{Z^{(k)}_0} : Z^{(k)}_0 \to \mathcal M_0
+  \]
+  are Fisher immersions of the same rank $d$.
+\end{enumerate}
+\end{assumption}
+
+\begin{theorem}[IG--multivariate observation embedding]
+\label{thm:ig-observation-embedding}
+Let Assumption~\ref{ass:reference-realization} hold and let
+$\{(Z^{(k)},\Gamma_{Z^{(k)}},r_k)\}_{k\in\mathcal I}$ be an observation
+realization family for $\Gamma_Y$. Suppose $k\in\mathcal I$ is
+IG-compatible in the sense of
+Assumption~\ref{ass:ig-compatibility-observation}. Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item There is a canonical smooth map
+  \[
+    \varphi_k
+    :=
+    \bigl(\Phi_X|_{X_0}\bigr)^{-1}
+    \circ
+    \bigl(\Phi_{Z^{(k)}}|_{Z^{(k)}_0}\bigr)
+    : Z^{(k)}_0 \longrightarrow X_0
+  \]
+  which is a smooth coordinate changes onto its image, with smooth inverse on each
+  connected component supporting the dynamics.
+  \item The map $\varphi_k$ is a dualistic isomorphism between the
+  induced IG structures:
+  \[
+    g_{Z^{(k)}} = \varphi_k^\ast g_X,
+    \qquad
+    \nabla^{Z^{(k)}} = \varphi_k^\ast \nabla^X,
+    \qquad
+    \bigl(\nabla^{Z^{(k)}}\bigr)^\ast
+      = \varphi_k^\ast \bigl(\nabla^X\bigr)^\ast
+  \]
+  on $Z^{(k)}_0$.
+  \item The restricted stepwise marginals are related by pushforward:
+  \[
+    \Gamma_{Z^{(k)}}\big|_{Z^{(k)}_0\times Z^{(k)}_0}
+    =
+    \bigl(\varphi_k^{-1}\times\varphi_k^{-1}\bigr)_{\sharp}
+    \Bigl(\Gamma_X\big|_{X_0\times X_0}\Bigr).
+  \]
+\end{enumerate}
+In particular, $(Z^{(k)},\Gamma_{Z^{(k)}},r_k)$ lies in the same IG leaf
+as $(X,\Gamma_X,h_X)$ on the supports $(Z^{(k)}_0,X_0)$.
+\end{theorem}
+
+\begin{proof}
+This is a direct application of the IG-embedding theorem
+(Theorem~\ref{thm:ig-embedding}) with $S=X$, $S'=Z^{(k)}$ and the
+conditional-law maps $\Phi_X,\Phi_{Z^{(k)}}$. Assumption
+\ref{ass:ig-compatibility-observation} provides the hypotheses (image
+equality and Fisher immersions of the same rank), and the conclusions
+follow by specialization of Theorem~\ref{thm:ig-embedding}.
+\end{proof}
+
+\begin{remark}[Effective observation dimension]
+\label{rem:effective-observation-dimension}
+Under the hypotheses of Theorem~\ref{thm:ig-observation-embedding},
+the common image $\mathcal M_0$ is a $d$-dimensional statistical
+manifold. Since $\Phi_X|_{X_0}$ and $\Phi_{Z^{(k)}}|_{Z^{(k)}_0}$ are
+Fisher immersions of rank $d$, they are local smooth coordinate changes onto
+$\mathcal M_0$, and hence
+\[
+  \dim X_0 = \dim Z^{(k)}_0 = \dim \mathcal M_0 = d.
+\]
+Any additional coordinates in $X$ or $Z^{(k)}$ along which the pullback
+Fisher metric is degenerate are Fisher-null directions and do not affect
+the IG leaf.
+\end{remark}
+
+%----------------------------------------------------------
+\subsection{Spectrally faithful embeddings and spectral stabilization}
+\label{subsec:spectral-faithfulness}
+
+We now add dynamics on top of the IG structure and define spectrally
+faithful observation dimensions inside a dynamical neutral operator.
+
+\begin{assumption}[Dynamical neutral operator]
+\label{ass:dynamical-neutral-operator}
+Fix a regular Csiszár--Amari $f$-divergence $D_f$ on $\Pcal(Y\times Y)$.
+A \emph{dynamical neutral operator}
+\[
+  \mathcal N_{\mathrm{dyn}}(\Gamma_Y,D_f)
+\]
+consists of the neutral operator
+$\mathcal N(\Gamma_Y,D_f)$ together with, for each realization
+$(S,\Gamma_S,q)\in\mathcal R(\Gamma_Y)$, a Markov semigroup
+$(\mathsf P^S_t)_{t\ge 0}$ (or $(\mathsf P^S_n)_{n\in\mathbb N}$) on a
+Banach space of observables over $S$, with generator $\mathsf L^S$ and
+resolvent $\mathsf R^S(\lambda)$, such that these are compatible with
+the pushforward structure along conditional-law maps and IG-equivalences.
+\end{assumption}
+
+\begin{definition}[Spectrally faithful observation embedding dimension]
+\label{def:spectrally-faithful-observation-dimension}
+Let $\mathcal N_{\mathrm{dyn}}(\Gamma_Y,D_f)$ be a dynamical neutral
+operator, and let $(X,\Gamma_X,h_X)$ be a reference realization as in
+Assumption~\ref{ass:reference-realization}, with generator $\mathsf L^X$
+and resolvent $\mathsf R^X(\lambda)$.
+
+Let $\{(Z^{(k)},\Gamma_{Z^{(k)}},r_k)\}_{k\in\mathcal I}$ be an
+observation realization family for $\Gamma_Y$, with generators
+$\mathsf L^{(k)}$ and resolvents $\mathsf R^{(k)}(\lambda)$ on
+appropriate Banach spaces of observables.
+
+An index $k\in\mathcal I$ is called a \emph{Spectrally faithful
+observation embedding dimension} (relative to $X$) if:
+\begin{enumerate}[label=(SC\arabic*),leftmargin=1.8em]
+  \item $k$ is IG-compatible in the sense of
+  Assumption~\ref{ass:ig-compatibility-observation}, yielding a
+  dualistic isomorphism
+  \[
+    \varphi_k
+    :=
+    \bigl(\Phi_X|_{X_0}\bigr)^{-1}
+    \circ
+    \bigl(\Phi_{Z^{(k)}}|_{Z^{(k)}_0}\bigr)
+    : Z^{(k)}_0 \to X_0
+  \]
+  as in Theorem~\ref{thm:ig-observation-embedding};
+  \item the induced pullback map
+  \[
+    \varphi_k^\sharp : \mathcal B(X_0) \to \mathcal B(Z^{(k)}_0)
+  \]
+  between the corresponding Banach spaces of observables intertwines
+  generators and resolvents:
+  \[
+    \mathsf L^{(k)} \circ \varphi_k^\sharp
+    = \varphi_k^\sharp \circ \mathsf L^X,
+    \qquad
+    \mathsf R^{(k)}(\lambda) \circ \varphi_k^\sharp
+    = \varphi_k^\sharp \circ \mathsf R^X(\lambda)
+  \]
+  for all $\lambda$ in the common resolvent set.
+\end{enumerate}
+In this case we say that $(Z^{(k)},\Gamma_{Z^{(k)}},r_k)$ is a
+\emph{Spectrally faithful observation embedding} of the reference
+realization.
+\end{definition}
+
+\begin{definition}[Minimal Spectrally faithful observation dimension]
+\label{def:minimal-spectrally-faithful-dimension}
+Assume that there exists at least one Spectrally faithful observation
+dimension $k\in\mathcal I$ in the sense of
+Definition~\ref{def:spectrally-faithful-observation-dimension}. The
+\emph{minimal Spectrally faithful observation embedding dimension}
+(relative to $X$) is
+\[
+  k_\ast
+  := \inf\{k\in\mathcal I : k
+      \text{ is Spectrally faithful}\}.
+\]
+If no such $k$ exists, we say that the reference realization has no
+Spectrally faithful observation embedding within the chosen observation
+family.
+\end{definition}
+
+\begin{proposition}[Spectral stabilization across sufficiently rich observations]
+\label{prop:spectral-stabilization-observation}
+Let $\mathcal N_{\mathrm{dyn}}(\Gamma_Y,D_f)$,
+$(X,\Gamma_X,h_X)$, and $\{(Z^{(k)},\Gamma_{Z^{(k)}},r_k)\}_{k\in\mathcal I}$
+be as above. Suppose there exists $k_\ast\in\mathcal I$ such that every
+$k\in\mathcal I$ with $k\ge k_\ast$ is a Spectrally faithful observation
+embedding dimension.
+
+Then for every $k\ge k_\ast$:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item The generators $\mathsf L^{(k)}$ and $\mathsf L^X$ are conjugate
+  on the invariant subspaces connected by $\varphi_k^\sharp$:
+  \[
+    \mathsf L^{(k)} \circ \varphi_k^\sharp
+    = \varphi_k^\sharp \circ \mathsf L^X.
+  \]
+  \item Their resolvents are conjugate:
+  \[
+    \mathsf R^{(k)}(\lambda) \circ \varphi_k^\sharp
+    = \varphi_k^\sharp \circ \mathsf R^X(\lambda)
+  \]
+  for all $\lambda$ in the common resolvent set.
+  \item Consequently, the spectral data stabilize:
+  \[
+    \sigma(\mathsf L^{(k)}) = \sigma(\mathsf L^X),
+  \]
+  including algebraic multiplicities, on the invariant subspaces linked
+  by $\varphi_k^\sharp$.
+\end{enumerate}
+Moreover, for any $k_1,k_2\ge k_\ast$ there exists a dualistic
+isomorphism
+\[
+  \psi_{k_1,k_2}
+  := \varphi_{k_1}^{-1}\circ\varphi_{k_2}
+  : Z^{(k_2)}_0 \to Z^{(k_1)}_0
+\]
+such that the induced map $\psi_{k_1,k_2}^\sharp$ on observables
+conjugates the corresponding generators:
+\[
+  \mathsf L^{(k_2)} \circ \psi_{k_1,k_2}^\sharp
+  = \psi_{k_1,k_2}^\sharp \circ \mathsf L^{(k_1)},
+\]
+and hence
+\[
+  \sigma(\mathsf L^{(k_1)}) = \sigma(\mathsf L^{(k_2)})
+\]
+on the connected invariant subspaces.
+\end{proposition}
+
+\begin{proof}
+For each $k\ge k_\ast$, spectral faithfulness provides a dualistic
+isomorphism $\varphi_k$ and a pullback map $\varphi_k^\sharp$ that
+conjugate $\mathsf L^{(k)}$ with $\mathsf L^X$ and
+$\mathsf R^{(k)}(\lambda)$ with $\mathsf R^X(\lambda)$. Conjugate
+operators have identical spectra (including algebraic multiplicities) on
+the invariant subspaces connected by the intertwining map, which yields
+(a)--(c).
+
+For $k_1,k_2\ge k_\ast$, define
+\[
+  \psi_{k_1,k_2}
+  := \varphi_{k_1}^{-1}\circ\varphi_{k_2}
+  : Z^{(k_2)}_0 \to Z^{(k_1)}_0.
+\]
+Let $\psi_{k_1,k_2}^\sharp$ be the induced map on observables. Using
+conjugacy of $\mathsf L^{(k_1)}$ and $\mathsf L^X$, and of
+$\mathsf L^{(k_2)}$ and $\mathsf L^X$, we obtain
+\[
+  \mathsf L^{(k_2)} \circ \psi_{k_1,k_2}^\sharp
+  = \psi_{k_1,k_2}^\sharp \circ \mathsf L^{(k_1)},
+\]
+so the spectra of $\mathsf L^{(k_1)}$ and $\mathsf L^{(k_2)}$ coincide
+on the corresponding invariant subspaces.
+\end{proof}
+
+\begin{remark}[Delay embeddings as a special observation family]
+\label{rem:delay-embeddings-special-case}
+Classical delay embeddings arise by taking $Z^{(m)} = Y^m$ and
+$r_m(y_t) = (y_t,y_{t-1},\dots,y_{t-m+1})$ for $m\ge 1$, yielding a
+particular observation realization family in the sense of
+Definition~\ref{def:observation-realization-family}. In this case, any
+$m\ge m_\ast$ that is Spectrally faithful in the sense of
+Definition~\ref{def:spectrally-faithful-observation-dimension}
+is a Spectrally faithful delay embedding dimension, and
+Proposition~\ref{prop:spectral-stabilization-observation} specializes to
+a spectral stabilization principle across sufficiently long delays.
+\end{remark}
+
+%----------------------------------------------------------
+
+
+
+\section*{Diagrams}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzcd}[row sep=3.0em, column sep=4.8em]
+    % Top row: common IG manifold (anchor at (\Mcal,g))
+    & {(\Mcal,g)\mathrlap{\,\subset \Pcal(Y)}} \\[0.3em]
+    % Middle row: latent / observation / representation spaces
+    X 
+      \arrow[d, "\Gamma_X"']
+      \arrow[r, "h"] 
+      \arrow[ur, "\Phi_X"]
+    & Y 
+      \arrow[d, "\Gamma_Y"']
+      \arrow[r, "r"] 
+      \arrow[u,  "\Phi_Y"]
+    & Z 
+      \arrow[d, "\Gamma_Z"] 
+      \arrow[ul, "\Phi_Z"']
+      \arrow[ll, dashed, bend right=120, "\varphi"'] \\[0.3em]
+    % Bottom row: stepwise marginals
+    \Pcal(X \times X)
+      \arrow[r, "{(h \times h)_{\sharp}}"'] 
+    & \Pcal(Y \times Y)
+      \arrow[r, "{(r \times r)_{\sharp}}"'] 
+    & \Pcal(Z \times Z)
+  \end{tikzcd}
+  \caption{Realizations and stepwise marginals mapping by conditional-law
+    maps $\Phi_X,\Phi_Y,\Phi_Z$ into a common information--geometric manifold
+    $(\Mcal,g) \subset \Pcal(Y)$.}
+\end{figure}
+
+ 
+
+
+
+
+% =========================================================
+
+% =========================================================
+\section{Optional strengthening: state-space faithfulness (Takens-type embeddings)}
+\label{sec:optional-takens}
+
+
+\paragraph{Roadmap.}
+Everything above is decoder-free and pushforward-only.
+In this optional section we add state-space hypotheses (delay-embedding invertibility and/or sufficiency conditions) that promote boundary agreement into stronger relations between latent and representation realizations.
+\medskip
+The core development of this note is \emph{boundary-first}: the boundary record
+$\Gamma_Y\in\Pcal(Y\times Y)$, compatibility fibres, IG leaves, and completion as a
+closure/limit are defined without assuming an underlying state space, invertibility of representations, or a Markov semigroup \emph{a priori}.
+Nevertheless, many implementations use delay coordinates or other rich representations where classical embedding and conjugacy results provide an additional interpretation:
+certain realizations can be regarded as state-space reconstructions (up to smooth coordinate change) on the set supporting the dynamics.
+
+\subsection{Delays as path functionals vs state augmentation}
+A delay representation is formally a measurable functional of the observed record, i.e.\ a map on histories.
+When convenient, we may equivalently ``Markovize'' by augmenting the observed state to $Y^m$ so that the delay representation becomes an ordinary state map and the canonical readout $\pi_0:Y^m\to Y$ is available.
+This augmentation is optional and does not change the boundary record; it only changes how we \emph{represent} candidates in the compatibility fibre.
+
+
+
+\begin{remark}[Delay representations need no learned decoder]
+\label{rem:delay-no-decoder}
+Delay-coordinate representations are a canonical special case of
+Definition~\ref{def:boundary-readable-representation}.  Take $Z=Y^m$ and
+define the (history) representation process
+\[
+  Z_t := (Y_t,Y_{t-1},\dots,Y_{t-m+1}) \in Y^m.
+\]
+Then the readout map can be chosen canonically as the projection onto the
+present coordinate,
+\[
+  \pi_0 : Y^m\to Y, \qquad \pi_0(y_0,\dots,y_{m-1}) = y_0.
+\]
+For any stepwise marginal $\Gamma_Z\in\Pcal(Y^m\times Y^m)$ on the delay space,
+the induced boundary stepwise marginal is
+\[
+  (\pi_0\times \pi_0)_{\push}\Gamma_Z \in \Pcal(Y\times Y).
+\]
+In particular, the empirical delay edge record satisfies
+$(\pi_0\times \pi_0)_{\push}\widehat\Gamma_{Y^m}^{(T)}=\widehat\Gamma_Y^{(T)}$
+(up to the usual finite-sample boundary effects), so boundary comparison can be
+performed entirely in $\Pcal(Y\times Y)$ without introducing any additional
+decoder beyond $\pi_0$.
+\end{remark}
+
+\subsection{Topological (state-space) fidelity as an optional refinement}
+The following definition records a sufficient condition under which a representation can be interpreted as faithful at the level of the supporting set (e.g.\ an attractor).
+It is \emph{not} used elsewhere: it may be skipped without affecting fibres, leaves, or completion.
+
+\begin{definition}[Topological fidelity from $Y$]
+A representation $r:Y\to Z$ has \emph{topological fidelity} of effective
+dimension $d$ if there exists a conditional-law map
+\[
+  \Phi_Z : Z \to \mathcal M_0 \subset \Pcal(Y)
+\]
+such that:
+\begin{enumerate}[label=(T\arabic*),leftmargin=1.8em]
+  \item $\Phi_Z$ is a Fisher immersion of rank $d$ on a subset
+  $Z_0\subseteq Z$ supporting the dynamics;
+  \item the pullback metric $g_Z = \Phi_Z^\ast g$ is nondegenerate on
+  $Z_0$, so that $Z_0$ inherits a $d$-dimensional manifold structure
+  (up to negligible sets).
+\end{enumerate}
+\end{definition}
+
+\subsubsection*{Delay embeddings as sufficient statistics (Čencov--Takens bridge)}
+The boundary-first framework never requires invertibility of a representation map.
+However, when a representation is \emph{invertible on the support relevant to the
+model family}, Čencov-type information monotonicity upgrades from an inequality
+to an equality: the representation becomes a \emph{sufficient statistic} for the
+chosen dynamical/statistical model family.  This is the clean interface between
+Takens-style embedding hypotheses (state/representation level) and Čencov-style
+geometry preservation (information-geometric level).
+
+\begin{definition}[Sufficiency of a representation statistic]
+\label{def:sufficiency-statistic}
+Let $(\Pcal_\theta)_{\theta\in\Theta}$ be a dominated family of probability laws
+on a data space $\Omega$ (for example, a family of path measures for a process,
+or a consistent family of finite-dimensional marginals encoding the same
+dynamics).  Let $\rho:\Omega\to\Omega'$ be a measurable \emph{representation statistic}
+and write $\mathcal Q_\theta := \rho_\sharp \Pcal_\theta$ for the induced family on
+$\Omega'$.
+We say that $\rho$ is \emph{sufficient for} $(\Pcal_\theta)_{\theta\in\Theta}$ if
+there exists a Markov kernel $K:\Omega'\rightsquigarrow \Omega$, independent of
+$\theta$, such that
+\[
+  \Pcal_\theta = K_\sharp \mathcal Q_\theta
+  \qquad\text{for all }\theta\in\Theta.
+\]
+Equivalently, the conditional law of the original data given the statistic $\rho$,
+$\Pcal_\theta(\,\cdot\mid r\,)$, is $\theta$-independent.
+\end{definition}
+
+\begin{corollary}[Čencov/Takens upgrade: when the representation is lossless]
+\label{cor:cencov-takens-upgrade}
+In the setting of Lemma~\ref{lem:pushforward-only-repboundary}:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item (\emph{Čencov/sufficiency regime}) If $\rho$ is sufficient for the chosen
+  statistical/dynamical model family in the sense of
+  Definition~\ref{def:sufficiency-statistic}, then the data-processing
+  inequality becomes an equality on that family, so that working with
+  $\Gamma_{Y,\rho}$ preserves both $f$-divergences and the induced Fisher
+  geometry (up to the usual gauge/scale conventions).
+  \item (\emph{Takens/invertibility regime}) If $\rho$ is injective (or a
+  diffeomorphic embedding) on the relevant support of the boundary record, then
+  $\rho$ may be treated as a change of coordinates on the supporting set.  In
+  this case, matching (or optimizing) candidates through the pushforward records
+  on $Z\times Z$ is equivalent to matching them on $Y\times Y$, and one may
+  transport realizations between $Y$-space and $Z$-space without introducing a
+  separate decoder as a primitive assumption.
+\end{enumerate}
+\end{corollary}
+
+\begin{lemma}[Boundary Pythagorean decomposition (pushforward form)]
+\label{lem:boundary-pythagoras-pushforward}
+Let $D$ be a divergence on $\Pcal(Y\times Y)$ inducing a dualistic structure
+$(g,\nabla,\nabla^\ast)$ on a regular statistical manifold containing the three
+boundary points
+\[
+  p := (h\times h)_{\push}\Gamma_X,\qquad
+  q := \Gamma_Y,\qquad
+  r := (q_Z\times q_Z)_{\push}\Gamma_Z,
+\]
+where $(X,\Gamma_X,h)$ is a latent realization, and $(Z,\Gamma_Z,q_Z)$ is a
+boundary-readable representation (for delay embeddings, one may take
+$q_Z=\pi_0$ on $Z=Y^m$).
+If $q$ is the appropriate $\nabla$-projection of $p$ onto a $\nabla^\ast$-flat
+submanifold containing $r$ (equivalently: the $\nabla$-geodesic from $p$ to $q$
+is $g$-orthogonal at $q$ to the $\nabla^\ast$-geodesic from $q$ to $r$), then
+\[
+  D(p\,\Vert\,r) = D(p\,\Vert\,q) + D(q\,\Vert\,r).
+\]
+In general, the deviation from orthogonality is measured by the standard
+dually-flat remainder term.
+\end{lemma}
+
+
+
+\begin{proposition}[Čencov monotonicity and the equality case]
+\label{prop:cencov-equality-sufficiency}
+Fix a smooth statistical model $(\Pcal_\theta)_{\theta\in\Theta}$ as above and
+let $I_\Omega(\theta)$ and $I_{\Omega'}(\theta)$ denote the Fisher information
+matrices (or Fisher metrics) for the families $(\Pcal_\theta)$ and
+$(\mathcal Q_\theta)$, respectively.  Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+\item (\emph{Monotonicity}) $I_{\Omega'}(\theta)\preceq I_{\Omega}(\theta)$ for all
+$\theta\in\Theta$.
+\item (\emph{Equality $\Leftrightarrow$ sufficiency}) Equality holds for all
+$\theta$ (in the sense of metric pullback/isometry on the model manifold) if and
+only if $\rho$ is sufficient in the sense of
+Definition~\ref{def:sufficiency-statistic}.
+\end{enumerate}
+In the equality case, the induced information-geometric structures on the two
+model manifolds are isomorphic (up to the usual gauge/scaling conventions), so
+that working with the statistic does not change the intrinsic Fisher geometry of
+the model family.
+\end{proposition}
+
+\begin{lemma}[Čencov--Takens compatibility (as a \emph{regime}, not a named theorem)]
+\label{lem:cencov-takens}
+Let $(X,\Gamma_X,h)$ and $(Z,\Gamma_Z,r)$ be realizations in
+$\Rcal(\Gamma_Y)$ with conditional-law maps
+$\Phi_X:X\to\Mcal_0$ and $\Phi_Z:Z\to\Mcal_0$, where $\Mcal_0$ carries
+the canonical Fisher metric $g$ (Corollary~\ref{cor:canonical-ig-kind of object}).
+Assume:
+\begin{enumerate}[label=(\roman*),leftmargin=1.8em]
+  \item (\emph{Boundary consistency}) both realizations lie in the same
+  compatibility fibre over $\Gamma_Y$ (possibly in an $\varepsilon$-fibre), so
+  that their boundary images agree with the boundary record in the sense fixed
+  earlier.
+  \item (\emph{Takens-type invertibility on support}) there exist subsets
+  $X_0\subseteq X$ and $Z_0\subseteq Z$ supporting the dynamics and a measurable
+  bijection $\psi:Z_0\to X_0$ such that, on $Z_0$,
+  \[
+    h = \pi_0\circ r
+    \qquad\text{and}\qquad
+    \psi^{-1}\ \text{implements the state reconstruction from }Z_0.
+  \]
+  (For delay coordinates, $\pi_0:Z\to Y$ is the canonical readout.)
+  \item (\emph{Sufficiency for the induced statistical family}) the statistic
+  induced by $r$ (or by the corresponding delay/feature map on the data space)
+  is sufficient for the chosen boundary/dynamical model family used to define
+  the Fisher geometry on $\Mcal_0$ (Definition~\ref{def:sufficiency-statistic}),
+  so that Proposition~\ref{prop:cencov-equality-sufficiency} applies.
+\end{enumerate}
+Then the induced information-geometric structures agree on the supported sets:
+\[
+  g_Z = \psi^\ast g_X,
+  \qquad
+  \nabla^Z = \psi^\ast \nabla^X,
+  \qquad
+  (\nabla^Z)^\ast = \psi^\ast (\nabla^X)^\ast,
+\]
+and the two realizations lie in the same IG leaf of the neutral operator.
+In words: \emph{in the Takens invertibility regime, delay/representation
+embeddings act as sufficient statistics for the model family, so Fisher geometry
+is preserved rather than merely contracted.}
+\end{lemma}
+
+
+\subsection{What this buys you (and what it does not)}
+Under such hypotheses, some non-uniqueness inside the compatibility fibre may collapse: two realizations related by an embedding/conjugacy can be interpreted as alternative coordinate descriptions of the same underlying dynamics.
+This does \emph{not} alter the boundary-first definitions: boundary fidelity is still assessed in $\Pcal(Y\times Y)$, IG leaves are still defined by preserved information-geometric structure, and Markov completion remains a closure/limit statement.
+
+\appendix
+
+\section{Dependency graph (who depends on what)}
+\label{app:dependency-graph}
+
+
+\paragraph{Roadmap.}
+A quick ``at a glance'' index of dependencies among definitions and results.
+\medskip
+This list is meant as an ``at a glance'' dependency guide.  References to kinds of objects are in parentheses.
+
+\begin{itemize}[leftmargin=1.6em]
+\item Definition~\ref{def:boundary-record} (B) depends on the notion of $\Pcal(\cdot)$ and products of measurable spaces (see Appendix~\ref{app:background}).
+\item Definition~\ref{def:realization-boundarymap} (B) depends on pushforward $(q\otimes q)_\#$ (Appendix~\ref{app:background}).
+\item Definition~\ref{def:compatibility-fibre} (B) depends on Definition~\ref{def:realization-boundarymap} and, for $\varepsilon$-fibres, on $D_f$ (Definition~\ref{def:fisher-metric-dual}, C).
+
+% (cut: removed dependency item for commuting square)
+
+\item Definitions~\ref{def:statistical-family-boundary} and~\ref{def:fisher-metric-dual} (C) depend on dominated smooth families and $f$-divergences (Appendix~\ref{app:background}).
+\item Definitions~\ref{def:em-projections} and Proposition~\ref{prop:pythagorean} (C) depend on the dualistic/dually flat IG structure (Appendix~\ref{app:background}).
+\item Definition~\ref{def:ig-leaf} (C over B) depends on choosing a boundary family $\mathcal M_Y$ and an IG notion of equivalence on that family (C).
+\item Definition~\ref{def:empirical-semigroup-consistency-v2} (B) depends on selecting a function space $\Xcal$ and operator norms; it is the entry point for completion-as-closure.
+\item Proposition~\ref{prop:continuous-markov-completion-v2} (B) depends on Hille--Yosida/Trotter--Kato style hypotheses (standard functional analysis), invoked only when one wants a continuous-time completion.
+\end{itemize}
+
+\section{Background (moved to appendix)}
+\label{app:background}
+
+
+\paragraph{Roadmap.}
+Reference material and standard definitions used in the main text.
+\medskip
+\label{sec:background}
+
+This section collects basic definitions and conventions used throughout.
+
+%---------------------------------------------
+\subsection{Probability measures, pushforwards, and kernels}
+
+\begin{definition}[Measurable space and probability measure]
+A \emph{measurable space} is a pair $(S,\mathcal{S})$ consisting of a set
+$S$ and a $\sigma$-algebra $\mathcal{S}\subseteq 2^S$. A
+\emph{probability measure} on $(S,\mathcal{S})$ is a map
+$\mu:\mathcal{S}\to[0,1]$ that is countably additive and satisfies
+$\mu(S)=1$. The set of all probability measures on $(S,\mathcal{S})$ is
+denoted $\mathcal{P}(S)$.
+\end{definition}
+
+\begin{definition}[Pushforward measure]
+Let $(S,\mathcal{S})$ and $(T,\mathcal{T})$ be measurable spaces, and let
+$f:S\to T$ be measurable. For $\mu\in\mathcal{P}(S)$ the
+\emph{pushforward} of $\mu$ by $f$ is the measure
+$f_{\sharp}\mu\in\mathcal{P}(T)$ defined by
+\[
+  f_{\sharp}\mu(B) := \mu\bigl(f^{-1}(B)\bigr),
+  \qquad B\in\mathcal{T}.
+\]
+If $\Gamma\in\mathcal{P}(S\times S)$ and $f:S\to T$, we write
+$(f\times f)_{\sharp}\Gamma$ for the pushforward on $T\times T$.
+\end{definition}
+
+\begin{definition}[Markov kernel]
+Let $(S,\mathcal{S})$ and $(T,\mathcal{T})$ be measurable spaces. A
+\emph{Markov kernel} from $S$ to $T$ is a map
+$K:S\times\mathcal{T}\to[0,1]$ such that
+\begin{itemize}[leftmargin=1.5em]
+  \item for each $A\in\mathcal{T}$, the map $s\mapsto K(s,A)$ is
+  $\mathcal{S}$-measurable;
+  \item for each $s\in S$, the map $A\mapsto K(s,A)$ is a probability
+  measure on $(T,\mathcal{T})$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Stepwise marginal and disintegration]
+Let $(S,\mathcal{S})$ be a measurable space and
+$\Gamma_S \in \mathcal{P}(S\times S)$ a probability measure. We call
+$\Gamma_S$ a \emph{stepwise marginal} on $S\times S$ if there exists a
+disintegration
+\[
+  \Gamma_S(\mathrm ds_0,\mathrm ds_1)
+  = \nu_S(\mathrm ds_0)\,K_S(s_0,\mathrm ds_1),
+\]
+where $\nu_S\in\mathcal{P}(S)$ and $K_S$ is a Markov kernel from $S$ to
+$S$.
+
+When $(S_t)_{t\in\mathbb{Z}}$ is a stochastic process with sample space
+$S$, the stepwise marginal of the process is
+\[
+  \Gamma_S := \mathbb{P}(S_t,S_{t+1}) \in \mathcal{P}(S\times S),
+\]
+i.e.\ the joint law of two consecutive time points. In the time-series
+and graphical-model literatures this is often called the
+\emph{lag-1 joint distribution} or an \emph{edge marginal} on the edge
+$(t,t+1)$ of the time line; in the stationary case it coincides with the
+stationary pair measure of the Markov chain. We single it out because,
+in our framework, the stepwise marginal is the primitive transport
+object encoding one-step dynamics on $S$.
+\end{definition}
+
+\begin{lemma}[Stepwise marginals and conditional laws]
+\label{lem:stepwise-disintegration-uniqueness}
+Let $(S,\mathcal{S})$ be a measurable space and 
+$\Gamma_S \in \mathcal{P}(S\times S)$ a probability measure.
+Suppose $\Gamma_S$ admits a disintegration
+\[
+  \Gamma_S(\mathrm ds_0,\mathrm ds_1)
+  = \nu_S(\mathrm ds_0)\,K_S(s_0,\mathrm ds_1),
+\]
+with $\nu_S \in \mathcal{P}(S)$ and a Markov kernel $K_S$ from $S$ to $S$.
+Then:
+\begin{enumerate}[label=(\alph*),leftmargin=1.8em]
+  \item The pair $(\nu_S,K_S)$ is unique up to $\nu_S$-null sets.
+  \item Conversely, any pair $(\nu_S,K_S)$ with $\nu_S\in\mathcal{P}(S)$
+  and a Markov kernel $K_S$ defines a unique stepwise marginal
+  $\Gamma_S \in \mathcal{P}(S\times S)$ via the above formula.
+\end{enumerate}
+In particular, there is a one-to-one correspondence (up to null sets)
+between stepwise marginals $\Gamma_S$ and conditional-law maps
+$s\mapsto K_S(s,\cdot)$ together with a source law $\nu_S$.
+\end{lemma}
+
+%---------------------------------------------
+\subsection{Statistical models and $f$-divergences}
+
+\begin{definition}[Statistical model and statistical manifold]
+Let $(\Omega,\mathcal F)$ be a measurable space. A (parametric) \emph{statistical model}
+on $(\Omega,\mathcal F)$ is a family
+\[
+  \Mcal
+  := \{\mu_\theta \in \Pcal(\Omega) : \theta\in\Theta\},
+\]
+where $\Theta$ is a smooth manifold and $\theta\mapsto\mu_\theta(A)$ is smooth for each
+$A\in\mathcal F$. We call $\Theta$ the \emph{parameter manifold}, and the image
+$\mathcal M \subset \Pcal(\Omega)$ (equipped with the induced smooth structure) the
+corresponding \emph{statistical manifold}.
+\end{definition}
+
+\begin{definition}[Csiszár--Morimoto $f$-divergence]
+Let $f:(0,\infty)\to\mathbb{R}$ be convex with $f(1)=0$. For two
+probability measures $\mu,\nu\in\mathcal{P}(\Omega)$ such that
+$\mu\ll\nu$ and Radon--Nikodym derivative
+$\rho := \frac{\mathrm d\mu}{\mathrm d\nu}$, the \emph{$f$-divergence} is
+\[
+  D_f(\mu\Vert\nu)
+  :=
+  \int f\bigl(\rho(\omega)\bigr)\,\nu(\mathrm d\omega).
+\]
+If $\mu\not\ll\nu$, we set $D_f(\mu\Vert\nu):=+\infty$.
+\end{definition}
+
+\begin{definition}[Csiszár--Amari $\alpha$-divergences]
+For $\alpha\in(-1,1)$ and densities $p,q$ on a common reference measure
+$\mu$, the \emph{$\alpha$-divergence} is
+\[
+  D_\alpha(p\Vert q)
+  := \frac{4}{1-\alpha^2}
+     \left(
+       1 - \int p^{\frac{1-\alpha}{2}} q^{\frac{1+\alpha}{2}}\,\mathrm d\mu
+     \right).
+\]
+The limits $\alpha\to\pm 1$ yield forward and reverse Kullback–Leibler
+divergences. Each $D_\alpha$ is an $f$-divergence in the above sense.
+\end{definition}
+
+In what follows any such divergence $D_f$ on $\mathcal{P}(Y\times Y)$
+serves both as a global discrepancy between stepwise marginals and as
+the generator of a local information geometry.
+
+%---------------------------------------------
+\subsection{Fisher metric and dual affine connections}
+
+Let $\Mcal = \{\mu_\theta : \theta\in\Theta\}$ be a smooth
+statistical model on $(\Omega,\mathcal{F})$, and let $D_f$ be a smooth
+$f$-divergence.
+
+\begin{definition}[Fisher--Rao metric from $D_f$]
+The \emph{Fisher--Rao metric} $g$ on $\Theta$ induced by $D_f$ is the
+Riemannian metric whose components in a local coordinate chart
+$\theta=(\theta^1,\dots,\theta^d)$ are
+\[
+  g_{ij}(\theta)
+  :=
+  \left.
+  \frac{\partial^2}{\partial \epsilon_i\,\partial \epsilon_j}
+  D_f\bigl(\mu_\theta \,\Vert\, \mu_{\theta+\epsilon}\bigr)
+  \right|_{\epsilon=0},
+  \qquad
+  1\le i,j\le d.
+\]
+\end{definition}
+
+For regular $f$-divergences this coincides, up to a constant factor, with
+the classical Fisher information matrix whenever the $\mu_\theta$ admit
+densities.
+
+\begin{definition}[Affine connection]
+An \emph{affine connection} $\nabla$ on a smooth manifold $\Theta$ assigns to each
+pair of smooth vector fields $X,Y$ a new vector field $\nabla_Y X$ such that
+\(\nabla\) is $\mathbb R$-bilinear in $(X,Y)$, $C^\infty(\Theta)$-linear in $Y$, and
+satisfies the Leibniz rule in $X$:
+\[
+  \nabla_Y(fX) = Y(f)\,X + f\,\nabla_Y X
+\]
+for all smooth functions $f$.
+\end{definition}
+
+\begin{definition}[Dual affine connections]
+Let $g$ be a Riemannian metric on $\Theta$. Two affine connections $\nabla$ and
+$\nabla^\ast$ are said to be \emph{dual with respect to $g$} if for all smooth
+vector fields $X,Y,Z$ on $\Theta$,
+\[
+  Y\langle X,Z\rangle
+  = \langle \nabla_Y X, Z\rangle
+    + \langle X, \nabla^\ast_Y Z\rangle,
+\]
+where $\langle\cdot,\cdot\rangle$ is the inner product induced by $g$.
+\end{definition}
+
+\begin{definition}[Dualistic structure]
+\label{def:fisher-metric-dual}
+A \emph{dualistic structure} on a manifold $\Theta$ is a triple
+$(g,\nabla,\nabla^\ast)$ consisting of a Riemannian metric $g$ and two
+affine connections $\nabla,\nabla^\ast$ that are dual with respect to
+$g$. For regular Csiszár--Amari $\alpha$-divergences on a statistical
+model $\Mcal$, the induced metric $g$ and connections
+$\nabla,\nabla^\ast$ are (up to overall scaling) independent of $\alpha$.
+\end{definition}
+
+%---------------------------------------------
+
+\subsection{Monotone metrics and canonical Fisher geometry}
+\label{subsec:monotone-metrics}
+
+We briefly record the uniqueness of the Fisher metric under Markov
+monotonicity, in the spirit of Čencov's and Ay--Jost--Lê--Schwachhöfer's
+results, and adapt it to the conditional-law manifold used in the
+neutral operator.
+
+\begin{definition}[Markov morphism between statistical models]
+Let $(\Omega,\mathcal F)$ and $(\Omega',\mathcal F')$ be measurable
+spaces, and let
+\[
+  \mathcal M
+  = \{\mu_\theta \in \Pcal(\Omega) : \theta\in\Theta\},
+  \qquad
+  \mathcal M'
+  = \{\mu'_{\vartheta} \in \Pcal(\Omega') : \vartheta\in\Theta'\}
+\]
+be statistical models with smooth parameter manifolds $\Theta,\Theta'$.
+A \emph{Markov morphism} from $\mathcal M$ to $\mathcal M'$ is a pair
+$(K,\psi)$ consisting of
+\begin{itemize}[leftmargin=1.5em]
+  \item a Markov kernel $K:\Omega\times\mathcal F' \to [0,1]$,
+  \item a smooth map $\psi:\Theta'\to\Theta$,
+\end{itemize}
+such that for every $\vartheta\in\Theta'$,
+\[
+  \mu'_{\vartheta}
+  = K_\sharp \mu_{\psi(\vartheta)},
+\]
+where $K_\sharp$ denotes the pushforward of measures along $K$.
+\end{definition}
+
+\begin{definition}[Monotone Riemannian metric]
+Let $\mathcal M = \{\mu_\theta\}$ be a statistical model with parameter
+manifold $\Theta$. A Riemannian metric $g$ on $\Theta$ is
+\emph{Markov monotone} if for every Markov morphism
+$(K,\psi):\mathcal M\to\mathcal M'$ between statistical models, with
+Riemannian metric $g'$ on the parameter manifold $\Theta'$, we have
+\[
+  g'_{\vartheta}\bigl( v',v' \bigr)
+  \;\le\;
+  g_{\psi(\vartheta)}\bigl( (\mathrm d\psi_{\vartheta} v'),
+                            (\mathrm d\psi_{\vartheta} v') \bigr)
+\]
+for all $\vartheta\in\Theta'$ and all $v'\in T_{\vartheta}\Theta'$.
+\end{definition}
+
+\begin{theorem}[Čencov--Ay uniqueness of the Fisher metric]
+\label{thm:cencov-ay}
+Let $\mathcal M = \{\mu_\theta : \theta\in\Theta\}$ be a regular
+statistical model on a measurable space $(\Omega,\mathcal F)$ dominated
+by a $\sigma$-finite reference measure, and let $g$ be a smooth
+Riemannian metric on $\Theta$ that is Markov monotone in the sense
+above.
+
+Then $g$ is proportional to the Fisher information metric $g^{\mathrm F}$
+on $\Theta$:
+there exists a constant $c>0$ such that
+\[
+  g = c\, g^{\mathrm F}.
+\]
+\end{theorem}
+
+\begin{remark}
+Theorem~\ref{thm:cencov-ay} is the continuous-measure counterpart of
+Čencov's classical theorem for finite sample spaces: the Fisher metric is
+essentially the unique Riemannian metric that is monotone under Markov
+coarse-grainings and sufficient statistics. We use this result as a
+structural axiom for the neutral operator.
+\end{remark}
+
+We now adapt this to the conditional-law manifold associated with the
+stepwise marginal $\Gamma_Y$.
+
+\begin{definition}[Conditional-law manifold]
+Let $\Gamma_Y\in\Pcal(Y\times Y)$ be a stepwise marginal with
+disintegration
+\[
+  \Gamma_Y(\mathrm dy_0,\mathrm dy_1)
+  = \nu_Y(\mathrm dy_0)\,K_Y(y_0,\mathrm dy_1),
+\]
+and let $\Rcal(\Gamma_Y)$ be the realization space of $\Gamma_Y$. The
+\emph{conditional-law manifold} $\Mcal_0$ is any smooth statistical
+manifold
+\[
+  \Mcal_0 \subset \Pcal(Y)
+\]
+containing the images of the conditional-law maps
+$\Phi_S : S \to \Pcal(Y)$ for all realizations
+$(S,\Gamma_S,q)\in\Rcal(\Gamma_Y)$, where
+\[
+  \Phi_S(s)
+  := \mathbb P(Y_{t+1}\in\cdot \mid S_t=s).
+\]
+\end{definition}
+
+\begin{corollary}[Canonical IG structure on $\Mcal_0$]
+\label{cor:canonical-ig-kind of object}
+Let $\Mcal_0\subset\Pcal(Y)$ be a conditional-law manifold as above.
+Suppose we require that any Riemannian metric $g$ on $\Mcal_0$ be
+Markov monotone with respect to Markov morphisms induced by measurable
+maps on $Y$, i.e.\ by Markov kernels of the form
+\[
+  K_f(y,A) = \delta_{f(y)}(A),
+  \qquad f:Y\to Y',
+\]
+and their pushforwards on conditional laws.
+
+Then, up to an overall constant factor, there is a unique such metric
+$g$ on $\Mcal_0$, and $g$ coincides with the Fisher--Rao metric induced
+by any regular Csiszár–Morimoto $f$-divergence on $\Pcal(Y)$ restricted
+to $\Mcal_0$.
+\end{corollary}
+
+\begin{remark}
+In particular, once Markov monotonicity is imposed, the choice of
+$f$-divergence on $\Pcal(Y)$ does not change the information--geometric
+structure on $\Mcal_0$ beyond an overall scale, in agreement with the
+$\alpha$-neutrality theorem for Csiszár--Amari divergences.
+\end{remark}
+
+We finally record a compatibility statement that combines this canonical
+Fisher geometry with observation embeddings, including delay embeddings
+as a special case.
+
+
+
+%---------------------------------------------
+\subsection{Manifolds, immersions, and foliations}
+
+\begin{definition}[Smooth manifold]
+A (finite-dimensional) \emph{smooth manifold} $M$ of dimension $d$ is a
+Hausdorff topological space equipped with an atlas of coordinate charts
+$\{(U_\alpha,\varphi_\alpha)\}$ such that each $\varphi_\alpha$ maps
+$U_\alpha$ homeomorphically onto an open subset of $\mathbb{R}^d$, and
+all transition maps
+$\varphi_\beta\circ\varphi_\alpha^{-1}$ are smooth wherever defined.
+\end{definition}
+
+\begin{definition}[Immersion]
+Let $M$ and $N$ be smooth manifolds, and let $F : M \to N$ be a smooth map.
+We say that $F$ is an \emph{immersion at a point} $x \in M$ if its differential
+\[
+  \mathrm dF_x : T_x M \longrightarrow T_{F(x)} N
+\]
+is injective. If $F$ is an immersion at every point of $M$, then $F$ is called
+an \emph{immersion}.
+
+Geometrically, an immersion has no ``tangential collapse'': it may fail to be
+injective as a map $F:M\to N$, but it is locally an embedding at the level of
+tangent spaces.
+\end{definition}
+
+\begin{definition}[Vector bundle]
+Let $M$ be a smooth manifold. A (real) \emph{vector bundle} over $M$ is a
+smooth surjective map $\pi : E \to M$ together with a vector space structure
+on each fibre $E_x := \pi^{-1}(\{x\})$ such that, for every $x \in M$, there is
+a neighbourhood $U \ni x$ and a smooth coordinate changes
+\[
+  \Phi : \pi^{-1}(U) \longrightarrow U \times \mathbb{R}^k
+\]
+for some fixed $k$, with $\pi = \mathrm{pr}_U \circ \Phi$, and such that each
+restriction $\Phi|_{E_x}$ is a linear isomorphism $E_x \cong \{x\}\times\mathbb{R}^k$.
+The integer $k$ is the \emph{rank} of the bundle. The tangent bundle
+$\pi:TM\to M$ is the canonical example.
+\end{definition}
+
+\begin{definition}[Subbundle]
+Let $\pi:E\to M$ be a vector bundle of rank $k$. A \emph{subbundle} of $E$ is
+a smooth submanifold $F \subset E$ such that:
+\begin{itemize}[leftmargin=1.5em]
+  \item the restriction $\pi|_F : F \to M$ is a surjective submersion;
+  \item for each $x\in M$, the fibre $F_x := F\cap E_x$ is a linear subspace
+  of $E_x$ of constant dimension $r$ (independent of $x$).
+\end{itemize}
+In this case $\pi|_F : F\to M$ is itself a vector bundle of rank $r$, called a
+subbundle of $E$. For example, a smoothly varying choice of subspaces
+$H_x \subset T_x M$ defines a subbundle $H \subset TM$.
+\end{definition}
+
+\begin{definition}[Foliation]
+\label{def:foliation}.
+Let $M$ be a smooth manifold of dimension $n$. A \emph{foliation} of $M$
+of codimension $q$ (and dimension $p=n-q$) is a decomposition of $M$
+into disjoint connected subsets $\{L_\alpha\}_{\alpha\in A}$, called
+\emph{leaves}, such that for every point $x\in M$ there exists a chart
+$(U,\varphi)$ with
+\[
+  \varphi:U \to \mathbb{R}^p\times\mathbb{R}^q
+\]
+a smooth coordinate changes onto an open set, and each nonempty connected component
+of $L_\alpha\cap U$ is mapped by $\varphi$ onto a slice of the form
+\[
+  \mathbb{R}^p\times\{y_0\},
+  \qquad y_0\in\mathbb{R}^q.
+\]
+In this case we say that the leaves $\{L_\alpha\}$ form a foliation of
+$M$.
+\end{definition}
+
+
+
+
+\bibliographystyle{plainnat}    % or another style you like
+\bibliography{../references}
+
+\end{document}

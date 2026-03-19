@@ -1,0 +1,200 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{hyperref}
+
+% Theorem environments
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{prop}{Proposition}
+\newtheorem{lemma}{Lemma}
+
+\title{Embedding and Measure Conjugacy: Extending Takens' Theorem}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+Time-delay embeddings are powerful tools for reconstructing dynamics from time-series data. Takens' theorem guarantees that, under generic conditions, delay-coordinate maps produce diffeomorphic reconstructions of the underlying attractor. However, Takens is silent about whether the statistical dynamics (invariant measures, distributions of trajectories) or the associated spectral properties are faithfully recovered. \\
+
+We introduce a condition---the \emph{Rose equality}---which, when combined with Takens' embedding, ensures \emph{measure conjugacy}. Thus, not only geometry but also measure-theoretic and spectral dynamics are preserved. \\
+
+This framework can be connected to an empirical program: by equipping the space of Markov kernels that generate pushforward (Perron--Frobenius) and pullback (Koopman) operators with the Fisher--Rao metric, one obtains a natural way to measure the divergence between observed and modelled dynamics. \\
+
+In this view, the Kullback--Leibler divergence between empirical and theoretical pushforward measures admits a second-order approximation by a Fisher information quadratic form, which specifies the \emph{local information geometry} of the statistical manifold of kernels. This provides a practical route for testing the Rose equality in data and links the abstract measure-conjugacy result to concrete statistical and spectral geometry.
+
+\section{Background}
+\subsection{Dynamical Systems}
+A measure-preserving dynamical system is a quadruple $(X, \mathcal{B}, \mu, \varphi)$ where $X$ is a state space, $\mu$ an invariant probability measure, and $\varphi : X \to X$ a measurable map.
+
+\subsection{Operators}
+\begin{itemize}
+  \item The Koopman operator $U$ acts on observables: $(Uf)(x) = f(\varphi(x))$.
+  \item The Perron--Frobenius operator $P$ acts on measures: $P\nu = \varphi_{\#}\nu$.
+\end{itemize}
+These operators are dual under the pairing $\langle f, \nu \rangle = \int f \, d\nu$.
+
+\subsection{Takens' Theorem (informal)}
+For a generic smooth system $(X, \varphi)$ with attractor of dimension $d$, the delay map
+\[
+  x \mapsto (h(x), h(\varphi(x)), \dots, h(\varphi^{2d}(x)))
+\]
+embeds the attractor into $\mathbb{R}^{2d+1}$.
+
+\section{Gap in the Classical Picture}
+Takens guarantees a diffeomorphism between attractor and embedding space. However, diffeomorphism alone does not guarantee that invariant measures or induced statistics are matched. Two systems can be geometrically identical but statistically inequivalent. For example, the logistic map and the tent map can be conjugate in a topological sense but admit different invariant densities, showing that geometry does not determine measure.
+
+\section{The Rose Equality}
+\begin{definition}[Rose Equality]
+Let $h: X \to Y$ be a diffeomorphism. The \emph{Rose equality} holds if the induced pushforward and the invariant measure coincide not only geometrically but also in their statistical law, i.e.
+\[
+  D_{\mathrm{KL}}(h_{\#}\mu \,\|\, \nu) = 0,
+\]
+where $\nu$ is the invariant measure of $(Y, \psi)$. Equivalently, the Fisher information quadratic form vanishes, reflecting equality in their local information geometry.
+\end{definition}
+
+This probabilistic formulation ensures the embedding preserves not only geometry but also the statistical law of the system.
+
+\section{Main Theorem: Rose--Takens Measure Conjugacy}
+\begin{definition}[Measure Conjugacy]
+Two systems $(X, \mu, \varphi)$ and $(Y, \nu, \psi)$ are \emph{measure conjugate} if there exists a measurable bijection $h: X \to Y$ such that
+\[
+  h \circ \varphi = \psi \circ h, \quad h_{\#}\mu = \nu.
+\]
+\end{definition}
+
+\begin{theorem}[Rose--Takens]
+Suppose 
+\begin{enumerate}
+  \item $h: X \to Y$ is a Takens embedding.
+  \item The Rose equality holds: $D_{\mathrm{KL}}(h_{\#}\mu \,\|\, \nu) = 0$.
+\end{enumerate}
+Then $(X, \mu, \varphi)$ and $(Y, \nu, \psi)$ are measure conjugate.
+\end{theorem}
+
+\begin{proof}[Proof Sketch]
+By Takens, $h$ is a diffeomorphism, so trajectories correspond one-to-one. By Rose equality, the invariant measures coincide in distribution. Therefore, $h$ is a measure-preserving conjugacy.
+\end{proof}
+
+\section{Markov-Kernel Formulation and Univariate Reconstruction}\label{sec:kernel}
+\subsection{Perron--Frobenius/Koopman via Markov kernels}
+Let $(X,\mathcal B,\mu,\varphi)$ be a (possibly stochastic) dynamical system. A Markov kernel $K_X:X\times\mathcal B\to[0,1]$ generates the Perron--Frobenius (PF) and Koopman pair by disintegration:
+\begin{align}
+  (P_X\nu)(B) &= \int_X K_X(x,B)\,\nu(dx),\\
+  (U_X f)(x) &= \int_X f(y)\,K_X(x,dy).
+\end{align}
+When $\varphi$ is deterministic, $K_X(x,\cdot)=\delta_{\varphi(x)}(\cdot)$ and these reduce to the classical definitions. For a measurable bijection $h:X\to Y$, define the \emph{conjugated kernel}
+\begin{equation}
+  K_Y(y,B) \;:=\; K_X\big(h^{-1}y,\, h^{-1}B\big),\qquad y\in Y,\;B\in\mathcal B_Y.
+\end{equation}
+Then the PF/Koopman pair on $Y$ associated with $K_Y$ is intertwined with that on $X$:
+\begin{equation}
+  P_Y = h_{\#}\,P_X\,h_{\#}^{-1},\qquad U_Y = C_h\,U_X\,C_h^{-1},\quad (C_h f)(y)=f(h^{-1}y).
+\end{equation}
+
+\subsection{Kernel-level Rose condition}
+Let $\nu = h_{\#}\mu$ and let $q_Y = (P_Y\nu)$ denote the one-step law on $Y$. Suppose an \emph{empirical} kernel $\widehat K_Y$ on $Y$ is constructed from data (e.g., by counting transitions of delay vectors). We say the \emph{Rose equality at the kernel level} holds if the KL divergence between the induced joint edge measures vanishes:
+\begin{equation}\label{eq:rose-kernel}
+  D_{\mathrm{KL}}\!\left(\nu(dy_0)\,K_Y(y_0,dy_1)\;\big\|\; \nu(dy_0)\,\widehat K_Y(y_0,dy_1)\right)=0.
+\end{equation}
+Equivalently, $K_Y(\cdot,\cdot)=\widehat K_Y(\cdot,\cdot)$ $\nu$-a.e. This is the disintegrated (joint) version of $D_{\mathrm{KL}}(P_Y\nu\,\|\,\widehat P_Y\nu)=0$ and matches the Donsker--Varadhan dual used earlier.
+
+\subsection{Univariate observation and delay reconstruction}
+Let $h_1:X\to\mathbb R$ be a scalar observable and define the delay map
+\begin{equation}
+  \Psi_k(x) := \big(h_1(x),\,h_1(\varphi x),\,\dots,\,h_1(\varphi^{k}x)\big) \in \mathbb R^{k+1}.
+\end{equation}
+For $k\ge 2d$ and generic $h_1$, Takens guarantees that $\Psi_k$ is an embedding on the attractor $A$. Write $Y:=\Psi_k(A)$, $h:=\Psi_k$, and let $\{Y_t\}$ be the induced univariate-delay process $Y_t=h(X_t)$ with stationary law $\nu=h_{\#}\mu$. The \emph{empirical delay kernel} $\widehat K^{(k)}$ on $Y$ is obtained from the observed transitions $Y_t\mapsto Y_{t+1}$.
+
+\begin{theorem}[Kernel Conjugacy from Univariate Delay + Rose]\label{thm:kernel-conj}
+Assume: (i) $h=\Psi_k$ is a Takens embedding on $A$; (ii) the kernel-level Rose equality \eqref{eq:rose-kernel} holds with $K_Y(y,\cdot)=K_X(h^{-1}y,\,h^{-1}\cdot)$ and empirical $\widehat K_Y=\widehat K^{(k)}$. Then $\widehat K^{(k)}(y,\cdot)=K_Y(y,\cdot)$ for $\nu$-a.e. $y$, and the reconstructed system $(Y,\nu, K_Y)$ is measure conjugate to $(X,\mu,K_X)$ via $h$.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Takens gives that $h$ is a bijection between $A$ and $Y$ with smooth inverse a.e., hence defines the conjugated kernel $K_Y(y,\cdot)=K_X(h^{-1}y, h^{-1}\cdot)$. The joint edge law on $Y\times Y$ induced by $K_Y$ is $\Gamma(dy_0,dy_1)=\nu(dy_0)K_Y(y_0,dy_1)$. The kernel-level Rose equality \eqref{eq:rose-kernel} states $D_{\mathrm{KL}}(\Gamma\,\|\,\widehat\Gamma)=0$ with $\widehat\Gamma=\nu\otimes \widehat K^{(k)}$. Non-negativity and uniqueness of KL imply $\Gamma=\widehat\Gamma$ $\sigma$-a.e., hence $K_Y=\widehat K^{(k)}$ $\nu$-a.e. By construction of $K_Y$ and bijectivity of $h$, we obtain measure conjugacy and the operator intertwinings above.
+\end{proof}
+
+\begin{corollary}[Operator Equivalence from Univariate Data]
+Under the conditions of Theorem~\ref{thm:kernel-conj}, the empirical Koopman/PF operators built from the univariate delay series are unitarily equivalent to the true operators on $X$; in particular, spectra and spectral projectors coincide up to the $h$-pull/push.
+\end{corollary}
+
+Thus, Rose--Takens guarantees not only measure conjugacy in the abstract sense but also spectral equivalence in the delay-generated subspaces, reinforcing that both operator and spectral structures are faithfully preserved.
+
+\section{Spectral Consequences of Rose--Takens}\label{sec:spectral}
+
+Let $U_X$ and $U_Y$ denote the Koopman operators on $L^2(X,\mu)$ and $L^2(Y,\nu)$, respectively. 
+Fix a (real-valued) observable $h\in L^2(X,\mu)$ and write its delay-generated (Krylov) subspace
+\[
+  \mathcal K_m(U_X,h) := \mathrm{span}\{h, U_X h, \dots, U_X^{m-1}h\}.
+\]
+Denote the Koopman correlation sequence $c_k := \langle h, U_X^k h\rangle$ and let $\sigma_h$ be the spectral measure associated with $h$. For the embedded system on $Y$, define $\tilde h := h\circ h^{-1}\in L^2(Y,\nu)$ and likewise $\tilde c_k := \langle \tilde h, U_Y^k \tilde h\rangle$, with spectral measure $\sigma_{\tilde h}$.
+
+\begin{lemma}[Rose $\Rightarrow$ spectral moment equality]
+Assume the hypotheses of Rose--Takens. Then for all integers $k$,
+\[
+  c_k \;=\; \tilde c_k,
+\]
+and hence the spectral measures coincide:
+\[
+  \sigma_h \;=\; \sigma_{\tilde h}.
+\]
+Equivalently, the Gram/Toeplitz matrices built from $\{c_{j-i}\}_{0\le i,j\le M}$ agree with those from $\{\tilde c_{j-i}\}$ for every $M$, so the delay–Krylov subspaces carry identical spectral data.
+\end{lemma}
+
+\begin{proof}[Proof sketch]
+Measure conjugacy yields unitary equivalence of Koopman operators: $U_Y = C_h U_X C_h^{-1}$. Then $C_h h = \tilde h$ and
+\[
+  \langle h, U_X^k h\rangle \;=\; \langle \tilde h,\, U_Y^k \tilde h\rangle.
+\]
+Thus $c_k=\tilde c_k$ for all $k$. Equality of all trigonometric moments implies equality of the associated spectral measures.
+\end{proof}
+
+\begin{corollary}[Approximate Rose $\Rightarrow$ moment control and spectral convergence]
+Let $\widehat K^{(n)}$ be empirical kernels on $Y$ obtained from delay embeddings with $h$ as above, and let $\widehat U^{(n)}$ be the associated empirical Koopman operators. Suppose Takens holds and the edge-measure KL divergences satisfy
+\[
+  D_{\mathrm{KL}}\!\Big(\nu(dy_0)\,K_Y(y_0,dy_1)\,\Big\|\, \nu(dy_0)\,\widehat K^{(n)}(y_0,dy_1)\Big)\;\longrightarrow\;0.
+\]
+Then for every trigonometric polynomial $p(z)=\sum_{|k|\le M} a_k z^k$,
+\[
+  \Big|\;\langle \tilde h,\, p(U_Y)\,\tilde h\rangle \;-\; \langle \tilde h,\, p(\widehat U^{(n)})\,\tilde h\rangle\;\Big|
+  \;\;\to\;0 \quad (n\to\infty).
+\]
+Consequently, the empirical spectral measures $\widehat\sigma_h^{(n)}$ converge weakly to $\sigma_{\tilde h}$, and the finite Koopman compressions on delay–Krylov subspaces converge to those of the true dynamics.
+\end{corollary}
+
+
+\section{Fisher--Rao Geometry of Kernels}\label{sec:fisher}
+The space of Markov kernels $(K_X)$ can be endowed with a Riemannian structure given by the Fisher--Rao metric, in analogy with the geometry of probability measures. Consider a parametric family of kernels $K_\theta$ indexed by parameters $\theta$. For a tangent perturbation $\delta\theta$, the Fisher--Rao metric is defined as
+\[
+  g_\theta(\delta\theta, \delta\theta) = \mathbb{E}_{K_\theta}\!\left[\left( \nabla_{\!\theta} \log K_\theta \cdot \delta\theta \right)^2\right].
+\]
+
+\begin{lemma}[KL divergence expansion]
+Let $K_\theta$ be a smooth parametric family of kernels with Fisher information matrix
+\[
+  I(\theta) := \mathbb{E}_{K_\theta}\!\big[ (\nabla_{\!\theta}\log K_\theta)(\nabla_{\!\theta}\log K_\theta)^\top \big].
+\]
+For a tangent perturbation $\delta\theta$, the Fisher--Rao metric takes the quadratic form
+\[
+  g_\theta(\delta\theta,\delta\theta) = \langle \delta\theta, I(\theta)\,\delta\theta \rangle.
+\]
+
+Then for small $\delta\theta$, the Kullback--Leibler divergence between the induced joint edge measures expands as
+\[
+  D_{\mathrm{KL}}(K_{\theta+\delta\theta} \| K_\theta) 
+   = \tfrac{1}{2}\, g_\theta(\delta\theta, \delta\theta) + o(\|\delta\theta\|^2)
+   = \tfrac{1}{2}\,\langle \delta\theta, I(\theta)\,\delta\theta \rangle + o(\|\delta\theta\|^2).
+\]
+Thus, the Fisher--Rao metric provides the local information geometry that governs deviations of empirical kernels from the model.
+\end{lemma}
+
+This perspective grounds the Rose condition in a concrete statistical geometry: empirically, testing whether the KL divergence vanishes ensures the empirical kernel lies in the same local geometry as the model kernel.
+
+
+\section{Discussion and Conclusion}
+This result upgrades Takens' theorem from guaranteeing topological equivalence to guaranteeing full measure-theoretic equivalence under the Rose condition. Practically, this suggests that embeddings can be validated not only by dimension but by statistical fidelity.\\
+
+Takens guarantees geometric reconstruction. Rose guarantees statistical equivalence. Together they yield measure conjugacy, bridging geometry, probability, and operator theory.
+
+\end{document}

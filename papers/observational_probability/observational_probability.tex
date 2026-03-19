@@ -1,0 +1,437 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+% ---------- Commands ----------
+\newcommand{\Qcal}{\mathcal{Q}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Xcal}{\mathcal{X}}
+
+\title{
+Observational Probability from Delay Queries:\\
+A Bridge from Sensor Streams to Predictive Operators
+}
+
+\author{Patrick S. Mahon}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This working note bridges the foundational observational program of the preceding
+papers with its intended computational instantiation in delay-coordinate methods.
+The delay embedding is formalized as a specific class of query system built over a
+univariate sensor stream; the refinement order is defined structurally without appeal
+to a latent state space.  The minimal predictive query of Paper~2 then characterizes
+when a delay embedding is sufficient, connecting query-theoretic minimality to the
+classical notion of a sufficient statistic.  The geometric perspective --- f-divergences,
+Fisher--Rao geometry, and the Rose condition --- arises as the natural metric structure
+on the space of predictive laws, closing the loop from foundations to computation.
+
+\emph{Status}: working note.  Definitions and the first bridge proposition are in place;
+the sufficiency characterization and geometric sections are in progress.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction and orientation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The observational program of the preceding papers develops the chain
+\[
+\text{observable queries}
+\;\rightarrow\;
+\text{probability}
+\;\rightarrow\;
+\text{predictive state}
+\;\rightarrow\;
+\text{operator dynamics.}
+\]
+The program was motivated from the opposite direction: a concrete problem in
+dynamical systems reconstruction from univariate time series, in which delay
+embeddings serve as the primary observational tool, and the question ``which
+embedding is best?'' ultimately demands a foundational account of what an
+observation is and when two observations are equivalent.
+
+This note begins the return journey: given the foundational framework, what does
+a delay embedding look like within it, and what does the framework say about when
+one embedding is better than another?
+
+\paragraph{Starting point.}
+We must start somewhere.  The primitive is a \emph{sensor alphabet} $(X, \Xcal)$:
+a measurable space whose $\sigma$-algebra $\Xcal$ encodes the observer's
+\emph{reportable distinctions} --- the yes/no questions about a single reading
+that the observer is capable of forming.  This is not a claim about an external
+world that exists independently of observation; it is a minimal encoding of
+discriminative capacity, the minimum structure required to get off the ground.
+
+\begin{remark}[On the measurability assumption]
+The assumption that $(X, \Xcal)$ is a measurable space encodes finite Boolean
+closure of reportable distinctions together with closure under countable combinations.
+The finite part is relatively uncontroversial: if one can report $A$ and $B$
+separately, one can report their union.  The countable closure is a stronger
+idealization whose derivation from more primitive operational notions --- roughly,
+that reportable distinctions are those approximable from finite observations ---
+is an open problem deferred to future work.  See Stopping Point~1 of the
+foundational program.
+\end{remark}
+
+The \emph{observational horizon} is $\Omega = X^{\mathbb{Z}}$ with the product
+$\sigma$-algebra $\Fcal = \Xcal^{\otimes \mathbb{Z}}$.  A point
+$\omega \in \Omega$ is a bi-infinite sequence of sensor readings.  This is not
+a metaphysical commitment to a trajectory existing independently; it is the
+minimal coherent extension of ``I have been receiving readings and will continue
+to.''  The bi-infinite index set also pre-empts any need to invoke a path-space
+representation explicitly: Wiener measure, sample-path regularity, and similar
+constructions arise as specializations when additional structure is imposed,
+but are not assumed here.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The delay query system}\label{sec:delay-query}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[Delay query]\label{def:delay-query}
+Fix a sensor alphabet $(X, \Xcal)$ and observational horizon
+$\Omega = X^{\mathbb{Z}}$.  For $(d, \tau) \in \mathbb{N}_{>0} \times \mathbb{N}_{>0}$,
+the \emph{delay query} $Q_{d,\tau}$ consists of:
+\begin{itemize}
+  \item \emph{Outcome space}: $O_{d,\tau} = X^d$ with $\sigma$-algebra $\Xcal^{\otimes d}$.
+  \item \emph{Evaluation map}: $\mathrm{eval}_{d,\tau} : \Omega \to X^d$,
+    \[
+      \mathrm{eval}_{d,\tau}(\omega)
+      = \bigl(\omega_0,\, \omega_{-\tau},\, \omega_{-2\tau},\, \ldots,\,
+        \omega_{-(d-1)\tau}\bigr).
+    \]
+\end{itemize}
+The evaluation map is measurable by definition of the product $\sigma$-algebra.
+\end{definition}
+
+\begin{remark}[Time anchor]
+The time index $0$ plays the role of ``now.''  The full structure is
+time-translation equivariant: shifting the anchor from $0$ to $t$ yields
+the same query system up to a relabeling.  Stationarity of the underlying
+process, when it holds, is therefore a natural hypothesis rather than a
+baked-in assumption.
+\end{remark}
+
+\begin{definition}[Refinement order on delay queries]\label{def:refinement}
+Write $(d, \tau) \preceq (d', \tau')$ and say $Q_{d,\tau}$ is
+\emph{coarser than} $Q_{d',\tau'}$ if there exists a measurable map
+$\pi : X^{d'} \to X^d$ such that
+\[
+  \mathrm{eval}_{d,\tau} = \pi \circ \mathrm{eval}_{d',\tau'}
+  \quad \text{identically on } \Omega.
+\]
+The map $\pi$ is the \emph{refinement map} from $Q_{d',\tau'}$ to $Q_{d,\tau}$.
+\end{definition}
+
+This definition is purely structural: it says that the coarser query's outcome
+is a measurable function of the finer query's outcome, with no appeal to a
+latent state or ground truth.  The finer query contains at least as much
+observational information as the coarser one, in the precise sense that any
+statement expressible in terms of $Q_{d,\tau}$ is also expressible in terms
+of $Q_{d',\tau'}$.
+
+\begin{remark}[Structure of the refinement order]
+The refinement order is straightforward in the dimension direction: for any
+$\tau$, $(d, \tau) \preceq (d', \tau)$ whenever $d \leq d'$, with $\pi$ the
+projection onto the first $d$ coordinates.  The lag direction is more subtle:
+$(d, \tau) \preceq (d', \tau')$ when $\tau' \mid \tau$ (i.e.\ $\tau$ is a
+multiple of $\tau'$) and the $d$ entries of the coarser embedding can be
+identified among the $d'$ entries of the finer one.  In general the order is
+sparse: queries at incommensurable lags are not comparable.
+\end{remark}
+
+\begin{definition}[Delay query system]\label{def:delay-query-system}
+The \emph{delay query system} over $(X, \Xcal)$ is the query system
+$(\Qcal_X, \preceq)$ with:
+\begin{itemize}
+  \item Index set $\mathcal{I} = \mathbb{N}_{>0} \times \mathbb{N}_{>0}$.
+  \item Query $Q_{d,\tau}$ at each index $(d,\tau)$.
+  \item Refinement maps as in Definition~\ref{def:refinement}.
+  \item Realization space $\Omega = X^{\mathbb{Z}}$ with evaluation
+    maps $\mathrm{eval}_{d,\tau}$.
+\end{itemize}
+\end{definition}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The delay query system as a query system}\label{sec:qs-fit}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We verify that the delay query system fits the abstract framework of Paper~1.
+
+\begin{proposition}[Delay query system is a query system]\label{prop:is-qs}
+The delay query system $(\Qcal_X, \preceq)$ satisfies the axioms of a query
+system: the refinement order is a preorder, the refinement maps are measurable,
+and the consistency conditions $\pi_{ii} = \mathrm{id}$ and
+$\pi_{ij} \circ \pi_{jk} = \pi_{ik}$ hold wherever the composites are defined.
+\end{proposition}
+
+\begin{proof}
+Reflexivity: $\mathrm{eval}_{d,\tau} = \mathrm{id} \circ \mathrm{eval}_{d,\tau}$.
+Transitivity: if $\pi$ witnesses $(d,\tau) \preceq (d',\tau')$ and $\pi'$
+witnesses $(d',\tau') \preceq (d'',\tau'')$, then $\pi \circ \pi'$ witnesses
+$(d,\tau) \preceq (d'',\tau'')$.  Measurability of $\pi$ follows because
+$\Xcal^{\otimes d}$ is the product $\sigma$-algebra and coordinate projections
+are measurable.  The consistency identities hold by construction.
+\end{proof}
+
+\begin{proposition}[Upper-directedness along dimension]\label{prop:upper-directed}
+For any two queries $Q_{d,\tau}$ and $Q_{d',\tau'}$ with $\tau = \tau'$,
+the query $Q_{d+d', \tau}$ is a common refinement: both
+$(d,\tau) \preceq (d+d', \tau)$ and $(d',\tau) \preceq (d+d', \tau)$.
+\end{proposition}
+
+\begin{proof}
+Project $X^{d+d'}$ onto the first $d$ (resp.\ $d'$) coordinates.
+\end{proof}
+
+\begin{remark}[Upper-directedness in general]\label{rem:upper-directed-general}
+Full upper-directedness across all lags requires a common refinement for
+queries at incommensurable lags $(d,\tau)$ and $(d',\tau')$ with
+$\tau \neq \tau'$.  This holds if the index set is enriched to include
+queries at lag $\gcd(\tau, \tau')$ or finer.  For the purposes of this
+note we work within a fixed lag $\tau$ or note explicitly when the full
+index set is needed.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Realizability of the delay query system}\label{sec:realizability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Paper~1 requires \emph{realizability}: the evaluation maps
+$\mathrm{eval}_{d,\tau} : \Omega \to X^d$ are surjective.
+
+\begin{proposition}[Realizability]\label{prop:realizability}
+For any $(d, \tau)$ and any $(x_0, x_1, \ldots, x_{d-1}) \in X^d$,
+there exists $\omega \in \Omega = X^{\mathbb{Z}}$ with
+$\mathrm{eval}_{d,\tau}(\omega) = (x_0, x_1, \ldots, x_{d-1})$.
+In particular, $\mathrm{eval}_{d,\tau}$ is surjective.
+\end{proposition}
+
+\begin{proof}
+Set $\omega_{-k\tau} = x_k$ for $k = 0, \ldots, d-1$ and $\omega_n = x_0$
+for all other $n$.  Then $\mathrm{eval}_{d,\tau}(\omega) =
+(x_0, x_1, \ldots, x_{d-1})$.
+\end{proof}
+
+\begin{remark}
+Realizability holds here for the trivial reason that $\Omega = X^{\mathbb{Z}}$
+contains all bi-infinite sequences.  In the abstract framework of Paper~1,
+realizability is an assumption that can fail when $\Omega$ is a proper
+subset of the product (e.g.\ when compatibility constraints eliminate
+incoherent sequences).  Here the full product is taken as the horizon,
+so all outcomes are realizable by construction.  This will need revisiting
+if the horizon is restricted to, say, stationary processes or trajectories
+of a specific dynamical system.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Compatible marginals and the delay probability problem}
+\label{sec:compatible}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{remark}[Applying the extension theorem]
+A compatible family $\{\nu_{d,\tau}\}$ for the delay query system consists
+of probability measures on $X^d$ satisfying
+$(\pi_{(d,\tau),(d',\tau')})_\sharp\, \nu_{d',\tau'} = \nu_{d,\tau}$
+whenever $(d,\tau) \preceq (d', \tau')$.  By the Observational Extension
+Theorem (Paper~1, Theorem~6.1), any such compatible family --- given
+sequential upper-directedness of the delay query system --- determines a
+unique probability measure $P$ on $(\Omega, \Fcal)$ whose delay marginals
+are $\{\nu_{d,\tau}\}$.  The content of Paper~1 therefore applies directly
+once Propositions~\ref{prop:is-qs}--\ref{prop:realizability} and the
+upper-directedness condition (Remark~\ref{rem:upper-directed-general})
+are verified.
+\end{remark}
+
+\begin{remark}[The delay probability problem]
+In practice, the marginals $\nu_{d,\tau}$ are estimated from a finite
+observed segment of the stream.  Three questions then arise naturally:
+\begin{enumerate}
+  \item When are empirically estimated marginals compatible (or
+    approximately compatible)?
+  \item What is the canonical probability measure $P$ on $\Omega$ they
+    determine, and does it depend continuously on the estimated marginals?
+  \item When does $P$ concentrate on a ``thin'' subset of $\Omega$
+    corresponding to a deterministic or stochastic dynamical system?
+\end{enumerate}
+These are the questions the Takens and Rose frameworks address from the
+computational side; the observational program provides the foundational
+setting in which they can be posed precisely.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Sufficiency and the minimal predictive delay query}
+\label{sec:sufficiency}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+Paper~2 constructs, for any query $Q$ and future observable $F$, the
+\emph{predictive law map} $\varphi_Q : O_Q \to \Pcal(O_F)$ sending each
+outcome to its conditional predictive law, and defines the \emph{minimal
+predictive query} $Q_* = \varphi_Q \circ Q : \Omega \to \Pcal(O_F)$ as the
+coarsest query through which the predictive law factors
+(Paper~2, Theorem~5.2--5.3).  Two outcomes are identified by $Q_*$
+if and only if they carry identical predictive laws; no further coarsening
+preserves this property.
+
+Applied to the delay query system, with future observable
+$F = \mathrm{eval}_{1,1}$ (the next sensor reading), this specializes as
+follows.
+
+\begin{definition}[Delay predictive law map]\label{def:delay-pred-map}
+The \emph{delay predictive law map} at $(d,\tau)$ is
+\[
+  \varphi_{d,\tau} : X^d \to \Pcal(X),
+  \qquad
+  \varphi_{d,\tau}(y)(A) = P\!\left(x_{1} \in A \mid \mathrm{eval}_{d,\tau} = y\right).
+\]
+The \emph{minimal predictive delay query} at $(d,\tau)$ is
+$Q^*_{d,\tau} = \varphi_{d,\tau} \circ \mathrm{eval}_{d,\tau} : \Omega \to \Pcal(X)$,
+with outcome space $O_{Q^*_{d,\tau}} = \varphi_{d,\tau}(X^d) \subseteq \Pcal(X)$.
+\end{definition}
+
+By Paper~2 Theorem~5.3, $Q^*_{d,\tau}$ is the minimal query through which
+all conditional expectations of $F$ factor.  Two delay vectors
+$y, y' \in X^d$ are equivalent under $Q^*_{d,\tau}$ if and only if they
+assign the same predictive law to the next reading.
+
+\begin{definition}[Predictive sufficiency]\label{def:pred-sufficient}
+A delay query $Q_{d,\tau}$ is \emph{predictively sufficient} if the
+minimal predictive query $Q^*_{d,\tau}$ is itself a delay query --- that
+is, if $\varphi_{d,\tau}$ is injective on the support of
+$(\mathrm{eval}_{d,\tau})_\sharp P$ and no strictly coarser delay query
+achieves the same separation of predictive laws.
+\end{definition}
+
+This is the query-theoretic formulation of \emph{sufficient embedding
+dimension}: the embedding $(d,\tau)$ is sufficient when increasing $d$
+(or changing $\tau$) does not further separate predictive laws.
+
+\begin{remark}[Connection to Takens]
+The classical Takens theorem guarantees that for a generic smooth
+deterministic system, the delay map $\mathrm{eval}_{d,\tau}$ is an
+embedding (injective immersion) for $d \geq 2\dim M + 1$.  In the
+predictive framework, the relevant threshold is not topological
+genericity but predictive sufficiency: the embedding dimension is
+sufficient when further increasing $d$ does not change the predictive
+law.  The Takens threshold is sufficient for the topological condition;
+the predictive threshold can in principle be lower.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Geometric structure on predictive laws}\label{sec:geometry}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The minimal predictive state space $O_{Q_*} \subseteq \Pcal(X)$ is a
+subset of the space of probability measures on $X$.  When $X = \mathbb{R}$
+and the predictive laws are sufficiently regular, $\Pcal(X)$ carries a
+natural geometric structure via f-divergences and the Fisher--Rao metric.
+
+\paragraph{F-divergences.}
+For a convex function $f$ with $f(1) = 0$, the f-divergence between
+measures $\mu, \nu$ on $X$ is
+\[
+  D_f(\mu \| \nu) = \int f\!\left(\frac{d\mu}{d\nu}\right) d\nu.
+\]
+The family of f-divergences (KL, Hellinger, total variation, $\alpha$-divergences)
+all share the same zero set: $D_f(\mu \| \nu) = 0$ iff $\mu = \nu$.  They
+therefore induce the same notion of equivalence on $\Pcal(X)$, and the
+same Fisher--Rao metric on smooth submanifolds of $\Pcal(X)$.
+
+\paragraph{The Rose condition.}
+Two delay query systems $\Qcal_Y$ and $\Qcal_Z$ over a common future
+observable $F$ are \emph{observationally equivalent} (satisfy the
+\emph{Rose condition}) if
+\[
+  D_f(\Gamma_Y \| \Gamma_Z) = 0,
+\]
+where $\Gamma_Y = \nu_Y \otimes K_Y$ is the edge law of the joint
+distribution of delay vector and next reading under the $Y$-embedding,
+and similarly for $Z$.  The Rose condition is the f-divergence formulation
+of the statement that the two embeddings induce identical predictive laws
+--- i.e.\ identical minimal predictive queries $Q_*$.
+
+\begin{remark}[Stance-neutrality]
+The Rose condition is independent of the choice of $f$ (within the
+standard family): all f-divergences vanish simultaneously.  This
+\emph{stance-neutrality} reflects the fact that observational equivalence
+is a structural property of the query system, not an artifact of a
+particular divergence measure.
+\end{remark}
+
+\paragraph{Fisher--Rao geometry on $O_{Q_*}$.}
+The Fisher--Rao metric on $O_{Q_*} \subseteq \Pcal(X)$ measures the
+local distinguishability of predictive laws.  A delay query $Q_{d,\tau}$
+is sufficient precisely when the image of $\varphi_{d,\tau}$ in $\Pcal(X)$
+is an isometric embedding with respect to the Fisher--Rao metric induced
+by the transition structure --- no information about the predictive law is
+lost in the embedding.  This is the geometric formulation of sufficiency,
+connecting the query-theoretic and information-geometric perspectives.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Open questions and next steps}\label{sec:open}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The following questions mark the current frontier of this bridge.
+
+\begin{enumerate}
+  \item \textbf{Upper-directedness at incommensurable lags.}  Does the
+    full delay query system (all $d, \tau$) satisfy sequential
+    upper-directedness?  The lag-$\gcd$ construction suggests yes, but
+    this requires a careful argument about the measurability of the
+    resulting refinement maps.
+
+  \item \textbf{Compatible marginals from stationarity.}  If $P$ is a
+    stationary measure on $\Omega = X^{\mathbb{Z}}$, do the induced
+    marginals $\{\nu_{d,\tau}\}$ form a compatible family in the sense
+    of Paper~1?  This is expected but needs verification, particularly
+    for the refinement maps at incommensurable lags.
+
+  \item \textbf{Sufficient embedding dimension.}  Under what conditions
+    on $P$ does a finite embedding dimension $(d, \tau)$ achieve
+    predictive sufficiency?  The Takens theorem gives a topological
+    sufficient condition; the predictive framework should give a
+    probabilistic necessary and sufficient condition.
+
+  \item \textbf{Locality and compact outcome spaces.}  The computational
+    experiments (Tricube kernel, locality exponent $\eta$) suggest that
+    compact support of the refinement kernel is important.  In the
+    query-theoretic framework this should connect to the tightness
+    conditions of the Prokhorov extension route.
+
+  \item \textbf{Operator theory specialization.}  What does the
+    predictive operator $K_t$ of Paper~3 become when specialized to
+    the delay query system?  The natural answer is a Koopman-type
+    operator on $O_{Q_*} \subseteq \Pcal(X)$, but the precise
+    connection to the residual stochastic local linear maps used in
+    computation needs to be made explicit.
+\end{enumerate}
+
+\section*{Acknowledgements}
+
+The author thanks Claude (Anthropic) for assistance with mathematical
+writing, Lean~4 formalization, and technical discussion throughout the
+development of this work.  The author gratefully acknowledges financial
+support from Dr.\ Simon Bonner and Dr.\ Matt Davison at the University
+of Western Ontario, and from MITACS.
+
+\end{document}

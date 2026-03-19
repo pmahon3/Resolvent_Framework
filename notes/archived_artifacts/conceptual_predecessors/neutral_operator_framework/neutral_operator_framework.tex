@@ -1,0 +1,2257 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+
+% ----------- Packages -----------
+\usepackage[numbers]{natbib}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[hidelinks]{hyperref}
+\usepackage{amsmath, amssymb}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta, positioning, cd}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+% ----------- Links -----------------
+
+\hypersetup{
+	colorlinks=true, % Enables colored links instead of boxes
+        linkcolor=blue,  % Sets the color of internal links (e.g., \ref, \pageref)
+        citecolor=blue,  % Sets the color of citations (e.g., \cite)
+        urlcolor=blue    % Sets the color of URLs (e.g., \url, \href)
+}
+
+% ----------- Formatting ---------
+\pagecolor{white}
+\algrenewcommand{\algorithmiccomment}[1]{\hfill\(\triangleright\) #1}
+
+
+% ----------- Theorems -----------
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+\newtheorem{proof-obligation}{Proof Obligation}[section]
+
+% ----------- Macros -----------
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\KL}{\mathrm{D}_{\mathrm{KL}}}
+\newcommand{\Df}{\mathrm{D}_f}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\1}{\mathbf{1}}
+\newcommand{\push}{\#}
+
+\title{A Neutral Operator Theory for the Information Geometry of Dynamical Systems with Applications\\[2pt]
+\large Philosophy, Foundations, and Operations}
+\author{~}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\part{Theory}
+
+\begin{abstract}
+We develop a neutral operator framework for the information geometry of dynamical systems in which the primitive empirical object is the \emph{stepwise marginal} $\Gamma_Y \in \mathcal{P}(Y\times Y)$: the joint distribution of consecutive observations $(Y_t,Y_{t+1})$. All models---latent dynamical systems $(X,\Gamma_X,h)$, coordinate choices, delay embeddings, or learned representations $r:Y\to Z$---are treated uniformly as alternative \emph{realizations} of this same stepwise marginal, obtained by restriction, smoothing, or pushforward.
+
+A smooth Csiszár--Amari divergence $D_f$ on stepwise marginals plays a dual role. Globally, it provides a \emph{transport comparator}: the vanishing of an edge divergence
+\[
+  D_f\bigl(\Gamma_Y \,\Vert\, \Gamma_Z\bigr) = 0
+\]
+is the Rose condition, certifying equality of one-step transport (measure conjugacy) between an empirical stepwise marginal and a model one. Locally, the second variation of $D_f$ induces a Fisher--Rao metric $g$ and dual affine connections $(\nabla,\nabla^\ast)$ on statistical manifolds of conditional laws. Pulling back this triple along conditional-law maps $\Phi_S:S\to\mathcal{P}(Y)$ yields a full information--geometric layer $(g_S,\nabla^S,(\nabla^S)^\ast)$ on any realization $S$.
+
+Within the realization space $\mathcal{R}(\Gamma_Y)$ of all such models we define an information--geometric equivalence relation: two realizations are IG-equivalent when they parametrize the same manifold of conditional laws with the same dualistic structure. The corresponding IG leaves form a foliation of $\mathcal{R}(\Gamma_Y)$; moving within a leaf changes only coordinates or factorization, while moving between leaves changes the neutral information-geometric content attributed to $\Gamma_Y$.
+
+This structure yields a three-level hierarchy of fidelity. \emph{Topological fidelity} (Takens-from-$Y$) concerns whether coordinates constructed from data yield a Fisher immersion of conditional laws into a $d$-dimensional manifold, recovering the effective state manifold up to diffeomorphism. \emph{Measure fidelity} (Rose) requires vanishing edge divergence between $\Gamma_Y$ and a candidate realization on $Y\times Y$, certifying one-step measure conjugacy. \emph{Geometric fidelity} (Fisher) asks that the pulled-back dualistic structure $(g_S,\nabla^S,(\nabla^S)^\ast)$ be locally separable across chosen cuts (e.g.\ sensor groups, delay blocks, latent/observed splits); intrinsic coupling appears as mixed terms or curvature that no reparameterization within an IG leaf can remove.
+
+We show that Csiszár--Amari $\alpha$-divergences supply a principled, philosophically interpretable family of global discrepancy measures: forward KL ($\alpha=+1$) emphasizes empirical transport unexplained by a model, reverse KL ($\alpha=-1$) emphasizes model transport unsupported by data, and symmetric regimes ($\alpha\approx 0$) emphasize structural overlap. Crucially, these choices share a common zero set and induce (up to scale) the same Fisher metric, so the Rose condition, IG leaves, and geometric separability remain \emph{stance-neutral} structural tests, while $\alpha$ acts as an empirical lens determining which approximate mismatches matter.
+
+Operationally, we give an operator-learning pipeline: estimate $\Gamma_Y$ from time series; fit model stepwise marginals $\Gamma_Z$; minimize divergence as an edge action with bootstrap uncertainty; compute pullback dualistic structures and assess separability across chosen cuts; and extract locality and learning exponents $(\eta,\zeta)$ that reveal effective smoothness and dimensionality. 
+
+Conceptually, the framework unifies reconstruction, inference, and geometry within a single transport object. It accommodates constructive-empiricist, scientific-realist, and structural-realist readings as different decompositions of the same observational content, while allowing empirical information geometry (in particular the IG leaf structure and intrinsic coupling across cuts) to determine which decompositions are statistically and geometrically admissible.
+\end{abstract}
+
+\section{Introduction}
+
+We begin with some mutually acknowledged time series
+\[
+  (Y_t)_{t\in\mathbb{Z}},
+\]
+taking values in an observation space $Y$. From these data we estimate the one-step marginal
+\[
+  \Gamma_Y \in \mathcal P(Y\times Y),
+\]
+the joint law of consecutive observations $(Y_t,Y_{t+1})$. We call $(Y,\Gamma_Y)$ the \emph{empirical operator}: it is the only object directly constrained by observations. The central question of this paper is how to organize, compare, and learn all the ways in which $\Gamma_Y$ can be realized and re-expressed.
+
+There are two basic ways to relate other spaces to $\Gamma_Y$.
+
+First, a \emph{representation operator} is obtained by re-encoding observations. A representation consists of a space $Z$, a measurable map $r : Y \to Z$, and the induced stepwise marginal
+\[
+  \Gamma_Z := (r\times r)_{\sharp}\Gamma_Y \in \mathcal P(Z\times Z).
+\]
+We refer to $r$ as a \emph{representation map} (or encoder) and $(Z,\Gamma_Z,r)$ as a representation of $\Gamma_Y$: it is not a new dynamical hypothesis about the world, but a way of rewriting the empirical operator in different coordinates built from data.
+
+Second, a \emph{latent operator} is obtained by postulating an unobserved state. A latent hypothesis consists of a space $X$, a stepwise marginal $\Gamma_X \in \mathcal P(X\times X)$, and an observation map $h : X \to Y$ such that
+\[
+  (h\times h)_{\sharp}\Gamma_X \approx \Gamma_Y,
+\]
+with equality in the ideal case. We call $(X,\Gamma_X,h)$ a \emph{latent hypothesis} for $\Gamma_Y$, and $(X,\Gamma_X)$ the corresponding latent operator. Here $h$ is interpreted as an observation mechanism: if the world really had state space $X$, then $\Gamma_X$ together with $h$ would generate the empirical operator on $Y$.
+
+In what follows we adopt a \emph{neutral operator framework}: once $\Gamma_Y$ is fixed, empirical, representation, and latent operators are all treated on equal footing as stepwise marginals related by measurable maps. We judge them not by whether they are ``truly latent'' or ``merely representational'', but by how they relate to $\Gamma_Y$ via pushforward and by the information geometry of the conditional laws they induce.
+
+Classically, dynamical modelling proceeds by postulating a latent state space $X$, a deterministic map or flow $F:X\to X$ (or a Markov kernel $K_X$), and an observation map $h:X\to Y$. These induce an idealized stepwise marginal $\Gamma_X$ on $X\times X$ and, after pushforward, an observed stepwise marginal
+\[
+  \Gamma_Y \;=\; (h\times h)_{\sharp}\Gamma_X \;\in\; \mathcal{P}(Y\times Y).
+\]
+In favourable cases, Takens' theorem guarantees that a delay map built from $h$ is an embedding of an assumed attractor in $X$: orbits in $X$ and in their delay reconstruction in $Y$ correspond up to diffeomorphism.
+
+From the neutral viewpoint adopted here, however, no particular latent space or observation map is taken as primitive. Instead:
+\begin{itemize}[leftmargin=1.5em]
+  \item the empirical stepwise marginal $\Gamma_Y$ encodes all observable one-step regularities of the process;
+  \item any model---latent or purely observational---is another stepwise marginal on $Y\times Y$ (or a pushforward thereof) that proposes to stand in for $\Gamma_Y$;
+  \item any choice of state space $Z$ and representation $r:Y\to Z$ is a reparameterization of $\Gamma_Y$, not an additional ontological commitment.
+\end{itemize}
+Later we gather all such constructions into a realization space $\mathcal{R}(\Gamma_Y)$ and show that information geometry partitions it into information--geometric leaves (IG leaves) that behave like coordinate charts on a common manifold of conditional laws.
+
+\paragraph{Transport, divergences, and the IG layer.}
+Any stepwise marginal $\Gamma$ admits a disintegration
+\[
+  \Gamma(\mathrm dy_0,\mathrm dy_1)
+  \;=\;
+  \nu(\mathrm dy_0)\,K(y_0,\mathrm dy_1),
+\]
+into a source law $\nu$ and a one-step kernel $K$. From this we can read $\Gamma$ dynamically (via the evolution $\nu\mapsto\nu K$) or inferentially (via conditional laws $K(y_0,\cdot)$ describing ``what happens next'' from base point $y_0$). Both perspectives are unified in the \emph{conditional-law map}
+\[
+  \Phi : y \longmapsto K(y,\cdot),
+\]
+whose image is a manifold of one-step probability laws on $Y$.
+
+A smooth Csiszár--Amari divergence $D_f$ on $\mathcal P(Y\times Y)$ then plays a dual role. At the global level, $D_f$ provides a \emph{transport comparator}: given a candidate model stepwise marginal $\Gamma_Z$ on $Y\times Y$, the edge divergence
+\[
+  \mathcal A_f^Y := D_f\bigl(\Gamma_Y \,\Vert\, \Gamma_Z\bigr)
+\]
+quantifies the failure of one-step transport equivalence. Vanishing edge divergence $\mathcal A_f^Y = 0$ is the Rose condition, certifying that $\Gamma_Z$ and $\Gamma_Y$ define the same one-step transport up to null sets.
+
+At the local level, the second variation of $D_f$ induces a Fisher--Rao metric $g$ and dual affine connections $(\nabla,\nabla^\ast)$ on statistical manifolds of conditional laws. For any realization $(S,\Gamma_S,q)$ with conditional-law map $\Phi_S:S\to\mathcal P(Y)$, we pull back this triple to obtain a full information--geometric layer
+\[
+  g_S := \Phi_S^\ast g,
+  \qquad
+  \nabla^S := \Phi_S^\ast \nabla,
+  \qquad
+  (\nabla^S)^\ast := \Phi_S^\ast \nabla^\ast
+\]
+on $S$. Distances and connections in $(g_S,\nabla^S,(\nabla^S)^\ast)$ quantify, respectively, the distinguishability of one-step futures and the affine structure of statistical models on state space.
+
+These two roles are tightly coupled. A single divergence $D_f$ both:
+\begin{enumerate}[leftmargin=1.5em]
+  \item defines global fidelity tests (edge divergences, Rose conditions) for candidate realizations of $\Gamma_Y$; and
+  \item determines the dualistic structure $(g,\nabla,\nabla^\ast)$ on conditional-law manifolds, which we use to assess local geometric properties such as separability versus intrinsic coupling across cuts.
+\end{enumerate}
+Regular Csiszár--Amari $\alpha$-divergences share the same zero set and induce (up to scale) the same Fisher metric; their dual connections differ but remain compatible with $g$. Rose conditions and the induced IG leaves are therefore \emph{stance-neutral}: they do not depend on which $\alpha$ we choose. Different $\alpha$ simply weight approximate failures of equivalence differently (model-centric vs data-centric vs symmetric stances), a point we return to in Section~\ref{sec:alpha-stances}.
+
+\paragraph{Embedding via conditional laws.}
+Classical embedding results such as Takens' theorem ask for delay coordinates that recover the topology of a latent attractor.  In our setting, the natural embedding object is not a latent manifold itself, but the manifold of \emph{conditional laws} over $Y$ induced by a realization.  Given
+\begin{itemize}[leftmargin=1.5em]
+  \item an observed stepwise marginal $\Gamma_Y$ on $Y\times Y$,
+  \item a latent realization $(X,\Gamma_X,h)$ whose pushforward satisfies the Rose condition
+  \[
+    \Gamma_Y \;=\; (h\times h)_{\sharp}\Gamma_X,
+  \]
+  \item and a representation $r:Y\to Z$ constructed from data,
+\end{itemize}
+we form the conditional-law maps
+\[
+  \Phi_X:X\to\mathcal{P}(Y),
+  \qquad
+  \Phi_Z:Z\to\mathcal{P}(Y),
+\]
+and equip their images with the Fisher--Rao metric and dual affine connections induced by $D_f$.  Section~\ref{sec:ig-embedding} shows that when $\Phi_X$ and $\Phi_Z$ are Fisher immersions of the same dimension with the same image, there is a canonical map
+\[
+  \varphi \;=\; (\Phi_X|_{X_0})^{-1}\circ(\Phi_Z|_{Z_0}) : Z_0\to X_0
+\]
+that is simultaneously
+\begin{itemize}[leftmargin=1.5em]
+  \item a diffeomorphism intertwining the stepwise marginals, and
+  \item an isomorphism of dualistic manifolds (it preserves $g$, $\nabla$ and $\nabla^\ast$).
+\end{itemize}
+Informally, $X_0$ and $Z_0$ are just two coordinate descriptions of the same manifold of one-step laws over $Y$.  In the neutral operator framework we therefore treat all such realizations as information--geometrically equivalent: they lie on the same IG leaf of the realization space $\mathcal{R}(\Gamma_Y)$, and differ only in how they parameterize the common conditional-law structure.
+
+\paragraph{Three fidelities and neutral transport.}
+These considerations lead to a three-level hierarchy of fidelity, all expressible at the level of $\Gamma_Y$ and its realizations:
+\begin{itemize}[leftmargin=1.5em]
+  \item \emph{Topological fidelity} (Takens-from-$Y$) asks for representations whose state spaces behave like smooth $d$-manifolds supporting regular dynamics, as detected via Fisher immersions of conditional laws.
+  \item \emph{Measure fidelity} (Rose) demands vanishing edge divergence between $\Gamma_Y$ and a candidate realization on $Y\times Y$, certifying measure conjugacy of one-step transport.
+  \item \emph{Geometric fidelity} (Fisher) asks that the dualistic structure $(g_S,\nabla^S,(\nabla^S)^\ast)$ be locally separable across the cuts we regard as elementary (e.g.\ sensor groups, delay blocks, latent/observed splits); intrinsic coupling appears as mixed terms or curvature that no reparameterization within an IG leaf can remove.
+\end{itemize}
+
+Part~I develops these ideas systematically. Section~\ref{sec:ig-dynamics} formulates stepwise marginals, conditional-law manifolds, and the IG layer; Sections~\ref{sec:ig-embedding}–\ref{sec:ig-leaves} introduce IG embeddings, IG-equivalence, and the foliation of the realization space $\mathcal{R}(\Gamma_Y)$ by IG leaves; and Section~\ref{sec:embedding-fidelity} organizes reconstruction into the Rose--Takens--Fisher ladder of topological, measure, and geometric fidelity. Section~\ref{sec:neutral-operator} then recasts latent models, reconstruction, and inference in a neutral operator framework built entirely from $\Gamma_Y$, divergences, and information geometry. Part~II turns to finite-data learning, least-information operator fitting, and empirical diagnostics for locality, effective dimension, and intrinsic coupling in concrete time series.
+
+\newpage
+
+
+% =========================================================
+\section{Information Geometry of Dynamical Systems}
+\label{sec:ig-dynamics}
+
+We begin from what is empirically shared: a measurement space $Y$ and a time series of observations
+\[
+  (Y_t)_{t\in\mathbb{Z}},
+\]
+for example sensor readings, features, or delay vectors. At a fixed sampling interval $\Delta t>0$ (set to $1$ for notational simplicity), pairs $(Y_t,Y_{t+1})$ define an empirical joint law
+\[
+  \Gamma_Y \;\in\; \mathcal{P}(Y\times Y),
+\]
+which we call the \emph{stepwise marginal} (or edge law). In the neutral operator view, $\Gamma_Y$ is the primitive empirical object; all models, latent spaces, and representations are treated as different ways of \emph{factoring} or \emph{reparameterizing} this same transport law.
+
+% =========================================================
+\subsection{Stepwise marginals and conditional law maps}
+\label{subsec:stepwise-marginals}
+
+Disintegrating $\Gamma_Y$ yields a source law and a one-step kernel:
+\[
+  \Gamma_Y(\mathrm dy_0,\mathrm dy_1)
+  \;=\;
+  \nu_Y(\mathrm dy_0)\,K_Y(y_0,\mathrm dy_1),
+\]
+where $\nu_Y$ is the law of $Y_t$ and $K_Y$ is the Markov kernel of $Y_{t+1}\mid Y_t$.\footnote{In stationary settings $\nu_Y$ coincides with the invariant measure $\mu_Y$; we allow nonstationarity at the level of notation.}
+
+Two canonical readings are encoded in this disintegration:
+\begin{itemize}[leftmargin=1.5em]
+  \item \emph{Dynamical}: $\nu_Y$ evolves to $\nu_Y K_Y$ under the Perron--Frobenius action of $K_Y$.
+  \item \emph{Inferential}: for each base point $y_0$, the kernel $K_Y(y_0,\cdot)$ is a conditional law for forecasting ``what happens next'' from $y_0$.
+\end{itemize}
+Both come from the same stepwise marginal; no choice of ``map-based'' versus ``operator-based'' formulation is privileged.
+
+It is convenient to collect the conditionals into a \emph{conditional law map}
+\[
+  \Phi_Y : Y \longrightarrow \mathcal{P}(Y),
+  \qquad
+  y \,\longmapsto\, K_Y(y,\cdot),
+\]
+whose image $\mathcal{M}_Y := \Phi_Y(Y)$ is a manifold (or stratified subset) of one-step laws on~$Y$. This map will be the basic bridge between dynamics and information geometry.
+
+% =========================================================
+\subsection{Representations as reparameterizations of \texorpdfstring{$\Gamma_Y$}{Gamma\_data}}
+\label{subsec:representations}
+
+A \emph{representation} is any measurable map
+\[
+  r : Y \longrightarrow Z,
+\]
+from the observation space into some internal or reconstructed state space $Z$ (for instance, a delay embedding, a low-dimensional latent learned by an autoencoder, or a hand-crafted feature map). Pushing forward $\Gamma_Y$ through $r\times r$ yields an induced stepwise marginal
+\[
+  \Gamma_Z
+  \;:=\;
+  (r\times r)_{\sharp}\,\Gamma_Y
+  \;\in\; \mathcal{P}(Z\times Z),
+\]
+which disintegrates as $\Gamma_Z = \nu_Z\otimes K_Z$ with
+\[
+  \nu_Z = r_{\sharp}\nu_Y,
+  \qquad
+  K_Z(z,\cdot)
+  \;\text{the law of } Z_{t+1}=r(Y_{t+1}) \text{ given } Z_t=z.
+\]
+
+Crucially, from the neutral standpoint:
+\begin{itemize}[leftmargin=1.5em]
+  \item $Z$ is not assumed to be more or less ``real'' than $Y$;
+  \item $r$ is not assumed to be injective, invertible, or optimal;
+  \item the only primitive object is still $\Gamma_Y$, and $\Gamma_Z$ is a way of encoding the same or less edge information in different coordinates.
+\end{itemize}
+
+Classical latent-state stories appear as a special case. Suppose a model posits a state space $X$, an invariant measure $\mu_X$, and either a kernel $K_X$ or a deterministic update map $F:X\to X$, with
+\[
+  \Gamma_X \;=\; \mu_X \otimes K_X
+  \quad \text{or} \quad
+  \Gamma_X \;=\; (\mathrm{id}_X\times F)_{\sharp}\,\mu_X.
+\]
+An observation map $h:X\to Y$ induces the observed stepwise marginal
+\[
+  \Gamma_Y
+  \;=\;
+  (h\times h)_{\sharp}\,\Gamma_X,
+\]
+if the model is exactly faithful at the edge level. In this case the latent story $(X,\Gamma_X,h)$ is another representation of $\Gamma_Y$, obtained by lifting from $Y$ to $X$ rather than compressing from $Y$ to $Z$. The neutrality of the framework is summarized in Figure~\ref{fig:neutral-operator-diagram}.
+
+% =========================================================
+\subsection{Divergences, Fisher geometry, and stance neutrality}
+\label{subsec:divergence-fisher}
+
+To compare stepwise marginals we use Csiszár--Amari $f$-divergences. For probability measures $P,Q$ on a common measurable space and a convex function $f$ with $f(1)=0$,
+\[
+  D_f(P\|Q)
+  \;:=\;
+  \int q\,f\!\left(\frac{p}{q}\right),
+  \qquad
+  \text{where } p=\frac{\mathrm d P}{\mathrm d\lambda},\;
+  q=\frac{\mathrm d Q}{\mathrm d\lambda}
+\]
+for a dominating measure $\lambda$. When $f$ is twice differentiable at $1$ with $f''(1)>0$, the second-order expansion
+\[
+  D_f(p_{\theta+\delta\theta}\|p_\theta)
+  \;=\;
+  \frac{1}{2}\,\delta\theta^\top I_f(\theta)\,\delta\theta
+  + o(\|\delta\theta\|^2)
+\]
+induces a Fisher information matrix
+\[
+  I_f(\theta)_{ij}
+  \;=\;
+  \mathbb{E}_\theta\big[ \partial_i\log p_\theta\,\partial_j\log p_\theta\big],
+\]
+and hence a Riemannian metric $g$ on the statistical manifold $\{p_\theta\}$; this is the Fisher--Rao metric, unique up to scale among metrics monotone under Markov morphisms.
+
+We often work with the $\alpha$-divergence family,
+\[
+D_\alpha(p\|q)
+\;=\;
+\frac{4}{1-\alpha^2}
+\left(
+1 - \int p^{\frac{1-\alpha}{2}} q^{\frac{1+\alpha}{2}}\,\mathrm d\lambda
+\right),
+\qquad \alpha\in(-1,1),
+\]
+with the usual KL limits at $\alpha\to \pm 1$. All regular $\alpha$ share two properties that are central for us:
+\begin{enumerate}[leftmargin=1.5em]
+  \item \emph{Common zero set}: $D_\alpha(P\|Q)=0$ iff $P=Q$ (a.e.).
+  \item \emph{Common local geometry}: for smooth statistical models, all $D_\alpha$ induce (up to a scalar) the same Fisher metric $g$.
+\end{enumerate}
+
+Thus:
+\begin{itemize}[leftmargin=1.5em]
+  \item the \emph{global} Rose condition
+  \[
+    D_f(\Gamma_Y\|\Gamma_Z)=0
+  \]
+  and
+  \item the \emph{local} Fisher geometry (and curvature across cuts)
+\end{itemize}
+are \emph{stance-neutral}: they do not depend on which $\alpha$ we regard as philosophically privileged. Different choices of $\alpha$ only change how we grade approximate mismatches (Section~\ref{sec:alpha-stances}), not what we count as exact equivalence or what the local metric is.
+
+% =========================================================
+\subsection{Dual connections on the conditional-law manifold}
+\label{subsec:dual-connections}
+
+The Fisher metric is only part of the information-geometric structure induced by a smooth divergence. Following Amari, a Riemannian manifold $(\mathcal{M},g)$ carrying probability laws also comes equipped with a \emph{dualistic structure}: a pair of affine connections $(\nabla,\nabla^\ast)$ that are dual with respect to $g$ in the sense that for all vector fields $X,Y,Z$ on $\mathcal{M}$ one has
+\begin{equation}
+  Y\langle X,Z\rangle
+  \;=\;
+  \langle \nabla_Y X , Z \rangle
+  \;+\;
+  \langle X , \nabla^\ast_Y Z \rangle.
+  \label{eq:dual-connections}
+\end{equation}
+In local coordinates this amounts to a compatibility relation between the Christoffel symbols of $\nabla$ and $\nabla^\ast$ and the metric coefficients of $g$. For the Csiszár--Amari $\alpha$-divergence family, $(g,\nabla,\nabla^\ast)$ are precisely the $\alpha$-dually flat structures of information geometry; different $\alpha$ change the connections but preserve $g$.
+
+In our setting, any statistical manifold of conditional laws
+\[
+  \mathcal{M} \;\subseteq\; \mathcal{P}(Y),
+\]
+such as the image of a conditional-law map $\phi_Z^Y: Z\to\mathcal{P}(Y)$ or $\Phi_X : X\to\mathcal{P}(Y)$, inherits a triple $(g,\nabla,\nabla^\ast)$ from the choice of $D_f$. We regard this triple as the \emph{information-geometric layer} attached to the stepwise marginal:
+\[
+  \text{information--geometric layer on }\mathcal{M}
+  \;:=\;
+  (g,\nabla,\nabla^\ast).
+\]
+
+When a realization $(S,\Gamma_S,q)$ of $\Gamma_Y$ admits a Fisher immersion $\Phi_S : S\to\mathcal{M}$ into a common conditional-law manifold $\mathcal{M}_0\subseteq\mathcal{P}(Y)$, we can pull back not only the metric $g$ but also the dual connections:
+\[
+  g_S := \Phi_S^\ast g,
+  \qquad
+  \nabla^S := \Phi_S^\ast \nabla,
+  \qquad
+  (\nabla^S)^\ast := \Phi_S^\ast \nabla^\ast.
+\]
+Thus each realization inside the same IG leaf (Section~\ref{subsec:ig-leaves}) carries a compatible copy of the same dualistic structure. In Section~\ref{sec:embedding-fidelity} we use this to formulate \emph{geometric fidelity} as a separability property of $(g,\nabla,\nabla^\ast)$ across chosen cuts, rather than as a property of the Fisher metric alone.
+
+% =========================================================
+\subsection{Fisher immersions and the conditional-law manifold}
+\label{subsec:fisher-immersion-core}
+
+Disintegrations of stepwise marginals naturally define \emph{conditional-law manifolds}. For a representation $r:Y\to Z$ with induced stepwise marginal $\Gamma_Z = \nu_Z\otimes K_Z$, we define
+\[
+  \phi_Z^Y: Z \longrightarrow \mathcal{P}(Y),
+  \qquad
+  z \,\longmapsto\, K_Z(z,\cdot),
+\]
+viewing $Z$ as a coordinate chart on a manifold $\mathcal{M}_Z := \Phi_Z(Z)$ of one-step laws on~$Y$. A divergence $D_f$ on $\mathcal{P}(Y)$ induces a Fisher metric $g$ on $\mathcal{M}_Z$, and we can pull it back to $Z$:
+\[
+  g_Z := \Phi_Z^{\ast} g.
+\]
+
+\begin{definition}[Fisher immersion]
+\label{def:fisher-immersion}
+Let $D_f$ be a smooth $f$-divergence on $\mathcal{P}(Y)$, inducing a Fisher metric $g$. A representation $r:Y\to Z$ is said to define a \emph{Fisher immersion of dimension $d$} if:
+\begin{enumerate}[label=(\roman*),leftmargin=1.5em]
+  \item the conditional-law map $\Phi_Z$ is $C^1$ (or smoother) on a subset $Z_0\subseteq Z$ supporting the dynamics, and
+  \item the pullback $g_Z := \Phi_Z^{\ast}g$ is a Riemannian metric of rank $d$ on $Z_0$.
+\end{enumerate}
+In this case $(Z_0,g_Z)$ is an information-geometric state space whose points are distinguished exactly to the extent that they lead to distinguishable one-step futures.
+\end{definition}
+
+An entirely analogous construction applies whenever a latent factorization $(X,\Gamma_X,h)$ exists: one defines a conditional-law map $\Phi_X : X\to\mathcal{P}(Y)$ (e.g.\ via $K_X$ followed by $h$), equips its image $\mathcal{M}_X$ with the Fisher metric induced by $D_f$, and then pulls it back to $X$ to obtain $g_X$. These constructions are summarized in Figure~\ref{fig:fisher-immersion}.
+
+% ---------------------------------------------------------
+\subsection{IG embeddings and IG-equivalence}
+\label{subsec:ig-embedding}
+
+We now make precise what it means for two realizations of $\Gamma_Y$ to represent the \emph{same} information-geometric structure, up to change of coordinates. As before, let
+\[
+  \Phi_X : X \longrightarrow \mathcal{P}(Y),
+  \qquad
+  \phi_Z^Y: Z \longrightarrow \mathcal{P}(Y)
+\]
+denote conditional-law maps obtained from a latent hypothesis $(X,\Gamma_X,h)$ and a representation $(Z,\Gamma_Z,r)$, respectively. We assume throughout that both maps are Fisher immersions into a common statistical manifold of conditionals
+\[
+  \mathcal{M}_0 \;\subseteq\; \mathcal{P}(Y),
+\]
+and that $\mathcal{M}_0$ is equipped with the IG layer $(g,\nabla,\nabla^\ast)$ induced by the choice of $D_f$ (Section~\ref{subsec:dual-connections}).
+
+Let $X_0 \subseteq X$ and $Z_0 \subseteq Z$ denote subsets supporting the dynamics (up to negligible sets), such that the restricted maps
+\[
+  \Phi_X\big|_{X_0} : X_0 \to \mathcal{M}_0,
+  \qquad
+  \Phi_Z\big|_{Z_0} : Z_0 \to \mathcal{M}_0
+\]
+are immersions with the same image
+\[
+  \Phi_X(X_0) = \Phi_Z(Z_0) =: \mathcal{M}_0'.
+\]
+Under these conditions we obtain a canonical map
+\begin{equation}
+  \varphi
+  \;:=\;
+  \bigl(\Phi_X\big|_{X_0}\bigr)^{-1} \circ \bigl(\Phi_Z\big|_{Z_0}\bigr)
+  \;:\;
+  Z_0 \longrightarrow X_0.
+  \label{eq:ig-embedding-map}
+\end{equation}
+Intuitively, $\varphi$ identifies each representation point $z\in Z_0$ with the unique latent state $x\in X_0$ that realizes the same conditional law over $Y$.
+
+\begin{theorem}[IG embedding between realizations]
+\label{thm:ig-embedding}
+Assume the setup above and that $\Phi_X|_{X_0}$ and $\Phi_Z|_{Z_0}$ are diffeomorphisms onto $\mathcal{M}_0'$. Then:
+\begin{enumerate}[label=(E\arabic*),leftmargin=1.8em]
+  \item \emph{Diffeomorphism.} The map $\varphi : Z_0\to X_0$ is a diffeomorphism with smooth inverse
+        $\varphi^{-1} = (\Phi_Z|_{Z_0})^{-1}\circ(\Phi_X|_{X_0})$.
+  \item \emph{Dynamical equivalence.} The one-step conditional laws agree along $\varphi$:
+        \[
+          \Phi_Z(z) = \Phi_X(\varphi(z))
+          \qquad
+          \text{for all } z\in Z_0,
+        \]
+        so the corresponding stepwise marginals satisfy
+        \[
+          \Gamma_Z\big|_{Z_0\times Z_0}
+          \;=\;
+          (\varphi^{-1}\times\varphi^{-1})_{\sharp}\bigl(\Gamma_X\big|_{X_0\times X_0}\bigr).
+        \]
+  \item \emph{Dual-affine isomorphism.} Let $(g_X,\nabla^X,(\nabla^X)^\ast)$ and
+        $(g_Z,\nabla^Z,(\nabla^Z)^\ast)$ denote the pullbacks of $(g,\nabla,\nabla^\ast)$ along
+        $\Phi_X$ and $\Phi_Z$, respectively. Then
+        \[
+          g_Z = \varphi^\ast g_X,
+          \qquad
+          \nabla^Z = \varphi^\ast \nabla^X,
+          \qquad
+          (\nabla^Z)^\ast = \varphi^\ast (\nabla^X)^\ast
+        \]
+        on $Z_0$. That is, $\varphi$ is an isomorphism of dualistic manifolds.
+\end{enumerate}
+\end{theorem}
+
+In this situation we say that $Z_0$ is an \emph{information-geometric embedding} of $X_0$: it recovers both the one-step transport and the local dualistic structure of $(X_0,\Gamma_X)$ up to isomorphism. The map $\varphi$ plays the role of a generalized Takens diffeomorphism, but now characterized by equality of conditional-law manifolds rather than by orbit-wise delays; this is the content of the IG-embedding theorem formalized in Appendix~\ref{app:ig-embedding}.
+
+The preceding discussion extends verbatim to any pair of realizations, not just one latent and one representation.
+
+\begin{definition}[IG-equivalence of realizations]
+\label{def:ig-equivalence}
+Two realizations $(S,\Gamma_S,q)$ and $(S',\Gamma_{S'},q')$ of $\Gamma_Y$ are \emph{information-geometrically equivalent} (IG-equivalent), written
+\[
+  (S,\Gamma_S,q) \cong_{\mathrm{IG}} (S',\Gamma_{S'},q'),
+\]
+if there exist subsets $S_0\subseteq S$, $S_0'\subseteq S'$ supporting the dynamics and a diffeomorphism $\varphi : S_0\to S_0'$ such that:
+\begin{enumerate}[label=(I\arabic*),leftmargin=1.8em]
+  \item the conditional-law images coincide,
+        \[
+          \Phi_S(S_0) = \Phi_{S'}(S_0') =: \mathcal{M}_0',
+        \]
+        and $\Phi_S|_{S_0}$, $\Phi_{S'}|_{S_0'}$ are diffeomorphisms onto $\mathcal{M}_0'$;
+  \item $\varphi$ is the canonical map induced by conditional laws,
+        \[
+          \varphi
+          \;=\;
+          \bigl(\Phi_{S'}\big|_{S_0'}\bigr)^{-1}
+          \circ
+          \bigl(\Phi_S\big|_{S_0}\bigr);
+        \]
+  \item $\varphi$ is a dual-affine isomorphism in the sense of Theorem~\ref{thm:ig-embedding}, that is,
+        \[
+          g_{S'} = \varphi_\ast g_S,
+          \qquad
+          \nabla^{S'} = \varphi_\ast \nabla^S,
+          \qquad
+          (\nabla^{S'})^\ast = \varphi_\ast (\nabla^S)^\ast
+        \]
+        on $S_0'$.
+\end{enumerate}
+\end{definition}
+
+IG-equivalence is an ordinary equivalence relation on the collection of realizations (reflexive, symmetric, transitive, up to negligible sets). Intuitively, two realizations are IG-equivalent if they parametrize the same statistical manifold of conditional laws with the same dualistic structure, differing only by a change of coordinates or factorization on the domain.
+
+% ---------------------------------------------------------
+\subsection{Realization space, IG leaves, and foliations}
+\label{subsec:ig-leaves}
+
+We can now globalize the previous notions over all representations and latent hypotheses compatible with a fixed empirical operator $\Gamma_Y$.
+
+\begin{definition}[Realization space of $\Gamma_Y$]
+\label{def:realization-space}
+The \emph{realization space} of $\Gamma_Y$ is
+\[
+  \mathcal{R}(\Gamma_Y)
+  :=
+  \Bigl\{
+    (Z,\Gamma_Z,r)
+    \;\Big|\;
+    r:Y\to Z,\;
+    \Gamma_Z = (r\times r)_{\sharp}\Gamma_Y
+  \Bigr\}
+  \;\cup\;
+  \Bigl\{
+    (X,\Gamma_X,h)
+    \;\Big|\;
+    h:X\to Y,\;
+    \Gamma_Y = (h\times h)_{\sharp}\Gamma_X
+  \Bigr\}.
+\]
+\end{definition}
+
+Elements of $\mathcal{R}(\Gamma_Y)$ will be called \emph{realizations} of $\Gamma_Y$; they include both representation operators $(Z,\Gamma_Z,r)$ and latent operators $(X,\Gamma_X,h)$ in the sense of Section~\ref{sec:repr}. Whenever a realization admits a conditional-law immersion into a common manifold of conditionals $\mathcal{M}_0\subseteq\mathcal{P}(Y)$, it inherits a pullback dualistic structure $(g_S,\nabla^S,(\nabla^S)^\ast)$ from the IG layer $(g,\nabla,\nabla^\ast)$ on $\mathcal{M}_0$.
+
+\begin{definition}[Information--geometric leaf]
+\label{def:ig-leaf}
+Let $(S,\Gamma_S,q)\in\mathcal{R}(\Gamma_Y)$ be any realization. Its \emph{information--geometric leaf} (IG leaf) is the IG-equivalence class
+\[
+  [S,\Gamma_S,q]_{\mathrm{IG}}
+  :=
+  \bigl\{
+    (S',\Gamma_{S'},q')\in\mathcal{R}(\Gamma_Y)
+    \;\big|\;
+    (S',\Gamma_{S'},q')\cong_{\mathrm{IG}}(S,\Gamma_S,q)
+  \bigr\}.
+\]
+\end{definition}
+
+By construction, all realizations in $[S,\Gamma_S,q]_{\mathrm{IG}}$ share the same information-geometric content. More concretely:
+\begin{itemize}[leftmargin=1.5em]
+  \item they induce the \emph{same} conditional-law manifold
+        $\mathcal{M}_0\subset\mathcal{P}(Y)$;
+  \item they carry the \emph{same} Fisher metric $g$ on $\mathcal{M}_0$;
+  \item they carry the \emph{same} dual affine connections $(\nabla,\nabla^\ast)$ on $\mathcal{M}_0$ inherited from $D_f$;
+  \item they differ only by the choice of coordinates or parametrization on the domain (whether that domain is called
+        $Z$, $X$, or something else).
+\end{itemize}
+In Amari's language, each IG leaf can be viewed as a single statistical manifold $(\mathcal{M}_0,g,\nabla,\nabla^\ast)$ together with its various charts obtained from different realizations. The neutral framework does not privilege any particular chart or latent story inside the leaf.
+
+The collection of IG leaves
+\[
+  \bigl\{[S,\Gamma_S,q]_{\mathrm{IG}} : (S,\Gamma_S,q)\in\mathcal{R}(\Gamma_Y)\bigr\}
+\]
+partitions $\mathcal{R}(\Gamma_Y)$ into disjoint equivalence classes: every realization lies on exactly one IG leaf (up to negligible sets).
+
+\begin{definition}[Foliation by IG leaves]
+\label{def:ig-foliation}
+Suppose $\mathcal{R}(\Gamma_Y)$ is endowed with a smooth (or stratified) manifold structure. A \emph{foliation of $\mathcal{R}(\Gamma_Y)$ by IG leaves} is a family of subsets $\{L_\alpha\}_{\alpha\in A}$ such that:
+\begin{enumerate}[leftmargin=1.5em]
+  \item each $L_\alpha$ is an immersed connected submanifold of
+        $\mathcal{R}(\Gamma_Y)$ (an IG leaf);
+  \item the leaves are disjoint and cover the space,
+        \[
+          \mathcal{R}(\Gamma_Y) = \bigsqcup_{\alpha\in A} L_\alpha;
+        \]
+  \item locally, $\mathcal{R}(\Gamma_Y)$ looks like a product of a leaf and a
+        transverse space: for every point there is a chart in which the leaves
+        intersect the chart in ``slices'' of the form
+        $\{\text{(leaf coordinate)} = \text{const}\}$.
+\end{enumerate}
+In this situation we say that IG-equivalence defines a foliation of $\mathcal{R}(\Gamma_Y)$ by IG leaves.
+\end{definition}
+
+Intuitively, each IG leaf is a maximal slice along which the information-geometric structure (conditional laws, Fisher metric, and dual connections) is held fixed, while moving transversely to the leaves changes which conditional laws over $Y$ are being represented or how their IG layer is chosen.
+
+From the neutral point of view, the basic object of interest is not any single realization $(S,\Gamma_S,q)$, but the IG leaf it generates. The empirical operator $\Gamma_Y$ restricts attention to the realization space $\mathcal{R}(\Gamma_Y)$, and the information geometry inherited from Csiszár--Amari divergences and the Fisher metric with dual connections tells us how this space is foliated into IG leaves. Moving \emph{within} a given leaf changes only coordinates or factorization and therefore preserves both one-step transport and local statistical structure. Moving \emph{between} leaves changes the underlying conditional-law manifold or its dualistic structure and so amounts to changing the information-geometric content attributed to $\Gamma_Y$.
+
+
+\newpage
+% =========================================================
+\section{Embedding and fidelity}
+\label{sec:embedding-fidelity}
+
+Classical reconstruction theory starts from a latent dynamical system and asks when an observation map yields a diffeomorphic embedding. In our setting we start instead from $\Gamma_Y$ and organize possible factorizations of this stepwise marginal into a three-level hierarchy of fidelity. Sections \ref{sec:dual-connections}–\ref{sec:ig-leaves} developed the information– geometric layer: conditional-law maps $\Phi : Z \to \mathcal P(Y)$, Fisher immersions, IG embeddings between realizations, and the resulting partition of the realization space $\mathcal R(\Gamma_Y)$ into information–geometric leaves (IG leaves).
+
+In this section we use that structure to organize reconstruction into a three-level hierarchy of fidelity for realizations of $\Gamma_Y$: topological, measure, and geometric. Each level adds one more invariant structure on top of the empirical stepwise marginal, and together they form what we call the Rose--Takens--Fisher ladder. 
+
+We retain the familiar labels:
+\begin{center}
+\textbf{(i) Topological} $\Rightarrow$ \textbf{(ii) Measure} $\Rightarrow$ \textbf{(iii) Geometric},
+\end{center}
+but reinterpret each tier as a statement about representations and conditional laws built from observations.
+
+% ---------------------------------------------------------
+\subsection{Topological fidelity}
+
+Topological fidelity concerns the existence of a representation $r:Y\to Z$ whose induced conditional-law map $\Phi_Z$ is a Fisher immersion of rank $d$ on a subset $Z_0\subseteq Z$ supporting the dynamics. Intuitively, such a representation recovers the latent orbits up to diffeomorphism.
+
+Classically, Takens' theorem begins with a compact manifold $M$ of dimension $d$, a diffeomorphism $F:M\to M$, and a measurement function $h:M\to\mathbb R$. A delay map
+\[
+  \Psi_k(x)
+  := \big(h(x),h(F^{-1}(x)),\dots,h(F^{-k+1}(x))\big)\in\mathbb R^k
+\]
+is then shown, for generic $h$ and $k\ge 2d+1$, to be an embedding: orbits are recovered up to diffeomorphism.
+
+In the language of Sections~\ref{sec:ig-embedding}--\ref{sec:ig-leaves}, such a delay construction defines a pair of realizations $(M,\Gamma_M,h)$ and $(Z_k,\Gamma_{Z_k},r_k) \in \mathcal R(\Gamma_Y)$ that are topologically conjugate; for generic $h$ and $k\ge 2d+1$ this provides topological fidelity within some IG leaf associated with the empirical operator $\Gamma_Y$ (see Remark~\ref{rem:takens-from-y}).
+
+In our observation-first setting, we do not posit $M$ in advance. Instead, we say:
+
+\begin{definition}[Topological fidelity from $Y$]
+A representation $r:Y\to Z$ has \emph{topological fidelity} of (effective) dimension $d$ if there exists a conditional law map
+\[
+  \Phi_Z^Y : Z \to \mathcal M_0 \subset\mathcal P(Y)
+\]
+such that:
+\begin{enumerate}[label=(T\arabic*),leftmargin=1.8em]
+  \item $\Phi_Z^Y$ is a Fisher immersion of dimension $d$ on a subset $Z_0$ supporting the dynamics;
+  \item the induced metric $g_{Z_0} = (\Phi_Z^Y)^\ast g$ is nondegenerate and turns $Z_0$ into a $d$-dimensional manifold (up to negligible sets).
+\end{enumerate}
+\end{definition}
+
+Informally, $Z$ plays the role of a reconstructed state space: it carries a $d$-dimensional manifold structure whose points are distinguished by their conditional futures. If a latent manifold $X$ with flow $F$ \emph{also} realizes the same conditional law manifold, then by Theorem~\ref{thm:ig-equivalence-reps} there is a Fisher-isometric diffeomorphism between the relevant regions of $Z$ and $X$, recovering a Takens-type result ``from $Y$''.
+
+Thus in our hierarchy, \emph{topological fidelity} means: there exists some representation built from observations whose conditional law map is a Fisher immersion into a $d$-dimensional manifold of conditionals.
+
+% ---------------------------------------------------------
+\subsection{Measure fidelity (Rose condition)}
+
+Topological fidelity alone does not guarantee that the one-step \emph{transport} encoded by $\Gamma_Y$ is recovered; it only guarantees that there is a manifold structure in which conditional laws vary smoothly. To compare different factorizations of $\Gamma_Y$ we introduce a divergence on stepwise marginals.
+
+Let $\Df$ be a smooth $f$-divergence on $\mathcal P(Y\times Y)$. Given a candidate model stepwise marginal $\Gamma_Z$ on $Y\times Y$ (obtained either directly or via some representation $Z$ and decoder), we define the \emph{edge divergence}
+\[
+  \mathcal A_f^Y(\Gamma_Z)
+  \;:=\;
+  D_f\bigl(\Gamma_Y \,\Vert\, \Gamma_Z\bigr).
+\]
+
+\begin{definition}[Rose condition]
+We say that a factorization $\Gamma_Z$ of $\Gamma_Y$ satisfies the \emph{Rose condition} if
+\[
+  \mathcal A_f^Y(\Gamma_Z) = 0.
+\]
+\end{definition}
+
+Under the usual domination assumptions this is equivalent to equality of stepwise marginals, hence of one-step transport. In practice we estimate $\Gamma_Z$ from data and test whether $\mathcal A_f^Y(\Gamma_Z)$ is statistically distinguishable from zero; the Rose condition is the ideal limit of this procedure.
+
+Crucially, the Rose condition can be checked purely at the level of $Y\times Y$: it does not require that we ever exhibit a latent $X$. The factorization may come from:
+\begin{itemize}[leftmargin=1.5em]
+  \item a classical latent model $(X,\Gamma_X,h)$ pushed forward via $(h\times h)_{\sharp}$;
+  \item a representation $r:Y\to Z$ and a model on $Z$ decoded back to $Y$;
+  \item or any other construction that yields a candidate $\Gamma_Z$ on $Y\times Y$.
+\end{itemize}
+
+In all cases, \emph{measure fidelity} is simply the vanishing of the edge divergence between $\Gamma_Y$ and the candidate factorization.
+
+% ---------------------------------------------------------
+\subsection{Geometric fidelity}
+
+At the third level we use the full information-geometric layer $(g,\nabla,\nabla^\ast)$ on the conditional-law manifold selected by $\Gamma_Y$ (Section~\ref{subsec:dual-connections}). Fix an IG leaf in $\mathcal{R}(\Gamma_Y)$ and a realization $(S,\Gamma_S,q)$ in that leaf, with conditional-law immersion
+\[
+  \Phi_S^Y : S \longrightarrow \mathcal{M}_0 \subset \mathcal{P}(Y)
+\]
+of rank $d$ on a subset $S_0\subseteq S$ supporting the dynamics. Pulling back the dualistic structure gives
+\[
+  g_S := (\Phi_S^Y)^\ast g,
+  \qquad
+  \nabla^S := (\Phi_S^Y)^\ast \nabla,
+  \qquad
+  (\nabla^S)^\ast := (\Phi_S^Y)^\ast \nabla^\ast
+\]
+on $S_0$.
+
+In many applications the realization $S$ comes with a distinguished \emph{cut} of coordinates or components, for example a split
+\[
+  S_0 \;\cong\; S_0^A \times S_0^B
+\]
+corresponding to two sensor groups, two delay blocks, or a latent/observed separation once a latent factorization is posited. We want to know whether this cut is geometrically \emph{separable} in the information-geometric sense.
+
+\begin{definition}[Geometric fidelity along a cut] 
+Let $(S,\Gamma_S,q)$ be a realization in an IG leaf, with induced $(g_S,\nabla^S,(\nabla^S)^\ast)$ on $S_0$. A cut $(A,B)$ on $S_0$ has \emph{geometric fidelity} if there exist local coordinates
+\[
+  \theta = (\theta^A,\theta^B)
+\]
+adapted to the product $S_0^A\times S_0^B$ such that, in these coordinates:
+\begin{enumerate}[label=(G\arabic*),leftmargin=1.8em]
+  \item the Fisher metric is block-diagonal across the cut,
+  \[
+    g_{i_A j_B}(\theta) = 0
+    \quad \text{for all mixed indices } i_A,j_B;
+  \]
+  \item both dual connections split across the cut, in the sense that all mixed Christoffel symbols vanish,
+  \[
+    \Gamma^{k}_{i_A j_B}(\theta)
+    = \Gamma^{k}_{i_B j_A}(\theta)
+    = \Gamma^{\ast k}_{i_A j_B}(\theta)
+    = \Gamma^{\ast k}_{i_B j_A}(\theta)
+    = 0
+  \]
+  for all $k$ and all mixed index pairs $(i_A,j_B)$, $(i_B,j_A)$.
+\end{enumerate}
+Equivalently, a neighbourhood of the dynamics in the IG leaf is locally isomorphic (as a dualistic manifold) to a product
+\[
+  (\mathcal{M}_A \times \mathcal{M}_B,
+   g_A \oplus g_B,
+   \nabla^A \oplus \nabla^B,
+   (\nabla^A)^\ast \oplus (\nabla^B)^\ast).
+\]
+\end{definition}
+
+When (G1)–(G2) hold, the two blocks behave, from the point of view of information geometry, as if they were generated by independent Fisher subsystems. Any choice of realization inside the same IG leaf then preserves this product structure: we can move within the leaf (changing coordinates or latent stories) without creating spurious cross terms in the dualistic structure.
+
+If no such local product coordinates exist, we say that the cut $(A,B)$ is \emph{intrinsically coupled}. In that case, at least one of the dual connections carries unavoidable mixed terms across the cut, and this intrinsic coupling is shared by all realizations in the IG leaf. In exponential-family or dually flat cases, condition (G2) can be checked in terms of the $\alpha$-connections; the crude Fisher block-difference
+\[
+  \mathcal{F}^{AB} := g^{AB} - \bigl(g^A \oplus g^B\bigr)
+\]
+is then one way to summarize departures from the ideal product structure, with $\mathcal{F}^{AB}=0$ whenever (G1) holds and
+small $\mathcal{F}^{AB}$ indicating weak coupling.
+
+In our observation-first setting, the most important cuts arise from:
+\begin{itemize}[leftmargin=1.5em]
+  \item different subsets of observed coordinates of $Y$;
+  \item different coordinate blocks of a representation $Z=r(Y_{t-k:t})$ built from delays;
+  \item once a latent hypothesis $(X,\Gamma_X,h)$ is introduced, the latent/observed split $(X,Y)$.
+\end{itemize}
+Geometric fidelity along such cuts expresses the absence of intrinsic coupling between the corresponding subsystems, in the sense of the dualistic structure induced by $D_f$.
+
+% ---------------------------------------------------------
+\subsection{The Rose--Takens--Fisher ladder from $Y$}
+
+We can now restate the three levels of fidelity as a single structural hierarchy, phrased entirely in terms of $\Gamma_Y$ and its representations.
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Topological fidelity (Takens-from-$Y$).}
+        There exists a representation $r:Y\to Z$ and associated conditional law map
+        $\Phi_Z^Y$ that is a Fisher immersion of finite rank $d$ on the support of the dynamics.
+        In a realist reading this can be identified (via Theorem~\ref{thm:ig-equivalence-reps}) with
+        a diffeomorphic embedding of an underlying $d$-dimensional manifold, if such a latent
+        realization exists at all.
+  \item \textbf{Measure fidelity (Rose).}
+        There exists a factorization $\Gamma_Z$ of $\Gamma_Y$ for which the
+        edge divergence vanishes,
+        \[
+          \Df\big(\Gamma_Y\big\Vert\Gamma_Z\big) = 0,
+        \]
+        i.e.\ the one-step transport of the factorization is measure-conjugate to the empirical
+        stepwise marginal.
+  \item \textbf{Geometric fidelity.}
+        On the IG leaf selected by the first two levels, the dualistic information geometry
+        $(g,\nabla,\nabla^\ast)$ induced by $D_f$ is locally separable across the cuts we regard as
+        ``elementary'': in suitable coordinates the Fisher metric and both dual connections split
+        block-diagonally. Any residual mixed terms then quantify intrinsic coupling that cannot be
+        removed by reparameterization within the leaf.
+\end{itemize}
+
+We refer to this hierarchy as the \emph{Rose--Takens--Fisher ladder}. In the strongest case, a representation built from observations carries:
+\begin{enumerate}[leftmargin=1.8em]
+  \item a manifold structure of finite dimension (topological fidelity),
+  \item an exactly matching one-step transport (measure fidelity),
+  \item and a dualistic IG structure that is locally separable across the cuts we regard as ``elementary''
+        (geometric fidelity).
+\end{enumerate}
+
+\begin{remark}[Why these three fidelities?]
+The three levels above are not chosen arbitrarily. Each corresponds to adding one further neutral structure on top of the empirical operator $\Gamma_Y$:
+\begin{itemize}[leftmargin=1.5em]
+  \item \emph{topological fidelity} keeps fixed only the orbit structure on state spaces, up to
+  homeomorphism or diffeomorphism;
+  \item \emph{measure fidelity} keeps fixed the one-step transport law encoded by the stepwise marginal
+  on $Y\times Y$, and can be tested via an $f$-divergence on $\Gamma_Y$;
+  \item \emph{geometric fidelity} keeps fixed the local information structure of conditional laws,
+  encoded by the Fisher--Rao metric on the conditional-law manifold.
+\end{itemize}
+Under standard invariance requirements (monotonicity under Markov morphisms and coordinate invariance), Csiszár--Morimoto theory identifies $f$-divergences as the canonical class of global discrepancy measures between probability laws, and Čencov's theorem singles out the Fisher--Rao metric as the essentially unique Riemannian metric on statistical manifolds compatible with probabilistic morphisms. In this sense, the Rose--Takens--Fisher ladder collects the neutral structural fidelities naturally available in our setting: topology of orbits, one-step transport of probability mass, and local information geometry.
+\end{remark}
+
+In later parts of the paper we show how latent factorizations, operator-learning architectures, and empirical choices of $\alpha$-divergence all fit into this ladder. Latent state spaces appear as particular representations $Z$; $\alpha$-divergences grade approximate failures of Rose; and Fisher curvature supplies a stance neutral obstruction to certain forms of reductive unification. From the information--geometric point of view, each level of fidelity describes a different way of moving inside the realization space $\mathcal{R}(\Gamma_Y)$ introduced above: topological fidelity keeps us within an IG leaf at the level of orbits, measure fidelity additionally preserves the empirical stepwise marginal, and geometric fidelity holds fixed the Fisher metric on the conditional-law manifold. The IG-leaf and foliation language thus repackages the Rose--Takens--Fisher ladder as a statement about which aspects of the neutral information-geometric structure are treated as invariants when we vary models.
+
+\newpage
+
+% =========================================================
+
+\section{Neutral Operator Framework}
+\label{sec:neutral-operator}
+
+Sections~\ref{sec:ig-dynamics}--\ref{sec:ig-leaves} treated the empirical stepwise marginal $\Gamma_Y \in \mathcal P(Y\times Y)$, its disintegration, and the induced conditional-law maps and Fisher immersions as the basic mathematical objects. Section~\ref{sec:embedding-fidelity} then organized reconstruction and factorization into a three-level Rose--Takens--Fisher ladder of topological, measure, and geometric fidelity. In particular, we:
+\begin{itemize}[leftmargin=1.5em]
+  \item defined conditional-law maps $\Phi : Z\to\mathcal P(Y)$ and Fisher immersions as the
+  stance-neutral core of the information--geometric layer;
+  \item introduced the realization space $\mathcal R(\Gamma_Y)$ of all compatible representation
+  and latent operators, and showed how IG-equivalence partitions this space into information--
+  geometric leaves (IG leaves), and under mild regularity a foliation by such leaves.
+\end{itemize}
+The purpose of this section is not to introduce new structures, but to repackage those ingredients into a transport-first, or ``neutral operator'', point of view:
+
+Throughout this section we write \(\Gamma\) instead of \(\Gamma_Y\) when no confusion can arise.
+
+Equivalently, fixing $\Gamma_Y$ and its realization space $\mathcal{R}(\Gamma_Y)$, the neutral object associated with the data is not any single model, but an IG leaf inside $\mathcal{R}(\Gamma_Y)$: a class of realizations that share the same conditional-law manifold and Fisher geometry. The constructions below can therefore be read as ways of parameterizing and navigating this realization space, with a distinction between moving \emph{within} a leaf (preserving both one-step transport and local information geometry) and moving \emph{between} leaves (changing the neutral information–geometric content attributed to $\Gamma_Y$).
+
+\subsection{Stepwise marginal as primitive transport}
+
+Fix an observation space \(Y\) and an empirical time series \((Y_t)_{t \in \mathbb{Z}}\). As in Section~1, the associated stepwise marginal
+\[
+  \Gamma(dy_0,dy_1)
+  \;=\;
+  \nu_Y(dy_0)\, K_Y(y_0,dy_1)
+  \;\in\; \mathcal{P}(Y \times Y)
+\]
+is the only object that is directly accessible without further modelling assumptions. All subsequent constructions---latent spaces \(X\), observation maps \(h : X \to Y\), representations \(r : Y \to Z\), model families \(\{\Gamma_Z\}\)---are understood as ways of \emph{re–expressing or approximating this same transport law}. Concretely:
+\begin{itemize}
+  \item any putative latent state model \((X,\Gamma_X,h)\) appears ``downstairs'' only through its
+        pushforward stepwise marginal
+        \[
+          \Gamma_{Y,\theta} \;:=\; (h_\theta \times h_\theta)_\sharp \Gamma_{X,\theta}
+          \;\in\; \mathcal{P}(Y \times Y);
+        \]
+  \item any representation \(r : Y \to Z\) induces a stepwise marginal
+        \(\Gamma_Z = (r \times r)_\sharp \Gamma\) on \(Z \times Z\), with its own disintegration and
+        conditional law map. \footnote{Figure~\ref{fig:neutral-operator-diagram} collects these constructions: the empirical stepwise marginal \(\Gamma_Y \in \mathcal{P}(Y \times Y)\) is treated as primitive, latent factorizations \( ( X, \Gamma_X, h)\) and data-driven representations \( r : Y \to Z \) appear only through their pushed-forward stepwise marginals, and any IG-equivalence between \(X\) and \(Z\) is expressed by the dashed arrow \(\varphi\).}
+\end{itemize}
+The Rose condition from Section~2 is, in this language, simply the statement that one such candidate stepwise marginal \(\Gamma_Z\) coincides with \(\Gamma\) as a measure on \(Y \times Y\):
+\[
+  D_f\!\bigl(\Gamma \,\Vert\, \Gamma_Z\bigr) = 0
+  \quad \Longleftrightarrow \quad
+  \Gamma = \Gamma_Z,
+\]
+for any smooth Csiszár divergence \(D_f\) on \(\mathcal{P}(Y \times Y)\).
+
+\subsection{Disintegration: dynamics and inference as two views of \texorpdfstring{\(\Gamma\)}{Γ}}
+
+Every stepwise marginal \(\Gamma \in \mathcal{P}(Y \times Y)\) admits two canonical disintegrations:
+\begin{align*}
+  \Gamma(dy_0,dy_1)
+  &= \nu_Y(dy_0)\, K_Y(y_0,dy_1)
+    &&\text{(forward, ``dynamics'')} \\
+  &= \tilde\nu_Y(dy_1)\, \tilde K_Y(y_1,dy_0)
+    &&\text{(backward, ``inference'')}.
+\end{align*}
+The first reads \(\Gamma\) as a one–step transport operator on distributions, \(\nu_Y \mapsto \nu_Y K_Y\), or equivalently as a Koopman–type operator on observables. The second reads the same joint law as an update from ``future'' to ``past''.
+
+From the neutral perspective there is no need to choose one reading as primary. Dynamical evolution and Bayesian updating are simply two coordinate systems on the same joint law \(\Gamma\). Any latent factorization \((X,\Gamma_X,h)\) inherits the same duality via its own disintegrations, and the pushforward \((h \times h)_\sharp \Gamma_X\) recovers both forward and backward dynamics on \(Y\).
+
+\subsection{Transport as a simple category}
+
+The neutrality of this picture can be formalized at the level of a simple category of transports. Define a category \(\mathbf{Trans}\) in which:
+
+\begin{itemize}
+  \item objects are measured spaces \((S,\mu)\);
+  \item morphisms \((S,\mu) \to (T,\nu)\) are stepwise marginals
+        \(\Gamma \in \mathcal{P}(S \times T)\) with
+        \((\operatorname{pr}_0)_\sharp \Gamma = \mu\) and \((\operatorname{pr}_1)_\sharp \Gamma = \nu\);
+  \item composition is gluing along the middle marginal, i.e.\ the usual composition of Markov
+        kernels but expressed at the level of joint laws.
+\end{itemize}
+
+In this language:
+
+\begin{itemize}
+  \item an empirical process defines an endomorphism
+        \((Y,\nu_Y) \xrightarrow{\;\Gamma\;} (Y,\nu_Y)\);
+  \item a latent factorization \((X,\Gamma_X,h)\) defines an endomorphism
+        \((X,\mu_X) \xrightarrow{\;\Gamma_X\;} (X,\mu_X)\) and a functor
+        \((h \times h)_\sharp : \mathbf{Trans}_X \to \mathbf{Trans}_Y\);
+  \item two descriptions are conjugate if they define isomorphic arrows in \(\mathbf{Trans}\), i.e.\ if
+        their stepwise marginals agree up to measure–preserving isomorphisms of source and target.
+\end{itemize}
+
+The Rose condition \(D_f(\Gamma \,\Vert\, (h \times h)_\sharp \Gamma_X) = 0\) is exactly the assertion that the empirical arrow and the pushed–forward latent arrow are the \emph{same} morphism in \(\mathbf{Trans}\), as evaluated by a chosen divergence \(D_f\).
+
+\subsection{Representations and the neutral IG layer}
+
+Section~\ref{sec:ig-dynamics} introduced conditional-law maps $\Phi : Z \to M \subset \mathcal P(Y)$, the conditional-law manifold $M$, and Fisher immersions, and Section~\ref{sec:embedding-fidelity} organized reconstruction fidelity (Takens, Rose, Fisher) in terms of these objects.
+
+The neutral operator framework simply insists on the following rephrasing:
+
+\begin{enumerate}
+  \item Every representation \(r : Y \to Z\) selects a new object \((Z,\nu_Z)\) and arrow
+        \(\Gamma_Z = (r \times r)_\sharp \Gamma\) in \(\mathbf{Trans}\) (cf. Figure~\ref{fig:neutral-operator-diagram}).
+  \item The information geometry lives entirely on the image manifold
+        \(\mathcal{M} = \Phi(Z) \subset \mathcal{P}(Y)\) equipped with the Fisher metric \(g\) induced by
+        a smooth divergence \(D_f\), \emph{independent} of the particular coordinates \(Z\).
+  \item Two representations \(r_i : Y \to Z_i\) are IG–equivalent on regions
+        \(Z_i^0 \subseteq Z_i\) if their conditional law maps
+        \(\Phi_i : Z_i \to \mathcal{P}(Y)\) are both Fisher immersions and have the same image
+        \(\mathcal{M}_0\); in that case \(Z_1^0\) and \(Z_2^0\) are related by a Fisher–isometric
+        diffeomorphism (Theorem~\ref{thm:ig-equivalence-reps}).
+\end{enumerate}
+
+Latent state spaces, learned embeddings, and hand–crafted coordinates are therefore on equal footing: all are just different ways of charting the same (or different) conditional law manifolds. The \emph{neutral IG layer} is the collection of statements that depend only on \(\mathcal{M}\), its Fisher metric, and curvature (including block–additivity diagnostics across cuts), and not on how we choose to name or interpret the coordinates.
+
+Different choices of representation $r:Y\to Z$ thus correspond to different ways of lifting the empirical transport $\Gamma$ into a space where local geometry can be probed.
+
+When two such representations $(Z_i,\Gamma_{Z_i},r_i)$, $i=1,2$, are IG-equivalent in the sense of Section~\ref{sec:ig-embedding}, they lie on the same IG leaf inside $\mathcal{R}(\Gamma_Y)$ (Section~\ref{sec:ig-leaves}). From the neutral point of view, they are simply different coordinate choices on a single information--geometric realization of the empirical operator $\Gamma_Y$.
+
+\subsection{\texorpdfstring{\(\alpha\)}{alpha}–divergences as empirical stances}
+\label{sec:alpha-stances}
+
+The Csiszár–Amari \(\alpha\)–divergence family was introduced in the fidelity hierarchy as a one–parameter class of loss functions on stepwise marginals sharing a common zero set and a common local Fisher geometry. From the neutral operator point of view, the key facts are:
+
+\begin{itemize}
+  \item for any regular \(\alpha\), \(D_\alpha(\Gamma_1 \Vert \Gamma_2) = 0\) if and only if
+        \(\Gamma_1 = \Gamma_2\), and the induced Fisher–Rao metric on smooth statistical manifolds is
+        the same up to a positive scalar;
+  \item hence the Rose condition and all Fisher–curvature diagnostics are \(\alpha\)–independent;
+  \item different \(\alpha\) simply \emph{weight directions of mismatch differently}:
+        forward–KL–like regimes (\(\alpha \approx +1\)) emphasize empirical transport not covered by
+        the model; reverse–KL–like regimes (\(\alpha \approx -1\)) emphasize model transport in
+        unsupported regions; symmetric regimes (\(\alpha \approx 0\)) emphasize overlap of supports.
+\end{itemize}
+
+In this sense, \(\alpha\) is not an ontology parameter but a \emph{stance parameter}: it encodes which kinds of failures of edge–law conjugacy we treat as epistemically salient when comparing two arrows in \(\mathbf{Trans}\). The underlying IG layer (existence of Fisher immersions, curvature across cuts, IG–equivalence of representations) is unaffected by this choice.
+
+Because all Csiszár--Amari $\alpha$-divergences share the same zero sets and induce the same Fisher metric up to scale, the IG leaves and the Rose--Takens--Fisher hierarchy described in Sections~\ref{sec:ig-leaves}--\ref{sec:embedding-fidelity} are $\alpha$-neutral: varying $\alpha$ changes how we \emph{grade} approximate models without changing which realizations belong to the same IG leaf.
+
+% =========================================================
+\section{Observation design and unification via dual connections}
+\label{sec:neutral-dual-connections}
+
+Section~\ref{sec:dual-connections} introduced the full information–geometric
+layer on a statistical manifold of conditional laws $M \subset \mathcal P(Y)$:
+a Fisher–Rao metric $g$ together with dual affine connections
+$(\nabla,\nabla^\ast)$ induced by a smooth divergence $D_f$, satisfying the
+duality relation
+\[
+  Y \,\langle X, Z \rangle
+  \;=\;
+  \langle \nabla_Y X, Z \rangle
+  \;+\;
+  \langle X, \nabla^\ast_Y Z \rangle
+\]
+for all vector fields $X,Y,Z$ on $M$.
+
+In the neutral operator framework this triple $(g,\nabla,\nabla^\ast)$ lives on
+the image of any conditional-law map $\Phi_S : S \to M$ selected by a realization
+$(S,\Gamma_S,q) \in \mathcal R(\Gamma_Y)$, and is pulled back to $S$ via
+\[
+  g_S := \Phi_S^\ast g, \qquad
+  \nabla_S := \Phi_S^\ast \nabla, \qquad
+  \nabla_S^\ast := \Phi_S^\ast \nabla^\ast.
+\]
+
+Geometric fidelity (Section~\ref{sec:embedding-fidelity}) can then be phrased as
+a separability property of this dualistic structure across chosen cuts: along a
+cut $(A,B)$ on $S_0$ we ask whether there exist local coordinates in which both
+$g_S$ and the Christoffel symbols of $\nabla_S$ and $\nabla_S^\ast$ split
+block-diagonally. When they do, the cut behaves like a product of two Fisher
+subsystems; when they do not, the intrinsic coupling encoded by
+$(g,\nabla,\nabla^\ast)$ is shared by all realizations in the same IG leaf.
+
+\subsection{Observation design and representation choice from data}
+
+In practice we rarely start with a given latent space \(X\); we start with data and a class \(\mathcal{H}\) of representation maps built from observations, for example delay–coordinate maps or learned encoders \(h : Y^{k+1} \to Z\). Each \(h \in \mathcal{H}\) induces
+
+\begin{itemize}
+  \item a representation trajectory \(Z_t = h(Y_{t-k:t})\);
+  \item a stepwise marginal \(\Gamma_Z^{(h)}\) on \(Z \times Z\) (estimated from data);
+  \item a reconstructed stepwise marginal \(\widehat{\Gamma}^{(h)}_Y\) on \(Y \times Y\) via a decoder
+        or projection \(g_h : Z \to Y\).
+\end{itemize}
+
+Given a divergence \(D_\alpha\) on stepwise marginals we can define an edge action
+\[
+  A(h) := D_\alpha\bigl(\Gamma \,\Vert\, \widehat{\Gamma}^{(h)}_Y\bigr),
+\]
+and, for a chosen cut of \(Z\) into blocks (e.g.\ slow/fast, sensors, lags), a Fisher curvature \(F(h)\) across that cut, as in Section~2.3.
+
+From the neutral standpoint, choosing a representation is an empirical design problem: we select \(h^\star \in \mathcal{H}\) that trades off small edge action and well–behaved curvature, for example via
+\[
+  h^\star \;\in\;
+  \arg\min_{h \in \mathcal{H}}
+  \Bigl\{ A(h) + \lambda \,\|F(h)\| \Bigr\},
+  \qquad \lambda \ge 0.
+\]
+Different philosophical readings then differ only in how they talk about the resulting \(Z^\star = h^\star(Y_{t-k:t})\): as a dynamically adequate summary of observations, as approximate coordinates on an underlying latent system, or as one member of an IG–equivalence class.
+
+In this language, choosing an observation or representation map $(h^{*},r^{*})$ is choosing a point inside some IG leaf of $\mathcal{R}(\Gamma_Y)$, while parsimony or interpretability criteria decide \emph{where within} that leaf we prefer to sit. Departing from the leaf---for example by changing
+the conditional-law manifold or its Fisher geometry---amounts to changing the neutral information--geometric content we attribute to the same empirical operator $\Gamma_Y$.
+
+\subsection{Modes of unification and curvature obstructions}
+
+Many scientific questions can be phrased as: \emph{do these distinct observable processes admit a unified description?} Within the neutral operator framework this becomes a question about relations among stepwise marginals and their information geometry, rather than about the existence of a particular microscopic ontology.
+
+Let \(\Gamma_Y^{(i)}\) denote the stepwise marginal of the \(i\)th observed system. We distinguish three notions of unification:
+
+\begin{description}
+  \item[Reductive unification.]
+    There exists a latent space \(Z\), a joint latent stepwise marginal \(\Gamma_Z\), and observation
+    maps \(h_i : Z \to Y^{(i)}\) such that
+    \(\Gamma_Y^{(i)} = (h_i \times h_i)_\sharp \Gamma_Z\) for all \(i\), and such that the Fisher
+    metric of \(\Gamma_Z\) is block–additive across a prescribed family of ``local'' cuts. In this
+    strongest sense all systems are pushforwards of a single, locally factorized latent dynamics.
+
+  \item[Structural unification.]
+    The systems share information–geometric invariants (curvature spectra across analogous cuts,
+    scaling exponents \((\eta,\zeta)\), divergence scaling under coarse–graining) even if no single
+    latent generator exists. Here unification lives at the level of shared geometry of stepwise
+    marginals.
+
+  \item[Effective unification.]
+    There exists a common family of coarse models \(\{\Gamma_{\mathrm{macro},\theta}\}\) such that each
+    \(\Gamma_Y^{(i)}\) admits a good fit \(D_\alpha(\Gamma_Y^{(i)} \Vert
+    \Gamma_{\mathrm{macro},\theta_i})\) for some \(\theta_i\). This is the usual phenomenological /
+    field–theoretic notion of unification.
+\end{description}
+
+Fisher curvature (Section~2.3) provides a stance–neutral obstruction to the strongest, reductive unification. Fix a notion of locality encoded by a family of cuts
+\(\mathcal{L} = \{(A,B)\}\) on candidate latent spaces \(Z\). For any realization
+\((Z,\Gamma_Z,h)\) of an observed stepwise marginal \(\Gamma_Y = (h \times h)_\sharp \Gamma_Z\), define
+\[
+  \Delta(Z,\Gamma_Z,h)
+  \;:=\;
+  \sup_{(A,B) \in \mathcal{L}} \bigl\|F^Z_{A,B}\bigr\|,
+  \qquad
+  F^Z_{A,B} := g^Z_{A,B} - \bigl(g^Z_A \oplus g^Z_B\bigr),
+\]
+where \(g^Z\) is the Fisher metric of \(\Gamma_Z\) and \(g^Z_A, g^Z_B\) are the marginal metrics on the blocks. If
+\[
+  \inf_{\substack{Z,\Gamma_Z,h\\(h \times h)_\sharp \Gamma_Z = \Gamma_Y}}
+  \Delta(Z,\Gamma_Z,h) \;>\; 0,
+\]
+then no smooth finite–dimensional latent model exists that is simultaneously measure–faithful (Rose) and block–additive across the prescribed local cuts. Reductive unification fails, regardless of how we choose to interpret the variables.
+
+Crucially, this obstruction is independent of \(\alpha\): all regular \(\alpha\) induce the same Fisher metric up to scale. What \(\alpha\) changes is how we \emph{interpret} this failure (laws–first, data–first, or structurally symmetric). The underlying geometric statement is the same.
+
+\medskip
+
+In summary, the neutral operator framework takes the empirical stepwise marginal \(\Gamma\) as a primitive arrow in a simple category of transports, regards information geometry as a stance–neutral layer on these arrows, and uses \(\alpha\)–divergences as a tunable interface between empirical practice and philosophical stance. This will be the backdrop for the finite–data and learning considerations.
+
+\newpage
+
+% =========================================================
+
+\section{Operator Learning and Diagnostics}
+\label{sec:operator-learning}
+
+Building on the neutral operator framework of Section~\ref{sec:neutral-operator} and the Rose--Takens--Fisher hierarchy of Section~\ref{sec:embedding_fidelity}, we now turn to the finite–data setting. The empirical stepwise marginal \(\Gamma_Y \in \mathcal{P}(Y \times Y)\), estimated from a time series \(\{Y_t\}\), remains the only primitive object; all models are additional stepwise marginals on \(Y \times Y\) that seek to stand in for \(\Gamma_Y\).
+
+Any learned model is another stepwise marginal (or family of stepwise marginals) on \(Y\times Y\), possibly obtained by pushing forward a latent factorization \((X,\Gamma_X,h)\),
+\[
+  \Gamma_Z \equiv \Gamma_{Y,\theta}
+  \quad\text{or}\quad
+  \Gamma_Z = (h\times h)_\sharp \Gamma_{X,\theta}.
+\]
+In particular, we never need to \emph{assume} that \(X\) exists as a privileged hidden space; a latent story is just one way of factoring \(\Gamma_Y\) that must be justified (or ruled out) by its performance at the level of stepwise marginals and their induced information geometry.
+
+Operator learning therefore means:
+\begin{enumerate}[leftmargin=1.5em]
+  \item estimating an empirical stepwise marginal \(\widehat{\Gamma}_{\text{data}}\) from samples in \(Y\);
+  \item specifying a model family \(\{\Gamma_Z\}\) (directly on \(Y\) or via latent dynamics and an
+        observation map);
+  \item choosing parameters by minimizing an edge divergence
+  \[
+    D_\alpha(\Gamma_Y\Vert\Gamma_Z)
+    \;=\; D_\alpha^\nu(K_Y,K_\theta),
+  \]
+  for some Csiszár–Amari \(\alpha\)–divergence \(D_\alpha\) on stepwise marginals.
+\end{enumerate}
+The choice of \(\alpha\) encodes an empirical stance (Section~\ref{sec:alpha-stances}); the Fisher geometry and curvature diagnostics we use below are, by contrast, stance–neutral and depend only on the local second–order structure of the divergence.
+
+% -----------------------------------------------------------------------------------------------------
+
+\subsection{Estimating the stepwise marginal from data}
+\label{subsec:edge-estimation}
+
+Given a sequence \(\{y_t\}_{t=0}^n\) in \(Y\), we approximate the empirical stepwise marginal by fitting a source law \(\widehat{\nu}_Y\) for \(Y_t\) and a conditional kernel
+\(\widehat{K}_{\text{data}}(y_0,\mathrm dy_1)\) for \(Y_{t+1}\mid Y_t=y_0\):
+\[
+  \widehat{\Gamma}_{\text{data}}(\mathrm dy_0,\mathrm dy_1)
+  \;=\;
+  \widehat{\nu}_Y(\mathrm dy_0)\,\widehat{K}_{\text{data}}(y_0,\mathrm dy_1).
+\]
+All subsequent structure---latent factorizations, additional coordinates, lags, or cuts---is read as a reparameterization of this same empirical object.
+
+Depending on the application, \(\widehat{K}_{\text{data}}\) can be obtained via:
+\begin{itemize}[leftmargin=1.5em]
+  \item local regression (e.g.\ locally linear S-maps or Nadaraya--Watson estimators),
+  \item parametric conditionals (e.g.\ conditional Gaussian families),
+  \item flexible flows (e.g.\ conditional normalizing flows or score-based models),
+\end{itemize}
+subject only to the requirement that \(\widehat{K}_{\text{data}}\) defines a Markov kernel for each base point \(y_0\).
+
+For deterministic systems observed with noise, a simple and practically useful approximation is
+\[
+  \widehat{K}_{\text{data}}(y,\mathrm dy')
+  \;\approx\;
+  \mathcal{N}\!\bigl(y';\,\mu(y),\Sigma(y)\bigr),
+\]
+with mean \(\mu\) estimated by a locally linear fit and covariance \(\Sigma\) by residual sampling. This yields a tractable analytic form for both the divergence and the Fisher metric.
+
+% -----------------------------------------------------------------------------------------------------
+
+\subsection{Choice of divergence and role of \texorpdfstring{$\alpha$}{alpha}}
+
+When fitting models we select a Csiszár--Amari \(\alpha\)-divergence \(D_\alpha\) on stepwise marginals as our loss:
+\[
+  \widehat\theta \in \arg\min_\theta \,\widehat D_\alpha\!\big(\Gamma_Y \,\Vert\, \Gamma_Z\big).
+\]
+Different values of \(\alpha\) emphasize different failure modes of \(\Gamma_Z\) relative to
+\(\Gamma_Y\):
+\begin{itemize}
+  \item \(\alpha \approx 1\) (forward-KL-like) heavily penalizes empirical transport not covered by the model.
+  \item \(\alpha \approx -1\) (reverse-KL-like) heavily penalizes model transport in regions unsupported by the data.
+  \item \(\alpha \approx 0\) (symmetric regime) balances both and emphasizes overlap of supports.
+\end{itemize}
+
+A more detailed interpretive dictionary---including how these regimes align with model–centric, data–centric, or structural empirical stances---is given in Section~\ref{sec:alpha-stances}. Here we treat \(\alpha\) simply as a hyperparameter that tunes which discrepancies are considered most costly. Crucially, the zero set does not depend on~\(\alpha\):
+\[
+  D_\alpha(\Gamma_Y \,\Vert\, \Gamma_Z) = 0
+  \quad\Longleftrightarrow\quad
+  \Gamma_Y = \Gamma_Z \;\;(\text{a.e.}),
+\]
+so the Rose condition and all Fisher–curvature diagnostics remain invariant under the choice of~\(\alpha\). The induced Fisher metric on any smooth statistical manifold of stepwise marginals is likewise independent of \(\alpha\) up to a positive scalar, as in Section~\ref{sec:ig-embedding}.
+
+% -----------------------------------------------------------------------------------------------------
+
+\subsection{Learning by edge divergence minimization}
+
+Given a model class \(\{K_\theta\}\) on \(Y\) (or a latent class pushed forward to \(Y\)), we estimate parameters by solving
+\[
+  \widehat{\theta}
+  \;\in\;
+  \arg\min_{\theta}
+  \widehat{D}_f^\nu\bigl(K_Y,K_\theta\bigr)
+  \;=\;
+  \arg\min_{\theta}
+  \widehat{D}_f\bigl(\Gamma_Y,\Gamma_Z\bigr),
+\]
+where \(D_f\) is any smooth Csiszár divergence (for example an \(\alpha\)–divergence), and \(\widehat{D}_f\) is an empirical divergence estimator based on \(\widehat{\Gamma}_{\text{data}}\) and the model stepwise marginal \(\Gamma_Z\).
+
+Under mild regularity, the empirical divergence admits a second-order expansion near an optimum:
+\[
+  \widehat{D}_f^\nu\bigl(K_Y,K_{\theta+\delta\theta}\bigr)
+  \;\approx\;
+  \frac{1}{2}\,\delta\theta^\top I_f(\theta)\,\delta\theta,
+\]
+where \(I_f(\theta)\) is the Fisher information of the stepwise marginal viewed as a statistical model in \(\theta\). This supplies a natural Riemannian gradient and intrinsic learning-rate control.
+
+For \(f(u)=u\log u\) (forward KL), the objective reduces to the KL-based edge action
+\[
+  \widehat{\mathcal{A}}
+  \;:=\;
+  \widehat{D}_{\mathrm{KL}}^\nu\bigl(K_Y,K_\theta\bigr),
+\]
+which serves as a single-number measure of model deficiency. Block bootstrapping over time windows yields confidence intervals for \(\widehat{\mathcal{A}}\) and, in particular, tests whether it is statistically distinguishable from zero (an empirical Rose condition at the chosen resolution).
+
+% -----------------------------------------------------------------------------------------------------
+
+\subsection{Local geometry via pullback Fisher}
+
+Once we fix a smooth divergence \(D_f\), its second-order expansion induces a Fisher--Rao metric \(g\) on the statistical manifold of stepwise marginals, as in Section~\ref{sec:ig-embedding}. For conditional Gaussian kernels
+\[
+  K_\theta(y) \equiv \mathcal{N}\!\bigl(\mu_\theta(y),\Sigma_\theta(y)\bigr),
+\]
+the Fisher metric of the induced stepwise marginal pulls back to
+\[
+  g_\theta(y) 
+  =
+  (\partial_y\mu_\theta)^\top\Sigma_\theta^{-1}(\partial_y\mu_\theta)
+  \;+\;
+  \frac{1}{2}\,
+  \Sigma_\theta^{-1}(\partial_y\Sigma_\theta)\,\Sigma_\theta^{-1}(\partial_y\Sigma_\theta),
+\]
+which can be estimated nonparametrically from data or evaluated analytically for parametric models.
+
+Given a partition \((A,B)\) of the coordinates or lags of \(Y\)---for example, \(A\) and \(B\) corresponding to different spatial regions, different sensors, or different delay blocks---we estimate the Fisher curvature across the cut via
+\[
+  \mathcal{F}
+  \;=\;
+  g^{AB} - \bigl(g^A \oplus g^B\bigr),
+\]
+using finite-sample block approximations of the joint and marginal Fisher metrics, as in Section~\ref{sec:embedding_fidelity}. When \(\widehat{\mathcal{F}}\approx 0\) the model exhibits geometric fidelity across the cut (no irreducible coupling); when \(\widehat{\mathcal{F}}\succ 0\), excess curvature indicates hidden dependence, nonlinear mixing, or irreducible process noise.
+
+Importantly, once \(D_f\) is fixed, the Fisher geometry and \(\mathcal{F}\) are independent of how we \emph{interpret} the cut (latent vs observed, two coupled subsystems, etc.) and independent of which \(\alpha\) we regard as philosophically privileged: they are stance–neutral structural diagnostics of how a proposed decomposition of \(Y\) behaves.
+
+% -----------------------------------------------------------------------------------------------------
+
+\subsection{Learning and locality exponents \texorpdfstring{$(\zeta,\eta)$}{(zeta, eta)}}
+
+By fitting models (or nonparametric stepwise marginals) at multiple sample sizes \(n\) and locality scales \(h\) (bandwidths or neighborhood radii), we can probe scaling laws of the edge action:
+\[
+  \widehat{\zeta}
+  =
+  \frac{\mathrm d\log \widehat{\mathcal{A}}}{\mathrm d\log n},
+  \qquad
+  \widehat{\eta}
+  =
+  \frac{\mathrm d\log \widehat{\mathcal{A}}}{\mathrm d\log h}.
+\]
+Under classical minimax theory for \(s\)-smooth, \(d\)-dimensional kernels, this suggests the
+dictionary
+\[
+  \zeta \approx \frac{2s}{2s+d},
+  \qquad
+  \eta \approx 2s,
+\]
+revealing an effective smoothness \(s\) and dimension \(d\) of the transport operator. These exponents do not assume any specific generative model and are therefore model-agnostic diagnostics of signal complexity and operator regularity.
+
+% =========================================================
+
+\newpage
+
+ \section{Conclusion}
+
+We have proposed a neutral operator framework for the information geometry of dynamical systems that takes the observed stepwise marginal
+\[
+  \Gamma_Y \in \mathcal P(Y \times Y)
+\]
+as the empirical starting point. All subsequent structure—latent state spaces, observation maps, and candidate generators—is expressed as factorizations or liftings that reproduce (or fail to reproduce) $\Gamma_Y$ when pushed forward to $Y \times Y$. In particular, a latent system $(X,\Gamma_X,h)$ is treated as one possible way of writing
+\[
+  \Gamma_Y \approx (h \times h)_{\sharp}\Gamma_X,
+\]
+rather than as a privileged hidden ontology.     
+
+\medskip
+\noindent
+\textbf{Three levels of fidelity from observations.}
+We organized reconstruction around a three-level hierarchy,
+\begin{center}
+\textbf{(i) Topological} $\Rightarrow$ \textbf{(ii) Measure} $\Rightarrow$ \textbf{(iii) Geometric},
+\end{center}
+the Rose–Takens–Fisher ladder from $Y$. Topological fidelity concerns the existence of an embedding that recovers orbits up to diffeomorphism (Takens) by way of Fisher immersions of the conditional-law manifold. Measure fidelity is the Rose condition: vanishing edge divergence $D_f(\Gamma_Y\Vert \Gamma_Z) = 0$, which is equivalent to measure conjugacy of one-step transport and can be tested empirically via an edge action with confidence intervals. Geometric fidelity is expressed by the additivity of Fisher information across cuts; its failure, quantified by the excess Fisher curvature
+\[
+  F \;=\; g^{AB} - (g^A \oplus g^B),
+\]
+reveals irreducible coupling that no local additive model can remove. The IG-embedding theorem shows that, when a data-driven representation and a latent factorization realize the same conditional-law manifold, they are related by a Fisher-isometric diffeomorphism, so Takens-type embedding sits naturally at the top of this ladder.
+
+Crucially, all three levels can be instantiated purely at the level of $\Gamma_Y$ on $Y \times Y$ and its candidate approximations $\Gamma_Z$. Latent variables enter only through factorizations that must pass these same tests after pushforward.
+
+\medskip
+\noindent
+\textbf{Neutral operators and $\alpha$-stances.}
+By elevating stepwise marginals to the primary objects, we blurred the traditional distinction between maps on states and operators on observables: both arise as marginals or disintegrations of a single joint measure. This yields a neutral transport category in which morphisms are stepwise marginals, composition is gluing of joint measures along compatible marginals, and convergence or model deficiency is measured by divergences on morphisms.
+
+Within this category, Csiszár–Amari $\alpha$-divergences on stepwise marginals encode different empirical stances without changing the underlying structural tests. Forward KL ($\alpha = 1$) gives a more realist reading, in which a single generator is judged by how well it explains the empirical stepwise marginal. Reverse KL ($\alpha = -1$) gives a more constructive or instrumentalist reading, emphasizing compact models that avoid placing mass where the data do not. Symmetric or near-symmetric choices ($\alpha \approx 0$) emphasize structural agreement between model and data. Yet all these divergences share the same zero set:
+\[
+  D_\alpha(\Gamma_Y\Vert \Gamma_Z) = 0
+  \quad\Longleftrightarrow\quad
+  \Gamma_Y = \Gamma_Z \;\text{(a.e.)},
+\]
+and induce the same Fisher geometry up to scale. In this sense the Rose condition and Fisher curvature are \emph{stance-neutral}: they detect structural equivalence or excess coupling regardless of how we choose to grade approximate models.
+
+\medskip
+\noindent
+\textbf{Diagnostics and operator learning.}
+On the practical side, we described a learning pipeline that: (i) estimates $\widehat{\Gamma}_{\mathrm{data}}$ from time series data; (ii) fits model stepwise marginals $\Gamma_Z$ (either directly on $Y$ or via latent factorizations); (iii) minimizes an empirical edge divergence to obtain an edge action $\widehat{\mathcal A}$ as a one-number certificate of the Rose condition; (iv) pulls back the Fisher metric to obtain curvature diagnostics across cuts; and (v) extracts locality and learning exponents $(\zeta,\eta)$ from scaling studies in sample size and resolution, yielding effective smoothness and dimension for the transport operator.
+
+The key point is that these diagnostics depend only on the observational stepwise marginal and its approximations. They do not presuppose a particular philosophical reading of latent structure, but they \emph{constrain} which latent decompositions are geometrically and statistically tenable: decompositions that would imply near-block-additivity or strong curvature can be ruled in or out by estimating $F$ from data.
+
+\medskip
+\noindent
+\textbf{Conceptual implications and outlook.}
+Conceptually, the framework suggests that reconstruction problems are best posed at the level of transport between probability laws, rather than at the level of states alone. Fidelity is not a single property but a ladder: topological correctness ensures that trajectories are not torn; measure fidelity ensures that transport is recovered; geometric fidelity ensures that local inferential structure and information balance are preserved. These distinctions mirror familiar separations between trajectories, measures, and information geometry in physics and statistics, but they are here unified in a single object, the stepwise marginal and its conditional-law manifold.
+
+Philosophically, the neutral operator framework accommodates constructive-empiricist, scientific-realist, and structural-realist perspectives as different ways of decomposing the same $\Gamma_Y$ into latent and observed parts. The choice of $\alpha$-divergence encodes how strictly we judge candidate decompositions, while Fisher curvature and the Rose condition provide stance-neutral constraints on which decompositions can be sustained by data.
+
+\medskip
+\noindent
+\textbf{Future work.}
+Several directions follow naturally. One is to develop curvature-based model selection criteria that balance representational richness against excess Fisher curvature, providing a structural regularizer for operator learning. Another is to deepen the connection with control, Schrödinger bridges, and free-energy formulations, viewing them as special choices of divergence and constraint within the same neutral category. A third is to extend the diagnostics to high-dimensional and multi-view settings, where different cuts of $\Gamma_Y$ correspond to different experimental modalities.
+
+We view this synthesis as a step toward an empirical information geometry of dynamics, in which learning, reconstruction, and philosophical stance are all formulated as questions about how faithfully one stepwise marginal can stand in for another.
+
+% =========================================================
+
+\part{Applications}
+
+% =========================================================
+
+\section{Domain Sketches}
+
+\subsection{Gaussian low-noise limit and least physical action}
+
+Although our framework is formulated entirely in terms of stepwise marginals and divergences, a familiar object from physics reappears in a simple limit: under a Gaussian local model and small noise, the summed \emph{least-information action} reduces to a quadratic path functional of Lagrangian type.
+
+For concreteness, discretize time with step $\Delta t$ and suppose the model kernel is locally Gaussian,
+\[
+	K_\theta(y,\mathrm dy')
+	\;\approx\;
+	\mathcal N\!\big(
+	y' \,;\,
+	y + \mu_\theta(y)\,\Delta t,\;
+	\Sigma(y)\,\Delta t
+	\big),
+\]
+so that the empirical process admits an approximation
+\(
+	Y_{t+\Delta t} = Y_t + \mu_{\text{data}}(Y_t)\,\Delta t + \xi_t
+\)
+with $\xi_t$ a small Gaussian noise. Take the edge divergence to be the forward KL,
+\[
+	\mathcal A_{\Delta t}(\theta)
+	\;:=\;
+	\sum_{t=0}^{T/\Delta t -1}
+	\KL\big(
+  	\Gamma_Y^{(t)}
+  	\,\big\|\,
+  	\Gamma_{K_\theta}^{(t)}
+	\big),
+\]
+where each term compares the empirical and model one-step stepwise marginals at time $t$.
+
+A standard Gaussian KL calculation yields, up to constants independent of $\theta$,
+
+\[
+	\KL\big(
+ 	\Gamma_Y^{(t)}
+  	\,\big\|\,
+  	\Gamma_{K_\theta}^{(t)}
+	\big)
+	\;\approx\;
+	\frac{\Delta t}{2}\;
+	\E\Big[
+  	\big\|
+   	\dot Y_t - \mu_\theta(Y_t)
+  	\big\|^2_{\Sigma(Y_t)^{-1}}
+	\Big],
+\]
+where $\dot Y_t \approx (Y_{t+\Delta t}-Y_t)/\Delta t$ and $\|v\|^2_{\Sigma^{-1}} = v^\top \Sigma^{-1} v$. Summing over $t$ and letting $\Delta t\to 0$ we obtain a Riemann-sum limit,
+\[
+	\mathcal A_{\Delta t}(\theta)
+	\;\to\;
+	\mathcal A_{\mathrm{path}}(\theta)
+	\;:=\;	
+	\frac12\;
+	\E\!\int_0^T
+ 	\big\|
+    	\dot Y_t - \mu_\theta(Y_t)
+  	\big\|^2_{\Sigma(Y_t)^{-1}}
+	\,\mathrm dt
+	\;+\;\text{const},
+\]
+a quadratic path functional of Onsager--Machlup type. In other words, in the Gaussian low-noise regime, minimizing the edge-level information action is equivalent to minimizing a least-action functional with Lagrangian
+\[
+	L_\theta(y,\dot y)
+	\;=\;
+	\tfrac12\,\big\| \dot y - \mu_\theta(y) \big\|^2_{\Sigma(y)^{-1}}.
+\]
+
+\begin{remark}[Bridge to classical least action]
+For diffusion processes $\,\mathrm dY_t = b(Y_t)\,\mathrm dt + \sigma\,\mathrm dW_t$, changing the drift from $b$ to $b+u$ induces a path-space KL equal to $\tfrac12\E\int_0^T \|u_t\|^2_{(\sigma\sigma^\top)^{-1}}\,\mathrm dt$ (Girsanov). In the vanishing-noise limit, the most-probable paths extremize the quadratic action $\int L_\theta\,\mathrm dt$, recovering classical Euler--Lagrange equations. Our construction shows that this least-action principle can be viewed as a special case of least \emph{information} action on stepwise marginals, rather than an independent postulate.
+\end{remark}
+
+% =========================================================
+
+\subsection{Schrödinger bridges as constrained least-information action}
+\label{app:schrodinger-bridge}
+
+The Schrödinger Bridge (SB) problem provides a canonical way to deform a reference Markov dynamics so as to match prescribed endpoint distributions while staying as close as possible (in relative-entropy sense) to the reference law. In our setting it appears as a \emph{constrained} least-information action problem on path laws, and reduces, in discrete time, to a constrained sum of edge-level KL divergences.
+
+\paragraph{Setup.}
+Fix a time horizon $T\in\mathbb N$ and a reference Markov kernel $K^0$ on a state space $X$, with invariant (or stationary) measure $\mu^0$. The induced reference path law on $(X_0,\dots,X_T)\in X^{T+1}$ is
+\[
+	R(\mathrm dx_{0:T})
+	\;=\;
+	\mu^0(\mathrm dx_0)\, K^0(x_0,\mathrm dx_1)\cdots K^0(x_{T-1},\mathrm dx_T).
+\]
+Let $(\mu_0,\mu_T)$ be prescribed initial and final marginal laws on $X$. We seek a Markov path law $P$ with the same time index set and state space such that
+\[
+	P_0 = \mu_0,
+	\qquad
+	P_T = \mu_T,
+\]
+and which is as close as possible to $R$ in KL divergence:
+\[
+	P^\star
+	\;\in\;
+	\arg\min_{P\ \text{Markov}}
+	\Big\{
+  	\KL(P\|R)
+  	\,:\,
+  	P_0=\mu_0,\,P_T=\mu_T
+	\Big\}.
+\]
+This is the (dynamic) Schrödinger Bridge problem.
+
+\paragraph{Path KL as sum of edge-level divergences.}
+Any Markov path law $P$ can be written as
+\[
+	P(\mathrm dx_{0:T})
+	\;=\;
+	\mu(\mathrm dx_0)\,K_0(x_0,\mathrm dx_1)\cdots K_{T-1}(x_{T-1},\mathrm dx_T),
+\]
+with possibly time-inhomogeneous kernels $K_t$ and initial marginal $\mu$. The corresponding stepwise marginals are
+\[
+	\Gamma_t(\mathrm dx_t,\mathrm dx_{t+1})
+	\;=\;
+	\mu_t(\mathrm dx_t)\,K_t(x_t,\mathrm dx_{t+1}),
+	\qquad
+	\mu_t := P(X_t\in\cdot),
+\]
+and similarly for the reference law,
+\(
+	\Gamma^0_t(\mathrm dx_t,\mathrm dx_{t+1})
+	=
+	\mu^0_t(\mathrm dx_t)\,K^0(x_t,\mathrm dx_{t+1})
+\).
+
+A standard chain-rule calculation for relative entropy on Markov chains yields the decomposition
+\[
+	\KL(P\|R)
+	\;=\;
+	\KL(\mu_0\|\mu_0^0)
+	\;+\;
+	\sum_{t=0}^{T-1}
+	\E_P\Big[
+ 	\KL\big(
+	K_t(\cdot\mid X_t)\,\big\|\,K^0(\cdot\mid X_t)
+  	\big)
+	\Big].
+\]
+Equivalently, in terms of stepwise marginals,
+\[
+	\KL(P\|R)
+	\;=\;
+	\KL(\mu_0\|\mu_0^0)
+	\;+\;
+	\sum_{t=0}^{T-1}
+	\KL\!\big(
+  	\Gamma_t \,\big\|\, \Gamma^0_t
+	\big),
+\]
+where the second term is a \emph{sum of edge-level KL divergences} between the candidate dynamics and the reference dynamics, evaluated at each time step $t$.
+
+Thus, apart from the initial-marginal term, the Schrödinger objective is precisely a \emph{pathwise} least-information action, aggregating edge-level KLs.
+
+\paragraph{Constrained least-information action.}
+In our notation, the SB problem can be written as
+\[
+	P^\star
+	\;\in\;
+	\arg\min_{P}
+	\left\{
+  	\sum_{t=0}^{T-1}
+    	\KL\!\big(\Gamma_t \,\big\|\, \Gamma^0_t\big)
+  	\ :\
+  	P_0=\mu_0,\ P_T=\mu_T,\ P\ \text{Markov}
+	\right\},
+\]
+that is, \emph{minimize the sum of edge actions subject to endpoint constraints and Markov structure}. The Markov and marginal constraints couple the $\Gamma_t$ across time, but the cost still decomposes as a sum over edges.
+
+The solution has the well-known \emph{Schrödinger system} form: there exist positive space-time potentials $(\varphi_t,\hat\varphi_t)$ such that the optimal path law is the $(\varphi,\hat\varphi)$-tilted version of $R$,
+\[
+	\frac{\mathrm dP^\star}{\mathrm dR}(x_{0:T})
+	\;\propto\;
+	\varphi_0(x_0)\,\hat\varphi_T(x_T),
+\]
+and the corresponding optimal kernels are given by a Doob $h$-transform of $K^0$:
+\[
+	K_t^\star(x,\mathrm dy)
+	\;=\;
+	\frac{\hat\varphi_{t+1}(y)}{\hat\varphi_t(x)}
+	\,K^0(x,\mathrm dy),
+\]
+with $(\varphi_t,\hat\varphi_t)$ determined by forward/backward Schrödinger equations enforcing $P^\star_0=\mu_0$ and $P^\star_T=\mu_T$.
+
+\paragraph{Relation to optimal transport and neutral operators.}
+In the small-noise and small-step limit, the SB problem converges to a dynamic optimal transport problem with quadratic cost; the path KL minimization converges to a Benamou--Brenier least-action formulation on continuous paths. From the present viewpoint:
+
+\begin{itemize}[leftmargin=1.5em]
+\item The reference dynamics $R$ is a neutral \emph{baseline stepwise marginal} 
+(and associated path law).
+
+\item Schrödinger bridges are the \emph{closest} (in KL) alternative
+  joint laws on paths that realize prescribed endpoint marginals while
+  keeping each stepwise marginal $\Gamma_t$ as close as possible to
+  $\Gamma^0_t$.
+  
+\item The SB solution therefore realizes a constrained form of
+  least-information action at the path level, entirely compatible with
+  our edge-law perspective: we are not changing the “type” of object
+  (still joint laws), only restricting admissible couplings via
+  endpoint and Markov constraints.
+\end{itemize}
+
+In summary, Schrödinger bridges can be read within our framework as \emph{entropic least-action bridges} between marginals: they solve a pathwise Rose-type problem (KL on joint laws) with endpoint constraints, and recover dynamic optimal transport in the same small noise / continuum limit that connects least-information action to classical least physical action.
+
+% =========================================================
+
+\subsection{Free energy principle as edge-divergence minimization}
+\label{app:fep}
+
+The free energy principle (FEP) and variational Bayesian inference can be read as a special case of our edge-divergence framework on path space. This subsection gives a brief dictionary.
+
+\paragraph{Generative and recognition dynamics.}
+Let $(X_t,Y_t)_{t=0}^T$ be latent and observed variables with a Markovian generative model
+\[
+p_\theta(x_{0:T},y_{0:T})
+\;=\;
+\mu_\theta(x_0)\,\prod_{t=0}^{T-1} K_\theta(x_{t+1}\mid x_t)\,L_\theta(y_t\mid x_t),
+\]
+where $K_\theta$ is the latent state transition kernel and $L_\theta$ the emission (likelihood) kernel. Given a fixed observed path $y_{0:T}$, the \emph{posterior path law} is
+\[
+p_\theta(x_{0:T}\mid y_{0:T})
+\;\propto\;
+\mu_\theta(x_0)\,\prod_{t=0}^{T-1} K_\theta(x_{t+1}\mid x_t)\,L_\theta(y_t\mid x_t).
+\]
+
+The FEP introduces a \emph{recognition} (or variational) path law $q_\phi(x_{0:T}\mid y_{0:T})$ and defines the \emph{variational free energy}
+\[
+\mathcal{F}_{\mathrm{VFE}}(\phi,\theta;y_{0:T})
+\;:=\;
+\mathbb{E}_{q_\phi}\big[\log q_\phi(x_{0:T}\mid y_{0:T}) - \log p_\theta(x_{0:T},y_{0:T})\big].
+\]
+A standard identity gives
+\[
+\mathcal{F}_{\mathrm{VFE}}(\phi,\theta;y_{0:T})
+\;=\;
+\mathrm{D}_{\mathrm{KL}}\!\big(q_\phi(x_{0:T}\mid y_{0:T})
+\;\big\|\;
+p_\theta(x_{0:T}\mid y_{0:T})\big)
+\;-\;
+\log p_\theta(y_{0:T}),
+\]
+so for fixed data $y_{0:T}$ the evidence term $-\log p_\theta(y_{0:T})$ is a constant and minimizing $\mathcal{F}_{\mathrm{VFE}}$ is equivalent to minimizing a KL divergence between \emph{path-space} laws.
+
+\paragraph{Path-space stepwise marginals.}
+Our framework works at the level of \emph{stepwise marginals} on $(X_t,X_{t+1})$ and $(Y_t,Y_{t+1})$. For the generative model we can define the latent stepwise marginal
+\[
+\Gamma_{X,\theta}(\mathrm dx_t,\mathrm dx_{t+1})
+\;=\;
+\nu_\theta(\mathrm dx_t)\,K_\theta(x_{t+1}\mid x_t),
+\]
+where $\nu_\theta$ is the marginal law of $X_t$ under $p_\theta(\cdot\mid y_{0:T})$ or its stationary approximation. The recognition density $q_\phi$ similarly induces an approximate latent stepwise marginal
+\[
+\Gamma_{X,\phi}(\mathrm dx_t,\mathrm dx_{t+1})
+\;=\;
+\tilde\nu_\phi(\mathrm dx_t)\,\tilde K_\phi(x_{t+1}\mid x_t),
+\]
+obtained by disintegrating $q_\phi(x_{0:T}\mid y_{0:T})$ into a marginal $\tilde\nu_\phi$ and a conditional kernel $\tilde K_\phi$ along the path.
+
+On path space, $\mathcal{F}_{\mathrm{VFE}}$ is a KL divergence between \emph{trajectory} measures. Under standard Markov factorizations, this decomposes into a sum of edge-level KL terms,
+\[
+\mathcal{F}_{\mathrm{VFE}}(\phi,\theta;y_{0:T})
+\;\approx\;
+\sum_{t=0}^{T-1}
+\mathrm{D}_{\mathrm{KL}}\!\big(
+\Gamma_{X,\phi}^{(t)} \,\big\|\, \Gamma_{X,\theta}^{(t)}
+\big)
+\;+\; \text{(emission terms)} 
+\;+\; \text{const},
+\]
+where $\Gamma^{(t)}$ denotes the stepwise marginal at time $t$. Thus, in the Gaussian / Markov and weakly time-inhomogeneous regime, minimizing free energy is approximately minimizing a sum of edge divergences between recognition and generative kernels, plus emission divergences.
+
+\paragraph{Relation to the Rose condition.}
+The Rose condition demands that an \emph{empirical} stepwise marginal $\Gamma_Y$ and a \emph{model} stepwise marginal $\Gamma_Z$ satisfy
+\[
+\mathrm{D}_f\!\big(\Gamma_Y \,\big\|\, \Gamma_Z\big) = 0
+\quad\Longleftrightarrow\quad
+\Gamma_Y = \Gamma_Z.
+\]
+FEP replaces the intractable posterior path law with a tractable $q_\phi$, and enforces \emph{approximate} equality by minimizing
+\[
+\mathrm{D}_{\mathrm{KL}}\!\big(q_\phi(x_{0:T}\mid y_{0:T}) \,\big\|\, p_\theta(x_{0:T}\mid y_{0:T})\big).
+\]
+If $q_\phi$ is expressive enough and $\mathcal{F}_{\mathrm{VFE}}$ is driven close to its evidence lower bound, then the recognition-induced stepwise marginals $\Gamma_{X,\phi}$ approximate the posterior-induced stepwise marginals of the generative model. In this sense, successful variational free energy minimization enforces an \emph{approximate Rose condition on path space}: the recognition dynamics reproduce the same one-step transport as the posterior generative dynamics, at least in the KL sense.
+
+\paragraph{Least-information action and small-noise limits.}
+In Gaussian and small-noise limits, the contribution of each edge KL term admits a quadratic expansion under the Fisher--Rao metric. Summing these along the path yields a discrete-time analogue of a quadratic action functional, which in our framework is interpreted as a \emph{least-information action}: the path that minimizes cumulative edge divergence (subject to the recognition family) best matches the observed data. Standard continuum limits then connect FEP-style objectives to Onsager--Machlup functionals and, via our edge divergence viewpoint, to the least-information action discussed elsewhere in this appendix.
+
+\paragraph{Empirical stance.}
+Finally, the FEP does not require committing to any particular ontology for latent states. In our neutral operator language, both the generative and recognition models are just families of stepwise marginals on path space. A realist reading treats $X_t$ as hidden causes; a constructive empiricist reading treats them as convenient coordinates for organizing edge statistics; and a structural realist reading focuses on the invariants of the induced transport. In all three cases, variational free energy minimization is simply one particular scheme for approximating the Rose condition at the level of trajectory couplings.
+
+% =========================================================
+
+\subsection{Mean-field theories as divergence projections and curvature diagnostics}
+\label{app:mean-field}
+
+Mean-field theories arise across domains (statistical physics, neuroscience, ecology) whenever a high-dimensional interacting system is approximated by a low-dimensional \emph{order parameter} driven by an effective field. In the neutral operator framework, this structure can be expressed entirely at the level of stepwise marginals and their information geometry, without committing to a particular microscopic ontology.
+
+\paragraph{Microscopic stepwise marginal and coarse-graining.}
+Let $X$ denote a single-component state space and consider an $N$-component system with state $X_t = (X_t^{(1)},\dots,X_t^{(N)}) \in X^N$. Its one-step dynamics are encoded by a microscopic stepwise marginal
+\[
+\Gamma_N \;=\; \nu_N \otimes K_N \;\in\; \mathcal P(X^N \times X^N),
+\]
+where $\nu_N$ is the source law at time $t$ and $K_N$ the one-step kernel on $X^N$.
+
+A \emph{coarse-graining} or order parameter is a measurable map
+\[
+\pi \colon X^N \to Z,
+\]
+such as an empirical mean, density, or low-dimensional moment vector. The induced macroscopic stepwise marginal on $Z$ is purely a pushforward of $\Gamma_N$:
+\[
+\Gamma_Z \;:=\; (\pi \times \pi)_{\push} \Gamma_N \;\in\; \mathcal P(Z \times Z).
+\]
+No approximation has yet been made: $\Gamma_Z$ is simply the best possible description, in the sense of stepwise marginals, of the coarse-grained dynamics.
+
+\paragraph{Mean-field models as submanifolds of stepwise marginals.}
+A mean-field theory specifies a restricted family of candidate macroscopic stepwise marginals
+\[
+\big\{\Gamma_Z^{\mathrm{MF}}(\theta)\big\}_{\theta \in \Theta}
+\;\subset\;
+\mathcal P(Z\times Z),
+\]
+intended to capture an ``effective field'' seen by a typical component or order parameter. Typically this family encodes structural constraints such as exchangeability, factorization across components, or low-rank dependence on a small parameter vector $\theta$.
+
+In the neutral operator view, this is just a chosen statistical submanifold of stepwise marginals on $Z\times Z$. The mean-field approximation is then the $f$-divergence projection
+\[
+\theta^\ast
+\;\in\;
+\arg\min_{\theta \in \Theta}
+D_f\!\big(\Gamma_Z \,\big\|\, \Gamma_Z^{\mathrm{MF}}(\theta)\big).
+\]
+For $f(u)=u\log u$, this recovers the familiar variational / free-energy mean-field objective; for general $f$ it is the Rose-style edge divergence restricted to the mean-field submanifold. If the minimum is zero, the mean-field family contains the true induced macroscopic stepwise marginal and the Rose condition holds within that family:
+\[
+D_f\!\big(\Gamma_Z \,\big\|\, \Gamma_Z^{\mathrm{MF}}(\theta^\ast)\big)=0
+\quad\Longleftrightarrow\quad
+\Gamma_Z = \Gamma_Z^{\mathrm{MF}}(\theta^\ast).
+\]
+
+\paragraph{Fisher curvature and the validity of mean-field structure.}
+The Fisher metric $g$ of an stepwise marginal family provides a local diagnostic of mean-field structure. Consider a partition $(A,B)$ of the system into a \emph{component} (or small block) $A$ and an \emph{effective field} $B$ (for instance, a single coordinate versus the rest, either at the microscopic level $X^N$ or in the coarse-grained space $Z$). Let $g^{AB}$ denote the Fisher metric of the joint stepwise marginal on $(A,B)$, and $g^A \oplus g^B$ the block-sum of the marginal Fisher metrics. The Fisher curvature across this cut is
+\[
+\mathcal F^{AB}
+\;:=\;
+g^{AB} \;-\; \big(g^A \oplus g^B\big).
+\]
+
+A strict mean-field picture across the partition $(A,B)$ would entail approximate block-additivity of the Fisher information,
+\[
+\mathcal F^{AB} \;\approx\; 0,
+\]
+indicating that, at the scale of the chosen parameters, the component behaves as if it interacts only with an effective field summarized by $B$, with no irreducible multi-component coupling. Conversely, persistent excess Fisher curvature
+\[
+\mathcal F^{AB} \succ 0 \quad \text{(in Loewner order)}
+\]
+signals genuinely collective modes or correlations that cannot be captured by any independent-component ansatz across this cut.
+
+Thus, in this framework:
+\begin{itemize}[leftmargin=1.6em]
+  \item the \emph{global} goodness of a mean-field model is measured by the edge divergence $D_f(\Gamma_Z \,\|\, \Gamma_Z^{\mathrm{MF}}(\theta^\ast))$, and
+  \item the \emph{local} structural adequacy of the mean-field factorization across a partition $(A,B)$ is probed by the curvature tensor $\mathcal F^{AB}$.
+\end{itemize}
+
+\paragraph{Purely observational diagnostics from $Y$.}
+In applications we typically observe only a time series in some space $Y$, not an explicit microscopic state. The neutral operator framework allows us to treat $Y$ itself as the order parameter:
+\begin{enumerate}[leftmargin=1.6em]
+  \item Estimate the empirical stepwise marginal $\widehat{\Gamma}_Y$ from the time series $\{Y_t\}$.
+  \item Specify a mean-field model class $\{\Gamma_Y^{\mathrm{MF}}(\theta)\}$ on $Y\times Y$ (for instance, locally linear Gaussian kernels with simple dependence structure).
+  \item Fit $\theta^\ast$ by minimizing the empirical edge divergence
+  \[
+  \widehat{\mathcal A}_{\mathrm{MF}}
+  \;:=\;
+  \widehat D_f\!\big(\widehat{\Gamma}_Y \,\big\|\, \Gamma_Y^{\mathrm{MF}}(\theta)\big),
+  \]
+  with block-bootstrap confidence intervals as in the main text.
+  \item If $Y$ is vector-valued, form cuts $(A,B)$ over coordinates or blocks in $Y$ and approximate the Fisher metrics $g^A,g^B,g^{AB}$ of the fitted stepwise marginal, yielding empirical curvature estimates $\widehat{\mathcal F}^{AB}$.
+\end{enumerate}
+Small $\widehat{\mathcal A}_{\mathrm{MF}}$ and $\widehat{\mathcal F}^{AB}\approx 0$ across relevant partitions provide evidence that the observed dynamics are well-described by an effective mean-field theory at the scales encoded in $Y$. Large edge divergence or pronounced excess curvature signal a breakdown of the mean-field picture and the presence of richer collective structure. Crucially, this diagnosis is formulated entirely in terms of observed stepwise marginals on $Y$, and does not require any explicit microscopic model.
+
+% =========================================================
+
+\subsection{Persistent Fisher Curvature as an Obstruction to Mean-Field RG}
+\label{sec:mf-obstruction}
+
+The previous subsection treated mean-field theories as model classes that enforce block-additivity of the Fisher information across a chosen partition $(A,B)$ (e.g.\ microscopic units vs.\ macroscopic field). Here we show how \emph{persistent excess Fisher curvature} across such a partition can be interpreted as a geometric obstruction: no sequence of coarse-grained mean-field models within a given renormalization architecture can converge (in Fisher--Rao distance) to the empirical stepwise marginal.
+
+\paragraph{Setup.}
+Let $\mathcal P$ denote a smooth statistical manifold of stepwise marginals $\Gamma$ endowed with the Fisher--Rao metric $g$ induced by a fixed $f$-divergence $D_f$. Fix a partition $(A,B)$ of the variables and recall the Fisher curvature tensor
+\[
+	\mathcal F^{AB}(\Gamma)
+	\;:=\;
+	g^{AB}(\Gamma) - \bigl(g^{A}(\Gamma) \oplus g^{B}(\Gamma)\bigr),
+\]
+where $g^{AB}$ is the Fisher metric of the joint stepwise marginal on $(A,B)$, and $g^A,g^B$ are the marginal Fisher metrics.
+
+A \emph{mean-field RG architecture} is specified by:
+\begin{itemize}[leftmargin=1.5em]
+  \item a model family $\mathcal M \subset \mathcal P$ of stepwise marginals that
+        satisfy block-additivity across $(A,B)$:
+        \[
+        \forall \Gamma \in \mathcal M,\qquad \mathcal F^{AB}(\Gamma) = 0;
+        \]
+  \item a collection $\mathcal C$ of admissible coarse-grainings
+        $C:(A,B)\to(A',B')$ (e.g.\ block-averaging, decimation, projection
+        to order parameters), each inducing a pushforward
+        $C_{\sharp}:\mathcal P\to\mathcal P$ that preserves the notion of
+        an $(A,B)$-type partition (possibly at a different scale).
+\end{itemize}
+
+The set of stepwise marginals that can be generated by this architecture is
+\[
+\mathcal M_{\mathrm{RG}}
+\;:=\;
+\bigl\{
+  C_{\sharp}\Gamma
+  \;:\;
+  \Gamma \in \mathcal M,\; C\in\mathcal C
+\bigr\}
+\;\subset\; \mathcal P.
+\]
+We denote by $d_{\mathrm{FR}}$ the geodesic distance associated with $g$ on $\mathcal P$ and write $\overline{\mathcal M_{\mathrm{RG}}}$ for the closure of $\mathcal M_{\mathrm{RG}}$ in the Fisher--Rao topology.
+
+\paragraph{A negative result.}
+We now formalize the intuitive claim from the main text: if every model in an RG/mean-field architecture is block-additive across $(A,B)$, then any Fisher--Rao limit point of such models must also be block-additive. In particular, a robustly nonzero empirical Fisher curvature across $(A,B)$ rules out approximation by that architecture.
+
+\begin{proposition}[Persistent curvature as RG obstruction]
+\label{prop:mf-obstruction}
+Assume:
+\begin{enumerate}[label=(\roman*),leftmargin=1.6em]
+  \item $\mathcal P$ is a smooth statistical manifold with Fisher--Rao
+        metric $g$, and the map
+        $\Gamma \mapsto \mathcal F^{AB}(\Gamma)$ is continuous in the
+        Fisher--Rao topology;
+  \item every $\Gamma \in \mathcal M$ is block-additive across $(A,B)$:
+        $\mathcal F^{AB}(\Gamma)=0$;
+  \item for each $C\in\mathcal C$, the pushforward $C_{\sharp}$ is
+        smooth and preserves the $(A,B)$-type structure in the sense
+        that $\mathcal F^{AB}(C_{\sharp}\Gamma)$ is well-defined and
+        depends smoothly on $\Gamma$.
+\end{enumerate}
+Let $\Gamma_Y\in\mathcal P$ be an empirical stepwise marginal. If there exists a sequence $\{\Gamma_n\}_{n\ge1} \subset \mathcal M_{\mathrm{RG}}$ with $d_{\mathrm{FR}}(\Gamma_n,\Gamma_Y) \to 0$, then
+\[
+	\mathcal F^{AB}(\Gamma_Y) = 0.
+\]
+Equivalently, if $\mathcal F^{AB}(\Gamma_Y)\neq 0$, then $\Gamma_Y \notin \overline{\mathcal M_{\mathrm{RG}}}$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+By definition of $\mathcal M_{\mathrm{RG}}$, each $\Gamma_n$ is of the form $\Gamma_n = C_{n\sharp}\tilde\Gamma_n$ with $\tilde\Gamma_n\in\mathcal M$ and $C_n\in\mathcal C$. Assumptions (ii) and (iii) imply $\mathcal F^{AB}(\Gamma_n)=0$ for all $n$. If $d_{\mathrm{FR}}(\Gamma_n,\Gamma_Y) \to 0$, then $\Gamma_n \to \Gamma_Y$ in the Fisher--Rao topology. By continuity of $\mathcal F^{AB}$ (assumption~(i)), we obtain
+\[
+\mathcal F^{AB}(\Gamma_Y)
+\;=\;
+\lim_{n\to\infty} \mathcal F^{AB}(\Gamma_n)
+\;=\;
+\lim_{n\to\infty} 0
+\;=\;
+0.
+\]
+The contrapositive gives the second statement.
+\end{proof}
+
+\paragraph{Interpretation.}
+Proposition~\ref{prop:mf-obstruction} says that, under mild regularity, any RG/mean-field architecture that enforces block-additive Fisher geometry across $(A,B)$ cannot approximate an empirical stepwise marginal with
+\emph{persistent} excess Fisher curvature across that partition.
+
+In concrete terms, suppose:
+\begin{itemize}[leftmargin=1.6em]
+  \item $(A,B)$ represents a microscopic/macroscopic, units/field, or
+        sites/mean partition relevant to a proposed mean-field model;
+  \item the empirical curvature $\mathcal F^{AB}(\Gamma_Y)$
+        is estimated to be positive semi-definite and robustly nonzero
+        across scales (within estimation error).
+\end{itemize}
+Then no sequence of models from the RG/mean-field architecture (no matter how we tune coupling parameters or block sizes within that family) can converge to $\Gamma_Y$ in Fisher--Rao distance. Geometrically, $\Gamma_Y$ lies at a strictly positive FR distance from the RG/mean-field manifold
+$\mathcal M_{\mathrm{RG}}$.
+
+\paragraph{Practical diagnostic.}
+Operationally, one can treat this as a \emph{negative} universality
+test. For a given RG/mean-field architecture:
+\begin{enumerate}[leftmargin=1.6em]
+  \item Fit the best model at a range of scales (block sizes, coarse-grained
+        variables), obtaining $\widehat\Gamma_n \in \mathcal M_{\mathrm{RG}}$.
+  \item Compute the minimal edge divergence (or approximate FR distance)
+        $\widehat D_f^{\min}(n)$ to $\Gamma_Y$ at each scale.
+  \item Estimate the empirical Fisher curvature
+        $\widehat{\mathcal F}^{AB}(\Gamma_Y)$, and track any
+        dependence on scale.
+\end{enumerate}
+If both $\widehat D_f^{\min}(n)$ and the norm of $\widehat{\mathcal F}^{AB}(\Gamma_Y)$ plateau away from zero as scale and model richness increase, this provides evidence that $\Gamma_Y \notin \overline{\mathcal M_{\mathrm{RG}}}$: no amount of coarse-graining within that mean-field universality class can fully explain the observed dynamics in the Fisher--Rao sense.
+
+From the standpoint of the main text, this is a direct application of Fisher curvature as a structural diagnostic: it distinguishes regimes where a mean-field description is \emph{in principle} adequate from those where additional structure (long-range dependence, non-Markovian memory, non-Gibbs interactions, or genuinely non-mean-field universality) is required.
+
+\newpage
+
+
+% =========================================================
+
+\appendix
+
+\section{Notation and conventions}
+
+We collect the main symbols used throughout the paper. Unless otherwise stated, equalities between kernels or stepwise marginals are always understood modulo null sets of the relevant source law.
+
+\paragraph{Time, processes, and state spaces.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item $t \in \mathbb{Z}$ indexes discrete time; we fix a sampling interval $\Delta t>0$ and take $\Delta t=1$ in notation.
+  \item $(Y_t)_{t\in\mathbb{Z}}$ is the observed process on a measurable space $(Y,\mathcal{B}_Y)$ with (possibly nonstationary) one-time marginal law $\nu_Y$; in stationary settings we write $\mu_Y$ for an invariant measure.
+  \item When a latent realization is posited, $(X_t)_{t\in\mathbb{Z}}$ is an internal or ``ideal'' process on $(X,\mathcal{B}_X)$ with invariant measure $\mu_X$.
+  \item A representation space $Z$ is any measurable space $(Z,\mathcal{B}_Z)$ obtained from $Y$ via a measurable map $r:Y\to Z$ (e.g.\ delay coordinates, learned latent codes, or hand-crafted features).
+\end{itemize}
+
+\paragraph{Kernels and stepwise marginals.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item A (one-step) Markov kernel on $Y$ is written $K_Y(y_0,\mathrm{d}y_1)$; on $X$ we write $K_X(x_0,\mathrm{d}x_1)$. For a parameterized family we write $K_\theta$, with parameter $\theta\in\Theta$.
+  \item Given a source law $\nu$ on a space $S$ and a kernel $K$ on $S$, the associated \emph{stepwise marginal} (or edge law) is
+  \[
+    \Gamma_K(\mathrm{d}s_0,\mathrm{d}s_1)
+    \;=\;
+    \nu(\mathrm{d}s_0)\,K(s_0,\mathrm{d}s_1)
+    \;\in\; \mathcal{P}(S\times S).
+  \]
+  \item The empirical stepwise marginal of the observed process is denoted
+  \(
+    \Gamma_Y
+    \in \mathcal{P}(Y\times Y)
+  \);
+  when no confusion arises we simply write $\Gamma$.
+  \item A latent stepwise marginal on $X\times X$ is written $\Gamma_X = \mu_X \otimes K_X$ or, in deterministic form,
+  \(
+    \Gamma_X = (\mathrm{id}_X\times F)_\sharp \mu_X
+  \)
+  for a map $F:X\to X$.
+  \item A representation $r:Y\to Z$ induces a stepwise marginal
+  \(
+    \Gamma_Z := (r\times r)_\sharp \Gamma_Y
+    \in \mathcal{P}(Z\times Z),
+  \)
+  with disintegration $\Gamma_Z = \nu_Z \otimes K_Z$ where $\nu_Z = r_\sharp\nu_Y$.
+\end{itemize}
+
+\paragraph{Observation maps, representations, and pushforwards.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item A classical observation map is a measurable $h:X\to Y$. For a measure $\mu_X$ on $X$, the pushforward is
+  \[
+    h_\sharp \mu_X(B) \;:=\; \mu_X\big(h^{-1}(B)\big),
+    \qquad B\in\mathcal{B}_Y.
+  \]
+  \item On pairs we use the product map $h\times h:X\times X\to Y\times Y$, acting on stepwise marginals by
+  \(
+    (h\times h)_\sharp \Gamma_X \in \mathcal{P}(Y\times Y).
+  \)
+  \item A \emph{representation} is any measurable $r:Y\to Z$. Its induced stepwise marginal is $\Gamma_Z=(r\times r)_\sharp\Gamma_Y$ as above. We do not assume $r$ is invertible; it is one of many possible coordinate choices for expressing the same stepwise marginal (or a coarse-grained version of it).
+  \item When both a latent factorization $(X,\Gamma_X,h)$ and a representation $r:Y\to Z$ realize the same conditional-law manifold, the IG-embedding theorem identifies a canonical map
+  \[
+    \varphi
+    \;:=\;
+    \bigl(\Phi_X|_{X_0}\bigr)^{-1}\!\circ\!\bigl(\Phi_Z|_{Z_0}\bigr)
+    \;:\;
+    Z_0 \to X_0,
+  \]
+  which is a diffeomorphism and Fisher isometry between the relevant supports $Z_0\subseteq Z$ and $X_0\subseteq X$.
+\end{itemize}
+
+\paragraph{Divergences and edge divergence.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item $D_f(P\|Q)$ denotes a Csiszár $f$-divergence between probability measures $P,Q$ on a common measurable space.
+  \item $D_{\mathrm{KL}}(P\|Q)$ is the Kullback--Leibler divergence. Csiszár--Amari $\alpha$-divergences $D_\alpha$ form a one-parameter family with a common zero set and (up to scale) common Fisher geometry.
+  \item The \emph{edge divergence} between kernels $K_1,K_2$ sharing a source law $\nu$ is
+  \[
+    D_f^{\nu}(K_1,K_2)
+    \;:=\;
+    D_f\!\bigl(\Gamma_{K_1}\,\big\|\,\Gamma_{K_2}\bigr),
+  \]
+  where $\Gamma_{K_i}(\mathrm{d}y_0,\mathrm{d}y_1)=\nu(\mathrm{d}y_0)K_i(y_0,\mathrm{d}y_1)$.
+  \item The empirical \emph{edge action} is an estimated divergence
+  \[
+    \widehat{\mathcal A}
+    \;:=\;
+    \widehat D_f^{\nu}\!\bigl(K_Y,K_{\text{model}}\bigr),
+  \]
+  with locality and large-sample limits denoted $\mathcal A_0$ and $\mathcal A_\infty$ when they exist.
+  \item The \emph{Rose condition} for a candidate stepwise marginal $\Gamma_Z$ is
+  \(
+    D_f(\Gamma_Y\|\Gamma_Z)=0,
+  \)
+  equivalently $\Gamma_Y=\Gamma_Z$ (a.e.).
+\end{itemize}
+
+\paragraph{Information geometry and conditional-law maps.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item On a smooth statistical manifold $\{p_\theta\}$, the Fisher information matrix induced by $D_f$ is
+  \[
+    I_f(\theta)_{ij}
+    \;=\;
+    \mathbb{E}_\theta\big[\partial_i \log p_\theta\,\partial_j \log p_\theta\big],
+  \]
+  and the associated Riemannian metric is denoted $g$ (Fisher--Rao metric), unique up to scale under monotone maps.
+  \item For a family of stepwise marginals $\{\Gamma_Z\}$ we write $I_f(\theta)$ or $g$ interchangeably, depending on whether we emphasize the matrix representation or the intrinsic metric.
+  \item A \emph{conditional-law map} for a representation $r:Y\to Z$ is
+  \[
+    \phi_Z^Y: Z \to \mathcal{P}(Y),\qquad z \mapsto K_Z(z,\cdot),
+  \]
+  whose image $\mathcal{M}_Z := \Phi_Z(Z)$ is a manifold (or stratified subset) of one-step laws on $Y$. A smooth divergence $D_f$ on $\mathcal{P}(Y)$ induces a Fisher metric $g$ on $\mathcal{M}_Z$, and its pullback
+  \(
+    g_Z := \Phi_Z^\ast g
+  \)
+  is the \emph{pullback Fisher} on $Z$.
+  \item When a latent factorization $(X,\Gamma_X,h)$ exists, we similarly write $\Phi_X:X\to\mathcal{P}(Y)$ for its conditional-law map and denote the pulled-back Fisher metric on $X$ by $g_X$.
+\end{itemize}
+
+\paragraph{Fisher curvature and cuts.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item For a partition of variables into $(A,B)$ (e.g.\ two sensor blocks of $Y$, or two coordinate blocks of a representation $Z$), let $g^{AB}$ denote the Fisher metric of the joint stepwise marginal on $(A,B)$, and $g^A,g^B$ the Fisher metrics of the marginals.
+  \item The \emph{Fisher curvature} (or Fisher load) across the cut $(A,B)$ is
+  \[
+    \mathcal{F}_{A,B}
+    \;:=\;
+    g^{AB} - \bigl(g^A \oplus g^B\bigr).
+  \]
+  \item Geometric fidelity across the cut means $\mathcal{F}_{A,B}=0$ (block-additive Fisher information); excess curvature $\mathcal{F}_{A,B}\succ 0$ signals irreducible coupling that cannot be removed by any smooth block-additive reparameterization.
+\end{itemize}
+
+\paragraph{Rates, exponents, and effective dimension.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item $\eta$ is the \emph{locality exponent}, defined from the scaling of excess edge action with locality scale $h$:
+  \[
+    \widehat{\mathcal A}(h) - \mathcal A_0 \;\propto\; h^{\eta}.
+  \]
+  \item $\zeta$ is the \emph{learning exponent}, defined from the scaling of excess action with effective sample size $n_{\mathrm{eff}}$:
+  \[
+    \widehat{\mathcal A}(n) - \mathcal A_\infty \;\propto\; n_{\mathrm{eff}}^{-\zeta},
+    \qquad n_{\mathrm{eff}} := n/\tau_{\mathrm{mix}}.
+  \]
+  \item $s>0$ denotes Hölder smoothness of the conditional kernel; $d$ is an (effective) dimension. In the classical minimax regime we use the dictionary
+  \[
+    \eta = 2s,
+    \qquad
+    \zeta = \frac{2s}{2s+d}.
+  \]
+  \item $\tau_{\mathrm{mix}}$ is an integrated autocorrelation time used to convert raw sample size $n$ into an effective sample size $n_{\mathrm{eff}}$.
+\end{itemize}
+
+\paragraph{Conventions.}
+\begin{itemize}[leftmargin=1.7em,itemsep=2pt,topsep=2pt]
+  \item We write $\sharp$ for pushforwards (e.g.\ $h_\sharp$ or $(h\times h)_\sharp$), and $\otimes$ for product measures.
+  \item When there is no risk of confusion, we omit explicit mention of dominating measures in densities and integrals.
+  \item All fidelity and curvature notions (Rose condition, Fisher immersions, Fisher curvature) are understood in the stance-neutral sense: they depend only on divergences through their common zero set and induced Fisher metric.
+\end{itemize}
+\newpage
+
+% =========================================================
+
+\section{Additional Figures}
+
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzcd}[row sep=3.5em, column sep=4.8em]
+    % Top row: state / representation spaces
+    X 
+      \arrow[d, "\Gamma_X"']
+      \arrow[r, "h"] 
+    & Y 
+      \arrow[d, "\Gamma_Y"']
+      \arrow[r, "r"] 
+    & Z 
+      \arrow[d, "\Gamma_Z"] 
+      \arrow[ll, dashed, bend right=18, "\varphi"'] \\[0.3em]
+    % Bottom row: stepwise marginals
+    \mathcal{P}(X \times X)
+      \arrow[r, "{(h \times h)_{\sharp}}"] 
+    & \mathcal{P}(Y \times Y)
+      \arrow[r, "{(r \times r)_{\sharp}}"] 
+    & \mathcal{P}(Z \times Z)
+  \end{tikzcd}
+  \caption{%
+  Neutral operator view. The empirical stepwise marginal $\Gamma_Y \in \mathcal{P}(Y\times Y)$ is treated as primitive. A classical latent dynamical story $(X,\Gamma_X,h)$ appears as one possible factorization, satisfying the Rose condition $(h\times h)_{\sharp}\Gamma_X = \Gamma_Y$ when it exists. Any data-driven representation $r:Y\to Z$ induces its own stepwise marginal $\Gamma_Z = (r\times r)_{\sharp}\Gamma_Y$. When both $X$ and $Z$ support Fisher immersions into the same manifold of conditional laws, the dashed arrow $\varphi:Z\to X$ is the information-geometric embedding that identifies the two state spaces up to Fisher isometry and measure conjugacy (Theorem~\ref{thm:ig-equivalence-reps}).%
+  }
+  \label{fig:neutral-operator-diagram}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzcd}[row sep=3.2em, column sep=4.5em]
+    X 
+      \arrow[dr, "\Phi_X"']
+      \arrow[r, "h"] 
+    & Y 
+      \arrow[d, "\Phi_Y" swap]
+      \arrow[r, "r"] 
+    & Z 
+      \arrow[dl, "\Phi_Z"] 
+      \arrow[ll, dashed, bend right=18, "\varphi"'] \\[0.4em]
+    & (\mathcal{M}, g) &
+  \end{tikzcd}
+  \caption{%
+  Conditional-law manifold and Fisher immersions. Each state/representation space (latent $X$, observed $Y$, or reconstructed $Z$) maps to a manifold $\mathcal{M}$ of one-step conditional laws via its conditional-law map (e.g.\ $\Phi_Z:z \mapsto K_Z(z,\cdot)$). A smooth $f$- or $\alpha$-divergence on $\mathcal{P}(Y)$ induces the Fisher--Rao metric $g$ on $\mathcal{M}$. When $\Phi_X$ and $\Phi_Z$ are Fisher immersions with the same image, the dashed arrow $\varphi:Z\to X$ is the unique information-geometric diffeomorphism aligning their pullback metrics and dynamics; this is the content of the IG-embedding theorem.%
+  }
+  \label{fig:fisher-immersion}
+\end{figure}
+
+\begin{figure}[H]
+  \centering
+  \begin{tikzcd}[row sep=3.2em, column sep=4.5em]
+    (\Omega,\mathbb{P}) 
+      \arrow[d, "\text{path law}"']
+      \arrow[r, "\pi_{t,t+\Delta t}"] 
+    & Y\times Y 
+      \arrow[d, "\Gamma_{\Delta t}"] \\[0.3em]
+    \mathcal{P}\bigl(C([0,T],Y)\bigr) 
+      \arrow[r, "\pi_{t,t+\Delta t\,\sharp}"] 
+    & \mathcal{P}(Y\times Y)
+  \end{tikzcd}
+  \caption{%
+  Continuous-time compatibility. A diffusion or Markov process defines a path law $\mathbb{P}$ on $C([0,T],Y)$ with projections $\pi_{t,t+\Delta t}$ to two-point marginals. The induced stepwise marginals $\Gamma_{\Delta t} = \pi_{t,t+\Delta t\,\sharp}\mathbb{P}$ fit into the same neutral framework as discrete-time stepwise marginals; the limit $\Delta t \to 0$ underlies Onsager--Machlup-type action functionals in Part~II.%
+  }
+  \label{fig:path-to-stepwise}
+\end{figure}
+
+
+\newpage
+
+% =========================================================
+
+\section{Technical foundations and proof obligations}
+\label{app:ig-embedding}
+\label{sec:proofs}
+
+This section collects the main mathematical claims used in the manuscript, separates those that are already standard in the literature from those that we prove here, and isolates a small number of \emph{proof obligations} which require either adaptation of known results or new arguments.
+
+% =========================================================
+
+\subsection{Standard ingredients from the literature}
+
+We rely on the following classical results without reproving them; precise citations are given in the main text.
+
+\begin{itemize}[leftmargin=1.5em]
+  \item \textbf{Takens' embedding theorem.} For a generic smooth observable $h:M\to\mathbb{R}$ on a compact $d$-dimensional manifold and delay length $k\ge 2d+1$, the delay map $\Psi_k$ is an embedding of $M$ into $\mathbb{R}^k$.
+  \item \textbf{Csiszár $f$-divergences and data processing.} For a convex function $f$ with $f(1)=0$, the functional
+  \(
+    D_f(p\|q) = \int q\, f\!\left(\frac{p}{q}\right)
+  \)
+  is nonnegative, invariant under sufficient statistics, and satisfies the data-processing inequality for Markov kernels.
+  \item \textbf{Fisher--Rao metric and Cencov--Amari uniqueness.} On smooth statistical models $\{p_\theta\}$, the second-order expansion of any smooth $f$-divergence at $p_\theta$ yields the Fisher information metric, and (up to scale) this is the unique Riemannian metric invariant under Markov embeddings.
+  \item \textbf{Disintegration and conditional kernels.} For a joint law $\Gamma$ on $X\times X$ there exist marginals $\nu$ and (regular) conditional kernels $K$ such that $\Gamma=\nu\otimes K$, and this disintegration is unique up to $\nu$-null sets.
+  \item \textbf{KL chain rule for Markov paths.} For Markov chains and Markov approximations, the Kullback--Leibler divergence between path-space laws decomposes as a sum of one-step conditional KL divergences plus a marginal term.
+\end{itemize}
+
+All of these are used as black boxes; our novel contributions concern how they interact once everything is expressed at the level of stepwise marginals and cuts.
+
+% =========================================================
+
+\subsection{Information-Geometric Foundations of Fidelity Conditions}
+\label{sec:alpha-stances}
+
+\begin{proposition}[Zero edge divergence and measure fidelity]
+\label{prop:zero-div-measure-fidelity}
+Let $\Gamma_1, \Gamma_2 \in \mathcal{P}(Y \times Y)$ be stepwise marginals with $\Gamma_1 \ll \Gamma_2$ or $\Gamma_2 \ll \Gamma_1$. Let $D_f$ be a Csisz\'ar $f$-divergence associated with a convex $f$ satisfying $f(1)=0$ and strictly convex at $1$, and assume $D_f(\Gamma_1 \Vert \Gamma_2) < \infty$.
+
+Then
+\[
+  D_f(\Gamma_1 \Vert \Gamma_2) = 0
+  \quad\Longleftrightarrow\quad
+  \Gamma_1 = \Gamma_2 \quad \text{(as measures on $Y\times Y$)}.
+\]
+
+In particular, if $\Gamma_Y$ and $\Gamma_Z$ are stepwise marginals with the same first marginal $\nu_Y$, then
+\[
+  D_f(\Gamma_Y \Vert \Gamma_Z) = 0
+  \quad\Longleftrightarrow\quad
+  K_{\mathrm{data}}(y,\cdot) = K_\theta(y,\cdot)
+  \quad \text{for $\nu_Y$-a.e.\ $y$,}
+\]
+where $K_{\mathrm{data}}$ and $K_\theta$ are the corresponding one-step kernels.
+\end{proposition}
+
+\begin{proof}
+This is the standard property of Csisz\'ar divergences: under domination, $D_f(p\Vert q) = 0$ if and only if the Radon--Nikod\'ym derivative $p/q$ is almost surely equal to $1$. The second statement follows by disintegrating $\Gamma_i(dy_0,dy_1) = \nu_Y(dy_0) K_i(y_0,dy_1)$ and using the first equivalence for each base point $y_0$, combined with uniqueness of conditional laws.
+\end{proof}
+
+% =========================================================
+
+\begin{theorem}[Information-geometric equivalence of representations]
+\label{thm:ig-equivalence-reps}
+Let $Y$ be a measurement space and let
+$\Gamma_Y \in \mathcal{P}(Y \times Y)$
+be the empirical stepwise marginal of $(Y_t,Y_{t+1})$.
+
+Let $r_i : Y \to Z_i$ for $i=1,2$ be two representational maps, and let
+\[
+  \Gamma_{Z_i} := (r_i \times r_i)_{\sharp} \Gamma_Y
+  \in \mathcal{P}(Z_i \times Z_i)
+\]
+be the induced stepwise marginals. Assume:
+
+\begin{enumerate}[label=(A\arabic*),leftmargin=1.8em]
+  \item \textbf{Representational sufficiency.}
+  Each $r_i$ is representationally sufficient for one-step prediction: there exist
+  kernels $K_{Z_i} : Z_i \leadsto Y$ such that
+  \[
+    \mathbb{P}(Y_{t+1} \in \cdot \mid Y_t=y)
+    =
+    K_{Z_i}\bigl(r_i(y),\cdot\bigr)
+    \quad\text{for $\Gamma_Y$-a.e.\ $y$, $i=1,2$.}
+  \]
+
+  \item \textbf{Common conditional-law manifold and Fisher immersions.}
+  Let $D_f$ be a smooth $f$-divergence inducing a Fisher--Rao metric $g$ on the
+  manifold of conditional laws $\mathcal{M} \subset \mathcal{P}(Y)$.
+  For each $i$, let
+  \[
+    \Phi_i : Z_i \to \mathcal{M},
+    \qquad
+    z \mapsto K_{Z_i}(z,\cdot).
+  \]
+  Assume there exist subsets $Z_i^0 \subseteq Z_i$ that carry the dynamics
+  (supports of $\Gamma_{Z_i}$) such that:
+  \begin{itemize}
+    \item $\Phi_i\big|_{Z_i^0}$ is a $C^1$ Fisher immersion of dimension $d$,
+          with non-degenerate pullback metric $g_{Z_i} := \Phi_i^\sharp g$;
+    \item the images coincide:
+          \(
+            \Phi_1(Z_1^0) = \Phi_2(Z_2^0) =: \mathcal{M}_0.
+          \)
+  \end{itemize}
+\end{enumerate}
+
+Then there exists a smooth bijection
+\[
+  \varphi : Z_1^0 \to Z_2^0
+\]
+such that:
+\begin{enumerate}[label=(C\arabic*),leftmargin=1.8em]
+  \item \textbf{Dynamical conjugacy.}
+    The induced stepwise marginals are related by
+    \[
+      \Gamma_{Z_2}\big|_{Z_2^0 \times Z_2^0}
+      =
+      (\varphi \times \varphi)_{\sharp}
+      \Bigl( \Gamma_{Z_1}\big|_{Z_1^0 \times Z_1^0} \Bigr),
+    \]
+    so $\varphi$ is a one-step measure conjugacy between the represented dynamics.
+
+  \item \textbf{Fisher isometry.}
+    The Fisher metrics satisfy
+    \[
+      g_{Z_2} = \varphi_{\ast} g_{Z_1}
+      \quad\text{on } Z_2^0,
+    \]
+    i.e.\ $\varphi$ is an information-geometric isometry.
+
+  \item \textbf{Local diffeomorphism (``topological fidelity'').}
+    On each connected component of $Z_1^0$ (and $Z_2^0$) where the dynamics live,
+    $\varphi$ is a diffeomorphism with smooth inverse.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}[Proof sketch]
+By representational sufficiency,
+\[
+  \Phi_Y(y) := \mathbb{P}(Y_{t+1}\in\cdot\mid Y_t=y)
+\]
+factors both as $\Phi_1 \circ r_1$ and as $\Phi_2 \circ r_2$ on the relevant support in $Y$. Hence for the induced measures on $Z_i^0$, the conditional-law manifold visited by each representation is the same subset $\mathcal{M}_0 \subset \mathcal{M}$.
+
+By assumption, $\Phi_i\big|_{Z_i^0}$ is a Fisher immersion of dimension $d$ whose image is $\mathcal{M}_0$. Thus each $\Phi_i\big|_{Z_i^0}$ is a local diffeomorphism onto $\mathcal{M}_0$ with non-degenerate pullback metric. In particular, the restricted maps are diffeomorphisms onto their images.
+
+Define
+\[
+  \varphi
+  :=
+  \bigl(\Phi_2\big|_{Z_2^0}\bigr)^{-1} \circ \bigl(\Phi_1\big|_{Z_1^0}\bigr)
+  : Z_1^0 \to Z_2^0.
+\]
+This is smooth with smooth inverse and, by construction, satisfies $\Phi_2 \circ \varphi = \Phi_1$ on $Z_1^0$. Disintegrating the stepwise marginals shows that $K_{Z_2}(\varphi(z),\cdot) = K_{Z_1}(z,\cdot)$ on the supports, which yields the measure-conjugacy relation for $\Gamma_{Z_1}$ and $\Gamma_{Z_2}$. The Fisher isometry statement follows because both $g_{Z_i}$ are pullbacks of the same metric $g$ on $\mathcal{M}_0$ and $\Phi_2 \circ \varphi = \Phi_1$.
+\end{proof}
+
+\begin{proposition}[Fisher block additivity and geometric fidelity]
+\label{prop:fisher-block-additivity}
+Let $\{\Gamma_Z\}_{\theta\in\Theta}$ be a smooth statistical model of stepwise marginals on a space that decomposes as a product $Y = A \times B$, and let $g$ be the Fisher--Rao metric on $\Theta$ induced by a smooth $f$-divergence $D_f$.
+
+For each $\theta$, write $\Gamma_Z^{AB}$ for the full stepwise marginal on $(A,B)$ and $\Gamma_Z^A$, $\Gamma_Z^B$ for the corresponding marginals obtained by projecting out $B$ and $A$, respectively. Let $g^{AB}$, $g^A$, $g^B$ be the Fisher metrics on $\Theta$ induced by these models, and define the Fisher curvature across the cut $(A,B)$ by
+\[
+  \mathcal{F}^{AB}(\theta)
+  := g^{AB}(\theta) - \bigl(g^A(\theta) \oplus g^B(\theta)\bigr).
+\]
+
+Then:
+\begin{enumerate}[label=(\roman*),leftmargin=1.6em]
+  \item $\mathcal{F}^{AB}(\theta) = 0$ for all $\theta$ if and only if the score
+        vectors of the joint model decompose as a direct sum of the marginal scores,
+        and the Fisher information is block-additive across the cut
+        for all parameters; in this case we say the family is
+        \emph{geometrically factorized across $(A,B)$}.
+
+  \item If $\mathcal{F}^{AB}(\theta)$ is positive semidefinite and nonzero in the
+        Loewner order for a set of parameters of positive measure, then the model
+        exhibits \emph{excess Fisher curvature} across $(A,B)$:
+        there is irreducible coupling in the local information geometry that cannot
+        be removed by any smooth reparameterization of $\Theta$ preserving the split.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+In local coordinates, the Fisher metric can be written as
+\[
+  g^{AB}_{ij}(\theta)
+  = \mathbb{E}_\theta\bigl[
+      \partial_i \log p_\theta^{AB}
+      \,\partial_j \log p_\theta^{AB}
+    \bigr],
+\]
+with analogous expressions for $g^A$ and $g^B$. Block additivity $g^{AB} = g^A \oplus g^B$ is equivalent to the vanishing of mixed covariances between the score contributions from $A$ and from $B$ for all $\theta$. This is precisely the condition that the tangent space at each $\theta$ decomposes as a direct sum of independent ``$A$-part'' and ``$B$-part'' score directions, which is invariant under smooth reparameterizations of $\Theta$.
+
+If $\mathcal{F}^{AB}$ is positive semidefinite and nonzero, then there exist directions in parameter space along which the joint score carries more variance than the sum of its $A$ and $B$ marginals, i.e.\ directions that cannot be represented as a block-diagonal perturbation. This excess cannot be removed by coordinate changes on $\Theta$ that respect the $(A,B)$ split, hence the irreducible coupling.
+\end{proof}
+
+\begin{theorem}[Rose--Takens--Fisher structural fidelity]
+\label{thm:RTF-structural}
+Let $\Gamma_Y \in \mathcal{P}(Y \times Y)$ be an empirical
+stepwise marginal. Suppose there exists:
+\begin{itemize}[leftmargin=1.6em]
+  \item a smooth $d$-dimensional state space $Z$ and a representational map
+        $r:Y \to Z$ such that $r$ is representationally sufficient for one-step
+        prediction;
+  \item a smooth $f$-divergence $D_f$ inducing a Fisher metric $g$ on the
+        manifold of conditional laws, and a conditional law map
+        $\phi_Z^Y: Z \to \mathcal{M}$ that is a Fisher immersion of dimension $d$
+        on a subset $Z^0$ carrying the dynamics;
+  \item a candidate reference model (for example a classical latent system
+        $(X,\Gamma_X,h)$) whose induced representation also yields a Fisher immersion
+        into the same conditional-law image.
+\end{itemize}
+
+If, in addition:
+\begin{enumerate}[label=(F\arabic*),leftmargin=1.8em]
+  \item \textbf{Measure fidelity (Rose).}
+    The induced reference stepwise marginal on $Y\times Y$, call it $\Gamma_{\mathrm{ref}}$,
+    satisfies
+    \[
+      D_f(\Gamma_Y \Vert \Gamma_{\mathrm{ref}}) = 0,
+    \]
+    so $\Gamma_Y = \Gamma_{\mathrm{ref}}$ by
+    Proposition~\ref{prop:zero-div-measure-fidelity}.
+
+  \item \textbf{Geometric fidelity (Fisher).}
+    The Fisher curvature across the relevant cut (for example, between latent and
+    observed coordinates, or between two blocks of the representation) vanishes,
+    $\mathcal{F}^{AB} = 0$, so the geometry is block-additive across that cut by
+    Proposition~\ref{prop:fisher-block-additivity}.
+\end{enumerate}
+
+Then, by Theorem~\ref{thm:ig-equivalence-reps}, the data-driven representation $Z$ and the reference model’s state space (if it exists) are related, on the support of the dynamics, by an information-geometric diffeomorphism:
+\begin{itemize}[leftmargin=1.6em]
+  \item orbits and one-step transport are measure-conjugate;
+  \item local Fisher geometry is preserved (Fisher isometry);
+  \item no additional irreducible coupling is introduced or lost across the chosen cut.
+\end{itemize}
+
+We refer to this situation informally as achieving ``full Rose--Takens--Fisher fidelity''.
+\end{theorem}
+
+\end{document}

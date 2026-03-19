@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(lake build:*)",
+      "Bash(~/.elan/bin/lake build:*)",
+      "Bash(~/.elan/bin/lean:*)",
+      "Bash(~/.elan/bin/lake env:*)",
+      "Bash(~/.elan/bin/lake exe:*)",
+      "Bash(zsh:*)",
+      "Bash(/tmp/mathlib_search_results.txt:*)",
+      "Read(//tmp/**)"
+    ]
+  }
+}

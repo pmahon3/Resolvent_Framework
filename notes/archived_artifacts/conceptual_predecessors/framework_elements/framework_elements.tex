@@ -1,0 +1,868 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[numbers]{natbib}
+
+
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usepackage{mathtools}
+\usepackage{hyperref}
+\usepackage[normalem]{ulem}
+
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta, positioning, cd}
+\usepackage{float}
+
+\newtheorem{definition}{Definition}
+\newtheorem{assumption}{Assumption}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{remark}{Remark}
+\newtheorem{corollary}{Corollary}
+
+\newcommand{\Rcal}{\mathcal{R}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Mcal}{\mathcal{M}}
+\newcommand{\Ncal}{\mathcal{N}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Dcal}{\mathcal{D}}
+
+\newcommand{\Psf}{\mathsf{P}}
+\newcommand{\Lsf}{\mathsf{L}}
+\newcommand{\Rsf}{\mathsf{R}}
+
+\newcommand{\push}{\sharp}     	% pushforward
+\newcommand{\Ext}{\mathrm{Ext}} 	% extension
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Pbb}{\mathbb{P}}
+\newcommand{\Ebb}{\mathbb{E}} 	% expectation 
+\newcommand{\Fib}{\mathrm{Fib}} 	% compatibility fibre
+
+
+\pagecolor{white}
+
+
+\begin{document}
+
+\tableofcontents
+
+\section{Introduction}
+
+We work throughout on standard Borel spaces, ensuring the existence of regular conditional
+probabilities and allowing conditional distributions to be represented as Markov kernels when
+such disintegrations exist.
+
+\subsection{Empirical dynamics under boundary queries}
+
+\paragraph{Observable regularities and query families.}
+We begin from a class $\mathcal Q$ of \emph{boundary queries}.  
+A boundary query is an operational procedure that extracts observable structure from an
+underlying stream of observations.  Formally, each query $Q \in \mathcal Q$ is associated with
+an outcome space $\mathcal O_Q$ and is understood as a measurable projection, functional, or
+disintegration acting on the observable stream.
+
+For each query $Q \in \mathcal Q$, we specify a set of admissible regularities
+\[
+\mathcal R_Q \subseteq \mathcal P(\mathcal O_Q),
+\]
+representing the class of empirically stable statistical structures that may arise under that
+query.
+
+A \emph{boundary horizon (query-relative)} is a family
+\[
+\{\nu_Q\}_{Q \in \mathcal Q}, \qquad \nu_Q \in \mathcal R_Q,
+\]
+interpreted as the empirically observed collection of regularities across all admissible
+queries.
+
+\paragraph{Completion as an optional representation.}
+When the observable family $\{\nu_Q\}_{Q\in\mathcal Q}$ is jointly realizable, there exists a
+path-space measure $\mathbb P_Y \in \mathcal P(Y^{\mathbb Z})$ such that
+\[
+\nu_Q = Q_\# \mathbb P_Y
+\qquad \text{for all } Q \in \mathcal Q.
+\]
+In this case, $\mathbb P_Y$ provides a \emph{completion} or \emph{process-level representation}
+of the observable horizon.  Importantly, the existence of such a completion is not assumed.
+Instead, it is treated as an empirical and mathematical question.
+
+Thus, throughout, the observable family $\{\nu_Q\}$ is taken as primitive, while path laws
+are regarded as justified when coherence across queries permits.
+
+\paragraph{Justified dynamical structure.}
+Finite-resolution and directional dynamical objects (regularities, conditional kernels,
+operators) arise from statistical interrogation of the boundary horizon.  Concretely, such
+objects are obtained through projection, conditioning, or coarse-graining relative to auxiliary
+choices (such as a lag $\Delta t$ or a conditioning $\sigma$-field).  In this sense, dynamical
+descriptions are always relative to a querying regime.
+
+When a completion $\mathbb P_Y$ exists, these objects may be realized concretely as measurable
+operations on the path space $Y^{\mathbb Z}$ evaluated under $\mathbb P_Y$.  Otherwise, they are
+understood operationally through their action on the observable family $\{\nu_Q\}$.
+
+\paragraph{Stationarity and scope.}
+Stationarity is invoked only when global index-shift invariance or semigroup structure is
+required.  The notions of boundary queries, compatibility, and (approximate) boundary
+completion depend only on local extendability of the observable regularities
+$\{\nu_Q\}$ across resolutions.  Failure of stationarity does not preclude meaningful
+multi-resolution structure, but it may obstruct the identification of a single
+time-homogeneous generator.
+
+Failure of (exact or approximate) boundary completion is itself a meaningful empirical outcome.
+Such failure indicates that the observable regularities do not admit a coherent multi-resolution
+closure and therefore identifies regimes in which new hypotheses or refined queries may be
+required.
+
+\paragraph{Boundary queries and query-relative compatibility.}
+A boundary query acts directly on the observable horizon.  When a completion exists, it may be
+realized as a measurable map or Markov kernel
+\[
+Q : Y^{\mathbb Z} \leadsto \mathcal O_Q,
+\]
+inducing the law $Q_\# \mathbb P_Y$.  More generally, compatibility is defined operationally.
+
+Let $\mathcal Q$ be a fixed class of admissible queries.  A representation
+$s$ is said to be \emph{$\mathcal Q$-compatible} if each observable query can be reproduced after
+passing through the representation:
+\[
+s \text{ is } \mathcal Q\text{-compatible}
+\quad \Longleftrightarrow \quad
+\forall Q \in \mathcal Q \; \exists \widetilde Q \text{ such that } Q = \widetilde Q \circ s.
+\]
+This expresses the idea that the representation preserves all observable structure specified by
+the query class.
+
+\paragraph{Finite-lag and structural queries.}
+No single query is privileged.  Instead, we consider families of finite-resolution and
+structural queries adapted to the empirical context.
+
+A basic example consists of finite-lag projections.  For each $\Delta t \in H$, define
+\[
+Q_{\Delta t} : Y^{\mathbb Z} \to Y \times Y,
+\qquad
+Q_{\Delta t}(y) = (y_0, y_{\Delta t}),
+\]
+which induce the corresponding lag-regularities
+\[
+\Gamma_Y^{(\Delta t)} := (Q_{\Delta t})_\# \mathbb P_Y
+\]
+when a completion exists.  These summaries serve as the primary objects for
+cross-resolution comparison and extension.
+
+More general query families may include multi-time projections, coarse-grainings, or
+experimentally defined observables.  Compatibility and completion are therefore always
+understood relative to the chosen class $\mathcal Q$.
+
+\paragraph{Conditional and predictive structure as derived queries.}
+Conditional or predictive descriptions arise as special cases when suitable disintegrations
+exist.  For example, conditioning future observations on the past yields predictive kernels.
+Within the present framework, such structures are treated as derived statistical queries rather
+than as primitive dynamical assumptions.  Their relevance depends on the empirical setting and
+the class of admissible queries.
+
+% ============================================================
+
+\section{Finite-lag objects as boundary queries}
+
+We now introduce the basic observable summaries obtained by applying
+finite-resolution queries to the empirical horizon. These summaries form the
+primary objects used for comparison across observational scales.
+
+\subsection{Edge regularities as primary finite-lag objects}
+
+Let $Y$ be a
+standard Borel space $Y$, and let $\pi_t:Y^{\mathbb Z}\to Y$ denote the
+coordinate projection at time $t$.
+
+\begin{definition}[Edge regularity]\label{def:edge-regularity}
+For any lag $\Delta t\in H$, the \emph{edge regularity} at scale $\Delta t$ is the two-time
+regularity $\Gamma_Y^{(\Delta t)}\in\mathcal P(Y\times Y)$ induced by the lag query
+$Q_{\Delta t}(y)=(y_0,y_{\Delta t})$.
+When a path-law completion $\mathbb P_Y\in\mathcal P(Y^{\mathbb Z})$ exists, this is the
+pushforward $(\pi_0,\pi_{\Delta t})_\#\mathbb P_Y$.
+\end{definition}
+
+We interpret $\Gamma_Y^{(\Delta t)}$ as the outcome of a \emph{finite-lag
+query}---an observational procedure, not a dynamical law.  Different choices of
+$\Delta t$ correspond to different resolutions at which the empirical horizon is
+interrogated.
+
+When marginal coherence holds across the family $\{\Gamma_Y^{(\Delta t)}\}$ (see
+Section~\ref{sec:boundary-completion}), we denote the common one-time marginal by
+\[
+\mu_Y\in\mathcal P(Y),
+\]
+and note that $\mu_Y=(\pi_0)_\#\mathbb P_Y$ when a completion exists.
+
+\subsection{Multi-time regularities}
+
+More detailed summaries arise from projections onto multiple coordinates.
+
+\begin{definition}[Three-time regularity]\label{def:three-time}
+For lags $\Delta t_1,\Delta t_2\in H$, define the three-time regularity
+\[
+\Gamma_Y^{(\Delta t_1,\Delta t_2)}
+:=
+(\pi_0,\pi_{\Delta t_1},\pi_{\Delta t_1+\Delta t_2})_\#\,\mathbb P_Y
+\;\in\; \mathcal P(Y^3).
+\]
+\end{definition}
+
+These summaries capture observable relationships across multiple scales and
+will play a central role in assessing cross-resolution coherence.
+
+\subsection{Kernel representations (optional)}
+
+Whenever an edge regularity admits a disintegration, one may introduce a
+kernel representation.
+
+\begin{definition}[Kernel representation]\label{def:kernel-edge}
+If
+\[
+\Gamma_Y^{(\Delta t)}(dy,dy')
+=
+\mu_Y(dy)\,T_{\Delta t}(y,dy'),
+\]
+then $T_{\Delta t}:Y\leadsto Y$ is called a kernel representation of the
+lag-$\Delta t$ regularity.
+\end{definition}
+
+Such representations provide convenient operator forms but are not required.
+Given a kernel, one obtains a linear operator on observables $f:Y\to\mathbb R$:
+\[
+(T_{\Delta t}f)(y)
+:=
+\int_Y f(y')\,T_{\Delta t}(y,dy').
+\]
+
+\subsection{Markov completion (derived)}
+
+A family of kernels $\{T_{\Delta t}\}_{\Delta t\in H}$ is said to form a
+Markov completion when it approximately closes across lags:
+\[
+T_{\Delta t_1+\Delta t_2}
+\;\approx\;
+T_{\Delta t_1}\circ T_{\Delta t_2},
+\]
+with approximation quantified by a divergence criterion on the induced
+edge regularities.
+
+Continuity in $\Delta t$ may then permit the introduction of a generator as
+a limiting representation.
+
+% ============================================================
+
+\section{Boundary horizons and query-relative compatibility}
+
+\subsection{Boundary primacy and non-privileging}
+
+\begin{proposition}[Boundary primacy]\label{prop:boundary-primacy}
+Let $Y$ be a standard Borel space and let $\mathbb P_Y \in \mathcal P(Y^{\mathbb Z})$
+denote a boundary horizon. All finite-resolution and directional structures
+(e.g.\ regularities, kernels, operators) arise relative to a boundary query.
+No finite resolution is intrinsically distinguished.
+\end{proposition}
+
+\begin{proof}
+This follows from the operational construction of observable structure
+introduced in Section~1.
+\end{proof}
+
+\begin{remark}[Non-privileging of resolution]
+No canonical temporal discretization, lag, or compositional scale is assumed.
+Observable summaries depend on the chosen querying regime.
+\end{remark}
+
+\subsection{Boundary queries}
+
+\begin{definition}[Boundary query]\label{def:boundary-query}
+A boundary query is any measurable operation on the path space
+realized by projection, disintegration, or composition thereof.
+Equivalently, it may be represented as a Markov kernel
+\[
+Q:Y^{\mathbb Z}\leadsto \mathcal O,
+\]
+inducing a regularity $Q_\#\mathbb P_Y$.
+\end{definition}
+
+\subsection{Query-relative compatibility}
+
+Let $\mathcal Q$ be a class of admissible queries.
+
+\begin{definition}[Compatibility]\label{def:query-compatibility}
+A representation
+\[
+s:Y^{\mathbb Z}\to \mathcal S
+\]
+is $\mathcal Q$-compatible if for every $Q\in\mathcal Q$ there exists
+$\widetilde Q$ such that
+\[
+Q=\widetilde Q\circ s.
+\]
+\end{definition}
+
+\begin{proposition}[Universal property]\label{prop:compat-universal}
+A representation is compatible if and only if all queries in $\mathcal Q$
+factor through it.
+\end{proposition}
+
+\begin{proof}
+Immediate from Definition~\ref{def:query-compatibility}.
+\end{proof}
+
+\begin{remark}
+Compatibility is relative to $\mathcal Q$; distinct compatible representations
+may differ substantially in internal structure.
+\end{remark}
+
+% ============================================================
+
+\section{Boundary completion across resolutions}
+\label{sec:boundary-completion}
+
+We now study when observable regularities at different resolutions exhibit coherent
+cross-scale structure.  The notion of \emph{boundary completion} is empirical and
+pre-dynamical: it concerns joint extendability (consistency) of query-induced
+regularities across resolutions, and does not assume any underlying evolution law.
+
+\subsection{Boundary queries and derived regularities}
+\label{subsec:boundary-queries-derived}
+
+Fix a set of lags $H\subset\mathbb R_+$ (or $H\subset\mathbb Z_+$).  For each $\Delta t\in H$,
+consider the finite-lag query
+\[
+Q_{\Delta t}:Y^{\mathbb Z}\to Y\times Y,
+\qquad
+Q_{\Delta t}(y)=(y_0,y_{\Delta t}).
+\]
+A query-relative horizon specifies the induced two-time regularity at lag $\Delta t$ as
+\[
+\Gamma_Y^{(\Delta t)} \in \mathcal P(Y\times Y).
+\]
+When a path-law completion $\mathbb P_Y\in\mathcal P(Y^{\mathbb Z})$ exists and $Q_{\Delta t}$ is
+realized as a measurable projection, this agrees with the pushforward
+$\Gamma_Y^{(\Delta t)}=(Q_{\Delta t})_\#\mathbb P_Y$.
+
+We write
+\[
+\mathcal B_Y(H):=\{\Gamma_Y^{(\Delta t)}:\Delta t\in H\}\subset\mathcal P(Y\times Y)
+\]
+for the family of lag-$H$ boundary regularities.
+
+\subsection{Projective compatibility and boundary completion}
+\label{subsec:projective-compatibility}
+
+We now make precise the relationship between query-relative boundary regularities and
+classical consistency conditions for stochastic processes.  The key point is that the
+boundary framework generalizes Kolmogorov consistency from coordinate projections to
+arbitrary classes of observational queries.
+
+\paragraph{Query systems as projective systems.}
+Let $\mathcal Q$ be a class of boundary queries, each associated with a standard Borel
+outcome space $\mathcal O_Q$.  Assume $\mathcal Q$ is equipped with a preorder $\preceq$
+expressing refinement: for $Q_1,Q_2\in\mathcal Q$, we write $Q_1\preceq Q_2$ if $Q_2$ refines
+$Q_1$, meaning that there exists a measurable map
+\[
+\pi_{21}:\mathcal O_{Q_2}\to\mathcal O_{Q_1}
+\]
+such that
+\[
+Q_1=\pi_{21}\circ Q_2.
+\]
+Thus the query class induces a projective system of measurable spaces.
+
+\paragraph{Projective families of boundary regularities.}
+A family of boundary regularities
+\[
+\{\nu_Q\}_{Q\in\mathcal Q},
+\qquad
+\nu_Q\in\mathcal P(\mathcal O_Q),
+\]
+is said to be \emph{projectively compatible} if for all $Q_1\preceq Q_2$,
+\[
+\nu_{Q_1}=(\pi_{21})_\#\nu_{Q_2}.
+\]
+This condition expresses exact stability of observable regularities under refinement of the
+querying regime.
+
+\paragraph{Generalized Kolmogorov extension.}
+\begin{theorem}[Generalized Kolmogorov extension]\label{thm:generalized-kolmogorov}
+Let $Y$ be a standard Borel space and let $\mathcal Q$ be a directed class of boundary
+queries with refinement preorder.  Suppose that the family $\{\nu_Q\}_{Q\in\mathcal Q}$ is
+projectively compatible and that the $\sigma$-algebra generated by the query cylinders
+separates points in $Y^{\mathbb Z}$.  Then there exists a probability measure
+\[
+\mathbb P_Y\in\mathcal P(Y^{\mathbb Z})
+\]
+such that
+\[
+\nu_Q = Q_\#\mathbb P_Y
+\qquad \text{for all } Q\in\mathcal Q.
+\]
+Moreover, this completion is unique on the $\sigma$-algebra generated by the query family.
+\end{theorem}
+
+\begin{remark}[Classical Kolmogorov as a special case]
+If $\mathcal Q$ consists of all finite coordinate projections, then projective compatibility
+reduces to classical Kolmogorov consistency.  Thus stochastic processes arise as special cases
+of compatibility across coordinate queries.
+\end{remark}
+
+\begin{remark}[Interpretation]
+The theorem shows that a path-space boundary horizon, when it exists, can be regarded as the
+projective limit of observable regularities.  In this sense, global path-law structure is not
+assumed but arises as a completion of compatible empirical summaries.
+\end{remark}
+
+\subsection{Exact boundary completion}
+\label{subsec:exact-boundary-completion}
+
+\begin{definition}[Exact completion]\label{def:exact-boundary-completion}
+The family $\mathcal B_Y(H)$ is \emph{boundary complete} if:
+\begin{enumerate}
+  \item (\emph{Marginal coherence}) All lag regularities share a common one-time marginal:
+  \[
+  (\pi_0)_\#\Gamma_Y^{(\Delta t)}=\mu_Y
+  \qquad\text{for all }\Delta t\in H,
+  \]
+  for some $\mu_Y\in\mathcal P(Y)$.
+  \item (\emph{Two-step extendability}) For all $\Delta t_1,\Delta t_2\in H$ with
+  $\Delta t_1+\Delta t_2\in H$, the extension set
+  \[
+  \Ext(\Gamma_Y^{(\Delta t_1)},\Gamma_Y^{(\Delta t_2)})
+  \]
+  is nonempty.
+\end{enumerate}
+\end{definition}
+
+This condition expresses joint extendability of observable summaries, and precedes any Markov
+or semigroup interpretation.
+
+\subsection{Approximate completion}
+\label{subsec:approx-boundary-completion}
+
+Exact consistency is often too strong. We therefore quantify deviations from extendability.
+
+\begin{definition}[$\varepsilon$--completion]\label{def:eps-boundary-completion}
+The family is $\varepsilon$--boundary complete if for all $\Delta t_1,\Delta t_2\in H$ with
+$\Delta t_1+\Delta t_2\in H$,
+\[
+\inf_{\widetilde\Gamma\in\Ext(\Gamma_Y^{(\Delta t_1)},\Gamma_Y^{(\Delta t_2)})}
+D_f\!\bigl(\Gamma_Y^{(\Delta t_1+\Delta t_2)},\widetilde\Gamma\bigr)
+\le \varepsilon.
+\]
+\end{definition}
+
+\subsection{Derived dynamics and earned structure}
+
+Boundary completion determines which additional structures may be introduced
+without contradicting observable regularities.
+
+\begin{itemize}
+  \item Kernel representations arise only when edge regularities admit
+  disintegration.
+
+  \item Semigroup structure reflects cross-resolution closure of the family
+  $\mathcal B_Y(H)$.
+
+  \item Generators, when they exist, arise as limiting objects associated with
+  increasingly refined observational scales.
+\end{itemize}
+
+Interior dynamical realizations are therefore admissible only insofar as they
+reproduce the completed boundary structure.  They serve as explanatory
+devices rather than primitive sources of empirical regularity.
+
+\medskip
+
+In this sense, all dynamical structure in the framework is \emph{earned from the boundary}, rather
+than imposed upon it.
+% ============================================================
+
+
+\section{Lag queries, sufficiency, and dominance}
+
+\subsection{Finite-lag boundary queries}
+
+Throughout, we treat the family of two-time boundary regularities
+\[
+\mathcal B_Y(H)
+:= \bigl\{\Gamma_Y^{(\Delta t)} \in \mathcal P(Y\times Y)\bigr\}_{\Delta t\in H}
+\]
+as the primary finite-resolution empirical summaries of the boundary horizon.
+When a path-space regularity $\mathbb P_Y\in\mathcal P(Y^{\mathbb Z})$ exists,
+these may be realized as
+\[
+\Gamma_Y^{(\Delta t)} = (\pi_0,\pi_{\Delta t})_\#\mathbb P_Y,
+\]
+but we do \emph{not} assume such a completion a priori.
+
+We refer to each $\Gamma_Y^{(\Delta t)}$ as a \emph{lag-$\Delta t$ boundary query}.
+Such queries are understood as statistical observations of the boundary horizon,
+not as mechanisms that generate it.
+
+\begin{remark}[No privileged time step]
+We do not single out any distinguished ``one-step'' lag or canonical discretization.
+All $\Delta t\in H$ are treated symmetrically; structure is only admissible under relations
+among these queries.
+\end{remark}
+
+\subsection{Lag sufficiency}
+
+\begin{definition}[Lag sufficiency]\label{def:lag-sufficiency}
+The boundary family $\mathcal B_Y(H)$ is said to be \emph{lag-sufficient} if every
+finite-dimensional boundary regularity that is empirically meaningful for the system
+is determined (up to the ambiguity of extension) by the collection
+$\{\Gamma_Y^{(\Delta t)}\}_{\Delta t\in H}$.
+\end{definition}
+
+Intuitively, lag sufficiency expresses that all higher-order finite-resolution
+summaries are shadows of, or constraints upon, the two-time regularities.
+
+\begin{proposition}[Lag dominance]\label{prop:lag-dominance}
+Suppose $\mathcal B_Y(H)$ is exactly boundary complete (Definition~\ref{def:exact-boundary-completion}).
+Then every finite-dimensional marginal of any admissible path-space completion of the
+boundary horizon is compatible with, and constrained by, the family
+$\{\Gamma_Y^{(\Delta t)}\}_{\Delta t\in H}$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+Exact boundary completion ensures that for any finite collection of times
+$t_0<t_1<\cdots<t_n$ with increments in $H$, there exists a joint law on
+$Y^{n+1}$ whose adjacent marginals coincide with the corresponding edge regularities.
+Thus any higher-order finite-dimensional summary must be realizable via successive
+extensions of lag queries, and hence cannot contradict them.
+\end{proof}
+
+\begin{corollary}[Minimality of lag sufficiency]\label{cor:lag-minimality}
+Any representation that preserves all lag-$\Delta t$ boundary regularities
+$\{\Gamma_Y^{(\Delta t)}\}_{\Delta t\in H}$ preserves all finite-lag empirical content
+of the boundary horizon.
+\end{corollary}
+
+\begin{remark}[Lag sufficiency is not Markovity]\label{rem:lag-not-markov}
+Lag sufficiency does \emph{not} imply the existence of Markov kernels, conditional
+independence, or a semigroup structure. It is a statement about empirical summaries,
+not about dynamics.
+\end{remark}
+
+\subsection{Relation to predictive conditioning (optional)}
+
+If a path-space regularity $\mathbb P_Y$ exists and admits disintegration, one may
+form the predictive kernel
+\[
+K_\infty(\cdot\mid p)
+:= \mathbb P_Y(Y_{0:\infty}\in\cdot \mid Y_{-\infty:0}=p).
+\]
+In that case, each $\Gamma_Y^{(\Delta t)}$ is a marginal of $K_\infty$.
+
+However, we do \emph{not} take $K_\infty$ to be primitive or canonical. Rather, it is
+a derived object that may be useful in some contexts, but whose relevance is contingent
+on additional structure beyond lag sufficiency and boundary completion.
+
+
+
+% ============================================================
+
+\section{Extension and boundary completion}
+
+\subsection{Extension as joint realizability}
+
+\begin{definition}[Extension set]\label{def:ext-set}
+Let $\Gamma_1,\Gamma_2\in\mathcal P(Y\times Y)$ be two boundary regularities for successive lags
+(e.g.\ $\Gamma_1=\Gamma_Y^{(\Delta t_1)}$ and $\Gamma_2=\Gamma_Y^{(\Delta t_2)}$).
+Assume they share a compatible intermediate marginal in the sense that there exists
+$\mu\in\mathcal P(Y)$ such that
+\[
+(\pi_2)_\#\Gamma_1=\mu=(\pi_1)_\#\Gamma_2.
+\]
+Define the \emph{extension set}
+\[
+\Ext(\Gamma_1,\Gamma_2)
+:=
+\Bigl\{(\pi_0,\pi_2)_\#\Lambda :
+\Lambda\in\mathcal P(Y^3),\
+(\pi_0,\pi_1)_\#\Lambda=\Gamma_1,\
+(\pi_1,\pi_2)_\#\Lambda=\Gamma_2
+\Bigr\}.
+\]
+Elements of $\Ext(\Gamma_1,\Gamma_2)$ are precisely the endpoint regularities that can arise from
+a three-time joint law consistent with the prescribed two-time regularities.
+\end{definition}
+
+\begin{proposition}[Existence of extensions]\label{prop:ext-existence}
+$\Ext(\Gamma_1,\Gamma_2)\neq\varnothing$ if and only if $\Gamma_1$ and $\Gamma_2$ share a common
+intermediate marginal $\mu$.
+\end{proposition}
+
+\begin{proof}[Sketch]
+If $\Ext(\Gamma_1,\Gamma_2)\neq\varnothing$, any witness $\Lambda$ must satisfy
+$(\pi_2)_\#\Gamma_1=(\pi_1)_\#\Gamma_2$ by construction.
+Conversely, if such a marginal $\mu$ exists, standard gluing arguments for probability measures
+on standard Borel spaces guarantee the existence of some $\Lambda$ with the required pairwise
+marginals.
+\end{proof}
+
+\begin{remark}[Extension is not composition]\label{rem:ext-not-comp}
+$\Ext$ expresses a condition of \emph{joint realizability} among empirical regularities.
+It does not assume Markov kernels, conditional independence, causal direction, or any
+compositional law on $Y$. Time order and dynamics are not built into the definition.
+\end{remark}
+
+\subsection{Approximate boundary completion}
+
+Fix a divergence $D_f(\cdot,\cdot)$ on probability measures and a tolerance $\varepsilon>0$.
+
+\begin{definition}[$\varepsilon$--boundary completion]\label{def:eps-boundary-completion}
+The boundary family $\mathcal B_Y(H)$ is said to be \emph{$\varepsilon$--boundary complete} if for all
+$\Delta t_1,\Delta t_2\in H$,
+\[
+\inf_{\widetilde\Gamma\in
+\Ext\bigl(\Gamma_Y^{(\Delta t_1)},\Gamma_Y^{(\Delta t_2)}\bigr)}
+D_f\!\Big(
+(\pi_0,\pi_{\Delta t_1+\Delta t_2})_\# \mathbb P_Y,\;
+\widetilde\Gamma
+\Big)
+\;\le\;
+\varepsilon.
+\]
+\end{definition}
+
+Conceptually, $\varepsilon$--boundary completion measures how closely the empirically observed
+long-lag boundary regularity can be approximated by \emph{some} joint realization consistent with
+the corresponding shorter-lag regularities.
+
+This definition refers only to joint extendability of boundary summaries and does \emph{not}
+assume Markov kernels, conditional independence, or causal composition.
+
+\begin{remark}[Interpretation of $\varepsilon$]\label{rem:epsilon-meaning}
+The parameter $\varepsilon$ admits three complementary readings:
+\begin{enumerate}
+  \item As a measure of \emph{non-extendability} across resolutions;
+  \item As a bound on \emph{mutual expressibility} of boundary viewpoints;
+  \item As an \emph{operational budget} for hypothesis generation when exact completion fails.
+\end{enumerate}
+Large $\varepsilon$ signals genuine incompatibility of boundary summaries, not merely data noise.
+\end{remark}
+
+% ============================================================
+
+\section{Admissible dynamical structure}
+
+The preceding sections define boundary regularities and their cross-resolution consistency
+without invoking any notion of dynamics. We now describe how familiar dynamical objects—Markov
+kernels, semigroups, and generators—may be \emph{admissible} as representations of boundary structure
+when additional regularity is present. Nothing in this section is assumed at the boundary level;
+all constructions are conditional and generally non-unique.
+
+\subsection{From extension to kernel representations}
+
+\begin{proposition}[Admissible kernel representation]\label{prop:admissible-kernel}
+Let $\mathcal B_Y(H)$ be an $\varepsilon$--boundary complete family of boundary regularities.
+Suppose that for each $\Delta t \in H$, the corresponding edge regularity
+$\Gamma_Y^{(\Delta t)} \in \mathcal P(Y\times Y)$ admits a disintegration of the form
+\[
+\Gamma_Y^{(\Delta t)}(dy,dy')
+=
+\mu_Y(dy)\,T_{\Delta t}(y,dy'),
+\]
+for some probability kernel $T_{\Delta t}:Y\leadsto Y$.
+Then $\{T_{\Delta t}\}_{\Delta t\in H}$ provides a kernel-based representation of the boundary
+regularities consistent with the given querying regime.
+\end{proposition}
+
+\begin{remark}
+The existence of kernels $T_{\Delta t}$ is not guaranteed by boundary completion alone.
+Disintegration is an additional structural property of the boundary regularities, and kernel
+representations are introduced only when such disintegrations exist.
+\end{remark}
+
+\begin{remark}[Non-uniqueness of kernel representations]\label{rem:kernel-nonunique}
+Even when disintegrations exist, kernel representations are generally non-unique.
+Multiple families of kernels may induce the same boundary regularities and hence be equally
+compatible with the boundary horizon. This reflects underdetermination at the level of interior
+dynamics.
+\end{remark}
+
+\subsection{Approximate semigroup structure}
+
+\begin{proposition}[Approximate semigroup emergence]\label{prop:approx-semigroup}
+Suppose that $\mathcal B_Y(H)$ is $\varepsilon$--boundary complete and admits kernel
+representations $\{T_{\Delta t}\}_{\Delta t\in H}$. Then for $\Delta t_1,\Delta t_2\in H$,
+the composed kernel $T_{\Delta t_1}\circ T_{\Delta t_2}$ approximates $T_{\Delta t_1+\Delta t_2}$
+in the sense that
+\[
+D_f\!\Big(
+\mu_Y \otimes (T_{\Delta t_1}\circ T_{\Delta t_2}),\;
+\Gamma_Y^{(\Delta t_1+\Delta t_2)}
+\Big)
+\;\lesssim\;
+\varepsilon,
+\]
+where the comparison is mediated by the boundary completion tolerance.
+\end{proposition}
+
+\begin{proof}[Sketch]
+By $\varepsilon$--boundary completion, there exists some
+$\widetilde\Gamma\in
+\Ext(\Gamma_Y^{(\Delta t_1)},\Gamma_Y^{(\Delta t_2)})$
+such that
+\[
+D_f\!\Big(
+\Gamma_Y^{(\Delta t_1+\Delta t_2)},\widetilde\Gamma
+\Big)\le \varepsilon.
+\]
+When disintegrations exist, the product-form endpoint law
+$\mu_Y\otimes(T_{\Delta t_1}\circ T_{\Delta t_2})$ is an admissible element of the same extension
+set. Selecting this witness yields the stated approximation.
+\end{proof}
+
+\begin{remark}
+The approximate semigroup property is not imposed but follows from the consistency of boundary
+regularities across resolutions. The quality of the approximation is controlled by $\varepsilon$
+and may vary across scales.
+\end{remark}
+
+\subsection{Generators as closure limits}
+
+\begin{theorem}[Generator as closure limit]\label{thm:generator-limit}
+Assume that the family $\{T_{\Delta t}\}_{\Delta t\in H}$ admits a limit in an appropriate operator
+topology as $\Delta t\to 0$. When such a limit exists, it defines an infinitesimal generator $L$
+that provides a continuous-time dynamical representation of the boundary regularities.
+\end{theorem}
+
+\begin{remark}[Conditional status of generators]
+The existence, uniqueness, and interpretation of generators depend on additional analytical
+assumptions beyond boundary completion, including continuity, topology, and limiting behavior.
+Generators are therefore optional representational tools rather than mandatory consequences of
+the framework.
+\end{remark}
+
+\subsection{Empirical adequacy versus explanatory realization}
+
+\begin{remark}[Boundary adequacy and explanation]\label{rem:adequacy-vs-explain}
+Boundary compatibility and completion constrain empirical adequacy.
+Kernel-based dynamics and generators provide explanatory structure but are not uniquely
+determined by boundary data. The framework therefore separates empirical regularity
+(boundary adequacy) from explanatory commitment (interior realization).
+\end{remark}
+
+\begin{remark}[Over- and under-explanation]
+A realization may be empirically adequate yet introduce excess structure not warranted by the
+boundary horizon, or conversely may fail to capture boundary regularities despite rich internal
+dynamics. Such distinctions become visible only after separating boundary completion from
+dynamical representation.
+\end{remark}
+
+% ============================================================
+
+
+\section{Information geometry on boundary queries}
+
+\begin{proposition}[Query-induced geometry]\label{prop:query-geometry}
+% Geometry lives on statistical manifolds induced by queries.
+\end{proposition}
+
+\begin{theorem}[Invariance under sufficient statistics]\label{thm:cencov-invariance}
+% Cite \v{C}encov/Bauer/Ay-type results.
+\end{theorem}
+
+\begin{remark}[Divergence choice and commensurability]\label{rem:divergence-choice}
+% Divergences as empirical interfaces, not mere tolerances.
+\end{remark}
+
+
+% ============================================================
+
+
+\section{Underdetermination and empirical stance}
+
+\begin{proposition}[Multiplicity of compatible realizations]\label{prop:many-realizations}
+% Boundary adequacy does not fix interior explanation.
+\end{proposition}
+
+\begin{remark}[Empirical adequacy vs explanation]\label{rem:adequacy-vs-explain}
+% Clear separation of roles.
+\end{remark}
+
+\begin{remark}[Failure of completion as signal]\label{rem:completion-failure}
+% Legitimate empirical outcome.
+\end{remark}
+
+\subsection*{Reflection questions}
+
+The following questions are intended to audit the conceptual stance of the framework and to
+identify remaining points of pressure or underdetermination. They are not requirements imposed
+by the formalism, but diagnostics for its interpretation and scope.
+
+\paragraph{Boundary completion and empirical meaning.}
+\begin{enumerate}
+  \item Does the definition of exact boundary completion successfully characterize
+  \emph{empirical coherence} among finite-resolution regularities without presupposing any
+  underlying generative or causal process?
+
+  \item Can failure of boundary completion be an informative empirical outcome---i.e.\ does it
+  distinguish genuine incompatibility of regularities from insufficient data or estimation error?
+
+  \item Is approximate boundary completion ($\varepsilon>0$) clearly interpreted as a graded
+  empirical property of observed regularities, rather than as a defect to be repaired by modeling?
+\end{enumerate}
+
+\paragraph{Extension versus dynamics.}
+\begin{enumerate}
+  \item Is the notion of extension (\(\Ext\)) unambiguously understood as a condition of
+  \emph{joint realizability}, rather than as an implicit form of temporal composition or causal
+  evolution?
+
+  \item After Sections~6 and~7, is it clear that kernel composition and semigroup structure are
+  representational conveniences that may be admissible, rather than assumptions imposed at the
+  boundary level?
+
+  \item Would a reader unfamiliar with Markov processes nonetheless understand extension as a
+  purely probabilistic constraint, independent of time direction or mechanism?
+\end{enumerate}
+
+\paragraph{Admissible structure and underdetermination.}
+\begin{enumerate}
+  \item Is it explicit---and acceptable within the framework---that multiple, non-equivalent kernel
+  families or generators may be equally compatible with the same boundary regularities?
+
+  \item Is the separation between \emph{boundary adequacy} (empirical compatibility) and
+  \emph{explanatory realization} (interior dynamical structure) sufficiently sharp to prevent
+  conflating predictive success with causal explanation?
+
+  \item When multiple realizations are boundary-compatible, does the framework leave their
+  selection as an external (pragmatic or scientific) choice rather than an internal requirement?
+\end{enumerate}
+
+\paragraph{Role and interpretation of \(\varepsilon\).}
+\begin{enumerate}
+  \item Should \(\varepsilon\) be interpreted primarily as a tolerance for empirical noise, a bound
+  on cross-resolution expressibility, or an operational budget for hypothesis generation? Is room
+  left for all three interpretations?
+
+  \item Are there plausible scenarios in which \(\varepsilon\) is small locally (at some resolutions)
+  but large globally, and does the framework accommodate such scale-dependent behavior?
+\end{enumerate}
+
+\paragraph{Scope and limits of the stance.}
+\begin{enumerate}
+  \item Does the framework remain coherent if no boundary horizon exists even as an idealization,
+  yet approximate completion holds at all empirically accessible resolutions?
+
+  \item Is it clear which claims in the manuscript are empirical (about observed regularities),
+  structural (about joint realizability), and representational (about kernels, semigroups, or
+  generators)?
+
+  \item Finally, is this a stance one is willing to be dogmatic about---namely, that all dynamical
+  structure must be admissible from boundary regularities and never assumed in advance?
+\end{enumerate}
+\end{document}

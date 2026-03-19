@@ -48,12 +48,13 @@ Fisher--Rao geometry, and the Rose condition --- arises as the natural metric st
 on the space of predictive laws, closing the loop from foundations to computation.
 
 \emph{Status}: working note.  The delay query system is fully verified as a query
-system satisfying all hypotheses of Paper~1 (Propositions 1--4): query system
-axioms, sequential upper-directedness at all lags via the lag-gcd construction,
-realizability, and compatibility of induced marginals for any measure $P$.
-Stationarity is identified as the condition for time-homogeneity of the predictive
-operator (Paper~3), not for compatibility (Paper~1).  Three open questions remain:
-sufficient embedding dimension, locality and tightness, and operator specialization.
+system satisfying all hypotheses of Paper~1 (Propositions 1--4).  Stationarity
+is identified as the Paper~3 condition for time-homogeneity, not the Paper~1
+condition for compatibility.  The probabilistic sufficiency criterion
+(Theorem~\ref{thm:sufficiency}) gives necessary and sufficient conditions for
+predictive sufficiency via the predictive Markov order $m(\tau, P)$, recovering
+Takens as a special case.  Two open questions remain: estimating $m(\tau, P)$
+from data, locality and tightness, and operator specialization.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -475,15 +476,135 @@ This is the query-theoretic formulation of \emph{sufficient embedding
 dimension}: the embedding $(d,\tau)$ is sufficient when increasing $d$
 (or changing $\tau$) does not further separate predictive laws.
 
-\begin{remark}[Connection to Takens]
-The classical Takens theorem guarantees that for a generic smooth
-deterministic system, the delay map $\mathrm{eval}_{d,\tau}$ is an
-embedding (injective immersion) for $d \geq 2\dim M + 1$.  In the
-predictive framework, the relevant threshold is not topological
-genericity but predictive sufficiency: the embedding dimension is
-sufficient when further increasing $d$ does not change the predictive
-law.  The Takens threshold is sufficient for the topological condition;
-the predictive threshold can in principle be lower.
+\begin{remark}[The query filtration and the infinite past]
+The $\sigma$-algebras $\{\sigma(\mathrm{eval}_{d,\tau})\}_{d \geq 1}$ are
+nested and increasing in $d$ for fixed $\tau$: observing more delay
+coordinates reveals more of the past.  Their join
+\[
+  \Fcal_\tau^- = \bigvee_{d=1}^\infty \sigma(\mathrm{eval}_{d,\tau})
+\]
+is the $\sigma$-algebra of the infinite past sampled at lag $\tau$.
+Across all lags, $\bigvee_\tau \Fcal_\tau^- = \sigma(\Qcal) = \Bcal_\Omega$
+--- the full observable $\sigma$-algebra on $\Omega$.  This is precisely the
+$\sigma$-algebra that the realization space $\Omega = \varprojlim O_{d,\tau}$
+carries by construction: the infinite past is not an external object but a
+direct consequence of the query system structure.
+
+By the martingale convergence theorem, for any $A \in \Xcal$,
+\[
+  P(x_1 \in A \mid \mathrm{eval}_{d,\tau})
+  \;\xrightarrow{d \to \infty}\;
+  P(x_1 \in A \mid \Fcal_\tau^-)
+  \qquad P\text{-a.s.}
+\]
+Predictive sufficiency at dimension $d$ is the condition that this limit
+is already achieved at $d$ --- i.e.\ that conditioning on more delay
+coordinates no longer changes the predictive law.
+\end{remark}
+
+\begin{definition}[Predictive Markov order]\label{def:markov-order}
+Let $P$ be a stationary probability measure on $\Omega$.  The
+\emph{predictive $\tau$-Markov order} of $P$ is
+\[
+  m(\tau, P)
+  = \min\!\left\{d \geq 1 :
+    P(x_1 \in A \mid \mathrm{eval}_{d,\tau})
+    = P(x_1 \in A \mid \Fcal_\tau^-)
+    \;\; P\text{-a.s.\ for all } A \in \Xcal
+  \right\},
+\]
+with $m(\tau, P) = \infty$ if no such finite $d$ exists.
+\end{definition}
+
+\begin{theorem}[Probabilistic sufficiency criterion]\label{thm:sufficiency}
+Let $P$ be a stationary probability measure on $\Omega$.  Then:
+\begin{enumerate}
+  \item $Q_{d,\tau}$ is predictively sufficient if and only if
+    $d \geq m(\tau, P)$.
+  \item The minimal sufficient embedding dimension at lag $\tau$ is
+    $m(\tau, P)$.
+  \item A finite sufficient embedding exists at lag $\tau$ if and only if
+    $m(\tau, P) < \infty$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+By the martingale convergence remark above, $\varphi_{d,\tau}(y) =
+P(x_1 \in \cdot \mid \mathrm{eval}_{d,\tau} = y)$ stabilises as $d$
+increases to the limit $P(x_1 \in \cdot \mid \Fcal_\tau^-)$.
+
+\textit{Sufficiency ($d \geq m(\tau,P)$ implies sufficient).}
+If $d \geq m(\tau, P)$ then $P(x_1 \in A \mid \mathrm{eval}_{d,\tau})
+= P(x_1 \in A \mid \Fcal_\tau^-)$ $P$-a.s.  Suppose $\varphi_{d,\tau}(y)
+= \varphi_{d,\tau}(y')$ for $y, y'$ in the support of $\nu_{d,\tau}$.
+Then $y$ and $y'$ assign the same conditional distribution to $x_1$,
+and since $d \geq m(\tau,P)$ this conditional distribution is already
+the $\Fcal_\tau^-$-measurable one.  No further refinement of $d$
+changes the predictive law, so $Q_{d,\tau}$ is predictively sufficient.
+
+\textit{Necessity ($d < m(\tau,P)$ implies not sufficient).}
+If $d < m(\tau, P)$, then by definition there exists $A \in \Xcal$ for
+which $P(x_1 \in A \mid \mathrm{eval}_{d,\tau}) \neq P(x_1 \in A \mid
+\Fcal_\tau^-)$ on a set of positive $P$-measure.  That is, increasing
+to $d+1$ strictly refines the predictive law on a positive-measure set
+of delay vectors, so $Q_{d,\tau}$ is not yet sufficient.
+
+\textit{Parts 2 and 3} follow immediately from the characterisation.
+\end{proof}
+
+\begin{corollary}[Takens as a special case]\label{cor:takens}
+Let $P$ be the natural invariant measure of a smooth deterministic system
+on a compact $d_M$-dimensional manifold $M$, observed through a generic
+smooth observation function.  Then $m(\tau, P) \leq 2d_M + 1$ for any
+$\tau$, and Theorem~\ref{thm:sufficiency} recovers the Takens embedding
+theorem as a special case.
+\end{corollary}
+
+\begin{proof}[Proof sketch]
+In the deterministic case the predictive law $\varphi_{d,\tau}(y)$ is a
+Dirac measure $\delta_{f(y)}$ for some function $f$, since the future is
+determined by the present state.  Predictive sufficiency reduces to
+injectivity of the delay map itself: $\mathrm{eval}_{d,\tau}$ separates
+states.  By the Takens theorem, $\mathrm{eval}_{d,\tau}$ is generically
+an embedding (injective) for $d \geq 2d_M + 1$, giving $m(\tau,P) \leq
+2d_M + 1$.
+\end{proof}
+
+\begin{remark}[Why the probabilistic threshold can be lower]
+In the deterministic case, the Takens bound $2d_M + 1$ is driven by
+topological dimension theory (Whitney embedding).  In the stochastic case,
+$m(\tau, P)$ measures the depth of \emph{predictive memory} — how far back
+the conditional distribution of the next observation depends on the past.
+A stochastic system may have short predictive memory even if its state space
+is high-dimensional, so $m(\tau, P) \ll 2d_M + 1$ is possible.
+
+Conversely, a system with long-range dependence may have $m(\tau, P) = \infty$
+for all finite $\tau$: no finite delay embedding is sufficient, and the
+full infinite past $\Fcal_\tau^-$ is needed.  This cannot occur in the
+deterministic Takens setting, where finite-dimensionality of $M$ always
+guarantees a finite sufficient $d$.
+
+The contrast between the two frameworks is therefore:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\hline
+& \textbf{Takens} & \textbf{Query framework} \\
+\hline
+Latent space & Finite-dim manifold $M$ assumed & Not assumed \\
+Dimension & $\dim M$ & $m(\tau, P)$ (predictive depth) \\
+Sufficient $d$ & $2\dim M + 1$ & $m(\tau, P)$ \\
+Condition & Topological genericity & Probabilistic (memory depth) \\
+Infinite memory & Impossible ($M$ finite-dim) & Possible ($m = \infty$) \\
+Reconstruction & Up to diffeomorphism & Up to predictive equivalence \\
+\hline
+\end{tabular}
+\end{center}
+
+The query framework recovers Takens when the system is deterministic and
+finite-dimensional, and extends it to the stochastic setting without
+assuming a latent state space.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -543,12 +664,12 @@ connecting the query-theoretic and information-geometric perspectives.
 The following questions mark the current frontier of this bridge.
 
 \begin{enumerate}
-  \item \textbf{Sufficient embedding dimension.}  Under what conditions
-    on $P$ does a finite embedding dimension $(d, \tau)$ achieve
-    predictive sufficiency?  The Takens theorem gives a topological
-    sufficient condition (Corollary, Paper~2); the predictive framework
-    should give a probabilistic necessary and sufficient condition in
-    terms of the predictive law map $\varphi_{d,\tau}$.
+  \item \textbf{Sufficient embedding dimension.}  Theorem~\ref{thm:sufficiency}
+    gives the probabilistic necessary and sufficient condition: $Q_{d,\tau}$
+    is predictively sufficient iff $d \geq m(\tau, P)$.  The open question
+    is how to estimate or bound $m(\tau, P)$ from data, and how it relates
+    to observable properties of $P$ (mixing rates, spectral gap, correlation
+    decay).
 
   \item \textbf{Locality and compact outcome spaces.}  The computational
     experiments (Tricube kernel, locality exponent $\eta$) suggest that

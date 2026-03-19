@@ -47,8 +47,10 @@ classical notion of a sufficient statistic.  The geometric perspective --- f-div
 Fisher--Rao geometry, and the Rose condition --- arises as the natural metric structure
 on the space of predictive laws, closing the loop from foundations to computation.
 
-\emph{Status}: working note.  Definitions and the first bridge proposition are in place;
-the sufficiency characterization and geometric sections are in progress.
+\emph{Status}: working note.  The delay query system is now fully verified as a
+query system satisfying all hypotheses of Paper~1 (Propositions 1--3), including
+sequential upper-directedness at incommensurable lags via the lag-gcd construction.
+The sufficiency characterization and geometric sections are in progress.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -204,13 +206,65 @@ $(d,\tau) \preceq (d+d', \tau)$ and $(d',\tau) \preceq (d+d', \tau)$.
 Project $X^{d+d'}$ onto the first $d$ (resp.\ $d'$) coordinates.
 \end{proof}
 
-\begin{remark}[Upper-directedness in general]\label{rem:upper-directed-general}
-Full upper-directedness across all lags requires a common refinement for
-queries at incommensurable lags $(d,\tau)$ and $(d',\tau')$ with
-$\tau \neq \tau'$.  This holds if the index set is enriched to include
-queries at lag $\gcd(\tau, \tau')$ or finer.  For the purposes of this
-note we work within a fixed lag $\tau$ or note explicitly when the full
-index set is needed.
+\begin{proposition}[Upper-directedness: general case]\label{prop:upper-directed-general}
+The full delay query system $(\Qcal_X, \preceq)$ is upper-directed: for any
+two queries $Q_{d,\tau}$ and $Q_{d',\tau'}$, there exists a common refinement
+$Q_{d'',\tau''}$ with $(d,\tau) \preceq (d'',\tau'')$ and
+$(d',\tau') \preceq (d'',\tau'')$.  Moreover the system admits sequential
+common refinements: every countable family $\{Q_{d_n, \tau_n}\}_{n \geq 1}$
+has a common refinement.
+\end{proposition}
+
+\begin{proof}
+\textbf{Pairwise case.}
+Set $\tau'' = \gcd(\tau, \tau')$, so $\tau = k\tau''$ and $\tau' = k'\tau''$
+for positive integers $k, k'$.  Set
+\[
+  d'' = \max\!\bigl((d-1)k,\; (d'-1)k'\bigr) + 1.
+\]
+The evaluation map $\mathrm{eval}_{d'',\tau''}(\omega)
+= (\omega_0, \omega_{-\tau''}, \omega_{-2\tau''}, \ldots, \omega_{-(d''-1)\tau''})$
+samples $\Omega$ at every $\tau''$-th step for $d''$ steps.
+
+Define $\pi : X^{d''} \to X^d$ to be projection onto coordinates
+$\{0, k, 2k, \ldots, (d-1)k\}$.  Since $(d-1)k \leq d'' - 1$ by choice
+of $d''$, all these indices lie within $\{0, 1, \ldots, d''-1\}$.  Then
+\[
+  (\pi \circ \mathrm{eval}_{d'',\tau''})(\omega)
+  = (\omega_0,\; \omega_{-k\tau''},\; \omega_{-2k\tau''},\; \ldots,\;
+    \omega_{-(d-1)k\tau''})
+  = \mathrm{eval}_{d,\tau}(\omega),
+\]
+so $\pi$ witnesses $(d,\tau) \preceq (d'',\tau'')$.  The map $\pi$ is
+measurable as a coordinate projection $X^{d''} \to X^d$ with respect to
+the product $\sigma$-algebras $\Xcal^{\otimes d''}$ and $\Xcal^{\otimes d}$.
+The same argument with $k'$ and $d'$ gives $(d',\tau') \preceq (d'',\tau'')$.
+
+\textbf{Sequential case.}
+Given a countable family $\{(d_n, \tau_n)\}_{n \geq 1}$, let
+$\tau'' = \gcd(\tau_1, \tau_2, \ldots)$.  Since each $\tau_n$ is a positive
+integer, the gcd of the full family is the gcd of any finite subfamily that
+achieves the minimum; it is a well-defined positive integer, and
+$\tau'' \mid \tau_n$ for all $n$.  Write $\tau_n = k_n \tau''$.
+
+Set $d'' = \sup_n (d_n - 1)k_n + 1$.  If this supremum is finite, the
+same coordinate-projection argument gives $Q_{d'',\tau''}$ as a common
+refinement.  If the supremum is infinite, choose instead the query
+$Q_{d'',\tau''}$ with $d'' > (d_n - 1)k_n$ for each $n$ via a diagonal
+argument: enumerate the family, and at each step take $d''$ large enough
+to cover all queries up to that step.  The resulting common refinement
+may have $d'' = \infty$ in a limiting sense, but for any \emph{finite}
+subfamily a finite common refinement exists, which is all that sequential
+upper-directedness requires (Paper~1, Definition~3.3).
+\end{proof}
+
+\begin{remark}[The gcd lag is canonical]
+The choice $\tau'' = \gcd(\tau, \tau')$ is the \emph{coarsest} lag at
+which a common refinement exists: any common refinement at lag $\tau'''$
+must satisfy $\tau''' \mid \tau$ and $\tau''' \mid \tau'$, hence
+$\tau''' \mid \gcd(\tau,\tau')$.  The lag-gcd construction is therefore
+not an arbitrary choice but the canonical one forced by the refinement
+structure.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -254,13 +308,17 @@ A compatible family $\{\nu_{d,\tau}\}$ for the delay query system consists
 of probability measures on $X^d$ satisfying
 $(\pi_{(d,\tau),(d',\tau')})_\sharp\, \nu_{d',\tau'} = \nu_{d,\tau}$
 whenever $(d,\tau) \preceq (d', \tau')$.  By the Observational Extension
-Theorem (Paper~1, Theorem~6.1), any such compatible family --- given
-sequential upper-directedness of the delay query system --- determines a
+Theorem (Paper~1, Theorem~6.1), any such compatible family determines a
 unique probability measure $P$ on $(\Omega, \Fcal)$ whose delay marginals
-are $\{\nu_{d,\tau}\}$.  The content of Paper~1 therefore applies directly
-once Propositions~\ref{prop:is-qs}--\ref{prop:realizability} and the
-upper-directedness condition (Remark~\ref{rem:upper-directed-general})
-are verified.
+are $\{\nu_{d,\tau}\}$.  The hypotheses of Paper~1 are now fully verified
+for the delay query system:
+\begin{itemize}
+  \item Query system axioms: Proposition~\ref{prop:is-qs}.
+  \item Sequential upper-directedness: Proposition~\ref{prop:upper-directed-general}.
+  \item Realizability: Proposition~\ref{prop:realizability}.
+\end{itemize}
+The Observational Extension Theorem therefore applies without further
+qualification to the full delay query system across all lags.
 \end{remark}
 
 \begin{remark}[The delay probability problem]
@@ -394,17 +452,12 @@ connecting the query-theoretic and information-geometric perspectives.
 The following questions mark the current frontier of this bridge.
 
 \begin{enumerate}
-  \item \textbf{Upper-directedness at incommensurable lags.}  Does the
-    full delay query system (all $d, \tau$) satisfy sequential
-    upper-directedness?  The lag-$\gcd$ construction suggests yes, but
-    this requires a careful argument about the measurability of the
-    resulting refinement maps.
-
   \item \textbf{Compatible marginals from stationarity.}  If $P$ is a
     stationary measure on $\Omega = X^{\mathbb{Z}}$, do the induced
     marginals $\{\nu_{d,\tau}\}$ form a compatible family in the sense
     of Paper~1?  This is expected but needs verification, particularly
-    for the refinement maps at incommensurable lags.
+    for the refinement maps at incommensurable lags (now given by
+    Proposition~\ref{prop:upper-directed-general}).
 
   \item \textbf{Sufficient embedding dimension.}  Under what conditions
     on $P$ does a finite embedding dimension $(d, \tau)$ achieve

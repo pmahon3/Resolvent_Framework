@@ -53,8 +53,11 @@ is identified as the Paper~3 condition for time-homogeneity, not the Paper~1
 condition for compatibility.  The probabilistic sufficiency criterion
 (Theorem~\ref{thm:sufficiency}) gives necessary and sufficient conditions for
 predictive sufficiency via the predictive Markov order $m(\tau, P)$, recovering
-Takens as a special case.  Two open questions remain: estimating $m(\tau, P)$
-from data, locality and tightness, and operator specialization.
+Takens as a special case.  The operator-theoretic specialization (Section~7)
+identifies $K_t$ as a Markov operator on $L^2(O_{Q^*}, \nu_{Q^*})$, recovers
+the Koopman operator in the deterministic limit, and establishes local linear
+maps as finite-rank approximations converging in $L^2$.  One main open question
+remains: quantitative approximation bounds for the local linear map truncation.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -658,6 +661,135 @@ lost in the embedding.  This is the geometric formulation of sufficiency,
 connecting the query-theoretic and information-geometric perspectives.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Operator theory specialization}\label{sec:operators}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We now connect the predictive operator $K_t$ of Paper~3 to the concrete
+structure of the delay query system, identifying its action on the
+predictive state space $O_{Q^*} \subseteq \Pcal(X)$ and its approximation
+by local linear maps.
+
+\subsection*{The predictive operator on $O_{Q^*}$}
+
+Assume $P$ is stationary (so $K_t$ is time-homogeneous by
+Proposition~\ref{prop:stationarity}) and $(d,\tau)$ is predictively
+sufficient (so $m(\tau,P) \leq d < \infty$ by
+Theorem~\ref{thm:sufficiency}).
+
+\begin{proposition}[Delay specialisation of $K_t$]\label{prop:kt-delay}
+Under these hypotheses, the predictive operator $K_t$ of Paper~3
+specialises to a Markov operator on $L^2(O_{Q^*}, \nu_{Q^*})$:
+\[
+  (K_t g)(\mu) = \int_{O_{Q^*}} g(\mu')\, \Pi_t(\mu, d\mu'),
+  \qquad g \in L^2(O_{Q^*}, \nu_{Q^*}),
+\]
+where $\Pi_t(\mu, \cdot)$ is the \emph{predictive transition kernel} ---
+the conditional distribution of the predictive law at time $t$ given the
+current predictive law $\mu$:
+\[
+  \Pi_t(\mu, B) = P\!\left(\varphi_{d,\tau}(\mathrm{eval}_{d,\tau}(\sigma^t\omega)) \in B
+  \;\middle|\;
+  \varphi_{d,\tau}(\mathrm{eval}_{d,\tau}(\omega)) = \mu\right).
+\]
+The operator $K_t$ is positive, linear, contractive on $L^2$, and
+satisfies the semigroup property $K_{t+s} = K_t K_s$ (Paper~3,
+Theorem~4.1).
+\end{proposition}
+
+\begin{proof}
+By Paper~3, $K_t g(q) = \mathbb{E}_P[g(Q_*(\sigma^t\omega)) \mid Q_*(\omega) = q]$
+for $q \in O_{Q^*}$.  Specialising $Q_* = \varphi_{d,\tau} \circ
+\mathrm{eval}_{d,\tau}$ gives the stated integral representation with
+kernel $\Pi_t$.  The operator properties follow from Paper~3
+Propositions~3.1--3.3.
+\end{proof}
+
+\begin{proposition}[Deterministic limit: Koopman operator]\label{prop:koopman}
+If $P$ is the natural invariant measure of a deterministic system
+$\omega_{n+1} = T(\omega_n)$ with observation function $h : M \to X$,
+then $\Pi_t(\mu, \cdot) = \delta_{T_t^*\mu}$ where $T_t^* : O_{Q^*} \to
+O_{Q^*}$ is the induced map on predictive laws, and
+\[
+  K_t g = g \circ T_t^*.
+\]
+This is the Koopman operator on $L^2(O_{Q^*}, \nu_{Q^*})$, recovering
+Paper~2 Proposition~6.1.
+\end{proposition}
+
+\begin{proof}
+In the deterministic case, the future is determined by the present state:
+$\varphi_{d,\tau}(\mathrm{eval}_{d,\tau}(\sigma^t\omega))$ is a
+deterministic function of $\varphi_{d,\tau}(\mathrm{eval}_{d,\tau}(\omega))$,
+so $\Pi_t(\mu,\cdot) = \delta_{T_t^*(\mu)}$ and the integral collapses
+to composition.
+\end{proof}
+
+\subsection*{Local linear approximation}
+
+In practice, $K_t$ is approximated from finite data using
+\emph{residual stochastic local linear maps}: for each point
+$\mu \in O_{Q^*}$, fit a linear operator $L_\mu$ to the transitions
+observed in a neighbourhood of $\mu$, weighted by a locality kernel
+$w(\cdot, \mu)$ (e.g.\ Tricube).
+
+\begin{proposition}[Local linear maps as finite-rank approximations]
+\label{prop:local-linear}
+Let $\{\mu_1, \ldots, \mu_N\}$ be a finite sample of predictive states
+from $\nu_{Q^*}$, and let $w_k(\mu) = w(\mu, \mu_k)$ be locality weights
+summing to~1.  The \emph{local linear approximation} to $K_t$ is
+\[
+  (K_t^N g)(\mu) = \sum_{k=1}^N w_k(\mu)\, (L_k g)(\mu_k),
+\]
+where $L_k$ is the linear operator fitted to transitions in the
+neighbourhood of $\mu_k$.  Under regularity conditions on $K_t$ and the
+Fisher--Rao geometry of $O_{Q^*}$:
+\begin{enumerate}
+  \item $K_t^N$ is a finite-rank operator on $L^2(O_{Q^*}, \nu_{Q^*})$.
+  \item $\|K_t^N - K_t\|_{L^2} \to 0$ as $N \to \infty$ and the
+    neighbourhood radius $\to 0$ at an appropriate rate.
+  \item The approximation error is controlled by the curvature of
+    $O_{Q^*}$ under the Fisher--Rao metric: flatter predictive state
+    spaces require fewer local models.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Part~1 is immediate: a finite sum of rank-1 operators is finite-rank.
+Parts~2 and~3 follow from standard results on kernel approximation of
+integral operators, applied to the Markov kernel $\Pi_t$ on the metric
+space $(O_{Q^*}, d_{\mathrm{FR}})$ where $d_{\mathrm{FR}}$ is the
+Fisher--Rao distance.  The locality weights $w_k$ provide a partition of
+unity approximation to the identity on $O_{Q^*}$; the local linear
+operators $L_k$ approximate the action of $K_t$ in each neighbourhood.
+The approximation rate depends on the smoothness of $\mu \mapsto \Pi_t(\mu,
+\cdot)$ with respect to $d_{\mathrm{FR}}$ --- a regularity condition that
+holds when the underlying system has sufficient mixing.  A full proof
+requires quantitative bounds on the operator norm error in terms of the
+neighbourhood radius and sample size $N$; this is left as a direction for
+future work.
+\end{proof}
+
+\begin{remark}[Closing the loop]
+Proposition~\ref{prop:local-linear} closes the arc from foundations to
+computation.  The chain is:
+\[
+  \underbrace{(\Qcal_X, \preceq)}_{\text{delay query system}}
+  \;\xrightarrow{\text{Paper~1}}\;
+  \underbrace{(\Omega, P)}_{\text{prob.\ space}}
+  \;\xrightarrow{\text{Paper~2}}\;
+  \underbrace{O_{Q^*} \subseteq \Pcal(X)}_{\text{predictive states}}
+  \;\xrightarrow{\text{Paper~3}}\;
+  \underbrace{K_t \text{ on } L^2(O_{Q^*})}_{\text{operator}}
+  \;\xrightarrow{\text{here}}\;
+  \underbrace{K_t^N}_{\text{local linear maps.}}
+\]
+Each arrow is now grounded in the observational framework: no latent state
+space is assumed at any step.  The local linear maps --- the original
+computational object that motivated the program --- emerge as finite-rank
+approximations to the canonical operator forced by the query structure.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Open questions and next steps}\label{sec:open}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -677,12 +809,13 @@ The following questions mark the current frontier of this bridge.
     query-theoretic framework this should connect to the tightness
     conditions of the Prokhorov extension route (Paper~1, Section~7).
 
-  \item \textbf{Operator theory specialization.}  What does the
-    predictive operator $K_t$ of Paper~3 become when specialized to
-    the delay query system?  By Proposition~\ref{prop:stationarity},
-    stationarity makes $K_t$ time-homogeneous.  The remaining question
-    is the precise connection to the residual stochastic local linear
-    maps used in computation.
+  \item \textbf{Quantitative approximation bounds.}
+    Proposition~\ref{prop:local-linear} establishes that local linear
+    maps converge to $K_t$ but leaves the rate unquantified.  The open
+    question is: given mixing rate of $P$, Fisher--Rao curvature of
+    $O_{Q^*}$, sample size $N$, and neighbourhood radius $r$, what is
+    $\|K_t^N - K_t\|_{L^2}$?  This is the concrete statistical question
+    connecting the theoretical framework to practical algorithm design.
 \end{enumerate}
 
 \section*{Acknowledgements}

@@ -16,3 +16,10 @@
 
 # Claude Code
 .claude/
+*.aux 
+*.bbl 
+*.blg 
+*.log 
+*.out 
+*.synctex.gz 
+*.toc

@@ -1,0 +1,127 @@
+% ------------------------------------------------------------
+% Information-Geometric Correspondence (IGC): Extended Handout
+% ------------------------------------------------------------
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{geometry}
+\usepackage{mdframed}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage[table]{xcolor}
+
+
+\geometry{margin=1in}
+
+% theorem environments
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\pagecolor{white}
+
+% boxed environment for emphasis
+\newmdenv[linecolor=black,linewidth=0.5pt,backgroundcolor=gray!0,roundcorner=5pt]{mybox}
+
+\begin{document}
+
+\begin{center}
+{\LARGE \textbf{Information-Geometric Correspondence (IGC)}}\\[0.5em]
+{\large A Field Guide to Excess Fisher Curvature Across Domains}
+\end{center}
+
+\vspace{1em}
+
+% --------------------------
+\section*{1. Core Principle}
+% --------------------------
+\begin{mybox}
+\textbf{Principle.} Whenever a system is decomposed into subsystems, the deviation from local Fisher additivity defines an intrinsic curvature that encodes correlations, entanglement, or constraints.
+\end{mybox}
+
+Let $g$ denote the Fisher information metric on a statistical manifold. For a partition $A|B$,
+\[
+\mathcal{F} := g^{AB} - (g^A \oplus g^B).
+\]
+
+- $\mathcal F = 0$ $\;\Rightarrow$ independent parts, flat geometry.
+- $\mathcal F > 0$ $\;\Rightarrow$ non-factorization, excess information, curvature.
+
+\noindent The scalar contraction $\mathcal R_F := \mathrm{tr}(g^{-1}\mathcal F)$ is the \emph{Fisher curvature}.
+
+% --------------------------
+\section*{2. Minimal Equations}
+% --------------------------
+\subsection*{2.1 Additivity baseline}
+\[
+\mathcal I_{A\cup B} = \mathcal I_A + \mathcal I_B.
+\]
+
+\subsection*{2.2 Excess Fisher curvature}
+\[
+\mathcal I_{A\cup B} = \mathcal I_A + \mathcal I_B + \mathrm{tr}(g^{-1}\mathcal F).
+\]
+
+\subsection*{2.3 Classical decomposition}
+For score functions $S_A,S_B$ and residual $R$:
+\[
+\mathcal I_{AB} = \mathcal I_A + \mathcal I_B + 2\,\mathrm{Cov}(S_A,S_B) + \mathrm{Var}(R).
+\]
+
+\subsection*{2.4 Quantum scaling}
+\begin{align*}
+\text{Separable: } & I(\theta) \sim N, \\
+\text{Entangled: } & I(\theta) \sim N^2.
+\end{align*}
+
+\subsection*{2.5 Holographic duality}
+\[
+\text{Boundary Fisher metric} = \text{Bulk canonical energy}.
+\]
+
+% --------------------------
+\section*{3. Operational Heuristics}
+% --------------------------
+\begin{enumerate}[label=(\alph*)]
+    \item Estimate KL or Fisher across partitions: non-additivity $\Rightarrow$ excess curvature.
+    \item If boundary relative entropy is preserved: interior measure-conjugacy is possible.
+    \item Divergence of $\mathcal R_F$: signals criticality or phase transitions.
+\end{enumerate}
+
+% --------------------------
+\section*{4. Cross-Domain Examples}
+% --------------------------
+\subsection*{4.1 Physics}
+- Entangled probes yield excess QFI beyond separable limits.
+- Black-hole entropy area law: entropy $\sim$ surface, not volume. Boundary Fisher curvature encodes bulk geometry.
+
+\subsection*{4.2 Neuroscience}
+- Neural codes exhibit synergy: joint Fisher info exceeds sum of parts.
+- Integrated information measures can be reframed as excess Fisher curvature.
+
+\subsection*{4.3 Economics}
+- Market co-movements correspond to spikes in Fisher curvature.
+- Stress periods reveal super-additivity in covariance structure.
+
+\subsection*{4.4 Climate/Earth systems}
+- Teleconnections (e.g. ENSO) manifest as $\mathcal R_F > 0$ across spatial regions.
+- Critical transitions marked by curvature divergence.
+
+\subsection*{4.5 Machine Learning}
+- Feature interactions: positive $\mathcal F$ indicates synergy not captured by independent predictors.
+
+% --------------------------
+\section*{5. Programmatic Steps}
+% --------------------------
+\begin{enumerate}[label=Step \arabic*.]
+    \item \textbf{Calculus of cuts:} develop transformation rules for $\mathcal F$ under coarse-graining and embeddings.
+    \item \textbf{Curvature budgets:} partition observed $\mathcal F$ into noise vs hidden geometry vs hidden drivers.
+    \item \textbf{Design by curvature:} maximize useful $\mathcal F$ (metrology) or minimize harmful $\mathcal F$ (stability).
+    \item \textbf{Correspondence library:} map domain-specific invariants (Bell, JLMS, Ruppeiner) to contractions of $\mathcal F$.
+\end{enumerate}
+
+% --------------------------
+\section*{6. Outlook}
+% --------------------------
+The IGC provides a unifying framework: just as calculus gave a universal language for infinitesimal change, IGC proposes a universal language for \emph{non-additivity}. Fisher curvature is its central invariant, linking statistics, quantum mechanics, and spacetime geometry.
+
+\end{document}

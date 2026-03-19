@@ -1,0 +1,66 @@
+{
+  "experiment": "tier1_locality_validation_10bins",
+  "description": "High-resolution binning (10 bins) to reveal full η(y) distribution across state space",
+
+  "system": {
+    "q": 1.5,
+    "sigma": 0.01,
+    "n": 15000,
+    "seed": 100,
+    "theory_eta": 3.0
+  },
+
+  "queries": {
+    "percentile_range": [70, 95],
+    "n_queries": 120,
+    "bins": {
+      "method": "quantiles_10"
+    }
+  },
+
+  "bandwidth": {
+    "method": "geometric_grid",
+    "h_star_multipliers": [
+      0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0,
+      1.2, 1.4, 1.6, 1.8, 2.0, 2.5, 3.0, 3.5,
+      4.0, 4.5, 5.0, 6.0, 7.0, 8.0, 9.0, 10.0,
+      12.0, 14.0, 16.0, 18.0, 20.0, 22.0, 25.0,
+      28.0, 30.0, 35.0, 40.0
+    ],
+    "fit_start_multiplier": 1.6,
+    "min_span_decades": 1.0,
+    "use_robust_slope": true,
+    "curvature_guard_threshold": 10.0
+  },
+
+  "kernels": {
+    "primary": "tricube",
+    "control": "gaussian",
+    "locality_guards": {
+      "tricube": {"r_eff_min": 0.35, "r_eff_max": 0.45},
+      "gaussian": {"r_eff_min": 0.95, "r_eff_max": 1.05}
+    }
+  },
+
+  "bootstrap": {
+    "n_resamples": 0,
+    "method": "query_resample",
+    "seed": 101,
+    "parallel": false
+  },
+
+  "output": {
+    "results_json": "results/tier1_10bins.json",
+    "figure": "results/figures/tier1_10bins_main.png",
+    "table": "results/tables/tier1_10bins_summary.csv"
+  },
+
+  "acceptance_criteria": {
+    "fit_span_decades_min": 1.0,
+    "middle_bin_eta_min": 2.9,
+    "middle_bin_eta_max": 3.3,
+    "weighted_eta_min": 2.6,
+    "bootstrap_ci_width_max": 0.3,
+    "locality_guard_pass_rate_min": 0.8
+  }
+}

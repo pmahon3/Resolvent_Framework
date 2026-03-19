@@ -1,0 +1,91 @@
+%==============================  program skeleton  =============================
+\documentclass[11pt]{article}
+\usepackage{subfiles}
+
+\input{../macros.tex}   % put your \newcommand definitions here
+
+\title{The Rose Surface: Discrete Onsager--Machlup, Dial Graphs, and a Program for Data‑Driven Statistical Dynamics}
+\author{Patrick S.\ Mahon}
+\date{\today}
+\begin{document}
+\maketitle
+\tableofcontents
+
+%------------------------------------------------------------------ 
+\section*{Guide to the two–layer release}
+\begin{enumerate}[label=\textbf{\Alph*)},leftmargin=*]
+\item \textbf{Main Letter (12–15 pp)}  
+      Appears separately as \emph{Geometry, Entropy, and Operator Learning
+      with Tunable Kernels}.  It contains the core bridge
+      theorem, KL = least‑action, and one synthetic experiment.
+
+\item \textbf{This Program Paper (full version)}  
+      Provides historical survey §1, proofs, extended risk analysis,
+      dial‑graph curvature, and open problems (Sections 2–7 below).
+\end{enumerate}
+\vspace{1ex}
+\noindent
+\emph{To avoid duplication:} we load the Letter as an external file,
+then append the expanded material.
+
+\subfile{../letter/body.tex}   % ---  your concise 12‑page letter  ---
+
+%==================================================================
+\section{Historical Survey of Discrete Onsager–Machlup}
+\phantomsection        % keeps hyperref anchors even while empty
+\addcontentsline{toc}{subsection}{TODO write narrative}
+% TODO: 3–4 pages summarising Schnakenberg cycles, Kaiser–Jack–Zimmer,
+%       GENERIC, etc.  Use Table 1 from literature PDF.
+
+%------------------------------------------------------------------
+\section{Proofs for Main Theorems}
+\subsection{Proof of Proposition~\ref{prop:CGF}}
+\phantomsection
+% TODO: full Taylor–Itô calculation, cite Lemma B.1
+
+\subsection{Proof of Theorem~\ref{thm:bridge}}
+\phantomsection
+% TODO: detailed carré‑du‑champ expansion, Kuwada identity derivation
+
+\subsection{Proof of Theorem~\ref{thm:KL_eq_action}}
+\phantomsection
+% TODO: edgewise gradient ⇒ global gradient ⇒ KL = OM
+
+%------------------------------------------------------------------
+\section{Finite‑Sample Theory}
+\subsection{Goldenshluger–Lepski Oracle Inequality}
+\phantomsection
+% TODO: disclose constant, variance bound lemma, covering argument
+
+\subsection{Synthetic and Real‑Data Experiments}
+\phantomsection
+% TODO: double‑well Langevin, Lorenz‑63, delay embedding plots
+
+%------------------------------------------------------------------
+\section{Dial‑Graph Geometry}
+\subsection{Directed Discrete Curvature}
+\phantomsection
+% TODO: Ollivier vs Bakry–Émery comparison; include Figure 5
+
+\subsection{Helmholtz Decomposition and Fisher Clock}
+\phantomsection
+% TODO: proof of Lemma~\ref{lem:graph-Helmholtz}, numeric toy example
+
+%------------------------------------------------------------------
+\section{Programmatic Directions}
+\begin{enumerate}[label=\textbf{P\arabic*},leftmargin=*]
+\item **Intrinsic Fisher Clocks** in out‑of‑equilibrium networks.  
+\item **Multiparameter Persistent Homology** for dial graphs.  
+\item **Generalised GENERIC Operators** on rough data manifolds.  
+\end{enumerate}
+
+%------------------------------------------------------------------
+\section{Concluding Outlook}
+\phantomsection
+% TODO: 1‑page roadmap tying together P1–P3.
+
+%=======================  bibliography  ===========================
+\bibliographystyle{plainnat}
+\bibliography{rose_refs}
+\end{document}
+%==============================================================================

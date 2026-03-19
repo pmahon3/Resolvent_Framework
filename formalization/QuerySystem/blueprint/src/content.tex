@@ -1,0 +1,115 @@
+\chapter{Query Systems and Observational Foundations}
+
+This formalization develops query systems: preordered families of measurable spaces with compatible refinement maps.
+
+\section{Core Definitions}
+
+\begin{definition}
+\label{def:query}
+\lean{Query}
+\leanok
+A \emph{query} is a measurable space representing the possible outcomes of asking a single question or making a single observation.
+\end{definition}
+
+\begin{definition}
+\label{def:refine}
+\lean{Refine}
+\leanok
+A \emph{refinement} between queries is a measurable function showing how outcomes of one query determine outcomes of another.
+\end{definition}
+
+\begin{definition}
+\label{def:query-system}
+\lean{QuerySystem}
+\leanok
+A \emph{query system} is a preordered family of queries with coherent refinement maps. It consists of:
+\begin{itemize}
+\item An index type $\iota$
+\item A family of queries $q : \iota \to \text{Query}$
+\item A preorder relation $\le$ on indices
+\item Refinement maps $\pi : \forall \{i\ j\}, i \le j \to \text{Refine}(q_i, q_j)$
+\end{itemize}
+subject to functoriality conditions.
+\end{definition}
+
+\begin{definition}
+\label{def:omega}
+\lean{QuerySystem.Omega}
+\leanok
+The \emph{projective limit} $\Omega$ is the space of coherent families of query outcomes.
+An element $\omega : \Omega$ assigns to each query $i$ an outcome $\omega(i)$, subject to the coherence condition:
+whenever $i \le j$, we have $\omega(j) = \pi_{ij}(\omega(i))$.
+\end{definition}
+
+\begin{definition}
+\label{def:cylinder}
+\lean{QuerySystem.Cyl}
+\leanok
+A \emph{cylinder set} $\text{Cyl}(i, A)$ is the set of realizations where query $i$ yields an outcome in $A$.
+These generate the observable $\sigma$-algebra.
+\end{definition}
+
+\begin{definition}
+\label{def:compatible-marginals}
+\lean{QuerySystem.CompatibleMarginals}
+\leanok
+\uses{def:query-system, def:refine}
+A family $\nu$ of measures on query outcomes is \emph{compatible} if the measures commute with refinement maps:
+whenever $i \le j$, the pushforward of $\nu_i$ along $\pi_{ij}$ equals $\nu_j$.
+\end{definition}
+
+\begin{definition}
+\label{def:lower-directed}
+\lean{QuerySystem.LowerDirected}
+\leanok
+A query system is \emph{lower-directed} if any two queries have a common coarsening:
+$\forall i\ j, \exists k, k \le i \land k \le j$.
+\end{definition}
+
+\section{Main Results}
+
+\subsection{Observational Determination}
+
+\begin{lemma}
+\label{lem:pi-system}
+\lean{QuerySystem.isPiSystem_CylGen}
+\leanok
+\uses{def:cylinder, def:lower-directed}
+Under lower-directedness, the cylinder family forms a $\pi$-system.
+\end{lemma}
+
+\begin{theorem}[Observational Determination]
+\label{thm:observational-determination}
+\lean{QuerySystem.observational_determination}
+\leanok
+\uses{lem:pi-system, def:omega, def:compatible-marginals}
+Two (finite) measures on the projective limit $\Omega$ are equal if and only if they have equal marginals on all queries.
+\end{theorem}
+
+\begin{proof}
+\leanok
+Apply the $\pi$-$\lambda$ theorem to the cylinder $\sigma$-algebra. The cylinders form a $\pi$-system by \ref{lem:pi-system}, and the hypothesis gives agreement on all cylinders.
+\end{proof}
+
+\begin{theorem}[Observational Determination for Probability Measures]
+\label{thm:observational-determination-prob}
+\lean{QuerySystem.observational_determination_prob}
+\leanok
+\uses{thm:observational-determination}
+If two probability measures on $\Omega$ have equal marginals on all queries, then they are equal.
+\end{theorem}
+
+\subsection{Observational Extension}
+
+\begin{lemma}[Premeasure Well-Definedness]
+\label{lem:premu-well-defined}
+\lean{QuerySystem.preμ_wellDefined}
+\leanok
+\uses{def:compatible-marginals, def:lower-directed}
+The premeasure defined on finite cylinders is well-defined: it doesn't depend on the choice of lower bound used in its definition.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Given two lower bounds, use directedness to find a common refinement. Show the measure values agree using compatibility and proof irrelevance for the transitivity witnesses.
+\end{proof}

@@ -134,14 +134,21 @@ observables.  Predictive evolution is then described by operators
 Thus the core mathematical spine of the program is
 
 \[
-(\mathcal Q,\preceq)
-\longrightarrow
+\{\ell_Q\}
+\xrightarrow{\text{P0}}
 (\Omega,P)
-\longrightarrow
+\xrightarrow{\text{P1}}
+(\Omega,P)
+\xrightarrow{\text{P2}}
 Q_*
-\longrightarrow
+\xrightarrow{\text{P3}}
 K_{Q_*}.
 \]
+
+Here P0 derives $\sigma$-additivity from finitely additive marginals
+under SPUT; P1 assumes $\sigma$-additive marginals and establishes
+the canonical experiment; P2--P3 develop predictive structure and
+operator dynamics.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,6 +160,23 @@ K_{Q_*}.
 The observable dynamics program develops dynamical structure directly
 from observable experiments.  The program proceeds through three
 conceptual stages.
+
+\[
+\begin{aligned}
+&\textbf{Stage 0: Finitely additive foundations} \\[6pt]
+&\text{finitely additive compatible family }\{\ell_Q\}
+\;\longrightarrow\;
+\text{SPUT}
+\;\longrightarrow\;
+\text{$\sigma$-additive }P\text{ on }(\Omega,\sigma(\mathcal{Q}))
+\end{aligned}
+\]
+
+\begin{center}
+Paper: \emph{Finitely Additive Observable Laws and the Prokhorov Extension for Query Systems}
+\end{center}
+
+\vspace{8pt}
 
 \[
 \begin{aligned}
@@ -226,9 +250,11 @@ Working note: \emph{Observational Probability from Delay Queries}
 Papers~1--3 are fully formalized in Lean~4 / Mathlib with zero
 \texttt{sorry} across all three source files
 (\texttt{QuerySystem.lean}, \texttt{PredictiveState.lean},
-\texttt{PredictiveOperators.lean}).  One analytic obligation remains
-open in the formalization: the $\sigma$-subadditivity step in the
-Carath\'eodory extension (see Formalization Status section).
+\texttt{PredictiveOperators.lean}).  Paper~0 has a partial Lean
+formalization (\texttt{ProkhorovExtension.lean}); the main open gap
+is the directed-set inverse limit theorem with surjective bonding
+maps, not yet available in Mathlib~4.  See the Formalization Status
+section for details.
 
 In summary, the program derives dynamical structure from observable
 experiments, progressing from observational compatibility through
@@ -508,13 +534,23 @@ input.
 \end{conjecture}
 
 \begin{conjecture}[SP2: $\sigma$-additivity from compatibility]
-Each $\nu_Q$ is currently assumed to be countably additive.  The
-compression mechanism in the extension theorem suggests a derivation:
-start with only finitely additive set functions satisfying normalization
-and finite compatibility; show that sequential upper-directedness
-forces $\sigma$-additivity as the only globally consistent completion.
-This is the deepest available target and the most tractable of the
-four stopping points.
+\emph{Partial progress: Paper~0.}
+Each $\nu_Q$ is currently assumed to be countably additive in Paper~1.
+Paper~0 (\emph{Finitely Additive Observable Laws and the Prokhorov
+Extension for Query Systems}) addresses this directly: starting from
+only finitely additive compatible valuations $\{\ell_Q\}$, the
+surjective projective uniform tightness (SPUT) condition forces a
+unique $\sigma$-additive global extension.  Countable additivity is
+derived, not assumed.
+
+The price is topological: Paper~0 requires Hausdorff outcome spaces
+and continuous refinement maps.  The fully structural version of SP2
+remains open: can $\sigma$-additivity be forced from purely
+combinatorial/operational conditions on the query system, without
+topological assumptions?  The natural next target is whether SPUT
+itself follows from surjectivity of the refinement maps in the compact
+outcome space setting --- which would give a fully architecture-driven
+derivation.
 \end{conjecture}
 
 \begin{conjecture}[SP3: Realizability from compatibility]
@@ -682,32 +718,37 @@ directions become natural:
 
 \section{Current frontier}
 
-As of March 2026, the four-paper core spine is established:
+As of March 2026, the five-paper core spine is established:
 \[
-(\mathcal Q,\preceq)
-\;\xrightarrow{\text{P1}}\;
+\{\ell_Q\}
+\;\xrightarrow{\text{P0}}\;
 (\Omega,P)
-\;\xrightarrow{\text{P2}}\;
+\;\xrightarrow{\text{P1}}\;
 Q_*
-\;\xrightarrow{\text{P3}}\;
+\;\xrightarrow{\text{P2}}\;
 \{K_t\}
+\;\xrightarrow{\text{P3}}\;
+K_t^N
 \;\xrightarrow{\text{P4}}\;
-K_t^N\;\text{(local linear)}.
+\text{(local linear)}.
 \]
-Papers~1--3 are Lean-verified; Paper~4 is a working note establishing
-the delay-query specialization, the probabilistic sufficiency
-criterion, and the local linear approximation.
+Paper~0 derives $\sigma$-additivity under SPUT (pen-and-paper, partial
+Lean); Papers~1--3 are Lean-verified; Paper~4 is a working note
+establishing the delay-query specialization, probabilistic sufficiency
+criterion, and local linear approximation.
 
 \paragraph{Immediate priorities.}
 
 \begin{enumerate}
 
-\item \textbf{Foundational stopping point SP2.}
-Forcing $\sigma$-additivity from finitely additive compatibility under
-sequential refinement is the deepest available target and the result
-that would most strengthen the program's philosophical claim.  The
-compression mechanism in Paper~1's extension proof is the candidate
-engine.
+\item \textbf{SP2 next step: SPUT from surjectivity of refinement maps.}
+Paper~0 establishes $\sigma$-additivity under SPUT, but SPUT itself is
+an assumption (a tightness condition on the family).  The next target
+is to show that in the compact outcome space setting, SPUT follows
+automatically from surjectivity of the refinement maps.  This would
+reduce the hypothesis to a purely architectural condition: the query
+system's structure forces $\sigma$-additivity with no additional
+input from the observer.
 
 \item \textbf{Categorical adjunction (Conjecture~\ref{conj:adjunction}).}
 The sketch in the \texttt{categorical-foundations} branch needs to be

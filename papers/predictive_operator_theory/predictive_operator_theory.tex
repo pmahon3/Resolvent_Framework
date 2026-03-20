@@ -390,27 +390,182 @@ stochastic Markov evolution appear as special cases.
 \section{Spectral structure}\label{sec:spectral}
 
 Eigenfunctions of the predictive operators characterize coherent
-predictive observables and long-term predictive structure.
+predictive observables --- those that evolve multiplicatively under
+the dynamics.
 
 \begin{definition}[Predictive eigenfunction]\label{def:eigenfunction}
-A measurable function $g:O_{Q_*}\to\mathbb R$ is a predictive
-eigenfunction with eigenvalue $\lambda_t$ if
+A measurable function $g:O_{Q_*}\to\mathbb R$ is a
+\emph{predictive eigenfunction} with eigenvalue $\lambda_t$ if
 \[
 K_t g = \lambda_t g.
 \]
 \end{definition}
 
+If $g$ is an eigenfunction with eigenvalue $\lambda_t$ at horizon $t$,
+the semigroup property forces the eigenvalues to satisfy the
+multiplicative law $\lambda_{t+s}=\lambda_t\lambda_s$, so
+$\lambda_t = e^{\lambda t}$ for some $\lambda\in\mathbb C$ in the
+continuous-time setting.  Eigenvalues therefore encode exponential
+growth or decay rates of the corresponding coherent predictive
+observables.
+
+\begin{proposition}[Eigenfunction propagation]\label{prop:eigen-propagation}
+If $g$ is a predictive eigenfunction with eigenvalue $\lambda_t$, then
+for all $s\ge0$,
+\[
+K_s g = \lambda_s g,
+\]
+and the sequence $\{(t,\lambda_t)\}$ satisfies the cocycle relation
+$\lambda_{t+s}=\lambda_t\lambda_s$.
+\end{proposition}
+
+\begin{proof}
+Applying the semigroup property at horizon $s$ to the eigenfunction equation:
+$K_s(K_t g)=K_s(\lambda_t g)=\lambda_t K_s g$.  But also
+$K_s(K_t g) = K_{s+t} g = \lambda_{t+s} g$ by another application of
+the semigroup.  Thus $\lambda_{t+s} g = \lambda_t K_s g$, giving
+$K_s g = (\lambda_{t+s}/\lambda_t) g$.  Setting $s$ as the free
+variable gives the cocycle relation.
+\end{proof}
+
+\begin{remark}[Spectral decomposition and DMD]
+In practice one seeks a spectral decomposition
+\[
+K_t g = \sum_k \lambda_k^t \langle g, \psi_k \rangle \phi_k
+\]
+where $\phi_k$ are eigenfunctions and $\psi_k$ are dual modes.
+This is the theoretical basis of Dynamic Mode Decomposition (DMD) and
+its extensions (EDMD, kernel DMD).  In the observable framework,
+these algorithms approximate the spectrum of $K_t$ from a finite
+trajectory of the observable $Q_*$, without access to the latent
+state space.
+\end{remark}
+
+\begin{remark}[Relation to Koopman spectrum]
+In the deterministic specialization (Proposition~\ref{prop:deterministic}),
+$K_t g = g\circ\phi_t$, and eigenfunctions of $K_t$ are exactly the
+Koopman eigenfunctions of the flow $\phi_t$.  The predictive spectral
+theory thus recovers and extends classical Koopman spectral analysis
+to the stochastic setting: the eigenvalues encode the same
+frequency/decay information but are computed from conditional
+expectations rather than orbit averages.
+\end{remark}
+
 \section{Observable dynamical systems}\label{sec:obs-dyn-sys}
 
-The pair $(O_{Q_*},\{K_t\}_{t\ge0})$ defines the observable dynamical
-system associated with the predictive experiment: an intrinsic
-description of the dynamics expressed entirely in terms of the
-predictive state space and its operator evolution.
+The constructions of the preceding sections assemble into a single
+self-contained object.
+
+\begin{definition}[Observable dynamical system]\label{def:obs-dyn-sys}
+The \emph{observable dynamical system} associated with the predictive
+experiment is the triple
+\[
+(O_{Q_*},\,\nu_{Q_*},\,\{K_t\}_{t\ge0}),
+\]
+where:
+\begin{itemize}
+\item $O_{Q_*} = \phi_Q(O_Q) \subseteq \mathcal{P}(O_F)$ is the
+  predictive state space (a measurable subset of the space of
+  probability measures on $O_F$);
+\item $\nu_{Q_*} = (Q_*)_\#P$ is the stationary distribution of
+  predictive states induced by $P$;
+\item $\{K_t\}_{t\ge0}$ is the Markov operator semigroup on
+  $L^2(O_{Q_*},\nu_{Q_*})$.
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Intrinsic description]
+The observable dynamical system $(O_{Q_*},\nu_{Q_*},\{K_t\})$ is an
+intrinsic description of the predictive dynamics: it depends only on
+the observable query system and the future observable $F_t$, and makes
+no reference to any latent state space.  The latent state, if it
+exists, is recovered as a consequence (via delay embeddings and
+Takens-type results) rather than assumed as input.
+\end{remark}
+
+\begin{proposition}[Stationarity under $K_t^*$]
+The measure $\nu_{Q_*}$ is stationary for the dual semigroup
+$\{K_t^* = P_t^*\}$: for every $t\ge0$,
+\[
+P_t^*\nu_{Q_*} = \nu_{Q_*}.
+\]
+\end{proposition}
+
+\begin{proof}
+For any measurable $A\subseteq O_{Q_*}$,
+\[
+(P_t^*\nu_{Q_*})(A)
+= \int P_t(q_*,A)\,\nu_{Q_*}(dq_*)
+= P(Q_*^{(t)}\in A)
+= \nu_{Q_*}(A),
+\]
+where the last equality uses the fact that $Q_*^{(t)}(\omega)
+= Q_*(\sigma^t\omega)$ and $P$ is stationary.
+\end{proof}
+
+\begin{remark}[Self-referential structure]
+Each state $q_* \in O_{Q_*}$ is itself a probability measure on $O_F$
+--- the predictive law of the future observable from that state.  The
+observable dynamical system therefore lives in a space of probability
+measures, and $K_t$ evolves functions of predictive laws.  This
+self-referential structure is the distinctive feature of the
+observable framework: the state space is constructed from the
+probabilistic predictions themselves.
+\end{remark}
 
 \section{Empirical approximation}\label{sec:empirical}
 
-This section studies approximation of predictive operators from
-observable time-series data.
+The predictive operator $K_t$ can be approximated from observable
+time-series data without access to the latent state.  This section
+outlines the approximation scheme; the detailed construction and
+convergence analysis for the delay-query specialization are developed
+in the companion note \emph{Observational Probability from Delay
+Queries}.
+
+\paragraph{Data access.}
+Suppose one observes a trajectory
+\[
+Q_*(\omega_1), Q_*(\omega_2), \ldots, Q_*(\omega_N)
+\]
+of predictive states, together with future evaluations
+$F_t(\omega_1), \ldots, F_t(\omega_N)$.  In the delay-query setting
+these are delay-coordinate vectors extracted from a univariate sensor
+stream, so the data requirement is a single observed time series.
+
+\paragraph{Local linear approximation.}
+Fix a dictionary of functions $g_1,\ldots,g_d$ on $O_{Q_*}$.
+A local linear approximation of $K_t$ takes the form
+\[
+(K_t^N g)(\mu) = \sum_{k=1}^N w_k(\mu)\,(L_k g)(\mu_k),
+\]
+where $\mu_k$ are reference states, $L_k$ is the local linearization
+of $K_t$ at $\mu_k$, and $w_k(\mu)$ are localization weights
+(e.g.\ nearest-neighbor or kernel weights).
+
+\begin{proposition}[Convergence of local linear approximation]
+Under regularity conditions on the predictive kernel $P_t$ and the
+weight functions $w_k$, the local linear approximants $K_t^N$ converge
+to $K_t$ in the $L^2(\nu_{Q_*})$ operator norm as $N\to\infty$:
+\[
+\|K_t^N - K_t\|_{L^2(\nu_{Q_*})} \to 0.
+\]
+\end{proposition}
+
+\begin{remark}[Scope of the result]
+The precise regularity conditions and convergence rates depend on the
+geometry of $O_{Q_*}$ and the decay properties of $P_t$.  These are
+stated and proved in \emph{Observational Probability from Delay
+Queries}, where the delay-query structure provides the concrete
+geometric setting needed for quantitative bounds.
+\end{remark}
+
+\begin{remark}[Relation to EDMD]
+Extended Dynamic Mode Decomposition (EDMD) is the special case of
+local linear approximation where $w_k$ is uniform and $L_k$ is a
+global linear projection onto the dictionary.  The present framework
+extends EDMD to the fully probabilistic setting where states are
+predictive laws rather than phase-space points.
+\end{remark}
 
 \section*{Acknowledgements}
 

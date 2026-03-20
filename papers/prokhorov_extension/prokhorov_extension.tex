@@ -132,7 +132,7 @@ argument requires.  Without surjectivity, $K_\Omega$ can be empty
 even when each $K_Q$ is nonempty.
 
 \paragraph{Comparison to classical Prokhorov.}
-In classical Prokhorov tightness, one controls mass concentration in
+In classical Prokhorov tightness~\cite{Prokhorov1956}, one controls mass concentration in
 a single space: for every $\varepsilon > 0$, compact $K \subset X$
 with $\mu_n(X \setminus K) < \varepsilon$.  The query-system
 analogue must control concentration \emph{projectively}, across all
@@ -140,7 +140,7 @@ query levels simultaneously, and must ensure the compact sets
 assemble coherently in the inverse limit.  SPUT is exactly this
 coherent projective tightness condition, with surjectivity of
 bonding maps playing the role that single-space compactness plays
-classically.
+classically~\cite{Parthasarathy1967}.
 
 \paragraph{Relation to Paper~1.}
 The two extension theorems are complementary:
@@ -264,7 +264,7 @@ Given a finitely compatible family $\{\ell_Q\}$, define the
 Finite compatibility ensures $\mu_0$ is well-defined (independent of
 which query level is used to represent a given cylinder) and
 finitely additive on $\Ccal$.  The central question is when $\mu_0$
-is $\sigma$-additive, so that Carath\'eodory's theorem extends it
+is $\sigma$-additive, so that Carath\'eodory's theorem~\cite{Billingsley1995,Bogachev2007} extends it
 to a probability measure on $\sigma(\Qcal)$.
 \end{remark}
 
@@ -389,7 +389,7 @@ Under SPUT:
 \end{proposition}
 
 \begin{proof}
-(i) The product $\prod_Q K_Q$ is compact by Tychonoff's theorem.
+(i) The product $\prod_Q K_Q$ is compact by Tychonoff's theorem~\cite{Bourbaki1966}.
 Since $\Omega$ is closed in $\prod_Q O_Q$ (as each coherence
 constraint is a closed condition), $K_\Omega = \Omega \cap \prod_Q
 K_Q$ is a closed subset of a compact space, hence compact.
@@ -397,7 +397,7 @@ K_Q$ is a closed subset of a compact space, hence compact.
 (ii) The system $(K_Q, \pi^{Q_2}_{Q_1}|_{K_{Q_2}})$ is an inverse
 system of nonempty compact Hausdorff spaces.  By condition~(i) of
 SPUT, the bonding maps $\pi^{Q_2}_{Q_1}|_{K_{Q_2}} : K_{Q_2} \to
-K_{Q_1}$ are surjective.  By the \emph{inverse limit theorem} for
+K_{Q_1}$ are surjective.  By the \emph{inverse limit theorem}~\cite{Bourbaki1966,Fremlin2003} for
 compact Hausdorff spaces with surjective bonding maps over a directed
 index set, $K_\Omega = \varprojlim K_Q$ is nonempty and each
 projection $\mathrm{eval}_Q : K_\Omega \to K_Q$ is surjective.
@@ -495,7 +495,7 @@ and $\eta > 0$, there exists closed $F \subseteq A$ with
 $\nu(A \setminus F) < \eta$.
 \end{lemma}
 
-This is Alexandrov's theorem; it requires only that $K$ is compact
+This is Alexandrov's theorem~\cite{Alexandrov1943,Bogachev2007}; it requires only that $K$ is compact
 Hausdorff, which follows from SPUT.
 
 \begin{theorem}[Borel cylinder $\sigma$-subadditivity]
@@ -843,6 +843,9 @@ yet contain this result in the form needed.  All other steps of
 the proof have been formalized or have clear paths to
 formalization once this gap is closed.
 \end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \section*{Acknowledgements}
 

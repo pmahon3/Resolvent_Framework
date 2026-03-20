@@ -716,6 +716,68 @@ specialization --- is developed in \emph{Observational Probability from
 Delay Queries}.
 \end{remark}
 
+\section{Conclusion and related work}
+
+\paragraph{What has been established.}
+Starting from the canonical probability space $(\Omega,\sigma(\Qcal),P)$
+of \emph{Observational Foundations of Probability}, this paper has
+developed the predictive structure that emerges from a future observable
+$F:\Omega\to O_F$.  The main results are:
+
+\begin{enumerate}
+  \item \emph{Predictive kernels.}  Each query $Q$ induces a
+    conditional kernel $\Pi_Q(q,\cdot) = P(F\in\cdot\mid Q=q)$, giving
+    prediction a concrete query-level representation.
+  \item \emph{Minimal predictive query.}  Predictive equivalence $q\sim q'$
+    iff $\Pi_Q(q,\cdot)=\Pi_Q(q',\cdot)$ factors $Q$ through a minimal
+    statistic $Q_*$ whose states are in bijection with distinct predictive
+    laws of $F$.
+  \item \emph{Doob--Dynkin universality.}  Any measurable predictive
+    statistic factors through $Q_*$, making the minimal predictive query
+    the coarsest observable representation retaining full predictive
+    content.
+  \item \emph{Predictive operator.}  Conditional expectation
+    $(K_{Q_*}g)(q_*) = E[g(F)\mid Q_*=q_*]$ defines a positive linear
+    contraction on $O_{Q_*}$ that is closed under the predictive state
+    algebra.
+\end{enumerate}
+
+\paragraph{Relation to classical sufficiency.}
+The minimal predictive query $Q_*$ is an instance of a sufficient
+statistic in the sense of Fisher and Halmos--Savage: it retains all
+information relevant to predicting $F$ while discarding information
+that is irrelevant.  The framework of Blackwell~\cite{Blackwell} and
+Le Cam~\cite{LeCam} on comparison and sufficiency of statistical
+experiments provides the conceptual background; the present work
+specialises their comparison order to the query setting and identifies
+the minimal representative in a canonical way via the Doob--Dynkin
+lemma.  The experiment preorder induced by prediction is a structural
+refinement of the Blackwell order restricted to the observable interface.
+
+\paragraph{Relation to de Finetti and predictive sufficiency.}
+In de Finetti's representation theorem~\cite{deFinetti}, the
+exchangeable measure is disintegrated over an invariant $\sigma$-field
+that plays the role of the predictive state.  The present framework
+provides a direct construction of that $\sigma$-field from the
+observable query structure, without requiring an exchangeability or
+invariance assumption.  Predictive sufficiency (Section~\ref{sec:predictive-sufficiency})
+is the query-theoretic counterpart of the Radon--Nikodym disintegration
+underlying de Finetti's theorem.
+
+\paragraph{What follows.}
+The predictive operator $K_{Q_*}$ established here is a single-horizon
+object.  \emph{Predictive Operator Theory for Observable Dynamical
+Systems} (Paper~3) promotes this to a horizon-indexed family
+$\{K_t\}_{t\ge0}$ and shows it forms a strongly continuous Markov
+operator semigroup, from which an infinitesimal generator and predictive
+Kolmogorov equation follow.  The constructive route to $Q_*$ via delay
+embeddings of a dynamical system --- and the connection to Takens'
+embedding theorem --- is the subject of \emph{Observational Probability
+from Delay Queries} (Paper~4).
+
+\bibliographystyle{plain}
+\bibliography{references}
+
 \section*{Acknowledgements}
 
 The author thanks Claude (Anthropic) for assistance with mathematical

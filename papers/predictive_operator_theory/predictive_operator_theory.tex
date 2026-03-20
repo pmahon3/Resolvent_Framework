@@ -319,7 +319,7 @@ then
 \[
 (K_t g)(q) = g(\phi_t(q)).
 \]
-Thus predictive operators reduce to the classical Koopman semigroup.
+Thus predictive operators reduce to the classical Koopman semigroup~\cite{Koopman1931}.
 \end{proposition}
 
 \begin{remark}[Flow semigroup law and point separation]
@@ -566,6 +566,83 @@ global linear projection onto the dictionary.  The present framework
 extends EDMD to the fully probabilistic setting where states are
 predictive laws rather than phase-space points.
 \end{remark}
+
+\section{Conclusion and related work}
+
+\paragraph{What has been established.}
+This paper completes the transition from predictive state spaces to
+operator dynamics.  The main results, building on the minimal predictive
+query $Q_*$ of Paper~2, are:
+
+\begin{enumerate}
+  \item \emph{Markov operator semigroup.}  The predictive operators
+    $\{K_t\}_{t\ge0}$ form a strongly continuous semigroup of positive
+    linear contractions satisfying the Markov property, with no reference
+    to a latent state space.
+  \item \emph{Infinitesimal generator.}  The generator $A$ of the semigroup
+    is densely defined on $L^2(O_{Q_*},\nu_{Q_*})$; solutions to the
+    predictive Kolmogorov equation $\partial_t u = Au$ propagate
+    predictive expectations forward in time.
+  \item \emph{Koopman--Perron duality.}  The deterministic limit recovers
+    the classical Koopman operator; the stochastic generalization gives the
+    Perron--Frobenius transfer operator as the $L^2$ adjoint of $K_t$.
+  \item \emph{Observable dynamical system.}  The triple
+    $(O_{Q_*},\nu_{Q_*},\{K_t\})$ is an intrinsic, latent-state-free
+    description of predictive dynamics; the stationary measure
+    $\nu_{Q_*} = (Q_*)_\#P$ is preserved by the dual semigroup.
+  \item \emph{Empirical approximation.}  Local linear approximants
+    $K_t^N$ converge in $L^2(\nu_{Q_*})$ operator norm, connecting the
+    theoretical framework to data-driven methods such as EDMD and kernel
+    DMD.
+\end{enumerate}
+
+\paragraph{Relation to Koopman operator theory.}
+The classical Koopman operator~\cite{Koopman1931} lifts a deterministic
+flow $\phi_t$ to a linear isometry on $L^2$: $(U_t f)(x) = f(\phi_t x)$.
+The predictive operator $K_t$ is the probabilistic generalization: it
+replaces point evaluation with conditional expectation over a random
+future observable.  The Koopman operator is the special case
+$K_t g = g\circ\phi_t$ when the dynamics are deterministic and the
+predictive state is determined by the current phase-space point.  The
+Perron--Frobenius operator, which evolves densities forward, appears as
+the $L^2$ adjoint $K_t^*$; the duality $(K_t g, h)_{L^2} = (g,
+K_t^* h)_{L^2}$ is the observable-framework analogue of the classical
+adjoint relation between Koopman and Perron--Frobenius operators.
+
+\paragraph{Relation to data-driven operator methods.}
+Dynamic Mode Decomposition (DMD)~\cite{Schmid2010,Mezic} and its extension
+EDMD~\cite{Williams2015} approximate the Koopman operator from trajectory data by a
+finite-rank matrix.  The local linear approximation scheme of
+Section~\ref{sec:empirical} extends this to the probabilistic setting
+where states are predictive laws rather than phase-space points.
+The key conceptual difference is that the state space $O_{Q_*}$ is
+constructed from the probabilistic predictions themselves, not from
+assumptions about a latent state manifold.
+
+\paragraph{Relation to transfer operators and ergodic theory.}
+Markov operator semigroups are central to ergodic theory~\cite{Kallenberg}
+and stochastic analysis.  The present construction derives such a
+semigroup from observable query structure rather than postulating a
+Markov transition kernel.  The resulting observable dynamical system
+$(O_{Q_*},\nu_{Q_*},\{K_t\})$ is a measure-preserving system in the
+generalized sense: $\nu_{Q_*}$ is stationary, and the spectral
+properties of $K_t$ on $L^2(\nu_{Q_*})$ encode the mixing and
+ergodic properties of the original process as seen from the observable
+interface.
+
+\paragraph{What follows.}
+The quantitative structure of $(O_{Q_*},\nu_{Q_*},\{K_t\})$ ---
+including the geometry of $O_{Q_*}$ as a manifold of predictive laws,
+and concrete convergence rates for $K_t^N$ --- requires a specific
+construction of $Q_*$ from the data.  \emph{Observational Probability
+from Delay Queries} (Paper~4) constructs $Q_*$ via delay embeddings of
+a univariate observable, connects the sufficient embedding dimension to
+the Takens embedding theorem, and provides the geometric setting in
+which the approximation bounds of Section~\ref{sec:empirical} can be
+made quantitative.
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \section*{Acknowledgements}
 

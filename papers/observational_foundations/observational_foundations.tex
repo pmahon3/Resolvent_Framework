@@ -1244,28 +1244,27 @@ predictive structure, robustness under partial observability, and
 operator-based representations of observational consistency form key
 directions for future work.
 
-\paragraph{Open frontier: structural forcing of $\sigma$-additivity.}
+\paragraph{Progress on structural forcing of $\sigma$-additivity.}
 Section~7 derives $\sigma$-additivity from projective tightness in
-the countable setting.  For uncountable query systems without a
-countable determining subsystem, concentration on $\Omega$ becomes a
-genuine obstruction: an uncountable intersection of full-measure
-defect-free sets need not have full measure.
+the countable setting, taking $\sigma$-additive marginals as input.
+A companion paper, \emph{Finitely Additive Observable Laws and the
+Prokhorov Extension for Query Systems}, shows that the $\sigma$-additivity
+assumption on individual marginals can itself be dropped in the compact
+setting: when each outcome space $O_Q$ is compact Hausdorff and each
+refinement map is surjective and continuous, any finitely compatible
+family of normalized valuations extends to a unique $\sigma$-additive
+global probability measure.  Countable additivity at the marginal level
+is a theorem of system architecture, not an assumption.
 
-The deeper open problem is whether $\sigma$-additivity can be forced
-from purely structural conditions on the query system
-$(\Qcal,\preceq,\{\pi^{Q_2}_{Q_1}\})$, without any assumption on
-the individual marginals.  The Barrier theorem (that the refinement
-maps are inert with respect to continuity from above, since preimage
-preserves decreasing intersections exactly) rules out map-level
-non-degeneracy conditions.  What remains is the question:
-
-\emph{On query systems of what type is every finitely compatible
-family automatically $\sigma$-additive?}
-
-Current evidence points toward structural conditions that prevent
-persistent decreasing compatible tails from accumulating mass — the
-query-system analogue of Prokhorov's tightness, but derived from
-system architecture rather than imposed on the marginals.
+The remaining open question concerns the infinite-range case.
+For query systems whose outcome spaces are not compact, one requires
+a \emph{surjective projective uniform tightness} (SPUT) condition on
+the compatible family --- a projective analogue of Prokhorov tightness
+with surjectivity of bonding maps on compact cores playing the role
+that single-space compactness plays classically.  Whether SPUT can
+itself be derived from purely combinatorial or order-theoretic
+conditions on $(\Qcal, \preceq)$, without topological hypotheses on
+the outcome spaces, remains open.
 
 
 \bibliographystyle{plain}

@@ -37,27 +37,26 @@ A Bridge from Sensor Streams to Predictive Operators
 \maketitle
 
 \begin{abstract}
-This working note bridges the foundational observational program of the preceding
-papers with its intended computational instantiation in delay-coordinate methods.
-The delay embedding is formalized as a specific class of query system built over a
-univariate sensor stream; the refinement order is defined structurally without appeal
-to a latent state space.  The minimal predictive query of Paper~2 then characterizes
-when a delay embedding is sufficient, connecting query-theoretic minimality to the
-classical notion of a sufficient statistic.  The geometric perspective --- f-divergences,
-Fisher--Rao geometry, and the Rose condition --- arises as the natural metric structure
-on the space of predictive laws, closing the loop from foundations to computation.
+This paper bridges the foundational observational program of the preceding
+works with the computational theory of delay-coordinate methods for dynamical
+systems reconstruction.  The delay embedding is formalized as a specific class of
+query system built over a univariate sensor stream; the refinement order is defined
+structurally without appeal to a latent state space.  The delay query system is
+shown to satisfy all hypotheses of the observational extension theorem, providing
+it with a canonical probability space representation.
 
-\emph{Status}: working note.  The delay query system is fully verified as a query
-system satisfying all hypotheses of Paper~1 (Propositions 1--4).  Stationarity
-is identified as the Paper~3 condition for time-homogeneity, not the Paper~1
-condition for compatibility.  The probabilistic sufficiency criterion
-(Theorem~\ref{thm:sufficiency}) gives necessary and sufficient conditions for
-predictive sufficiency via the predictive Markov order $m(\tau, P)$, recovering
-Takens as a special case.  The operator-theoretic specialization (Section~7)
-identifies $K_t$ as a Markov operator on $L^2(O_{Q^*}, \nu_{Q^*})$, recovers
-the Koopman operator in the deterministic limit, and establishes local linear
-maps as finite-rank approximations converging in $L^2$.  One main open question
-remains: quantitative approximation bounds for the local linear map truncation.
+The minimal predictive query of Paper~2 characterizes when a delay embedding is
+sufficient for prediction: a delay embedding of dimension $d$ and lag $\tau$ is
+predictively sufficient if and only if $d \geq m(\tau,P)$, the \emph{predictive
+Markov order}.  Takens' embedding theorem emerges as the deterministic special
+case of this probabilistic sufficiency criterion.
+
+The geometric perspective --- f-divergences, Fisher--Rao geometry, and the Rose
+condition --- arises as the natural metric structure on the space of predictive
+laws.  The predictive operator of Paper~3 specializes to a concrete Markov operator
+on $L^2(O_{Q^*},\nu_{Q^*})$, whose local linear approximation by data-driven maps
+connects the theoretical framework to algorithms such as Dynamic Mode Decomposition
+and its probabilistic extensions.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -790,33 +789,111 @@ approximations to the canonical operator forced by the query structure.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Open questions and next steps}\label{sec:open}
+\section{Conclusion and related work}\label{sec:conclusion}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The following questions mark the current frontier of this bridge.
+\paragraph{What has been established.}
+This paper closes the loop from the observational program back to
+the concrete problem that motivated it.  The main results are:
 
 \begin{enumerate}
-  \item \textbf{Sufficient embedding dimension.}  Theorem~\ref{thm:sufficiency}
-    gives the probabilistic necessary and sufficient condition: $Q_{d,\tau}$
-    is predictively sufficient iff $d \geq m(\tau, P)$.  The open question
-    is how to estimate or bound $m(\tau, P)$ from data, and how it relates
-    to observable properties of $P$ (mixing rates, spectral gap, correlation
-    decay).
+  \item \emph{Delay query system as a query system.}
+    The delay query system $(\Qcal, \preceq)$ built from a univariate
+    sensor stream satisfies all the structural hypotheses of the
+    observational extension theorem: the outcome spaces are standard
+    Borel, the refinement maps are measurable coordinate projections,
+    and finite compatibility is guaranteed by stationarity of the
+    process law $P$.
 
-  \item \textbf{Locality and compact outcome spaces.}  The computational
-    experiments (Tricube kernel, locality exponent $\eta$) suggest that
-    compact support of the refinement kernel is important.  In the
-    query-theoretic framework this should connect to the tightness
-    conditions of the Prokhorov extension route (Paper~1, Section~7).
+  \item \emph{Probabilistic sufficiency criterion.}
+    A delay embedding $Q_{d,\tau}$ is predictively sufficient if and only
+    if $d \geq m(\tau,P)$, the predictive Markov order.  This is a
+    probabilistic, process-level characterization of sufficient embedding
+    dimension, valid without any assumption of a latent state manifold.
+
+  \item \emph{Takens as a special case.}
+    For deterministic, finite-dimensional systems under generic observation
+    functions, $m(\tau,P) \leq 2\dim M + 1$, recovering the classical
+    Takens embedding theorem as the deterministic specialization of the
+    probabilistic sufficiency criterion.
+
+  \item \emph{Operator specialization.}
+    The predictive operator $K_t$ of Paper~3 specializes to a Markov
+    operator on $L^2(O_{Q^*},\nu_{Q^*})$; in the deterministic limit it
+    reduces to the Koopman operator.  Local linear approximants $K_t^N$
+    converge in $L^2$ operator norm.
+
+  \item \emph{Geometric structure.}
+    The space of predictive laws $O_{Q^*} \subseteq \Pcal(X)$ carries
+    a natural Fisher--Rao metric; the Rose condition (vanishing
+    f-divergence between edge laws) is the stance-neutral characterization
+    of observational equivalence between two embeddings.
+\end{enumerate}
+
+\paragraph{Relation to Takens and delay-embedding theory.}
+Takens' theorem~\cite{Takens1981} gives a topological genericity result:
+for a smooth diffeomorphism $\phi$ on a compact manifold $M$ and a generic
+observation function $h:M\to\mathbb{R}$, the delay map $x\mapsto
+(h(x),h(\phi(x)),\ldots,h(\phi^{d-1}(x)))$ is an embedding when $d\geq
+2\dim M+1$.  The present paper replaces the topological genericity condition
+with a probabilistic one: the relevant quantity is not the dimension of the
+manifold but the Markov memory depth $m(\tau,P)$ of the process, which
+controls how many delays are needed for the delay query to become
+\emph{predictively sufficient}.  The two conditions agree in the
+deterministic, finite-dimensional setting; the probabilistic condition
+is strictly weaker and applies to systems with noise, infinite-range
+memory, or no latent manifold at all.
+
+\paragraph{Relation to Koopman and data-driven methods.}
+Dynamic Mode Decomposition (DMD)~\cite{Schmid2010} and EDMD~\cite{Williams2015}
+approximate the Koopman operator from time-series data.  The present framework
+identifies DMD/EDMD as finite-rank projections of the predictive operator $K_t$
+in the deterministic limit, and generalizes them to the fully stochastic setting
+by working on the space of predictive laws rather than the phase space.  The
+local linear approximation scheme (Section~\ref{sec:operators}) is the
+probabilistic extension of EDMD; the convergence result
+(Proposition~\ref{prop:local-linear}) is the query-theoretic analogue of the
+EDMD consistency theorems.
+
+\paragraph{Relation to information geometry.}
+The Fisher--Rao metric on $O_{Q^*}$ is the natural metric from information
+geometry~\cite{Amari2016}, the study of the geometry of spaces of probability
+measures.  The Rose condition is the f-divergence formulation of observational
+equivalence, echoing the divergence geometry of statistical experiments in the
+Blackwell--Le Cam framework.  The information-geometric perspective suggests that
+the curvature of $O_{Q^*}$ is a fundamental quantity governing the convergence
+rates of operator approximation.
+
+\paragraph{Open questions.}
+
+\begin{enumerate}
+  \item \textbf{Estimating the predictive Markov order.}
+    Theorem~\ref{thm:sufficiency} gives the probabilistic necessary and
+    sufficient condition: $Q_{d,\tau}$ is predictively sufficient iff
+    $d \geq m(\tau, P)$.  The open question is how to estimate or bound
+    $m(\tau, P)$ from data, and how it relates to observable properties
+    of $P$ (mixing rates, spectral gap, correlation decay).
+
+  \item \textbf{Compact outcome spaces and tightness.}
+    The Prokhorov extension result of Paper~0 (Corollary~6.3) gives
+    $\sigma$-additivity for free when outcome spaces are compact.  Delay
+    embeddings map into $X^d \cong \mathbb{R}^d$, which is not compact.
+    Understanding whether locally compact or cylindrically tight conditions
+    on $P$ suffice to recover the Paper~0 corollary in the delay setting
+    is the concrete form of the open SP2 question for this paper.
 
   \item \textbf{Quantitative approximation bounds.}
     Proposition~\ref{prop:local-linear} establishes that local linear
     maps converge to $K_t$ but leaves the rate unquantified.  The open
-    question is: given mixing rate of $P$, Fisher--Rao curvature of
-    $O_{Q^*}$, sample size $N$, and neighbourhood radius $r$, what is
-    $\|K_t^N - K_t\|_{L^2}$?  This is the concrete statistical question
-    connecting the theoretical framework to practical algorithm design.
+    question is: given the mixing rate of $P$, the Fisher--Rao curvature
+    of $O_{Q^*}$, sample size $N$, and neighbourhood radius $r$, what
+    is $\|K_t^N - K_t\|_{L^2}$?  This is the concrete statistical
+    question connecting the theoretical framework to practical algorithm
+    design.
 \end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \section*{Acknowledgements}
 

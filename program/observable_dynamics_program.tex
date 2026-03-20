@@ -534,23 +534,26 @@ input.
 \end{conjecture}
 
 \begin{conjecture}[SP2: $\sigma$-additivity from compatibility]
-\emph{Partial progress: Paper~0.}
-Each $\nu_Q$ is currently assumed to be countably additive in Paper~1.
-Paper~0 (\emph{Finitely Additive Observable Laws and the Prokhorov
-Extension for Query Systems}) addresses this directly: starting from
-only finitely additive compatible valuations $\{\ell_Q\}$, the
-surjective projective uniform tightness (SPUT) condition forces a
-unique $\sigma$-additive global extension.  Countable additivity is
-derived, not assumed.
+\emph{Closed in the compact setting (Paper~0, Corollary~6.3).}
 
-The price is topological: Paper~0 requires Hausdorff outcome spaces
-and continuous refinement maps.  The fully structural version of SP2
-remains open: can $\sigma$-additivity be forced from purely
-combinatorial/operational conditions on the query system, without
-topological assumptions?  The natural next target is whether SPUT
-itself follows from surjectivity of the refinement maps in the compact
-outcome space setting --- which would give a fully architecture-driven
-derivation.
+Paper~0 (\emph{Finitely Additive Observable Laws and the Prokhorov
+Extension for Query Systems}) resolves SP2 in two steps.  First,
+under surjective projective uniform tightness (SPUT), any finitely
+compatible family of finitely additive valuations admits a unique
+$\sigma$-additive global extension (Theorem~6.1).  Second, when each
+outcome space $O_Q$ is compact Hausdorff and each refinement map is
+surjective, SPUT holds automatically with $K_Q := O_Q$
+(Proposition~3.3).  The architectural corollary (Corollary~6.3)
+therefore requires only finite compatibility and the topology of the
+query system: \emph{the observational interface architecture alone
+forces countable additivity.}
+
+\emph{Open in the infinite-range setting.}
+When the outcome spaces are not compact (e.g.\ real-valued
+observables with unbounded range), SPUT is a genuine assumption on
+the valuations.  Whether it can be derived from a purely structural
+condition on the query system without topological input is the
+remaining open form of SP2.
 \end{conjecture}
 
 \begin{conjecture}[SP3: Realizability from compatibility]
@@ -741,14 +744,13 @@ criterion, and local linear approximation.
 
 \begin{enumerate}
 
-\item \textbf{SP2 next step: SPUT from surjectivity of refinement maps.}
-Paper~0 establishes $\sigma$-additivity under SPUT, but SPUT itself is
-an assumption (a tightness condition on the family).  The next target
-is to show that in the compact outcome space setting, SPUT follows
-automatically from surjectivity of the refinement maps.  This would
-reduce the hypothesis to a purely architectural condition: the query
-system's structure forces $\sigma$-additivity with no additional
-input from the observer.
+\item \textbf{SP2 in the infinite-range setting.}
+SP2 is closed for compact outcome spaces (Paper~0, Corollary~6.3).
+The remaining open form is: when $O_Q$ are non-compact (e.g.\
+real-valued sensors), can $\sigma$-additivity be forced from
+structural conditions on the query system alone, without SPUT as an
+explicit hypothesis?  This is the topology-free route and the next
+foundational target.
 
 \item \textbf{Categorical adjunction (Conjecture~\ref{conj:adjunction}).}
 The sketch in the \texttt{categorical-foundations} branch needs to be

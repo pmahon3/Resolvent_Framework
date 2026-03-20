@@ -736,9 +736,11 @@ K_t^N
 \text{(local linear)}.
 \]
 Paper~0 derives $\sigma$-additivity under SPUT (pen-and-paper, partial
-Lean); Papers~1--3 are Lean-verified; Paper~4 is a working note
-establishing the delay-query specialization, probabilistic sufficiency
-criterion, and local linear approximation.
+Lean); Papers~1--3 are Lean-verified; Paper~4 is a complete working
+paper establishing the delay-query specialization, probabilistic
+sufficiency criterion, and local linear approximation.  All five papers
+now have proper abstracts, conclusions, related work sections, and
+bibliographies.
 
 \paragraph{Immediate priorities.}
 
@@ -759,17 +761,17 @@ would give the program a clean categorical statement and connect it
 to the broader literature on categorical probability (Giry monad,
 Markov categories).
 
-\item \textbf{Paper~4 $\to$ full paper.}
-The working note should be developed into a proper paper with
-introduction, related work (Takens, EDMD, delay embeddings), and
-the approximation bounds conjecture as its main open problem.
+\item \textbf{Lean formalization of Paper~0.}
+The main outstanding gap is the directed-set inverse limit theorem
+(Proposition~3.3(ii)).  Once this is available in Mathlib, all steps
+of the Paper~0 proof have clear formalization paths.
 
-\item \textbf{Conclusions and related work for Papers~1--3.}
-Each paper currently ends without a proper conclusion or related work
-section.  These are needed to situate the results within the
-literature (Kolmogorov, Prokhorov, de Finetti, Blackwell-Le~Cam,
-Koopman-Mezic) and to make explicit the stopping points as a research
-agenda rather than gaps.
+\item \textbf{Quantitative approximation bounds (Paper~4, Open Question~3).}
+The convergence $\|K_t^N - K_t\|_{L^2} \to 0$ is established but
+rates are unquantified.  Bounds in terms of mixing rate of $P$,
+Fisher--Rao curvature of $O_{Q^*}$, sample size $N$, and
+neighbourhood radius $r$ would close the gap between theory and
+algorithm design.
 
 \end{enumerate}
 

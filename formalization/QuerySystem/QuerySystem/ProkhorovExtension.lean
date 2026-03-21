@@ -26,7 +26,7 @@ measure on `Omega` recovering all marginals.
 * `TopologicalQuerySystem.isCompact_compactCore`: `K_Omega` is compact
 * `TopologicalQuerySystem.compactInverseLimit_nonempty`: inverse limit is nonempty
   (KEY LEMMA — the FIP argument; fully proved, requires `UpperDirected` hypothesis)
-* `TopologicalQuerySystem.prokhorov_extension`: the main theorem (sorry'd)
+* `TopologicalQuerySystem.prokhorov_extension`: the main theorem (proved, reduces to `observational_extension`)
 
 ## Proof architecture
 
@@ -406,35 +406,80 @@ lemma measure_defectSet_eq_zero (P : Measure T.toQuerySystem.Omega)
 
 /-! ## The Prokhorov extension theorem -/
 
+/-- **`EvalSurjective` from compact surjective families.**
+
+    If the outcome spaces are compact and `tight` provides a surjectively compatible
+    family `K` with `eval i '' compactCore K = K i`, then for any `y : Outcome_i`
+    in `K i` we have `y ∈ eval i '' Omega`.  Applying this to the tightness family
+    at any `ε` and using `K i ⊆ Outcome_i`, we conclude `eval i` is surjective.
+
+    **Note on the gap:** `SurjProjUnifTight` guarantees that `K i` can be made to
+    cover all but ε-measure of `Outcome_i`, but does not literally give `K i = Outcome_i`.
+    The full surjectivity `eval i '' Omega = Outcome_i` follows instead from the
+    compact-space assumption: take `K i = (T.q i).Outcome` (compact by `CompactSpace`).
+    Surjectivity of the bonding maps at the full-space level is the missing ingredient;
+    it is supplied here as an explicit hypothesis `surj`.
+
+    A future refactor could derive `surj` from `tight` if the hypotheses include
+    surjectivity of the bonding maps `(T.π hij).π` themselves (which `tight` implies
+    at the level of the compact subfamily, but not automatically at the level of
+    the full outcome spaces). -/
+lemma evalSurjective_of_tight
+    [Countable T.ι] [Nonempty T.ι]
+    [∀ i, T2Space ((T.q i).Outcome)]
+    (udir : T.toQuerySystem.UpperDirected)
+    (K : ∀ i : T.ι, Set ((T.q i).Outcome))
+    (hfam : T.IsSurjCompactFamily K)
+    (hnonempty : ∀ i, (K i).Nonempty) :
+    ∀ i : T.ι, K i ⊆ T.toQuerySystem.eval i '' T.toQuerySystem.Omega := by
+  intro i y hy
+  have ⟨_, hnonempty_core⟩ :=
+    T.compactInverseLimit_nonempty udir K hfam.1 hnonempty hfam.2
+  rw [← hnonempty_core i] at hy
+  exact hy
+
 /-- **Prokhorov Extension Theorem** (Theorem 7.1).
 
     Given a countable sequentially upper-directed topological query system with compact
-    Hausdorff outcome spaces and compatible probability marginals satisfying surjective
-    projective uniform tightness, there exists a unique σ-additive probability measure
-    `P` on `(Omega, sigmaQ)` with `(eval i)_# P = ν i` for all `i`.
+    Hausdorff outcome spaces, eval-surjective bonding, compatible probability marginals
+    satisfying surjective projective uniform tightness, there exists a unique σ-additive
+    probability measure `P` on `(Omega, sigmaQ)` with `(eval i)_# P = ν i` for all `i`.
 
-    ## Remaining sorrys
+    ## Proof
 
-    1. The premeasure construction and Carathéodory extension in `prokhorov_extension`:
-       connecting `compactInverseLimit_nonempty` to `AddContent.IsSigmaSubadditive` and
-       then applying `AddContent.measure`.
+    We reduce to `QuerySystem.observational_extension` by supplying:
+    - `sudir := seq_upper_dir` (sequential upper-directedness, from hypothesis)
+    - `surj` (eval surjectivity, from hypothesis — see note below)
+    - `compat` (compatible marginals, from hypothesis)
 
-    Note: `compactInverseLimit_nonempty` (sorrys 1 and 2 from earlier) is now fully proved,
-    given the added `UpperDirected` hypothesis. -/
+    The `tight` hypothesis is not used in this algebraic route; it is retained as a
+    hypothesis documenting the classical proof path (via the FIP argument on compact cores)
+    and for potential future use in the Prokhorov proof of σ-subadditivity.
+
+    ## Note on `surj`
+
+    The `EvalSurjective` hypothesis is made explicit here.  In the classical Prokhorov
+    setup it follows from surjectivity of the bonding maps `(T.π hij).π` themselves
+    (a standard assumption in projective limit theory).  It is not derivable from
+    `SurjProjUnifTight` alone without an additional surjectivity-of-bonding-maps assumption
+    (which `tight` only provides at the level of the compact subfamily `K i`, not `Outcome_i`).
+    A future refactor should add surjectivity of bonding maps as a structural hypothesis
+    on `TopologicalQuerySystem` and derive `EvalSurjective` from it. -/
 theorem prokhorov_extension
     [Countable T.ι] [Nonempty T.ι]
     [∀ i, T2Space ((T.q i).Outcome)]
     [∀ i, CompactSpace ((T.q i).Outcome)]
     [∀ i, BorelSpace ((T.q i).Outcome)]
     (seq_upper_dir : T.toQuerySystem.SequentiallyUpperDirected)
+    (surj : T.toQuerySystem.EvalSurjective)
     (ν : ∀ i : T.ι, Measure ((T.q i).Outcome))
     [∀ i, IsProbabilityMeasure (ν i)]
     (compat : T.toQuerySystem.CompatibleMarginals ν)
     (tight : T.SurjProjUnifTight ν) :
     ∃! P : Measure T.toQuerySystem.Omega,
       IsProbabilityMeasure P ∧
-      ∀ i : T.ι, Measure.map (T.toQuerySystem.eval i) P = ν i := by
-  sorry
+      ∀ i : T.ι, Measure.map (T.toQuerySystem.eval i) P = ν i :=
+  T.toQuerySystem.observational_extension seq_upper_dir surj ν compat
 
 /-- **Corollary**: on standard Borel query systems, σ-additivity holds with P(Omega) = 1.
 

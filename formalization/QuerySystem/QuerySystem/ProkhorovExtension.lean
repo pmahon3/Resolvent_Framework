@@ -342,7 +342,33 @@ theorem prokhorov_extension
       ∀ i : T.ι, Measure.map (T.toQuerySystem.eval i) P = ν i := by
   sorry
 
-/-- **Corollary**: on Polish query systems tightness is automatic. -/
+/-- **Corollary**: on standard Borel query systems, σ-additivity holds with P(Omega) = 1.
+
+    ## Proof strategy (not yet formalised in Mathlib)
+
+    The correct route is via **Musiał's theorem** (Fund. Math. 110, 1980), not tightness:
+
+    1. Every Borel probability measure on a standard Borel space is **perfect**
+       (Bogachev Vol. 2 §7.7.2; Fremlin Vol. 4 §451Q).
+       In Mathlib: `StandardBorelSpace` is the relevant typeclass; the perfectness
+       fact is currently absent from Mathlib.
+
+    2. A projective system of perfect probability measures over any directed index set
+       admits a unique σ-additive projective limit with P(Ω) = 1 — **no topology,
+       no tightness, no compactness required**.  This is Musiał 1980.
+       Musiał's theorem is not yet in Mathlib.
+
+    ## Mathlib gaps
+    - No `PerfectMeasure` definition.
+    - No `standard_Borel_measure_is_perfect` lemma.
+    - No `Musial_projective_limit` theorem.
+
+    Until these are available, this theorem remains `sorry`.
+    The `polish` hypothesis is included because Polish spaces are standard Borel
+    (`PolishSpace` implies `StandardBorelSpace` in Mathlib via `borelSpace_of_polish`),
+    so this theorem as stated is subsumed by the standard Borel version.
+    A future refactor should replace `T.IsPolish` with a `StandardBorelSpace` typeclass
+    on outcome spaces and invoke Musiał directly. -/
 theorem prokhorov_extension_polish
     [Countable T.ι] [Nonempty T.ι]
     (seq_upper_dir : T.toQuerySystem.SequentiallyUpperDirected)
@@ -353,6 +379,10 @@ theorem prokhorov_extension_polish
     ∃! P : Measure T.toQuerySystem.Omega,
       IsProbabilityMeasure P ∧
       ∀ i : T.ι, Measure.map (T.toQuerySystem.eval i) P = ν i := by
+  -- TODO: formalise via Musiał's theorem once PerfectMeasure and
+  -- Musial_projective_limit are available in Mathlib.
+  -- Route: polish → StandardBorelSpace → every ν i is perfect →
+  --         Musiał → unique σ-additive P with P(Omega) = 1.
   sorry
 
 end TopologicalQuerySystem

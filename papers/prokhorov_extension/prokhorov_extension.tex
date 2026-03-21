@@ -809,39 +809,156 @@ the system does the rest.
 This raises the next question: how restrictive is the compactness
 assumption?  For sensor systems with bounded output spaces (voltages,
 pressures, counts in a finite range), compactness is natural.  For
-infinite-range observables, it must be imposed or approximated.
-Understanding when the compact-outcome-space setting is appropriate,
-and what weaker conditions might substitute for it, is the next
-foundational target.
+infinite-range observables --- real-valued sensor readings, delay
+vectors in $\mathbb{R}^d$, unbounded counts --- it cannot be assumed.
+The question is what structural property of the outcome spaces
+substitutes for compactness.
+
+\paragraph{The standard Borel route: Musia{\l}'s theorem.}
+The existing measure-theoretic literature provides a second
+architectural resolution of Stopping Point~2, complementing
+Corollary~\ref{cor:architectural} and covering the infinite-range
+case.
+
+The key concept is \emph{perfectness} in the sense of Gnedenko and
+Kolmogorov~\cite{Bogachev2007}: a probability measure $\mu$ on
+$(X, \Bcal)$ is \emph{perfect} if for every measurable $f: X \to
+\mathbb{R}$, the image measure $f_*\mu$ is inner regular with respect
+to compact sets on $\mathbb{R}$.  Perfectness is a measure-theoretic
+regularity condition that does not require topology on $X$ itself.
+
+The connection to the infinite-range case is given by two classical
+facts:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Standard Borel spaces carry only perfect measures.}
+  If $O_Q$ is a standard Borel space --- a measurable space
+  isomorphic to a Borel subset of a Polish space --- then every
+  Borel probability measure on $O_Q$ is perfect~\cite{Bogachev2007,
+  Fremlin2003}.  This follows from the Borel isomorphism theorem
+  (any uncountable standard Borel space is measurably isomorphic
+  to $\mathbb{R}$) together with inner regularity of finite Borel
+  measures on $\mathbb{R}$.
+\item \emph{Projective systems of perfect measures have
+  $\sigma$-additive limits with no leakage.}
+  Musia{\l}~\cite{Musial1980} proved that a projective system of
+  perfect probability measures over any directed index set admits a
+  unique $\sigma$-additive projective limit $P$ satisfying
+  $P(\Omega) = 1$.  No topological conditions on the spaces or maps
+  are required beyond measurability.
+\end{enumerate}
+Combining these facts gives the following corollary, which is a
+consequence of~\cite{Musial1980} applied to the query system setting.
+
+\begin{corollary}[Standard Borel architectural extension]
+\label{cor:standard-borel}
+Let $(\Qcal, \preceq)$ be a countable sequentially upper-directed
+query system whose outcome spaces $O_Q$ are standard Borel spaces
+and whose refinement maps are measurable.  Then every finitely
+compatible family $\{\ell_Q\}$ of Borel probability measures on
+the query system extends uniquely to a $\sigma$-additive probability
+measure $P$ on $(\Omega, \sigma(\Qcal))$ with $P(\Omega) = 1$.
+\end{corollary}
+
+\begin{proof}
+Each $\ell_Q$ is a Borel probability measure on a standard Borel
+space, hence perfect by fact~(i).  Musia{\l}'s theorem (fact~(ii))
+gives a $\sigma$-additive projective limit on $\prod_Q O_Q$ with
+full mass on the coherent locus.  The concentration argument of
+Section~\ref{sec:concentration} applies: the graph of each
+measurable refinement map $\pi^{Q_2}_{Q_1}: O_{Q_2} \to O_{Q_1}$
+is measurable in $O_{Q_1} \times O_{Q_2}$ when both spaces are
+standard Borel (the diagonal of a standard Borel space is
+measurable, since such spaces are $T_2$ and second countable after
+upgrading to their Polish topology~\cite{Srivastava1998}).  Each
+defect set $D_{Q_1,Q_2}$ is therefore measurable and null, and
+the countable union over all comparable pairs is null.
+\end{proof}
+
+\paragraph{What the two architectural corollaries together achieve.}
+Corollaries~\ref{cor:architectural} and~\ref{cor:standard-borel}
+together resolve Stopping Point~2 in the following two architecturally
+natural settings:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Setting & Key condition & Corollary \\
+\midrule
+Compact outcome spaces & Surjective refinement maps & \ref{cor:architectural} \\
+Standard Borel outcome spaces & Measurable refinement maps & \ref{cor:standard-borel} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In both cases the conclusion is identical: $\sigma$-additivity is not
+an assumption on the observer's laws but a consequence of the query
+system's architecture.  The observer need only supply finite
+compatibility; the spaces do the rest.
+
+The standard Borel setting covers the main computational case of the
+program: delay query systems with outcome spaces $O_{Q_{d,\tau}}
+= \mathbb{R}^d$ are standard Borel, so any compatible family of
+stationary process marginals extends to a $\sigma$-additive global
+measure without any tightness assumption.
+
+\paragraph{The leakage perspective.}
+The Yosida--Hewitt theorem~\cite{Dunford1958} provides the
+algebraic underpinning for both results.  Every finitely additive
+probability measure $\ell$ on a measurable algebra decomposes
+uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is
+$\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}
+--- the component that assigns positive mass to decreasing sequences
+of sets intersecting to empty.  The \emph{leakage} of a compatible
+family $\{\ell_Q\}$ is
+\[
+\lambda(\{\ell_Q\}) := 1 - P(\Omega),
+\]
+the total mass of the purely finitely additive parts that fails to
+concentrate on the coherent realization space $\Omega$.
+
+Stopping Point~2 asks when the query system architecture forces
+$\lambda = 0$ for every compatible family.  The compact and standard
+Borel cases are two settings where this holds.  The open question ---
+the remaining form of Stopping Point~2 --- is whether there are
+weaker architectural conditions on $(\Qcal, \preceq,
+\{\pi^{Q_2}_{Q_1}\})$ that also force $\lambda = 0$, applicable
+to spaces that are neither compact nor standard Borel.
 
 \paragraph{Open problems.}
 
 \begin{enumerate}
+\item \emph{The topology-free route.}
+Both architectural corollaries use some structure on the outcome
+spaces: topology (compact Hausdorff) in Corollary~\ref{cor:architectural},
+or measurable-space isomorphism to a Polish subspace (standard Borel)
+in Corollary~\ref{cor:standard-borel}.  The fully general question
+is whether $\lambda = 0$ can be forced from purely order-theoretic
+conditions on $(\Qcal, \preceq)$, with no structural assumptions
+on the $O_Q$.  The Mallory--Sion theorem~\cite{MallorySion1971}
+suggests the obstruction is measurability of the coherent locus
+$\Omega$ in the ambient product, and that this measurability is not
+guaranteed without additional structure.
+
 \item \emph{The uncountable case.}
 Concentration (Theorem~\ref{thm:concentration}) uses countability
 of $\Qcal$ to take a countable union of null defect sets.  For
-uncountable $\Qcal$, this argument fails.  The correct
-generalization appears to be a condition on determining subsystems:
-if $\Qcal$ admits a countable determining subsystem $\Qcal_0$
-(coherence on $\Qcal_0$ forces coherence on all of $\Qcal$), then
-the countable argument applies.  Characterizing when such subsystems
-exist is the open problem.
-
-\item \emph{Topology-free route.}
-Theorem~\ref{thm:main} requires Hausdorff topology and continuity
-of refinement maps.  A topology-free version would need to replace
-Alexandrov's theorem (automatic inner regularity on compact
-Hausdorff spaces) with a purely measure-theoretic substitute.
-Whether this is possible --- and what structural condition on the
-query system it would require --- remains open.
+uncountable $\Qcal$, the correct generalization is a condition on
+determining subsystems: if $\Qcal$ admits a countable determining
+subsystem $\Qcal_0$ (coherence on $\Qcal_0$ forces coherence on
+all of $\Qcal$), the argument applies.  Characterizing when such
+subsystems exist is the open problem.
 
 \item \emph{Lean formalization.}
-The main outstanding gap in the Lean~4/Mathlib formalization is
-the directed-set form of the inverse limit theorem
-(Proposition~\ref{prop:compact-core}(ii)).  Mathlib~4 does not
-yet contain this result in the form needed.  All other steps of
-the proof have been formalized or have clear paths to
-formalization once this gap is closed.
+The Lean~4/Mathlib formalization of this paper has two outstanding
+gaps.  First, the directed-set form of the inverse limit theorem
+(Proposition~\ref{prop:compact-core}(ii)) is not yet in Mathlib~4.
+Second, the notion of a perfect measure
+(Definition~\ref{def:sput}) and Musia{\l}'s theorem are absent
+from Mathlib; formalizing Corollary~\ref{cor:standard-borel}
+would require adding both.  The infrastructure for standard Borel
+spaces (\texttt{StandardBorelSpace} typeclass) and inner regularity
+(\texttt{Measure.InnerRegular}) is available, providing the
+foundation for future formalization.
 \end{enumerate}
 
 \bibliographystyle{plain}

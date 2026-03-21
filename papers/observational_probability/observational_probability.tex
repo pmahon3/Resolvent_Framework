@@ -874,13 +874,21 @@ rates of operator approximation.
     $m(\tau, P)$ from data, and how it relates to observable properties
     of $P$ (mixing rates, spectral gap, correlation decay).
 
-  \item \textbf{Compact outcome spaces and tightness.}
+  \item \textbf{$\sigma$-additivity for delay query systems.}
     The Prokhorov extension result of Paper~0 (Corollary~6.3) gives
     $\sigma$-additivity for free when outcome spaces are compact.  Delay
-    embeddings map into $X^d \cong \mathbb{R}^d$, which is not compact.
-    Understanding whether locally compact or cylindrically tight conditions
-    on $P$ suffice to recover the Paper~0 corollary in the delay setting
-    is the concrete form of the open SP2 question for this paper.
+    embeddings map into $\mathbb{R}^d$, which is not compact, so
+    Corollary~6.3 does not apply directly.  However, $\mathbb{R}^d$ is a
+    standard Borel space, and by Musia\l's theorem (Fund.\ Math.\ 110,
+    1980), any projective system of \emph{perfect} probability measures
+    over a directed index set admits a unique $\sigma$-additive projective
+    limit with $P(\Omega)=1$.  Since every Borel probability measure on a
+    standard Borel space is perfect (Bogachev, Vol.~2, \S7.7.2), SP2 is
+    resolved for the delay query system: any finitely compatible family of
+    Borel probability marginals on $\mathbb{R}^d$ extends uniquely and
+    $\sigma$-additively, without any tightness or compactness assumption.
+    The remaining open question is the topology-free route for query
+    systems whose outcome spaces are neither compact nor standard Borel.
 
   \item \textbf{Quantitative approximation bounds.}
     Proposition~\ref{prop:local-linear} establishes that local linear

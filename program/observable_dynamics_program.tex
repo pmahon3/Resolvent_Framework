@@ -548,12 +548,26 @@ therefore requires only finite compatibility and the topology of the
 query system: \emph{the observational interface architecture alone
 forces countable additivity.}
 
-\emph{Open in the infinite-range setting.}
-When the outcome spaces are not compact (e.g.\ real-valued
-observables with unbounded range), SPUT is a genuine assumption on
-the valuations.  Whether it can be derived from a purely structural
-condition on the query system without topological input is the
-remaining open form of SP2.
+\emph{Closed in the standard Borel setting (Musia{\\l}~1980).}
+When outcome spaces are standard Borel (measurably isomorphic to a
+Borel subset of a Polish space), SP2 is also resolved.  Every Borel
+probability measure on a standard Borel space is perfect
+(Bogachev~Vol.~2, \S7.7.2), and Musia\l's theorem
+(Fund.\ Math.\ 110, 1980) states that any projective system of
+perfect probability measures over a directed index set admits a
+unique $\sigma$-additive projective limit with $P(\Omega)=1$, with
+no topological tightness assumption required.  This covers all
+query systems whose outcome spaces are standard Borel: in particular,
+delay-embedding query systems with outcome spaces $\mathbb{R}^d$.
+
+\emph{Open in the general non-compact, non-standard-Borel setting.}
+When outcome spaces are neither compact nor standard Borel (e.g.\
+non-separable Banach spaces, general locally compact spaces), SPUT
+remains a genuine assumption.  The purely structural or topology-free
+route to $\sigma$-additivity --- deriving it from compatibility alone
+without tightness or perfectness hypotheses --- is the remaining open
+form of SP2.  Candidate approaches include Mallory--Sion-type
+arguments and compactification routes (one-point or Stone--\v{C}ech).
 \end{conjecture}
 
 \begin{conjecture}[SP3: Realizability from compatibility]
@@ -746,13 +760,14 @@ bibliographies.
 
 \begin{enumerate}
 
-\item \textbf{SP2 in the infinite-range setting.}
-SP2 is closed for compact outcome spaces (Paper~0, Corollary~6.3).
-The remaining open form is: when $O_Q$ are non-compact (e.g.\
-real-valued sensors), can $\sigma$-additivity be forced from
-structural conditions on the query system alone, without SPUT as an
-explicit hypothesis?  This is the topology-free route and the next
-foundational target.
+\item \textbf{SP2 in the general non-compact, non-standard-Borel setting.}
+SP2 is now closed for two architectural classes: compact outcome spaces
+(Paper~0, Corollary~6.3) and standard Borel outcome spaces
+(Musia\l~1980 via perfectness, Paper~0 Discussion, Corollary).
+The remaining open form is: when $O_Q$ are locally compact but not
+standard Borel, can $\sigma$-additivity be forced from a structural
+condition on the query system without SPUT?  Candidate routes include
+Mallory--Sion-type arguments and compactification.
 
 \item \textbf{Categorical adjunction (Conjecture~\ref{conj:adjunction}).}
 The sketch in the \texttt{categorical-foundations} branch needs to be

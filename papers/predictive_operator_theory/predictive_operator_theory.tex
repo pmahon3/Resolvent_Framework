@@ -260,8 +260,11 @@ canonical dynamics on that space.
 
 \section{Predictive generator}\label{sec:generator}
 
-The semigroup $\{K_t\}$ admits an infinitesimal generator in the
-standard sense of $C_0$-semigroup theory.
+When the semigroup $\{K_t\}_{t\ge0}$ acts on a Banach space of bounded
+observable functions and is strongly continuous, it falls within the
+scope of classical $C_0$-semigroup theory~\cite{EngelNagel2000}.  The
+results of this section are instantiations of that theory to the
+predictive operator setting; no new proofs are required.
 
 \begin{definition}[Predictive generator]\label{def:generator}
 For functions $g$ in the domain
@@ -281,13 +284,14 @@ A g
 \]
 \end{definition}
 
-\begin{theorem}[Existence of the predictive generator]\label{thm:generator-existence}
-If $\{K_t\}_{t\ge0}$ is strongly continuous on a Banach space of
+\begin{remark}[Existence of the predictive generator]\label{rem:generator-existence}
+If $\{K_t\}_{t\ge0}$ is a $C_0$-semigroup on a Banach space of
 bounded observable functions on $O_{Q_*}$, then $A$ is a densely
-defined closed operator.
-\end{theorem}
+defined closed operator.  This is the standard generator theorem for
+$C_0$-semigroups~\cite[Thm~II.1.4]{EngelNagel2000}.
+\end{remark}
 
-\begin{theorem}[Predictive Kolmogorov equation]\label{thm:kolmogorov}
+\begin{remark}[Predictive Kolmogorov equation]\label{rem:kolmogorov}
 For every $g\in\mathcal D(A)$, the function
 $u(t,q) = (K_t g)(q)$
 satisfies
@@ -296,13 +300,10 @@ satisfies
 \qquad
 u(0,q)=g(q).
 \]
-\end{theorem}
-
-\begin{remark}[Predictive evolution equation]
-The generator $A$ captures instantaneous predictive evolution.  In the
-comparison section below it is shown that $A$ reduces to the Koopman
-generator in deterministic systems and to the infinitesimal generator
-of the associated Markov process in the stochastic setting.
+This is the abstract Cauchy problem associated to any $C_0$-semigroup;
+see~\cite[Thm~II.6.7]{EngelNagel2000}.  The generator $A$ captures
+instantaneous predictive evolution and reduces to classical generators
+in the deterministic and Markov cases (Section~\ref{sec:koopman}).
 \end{remark}
 
 \section{Relation to Koopman and transfer operators}\label{sec:koopman}
@@ -335,20 +336,22 @@ in Lean).  This condition is satisfied by all standard Borel spaces and
 all Hausdorff spaces carrying a separating family of continuous functions.
 \end{remark}
 
-\begin{proposition}[Generator in deterministic systems]\label{prop:koopman-generator}
-If the predictive operators arise from a deterministic flow
-$q_t = \phi_t(q)$, then
+\begin{remark}[Generator in deterministic systems]\label{rem:koopman-generator}
+If the predictive operators arise from a smooth deterministic flow
+$q_t = \phi_t(q)$ with generating vector field $v$, then
 \[
 A g = \nabla g \cdot v,
 \]
-where $v$ is the vector field generating the flow.
-\end{proposition}
+recovering the classical Koopman generator.  This is the standard
+identification between the Koopman semigroup and the Lie derivative
+along $v$; see~\cite[Ch.~1]{EngelNagel2000}.
+\end{remark}
 
-\begin{proposition}[Generator in stochastic systems]\label{prop:markov-generator}
+\begin{remark}[Generator in stochastic systems]\label{rem:markov-generator}
 If the predictive dynamics form a Markov process, the predictive
 generator $A$ coincides with the infinitesimal generator of the
-associated Markov process.
-\end{proposition}
+associated Markov process in the sense of~\cite[Ch.~1]{EthierKurtz1986}.
+\end{remark}
 
 \begin{proposition}[Dual operator and Koopman--Perron duality]\label{prop:duality}
 Let $P_t(q_*,\cdot)$ be the Markov kernel of

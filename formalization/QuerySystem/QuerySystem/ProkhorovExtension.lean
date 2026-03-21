@@ -25,8 +25,7 @@ measure on `Omega` recovering all marginals.
 
 * `TopologicalQuerySystem.isCompact_compactCore`: `K_Omega` is compact
 * `TopologicalQuerySystem.compactInverseLimit_nonempty`: inverse limit is nonempty
-  (KEY LEMMA — the FIP argument; proved here except for one `sorry` in the
-  surjectivity-of-projections part)
+  (KEY LEMMA — the FIP argument; fully proved, requires `UpperDirected` hypothesis)
 * `TopologicalQuerySystem.prokhorov_extension`: the main theorem (sorry'd)
 
 ## Proof architecture
@@ -188,6 +187,7 @@ lemma isCompact_compactCore [∀ i, T2Space ((T.q i).Outcome)]
 lemma compactInverseLimit_nonempty
     [Countable T.ι] [Nonempty T.ι]
     [∀ i, T2Space ((T.q i).Outcome)]
+    (udir : T.toQuerySystem.UpperDirected)
     (K : ∀ i : T.ι, Set ((T.q i).Outcome))
     (hK_compact : ∀ i, IsCompact (K i))
     (hK_nonempty : ∀ i, (K i).Nonempty)
@@ -221,35 +221,60 @@ lemma compactInverseLimit_nonempty
       apply isClosed_iInter; intro _
       apply isClosed_iInter; intro h
       exact isClosed_eq (continuous_apply i) ((T.π h).continuous_π.comp (continuous_apply j))
-  -- Each partFin G is nonempty
+  -- Each partFin G is nonempty.
+  -- Strategy: use upper-directedness to find a common upper bound k for G,
+  -- pick any x_k ∈ K k, and define x i = (π hik).π x_k for all i.
+  -- Coherence within G follows from π_trans.
   have hpF_nonempty : ∀ G : Finset T.ι, (partFin G).Nonempty := by
     intro G
-    -- Choose any element: pick for each i ∈ G from K i (or K j via surjectivity).
-    -- Simple approach: pick any x₀ i ∈ K i freely (ignoring coherence), then this
-    -- is in P. For the coherence conditions, we need them to hold.
-    -- This requires building a coherent assignment. We use surjectivity to do this
-    -- inductively on G.
-    --
-    -- Simplest: if G is empty, P is nonempty (any free choice works).
-    -- If G is nonempty, pick i₀ := G.min' (or any element), x_{i₀} ∈ K_{i₀},
-    -- and for j with T.le i₀ j in G, use surjectivity to lift.
-    -- For pairs not involving i₀, pick freely.
-    -- This is sound if G has a "top" element (upper-directed), but we don't assume that.
-    --
-    -- Instead: use the fact that the trivial assignment x i = (T.π h).π (x j) for ANY
-    -- chosen top element satisfies all *upward* constraints from that element.
-    -- For a fully general G, use induction or the following trick:
-    -- take ANY x i ∈ K i and check: this gives an element of P.
-    -- The coherence condition in partFin G may fail, but we only need EXISTENCE.
-    --
-    -- The issue: partFin G requires coherence for ALL pairs (i,j) ∈ G × G with T.le i j.
-    -- We cannot simply use a free choice.
-    --
-    -- Strategy: Use G.sup (choosing some top) via upper-directedness, then propagate.
-    -- But T.ι is only sequentially upper-directed, not necessarily finitely upper-directed.
-    -- Actually QuerySystem.UpperDirected suffices for finsets (proved in QuerySystem.lean).
-    -- We do NOT have that hypothesis here. So this sorry is the correct gap.
-    sorry
+    -- Get a common upper bound k for G (using UpperDirected + upperBound_finset)
+    obtain ⟨k, hk⟩ := T.toQuerySystem.upperBound_finset udir G
+    -- Pick any point x_k ∈ K k
+    obtain ⟨x_k, hx_k⟩ := hK_nonempty k
+    -- Define the assignment: propagate x_k down to all i via refinement maps
+    -- For i ≤ k (i.e., i ∈ G), set x i = (π hik).π x_k
+    -- For i ∉ G (not constrained), pick any point in K i
+    -- We need a function x : ∀ i, (T.q i).Outcome in P satisfying coherence on G.
+    -- Use Classical.choice to define x on all of ι.
+    let x : ∀ i : T.ι, (T.q i).Outcome := fun i =>
+      if hi : i ∈ G
+      then (T.π (hk i hi)).π x_k
+      else (hK_nonempty i).choose
+    refine ⟨x, ?_, ?_⟩
+    · -- x ∈ P: show ∀ i, x i ∈ K i
+      intro i
+      simp only [x]
+      split_ifs with hi
+      · -- i ∈ G: x i = (π hik).π x_k ∈ K i, since hK_surj says π '' (K k) = K i
+        have : (T.π (hk i hi)).π x_k ∈ (T.π (hk i hi)).π '' (K k) :=
+          Set.mem_image_of_mem _ hx_k
+        rw [hK_surj (hk i hi)] at this
+        exact this
+      · -- i ∉ G: x i = (hK_nonempty i).choose ∈ K i by definition
+        exact (hK_nonempty i).choose_spec
+    · -- x satisfies coherence conditions on G
+      intro i hi j hj hij
+      -- Both i and j are in G; both map down from k.
+      -- x i = (π hik).π x_k and x j = (π hjk).π x_k
+      -- Coherence: x i = (π hij).π (x j)
+      -- i.e. (π hik).π x_k = (π hij).π ((π hjk).π x_k)
+      -- This is π_trans: π hik = π hij ∘ π hjk (since hik = le_trans hij hjk)
+      simp only [x, dif_pos hi, dif_pos hj]
+      -- hk i hi : T.le i k,  hk j hj : T.le j k,  hij : T.le i j
+      -- Need: T.le i k = T.le_trans hij (T.le ... j k)?
+      -- We have hik := hk i hi : T.le i k
+      --         hjk := hk j hj : T.le j k
+      --         hij              : T.le i j
+      -- π_trans says: π (le_trans hij hjk) = π hij ∘ π hjk
+      -- But we need le_trans hij hjk = hik.  This requires proof-irrelevance on le.
+      have hik := hk i hi
+      have hjk := hk j hj
+      -- (T.π hik).π x_k = (T.π hij).π ((T.π hjk).π x_k)
+      -- Since T.le i k is a Prop, hik = T.le_trans hij hjk by proof irrelevance.
+      -- Then π_trans gives: (T.π (T.le_trans hij hjk)).π = (T.π hij).π ∘ (T.π hjk).π.
+      have heq : hik = T.le_trans hij hjk := Subsingleton.elim _ _
+      rw [show (T.π hik).π x_k = (T.π (T.le_trans hij hjk)).π x_k from by rw [heq]]
+      simp [T.π_trans hij hjk, Function.comp]
   -- The family partFin is directed (G₁ ⊆ G₂ → partFin G₂ ⊆ partFin G₁)
   have hpF_directed : Directed (· ⊇ ·) partFin := by
     intro G₁ G₂
@@ -284,14 +309,87 @@ lemma compactInverseLimit_nonempty
     constructor
     · rintro ⟨ω', hω', rfl⟩; exact hω' i
     · intro hy
-      -- Given y ∈ K i, find ω' ∈ compactCore K with ω'.1 i = y.
-      -- Strategy: repeat the FIP argument but with a "base" constraint at i.
-      -- Define partFin' G = partFin G ∩ { x | x i = y }.
-      -- { x | x i = y } is closed. partFin' G is still compact.
-      -- partFin' G is nonempty: y ∈ K i; for j with T.le i j, use surjectivity
-      -- to find y_j ∈ K j with π(y_j) = y; for others pick freely.
-      -- Again the nonemptiness step requires the same construction.
-      sorry
+      -- Given y ∈ K i, find ω' ∈ compactCore K with eval i ω' = y.
+      -- Strategy: repeat the FIP argument with the additional constraint {x | x i = y}.
+      let pinned : Set (∀ j : T.ι, (T.q j).Outcome) := { x | x i = y }
+      let partFin' : Finset T.ι → Set (∀ j : T.ι, (T.q j).Outcome) :=
+        fun G => partFin G ∩ pinned
+      -- pinned is closed (T2 space, y is a point)
+      have hpinned_closed : IsClosed pinned :=
+        isClosed_eq (continuous_apply i) continuous_const
+      -- Each partFin' G is closed
+      have hpF'_closed : ∀ G : Finset T.ι, IsClosed (partFin' G) :=
+        fun G => (hpF_closed G).inter hpinned_closed
+      -- Each partFin' G is compact (closed subset of compact P)
+      have hpF'_compact : ∀ G : Finset T.ι, IsCompact (partFin' G) :=
+        fun G => hP_compact.of_isClosed_subset (hpF'_closed G)
+          (Set.inter_subset_left.trans Set.inter_subset_left)
+      -- partFin' is directed (same argument as partFin)
+      have hpF'_directed : Directed (· ⊇ ·) partFin' := by
+        intro G₁ G₂
+        use G₁ ∪ G₂
+        constructor <;>
+        · intro x ⟨⟨hP_x, hcoh_x⟩, hpin_x⟩
+          exact ⟨⟨hP_x, fun a ha b hb h =>
+            hcoh_x a (Finset.mem_union.mpr (by tauto)) b (Finset.mem_union.mpr (by tauto)) h⟩,
+            hpin_x⟩
+      -- Each partFin' G is nonempty:
+      -- Get k ≥ G ∪ {i} via upper-directedness, then use hK_surj to find x_k ∈ K k
+      -- with (π hik).π x_k = y, and propagate.
+      have hpF'_nonempty : ∀ G : Finset T.ι, (partFin' G).Nonempty := by
+        intro G
+        obtain ⟨k, hk⟩ := T.toQuerySystem.upperBound_finset udir (insert i G)
+        have hik : T.le i k := hk i (Finset.mem_insert_self i G)
+        -- Use surjectivity to lift y ∈ K i to some x_k ∈ K k with (π hik).π x_k = y
+        have : y ∈ (T.π hik).π '' (K k) := by
+          rw [hK_surj hik]; exact hy
+        obtain ⟨x_k, hx_k_mem, hx_k_val⟩ := this
+        -- Define the assignment pinned at i, propagated from x_k
+        let x : ∀ j : T.ι, (T.q j).Outcome := fun j =>
+          if hj : j ∈ insert i G
+          then (T.π (hk j hj)).π x_k
+          else (hK_nonempty j).choose
+        refine ⟨⟨?_, ?_⟩, ?_⟩
+        · -- x ∈ P
+          intro j
+          simp only [x]
+          split_ifs with hj
+          · have : (T.π (hk j hj)).π x_k ∈ (T.π (hk j hj)).π '' (K k) :=
+              Set.mem_image_of_mem _ hx_k_mem
+            rw [hK_surj (hk j hj)] at this; exact this
+          · exact (hK_nonempty j).choose_spec
+        · -- coherence on G
+          intro a ha b hb hab
+          simp only [x, dif_pos (Finset.mem_insert_of_mem ha),
+                     dif_pos (Finset.mem_insert_of_mem hb)]
+          have hak := hk a (Finset.mem_insert_of_mem ha)
+          have hbk := hk b (Finset.mem_insert_of_mem hb)
+          have heq : hak = T.le_trans hab hbk := Subsingleton.elim _ _
+          rw [show (T.π hak).π x_k = (T.π (T.le_trans hab hbk)).π x_k from by rw [heq]]
+          simp [T.π_trans hab hbk, Function.comp]
+        · -- x i = y (pinned condition)
+          simp only [x, pinned, Set.mem_setOf_eq,
+                     dif_pos (Finset.mem_insert_self i G)]
+          exact hx_k_val
+      -- Apply Cantor's intersection theorem to partFin'
+      obtain ⟨x, hx'⟩ := IsCompact.nonempty_iInter_of_directed_nonempty_isCompact_isClosed
+        partFin' hpF'_directed hpF'_nonempty hpF'_compact hpF'_closed
+      -- Extract coherence and pinning from x
+      have hx'_P : ∀ j, x j ∈ K j := by
+        simp only [partFin', partFin, Set.mem_iInter] at hx'
+        exact ((hx' ∅).1).1
+      have hx'_coh : ∀ {a b : T.ι} (hab : T.le a b), x a = (T.π hab).π (x b) := by
+        intro a b hab
+        simp only [partFin', partFin, Set.mem_iInter, Set.mem_inter_iff,
+                   Set.mem_setOf_eq] at hx'
+        exact ((hx' {a, b}).1).2 a (Finset.mem_insert_self _ _) b
+          (Finset.mem_insert_of_mem (Finset.mem_singleton_self _)) hab
+      have hx'_pin : x i = y := by
+        simp only [partFin', pinned, Set.mem_iInter, Set.mem_inter_iff,
+                   Set.mem_setOf_eq] at hx'
+        exact (hx' ∅).2
+      -- Package as ω' ∈ compactCore K with eval i ω' = y
+      exact ⟨⟨x, fun hab => hx'_coh hab⟩, hx'_P, hx'_pin⟩
 
 /-! ## Graph-support lemma -/
 
@@ -317,16 +415,12 @@ lemma measure_defectSet_eq_zero (P : Measure T.toQuerySystem.Omega)
 
     ## Remaining sorrys
 
-    1. `hpF_nonempty` in `compactInverseLimit_nonempty`: building a coherent point in a
-       finite diagram from surjectivity. Requires upper-directedness of finite sets (proved
-       in `QuerySystem.lean` as `upperBound_finset`) plus inductive propagation via `hK_surj`.
-
-    2. Surjectivity of projections (`eval i '' compactCore K = K i`): same construction
-       with a prescribed base value.
-
-    3. The premeasure construction and Carathéodory extension in `prokhorov_extension`:
+    1. The premeasure construction and Carathéodory extension in `prokhorov_extension`:
        connecting `compactInverseLimit_nonempty` to `AddContent.IsSigmaSubadditive` and
-       then applying `AddContent.measure`. -/
+       then applying `AddContent.measure`.
+
+    Note: `compactInverseLimit_nonempty` (sorrys 1 and 2 from earlier) is now fully proved,
+    given the added `UpperDirected` hypothesis. -/
 theorem prokhorov_extension
     [Countable T.ι] [Nonempty T.ι]
     [∀ i, T2Space ((T.q i).Outcome)]

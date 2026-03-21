@@ -1,0 +1,47 @@
+%% Interstitial: Paper 3 -> Paper 4
+%% Narrative: the dynamics are characterised abstractly;
+%% now we ask how to instantiate and compute them.
+
+Chapter~\ref{chap:paper-three} established that the predictive
+operator family $\{K_t\}$ forms a semigroup and is dual to the
+Koopman operator.  This is an abstract characterisation: it holds for
+any observable dynamics satisfying the program's hypotheses, without
+specifying the form of the queries or the structure of the dynamics.
+
+For the program to make contact with data --- with actual time series,
+actual measurements, actual algorithms --- it needs a concrete
+instantiation.  What queries arise in practice?  What does the
+semigroup $\{K_t\}$ look like when the outcome spaces have geometric
+structure?  And how can $K_t$ be approximated from finite data?
+
+\medskip
+
+Chapter~\ref{chap:paper-four} provides the instantiation via
+\emph{delay query systems}.  The delay query at lag $\tau$ and
+window $m$ measures the system by recording $m$ consecutive
+observations spaced $\tau$ apart: $Q_{m,\tau}(\omega) =
+(\omega(0), \omega(\tau), \ldots, \omega((m-1)\tau))$.  These
+queries are natural --- they formalise the Takens embedding strategy
+used throughout applied dynamical systems --- and their refinement
+structure is governed by the program's directedness conditions.
+
+The main results of Chapter~\ref{chap:paper-four} are:
+the delay query system is upper-directed (so the extension theorem
+applies), the probabilistic sufficiency criterion identifies when a
+delay window is long enough to capture the full predictive content,
+and the Markov order $m(\tau, P)$ measures the minimal window length
+required.  The operator $K_t$ is approximated by $K_t^N$ computed
+from $N$ data points via local linear regression on the delay
+embedding.
+
+\medskip
+
+This is where the program meets the world.  The abstractions of the
+preceding chapters --- queries, compatibility, predictive kernels,
+semigroups --- become an algorithm: observe the system through a delay
+window, estimate the predictive operator, track how it evolves.
+
+The passage from Chapter~\ref{chap:paper-three} to
+Chapter~\ref{chap:paper-four} is the passage from \emph{dynamics} to
+\emph{computation}: from the abstract semigroup structure to the
+concrete instantiation that makes it estimable from data.

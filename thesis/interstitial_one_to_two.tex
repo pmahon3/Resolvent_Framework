@@ -1,0 +1,51 @@
+%% Interstitial: Paper 1 -> Paper 2
+%% Narrative: the probability is determined by its marginals;
+%% now we ask what predictive structure it generates.
+
+Chapter~\ref{chap:paper-one} established that a probability measure
+$P$ on $(\Omega, \sigma(\mathcal{Q}))$ is completely determined by its
+query marginals.  What the observable interface shows is all there is.
+
+This raises the next question: what does the observable interface
+\emph{predict}?  Given the current query $Q$ and some future
+observable $F$, the probability $P$ determines a conditional
+distribution of $F$ given $Q$.  But this conditional distribution
+depends on the full measure $P$, which in turn depends on the entire
+query system.  Can the predictive content of $Q$ be isolated ---
+expressed as a structure intrinsic to $Q$ and $P$, without reference
+to all other queries?
+
+\medskip
+
+Chapter~\ref{chap:paper-two} answers yes.  The \emph{predictive
+kernel} $\Pi_Q$ captures exactly the information in $Q$ that is
+relevant for predicting $F$: it is the conditional distribution of
+$F$ given $Q$, factored through the \emph{minimal predictive query}
+$Q_* = \varphi_Q \circ Q$ --- the coarsest function of $Q$ that
+retains all predictive content.
+
+The central result is the \emph{predictive factorization theorem}:
+every bounded measurable function $g$ of $F$ satisfies
+\[
+\mathbb{E}[g(F) \mid \sigma(Q)] = (\text{predictiveOp}\, g) \circ Q_*.
+\]
+Prediction factors through the minimal predictive state.  The query
+system does not need to be refined further to predict $F$; the
+sufficient statistic $Q_*$ already carries everything.
+
+\medskip
+
+This is the first result in the program that is genuinely dynamical
+in character.  The query $Q$ represents the observer's current
+measurement; $F$ represents a future event; $Q_*$ is the minimal
+structure needed to bridge them.  The passage from observable
+compatibility to predictive sufficiency is the passage from static
+coexistence of queries to the temporal structure of prediction.
+
+\medskip
+
+The passage from Chapter~\ref{chap:paper-one} to
+Chapter~\ref{chap:paper-two} is the passage from \emph{determination}
+to \emph{prediction}: from knowing that $P$ is fixed by the query
+system to extracting, for each query, the minimal predictive structure
+it contains.

@@ -1,0 +1,760 @@
+
+\maketitle
+
+\begin{abstract}
+Building on the canonical probability space representation established
+in \emph{Observational Foundations of Probability}, this work studies
+the predictive structure that emerges from compatible observable
+experiments.
+
+Given a future observable $F:\Omega\to O_F$, prediction induces an
+equivalence relation on observable states determined by equality of
+conditional laws.  The resulting quotient defines a minimal predictive
+query $Q_*$ whose states correspond exactly to distinct predictive
+laws of $F$.  A canonical positive linear operator
+\[
+(K_{Q_*}g)(q_*) = E[g(F)\mid Q_*=q_*]
+\]
+then acts on functions of this predictive state space, providing an
+observable representation of prediction expressed entirely in terms of
+conditional laws.  The minimal predictive query is universal: any
+other predictive statistic factors through $Q_*$ via the
+Doob--Dynkin lemma, making $Q_*$ the coarsest observable
+representation retaining the full predictive law of $F$.
+\end{abstract}
+
+\paragraph{Relation to the observational foundations.}
+\emph{Observational Foundations of Probability} establishes that
+compatible observable experiments admit a canonical probability space
+$(\Omega,\sigma(\Qcal),P)$.  The present work studies the predictive
+structure that emerges once this representation is available:
+prediction induces an equivalence on observable states whose quotient
+yields a minimal predictive query $Q_*$.  Conditional expectations of
+future observables therefore factor through this predictive state
+space.
+
+The predictive structure developed in this note proceeds through the
+following sequence of constructions.
+
+The logical progression of the present work is:
+\[
+\begin{aligned}
+&\text{canonical experiment } (\Omega,\sigma(\Qcal),P)\\[6pt]
+&\downarrow\\[6pt]
+&\text{future observable } F:\Omega\to O_F\\[6pt]
+&\downarrow\\[6pt]
+&\text{predictive kernels } \Pi_Q(q,\cdot)=P(F\in\cdot\mid Q=q)\\[6pt]
+&\downarrow\\[6pt]
+&\text{predictive equivalence } q\sim q' \iff \Pi_Q(q,\cdot)=\Pi_Q(q',\cdot)\\[6pt]
+&\downarrow\\[6pt]
+&\text{minimal predictive query } Q_*:\Omega\to O_{Q_*}\\[6pt]
+&\downarrow\\[6pt]
+&\text{predictive operator } K_{Q_*}g(q_*)=E[g(F)\mid Q_*=q_*]
+\end{aligned}
+\]
+
+\paragraph{Main theorem.}
+The principal result of this work identifies the minimal observable
+state space required for prediction.
+
+\begin{theorem}[Predictive state theorem]
+Let $F:\Omega\to O_F$ be a future observable.  Predictive equivalence
+induces a minimal predictive query $Q_*$ whose observable states
+correspond exactly to distinct predictive laws of $F$.  In particular,
+conditional expectations of future observables factor through this
+predictive state space.
+\end{theorem}
+
+\paragraph{Structure of the paper.}
+Section~\ref{sec:standing} recalls the observational framework and
+the canonical probability space representation.
+Section~\ref{sec:query-experiments} introduces query experiments and
+the experiment preorder induced by prediction.
+Section~\ref{sec:predictive-experiments} introduces predictive kernels
+and the kernel-law map.  Sections~\ref{sec:minimal-predictive}
+and~\ref{sec:predictive-sufficiency} develop predictive equivalence,
+the minimal predictive query, and the associated factorization theorem,
+followed by predictive sufficiency.
+Sections~\ref{sec:predictive-operators} and~\ref{sec:operator-closure}
+introduce the predictive operator representation and establish operator
+closure on the minimal predictive query --- the central theoretical
+result of the paper.
+
+\section{Standing framework}\label{sec:standing}
+
+Assume the observational construction of
+\emph{Observational Foundations of Probability}.
+
+In particular:
+
+\begin{itemize}
+\item A query system $(\Qcal,\preceq)$.
+\item The canonical experiment
+\[
+(\Omega,\sigma(\Qcal),P).
+\]
+\item Evaluation maps
+\[
+Q:\Omega\to O_Q.
+\]
+\item A future observable: a measurable map
+\[
+F:\Omega\to O_F
+\]
+with $O_F$ standard Borel, representing a quantity whose distribution
+is to be predicted from present queries.
+\end{itemize}
+
+Observable functions $g:O_F\to\mathbb R$ are taken to be bounded and
+measurable throughout.  Boundedness ensures integrability of $g$ under
+every predictive law (since predictive laws are probability measures)
+and allows conditional expectations and operator compositions to be
+handled by standard Bochner integration without additional
+integrability hypotheses.
+
+All other results in this note are derived relative to this observational
+structure.  The sequel develops the predictive structure that becomes
+available once the observational experiment $(\Omega,P)$ has been
+constructed.
+
+\begin{remark}[Program context]
+The present paper studies the predictive structure that emerges once
+the observational representation theorem has produced the canonical
+experiment $(\Omega,\sigma(\Qcal),P)$.
+\end{remark}
+
+\begin{remark}[Formalization]
+The structures used here---query systems, refinement maps, and the
+canonical experiment $(\Omega,P)$---correspond to the objects defined in
+the Lean formalization of the QuerySystem framework.  In particular,
+evaluation maps
+\[
+Q:\Omega\to O_Q
+\]
+are the measurable coordinate projections from the projective-limit
+space constructed in the extension theorem.
+
+The assumption that $O_F$ is standard Borel is used not only for the
+existence of the predictive kernel $\Pi_Q$ (Rokhlin disintegration)
+but also for the measurability of the predictive law map $\phi_Q$ into
+$\mathcal P(O_F)$: since $\Pi_Q$ is a Markov kernel, the map
+$q\mapsto\Pi_Q(q,\cdot)$ is measurable into $\mathcal P(O_F)$ equipped
+with the Giry $\sigma$-algebra (which on standard Borel spaces coincides
+with the weak convergence $\sigma$-algebra).  All results involving
+$\phi_Q$ and $Q_*$ are derived relative to this measurability.
+\end{remark}
+
+For every future observable
+\[
+F:\Omega\to O_F
+\]
+regular conditional probabilities define predictive kernels
+\[
+\Pi_Q(q,\cdot)=P(F\in\cdot\mid Q=q)
+\]
+for each query $Q:\Omega\to O_Q$.  These kernels are compatible with
+refinement of queries: whenever $Q_1\preceq Q_2$,
+\[
+\Pi_{Q_1}=\Pi_{Q_2}\circ\pi^{Q_2}_{Q_1}.
+\]
+The remainder of the paper develops the predictive consequences of
+these kernels, culminating in the minimal predictive query $Q_*$ and
+its associated operator representation.
+
+\bigskip
+
+\section{Query experiments and the information order}\label{sec:query-experiments}
+
+Each query induces a statistical experiment in the sense of Blackwell and
+Le Cam.
+
+\begin{definition}[Query experiment]
+For a query $Q$, the pushforward
+\[
+Q:(\Omega,P)\to (O_Q,Q_\#P)
+\]
+defines a statistical experiment.
+\end{definition}
+
+The refinement preorder on queries corresponds to the standard
+informativeness order for experiments.
+
+\begin{theorem}[Experiment preorder]
+If
+\[
+Q_1 \preceq Q_2
+\]
+then the experiment generated by $Q_1$ is a measurable
+post-processing of the experiment generated by $Q_2$.  In particular
+there exists a measurable map
+\[
+\pi^{Q_2}_{Q_1}:O_{Q_2}\to O_{Q_1}
+\]
+such that
+\[
+Q_1=\pi^{Q_2}_{Q_1}\circ Q_2.
+\]
+\end{theorem}
+
+Thus the query system $(\Qcal,\preceq)$ may be interpreted as a preorder
+of statistical experiments ordered by informativeness.
+
+\begin{remark}
+The present work studies the predictive structure induced on the
+canonical experiment $(\Omega,P)$ by future observables.
+\end{remark}
+
+\begin{remark}
+The experiment preorder provides the structural order in which later
+notions of predictive sufficiency and minimality will be expressed.
+\end{remark}
+
+\bigskip
+
+\section{Predictive experiments}\label{sec:predictive-experiments}
+
+\begin{definition}[Predictive kernel]\label{def:predictive-kernel}
+For a query $Q$, the \emph{predictive kernel} is the regular
+conditional distribution of $F$ given $Q$:
+\[
+\Pi_Q(q,A)
+=
+P(F\in A\mid Q=q),
+\qquad
+q\in O_Q,\; A\in\mathcal B(O_F).
+\]
+Since $O_F$ is standard Borel, a regular conditional distribution
+exists, so $\Pi_Q$ is a well-defined Markov kernel
+\[
+\Pi_Q:O_Q\times\mathcal B(O_F)\to[0,1].
+\]
+The kernel determines the \emph{predictive law map}
+\[
+\phi_Q:O_Q\to \Pcal(O_F),
+\qquad
+\phi_Q(q)=\Pi_Q(q,\cdot).
+\]
+Measurability of $\phi_Q$ follows from the fact that $\Pi_Q$ is a
+kernel: for each $A\in\mathcal B(O_F)$ the map $q\mapsto \Pi_Q(q,A)$
+is measurable, so $\phi_Q$ is measurable into $\Pcal(O_F)$ equipped
+with the weak convergence $\sigma$-algebra.
+\end{definition}
+
+\begin{remark}[Regular conditional distribution]
+The kernel $\Pi_Q$ satisfies
+\[
+\Pi_Q(Q(\omega),A)
+=
+P(F\in A\mid Q)(\omega)
+\qquad \text{$P$-a.s.}
+\]
+It is defined $Q_\#P$-almost surely in $q$.
+\end{remark}
+
+\begin{proposition}[Predictive compatibility]\label{prop:pred-compat}
+If $Q_1\preceq Q_2$ then
+\[
+\Pi_{Q_1}
+=
+\Pi_{Q_2}\circ\pi^{Q_2}_{Q_1}
+\qquad Q_1{}_\#P\text{-a.s.}
+\]
+\end{proposition}
+
+\begin{proof}
+By the tower property of conditional expectation,
+for any $A\in\mathcal B(O_F)$,
+\[
+P(F\in A\mid Q_1)
+=
+E\bigl[P(F\in A\mid Q_2)\bigm| Q_1\bigr]
+=
+E\bigl[\Pi_{Q_2}(Q_2,A)\bigm| Q_1\bigr].
+\]
+Since $Q_1=\pi^{Q_2}_{Q_1}\circ Q_2$ and $\Pi_{Q_2}(Q_2,A)$ is
+$\sigma(Q_2)$-measurable, the right-hand side equals
+$\Pi_{Q_2}(\pi^{Q_2}_{Q_1}(Q_1),A)=(\Pi_{Q_2}\circ\pi^{Q_2}_{Q_1})(Q_1,A)$.
+\end{proof}
+
+This expresses that predictive experiments inherit the refinement order on queries.
+
+\begin{remark}[Necessity of the a.e.\ qualifier]
+The equality $\Pi_{Q_1} = \Pi_{Q_2}\circ\pi^{Q_2}_{Q_1}$ holds
+$Q_{1\#}P$-almost surely, not pointwise.  This is unavoidable:
+the regular conditional distribution $\Pi_Q(q,\cdot)$ is only
+determined $Q_\#P$-almost surely in $q$, since two versions of a
+conditional distribution may differ on a set of $Q_\#P$-measure
+zero.  Any two regular conditional distributions of $F$ given $Q$
+therefore agree $Q_\#P$-a.s., and the compatibility identity can
+only be asserted in this almost-sure sense.
+\end{remark}
+
+\bigskip
+
+\begin{remark}[Predictive statistics]
+From the perspective of statistical experiment theory, predictive
+queries behave like statistics of the present relative to the future.
+The minimal predictive query introduced later will therefore play the
+role of a dynamical sufficient statistic: the smallest observable
+representation of the present retaining exactly the predictive
+information relevant to the future observable $F$.
+\end{remark}
+
+The next step is to identify when two observable states determine the
+same predictive law.  This leads to the notion of predictive
+equivalence and to the construction of the minimal predictive query.
+
+\bigskip
+
+\section{Minimal predictive statistics}\label{sec:minimal-predictive}
+
+\begin{definition}[Predictive equivalence]\label{def:predictive-equivalence}
+Let $Q:\Omega\to O_Q$ be a query.  Two observable states
+$q,q'\in O_Q$ are said to be \emph{predictively equivalent} if
+\[
+\phi_Q(q)=\phi_Q(q'),
+\]
+or equivalently
+\[
+\Pi_Q(q,\cdot)=\Pi_Q(q',\cdot).
+\]
+\end{definition}
+
+Two observable states are predictively equivalent whenever they have
+the same image under $\phi_Q$, i.e.\ whenever they induce the same
+predictive law of $F$.
+
+\begin{theorem}[Minimal predictive query]\label{thm:minimal-predictive-query}
+Assume $O_Q$ and $O_F$ are standard Borel.  Define
+\[
+Q_* := \phi_Q \circ Q : \Omega \to \Pcal(O_F).
+\]
+Then $Q_*$ is measurable, and
+\[
+Q_*(\omega) = P(F\in\cdot\mid Q=Q(\omega)).
+\]
+Two realizations satisfy $Q_*(\omega)=Q_*(\omega')$ if and only if
+they are predictively equivalent.  The state space of $Q_*$ is
+\[
+O_{Q_*} = \phi_Q(O_Q) \subseteq \Pcal(O_F),
+\]
+the image of the predictive law map, so each state of $Q_*$
+corresponds exactly to a distinct predictive law of $F$.
+\end{theorem}
+
+\begin{proof}
+Measurability of $Q_*=\phi_Q\circ Q$ follows from measurability of
+$\phi_Q$ (Definition~\ref{def:predictive-kernel}) and of $Q$.  The
+identification $Q_*(\omega)=P(F\in\cdot\mid Q=Q(\omega))$ is immediate
+from the definition of $\phi_Q$.  Two realizations satisfy
+$Q_*(\omega)=Q_*(\omega')$ iff $\phi_Q(Q(\omega))=\phi_Q(Q(\omega'))$
+iff they are predictively equivalent
+(Definition~\ref{def:predictive-equivalence}).  The state space
+$O_{Q_*}=\phi_Q(O_Q)$ by definition.
+\end{proof}
+
+\begin{remark}[Predictive state space]
+The state space $O_{Q_*}=\phi_Q(O_Q)\subseteq\Pcal(O_F)$ is a space
+of probability measures: each state is the predictive law of $F$
+associated with a present observation.  The minimal predictive query
+organizes prediction by mapping each observable state to its
+associated predictive law.
+\end{remark}
+
+The predictive law of $F$ therefore depends on $\omega$ only through
+$Q_*(\omega)$.  The following theorem makes this factorization precise
+and establishes its universal minimality.
+
+\begin{theorem}[Predictive factorization theorem]\label{thm:predictive-factorization}
+Let $Q_*=\phi_Q\circ Q$ be the minimal predictive query of
+Theorem~\ref{thm:minimal-predictive-query}, and let
+$\Phi:O_{Q_*}\to\Pcal(O_F)$ be the identity inclusion
+$\Phi(q_*)=q_*$.
+
+Then
+\[
+P(F\in\cdot\mid Q_*=q_*)=\Phi(q_*)=q_*,
+\]
+so the predictive law $\Pi(\omega)=P(F\in\cdot\mid\omega)$ factors as
+\[
+\Pi = \Phi\circ Q_*.
+\]
+
+Moreover $Q_*$ is universal: if $R:\Omega\to O_R$ is any query and
+$\psi:O_R\to\Pcal(O_F)$ is measurable with $\Pi=\psi\circ R$, then
+$Q_*$ is measurable with respect to $\sigma(R)$, and there exists a
+measurable map $\theta:O_R\to O_{Q_*}$ such that $Q_*=\theta\circ R$.
+
+In particular the following diagram commutes:
+\[
+\begin{array}{ccc}
+\Omega & \xrightarrow{\;\;R\;\;} & O_R \\[4pt]
+\downarrow\scriptstyle{Q_*} & & \downarrow\scriptstyle{\psi} \\[4pt]
+O_{Q_*} & \xrightarrow{\;\;\Phi\;\;} & \Pcal(O_F)
+\end{array}
+\]
+
+Thus $Q_*$ is the minimal observable statistic through which the
+predictive law of the future experiment factors.
+\end{theorem}
+
+\begin{proof}
+\textit{Factorization.}
+Since $Q_*(\omega)=\phi_Q(Q(\omega))=\Pi_Q(Q(\omega),\cdot)
+=P(F\in\cdot\mid Q)(\omega)$, we have
+$P(F\in\cdot\mid Q_*=q_*)=q_*=\Phi(q_*)$,
+so $\Pi=\Phi\circ Q_*$.
+
+\textit{Universality.}
+Suppose $\Pi=\psi\circ R$.  Then $Q_*=\Pi=\psi\circ R$ is
+$\sigma(R)$-measurable.  By the Doob--Dynkin lemma applied to the
+measurable map $Q_*:\Omega\to\Pcal(O_F)$ and the $\sigma$-algebra
+$\sigma(R)$, there exists a measurable $\theta:O_R\to O_{Q_*}$ with
+$Q_*=\theta\circ R$.
+
+\textit{Minimality.}
+The universality step shows $Q_*$ factors through any other predictive
+statistic.  Therefore $Q_*$ is the coarsest measurable function of
+$\omega$ carrying the full predictive law.
+\end{proof}
+
+\begin{corollary}[Canonical predictive operator]\label{cor:canonical-operator}
+For every bounded measurable $g:O_F\to\mathbb R$, define
+\[
+(K g)(q_*)
+=
+\int g(f)\,q_*(df)
+=
+E[g(F)\mid Q_*=q_*].
+\]
+Then $K:L^\infty(O_F)\to L^\infty(O_{Q_*})$ is a well-defined positive
+linear operator.
+\end{corollary}
+
+\begin{proof}
+Since $q_*\in\Pcal(O_F)$ is a probability measure, integration against
+$q_*$ is a positive linear functional.  The function $q_*\mapsto\int g\,dq_*$
+is measurable in $q_*$ by measurability of $\phi_Q$ and boundedness
+of $g$.  Positivity and linearity of $K$ are inherited from those of
+integration.
+\end{proof}
+
+\begin{remark}[Predictive operators]
+The predictive factorization therefore induces operators acting on
+functions of the predictive state.  These operators represent the
+evolution of predictive expectations of future observables.
+
+In particular, if $F_t$ denotes the observable at prediction horizon
+$t$, the operators
+\[
+(K_t g)(q_*)=E[g(F_t)\mid Q_*=q_*]
+\]
+form the predictive evolution operators studied in the next paper.
+\end{remark}
+
+\begin{remark}[Predictive horizon quotient]
+The canonical experiment space $\Omega$ may be interpreted as an
+observable horizon of histories.  Predictive equivalence identifies
+two horizon configurations whenever they induce the same conditional
+law of the future observable.  The minimal predictive query $Q_*$ is
+therefore the quotient of the observable horizon by predictive
+indistinguishability.  In this sense $Q_*$ is the minimal observable
+boundary state needed for autonomous prediction.
+\end{remark}
+
+\begin{remark}[Lattice interpretation]
+When the experiment preorder admits infima, $Q_*$ equals the meet of
+all predictively sufficient queries:
+\[
+Q_* = \bigwedge_{Q\in\mathcal S} Q.
+\]
+Thus $Q_*$ is the largest common coarsening of all sufficient
+experiments: it extracts exactly the predictive information shared by
+all of them, no more.
+\end{remark}
+
+\begin{remark}[Relation to Blackwell sufficiency]
+In the language of statistical experiment theory, the minimal predictive
+query plays the role of the minimal sufficient experiment for predicting
+the future observable $F$: it is the coarsest observable statistic that
+retains the full predictive law.
+\end{remark}
+
+\begin{remark}[Doob--Dynkin factorization of the future experiment]
+The predictive factorization theorem (Theorem~\ref{thm:predictive-factorization})
+shows that the minimal predictive query $Q_*$ is the minimal
+Doob--Dynkin factor through which the future experiment factors.
+In this sense $Q_*$ is simultaneously a minimal sufficient statistic
+and a minimal Doob--Dynkin factor for prediction.
+\end{remark}
+
+\bigskip
+
+\section{Predictive sufficiency}\label{sec:predictive-sufficiency}
+
+The minimal predictive query constructed in the previous section
+captures all predictive information about the future observable.
+This section interprets that construction through the notion of
+predictive sufficiency and relates it to classical ideas from
+statistical experiment theory.
+
+\begin{definition}[Predictive sufficiency]
+A query $Q$ is predictively sufficient if for every admissible query $Q'$
+there exists a measurable map
+\[
+\psi:O_Q\to O_{Q'}
+\]
+such that
+\[
+\Pi_{Q'}=\Pi_Q\circ\psi.
+\]
+\end{definition}
+
+Predictively sufficient queries therefore retain all predictive
+information about the future observable.
+
+\begin{theorem}[Predictive sufficiency characterization]
+A query $Q$ is predictively sufficient if and only if
+\[
+F \perp Q' \mid Q
+\]
+for all admissible queries $Q'$.
+\end{theorem}
+
+\begin{proof}
+($\Rightarrow$)
+Suppose $Q$ is predictively sufficient, so for every $Q'$ there exists
+measurable $\psi:O_Q\to O_{Q'}$ with $\Pi_{Q'}=\Pi_Q\circ\psi$.
+Then for any $A\in\mathcal B(O_F)$,
+\[
+P(F\in A\mid Q,Q')
+=
+P(F\in A\mid Q),
+\]
+which is exactly $F\perp Q'\mid Q$.
+
+($\Leftarrow$)
+If $F\perp Q'\mid Q$ for all $Q'$, then for any $A$,
+$P(F\in A\mid Q,Q')=P(F\in A\mid Q)$.
+In particular $P(F\in A\mid Q')=E[P(F\in A\mid Q)\mid Q']
+=E[\Pi_Q(Q,A)\mid Q']$,
+so $\Pi_{Q'}=\Pi_Q\circ\psi$ for the conditional expectation map
+$\psi(q')=E[Q\mid Q'=q']$ (when $Q$ is a function of $Q'$ this is the
+refinement map; in general it is a regular conditional kernel).
+Thus $Q$ is predictively sufficient.
+\end{proof}
+
+\begin{remark}[Operator formulation and boundedness]
+In the operator formulation of Section~\ref{sec:predictive-operators},
+predictive sufficiency of $Q$ implies that for every bounded measurable
+$g:O_F\to\mathbb R$,
+\[
+E[g(F)\mid Q] = E[g(F)\mid Q_*]
+\qquad P\text{-a.s.}
+\]
+The Lean formalization of this statement (\texttt{predictive\_sufficiency})
+requires an explicit uniform bound on $g$ for the Bochner integration step.
+\end{remark}
+
+\section{Predictive operators}\label{sec:predictive-operators}
+
+\begin{definition}[Predictive operator]
+For a query $Q$ and bounded measurable function
+$g:O_F\to\mathbb R$, define
+\[
+(K_Q g)(q)
+=
+E[g(F)\mid Q=q].
+\]
+\end{definition}
+
+\begin{proposition}[Predictive operator well-definedness]
+For bounded measurable $g$, $K_Q$ defines a positive linear operator.
+\end{proposition}
+
+\begin{theorem}[Predictive operator representation]
+Let $F:\Omega\to O_F$ be a future observable and let $Q_*$ be the
+minimal predictive query.  Let $g:O_F\to\mathbb R$ be a bounded
+measurable function.  Then the map
+\[
+(K_{Q_*}g)(q_*)
+=
+E[g(F)\mid Q_*=q_*]
+\]
+defines a Markov operator on the predictive state space.
+
+Moreover, the predictive evolution of observable expectations factors
+through $Q_*$ and is therefore represented entirely by the operator
+$K_{Q_*}$.
+\end{theorem}
+
+\begin{remark}[Boundedness in the Lean formalization]
+The Lean formalization of this theorem (\texttt{predictive\_factorization}
+and \texttt{predictive\_sufficiency}) carries an explicit uniform bound
+$\exists\,C,\;\forall f,\;|g(f)|\le C$ as a hypothesis.  This is needed
+because the proof uses Bochner integration against a family of probability
+measures indexed by $q_*$, and boundedness ensures integrability under
+every predictive law without further verification.  Boundedness of $g$ is
+listed as a standing assumption in Section~\ref{sec:standing}, so the
+hypothesis is always satisfied in practice.
+\end{remark}
+
+\begin{remark}[Kernel representation]
+The predictive operator is the integral operator induced by the
+predictive kernel:
+
+\[
+(K_Q g)(q)
+=
+\int g(f)\,\Pi_Q(q,df).
+\]
+
+Thus predictive operators form a class of Markov operators on the
+observable state space.  In particular, when $Q=Q_*$, the predictive
+operator $K_{Q_*}$ gives the canonical operator representation of the
+future experiment on the minimal predictive state space.
+\end{remark}
+
+\begin{proposition}[Koopman deterministic specialization]
+If the predictive kernel is deterministic,
+\[
+\Pi_Q(q)=\delta_{\phi(q)},
+\]
+then
+\[
+(K_Q g)(q)=g(\phi(q)).
+\]
+\end{proposition}
+
+Thus classical Koopman operators arise as a special case.
+
+\bigskip
+
+\section{Operator closure}\label{sec:operator-closure}
+
+\begin{corollary}[Observable operator closure]
+If $Q_*$ is predictively sufficient then
+\[
+K_{Q_*}g(q)=E[g(F)\mid Q_*=q]
+\]
+completely determines the predictive evolution of observable
+expectations.
+In particular, predictive dynamics may be represented entirely as
+an operator acting on the predictive state space $Q_*$.
+\end{corollary}
+
+\begin{remark}[Representation of predictive dynamics]
+The minimal predictive query $Q_*$ provides an observable state space
+for prediction: its states correspond exactly to distinct conditional
+laws of the future observable $F$.  The predictive operator $K_{Q_*}$
+therefore describes the evolution of predictive expectations on this
+state space, yielding an observable representation of predictive
+dynamics without reference to latent state variables.
+\end{remark}
+
+%%% Delay query material moved to Paper 4 (observational_probability.tex)
+
+\section{Conceptual chain}
+
+The preceding sections establish the following structural progression.
+
+\[
+\begin{aligned}
+&\text{query system}\\
+&\downarrow\\
+&\text{probabilistic representation}\\
+&\downarrow\\
+&\text{query experiments and experiment preorder}\\
+&\downarrow\\
+&\text{predictive experiments and predictive kernels}\\
+&\downarrow\\
+&\text{predictive equivalence}\\
+&\downarrow\\
+&Q_*\ (\text{minimal predictive state space})\\
+&\downarrow\\
+&K_{Q_*}\ (\text{predictive operator on }O_{Q_*})
+\end{aligned}
+\]
+
+\begin{remark}[Continuation]
+The horizon-indexed family $\{K_t\}_{t\ge0}$, its semigroup structure,
+the infinitesimal generator, and Koopman--Perron duality are developed
+in \emph{Predictive Operator Theory for Observable Dynamical Systems}.
+The constructive route to the predictive state via delay embeddings ---
+including the probabilistic sufficiency criterion and the Takens
+specialization --- is developed in \emph{Observational Probability from
+Delay Queries}.
+\end{remark}
+
+\section{Conclusion and related work}
+
+\paragraph{What has been established.}
+Starting from the canonical probability space $(\Omega,\sigma(\Qcal),P)$
+of \emph{Observational Foundations of Probability}, this paper has
+developed the predictive structure that emerges from a future observable
+$F:\Omega\to O_F$.  The main results are:
+
+\begin{enumerate}
+  \item \emph{Predictive kernels.}  Each query $Q$ induces a
+    conditional kernel $\Pi_Q(q,\cdot) = P(F\in\cdot\mid Q=q)$, giving
+    prediction a concrete query-level representation.
+  \item \emph{Minimal predictive query.}  Predictive equivalence $q\sim q'$
+    iff $\Pi_Q(q,\cdot)=\Pi_Q(q',\cdot)$ factors $Q$ through a minimal
+    statistic $Q_*$ whose states are in bijection with distinct predictive
+    laws of $F$.
+  \item \emph{Doob--Dynkin universality.}  Any measurable predictive
+    statistic factors through $Q_*$, making the minimal predictive query
+    the coarsest observable representation retaining full predictive
+    content.
+  \item \emph{Predictive operator.}  Conditional expectation
+    $(K_{Q_*}g)(q_*) = E[g(F)\mid Q_*=q_*]$ defines a positive linear
+    contraction on $O_{Q_*}$ that is closed under the predictive state
+    algebra.
+\end{enumerate}
+
+\paragraph{Relation to classical sufficiency.}
+The minimal predictive query $Q_*$ is an instance of a sufficient
+statistic in the sense of Fisher and Halmos--Savage: it retains all
+information relevant to predicting $F$ while discarding information
+that is irrelevant.  The framework of Blackwell~\cite{Blackwell} and
+Le Cam~\cite{LeCam} on comparison and sufficiency of statistical
+experiments provides the conceptual background; the present work
+specialises their comparison order to the query setting and identifies
+the minimal representative in a canonical way via the Doob--Dynkin
+lemma.  The experiment preorder induced by prediction is a structural
+refinement of the Blackwell order restricted to the observable interface.
+
+\paragraph{Relation to de Finetti and predictive sufficiency.}
+In de Finetti's representation theorem~\cite{deFinetti}, the
+exchangeable measure is disintegrated over an invariant $\sigma$-field
+that plays the role of the predictive state.  The present framework
+provides a direct construction of that $\sigma$-field from the
+observable query structure, without requiring an exchangeability or
+invariance assumption.  Predictive sufficiency (Section~\ref{sec:predictive-sufficiency})
+is the query-theoretic counterpart of the Radon--Nikodym disintegration
+underlying de Finetti's theorem.
+
+\paragraph{What follows.}
+The predictive operator $K_{Q_*}$ established here is a single-horizon
+object.  \emph{Predictive Operator Theory for Observable Dynamical
+Systems} (Paper~3) promotes this to a horizon-indexed family
+$\{K_t\}_{t\ge0}$ and shows it forms a strongly continuous Markov
+operator semigroup, from which an infinitesimal generator and predictive
+Kolmogorov equation follow.  The constructive route to $Q_*$ via delay
+embeddings of a dynamical system --- and the connection to Takens'
+embedding theorem --- is the subject of \emph{Observational Probability
+from Delay Queries} (Paper~4).
+
+\ifcsname thesismode\endcsname\else
+\bibliographystyle{plain}
+\bibliography{references}
+\fi
+
+\section*{Acknowledgements}
+
+The author thanks Claude (Anthropic) for assistance with mathematical
+writing, Lean~4 formalization, and technical discussion throughout the
+development of this work.  The author gratefully acknowledges financial
+support from Dr.\ Simon Bonner and Dr.\ Matt Davison at the University
+of Western Ontario, and from MITACS.
+

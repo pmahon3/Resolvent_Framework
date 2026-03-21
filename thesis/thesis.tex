@@ -1,0 +1,213 @@
+\documentclass[12pt, oneside]{book}
+
+\usepackage{amsmath, amsthm, amssymb, mathtools}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{import}   % for \subimport, handles relative paths in \input'd files
+\usepackage{bbm}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
+
+\geometry{margin=1.2in}
+
+%% abstract environment (not built into book class)
+\newenvironment{abstract}{%
+  \small\begin{center}\textbf{Abstract}\end{center}\quotation}{\endquotation}
+
+%% Theorem environments (shared across all chapters)
+%% Papers define these locally with [section] counter when standalone;
+%% here we use [chapter] for thesis-wide numbering.
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+%% Shared notation
+\input{notation}
+
+%% Flag: suppresses per-chapter \bibliography calls in body files
+\def\thesismode{}
+
+%% Formatting
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries}{\chaptertitlename\ \thechapter}{20pt}{\Huge}
+
+\title{%
+  \textbf{Observable Dynamics}\\[0.5em]
+  \large From Discriminability to Probability to Prediction
+}
+\author{Patrick S. Mahon}
+\date{}
+
+\begin{document}
+
+\frontmatter
+
+\maketitle
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter*{Preface}
+\addcontentsline{toc}{chapter}{Preface}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+This thesis presents the Observable Dynamics Program: a derivation of
+probabilistic and predictive structure from the primitive notion of
+discriminability.
+
+The standard approach to probability begins with a probability space
+$(\Omega, \mathcal{F}, P)$ and studies what can be observed from it.
+This work inverts that order.  We begin with what an observer can
+distinguish --- a structured family of queries --- and ask what that
+structure forces.  The answer, developed across six papers, is that
+compatible observable distinctions force the emergence of probability,
+predictive kernels, operator dynamics, and computational approximation.
+
+The six papers are presented here as chapters.  Each is a
+self-contained article.  Between them are interstitial chapters that
+carry the philosophical and mathematical thread connecting one paper
+to the next.  A reader interested only in the technical results may
+read the article chapters directly.  A reader interested in the
+foundational arc should read the interstitial chapters first.
+
+The thesis has the following structure.  Chapter~1 establishes the
+foundation: what an observer is, what they cannot avoid knowing, and
+the structure that their coherent commitments force.
+Chapters~2--6 develop the consequences: probability, predictive state,
+operator dynamics, and computational instantiation.
+The interstitial chapters explain why each transition is necessary
+rather than merely convenient.
+
+\mainmatter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PAPER -1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Discriminability and the Origin of the $\sigma$-Algebra}
+\label{chap:paper-minus-one}
+
+\subimport{../papers/discriminability_foundations/}{discriminability_foundations_body.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTERSTITIAL 1: Paper -1 -> Paper 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{From Discriminability to Probability: The First Transition}
+\addcontentsline{toc}{chapter}{Interstitial: From Discriminability to Probability}
+\label{interstitial:minus-one-to-zero}
+
+\input{interstitial_minus_one_to_zero}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PAPER 0
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Finitely Additive Observable Laws and the Prokhorov Extension}
+\label{chap:paper-zero}
+
+\subimport{../papers/prokhorov_extension/}{prokhorov_extension_body.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTERSTITIAL 2: Paper 0 -> Paper 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{From Extension to Determination: The Second Transition}
+\addcontentsline{toc}{chapter}{Interstitial: From Extension to Determination}
+\label{interstitial:zero-to-one}
+
+\input{interstitial_zero_to_one}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PAPER 1
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Observational Foundations of Probability}
+\label{chap:paper-one}
+
+\subimport{../papers/observational_foundations/}{observational_foundations_body.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTERSTITIAL 3: Paper 1 -> Paper 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{From Probability to Prediction: The Third Transition}
+\addcontentsline{toc}{chapter}{Interstitial: From Probability to Prediction}
+\label{interstitial:one-to-two}
+
+\input{interstitial_one_to_two}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PAPER 2
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Predictive State and Operator Factorization}
+\label{chap:paper-two}
+
+\subimport{../papers/predictive_operator_theory/}{predictive_operator_theory_body.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTERSTITIAL 4: Paper 2 -> Paper 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{From Prediction to Dynamics: The Fourth Transition}
+\addcontentsline{toc}{chapter}{Interstitial: From Prediction to Dynamics}
+\label{interstitial:two-to-three}
+
+\input{interstitial_two_to_three}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PAPER 3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Observable Operator Semigroups and Koopman Duality}
+\label{chap:paper-three}
+
+\subimport{../papers/predictive_experiments/}{predictive_experiments_body.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% INTERSTITIAL 5: Paper 3 -> Paper 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{From Dynamics to Computation: The Fifth Transition}
+\addcontentsline{toc}{chapter}{Interstitial: From Dynamics to Computation}
+\label{interstitial:three-to-four}
+
+\input{interstitial_three_to_four}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% PAPER 4
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter{Delay Queries and Computational Instantiation}
+\label{chap:paper-four}
+
+\subimport{../papers/observational_probability/}{observational_probability_body.tex}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% CONCLUSION
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\chapter*{Conclusion: What the Program Has Shown}
+\addcontentsline{toc}{chapter}{Conclusion}
+\label{chap:conclusion}
+
+\input{conclusion}
+
+\backmatter
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

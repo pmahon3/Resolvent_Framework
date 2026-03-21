@@ -1027,98 +1027,25 @@ lemma cylGenMass_eq_marginal
     (i : S.ι) (A : Set ((S.q i).Outcome)) (hA : MeasurableSet A) :
     S.cylGenMass udir surj ν compat (S.Cyl i A) ⟨i, A, hA, rfl⟩ = ν i A := by
   haveI : DecidableEq S.ι := Classical.decEq S.ι
-  simp only [cylGenMass]
-  -- After unfolding, goal: S.preμ udir ν {i'} Aext' = ν i A
-  -- where i' = hE.choose, Aext' j = if h : j = i' then h ▸ A' else ∅
-  -- Strategy: use preμ_wellDefined to relate the hE.choose presentation to the explicit i presentation.
-  let hE : S.Cyl i A ∈ S.CylGen := ⟨i, A, hA, rfl⟩
-  -- The two upper bounds: hE.choose (from Classical.choose) and i (explicit)
-  -- hk_choose : ∀ j ∈ {hE.choose}, le j hE.choose
-  have hk_choose : ∀ j ∈ ({hE.choose} : Finset S.ι), S.le j hE.choose :=
+  -- With the canonical presentation ⟨i, A, hA, rfl⟩, Classical.choose reduces definitionally:
+  -- hE.choose = i,  hE.choose_spec.choose = A.
+  -- So cylGenMass = S.preμ udir ν {i} (fun j => if h : j = i then h ▸ A else ∅).
+  -- Use preμ_eq to switch to preμAt at k = i, then preμAt_single_eq_marginal.
+  have hk_i : ∀ j ∈ ({i} : Finset S.ι), S.le j i :=
     fun j hj => Finset.mem_singleton.mp hj ▸ S.le_refl _
-  -- hk_i : ∀ j ∈ {hE.choose}, le j i (since hE.choose ≤ i is not given directly)
-  -- Better: use preμ_wellDefined with k = hE.choose and k' = i
-  -- But i is not an upper bound for {hE.choose} in general.
-  -- Instead, use preμ_eq to convert preμ to preμAt at k = hE.choose, evaluate, then use compat.
-  -- Step 1: convert preμ to preμAt at k = hE.choose
-  rw [S.preμ_eq udir ν compat {hE.choose}
-    (fun j => if h : j = hE.choose then h ▸ hE.choose_spec.choose else ∅)
-    (fun j hj => by
-      have : j = hE.choose := Finset.mem_singleton.mp hj
-      subst this; simpa using hE.choose_spec.choose_spec.1)
-    hk_choose]
-  -- Goal: preμAt ν hk_choose (fun j => if h : j = hE.choose then h ▸ A' else ∅) = ν i A
-  simp only [preμAt]
-  -- Goal: ν hE.choose {o | ∀ j ∈ {hE.choose}, (π (hk_choose j ·)).π o ∈ Aext' j} = ν i A
-  -- Simplify the constraint set to A'
-  have hA'meas : MeasurableSet hE.choose_spec.choose := hE.choose_spec.choose_spec.1
-  have hEeq : S.Cyl i A = S.Cyl hE.choose hE.choose_spec.choose :=
-    hE.choose_spec.choose_spec.2
-  -- The constraint set: {o | (π (le_refl hE.choose)).π o ∈ A'} = A'
-  -- because (π (le_refl i')).π = id (by π_refl)
-  have hconstr_eq : {o : (S.q hE.choose).Outcome | ∀ j (hj : j ∈ ({hE.choose} : Finset S.ι)),
-      (S.π (hk_choose j hj)).π o ∈
-        (if h : j = hE.choose then h ▸ hE.choose_spec.choose else ∅)} =
-      hE.choose_spec.choose := by
-    ext o
-    simp only [Set.mem_setOf_eq, Finset.mem_singleton]
-    constructor
-    · intro h; have h' := h hE.choose rfl; simp [S.π_refl] at h'; exact h'
-    · intro ho j hj; subst hj; simp [S.π_refl, ho]
-  rw [hconstr_eq]
-  -- Now goal: ν hE.choose A' = ν i A
-  -- From hEeq : Cyl i A = Cyl hE.choose A', surjectivity gives the preimages are equal,
-  -- and compat + preimage equality gives ν i A = ν hE.choose A'.
-  -- Use compat_apply_preimage in reverse via preμ_wellDefined argument:
-  -- Both preμAt ν hk_i (singleton at i) and preμAt ν hk_choose (singleton at hE.choose) equal preμ.
-  -- Simpler: use compat_apply_preimage directly.
-  -- Cyl i A = eval i ⁻¹' A = Cyl hE.choose A' = eval hE.choose ⁻¹' A'
-  -- So: ν i A = preμ udir ν {i} Aext_i, and ν hE.choose A' = preμ udir ν {hE.choose} Aext'
-  -- These are equal by preμ_wellDefined (same cylinder set).
-  -- Concretely: use preμ_respects_finCyl_eq on the MeasFinCyl ⟨{hE.choose}, Aext'⟩ and ⟨{i}, Aext_i⟩
-  -- whose sets both equal Cyl i A = Cyl hE.choose A'.
-  -- This gives preμ on choose = preμ on i, then evaluate preμ on i = ν i A.
-  have hset_eq : S.Cyl hE.choose hE.choose_spec.choose = S.Cyl i A := hEeq.symm
-  -- Use compat to push ν hE.choose A' → ν i A via the common upper bound
-  -- Actually, just use preμ_wellDefined:
-  -- preμAt ν hk_choose Aext' = preμAt ν hk_i Aext_i (same cylinder set → same preμ → via wellDefined)
-  -- where hk_i : ∀ j ∈ {i}, le j i
-  let hk_i : ∀ j ∈ ({i} : Finset S.ι), S.le j i :=
-    fun j hj => Finset.mem_singleton.mp hj ▸ S.le_refl _
-  -- preμAt ν hk_choose Aext' = preμAt ν hk_i Aext_i by preμ_wellDefined (via common upper bound)
-  -- ν hE.choose A' = ν i A via hEeq and compat
-  -- hEeq : Cyl i A = Cyl hE.choose A' means eval i ⁻¹' A = eval hE.choose ⁻¹' A'
-  -- Use preμ_respects_finCyl_eq between the two singleton MeasFinCyl presentations.
-  -- The LHS after rw [hconstr_eq] is ν hE.choose A'.
-  -- We need ν hE.choose A' = ν i A.
-  -- Cyl i A = Cyl i' A' means eval i ⁻¹' A = eval i' ⁻¹' A' (where i' = hE.choose).
-  -- Use surjective preimage injection to infer set equality then apply ν.
-  -- Actually we need to go through a common upper bound. Use preμ_wellDefined directly:
-  -- preμAt ν hk_choose Aext' = preμAt ν hk_choose' Aext where hk_choose' covers {hE.choose}
-  -- from above (= i), and Aext for the explicit presentation, using that both cylinders are equal.
-  -- Simpler: use compat_apply_preimage.
-  -- Find a common upper bound m of i and hE.choose.
-  rcases udir i hE.choose with ⟨m, him, hi'_m⟩
-  have hconstr_eq' : ν hE.choose hE.choose_spec.choose = ν i A := by
-    -- Both ν i A and ν hE.choose A' equal ν m (preimage at m) by compat.
-    rw [S.compat_apply_preimage compat hi'_m hE.choose_spec.choose hA'meas]
-    rw [S.compat_apply_preimage compat him A hA]
-    -- Both reduce to ν m of the preimage at m.
-    -- The preimages at m are equal because the cylinders are equal.
-    congr 1
-    -- Goal: (π hi'_m)⁻¹ A' = (π him)⁻¹ A
-    -- Cyl i A = Cyl i' A', so eval i ⁻¹' A = eval i' ⁻¹' A'
-    -- Lifting both to m: (π him)⁻¹ A and (π hi'_m)⁻¹ A'
-    -- From Cyl i A = Cyl i' A': eval i ⁻¹' A = eval i' ⁻¹' A'
-    -- i.e. Cyl m ((π him)⁻¹ A) = Cyl m ((π hi'_m)⁻¹ A') (by cyl_refine applied twice)
-    -- Hence (π him)⁻¹ A = (π hi'_m)⁻¹ A' by surjectivity of eval m.
-    apply Set.preimage_injective.mpr (surj m)
-    change S.Cyl m ((S.π hi'_m).π ⁻¹' hE.choose_spec.choose) =
-           S.Cyl m ((S.π him).π ⁻¹' A)
-    rw [← S.cyl_refine hi'_m hE.choose_spec.choose,
-        ← S.cyl_refine him hA, ← hEeq]
-  rw [hconstr_eq]
-  exact hconstr_eq'
+  -- Step 1: unfold cylGenMass to preμ.
+  -- Since the presentation is canonical, dsimp reduces the Classical.choose to i.
+  unfold cylGenMass
+  dsimp only
+  -- Step 2: rewrite preμ → preμAt at k = i
+  rw [S.preμ_eq udir ν compat {i}
+    (fun j => if h : j = i then h ▸ A else ∅)
+    (fun j hj => by simp only [Finset.mem_singleton] at hj; subst hj; exact hA)
+    hk_i]
+  -- Step 3: evaluate preμAt on singleton to ν i (A i) = ν i A
+  have := S.preμAt_single_eq_marginal ν i (fun j => if h : j = i then h ▸ A else ∅)
+  simp only [dif_pos rfl] at this
+  exact this
 
 /-- **`AddContent` on `CylGen` from the premeasure `preμ`.**
 

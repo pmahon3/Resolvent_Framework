@@ -48,8 +48,8 @@
 \newcommand{\Fib}{\mathrm{Fib}} 	% compatibility fibre
 
 \title{Observable Dynamics: A Program}
-\author{}
-\date{}
+\author{Patrick S. Mahon}
+\date{Updated: March 2026}
 
 \pagecolor{white}
 
@@ -134,14 +134,21 @@ observables.  Predictive evolution is then described by operators
 Thus the core mathematical spine of the program is
 
 \[
-(\mathcal Q,\preceq)
-\longrightarrow
+\{\ell_Q\}
+\xrightarrow{\text{P0}}
 (\Omega,P)
-\longrightarrow
+\xrightarrow{\text{P1}}
+(\Omega,P)
+\xrightarrow{\text{P2}}
 Q_*
-\longrightarrow
+\xrightarrow{\text{P3}}
 K_{Q_*}.
 \]
+
+Here P0 derives $\sigma$-additivity from finitely additive marginals
+under SPUT; P1 assumes $\sigma$-additive marginals and establishes
+the canonical experiment; P2--P3 develop predictive structure and
+operator dynamics.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -153,6 +160,23 @@ K_{Q_*}.
 The observable dynamics program develops dynamical structure directly
 from observable experiments.  The program proceeds through three
 conceptual stages.
+
+\[
+\begin{aligned}
+&\textbf{Stage 0: Finitely additive foundations} \\[6pt]
+&\text{finitely additive compatible family }\{\ell_Q\}
+\;\longrightarrow\;
+\text{SPUT}
+\;\longrightarrow\;
+\text{$\sigma$-additive }P\text{ on }(\Omega,\sigma(\mathcal{Q}))
+\end{aligned}
+\]
+
+\begin{center}
+Paper: \emph{Finitely Additive Observable Laws and the Prokhorov Extension for Query Systems}
+\end{center}
+
+\vspace{8pt}
 
 \[
 \begin{aligned}
@@ -195,27 +219,49 @@ Paper: \emph{Predictive Experiments and Observable Operators}
 &\textbf{Stage 3: Observable operator dynamics} \\[6pt]
 &Q_*
 \;\longrightarrow\;
-\text{predictive operator }K_{Q_*}
+\text{predictive operator semigroup }\{K_t\}
 \;\longrightarrow\;
-\text{observable dynamical systems}
+\text{generator }A,\;\text{Kolmogorov equation}
 \end{aligned}
 \]
 
 \begin{center}
-Future work: observable operator theory
+Paper: \emph{Predictive Operator Theory for Observable Dynamical Systems}
+\end{center}
+
+\vspace{8pt}
+
+\[
+\begin{aligned}
+&\textbf{Stage 4: Computational instantiation} \\[6pt]
+&\text{delay query system}
+\;\longrightarrow\;
+\text{predictive Markov order }m(\tau,P)
+\;\longrightarrow\;
+\text{local linear approximation }K_t^N
+\end{aligned}
+\]
+
+\begin{center}
+Working note: \emph{Observational Probability from Delay Queries}
 \end{center}
 
 \paragraph{Formal verification.}
-The structural components of the observational framework are
-formalized in Lean via the QuerySystem library, which defines query
-systems, refinement maps, and the projective construction of the
-canonical experiment.  This formalization ensures that the core
-representation results are mechanically verified.
+Papers~1--3 are fully formalized in Lean~4 / Mathlib with zero
+\texttt{sorry} across all three source files
+(\texttt{QuerySystem.lean}, \texttt{PredictiveState.lean},
+\texttt{PredictiveOperators.lean}).  Paper~0 is nearly fully
+formalized (\texttt{ProkhorovExtension.lean}): the inverse limit
+theorem (\texttt{compactInverseLimit\_nonempty}) and the main
+extension theorem (\texttt{prokhorov\_extension}) are proved; one
+\texttt{sorry} remains in \texttt{prokhorov\_extension\_polish},
+blocked on \texttt{PerfectMeasure} and Musia\l's theorem being absent
+from Mathlib~4.  See the Formalization Status section for details.
 
-In summary, the program studies how dynamical structure can be derived
-directly from observable experiments, progressing from observational
-compatibility to probabilistic representation, predictive state
-spaces, and finally observable operator dynamics.
+In summary, the program derives dynamical structure from observable
+experiments, progressing from observational compatibility through
+probabilistic representation, predictive state spaces, operator
+dynamics, and computational instantiation via delay embeddings.
 
 \section{Structure of the observable dynamics program}
 
@@ -325,128 +371,108 @@ progression:
 \]
 
 
-\section{Program Theorems}
+\section{Established theorems}
 
-The long-term goal of the observable dynamics program is to establish a
-sequence of structural theorems connecting observational experiments,
-probabilistic representations, predictive state spaces, and operator
-dynamics.  These theorems form the backbone of the theory.
+The following theorems constitute the proved core of the program as of
+March 2026.  All results in Stages~1--3 have Lean~4 / Mathlib proofs;
+Stage~4 results are proved in the working note.
 
-\subsection{Observational completion}
+\subsection{Observational completion \textnormal{(Paper 1)}}
 
 \begin{theorem}[Observational Completion Theorem]
-Let $(\mathcal Q,\preceq)$ be a compatible system of observable queries
-with associated observable laws $\{\nu_Q\}_{Q\in\mathcal Q}$.
-
-Under suitable compatibility conditions there exists a probability
-space
+Let $(\mathcal Q,\preceq)$ be a query system with compatible observable
+laws $\{\nu_Q\}_{Q\in\mathcal Q}$ satisfying the realizability and
+sequential upper-directedness conditions.  Then there exists a
+probability space
 \[
 (\Omega,\sigma(\mathcal Q),P)
 \]
-such that for every query $Q$
-\[
-Q_\#P=\nu_Q .
-\]
-
-Thus compatible observable experiments admit a canonical probabilistic
-representation.
+such that $Q_\#P=\nu_Q$ for every query $Q$.  The space $\Omega$ is the
+projective limit of the outcome spaces; the $\sigma$-field
+$\sigma(\mathcal Q)$ is generated by query-cylinder events; and $P$ is
+the unique probability measure extending the compatible family.
 \end{theorem}
 
-This theorem establishes the transition
+\begin{remark}[Determination]
+A companion uniqueness theorem (Observational Determination) shows that
+two probability measures on $(\Omega,\sigma(\mathcal Q))$ that agree on
+all query cylinders are identical, giving an observational analogue of
+the classical $\pi$-$\lambda$ theorem.
+\end{remark}
 
+\subsection{Predictive state and factorization \textnormal{(Paper 2)}}
+
+\begin{theorem}[Minimal Predictive Query]
+Let $(\Omega,\sigma(\mathcal Q),P)$ be the canonical experiment and
+$F:\Omega\to O_F$ a future observable with $O_F$ standard Borel.
+Define
 \[
-\text{observable experiments}
-\rightarrow
-\text{probabilistic representation}.
+Q_* := \phi_Q \circ Q : \Omega \to \mathcal P(O_F),
+\qquad
+\phi_Q(q) = P(F\in\cdot\mid Q=q).
 \]
-
-\subsection{Predictive state realization}
-
-\begin{theorem}[Predictive State Realization]
-Let $(\Omega,P)$ be the canonical observational experiment.
-
-For any future observable $F$ define predictive equivalence
-
+Then $Q_*$ is measurable, its states correspond exactly to distinct
+predictive laws of $F$, and the conditional law of $F$ factors through
+$Q_*$:
 \[
-q\sim q'
-\quad\Longleftrightarrow\quad
-P(F\in\cdot \mid q)
-=
-P(F\in\cdot \mid q').
+P(F\in\cdot\mid Q_*=q_*) = q_*.
 \]
-
-Under suitable regularity conditions the predictive equivalence
-classes form a standard Borel space $Q_*$ and the conditional law of
-the future observable factors through this space.
+Moreover $Q_*$ is universal: any measurable statistic $R$ through which
+the predictive law factors satisfies $Q_* = \theta\circ R$ for a
+measurable $\theta$, making $Q_*$ the coarsest such statistic
+(Doob--Dynkin minimality).
 \end{theorem}
 
-This theorem establishes the transition
-
-\[
-\text{probabilistic representation}
-\rightarrow
-\text{predictive state space}.
-\]
-
-\subsection{Predictive minimality}
-
-\begin{theorem}[Predictive Minimality]
-The predictive state space $Q_*$ is minimal among all observable
-representations that retain the predictive law of the future observable
-$F$.
-
-In particular, if $Q$ is predictively sufficient then there exists a
-measurable map
-\[
-Q\to Q_*.
-\]
+\begin{theorem}[Predictive Sufficiency]
+A query $Q$ is predictively sufficient if and only if
+$F \perp Q' \mid Q$ for all queries $Q'$.  The minimal predictive
+query $Q_*$ is always predictively sufficient and is the unique minimal
+one up to predictive equivalence.
 \end{theorem}
 
-Thus the predictive state space may be interpreted as the minimal
-observable sufficient statistic for prediction.
+\subsection{Operator semigroup and duality \textnormal{(Paper 3)}}
 
-\subsection{Predictive operator realization}
-
-\begin{theorem}[Predictive Operator Realization]
-Let $Q_*$ be the predictive state space.
-
-For bounded measurable functions $g$ define
+\begin{theorem}[Predictive Operator Semigroup]
+Assume the Markov kernels $\{P_t\}_{t\ge0}$ on $O_{Q_*}$ satisfy the
+Chapman--Kolmogorov equation.  Then the operators
 \[
-(K_{Q_*}g)(q)
-=
-\mathbb E[g(F)\mid Q_*=q].
+(K_t g)(q_*) = \int g\,dP_t(q_*,\cdot)
 \]
-
-Then $K_{Q_*}$ defines a positive linear operator acting on functions
-of the predictive state space.  Predictive evolution of observable
-expectations is represented entirely through this operator.
+form a Markov operator semigroup: $K_{t+s} = K_t K_s$, $K_0 =
+\mathrm{Id}$, each $K_t$ positive and constant-preserving.
 \end{theorem}
 
-This establishes the transition
-
+\begin{theorem}[Koopman--Perron Duality]
+For finite measures $\mu$ on $O_{Q_*}$ and bounded measurable $g$,
 \[
-\text{predictive states}
-\rightarrow
-\text{operator dynamics}.
+\int (K_t g)\,d\mu = \int g\,d(P_t^*\mu),
 \]
-
-\subsection{Observable dynamics closure}
-
-\begin{theorem}[Observable Dynamics Closure]
-Under suitable conditions the pair
-
-\[
-(Q_*,K_{Q_*})
-\]
-
-completely characterizes the predictive evolution of observable
-quantities.  In this sense observable dynamical laws are equivalent to
-operator dynamics acting on the predictive state space.
+where $P_t^*\mu(A)=\int P_t(q_*,A)\,\mu(dq_*)$.  In the deterministic
+limit $K_t g = g\circ\phi_t$, recovering the classical Koopman
+operator, and $P_t^*$ recovers the Perron--Frobenius transfer operator.
 \end{theorem}
 
-This theorem expresses the central claim of the program: observable
-dynamics may be represented entirely through predictive operators on
-predictive state spaces.
+\subsection{Delay queries and computational instantiation \textnormal{(Paper 4)}}
+
+\begin{theorem}[Upper-directedness of delay query system]
+The delay query system $\{Q_{d,\tau}\}$ with $Q_{d,\tau}(\omega) =
+(\omega_0,\omega_{-\tau},\ldots,\omega_{-(d-1)\tau})$ is upper-directed:
+for any $(d,\tau)$ and $(d',\tau')$, setting $\tau'' = \gcd(\tau,\tau')$
+and $d'' = \max((d-1)\tau/\tau'',(d'-1)\tau'/\tau'')+1$ gives a common
+refinement $Q_{d'',\tau''} \succeq Q_{d,\tau},\, Q_{d',\tau'}$.
+\end{theorem}
+
+\begin{theorem}[Probabilistic Sufficiency Criterion]
+Define the predictive $\tau$-Markov order
+\[
+m(\tau,P) = \min\{d\ge1 : P(x_1\in A\mid \mathrm{eval}_{d,\tau})
+= P(x_1\in A\mid\mathcal F_\tau^-)\;\; P\text{-a.s.}\;\forall A\},
+\]
+where $\mathcal F_\tau^- = \bigvee_{d=1}^\infty \sigma(\mathrm{eval}_{d,\tau})$.
+Then $Q_{d,\tau}$ is predictively sufficient if and only if $d\ge m(\tau,P)$.
+As a corollary, if the system has a $d_M$-dimensional compact manifold
+latent state, then $m(\tau,P)\le 2d_M+1$ (Takens specialization).
+\end{theorem}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Structural principles
@@ -486,164 +512,176 @@ regularities relative to a given query system.
 % Program conjectures
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Program conjectures}
+\section{Open problems and conjectures}
 
-The following conjectures articulate the central structural claims of
-the observable-dynamics program.  They describe mechanisms through
-which probabilistic, predictive, and dynamical structure may emerge
-from observable experiments.
+The following distinguishes between the foundational stopping points
+--- where the program's assumptions exceed its derivations --- and
+longer-range structural conjectures about the program's broader reach.
 
-These conjectures should be interpreted as organizing principles for
-future research rather than as immediate theorems.
+\subsection*{Foundational stopping points}
 
-\begin{conjecture}[Predictive state emergence]
-For sufficiently rich query systems admitting a probabilistic
-completion $(\Omega,P)$, predictive equivalence induces a minimal
-predictive query
+These are the honest gaps in the current theory: places where
+structure is assumed rather than derived.  Resolving them would
+deepen the program's philosophical claim that probability arises
+from observable compatibility rather than being assumed.
+
+\begin{conjecture}[SP1: Measurable structure from discriminability]
+The $\sigma$-algebra $\mathcal B(O_Q)$ on each query outcome space is
+currently assumed.  The program demands a derivation: starting from
+a primitive class $\mathcal E_Q$ of reportable distinctions (closed
+under finite Boolean operations), can $\sigma$-closure be forced by
+compatibility across refinements?
+
+\emph{Partial resolution (Paper~$-1$, in development).}
+The question has been sharpened and partially resolved.  First, a
+negative result: exhaustiveness --- the first natural candidate for a
+finitary extension condition --- is trivially satisfied by any
+normalized finitely-additive valuation, and carries no content.  The
+genuine obstruction is \emph{continuity at $\emptyset$ from above}:
+for decreasing sequences in $\mathcal E_Q$ whose intersection escapes
+$\mathcal E_Q$ into $\sigma(\mathcal E_Q) \setminus \mathcal E_Q$,
+the valuations must converge to zero.  No finitary condition on any
+single query level can witness this; the regress is structural.
+
+Second, this is not a failure but a structural necessity:
+\emph{discriminability requires incompleteness}.  An observer with
+$\mathcal E_Q = \sigma(\mathcal E_Q)$ has no horizon and admits no
+nontrivial refinement.  The gap $\sigma(\mathcal E_Q)\setminus\mathcal
+E_Q$ is the constitutive outside that makes refinement possible.  The
+correct reading of the program's chain is therefore:
 \[
-Q_*,
+\text{bounded discriminability}
+\;\to\;
+\text{refinement}
+\;\to\;
+\text{coherence}
+\;\to\;
+\text{probability.}
 \]
-whose states correspond to distinct conditional laws of future
-observables.
+
+The central open conjecture of Paper~$-1$ is that sequential
+upper-directedness --- already a hypothesis of the program ---
+provides \emph{witnessing from above}: finer queries see what coarser
+ones cannot, and compatibility propagates that witnessing back to force
+continuity at $\emptyset$ at every finite level.  If true, the
+$\sigma$-algebra is not derived by closing the gap but by the
+observer's commitment to acting as if a coherent world --- one in
+which gaps close --- exists, even though no observer in the system can
+occupy that completion.
 \end{conjecture}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{conjecture}[SP2: $\sigma$-additivity from compatibility]
+\emph{Closed in the compact setting (Paper~0, Corollary~6.3).}
 
-\begin{conjecture}[Predictive minimal sufficiency]
-\label{conj:predictive-minimal-sufficiency}
+Paper~0 (\emph{Finitely Additive Observable Laws and the Prokhorov
+Extension for Query Systems}) resolves SP2 in two steps.  First,
+under surjective projective uniform tightness (SPUT), any finitely
+compatible family of finitely additive valuations admits a unique
+$\sigma$-additive global extension (Theorem~6.1).  Second, when each
+outcome space $O_Q$ is compact Hausdorff and each refinement map is
+surjective, SPUT holds automatically with $K_Q := O_Q$
+(Proposition~3.3).  The architectural corollary (Corollary~6.3)
+therefore requires only finite compatibility and the topology of the
+query system: \emph{the observational interface architecture alone
+forces countable additivity.}
 
-Let $(\Omega,\sigma(\mathcal Q),P)$ be the probabilistic
-representation associated with a query system, and let $F$ be a future
-observable.
+\emph{Closed in the standard Borel setting (Musia{\\l}~1980).}
+When outcome spaces are standard Borel (measurably isomorphic to a
+Borel subset of a Polish space), SP2 is also resolved.  Every Borel
+probability measure on a standard Borel space is perfect
+(Bogachev~Vol.~2, \S7.7.2), and Musia\l's theorem
+(Fund.\ Math.\ 110, 1980) states that any projective system of
+perfect probability measures over a directed index set admits a
+unique $\sigma$-additive projective limit with $P(\Omega)=1$, with
+no topological tightness assumption required.  This covers all
+query systems whose outcome spaces are standard Borel: in particular,
+delay-embedding query systems with outcome spaces $\mathbb{R}^d$.
 
-Then the minimal predictive query $Q_*$ is the observable analogue of
-a minimal sufficient statistic for predicting $F$.
-
-More precisely:
-
-\begin{enumerate}
-
-\item the conditional law
-\[
-P(F\in\cdot \mid \text{present observable configuration})
-\]
-factors through $Q_*$;
-
-\item any other predictively sufficient query factors through $Q_*$
-up to predictive equivalence;
-
-\item $Q_*$ is unique up to measurable isomorphism of predictive
-state spaces.
-
-\end{enumerate}
-
+\emph{Open in the general non-compact, non-standard-Borel setting.}
+When outcome spaces are neither compact nor standard Borel (e.g.\
+non-separable Banach spaces, general locally compact spaces), SPUT
+remains a genuine assumption.  The purely structural or topology-free
+route to $\sigma$-additivity --- deriving it from compatibility alone
+without tightness or perfectness hypotheses --- is the remaining open
+form of SP2.  Candidate approaches include Mallory--Sion-type
+arguments and compactification routes (one-point or Stone--\v{C}ech).
 \end{conjecture}
 
-\begin{remark}
-This conjecture places predictive state formation in direct analogy
-with classical sufficiency theory.  The predictive state space $Q_*$
-is not an assumed latent state but an observable quotient preserving
-all information relevant for predicting the future observable $F$.
+\begin{conjecture}[SP3: Realizability from compatibility]
+The projective limit $\Omega$ is assumed non-degenerate (realizability).
+The question is whether this follows from compatibility of the
+$\{\nu_Q\}$, or is genuinely independent.  Candidate routes: almost-sure
+realizability derivable from compatibility alone; inner regularity
+(tightness) of the marginals implying a tight global limit.
+\end{conjecture}
 
-In this sense predictive states arise as organizational summaries of
-observable configurations rather than as hidden microscopic variables.
+\begin{conjecture}[SP4: Directedness from joint experiment formation]
+The three directedness conditions (lower, upper, sequential upper) are
+assumed axioms on $(\mathcal Q,\preceq)$.  They should be derivable
+from an operational principle: if two experiments can always be
+performed jointly, upper-directedness follows.  This reframes
+directedness as closure of the experimental repertoire under product
+formation rather than a poset axiom.
+\end{conjecture}
+
+\begin{remark}[The compression mechanism]
+All four stopping points are connected by the compression argument at
+the heart of the extension theorem: a countable cover of a cylinder is
+compressed to a single query level, reducing a global statement to a
+local one.  If compression can be made to force rather than merely use
+$\sigma$-additivity, measurability, and realizability, it becomes the
+engine of a fully observational derivation of probability.
 \end{remark}
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection*{Categorical structure}
 
-\begin{conjecture}[Predictive operator representation]
-Predictive evolution of observable quantities may be represented by a
-positive linear operator
+\begin{conjecture}[Adjunction between query and probability systems]
+\label{conj:adjunction}
+There is an adjunction
 \[
-K_{Q_*}
+\mathrm{Ext} \dashv \mathrm{Forget} : \mathbf{ProbSys} \rightleftarrows \mathbf{QuerySys}
 \]
-acting on functions of the predictive state space.
-\end{conjecture}
-
-
-\begin{conjecture}[Predictive Koopman--Perron correspondence]
-
-Let $Q_*$ be the predictive state space associated with a future
-observable $F$ and
-
-\[
-(K_{Q_*} g)(q)=\mathbb E[g(F)\mid Q_*=q].
-\]
-
-Then predictive dynamics admit a dual operator acting on predictive
-laws such that
-
-\begin{enumerate}
-
-\item deterministic systems recover classical Koopman and
-Perron--Frobenius operators;
-
-\item stochastic systems yield an observable operator representation of
-predictive dynamics;
-
-\item spectral properties of the predictive operator reflect ergodic
-structure of the observable system.
-
-\end{enumerate}
-
+where $\mathrm{Ext}$ sends a query system with compatible marginals to
+its canonical probability space, and $\mathrm{Forget}$ sends a
+probability space to its induced query system.  Under the cofinality
+hypothesis of Paper~1, this adjunction becomes an equivalence of
+categories $\mathbf{QuerySys}^{\mathrm{cof}} \simeq \mathbf{ProbSys}$.
+This categorical statement has been sketched in exploratory notes
+(\texttt{categorical-foundations} branch) but not formally proved.
 \end{conjecture}
 
 \begin{conjecture}[Functoriality of predictive state spaces]
 \label{conj:functorial-predictive-state}
-
-Morphisms of observational systems that preserve predictive structure
-induce structure-preserving maps between the corresponding minimal
-predictive state spaces
-\[
-\Phi_* : Q_* \to Q_*'
-\]
-and intertwine their predictive operators in the appropriate sense.
-
-Thus the assignment
-\[
-(\text{observational system})
-\longmapsto
-(\text{predictive state space})
-\]
-is expected to be functorial.
+The assignment $(\mathcal Q, P) \mapsto Q_*$ is functorial: morphisms
+of query systems preserving predictive structure induce
+structure-preserving maps between minimal predictive state spaces and
+intertwine the predictive operators.
 \end{conjecture}
 
-\begin{remark}
-This conjecture suggests that predictive state spaces are not isolated
-constructions but belong to a broader category of observable dynamical
-representations.  If true, it would connect the observational program
-to categorical probability and functorial formulations of dynamics.
-\end{remark}
-
-
-\begin{conjecture}[Delay sufficiency principle]
-
-For time-series observables satisfying mild regularity conditions,
-increasing delay queries
-
-\[
-Q_0 \preceq Q_1 \preceq Q_2 \preceq \cdots
-\]
-
-eventually realize a predictively sufficient statistic.
-
-\end{conjecture}
-
+\subsection*{Longer-range conjectures}
 
 \begin{conjecture}[Universality of observable regularities]
-
 Distinct microscopic mechanisms may produce identical observable
-regularities relative to the same query system.
-
+regularities relative to the same query system.  Universality classes
+of query systems --- systems with the same $Q_*$ and operator spectrum
+--- provide an observable classification of dynamical behavior that
+does not depend on the latent state.
 \end{conjecture}
 
-
 \begin{conjecture}[Thermodynamic emergence]
+Large-scale statistical laws (entropy, thermodynamic relations) arise
+from compatibility among observable experiments across observational
+scales.  The observational framework provides a natural language for
+this: thermodynamic structure is the operator-spectral shadow of
+multi-scale compatibility.
+\end{conjecture}
 
-Large-scale statistical laws such as entropy and thermodynamic
-relations may arise from compatibility among observable experiments
-across observational scales.
-
+\begin{conjecture}[Approximation bounds for $K_t^N$]
+The local linear map truncation $K_t^N \to K_t$ in $L^2(\nu_{Q_*})$
+has quantitative convergence rates depending on the geometry of
+$O_{Q_*}$ and the mixing properties of $P_t$.  Establishing explicit
+rates would connect the abstract operator theory to practical
+data-driven approximation.
 \end{conjecture}
 
 
@@ -732,73 +770,65 @@ directions become natural:
 \item data-driven and number-theoretic applications.
 \end{itemize}
 
-\section{Next phase of the program}
+\section{Current frontier}
 
-The foundational paper and its predictive sequel establish the first
-two structural layers of the observable dynamics program:
+As of March 2026, the five-paper core spine is established and the
+foundational Paper~$-1$ is under active development:
+\[
+\mathcal E_Q
+\;\xrightarrow{\text{P$-1$}}\;
+\{\ell_Q\}
+\;\xrightarrow{\text{P0}}\;
+(\Omega,P)
+\;\xrightarrow{\text{P1}}\;
+Q_*
+\;\xrightarrow{\text{P2}}\;
+\{K_t\}
+\;\xrightarrow{\text{P3}}\;
+K_t^N
+\;\xrightarrow{\text{P4}}\;
+\text{(local linear)}.
+\]
+Papers~0--4 are complete working papers with full proofs, abstracts,
+conclusions, related work, and bibliographies.  The Lean formalization
+covers Papers~1--3 (zero \texttt{sorry}) and Paper~0 (one remaining
+\texttt{sorry} in \texttt{prokhorov\_extension\_polish}, Mathlib-blocked).
+Paper~$-1$ (\texttt{discriminability\_foundations}) is in early
+development: the negative result and the necessity of incompleteness
+are established; the central conjecture (witnessing from above via
+sequential upper-directedness) is open.
+
+\paragraph{Immediate priorities.}
 
 \begin{enumerate}
-\item compatible observable experiments admit a canonical probabilistic
-representation $(\Omega,P)$;
-\item predictive structure on this representation yields predictive
-kernels and predictive equivalence relations.
+
+\item \textbf{SP1: The witnessing conjecture (Paper~$-1$).}
+The central open claim is that sequential upper-directedness provides
+witnessing from above for continuity at $\emptyset$, making
+$\sigma$-additivity a commitment rather than an assumption.  The
+gap to close: showing that the colimit query's event algebra is
+rich enough to contain the relevant limit events.  This is the
+most foundational open question in the program.
+
+\item \textbf{SP2 in the general non-compact, non-standard-Borel setting.}
+SP2 is closed for compact (Paper~0, Corollary~6.3) and standard Borel
+(Musia\l~1980) outcome spaces.  The remaining open case is
+locally compact but non-standard-Borel.  Note: a resolution of SP1
+via the witnessing conjecture might simultaneously close this case,
+since the limit-query approach is topology-free.
+
+\item \textbf{Lean formalization of Paper~0 (\texttt{prokhorov\_extension\_polish}).}
+One \texttt{sorry} remains, blocked on \texttt{PerfectMeasure} and
+Musia\l's theorem being absent from Mathlib~4.  No action until
+Mathlib upstream.
+
+\item \textbf{Quantitative approximation bounds (Paper~4, Open Question~3).}
+Convergence $\|K_t^N - K_t\|_{L^2} \to 0$ is established but rates
+are unquantified.  Bounds in terms of mixing rate, Fisher--Rao
+curvature, sample size $N$, and neighbourhood radius $r$ would close
+the gap between theory and algorithm design.
+
 \end{enumerate}
-
-The next phase of the program focuses on the deeper structural
-properties of predictive states and predictive dynamics.  Three
-problems appear particularly central.
-
-\paragraph{Predictive state realization.}
-The predictive equivalence relation
-\[
-q \sim q'
-\quad\Longleftrightarrow\quad
-P(F\in\cdot \mid q)=P(F\in\cdot \mid q')
-\]
-defines predictive states as equivalence classes of observable
-configurations.  A fundamental problem is to establish conditions under
-which these classes form a well-behaved measurable quotient space
-$Q_*$.  Such a result would show that predictive states exist as
-minimal observable representations preserving the predictive law of
-future observables.
-
-\paragraph{Predictive operator theory.}
-Once predictive states are available, predictive evolution may be
-represented by operators acting on functions of the predictive state
-space:
-\[
-(K_{Q_*} g)(q)=\mathbb E[g(F)\mid Q_*=q].
-\]
-Developing the structure of these operators---their positivity,
-semigroup properties, spectral behavior, and relations to classical
-Koopman and Perron--Frobenius operators---forms a natural second stage
-of the theory.
-
-\paragraph{Observable recovery via delay queries.}
-For time-series observables, delay queries generate an increasing
-family of observable experiments
-\[
-Q_0\preceq Q_1\preceq Q_2\preceq\cdots .
-\]
-A central question is whether sufficiently rich delay observations
-recover the minimal predictive state space.  Establishing such
-``delay sufficiency'' results would connect the abstract theory with
-practical observable reconstructions used in dynamical systems and
-time-series analysis.
-
-Together these problems aim to establish a complete chain
-\[
-(\mathcal Q,\preceq)
-\;\longrightarrow\;
-(\Omega,P)
-\;\longrightarrow\;
-Q_*
-\;\longrightarrow\;
-K_{Q_*},
-\]
-thereby providing an observational route from empirical experiments to
-predictive state spaces and operator representations of observable
-dynamics.
 
 \section{Recurrence, forcing, and observable structure}
 
@@ -1603,10 +1633,15 @@ predictive organization of observable experiments.
 
 \section{Formalization status}
 
+\emph{Updated March 2026.}  The Lean source files are located at
+\texttt{formalization/QuerySystem/QuerySystem/} in the repository.
+
 The following summarizes the current state of the Lean~4/Mathlib
-formalization of the foundational layer of the program
+formalization of Papers~1--3
 (\texttt{QuerySystem.lean}, \texttt{PredictiveState.lean},
-\texttt{PredictiveOperators.lean}).
+\texttt{PredictiveOperators.lean}).  Paper~4 (delay queries,
+computational instantiation) is not formalized; it exists as a
+working note with pen-and-paper proofs.
 
 \subsection*{Fully formalized}
 

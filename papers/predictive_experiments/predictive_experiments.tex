@@ -39,16 +39,18 @@ experiments.
 
 Given a future observable $F:\Omega\to O_F$, prediction induces an
 equivalence relation on observable states determined by equality of
-conditional laws.  The resulting quotient defines a minimal
-predictive query whose states correspond exactly to distinct
-predictive laws.  Prediction is therefore represented by a linear
-operator
+conditional laws.  The resulting quotient defines a minimal predictive
+query $Q_*$ whose states correspond exactly to distinct predictive
+laws of $F$.  A canonical positive linear operator
 \[
 (K_{Q_*}g)(q_*) = E[g(F)\mid Q_*=q_*]
 \]
-acting on functions of this predictive state space.  This yields an
-observable representation of predictive dynamics expressed entirely in
-terms of conditional laws of future observables.
+then acts on functions of this predictive state space, providing an
+observable representation of prediction expressed entirely in terms of
+conditional laws.  The minimal predictive query is universal: any
+other predictive statistic factors through $Q_*$ via the
+Doob--Dynkin lemma, making $Q_*$ the coarsest observable
+representation retaining the full predictive law of $F$.
 \end{abstract}
 
 \paragraph{Relation to the observational foundations.}
@@ -107,9 +109,6 @@ Sections~\ref{sec:predictive-operators} and~\ref{sec:operator-closure}
 introduce the predictive operator representation and establish operator
 closure on the minimal predictive query --- the central theoretical
 result of the paper.
-Sections~\ref{sec:delay-queries} and~\ref{sec:delay-sufficiency} study
-delay-query constructions and the constructive route to predictive
-state recovery, with the Takens specialization as a concrete example.
 
 \section{Standing framework}\label{sec:standing}
 
@@ -683,135 +682,7 @@ state space, yielding an observable representation of predictive
 dynamics without reference to latent state variables.
 \end{remark}
 
-\bigskip
-
-\section{Delay query chains}\label{sec:delay-queries}
-
-Suppose a time series observable
-
-\[
-x_t:\Omega\to X
-\]
-
-is given.
-
-Define delay queries
-
-\[
-Q_k(x_t)
-=
-(x_t,x_{t-\tau},\dots,x_{t-k\tau}).
-\]
-
-These form a refinement chain
-
-\[
-Q_0\preceq Q_1\preceq Q_2\preceq\cdots.
-\]
-
-\begin{lemma}[Monotonic predictive information]
-For delay queries
-\[
-\Pi_{Q_k}\preceq\Pi_{Q_{k+1}}.
-\]
-\end{lemma}
-
-\bigskip
-
-\section{Delay reconstruction and sufficiency}\label{sec:delay-sufficiency}
-
-\begin{theorem}[Delay sufficiency]
-Suppose the delay queries separate predictive equivalence classes,
-i.e. whenever two realizations $\omega,\omega'\in\Omega$ induce
-distinct predictive laws of the future observable $F$, there exists
-some delay depth $k$ such that
-\[
-Q_k(\omega)\neq Q_k(\omega').
-\]
-
-Then there exists a delay depth $k_*$ such that the delay query
-\[
-Q_{k_*}
-\]
-is predictively sufficient.
-\end{theorem}
-
-This theorem formalizes the emergence of predictive sufficiency from increasing observational resolution.
-
-\begin{remark}[Constructive recovery of the predictive state space]
-The delay sufficiency theorem admits a constructive interpretation.
-The delay queries
-\[
-Q_0 \preceq Q_1 \preceq Q_2 \preceq \cdots
-\]
-form an increasing sequence of observable statistics of the past.
-When the delay queries are predictively separating, this sequence
-eventually reaches a query that is predictively sufficient.
-
-Consequently sufficiently long delay observations recover the minimal
-predictive query
-\[
-Q_*.
-\]
-In this sense delay embeddings provide a constructive route to the
-predictive state space of the system.
-\end{remark}
-
-\begin{remark}[Delay coordinates as predictive statistics]
-The delay chain
-\[
-Q_0\preceq Q_1\preceq Q_2\preceq\cdots
-\]
-may be viewed as a sequence of increasingly informative statistics of
-the observable past.  Delay sufficiency states that, beyond a certain
-depth, this sequence captures all predictive information about the
-future observable.
-\end{remark}
-
-\begin{proposition}[Convergence of delay experiments]
-Let
-\[
-Q_0 \preceq Q_1 \preceq Q_2 \preceq \cdots
-\]
-be the delay query chain associated with a time series observable.
-
-If the delay queries are predictively separating, then the sequence
-of experiments converges in the experiment preorder to the minimal
-predictive experiment $Q_*$.
-\end{proposition}
-
-\bigskip
-
-\section{Takens specialization}
-
-Let
-
-\begin{itemize}
-\item $M$ be a compact manifold of dimension $d$
-\item $T:M\to M$ a diffeomorphism
-\item $h:M\to\mathbb R$ an observable
-\end{itemize}
-
-Define
-
-\[
-Q_m(x)
-=
-(h(x),h(T^{-1}x),\dots,h(T^{-(m-1)}x)).
-\]
-
-\begin{corollary}[Takens sufficiency]
-If
-\[
-m\ge 2d+1
-\]
-then the delay observable $Q_m$ separates predictive equivalence
-classes and is therefore predictively sufficient.
-\end{corollary}
-
-Thus the Koopman operator closes on delay-coordinate observable space.
-
-\bigskip
+%%% Delay query material moved to Paper 4 (observational_probability.tex)
 
 \section{Conceptual chain}
 
@@ -831,11 +702,81 @@ The preceding sections establish the following structural progression.
 &\downarrow\\
 &Q_*\ (\text{minimal predictive state space})\\
 &\downarrow\\
-&K_{Q_*}\ (\text{predictive operator})\\
-&\downarrow\\
-&\text{constructive recovery via delay queries and Takens embedding}
+&K_{Q_*}\ (\text{predictive operator on }O_{Q_*})
 \end{aligned}
 \]
+
+\begin{remark}[Continuation]
+The horizon-indexed family $\{K_t\}_{t\ge0}$, its semigroup structure,
+the infinitesimal generator, and Koopman--Perron duality are developed
+in \emph{Predictive Operator Theory for Observable Dynamical Systems}.
+The constructive route to the predictive state via delay embeddings ---
+including the probabilistic sufficiency criterion and the Takens
+specialization --- is developed in \emph{Observational Probability from
+Delay Queries}.
+\end{remark}
+
+\section{Conclusion and related work}
+
+\paragraph{What has been established.}
+Starting from the canonical probability space $(\Omega,\sigma(\Qcal),P)$
+of \emph{Observational Foundations of Probability}, this paper has
+developed the predictive structure that emerges from a future observable
+$F:\Omega\to O_F$.  The main results are:
+
+\begin{enumerate}
+  \item \emph{Predictive kernels.}  Each query $Q$ induces a
+    conditional kernel $\Pi_Q(q,\cdot) = P(F\in\cdot\mid Q=q)$, giving
+    prediction a concrete query-level representation.
+  \item \emph{Minimal predictive query.}  Predictive equivalence $q\sim q'$
+    iff $\Pi_Q(q,\cdot)=\Pi_Q(q',\cdot)$ factors $Q$ through a minimal
+    statistic $Q_*$ whose states are in bijection with distinct predictive
+    laws of $F$.
+  \item \emph{Doob--Dynkin universality.}  Any measurable predictive
+    statistic factors through $Q_*$, making the minimal predictive query
+    the coarsest observable representation retaining full predictive
+    content.
+  \item \emph{Predictive operator.}  Conditional expectation
+    $(K_{Q_*}g)(q_*) = E[g(F)\mid Q_*=q_*]$ defines a positive linear
+    contraction on $O_{Q_*}$ that is closed under the predictive state
+    algebra.
+\end{enumerate}
+
+\paragraph{Relation to classical sufficiency.}
+The minimal predictive query $Q_*$ is an instance of a sufficient
+statistic in the sense of Fisher and Halmos--Savage: it retains all
+information relevant to predicting $F$ while discarding information
+that is irrelevant.  The framework of Blackwell~\cite{Blackwell} and
+Le Cam~\cite{LeCam} on comparison and sufficiency of statistical
+experiments provides the conceptual background; the present work
+specialises their comparison order to the query setting and identifies
+the minimal representative in a canonical way via the Doob--Dynkin
+lemma.  The experiment preorder induced by prediction is a structural
+refinement of the Blackwell order restricted to the observable interface.
+
+\paragraph{Relation to de Finetti and predictive sufficiency.}
+In de Finetti's representation theorem~\cite{deFinetti}, the
+exchangeable measure is disintegrated over an invariant $\sigma$-field
+that plays the role of the predictive state.  The present framework
+provides a direct construction of that $\sigma$-field from the
+observable query structure, without requiring an exchangeability or
+invariance assumption.  Predictive sufficiency (Section~\ref{sec:predictive-sufficiency})
+is the query-theoretic counterpart of the Radon--Nikodym disintegration
+underlying de Finetti's theorem.
+
+\paragraph{What follows.}
+The predictive operator $K_{Q_*}$ established here is a single-horizon
+object.  \emph{Predictive Operator Theory for Observable Dynamical
+Systems} (Paper~3) promotes this to a horizon-indexed family
+$\{K_t\}_{t\ge0}$ and shows it forms a strongly continuous Markov
+operator semigroup, from which an infinitesimal generator and predictive
+Kolmogorov equation follow.  The constructive route to $Q_*$ via delay
+embeddings of a dynamical system --- and the connection to Takens'
+embedding theorem --- is the subject of \emph{Observational Probability
+from Delay Queries} (Paper~4).
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \section*{Acknowledgements}
 
@@ -846,3 +787,4 @@ support from Dr.\ Simon Bonner and Dr.\ Matt Davison at the University
 of Western Ontario, and from MITACS.
 
 \end{document}
+

@@ -1,0 +1,991 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+
+% ---------- Commands ----------
+\newcommand{\Qcal}{\mathcal{Q}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Fcal}{\mathcal{F}}
+
+\title{
+Finitely Additive Observable Laws and the\\
+Prokhorov Extension for Query Systems
+}
+
+\author{Patrick S. Mahon}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The observational foundations program constructs a canonical probability
+space from a compatible family of observable laws, taking countable
+additivity of those laws as a hypothesis.  This paper asks when that
+hypothesis can itself be derived.  We show that for a countable
+Hausdorff query system with continuous refinement maps, any finitely
+compatible family of finitely additive normalized valuations satisfying
+a \emph{surjective projective uniform tightness} condition admits a
+unique extension to a $\sigma$-additive probability measure on the
+canonical realization space.  Countable additivity is not assumed
+locally --- it is forced globally by the combination of projective
+compactness and sequential refinement structure.
+
+The result is a Prokhorov-type extension theorem in the language of
+query systems.  It complements the main extension theorem of
+\emph{Observational Foundations of Probability} (which takes
+$\sigma$-additive marginals as input) by identifying conditions under
+which those marginals need not be assumed: they emerge from a tightness
+condition on the compatible family as a whole.  The surjective
+projective uniform tightness condition is the query-system analogue of
+Prokhorov tightness, with the surjectivity of bonding maps on compact
+cores playing the role that single-space compactness plays in the
+classical theory.
+\end{abstract}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{The foundational question.}
+The observational program constructs probability from observation.
+Its central extension theorem (\emph{Observational Foundations of
+Probability}, hereafter Paper~1) shows that a compatible family of
+observable laws $\{\nu_Q\}$ on a query system $(\Qcal, \preceq)$
+determines a unique probability measure $P$ on the canonical
+realization space $\Omega$.  The construction is a representation
+theorem: given that each query $Q$ carries a countably additive law
+$\nu_Q$, the global $P$ is assembled from those laws.
+
+The question this paper asks is foundationally prior:
+
+\begin{quote}
+\emph{Must one assume countable additivity at each query level, or
+can it be derived from the structure of the compatible family?}
+\end{quote}
+
+This is Stopping Point~2 of the program: the assumption that each
+$\nu_Q$ is $\sigma$-additive is the fuel on which the extension
+theorem runs.  The present paper identifies conditions under which
+that fuel can itself be derived --- conditions that are properties
+of the \emph{system} rather than of individual marginals.
+
+\paragraph{The answer.}
+We show that under a condition called \emph{surjective projective
+uniform tightness} (SPUT), starting from only finitely additive
+normalized valuations $\{\ell_Q\}$ satisfying finite compatibility,
+one can derive a $\sigma$-additive global extension.  The argument has
+two steps.
+
+The first step is analytic: SPUT supplies compatible compact cores
+$\{K_Q\}$ whose inverse limit $K_\Omega \subseteq \Omega$ is compact
+and nonempty.  Any decreasing sequence of cylinder sets with uniformly
+positive mass must meet $K_\Omega$ at each level; since
+$K_\Omega$ is compact, the intersection is nonempty, contradicting
+the assumption that the sequence decreases to $\emptyset$.  This
+forces the cylinder premeasure $\mu_0$ to be $\sigma$-subadditive,
+hence $\sigma$-additive by finite additivity and Carath\'eodory
+extension.
+
+The second step is geometric: the extended measure lives on $\Omega$
+rather than the ambient product space.  A graph-support lemma shows
+that for each comparable pair $Q_1 \preceq Q_2$, the joint law of
+$(\mathrm{eval}_{Q_1}, \mathrm{eval}_{Q_2})$ under $P$ is
+supported on the graph of $\pi^{Q_2}_{Q_1}$.  For countable
+$\Qcal$, a union over countably many null defect sets gives
+$P(\Omega) = 1$.
+
+\paragraph{What SPUT is.}
+SPUT asks that for every $\varepsilon > 0$ one can find compact sets
+$K_Q \subset O_Q$ at each query level such that: (i) the
+bonding maps restrict to surjections between compact sets,
+$\pi^{Q_2}_{Q_1}(K_{Q_2}) = K_{Q_1}$; and (ii) the mass outside
+the compact core is uniformly small, $\ell_Q(O_Q \setminus K_Q) <
+\varepsilon$ for every $Q$.  Condition~(i) --- surjectivity of the
+bonding maps on the compact cores --- is the critical one.  It ensures
+the compact inverse limit $K_\Omega = \varprojlim K_Q$ is nonempty
+with surjective projections, which is exactly what the compactness
+argument requires.  Without surjectivity, $K_\Omega$ can be empty
+even when each $K_Q$ is nonempty.
+
+\paragraph{Comparison to classical Prokhorov.}
+In classical Prokhorov tightness~\cite{Prokhorov1956}, one controls mass concentration in
+a single space: for every $\varepsilon > 0$, compact $K \subset X$
+with $\mu_n(X \setminus K) < \varepsilon$.  The query-system
+analogue must control concentration \emph{projectively}, across all
+query levels simultaneously, and must ensure the compact sets
+assemble coherently in the inverse limit.  SPUT is exactly this
+coherent projective tightness condition, with surjectivity of
+bonding maps playing the role that single-space compactness plays
+classically~\cite{Parthasarathy1967}.
+
+\paragraph{Relation to Paper~1.}
+The two extension theorems are complementary:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+& Paper~1 (realizability route) & This paper (tightness route) \\
+\midrule
+Input measures & $\sigma$-additive $\nu_Q$ & finitely additive $\ell_Q$ \\
+Key condition & realizability of $\Omega$ & surjective projective uniform tightness \\
+Topology required & no & Hausdorff $O_Q$, continuous $\pi$ \\
+Conclusion & $\sigma$-additive $P$ on $\Omega$ & $\sigma$-additive $P$ on $\Omega$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent
+Paper~1 takes $\sigma$-additivity as given and derives a global
+measure from realizability.  This paper takes only finite additivity
+and derives both $\sigma$-additivity and realizability from tightness.
+The price is topological structure on the query system.
+
+\paragraph{Structure of the paper.}
+Section~\ref{sec:setup} fixes notation and introduces finitely
+additive compatible families on query systems.
+Section~\ref{sec:sput} defines SPUT, motivates the surjectivity
+condition, and gives examples.
+Section~\ref{sec:closed} proves $\sigma$-subadditivity on closed
+cylinder sequences (the intermediate theorem).
+Section~\ref{sec:borel} extends to general Borel cylinders using
+Alexandrov regularity.
+Section~\ref{sec:concentration} establishes concentration on $\Omega$
+via the graph-support lemma.
+Section~\ref{sec:main} assembles the full theorem and compares it to
+Paper~1.
+Section~\ref{sec:discussion} discusses what the result achieves for
+the foundational program, what it does not yet achieve, and the
+open frontier.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Setup}\label{sec:setup}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[Query system]
+A \emph{query system} is a tuple $(\Qcal, \preceq, \{O_Q\},
+\{\pi^{Q_2}_{Q_1}\})$ where:
+\begin{itemize}
+\item $(\Qcal, \preceq)$ is a countable directed preorder (the
+  \emph{query index set});
+\item each $Q \in \Qcal$ is assigned a measurable outcome space
+  $(O_Q, \Bcal(O_Q))$;
+\item for each $Q_1 \preceq Q_2$, there is a measurable map
+  $\pi^{Q_2}_{Q_1} : O_{Q_2} \to O_{Q_1}$ (the
+  \emph{refinement map}) satisfying $\pi^{Q_1}_{Q_1} = \mathrm{id}$
+  and $\pi^{Q_3}_{Q_1} = \pi^{Q_2}_{Q_1} \circ \pi^{Q_3}_{Q_2}$
+  whenever $Q_1 \preceq Q_2 \preceq Q_3$.
+\end{itemize}
+The system is \emph{sequentially upper-directed} if for every
+countable family $\{Q_n\}_{n \ge 1} \subset \Qcal$ there exists
+$Q_* \in \Qcal$ with $Q_* \succeq Q_n$ for all $n$.
+\end{definition}
+
+\begin{remark}[Topological enrichment]
+Throughout this paper the outcome spaces $O_Q$ are assumed to be
+Hausdorff topological spaces with $\Bcal(O_Q)$ the Borel
+$\sigma$-algebra, and the refinement maps $\pi^{Q_2}_{Q_1}$ are
+assumed to be continuous.  These topological conditions are not
+required by Paper~1 and are the price paid for starting from only
+finitely additive marginals.
+\end{remark}
+
+\begin{definition}[Canonical realization space]
+The \emph{canonical realization space} is the projective limit
+\[
+\Omega
+:=
+\varprojlim_{Q \in \Qcal} O_Q
+=
+\left\{
+\omega \in \prod_{Q \in \Qcal} O_Q
+\;\middle|\;
+\pi^{Q_2}_{Q_1}(\omega_{Q_2}) = \omega_{Q_1}
+\;\forall\, Q_1 \preceq Q_2
+\right\},
+\]
+equipped with evaluation maps $\mathrm{eval}_Q : \Omega \to O_Q$,
+$\omega \mapsto \omega_Q$.
+
+Since each $\pi^{Q_2}_{Q_1}$ is continuous and each $O_Q$ is
+Hausdorff, each coherence constraint set
+$\{\omega : \pi^{Q_2}_{Q_1}(\omega_{Q_2}) = \omega_{Q_1}\}$ is
+closed in the product.  Since $\Qcal$ is countable, $\Omega$ is a
+countable intersection of closed sets, hence closed in
+$\prod_Q O_Q$.
+
+The \emph{cylinder algebra} $\Ccal$ is generated by sets
+$\mathrm{Cyl}(Q, A) := \mathrm{eval}_Q^{-1}(A)$ for $Q \in \Qcal$,
+$A \in \Bcal(O_Q)$, and the \emph{observable $\sigma$-field} is
+$\sigma(\Qcal) := \sigma(\Ccal)$.
+\end{definition}
+
+\begin{definition}[Finitely compatible family]
+A family $\{\ell_Q\}_{Q \in \Qcal}$ of normalized valuations
+$\ell_Q : \Bcal(O_Q) \to [0,1]$ (with $\ell_Q(O_Q) = 1$) is
+\emph{finitely compatible} if for every $Q_1 \preceq Q_2$,
+\[
+(\pi^{Q_2}_{Q_1})_\# \ell_{Q_2} = \ell_{Q_1},
+\]
+i.e.\ $\ell_{Q_1}(A) = \ell_{Q_2}((\pi^{Q_2}_{Q_1})^{-1}(A))$ for
+all $A \in \Bcal(O_{Q_1})$.  Each $\ell_Q$ is assumed to be
+finitely additive (but not necessarily $\sigma$-additive).
+\end{definition}
+
+\begin{remark}[The cylinder premeasure]
+Given a finitely compatible family $\{\ell_Q\}$, define the
+\emph{cylinder premeasure} $\mu_0 : \Ccal \to [0,1]$ by
+\[
+\mu_0(\mathrm{Cyl}(Q, A)) := \ell_Q(A).
+\]
+Finite compatibility ensures $\mu_0$ is well-defined (independent of
+which query level is used to represent a given cylinder) and
+finitely additive on $\Ccal$.  The central question is when $\mu_0$
+is $\sigma$-additive, so that Carath\'eodory's theorem~\cite{Billingsley1995,Bogachev2007} extends it
+to a probability measure on $\sigma(\Qcal)$.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Surjective projective uniform tightness}\label{sec:sput}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[Surjective projective uniform tightness]
+\label{def:sput}
+A finitely compatible family $\{\ell_Q\}$ is \emph{surjectively
+projectively uniformly tight} (SPUT) if for every $\varepsilon > 0$
+there exists a system $\{K_Q\}_{Q \in \Qcal}$ of compact sets
+$K_Q \subset O_Q$ such that:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Surjective bonding:}
+  $\pi^{Q_2}_{Q_1}(K_{Q_2}) = K_{Q_1}$ for all $Q_1 \preceq Q_2$;
+\item \emph{Uniform mass control:}
+  $\ell_Q(O_Q \setminus K_Q) < \varepsilon$ for every $Q \in \Qcal$.
+\end{enumerate}
+\end{definition}
+
+The two conditions play distinct roles.  Condition~(ii) ensures that
+the compact cores capture most of the mass at every query level.
+Condition~(i) ensures the compact cores assemble coherently across
+levels, so their inverse limit is nonempty.
+
+\begin{remark}[Why surjectivity is necessary]
+If condition~(i) required only $\pi^{Q_2}_{Q_1}(K_{Q_2}) \subseteq
+K_{Q_1}$ (containment rather than equality), the inverse limit
+$K_\Omega := \Omega \cap \prod_Q K_Q$ could be empty even when each
+$K_Q$ is nonempty.  The classical example: let $O_Q = [0,1]$,
+$K_Q = [0, 1-1/Q]$, with refinement maps the identity.  Then each
+$K_Q$ is nonempty and the bonding maps satisfy containment, but
+$\bigcap_Q K_Q = \emptyset$.  Surjectivity --- $\pi(K_{Q_2})
+= K_{Q_1}$ exactly --- rules out such ``shrinking core'' phenomena and
+guarantees $K_\Omega \neq \emptyset$ with surjective projections
+(Proposition~\ref{prop:compact-core}).
+\end{remark}
+
+\begin{remark}[Comparison to classical Prokhorov tightness]
+Classical tightness for a family of measures $\{\mu_n\}$ on a single
+metric space $X$ asks: for every $\varepsilon > 0$, a compact
+$K \subset X$ with $\mu_n(K) \geq 1-\varepsilon$ for all $n$.  SPUT
+is the projective analogue: compact sets must be chosen at every
+query level simultaneously, and they must assemble into a compact
+subset of $\Omega$ via the surjectivity condition.  The surjectivity
+of bonding maps is the multi-space analogue of the fact that $K$ is
+a single space (automatically surjective over itself) in the
+classical case.
+\end{remark}
+
+\begin{proposition}[Compact outcome spaces imply SPUT]
+\label{prop:compact-implies-sput}
+Suppose each outcome space $O_Q$ is compact and each refinement map
+$\pi^{Q_2}_{Q_1}$ is surjective.  Then every finitely compatible
+family $\{\ell_Q\}$ of normalized valuations is SPUT.
+\end{proposition}
+
+\begin{proof}
+For any $\varepsilon > 0$, take $K_Q := O_Q$ for every $Q \in \Qcal$.
+Then:
+\begin{enumerate}[label=(\roman*)]
+\item $\pi^{Q_2}_{Q_1}(K_{Q_2}) = \pi^{Q_2}_{Q_1}(O_{Q_2}) = O_{Q_1}
+  = K_{Q_1}$ for all $Q_1 \preceq Q_2$, by surjectivity of the
+  refinement maps.
+\item $\ell_Q(O_Q \setminus K_Q) = \ell_Q(\emptyset) = 0 < \varepsilon$
+  for every $Q$.
+\end{enumerate}
+Both SPUT conditions are satisfied with the bound being $0$, not
+merely $< \varepsilon$.
+\end{proof}
+
+\begin{remark}[What this means]
+When the outcome spaces are compact, the SPUT condition is not a
+constraint on the valuations $\{\ell_Q\}$ at all — it is a property
+of the query system architecture.  Any finitely compatible family,
+however pathological, satisfies SPUT because the compact cores are
+simply the full spaces.  The surjectivity of refinement maps then
+supplies condition~(i) for free.  No additional tightness assumption
+on the observer's laws is required.
+\end{remark}
+
+\begin{remark}[Surjective maps without compact spaces]
+When the outcome spaces are not compact, surjectivity of the
+refinement maps alone does not imply SPUT.  But it does simplify the
+construction: given classical tightness of each $\ell_Q$ (compact
+$K_Q \subset O_Q$ with $\ell_Q(K_Q) \geq 1 - \varepsilon$), one
+can build compatible compact cores by setting $K'_Q :=
+\pi^{Q_*}_Q(K_{Q_*})$ for a sufficiently fine $Q_*$.  Surjectivity
+ensures $\pi^{Q_2}_{Q_1}(K'_{Q_2}) = K'_{Q_1}$, and the mass
+outside the core is controlled by the tightness of $\ell_{Q_*}$.
+Thus the delay query systems of \emph{Observational Probability from
+Delay Queries} (where refinement maps are surjective coordinate
+projections) satisfy SPUT whenever the marginals are individually
+tight.
+\end{remark}
+
+\begin{definition}[Compact core]
+Given a SPUT system $\{K_Q\}$, the \emph{compact core} of $\Omega$
+is
+\[
+K_\Omega
+:=
+\Omega \cap \prod_{Q \in \Qcal} K_Q
+=
+\left\{
+\omega \in \Omega
+\;\middle|\;
+\omega_Q \in K_Q \;\forall\, Q \in \Qcal
+\right\}.
+\]
+\end{definition}
+
+\begin{proposition}[Properties of the compact core]
+\label{prop:compact-core}
+Under SPUT:
+\begin{enumerate}[label=(\roman*)]
+\item $K_\Omega$ is compact.
+\item $K_\Omega$ is nonempty, and $\mathrm{eval}_Q(K_\Omega) = K_Q$
+  for every $Q \in \Qcal$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+(i) The product $\prod_Q K_Q$ is compact by Tychonoff's theorem~\cite{Bourbaki1966}.
+Since $\Omega$ is closed in $\prod_Q O_Q$ (as each coherence
+constraint is a closed condition), $K_\Omega = \Omega \cap \prod_Q
+K_Q$ is a closed subset of a compact space, hence compact.
+
+(ii) The system $(K_Q, \pi^{Q_2}_{Q_1}|_{K_{Q_2}})$ is an inverse
+system of nonempty compact Hausdorff spaces.  By condition~(i) of
+SPUT, the bonding maps $\pi^{Q_2}_{Q_1}|_{K_{Q_2}} : K_{Q_2} \to
+K_{Q_1}$ are surjective.  By the \emph{inverse limit theorem}~\cite{Bourbaki1966,Fremlin2003} for
+compact Hausdorff spaces with surjective bonding maps over a directed
+index set, $K_\Omega = \varprojlim K_Q$ is nonempty and each
+projection $\mathrm{eval}_Q : K_\Omega \to K_Q$ is surjective.
+\end{proof}
+
+\begin{remark}[The inverse limit theorem]
+Proposition~\ref{prop:compact-core}(ii) uses the classical result
+that an inverse system of nonempty compact Hausdorff spaces with
+surjective bonding maps has a nonempty inverse limit with surjective
+projections.  This follows by expressing $K_\Omega$ as an
+intersection in the compact product $\prod_Q K_Q$, where each finite
+sub-intersection is nonempty by surjectivity, and applying the
+finite intersection property.  The directed-set version of this
+argument is standard; it has been formalized in Lean~4 as
+\texttt{compactInverseLimit\_nonempty}, using upper-directedness to
+supply a common upper bound at each finite stage and proof irrelevance
+on the partial-order witnesses to close the coherence conditions.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The intermediate theorem: closed cylinders}\label{sec:closed}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The key analytic step is to show that the cylinder premeasure
+$\mu_0$ is $\sigma$-subadditive on sequences of closed cylinders.
+
+\begin{theorem}[Closed cylinder $\sigma$-subadditivity]
+\label{thm:closed-cylinders}
+Let $(\Qcal, \preceq)$ be a countable sequentially upper-directed
+query system with Hausdorff outcome spaces and continuous refinement
+maps.  Let $\{\ell_Q\}$ be a finitely compatible SPUT family.  If
+$C_N = \mathrm{Cyl}(Q_N, F_N) \downarrow \emptyset$ is a decreasing
+sequence of cylinder sets with each $F_N \subseteq O_{Q_N}$ closed,
+then
+\[
+\mu_0(C_N) \to 0.
+\]
+\end{theorem}
+
+\begin{proof}
+Suppose for contradiction that $\mu_0(C_N) \geq \varepsilon > 0$
+for all $N$.
+
+\textbf{Step 1 (Compact core).}
+Apply SPUT with parameter $\varepsilon/2$: obtain compact sets
+$\{K_Q\}$ with surjective bonding maps and $\ell_Q(O_Q \setminus
+K_Q) < \varepsilon/2$ for all $Q$.
+
+\textbf{Step 2 ($K_\Omega$ is compact and nonempty with surjective
+projections).}
+By Proposition~\ref{prop:compact-core}, $K_\Omega$ is compact and
+$\mathrm{eval}_{Q_N}(K_\Omega) = K_{Q_N}$ for every $N$.
+
+\textbf{Step 3 (Each $C_N \cap K_\Omega$ is nonempty).}
+Since $\ell_{Q_N}(F_N) = \mu_0(C_N) \geq \varepsilon$ and
+$\ell_{Q_N}(K_{Q_N}) \geq 1 - \varepsilon/2$, we have
+\[
+\ell_{Q_N}(F_N \cap K_{Q_N})
+\geq
+\varepsilon - \varepsilon/2 = \varepsilon/2 > 0.
+\]
+In particular $F_N \cap K_{Q_N} \neq \emptyset$.  Since
+$\mathrm{eval}_{Q_N} : K_\Omega \to K_{Q_N}$ is surjective, there
+exists $\omega \in K_\Omega$ with $\mathrm{eval}_{Q_N}(\omega) \in
+F_N \cap K_{Q_N}$, so $\omega \in C_N \cap K_\Omega$.
+
+\textbf{Step 4 (Each $C_N \cap K_\Omega$ is closed in $K_\Omega$).}
+$C_N = \mathrm{eval}_{Q_N}^{-1}(F_N)$ where $F_N$ is closed and
+$\mathrm{eval}_{Q_N}$ is continuous, so $C_N$ is closed in $\Omega$
+and $C_N \cap K_\Omega$ is closed in $K_\Omega$.
+
+\textbf{Step 5 (Contradiction by compactness).}
+The sets $\{C_N \cap K_\Omega\}$ form a decreasing sequence of
+nonempty closed subsets of the compact space $K_\Omega$.  By the
+finite intersection property,
+\[
+\bigcap_N (C_N \cap K_\Omega) \neq \emptyset.
+\]
+But $\bigcap_N C_N = \emptyset$ (since $C_N \downarrow \emptyset$),
+so $\bigcap_N (C_N \cap K_\Omega) \subseteq \bigcap_N C_N =
+\emptyset$.  Contradiction.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Extension to Borel cylinders}\label{sec:borel}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The intermediate theorem covers closed cylinders.  We now extend to
+all Borel cylinders.  The key observation is that no new hypotheses
+are needed: inner regularity on each compact core is automatic.
+
+\begin{lemma}[Alexandrov regularity is free]
+\label{lem:alexandrov}
+Let $K$ be a compact Hausdorff space and $\nu$ a finite Borel measure
+on $K$.  Then $\nu$ is inner regular: for every Borel $A \subseteq K$
+and $\eta > 0$, there exists closed $F \subseteq A$ with
+$\nu(A \setminus F) < \eta$.
+\end{lemma}
+
+This is Alexandrov's theorem~\cite{Alexandrov1943,Bogachev2007}; it requires only that $K$ is compact
+Hausdorff, which follows from SPUT.
+
+\begin{theorem}[Borel cylinder $\sigma$-subadditivity]
+\label{thm:borel-cylinders}
+Under the hypotheses of Theorem~\ref{thm:closed-cylinders}, if
+$C_N = \mathrm{Cyl}(Q_N, A_N) \downarrow \emptyset$ is a decreasing
+sequence of Borel cylinder sets, then $\mu_0(C_N) \to 0$.
+\end{theorem}
+
+\begin{proof}
+Suppose $\mu_0(C_N) \geq \varepsilon > 0$ for all $N$.
+Set $\varepsilon' := \varepsilon/4$.
+
+Apply SPUT with parameter $\varepsilon'$, obtaining compact cores
+$\{K_Q\}$ with $\ell_Q(O_Q \setminus K_Q) < \varepsilon'$ for all
+$Q$.
+
+For each $N$, apply Alexandrov regularity (Lemma~\ref{lem:alexandrov})
+to $\ell_{Q_N}|_{K_{Q_N}}$ with tolerance $\varepsilon'/2^N$: find
+closed $F_N \subseteq A_N \cap K_{Q_N}$ (closed in $O_{Q_N}$, since
+$K_{Q_N}$ is compact in the Hausdorff space $O_{Q_N}$) with
+\[
+\ell_{Q_N}(A_N \cap K_{Q_N}) - \ell_{Q_N}(F_N) < \varepsilon'/2^N.
+\]
+Define closed cylinders $D_N := \mathrm{Cyl}(Q_N, F_N)$.  Then
+\[
+\mu_0(D_N)
+= \ell_{Q_N}(F_N)
+\geq \ell_{Q_N}(A_N) - \varepsilon' - \varepsilon'/2^N
+\geq \varepsilon - 2\varepsilon'
+= \varepsilon/2 > 0.
+\]
+
+Let $E_N := \bigcap_{k=1}^N D_k$.  Since the system is sequentially
+upper-directed, finite intersections of closed cylinders are again
+closed cylinders (each pair $(D_i, D_j)$ has a common refinement
+$Q_{ij} \succeq Q_i, Q_j$, giving
+$D_i \cap D_j = \mathrm{Cyl}(Q_{ij},
+(\pi^{Q_{ij}}_{Q_i})^{-1}(F_i) \cap (\pi^{Q_{ij}}_{Q_j})^{-1}(F_j))$,
+which is a closed cylinder).  So each $E_N$ is a closed cylinder.
+
+Moreover, since $C_N$ is decreasing and $D_k \subseteq C_k$:
+\[
+\mu_0(E_N)
+\geq \mu_0(C_N) - \sum_{k=1}^N \mu_0(C_k \setminus D_k)
+\geq \varepsilon - \sum_{k=1}^\infty 2\varepsilon'/2^k
+= \varepsilon - 2\varepsilon'(1 + 1)
+= \varepsilon/2 > 0.
+\]
+Since $E_N \subseteq C_N$ and $C_N \downarrow \emptyset$, we have
+$E_N \downarrow \emptyset$ with each $\mu_0(E_N) \geq \varepsilon/2
+> 0$, contradicting Theorem~\ref{thm:closed-cylinders}.
+\end{proof}
+
+\begin{corollary}[$\sigma$-additivity of $\mu_0$]
+Under the above hypotheses, the cylinder premeasure $\mu_0$ is
+$\sigma$-additive on $\Ccal$.  By Carath\'eodory's extension theorem,
+$\mu_0$ extends uniquely to a $\sigma$-additive probability measure
+on $\sigma(\Qcal)$ over the ambient product $\prod_Q O_Q$.
+\end{corollary}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Concentration on $\Omega$}\label{sec:concentration}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The Carath\'eodory extension lives on the ambient product
+$\prod_Q O_Q$.  We must show it concentrates on the projective limit
+$\Omega$.
+
+\begin{lemma}[Graph support]
+\label{lem:graph-support}
+Let $P$ be the $\sigma$-additive extension of $\mu_0$ to
+$\prod_Q O_Q$.  For each $Q_1 \preceq Q_2$, the joint law of
+$(\mathrm{eval}_{Q_1}, \mathrm{eval}_{Q_2})$ under $P$ is supported
+on the graph
+\[
+G_{Q_1,Q_2}
+:=
+\bigl\{
+(a,b) \in O_{Q_1} \times O_{Q_2}
+\;\big|\;
+a = \pi^{Q_2}_{Q_1}(b)
+\bigr\}.
+\]
+\end{lemma}
+
+\begin{proof}
+It suffices to verify on measurable rectangles, which generate
+$\Bcal(O_{Q_1}) \otimes \Bcal(O_{Q_2})$.  For $A \in \Bcal(O_{Q_1})$
+and $B \in \Bcal(O_{Q_2})$:
+\begin{align*}
+P\bigl(
+\mathrm{eval}_{Q_1}^{-1}(A) \cap \mathrm{eval}_{Q_2}^{-1}(B)
+\bigr)
+&= \mu_0\bigl(\mathrm{Cyl}(Q_2, (\pi^{Q_2}_{Q_1})^{-1}(A) \cap B)\bigr) \\
+&= \ell_{Q_2}\bigl((\pi^{Q_2}_{Q_1})^{-1}(A) \cap B\bigr),
+\end{align*}
+which equals $(\mathrm{graph}_\pi)_\# \ell_{Q_2}(A \times B)$
+where $\mathrm{graph}_\pi : b \mapsto (\pi^{Q_2}_{Q_1}(b), b)$.
+The measure $(\mathrm{graph}_\pi)_\# \ell_{Q_2}$ is entirely
+supported on $G_{Q_1,Q_2}$.
+
+The graph $G_{Q_1,Q_2}$ is Borel: it is the preimage of the diagonal
+$\Delta_{O_{Q_1}}$ (closed in Hausdorff $O_{Q_1} \times O_{Q_1}$)
+under the continuous map $(a,b) \mapsto (a, \pi^{Q_2}_{Q_1}(b))$.
+Hence $G_{Q_1,Q_2}$ is closed, so the statement is well-posed.
+\end{proof}
+
+\begin{corollary}
+\label{cor:defect-null}
+For each $Q_1 \preceq Q_2$, defining the defect set
+$D_{Q_1,Q_2} := \{\omega : \omega_{Q_1} \neq
+\pi^{Q_2}_{Q_1}(\omega_{Q_2})\}$, we have $P(D_{Q_1,Q_2}) = 0$.
+\end{corollary}
+
+\begin{theorem}[Concentration on $\Omega$]
+\label{thm:concentration}
+$P(\Omega) = 1$.
+\end{theorem}
+
+\begin{proof}
+The complement decomposes as
+$\prod_Q O_Q \setminus \Omega = \bigcup_{Q_1 \preceq Q_2}
+D_{Q_1,Q_2}$.
+Since $\Qcal$ is countable, the preorder has countably many
+comparable pairs.  By Corollary~\ref{cor:defect-null}, each
+$D_{Q_1,Q_2}$ is a $P$-null set.  A countable union of null sets
+is null, so $P(\prod_Q O_Q \setminus \Omega) = 0$.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The main theorem}\label{sec:main}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}[Prokhorov extension for query systems]
+\label{thm:main}
+Let $(\Qcal, \preceq)$ be a countable sequentially upper-directed
+query system in which each outcome space $O_Q$ is a Hausdorff
+topological space, $\Bcal(O_Q)$ is its Borel $\sigma$-algebra, and
+each refinement map $\pi^{Q_2}_{Q_1} : O_{Q_2} \to O_{Q_1}$ is
+continuous.  Let $\{\ell_Q\}_{Q \in \Qcal}$ be a finitely compatible
+family of finitely additive normalized valuations on $\{(O_Q,
+\Bcal(O_Q))\}$.
+
+If $\{\ell_Q\}$ is surjectively projectively uniformly tight
+(Definition~\ref{def:sput}), then there exists a unique
+$\sigma$-additive probability measure $P$ on
+$(\Omega, \sigma(\Qcal))$ satisfying
+\[
+(\mathrm{eval}_Q)_\# P = \ell_Q
+\]
+for every $Q \in \Qcal$.  In particular, each $\ell_Q$ is
+$\sigma$-additive.
+\end{theorem}
+
+\begin{proof}
+\emph{$\sigma$-additivity of $\mu_0$.}
+By Theorem~\ref{thm:borel-cylinders}, $\mu_0$ satisfies continuity
+from above at $\emptyset$ on all Borel cylinders.  Since $\mu_0$ is
+already finitely additive, it is $\sigma$-additive on $\Ccal$.
+
+\emph{Carath\'eodory extension.}
+By Carath\'eodory's theorem, $\mu_0$ extends uniquely to a
+$\sigma$-additive probability measure, still called $P$, on
+$\sigma(\Ccal)$ over $\prod_Q O_Q$.
+
+\emph{Concentration.}
+By Theorem~\ref{thm:concentration}, $P(\Omega) = 1$.  The
+restriction $P|_\Omega$ is the required measure on
+$(\Omega, \sigma(\Qcal))$.
+
+\emph{Marginal recovery.}
+For any $Q \in \Qcal$ and $A \in \Bcal(O_Q)$:
+$P(\mathrm{eval}_Q^{-1}(A)) = \mu_0(\mathrm{Cyl}(Q,A)) = \ell_Q(A)$.
+
+\emph{Uniqueness.}
+The observable $\sigma$-field $\sigma(\Qcal)$ is generated by the
+cylinder algebra $\Ccal$.  Any two $\sigma$-additive probability
+measures on $(\Omega, \sigma(\Qcal))$ with the same $\ell_Q$-marginals
+agree on $\Ccal$ and hence on $\sigma(\Qcal)$.
+\end{proof}
+
+\begin{remark}[Induced $\sigma$-additivity]
+The last sentence of Theorem~\ref{thm:main} is the key point for
+the foundational program: the $\ell_Q$ were assumed only finitely
+additive, but the theorem produces a $\sigma$-additive global
+measure whose marginals are exactly the $\ell_Q$.  In particular,
+each $\ell_Q = (\mathrm{eval}_Q)_\# P$ is $\sigma$-additive (as
+a pushforward of a $\sigma$-additive measure).  Countable additivity
+is not an input --- it is an output.
+\end{remark}
+
+\begin{corollary}[Architectural extension theorem]
+\label{cor:architectural}
+Let $(\Qcal, \preceq)$ be a countable sequentially upper-directed
+query system in which each outcome space $O_Q$ is compact Hausdorff
+and each refinement map $\pi^{Q_2}_{Q_1}$ is continuous and
+surjective.  Then every finitely compatible family $\{\ell_Q\}$ of
+finitely additive normalized valuations admits a unique
+$\sigma$-additive probability measure $P$ on $(\Omega,\sigma(\Qcal))$
+with $(\mathrm{eval}_Q)_\# P = \ell_Q$ for every $Q$.
+\end{corollary}
+
+\begin{proof}
+By Proposition~\ref{prop:compact-implies-sput}, compact outcome
+spaces and surjective refinement maps imply SPUT.
+Theorem~\ref{thm:main} then applies directly.
+\end{proof}
+
+\begin{remark}[Closing Stopping Point 2]
+Corollary~\ref{cor:architectural} is the fully structural version
+of Stopping Point~2.  Its hypotheses are entirely architectural:
+they concern the topology of the outcome spaces and the surjectivity
+of the refinement maps, not the valuations $\{\ell_Q\}$.  Any
+observer whose query system has compact outcome spaces and surjective
+refinement maps is automatically in the setting where
+$\sigma$-additivity is derived from the architecture, not assumed.
+The observer need not check whether their laws are tight, or
+$\sigma$-additive, or anything beyond finite compatibility.
+
+This is the strongest form of the result: \emph{the structure of
+the observational interface alone forces countable additivity of the
+resulting global measure.}
+\end{remark}
+
+\begin{remark}[Hypothesis audit]
+Every hypothesis in Theorem~\ref{thm:main} is used, and each
+at exactly one point:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Hypothesis & Where used & Can it be weakened? \\
+\midrule
+$\Qcal$ countable & Concentration (\S\ref{sec:concentration})
+  & Countable determining subsystem suffices \\
+Sequentially upper-directed & Borel extension (\S\ref{sec:borel})
+  & Needed for closed-cylinder intersections \\
+Hausdorff $O_Q$ & $\Omega$ closed; graphs Borel
+  & Essential \\
+Continuous $\pi$ & $\Omega$ closed; cylinders closed
+  & Essential \\
+Surjective bonding on $K_Q$ & $K_\Omega \neq \emptyset$
+  & Cannot weaken to containment \\
+Compact $K_Q$ & Tychonoff; FIP; Alexandrov
+  & Essential \\
+$\ell_Q(O_Q \setminus K_Q) < \varepsilon$ & Mass estimates
+  & Essential \\
+Finite compatibility & $\mu_0$ well-defined
+  & Essential \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Discussion}\label{sec:discussion}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\paragraph{What the theorem achieves.}
+Theorem~\ref{thm:main} addresses Stopping Point~2 of the
+observational program: it shows that $\sigma$-additivity need not
+be assumed at each query level.  Instead, it is a global consequence
+of two structural conditions: finite compatibility (the marginals
+cohere under refinement) and SPUT (the mass concentrates
+projectively on compatible compact cores).  These conditions are
+properties of the \emph{system} of observable laws, not of
+individual marginals.
+
+The result is a strict weakening of the input to Paper~1:
+Paper~1 assumes $\sigma$-additive marginals and realizability,
+while this paper needs only finitely additive marginals and SPUT.
+The conclusion is the same: a $\sigma$-additive global measure on
+$(\Omega, \sigma(\Qcal))$.
+
+\paragraph{What SPUT is buying.}
+SPUT is a condition about how observable mass concentrates as one
+moves between query levels.  It says, in operational terms: the
+things the observer considers \emph{likely} at fine resolutions
+assemble coherently into things that are likely at coarser
+resolutions, and this assembly is non-degenerate (surjectivity).
+This is a natural condition on a query system arising from a
+physical process: if the system concentrates mass on a compact
+region at every observable resolution, that region is observable
+at all resolutions jointly.
+
+\paragraph{What it costs.}
+SPUT requires topological structure: Hausdorff spaces and continuous
+refinement maps.  This is the price for starting from finitely
+additive marginals.  Paper~1 operates without this topology, at
+the cost of requiring $\sigma$-additivity as an input.  The two
+theorems occupy adjacent positions in the space of hypotheses,
+with this paper trading topology for weaker input measures.
+
+\paragraph{The deeper question.}
+Stopping Point~2 in its strongest form asks whether $\sigma$-additivity
+can be forced from \emph{purely combinatorial} conditions on the
+query system, without topological assumptions.  Theorem~\ref{thm:main}
+does not achieve this: it replaces the assumption of
+$\sigma$-additivity with the assumption of Hausdorff topology plus
+SPUT.  The question is whether SPUT itself can be derived from
+something more primitive.
+
+\paragraph{The architectural theorem and the deeper question.}
+Corollary~\ref{cor:architectural} closes the first form of
+Stopping Point~2: in the compact outcome space setting with
+surjective refinement maps, $\sigma$-additivity is a theorem of
+architecture.  The observer contributes only finite compatibility;
+the system does the rest.
+
+This raises the next question: how restrictive is the compactness
+assumption?  For sensor systems with bounded output spaces (voltages,
+pressures, counts in a finite range), compactness is natural.  For
+infinite-range observables --- real-valued sensor readings, delay
+vectors in $\mathbb{R}^d$, unbounded counts --- it cannot be assumed.
+The question is what structural property of the outcome spaces
+substitutes for compactness.
+
+\paragraph{The standard Borel route: Musia{\l}'s theorem.}
+The existing measure-theoretic literature provides a second
+architectural resolution of Stopping Point~2, complementing
+Corollary~\ref{cor:architectural} and covering the infinite-range
+case.
+
+The key concept is \emph{perfectness} in the sense of Gnedenko and
+Kolmogorov~\cite{Bogachev2007}: a probability measure $\mu$ on
+$(X, \Bcal)$ is \emph{perfect} if for every measurable $f: X \to
+\mathbb{R}$, the image measure $f_*\mu$ is inner regular with respect
+to compact sets on $\mathbb{R}$.  Perfectness is a measure-theoretic
+regularity condition that does not require topology on $X$ itself.
+
+The connection to the infinite-range case is given by two classical
+facts:
+\begin{enumerate}[label=(\roman*)]
+\item \emph{Standard Borel spaces carry only perfect measures.}
+  If $O_Q$ is a standard Borel space --- a measurable space
+  isomorphic to a Borel subset of a Polish space --- then every
+  Borel probability measure on $O_Q$ is perfect~\cite{Bogachev2007,
+  Fremlin2003}.  This follows from the Borel isomorphism theorem
+  (any uncountable standard Borel space is measurably isomorphic
+  to $\mathbb{R}$) together with inner regularity of finite Borel
+  measures on $\mathbb{R}$.
+\item \emph{Projective systems of perfect measures have
+  $\sigma$-additive limits with no leakage.}
+  Musia{\l}~\cite{Musial1980} proved that a projective system of
+  perfect probability measures over any directed index set admits a
+  unique $\sigma$-additive projective limit $P$ satisfying
+  $P(\Omega) = 1$.  No topological conditions on the spaces or maps
+  are required beyond measurability.
+\end{enumerate}
+Combining these facts gives the following corollary, which is a
+consequence of~\cite{Musial1980} applied to the query system setting.
+
+\begin{corollary}[Standard Borel architectural extension]
+\label{cor:standard-borel}
+Let $(\Qcal, \preceq)$ be a countable sequentially upper-directed
+query system whose outcome spaces $O_Q$ are standard Borel spaces
+and whose refinement maps are measurable.  Then every finitely
+compatible family $\{\ell_Q\}$ of Borel probability measures on
+the query system extends uniquely to a $\sigma$-additive probability
+measure $P$ on $(\Omega, \sigma(\Qcal))$ with $P(\Omega) = 1$.
+\end{corollary}
+
+\begin{proof}
+Each $\ell_Q$ is a Borel probability measure on a standard Borel
+space, hence perfect by fact~(i).  Musia{\l}'s theorem (fact~(ii))
+gives a $\sigma$-additive projective limit on $\prod_Q O_Q$ with
+full mass on the coherent locus.  The concentration argument of
+Section~\ref{sec:concentration} applies: the graph of each
+measurable refinement map $\pi^{Q_2}_{Q_1}: O_{Q_2} \to O_{Q_1}$
+is measurable in $O_{Q_1} \times O_{Q_2}$ when both spaces are
+standard Borel (the diagonal of a standard Borel space is
+measurable, since such spaces are $T_2$ and second countable after
+upgrading to their Polish topology~\cite{Srivastava1998}).  Each
+defect set $D_{Q_1,Q_2}$ is therefore measurable and null, and
+the countable union over all comparable pairs is null.
+\end{proof}
+
+\paragraph{What the two architectural corollaries together achieve.}
+Corollaries~\ref{cor:architectural} and~\ref{cor:standard-borel}
+together resolve Stopping Point~2 in the following two architecturally
+natural settings:
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Setting & Key condition & Corollary \\
+\midrule
+Compact outcome spaces & Surjective refinement maps & \ref{cor:architectural} \\
+Standard Borel outcome spaces & Measurable refinement maps & \ref{cor:standard-borel} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+In both cases the conclusion is identical: $\sigma$-additivity is not
+an assumption on the observer's laws but a consequence of the query
+system's architecture.  The observer need only supply finite
+compatibility; the spaces do the rest.
+
+The standard Borel setting covers the main computational case of the
+program: delay query systems with outcome spaces $O_{Q_{d,\tau}}
+= \mathbb{R}^d$ are standard Borel, so any compatible family of
+stationary process marginals extends to a $\sigma$-additive global
+measure without any tightness assumption.
+
+\paragraph{The leakage perspective.}
+The Yosida--Hewitt theorem~\cite{Dunford1958} provides the
+algebraic underpinning for both results.  Every finitely additive
+probability measure $\ell$ on a measurable algebra decomposes
+uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is
+$\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}
+--- the component that assigns positive mass to decreasing sequences
+of sets intersecting to empty.  The \emph{leakage} of a compatible
+family $\{\ell_Q\}$ is
+\[
+\lambda(\{\ell_Q\}) := 1 - P(\Omega),
+\]
+the total mass of the purely finitely additive parts that fails to
+concentrate on the coherent realization space $\Omega$.
+
+Stopping Point~2 asks when the query system architecture forces
+$\lambda = 0$ for every compatible family.  The compact and standard
+Borel cases are two settings where this holds.  The open question ---
+the remaining form of Stopping Point~2 --- is whether there are
+weaker architectural conditions on $(\Qcal, \preceq,
+\{\pi^{Q_2}_{Q_1}\})$ that also force $\lambda = 0$, applicable
+to spaces that are neither compact nor standard Borel.
+
+\paragraph{Open problems.}
+
+\begin{enumerate}
+\item \emph{The topology-free route.}
+Both architectural corollaries use some structure on the outcome
+spaces: topology (compact Hausdorff) in Corollary~\ref{cor:architectural},
+or measurable-space isomorphism to a Polish subspace (standard Borel)
+in Corollary~\ref{cor:standard-borel}.  The fully general question
+is whether $\lambda = 0$ can be forced from purely order-theoretic
+conditions on $(\Qcal, \preceq)$, with no structural assumptions
+on the $O_Q$.  The Mallory--Sion theorem~\cite{MallorySion1971}
+suggests the obstruction is measurability of the coherent locus
+$\Omega$ in the ambient product, and that this measurability is not
+guaranteed without additional structure.
+
+\item \emph{The uncountable case.}
+Concentration (Theorem~\ref{thm:concentration}) uses countability
+of $\Qcal$ to take a countable union of null defect sets.  For
+uncountable $\Qcal$, the correct generalization is a condition on
+determining subsystems: if $\Qcal$ admits a countable determining
+subsystem $\Qcal_0$ (coherence on $\Qcal_0$ forces coherence on
+all of $\Qcal$), the argument applies.  Characterizing when such
+subsystems exist is the open problem.
+
+\item \emph{Lean formalization.}
+The Lean~4/Mathlib formalization of this paper is nearly complete.
+\texttt{compactInverseLimit\_nonempty} (Proposition~\ref{prop:compact-core}(ii))
+is fully proved via the finite intersection property on
+$\prod_Q K_Q$.  The main theorem (\texttt{prokhorov\_extension})
+reduces to the algebraic extension theorem
+(\texttt{observational\_extension} in \texttt{QuerySystem.lean}),
+which packages the Carath\'eodory construction, $\sigma$-subadditivity,
+marginal recovery, and uniqueness.  One design point: the Lean
+statement of \texttt{prokhorov\_extension} carries an explicit
+\texttt{EvalSurjective} hypothesis (surjectivity of $\mathrm{eval}_Q$
+onto the full $O_Q$) not present in Theorem~\ref{thm:main}.  This
+is because the algebraic route through
+\texttt{observational\_extension} requires it directly, whereas the
+classical proof derives it from tightness via the inverse limit;
+a future refactor should add surjectivity of the bonding maps
+$\pi^{Q_2}_{Q_1}$ as a structural field and derive
+\texttt{EvalSurjective} from it.  The one remaining \texttt{sorry}
+is \texttt{prokhorov\_extension\_polish}
+(Corollary~\ref{cor:standard-borel}): the notion of a perfect measure
+and Musia{\l}'s theorem are absent from Mathlib~4; formalizing this
+corollary would require adding both.  The infrastructure for standard
+Borel spaces (\texttt{StandardBorelSpace} typeclass) and inner
+regularity (\texttt{Measure.InnerRegular}) is available, providing
+the foundation for future formalization.
+\end{enumerate}
+
+\bibliographystyle{plain}
+\bibliography{references}
+
+\section*{Acknowledgements}
+
+The author thanks Claude (Anthropic) for assistance with mathematical
+writing and technical discussion throughout the development of this
+work.  The author gratefully acknowledges financial support from
+Dr.\ Simon Bonner and Dr.\ Matt Davison at the University of Western
+Ontario, and from MITACS.
+
+\end{document}

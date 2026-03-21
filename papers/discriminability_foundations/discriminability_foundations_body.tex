@@ -1,34 +1,3 @@
-\documentclass[12pt]{article}
-
-\usepackage{amsmath, amsthm, amssymb}
-\usepackage{geometry}
-\usepackage{hyperref}
-\usepackage{enumitem}
-
-\geometry{margin=1.2in}
-
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
-\newtheorem{conjecture}[theorem]{Conjecture}
-\theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{example}[theorem]{Example}
-\theoremstyle{remark}
-\newtheorem{remark}[theorem]{Remark}
-
-\newcommand{\E}{\mathcal{E}}
-\newcommand{\B}{\mathcal{B}}
-\newcommand{\Q}{\mathcal{Q}}
-\newcommand{\sigE}{\sigma(\mathcal{E})}
-
-\title{Discriminability and the Origin of the $\sigma$-Algebra}
-\author{}
-\date{Draft: \today}
-
-\begin{document}
-
 \maketitle
 
 \begin{abstract}
@@ -545,8 +514,10 @@ conditions would emerge as special cases in which the witnessing query is guaran
 to exist by topological rather than structural means, both subsumed under a single
 algebraic result.
 
+\ifcsname thesismode\endcsname\else
 \bibliographystyle{plain}
 \bibliography{references}
+\fi
 
 \section*{Acknowledgements}
 
@@ -554,5 +525,3 @@ The author thanks Claude (Anthropic) for assistance with mathematical writing an
 technical discussion throughout the development of this work.  The author gratefully
 acknowledges financial support from Dr.\ Simon Bonner and Dr.\ Matt Davison at the
 University of Western Ontario, and from MITACS.
-
-\end{document}

@@ -13,6 +13,7 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{proposition}{Proposition}
 \newtheorem{corollary}{Corollary}
+\newtheorem{conjecture}{Conjecture}
 \newtheorem{remark}{Remark}
 \newtheorem{example}{Example}
 
@@ -731,7 +732,7 @@ $\mu \in O_{Q^*}$, fit a linear operator $L_\mu$ to the transitions
 observed in a neighbourhood of $\mu$, weighted by a locality kernel
 $w(\cdot, \mu)$ (e.g.\ Tricube).
 
-\begin{proposition}[Local linear maps as finite-rank approximations]
+\begin{proposition}[Local linear maps are finite-rank]
 \label{prop:local-linear}
 Let $\{\mu_1, \ldots, \mu_N\}$ be a finite sample of predictive states
 from $\nu_{Q^*}$, and let $w_k(\mu) = w(\mu, \mu_k)$ be locality weights
@@ -740,33 +741,41 @@ summing to~1.  The \emph{local linear approximation} to $K_t$ is
   (K_t^N g)(\mu) = \sum_{k=1}^N w_k(\mu)\, (L_k g)(\mu_k),
 \]
 where $L_k$ is the linear operator fitted to transitions in the
-neighbourhood of $\mu_k$.  Under regularity conditions on $K_t$ and the
-Fisher--Rao geometry of $O_{Q^*}$:
+neighbourhood of $\mu_k$.  Then $K_t^N$ is a finite-rank operator on
+$L^2(O_{Q^*}, \nu_{Q^*})$.
+\end{proposition}
+
+\begin{proof}
+A finite sum of rank-1 operators is finite-rank.
+\end{proof}
+
+\begin{conjecture}[Convergence of local linear approximation]
+\label{conj:local-linear-convergence}
+Under regularity conditions on $K_t$ and the Fisher--Rao geometry of
+$O_{Q^*}$:
 \begin{enumerate}
-  \item $K_t^N$ is a finite-rank operator on $L^2(O_{Q^*}, \nu_{Q^*})$.
   \item $\|K_t^N - K_t\|_{L^2} \to 0$ as $N \to \infty$ and the
     neighbourhood radius $\to 0$ at an appropriate rate.
   \item The approximation error is controlled by the curvature of
     $O_{Q^*}$ under the Fisher--Rao metric: flatter predictive state
     spaces require fewer local models.
 \end{enumerate}
-\end{proposition}
+\end{conjecture}
 
-\begin{proof}[Proof sketch]
-Part~1 is immediate: a finite sum of rank-1 operators is finite-rank.
-Parts~2 and~3 follow from standard results on kernel approximation of
-integral operators, applied to the Markov kernel $\Pi_t$ on the metric
-space $(O_{Q^*}, d_{\mathrm{FR}})$ where $d_{\mathrm{FR}}$ is the
-Fisher--Rao distance.  The locality weights $w_k$ provide a partition of
-unity approximation to the identity on $O_{Q^*}$; the local linear
+\begin{remark}[Proof strategy]
+The natural route to Conjecture~\ref{conj:local-linear-convergence} is
+via standard results on kernel approximation of integral operators,
+applied to the Markov kernel $\Pi_t$ on the metric space
+$(O_{Q^*}, d_{\mathrm{FR}})$.  The locality weights $w_k$ provide a
+partition of unity approximation to the identity; the local linear
 operators $L_k$ approximate the action of $K_t$ in each neighbourhood.
-The approximation rate depends on the smoothness of $\mu \mapsto \Pi_t(\mu,
-\cdot)$ with respect to $d_{\mathrm{FR}}$ --- a regularity condition that
-holds when the underlying system has sufficient mixing.  A full proof
-requires quantitative bounds on the operator norm error in terms of the
-neighbourhood radius and sample size $N$; this is left as a direction for
-future work.
-\end{proof}
+The approximation rate depends on the smoothness of
+$\mu \mapsto \Pi_t(\mu, \cdot)$ with respect to $d_{\mathrm{FR}}$ ---
+a regularity condition expected to hold when the underlying system has
+sufficient mixing.  Quantitative bounds on the operator norm error in
+terms of the neighbourhood radius, sample size $N$, and mixing rate
+are the concrete open problem (Open Question~\ref{oq:rates} below).
+\end{remark}
 
 \begin{remark}[Closing the loop]
 Proposition~\ref{prop:local-linear} closes the arc from foundations to
@@ -851,9 +860,10 @@ identifies DMD/EDMD as finite-rank projections of the predictive operator $K_t$
 in the deterministic limit, and generalizes them to the fully stochastic setting
 by working on the space of predictive laws rather than the phase space.  The
 local linear approximation scheme (Section~\ref{sec:operators}) is the
-probabilistic extension of EDMD; the convergence result
+probabilistic extension of EDMD; the finite-rank structure
 (Proposition~\ref{prop:local-linear}) is the query-theoretic analogue of the
-EDMD consistency theorems.
+EDMD construction, and Conjecture~\ref{conj:local-linear-convergence} is the
+analogue of the EDMD consistency theorems.
 
 \paragraph{Relation to information geometry.}
 The Fisher--Rao metric on $O_{Q^*}$ is the natural metric from information
@@ -890,9 +900,9 @@ rates of operator approximation.
     The remaining open question is the topology-free route for query
     systems whose outcome spaces are neither compact nor standard Borel.
 
-  \item \textbf{Quantitative approximation bounds.}
-    Proposition~\ref{prop:local-linear} establishes that local linear
-    maps converge to $K_t$ but leaves the rate unquantified.  The open
+  \item \textbf{Quantitative approximation bounds.}\label{oq:rates}
+    Conjecture~\ref{conj:local-linear-convergence} asserts convergence
+    of $K_t^N \to K_t$ but the rate is unquantified.  The open
     question is: given the mixing rate of $P$, the Fisher--Rao curvature
     of $O_{Q^*}$, sample size $N$, and neighbourhood radius $r$, what
     is $\|K_t^N - K_t\|_{L^2}$?  This is the concrete statistical

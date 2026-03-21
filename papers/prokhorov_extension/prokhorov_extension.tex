@@ -411,8 +411,10 @@ projections.  This follows by expressing $K_\Omega$ as an
 intersection in the compact product $\prod_Q K_Q$, where each finite
 sub-intersection is nonempty by surjectivity, and applying the
 finite intersection property.  The directed-set version of this
-argument is standard but is not yet available in Mathlib~4, and
-constitutes the main remaining gap in the Lean formalization.
+argument is standard; it has been formalized in Lean~4 as
+\texttt{compactInverseLimit\_nonempty}, using upper-directedness to
+supply a common upper bound at each finite stage and proof irrelevance
+on the partial-order witnesses to close the coherence conditions.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -949,16 +951,30 @@ all of $\Qcal$), the argument applies.  Characterizing when such
 subsystems exist is the open problem.
 
 \item \emph{Lean formalization.}
-The Lean~4/Mathlib formalization of this paper has two outstanding
-gaps.  First, the directed-set form of the inverse limit theorem
-(Proposition~\ref{prop:compact-core}(ii)) is not yet in Mathlib~4.
-Second, the notion of a perfect measure
-(Definition~\ref{def:sput}) and Musia{\l}'s theorem are absent
-from Mathlib; formalizing Corollary~\ref{cor:standard-borel}
-would require adding both.  The infrastructure for standard Borel
-spaces (\texttt{StandardBorelSpace} typeclass) and inner regularity
-(\texttt{Measure.InnerRegular}) is available, providing the
-foundation for future formalization.
+The Lean~4/Mathlib formalization of this paper is nearly complete.
+\texttt{compactInverseLimit\_nonempty} (Proposition~\ref{prop:compact-core}(ii))
+is fully proved via the finite intersection property on
+$\prod_Q K_Q$.  The main theorem (\texttt{prokhorov\_extension})
+reduces to the algebraic extension theorem
+(\texttt{observational\_extension} in \texttt{QuerySystem.lean}),
+which packages the Carath\'eodory construction, $\sigma$-subadditivity,
+marginal recovery, and uniqueness.  One design point: the Lean
+statement of \texttt{prokhorov\_extension} carries an explicit
+\texttt{EvalSurjective} hypothesis (surjectivity of $\mathrm{eval}_Q$
+onto the full $O_Q$) not present in Theorem~\ref{thm:main}.  This
+is because the algebraic route through
+\texttt{observational\_extension} requires it directly, whereas the
+classical proof derives it from tightness via the inverse limit;
+a future refactor should add surjectivity of the bonding maps
+$\pi^{Q_2}_{Q_1}$ as a structural field and derive
+\texttt{EvalSurjective} from it.  The one remaining \texttt{sorry}
+is \texttt{prokhorov\_extension\_polish}
+(Corollary~\ref{cor:standard-borel}): the notion of a perfect measure
+and Musia{\l}'s theorem are absent from Mathlib~4; formalizing this
+corollary would require adding both.  The infrastructure for standard
+Borel spaces (\texttt{StandardBorelSpace} typeclass) and inner
+regularity (\texttt{Measure.InnerRegular}) is available, providing
+the foundation for future formalization.
 \end{enumerate}
 
 \bibliographystyle{plain}

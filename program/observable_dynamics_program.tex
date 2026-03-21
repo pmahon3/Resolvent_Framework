@@ -250,11 +250,13 @@ Working note: \emph{Observational Probability from Delay Queries}
 Papers~1--3 are fully formalized in Lean~4 / Mathlib with zero
 \texttt{sorry} across all three source files
 (\texttt{QuerySystem.lean}, \texttt{PredictiveState.lean},
-\texttt{PredictiveOperators.lean}).  Paper~0 has a partial Lean
-formalization (\texttt{ProkhorovExtension.lean}); the main open gap
-is the directed-set inverse limit theorem with surjective bonding
-maps, not yet available in Mathlib~4.  See the Formalization Status
-section for details.
+\texttt{PredictiveOperators.lean}).  Paper~0 is nearly fully
+formalized (\texttt{ProkhorovExtension.lean}): the inverse limit
+theorem (\texttt{compactInverseLimit\_nonempty}) and the main
+extension theorem (\texttt{prokhorov\_extension}) are proved; one
+\texttt{sorry} remains in \texttt{prokhorov\_extension\_polish},
+blocked on \texttt{PerfectMeasure} and Musia\l's theorem being absent
+from Mathlib~4.  See the Formalization Status section for details.
 
 In summary, the program derives dynamical structure from observable
 experiments, progressing from observational compatibility through
@@ -527,10 +529,45 @@ from observable compatibility rather than being assumed.
 The $\sigma$-algebra $\mathcal B(O_Q)$ on each query outcome space is
 currently assumed.  The program demands a derivation: starting from
 a primitive class $\mathcal E_Q$ of reportable distinctions (closed
-under finite Boolean operations), show that $\sigma$-closure is forced
-by compatibility across refinements.  This would make measurable
-structure a theorem of observational compatibility rather than an
-input.
+under finite Boolean operations), can $\sigma$-closure be forced by
+compatibility across refinements?
+
+\emph{Partial resolution (Paper~$-1$, in development).}
+The question has been sharpened and partially resolved.  First, a
+negative result: exhaustiveness --- the first natural candidate for a
+finitary extension condition --- is trivially satisfied by any
+normalized finitely-additive valuation, and carries no content.  The
+genuine obstruction is \emph{continuity at $\emptyset$ from above}:
+for decreasing sequences in $\mathcal E_Q$ whose intersection escapes
+$\mathcal E_Q$ into $\sigma(\mathcal E_Q) \setminus \mathcal E_Q$,
+the valuations must converge to zero.  No finitary condition on any
+single query level can witness this; the regress is structural.
+
+Second, this is not a failure but a structural necessity:
+\emph{discriminability requires incompleteness}.  An observer with
+$\mathcal E_Q = \sigma(\mathcal E_Q)$ has no horizon and admits no
+nontrivial refinement.  The gap $\sigma(\mathcal E_Q)\setminus\mathcal
+E_Q$ is the constitutive outside that makes refinement possible.  The
+correct reading of the program's chain is therefore:
+\[
+\text{bounded discriminability}
+\;\to\;
+\text{refinement}
+\;\to\;
+\text{coherence}
+\;\to\;
+\text{probability.}
+\]
+
+The central open conjecture of Paper~$-1$ is that sequential
+upper-directedness --- already a hypothesis of the program ---
+provides \emph{witnessing from above}: finer queries see what coarser
+ones cannot, and compatibility propagates that witnessing back to force
+continuity at $\emptyset$ at every finite level.  If true, the
+$\sigma$-algebra is not derived by closing the gap but by the
+observer's commitment to acting as if a coherent world --- one in
+which gaps close --- exists, even though no observer in the system can
+occupy that completion.
 \end{conjecture}
 
 \begin{conjecture}[SP2: $\sigma$-additivity from compatibility]
@@ -735,8 +772,11 @@ directions become natural:
 
 \section{Current frontier}
 
-As of March 2026, the five-paper core spine is established:
+As of March 2026, the five-paper core spine is established and the
+foundational Paper~$-1$ is under active development:
 \[
+\mathcal E_Q
+\;\xrightarrow{\text{P$-1$}}\;
 \{\ell_Q\}
 \;\xrightarrow{\text{P0}}\;
 (\Omega,P)
@@ -749,44 +789,44 @@ K_t^N
 \;\xrightarrow{\text{P4}}\;
 \text{(local linear)}.
 \]
-Paper~0 derives $\sigma$-additivity under SPUT (pen-and-paper, partial
-Lean); Papers~1--3 are Lean-verified; Paper~4 is a complete working
-paper establishing the delay-query specialization, probabilistic
-sufficiency criterion, and local linear approximation.  All five papers
-now have proper abstracts, conclusions, related work sections, and
-bibliographies.
+Papers~0--4 are complete working papers with full proofs, abstracts,
+conclusions, related work, and bibliographies.  The Lean formalization
+covers Papers~1--3 (zero \texttt{sorry}) and Paper~0 (one remaining
+\texttt{sorry} in \texttt{prokhorov\_extension\_polish}, Mathlib-blocked).
+Paper~$-1$ (\texttt{discriminability\_foundations}) is in early
+development: the negative result and the necessity of incompleteness
+are established; the central conjecture (witnessing from above via
+sequential upper-directedness) is open.
 
 \paragraph{Immediate priorities.}
 
 \begin{enumerate}
 
+\item \textbf{SP1: The witnessing conjecture (Paper~$-1$).}
+The central open claim is that sequential upper-directedness provides
+witnessing from above for continuity at $\emptyset$, making
+$\sigma$-additivity a commitment rather than an assumption.  The
+gap to close: showing that the colimit query's event algebra is
+rich enough to contain the relevant limit events.  This is the
+most foundational open question in the program.
+
 \item \textbf{SP2 in the general non-compact, non-standard-Borel setting.}
-SP2 is now closed for two architectural classes: compact outcome spaces
-(Paper~0, Corollary~6.3) and standard Borel outcome spaces
-(Musia\l~1980 via perfectness, Paper~0 Discussion, Corollary).
-The remaining open form is: when $O_Q$ are locally compact but not
-standard Borel, can $\sigma$-additivity be forced from a structural
-condition on the query system without SPUT?  Candidate routes include
-Mallory--Sion-type arguments and compactification.
+SP2 is closed for compact (Paper~0, Corollary~6.3) and standard Borel
+(Musia\l~1980) outcome spaces.  The remaining open case is
+locally compact but non-standard-Borel.  Note: a resolution of SP1
+via the witnessing conjecture might simultaneously close this case,
+since the limit-query approach is topology-free.
 
-\item \textbf{Categorical adjunction (Conjecture~\ref{conj:adjunction}).}
-The sketch in the \texttt{categorical-foundations} branch needs to be
-promoted to a theorem.  The adjunction $\mathrm{Ext}\dashv\mathrm{Forget}$
-would give the program a clean categorical statement and connect it
-to the broader literature on categorical probability (Giry monad,
-Markov categories).
-
-\item \textbf{Lean formalization of Paper~0.}
-The main outstanding gap is the directed-set inverse limit theorem
-(Proposition~3.3(ii)).  Once this is available in Mathlib, all steps
-of the Paper~0 proof have clear formalization paths.
+\item \textbf{Lean formalization of Paper~0 (\texttt{prokhorov\_extension\_polish}).}
+One \texttt{sorry} remains, blocked on \texttt{PerfectMeasure} and
+Musia\l's theorem being absent from Mathlib~4.  No action until
+Mathlib upstream.
 
 \item \textbf{Quantitative approximation bounds (Paper~4, Open Question~3).}
-The convergence $\|K_t^N - K_t\|_{L^2} \to 0$ is established but
-rates are unquantified.  Bounds in terms of mixing rate of $P$,
-Fisher--Rao curvature of $O_{Q^*}$, sample size $N$, and
-neighbourhood radius $r$ would close the gap between theory and
-algorithm design.
+Convergence $\|K_t^N - K_t\|_{L^2} \to 0$ is established but rates
+are unquantified.  Bounds in terms of mixing rate, Fisher--Rao
+curvature, sample size $N$, and neighbourhood radius $r$ would close
+the gap between theory and algorithm design.
 
 \end{enumerate}
 

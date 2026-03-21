@@ -198,6 +198,58 @@ The gap here is metric, not syntactic: it concerns the measure-theoretic content
 sequences escaping a Boolean algebra, not the provability of sentences in a formal
 language.
 
+\subsection{Relation to existing literature}
+
+\paragraph{The Daniell-Stone theorem.}
+The extension criterion (Theorem~\ref{thm:extension-criterion}) is not new.  The
+condition we call \emph{continuity at $\emptyset$} is the same as the
+\emph{$\sigma$-continuity} (or \emph{$\sigma$-smoothness}) condition that appears in
+the Daniell--Stone theorem~\cite{Daniell1918,Stone1948}: a positive linear functional
+on a vector lattice extends to an integral if and only if it is $\sigma$-continuous,
+meaning it sends sequences decreasing to zero to sequences converging to zero.  Our
+setting is the Boolean algebra special case: indicator functions of events in $\E$ span
+a function lattice, and $\ell$ extends to a $\sigma$-additive measure if and only if
+it is $\sigma$-continuous on this lattice.  The Daniell--Stone perspective makes the
+extension condition most transparent; see Royden~\cite{Royden1988} Chapter~21 or
+Fremlin~\cite{Fremlin2006} Chapter~43 for modern treatments.
+
+What the present paper adds to this classical picture is not the criterion itself but
+its \emph{source}: where does $\sigma$-continuity come from in a system of observers,
+and is it forced by coherence or genuinely additional?
+
+\paragraph{De Finetti's coherence programme.}
+The question of whether countable additivity is a coherence requirement is the central
+tension in de Finetti's foundations of probability~\cite{deFinetti1974}.  De Finetti
+argued that finite additivity is necessary and sufficient for the avoidance of a Dutch
+book, and that $\sigma$-additivity is not a logical requirement of rational belief
+but an additional mathematical convenience.  Dubins and Savage~\cite{DubinsSavage1965}
+developed this position into a technically rich theory of finitely-additive gambling.
+
+The negative result of the present paper (Section~\ref{sec:negative}) is the precise
+mathematical expression of de Finetti's position in the observer-system setting:
+no finitary coherence condition forces $\sigma$-continuity.  The regress of
+Proposition~\ref{prop:regress} shows exactly why: finite coherence at any level can
+always be satisfied without forcing continuity at limits that escape the algebra.
+
+The positive direction --- when structural conditions on the \emph{system} of observers
+do force $\sigma$-additivity --- is addressed by Seidenfeld and
+Schervish~\cite{SeidenfeldSchervish1983}, who show that in dynamic betting settings
+with sequential structure, finite coherence can force countable additivity.  Our
+witnessing conjecture (Conjecture~\ref{conj:witnessing}) is in the same spirit:
+the sequential structure of the query system (upper-directedness) should force
+$\sigma$-continuity at every finite level.
+
+\paragraph{The constitutive outside.}
+The philosophical reading of the gap $\sigE \setminus \E$ as the \emph{constitutive
+outside} of an observer --- the excluded exterior that makes their identity as a
+discriminating observer possible --- draws on Laclau's concept of the constitutive
+outside in political theory~\cite{Laclau1990}: any identity requires an excluded
+exterior that is not merely contingently external but constitutive of the identity
+itself.  We adapt this structural idea to the observer-system setting, where the
+excluded exterior is the gap between the observer's Boolean algebra and its
+$\sigma$-closure.  The analogy is structural, not reductive: the gap here is
+measure-theoretic, not political.
+
 \subsection{Organisation}
 
 Section~\ref{sec:setup} sets up the single-observer case: a Boolean algebra $\E$ of
@@ -235,6 +287,10 @@ A \emph{discriminability structure} is a pair $(\E, \ell)$ where:
     $\ell(\emptyset) = 0$, $\ell(O) = 1$, and $\ell(A \cup B) = \ell(A) + \ell(B)$
     whenever $A \cap B = \emptyset$.
 \end{enumerate}
+This is equivalently a finitely-additive probability space in the sense of de
+Finetti~\cite{deFinetti1974}: $O$ is the outcome space, $\E$ makes explicit the
+observer's event language (the distinctions they can currently draw), and $\ell$
+is their coherent probability assignment on that language.
 \end{definition}
 
 \noindent No $\sigma$-algebra is assumed on $O$.  No topology is assumed.  The only

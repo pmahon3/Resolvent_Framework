@@ -128,10 +128,11 @@ satisfying:
 \end{definition}
 
 \begin{remark}[Lean formalization]
-The Lean formalization uses a structure \texttt{PredictiveSemigroupKernel}
-with exactly these three fields.  The discrete-time case $T=\mathbb{N}$
-is fully formalized; the continuous-time case $T=[0,\infty)$ and the
-associated $C_0$-semigroup theory are not yet formalized.
+The Lean formalization encodes this definition as a structure (named
+\texttt{PredictiveSemigroupKernel}) with exactly these three fields.
+The discrete-time case $T=\mathbb{N}$ is fully formalized; the
+continuous-time case $T=[0,\infty)$ and the associated
+$C_0$-semigroup theory are not yet formalized.
 \end{remark}
 
 The predictive state $q = Q_*(\omega)$ encodes the conditional law of
@@ -193,11 +194,12 @@ integrability under every finite kernel measure).
 \end{proof}
 
 \begin{remark}[Formalization scope]
-The Lean formalization of the semigroup property (\texttt{semigroup\_property})
-covers the discrete-time case $t,s\in\mathbb{N}$ for bounded measurable
-observables.  The explicit uniform bound $\exists\,C,\;\forall q,\;|g(q)|\le C$
-is a Lean hypothesis, required for the Bochner--Fubini step
-(\texttt{Kernel.integral\_comp}) used in the kernel composition argument.
+The Lean formalization covers the discrete-time semigroup property
+(theorem \texttt{semigroup\_property}) for bounded measurable
+observables.  The explicit uniform bound
+$\exists\,C,\;\forall q,\;|g(q)|\le C$ is a Lean hypothesis, required
+for the Bochner--Fubini step (\texttt{Kernel.integral\_comp}) used in
+the kernel composition argument.
 The continuous-time version ($t,s\in[0,\infty)$) and the associated
 $C_0$-semigroup theory, including the infinitesimal generator
 (Section~\ref{sec:generator}), are not yet formalized.
@@ -275,7 +277,7 @@ instantaneous predictive evolution and reduces to classical generators
 in the deterministic and Markov cases (Section~\ref{sec:koopman}).
 \end{remark}
 
-\section{Relation to Koopman and transfer operators}\label{sec:koopman}
+\section[Relation to Koopman operators]{Relation to Koopman and transfer operators}\label{sec:koopman}
 
 This section situates predictive operators within classical operator
 theory.
@@ -292,17 +294,18 @@ then
 Thus predictive operators reduce to the classical Koopman semigroup~\cite{Koopman1931}.
 \end{proposition}
 
-\begin{remark}[Flow semigroup law and point separation]
+\begin{remark}[Flow law and point separation]
 In the deterministic setting the Chapman--Kolmogorov equation implies
-the flow law $\phi_{t+s}=\phi_t\circ\phi_s$.  The Lean formalization
-(\texttt{deterministic\_semigroup}) derives this via the injectivity
-of the Dirac embedding $x\mapsto\delta_x$: from $\delta_{\phi_{t+s}(q)}
-=\delta_{\phi_t(\phi_s(q))}$ one concludes $\phi_{t+s}(q)=\phi_t(\phi_s(q))$.
-This step requires that the observable state space $O_{Q_*}$ separates
-points in the sense that distinct points are separated by measurable
-functions (i.e.\ the instance \texttt{[SeparatesPoints}~$O_{Q_*}$\texttt{]}
-in Lean).  This condition is satisfied by all standard Borel spaces and
-all Hausdorff spaces carrying a separating family of continuous functions.
+the flow law $\phi_{t+s}=\phi_t\circ\phi_s$.  The Lean proof uses
+injectivity of the Dirac embedding $x\mapsto\delta_x$: from
+\[
+\delta_{\phi_{t+s}(q)}=\delta_{\phi_t(\phi_s(q))}
+\]
+one concludes $\phi_{t+s}(q)=\phi_t(\phi_s(q))$ (Lean theorem
+\texttt{deterministic\_semigroup}).  This requires that $O_{Q_*}$
+separates points (Lean instance \texttt{[SeparatesPoints}~$O_{Q_*}$%
+\texttt{]}), which holds for all standard Borel spaces and all
+Hausdorff spaces with a separating family of continuous functions.
 \end{remark}
 
 \begin{remark}[Generator in deterministic systems]\label{rem:koopman-generator}

@@ -146,7 +146,7 @@ $(\Qcal_X, \preceq)$ with:
 \end{definition}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The delay query system as a query system}\label{sec:qs-fit}
+\section[The delay query system]{The delay query system as a query system}\label{sec:qs-fit}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 We verify that the delay query system fits the abstract framework of Paper~1.
@@ -239,7 +239,7 @@ structure.
 \end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Realizability of the delay query system}\label{sec:realizability}
+\section[Realizability]{Realizability of the delay query system}\label{sec:realizability}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 Paper~1 requires \emph{realizability}: the evaluation maps
@@ -749,11 +749,11 @@ computation.  The chain is:
   \;\xrightarrow{\text{Paper~1}}\;
   \underbrace{(\Omega, P)}_{\text{prob.\ space}}
   \;\xrightarrow{\text{Paper~2}}\;
-  \underbrace{O_{Q^*} \subseteq \Pcal(X)}_{\text{predictive states}}
+  \underbrace{O_{Q^*} \subseteq \Pcal(X)}_{\text{pred.\ states}}
   \;\xrightarrow{\text{Paper~3}}\;
   \underbrace{K_t \text{ on } L^2(O_{Q^*})}_{\text{operator}}
   \;\xrightarrow{\text{here}}\;
-  \underbrace{K_t^N}_{\text{local linear maps.}}
+  \underbrace{K_t^N}_{\text{local linear.}}
 \]
 Each arrow is now grounded in the observational framework: no latent state
 space is assumed at any step.  The local linear maps --- the original
@@ -818,8 +818,9 @@ is strictly weaker and applies to systems with noise, infinite-range
 memory, or no latent manifold at all.
 
 \paragraph{Relation to Koopman and data-driven methods.}
-Dynamic Mode Decomposition (DMD)~\cite{Schmid2010} and EDMD~\cite{Williams2015}
-approximate the Koopman operator from time-series data.  The present framework
+Dynamic Mode Decomposition (DMD)~\cite{Schmid2010} and
+EDMD~\cite{Williams2015} approximate the Koopman operator from
+time-series data.  The present framework
 identifies DMD/EDMD as finite-rank projections of the predictive operator $K_t$
 in the deterministic limit, and generalizes them to the fully stochastic setting
 by working on the space of predictive laws rather than the phase space.  The

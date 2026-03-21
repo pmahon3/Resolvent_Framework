@@ -1,21 +1,22 @@
-%% Shared notation for the thesis
-%% Individual papers may define their own macros locally;
-%% this file collects the cross-paper conventions.
+%% Shared notation for the thesis.
+%% Uses \providecommand so paper-local definitions take precedence
+%% when papers are compiled standalone.
 
 %% Boolean algebra / discriminability
-\newcommand{\Ecal}{\mathcal{E}}   % Boolean algebra of distinctions
-\newcommand{\sigE}{\sigma(\mathcal{E})}  % generated sigma-algebra
+\providecommand{\E}{\mathcal{E}}
+\providecommand{\Ecal}{\mathcal{E}}
+\providecommand{\sigE}{\sigma(\mathcal{E})}
 
 %% Query system
-\newcommand{\Qcal}{\mathcal{Q}}   % family of queries
-\newcommand{\Bcal}{\mathcal{B}}   % Borel sigma-algebra
-\newcommand{\Ccal}{\mathcal{C}}   % cylinder algebra
-\newcommand{\Omega}{\Omega}       % projective limit / realization space
+\providecommand{\Q}{\mathcal{Q}}
+\providecommand{\Qcal}{\mathcal{Q}}
+\providecommand{\B}{\mathcal{B}}
+\providecommand{\Bcal}{\mathcal{B}}
+\providecommand{\Ccal}{\mathcal{C}}
+\providecommand{\Fcal}{\mathcal{F}}
+\providecommand{\Pcal}{\mathcal{P}}
+\providecommand{\Xcal}{\mathcal{X}}
 
 %% Operators
-\newcommand{\Kt}{K_t}             % predictive operator at time t
-\newcommand{\KtN}{K_t^N}          % empirical approximation
-
-%% Measures
-\newcommand{\ell}{\ell}           % finitely-additive valuation
-\newcommand{\Prob}{\mathbb{P}}    % probability
+\providecommand{\Kt}{K_t}
+\providecommand{\KtN}{K_t^N}

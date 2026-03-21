@@ -1,16 +1,26 @@
 \documentclass[12pt, oneside]{book}
 
-\usepackage{amsmath, amsthm, amssymb}
+\usepackage{amsmath, amsthm, amssymb, mathtools}
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{import}   % for \subimport, handles relative paths in \input'd files
+\usepackage{bbm}
+\usepackage{booktabs}
+\usepackage{tikz}
+\usetikzlibrary{positioning, arrows.meta}
 
 \geometry{margin=1.2in}
 
+%% abstract environment (not built into book class)
+\newenvironment{abstract}{%
+  \small\begin{center}\textbf{Abstract}\end{center}\quotation}{\endquotation}
+
 %% Theorem environments (shared across all chapters)
+%% Papers define these locally with [section] counter when standalone;
+%% here we use [chapter] for thesis-wide numbering.
 \newtheorem{theorem}{Theorem}[chapter]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -24,6 +34,9 @@
 
 %% Shared notation
 \input{notation}
+
+%% Flag: suppresses per-chapter \bibliography calls in body files
+\def\thesismode{}
 
 %% Formatting
 \titleformat{\chapter}[display]
@@ -193,5 +206,8 @@ rather than merely convenient.
 \input{conclusion}
 
 \backmatter
+
+\bibliographystyle{plain}
+\bibliography{references}
 
 \end{document}

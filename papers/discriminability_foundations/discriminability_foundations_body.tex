@@ -1,212 +1,63 @@
 \maketitle
 
 \begin{abstract}
-What must an observer possess for coherent probabilistic reasoning to be possible?
-The standard answer begins with a $\sigma$-algebra of events --- a structure already
-assumed complete and given.  This paper asks whether the $\sigma$-algebra can instead
-be understood as something an observer is \emph{committed to}, rather than something
-they start with.
+De Finetti argued that finite additivity is the genuine coherence requirement for
+probability, and that $\sigma$-additivity is additional mathematical baggage.  He was
+right about isolated observers: no finitary condition stateable on a single Boolean
+algebra $\E$ forces continuity at $\emptyset$, and exhaustiveness --- the natural
+first candidate --- is trivially satisfied by every normalized finitely-additive
+valuation.
 
-We show that the question has two parts with opposite answers.  First, the
-$\sigma$-algebra cannot be derived from purely algebraic coherence conditions alone:
-any finitely-additive valuation on a Boolean algebra is automatically exhaustive, so
-exhaustiveness --- the natural first candidate --- carries no content.  The genuine
-obstruction is continuity at $\emptyset$ for sequences whose intersection escapes the
-algebra, and no finitary condition can witness this from within.
+This paper asks whether an observer \emph{embedded in a system} changes the answer.
+An observer who inhabits a query system --- a directed family of observers at different
+resolutions, all measuring the same world --- is not isolated.  The system's coherence
+conditions may do what finite additivity alone cannot.
 
-Second, this is not a failure but a structural necessity.  An observer with no gap
-between their Boolean algebra and its $\sigma$-closure has no horizon and admits no
-refinement.  The gap $\sigE \setminus \E$ is the constitutive outside that makes
-discrimination possible at all.  We call this \emph{discriminability requiring
-incompleteness}: coherent observational experience presupposes a world the observer
-cannot fully see.
-
-The positive content of the paper is that this gap can be \emph{witnessed from above}.
-Under sequential upper-directedness, the refinement structure of a query system provides
-exactly the external vantage point needed: finer queries see what coarser ones cannot,
-and compatibility propagates that witnessing back down to force continuity at $\emptyset$
-at every finite level.  The $\sigma$-algebra is not derived by closing the gap.  It is
-the minimal structure an observer is committed to by acting as if a coherent world ---
-one in which the gap closes --- exists, even though no observer in the system can
-occupy that completion.
-
-Sequential upper-directedness thus has a foundational reading beyond its role as a
-technical condition: it is the expression of what it means for an observer to inhabit
-a world coherent enough that every limit they cannot reach is nonetheless within reach
-of the system they participate in.
+We show two things.  First, the gap $\sigE \setminus \E$ is not a defect: an observer
+with no gap admits no nontrivial refinement and has no horizon.  Incompleteness is
+constitutive of discriminability.  Second, under sequential upper-directedness, finer
+queries witness what coarser ones cannot, and compatibility propagates that witnessing
+back down.  The central claim --- the witnessing conjecture --- is that this systemic
+coherence forces continuity at $\emptyset$ at every finite level, making
+$\sigma$-additivity a theorem about what it means to be embedded in a coherent world
+rather than an assumption about a single agent's beliefs.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Introduction}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{The primitive question}
+An observer makes distinctions.  The natural model is a Boolean algebra $\E$ of
+distinguishable events with a finitely-additive valuation $\ell : \E \to [0,1]$.
+The standard move is to pass to $\sigE$ and extend $\ell$ to a $\sigma$-additive
+measure.  But this extension requires a condition --- continuity at $\emptyset$ ---
+that is not implicit in finite additivity.  De Finetti's position was that this
+condition is not a logical requirement of rational belief but an additional
+mathematical convenience~\cite{deFinetti1974}, and he was right: no finitary coherence
+condition on $\E$ alone forces it.
 
-An observer of a physical or mathematical system makes distinctions.  Some outcomes are
-told apart; others are not.  The natural mathematical model for this is a Boolean algebra
-$\E$ of distinguishable events, together with a finitely-additive valuation $\ell : \E
-\to [0,1]$ recording the observer's quantitative assessments.
+This paper asks a different question.  An observer who inhabits a \emph{system} of
+observers at different resolutions --- a query system, with a refinement order and
+compatible marginals --- is not the isolated agent de Finetti had in mind.  The
+question is whether the system's coherence conditions supply the extension condition
+as a theorem.  The extension criterion (Theorem~\ref{thm:extension-criterion})
+identifies exactly what is needed: continuity at $\emptyset$ is $\sigma$-continuity
+in the sense of Daniell--Stone~\cite{Daniell1918,Stone1948}, and it is necessary and
+sufficient for unique $\sigma$-additive extension.  The question is where it comes from.
 
-The standard move in probability theory is to pass immediately to a $\sigma$-algebra:
-to close $\E$ under countable Boolean operations and extend $\ell$ to a $\sigma$-additive
-measure.  But this closure is not free.  It requires a condition --- continuity at
-$\emptyset$ --- that is not implicit in finite additivity alone.  And the closure
-itself contains events that the observer, by hypothesis, cannot directly distinguish.
+The paper establishes two results.  The negative result (Section~\ref{sec:negative})
+confirms de Finetti at the level of any single observer: the regress is structural,
+and no chain of finite refinements resolves it.  The incompleteness result
+(Section~\ref{sec:incompleteness}) shows the gap $\sigE \setminus \E$ is necessary:
+an observer with $\E_Q = \sigE_Q$ admits no nontrivial refinement and cannot be
+embedded in any interesting query system.  The positive result
+(Section~\ref{sec:positive}) is that sequential upper-directedness --- every sequence
+of queries has a common refinement --- provides a witnessing structure: finer queries
+see what coarser ones cannot, and compatibility propagates continuity at $\emptyset$
+back down.  The witnessing conjecture (Conjecture~\ref{conj:witnessing}) is that this
+is always sufficient.
 
-This paper asks: what does it mean for an observer to be committed to that closure?
-Where does the $\sigma$-algebra come from, if not from the observer's current
-distinctions?  And under what conditions on the observer's situation is the commitment
-forced, rather than merely adopted as a convention?
-
-\subsection{What this question is not}
-
-A natural first reading is: given a class $\E$ of distinctions, generate
-$\sigE$ and proceed.  This is a definition, not a theorem.  Any class of sets
-generates a $\sigma$-algebra; the generation step is trivial and carries no
-mathematical content.
-
-The non-trivial question is whether the $\sigma$-algebra is \emph{forced} --- whether
-an observer who begins with only $\E$ and the coherence conditions inherent in
-probabilistic reasoning is, by those conditions alone, \emph{committed} to $\sigE$.
-The difference is between constructing a $\sigma$-algebra and being unable to avoid one.
-
-\subsection{The saddle}
-
-This question lives at the boundary between two territories that pull in opposite
-directions.
-
-On one side: the philosophical question of what structures an observer must bring to
-experience for coherent probabilistic reasoning to be possible at all.  This is the
-Kantian question of conditions of possibility.  It is productive but unbounded ---
-one can discuss it indefinitely without producing mathematics.
-
-On the other side: the mathematical machinery of Carath\'{e}odory extension,
-Horn-Tarski theorems, and continuity conditions on premeasures.  Rigorous, but
-potentially disconnected from the foundational motivation.
-
-The productive place is the saddle: a single mathematically precise question whose
-answer settles something genuinely foundational.  We identify that question as:
-
-\begin{quote}
-\emph{Under what conditions on $\ell$ --- stateable purely in terms of $\ell$'s
-behavior on $\E$ --- does a normalized finitely-additive valuation $\ell : \E \to
-[0,1]$ on a Boolean algebra $\E$ extend uniquely to a $\sigma$-additive measure
-on $\sigE$?}
-\end{quote}
-
-\noindent And the deeper question beneath it:
-
-\begin{quote}
-\emph{In a system of multiple observers at different levels of resolution, do the
-structural coherence conditions of that system supply the extension condition as a
-theorem, or is it genuinely additional?}
-\end{quote}
-
-\subsection{The two results}
-
-The paper establishes two results that together give this question its definitive form.
-
-\medskip
-\noindent\textbf{The negative result (Section~\ref{sec:negative}).}
-The natural first candidate for the extension condition --- exhaustiveness,
-$\ell(E_n) \to 0$ for disjoint sequences --- is trivially satisfied by any normalized
-finitely-additive valuation.  The genuine obstruction is \emph{continuity at
-$\emptyset$ from above}: for decreasing sequences in $\E$ whose intersection is empty
-in $\sigE$ but not in $\E$, the valuations must converge to zero.  This condition
-cannot be witnessed from within $\E$ by finitary means.  The regress is real: pushing
-the witnessing to a finer query $Q'$ encounters the same wall at the level of $\E_{Q'}$.
-No algebraic or combinatorial condition on any single level forces it.
-
-\medskip
-\noindent\textbf{The positive result (Section~\ref{sec:positive}).}
-The gap between $\E$ and $\sigE$ is not a defect.  An observer with no gap admits no
-refinement: $\E_Q = \sigE_Q$ means the observer already sees everything a finer query
-could show them, which contradicts the existence of a genuine refinement order.  The
-gap is the \emph{constitutive outside} --- the space into which refinement reaches.
-
-Under sequential upper-directedness, the refinement structure of a query system
-witnesses the gap from above.  A finer query $Q'$ can see what $Q$ cannot; compatibility
-forces $\ell_Q(E_n) \to 0$ whenever the witnessing is present at level $Q'$.  Sequential
-upper-directedness --- every sequence of queries has a common refinement --- is the
-condition that guarantees witnessing is always available.
-
-The $\sigma$-algebra $\sigE_Q$ is therefore not closed by any observer in the system.
-It is the structure an observer is committed to by \emph{acting as if} a coherent world
-exists --- one in which all gaps close --- even though no observer in the system can
-occupy that completion.
-
-\medskip
-Together these results articulate a foundational chain:
-\[
-\text{bounded discriminability}
-\;\to\;
-\text{refinement}
-\;\to\;
-\text{coherence}
-\;\to\;
-\text{probability.}
-\]
-Bounded discriminability --- the observer's necessary incompleteness --- is what makes
-refinement non-trivial.  Refinement is what makes coherence across levels meaningful.
-Coherence is what forces probability to emerge.  The $\sigma$-algebra is not an input
-to this chain.  It is the form the chain takes.
-
-\subsection{What this paper does not do}
-
-This paper does not close the gap in the sense of deriving $\sigE_Q$ from something
-entirely outside measure theory.  The continuity condition at $\emptyset$ cannot be
-avoided: some form of it is necessary for any $\sigma$-additive extension to exist.
-What the paper shows is that this condition, rather than being an arbitrary technical
-assumption, is the mathematical expression of a structural fact about observers: that
-coherent observational experience requires a world that exceeds current distinctions.
-
-The paper also does not engage with Gödel's incompleteness theorems directly.  The
-structural analogy --- an observer cannot close their own gap from within, just as a
-formal system cannot prove its own consistency --- is motivating but not a reduction.
-The gap here is metric, not syntactic: it concerns the measure-theoretic content of
-sequences escaping a Boolean algebra, not the provability of sentences in a formal
-language.
-
-\subsection{Relation to existing literature}
-
-\paragraph{The Daniell-Stone theorem.}
-The extension criterion (Theorem~\ref{thm:extension-criterion}) is not new.  The
-condition we call \emph{continuity at $\emptyset$} is the same as the
-\emph{$\sigma$-continuity} (or \emph{$\sigma$-smoothness}) condition that appears in
-the Daniell--Stone theorem~\cite{Daniell1918,Stone1948}: a positive linear functional
-on a vector lattice extends to an integral if and only if it is $\sigma$-continuous,
-meaning it sends sequences decreasing to zero to sequences converging to zero.  Our
-setting is the Boolean algebra special case: indicator functions of events in $\E$ span
-a function lattice, and $\ell$ extends to a $\sigma$-additive measure if and only if
-it is $\sigma$-continuous on this lattice.  The Daniell--Stone perspective makes the
-extension condition most transparent; see Royden~\cite{Royden1988} Chapter~21 or
-Fremlin~\cite{Fremlin2006} Chapter~43 for modern treatments.
-
-What the present paper adds to this classical picture is not the criterion itself but
-its \emph{source}: where does $\sigma$-continuity come from in a system of observers,
-and is it forced by coherence or genuinely additional?
-
-\paragraph{De Finetti's coherence programme.}
-The question of whether countable additivity is a coherence requirement is the central
-tension in de Finetti's foundations of probability~\cite{deFinetti1974}.  De Finetti
-argued that finite additivity is necessary and sufficient for the avoidance of a Dutch
-book, and that $\sigma$-additivity is not a logical requirement of rational belief
-but an additional mathematical convenience.  Dubins and Savage~\cite{DubinsSavage1965}
-developed this position into a technically rich theory of finitely-additive gambling.
-
-The negative result of the present paper (Section~\ref{sec:negative}) is the precise
-mathematical expression of de Finetti's position in the observer-system setting:
-no finitary coherence condition forces $\sigma$-continuity.  The regress of
-Proposition~\ref{prop:regress} shows exactly why: finite coherence at any level can
-always be satisfied without forcing continuity at limits that escape the algebra.
-
-The positive direction --- when structural conditions on the \emph{system} of observers
-do force $\sigma$-additivity --- is addressed by Seidenfeld and
-Schervish~\cite{SeidenfeldSchervish1983}, who show that in dynamic betting settings
-with sequential structure, finite coherence can force countable additivity.  Our
-witnessing conjecture (Conjecture~\ref{conj:witnessing}) is in the same spirit:
-the sequential structure of the query system (upper-directedness) should force
-$\sigma$-continuity at every finite level.
+Section~\ref{sec:grounding} draws the foundational conclusions.
 
 \begin{aside}
 \paragraph{The constitutive outside.}
@@ -540,8 +391,8 @@ This is a condition on the query system's event algebras, not just on its index
 structure.  Making it precise is the next mathematical task.
 \end{remark}
 
-\begin{remark}[$\Omega$ as regulative ideal]
-\label{rem:omega-regulative}
+\begin{aside}
+\paragraph{$\Omega$ as regulative ideal.}
 The projective limit $\Omega$ of a query system is not itself a query.  No
 observer occupies it.  But the coherence conditions of the system --- compatibility
 of the $\ell_Q$, sequential upper-directedness, the extension theorem --- only make
@@ -556,7 +407,7 @@ events that vanish in the limit, even though they cannot see the limit directly.
 Sequential upper-directedness is the condition that makes this faith non-vacuous:
 it guarantees that the system has enough upward structure for the witnessing to always
 be available, even if no single observer can provide it alone.
-\end{remark}
+\end{aside}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Foundational conclusions}

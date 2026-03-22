@@ -23,6 +23,26 @@
 \newcommand{\Q}{\mathcal{Q}}
 \newcommand{\sigE}{\sigma(\mathcal{E})}
 
+%% Aside environment: provisional philosophical scaffolding.
+%% Content here is intended for a separate philosophy paper;
+%% the mathematical argument does not depend on it.
+\usepackage{xcolor}
+\usepackage{mdframed}
+\newmdenv[
+  backgroundcolor=gray!8,
+  linecolor=gray!50,
+  linewidth=0.8pt,
+  innertopmargin=8pt,
+  innerbottommargin=8pt,
+  innerleftmargin=10pt,
+  innerrightmargin=10pt,
+  skipabove=10pt,
+  skipbelow=10pt,
+  frametitle={\small\itshape Philosophical aside (provisional scaffold)},
+  frametitlealignment=\raggedright,
+  frametitleaboveskip=4pt,
+]{aside}
+
 \title{Discriminability and the Origin of the $\sigma$-Algebra}
 \author{}
 \date{Draft: \today}
@@ -239,22 +259,25 @@ witnessing conjecture (Conjecture~\ref{conj:witnessing}) is in the same spirit:
 the sequential structure of the query system (upper-directedness) should force
 $\sigma$-continuity at every finite level.
 
+\begin{aside}
 \paragraph{The constitutive outside.}
-The philosophical reading of the gap $\sigE \setminus \E$ as the \emph{constitutive
-outside} of an observer draws on a concept with a broad tradition in
-post-structuralist thought: that identity is constituted not only by what a thing
-\emph{is} but equally by what it excludes.  This idea originates in Derrida's analysis of difference and the supplement~\cite{Derrida1967}
---- the logic by which a presence is always already constituted by what it defers and
-excludes --- and has been developed through Hall's account of cultural identity as
-formed at its boundaries, and Laclau's explicit formulation of the constitutive
-outside in political theory~\cite{Laclau1990}.  The structural core --- that an
-entity's boundary is not an accidental limit but the very condition of its
-determinacy --- is what we carry into the mathematical setting.  An observer whose
-Boolean algebra coincides with its $\sigma$-closure has no boundary and therefore
-no horizon: the gap $\sigE \setminus \E$ is not a deficiency but the condition that
-makes the observer a discriminating agent rather than a terminus.  The analogy is
-structural, not reductive: the gap here is measure-theoretic, not political or
-cultural.
+The gap $\sigE \setminus \E$ admits a philosophical reading as the \emph{constitutive
+outside} of an observer.  This concept has a broad tradition in post-structuralist
+thought: that identity is constituted not only by what a thing \emph{is} but equally
+by what it excludes.  The idea originates in Derrida's analysis of difference and the
+supplement~\cite{Derrida1967} --- the logic by which a presence is always already
+constituted by what it defers and excludes --- and has been developed through Hall's
+account of cultural identity as formed at its boundaries, and Laclau's explicit
+formulation of the constitutive outside in political theory~\cite{Laclau1990}.  The
+structural core --- that an entity's boundary is not an accidental limit but the very
+condition of its determinacy --- is what is carried into the mathematical setting.  An
+observer whose Boolean algebra coincides with its $\sigma$-closure has no boundary
+and therefore no horizon: the gap $\sigE \setminus \E$ is not a deficiency but the
+condition that makes the observer a discriminating agent rather than a terminus.
+
+This framing is provisional.  The goal is a fully mathematical expression of the
+same structural fact, at which point this philosophical scaffold can be set aside.
+\end{aside}
 
 \subsection{Organisation}
 
@@ -481,6 +504,48 @@ In any query system with a genuine (nontrivial, infinite) refinement order, ever
 observer at a finite level $Q$ has a nonempty gap.  Discriminability is necessarily
 incomplete at every finite level.
 \end{corollary}
+
+\begin{aside}
+\paragraph{The tetralemma and the middle way.}
+The structure of the argument across Sections~\ref{sec:negative}
+and~\ref{sec:incompleteness} has the form of N\=ag\=arjuna's
+\emph{catu\d{s}ko\d{t}i} (tetralemma), the four-cornered dialectic of the
+Madhyamaka tradition~\cite{Nagarjuna1995,Garfield1995}.  Applied to the question
+of the $\sigma$-algebra's origin, the four corners are:
+
+\begin{enumerate}
+  \item \emph{It is derivable from finitary conditions.}
+    Refuted: no finitary condition forces continuity at $\emptyset$
+    (Section~\ref{sec:negative}).
+
+  \item \emph{It must simply be assumed as primitive.}
+    Unsatisfying: this is not a derivation but a deferral --- the question of
+    its origin is never asked.
+
+  \item \emph{Both: derive it and assume it.}
+    Incoherent: one cannot derive what one has already assumed.
+
+  \item \emph{Neither: the $\sigma$-algebra is neither derived nor assumed.}
+    Then what is it?
+\end{enumerate}
+
+The witnessing conjecture (Conjecture~\ref{conj:witnessing}) proposes the middle
+way: the $\sigma$-algebra is \emph{committed to} --- it is what a coherent observer
+is bound to by acting as if a completion exists, even though no observer occupies
+it.  This is not a fifth position in the tetralemma but a dissolution of the
+original question: the question ``where does the $\sigma$-algebra come from?'' was
+assuming a false dichotomy between derivation and assumption.
+
+Priest's analytic reconstruction of the catuṣkoṭi~\cite{PriestBeyond2010} makes
+precise the logical structure of this kind of reasoning: it is not classical
+refutation but a demonstration that each of the four positions, taken as fixed, is
+untenable, clearing the ground for a conception that does not take any of them as
+its starting point.
+
+This framing is provisional.  The goal is a fully mathematical expression ---
+the witnessing conjecture itself, once proved --- at which point the dialectical
+scaffold can be set aside and the mathematics speaks alone.
+\end{aside}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{The positive result: witnessing from above}

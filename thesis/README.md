@@ -1,32 +1,30 @@
-# Thesis scaffold
+# Thesis
+
+`thesis.tex` — master document assembling all six papers.
+
+**Title:** *On the Formalities of Discriminability and Probability with Application to Dynamical Systems*
 
 ## Structure
 
-`thesis.tex` — master document. Uses `\subimport` to pull in each paper.
+Each paper has a `*_body.tex` file containing only its body content
+(no `\documentclass`, no preamble). The standalone paper `.tex` files
+`\input` their body files; the thesis picks them up via `\subimport`.
 
-Each paper directory needs a `*_body.tex` file containing only the paper's
-body content (no `\documentclass`, no `\begin{document}`, no preamble).
-The standalone paper `.tex` file should `\input` its own body file, so
-the body is maintained in exactly one place.
+Bibliography and acknowledgements in body files are guarded by
+`\ifcsname thesismode\endcsname\else ... \fi` so they appear in
+standalone compilation but are suppressed in the thesis (which
+has a single combined bibliography and acknowledgements page).
 
-## How to create a `_body.tex` for a paper
-
-In each paper's `.tex` file:
-1. Move everything between `\begin{document}` and `\end{document}`
-   into `papername_body.tex`
-2. Replace that block in the standalone file with `\input{papername_body}`
-3. The thesis picks up `papername_body.tex` via `\subimport`
-
-## Status
+## Body file status
 
 | Paper | Body file | Status |
 |-------|-----------|--------|
-| Paper −1 | `discriminability_foundations_body.tex` | TODO |
-| Paper 0  | `prokhorov_extension_body.tex` | TODO |
-| Paper 1  | `observational_foundations_body.tex` | TODO |
-| Paper 2  | `predictive_operator_theory_body.tex` | TODO |
-| Paper 3  | `predictive_experiments_body.tex` | TODO |
-| Paper 4  | `observational_probability_body.tex` | TODO |
+| Paper −1 | `discriminability_foundations_body.tex` | done |
+| Paper 0  | `prokhorov_extension_body.tex` | done |
+| Paper 1  | `observational_foundations_body.tex` | done |
+| Paper 2  | `predictive_operator_theory_body.tex` | done |
+| Paper 3  | `predictive_experiments_body.tex` | done |
+| Paper 4  | `observational_probability_body.tex` | done |
 
 ## Interstitial chapters
 
@@ -43,6 +41,22 @@ In each paper's `.tex` file:
 From `thesis/`:
 ```
 pdflatex thesis.tex
+bibtex thesis
+pdflatex thesis.tex
+pdflatex thesis.tex
 ```
 
-Note: will not compile until all `_body.tex` files exist.
+## Shared files
+
+- `notation.tex` — shared macro definitions
+- `references.bib` — combined bibliography (deduplicated from all six paper bib files)
+- `../papers/acknowledgements.tex` — shared acknowledgements text
+
+## Notes
+
+- `thesis.tex` defines `\def\thesismode{}` which suppresses per-chapter
+  bibliography and acknowledgements calls in the body files.
+- `thesis.tex` defines the `aside` environment (mdframed-based) for
+  provisional philosophical scaffolding present in Paper −1.
+- When a paper's `references.bib` is updated, regenerate `thesis/references.bib`
+  by deduplicating across all six paper bib files.

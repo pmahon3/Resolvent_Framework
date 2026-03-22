@@ -13,14 +13,20 @@ An observer who inhabits a query system --- a directed family of observers at di
 resolutions, all measuring the same world --- is not isolated.  The system's coherence
 conditions may do what finite additivity alone cannot.
 
-We show two things.  First, the gap $\sigE \setminus \E$ is not a defect: an observer
+We show three things.  First, the gap $\sigE \setminus \E$ is not a defect: an observer
 with no gap admits no nontrivial refinement and has no horizon.  Incompleteness is
-constitutive of discriminability.  Second, under sequential upper-directedness, finer
-queries witness what coarser ones cannot, and compatibility propagates that witnessing
-back down.  The central claim --- the witnessing conjecture --- is that this systemic
-coherence forces continuity at $\emptyset$ at every finite level, making
-$\sigma$-additivity a theorem about what it means to be embedded in a coherent world
-rather than an assumption about a single agent's beliefs.
+constitutive of discriminability.  Second, the witnessing conjecture as originally
+formulated is false: index-layer coherence conditions --- sequential upper-directedness
+and compatibility --- do not force $\sigma$-additivity.  The counterexample is a
+compatible family on a sequentially upper-directed system in which every observer
+permanently assigns unit mass to a sequence of events that the system as a whole sees
+as empty.  Third, we identify the correct characterisation: a family of finitely-additive
+contents extends to $\sigma$-additive measures at every level if and only if it is
+\emph{collectively exhaustive} --- a valuation-layer condition requiring that every
+vanishing sequence is witnessed somewhere in the refinement order.  Collective exhaustion
+is neither derivable from index-layer conditions (the counterexample shows this) nor a
+raw axiom: it is the exact semantic criterion distinguishing systems that model coherent
+worlds from those that do not.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -45,17 +51,17 @@ identifies exactly what is needed: continuity at $\emptyset$ is $\sigma$-continu
 in the sense of Daniell--Stone~\cite{Daniell1918,Stone1948}, and it is necessary and
 sufficient for unique $\sigma$-additive extension.  The question is where it comes from.
 
-The paper establishes two results.  The negative result (Section~\ref{sec:negative})
+The paper establishes three results.  The negative result (Section~\ref{sec:negative})
 confirms de Finetti at the level of any single observer: the regress is structural,
 and no chain of finite refinements resolves it.  The incompleteness result
 (Section~\ref{sec:incompleteness}) shows the gap $\sigE \setminus \E$ is necessary:
 an observer with $\E_Q = \sigE_Q$ admits no nontrivial refinement and cannot be
 embedded in any interesting query system.  The positive result
-(Section~\ref{sec:positive}) is that sequential upper-directedness --- every sequence
-of queries has a common refinement --- provides a witnessing structure: finer queries
-see what coarser ones cannot, and compatibility propagates continuity at $\emptyset$
-back down.  The witnessing conjecture (Conjecture~\ref{conj:witnessing}) is that this
-is always sufficient.
+(Section~\ref{sec:positive}) resolves the original witnessing conjecture: the conjecture
+was malformed, conflating index-layer and valuation-layer conditions.  We show that
+index-layer coherence does not force $\sigma$-additivity (counterexample), and that
+$\sigma$-additivity is equivalent to collective exhaustion, a purely valuation-layer
+condition (Theorem~\ref{thm:sp1}).
 
 Section~\ref{sec:grounding} draws the foundational conclusions.
 
@@ -92,8 +98,9 @@ finitary condition on any single level can supply this.
 Section~\ref{sec:incompleteness} establishes the necessity of incompleteness: an
 observer with $\E_Q = \sigE_Q$ admits no genuine refinement.
 
-Section~\ref{sec:positive} establishes the positive result: sequential upper-directedness
-provides witnessing from above, and compatibility propagates it back down.
+Section~\ref{sec:positive} resolves SP1: it proves the independence of index- and
+valuation-layer conditions and establishes the SP1 equivalence (collective exhaustion
+$\iff$ $\sigma$-additive extensibility).
 
 Section~\ref{sec:grounding} draws the foundational conclusions: the $\sigma$-algebra as
 commitment rather than assumption, and the structural hypotheses as expressions of
@@ -314,9 +321,10 @@ Madhyamaka tradition~\cite{Nagarjuna1995,Garfield1995}.  Applied to the question
 of the $\sigma$-algebra's origin, the four corners are:
 
 \begin{enumerate}
-  \item \emph{It is derivable from finitary conditions.}
-    Refuted: no finitary condition forces continuity at $\emptyset$
-    (Section~\ref{sec:negative}).
+  \item \emph{It is derivable from finitary or index-layer conditions.}
+    Refuted: no finitary or index-layer condition forces continuity at $\emptyset$.
+    Section~\ref{sec:negative} establishes the structural regress; Proposition~\ref{prop:independence}
+    provides the explicit counterexample.
 
   \item \emph{It must simply be assumed as primitive.}
     Unsatisfying: this is not a derivation but a deferral --- the question of
@@ -329,66 +337,121 @@ of the $\sigma$-algebra's origin, the four corners are:
     Then what is it?
 \end{enumerate}
 
-The witnessing conjecture (Conjecture~\ref{conj:witnessing}) proposes the middle
-way: the $\sigma$-algebra is \emph{committed to} --- it is what a coherent observer
-is bound to by acting as if a completion exists, even though no observer occupies
-it.  This is not a fifth position in the tetralemma but a dissolution of the
-original question: the question ``where does the $\sigma$-algebra come from?'' was
-assuming a false dichotomy between derivation and assumption.
+Theorem~\ref{thm:sp1} (SP1) gives the middle way: collective exhaustion is the
+exact valuation-layer condition that characterises $\sigma$-additive extensibility.
+The $\sigma$-algebra is \emph{committed to} by a system that models a coherent world
+--- not derived from index-layer conditions (C1 is false, by Proposition~\ref{prop:independence})
+and not assumed as a raw axiom (C2 is unsatisfying).  The dissolution is that the
+original question was malformed: it asked for a derivation within a single layer when
+the phenomenon spans two.
 
 Priest's analytic reconstruction of the catuṣkoṭi~\cite{PriestBeyond2010} makes
 precise the logical structure of this kind of reasoning: it is not classical
 refutation but a demonstration that each of the four positions, taken as fixed, is
 untenable, clearing the ground for a conception that does not take any of them as
-its starting point.
-
-This framing is provisional.  The goal is a fully mathematical expression ---
-the witnessing conjecture itself, once proved --- at which point the dialectical
-scaffold can be set aside and the mathematics speaks alone.
+its starting point.  The mathematics now speaks alone.
 \end{aside}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The positive result: witnessing from above}
+\section{The SP1 resolution}
 \label{sec:positive}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-The negative result says no finite level can close its own gap.  The positive result
-says the system, taken as a whole, can witness the gap from above --- provided it has
-enough upward structure.
+The negative result established that no finitary or index-layer condition can force
+$\sigma$-additivity.  This section completes the picture: we identify the exact
+valuation-layer condition that characterises $\sigma$-additive extensibility, show it
+is independent of the index-layer conditions, and prove the equivalence.
 
-\begin{definition}[Witnessing]
-\label{def:witnessing}
-A query system \emph{witnesses continuity at $\emptyset$ for $Q$} if: for every
-decreasing sequence $E_1 \supseteq E_2 \supseteq \cdots$ in $\E_Q$ with
-$\bigcap_n E_n = \emptyset$ in $\sigE_Q$, there exists $Q' \succeq Q$ (depending
-on the sequence) such that $\bigcap_n \pi^{-1}(E_n) = \emptyset$ \emph{in $\E_{Q'}$}
-and $\ell_{Q'}(\pi^{-1}(E_n)) \to 0$.
+\begin{proposition}[Independence of index and valuation layers]
+\label{prop:independence}
+Sequential upper-directedness together with compatibility of finitely-additive contents
+does not force $\sigma$-additivity.  There exists a compatible family of normalized
+finitely-additive contents on a sequentially upper-directed query system that fails
+$\sigma$-additive extension at every level.
+\end{proposition}
+
+\begin{proof}
+Let $\iota = \mathbb{N} \cup \{\omega\}$ with $n \leq \omega$ for all $n \in \mathbb{N}$,
+directed by this order.  This is sequentially upper-directed: $\omega$ is a universal
+upper bound for every sequence.  Take all outcome spaces to be $\mathbb{Q}$, all event
+algebras to be the finite-cofinite algebra $\mathcal{E} = \{E \subseteq \mathbb{Q} :
+E \text{ is finite or } E^c \text{ is finite}\}$, and all refinement maps to be the
+identity.  Define $\ell(E) = 0$ if $E$ is finite and $\ell(E) = 1$ if $E$ is cofinite.
+This is a normalized finitely-additive content, and compatibility holds trivially.
+
+Fix an enumeration $q : \mathbb{N} \to \mathbb{Q}$.  Let $F_n = \{q(0), \ldots, q(n)\}$.
+Each $F_n$ is finite, so $\ell(F_n) = 0$ for all $n$.  Since $q$ is surjective,
+$\bigcup_n F_n = \mathbb{Q}$, and $\ell(\mathbb{Q}) = 1$.  $\sigma$-subadditivity
+would give $1 \leq \sum_n \ell(F_n) = 0$: contradiction.  So $\ell$ fails
+$\sigma$-additive extension at every level.
+\end{proof}
+
+\noindent This closes C1 of the tetralemma (Section~\ref{sec:incompleteness}): the
+$\sigma$-algebra is not derivable from index-layer coherence conditions alone.  The
+content is perfectly coherent within the finite-cofinite algebra; the failure is a
+valuation-layer pathology invisible to the index structure.
+
+\begin{definition}[Collectively exhaustive]
+\label{def:collective-exhaustion}
+A compatible family $\{\ell_Q\}$ of normalized finitely-additive contents on a query
+system is \emph{collectively exhaustive} if: for every level $Q$ and every decreasing
+sequence $E_1 \supseteq E_2 \supseteq \cdots$ of events in $\E_Q$ with $\bigcap_n E_n
+= \emptyset$, there exists $Q' \succeq Q$ such that $\ell_{Q'}(\pi^{-1}(E_n)) \to 0$.
 \end{definition}
 
-\noindent The key difference from the regress of Section~\ref{sec:negative}: we now
-require $\bigcap_n \pi^{-1}(E_n) = \emptyset$ in $\E_{Q'}$ itself (not just in
-$\sigE_{Q'}$), and we require $\ell_{Q'}(\pi^{-1}(E_n)) \to 0$ --- which, as we will
-show, follows from the witnessing together with sequential upper-directedness.
+\noindent Collective exhaustion is a \emph{valuation-layer} condition: it places a
+requirement on how the contents behave, not on the index structure of the query system.
+It says that no observer can assign persistent mass to events that the system as a whole
+sees as empty.  The counterexample above fails collective exhaustion: for the sequence
+$E_n = \mathbb{Q} \setminus F_n$ (cofinite sets shrinking to $\emptyset$), every level
+assigns content $1$ to $\pi^{-1}(E_n) = E_n$, and no witness exists anywhere in the
+system.
 
-\begin{conjecture}[Witnessing theorem]
-\label{conj:witnessing}
-Let $\{(\E_Q, \ell_Q)\}$ be a compatible family on a sequentially upper-directed
-query system.  Then the system witnesses continuity at $\emptyset$ for every $Q$.
-Consequently, $\ell_Q$ extends uniquely to a $\sigma$-additive measure on $\sigE_Q$
-for every $Q$.
-\end{conjecture}
+\begin{theorem}[SP1: collective exhaustion characterises $\sigma$-additivity]
+\label{thm:sp1}
+Let $\{\ell_Q\}$ be a normalized compatible family of finitely-additive contents on
+a query system.  The following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item The family is collectively exhaustive.
+  \item $\ell_Q$ extends uniquely to a $\sigma$-additive measure on $\sigE_Q$
+        for every $Q$.
+\end{enumerate}
+\end{theorem}
 
-\begin{remark}[Status]
-Conjecture~\ref{conj:witnessing} is the central open claim of this paper.  The
-obstacle to proving it is precisely the regress identified in
-Proposition~\ref{prop:regress}: sequential upper-directedness guarantees a common
-upper bound for any sequence of queries, but it does not automatically guarantee
-that the common upper bound's event algebra contains the empty intersection of the
-lifted sets.  The additional condition needed is that the colimit query's event algebra
-is \emph{rich enough} --- that the limit events are actually present at the upper bound.
+\begin{proof}
+\emph{(i) $\Rightarrow$ (ii).}  Fix $Q$ and a decreasing sequence $E_n \searrow
+\emptyset$ in $\mathcal{E}_Q$.  By collective exhaustion, find $Q' \succeq Q$ with
+$\ell_{Q'}(\pi^{-1}(E_n)) \to 0$.  By compatibility, $\ell_Q(E_n) =
+\ell_{Q'}(\pi^{-1}(E_n)) \to 0$.  So $\ell_Q$ is continuous at $\emptyset$.  By the
+extension criterion (Theorem~\ref{thm:extension-criterion}), $\ell_Q$ extends uniquely
+to a $\sigma$-additive measure on $\sigE_Q$.
 
-This is a condition on the query system's event algebras, not just on its index
-structure.  Making it precise is the next mathematical task.
+\emph{(ii) $\Rightarrow$ (i).}  Suppose $\ell_Q$ extends to $\mu_Q$ for every $Q$.
+Let $E_n \searrow \emptyset$ in $\mathcal{E}_Q$.  Then $\ell_Q(E_n) = \mu_Q(E_n) \to
+\mu_Q(\emptyset) = 0$ by $\sigma$-additivity of $\mu_Q$ and normalization (which ensures
+$\mu_Q(E_0) \leq \mu_Q(O_Q) = 1 < \infty$, the finiteness condition for continuity from
+above).  Take $Q' = Q$.
+\end{proof}
+
+\begin{remark}[The dissolution]
+\label{rem:dissolution}
+The original witnessing conjecture asked whether index-layer conditions (sequential
+upper-directedness, compatibility) force $\sigma$-additivity.
+Proposition~\ref{prop:independence} shows the answer is no.  The question was
+malformed: it conflated the index layer (the preorder, refinement maps, sequential
+upper-directedness) with the valuation layer (the contents, compatibility, continuity
+at $\emptyset$).  These layers are independent.
+
+The correct question is: what valuation-layer condition characterises $\sigma$-additive
+extensibility?  Theorem~\ref{thm:sp1} answers it: collective exhaustion.  It is not an
+axiom imposed from outside --- it is the exact semantic criterion separating systems that
+model coherent worlds (every convergence is witnessed somewhere in the refinement order)
+from those that do not.
+
+Note that sequential upper-directedness plays no role in Theorem~\ref{thm:sp1}: it is
+a per-level result, mediated by the refinement structure.  Sequential upper-directedness
+enters when one asks whether the per-level extensions assemble into a global probability
+space over $\Omega$ --- that is the next question (SP2).
 \end{remark}
 
 \begin{aside}
@@ -404,9 +467,12 @@ Continuity at $\emptyset$ for $\ell_Q$ is the local expression of this global
 orientation: the observer acts as if $\Omega$ exists, assigning vanishing weight to
 events that vanish in the limit, even though they cannot see the limit directly.
 
-Sequential upper-directedness is the condition that makes this faith non-vacuous:
-it guarantees that the system has enough upward structure for the witnessing to always
-be available, even if no single observer can provide it alone.
+Collective exhaustion is the condition that makes this faith non-vacuous at the
+per-level scale: it requires that the system always contains a witness for any
+convergence, even if no single observer at the current level can provide it.
+Sequential upper-directedness enters at the global scale (SP2): it guarantees
+that the system has enough upward structure to assemble a single probability space
+over $\Omega$ from the per-level extensions.
 \end{aside}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -434,12 +500,17 @@ that an observer's commitments generate when extended to their countable limit.
 
 Sequential upper-directedness says: every sequence of queries has a common
 refinement.  As a bare structural condition on a query system, it might appear
-to be merely a technical convenience.
+to be merely a technical convenience.  The SP1 theorem shows it is not needed
+for per-level $\sigma$-additivity --- that is the role of collective exhaustion.
+Sequential upper-directedness enters essentially at the global level: it is the
+condition that makes the per-level extensions assemblable into a single probability
+space over $\Omega$ (SP2).
 
 The present analysis gives it a foundational reading: sequential upper-directedness
-is the condition that the observer's world is rich enough to always provide a
-witness for limits they cannot themselves see.  It is not a condition on what the
-observer knows.  It is a condition on what the world they inhabit makes available.
+is the condition that the observer's world is rich enough to support the global
+assembly of local coherence into a single underlying reality.  It is not a condition
+on what any observer knows.  It is a condition on what the world they inhabit makes
+available at the level of the whole.
 
 An observer system satisfying sequential upper-directedness is one in which
 \emph{every question has an answer at some finer level} --- not an answer the
@@ -452,25 +523,33 @@ the expression of a single underlying reality: different observers at different
 levels are measuring the same world, and their measurements must cohere because
 there is a world for them to cohere about.
 
-\subsection{What remains open}
+\subsection{What SP1 establishes and what remains}
 
-The central open question is Conjecture~\ref{conj:witnessing}: whether sequential
-upper-directedness, together with compatible marginals and the structure of the
-event algebras, is sufficient to force witnessing at every finite level.
+Theorem~\ref{thm:sp1} completes the chain begun in Section~\ref{sec:negative}:
+\[
+  \text{bounded discriminability}
+  \;\longrightarrow\; \text{refinement}
+  \;\longrightarrow\; \text{coherence}
+  \;\longrightarrow\; \text{probability.}
+\]
+Every arrow is now a theorem or definition.  ``Coherence'' here means collective
+exhaustion: the valuation-layer condition that distinguishes systems modelling
+coherent worlds from those that do not.
 
-The gap between the negative result and the positive conjecture is the condition
-on the event algebras of the upper bounds --- whether colimit queries are
-\emph{event-algebra-rich} in the relevant sense.  This is likely closely related
-to the notion of a $\sigma$-complete Boolean algebra and to the theory of Stone
-spaces, where the Stone space of $\sigE$ is the closure of the Stone space of
-$\E$ in the appropriate topology.  Making this connection precise is the principal
-remaining task.
+\textbf{SP2: the global extension.}  Theorem~\ref{thm:sp1} gives per-level
+extensions $\mu_Q$ on $\sigE_Q$ for each $Q$.  The next question is whether these
+assemble into a single $\sigma$-additive measure on the projective limit $\Omega$.
+For compact outcome spaces, this follows from the Prokhorov extension theorem.  For
+standard Borel spaces, it follows from Musia\l's theorem via perfectness.  The
+topology-free case --- whether collective exhaustion together with sequential
+upper-directedness gives the global extension without topological assumptions ---
+remains open.
 
-A resolution of Conjecture~\ref{conj:witnessing} would give the $\sigma$-additivity
-of the valuations $\ell_Q$ a topology-free derivation: compactness and Polish space
-conditions would emerge as special cases in which the witnessing query is guaranteed
-to exist by topological rather than structural means, both subsumed under a single
-algebraic result.
+\textbf{The incompleteness theorem.}  Theorem~\ref{thm:incompleteness} establishes
+that discriminability requires incompleteness.  Making the proof fully explicit ---
+constructing a specific event in $\sigE_Q \setminus \E_Q$ from the nontrivial
+refinement data --- is likely connected to Stone space theory, where $\sigE_Q$
+appears as the $\sigma$-closure of $\E_Q$.
 
 \bibliographystyle{plain}
 \bibliography{references}

@@ -1,57 +1,79 @@
 %% Interstitial: Paper -1 -> Paper 0
-%% Narrative: the structure forced by incompleteness is the sigma-algebra;
-%% now we ask when it supports a probability.
+%% Philosophical and conceptual bridge: discriminability to probability.
 
-Chapter~\ref{chap:paper-minus-one} established that a coherent observer
-cannot avoid the $\sigma$-algebra.  Beginning only with a Boolean algebra
-$\mathcal{E}_Q$ of distinguishable events and a finitely-additive
-valuation $\ell_Q$, the commitment to acting as if a coherent world
-exists forces continuity at $\emptyset$ --- and continuity at
-$\emptyset$ is precisely the condition under which $\ell_Q$ extends
-uniquely to a $\sigma$-additive measure on $\sigma(\mathcal{E}_Q)$.
-
-The $\sigma$-algebra, then, is not an assumption.  It is the form
-that the observer's coherent commitments must take.
+Chapter~\ref{chap:paper-minus-one} establishes the structural conditions under which
+a charge on a Boolean algebra extends to a $\sigma$-additive measure.  The answer ---
+collective exhaustion --- is a condition on the family of charges, not on the Boolean
+algebras themselves.  This interstitial draws out the conceptual significance of that
+result before turning to the global extension question of Chapter~\ref{chap:paper-zero}.
 
 \medskip
 
-But having a $\sigma$-algebra on each outcome space $O_Q$ is not yet
-having a probability on the system as a whole.  The observer has a
-family of local valuations $\{\ell_Q\}$ --- one for each query --- and
-these valuations are compatible across refinements.  The next question
-is: does this compatible family determine a single global probability
-measure on the realization space $\Omega$?
+\paragraph{The gap as horizon.}
+The gap $\sigma(\mathcal{E}_Q) \setminus \mathcal{E}_Q$ consists of events reachable
+by countable Boolean operations on $\mathcal{E}_Q$ but not themselves in
+$\mathcal{E}_Q$.  The incompleteness theorem shows this gap is not a deficiency: any
+query admitting genuine refinement must have a nonempty gap.  Under Stone duality,
+$\mathcal{E}_Q$ corresponds to the clopen algebra of the Stone space $S(\mathcal{E}_Q)$,
+and $\sigma(\mathcal{E}_Q)$ to its Baire $\sigma$-algebra.  The gap is the collection
+of Baire sets that are not clopen --- the limit structure of the Stone space that lies
+beyond the clopen topology.  A query with no gap would correspond to a Stone space
+whose Baire $\sigma$-algebra coincides with the clopen algebra: a highly degenerate
+space admitting no interesting limit structure.  The gap is therefore the space into
+which refinements reach; its presence is what makes refinement meaningful.
 
-This is Stopping Point~2, and it is a strictly harder question than
-SP1.  SP1 concerned a single observer at a single level: can they
-extend their finitely-additive valuation to their own $\sigma$-algebra?
-SP2 concerns the whole system: can the compatible family be assembled
-into a $\sigma$-additive measure on $\Omega = \varprojlim O_Q$?
+\paragraph{The $\sigma$-algebra as forced structure.}
+The extension criterion (Theorem~2.3 of Chapter~\ref{chap:paper-minus-one}) says
+that $\sigma(\mathcal{E}_Q)$ enters the picture not as a postulate but as the minimal
+structure that must be present for $\ell_Q$ to be extendable at all.  A charge that
+extends to $\sigma(\mathcal{E}_Q)$ is one that already ``knows about'' the gap ---
+it assigns vanishing weight to sequences converging to events it cannot directly
+represent.  The $\sigma$-algebra is the closure forced by that knowledge.
+
+\paragraph{Collective exhaustion and the question of origin.}
+The main theorem of Chapter~\ref{chap:paper-minus-one} establishes that collective
+exhaustion is precisely the valuation-layer condition equivalent to $\sigma$-additive
+extensibility.  The result separates two questions that are easily conflated: whether
+the \emph{structural} conditions on a query system (directedness, compatibility) force
+$\sigma$-additivity, and whether the \emph{valuations} carried by the system do.  The
+former is impossible (the finite-cofinite counterexample); the latter is characterised
+exactly (collective exhaustion).  The $\sigma$-algebra is not derivable from the index
+structure of the query system alone, nor is it a free assumption: it is the content of
+a specific and checkable condition on the family of charges.
+
+One can ask, in a more philosophical register, what it means for a system to satisfy
+collective exhaustion.  The condition says that no level can persistently assign mass
+to events that vanish globally: every convergence in the system is witnessed at some
+finer level.  In this sense collective exhaustion is the mathematical expression of
+the idea that the system \emph{models a coherent world} --- one in which events that
+become empty do so in a way that is visible from within the system.  A system failing
+collective exhaustion contains an observer who permanently assigns positive probability
+to events the system as a whole regards as impossible.  The $\sigma$-algebra, then, is
+the structure that a coherent world forces on the local event languages of its
+observers.
+
+The projective limit $\Omega = \varprojlim O_Q$ plays a role analogous to what Kant
+called a \emph{regulative ideal}: it is not itself one of the queries in the system,
+and no single observer occupies it, but it is the standard against which the
+coherence of the system is measured.  Continuity at $\emptyset$ for $\ell_Q$ is the
+local expression of a global orientation toward $\Omega$: the charge at level $Q$
+must behave as if $\Omega$ exists, even though $Q$ cannot see it directly.  Collective
+exhaustion makes this requirement non-vacuous: it is not a private act of faith by
+each individual observer but a condition verifiable from within the system.
 
 \medskip
 
-Chapter~\ref{chap:paper-zero} addresses SP2.  It does so by identifying
-a condition --- surjective projective uniform tightness (SPUT) --- under
-which the compatible family concentrates on $\Omega$ rather than
-dissipating into the product $\prod_Q O_Q$.  The condition is
-topological: it asks that for every $\varepsilon > 0$, the family
-$\{\ell_Q\}$ is supported, up to $\varepsilon$, on a compact
-surjectively-compatible subfamily $\{K_Q\}$.  Compactness of the $K_Q$
-is the external witness that SP1 showed was necessary: it is the
-topological expression of the observer's faith in a world that closes
-the gaps.
+\paragraph{From per-level extensions to a global measure.}
+Chapter~\ref{chap:paper-minus-one} gives per-level extensions $\mu_Q$ on
+$\sigma(\mathcal{E}_Q)$ for each $Q$.  The next question is whether these assemble
+into a single $\sigma$-additive measure on $\Omega$.  This is strictly harder: it
+requires the local extensions to concentrate mass on $\Omega$ rather than dispersing
+it into the ambient product $\prod_Q O_Q$.  Sequential upper-directedness --- the
+condition that every sequence of queries has a common refinement --- is the structural
+hypothesis that makes global assembly possible.  It plays no role in the per-level
+result but is essential for the projective limit.
 
-Two architectural cases are established.  When outcome spaces are
-compact Hausdorff, SPUT holds automatically and $\sigma$-additivity
-is a structural theorem.  When outcome spaces are standard Borel,
-Musia\l's theorem provides a topology-free route via perfectness.
-Both cases close SP2 for the architectures that arise in the
-subsequent papers of this thesis.
-
-\medskip
-
-The passage from Chapter~\ref{chap:paper-minus-one} to
-Chapter~\ref{chap:paper-zero} is therefore the passage from
-\emph{local} to \emph{global}: from a single observer's forced
-commitments to the assembly of all observers' commitments into a
-single coherent probability on the world they share.
+The passage from Chapter~\ref{chap:paper-minus-one} to Chapter~\ref{chap:paper-zero}
+is therefore the passage from local to global: from the characterisation of
+$\sigma$-additivity at each level to the construction of a single probability measure
+on the world the system describes.

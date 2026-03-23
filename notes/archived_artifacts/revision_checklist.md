@@ -2,6 +2,13 @@
 
 *Generated from assumption audit + author review, 2026-03-17*
 
+> **EXECUTED — 2026-03-22.** All items in this checklist are confirmed present in
+> `observational_foundations_body.tex`. Key additions verified: governing-principle sentence
+> (§1), `[Primitive structure]` remark (§3), `[Status of realizability]` remark (§3),
+> realization space as derived object (§3), `[Assumptions versus derived structure]` (§6),
+> σ-additivity propagated remark (§6), Ω not a hidden state space (§7). Abstract no longer
+> uses "completion of observable compatibility" framing. No further action required.
+
 **Scope:** Surgical fixes to the current manuscript — no proof rewrites, no formalism changes.
 **Goal:** Align rhetoric with what the theorem actually establishes. Not a next-paper extension.
 

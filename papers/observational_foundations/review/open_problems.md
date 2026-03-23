@@ -1,6 +1,15 @@
 # Open Problems: Closing the Gap Between Philosophy and Formalism
 
-*2026-03-17*
+*2026-03-17; updated 2026-03-22*
+
+> **Status update (2026-03-22).** Stopping Point 1 (measurable structure from primitive
+> distinguishability) has been addressed by Paper −1 (*Discriminability and the Origin of
+> the σ-Algebra*). The SP1 theorem (`thm:sp1`) proves that collective exhaustion is the
+> exact characterisation of when σ-additive extensibility holds — establishing that
+> measurable structure arises from index-layer coherence plus the valuation-layer condition,
+> not from σ-additivity assumed as input. The key result: C1 of the tetralemma is false
+> (counterexample: `fcContent_not_sigmaSubadditive`), and C4 is the only live option.
+> Stopping Points 2–4 remain open as described below.
 
 ---
 

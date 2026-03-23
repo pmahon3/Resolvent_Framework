@@ -15,18 +15,17 @@ conditions may do what finite additivity alone cannot.
 
 We show three things.  First, the gap $\sigE \setminus \E$ is not a defect: an observer
 with no gap admits no nontrivial refinement and has no horizon.  Incompleteness is
-constitutive of discriminability.  Second, the witnessing conjecture as originally
-formulated is false: index-layer coherence conditions --- sequential upper-directedness
-and compatibility --- do not force $\sigma$-additivity.  The counterexample is a
-compatible family on a sequentially upper-directed system in which every observer
-permanently assigns unit mass to a sequence of events that the system as a whole sees
-as empty.  Third, we identify the correct characterisation: a family of finitely-additive
-contents extends to $\sigma$-additive measures at every level if and only if it is
-\emph{collectively exhaustive} --- a valuation-layer condition requiring that every
-vanishing sequence is witnessed somewhere in the refinement order.  Collective exhaustion
-is neither derivable from index-layer conditions (the counterexample shows this) nor a
-raw axiom: it is the exact semantic criterion distinguishing systems that model coherent
-worlds from those that do not.
+constitutive of discriminability.  Second, index-layer coherence conditions alone ---
+sequential upper-directedness and compatibility --- do not force $\sigma$-additivity.
+The counterexample is a compatible family on a sequentially upper-directed system in
+which every observer permanently assigns unit mass to a sequence of events that the
+system as a whole sees as empty.  Third, we identify the correct characterisation: a
+family of finitely-additive contents extends to $\sigma$-additive measures at every
+level if and only if it is \emph{collectively exhaustive} --- a valuation-layer
+condition requiring that every vanishing sequence is witnessed somewhere in the
+refinement order.  Collective exhaustion is neither derivable from index-layer conditions
+(the counterexample shows this) nor a raw axiom: it is the exact semantic criterion
+distinguishing systems that model coherent worlds from those that do not.
 \end{abstract}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -56,12 +55,13 @@ confirms de Finetti at the level of any single observer: the regress is structur
 and no chain of finite refinements resolves it.  The incompleteness result
 (Section~\ref{sec:incompleteness}) shows the gap $\sigE \setminus \E$ is necessary:
 an observer with $\E_Q = \sigE_Q$ admits no nontrivial refinement and cannot be
-embedded in any interesting query system.  The positive result
-(Section~\ref{sec:positive}) resolves the original witnessing conjecture: the conjecture
-was malformed, conflating index-layer and valuation-layer conditions.  We show that
-index-layer coherence does not force $\sigma$-additivity (counterexample), and that
-$\sigma$-additivity is equivalent to collective exhaustion, a purely valuation-layer
-condition (Theorem~\ref{thm:sp1}).
+embedded in any interesting query system.  The positive result (Section~\ref{sec:positive}) identifies the correct
+characterisation.  The natural question --- whether index-layer conditions (directedness,
+compatibility) force $\sigma$-additivity --- turns out to be malformed: it conflates
+conditions on the query system's structure with conditions on the contents it carries.
+We show that index-layer coherence does not force $\sigma$-additivity (the
+finite-cofinite counterexample), and that $\sigma$-additivity is equivalent to
+collective exhaustion, a purely valuation-layer condition (Theorem~\ref{thm:sp1}).
 
 Section~\ref{sec:grounding} draws the foundational conclusions.
 
@@ -98,9 +98,9 @@ finitary condition on any single level can supply this.
 Section~\ref{sec:incompleteness} establishes the necessity of incompleteness: an
 observer with $\E_Q = \sigE_Q$ admits no genuine refinement.
 
-Section~\ref{sec:positive} resolves SP1: it proves the independence of index- and
-valuation-layer conditions and establishes the SP1 equivalence (collective exhaustion
-$\iff$ $\sigma$-additive extensibility).
+Section~\ref{sec:positive} completes the analysis: it proves the independence of
+index- and valuation-layer conditions and establishes the main equivalence (collective
+exhaustion $\iff$ $\sigma$-additive extensibility).
 
 Section~\ref{sec:grounding} draws the foundational conclusions: the $\sigma$-algebra as
 commitment rather than assumption, and the structural hypotheses as expressions of
@@ -323,8 +323,8 @@ of the $\sigma$-algebra's origin, the four corners are:
 \begin{enumerate}
   \item \emph{It is derivable from finitary or index-layer conditions.}
     Refuted: no finitary or index-layer condition forces continuity at $\emptyset$.
-    Section~\ref{sec:negative} establishes the structural regress; Proposition~\ref{prop:independence}
-    provides the explicit counterexample.
+    Section~\ref{sec:negative} establishes the structural regress; Section~\ref{sec:positive}
+    supplies the explicit counterexample.
 
   \item \emph{It must simply be assumed as primitive.}
     Unsatisfying: this is not a derivation but a deferral --- the question of
@@ -337,13 +337,13 @@ of the $\sigma$-algebra's origin, the four corners are:
     Then what is it?
 \end{enumerate}
 
-Theorem~\ref{thm:sp1} (SP1) gives the middle way: collective exhaustion is the
-exact valuation-layer condition that characterises $\sigma$-additive extensibility.
+Theorem~\ref{thm:sp1} gives the middle way: collective exhaustion is the exact
+valuation-layer condition that characterises $\sigma$-additive extensibility.
 The $\sigma$-algebra is \emph{committed to} by a system that models a coherent world
---- not derived from index-layer conditions (C1 is false, by Proposition~\ref{prop:independence})
-and not assumed as a raw axiom (C2 is unsatisfying).  The dissolution is that the
-original question was malformed: it asked for a derivation within a single layer when
-the phenomenon spans two.
+--- not derived from index-layer conditions (the counterexample in Section~\ref{sec:positive}
+shows this) and not assumed as a raw axiom.  The dissolution is that the original
+question was malformed: it asked for a derivation within a single layer when the
+phenomenon spans two.
 
 Priest's analytic reconstruction of the catuṣkoṭi~\cite{PriestBeyond2010} makes
 precise the logical structure of this kind of reasoning: it is not classical
@@ -353,7 +353,7 @@ its starting point.  The mathematics now speaks alone.
 \end{aside}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The SP1 resolution}
+\section{Collective exhaustion and the characterisation of $\sigma$-additivity}
 \label{sec:positive}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
@@ -386,10 +386,10 @@ would give $1 \leq \sum_n \ell(F_n) = 0$: contradiction.  So $\ell$ fails
 $\sigma$-additive extension at every level.
 \end{proof}
 
-\noindent This closes C1 of the tetralemma (Section~\ref{sec:incompleteness}): the
-$\sigma$-algebra is not derivable from index-layer coherence conditions alone.  The
-content is perfectly coherent within the finite-cofinite algebra; the failure is a
-valuation-layer pathology invisible to the index structure.
+\noindent The counterexample establishes that index-layer coherence is insufficient:
+the $\sigma$-algebra is not derivable from structural conditions on the query system
+alone.  The content is perfectly coherent within the finite-cofinite algebra; the
+failure is a valuation-layer pathology invisible to the index structure.
 
 \begin{definition}[Collectively exhaustive]
 \label{def:collective-exhaustion}
@@ -407,7 +407,7 @@ $E_n = \mathbb{Q} \setminus F_n$ (cofinite sets shrinking to $\emptyset$), every
 assigns content $1$ to $\pi^{-1}(E_n) = E_n$, and no witness exists anywhere in the
 system.
 
-\begin{theorem}[SP1: collective exhaustion characterises $\sigma$-additivity]
+\begin{theorem}[Collective exhaustion characterises $\sigma$-additivity]
 \label{thm:sp1}
 Let $\{\ell_Q\}$ be a normalized compatible family of finitely-additive contents on
 a query system.  The following are equivalent:
@@ -451,7 +451,7 @@ from those that do not.
 Note that sequential upper-directedness plays no role in Theorem~\ref{thm:sp1}: it is
 a per-level result, mediated by the refinement structure.  Sequential upper-directedness
 enters when one asks whether the per-level extensions assemble into a global probability
-space over $\Omega$ --- that is the next question (SP2).
+space over $\Omega$ --- that is the next question.
 \end{remark}
 
 \begin{aside}
@@ -470,9 +470,9 @@ events that vanish in the limit, even though they cannot see the limit directly.
 Collective exhaustion is the condition that makes this faith non-vacuous at the
 per-level scale: it requires that the system always contains a witness for any
 convergence, even if no single observer at the current level can provide it.
-Sequential upper-directedness enters at the global scale (SP2): it guarantees
-that the system has enough upward structure to assemble a single probability space
-over $\Omega$ from the per-level extensions.
+Sequential upper-directedness enters at the global scale: it guarantees that the
+system has enough upward structure to assemble a single probability space over
+$\Omega$ from the per-level extensions.  This is the subject of the next paper.
 \end{aside}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -500,11 +500,11 @@ that an observer's commitments generate when extended to their countable limit.
 
 Sequential upper-directedness says: every sequence of queries has a common
 refinement.  As a bare structural condition on a query system, it might appear
-to be merely a technical convenience.  The SP1 theorem shows it is not needed
-for per-level $\sigma$-additivity --- that is the role of collective exhaustion.
+to be merely a technical convenience.  Theorem~\ref{thm:sp1} shows it is not needed for per-level $\sigma$-additivity ---
+that is the role of collective exhaustion.
 Sequential upper-directedness enters essentially at the global level: it is the
 condition that makes the per-level extensions assemblable into a single probability
-space over $\Omega$ (SP2).
+space over $\Omega$ --- a question that lies beyond this paper.
 
 The present analysis gives it a foundational reading: sequential upper-directedness
 is the condition that the observer's world is rich enough to support the global
@@ -523,9 +523,9 @@ the expression of a single underlying reality: different observers at different
 levels are measuring the same world, and their measurements must cohere because
 there is a world for them to cohere about.
 
-\subsection{What SP1 establishes and what remains}
+\subsection{What this paper establishes and what remains}
 
-Theorem~\ref{thm:sp1} completes the chain begun in Section~\ref{sec:negative}:
+The main theorem completes the chain begun in Section~\ref{sec:negative}:
 \[
   \text{bounded discriminability}
   \;\longrightarrow\; \text{refinement}
@@ -536,14 +536,14 @@ Every arrow is now a theorem or definition.  ``Coherence'' here means collective
 exhaustion: the valuation-layer condition that distinguishes systems modelling
 coherent worlds from those that do not.
 
-\textbf{SP2: the global extension.}  Theorem~\ref{thm:sp1} gives per-level
-extensions $\mu_Q$ on $\sigE_Q$ for each $Q$.  The next question is whether these
-assemble into a single $\sigma$-additive measure on the projective limit $\Omega$.
-For compact outcome spaces, this follows from the Prokhorov extension theorem.  For
+\textbf{The global extension.}  Theorem~\ref{thm:sp1} gives per-level extensions
+$\mu_Q$ on $\sigE_Q$ for each $Q$.  The next question is whether these assemble
+into a single $\sigma$-additive measure on the projective limit $\Omega$.  For
+compact outcome spaces, this follows from the Prokhorov extension theorem.  For
 standard Borel spaces, it follows from Musia\l's theorem via perfectness.  The
 topology-free case --- whether collective exhaustion together with sequential
 upper-directedness gives the global extension without topological assumptions ---
-remains open.
+remains open in its full generality.
 
 \textbf{The incompleteness theorem.}  Theorem~\ref{thm:incompleteness} establishes
 that discriminability requires incompleteness.  Making the proof fully explicit ---

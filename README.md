@@ -79,12 +79,13 @@ Resolvent_Framework/
 ### Paper −1 — Discriminability and the Origin of the σ-Algebra
 *From Primitive Distinguishability to Measurable Structure*
 
-Derives the σ-algebra from a Boolean algebra of observable distinctions
-and a finitely-additive valuation, showing that continuity at ∅ is the
-minimal coherence condition bridging finitary commitments and countable
-closure.
+Establishes that index-layer coherence conditions (sequential upper-directedness,
+compatibility) cannot force σ-additivity, and proves the SP1 theorem: a family of
+finitely-additive contents extends to σ-additive measures at every level if and
+only if it is collectively exhaustive — the exact valuation-layer characterisation
+of systems modelling coherent worlds.
 
-> **discriminability → measurable structure**
+> **discriminability → coherence → measurable structure**
 
 ### Paper 0 — Finitely Additive Observable Laws and the Prokhorov Extension
 *From Observable Laws to σ-Additive Probability*

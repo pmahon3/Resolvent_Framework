@@ -1,6 +1,29 @@
-# Theorem Correspondence: Papers 1–3 ↔ Lean Formalization
+# Theorem Correspondence: Papers −1, 1–3 ↔ Lean Formalization
 
-Generated: 2026-03-14, updated 2026-03-15 (Pass 5: Path A — σ-subadditivity closed, 0 sorrys).
+Generated: 2026-03-14, updated 2026-03-22 (Paper −1 SP1 resolution added).
+
+---
+
+## Paper −1: Discriminability Foundations (`DiscriminabilityFoundations.lean`)
+
+| Paper statement | Label | Lean name | Status | Notes |
+|---|---|---|---|---|
+| Finite-cofinite algebra is a SetSemiring | — | `finCofinSets_isSetSemiring` | ✓ | On infinite types |
+| fcContent is finitely additive | — | `fcContent` | ✓ | 0 on finite, 1 on cofinite; `sUnion'` proved |
+| Counterexample fails σ-additivity | prop:independence | `fcContent_not_sigmaSubadditive` | ✓ | Refutes C1 of tetralemma |
+| {s \| MeasurableSet s} is a SetRing | — | `isSetRing_measurableSets` | ✓ | Any measurable space |
+| Normalized contents have finite values | — | `NormalizedCompatibleContents.ne_top` | ✓ | Via `addContent_mono` |
+| Collective exhaustion → σ-additive extension | thm:sp1 (i→ii) | `sp1_extension` | ✓ | Via `addContent_iUnion_eq_sum_of_tendsto_zero` + Carathéodory |
+| σ-additive extension → collective exhaustion | thm:sp1 (ii→i) | `sp1_necessity` | ✓ | Via `tendsto_measure_iInter_atTop` |
+| SP1 equivalence | thm:sp1 | `sp1_iff` | ✓ | Full iff |
+
+### Paper −1 assessment
+All SP1 theorems formalized. Zero sorrys. `DiscriminabilityFoundations.lean` complete.
+
+One paper-side proof to tighten: Theorem 4.2 (discriminability requires incompleteness)
+has an informal gap — key construction step asserted rather than proved. Not formalized
+in Lean. Lean gap: `counterexampleNCC` not bundled as `NormalizedCompatibleContents`
+due to `finCofinSets ℚ` vs `{s | MeasurableSet s}` type mismatch (non-blocking).
 
 ---
 
@@ -107,9 +130,11 @@ Both `semigroup_property` and `koopman_perron_duality` required adding
 
 | File | Theorems complete | Sorrys | Not yet formalized |
 |---|---|---|---|
+| `DiscriminabilityFoundations.lean` | 8 | **0** | Theorem 4.2 (incompleteness); counterexampleNCC (type gap) |
 | `QuerySystem.lean` | ~16 | **0** | — |
-| `PredictiveState.lean` | 15 | 0 | — |
-| `PredictiveOperators.lean` | 10 | 0 | generator, spectral theory |
+| `PredictiveState.lean` | 15 | **0** | — |
+| `PredictiveOperators.lean` | 10 | **0** | generator, spectral theory |
+| `ProkhorovExtension.lean` | ~10 | **1** | `prokhorov_extension_polish` (Mathlib-blocked) |
 
 ---
 

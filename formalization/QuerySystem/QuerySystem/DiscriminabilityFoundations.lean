@@ -7,6 +7,7 @@ import Mathlib.MeasureTheory.Measure.AddContent
 import Mathlib.MeasureTheory.OuterMeasure.OfAddContent
 import Mathlib.MeasureTheory.MeasurableSpace.Basic
 import Mathlib.Order.Filter.Cofinite
+import Mathlib.Order.Filter.Ultrafilter.Basic
 import Mathlib.Order.Hom.WithTopBot
 import QuerySystem.QuerySystem
 
@@ -17,6 +18,8 @@ This file formalises the main results of the paper of the same name.
 
 ## Main results
 
+* `exhaustiveness`: Every normalized finitely-additive charge is exhaustive — disjoint
+  sequence charges tend to 0 (Prop. `prop:exhaustiveness-trivial`).
 * `finCofinMSpace`: The finite-cofinite measurable space on a countably infinite type.
 * `fcContent`: The finitely-additive charge on the finite-cofinite algebra assigning
   0 to finite sets and 1 to cofinite sets.
@@ -50,6 +53,147 @@ open scoped ENNReal
 
 -- Use classical decidability throughout to avoid `Decidable` synthesis failures
 open Classical in section
+
+/-!
+## Part 0: Single-algebra results
+
+Nontrivial refinement and the extension criterion — results about a single Boolean
+charge space, independent of the directed system structure.
+-/
+
+section SingleAlgebra
+
+/-- Every normalized finitely-additive charge is exhaustive: for any pairwise disjoint
+    sequence of measurable events, the charge tends to 0.
+
+    Prop. `prop:exhaustiveness-trivial` of the paper.  The proof: partial sums
+    ∑_{k≤n} ν(f k) = ν(⋃_{k≤n} f k) ≤ ν(univ) = 1 by finite additivity and
+    normalization, so the series converges and its terms tend to 0. -/
+theorem exhaustiveness {α : Type*} [MeasurableSpace α]
+    (ν : AddContent ℝ≥0∞ {s : Set α | MeasurableSet s})
+    (hnorm : ν Set.univ = 1)
+    (f : ℕ → Set α)
+    (hf : ∀ n, MeasurableSet (f n))
+    (hf_disj : Pairwise (Function.onFun Disjoint f)) :
+    Filter.Tendsto (fun n => ν (f n)) Filter.atTop (nhds 0) := by
+  have hring : IsSetRing {s : Set α | MeasurableSet s} := ⟨
+    MeasurableSet.empty,
+    fun _ _ hs ht => hs.union ht,
+    fun _ _ hs ht => hs.diff ht⟩
+  -- ∑ ν(f n) ≤ 1 < ∞: addContent_accumulate gives range(n+1) sums = ν(accumulate f n) ≤ 1
+  have hsum_le : ∑' n, ν (f n) ≤ 1 :=
+    ENNReal.tsum_le_of_sum_range_le fun n => by
+      calc ∑ i ∈ Finset.range n, ν (f i)
+          ≤ ∑ i ∈ Finset.range (n + 1), ν (f i) :=
+            Finset.sum_le_sum_of_subset (Finset.range_mono (Nat.le_succ n))
+        _ = ν (Set.accumulate f n) :=
+            (addContent_accumulate ν hring hf_disj hf n).symm
+        _ ≤ 1 :=
+            (addContent_mono hring.isSetSemiring (hring.accumulate_mem hf n) MeasurableSet.univ
+              ((Set.accumulate_subset_iUnion n).trans
+                (Set.iUnion_subset (fun _ => Set.subset_univ _)))).trans hnorm.le
+  exact ENNReal.tendsto_atTop_zero_of_tsum_ne_top
+    (hsum_le.trans_lt (by norm_num) |>.ne)
+
+/-- A refinement map π : O_j → O_i is nontrivial if the finer algebra E_j strictly
+    extends the pullback π⁻¹(E_i): there exists A ∈ E_j not of the form π⁻¹(B)
+    for any B ∈ E_i.  Prop. `prop:nontrivial` of the paper. -/
+def NontrivialRefinement {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
+    (π : β → α) : Prop :=
+  ∃ A : Set β, MeasurableSet A ∧ ∀ B : Set α, MeasurableSet B → A ≠ π ⁻¹' B
+
+/-- Nontrivial refinement introduces new events: the pullback algebra is a strict
+    subset of the finer algebra.  This is Prop. `prop:nontrivial` — immediate from
+    the definition. -/
+theorem nontrivialRefinement_strictSubset {α β : Type*} [MeasurableSpace α] [MeasurableSpace β]
+    (π : β → α) (h : NontrivialRefinement π) :
+    ∃ A : Set β, MeasurableSet A ∧ A ∉ Set.range (fun B : {B : Set α // MeasurableSet B} =>
+      π ⁻¹' (B : Set α)) := by
+  obtain ⟨A, hA, hnotpre⟩ := h
+  exact ⟨A, hA, by simp [Set.mem_range]; intro B hB; exact Ne.symm (hnotpre B hB)⟩
+
+/-- The extension criterion (Thm. `thm:extension-criterion`): a normalized
+    finitely-additive charge ν on a measurable space extends to a σ-additive measure
+    if and only if ν is continuous at ∅ (i.e., `IsSigmaSubadditive`).
+
+    The forward direction is immediate from σ-additivity of the extension.
+    The converse is the Carathéodory extension: continuity at ∅ is the condition
+    that passes from finite additivity to σ-additivity on the generated σ-algebra.
+
+    In the formalization this is not a standalone iff but the Carathéodory direction
+    is `AddContent.measure` (used in `sp1_extension`) and the necessity direction
+    is `tendsto_measure_iInter_atTop` (used in `sp1_necessity`).  We state it here
+    for alignment with the paper. -/
+theorem extensionCriterion {α : Type*} [MeasurableSpace α]
+    (ν : AddContent ℝ≥0∞ {s : Set α | MeasurableSet s})
+    (hring : IsSetRing {s : Set α | MeasurableSet s})
+    (hne_top : ∀ s ∈ ({s : Set α | MeasurableSet s}), ν s ≠ ∞) :
+    (ν.IsSigmaSubadditive ↔
+     ∀ (E : ℕ → Set α), (∀ n, MeasurableSet (E n)) → (∀ n, E (n+1) ⊆ E n) →
+       (⋂ n, E n = ∅) → Filter.Tendsto (fun n => ν (E n)) Filter.atTop (nhds 0)) := by
+  constructor
+  · -- Forward direction: IsSigmaSubadditive → continuity at ∅ for antitone sequences.
+    -- Strategy: apply tendsto_atTop_addContent_iUnion_of_addContent_iUnion_eq_tsum to the
+    -- monotone sequence F n = E 0 \ E n.  Union = E 0 \ ∅ = E 0, so ν(F n) → ν(E 0).
+    -- Then ν(E n) = ν(E 0) - ν(F n) → 0 by ENNReal.tendsto_const_sub_nhds_zero_iff.
+    intro hsubadd E hE_meas hE_anti hE_empty
+    -- Antitone helper: E n is antitone
+    have hE_antitone : Antitone E := fun m n hmn => by
+      induction hmn with
+      | refl => exact Subset.refl _
+      | @step k _ ih => exact (hE_anti k).trans ih
+    -- σ-additivity on disjoint unions from IsSigmaSubadditive
+    have hm_iUnion : ∀ (f : ℕ → Set α) (_ : ∀ i, f i ∈ {s | MeasurableSet s})
+        (_ : (⋃ i, f i) ∈ {s | MeasurableSet s})
+        (_ : Pairwise (Function.onFun Disjoint f)), ν (⋃ i, f i) = ∑' i, ν (f i) :=
+      fun f hf hUf hdisj =>
+        addContent_iUnion_eq_tsum_of_disjoint_of_IsSigmaSubadditive
+          hring.isSetSemiring hsubadd f hf hUf hdisj
+    -- Complementary monotone sequence
+    let F : ℕ → Set α := fun n => E 0 \ E n
+    have hF_mem : ∀ n, F n ∈ {s | MeasurableSet s} :=
+      fun n => (hE_meas 0).diff (hE_meas n)
+    have hF_mono : Monotone F :=
+      fun _ _ hmn => Set.diff_subset_diff_right (hE_antitone hmn)
+    have hF_iUnion_eq : ⋃ n, F n = E 0 := by
+      ext x
+      simp only [Set.mem_iUnion, Set.mem_diff, F]
+      constructor
+      · rintro ⟨_, hx0, _⟩; exact hx0
+      · intro hx0
+        by_contra hall
+        push_neg at hall
+        have : x ∈ ⋂ n, E n := Set.mem_iInter.mpr (fun n => (hall n hx0))
+        rw [hE_empty] at this; exact this
+    have hF_Union_mem : (⋃ n, F n) ∈ {s | MeasurableSet s} := by
+      rw [hF_iUnion_eq]; exact hE_meas 0
+    -- ν(F n) → ν(E 0)
+    have hF_tendsto : Filter.Tendsto (fun n => ν (F n)) Filter.atTop (nhds (ν (E 0))) := by
+      have h := tendsto_atTop_addContent_iUnion_of_addContent_iUnion_eq_tsum
+        hring hm_iUnion hF_mono hF_mem hF_Union_mem
+      rwa [hF_iUnion_eq] at h
+    -- ν(E n) = ν(E 0) - ν(F n)
+    have hEn_eq : ∀ n, ν (E n) = ν (E 0) - ν (F n) := by
+      intro n
+      have hEn_sub : E n ⊆ E 0 := hE_antitone (Nat.zero_le n)
+      rw [show F n = E 0 \ E n from rfl,
+          addContent_diff_of_ne_top ν hring hne_top (hE_meas 0) (hE_meas n) hEn_sub,
+          ENNReal.sub_sub_cancel (hne_top _ (hE_meas 0))
+            (addContent_mono hring.isSetSemiring (hE_meas n) (hE_meas 0) hEn_sub)]
+    -- ν(E 0) - ν(F n) → 0 iff ν(F n) → ν(E 0)
+    have hFn_le : ∀ n, ν (F n) ≤ ν (E 0) :=
+      fun n => addContent_mono hring.isSetSemiring (hF_mem n) (hE_meas 0) Set.diff_subset
+    have hconv : (fun n => ν (E n)) = (fun n => ν (E 0) - ν (F n)) :=
+      funext hEn_eq
+    rw [hconv]
+    rwa [ENNReal.tendsto_const_sub_nhds_zero_iff (hne_top _ (hE_meas 0)) hFn_le]
+  · intro hcont
+    exact isSigmaSubadditive_of_addContent_iUnion_eq_tsum hring
+      (addContent_iUnion_eq_sum_of_tendsto_zero hring ν hne_top
+        (fun E hE_mem hE_anti hE_empty =>
+          hcont E hE_mem (fun n => hE_anti (Nat.le_succ n)) hE_empty))
+
+end SingleAlgebra
 
 /-!
 ## Part I: The finite-cofinite algebra and the counterexample
@@ -245,6 +389,31 @@ lemma fcContent_not_sigmaSubadditive :
   rw [hUnion_val] at hineq
   simp [hF_val] at hineq
 
+/-- The regress (Prop. `prop:regress`): for any fixed finer level j ≥ i, witnessing
+    emptiness at j does not resolve the obstruction — the same finite-additivity
+    failure reappears at j.
+
+    In the counterexample system every level has the same algebra and content
+    (ℚ with the finite-cofinite algebra and fcContent), so the obstruction at any
+    level j is identical to the obstruction at level i: `fcContent ℚ` is not
+    σ-subadditive at j any more than at i.  Compatibility merely transports the
+    non-convergence across levels without eliminating it. -/
+lemma counterexampleQS_regress (j : counterexampleQS.ι) :
+    ¬ (fcContent ℚ).IsSigmaSubadditive := fcContent_not_sigmaSubadditive
+
+/-- No finitary index-layer condition on `counterexampleQS` forces σ-additive
+    extension (Cor. `cor:no-finitary`).
+
+    The counterexample satisfies sequential upper-directedness (every sequence has
+    an upper bound ⊤) and any finite collection of levels can be inspected — but
+    every level carries the same non-σ-subadditive content fcContent ℚ.  The content
+    at the universal upper bound ⊤ fails σ-subadditivity just as at every other level.
+    Hence no finite inspection of the index layer can certify σ-additive extensibility. -/
+lemma counterexampleQS_no_finitary_condition :
+    ¬ (fcContent ℚ).IsSigmaSubadditive ∧
+    counterexampleQS.SequentiallyUpperDirected :=
+  ⟨fcContent_not_sigmaSubadditive, counterexampleQS_seqUpperDir⟩
+
 end Counterexample
 
 end -- close Classical section
@@ -328,6 +497,152 @@ lemma NormalizedCompatibleContents.ne_top
     addContent_mono hring.isSetSemiring hA MeasurableSet.univ (Set.subset_univ _)
   rw [P.norm i] at hle
   exact ne_top_of_le_ne_top (by norm_num) hle
+
+/-!
+## Part III (cont.): The counterexample as a NormalizedCompatibleContents
+
+To connect `fcContent_not_sigmaSubadditive` to `CollectivelyExhaustive`, we need a
+`NormalizedCompatibleContents` for `counterexampleQS`.
+
+Since ℚ is countable, the finite-cofinite σ-algebra on ℚ is the discrete σ-algebra,
+so `NormalizedCompatibleContents.ν` requires an `AddContent` on all subsets of ℚ.
+We use `hyperfilter ℚ` — the ultrafilter extending the cofinite filter — to define a
+`{0,1}`-valued finitely-additive content: `s` has measure 1 if `s ∈ hyperfilter ℚ`,
+and measure 0 otherwise.  This is finitely additive because ultrafilters are exactly
+the `{0,1}`-valued finitely-additive probability contents.
+-/
+
+/-- A finitely-additive `{0,1}`-valued content on all subsets of ℚ, defined by
+    membership in `Filter.hyperfilter ℚ`.  Since `Filter.hyperfilter ℚ` extends the
+    cofinite filter, this agrees with `fcContent ℚ` on `finCofinSets ℚ`: finite sets
+    receive 0 and cofinite sets receive 1. -/
+noncomputable def fcContentMeas : AddContent ℝ≥0∞
+    {s : Set ℚ | @MeasurableSet ℚ (finCofinMSpace ℚ) s} where
+  toFun s := haveI := Classical.dec (s ∈ Filter.hyperfilter ℚ)
+             if s ∈ Filter.hyperfilter ℚ then 1 else 0
+  empty' := by
+    classical
+    simp [Ultrafilter.empty_notMem]
+  sUnion' I hI_ss hI_dis hI_mem := by
+    classical
+    -- Key: the {0,1}-valued indicator of an ultrafilter is finitely additive.
+    -- Disjoint sets: at most one can be in the ultrafilter.
+    have hat_most_one : ∀ u ∈ I, ∀ v ∈ I, u ≠ v →
+        u ∈ Filter.hyperfilter ℚ → v ∉ Filter.hyperfilter ℚ := by
+      intro u hu v hv huv hum hvm
+      have hdisj : Disjoint u v :=
+        hI_dis (Finset.mem_coe.mpr hu) (Finset.mem_coe.mpr hv) (by simpa using huv)
+      have hint : u ∩ v ∈ (Filter.hyperfilter ℚ : Filter ℚ) :=
+        Filter.inter_mem (Ultrafilter.mem_coe.mpr hum) (Ultrafilter.mem_coe.mpr hvm)
+      rw [Set.disjoint_iff_inter_eq_empty.mp hdisj] at hint
+      exact absurd hint (Filter.empty_notMem _)
+    -- Helper: a finite union of non-U sets is not in U.
+    have hUnion_not_mem : (∀ u ∈ I, u ∉ Filter.hyperfilter ℚ) →
+        ⋃₀ ↑I ∉ Filter.hyperfilter ℚ := by
+      intro hall hU
+      -- By induction on I: ⋃₀ ↑I is a finite union of compl-U sets, so its compl is in U.
+      -- More directly: for each u ∈ I, uᶜ ∈ U. The intersection of these (= (⋃₀ I)ᶜ) is in U.
+      have hcompl_mem : ∀ u ∈ I, uᶜ ∈ (Filter.hyperfilter ℚ : Filter ℚ) := by
+        intro u hu
+        rw [Ultrafilter.mem_coe, Ultrafilter.compl_mem_iff_notMem]
+        exact hall u hu
+      have hinter : (⋃₀ ↑I)ᶜ ∈ (Filter.hyperfilter ℚ : Filter ℚ) := by
+        have : (⋃₀ ↑I)ᶜ ∈ Filter.hyperfilter ℚ := by
+          rw [Set.compl_sUnion]
+          apply Ultrafilter.mem_coe.mp
+          rw [Filter.sInter_mem (I.finite_toSet.image _)]
+          intro s hs
+          obtain ⟨u, hu, rfl⟩ := (Set.mem_image _ _ _).mp hs
+          exact hcompl_mem u (Finset.mem_coe.mp hu)
+        exact Ultrafilter.mem_coe.mpr this
+      have : (⋃₀ ↑I) ∩ (⋃₀ ↑I)ᶜ ∈ (Filter.hyperfilter ℚ : Filter ℚ) :=
+        Filter.inter_mem (Ultrafilter.mem_coe.mpr hU) hinter
+      rw [Set.inter_compl_self] at this
+      exact Filter.empty_notMem _ this
+    -- Helper: some member in U → union in U.
+    have hsome_mem_of_union : ⋃₀ ↑I ∈ Filter.hyperfilter ℚ → ∃ u ∈ I, u ∈ Filter.hyperfilter ℚ := by
+      intro hU
+      by_contra hall
+      push_neg at hall
+      exact hUnion_not_mem hall hU
+    by_cases hU : ⋃₀ ↑I ∈ Filter.hyperfilter ℚ
+    · rw [if_pos hU]
+      obtain ⟨w, hw, hwU⟩ := hsome_mem_of_union hU
+      rw [Finset.sum_eq_single w
+        (fun u hu huw => if_neg (hat_most_one w hw u hu (Ne.symm huw) hwU))
+        (fun hw' => absurd hw (hw'))]
+      simp [hwU]
+    · rw [if_neg hU]
+      exact (Finset.sum_eq_zero (fun u hu =>
+        if_neg (fun hum => hU
+          (Ultrafilter.mem_coe.mp (Filter.mem_of_superset (Ultrafilter.mem_coe.mpr hum)
+            (Set.subset_sUnion_of_mem (Finset.mem_coe.mpr hu))))))).symm
+
+/-- The counterexample as a `NormalizedCompatibleContents` (Prop. `prop:independence`).
+    Every level has outcome space ℚ with `fcContentMeas`; all refinement maps are the
+    identity, so compatibility is trivial. -/
+noncomputable def counterexampleNCC : counterexampleQS.NormalizedCompatibleContents where
+  ν _ := fcContentMeas
+  compat := by
+    intro i j _ A _
+    simp only [counterexampleQS, Set.preimage_id]
+  norm _ := by
+    show (haveI := Classical.dec ((Set.univ : Set ℚ) ∈ Filter.hyperfilter ℚ)
+          if (Set.univ : Set ℚ) ∈ Filter.hyperfilter ℚ then (1 : ℝ≥0∞) else 0) = 1
+    classical
+    have : (Set.univ : Set ℚ) ∈ Filter.hyperfilter ℚ :=
+      Ultrafilter.mem_coe.mp Filter.univ_mem
+    simp [this]
+
+/-- The counterexample NCC is not collectively exhaustive (Prop. `prop:independence`).
+
+    The system permanently assigns unit mass to events it collectively sees as empty.
+    Witness: take an enumeration q : ℕ → ℚ and the antitone sequence
+    E n = {x | x ≠ q 0, ..., x ≠ q n}.  The intersection is empty, but each E n is
+    cofinite hence in `hyperfilter ℚ`, so the content at every level is 1.
+    No level witnesses convergence to 0. -/
+lemma counterexampleNCC_not_collectivelyExhaustive :
+    ¬ counterexampleQS.CollectivelyExhaustive counterexampleNCC.ν := by
+  intro hexh
+  obtain ⟨q, hq_surj⟩ := exists_surjective_nat ℚ
+  let E : ℕ → Set ℚ := fun n => {x | ∀ k ≤ n, x ≠ q k}
+  have hE_cofin : ∀ n, (E n)ᶜ.Finite := by
+    intro n
+    apply Set.Finite.subset (Set.finite_Iic n |>.image q)
+    intro x hx
+    simp only [E, Set.mem_compl_iff, Set.mem_setOf_eq, not_forall, not_ne_iff] at hx
+    obtain ⟨k, hk, hxk⟩ := hx
+    exact ⟨k, Set.mem_Iic.mpr hk, hxk.symm⟩
+  have hE_hyp : ∀ n, E n ∈ Filter.hyperfilter ℚ :=
+    fun n => Filter.mem_hyperfilter_of_finite_compl (hE_cofin n)
+  have hE_anti : ∀ n, E (n + 1) ⊆ E n :=
+    fun n x hx k hk => hx k (Nat.le_succ_of_le hk)
+  have hE_meas : ∀ n, @MeasurableSet ℚ (finCofinMSpace ℚ) (E n) :=
+    fun n => MeasurableSpace.measurableSet_generateFrom (Or.inr (hE_cofin n))
+  have hE_empty : ⋂ n, E n = ∅ := by
+    ext x
+    simp only [E, Set.mem_iInter, Set.mem_setOf_eq, Set.mem_empty_iff_false, iff_false]
+    push_neg
+    obtain ⟨n, hn⟩ := hq_surj x
+    exact ⟨n, n, Nat.le_refl n, hn.symm⟩
+  obtain ⟨j, hij, htend⟩ := hexh (0 : WithTop ℕ) E hE_meas hE_anti hE_empty
+  -- Every preimage has content 1: the π map is id, and E n ∈ hyperfilter ℚ
+  have hval : ∀ n, counterexampleNCC.ν j
+      ((counterexampleQS.π hij).π ⁻¹' E n) = 1 := by
+    intro n
+    show (haveI := Classical.dec ((counterexampleQS.π hij).π ⁻¹' E n ∈ Filter.hyperfilter ℚ)
+          if (counterexampleQS.π hij).π ⁻¹' E n ∈ Filter.hyperfilter ℚ then (1 : ℝ≥0∞) else 0) = 1
+    haveI := Classical.dec ((counterexampleQS.π hij).π ⁻¹' E n ∈ Filter.hyperfilter ℚ)
+    simp only [counterexampleQS, Set.preimage_id]
+    rw [if_pos (hE_hyp n)]
+  -- The constant-1 sequence cannot tend to 0
+  have hconst : ∀ n, counterexampleNCC.ν j ((counterexampleQS.π hij).π ⁻¹' E n) = 1 := hval
+  simp_rw [hconst] at htend
+  -- The constant-1 sequence tends to 1, not to 0
+  have h1 : Filter.Tendsto (fun _ : ℕ => (1 : ℝ≥0∞)) Filter.atTop (nhds 1) :=
+    tendsto_const_nhds
+  have h0 : (0 : ℝ≥0∞) ≠ 1 := by norm_num
+  exact h0 (tendsto_nhds_unique htend h1)
 
 /-!
 ## Part IV: The SP1 theorem
@@ -442,5 +757,59 @@ theorem sp1_iff
       have hπ_id : (S.π (S.le_refl i)).π = id := S.π_refl i
       simp only [hπ_id, Set.preimage_id]
       exact S.sp1_necessity P hext i E hE_meas hE_anti hE_empty⟩⟩
+
+/-!
+## Part V: The program-order bridge theorem
+
+This theorem formalises the intended logical order of the Observable Dynamics Program:
+collective exhaustion (Paper −1) is the primitive that forces σ-additivity at each level,
+and those per-level measures assemble into a global probability measure on Ω (Paper 0).
+
+It threads `sp1_extension` (Paper −1) directly into `observational_extension` (Paper 0),
+eliminating the σ-additivity assumption that was previously required as primitive input.
+-/
+
+/-- **Observational Extension from Collective Exhaustion** (program-order bridge).
+
+    Given a normalized compatible family of *finitely-additive* charges satisfying
+    collective exhaustion, there exists a unique σ-additive probability measure on Ω
+    whose evaluation marginals recover the charges.
+
+    This is the canonical route of the Observable Dynamics Program:
+    - **Paper −1** (`sp1_extension`): collective exhaustion → per-level σ-additive extensions
+    - **Paper 0** (`observational_extension`): per-level σ-additive measures →
+      global probability measure on Ω
+
+    Collective exhaustion is purely algebraic (no topology required). The topology-free
+    realizability route of Paper 0 then assembles the global measure. The Prokhorov/SPUT
+    route (Paper 4) remains as a complementary topological alternative. -/
+theorem observational_extension_of_collective_exhaustion
+    [Nonempty S.ι]
+    (sudir : S.SequentiallyUpperDirected)
+    (surj : S.EvalSurjective)
+    (P : S.NormalizedCompatibleContents)
+    (exhaust : S.CollectivelyExhaustive P.ν) :
+    ∃! μ : Measure S.Omega,
+      IsProbabilityMeasure μ ∧
+      ∀ i : S.ι, Measure.map (S.eval i) μ =
+        Classical.choose (S.sp1_extension P exhaust i) := by
+  -- Step 1: extract per-level σ-additive extensions from sp1_extension
+  let ν : ∀ i : S.ι, Measure ((S.q i).Outcome) :=
+    fun i => Classical.choose (S.sp1_extension P exhaust i)
+  have hν_eq : ∀ i (A : Set (S.q i).Outcome), MeasurableSet A → ν i A = P.ν i A :=
+    fun i => Classical.choose_spec (S.sp1_extension P exhaust i)
+  -- Step 2: each ν i is a probability measure (normalization: P.norm i)
+  haveI hprob : ∀ i, IsProbabilityMeasure (ν i) := fun i =>
+    ⟨by rw [hν_eq i Set.univ MeasurableSet.univ, P.norm i]⟩
+  -- Step 3: ν is compatible with the query system refinement maps
+  have hcompat : S.CompatibleMarginals ν := by
+    intro i j hij
+    ext A hA
+    rw [Measure.map_apply (S.π hij).measurable_π hA,
+        hν_eq i A hA,
+        hν_eq j ((S.π hij).π ⁻¹' A) (hA.preimage (S.π hij).measurable_π)]
+    exact (P.compat hij A hA).symm
+  -- Step 4: apply observational_extension (Paper 0) with the derived σ-additive family
+  exact S.observational_extension sudir surj ν hcompat
 
 end QuerySystem

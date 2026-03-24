@@ -23,12 +23,13 @@ space admitting no interesting limit structure.  The gap is therefore the space 
 which refinements reach; its presence is what makes refinement meaningful.
 
 \paragraph{The $\sigma$-algebra as forced structure.}
-The extension criterion (Theorem~2.3 of Chapter~\ref{chap:paper-minus-one}) says
-that $\sigma(\mathcal{E}_Q)$ enters the picture not as a postulate but as the minimal
-structure that must be present for $\ell_Q$ to be extendable at all.  A charge that
-extends to $\sigma(\mathcal{E}_Q)$ is one that already ``knows about'' the gap ---
-it assigns vanishing weight to sequences converging to events it cannot directly
-represent.  The $\sigma$-algebra is the closure forced by that knowledge.
+The extension criterion (Theorem~\ref{thm:extension-criterion} of
+Chapter~\ref{chap:paper-minus-one}) says that $\sigma(\mathcal{E}_Q)$ enters the
+picture not as a postulate but as the minimal structure that must be present for
+$\ell_Q$ to be extendable at all.  A charge that extends to $\sigma(\mathcal{E}_Q)$
+is one that already ``knows about'' the gap --- it assigns vanishing weight to
+sequences converging to events it cannot directly represent.  The $\sigma$-algebra is
+the closure forced by that knowledge.
 
 \paragraph{Collective exhaustion and the question of origin.}
 The main theorem of Chapter~\ref{chap:paper-minus-one} establishes that collective
@@ -65,15 +66,45 @@ each individual observer but a condition verifiable from within the system.
 
 \paragraph{From per-level extensions to a global measure.}
 Chapter~\ref{chap:paper-minus-one} gives per-level extensions $\mu_Q$ on
-$\sigma(\mathcal{E}_Q)$ for each $Q$.  The next question is whether these assemble
-into a single $\sigma$-additive measure on $\Omega$.  This is strictly harder: it
-requires the local extensions to concentrate mass on $\Omega$ rather than dispersing
-it into the ambient product $\prod_Q O_Q$.  Sequential upper-directedness --- the
-condition that every sequence of queries has a common refinement --- is the structural
-hypothesis that makes global assembly possible.  It plays no role in the per-level
-result but is essential for the projective limit.
+$\sigma(\mathcal{E}_Q)$ for each $Q$, derived from collective exhaustion.  The next
+question is whether these assemble into a single $\sigma$-additive measure on
+$\Omega$.  This is strictly harder: it requires the local extensions to concentrate
+mass on $\Omega$ rather than dispersing it into the ambient product $\prod_Q O_Q$.
+Sequential upper-directedness --- the condition that every sequence of queries has a
+common refinement --- is the structural hypothesis that makes global assembly possible.
+It plays no role in the per-level result but is essential for the projective limit.
+
+Chapter~\ref{chap:paper-zero} addresses this global assembly problem by two
+independent routes.  The \emph{realizability route} takes the per-level
+$\sigma$-additive extensions as input (supplied by Chapter~\ref{chap:paper-minus-one}
+via collective exhaustion) and assembles them into a global probability measure on
+$(\Omega,\sigma(\mathcal{Q}))$ using a realizability condition on $\Omega$, with no
+topology on the outcome spaces required.  The \emph{Prokhorov route} starts instead
+from finitely-additive marginals and derives $\sigma$-additivity globally from a
+topological mass-concentration condition (surjective projective uniform tightness,
+SPUT), requiring Hausdorff topology and continuous refinement maps on the outcome
+spaces.  Both routes yield the same canonical probability space under shared
+hypotheses.
+
+\paragraph{The topology question.}
+The two routes reveal a tension at the heart of the program.  The realizability route
+stays within the program's philosophy: no topology is assumed; structure emerges from
+the algebra of observable events.  The Prokhorov route achieves a stronger starting
+point (finitely additive marginals only) but pays for it with an external topological
+commitment.  One may ask whether this topology is truly primitive, or whether it too
+can be recovered from observable structure.  Under Stone duality, the Boolean algebra
+$\mathcal{E}_Q$ already determines a canonical topology on its Stone space
+$S(\mathcal{E}_Q)$ --- compact and Hausdorff --- without any external assumption.  The
+Baire $\sigma$-algebra of $S(\mathcal{E}_Q)$ then recovers $\sigma(\mathcal{E}_Q)$.
+If the outcome spaces $O_Q$ can be identified with (or embedded into) these Stone
+spaces, then Hausdorff topology is not assumed but \emph{derived} from the
+discriminability structure of the queries.  Whether this identification is sufficient
+for SPUT is a question that the program poses as a longer-range goal: the
+\emph{emergence of topology from observation}.
 
 The passage from Chapter~\ref{chap:paper-minus-one} to Chapter~\ref{chap:paper-zero}
 is therefore the passage from local to global: from the characterisation of
 $\sigma$-additivity at each level to the construction of a single probability measure
-on the world the system describes.
+on the world the system describes.  What topology that world carries --- and whether
+it is forced by observation rather than assumed --- is the question the program
+continues to pursue.

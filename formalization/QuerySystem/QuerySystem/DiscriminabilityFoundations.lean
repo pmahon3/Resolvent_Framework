@@ -11,43 +11,38 @@ import Mathlib.Order.Hom.WithTopBot
 import QuerySystem.QuerySystem
 
 /-!
-# Discriminability Foundations: SP1 Resolution
+# Extension of Charges on Directed Systems of Boolean Algebras
 
-This file formalises the resolution of Stopping Point 1 (SP1) of the Observable
-Dynamics Program: the question of whether the σ-algebra can be derived from
-finitely-additive coherence conditions on a query system.
+This file formalises the main results of the paper of the same name.
 
 ## Main results
 
 * `finCofinMSpace`: The finite-cofinite measurable space on a countably infinite type.
-* `fcContent`: The finitely-additive content on the finite-cofinite algebra assigning
+* `fcContent`: The finitely-additive charge on the finite-cofinite algebra assigning
   0 to finite sets and 1 to cofinite sets.
-* `counterexampleQS`: A sequentially upper-directed query system with compatible
-  finitely-additive contents that fails σ-additive extension. (Refutes the original
-  witnessing conjecture — C1 of the tetralemma.)
-* `QuerySystem.CompatibleContents`: Compatible family of finitely-additive contents.
+* `counterexampleQS`: A sequentially upper-directed directed system with compatible
+  finitely-additive charges that fails σ-additive extension (Prop. `prop:independence`).
+* `QuerySystem.CompatibleContents`: Compatible family of finitely-additive charges.
 * `QuerySystem.CollectivelyExhaustive`: The valuation-layer condition characterising
-  coherent query systems.
+  σ-additive extensibility (Def. `def:collective-exhaustion`).
 * `sp1_extension`: Collectively exhaustive + compatible → σ-additive extension at
-  every level.
-* `sp1_necessity`: σ-additive extension → collectively exhaustive.
-* `sp1_iff`: The equivalence — collective exhaustion is the exact characterisation
-  of σ-additive extensibility.
+  every level (Thm. `thm:sp1`, (i)→(ii)).
+* `sp1_necessity`: σ-additive extension → collectively exhaustive (Thm. `thm:sp1`, (ii)→(i)).
+* `sp1_iff`: The equivalence — collective exhaustion characterises σ-additive
+  extensibility (Thm. `thm:sp1`).
 
 ## Architecture
 
 The key separation is between two independent layers:
 - **Index layer**: preorder, refinement maps, sequential upper-directedness.
-- **Valuation layer**: contents, compatibility, collective exhaustion.
+- **Valuation layer**: charges, compatibility, collective exhaustion.
 
-The counterexample shows these layers are independent: index-layer conditions cannot
-force valuation-layer properties. The SP1 theorem gives the exact valuation-layer
-characterisation.
+The counterexample shows these layers are independent: index-layer conditions do not
+force σ-additivity. `sp1_iff` gives the exact valuation-layer characterisation.
 
 ## References
 
-* `papers/discriminability_foundations/sp1_resolution_sketch.md`
-* `papers/discriminability_foundations/discriminability_foundations_body.tex` §5
+* `papers/discriminability_foundations/discriminability_foundations_body.tex`
 -/
 
 open MeasureTheory Set
@@ -273,16 +268,12 @@ def CompatibleContents
     (A : Set (S.q i).Outcome) (hA : MeasurableSet A),
     ν i A = ν j ((S.π hij).π ⁻¹' A)
 
-/-- Collectively exhaustive: the valuation-layer condition characterising coherent
-    query systems.
+/-- Collectively exhaustive: the valuation-layer condition characterising σ-additive
+    extensibility (Def. `def:collective-exhaustion`).
 
-    For every level Q and every decreasing sequence of measurable events shrinking to
-    ∅, some finer level Q' witnesses the convergence: the content of the preimage
-    sequence at Q' converges to 0. By compatibility this forces convergence at Q.
-
-    This is the exact condition that distinguishes query systems modeling coherent
-    worlds from those that do not. A system failing this contains an observer who
-    assigns persistent mass to events that vanish everywhere in the refinement order. -/
+    For every index i and every decreasing sequence of measurable events shrinking to
+    ∅, some finer level j ≥ i witnesses the convergence: the charge of the preimage
+    sequence at j converges to 0. By compatibility this forces convergence at i. -/
 def CollectivelyExhaustive
     (ν : ∀ i : S.ι, AddContent ℝ≥0∞ {s : Set (S.q i).Outcome | MeasurableSet s}) : Prop :=
   ∀ (i : S.ι)
@@ -436,13 +427,10 @@ theorem sp1_necessity
 /-- **(SP1 Equivalence)** For a normalized compatible family, collective exhaustion
     is equivalent to σ-additive extensibility at every level.
 
-    This is the formal content of the SP1 resolution and tetralemma dissolution:
-    collective exhaustion is neither derivable from index-layer conditions (C1 false,
-    shown by `fcContent_not_sigmaSubadditive`) nor a raw axiom (C2, unsatisfying) —
-    it is the exact valuation-layer characterisation of σ-additive extensibility.
-    The question "does index-layer coherence force σ-additivity?" was malformed;
-    the correct question is "what valuation-layer condition characterises
-    extensibility?", and the answer is collective exhaustion. -/
+    This is Thm. `thm:sp1` of the paper. The counterexample (`fcContent_not_sigmaSubadditive`)
+    shows index-layer conditions do not force σ-additivity; the correct question is
+    what valuation-layer condition characterises extensibility, and the answer is
+    collective exhaustion. -/
 theorem sp1_iff
     (P : S.NormalizedCompatibleContents) :
     S.CollectivelyExhaustive P.ν ↔

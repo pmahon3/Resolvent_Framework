@@ -36,7 +36,7 @@ Stone space, requiring no topology on the outcome spaces.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 A Boolean algebra $\E$ of events, together with a finitely-additive charge
-$\ell : \E \to [0,1]$, is the primitive data of a discriminability structure.
+$\ell : \E \to [0,1]$, constitutes a Boolean charge space.
 Under Stone's representation theorem~\cite{Stone1936}, $\E$ is isomorphic to the
 clopen algebra of a compact totally-disconnected space $S(\E)$, and $\sigma(\E)$ is
 the Baire $\sigma$-algebra of $S(\E)$.  The extension question --- when does $\ell$
@@ -58,14 +58,14 @@ what condition on the family is necessary and sufficient.
 
 The paper establishes three results.  The negative result (Section~\ref{sec:negative})
 shows that the extension question has no finitary answer even in the system setting:
-the structural regress is irreducible, and no chain of finite refinements resolves it.
+no chain of finite refinements resolves the obstruction.
 The incompleteness result (Section~\ref{sec:incompleteness}) shows that nontrivial
 refinement is an irreducibly finer operation: a Boolean algebra $\mathcal{E}$ admitting
 a nontrivial refinement contains events not pullable from below, and a level at which
 $\mathcal{E} = \sigma(\mathcal{E})$ admits no nontrivial refinement at all.  The
 positive result (Section~\ref{sec:positive}) identifies the correct characterisation.
 The natural question --- whether index-layer conditions (directedness, compatibility)
-force $\sigma$-additivity --- turns out to be malformed: it conflates conditions on
+force $\sigma$-additivity --- turns out to be ill-posed: it conflates conditions on
 the directed system's structure with conditions on the charges it carries.  We show that
 index-layer coherence does not force $\sigma$-additivity (the finite-cofinite
 counterexample), and that $\sigma$-additivity is equivalent to collective exhaustion,
@@ -78,9 +78,10 @@ Section~\ref{sec:discussion} locates the results and states what remains open.
 Section~\ref{sec:setup} sets up the single-algebra case: a Boolean algebra $\E$ with
 a finitely-additive charge $\ell$ on it, with no topology and no $\sigma$-algebra assumed.
 
-Section~\ref{sec:negative} establishes the negative result: exhaustiveness is trivial,
-the real obstruction is continuity at $\emptyset$ for sequences escaping $\E$, and no
-finitary condition on any single level can supply this.
+Section~\ref{sec:negative} establishes that finitary conditions do not force
+$\sigma$-additivity: exhaustiveness is automatic, the genuine obstruction is
+continuity at $\emptyset$ for sequences escaping $\E$, and no finitary condition
+on any single level can supply this.
 
 Section~\ref{sec:incompleteness} establishes the incompleteness result: a nontrivial
 refinement introduces events not pullable from the coarser level, and a level with
@@ -101,8 +102,8 @@ states what remains open.
 We begin with a single Boolean algebra and its charge, setting aside the directed
 system structure to isolate the extension question.
 
-\begin{definition}[Discriminability structure]
-A \emph{discriminability structure} is a pair $(\E, \ell)$ where:
+\begin{definition}[Boolean charge space]
+A \emph{Boolean charge space} is a pair $(\E, \ell)$ where:
 \begin{enumerate}[label=(\roman*)]
   \item $\E$ is a Boolean algebra of subsets of some set $O$ --- closed under finite
     union, intersection, and complementation, containing $\emptyset$ and $O$.
@@ -137,11 +138,11 @@ such $\mu$ agree on all of $\sigE$.
 necessary and sufficient for such an extension to exist and be unique?
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{The negative result: finitary conditions cannot suffice}
+\section{Finitary conditions do not force $\sigma$-additivity}
 \label{sec:negative}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsection{Exhaustiveness is trivial}
+\subsection{Exhaustiveness is automatic}
 
 The Stone space $S(\E)$ of a Boolean algebra $\E$ is compact by construction.
 But compactness of $S(\E)$ does not force a given charge on $\E$ to extend to a
@@ -172,7 +173,7 @@ so $\ell(E_n) \to 0$.
 consequence of normalization alone, independent of any coherence condition or
 structural hypothesis.
 
-\subsection{The real obstruction}
+\subsection{Continuity at $\emptyset$}
 
 The correct extension condition is continuity from above at $\emptyset$.
 

@@ -616,11 +616,11 @@ the Takens embedding theorem, and provides the geometric setting in
 which the approximation bounds of Section~\ref{sec:empirical} can be
 made quantitative.
 
-\ifcsname bibunitname\endcsname\else
+\ifcsname thesismode\endcsname\else
 \bibliographystyle{plain}
 \bibliography{references}
 \fi
 
 \ifcsname thesismode\endcsname\else
-\input{../acknowledgements}
+\ifcsname thesismode\endcsname\else\input{../acknowledgements}\fi
 \fi

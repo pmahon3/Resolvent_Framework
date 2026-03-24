@@ -875,11 +875,11 @@ rates of operator approximation.
     design.
 \end{enumerate}
 
-\ifcsname bibunitname\endcsname\else
+\ifcsname thesismode\endcsname\else
 \bibliographystyle{plain}
 \bibliography{references}
 \fi
 
 \ifcsname thesismode\endcsname\else
-\input{../acknowledgements}
+\ifcsname thesismode\endcsname\else\input{../acknowledgements}\fi
 \fi

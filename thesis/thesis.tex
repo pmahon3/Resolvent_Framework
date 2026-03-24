@@ -2,13 +2,13 @@
 
 \usepackage{amsmath, amsthm, amssymb, mathtools}
 \usepackage{geometry}
-\usepackage{hyperref}
 \usepackage{enumitem}
 \usepackage{xcolor}
 \usepackage{titlesec}
 \usepackage{import}   % for \subimport, handles relative paths in \input'd files
-\usepackage[sectionbib]{bibunits}  % per-chapter bibliographies
-\defaultbibliographystyle{plain}
+\usepackage[sectionbib]{chapterbib}  % per-chapter bibliographies via \include
+\usepackage{hyperref}
+\def\thesismode{}  % suppresses per-paper acknowledgements in body files
 \usepackage{bbm}
 \usepackage{booktabs}
 \usepackage{tikz}
@@ -122,10 +122,7 @@ rather than merely convenient.
 \chapter{Discriminability and the Origin of the $\sigma$-Algebra}
 \label{chap:paper-minus-one}
 
-\begin{bibunit}[plain]
-\putbib[../papers/discriminability_foundations/references]
-\subimport{../papers/discriminability_foundations/}{discriminability_foundations_body.tex}
-\end{bibunit}
+\include{ch_paper_minus_one}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% INTERSTITIAL 1: Paper -1 -> Paper 0
@@ -144,10 +141,7 @@ rather than merely convenient.
 \chapter{Finitely Additive Observable Laws and the Prokhorov Extension}
 \label{chap:paper-zero}
 
-\begin{bibunit}[plain]
-\putbib[../papers/prokhorov_extension/references]
-\subimport{../papers/prokhorov_extension/}{prokhorov_extension_body.tex}
-\end{bibunit}
+\include{ch_paper_zero}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% INTERSTITIAL 2: Paper 0 -> Paper 1
@@ -166,10 +160,7 @@ rather than merely convenient.
 \chapter{Observational Foundations of Probability}
 \label{chap:paper-one}
 
-\begin{bibunit}[plain]
-\putbib[../papers/observational_foundations/references]
-\subimport{../papers/observational_foundations/}{observational_foundations_body.tex}
-\end{bibunit}
+\include{ch_paper_one}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% INTERSTITIAL 3: Paper 1 -> Paper 2
@@ -188,10 +179,7 @@ rather than merely convenient.
 \chapter{Predictive State and Operator Factorization}
 \label{chap:paper-two}
 
-\begin{bibunit}[plain]
-\putbib[../papers/predictive_operator_theory/references]
-\subimport{../papers/predictive_operator_theory/}{predictive_operator_theory_body.tex}
-\end{bibunit}
+\include{ch_paper_two}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% INTERSTITIAL 4: Paper 2 -> Paper 3
@@ -210,10 +198,7 @@ rather than merely convenient.
 \chapter{Observable Operator Semigroups and Koopman Duality}
 \label{chap:paper-three}
 
-\begin{bibunit}[plain]
-\putbib[../papers/predictive_experiments/references]
-\subimport{../papers/predictive_experiments/}{predictive_experiments_body.tex}
-\end{bibunit}
+\include{ch_paper_three}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% INTERSTITIAL 5: Paper 3 -> Paper 4
@@ -232,10 +217,7 @@ rather than merely convenient.
 \chapter{Delay Queries and Computational Instantiation}
 \label{chap:paper-four}
 
-\begin{bibunit}[plain]
-\putbib[../papers/observational_probability/references]
-\subimport{../papers/observational_probability/}{observational_probability_body.tex}
-\end{bibunit}
+\include{ch_paper_four}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% CONCLUSION

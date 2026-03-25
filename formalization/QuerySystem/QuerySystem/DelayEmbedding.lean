@@ -235,15 +235,27 @@ theorem upperDirected : (delayQuerySystem X).UpperDirected := by
   · exact ⟨Nat.gcd_dvd_right τ τ',
            Or.inr (by omega)⟩
 
-/-- Every countable family of delay queries has a common refinement,
-    provided the family is bounded (i.e., there is a finite common refinement).
+/-- **Gap**: The full delay query system is NOT sequentially upper-directed.
 
-    **Note on `SequentiallyUpperDirected`**: The abstract definition requires
-    `∀ u : ℕ → ι, ∃ k, ∀ n, le (u n) k`. For unbounded sequences of delay queries
-    (where dimensions grow without bound), the sup `d'' = sup_n (d_n-1)*k_n + 1` may
-    be infinite. The paper (Prop. 2 proof) handles this via a diagonal argument for
-    finite subfamilies. The general countable case requires an additional boundedness
-    hypothesis. This sorry records that gap. -/
+    `SequentiallyUpperDirected` requires `∀ u : ℕ → ι, ∃ k, ∀ n, le (u n) k` —
+    a single finite `k` above the entire infinite sequence.
+
+    **Counterexample**: `u n = (n+1, 1)`. Any upper bound `(d'', τ'')` would need
+    `τ'' ∣ 1` (so `τ'' = 1`) and `(n+1-1)*(1/1) = n < d''` for all `n`, which is
+    impossible for finite `d''`.
+
+    **What Paper 1 actually proves** (Prop. 2): every *finite* subfamily has a common
+    refinement. This is equivalent to `UpperDirected` (proved above), not the stronger
+    `SequentiallyUpperDirected`. Paper 1's definition of "sequential upper-directedness"
+    (Definition 3.3) is weaker than the Lean framework's definition — it only requires
+    finite subfamilies, not the full countable family.
+
+    **Consequence**: `observational_extension` (which needs `SequentiallyUpperDirected`)
+    does not directly apply to the full delay query system. It applies to any *bounded*
+    subfamily `{Q_{d_n, τ_n}}` for which `sup_n (d_n-1)*k_n` is finite. This is the
+    correct scope of Paper 1's extension theorem.
+
+    This sorry is a deliberate placeholder recording the definition gap. -/
 theorem seqUpperDirected : (delayQuerySystem X).SequentiallyUpperDirected := by
   sorry
 
@@ -256,20 +268,6 @@ instance [Nonempty X] : Nonempty (delayQuerySystem X).Omega :=
     simp only [delayQuerySystem]
     funext k
     simp only [delayRefineMap]⟩⟩
-
-/-- Every outcome in `Xᵈ` is realized by some coherent sequence:
-    `eval_{d,τ}` is surjective on the delay query system's Omega.
-
-    Proof: given `y : Xᵈ`, the constant stream `ω_t = y(0)` is coherent
-    (refinement maps are coordinate projections; all entries equal `y(0)`
-    suffices for d=1). For general d we need a richer construction.
-
-    **Note**: The full realizability proof requires constructing a coherent family
-    (element of `Omega`) for arbitrary `y : Xᵈ`. This is more involved than
-    surjectivity of `delayEval` on `SensorStream X` (which is straightforward).
-    This sorry records that gap; the stream-level surjectivity is proved below. -/
-theorem evalSurjective [Nonempty X] : (delayQuerySystem X).EvalSurjective := by
-  sorry
 
 /-- Stream-level surjectivity: `delayEval d τ : SensorStream X → Xᵈ` is surjective.
 
@@ -298,6 +296,32 @@ lemma delayEval_surjective [Nonempty X] (d τ : ℕ) (hτ : 0 < τ) :
   have hmul : (hk.choose.val : ℤ) * τ = k.val * τ := by linarith
   exact_mod_cast Int.eq_of_mul_eq_mul_right hτ' hmul
 
+/-- Every outcome in `Xᵈ` is realized by some coherent sequence.
+
+    Proof: given `(d, τ)` and `y : Xᵈ`, use stream-level surjectivity to find
+    `s : SensorStream X` with `delayEval d τ s = y`, then define the coherent
+    family `ω.1 (d', τ') = delayEval d' τ' s` for all `(d', τ')`. Coherence
+    holds because the `delayRefineMap` condition is exactly the equation
+    `delayEval d τ = delayRefineMap ∘ delayEval d' τ'` on streams. -/
+theorem evalSurjective [Nonempty X] : (delayQuerySystem X).EvalSurjective := by
+  intro ⟨⟨d, _⟩, ⟨τ, hτ⟩⟩ y
+  -- Step 1: get a stream realising y at level (d, τ)
+  obtain ⟨s, hs⟩ := delayEval_surjective d τ hτ y
+  -- Step 2: build the coherent Omega element using s at every level
+  refine ⟨⟨fun ⟨⟨d', _⟩, ⟨τ', _⟩⟩ => delayEval d' τ' s, ?_⟩, ?_⟩
+  · -- Coherence: for any refinement (d₁,τ₁) ≤ (d₂,τ₂), the components commute
+    intro ⟨⟨d₁, _⟩, ⟨τ₁, _⟩⟩ ⟨⟨d₂, _⟩, ⟨τ₂, _⟩⟩ h
+    -- Need: delayEval d₁ τ₁ s = delayRefineMap ... (delayEval d₂ τ₂ s)
+    funext k
+    obtain ⟨a, ha⟩ := h.1
+    have hdiv : τ₁ / τ₂ = a := by rw [ha]; exact Nat.mul_div_cancel_left a ‹0 < τ₂›
+    simp only [delayQuerySystem, delayEval, delayRefineMap, hdiv]
+    congr 1
+    push_cast [ha]
+    ring
+  · -- The (d, τ) component equals y
+    simpa [QuerySystem.eval, delayQuerySystem] using hs
+
 /-! ## Compatible marginals -/
 
 /-- Any probability measure on `SensorStream X` induces compatible marginals
@@ -325,3 +349,144 @@ theorem compatibleMarginals (P : Measure (SensorStream X)) [IsProbabilityMeasure
   ring
 
 end delayQuerySystem
+
+/-! ## Fixed-lag delay query system -/
+
+/-- The fixed-lag delay query system at lag `τ₀`, with dimensions `{1, 2, …}`.
+
+    Index set `ℕ+` (dimension only); lag is fixed at `τ₀`. The refinement order is
+    just `d ≤ d'` (larger dimension is finer), and the refinement map picks the first `d`
+    coordinates of a `d'`-tuple.
+
+    **Motivation:** The full `delayQuerySystem` is not sequentially upper-directed.
+    Fixing the lag removes the multi-lag complication: with lag fixed at `τ₀`, any sequence
+    of dimensions `d_n` is bounded above by `sup_n d_n` (possibly infinite), but for any
+    *bounded* sequence the sup is finite and gives a concrete upper bound.
+
+    More precisely, this system IS sequentially upper-directed if and only if every sequence
+    in `ℕ+` is bounded — which is false.  The correct scope is the subsystem
+    `delayFixedLagBoundedSystem` below (dimensions `d ≤ N` for fixed lag and fixed `N`),
+    which is a finite chain and trivially directed.
+
+    The present definition serves as a stepping stone and documents the fixed-lag case. -/
+noncomputable def delayFixedLagSystem (X : Type u) [MeasurableSpace X] (τ₀ : ℕ+) :
+    QuerySystem.{u, 0} where
+  ι        := ℕ+
+  q        := fun ⟨d, _⟩ => delayQuery X d τ₀
+  le       := fun ⟨d, _⟩ ⟨d', _⟩ => d ≤ d'
+  π        := fun {i} {j} h =>
+    ⟨fun v k => v ⟨k.val, Nat.lt_of_lt_of_le k.isLt h⟩,
+     measurable_pi_lambda _ fun _ => measurable_pi_apply _⟩
+  le_refl  := fun _ => le_refl _
+  le_trans := fun h₁₂ h₂₃ => le_trans h₁₂ h₂₃
+  π_refl   := fun ⟨d, _⟩ => by funext v k; simp
+  π_trans  := by
+    intro ⟨d₁, _⟩ ⟨d₂, _⟩ ⟨d₃, _⟩ h₁₂ h₂₃
+    funext v k
+    simp
+
+/-! ## Bounded fixed-lag delay query system -/
+
+/-- The bounded fixed-lag delay query system: dimension `d ≤ N`, lag fixed at `τ₀`.
+
+    Index set `{d : ℕ+ // d ≤ N}` — a finite chain, hence trivially
+    sequentially upper-directed with `N` as universal upper bound.
+
+    **This is the correct scope of Paper 1's Observational Extension Theorem:**
+    for a fixed lag `τ₀` and a fixed maximum dimension `N`, any compatible family of
+    marginal measures on `{Xᵈ : d ≤ N}` extends uniquely to a probability measure on
+    the projective limit.
+
+    The full delay system (all lags, all dimensions) is the inductive limit over
+    all `N` and `τ₀` of these bounded systems. -/
+noncomputable def delayFixedLagBoundedSystem (X : Type u) [MeasurableSpace X]
+    (τ₀ : ℕ+) (N : ℕ+) : QuerySystem.{u, 0} where
+  ι        := {d : ℕ+ // d ≤ N}
+  q        := fun ⟨⟨d, _⟩, _⟩ => delayQuery X d τ₀
+  le       := fun ⟨⟨d, _⟩, _⟩ ⟨⟨d', _⟩, _⟩ => d ≤ d'
+  π        := fun {i} {j} h =>
+    ⟨fun v k => v ⟨k.val, Nat.lt_of_lt_of_le k.isLt h⟩,
+     measurable_pi_lambda _ fun _ => measurable_pi_apply _⟩
+  le_refl  := fun _ => le_refl _
+  le_trans := fun h₁₂ h₂₃ => le_trans h₁₂ h₂₃
+  π_refl   := fun _ => by funext v k; simp
+  π_trans  := by intro _ _ _ _ _; funext v k; simp
+
+namespace delayFixedLagBoundedSystem
+
+/-- The bounded fixed-lag system is sequentially upper-directed: `N` is a universal bound. -/
+theorem seqUpperDirected (τ₀ : ℕ+) (N : ℕ+) :
+    (delayFixedLagBoundedSystem X τ₀ N).SequentiallyUpperDirected := by
+  intro u
+  exact ⟨⟨N, le_refl N⟩, fun n => (u n).2⟩
+
+instance nonempty_ι (τ₀ : ℕ+) (N : ℕ+) :
+    Nonempty (delayFixedLagBoundedSystem X τ₀ N).ι :=
+  ⟨⟨N, le_refl N⟩⟩
+
+/-- The bounded fixed-lag system's `Omega` is nonempty. -/
+instance nonempty_omega [Nonempty X] (τ₀ : ℕ+) (N : ℕ+) :
+    Nonempty (delayFixedLagBoundedSystem X τ₀ N).Omega := by
+  refine ⟨⟨fun _ _ => Classical.arbitrary X, ?_⟩⟩
+  intro ⟨⟨d₁, _⟩, _⟩ ⟨⟨d₂, _⟩, _⟩ _
+  funext k
+  simp [delayFixedLagBoundedSystem]
+
+/-- Stream-level surjectivity for fixed lag. -/
+private lemma fixedLag_delayEval_surjective [Nonempty X] (d : ℕ) (τ₀ : ℕ+) :
+    Function.Surjective (delayEval (X := X) d τ₀) :=
+  delayQuerySystem.delayEval_surjective d τ₀ τ₀.pos
+
+/-- Every outcome in `Xᵈ` is realized by some coherent sequence. -/
+theorem evalSurjective [Nonempty X] (τ₀ : ℕ+) (N : ℕ+) :
+    (delayFixedLagBoundedSystem X τ₀ N).EvalSurjective := by
+  intro ⟨⟨d, _⟩, _⟩ y
+  obtain ⟨s, hs⟩ := fixedLag_delayEval_surjective d τ₀ y
+  refine ⟨⟨fun ⟨⟨d', _⟩, _⟩ => delayEval d' τ₀ s, ?_⟩, ?_⟩
+  · -- Coherence: for d₁ ≤ d₂, the (d₁,τ₀)-component = π applied to (d₂,τ₀)-component
+    intro ⟨⟨d₁, _⟩, _⟩ ⟨⟨d₂, _⟩, _⟩ h
+    funext k
+    simp only [delayFixedLagBoundedSystem, delayEval]
+  · simpa [QuerySystem.eval, delayFixedLagBoundedSystem, delayEval] using hs
+
+/-- Any probability measure on `SensorStream X` induces compatible marginals. -/
+theorem compatibleMarginals (τ₀ : ℕ+) (N : ℕ+) (P : Measure (SensorStream X))
+    [IsProbabilityMeasure P] :
+    (delayFixedLagBoundedSystem X τ₀ N).CompatibleMarginals
+      (fun ⟨⟨d, _⟩, _⟩ => Measure.map (delayEval (X := X) d τ₀) P) := by
+  intro ⟨⟨d, _⟩, _⟩ ⟨⟨d', _⟩, _⟩ h
+  -- Goal: Measure.map (S.π h).π (Measure.map (delayEval d' τ₀) P) = Measure.map (delayEval d τ₀) P
+  -- (S.π h).π = fun v k => v ⟨k.val, ...⟩; use map_map + pointwise eq
+  have heq : (fun v : DelayOutcome X d' => fun k : Fin d =>
+      v ⟨k.val, Nat.lt_of_lt_of_le k.isLt h⟩) ∘ delayEval d' τ₀ = delayEval d τ₀ := by
+    funext ω k; simp [delayEval]
+  simp only [delayFixedLagBoundedSystem]
+  have hπ_meas : Measurable (fun v : DelayOutcome X d' => fun k : Fin d =>
+      v ⟨k.val, Nat.lt_of_lt_of_le k.isLt h⟩) :=
+    measurable_pi_lambda _ fun _ => measurable_pi_apply _
+  calc Measure.map (fun v : DelayOutcome X d' => fun k : Fin d =>
+          v ⟨k.val, Nat.lt_of_lt_of_le k.isLt h⟩) (Measure.map (delayEval d' τ₀) P)
+      = Measure.map ((fun v : DelayOutcome X d' => fun k : Fin d =>
+          v ⟨k.val, Nat.lt_of_lt_of_le k.isLt h⟩) ∘ delayEval d' τ₀) P :=
+        Measure.map_map hπ_meas (measurable_delayEval d' τ₀)
+    _ = Measure.map (delayEval d τ₀) P := by rw [heq]
+
+/-- **Observational Extension Theorem for fixed-lag bounded delay embeddings.**
+
+    For fixed lag `τ₀` and maximum dimension `N`, any compatible family of marginal
+    measures on `{Xᵈ : d ≤ N}` extends uniquely to a probability measure on `Omega`.
+
+    This is the formalization of Paper 1's main theorem in its correct scope:
+    finite-window delay embeddings at fixed lag. -/
+theorem observational_extension_fixedLag [Nonempty X] (τ₀ : ℕ+) (N : ℕ+)
+    (ν : ∀ i : (delayFixedLagBoundedSystem X τ₀ N).ι,
+           Measure ((delayFixedLagBoundedSystem X τ₀ N).q i).Outcome)
+    (compat : (delayFixedLagBoundedSystem X τ₀ N).CompatibleMarginals ν)
+    [hν : ∀ i, IsProbabilityMeasure (ν i)] :
+    ∃! P : Measure (delayFixedLagBoundedSystem X τ₀ N).Omega,
+      IsProbabilityMeasure P ∧
+      ∀ i, Measure.map ((delayFixedLagBoundedSystem X τ₀ N).eval i) P = ν i :=
+  (delayFixedLagBoundedSystem X τ₀ N).observational_extension
+    (seqUpperDirected τ₀ N) (evalSurjective τ₀ N) ν compat
+
+end delayFixedLagBoundedSystem

@@ -181,9 +181,8 @@ Project $X^{d+d'}$ onto the first $d$ (resp.\ $d'$) coordinates.
 The full delay query system $(\Qcal_X, \preceq)$ is upper-directed: for any
 two queries $Q_{d,\tau}$ and $Q_{d',\tau'}$, there exists a common refinement
 $Q_{d'',\tau''}$ with $(d,\tau) \preceq (d'',\tau'')$ and
-$(d',\tau') \preceq (d'',\tau'')$.  Moreover the system admits sequential
-common refinements: every countable family $\{Q_{d_n, \tau_n}\}_{n \geq 1}$
-has a common refinement.
+$(d',\tau') \preceq (d'',\tau'')$.  More generally, every \emph{finite}
+family of delay queries has a common refinement.
 \end{proposition}
 
 \begin{proof}
@@ -211,23 +210,36 @@ measurable as a coordinate projection $X^{d''} \to X^d$ with respect to
 the product $\sigma$-algebras $\Xcal^{\otimes d''}$ and $\Xcal^{\otimes d}$.
 The same argument with $k'$ and $d'$ gives $(d',\tau') \preceq (d'',\tau'')$.
 
-\textbf{Sequential case.}
-Given a countable family $\{(d_n, \tau_n)\}_{n \geq 1}$, let
-$\tau'' = \gcd(\tau_1, \tau_2, \ldots)$.  Since each $\tau_n$ is a positive
-integer, the gcd of the full family is the gcd of any finite subfamily that
-achieves the minimum; it is a well-defined positive integer, and
-$\tau'' \mid \tau_n$ for all $n$.  Write $\tau_n = k_n \tau''$.
-
-Set $d'' = \sup_n (d_n - 1)k_n + 1$.  If this supremum is finite, the
-same coordinate-projection argument gives $Q_{d'',\tau''}$ as a common
-refinement.  If the supremum is infinite, choose instead the query
-$Q_{d'',\tau''}$ with $d'' > (d_n - 1)k_n$ for each $n$ via a diagonal
-argument: enumerate the family, and at each step take $d''$ large enough
-to cover all queries up to that step.  The resulting common refinement
-may have $d'' = \infty$ in a limiting sense, but for any \emph{finite}
-subfamily a finite common refinement exists, which is all that sequential
-upper-directedness requires (Paper~1, Definition~3.3).
+\textbf{Finite case.}
+Induction on the family size, applying the pairwise case at each step.
 \end{proof}
+
+\begin{remark}[The full system is not sequentially upper-directed]\label{rem:not-seq-udir}
+The abstract framework of Paper~1 requires \emph{sequential} upper-directedness:
+every countable sequence of queries must have a single finite common refinement.
+The full delay query system does \emph{not} satisfy this condition.
+
+\textbf{Counterexample.}  Consider the sequence $Q_{n,1}$ for $n = 1, 2, 3, \ldots$\
+Any common refinement $Q_{d'', \tau''}$ would require $\tau'' \mid 1$,
+forcing $\tau'' = 1$, and then $(n-1) \cdot (1/1) = n-1 < d''$ for all $n$,
+which is impossible for any finite $d''$.
+
+The correct scope of the extension theorem is therefore the
+\emph{bounded fixed-lag subsystem}: for fixed lag $\tau_0 \in \mathbb{N}_{>0}$
+and fixed maximum dimension $N \in \mathbb{N}_{>0}$, the subfamily
+\[
+  \mathcal{Q}_{N,\tau_0} = \{Q_{d,\tau_0} : 1 \leq d \leq N\}
+\]
+is a finite chain (totally ordered by dimension) and is therefore
+sequentially upper-directed with $Q_{N,\tau_0}$ as a universal upper bound.
+The Observational Extension Theorem (Paper~1, Theorem~6.1) applies to each
+$\mathcal{Q}_{N,\tau_0}$.  The full delay system is the inductive limit
+over $N$ and $\tau_0$ of these bounded subsystems.
+
+This distinction is analogous to the classical Kolmogorov extension theorem,
+which applies to consistent families of finite-dimensional distributions but
+does not directly extend to uncountably many projections simultaneously.
+\end{remark}
 
 \begin{remark}[The gcd lag is canonical]
 The choice $\tau'' = \gcd(\tau, \tau')$ is the \emph{coarsest} lag at
@@ -298,16 +310,21 @@ By definition of the refinement order, $\pi \circ \mathrm{eval}_{d',\tau'}
 where the second equality is functoriality of pushforward.
 \end{proof}
 
-\begin{remark}[The extension theorem applies to any $P$]
+\begin{remark}[Scope of the extension theorem]\label{rem:ext-scope}
 Propositions~\ref{prop:is-qs}, \ref{prop:upper-directed-general},
-\ref{prop:realizability}, and \ref{prop:compat} together verify all
-hypotheses of Paper~1 for the delay query system.  The Observational
-Extension Theorem (Paper~1, Theorem~6.1) therefore applies: any compatible
-family $\{\nu_{d,\tau}\}$ --- not just one induced by a pre-existing $P$
---- determines a unique probability measure on $(\Omega, \Fcal)$ recovering
-the prescribed marginals.  The two directions are inverse to one another:
-starting from $P$ gives marginals by Proposition~\ref{prop:compat};
-starting from compatible marginals recovers $P$ by the Extension Theorem.
+\ref{prop:realizability}, and \ref{prop:compat} verify the axioms of a
+query system and realizability for the delay query system.  In view of
+Remark~\ref{rem:not-seq-udir}, the Observational Extension Theorem
+(Paper~1, Theorem~6.1) applies to each bounded fixed-lag subsystem
+$\mathcal{Q}_{N,\tau_0}$: any compatible family $\{\nu_{d,\tau_0}\}_{d \leq N}$
+determines a unique probability measure on the projective limit
+$\varprojlim_{d \leq N} X^d$ recovering the prescribed marginals.
+
+In particular, starting from any $P$ on $\Omega = X^{\mathbb{Z}}$, the
+induced marginals $\nu_{d,\tau} = (\mathrm{eval}_{d,\tau})_\sharp P$ are
+compatible (Proposition~\ref{prop:compat}), and the extension theorem
+recovers $P$ on each $\mathcal{Q}_{N,\tau_0}$.  Taking the inductive limit
+over $N$ and $\tau_0$ recovers $P$ on the full system.
 \end{remark}
 
 \begin{proposition}[Stationarity and time-homogeneity]\label{prop:stationarity}

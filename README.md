@@ -10,32 +10,31 @@ that emerge from their compatibility relations.
 
 ## Program summary
 
-The program proceeds in six papers:
+The program proceeds in five papers:
 
 **Paper −1** establishes the foundation: what an observer is, what
 their coherent discriminative commitments force, and why the
 σ-algebra structure arises necessarily from primitive distinguishability.
 
-**Paper 0** derives σ-additive probability from finitely-additive
-observable laws via the Prokhorov and Musiał extension theorems.
+**Paper 0** assembles the per-level σ-additive extensions from Paper −1
+into a unique global probability measure on the canonical realization
+space, via a realizability condition on the projective limit.
 
-**Paper 1** establishes a canonical probabilistic representation of
-compatible observable experiments.
+**Paper 1** shows how a minimal predictive state space emerges from
+prediction on that probability space, and develops the operator theory
+of predictive dynamics.
 
-**Paper 2** shows how a minimal predictive state space emerges from
-prediction on that representation.
+**Paper 2** establishes the semigroup structure of predictive evolution
+and its Koopman-Perron duality.
 
-**Paper 3** develops the operator theory of predictive dynamics,
-showing that predictive evolution is governed by a semigroup and its
-infinitesimal generator.
-
-**Paper 4** develops the delay query system as a concrete computational
-instantiation of the framework.
+**Paper 3** develops the delay query system as a concrete computational
+instantiation of the framework, connecting to DMD and Koopman spectral
+methods.
 
 The architectural spine of the program is:
 
 ```
-discriminability  →  observable laws  →  canonical (Ω, P)  →  predictive state Q*  →  semigroup {K_t}  →  generator A
+discriminability  →  canonical (Ω, P)  →  predictive state Q*  →  semigroup {K_t}  →  computation
 ```
 
 Conceptually:
@@ -56,19 +55,19 @@ Resolvent_Framework/
 │
 ├── papers/
 │   ├── discriminability_foundations/        ← Paper −1
-│   ├── prokhorov_extension/                 ← Paper 0
-│   ├── observational_foundations/           ← Paper 1
-│   ├── predictive_operator_theory/          ← Paper 2
-│   ├── predictive_experiments/              ← Paper 3
-│   └── observational_probability/           ← Paper 4
+│   ├── observational_foundations/           ← Paper 0
+│   ├── predictive_operator_theory/          ← Paper 1
+│   ├── predictive_experiments/              ← Paper 2
+│   └── observational_probability/           ← Paper 3
 │
 ├── thesis/
-│   └── thesis.tex                           ← master document (all six papers)
+│   └── thesis.tex                           ← master document (all five papers)
 │
 ├── formalization/
 │   └── QuerySystem/   ← Lean 4 formalization
 │
 └── notes/
+    ├── prokhorov_extension/                 ← topological extension (companion, not trunk)
     ├── exploratory/
     ├── conceptual_sketches/
     └── archived_artifacts/
@@ -87,25 +86,17 @@ of systems modelling coherent worlds.
 
 > **discriminability → coherence → measurable structure**
 
-### Paper 0 — Finitely Additive Observable Laws and the Prokhorov Extension
-*From Observable Laws to σ-Additive Probability*
+### Paper 0 — Observational Foundations of Probability
+*From Collective Exhaustion to Canonical Probability*
 
-Shows that compatible finitely-additive observable laws extend to a
-σ-additive probability measure on the canonical experiment space, via
-Prokhorov (compact) and Musiał (standard Borel) extension theorems.
+Assembles the per-level σ-additive extensions (from Paper −1 via
+collective exhaustion) into a unique global probability measure on the
+canonical realization space `(Ω, σ(Q), P)`, using a realizability
+condition on the projective limit. No topology required.
 
-> **observable laws → σ-additive probability**
+> **collective exhaustion + realizability → canonical probability**
 
-### Paper 1 — Observational Foundations of Probability
-*From Observable Experiments to Canonical Probability*
-
-Proves that compatible families of observable laws admit a canonical
-probabilistic representation `(Ω, σ(Q), P)` whose evaluation marginals
-recover the observable laws.
-
-> **observables → probability**
-
-### Paper 2 — Predictive State and Operator Factorization
+### Paper 1 — Predictive State and Operator Factorization
 *From Canonical Probability to Predictive State Dynamics*
 
 Shows that prediction induces an equivalence on observable states,
@@ -114,7 +105,7 @@ yielding a minimal predictive query `Q*` and a Markov operator
 
 > **probability → prediction → operators**
 
-### Paper 3 — Observable Operator Semigroups and Koopman Duality
+### Paper 2 — Observable Operator Semigroups and Koopman Duality
 *From Predictive State Dynamics to Operator Semigroups*
 
 Shows that predictive evolution on the minimal predictive state space
@@ -124,7 +115,7 @@ equation.
 
 > **predictive state → operator semigroup → generator**
 
-### Paper 4 — Delay Queries and Computational Instantiation
+### Paper 3 — Delay Queries and Computational Instantiation
 *From Abstract Framework to Concrete Computation*
 
 Develops the delay query system as a concrete computational realization

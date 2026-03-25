@@ -1,48 +1,48 @@
 %% Interstitial: Paper 0 -> Paper 1
-%% Narrative: the probability exists; now we ask how it relates to
-%% the observable experiments that generated it.
+%% Narrative: the probability exists and is determined; now we ask what
+%% predictive structure it generates.
 
 Chapter~\ref{chap:paper-zero} established that compatible observable
 laws determine a unique $\sigma$-additive probability measure $P$ on
 $(\Omega, \sigma(\mathcal{Q}))$.  The measure exists.  It is
-canonical.  Its marginals recover the original valuations $\{\ell_Q\}$.
+canonical.  Its marginals recover the original valuations $\{\ell_Q\}$,
+and two measures agreeing on all query marginals are identical: there
+is no hidden probability beyond what the observable interface shows.
 
-But the construction was existential.  We know $P$ exists and is
-unique; we do not yet have a structural account of what $P$ \emph{is}
---- of how it is built from the query system, what properties it
-inherits from the $\{\ell_Q\}$, and when two different query systems
-determine the same $P$.
-
-\medskip
-
-These are the questions of Chapter~\ref{chap:paper-one}.  Its central
-result is an \emph{observational determination theorem}: two
-$\sigma$-additive probability measures on $(\Omega, \sigma(\mathcal{Q}))$
-that agree on all query marginals are identical.  Probability on the
-realization space is entirely determined by observable experiments ---
-not partially, not generically, but exactly and completely.
-
-This is the program's first structural theorem, and it has a
-philosophical weight beyond its technical content.  It says that there
-is no hidden probability: no aspect of $P$ that the observable
-interface fails to capture.  The latent space $\Omega$ carries exactly
-the structure forced by the queries, and no more.
+With $P$ in hand, the program enters a new phase.  The foundational
+question --- where does probability come from? --- has been answered.
+The next question is dynamical: \emph{what does the probability predict?}
 
 \medskip
 
-Chapter~\ref{chap:paper-one} also establishes two independent routes
-to the global measure, corresponding to two different starting
-hypotheses about the marginals: the \emph{realizability route}
-(marginals already $\sigma$-additive, realizability condition on
-$\Omega$) and the \emph{Prokhorov route} (marginals only finitely
-additive, SPUT supplies $\sigma$-additivity).  The relationship between
-these routes --- and the conditions under which they coincide ---
-clarifies the logical structure of what SP2 required.
+Given the current query $Q$ and some future observable $F$, the
+measure $P$ determines a conditional distribution of $F$ given $Q$.
+But this conditional distribution depends on the full measure $P$,
+which in turn depends on the entire query system.  Can the predictive
+content of $Q$ be isolated --- expressed as a structure intrinsic to
+$Q$ and $P$, without reference to all other queries?
+
+Chapter~\ref{chap:paper-one} answers yes.  The \emph{predictive
+kernel} $\Pi_Q$ captures exactly the information in $Q$ relevant for
+predicting $F$: it is the conditional distribution of $F$ given $Q$,
+factored through the \emph{minimal predictive query} $Q_* = \varphi_Q
+\circ Q$ --- the coarsest function of $Q$ that retains all predictive
+content.  The central result is the predictive factorization theorem:
+every bounded measurable $g(F)$ satisfies
+$\mathbb{E}[g(F) \mid \sigma(Q)] = (\mathrm{predictiveOp}\,g) \circ Q_*$.
+
+\medskip
+
+This is the first result in the program that is genuinely dynamical
+in character.  The query $Q$ represents the observer's current
+measurement; $F$ represents a future event; $Q_*$ is the minimal
+structure needed to bridge them.  The passage from observable
+compatibility to predictive sufficiency is the passage from static
+coexistence of queries to the temporal structure of prediction.
 
 \medskip
 
 The passage from Chapter~\ref{chap:paper-zero} to
-Chapter~\ref{chap:paper-one} is the passage from \emph{existence} to
-\emph{structure}: from knowing that a probability exists to
-understanding how it is determined, when it is unique, and what
-observing it fully means.
+Chapter~\ref{chap:paper-one} is the passage from \emph{probability}
+to \emph{prediction}: from the construction of $P$ to the extraction,
+for each query, of the minimal predictive structure it contains.

@@ -74,37 +74,26 @@ Sequential upper-directedness --- the condition that every sequence of queries h
 common refinement --- is the structural hypothesis that makes global assembly possible.
 It plays no role in the per-level result but is essential for the projective limit.
 
-Chapter~\ref{chap:paper-zero} addresses this global assembly problem by two
-independent routes.  The \emph{realizability route} takes the per-level
-$\sigma$-additive extensions as input (supplied by Chapter~\ref{chap:paper-minus-one}
-via collective exhaustion) and assembles them into a global probability measure on
-$(\Omega,\sigma(\mathcal{Q}))$ using a realizability condition on $\Omega$, with no
-topology on the outcome spaces required.  The \emph{Prokhorov route} starts instead
-from finitely-additive marginals and derives $\sigma$-additivity globally from a
-topological mass-concentration condition (surjective projective uniform tightness,
-SPUT), requiring Hausdorff topology and continuous refinement maps on the outcome
-spaces.  Both routes yield the same canonical probability space under shared
-hypotheses.
+Chapter~\ref{chap:paper-zero} addresses this global assembly problem directly.
+Taking the per-level $\sigma$-additive extensions as input --- supplied by
+Chapter~\ref{chap:paper-minus-one} via collective exhaustion --- it assembles them
+into a global probability measure on $(\Omega, \sigma(\mathcal{Q}))$ using a
+realizability condition on $\Omega$: that every coherent assignment of outcomes
+across the query system is realised by a point of $\Omega$.  No topology on the
+outcome spaces is required.  The result is the program's central construction: from
+observable discriminations, forced through collective exhaustion and realizability,
+a canonical probability space emerges.
 
-\paragraph{The topology question.}
-The two routes reveal a tension at the heart of the program.  The realizability route
-stays within the program's philosophy: no topology is assumed; structure emerges from
-the algebra of observable events.  The Prokhorov route achieves a stronger starting
-point (finitely additive marginals only) but pays for it with an external topological
-commitment.  One may ask whether this topology is truly primitive, or whether it too
-can be recovered from observable structure.  Under Stone duality, the Boolean algebra
-$\mathcal{E}_Q$ already determines a canonical topology on its Stone space
-$S(\mathcal{E}_Q)$ --- compact and Hausdorff --- without any external assumption.  The
-Baire $\sigma$-algebra of $S(\mathcal{E}_Q)$ then recovers $\sigma(\mathcal{E}_Q)$.
-If the outcome spaces $O_Q$ can be identified with (or embedded into) these Stone
-spaces, then Hausdorff topology is not assumed but \emph{derived} from the
-discriminability structure of the queries.  Whether this identification is sufficient
-for SPUT is a question that the program poses as a longer-range goal: the
-\emph{emergence of topology from observation}.
+\paragraph{The realizability condition.}
+The one hypothesis that collective exhaustion does not supply is
+\emph{realizability}: that the projective limit $\Omega = \varprojlim O_Q$ is
+nonempty and surjective.  This is a condition on the global coherence of the query
+system --- that the outcome spaces are consistent enough to admit a joint
+realisation --- and it is the price for working without topology.  In practice,
+realizability is verified structurally for any system built from a concrete
+observation process; it is not an analytic condition but an architectural one.
 
 The passage from Chapter~\ref{chap:paper-minus-one} to Chapter~\ref{chap:paper-zero}
 is therefore the passage from local to global: from the characterisation of
 $\sigma$-additivity at each level to the construction of a single probability measure
-on the world the system describes.  What topology that world carries --- and whether
-it is forced by observation rather than assumed --- is the question the program
-continues to pursue.
+on the world the system describes.

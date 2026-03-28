@@ -1,4 +1,4 @@
-# Observable Dynamics Program
+# Discriminative Foundations for Probability and Dynamics
 
 This repository develops a program for deriving dynamical structure
 directly from observable experiments.
@@ -139,4 +139,4 @@ sorrys. One Mathlib-blocked sorry remains in `ProkhorovExtension.lean`
 
 `thesis/thesis.tex` assembles all five papers into a single document,
 with interstitial chapters explaining the transitions between papers.
-Title: *On the Formalities of Discriminability and Dynamics*.
+Title: *Discriminative Foundations for Probability and Dynamics*.

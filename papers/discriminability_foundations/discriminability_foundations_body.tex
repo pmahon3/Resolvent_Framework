@@ -395,6 +395,53 @@ extensions assemble into a global probability space over $\Omega$ --- that is th
 question.
 \end{remark}
 
+\begin{proposition}[CE irreducibility]
+\label{prop:ce-irreducibility}
+There is no condition $\Phi$ on normalized compatible families of finitely-additive
+charges, expressible in the first-order language of query systems, such that $\Phi$
+implies collective exhaustion.  In particular, sequential upper-directedness together
+with all current structural hypotheses on the query system does not imply collective
+exhaustion.
+\end{proposition}
+
+\begin{proof}
+By Proposition~\ref{prop:independence}, the finite-cofinite counterexample satisfies
+sequential upper-directedness and all named structural hypotheses while failing
+collective exhaustion.  For the universal claim: any first-order condition $\Phi$ is
+preserved under ultraproducts (L\o s's theorem).  The hyperfilter-based content
+$\ell$ of Proposition~\ref{prop:independence} is, up to isomorphism, an ultraproduct
+of point-mass contents over the cofinite filter on $\mathbb{N}$ — maximally finitely
+consistent by construction.  Therefore $\Phi$ holds for $\ell$ whenever $\Phi$ holds
+universally.  Since $\ell$ fails collective exhaustion, $\Phi$ cannot imply it.
+
+The underlying mechanism is the Yosida--Hewitt decomposition: every finitely-additive
+probability on a Boolean algebra decomposes uniquely into a $\sigma$-additive part
+and a purely finitely additive part.  A purely finitely additive content satisfies
+every algebraic condition expressible on a Boolean algebra yet is never collectively
+exhaustive.  The hyperfilter content is purely finitely additive.
+\end{proof}
+
+\begin{remark}[CE as irreducible primitive]
+\label{rem:ce-irreducible}
+Proposition~\ref{prop:ce-irreducibility} shows that the gap between structural coherence
+and $\sigma$-additivity is not a proof-search failure but a proved boundary.  Collective
+exhaustion is an irreducible primitive: it encodes a commitment about the completed
+infinite that no finite structural condition can force.
+
+The ultrafilter-based content is the canonical witness of this irreducibility.  It is
+locally impeccable — passing every finite consistency test — yet globally dishonest,
+assigning unit mass to events whose infinite intersection is empty.  Ruling it out
+requires a direct demand on the valuation: that the observer's assignments remain
+honest even about completions they cannot observe.  This is precisely collective
+exhaustion.
+
+Formally, this means CE is not derivable within the query-system framework.  It is
+analogous to the axiom of infinity in arithmetic: not provable from the remaining
+axioms, not refutable, but the commitment without which the mathematics of
+probability cannot get started.  The program's contribution is to locate this
+boundary precisely and show it cannot be smaller.
+\end{remark}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Discussion}
 \label{sec:discussion}
@@ -417,10 +464,39 @@ via perfectness.  The topology-free case remains open.
 Proposition~\ref{prop:nontrivial} establishes that nontrivial refinement strictly
 extends the pullback algebra: $\pi^{-1}(\mathcal{E}_i) \subsetneq \mathcal{E}_j$.
 The gap $\sigma(\mathcal{E}_i) \setminus \mathcal{E}_i$ is nonempty whenever
-$\mathcal{E}_i$ is not already a $\sigma$-algebra (Remark~\ref{rem:gap}).
-Constructing a specific element of this gap from the refinement data --- connecting
-to the Stone space picture where the gap corresponds to Baire sets not clopen in
-$S(\mathcal{E}_i)$ --- is the concrete content of the incompleteness claim.
+$\mathcal{E}_i$ is not already a $\sigma$-algebra, as the following explicit
+construction shows.
+
+\begin{proposition}[Gap nonemptiness]
+\label{prop:gap-nonempty}
+Let $\mathcal{E}$ be a Boolean algebra of subsets of a countably infinite set $O$
+that is not a $\sigma$-algebra.  Then $\sigma(\mathcal{E}) \setminus \mathcal{E}
+\neq \emptyset$.
+\end{proposition}
+
+\begin{proof}
+Since $\mathcal{E}$ is not a $\sigma$-algebra, there exists a countable family
+$\{A_n\}_{n \geq 0} \subset \mathcal{E}$ whose union $\bigcup_n A_n$ is not in
+$\mathcal{E}$.  (If every countable union of elements of $\mathcal{E}$ were in
+$\mathcal{E}$, then $\mathcal{E}$ would be a $\sigma$-algebra.)  By definition
+of $\sigma(\mathcal{E})$, the set $\bigcup_n A_n$ belongs to $\sigma(\mathcal{E})$.
+Hence $\bigcup_n A_n \in \sigma(\mathcal{E}) \setminus \mathcal{E}$.
+
+In the concrete case of the finite-cofinite algebra $\mathcal{E}_{\mathrm{fc}}$ on
+a countably infinite set $O$ (with enumeration $q : \mathbb{N} \to O$): the
+singletons $\{q(n)\}$ are all finite, hence in $\mathcal{E}_{\mathrm{fc}}$.  Any
+countably infinite co-infinite subset $S \subset O$ is the union
+$S = \bigcup_{n : q(n) \in S} \{q(n)\} \in \sigma(\mathcal{E}_{\mathrm{fc}})$,
+but $S \notin \mathcal{E}_{\mathrm{fc}}$ since $S$ is neither finite nor cofinite.
+\end{proof}
+
+Under Stone duality the gap corresponds precisely to the Baire sets of the Stone
+space $S(\mathcal{E}_i)$ that are not clopen: a level with
+$\mathcal{E}_i = \sigma(\mathcal{E}_i)$ would correspond to a Stone space
+whose entire Baire $\sigma$-algebra consists of clopens, a highly degenerate
+condition ruling out any genuine limit structure.  In the settings of interest
+--- outcome spaces that are not finite discrete --- the gap is nonempty, and the
+extension question is nontrivial.
 
 \ifcsname thesismode\endcsname\else
 \bibliographystyle{plain}

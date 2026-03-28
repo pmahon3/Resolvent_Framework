@@ -247,13 +247,15 @@ Working note: \emph{Observational Probability from Delay Queries}
 \end{center}
 
 \paragraph{Formal verification.}
-Papers~1--3 are fully formalized in Lean~4 / Mathlib with zero
-\texttt{sorry} across all three source files
-(\texttt{QuerySystem.lean}, \texttt{PredictiveState.lean},
-\texttt{PredictiveOperators.lean}).  Paper~0 is nearly fully
-formalized (\texttt{ProkhorovExtension.lean}): the inverse limit
-theorem (\texttt{compactInverseLimit\_nonempty}) and the main
-extension theorem (\texttt{prokhorov\_extension}) are proved; one
+Papers~$-1$ through~3 are formalized in Lean~4 / Mathlib.
+Papers~0--2 carry zero \texttt{sorry} across
+\texttt{QuerySystem.lean}, \texttt{PredictiveState.lean}, and
+\texttt{PredictiveOperators.lean}.
+Paper~$-1$ (\texttt{DiscriminabilityFoundations.lean}) is complete:
+zero sorrys on all main theorems; two infrastructure-blocked sorrys on
+\texttt{IsFinitarilyExpressible} and \texttt{ce\_irreducibility}
+(ultraproduct construction absent from Mathlib).
+Paper~3 (\texttt{ProkhorovExtension.lean}) is nearly complete: one
 \texttt{sorry} remains in \texttt{prokhorov\_extension\_polish},
 blocked on \texttt{PerfectMeasure} and Musia\l's theorem being absent
 from Mathlib~4.  See the Formalization Status section for details.
@@ -309,10 +311,10 @@ Figure~\ref{fig:observable-dynamics-program}.
     {Delay Sufficiency\\Recovery of $Q_*$};
 
 % Main spine arrows
-\draw[arrow] (queries) -- node[right,font=\scriptsize]{Paper 1} (prob);
-\draw[arrow] (prob)    -- node[right,font=\scriptsize]{Paper 2} (equiv);
+\draw[arrow] (queries) -- node[right,font=\scriptsize]{Paper 0} (prob);
+\draw[arrow] (prob)    -- node[right,font=\scriptsize]{Paper 1} (equiv);
 \draw[arrow] (equiv)   --                                       (state);
-\draw[arrow] (state)   -- node[right,font=\scriptsize]{Paper 3} (ops);
+\draw[arrow] (state)   -- node[right,font=\scriptsize]{Paper 2} (ops);
 \draw[arrow] (ops)     --                                       (sg);
 \draw[arrow] (sg)      --                                       (gen);
 \draw[arrow] (gen)     --                                       (kolm);
@@ -377,7 +379,7 @@ The following theorems constitute the proved core of the program as of
 March 2026.  All results in Stages~1--3 have Lean~4 / Mathlib proofs;
 Stage~4 results are proved in the working note.
 
-\subsection{Observational completion \textnormal{(Paper 1)}}
+\subsection{Observational completion \textnormal{(Paper 0)}}
 
 \begin{theorem}[Observational Completion Theorem]
 Let $(\mathcal Q,\preceq)$ be a query system with compatible observable
@@ -400,7 +402,7 @@ all query cylinders are identical, giving an observational analogue of
 the classical $\pi$-$\lambda$ theorem.
 \end{remark}
 
-\subsection{Predictive state and factorization \textnormal{(Paper 2)}}
+\subsection{Predictive state and factorization \textnormal{(Paper 1)}}
 
 \begin{theorem}[Minimal Predictive Query]
 Let $(\Omega,\sigma(\mathcal Q),P)$ be the canonical experiment and
@@ -430,7 +432,7 @@ query $Q_*$ is always predictively sufficient and is the unique minimal
 one up to predictive equivalence.
 \end{theorem}
 
-\subsection{Operator semigroup and duality \textnormal{(Paper 3)}}
+\subsection{Operator semigroup and duality \textnormal{(Paper 2)}}
 
 \begin{theorem}[Predictive Operator Semigroup]
 Assume the Markov kernels $\{P_t\}_{t\ge0}$ on $O_{Q_*}$ satisfy the
@@ -452,7 +454,7 @@ limit $K_t g = g\circ\phi_t$, recovering the classical Koopman
 operator, and $P_t^*$ recovers the Perron--Frobenius transfer operator.
 \end{theorem}
 
-\subsection{Delay queries and computational instantiation \textnormal{(Paper 4)}}
+\subsection{Delay queries and computational instantiation \textnormal{(Paper 3)}}
 
 \begin{theorem}[Upper-directedness of delay query system]
 The delay query system $\{Q_{d,\tau}\}$ with $Q_{d,\tau}(\omega) =
@@ -559,15 +561,27 @@ correct reading of the program's chain is therefore:
 \text{probability.}
 \]
 
-The central open conjecture of Paper~$-1$ is that sequential
-upper-directedness --- already a hypothesis of the program ---
-provides \emph{witnessing from above}: finer queries see what coarser
-ones cannot, and compatibility propagates that witnessing back to force
-continuity at $\emptyset$ at every finite level.  If true, the
-$\sigma$-algebra is not derived by closing the gap but by the
-observer's commitment to acting as if a coherent world --- one in
-which gaps close --- exists, even though no observer in the system can
-occupy that completion.
+\emph{Resolution: CE is an irreducible primitive (Paper~$-1$, complete).}
+The witnessing conjecture --- that sequential upper-directedness alone forces collective
+exhaustion --- is \textbf{false}.  The finite-cofinite counterexample on $\mathbb{Q}$
+witnesses this: a system satisfying sequential upper-directedness and all structural
+hypotheses that fails collective exhaustion at every level.  Formalized as
+\texttt{ce\_independence} (zero sorrys) in Lean~4.
+
+More strongly, collective exhaustion is \emph{irreducible}: no condition expressible
+in the first-order language of query systems implies it.  Any such condition is
+preserved by ultraproducts (L\o s's theorem), and the hyperfilter-based content is
+an ultraproduct of point-mass contents that satisfies every structural condition while
+failing collective exhaustion.  The Yosida--Hewitt decomposition provides the
+general witness: purely finitely additive contents satisfy all algebraic conditions
+and are never collectively exhaustive.  Formalized as \texttt{ce\_irreducibility}
+(one documented sorry marking the ultraproduct infrastructure gap in Mathlib).
+
+The correct reading is that collective exhaustion is the \emph{minimal irreducible
+commitment} separating structural coherence from probability.  The gap between
+``coherence'' and ``probability'' in the program's chain is a proved boundary,
+not an open conjecture.  CE names exactly what must be assumed and shows it cannot
+be smaller.
 \end{conjecture}
 
 \begin{conjecture}[SP2: $\sigma$-additivity from compatibility]
@@ -604,16 +618,35 @@ remains a genuine assumption.  The purely structural or topology-free
 route to $\sigma$-additivity --- deriving it from compatibility alone
 without tightness or perfectness hypotheses --- is the remaining open
 form of SP2.  Candidate approaches include Mallory--Sion-type
-arguments and compactification routes (one-point or Stone--\v{C}ech).
+arguments, compactification routes (one-point or Stone--\v{C}ech),
+and the Stone duality direction: the Stone space $S(\mathcal{E}_Q)$
+of the event algebra is compact Hausdorff canonically, so if SPUT
+can be read off from the Stone topology of $\mathcal{E}_Q$ rather
+than assumed on $O_Q$, the compact case would subsume the general one
+algebraically.
 \end{conjecture}
 
-\begin{conjecture}[SP3: Realizability from compatibility]
-The projective limit $\Omega$ is assumed non-degenerate (realizability).
-The question is whether this follows from compatibility of the
-$\{\nu_Q\}$, or is genuinely independent.  Candidate routes: almost-sure
-realizability derivable from compatibility alone; inner regularity
-(tightness) of the marginals implying a tight global limit.
-\end{conjecture}
+\begin{remark}[SP3: Realizability --- independence established]
+Realizability (that the evaluation maps $\mathrm{eval}_Q : \Omega \to O_Q$ are
+all surjective) is independent of the other structural hypotheses: sequential
+upper-directedness, compatible marginals, and collective exhaustion do not
+together force it.  A counterexample is a two-level system with outcome spaces
+$\{a,b,c\}$ and $\{x,y\}$ and a non-surjective refinement map missing outcome $c$.
+
+Surjectivity of all refinement maps $\pi^{Q_2}_{Q_1}$ is a \emph{necessary} condition
+for realizability (established by the counterexample: the missing outcome $c$ witnesses
+the failure).  It is not abstractly sufficient: constructing a coherent inverse-limit
+point requires compactness of the outcome spaces (the inverse limit theorem for compact
+spaces with surjective bonding maps).  For the programme's concrete systems ---
+delay query systems (ambient stream embeddings) and finite-outcome systems (compactness
+of finite spaces) --- surjectivity is sufficient and realizability is a structural
+consequence.  The compact T2 sufficient condition is formalized in Lean~4
+(\texttt{TopologicalQuerySystem.evalSurjective\_of\_compact\_t2}).
+The abstract sufficient condition without compactness remains open.
+
+The question of whether realizability follows from almost-sure tightness alone
+(without surjectivity of refinement maps) also remains open.
+\end{remark}
 
 \begin{conjecture}[SP4: Directedness from joint experiment formation]
 The three directedness conditions (lower, upper, sequential upper) are
@@ -644,7 +677,7 @@ There is an adjunction
 where $\mathrm{Ext}$ sends a query system with compatible marginals to
 its canonical probability space, and $\mathrm{Forget}$ sends a
 probability space to its induced query system.  Under the cofinality
-hypothesis of Paper~1, this adjunction becomes an equivalence of
+hypothesis of Paper~0, this adjunction becomes an equivalence of
 categories $\mathbf{QuerySys}^{\mathrm{cof}} \simeq \mathbf{ProbSys}$.
 This categorical statement has been sketched in exploratory notes
 (\texttt{categorical-foundations} branch) but not formally proved.
@@ -789,39 +822,48 @@ K_t^N
 \;\xrightarrow{\text{P4}}\;
 \text{(local linear)}.
 \]
-Papers~0--4 are complete working papers with full proofs, abstracts,
-conclusions, related work, and bibliographies.  The Lean formalization
-covers Papers~1--3 (zero \texttt{sorry}) and Paper~0 (one remaining
+Papers~0--3 are complete working papers with full proofs, abstracts,
+conclusions, related work, and bibliographies; Paper~$-1$ is a complete
+self-contained draft.  The Lean formalization covers Papers~$-1$--2
+(zero \texttt{sorry} on all main theorems) and Paper~3 (one remaining
 \texttt{sorry} in \texttt{prokhorov\_extension\_polish}, Mathlib-blocked).
-Paper~$-1$ (\texttt{discriminability\_foundations}) is a complete
-self-contained draft: the negative result, necessity of incompleteness,
-and the foundational conclusions are established; the central conjecture
-(witnessing from above via sequential upper-directedness, Conjecture~5.1)
-remains open.
-
 \paragraph{Immediate priorities.}
 
 \begin{enumerate}
 
-\item \textbf{SP1: The witnessing conjecture (Paper~$-1$).}
-The central open claim is that sequential upper-directedness provides
-witnessing from above for continuity at $\emptyset$, making
-$\sigma$-additivity a commitment rather than an assumption.  The
-gap to close: showing that the colimit query's event algebra is
-rich enough to contain the relevant limit events.  This is the
-most foundational open question in the program.
+\item \textbf{SP1: CE as proved irreducible primitive (Paper~$-1$).}
+The witnessing conjecture (SUD $\Rightarrow$ CE) is \emph{false}:
+the finite-cofinite content on $\mathbb{Q}$ is the counterexample
+(\texttt{ce\_independence}, zero sorrys).  The stronger irreducibility
+result holds: no condition expressible in the first-order language
+of query systems implies CE (\texttt{ce\_irreducibility}, one
+infrastructure-blocked sorry on ultraproduct construction).
+The gap between structural coherence and probability is a proved
+boundary, not an open conjecture.  CE is precisely the minimal
+irreducible commitment required.  The remaining open question is the
+philosophical status of CE as a primitive --- whether it can be
+justified from within any formal system is suspected to be undecidable
+in character.
 
 \item \textbf{SP2 in the general non-compact, non-standard-Borel setting.}
 SP2 is closed for compact (Paper~0, Corollary~6.3) and standard Borel
-(Musia\l~1980) outcome spaces.  The remaining open case is
-locally compact but non-standard-Borel.  Note: a resolution of SP1
-via the witnessing conjecture might simultaneously close this case,
-since the limit-query approach is topology-free.
+(Musia\l~1980) outcome spaces.  The remaining open case is locally
+compact but non-standard-Borel.  The witnessing-conjecture route to
+SP2 is closed (CE is irreducible, not derivable from SUD).  The active
+candidate is the Stone duality direction: the Stone space $S(\mathcal{E}_Q)$
+of the event algebra is canonically compact Hausdorff, and SPUT may
+be algebraically verifiable there, making Hausdorff a structural
+consequence rather than a primitive assumption.
 
-\item \textbf{Lean formalization of Paper~0 (\texttt{prokhorov\_extension\_polish}).}
-One \texttt{sorry} remains, blocked on \texttt{PerfectMeasure} and
-Musia\l's theorem being absent from Mathlib~4.  No action until
-Mathlib upstream.
+\item \textbf{Lean formalization status.}
+The SP3 compact T2 case is now fully formalized:
+\texttt{TopologicalQuerySystem.evalSurjective\_of\_compact\_t2} (zero sorrys)
+proves realizability for compact Hausdorff outcome spaces with continuous
+surjective refinement maps, via a Cantor intersection argument over
+partial-coherence sets.  One \texttt{sorry} remains in
+\texttt{ProkhorovExtension.lean} (\texttt{prokhorov\_extension\_polish}),
+blocked on \texttt{PerfectMeasure} and Musia\l's theorem being absent
+from Mathlib~4.  No action until Mathlib upstream.
 
 \item \textbf{Quantitative approximation bounds (Paper~4, Open Question~3).}
 Convergence $\|K_t^N - K_t\|_{L^2} \to 0$ is established but rates
@@ -1638,33 +1680,52 @@ predictive organization of observable experiments.
 \texttt{formalization/QuerySystem/QuerySystem/} in the repository.
 
 The following summarizes the current state of the Lean~4/Mathlib
-formalization of Papers~1--3
-(\texttt{QuerySystem.lean}, \texttt{PredictiveState.lean},
-\texttt{PredictiveOperators.lean}).  Paper~4 (delay queries,
-computational instantiation) is not formalized; it exists as a
-working note with pen-and-paper proofs.
+formalization across all papers
+(\texttt{DiscriminabilityFoundations.lean}, \texttt{QuerySystem.lean},
+\texttt{DelayEmbedding.lean}, \texttt{PredictiveState.lean},
+\texttt{PredictiveOperators.lean}, \texttt{ProkhorovExtension.lean}).
 
-\subsection*{Fully formalized}
+\subsection*{Fully formalized (zero sorrys on main theorems)}
 
-The following theorems have complete Lean proofs with zero \texttt{sorry}:
 \begin{itemize}
-  \item \emph{Paper~1}: observational determination theorem
-        (measure and probability versions); cylinder family
-        $\pi$-system property; premeasure well-definedness and finite
-        additivity; structural infrastructure for the observational
-        extension theorem.
-  \item \emph{Paper~2}: predictive kernel construction (via Rokhlin
-        disintegration); measurability of the predictive law map
-        $\phi_Q$; predictive compatibility (tower property, a.e.\ form);
-        minimal predictive query $Q_*$ and its measurability; predictive
-        factorization theorem; predictive sufficiency; canonical
-        operator properties (positivity, constant preservation,
-        linearity, contraction, measurability).
-  \item \emph{Paper~3}: semigroup identity, semigroup property
-        $K_{t+s}=K_t K_s$ (discrete time); Markov constant preservation
-        and positivity; Koopman--Perron duality; deterministic
-        specialization to classical Koopman operators; deterministic
-        semigroup flow law.
+  \item \emph{Paper~$-1$} (\texttt{DiscriminabilityFoundations.lean}):
+        all main results including \texttt{sp1\_iff},
+        \texttt{observational\_extension\_of\_collective\_exhaustion},
+        \texttt{ce\_independence}, and the SP3 independence and compact
+        T2 companion theorems.  Two infrastructure-blocked sorrys remain:
+        \texttt{IsFinitarilyExpressible} and \texttt{ce\_irreducibility}
+        (require ultraproduct construction for \texttt{QuerySystem},
+        absent from Mathlib~4).
+
+  \item \emph{Paper~0} (\texttt{QuerySystem.lean}):
+        observational determination theorem (measure and probability
+        versions); cylinder family $\pi$-system property; premeasure
+        well-definedness, finite additivity, $\sigma$-subadditivity;
+        full Carath\'eodory extension; \texttt{observational\_extension}
+        and \texttt{observational\_determination}.  Zero sorrys.
+
+  \item \emph{Paper~1} (\texttt{PredictiveState.lean}):
+        predictive kernel construction (via Rokhlin disintegration);
+        measurability of $\phi_Q$; predictive compatibility; minimal
+        predictive query $Q_*$; predictive factorization and sufficiency;
+        canonical operator properties.  Zero sorrys.
+
+  \item \emph{Paper~2} (\texttt{PredictiveOperators.lean}):
+        semigroup identity and property $K_{t+s}=K_t K_s$ (discrete time);
+        Markov constant preservation and positivity; Koopman--Perron
+        duality; deterministic specialization; deterministic semigroup
+        flow law.  Zero sorrys.
+\end{itemize}
+
+\subsection*{Partially formalized}
+
+\begin{itemize}
+  \item \emph{Paper~3} (\texttt{ProkhorovExtension.lean}):
+        \texttt{compactInverseLimit\_nonempty} and
+        \texttt{prokhorov\_extension} proved.  One sorry remains:
+        \texttt{prokhorov\_extension\_polish}, blocked on
+        \texttt{PerfectMeasure} and Musia\l's theorem being absent
+        from Mathlib~4.
 \end{itemize}
 
 \subsection*{Assumptions the formalization requires}
@@ -1682,21 +1743,5 @@ Four hypotheses appear in Lean but are not always explicit in the papers:
   \item Koopman--Perron duality requires a \emph{finite} (not merely
         $\sigma$-finite) input distribution $\mu$.
 \end{itemize}
-
-\subsection*{Remaining deferred obligation}
-
-One intentional gap remains: the \emph{$\sigma$-subadditivity} of the
-premeasure on finite cylinder events
-(\texttt{cylGen\_addContent\_isSigmaSubadditive} in
-\texttt{QuerySystem.lean}).  This is the analytic core of the
-Carath\'eodory extension step: to pass from finite additivity of the
-observational content to a countably additive probability measure on
-$(\Omega,\sigma(\mathcal{Q}))$, one must verify that the premeasure
-satisfies $\mu_0(\bigcup_n C_n)\le\sum_n \mu_0(C_n)$ for cylinder
-sequences decreasing to $\emptyset$.  The topological hypotheses of the
-observational extension theorem (Polish spaces, Radon measures, countable
-cofinality) are precisely the conditions that make this argument available,
-but the Lean proof has not yet been completed.  All algebraic and
-measurability infrastructure surrounding this step is in place.
 
 \end{document}

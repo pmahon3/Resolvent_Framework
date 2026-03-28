@@ -101,7 +101,11 @@ The following objects are assumed throughout.
 \begin{itemize}
 \item A query system $(\Qcal,\preceq)$ and canonical experiment $(\Omega,\sigma(\Qcal),P)$.
 \item The minimal predictive query $Q_*:\Omega \to O_{Q_*}$, whose states
-      correspond exactly to distinct predictive laws.
+      correspond exactly to distinct predictive laws.  The predictive state space
+      $O_{Q_*}$ is assumed to be a \emph{standard Borel space}: a Polish space
+      equipped with its Borel $\sigma$-algebra.  This hypothesis is used in
+      Proposition~\ref{prop:markov-kernel}: the Rokhlin disintegration theorem
+      (existence of Markov kernels) requires standard Borel measurable spaces.
 \item A parametrized family of future observables $F_t:\Omega\to O_F$,
       $t\ge0$, with $O_F$ standard Borel.
 \item A family of Markov kernels $\{P_t\}_{t\ge0}$ on $O_{Q_*}$
@@ -110,6 +114,16 @@ The following objects are assumed throughout.
 \end{itemize}
 
 Observable functions $g$ are taken to be bounded and measurable.
+
+\begin{remark}[Lean alignment: \texttt{StandardBorelSpace}]
+The Lean formalization of \texttt{predictiveKernel} carries
+\texttt{[StandardBorelSpace $\beta$]} as an explicit typeclass hypothesis on the
+outcome type $\beta$ (corresponding to $O_{Q_*}$ here).  This matches the
+standing assumption above: the Rokhlin disintegration step
+(\texttt{MeasureTheory.Measure.disintegration}) requires standard Borel structure.
+The hypothesis is not an artefact of the formalization; it reflects a genuine
+measure-theoretic requirement on the predictive state space.
+\end{remark}
 Boundedness ensures integrability under every predictive law and
 allows semigroup compositions and duality integrals to be handled
 by Bochner integration without additional hypotheses.

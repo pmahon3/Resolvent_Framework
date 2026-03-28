@@ -43,11 +43,27 @@ witnessing conjecture of Paper~$-1$), $\sigma$-additivity (from
 tightness or perfectness, for the architectural cases), and the
 predictive semigroup (from observable compatibility alone).
 
-Three things remain as structural hypotheses: upper-directedness
+Two things remain as structural hypotheses: upper-directedness
 (SP4: assumed, with an operational motivation but no derivation),
-realizability of $\Omega$ (SP3: assumed, independence from
-compatibility unknown), and the general case of SP2 beyond compact
-and standard Borel outcome spaces.
+and the general case of SP2 beyond compact and standard Borel
+outcome spaces.
+
+Realizability of $\Omega$ (SP3) is partially resolved.
+Independence is established: a system can satisfy all three other
+hypotheses while failing realizability, the obstruction being
+a non-surjective refinement map.
+Surjectivity of all refinement maps is therefore a \emph{necessary}
+condition.  It is not abstractly sufficient: the general inverse
+limit theorem requires compactness of outcome spaces.
+For the compact Hausdorff setting, it is now a theorem: continuous
+surjective refinement maps between compact T2 outcome spaces force
+realizability (formalized as
+\texttt{TopologicalQuerySystem.evalSurjective\_of\_compact\_t2},
+zero sorrys, via Tychonoff compactness and a partial-coherence
+intersection argument).  This covers the programme's concrete
+systems --- delay query systems and finite-outcome systems.
+The abstract sufficient condition in full generality (without
+compactness) remains open.
 
 These are honest gaps.  The program does not claim to derive
 everything from nothing.  It claims to derive more than was
@@ -56,22 +72,22 @@ the remaining assumptions are and what they mean.
 
 \section*{The open frontier}
 
-The central open question is the witnessing conjecture of
-Paper~$-1$: that sequential upper-directedness provides, for every
-observer at every finite level, a witness from above that forces
-continuity at $\emptyset$.  A proof would close SP1 and give SP2
-a topology-free route simultaneously, subsuming the compact and
-standard Borel cases as special instances of a single algebraic
-result.
+The witnessing conjecture of Paper~$-1$ --- that sequential
+upper-directedness alone forces collective exhaustion --- is false.
+The finite-cofinite counterexample on $\mathbb{Q}$ witnesses this,
+and the stronger irreducibility result shows that no condition
+expressible in the first-order language of query systems can imply
+collective exhaustion.  The gap between coherence and probability
+is a proved boundary.
 
-If that conjecture is true, the program's chain reads cleanly:
+What this means for the chain:
 \[
 \text{bounded discriminability}
 \;\to\;
 \text{refinement}
 \;\to\;
 \text{coherence}
-\;\to\;
+\;\xrightarrow{\;\text{CE}\;}\;
 \text{probability}
 \;\to\;
 \text{prediction}
@@ -80,6 +96,19 @@ If that conjecture is true, the program's chain reads cleanly:
 \;\to\;
 \text{computation.}
 \]
-Every arrow forced.  None assumed.  That is the program's claim.
-It is not yet fully proved.  But the ground has been laid, the
-gaps are named, and the next steps are clear.
+The arrow from coherence to probability requires collective
+exhaustion --- an irreducible commitment that cannot be derived
+from structural conditions alone.  Every other arrow is forced.
+CE names precisely what must be assumed and shows it cannot be
+smaller.  That is not a failure.  It is the program's deepest
+result: the exact location and minimum size of the commitment
+probability requires.
+
+The remaining open question is the philosophical status of CE
+as a primitive.  CE is a commitment about the completed infinite
+made by a finite observer: the willingness to be corrected by
+what the infinite reveals, even knowing one can never reach it.
+Whether that commitment can be \emph{justified} from within any
+formal system is suspected to be undecidable in character ---
+the query-system analogue of the axiom of infinity.  That
+question is earmarked, not abandoned.

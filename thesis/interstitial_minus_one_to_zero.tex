@@ -86,14 +86,43 @@ a canonical probability space emerges.
 
 \paragraph{The realizability condition.}
 The one hypothesis that collective exhaustion does not supply is
-\emph{realizability}: that the projective limit $\Omega = \varprojlim O_Q$ is
-nonempty and surjective.  This is a condition on the global coherence of the query
-system --- that the outcome spaces are consistent enough to admit a joint
-realisation --- and it is the price for working without topology.  In practice,
-realizability is verified structurally for any system built from a concrete
-observation process; it is not an analytic condition but an architectural one.
+\emph{realizability}: that every local outcome at every query level is realized by
+some globally coherent point of $\Omega = \varprojlim O_Q$.  Realizability is
+independent of sequential upper-directedness, compatible marginals, and collective
+exhaustion --- a system can satisfy all three and fail realizability, as the following
+shows: take a two-level system with outcome spaces $O_0 = \{a,b,c\}$,
+$O_1 = \{x,y\}$, and refinement map $\pi(x)=a$, $\pi(y)=b$.  The projective limit
+$\Omega = \{(a,x),(b,y)\}$ does not realise outcome $c\in O_0$, yet all other
+conditions hold trivially.
+
+The obstruction is exactly non-surjectivity of the refinement map: this is a
+\emph{necessary} condition for realizability.  Surjectivity of all refinement maps
+is not, however, abstractly sufficient: constructing a coherent inverse-limit point
+from local preimages requires reconciling infinitely many choices simultaneously,
+which in general requires compactness of the outcome spaces (the inverse limit theorem
+for compact spaces with surjective bonding maps).  For the delay query systems of
+Chapter~\ref{chap:paper-three}, realizability is verified directly by lifting any
+target outcome via an ambient stream; for finite-outcome systems with surjective
+refinement maps, it follows from compactness of finite spaces.  In both cases
+realizability is a structural consequence of the system's architecture, not an
+independent assumption.
 
 The passage from Chapter~\ref{chap:paper-minus-one} to Chapter~\ref{chap:paper-zero}
 is therefore the passage from local to global: from the characterisation of
 $\sigma$-additivity at each level to the construction of a single probability measure
 on the world the system describes.
+
+\paragraph{The residual freedom and the through-line.}
+What $P$ does not determine, once it exists, is the \emph{temporal} structure of the
+observer's queries.  The canonical probability space $(\Omega, \sigma(\mathcal{Q}), P)$
+encodes the full statistical structure of the observable interface --- but it says nothing
+about which aspect of that structure is relevant for predicting the future, and through
+what minimal lens.  That question belongs to Chapter~\ref{chap:paper-one}.
+
+The program proceeds by the same logic at each subsequent step: a freedom that appears
+to survive is revealed to be illusory.  At each stage, what appears to be a construction
+turns out to be a constraint, and what appears to be an assumption turns out to be a
+consequence.  The through-line from here to Chapter~\ref{chap:paper-three} is the
+progressive elimination of residual degrees of freedom: predictive structure, temporal
+coherence, the form of the queries, and the minimal sufficient window are each, in turn,
+shown to be forced.

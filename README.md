@@ -68,9 +68,10 @@ Resolvent_Framework/
 │
 └── notes/
     ├── prokhorov_extension/                 ← topological extension (companion, not trunk)
-    ├── exploratory/
     ├── conceptual_sketches/
-    └── archived_artifacts/
+    │   └── philosophy/                      ← CE irreducibility and philosophical foundations
+    ├── interstitial_reframing.md            ← thesis interstitial structure notes
+    └── archived_artifacts/                  ← executed checklists and superseded notes
 ```
 
 ## Papers
@@ -78,13 +79,15 @@ Resolvent_Framework/
 ### Paper −1 — Discriminability and the Origin of the σ-Algebra
 *From Primitive Distinguishability to Measurable Structure*
 
-Establishes that index-layer coherence conditions (sequential upper-directedness,
-compatibility) cannot force σ-additivity, and proves the SP1 theorem: a family of
-finitely-additive contents extends to σ-additive measures at every level if and
-only if it is collectively exhaustive — the exact valuation-layer characterisation
-of systems modelling coherent worlds.
+Establishes the SP1 theorem: a family of finitely-additive contents extends to
+σ-additive measures at every level if and only if it is **collectively exhaustive**
+(CE) — the exact valuation-layer characterisation of systems modelling coherent
+worlds. CE is proved irreducible: no condition expressible in the first-order
+language of query systems (sequential upper-directedness, compatibility,
+normalization) can force it. The gap between structural coherence and probability
+is a proved boundary, not an open conjecture.
 
-> **discriminability → coherence → measurable structure**
+> **discriminability → coherence → [CE] → measurable structure**
 
 ### Paper 0 — Observational Foundations of Probability
 *From Collective Exhaustion to Canonical Probability*
@@ -127,10 +130,13 @@ of the abstract framework, connecting to DMD and Koopman spectral methods.
 
 The `formalization/QuerySystem` directory contains the core Lean 4
 development for query systems, refinement maps, and the projective
-construction of the canonical experiment.
+construction of the canonical experiment. All five papers are partially
+or fully formalized; the main results of Papers −1 through 3 carry zero
+sorrys. One Mathlib-blocked sorry remains in `ProkhorovExtension.lean`
+(`prokhorov_extension_polish`, awaiting `PerfectMeasure` upstream).
 
 ## Thesis
 
-`thesis/thesis.tex` assembles all six papers into a single document,
+`thesis/thesis.tex` assembles all five papers into a single document,
 with interstitial chapters explaining the transitions between papers.
-Title: *On the Formalities of Discriminability and Probability with Application to Dynamical Systems*.
+Title: *On the Formalities of Discriminability and Dynamics*.

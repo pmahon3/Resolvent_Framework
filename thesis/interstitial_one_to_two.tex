@@ -1,42 +1,64 @@
 %% Interstitial: Paper 1 -> Paper 2
-%% Narrative: predictive state at a single time; now we ask how it evolves.
+%% Philosophical and conceptual bridge: prediction to dynamics.
 
-Chapter~\ref{chap:paper-one} isolated the predictive content of a
-single query at a single time.  The minimal predictive query $Q_*$
-is the sufficient statistic for prediction; the predictive operator
-encodes the conditional structure of $P$ relative to $Q$.
-
-But the observer is not static.  They make measurements at different
-times, and the system evolves.  What happens to the predictive
-structure as time advances?  If $Q$ is the observer's query at time
-$0$ and the system evolves under some dynamics, the query at time $t$
-carries a different predictive content.  Is there a coherent account
-of how these predictive structures relate across time?
+Chapter~\ref{chap:paper-one} isolated the predictive content of a single
+query at a single time.  The minimal predictive query $Q_*$ is the
+sufficient statistic for prediction; the predictive kernel encodes the
+conditional structure of $P$ relative to $Q$.  The observer's present
+measurement has a definite predictive face --- one that is forced, not
+chosen.
 
 \medskip
 
-Chapter~\ref{chap:paper-two} provides it.  The \emph{predictive
-operator family} $\{K_t\}_{t \geq 0}$ organises the predictive
-content across time: $K_t g$ is the predictive operator applied to
-the function $g$ evaluated $t$ time units ahead.  The central result
-is the \emph{semigroup property}: $K_{t+s} = K_t \circ K_s$.
+\paragraph{The residual freedom.}
+What Paper~1 does not determine is how these predictive structures relate
+\emph{across time}.  The observer makes measurements at time $0$ and
+time $t$; each has a minimal predictive query and a predictive kernel.
+But the relationship between them is not, after Paper~1, settled.  The
+system evolves; the observer's predictive capacity evolves with it.
+Nothing in the construction of $Q_*$ at time $0$ constrains the
+predictive structure at time $t > 0$.
 
+The freedom is this: compatible observable laws force $P$, and $P$
+forces $Q_*$ at each time, but the temporal relationship between
+$Q_*|_{t=0}$ and $Q_*|_{t=s}$ appears unconstrained.  Two observers
+with the same $P$ but different ideas about how predictive content
+propagates through time are not ruled out by anything established
+so far.
+
+\medskip
+
+\paragraph{The elimination.}
+Chapter~\ref{chap:paper-two} shows this temporal freedom is not free.
+The \emph{predictive operator family} $\{K_t\}_{t \geq 0}$ organises
+predictive content across time --- $K_t g$ is the predictive operator
+applied to the function $g$ evaluated $t$ time units ahead --- and
+the central result is the \emph{semigroup property}:
+\[
+  K_{t+s} = K_t \circ K_s.
+\]
 This is not an assumption about the dynamics.  It is a theorem about
-the structure of prediction under compatible observable laws.  The
-semigroup emerges from the query system the same way $P$ did: forced
-by coherence, not postulated.
+the structure of prediction under compatible observable laws: temporal
+coherence of prediction is forced by the same observable compatibility
+that forced $P$.  The observer's present and future are not two
+independent predictions stitched together by choice; they are aspects
+of a single coherent structure.
 
 Chapter~\ref{chap:paper-two} also establishes \emph{Koopman-Perron
-duality}: the predictive operator and the Koopman operator are dual
-under the $L^2(P)$ inner product.  This connects the observational
-program to the operator-theoretic tradition in ergodic theory and
-dynamical systems, and positions $\{K_t\}$ as an observable-layer
-counterpart to the Koopman semigroup on the full state space.
+duality}: the predictive operator $K_t$ and the Koopman operator are
+dual under the $L^2(P)$ inner product.  The observable-layer dynamics
+and the latent state-space dynamics are not competitors; they are dual
+aspects of the same structure, neither primary.  The program does not
+eliminate the state space; it shows that neither layer is the ground.
 
 \medskip
 
-The passage from Chapter~\ref{chap:paper-one} to
-Chapter~\ref{chap:paper-two} is the passage from \emph{prediction}
-to \emph{dynamics}: from the predictive content of a single query at
-a single time to the temporal evolution of predictive structure across
-the entire observable horizon.
+\paragraph{The structure this introduces.}
+The semigroup $\{K_t\}$ is abstract: it holds for any observable
+dynamics satisfying the program's hypotheses, without specifying the
+form of the queries or the geometric structure of the outcome spaces.
+The observer knows that their predictive capacity is temporally
+coherent --- but in what form?  For a real observer embedded in time,
+with bounded and local discriminative capacity, the semigroup must be
+instantiated concretely.  That is the question Chapter~\ref{chap:paper-three}
+takes up.

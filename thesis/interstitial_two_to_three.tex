@@ -1,47 +1,72 @@
 %% Interstitial: Paper 2 -> Paper 3
-%% Narrative: the dynamics are characterised abstractly;
-%% now we ask how to instantiate and compute them.
+%% Philosophical and conceptual bridge: dynamics to computation.
 
-Chapter~\ref{chap:paper-two} established that the predictive
-operator family $\{K_t\}$ forms a semigroup and is dual to the
-Koopman operator.  This is an abstract characterisation: it holds for
-any observable dynamics satisfying the program's hypotheses, without
-specifying the form of the queries or the structure of the dynamics.
-
-For the program to make contact with data --- with actual time series,
-actual measurements, actual algorithms --- it needs a concrete
-instantiation.  What queries arise in practice?  What does the
-semigroup $\{K_t\}$ look like when the outcome spaces have geometric
-structure?  And how can $K_t$ be approximated from finite data?
+Chapter~\ref{chap:paper-two} established that the predictive operator
+family $\{K_t\}$ forms a semigroup and is dual to the Koopman operator.
+The temporal structure of prediction is forced: given $P$, the semigroup
+exists, is unique, and its algebraic properties are theorems, not
+assumptions.
 
 \medskip
 
-Chapter~\ref{chap:paper-three} provides the instantiation via
-\emph{delay query systems}.  The delay query at lag $\tau$ and
-window $m$ measures the system by recording $m$ consecutive
-observations spaced $\tau$ apart: $Q_{m,\tau}(\omega) =
-(\omega(0), \omega(\tau), \ldots, \omega((m-1)\tau))$.  These
-queries are natural --- they formalise the Takens embedding strategy
-used throughout applied dynamical systems --- and their refinement
-structure is governed by the program's directedness conditions.
+\paragraph{The residual freedom.}
+What the semigroup $\{K_t\}$ does not specify is the \emph{form} the
+observer's queries take.  The abstract characterisation holds for any
+observable dynamics satisfying the program's structural hypotheses ---
+the queries are a system, the measure $P$ is canonical, the semigroup
+emerges.  But nothing in Papers~1 or~2 selects the form of those
+queries.  An observer measuring a physical system has finitely many
+sensors, at specific locations and times; their discriminative capacity
+is local and temporal.  Which query system formalises this?
 
-The main results of Chapter~\ref{chap:paper-three} are:
-the delay query system is upper-directed (so the extension theorem
-applies), the probabilistic sufficiency criterion identifies when a
-delay window is long enough to capture the full predictive content,
-and the Markov order $m(\tau, P)$ measures the minimal window length
-required.  The operator $K_t$ is approximated by $K_t^N$ computed
-from $N$ data points via local linear regression on the delay
-embedding.
+A second freedom: even if the form of the queries is fixed, the minimal
+sufficient window --- how much history the observer needs to retain full
+predictive content --- appears open.  Retaining more history is
+always safe; it is unclear what the \emph{minimum} is.
 
 \medskip
 
-This is where the program meets the world.  The abstractions of the
-preceding chapters --- queries, compatibility, predictive kernels,
-semigroups --- become an algorithm: observe the system through a delay
-window, estimate the predictive operator, track how it evolves.
+\paragraph{The elimination.}
+Chapter~\ref{chap:paper-three} shows both freedoms are illusory.
 
-The passage from Chapter~\ref{chap:paper-two} to
-Chapter~\ref{chap:paper-three} is the passage from \emph{dynamics} to
-\emph{computation}: from the abstract semigroup structure to the
-concrete instantiation that makes it estimable from data.
+The natural query for an observer embedded in a temporal process with
+local sensor access is the \emph{delay query}: $Q_{m,\tau}(\omega) =
+(\omega(0), \omega(\tau), \ldots, \omega((m-1)\tau))$ records $m$
+consecutive observations spaced $\tau$ apart.  These queries formalise
+the Takens embedding strategy; their refinement structure is governed
+by the program's directedness conditions, and the delay query system
+is upper-directed --- so the extension theorem applies, and the program's
+full machinery instantiates in this setting.
+
+The minimal sufficient window is not chosen: the \emph{Markov order}
+$m(\tau, P)$ is determined jointly by the measure $P$ and the lag $\tau$.
+It is the minimum $m$ such that $Q_{m,\tau}$ is predictively sufficient.
+The observer cannot choose to need less history than $m(\tau,P)$ and
+cannot gain predictive content by taking more; the structure of $P$ and
+the lag $\tau$ together determine what is necessary and what is redundant.
+
+The operator $K_t$ is then approximated by $K_t^N$, computed from $N$
+data points via local linear regression on the delay embedding.  As
+$N \to \infty$, $K_t^N \to K_t$ in $L^2(P)$.  The observer, embedded
+in time and accumulating experience, converges to the true predictive
+structure.  The approximation is not a heuristic; it is the formal
+expression of learning from within.
+
+\medskip
+
+\paragraph{The arc complete.}
+The program began with a question about what an observer must be for
+coherent probabilistic experience to be possible.  It ends with an
+algorithm.  The observer's discriminative acts force a $\sigma$-algebra;
+collective exhaustion forces $\sigma$-additivity; realizability and
+directedness force a global probability $P$; $P$ forces the predictive
+structure of every query; temporal coherence forces the semigroup; the
+structure of the observer's situation forces the delay query and the
+minimal sufficient window.
+
+At each step, what appeared to be a construction is revealed to be a
+constraint, and what appeared to be an assumption is revealed to be a
+consequence.  The program's claim is not that it derives everything
+from nothing.  It is that it derives more than was previously known to
+be derivable, and identifies precisely what the remaining assumptions
+are and what they mean.

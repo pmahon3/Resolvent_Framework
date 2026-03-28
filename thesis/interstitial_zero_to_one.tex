@@ -1,48 +1,64 @@
 %% Interstitial: Paper 0 -> Paper 1
-%% Narrative: the probability exists and is determined; now we ask what
-%% predictive structure it generates.
+%% Philosophical and conceptual bridge: probability to prediction.
 
 Chapter~\ref{chap:paper-zero} established that compatible observable
 laws determine a unique $\sigma$-additive probability measure $P$ on
-$(\Omega, \sigma(\mathcal{Q}))$.  The measure exists.  It is
-canonical.  Its marginals recover the original valuations $\{\ell_Q\}$,
-and two measures agreeing on all query marginals are identical: there
-is no hidden probability beyond what the observable interface shows.
-
-With $P$ in hand, the program enters a new phase.  The foundational
-question --- where does probability come from? --- has been answered.
-The next question is dynamical: \emph{what does the probability predict?}
+$(\Omega, \sigma(\mathcal{Q}))$.  The measure exists.  It is canonical.
+Its marginals recover the original valuations $\{\ell_Q\}$, and two
+measures agreeing on all query marginals are identical: there is no
+hidden probability beyond what the observable interface shows.
 
 \medskip
 
-Given the current query $Q$ and some future observable $F$, the
-measure $P$ determines a conditional distribution of $F$ given $Q$.
-But this conditional distribution depends on the full measure $P$,
-which in turn depends on the entire query system.  Can the predictive
-content of $Q$ be isolated --- expressed as a structure intrinsic to
-$Q$ and $P$, without reference to all other queries?
+\paragraph{The residual freedom.}
+What $P$ does not determine on its own is the \emph{temporal structure}
+of the observer's queries.  The observer measures at a time and the
+system evolves; the canonical measure $P$ is the probability over the
+realization space $\Omega$, but $\Omega$ encodes outcomes, not futures.
+Given the current query $Q$ and some future observable $F$, the measure
+$P$ determines a conditional distribution of $F$ given $Q$.  But this
+conditional distribution depends on the full measure $P$ and the entire
+query system.  The predictive content of $Q$ --- what $Q$ alone can
+tell the observer about $F$ --- appears to require a choice: a choice
+of which aspect of $P$ to attend to, and through what minimal lens.
 
-Chapter~\ref{chap:paper-one} answers yes.  The \emph{predictive
-kernel} $\Pi_Q$ captures exactly the information in $Q$ relevant for
-predicting $F$: it is the conditional distribution of $F$ given $Q$,
-factored through the \emph{minimal predictive query} $Q_* = \varphi_Q
-\circ Q$ --- the coarsest function of $Q$ that retains all predictive
-content.  The central result is the predictive factorization theorem:
-every bounded measurable $g(F)$ satisfies
-$\mathbb{E}[g(F) \mid \sigma(Q)] = (\mathrm{predictiveOp}\,g) \circ Q_*$.
-
-\medskip
-
-This is the first result in the program that is genuinely dynamical
-in character.  The query $Q$ represents the observer's current
-measurement; $F$ represents a future event; $Q_*$ is the minimal
-structure needed to bridge them.  The passage from observable
-compatibility to predictive sufficiency is the passage from static
-coexistence of queries to the temporal structure of prediction.
+The observer, it seems, retains a freedom: how their present measurement
+relates to future expectation.  Whether there is a minimal such structure
+--- one that is not chosen but read off from $Q$ and $P$ together ---
+is not settled by the existence of $P$.
 
 \medskip
 
-The passage from Chapter~\ref{chap:paper-zero} to
-Chapter~\ref{chap:paper-one} is the passage from \emph{probability}
-to \emph{prediction}: from the construction of $P$ to the extraction,
-for each query, of the minimal predictive structure it contains.
+\paragraph{The elimination.}
+Chapter~\ref{chap:paper-one} shows this freedom is illusory.  The
+predictive content of $Q$ is entirely fixed by $(Q, P)$.  The
+\emph{minimal predictive query} $Q_* = \varphi_Q \circ Q$ is the
+coarsest function of $Q$ that retains all of $Q$'s predictive
+information about any future observable: it is not constructed by
+the observer but derived as the canonical quotient of $Q$ under
+predictive equivalence.  The \emph{predictive factorization theorem}
+confirms that every bounded measurable $g(F)$ satisfies
+\[
+  \mathbb{E}[g(F) \mid \sigma(Q)] = (\mathrm{predictiveOp}\,g) \circ Q_*,
+\]
+and the factorization is unique through $Q_*$.  The observer's
+present-to-future orientation is not a free act; it is the form
+their present measurement takes under the constraint of coherent
+probability.
+
+\medskip
+
+\paragraph{The structure this introduces.}
+This is the first result in the program that is genuinely dynamical in
+character.  The passage from observable compatibility to predictive
+sufficiency is the passage from static coexistence of queries to the
+temporal structure of prediction.  The query $Q$ represents the observer's
+present measurement; $Q_*$ is the minimal structure that makes the future
+legible from the present; the predictive kernel $\Pi_Q$ encodes what is
+visible through that lens.
+
+What remains undetermined after Paper~1 is not the predictive structure
+of any single query, but whether the predictive structures at different
+times cohere --- whether there is a consistent temporal \emph{dynamics}
+relating $Q_*$ at time $0$ to the predictive content at time $t$.
+That is the question Chapter~\ref{chap:paper-two} takes up.

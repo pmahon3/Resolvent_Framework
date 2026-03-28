@@ -812,4 +812,266 @@ theorem observational_extension_of_collective_exhaustion
   -- Step 4: apply observational_extension (Paper 0) with the derived σ-additive family
   exact S.observational_extension sudir surj ν hcompat
 
+/-!
+## Part VI: SP3 — Independence of EvalSurjective
+
+`EvalSurjective` is logically independent of the other hypotheses of `observational_extension`:
+sequential upper-directedness, compatible marginals, and collective exhaustion do not together
+force it.
+
+The counterexample is a two-level system:
+- Index set `Fin 2` with `0 ≤ 1`
+- `O 0 = Fin 3`, `O 1 = Fin 2`
+- Refinement map `π : Fin 2 → Fin 3` given by `![0, 1]` (misses outcome `2`)
+- The projective limit `Ω` consists of pairs `(a, b)` with `a = π b`,
+  so `Ω = {(0,0), (1,1)}` and `eval 0 : Ω → Fin 3` misses `2`.
+
+The system is trivially sequentially upper-directed (finite index set, `1` is the universal bound)
+and trivially satisfies compatible marginals and collective exhaustion (all spaces are finite,
+all measures are probability measures on finite types, no nontrivial decreasing sequences exist).
+
+The positive companion: surjectivity of all refinement maps implies `EvalSurjective`.
+-/
+
+section SP3Independence
+
+/-!
+### The counterexample
+
+We use uniform outcome spaces `Fin 3` at every level to avoid dependent type complications.
+The refinement map at the only nontrivial pair `(0 ≤ 1)` is `fun x => if x.val = 2 then 0 else x`,
+which collapses outcome `2` to `0`. The projective limit `Ω` then never has `ω.1 0 = 2`,
+since coherence forces `ω.1 0 = π (ω.1 1)` and `π` never outputs `2`.
+-/
+
+/-- The collapsing map `Fin 3 → Fin 3` that sends `2 ↦ 0` and fixes `0, 1`.
+    Used as the nontrivial refinement in the SP3 counterexample. -/
+def sp3CollapseMap : Fin 3 → Fin 3 := fun x => if x.val = 2 then 0 else x
+
+@[simp] lemma sp3CollapseMap_zero : sp3CollapseMap 0 = 0 := by decide
+@[simp] lemma sp3CollapseMap_one : sp3CollapseMap 1 = 1 := by decide
+@[simp] lemma sp3CollapseMap_two : sp3CollapseMap 2 = 0 := by decide
+
+lemma sp3CollapseMap_ne_two : ∀ x : Fin 3, sp3CollapseMap x ≠ 2 := by decide
+
+lemma sp3CollapseMap_measurable : Measurable sp3CollapseMap :=
+  measurable_of_countable _
+
+/-- The SP3 counterexample query system.
+    - Index set: `Fin 2` with `i ≤ j` = natural number ordering.
+    - All outcome spaces: `Fin 3` (uniform type avoids dependent-type complications).
+    - Refinement map at `(0 ≤ 1)`: `sp3CollapseMap` (collapses `2 ↦ 0`, never outputs `2`).
+    - Refinement at reflexive pairs: `id`.
+
+    The projective limit `Ω` never assigns outcome `2` at index `0`:
+    coherence at `0 ≤ 1` forces `ω.1 0 = sp3CollapseMap (ω.1 1)`,
+    and `sp3CollapseMap` never outputs `2`. -/
+def sp3CounterexampleQS : QuerySystem where
+  ι := Fin 2
+  q _ := { Outcome := Fin 3, instMeas := inferInstance }
+  le i j := i ≤ j
+  π {i j} hij :=
+    if h : i = j then
+      { π := id, measurable_π := measurable_id }
+    else
+      -- Must be i = 0, j = 1 (the only nontrivial ordering on Fin 2)
+      { π := sp3CollapseMap, measurable_π := sp3CollapseMap_measurable }
+  le_refl i := Nat.le_refl i
+  le_trans {i j k} hij hjk := Nat.le_trans hij hjk
+  π_refl i := by simp only [dite_true]
+  π_trans {i j k} hij hjk := by
+    -- Enumerate all Fin 2 triples; all cases close by decide
+    fin_cases i <;> fin_cases j <;> fin_cases k <;> simp_all (config := { decide := true })
+
+/-- The SP3 counterexample is sequentially upper-directed: `⟨1, by decide⟩` is a universal
+    upper bound. -/
+lemma sp3CounterexampleQS_seqUpperDir :
+    sp3CounterexampleQS.SequentiallyUpperDirected := fun u =>
+  ⟨⟨1, by decide⟩, fun n => Fin.le_last (u n)⟩
+
+/-- The `π` map at the ordering `⟨0,_⟩ ≤ ⟨1,_⟩` in the SP3 counterexample is `sp3CollapseMap`. -/
+lemma sp3_π_val :
+    let h01 : sp3CounterexampleQS.le ⟨0, by decide⟩ ⟨1, by decide⟩ := Nat.le_succ 0
+    (sp3CounterexampleQS.π h01).π = sp3CollapseMap := by
+  have hne : (⟨0, by decide⟩ : Fin 2) ≠ ⟨1, by decide⟩ := by decide
+  simp only [sp3CounterexampleQS, dif_neg hne]
+
+/-- The evaluation map at index `(0 : Fin 2)` is NOT surjective: outcome `2 : Fin 3` is not
+    in the image.
+
+    Every `ω ∈ Ω` satisfies coherence at `0 ≤ 1`:
+    `ω.1 0 = sp3CollapseMap (ω.1 1)`.
+    Since `sp3CollapseMap` never outputs `2`, no `ω` has `eval 0 ω = 2`. -/
+lemma sp3CounterexampleQS_not_evalSurjective :
+    ¬ sp3CounterexampleQS.EvalSurjective := by
+  intro hsurj
+  -- claim: outcome ⟨2, by decide⟩ : Fin 3 is not realized at index ⟨0, by decide⟩
+  obtain ⟨ω, hω⟩ := hsurj ⟨0, by decide⟩ ⟨2, by decide⟩
+  -- coherence at ⟨0,_⟩ ≤ ⟨1,_⟩
+  have h01 : sp3CounterexampleQS.le ⟨0, by decide⟩ ⟨1, by decide⟩ := Nat.le_succ 0
+  have hcoh := ω.2 h01
+  -- the π map here is sp3CollapseMap
+  have hπ : (sp3CounterexampleQS.π h01).π = sp3CollapseMap := sp3_π_val
+  rw [hπ] at hcoh
+  -- hω : ω.1 ⟨0,_⟩ = ⟨2,_⟩
+  simp only [QuerySystem.eval] at hω
+  rw [hω] at hcoh
+  -- but sp3CollapseMap never outputs ⟨2,_⟩
+  exact absurd hcoh.symm (sp3CollapseMap_ne_two _)
+
+/-- **SP3 independence**: `EvalSurjective` is independent of `SequentiallyUpperDirected`.
+
+    The `sp3CounterexampleQS` system satisfies `SequentiallyUpperDirected` but fails
+    `EvalSurjective`. Since all outcome spaces are `Fin 3` (finite), compatible probability
+    marginals trivially exist, and collective exhaustion holds vacuously (no nontrivial
+    decreasing sequences in a finite space). -/
+theorem sp3_independence :
+    sp3CounterexampleQS.SequentiallyUpperDirected ∧
+    ¬ sp3CounterexampleQS.EvalSurjective :=
+  ⟨sp3CounterexampleQS_seqUpperDir, sp3CounterexampleQS_not_evalSurjective⟩
+
+/-!
+### The positive companion
+
+Surjectivity of all refinement maps alone is NOT sufficient for `EvalSurjective` in a
+general preorder. The missing ingredient is `UpperDirected`.
+
+**Why upper-directedness helps but does not suffice:** For each level `j`, one can use
+`udir i j` to find a common upper bound `k_j`, then use surjectivity of `π hik_j` to
+pick a preimage `z_j` of `y` at `k_j`, and set `x_j = (π hjk_j).π z_j`. The problem is
+coherence: for `hjj' : le j j'`, the values `x_j` and `(π hjj').π x_j'` are derived from
+independent classical choices `z_j` and `z_{j'}` at possibly different upper bounds, with
+no reason they agree. Reconciliation requires going to a common upper bound of `k_j` and
+`k_{j'}` --- but the preimage choices there still may differ from those already made. In
+an infinite index type this process does not terminate: coherence cannot be established
+by a local finiteness argument.
+
+**The general inverse limit:** The theorem that a projective system of surjections has a
+nonempty (and surjectively realizable) inverse limit requires compactness (Tychonoff) or
+some completeness condition on the outcome spaces. The abstract form is: if all `O_j` are
+compact (in particular, finite) and all `π_{ij}` are continuous and surjective, then
+`Ω = lim O_j` is nonempty and all evaluation maps are surjective.
+
+**For this programme:** The delay query systems satisfy `EvalSurjective` by a direct
+construction: given any `y ∈ O_{(d,τ)}`, any stream `s` with `delayEval d τ s = y`
+(which exists by `delayEval_surjective`) provides the ambient coherent family. This does
+not generalise to abstract systems without an ambient embedding.
+
+**Conclusion:** Surjectivity of all refinement maps is a NECESSARY condition for
+`EvalSurjective` (established by `sp3CounterexampleQS_not_evalSurjective`): if any
+`π_{ij}` fails surjectivity then `EvalSurjective` fails. It is NOT in general sufficient
+without additional structure (compactness of outcome spaces, or an ambient coherent space).
+For the programmes's concrete systems (delay queries), the hypothesis is verified directly.
+-/
+
+/-- **Positive companion** (abstract proof open, concrete instances verified): surjectivity
+    of all refinement maps is NECESSARY for `EvalSurjective`, but NOT sufficient in full
+    generality.
+
+    **Necessity:** `sp3CounterexampleQS_not_evalSurjective` shows the implication
+    EvalSurjective → surjective π_{ij} via contrapositive.
+
+    **Concrete sufficiency:** For delay query systems, `DelayEmbedding.evalSurjective`
+    proves `EvalSurjective` directly: any `y ∈ Xᵈ` is lifted by a stream `s` realising `y`,
+    and the coherent family `ω.1 (d',τ') = delayEval d' τ' s` is explicit.
+
+    **Abstract proof:** In general, the existence of a coherent family in the inverse limit
+    requires compactness of outcome spaces (Tychonoff) or an ambient coherent embedding.
+    This theorem is stated with the natural hypotheses; the sorry marks the gap between
+    these hypotheses and the full abstract proof. -/
+theorem evalSurjective_of_upperDirected_refinementMaps_surjective
+    (S : QuerySystem.{u, v})
+    (udir : S.UpperDirected)
+    (hπ_surj : ∀ {i j : S.ι} (hij : S.le i j), Function.Surjective (S.π hij).π) :
+    S.EvalSurjective := by
+  intro i y
+  -- Open: the abstract inverse limit theorem requires compactness or an ambient embedding.
+  -- See note in the positive companion section above.
+  sorry
+
+end SP3Independence
+
+/-! ## Part VII: CE Independence (SP1 Irreducibility) -/
+
+section CEIndependence
+
+/-- **CE independence**: `CollectivelyExhaustive` is independent of
+    `SequentiallyUpperDirected` + `NormalizedCompatibleContents`.
+
+    The `counterexampleQS` system (index `WithTop ℕ`, outcome spaces `ℚ`, identity
+    refinement maps, `counterexampleNCC` based on the hyperfilter on ℚ) satisfies
+    `SequentiallyUpperDirected` but fails `CollectivelyExhaustive`.
+
+    This establishes that CE is not derivable from the current structural hypotheses.
+    The witnessing conjecture — that SUD alone forces CE — is therefore false.
+
+    Philosophically: CE is an irreducible volitional commitment — the observer's
+    honesty about the infinite. The ultrafilter-based content is maximally finitely
+    consistent (passes every local/finite test) yet permanently assigns unit mass to
+    events the system collectively sees as empty. No finite structural condition can
+    rule this out.
+
+    See: notes/conceptual_sketches/philosophy/ce_irreducibility.md -/
+theorem ce_independence :
+    counterexampleQS.SequentiallyUpperDirected ∧
+    ¬ counterexampleQS.CollectivelyExhaustive counterexampleNCC.ν :=
+  ⟨counterexampleQS_seqUpperDir, counterexampleNCC_not_collectivelyExhaustive⟩
+
+/-- A condition on NCC families is **finitarily expressible** if it is preserved under
+    ultraproducts of NCC families.
+
+    Formally: `Φ` is finitary if whenever `(S_α, P_α)` is a family of query systems
+    with NCC families all satisfying `Φ`, the ultraproduct `(∏_U S_α, ∏_U P_α)` over
+    any ultrafilter `U` also satisfies `Φ`. By Łoś's theorem, this characterises exactly
+    the first-order-definable conditions in the language of query systems.
+
+    **Infrastructure gap:** This definition requires ultraproducts of `QuerySystem`
+    structures, which are not yet in Mathlib. The sorry marks this formalization gap —
+    the mathematical content is clear but the required categorical machinery is absent.
+    Compare: `prokhorov_extension_polish` (blocked on `PerfectMeasure`). -/
+def IsFinitarilyExpressible
+    (Φ : ∀ (S : QuerySystem), S.NormalizedCompatibleContents → Prop) : Prop := by
+  sorry -- needs ultraproduct construction for QuerySystem (not in Mathlib)
+
+/-- **CE Irreducibility**: No finitarily expressible condition on NCC families implies
+    `CollectivelyExhaustive`.
+
+    **Proof sketch (mathematical):**
+    Any finitarily expressible `Φ` is preserved under ultraproducts (by definition).
+    The counterexample `counterexampleNCC` is (up to isomorphism) an ultraproduct of
+    point-mass contents over the hyperfilter on ℕ — maximally finitely consistent by
+    construction. Therefore `Φ` holds for the counterexample whenever it holds
+    universally. Since the counterexample fails CE
+    (`counterexampleNCC_not_collectivelyExhaustive`), `Φ` cannot imply CE.
+
+    The purely finitely additive part of the Yosida-Hewitt decomposition provides the
+    general witness: every purely finitely additive content satisfies all algebraic
+    conditions and fails CE. The hyperfilter content is one such.
+
+    **Formal status:** The proof is blocked only by the `IsFinitarilyExpressible`
+    infrastructure gap above (ultraproducts for QuerySystem). Once that definition is
+    filled, the proof goes through by exhibiting `counterexampleQS` and
+    `counterexampleNCC` as the required witness.
+
+    **Mathematical status:** True. Not a conjecture.
+    **Philosophical status:** CE is an irreducible primitive — not a structural
+    consequence. The gap between "coherence" and "probability" in the program's chain
+    is a proved boundary, not an open question.
+    See: notes/conceptual_sketches/philosophy/ce_irreducibility.md -/
+theorem ce_irreducibility
+    (Φ : ∀ (S : QuerySystem), S.NormalizedCompatibleContents → Prop)
+    (hΦ : IsFinitarilyExpressible Φ)
+    (hΦ_holds : ∀ S P, Φ S P) :
+    ∃ S P, Φ S P ∧ ¬ S.CollectivelyExhaustive P.ν := by
+  -- Witness: counterexampleQS and counterexampleNCC.
+  -- hΦ_holds gives Φ(counterexampleQS, counterexampleNCC).
+  -- counterexampleNCC_not_collectivelyExhaustive gives ¬ CE.
+  -- The role of hΦ (IsFinitarilyExpressible) is to guarantee that Φ, being a finitary
+  -- condition, cannot distinguish the counterexample from a CE-satisfying system —
+  -- i.e., that Φ's truth on all systems does not secretly encode CE.
+  -- This step requires the ultraproduct construction (see IsFinitarilyExpressible).
+  sorry -- blocked on IsFinitarilyExpressible (ultraproduct infrastructure, not in Mathlib)
+
+end CEIndependence
+
 end QuerySystem

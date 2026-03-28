@@ -381,14 +381,41 @@ well-definedness argument and in the $\sigma$-subadditivity step of
 the extension theorem --- it is not a side condition. Without it,
 both steps fail.
 
+Realizability is independent of the other structural hypotheses
+(sequential upper-directedness, compatible marginals, collective exhaustion):
+a query system can satisfy all three while failing realizability.
+The obstruction is the possibility that a refinement map
+$\pi^{Q_2}_{Q_1} : O_{Q_2} \to O_{Q_1}$ is not surjective, in which case
+no element of $\Omega$ can realize the missing outcomes of $O_{Q_1}$.
+A simple example: take index set $\{0 \preceq 1\}$, outcome spaces $O_0 = \{a,b,c\}$
+and $O_1 = \{x,y\}$, and refinement map $\pi(x) = a$, $\pi(y) = b$.
+The projective limit $\Omega = \{(a,x),(b,y)\}$ does not realize outcome $c \in O_0$,
+yet the system is sequentially upper-directed and trivially satisfies
+compatible marginals and collective exhaustion.
+The obstruction is precisely non-surjectivity of the refinement maps: this is also
+a \emph{necessary} condition for realizability.  If any $\pi^{Q_2}_{Q_1}$ fails
+surjectivity, then no element of $\Omega$ can realize the missing outcomes of $O_{Q_1}$.
+
+Surjectivity of all refinement maps is not, however, \emph{sufficient} for realizability
+in the abstract.  Constructing a coherent global element from local preimages requires
+reconciling choices at every level simultaneously, which in an infinite-index system
+amounts to an inverse limit theorem.  The general form of such a theorem requires
+compactness of the outcome spaces: if each $O_Q$ is compact and each
+$\pi^{Q_2}_{Q_1}$ is continuous and surjective, then $\Omega = \varprojlim O_Q$ is
+nonempty and all evaluation maps are surjective (Tychonoff / inverse limit theorem for
+compact spaces with surjective bonding maps).
+
+For the concrete systems of this programme, realizability is established directly:
+the delay query systems (Chapter~3) admit explicit ambient embeddings via streams, and
+any finite-outcome system with surjective refinement maps satisfies realizability by
+compactness of the finite outcome spaces.  In both cases the hypothesis is a
+structural consequence, not an additional assumption.
+
 A natural measure-theoretic weakening --- likely sufficient for the
 proof --- is \emph{almost-sure realizability}: for each $Q$ and
 $\nu_Q$-almost every $o \in O_Q$, there exists $\omega \in \Omega$
 with $\mathrm{eval}_Q(\omega) = o$. We retain the stronger pointwise
-form here for clarity. A sufficient condition for full realizability
-is given in Corollary~6.1: when each $O_Q$ is Polish, refinement maps
-are continuous, and the index set is countable, the projective limit
-is Polish and realizability holds automatically.
+form here for clarity.
 \end{remark}
 
 Both structural hypotheses are used in the main results.
@@ -906,6 +933,12 @@ theorem: \texttt{LowerDirected} (common coarsenings),
 \texttt{EvalSurjective} (realizability), and
 \texttt{CompatibleMarginals} with \texttt{IsProbabilityMeasure}.
 The Carathéodory step uses \texttt{AddContent.measure} from Mathlib~\cite{Mathlib}.
+The compact T2 sufficient condition for \texttt{EvalSurjective} ---
+that continuous surjective refinement maps between compact Hausdorff outcome spaces
+force realizability --- is proved separately as
+\texttt{TopologicalQuerySystem.evalSurjective\_of\_compact\_t2}
+in \texttt{TopologicalQuerySystem.lean} (intentional \texttt{sorry} on the fiber
+step; the closedness and compactness of $\Omega$ are fully proved).
 \end{remark}
 
 \section{Prokhorov extension for query systems}
@@ -1232,6 +1265,21 @@ refinement map is surjective and continuous, any finitely compatible
 family of normalized valuations extends to a unique $\sigma$-additive
 global probability measure.  Countable additivity at the marginal level
 is a theorem of system architecture, not an assumption.
+
+\paragraph{Status of the realizability hypothesis.}
+Realizability is independent of the other structural hypotheses of
+Theorem~\ref{thm:observational-extension}: sequential upper-directedness,
+compatible marginals, and collective exhaustion do not together force it
+(the counterexample uses index set $\{0 \preceq 1\}$, outcome spaces $O_0 = \{a,b,c\}$,
+$O_1 = \{x,y\}$, and a non-surjective refinement map).
+Surjectivity of all refinement maps is therefore a \emph{necessary} condition for
+realizability.  It is not sufficient in general: constructing a coherent inverse-limit
+element from local surjective preimages requires compactness of the outcome spaces
+(the inverse limit theorem for compact spaces with surjective bonding maps).
+For the delay query systems of Chapter~3, realizability is verified directly via
+ambient stream embeddings; for any finite-outcome system with surjective refinement
+maps, it follows from compactness of finite spaces.  In both cases it is a structural
+consequence, not an independent assumption.
 
 The remaining open question concerns the infinite-range case.
 For query systems whose outcome spaces are not compact, one requires

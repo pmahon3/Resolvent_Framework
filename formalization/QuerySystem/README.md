@@ -1,135 +1,78 @@
-# Query Systems: Observational Foundations of Probability
+# QuerySystem — Lean 4 Formalization
 
-This formalization develops the theory of **query systems**, a framework for constructing probability measures from observational principles. This provides an observational foundation for probability theory, analogous to how the Kolmogorov extension theorem constructs stochastic processes from finite-dimensional distributions.
+Lean 4 / Mathlib formalization of the **Discriminative Foundations for Probability and Dynamics** program.
 
-## Overview
+The program derives probabilistic and dynamical structure from the primitive notion of
+discriminability — what an observer can distinguish — rather than assuming a probability
+space as input. This directory contains the formal proofs for Papers −1 through 3.
 
-A **query system** is a preordered family of measurable spaces (queries) with coherent refinement maps between them. Each query represents a possible observation or measurement, and refinements represent relationships where one observation determines another.
+## File overview
 
-The key insight: rather than starting with a measure on an abstract sample space, we construct probability measures from their observable manifestations—the marginal distributions on query outcomes.
+| File | Paper | Status |
+|------|-------|--------|
+| `DiscriminabilityFoundations.lean` | Paper −1 | Zero sorrys on all main theorems |
+| `QuerySystem.lean` | Paper 0 | Zero sorrys |
+| `DelayEmbedding.lean` | Paper 1 (delay subsystems) | Zero sorrys on fixed-lag subsystem |
+| `PredictiveState.lean` | Paper 1 | Zero sorrys |
+| `PredictiveOperators.lean` | Paper 2 | Zero sorrys |
+| `TopologicalQuerySystem.lean` | SP3 companion | Zero sorrys on new theorems |
+| `ProkhorovExtension.lean` | Paper 3 | One Mathlib-blocked sorry |
 
-## Main Results
+## Key results
 
-### 1. Observational Determination Theorem
+### Paper −1 — Discriminability and the Origin of the σ-Algebra
 
-**Statement**: Two (probability) measures on the projective limit `Omega` are equal if and only if they have equal marginals on all queries.
+- `sp1_iff`: a family of finitely-additive contents extends to σ-additive measures at every
+  level if and only if it is **collectively exhaustive** (CE).
+- `observational_extension_of_collective_exhaustion`: CE → unique global P on Ω.
+- `ce_independence`: SUD + NCC does not imply CE (zero sorrys).
+- `ce_irreducibility`: no finitarily expressible condition implies CE
+  (one infrastructure sorry — ultraproduct construction not in Mathlib).
 
-**Significance**: This establishes that observable regularities (marginal distributions) completely determine the underlying probability measure. Probabilistic structure is uniquely determined by what can be observed.
+### Paper 0 — Observational Foundations of Probability
 
-**Proof technique**: π-λ theorem applied to the cylinder σ-algebra
+- `observational_extension`: σ-additive compatible marginals + SequentiallyUpperDirected
+  + EvalSurjective → unique global P on Ω.
+- `observational_determination`: uniqueness via π-system + monotone class.
 
-### 2. Observational Extension Theorem (in progress)
+### Paper 1 — Predictive State
 
-**Statement**: Given compatible marginal measures on query outcomes, there exists a unique probability measure on `Omega` with those marginals.
+- `predictive_factorization`: conditional law of F factors through Q*.
+- `predictive_sufficiency`: Q is predictively sufficient iff F ⊥ Q' | Q for all Q'.
 
-**Significance**: This shows that consistent observational data uniquely determines a probability measure. It's the observational analog of the Kolmogorov extension theorem.
+### Paper 2 — Predictive Operators
 
-**Current status**:
-- ✅ Premeasure well-definedness proved
-- ⏳ π-system structure for finite cylinders
-- ⏳ Extension to full measure using Carathéodory
+- `semigroup_property`: K_{t+s} = K_t ∘ K_s (discrete time).
+- `koopman_perron_duality`: ∫ (K_t g) dμ = ∫ g d(P_t* μ).
 
-## Mathematical Framework
+### Paper 3 — Prokhorov Extension (SP2)
 
-### Queries and Refinement
+- `prokhorov_extension`: finitely-additive compatible family + SPUT → σ-additive global P.
+- One sorry: `prokhorov_extension_polish` (Corollary for standard Borel spaces),
+  blocked on `PerfectMeasure` and Musiał's theorem being absent from Mathlib 4.
 
-- **Query**: A measurable space `(Outcome, σ-algebra)` representing possible outcomes of an observation
-- **Refinement**: `Refine q₁ q₂` means query `q₁` refines to query `q₂` via a measurable map `π : Outcome₁ → Outcome₂`
-- **Convention**: `le i j` means "i refines to j", so j is MORE informative
+## Intentional sorrys
 
-### The Projective Limit
+All remaining sorrys are infrastructure-blocked, not proof-search failures:
 
-**Omega**: The space of coherent families of outcomes. An element `ω : Omega` assigns:
-- To each query `i`, an outcome `ω(i) ∈ Outcome_i`
-- Subject to coherence: if `i ≤ j`, then `ω(j) = π_ij(ω(i))`
+| Sorry | Reason |
+|-------|--------|
+| `IsFinitarilyExpressible` | Ultraproduct construction for QuerySystem not in Mathlib |
+| `ce_irreducibility` | Depends on `IsFinitarilyExpressible` |
+| `prokhorov_extension_polish` | `PerfectMeasure` and Musiał's theorem not in Mathlib |
+| `evalSurjective_of_upperDirected_refinementMaps_surjective` | Abstract inverse limit requires Tychonoff; concrete systems verified directly |
+| `delayQuerySystem.seqUpperDirected` | Full delay system is genuinely NOT SUD (documented counterexample) |
 
-This generalizes the trajectory space `S^T` in classical stochastic process theory.
-
-### Observable Events
-
-**Cylinder sets**: `Cyl i A = {ω : Omega | ω(i) ∈ A}`
-
-These are events where query `i` yields an outcome in `A`. The σ-algebra generated by all cylinder sets is the observable σ-algebra.
-
-### Compatible Marginals
-
-A family `ν` of measures on query outcomes is **compatible** if:
-```
-ν j = pushforward (π_ij) (ν i)   whenever i ≤ j
-```
-
-This is the analog of Kolmogorov consistency for finite-dimensional distributions.
-
-## Key Technical Concepts
-
-### Lower-Directedness
-
-A query system is **lower-directed** if any two queries have a common coarsening:
-```
-∀ i j, ∃ k, k ≤ i ∧ k ≤ j
-```
-
-This property is crucial for proving that cylinder sets form a π-system, which enables application of the π-λ theorem.
-
-### Proof Irrelevance
-
-The formalization makes heavy use of **proof irrelevance** via `Subsingleton.elim` to identify different proofs of the same proposition. This is essential for showing that definitions involving arbitrary choices (like choosing a lower bound) are well-defined.
-
-## File Structure
-
-- `QuerySystem.lean`: Main formalization file containing:
-  - Core definitions (Query, Refine, QuerySystem, Omega)
-  - Observational determination theorem
-  - Extension theorem construction (in progress)
-  - Auxiliary lemmas for measurability and directedness
-
-## Build Instructions
-
-This project uses Lean 4 with Mathlib. To build:
+## Build
 
 ```bash
 lake build
 ```
 
-## Blueprint Documentation
+## Mathematical framework
 
-Interactive documentation showing theorem dependencies and proof status.
-
-**To view the blueprint:**
-
-```bash
-./blueprint-web.sh
-```
-
-Then open `blueprint/web/index.html` in your browser.
-
-The blueprint is a visual dependency graph showing how theorems build on each other, with links to the Lean code.
-
-## Relation to Classical Results
-
-| Classical Probability | Query System Framework |
-|----------------------|------------------------|
-| Sample space Ω | Projective limit Omega |
-| Stochastic process {X_t} | Query system {q_i} |
-| Finite-dim distributions | Marginals on queries |
-| Kolmogorov consistency | Compatible marginals |
-| Kolmogorov extension | Observational extension |
-| Canonical process | Evaluation maps |
-| Cylinder σ-algebra | Observable σ-algebra |
-
-## Implementation Notes
-
-1. **Refinement convention**: `le i j` means i refines TO j (j is more informative)
-2. **Directedness**: We use LOWER-directedness (common coarsenings) for π-systems
-3. **Proof irrelevance**: Extensively used for well-definedness of premeasure
-4. **Finset induction**: Pattern used for measurability proofs
-
-## References
-
-- Neutral Operator Framework manuscript (note.tex)
-- Classical Kolmogorov extension theorem
-- π-λ theorem (Dynkin's theorem)
-
-## License
-
-Released under Apache 2.0 license.
+A **query system** `(ι, Q)` consists of a preordered index set `ι` and a family of
+measurable spaces `Q i` (queries) with refinement maps `π : Q j → Q i` for `i ≤ j`.
+The **realization space** `Ω ⊆ ∏ i, Q i` is the projective limit — the set of coherent
+families of outcomes. Probability structure is assembled from compatible marginals on
+the query outcomes, without assuming a latent state space.

@@ -165,8 +165,10 @@ Every normalized finitely-additive valuation on a Boolean algebra is exhaustive.
 \begin{proof}
 Let $(E_n)$ be a disjoint sequence in $\E$.  For any $N$,
 $\sum_{n=1}^N \ell(E_n) = \ell\bigl(\bigcup_{n=1}^N E_n\bigr) \leq \ell(O) = 1$
-by finite additivity and normalization.  Hence $\sum_{n=1}^\infty \ell(E_n) \leq 1$,
-so $\ell(E_n) \to 0$.
+by finite additivity and normalization.  Since $\ell \geq 0$, the partial sums
+$S_N := \sum_{n=1}^N \ell(E_n)$ are non-decreasing in $N$ and bounded above by $1$,
+so $\sum_{n=1}^\infty \ell(E_n) = \lim_{N \to \infty} S_N \leq 1$.
+In particular the terms must tend to zero, so $\ell(E_n) \to 0$.
 \end{proof}
 
 \noindent Exhaustiveness carries no information about extensibility.  It is a

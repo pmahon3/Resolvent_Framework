@@ -1,6 +1,6 @@
 # QuerySystem — Lean 4 Formalization
 
-Lean 4 / Mathlib formalization of the **Discriminative Foundations for Probability and Dynamics** program.
+Lean 4 / Mathlib formalization of the **Discriminative Foundations of Probability and Dynamics** program.
 
 The program derives probabilistic and dynamical structure from the primitive notion of
 discriminability — what an observer can distinguish — rather than assuming a probability

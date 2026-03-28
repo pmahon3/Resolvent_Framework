@@ -2,7 +2,7 @@
 
 `thesis.tex` — master document assembling all six papers.
 
-**Title:** *Discriminative Foundations for Probability and Dynamics*
+**Title:** *Discriminative Foundations of Probability and Dynamics*
 
 ## Structure
 

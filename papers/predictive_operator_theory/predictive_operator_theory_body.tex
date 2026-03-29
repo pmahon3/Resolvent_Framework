@@ -173,6 +173,14 @@ For bounded measurable $g$, $K_t$ is a positive linear operator that
 preserves constants.
 \end{proposition}
 
+\begin{proof}
+Positivity: if $g\ge0$ then $E[g(F_t)\mid Q_*=q]\ge0$ for every $q$ since
+expectation of a non-negative function is non-negative.  Linearity is
+inherited from linearity of conditional expectation.  Preservation of
+constants: $K_t(1)(q)=E[1\mid Q_*=q]=1$ since the total probability mass
+equals one.
+\end{proof}
+
 \section{Operator semigroup}\label{sec:semigroup}
 
 Prediction at successive horizons induces a family $\{K_t\}_{t\ge0}$
@@ -229,6 +237,16 @@ Markov kernel $P_t(q_*,\cdot)$ on $O_{Q_*}$ such that
 \]
 Thus each $K_t$ is a Markov operator on $O_{Q_*}$.
 \end{proposition}
+
+\begin{proof}
+By the Rokhlin disintegration theorem, since $O_{Q_*}$ is a standard
+Borel space (as a Borel subspace of the standard Borel space
+$\mathcal{P}(O_F)$), there exists a $\sigma(Q_*)$-measurable family
+of regular conditional distributions $q_*\mapsto P_t(q_*,\cdot)$.
+The identity $(K_t g)(q_*) = E[g(F_t)\mid Q_*=q_*] = \int g\,dP_t(q_*,\cdot)$
+then holds $P$-almost surely, and each $P_t(q_*,\cdot)$ is a probability
+measure on $O_F$ (hence a Markov kernel from $O_{Q_*}$ to $O_F$).
+\end{proof}
 
 \begin{remark}[Predictive states as a minimal Markov completion]
 The predictive factorization theorem implies that the future law of
@@ -307,6 +325,15 @@ then
 \]
 Thus predictive operators reduce to the classical Koopman semigroup~\cite{Koopman1931}.
 \end{proposition}
+
+\begin{proof}
+When $F_t=\phi_t(Q_*)$ deterministically, the conditional distribution
+of $F_t$ given $Q_*=q$ is the Dirac mass $\delta_{\phi_t(q)}$.
+Integrating $g$ against a Dirac mass gives point evaluation:
+\[
+(K_t g)(q) = E[g(F_t)\mid Q_*=q] = \int g(f)\,\delta_{\phi_t(q)}(df) = g(\phi_t(q)).\qedhere
+\]
+\end{proof}
 
 \begin{remark}[Flow law and point separation]
 In the deterministic setting the Chapman--Kolmogorov equation implies

@@ -1,7 +1,7 @@
 /-
-Copyright (c) 2025. All rights reserved.
+Copyright (c) 2026. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
-Authors: [Your Name]
+Authors: Patrick S. Mahon
 -/
 import Mathlib.MeasureTheory.Measure.MeasureSpaceDef
 import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
@@ -75,7 +75,21 @@ flow `φ_t`, the operators reduce to classical Koopman operators: `K_t g = g ∘
 
 ## Open proof obligations (sorry)
 
-All main theorems are now proved. Key resolving lemmas:
+All main theorems are now proved.
+
+## Intentional formalization gaps
+
+The following Paper 3 results are not yet formalized:
+
+* `prop:markov-kernel`      : disintegration / Rokhlin theorem (acknowledged in paper)
+* `def:generator`           : infinitesimal generator (continuous-time only; deferred)
+* `rem:generator-existence` : generator densely defined and closed (continuous-time)
+* `rem:kolmogorov`          : predictive Kolmogorov equation ∂_t u = Au (continuous-time)
+* `def:eigenfunction`       : predictive eigenfunctions K_t g = λ_t g
+* `prop:eigen-propagation`  : eigenvalue cocycle λ_{t+s} = λ_t λ_s
+* `def:obs-dyn-sys`         : observable dynamical system triple (O_{Q_*}, ν_{Q_*}, {K_t})
+* `prop:stationarity`       : stationarity of ν_{Q_*} under P_t^*
+* `prop:convergence-approx` : L²-convergence of local linear approximants (Paper 4 scope) Key resolving lemmas:
 - `Kernel.integral_comp` (Bochner Fubini for kernel composition, from
   `Mathlib.Probability.Kernel.Composition.IntegralCompProd`) resolves both
   `semigroup_property` and `koopman_perron_duality`.
@@ -105,8 +119,8 @@ variable {γ : Type v} [MeasurableSpace γ]
 
 /-! ## Kernel family structures -/
 
-/-- A **predictive kernel family** is a family of Markov kernels `{Π_t}_{t : ℕ}`
-    on a state space `γ`, with `Π_0 = δ` (identity). -/
+/-- **[def:predictive-kernel-family]** A **predictive kernel family** is a family of
+    Markov kernels `{Π_t}_{t : ℕ}` on a state space `γ`, with `Π_0 = δ` (identity). -/
 structure PredictiveKernelFamily (γ : Type v) [MeasurableSpace γ] where
   /-- The Markov kernel at horizon `t` -/
   Π        : ℕ → Kernel γ γ
@@ -115,8 +129,8 @@ structure PredictiveKernelFamily (γ : Type v) [MeasurableSpace γ] where
   /-- At horizon 0, `Π_0` is the Dirac kernel: `Π_0 q = δ_q` -/
   at_zero  : ∀ q, Π 0 q = Measure.dirac q
 
-/-- A **predictive semigroup kernel** is a `PredictiveKernelFamily` satisfying
-    the Chapman–Kolmogorov (semigroup) equation:
+/-- **[def:predictive-kernel-family / thm:semigroup]** A **predictive semigroup kernel**
+    is a `PredictiveKernelFamily` satisfying the Chapman–Kolmogorov (semigroup) equation:
     ```
     Π_{t+s} = Π_t ∘ₖ Π_s
     ```
@@ -140,7 +154,7 @@ def PredictiveSemigroupKernel.toFamily (K : PredictiveSemigroupKernel γ) :
 
 /-! ## Horizon-indexed predictive operators -/
 
-/-- The **horizon-indexed predictive operator** `K_t`.
+/-- **[def:predictive-operator]** The **horizon-indexed predictive operator** `K_t`.
 
     For a `PredictiveKernelFamily` and `g : γ → ℝ`:
     ```
@@ -224,7 +238,7 @@ theorem semigroup_positive
 
 /-! ## Koopman–Perron duality (P3.5) -/
 
-/-- The **Koopman–Perron dual** operator `P_t^*` pushes distributions forward:
+/-- **[prop:duality]** The **Koopman–Perron dual** operator `P_t^*` pushes distributions forward:
     ```
     P_t^* μ = μ.bind (ker t)
     ``` -/

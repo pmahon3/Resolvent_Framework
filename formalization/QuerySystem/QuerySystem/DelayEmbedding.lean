@@ -28,11 +28,29 @@ The refinement map π : Xᵈ' → Xᵈ picks out the coordinates at positions
 
 ## Main results
 
-* `delayQuerySystem`: the `QuerySystem` instance over `(X, 𝒳)`.
-* `delayQS_upperDirected`: any two queries have a common refinement (via gcd of lags).
-* `delayQS_evalSurjective`: every outcome in Xᵈ is realized by some coherent stream.
-* `delayQS_compatibleMarginals`: any probability measure on `ℤ → X` induces compatible
-  marginals.
+* `delayQuerySystem`               : the `QuerySystem` instance over `(X, 𝒳)` [prop:is-qs]
+* `upperDirected`                  : any two queries have a common refinement [prop:upper-directed-general]
+* `evalSurjective`                 : every outcome in Xᵈ is realized by some coherent stream [prop:realizability]
+* `compatibleMarginals`            : any probability measure on `ℤ → X` induces compatible marginals [prop:compat]
+* `delayFixedLagBoundedSystem`     : bounded fixed-lag subsystem (correct scope for SUD)
+* `observational_extension_fixedLag` : extension theorem instantiated for bounded delay systems
+
+## Intentional formalization gaps
+
+The following Paper 1 results are not yet formalized (require conditional probability
+infrastructure beyond the current scope):
+
+* `def:delay-pred-map`    : predictive law map φ_{d,τ} : Xᵈ → P(X)
+* `def:pred-sufficient`   : predictive sufficiency (injectivity of φ_{d,τ} on support)
+* `def:markov-order`      : predictive τ-Markov order m(τ,P)
+* `thm:sufficiency`       : characterization d ≥ m(τ,P) ↔ predictive sufficiency
+* `prop:stationarity`     : stationarity and time-homogeneity of delay distributions
+* `cor:takens`            : Takens embedding as special case
+
+These gaps are intentional: the delay query system's structural properties (query
+system axioms, upper-directedness, realizability, compatibility) are fully formalized;
+the probability-theoretic content of the sufficiency section requires conditional
+distribution infrastructure not yet developed here.
 
 ## References
 
@@ -84,13 +102,13 @@ def delayQuery (X : Type u) [MeasurableSpace X] (d τ : ℕ) : Query.{u} where
 
 /-! ## Refinement order and maps -/
 
-/-- `(d, τ) ≤ (d', τ')` in the delay refinement order:
+/-- `(d, τ) ≤ (d', τ')` in the delay refinement order [def:refinement]:
     `τ'` divides `τ` and `d'` covers all `d` sample times `{0, τ, …, (d-1)τ}` in
     `{0, τ', …, (d'-1)τ'}`.  With `k = τ / τ'`, need `(d-1)*k < d'`. -/
 def delayLe (d τ d' τ' : ℕ) : Prop :=
   τ' ∣ τ ∧ (d = 0 ∨ (d - 1) * (τ / τ') < d')
 
-/-- The refinement map π : Xᵈ' → Xᵈ.
+/-- The refinement map π : Xᵈ' → Xᵈ [def:refinement].
     Picks coordinates `0, k, 2k, …, (d-1)k` from the finer vector, where `k = τ / τ'`. -/
 def delayRefineMap (d τ d' τ' : ℕ) (hdiv : τ' ∣ τ) (hbnd : d = 0 ∨ (d - 1) * (τ / τ') < d') :
     DelayOutcome X d' → DelayOutcome X d :=
@@ -296,7 +314,7 @@ lemma delayEval_surjective [Nonempty X] (d τ : ℕ) (hτ : 0 < τ) :
   have hmul : (hk.choose.val : ℤ) * τ = k.val * τ := by linarith
   exact_mod_cast Int.eq_of_mul_eq_mul_right hτ' hmul
 
-/-- Every outcome in `Xᵈ` is realized by some coherent sequence.
+/-- **[prop:realizability]** Every outcome in `Xᵈ` is realized by some coherent sequence.
 
     Proof: given `(d, τ)` and `y : Xᵈ`, use stream-level surjectivity to find
     `s : SensorStream X` with `delayEval d τ s = y`, then define the coherent
@@ -324,7 +342,7 @@ theorem evalSurjective [Nonempty X] : (delayQuerySystem X).EvalSurjective := by
 
 /-! ## Compatible marginals -/
 
-/-- Any probability measure on `SensorStream X` induces compatible marginals
+/-- **[prop:compat]** Any probability measure on `SensorStream X` induces compatible marginals
     for the delay query system.
 
     Proof: pushforward commutes with composition; the refinement map is a coordinate

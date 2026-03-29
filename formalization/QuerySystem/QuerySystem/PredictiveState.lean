@@ -99,6 +99,18 @@ None. All theorems are fully proved.
 via the private lemma `measurable_predictiveOp_aux` (Jordan decomposition + Giry σ-algebra).
 Remaining elaboration gaps (if any) are local simp/API issues, not conceptual gaps.
 
+## Intentional formalization gaps
+
+The following Paper 2 results are not yet formalized (require conditional independence
+infrastructure or general predictive operator framework beyond Q_*):
+
+* `thm:experiment-preorder`                 : experiment preorder / Blackwell sufficiency
+* `def:predictive-sufficiency`              : formal definition (injectivity of φ_Q on support)
+* `thm:predictive-sufficiency-characterization` : F ⊥ Q' | Q iff Q sufficient
+* `def:predictive-operator` (general form)  : K_Q for arbitrary Q (only K_{Q_*} is formalized)
+* `cor:observable-operator-closure`         : K_{Q_*} determines predictive evolution
+* `prop:koopman-specialization`             : deterministic kernel → Koopman operator
+
 ## References
 
 * Paper 2: *Predictive Experiments and Observable Operators*
@@ -565,7 +577,7 @@ theorem predictive_sufficiency
 
 /-! ## Canonical predictive operator -/
 
-/-- The **canonical predictive operator** `K_{Q_*}`.
+/-- **[cor:canonical-operator / P2.6]** The **canonical predictive operator** `K_{Q_*}`.
 
     For a predictive state `q_* : ProbabilityMeasure β` and bounded measurable
     `g : β → ℝ`:

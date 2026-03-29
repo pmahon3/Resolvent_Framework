@@ -209,7 +209,24 @@ standard proof of the Carath\'{e}odory extension to pass from finite additivity 
 $\sigma$-additivity on the generated $\sigma$-algebra.
 \end{proof}
 
-\subsection{The regress}
+\begin{remark}[The gap and its geometric meaning]
+\label{rem:gap}
+The target $\sigma(\mathcal{E}_i)$ in the extension criterion is genuinely larger
+than $\mathcal{E}_i$ whenever the outcome space is not finite discrete.  Stone
+duality makes this precise.  Every Boolean algebra $\mathcal{E}_i$ has a canonical
+compact totally-disconnected Hausdorff space $S(\mathcal{E}_i)$ --- its
+\emph{Stone space} --- whose clopen sets are in bijection with elements of
+$\mathcal{E}_i$.  The Baire $\sigma$-algebra of $S(\mathcal{E}_i)$ is
+$\sigma(\mathrm{clopens}) = \sigma(\mathcal{E}_i)$.  Under this translation,
+events in $\mathcal{E}_i$ are clopen sets, events in $\sigma(\mathcal{E}_i)$ are
+Baire sets, and the gap $\sigma(\mathcal{E}_i) \setminus \mathcal{E}_i$ is
+precisely the Baire sets that are not clopen.  The extension question is therefore
+the question of how $\ell$ behaves on events that are Baire but not clopen in the
+Stone space --- events that countable operations can reach but no single observable
+distinction can name.
+\end{remark}
+
+\subsection{Regress}
 
 In a directed system, one might hope that a finer level $j \geq i$ can witness the
 emptiness that level $i$ cannot see, and that compatibility then forces continuity at
@@ -281,19 +298,6 @@ Nontriviality of refinement is therefore the condition that the directed system 
 genuinely increasing in discriminative power.
 \end{remark}
 
-\begin{remark}[Relation to the gap]
-\label{rem:gap}
-The gap $\sigma(\mathcal{E}_i) \setminus \mathcal{E}_i$ is a separate condition:
-it concerns events reachable by countable operations on $\mathcal{E}_i$ that are
-not themselves in $\mathcal{E}_i$.  When $\mathcal{E}_i$ is not already a
-$\sigma$-algebra --- in particular when $O_i$ is uncountable and $\mathcal{E}_i$
-does not contain all subsets of $O_i$ --- this gap is nonempty.  Under Stone duality,
-the gap corresponds to the Baire sets of $S(\mathcal{E}_i)$ that are not clopen:
-a level with $\mathcal{E}_i = \sigma(\mathcal{E}_i)$ would correspond to a Stone
-space whose entire Baire $\sigma$-algebra consists of clopens, a highly degenerate
-condition.  In the settings of interest --- outcome spaces that are not finite
-discrete --- the gap is nonempty, and the extension question is nontrivial.
-\end{remark}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Collective exhaustion and the characterisation of $\sigma$-additivity}
@@ -395,6 +399,12 @@ Sequential upper-directedness plays no role in Theorem~\ref{thm:sp1}: it is a pe
 result.  Sequential upper-directedness enters when one asks whether the per-level
 extensions assemble into a global probability space over $\Omega$ --- that is the next
 question.
+
+The structure assembled here --- a preordered family of outcome spaces with surjective
+refinement maps and a compatible family of normalized charges --- is what the remainder
+of this program calls a \emph{query system}.  The name reflects that each level is an
+admissible observational query, and the refinement order organizes queries by
+discriminative power.  The formal definition appears at the opening of the next paper.
 \end{remark}
 
 \begin{proposition}[CE irreducibility]

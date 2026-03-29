@@ -187,6 +187,8 @@ in $\E$ with $\bigcap_{n=1}^\infty E_n = \emptyset$ in $\sigE$, we have $\ell(E_
 \to 0$.
 \end{definition}
 
+\noindent In the Lean~4 formalization, this condition is \texttt{AddContent.IsSigmaSubadditive}.
+
 \begin{remark}
 The intersection $\bigcap_n E_n$ in Definition~\ref{def:cont-empty} is taken in
 $\sigE$, not in $\E$.  The condition is therefore not verifiable from within $\E$
@@ -255,6 +257,17 @@ finitely many levels is necessary and sufficient for $\ell_i$ to extend to
 $\sigma(\mathcal{E}_i)$.
 \end{corollary}
 
+\begin{proof}
+Suppose a condition $\Phi$ involves only the charges at finitely many levels
+$j_1, \ldots, j_n \geq i$.  By Proposition~\ref{prop:regress}, the obstruction
+to $\sigma$-additive extension reappears at each $j_k$: verifying $\Phi$ at
+those levels leaves the same gap in place.  Since the same gap appears at any
+finite collection of levels, $\Phi$ is neither sufficient (it does not eliminate
+the obstruction) nor necessary (a charge satisfying the extension criterion need
+not satisfy any particular finite-level condition).  Something beyond any fixed
+finite window is required.
+\end{proof}
+
 \noindent Something external to any single level is required.  The three candidates
 are: topology (compactness witnesses emptiness), a colimit algebra (a direct limit in
 the directed system whose event algebra contains the limit events), or an explicit
@@ -286,8 +299,14 @@ coarser.
 \end{proposition}
 
 \begin{proof}
-Immediate from the definition: nontriviality asserts the existence of $A \in
-\mathcal{E}_j \setminus \pi^{-1}(\mathcal{E}_i)$.
+By definition, nontriviality of $j \geq i$ asserts the existence of
+$A \in \mathcal{E}_j$ with $A \notin \pi^{-1}(\mathcal{E}_i)$.  Such an $A$ is
+a measurable event at level $j$ that does not arise as the preimage of any event
+at level $i$, so $\mathcal{E}_j \supsetneq \pi^{-1}(\mathcal{E}_i)$.
+The contrapositive --- if $\mathcal{E}_j = \pi^{-1}(\mathcal{E}_i)$ for every
+$j \geq i$, then no finer level adds new events --- is the content of the
+remark below: a directed system with only trivial refinements above $i$ has
+algebraically frozen discriminative power above $i$.
 \end{proof}
 
 \begin{remark}
@@ -398,11 +417,11 @@ in which it is not.
 Sequential upper-directedness plays no role in Theorem~\ref{thm:sp1}. It is a per-level
 result and enters when one asks whether the per-level
 extensions assemble into a global probability space over $\Omega$.
-From here out we refer to a preordered family of outcome spaces with surjective
-refinement maps and a compatible family of normalized charges as a
-\emph{query system}.  
 
 \end{remark}
+
+\noindent From here out we refer to a preordered family of outcome spaces with surjective
+refinement maps and a compatible family of normalized charges as a \emph{query system}.
 
 \begin{proposition}[CE irreducibility]
 \label{prop:ce-irreducibility}
@@ -490,12 +509,54 @@ The present paper answers this for directed systems without topological hypothes
 on the outcome spaces: collective exhaustion is the necessary and sufficient
 condition, playing the role that tightness plays on the Stone space.
 
+This correspondence admits a categorical articulation that clarifies why CE
+belongs to the valuation layer rather than the structural one.  The directed
+system $(\mathcal{I}, \{\mathcal{E}_i\}, \{\pi_{ij}\})$ is a category $C(\mathcal{I})$
+whose objects are the Boolean algebras $\mathcal{E}_i$ and whose morphisms are the
+refinement maps $\pi_{ij}$.  One can equip this category with a Grothendieck
+topology $J$ by declaring that a sieve $S$ on $\mathcal{E}_i$ \emph{covers} $i$
+if the levels in $S$ collectively witness the $\sigma$-algebraic vanishing of
+every decreasing sequence in $\mathcal{E}_i$: for every $A_1 \supseteq A_2
+\supseteq \cdots$ in $\mathcal{E}_i$ with $\bigcap_n A_n = \emptyset$ in
+$\sigma(\mathcal{E}_i)$, some level in $S$ resolves the vanishing set-theoretically.
+The stability axiom for $J$ is precisely sequential upper-directedness: without
+SUD, the pullback of a covering sieve along a finer map need not cover.
+In this language, collective exhaustion is not the subcanonical condition on $J$
+--- that is the weaker statement that every representable presheaf is a sheaf ---
+but the strictly stronger condition that the \emph{charge presheaf}
+$F_\ell : i \mapsto \ell_i$ is a sheaf.
+
+The finite-cofinite content $\ell$ of Proposition~\ref{prop:independence} reveals
+why the distinction matters.  One can verify that $\ell$, viewed as a charge
+presheaf, satisfies the sheaf condition for $J$: the Boolean-level witnessing
+topology $J$ is too coarse to detect CE failure.  The reason is that for the
+sequences responsible for CE failure --- cofinite tails $A_k = \{q(k), q(k{+}1),
+\ldots\}$ with $\bigcap_k A_k = \emptyset$ in $\sigma(\mathcal{E})$ --- no term
+$A_k$ is ever empty as an element of $\mathcal{E}$.  The vanishing is realised
+only in the $\sigma$-algebra, not in the Boolean algebra itself; no level in any
+sieve can witness it set-theoretically.  CE failure is a \emph{measure-algebraic}
+phenomenon, invisible to the Boolean-algebraic structure of the system.
+
+The site where CE \emph{does} become a sheaf condition is the projective system of
+Stone spaces $\{S(\mathcal{E}_i)\}$.  Covering sieves there are the open covers of
+compact Hausdorff spaces, and the charge presheaf is a sheaf for this topology if
+and only if the charges are tight --- which, by the extension criterion, is
+equivalent to CE.  Collective exhaustion is therefore the condition that the
+observer's charges are \emph{geometrically realisable as sheaves} for the natural
+topology on the Stone space system, rather than an independent commitment about
+mass at infinity.  The question of whether a structural condition on the projective
+system of Stone spaces can force this sheaf property automatically --- making CE a
+theorem of system architecture rather than a valuation-layer axiom --- is
+precisely the question addressed by the global extension theorems of
+Chapter~\ref{chap:paper-zero}.
+
 Theorem~\ref{thm:sp1} is a per-level result.  Sequential upper-directedness plays
 no role in it: that condition enters when asking whether the per-level extensions
 $\{\mu_i\}$ assemble into a single $\sigma$-additive measure on the projective
 limit $\Omega = \varprojlim O_i$.  For compact outcome spaces this follows from
 the Prokhorov extension theorem; for standard Borel spaces from Musia\l's theorem
-via perfectness.  The topology-free case remains open.
+via perfectness.  The topology-free case remains open (see the discussion above
+for a reformulation of this question in the language of sites and sheaves).
 
 Proposition~\ref{prop:nontrivial} establishes that nontrivial refinement strictly
 extends the pullback algebra: $\pi^{-1}(\mathcal{E}_i) \subsetneq \mathcal{E}_j$.

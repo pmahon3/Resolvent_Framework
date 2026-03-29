@@ -193,6 +193,42 @@ theorem extensionCriterion {α : Type*} [MeasurableSpace α]
         (fun E hE_mem hE_anti hE_empty =>
           hcont E hE_mem (fun n => hE_anti (Nat.le_succ n)) hE_empty))
 
+/-- Gap nonemptiness (concrete case): on the finite-cofinite algebra `finCofinSets α`,
+    the gap `σ(finCofinSets α) \ finCofinSets α` is nonempty whenever `α` is infinite.
+
+    The witness: given an injective `q : ℕ → α`, the range `Set.range q` is a countable
+    union of singletons `⋃ n, {q n}`, hence σ-measurable.  But `Set.range q` is
+    countably infinite (injective) with infinite complement (α is infinite), so it is
+    neither finite nor cofinite — it lies outside `finCofinSets α`.
+
+    This formalises the concrete case of Prop. `prop:gap-nonempty` (Discussion section).
+    The paper also gives the general argument: any Boolean algebra that is not a σ-algebra
+    has a countable union outside it by definition; that direction is definitional and
+    not separately formalised. -/
+theorem gapNonempty (α : Type*) [Infinite α] (q : ℕ → α) (hq : Function.Injective q) :
+    let E := finCofinSets α
+    let sigmaE := MeasurableSpace.generateFrom E
+    ∃ s : Set α, @MeasurableSet α sigmaE s ∧ s ∉ E := by
+  -- The set S = range q is a countable union of singletons, hence σ-measurable,
+  -- but is neither finite (q is injective) nor cofinite (its complement contains all
+  -- elements outside the range, which is infinite since α is infinite and range q is countable).
+  refine ⟨Set.range q, ?_, ?_⟩
+  · -- σ-measurability: range q = ⋃ n, {q n}, each singleton is in finCofinSets α
+    apply MeasurableSpace.measurableSet_generateFrom_of_iUnion
+      (f := fun n => {q n})
+    · intro n
+      exact MeasurableSpace.measurableSet_generateFrom
+        (show {q n} ∈ finCofinSets α from Or.inl (Set.finite_singleton _))
+    · simp [Set.range_eq_iUnion]
+  · -- Non-membership: range q is infinite (injective) and has infinite complement
+    --   (α is infinite, range q is countable, so its complement is nonempty and infinite)
+    simp only [finCofinSets, Set.mem_setOf_eq]
+    push_neg
+    exact ⟨Set.infinite_range_of_injective hq,
+           Set.infinite_of_injective_forall_mem (f := fun n => (Infinite.natEmbedding α n))
+             (fun n => by simp [Set.mem_compl_iff, Set.mem_range,
+               fun h => hq.ne (Nat.find_spec h ▸ rfl)])⟩
+
 end SingleAlgebra
 
 /-!
@@ -761,7 +797,7 @@ theorem sp1_iff
 /-!
 ## Part V: The program-order bridge theorem
 
-This theorem formalises the intended logical order of the Observable Dynamics Program:
+This theorem formalises the intended logical order of the Discriminative Foundations Program:
 collective exhaustion (Paper −1) is the primitive that forces σ-additivity at each level,
 and those per-level measures assemble into a global probability measure on Ω (Paper 0).
 
@@ -782,7 +818,7 @@ eliminating the σ-additivity assumption that was previously required as primiti
 
     Collective exhaustion is purely algebraic (no topology required). The topology-free
     realizability route of Paper 0 then assembles the global measure. The Prokhorov/SPUT
-    route (Paper 4) remains as a complementary topological alternative. -/
+    route (Paper 3) remains as a complementary topological alternative. -/
 theorem observational_extension_of_collective_exhaustion
     [Nonempty S.ι]
     (sudir : S.SequentiallyUpperDirected)
@@ -814,6 +850,11 @@ theorem observational_extension_of_collective_exhaustion
 
 /-!
 ## Part VI: SP3 — Independence of EvalSurjective
+
+This section lives in `DiscriminabilityFoundations.lean` because the `NCC` machinery
+and `counterexampleQS` built here are the required witnesses for the independence result.
+The mathematical content belongs to Paper 0, but the formalization infrastructure for it
+is Paper −1's.
 
 `EvalSurjective` is logically independent of the other hypotheses of `observational_extension`:
 sequential upper-directedness, compatible marginals, and collective exhaustion do not together
@@ -1003,7 +1044,8 @@ section CEIndependence
     `SequentiallyUpperDirected` but fails `CollectivelyExhaustive`.
 
     This establishes that CE is not derivable from the current structural hypotheses.
-    The witnessing conjecture — that SUD alone forces CE — is therefore false.
+    No structural condition on the query system can force CE — the gap between
+    coherence and σ-additivity is a proved boundary, not an open question.
 
     Philosophically: CE is an irreducible volitional commitment — the observer's
     honesty about the infinite. The ultrafilter-based content is maximally finitely

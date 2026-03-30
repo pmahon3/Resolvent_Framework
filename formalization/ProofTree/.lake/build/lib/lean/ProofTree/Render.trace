@@ -1,0 +1,32 @@
+{"synthetic": false,
+ "schemaVersion": "2025-09-10",
+ "outputs":
+ {"o": ["5ae5a39795b6794e.olean"],
+  "i": "06c4d9c2dff99839.ilean",
+  "c": "ca5b723172e8faac.c"},
+ "log":
+ [{"message":
+   ".> LEAN_PATH=/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/Cli/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/batteries/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/Qq/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/aesop/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/proofwidgets/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/importGraph/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/LeanSearchClient/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/plausible/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/packages/mathlib/.lake/build/lib/lean:/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/build/lib/lean /Users/pmahon/.elan/toolchains/leanprover--lean4---v4.28.0/bin/lean /Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/ProofTree/Render.lean -o /Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/build/lib/lean/ProofTree/Render.olean -i /Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/build/lib/lean/ProofTree/Render.ilean -c /Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/build/ir/ProofTree/Render.c --setup /Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/build/ir/ProofTree/Render.setup.json --json",
+   "level": "trace"}],
+ "inputs":
+ [["ProofTree.Render:deps",
+   [["deps",
+     [["ProofTree/ProofTree:extraDep",
+       [["@ProofTree:extraDep", "00000000000006bb"]]],
+      ["imports",
+       [["ProofTree.Extract transitive imports (legacy)", "00000000000006bb"],
+        ["ProofTree.Extract:importAllArts", "834a0d763877a587"]]]]],
+    ["libs",
+     [["import dynlibs", "00000000000006bb"],
+      ["package external libraries", "00000000000006bb"],
+      ["module dynlibs", "00000000000006bb"],
+      ["module plugins", "00000000000006bb"]]]]],
+  ["Lean 4.28.0, commit 7e01a1bf5c70fc6167d49c345d3bf80596e9a79b",
+   "a96bc04a2e5e9630"],
+  ["/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/ProofTree/Render.lean",
+   "20e6058912bdc3a6"],
+  ["options",
+   [["-DrelaxedAutoImplicit=false", "74a2b5546b55be80"],
+    ["-Dpp.unicode.fun=true", "9b94070140457fab"]]],
+  ["Module.leanArgs: #[]", "00000000000006bb"]],
+ "depHash": "bbb0bcbd880b43cf"}

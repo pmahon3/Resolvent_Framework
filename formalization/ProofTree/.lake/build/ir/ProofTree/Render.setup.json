@@ -1,0 +1,9 @@
+{"plugins": [],
+ "package": "ProofTree",
+ "options": {"relaxedAutoImplicit": false, "pp.unicode.fun": true},
+ "name": "ProofTree.Render",
+ "isModule": false,
+ "importArts":
+ {"ProofTree.Extract":
+  ["/Users/pmahon/Research/Mathematics/Resolvent_Framework/formalization/ProofTree/.lake/build/lib/lean/ProofTree/Extract.olean"]},
+ "dynlibs": []}

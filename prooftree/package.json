@@ -1,0 +1,13 @@
+{
+  "name": "prooftree-workspace",
+  "private": true,
+  "workspaces": [
+    "core",
+    "renderers",
+    "adapters/mock",
+    "adapters/file",
+    "adapters/lean-lsp",
+    "adapters/lean-exe",
+    "cli"
+  ]
+}

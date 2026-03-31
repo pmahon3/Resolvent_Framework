@@ -14,6 +14,10 @@
 # Lean / Lake build artifacts
 .lake/build/
 
+# Node
+node_modules/
+dist/
+
 # Claude Code
 .claude/
 *.aux 

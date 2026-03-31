@@ -1,0 +1,62 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://github.com/pmahon3/Resolvent_Framework/prooftree/schema/ProofStep.json",
+  "title": "ProofStep",
+  "description": "A single step in a tactic proof, recording the goal state transition caused by one tactic application. ProofStep[] forms a tree: each step's children are the sub-proofs for each subgoal it produces.",
+  "type": "object",
+  "required": ["id", "tactic", "hyps", "goal", "subgoals", "children"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Unique identifier for this step within the proof (e.g. sequential index or MVarId)"
+    },
+    "tactic": {
+      "type": "string",
+      "description": "The tactic label that produced this step (e.g. 'intro', 'exact', 'simp', 'apply')"
+    },
+    "hyps": {
+      "type": "array",
+      "description": "Hypotheses in scope before this tactic was applied",
+      "items": {
+        "type": "object",
+        "required": ["name", "type"],
+        "additionalProperties": false,
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Hypothesis variable name"
+          },
+          "type": {
+            "type": "string",
+            "description": "Hypothesis type as a pretty-printed string"
+          }
+        }
+      }
+    },
+    "goal": {
+      "type": "string",
+      "description": "The goal formula before this tactic was applied, as a pretty-printed string"
+    },
+    "subgoals": {
+      "type": "array",
+      "description": "Goal formulas remaining after this tactic was applied. Empty = proof complete at this branch.",
+      "items": { "type": "string" }
+    },
+    "children": {
+      "type": "array",
+      "description": "Sub-proof trees for each subgoal. children[i] discharges subgoals[i].",
+      "items": { "$ref": "#" }
+    },
+    "pos": {
+      "type": "object",
+      "description": "Source position of this tactic in the original file (optional)",
+      "required": ["line", "col"],
+      "additionalProperties": false,
+      "properties": {
+        "line": { "type": "integer", "minimum": 0 },
+        "col":  { "type": "integer", "minimum": 0 }
+      }
+    }
+  }
+}

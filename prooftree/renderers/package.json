@@ -1,0 +1,17 @@
+{
+  "name": "@prooftree/renderers",
+  "version": "0.1.0",
+  "description": "Pure ProofStep[] → string renderers (bussproofs, ebproof, plaintext)",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "node --test dist/index.test.js"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0"
+  },
+  "dependencies": {
+    "@prooftree/core": "*"
+  }
+}

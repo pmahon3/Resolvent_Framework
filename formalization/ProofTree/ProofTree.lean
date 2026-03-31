@@ -1,5 +1,3 @@
--- ProofTree: Lean 4 → LaTeX proof tree exporter
--- Import this file to get the #prooftree command.
+-- ProofTree: Lean 4 proof state extractor
+-- Rpc.lean (LSP RPC handler) will be added alongside Extract.lean.
 import ProofTree.Extract
-import ProofTree.Render
-import ProofTree.Command

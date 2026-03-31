@@ -1,6 +1,6 @@
 name = "ProofTree"
 version = "0.1.0"
-keywords = ["lean", "metaprogramming", "latex"]
+keywords = ["lean", "metaprogramming", "proof-extraction"]
 defaultTargets = ["ProofTree"]
 
 [leanOptions]

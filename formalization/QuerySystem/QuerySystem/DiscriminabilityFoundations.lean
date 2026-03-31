@@ -7,6 +7,7 @@ import Paperproof
 import Mathlib.MeasureTheory.Measure.AddContent
 import Mathlib.MeasureTheory.OuterMeasure.OfAddContent
 import Mathlib.MeasureTheory.MeasurableSpace.Basic
+import Mathlib.Data.Set.Countable
 import Mathlib.Order.Filter.Cofinite
 import Mathlib.Order.Filter.Ultrafilter.Basic
 import Mathlib.Order.Hom.WithTopBot
@@ -163,7 +164,7 @@ theorem extensionCriterion {α : Type*} [MeasurableSpace α]
       · rintro ⟨_, hx0, _⟩; exact hx0
       · intro hx0
         by_contra hall
-        push_neg at hall
+        push Not at hall
         have : x ∈ ⋂ n, E n := Set.mem_iInter.mpr (fun n => (hall n hx0))
         rw [hE_empty] at this; exact this
     have hF_Union_mem : (⋃ n, F n) ∈ {s | MeasurableSet s} := by
@@ -206,29 +207,26 @@ theorem extensionCriterion {α : Type*} [MeasurableSpace α]
     The paper also gives the general argument: any Boolean algebra that is not a σ-algebra
     has a countable union outside it by definition; that direction is definitional and
     not separately formalised. -/
-theorem gapNonempty (α : Type*) [Infinite α] (q : ℕ → α) (hq : Function.Injective q) :
-    let E := finCofinSets α
+theorem gapNonempty (α : Type*) [Infinite α] (q : ℕ → α) (hq : Function.Injective q)
+    (hcompl : (Set.range q)ᶜ.Infinite) :
+    let E := {s : Set α | s.Finite ∨ sᶜ.Finite}
     let sigmaE := MeasurableSpace.generateFrom E
     ∃ s : Set α, @MeasurableSet α sigmaE s ∧ s ∉ E := by
   -- The set S = range q is a countable union of singletons, hence σ-measurable,
   -- but is neither finite (q is injective) nor cofinite (its complement contains all
   -- elements outside the range, which is infinite since α is infinite and range q is countable).
   refine ⟨Set.range q, ?_, ?_⟩
-  · -- σ-measurability: range q = ⋃ n, {q n}, each singleton is in finCofinSets α
-    apply MeasurableSpace.measurableSet_generateFrom_of_iUnion
-      (f := fun n => {q n})
-    · intro n
-      exact MeasurableSpace.measurableSet_generateFrom
-        (show {q n} ∈ finCofinSets α from Or.inl (Set.finite_singleton _))
-    · simp [Set.range_eq_iUnion]
-  · -- Non-membership: range q is infinite (injective) and has infinite complement
-    --   (α is infinite, range q is countable, so its complement is nonempty and infinite)
-    simp only [finCofinSets, Set.mem_setOf_eq]
-    push_neg
-    exact ⟨Set.infinite_range_of_injective hq,
-           Set.infinite_of_injective_forall_mem (f := fun n => (Infinite.natEmbedding α n))
-             (fun n => by simp [Set.mem_compl_iff, Set.mem_range,
-               fun h => hq.ne (Nat.find_spec h ▸ rfl)])⟩
+  · -- σ-measurability: range q = ⋃ n, {q n}, each singleton is in E
+    have heq : Set.range q = ⋃ n, {q n} := by
+      ext x; simp [Set.mem_range, Set.mem_iUnion]
+    rw [heq]
+    apply MeasurableSet.iUnion
+    intro n
+    exact MeasurableSpace.measurableSet_generateFrom (Or.inl (Set.finite_singleton _))
+  · -- Non-membership: range q is infinite and has infinite complement
+    simp only [Set.mem_setOf_eq]
+    push Not
+    exact ⟨Set.infinite_range_of_injective hq, hcompl⟩
 
 end SingleAlgebra
 
@@ -323,7 +321,7 @@ noncomputable def fcContent (α : Type*) [Infinite α] :
       -- but its complement is finite (hcofin), so univ would be finite. Contradiction.
       have hex_cof : ∃ w ∈ I, (w : Set α)ᶜ.Finite := by
         by_contra hall_fin
-        push_neg at hall_fin
+        push Not at hall_fin
         -- All members of I are finite, so ⋃₀ ↑I is a finite union of finite sets = finite
         have hunion_fin : (⋃₀ (I : Set (Set α))).Finite :=
           Set.Finite.sUnion (Finset.finite_toSet I)
@@ -600,7 +598,7 @@ noncomputable def fcContentMeas : AddContent ℝ≥0∞
     have hsome_mem_of_union : ⋃₀ ↑I ∈ Filter.hyperfilter ℚ → ∃ u ∈ I, u ∈ Filter.hyperfilter ℚ := by
       intro hU
       by_contra hall
-      push_neg at hall
+      push Not at hall
       exact hUnion_not_mem hall hU
     by_cases hU : ⋃₀ ↑I ∈ Filter.hyperfilter ℚ
     · rw [if_pos hU]
@@ -623,6 +621,7 @@ noncomputable def counterexampleNCC : counterexampleQS.NormalizedCompatibleConte
   compat := by
     intro i j _ A _
     simp only [counterexampleQS, Set.preimage_id]
+    rfl
   norm _ := by
     show (haveI := Classical.dec ((Set.univ : Set ℚ) ∈ Filter.hyperfilter ℚ)
           if (Set.univ : Set ℚ) ∈ Filter.hyperfilter ℚ then (1 : ℝ≥0∞) else 0) = 1
@@ -659,7 +658,7 @@ lemma counterexampleNCC_not_collectivelyExhaustive :
   have hE_empty : ⋂ n, E n = ∅ := by
     ext x
     simp only [E, Set.mem_iInter, Set.mem_setOf_eq, Set.mem_empty_iff_false, iff_false]
-    push_neg
+    push Not
     obtain ⟨n, hn⟩ := hq_surj x
     exact ⟨n, n, Nat.le_refl n, hn.symm⟩
   obtain ⟨j, hij, htend⟩ := hexh (0 : WithTop ℕ) E hE_meas hE_anti hE_empty

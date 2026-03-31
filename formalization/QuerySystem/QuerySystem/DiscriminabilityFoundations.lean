@@ -3,6 +3,7 @@ Copyright (c) 2026. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Patrick S. Mahon
 -/
+import Paperproof
 import Mathlib.MeasureTheory.Measure.AddContent
 import Mathlib.MeasureTheory.OuterMeasure.OfAddContent
 import Mathlib.MeasureTheory.MeasurableSpace.Basic

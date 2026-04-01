@@ -153,6 +153,144 @@ current Mathlib — a meaningful contribution in itself.
 
 ---
 
+## Literature Review
+
+### Sources Surveyed
+
+**Cardona, Mejía, Uribe-Zapata — "Finitely additive measures on Boolean algebras"**
+arXiv:2503.08910v2 (2025)
+
+The most directly relevant recent source. Key results:
+
+- *Section 3* (Extension criteria): Theorems 3.10 and 3.12 characterize when two
+  finitely additive measures on subalgebras can be simultaneously extended by a single
+  finitely additive measure (compatibility theorems in the sense of Rao). Theorem 3.23
+  extends compatibility to three measures when one is an ultrafilter. These are
+  purely finitely-additive-to-finitely-additive results.
+- *Section 6* ("Integration and the Stone Space"): Establishes the single-algebra
+  correspondence explicitly — a finitely additive measure Ξ on B transfers to a
+  σ-additive Borel measure μ^Ξ on St(B) via a ↦ μ^Ξ([a]) := Ξ(a) on clopens,
+  extending to the full Borel σ-algebra. Theorem 6.7 (Theorem D) characterizes
+  Ξ-integrability via this Stone space measure. Corollary 6.15 recovers
+  Lebesgue-Vitali as an application.
+- Directed systems of Boolean algebras are **not** treated. The Stone space machinery
+  is used per-algebra only.
+
+**Rao & Rao — *Theory of Charges: A Study of Finitely Additive Measures***
+Academic Press, 1983
+
+Comprehensive monograph on finitely additive measures. Relevant chapters:
+
+- *Chapter 3* (Extensions of Charges): classical compatibility theorems for extending
+  charges between subalgebras; purely finitely-additive-to-finitely-additive.
+- *Chapter 8*: Nikodym theorem, weak convergence, Vitali-Hahn-Saks theorem.
+- *Chapter 10*: Pure charges (the purely finitely additive component in decompositions).
+- Stone duality as a bridge to σ-additivity does **not** appear. Directed systems
+  are not treated.
+- Central reference point: the Yosida-Hewitt theorem (1952), which decomposes any
+  bounded charge into a countably additive part and a purely finitely additive part.
+
+**Tao — *An Introduction to Measure Theory* (GSM 126) and related blog posts**
+
+- Stone representation theorem and Loomis-Sikorski theorem treated as purely
+  algebraic/topological tools (245B Notes 4).
+- Kolmogorov extension theorem treated separately (275A Notes 2, Theorem 10),
+  requiring σ-additivity as input and standard Borel space assumptions throughout.
+- The mechanism "Stone duality → σ-additivity from finite additivity" does not appear.
+  Stone duality and the Kolmogorov extension are treated as independent tools.
+
+**Choksi — "Inverse Limits of Measure Spaces"**
+*Proc. London Math. Soc.* 8(3), pp. 321–342 (1958)
+
+Classical reference for inverse limits of measure spaces. For compact spaces,
+compatible measures on a cofiltered inverse system extend to a measure on the inverse
+limit without tightness hypotheses. This is the key Component 2 result.
+
+**Varadarajan — "Measures on Topological Spaces"**
+*Mat. Sbornik* (1961); AMS Translation (1965)
+
+Broader framework for measures on topological spaces, including inverse limit results.
+
+**Hildebrandt; Fichtenholtz-Kantorovich — ba space / L∞ duality**
+
+The dual of L∞(Ω, F) is the space ba(Ω, F) of bounded finitely additive measures on F.
+This functional-analytic perspective underpins the charge ↔ Stone space measure
+correspondence via the Riesz representation theorem on C(St(B)).
+
+**Stone (1936) — "The theory of representations for Boolean algebras"**
+*Trans. Amer. Math. Soc.* 40(1), pp. 37–111
+
+The original paper establishing that every Boolean algebra is isomorphic to the clopen
+algebra of a compact totally disconnected Hausdorff space. The foundational reference
+for everything in this direction.
+
+---
+
+### What the Literature Establishes
+
+**Solidly established:**
+
+1. Single-algebra correspondence: charge on B ↔ regular Borel measure on St(B)
+   — follows from Riesz + Stone; made explicit in Cardona et al. Section 6.
+
+2. Inverse limits of measures on compact spaces extend compatibly
+   — Choksi (1958); no tightness needed for compact spaces.
+
+3. Yosida-Hewitt decomposition: every bounded charge = countably additive part +
+   purely finitely additive part — Rao & Rao Chapter 10.
+
+4. Stone + Loomis-Sikorski: every Boolean algebra (resp. σ-algebra) is represented
+   by clopens (resp. Borel sets modulo a σ-ideal) of a compact space.
+
+**Not in the literature:**
+
+The full theorem — compatible finitely additive charges on a directed system of Boolean
+algebras extend to a σ-additive measure on σ(⋃ Bᵢ) via Stone duality, without assuming
+σ-additivity at any stage — does not appear as a single stated result in any source
+surveyed. The components exist separately; their assembly does not.
+
+This is either a genuine gap or folklore known to specialists that has never been written
+down in citable form.
+
+---
+
+### Two Non-Trivial Steps in the Assembly
+
+**Step A — Identifying the inverse limit of Stone spaces**
+
+St(⋃ Bᵢ) = lim← St(Bᵢ) holds when the connecting maps φᵢⱼ : Bᵢ → Bⱼ are
+**injective Boolean algebra homomorphisms**. In that case the direct limit in Boolean
+algebras dualises correctly to the inverse limit of Stone spaces. If the maps are
+quotients rather than injections, the identification requires more care.
+
+*For our setting:* The cylinder algebras CylGen(i) embed into CylGen(j) for i ≤ j
+via the refinement maps — these should be injections (a cylinder at level i is also
+a cylinder at level j via `cyl_refine`). This needs to be verified precisely.
+
+**Step B — Pulling back to σ(⋃ Bᵢ)**
+
+Even with a σ-additive measure on lim← St(Bᵢ), pulling back to σ(⋃ Bᵢ) requires
+identifying σ(⋃ Bᵢ) with the Borel σ-algebra of the inverse limit. This requires
+showing the Baire/Borel algebra of the inverse limit is generated by the cylinder
+sets from each Bᵢ.
+
+*For our setting:* The observable σ-algebra σ(CylGen) is generated by cylinder sets —
+precisely what the inverse limit Stone space should encode. But this identification
+needs a proof.
+
+---
+
+### Significance for the Program
+
+Paper A is not merely an assembly of known components. Steps A and B are genuinely
+non-trivial in the general case, and verifying them for query systems requires new
+argument. The theorem is new, or at minimum newly explicit with a complete proof.
+
+The closest the literature comes is the combination of Cardona et al. Section 6 with
+Choksi (1958), but no source assembles these into the stated theorem.
+
+---
+
 ## Publication Strategy
 
 The mathematical vision is coherent as a single paper but faces audience fragmentation.

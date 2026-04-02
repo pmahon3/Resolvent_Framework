@@ -329,18 +329,42 @@ Two directions for investigation, ordered by urgency:
 
 ### Direction 1 (more urgent): Pin down CE in the Stone picture
 
+**Status: substantially resolved (2026-04-02).**
+
 The candidate strategy assigns CE the job of ensuring the Stone measure is
-supported on principal ultrafilters. But CE as defined in Paper 0 is a condition
-on a directed system of charges — not a support condition on a measure on a compact
-space. These need to be shown equivalent, or the division of labour breaks down.
+supported on principal ultrafilters. The worry was that CE as defined in Paper 0
+is a condition on a directed system of charges — not obviously a support condition
+on a measure on a compact space.
 
-**Concrete task:** Take the Paper 0 definition of CE and ask: does it imply that
-the induced Stone measure is supported on `pure(Ω)`? Does the converse hold? If
-they are not equivalent, what is the relationship, and which condition is the right
-one for B2?
+But reading `ce_irreducibility.md` reveals this is already settled in the program:
 
-This is the more urgent direction because if the CE equivalence fails, the whole
-candidate strategy needs revision.
+> **CE ↔ σ-additive extensibility** — Proved, `sp1_iff`, zero sorrys
+
+And the irreducibility argument supplies the translation. The ultrafilter observer
+is the canonical CE-failure case: it satisfies every finite structural condition
+while being globally incoherent. In the Stone picture, an ultrafilter observer
+*is* a non-principal ultrafilter — a phantom point in St(CylGen). CE failing means
+mass concentrates on those phantom points. CE holding means the measure is
+supported on `pure(Ω)`, the principal ultrafilters.
+
+So the equivalence we needed is:
+
+```
+CE (Paper 0 definition)
+    ↔  σ-additive extensibility  [proved: sp1_iff]
+    ↔  mass does not escape to non-principal ultrafilters in St(CylGen)
+    ↔  Stone measure supported on pure(Ω)
+```
+
+The middle two steps are the translation into Stone language. The first ↔ is
+already proved. The remaining two need to be made explicit — but the conceptual
+content is already there in the irreducibility argument.
+
+**What still needs to be done:** Write out the middle two equivalences precisely.
+The key observation is that the Yosida-Hewitt decomposition already identifies
+the purely finitely additive component with mass on non-principal ultrafilters.
+CE rules out that component. In Stone language, that is exactly the support
+condition.
 
 ### Direction 2 (structural): Make B1 precise
 

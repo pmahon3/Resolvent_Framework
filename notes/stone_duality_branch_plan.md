@@ -149,6 +149,22 @@ StoneDualityExtension.lean
 
 ---
 
+## Live Mathematical Analysis
+
+The mathematical groundwork for this branch is being developed in:
+
+**`notes/step_a_step_b_analysis.md`** — this is the current working document.
+
+It records the analysis of Step A (now complete) and Step B (in progress), including
+the candidate proof strategy, the CE/discriminability division of labour, open
+questions, and next steps. Consult it before writing any Lean code — the formalization
+plan below should be understood in light of that analysis.
+
+Current priority: resolve the two mathematical directions in that document before
+returning to formalization.
+
+---
+
 ## Before Writing Any Code
 
 1. **API audit**: confirm the correct Lean 4 / Mathlib names for:

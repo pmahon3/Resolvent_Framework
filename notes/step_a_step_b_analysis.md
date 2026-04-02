@@ -320,3 +320,46 @@ I don't know. That feels like the live question.
   derivable — does this carry over to the Stone picture?
 - Is there a cleaner route: work entirely on the Stone space side and never pull
   back, treating lim← St(Bᵢ) as the primary object?
+
+---
+
+## Next Steps (as of 2026-04-02)
+
+Two directions for investigation, ordered by urgency:
+
+### Direction 1 (more urgent): Pin down CE in the Stone picture
+
+The candidate strategy assigns CE the job of ensuring the Stone measure is
+supported on principal ultrafilters. But CE as defined in Paper 0 is a condition
+on a directed system of charges — not a support condition on a measure on a compact
+space. These need to be shown equivalent, or the division of labour breaks down.
+
+**Concrete task:** Take the Paper 0 definition of CE and ask: does it imply that
+the induced Stone measure is supported on `pure(Ω)`? Does the converse hold? If
+they are not equivalent, what is the relationship, and which condition is the right
+one for B2?
+
+This is the more urgent direction because if the CE equivalence fails, the whole
+candidate strategy needs revision.
+
+### Direction 2 (structural): Make B1 precise
+
+The density argument for B1 — that `pure⁻¹(Borel(St(CylGen))) = σ(CylGen)` —
+is intuitive but not yet a proof. Density gives approximation; it doesn't
+immediately give σ-algebra equality.
+
+**Concrete task:** Either prove B1 precisely using the clopen basis argument
+(every clopen of St(CylGen) pulls back to a cylinder set, and cylinder sets
+generate σ(CylGen)), or find a counterexample showing the pullback is strictly
+larger than σ(CylGen).
+
+This is likely more tractable than Direction 1 and could be done first as a
+warmup — but Direction 1 is where the real uncertainty lives.
+
+### Holding question
+
+The countable additivity conjecture (that the identification is equivalent to
+σ-additivity, making the Stone route potentially circular) is not resolved by
+either direction above. It should be kept in view as a possible outcome — either
+as a theorem that clarifies the limits of the approach, or as a conjecture to
+be refuted.

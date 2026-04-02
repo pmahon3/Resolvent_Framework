@@ -60,7 +60,7 @@ The predictive content of any query at any time is read off from the spectral st
 of $U_T$: the minimal predictive query $Q_*$ is not chosen by the observer but
 determined by $(Q, P)$. The semigroup law $K_{t+s} = K_t \circ K_s$ is derived, not
 assumed — temporal coherence of prediction follows from the same observable
-compatibility that forced $P$.
+compatibility that determined $P$.
 
 Koopman-Perron duality: the observable-layer dynamics ($K_t$, acting on predictive
 states) and the state-space dynamics (Koopman operator $U_T$, acting on functions) are
@@ -137,8 +137,9 @@ Ordered by priority. Cross off as completed.
 
 ### Immediate
 - [x] **Revise Paper A introduction and abstract** — reflect Paper A's role as the
-  bridge between Papers I and III. Done: abstract extended with bridge paragraph;
-  new "Role in the broader programme" section added to introduction.
+  bridge between Papers I and III. Done: abstract and introduction extended with
+  bridge content; framed as "we develop this connection elsewhere" rather than
+  explicit programme reference (no unpublished papers cited as a sequence).
 
 ### Short term
 - [ ] **Integrate Papers −1 and 0 into Paper I** — weave the discriminability route

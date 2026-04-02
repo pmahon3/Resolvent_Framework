@@ -131,6 +131,30 @@ seen from different angles.
 
 ---
 
+## Task List (as of 2026-04-02)
+
+Ordered by priority. Cross off as completed.
+
+### Immediate
+- [ ] **Revise Paper A introduction and abstract** — reflect Paper A's role as the
+  bridge between Papers I and III; the current draft doesn't yet know this.
+
+### Short term
+- [ ] **Integrate Papers −1 and 0 into Paper I** — weave the discriminability route
+  (Paper −1) and the Carathéodory route (Paper 0) with the Stone route (Paper A)
+  into a single coherent paper. Organizational work; decisions about scope and structure.
+- [ ] **Write Paper II (LaTeX)** — Lean is complete (zero sorrys). Pure writing task.
+  Math is settled: Koopman operator, predictive state, semigroup, Koopman-Perron duality.
+
+### Medium term
+- [ ] **Develop cyclic vector theorem for Paper III** — the one place where mathematics
+  is still genuinely open. Delay embedding structure is proved; the Takens generalization
+  needs the cyclic vector characterization written properly.
+- [ ] **Lean formalization of Paper A** — return to `StoneDualityExtension.lean`
+  once the LaTeX is stable. API audit needed first (see `stone_duality_branch_plan.md`).
+
+---
+
 ## What Is Not in the Program
 
 - Computational implementation (data-driven dynamics, EDMD, etc.) — this is a

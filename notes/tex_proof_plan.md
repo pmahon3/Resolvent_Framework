@@ -1,5 +1,9 @@
 # LaTeX Proof Plan: Paper A
 
+> **Status (2026-04-02): Complete.** The LaTeX draft has been written and compiles
+> cleanly at `papers/stone_duality_extension/`. This document is retained as a
+> record of the proof strategy and known issues resolved during writing.
+
 ## Goal
 
 Write a self-contained LaTeX proof of:

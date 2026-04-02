@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{corollary}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}
+\newtheorem{remark}{Remark}
+
+% ---------- Commands ----------
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Qcal}{\mathcal{Q}}
+\newcommand{\Ccal}{\mathcal{C}}
+
+% Stone duality paper macros
+\newcommand{\St}{\mathrm{St}}           % Stone space
+\newcommand{\CylGen}{\mathcal{C}}       % cylinder generating family
+\newcommand{\Cyl}[2]{\mathrm{Cyl}(#1,#2)}  % cylinder set
+\newcommand{\Borel}{\mathcal{B}}        % Borel sigma-algebra
+\newcommand{\limproj}{\varprojlim}      % projective limit
+\newcommand{\Clop}{\mathrm{Clop}}       % clopen algebra
+\newcommand{\Omega}{\Omega}
+\newcommand{\iota}{\iota}
+\newcommand{\pure}{\mathrm{pure}}       % Stone embedding
+
+\pagecolor{white}
+
+% ---------- Title ----------
+\title{A Stone Duality Route to the Observable Extension Theorem}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\input{stone_duality_extension_body}
+\end{document}

@@ -136,8 +136,9 @@ seen from different angles.
 Ordered by priority. Cross off as completed.
 
 ### Immediate
-- [ ] **Revise Paper A introduction and abstract** — reflect Paper A's role as the
-  bridge between Papers I and III; the current draft doesn't yet know this.
+- [x] **Revise Paper A introduction and abstract** — reflect Paper A's role as the
+  bridge between Papers I and III. Done: abstract extended with bridge paragraph;
+  new "Role in the broader programme" section added to introduction.
 
 ### Short term
 - [ ] **Integrate Papers −1 and 0 into Paper I** — weave the discriminability route

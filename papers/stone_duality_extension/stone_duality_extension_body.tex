@@ -28,6 +28,13 @@ space.  Collective exhaustion, previously identified as irreducible in
 \cite{mahon_paper0}, reappears here as the condition that the Stone measure is
 supported on the principal ultrafilters, i.e., on the image of the sample space
 inside its Stone compactification.
+
+Beyond the extension theorem itself, the Stone space constructed here has a further
+significance: when the observation function is a cyclic vector for the Koopman
+operator of an underlying dynamical system, the Stone space of the observable algebra
+is measure-theoretically isomorphic to the state space.  The compact space introduced
+here as a technical tool for measure extension is, under that reconstruction condition,
+the state space itself.
 \end{abstract}
 
 % ------------------------------------------------------------------
@@ -64,16 +71,27 @@ sets; discriminability ensures the embedding is injective.  The measure-theoreti
 (Step~B2, Proposition~\ref{prop:B2}) uses collective exhaustion to show that no mass
 escapes to the non-principal ultrafilters in $\St(\CylGen)$.
 
+\paragraph{A connection to reconstruction.}
+The Stone space $\St(\CylGen)$ constructed here as a technical device for measure
+extension has a further significance.  For a dynamical system $(X, T, \mu)$ with
+observation function $h$, the time-delay cylinder algebras $\{B_S\}$ form a directed
+system of exactly the kind treated here.  The Stone space of the resulting observable
+algebra $\sigma(B_\infty)$ is, when $h$ is a cyclic vector for the Koopman operator
+$U_T$, measure-theoretically isomorphic to the state space $X$ itself.  The compact
+space introduced here as a tool for measure extension is, under the reconstruction
+condition, the state space being reconstructed.  We develop this connection elsewhere.
+
 \paragraph{Relation to prior work.}
-The individual components of this argument are known.  The correspondence between
-charges on a Boolean algebra and measures on its Stone space is made explicit in
-\cite{cardona2025}, Section~6.  The extension of compatible measures on an inverse
+The individual components of the extension argument are known.  The correspondence
+between charges on a Boolean algebra and measures on its Stone space is made explicit
+in \cite{cardona2025}, Section~6.  The extension of compatible measures on an inverse
 system of compact spaces is due to Choksi \cite{choksi1958}.  The Yosida--Hewitt
 decomposition \cite{yosida1952} identifies the purely finitely additive component of a
 charge with mass on non-principal ultrafilters.  What appears to be new is the
 assembly of these components into a single theorem for directed systems of Boolean
 algebras arising from query systems, with the precise roles of discriminability and
-collective exhaustion identified.
+collective exhaustion identified, and the connection to the reconstruction problem
+made explicit.
 
 \paragraph{Organisation.}
 Section~\ref{sec:setup} fixes notation and states the three hypotheses.

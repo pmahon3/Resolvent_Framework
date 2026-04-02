@@ -151,30 +151,24 @@ StoneDualityExtension.lean
 
 ## Current Status (2026-04-02)
 
-The mathematical analysis phase is **complete**. The LaTeX proof (Paper A) has been
-written and compiles cleanly at `papers/stone_duality_extension/`.
+The mathematical analysis and LaTeX phases are **complete**. The Stone route has been
+integrated into the unified Paper I draft at `papers/paper_i/paper_i.tex`.
 
 | Document | Status |
 |----------|--------|
-| `notes/step_a_step_b_analysis.md` | Complete — Step A and B fully analysed |
-| `notes/tex_proof_plan.md` | Complete — used to produce the LaTeX draft |
-| `papers/stone_duality_extension/` | **First draft done** — compiles, 6 pages |
+| `notes/step_a_step_b_analysis.md` | Complete |
+| `notes/tex_proof_plan.md` | Complete — used to produce the LaTeX drafts |
+| `papers/stone_duality_extension/` | Superseded by integration into Paper I |
+| `papers/paper_i/paper_i.tex` | **Authoritative LaTeX** — 13 pages, compiles cleanly |
 
-### What the LaTeX proof contains
+The Stone route proof (Steps A, B1, B2, assembly) lives in §5 of `papers/paper_i/`.
+`papers/stone_duality_extension/` is retained as a record of the standalone draft.
 
-- Section 1: Setup, cylinder sets, connecting maps, three hypotheses
-- Section 2 (Step A): φᵢⱼ injective via EvalSurjective → St(⋃Bᵢ) = lim← St(Bᵢ)
-- Section 3: Inverse limit measure via Cardona et al. → Choksi
-- Section 4 (B1): σ(CylGen) = Borel(St(CylGen)) pulled back via discriminability
-- Section 5 (B2): CE = Stone measure supported on pure(Ω) via Yosida-Hewitt
-- Section 6: Assembly + uniqueness via observational_determination
+### Next priority for this branch
 
-### Immediate next priorities
-
-1. **(2) Update overall program plan to two-pillar structure** — Paper A's role
-   in the thesis needs to be settled before further refinement of the paper.
-2. **(1) Hone LaTeX proof to equilibrium** — after (2) clarifies Paper A's position.
-3. **Lean formalization** — return to `StoneDualityExtension.lean` once LaTeX is stable.
+**Lean formalization**: create `StoneDualityExtension.lean` using the proof in
+`papers/paper_i/` §5 as the authoritative spec. Work through Tasks 0′-A through 0′-E
+in the order below. Do the API audit (§ "Before Writing Any Code") first.
 
 ### Live mathematical analysis
 

@@ -45,6 +45,8 @@ measure on the observable σ-algebra.
 **Lean formalization:** `DiscriminabilityFoundations.lean`, `QuerySystem.lean`,
 `StoneDualityExtension.lean`
 
+**LaTeX:** `papers/paper_i/paper_i.tex` (integrated draft, 13 pages)
+
 ---
 
 ### Paper II — Dynamics from Probability
@@ -123,11 +125,11 @@ seen from different angles.
 
 ## What Each Paper Needs
 
-| Paper | Mathematical status | Lean status | Next action |
-|-------|--------------------|-----------|----|
-| I | Routes 1 and 2 proved; bridge written in LaTeX (first draft) | QuerySystem: ✅; Stone: scaffold | Hone Paper A LaTeX; integrate routes 1+2 |
-| II | Core results proved | PredictiveState ✅, PredictiveOperators ✅ | Write LaTeX |
-| III | Delay structure proved; Takens generalization outlined | DelayEmbedding: partial | Develop cyclic vector theorem |
+| Paper | Mathematical status | Lean status | LaTeX status | Next action |
+|-------|--------------------|-----------|----|---|
+| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys; `StoneDualityExtension.lean` not yet written | **First draft done** — `papers/paper_i/`, 13 pages | Revise and hone; then Lean Stone route |
+| II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | Not started | **Write LaTeX** (pure writing task) |
+| III | Delay structure proved; cyclic vector theorem open | `DelayEmbedding.lean` 1 sorry | Not started | Develop cyclic vector theorem |
 
 ---
 
@@ -135,25 +137,32 @@ seen from different angles.
 
 Ordered by priority. Cross off as completed.
 
-### Immediate
-- [x] **Revise Paper A introduction and abstract** — reflect Paper A's role as the
-  bridge between Papers I and III. Done: abstract and introduction extended with
-  bridge content; framed as "we develop this connection elsewhere" rather than
-  explicit programme reference (no unpublished papers cited as a sequence).
+### Done
+- [x] **Revise Paper A introduction and abstract** — Done 2026-04-02.
+- [x] **Integrate Papers −1 and 0 into Paper I** — Done 2026-04-02. First draft at
+  `papers/paper_i/` (13 pages, compiles cleanly). Plan at
+  `notes/paper_i_integration_plan.md`.
 
 ### Short term
-- [ ] **Integrate Papers −1 and 0 into Paper I** — weave the discriminability route
-  (Paper −1) and the Carathéodory route (Paper 0) with the Stone route (Paper A)
-  into a single coherent paper. Organizational work; decisions about scope and structure.
+- [x] **Revise Paper I draft** — Done 2026-04-02. Fixed: §3 notation inconsistency
+  (abstract $\mathcal{E}_i$/$\ell_i$ vs query-system $B_i$/$\mu_i$) with transition
+  paragraph; $\pi_{ij}^{-1}$ direction error in CE definition and sp1 proof; Stone
+  theorem missing common coarsenings hypothesis; uniqueness argument in Stone theorem
+  cleaned up; coincidence paragraph tightened; density claim in §6.3 made precise.
 - [ ] **Write Paper II (LaTeX)** — Lean is complete (zero sorrys). Pure writing task.
   Math is settled: Koopman operator, predictive state, semigroup, Koopman-Perron duality.
 
 ### Medium term
+- [ ] **Lean formalization of Paper I Stone route** — create `StoneDualityExtension.lean`
+  on the `stone-duality-extension` branch. API audit needed first (see
+  `stone_duality_branch_plan.md`). The LaTeX proof in `papers/paper_i/` is now the
+  authoritative spec.
 - [ ] **Develop cyclic vector theorem for Paper III** — the one place where mathematics
   is still genuinely open. Delay embedding structure is proved; the Takens generalization
   needs the cyclic vector characterization written properly.
-- [ ] **Lean formalization of Paper A** — return to `StoneDualityExtension.lean`
-  once the LaTeX is stable. API audit needed first (see `stone_duality_branch_plan.md`).
+
+### Long term
+- [ ] **Write Paper III (LaTeX)** — once the cyclic vector theorem is settled.
 
 ---
 

@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Ecal}{\mathcal{E}}
+
+% Stone duality macros
+\newcommand{\St}{\mathrm{St}}           % Stone space
+\newcommand{\Borel}{\mathcal{B}}        % Borel sigma-algebra
+\newcommand{\limproj}{\varprojlim}      % projective limit
+\newcommand{\Clop}{\mathrm{Clop}}       % clopen algebra
+\newcommand{\pure}{\mathrm{pure}}       % Stone embedding
+
+\pagecolor{white}
+
+% ---------- Title ----------
+\title{Probability from Observation:\\
+\large Carathéodory and Stone Routes to the Observable Extension Theorem}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\input{paper_i_body}
+\end{document}

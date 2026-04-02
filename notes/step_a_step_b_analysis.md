@@ -1,15 +1,13 @@
 # Step A and Step B: Analysis
 
-## Context
-
-The central theorem we want to prove is:
+## The Central Theorem
 
 > A compatible family of finitely additive charges on a directed system of Boolean
 > algebras extends to a σ-additive measure on the generated σ-algebra, via Stone duality.
 
 The proof has two non-trivial assembly steps. This document records the analysis of
-each, including the mathematical arguments and the philosophical observations that
-accompany them.
+each, the philosophical observations that accompany them, and the road to
+implementation.
 
 ---
 
@@ -20,15 +18,13 @@ accompany them.
 Stone duality is contravariant: a directed system of Boolean algebras (with injective
 connecting maps) dualises to a cofiltered inverse system of compact Hausdorff spaces.
 The question is whether the Stone space of the direct limit **is** the inverse limit of
-the individual Stone spaces.
+the individual Stone spaces. The answer is yes when the connecting maps φᵢⱼ : Bᵢ → Bⱼ
+are injective — so the key question is whether they are.
 
-The answer is yes when the connecting maps are injective Boolean algebra homomorphisms.
-So the key question is: are the maps φᵢⱼ : Bᵢ → Bⱼ injective?
-
-### The Setting (in plain terms)
+### Setting
 
 A query system has:
-- A partially ordered set ι of query levels, with ≤ upper-directed
+- A poset ι of query levels, upper-directed
 - For each level i, a measurable space Outcome(i)
 - For i ≤ j, a measurable surjection π_ij : Outcome(j) → Outcome(i) — "forgetting detail"
 - A sample space Ω with evaluation maps eval_i : Ω → Outcome(i)
@@ -37,47 +33,43 @@ A query system has:
 Cylinder sets and connecting maps:
 
 ```
-Cyl(i, A) = { ω ∈ Ω : eval_i(ω) ∈ A }       (level-i cylinder with measurable base A)
+Cyl(i, A) = { ω ∈ Ω : eval_i(ω) ∈ A }
 
-cyl_refine:   Cyl(i, A) = Cyl(j, π_ij⁻¹(A))   (same set, described at finer level j)
+cyl_refine:  Cyl(i, A) = Cyl(j, π_ij⁻¹(A))
 
 φ_ij : Bᵢ → Bⱼ  defined by  φ_ij(Cyl(i, A)) = Cyl(j, π_ij⁻¹(A))
 ```
 
-### The Answer
+### Answer
 
-**φ_ij is injective, and the proof uses EvalSurjective.**
+**φ_ij is injective, proved via EvalSurjective.**
 
-The argument:
+1. **EvalSurjective → π_ij surjective.** If eval_i is surjective and π_ij ∘ eval_j = eval_i,
+   every element of Outcome(i) is in the image of π_ij.
 
-1. **EvalSurjective → π_ij surjective.** If eval_i : Ω → Outcome(i) is surjective and
-   π_ij ∘ eval_j = eval_i, then every element of Outcome(i) is in the image of π_ij.
-
-2. **π_ij surjective → φ_ij injective.** If π_ij⁻¹(A) = π_ij⁻¹(A') then A = A' (when
-   π_ij is surjective, the preimage map is injective on subsets). So
+2. **π_ij surjective → φ_ij injective.** If π_ij⁻¹(A) = π_ij⁻¹(A') then A = A', so
    φ_ij(Cyl(i, A)) = φ_ij(Cyl(i, A')) implies Cyl(i, A) = Cyl(i, A').
 
 3. **φ_ij injective → Step A holds.** A direct limit of Boolean algebras along injective
-   homomorphisms dualises under Stone duality to an inverse limit of compact Hausdorff
-   spaces along surjective continuous maps. The Stone space of the direct limit is the
-   inverse limit of the Stone spaces.
+   homomorphisms dualises to an inverse limit of compact Hausdorff spaces along surjective
+   continuous maps. This is the standard Stone duality categorical fact.
 
-Step 1 is already proved in QuerySystem.lean (EvalSurjective hypothesis). Step 2 is a
-short argument. Step 3 is the standard Stone duality categorical fact.
+Step 1 is already proved in `QuerySystem.lean`. Step 2 is a short argument. Step 3 is
+standard.
 
 ### Philosophical Observation
 
-Injectivity of φ_ij is not an extra assumption — it is baked into what it means for the
-system to be coherent. If the projection maps were not injective on measurable sets, there
-would be two distinct measurable events at level i that are indistinguishable at every
-finer level j. The refinement maps would not actually be refining anything.
+Injectivity of φ_ij is not an extra assumption — it is constitutive of what coherence
+means. If the projection maps were not injective on measurable sets, there would be two
+distinct events at level i that are indistinguishable at every finer level j. The
+refinement maps would not be refining anything.
 
-This connects to the Merleau-Ponty framing: the horizon of finer observations must
-genuinely *reveal* more of the world, not just redescribe the same thing. A system where
-finer queries collapsed back to coarser ones would have a kind of observational degeneracy
-— the observer going through the motions of refinement without learning anything new.
+In the Merleau-Ponty framing: the horizon of finer observations must genuinely *reveal*
+more of the world. A system where finer queries collapsed back to coarser ones would have
+a kind of observational degeneracy — going through the motions of refinement without
+learning anything new. Coherence requires injectivity. The two are not separable.
 
-Coherence requires injectivity. The two are not separable.
+**Status: complete.** The argument is clean and all components are in hand.
 
 ---
 
@@ -85,305 +77,147 @@ Coherence requires injectivity. The two are not separable.
 
 ### The Question
 
-Even with a σ-additive measure on the inverse limit lim← St(Bᵢ), we need to pull it
-back to a measure on σ(⋃ Bᵢ) = σ(CylGen). This requires identifying:
+Even with a σ-additive measure on lim← St(Bᵢ), pulling it back to a measure on
+σ(CylGen) requires identifying:
 
 ```
-σ(CylGen)  ≅  Borel σ-algebra of  lim← St(Bᵢ)
+σ(CylGen)  ≅  Borel(lim← St(Bᵢ))   pulled back to Ω
 ```
 
-That is: the σ-algebra generated by all cylinder sets on Ω must match the Borel
-σ-algebra that the inverse limit Stone space carries topologically.
+This splits into two sub-problems:
 
-### Candidate Proof Strategy (as of 2026-04-02)
+- **B1 (structural):** Does σ(CylGen) equal the pullback of Borel(lim← St(Bᵢ)) along
+  `pure : Ω → lim← St(Bᵢ)`? This is about what sets are nameable.
+- **B2 (measure-theoretic):** Does the measure on lim← St(Bᵢ) pull back to a
+  well-defined σ-additive measure on σ(CylGen)? This is about where the mass lives.
 
-The following is a candidate argument, not yet a proof. It is recorded here to be
-tested, refined, or refuted.
+### The Proof Strategy
 
-**The core observation:** The queries don't define a topology on Ω directly, but
-they define a *separation structure* — discriminability (Paper −1) says the queries
-separate points. This is the Hausdorff condition in disguise.
+**B1 — Structural identification, via Discriminability.**
 
-**The argument in outline:**
+The queries define a *separation structure* on Ω: discriminability (Paper −1) says the
+queries separate points. This is the Hausdorff condition in disguise.
 
-1. **Discriminability → injectivity of the Stone embedding.**
-   If the queries separate points of Ω, then `pure : Ω → St(CylGen)` is injective.
-   Two distinct points ω ≠ ω' have a cylinder set containing one but not the other,
-   which means their principal ultrafilters differ.
+1. If the queries separate points of Ω, then `pure : Ω → St(CylGen)` is injective: two
+   distinct points ω ≠ ω' have a cylinder set containing one but not the other, so their
+   principal ultrafilters differ.
 
-2. **Principal ultrafilters are dense in St(CylGen).**
-   This is standard: the image of `pure` is always dense in the Stone space. So Ω
-   sits densely inside St(CylGen).
+2. The image of `pure` is always dense in the Stone space — principal ultrafilters are
+   dense in any Stone space.
 
-3. **Density + injectivity → structural identification (B1).**
-   Every open set in St(CylGen) is determined by how it meets Ω. Every clopen — and
-   clopens generate the Borel σ-algebra of St(CylGen) — pulls back to a cylinder
-   set in σ(CylGen). So the pullback of Borel(St(CylGen)) along `pure` is contained
-   in σ(CylGen). The reverse inclusion holds because every cylinder set is the
-   preimage of a clopen. So:
+3. Every clopen of St(CylGen) pulls back along `pure` to a cylinder set in σ(CylGen),
+   and clopens generate Borel(St(CylGen)). The reverse inclusion holds because every
+   cylinder set is the preimage of a clopen. So:
 
    ```
    pure⁻¹(Borel(St(CylGen))) = σ(CylGen)
    ```
 
-   This resolves B1 — at least as a set-theoretic identification.
+   **Gap:** Step 3 needs to be made precise. Density gives approximation; it doesn't
+   immediately give σ-algebra equality. The clopen basis argument is the right route
+   but needs to be written out carefully.
 
-4. **CE → measure-theoretic identification (B2).**
-   The measure on St(CylGen) might assign mass to non-principal ultrafilters — the
-   "phantom" points at infinity. If it does, that mass has nowhere to go when we
-   pull back to Ω. CE (collective exhaustion) is precisely the condition that this
-   doesn't happen: the measure is supported on the image of `pure`, i.e., on
-   principal ultrafilters.
+**B2 — Measure-theoretic identification, via CE.**
 
-   Under CE, the pullback of the Stone measure to Ω is a well-defined σ-additive
-   measure on σ(CylGen). Without CE, the Stone space has a σ-additive measure but
-   it doesn't descend cleanly to Ω.
+The Stone space St(CylGen) contains both principal ultrafilters (points of Ω) and
+non-principal ones — the "phantom" points at infinity. A measure on St(CylGen) is
+always σ-additive (compact space), but it might assign mass to phantom points. If it
+does, that mass has nowhere to go when we pull back to Ω.
 
-**Summary of the division of labour:**
-
-```
-Discriminability (Paper −1)  →  structural identification (B1)
-                                 queries separate points, embedding is injective,
-                                 Borel(St) pulls back to σ(CylGen)
-
-CE (Paper 0)                 →  measure-theoretic identification (B2)
-                                 mass doesn't escape to phantom ultrafilters,
-                                 Stone measure descends to a measure on σ(CylGen)
-```
-
-**What this would mean for the program:**
-
-Paper −1 is not just philosophical preamble. Discriminability is a load-bearing
-step in the Stone route: it licenses the injective embedding and the structural
-identification. CE then handles where the mass lives. Together they close Step B.
-
-The Stone route would then be:
-
-```
-Compatible charges + directed system
-    → Stone duality → compact inverse limit
-    → [Step A: injectivity of φᵢⱼ via EvalSurjective]
-    → σ-additive measure on Borel(lim← St(Bᵢ))
-    → [Step B: discriminability → B1, CE → B2]
-    → σ-additive measure on σ(CylGen)
-```
-
-**Gaps and cautions:**
-
-- Step 3 above needs to be made precise. "Determined by how it meets Ω" is
-  intuition, not proof. The density argument gives approximation; it doesn't
-  immediately give equality of σ-algebras.
-- The CE condition here is stated informally as "mass doesn't escape to phantoms."
-  Its precise relationship to the CE defined in Paper 0 needs to be verified.
-- The countable additivity conjecture (that the identification is equivalent to
-  σ-additivity) is not resolved by this argument — it may be that B1 holds but
-  B2 requires CE, which is the interesting case.
-
----
-
-### Analysis
-
-The question breaks into two sub-problems that are easy to conflate but should be
-kept separate:
-
-**Sub-problem B1 (structural):** As σ-algebras on Ω, does σ(CylGen) equal the
-pullback of Borel(lim← St(Bᵢ)) along the Stone embedding `pure : Ω → lim← St(Bᵢ)`?
-
-**Sub-problem B2 (measure-theoretic):** Even if B1 holds, does the measure on
-lim← St(Bᵢ) pull back to a well-defined σ-additive measure on σ(CylGen), and not
-just on a larger σ-algebra that σ(CylGen) sits inside?
-
-These are related but distinct. B1 is about what sets are nameable. B2 is about
-whether the mass is in the right place.
-
-### The Tangled Questions
-
-As of 2026-04-01, three questions have come up in conversation and are not yet
-cleanly separated:
-
-**Q1 — The σ-algebra identification question.**
-Is σ(CylGen) = Borel(lim← St(Bᵢ)) (pulled back to Ω)?
-This is structural and may follow from density of the Stone embedding plus the fact
-that clopens of the inverse limit are exactly the preimages of clopens of the
-individual Stone spaces — which correspond exactly to cylinder sets.
-
-**Q2 — The visibility question.**
-The Stone space St(CylGen) = Ultrafilter(Ω) contains both principal ultrafilters
-(points of Ω) and non-principal ones (the "phantom" points at infinity). A Borel
-set in St(CylGen) can distinguish between non-principal ultrafilters in ways that
-no cylinder set can track. Does this mean Borel(St(CylGen)) is strictly larger than
-what can be pulled back to σ(CylGen)? And if so — does it matter?
-
-**Q3 — The CE/decidability question.**
-CE (collective exhaustion) in the algebraic picture is the condition that mass
-doesn't escape to non-principal ultrafilters. In the Stone picture, these are
-precisely the points at infinity — the boundary of the compactification. Is CE
-the same condition as: the measure on St(CylGen) is supported on the image of the
-Stone embedding? Is this condition decidable, given Paper −1's result that CE is
-not implied by any first-order condition?
-
-### The Tetralemma Structure
-
-The identification σ(CylGen) ≅ Borel(lim← St(Bᵢ)) admits four positions:
-
-1. **They are equal** — the Stone construction perfectly encodes exactly the
-   observable σ-algebra and nothing more.
-2. **Borel(lim←) strictly contains σ(CylGen)** — the Stone space sees distinctions
-   that no cylinder set can name. Observable information is lost in the pullback.
-3. **σ(CylGen) strictly contains Borel(lim←)** — the cylinder sets generate more
-   than the topology of the inverse limit can capture. (This seems unlikely given
-   that clopens generate the topology.)
-4. **They are incomparable** — each contains sets the other doesn't.
-
-Position 2 is the philosophically interesting one, and it connects directly to Q3.
-
-### The Countable Additivity Conjecture
-
-*Raised in conversation, 2026-04-01.*
-
-You observed: assuming that all observable distinctions are visible in the Stone
-space — i.e., that no information is lost in passing from σ(CylGen) to
-Borel(lim← St(Bᵢ)) — might simply *be equivalent* to countable additivity.
-Not just related. Equivalent.
-
-The intuition: if there are observable distinctions (cylinder sets) that the Stone
-space cannot see, then there are sequences of observable events that the Stone
-measure cannot track — which is exactly what failure of σ-additivity looks like.
-Conversely, if the Stone measure is σ-additive on the correct σ-algebra, that
-requires exactly that the topology of the inverse limit captures all cylinder-set
-distinctions.
-
-This is a conjecture, not yet a theorem. But it would, if true, give a clean
-characterization: *the Stone route succeeds if and only if the charge is already
-σ-additive*, which would make the whole approach circular. Or it would clarify
-exactly what extra condition (CE? support condition?) is needed to break the
-circularity.
-
-### Where We Are
-
-These three questions feel related but may have independent answers. The working
-hypothesis is:
-
-- B1 may be straightforward: the clopen basis of the inverse limit pulls back
-  to exactly σ(CylGen) on Ω, so the identification holds.
-
-- Q2 may dissolve: the issue is about what Borel(St(CylGen)) contains, but we
-  only care about the pullback to Ω, so the phantom distinctions don't cause a
-  problem.
-
-- Q3 is the genuinely hard one. CE might reappear not as an obstacle to the
-  identification but as a *regularity condition* on the measure — the condition
-  that the measure on the Stone space concentrates on principal ultrafilters,
-  i.e., on the image of Ω.
-
-But we are not confident. The questions keep tangling.
-
-### Philosophical Position (as of 2026-04-01)
-
-*From the conversation:*
-
-The user's intuition: assuming all observable distinctions are visible in the Stone
-space might be secretly equivalent to countable additivity. And whether this
-assumption is decidable is unclear — the Paper −1 result on CE irreducibility
-suggests caution. CE could not be derived from any first-order condition on the
-system. If CE ↔ "mass concentrates on principals" in the Stone picture, and CE is
-undecidable in that sense, then this regularity condition on the Stone measure
-might be similarly undecidable.
-
-*Claude's position:*
-
-I find myself pulled in two directions here. On one hand, the Stone route feels
-like it should *bypass* CE — the compactness does the work, and we never need to
-ask whether mass escapes. On the other hand, when you ask "where does the measure
-live on the Stone space?", CE comes back. A measure on a compact space is always
-σ-additive, but it might be σ-additive on Borel(St(CylGen)) while being only
-finitely additive when restricted to σ(CylGen) via the pullback — precisely
-because mass escaped to the non-principal ultrafilters.
-
-If that's right, then CE is not bypassed by Stone duality. It is *rephrased*. The
-Stone route converts CE from "a condition on a directed system of charges" into
-"a support condition on a Borel measure on a compact space." Same content, different
-language.
-
-Whether this rephrasing makes CE more tractable — or just moves the difficulty —
-I don't know. That feels like the live question.
-
----
-
-## Open Questions
-
-- Does B1 follow from density of the Stone embedding plus clopen basis argument?
-- Does Q2 dissolve once we restrict attention to the pullback?
-- Is CE equivalent to: the Stone measure is supported on principal ultrafilters?
-  If so, is this rephrasing genuinely new, or just a translation?
-- Is the CE support condition decidable? Paper −1 says CE is not first-order
-  derivable — does this carry over to the Stone picture?
-- Is there a cleaner route: work entirely on the Stone space side and never pull
-  back, treating lim← St(Bᵢ) as the primary object?
-
----
-
-## Next Steps (as of 2026-04-02)
-
-Two directions for investigation, ordered by urgency:
-
-### Direction 1 (more urgent): Pin down CE in the Stone picture
-
-**Status: substantially resolved (2026-04-02).**
-
-The candidate strategy assigns CE the job of ensuring the Stone measure is
-supported on principal ultrafilters. The worry was that CE as defined in Paper 0
-is a condition on a directed system of charges — not obviously a support condition
-on a measure on a compact space.
-
-But reading `ce_irreducibility.md` reveals this is already settled in the program:
-
-> **CE ↔ σ-additive extensibility** — Proved, `sp1_iff`, zero sorrys
-
-And the irreducibility argument supplies the translation. The ultrafilter observer
-is the canonical CE-failure case: it satisfies every finite structural condition
-while being globally incoherent. In the Stone picture, an ultrafilter observer
-*is* a non-principal ultrafilter — a phantom point in St(CylGen). CE failing means
-mass concentrates on those phantom points. CE holding means the measure is
-supported on `pure(Ω)`, the principal ultrafilters.
-
-So the equivalence we needed is:
+CE (collective exhaustion) is precisely the condition that mass doesn't escape to
+non-principal ultrafilters. The translation is:
 
 ```
 CE (Paper 0 definition)
-    ↔  σ-additive extensibility  [proved: sp1_iff]
+    ↔  σ-additive extensibility          [proved: sp1_iff, zero sorrys]
     ↔  mass does not escape to non-principal ultrafilters in St(CylGen)
     ↔  Stone measure supported on pure(Ω)
 ```
 
-The middle two steps are the translation into Stone language. The first ↔ is
-already proved. The remaining two need to be made explicit — but the conceptual
-content is already there in the irreducibility argument.
+The first equivalence is already proved. The conceptual content of the remaining two
+is established by the irreducibility argument: an ultrafilter observer *is* a
+non-principal ultrafilter — a phantom point in St(CylGen). CE rules out that observer.
+In Stone language, that is exactly the support condition.
 
-**What still needs to be done:** Write out the middle two equivalences precisely.
-The key observation is that the Yosida-Hewitt decomposition already identifies
-the purely finitely additive component with mass on non-principal ultrafilters.
-CE rules out that component. In Stone language, that is exactly the support
-condition.
+**Gap:** The middle two equivalences need to be written out precisely via the
+Yosida-Hewitt decomposition, which identifies the purely finitely additive component
+of a charge with mass on non-principal ultrafilters.
 
-### Direction 2 (structural): Make B1 precise
+### Division of Labour
 
-The density argument for B1 — that `pure⁻¹(Borel(St(CylGen))) = σ(CylGen)` —
-is intuitive but not yet a proof. Density gives approximation; it doesn't
-immediately give σ-algebra equality.
+```
+Discriminability (Paper −1)  →  B1: structural identification
+                                  queries separate points → embedding injective
+                                  → Borel(St) pulls back to σ(CylGen)
 
-**Concrete task:** Either prove B1 precisely using the clopen basis argument
-(every clopen of St(CylGen) pulls back to a cylinder set, and cylinder sets
-generate σ(CylGen)), or find a counterexample showing the pullback is strictly
-larger than σ(CylGen).
+CE (Paper 0)                 →  B2: measure-theoretic identification
+                                  mass doesn't escape to phantom ultrafilters
+                                  → Stone measure descends to σ(CylGen)
+```
 
-This is likely more tractable than Direction 1 and could be done first as a
-warmup — but Direction 1 is where the real uncertainty lives.
+Paper −1 is not philosophical preamble — discriminability is load-bearing in the Stone
+route. CE is not bypassed by Stone duality; it is *rephrased*. The Stone route converts
+CE from a condition on a directed system of charges into a support condition on a Borel
+measure on a compact space. Same content, different language.
 
-### Holding question
+### The Full Proof Chain
 
-The countable additivity conjecture (that the identification is equivalent to
-σ-additivity, making the Stone route potentially circular) is not resolved by
-either direction above. It should be kept in view as a possible outcome — either
-as a theorem that clarifies the limits of the approach, or as a conjecture to
-be refuted.
+```
+Compatible charges on directed system {Bᵢ}
+    → Stone duality → cofiltered inverse system {St(Bᵢ)}
+    → [Step A] φᵢⱼ injective (EvalSurjective) → St(⋃ Bᵢ) = lim← St(Bᵢ)
+    → compact inverse limit → σ-additive measure on Borel(lim← St(Bᵢ))
+    → [Step B1] discriminability → pure⁻¹(Borel(St)) = σ(CylGen)
+    → [Step B2] CE → Stone measure supported on pure(Ω)
+    → σ-additive measure on σ(CylGen)
+```
+
+### Holding Question
+
+*Raised in conversation, 2026-04-01.*
+
+Assuming all observable distinctions are visible in the Stone space might be *equivalent*
+to countable additivity — not just related to it. If true, this would mean the Stone route
+succeeds if and only if the charge is already σ-additive, making the approach circular.
+The candidate strategy suggests this is not the case: the circularity is broken by CE,
+which is an independent condition. But the conjecture should be tested explicitly when
+writing the LaTeX proof.
+
+---
+
+## Road to Implementation
+
+The workflow is: **LaTeX proof first, Lean formalization second**, iterating between
+them to equilibrium. The LaTeX proof is also the paper (Paper A).
+
+### What needs to be written (LaTeX)
+
+| Item | Status |
+|------|--------|
+| Step A: full proof | Argument complete — needs writeup |
+| B1: clopen basis argument made precise | Gap — needs careful proof |
+| B2: Yosida-Hewitt → Stone support translation | Gap — needs writeup |
+| Full chain assembled end-to-end | Pending B1 and B2 |
+| Holding question addressed or deferred | Pending |
+
+### What the Lean formalization will need
+
+Once the LaTeX proof is stable, the Lean scaffold in `StoneDualityExtension.lean`
+needs to match it. Known gaps in Mathlib:
+
+| Component | Mathlib status |
+|-----------|---------------|
+| `CompactSpace (Ultrafilter α)`, `T2Space (Ultrafilter α)` | Present |
+| `pure` dense in `Ultrafilter α` | Present (or short argument) |
+| Charge on clopen algebra → Borel measure on Stone space | Gap — `MeasureTheory.Content` API needs checking |
+| Inverse limit of measures on compact spaces | Choksi (1958); not in Mathlib |
+| Yosida-Hewitt decomposition | Not in Mathlib |
+
+The intentional sorrys in `StoneDualityExtension.lean` mark precisely the Mathlib
+gaps. They are acceptable — they document where the formalization exceeds current
+Mathlib, which is itself a contribution.
+
+### Immediate next action
+
+Write the LaTeX proof of B1 (the clopen basis argument). This is the last open
+mathematical question before the full chain is in hand.

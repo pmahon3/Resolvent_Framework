@@ -149,19 +149,34 @@ StoneDualityExtension.lean
 
 ---
 
-## Live Mathematical Analysis
+## Current Status (2026-04-02)
 
-The mathematical groundwork for this branch is being developed in:
+The mathematical analysis phase is **complete**. The LaTeX proof (Paper A) has been
+written and compiles cleanly at `papers/stone_duality_extension/`.
 
-**`notes/step_a_step_b_analysis.md`** — this is the current working document.
+| Document | Status |
+|----------|--------|
+| `notes/step_a_step_b_analysis.md` | Complete — Step A and B fully analysed |
+| `notes/tex_proof_plan.md` | Complete — used to produce the LaTeX draft |
+| `papers/stone_duality_extension/` | **First draft done** — compiles, 6 pages |
 
-It records the analysis of Step A (now complete) and Step B (in progress), including
-the candidate proof strategy, the CE/discriminability division of labour, open
-questions, and next steps. Consult it before writing any Lean code — the formalization
-plan below should be understood in light of that analysis.
+### What the LaTeX proof contains
 
-Current priority: resolve the two mathematical directions in that document before
-returning to formalization.
+- Section 1: Setup, cylinder sets, connecting maps, three hypotheses
+- Section 2 (Step A): φᵢⱼ injective via EvalSurjective → St(⋃Bᵢ) = lim← St(Bᵢ)
+- Section 3: Inverse limit measure via Cardona et al. → Choksi
+- Section 4 (B1): σ(CylGen) = Borel(St(CylGen)) pulled back via discriminability
+- Section 5 (B2): CE = Stone measure supported on pure(Ω) via Yosida-Hewitt
+- Section 6: Assembly + uniqueness via observational_determination
+
+### Immediate next priorities
+
+1. **(2) Update overall program plan to two-pillar structure** — Paper A's role
+   in the thesis needs to be settled before further refinement of the paper.
+2. **(1) Hone LaTeX proof to equilibrium** — after (2) clarifies Paper A's position.
+3. **Lean formalization** — return to `StoneDualityExtension.lean` once LaTeX is stable.
+
+### Live mathematical analysis
 
 ---
 

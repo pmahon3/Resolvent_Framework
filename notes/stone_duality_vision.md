@@ -151,6 +151,13 @@ The `stone-duality-extension` branch formalizes the bridge:
 The intentional sorrys in 0′-B and 0′-D mark precisely where the formalization exceeds
 current Mathlib — a meaningful contribution in itself.
 
+## Current Status (2026-04-02)
+
+**Paper A (LaTeX) — first draft complete.** See `papers/stone_duality_extension/`.
+The proof is written, compiles cleanly, and covers all six sections of the argument.
+Next step: update the overall two-pillar program plan to establish Paper A's role,
+then hone the LaTeX and begin Lean formalization.
+
 ---
 
 ## Literature Review

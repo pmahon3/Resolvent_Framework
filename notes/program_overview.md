@@ -128,7 +128,7 @@ seen from different angles.
 | Paper | Mathematical status | Lean status | LaTeX status | Next action |
 |-------|--------------------|-----------|----|---|
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys; `StoneDualityExtension.lean` not yet written | **First draft done** — `papers/paper_i/`, 13 pages | Revise and hone; then Lean Stone route |
-| II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | Not started | **Write LaTeX** (pure writing task) |
+| II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **First draft done** — `papers/paper_ii/`, 8 pages | Revise and hone |
 | III | Delay structure proved; cyclic vector theorem open | `DelayEmbedding.lean` 1 sorry | Not started | Develop cyclic vector theorem |
 
 ---
@@ -149,8 +149,10 @@ Ordered by priority. Cross off as completed.
   paragraph; $\pi_{ij}^{-1}$ direction error in CE definition and sp1 proof; Stone
   theorem missing common coarsenings hypothesis; uniqueness argument in Stone theorem
   cleaned up; coincidence paragraph tightened; density claim in §6.3 made precise.
-- [ ] **Write Paper II (LaTeX)** — Lean is complete (zero sorrys). Pure writing task.
-  Math is settled: Koopman operator, predictive state, semigroup, Koopman-Perron duality.
+- [x] **Write Paper II (LaTeX)** — Done 2026-04-02. First draft at `papers/paper_ii/`
+  (8 pages, compiles cleanly). Sections: setup, predictive kernel, minimal predictive
+  query, factorization, semigroup, Koopman-Perron duality, deterministic specialization,
+  observable dynamical system, bridge to Paper III.
 
 ### Medium term
 - [ ] **Lean formalization of Paper I Stone route** — create `StoneDualityExtension.lean`

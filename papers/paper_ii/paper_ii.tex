@@ -1,0 +1,45 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Ecal}{\mathcal{E}}
+
+% Operator macros
+\newcommand{\PredOp}{K}           % predictive operator
+\newcommand{\Koopman}{U}          % Koopman operator
+\newcommand{\ProbMeas}{\mathcal{P}} % space of probability measures
+\newcommand{\PredKer}{\Pi}        % predictive kernel
+\newcommand{\Lp}[1]{L^{#1}}      % Lp space
+
+\pagecolor{white}
+
+% ---------- Title ----------
+\title{Dynamics from Probability:\\
+\large Predictive Operators and the Koopman Picture}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\input{paper_ii_body}
+\end{document}

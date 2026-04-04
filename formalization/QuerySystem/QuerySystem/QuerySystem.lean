@@ -834,6 +834,25 @@ lemma preμ_respects_finCyl_eq
   -- Therefore ν m Ec = ν m Ed
   rw [hEcEd]
 
+/-- Corollary of `preμ_respects_finCyl_eq` stated without struct projections.
+
+    Given raw finset/function data for two presentations with equal cylinder sets,
+    the premeasures agree.  This avoids the struct-projection opacity that prevents
+    `rw [preμ_respects_finCyl_eq ...]` from firing when the goal uses raw terms. -/
+private lemma preμ_eq_of_finCyl_eq
+    [Nonempty S.ι]
+    (udir : S.UpperDirected)
+    (ν : ∀ i : S.ι, Measure ((S.q i).Outcome))
+    (compat : S.CompatibleMarginals ν)
+    (surj : S.EvalSurjective)
+    (s₁ : Finset S.ι) (A₁ : ∀ i : S.ι, Set ((S.q i).Outcome))
+    (hA₁ : ∀ i ∈ s₁, MeasurableSet (A₁ i))
+    (s₂ : Finset S.ι) (A₂ : ∀ i : S.ι, Set ((S.q i).Outcome))
+    (hA₂ : ∀ i ∈ s₂, MeasurableSet (A₂ i))
+    (hEq : S.FinCyl s₁ A₁ = S.FinCyl s₂ A₂) :
+    S.preμ udir ν s₁ A₁ = S.preμ udir ν s₂ A₂ :=
+  S.preμ_respects_finCyl_eq udir ν compat surj ⟨s₁, A₁, hA₁⟩ ⟨s₂, A₂, hA₂⟩ hEq
+
 /-- **`CylGen` is a set semiring under `UpperDirected`.**
 
     - `empty_mem`: `∅ = Cyl i ∅` for any `i`.
@@ -1012,12 +1031,31 @@ private lemma finCyl_singleton_eq_cyl
     subst hkj
     simp [dif_pos rfl, hπ_refl, ho]
 
+/-- Bridge: `cylGenMass` unfolds to `preμ` applied to the chosen presentation.
+
+    After `simp only [cylGenMass]`, both sides are syntactically identical, so `rfl`
+    closes the goal.  This bridge avoids reducing `Classical.choose` (which is opaque)
+    and instead exposes the raw `preμ` call for downstream manipulation. -/
+private lemma cylGenMass_eq_preμ_chosen
+    [Nonempty S.ι]
+    (udir : S.UpperDirected)
+    (surj : S.EvalSurjective)
+    (ν : ∀ i : S.ι, Measure ((S.q i).Outcome))
+    (compat : S.CompatibleMarginals ν)
+    (E : Set S.Omega) (hE : E ∈ S.CylGen) :
+    haveI : DecidableEq S.ι := Classical.decEq S.ι
+    S.cylGenMass udir surj ν compat E hE =
+    S.preμ udir ν {hE.choose} (fun j => if h : j = hE.choose then h ▸ hE.choose_spec.choose else ∅) := by
+  haveI : DecidableEq S.ι := Classical.decEq S.ι
+  simp only [cylGenMass]
+
 /-- **`cylGenMass` on an explicit cylinder equals the marginal.**
 
     For any measurable `A ⊆ (S.q i).Outcome`, `cylGenMass ... (Cyl i A) h = ν i A`.
 
-    This is the key bridge between the `Classical.choose` definition and concrete
-    marginal values.  It is the single lemma that unblocks all downstream sorrys. -/
+    Proof: rewrite via `cylGenMass_eq_preμ_chosen` to expose the raw `preμ` call,
+    then use `preμ_respects_finCyl_eq` to swap to the explicit `(i, A)` presentation,
+    then reduce via `preμ_eq` + `preμAt_single_eq_marginal`. -/
 lemma cylGenMass_eq_marginal
     [Nonempty S.ι]
     (udir : S.UpperDirected)
@@ -1026,53 +1064,52 @@ lemma cylGenMass_eq_marginal
     (compat : S.CompatibleMarginals ν)
     (i : S.ι) (A : Set ((S.q i).Outcome)) (hA : MeasurableSet A) :
     S.cylGenMass udir surj ν compat (S.Cyl i A) ⟨i, A, hA, rfl⟩ = ν i A := by
-  haveI : DecidableEq S.ι := Classical.decEq S.ι
-  -- Route through preμ_respects_finCyl_eq to avoid reducing Classical.choose.
-  -- cylGenMass uses the chosen presentation (i', A') from Classical.choose.
-  -- We compare it to the explicit presentation (i, A) via equal set = Cyl i A.
-  let hE : S.Cyl i A ∈ S.CylGen := ⟨i, A, hA, rfl⟩
-  let i' : S.ι := hE.choose
-  let A' : Set ((S.q i').Outcome) := hE.choose_spec.choose
-  let hA'spec := hE.choose_spec.choose_spec
-  -- Build the "chosen" MeasFinCyl: this is literally what cylGenMass computes
-  let Achosen : ∀ j : S.ι, Set ((S.q j).Outcome) :=
-    fun j => if h : j = i' then h ▸ A' else ∅
-  let Cchosen : S.MeasFinCyl := ⟨{i'}, Achosen,
-    fun j hj => by
-      simp only [Finset.mem_singleton] at hj; subst hj
-      simp only [Achosen, dif_pos rfl]; exact hA'spec.1⟩
-  -- Build the explicit MeasFinCyl at (i, A)
-  let Aexpl : ∀ j : S.ι, Set ((S.q j).Outcome) :=
-    fun j => if h : j = i then h ▸ A else ∅
-  let Cexpl : S.MeasFinCyl := ⟨{i}, Aexpl,
-    fun j hj => by
-      simp only [Finset.mem_singleton] at hj; subst hj
-      simp only [Aexpl, dif_pos rfl]; exact hA⟩
-  -- cylGenMass (...) = preμ of Cchosen, by definitional unfolding
-  have hcylGen_eq : S.cylGenMass udir surj ν compat (S.Cyl i A) hE =
-      S.preμ udir ν Cchosen.s Cchosen.A := rfl
-  -- Cchosen.set = Cyl i A  (finCyl_singleton_eq_cyl + hA'spec.2)
-  have hCchosen_set : Cchosen.set = S.Cyl i A := by
-    show S.FinCyl {i'} Achosen = S.Cyl i A
-    rw [S.finCyl_singleton_eq_cyl i' A']
-    exact hA'spec.2.symm
-  -- Cexpl.set = Cyl i A  (finCyl_singleton_eq_cyl)
-  have hCexpl_set : Cexpl.set = S.Cyl i A :=
-    S.finCyl_singleton_eq_cyl i A
-  -- preμ(Cchosen) = preμ(Cexpl) since both sets equal Cyl i A
-  have hpreμ_eq : S.preμ udir ν Cchosen.s Cchosen.A = S.preμ udir ν Cexpl.s Cexpl.A :=
-    S.preμ_respects_finCyl_eq udir ν compat surj Cchosen Cexpl
-      (hCchosen_set.trans hCexpl_set.symm)
-  -- preμ(Cexpl) = ν i A via preμ_eq + preμAt_single_eq_marginal
-  have hpreμ_expl : S.preμ udir ν Cexpl.s Cexpl.A = ν i A := by
-    rw [S.preμ_eq udir ν compat {i} Aexpl
-      (fun j hj => by
-        simp only [Finset.mem_singleton] at hj; subst hj
-        simp only [Aexpl, dif_pos rfl]; exact hA)
-      (fun j hj => Finset.mem_singleton.mp hj ▸ S.le_refl j)]
-    rw [S.preμAt_single_eq_marginal ν i Aexpl]
+  -- Use letI so the DecidableEq instance is a let-binding available to all tactics
+  -- including simp's elaboration, preventing instance mismatch in dif expressions.
+  letI : DecidableEq S.ι := Classical.decEq S.ι
+  -- Name the membership proof and its Classical.choose components
+  set hE : S.Cyl i A ∈ S.CylGen := ⟨i, A, hA, rfl⟩ with hE_def
+  -- Step 1: unfold cylGenMass in the goal.
+  -- After simp only [cylGenMass], goal becomes:
+  --   preμ udir ν {hE.choose} (fun j => if h : j = hE.choose then h ▸ hE.choose_spec.choose else ∅)
+  --     = ν i A
+  -- The Decidable instance for `dif` is determined by `haveI` above (Classical.decEq),
+  -- so no mismatch arises.
+  simp only [cylGenMass]
+  -- Step 2: preμ_respects_finCyl_eq — chosen presentation has same set as explicit (i, A)
+  let Aexpl : ∀ j : S.ι, Set ((S.q j).Outcome) := fun j => if h : j = i then h ▸ A else ∅
+  have h1 : S.FinCyl {hE.choose}
+        (fun j => if h : j = hE.choose then h ▸ hE.choose_spec.choose else ∅)
+        = S.Cyl i A := by
+    rw [S.finCyl_singleton_eq_cyl hE.choose hE.choose_spec.choose]
+    exact hE.choose_spec.choose_spec.2.symm
+  have h2 : S.FinCyl {i} Aexpl = S.Cyl i A := S.finCyl_singleton_eq_cyl i A
+  -- Step 2 + 3: use preμ_eq_of_finCyl_eq in term-mode via `.trans`.
+  -- Both the chosen and explicit preμ calls use raw s/A arguments here,
+  -- avoiding struct-projection opacity.
+  -- We prove the chain: preμ {hE.choose} Achosen = preμ {i} Aexpl = ν i A
+  -- and combine with `exact`.
+  have hmA : ∀ j ∈ ({i} : Finset S.ι), MeasurableSet (Aexpl j) := fun j hj => by
+    simp only [Finset.mem_singleton] at hj; subst hj
+    simp only [Aexpl, dif_pos rfl]; exact hA
+  have hk : ∀ j ∈ ({i} : Finset S.ι), S.le j i := fun j hj => by
+    have hji : j = i := Finset.mem_singleton.mp hj; rw [hji]; exact S.le_refl i
+  have hfinal : S.preμ udir ν {i} Aexpl = ν i A := by
+    rw [S.preμ_eq udir ν compat {i} Aexpl hmA hk,
+        S.preμAt_single_eq_marginal ν i Aexpl]
     simp only [Aexpl, dif_pos rfl]
-  rw [hcylGen_eq, hpreμ_eq, hpreμ_expl]
+  -- The goal after simp [cylGenMass] is:
+  --   preμ udir ν {hE.choose} (fun j => dif (j = hE.choose) ...) = ν i A
+  -- We close it by providing the equality chain as a proof term.
+  -- `preμ_eq_of_finCyl_eq` takes raw s/A so it produces an equality of raw preμ calls.
+  exact (S.preμ_eq_of_finCyl_eq udir ν compat surj
+    {hE.choose}
+    (fun j => if h : j = hE.choose then h ▸ hE.choose_spec.choose else ∅)
+    (fun j hj => by
+      simp only [Finset.mem_singleton] at hj; subst hj; simp only [dif_pos rfl]
+      exact hE.choose_spec.choose_spec.1)
+    {i} Aexpl hmA
+    (h1.trans h2.symm)).trans hfinal
 
 /-- **`AddContent` on `CylGen` from the premeasure `preμ`.**
 
@@ -1095,60 +1132,163 @@ noncomputable def cylGen_addContent
     have hempty_mem : (∅ : Set S.Omega) ∈ S.CylGen :=
       ⟨i, ∅, MeasurableSet.empty, by ext ω; simp [Cyl, eval]⟩
     simp only [hempty_mem, dite_true]
-    rw [S.cylGenMass_wellDef udir surj ν compat _ _ ⟨i, ∅, MeasurableSet.empty,
-          by ext ω; simp [Cyl, eval]⟩]
-    rw [S.cylGenMass_eq_marginal udir surj ν compat i ∅ MeasurableSet.empty]
-    exact measure_empty
+    -- Goal: S.cylGenMass udir surj ν compat ∅ hempty_mem = 0
+    letI : DecidableEq S.ι := Classical.decEq S.ι
+    -- Unfold cylGenMass in the goal (same technique as cylGenMass_eq_marginal)
+    simp only [cylGenMass]
+    -- Goal: preμ udir ν {hempty_mem.choose} (fun j => dif ...) = 0
+    -- Build the set-equality witnesses
+    have h1 : S.FinCyl {hempty_mem.choose}
+          (fun j => if h : j = hempty_mem.choose then h ▸ hempty_mem.choose_spec.choose else ∅)
+          = S.Cyl i ∅ := by
+      rw [S.finCyl_singleton_eq_cyl hempty_mem.choose hempty_mem.choose_spec.choose]
+      exact hempty_mem.choose_spec.choose_spec.2.symm
+    let Aexpl : ∀ j : S.ι, Set ((S.q j).Outcome) :=
+      fun j => if h : j = i then h ▸ (∅ : Set ((S.q i).Outcome)) else ∅
+    have h2 : S.FinCyl {i} Aexpl = S.Cyl i ∅ := S.finCyl_singleton_eq_cyl i ∅
+    have hmA : ∀ j ∈ ({i} : Finset S.ι), MeasurableSet (Aexpl j) := fun j hj => by
+      simp only [Finset.mem_singleton] at hj; subst hj; simp only [Aexpl, dif_pos rfl]
+      exact MeasurableSet.empty
+    have hk : ∀ j ∈ ({i} : Finset S.ι), S.le j i := fun j hj => by
+      have hji : j = i := Finset.mem_singleton.mp hj; rw [hji]; exact S.le_refl i
+    have hfinal : S.preμ udir ν {i} Aexpl = 0 := by
+      rw [S.preμ_eq udir ν compat {i} Aexpl hmA hk,
+          S.preμAt_single_eq_marginal ν i Aexpl]
+      simp only [Aexpl, dif_pos rfl]; exact measure_empty
+    exact (S.preμ_eq_of_finCyl_eq udir ν compat surj
+      {hempty_mem.choose}
+      (fun j => if h : j = hempty_mem.choose then h ▸ hempty_mem.choose_spec.choose else ∅)
+      (fun j hj => by
+        simp only [Finset.mem_singleton] at hj; subst hj; simp only [dif_pos rfl]
+        exact hempty_mem.choose_spec.choose_spec.1)
+      {i} Aexpl hmA
+      (h1.trans h2.symm)).trans hfinal
   sUnion' := by
     intro I hI_ss hI_dis hI_mem
+    revert hI_ss hI_dis hI_mem
     induction I using Finset.induction_on with
-    | empty => simp
-    | insert hnotmem ih =>
-        rename_i t I'
+    | empty =>
+        intro hI_ss hI_dis hI_mem
+        obtain ⟨i⟩ := ‹Nonempty S.ι›
+        have hempty_mem : (∅ : Set S.Omega) ∈ S.CylGen :=
+          ⟨i, ∅, MeasurableSet.empty, by ext ω; simp [Cyl, eval]⟩
+        simp only [Finset.sum_empty, dif_pos hI_mem]
+        -- Goal: cylGenMass ... (⋃₀ ↑∅) hI_mem = 0
+        have hzero : S.cylGenMass udir surj ν compat (S.Cyl i ∅) ⟨i, ∅, MeasurableSet.empty, rfl⟩ = 0 :=
+          (S.cylGenMass_eq_marginal udir surj ν compat i ∅ MeasurableSet.empty).trans measure_empty
+        convert hzero using 2
+        -- Remaining goal: ⋃₀ ↑∅ = S.Cyl i ∅
+        simp only [Finset.coe_empty, Set.sUnion_empty]
+        ext ω; simp [Cyl, eval]
+    | @insert t I' hnotmem ih =>
+        intro hI_ss hI_dis hI_mem
+        classical
+        -- Destructure t and the full union early (needed for hI'_mem proof)
+        have ht_mem_raw : t ∈ S.CylGen := hI_ss (Finset.mem_coe.mpr (Finset.mem_insert_self t I'))
+        rcases ht_mem_raw with ⟨it, At, hAt, rfl⟩
+        -- Now t = S.Cyl it At
+        rcases hI_mem with ⟨iU, AU, hAU, hUeq⟩
+        -- Now hUeq : ⋃₀ ↑(insert (S.Cyl it At) I') = S.Cyl iU AU
         rw [Finset.coe_insert, Set.sUnion_insert]
-        have ht_mem : t ∈ S.CylGen := hI_ss (Finset.mem_coe.mpr (Finset.mem_insert_self t I'))
-        have hI'_ss : ↑I' ⊆ S.CylGen := fun x hx =>
-          hI_ss (Finset.mem_coe.mpr (Finset.mem_insert_of_mem (Finset.mem_coe.mp hx)))
-        have hI'_dis : PairwiseDisjoint (↑I' : Set (Set S.Omega)) id :=
-          hI_dis.subset (by simp [Finset.coe_insert, Set.subset_insert])
-        have hI'_mem : ⋃₀ ↑I' ∈ S.CylGen := by
-          by_cases hne : I' = ∅
-          · simp [hne]; obtain ⟨i⟩ := ‹Nonempty S.ι›
-            exact ⟨i, ∅, MeasurableSet.empty, by ext ω; simp [Cyl, eval]⟩
-          · have hfull_mem : ⋃₀ ↑(insert t I') ∈ S.CylGen := by
-              rw [Finset.coe_insert]; exact hI_mem
-            have hfull_eq : ⋃₀ ↑(insert t I') = t ∪ ⋃₀ ↑I' := by
-              simp [Finset.coe_insert, Set.sUnion_insert]
-            have hdisj_t : Disjoint t (⋃₀ ↑I') := by
-              rw [Set.disjoint_sUnion_right]
-              intro s hs
-              exact hI_dis (Finset.mem_coe.mpr (Finset.mem_insert_self t I'))
-                (Finset.mem_coe.mpr (Finset.mem_insert_of_mem (Finset.mem_coe.mp hs)))
-                (fun heq => hnotmem (heq ▸ Finset.mem_coe.mp hs))
-            have hunion_eq : ⋃₀ ↑I' = (t ∪ ⋃₀ ↑I') \ t := by
-              rw [Set.union_diff_cancel_left (Set.disjoint_left.mp hdisj_t.symm)]
-            rw [hunion_eq, ← hfull_eq]
-            exact (S.isSetSemiring_CylGen udir).diff_mem hfull_mem ht_mem |>.choose_spec.1
-              (Finset.mem_coe.mpr (Finset.mem_insert_self _ _))
-        have hdisj_t_union : Disjoint t (⋃₀ ↑I') := by
+        -- Disjointness: t = S.Cyl it At is disjoint from ⋃₀ ↑I'
+        have hdisj_t_union : Disjoint (S.Cyl it At) (⋃₀ ↑I') := by
           rw [Set.disjoint_sUnion_right]
           intro s hs
-          exact hI_dis (Finset.mem_coe.mpr (Finset.mem_insert_self t I'))
+          exact hI_dis (Finset.mem_coe.mpr (Finset.mem_insert_self (S.Cyl it At) I'))
             (Finset.mem_coe.mpr (Finset.mem_insert_of_mem (Finset.mem_coe.mp hs)))
             (fun heq => hnotmem (heq ▸ Finset.mem_coe.mp hs))
+        -- Sub-collection membership and disjointness
+        have hI'_ss : ↑I' ⊆ S.CylGen := fun x hx =>
+          hI_ss (Finset.mem_coe.mpr (Finset.mem_insert_of_mem (Finset.mem_coe.mp hx)))
+        have hI'_dis : Set.PairwiseDisjoint (↑I' : Set (Set S.Omega)) id :=
+          hI_dis.subset (Finset.coe_subset.mpr (Finset.subset_insert (S.Cyl it At) I'))
+        -- ⋃₀ ↑I' ∈ CylGen: it equals S.Cyl iU AU \ S.Cyl it At, expressed at a common upper bound
+        have hI'_mem : ⋃₀ ↑I' ∈ S.CylGen := by
+          -- Find common upper bound m for {it, iU}
+          haveI : DecidableEq S.ι := Classical.decEq S.ι
+          rcases S.upperBound_finset udir ({it, iU} : Finset S.ι) with ⟨m, hm⟩
+          have hmit : S.le it m := hm it (by simp)
+          have hmiU : S.le iU m := hm iU (by simp)
+          -- At level m:
+          let pAt : Set (S.q m).Outcome := (S.π hmit).π ⁻¹' At
+          let pAU : Set (S.q m).Outcome := (S.π hmiU).π ⁻¹' AU
+          -- ⋃₀ ↑I' = S.Cyl m (pAU \ pAt)
+          have hsubunion : ⋃₀ ↑I' = S.Cyl m (pAU \ pAt) := by
+            -- S.Cyl it At = S.Cyl m pAt
+            have hCylt_m : S.Cyl it At = S.Cyl m pAt := by
+              have h1 := S.finCyl_eq_cyl_of_upperBound (s := ({it} : Finset S.ι))
+                (A := fun j => if h : j = it then h ▸ At else ∅) (k := m)
+                (fun j hj => by simp [Finset.mem_singleton] at hj; subst hj; exact hmit)
+              rw [S.finCyl_singleton_eq_cyl it At] at h1
+              rw [h1]; congr 1; ext o; simp only [Set.mem_setOf_eq, pAt]
+              constructor
+              · intro ho
+                have := ho it (Finset.mem_singleton_self it)
+                simp only [dif_pos rfl] at this; exact this
+              · intro ho j hj
+                simp [Finset.mem_singleton] at hj; subst hj
+                simp only [dif_pos rfl]; exact ho
+            -- S.Cyl iU AU = S.Cyl m pAU
+            have hCylU_m : S.Cyl iU AU = S.Cyl m pAU := by
+              have h1 := S.finCyl_eq_cyl_of_upperBound (s := ({iU} : Finset S.ι))
+                (A := fun j => if h : j = iU then h ▸ AU else ∅) (k := m)
+                (fun j hj => by simp [Finset.mem_singleton] at hj; subst hj; exact hmiU)
+              rw [S.finCyl_singleton_eq_cyl iU AU] at h1
+              rw [h1]; congr 1; ext o; simp only [Set.mem_setOf_eq, pAU]
+              constructor
+              · intro ho
+                have := ho iU (Finset.mem_singleton_self iU)
+                simp only [dif_pos rfl] at this; exact this
+              · intro ho j hj
+                simp [Finset.mem_singleton] at hj; subst hj
+                simp only [dif_pos rfl]; exact ho
+            -- S.Cyl it At ∪ ⋃₀ ↑I' = S.Cyl m pAU
+            have hfull : S.Cyl it At ∪ ⋃₀ ↑I' = S.Cyl m pAU := by
+              have h1 : S.Cyl it At ∪ ⋃₀ ↑I' = S.Cyl iU AU := by
+                have : ⋃₀ (insert (S.Cyl it At) ↑I') = S.Cyl iU AU := by
+                  rw [← Finset.coe_insert]; exact hUeq
+                simp only [Set.sUnion_insert] at this; exact this
+              rw [h1, hCylU_m]
+            -- ⋃₀ ↑I' = S.Cyl m pAU \ S.Cyl it At = S.Cyl m (pAU \ pAt)
+            have hCyl_diff : S.Cyl m pAU \ S.Cyl it At = S.Cyl m (pAU \ pAt) := by
+              rw [hCylt_m]; unfold Cyl; ext x; simp [Set.mem_diff]
+            rw [← hCyl_diff, ← hfull]
+            exact (Set.union_diff_cancel_left hdisj_t_union.le_bot).symm
+          rw [hsubunion]
+          exact ⟨m, pAU \ pAt, (S.π hmiU).measurable_π hAU |>.diff ((S.π hmit).measurable_π hAt), rfl⟩
+        -- Apply the induction hypothesis
         have ih' := ih hI'_ss hI'_dis hI'_mem
-        haveI : Decidable (t ∈ S.CylGen) := Classical.propDecidable _
+        -- Set up the decidability instances for dif_pos
+        haveI : Decidable (S.Cyl it At ∈ S.CylGen) := Classical.propDecidable _
         haveI : Decidable (⋃₀ ↑I' ∈ S.CylGen) := Classical.propDecidable _
-        haveI : Decidable ((t ∪ ⋃₀ ↑I') ∈ S.CylGen) := Classical.propDecidable _
-        have hval_t : (if h : t ∈ S.CylGen then S.cylGenMass udir surj ν compat t h else 0) =
-            S.cylGenMass udir surj ν compat t ht_mem := dif_pos ht_mem
-        have hval_union : (if h : ⋃₀ ↑I' ∈ S.CylGen then S.cylGenMass udir surj ν compat _ h else 0) =
+        haveI : Decidable ((S.Cyl it At ∪ ⋃₀ ↑I') ∈ S.CylGen) := Classical.propDecidable _
+        have ht_mem : S.Cyl it At ∈ S.CylGen := ⟨it, At, hAt, rfl⟩
+        have hval_t : (if h : S.Cyl it At ∈ S.CylGen then
+              S.cylGenMass udir surj ν compat (S.Cyl it At) h else 0) =
+            S.cylGenMass udir surj ν compat (S.Cyl it At) ht_mem := dif_pos ht_mem
+        have hval_union : (if h : ⋃₀ ↑I' ∈ S.CylGen then
+              S.cylGenMass udir surj ν compat _ h else 0) =
             S.cylGenMass udir surj ν compat _ hI'_mem := dif_pos hI'_mem
-        have hval_full : (if h : (t ∪ ⋃₀ ↑I') ∈ S.CylGen then S.cylGenMass udir surj ν compat _ h else 0) =
-            S.cylGenMass udir surj ν compat _ hI_mem := dif_pos hI_mem
-        rcases ht_mem with ⟨it, At, hAt, rfl⟩
-        rcases hI'_mem with ⟨iu, Au, hAu, rfl⟩
-        rcases hI_mem with ⟨iU, AU, hAU, hUeq⟩
+        have hI_mem' : S.Cyl iU AU ∈ S.CylGen := ⟨iU, AU, hAU, rfl⟩
+        have hfull_union_eq : S.Cyl it At ∪ ⋃₀ ↑I' = S.Cyl iU AU := by
+          have : ⋃₀ (insert (S.Cyl it At) ↑I') = S.Cyl iU AU := by
+            rw [← Finset.coe_insert]; exact hUeq
+          simp only [Set.sUnion_insert] at this; exact this
+        have hval_full : (if h : (S.Cyl it At ∪ ⋃₀ ↑I') ∈ S.CylGen then
+              S.cylGenMass udir surj ν compat _ h else 0) =
+            S.cylGenMass udir surj ν compat _ hI_mem' := by
+          have hmem : (S.Cyl it At ∪ ⋃₀ ↑I') ∈ S.CylGen := hfull_union_eq ▸ hI_mem'
+          rw [dif_pos hmem]
+          convert rfl using 2; exact hfull_union_eq.symm
+        -- Compute hmem_full before destructuring hI'_mem (needed for dif_pos on goal)
+        have hmem_full : (S.Cyl it At ∪ ⋃₀ ↑I') ∈ S.CylGen := hfull_union_eq ▸ hI_mem'
+        -- Save the union equality before rewriting ⋃₀ ↑I' (needed for conv_lhs below)
+        have hfull_union_eq_orig : S.Cyl it At ∪ ⋃₀ ↑I' = S.Cyl iU AU := hfull_union_eq
+        -- Now set up the MeasFinCyl structs for preμ_disjoint_union
+        -- hI'_mem : ⋃₀ ↑I' ∈ S.CylGen with witness (iu, Au, hAu, ...)
+        obtain ⟨iu, Au, hAu, hI'_eq⟩ := hI'_mem
+        -- Rewrite ⋃₀ ↑I' to S.Cyl iu Au where the motive is type-correct
+        rw [hI'_eq] at hdisj_t_union hfull_union_eq
         let Ct : S.MeasFinCyl := ⟨{it}, fun j => if h : j = it then h ▸ At else ∅,
           fun j hj => by simp [Finset.mem_singleton] at hj; subst hj; simpa using hAt⟩
         let Cu : S.MeasFinCyl := ⟨{iu}, fun j => if h : j = iu then h ▸ Au else ∅,
@@ -1165,38 +1305,56 @@ noncomputable def cylGen_addContent
         have hmU : S.cylGenMass udir surj ν compat (S.Cyl iU AU) ⟨iU, AU, hAU, rfl⟩ =
             ν iU AU := S.cylGenMass_eq_marginal udir surj ν compat iU AU hAU
         have hUnionCD : CU.set = Ct.set ∪ Cu.set := by
-          rw [hCt_set, hCu_set, hCU_set, ← hUeq]
+          rw [hCt_set, hCu_set, hCU_set]; exact hfull_union_eq.symm
         have hDisjCD : Disjoint Ct.set Cu.set := by
           rw [hCt_set, hCu_set]; exact hdisj_t_union
         have hpreμ := S.preμ_disjoint_union udir ν compat surj Ct Cu CU hDisjCD hUnionCD
-        simp only [Finset.sum_insert hnotmem]
-        rw [hval_full, hval_t]
-        rw [← ih']
-        conv_lhs => rw [S.cylGenMass_wellDef udir surj ν compat _ ⟨iU, AU, hAU, rfl⟩ ⟨iU, AU, hAU, rfl⟩]
-        rw [hmU]
-        rw [S.cylGenMass_wellDef udir surj ν compat _ ⟨it, At, hAt, rfl⟩ ⟨it, At, hAt, rfl⟩]
-        rw [hmt]
-        rw [hval_union, S.cylGenMass_wellDef udir surj ν compat _ ⟨iu, Au, hAu, rfl⟩ ⟨iu, Au, hAu, rfl⟩]
-        rw [hmu]
         have hpCt : S.preμ udir ν Ct.s Ct.A = ν it At := by
           rw [S.preμ_eq udir ν compat {it} Ct.A
-            (fun j hj => by simp [Finset.mem_singleton] at hj; subst hj; simpa using hAt)
-            (fun j hj => Finset.mem_singleton.mp hj ▸ S.le_refl j)]
+            (fun j hj => by
+              have hji := Finset.mem_singleton.mp hj; rw [hji]; simp only [Ct, dif_pos rfl]; exact hAt)
+            (k := it) (fun j hj => by
+              have hji := Finset.mem_singleton.mp hj; rw [hji]; exact S.le_refl it)]
           rw [S.preμAt_single_eq_marginal ν it Ct.A]
-          simp [Ct, dif_pos rfl]
+          simp only [Ct, dif_pos rfl, dite_true]
         have hpCu : S.preμ udir ν Cu.s Cu.A = ν iu Au := by
           rw [S.preμ_eq udir ν compat {iu} Cu.A
-            (fun j hj => by simp [Finset.mem_singleton] at hj; subst hj; simpa using hAu)
-            (fun j hj => Finset.mem_singleton.mp hj ▸ S.le_refl j)]
+            (fun j hj => by
+              have hji := Finset.mem_singleton.mp hj; rw [hji]; simp only [Cu, dif_pos rfl]; exact hAu)
+            (k := iu) (fun j hj => by
+              have hji := Finset.mem_singleton.mp hj; rw [hji]; exact S.le_refl iu)]
           rw [S.preμAt_single_eq_marginal ν iu Cu.A]
-          simp [Cu, dif_pos rfl]
+          simp only [Cu, dif_pos rfl, dite_true]
         have hpCU : S.preμ udir ν CU.s CU.A = ν iU AU := by
           rw [S.preμ_eq udir ν compat {iU} CU.A
-            (fun j hj => by simp [Finset.mem_singleton] at hj; subst hj; simpa using hAU)
-            (fun j hj => Finset.mem_singleton.mp hj ▸ S.le_refl j)]
+            (fun j hj => by
+              have hji := Finset.mem_singleton.mp hj; rw [hji]; simp only [CU, dif_pos rfl]; exact hAU)
+            (k := iU) (fun j hj => by
+              have hji := Finset.mem_singleton.mp hj; rw [hji]; exact S.le_refl iU)]
           rw [S.preμAt_single_eq_marginal ν iU CU.A]
-          simp [CU, dif_pos rfl]
-        linarith [hpreμ.symm.trans (by rw [hpCt, hpCu])]
+          simp only [CU, dif_pos rfl, dite_true]
+        -- Now close the main goal: reduce dif expressions and apply preμ_disjoint_union
+        rw [Finset.sum_insert hnotmem]
+        -- Use simp with dif_pos to reduce dif expressions (avoids Decidable instance mismatch from rw)
+        simp only [dif_pos hmem_full, dif_pos ht_mem]
+        rw [← ih']
+        -- Bridge cylGenMass at (S.Cyl it At ∪ ⋃₀ ↑I') to cylGenMass at (S.Cyl iU AU)
+        have hcm_full_eq : S.cylGenMass udir surj ν compat (S.Cyl it At ∪ ⋃₀ ↑I') hmem_full =
+            S.cylGenMass udir surj ν compat (S.Cyl iU AU) ⟨iU, AU, hAU, rfl⟩ := by
+          simp only [hfull_union_eq_orig]
+        rw [hcm_full_eq, hmU]
+        rw [S.cylGenMass_wellDef udir surj ν compat _ ⟨it, At, hAt, rfl⟩ ⟨it, At, hAt, rfl⟩]
+        rw [hmt]
+        -- hval_union has Decidable instance mismatch; use simp+hI'_eq to reduce the dif instead
+        have hI'_cylmem : S.Cyl iu Au ∈ S.CylGen := ⟨iu, Au, hAu, rfl⟩
+        simp only [hI'_eq, dif_pos hI'_cylmem]
+        rw [S.cylGenMass_wellDef udir surj ν compat _ hI'_cylmem ⟨iu, Au, hAu, rfl⟩]
+        rw [hmu]
+        -- Goal: ν iU AU = ν it At + ν iu Au
+        -- From hpreμ, hpCt, hpCu, hpCU (all ENNReal, so linarith doesn't apply)
+        calc (ν iU) AU = S.preμ udir ν CU.s CU.A := hpCU.symm
+          _ = S.preμ udir ν Ct.s Ct.A + S.preμ udir ν Cu.s Cu.A := hpreμ
+          _ = (ν it) At + (ν iu) Au := by rw [hpCt, hpCu]
 
 /-- `SequentiallyUpperDirected` implies `UpperDirected`.
 

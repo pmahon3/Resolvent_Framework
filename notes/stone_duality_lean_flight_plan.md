@@ -1,13 +1,14 @@
 # Lean Flight Plan: StoneDualityExtension.lean
 
-## Goal
+## Goal — COMPLETE (2026-04-04)
 
-Build `StoneDualityExtension.lean` on the `stone-duality-extension` branch.
-Success criteria from `stone_duality_branch_plan.md`:
-- `stone_agrees_with_caratheodory` — **proved** (no sorry)
-- All Task 0′-A and 0′-C results — **proved**
-- `stone_measure_exists` — **intentional sorry** (documented Mathlib gap)
-- `stone_observational_extension` — **intentional sorry** (documented Mathlib gap)
+`StoneDualityExtension.lean` builds cleanly on `main`.
+- `stone_agrees_with_caratheodory` — **proved** ✅ (no sorry)
+- All Task 0′-A and 0′-C results — **proved** ✅
+- `stone_measure_exists` — **intentional sorry** (documented Mathlib gap: no `Content.toMeasure` for Stone spaces)
+- `stone_observational_extension` — **intentional sorry** (documented Mathlib gap: Choksi's theorem not in Mathlib)
+
+Merged to `main` 2026-04-05. Branch `stone-duality-extension` deleted.
 
 ---
 
@@ -16,13 +17,14 @@ Success criteria from `stone_duality_branch_plan.md`:
 - Lean / Mathlib: `.lake/packages/mathlib/`
 - Build tool: `~/.elan/bin/lake`
 - Project target: `QuerySystem.StoneDualityExtension`
-- Disk space: ~4.2GB free as of 2026-04-03; full Mathlib rebuild exhausts disk. Use cached `.olean` files.
 
 ---
 
-## Blocker: `QuerySystem.lean` pre-existing errors
+## ~~Blocker: `QuerySystem.lean` pre-existing errors~~ RESOLVED (2026-04-04)
 
-`StoneDualityExtension.lean` imports `QuerySystem.lean`, which has build failures. These must be fixed first.
+`QuerySystem.lean` builds cleanly. The errors documented below were fixed
+during the `stone-duality-extension` session and are preserved here for
+historical reference only.
 
 ### The two failing lemmas
 

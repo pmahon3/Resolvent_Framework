@@ -52,13 +52,13 @@ condition for the Koopman operator `U_T`), then `lpMeas 𝒪_h 2 μ` is dense.
 * `observableAlgebra_le`           : `𝒪_h ≤ m` when generators are `m`-measurable (§1)
 * `density_bridge`                 : `Lp.simpleFunc ℝ 2 (μ.trim hm)` is dense (§2) ✅
 * `lpMeas_eq_top_of_ae_eq`         : `m = m0` mod `μ` → `lpMeas = ⊤` (§2) sorry
-* `reconstruction_iff_lpMeas`      : (i) ↔ (ii) (§3) sorry
-* `delayMap`                       : definition (§4)
+* `reconstruction_iff_lpMeas`      : (i) ↔ (ii) (§3) sorry (← direction only)
+* `delayMap`                       : definition (§4) ✅
 * `delayMap_measurable`            : measurability (§4) ✅
-* `observableAlgebra_eq_comap`     : pullback identity (§4) sorry
-* `bilateralShift`                 : definition (§5)
-* `delayMap_intertwines_shift`     : `Φ_h ∘ T = σ ∘ Φ_h` (§5) sorry
-* `cyclic_implies_dense`           : cyclic → dense (§6) sorry
+* `observableAlgebra_eq_comap`     : pullback identity (§4) ✅
+* `unilateralShift`                : definition (§5) ✅
+* `delayMap_intertwines_shift`     : `Φ_h ∘ T = σ ∘ Φ_h` (§5) ✅
+* `cyclic_implies_dense`           : cyclic → dense (§6) ✅
 
 ## Sorry inventory (2 remaining)
 

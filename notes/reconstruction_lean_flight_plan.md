@@ -199,7 +199,7 @@ Attack order by difficulty (easiest first):
 | `delayMap_intertwines_shift` | 1 | ✅ closed |
 | `observableAlgebra_eq_comap` | 2 | ✅ closed |
 | `cyclic_implies_dense` | 3 | ✅ closed |
-| `lpMeasSubgroup_dense_in_Lp` | 4 | ⚠️ deferred — FALSE for general `m ≤ m0`; not used by file |
+| `lpMeasSubgroup_dense_in_Lp` | 4 | ❌ deleted 2026-04-05 — FALSE for general `m ≤ m0`; unused |
 | `lpMeas_eq_top_of_ae_eq` | 4 | ⬜ Mathlib gap — no downward `AEStronglyMeasurable` monotonicity |
 | `reconstruction_iff_lpMeas` (←) | 4 | ⬜ Mathlib gap — a.e.-convergent subsequence from Lp convergence |
 

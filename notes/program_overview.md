@@ -178,7 +178,7 @@ are the state space.
 |-------|--------------------|-----------|----|---|
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
-| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (builds cleanly; 3 intentional sorrys — all lpMeas instance refactor, not mathematical gaps) | **First draft** — `papers/paper_iii/`, 6 pages | Close sorrys; submit |
+| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **Revised** — `papers/paper_iii/`, 6 pages | Submit |
 
 ---
 
@@ -247,21 +247,25 @@ Ordered by priority. Cross off as completed.
   pattern mismatch; rw unsolved goals).
 - [x] **Add Lean formalization remark to Paper III** — Done 2026-04-05. Added
   `\begin{remark}[Lean formalization]` at end of §5 (Takens comparison), documenting
-  4 proved theorems and 3 documented Mathlib-gap sorrys.
+  4 proved theorems and 2 documented Mathlib-gap sorrys (updated from 3 after
+  `lpMeasSubgroup_dense_in_Lp` deleted).
+- [x] **Remove `lpMeasSubgroup_dense_in_Lp`** — Done 2026-04-05. Deleted from
+  `ReconstructionTheorem.lean` (unused; FALSE for general `m ≤ m0`). Now at 2 sorrys.
+- [x] **Revise Paper III** — Done 2026-04-05. Stone identification proof (§4)
+  strengthened with explicit injectivity mod μ argument; stale "Proposition 5.5"
+  reference fixed; Lean remark corrected (cross-refs, unilateral/bilateral shift
+  distinction, Mathlib cite). Compiles cleanly.
 
 ### Current priorities
 
 1. **Submit Papers I and II** — mathematically complete, Lean formalized, LaTeX clean.
    Blocking question: target venue? arXiv preprint first, or journal direct?
 
-2. **Close `ReconstructionTheorem.lean` Round 4 sorrys** — 3 remaining, all genuine
-   Mathlib API gaps. Documented in `notes/reconstruction_lean_flight_plan.md`:
+2. **Submit Paper III** — first draft complete and revised. 2 remaining sorrys are
+   genuine Mathlib gaps, not mathematical gaps; acceptable to submit with documentation.
+   Documented in `notes/reconstruction_lean_flight_plan.md`:
    - `lpMeas_eq_top_of_ae_eq` — no `AEStronglyMeasurable` downward σ-algebra monotonicity in Mathlib
-   - `reconstruction_iff_lpMeas` (←) — a.e.-convergent subsequence from Lp convergence
-   - `lpMeasSubgroup_dense_in_Lp` — not used; FALSE for general `m ≤ m0`; can be removed
-
-3. **Paper III: revise or extend** — reconstruction theorem proved; consider whether
-   to expand the Stone space identification section or submit as-is.
+   - `reconstruction_iff_lpMeas` (←) — `tendsto_ae_of_tendsto_Lp` not in Mathlib
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

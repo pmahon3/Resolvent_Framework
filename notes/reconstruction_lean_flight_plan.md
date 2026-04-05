@@ -166,9 +166,12 @@ Attack order by difficulty (easiest first):
    **Approach if `comap_le_iff_le_map` is hard to use:**
    Prove equality as two `generateFrom_le` applications on both sides after unfolding comap.
 
-### Round 3 — Submodule containment
-3. **`cyclic_implies_dense`** — show `cyclicSpan ≤ lpMeas 𝒪_h`, then use
-   `Submodule.topologicalClosure_mono`.
+### Round 3 — Submodule containment ✅ CLOSED
+3. **`cyclic_implies_dense`** ✅ — Key steps:
+   1. `aestronglyMeasurable_congr (hmem n).coeFn_toLp` to reduce from Lp coercion to `h ∘ T^[n]`
+   2. `observableAlgebra_measurable ... .aestronglyMeasurable` for each generator
+   3. `Submodule.span_le.mpr` + `Submodule.topologicalClosure_mono`
+   4. `Submodule.dense_iff_topologicalClosure_eq_top` + `top_le_iff.mp`
 
 ### Round 4 — lpMeas instance refactor (hardest)
 4. **`lpMeasSubgroup_dense_in_Lp`** — requires section-variable rewrite of §2.
@@ -184,7 +187,7 @@ Attack order by difficulty (easiest first):
 |-------|-------|--------|
 | `delayMap_intertwines_shift` | 1 | ✅ closed |
 | `observableAlgebra_eq_comap` | 2 | ✅ closed |
-| `cyclic_implies_dense` | 3 | ⬜ queued |
+| `cyclic_implies_dense` | 3 | ✅ closed |
 | `lpMeasSubgroup_dense_in_Lp` | 4 | ⬜ queued |
 | `lpMeas_eq_top_of_ae_eq` | 4 | ⬜ queued |
 | `reconstruction_iff_lpMeas` (←) | 4 | ⬜ queued |

@@ -302,4 +302,27 @@ theorem cyclic_implies_dense
         (Set.range (fun n : ℕ => (hmem n).toLp _))).topologicalClosure = ⊤) :
     Dense (lpMeas ℝ ℝ (observableAlgebra (fun n : ℤ => h ∘ T^[n.toNat])) 2 μ :
       Set (Lp ℝ 2 μ)) := by
-  sorry
+  -- Step 1: each generator (hmem n).toLp _ is in lpMeas 𝒪_h.
+  -- Reason: h ∘ T^[n] is AEStronglyMeasurable[𝒪_h] (from observableAlgebra_measurable).
+  have hmem_lpMeas : ∀ n : ℕ,
+      (hmem n).toLp (h ∘ T^[n]) ∈
+        lpMeas ℝ ℝ (observableAlgebra (fun k : ℤ => h ∘ T^[k.toNat])) 2 μ := by
+    intro n
+    rw [mem_lpMeas_iff_aestronglyMeasurable]
+    -- The Lp coercion is a.e. equal to h ∘ T^[n]; use congr to reduce to the function.
+    rw [aestronglyMeasurable_congr (hmem n).coeFn_toLp]
+    -- Now goal: AEStronglyMeasurable[𝒪_h] (h ∘ T^[n]) μ
+    have hgen : h ∘ T^[n] = (fun k : ℤ => h ∘ T^[k.toNat]) (n : ℤ) := by
+      simp [Int.toNat_natCast]
+    rw [hgen]
+    exact (observableAlgebra_measurable (fun k : ℤ => h ∘ T^[k.toNat]) (n : ℤ)).aestronglyMeasurable
+  -- Step 2: cyclicSpan ≤ lpMeas 𝒪_h as submodules.
+  have hspan_le :
+      Submodule.span ℝ (Set.range (fun n : ℕ => (hmem n).toLp _)) ≤
+        lpMeas ℝ ℝ (observableAlgebra (fun k : ℤ => h ∘ T^[k.toNat])) 2 μ := by
+    apply Submodule.span_le.mpr
+    rintro f ⟨n, rfl⟩
+    exact hmem_lpMeas n
+  -- Step 3: monotonicity of topological closure + h_cyclic → lpMeas closure = ⊤.
+  rw [Submodule.dense_iff_topologicalClosure_eq_top]
+  exact top_le_iff.mp (h_cyclic ▸ Submodule.topologicalClosure_mono hspan_le)

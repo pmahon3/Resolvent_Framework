@@ -1,0 +1,42 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\Koopman}{U}
+\newcommand{\Lp}[1]{L^{#1}}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\evalmap}{\mathrm{eval}}
+
+\pagecolor{white}
+
+% ---------- Title ----------
+\title{Reconstruction from Observation:\\
+\large The Density Bridge and Measure-Theoretic Takens}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\input{paper_iii_body}
+\end{document}

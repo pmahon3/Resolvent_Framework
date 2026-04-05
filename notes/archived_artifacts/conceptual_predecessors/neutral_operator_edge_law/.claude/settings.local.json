@@ -1,9 +1,0 @@
-{
-  "permissions": {
-    "allow": [
-      "Read(//Users/pmahon/Research/Mathematics/Resolvent_Framework/**)"
-    ],
-    "deny": [],
-    "ask": []
-  }
-}

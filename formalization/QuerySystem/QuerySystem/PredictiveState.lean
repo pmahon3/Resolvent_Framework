@@ -22,14 +22,14 @@ import QuerySystem.QuerySystem
 /-!
 # Predictive State (Paper 2)
 
-This file formalizes the predictive kernel, the minimal predictive query `Q_*`,
+This file formalizes the predictive kernel, the minimal predictive state map `Q_*`,
 and the predictive factorization theorem — the core content of Paper 2.
 
 ## The derivational chain
 
 ```
 observable query Q  →  predictive kernel Π_Q  →  predictive law map φ_Q
-                    →  minimal predictive query Q_* = φ_Q ∘ Q
+                    →  minimal predictive state map Q_* = φ_Q ∘ Q
                     →  predictive factorization: E[g(F) | Q] factors through Q_*
                     →  canonical predictive operator K_{Q_*}
 ```
@@ -71,15 +71,15 @@ evaluated at the predictive state.
 
 * `predictiveKernel P Q F`       : regular conditional distribution of `F` given `Q`
 * `predictiveLawMap P Q F`       : `q ↦ P(F ∈ · | Q = q)` valued in `ProbabilityMeasure β`
-* `minimalPredictiveQuery P Q F` : `Q_* = φ_Q ∘ Q : Ω → ProbabilityMeasure β`
+* `minimalPredictiveStateMap P Q F` : `Q_* = φ_Q ∘ Q : Ω → ProbabilityMeasure β`
 * `predictiveOp g`               : canonical operator `(K_{Q_*} g)(q_*) = ∫ g dq_*`
 
 ## Main results
 
 * `measurable_predictiveLawMap`       : `φ_Q` is measurable — complete proof (P2.1)
 * `predictive_compatibility`          : tower property for refined queries, a.e. (P2.2, complete)
-* `measurable_minimalPredictiveQuery` : `Q_*` is measurable — complete proof (P2.3)
-* `minimalPredictiveQuery_spec`       : `Q_*(ω) A = Π_Q(Q(ω), A)` — complete (P2.4)
+* `measurable_minimalPredictiveStateMap` : `Q_*` is measurable — complete proof (P2.3)
+* `minimalPredictiveStateMap_spec`       : `Q_*(ω) A = Π_Q(Q(ω), A)` — complete (P2.4)
 * `predictive_equivalence`            : `Q_*(ω) = Q_*(ω') ↔` same kernel — complete (P2.4)
 * `predictive_factorization`          : factorization theorem — complete proof attempt (P2.5)
 * `predictive_sufficiency`            : `E[g(F)|Q] = E[g(F)|Q_*]` — complete proof (P2.5 corollary)
@@ -252,11 +252,11 @@ theorem predictive_compatibility
 
 /-! ## Minimal predictive query -/
 
-/-- The **minimal predictive query** `Q_* = φ_Q ∘ Q : Ω → ProbabilityMeasure β`.
+/-- The **minimal predictive state map** `Q_* = φ_Q ∘ Q : Ω → ProbabilityMeasure β`.
 
     `Q_*(ω)` is the conditional law `P(F ∈ · | Q = Q(ω))`. Two realizations
     are identified iff they have the same predictive law — no quotient needed. -/
-noncomputable def minimalPredictiveQuery
+noncomputable def minimalPredictiveStateMap
     (Q : Ω → α) (F : Ω → β)
     [StandardBorelSpace β] [Nonempty β]
     (hQ : Measurable Q) (hF : Measurable F) :
@@ -264,20 +264,20 @@ noncomputable def minimalPredictiveQuery
   predictiveLawMap P Q F hQ hF ∘ Q
 
 /-- **P2.3** `Q_*` is measurable — composition of measurable maps. -/
-theorem measurable_minimalPredictiveQuery
+theorem measurable_minimalPredictiveStateMap
     (Q : Ω → α) (F : Ω → β)
     [StandardBorelSpace β] [Nonempty β]
     (hQ : Measurable Q) (hF : Measurable F) :
-    Measurable (minimalPredictiveQuery P Q F hQ hF) :=
+    Measurable (minimalPredictiveStateMap P Q F hQ hF) :=
   (measurable_predictiveLawMap P Q F hQ hF).comp hQ
 
 /-- **P2.4** `Q_*(ω)` computes the predictive kernel at `Q(ω)`. -/
-theorem minimalPredictiveQuery_spec
+theorem minimalPredictiveStateMap_spec
     (Q : Ω → α) (F : Ω → β)
     [StandardBorelSpace β] [Nonempty β]
     (hQ : Measurable Q) (hF : Measurable F)
     (ω : Ω) (A : Set β) (hA : MeasurableSet A) :
-    (minimalPredictiveQuery P Q F hQ hF ω).toMeasure A =
+    (minimalPredictiveStateMap P Q F hQ hF ω).toMeasure A =
     (predictiveKernel P Q F hQ hF (Q ω)) A :=
   rfl
 
@@ -287,7 +287,7 @@ theorem predictive_equivalence
     [StandardBorelSpace β] [Nonempty β]
     (hQ : Measurable Q) (hF : Measurable F)
     (ω ω' : Ω) :
-    minimalPredictiveQuery P Q F hQ hF ω = minimalPredictiveQuery P Q F hQ hF ω' ↔
+    minimalPredictiveStateMap P Q F hQ hF ω = minimalPredictiveStateMap P Q F hQ hF ω' ↔
     predictiveKernel P Q F hQ hF (Q ω) = predictiveKernel P Q F hQ hF (Q ω') := by
   constructor
   · exact fun h => congr_arg ProbabilityMeasure.toMeasure h
@@ -347,7 +347,7 @@ theorem predictive_factorization
     (g : β → ℝ) (hg : Measurable g) (hg_bdd : ∃ C, ∀ f, |g f| ≤ C) :
     P.condExp (sigmaOf Q) (hg.comp hF)
     =ᵐ[P]
-    (fun ω => ∫ f, g f ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure) := by
+    (fun ω => ∫ f, g f ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure) := by
   -- The joint pushforward ρ = P.map (Q, F)
   set ρ := P.map (fun ω => (Q ω, F ω)) with hρ_def
   haveI hρ_fin : IsFiniteMeasure ρ := Measure.isFiniteMeasure_map P _
@@ -355,7 +355,7 @@ theorem predictive_factorization
   have hC_nn : 0 ≤ C := le_trans (abs_nonneg _) (hC (Classical.arbitrary β))
   -- h ω := ∫ f, g f ∂(Q_*(ω)) = ∫ f, g f ∂(ρ.condKernel (Q ω))
   -- since predictiveKernel P Q F = ρ.condKernel and Q_*(ω) uses kernel at Q(ω)
-  set h := fun ω => ∫ f, g f ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure
+  set h := fun ω => ∫ f, g f ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure
   -- Apply the uniqueness theorem for conditional expectation
   apply ae_eq_condExp_of_forall_setIntegral_eq (sigmaOf_le Q hQ)
   -- Goal 1: g ∘ F is integrable
@@ -378,10 +378,10 @@ theorem predictive_factorization
     · -- pointwise bound: ‖h ω‖ ≤ C (same chain as predictiveOp_le_norm)
       exact Filter.Eventually.of_forall (fun ω => by
         simp only [h, Real.norm_eq_abs]
-        calc |∫ f, g f ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure|
-            ≤ ∫ f, ‖g f‖ ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure :=
+        calc |∫ f, g f ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure|
+            ≤ ∫ f, ‖g f‖ ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure :=
               norm_integral_le_integral_norm _
-          _ ≤ ∫ _ : β, C ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure :=
+          _ ≤ ∫ _ : β, C ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure :=
               integral_mono
                 ((integrable_const C).mono' (by fun_prop)
                   (Filter.Eventually.of_forall (fun f => hC f)))
@@ -499,8 +499,8 @@ theorem predictive_sufficiency
     (g : β → ℝ) (hg : Measurable g) (hg_bdd : ∃ C, ∀ f, |g f| ≤ C) :
     P.condExp (sigmaOf Q) (hg.comp hF)
     =ᵐ[P]
-    P.condExp (sigmaOf (minimalPredictiveQuery P Q F hQ hF)) (hg.comp hF) := by
-  set Q_* := minimalPredictiveQuery P Q F hQ hF
+    P.condExp (sigmaOf (minimalPredictiveStateMap P Q F hQ hF)) (hg.comp hF) := by
+  set Q_* := minimalPredictiveStateMap P Q F hQ hF
   set h := fun ω => ∫ f, g f ∂(Q_* ω).toMeasure
   -- Step 1: E[g(F) | σ(Q)] =ᵐ h   (predictive_factorization)
   have hfact : P.condExp (sigmaOf Q) (hg.comp hF) =ᵐ[P] h :=
@@ -509,7 +509,7 @@ theorem predictive_sufficiency
   -- We apply ae_eq_condExp_of_forall_setIntegral_eq for the sub-σ-algebra sigmaOf Q_*.
   -- The key: every σ(Q_*)-set S = (Q_*)⁻¹(B) = Q⁻¹((φ_Q)⁻¹(B)) is a σ(Q)-set,
   -- so the set-integral identity follows from the factorization theorem.
-  have hQ_* : Measurable Q_* := measurable_minimalPredictiveQuery P Q F hQ hF
+  have hQ_* : Measurable Q_* := measurable_minimalPredictiveStateMap P Q F hQ hF
   have hfact2 : P.condExp (sigmaOf Q_*) (hg.comp hF) =ᵐ[P] h := by
     obtain ⟨C, hC⟩ := hg_bdd
     apply ae_eq_condExp_of_forall_setIntegral_eq (sigmaOf_le Q_* hQ_*)
@@ -527,10 +527,10 @@ theorem predictive_sufficiency
         exact ((hφ.comp_measurable (measurable_sigmaOf Q)).mono (sigmaOf_le Q hQ)).aestronglyMeasurable
       · exact Filter.Eventually.of_forall (fun ω => by
           simp only [h, Q_*, Real.norm_eq_abs]
-          calc |∫ f, g f ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure|
-              ≤ ∫ f, ‖g f‖ ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure :=
+          calc |∫ f, g f ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure|
+              ≤ ∫ f, ‖g f‖ ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure :=
                 norm_integral_le_integral_norm _
-            _ ≤ ∫ _ : β, C ∂(minimalPredictiveQuery P Q F hQ hF ω).toMeasure :=
+            _ ≤ ∫ _ : β, C ∂(minimalPredictiveStateMap P Q F hQ hF ω).toMeasure :=
                 integral_mono
                   ((integrable_const C).mono' (by fun_prop)
                     (Filter.Eventually.of_forall (fun f => hC f)))

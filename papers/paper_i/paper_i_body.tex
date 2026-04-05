@@ -3,12 +3,13 @@
 
 \begin{abstract}
 We prove that a coherent family of observations determines a unique probability
-measure on the observable $\sigma$-algebra.  Starting from a query system
-$(\iota, \leq, \Omega, \{\mathrm{Out}(i)\}, \{\mathrm{eval}_i\}, \{\pi_{ij}\})$
-and a compatible family of charges $\{\mu_i\}$, we identify the necessary and
-sufficient condition for the family to extend to a $\sigma$-additive global
-measure: \emph{collective exhaustion} (CE), the condition that no level can
-assign persistent mass to events the system as a whole sees as empty.
+measure on the observable $\sigma$-algebra.  The setting is a directed system of
+measurable outcome spaces connected by surjective refinement maps, together with
+a compatible family of finitely additive charges on the resulting cylinder
+algebra.  We identify the necessary and sufficient condition for the family to
+extend to a $\sigma$-additive global measure: \emph{collective exhaustion} (CE),
+the condition that no level can assign persistent mass to events the system as a
+whole sees as empty.
 
 The argument proceeds by two independent routes, each illuminating a different
 aspect of the extension problem.  The \emph{Carathéodory route} assumes
@@ -154,14 +155,6 @@ The index $i$ represents a level of observational resolution.  When $i \leq j$,
 level $j$ is finer: its outcomes can be coarsened to level $i$ by applying
 $\pi_{ij}$.  The coherence condition says that the evaluation maps are compatible
 with the coarsening structure.
-
-\begin{remark}[Notation]
-Paper~\cite{mahon_paper0} uses $(\mathcal{Q}, \preceq)$ for the index set and
-$O_Q$, $\pi^{Q_2}_{Q_1}$, $\nu_Q$ for the outcome spaces, refinement maps, and
-charges.  The present notation ($\iota$, $\mathrm{Out}(i)$, $\pi_{ij}$, $\mu_i$)
-is equivalent under the renaming $\iota = \mathcal{Q}$, $\leq\, =\, \preceq$;
-all results translate directly.
-\end{remark}
 
 \subsection{Realization space}
 
@@ -557,29 +550,6 @@ is a commitment the observer makes about the completed infinite, a condition on
 how their charges behave with respect to limits that no finite stage can verify.
 \end{remark}
 
-\begin{remark}[Site-theoretic perspective]
-The results of this section admit a categorical articulation that further
-clarifies why CE belongs irreducibly to the valuation layer.
-
-The directed system $(\mathcal{I}, \{\mathcal{E}_i\}, \{\pi_{ij}\})$ is a
-category $C(\mathcal{I})$ whose objects are the Boolean algebras and whose
-morphisms are the refinement maps.  Equip $C(\mathcal{I})$ with the Grothendieck
-topology $J$ in which a sieve $S$ on $\mathcal{E}_i$ covers $i$ if the levels
-in $S$ collectively witness set-theoretic vanishing.  CE is the condition that
-the charge presheaf $F_\ell : i \mapsto \ell_i$ is a sheaf for $J$ --- a
-strictly stronger demand than the subcanonical condition.
-
-The finite-cofinite content fails CE yet satisfies the sheaf condition for $J$.
-The reason: for the sequences responsible for CE failure, no term is ever empty
-as an element of $\mathcal{E}$, so no sieve can witness the vanishing
-set-theoretically.  The topology $J$ is too coarse: CE failure is a
-measure-algebraic phenomenon, invisible to the Boolean-algebraic structure.
-
-CE does become a genuine sheaf condition on the projective system of Stone
-spaces $\{S(\mathcal{E}_i)\}$: the charge presheaf is a sheaf for the compact
-Hausdorff topology if and only if the charges are tight, which by the extension
-criterion is equivalent to CE.
-\end{remark}
 
 % ------------------------------------------------------------------
 \section{Route 1: The Carathéodory extension}
@@ -724,7 +694,6 @@ finitely additive marginals on a countable sequentially upper-directed query
 system with Hausdorff outcome spaces to a $\sigma$-additive global measure.
 This route assumes topological structure on the outcome spaces and is
 complementary to the Carathéodory and Stone routes, which require no topology.
-See~\cite{mahon_paper0}, \S7, for the full development.
 \end{remark}
 
 \begin{remark}[Lean formalization]
@@ -974,6 +943,20 @@ hypothesis but a \emph{support condition}: the measure concentrates on the image
 of the sample space inside its Stone compactification.
 \end{remark}
 
+\begin{remark}[Lean formalization]
+\label{rem:lean-stone}
+The Stone route is formalized in Lean~4 in \texttt{StoneDualityExtension.lean}.
+The structural results (Tasks~0$'$-A and~0$'$-C: Stone space, cylinder clopens,
+evaluation maps, bonding maps) are fully proved with no sorry obligations.
+Two intentional sorrys mark Mathlib gaps: the extension of a clopen-algebra
+charge to a regular Borel measure on a compact totally-disconnected space
+(Halmos \S\S53--54; Fremlin Vol.~1 \S311E), and Choksi's projective-limit
+theorem for compatible measures on cofiltered inverse systems of compact Hausdorff
+spaces.  The coincidence of routes (Task~0$'$-E:
+\texttt{stone\_agrees\_with\_caratheodory}) is fully proved, as an immediate
+consequence of \texttt{observational\_determination}.
+\end{remark}
+
 % ------------------------------------------------------------------
 \section{The bridge}
 \label{sec:bridge}
@@ -1054,6 +1037,22 @@ $\mathrm{pure}$, does not escape: it remains concentrated on the original
 (non-compact) sample space.  In this sense, an observer satisfying CE ``knows
 they are in $\Omega$'': their probability assignments, however they are extended
 to the compact hull, retain no phantom mass.
+
+\begin{remark}[Topology from the query system]
+The Stone space $\mathrm{St}(\mathcal{C})$ carries a canonical topology: the
+one generated by all cylinder clopens $[E]$.  This is the coarsest topology
+making every observable distinction continuous.  A natural question, deferred
+to later work, is whether the \emph{relevant} topology on $\Omega$ — the one
+appropriate for dynamics and reconstruction — is this Stone topology, or whether
+it should itself be derived from the query system and its charges.  When
+separation is weighted by the measure $P$, a third regime appears beyond the
+usual distinguishable/indistinguishable binary: pairs that are formally separated
+at every level but whose separating events have $P$-measure tending to zero.
+These are points that the observer's valuation treats as near even though the
+Boolean algebra keeps them apart.  Whether this measure-weighted nearness
+assembles into a topology, and whether collective exhaustion and this separation
+condition are two faces of a single coherence requirement, is an open question.
+\end{remark}
 
 \paragraph{Connection to reconstruction.}
 For a dynamical system $(X, T, \mu)$ with observation function $h$, the

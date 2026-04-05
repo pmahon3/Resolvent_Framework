@@ -1,3 +1,4 @@
+# LaTeX build artifacts
 *.aux
 *.bbl
 *.blg
@@ -9,21 +10,21 @@
 *.fdb_latexmk
 *.fls
 *.run.xml
-*.DS_Store
+
+# macOS
+.DS_Store
 
 # Lean / Lake build artifacts
 .lake/build/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
 
 # Node
 node_modules/
 dist/
 
-# Claude Code
+# Claude Code settings (local, not for sharing)
 .claude/
-*.aux 
-*.bbl 
-*.blg 
-*.log 
-*.out 
-*.synctex.gz 
-*.toc

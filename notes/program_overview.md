@@ -43,9 +43,11 @@ measure on the observable σ-algebra.
    when reconstruction holds, the Stone space *is* the state space.
 
 **Lean formalization:** `DiscriminabilityFoundations.lean`, `QuerySystem.lean`,
-`StoneDualityExtension.lean`
+`StoneDualityExtension.lean`, `TopologicalQuerySystem.lean` (Prokhorov route
+infrastructure), `ProkhorovExtension.lean` (Prokhorov route main theorem),
+`DelayEmbedding.lean` (delay query system instantiation)
 
-**LaTeX:** `papers/paper_i/paper_i.tex` (integrated draft, 13 pages)
+**LaTeX:** `papers/paper_i/paper_i.tex` (revised draft, 13 pages)
 
 ---
 
@@ -127,13 +129,13 @@ seen from different angles.
 
 | Paper | Mathematical status | Lean status | LaTeX status | Next action |
 |-------|--------------------|-----------|----|---|
-| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys) | **First draft done** — `papers/paper_i/`, 13 pages | Revise and hone |
-| II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **First draft done** — `papers/paper_ii/`, 8 pages | Revise and hone |
-| III | Delay structure proved; cyclic vector theorem open | `DelayEmbedding.lean` 1 sorry (open mathematics) | Not started | Develop cyclic vector theorem |
+| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
+| II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
+| III | Delay structure proved; cyclic vector theorem open | `DelayEmbedding.lean` ✅ (1 sorry = deliberate scope note: full system not SUD; extension proved for bounded subsystems); cyclic vector not yet formalized | Not started | Develop cyclic vector theorem |
 
 ---
 
-## Task List (as of 2026-04-04)
+## Task List (as of 2026-04-04, updated 2026-04-04)
 
 Ordered by priority. Cross off as completed.
 
@@ -161,22 +163,33 @@ Ordered by priority. Cross off as completed.
   `StoneDualityExtension.lean` builds cleanly on `stone-duality-extension` branch.
   Task 0′-A/C/E proved; B/D intentional sorrys (Mathlib gaps: clopen charge → Borel
   measure; Choksi's theorem). `stone_agrees_with_caratheodory` proved with no sorry.
+- [x] **Revise Papers I and II** — Done 2026-04-04.
+  Paper I: removed contradictory site-theoretic remark; added Stone route Lean
+  formalization remark (documenting `StoneDualityExtension.lean` sorry inventory);
+  removed stale self-citation to `mahon_paper0`. Paper II: fixed duplicate "Positive"
+  item in Prop 5.2 (→ "Contractive"); resolved introduction tension on K_t primacy;
+  fixed incorrect cross-reference for predictive kernel; sharpened bridge §8 K_t/U_T
+  relationship. Both compile cleanly.
 
 ### Current priorities
-1. **Revise Papers I and II** — both first drafts exist; need sharpening before
-   submission. Paper I: tighten the bridge section and Stone route narrative now that
-   the Lean formalization is complete. Paper II: sharpen the Koopman-Perron duality
-   section.
+1. **Lean ↔ LaTeX alignment check** — verify that what the papers claim and what
+   the Lean files prove are consistent. Check Paper I against all six Lean files;
+   Paper II against `PredictiveState.lean` and `PredictiveOperators.lean`.
 
 2. **Develop cyclic vector theorem for Paper III** — the one place where mathematics
-   is still genuinely open. Delay embedding structure is proved (`DelayEmbedding.lean`);
-   the Takens generalization needs the cyclic vector characterization written properly.
+   is still genuinely open. `DelayEmbedding.lean` proves the delay query system
+   structure (upper-directed, surjective, compatible marginals, bounded-subsystem
+   extension); the cyclic vector / Takens generalization is not yet formalized.
 
 3. **Write Paper III (LaTeX)** — once the cyclic vector theorem is settled.
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct
   infrastructure); mathematics is correct, low priority.
+- `delayQuerySystem.seqUpperDirected` sorry in `DelayEmbedding.lean` — deliberate
+  scope note: the full delay system (all lags, all dimensions) is NOT sequentially
+  upper-directed. The extension theorem is correctly scoped to bounded subsystems
+  (`delayFixedLagBoundedSystem`). No action needed unless the scope is widened.
 - Paper IV — conceptual sketch only; not to be developed until Papers I–III complete.
 
 ---

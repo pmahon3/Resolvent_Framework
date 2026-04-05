@@ -3,21 +3,21 @@
 \begin{abstract}
 Given a probability measure on the observable $\sigma$-algebra — the output of
 Paper~I — this paper derives the dynamics of the system.  The central object is
-the \emph{predictive kernel}: the regular conditional distribution of the future
-observable $F$ given the current query $Q$.  From the predictive kernel we
-construct the \emph{minimal predictive query} $Q_*$, a canonical measurable map
-from the sample space into the space of probability measures on outcomes.  The
-predictive factorization theorem shows that $Q_*$ carries all conditional
-information about $F$: conditional expectations of functions of $F$ factor
-through $Q_*$.  Indexing $Q_*$ over a discrete time horizon then yields a
-family of Markov kernels $\{\Pi_t\}$ and a corresponding family of
-\emph{predictive operators} $\{K_t\}$.  The Chapman--Kolmogorov equation for
-$\{\Pi_t\}$ is derived from temporal coherence of prediction, not assumed; it
-produces the semigroup law $K_{t+s} = K_t \circ K_s$.  The dual
-\emph{Koopman--Perron} relation $\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$
-connects operator-on-functions and measure-on-states into a single picture.
-When the kernels are Dirac measures, the operators reduce to classical Koopman
-operators and the semigroup law becomes the flow law $\varphi_{t+s} =
+the \emph{predictive kernel}: the regular conditional distribution of a future
+observable $F : \Omega \to \beta$ given a present observable $Q : \Omega \to
+\alpha$.  From the predictive kernel we construct the \emph{minimal predictive
+state map} $Q_*$, a canonical measurable map from the sample space into the
+space of probability measures on outcomes.  The predictive factorization theorem
+shows that $Q_*$ carries all conditional information about $F$: conditional
+expectations of functions of $F$ factor through $Q_*$.  Indexing over a discrete
+time horizon then yields a family of Markov kernels $\{\Pi_t\}$ and a
+corresponding family of \emph{predictive operators} $\{K_t\}$.  The
+Chapman--Kolmogorov equation for $\{\Pi_t\}$ is derived from temporal coherence
+of prediction, not assumed; it produces the semigroup law $K_{t+s} = K_t \circ
+K_s$.  The dual \emph{Koopman--Perron} relation $\int K_t g\, d\mu = \int g\,
+d(P_t^* \mu)$ connects operator-on-functions and measure-on-states into a single
+picture.  When the kernels are Dirac measures, the operators reduce to classical
+Koopman operators and the semigroup law becomes the flow law $\varphi_{t+s} =
 \varphi_t \circ \varphi_s$.  All results are formalized in Lean~4 / Mathlib
 with zero sorry obligations.
 \end{abstract}
@@ -41,17 +41,20 @@ observer \emph{predicts} about the future, not what the system \emph{does} in
 state space.  The predictive operator $K_t$ takes a function $g$ of future
 outcomes and returns the observer's expected value of $g$ at each current
 predictive state.  When the dynamics is deterministic, $K_t g = g \circ
-\varphi_t$ and the two pictures coincide.  In the stochastic case, $K_t$ is the
-more fundamental object.
+\varphi_t$ and the two pictures coincide.  In the stochastic case, $K_t$ and
+its dual $P_t^*$ (acting on distributions) are genuinely adjoint: neither can be
+reduced to the other, and together they constitute the complete observable picture
+of the dynamics.
 
 \paragraph{What this paper shows.}
-Starting from a probability space $(\Omega, P)$, a current query $Q : \Omega \to
-\alpha$, and a future observable $F : \Omega \to \beta$, we construct:
+Starting from a probability space $(\Omega, \mathcal{F}, P)$, a measurable map
+$Q : \Omega \to \alpha$ (the present observation), and a measurable map
+$F : \Omega \to \beta$ (the future observation), we construct:
 \begin{enumerate}[label=(\roman*)]
   \item the \emph{predictive kernel} $\Pi_Q$, the regular conditional
-    distribution of $F$ given $Q$ (Theorem~\ref{thm:predictive-factorization});
-  \item the \emph{minimal predictive query} $Q_* = \varphi_Q \circ Q$, which
-    encodes the conditional law as a single measurable map into
+    distribution of $F$ given $Q$ (Definition~\ref{def:predictive-kernel});
+  \item the \emph{minimal predictive state map} $Q_* = \varphi_Q \circ Q$,
+    which encodes the conditional law as a single measurable map into
     $\mathcal{P}(\beta)$ (Definition~\ref{def:minimal-predictive});
   \item a family of predictive operators $\{K_t\}$ satisfying the semigroup
     law $K_{t+s} = K_t \circ K_s$
@@ -63,19 +66,18 @@ Starting from a probability space $(\Omega, P)$, a current query $Q : \Omega \to
 \end{enumerate}
 
 \paragraph{Relation to Paper~I.}
-Paper~I took the output of structured observations as input and produced a
-probability measure.  Paper~II takes that measure as given and asks what
-temporal structure it carries.  The query system language of Paper~I
-specializes here to a single probability space $(\Omega, P)$ with two
-distinguished measurable functions: $Q$ (the present query) and $F$ (the
-future observable).  The formalism is self-contained but the conceptual
-motivation flows from Paper~I.
+Paper~I took the output of coherent structured observations as input and
+produced a probability measure $P$ on the observable $\sigma$-algebra.
+Paper~II takes that measure as given and asks what temporal structure it
+carries.  The setup is two measurable maps on the resulting probability space:
+$Q : \Omega \to \alpha$ encoding the present state of observation, and
+$F : \Omega \to \beta$ encoding the future.  The formalism is self-contained.
 
 \paragraph{Lean formalization.}
 All results in this paper are formalized in Lean~4 / Mathlib in two files:
 \begin{itemize}
   \item \texttt{PredictiveState.lean} — the predictive kernel, minimal
-    predictive query, and predictive factorization theorem (zero sorry
+    predictive state map, and predictive factorization theorem (zero sorry
     obligations).
   \item \texttt{PredictiveOperators.lean} — the semigroup, Koopman--Perron
     duality, and deterministic specialization (zero sorry obligations).
@@ -90,12 +92,12 @@ Bochner--Fubini theorem for kernel compositions.
 \label{sec:setup}
 
 Throughout this paper, $(\Omega, \mathcal{F}, P)$ is a probability space.  We
-fix two measurable functions:
+fix two measurable maps:
 \begin{itemize}
-  \item a \emph{current query} $Q : \Omega \to \alpha$, where $(\alpha,
-    \mathcal{A})$ is a measurable space;
-  \item a \emph{future observable} $F : \Omega \to \beta$, where $(\beta,
-    \mathcal{B})$ is a standard Borel space.
+  \item $Q : \Omega \to \alpha$, where $(\alpha, \mathcal{A})$ is a measurable
+    space;
+  \item $F : \Omega \to \beta$, where $(\beta, \mathcal{B})$ is a standard
+    Borel space.
 \end{itemize}
 The standard Borel hypothesis on $\beta$ is used once: it is the hypothesis
 under which the Rokhlin disintegration theorem guarantees the existence of a
@@ -107,14 +109,8 @@ pushforward} is the measure $\rho := P \circ (Q, F)^{-1}$ on $\alpha \times
 \beta$; its marginals are $\rho_\alpha = P \circ Q^{-1}$ and $\rho_\beta = P
 \circ F^{-1}$.
 
-\begin{remark}[Notation]
-  In Lean~4 / Mathlib, the joint pushforward is \texttt{P.map (fun o => (Q o,
-  F o))}, and the conditional kernel is \texttt{.condKernel} applied to this
-  measure.  All Lean definitions use this route.
-\end{remark}
-
 % ====================================================================
-\section{The predictive kernel and the minimal predictive query}
+\section{The predictive kernel and the minimal predictive state map}
 \label{sec:predictive}
 
 \subsection{The predictive kernel}
@@ -154,18 +150,18 @@ first marginal, combined with the covariance of condKernel under measurable
 maps (\texttt{eq\_condKernel\_of\_measure\_eq\_compProd} in Mathlib).
 \end{proof}
 
-\subsection{The predictive law map and the minimal predictive query}
+\subsection{The predictive law map and the minimal predictive state map}
 
-The predictive kernel $\Pi_Q$ maps each query value $q$ to a probability
+The predictive kernel $\Pi_Q$ maps each value $q \in \alpha$ to a probability
 measure on outcomes.  Packaging this as a single measurable map gives:
 
-\begin{definition}[Predictive law map and minimal predictive query]
+\begin{definition}[Predictive law map and minimal predictive state map]
 \label{def:minimal-predictive}
 The \emph{predictive law map} is
 \[
   \varphi_Q : \alpha \to \mathcal{P}(\beta), \qquad \varphi_Q(q) = \Pi_Q(q, \cdot).
 \]
-The \emph{minimal predictive query} is the composition
+The \emph{minimal predictive state map} is the composition
 \[
   Q_* := \varphi_Q \circ Q : \Omega \to \mathcal{P}(\beta).
 \]
@@ -186,7 +182,7 @@ is measurable by \texttt{Measurable.subtype\_mk}.  Measurability of $Q_*$ then
 follows from composition.
 \end{proof}
 
-The minimal predictive query identifies observers with the same predictive law:
+The minimal predictive state map identifies points with the same predictive law:
 
 \begin{proposition}[Predictive equivalence, P2.4]
 \label{prop:predictive-equiv}
@@ -204,8 +200,8 @@ inside the standard Borel space $\mathcal{P}(\beta)$.
 \label{sec:factorization}
 
 The predictive factorization theorem is the central result of this paper.  It
-says that the conditional expectation of any bounded measurable function of the
-future, given the current query, factors through the minimal predictive query.
+says that the conditional expectation of any bounded measurable function of $F$,
+given $Q$, factors through the minimal predictive state map $Q_*$.
 
 \begin{theorem}[Predictive factorization, P2.5]
 \label{thm:predictive-factorization}
@@ -278,9 +274,9 @@ The canonical predictive operator $K_{Q_*}$ is:
 \section{The predictive semigroup}
 \label{sec:semigroup}
 
-So far, the setup has been static: a single query $Q$ predicting a single
-future observable $F$.  To introduce dynamics, we index over a discrete time
-horizon.  For each $t \in \mathbb{N}$, let $F_t : \Omega \to \gamma$ be the
+So far, the setup has been static: a single pair of measurable maps $(Q, F)$
+representing present and future.  To introduce dynamics, we index over a
+discrete time horizon.  For each $t \in \mathbb{N}$, let $F_t : \Omega \to \gamma$ be the
 observable at time $t$, and let $\Pi_t$ be the predictive kernel of $F_t$
 given the current predictive state.
 
@@ -329,13 +325,14 @@ For any predictive kernel family $\{\Pi_t\}$:
   \item \emph{Identity at zero}: $K_0 g = g$ for all measurable $g$;
   \item \emph{Positive}: $g \geq 0 \Rightarrow K_t g \geq 0$;
   \item \emph{Unital}: $K_t \mathbf{1} = \mathbf{1}$;
-  \item \emph{Positive}: $g \geq 0 \Rightarrow K_t g \geq 0$.
+  \item \emph{Contractive}: $\|K_t g\|_\infty \leq \|g\|_\infty$.
 \end{enumerate}
 \end{proposition}
 \begin{proof}
-Identity at zero: $K_0 g(q) = \int g\, d\delta_q = g(q)$.  The remaining
-properties are immediate from the Markov property (probability preserving) and
-non-negativity of integration against a positive measure.
+Identity at zero: $K_0 g(q) = \int g\, d\delta_q = g(q)$.  Positivity and
+unitality are immediate from the Markov property and non-negativity of
+integration against a positive measure.  Contractiveness:
+$|(K_t g)(q)| = |\int g\, d\Pi_t(q,\cdot)| \leq \|g\|_\infty \cdot \Pi_t(q, \gamma) = \|g\|_\infty$.
 \end{proof}
 
 \begin{theorem}[Semigroup property, P3.3]
@@ -409,8 +406,8 @@ The Bochner--Fubini step again uses \texttt{Kernel.integral\_comp}.
 \end{proof}
 
 \begin{remark}[The two sides of the duality]
-$K_t$ acts on the \emph{function algebra}: it takes a present query $g$ and
-returns its predicted value $t$ steps hence.  $P_t^*$ acts on the
+$K_t$ acts on the \emph{function algebra}: it takes a function $g$ on the
+state space and returns its predicted value $t$ steps hence.  $P_t^*$ acts on the
 \emph{distribution}: it takes a current distribution of predictive states and
 evolves it $t$ steps forward.  Neither is primary; they are adjoint.  In the
 classical (deterministic) specialization below, $K_t$ becomes the Koopman
@@ -499,7 +496,7 @@ setting.
 \label{sec:bridge}
 
 Paper~II has constructed the dynamics entirely from the probability measure $P$
-and the query-future pair $(Q, F)$.  The predictive state space $O_{Q_*}$ is a
+and the measurable maps $(Q, F)$.  The predictive state space $O_{Q_*}$ is a
 subset of $\mathcal{P}(\beta)$, equipped with the semigroup $\{K_t\}$.
 
 Paper~III asks the converse question: \emph{when does the sequence of
@@ -509,12 +506,15 @@ Koopman operator — is that the Stone space of the observable algebra generated
 by time-delayed queries is isomorphic (as a measure space) to the original
 state space.
 
-The connection to Paper~II is direct: the Koopman operator that appears in the
-cyclic vector condition is precisely the operator on $L^2(\Omega, P)$ induced by
-the dynamics $T$, and the predictive operators $K_t$ are its compression to the
-observable subalgebra.  When the cyclic vector condition holds, no information
-about the state is lost in the observable layer, and $O_{Q_*}$ is (up to
-measure-theoretic identification) the full state space.
+The connection to Paper~II is direct.  The Koopman operator appearing in the
+cyclic vector condition is the operator $U_T f = f \circ T$ on $L^2(\Omega, P)$
+induced by the dynamics $T$.  The predictive operators $K_t$ act on functions on
+the predictive state space $O_{Q_*} \subset \mathcal{P}(\beta)$; when $Q_*$ is
+injective up to $P$-null sets, $K_t$ and $U_T^t$ determine the same operator up
+to the identification of $O_{Q_*}$ with the $L^2$ orbit of $Q$.  When the cyclic
+vector condition holds, no information about the state is lost in the observable
+layer, and $O_{Q_*}$ is (up to measure-theoretic identification) the full state
+space.
 
 \begin{remark}[Continuous-time deferred]
 All results above are stated for discrete time $t \in \mathbb{N}$.  The

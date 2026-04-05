@@ -73,8 +73,8 @@ as a full `∃!` theorem. Sorry count 2→0.
 | Predictive law map | — | `predictiveLawMap` (def) | ✓ | `α → ProbabilityMeasure β` |
 | Measurability of predictive law map | — | `measurable_predictiveLawMap` | ✓ | via `Kernel.measurable.subtype_mk` |
 | Predictive compatibility (tower) | prop:pred-compat | `predictive_compatibility` | ✓ | statement is a.e. under P.map Q₁ (condKernel is only a.e.-unique); proved via Kernel.comap + eq_condKernel_of_measure_eq_compProd |
-| Minimal predictive query | thm:minimal-predictive-query | `minimalPredictiveQuery` (def) | ✓ | `Q_* = φ_Q ∘ Q : Ω → ProbabilityMeasure β` |
-| Measurability of minimal predictive query | — | `measurable_minimalPredictiveQuery` | ✓ | composition of measurable maps |
+| Minimal predictive query | thm:minimal-predictive-query | `minimalPredictiveStateMap` (def) | ✓ | `Q_* = φ_Q ∘ Q : Ω → ProbabilityMeasure β` |
+| Measurability of minimal predictive state map | — | `measurable_minimalPredictiveStateMap` | ✓ | composition of measurable maps |
 | Predictive equivalence | — | `predictive_equivalence` | ✓ | `Q_*(ω) = Q_*(ω') ↔ Π_Q(Qω) = Π_Q(Qω')` |
 | Predictive factorization theorem | thm:predictive-factorization | `predictive_factorization` | ✓ | `E[g(F)\|σ(Q)] =ᵐ (predictiveOp g) ∘ Q_*`; requires `hg_bdd` (bounded g) |
 | Predictive sufficiency | — | `predictive_sufficiency` | ✓ | `E[g(F)\|σ(Q)] =ᵐ E[g(F)\|σ(Q_*)]` |

@@ -732,6 +732,13 @@ work should either (a) prove `EvalSurjective` from a weaker richness assumption 
     `eval i ⁻¹' E₁ = eval i ⁻¹' E₂`).  See the note in the Stage 2 section header. -/
 def EvalSurjective : Prop := ∀ i : S.ι, Function.Surjective (S.eval i)
 
+/-- **Discriminability** (Paper I, Definition 2.6): the query system separates points.
+    For every `ω ≠ ω'` in `Omega`, some cylinder event distinguishes them.
+    This is injectivity of the Stone embedding `pure : Omega → Ultrafilter Omega`. -/
+def Discriminability : Prop :=
+  ∀ ω ω' : S.Omega, ω ≠ ω' → ∃ i : S.ι, ∃ A : Set (S.q i).Outcome,
+    S.eval i ω ∈ A ∧ S.eval i ω' ∉ A
+
 /-- **`preμAt` on a singleton index equals `ν i (A i)`.**
 
     When `s = {i}` and `k = i`, `hk : le i i = le_refl i`, so

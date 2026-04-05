@@ -30,8 +30,6 @@ Fix a probability space `(X, m0, μ)` and a sub-σ-algebra `m ≤ m0`.
 
 **Density bridge (Lemma 3.1).**  Simple functions w.r.t. `m` are dense in
 `L²(X, m, μ.trim hm)` (`density_bridge`, proved directly via `Lp.simpleFunc.dense`).
-Consequently, the subgroup `lpMeasSubgroup ℝ m 2 μ` is dense in `Lp ℝ 2 μ`
-iff `m = m0` mod `μ` (via the isometric iso `lpMeasSubgroupToLpTrimIso`).
 
 **Reconstruction theorem (Theorem 4.1).**  For an invertible measure-preserving
 system `(X, m0, μ, T)` and `h : X → ℝ`, define:
@@ -53,7 +51,6 @@ condition for the Koopman operator `U_T`), then `lpMeas 𝒪_h 2 μ` is dense.
 * `observableAlgebra_measurable`   : generators are `𝒪_h`-measurable (§1)
 * `observableAlgebra_le`           : `𝒪_h ≤ m` when generators are `m`-measurable (§1)
 * `density_bridge`                 : `Lp.simpleFunc ℝ 2 (μ.trim hm)` is dense (§2) ✅
-* `lpMeasSubgroup_dense_in_Lp`     : `lpMeasSubgroup` dense via isometry (§2) sorry
 * `lpMeas_eq_top_of_ae_eq`         : `m = m0` mod `μ` → `lpMeas = ⊤` (§2) sorry
 * `reconstruction_iff_lpMeas`      : (i) ↔ (ii) (§3) sorry
 * `delayMap`                       : definition (§4)
@@ -63,16 +60,16 @@ condition for the Koopman operator `U_T`), then `lpMeas 𝒪_h 2 μ` is dense.
 * `delayMap_intertwines_shift`     : `Φ_h ∘ T = σ ∘ Φ_h` (§5) sorry
 * `cyclic_implies_dense`           : cyclic → dense (§6) sorry
 
-## Sorry inventory
+## Sorry inventory (2 remaining)
 
 | Name | Type | Proof sketch |
 |------|------|--------------|
-| `lpMeasSubgroup_dense_in_Lp` | Mathlib API | `lpMeasSubgroupToLpTrimIso` transfers density |
-| `lpMeas_eq_top_of_ae_eq` | Mathlib API | null-set approx → a.e. m-measurability |
-| `reconstruction_iff_lpMeas` (←) | Mathlib API | a.e.-convergent subsequence |
-| `observableAlgebra_eq_comap` | Mathlib API | `MeasurableSpace.comap` vs `pi` |
-| `delayMap_intertwines_shift` | Scope note | `Int.toNat_add_one` + invertibility |
-| `cyclic_implies_dense` | Scope | span ≤ Submodule containment |
+| `lpMeas_eq_top_of_ae_eq` | Mathlib gap | null-set approx → a.e. m-measurability; blocked by absence of downward `AEStronglyMeasurable` monotonicity in Mathlib |
+| `reconstruction_iff_lpMeas` (←) | Mathlib gap | a.e.-convergent subsequence from Lp convergence; `tendsto_ae_of_tendsto_Lp` not in Mathlib |
+
+Previously sorry: `observableAlgebra_eq_comap`, `delayMap_intertwines_shift`,
+`cyclic_implies_dense` — all closed 2026-04-05.
+`lpMeasSubgroup_dense_in_Lp` removed: unused and FALSE for general `m ≤ m0`.
 
 See `notes/reconstruction_lean_flight_plan.md` for detailed API notes.
 -/
@@ -133,19 +130,6 @@ theorem density_bridge [MeasurableSpace X] {m : MeasurableSpace X}
     (hm : m ≤ ‹MeasurableSpace X›) (μ : Measure X) [IsFiniteMeasure μ] :
     Dense (Lp.simpleFunc ℝ 2 (μ.trim hm) : Set (Lp ℝ 2 (μ.trim hm))) :=
   Lp.simpleFunc.dense (by norm_num)
-
-/-- `lpMeasSubgroup ℝ m 2 μ` is dense in `Lp ℝ 2 μ`.
-
-    **Proof sketch:** `lpMeasSubgroupToLpTrimIso` is a surjective isometry
-    `lpMeasSubgroup ℝ m 2 μ ≃ᵢ Lp ℝ 2 (μ.trim hm)`.
-    `density_bridge` says `Lp.simpleFunc ℝ 2 (μ.trim hm)` is dense.
-    So the preimage of a dense set under a surjective isometry is dense. -/
-theorem lpMeasSubgroup_dense_in_Lp [MeasurableSpace X] {m : MeasurableSpace X}
-    (hm : m ≤ ‹MeasurableSpace X›) (μ : Measure X) [IsFiniteMeasure μ] :
-    Dense (lpMeasSubgroup ℝ m 2 μ : Set (Lp ℝ 2 μ)) := by
-  sorry
-  -- Note: this lemma is not used by the current reconstruction theorem.
-  -- It would be needed for a converse density argument; deferred.
 
 /-- When `m = m0` mod `μ`, `lpMeas ℝ ℝ m 2 μ = ⊤`.
 

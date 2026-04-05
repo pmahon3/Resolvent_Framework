@@ -13,9 +13,9 @@ Structured observations
     → [Paper III] → reconstruction: state space X ≅ St(observable algebra)
 ```
 
-The Stone space constructed in Paper I as a technical device reappears at
-the end of Paper III as the object being reconstructed. The programme begins
-and ends with the same compact space, seen from different angles.
+The Stone space constructed in Paper I as a technical device for measure
+extension reappears in Paper III as the object being reconstructed.
+The programme begins and ends with the same compact space.
 
 ## Papers
 
@@ -32,28 +32,32 @@ the observable σ-algebra. Proved by two independent routes:
 The irreducibility of Collective Exhaustion (CE) — the necessary and sufficient
 condition — is established via a finite-cofinite counterexample and Łoś's theorem.
 
-**LaTeX:** `papers/paper_i/` (13 pages) | **Lean:** `QuerySystem.lean`,
-`DiscriminabilityFoundations.lean`, `StoneDualityExtension.lean`
+**LaTeX:** `papers/paper_i/` (13 pages, arXiv-ready)
+**Lean:** `QuerySystem.lean` ✅, `DiscriminabilityFoundations.lean` ✅,
+`StoneDualityExtension.lean` ✅, `TopologicalQuerySystem.lean` ✅,
+`ProkhorovExtension.lean` ✅
 
 ### Paper II — Dynamics from Probability
 
 Given a probability measure, the temporal structure of prediction is uniquely
-determined. The predictive kernel, minimal predictive state map Q*, and
-semigroup {K_t} are derived, not assumed. Koopman–Perron duality connects
-operator-on-functions and measure-on-states into a single picture.
+determined. The predictive kernel, minimal predictive state map Q\*, and
+semigroup {K_t} are derived from temporal coherence, not assumed.
+Koopman–Perron duality connects operator-on-functions and measure-on-states.
 
-**LaTeX:** `papers/paper_ii/` (8 pages) | **Lean:** `PredictiveState.lean`,
-`PredictiveOperators.lean`
+**LaTeX:** `papers/paper_ii/` (8 pages, arXiv-ready)
+**Lean:** `PredictiveState.lean` ✅, `PredictiveOperators.lean` ✅ (0 sorrys)
 
-### Paper III — Reconstruction from Observation (in progress)
+### Paper III — Reconstruction from Observation
 
-Under a cyclic vector condition on the Koopman operator, the Stone space of
-the observable algebra is measure-theoretically isomorphic to the state space.
-This generalises Takens's theorem: measurability replaces smoothness, and the
-cyclic vector condition replaces the dimension count.
+Under a cyclic vector condition on the Koopman operator, the delay map
+Φ_h : X → ℝ^ℕ is a measure-theoretic embedding and the Stone space of the
+observable algebra is isomorphic to the state space. Generalises Takens's
+theorem: measurability replaces smoothness, algebraic density replaces the
+dimension count.
 
-**LaTeX:** not started | **Lean:** `DelayEmbedding.lean` (delay query system
-structure proved; cyclic vector theorem open)
+**LaTeX:** `papers/paper_iii/` (6 pages, revised)
+**Lean:** `ReconstructionTheorem.lean` ✅ (2 Mathlib-gap sorrys),
+`DelayEmbedding.lean` ✅
 
 ## Repository structure
 
@@ -61,8 +65,9 @@ structure proved; cyclic vector theorem open)
 Resolvent_Framework/
 ├── README.md
 ├── papers/
-│   ├── paper_i/           ← Paper I LaTeX (paper_i.tex, paper_i_body.tex, references.bib)
-│   └── paper_ii/          ← Paper II LaTeX
+│   ├── paper_i/           ← Paper I LaTeX (arXiv-ready)
+│   ├── paper_ii/          ← Paper II LaTeX (arXiv-ready)
+│   └── paper_iii/         ← Paper III LaTeX (revised)
 ├── formalization/
 │   └── QuerySystem/       ← Lean 4 / Mathlib formalization
 │       └── QuerySystem/
@@ -72,25 +77,28 @@ Resolvent_Framework/
 │           ├── PredictiveState.lean
 │           ├── PredictiveOperators.lean
 │           ├── DelayEmbedding.lean
+│           ├── ReconstructionTheorem.lean
 │           ├── TopologicalQuerySystem.lean
 │           └── ProkhorovExtension.lean
 ├── notes/
-│   ├── program_overview.md          ← canonical task list and status table
-│   ├── stone_duality_lean_flight_plan.md
+│   ├── program_overview.md          ← canonical task list and status
+│   ├── arxiv_prep.md                ← arXiv submission checklist
+│   ├── lean_flight_log.md           ← running Lean error/fix log
+│   ├── reconstruction_lean_flight_plan.md
 │   └── conceptual_sketches/
-│       └── philosophy/
 └── archive/               ← superseded drafts and notes
 ```
 
 ## Lean formalization status
 
 See `formalization/QuerySystem/README.md` for the full sorry inventory.
-All main theorems in Papers I and II carry zero sorrys. Remaining sorrys
-are intentional Mathlib-gap markers, not proof-search failures.
+All main theorems in Papers I and II carry zero sorrys. All remaining sorrys
+are documented Mathlib-gap markers, not proof-search failures.
 
 ## Current status
 
 See `notes/program_overview.md` for the canonical task list and priorities.
 
-- **Papers I and II**: revised drafts complete.
-- **Paper III**: cyclic vector theorem under development.
+- **Papers I and II**: arXiv-ready (MSC classifications, keywords, citations complete).
+- **Paper III**: first draft revised; 2 Mathlib-gap sorrys in `ReconstructionTheorem.lean`.
+- **Next action**: arXiv submission of Papers I and II.

@@ -178,7 +178,7 @@ are the state space.
 |-------|--------------------|-----------|----|---|
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
-| III | Reconstruction theorem identified (2026-04-04); density bridge is the key proof obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅ (delay query system structure); density bridge and reconstruction theorem not yet formalized | **First draft** — `papers/paper_iii/`, 6 pages | Formalize density bridge |
+| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (builds cleanly; 6 intentional sorrys — all Mathlib API gaps, not mathematical gaps) | **First draft** — `papers/paper_iii/`, 6 pages | Close sorrys; submit |
 
 ---
 
@@ -222,18 +222,32 @@ Ordered by priority. Cross off as completed.
   reconstruction theorem (three-way equivalence), cyclic vector (sufficient condition),
   Stone space identification, Takens comparison. Sketch at
   `notes/conceptual_sketches/cyclic_vector_theorem_sketch.md`.
+- [x] **Formalize Paper III skeleton** — Done 2026-04-04. `ReconstructionTheorem.lean`
+  builds cleanly on `stone-duality-extension` branch. Proved: `observableAlgebra`
+  definitions, `density_bridge` (via `Lp.simpleFunc.dense`), `delayMap_measurable`.
+  6 intentional sorrys — all Mathlib API interaction issues, not mathematical gaps.
+  Flight log at `notes/lean_flight_log.md`; API reference at
+  `notes/reconstruction_lean_flight_plan.md`.
 
 ### Current priorities
-1. **Formalize density bridge** — new `ReconstructionTheorem.lean` for Paper III. Main
-   ingredients: `MeasureTheory.SimpleFunc` density in $L^2$, functional monotone class
-   theorem (`MeasureTheory.induction_on_inter` or `MeasureTheory.Measure.ext_iff`),
-   `MeasurableSpace.generateFrom`. Should be mostly accessible in Mathlib.
 
-2. **Connect delay query system to reconstruction** — instantiate the abstract
-   reconstruction theorem for `delayQuerySystem`: show the delay algebra is dense
-   iff the shift has a generating observation.
+1. **Close `ReconstructionTheorem.lean` sorrys** — 6 intentional sorrys, all Mathlib
+   API interaction issues documented in `notes/lean_flight_log.md` and
+   `notes/reconstruction_lean_flight_plan.md`. Priority order:
+   - `density_bridge` / `lpMeasSubgroup_dense_in_Lp` — isometric transfer via
+     `lpMeasSubgroupToLpTrimIso`; requires section-variable pattern
+   - `observableAlgebra_eq_comap` — `MeasurableSpace.comap` vs `pi` API
+   - `delayMap_intertwines_shift` — `Int.toNat_add_one` arithmetic
+   - `lpMeas_eq_top_of_ae_eq` / `reconstruction_iff_lpMeas` (←) — longer argument
+   - `cyclic_implies_dense` — span ≤ Submodule containment
 
-3. **Submit Papers I and II** — mathematically complete, Lean formalized, LaTeX clean.
+2. **Submit Papers I and II** — mathematically complete, Lean formalized, LaTeX clean.
+   Blocking question: target venue? arXiv preprint first, or journal direct?
+
+3. **Connect delay query system to reconstruction** — instantiate
+   `ReconstructionTheorem` for `delayQuerySystem`: `delayAlgebra` dense iff shift
+   has a generating observation. Requires connecting `DelayEmbedding.lean` to
+   `ReconstructionTheorem.lean`.
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

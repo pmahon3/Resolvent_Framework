@@ -494,6 +494,46 @@ measure-theoretic embedding.  For Lebesgue measure on $M$, this is the
 measure-theoretic content of the Takens theorem.
 \end{remark}
 
+\begin{remark}[Lean formalization]
+\label{rem:lean-reconstruction}
+The core results of this paper are formalized in Lean~4 using Mathlib, in the
+file \texttt{ReconstructionTheorem.lean} (project \texttt{QuerySystem}).
+The following are fully proved with zero sorrys:
+\begin{itemize}
+  \item \texttt{observableAlgebra}: the $\sigma$-algebra
+    $\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$
+    (Definition~\ref{def:obs-algebra}).
+  \item \texttt{observableAlgebra\_eq\_comap}: $\mathcal{O}_h$ equals the
+    pullback of the product $\sigma$-algebra along $\Phi_h$
+    (Lemma~\ref{lem:obs-pullback}).
+  \item \texttt{delayMap\_intertwines\_shift}: $\Phi_h \circ T = \sigma \circ
+    \Phi_h$, where $\sigma$ is the unilateral shift on $\mathbb{N} \to \mathbb{R}$
+    (Corollary~\ref{cor:shift-invariance}).
+  \item \texttt{cyclic\_implies\_dense}: if the translates
+    $\{h \circ T^n : n \in \mathbb{N}\}$ span a cyclic vector in $L^2(\mu)$,
+    then $L^2(\mathcal{O}_h,\mu)$ is dense in $L^2(\mu)$
+    (implication (iii)$\Rightarrow$(ii) of Theorem~\ref{thm:reconstruction}).
+\end{itemize}
+Three further results carry documented \texttt{sorry}s at genuine Mathlib gaps:
+\begin{itemize}
+  \item \texttt{lpMeas\_eq\_top\_of\_ae\_eq}: if every $\mathcal{B}$-set has an
+    $\mathcal{O}_h$-a.e.-equal version, then every $f \in L^2(\mu)$ is
+    $\mathcal{O}_h$-a.e.-strongly-measurable.  Blocked by the absence of a
+    downward-monotonicity lemma for \texttt{AEStronglyMeasurable} under
+    a.e.-equivalent $\sigma$-algebras.
+  \item \texttt{reconstruction\_iff\_lpMeas} ($\Leftarrow$): density of
+    $L^2(\mathcal{O}_h,\mu)$ implies every $\mathcal{B}$-set has an
+    $\mathcal{O}_h$-version a.e.\ (requires an a.e.-convergent subsequence
+    argument not yet available in Mathlib's \texttt{Lp} API).
+  \item \texttt{lpMeasSubgroup\_dense\_in\_Lp}: noted as FALSE for general
+    $\mathcal{O}_h \leq \mathcal{B}$; the correct statement
+    ($L^2(\mathcal{O}_h,\mu)$ dense in $L^2(\mu)$ iff $\mathcal{O}_h = \mathcal{B}$
+    mod $\mu$) is the content of the theorem itself.
+\end{itemize}
+The formalization is on the \texttt{stone-duality-extension} branch of the
+project repository.
+\end{remark}
+
 % ====================================================================
 \bibliographystyle{plain}
 \bibliography{references}

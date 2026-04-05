@@ -199,6 +199,21 @@ Attack order by difficulty (easiest first):
 | `delayMap_intertwines_shift` | 1 | ✅ closed |
 | `observableAlgebra_eq_comap` | 2 | ✅ closed |
 | `cyclic_implies_dense` | 3 | ✅ closed |
-| `lpMeasSubgroup_dense_in_Lp` | 4 | ⬜ queued |
-| `lpMeas_eq_top_of_ae_eq` | 4 | ⬜ queued |
-| `reconstruction_iff_lpMeas` (←) | 4 | ⬜ queued |
+| `lpMeasSubgroup_dense_in_Lp` | 4 | ⚠️ deferred — FALSE for general `m ≤ m0`; not used by file |
+| `lpMeas_eq_top_of_ae_eq` | 4 | ⬜ Mathlib gap — no downward `AEStronglyMeasurable` monotonicity |
+| `reconstruction_iff_lpMeas` (←) | 4 | ⬜ Mathlib gap — a.e.-convergent subsequence from Lp convergence |
+
+---
+
+## DelayEmbedding bridge (2026-04-05)
+
+`DelayEmbedding.lean` now imports `ReconstructionTheorem.lean` and provides
+`section ReconstructionBridge` with:
+
+| Declaration | Status |
+|-------------|--------|
+| `delayObservableAlgebra` | ✅ compiles |
+| `delayObservableAlgebra_eq_comap` | ✅ = `observableAlgebra_eq_comap` |
+| `delayMap_shift_intertwining` | ✅ = `delayMap_intertwines_shift` |
+| `delay_cyclic_implies_reconstruction` | ✅ = `cyclic_implies_dense` |
+| `delay_reconstruction_iff` | ⚠️ sorry — two-MeasurableSpace elaboration; Lean resolves `[MeasurableSpace X]` as `delayObservableAlgebra h T` preventing call to `reconstruction_iff_lpMeas` |

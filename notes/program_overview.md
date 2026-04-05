@@ -237,28 +237,31 @@ Ordered by priority. Cross off as completed.
 - [x] **Close `cyclic_implies_dense` sorry** — Done 2026-04-05. Key: `aestronglyMeasurable_congr
   coeFn_toLp` + `Submodule.topologicalClosure_mono` + `dense_iff_topologicalClosure_eq_top`.
   3 sorrys remain (all Round 4: lpMeas instance refactor).
+- [x] **Connect `DelayEmbedding.lean` to `ReconstructionTheorem.lean`** — Done 2026-04-05.
+  Added `section ReconstructionBridge` to `DelayEmbedding.lean`: `delayObservableAlgebra`
+  (wraps `observableAlgebra`), `delayObservableAlgebra_eq_comap`, `delayMap_shift_intertwining`,
+  `delay_cyclic_implies_reconstruction` (fully proved, zero sorrys). One documented sorry:
+  `delay_reconstruction_iff` — two-MeasurableSpace-instance elaboration prevents calling
+  `reconstruction_iff_lpMeas` from `DelayEmbedding.lean`; marked with explanation.
+  Also fixed 3 pre-existing errors in `DelayEmbedding.lean` (linarith → omega; map_map
+  pattern mismatch; rw unsolved goals).
+- [x] **Add Lean formalization remark to Paper III** — Done 2026-04-05. Added
+  `\begin{remark}[Lean formalization]` at end of §5 (Takens comparison), documenting
+  4 proved theorems and 3 documented Mathlib-gap sorrys.
 
 ### Current priorities
 
-1. **Close `ReconstructionTheorem.lean` sorrys** — 3 remaining (down from 6), all genuine
-   Mathlib API gaps documented in `notes/lean_flight_log.md` and
-   `notes/reconstruction_lean_flight_plan.md`. Rounds 1–3 complete. Round 4 blocked on:
-   `AEStronglyMeasurable` sub-σ-algebra monotonicity (wrong direction in Mathlib) +
-   a.e.-convergence of Lp subsequences. Priority order:
-   - `density_bridge` / `lpMeasSubgroup_dense_in_Lp` — isometric transfer via
-     `lpMeasSubgroupToLpTrimIso`; requires section-variable pattern
-   - `observableAlgebra_eq_comap` — `MeasurableSpace.comap` vs `pi` API
-   - `delayMap_intertwines_shift` — `Int.toNat_add_one` arithmetic
-   - `lpMeas_eq_top_of_ae_eq` / `reconstruction_iff_lpMeas` (←) — longer argument
-   - `cyclic_implies_dense` — span ≤ Submodule containment
-
-2. **Submit Papers I and II** — mathematically complete, Lean formalized, LaTeX clean.
+1. **Submit Papers I and II** — mathematically complete, Lean formalized, LaTeX clean.
    Blocking question: target venue? arXiv preprint first, or journal direct?
 
-3. **Connect delay query system to reconstruction** — instantiate
-   `ReconstructionTheorem` for `delayQuerySystem`: `delayAlgebra` dense iff shift
-   has a generating observation. Requires connecting `DelayEmbedding.lean` to
-   `ReconstructionTheorem.lean`.
+2. **Close `ReconstructionTheorem.lean` Round 4 sorrys** — 3 remaining, all genuine
+   Mathlib API gaps. Documented in `notes/reconstruction_lean_flight_plan.md`:
+   - `lpMeas_eq_top_of_ae_eq` — no `AEStronglyMeasurable` downward σ-algebra monotonicity in Mathlib
+   - `reconstruction_iff_lpMeas` (←) — a.e.-convergent subsequence from Lp convergence
+   - `lpMeasSubgroup_dense_in_Lp` — not used; FALSE for general `m ≤ m0`; can be removed
+
+3. **Paper III: revise or extend** — reconstruction theorem proved; consider whether
+   to expand the Stone space identification section or submit as-is.
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

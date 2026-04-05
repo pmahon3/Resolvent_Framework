@@ -1,67 +1,62 @@
 # QuerySystem — Lean 4 Formalization
 
-Lean 4 / Mathlib formalization of the **Discriminative Foundations of Probability and Dynamics** program.
-
-The program derives probabilistic and dynamical structure from the primitive notion of
-discriminability — what an observer can distinguish — rather than assuming a probability
-space as input. This directory contains the formal proofs for Papers −1 through 3.
+Lean 4 / Mathlib formalization of the **Observable Dynamics Program**:
+three papers showing that probability, dynamics, and reconstruction follow
+from coherent structured observation.
 
 ## File overview
 
-| File | Paper | Status |
-|------|-------|--------|
-| `DiscriminabilityFoundations.lean` | Paper −1 | Zero sorrys on all main theorems |
-| `QuerySystem.lean` | Paper 0 | Zero sorrys |
-| `DelayEmbedding.lean` | Paper 1 (delay subsystems) | Zero sorrys on fixed-lag subsystem |
-| `PredictiveState.lean` | Paper 1 | Zero sorrys |
-| `PredictiveOperators.lean` | Paper 2 | Zero sorrys |
-| `TopologicalQuerySystem.lean` | SP3 companion | Zero sorrys on new theorems |
-| `ProkhorovExtension.lean` | Paper 3 | One Mathlib-blocked sorry |
+| File | Paper | Content | Status |
+|------|-------|---------|--------|
+| `QuerySystem.lean` | Paper I (Carathéodory route) | Query system, cylinder algebra, observational extension | ✅ 0 sorrys |
+| `DiscriminabilityFoundations.lean` | Paper I (CE theory) | CE theorem, irreducibility, Łoś argument | ✅ 0 sorrys on main results; 3 Mathlib-gap sorrys |
+| `StoneDualityExtension.lean` | Paper I (Stone route) | Stone space, bonding maps, route coincidence | ✅ 0 sorrys on proved tasks; 2 intentional Mathlib-gap sorrys |
+| `TopologicalQuerySystem.lean` | Paper I (Prokhorov route) | Topological query systems, inverse limit | ✅ 0 sorrys on new theorems |
+| `ProkhorovExtension.lean` | Paper I (Prokhorov route) | Prokhorov extension main theorem | ✅ 1 Mathlib-blocked sorry |
+| `PredictiveState.lean` | Paper II | Predictive kernel, minimal predictive state map, factorization | ✅ 0 sorrys |
+| `PredictiveOperators.lean` | Paper II | Semigroup, Koopman–Perron duality, deterministic specialization | ✅ 0 sorrys |
+| `DelayEmbedding.lean` | Paper III | Delay query system structure, bounded-subsystem extension | ✅ 0 sorrys on proved results; 1 deliberate scope note |
 
 ## Key results
 
-### Paper −1 — Discriminability and the Origin of the σ-Algebra
+### Paper I — Probability from Observation
 
-- `sp1_iff`: a family of finitely-additive contents extends to σ-additive measures at every
-  level if and only if it is **collectively exhaustive** (CE).
-- `observational_extension_of_collective_exhaustion`: CE → unique global P on Ω.
-- `ce_independence`: SUD + NCC does not imply CE (zero sorrys).
-- `ce_irreducibility`: no finitarily expressible condition implies CE
-  (one infrastructure sorry — ultraproduct construction not in Mathlib).
+- `observational_determination`: uniqueness of P via π-λ theorem
+- `observational_extension`: compatible σ-additive marginals + SUD + EvalSurjective → unique global P
+- `sp1_iff`: CE ↔ σ-additive extensibility at every level
+- `ce_independence`: SUD + NCC does not imply CE (finite-cofinite counterexample)
+- `stone_agrees_with_caratheodory`: Stone and Carathéodory routes produce the same measure
 
-### Paper 0 — Observational Foundations of Probability
+### Paper II — Dynamics from Probability
 
-- `observational_extension`: σ-additive compatible marginals + SequentiallyUpperDirected
-  + EvalSurjective → unique global P on Ω.
-- `observational_determination`: uniqueness via π-system + monotone class.
+- `predictive_factorization`: E[g(F) | σ(Q)] factors through the minimal predictive state map Q*
+- `predictive_sufficiency`: corollary — E[g(F)|Q] = E[g(F)|Q*]
+- `semigroup_property`: K_{t+s} = K_t ∘ K_s (Chapman–Kolmogorov)
+- `koopman_perron_duality`: ∫ (K_t g) dμ = ∫ g d(P_t* μ)
+- `deterministic_specialization`: Dirac kernels recover classical Koopman operators
+- `deterministic_semigroup`: flow law φ_{t+s} = φ_t ∘ φ_s
 
-### Paper 1 — Predictive State
+### Paper III — Reconstruction from Observation (in progress)
 
-- `predictive_factorization`: conditional law of F factors through Q*.
-- `predictive_sufficiency`: Q is predictively sufficient iff F ⊥ Q' | Q for all Q'.
-
-### Paper 2 — Predictive Operators
-
-- `semigroup_property`: K_{t+s} = K_t ∘ K_s (discrete time).
-- `koopman_perron_duality`: ∫ (K_t g) dμ = ∫ g d(P_t* μ).
-
-### Paper 3 — Prokhorov Extension (SP2)
-
-- `prokhorov_extension`: finitely-additive compatible family + SPUT → σ-additive global P.
-- One sorry: `prokhorov_extension_polish` (Corollary for standard Borel spaces),
-  blocked on `PerfectMeasure` and Musiał's theorem being absent from Mathlib 4.
+- `delayQuerySystem.upperDirected`: any two delay queries have a common refinement
+- `delayQuerySystem.evalSurjective`: every outcome is realized by a coherent stream
+- `delayQuerySystem.compatibleMarginals`: any measure on sensor streams induces compatible marginals
+- `observational_extension_fixedLag`: extension theorem for bounded fixed-lag subsystems
+- Cyclic vector theorem: **not yet formalized** (open mathematics)
 
 ## Intentional sorrys
 
-All remaining sorrys are infrastructure-blocked, not proof-search failures:
+All remaining sorrys are Mathlib-gap markers or deliberate scope notes:
 
-| Sorry | Reason |
-|-------|--------|
-| `IsFinitarilyExpressible` | Ultraproduct construction for QuerySystem not in Mathlib |
-| `ce_irreducibility` | Depends on `IsFinitarilyExpressible` |
-| `prokhorov_extension_polish` | `PerfectMeasure` and Musiał's theorem not in Mathlib |
-| `evalSurjective_of_upperDirected_refinementMaps_surjective` | Abstract inverse limit requires Tychonoff; concrete systems verified directly |
-| `delayQuerySystem.seqUpperDirected` | Full delay system is genuinely NOT SUD (documented counterexample) |
+| Sorry | Location | Reason |
+|-------|----------|--------|
+| `stone_measure_exists` | `StoneDualityExtension.lean` | Clopen-algebra charge → regular Borel measure (Halmos §53–54; not in Mathlib) |
+| `stone_observational_extension` | `StoneDualityExtension.lean` | Choksi's theorem + Yosida–Hewitt (not in Mathlib) |
+| `stoneEval_continuous`, `stoneOutcomeMap_continuous` | `StoneDualityExtension.lean` | Technical: `Ultrafilter.map f = Ultrafilter.extend (pure ∘ f)`; not load-bearing |
+| `IsFinitarilyExpressible` | `DiscriminabilityFoundations.lean` | Ultraproduct construction for QuerySystem not in Mathlib |
+| `evalSurjective_of_upperDirected_refinementMaps_surjective` | `DiscriminabilityFoundations.lean` | Abstract inverse limit requires Tychonoff; concrete systems verified directly |
+| `prokhorov_extension_polish` | `ProkhorovExtension.lean` | `PerfectMeasure` and Musiał's theorem not in Mathlib |
+| `delayQuerySystem.seqUpperDirected` | `DelayEmbedding.lean` | Deliberate scope note: full delay system is NOT SUD (documented counterexample); extension is correctly scoped to bounded subsystems |
 
 ## Build
 
@@ -71,8 +66,10 @@ lake build
 
 ## Mathematical framework
 
-A **query system** `(ι, Q)` consists of a preordered index set `ι` and a family of
-measurable spaces `Q i` (queries) with refinement maps `π : Q j → Q i` for `i ≤ j`.
-The **realization space** `Ω ⊆ ∏ i, Q i` is the projective limit — the set of coherent
-families of outcomes. Probability structure is assembled from compatible marginals on
-the query outcomes, without assuming a latent state space.
+A **query system** consists of a preordered index set ι, a family of measurable
+spaces (outcome spaces) indexed by ι, evaluation maps from a sample space Ω to
+each outcome space, and surjective refinement maps between outcome spaces —
+all satisfying a coherence condition. The **observable σ-algebra** is generated
+by the cylinder sets. A **compatible family of charges** on the cylinder algebras
+extends to a unique global probability measure if and only if it is **collectively
+exhaustive** (CE).

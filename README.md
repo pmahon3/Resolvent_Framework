@@ -1,142 +1,96 @@
-# Discriminative Foundations of Probability and Dynamics
+# Observable Dynamics Program
 
-This repository develops a program for deriving dynamical structure
-directly from observable experiments.
+This repository develops a three-paper mathematical programme showing that
+probability, dynamics, and reconstruction are not assumptions but consequences
+of coherent structured observation.
 
-Rather than postulating a latent state space, the framework begins
-with what an observer can distinguish — a structured family of queries
-— and studies the probabilistic, predictive, and operator structures
-that emerge from their compatibility relations.
-
-## Program summary
-
-The program proceeds in five papers:
-
-**Paper −1** establishes the foundation: what an observer is, what
-their coherent discriminative commitments force, and why the
-σ-algebra structure arises necessarily from primitive distinguishability.
-
-**Paper 0** assembles the per-level σ-additive extensions from Paper −1
-into a unique global probability measure on the canonical realization
-space, via a realizability condition on the projective limit.
-
-**Paper 1** shows how a minimal predictive state space emerges from
-prediction on that probability space, and develops the operator theory
-of predictive dynamics.
-
-**Paper 2** establishes the semigroup structure of predictive evolution
-and its Koopman-Perron duality.
-
-**Paper 3** develops the delay query system as a concrete computational
-instantiation of the framework, connecting to DMD and Koopman spectral
-methods.
-
-The architectural spine of the program is:
+## The argument
 
 ```
-discriminability  →  canonical (Ω, P)  →  predictive state Q*  →  semigroup {K_t}  →  computation
+Structured observations
+    → [Paper I]   → probability measure P on (Ω, σ(CylGen))
+    → [Paper II]  → dynamics: Koopman operator U_T, semigroup K_t
+    → [Paper III] → reconstruction: state space X ≅ St(observable algebra)
 ```
 
-Conceptually:
+The Stone space constructed in Paper I as a technical device reappears at
+the end of Paper III as the object being reconstructed. The programme begins
+and ends with the same compact space, seen from different angles.
 
-```
-distinctions  →  probability  →  predictive state  →  operator dynamics  →  computation
-```
+## Papers
+
+### Paper I — Probability from Observation
+
+A coherent family of observations determines a unique probability measure on
+the observable σ-algebra. Proved by two independent routes:
+
+- **Carathéodory route**: σ-additive compatible marginals extend uniquely via
+  Carathéodory on the realization space.
+- **Stone route**: finite additivity alone, combined with compactness of the
+  Stone space, derives σ-additivity. CE appears as a support condition.
+
+The irreducibility of Collective Exhaustion (CE) — the necessary and sufficient
+condition — is established via a finite-cofinite counterexample and Łoś's theorem.
+
+**LaTeX:** `papers/paper_i/` (13 pages) | **Lean:** `QuerySystem.lean`,
+`DiscriminabilityFoundations.lean`, `StoneDualityExtension.lean`
+
+### Paper II — Dynamics from Probability
+
+Given a probability measure, the temporal structure of prediction is uniquely
+determined. The predictive kernel, minimal predictive state map Q*, and
+semigroup {K_t} are derived, not assumed. Koopman–Perron duality connects
+operator-on-functions and measure-on-states into a single picture.
+
+**LaTeX:** `papers/paper_ii/` (8 pages) | **Lean:** `PredictiveState.lean`,
+`PredictiveOperators.lean`
+
+### Paper III — Reconstruction from Observation (in progress)
+
+Under a cyclic vector condition on the Koopman operator, the Stone space of
+the observable algebra is measure-theoretically isomorphic to the state space.
+This generalises Takens's theorem: measurability replaces smoothness, and the
+cyclic vector condition replaces the dimension count.
+
+**LaTeX:** not started | **Lean:** `DelayEmbedding.lean` (delay query system
+structure proved; cyclic vector theorem open)
 
 ## Repository structure
 
 ```
 Resolvent_Framework/
-│
 ├── README.md
-│
-├── program/
-│   └── observable_dynamics_program.tex      ← research program overview
-│
 ├── papers/
-│   ├── discriminability_foundations/        ← Paper −1
-│   ├── observational_foundations/           ← Paper 0
-│   ├── predictive_operator_theory/          ← Paper 1
-│   ├── predictive_experiments/              ← Paper 2
-│   └── observational_probability/           ← Paper 3
-│
-├── thesis/
-│   └── thesis.tex                           ← master document (all five papers)
-│
+│   ├── paper_i/           ← Paper I LaTeX (paper_i.tex, paper_i_body.tex, references.bib)
+│   └── paper_ii/          ← Paper II LaTeX
 ├── formalization/
-│   └── QuerySystem/   ← Lean 4 formalization
-│
-└── notes/
-    ├── prokhorov_extension/                 ← topological extension (companion, not trunk)
-    ├── conceptual_sketches/
-    │   └── philosophy/                      ← CE irreducibility and philosophical foundations
-    ├── interstitial_reframing.md            ← thesis interstitial structure notes
-    └── archived_artifacts/                  ← executed checklists and superseded notes
+│   └── QuerySystem/       ← Lean 4 / Mathlib formalization
+│       └── QuerySystem/
+│           ├── QuerySystem.lean
+│           ├── DiscriminabilityFoundations.lean
+│           ├── StoneDualityExtension.lean
+│           ├── PredictiveState.lean
+│           ├── PredictiveOperators.lean
+│           ├── DelayEmbedding.lean
+│           ├── TopologicalQuerySystem.lean
+│           └── ProkhorovExtension.lean
+├── notes/
+│   ├── program_overview.md          ← canonical task list and status table
+│   ├── stone_duality_lean_flight_plan.md
+│   └── conceptual_sketches/
+│       └── philosophy/
+└── archive/               ← superseded drafts and notes
 ```
 
-## Papers
+## Lean formalization status
 
-### Paper −1 — Discriminability and the Origin of the σ-Algebra
-*From Primitive Distinguishability to Measurable Structure*
+See `formalization/QuerySystem/README.md` for the full sorry inventory.
+All main theorems in Papers I and II carry zero sorrys. Remaining sorrys
+are intentional Mathlib-gap markers, not proof-search failures.
 
-Establishes the SP1 theorem: a family of finitely-additive contents extends to
-σ-additive measures at every level if and only if it is **collectively exhaustive**
-(CE) — the exact valuation-layer characterisation of systems modelling coherent
-worlds. CE is proved irreducible: no condition expressible in the first-order
-language of query systems (sequential upper-directedness, compatibility,
-normalization) can force it. The gap between structural coherence and probability
-is a proved boundary, not an open conjecture.
+## Current status
 
-> **discriminability → coherence → [CE] → measurable structure**
+See `notes/program_overview.md` for the canonical task list and priorities.
 
-### Paper 0 — Observational Foundations of Probability
-*From Collective Exhaustion to Canonical Probability*
-
-Assembles the per-level σ-additive extensions (from Paper −1 via
-collective exhaustion) into a unique global probability measure on the
-canonical realization space `(Ω, σ(Q), P)`, using a realizability
-condition on the projective limit. No topology required.
-
-> **collective exhaustion + realizability → canonical probability**
-
-### Paper 1 — Predictive State and Operator Factorization
-*From Canonical Probability to Predictive State Dynamics*
-
-Shows that prediction induces an equivalence on observable states,
-yielding a minimal predictive query `Q*` and a Markov operator
-`K_{Q*}` representing predictive dynamics.
-
-> **probability → prediction → operators**
-
-### Paper 2 — Observable Operator Semigroups and Koopman Duality
-*From Predictive State Dynamics to Operator Semigroups*
-
-Shows that predictive evolution on the minimal predictive state space
-is governed by a semigroup of Markov operators `{K_t}` and its
-infinitesimal generator `A`, satisfying the predictive Kolmogorov
-equation.
-
-> **predictive state → operator semigroup → generator**
-
-### Paper 3 — Delay Queries and Computational Instantiation
-*From Abstract Framework to Concrete Computation*
-
-Develops the delay query system as a concrete computational realization
-of the abstract framework, connecting to DMD and Koopman spectral methods.
-
-> **operator dynamics → computation**
-
-## Lean formalization
-
-The `formalization/QuerySystem` directory contains the core Lean 4
-development for query systems, refinement maps, and the projective
-construction of the canonical experiment. All five papers are partially
-or fully formalized; the main results of Papers −1 through 3 carry zero
-sorrys. One Mathlib-blocked sorry remains in `ProkhorovExtension.lean`
-(`prokhorov_extension_polish`, awaiting `PerfectMeasure` upstream).
-
-## Thesis
-
-`thesis/thesis.tex` assembles all five papers into a single document,
-with interstitial chapters explaining the transitions between papers.
-Title: *Discriminative Foundations of Probability and Dynamics*.
+- **Papers I and II**: revised drafts complete.
+- **Paper III**: cyclic vector theorem under development.

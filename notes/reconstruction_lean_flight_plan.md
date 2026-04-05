@@ -112,22 +112,41 @@ for n < 0 but the intertwining only works cleanly for n ≥ 0.
 
 ---
 
-## Next actions
+## Sorry-closing plan (2026-04-05)
 
-1. Fix remaining compile errors in the file (lpMeas API, comap direction)
-2. Attempt to close `lpMeas_dense_in_itself` via `lpMeasSubgroupToLpTrimIso`
-3. Attempt `delayMap_intertwines_shift` by restricting to n : ℕ
-4. Leave `lpMeas_eq_top_of_ae_eq` and `reconstruction_iff_lpMeas` (←) as intentional sorrys
-   with documented proof sketches
+Attack order by difficulty (easiest first):
+
+### Round 1 — Pure logic/arithmetic (no instance issues)
+1. **`delayMap_intertwines_shift`** — `Int.toNat` arithmetic + `Function.iterate`.
+   Key question: can we prove `T^[n.toNat] (T x) = T^[(n+1).toNat] x` for all `n : ℤ`?
+   For `n < 0`: `n.toNat = 0` and `(n+1).toNat` is 0 (if n+1 < 0) or 1 (if n+1 = 0),
+   so the claim either says `T x = T x` (trivial) or `T x = T^[0] x = x` (false unless T = id).
+   **Resolution**: the ℤ-indexed delay map with `n.toNat` is wrong for n < 0.
+   Fix: index by ℕ or add `hn : 0 ≤ n`. Log attempts in flight log.
+
+### Round 2 — MeasurableSpace.comap API
+2. **`observableAlgebra_eq_comap`** — both directions via `generateFrom_le` +
+   `comap_le_iff_le_map`. No instance issues since `mX` is the ambient typeclass.
+
+### Round 3 — Submodule containment
+3. **`cyclic_implies_dense`** — show `cyclicSpan ≤ lpMeas 𝒪_h`, then use
+   `Submodule.topologicalClosure_mono`.
+
+### Round 4 — lpMeas instance refactor (hardest)
+4. **`lpMeasSubgroup_dense_in_Lp`** — requires section-variable rewrite of §2.
+   Use `variable {m m0 : MeasurableSpace X}` + `(μ : @Measure X m0)` throughout.
+5. **`lpMeas_eq_top_of_ae_eq`** — depends on 4.
+6. **`reconstruction_iff_lpMeas` (←)** — depends on 4 and 5.
 
 ---
 
-## Sorry inventory target
+## Sorry inventory (current state: 2026-04-05)
 
-| Sorry | Type | Notes |
-|-------|------|-------|
-| `lpMeas_eq_top_of_ae_eq` | Mathlib API gap | approximation argument; provable but needs `ae_measurable_of_measurable_mod_null` |
-| `reconstruction_iff_lpMeas` (←) | Mathlib API gap | a.e.-convergent subsequence extraction |
-| `delayMap_intertwines_shift` | Scope note | clean for n : ℕ; ℤ version needs invertibility |
-| `cyclic_implies_dense` | Scope/API | span ≤ Submodule containment |
-| `cyclicSpan` MemLp bound | Scope note | measure-preservation; provable with T_*μ = μ |
+| Sorry | Round | Status |
+|-------|-------|--------|
+| `delayMap_intertwines_shift` | 1 | 🔄 in progress |
+| `observableAlgebra_eq_comap` | 2 | ⬜ queued |
+| `cyclic_implies_dense` | 3 | ⬜ queued |
+| `lpMeasSubgroup_dense_in_Lp` | 4 | ⬜ queued |
+| `lpMeas_eq_top_of_ae_eq` | 4 | ⬜ queued |
+| `reconstruction_iff_lpMeas` (←) | 4 | ⬜ queued |

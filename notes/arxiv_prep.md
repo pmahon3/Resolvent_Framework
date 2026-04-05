@@ -34,15 +34,12 @@ Stone duality, Boolean algebra, finitely additive measure, σ-additivity,
 directed system, query system
 
 ### Outstanding tasks
-- [ ] Fix stale `mahon_paper0` self-reference in `references.bib` — Paper 0
-      is now integrated into Paper I; check whether `mahon_paper0` is cited
-      in the body and remove or replace the citation
-- [ ] Fix `cardona2025` bib entry format — currently uses `@article` with
-      arXiv info in the journal field; should be `@misc` with `howpublished`
-- [ ] Add MSC 2020 classifications to `paper_i.tex` (as `\subjclass[2020]{...}`)
-- [ ] Add keywords (`\keywords{...}`)
-- [ ] Remove `\pagecolor{white}` (harmless but unnecessary)
-- [ ] Final compile check
+- [x] Fix stale `mahon_paper0` self-reference — removed from `references.bib` (2026-04-05)
+- [x] Fix `cardona2025` bib entry format — changed to `@misc` with `howpublished` (2026-04-05)
+- [x] Add MSC 2020 classifications and keywords — added as `\begin{quote}` block after abstract (2026-04-05)
+- [x] `\pagecolor{white}` — already absent from `paper_i.tex`
+- [x] Final compile check — clean (2026-04-05)
+- [ ] Upload source files to arXiv
 
 ---
 
@@ -65,12 +62,12 @@ Koopman–Perron duality, observable dynamical system, measure-preserving system
 Lean formalization
 
 ### Outstanding tasks
-- [ ] Add MSC 2020 classifications to `paper_ii.tex`
-- [ ] Add keywords
-- [ ] Remove `\pagecolor{white}`
-- [ ] Update `mahon_paper1` in `references.bib` once Paper I has an arXiv ID
-      (add `note = {arXiv:XXXX.XXXXX}`)
-- [ ] Final compile check
+- [x] Add MSC 2020 classifications and keywords (2026-04-05)
+- [x] Remove `\pagecolor{white}` (2026-04-05)
+- [x] Add missing citations: Koopman1931, Rokhlin1952, Mathlib, mahon_paper1 (2026-04-05)
+- [x] Final compile check — clean (2026-04-05)
+- [ ] Update `mahon_paper1` in `references.bib` with arXiv ID once Paper I is posted
+- [ ] Upload source files to arXiv
 
 ---
 

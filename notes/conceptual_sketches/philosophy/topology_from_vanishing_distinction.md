@@ -191,7 +191,7 @@ $\mathrm{St}(\mathcal{C})$.
 The open question is whether the topology the observer should carry on $\Omega$
 — the topology relevant to dynamics and reconstruction — is the subspace topology
 from $\mathrm{St}(\mathcal{C})$, or something coarser determined by the
-*measure-weighted* separation structure. If the latter, then Paper IV's task is
+*measure-weighted* separation structure. If the latter, then Paper 0's task is
 to derive that topology from the query-system and its charges, rather than
 inheriting it from the Stone compactification.
 
@@ -206,7 +206,7 @@ inheriting it from the Stone compactification.
 | $x \asymp y$ | $\mathrm{Sep} \neq \emptyset$, $\mathrm{Pers} = \emptyset$ | Vacuous under monotone observability |
 | Measure-weighted $\asymp$ | Separating events have vanishing measure | Candidate definition |
 | Unified CE / $\asymp$ coherence | Both faces of a single condition | **Conjecture — open** |
-| Topology derived from $\asymp$ | Topology as organized failure of stable separation | **Programme of Paper IV** |
+| Topology derived from $\asymp$ | Topology as organized failure of stable separation | **Programme of Paper 0** |
 
 ---
 

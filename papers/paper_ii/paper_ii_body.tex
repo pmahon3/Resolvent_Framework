@@ -22,6 +22,16 @@ Koopman operators and the semigroup law becomes the flow law $\varphi_{t+s} =
 with zero sorry obligations.
 \end{abstract}
 
+\begin{quote}\small
+\textbf{2020 Mathematics Subject Classification.}
+37A30 (primary); 47D06, 60J05, 28A99 (secondary).
+
+\textbf{Keywords.}
+Koopman operator, predictive kernel, minimal predictive state, Markov semigroup,
+Koopman--Perron duality, observable dynamical system, measure-preserving system,
+Lean formalization.
+\end{quote}
+
 % ====================================================================
 \section{Introduction}
 \label{sec:intro}
@@ -34,7 +44,7 @@ additional assumption.  Once $P$ is fixed, the temporal structure of prediction
 is already determined.
 
 \paragraph{The Koopman picture.}
-The classical approach to dynamics centers on the \emph{Koopman operator}
+The classical approach to dynamics centers on the \emph{Koopman operator}~\cite{Koopman1931}
 $U_T f = f \circ T$, which acts on observable functions by precomposing with
 the dynamics $T$.  This paper takes the dual view: dynamics is what the
 observer \emph{predicts} about the future, not what the system \emph{does} in
@@ -66,7 +76,7 @@ $F : \Omega \to \beta$ (the future observation), we construct:
 \end{enumerate}
 
 \paragraph{Relation to Paper~I.}
-Paper~I took the output of coherent structured observations as input and
+Paper~I~\cite{mahon_paper1} took the output of coherent structured observations as input and
 produced a probability measure $P$ on the observable $\sigma$-algebra.
 Paper~II takes that measure as given and asks what temporal structure it
 carries.  The setup is two measurable maps on the resulting probability space:
@@ -74,7 +84,7 @@ $Q : \Omega \to \alpha$ encoding the present state of observation, and
 $F : \Omega \to \beta$ encoding the future.  The formalism is self-contained.
 
 \paragraph{Lean formalization.}
-All results in this paper are formalized in Lean~4 / Mathlib in two files:
+All results in this paper are formalized in Lean~4 / Mathlib~\cite{Mathlib} in two files:
 \begin{itemize}
   \item \texttt{PredictiveState.lean} — the predictive kernel, minimal
     predictive state map, and predictive factorization theorem (zero sorry
@@ -83,7 +93,7 @@ All results in this paper are formalized in Lean~4 / Mathlib in two files:
     duality, and deterministic specialization (zero sorry obligations).
 \end{itemize}
 The key Mathlib ingredient is \texttt{ProbabilityTheory.Kernel.Disintegration},
-which provides the Rokhlin disintegration theorem for standard Borel spaces,
+which provides the Rokhlin~\cite{Rokhlin1952} disintegration theorem for standard Borel spaces,
 and \texttt{Probability.Kernel.Composition.IntegralCompProd}, which gives the
 Bochner--Fubini theorem for kernel compositions.
 
@@ -100,7 +110,7 @@ fix two measurable maps:
     Borel space.
 \end{itemize}
 The standard Borel hypothesis on $\beta$ is used once: it is the hypothesis
-under which the Rokhlin disintegration theorem guarantees the existence of a
+under which the Rokhlin disintegration theorem~\cite{Rokhlin1952} guarantees the existence of a
 regular conditional distribution.  All other results hold in greater generality.
 
 We write $\mathcal{P}(\beta)$ for the space of probability measures on $\beta$,

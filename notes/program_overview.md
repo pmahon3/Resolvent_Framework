@@ -178,7 +178,7 @@ are the state space.
 |-------|--------------------|-----------|----|---|
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
-| III | Reconstruction theorem identified (2026-04-04); density bridge is the key proof obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅ (delay query system structure); density bridge and reconstruction theorem not yet formalized | Not started | Write Paper III LaTeX; formalize density bridge |
+| III | Reconstruction theorem identified (2026-04-04); density bridge is the key proof obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅ (delay query system structure); density bridge and reconstruction theorem not yet formalized | **First draft** — `papers/paper_iii/`, 6 pages | Formalize density bridge |
 
 ---
 
@@ -217,25 +217,23 @@ Ordered by priority. Cross off as completed.
   item in Prop 5.2 (→ "Contractive"); resolved introduction tension on K_t primacy;
   fixed incorrect cross-reference for predictive kernel; sharpened bridge §8 K_t/U_T
   relationship. Both compile cleanly.
+- [x] **Write Paper III (LaTeX)** — Done 2026-04-04. First draft at `papers/paper_iii/`
+  (6 pages, compiles cleanly). Sections: setup, density bridge (monotone class proof),
+  reconstruction theorem (three-way equivalence), cyclic vector (sufficient condition),
+  Stone space identification, Takens comparison. Sketch at
+  `notes/conceptual_sketches/cyclic_vector_theorem_sketch.md`.
 
 ### Current priorities
-1. **Write Paper III (LaTeX)** — theorem statement is now settled (reconstruction
-   theorem via density bridge, not cyclic vector equivalence). Sketch at
-   `notes/conceptual_sketches/cyclic_vector_theorem_sketch.md`. Structure:
-   - Setup: $(X, \mathcal{B}, \mu)$, $T$, $h$, observable algebra $\mathcal{O}_h$
-   - Density bridge lemma: $\overline{\mathrm{alg}}\{h \circ T^n\}^{L^2} = L^2 \iff \mathcal{O}_h = \mathcal{B}$ mod $\mu$
-   - Reconstruction theorem: (1)⟺(2)⟺(3) from sketch
-   - Cyclic vector as sufficient condition (from Paper II)
-   - Stone space identification: $\mathrm{St}(\mathcal{O}_h) \cong X$
-   - Takens comparison
+1. **Formalize density bridge** — new `ReconstructionTheorem.lean` for Paper III. Main
+   ingredients: `MeasureTheory.SimpleFunc` density in $L^2$, functional monotone class
+   theorem (`MeasureTheory.induction_on_inter` or `MeasureTheory.Measure.ext_iff`),
+   `MeasurableSpace.generateFrom`. Should be mostly accessible in Mathlib.
 
-2. **Formalize density bridge** — the key Lean obligation for Paper III. Main
-   ingredients: `MeasureTheory.SimpleFunc` density in $L^2$, monotone class theorem,
-   `MeasurableSpace.generateFrom`. Should be accessible in Mathlib.
-
-3. **Connect delay query system to reconstruction** — instantiate the abstract
+2. **Connect delay query system to reconstruction** — instantiate the abstract
    reconstruction theorem for `delayQuerySystem`: show the delay algebra is dense
    iff the shift has a generating observation.
+
+3. **Submit Papers I and II** — mathematically complete, Lean formalized, LaTeX clean.
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

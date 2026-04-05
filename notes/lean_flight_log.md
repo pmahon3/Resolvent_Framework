@@ -5,6 +5,39 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-04-05 — ReconstructionTheorem.lean (sorry-closing session)
+
+### Problem: `observableAlgebra_eq_comap` — MeasurableSpace.pi vs comap
+
+**Goal:**
+```lean
+observableAlgebra (fun n : ℤ => h ∘ T^[n.toNat]) =
+MeasurableSpace.comap (delayMap h T) (MeasurableSpace.pi (m := fun (_ : ℕ) => inferInstance))
+```
+
+**≤ direction** — each generator factors through `delayMap h T`:
+```lean
+have hfactor : h ∘ T^[n.toNat] = (fun f : ℕ → ℝ => f n.toNat) ∘ delayMap h T := rfl
+rw [hfactor]
+exact (measurable_pi_apply n.toNat).comp (measurable_iff_comap_le.mpr le_rfl)
+```
+Key: `measurable_iff_comap_le.mpr le_rfl` says `id` is comap-measurable; `measurable_pi_apply` composed with it gives the result.
+
+**≥ direction** — unfold `pi` as `iSup`, then show each summand:
+```lean
+simp only [MeasurableSpace.pi, MeasurableSpace.comap_iSup, MeasurableSpace.comap_comp]
+apply iSup_le; intro n
+apply measurable_iff_comap_le.mp
+-- prove (fun b => b n) ∘ delayMap h T = generator at (n : ℤ) by funext + simp
+```
+Key: `MeasurableSpace.pi = ⨆ a, comap (eval a) inferInstance` (from `Constructions.lean:566`).
+After `simp [comap_iSup, comap_comp]` the goal becomes `comap (eval n ∘ delayMap h T) ℝ ≤ observableAlgebra`.
+Use `measurable_iff_comap_le.mp` + `observableAlgebra_measurable`.
+
+**Lesson:** When working with `MeasurableSpace.pi`, unfold with `simp [MeasurableSpace.pi, comap_iSup, comap_comp]` to expose the `iSup` structure. Do NOT try `measurable_pi_iff` with an explicit source measurable space — instance inference breaks.
+
+---
+
 ## 2026-04-04 — ReconstructionTheorem.lean
 
 ### Problem: Two-MeasurableSpace-instance issue

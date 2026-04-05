@@ -117,16 +117,54 @@ for n < 0 but the intertwining only works cleanly for n ≥ 0.
 Attack order by difficulty (easiest first):
 
 ### Round 1 — Pure logic/arithmetic (no instance issues)
-1. **`delayMap_intertwines_shift`** — `Int.toNat` arithmetic + `Function.iterate`.
-   Key question: can we prove `T^[n.toNat] (T x) = T^[(n+1).toNat] x` for all `n : ℤ`?
-   For `n < 0`: `n.toNat = 0` and `(n+1).toNat` is 0 (if n+1 < 0) or 1 (if n+1 = 0),
-   so the claim either says `T x = T x` (trivial) or `T x = T^[0] x = x` (false unless T = id).
-   **Resolution**: the ℤ-indexed delay map with `n.toNat` is wrong for n < 0.
-   Fix: index by ℕ or add `hn : 0 ≤ n`. Log attempts in flight log.
+1. **`delayMap_intertwines_shift`** ✅ **CLOSED** — Fixed by indexing `delayMap` by `ℕ` instead of `ℤ`.
+   The ℤ-indexed version with `n.toNat` is mathematically wrong for `n < 0`.
+   Fix: changed `delayMap : X → (ℕ → ℝ)` and `unilateralShift : (ℕ → ℝ) → (ℕ → ℝ)`.
+   Proof: `simp only [delayMap, unilateralShift, Function.iterate_succ_apply]` — closes in one line.
+   `Function.iterate_succ_apply : f^[n+1] a = f^[n] (f a)` is exactly what's needed.
 
-### Round 2 — MeasurableSpace.comap API
-2. **`observableAlgebra_eq_comap`** — both directions via `generateFrom_le` +
-   `comap_le_iff_le_map`. No instance issues since `mX` is the ambient typeclass.
+### Round 2 — MeasurableSpace.comap API ✅ CLOSED
+2. **`observableAlgebra_eq_comap`** ✅ — proved equality of two `MeasurableSpace X` instances.
+
+   **Goal:**
+   ```lean
+   observableAlgebra (fun n : ℤ => h ∘ T^[n.toNat]) =
+   MeasurableSpace.comap (delayMap h T) (MeasurableSpace.pi (m := fun (_ : ℕ) => inferInstance))
+   ```
+
+   **Strategy:** `le_antisymm` + two `≤` proofs.
+
+   **(≤) direction** — `observableAlgebra ≤ comap`:
+   Use `observableAlgebra_le`. Need: for each `n : ℤ`, `h ∘ T^[n.toNat]` is measurable
+   w.r.t. `comap (delayMap h T) (pi ...)`.
+   Key: `h ∘ T^[n.toNat] = (fun f : ℕ → ℝ => f n.toNat) ∘ delayMap h T`.
+   The coordinate projection `(fun f => f k) : (ℕ → ℝ) → ℝ` is measurable w.r.t. `pi`,
+   so its composition with `delayMap h T` is `comap`-measurable.
+   Lean path: `Measurable.comp (measurable_pi_apply n.toNat) (delayMap_measurable ...)` — but
+   need to show this gives measurability w.r.t. `comap`. Use `MeasurableSpace.measurable_comap`.
+
+   **(≥) direction** — `comap ≤ observableAlgebra`:
+   The comap is the smallest σ-algebra making `delayMap h T` measurable.
+   So it suffices to show `delayMap h T` is measurable w.r.t. `observableAlgebra`.
+   `delayMap h T x n = h (T^[n] x)` — each coordinate `n : ℕ` is `observableAlgebra`-measurable
+   by `observableAlgebra_measurable` (since `n : ℕ` embeds into `ℤ` as `(n : ℤ)` with `.toNat = n`).
+   Lean path: `MeasurableSpace.comap_le_iff_le_map.mpr` or direct use of
+   `MeasurableSpace.le_comap_iff` (if it exists).
+
+   **Key Mathlib lemmas to check:**
+   - `MeasurableSpace.comap_le_iff_le_map` (direction: `comap f m ≤ m' ↔ m ≤ map f m'`)
+   - `MeasurableSpace.measurable_iff_comap_le` (measurability iff comap ≤ ambient)
+   - `MeasurableSpace.pi` — product measurable space on `ℕ → ℝ`
+   - `measurable_pi_apply` — coordinate projections are measurable
+
+   **Potential issue:** The `observableAlgebra` uses `n : ℤ` generators but `delayMap` is ℕ-indexed.
+   For the `≥` direction, we need `(n : ℕ)` generators to match. Since `(n : ℤ).toNat = n` for
+   `n : ℕ` (after coercion), the generators for `k : ℕ` are `h ∘ T^[k]` — exactly the
+   coordinates of `delayMap`. The ℤ generators with `n < 0` all reduce to `h ∘ T^[0]` which
+   is also a ℕ generator, so they don't add anything new.
+
+   **Approach if `comap_le_iff_le_map` is hard to use:**
+   Prove equality as two `generateFrom_le` applications on both sides after unfolding comap.
 
 ### Round 3 — Submodule containment
 3. **`cyclic_implies_dense`** — show `cyclicSpan ≤ lpMeas 𝒪_h`, then use
@@ -144,8 +182,8 @@ Attack order by difficulty (easiest first):
 
 | Sorry | Round | Status |
 |-------|-------|--------|
-| `delayMap_intertwines_shift` | 1 | 🔄 in progress |
-| `observableAlgebra_eq_comap` | 2 | ⬜ queued |
+| `delayMap_intertwines_shift` | 1 | ✅ closed |
+| `observableAlgebra_eq_comap` | 2 | ✅ closed |
 | `cyclic_implies_dense` | 3 | ⬜ queued |
 | `lpMeasSubgroup_dense_in_Lp` | 4 | ⬜ queued |
 | `lpMeas_eq_top_of_ae_eq` | 4 | ⬜ queued |

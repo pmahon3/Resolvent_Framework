@@ -178,7 +178,7 @@ are the state space.
 |-------|--------------------|-----------|----|---|
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
-| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (builds cleanly; 6 intentional sorrys — all Mathlib API gaps, not mathematical gaps) | **First draft** — `papers/paper_iii/`, 6 pages | Close sorrys; submit |
+| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (builds cleanly; 4 intentional sorrys — all Mathlib API gaps, not mathematical gaps) | **First draft** — `papers/paper_iii/`, 6 pages | Close sorrys; submit |
 
 ---
 
@@ -228,6 +228,12 @@ Ordered by priority. Cross off as completed.
   6 intentional sorrys — all Mathlib API interaction issues, not mathematical gaps.
   Flight log at `notes/lean_flight_log.md`; API reference at
   `notes/reconstruction_lean_flight_plan.md`.
+- [x] **Close `delayMap_intertwines_shift` sorry** — Done 2026-04-05. Fixed by indexing
+  `delayMap` and `unilateralShift` by `ℕ` (not `ℤ`). Proof: one-line
+  `simp only [delayMap, unilateralShift, Function.iterate_succ_apply]`. 5 sorrys remain.
+- [x] **Close `observableAlgebra_eq_comap` sorry** — Done 2026-04-05. Key: unfold `pi` as
+  `iSup` via `simp [MeasurableSpace.pi, comap_iSup, comap_comp]`, then `iSup_le` +
+  `measurable_iff_comap_le`. 4 sorrys remain.
 
 ### Current priorities
 

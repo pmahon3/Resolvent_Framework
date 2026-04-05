@@ -5,6 +5,55 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-04-05 — ReconstructionTheorem.lean (cleanup) + Paper III revision
+
+### Action: deleted `lpMeasSubgroup_dense_in_Lp`
+
+**Reason:** The lemma was (a) unused by any proof in the file and (b) mathematically
+false as stated: `lpMeasSubgroup ℝ m 2 μ` is NOT dense in `Lp ℝ 2 μ` for general
+`m ≤ m0` — density holds only when `m = m0` mod `μ`, which is the content of the
+reconstruction theorem itself. Keeping it as a sorry was misleading.
+
+**Lesson:** Before parking a sorry, check whether the statement is actually true.
+Density-via-isometry arguments (`lpMeasSubgroupToLpTrimIso`) transfer density from
+`Lp(μ.trim hm)` to the subgroup, but `Lp(μ.trim hm)` is only isometrically embedded
+in `Lp μ` when `μ.trim hm = μ`, i.e., when `m = m0`.
+
+### Problem: `delay_reconstruction_iff` — two-instance elaboration in DelayEmbedding.lean
+
+**File:** `DelayEmbedding.lean`, `section ReconstructionBridge`
+
+**Symptom:** Any attempt to apply `reconstruction_iff_lpMeas` from `DelayEmbedding.lean`
+with `m := delayObservableAlgebra h T` fails. Lean resolves `[MeasurableSpace X]` as
+`delayObservableAlgebra h T` rather than the ambient `mX`, so the hypothesis
+`hm : delayObservableAlgebra h T ≤ ‹MeasurableSpace X›` can't be discharged.
+
+**Root cause:** `delayObservableAlgebra h T : MeasurableSpace X` is a term of the
+right type to be synthesized as the `[MeasurableSpace X]` instance. Lean's instance
+synthesis is greedy: any `MeasurableSpace X` in scope can be picked. Since
+`reconstruction_iff_lpMeas` takes `[MeasurableSpace X]` as the ambient σ-algebra,
+the call site in `DelayEmbedding.lean` can't force it to use the imported ambient
+rather than the locally-defined sub-σ-algebra.
+
+**Attempts:**
+- `@reconstruction_iff_lpMeas X mX (delayObservableAlgebra h T) hm μ _` — failed,
+  `mX` and the synthesized instance still clash in downstream terms
+- `haveI : MeasurableSpace X := mX` — no effect on synthesis
+- Moving the theorem into a `section` with explicit `variable [mX : MeasurableSpace X]`
+  — the import boundary means the variable is re-synthesized at the call site
+
+**Resolution:** Left as documented sorry with explanation. The mathematical content
+is correct; the issue is purely elaboration. Will resolve if/when `reconstruction_iff_lpMeas`
+is refactored to use explicit (not typeclass) `MeasurableSpace` arguments.
+
+**Lesson:** When a file imports another and both involve two `MeasurableSpace X`
+instances (ambient + sub-σ-algebra), typeclass-based theorems from the imported file
+cannot be reliably called with the sub-σ-algebra as the ambient instance. Use
+explicit `@` application with named instances, or restructure to pass both σ-algebras
+explicitly (no `[MeasurableSpace X]` typeclass in the signature).
+
+---
+
 ## 2026-04-05 — ReconstructionTheorem.lean (sorry-closing session)
 
 ### Problem: `observableAlgebra_eq_comap` — MeasurableSpace.pi vs comap

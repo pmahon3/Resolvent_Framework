@@ -258,11 +258,19 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-1. **Submit Papers I and II** — mathematically complete, Lean formalized, LaTeX clean.
-   Blocking question: target venue? arXiv preprint first, or journal direct?
+1. **arXiv submission of Papers I and II** — venue decided: arXiv first, then journal.
+   arXiv allows simultaneous journal submission; the preprint gets a permanent ID
+   immediately and is what people cite during review.
+   Remaining arXiv prep tasks (tracked in `notes/arxiv_prep.md`):
+   - Paper I: fix stale `mahon_paper0` self-reference; fix `cardona2025` bib format;
+     add MSC 2020 classifications; add keywords; remove `\pagecolor{white}`
+   - Paper II: add MSC 2020 classifications; add keywords; remove `\pagecolor{white}`;
+     update `mahon_paper1` cite once Paper I has an arXiv ID
+   - Both: final compile check before upload
 
 2. **Submit Paper III** — first draft complete and revised. 2 remaining sorrys are
    genuine Mathlib gaps, not mathematical gaps; acceptable to submit with documentation.
+   Same arXiv prep tasks apply (MSC, keywords, etc.) — defer until after Papers I/II.
    Documented in `notes/reconstruction_lean_flight_plan.md`:
    - `lpMeas_eq_top_of_ae_eq` — no `AEStronglyMeasurable` downward σ-algebra monotonicity in Mathlib
    - `reconstruction_iff_lpMeas` (←) — `tendsto_ae_of_tendsto_Lp` not in Mathlib

@@ -240,9 +240,11 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-1. **Close `ReconstructionTheorem.lean` sorrys** — 6 intentional sorrys, all Mathlib
-   API interaction issues documented in `notes/lean_flight_log.md` and
-   `notes/reconstruction_lean_flight_plan.md`. Priority order:
+1. **Close `ReconstructionTheorem.lean` sorrys** — 3 remaining (down from 6), all genuine
+   Mathlib API gaps documented in `notes/lean_flight_log.md` and
+   `notes/reconstruction_lean_flight_plan.md`. Rounds 1–3 complete. Round 4 blocked on:
+   `AEStronglyMeasurable` sub-σ-algebra monotonicity (wrong direction in Mathlib) +
+   a.e.-convergence of Lp subsequences. Priority order:
    - `density_bridge` / `lpMeasSubgroup_dense_in_Lp` — isometric transfer via
      `lpMeasSubgroupToLpTrimIso`; requires section-variable pattern
    - `observableAlgebra_eq_comap` — `MeasurableSpace.comap` vs `pi` API

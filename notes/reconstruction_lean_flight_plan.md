@@ -173,11 +173,22 @@ Attack order by difficulty (easiest first):
    3. `Submodule.span_le.mpr` + `Submodule.topologicalClosure_mono`
    4. `Submodule.dense_iff_topologicalClosure_eq_top` + `top_le_iff.mp`
 
-### Round 4 — lpMeas instance refactor (hardest)
-4. **`lpMeasSubgroup_dense_in_Lp`** — requires section-variable rewrite of §2.
-   Use `variable {m m0 : MeasurableSpace X}` + `(μ : @Measure X m0)` throughout.
-5. **`lpMeas_eq_top_of_ae_eq`** — depends on 4.
-6. **`reconstruction_iff_lpMeas` (←)** — depends on 4 and 5.
+### Round 4 — lpMeas/trim API (hardest; genuine Mathlib gaps)
+
+4. **`lpMeas_eq_top_of_ae_eq`** — If every `m0`-set has an `m`-a.e.-equal version,
+   then every `f : Lp ℝ 2 μ` is a.e. `m`-strongly-measurable.
+   The argument requires: `AEStronglyMeasurable[m0] f μ` + (m = m0 mod μ) → `AEStronglyMeasurable[m] f μ`.
+   No direct Mathlib lemma found. Nearest: `AEStronglyMeasurable.mono` goes the wrong direction (m → m').
+   **Mathlib gap**: needs `aestronglyMeasurable_of_ae_measurableSpace_eq` or similar.
+
+5. **`reconstruction_iff_lpMeas` (←)** — Dense `lpMeas m` → every `m0`-set has an `m`-version a.e.
+   Argument: approximate `𝟙_s` in L² by `lpMeas m` elements; each approximant is a.e. `m`-measurable;
+   take a subsequence converging a.e.; the a.e. limit is 0 or 1 a.e. and `m`-measurable.
+   **Mathlib gap**: needs `tendsto_ae_of_tendsto_Lp` + measurability of the a.e. limit.
+
+6. **`lpMeasSubgroup_dense_in_Lp`** — NOT USED by the current file; deferred.
+   Note: this lemma as stated (for general m ≤ m0) is FALSE. Density holds only when m = m0.
+   Correctly stated: `lpMeasSubgroup ≅ Lp(μ.trim hm)` is dense in `Lp(μ)` iff `μ.trim hm = μ`.
 
 ---
 

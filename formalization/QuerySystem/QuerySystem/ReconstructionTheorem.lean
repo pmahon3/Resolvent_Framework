@@ -144,10 +144,8 @@ theorem lpMeasSubgroup_dense_in_Lp [MeasurableSpace X] {m : MeasurableSpace X}
     (hm : m ≤ ‹MeasurableSpace X›) (μ : Measure X) [IsFiniteMeasure μ] :
     Dense (lpMeasSubgroup ℝ m 2 μ : Set (Lp ℝ 2 μ)) := by
   sorry
-  -- haveI : Fact ((1 : ℝ≥0∞) ≤ 2) := ⟨by norm_num⟩
-  -- have iso := lpMeasSubgroupToLpTrimIso ℝ 2 μ hm
-  -- exact iso.isometry.isDenseEmbedding.dense.mono ...
-  -- (requires matching the MeasurableSpace instances in iso's type signature)
+  -- Note: this lemma is not used by the current reconstruction theorem.
+  -- It would be needed for a converse density argument; deferred.
 
 /-- When `m = m0` mod `μ`, `lpMeas ℝ ℝ m 2 μ = ⊤`.
 

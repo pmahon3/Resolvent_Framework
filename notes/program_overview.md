@@ -127,13 +127,13 @@ seen from different angles.
 
 | Paper | Mathematical status | Lean status | LaTeX status | Next action |
 |-------|--------------------|-----------|----|---|
-| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys; `StoneDualityExtension.lean` not yet written | **First draft done** — `papers/paper_i/`, 13 pages | Revise and hone; then Lean Stone route |
+| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys) | **First draft done** — `papers/paper_i/`, 13 pages | Revise and hone |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **First draft done** — `papers/paper_ii/`, 8 pages | Revise and hone |
-| III | Delay structure proved; cyclic vector theorem open | `DelayEmbedding.lean` 1 sorry | Not started | Develop cyclic vector theorem |
+| III | Delay structure proved; cyclic vector theorem open | `DelayEmbedding.lean` 1 sorry (open mathematics) | Not started | Develop cyclic vector theorem |
 
 ---
 
-## Task List (as of 2026-04-03)
+## Task List (as of 2026-04-04)
 
 Ordered by priority. Cross off as completed.
 
@@ -156,17 +156,28 @@ Ordered by priority. Cross off as completed.
   renamed "minimal predictive state map". Paper I abstract: formal tuple removed,
   structure described in one sentence; vestigial Paper 0 notation remark removed.
 
-### Medium term
-- [ ] **Lean formalization of Paper I Stone route** — create `StoneDualityExtension.lean`
-  on the `stone-duality-extension` branch. API audit needed first (see
-  `stone_duality_branch_plan.md`). The LaTeX proof in `papers/paper_i/` is now the
-  authoritative spec.
-- [ ] **Develop cyclic vector theorem for Paper III** — the one place where mathematics
-  is still genuinely open. Delay embedding structure is proved; the Takens generalization
-  needs the cyclic vector characterization written properly.
+### Done (continued)
+- [x] **Lean formalization of Paper I Stone route** — Done 2026-04-04.
+  `StoneDualityExtension.lean` builds cleanly on `stone-duality-extension` branch.
+  Task 0′-A/C/E proved; B/D intentional sorrys (Mathlib gaps: clopen charge → Borel
+  measure; Choksi's theorem). `stone_agrees_with_caratheodory` proved with no sorry.
 
-### Long term
-- [ ] **Write Paper III (LaTeX)** — once the cyclic vector theorem is settled.
+### Current priorities
+1. **Revise Papers I and II** — both first drafts exist; need sharpening before
+   submission. Paper I: tighten the bridge section and Stone route narrative now that
+   the Lean formalization is complete. Paper II: sharpen the Koopman-Perron duality
+   section.
+
+2. **Develop cyclic vector theorem for Paper III** — the one place where mathematics
+   is still genuinely open. Delay embedding structure is proved (`DelayEmbedding.lean`);
+   the Takens generalization needs the cyclic vector characterization written properly.
+
+3. **Write Paper III (LaTeX)** — once the cyclic vector theorem is settled.
+
+### Long term / deferred
+- `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct
+  infrastructure); mathematics is correct, low priority.
+- Paper IV — conceptual sketch only; not to be developed until Papers I–III complete.
 
 ---
 

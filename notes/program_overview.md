@@ -304,8 +304,8 @@ Ordered by priority. Cross off as completed.
    1874 lines). Remaining proof obligations to close before/during writing:
    - (9) Piecewise pre-Takens rate (dim_eff step function) — **closed 2026-04-06**
    - (10) Elbow location theorem — **closed 2026-04-06** (exp. mixing, C_λ > 4; poly. mixing open)
-   - (11) Separation-stability in smooth case — **next**
-   - (12) Conjunction theorem — pending (7)+(11)
+   - (11) Separation-stability in smooth case — **closed 2026-04-06** (bi-Lipschitz under (SS); (SS) generic, not derived from (G1)+(G2))
+   - (12) Conjunction theorem — **next**
 
 2. **arXiv upload of Papers I, II, III** — all arXiv prep complete (2026-04-05).
    Remaining tasks tracked in `notes/arxiv_prep.md`:

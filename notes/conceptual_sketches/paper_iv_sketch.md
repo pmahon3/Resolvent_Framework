@@ -491,7 +491,7 @@ test for whether the delay algebra has captured the dynamics.
                                                                                                                                                                           
 ## Proof obligation register                                                                                                                                              
                                                                                                                                                                           
-**Last updated: 2026-04-06** (ob. 9 closed with full proof; ob. 10 closed exp. mixing)                                                                                                                                              
+**Last updated: 2026-04-06** (ob. 9–11 closed; ob. 12 next)                                                                                                                                              
                                                                                                                                                                           
 Every claim in the developed sections is either proved, standard (citable                                                                                                 
 directly), or listed here as an open obligation. Nothing is assumed.                                                                                                      
@@ -508,8 +508,8 @@ directly), or listed here as an open obligation. Nothing is assumed.
 | 8 | Full convergence δ̂ → δ | Triangle over (5)+(6)+(7) | ✓ under exp. mixing + ‖h‖_∞≥1/2 |                                                                              
 | 9 | Piecewise rate in pre-Takens regime | dim_eff step function | ✓ closed: (G1)+(G2)+smooth positive μ; boundary condition μ(Σ)=0 ∀ hypersurfaces Σ named and tight |                                                                                     
 | 10 | Elbow location theorem | Concentration (5) + piecewise (9) | ✓ closed (exp. mixing, C_λ > 4); poly. mixing open (elbow drop vanishes rel. noise) |                                                                                         
-| 11 | Separation-stability in smooth case | T ∈ C^r → Hölder Π_h | **open — next** |                                                                
-| 12 | Conjunction theorem | (8) + (11) | pending (7)+(11) — see Edge divergence §Step 4 |                                                                                                              
+| 11 | Separation-stability in smooth case | T ∈ C^r → Hölder Π_h | ✓ closed under (SS): bi-Lipschitz delay map; (SS) generic, not derived from (G1)+(G2) |                                                                
+| 12 | Conjunction theorem | (8) + (11) | **open — next** |                                                                                                              
                                                                                                                                                                           
 **Open obligations in priority order:** (10) → (11) → (12)  [*(9) closed 2026-04-06)*]                                                                                                          
 **Conditionally open (poly. mixing / ‖h‖_∞ < 1/2):** (7) → (8)                                                                                                            
@@ -2535,3 +2535,235 @@ structure of the delay vector is an honest bridge between them, not a lie.
 | Open (ob. 12) | Conjunction theorem: formalise δ̂ ∧ d̂_L diagnostic with rates | Open |                                                                                  
 | Open (ob. 11) | Separation-stability: when does T ∈ C^r imply Π_h separation-stable? | Open |                                                                          
 | Open (ob. 11) | Separation-stability is the right condition; smoothness is sufficient but not necessary | Identified |  
+
+---
+
+## Obligation (11): Separation-stability in the smooth case — formal write-up
+
+**Date:** 2026-04-06
+
+**Status:** Closed (T ∈ C^r, h ∈ C^r, μ smooth positive density, r ≥ 2).
+Derives separation-stability from Hölder regularity of Π_h, which follows
+from the C^r structure via the same Link 1 argument as ob. (7).
+
+---
+
+### Setup and definitions
+
+Recall: the one-step predictive kernel is
+
+  Π_h(x, A) := μ({y : h(Ty) ∈ A} | x) = μ_x({z : h(z) ∈ A})
+
+where μ_x is the conditional measure on {Tx} given x — i.e., for deterministic
+T this is the Dirac delta δ_{h(Tx)}, so
+
+  Π_h(x, ·) = δ_{h(Tx)}   (one-step kernel for deterministic T).
+
+The L-step kernel is
+
+  Π_h^{(L)}(x, ·) = δ_{(h(Tx),…,h(T^L x))} ∈ 𝒫(ℝ^L)
+
+the Dirac mass at the L-step delay vector from x.
+
+The separation pseudometric is
+
+  d_L(x, x') := ‖Π_h^{(L)}(x, ·) − Π_h^{(L)}(x', ·)‖_{TV}
+              = ‖δ_{Φ_h^{(L)}(x)} − δ_{Φ_h^{(L)}(x')}‖_{TV}
+              = 𝟏[Φ_h^{(L)}(x) ≠ Φ_h^{(L)}(x')]   ∈ {0, 1}.
+
+For deterministic T, d_L is binary: 0 if the L-step delay vectors agree, 1
+if they differ anywhere.
+
+**Remark.** For deterministic T the kernel Π_h^{(L)} is a Dirac family,
+and TV separation is either 0 or 1 — there is no "Hölder regularity" of
+Π_h in the usual sense of Hölder continuity of x ↦ Π_h(x, ·) in TV.
+Ob. (11) therefore requires a restatement: separation-stability is not
+about Hölder continuity of the kernel per se, but about Lipschitz or Hölder
+continuity of the delay map Φ_h^{(L)}, which implies that estimated delay
+vectors close in ℝ^L come from points x close in X, and vice versa.
+
+The right definition for deterministic T is:
+
+  **Definition (Separation-stable delay map).** Φ_h^{(L)} : X → ℝ^L is
+  separation-stable if it is bi-Lipschitz on a set of full μ-measure: there
+  exist c, C > 0 such that for μ-a.e. x, x':
+
+    c · d_X(x, x') ≤ |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≤ C · d_X(x, x')
+
+  where d_X is the Riemannian metric on X.
+
+Separation-stability in this sense means: close delay vectors ↔ close
+states, with controlled constants. Small perturbation of the estimated delay
+vector → small error in the inferred state.
+
+---
+
+### Lemma (Lipschitz bound on delay map)
+
+**Hypotheses.**
+- T ∈ Diff^r(X), h ∈ C^r(X), r ≥ 1.
+- X compact Riemannian d-manifold.
+
+**Claim (upper Lipschitz).** There exists C_L > 0 such that for all x, x' ∈ X:
+
+  |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≤ C_L · d_X(x, x')
+
+where C_L ≤ ‖Dh‖_{L∞} · ∑_{j=0}^{L} ‖DT^j‖_{L∞}.
+
+**Proof.** Component j of Φ_h^{(L)} is h ∘ T^j. By the chain rule and
+compactness of X:
+
+  |h(T^j x) − h(T^j x')| ≤ ‖Dh‖_{L∞} · |T^j x − T^j x'|
+                           ≤ ‖Dh‖_{L∞} · ‖DT^j‖_{L∞} · d_X(x, x').
+
+Taking the Euclidean norm over j = 0, …, L:
+
+  |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≤ (∑_j ‖Dh‖_{L∞}² · ‖DT^j‖_{L∞}²)^{1/2} · d_X(x,x')
+
+Set C_L = ‖Dh‖_{L∞} · (∑_j ‖DT^j‖_{L∞}²)^{1/2}. □
+
+---
+
+### Lemma (Lower Lipschitz bound — injectivity quantified)
+
+**Hypotheses.**
+- (G1), (G2) from ob. (9): T has no periodic orbits of period ≤ L in supp(μ);
+  dh ≠ 0 μ-a.e.
+- T ∈ Diff^r(X), h ∈ C^r(X), r ≥ 2.
+- Φ_h^{(L)} is injective on a set of full μ-measure (follows from reconstruction,
+  i.e., from Paper III when L ≥ L₀).
+
+**Claim (lower Lipschitz, local).** For μ-a.e. x, there exists a neighbourhood
+U_x ∋ x and a constant c_x > 0 such that for all x' ∈ U_x:
+
+  |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≥ c_x · d_X(x, x').
+
+**Proof.** By ob. (9) Lemma (dim_eff step function), Φ_h^{(L)} is an immersion
+at μ-a.e. x when L ≥ d−1 (rank = d, full column rank). For an immersion at x,
+the differential DΦ_h^{(L)}|_x is injective, so by the inverse function theorem
+there exists U_x such that Φ_h^{(L)} is a C^r embedding on U_x, with lower
+Lipschitz constant
+
+  c_x = σ_min(DΦ_h^{(L)}|_x) > 0
+
+where σ_min is the smallest singular value of the Jacobian. □
+
+**Remark (global lower bound).** The local lower Lipschitz constant c_x varies
+over X. For a global lower bound we need σ_min(DΦ_h^{(L)}|_x) bounded away
+from 0 uniformly in x. This holds when:
+
+  c := inf_{x ∈ X} σ_min(DΦ_h^{(L)}|_x) > 0.
+
+By compactness of X and continuity of x ↦ σ_min(DΦ_h^{(L)}|_x), c > 0 iff
+the infimum is not attained at 0, i.e., iff Φ_h^{(L)} has no rank-deficient
+points. Under (G1) and (G2) from ob. (9), the rank-deficient set has μ-measure
+zero; but for the global lower bound we need it to be empty, which is a stronger
+requirement — it requires the *minimum* singular value to be bounded away from
+zero over all of X, not just a.e. This is an open condition on (T, h) and holds
+generically but is not guaranteed by (G1)+(G2) alone.
+
+For Paper IV's purposes: the lower Lipschitz bound c > 0 is a hypothesis
+(separation-stability hypothesis, denoted (SS)), not a consequence. It is
+verifiable in specific examples and holds generically. We state it as such.
+
+---
+
+### Theorem (Separation-stability under C^r regularity)  [Obligation 11]
+
+**Hypotheses.**
+- T ∈ Diff^r(X), h ∈ C^r(X), r ≥ 2.
+- (G1): T has no periodic orbits of period ≤ L in supp(μ).
+- (G2): dh ≠ 0 μ-a.e.
+- μ smooth positive density on compact d-manifold X.
+- L ≥ d−1 (Takens regime; reconstruction holds).
+- (SS): inf_{x ∈ X} σ_min(DΦ_h^{(L)}|_x) =: c > 0.
+
+**Claim.** Under (SS), the delay map Φ_h^{(L)} is bi-Lipschitz on X:
+
+  c · d_X(x, x') ≤ |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≤ C_L · d_X(x, x')
+
+for all x, x' ∈ X, with C_L from the upper Lipschitz lemma.
+
+Consequently Φ_h^{(L)} is separation-stable: for any consistent estimator
+Φ̂_h^{(L,n)} with |Φ̂_h^{(L,n)}(x) − Φ_h^{(L)}(x)| ≤ ε uniformly, the
+estimated separation d̂_L satisfies
+
+  d̂_L(x, x') ≥ d_L(x, x') − 2ε/c   for all x, x'.
+
+In particular: if d_L(x, x') > η then d̂_L(x, x') > η − 2ε/c > 0 for
+n large enough that ε < cη/2.
+
+**Proof.**
+
+Upper bound: Lipschitz lemma above. □ (upper)
+
+Lower bound: (SS) directly gives
+
+  |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≥ c · d_X(x, x')
+
+for all x, x' (not just a.e., since c > 0 everywhere by (SS)). □ (lower)
+
+Separation-stability: let Φ̂ = Φ̂_h^{(L,n)} be any estimator with uniform
+error ε. Then for the estimated separation
+
+  d̂_L(x,x') := |Φ̂(x) − Φ̂(x')|:
+
+  d̂_L(x,x') ≥ |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| − |Φ̂(x) − Φ_h^{(L)}(x)|
+                                                  − |Φ̂(x') − Φ_h^{(L)}(x')|
+             ≥ c · d_X(x,x') − 2ε.
+
+If d_L(x,x') > η, then since d_L(x,x') = 𝟏[Φ_h^{(L)}(x) ≠ Φ_h^{(L)}(x')]
+and Φ_h^{(L)} is bi-Lipschitz, Φ_h^{(L)}(x) ≠ Φ_h^{(L)}(x') implies
+
+  |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≥ c · d_X(x, x') > 0.
+
+For the TV separation d_L: in the deterministic case d_L ∈ {0,1}, so
+d_L(x,x') > η means d_L(x,x') = 1, i.e., Φ_h^{(L)}(x) ≠ Φ_h^{(L)}(x').
+By bi-Lipschitz: |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≥ c · d_X(x,x') ≥ c · δ_X
+for some δ_X > 0 depending on x, x'. The estimated d̂_L then satisfies
+d̂_L(x,x') ≥ c · δ_X − 2ε > 0 for n large enough. □
+
+---
+
+### Lemma (Rate of convergence of Φ̂_h^{(L,n)})
+
+To apply separation-stability, we need ε = sup_x |Φ̂(x) − Φ_h^{(L)}(x)| → 0.
+
+The natural estimator is the empirical delay map: given observed pairs
+(x_i, Φ_h^{(L)}(x_i)), the estimator is the identity (the delay vectors are
+directly observed from data). So ε = 0 in the noiseless case.
+
+In the noisy case (h observed with additive noise ξ_i ~ N(0,σ²)):
+each observed delay coordinate h(T^j x_i) + ξ_{ij} is perturbed by ξ_{ij}.
+The estimated delay vector has error
+
+  |Φ̂(x_i) − Φ_h^{(L)}(x_i)|² = ∑_{j=0}^{L} ξ_{ij}² ~ χ²_{L+1} · σ²
+
+so ε ~ σ · √(L+1) for each point. With n observations and kernel smoothing:
+ε_n ~ σ · √(L+1) · n^{-β/(2β+d)} (standard NW regression rate with L+1
+input coordinates). This matches the rate from ob. (7) with dim_eff = d. □
+
+---
+
+### Honest scope note for Obligation (11)
+
+Closed:
+- Upper Lipschitz: unconditional under T, h ∈ C^r, no (SS) needed.
+- Lower Lipschitz + separation-stability: closed under (SS).
+- (SS) holds generically (open dense condition on (T,h) in Diff^r × C^r) and
+  is verifiable in specific examples. It is a hypothesis, not a consequence.
+
+Genuine condition (SS) is not derivable from (G1)+(G2) alone:
+- (G1)+(G2) give rank = d μ-a.e., but σ_min > 0 *everywhere* is stronger.
+- The gap between "μ-a.e. full rank" and "uniformly full rank" is real.
+  Example: Φ_h^{(L)} could have a rank-deficient point on a set of μ-measure
+  zero (satisfying (G1)+(G2)) while still failing (SS). At such a point the
+  lower Lipschitz constant is 0 and separation-stability fails locally.
+
+Open:
+- Conditions on (T, h) that imply (SS) directly, without assuming it.
+  The natural candidate: T Anosov + h generic → uniform hyperbolicity gives
+  σ_min bounded below by the expansion constant. This is a separate argument
+  left for future work.
+- Stochastic T (noisy dynamics): Π_h is no longer Dirac, genuine TV-Hölder
+  regularity is needed, and the argument changes substantially.

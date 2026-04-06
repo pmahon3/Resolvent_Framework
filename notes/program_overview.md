@@ -178,7 +178,7 @@ are the state space.
 |-------|--------------------|-----------|----|---|
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
-| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **Revised** — `papers/paper_iii/`, 6 pages | Submit |
+| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **arXiv ready** — `papers/paper_iii/`, 7 pages | Upload |
 
 ---
 
@@ -268,10 +268,10 @@ Ordered by priority. Cross off as completed.
      update `mahon_paper1` cite once Paper I has an arXiv ID
    - Both: final compile check before upload
 
-2. **Submit Paper III** — first draft complete and revised. 2 remaining sorrys are
-   genuine Mathlib gaps, not mathematical gaps; acceptable to submit with documentation.
-   Same arXiv prep tasks apply (MSC, keywords, etc.) — defer until after Papers I/II.
-   Documented in `notes/reconstruction_lean_flight_plan.md`:
+2. **Submit Paper III** — arXiv prep complete (2026-04-05). MSC codes, keywords,
+   `\pagecolor{white}` removed, compiles cleanly (7 pages). 2 remaining sorrys are
+   genuine Mathlib gaps, not mathematical gaps; documented in paper and flight plan.
+   Ready to upload.
    - `lpMeas_eq_top_of_ae_eq` — no `AEStronglyMeasurable` downward σ-algebra monotonicity in Mathlib
    - `reconstruction_iff_lpMeas` (←) — `tendsto_ae_of_tendsto_Lp` not in Mathlib
 

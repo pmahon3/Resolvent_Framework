@@ -71,6 +71,34 @@ Lean formalization
 
 ---
 
+## Paper III — "Reconstruction from Observation"
+
+### arXiv category
+Primary: `math.DS` (Dynamical Systems)
+Cross-list: `math.FA` (Functional Analysis; for density bridge / L² content),
+            `math.PR` (Probability; for connection to Paper I measure content)
+
+### MSC 2020
+- `37A05` — Dynamical aspects of measure-preserving transformations (primary)
+- `28A60` — Measures on Boolean rings, measure algebras
+- `06E15` — Stone spaces and related structures
+- `37A30` — Ergodic theory, spectral theory
+- `46E30` — Spaces of measurable functions
+
+### Keywords
+reconstruction theorem, delay embedding, observable algebra, density bridge,
+measure-theoretic Takens, Stone duality, Koopman operator, measure-preserving system,
+Lean formalization
+
+### Outstanding tasks
+- [x] Add MSC 2020 classifications and keywords (2026-04-05)
+- [x] Remove `\pagecolor{white}` (2026-04-05)
+- [x] Final compile check — clean, 7 pages (2026-04-05)
+- [ ] Add Paper III to `references.bib` in Papers I and II once arXiv ID known
+- [ ] Upload source files to arXiv
+
+---
+
 ## Suggested journal targets (post-arXiv)
 
 | Paper | Primary target | Backup |

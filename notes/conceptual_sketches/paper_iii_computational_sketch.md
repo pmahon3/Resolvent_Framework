@@ -813,31 +813,56 @@ transition kernel Π_h^{(L)} separates the state space.
 
 ---
 
-### Step 2 — Does D(Γ_h ‖ Γ̂_h^(n)) control δ(L)?
+### Step 2 — Two witnesses, not one
 
-The edge law Γ_h = μ ⊗ Π_h is the joint distribution of (x, h(Tx)).
-The edge divergence D(Γ_h ‖ Γ̂_h^(n)) measures how well Π̂_h^(n)
-approximates Π_h in a μ-integrated sense.
+The edge divergence discussion requires separating two questions that look
+similar but are genuinely different:
 
-**The chain of implications (forward):**
+**Algebra coherence** (δ̂): has 𝒜_h^(L) captured ℬ?
+  → Self-referential: the algebra tests its own conditional expectations
+  → Observable without knowledge of Π_h
+  → Can be small even when Π_h is pathological (near-constant kernel)
 
-  D(Γ_h ‖ Γ̂_h^(n)) ≤ ε
-    → for μ-most x: Π̂_h^(n)(x, ·) ≈ Π_h(x, ·)   (pointwise in TV or KL)
-    → Π̂_h^{(n,L)} ≈ Π_h^{(L)}                    (iterated kernel close)
-    → d_L estimated well from data
-    → δ(L) certifiable from Γ̂_h^(n)
+**Kernel closeness** (d̂_L): has Π_h^{(L)} separated the state space?
+  → External: measures drift between predictive distributions at distinct points
+  → Requires estimating Π̂_h^{(n,L)} from data
+  → Can be large even when δ̂ is small (if the kernel is irregular)
 
-**The chain of implications (reverse):**
+These are different animals. δ̂ is algebra self-talk. d̂_L is kernel drift
+measured across the state space. Neither implies the other.
 
-  δ(L) ≤ η (reconstruction holds well)
-    → most pairs (x,x') have d_L(x,x') > 0
-    → Π_h^{(L)} separates x from x'
-    → Γ_h encodes the full state information at lag L
-    → a consistent estimator of Γ_h suffices to certify δ(L) ≤ η + error
+**The failure mode δ̂ alone cannot catch:**
 
-The precise quantitative connection requires understanding how the
-divergence D(Γ_h^{(L)} ‖ Γ̂_h^{(n,L)}) — the L-step edge divergence —
-behaves as L grows. This is the data-processing inequality question.
+If Π_h is nearly constant in x — weak or degenerate dynamics — then delay
+vectors are nearly identical for all x, the algebra is nearly trivial, and
+δ̂ flattens immediately. But reconstruction hasn't been achieved; it never
+could be with a near-constant kernel. The elbow in δ̂ reflects what the
+dynamics have to offer, not what ℬ requires.
+
+d̂_L catches this: if Π_h^{(L)} doesn't separate points, d̂_L is small
+everywhere regardless of what δ̂ says. The kernel witness fails, and the
+observer knows reconstruction is impossible — not just unachieved.
+
+**The complete reconstruction diagnostic is the conjunction:**
+
+  δ̂(L, n) small  AND  d̂_L(x, x') large for μ⊗μ-most pairs (x, x')
+
+The first certifies: the algebra has learned what it can.
+The second certifies: what it learned was genuinely informative about X.
+
+Both are required. Neither implies the other.
+
+**The forward chain:** D(Γ_h ‖ Γ̂_h^(n)) small controls d̂_L via
+data-processing (see Step 3), which controls the kernel witness.
+The algebra witness δ̂ is controlled separately via the reverse direction.
+The edge divergence is the object that sits at the intersection — when
+both witnesses are jointly well-behaved, D(Γ_h ‖ Γ̂_h^(n)) bounds both.
+
+**The reverse chain does not exist** as a general implication. δ̂ small
+does not certify D(Γ_h ‖ Γ̂_h^(n)) small. They measure different things.
+The reverse requires: (i) Hölder regularity of Π_h in x, and (ii) a
+consistent kernel estimator. These are prior commitments about the dynamics
+and the estimation procedure, not consequences of reconstruction.
 
 ---
 
@@ -893,94 +918,86 @@ the dimension.
 
 ---
 
-### Step 4 — Putting it together: the full picture
+### Step 4 — The correct picture
 
-Combining the forward bridge, reverse direction, and edge divergence
-connection, the complete picture for the Takens regime is:
+The four quantities split into two pairs on different sides of the
+algebra/kernel divide:
 
-**Theorem (sketch, subject to verification):** Let (X, ℬ, μ, T) be
-ergodic on a compact d-manifold, h ∈ C^{s+1}(X), L ≥ L₀ (Takens regime).
-For f ∈ Hölder(s) ∩ L∞:
+```
+Algebra side                      Dynamics side
+─────────────────────             ─────────────────────────────
+(A) δ(L)       ↔  (B) L²-error   (D) D(Γ_h‖Γ̂^(n))  →  (C) D(Γ_h^(L)‖Γ̂^(n,L))
+     ↕                                     ↓
+    δ̂(L,n)                              d̂_L(x,x')
+ [algebra witness]                   [kernel witness]
+```
 
-  ‖f − f̂_n^(L)‖_{L²(μ)}  ~  n^{-s/(2s+d)}
+**Within each side:**
+- (A) ↔ (B): proved, unconditional
+- (D) → (C): proved, data-processing inequality
 
-and the following are quantitatively equivalent (up to constants and
-log factors):
+**Across the divide — the Markov bridge:**
 
-  (A) δ(L) is small (σ-algebra approximation error)
-  (B) ‖f − f̂_n^(L)‖_{L²} is small for worst-case f ∈ L∞, ‖f‖≤1
-  (C) D(Γ_h^{(L)} ‖ Γ̂_h^{(n,L)}) is small (L-step edge divergence)
-  (D) D(Γ_h ‖ Γ̂_h^{(n)}) is small (one-step edge divergence, via ‡)
+The delay vector is built from Markov chain draws of Π_h. This is what
+connects the two sides — not an equivalence, but a structural link.
 
-The chain is:
+When both witnesses are jointly well-behaved:
 
-  (D) → (C)  [data-processing inequality ‡]
-  (C) → (A)  [d_L controls non-separated pairs, which controls δ(L)]
-  (A) ↔ (B)  [two-directional bound from reverse direction section]
-  (B) → reconstruction detectable from data
+  δ̂(L,n) small  AND  d̂_L large for most pairs
 
-**In the Takens regime:** (A) holds with δ(L) = 0, so the chain
-collapses: reconstruction is exact, (B) holds at rate n^{-s/(2s+d)},
-and the edge divergence (C)/(D) controls only the statistical error
-in estimating Π_h — not the bias.
+the system is reconstructible *and* the dynamics are estimable. The edge
+divergence D(Γ_h ‖ Γ̂_h^(n)) bounds the dynamics side. δ̂ bounds the
+algebra side. Their conjunction is the complete reconstruction diagnostic.
 
-**In the mixing regime (L₀ = ∞):** all four quantities are positive
-and converge to 0 together as n, L → ∞. The rate at which (D) → 0
-(kernel estimation error) governs everything through the chain.
+**What D(Γ_h ‖ Γ̂_h^(n)) is and isn't:**
 
----
+It is: a joint upper bound on both d̂_L (via data-processing) and on
+  δ̂ (via the forward chain through d_L → δ(L)), when Π_h is regular.
 
-### The critical open question
+It is not: a consequence of δ̂ being small. Small algebra coherence
+  does not imply small edge divergence. Different animals.
 
-The chain (D) → (C) → (A) → (B) is established. The reverse chain
+**The role of regularity:**
 
-  (B) → (A) → (C) → (D)
+Under Hölder(β) regularity of Π_h in x and a consistent estimator:
+  - Dynamics side converges at rate n^{-β/(2β+d)}
+  - Algebra side converges at rate n^{-s/(2s+d)} via δ̂ stopping rule
+  - Both converge; they do so independently at their own rates
+  - The slower one is the binding constraint
 
-requires:
-- (B) → (A): ✓ proved (reverse direction section)
-- (A) → (C): δ(L) small → edge divergence small. **This is the gap.**
+Regularity of Π_h is a prior commitment about the dynamics — the same
+regime as Condition 3 (smoothness of g*) in the forward bridge. It is
+not certifiable from data alone.
 
-Does small σ-algebra approximation error imply small edge divergence?
-Not obviously: δ(L) is a μ-a.e. statement about separation, while
-D(Γ_h ‖ Γ̂_h^(n)) is an estimation statement about Π_h. The two
-could come apart if δ(L) is small for structural reasons (the dynamics
-separate points well) while the kernel Π_h is hard to estimate (e.g.
-because Π_h(x,·) varies wildly with x).
+**The theorem shape for Paper IV:**
 
-**This gap is where the dynamical structure matters most.** For systems
-where Π_h is smooth (e.g. X is a manifold, T is C^r), small δ(L) and
-small kernel estimation error should be equivalent. But proving this
-requires a bound of the form:
+Not a four-way equivalence. Instead:
 
-  δ(L) ≥ c · D(Γ_h^{(L)} ‖ Γ̂_h^{(n,L)})^α   for some α > 0
+**(Algebra theorem):** Under reconstruction, the δ̂ stopping rule
+achieves rate n^{-s/(2s+d)} for f ∈ Hölder(s) without oracle inputs.
 
-i.e., a *lower bound* on δ(L) in terms of the divergence. This is the
-hardest direction and the most novel potential contribution of Paper IV.
+**(Dynamics theorem):** Under Hölder(β) regularity of Π_h and a
+consistent estimator, D(Γ_h ‖ Γ̂_h^(n)) → 0 at rate n^{-β/(2β+d)},
+and d̂_L certifies point separation.
 
-**Why it may be true:** If Π_h is smooth and Γ̂_h^{(n,L)} is close to
-Γ_h^{(L)} in divergence, then the estimated predictive distributions
-are close to the true ones, which means the estimated d_L ≈ true d_L,
-which means the estimated non-separated pairs ≈ true non-separated pairs,
-which means δ̂(L,n) ≈ δ(L). The smoothness of Π_h is what makes the
-divergence-to-δ connection work.
-
-**Formalizing this** requires: a regularity assumption on Π_h (e.g.
-Π_h(x, ·) is Hölder in x in TV or KL), plus a bound relating the
-integrated divergence D(Γ_h ‖ Γ̂_h^(n)) to pointwise kernel estimation
-error sup_x D(Π_h(x,·) ‖ Π̂_h^(n)(x,·)). This is a standard-ish
-nonparametric kernel estimation problem but in the specific delay-algebra
-setting.
+**(Conjunction theorem):** When both hold, the complete reconstruction
+diagnostic (δ̂ small ∧ d̂_L large) is achievable from data. The Markov
+structure of the delay vector connects the two certificates.
 
 ---
 
 ### Summary of edge divergence section
 
-| Step | Content | Status |
+| Item | Content | Status |
 |------|---------|--------|
-| Step 1 | δ(L) = functional of Π_h^{(L)} via d_L | ✓ established |
-| Step 2 | D(Γ_h ‖ Γ̂^(n)) → 0 implies d_L estimated well | ✓ via data-processing |
-| Step 3 | Data-processing ineq: L-step ≤ one-step divergence | ✓ standard |
-| Step 3 | Choice of D: TV most direct, KL gives better rates | ✓ established |
-| Step 4 | Forward chain (D)→(C)→(A)↔(B) | ✓ established |
-| Gap | Reverse: (A)→(C), i.e. δ(L) small → divergence small | Open |
-| Gap | Requires: smoothness of Π_h + divergence-to-δ bound | Open — most novel |
+| Step 1 | δ(L) = functional of Π_h^{(L)} via d_L | ✓ |
+| Step 2 | Algebra coherence ≠ kernel closeness; two witnesses needed | ✓ |
+| Step 2 | Failure mode: near-constant kernel, δ̂ flattens but no reconstruction | ✓ |
+| Step 2 | Complete diagnostic = δ̂ small ∧ d̂_L large | ✓ |
+| Step 3 | Data-processing: L-step ≤ one-step divergence | ✓ |
+| Step 3 | TV most direct for d_L; KL gives better rates via Pinsker | ✓ |
+| Step 4 | Two-pair structure: (A)↔(B) algebra side, (D)→(C) dynamics side | ✓ |
+| Step 4 | Bridge: Markov structure of delay vector, not equivalence | ✓ |
+| Step 4 | Reverse chain (A)→(D) does not hold without regularity + estimator | ✓ |
+| Open | Conjunction theorem: formalise δ̂ ∧ d̂_L diagnostic with rates | Open |
+| Open | Regularity of Π_h: when does T ∈ C^r imply Π_h Hölder(β)? | Open |

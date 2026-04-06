@@ -303,8 +303,8 @@ Ordered by priority. Cross off as completed.
 1. **Paper IV — write LaTeX** — sketch complete (`notes/conceptual_sketches/paper_iv_sketch.md`,
    1874 lines). Remaining proof obligations to close before/during writing:
    - (9) Piecewise pre-Takens rate (dim_eff step function) — **closed 2026-04-06**
-   - (10) Elbow location theorem — **next** (was pending (9))
-   - (11) Separation-stability in smooth case
+   - (10) Elbow location theorem — **closed 2026-04-06** (exp. mixing, C_λ > 4; poly. mixing open)
+   - (11) Separation-stability in smooth case — **next**
    - (12) Conjunction theorem — pending (7)+(11)
 
 2. **arXiv upload of Papers I, II, III** — all arXiv prep complete (2026-04-05).

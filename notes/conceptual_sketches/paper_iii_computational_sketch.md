@@ -443,8 +443,11 @@ itself — no external test class needed. The algebra tests itself.
   δ̂(L, n) := sup_{p ∈ 𝒜_h^(L), ‖p‖≤1} ‖p − Ê[p | Φ_h^(L)]‖²_{L²(μ_n)}
 
 where the sup is over polynomials of degree ≤ D = ⌈s⌉ and Ê[·|Φ_h^(L)]
-is the empirical conditional expectation. Then δ̂(L,n) → δ(L) as n → ∞,
-and δ̂(L,n) ≤ ε certifies reconstruction to within ε from data alone.
+is the empirical conditional expectation (e.g. kernel regression on the
+delay vectors). The convergence δ̂(L,n) → δ(L) is a proof obligation —
+it requires (i) a uniform LLN for the empirical norm and (ii) a bias
+bound for the specific estimator Ê; see the proof obligation section.
+Subject to that proof, δ̂(L,n) ≤ ε certifies reconstruction to within ε.
 
 **This is a computable witness for reconstruction** — a finite-sample
 test for whether the delay algebra has captured the dynamics.
@@ -1048,9 +1051,12 @@ of the dynamics to approximate its own conditional expectations? — and it
 has a direct observable answer. It does not require knowing s, d_H, λ, or α.
 
 **The dimension d_H is upstream of δ̂, not downstream.** d_H governs how
-fast δ̂(L,n) → δ(L) as n grows. But the observer never needs to know that
-rate — they just watch δ̂(L,n) as a function of L and observe its behavior
-directly. The convergence speed is implicit in the data, not an input.
+fast δ̂(L,n) → δ(L) as n grows — specifically it enters the estimator
+bias rate n^{-β/(2β+d_H)} from Source 2 of the proof obligation. But
+the observer never needs to know that rate — they watch δ̂(L,n) as a
+function of L and observe its behavior directly. The convergence speed
+is implicit in the data, not an input. The convergence itself is proved
+in the proof obligation section, not assumed.
 
 **Key properties of δ̂(L,n):**
 
@@ -1103,8 +1109,8 @@ thresholds require oracle knowledge.
 
 - s: appears in the rate guarantee n^{-s/(2s+d_H)} but not in the
   stopping rule itself
-- d_H: appears in the rate guarantee and in the convergence speed of
-  δ̂(L,n) → δ(L), but not in the stopping rule
+- d_H: appears in the rate guarantee and in the estimator bias rate
+  (Source 2 of the proof obligation for δ̂ → δ), but not in the stopping rule
 - λ, α: appear in how fast L̂* grows with n, but not in the stopping rule
 
 The procedure is specified without any of these. The rate guarantee
@@ -1397,9 +1403,10 @@ achieves rate n^{-s/(2s+d)} for f ∈ Hölder(s) without oracle inputs.
 No smoothness of Π_h required — the algebra side is unconditional.
 
 **(Dynamics theorem):** Under separation-stability of Π_h (verified by
-Hölder(β) regularity when T ∈ C^r) and a consistent estimator:
-D(Γ_h ‖ Γ̂_h^(n)) → 0 at rate n^{-β/(2β+d)}, and d̂_L certifies
-point separation.
+Hölder(β) regularity when T ∈ C^r) and kernel regression as the estimator
+for Π̂_h^(n) with optimal bandwidth h_n ~ n^{-1/(2β+d)}:
+D(Γ_h ‖ Γ̂_h^(n)) → 0 at rate n^{-β/(2β+d)} — proved via kernel
+regression bias bound, not assumed. d̂_L certifies point separation.
 
 **(Conjunction theorem):** Under reconstruction AND separation-stability,
 the complete diagnostic (δ̂ small ∧ d̂_L large) is achievable from data,

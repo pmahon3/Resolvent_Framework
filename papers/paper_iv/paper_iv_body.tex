@@ -1,5 +1,6 @@
 % paper_iv_body.tex
 % Writing order: §3 first (bias bound + algebra side), then §4, §2, §5, §6, §7, §§1+8.
+% §4 written second: concentration of the empirical witness (obs. 5--8).
 
 % ============================================================
 \section{The Bias Bound and the Algebra Side}
@@ -178,3 +179,341 @@ The detectability threshold is the $n$ at which the statistical floor
 $C' n^{-s/(2s+d)}$ drops below $\frac{\delta(L)^{1/2}}{2}$:
 reconstruction becomes detectable at sample size $n \gtrsim \delta(L)^{-(2s+d)/s}$.
 \end{remark}
+
+% ============================================================
+\section{Concentration of the Empirical Witness}
+\label{sec:concentration}
+% ============================================================
+
+This section proves that $\delhat{L}{n}$ concentrates around $\delta(L)$.
+The argument has four steps: uniform boundedness of the function class
+(Lemma~\ref{lem:bounded}), McDiarmid concentration around the mean
+(Proposition~\ref{prop:concentration}), a Glivenko--Cantelli bound for
+the LLN gap (Lemma~\ref{lem:source1}), and the estimator bias via the
+Nadaraya--Watson kernel regression (Proposition~\ref{prop:source2}).
+The full convergence is then Theorem~\ref{thm:convergence}.
+
+Throughout this section the hypotheses of
+Proposition~\ref{prop:piecewise-rate}
+hold: $(T,h)$ satisfies (G1)--(G2), $X$ is a compact smooth $d$-manifold,
+$\mu$ has smooth positive density, and $d > 2s$.
+
+\subsection{Uniform boundedness}
+\label{subsec:bounded}
+
+Let $\PD$ denote the class of degree-$D$ polynomials in the delay coordinates
+$\PhiL(x) = (h(x),\ldots,h(T^L x))$, normalised so $\|p\|_{\Lp{2}(\mu)} \leq 1$.
+Since $h \in \Lp{\infty}$ with $\|h\|_{\Lp{\infty}} =: a < \infty$, the delay
+coordinates lie in the compact box $[-a,a]^{L+1}$.
+
+\begin{lemma}[Uniform boundedness]
+\label{lem:bounded}
+Define
+\[
+  \MLD \;:=\;
+  \binom{D+L+1}{L+1}^{1/2}
+  \cdot (2D+1)^{1/2}
+  \cdot (2a)^{-(L+1)/2}
+  \cdot \rho_{\min}^{-1/2},
+\]
+where $\rho_{\min} = \operatorname{essinf}_X \rho > 0$ is the infimum of
+the density of $\mu$.
+Then for every $p \in \PD$:
+\[
+  \|p\|_{\Lp{\infty}} \;\leq\; \MLD \cdot \|p\|_{\Lp{2}(\mu)}.
+\]
+\end{lemma}
+
+\begin{proof}
+Rescale to the unit box by setting $y_i = x_i/a$; polynomials of degree
+$\leq D$ in $x \in [-a,a]^{L+1}$ correspond to polynomials $\tilde{p}$ of
+degree $\leq D$ in $y \in [-1,1]^{L+1}$.
+Expand $\tilde{p}$ in the tensor-product Legendre basis
+$\{P_\alpha\}_{|\alpha|\leq D}$, where
+$P_\alpha(y) = \prod_{i=1}^{L+1} P_{\alpha_i}(y_i)$ and $\|P_k\|_{\Lp{\infty}[-1,1]} = 1$.
+Since $\|P_\alpha\|_{\Lp{\infty}} = 1$, Cauchy--Schwarz gives
+\[
+  |\tilde{p}(y)|
+  \;\leq\; \sum_{|\alpha|\leq D} |c_\alpha|
+  \;\leq\; N(D,L+1)^{1/2} \Bigl(\sum_{|\alpha|\leq D}|c_\alpha|^2\Bigr)^{1/2},
+\]
+where $N(D,L+1) = \binom{D+L+1}{L+1}$ counts the basis elements.
+From the $\Lp{2}$ orthogonality
+$\|P_\alpha\|_{\Lp{2}[-1,1]}^2 = \prod_i (2\alpha_i+1)^{-1}$,
+the coefficient norm satisfies
+\[
+  \sum_{|\alpha|\leq D}|c_\alpha|^2
+  \;\leq\; (2D+1)\,\|\tilde{p}\|_{\Lp{2}}^2,
+\]
+since the maximum of $\prod_i(2\alpha_i+1)$ over $|\alpha|\leq D$ is
+$2D+1$, achieved at $\alpha=(D,0,\ldots,0)$ — the constraint $|\alpha|\leq D$
+forces all weight onto one coordinate, giving an $L$-independent maximum.
+Converting back via $\|\tilde{p}\|_{\Lp{2}[-1,1]^{L+1}}
+= (2a)^{-(L+1)/2}\|p\|_{\Lp{2}(\mathrm{vol})}$ and
+$\|p\|_{\Lp{2}(\mathrm{vol})} \leq \rho_{\min}^{-1/2}\|p\|_{\Lp{2}(\mu)}$
+yields the result.
+\end{proof}
+
+\begin{remark}
+The $L$-dependence of $\MLD$ is entirely in $N(D,L+1)^{1/2} \sim L^{D/2}/\sqrt{D!}$
+for $L \gg D$.
+The factor $(2D+1)^{1/2}$ depends only on degree.
+For fixed $D = \lceil s\rceil$ and $\|h\|_{\Lp{\infty}} < 1$ (so $2a < 1$),
+$\MLD$ decays exponentially in $L$; for $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$
+(equivalently $2a \geq 1$), $\MLD$ grows polynomially in $L$.
+The subsequent arguments require $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$.
+\end{remark}
+
+\subsection{Concentration around the mean}
+\label{subsec:mcdiarmiid}
+
+Define the function class
+\[
+  \mathcal{F}_{L,D}
+  \;=\;
+  \Bigl\{x \mapsto \bigl(p(x) - \Ehat[p \mid \PhiL](x)\bigr)^2
+    \;:\; p \in \PD,\; \|p\|_{\Lp{2}(\mu)} \leq 1\Bigr\},
+\]
+where $\Ehat[p \mid \PhiL]$ is the Nadaraya--Watson estimator
+(Definition~\ref{def:nw}).
+Then $\delhat{L}{n} = \sup_{f \in \mathcal{F}_{L,D}} \frac{1}{n}\sum_{i=1}^n f(x_i)$.
+
+\begin{proposition}[Concentration, {\upshape\textbf{$\star$}}]
+\label{prop:concentration}
+Assume $d > 2s$.
+There exist constants $c, C > 0$ depending only on $(d, s, \|h\|_{\Lp{\infty}})$
+such that for all $t > 0$ and all $n \geq 1$:
+\[
+  P\!\bigl(|\delhat{L}{n} - \mathbb{E}[\delhat{L}{n}]| > t\bigr)
+  \;\leq\;
+  2\exp\!\Bigl(-\frac{c\,n\,t^2}{\MLD^4 \cdot D^d}\Bigr).
+  \tag{$\star$}
+\]
+In particular, setting $t = \varepsilon_n/2$ with
+$\varepsilon_n = C'\,n^{-2s/(2s+d)}$:
+\[
+  P\!\bigl(|\delhat{L}{n} - \mathbb{E}[\delhat{L}{n}]| > \varepsilon_n/2\bigr)
+  \;\leq\;
+  2\exp\!\Bigl(-c'\,n^{(d-2s)/(2s+d)}\Bigr)
+  \;\to\; 0.
+\]
+\end{proposition}
+
+\begin{proof}
+\emph{Step~1 (Boundedness).}
+By Lemma~\ref{lem:bounded}, every $p \in \PD$ with $\|p\|_{\Lp{2}(\mu)} \leq 1$
+satisfies $\|p\|_{\Lp{\infty}} \leq \MLD$.
+Hence every $f = (p - \Ehat[p|\PhiL])^2 \in \mathcal{F}_{L,D}$ satisfies
+$\|f\|_{\Lp{\infty}} \leq 4\MLD^2 =: B_{L,D}^2$.
+
+\emph{Step~2 (McDiarmid).}
+Replacing one observation $x_i$ with $x_i'$ changes
+$\delhat{L}{n}$ by at most $B_{L,D}^2/n$.
+By the McDiarmid bounded-difference inequality:
+\[
+  P\!\bigl(|\delhat{L}{n} - \mathbb{E}[\delhat{L}{n}]| > t\bigr)
+  \;\leq\; 2\exp\!\Bigl(-\frac{2n^2 t^2}{n \cdot (B_{L,D}^2/n)^2}\Bigr)
+  \;=\; 2\exp\!\Bigl(-\frac{n\,t^2}{2B_{L,D}^4/n}\Bigr).
+\]
+
+\emph{Step~3 (Rademacher bias).}
+By the symmetrisation inequality \cite{BartlettMendelson2002}:
+\[
+  \mathbb{E}[\delhat{L}{n}] - \delta(L)
+  \;\leq\; 2\,\Rad_n(\mathcal{F}_{L,D}).
+\]
+By the Ledoux--Talagrand contraction lemma, since $f = (p - \cdot)^2$ is
+$2B_{L,D}$-Lipschitz in the second argument:
+\[
+  \Rad_n(\mathcal{F}_{L,D})
+  \;\leq\; 2B_{L,D}\,\Rad_n(\PD).
+\]
+In the Takens regime the image $\PhiL(X)$ is a $d$-dimensional submanifold,
+so the VC dimension of $\PD$ restricted to $\PhiL(X)$ is
+$O(D^d)$ \cite{Gyorfi2002}.
+Hence $\Rad_n(\PD) \leq C\sqrt{D^d/n}$, giving
+$\Rad_n(\mathcal{F}_{L,D}) \leq C\,\MLD\sqrt{D^d/n}$.
+
+\emph{Step~4 (Combined).}
+Combining Steps~2--3 and absorbing constants:
+\[
+  P\!\bigl(|\delhat{L}{n} - \delta(L)| > t\bigr)
+  \;\leq\; 2\exp\!\Bigl(-\frac{c\,n\,t^2}{\MLD^4\,D^d}\Bigr).
+\]
+Setting $t = \varepsilon_n/2 = C'n^{-2s/(2s+d)}/2$, the exponent becomes
+\[
+  c\,n\,\varepsilon_n^2 / (\MLD^4\,D^d)
+  \;\propto\; n^{1-4s/(2s+d)}
+  \;=\; n^{(d-2s)/(2s+d)}.
+\]
+This tends to $+\infty$ if and only if $d > 2s$,
+proving the final claim.
+\end{proof}
+
+\begin{remark}[The $d > 2s$ hypothesis]
+\label{rem:d>2s}
+The condition $d > 2s$ is necessary for the concentration to be useful at
+the rate $\varepsilon_n$.
+It is not an artefact: when $d \leq 2s$, the function class $\mathcal{F}_{L,D}$
+is too rich for $n$ samples to resolve the fine structure of $\deltaL$ at
+the required scale.
+The fix via localised Rademacher complexity \cite{BartlettBousquetMendelson2005}
+is technically available but left to future work; Paper~IV takes $d > 2s$ as
+a standing hypothesis.
+\end{remark}
+
+\subsection{Source~1: the LLN gap}
+\label{subsec:source1}
+
+\begin{lemma}[LLN gap]
+\label{lem:source1}
+With notation as above:
+\[
+  \sup_{p \in \PD}
+  \Bigl|
+    \|p - \mathbb{E}[p \mid \PhiL]\|_{\Lp{2}(\mun)}^2
+    - \|p - \mathbb{E}[p \mid \PhiL]\|_{\Lp{2}(\mu)}^2
+  \Bigr|
+  \;\leq\; C\sqrt{D^d/n}
+\]
+almost surely as $n \to \infty$, where $C$ depends on $(d,D,\MLD)$.
+\end{lemma}
+
+\begin{proof}
+The class $\{(p - \mathbb{E}[p|\PhiL])^2 : p \in \PD\}$ is a VC class
+of dimension $O(D^d)$.
+The uniform Glivenko--Cantelli theorem \cite{Gyorfi2002} gives a.s.\ convergence
+of the empirical mean to the population mean, at rate $O(\sqrt{D^d/n})$.
+\end{proof}
+
+\subsection{Source~2: estimator bias}
+\label{subsec:source2}
+
+The estimator $\Ehat[p \mid \PhiL]$ is the Nadaraya--Watson (NW) kernel
+regression estimator.
+
+\begin{definition}[Nadaraya--Watson estimator]
+\label{def:nw}
+For bandwidth $h_n > 0$ and kernel $K : \mathbb{R}^{L+1} \to \mathbb{R}_{\geq 0}$
+(compactly supported, symmetric, $\int K = 1$):
+\[
+  \Ehat[p \mid \PhiL(x)]
+  \;:=\;
+  \frac{\sum_{j=1}^n K\!\bigl(\tfrac{\PhiL(x)-\PhiL(x_j)}{h_n}\bigr)\,p(x_j)}%
+       {\sum_{j=1}^n K\!\bigl(\tfrac{\PhiL(x)-\PhiL(x_j)}{h_n}\bigr)}.
+\]
+\end{definition}
+
+\begin{proposition}[Source~2 estimator bias]
+\label{prop:source2}
+Assume:
+\begin{enumerate}[label=(\roman*)]
+  \item $T, h \in C^r$ with $r \geq 2$, $\mu$ smooth positive density $\rho$
+        with $\rho_{\min} > 0$.
+  \item $\PhiL$ has full rank $\mu$-a.e.\ (follows from (G1)--(G2) and
+        Lemma~\ref{lem:dimeff}).
+  \item $T$ is exponentially mixing with rate $\lambda > 0$ and
+        $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$.
+  \item The NW bandwidth satisfies $h_n \sim n^{-1/(2\beta+\deff(L))}$
+        with $\deff(L) = \min(L+1, d)$ and $\beta \geq 1$.
+\end{enumerate}
+Then there exists $C_2(D,L) > 0$ such that for all $p \in \PD$:
+\[
+  \mathbb{E}\|\Ehat[p \mid \PhiL] - \mathbb{E}[p \mid \PhiL]\|_{\Lp{2}(\mu)}^2
+  \;\leq\; C_2(D,L)\cdot n^{-2\beta/(2\beta+\deff(L))},
+\]
+uniformly in $p \in \PD$, where $C_2(D,L) = 2\MLD^2 C_1^2 A^{2\beta}$ and
+$A$ is a constant depending on $(\beta, \deff(L), \rho_{\min})$.
+\end{proposition}
+
+\begin{proof}
+The proof is a four-link chain.
+
+\emph{Link~1 (Smooth disintegration).}
+Under conditions~(i)--(ii), the Rokhlin disintegration
+$\mu = \int \mu_z\,d((\PhiL)_*\mu)(z)$ has fibre measures $\mu_z$ supported on
+the smooth fibres $F_z = \{\PhiL = z\}$.
+An implicit-function-theorem argument (three sub-steps: transfer to common
+surface via a $C^{r-1}$ diffeomorphism; bound weight variation; bound
+Jacobian factor) gives:
+\[
+  \|\mu_z - \mu_{z'}\|_{\mathrm{TV}} \;\leq\; C_1\,|z - z'|^\beta,
+  \qquad \beta = 1 \text{ (Lipschitz floor)},
+\]
+where $C_1$ depends on $(\|T\|_{C^r}, \|h\|_{C^r}, \rho_{\min})$.
+(The optimal exponent $\beta = r-1$ follows from the full Taylor expansion of
+the fibre weight; the floor $\beta = 1$ is sufficient for convergence.)
+
+\emph{Link~2 (Bernstein--Markov).}
+From Link~1 and Lemma~\ref{lem:bounded}: for $p \in \PD$ with
+$\|p\|_{\Lp{2}(\mu)} \leq 1$,
+\[
+  \bigl|\mathbb{E}[p \mid \PhiL = z] - \mathbb{E}[p \mid \PhiL = z']\bigr|
+  \;=\; \Bigl|\int p\,d\mu_z - \int p\,d\mu_{z'}\Bigr|
+  \;\leq\; \MLD \cdot C_1 \cdot |z - z'|^\beta.
+\]
+Hence $z \mapsto \mathbb{E}[p \mid \PhiL = z]$ is $\mathrm{H\ddot{o}lder}(\beta)$
+with constant $\Lambda_{D,L} := \MLD C_1$, uniformly over $p \in \PD$.
+
+\emph{Link~3 (NW bias-variance balance).}
+Standard NW theory \cite{Gyorfi2002} for a $\mathrm{H\ddot{o}lder}(\beta)$
+regression function on a $\deff(L)$-dimensional domain gives:
+\[
+  \mathbb{E}\|\Ehat[p|\PhiL] - \mathbb{E}[p|\PhiL]\|_{\Lp{2}(\mu)}^2
+  \;\leq\; \Lambda_{D,L}^2\,h_n^{2\beta}
+    + \frac{C_K\,\MLD^2}{n\,h_n^{\deff(L)}\,f_{\min}},
+\]
+where $C_K$ depends on the kernel $K$ and $f_{\min}$ is the minimum of the
+marginal density of $(\PhiL)_*\mu$.
+The $\MLD^2$ factor appears in both terms.
+Balancing: $\Lambda_{D,L}^2 h_n^{2\beta} = C_K \MLD^2 / (n h_n^{\deff(L)} f_{\min})$
+gives $h_n^* \sim A \cdot n^{-1/(2\beta+\deff(L))}$ where $A$ depends only
+on $(\beta, \deff(L), C_K, f_{\min}, C_1)$ --- not on $D$, $L$, or $p$.
+The $\MLD^2$ factors cancel from both sides of the balance equation.
+
+\emph{Link~4 (Uniformity).}
+Substituting $h_n^*$, both terms contribute
+$C_2(D,L) \cdot n^{-2\beta/(2\beta+\deff(L))}$ with
+$C_2(D,L) = 2\MLD^2 C_1^2 A^{2\beta}$.
+Since the bound is $p$-free, it holds uniformly over $\PD$.
+\end{proof}
+
+\begin{remark}[Scope]
+Proposition~\ref{prop:source2} is proved under exponential mixing with
+$\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$.
+The polynomial mixing case and the regime $\|h\|_{\Lp{\infty}} < \frac{1}{2}$
+require a different estimator and are left open.
+\end{remark}
+
+\subsection{Full convergence}
+\label{subsec:convergence}
+
+\begin{theorem}[Full convergence $\delhat{L}{n} \to \deltaL$]
+\label{thm:convergence}
+Under the hypotheses of Proposition~\ref{prop:source2} and with $d > 2s$:
+\[
+  \mathbb{E}\bigl|\delhat{L}{n} - \deltaL\bigr|
+  \;\leq\;
+  C\sqrt{D^d/n}
+  \;+\; C_2(D,L)^{1/2} \cdot n^{-\beta/(2\beta+\deff(L))}
+\]
+and $P(|\delhat{L}{n} - \deltaL| > \varepsilon_n) \to 0$ exponentially,
+where $\varepsilon_n = C' n^{-2s/(2s+d)}$.
+\end{theorem}
+
+\begin{proof}
+Decompose:
+\[
+  |\delhat{L}{n} - \deltaL|
+  \;\leq\;
+  \underbrace{|\delhat{L}{n} - \mathbb{E}[\delhat{L}{n}]|}_{\text{concentration, }(\star)}
+  \;+\;
+  \underbrace{|\mathbb{E}[\delhat{L}{n}] - \deltaL|}_{\text{bias}}
+\]
+The bias splits as $\text{Source~1} + \text{Source~2}$:
+Source~1 is bounded by $C\sqrt{D^d/n}$ (Lemma~\ref{lem:source1});
+Source~2 is bounded by $C_2(D,L)^{1/2} \cdot n^{-\beta/(2\beta+\deff(L))}$
+(Proposition~\ref{prop:source2}).
+The concentration term is bounded by $(\star)$ (Proposition~\ref{prop:concentration}).
+Combining at $t = \varepsilon_n/2$ gives the probability statement.
+\end{proof}

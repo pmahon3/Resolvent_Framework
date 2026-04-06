@@ -2,6 +2,103 @@
 % Writing order: §3 first (bias bound + algebra side), then §4, §2, §5, §6, §7, §§1+8.
 % §4 written second: concentration of the empirical witness (obs. 5--8).
 % §2 written third: setup calibrated exactly to what §§3--4 use.
+% §§1+8 written last: introduction and discussion.
+
+% ============================================================
+\section{Introduction}
+\label{sec:intro}
+% ============================================================
+
+\subsection{Context and question}
+
+This paper is the fourth in a series on observable dynamics.
+Paper~I~\cite{mahon_paper1} constructs the canonical probability measure from
+an observable algebra via Carathéodory and Stone extension.
+Paper~II~\cite{mahon_paper2} establishes Koopman--Perron duality and the
+predictive semigroup.
+Paper~III~\cite{mahon_paper3} proves the reconstruction theorem: the
+observable algebra $\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$
+generates $\mathcal{B}$ modulo $\mu$ if and only if the observable
+$h : X \to \mathbb{R}$ is a measure-theoretic embedding.
+
+Paper~IV asks: \emph{what does the reconstruction theorem look like from
+finite data?}
+
+Given a time series $x_1, \ldots, x_n$ drawn from a measure-preserving
+system $(X, \mathcal{B}, \mu, T)$ and a single observable $h$, can one
+determine from data alone whether reconstruction holds?
+If so, at what rate?
+And with what certificates?
+
+We answer these questions with three theorems: the Algebra Theorem, the
+Dynamics Theorem, and the Conjunction Theorem.
+The three theorems are calibrated: each is proved under exactly the
+hypotheses its proof uses, and the scope of each is named precisely.
+
+\subsection{Three honest theorems}
+
+\textbf{The Algebra Theorem} (Section~\ref{sec:algebra}).
+Define the $\sigma$-algebra approximation error
+$\deltaL = \sup_{S \in \mathcal{B}} \inf_{E \in \OhL} \mu(S \triangle E)$,
+which measures how much of $\mathcal{B}$ is not yet captured by the
+finite-lag algebra $\OhL = \sigma(h, h\circ T, \ldots, h \circ T^L)$.
+This quantity is estimable from data as $\delhat{L}{n}$ (defined
+in Section~\ref{sec:setup}).
+The elbow stopping rule $\Lhat$ fires when $\delhat{L}{n}$ stops decreasing.
+Under exponential mixing with resolvability constant $C_\lambda > 4$,
+$\Lhat$ achieves the minimax-optimal rate $n^{-s/(2s+d)}$ for
+$\mathrm{H\ddot{o}lder}(s)$ targets on a $d$-dimensional state space,
+without any oracle knowledge of the mixing rate, the lag $L^*(n)$,
+or the smoothness index $s$.
+This is the main finite-sample rate result.
+
+\textbf{The Dynamics Theorem} (Section~\ref{sec:dynamics}).
+The delay map $\PhiL(x) = (h(x), \ldots, h(T^L x))$ encodes the
+trajectory of $x$ under the observable.
+When $T \in C^r$ and the separation-stability condition~(SS)
+holds (infimum of the smallest singular value of $D\PhiL$ over $X$
+is bounded away from zero), $\PhiL$ is bi-Lipschitz.
+The empirical delay vectors then constitute a second witness: they certify
+that points are being separated by the dynamics.
+The Dynamics Theorem shows that this kernel witness converges to the true
+separation at rate $n^{-\beta/(2\beta+d)}$ and names the places where it can fail.
+
+\textbf{The Conjunction Theorem} (Section~\ref{sec:conjunction}).
+The two witnesses measure the same event.
+For deterministic $T$, the TV separation $\preddisc{L}(x,x') = 1$ if and
+only if $x$ and $x'$ are separated by $\OhL$ --- not merely correlated, but
+identical.
+This algebraic identity ($\sigma(\PhiL) = \OhL$) is the Markov bridge.
+Under reconstruction and~(SS), both witnesses fire correctly and certify the
+same object.
+The theorem also names two failure modes: reconstruction failure makes the
+algebra witness fail; violation of~(SS) makes the kernel witness fail even
+when reconstruction holds.
+
+\subsection{What is new}
+
+The $\sigma$-algebra approximation error $\deltaL$ is observable without
+knowing the mixing rate, the dimension $d$, or the smoothness $s$.
+Standard adaptive methods (cross-validation, Lepski's method) patch the
+smoothness oracle but leave the dimension as a residual unknown.
+The elbow rule for $\delhat{L}{n}$ patches both simultaneously by operating
+upstream of the rate: it asks ``has the algebra captured $\mathcal{B}$?''
+rather than ``at what rate is the approximation converging?''
+
+The binary TV separation result (Lemma~\ref{lem:alg-metric}) is specific to
+deterministic systems.
+For stochastic $T$, the kernel $\PihL(x, \cdot)$ is not a Dirac delta, and
+Hölder continuity in TV is both non-trivial and necessary.
+This is an open direction.
+
+\subsection{Organisation}
+
+Section~\ref{sec:setup} introduces the objects used throughout.
+Section~\ref{sec:bias} proves the bias bound and three-term decomposition.
+Section~\ref{sec:concentration} proves concentration of $\delhat{L}{n}$.
+Sections~\ref{sec:algebra}, \ref{sec:dynamics}, and~\ref{sec:conjunction}
+prove the three main theorems.
+Section~\ref{sec:discussion} discusses open problems.
 
 % ============================================================
 \section{Setup and Notation}
@@ -1185,3 +1282,71 @@ Without~(SS), the bridge lies: the estimated $\widehat{d}_L$ can diverge
 from $\preddisc{L}$ on a positive-measure set, making the two witnesses
 certify different objects.
 \end{remark}
+
+% ============================================================
+\section{Discussion}
+\label{sec:discussion}
+% ============================================================
+
+\subsection{What is open}
+
+\textbf{Polynomial mixing.}
+The Algebra Theorem (Theorem~\ref{thm:algebra}) and the Elbow Location Theorem
+(Theorem~\ref{thm:elbow}) require exponential mixing with resolvability constant
+$C_\lambda > 4$.
+Under polynomial mixing $\deltaL \lesssim L^{-\alpha}$, the elbow drop at
+$L^*(n)$ satisfies $\Delta(L^*(n)) \sim \varepsilon_n / L^*(n) \to 0$ relative
+to $\varepsilon_n$: the elbow and the noise floor merge asymptotically and
+cannot be separated.
+A different stopping criterion (e.g.\ integrated elbow, or a bandwidth-adaptive
+rule) is needed.
+This is left open.
+
+\textbf{The $d > 2s$ hypothesis.}
+Proposition~\ref{prop:concentration} requires $d > 2s$ for the Rademacher
+concentration to be useful at rate $\varepsilon_n$.
+When $d \leq 2s$, localised Rademacher complexity
+(Bartlett--Bousquet--Mendelson~\cite{BartlettBousquetMendelson2005})
+gives adaptive concentration without this condition but requires additional
+work.
+This is identified but not proved here.
+
+\textbf{Separation-stability from first principles.}
+Condition~(SS) is a hypothesis in Theorems~\ref{thm:dynamics}
+and~\ref{thm:conjunction}.
+The natural conjecture is that $T$ Anosov with $h$ generic implies~(SS) via
+the uniform hyperbolicity constants.
+This would close the gap between~(G1)--(G2) and~(SS) in the hyperbolic category.
+
+\textbf{Stochastic $T$.}
+For stochastic dynamics, $\PihL(x,\,\cdot\,)$ is not a Dirac delta.
+The TV separation $\preddisc{L}$ is no longer binary, and Hölder continuity
+of $x \mapsto \PihL(x,\,\cdot\,)$ in TV is both necessary and non-trivial.
+The four-link chain of Proposition~\ref{prop:source2} adapts, but the
+Conjunction Theorem's proof structure changes substantially.
+
+\textbf{Sharp rates for the data-driven lag.}
+Theorem~\ref{thm:elbow} shows $P(\Lhat = L^*(n)) \to 1$ but does not bound
+the fluctuations of $\Lhat$ around $L^*(n)$ on the event $\{\Lhat \neq L^*(n)\}$.
+A Berry--Esseen-type result for $\Lhat - L^*(n)$ would sharpen the stopping rule.
+
+\subsection{What is settled}
+
+The four-paper programme is now complete at the level of:
+\begin{itemize}
+  \item Measure-theoretic foundations (Paper~I).
+  \item Koopman--Perron duality and prediction (Paper~II).
+  \item Reconstruction theorem and the density bridge (Paper~III).
+  \item Finite-sample rates, witnesses, and the honest bridge (Paper~IV).
+\end{itemize}
+The honest bridge theorem says: algebra reconstruction and kernel separation
+are the same event (Lemma~\ref{lem:alg-metric}), both are certifiable from data
+(Theorems~\ref{thm:algebra} and~\ref{thm:dynamics}), and their conjunction is
+provably reliable when reconstruction and~(SS) hold and provably unreliable when
+either fails (Theorem~\ref{thm:conjunction}).
+This is not a claim that the two witnesses are informative about everything.
+It is a claim that they are informative about each other, and that the Markov
+structure of the delay vector --- $\sigma(\PhiL) = \OhL$ --- is why.
+
+\bibliographystyle{plain}
+\bibliography{references}

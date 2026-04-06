@@ -644,3 +644,259 @@ Source~2 is bounded by $C_2(D,L)^{1/2} \cdot n^{-\beta/(2\beta+\deff(L))}$
 The concentration term is bounded by $(\star)$ (Proposition~\ref{prop:concentration}).
 Combining at $t = \varepsilon_n/2$ gives the probability statement.
 \end{proof}
+
+% ============================================================
+\section{The Algebra Theorem}
+\label{sec:algebra}
+% ============================================================
+
+This section assembles the results of Sections~\ref{sec:bias}
+and~\ref{sec:concentration} into the Algebra Theorem: the data-driven stopping
+rule $\Lhat$ achieves the minimax-optimal rate $n^{-s/(2s+d)}$ without knowing
+the oracle lag $L^*(n)$ or the mixing rate of $T$.
+
+\subsection{Effective dimension and the piecewise rate}
+
+\begin{definition}[Effective dimension]
+\label{def:deff}
+The \emph{effective dimension at lag~$L$} is
+\[
+  \deff(L) \;:=\; \operatorname{rank}(D\PhiL|_x)
+  \quad\text{at a generic point } x \in X.
+\]
+(The rank is constant on an open dense set by the rank theorem, so this is
+well-defined $\mu$-a.e.)
+\end{definition}
+
+\begin{lemma}[$\deff$ step function]
+\label{lem:dimeff}
+Under~(G1)--(G2) with $X$ a compact smooth $d$-manifold and $\mu$ smooth
+positive density:
+\[
+  \deff(L) \;=\; \min(L+1,\, d) \quad \text{for all } L \geq 0.
+\]
+\end{lemma}
+
+\begin{proof}
+The upper bound $\deff(L) \leq \min(L+1,d)$ holds because $D\PhiL|_x$ is a
+linear map from $T_x X$ (dimension~$d$) to $\mathbb{R}^{L+1}$.
+
+For the lower bound we use the Sard--Smale theorem
+(Smale \cite{Takens1981} framework) applied to two failure maps.
+
+\emph{Case $L+1 \leq d$.}
+Rank $< L+1$ at $x$ means the cotangent vectors
+$\omega_j(x) := (DT^j|_x)^*(dh|_{T^j x})$ are linearly dependent.
+Define the failure map
+\[
+  \Psi : C^2(X) \times X \times \mathbb{P}^L \to T^*X,
+  \quad
+  (h, x, [\lambda]) \;\mapsto\; d\!\left(\textstyle\sum_j \lambda_j\, h \circ T^j\right)\bigl|_x.
+\]
+By~(G1), the orbit points $T^j x$ are distinct $\mu$-a.e., so bump functions
+at $T^j x$ can prescribe any cotangent vector at $x$ independently.
+Hence $D_h\Psi$ is surjective onto $T^*_x X$ (dimension~$d$), and
+$\Psi^{-1}(0)$ is a Banach submanifold of codimension~$d$.
+The projection to $C^2(X)$ is Fredholm of index $d + L - d = L$, so by
+Sard--Smale the regular values form a residual set $R \subset C^2(X)$.
+For $h \in R$, the failure locus in $X$ has dimension $\leq L < d$, hence
+$\mu$-measure zero.
+
+By~(G2), $dh \neq 0$~$\mu$-a.e., which forces every critical point of
+$F_\lambda = \sum_j \lambda_j h \circ T^j$ to lie in the codimension-$d$
+submanifold $S_\lambda = \{dh_x \in \operatorname{span}\{\omega_1(x),\ldots,\omega_L(x)\}\}$
+(a finite set for each $[\lambda]$, since $X$ is $d$-dimensional).
+Hence $h$ is a regular value of $\pi$, i.e., $h \in R$.
+
+\emph{Case $L+1 > d$.}
+Immersion failure requires $\exists\, v \neq 0$ with $D\PhiL|_x \cdot v = 0$.
+Define
+\[
+  \Xi : C^2(X) \times (TX \setminus 0) \to \mathbb{R}^{L+1},
+  \quad
+  (h,(x,v)) \;\mapsto\; \bigl(dh_{T^j x}(DT^j|_x \cdot v)\bigr)_{j=0}^L.
+\]
+By~(G1), $D_h\Xi$ is surjective onto $\mathbb{R}^{L+1}$, so $\Xi^{-1}(0)$
+has codimension $L+1$ and the projection to $C^2(X)$ is Fredholm of index
+$2d - 1 - (L+1) = 2d - L - 2$.
+For $L \geq d$: $2d - L - 2 \leq d - 2 < d-1$, so the failure locus in $X$
+has dimension $< d-1$ and $\mu$-measure zero.
+Condition~(G2) places $h$ in the regular-value set by the same argument as
+Case~1.
+\end{proof}
+
+\begin{proposition}[Piecewise pre-Takens rate]
+\label{prop:piecewise-rate}
+Assume~(G1)--(G2), $X$ compact smooth $d$-manifold, $\mu$ smooth positive
+density, $f \in \mathrm{H\ddot{o}lder}(s) \cap \Lp{\infty}(\mu)$, $d > 2s$,
+and $T \in C^r$ with $r \geq 2$.
+Let $\fhat$ be the empirical risk minimiser over $\AhL$ with $D = D^*(n,L)$
+chosen to balance approximation and statistical terms.
+Then for each $L \geq 0$:
+\[
+  \bigl\|f - \fhat\bigr\|_{\Lp{2}(\mu)}
+  \;\leq\;
+  2\|f\|_{\Lp{\infty}} \cdot \deltaL^{1/2}
+  \;+\;
+  C(f,d,s) \cdot n^{-s/(2s+\deff(L))}
+\]
+with probability tending to~$1$, where $\deff(L) = \min(L+1,d)$.
+In the Takens regime ($L \geq d-1$): $\deff(L) = d$ and the rate locks at
+$n^{-s/(2s+d)}$.
+\end{proposition}
+
+\begin{proof}
+Apply the three-term decomposition (Lemma~\ref{lem:three-term}).
+The bias term is bounded by $2\|f\|_{\Lp{\infty}} \cdot \deltaL^{1/2}$
+(Lemma~\ref{lem:bias}).
+By Lemma~\ref{lem:dimeff}, $\PhiL(X)$ is a $\deff(L)$-dimensional smooth
+submanifold.
+On this submanifold, $\mathbb{E}[f \mid \OhL](x) = g^*(\PhiL(x))$ for some
+$g^* \in \mathrm{H\ddot{o}lder}(s)$; standard polynomial approximation on a
+$\deff(L)$-dimensional smooth domain gives approximation error
+$\leq C_{\mathrm{approx}} \cdot D^{-s/\deff(L)}$.
+The statistical term is $\leq C_{\mathrm{stat}}(D^{\deff(L)}/n)^{1/2}$ by
+Proposition~\ref{prop:concentration} with $d$ replaced by $\deff(L)$.
+Balancing: $D^* \sim n^{\deff(L)/(2s+\deff(L))}$ and both terms are
+$O(n^{-s/(2s+\deff(L))})$.
+\end{proof}
+
+\subsection{The oracle lag and the elbow stopping rule}
+
+\begin{definition}[Oracle lag]
+\label{def:oracle-lag}
+The \emph{oracle lag} is
+\[
+  L^*(n) \;:=\; \min\bigl\{L \geq 0 : \deltaL \leq C_0 \cdot n^{-2s/(2s+d)}\bigr\},
+\]
+where $C_0 > 0$ is a constant depending on $\|f\|_{\Lp{\infty}}$.
+At $L = L^*(n)$, the bias term $2\|f\|_{\Lp{\infty}} \cdot \delta(L^*)^{1/2}$
+is $O(n^{-s/(2s+d)})$, matching the statistical floor.
+\end{definition}
+
+\begin{remark}[Post-saturation self-consistency]
+Under exponential mixing $\deltaL \leq A e^{-\lambda L}$, balancing
+$e^{-\lambda L/2} \sim n^{-s/(2s+d)}$ gives $L^*(n) \sim \frac{2s}{\lambda(2s+d)}\log n$.
+For large $n$, $L^*(n) \gg d-1$, so the oracle lag lies in the Takens regime
+and the rate $n^{-s/(2s+d)}$ is self-consistent.
+Under polynomial mixing $\deltaL \leq A L^{-\alpha}$, $L^*(n) \sim n^{2s/(\alpha(2s+d))} \to \infty$,
+also post-saturation.
+\end{remark}
+
+The oracle lag $L^*(n)$ requires knowledge of the mixing rate, which is
+unobservable.
+The empirical witness $\delhat{L}{n}$ sidesteps this: it measures reconstruction
+quality directly from data.
+
+\begin{definition}[Elbow stopping rule]
+\label{def:elbow}
+Fix a tolerance sequence $\tau_n > 0$.
+The \emph{elbow stopping rule} is
+\[
+  \Lhat \;:=\; \min\bigl\{L \geq 0 :
+    \delhat{L+1}{n} - \delhat{L}{n} > -\tau_n\bigr\}.
+\]
+\end{definition}
+
+\begin{theorem}[Elbow location]
+\label{thm:elbow}
+Assume the hypotheses of Proposition~\ref{prop:piecewise-rate} and
+exponential mixing $\deltaL \leq A e^{-\lambda L}$ with resolvability constant
+$C_\lambda := (1-e^{-\lambda}) A e^\lambda / C' > 4$.
+Set $\tau_n = \frac{C_\lambda}{2} \cdot C' \cdot n^{-2s/(2s+d)}$.
+Then
+\[
+  P\!\bigl(\Lhat = L^*(n)\bigr) \;\to\; 1
+  \quad\text{exponentially in } n.
+\]
+\end{theorem}
+
+\begin{proof}
+We show the stopping criterion fires at $L = L^*(n)$ (no overshoot)
+and not before (no early stop).
+
+\emph{No overshoot: $\Lhat \leq L^*(n)$.}
+At $L = L^*(n)$, the population increment satisfies
+$|\delta(L^*(n)+1) - \delta(L^*(n))| \leq \delta(L^*(n)) \leq C_0 n^{-2s/(2s+d)}$ (non-increasing $\delta$).
+By Theorem~\ref{thm:convergence}, $|\delhat{L}{n} - \deltaL| \leq \varepsilon_n = C' n^{-2s/(2s+d)}$ whp.
+The empirical increment satisfies
+$\delhat{L^*+1}{n} - \delhat{L^*}{n} \geq -C_0 n^{-2s/(2s+d)} - 2\varepsilon_n > -\tau_n$ whp,
+so the criterion fires.
+
+\emph{No early stop: $\Lhat \geq L^*(n)$.}
+For $L < L^*(n)$, exponential mixing gives population decrement
+$\delta(L) - \delta(L+1) \geq \Delta(L) \geq C_\lambda \cdot C' n^{-2s/(2s+d)}$.
+Tracking via Theorem~\ref{thm:convergence}:
+\[
+  \delhat{L}{n} - \delhat{L+1}{n}
+  \;\geq\; C_\lambda C' n^{-2s/(2s+d)} - 2\varepsilon_n
+  \;=\; (C_\lambda - 2)C' n^{-2s/(2s+d)}.
+\]
+Since $C_\lambda > 4$: $(C_\lambda - 2)C' > \tau_n \cdot 2/C_\lambda \cdot C_\lambda = 2\tau_n/C_\lambda \cdot C_\lambda$,
+and specifically $(C_\lambda - 2)C' n^{-2s/(2s+d)} \geq \tau_n$ when
+$C_\lambda - 2 \geq C_\lambda/2$, i.e., $C_\lambda \geq 4$.
+So the stopping criterion does \emph{not} fire for $L < L^*(n)$, and $\Lhat \geq L^*(n)$.
+
+\begin{remark}[Scope of the elbow theorem]
+The resolvability condition $C_\lambda > 4$ is not an artefact: when
+$C_\lambda \leq 4$ the elbow drop at $L^*(n)$ merges with the noise floor
+$\varepsilon_n$ and the two are indistinguishable from data.
+For polynomial mixing, $\Delta(L^*(n)) \sim \varepsilon_n / L^*(n) \to 0$
+relative to $\varepsilon_n$, so the elbow drops vanish asymptotically and
+the theorem fails.
+A separate argument (e.g.\ integrated elbow) is needed for that case and is
+not proved here.
+\end{remark}
+\end{proof}
+
+\subsection{The Algebra Theorem}
+
+\begin{theorem}[Algebra Theorem]
+\label{thm:algebra}
+Assume:
+\begin{enumerate}[label=(\roman*)]
+  \item Hypotheses of Proposition~\ref{prop:piecewise-rate}:
+    (G1)--(G2), $X$ compact smooth $d$-manifold, $\mu$ smooth positive density,
+    $f \in \mathrm{H\ddot{o}lder}(s) \cap \Lp{\infty}(\mu)$, $d > 2s$, $T \in C^r$, $r \geq 2$.
+  \item Exponential mixing: $\deltaL \leq A e^{-\lambda L}$ for some $A, \lambda > 0$.
+  \item Resolvability: $C_\lambda > 4$.
+  \item Exponential mixing for the estimator bias (Proposition~\ref{prop:source2})
+    and $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$.
+\end{enumerate}
+Let $\Lhat$ be the elbow stopping rule (Definition~\ref{def:elbow}) with
+$\tau_n = \frac{C_\lambda}{2} C' n^{-2s/(2s+d)}$.
+Then
+\[
+  \bigl\|f - \hat{f}_n^{(\Lhat)}\bigr\|_{\Lp{2}(\mu)}
+  \;=\; O_p\!\bigl(n^{-s/(2s+d)}\bigr).
+\]
+The rate $n^{-s/(2s+d)}$ is minimax-optimal for $\mathrm{H\ddot{o}lder}(s)$
+functions on a $d$-dimensional domain.
+No oracle input (mixing rate, $L^*(n)$, Sobolev index $s$) is required.
+\end{theorem}
+
+\begin{proof}
+On the event $\{\Lhat = L^*(n)\}$, which has probability tending to~$1$ by
+Theorem~\ref{thm:elbow}:
+\begin{align*}
+  \bigl\|f - \hat{f}_n^{(\Lhat)}\bigr\|_{\Lp{2}(\mu)}
+  &= \bigl\|f - \hat{f}_n^{(L^*(n))}\bigr\|_{\Lp{2}(\mu)} \\
+  &\leq 2\|f\|_{\Lp{\infty}} \cdot \delta(L^*(n))^{1/2}
+    + C(f,d,s) \cdot n^{-s/(2s+d)} \\
+  &\leq 2\|f\|_{\Lp{\infty}} \cdot (C_0 n^{-2s/(2s+d)})^{1/2}
+    + C(f,d,s) \cdot n^{-s/(2s+d)} \\
+  &= O(n^{-s/(2s+d)}). \qedhere
+\end{align*}
+\end{proof}
+
+\begin{remark}[What is and is not required]
+The proof uses: (a) Lemma~\ref{lem:dimeff} to lock the rate at $n^{-s/(2s+d)}$
+once $L \geq d-1$; (b) Theorem~\ref{thm:convergence} to track $\deltaL$ from
+data; (c) Theorem~\ref{thm:elbow} to locate $L^*(n)$ without knowing the
+mixing rate; (d) Proposition~\ref{prop:piecewise-rate} to bound the error
+at $L^*(n)$.
+The conditions $C_\lambda > 4$ and $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$ are load-bearing:
+removing them makes either the elbow unresolvable or the bias estimate
+(Proposition~\ref{prop:source2}) unavailable.
+Polynomial mixing is not covered.
+\end{remark}

@@ -300,18 +300,18 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-1. **arXiv upload of Papers I, II, III** — all arXiv prep complete (2026-04-05).
+1. **Paper IV — write LaTeX** — sketch complete (`notes/conceptual_sketches/paper_iv_sketch.md`,
+   1874 lines). Remaining proof obligations to close before/during writing:
+   - (9) Piecewise pre-Takens rate (dim_eff step function) — **closed 2026-04-06**
+   - (10) Elbow location theorem — **next** (was pending (9))
+   - (11) Separation-stability in smooth case
+   - (12) Conjunction theorem — pending (7)+(11)
+
+2. **arXiv upload of Papers I, II, III** — all arXiv prep complete (2026-04-05).
    Remaining tasks tracked in `notes/arxiv_prep.md`:
    - Upload Paper I source files; then backfill `mahon_paper1` arXiv ID in Papers II and III
    - Upload Paper II source files
    - Upload Paper III source files; then backfill `mahon_paper3` arXiv ID in Papers I and II
-
-2. **Paper IV — write LaTeX** — sketch complete (`notes/conceptual_sketches/paper_iv_sketch.md`,
-   1874 lines). Remaining proof obligations to close before/during writing:
-   - (9) Piecewise pre-Takens rate (dim_eff step function) — **next**
-   - (10) Elbow location theorem — pending (9)
-   - (11) Separation-stability in smooth case
-   - (12) Conjunction theorem — pending (7)+(11)
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

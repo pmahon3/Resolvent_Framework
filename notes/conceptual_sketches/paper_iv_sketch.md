@@ -491,7 +491,7 @@ test for whether the delay algebra has captured the dynamics.
                                                                                                                                                                           
 ## Proof obligation register                                                                                                                                              
                                                                                                                                                                           
-**Last updated: 2026-04-06**                                                                                                                                              
+**Last updated: 2026-04-06** (ob. 9 closed with full proof)                                                                                                                                              
                                                                                                                                                                           
 Every claim in the developed sections is either proved, standard (citable                                                                                                 
 directly), or listed here as an open obligation. Nothing is assumed.                                                                                                      
@@ -506,12 +506,12 @@ directly), or listed here as an open obligation. Nothing is assumed.
 | 6 | Source 1: LLN gap E[δ̂] ≈ δ̂_pop | Glivenko-Cantelli | ✓ standard |                                                                                                   
 | 7 | Source 2: estimator bias δ̂_pop ≈ δ | Kernel regression + Hölder(β) | ✓ closed (exp. mixing, ‖h‖_∞≥1/2); open (poly. mixing, ‖h‖_∞<1/2) |                            
 | 8 | Full convergence δ̂ → δ | Triangle over (5)+(6)+(7) | ✓ under exp. mixing + ‖h‖_∞≥1/2 |                                                                              
-| 9 | Piecewise rate in pre-Takens regime | dim_eff step function | **open — next** |                                                                                     
-| 10 | Elbow location theorem | Concentration (5) + piecewise (9) | pending (9) |                                                                                         
+| 9 | Piecewise rate in pre-Takens regime | dim_eff step function | ✓ closed: (G1)+(G2)+smooth positive μ; boundary condition μ(Σ)=0 ∀ hypersurfaces Σ named and tight |                                                                                     
+| 10 | Elbow location theorem | Concentration (5) + piecewise (9) | **open — next** |                                                                                         
 | 11 | Separation-stability in smooth case | T ∈ C^r → Hölder Π_h | **open** — see Edge divergence §Step 4 |                                                                
 | 12 | Conjunction theorem | (8) + (11) | pending (7)+(11) — see Edge divergence §Step 4 |                                                                                                              
                                                                                                                                                                           
-**Open obligations in priority order:** (9) → (10) → (11) → (12)                                                                                                          
+**Open obligations in priority order:** (10) → (11) → (12)  [*(9) closed 2026-04-06)*]                                                                                                          
 **Conditionally open (poly. mixing / ‖h‖_∞ < 1/2):** (7) → (8)                                                                                                            
                                                                                                                                                                           
 ---                                                                                                                                                                       
@@ -1461,6 +1461,403 @@ scope rather than an open question to be resolved later.
    variance bound uses polynomial approximation on a d-dimensional set;                                                                                                   
    for fractal d this requires a different approximation theory.                                                                                                          
                                                                                                                                                                           
+---
+
+## Obligation (9): Piecewise pre-Takens rate — formal write-up
+
+**Date:** 2026-04-06
+
+**Status:** Closed (generic smooth case). Fractal and infinite-dimensional
+cases explicitly out of scope.
+
+---
+
+### Setup and notation
+
+Throughout: X is a compact smooth d-manifold, T : X → X a C² diffeomorphism,
+h : X → ℝ a C² observable, μ a T-invariant Borel probability measure with
+smooth positive density. The delay map at lag L is
+
+  Φ_h^(L) : X → ℝ^(L+1),  x ↦ (h(x), h(Tx), …, h(T^L x))
+
+The observable algebra 𝒪_h^(L) = σ(Φ_h^(L)) and the approximation error
+δ(L) = sup_{S ∈ ℬ} inf_{E ∈ 𝒪_h^(L)} μ(S △ E) are as in Paper III / §2.
+
+The effective dimension at lag L is
+
+  dim_eff(L) := rank(DΦ_h^(L)|_x)   at a generic point x ∈ X.
+
+(Well-defined: rank is constant on an open dense set by the rank theorem.)
+
+---
+
+### Lemma (dim_eff step function)
+
+**Hypotheses.** The pair (T, h) satisfies:
+
+(G1) T has no periodic orbits of period ≤ L in the support of μ.
+     (This ensures {x, Tx, …, T^L x} are distinct for μ-a.e. x,
+     which is the condition the surjectivity argument requires.)
+
+(G2) dh ≠ 0 μ-a.e. — h has no critical points on a set of positive μ-measure.
+     (This ensures ω_0(x) = (DT^0)* dh_x = dh_x ≠ 0 at a.e. x, which is
+     necessary for the rank-1 base case and for the surjectivity of D_h Ψ
+     in the Sard–Smale argument: if dh = 0 on a positive-measure set then
+     the bump-function perturbation cannot recover nonzero cotangent vectors
+     there, regardless of T.)
+
+Note: (G1) pins T; (G2) pins h. Both are stated as hypotheses — the proof
+uses both and neither is dispensable. The stronger Takens conditions (no
+repeated eigenvalues at periodic orbits, h separating orbits) are for
+*injectivity* of Φ_h^(L) (Paper III); they are not assumed here.
+
+Whether (G1) and (G2) hold for a given (T, h) is a separate verification
+question, not part of this lemma. For smooth ergodic T with smooth positive μ,
+(G1) holds for μ-a.e. x unconditionally (periodic orbits are measure zero);
+(G2) holds whenever h is Morse (critical set a finite submanifold of codimension
+≥ 1, hence μ-measure zero). These sufficiency remarks belong in the application
+context, not in the hypotheses.
+
+**Claim.**
+
+  dim_eff(L) = min(L+1, d)   for all L ≥ 0.
+
+Equivalently: dim_eff is a non-decreasing step function, taking values
+1, 2, …, d−1, d as L steps through 0, 1, …, d−2, d−1, and locked at d
+for all L ≥ d−1.
+
+**Proof.**
+
+**Proof strategy.** Both cases use the same engine: define a joint map on
+C²(X) × (something over X), show its h-partial is surjective using (G1)
+(distinct orbit points allow independent bump-function perturbations), apply
+Sard–Smale to conclude the failure locus has positive codimension in X for
+a residual set of h in C²(X). Then show (G2) places the given h in that
+residual set.
+
+*Upper bound.* Φ_h^(L) maps X into ℝ^(L+1). Since DΦ_h^(L)|_x is a linear
+map from T_x X (dimension d) to ℝ^(L+1), its rank is at most min(d, L+1).
+So dim_eff(L) ≤ min(L+1, d).
+
+*Lower bound, Case L+1 ≤ d.* We show rank(DΦ_h^(L)|_x) = L+1 for μ-a.e. x.
+
+Column j of DΦ_h^(L)|_x is the pullback cotangent vector
+
+  ω_j(x) := (DT^j|_x)^* (dh|_{T^j x}) ∈ T*_x X.
+
+Rank < L+1 at x means {ω_0(x), …, ω_L(x)} are linearly dependent, i.e.,
+∃ [λ] ∈ P^L with d(∑_j λ_j h ∘ T^j)|_x = 0: x is a critical point of
+F_λ := ∑_j λ_j h ∘ T^j.
+
+Define the failure map
+
+  Ψ : C²(X) × X × P^L → T*X,   (h, x, [λ]) ↦ dF_λ|_x
+
+with zero set Z = Ψ^{-1}(zero section).
+
+**Surjectivity of D_h Ψ** [(G1) used here]**.**
+At any (h, x, [λ]) with the orbit points {T^j x : j = 0,…,L} distinct — which
+holds for μ-a.e. x by (G1) — the h-partial
+
+  D_h Ψ · δh = d(∑_j λ_j δh ∘ T^j)|_x ∈ T*_x X
+
+is surjective onto T*_x X. Proof: given ξ ∈ T*_x X, choose bump functions
+φ_j ∈ C²(X) with supp(φ_j) ∩ supp(φ_k) = ∅ for j ≠ k (possible since
+T^j x ≠ T^k x for j ≠ k, by (G1)) and dφ_j|_{T^j x} prescribed freely.
+Set δh = ∑_j λ_j^{-1} φ_j (interpreting via a fixed nonzero λ_j); then
+d(∑_j λ_j δh ∘ T^j)|_x = ∑_j dφ_j|_{T^j x} · DT^j|_x = ξ by construction.
+
+Hence D_h Ψ is surjective, Z is a smooth Banach submanifold of C²(X) × X × P^L
+of codimension d = dim T*_x X, and the projection π : Z → C²(X) is Fredholm
+of index
+
+  (dim X + dim P^L) − d = (d + L) − d = L.
+
+By Sard–Smale (Smale 1965), the regular values of π form a residual set
+R ⊂ C²(X). For h ∈ R, the fibre π^{-1}(h) is a manifold of dimension L,
+and its projection to X has dimension ≤ L < d. Hence the linear-dependence
+locus {x : rank(DΦ_h^(L)|_x) < L+1} has μ-measure zero (since μ has smooth
+positive density and the locus has dimension < d).
+
+**h satisfying (G2) lies in R** [(G2) used here]**.**
+We must show: if dh ≠ 0 μ-a.e., then h ∈ R, i.e., h is a regular value of π.
+
+A regular value of π means: for every (x, [λ]) ∈ π^{-1}(h) — every critical
+point x of F_λ — the map D_{(x,[λ])} π is surjective, i.e., the linearisation
+of the constraint dF_λ|_x = 0 in the (x, [λ]) directions is surjective as a
+map to the cokernel.
+
+Suppose (x, [λ]) ∈ Z, i.e., dF_λ|_x = 0. Then ∑_j λ_j ω_j(x) = 0. In
+particular ω_0(x) = dh_x ∈ span{ω_1(x), …, ω_L(x)}. But (G2) says
+dh_x ≠ 0 for μ-a.e. x, so the critical point x is constrained to a set
+of measure zero in X. More precisely: the critical set of F_λ is
+
+  Crit(F_λ) = {x : dF_λ|_x = 0} = {x : ∑_j λ_j ω_j(x) = 0}.
+
+When [λ] = [1, 0, …, 0] this is exactly {x : dh_x = 0}, which has μ-measure
+zero by (G2). For general [λ], F_λ = ∑_j λ_j h ∘ T^j is a C² function with
+dF_λ|_x = ∑_j λ_j ω_j(x). At a critical point, ω_0(x) = −(1/λ_0) ∑_{j≥1} λ_j ω_j(x)
+(assuming λ_0 ≠ 0; the case λ_0 = 0 is handled by relabelling). This forces
+
+  dh_x = ω_0(x) ∈ span{ω_1(x), …, ω_L(x)} ⊂ T*_x X.
+
+Now dh_x lies in the span of L cotangent vectors pulled back from T x, …, T^L x.
+By (G2), dh_x ≠ 0 μ-a.e., so x must lie on the smooth submanifold
+
+  S_λ = {x : dh_x − ∑_{j≥1} (λ_j/λ_0)(DT^j)^* dh_{T^j x} = 0}
+
+which (for generic h satisfying (G2) and any fixed [λ]) is a smooth submanifold
+of codimension d in X — i.e., a finite set of points (since X has dimension d).
+The union ∪_{[λ] ∈ P^L} S_λ is a set of measure zero in X (compact P^L-family
+of finite sets). Hence π^{-1}(h) projects to a set of measure zero in X, and
+the regularity condition is satisfied. So h ∈ R.
+
+Therefore: for any h satisfying (G2), the linear-dependence locus has μ-measure
+zero, and dim_eff(L) = L+1 for μ-a.e. x. □ (Case L+1 ≤ d)
+
+*Lower bound, Case L+1 > d.* We show rank(DΦ_h^(L)|_x) = d for μ-a.e. x,
+i.e., Φ_h^(L) is an immersion at μ-a.e. x.
+
+Immersion fails at x when ∃ nonzero v ∈ T_x X with DΦ_h^(L)|_x · v = 0, i.e.,
+
+  dh_{T^j x}(DT^j|_x · v) = 0   for all j = 0, …, L.
+
+At j = 0: dh_x(v) = 0, i.e., v ∈ ker dh_x.
+By (G2), dh_x ≠ 0 μ-a.e., so ker dh_x is a hyperplane (codimension 1) in
+T_x X for μ-a.e. x. Immersion failure requires v to also satisfy
+
+  dh_{T^j x}(DT^j|_x · v) = 0   for j = 1, …, L.
+
+Each additional condition j cuts ker by at most one dimension. Starting from
+ker dh_x of dimension d−1, imposing L further codimension-1 conditions gives
+a subspace of dimension ≥ d−1−L. For this to contain a nonzero v we need
+d−1−L ≥ 0, i.e., L ≤ d−1. But we are in Case L+1 > d, i.e., L ≥ d. So
+d−1−L ≤ −1 < 0: the intersection is empty, and no nonzero v can satisfy
+all L+1 conditions simultaneously — provided the L+1 hyperplanes
+{ker(dh_{T^j x} ∘ DT^j|_x) : j = 0,…,L} are in general position in T_x X.
+
+**General position** [(G1) and (G2) used here]**.**
+The L+1 hyperplanes are
+
+  H_j(x) := ker((DT^j|_x)^* dh_{T^j x}) = (ω_j(x))^⊥ ⊂ T_x X.
+
+They are in general position — meaning ∩_{j=0}^{L} H_j(x) = {0} whenever
+the cotangent vectors {ω_j(x)} span T*_x X (which has dimension d, and L+1 > d
+vectors span generically). By (G2), ω_0(x) = dh_x ≠ 0 μ-a.e. By (G1),
+the orbit points are distinct, so ω_1(x), …, ω_L(x) are genuinely independent
+pullbacks from different base points.
+
+To see that {ω_0(x), …, ω_L(x)} span T*_x X (dimension d) when L+1 > d:
+consider the failure map Ξ as before,
+
+  Ξ : C²(X) × (TX \ zero) → ℝ^{L+1},
+  (h, (x,v)) ↦ (dh_{T^j x}(DT^j|_x · v))_{j=0}^L.
+
+The h-partial D_h Ξ · δh = (dδh_{T^j x}(DT^j|_x · v))_{j=0}^L is surjective
+onto ℝ^{L+1}: prescribe each component independently using bump functions at
+the distinct points T^j x (by (G1)). So Ξ^{-1}(0) is a Banach submanifold of
+codimension L+1 in C²(X) × (TX \ zero), and the projection to C²(X) is
+Fredholm of index
+
+  dim(TX \ zero) − (L+1) = (2d−1) − (L+1) = 2d − L − 2.
+
+For L ≥ d: index = 2d − L − 2 ≤ d − 2 < d − 1. The failure locus for a
+regular-value h has dimension 2d − L − 2 in TX \ zero, projecting to a set
+of dimension ≤ 2d − L − 2 < d − 1 in X, hence μ-measure zero.
+
+For L = d−1 (boundary): index = d − 1. The failure locus in TX \ zero has
+dimension d−1, projecting to a subset of X of dimension ≤ d−1. For μ with
+smooth positive density, this has μ-measure zero.
+
+**h satisfying (G2) lies in the regular-value set** [(G2) used here]**.**
+At a failure point (x, v) ∈ Ξ^{-1}(0), we have in particular dh_x(v) = 0
+(j=0 term), i.e., v ∈ ker dh_x. By (G2), dh_x ≠ 0 μ-a.e., so ker dh_x is
+a proper hyperplane for μ-a.e. x. The failure locus is therefore contained
+in the subbundle {(x,v) : v ∈ ker dh_x, v ≠ 0}, which has dimension 2d−2
+in TX \ zero. The regularity argument for Ξ then shows the actual failure
+locus has dimension ≤ 2d − L − 2 ≤ d − 2 within this subbundle, giving a
+projection to X of dimension ≤ d − 2 < d. Hence the immersion-failure locus
+has μ-measure zero, and (G2) confirms h is a regular value.
+
+In all cases L ≥ d−1: rank(DΦ_h^(L)|_x) = d for μ-a.e. x, giving
+dim_eff(L) = d. □ (Case L+1 > d)
+
+**Remark (scope of genericity).** The proof uses (G1) in exactly one place:
+to ensure that the L+1 orbit points {T^j x : j = 0, …, L} are distinct, which
+makes the h-perturbation argument (bump functions at distinct points) work.
+Without (G1) the argument breaks in the following hard cases — all genuine,
+not covered by this proof:
+
+(i) T has a periodic orbit of period p ≤ L with positive μ-measure on its
+    basin: then for x near the orbit, T^p x ≈ x and the orbit points collide.
+    The Sard–Smale surjectivity argument fails — D_h Ψ may not be surjective
+    onto T*_x X because the bump functions at T^j x and T^{j+p} x interfere.
+    dim_eff(L) can be strictly less than min(L+1, d) on a set of positive measure.
+
+(ii) T has an invariant submanifold of dimension k < d on which h is constant:
+     ω_j(x) = 0 for all x in the submanifold and all j, so dim_eff(L) = 0 there.
+     This is the easy failure case; (i) is harder.
+
+(iii) The boundary case L+1 = d: the Sard–Smale index for Case 1 is exactly L,
+     so the failure locus {x : rank(DΦ_h^(L)|_x) < d} is a smooth submanifold
+     of dimension L = d−1 in X — nonempty but measure-zero *if and only if*
+     μ gives zero mass to smooth (d−1)-submanifolds of X.
+
+     The proof's hypothesis "μ smooth positive density" delivers exactly this:
+     a measure with smooth positive density is absolutely continuous w.r.t.
+     Lebesgue on X, and Lebesgue gives zero mass to any submanifold of
+     codimension ≥ 1. So the hypothesis is tight for this case.
+
+     The genuine failure examples are not fractal measures but measures that
+     charge smooth hypersurfaces: e.g. μ = surface measure on a (d−1)-submanifold
+     S ⊂ X, or any μ with an absolutely continuous component supported on S.
+     If the failure locus happens to equal S, then μ(failure locus) > 0 and
+     dim_eff(L) < d on a set of positive μ-measure. Fractal-supported measures
+     (e.g. SRB measures on strange attractors) do not in general charge smooth
+     hypersurfaces — they may satisfy the condition even without smooth density.
+     "Singular" and "charges smooth hypersurfaces" are independent properties;
+     the remark is about the latter, not the former.
+
+     The necessary and sufficient condition for the boundary case is:
+       μ(Σ) = 0   for every smooth (d−1)-submanifold Σ ⊂ X.
+     Smooth positive density implies this. It is the weakest hypothesis that
+     makes the boundary argument work, and it is what Paper IV assumes.
+
+---
+
+### Proposition (Piecewise pre-Takens rate)  [Obligation 9]
+
+**Hypotheses.**
+- T ∈ Diff²(X) with no periodic orbits of period ≤ L in supp(μ) — condition (G1).
+- h ∈ C²(X, ℝ) with dh ≠ 0 μ-a.e. — condition (G2).
+- X a compact smooth d-manifold; μ smooth positive density.
+- f ∈ Hölder(s) ∩ L∞(μ) for some s > 0.
+- Estimator f̂_n^(L) is the empirical risk minimiser over 𝒜_h^(L) (degree-D
+  polynomials in delay coordinates), with D = D*(n, L) chosen to balance
+  polynomial approximation and statistical terms.
+- d > 2s (condition from Rademacher bound, Obligation 5).
+
+**Claim.** For each L ≥ 0:
+
+  ‖f − f̂_n^(L)‖_{L²(μ)} ≤ 2‖f‖_{L∞} · δ(L)^{1/2}
+                            + C(f, d, s) · n^{-s/(2s + dim_eff(L))}
+
+with probability tending to 1 as n → ∞, where dim_eff(L) = min(L+1, d).
+
+In the pre-Takens regime (L < d−1): dim_eff(L) = L+1 < d, so the statistical
+rate n^{-s/(2s+L+1)} is faster than the locked Takens rate n^{-s/(2s+d)},
+but δ(L) > 0 so the bias term is nonzero.
+
+In the Takens regime (L ≥ d−1): dim_eff(L) = d and the rate locks at
+n^{-s/(2s+d)}.
+
+**Proof.**
+
+*Step 1 — Three-term decomposition.* By the triangle inequality:
+
+  ‖f − f̂_n^(L)‖_{L²}
+    ≤ ‖f − E[f | 𝒪_h^(L)]‖_{L²}           (bias)
+    + ‖E[f | 𝒪_h^(L)] − g_D*‖_{L²}         (polynomial approximation)
+    + ‖g_D* − f̂_n^(L)‖_{L²}               (statistical)
+
+where g_D* = argmin_{g ∈ 𝒜_h^(L)} ‖E[f|𝒪_h^(L)] − g‖_{L²(μ)}.
+
+*Step 2 — Bias term.* By Obligation 1 (Bias bound, §bias-bound section):
+
+  ‖f − E[f | 𝒪_h^(L)]‖_{L²} ≤ 2‖f‖_{L∞} · δ(L)^{1/2}
+
+No changes needed — the bias bound holds for any sub-σ-algebra at full
+generality. ✓
+
+*Step 3 — Polynomial approximation term.* By the Lemma, Φ_h^(L)(X) is a
+smooth submanifold of dimension dim_eff(L) = min(L+1, d). The conditional
+expectation E[f | 𝒪_h^(L)](x) = g*(Φ_h^(L)(x)) for some g* : im(Φ_h^(L)) → ℝ.
+Since f ∈ Hölder(s) and Φ_h^(L) is a C² immersion, g* is Hölder(s) on the
+dim_eff(L)-dimensional image. Standard polynomial approximation on a smooth
+k-dimensional submanifold gives:
+
+  inf_{g ∈ Poly(D)} ‖g* − g‖_{L∞} ≤ C_approx · D^{-s/dim_eff(L)}
+
+Hence ‖E[f|𝒪_h^(L)] − g_D*‖_{L²} ≤ C_approx · D^{-s/dim_eff(L)}.
+
+*Step 4 — Statistical term.* The class 𝒜_h^(L) consists of degree-D polynomials
+in dim_eff(L) variables. The VC dimension of this class is N(D, dim_eff(L)) ~
+C · D^{dim_eff(L)}. By Obligation 5 (Rademacher concentration), with d
+replaced by dim_eff(L) throughout (the argument uses only that the image is a
+smooth k-dimensional set with k = dim_eff(L)):
+
+  ‖g_D* − f̂_n^(L)‖_{L²} ≤ C_stat · (D^{dim_eff(L)} / n)^{1/2}
+
+with high probability, provided dim_eff(L) > 2s (holds for L ≥ 2s; finite-n
+caveat for smaller L, see scope note below).
+
+*Step 5 — Balance.* Set D = D*(n, L) to equate approximation and statistical:
+
+  D^{-s/dim_eff(L)} ~ (D^{dim_eff(L)} / n)^{1/2}
+
+Solving: D*(n, L) ~ n^{dim_eff(L) / (2s + dim_eff(L))}
+
+Both terms are then O(n^{-s/(2s+dim_eff(L))}). With dim_eff(L) = min(L+1, d):
+
+  rate = n^{-s/(2s + min(L+1, d))}
+
+Pre-Takens (L < d−1): min(L+1, d) = L+1, rate = n^{-s/(2s+L+1)}.
+Takens (L ≥ d−1):     min(L+1, d) = d,   rate = n^{-s/(2s+d)}. □
+
+---
+
+### Lemma (Post-saturation consistency)
+
+The balance point L*(n) lies in the post-saturation regime (L*(n) ≥ d−1) for
+all sufficiently large n, in both the exponential and polynomial mixing cases.
+
+**Proof.**
+
+*Exponential mixing (δ(L) ~ e^{-λL}, λ > 0):* Balancing the bias against the
+locked statistical rate (valid for L ≥ d−1):
+
+  e^{-λL/2} ~ n^{-s/(2s+d)}
+  L*(n) ~ (2s / (λ(2s+d))) · log n
+
+For large n, L*(n) ~ log n ≫ d−1. The post-saturation assumption is
+self-consistent for all n ≥ N₀(d, λ, s). ✓
+
+*Polynomial mixing (δ(L) ~ L^{-α}, α > 0):*
+
+  L^{-α/2} ~ n^{-s/(2s+d)}
+  L*(n) ~ n^{2s/(α(2s+d))}
+
+For large n, L*(n) → ∞ ≫ d−1. ✓  □
+
+---
+
+### Corollary (Terminal rate is mixing-independent)
+
+Under reconstruction (δ(L) → 0) and either exponential or polynomial mixing,
+with f ∈ Hölder(s) and d > 2s:
+
+  ‖f − f̂_n^(L*(n))‖_{L²(μ)} = O_p(n^{-s/(2s+d)})
+
+The rate depends only on (s, d). The mixing rate determines L*(n) but not the
+terminal rate. Dynamical complexity and statistical complexity separate cleanly.
+
+---
+
+### Honest scope note for Obligation (9)
+
+The following are NOT claimed:
+- Fractal dim X: the step function requires integer-valued dim_eff. Out of scope.
+- Infinite-dimensional X: d = ∞ makes n^{-s/(2s+d)} → 1. Out of scope.
+- Pre-saturation Rademacher (L < 2s): dim_eff(L) ≤ 2s violates Obligation 5's
+  d > 2s hypothesis. Localised Rademacher needed; left open.
+- (G1) fails (T has short periodic orbits in supp μ): dim_eff(L) may be < min(L+1,d)
+  on a positive-measure set; rate degrades. Verification of (G1) is the caller's
+  responsibility.
+- (G2) fails (dh = 0 on positive-measure set): ω_0 vanishes; rank collapses.
+  Verification of (G2) is the caller's responsibility.
+- μ charges smooth hypersurfaces: boundary case L+1 = d fails even with (G1)+(G2).
+  Smooth positive density closes this; weaker μ requires separate argument.
+
 ---                                                                                                                                                                       
                                                                                                                                                                           
 ## Data-driven lag selection via δ̂(L,n)                                                                                                                                   

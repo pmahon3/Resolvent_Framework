@@ -1,8 +1,18 @@
-# Paper III — Computational Extension Sketch
+# Paper IV — Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge
 
-**Status:** Exploratory. Not committed to any particular conclusion.
-**Goal:** Find the natural computational instantiation of the Stone duality picture
-from Papers I–III, if one exists.
+**Status:** Sketch promoted to Paper IV plan. Core results identified; open problems scoped.
+**Date:** 2026-04-05
+**Relation to programme:** Sits after Paper III. Takes the reconstruction theorem as given
+and asks: what does it look like empirically, at what rate, and with what witnesses?
+
+**Three honest theorems:**
+1. **(Algebra theorem):** δ̂ stopping rule achieves n^{-s/(2s+d)} without oracle inputs.
+2. **(Dynamics theorem):** Under separation-stability of Π_h, d̂_L certifies kernel drift.
+3. **(Conjunction theorem):** Under reconstruction ∧ separation-stability, both witnesses
+   certify the same object. The Markov structure of the delay vector is the honest bridge.
+
+**Central result in two sentences:**
+δ̂ measures how much of ℬ the algebra has captured. The loop counts how many lags mixing requires.
 
 ---
 
@@ -483,7 +493,9 @@ the Takens genericity argument). So:
 
   dim_eff(L) = min(L+1, d)   for generic (T, h), L ≥ 0.
 
-This is piecewise linear in L, saturating at d once L ≥ d−1.
+**This is a step function, not a smooth function of L.** It takes integer
+values 1, 2, …, d as L steps through 0, 1, …, d−1, then locks at d for
+all L ≥ d−1. There is no continuous interpolation.
 
 Note: L₀ = d−1 generically (need L+1 ≥ d coordinates to have full rank).
 The classical Takens theorem requires L₀ = 2d (for injectivity, not just
@@ -492,11 +504,21 @@ full rank) — injectivity is harder than surjectivity of the differential.
 ### Statistical rate in the pre-Takens regime
 
 For L < L₀, the image Φ_h^(L)(X) is dim_eff(L)-dimensional, and the
-statistical (variance) term uses intrinsic dimension dim_eff(L):
+statistical rate is piecewise in L — it steps through discrete values
+as each new lag adds one dimension:
 
-  Statistical rate: n^{-s/(2s + dim_eff(L))}
+  L = 0:       rate n^{-s/(2s+1)}
+  L = 1:       rate n^{-s/(2s+2)}
+  ⋮
+  L = d−2:     rate n^{-s/(2s+d−1)}
+  L ≥ d−1:     rate n^{-s/(2s+d)}   (locked)
 
-For L ≥ L₀: dim_eff(L) = d, rate stabilises at n^{-s/(2s+d)}.
+Each step is a discrete improvement. The rate does not vary continuously
+with L — it jumps at each integer. Any argument treating the rate as a
+smooth or monotone-continuous function of L is wrong: dim_eff forgot it
+was piecewise.
+
+For L ≥ L₀ (Takens regime): dim_eff(L) = d, rate locked at n^{-s/(2s+d)}.
 
 The bias term: δ(L) > 0 for L < L₀. In the pre-Takens regime, δ(L)
 measures how much of ℬ is not yet captured by 𝒪_h^(L).
@@ -535,27 +557,40 @@ For any n, taking L = L₀ gives bias 0 and the best attainable statistical
 rate. L*(n) = L₀ for all n (once n is large enough to support estimation
 in ℝ^d). There is no L-vs-n tradeoff — just use L₀.
 
-**Case 2: Exponential mixing (δ(L) ~ e^{-λL}, dim_eff(L) = min(L+1,d)).**
+**Case 2: Exponential mixing (δ(L) ~ e^{-λL}).**
 
-For large L (L ≥ d−1): dim_eff(L) = d, statistical rate = n^{-s/(2s+d)}.
+The piecewise structure of dim_eff means the balance must be done in
+two regimes:
 
-Balance: e^{-λL/2} ~ n^{-s/(2s+d)}
-  ⟹  L*(n) ~ (2s/(λ(2s+d))) · log n
+*Pre-saturation (L < d−1):* Both bias and statistical rate are improving
+with L. No tradeoff — just increase L until L = d−1.
 
-Rate at L*(n): n^{-s/(2s+d)} (the bias matches the statistical term).
-The log n factor in L*(n) means the bias contribution is negligible for
-large n — the dominant cost is the statistical term.
+*Post-saturation (L ≥ d−1):* dim_eff = d locked. Statistical rate =
+n^{-s/(2s+d)}, fixed. Bias = e^{-λL/2}, still decaying. Balance:
 
-**Case 3: Polynomial mixing (δ(L) ~ L^{-α}, dim_eff(L) = min(L+1,d)).**
+  e^{-λL/2} ~ n^{-s/(2s+d)}
+    ⟹  L*(n) ~ (2s/(λ(2s+d))) · log n
 
-For large L: dim_eff(L) = d, statistical rate = n^{-s/(2s+d)}.
+Since log n ≫ d−1 for large n, L*(n) is in the post-saturation regime
+as claimed. The balance is consistent. Rate at L*(n): n^{-s/(2s+d)}.
 
-Balance: L^{-α/2} ~ n^{-s/(2s+d)}
-  ⟹  L*(n) ~ n^{2s/(α(2s+d))}
+**Case 3: Polynomial mixing (δ(L) ~ L^{-α}).**
 
-Rate at L*(n): n^{-s/(2s+d)} again (same statistical term dominates).
-But now L*(n) grows polynomially in n — the cost of polynomial mixing
-is a polynomial number of lags needed, not logarithmic.
+*Post-saturation (L ≥ d−1):* dim_eff = d locked. Balance:
+
+  L^{-α/2} ~ n^{-s/(2s+d)}
+    ⟹  L*(n) ~ n^{2s/(α(2s+d))}
+
+For large n, L*(n) ≫ d−1, so again consistently in the post-saturation
+regime. Rate at L*(n): n^{-s/(2s+d)}.
+
+**The piecewise structure does not change the terminal rate** — both
+mixing cases arrive at n^{-s/(2s+d)} because the balance point L*(n)
+is always in the post-saturation regime for large n. But it does matter
+for finite n: for n small enough that L*(n) < d−1, the system is in the
+pre-saturation regime and the statistical rate is faster than n^{-s/(2s+d)}
+(smaller dim_eff), at the cost of non-zero bias. The crossing point is
+finite-n behavior, not the asymptotic rate.
 
 **Summary of optimal L*(n) and achievable rates:**
 
@@ -590,16 +625,17 @@ the dynamical system, not of the observation h or the sample size n.
 For concrete systems:
   - X = circle S¹: d = 1. Rate = n^{-s/(2s+1)}.
   - X = torus T^k: d = k. Rate = n^{-s/(2s+k)}.
-  - X = strange attractor (Lorenz): d ≈ 2.06 (fractal). Rate involves
-    the Hausdorff dimension — this is the fractal case, which requires
-    extending the intrinsic dimension argument to non-integer d.
+  - X = strange attractor (Lorenz): d ≈ 2.06 (fractal). The Hausdorff
+    dimension d_H replaces the manifold dimension in the rate, but d_H
+    is not observable from data without additional estimation steps.
+    **Out of scope for Paper IV** — the smooth manifold case is the theorem.
   - X = high-dimensional chaotic system: d large, rate slow.
 
-The fractal case (non-integer d) is a genuine extension beyond the
-smooth manifold setting. The Hausdorff/Minkowski dimension of
-Φ_h^(L)(X) replaces the manifold dimension. Polynomial approximation
-on fractal sets is studied (e.g. via wavelet methods) but the rates
-are less clean. This is a natural open question for Paper IV.
+The fractal case (non-integer d_H) is a different problem: the piecewise
+dim_eff argument breaks down (non-integer steps make no sense), the
+conditional expectation estimator's rate hides d_H, and d_H itself
+requires separate estimation. Paper IV states this explicitly as out of
+scope rather than an open question to be resolved later.
 
 ### Open questions in the pre-Takens regime
 

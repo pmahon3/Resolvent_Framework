@@ -12,7 +12,7 @@ structure of observation already contains.
 
 ---
 
-## The Three Papers
+## The Four Papers
 
 ### Paper I — Probability from Observation
 
@@ -135,6 +135,45 @@ proved; density bridge and reconstruction theorem not yet formalized)
 
 ---
 
+---
+
+### Paper IV — Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge
+
+**What it asks:** Paper III establishes the reconstruction equivalence theoretically.
+Paper IV asks: what does it look like empirically, at what rate, and with what
+witnesses?
+
+**Three honest theorems:**
+
+1. **(Algebra theorem):** The σ-algebra approximation error δ̂(L,n) — computable from
+   data alone — concentrates around the true δ(L), and the δ̂ stopping rule achieves
+   the minimax-optimal rate n^{-s/(2s+d)} for f ∈ Hölder(s) without oracle inputs.
+
+2. **(Dynamics theorem):** Under separation-stability of the predictive kernel Π_h
+   (verified by Hölder regularity when T ∈ C^r), the estimated edge law Γ̂_h^(n)
+   converges to Γ_h at rate n^{-β/(2β+d)}.
+
+3. **(Conjunction theorem):** Under reconstruction ∧ separation-stability, both
+   witnesses (δ̂ and d̂_L) certify the same object. The Markov structure of the delay
+   vector is the honest bridge between them.
+
+**Key insight:** δ̂ operates upstream of the rate — it measures reconstruction quality
+in the σ-algebra sense without requiring knowledge of s, d, or the mixing rate. The
+geometry shows up in the analysis of why δ̂ works, not in the procedure that computes it.
+
+**Proof obligation register:** 12 obligations. Obs. 1–8 closed under exponential
+mixing + ‖h‖_∞ ≥ 1/2. Next: ob. (9) piecewise pre-Takens rate, then (10) elbow
+location theorem, then (11) separation-stability, then (12) conjunction theorem.
+
+**Status:** Planning stage. Sketch complete at
+`notes/conceptual_sketches/paper_iv_sketch.md` (1874 lines). Next step: write LaTeX.
+
+**LaTeX:** Not started.
+
+**Lean formalization:** Not started.
+
+---
+
 ## The Through-Line
 
 Each paper takes the output of the previous as input:
@@ -147,6 +186,8 @@ Structured observations
                     cyclic vector condition as spectral sufficient condition
     → [Paper III] → reconstruction: St(O_h) ≅ X when O_h = B(X) mod μ
                     density bridge closes the loop with Paper I
+    → [Paper IV]  → finite-sample: δ̂ stopping rule achieves minimax rate
+                    witnesses certify reconstruction from data alone
 ```
 
 The three papers track the same duality from three angles:
@@ -179,6 +220,7 @@ are the state space.
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
 | III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **arXiv ready** — `papers/paper_iii/`, 7 pages | Upload |
+| IV | Planning stage. Obs. 1–8 closed (exp. mixing + ‖h‖_∞ ≥ 1/2); obs. 9–12 open. Sketch at `notes/conceptual_sketches/paper_iv_sketch.md` | Not started | **Not started** — next step is to write LaTeX | Write LaTeX |
 
 ---
 
@@ -258,22 +300,18 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-1. **arXiv submission of Papers I and II** — venue decided: arXiv first, then journal.
-   arXiv allows simultaneous journal submission; the preprint gets a permanent ID
-   immediately and is what people cite during review.
-   Remaining arXiv prep tasks (tracked in `notes/arxiv_prep.md`):
-   - Paper I: fix stale `mahon_paper0` self-reference; fix `cardona2025` bib format;
-     add MSC 2020 classifications; add keywords; remove `\pagecolor{white}`
-   - Paper II: add MSC 2020 classifications; add keywords; remove `\pagecolor{white}`;
-     update `mahon_paper1` cite once Paper I has an arXiv ID
-   - Both: final compile check before upload
+1. **arXiv upload of Papers I, II, III** — all arXiv prep complete (2026-04-05).
+   Remaining tasks tracked in `notes/arxiv_prep.md`:
+   - Upload Paper I source files; then backfill `mahon_paper1` arXiv ID in Papers II and III
+   - Upload Paper II source files
+   - Upload Paper III source files; then backfill `mahon_paper3` arXiv ID in Papers I and II
 
-2. **Submit Paper III** — arXiv prep complete (2026-04-05). MSC codes, keywords,
-   `\pagecolor{white}` removed, compiles cleanly (7 pages). 2 remaining sorrys are
-   genuine Mathlib gaps, not mathematical gaps; documented in paper and flight plan.
-   Ready to upload.
-   - `lpMeas_eq_top_of_ae_eq` — no `AEStronglyMeasurable` downward σ-algebra monotonicity in Mathlib
-   - `reconstruction_iff_lpMeas` (←) — `tendsto_ae_of_tendsto_Lp` not in Mathlib
+2. **Paper IV — write LaTeX** — sketch complete (`notes/conceptual_sketches/paper_iv_sketch.md`,
+   1874 lines). Remaining proof obligations to close before/during writing:
+   - (9) Piecewise pre-Takens rate (dim_eff step function) — **next**
+   - (10) Elbow location theorem — pending (9)
+   - (11) Separation-stability in smooth case
+   - (12) Conjunction theorem — pending (7)+(11)
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

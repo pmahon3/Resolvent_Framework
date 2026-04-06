@@ -451,6 +451,101 @@ test for whether the delay algebra has captured the dynamics.
 
 ---
 
+## Bias bound: clean write-up
+
+**Date:** 2026-04-06
+
+### Theorem (Bias bound)
+
+**Setup.** Let (X, ℬ, μ) be a probability space and m ⊆ ℬ a sub-σ-algebra.
+Define the σ-algebra approximation error:
+
+  δ(m) := sup_{S ∈ ℬ} inf_{E ∈ m} μ(S △ E)
+
+**Theorem.** For every f ∈ L∞(μ):
+
+  ‖f − E[f | m]‖_{L²(μ)} ≤ 2‖f‖_{L∞} · δ(m)^{1/2}
+
+**Proof.**
+
+*Step 1 — Indicators.* Fix S ∈ ℬ. By definition of δ(m), there exists
+E ∈ m with μ(S △ E) ≤ δ(m). Since 1_E ∈ L²(X, m, μ) and E[1_S | m]
+is the best m-approximation to 1_S in L²(μ):
+
+  ‖1_S − E[1_S | m]‖²_{L²} ≤ ‖1_S − 1_E‖²_{L²} = μ(S △ E) ≤ δ(m)
+
+So ‖1_S − E[1_S | m]‖_{L²} ≤ δ(m)^{1/2} for every S ∈ ℬ. ✓
+
+*Step 2 — Bounded f via layer cake.* For f ∈ L∞(μ) with ‖f‖_{L∞} ≤ M,
+the layer cake representation gives:
+
+  f = ∫_{−M}^{M} 1_{S_t} dt   where S_t = {x : f(x) > t}
+
+Since E[· | m] is linear and continuous in L²:
+
+  f − E[f | m] = ∫_{−M}^{M} (1_{S_t} − E[1_{S_t} | m]) dt
+
+Apply Minkowski's inequality for integrals and Step 1:
+
+  ‖f − E[f | m]‖_{L²} ≤ ∫_{−M}^{M} ‖1_{S_t} − E[1_{S_t} | m]‖_{L²} dt
+                       ≤ ∫_{−M}^{M} δ(m)^{1/2} dt
+                       = 2M · δ(m)^{1/2}
+
+Setting M = ‖f‖_{L∞} gives the result. □
+
+### Sharpness
+
+The constant 2 is not optimal but the rate δ(m)^{1/2} is tight.
+Example: X = [0,1], μ = Lebesgue, m = {∅, X}, f = 1_{[0,1/2]}.
+Then E[f|m] = 1/2, δ(m) = 1/2, and:
+
+  ‖f − E[f|m]‖_{L²} = 1/2 = δ(m)^{1/2}/√2
+
+The bound gives 2·(1/2)^{1/2} = √2. The exponent 1/2 is correct;
+the constant 2 is loose by a factor of 2√2.
+
+### Three-term decomposition in the delay setting
+
+With m = 𝒪_h^(L) and f̂_n^(L) the empirical minimiser over 𝒜_h^(L):
+
+  ‖f − f̂_n^(L)‖_{L²}
+    ≤ ‖f − E[f | 𝒪_h^(L)]‖_{L²}        (bias)
+    + ‖E[f|𝒪_h^(L)] − g_D*‖_{L²}       (polynomial approximation)
+    + ‖g_D* − f̂_n^(L)‖_{L²}            (statistical)
+
+where g_D* = argmin_{g ∈ 𝒜_h^(L)} ‖f − g‖_{L²(μ)} is the best polynomial.
+
+Bias term: ≤ 2‖f‖_{L∞}·δ(L)^{1/2} by the theorem above.
+
+Polynomial approximation term: ≤ C·D^{-s/d} in the Takens regime
+(g* = f∘Φ^{-1} is Hölder(s), Φ^{-1} Lipschitz, intrinsic approx on
+d-dimensional image). Vanishes when D → ∞ or is absorbed into the
+statistical term at the optimal D* ~ n^{d/(2s+d)}.
+
+Statistical term: ≤ C·(D^d/n)^{1/2} by VC dimension of degree-D
+polynomials on d-dimensional set. Balances at rate n^{-s/(2s+d)}.
+
+**Full bound (Takens regime, L ≥ L₀):**
+
+  ‖f − f̂_n^(L)‖_{L²(μ)} ≤ 2‖f‖_{L∞}·δ(L)^{1/2} + C·n^{-s/(2s+d)}
+
+Since δ(L) = 0 for L ≥ L₀, the bias term vanishes and:
+
+  ‖f − f̂_n^(L)‖_{L²(μ)} ≤ C·n^{-s/(2s+d)}   (minimax-optimal)
+
+### Key properties of δ(L)
+
+1. **Monotone:** δ(L) is non-increasing in L.
+2. **Reconstruction:** δ(L) → 0 iff ⋃_L 𝒪_h^(L) generates ℬ mod μ
+   (Paper III reconstruction theorem).
+3. **Takens regime:** δ(L) = 0 for L ≥ L₀.
+4. **Observable:** estimated consistently by δ̂(L,n) from data
+   (concentration bound ★ in section below, requires d > 2s).
+5. **L²-only case:** for f ∈ L²(μ) without L∞: weaker rate δ^{1/4}
+   via truncation. Paper IV assumes f ∈ L∞ throughout.
+
+---
+
 ## Concentration of δ̂(L,n): Rademacher bound
 
 **Date:** 2026-04-06

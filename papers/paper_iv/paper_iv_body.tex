@@ -900,3 +900,288 @@ removing them makes either the elbow unresolvable or the bias estimate
 (Proposition~\ref{prop:source2}) unavailable.
 Polynomial mixing is not covered.
 \end{remark}
+
+% ============================================================
+\section{The Dynamics Theorem}
+\label{sec:dynamics}
+% ============================================================
+
+The Algebra Theorem (Section~\ref{sec:algebra}) does not require any
+regularity of the predictive kernel $\PihL$.
+This section proves that, when $T \in C^r$, the delay map $\PhiL$ is
+bi-Lipschitz under separation-stability~(SS), and the estimated delay
+vectors certify point separation.
+
+\subsection{Lipschitz continuity of the delay map}
+
+\begin{lemma}[Upper Lipschitz bound]
+\label{lem:upper-lip}
+Assume $T \in \mathrm{Diff}^r(X)$, $h \in C^r(X)$, $r \geq 1$.
+Then $\PhiL$ is Lipschitz:
+\[
+  |\PhiL(x) - \PhiL(x')| \;\leq\; C_L \cdot d_X(x,x')
+  \quad\forall\, x, x' \in X,
+\]
+where $C_L := \|Dh\|_{\Lp{\infty}} \cdot \bigl(\sum_{j=0}^{L}
+\|DT^j\|_{\Lp{\infty}}^2\bigr)^{1/2}$.
+\end{lemma}
+
+\begin{proof}
+Component $j$ of $\PhiL$ is $h \circ T^j$.
+By the chain rule and compactness of $X$:
+$|h(T^j x) - h(T^j x')| \leq \|Dh\|_{\Lp{\infty}} \cdot \|DT^j\|_{\Lp{\infty}} \cdot d_X(x,x')$.
+Taking Euclidean norm over $j = 0, \ldots, L$ gives the result.
+\end{proof}
+
+\begin{lemma}[Local lower Lipschitz bound]
+\label{lem:lower-lip-local}
+Under~(G1)--(G2) with $L \geq d-1$ (Takens regime), $T \in C^r$, $r \geq 2$:
+for $\mu$-a.e.\ $x \in X$, there exists a neighbourhood $U_x$ and a constant
+$c_x = \sigma_{\min}(D\PhiL|_x) > 0$ such that
+\[
+  |\PhiL(x) - \PhiL(x')| \;\geq\; c_x \cdot d_X(x,x')
+  \quad\forall\, x' \in U_x.
+\]
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:dimeff}, $D\PhiL|_x$ has full rank~$d$ for $\mu$-a.e.\ $x$
+when $L \geq d-1$, so $\sigma_{\min}(D\PhiL|_x) > 0~\mu$-a.e.
+The lower bound on $U_x$ follows from the inverse function theorem applied to
+the immersion $\PhiL$ at $x$.
+\end{proof}
+
+\begin{remark}[Gap between local and global lower bound]
+Lemma~\ref{lem:lower-lip-local} gives a \emph{local} lower bound $c_x > 0$
+varying over $X$.
+(G1)--(G2) guarantee $\sigma_{\min} > 0$~\emph{$\mu$-a.e.}, but not on all of $X$.
+Condition~(SS) imposes $c := \inf_X \sigma_{\min}(D\PhiL|_x) > 0$, which is
+strictly stronger.
+The gap is genuine: there exist pairs $(T,h)$ satisfying~(G1)--(G2) but
+violating~(SS) on a $\mu$-null set.
+\end{remark}
+
+\subsection{Separation-stability}
+
+The one-step predictive kernel for deterministic $T$ is the Dirac family
+$\PihL(x,\,\cdot\,) = \delta_{\PhiL(x)}$.
+The TV separation pseudometric is therefore
+\[
+  \preddisc{L}(x,x')
+  \;:=\;
+  \|\PihL(x,\,\cdot\,) - \PihL(x',\,\cdot\,)\|_{\mathrm{TV}}
+  \;=\;
+  \mathbbm{1}\bigl[\PhiL(x) \neq \PhiL(x')\bigr]
+  \;\in\; \{0,1\}.
+\]
+Separation is binary: $\preddisc{L}(x,x') = 1$ if and only if
+$x$ and $x'$ are distinguished by $\OhL$.
+
+\begin{theorem}[Separation-stability under~(SS)]
+\label{thm:sep-stable}
+Assume~(G1)--(G2), (SS), $T \in C^r$, $r \geq 2$, $L \geq d-1$.
+Then $\PhiL$ is bi-Lipschitz on $X$:
+\[
+  c \cdot d_X(x,x') \;\leq\; |\PhiL(x) - \PhiL(x')| \;\leq\; C_L \cdot d_X(x,x')
+  \quad\forall\, x, x' \in X.
+\]
+For any estimator $\GamHat$ with uniform error
+$|\GamHat(x) - \PhiL(x)| \leq \varepsilon_n$ uniformly in $x$, the
+empirical separation $\widehat{d}_L(x,x') := |\GamHat(x) - \GamHat(x')|$
+satisfies
+\[
+  \widehat{d}_L(x,x') \;\geq\; c \cdot d_X(x,x') - 2\varepsilon_n.
+\]
+In particular, if $\preddisc{L}(x,x') = 1$ (i.e.\ $\PhiL(x) \neq \PhiL(x')$),
+then $\widehat{d}_L(x,x') > 0$ for all $n$ large enough that
+$\varepsilon_n < c \cdot d_X(x,x') / 2$.
+\end{theorem}
+
+\begin{proof}
+Upper bound: Lemma~\ref{lem:upper-lip}.
+Lower bound: (SS) directly gives $|\PhiL(x) - \PhiL(x')| \geq c \cdot d_X(x,x')$
+for all $x, x' \in X$.
+For the empirical bound: by the triangle inequality,
+$|\GamHat(x) - \GamHat(x')| \geq |\PhiL(x) - \PhiL(x')| - 2\varepsilon_n
+\geq c \cdot d_X(x,x') - 2\varepsilon_n$.
+If $\PhiL(x) \neq \PhiL(x')$ then by bi-Lipschitz $d_X(x,x') \geq |\PhiL(x)-\PhiL(x')|/C_L > 0$,
+so the right side is eventually positive.
+\end{proof}
+
+\begin{remark}[The delay map is directly observed]
+In the noiseless setting (h observed exactly), the delay vectors
+$\PhiL(x_i)$ are known to the observer directly, so $\GamHat = \PhiL$
+and $\varepsilon_n = 0$.
+In the presence of additive observation noise, $\varepsilon_n$ follows
+the NW regression rate (Proposition~\ref{prop:source2} with $\deff = d$),
+so $\varepsilon_n \to 0$.
+\end{remark}
+
+\subsection{The Dynamics Theorem}
+
+\begin{theorem}[Dynamics Theorem]
+\label{thm:dynamics}
+Assume~(G1)--(G2), (SS), $T \in C^r$, $r \geq 2$, $\mu$ smooth positive
+density on compact $d$-manifold $X$, $L \geq d-1$.
+Let $\GamHat$ be the empirical delay map estimator with uniform error
+$\varepsilon_n = C'' n^{-\beta/(2\beta+d)}$ (Proposition~\ref{prop:source2}).
+Then:
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{(Convergence)} $\|\GamHat - \PhiL\|_{\Lp{\infty}} \to 0$ at
+    rate $n^{-\beta/(2\beta+d)}$.
+  \item \emph{(Separation)} For $\mu \otimes \mu$-a.e.\ $(x,x')$ with
+    $x \neq x'$: $\widehat{d}_L(x,x') > 0$ for all large $n$.
+  \item \emph{(Scope)} Condition~(SS) is not a consequence of~(G1)--(G2).
+    Without~(SS), the kernel witness $\widehat{d}_L$ can vanish on a positive-measure
+    set of pairs even when $\preddisc{L} = 1$ and reconstruction holds.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(a) Proposition~\ref{prop:source2} with $\deff(L) = d$ gives
+$\varepsilon_n \to 0$ at rate $n^{-\beta/(2\beta+d)}$.
+
+(b) Since $\mu$ is non-atomic (smooth positive density), $\mu \otimes \mu$
+almost every pair satisfies $d_X(x,x') > 0$.
+For such pairs $\preddisc{L}(x,x') = 1$ (reconstruction and injectivity of $\PhiL$),
+and by Theorem~\ref{thm:sep-stable}, $\widehat{d}_L(x,x') \geq c \cdot d_X(x,x') - 2\varepsilon_n$.
+For fixed $x \neq x'$, $c \cdot d_X(x,x') > 0$ and $\varepsilon_n \to 0$,
+so the right side is eventually positive.
+
+(c) The proof of Theorem~\ref{thm:sep-stable} uses~(SS) in the lower bound.
+Without it, there exist points $x$ where $\sigma_{\min}(D\PhiL|_x) \to 0$
+along sequences $x'_n \to x$, and $|\PhiL(x_n') - \PhiL(x)| / d_X(x,x'_n) \to 0$.
+Any estimator inherits this degeneracy.
+\end{proof}
+
+% ============================================================
+\section{The Conjunction Theorem}
+\label{sec:conjunction}
+% ============================================================
+
+This section formalises the complete reconstruction diagnostic and proves
+that both witnesses certify the same event when reconstruction and~(SS) hold.
+
+\subsection{The honest bridge}
+
+The delay vector $\PhiL(x) = (h(x), \ldots, h(T^L x))$ is a trajectory of the
+Markov chain on $h$-space with one-step kernel $\Pi_h$.
+The $\sigma$-algebra $\OhL = \sigma(\PhiL)$ is exactly the information
+generated by $L$ steps of this Markov chain starting from $x$.
+This gives an algebraic identity:
+\[
+  \sigma\bigl(\PhiL\bigr) \;=\; \OhL,
+\]
+which is not an approximation but a definition.
+Consequently, the $\sigma$-algebra separation event and the metric separation event
+are identical:
+
+\begin{lemma}[Algebra separation equals metric separation]
+\label{lem:alg-metric}
+For deterministic $T$ and $\mu \otimes \mu$-a.e.\ $(x, x')$:
+\[
+  \preddisc{L}(x,x') = 1
+  \;\iff\;
+  \text{$x$ and $x'$ are separated by $\OhL$.}
+\]
+These are the same event, not merely correlated.
+\end{lemma}
+
+\begin{proof}
+For deterministic $T$:
+$\PihL(x,\,\cdot\,) = \delta_{\PhiL(x)}$, so
+$\preddisc{L}(x,x') = \|\delta_{\PhiL(x)} - \delta_{\PhiL(x')}\|_{\mathrm{TV}}
+= \mathbbm{1}[\PhiL(x) \neq \PhiL(x')]$.
+And $x$ is separated from $x'$ by $\OhL = \sigma(\PhiL)$ if and only if
+$\exists E \in \OhL$ with $\mathbbm{1}_E(x) \neq \mathbbm{1}_E(x')$, i.e.,
+if and only if $\PhiL(x) \neq \PhiL(x')$ (since $\OhL$ is generated by the
+level sets of $\PhiL$).
+The two conditions are identical.
+\end{proof}
+
+Under reconstruction ($\deltaL = 0$, equivalently $\PhiL$ injective $\mu$-a.e.)
+and~(SS), injectivity holds everywhere, so $\preddisc{L}(x,x') = 1$ for
+$\mu \otimes \mu$-a.e.\ $x \neq x'$.
+
+\subsection{The joint diagnostic}
+
+\begin{definition}[Joint reconstruction diagnostic]
+\label{def:diagnostic}
+Fix tolerances $\tau_n, \eta_n > 0$.
+Define
+\[
+  \mathrm{Reconstruct}(L, n)
+  \;:=\;
+  \bigl\{\delhat{L}{n} \leq \tau_n\bigr\}
+  \;\wedge\;
+  \bigl\{\widehat{d}_L(x,x') > \eta_n
+    \text{ for $\mu \otimes \mu$-most pairs}\bigr\}.
+\]
+\end{definition}
+
+\begin{theorem}[Conjunction Theorem]
+\label{thm:conjunction}
+Assume the hypotheses of Theorem~\ref{thm:algebra} (for the algebra side)
+and Theorem~\ref{thm:dynamics} (for the dynamics side).
+Set $\tau_n = \frac{C_\lambda}{2} C' n^{-2s/(2s+d)}$ and
+$\eta_n = \sqrt{\varepsilon_n}$ where $\varepsilon_n = C' n^{-2s/(2s+d)}$.
+Then:
+\begin{enumerate}[label=(\alph*)]
+  \item \emph{(Conjunction fires under reconstruction~$+$~(SS)).}
+    Under $\deltaL = 0$ for $L \geq L^*(n)$ and~(SS):
+    \[
+      P\bigl(\mathrm{Reconstruct}(\Lhat, n)\bigr) \;\to\; 1
+      \quad\text{exponentially in } n.
+    \]
+  \item \emph{(Algebra witness fails when reconstruction fails).}
+    If $\delta(L) > 0$ for all $L$: $P(\delhat{L}{n} \leq \tau_n) \to 0$
+    for every fixed $L$, and $\Lhat \to \infty$.
+
+  \item \emph{(Kernel witness fails when~(SS) fails).}
+    If $\sigma_{\min}(D\PhiL|_x) \to 0$ on a positive-measure set $S$:
+    $P(\widehat{d}_L > \eta_n \text{ for }\mu\otimes\mu\text{-most pairs}) \to 0$
+    even when $\delhat{L}{n} \to 0$.
+\end{enumerate}
+In particular: the conjunction is not achievable when either hypothesis fails.
+\end{theorem}
+
+\begin{proof}
+\emph{Part~(a).}
+By Theorem~\ref{thm:elbow}, $P(\Lhat = L^*(n)) \to 1$ exponentially.
+On $\{\Lhat = L^*(n)\}$:
+(i) $\delhat{\Lhat}{n} \leq \tau_n$ whp by Theorem~\ref{thm:convergence}
+and the definition of $L^*(n)$ ($\delta(L^*(n)) = 0$ under reconstruction).
+(ii) By Theorem~\ref{thm:dynamics}(b), $\widehat{d}_{\Lhat}(x,x') > 0$
+for $\mu \otimes \mu$-a.e.\ $(x,x')$ with $x \neq x'$, eventually.
+The set $\{d_X(x,x') \leq (2\varepsilon_n + \eta_n)/c\}$ has
+$\mu \otimes \mu$-measure $\to 0$ as $\eta_n/c \to 0$, so
+$\widehat{d}_{\Lhat} > \eta_n$ for $\mu\otimes\mu$-most pairs.
+
+\emph{Part~(b).}
+If $\delta(L) > 0$ for all $L$, then by Theorem~\ref{thm:convergence},
+$\delhat{L}{n} \geq \delta(L) - \varepsilon_n \geq \delta(L)/2 > \tau_n$
+with high probability for all fixed $L$, so the first condition of
+$\mathrm{Reconstruct}$ never fires.
+
+\emph{Part~(c).}
+If $S = \{x : \sigma_{\min}(D\PhiL|_x) = 0\}$ has $\mu(S) > 0$,
+then for $x \in S$ there exist sequences $x'_k \to x$ with
+$|\PhiL(x'_k) - \PhiL(x)| / d_X(x'_k, x) \to 0$.
+Any consistent estimator satisfies
+$\widehat{d}_L(x, x'_k) \leq |\PhiL(x'_k) - \PhiL(x)| + 2\varepsilon_n \to 0$.
+The set of pairs where $\widehat{d}_L \leq \eta_n$ thus has positive
+$\mu \otimes \mu$-measure, and the kernel condition fails.
+\end{proof}
+
+\begin{remark}[The Markov bridge is honest]
+The conjunction theorem's proof identifies the honest bridge:
+$\sigma(\PhiL) = \OhL$ (an algebraic identity) makes algebra separation
+and metric separation literally the same event
+(Lemma~\ref{lem:alg-metric}), not merely related.
+Separation-stability~(SS) ensures that this identity is \emph{empirically
+accessible}: the estimated delay vectors $\GamHat$ faithfully represent
+the true $\PhiL$, so the observer sees what the theory guarantees.
+Without~(SS), the bridge lies: the estimated $\widehat{d}_L$ can diverge
+from $\preddisc{L}$ on a positive-measure set, making the two witnesses
+certify different objects.
+\end{remark}

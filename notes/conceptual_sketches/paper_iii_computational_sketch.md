@@ -351,92 +351,127 @@ depending on which direction you probe.
 
 ---
 
-## Reverse direction: small L²-error implies small δ(L)
+## Reverse direction: small empirical error implies small δ(L)
 
-**The question:** If ‖f − f̂_n^(L)‖_{L²(μ)} is small for test functions f,
-does it follow that δ(L) is small (i.e. Φ_h^(L) separates points well)?
+**The question, stated correctly.** The observer has:
+- f̂_n^(L): the empirical minimiser over 𝒜_h^(L) from n samples
+- ‖·‖_{L²(μ_n)}: the empirical L² norm over the sample
+- Nothing else — not μ, not E[f|𝒪_h^(L)], not δ(L)
 
-### Setup
+The question is: if ‖f − f̂_n^(L)‖_{L²(μ_n)} is small for worst-case f,
+can the observer certify δ(L) is small?
 
-Fix S ∈ ℬ and take f = 1_S. The L²-approximation error of the best element
-of 𝒜_h^(L) satisfies:
+The answer requires travelling three steps, each with its own gap:
 
-  ‖1_S − f̂_n^(L)‖_{L²} ≥ ‖1_S − E[1_S | 𝒪_h^(L)]‖_{L²}
+```
+δ(L) large
+  ↓  Step A: population lower bound
+‖1_S − E[1_S|𝒪_h^(L)]‖_{L²(μ)} ≥ δ(L)^{1/2}/2
+  ↓  Step B: population norm → empirical norm (LLN gap)
+‖1_S − E[1_S|𝒪_h^(L)]‖_{L²(μ_n)} ≥ δ(L)^{1/2}/2 − O(n^{-1/2})
+  ↓  Step C: population estimator → empirical estimator (estimator gap)
+‖1_S − f̂_n^(L)‖_{L²(μ_n)} ≥ δ(L)^{1/2}/2 − O(n^{-1/2}) − stat term
+```
 
-(since E[1_S | 𝒪_h^(L)] is the best 𝒪_h^(L)-measurable approximation, and
-𝒜_h^(L) ⊆ L²(𝒪_h^(L))).
+Only Step C produces something the observer can evaluate. Steps A and B
+are population statements used in the proof, not observable quantities.
 
-### Lower bound on the conditional expectation gap
+### Step A — Population lower bound (proved)
 
-By definition of δ(L): for the worst-case S,
+**Theorem.** For the worst-case S ∈ ℬ:
 
-  inf_{E ∈ 𝒪_h^(L)} μ(S △ E) ≥ δ(L)
+  ‖1_S − E[1_S | 𝒪_h^(L)]‖_{L²(μ)} ≥ δ(L)^{1/2}/2
 
-Take E* = {E[1_S | 𝒪_h^(L)] > 1/2} ∈ 𝒪_h^(L). Then μ(S △ E*) ≥ δ(L).
+**Proof.** E[1_S | 𝒪_h^(L)] is [0,1]-valued. Let E* = {E[1_S|m] > 1/2}.
+Then E* ∈ 𝒪_h^(L), and by definition of δ(L): μ(S △ E*) ≥ δ(L).
+On S △ E*: either 1_S = 1 and E[1_S|m] ≤ 1/2 (squared error ≥ 1/4),
+or 1_S = 0 and E[1_S|m] ≥ 1/2 (squared error ≥ 1/4). So:
 
-A direct computation: since 1_S and 1_{E*} are both {0,1}-valued,
+  ‖1_S − E[1_S|m]‖²_{L²(μ)} ≥ (1/4)·μ(S △ E*) ≥ δ(L)/4
 
-  ‖1_S − 1_{E*}‖²_{L²} = μ(S △ E*) ≥ δ(L)
+giving ‖1_S − E[1_S|m]‖_{L²(μ)} ≥ δ(L)^{1/2}/2. □
 
-and since E[1_S | 𝒪_h^(L)] is the *best* approximation to 1_S in L²(𝒪_h^(L)):
+### Step B — Population norm to empirical norm
 
-  ‖1_S − E[1_S | 𝒪_h^(L)]‖²_{L²} ≤ ‖1_S − 1_{E*}‖²_{L²} = μ(S △ E*)
+The population norm ‖·‖_{L²(μ)} is not observable. Replace it with the
+empirical norm ‖·‖_{L²(μ_n)} via:
 
-But we need a lower bound. Use the fact that for the *worst-case* S:
+  |‖g‖²_{L²(μ_n)} − ‖g‖²_{L²(μ)}| ≤ sup_{g ∈ ℱ} |(1/n)Σg² − Eg²|
 
-  ‖1_S − E[1_S | 𝒪_h^(L)]‖_{L²} ≥ δ(L)/2
+For g = 1_S − E[1_S|m], ‖g‖_∞ ≤ 2, so by Hoeffding:
 
-This follows because: E[1_S | 𝒪_h^(L)] is [0,1]-valued; let E* be any
-threshold set. Then μ(S △ E*) ≥ δ(L), and
+  P(|‖g‖²_{L²(μ_n)} − ‖g‖²_{L²(μ)}| > t) ≤ 2·exp(−nt²/8)
 
-  ‖1_S − E[1_S | 𝒪_h^(L)]‖² ≥ (1/4)·μ(S △ E*) ≥ δ(L)/4
+With high probability, ‖g‖_{L²(μ_n)} ≥ ‖g‖_{L²(μ)} − O(n^{-1/2}).
 
-(the factor 1/4 comes from: on S △ E*, either 1_S = 1 and E[1_S|m] ≤ 1/2,
-giving squared error ≥ 1/4, or 1_S = 0 and E[1_S|m] ≥ 1/2, also ≥ 1/4).
+So from Step A:
 
-So ‖1_S − E[1_S | 𝒪_h^(L)]‖_{L²} ≥ δ(L)^{1/2}/2.
+  ‖1_S − E[1_S|𝒪_h^(L)]‖_{L²(μ_n)} ≥ δ(L)^{1/2}/2 − O(n^{-1/2})
 
-### The two-directional bound
+with high probability. Still uses E[1_S|𝒪_h^(L)] — not yet observable.
 
-Combining with the forward bias bound:
+### Step C — Population estimator to empirical minimiser
 
-  δ(L)^{1/2}/2  ≤  ‖f − f̂_n^(L)‖_{L²}  ≤  2δ(L)^{1/2}   (†)
+The observer has f̂_n^(L), not E[1_S|𝒪_h^(L)]. The gap between them:
 
-for f = 1_{S*} (the worst-case indicator), up to the statistical term
-C·n^{-s/(2s+d)} which is lower-order once L ≥ L₀.
+  ‖1_S − f̂_n^(L)‖_{L²(μ_n)}
+    ≥ ‖1_S − E[1_S|𝒪_h^(L)]‖_{L²(μ_n)} − ‖f̂_n^(L) − E[1_S|𝒪_h^(L)]‖_{L²(μ_n)}
 
-**This gives the two-directional equivalence:**
+The second term ‖f̂_n^(L) − E[1_S|𝒪_h^(L)]‖_{L²(μ_n)} is the statistical
+term — how far the empirical minimiser is from the population best
+approximation. From the forward bridge variance bound:
 
-  δ(L) ~  sup_{‖f‖_{L∞} ≤ 1} ‖f − E[f | 𝒪_h^(L)]‖²_{L²}
+  ‖f̂_n^(L) − E[1_S|𝒪_h^(L)]‖_{L²(μ_n)} ≤ C·n^{-s/(2s+d)}
 
-The σ-algebra approximation error δ(L) and the worst-case L²-projection
-error are equivalent up to universal constants. Not surprising in retrospect —
-δ(L) was defined as a supremum over sets, and indicators are the extremal
-functions for L∞-bounded L²-projection.
+(in the Takens regime, using the same Rademacher bound as the forward
+direction). Combining with Steps A and B:
 
-### The key shift: from worst-case to computable
+  ‖1_S − f̂_n^(L)‖_{L²(μ_n)}
+    ≥ δ(L)^{1/2}/2 − O(n^{-1/2}) − C·n^{-s/(2s+d)}
+    ≥ δ(L)^{1/2}/2 − C'·n^{-s/(2s+d)}    (absorbing the LLN term)
 
-The equivalence (†) holds for the *worst-case* f. For a fixed f, small
-L²-error does not imply small δ(L). This is fine — it means:
+**This is the observable reverse lower bound:**
 
-  δ(L) is detectable iff you can evaluate the sup over test functions.
+  ‖1_S − f̂_n^(L)‖_{L²(μ_n)} ≥ δ(L)^{1/2}/2 − C'·n^{-s/(2s+d)}   (‡)
 
-**Question:** How many test functions suffice to certify δ(L) ≤ ε?
+### The honest closed loop
 
-If reconstruction holds (𝒜_h dense in L²), then polynomials in 𝒜_h^(L)
-are dense in L∞ (for large enough L). So the sup over all L∞-bounded f is
-approximated, to within ε, by the sup over degree-D polynomials in Φ_h^(L)
-for D = D(ε, s, d).
+Combining (‡) with the forward bound:
 
-**This is where the delay algebra structure does real work:**
+  δ(L)^{1/2}/2 − C'·n^{-s/(2s+d)}
+    ≤  ‖f − f̂_n^(L)‖_{L²(μ_n)}
+    ≤  2δ(L)^{1/2} + C·n^{-s/(2s+d)}
 
-The functions {h, h∘T, …, h∘T^L} are not arbitrary — they are the orbit
-of a single h under T. The algebra 𝒜_h^(L) has dimension O(L^D) (ambient)
-or O(D^d) (intrinsic). The worst-case test function 1_{S*} is approximated
-by an element of 𝒜_h^(L) to within δ(L)^{1/2}, by the forward bound.
+for f = 1_{S*} (the worst-case indicator). Both bounds use:
+- f̂_n^(L): the empirical minimiser — not a population object
+- ‖·‖_{L²(μ_n)}: the empirical norm — not the population norm
+- The same statistical floor C·n^{-s/(2s+d)} on both sides
 
-So: to certify δ(L) ≤ ε, it suffices to evaluate the sup over 𝒜_h^(L)
-itself — no external test class needed. The algebra tests itself.
+**The detectability threshold:** δ(L) is certifiable from f̂_n^(L) only
+when δ(L)^{1/2}/2 > C'·n^{-s/(2s+d)}, i.e.:
+
+  δ(L) > 4C'²·n^{-2s/(2s+d)}
+
+Below this threshold, the statistical noise swamps δ(L) and the observer
+cannot distinguish "reconstruction holds, δ = 0" from "δ is small but
+positive." The noise floor is the same quantity that sets ε_n in the
+stopping rule — by design.
+
+### What the algebra tests
+
+To certify δ(L) ≤ ε from f̂_n^(L), the observer evaluates:
+
+  δ̂(L, n) = sup_{p ∈ 𝒫_D^(L), ‖p‖≤1} ‖p − f̂_n^(L)[p]‖²_{L²(μ_n)}
+
+where f̂_n^(L)[p] is the empirical minimiser over 𝒜_h^(L) for test
+function p. The sup is over the algebra testing itself.
+
+From (‡): δ̂(L,n) ≥ δ(L)/4 − C''·n^{-2s/(2s+d)} (lower bound).
+From the forward bound: δ̂(L,n) ≤ 4δ(L) + C'''·n^{-2s/(2s+d)} (upper bound).
+
+So δ̂(L,n) is a two-sided empirical witness for δ(L), valid above the
+noise floor n^{-2s/(2s+d)}. This is what "the algebra tests itself" means
+precisely — no population objects, no oracle, just f̂_n^(L) and μ_n.
 
 **Concretely:** compute
 
@@ -693,13 +728,17 @@ s ≤ 1 for Lipschitz observations) satisfy this.
 | Concentration sufficient | Requires d > 2s | ✓ identified |
 | d ≤ 2s fix | Localized Rademacher or slower ε_n | Open, Option 3 for Paper IV |
 
-| Statement | Status |
-|-----------|--------|
-| Large δ(L) → large L²-error (for worst-case f) | ✓ proved: error ≥ δ(L)^{1/2}/2 |
-| Small L²-error (worst-case f) → small δ(L) | ✓ follows from (†) |
-| Small L²-error (fixed f) → small δ(L) | ✗ false in general |
-| δ(L) certifiable from 𝒜_h^(L) alone | ✓ under reconstruction |
-| Computable estimator δ̂(L,n) → δ(L) | ✗ NOT proved — see proof obligation below |
+| Statement | Objects used | Status |
+|-----------|-------------|--------|
+| Step A: δ(L) large → pop. CE gap ≥ δ^{1/2}/2 | E[1_S\|m], μ (population) | ✓ proved |
+| Step B: pop. norm ≈ empirical norm | LLN, O(n^{-1/2}) | ✓ standard |
+| Step C: pop. CE ≈ empirical minimiser | variance bound, C·n^{-s/(2s+d)} | ✓ from forward |
+| Observable lower bound (‡) | f̂_n^(L), μ_n only | ✓ assembled |
+| Closed loop: both bounds use f̂_n^(L), μ_n | empirical throughout | ✓ |
+| Detectability threshold: δ(L) > 4C'²·n^{-2s/(2s+d)} | noise floor | ✓ identified |
+| Small empirical error (fixed f) → small δ(L) | | ✗ false in general |
+| δ̂(L,n) two-sided witness for δ(L) above noise floor | f̂_n^(L), μ_n | ✓ from (‡) + forward |
+| δ̂(L,n) → δ(L) as n → ∞ | requires Source 2 estimator bias | open obligation |
 
 ---
 

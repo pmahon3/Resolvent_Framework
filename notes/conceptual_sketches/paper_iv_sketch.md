@@ -508,8 +508,8 @@ directly), or listed here as an open obligation. Nothing is assumed.
 | 8 | Full convergence δ̂ → δ | Triangle over (5)+(6)+(7) | ✓ under exp. mixing + ‖h‖_∞≥1/2 |                                                                              
 | 9 | Piecewise rate in pre-Takens regime | dim_eff step function | **open — next** |                                                                                     
 | 10 | Elbow location theorem | Concentration (5) + piecewise (9) | pending (9) |                                                                                         
-| 11 | Separation-stability in smooth case | T ∈ C^r → Hölder Π_h | **open** |                                                                                            
-| 12 | Conjunction theorem | (8) + (11) | pending (7)+(11) |                                                                                                              
+| 11 | Separation-stability in smooth case | T ∈ C^r → Hölder Π_h | **open** — see Edge divergence §Step 4 |                                                                
+| 12 | Conjunction theorem | (8) + (11) | pending (7)+(11) — see Edge divergence §Step 4 |                                                                                                              
                                                                                                                                                                           
 **Open obligations in priority order:** (9) → (10) → (11) → (12)                                                                                                          
 **Conditionally open (poly. mixing / ‖h‖_∞ < 1/2):** (7) → (8)                                                                                                            
@@ -1870,6 +1870,6 @@ structure of the delay vector is an honest bridge between them, not a lie.
 | Step 4 | Two-pair structure: (A)↔(B) algebra side, (D)→(C) dynamics side | ✓ |                                                                                          
 | Step 4 | Bridge: Markov structure of delay vector, not equivalence | ✓ |                                                                                                
 | Step 4 | Reverse chain (A)→(D) does not hold without regularity + estimator | ✓ |                                                                                       
-| Open | Conjunction theorem: formalise δ̂ ∧ d̂_L diagnostic with rates | Open |                                                                                            
-| Open | Separation-stability: when does T ∈ C^r imply Π_h separation-stable? | Open |                                                                                    
-| Open | Separation-stability is the right condition; smoothness is sufficient but not necessary | Identified |  
+| Open (ob. 12) | Conjunction theorem: formalise δ̂ ∧ d̂_L diagnostic with rates | Open |                                                                                  
+| Open (ob. 11) | Separation-stability: when does T ∈ C^r imply Π_h separation-stable? | Open |                                                                          
+| Open (ob. 11) | Separation-stability is the right condition; smoothness is sufficient but not necessary | Identified |  

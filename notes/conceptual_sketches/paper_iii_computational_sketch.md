@@ -489,6 +489,32 @@ test for whether the delay algebra has captured the dynamics.
 
 ---
 
+## Proof obligation register
+
+**Last updated: 2026-04-06**
+
+Every claim in the developed sections is either proved, standard (citable
+directly), or listed here as an open obligation. Nothing is assumed.
+
+| # | Obligation | Method | Status |
+|---|-----------|--------|--------|
+| 1 | Bias bound: ‖f−E[f\|m]‖ ≤ 2‖f‖_{L∞}·δ(m)^{1/2} | Layer cake + best-approx | ✓ proved |
+| 2 | Reverse Step A: pop. CE gap ≥ δ^{1/2}/2 | Threshold set + 1/4 factor | ✓ proved |
+| 3 | Reverse Step B: pop. norm ≈ empirical norm | Hoeffding, O(n^{-1/2}) | ✓ standard |
+| 4 | Reverse Step C: pop. CE ≈ f̂_n^(L) | Variance bound from forward | ✓ from (1)+(Rademacher) |
+| 5 | Concentration (★): δ̂ ≈ E[δ̂] | Rademacher, d > 2s required | ✓ proved |
+| 6 | Source 1: LLN gap E[δ̂] ≈ δ̂_pop | Glivenko-Cantelli | ✓ standard |
+| 7 | Source 2: estimator bias δ̂_pop ≈ δ | Kernel regression + Hölder(β) | **open** |
+| 8 | Full convergence δ̂ → δ | Triangle over (5)+(6)+(7) | pending (7) |
+| 9 | Piecewise rate in pre-Takens regime | dim_eff step function | **open — next** |
+| 10 | Elbow location theorem | Concentration (5) + piecewise (9) | pending (9) |
+| 11 | Separation-stability in smooth case | T ∈ C^r → Hölder Π_h | **open** |
+| 12 | Conjunction theorem | (8) + (11) | pending (7)+(11) |
+
+**Open obligations in priority order:** (7) → (9) → (10) → (11) → (12)
+
+---
+
 ## Bias bound: clean write-up
 
 **Date:** 2026-04-06

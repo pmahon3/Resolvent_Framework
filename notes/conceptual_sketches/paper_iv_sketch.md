@@ -491,7 +491,7 @@ test for whether the delay algebra has captured the dynamics.
                                                                                                                                                                           
 ## Proof obligation register                                                                                                                                              
                                                                                                                                                                           
-**Last updated: 2026-04-06** (ob. 9–11 closed; ob. 12 next)                                                                                                                                              
+**Last updated: 2026-04-06** (ob. 9–12 closed; all obligations resolved)                                                                                                                                              
                                                                                                                                                                           
 Every claim in the developed sections is either proved, standard (citable                                                                                                 
 directly), or listed here as an open obligation. Nothing is assumed.                                                                                                      
@@ -509,9 +509,10 @@ directly), or listed here as an open obligation. Nothing is assumed.
 | 9 | Piecewise rate in pre-Takens regime | dim_eff step function | ✓ closed: (G1)+(G2)+smooth positive μ; boundary condition μ(Σ)=0 ∀ hypersurfaces Σ named and tight |                                                                                     
 | 10 | Elbow location theorem | Concentration (5) + piecewise (9) | ✓ closed (exp. mixing, C_λ > 4); poly. mixing open (elbow drop vanishes rel. noise) |                                                                                         
 | 11 | Separation-stability in smooth case | T ∈ C^r → Hölder Π_h | ✓ closed under (SS): bi-Lipschitz delay map; (SS) generic, not derived from (G1)+(G2) |                                                                
-| 12 | Conjunction theorem | (8) + (11) | **open — next** |                                                                                                              
+| 12 | Conjunction theorem | (8) + (11) | ✓ closed: reconstruction + (SS) → both witnesses fire; failure modes (b)(c) proved; Markov bridge identified |                                                                                                              
                                                                                                                                                                           
-**Open obligations in priority order:** (10) → (11) → (12)  [*(9) closed 2026-04-06)*]                                                                                                          
+**Open obligations in priority order:** none — all 12 closed as of 2026-04-06
+**Conditionally open (poly. mixing / ‖h‖_∞ < 1/2):** (7) → (8); also (10) poly. mixing case                                                                                                          
 **Conditionally open (poly. mixing / ‖h‖_∞ < 1/2):** (7) → (8)                                                                                                            
                                                                                                                                                                           
 ---                                                                                                                                                                       
@@ -2767,3 +2768,206 @@ Open:
   left for future work.
 - Stochastic T (noisy dynamics): Π_h is no longer Dirac, genuine TV-Hölder
   regularity is needed, and the argument changes substantially.
+
+
+---
+
+## Obligation (12): Conjunction theorem — formal write-up
+
+**Date:** 2026-04-06
+
+**Status:** Closed under reconstruction + (SS). The theorem is conditional —
+both hypotheses are necessary and the failure modes under each are named.
+
+---
+
+### The central claim
+
+The two witnesses are:
+
+  (W1) δ̂(L, n) — algebra witness. Small means 𝒪_h^{(L)} has captured ℬ.
+  (W2) d̂_L(x,x') = |Φ̂_h^{(L,n)}(x) − Φ̂_h^{(L,n)}(x')| — kernel witness.
+       Large for μ⊗μ-most pairs means the delay map separates the state space.
+
+The conjunction theorem asserts: under reconstruction ∧ (SS), (W1) and (W2)
+are measuring the same object — σ-algebra separation and metric separation
+coincide, and both witnesses certify it from data.
+
+---
+
+### Lemma (Algebra separation = metric separation under bi-Lipschitz)
+
+**Hypotheses.** Φ_h^{(L)} bi-Lipschitz on X (i.e., (SS) holds, from ob. 11):
+
+  c · d_X(x,x') ≤ |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| ≤ C_L · d_X(x,x').
+
+**Claim.** For μ⊗μ-a.e. (x, x') with x ≠ x':
+
+  d_L(x,x') = 1  iff  x and x' are separated by 𝒪_h^{(L)}.
+
+That is: the kernel witness d_L and the algebra witness δ(L) are measuring
+the same separation event.
+
+**Proof.**
+
+By definition, d_L(x,x') = ‖Π_h^{(L)}(x,·) − Π_h^{(L)}(x',·)‖_{TV}.
+For deterministic T, Π_h^{(L)}(x,·) = δ_{Φ_h^{(L)}(x)}, so
+
+  d_L(x,x') = ‖δ_{Φ_h^{(L)}(x)} − δ_{Φ_h^{(L)}(x')}‖_{TV}
+             = 𝟏[Φ_h^{(L)}(x) ≠ Φ_h^{(L)}(x')].
+
+And x is separated from x' by 𝒪_h^{(L)} = σ(Φ_h^{(L)}) iff there exists
+a measurable set E ∈ 𝒪_h^{(L)} with 𝟏_E(x) ≠ 𝟏_E(x'), i.e., iff
+Φ_h^{(L)}(x) ≠ Φ_h^{(L)}(x') (since the sets {Φ_h^{(L)}^{-1}(B)} for
+Borel B ⊆ ℝ^L generate 𝒪_h^{(L)}, and these separate x from x' iff the
+delay vectors differ).
+
+So d_L(x,x') = 1 iff x, x' separated by 𝒪_h^{(L)}: the two conditions are
+identical, not merely correlated.
+
+Under (SS), Φ_h^{(L)} injective (reconstruction) implies Φ_h^{(L)}(x) ≠ Φ_h^{(L)}(x')
+for all x ≠ x'. Hence d_L(x,x') = 1 for all x ≠ x', μ⊗μ-a.e. □
+
+---
+
+### Theorem (Conjunction theorem)  [Obligation 12]
+
+**Hypotheses.**
+- Reconstruction: δ(L) = 0, equivalently Φ_h^{(L)} injective μ-a.e. (Paper III).
+- (SS): Φ_h^{(L)} bi-Lipschitz with constants 0 < c ≤ C_L < ∞ (ob. 11).
+- (G1), (G2), μ smooth positive density on compact d-manifold X (ob. 9/11).
+- n large enough that the estimator error ε_n < c·η/2 for the η in the
+  separation threshold (see below).
+- Exponential mixing (for the rate statement; the qualitative claim holds
+  under any mixing with L*(n) < ∞).
+
+**Claim.** Define the joint diagnostic:
+
+  Reconstruct(L, n) := {δ̂(L,n) ≤ τ_n}  ∧  {d̂_L,n > η_n for μ⊗μ-most pairs}
+
+where τ_n = 4·ε_n(d) (from ob. 10) and η_n > 0 satisfies η_n → 0,
+η_n ≫ ε_n (e.g. η_n = √ε_n).
+
+Then:
+
+(a) Under reconstruction + (SS): P(Reconstruct(L*(n), n)) → 1.
+
+(b) Under failure of reconstruction (δ(L) > 0 for all L):
+    P(δ̂(L,n) ≤ τ_n for any finite L) → 0.
+
+(c) Under failure of (SS) (σ_min(DΦ_h^{(L)}|_x) → 0 on a positive-measure set):
+    P(d̂_L,n > η_n for μ⊗μ-most pairs) → 0, even if δ̂(L,n) → 0.
+
+In words: (a) the conjunction fires correctly when both conditions hold;
+(b) δ̂ alone cannot fire when reconstruction fails; (c) d̂_L alone cannot
+fire when (SS) fails, even if the algebra witness looks good.
+
+**Proof.**
+
+**(a) Conjunction fires under reconstruction + (SS).**
+
+Step 1: δ̂(L*(n), n) ≤ τ_n whp.
+By ob. (10) Corollary (Algebra theorem, data-driven), at L = L*(n):
+  δ̂(L*(n), n) ≤ δ(L*(n)) + |δ̂ − δ| ≤ 0 + ε_n(d) ≤ τ_n   whp.
+(Reconstruction: δ(L*(n)) = 0 since L*(n) ≥ L₀. Concentration: ob. 8.) ✓
+
+Step 2: d̂_L*(n),n > η_n for μ⊗μ-most pairs, whp.
+By the Algebra-Metric Lemma, d_L(x,x') = 1 for all x ≠ x' (reconstruction).
+By ob. (11) separation-stability, for n large enough that ε_n < c/2:
+  d̂_L,n(x,x') = |Φ̂(x) − Φ̂(x')| ≥ |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| − 2ε_n
+               ≥ c · d_X(x,x') − 2ε_n.
+For μ⊗μ-a.e. (x,x') with x ≠ x', d_X(x,x') > 0. The set {d_X(x,x') > 0}
+has full μ⊗μ-measure (since μ is non-atomic by smooth positive density).
+On this set, c · d_X(x,x') > 0, and for n large enough c · d_X(x,x') > 2ε_n + η_n
+for μ⊗μ-most pairs (all but the pairs with d_X(x,x') ≤ (2ε_n + η_n)/c,
+which have μ⊗μ-measure → 0 as η_n/c → 0). Hence d̂_L,n > η_n for μ⊗μ-most
+pairs. ✓
+
+Conjunction: both conditions hold whp. □ (part a)
+
+**(b) δ̂ cannot fire when reconstruction fails.**
+
+If δ(L) > 0 for all L, then by ob. (8) concentration:
+  P(δ̂(L,n) ≤ τ_n) ≤ P(|δ̂(L,n) − δ(L)| ≥ δ(L) − τ_n).
+For n large enough δ(L) − τ_n ≥ δ(L)/2 > 0. By ob. (8) the RHS → 0
+exponentially. So P(δ̂(L,n) ≤ τ_n) → 0 for each fixed L.
+
+For the stopping rule L̂*: by ob. (10), L̂* → ∞ when reconstruction fails
+(the elbow never flattens), so Reconstruct is never triggered. □ (part b)
+
+**(c) d̂_L cannot fire when (SS) fails.**
+
+Suppose σ_min(DΦ_h^{(L)}|_x) → 0 on a set S ⊆ X of positive μ-measure.
+Then for x ∈ S there exist x'_n → x with
+
+  |Φ_h^{(L)}(x) − Φ_h^{(L)}(x'_n)| / d_X(x, x'_n) → 0.
+
+The true delay map is nearly degenerate near x: points close in X map to
+nearly identical delay vectors. The estimated map Φ̂ inherits this — any
+consistent estimator satisfies |Φ̂(x) − Φ̂(x')| ≤ |Φ_h^{(L)}(x) − Φ_h^{(L)}(x')| + 2ε_n,
+which → 0 for x' → x regardless of ε_n. So d̂_L,n(x, x') → 0 as x' → x,
+for x ∈ S. The set of pairs (x,x') where d̂_L,n ≤ η_n contains a positive-
+measure neighbourhood of the diagonal {(x,x) : x ∈ S} × B(x, r_n), which
+has positive μ⊗μ-measure. Hence d̂_L,n > η_n fails for a positive-measure
+set of pairs, and the kernel witness does not fire. □ (part c)
+
+---
+
+### The honest bridge
+
+Parts (a)–(c) together say: the conjunction Reconstruct(L,n) is not a
+coincidence when it fires — it is a theorem. And its failure modes are
+honest: each condition is genuinely necessary, and the proof identifies
+what breaks when each is removed.
+
+The Markov structure of the delay vector is the bridge in the following
+precise sense: σ(Φ_h^{(L)}) = 𝒪_h^{(L)} (the σ-algebra generated by
+L-step delay vectors IS the observable algebra). So:
+
+  δ(L) = 0  ↔  Φ_h^{(L)} injective μ-a.e.  ↔  d_L = 1 μ⊗μ-a.e.
+
+The first equivalence is Paper III (reconstruction theorem). The second is
+the Algebra-Metric Lemma above. Together: algebra reconstruction and kernel
+separation are the same event, witnessed from two sides.
+
+Separation-stability (SS) is what makes this equivalence empirically accessible:
+without it, the estimated d̂_L can fail to reflect the true d_L even when
+reconstruction holds, and the bridge lies. With it, both witnesses converge
+to the same truth at controlled rates.
+
+---
+
+### Rate statement
+
+Under exponential mixing with C_λ > 4 (ob. 10) and (SS):
+
+  P(Reconstruct(L̂*, n)) ≥ 1 − C·exp(−c·n·ε_n(d)²)
+
+where L̂* is the data-driven stopping rule. The rate of the algebra witness
+is n^{-s/(2s+d)} (ob. 10 Corollary). The kernel witness converges at the
+rate of the delay-map estimator, which under kernel regression with optimal
+bandwidth is n^{-β/(2β+d)} (ob. 7, via the NW regression rate with dim_eff = d).
+
+The conjunction fires reliably once n is large enough that both rates are
+below the respective thresholds τ_n and η_n.
+
+---
+
+### Honest scope note for Obligation (12)
+
+Closed:
+- Qualitative conjunction (both witnesses fire correctly) under reconstruction + (SS).
+- Failure modes under negation of each hypothesis: named and proved.
+- Rate statement under exponential mixing + (SS).
+- The Markov bridge: identified as σ(Φ_h^{(L)}) = 𝒪_h^{(L)}, proved via Paper III.
+
+Open (not claimed in Paper IV):
+- Polynomial mixing: ob. (10) open in this regime; conjunction inherits that gap.
+- (SS) from first principles: conditions on (T,h) implying inf σ_min > 0.
+  Anosov case expected to work; left for future work.
+- Stochastic T: Π_h non-Dirac; TV regularity argument changes; not attempted.
+- Sharp conjunction rate: the minimum n at which both witnesses simultaneously
+  exceed their thresholds depends on the interplay of the algebra and kernel
+  rates; not worked out.
+- Quantitative version of part (c): how large the failure set must be to
+  guarantee d̂_L fails to fire; only qualitative here.

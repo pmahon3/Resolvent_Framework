@@ -1,6 +1,6 @@
 # Paper IV — Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge                                                                                               
                                                                                                                                                                                  
-**Status:** Sketch promoted to Paper IV plan. Core results identified; open problems scoped.                                                                                     
+**Status:** Complete. LaTeX written 2026-04-06. All 12 proof obligations closed.                                                                                     
 **Date:** 2026-04-05                                                                                                                                                             
 **Relation to programme:** Sits after Paper III. Takes the reconstruction theorem as given                                                                                       
 and asks: what does it look like empirically, at what rate, and with what witnesses?                                                                                             

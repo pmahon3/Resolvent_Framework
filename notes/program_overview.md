@@ -161,14 +161,26 @@ witnesses?
 in the σ-algebra sense without requiring knowledge of s, d, or the mixing rate. The
 geometry shows up in the analysis of why δ̂ works, not in the procedure that computes it.
 
-**Proof obligation register:** 12 obligations. Obs. 1–8 closed under exponential
-mixing + ‖h‖_∞ ≥ 1/2. Next: ob. (9) piecewise pre-Takens rate, then (10) elbow
-location theorem, then (11) separation-stability, then (12) conjunction theorem.
+**Proof obligation register:** All 12 obligations closed (2026-04-06).
+Obs. 1–8 closed under exponential mixing + ‖h‖_∞ ≥ 1/2.
+Obs. 9–12 closed 2026-04-06 (details in sketch).
 
-**Status:** Planning stage. Sketch complete at
-`notes/conceptual_sketches/paper_iv_sketch.md` (1874 lines). Next step: write LaTeX.
+**Status:** Complete. LaTeX written 2026-04-06.
 
-**LaTeX:** Not started.
+**LaTeX:** `papers/paper_iv/paper_iv.tex` — 16 pages, 8 sections, bibliography
+resolved, all references clean. Sections: Introduction, Setup, Bias Bound and
+Algebra Side, Concentration of the Empirical Witness, The Algebra Theorem,
+The Dynamics Theorem, The Conjunction Theorem, Discussion.
+
+**Key results:**
+- Lemma 5.1 (dim_eff step function via Sard–Smale)
+- Theorem 5.5 (Algebra Theorem: L̂* achieves minimax rate n^{-s/(2s+d)} without oracle inputs)
+- Theorem 6.5 (Dynamics Theorem: bi-Lipschitz delay map + empirical separation under (SS))
+- Lemma 7.1 (algebra separation = metric separation for deterministic T — algebraic identity, not correlation)
+- Theorem 7.3 (Conjunction Theorem with three-part failure-mode analysis; Markov bridge)
+
+**Open (named in §8):** polynomial mixing, d≤2s via localised Rademacher, (SS)
+from first principles (Anosov case), stochastic T, sharp rates for L̂*.
 
 **Lean formalization:** Not started.
 
@@ -220,11 +232,11 @@ are the state space.
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
 | III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **arXiv ready** — `papers/paper_iii/`, 7 pages | Upload |
-| IV | Planning stage. Obs. 1–8 closed (exp. mixing + ‖h‖_∞ ≥ 1/2); obs. 9–12 open. Sketch at `notes/conceptual_sketches/paper_iv_sketch.md` | Not started | **Not started** — next step is to write LaTeX | Write LaTeX |
+| IV | Complete. All 12 proof obligations closed. Three main theorems: Algebra (Thm 5.5), Dynamics (Thm 6.5), Conjunction (Thm 7.3). | Not started | **Complete** — `papers/paper_iv/`, 16 pages | Submit |
 
 ---
 
-## Task List (as of 2026-04-04, updated 2026-04-04)
+## Task List (as of 2026-04-06, updated 2026-04-06)
 
 Ordered by priority. Cross off as completed.
 
@@ -300,18 +312,12 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-1. **Paper IV — write LaTeX** — sketch complete (`notes/conceptual_sketches/paper_iv_sketch.md`,
-   1874 lines). Remaining proof obligations to close before/during writing:
-   - (9) Piecewise pre-Takens rate (dim_eff step function) — **closed 2026-04-06**
-   - (10) Elbow location theorem — **closed 2026-04-06** (exp. mixing, C_λ > 4; poly. mixing open)
-   - (11) Separation-stability in smooth case — **closed 2026-04-06** (bi-Lipschitz under (SS); (SS) generic, not derived from (G1)+(G2))
-   - (12) Conjunction theorem — **closed 2026-04-06** (reconstruction + (SS) → both witnesses fire; Markov bridge proved)
-
-2. **arXiv upload of Papers I, II, III** — all arXiv prep complete (2026-04-05).
+1. **arXiv upload of Papers I, II, III, IV** — all LaTeX complete and clean.
    Remaining tasks tracked in `notes/arxiv_prep.md`:
-   - Upload Paper I source files; then backfill `mahon_paper1` arXiv ID in Papers II and III
+   - Upload Paper I source files; then backfill `mahon_paper1` arXiv ID in Papers II–IV
    - Upload Paper II source files
-   - Upload Paper III source files; then backfill `mahon_paper3` arXiv ID in Papers I and II
+   - Upload Paper III source files; then backfill `mahon_paper3` arXiv ID in Papers I, II, IV
+   - Upload Paper IV source files; then backfill `mahon_paper4` arXiv ID in Papers I–III
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

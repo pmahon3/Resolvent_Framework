@@ -957,32 +957,59 @@ It is: a joint upper bound on both d̂_L (via data-processing) and on
 It is not: a consequence of δ̂ being small. Small algebra coherence
   does not imply small edge divergence. Different animals.
 
-**The role of regularity:**
+**The role of regularity — stopping the bridge from lying:**
 
-Under Hölder(β) regularity of Π_h in x and a consistent estimator:
-  - Dynamics side converges at rate n^{-β/(2β+d)}
-  - Algebra side converges at rate n^{-s/(2s+d)} via δ̂ stopping rule
-  - Both converge; they do so independently at their own rates
-  - The slower one is the binding constraint
+Smoothness of Π_h is not a positive contribution. It does not construct
+the bridge or improve rates. It is a non-degeneracy condition — a
+constraint on bad behavior.
 
-Regularity of Π_h is a prior commitment about the dynamics — the same
-regime as Condition 3 (smoothness of g*) in the forward bridge. It is
-not certifiable from data alone.
+Without it, the bridge cheats: δ̂ certifies that ℬ has been captured,
+d̂_L certifies that predictive distributions are separated, and both are
+true — but the separation d̂_L found is an artifact of kernel irregularity
+creating spurious distinctions that don't correspond to the separation δ̂
+measured. The two witnesses agree but are looking at different objects.
+
+Smoothness blocks this failure mode. The precise condition needed is not
+Hölder regularity per se but *separation-stability*:
+
+  **Definition (Separation-stable kernel):** Π_h^{(L)} is separation-stable
+  if: d_L(x,x') > η implies d̂_L(x,x') > η/2 for all consistent
+  estimators Π̂_h^{(n)} with ‖Π̂_h^{(n)} − Π_h‖ sufficiently small.
+
+That is: separation that exists in the true kernel is preserved under
+small perturbations of the kernel. The estimated d̂_L and the true d_L
+are measuring the same gap.
+
+Hölder regularity of Π_h in x is a sufficient condition for
+separation-stability when T is a diffeomorphism — the smooth orbit
+structure prevents the kernel from collapsing genuine separation under
+perturbation. But separation-stability is the right condition;
+smoothness is the natural way to verify it in the smooth category.
+
+**Π_h doesn't want smoothness. It needs it to stop cheating.**
+
+The conjunction theorem requires separation-stability explicitly. Without
+it, δ̂ and d̂_L can be jointly small for the wrong reason — not because
+reconstruction failed, but because the kernel is actively destroying the
+information that reconstruction established.
 
 **The theorem shape for Paper IV:**
 
-Not a four-way equivalence. Instead:
+Not a four-way equivalence. Three honest theorems:
 
 **(Algebra theorem):** Under reconstruction, the δ̂ stopping rule
 achieves rate n^{-s/(2s+d)} for f ∈ Hölder(s) without oracle inputs.
+No smoothness of Π_h required — the algebra side is unconditional.
 
-**(Dynamics theorem):** Under Hölder(β) regularity of Π_h and a
-consistent estimator, D(Γ_h ‖ Γ̂_h^(n)) → 0 at rate n^{-β/(2β+d)},
-and d̂_L certifies point separation.
+**(Dynamics theorem):** Under separation-stability of Π_h (verified by
+Hölder(β) regularity when T ∈ C^r) and a consistent estimator:
+D(Γ_h ‖ Γ̂_h^(n)) → 0 at rate n^{-β/(2β+d)}, and d̂_L certifies
+point separation.
 
-**(Conjunction theorem):** When both hold, the complete reconstruction
-diagnostic (δ̂ small ∧ d̂_L large) is achievable from data. The Markov
-structure of the delay vector connects the two certificates.
+**(Conjunction theorem):** Under reconstruction AND separation-stability,
+the complete diagnostic (δ̂ small ∧ d̂_L large) is achievable from data,
+and the two witnesses are certifying the same object — the Markov
+structure of the delay vector is an honest bridge between them, not a lie.
 
 ---
 
@@ -1000,4 +1027,5 @@ structure of the delay vector connects the two certificates.
 | Step 4 | Bridge: Markov structure of delay vector, not equivalence | ✓ |
 | Step 4 | Reverse chain (A)→(D) does not hold without regularity + estimator | ✓ |
 | Open | Conjunction theorem: formalise δ̂ ∧ d̂_L diagnostic with rates | Open |
-| Open | Regularity of Π_h: when does T ∈ C^r imply Π_h Hölder(β)? | Open |
+| Open | Separation-stability: when does T ∈ C^r imply Π_h separation-stable? | Open |
+| Open | Separation-stability is the right condition; smoothness is sufficient but not necessary | Identified |

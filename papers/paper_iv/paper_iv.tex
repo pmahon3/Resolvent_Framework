@@ -1,0 +1,66 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands: inherited from Papers I--III ----------
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\Koopman}{U}
+\newcommand{\Lp}[1]{L^{#1}}
+\newcommand{\alg}{\mathrm{alg}}
+
+% ---------- Commands: new for Paper IV ----------
+
+% Empirical objects
+\newcommand{\mun}{\mu_n}
+\newcommand{\deltaL}{\delta(L)}
+\newcommand{\delhat}[2]{\hat{\delta}(#1,#2)}
+\newcommand{\fhat}{\hat{f}_n^{(L)}}
+\newcommand{\Ehat}{\hat{\mathbb{E}}}
+
+% Finite-lag objects
+\newcommand{\PhiL}{\Phi_h^{(L)}}
+\newcommand{\OhL}{\mathcal{O}_h^{(L)}}
+\newcommand{\AhL}{\mathcal{A}_h^{(L)}}
+\newcommand{\PD}{\mathcal{P}_D^{(L)}}
+
+% Predictive kernel
+\newcommand{\PihL}{\Pi_h^{(L)}}
+\newcommand{\GamHat}{\hat{\Gamma}_h^{(n)}}
+\newcommand{\preddisc}[1]{d_{#1}}
+\newcommand{\MLD}{M_{D,L}}
+
+% Dimension / rates
+\newcommand{\deff}{d_{\mathrm{eff}}}
+\newcommand{\Lhat}{\hat{L}^*}
+\newcommand{\Rad}{\mathfrak{R}}
+
+% ---------- Title ----------
+\title{Finite-Sample Reconstruction:\\
+\large Rates, Witnesses, and the Honest Bridge}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\maketitle
+\input{paper_iv_body}
+\end{document}

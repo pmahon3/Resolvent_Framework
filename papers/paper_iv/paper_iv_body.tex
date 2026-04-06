@@ -1,0 +1,180 @@
+% paper_iv_body.tex
+% Writing order: §3 first (bias bound + algebra side), then §4, §2, §5, §6, §7, §§1+8.
+
+% ============================================================
+\section{The Bias Bound and the Algebra Side}
+\label{sec:bias}
+% ============================================================
+
+\subsection{The bias bound}
+
+Let $(X, \Bcal, \mu)$ be a probability space and $\mathfrak{m} \subseteq \Bcal$
+a sub-$\sigma$-algebra.
+Define the \emph{$\sigma$-algebra approximation error}
+\begin{equation}
+  \delta(\mathfrak{m})
+  \;:=\;
+  \sup_{S \in \Bcal} \inf_{E \in \mathfrak{m}} \mu(S \triangle E).
+  \label{eq:delta-def}
+\end{equation}
+This measures how well $\mathfrak{m}$ approximates $\Bcal$: it is zero if and
+only if $\mathfrak{m} = \Bcal$ modulo $\mu$-null sets.
+
+\begin{lemma}[Bias bound]
+\label{lem:bias}
+For every $f \in \Lp{\infty}(\mu)$,
+\[
+  \bigl\| f - \mathbb{E}[f \mid \mathfrak{m}] \bigr\|_{\Lp{2}(\mu)}
+  \;\leq\;
+  2\|f\|_{\Lp{\infty}} \cdot \delta(\mathfrak{m})^{1/2}.
+\]
+\end{lemma}
+
+\begin{proof}
+\emph{Step~1 (Indicators).}
+Fix $S \in \Bcal$.
+By definition of $\delta(\mathfrak{m})$, there exists $E \in \mathfrak{m}$
+with $\mu(S \triangle E) \leq \delta(\mathfrak{m})$.
+Since $\mathbbm{1}_E \in \Lp{2}(X, \mathfrak{m}, \mu)$ and
+$\mathbb{E}[\mathbbm{1}_S \mid \mathfrak{m}]$ is the $\Lp{2}$-best
+$\mathfrak{m}$-measurable approximation to $\mathbbm{1}_S$,
+\[
+  \|\mathbbm{1}_S - \mathbb{E}[\mathbbm{1}_S \mid \mathfrak{m}]\|_{\Lp{2}}^2
+  \;\leq\;
+  \|\mathbbm{1}_S - \mathbbm{1}_E\|_{\Lp{2}}^2
+  \;=\; \mu(S \triangle E) \;\leq\; \delta(\mathfrak{m}).
+\]
+
+\emph{Step~2 (Bounded $f$ via layer cake).}
+For $f \in \Lp{\infty}(\mu)$ with $\|f\|_{\Lp{\infty}} \leq M$, the layer
+cake representation gives $f = \int_{-M}^{M} \mathbbm{1}_{S_t}\,dt$ where
+$S_t = \{x : f(x) > t\}$.
+Since $\mathbb{E}[\,\cdot\mid \mathfrak{m}]$ is linear and continuous in $\Lp{2}$,
+\[
+  f - \mathbb{E}[f \mid \mathfrak{m}]
+  \;=\; \int_{-M}^{M}
+    \bigl(\mathbbm{1}_{S_t} - \mathbb{E}[\mathbbm{1}_{S_t} \mid \mathfrak{m}]\bigr)\,dt.
+\]
+Applying Minkowski's inequality for integrals and Step~1:
+\[
+  \bigl\|f - \mathbb{E}[f \mid \mathfrak{m}]\bigr\|_{\Lp{2}}
+  \;\leq\; \int_{-M}^{M}
+    \bigl\|\mathbbm{1}_{S_t} - \mathbb{E}[\mathbbm{1}_{S_t} \mid \mathfrak{m}]\bigr\|_{\Lp{2}}\,dt
+  \;\leq\; 2M \cdot \delta(\mathfrak{m})^{1/2}. \qedhere
+\]
+\end{proof}
+
+\begin{remark}
+The constant~$2$ is not optimal but the exponent $\frac{1}{2}$ is sharp:
+taking $X = [0,1]$, $\mathfrak{m} = \{\emptyset, X\}$, $f = \mathbbm{1}_{[0,1/2]}$
+gives $\delta(\mathfrak{m}) = \frac{1}{2}$ and
+$\|f - \mathbb{E}[f \mid \mathfrak{m}]\|_{\Lp{2}} = \frac{1}{2} = \delta(\mathfrak{m})^{1/2}/\sqrt{2}$.
+\end{remark}
+
+\subsection{The three-term decomposition}
+\label{subsec:three-term}
+
+We now specialise to the delay setting.
+Let $(X, \Bcal, \mu, T)$ be a measure-preserving system and $h \in \Lp{\infty}(\mu)$.
+Write $\OhL = \sigma(\PhiL)$ for the observable $\sigma$-algebra at lag~$L$, where
+$\PhiL(x) = (h(x), h(Tx), \ldots, h(T^L x))$,
+and $\AhL$ for the class of degree-$D$ polynomials in the delay
+coordinates~$\PhiL(x)$.
+Let $\fhat$ denote the empirical risk minimiser over $\AhL$.
+
+\begin{lemma}[Three-term decomposition]
+\label{lem:three-term}
+For any $f \in \Lp{\infty}(\mu)$, any $L \geq 0$, and any $D \geq 1$:
+\begin{align}
+  \bigl\|f - \fhat\bigr\|_{\Lp{2}(\mu)}
+  &\;\leq\;
+    \underbrace{2\|f\|_{\Lp{\infty}} \cdot \delta(L)^{1/2}}_{\text{bias}}
+  \;+\;
+    \underbrace{\inf_{g \in \AhL}\bigl\|
+      \mathbb{E}[f \mid \OhL] - g
+    \bigr\|_{\Lp{2}(\mu)}}_{\text{approx.}}
+  \;+\;
+    \underbrace{\bigl\|g_D^* - \fhat\bigr\|_{\Lp{2}(\mu)}}_{\text{statistical}},
+  \label{eq:three-term}
+\end{align}
+where $\delta(L) := \delta(\OhL)$ as in~\eqref{eq:delta-def} and
+$g_D^* = \operatorname{argmin}_{g \in \AhL} \|\mathbb{E}[f \mid \OhL] - g\|_{\Lp{2}(\mu)}$.
+\end{lemma}
+
+\begin{proof}
+Triangle inequality applied to the decomposition
+$f - \fhat = (f - \mathbb{E}[f \mid \OhL]) + (\mathbb{E}[f \mid \OhL] - g_D^*)
++ (g_D^* - \fhat)$, with the first term bounded by Lemma~\ref{lem:bias}.
+\end{proof}
+
+\begin{remark}[Scope]
+Lemma~\ref{lem:bias} holds for any sub-$\sigma$-algebra $\mathfrak{m}$; no
+dynamical structure is needed.
+The dynamical hypothesis enters only through the approximation and statistical
+terms, which require the image $\PhiL(X)$ to be a manageable geometric object.
+\end{remark}
+
+\subsection{The observable reverse lower bound}
+\label{subsec:reverse}
+
+The three-term bound controls the forward error.
+For the stopping rule to be honest, we also need a reverse bound: when
+$\delta(L)$ is large, the estimator $\fhat$ cannot approximate $f$ well,
+regardless of $n$.
+
+\begin{lemma}[Observable reverse lower bound]
+\label{lem:reverse}
+There exists a universal constant $c > 0$ such that for any $f \in \Lp{\infty}(\mu)$
+with $\|f\|_{\Lp{\infty}} \geq \frac{1}{2}$ and any $L \geq 0$:
+\[
+  \bigl\|\mathbbm{1}_S - \fhat\bigr\|_{\Lp{2}(\mun)}
+  \;\geq\;
+  \frac{\delta(L)^{1/2}}{2} - C' \cdot n^{-s/(2s+d)}
+\]
+with probability tending to~$1$ as $n \to \infty$, where $S \in \Bcal$ is
+the set achieving the supremum in~\eqref{eq:delta-def} at lag~$L$ and
+$\mun = \frac{1}{n}\sum_{i=1}^n \delta_{x_i}$ is the empirical measure.
+\end{lemma}
+
+\begin{proof}
+\emph{Step~A (Population CE gap).}
+Let $S^* \in \Bcal$ achieve the supremum in $\delta(L) = \sup_S \inf_{E \in \OhL} \mu(S \triangle E)$.
+For any $E \in \OhL$:
+\[
+  \|\mathbbm{1}_{S^*} - \mathbb{E}[\mathbbm{1}_{S^*} \mid \OhL]\|_{\Lp{2}(\mu)}^2
+  \;\leq\;
+  \|\mathbbm{1}_{S^*} - \mathbbm{1}_E\|_{\Lp{2}(\mu)}^2
+  \;=\; \mu(S^* \triangle E) \;\geq\; \delta(L) - \varepsilon
+\]
+for any $\varepsilon > 0$.
+Taking $\varepsilon \to 0$: $\|\mathbbm{1}_{S^*} - \mathbb{E}[\mathbbm{1}_{S^*} \mid \OhL]\|_{\Lp{2}(\mu)}
+\geq \delta(L)^{1/2}$.
+
+Since the conditional expectation is the $\Lp{2}$-projection,
+$\|\mathbbm{1}_{S^*} - g\|_{\Lp{2}(\mu)} \geq \delta(L)^{1/2}$ for all $g \in \AhL \subseteq \Lp{2}(X, \OhL, \mu)$.
+
+\emph{Step~B (Empirical vs population norm).}
+By Hoeffding's inequality and the bounded difference property of $\mun$,
+$\|\mathbbm{1}_{S^*} - g\|_{\Lp{2}(\mun)} \geq \|\mathbbm{1}_{S^*} - g\|_{\Lp{2}(\mu)} - O(n^{-1/2})$
+with high probability, uniformly over $g \in \AhL$.
+
+\emph{Step~C (Empirical norm vs $\fhat$).}
+Since $\fhat$ minimises empirical $\Lp{2}$ error over $\AhL$, and
+$\|\mathbbm{1}_{S^*} - g\|_{\Lp{2}(\mun)} \geq \delta(L)^{1/2} - O(n^{-1/2})$
+for all $g \in \AhL$, we have
+$\|\mathbbm{1}_{S^*} - \fhat\|_{\Lp{2}(\mun)} \geq \frac{\delta(L)^{1/2}}{2} - C' n^{-s/(2s+d)}$
+with high probability, absorbing the $O(n^{-1/2})$ into the statistical rate.
+\end{proof}
+
+\begin{remark}[Closed loop]
+\label{rem:closed-loop}
+Lemmas~\ref{lem:three-term} and~\ref{lem:reverse} together bound
+$\|\mathbbm{1}_{S^*} - \fhat\|_{\Lp{2}(\mun)}$ from both sides.
+The upper bound (Lemma~\ref{lem:three-term}) says the error is at most
+$2\|f\|_{\Lp{\infty}}\cdot\delta(L)^{1/2} + C\cdot n^{-s/(2s+d)}$.
+The lower bound (Lemma~\ref{lem:reverse}) says it is at least
+$\frac{\delta(L)^{1/2}}{2} - C'\cdot n^{-s/(2s+d)}$.
+The detectability threshold is the $n$ at which the statistical floor
+$C' n^{-s/(2s+d)}$ drops below $\frac{\delta(L)^{1/2}}{2}$:
+reconstruction becomes detectable at sample size $n \gtrsim \delta(L)^{-(2s+d)/s}$.
+\end{remark}

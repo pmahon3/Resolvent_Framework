@@ -696,7 +696,127 @@ s ≤ 1 for Lipschitz observations) satisfy this.
 | Small L²-error (worst-case f) → small δ(L) | ✓ follows from (†) |
 | Small L²-error (fixed f) → small δ(L) | ✗ false in general |
 | δ(L) certifiable from 𝒜_h^(L) alone | ✓ under reconstruction |
-| Computable estimator δ̂(L,n) → δ(L) | ✓ by consistency of conditional expectation |
+| Computable estimator δ̂(L,n) → δ(L) | ✗ NOT proved — see proof obligation below |
+
+---
+
+## Proof obligation: E[δ̂(L,n)] → δ(L)
+
+**The hidden bias that must not be papered over.**
+
+Concentration (★) proves δ̂ stays close to E[δ̂]. It says nothing about
+whether E[δ̂] is close to δ(L). That gap
+
+  E[δ̂(L,n)] − δ(L)
+
+is an independent quantity and needs an independent proof. It has two
+distinct sources that must each be handled on their own terms.
+
+### Source 1 — Empirical vs. population L² norm
+
+Even if Ê[p | Φ_h^(L)] = E[p | Φ_h^(L)] exactly, the norms differ:
+
+  δ̂(L,n) uses ‖·‖²_{L²(μ_n)}   (sum over sample)
+  δ(L)    uses ‖·‖²_{L²(μ)}     (integral over μ)
+
+The gap:
+
+  sup_p ‖p − E[p|Φ_h^(L)]‖²_{L²(μ_n)} − sup_p ‖p − E[p|Φ_h^(L)]‖²_{L²(μ)}
+
+This is a uniform LLN gap over the class ℱ_{L,D}. By the standard
+empirical process uniform LLN (Glivenko-Cantelli for VC classes):
+
+  sup_{f ∈ ℱ_{L,D}} |(1/n)Σf(xᵢ) − Ef| → 0   a.s. as n → ∞
+
+Rate: O(√(VC(ℱ_{L,D})/n)) = O(√(D^d/n)) in the Takens regime.
+
+**Source 1 → 0 at rate n^{-1/2} (up to log factors). Standard. ✓**
+
+### Source 2 — Estimator bias: Ê ≠ E
+
+The empirical conditional expectation Ê[p | Φ_h^(L)] is not E[p | Φ_h^(L)]
+— it's an estimate of the latter from n observations. The gap:
+
+  ‖p − Ê[p|Φ_h^(L)]‖²_{L²(μ_n)} − ‖p − E[p|Φ_h^(L)]‖²_{L²(μ_n)}
+
+This depends on which estimator Ê is. It is not zero, not small by
+default, and not controlled by concentration. It requires:
+
+  (a) A specific estimator for Ê[p | Φ_h^(L)]
+  (b) A proof that this estimator's bias → 0 as n → ∞
+  (c) Uniformity of (b) over p ∈ 𝒫_D^(L)
+
+**Source 2 is the open obligation. It requires a decision.**
+
+### The estimator choice
+
+The natural choice: **kernel regression** on the delay vectors.
+
+  Ê[p | Φ_h^(L)](xᵢ) = Σⱼ K_hn(Φ_h^(L)(xᵢ) − Φ_h^(L)(xⱼ)) · p(xⱼ)
+                        / Σⱼ K_hn(Φ_h^(L)(xᵢ) − Φ_h^(L)(xⱼ))
+
+where K is a kernel function and h_n → 0 is the bandwidth.
+
+**Bias of kernel regression** for estimating E[p | Φ_h^(L) = z]:
+
+If E[p | Φ_h^(L) = z] is Hölder(β) in z on the d-dimensional image
+Φ_h^(L)(X), then the kernel regression bias satisfies:
+
+  ‖Ê[p|Φ_h^(L)] − E[p|Φ_h^(L)]‖_{L²(μ_n)} = O(h_n^β + (nh_n^d)^{-1/2})
+
+Optimal bandwidth: h_n ~ n^{-1/(2β+d)}, giving bias O(n^{-β/(2β+d)}).
+
+**Uniformity over 𝒫_D^(L):** Since D and L are fixed, 𝒫_D^(L) is a
+finite-dimensional space. The unit ball is compact. Uniformity of the
+bias over p ∈ 𝒫_D^(L) follows from continuity of the map p ↦ E[p|Φ_h^(L)]
+(which is a bounded linear map from the finite-dimensional 𝒫_D^(L) to
+L²(μ)) plus the compactness.
+
+**Source 2 → 0 at rate n^{-β/(2β+d)} under Hölder(β) regularity of
+the conditional expectation and kernel regression with optimal bandwidth.**
+
+### The regularity of E[p | Φ_h^(L)]
+
+In the Takens regime (L ≥ L₀): E[p | Φ_h^(L)](x) = p(x) exactly
+(point-mass disintegration). The conditional expectation is the function
+p itself — no estimation error beyond noise. Source 2 = 0. ✓
+
+In the pre-Takens regime (L < L₀): E[p | Φ_h^(L)](x) = ∫_{F_z} p dμ_z
+where F_z is the fiber over z = Φ_h^(L)(x). The regularity of z ↦ μ_z
+(the fiber map) determines β. This inherits smoothness from T and h:
+if T ∈ C^r, then β = r − 1 roughly (the fiber map is one derivative
+less smooth than T).
+
+### Assembling the full convergence proof
+
+  |E[δ̂(L,n)] − δ(L)|
+    ≤ |E[δ̂(L,n)] − δ̂_pop(L,n)|    (Source 1: LLN gap)
+    + |δ̂_pop(L,n) − δ(L)|           (Source 2: estimator bias)
+
+where δ̂_pop(L,n) := sup_p ‖p − Ê[p|Φ_h^(L)]‖²_{L²(μ)} is the
+population version with estimated conditional expectation.
+
+Source 1 → 0 at rate √(D^d/n). ✓ standard
+Source 2 → 0 at rate n^{-β/(2β+d)} under Hölder(β). needs proof
+
+**Combined: E[δ̂(L,n)] → δ(L) at rate max(n^{-1/2}, n^{-β/(2β+d)}).**
+
+For β ≥ d/2 the LLN dominates. For β < d/2 the estimator bias dominates.
+Either way both → 0 and the target is proved.
+
+### What this adds to the proof obligation list
+
+| Obligation | Source | Rate | Status |
+|------------|--------|------|--------|
+| Concentration: δ̂ ≈ E[δ̂] | (★), Rademacher | exp(−cn^{(d−2s)/(2s+d)}) | ✓ proved |
+| Source 1: LLN gap | Glivenko-Cantelli | √(D^d/n) | ✓ standard |
+| Source 2: estimator bias | kernel regression + Hölder(β) | n^{-β/(2β+d)} | needs proof |
+| Full convergence: δ̂ → δ | triangle inequality over above | max(n^{-1/2}, n^{-β/(2β+d)}) | pending (2) |
+
+The paper proves Source 2 via kernel regression bias under Hölder(β)
+regularity of E[p | Φ_h^(L)], which holds when T ∈ C^r (pre-Takens)
+or trivially (Takens). This is the one place the estimator choice appears
+explicitly in the proofs.
 
 ---
 

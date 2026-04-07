@@ -83,7 +83,7 @@ The key insight: for deterministic T the predictive kernel Π_h^(L)(x,·) is a
 Dirac delta, making TV separation binary; σ(Φ_h^(L)) = 𝒪_h^(L) is the honest
 bridge connecting the two witnesses.
 
-**LaTeX:** `papers/paper_iv/` (16 pages, complete 2026-04-06)
+**LaTeX:** `papers/paper_iv/` (17 pages, complete 2026-04-06; bridge note integrated)
 **Lean:** Not started
 
 ## Repository structure
@@ -110,10 +110,14 @@ Resolvent_Framework/
 │           └── ProkhorovExtension.lean
 ├── notes/
 │   ├── program_overview.md          ← canonical task list and status
-│   ├── arxiv_prep.md                ← arXiv submission checklist
+│   ├── arxiv_prep.md                ← arXiv submission checklist (all four papers)
 │   ├── lean_flight_log.md           ← running Lean error/fix log
-│   ├── reconstruction_lean_flight_plan.md
+│   ├── interstitial_reframing.md    ← philosophical register for paper transitions
+│   ├── stone_duality_vision.md      ← conceptual note on Stone/Prokhorov mechanism
+│   ├── break_reading.md             ← background reading guide
 │   └── conceptual_sketches/
+│       ├── cyclic_vector_theorem_sketch.md
+│       └── philosophy/
 └── archive/               ← superseded drafts and notes
 ```
 
@@ -130,5 +134,6 @@ See `notes/program_overview.md` for the canonical task list and priorities.
 - **Paper I**: arXiv-ready (13 pages, MSC classifications, keywords, citations complete).
 - **Paper II**: arXiv-ready (8 pages).
 - **Paper III**: arXiv-ready (7 pages); 2 Mathlib-gap sorrys in `ReconstructionTheorem.lean`.
-- **Paper IV**: complete (16 pages, 2026-04-06); Lean formalization not started.
-- **Next action**: arXiv submission of Papers I–IV.
+- **Paper IV**: complete (17 pages, 2026-04-06); bridge note integrated; Lean formalization not started.
+- **Bridge note**: `papers/notes/bridge_note.tex` — 4-page companion proving the conditional variance identity and entropy characterisation δ(L)→0 ⟺ H₂(ν_L)→∞; cited as `mahon_bridge` in Paper IV.
+- **Next action**: arXiv submission of Papers I–IV (checklist in `notes/arxiv_prep.md`).

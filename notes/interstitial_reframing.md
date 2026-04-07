@@ -17,9 +17,9 @@ disclosure, not compulsion.
 
 ---
 
-## Three-paper structure (as of 2026-04-02)
+## Four-paper structure (as of 2026-04-06)
 
-The program has consolidated from six papers to three. See `program_overview.md`
+The program has consolidated from six papers to four. See `program_overview.md`
 for the full structure. The transitions are:
 
 ### I → II: From probability to dynamics
@@ -56,6 +56,26 @@ object being reconstructed.
 Philosophical register: the observer embedded in time, with only local sensor access,
 finds that enough history discloses the state. The minimal sufficient window is
 determined by the measure and the dynamics jointly, not chosen.
+
+### III → IV: From reconstruction to finite-sample detection
+
+**Residual openness after Paper III:** The reconstruction equivalence is established
+at the population level. But a real observer has only finite data. It is unclear
+whether reconstruction is detectable from a finite sample, at what rate, and
+with what certificate.
+
+**What Paper IV discloses:** The σ-algebra approximation error δ(L) is estimable
+from data without oracle knowledge of the mixing rate, dimension, or smoothness.
+The elbow stopping rule L̂* achieves the minimax-optimal rate without these inputs
+because it operates upstream of the rate: asking whether the algebra has captured
+ℬ, not at what rate it is converging. The conditional variance identity identifies
+the precise mediating object connecting the algebraic witness δ̂ and the
+information-theoretic witness Ĥ₂ — both measure the same failure of separation
+across delay fibres.
+
+Philosophical register: the observer's finite-sample limitation is not an obstacle
+but a clarifying constraint. It discloses that reconstruction is not a qualitative
+threshold but a quantitative transition detectable from within the data.
 
 ---
 

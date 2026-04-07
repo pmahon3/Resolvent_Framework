@@ -4,9 +4,9 @@ Lean 4 / Mathlib formalization of the **Observable Dynamics Program**:
 four papers showing that probability, dynamics, reconstruction, and their
 finite-sample witnesses follow from coherent structured observation.
 
-Formalization covers Papers I–III. Paper IV (finite-sample reconstruction)
-is mathematically complete in LaTeX (`papers/paper_iv/`) but not yet
-formalized in Lean.
+Formalization covers Papers I–III. Paper IV (finite-sample reconstruction,
+17 pages including entropy characterisation) is mathematically complete in
+LaTeX (`papers/paper_iv/`) but not yet formalized in Lean.
 
 ## File overview
 

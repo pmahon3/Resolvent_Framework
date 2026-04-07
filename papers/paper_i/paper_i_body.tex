@@ -55,6 +55,17 @@ directed system, query system, Lean formalization.
 \label{sec:intro}
 % ------------------------------------------------------------------
 
+The programme of which this paper is a part does not begin with a probability
+space.  It begins with \emph{distinctions}: the acts of observational
+separation by which an observer organises their experience of a system.
+The state space, the $\sigma$-algebra, and the measure are not primitives ---
+they are what coherent distinctions, pursued to their conclusion, are forced to
+produce.  This paper proves the first step: a coherent family of observational
+distinctions determines a unique probability measure.  The further steps ---
+that this measure carries canonical dynamics, that the delay structure of
+observation reconstructs the state space, and that finite data can certify
+reconstruction --- are carried out in the companion papers.
+
 Many approaches to probability begin by postulating an underlying probability
 space and then studying the observables derived from it.  This paper reverses
 that perspective.  Starting from observable experiments organised as a
@@ -558,6 +569,16 @@ events whose infinite intersection is empty.
 Formally: CE is not a constraint the query system imposes on the observer.  It
 is a commitment the observer makes about the completed infinite, a condition on
 how their charges behave with respect to limits that no finite stage can verify.
+
+\smallskip
+Philosophically: CE is the \emph{principle of witnessed vanishing}.  A
+distinction may disappear globally --- an event may shrink to nothing in the
+limit of the observer's refinements --- only if that disappearance is witnessed
+at some finite level.  There is no global collapse without local evidence; no
+vanishing that the system's refinement order cannot eventually confirm.  This is
+not a metaphysical assumption but an exact mathematical condition, and
+Proposition~\ref{prop:ce-irred} shows it cannot be reduced further: no weaker
+structural commitment produces the same effect.
 \end{remark}
 
 
@@ -1040,6 +1061,20 @@ The Stone space is uniquely determined by $\mathcal{C}$ up to homeomorphism.
 It is not a construction imposed on $\Omega$ from outside but the
 compactification already contained in the Boolean algebra structure of the
 cylinder sets.
+
+\begin{remark}[The Stone space as space of consistent distinction patterns]
+Every point in $\mathrm{St}(\mathcal{C})$ is an ultrafilter: a maximal
+consistent assignment of yes/no answers to every observable distinction.
+Principal ultrafilters correspond to actual sample-space points --- the
+distinctions that $\Omega$ witnesses directly.  Non-principal ultrafilters are
+the ideal limit points: consistent distinction patterns that the observer's
+refinement system is coherent with, but that no single element of $\Omega$
+realises.  The Stone space is therefore not an external topological gadget but
+the \emph{space of all consistent distinction patterns} --- the completion of
+the observer's world to a compact whole.  CE says the measure stays within the
+realised part: the observer is committed to their world, not to its ideal
+extensions.
+\end{remark}
 
 CE is precisely the condition that the measure $P$ on $\Omega$, when viewed
 as a measure on its compact completion $\mathrm{St}(\mathcal{C})$ via

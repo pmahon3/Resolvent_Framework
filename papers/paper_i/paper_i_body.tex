@@ -133,7 +133,7 @@ being reconstructed; we develop this connection elsewhere.
 
 \paragraph{Organisation.}
 Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable
-$\sigma$-algebra, compatible charges, and the three hypotheses (EvalSurjective,
+$\sigma$-algebra, compatible charges, and the three hypotheses (Surjective Evaluation,
 Discriminability, CE).  Section~\ref{sec:ce} establishes the CE theorem and its
 irreducibility.  Section~\ref{sec:cara} proves the Carathéodory route.
 Section~\ref{sec:stone} proves the Stone route.  Section~\ref{sec:bridge}
@@ -283,9 +283,9 @@ ensures this is well-defined.
 
 The main theorems require three conditions.
 
-\begin{definition}[EvalSurjective]
+\begin{definition}[Surjective Evaluation]
 \label{def:eval-surjective}
-The query system satisfies \emph{EvalSurjective} if
+The query system satisfies \emph{Surjective Evaluation} if
 $\mathrm{eval}_i : \Omega \to \mathrm{Out}(i)$ is surjective for every
 $i \in \iota$.
 \end{definition}
@@ -305,7 +305,7 @@ $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{C}$ and
 $\bigcap_n E_n = \emptyset$, we have $\mu(E_n) \to 0$.
 \end{definition}
 
-\noindent EvalSurjective is a structural condition ensuring that every outcome at
+\noindent Surjective Evaluation is a structural condition ensuring that every outcome at
 every level is realized by some element of $\Omega$; it implies that the
 refinement maps $\pi_{ij}$ are surjective (by coherence) and that the connecting
 maps $\varphi_{ij}$ are injective.  Discriminability ensures the Stone embedding
@@ -590,7 +590,7 @@ structural commitment produces the same effect.
 % ------------------------------------------------------------------
 
 This section establishes the extension theorem by a direct Carathéodory argument.
-The input is a query system satisfying EvalSurjective, sequential common
+The input is a query system satisfying Surjective Evaluation, sequential common
 refinements, and common coarsenings, together with a compatible family of
 $\sigma$-additive marginals.  By Theorem~\ref{thm:sp1}, the $\sigma$-additivity
 of the marginals is equivalent to CE applied at each level.
@@ -617,7 +617,7 @@ gives $P = P'$.
 \begin{theorem}[Finite observational content]
 \label{thm:finite-content}
 Assume the query system admits common coarsenings and common refinements and
-satisfies EvalSurjective, and let $\{\nu_i\}_{i \in \iota}$ be an
+satisfies Surjective Evaluation, and let $\{\nu_i\}_{i \in \iota}$ be an
 observationally compatible family with each $\nu_i \in \mathcal{P}(\mathrm{Out}(i))$.
 Then the assignment
 \[
@@ -632,7 +632,7 @@ defines a well-defined finitely additive content on $\mathcal{C}$.
 Suppose $\mathrm{Cyl}(i, A) = \mathrm{Cyl}(j, B)$.  Use common refinements to
 find $k$ with $k \geq i$ and $k \geq j$.  The constraint sets in $\mathrm{Out}(k)$
 are $\pi_{ik}^{-1}(A)$ and $\pi_{jk}^{-1}(B)$.  The cylinder equality and
-EvalSurjective (surjectivity of $\mathrm{eval}_k$) imply these coincide in
+Surjective Evaluation (surjectivity of $\mathrm{eval}_k$) imply these coincide in
 $\mathrm{Out}(k)$.  Compatibility then gives
 $\nu_i(A) = \nu_k(\pi_{ik}^{-1}(A)) = \nu_k(\pi_{jk}^{-1}(B)) = \nu_j(B)$.
 
@@ -649,7 +649,7 @@ Suppose:
 \begin{enumerate}[label=(\roman*)]
   \item $(\iota, \leq)$ admits common coarsenings and sequential common
         refinements;
-  \item the query system satisfies EvalSurjective;
+  \item the query system satisfies Surjective Evaluation;
   \item the family $\{\nu_i\}_{i \in \iota}$ is observationally compatible
         and each $\nu_i$ is a probability measure on
         $(\mathrm{Out}(i), \mathcal{F}_i)$.
@@ -675,7 +675,7 @@ each cylinder to level $k$:
   \mathrm{Cyl}(i_n, A_n) = \mathrm{Cyl}(k, E_n),
 \]
 where $E = \pi_{ik}^{-1}(B)$ and $E_n = \pi_{i_n k}^{-1}(A_n)$.
-EvalSurjective and the cylinder inclusion in $\Omega$ imply $E \subseteq
+Surjective Evaluation and the cylinder inclusion in $\Omega$ imply $E \subseteq
 \bigcup_n E_n$ in $\mathrm{Out}(k)$.  Therefore
 \[
   \mu_0(\mathrm{Cyl}(i, B))
@@ -761,12 +761,12 @@ forces the measure to concentrate on the image of $\Omega$.
 
 \begin{lemma}[Injectivity of connecting maps]
 \label{lem:phi-inj}
-If the query system satisfies EvalSurjective, then $\varphi_{ij} : B_i \to B_j$
+If the query system satisfies Surjective Evaluation, then $\varphi_{ij} : B_i \to B_j$
 is an injective Boolean algebra homomorphism for every $i \leq j$.
 \end{lemma}
 
 \begin{proof}
-EvalSurjective and the coherence condition give
+Surjective Evaluation and the coherence condition give
 $\pi_{ij}(\mathrm{eval}_j(\omega)) = \mathrm{eval}_i(\omega)$ for all $\omega$,
 so $\mathrm{im}(\pi_{ij}) \supseteq \mathrm{im}(\mathrm{eval}_i) = \mathrm{Out}(i)$:
 the refinement maps are surjective.  A surjective map $\pi_{ij}$ has injective
@@ -914,7 +914,7 @@ $\hat{\mu}_p = 0$ and $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.
 
 \begin{theorem}[Stone extension theorem]
 \label{thm:stone-main}
-Let the query system satisfy EvalSurjective, Discriminability, and common
+Let the query system satisfy Surjective Evaluation, Discriminability, and common
 coarsenings, and let $\{\mu_i\}$ be a compatible family of normalised charges
 on $\{B_i\}$ satisfying CE.  Then there exists a unique probability measure
 $P$ on $(\Omega, \sigma(\mathcal{C}))$ such that
@@ -961,7 +961,7 @@ on $\sigma(\mathcal{C})$.  For any cylinder set $E = \mathrm{Cyl}(i, A)$,
 Two probability measures on $(\Omega, \sigma(\mathcal{C}))$ agreeing on all
 cylinder sets are equal by Theorem~\ref{thm:obs-determination}, which requires
 common coarsenings.  The Stone theorem therefore assumes common coarsenings
-in addition to EvalSurjective, Discriminability, and CE.
+in addition to Surjective Evaluation, Discriminability, and CE.
 \end{proof}
 
 \begin{remark}[CE is not bypassed by compactness]
@@ -997,12 +997,12 @@ consequence of \texttt{observational\_determination}.
 
 \subsection{Two routes, one theorem}
 
-Under shared hypotheses --- EvalSurjective, Discriminability, and
+Under shared hypotheses --- Surjective Evaluation, Discriminability, and
 $\sigma$-additive compatible marginals --- both routes produce the same measure.
 
 \begin{proposition}[Coincidence of routes]
 \label{prop:coincidence}
-Suppose the query system satisfies EvalSurjective, Discriminability, and
+Suppose the query system satisfies Surjective Evaluation, Discriminability, and
 sequential common refinements and common coarsenings, and let $\{\nu_i\}$ be a
 compatible family of probability measures.  Let $P^{\mathrm{C}}$ be the measure
 produced by Theorem~\ref{thm:obs-extension} and $P^{\mathrm{S}}$ the measure

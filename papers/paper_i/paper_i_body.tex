@@ -465,7 +465,7 @@ yet $\bigcup_n F_n = \mathbb{Q}$ and $\ell(\mathbb{Q}) = 1$.
 $\sigma$-subadditivity would give $1 \leq \sum_n \ell(F_n) = 0$: contradiction.
 \end{proof}
 
-\begin{theorem}[CE characterises $\sigma$-additivity]
+\begin{theorem}[CE Characterisation Theorem]
 \label{thm:sp1}
 Let $\{\ell_i\}$ be a normalized compatible family of finitely-additive charges
 on a directed system indexed by $\mathcal{I}$.  The following are equivalent:
@@ -597,13 +597,13 @@ of the marginals is equivalent to CE applied at each level.
 
 \subsection{Observational determination}
 
-\begin{theorem}[Observational determination]
+\begin{proposition}[Observational determination]
 \label{thm:obs-determination}
 Let the query system admit common coarsenings and let $P$, $P'$ be probability
 measures on $(\Omega, \sigma(\mathcal{C}))$.  If
 $(\mathrm{eval}_i)_\# P = (\mathrm{eval}_i)_\# P'$ for all $i \in \iota$,
 then $P = P'$.
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 The equality of pushforward laws implies $P$ and $P'$ agree on every cylinder
@@ -614,7 +614,7 @@ gives $P = P'$.
 
 \subsection{Observable content}
 
-\begin{theorem}[Finite observational content]
+\begin{lemma}[Finite observational content]
 \label{thm:finite-content}
 Assume the query system admits common coarsenings and common refinements and
 satisfies Surjective Evaluation, and let $\{\nu_i\}_{i \in \iota}$ be an
@@ -625,7 +625,7 @@ Then the assignment
   \qquad A \in \mathcal{F}_i,
 \]
 defines a well-defined finitely additive content on $\mathcal{C}$.
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 \textit{Well-definedness.}

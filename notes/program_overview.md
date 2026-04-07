@@ -208,33 +208,71 @@ Structured observations
     → [Paper I]   → probability measure P on (Ω, σ(CylGen))
                     Stone space St(C) as compact completion of Ω
     → [Paper II]  → dynamics: Koopman operator U_T, semigroup {K_t}
-                    cyclic vector condition as spectral sufficient condition
+                    predictive kernels Π_t; dynamics = prediction structure
     → [Paper III] → reconstruction: St(O_h) ≅ X when O_h = B(X) mod μ
                     density bridge closes the loop with Paper I
     → [Paper IV]  → finite-sample: δ̂ stopping rule achieves minimax rate
-                    witnesses certify reconstruction from data alone
+                    three witnesses certify reconstruction from data alone
 ```
 
-The three papers track the same duality from three angles:
+The four papers track a single object from four angles:
 
-- **Paper I** (Boolean / topological): the observable algebra $\mathcal{C}$ dualises
-  via Stone to a compact space $\mathrm{St}(\mathcal{C})$. CE forces the measure to
-  live on $\Omega \subset \mathrm{St}(\mathcal{C})$.
+- **Paper I** (Boolean / topological): CE decides whether σ-additivity is possible.
+  The Stone space of the observable algebra is the canonical compact completion of
+  the sample space.
 
-- **Paper II** (operator / spectral): the Koopman operator $U_T$ on $L^2$ encodes the
-  dynamics. The cyclic vector condition — $\overline{\mathrm{span}}\{U_T^n h\} = L^2$
-  — is a spectral condition implying reconstruction.
+- **Paper II** (operator / spectral): the Koopman operator $U_T$ and semigroup $\{K_t\}$
+  are derived from prediction structure, not assumed. Koopman–Perron duality connects
+  function-space dynamics to measure-on-states dynamics.
 
-- **Paper III** (algebraic / measure-theoretic): the observable algebra
-  $\mathcal{O}_h = \sigma(\{h \circ T^n\})$ exhausts $\mathcal{B}(X)$ iff
-  $\mathrm{St}(\mathcal{O}_h) \cong X$. The density bridge connects the Boolean
-  algebra level (Paper I) to the $L^2$ level (Paper II): algebra density in $L^2$
-  iff $\sigma$-algebra generation.
+- **Paper III** (algebraic / measure-theoretic): the density bridge connects Boolean
+  algebra generation (Paper I) to $L^2$ density (Paper II). The Stone space built as
+  a technical tool in Paper I reappears here as the object being reconstructed.
 
-The Stone space that Paper I built as a tool for measure extension is, under the
-reconstruction condition, the state space being recovered. The programme begins with
-the observer's distinctions and ends by showing those distinctions — when complete —
-are the state space.
+- **Paper IV** (statistical / information-theoretic): the conditional variance identity
+  connects the algebraic error $\delta(L)$ to the geometry of unseparated pairs $R_L$
+  and to the collision entropy $H_2(\nu_L)$. All three witnesses measure the same
+  failure of separation.
+
+The unifying object across all four papers is **observational indistinguishability**,
+made precise at each layer:
+- Paper I: events that never separate across refinements (failure of CE)
+- Paper II: identical predictive laws ($\Pi_t(x,\cdot) = \Pi_t(x',\cdot)$)
+- Paper III: same delay orbit ($\Phi_h(x) = \Phi_h(x')$)
+- Paper IV: same delay vector at lag $L$ ($(x,x') \in R_L$)
+
+The programme is complete when $(\mu\otimes\mu)(R_L) \to 0$: indistinguishability
+vanishes at all layers simultaneously.
+
+### The chain of bridges
+
+The four papers are connected by a chain of equivalences:
+
+```
+Boolean ↔ Measure ↔ Function space ↔ Geometry ↔ Information
+```
+
+| Bridge | Paper | Identity |
+|--------|-------|----------|
+| Boolean → Measure | I | CE makes σ-additivity possible (Carathéodory / Stone) |
+| Boolean → $L^2$ | III | Density bridge: σ-algebra generation ↔ $L^2$ density |
+| $L^2$ → Geometry | III/IV | $\sigma(\Phi_h^{(L)}) = \mathcal{O}_h^{(L)}$ (Markov bridge) |
+| Geometry → Information | IV | Conditional variance identity (Lemma 3.1 + bridge note) |
+
+### The three obstructions
+
+Each paper identifies a single obstruction:
+
+| Paper | Obstruction | Status |
+|-------|------------|--------|
+| I | Lack of CE | Proved irreducible (Łoś + finite-cofinite counterexample) |
+| III | Lack of density ($\mathcal{O}_h \neq \mathcal{B}$ mod $\mu$) | Characterised by density bridge |
+| IV | Lack of fibre mixing | The Paper IV analogue of CE; irreducibility open |
+
+Fibre mixing is to Paper IV what CE is to Paper I: the minimal condition under which
+the algebraic and information-theoretic witnesses are comparable. Both are strictly
+weaker than ergodicity. Whether fibre mixing is irreducible (not derivable from any
+structural condition) is the deepest open question in the programme.
 
 ---
 
@@ -249,7 +287,7 @@ are the state space.
 
 ---
 
-## Task List (as of 2026-04-06, updated 2026-04-06 — bridge note integrated)
+## Task List (updated 2026-04-06 — programme complete, arXiv upload next)
 
 Ordered by priority. Cross off as completed.
 
@@ -334,15 +372,24 @@ Ordered by priority. Cross off as completed.
    - Upload Paper IV source files (including bridge note `mahon_bridge`); then backfill arXiv IDs
 
 ### Long term / deferred
-- `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct
+
+**Lean:**
+- `DiscriminabilityFoundations.lean` — 3 Mathlib-gap sorrys (ultraproduct
   infrastructure); mathematics is correct, low priority.
 - `delayQuerySystem.seqUpperDirected` sorry in `DelayEmbedding.lean` — deliberate
-  scope note: the full delay system (all lags, all dimensions) is NOT sequentially
-  upper-directed. The extension theorem is correctly scoped to bounded subsystems
-  (`delayFixedLagBoundedSystem`). No action needed unless the scope is widened.
-- Paper 0 — conceptual sketch only; not to be developed until Papers I–III complete.
+  scope note: the full delay system is NOT sequentially upper-directed. No action
+  needed unless scope is widened.
+- Paper IV Lean formalization — not started; no timeline.
 
----
+**Open mathematical frontiers** (see `notes/program_synthesis.md` for full discussion):
+1. **Fibre mixing irreducibility** — is fibre mixing derivable from any structural
+   condition, or is it irreducible like CE? This is the deepest open question.
+2. **Entropy witness concentration** — finite-$n$ McDiarmid bound for
+   $\hat{H}_2(\nu_L^{(n)})$; most immediate technical extension; no new structural
+   theory needed.
+3. **Paper 0 direction** — separation system + coherent charges as a primitive
+   foundation; CE and fibre mixing as instances of charge-coherence conditions.
+   Not to be developed until after arXiv upload.
 
 ---
 
@@ -372,8 +419,8 @@ separation structure. If the latter, the programme begins and ends with the
 observer's distinctions — the topology, like the measure, would be something
 the observer's query system already contains.
 
-**Status:** Conceptual sketch only. Not to be developed until Papers I–III are
-complete.
+**Status:** Conceptual sketch only. Papers I–IV are now complete; this direction
+can be developed after arXiv upload.
 
 **Reference:** `notes/conceptual_sketches/philosophy/topology_from_vanishing_distinction.md`
 

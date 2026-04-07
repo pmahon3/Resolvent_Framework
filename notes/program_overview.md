@@ -165,22 +165,35 @@ geometry shows up in the analysis of why δ̂ works, not in the procedure that c
 Obs. 1–8 closed under exponential mixing + ‖h‖_∞ ≥ 1/2.
 Obs. 9–12 closed 2026-04-06 (details in sketch).
 
-**Status:** Complete. LaTeX written 2026-04-06.
+**Status:** Complete. LaTeX written 2026-04-06; bridge note integrated 2026-04-06.
 
-**LaTeX:** `papers/paper_iv/paper_iv.tex` — 16 pages, 8 sections, bibliography
+**LaTeX:** `papers/paper_iv/paper_iv.tex` — 17 pages, 8 sections, bibliography
 resolved, all references clean. Sections: Introduction, Setup, Bias Bound and
 Algebra Side, Concentration of the Empirical Witness, The Algebra Theorem,
 The Dynamics Theorem, The Conjunction Theorem, Discussion.
 
 **Key results:**
+- Lemma 3.1 (Conditional Variance Identity: E[Var(1_S|𝒪_L)] = ½∫_{R_L}|1_S(x)-1_S(x')|² d(μ⊗μ))
+- Corollary 3.2 (Easy direction: δ(L) ≤ ½(μ⊗μ)(R_L), unconditional)
 - Lemma 5.1 (dim_eff step function via Sard–Smale)
-- Theorem 5.5 (Algebra Theorem: L̂* achieves minimax rate n^{-s/(2s+d)} without oracle inputs)
-- Theorem 6.5 (Dynamics Theorem: bi-Lipschitz delay map + empirical separation under (SS))
+- Theorem 5.7 (Algebra Theorem: L̂* achieves minimax rate n^{-s/(2s+d)} without oracle inputs)
+- Corollary 5.12 (Entropy characterisation: δ(L)→0 ⟺ H₂(ν_L)→∞ under fibre mixing)
+- Theorem 6.4 (Dynamics Theorem: bi-Lipschitz delay map + empirical separation under (SS))
 - Lemma 7.1 (algebra separation = metric separation for deterministic T — algebraic identity, not correlation)
 - Theorem 7.3 (Conjunction Theorem with three-part failure-mode analysis; Markov bridge)
 
+**Three computable witnesses (§1.3):**
+1. δ̂(L,n) — algebraic witness
+2. d̂_L(x,x') — delay-map separation
+3. Ĥ₂(ν_L^(n)) — collision entropy (new; computationally simpler: no optimisation over sets)
+
+**Companion note:** `papers/notes/bridge_note.tex` — standalone 4-page note proving
+the conditional variance identity and the entropy characterisation (δ(L)→0 ⟺ H₂→∞)
+in full detail. Cited as `mahon_bridge` in Paper IV.
+
 **Open (named in §8):** polynomial mixing, d≤2s via localised Rademacher, (SS)
-from first principles (Anosov case), stochastic T, sharp rates for L̂*.
+from first principles (Anosov case), stochastic T, sharp rates for L̂*,
+concentration of entropy witness Ĥ₂ (most immediate extension).
 
 **Lean formalization:** Not started.
 
@@ -232,11 +245,11 @@ are the state space.
 | I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
 | III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **arXiv ready** — `papers/paper_iii/`, 7 pages | Upload |
-| IV | Complete. All 12 proof obligations closed. Three main theorems: Algebra (Thm 5.5), Dynamics (Thm 6.5), Conjunction (Thm 7.3). | Not started | **Complete** — `papers/paper_iv/`, 16 pages | Submit |
+| IV | Complete. All 12 proof obligations closed. Three main theorems: Algebra (Thm 5.7), Dynamics (Thm 6.4), Conjunction (Thm 7.3). Entropy characterisation (Cor 5.12) integrated from bridge note. | Not started | **Complete** — `papers/paper_iv/`, 17 pages | Submit |
 
 ---
 
-## Task List (as of 2026-04-06, updated 2026-04-06)
+## Task List (as of 2026-04-06, updated 2026-04-06 — bridge note integrated)
 
 Ordered by priority. Cross off as completed.
 
@@ -312,12 +325,13 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-1. **arXiv upload of Papers I, II, III, IV** — all LaTeX complete and clean.
+1. **arXiv upload of Papers I, II, III, IV** — all LaTeX complete and clean (17 pages
+   for Paper IV after bridge note integration). Also upload bridge note as companion.
    Remaining tasks tracked in `notes/arxiv_prep.md`:
    - Upload Paper I source files; then backfill `mahon_paper1` arXiv ID in Papers II–IV
    - Upload Paper II source files
    - Upload Paper III source files; then backfill `mahon_paper3` arXiv ID in Papers I, II, IV
-   - Upload Paper IV source files; then backfill `mahon_paper4` arXiv ID in Papers I–III
+   - Upload Paper IV source files (including bridge note `mahon_bridge`); then backfill arXiv IDs
 
 ### Long term / deferred
 - `DiscriminabilityFoundations.lean` 3 sorrys — all Mathlib gaps (ultraproduct

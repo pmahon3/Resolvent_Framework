@@ -99,6 +99,35 @@ Lean formalization
 
 ---
 
+## Paper IV — "Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge"
+
+### arXiv category
+Primary: `math.ST` (Statistics Theory)
+Cross-list: `math.DS` (Dynamical Systems), `math.PR` (Probability)
+
+### MSC 2020 (proposed)
+- `62G08` — Nonparametric estimation (primary; for minimax rate result)
+- `37A05` — Dynamical aspects of measure-preserving transformations
+- `62M10` — Time series, auto-correlation, regression (in time domain)
+- `28A60` — Measures on Boolean rings, measure algebras
+- `94A17` — Measures of information, entropy (for Rényi-2/collision entropy)
+
+### Keywords (proposed)
+reconstruction, delay embedding, σ-algebra approximation, empirical witness,
+minimax rate, stopping rule, collision entropy, Rényi entropy, fibre mixing,
+conditional variance, Takens theorem, measure-preserving system
+
+### Outstanding tasks
+- [x] Paper IV LaTeX complete — 17 pages, all references resolved (2026-04-06)
+- [x] Bridge note (`papers/notes/bridge_note.tex`) complete and cited as `mahon_bridge`
+- [ ] Add MSC 2020 classifications and keywords to `paper_iv.tex`
+- [ ] Final compile check with resolved arXiv IDs for Papers I–III
+- [ ] Upload source files to arXiv (`paper_iv.tex`, `paper_iv_body.tex`, `references.bib`)
+- [ ] Upload bridge note to arXiv or as ancillary file
+- [ ] Backfill arXiv ID `mahon_paper4` in Papers I–III references
+
+---
+
 ## Suggested journal targets (post-arXiv)
 
 | Paper | Primary target | Backup |
@@ -106,6 +135,7 @@ Lean formalization
 | I | *Journal of Theoretical Probability* | *Fundamenta Mathematicae* |
 | II | *Ergodic Theory and Dynamical Systems* | *Journal of Functional Analysis* |
 | III | *Ergodic Theory and Dynamical Systems* | *Nonlinearity* |
+| IV | *Annals of Statistics* | *Bernoulli* |
 
 ---
 

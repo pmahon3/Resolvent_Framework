@@ -182,29 +182,53 @@ by whether large fibres ($p_z$ large) are internally mixed.
 
 \begin{definition}[Fibre mixing condition]
 \label{def:fibre-mixing}
-Say that $S^* \in \Bcal$ is \emph{$c$-mixing across fibres} if there exists
-$c > 0$ such that
+Fix $\varepsilon > 0$.
+Call $z$ an \emph{$\varepsilon$-large fibre} if $p_z \geq \varepsilon$.
+Say that $S^* \in \Bcal$ is \emph{$(c,\varepsilon)$-mixing across fibres} if there
+exists $c > 0$ such that
 \[
   \mu_z(S^*)\mu_z((S^*)^c) \;\geq\; c \cdot p_z
-  \quad \text{for $\nu_L$-a.e.\ } z \text{ with } p_z > 0.
+  \quad \text{for $\nu_L$-a.e.\ $\varepsilon$-large fibre } z.
 \]
+(The condition is vacuous on fibres with $p_z < \varepsilon$, which contribute at
+most $\varepsilon$ to $(\mu\otimes\mu)(\RL)$.)
 \end{definition}
 
 \begin{theorem}[Hard direction --- conditional]
 \label{thm:hard}
-If the event $S^*$ achieving $\dL$ is $c$-mixing across fibres, then
+Let $\varepsilon > 0$ and suppose $S^*$ is an $\varepsilon$-maximizer of $\dL$,
+i.e.\ $\mathbb{E}[\mathrm{Var}(\mathbf{1}_{S^*}\mid\OL)] \geq \dL - \varepsilon$.
+If $S^*$ is $(c,\varepsilon)$-mixing across fibres, then
 \[
-  (\mu \otimes \mu)(\RL) \;\leq\; \frac{1}{c}\,\dL.
+  (\mu \otimes \mu)(\RL) \;\leq\; \frac{1}{c}\,\dL + C(c)\,\varepsilon,
+  \qquad C(c) := \frac{1+c}{c}.
 \]
+In particular, if $S^*$ achieves $\dL$ exactly and is $(c,0)$-mixing, then
+$(\mu \otimes \mu)(\RL) \leq \frac{1}{c}\,\dL$.
 \end{theorem}
 
 \begin{proof}
-From the fibre mixing condition:
+Split $(\mu\otimes\mu)(\RL) = \int p_z^2\,d\nu_L(z)$ into $\varepsilon$-large and
+small-fibre parts.
+\emph{Large fibres ($p_z \geq \varepsilon$).}
+The $(c,\varepsilon)$-mixing condition gives $\mu_z(S^*)\mu_z((S^*)^c) \geq c\,p_z$, so:
 \[
-  \dL
-  \;\geq\; \int p_z \cdot \mu_z(S^*)\mu_z((S^*)^c)\,d\nu_L(z)
-  \;\geq\; c \int p_z^2\,d\nu_L(z)
-  \;=\; c\,(\mu\otimes\mu)(\RL). \qedhere
+  c\int_{\{p_z \geq \varepsilon\}} p_z^2\,d\nu_L(z)
+  \;\leq\; \int p_z\,\mu_z(S^*)\mu_z((S^*)^c)\,d\nu_L(z)
+  \;=\; \mathbb{E}[\mathrm{Var}(\mathbf{1}_{S^*}\mid\OL)]
+  \;\leq\; \dL.
+\]
+Hence $\int_{\{p_z \geq \varepsilon\}} p_z^2\,d\nu_L(z) \leq \frac{1}{c}\,\dL$.
+\emph{Small fibres ($p_z < \varepsilon$).}
+Each such fibre satisfies $p_z^2 \leq \varepsilon\, p_z$, so
+\[
+  \int_{\{p_z < \varepsilon\}} p_z^2\,d\nu_L(z)
+  \;\leq\; \varepsilon \int p_z\,d\nu_L(z) = \varepsilon.
+\]
+\emph{Combining.}
+Since $C(c) = \frac{1+c}{c} \geq 1$, we have $\varepsilon \leq C(c)\,\varepsilon$, and therefore:
+\[
+  (\mu\otimes\mu)(\RL) \;\leq\; \frac{1}{c}\,\dL + C(c)\,\varepsilon. \qedhere
 \]
 \end{proof}
 
@@ -212,14 +236,16 @@ From the fibre mixing condition:
 \label{rem:ergodicity}
 The fibre mixing condition (Definition~\ref{def:fibre-mixing}) is strictly
 weaker than ergodicity.
-It requires only that the adversarial event $S^*$ intersects every positive-mass
-fibre in a non-trivial fraction.
-Ergodicity implies this: under an ergodic $T$, if $S^*$ achieves $\dL > 0$
-then $S^*$ is not $\OL$-measurable, so $S^*$ must straddle some fibres, and
-by ergodicity the mass of non-straddled fibres is zero.
-But ergodicity is not necessary: the condition fails only when $S^*$ is
-``aligned'' with the fibre structure in the sense that large fibres are
-entirely inside or outside $S^*$.
+It requires only that some near-maximizing event $S^*$ straddles large fibres
+in a non-trivial fraction, not that the whole system is indecomposable.
+Ergodicity provides a sufficient condition: under an ergodic $T$, any
+$S^*$ with $\mathbb{E}[\mathrm{Var}(\mathbf{1}_{S^*}\mid\OL)] > 0$ cannot be
+$\OL$-measurable, so it must straddle fibres, and ergodicity ensures this holds
+for any nontrivial near-maximizing sequence.
+The condition fails only when $S^*$ is aligned with the fibre structure ---
+large fibres entirely inside or entirely outside $S^*$ --- an
+``adversarially structured'' failure that ergodicity rules out but strict
+measure-theoretic conditions do not require to be impossible.
 \end{remark}
 
 \begin{corollary}[Equivalence under fibre mixing]
@@ -235,7 +261,10 @@ In particular:
 \end{corollary}
 
 \begin{proof}
-Theorems~\ref{thm:easy} and~\ref{thm:hard} combined.
+Theorem~\ref{thm:easy} gives $\dL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
+For the lower bound, apply Theorem~\ref{thm:hard} with $\varepsilon \to 0$
+(taking a sequence of $\varepsilon_k$-maximizers with $\varepsilon_k \to 0$),
+yielding $(\mu\otimes\mu)(\RL) \leq \frac{1}{c}\,\dL$.
 \end{proof}
 
 % ============================================================
@@ -270,9 +299,10 @@ $\iff e^{-H_2(\nu_L)} \to 0 \iff H_2(\nu_L) \to +\infty$.
 \begin{remark}[Interpretation]
 Corollary~\ref{cor:entropy} gives a purely information-theoretic
 characterisation of reconstruction: the observable $h$ reconstructs the system
-$(X, \Bcal, \mu, T)$ at lag $L$ if and only if the distribution of the delay
-vector $\PhiL(x)$ becomes increasingly spread --- in the sense of Rényi-$2$
-entropy --- as $L$ grows.
+$(X, \Bcal, \mu, T)$ at lag $L$ if and only if the collision probability of the
+delay-vector distribution $\nu_L$ decays to zero as $L$ grows --- equivalently,
+if and only if the probability that two independently drawn trajectories produce
+identical delay vectors vanishes.
 
 This characterisation is not present in Papers~I--IV.
 It does not require:
@@ -291,6 +321,21 @@ entropy characterisation then provides a third, data-driven witness for
 reconstruction complementing $\delta(L)$ and the delay-map separation.
 \end{remark}
 
+\begin{remark}[Why the empirical algebraic witness $\hat\delta(L,n)$ works]
+\label{rem:empirical-link}
+Paper~IV (\S4--5) constructs an empirical witness $\hat\delta(L,n)$ and proves
+that it concentrates around $\dL$ at rate $n^{-1/2}$ (up to logarithms).
+The conditional variance identity (Lemma~\ref{lem:bridge}) explains why this
+is the right quantity to estimate: $\dL$ is the supremum over $S$ of
+$\mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]$, and the empirical version
+replaces the conditional variance with its sample analogue (fibre-conditional
+fractions computed from the observed delay-vector histogram).
+Corollary~\ref{cor:entropy} now says that the elbow stopping rule $\hat L^*$
+defined in Paper~IV~(Thm~5.4) could equivalently be stated as the first $L$
+at which the empirical collision entropy $\hat H_2(\nu_L^{(n)})$ exceeds a
+threshold calibrated to $n$: both witnesses detect the same transition.
+\end{remark}
+
 \begin{remark}[Relation to Paper~IV witnesses]
 The three witnesses now in scope are:
 \begin{enumerate}[label=(\roman*)]
@@ -306,6 +351,26 @@ converge to zero (resp.\ diverge) together under fibre mixing,
 making them asymptotically equivalent witnesses for reconstruction.
 Witness~(ii) provides the geometric certificate that the state space is
 being faithfully separated.
+\end{remark}
+
+\begin{remark}[A separation-system direction]
+\label{rem:paper-zero}
+The fibre structure studied here suggests a more primitive starting point.
+Define a \emph{separation system} as a family of equivalence relations
+$\{\sim_L\}_{L \geq 0}$ on a set $X$ together with a compatible family of
+charges $\mu_L$ on the quotients $X/{\sim_L}$.
+Reconstruction in this language is the condition $\bigcap_L [x]_L = \{x\}$
+for $\mu$-a.e.\ $x$.
+The fibre mixing condition (Definition~\ref{def:fibre-mixing}) is then a
+condition on the charge, not on the dynamics: it says the charges $\mu_L$ do
+not concentrate on large equivalence classes.
+Collective Exhaustion from Paper~I (the necessary and sufficient condition for
+the compatible family to extend to a global measure on $X$) appears in this
+language as the condition that the charges $\mu_L$ are consistent across levels
+--- a charge-coherence condition, not a dynamical one.
+Whether this separation-system + coherent-charges framework can serve as a
+foundation for Papers~I--IV, recovering probability and dynamics from
+primitive discriminability, is a question the present programme leaves open.
 \end{remark}
 
 \end{document}

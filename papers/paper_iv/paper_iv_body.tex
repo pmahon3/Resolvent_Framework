@@ -39,7 +39,7 @@ hypotheses its proof uses, and the scope of each is named precisely.
 
 \textbf{The Algebra Theorem} (Section~\ref{sec:algebra}).
 Define the $\sigma$-algebra approximation error
-$\deltaL = \sup_{S \in \mathcal{B}} \inf_{E \in \OhL} \mu(S \triangle E)$,
+\[ \deltaL = \sup_{S \in \mathcal{B}} \inf_{E \in \OhL} \mu(S \triangle E),\]
 which measures how much of $\mathcal{B}$ is not yet captured by the
 finite-lag algebra $\OhL = \sigma(h, h\circ T, \ldots, h \circ T^L)$.
 This quantity is estimable from data as $\delhat{L}{n}$ (defined
@@ -85,6 +85,23 @@ The elbow rule for $\delhat{L}{n}$ patches both simultaneously by operating
 upstream of the rate: it asks ``has the algebra captured $\mathcal{B}$?''
 rather than ``at what rate is the approximation converging?''
 
+This paper establishes three computable witnesses for reconstruction:
+\begin{enumerate}[label=(\roman*)]
+  \item $\delhat{L}{n}$ --- the algebraic witness (Section~\ref{sec:algebra});
+  \item $\hat{d}_L(x,x')$ --- the delay-map separation witness
+    (Section~\ref{sec:dynamics});
+  \item $\hat{H}_2(\nuL^{(n)})$ --- the collision entropy witness
+    (Section~\ref{sec:algebra}, Corollary~\ref{cor:entropy});
+    computationally simpler than (i): no optimisation over sets, only
+    delay-vector histogram counts.
+\end{enumerate}
+Witnesses~(i) and~(iii) are asymptotically equivalent under the fibre mixing
+condition (Corollary~\ref{cor:entropy}); witness~(ii) provides the geometric
+certificate that the state space is being faithfully separated.
+The conditional variance identity (Lemma~\ref{lem:cond-var}, Section~\ref{sec:bias})
+expresses the algebraic error $\deltaL$ as an integral over unseparated pairs,
+making the equivalence between (i) and (iii) explicit under fibre mixing.
+
 The binary TV separation result (Lemma~\ref{lem:alg-metric}) is specific to
 deterministic systems.
 For stochastic $T$, the kernel $\PihL(x, \cdot)$ is not a Dirac delta, and
@@ -93,11 +110,14 @@ This is an open direction.
 
 \subsection{Organisation}
 
-Section~\ref{sec:setup} introduces the objects used throughout.
-Section~\ref{sec:bias} proves the bias bound and three-term decomposition.
+Section~\ref{sec:setup} introduces the objects used throughout, including
+fibre structure and collision probability.
+Section~\ref{sec:bias} proves the conditional variance identity, the bias bound,
+and the easy direction $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
 Section~\ref{sec:concentration} proves concentration of $\delhat{L}{n}$.
 Sections~\ref{sec:algebra}, \ref{sec:dynamics}, and~\ref{sec:conjunction}
-prove the three main theorems.
+prove the three main theorems; Section~\ref{sec:algebra} also contains the
+entropy characterisation of reconstruction (Corollary~\ref{cor:entropy}).
 Section~\ref{sec:discussion} discusses open problems.
 
 % ============================================================
@@ -157,6 +177,31 @@ Three properties, proved in Papers~I--III, are used here without proof:
     is a smooth manifold, then $\delta(L) = 0$ for all $L \geq L_0$
     where $L_0 \leq d - 1$.
 \end{enumerate}
+
+\subsection{Fibre structure and collision probability}
+\label{subsec:fibres}
+
+The delay map $\PhiL$ partitions $X$ into \emph{fibres}: for each
+$z \in \mathbb{R}^{L+1}$, define
+\[
+  F_z \;:=\; (\PhiL)^{-1}(z), \qquad
+  p_z \;:=\; \mu(F_z), \qquad
+  \mu_z \;:=\; \mu(\,\cdot\mid F_z).
+\]
+Call $z$ an \emph{$\varepsilon$-large fibre} if $p_z \geq \varepsilon$.
+The push-forward $\nuL := (\PhiL)_*\mu$ is the distribution of
+delay vectors.
+
+The set of unseparated pairs $\RL := \{(x,x') : \PhiL(x) = \PhiL(x')\}$
+decomposes as $\RL = \bigsqcup_z F_z \times F_z$, giving
+\begin{equation}
+  (\mu \otimes \mu)(\RL)
+  \;=\; \int p_z^2\,d\nuL(z).
+  \label{eq:collision-prob}
+\end{equation}
+This quantity is the \emph{collision probability} of the delay-vector
+distribution: it is the probability that two independent draws from $\mu$
+produce the same delay vector.
 
 \subsection{The data model}
 
@@ -244,6 +289,47 @@ Define the \emph{$\sigma$-algebra approximation error}
 \end{equation}
 This measures how well $\mathfrak{m}$ approximates $\Bcal$: it is zero if and
 only if $\mathfrak{m} = \Bcal$ modulo $\mu$-null sets.
+
+\begin{lemma}[Conditional variance identity]
+\label{lem:cond-var}
+For any $S \in \Bcal$:
+\[
+  \mathbb{E}\bigl[\mathrm{Var}(\mathbbm{1}_S \mid \OhL)\bigr]
+  \;=\;
+  \frac{1}{2}
+  \int_{\RL}
+  \bigl|\mathbbm{1}_S(x) - \mathbbm{1}_S(x')\bigr|^2
+  \,d(\mu \otimes \mu)(x,x').
+\]
+\end{lemma}
+
+\begin{proof}
+By disintegration, $(\mu \otimes \mu)|_{\RL} = \int \mu_z \otimes \mu_z\,d\nuL(z)$.
+On each fibre $F_z$:
+\[
+  \tfrac{1}{2}\int_{F_z \times F_z}
+    |\mathbbm{1}_S(x) - \mathbbm{1}_S(x')|^2
+    \,d(\mu_z \otimes \mu_z)
+  \;=\; \mu_z(S)\,\mu_z(S^c).
+\]
+Integrating with weight $p_z$:
+$\tfrac{1}{2}\int_{\RL}|\mathbbm{1}_S - \mathbbm{1}_{S'}|^2\,d(\mu\otimes\mu)
+= \int p_z\,\mu_z(S)\mu_z(S^c)\,d\nuL(z)$.
+Since $\mathrm{Var}(\mathbbm{1}_S \mid \OhL)(x) = \mu_z(S)\mu_z(S^c)$ on $F_z$,
+both sides equal $\int \mu_z(S)\mu_z(S^c)\,d\nuL(z)$.
+A standalone development appears in \cite{mahon_bridge}.
+\end{proof}
+
+\begin{corollary}[Easy direction]
+\label{cor:easy}
+$\deltaL \;\leq\; \tfrac{1}{2}\,(\mu \otimes \mu)(\RL)$.
+\end{corollary}
+
+\begin{proof}
+In Lemma~\ref{lem:cond-var}, bound $|\mathbbm{1}_S(x) - \mathbbm{1}_S(x')|^2 \leq 1$
+and take the supremum over $S$ using
+$\deltaL = \sup_S \mathbb{E}[\mathrm{Var}(\mathbbm{1}_S \mid \OhL)]$.
+\end{proof}
 
 \begin{lemma}[Bias bound]
 \label{lem:bias}
@@ -998,6 +1084,74 @@ removing them makes either the elbow unresolvable or the bias estimate
 Polynomial mixing is not covered.
 \end{remark}
 
+\subsection{Entropy characterisation of reconstruction}
+\label{subsec:entropy}
+
+\begin{definition}[Fibre mixing]
+\label{def:fibre-mixing}
+Fix $\varepsilon > 0$.
+An event $S^* \in \Bcal$ is \emph{$(c,\varepsilon)$-mixing across fibres} if
+there exists $c > 0$ such that
+\[
+  \mu_z(S^*)\,\mu_z\bigl((S^*)^c\bigr) \;\geq\; c\cdot p_z
+  \quad\text{for $\nuL$-a.e.\ $\varepsilon$-large fibre } z.
+\]
+This condition is implied by ergodicity of $T$ and is independent of~(SS).
+It is not a standing assumption of Paper~IV; it is used only in
+Corollary~\ref{cor:entropy} below.
+\end{definition}
+
+The collision probability~\eqref{eq:collision-prob} defines a natural
+information-theoretic quantity:
+\begin{equation}
+  H_2(\nuL) \;:=\; -\log\bigl((\mu \otimes \mu)(\RL)\bigr)
+  \;=\; -\log \int p_z^2\,d\nuL(z).
+  \label{eq:entropy}
+\end{equation}
+This is the \emph{Rényi-$2$ (collision) entropy} of the delay-vector distribution.
+
+\begin{corollary}[Entropy characterisation of reconstruction]
+\label{cor:entropy}
+Under the fibre mixing condition of Definition~\ref{def:fibre-mixing}:
+\[
+  \deltaL \to 0
+  \quad\iff\quad
+  H_2(\nuL) \to +\infty.
+\]
+Equivalently, reconstruction occurs if and only if the probability that two
+independently drawn delay vectors coincide vanishes as $L \to \infty$.
+\end{corollary}
+
+\begin{proof}
+Corollary~\ref{cor:easy} gives $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
+For the reverse, the $(c,\varepsilon)$-mixing condition on a $\deltaL$-near-maximizer
+$S^*$ gives $(\mu\otimes\mu)(\RL) \leq \frac{1}{c}\,\deltaL + C(c)\,\varepsilon$
+(proved in \cite{mahon_bridge}, Theorem~3.3), so $\deltaL \to 0 \iff
+(\mu\otimes\mu)(\RL) \to 0$.
+Since $(\mu\otimes\mu)(\RL) = e^{-H_2(\nuL)}$, this is equivalent to
+$H_2(\nuL) \to +\infty$.
+\end{proof}
+
+\begin{remark}[Empirical entropy witness]
+\label{rem:entropy-witness}
+The empirical analogue of $H_2(\nuL)$ is
+\[
+  \hat{H}_2\!\left(\nuL^{(n)}\right)
+  \;:=\;
+  -\log\!\left(\frac{1}{n^2}\sum_{i,j=1}^n
+    \mathbbm{1}\bigl[\PhiL(x_i) = \PhiL(x_j)\bigr]\right),
+\]
+the negative log of the empirical collision probability.
+This is the third computable witness for reconstruction.
+It is \emph{computationally simpler} than $\delhat{L}{n}$: it requires no
+optimisation over sets, only histogram counts over delay vectors.
+Under fibre mixing, Corollary~\ref{cor:entropy} shows that $\Lhat$ could
+equivalently be defined as the first $L$ at which $\hat{H}_2(\nuL^{(n)})$
+exceeds a threshold calibrated to $n$.
+A detailed treatment of $\hat{H}_2$ as a stopping rule appears in
+\cite{mahon_bridge}, Section~4.
+\end{remark}
+
 % ============================================================
 \section{The Dynamics Theorem}
 \label{sec:dynamics}
@@ -1329,6 +1483,18 @@ Conjunction Theorem's proof structure changes substantially.
 Theorem~\ref{thm:elbow} shows $P(\Lhat = L^*(n)) \to 1$ but does not bound
 the fluctuations of $\Lhat$ around $L^*(n)$ on the event $\{\Lhat \neq L^*(n)\}$.
 A Berry--Esseen-type result for $\Lhat - L^*(n)$ would sharpen the stopping rule.
+
+\textbf{Concentration of the entropy witness.}
+The empirical collision entropy $\hat{H}_2(\nuL^{(n)})$ is a computationally
+simpler stopping criterion (Remark~\ref{rem:entropy-witness}).
+Asymptotic equivalence with $\delhat{L}{n}$ is established under fibre mixing
+(Corollary~\ref{cor:entropy}), but a finite-$n$ concentration result for
+$\hat{H}_2(\nuL^{(n)})$ --- comparable to Proposition~\ref{prop:concentration}
+for $\delhat{L}{n}$ --- is not proved here.
+Such a result requires only McDiarmid-type bounds on the U-statistic
+$\frac{1}{n^2}\sum_{i,j} \mathbbm{1}[\PhiL(x_i) = \PhiL(x_j)]$, with no
+new structural assumptions beyond those of this paper.
+This is the most immediate extension of the present work.
 
 \subsection{What is settled}
 

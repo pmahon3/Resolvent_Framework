@@ -100,7 +100,7 @@ condition (Corollary~\ref{cor:entropy}); witness~(ii) provides the geometric
 certificate that the state space is being faithfully separated.
 The conditional variance identity (Lemma~\ref{lem:cond-var}, Section~\ref{sec:bias})
 expresses the algebraic error $\deltaL$ as an integral over unseparated pairs,
-making the equivalence between (i) and (iii) explicit under fibre mixing.
+identifying the precise obstruction to equivalence between (i) and (iii) as lack of fibre mixing.
 
 The binary TV separation result (Lemma~\ref{lem:alg-metric}) is specific to
 deterministic systems.
@@ -1120,6 +1120,8 @@ Under the fibre mixing condition of Definition~\ref{def:fibre-mixing}:
 \]
 Equivalently, reconstruction occurs if and only if the probability that two
 independently drawn delay vectors coincide vanishes as $L \to \infty$.
+Thus reconstruction is equivalent to the vanishing of collision probability
+$(\mu \otimes \mu)(\RL)$ introduced in Section~\ref{subsec:fibres}.
 \end{corollary}
 
 \begin{proof}

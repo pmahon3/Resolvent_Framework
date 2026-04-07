@@ -6,6 +6,22 @@ practice in mathematics.
 
 ---
 
+## Submission phases (agreed 2026-04-06)
+
+**Phase 1:** Submit Papers I and II → get arXiv IDs → backfill `mahon_paper1`,
+`mahon_paper2` in all downstream references.
+
+**Phase 2:** Submit Paper III → get arXiv ID → backfill `mahon_paper3` in Papers
+I, II, IV.
+
+**Phase 3:** Formalize bridge note in Lean → recompile Paper IV with real arXiv
+IDs for Papers I–III → submit Paper IV + bridge note together.
+
+All four papers and the bridge note compile cleanly as of 2026-04-06. No
+outstanding LaTeX tasks before Phase 1.
+
+---
+
 ## What is an MSC class?
 
 MSC = Mathematics Subject Classification. A standard two-level taxonomy used by

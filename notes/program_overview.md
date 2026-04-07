@@ -363,13 +363,18 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-1. **arXiv upload of Papers I, II, III, IV** — all LaTeX complete and clean (17 pages
-   for Paper IV after bridge note integration). Also upload bridge note as companion.
-   Remaining tasks tracked in `notes/arxiv_prep.md`:
-   - Upload Paper I source files; then backfill `mahon_paper1` arXiv ID in Papers II–IV
-   - Upload Paper II source files
-   - Upload Paper III source files; then backfill `mahon_paper3` arXiv ID in Papers I, II, IV
-   - Upload Paper IV source files (including bridge note `mahon_bridge`); then backfill arXiv IDs
+Submission in three phases (see `notes/arxiv_prep.md` for full checklist):
+
+**Phase 1 (next):** Submit Papers I and II to arXiv → backfill `mahon_paper1`,
+`mahon_paper2` in downstream refs.
+
+**Phase 2:** Submit Paper III → backfill `mahon_paper3`.
+
+**Phase 3:** Formalize bridge note in Lean → recompile Paper IV with real arXiv
+IDs → submit Paper IV + bridge note together.
+
+All four papers and bridge note compile cleanly as of 2026-04-06. No outstanding
+LaTeX tasks before Phase 1.
 
 ### Long term / deferred
 

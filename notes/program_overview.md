@@ -149,11 +149,11 @@ witnesses?
    data alone — concentrates around the true δ(L), and the δ̂ stopping rule achieves
    the minimax-optimal rate n^{-s/(2s+d)} for f ∈ Hölder(s) without oracle inputs.
 
-2. **(Dynamics theorem):** Under separation-stability of the predictive kernel Π_h
+2. **(Dynamics theorem):** Under uniform separation of the predictive kernel Π_h
    (verified by Hölder regularity when T ∈ C^r), the estimated edge law Γ̂_h^(n)
    converges to Γ_h at rate n^{-β/(2β+d)}.
 
-3. **(Conjunction theorem):** Under reconstruction ∧ separation-stability, both
+3. **(Conjunction theorem):** Under reconstruction ∧ uniform separation, both
    witnesses (δ̂ and d̂_L) certify the same object. The Markov structure of the delay
    vector is the honest bridge between them.
 
@@ -178,7 +178,7 @@ The Dynamics Theorem, The Conjunction Theorem, Discussion.
 - Lemma 5.1 (dim_eff step function via Sard–Smale)
 - Theorem 5.7 (Algebra Theorem: L̂* achieves minimax rate n^{-s/(2s+d)} without oracle inputs)
 - Corollary 5.12 (Entropy characterisation: δ(L)→0 ⟺ H₂(ν_L)→∞ under fibre mixing)
-- Theorem 6.4 (Dynamics Theorem: bi-Lipschitz delay map + empirical separation under (SS))
+- Theorem 6.4 (Dynamics Theorem: bi-Lipschitz delay map + empirical separation under (US))
 - Lemma 7.1 (algebra separation = metric separation for deterministic T — algebraic identity, not correlation)
 - Theorem 7.3 (Conjunction Theorem with three-part failure-mode analysis; Markov bridge)
 
@@ -191,7 +191,7 @@ The Dynamics Theorem, The Conjunction Theorem, Discussion.
 the conditional variance identity and the entropy characterisation (δ(L)→0 ⟺ H₂→∞)
 in full detail. Cited as `mahon_bridge` in Paper IV.
 
-**Open (named in §8):** polynomial mixing, d≤2s via localised Rademacher, (SS)
+**Open (named in §8):** polynomial mixing, d≤2s via localised Rademacher, (US)
 from first principles (Anosov case), stochastic T, sharp rates for L̂*,
 concentration of entropy witness Ĥ₂ (most immediate extension).
 

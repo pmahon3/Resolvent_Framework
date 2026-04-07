@@ -71,12 +71,12 @@ alone, and at what rate? Three theorems answer this:
   around the true δ(L), and the elbow stopping rule L̂* achieves the
   minimax-optimal rate n^{-s/(2s+d)} for Hölder(s) targets without any oracle
   inputs (mixing rate, lag, or smoothness index).
-- **Dynamics Theorem**: under separation-stability (SS), the delay map is
+- **Dynamics Theorem**: under uniform separation (US), the delay map is
   bi-Lipschitz and estimated delay vectors certify point separation at rate
   n^{-β/(2β+d)}.
 - **Conjunction Theorem**: for deterministic T, algebra separation and metric
   separation are the same event (not merely correlated — identical). Under
-  reconstruction and (SS), both witnesses certify this from data, and the
+  reconstruction and (US), both witnesses certify this from data, and the
   theorem names the failure modes when either condition is removed.
 
 The key insight: for deterministic T the predictive kernel Π_h^(L)(x,·) is a

@@ -4,6 +4,51 @@
 % §2 written third: setup calibrated exactly to what §§3--4 use.
 % §§1+8 written last: introduction and discussion.
 
+\maketitle
+
+\begin{abstract}
+We study finite-sample reconstruction in measure-preserving systems.
+Given a time series $x_1,\ldots,x_n$ from a system $(X,\mathcal{B},\mu,T)$
+and a single observable $h$, we ask whether reconstruction --- the condition
+that the delay algebra $\sigma(h, h\circ T, \ldots)$ generates $\mathcal{B}$
+modulo $\mu$ --- is detectable from data alone, at what rate, and with what
+certificates.
+
+We prove three theorems.
+The \emph{Algebra Theorem} shows that the empirical $\sigma$-algebra
+approximation error $\hat\delta(L,n)$ concentrates around the true error
+$\delta(L)$, and that the elbow stopping rule $\hat{L}^*$ achieves the
+minimax-optimal rate $n^{-s/(2s+d)}$ for $\mathrm{H\ddot{o}lder}(s)$ targets
+on a $d$-dimensional state space, without oracle knowledge of the mixing rate,
+the lag, or the smoothness index.
+The \emph{Dynamics Theorem} shows that under separation-stability, the delay
+map $\Phi_h^{(L)}$ is bi-Lipschitz and estimated delay vectors certify point
+separation at rate $n^{-\beta/(2\beta+d)}$.
+The \emph{Conjunction Theorem} shows that for deterministic $T$, algebra
+separation and metric separation are the same event --- not merely correlated,
+but identical --- and that both witnesses certify this from data under
+reconstruction and separation-stability.
+
+The key structural insight is a conditional variance identity expressing
+$\delta(L)$ as an integral over unseparated trajectory pairs.
+This identity yields a third computable witness: the collision entropy
+$H_2(\nu_L) := -\log(\mu\otimes\mu)(R_L)$ of the delay-vector distribution,
+which diverges if and only if $\delta(L) \to 0$ under a fibre mixing condition.
+The three witnesses --- algebraic, geometric, and information-theoretic ---
+all measure the same failure of separation across delay fibres.
+\end{abstract}
+
+\begin{quote}\small
+\textbf{2020 Mathematics Subject Classification.}
+62G08 (primary); 37A05, 62M10, 28A60, 94A17 (secondary).
+
+\textbf{Keywords.}
+reconstruction, delay embedding, $\sigma$-algebra approximation,
+empirical witness, minimax rate, stopping rule, collision entropy,
+Rényi entropy, fibre mixing, conditional variance, Takens theorem,
+measure-preserving system.
+\end{quote}
+
 % ============================================================
 \section{Introduction}
 \label{sec:intro}

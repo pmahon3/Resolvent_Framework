@@ -144,7 +144,7 @@ draws the two routes together and discusses the Stone space.
 \label{sec:setup}
 % ------------------------------------------------------------------
 
-\subsection{Query systems}
+\subsection{Observational structure}
 
 \begin{definition}[Query system]
 \label{def:query-system}
@@ -179,7 +179,7 @@ evaluation maps record how that structure is instantiated: $\Omega$ is the set o
 states consistent with the system, and coherence says evaluation is compatible with
 coarsening.
 
-\subsection{Realization space}
+\subsection{Realization and observables}
 
 The observational structure $(\iota, \leq, \{\mathrm{Out}(i)\}, \{\pi_{ij}\})$
 determines a canonical realization: the projective limit
@@ -194,8 +194,6 @@ determines a canonical realization: the projective limit
 \]
 with $\mathrm{eval}_i(x) = x_i$.
 
-\subsection{Directedness conditions}
-
 \begin{definition}[Common coarsenings and common refinements]
 The index set $(\iota, \leq)$ admits \emph{common coarsenings} if every pair
 $i, j \in \iota$ has a lower bound: there exists $k \leq i$ and $k \leq j$.
@@ -209,8 +207,6 @@ has an upper bound in $\iota$.
 coarsenings ensure that cylinder sets form a $\pi$-system (Lemma~\ref{lem:pi-system}
 below); sequential common refinements supply the $\sigma$-subadditivity step in the
 Carathéodory route.
-
-\subsection{Cylinder sets and the observable $\sigma$-algebra}
 
 \begin{definition}[Cylinder sets]
 For $i \in \iota$ and $A \in \mathcal{F}_i$, the \emph{level-$i$ cylinder with
@@ -252,8 +248,6 @@ lower bound, with $k \leq i$ and $k \leq j$.  Then
 which is again a cylinder.
 \end{proof}
 
-\subsection{Connecting maps}
-
 For $i \leq j$, define the \emph{connecting map}
 \[
   \varphi_{ij} : B_i \to B_j,
@@ -263,7 +257,7 @@ For $i \leq j$, define the \emph{connecting map}
 This is a well-defined Boolean algebra homomorphism.  The family
 $\{B_i, \varphi_{ij}\}$ is a directed system of Boolean algebras.
 
-\subsection{Compatible charges}
+\subsection{Charges and hypotheses}
 
 \begin{definition}[Compatible family]
 A \emph{charge} on a Boolean algebra $B$ is a finitely additive function
@@ -278,8 +272,6 @@ $\{\mu_i\}_{i \in \iota}$ with $\mu_i$ on $B_i$ is \emph{compatible} if
 \noindent A compatible family also determines a charge on $\mathcal{C}$ by
 $\mu(\mathrm{Cyl}(i, A)) := \mu_i(\mathrm{Cyl}(i, A))$; compatibility
 ensures this is well-defined.
-
-\subsection{The three hypotheses}
 
 The main theorems require three conditions.
 

@@ -150,37 +150,39 @@ draws the two routes together and discusses the Stone space.
 \label{def:query-system}
 A \emph{query system} is a tuple
 \[
-  (\iota, \leq, \Omega,
+  (\iota, \leq,
    \{(\mathrm{Out}(i), \mathcal{F}_i)\}_{i \in \iota},
-   \{\mathrm{eval}_i\}_{i \in \iota},
-   \{\pi_{ij}\}_{i \leq j})
+   \{\pi_{ij}\}_{i \leq j},
+   \Omega,
+   \{\mathrm{eval}_i\}_{i \in \iota})
 \]
 consisting of:
 \begin{itemize}[noitemsep]
   \item a nonempty partially ordered set $(\iota, \leq)$, the \emph{index set};
-  \item a set $\Omega$, the \emph{sample space};
   \item for each $i \in \iota$, a measurable space $(\mathrm{Out}(i), \mathcal{F}_i)$,
     the \emph{outcome space at level~$i$};
-  \item for each $i \in \iota$, a map
-    $\mathrm{eval}_i : \Omega \to \mathrm{Out}(i)$,
-    the \emph{evaluation map at level~$i$};
   \item for each $i \leq j$ in $\iota$, a measurable surjection
     $\pi_{ij} : \mathrm{Out}(j) \to \mathrm{Out}(i)$,
-    the \emph{refinement map},
+    the \emph{refinement map};
+  \item a set $\Omega$, the \emph{realization}, together with maps
+    $\mathrm{eval}_i : \Omega \to \mathrm{Out}(i)$ for each $i \in \iota$,
+    the \emph{evaluation maps},
 \end{itemize}
 satisfying the \emph{coherence condition}:
 $\pi_{ij} \circ \mathrm{eval}_j = \mathrm{eval}_i$ for all $i \leq j$.
 \end{definition}
 
-The index $i$ represents a level of observational resolution.  When $i \leq j$,
-level $j$ is finer: its outcomes can be coarsened to level $i$ by applying
-$\pi_{ij}$.  The coherence condition says that the evaluation maps are compatible
-with the coarsening structure.
+The index set, outcome spaces, and refinement maps constitute the \emph{observational
+structure} of the query system; they encode the distinctions the observer can make
+and how finer levels coarsen to coarser ones.  The realization $\Omega$ and
+evaluation maps record how that structure is instantiated: $\Omega$ is the set of
+states consistent with the system, and coherence says evaluation is compatible with
+coarsening.
 
 \subsection{Realization space}
 
-When the query system is constructed from a projective system of outcome spaces,
-the sample space $\Omega$ is the realization space
+The observational structure $(\iota, \leq, \{\mathrm{Out}(i)\}, \{\pi_{ij}\})$
+determines a canonical realization: the projective limit
 \[
   \Omega
   = \varprojlim_{i \in \iota} \mathrm{Out}(i)

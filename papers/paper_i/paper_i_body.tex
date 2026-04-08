@@ -56,21 +56,15 @@ directed system, query system.
 % ------------------------------------------------------------------
 
 The programme of which this paper is a part does not begin with a probability
-space.  It begins with \emph{distinctions}: the acts of observational
-separation by which an observer organises their experience of a system.
-The state space, the $\sigma$-algebra, and the measure are not primitives ---
-they are what coherent distinctions, pursued to their conclusion, are forced to
-produce.  This paper proves the first step: a coherent family of observational
-distinctions determines a unique probability measure.  The further steps ---
-that this measure carries canonical dynamics, that the delay structure of
-observation (re)constructs the state space, and that finite data can certify
+space but with \emph{distinctions}: the acts of observational separation by
+which an observer organises their experience of a system.  State space,
+$\sigma$-algebra, and measure are not primitives --- they are what coherent
+distinctions, pursued to their conclusion, are forced to produce.  This paper
+proves the first step: a coherent family of observational distinctions
+determines a unique probability measure.  The further steps --- that this
+measure carries canonical dynamics, that the delay structure of observation
+(re)constructs the state space, and that finite data can certify
 (re)construction --- are carried out in the companion papers.
-
-Many approaches to probability begin by postulating an underlying probability
-space and then studying the observables derived from it.  This paper reverses
-that perspective.  Starting from observable experiments organised as a
-refinement system of queries, we ask: under what conditions do compatible
-observable laws determine a canonical probability measure?
 
 The answer is given by a single condition.  A compatible family of finitely
 additive charges on a directed system of Boolean algebras extends to a
@@ -78,58 +72,44 @@ $\sigma$-additive measure at every level if and only if the family is
 \emph{collectively exhaustive} (CE): for every decreasing sequence of events
 whose intersection is empty, some level in the refinement order witnesses the
 vanishing of mass.  CE is not a structural condition on the query system but a
-condition on the charges: it rules out purely finitely additive charges, which
-satisfy every finite consistency condition while assigning persistent mass to
-sequences that vanish in the limit.
+condition on the charges --- it rules out purely finitely additive charges,
+which assign persistent mass to sequences that vanish in the limit.
 
 \paragraph{Two routes.}
 The extension theorem is established by two independent proofs, each
 illuminating CE from a different direction.
 
 The \emph{Carathéodory route} (\S\ref{sec:cara}) assumes $\sigma$-additive
-marginals and constructs the global measure directly by Carathéodory extension
-on the realization space.  No topology is required on the outcome spaces.
+marginals and constructs the global measure directly on the realization space.
 Sequential common refinements compress any countable cylinder family to a single
-query level, reducing $\sigma$-subadditivity of the cylinder premeasure to
-$\sigma$-subadditivity of a single marginal.  In this route, $\sigma$-additivity
-of the marginals is the standing hypothesis; by the CE theorem of
-\S\ref{sec:ce}, it is equivalent to CE.
+level, reducing the $\sigma$-subadditivity check to a single marginal.
+By the CE theorem (\S\ref{sec:ce}), $\sigma$-additivity of the marginals is
+equivalent to CE.
 
-The \emph{Stone route} (\S\ref{sec:stone}) assumes only finite additivity
-and derives $\sigma$-additivity from compactness.  Stone duality converts the
-directed system of Boolean algebras into a cofiltered inverse system of compact
-Hausdorff spaces.  A compatible family of finitely additive charges assembles
-into a $\sigma$-additive measure on the inverse limit without any countable
-additivity assumption.  The remaining task is to descend from the Stone space
-to the sample space.  Two conditions are required.  Discriminability
-(\S\ref{sec:setup}) ensures the Stone embedding is injective, so the pullback
-identifies the observable $\sigma$-algebra with the Borel algebra of the Stone
-space.  CE appears here not as an algebraic condition but as a support
-condition: the measure concentrates on the principal ultrafilters, i.e., on
-the image of $\Omega$ inside its Stone compactification.
+The \emph{Stone route} (\S\ref{sec:stone}) assumes only finite additivity and
+derives $\sigma$-additivity from compactness.  Stone duality converts the
+directed Boolean system into an inverse system of compact Hausdorff spaces; a
+compatible family of charges assembles into a $\sigma$-additive measure on the
+inverse limit.  Descending from the Stone space to $\Omega$ requires two
+conditions: Discriminability ensures the Stone embedding is injective, and CE
+appears as a support condition --- the measure concentrates on the principal
+ultrafilters, i.e., on the image of $\Omega$ inside its Stone compactification.
 
 \paragraph{CE is irreducible.}
-Section~\ref{sec:ce} establishes that CE is not derivable from any finitary or
-structural condition on the query system.  The finite-cofinite content on
-$\mathbb{Q}$ satisfies every algebraic condition on a directed system while
-failing CE.  A model-theoretic argument via \L{}o\'{s}'s theorem and the
-Yosida--Hewitt decomposition shows this is not a proof-search failure: no
-first-order condition on the query system implies CE.  CE is an irreducible
-commitment about the completed infinite, analogous to the axiom of infinity in
-arithmetic.
+CE is not derivable from any finitary or structural condition on the query
+system.  The finite-cofinite content on $\mathbb{Q}$ satisfies every algebraic
+condition while failing CE; a model-theoretic argument via \L{}o\'{s}'s theorem
+shows this is not a proof-search failure.  CE is an irreducible commitment about
+the completed infinite, analogous to the axiom of infinity in arithmetic.
 
 \paragraph{The Stone space.}
-The Stone space $\mathrm{St}(\mathcal{C})$ of the observable algebra, constructed
-in \S\ref{sec:stone} as a technical device for measure extension, has a further
-significance developed in \S\ref{sec:bridge}.  It is the canonical compact
-Hausdorff completion of $\Omega$ for the observable topology.  CE's two faces ---
-honest observer (valuation layer) and support on $\Omega$ (topological layer) ---
-are the same condition seen from inside and outside the algebra.  When an
-observation function is a cyclic vector for the Koopman operator of an underlying
-dynamical system, the Stone space of the observable algebra is
-measure-theoretically isomorphic to the state space.  The compact space
-introduced here as a tool reappears at the end of the programme as the object
-being reconstructed; we develop this connection elsewhere.
+The Stone space $\mathrm{St}(\mathcal{C})$, constructed as a technical device
+for measure extension, is the canonical compact Hausdorff completion of $\Omega$
+for the observable topology (\S\ref{sec:bridge}).  CE's two faces --- algebraic
+convergence and support on $\Omega$ --- are the same condition seen from inside
+and outside the algebra.  When an observation function is cyclic for the Koopman
+operator, the Stone space is measure-theoretically isomorphic to the state space;
+this connection is developed in the companion papers.
 
 \paragraph{Organisation.}
 Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable
@@ -368,16 +348,12 @@ $\sigma(\mathcal{E})$.
 \label{rem:regress}
 The condition in Theorem~\ref{thm:extension-criterion} is not verifiable from
 within $\mathcal{E}$ alone: confirming $\bigcap_n E_n = \emptyset$ requires
-access to $\sigma(\mathcal{E})$.  In a directed system, one might hope that a
-finer level $j \geq i$ can witness the emptiness that level $i$ cannot see, and
-that compatibility forces continuity at $\emptyset$ at level $i$.  But the
-obstruction re-appears: finite additivity at level $j$ does not force continuity
-at $\emptyset$ for sequences decreasing to an element of $\sigma(\mathcal{E}_j)$.
-No finite chain of refinements can supply the condition.  Something external to
-any single level is required: topology (compactness), a colimit algebra, or an
-explicit continuity axiom.  Section~\ref{sec:incompleteness} shows that the
-directed-system structure does not resolve this without an additional valuation
-condition.
+access to $\sigma(\mathcal{E})$.  In a directed system, one might hope a finer
+level $j \geq i$ can witness the emptiness that level $i$ cannot see --- but
+the obstruction reappears: finite additivity at $j$ does not force continuity
+at $\emptyset$ for sequences in $\sigma(\mathcal{E}_j)$.  Something external
+to any single level is required, and \S\ref{sec:incompleteness} shows the
+directed-system structure alone does not supply it.
 \end{remark}
 
 \subsection{Nontrivial refinement}
@@ -495,18 +471,12 @@ of $\mu_i$ and normalization.  Take $j = i$.
 
 \begin{remark}[Dissolution of the index-valuation conflation]
 \label{rem:dissolution}
-Proposition~\ref{prop:independence} shows that index-layer conditions
-(sequential upper-directedness, compatibility) do not force $\sigma$-additivity.
-Theorem~\ref{thm:sp1} identifies the exact valuation-layer condition that does.
 The question ``do the structural conditions on a directed system force
-$\sigma$-additivity?'' is ill-posed: it conflates conditions on the directed
-system's structure with conditions on the charges it carries.
-
-Sequential upper-directedness plays no role in Theorem~\ref{thm:sp1}: it is a
-per-level result.  That condition enters when one asks whether the per-level
-extensions assemble into a global measure on the realization space
-$\Omega = \varprojlim \mathrm{Out}(i)$; this is the role it plays in the
-Carathéodory route (\S\ref{sec:cara}).
+$\sigma$-additivity?'' is ill-posed: it conflates conditions on the index
+structure with conditions on the charges.  Proposition~\ref{prop:independence}
+separates them; Theorem~\ref{thm:sp1} identifies the exact valuation-layer
+condition.  Sequential upper-directedness enters only when assembling per-level
+extensions into a global measure (\S\ref{sec:cara}), not at the per-level step.
 \end{remark}
 
 \subsection{CE is irreducible}
@@ -561,28 +531,16 @@ part: $\ell_p = 0$.
 
 \begin{remark}[CE as irreducible primitive]
 \label{rem:ce-primitive}
-Proposition~\ref{prop:ce-irred} shows that the gap between structural coherence
-and $\sigma$-additivity is a proved boundary, not a proof-search failure.
-CE is not derivable within the query-system framework.  It is analogous to the
-axiom of infinity in arithmetic: not provable from the remaining axioms, not
-refutable, but the commitment without which the mathematics of probability
-cannot proceed.  The ultrafilter-based content is the canonical witness of this
-irreducibility: it passes every finite consistency test yet assigns unit mass to
-events whose infinite intersection is empty.
+The gap between structural coherence and $\sigma$-additivity is a proved
+boundary, not a proof-search failure.  CE is analogous to the axiom of
+infinity: not derivable from the remaining structure, not refutable, but the
+commitment without which probability cannot proceed.  The ultrafilter-based
+content is the canonical witness: it passes every finite consistency test yet
+assigns unit mass to events whose infinite intersection is empty.
 
-Formally: CE is not a constraint the query system imposes on the observer.  It
-is a commitment the observer makes about the completed infinite, a condition on
-how their charges behave with respect to limits that no finite stage can verify.
-
-\smallskip
-Philosophically: CE is the \emph{principle of witnessed vanishing}.  A
-distinction may disappear globally --- an event may shrink to nothing in the
-limit of the observer's refinements --- only if that disappearance is witnessed
-at some finite level.  There is no global collapse without local evidence; no
-vanishing that the system's refinement order cannot eventually confirm.  This is
-not a metaphysical assumption but an exact mathematical condition, and
-Proposition~\ref{prop:ce-irred} shows it cannot be reduced further: no weaker
-structural commitment produces the same effect.
+CE is the \emph{principle of witnessed vanishing}: a distinction may disappear
+globally only if that disappearance is witnessed at some finite level of the
+refinement order.  No global collapse without local evidence.
 \end{remark}
 
 

@@ -97,7 +97,9 @@ $\sigma$-algebra, compatible charges, and the three hypotheses (Surjective Evalu
 Discriminability, CE).  Section~\ref{sec:ce} establishes the CE theorem and its
 irreducibility.  Section~\ref{sec:cara} proves the Carathéodory route.
 Section~\ref{sec:stone} proves the Stone route.  Section~\ref{sec:bridge}
-draws the two routes together and discusses the Stone space.
+draws the two routes together and discusses the Stone space.  The main results
+have been formalized in Lean~4 using Mathlib; source files are available in the
+accompanying repository.
 
 % ------------------------------------------------------------------
 \section{Setup: query systems and charges}
@@ -671,16 +673,6 @@ This route assumes topological structure on the outcome spaces and is
 complementary to the Carathéodory and Stone routes, which require no topology.
 \end{remark}
 
-\begin{remark}[Lean formalization]
-\label{rem:lean-cara}
-Theorem~\ref{thm:obs-extension} is fully formalized in Lean~4
-(\texttt{observational\_extension} in \texttt{QuerySystem.lean}, 0 sorrys).
-The hypotheses correspond exactly to the four conditions: \texttt{LowerDirected},
-\texttt{SequentiallyUpperDirected}, \texttt{EvalSurjective}, and
-\texttt{CompatibleMarginals} with \texttt{IsProbabilityMeasure}.
-The Carathéodory step uses \texttt{AddContent.measure} from
-Mathlib~\cite{Mathlib}.
-\end{remark}
 
 % ------------------------------------------------------------------
 \section{Route 2: The Stone extension}
@@ -919,19 +911,6 @@ hypothesis but a \emph{support condition}: the measure concentrates on the image
 of the sample space inside its Stone compactification.
 \end{remark}
 
-\begin{remark}[Lean formalization]
-\label{rem:lean-stone}
-The Stone route is formalized in Lean~4 in \texttt{StoneDualityExtension.lean}.
-The structural results (Tasks~0$'$-A and~0$'$-C: Stone space, cylinder clopens,
-evaluation maps, bonding maps) are fully proved with no sorry obligations.
-Two intentional sorrys mark Mathlib gaps: the extension of a clopen-algebra
-charge to a regular Borel measure on a compact totally-disconnected space
-(Halmos \S\S53--54; Fremlin Vol.~1 \S311E), and Choksi's projective-limit
-theorem for compatible measures on cofiltered inverse systems of compact Hausdorff
-spaces.  The coincidence of routes (Task~0$'$-E:
-\texttt{stone\_agrees\_with\_caratheodory}) is fully proved, as an immediate
-consequence of \texttt{observational\_determination}.
-\end{remark}
 
 % ------------------------------------------------------------------
 \section{The bridge}

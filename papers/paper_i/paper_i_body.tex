@@ -114,53 +114,68 @@ directed system of Boolean algebras representing observable distinctions at
 increasing levels of resolution; the global $\sigma$-algebra arises as their
 completion.
 
-\begin{definition}[Query system]
-\label{def:query-system}
-A \emph{query system} is a tuple
-\[
-  (\iota, \leq,
-   \{(\mathrm{Out}(i), \mathcal{F}_i)\}_{i \in \iota},
-   \{\pi_{ij}\}_{i \leq j},
-   \Omega,
-   \{\mathrm{eval}_i\}_{i \in \iota})
-\]
-consisting of:
+\begin{definition}[Observational structure]
+\label{def:obs-structure}
+An \emph{observational structure} consists of:
 \begin{itemize}[noitemsep]
   \item a nonempty partially ordered set $(\iota, \leq)$, the \emph{index set};
-  \item for each $i \in \iota$, a measurable space $(\mathrm{Out}(i), \mathcal{F}_i)$,
+  \item for each $i \in \iota$, a measurable space $(\Out{i}, \mathcal{O}_i)$,
     the \emph{outcome space at level~$i$};
   \item for each $i \leq j$ in $\iota$, a measurable surjection
-    $\pi_{ij} : \mathrm{Out}(j) \to \mathrm{Out}(i)$,
-    the \emph{refinement map};
-  \item a set $\Omega$, the \emph{realization}, together with maps
-    $\mathrm{eval}_i : \Omega \to \mathrm{Out}(i)$ for each $i \in \iota$,
-    the \emph{evaluation maps},
+    $\pi_{ij} : \Out{j} \to \Out{i}$,
+    the \emph{refinement map},
 \end{itemize}
-satisfying the \emph{coherence condition}:
-$\pi_{ij} \circ \mathrm{eval}_j = \mathrm{eval}_i$ for all $i \leq j$.
+satisfying $\pi_{ik} = \pi_{ij} \circ \pi_{jk}$ for all $i \leq j \leq k$.
 \end{definition}
 
-The index set, outcome spaces, and refinement maps constitute the \emph{observational
-structure} of the query system; they encode the distinctions the observer can make
-and how finer levels coarsen to coarser ones.  The realization $\Omega$ and
-evaluation maps record how that structure is instantiated: $\Omega$ is the set of
-states consistent with the system, and coherence says evaluation is compatible with
-coarsening.
+\begin{definition}[Instantiation; query system]
+\label{def:query-system}
+An \emph{instantiation} of an observational structure
+$(\iota, \leq, \{(\Out{i}, \mathcal{O}_i)\}, \{\pi_{ij}\})$
+is a set $\Omega$ together with maps
+$\mathrm{eval}_i : \Omega \to \Out{i}$ for each $i \in \iota$,
+the \emph{evaluation maps}, satisfying the \emph{coherence condition}
+$\pi_{ij} \circ \mathrm{eval}_j = \mathrm{eval}_i$ for all $i \leq j$.
+A \emph{query system} is an observational structure together with an instantiation.
+\end{definition}
+
+The index set, outcome spaces, and refinement maps encode the distinctions the
+observer can make and how finer levels coarsen to coarser ones.  Choosing an
+instantiation $\Omega$ is an additional act: $\Omega$ is a set of states that
+realises the abstract structure concretely, and coherence says evaluation is
+compatible with coarsening.
 
 \subsection{Realization and observables}
 
-The observational structure $(\iota, \leq, \{\mathrm{Out}(i)\}, \{\pi_{ij}\})$
-determines a canonical realization: the projective limit
+Every observational structure admits a canonical instantiation, obtained by
+taking the space of all coherent assignments of outcomes across levels.
+This identifies $\Omega$ with the set of all globally consistent observation
+patterns; later, we show that a coherent family of charges determines a
+probability measure on this space.  Explicitly, the canonical instantiation
+is the projective limit
 \[
   \Omega
-  = \varprojlim_{i \in \iota} \mathrm{Out}(i)
+  = \varprojlim_{i \in \iota} \Out{i}
   = \Bigl\{
-      x \in \prod_{i \in \iota} \mathrm{Out}(i)
+      \omega \in \prod_{i \in \iota} \Out{i}
       \;\Big|\;
-      \pi_{ij}(x_j) = x_i \text{ whenever } i \leq j
+      \pi_{ij}(\omega_j) = \omega_i \text{ whenever } i \leq j
     \Bigr\},
 \]
-with $\mathrm{eval}_i(x) = x_i$.
+with $\mathrm{eval}_i(\omega) = \omega_i$ and  $\omega \in \Omega$ generic.
+
+\begin{example}[Bernoulli observations]
+\label{ex:bernoulli}
+Let $\iota$ be the set of finite subsets of $\mathbb{N}$, ordered by inclusion.
+For $i \in \iota$, set $\mathsf{O}_i = \{0,1\}^{|i|}$ with its discrete
+$\sigma$-algebra $\mathcal{O}_i$, and for $i \subseteq j$ let
+$\pi_{ij} : \mathsf{O}_j \to \mathsf{O}_i$ be the coordinate projection.
+An instantiation assigns to each $\omega$ a consistent family of finite
+binary observations; the canonical instantiation identifies $\Omega$ with
+$\{0,1\}^{\mathbb{N}}$.  Cylinder sets correspond to fixing finitely many
+coordinates, and a compatible family $\{\nu_i\}$ is precisely the system of
+finite-dimensional distributions of a Bernoulli process.
+\end{example}
 
 \begin{definition}[Common coarsenings and common refinements]
 The index set $(\iota, \leq)$ admits \emph{common coarsenings} if every pair
@@ -177,28 +192,16 @@ below); sequential common refinements supply the $\sigma$-subadditivity step in 
 Carathéodory route.
 
 \begin{definition}[Cylinder sets]
-For $i \in \iota$ and $A \in \mathcal{F}_i$, the \emph{level-$i$ cylinder with
+\label{def:cylinder}
+For $i \in \iota$ and $A \in \mathcal{O}_i$, the \emph{level-$i$ cylinder with
 base $A$} is
 \[
   \mathrm{Cyl}(i, A)
   \;=\; \{\omega \in \Omega : \mathrm{eval}_i(\omega) \in A\}.
 \]
-The \emph{cylinder generating family} is
-\[
-  \mathcal{C}
-  \;=\; \{\mathrm{Cyl}(i, A) : i \in \iota,\; A \in \mathcal{F}_i\}.
-\]
-For each $i \in \iota$, let $B_i$ denote the Boolean algebra of subsets of
-$\Omega$ generated by $\{\mathrm{Cyl}(i, A) : A \in \mathcal{F}_i\}$.
-Then $\mathcal{C} = \bigcup_{i \in \iota} B_i$.
-
-The \emph{observable $\sigma$-algebra} is $\sigma(\mathcal{C})$, the
-$\sigma$-algebra on $\Omega$ generated by all cylinder sets.
+The \emph{cylinder family} is $\mathcal{C} = \{\mathrm{Cyl}(i, A) : i \in \iota,\; A \in \mathcal{O}_i\}$,
+and the \emph{observable $\sigma$-algebra} is $\sigma(\mathcal{C})$.
 \end{definition}
-
-The coherence condition gives, for $i \leq j$,
-$\mathrm{Cyl}(i, A) = \mathrm{Cyl}(j, \pi_{ij}^{-1}(A))$,
-so the same subset of $\Omega$ can be described as a cylinder at any finer level.
 
 \begin{lemma}[Cylinder $\pi$-system]
 \label{lem:pi-system}
@@ -207,8 +210,10 @@ $\pi$-system: it is closed under finite intersections.
 \end{lemma}
 
 \begin{proof}
+The coherence condition gives $\mathrm{Cyl}(i, A) = \mathrm{Cyl}(j, \pi_{ij}^{-1}(A))$
+for $i \leq j$: the same subset of $\Omega$ is a cylinder at any finer level.
 Given $\mathrm{Cyl}(i, A)$ and $\mathrm{Cyl}(j, B)$, let $k$ be a common
-lower bound, with $k \leq i$ and $k \leq j$.  Then
+lower bound.  Then
 \[
   \mathrm{Cyl}(i, A) \cap \mathrm{Cyl}(j, B)
   = \mathrm{Cyl}(k,\; \pi_{ki}^{-1}(A) \cap \pi_{kj}^{-1}(B)),
@@ -216,6 +221,8 @@ lower bound, with $k \leq i$ and $k \leq j$.  Then
 which is again a cylinder.
 \end{proof}
 
+For each $i \in \iota$, let $B_i$ denote the Boolean algebra of level-$i$ cylinders
+$\{\mathrm{Cyl}(i, A) : A \in \mathcal{O}_i\}$; then $\mathcal{C} = \bigcup_{i \in \iota} B_i$.
 For $i \leq j$, define the \emph{connecting map}
 \[
   \varphi_{ij} : B_i \to B_j,
@@ -246,9 +253,14 @@ The main theorems require three conditions.
 \begin{definition}[Surjective Evaluation]
 \label{def:eval-surjective}
 The query system satisfies \emph{Surjective Evaluation} if
-$\mathrm{eval}_i : \Omega \to \mathrm{Out}(i)$ is surjective for every
+$\mathrm{eval}_i : \Omega \to \Out{i}$ is surjective for every
 $i \in \iota$.
 \end{definition}
+
+\noindent Surjective Evaluation is a structural condition ensuring that every outcome at
+every level is realized by some element of $\Omega$; it implies that the
+refinement maps $\pi_{ij}$ are surjective (by coherence of the evaluation maps)
+and that the connecting maps $\varphi_{ij}$ are injective.
 
 \begin{definition}[Discriminability]
 \label{def:discriminability}
@@ -256,6 +268,8 @@ The query system \emph{discriminates points} if for every $\omega \neq \omega'$
 in $\Omega$ there exists $E \in \mathcal{C}$ with $\omega \in E$ and
 $\omega' \notin E$.
 \end{definition}
+
+\noindent Discriminability ensures that the canonical embeddings remain injective.
 
 \begin{definition}[Collective Exhaustion]
 \label{def:ce}
@@ -265,39 +279,43 @@ $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{C}$ and
 $\bigcap_n E_n = \emptyset$, we have $\mu(E_n) \to 0$.
 \end{definition}
 
-\noindent Surjective Evaluation is a structural condition ensuring that every outcome at
-every level is realized by some element of $\Omega$; it implies that the
-refinement maps $\pi_{ij}$ are surjective (by coherence) and that the connecting
-maps $\varphi_{ij}$ are injective.  Discriminability ensures the Stone embedding
-$\omega \mapsto \{\text{principal ultrafilter at } \omega\}$ is injective.  CE
-is the irreducible valuation-layer condition studied in
+\noindent Exhaustion is the irreducible valuation-layer condition studied in
 \S\ref{sec:ce}; it rules out purely finitely additive charges and is the
-necessary and sufficient condition for $\sigma$-additive extensibility.
+necessary and sufficient condition for $\sigma$-additive extensibility
+(see Example~\ref{ex:finite-cofinite}).
+
+\begin{example}[Finite–cofinite obstruction]
+\label{ex:finite-cofinite}
+Let $\mathbb{N}$ carry the finite–cofinite algebra $\mathcal{E}$ where
+$A \in \mathcal{E}$ if $A$ is finite or $A^c$ is finite.
+Define a normalized charge by $\mu_0(A) = 0$ if $A$ is finite and
+$\mu_0(A) = 1$ if $A$ is cofinite.
+
+Disjoint sets in $\mathcal{E}$ fall into exactly
+two cases: both finite, $\mu_0(A \cup B) = 0 + 0$, or one finite and one
+cofinite, $\mu_0(A \cup B) = 0 + 1$. Two disjoint cofinite sets cannot
+exist, thus finite additivity holds in any case.
+
+Writing $\mathbb{N} = \bigcup_{n \geq 1} \{n\}$, each singleton has $\mu_0(\{n\}) = 0$
+yet $\mu_0(\mathbb{N}) = 1$.
+Equivalently, the sequence $E_n = \{n, n+1, \ldots\}$ satisfies
+$E_n \downarrow \varnothing$, but each $E_n$ is cofinite, so $\mu_0(E_n) = 1$
+for all $n$: vanishing is not witnessed at any finite level, and mass is not exhausted.
+No $\sigma$-additive extension exists.
+\end{example}
+
+
 
 % ------------------------------------------------------------------
-\section{The CE theorem}
+\section{Collective Exhaustion}
 \label{sec:ce}
 % ------------------------------------------------------------------
 
-The argument of \S\S\ref{sec:ce}--\ref{sec:stone} has a single subject: the
-single condition under which a coherent family of observations determines a
-probability measure.  It appears in four forms --- as a local continuity criterion
-(\S\ref{sec:ce}, single algebra), as a global equivalence across the directed
-system (\S\ref{sec:sp1}), as a direct measure-theoretic construction
-(\S\ref{sec:cara}), and as a topological derivation via compactness
-(\S\ref{sec:stone}).  These are not separate results but four projections of a
-single constraint; \S\ref{sec:bridge} identifies the point where all four
-coincide.
-
 This section establishes collective exhaustion as the necessary and sufficient
-condition for $\sigma$-additive extensibility.  The analysis works at the level
-of an abstract directed system of Boolean algebras; it does not require the full
-query-system structure of \S\ref{sec:setup}.  To keep this generality clean, we
-write $\mathcal{E}_i$ for a generic Boolean algebra at level $i$ and $\ell_i$
-for the charge on it.  The connection to query systems is: $\mathcal{E}_i = B_i$
-(the Boolean algebra of cylinder sets at level $i$), $O_i = \mathrm{Out}(i)$,
-and $\ell_i = \mu_i$.  The full query system structure re-enters in
-\S\ref{sec:cara} and \S\ref{sec:stone}.
+condition for $\sigma$-additive extensibility.  We work first at the level of
+an abstract directed system of Boolean algebras, writing $\mathcal{E}_i$ for
+the algebra at level $i$ and $\ell_i$ for its charge; the query-system
+interpretation returns in \S\S\ref{sec:cara}--\ref{sec:stone}.
 
 \subsection{Single-algebra extension}
 
@@ -311,8 +329,8 @@ No $\sigma$-algebra and no topology are assumed on $O$.
 Under Stone's representation theorem~\cite{Stone1936}, $\mathcal{E}$ is
 isomorphic to the clopen algebra of a compact totally-disconnected Hausdorff
 space $S(\mathcal{E})$, and $\sigma(\mathcal{E})$ is the Baire $\sigma$-algebra
-of $S(\mathcal{E})$.  The \emph{gap} $\sigma(\mathcal{E}) \setminus \mathcal{E}$
-consists of the Baire sets that are not clopen: events that countable operations
+of $S(\mathcal{E})$.  The sets in $\sigma(\mathcal{E}) \setminus \mathcal{E}$
+are the Baire sets that are not clopen: events that countable operations
 can reach but that no single observable distinction can name.
 
 \begin{theorem}[Extension criterion]
@@ -332,17 +350,14 @@ argument to pass from finite additivity to $\sigma$-additivity on
 $\sigma(\mathcal{E})$.
 \end{proof}
 
-\begin{remark}[The gap and the regress]
-\label{rem:regress}
-The condition in Theorem~\ref{thm:extension-criterion} is not verifiable from
-within $\mathcal{E}$ alone: confirming $\bigcap_n E_n = \emptyset$ requires
-access to $\sigma(\mathcal{E})$.  In a directed system, one might hope a finer
-level $j \geq i$ can witness the emptiness that level $i$ cannot see --- but
-the obstruction reappears: finite additivity at $j$ does not force continuity
-at $\emptyset$ for sequences in $\sigma(\mathcal{E}_j)$.  Something external
-to any single level is required, and \S\ref{sec:incompleteness} shows the
-directed-system structure alone does not supply it.
-\end{remark}
+\noindent The condition in Theorem~\ref{thm:extension-criterion} is not verifiable
+from within $\mathcal{E}$ alone: confirming $\bigcap_n E_n = \emptyset$ requires
+access to $\sigma(\mathcal{E})$.  In a directed system, one might hope that a
+finer level $j \geq i$ could witness the emptiness that level $i$ cannot see ---
+but the same obstruction reappears: finite additivity at $j$ does not force
+continuity at $\emptyset$ for sequences in $\sigma(\mathcal{E}_j)$.  Something
+beyond any single level is required, and \S\ref{sec:incompleteness} shows the
+directed-system structure alone does not provide it.
 
 \subsection{Nontrivial refinement}
 \label{sec:incompleteness}
@@ -369,7 +384,7 @@ $A \notin \pi^{-1}(\mathcal{E}_i)$, directly giving the strict inclusion.
 The contrapositive is the stated equivalence.
 \end{proof}
 
-\begin{proposition}[Gap nonemptiness]
+\begin{proposition}[Strict enlargement under $\sigma$-closure]
 \label{prop:gap-nonempty}
 Let $\mathcal{E}$ be a Boolean algebra of subsets of a countably infinite set
 $O$ that is not a $\sigma$-algebra.  Then
@@ -379,7 +394,7 @@ $\sigma(\mathcal{E}) \setminus \mathcal{E} \neq \emptyset$.
 \begin{proof}
 If $\mathcal{E}$ is not a $\sigma$-algebra, there exists a countable family
 $\{A_n\} \subset \mathcal{E}$ with $\bigcup_n A_n \notin \mathcal{E}$.  By
-definition $\bigcup_n A_n \in \sigma(\mathcal{E})$, so it lies in the gap.
+definition $\bigcup_n A_n \in \sigma(\mathcal{E})$, so it lies in $\sigma(\mathcal{E}) \setminus \mathcal{E}$.
 \end{proof}
 
 \subsection{CE characterises $\sigma$-additivity}
@@ -457,15 +472,13 @@ $\ell_i(E_n) = \mu_i(E_n) \to \mu_i(\emptyset) = 0$ by $\sigma$-additivity
 of $\mu_i$ and normalization.  Take $j = i$.
 \end{proof}
 
-\begin{remark}[Dissolution of the index-valuation conflation]
-\label{rem:dissolution}
+\noindent
 The question ``do the structural conditions on a directed system force
 $\sigma$-additivity?'' is ill-posed: it conflates conditions on the index
 structure with conditions on the charges.  Proposition~\ref{prop:independence}
 separates them; Theorem~\ref{thm:sp1} identifies the exact valuation-layer
 condition.  Sequential upper-directedness enters only when assembling per-level
 extensions into a global measure (\S\ref{sec:cara}), not at the per-level step.
-\end{remark}
 
 \subsection{CE is irreducible}
 \label{sec:ce-irred}
@@ -517,9 +530,8 @@ CE is exactly the condition that rules out a nonzero purely finitely additive
 part: $\ell_p = 0$.
 \end{proof}
 
-\begin{remark}[CE as irreducible primitive]
-\label{rem:ce-primitive}
-The gap between structural coherence and $\sigma$-additivity is a proved
+\noindent
+The failure of structural coherence to force $\sigma$-additivity is a proved
 boundary, not a proof-search failure.  CE is analogous to the axiom of
 infinity: not derivable from the remaining structure, not refutable, but the
 commitment without which probability cannot proceed.  The ultrafilter-based
@@ -529,7 +541,6 @@ assigns unit mass to events whose infinite intersection is empty.
 CE is the \emph{principle of witnessed vanishing}: a distinction may disappear
 globally only if that disappearance is witnessed at some finite level of the
 refinement order.  No global collapse without local evidence.
-\end{remark}
 
 
 % ------------------------------------------------------------------
@@ -568,11 +579,11 @@ gives $P = P'$.
 \label{thm:finite-content}
 Assume the query system admits common coarsenings and common refinements and
 satisfies Surjective Evaluation, and let $\{\nu_i\}_{i \in \iota}$ be an
-observationally compatible family with each $\nu_i \in \mathcal{P}(\mathrm{Out}(i))$.
+observationally compatible family with each $\nu_i \in \mathcal{P}(\Out{i})$.
 Then the assignment
 \[
   \mu_0(\mathrm{Cyl}(i, A)) := \nu_i(A),
-  \qquad A \in \mathcal{F}_i,
+  \qquad A \in \mathcal{O}_i,
 \]
 defines a well-defined finitely additive content on $\mathcal{C}$.
 \end{lemma}
@@ -580,10 +591,10 @@ defines a well-defined finitely additive content on $\mathcal{C}$.
 \begin{proof}
 \textit{Well-definedness.}
 Suppose $\mathrm{Cyl}(i, A) = \mathrm{Cyl}(j, B)$.  Use common refinements to
-find $k$ with $k \geq i$ and $k \geq j$.  The constraint sets in $\mathrm{Out}(k)$
+find $k$ with $k \geq i$ and $k \geq j$.  The constraint sets in $\Out{k}$
 are $\pi_{ik}^{-1}(A)$ and $\pi_{jk}^{-1}(B)$.  The cylinder equality and
 Surjective Evaluation (surjectivity of $\mathrm{eval}_k$) imply these coincide in
-$\mathrm{Out}(k)$.  Compatibility then gives
+$\Out{k}$.  Compatibility then gives
 $\nu_i(A) = \nu_k(\pi_{ik}^{-1}(A)) = \nu_k(\pi_{jk}^{-1}(B)) = \nu_j(B)$.
 
 \textit{Finite additivity.}
@@ -602,7 +613,7 @@ Suppose:
   \item the query system satisfies Surjective Evaluation;
   \item the family $\{\nu_i\}_{i \in \iota}$ is observationally compatible
         and each $\nu_i$ is a probability measure on
-        $(\mathrm{Out}(i), \mathcal{F}_i)$.
+        $(\Out{i}, \mathcal{O}_i)$.
 \end{enumerate}
 Then there exists a unique probability measure $P$ on
 $(\Omega, \sigma(\mathcal{C}))$ such that
@@ -626,7 +637,7 @@ each cylinder to level $k$:
 \]
 where $E = \pi_{ik}^{-1}(B)$ and $E_n = \pi_{i_n k}^{-1}(A_n)$.
 Surjective Evaluation and the cylinder inclusion in $\Omega$ imply $E \subseteq
-\bigcup_n E_n$ in $\mathrm{Out}(k)$.  Therefore
+\bigcup_n E_n$ in $\Out{k}$.  Therefore
 \[
   \mu_0(\mathrm{Cyl}(i, B))
   = \nu_k(E)
@@ -642,9 +653,9 @@ Carathéodory's extension theorem~\cite{Billingsley, Bogachev} applies and yield
 $P$ on $(\Omega, \sigma(\mathcal{C}))$.
 
 \textit{Step 4: Marginal recovery and normalization.}
-For any $A \in \mathcal{F}_i$,
+For any $A \in \mathcal{O}_i$,
 $P(\mathrm{Cyl}(i, A)) = \mu_0(\mathrm{Cyl}(i, A)) = \nu_i(A)$,
-so $(\mathrm{eval}_i)_\# P = \nu_i$.  Setting $A = \mathrm{Out}(i)$ gives
+so $(\mathrm{eval}_i)_\# P = \nu_i$.  Setting $A = \Out{i}$ gives
 $P(\Omega) = 1$.
 
 \textit{Uniqueness.}
@@ -656,8 +667,8 @@ hence on $\sigma(\mathcal{C})$ by Theorem~\ref{thm:obs-determination}.
 \label{rem:kolmogorov}
 Kolmogorov's theorem~\cite{Kolmogorov} constructs a probability measure on $S^T$ from consistent
 finite-dimensional distributions.  Theorem~\ref{thm:obs-extension} plays the
-same role for query systems: the realization space $\Omega = \varprojlim
-\mathrm{Out}(i)$ replaces the product $S^T$, compatible marginals replace
+same role for query systems: the instantiation $\Omega = \varprojlim
+\Out{i}$ replaces the product $S^T$, compatible marginals replace
 consistent finite-dimensional distributions, and sequential common refinements
 replace the countable-cofinality condition.  The key conceptual difference is
 that no topology is imposed on the outcome spaces: the measure $P$ is built
@@ -665,19 +676,15 @@ directly on the measurable structure of $\Omega$ by Carathéodory, without any
 appeal to tightness or compactness.
 \end{remark}
 
-\begin{remark}[Prokhorov route]
-\label{rem:prokhorov}
-A third route to the extension theorem starts from \emph{finitely} additive
-marginals and derives $\sigma$-additivity from topological compactness.  Under
-\emph{surjective projective uniform tightness} --- a condition requiring that
-for every $\varepsilon > 0$ there exist compact sets $K_i \subset \mathrm{Out}(i)$
-with $\nu_i(\mathrm{Out}(i) \setminus K_i) < \varepsilon$ and
-$\pi_{ij}(K_j) = K_i$ for all $i \leq j$ --- the Prokhorov theorem extends
-finitely additive marginals on a countable sequentially upper-directed query
-system with Hausdorff outcome spaces to a $\sigma$-additive global measure.
-This route assumes topological structure on the outcome spaces and is
-complementary to the Carathéodory and Stone routes, which require no topology.
-\end{remark}
+\noindent
+A third route starts from \emph{finitely} additive marginals and derives
+$\sigma$-additivity from topological compactness.  Under \emph{surjective
+projective uniform tightness} --- for every $\varepsilon > 0$ there exist
+compact sets $K_i \subset \Out{i}$ with $\nu_i(\Out{i} \setminus K_i) <
+\varepsilon$ and $\pi_{ij}(K_j) = K_i$ for all $i \leq j$ --- the Prokhorov
+theorem extends finitely additive marginals to a $\sigma$-additive global
+measure.  This route assumes topological structure on the outcome spaces and is
+complementary to the Carathéodory and Stone routes, which require none.
 
 
 % ------------------------------------------------------------------
@@ -709,7 +716,7 @@ is an injective Boolean algebra homomorphism for every $i \leq j$.
 \begin{proof}
 Surjective Evaluation and the coherence condition give
 $\pi_{ij}(\mathrm{eval}_j(\omega)) = \mathrm{eval}_i(\omega)$ for all $\omega$,
-so $\mathrm{im}(\pi_{ij}) \supseteq \mathrm{im}(\mathrm{eval}_i) = \mathrm{Out}(i)$:
+so $\mathrm{im}(\pi_{ij}) \supseteq \mathrm{im}(\mathrm{eval}_i) = \Out{i}$:
 the refinement maps are surjective.  A surjective map $\pi_{ij}$ has injective
 preimage map $\pi_{ij}^{-1}$ on subsets, so
 $\varphi_{ij}(\mathrm{Cyl}(i, A)) = \mathrm{Cyl}(j, \pi_{ij}^{-1}(A))$ is
@@ -862,7 +869,7 @@ $P$ on $(\Omega, \sigma(\mathcal{C}))$ such that
 \[
   P(\mathrm{Cyl}(i, A))
   \;=\; \mu_i(\mathrm{Cyl}(i, A))
-  \qquad \text{for all } i \in \iota \text{ and } A \in \mathcal{F}_i.
+  \qquad \text{for all } i \in \iota \text{ and } A \in \mathcal{O}_i.
 \]
 \end{theorem}
 
@@ -905,8 +912,7 @@ common coarsenings.  The Stone theorem therefore assumes common coarsenings
 in addition to Surjective Evaluation, Discriminability, and CE.
 \end{proof}
 
-\begin{remark}[CE is not bypassed by compactness]
-\label{rem:ce-not-bypassed}
+\noindent
 It may appear that the compactness of the Stone space eliminates the need for CE.
 Compactness does ensure that $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is
 $\sigma$-additive.  But $\hat{\mu}$ lives on the Stone space, not on $\Omega$.
@@ -915,7 +921,6 @@ escapes to the non-principal ultrafilters, and that is precisely CE
 (Proposition~\ref{prop:B2}).  In the Stone picture, CE is not an additional
 hypothesis but a \emph{support condition}: the measure concentrates on the image
 of the sample space inside its Stone compactification.
-\end{remark}
 
 
 % ------------------------------------------------------------------

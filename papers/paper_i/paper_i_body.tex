@@ -4,25 +4,22 @@
 \begin{abstract}
 We prove that a coherent family of observations determines a unique probability
 measure on the observable $\sigma$-algebra.  The setting is a directed system of
-measurable outcome spaces with surjective refinement maps, together with a
-compatible family of finitely additive charges on the cylinder algebra.  The
-necessary and sufficient condition for $\sigma$-additive extension is
-\emph{collective exhaustion} (CE): no level can assign persistent mass to events
-the system as a whole sees as empty.
+measurable outcome spaces with surjective refinement maps and a compatible family
+of finitely additive charges on the cylinder algebra.  The necessary and
+sufficient condition for $\sigma$-additive extension is \emph{collective
+exhaustion} (CE): no level can assign persistent mass to events the system as a
+whole sees as empty.  CE is not derivable from any structural condition on the
+query system --- a proved boundary, located precisely by the finite-cofinite
+counterexample and a model-theoretic argument via \L{}o\'{s}'s theorem.
 
 Two independent routes establish the result.  The \emph{Carathéodory route}
-assumes $\sigma$-additive marginals and constructs the global measure directly on
-the instantiation space, with no topological assumptions.  The \emph{Stone route}
-assumes only finite additivity and derives $\sigma$-additivity from compactness:
-the directed Boolean system dualises to an inverse system of compact Hausdorff
-spaces whose limit carries a canonical $\sigma$-additive measure; CE ensures this
-measure is supported on the image of the sample space.  Under shared hypotheses,
-the two constructions coincide.
-
-CE is not derivable from any finitary or structural condition on the query
-system: it is a non-derivable admissibility condition on charges.  The
-finite-cofinite counterexample and a model-theoretic argument via
-\L{}o\'{s}'s theorem locate the boundary precisely.
+assumes $\sigma$-additive marginals and constructs the global measure directly
+on the instantiation space, with no topological assumptions; CE is the
+condition the marginals satisfy.
+The \emph{Stone route} assumes only finite additivity: compactness of the Stone
+space manufactures $\sigma$-additivity on the compact completion, and CE is then
+the support condition that descends the measure back to the instantiation space.
+Under shared hypotheses the two constructions coincide.
 
 The Stone space $\mathrm{St}(\mathcal{C})$ is the canonical compact Hausdorff
 completion of the observable structure: the space of all consistent distinction
@@ -495,7 +492,7 @@ extends to a $\sigma$-additive measure.  In the language of Yosida--Hewitt,
 this is exactly the case in which no purely finitely additive remainder
 persists, i.e.\ $\ell_p = 0$.  The obstruction to CE is therefore not a feature of the particular structural
 hypotheses chosen: it is the persistence of a purely finitely additive component
-that no structural condition can eliminate.  Proposition~\ref{prop:ce-irred}
+that no first-order structural condition can eliminate.  Proposition~\ref{prop:ce-irred}
 below makes this precise.
 
 \begin{proposition}[CE non-derivability]
@@ -988,6 +985,14 @@ identifies the purely finitely additive part of $\mu$ with the mass that has
 escaped to non-principal ultrafilters.  CE says both things simultaneously:
 the algebraic convergence is honest, and the geometric measure is confined to
 $\Omega$.
+
+The two routes are therefore not symmetric alternatives.  In the Carathéodory
+route, $\sigma$-additivity is assumed from the outset and CE is the condition
+it amounts to in the present framework.  In the Stone route, compactness
+manufactures $\sigma$-additivity on the compact completion, and CE is then
+the support condition that descends it back to $\Omega$.  In both cases CE
+is doing the same work: ensuring that no mass escapes the realised observational
+world.
 
 \subsection{The Stone space as compact completion}
 

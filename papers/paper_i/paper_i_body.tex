@@ -421,9 +421,11 @@ how the charges behave, not on the Boolean-algebraic index structure.  It says
 that no level can assign persistent mass to events that the system as a whole
 sees as empty.
 
-The following proposition establishes that the index-layer structure of a
-directed system — sequential upper-directedness and charge compatibility — does
-not on its own force $\sigma$-additivity.
+The following proposition is a separation result: it constructs the minimal
+directed system in which the index-layer hypotheses hold, while the
+finite-cofinite charge still fails $\sigma$-additive extension.  The
+construction is a deliberate stress test, not a naturally arising observational
+system.
 
 \begin{proposition}[Index-layer conditions do not force $\sigma$-additivity]
 \label{prop:independence}
@@ -433,15 +435,16 @@ extension at every level.
 \end{proposition}
 
 \begin{proof}
-Let $\iota = \mathbb{N} \cup \{\omega\}$ with $n \leq \omega$ for all
-$n \in \mathbb{N}$, directed by this order.  Take all outcome spaces to be
-$\mathbb{N}$, all event algebras to be the finite-cofinite algebra
-$\mathcal{E}$, all refinement maps to be the identity, and each $\ell_i$ to
-be the normalized finite-cofinite charge $\ell$ of Example~\ref{ex:finite-cofinite}.
-Compatibility holds trivially.  The system is sequentially upper-directed and
-every structural condition is satisfied.  By Example~\ref{ex:finite-cofinite},
-$\ell$ is not $\sigma$-additive and admits no $\sigma$-additive extension;
-hence every level fails $\sigma$-additive extension.
+We take the simplest sequentially upper-directed index set: adjoin a single
+terminal element $\omega$ to $\mathbb{N}$, setting $n \leq \omega$ for all
+$n \in \mathbb{N}$.  Take all outcome spaces to be $\mathbb{N}$, all event
+algebras to be the finite-cofinite algebra $\mathcal{E}$, all refinement maps
+to be the identity, and each $\ell_i$ to be the finite-cofinite charge $\ell$
+of Example~\ref{ex:finite-cofinite}.  Compatibility holds trivially.  The
+system satisfies every structural condition.  By
+Example~\ref{ex:finite-cofinite}, $\ell$ is not $\sigma$-additive and admits
+no $\sigma$-additive extension; hence every level fails $\sigma$-additive
+extension.
 \end{proof}
 
 \begin{theorem}[CE Characterisation Theorem]
@@ -481,6 +484,20 @@ extensions into a global measure (\S\ref{sec:cara}), not at the per-level step.
 \subsection{CE is non-derivable}
 \label{sec:ce-irred}
 
+The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} identifies what kind
+of obstruction Proposition~\ref{prop:independence} has exposed.  Every finitely
+additive probability on a Boolean algebra decomposes uniquely as
+$\ell = \ell_c + \ell_p$, where $\ell_c$ is $\sigma$-additive and $\ell_p$ is
+\emph{purely finitely additive}.  The finite-cofinite content $\ell$ of
+Example~\ref{ex:finite-cofinite} is purely finitely additive, so $\ell_c = 0$
+and $\ell_p = \ell$.  By Theorem~\ref{thm:sp1}, CE holds precisely when $\ell$
+extends to a $\sigma$-additive measure.  In the language of Yosida--Hewitt,
+this is exactly the case in which no purely finitely additive remainder
+persists, i.e.\ $\ell_p = 0$.  The obstruction to CE is therefore not a feature of the particular structural
+hypotheses chosen: it is the persistence of a purely finitely additive component
+that no structural condition can eliminate.  Proposition~\ref{prop:ce-irred}
+below makes this precise.
+
 \begin{proposition}[CE non-derivability]
 \label{prop:ce-irred}
 Collective exhaustion is not implied by any structural condition on a query
@@ -509,34 +526,30 @@ Since the finite-cofinite construction works on any countably infinite set,
 we may realise it on $\mathbb{Q}$.  Fix an enumeration $q : \mathbb{N} \to
 \mathbb{Q}$, let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$
 extending the cofinite filter, and let $\delta_n$ be the point mass at
-$q(n) \in \mathbb{Q}$.  Each $\delta_n$
-is a normalized $\sigma$-additive content satisfying every structural condition
-including CE.  The ultraproduct $\prod_{\mathcal{U}} \delta_n$ assigns to
-$E \subseteq \mathbb{Q}$ the value $\lim_{\mathcal{U}} \mathbf{1}_{q(n) \in E}$,
-which is $1$ on cofinite sets and $0$ on finite sets --- exactly the
-finite-cofinite content $\ell$ of Example~\ref{ex:finite-cofinite} on $\mathbb{Q}$.
+$q(n) \in \mathbb{Q}$.  Each $\delta_n$ is a normalized $\sigma$-additive
+content satisfying every structural condition including CE.  The ultraproduct
+$\prod_{\mathcal{U}} \delta_n$ assigns to $E \subseteq \mathbb{Q}$ the value
+$\lim_{\mathcal{U}} \mathbf{1}_{q(n) \in E}$.
+
+If $E$ is finite then $q(n) \in E$ holds for only finitely many $n$, so the
+ultralimit is $0$.  If $E$ is cofinite then $q(n) \in E$ holds for cofinitely
+many $n$, so the ultralimit is $1$, since $\mathcal{U}$ extends the cofinite
+filter.  The ultraproduct is therefore exactly the finite-cofinite content
+$\ell$ of Example~\ref{ex:finite-cofinite} on $\mathbb{Q}$.
 
 \textit{Step 3.}
-By Step~1, any universally valid first-order $\Phi$ holds for $\ell$.  But
-$\ell$ fails CE.  Therefore no first-order $\Phi$ can imply CE.
-
-The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} explains why this
-obstruction is permanent.  Every finitely-additive probability on a Boolean
-algebra decomposes uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is
-$\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}: it
-satisfies every algebraic condition while assigning zero to every singleton.
-The finite-cofinite content $\ell$ (Example~\ref{ex:finite-cofinite}) is purely finitely additive ($\ell_c = 0$).
-CE is exactly the condition that rules out a nonzero purely finitely additive
-part: $\ell_p = 0$.
+By Step~1, any universally valid first-order condition $\Phi$ holds in the
+ultraproduct whenever it holds in each $\delta_n$.  But by Step~2 the
+ultraproduct is exactly $\ell$, and $\ell$ fails CE.  Therefore no
+first-order structural condition can imply CE.
 \end{proof}
 
 \noindent
-CE is not a structural consequence of the query system.  It is the additional
-admissibility condition under which observational coherence furnishes
-probability --- and it cannot be certified from within the finitary structure
-of the observational hierarchy itself.  The ultrafilter-based content is the
-canonical witness: it passes every finite consistency test yet assigns unit
-mass to events whose infinite intersection is empty.
+The ultrafilter-based content is the canonical witness: it passes every finite
+consistency test yet assigns unit mass to events whose infinite intersection
+is empty.  CE is therefore the additional admissibility condition under which
+observational coherence furnishes probability, not a structural consequence of
+the query system.
 
 
 % ------------------------------------------------------------------

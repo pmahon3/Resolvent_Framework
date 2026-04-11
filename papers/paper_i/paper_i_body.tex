@@ -12,20 +12,21 @@ the system as a whole sees as empty.
 
 Two independent routes establish the result.  The \emph{Carathéodory route}
 assumes $\sigma$-additive marginals and constructs the global measure directly on
-the realization space, with no topological assumptions.  The \emph{Stone route}
+the instantiation space, with no topological assumptions.  The \emph{Stone route}
 assumes only finite additivity and derives $\sigma$-additivity from compactness:
 the directed Boolean system dualises to an inverse system of compact Hausdorff
 spaces whose limit carries a canonical $\sigma$-additive measure; CE ensures this
 measure is supported on the image of the sample space.  Under shared hypotheses,
 the two constructions coincide.
 
-CE is \emph{irreducible}: not derivable from any finitary or structural condition
-on the query system.  The finite-cofinite counterexample and a model-theoretic
-argument via \L{}o\'{s}'s theorem locate the boundary precisely.
+CE is not derivable from any finitary or structural condition on the query
+system: it is a non-derivable admissibility condition on charges.  The
+finite-cofinite counterexample and a model-theoretic argument via
+\L{}o\'{s}'s theorem locate the boundary precisely.
 
-The Stone space is the canonical compact completion of the observable structure.
-Under (re)construction conditions developed in the companion papers, it is
-measure-theoretically isomorphic to the state space itself.
+The Stone space $\mathrm{St}(\mathcal{C})$ is the canonical compact Hausdorff
+completion of the observable structure: the space of all consistent distinction
+patterns extending the cylinder algebra.
 \end{abstract}
 
 \begin{quote}\small
@@ -63,7 +64,7 @@ finitely additive charges, which assign persistent mass to sequences that
 vanish in the limit.
 
 Two independent routes establish the result.  The \emph{Carathéodory route} (\S\ref{sec:cara}) assumes $\sigma$-additive
-marginals and constructs the global measure directly on the realization space.
+marginals and constructs the global measure directly on the instantiation space.
 Sequential common refinements compress any countable cylinder family to a single
 level, reducing the $\sigma$-subadditivity check to a single level.
 By the CE theorem (\S\ref{sec:ce}), $\sigma$-additivity of the marginals is
@@ -81,22 +82,22 @@ ultrafilters, i.e., on the image of $\Omega$ inside its Stone compactification.
 CE is not derivable from any finitary or structural condition on the query
 system.  The finite-cofinite content on $\mathbb{Q}$ satisfies every algebraic
 condition while failing CE; a model-theoretic argument via \L{}o\'{s}'s theorem
-shows this is not a proof-search failure.  CE is an irreducible commitment about
-the completed infinite, analogous to the axiom of infinity in arithmetic.
+confirms this is a proved boundary, not a proof-search failure.  CE is a
+non-derivable admissibility condition on charges: observational coherence
+alone does not suffice for probability.
 
 The Stone space $\mathrm{St}(\mathcal{C})$, constructed as a technical device
 for measure extension, is the canonical compact Hausdorff completion of $\Omega$
 for the observable topology (\S\ref{sec:bridge}).  CE's two faces --- algebraic
 convergence and support on $\Omega$ --- are the same condition seen from inside
-and outside the algebra.  When an observation function is cyclic for the Koopman
-operator, the Stone space is measure-theoretically isomorphic to the state space;
-this connection is developed in the companion papers.
+and outside the algebra.  Its role as a completion of the state space is
+developed in the companion papers.
 
 \paragraph{Organisation.}
 Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable
 $\sigma$-algebra, compatible charges, and the three hypotheses (Surjective Evaluation,
-Discriminability, CE).  Section~\ref{sec:ce} establishes the CE theorem and its
-irreducibility.  Section~\ref{sec:cara} proves the Carathéodory route.
+Discriminability, CE).  Section~\ref{sec:ce} establishes the CE theorem and
+the non-derivability of CE.  Section~\ref{sec:cara} proves the Carathéodory route.
 Section~\ref{sec:stone} proves the Stone route.  Section~\ref{sec:bridge}
 draws the two routes together and discusses the Stone space.  The main results
 have been formalized in Lean~4 using Mathlib; source files are available in the
@@ -145,7 +146,7 @@ instantiation $\Omega$ is an additional act: $\Omega$ is a set of states that
 realises the abstract structure concretely, and coherence says evaluation is
 compatible with coarsening.
 
-\subsection{Realization and observables}
+\subsection{Canonical instantiation and observables}
 
 Every observational structure admits a canonical instantiation, obtained by
 taking the space of all coherent assignments of outcomes across levels.
@@ -279,8 +280,8 @@ $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{C}$ and
 $\bigcap_n E_n = \emptyset$, we have $\mu(E_n) \to 0$.
 \end{definition}
 
-\noindent Exhaustion is the irreducible valuation-layer condition studied in
-\S\ref{sec:ce}; it rules out purely finitely additive charges and is the
+\noindent Exhaustion is the valuation-layer condition studied in
+\S\ref{sec:ce}: it rules out purely finitely additive charges and is the
 necessary and sufficient condition for $\sigma$-additive extensibility
 (see Example~\ref{ex:finite-cofinite}).
 
@@ -333,7 +334,7 @@ of $S(\mathcal{E})$.  The sets in $\sigma(\mathcal{E}) \setminus \mathcal{E}$
 are the Baire sets that are not clopen: events that countable operations
 can reach but that no single observable distinction can name.
 
-\begin{theorem}[Extension criterion]
+\begin{lemma}[Extension criterion]
 \label{thm:extension-criterion}
 A normalized finitely-additive $\ell : \mathcal{E} \to [0,1]$ extends to a
 $\sigma$-additive measure on $\sigma(\mathcal{E})$ if and only if $\ell$ is
@@ -341,7 +342,7 @@ continuous at $\emptyset$: for every decreasing sequence
 $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{E}$ with
 $\bigcap_n E_n = \emptyset$ in $\sigma(\mathcal{E})$, we have
 $\ell(E_n) \to 0$.  The extension is then unique.
-\end{theorem}
+\end{lemma}
 
 \begin{proof}
 Standard; see Halmos~\cite{Halmos1950} or Fremlin~\cite{Fremlin2003}
@@ -350,7 +351,7 @@ argument to pass from finite additivity to $\sigma$-additivity on
 $\sigma(\mathcal{E})$.
 \end{proof}
 
-\noindent The condition in Theorem~\ref{thm:extension-criterion} is not verifiable
+\noindent The condition in Lemma~\ref{thm:extension-criterion} is not verifiable
 from within $\mathcal{E}$ alone: confirming $\bigcap_n E_n = \emptyset$ requires
 access to $\sigma(\mathcal{E})$.  In a directed system, one might hope that a
 finer level $j \geq i$ could witness the emptiness that level $i$ cannot see ---
@@ -384,12 +385,12 @@ $A \notin \pi^{-1}(\mathcal{E}_i)$, directly giving the strict inclusion.
 The contrapositive is the stated equivalence.
 \end{proof}
 
-\begin{proposition}[Strict enlargement under $\sigma$-closure]
+\begin{lemma}[Strict enlargement under $\sigma$-closure]
 \label{prop:gap-nonempty}
 Let $\mathcal{E}$ be a Boolean algebra of subsets of a countably infinite set
 $O$ that is not a $\sigma$-algebra.  Then
 $\sigma(\mathcal{E}) \setminus \mathcal{E} \neq \emptyset$.
-\end{proposition}
+\end{lemma}
 
 \begin{proof}
 If $\mathcal{E}$ is not a $\sigma$-algebra, there exists a countable family
@@ -462,7 +463,7 @@ on a directed system indexed by $\mathcal{I}$.  The following are equivalent:
 Fix $i \in \mathcal{I}$ and a decreasing sequence $E_n \searrow \emptyset$ in
 $\mathcal{E}_i$.  By CE, find $j \geq i$ with $\ell_j(\pi_{ij}^{-1}(E_n)) \to 0$.
 By compatibility, $\ell_i(E_n) = \ell_j(\pi_{ij}^{-1}(E_n)) \to 0$.  So $\ell_i$
-is continuous at $\emptyset$.  Theorem~\ref{thm:extension-criterion} gives the
+is continuous at $\emptyset$.  Lemma~\ref{thm:extension-criterion} gives the
 unique $\sigma$-additive extension.
 
 \emph{(ii) $\Rightarrow$ (i).}
@@ -480,10 +481,10 @@ separates them; Theorem~\ref{thm:sp1} identifies the exact valuation-layer
 condition.  Sequential upper-directedness enters only when assembling per-level
 extensions into a global measure (\S\ref{sec:cara}), not at the per-level step.
 
-\subsection{CE is irreducible}
+\subsection{CE is non-derivable}
 \label{sec:ce-irred}
 
-\begin{proposition}[CE irreducibility]
+\begin{proposition}[CE non-derivability]
 \label{prop:ce-irred}
 Collective exhaustion is not implied by any structural condition on a query
 system.
@@ -531,16 +532,12 @@ part: $\ell_p = 0$.
 \end{proof}
 
 \noindent
-The failure of structural coherence to force $\sigma$-additivity is a proved
-boundary, not a proof-search failure.  CE is analogous to the axiom of
-infinity: not derivable from the remaining structure, not refutable, but the
-commitment without which probability cannot proceed.  The ultrafilter-based
-content is the canonical witness: it passes every finite consistency test yet
-assigns unit mass to events whose infinite intersection is empty.
-
-CE is the \emph{principle of witnessed vanishing}: a distinction may disappear
-globally only if that disappearance is witnessed at some finite level of the
-refinement order.  No global collapse without local evidence.
+CE is not a structural consequence of the query system.  It is the additional
+admissibility condition under which observational coherence furnishes
+probability --- and it cannot be certified from within the finitary structure
+of the observational hierarchy itself.  The ultrafilter-based content is the
+canonical witness: it passes every finite consistency test yet assigns unit
+mass to events whose infinite intersection is empty.
 
 
 % ------------------------------------------------------------------
@@ -674,17 +671,16 @@ replace the countable-cofinality condition.  The key conceptual difference is
 that no topology is imposed on the outcome spaces: the measure $P$ is built
 directly on the measurable structure of $\Omega$ by Carathéodory, without any
 appeal to tightness or compactness.
-\end{remark}
 
-\noindent
-A third route starts from \emph{finitely} additive marginals and derives
-$\sigma$-additivity from topological compactness.  Under \emph{surjective
-projective uniform tightness} --- for every $\varepsilon > 0$ there exist
-compact sets $K_i \subset \Out{i}$ with $\nu_i(\Out{i} \setminus K_i) <
-\varepsilon$ and $\pi_{ij}(K_j) = K_i$ for all $i \leq j$ --- the Prokhorov
-theorem extends finitely additive marginals to a $\sigma$-additive global
-measure.  This route assumes topological structure on the outcome spaces and is
-complementary to the Carathéodory and Stone routes, which require none.
+A third, topological route begins from finitely additive marginals and derives
+$\sigma$-additivity from compactness.  Under \emph{surjective projective
+uniform tightness} --- for every $\varepsilon > 0$ there exist compact sets
+$K_i \subset \Out{i}$ with $\nu_i(\Out{i} \setminus K_i) < \varepsilon$ and
+$\pi_{ij}(K_j) = K_i$ for all $i \leq j$ --- the Prokhorov theorem extends
+finitely additive marginals to a $\sigma$-additive global measure.  This route
+assumes topological structure on the outcome spaces and is complementary to
+the Carathéodory and Stone routes, which require none.
+\end{remark}
 
 
 % ------------------------------------------------------------------
@@ -1005,19 +1001,12 @@ $\Omega$, when extended to $\mathrm{St}(\mathcal{C})$ via $\mathrm{pure}$, to
 remain concentrated on the realised part: no mass escapes to the phantom
 ultrafilters.  An observer satisfying CE retains no phantom mass: probability remains
 confined to the realised world, however far the algebraic completion extends.  The Stone topology, generated by all cylinder clopens,
-is the coarsest topology making every observable distinction continuous; in this
-sense the Boolean framework is a first approximation, and effective separation
-is already graded by the measure --- a refinement developed in the companion
-papers.
+is the coarsest topology making every observable distinction continuous.
 
 For a dynamical system $(X, T, \mu)$ with observation function $h$, the
 time-delay cylinder algebras form a directed system of exactly the kind treated
-here.  The Stone space of the resulting observable algebra is, when $h$ is
-cyclic for the Koopman operator $U_T$, measure-theoretically isomorphic to the
-state space $X$ itself.  The compact space introduced here as a tool opens the
-possibility that the Stone space of the observable algebra \emph{is} the state
-space --- a connection made precise under (re)construction conditions developed
-in the companion papers.
+here.  Whether the Stone space of the resulting observable algebra recovers the
+state space $X$ depends on conditions developed in the companion papers.
 
 \bibliographystyle{plain}
 \bibliography{references}

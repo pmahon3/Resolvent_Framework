@@ -435,16 +435,13 @@ extension at every level.
 \begin{proof}
 Let $\iota = \mathbb{N} \cup \{\omega\}$ with $n \leq \omega$ for all
 $n \in \mathbb{N}$, directed by this order.  Take all outcome spaces to be
-$\mathbb{Q}$, all event algebras to be the finite-cofinite algebra
-$\mathcal{E} = \{E \subseteq \mathbb{Q} : E \text{ is finite or }
-E^c \text{ is finite}\}$, all refinement maps to be the identity, and
-$\ell(E) = 0$ if $E$ is finite, $\ell(E) = 1$ if $E$ is cofinite.
-This is a normalized finitely-additive content and compatibility holds trivially.
-
-Fix an enumeration $q : \mathbb{N} \to \mathbb{Q}$ and let
-$F_n = \{q(0), \ldots, q(n)\}$.  Each $F_n$ is finite so $\ell(F_n) = 0$,
-yet $\bigcup_n F_n = \mathbb{Q}$ and $\ell(\mathbb{Q}) = 1$.
-$\sigma$-subadditivity would give $1 \leq \sum_n \ell(F_n) = 0$: contradiction.
+$\mathbb{N}$, all event algebras to be the finite-cofinite algebra
+$\mathcal{E}$, all refinement maps to be the identity, and each $\ell_i$ to
+be the normalized finite-cofinite charge $\ell$ of Example~\ref{ex:finite-cofinite}.
+Compatibility holds trivially.  The system is sequentially upper-directed and
+every structural condition is satisfied.  By Example~\ref{ex:finite-cofinite},
+$\ell$ is not $\sigma$-additive and admits no $\sigma$-additive extension;
+hence every level fails $\sigma$-additive extension.
 \end{proof}
 
 \begin{theorem}[CE Characterisation Theorem]
@@ -508,14 +505,16 @@ A first-order condition on query systems is preserved under ultraproducts by
 of query systems, it holds in their ultraproduct.
 
 \textit{Step 2.}
-Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$ extending the
-cofinite filter, and let $\delta_n$ be the point mass at $q(n) \in \mathbb{Q}$
-(using the enumeration from Proposition~\ref{prop:independence}).  Each $\delta_n$
+Since the finite-cofinite construction works on any countably infinite set,
+we may realise it on $\mathbb{Q}$.  Fix an enumeration $q : \mathbb{N} \to
+\mathbb{Q}$, let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$
+extending the cofinite filter, and let $\delta_n$ be the point mass at
+$q(n) \in \mathbb{Q}$.  Each $\delta_n$
 is a normalized $\sigma$-additive content satisfying every structural condition
 including CE.  The ultraproduct $\prod_{\mathcal{U}} \delta_n$ assigns to
 $E \subseteq \mathbb{Q}$ the value $\lim_{\mathcal{U}} \mathbf{1}_{q(n) \in E}$,
 which is $1$ on cofinite sets and $0$ on finite sets --- exactly the
-finite-cofinite content $\ell$ from Proposition~\ref{prop:independence}.
+finite-cofinite content $\ell$ of Example~\ref{ex:finite-cofinite} on $\mathbb{Q}$.
 
 \textit{Step 3.}
 By Step~1, any universally valid first-order $\Phi$ holds for $\ell$.  But
@@ -526,7 +525,7 @@ obstruction is permanent.  Every finitely-additive probability on a Boolean
 algebra decomposes uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is
 $\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}: it
 satisfies every algebraic condition while assigning zero to every singleton.
-The finite-cofinite content $\ell$ is purely finitely additive ($\ell_c = 0$).
+The finite-cofinite content $\ell$ (Example~\ref{ex:finite-cofinite}) is purely finitely additive ($\ell_c = 0$).
 CE is exactly the condition that rules out a nonzero purely finitely additive
 part: $\ell_p = 0$.
 \end{proof}

@@ -76,12 +76,10 @@ conditions: Discriminability ensures the Stone embedding is injective, and CE
 appears as a support condition --- the measure concentrates on the principal
 ultrafilters, i.e., on the image of $\Omega$ inside its Stone compactification.
 
-CE is not derivable from any finitary or structural condition on the query
-system.  The finite-cofinite content on $\mathbb{Q}$ satisfies every algebraic
-condition while failing CE; a model-theoretic argument via \L{}o\'{s}'s theorem
-confirms this is a proved boundary, not a proof-search failure.  CE is a
-non-derivable admissibility condition on charges: observational coherence
-alone does not suffice for probability.
+CE is a non-derivable admissibility condition: no first-order structural
+condition on the query system implies it, as shown by the finite-cofinite
+counterexample and a model-theoretic argument via \L{}o\'{s}'s theorem
+(\S\ref{sec:ce}).
 
 The Stone space $\mathrm{St}(\mathcal{C})$, constructed as a technical device
 for measure extension, is the canonical compact Hausdorff completion of $\Omega$
@@ -702,14 +700,14 @@ This is the fourth face: the same measure derived from outside, via compactness.
 The input is weaker: charges need only be finitely additive.  $\sigma$-additivity
 is derived from the compactness of the Stone space.
 
-The proof proceeds in four steps.  Step~A identifies the Stone space of the
-direct limit with the inverse limit of individual Stone spaces.  The inverse
-limit measure step uses Choksi's theorem to produce a $\sigma$-additive measure
-on the inverse limit.  Step~B1 identifies the pullback of the Borel algebra of
-the Stone space with the observable $\sigma$-algebra.  Step~B2 shows that CE
+The proof proceeds in four steps.  \S\ref{sec:stepA} identifies the Stone
+space of the direct limit with the inverse limit of individual Stone spaces,
+then uses Choksi's theorem to produce a $\sigma$-additive measure on the
+inverse limit.  \S\ref{sec:B1} identifies the pullback of the Borel algebra of the Stone
+space with the observable $\sigma$-algebra.  \S\ref{sec:B2} shows that CE
 forces the measure to concentrate on the image of $\Omega$.
 
-\subsection{Step A: Stone space of the direct limit}
+\subsection{Stone duality for the direct limit}
 \label{sec:stepA}
 
 \begin{lemma}[Injectivity of connecting maps]
@@ -728,7 +726,7 @@ $\varphi_{ij}(\mathrm{Cyl}(i, A)) = \mathrm{Cyl}(j, \pi_{ij}^{-1}(A))$ is
 injective on generators, hence on $B_i$.
 \end{proof}
 
-\begin{proposition}[Step A]
+\begin{proposition}[Stone duality for the direct limit]
 \label{prop:stepA}
 The Stone space of the direct limit satisfies
 $\mathrm{St}\!\bigl(\bigcup_i B_i\bigr) \cong \varprojlim_i \mathrm{St}(B_i)$.
@@ -785,7 +783,7 @@ on the inverse limit.  This gives $\hat{\mu}$ on
 $\mathcal{B}(\varprojlim_i \mathrm{St}(B_i))$.
 \end{proof}
 
-\subsection{Step B1: the structural identification}
+\subsection{Structural identification}
 \label{sec:B1}
 
 Let $\mathrm{pure} : \Omega \to \mathrm{St}(\mathcal{C})$ denote the Stone
@@ -794,7 +792,7 @@ $\mathrm{pure}(\omega) = \{E \in \mathcal{C} : \omega \in E\}$.
 For $E \in \mathcal{C}$, write $[E] = \{u \in \mathrm{St}(\mathcal{C}) : E \in u\}$
 for the corresponding basic clopen in $\mathrm{St}(\mathcal{C})$.
 
-\begin{proposition}[Step B1: structural identification]
+\begin{proposition}[Structural identification]
 \label{prop:B1}
 Suppose the query system discriminates points.  Then
 \[
@@ -838,10 +836,10 @@ measure (it is the unique extension of a charge on the clopen algebra), and
 Choksi's theorem applies to Baire measures on compact spaces.
 \end{remark}
 
-\subsection{Step B2: CE and the support condition}
+\subsection{CE as support condition}
 \label{sec:B2}
 
-\begin{proposition}[Step B2: support condition]
+\begin{proposition}[Support condition]
 \label{prop:B2}
 Let $\mu$ be a charge on $\mathcal{C}$ satisfying CE.  Then the corresponding
 Baire measure $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is supported on

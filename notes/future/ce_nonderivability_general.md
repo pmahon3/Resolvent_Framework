@@ -30,9 +30,9 @@ One-sorted first-order language with:
 
 - **Boolean operations:** $\wedge, \vee, \neg, 0, 1$
 - **Rational comparison predicates:** for each $q \in [0,1] \cap \mathbb{Q}$,
-  unary predicate symbols $P_{\leq q}(x)$ and $P_{\geq q}(x)$
+  unary predicate symbols $M_{\leq q}(x)$ and $M_{\geq q}(x)$
 
-**Interpretation:** $P_{\leq q}(a)$ means $\mu(a) \leq q$; $P_{\geq q}(a)$ means
+**Interpretation:** $M_{\leq q}(a)$ means $\mu(a) \leq q$; $M_{\geq q}(a)$ means
 $\mu(a) \geq q$. This avoids a two-sorted language with a numeric sort.
 
 **What is first-order in $\mathcal{L}_{\mathrm{BA},\mu}$:**
@@ -40,9 +40,10 @@ $\mu(a) \geq q$. This avoids a two-sorted language with a numeric sort.
 - Boolean algebra axioms (all standard identities)
 - Normalization: $\mu(0) = 0$, $\mu(1) = 1$
 - Order compatibility: $a \leq b \Rightarrow \mu(a) \leq \mu(b)$
-- Rational consistency: $p < q \Rightarrow (P_{\leq p}(a) \Rightarrow P_{\leq q}(a))$, etc.
+- Rational consistency: $p < q \Rightarrow (M_{\leq p}(a) \Rightarrow M_{\leq q}(a))$, etc.
 - Finite additivity: for each rationals $r, s, t$ with $t = r + s$,
-  $a \wedge b = 0 \wedge \mu(a) = r \wedge \mu(b) = s \Rightarrow \mu(a \vee b) = t$
+  $a \wedge b = 0 \wedge M_{=r}(a) \wedge M_{=s}(b) \Rightarrow M_{=t}(a \vee b)$
+  (where $M_{=q}$ abbreviates $M_{\leq q} \wedge M_{\geq q}$)
 
 The class of Boolean algebras with normalized finitely additive probability is
 **first-order axiomatizable** in $\mathcal{L}_{\mathrm{BA},\mu}$.
@@ -67,34 +68,36 @@ that $(B, \mu) \models T$ if and only if $\mu$ is countably additive.
 
 ## Proof
 
-**Step 1.** Let $E$ be the Boolean algebra of finite-cofinite subsets of $\mathbb{Q}$.
-Fix an enumeration $q : \mathbb{N} \to \mathbb{Q}$ and let $\delta_n$ be the Dirac
-measure at $q(n)$. Each $(E, \delta_n)$ is an $\mathcal{L}_{\mathrm{BA},\mu}$-structure
-in which $\delta_n$ is countably additive.
+Let $E$ be the finite-cofinite Boolean algebra on a countably infinite set, and let
+$\delta_n$ be the Dirac charges at an enumeration $q : \mathbb{N} \to \mathbb{Q}$ of
+that set. Each $\delta_n$ is countably additive. For a nonprincipal ultrafilter
+$\mathcal{U}$ extending the cofinite filter, the ultralimit
+$$\ell(A) = \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{q(n) \in A}$$
+is the finite-cofinite charge: $\ell(A) = 0$ for finite $A$ and $\ell(A) = 1$ for
+cofinite $A$. This charge is finitely additive but not countably additive — the
+sequence $A_k = \mathbb{Q} \setminus \{q(0), \ldots, q(k)\}$ satisfies
+$\bigcap_k A_k = \varnothing$ but $\ell(A_k) = 1$ for all $k$. Since first-order
+properties are preserved under ultraproducts by Łoś's theorem, countable additivity
+cannot be first-order axiomatizable. $\square$
 
-**Step 2.** Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$ extending
-the cofinite filter. For each $A \in E$, define
-$$\ell(A) := \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{q(n) \in A}.$$
-If $A$ is finite, $q(n) \in A$ for only finitely many $n$, so $\ell(A) = 0$.
-If $A$ is cofinite, $q(n) \in A$ for cofinitely many $n$, so $\ell(A) = 1$ since
-$\mathcal{U}$ extends the cofinite filter. Thus $\ell$ is the finite-cofinite charge.
+**Model-theoretic note.** The ultraproduct of the $(E, \delta_n)$ is another
+$\mathcal{L}_{\mathrm{BA},\mu}$-structure; $\ell$ is the charge induced on the
+diagonal copy of $E$ inside it. For an informal note, identifying the ultraproduct
+with $(E, \ell)$ is fine; for full precision, say "the ultraproduct induces the
+finite-cofinite charge on the diagonal copy of $E$."
 
-**Step 3.** The sequence $A_m = \mathbb{Q} \setminus \{q(0), \ldots, q(m)\}$
-satisfies $A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_m A_m = \varnothing$,
-but $\ell(A_m) = 1$ for all $m$. So $\ell$ is not countably additive.
+---
 
-**Step 4.** If countable additivity were first-order axiomatizable, Łoś's theorem
-would imply that the ultraproduct of the $(E, \delta_n)$ — which carries the charge
-$\ell$ on the diagonal copy of $E$ — is again countably additive. This contradicts
-Step 3. Therefore countable additivity is not first-order axiomatizable. $\square$
+## Corollary: CE is not first-order
 
-**Subtlety.** For complete model-theoretic precision: the ultraproduct is another
-$\mathcal{L}_{\mathrm{BA},\mu}$-structure; the charge $\ell$ is induced on the
-diagonal copy of $E$ inside it. Phrasing it as "the ultraproduct induces the
-finite-cofinite charge on the diagonal copy of $E$" avoids any quibble about
-whether the ultraproduct is literally $(E, \ell)$ versus an elementary extension
-carrying the same ultralimit charge. For an informal note, the shorter phrasing
-is fine.
+Replacing "countably additive" by "satisfies CE" (equivalently, extends to a
+$\sigma$-additive measure on the generated $\sigma$-algebra) gives:
+
+> **Corollary.** In the first-order language $\mathcal{L}_{\mathrm{BA},\mu}$, no
+> first-order condition implies the extension property characterised by CE.
+
+The proof is identical: the finite-cofinite charge witnesses CE failure, and it
+arises as an ultraproduct of CE-satisfying (in fact $\sigma$-additive) charges.
 
 ---
 

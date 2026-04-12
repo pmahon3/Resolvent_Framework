@@ -50,6 +50,8 @@ Paper I identifies CE as the exact condition separating finitely additive from $
 
 **(A) and (B) are trivially resolvable:** pushforward of Lebesgue measure on any compact interval $I$ immediately gives a compatible CE-satisfying family, closing no escape hatch. The load-bearing questions are **(C) and (D)**.
 
+The companion note on the non-first-order character of $\sigma$-additive extension sharpens this point: the problem is not merely to find a CE-satisfying family, but to determine whether the additional structure required to pass from finite coherence to probability is supplied intrinsically by observational naturality in this setting. That is the real question.
+
 ---
 
 ## Formalising "canonical"
@@ -82,7 +84,7 @@ The three outcomes are:
 |---------|-------------|
 | **Canonical and unique** | The critical-line curve carries an intrinsic observable probability law |
 | **Admissible but non-unique** | Coherent observational probability exists but is not canonically determined by the curve |
-| **Not intrinsically well-posed** | The Paper I framework detects a genuine boundary; observational structure alone does not force probability |
+| **Not intrinsically well-posed** | The observational structure, even with its finitary coherence data, does not determine the additional structure needed for probabilistic extension; this aligns with the general non-first-order limitation rather than with a peculiarity of the zeta setting |
 
 **Non-canonicity and ill-posedness are distinct.** Non-canonicity means CE-satisfying admissible families exist but more than one survives the naturality criterion — a nonuniqueness theorem, which is already very telling even if the problem is well-posed. Ill-posedness means the question of intrinsic extension is not well-defined without adding extra structure beyond the query system.
 
@@ -117,7 +119,7 @@ If canonical rigid extension exists, Papers I–IV become a coherent pipeline:
 - **Paper IV:** finite witnesses $\hat{\delta}(L,n)$, collision entropy, and pairwise separation become computable
 
 If non-canonicity or ill-posedness:
-- Sharpens Paper I's own claim that the valuation layer (CE) is irreducible and not derivable from structural conditions alone
+- Sharpens Paper I's claim that the valuation layer is not only a non-derivable admissibility condition within the query-system formalism, but an instance of the broader metatheorem that $\sigma$-additive extension is not first-order derivable from finite coherence — the zeta setting would be a concrete witness to that general limitation
 - Exhibits a natural example where "observation first" does not force probability without additional commitment
 - Any derived dynamics or reconstruction would be charge-relative rather than intrinsic to the function
 

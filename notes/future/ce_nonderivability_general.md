@@ -1,6 +1,6 @@
 ---
 name: CE non-derivability — general Boolean algebra version
-description: Future note — metatheorem that countable additivity is not first-order in the language of Boolean algebras with finitely additive probability; proof via ultraproduct of Dirac masses on finite-cofinite algebra; subsumes Paper I Prop 3.9
+description: Future note — metatheorem that countable additivity is not first-order axiomatizable in the language of Boolean algebras with finitely additive probability; complete proof via ultraproduct of Dirac masses on finite-cofinite algebra; subsumes Paper I Prop 3.9
 type: project
 ---
 
@@ -24,101 +24,94 @@ proof stays close to the existing argument.
 
 ---
 
-## The language $\mathcal{L}_\mu$
+## Language $\mathcal{L}_{\mathrm{BA},\mu}$
 
 One-sorted first-order language with:
 
 - **Boolean operations:** $\wedge, \vee, \neg, 0, 1$
-- **Rational comparison predicates:** for each $q \in [0,1] \cap \mathbb{Q}$, relation
-  symbols $R_{\leq q}(a)$ and $R_{\geq q}(a)$, interpreted as $\mu(a) \leq q$ and
-  $\mu(a) \geq q$
+- **Rational comparison predicates:** for each $q \in [0,1] \cap \mathbb{Q}$,
+  unary predicate symbols $P_{\leq q}(x)$ and $P_{\geq q}(x)$
 
-**Why Option B (predicates) over Option A (function symbol into $[0,1]$):**
-Staying one-sorted and using rational comparison predicates avoids a two-sorted
-language with structure on the number sort. It is the cleaner first-order setting.
+**Interpretation:** $P_{\leq q}(a)$ means $\mu(a) \leq q$; $P_{\geq q}(a)$ means
+$\mu(a) \geq q$. This avoids a two-sorted language with a numeric sort.
 
-**What is first-order in $\mathcal{L}_\mu$:**
+**What is first-order in $\mathcal{L}_{\mathrm{BA},\mu}$:**
 
-- Boolean algebra axioms: all standard Boolean identities
-- Normalization: $\mu(0) = 0$, $\mu(1) = 1$ (via predicates)
-- Finite additivity: for disjoint $a, b$, $\mu(a \vee b) = \mu(a) + \mu(b)$
-  (encoded by rational inequalities for all rationals simultaneously)
+- Boolean algebra axioms (all standard identities)
+- Normalization: $\mu(0) = 0$, $\mu(1) = 1$
+- Order compatibility: $a \leq b \Rightarrow \mu(a) \leq \mu(b)$
+- Rational consistency: $p < q \Rightarrow (P_{\leq p}(a) \Rightarrow P_{\leq q}(a))$, etc.
+- Finite additivity: for each rationals $r, s, t$ with $t = r + s$,
+  $a \wedge b = 0 \wedge \mu(a) = r \wedge \mu(b) = s \Rightarrow \mu(a \vee b) = t$
 
-The class of Boolean algebras with finitely additive probability is
-**first-order axiomatizable** in $\mathcal{L}_\mu$. This is the key starting point.
+The class of Boolean algebras with normalized finitely additive probability is
+**first-order axiomatizable** in $\mathcal{L}_{\mathrm{BA},\mu}$.
 
-**What is not first-order:**
-Countable additivity requires quantification over an entire countable sequence
-$(a_n)_{n \in \mathbb{N}}$ — not available in first-order logic, which can only
-quantify over finitely many variables at a time. So countable additivity is not a
-first-order sentence in $\mathcal{L}_\mu$.
+**What is not first-order:** Countable additivity requires quantification over
+a countable sequence $(a_n)_{n \in \mathbb{N}}$ — not available in first-order
+logic. So countable additivity is not a sentence of $\mathcal{L}_{\mathrm{BA},\mu}$.
 
 ---
 
-## The metatheorem
+## The theorem
 
-> **Theorem.** In the first-order language $\mathcal{L}_\mu$ of Boolean algebras
-> with normalized finitely additive probability, countable additivity is not
-> first-order axiomatizable. Equivalently, no first-order sentence $\Phi$ in
-> $\mathcal{L}_\mu$ is satisfied by exactly the countably additive models.
+> **Proposition.** Let $\mathcal{L}_{\mathrm{BA},\mu}$ be the first-order language
+> of Boolean algebras together with rational comparison predicates for a normalized
+> finitely additive probability. Then countable additivity is not first-order
+> axiomatizable in $\mathcal{L}_{\mathrm{BA},\mu}$.
 
-This is a metatheorem: a theorem *about* the expressive limitations of
-$\mathcal{L}_\mu$, not a sentence *in* $\mathcal{L}_\mu$.
+Equivalently: there is no set $T$ of $\mathcal{L}_{\mathrm{BA},\mu}$-sentences such
+that $(B, \mu) \models T$ if and only if $\mu$ is countably additive.
 
 ---
 
-## Proof strategy (clean version, close to Paper I)
+## Proof
 
-**Step 1 — Łoś's theorem as the engine.**
-Any first-order sentence true in each factor of an ultraproduct is true in the
-ultraproduct. So if countable additivity were first-order, an ultraproduct of
-countably additive probability algebras would be countably additive.
-
-**Step 2 — Build a bad ultraproduct from good Dirac masses.**
-Take the Boolean algebra $\mathcal{E}$ of finite-cofinite subsets of $\mathbb{Q}$.
+**Step 1.** Let $E$ be the Boolean algebra of finite-cofinite subsets of $\mathbb{Q}$.
 Fix an enumeration $q : \mathbb{N} \to \mathbb{Q}$ and let $\delta_n$ be the Dirac
-mass at $q(n)$. Each $(\mathcal{E}, \delta_n)$ is a countably additive probability
-algebra satisfying every $\mathcal{L}_\mu$ sentence.
+measure at $q(n)$. Each $(E, \delta_n)$ is an $\mathcal{L}_{\mathrm{BA},\mu}$-structure
+in which $\delta_n$ is countably additive.
 
-Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$ extending the
-cofinite filter. The ultraproduct $\prod_\mathcal{U} (\mathcal{E}, \delta_n)$
-assigns to $E \subseteq \mathbb{Q}$:
-$$\ell(E) = \lim_\mathcal{U} \mathbf{1}_{q(n) \in E}$$
-- If $E$ is finite: $q(n) \in E$ for finitely many $n$, so ultralimit is $0$
-- If $E$ is cofinite: $q(n) \in E$ for cofinitely many $n$, so ultralimit is $1$
-  (since $\mathcal{U}$ extends the cofinite filter)
+**Step 2.** Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$ extending
+the cofinite filter. For each $A \in E$, define
+$$\ell(A) := \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{q(n) \in A}.$$
+If $A$ is finite, $q(n) \in A$ for only finitely many $n$, so $\ell(A) = 0$.
+If $A$ is cofinite, $q(n) \in A$ for cofinitely many $n$, so $\ell(A) = 1$ since
+$\mathcal{U}$ extends the cofinite filter. Thus $\ell$ is the finite-cofinite charge.
 
-The ultraproduct is therefore the finite-cofinite charge $\ell$ — finitely additive,
-not countably additive.
+**Step 3.** The sequence $A_m = \mathbb{Q} \setminus \{q(0), \ldots, q(m)\}$
+satisfies $A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_m A_m = \varnothing$,
+but $\ell(A_m) = 1$ for all $m$. So $\ell$ is not countably additive.
 
-**Step 3 — Conclude.**
-By Step 1, any first-order $\Phi$ satisfied by all $(\mathcal{E}, \delta_n)$ is
-satisfied by their ultraproduct $(\mathcal{E}, \ell)$. But $\ell$ is not countably
-additive. Therefore no first-order sentence can imply countable additivity.
+**Step 4.** If countable additivity were first-order axiomatizable, Łoś's theorem
+would imply that the ultraproduct of the $(E, \delta_n)$ — which carries the charge
+$\ell$ on the diagonal copy of $E$ — is again countably additive. This contradicts
+Step 3. Therefore countable additivity is not first-order axiomatizable. $\square$
 
-**Note:** This argument does not need the $(\mathcal{P}(n), \#/n)$ family or
-nonstandard analysis machinery. The Dirac-mass construction stays entirely within
-the finite-cofinite algebra and is the cleanest route. The tail-set construction
-in $\mathcal{P}(n)$ works but requires more care about whether the intersection of
-tail sets is truly zero in the raw ultraproduct (it is not, without Loeb completion).
-Avoid that route.
+**Subtlety.** For complete model-theoretic precision: the ultraproduct is another
+$\mathcal{L}_{\mathrm{BA},\mu}$-structure; the charge $\ell$ is induced on the
+diagonal copy of $E$ inside it. Phrasing it as "the ultraproduct induces the
+finite-cofinite charge on the diagonal copy of $E$" avoids any quibble about
+whether the ultraproduct is literally $(E, \ell)$ versus an elementary extension
+carrying the same ultralimit charge. For an informal note, the shorter phrasing
+is fine.
 
 ---
 
-## Why this subsumes Paper I Prop 3.9
+## Relation to Paper I Prop 3.9
 
-Paper I Prop 3.9 is the query-system-specific version: the finite-cofinite charge
-arises as an ultraproduct of Dirac masses within the query-system framework, and no
-first-order structural condition in the query-system language can block this.
+Paper I Prop 3.9 is the query-system-specific version: the same Dirac-mass
+ultraproduct argument runs inside the query-system language and shows no first-order
+structural condition in that language can imply CE.
 
-The general metatheorem subsumes it: the obstruction is not a feature of
-query-system language specifically, but of any finitary first-order description of
-Boolean probability algebras. CE is non-derivable not merely from the structural
-axioms of query systems, but from first-order algebraic description as such.
+This proposition subsumes it: the obstruction is not a feature of query-system
+language specifically, but of any finitary first-order description of Boolean
+probability algebras. CE is non-derivable not merely from the structural axioms of
+query systems, but from first-order algebraic description as such.
 
-**In the paper:** keep Prop 3.9 as stated — it is the framework-intrinsic version
-and belongs there. The general version belongs in a companion note or appendix, with
-at most one sentence in §3.4 noting the result is not specific to query systems.
+**In the paper:** keep Prop 3.9 as stated — it is the framework-intrinsic version.
+This broader statement belongs in a companion note or appendix, with at most one
+sentence in §3.4 noting the result is not specific to query systems.
 
 ---
 
@@ -127,18 +120,15 @@ at most one sentence in §3.4 noting the result is not specific to query systems
 **Classification question:** Which purely finitely additive charges arise as
 ultraproducts or ultralimits of $\sigma$-additive probabilities?
 
-This is a much stronger representation statement. The non-derivability metatheorem
-needs only *one* witness (the Dirac-mass construction provides it). The
-classification is a separate project — possibly true in some form, possibly
-requiring nets rather than literal ultraproducts.
+The present proof needs only one witness (the Dirac-mass construction provides it).
+The classification is a separate project.
 
 ---
 
 ## Key references
 
-- Keisler, *The Ultraproduct Construction* — standard reference for Łoś's theorem
+- Łoś's theorem: ultraproduct transfer theorem for first-order sentences;
+  Keisler, *The Ultraproduct Construction*
 - Yosida–Hewitt: finitely additive probability = $\sigma$-additive part + purely
   finitely additive part; CE $\Leftrightarrow \ell_p = 0$
-- arXiv:2503.08910 — recent survey on finitely additive measures on Boolean algebras;
-  closest contemporary treatment in this language
-- Ultrafilter measures as canonical examples of purely finitely additive probabilities
+- arXiv:2503.08910 — recent survey on finitely additive measures on Boolean algebras

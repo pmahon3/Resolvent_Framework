@@ -112,9 +112,25 @@ language specifically, but of any finitary first-order description of Boolean
 probability algebras. CE is non-derivable not merely from the structural axioms of
 query systems, but from first-order algebraic description as such.
 
-**In the paper:** keep Prop 3.9 as stated — it is the framework-intrinsic version.
-This broader statement belongs in a companion note or appendix, with at most one
-sentence in §3.4 noting the result is not specific to query systems.
+**Paper-vocabulary formulation (closest to Prop 3.9):**
+
+> **Proposition (General algebraic non-derivability).** Let
+> $\mathcal{L}_{\mathrm{BA},\mu}$ be the first-order language of Boolean algebras
+> equipped with a normalized finitely additive charge. Then no first-order
+> $\mathcal{L}_{\mathrm{BA},\mu}$-theory characterizes those models whose charge
+> extends to a $\sigma$-additive measure on the generated $\sigma$-algebra.
+
+**Philosophical bridge sentence (for paper or talks):**
+
+> The failure of CE to be structurally derivable is not an artifact of the
+> observational formalism. It reflects a more basic limitation: finitary first-order
+> structure can encode coherence, but not the countable-exhaustion behavior required
+> for probability.
+
+**In the paper:** Prop 3.9 stands as the framework-intrinsic version. A single
+sentence after Prop 3.9 points to the broader metatheorem (already added in
+`paper_i_body.tex`). The full general statement belongs in a companion note or
+appendix.
 
 ---
 

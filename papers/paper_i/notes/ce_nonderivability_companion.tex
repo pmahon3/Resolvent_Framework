@@ -89,7 +89,7 @@ available in first-order logic — and so is not a sentence of $\Lmu$.
 \label{sec:theorem}
 % ------------------------------------------------------------------
 
-\begin{proposition}[Countable additivity is not first-order]
+\begin{proposition}[$\sigma$-additive extension is not first-order]
 \label{prop:not-fo}
 There is no first-order $\Lmu$-theory $T \supseteq \Tfa$ such that, for every
 $(B, \mu) \models \Tfa$,
@@ -103,7 +103,7 @@ finitely additive probability Boolean algebras.
 
 \begin{proof}
 Let $E$ be the Boolean algebra of finite-cofinite subsets of $\Q$, fix an
-enumeration $q : \N \to \Q$, and let $\delta_n$ be the Dirac measure at
+enumeration $q : \N \to \Q$, and let $\delta_n$ be the Dirac charge at
 $q(n)$.  Each $(E, \delta_n)$ is a model of $\Tfa$ in which $\delta_n$ is
 $\sigma$-additive.  Suppose for contradiction that a theory $T$ as described
 exists; then each $(E, \delta_n) \models T$.
@@ -129,7 +129,7 @@ theory $T$ characterizing $\sigma$-additive extension, contradicting
 \end{proof}
 
 \begin{remark}
-For complete model-theoretic precision: the ultraproduct $\prod_\mathcal{U}(E,\delta_n)$
+For precision: the ultraproduct $\prod_\mathcal{U}(E,\delta_n)$
 is an $\Lmu$-structure in its own right; $\ell$ is the charge induced on the
 diagonal copy of $E$ inside it.  Identifying the ultraproduct with $(E,\ell)$
 is harmless for the contradiction, since the relevant failure of $\sigma$-additivity

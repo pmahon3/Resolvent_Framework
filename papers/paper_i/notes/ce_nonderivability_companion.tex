@@ -5,6 +5,7 @@
 \usepackage{amsmath,amssymb,amsthm,mathtools}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage[numbers]{natbib}
 
 % ---------- Theorem environments ----------
 \newtheorem{theorem}{Theorem}[section]
@@ -108,7 +109,7 @@ $\sigma$-additive.  Suppose for contradiction that a theory $T$ as described
 exists; then each $(E, \delta_n) \models T$.
 
 Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\N$ extending the cofinite
-filter.  By \L{}o\'{s}'s theorem, the ultraproduct $\prod_\mathcal{U}(E,\delta_n)$
+filter.  By \L{}o\'{s}'s theorem \cite{Los1955}, the ultraproduct $\prod_\mathcal{U}(E,\delta_n)$
 also models $T$.  The charge induced on the diagonal copy of $E$ is
 \[
   \ell(A) = \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{q(n) \in A}.
@@ -140,9 +141,9 @@ is witnessed on the diagonal copy.
 \label{sec:ce}
 % ------------------------------------------------------------------
 
-In the companion paper, collective exhaustion (CE) is the exact condition under
-which a compatible finitely additive family extends to a $\sigma$-additive measure
-on the observable $\sigma$-algebra.  Proposition~\ref{prop:not-fo} therefore
+In the companion paper \cite{mahon2025}, collective exhaustion (CE) is the exact
+condition under which a compatible finitely additive family extends to a
+$\sigma$-additive measure on the observable $\sigma$-algebra.  Proposition~\ref{prop:not-fo} therefore
 implies:
 
 \begin{corollary}[CE is not first-order in the general language]
@@ -181,9 +182,13 @@ of $\sigma$-additive probabilities?}
 
 This is a representation question, and it is strictly harder than non-axiomatizability.
 It may hold only after enlarging the notion of approximation, for example by
-allowing nets or ultralimits more general than literal ultraproducts.  The Yosida--Hewitt decomposition identifies the purely
+allowing nets or ultralimits more general than literal ultraproducts.  The
+Yosida--Hewitt decomposition \cite{YosidaHewitt1952} identifies the purely
 finitely additive part $\ell_p$ of any finitely additive charge; whether $\ell_p$
 can always be represented as an ultralimit is not settled here and is left as an
 open question.
+
+\bibliographystyle{plain}
+\bibliography{../references}
 
 \end{document}

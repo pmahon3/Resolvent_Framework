@@ -686,14 +686,6 @@ that no topology is imposed on the outcome spaces: the measure $P$ is built
 directly on the measurable structure of $\Omega$ by Carathéodory, without any
 appeal to tightness or compactness.
 
-A third, topological route begins from finitely additive marginals and derives
-$\sigma$-additivity from compactness.  Under \emph{surjective projective
-uniform tightness} --- for every $\varepsilon > 0$ there exist compact sets
-$K_i \subset \Out{i}$ with $\nu_i(\Out{i} \setminus K_i) < \varepsilon$ and
-$\pi_{ij}(K_j) = K_i$ for all $i \leq j$ --- the Prokhorov theorem extends
-finitely additive marginals to a $\sigma$-additive global measure.  This route
-assumes topological structure on the outcome spaces and is complementary to
-the Carathéodory and Stone routes, which require none.
 \end{remark}
 
 
@@ -702,10 +694,11 @@ the Carathéodory and Stone routes, which require none.
 \label{sec:stone}
 % ------------------------------------------------------------------
 
-This section gives the second, independent proof of the extension theorem.
-This is the fourth face: the same measure derived from outside, via compactness.
-The input is weaker: charges need only be finitely additive.  $\sigma$-additivity
-is derived from the compactness of the Stone space.
+The Carathéodory route may suggest that $\sigma$-additivity must be assumed
+from the outset.  The second route shows it can instead be derived.  Starting
+only from finitely additive charges, compactness of the Stone space produces a
+$\sigma$-additive measure on the compact completion; CE then reappears as the
+support condition that returns this measure to the realised instantiation space.
 
 The proof proceeds in four steps.  \S\ref{sec:stepA} identifies the Stone
 space of the direct limit with the inverse limit of individual Stone spaces,

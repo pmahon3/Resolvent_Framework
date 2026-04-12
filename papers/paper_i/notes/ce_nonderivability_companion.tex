@@ -120,10 +120,11 @@ finite-cofinite charge.
 
 The sequence $A_k = \Q \setminus \{q(0), \ldots, q(k)\}$ satisfies
 $A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_k A_k = \varnothing$, yet
-$\ell(A_k) = 1$ for all $k$.  So $\ell$ is not $\sigma$-additive and does not
-extend to a $\sigma$-additive measure on $\sigma(E)$.  Therefore the
-ultraproduct does not satisfy $T$.  This contradicts \L{}o\'{s}'s theorem
-applied to the assumption that each $(E, \delta_n) \models T$.
+$\ell(A_k) = 1$ for all $k$.  Hence the charge induced on the diagonal copy
+of $E$ fails $\sigma$-additivity and does not extend to a $\sigma$-additive
+measure on $\sigma(E)$.  Consequently the ultraproduct cannot satisfy any
+theory $T$ characterizing $\sigma$-additive extension, contradicting
+\L{}o\'{s}'s theorem applied to the assumption that each $(E, \delta_n) \models T$.
 \end{proof}
 
 \begin{remark}
@@ -147,8 +148,9 @@ implies:
 \begin{corollary}[CE is not first-order in the general language]
 \label{cor:ce-not-fo}
 In the first-order language $\Lmu$ of Boolean algebras with normalized finitely
-additive charge, no first-order condition implies the extension property
-characterized in the companion paper by collective exhaustion.
+additive charge, no first-order $\Lmu$-condition characterizes, or in general
+forces, the extension property characterized in the companion paper by collective
+exhaustion.
 \end{corollary}
 
 \noindent
@@ -161,7 +163,7 @@ first-order axiomatizable.
 
 The failure of CE to be structurally derivable therefore reflects a genuine
 expressive limitation of finitary first-order description: such descriptions can
-encode coherence, but not the countable-exhaustion behavior required for probability.
+encode finite coherence, but not the countable-exhaustion behavior required for probability.
 
 % ------------------------------------------------------------------
 \section{The representation question}
@@ -178,8 +180,8 @@ of $\sigma$-additive probabilities?}
 \end{quote}
 
 This is a representation question, and it is strictly harder than non-axiomatizability.
-It may be true in some form, or may require allowing approximating nets rather than
-literal ultraproducts.  The Yosida--Hewitt decomposition identifies the purely
+It may hold only after enlarging the notion of approximation, for example by
+allowing nets or ultralimits more general than literal ultraproducts.  The Yosida--Hewitt decomposition identifies the purely
 finitely additive part $\ell_p$ of any finitely additive charge; whether $\ell_p$
 can always be represented as an ultralimit is not settled here and is left as an
 open question.

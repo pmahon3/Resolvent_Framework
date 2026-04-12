@@ -53,6 +53,17 @@ infrastructure), `ProkhorovExtension.lean` (Prokhorov route main theorem),
 
 ### Paper II — Dynamics from Probability
 
+**Philosophical positioning (de Finetti connection):** Paper II is where the
+finite-additivity-first approach earns its full justification. Paper I shows that
+finitely additive observational data, together with CE, is sufficient for
+probabilistic extension. Paper II shows it is also sufficient for dynamics — the
+observable measure carries a canonical predictive kernel without further assumption.
+This is the right place to make the de Finetti comparison explicit: finite additivity
+is enough for coherence, but CE is the additional admissibility condition required
+for completion. By Paper II, the programme has earned the stronger claim that the
+approach is not just coherent but generative. **Slogan for Paper II intro:** *Finite
+additivity is enough for coherence, not for completion.*
+
 **What it shows:** Given a probability measure on the observable σ-algebra, the
 dynamics of the system — the temporal evolution of predictive states — is uniquely
 determined.
@@ -187,7 +198,7 @@ The Dynamics Theorem, The Conjunction Theorem, Discussion.
 2. d̂_L(x,x') — delay-map separation
 3. Ĥ₂(ν_L^(n)) — collision entropy (new; computationally simpler: no optimisation over sets)
 
-**Companion note:** `papers/notes/bridge_note.tex` — standalone 4-page note proving
+**Companion note:** `papers/paper_iv/notes/bridge_note.tex` — standalone 4-page note proving
 the conditional variance identity and the entropy characterisation (δ(L)→0 ⟺ H₂→∞)
 in full detail. Cited as `mahon_bridge` in Paper IV.
 

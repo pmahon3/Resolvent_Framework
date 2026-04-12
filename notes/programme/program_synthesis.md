@@ -66,7 +66,7 @@ Boolean  ←→  Measure  ←→  Function space  ←→  Geometry  ←→  Info
 | $L^2$ → Geometry | III/IV | Delay map: $\sigma(\Phi_h^{(L)}) = \mathcal{O}_h^{(L)}$ |
 | Geometry → Information | IV | Conditional variance identity: $\delta(L) = \frac{1}{2}\int_{R_L}|\mathbf{1}_S - \mathbf{1}_{S'}|^2\,d(\mu\otimes\mu)$ |
 
-The last bridge is proved in the companion note (`papers/notes/bridge_note.tex`)
+The last bridge is proved in the companion note (`papers/paper_iv/notes/bridge_note.tex`)
 and integrated into Paper IV as Lemma 3.1 + Corollary 5.12.
 
 This is a closed chain. The Stone space introduced in Paper I as a technical

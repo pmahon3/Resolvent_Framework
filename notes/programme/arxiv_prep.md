@@ -135,7 +135,7 @@ conditional variance, Takens theorem, measure-preserving system
 
 ### Outstanding tasks
 - [x] Paper IV LaTeX complete — 17 pages, all references resolved (2026-04-06)
-- [x] Bridge note (`papers/notes/bridge_note.tex`) complete and cited as `mahon_bridge`
+- [x] Bridge note (`papers/paper_iv/notes/bridge_note.tex`) complete and cited as `mahon_bridge`
 - [x] Add MSC 2020 classifications and keywords to `paper_iv.tex` (2026-04-06)
 - [x] Add abstract to `paper_iv_body.tex` (2026-04-06)
 - [ ] Final compile check with resolved arXiv IDs for Papers I–III

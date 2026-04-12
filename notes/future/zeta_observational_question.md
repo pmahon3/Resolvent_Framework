@@ -1,12 +1,12 @@
 ---
 name: Zeta observational question
-description: Future speculative direction — probing the Riemann zeta critical-line curve via the Papers I–IV observational framework; key question is canonicity/rigidity of CE-satisfying compatible families under observational naturality
+description: Future direction — probing the Riemann zeta critical-line curve via the Papers I–IV observational framework; real question is whether observational naturality supplies the extra structure that finite coherence cannot; first milestone is defining one explicit naturality class and verifying the two sanity conditions
 type: project
 ---
 
 # The Zeta Curve as an Observational Structure
 
-**Status:** Speculative. Not part of any current programme. File for later.
+**Status:** Post-arXiv direction. Framing is settled; first concrete milestone is defined. Not part of the current four-paper arc.
 
 ---
 
@@ -125,23 +125,62 @@ If non-canonicity or ill-posedness:
 
 ---
 
-## Candidate naturality classes (to be tested)
+## Candidate naturality classes (ordered by tractability)
 
-Each candidate must be checked against both sanity conditions before the main question becomes meaningful.
+Each candidate must be checked against both sanity conditions before the main question becomes meaningful. Test in this order — tractability first, glamour last.
 
-**Candidate 1 — Window translation on the half-line.**
-$g_a : t \mapsto t + a$ for $a > 0$, with $\Omega = [T_0, \infty)$. Nonvacuous if the curve's observational statistics are approximately shift-invariant over large windows. Likely fails nontriviality in the zero-sensitive refinement system because zero-spacing is not translation-invariant (zeros become denser with height by the Weyl law).
+**An important fork before starting:** several candidates are plausible statistically but not exactly. Window translation, for instance, may hold approximately over large windows but is not an exact automorphism of the query system on any finite interval. Do not mix exact and asymptotic notions. Decide first:
 
-**Candidate 2 — Functional equation reflection.**
-The functional equation $\zeta(s) = \chi(s)\zeta(1-s)$ induces a reflection symmetry on the critical line. Whether this lifts to a query-system automorphism depends on how the outcome spaces $\mathsf{O}_i$ are defined — it would need to map near-zero queries to near-zero queries coherently. Worth investigating.
+- **Exact automorphisms:** maps of the query system that preserve all outcome spaces and refinement maps on the nose.
+- **Asymptotic naturality:** a separate notion requiring separate definition.
 
-**Candidate 3 — Coarsening-compatible rescaling.**
-Rescaling the partition cells of $\mathsf{O}_i$ by a fixed factor, compatible with the refinement maps. This is purely observational — it doesn't come from a symmetry of $t$ at all. May be the most tractable candidate, but it is also the most artificial.
+For the first pass, pursue exact automorphisms only.
 
-**Candidate 4 — Zero-spacing automorphisms.**
-Automorphisms that permute zeros while preserving inter-zero spacing statistics. Sensitive to the actual zero distribution, which makes this the most number-theoretically interesting candidate and the hardest to make rigorous.
+---
 
-**Verdict so far:** No candidate has been verified against both sanity conditions. This is the first concrete mathematical task when revisiting this direction.
+**Candidate 1 — Coarsening-compatible rescaling** *(test first)*
+Rescaling the partition cells of $\mathsf{O}_i$ by a fixed factor, compatible with the refinement maps. Purely observational — does not come from a symmetry of $t$. Most tractable because it lives entirely within the query-system structure. May be the most artificial, but it is the right place to test whether the sanity conditions can be met at all.
+
+**Candidate 2 — Functional equation reflection** *(test second)*
+The functional equation $\zeta(s) = \chi(s)\zeta(1-s)$ induces a reflection symmetry on the critical line. Whether this lifts to a query-system automorphism depends on how the outcome spaces $\mathsf{O}_i$ are defined — it must map near-zero queries to near-zero queries coherently. More number-theoretically meaningful than rescaling, and still potentially exact.
+
+**Candidate 3 — Window translation on the half-line** *(test third, with caution)*
+$g_a : t \mapsto t + a$ for $a > 0$, with $\Omega = [T_0, \infty)$. Likely fails as an exact automorphism in the zero-sensitive subsystem: zero-spacing is not translation-invariant (zeros become denser with height by the Weyl law). If pursued, must be reframed as asymptotic naturality — a separate project.
+
+**Candidate 4 — Zero-spacing automorphisms** *(defer)*
+Automorphisms that permute zeros while preserving inter-zero spacing statistics. Most number-theoretically interesting; hardest to make rigorous. Do not attempt until sanity conditions are verified for at least one of the above.
+
+**Verdict so far:** No candidate has been verified against both sanity conditions. This is the first concrete mathematical task.
+
+---
+
+## Work plan
+
+The goal of the first phase is not to prove canonicity. It is to determine whether the investigative direction is well-posed in a nonvacuous way. The plan below converts "interesting framing" into a question that can actually fail or succeed.
+
+**Frozen decisions for the first pass:**
+- **Sample-space regime:** compact window $\Omega = [T_0, T_1]$. This keeps the measure-theoretic side tame and isolates the naturality question. Pushforward of Lebesgue makes (A) and (B) trivial, which is fine — that is not what we are testing.
+- **Query subsystem:** location queries union near-zero indicators $\{|\zeta(\frac{1}{2}+it)| < \varepsilon\}$. Directly tied to zero-sensitive structure; most likely to make $\mathcal{G}$ either genuinely interesting or obviously trivial.
+- **Naturality notion:** exact automorphisms only. Do not introduce asymptotic or statistical variants in the first pass.
+
+**Observational equivalence** (must be fixed before rigidity is meaningful): two CE-satisfying compatible families are observationally equivalent if they agree on all cylinder sets of the frozen query subsystem. This is the coarsest natural notion and should be the default unless there is a specific reason to use the generated $\sigma$-algebra version.
+
+**Ordered tasks:**
+
+1. Define one explicit $\mathcal{G}$ (start with coarsening-compatible rescaling).
+2. Verify or refute the two sanity conditions for that $\mathcal{G}$.
+3. If both sanity conditions hold: construct two obviously different CE-satisfying families and test whether $\mathcal{G}$-naturality distinguishes them.
+4. If sanity conditions fail: diagnose why, move to the next candidate.
+5. Repeat for functional-equation reflection.
+
+**Clean failure modes** (any of these terminates the first phase with a useful result):
+- $\mathcal{G}$ collapses to the identity for every tractable candidate.
+- $\mathcal{G}$-naturality imposes no restriction on any CE-satisfying family.
+- The only $\mathcal{G}$ satisfying the sanity conditions is clearly artificial (depends sensitively on presentation choices in the query system).
+
+Any of these outcomes is informative: it would support the "boundary of the programme" interpretation and constitute a genuine result, not a failure.
+
+**Milestone 1:** For the compact-window, zero-sensitive query subsystem, produce one explicit candidate naturality class $\mathcal{G}$ and prove or disprove the two sanity conditions.
 
 ---
 

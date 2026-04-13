@@ -88,7 +88,11 @@ $\Omega$ inside its Stone compactification.
 CE is a non-derivable admissibility condition: no first-order structural
 condition on the query system implies it, as shown by the finite-cofinite
 counterexample and a model-theoretic argument via \L{}o\'{s}'s theorem
-(\S\ref{sec:ce}).
+(\S\ref{sec:ce}).  This obstruction is not an artifact of the query-system
+formalism: in the more primitive first-order language of Boolean algebras with
+finitely additive charge, countable additivity is likewise not first-order
+axiomatizable --- the need for an extra admissibility condition is logically
+unavoidable.
 
 The Stone space $\mathrm{St}(\mathcal{C})$, constructed as a technical device
 for measure extension, is the canonical compact Hausdorff completion of $\Omega$
@@ -716,11 +720,34 @@ The ultrafilter-based content is the canonical witness: it passes every finite
 consistency test yet assigns unit mass to events whose infinite intersection
 is empty.  CE is therefore the additional admissibility condition under which
 observational coherence furnishes probability, not a structural consequence of
-the query system.  The same ultraproduct argument yields a broader metatheorem:
-the obstruction is not specific to query systems, but already appears in the
-first-order language of Boolean algebras equipped with a normalized finitely
-additive charge, where countable additivity is likewise not first-order
-axiomatizable.
+the query system.
+
+\begin{remark}[Metatheoretic scope]
+\label{rem:metatheorem}
+The obstruction is not an artifact of the query-system language.  In the more
+primitive setting of Boolean algebras equipped with a normalized finitely additive
+charge, the same conclusion holds: no first-order theory in that language
+characterizes those algebras whose charge extends to a $\sigma$-additive measure.
+Equivalently, countable additivity is not first-order axiomatizable among finitely
+additive probability Boolean algebras \cite{MahonCE2026}.
+
+The proof is the same ultraproduct construction, now stated in full generality.
+Each Dirac charge $\delta_n$ on the finite-cofinite algebra of $\mathbb{Q}$ is
+$\sigma$-additive and satisfies every first-order condition.  Their ultraproduct
+(along a nonprincipal ultrafilter extending the cofinite filter) yields the
+finite-cofinite charge $\ell$, which is purely finitely additive and fails
+$\sigma$-additivity.  By \L{}o\'{s}'s theorem, any first-order theory satisfied
+by all $\delta_n$ is satisfied by the ultraproduct --- but the ultraproduct
+fails $\sigma$-additivity.  Contradiction.
+
+The philosophical upshot is not that one foundational position wins.  It is that
+finite coherence underdetermines probability in a logically precise sense: no
+finitary first-order description of observational structure can close the gap.
+The need for CE --- or for some equivalent extra principle --- is unavoidable.
+Foundational disputes about probability are not terminological; they are disputes
+about which extra structure licenses the passage from finite coherence to
+probability, and the present result shows that some such structure is required.
+\end{remark}
 
 
 % ------------------------------------------------------------------
@@ -1031,6 +1058,16 @@ assumption.  In the Stone route, compactness manufactures $\sigma$-additivity on
 the compact completion, and CE is the support condition that descends it back to
 $\Omega$.  In both cases CE does the same work: ensuring that no mass escapes
 the realised observational world.
+
+The metatheoretic scope of this result matters for how the paper's conclusion
+should be read.  The need for CE is not explained by any feature of the
+query-system formalism, nor by any particular choice of index structure.  As
+Remark~\ref{rem:metatheorem} records, it reflects a genuine expressive limitation
+of finitary first-order description: finite coherence can be encoded, but the
+countable-exhaustion behaviour required for probability cannot be derived from it.
+The two routes show two ways of bridging this unavoidable gap: the Carathéodory
+route bridges it by assumption, the Stone route bridges it through compactness
+and the support condition.  What CE names, in both cases, is the same gap.
 
 \subsection{The Stone space as compact completion}
 

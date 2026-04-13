@@ -44,24 +44,24 @@ directed system, projective limit.
 
 The programme of which this paper is a part does not begin with a probability
 space but with \emph{distinctions}: the acts of observational separation by
-which an observer organises their experience of a system.  State space,
+which an observer organises experience of a system.  State space,
 $\sigma$-algebra, and measure are not primitives --- they are what coherent
 distinctions, pursued to their conclusion, are forced to produce.  This paper
 proves the first step: a coherent family of observations determines a unique
-probability measure.  The further steps --- that this
-measure carries canonical dynamics, that the delay structure of observation
-(re)constructs the state space, and that finite data can certify
-(re)construction --- are carried out in the companion papers.
+probability measure.  The further steps --- that this measure carries canonical
+dynamics, that the delay structure of observation (re)constructs the state
+space, and that finite data can certify (re)construction --- are carried out
+in the companion papers.
 
 What makes the first step possible is a single condition.
-\emph{Collective exhaustion} (CE):  A
-compatible family of finitely additive charges extends to a $\sigma$-additive
-measure if and only if, whenever a decreasing sequence of events vanishes
-globally, there exists a level at which the mass of the sequence converges to zero.  CE rules out purely
-finitely additive charges, which assign persistent mass to sequences that
-vanish in the limit.  It is the exact admissibility condition separating
-observational coherence from genuine probability: a coherent family of charges
-deserves to be treated as a probability system precisely when it satisfies CE.
+\emph{Collective exhaustion} (CE): a compatible family of finitely additive
+charges extends to a $\sigma$-additive measure if and only if, whenever a
+decreasing sequence of events vanishes globally, there exists a level at which
+the sequence's mass converges to zero.  CE rules out purely finitely additive
+charges, which assign persistent mass to sequences that vanish in the limit.
+It is the exact admissibility condition separating observational coherence from
+genuine probability: a coherent family of charges deserves to be treated as a
+probability system precisely when it satisfies CE.
 
 The result is established by two routes that are not symmetric in their starting
 assumptions.
@@ -75,15 +75,15 @@ appear as a step in this proof; rather, Theorem~\ref{thm:sp1} identifies CE as
 the condition under which finitely additive level data can be promoted to the
 $\sigma$-additive marginals this route assumes.
 
-The \emph{Stone route} (\S\ref{sec:stone}) is the deeper admissibility route: it
-assumes only finitely additive compatible charges and derives $\sigma$-additivity
-from compactness.  Stone duality converts the directed Boolean system into an
-inverse system of compact Hausdorff spaces; a compatible family of charges
-assembles into a $\sigma$-additive measure on the inverse limit.  Descending from
-the Stone space to $\Omega$ requires two conditions: discriminability ensures the
-Stone embedding is injective, and CE appears as a support condition --- the
-measure concentrates on the principal ultrafilters, i.e., on the image of
-$\Omega$ inside its Stone compactification.
+The \emph{Stone route} (\S\ref{sec:stone}) assumes only finitely additive
+compatible charges and derives $\sigma$-additivity from compactness.  Stone
+duality converts the directed Boolean system into an inverse system of compact
+Hausdorff spaces; a compatible family of charges assembles into a
+$\sigma$-additive measure on the inverse limit.  Descending from the Stone
+space to $\Omega$ requires two conditions: discriminability ensures the Stone
+embedding is injective, and CE appears as a support condition --- the measure
+concentrates on the principal ultrafilters, i.e., on the image of $\Omega$
+inside its Stone compactification.
 
 CE is a non-derivable admissibility condition: no first-order structural
 condition on the query system implies it, as shown by the finite-cofinite
@@ -97,9 +97,9 @@ unavoidable.
 The Stone space $\mathrm{St}(\mathcal{C})$, constructed as a technical device
 for measure extension, is the canonical compact Hausdorff completion of $\Omega$
 for the observable topology (\S\ref{sec:bridge}).  CE's two faces --- algebraic
-convergence and support on $\Omega$ --- are the same condition seen from inside
-and outside the algebra.  Its role as a completion of the state space is
-developed in the companion papers.
+convergence and geometric support on $\Omega$ --- are the same condition seen
+from inside and outside the algebra.  Its role as a completion of the state
+space is developed in the companion papers.
 
 \paragraph{Organisation.}
 Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable
@@ -121,10 +121,9 @@ accompanying repository.
 
 \subsection{Observational structure}
 
-Rather than beginning with a single $\sigma$-algebra of events, we work with a
-directed system of Boolean algebras representing observable distinctions at
-increasing levels of resolution; the global $\sigma$-algebra arises as their
-completion.
+Rather than a single $\sigma$-algebra of events, we work with a directed system
+of Boolean algebras representing observable distinctions at increasing resolution;
+the global $\sigma$-algebra arises as their completion.
 
 \begin{definition}[Observational structure]
 \label{def:obs-structure}
@@ -152,19 +151,16 @@ A \emph{query system} is an observational structure together with an instantiati
 \end{definition}
 
 The index set, outcome spaces, and refinement maps encode the distinctions the
-observer can make and how finer levels coarsen to coarser ones.  Choosing an
-instantiation $\Omega$ is an additional act: $\Omega$ is a set of states that
-realises the abstract structure concretely, and coherence says evaluation is
-compatible with coarsening.
+observer can make and how finer levels coarsen.  Choosing $\Omega$ is an
+additional act: it is a set of states realising the abstract structure
+concretely, and coherence says evaluation is compatible with coarsening.
 
 \subsection{Canonical instantiation and observables}
 
-Every observational structure admits a canonical instantiation, obtained by
-taking the space of all coherent assignments of outcomes across levels.
-This identifies $\Omega$ with the set of all globally consistent observation
-patterns; later, we show that a coherent family of charges determines a
-probability measure on this space.  Explicitly, the canonical instantiation
-is the projective limit
+Every observational structure admits a canonical instantiation: the space of
+all coherent assignments of outcomes across levels.  This identifies $\Omega$
+with the set of all globally consistent observation patterns.  Explicitly, the
+canonical instantiation is the projective limit
 \[
   \Omega
   = \varprojlim_{i \in \iota} \Out{i}
@@ -199,9 +195,9 @@ has an upper bound in $\iota$.
 \end{definition}
 
 \noindent Sequential common refinements imply common refinements.  Common
-coarsenings ensure that cylinder sets form a $\pi$-system (Lemma~\ref{lem:pi-system}
-below); sequential common refinements supply the $\sigma$-subadditivity step in the
-Carathéodory route.
+coarsenings ensure cylinder sets form a $\pi$-system
+(Lemma~\ref{lem:pi-system}); sequential common refinements supply the
+$\sigma$-subadditivity step in the Carathéodory route.
 
 \begin{definition}[Cylinder sets]
 \label{def:cylinder}
@@ -269,10 +265,9 @@ $\mathrm{eval}_i : \Omega \to \Out{i}$ is surjective for every
 $i \in \iota$.
 \end{definition}
 
-\noindent Surjective evaluation (Definition~\ref{def:eval-surjective}) is a structural condition ensuring that every outcome at
-every level is realized by some element of $\Omega$; it implies that the
-refinement maps $\pi_{ij}$ are surjective (by coherence of the evaluation maps)
-and that the connecting maps $\varphi_{ij}$ are injective.
+\noindent Surjective evaluation ensures every outcome at every level is
+realised by some $\omega \in \Omega$; it implies the refinement maps
+$\pi_{ij}$ are surjective and the connecting maps $\varphi_{ij}$ injective.
 
 \begin{definition}[Discriminability]
 \label{def:discriminability}
@@ -291,10 +286,9 @@ $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{C}$ and
 $\bigcap_n E_n = \emptyset$, we have $\mu(E_n) \to 0$.
 \end{definition}
 
-\noindent Exhaustion is the valuation-layer condition studied in
-\S\ref{sec:ce}: it rules out purely finitely additive charges and is the
-necessary and sufficient condition for $\sigma$-additive extensibility
-(see Example~\ref{ex:finite-cofinite}).
+\noindent CE is the valuation-layer condition studied in \S\ref{sec:ce}: it
+rules out purely finitely additive charges and is necessary and sufficient for
+$\sigma$-additive extensibility (see Example~\ref{ex:finite-cofinite}).
 
 \begin{example}[Finite–cofinite obstruction]
 \label{ex:finite-cofinite}
@@ -303,17 +297,12 @@ $A \in \mathcal{E}$ if $A$ is finite or $A^c$ is finite.
 Define a normalized charge by $\mu_0(A) = 0$ if $A$ is finite and
 $\mu_0(A) = 1$ if $A$ is cofinite.
 
-Disjoint sets in $\mathcal{E}$ fall into exactly
-two cases: both finite, $\mu_0(A \cup B) = 0 + 0$, or one finite and one
-cofinite, $\mu_0(A \cup B) = 0 + 1$. Two disjoint cofinite sets cannot
-exist, thus finite additivity holds in any case.
+Disjoint sets in $\mathcal{E}$ are either both finite or one finite and one
+cofinite (two disjoint cofinite sets cannot exist), so finite additivity holds.
 
-Writing $\mathbb{N} = \bigcup_{n \geq 1} \{n\}$, each singleton has $\mu_0(\{n\}) = 0$
-yet $\mu_0(\mathbb{N}) = 1$.
-Equivalently, the sequence $E_n = \{n, n+1, \ldots\}$ satisfies
-$E_n \downarrow \varnothing$, but each $E_n$ is cofinite, so $\mu_0(E_n) = 1$
-for all $n$: vanishing is not witnessed at any finite level, and mass is not exhausted.
-No $\sigma$-additive extension exists.
+The sequence $E_n = \{n, n+1, \ldots\}$ satisfies $E_n \downarrow \varnothing$,
+yet each $E_n$ is cofinite, so $\mu_0(E_n) = 1$ for all $n$: mass is not
+exhausted.  No $\sigma$-additive extension exists.
 \end{example}
 
 
@@ -324,14 +313,11 @@ No $\sigma$-additive extension exists.
 % ------------------------------------------------------------------
 
 Given compatible $\sigma$-additive probability marginals, Carathéodory's theorem
-yields a global measure directly on the instantiation space.  This is the direct
-extension theorem: it answers the question of how local probability laws assemble
-into a global one, given that their probabilistic status is already in hand.
-CE does not appear as a step in the proof; Section~\ref{sec:ce} will identify it
-as the admissibility condition under which finitely additive level data can be
-promoted to exactly this kind of input.
+yields a global measure directly on the instantiation space.  CE does not appear
+as a proof step; Section~\ref{sec:ce} identifies it as the admissibility
+condition under which finitely additive level data can be promoted to this input.
 
-The input is a query system satisfying surjective evaluation (Definition~\ref{def:eval-surjective}), sequential common
+The input is a query system satisfying surjective evaluation, sequential common
 refinements, and common coarsenings, together with a compatible family of
 $\sigma$-additive probability marginals.
 
@@ -498,12 +484,12 @@ $\ell : \mathcal{E} \to [0,1]$ is a normalized finitely-additive valuation.
 No $\sigma$-algebra and no topology are assumed on $O$.
 \end{definition}
 
-Under Stone's representation theorem~\cite{Stone1936}, $\mathcal{E}$ is
-isomorphic to the clopen algebra of a compact totally-disconnected Hausdorff
-space $S(\mathcal{E})$, and $\sigma(\mathcal{E})$ is the Baire $\sigma$-algebra
-of $S(\mathcal{E})$.  The sets in $\sigma(\mathcal{E}) \setminus \mathcal{E}$
-are the Baire sets that are not clopen: events that countable operations
-can reach but that no single observable distinction can name.
+By Stone's representation theorem~\cite{Stone1936}, $\mathcal{E}$ is isomorphic
+to the clopen algebra of a compact totally-disconnected Hausdorff space
+$S(\mathcal{E})$, and $\sigma(\mathcal{E})$ is the Baire $\sigma$-algebra of
+$S(\mathcal{E})$.  The sets in $\sigma(\mathcal{E}) \setminus \mathcal{E}$ are
+Baire events that countable operations can reach but no single observable
+distinction can name.
 
 \begin{lemma}[Extension criterion]
 \label{thm:extension-criterion}
@@ -523,13 +509,13 @@ $\sigma(\mathcal{E})$.
 \end{proof}
 
 \noindent The condition in Lemma~\ref{thm:extension-criterion} is not verifiable
-from within $\mathcal{E}$ alone: confirming $\bigcap_n E_n = \emptyset$ requires
-access to $\sigma(\mathcal{E})$.  In a directed system, one might hope that a
-finer level $j \geq i$ could witness the emptiness that level $i$ cannot see ---
-but the same obstruction reappears: finite additivity at $j$ does not force
-continuity at $\emptyset$ for sequences in $\sigma(\mathcal{E}_j)$.  Something
-beyond any single level is required, and \S\ref{sec:incompleteness} shows the
-directed-system structure alone does not provide it.
+within $\mathcal{E}$ alone: confirming $\bigcap_n E_n = \emptyset$ requires
+access to $\sigma(\mathcal{E})$.  In a directed system, one might hope a finer
+level $j \geq i$ could witness the emptiness level $i$ cannot see --- but the
+same obstruction reappears: finite additivity at $j$ does not force continuity
+at $\emptyset$ for sequences in $\sigma(\mathcal{E}_j)$.
+Section~\ref{sec:incompleteness} shows the directed-system structure alone does
+not provide it.
 
 \subsection{Nontrivial refinement}
 \label{sec:incompleteness}
@@ -584,19 +570,15 @@ such that $\ell_j(\pi_{ij}^{-1}(E_n)) \to 0$.
 \end{definition}
 
 \noindent Here $\pi_{ij} : O_j \to O_i$ is the refinement map ($j$ finer than
-$i$), so $\pi_{ij}^{-1}(E_n) \subseteq O_j$ is the preimage of $E_n \subseteq O_i$
-at the finer level.
+$i$), so $\pi_{ij}^{-1}(E_n) \subseteq O_j$ is the preimage of $E_n$ at the
+finer level.  CE is a \emph{valuation-layer} condition: it constrains how
+charges behave, not the Boolean-algebraic index structure --- no level may
+assign persistent mass to events the system as a whole sees as empty.
 
-\noindent CE is a \emph{valuation-layer} condition: it places a requirement on
-how the charges behave, not on the Boolean-algebraic index structure.  It says
-that no level can assign persistent mass to events that the system as a whole
-sees as empty.
-
-The following proposition is a separation result: it constructs the minimal
-directed system in which the index-layer hypotheses hold, while the
-finite-cofinite charge still fails $\sigma$-additive extension.  The
-construction is a deliberate stress test, not a naturally arising observational
-system.
+The following proposition constructs the minimal directed system in which the
+index-layer hypotheses hold while the finite-cofinite charge still fails
+$\sigma$-additive extension.  The construction is a deliberate stress test,
+not a naturally arising observational system.
 
 \begin{proposition}[Index-layer conditions do not force $\sigma$-additivity]
 \label{prop:independence}
@@ -644,30 +626,25 @@ $\ell_i(E_n) = \mu_i(E_n) \to \mu_i(\emptyset) = 0$ by $\sigma$-additivity
 of $\mu_i$ and normalization.  Take $j = i$.
 \end{proof}
 
-\noindent
-The question ``do the structural conditions on a directed system force
+\noindent The question ``do the structural conditions on a directed system force
 $\sigma$-additivity?'' is ill-posed: it conflates conditions on the index
 structure with conditions on the charges.  Proposition~\ref{prop:independence}
 separates them; Theorem~\ref{thm:sp1} identifies the exact valuation-layer
 condition.  Sequential upper-directedness enters only when assembling per-level
-extensions into a global measure (\S\ref{sec:cara}), not at the per-level step.
+extensions into a global measure (\S\ref{sec:cara}).
 
 \subsection{CE is non-derivable}
 \label{sec:ce-irred}
 
-The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} identifies what kind
-of obstruction Proposition~\ref{prop:independence} has exposed.  Every finitely
-additive probability on a Boolean algebra decomposes uniquely as
-$\ell = \ell_c + \ell_p$, where $\ell_c$ is $\sigma$-additive and $\ell_p$ is
-\emph{purely finitely additive}.  The finite-cofinite content $\ell$ of
-Example~\ref{ex:finite-cofinite} is purely finitely additive, so $\ell_c = 0$
-and $\ell_p = \ell$.  By Theorem~\ref{thm:sp1}, CE holds precisely when $\ell$
-extends to a $\sigma$-additive measure.  In the language of Yosida--Hewitt,
-this is exactly the case in which no purely finitely additive remainder
-persists, i.e.\ $\ell_p = 0$.  The obstruction to CE is therefore not a feature of the particular structural
-hypotheses chosen: it is the persistence of a purely finitely additive component
-that no first-order structural condition can eliminate.  Proposition~\ref{prop:ce-irred}
-below makes this precise.
+The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} identifies the
+obstruction Proposition~\ref{prop:independence} has exposed.  Every finitely
+additive probability decomposes uniquely as $\ell = \ell_c + \ell_p$, where
+$\ell_c$ is $\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}.
+The finite-cofinite content has $\ell_p = \ell$.  By Theorem~\ref{thm:sp1}, CE
+holds precisely when $\ell_p = 0$.  The obstruction is therefore not a feature
+of any particular structural hypothesis: it is the persistence of a purely
+finitely additive component that no first-order structural condition can
+eliminate.  Proposition~\ref{prop:ce-irred} makes this precise.
 
 \begin{proposition}[CE non-derivability]
 \label{prop:ce-irred}
@@ -715,10 +692,9 @@ ultraproduct is exactly $\ell$, and $\ell$ fails CE.  Therefore no
 first-order structural condition can imply CE.
 \end{proof}
 
-\noindent
-The ultrafilter-based content is the canonical witness: it passes every finite
-consistency test yet assigns unit mass to events whose infinite intersection
-is empty.  CE is therefore the additional admissibility condition under which
+\noindent The ultrafilter-based content is the canonical witness: it passes every
+finite consistency test yet assigns unit mass to events whose infinite
+intersection is empty.  CE is the admissibility condition under which
 observational coherence furnishes probability, not a structural consequence of
 the query system.
 
@@ -760,15 +736,14 @@ licenses the passage from finite coherence to probability.
 The Carathéodory route may suggest that $\sigma$-additivity must be assumed
 from the outset.  The second route shows it can instead be derived.  Starting
 only from finitely additive charges, compactness of the Stone space produces a
-$\sigma$-additive measure on the compact completion; CE then reappears as the
+$\sigma$-additive measure on the compact completion; CE reappears as the
 support condition that returns this measure to the realised instantiation space.
 
-The proof proceeds in four steps.  \S\ref{sec:stepA} identifies the Stone
-space of the direct limit with the inverse limit of individual Stone spaces,
-then uses Choksi's theorem to produce a $\sigma$-additive measure on the
-inverse limit.  \S\ref{sec:B1} identifies the pullback of the Borel algebra of the Stone
-space with the observable $\sigma$-algebra.  \S\ref{sec:B2} shows that CE
-forces the measure to concentrate on the image of $\Omega$.
+The proof proceeds in four steps.  \S\ref{sec:stepA} identifies the Stone space
+of the direct limit with the inverse limit of individual Stone spaces and applies
+Choksi's theorem.  \S\ref{sec:B1} identifies the pullback of the Baire algebra
+of the Stone space with the observable $\sigma$-algebra.  \S\ref{sec:B2} shows
+CE forces the measure to concentrate on the image of $\Omega$.
 
 \subsection{Stone duality for the direct limit}
 \label{sec:stepA}
@@ -978,15 +953,13 @@ common coarsenings.  The Stone theorem therefore assumes common coarsenings
 in addition to surjective evaluation, discriminability, and CE.
 \end{proof}
 
-\noindent
-It may appear that the compactness of the Stone space eliminates the need for CE.
-Compactness does ensure that $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is
-$\sigma$-additive.  But $\hat{\mu}$ lives on the Stone space, not on $\Omega$.
-The descent from $\mathrm{St}(\mathcal{C})$ to $\Omega$ requires that no mass
-escapes to the non-principal ultrafilters, and that is precisely CE
-(Proposition~\ref{prop:B2}).  In the Stone picture, CE is not an additional
-hypothesis but a \emph{support condition}: the measure concentrates on the image
-of the sample space inside its Stone compactification.
+\noindent It may appear that compactness of the Stone space eliminates the need
+for CE.  Compactness ensures $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is
+$\sigma$-additive, but $\hat{\mu}$ lives on the Stone space, not on $\Omega$.
+Descent to $\Omega$ requires that no mass escapes to non-principal ultrafilters,
+and that is precisely CE (Proposition~\ref{prop:B2}).  In the Stone picture, CE
+is not an additional hypothesis but a \emph{support condition}: the measure
+concentrates on the image of $\Omega$ inside its Stone compactification.
 
 
 % ------------------------------------------------------------------
@@ -1016,13 +989,12 @@ Both measures agree on every cylinder set: $P^{\mathrm{C}}(\mathrm{Cyl}(i, A))
 
 \noindent The two routes answer different questions on the way to the same
 measure.  The Carathéodory route answers the extension question: given
-compatible probability marginals, it builds the global observable law directly.
-The Stone route answers the admissibility question: starting only from finitely
-additive charges, it identifies CE as the condition that licenses $\sigma$-additive
-extension, then realizes it via compactness.  That both produce the same measure
-under their shared hypotheses is not obvious from the constructions; it is a
-consequence of uniqueness (Proposition~\ref{thm:obs-determination}), which is
-doing real work here.
+compatible probability marginals, build the global observable law directly.
+The Stone route answers the admissibility question: starting from finitely
+additive charges, identify CE as the condition licensing $\sigma$-additive
+extension, then realise it via compactness.  That both produce the same measure
+is not obvious from the constructions; it is a consequence of uniqueness
+(Proposition~\ref{thm:obs-determination}).
 
 \subsection{CE's two faces}
 
@@ -1030,12 +1002,11 @@ CE appears in the two routes in structurally different forms, yet it is the same
 condition.
 
 In the Carathéodory route, CE does not appear as a proof step: the route begins
-from already $\sigma$-additive marginals and extends them directly.  But
-Theorem~\ref{thm:sp1} identifies CE as the algebraic condition that explains
-when finitely additive level charges deserve to be treated as probability
-measures in the first place --- that is, when they do not assign persistent mass
-to events the observer's refinement hierarchy sees as empty.  CE is thus the
-admissibility criterion whose satisfaction licenses the Carathéodory route's
+from already $\sigma$-additive marginals.  Theorem~\ref{thm:sp1} identifies CE
+as the algebraic condition explaining when finitely additive level charges
+deserve to be treated as probability measures --- when they do not assign
+persistent mass to events the refinement hierarchy sees as empty.  CE is thus
+the admissibility criterion whose satisfaction licenses the Carathéodory route's
 input.
 
 In the Stone route, CE appears as a \emph{topological} condition: the
@@ -1047,19 +1018,18 @@ purely finitely additive part $\mu_p$, and CE $\Leftrightarrow \mu_p = 0$
 observer's measure does not escape to the ``phantom'' points of the Stone
 compactification.
 
-The Yosida--Hewitt decomposition is the bridge between the two faces: it
-identifies the purely finitely additive part of $\mu$ with the mass that has
-escaped to non-principal ultrafilters.  CE says both things simultaneously:
-the algebraic convergence is honest, and the geometric measure is confined to
-$\Omega$.
+The Yosida--Hewitt decomposition bridges the two faces: it identifies the
+purely finitely additive part of $\mu$ with the mass escaped to non-principal
+ultrafilters.  CE says both things at once: algebraic convergence is honest,
+and the geometric measure is confined to $\Omega$.
 
 The two routes are therefore not symmetric alternatives.  In the Carathéodory
 route, $\sigma$-additivity is assumed from the outset; CE is the admissibility
-criterion that explains, laterally, when finitely additive data warrants that
-assumption.  In the Stone route, compactness manufactures $\sigma$-additivity on
-the compact completion, and CE is the support condition that descends it back to
-$\Omega$.  In both cases CE does the same work: ensuring that no mass escapes
-the realised observational world.
+criterion that explains when finitely additive data warrants that assumption.
+In the Stone route, compactness manufactures $\sigma$-additivity on the compact
+completion, and CE is the support condition that descends it to $\Omega$.  In
+both cases CE does the same work: no mass escapes the realised observational
+world.
 
 The metatheoretic scope of this result matters for how the paper's conclusion
 should be read.  The need for CE is not explained by any feature of the
@@ -1073,29 +1043,28 @@ Stone route bridges it through compactness and the support condition.  What CE n
 
 \subsection{The Stone space as compact completion}
 
-The Stone space $\mathrm{St}(\mathcal{C})$ constructed in \S\ref{sec:stone} as
-a technical device for measure extension is the canonical compact Hausdorff
-completion of the sample space for the observable topology.  The Stone embedding
+The Stone space $\mathrm{St}(\mathcal{C})$, constructed as a technical device
+for measure extension, is the canonical compact Hausdorff completion of $\Omega$
+for the observable topology.  The embedding
 $\mathrm{pure} : \Omega \to \mathrm{St}(\mathcal{C})$ is dense --- every
 nonempty basic clopen $[E]$ meets $\mathrm{pure}(\Omega)$ --- and the Stone
-space is uniquely determined by $\mathcal{C}$ up to homeomorphism.  It is not
-imposed on $\Omega$ from outside but the compactification already contained in
-the Boolean algebra of cylinder sets.
+space is uniquely determined by $\mathcal{C}$ up to homeomorphism: the
+compactification already contained in the Boolean algebra of cylinder sets.
 
 Every point in $\mathrm{St}(\mathcal{C})$ is an ultrafilter: a maximal
 consistent assignment of yes/no answers to every observable distinction.
 Principal ultrafilters correspond to actual sample-space points; non-principal
-ultrafilters are the ideal limit points --- consistent distinction patterns the
-refinement system is coherent with, but that no element of $\Omega$ realises.
-The Stone space is therefore the \emph{space of all consistent distinction
-patterns}: the completion of the observer's world to a compact whole.
+ultrafilters are ideal limit points --- consistent distinction patterns the
+refinement system coheres with, but that no element of $\Omega$ realises.
+The Stone space is the \emph{space of all consistent distinction patterns}: the
+completion of the observer's world to a compact whole.
 
-CE is the condition that closes the loop.  It requires the measure $P$ on
-$\Omega$, when extended to $\mathrm{St}(\mathcal{C})$ via $\mathrm{pure}$, to
-remain concentrated on the realised part: no mass escapes to the phantom
-ultrafilters.  An observer satisfying CE retains no phantom mass: probability remains
-confined to the realised world, however far the algebraic completion extends.  The Stone topology, generated by all cylinder clopens,
-is the coarsest topology making every observable distinction continuous.
+CE closes the loop.  It requires the measure $P$, when extended to
+$\mathrm{St}(\mathcal{C})$ via $\mathrm{pure}$, to remain concentrated on the
+realised part: no mass escapes to the phantom ultrafilters.  Probability remains
+confined to the realised world however far the algebraic completion extends.
+The Stone topology, generated by all cylinder clopens, is the coarsest topology
+making every observable distinction continuous.
 
 For a dynamical system $(X, T, \mu)$ with observation function $h$, the
 time-delay cylinder algebras form a directed system of exactly the kind treated

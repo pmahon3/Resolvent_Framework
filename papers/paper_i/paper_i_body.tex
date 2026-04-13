@@ -98,9 +98,11 @@ Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable
 $\sigma$-algebra, compatible charges, and the structural hypotheses (Surjective
 Evaluation, Discriminability).  Section~\ref{sec:cara} gives the direct extension theorem:
 given compatible $\sigma$-additive marginals, the global observable law follows
-by Carathéodory.  Section~\ref{sec:ce} establishes CE as the admissibility
-criterion that determines when finitely additive level data warrants that
-probabilistic status, and proves its non-derivability from structural conditions.
+by Carathéodory.  Section~\ref{sec:ce} establishes CE as the admissibility criterion that
+determines when finitely additive level data warrants that probabilistic status,
+proves its non-derivability from structural conditions, and shows that the
+underlying logical obstruction is not specific to the query-system language
+(\S\ref{sec:metatheorem}).
 Section~\ref{sec:stone} proves the Stone realization from finitely additive data.
 Section~\ref{sec:bridge} draws the routes together and discusses the Stone space.  The main results
 have been formalized in Lean~4 using Mathlib; source files are available in the
@@ -691,27 +693,25 @@ intersection is empty.  CE is the admissibility condition under which
 observational coherence furnishes probability, not a structural consequence of
 the query system.
 
-\begin{remark}[Metatheoretic scope]
-\label{rem:metatheorem}
-The obstruction is not an artifact of the query-system language.  In the more
-primitive setting of Boolean algebras equipped with a normalized finitely additive
-charge, the same conclusion holds: no first-order theory in that language
-characterizes those algebras whose charge extends to a $\sigma$-additive measure.
-Equivalently, countable additivity is not first-order axiomatizable among finitely
-additive probability Boolean algebras \cite{MahonCE2026}.
+\subsection{Finite coherence does not determine probability}
+\label{sec:metatheorem}
 
-The proof is the ultraproduct construction of Proposition~\ref{prop:ce-irred},
-now in the more primitive language: Dirac charges $\delta_n$ satisfy any
-putative characterizing theory, their ultraproduct yields the finite-cofinite
-charge $\ell$, and $\ell$ fails $\sigma$-additivity --- contradicting
-\L{}o\'{s}'s theorem.
+The obstruction in Proposition~\ref{prop:ce-irred} is not an artifact of the
+query-system language.  In the more primitive setting of Boolean algebras with
+a normalized finitely additive charge, the same conclusion holds: no first-order
+theory in that language characterizes those algebras whose charge extends to a
+$\sigma$-additive measure.  Equivalently, countable additivity is not first-order
+axiomatizable among finitely additive probability Boolean algebras
+\cite{MahonCE2026}.  The proof is the same ultraproduct mechanism: Dirac charges
+$\delta_n$ would satisfy any putative characterizing theory, yet their
+ultraproduct is the finite-cofinite charge $\ell$, which fails
+$\sigma$-additivity --- contradicting \L{}o\'{s}'s theorem.
 
-The upshot is that finite coherence underdetermines probability in a logically
-precise sense.  Foundational disputes about probability are not terminological;
-they are disputes about which extra structure licenses the passage from finite
-coherence to probability, and some such structure is unavoidable.  CE is the
-condition adopted here.
-\end{remark}
+Finite coherence therefore underdetermines probability in a logically precise
+sense.  Foundational disputes about probability are not terminological; they
+concern which extra structure licenses the passage from finite coherence to
+probability, and some such structure is unavoidable.  CE is the condition adopted
+here; the companion note \cite{MahonCE2026} gives the full general proof.
 
 
 % ------------------------------------------------------------------
@@ -1019,7 +1019,7 @@ world.
 The metatheoretic scope of this result matters for how the paper's conclusion
 should be read.  The need for CE is not explained by any feature of the
 query-system formalism, nor by any particular choice of index structure.  As
-Remark~\ref{rem:metatheorem} records, it reflects a genuine expressive limitation
+\S\ref{sec:metatheorem} records, it reflects a genuine expressive limitation
 of finitary first-order description: finite coherence can be encoded, but the
 countable-exhaustion behaviour required for probability cannot be derived from it.
 The two routes show two ways of bridging this unavoidable gap: the Carathéodory

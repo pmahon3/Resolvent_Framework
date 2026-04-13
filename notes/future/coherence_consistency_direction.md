@@ -1,98 +1,147 @@
-# Coherence, Consistency, and the Probability Gap
+# Coherence, Consistency, and Failure Modes of Fit
 
 *Seed note — 2026-04-13*
 
-## Central claim
+## Central question
 
-Consistency is not conceptually prior to coherence; it is one codified instance
-of coherence — the shadow cast when the relevant domain is propositional logic
-and the relevant failure of fit is contradiction.  Coherence is the more
-fundamental notion.
+Given a first-order language $L$, a class of $L$-structures $K$, and a
+non-first-order global property $P$, when does failure of $P$ define a genuine
+notion of incoherence not reducible to contradiction?
 
-## The diagnostic case
+More concretely: which non-first-order properties generate genuine coherence
+notions by separating local first-order satisfiability from stable global
+realizability?
 
-The finite-cofinite content is locally consistent: no finite collection of its
-values contradicts any structural condition on the query system.  Yet it fails
-CE.  This shows that consistency and probabilistic coherence are not on the same
-continuum with consistency at the weak end.  They are different kinds of
-conditions: consistency is a local, negative, finitary notion; probabilistic
-coherence is a global, positive, limiting notion.
+## The Łoś boundary as the key diagnostic
 
-## Three levels, not two
+Łoś's theorem draws a precise boundary: a property of $L$-structures is
+preserved under ultraproducts if and only if it is first-order expressible (in
+the appropriate sense).  This means the class of ultraproduct-stable properties
+coincides with the class of first-order definable ones.
 
-1. **Consistency** — local, negative; excludes contradiction; generates no
-   positive structure.
+The contrapositive is the diagnostic: if a property $P$ fails in an ultraproduct
+of structures that individually satisfy $P$, then $P$ is not first-order
+expressible.  The failure is not a contradiction — each member of the family is
+individually $P$-satisfying — but the family *as a whole*, in the limit sense
+given by the ultraproduct, is not.  This is a failure of fit that first-order
+logic cannot see.
 
-2. **Finitary coherence** — mutual compatibility under refinement;
-   first-order expressible; still finitary.
+This suggests that consistency (non-contradiction, first-order satisfiability)
+captures only one class of failure of fit: the class detectable at the
+level of finite subsets of sentences in the language.  The Łoś boundary reveals
+that there are structurally stable families — consistent, even individually
+well-behaved — that fail a global condition invisible to finitary logic.
 
-3. **Probabilistic coherence** — finitary coherence + CE; governs limiting
-   behaviour across the whole refinement hierarchy; not first-order expressible.
+## Towards a general schema
 
-CE is the exact gap condition between levels 2 and 3.  The non-derivability
-result (Prop. 3.9 / Prop. 4.11 of Paper I) says this gap is real and
-irreducible: no accumulation of finitary conditions closes it.
+A **coherence notion** should be specified by three components:
 
-## Sharpest formulation
+1. **Local data.** A family of $L$-structures, or local sections, or compatible
+   valuations — whatever is given finitely or locally.
 
-> Contradiction is one mode of incoherence.  Consistency is one shadow of
-> coherence, cast in the propositional domain.  CE marks a different shadow:
-> the shadow cast when the domain is finitely additive families and the relevant
-> failure is persistence of mass on globally vanishing events.
+2. **Global realization.** A target: a global structure, a limit object, an
+   extension to a larger domain.  What the local data is supposed to jointly
+   determine or approximate.
 
-## Coherence-priority argument
+3. **Failure mode.** The specific way in which local data can fail to sustain
+   the global realization.  Not all failures are contradictions.
 
-Coherence, at its most general, is a condition of *joint fit*: a family of
-constraints, valuations, or observations fits together when it sustains a stable
-global interpretation.  Failure of coherence is failure of such fit.
+A coherence condition then excludes the relevant failure mode.  The coherence
+notion is genuine — i.e., not reducible to consistency — when the failure mode
+is not detectable by any first-order condition on the local data.
 
-Contradiction is one mode of failure of fit.  Consistency — the exclusion of
-contradiction — is coherence as it appears in propositional logic.  But failure
-of fit is not always contradiction.  The finite-cofinite content fails to fit
-together probabilistically not because any two of its values contradict each
-other, but because the whole family fails to stabilize in the limit.  No finite
-subtest can detect it; only the infinite limiting behaviour reveals it.
+Under this schema:
 
-This suggests a reversal of the standard ordering.  Coherence is not a
-strengthening of consistency.  Consistency is a special case of coherence.
+- **Consistency** is the coherence notion where the global realization is a
+  model of a theory, and the failure mode is contradiction (unsatisfiability of
+  a finite subset of sentences).  The compactness theorem says this failure mode
+  is always detectable finitely — consistency is compact.
 
-## Implication for foundations of probability
+- **Probabilistic coherence / CE** is the coherence notion where the global
+  realization is a $\sigma$-additive measure, and the failure mode is
+  limit-instability: persistence of mass on sequences of events whose global
+  intersection is empty.  The Łoś argument (Paper I, Prop. 4.11) shows this
+  failure mode is not detectable by any first-order condition — probabilistic
+  coherence is not compact.
 
-Foundational disputes (frequentist, subjectivist, objective Bayesian) are not
-terminological.  They are disputes about which extra structure licenses the
-passage from finitary coherence to probability.  All positions implicitly
-recognise the gap; they disagree about how to bridge it:
+## The priority claim — deferred but not abandoned
 
-- Subjectivists: Dutch book / coherence norms on betting behaviour
-- Frequentists: limiting relative frequency
-- Present framework: CE
+The claim that "coherence is more fundamental than consistency" is a natural
+orientation, but should not be stated as a mathematical result until the schema
+above has a precise formalization.  What can be said now, mathematically, is:
 
-What these positions share is that they all recognize some extra structure is
-unavoidable.  The non-derivability result makes this precise: no finitary
-condition suffices.  CE is the answer adopted here, with clear conceptual
-content independent of any particular interpretation of probability.
+> Consistency captures exactly one failure mode — contradiction — and its
+> compactness (every inconsistent set has a finite inconsistent subset) is a
+> theorem, not a general feature of coherence notions.  Other failure modes
+> generate coherence notions that are not compact, and which cannot be reduced
+> to consistency by any first-order theory.
+
+Whether "coherence" names a genus of which "consistency" is a species —
+rather than a simple strengthening — is the philosophical claim the formal
+framework should eventually support.
+
+## A provisional taxonomy of failure modes
+
+The following are candidate failure modes, each generating a distinct coherence
+notion.  This list is illustrative, not exhaustive.
+
+| Failure mode | Coherence notion | Compact? |
+|---|---|---|
+| Contradiction (finite unsatisfiability) | Consistency | Yes (compactness thm) |
+| Limit-instability (ultraproduct fails $P$) | Ultraproduct-coherence | No (by Łoś contrapositive) |
+| Non-extension (local data admits no global realization) | Extension-coherence | Depends |
+| Mass escape (measure escapes to ideal limit points) | CE / probabilistic coherence | No |
+
+The central question is whether there is a uniform framework — perhaps
+categorical, perhaps sheaf-theoretic, perhaps in terms of abstract model theory
+— that organizes these failure modes and their associated coherence notions.
+
+## Diagnostic example: the probability case
+
+The finite-cofinite content on $\mathbb{N}$ (or $\mathbb{Q}$) is the canonical
+witness for the Łoś-boundary failure mode in the probability setting.  It is
+individually consistent (no finite contradiction), compatible (commutes with
+refinement maps), and normalized.  It fails only the global condition: the
+sequence $A_k = \mathbb{N} \setminus \{0,\ldots,k\}$ decreases to $\emptyset$
+but carries mass $1$ at every stage.
+
+This is not a diagnostic for CE specifically.  It is a diagnostic for a general
+phenomenon: a family of structures that individually satisfy a property $P$
+(here: $\sigma$-additivity, carried by each Dirac charge $\delta_n$), whose
+ultraproduct fails $P$ (the ultraproduct is the finite-cofinite content, which
+fails $\sigma$-additivity).  By Łoś's theorem, $P$ is therefore not first-order
+expressible.  CE names the gap: the non-first-order condition whose satisfaction
+is equivalent to $P$.
 
 ## Open questions
 
-1. **General framework for coherence levels.** The three-level picture is
-   specific to this setting.  Are there analogues in sheaf theory (local vs
-   global sections), category theory (diagram commutativity vs limits/colimits),
-   or logic (first-order satisfiability vs compactness phenomena)?
+1. **Formal schema.** Can the three-component schema (local data / global
+   realization / failure mode) be made precise in a way that encompasses all
+   four entries in the provisional taxonomy?  A categorical or sheaf-theoretic
+   formulation may be natural.
 
-2. **Dynamical analogue of CE.** The companion papers extend the framework to
-   dynamics and delay-coordinate reconstruction.  What is the gap condition
-   there, and is it non-derivable by similar means?
+2. **Classification of failure modes.** Is there a useful classification of
+   non-first-order failure modes — by type, complexity, or relationship to the
+   Łoś boundary — analogous to the arithmetical hierarchy for definability?
 
-3. **Formal priority of coherence over consistency.** The argument here is
-   conceptual.  Is there a formal sense in which coherence is prior — e.g.,
-   can consistency be *defined* in terms of coherence but not vice versa, in
-   some appropriate formal framework?
+3. **Compactness as a special property of consistency.** Consistency is compact
+   (compactness theorem).  Is compactness the property that distinguishes the
+   contradiction failure mode from all others?  Or are there other compact
+   coherence notions?
 
-4. **Representation question.** Which purely finitely additive charges arise as
-   ultraproducts or ultralimits of σ-additive probabilities?  (Left open in the
-   CE non-derivability companion note.)
+4. **Priority formalization.** In what formal sense, if any, is "coherence" prior
+   to "consistency"?  One candidate: consistency is definable as the coherence
+   notion for the trivial global realization (a single model of the theory), but
+   coherence notions in general are not so definable.
+
+5. **Connection to abstract model theory.** Infinitary logics ($L_{\omega_1\omega}$,
+   $L_{\infty\omega}$) can express some non-first-order conditions.  Does
+   limit-instability become first-order expressible in an appropriate infinitary
+   language?  If so, the failure mode taxonomy may be indexed by logical strength.
 
 ## Status
 
-Seed only.  Develop into a philosophical companion note once the main papers
-are posted.
+Seed only.  The central question is mathematically investigable but the formal
+framework does not yet exist.  Develop after main papers are posted.  The
+probability case (CE, Paper I) is the primary worked example; it should not
+drive the general framework.

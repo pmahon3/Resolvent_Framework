@@ -281,7 +281,7 @@ route.
 
 Given compatible $\sigma$-additive probability marginals, Carathéodory's theorem
 yields a global measure directly on the instantiation space.  The input is a
-query system satisfying Surjective Evaluation, sequential common refinements,
+query system satisfying surjective evaluation, sequential common refinements,
 and common coarsenings, together with a compatible family of $\sigma$-additive
 probability marginals.  Section~\ref{sec:ce} identifies the admissibility
 condition under which finitely additive level data can be promoted to this
@@ -700,24 +700,17 @@ characterizes those algebras whose charge extends to a $\sigma$-additive measure
 Equivalently, countable additivity is not first-order axiomatizable among finitely
 additive probability Boolean algebras \cite{MahonCE2026}.
 
-The proof is the same ultraproduct construction, now stated in full generality.
-Each Dirac charge $\delta_n$ on the finite-cofinite algebra of $\mathbb{Q}$ is
-$\sigma$-additive, so any putative first-order theory characterizing
-$\sigma$-additive extensibility would be satisfied by every $\delta_n$.  Their ultraproduct
-(along a nonprincipal ultrafilter extending the cofinite filter) yields the
-finite-cofinite charge $\ell$, which is purely finitely additive and fails
-$\sigma$-additivity.  By \L{}o\'{s}'s theorem, any first-order theory satisfied
-by all $\delta_n$ is satisfied by the ultraproduct --- but the ultraproduct
-fails $\sigma$-additivity.  Contradiction.
+The proof is the ultraproduct construction of Proposition~\ref{prop:ce-irred},
+now in the more primitive language: Dirac charges $\delta_n$ satisfy any
+putative characterizing theory, their ultraproduct yields the finite-cofinite
+charge $\ell$, and $\ell$ fails $\sigma$-additivity --- contradicting
+\L{}o\'{s}'s theorem.
 
-The philosophical upshot is not that one foundational position wins.  It is that
-finite coherence underdetermines probability in a logically precise sense: no
-finitary first-order description of observational structure can close the gap.
-The need for some extra admissibility principle is unavoidable.  CE is the
-condition adopted here; other foundational approaches may supply different extra
-structure, but some such structure is required.  Foundational disputes about
-probability are not terminological; they are disputes about which extra structure
-licenses the passage from finite coherence to probability.
+The upshot is that finite coherence underdetermines probability in a logically
+precise sense.  Foundational disputes about probability are not terminological;
+they are disputes about which extra structure licenses the passage from finite
+coherence to probability, and some such structure is unavoidable.  CE is the
+condition adopted here.
 \end{remark}
 
 
@@ -726,10 +719,9 @@ licenses the passage from finite coherence to probability.
 \label{sec:stone}
 % ------------------------------------------------------------------
 
-The Carathéodory route may suggest that $\sigma$-additivity must be assumed
-from the outset.  The second route shows it can instead be derived.  Starting
+The Stone route shows that $\sigma$-additivity can instead be derived.  Starting
 only from finitely additive charges, compactness of the Stone space produces a
-$\sigma$-additive measure on the compact completion; CE reappears as the
+$\sigma$-additive measure on the compact completion; CE then reappears as the
 support condition that returns this measure to the realised instantiation space.
 
 The proof proceeds in four steps.  \S\ref{sec:stepA} identifies the Stone space
@@ -962,7 +954,7 @@ concentrates on the image of $\Omega$ inside its Stone compactification.
 
 \subsection{Two routes, one measure}
 
-Under shared hypotheses --- surjective evaluation, discriminability, and
+Under shared hypotheses --- surjective evaluation, discriminability, CE, and
 $\sigma$-additive compatible marginals --- both routes produce the same measure.
 
 \begin{proposition}[Coincidence of routes]

@@ -14,14 +14,10 @@ realizability?
 
 ## The Łoś boundary as the key diagnostic
 
-Łoś's theorem draws a precise boundary: a property of $L$-structures is
-preserved under ultraproducts if and only if it is first-order expressible (in
-the appropriate sense).  This means the class of ultraproduct-stable properties
-coincides with the class of first-order definable ones.
-
-The contrapositive is the diagnostic: if a property $P$ fails in an ultraproduct
-of structures that individually satisfy $P$, then $P$ is not first-order
-expressible.  The failure is not a contradiction — each member of the family is
+Łoś's theorem gives a precise one-way boundary: first-order properties are
+preserved under ultraproducts.  The contrapositive is the diagnostic: if a
+property $P$ fails in an ultraproduct of structures that individually satisfy
+$P$, then $P$ is not first-order expressible.  The failure is not a contradiction — each member of the family is
 individually $P$-satisfying — but the family *as a whole*, in the limit sense
 given by the ultraproduct, is not.  This is a failure of fit that first-order
 logic cannot see.
@@ -54,8 +50,11 @@ Under this schema:
 
 - **Consistency** is the coherence notion where the global realization is a
   model of a theory, and the failure mode is contradiction (unsatisfiability of
-  a finite subset of sentences).  The compactness theorem says this failure mode
-  is always detectable finitely — consistency is compact.
+  a finite subset of sentences).  The compactness theorem — a separate result —
+  says this particular failure mode is always finitely detectable: every
+  unsatisfiable set of sentences has a finite unsatisfiable subset.  That
+  compactness is a theorem about the contradiction failure mode, not a general
+  feature of coherence notions.
 
 - **Probabilistic coherence / CE** is the coherence notion where the global
   realization is a $\sigma$-additive measure, and the failure mode is
@@ -88,7 +87,7 @@ notion.  This list is illustrative, not exhaustive.
 | Failure mode | Coherence notion | Compact? |
 |---|---|---|
 | Contradiction (finite unsatisfiability) | Consistency | Yes (compactness thm) |
-| Limit-instability (ultraproduct fails $P$) | Ultraproduct-coherence | No (by Łoś contrapositive) |
+| Limit-instability (ultraproduct fails $P$) | Limit-coherence [placeholder] | No (by Łoś contrapositive) |
 | Non-extension (local data admits no global realization) | Extension-coherence | Depends |
 | Mass escape (measure escapes to ideal limit points) | CE / probabilistic coherence | No |
 

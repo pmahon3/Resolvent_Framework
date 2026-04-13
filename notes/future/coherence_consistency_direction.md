@@ -44,7 +44,8 @@ A **coherence notion** should be specified by three components:
 
 A coherence condition then excludes the relevant failure mode.  The coherence
 notion is genuine — i.e., not reducible to consistency — when the failure mode
-is not detectable by any first-order condition on the local data.
+is not detectable by first-order conditions on the local data in the given
+language.
 
 Under this schema:
 
@@ -88,7 +89,7 @@ notion.  This list is illustrative, not exhaustive.
 |---|---|---|
 | Contradiction (finite unsatisfiability) | Consistency | Yes (compactness thm) |
 | Limit-instability (ultraproduct fails $P$) | Limit-coherence [placeholder] | No (by Łoś contrapositive) |
-| Non-extension (local data admits no global realization) | Extension-coherence | Depends |
+| Non-extension (local data admits no global realization) | Extension-coherence [placeholder] | Depends |
 | Mass escape (measure escapes to ideal limit points) | CE / probabilistic coherence | No |
 
 The central question is whether there is a uniform framework — perhaps
@@ -98,9 +99,9 @@ categorical, perhaps sheaf-theoretic, perhaps in terms of abstract model theory
 ## Diagnostic example: the probability case
 
 The finite-cofinite content on $\mathbb{N}$ (or $\mathbb{Q}$) is the canonical
-witness for the Łoś-boundary failure mode in the probability setting.  It is
-individually consistent (no finite contradiction), compatible (commutes with
-refinement maps), and normalized.  It fails only the global condition: the
+witness for the Łoś-boundary failure mode in the probability setting.  It passes
+every finite structural test: it is normalized, compatible, and free of local
+contradiction.  It fails only the global condition: the
 sequence $A_k = \mathbb{N} \setminus \{0,\ldots,k\}$ decreases to $\emptyset$
 but carries mass $1$ at every stage.
 
@@ -123,10 +124,13 @@ is equivalent to $P$.
    non-first-order failure modes — by type, complexity, or relationship to the
    Łoś boundary — analogous to the arithmetical hierarchy for definability?
 
-3. **Compactness as a special property of consistency.** Consistency is compact
-   (compactness theorem).  Is compactness the property that distinguishes the
-   contradiction failure mode from all others?  Or are there other compact
-   coherence notions?
+3. **Compactness as a special property of consistency** *(priority question).*
+   The compactness theorem says the contradiction failure mode is always finitely
+   detectable.  Is compactness the property that singles out the contradiction
+   failure mode from all others?  Or are there other coherence notions — with
+   different failure modes — that are also compact?  If compactness does single
+   out contradiction, that would give a formal sense in which consistency is a
+   distinguished instance of the schema, not merely one example among many.
 
 4. **Priority formalization.** In what formal sense, if any, is "coherence" prior
    to "consistency"?  One candidate: consistency is definable as the coherence

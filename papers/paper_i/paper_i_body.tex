@@ -60,21 +60,27 @@ globally, there exists a level at which the mass of the sequence converges to ze
 finitely additive charges, which assign persistent mass to sequences that
 vanish in the limit.
 
-Two independent routes establish the result.  The \emph{Carathéodory route} (\S\ref{sec:cara}) assumes $\sigma$-additive
-marginals and constructs the global measure directly on the instantiation space.
-Sequential common refinements compress any countable cylinder family to a single
-level, reducing the $\sigma$-subadditivity check to a single level.
-By the CE theorem (\S\ref{sec:ce}), $\sigma$-additivity of the marginals is
-equivalent to CE.
+The result is established by two routes that are not symmetric in their starting
+assumptions.
 
-The \emph{Stone route} (\S\ref{sec:stone}) assumes only finite additivity ---
-$\sigma$-additivity is not presupposed but derived from compactness.  Stone duality converts the
-directed Boolean system into an inverse system of compact Hausdorff spaces; a
-compatible family of charges assembles into a $\sigma$-additive measure on the
-inverse limit.  Descending from the Stone space to $\Omega$ requires two
-conditions: Discriminability ensures the Stone embedding is injective, and CE
-appears as a support condition --- the measure concentrates on the principal
-ultrafilters, i.e., on the image of $\Omega$ inside its Stone compactification.
+The \emph{Carathéodory route} (\S\ref{sec:cara}) is the direct local-to-global
+extension theorem: given compatible $\sigma$-additive probability marginals on
+the outcome spaces, sequential common refinements compress any countable cylinder
+family to a single level, reducing the $\sigma$-subadditivity check to that of a
+single measure.  The global observable law then follows directly.  CE does not
+appear as a step in this proof; rather, Theorem~\ref{thm:sp1} identifies CE as
+the condition under which finitely additive level data can be promoted to the
+$\sigma$-additive marginals this route assumes.
+
+The \emph{Stone route} (\S\ref{sec:stone}) is the deeper admissibility route: it
+assumes only finitely additive compatible charges and derives $\sigma$-additivity
+from compactness.  Stone duality converts the directed Boolean system into an
+inverse system of compact Hausdorff spaces; a compatible family of charges
+assembles into a $\sigma$-additive measure on the inverse limit.  Descending from
+the Stone space to $\Omega$ requires two conditions: discriminability ensures the
+Stone embedding is injective, and CE appears as a support condition --- the
+measure concentrates on the principal ultrafilters, i.e., on the image of
+$\Omega$ inside its Stone compactification.
 
 CE is a non-derivable admissibility condition: no first-order structural
 condition on the query system implies it, as shown by the finite-cofinite
@@ -91,10 +97,13 @@ developed in the companion papers.
 \paragraph{Organisation.}
 Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable
 $\sigma$-algebra, compatible charges, and the three hypotheses (Surjective Evaluation,
-Discriminability, CE).  Section~\ref{sec:ce} establishes the CE theorem and
-the non-derivability of CE.  Section~\ref{sec:cara} proves the Carathéodory route.
-Section~\ref{sec:stone} proves the Stone route.  Section~\ref{sec:bridge}
-draws the two routes together and discusses the Stone space.  The main results
+Discriminability, CE).  Section~\ref{sec:cara} gives the direct extension theorem:
+given compatible $\sigma$-additive marginals, the global observable law follows
+by Carathéodory.  Section~\ref{sec:ce} establishes CE as the admissibility
+criterion that determines when finitely additive level data warrants that
+probabilistic status, and proves its non-derivability from structural conditions.
+Section~\ref{sec:stone} proves the Stone realization from finitely additive data.
+Section~\ref{sec:bridge} draws the routes together and discusses the Stone space.  The main results
 have been formalized in Lean~4 using Mathlib; source files are available in the
 accompanying repository.
 
@@ -253,7 +262,7 @@ $\mathrm{eval}_i : \Omega \to \Out{i}$ is surjective for every
 $i \in \iota$.
 \end{definition}
 
-\noindent Surjective Evaluation is a structural condition ensuring that every outcome at
+\noindent Surjective evaluation (Definition~\ref{def:eval-surjective}) is a structural condition ensuring that every outcome at
 every level is realized by some element of $\Omega$; it implies that the
 refinement maps $\pi_{ij}$ are surjective (by coherence of the evaluation maps)
 and that the connecting maps $\varphi_{ij}$ are injective.
@@ -303,15 +312,175 @@ No $\sigma$-additive extension exists.
 
 
 % ------------------------------------------------------------------
+\section{Direct extension from compatible probability marginals}
+\label{sec:cara}
+% ------------------------------------------------------------------
+
+Given compatible $\sigma$-additive probability marginals, Carathéodory's theorem
+yields a global measure directly on the instantiation space.  This is the direct
+extension theorem: it answers the question of how local probability laws assemble
+into a global one, given that their probabilistic status is already in hand.
+CE does not appear as a step in the proof; Section~\ref{sec:ce} will identify it
+as the admissibility condition under which finitely additive level data can be
+promoted to exactly this kind of input.
+
+The input is a query system satisfying surjective evaluation (Definition~\ref{def:eval-surjective}), sequential common
+refinements, and common coarsenings, together with a compatible family of
+$\sigma$-additive probability marginals.
+
+\subsection{Observational determination}
+
+\begin{proposition}[Observational determination]
+\label{thm:obs-determination}
+Let the query system admit common coarsenings and let $P$, $P'$ be probability
+measures on $(\Omega, \sigma(\mathcal{C}))$.  If
+$(\mathrm{eval}_i)_\# P = (\mathrm{eval}_i)_\# P'$ for all $i \in \iota$,
+then $P = P'$.
+\end{proposition}
+
+\begin{proof}
+The equality of pushforward laws implies $P$ and $P'$ agree on every cylinder
+event.  By Lemma~\ref{lem:pi-system} the cylinder family $\mathcal{C}$ is a
+$\pi$-system generating $\sigma(\mathcal{C})$.  The $\pi$--$\lambda$ theorem
+gives $P = P'$.
+\end{proof}
+
+\subsection{Observable content}
+
+\begin{lemma}[Finite observational content]
+\label{thm:finite-content}
+Assume the query system admits common coarsenings and common refinements and
+satisfies Surjective Evaluation, and let $\{\nu_i\}_{i \in \iota}$ be a family
+with each $\nu_i \in \mathcal{P}(\Out{i})$ compatible under the refinement maps,
+i.e.\ $(\pi_{ij})_\# \nu_j = \nu_i$ for all $i \leq j$.
+Then the assignment
+\[
+  \mu_0(\mathrm{Cyl}(i, A)) := \nu_i(A),
+  \qquad A \in \mathcal{O}_i,
+\]
+defines a well-defined finitely additive content on $\mathcal{C}$.
+\end{lemma}
+
+\begin{proof}
+\textit{Well-definedness.}
+Suppose $\mathrm{Cyl}(i, A) = \mathrm{Cyl}(j, B)$.  Use common refinements to
+find $k$ with $k \geq i$ and $k \geq j$.  The constraint sets in $\Out{k}$
+are $\pi_{ik}^{-1}(A)$ and $\pi_{jk}^{-1}(B)$.  The cylinder equality and
+surjective evaluation (surjectivity of $\mathrm{eval}_k$) imply these coincide in
+$\Out{k}$.  Compatibility then gives
+$\nu_i(A) = \nu_k(\pi_{ik}^{-1}(A)) = \nu_k(\pi_{jk}^{-1}(B)) = \nu_j(B)$.
+
+\textit{Finite additivity.}
+For disjoint cylinders at possibly different levels, compress to a common
+refinement $k$ and use additivity of $\nu_k$.
+\end{proof}
+
+\subsection{Carathéodory extension theorem}
+
+\begin{theorem}[Carathéodory observational extension]
+\label{thm:obs-extension}
+Suppose:
+\begin{enumerate}[label=(\roman*)]
+  \item $(\iota, \leq)$ admits common coarsenings and sequential common
+        refinements;
+  \item the query system satisfies Surjective Evaluation;
+  \item each $\nu_i$ is a probability measure on $(\Out{i}, \mathcal{O}_i)$,
+        and the family is compatible under the refinement maps:
+        $(\pi_{ij})_\# \nu_j = \nu_i$ for all $i \leq j$.
+\end{enumerate}
+Then there exists a unique probability measure $P$ on
+$(\Omega, \sigma(\mathcal{C}))$ such that
+$(\mathrm{eval}_i)_\# P = \nu_i$ for every $i \in \iota$.
+\end{theorem}
+
+\begin{proof}
+\textit{Step 1: Finite content.}
+Theorem~\ref{thm:finite-content} gives a well-defined finitely additive content
+$\mu_0$ on $\mathcal{C}$.
+
+\textit{Step 2: $\sigma$-subadditivity.}
+Let $\mathrm{Cyl}(i, B) \subseteq \bigcup_{n \geq 1} \mathrm{Cyl}(i_n, A_n)$.
+Apply sequential common refinements to $\{i, i_1, i_2, \ldots\}$ to find a
+single index $k$ with $k \geq i$ and $k \geq i_n$ for all $n$.  Compress
+each cylinder to level $k$:
+\[
+  \mathrm{Cyl}(i, B) = \mathrm{Cyl}(k, E),
+  \qquad
+  \mathrm{Cyl}(i_n, A_n) = \mathrm{Cyl}(k, E_n),
+\]
+where $E = \pi_{ik}^{-1}(B)$ and $E_n = \pi_{i_n k}^{-1}(A_n)$.
+Surjective evaluation and the cylinder inclusion in $\Omega$ imply $E \subseteq
+\bigcup_n E_n$ in $\Out{k}$.  Therefore
+\[
+  \mu_0(\mathrm{Cyl}(i, B))
+  = \nu_k(E)
+  \leq \sum_{n=1}^\infty \nu_k(E_n)
+  = \sum_{n=1}^\infty \mu_0(\mathrm{Cyl}(i_n, A_n)),
+\]
+using $\sigma$-subadditivity of the single measure $\nu_k$.
+
+\textit{Step 3: Carathéodory extension.}
+The family $\mathcal{C}$ is a set semiring generating $\sigma(\mathcal{C})$.
+It is closed under finite intersections by Lemma~\ref{lem:pi-system}.
+Moreover, if $E = \mathrm{Cyl}(i, A)$ and $F = \mathrm{Cyl}(j, B)$,
+choose $k$ with $k \geq i, j$; then
+\[
+  E = \mathrm{Cyl}\!\bigl(k,\, \pi_{ik}^{-1}(A)\bigr),
+  \qquad
+  F = \mathrm{Cyl}\!\bigl(k,\, \pi_{jk}^{-1}(B)\bigr),
+\]
+so
+\[
+  E \setminus F
+  = \mathrm{Cyl}\!\bigl(k,\, \pi_{ik}^{-1}(A) \setminus \pi_{jk}^{-1}(B)\bigr)
+  \in \mathcal{C}.
+\]
+Thus $\mathcal{C}$ is closed under relative differences, confirming the semiring
+property.
+Since $\mu_0$ is a finitely additive content on $\mathcal{C}$ that is
+$\sigma$-subadditive for countable covers by cylinder sets (Step~2),
+the semiring form of Carathéodory's extension theorem yields a measure $P$
+on $(\Omega, \sigma(\mathcal{C}))$ extending $\mu_0$
+(Bogachev~\cite{Bogachev}, Vol.~I, \S1.5, Thm.~1.5.?\,).
+
+\textit{Step 4: Marginal recovery and normalization.}
+For any $A \in \mathcal{O}_i$,
+$P(\mathrm{Cyl}(i, A)) = \mu_0(\mathrm{Cyl}(i, A)) = \nu_i(A)$,
+so $(\mathrm{eval}_i)_\# P = \nu_i$.  Setting $A = \Out{i}$ gives
+$P(\Omega) = 1$.
+
+\textit{Uniqueness.}
+Two probability measures with the same evaluation marginals agree on $\mathcal{C}$,
+hence on $\sigma(\mathcal{C})$ by Theorem~\ref{thm:obs-determination}.
+\end{proof}
+
+\begin{remark}[Relation to Kolmogorov's extension theorem]
+\label{rem:kolmogorov}
+Kolmogorov's theorem~\cite{Kolmogorov} constructs a probability measure on $S^T$ from consistent
+finite-dimensional distributions.  Theorem~\ref{thm:obs-extension} plays the
+same role for query systems: the instantiation $\Omega = \varprojlim
+\Out{i}$ replaces the product $S^T$, compatible marginals replace
+consistent finite-dimensional distributions, and sequential common refinements
+replace the countable-cofinality condition.  The key conceptual difference is
+that no topology is imposed on the outcome spaces: the measure $P$ is built
+directly on the measurable structure of $\Omega$ by Carathéodory, without any
+appeal to tightness or compactness.
+
+\end{remark}
+
+
+% ------------------------------------------------------------------
 \section{Collective Exhaustion}
 \label{sec:ce}
 % ------------------------------------------------------------------
 
-This section establishes collective exhaustion as the necessary and sufficient
-condition for $\sigma$-additive extensibility.  We work first at the level of
-an abstract directed system of Boolean algebras, writing $\mathcal{E}_i$ for
-the algebra at level $i$ and $\ell_i$ for its charge; the query-system
-interpretation returns in \S\S\ref{sec:cara}--\ref{sec:stone}.
+Section~\ref{sec:cara} showed that compatible $\sigma$-additive marginals extend
+directly to a global observable law.  This section identifies the admissibility
+condition that determines when finitely additive level data deserves that
+probabilistic status.  We work first at the level of an abstract directed system
+of Boolean algebras, writing $\mathcal{E}_i$ for the algebra at level $i$ and
+$\ell_i$ for its charge; the query-system interpretation returns in
+\S\ref{sec:stone}.
 
 \subsection{Single-algebra extension}
 
@@ -442,7 +611,7 @@ no $\sigma$-additive extension; hence every level fails $\sigma$-additive
 extension.
 \end{proof}
 
-\begin{theorem}[CE Characterisation Theorem]
+\begin{theorem}[CE Characterisation]
 \label{thm:sp1}
 Let $\{\ell_i\}$ be a normalized compatible family of finitely-additive charges
 on a directed system indexed by $\mathcal{I}$.  The following are equivalent:
@@ -552,145 +721,7 @@ axiomatizable.
 
 
 % ------------------------------------------------------------------
-\section{Route 1: The Carathéodory extension}
-\label{sec:cara}
-% ------------------------------------------------------------------
-
-Section~\ref{sec:ce} isolated the exact obstruction to $\sigma$-additive
-extension and showed it is not removed by the structural hypotheses on the query
-system alone.  We now turn to the constructive side.  Assuming $\sigma$-additive
-marginals --- equivalently, CE at each level by Theorem~\ref{thm:sp1} ---
-Carathéodory's theorem yields a global measure directly on the instantiation
-space.
-
-The input is a query system satisfying Surjective Evaluation, sequential common
-refinements, and common coarsenings, together with a compatible family of
-$\sigma$-additive marginals.
-
-\subsection{Observational determination}
-
-\begin{proposition}[Observational determination]
-\label{thm:obs-determination}
-Let the query system admit common coarsenings and let $P$, $P'$ be probability
-measures on $(\Omega, \sigma(\mathcal{C}))$.  If
-$(\mathrm{eval}_i)_\# P = (\mathrm{eval}_i)_\# P'$ for all $i \in \iota$,
-then $P = P'$.
-\end{proposition}
-
-\begin{proof}
-The equality of pushforward laws implies $P$ and $P'$ agree on every cylinder
-event.  By Lemma~\ref{lem:pi-system} the cylinder family $\mathcal{C}$ is a
-$\pi$-system generating $\sigma(\mathcal{C})$.  The $\pi$--$\lambda$ theorem
-gives $P = P'$.
-\end{proof}
-
-\subsection{Observable content}
-
-\begin{lemma}[Finite observational content]
-\label{thm:finite-content}
-Assume the query system admits common coarsenings and common refinements and
-satisfies Surjective Evaluation, and let $\{\nu_i\}_{i \in \iota}$ be an
-observationally compatible family with each $\nu_i \in \mathcal{P}(\Out{i})$.
-Then the assignment
-\[
-  \mu_0(\mathrm{Cyl}(i, A)) := \nu_i(A),
-  \qquad A \in \mathcal{O}_i,
-\]
-defines a well-defined finitely additive content on $\mathcal{C}$.
-\end{lemma}
-
-\begin{proof}
-\textit{Well-definedness.}
-Suppose $\mathrm{Cyl}(i, A) = \mathrm{Cyl}(j, B)$.  Use common refinements to
-find $k$ with $k \geq i$ and $k \geq j$.  The constraint sets in $\Out{k}$
-are $\pi_{ik}^{-1}(A)$ and $\pi_{jk}^{-1}(B)$.  The cylinder equality and
-Surjective Evaluation (surjectivity of $\mathrm{eval}_k$) imply these coincide in
-$\Out{k}$.  Compatibility then gives
-$\nu_i(A) = \nu_k(\pi_{ik}^{-1}(A)) = \nu_k(\pi_{jk}^{-1}(B)) = \nu_j(B)$.
-
-\textit{Finite additivity.}
-For disjoint cylinders at possibly different levels, compress to a common
-refinement $k$ and use additivity of $\nu_k$.
-\end{proof}
-
-\subsection{Carathéodory extension theorem}
-
-\begin{theorem}[Observational extension theorem]
-\label{thm:obs-extension}
-Suppose:
-\begin{enumerate}[label=(\roman*)]
-  \item $(\iota, \leq)$ admits common coarsenings and sequential common
-        refinements;
-  \item the query system satisfies Surjective Evaluation;
-  \item the family $\{\nu_i\}_{i \in \iota}$ is observationally compatible
-        and each $\nu_i$ is a probability measure on
-        $(\Out{i}, \mathcal{O}_i)$.
-\end{enumerate}
-Then there exists a unique probability measure $P$ on
-$(\Omega, \sigma(\mathcal{C}))$ such that
-$(\mathrm{eval}_i)_\# P = \nu_i$ for every $i \in \iota$.
-\end{theorem}
-
-\begin{proof}
-\textit{Step 1: Finite content.}
-Theorem~\ref{thm:finite-content} gives a well-defined finitely additive content
-$\mu_0$ on $\mathcal{C}$.
-
-\textit{Step 2: $\sigma$-subadditivity.}
-Let $\mathrm{Cyl}(i, B) \subseteq \bigcup_{n \geq 1} \mathrm{Cyl}(i_n, A_n)$.
-Apply sequential common refinements to $\{i, i_1, i_2, \ldots\}$ to find a
-single index $k$ with $k \geq i$ and $k \geq i_n$ for all $n$.  Compress
-each cylinder to level $k$:
-\[
-  \mathrm{Cyl}(i, B) = \mathrm{Cyl}(k, E),
-  \qquad
-  \mathrm{Cyl}(i_n, A_n) = \mathrm{Cyl}(k, E_n),
-\]
-where $E = \pi_{ik}^{-1}(B)$ and $E_n = \pi_{i_n k}^{-1}(A_n)$.
-Surjective Evaluation and the cylinder inclusion in $\Omega$ imply $E \subseteq
-\bigcup_n E_n$ in $\Out{k}$.  Therefore
-\[
-  \mu_0(\mathrm{Cyl}(i, B))
-  = \nu_k(E)
-  \leq \sum_{n=1}^\infty \nu_k(E_n)
-  = \sum_{n=1}^\infty \mu_0(\mathrm{Cyl}(i_n, A_n)),
-\]
-using $\sigma$-subadditivity of the single measure $\nu_k$.
-
-\textit{Step 3: Carathéodory extension.}
-The family $\mathcal{C}$ is a semiring generating $\sigma(\mathcal{C})$ and
-$\mu_0$ is a $\sigma$-subadditive finitely additive content on it.
-Carathéodory's extension theorem~\cite{Billingsley, Bogachev} applies and yields
-$P$ on $(\Omega, \sigma(\mathcal{C}))$.
-
-\textit{Step 4: Marginal recovery and normalization.}
-For any $A \in \mathcal{O}_i$,
-$P(\mathrm{Cyl}(i, A)) = \mu_0(\mathrm{Cyl}(i, A)) = \nu_i(A)$,
-so $(\mathrm{eval}_i)_\# P = \nu_i$.  Setting $A = \Out{i}$ gives
-$P(\Omega) = 1$.
-
-\textit{Uniqueness.}
-Two probability measures with the same evaluation marginals agree on $\mathcal{C}$,
-hence on $\sigma(\mathcal{C})$ by Theorem~\ref{thm:obs-determination}.
-\end{proof}
-
-\begin{remark}[Relation to Kolmogorov's extension theorem]
-\label{rem:kolmogorov}
-Kolmogorov's theorem~\cite{Kolmogorov} constructs a probability measure on $S^T$ from consistent
-finite-dimensional distributions.  Theorem~\ref{thm:obs-extension} plays the
-same role for query systems: the instantiation $\Omega = \varprojlim
-\Out{i}$ replaces the product $S^T$, compatible marginals replace
-consistent finite-dimensional distributions, and sequential common refinements
-replace the countable-cofinality condition.  The key conceptual difference is
-that no topology is imposed on the outcome spaces: the measure $P$ is built
-directly on the measurable structure of $\Omega$ by Carathéodory, without any
-appeal to tightness or compactness.
-
-\end{remark}
-
-
-% ------------------------------------------------------------------
-\section{Route 2: The Stone extension}
+\section{Stone realization from finitely additive data}
 \label{sec:stone}
 % ------------------------------------------------------------------
 
@@ -717,7 +748,7 @@ is an injective Boolean algebra homomorphism for every $i \leq j$.
 \end{lemma}
 
 \begin{proof}
-Surjective Evaluation and the coherence condition give
+Surjective evaluation and the coherence condition give
 $\pi_{ij}(\mathrm{eval}_j(\omega)) = \mathrm{eval}_i(\omega)$ for all $\omega$,
 so $\mathrm{im}(\pi_{ij}) \supseteq \mathrm{im}(\mathrm{eval}_i) = \Out{i}$:
 the refinement maps are surjective.  A surjective map $\pi_{ij}$ has injective
@@ -821,7 +852,7 @@ For any Baire set $V$, $\mathrm{pure}^{-1}(V) \in
 \sigma(\{\mathrm{pure}^{-1}([E]) : E \in \mathcal{C}\}) = \sigma(\mathcal{C})$.
 
 \textbf{Injectivity.}
-Discriminability implies $\mathrm{pure}$ is injective: if $\omega \neq \omega'$,
+Discriminability (Definition~\ref{def:discriminability}) implies $\mathrm{pure}$ is injective: if $\omega \neq \omega'$,
 there exists $E \in \mathcal{C}$ with $\omega \in E$ and $\omega' \notin E$,
 so $E \in \mathrm{pure}(\omega)$ but $E \notin \mathrm{pure}(\omega')$.
 Injectivity ensures the pullback does not conflate distinct events.
@@ -860,10 +891,10 @@ finitely additive part vanishes (Theorem~\ref{thm:sp1}).  Therefore
 $\hat{\mu}_p = 0$ and $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.
 \end{proof}
 
-\subsection{The Stone extension theorem}
+\subsection{The Stone observational extension}
 \label{sec:assembly}
 
-\begin{theorem}[Stone extension theorem]
+\begin{theorem}[Stone observational extension]
 \label{thm:stone-main}
 Let the query system satisfy Surjective Evaluation, Discriminability, and common
 coarsenings, and let $\{\mu_i\}$ be a compatible family of normalised charges
@@ -896,7 +927,7 @@ a Baire probability measure $\hat{\mu}$ on
 $\varprojlim_i \mathrm{St}(B_i) \cong \mathrm{St}(\mathcal{C})$.
 
 By Proposition~\ref{prop:B2}, $\hat{\mu}$ is supported on
-$\mathrm{pure}(\Omega)$.  Since $\mathrm{pure}$ is injective (Discriminability),
+$\mathrm{pure}(\Omega)$.  Since $\mathrm{pure}$ is injective (discriminability),
 the pushforward $P = (\mathrm{pure})_*\hat{\mu}$ --- the image measure under
 $\mathrm{pure}^{-1}$ on the support --- is a well-defined probability measure on
 $\Omega$.
@@ -912,7 +943,7 @@ on $\sigma(\mathcal{C})$.  For any cylinder set $E = \mathrm{Cyl}(i, A)$,
 Two probability measures on $(\Omega, \sigma(\mathcal{C}))$ agreeing on all
 cylinder sets are equal by Theorem~\ref{thm:obs-determination}, which requires
 common coarsenings.  The Stone theorem therefore assumes common coarsenings
-in addition to Surjective Evaluation, Discriminability, and CE.
+in addition to surjective evaluation, discriminability, and CE.
 \end{proof}
 
 \noindent
@@ -931,9 +962,9 @@ of the sample space inside its Stone compactification.
 \label{sec:bridge}
 % ------------------------------------------------------------------
 
-\subsection{Two routes, one theorem}
+\subsection{Two routes, one measure}
 
-Under shared hypotheses --- Surjective Evaluation, Discriminability, and
+Under shared hypotheses --- surjective evaluation, discriminability, and
 $\sigma$-additive compatible marginals --- both routes produce the same measure.
 
 \begin{proposition}[Coincidence of routes]
@@ -951,25 +982,31 @@ Both measures agree on every cylinder set: $P^{\mathrm{C}}(\mathrm{Cyl}(i, A))
 (Theorem~\ref{thm:obs-determination}), they are equal on $\sigma(\mathcal{C})$.
 \end{proof}
 
-\noindent The two routes are genuinely independent proofs of the same theorem.
-The Carathéodory route works directly within measure theory; the Stone route
-takes a detour through topology, using compactness of the Stone space to derive
-$\sigma$-additivity that the Carathéodory route assumes.  That they produce the
-same measure is not obvious from the constructions alone; it is a consequence of
-uniqueness (Theorem~\ref{thm:obs-determination}), which is doing real work here.
+\noindent The two routes answer different questions on the way to the same
+measure.  The Carathéodory route answers the extension question: given
+compatible probability marginals, it builds the global observable law directly.
+The Stone route answers the admissibility question: starting only from finitely
+additive charges, it identifies CE as the condition that licenses $\sigma$-additive
+extension, then realizes it via compactness.  That both produce the same measure
+under their shared hypotheses is not obvious from the constructions; it is a
+consequence of uniqueness (Proposition~\ref{thm:obs-determination}), which is
+doing real work here.
 
 \subsection{CE's two faces}
 
 CE appears in the two routes in structurally different forms, yet it is the same
 condition.
 
-In the Carathéodory route (Route~1), CE appears at the level of the charges: the
-per-level marginals are $\sigma$-additive, which by Theorem~\ref{thm:sp1} is
-equivalent to CE applied at each level.  Here, CE is an \emph{algebraic} condition:
-the charges do not assign persistent mass to events that the observer's refinement
-hierarchy sees as empty.  It is a condition on the observer's commitments.
+In the Carathéodory route, CE does not appear as a proof step: the route begins
+from already $\sigma$-additive marginals and extends them directly.  But
+Theorem~\ref{thm:sp1} identifies CE as the algebraic condition that explains
+when finitely additive level charges deserve to be treated as probability
+measures in the first place --- that is, when they do not assign persistent mass
+to events the observer's refinement hierarchy sees as empty.  CE is thus the
+admissibility criterion whose satisfaction licenses the Carathéodory route's
+input.
 
-In the Stone route (Route~2), CE appears as a \emph{topological} condition: the
+In the Stone route, CE appears as a \emph{topological} condition: the
 Baire measure $\hat{\mu}$ on the Stone space must be supported on
 $\mathrm{pure}(\Omega)$, the image of the sample space inside its compact
 compactification.  Mass on non-principal ultrafilters corresponds exactly to the
@@ -985,12 +1022,12 @@ the algebraic convergence is honest, and the geometric measure is confined to
 $\Omega$.
 
 The two routes are therefore not symmetric alternatives.  In the Carathéodory
-route, $\sigma$-additivity is assumed from the outset and CE is the condition
-it amounts to in the present framework.  In the Stone route, compactness
-manufactures $\sigma$-additivity on the compact completion, and CE is then
-the support condition that descends it back to $\Omega$.  In both cases CE
-is doing the same work: ensuring that no mass escapes the realised observational
-world.
+route, $\sigma$-additivity is assumed from the outset; CE is the admissibility
+criterion that explains, laterally, when finitely additive data warrants that
+assumption.  In the Stone route, compactness manufactures $\sigma$-additivity on
+the compact completion, and CE is the support condition that descends it back to
+$\Omega$.  In both cases CE does the same work: ensuring that no mass escapes
+the realised observational world.
 
 \subsection{The Stone space as compact completion}
 

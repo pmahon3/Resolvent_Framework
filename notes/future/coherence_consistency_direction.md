@@ -22,9 +22,8 @@ individually $P$-satisfying — but the family *as a whole*, in the limit sense
 given by the ultraproduct, is not.  This is a failure of fit that first-order
 logic cannot see.
 
-This suggests that consistency (non-contradiction, first-order satisfiability)
-captures only one class of failure of fit: the class detectable at the
-level of finite subsets of sentences in the language.  The Łoś boundary reveals
+This suggests that consistency captures only one class of failure of fit:
+contradiction, which first-order compactness makes finitely detectable.  The Łoś boundary reveals
 that there are structurally stable families — consistent, even individually
 well-behaved — that fail a global condition invisible to finitary logic.
 
@@ -129,8 +128,9 @@ is equivalent to $P$.
    detectable.  Is compactness the property that singles out the contradiction
    failure mode from all others?  Or are there other coherence notions — with
    different failure modes — that are also compact?  If compactness does single
-   out contradiction, that would give a formal sense in which consistency is a
-   distinguished instance of the schema, not merely one example among many.
+   out contradiction-type failure, that would give a formal sense in which
+   consistency is a distinguished instance of the schema, not merely one example
+   among many.
 
 4. **Priority formalization.** In what formal sense, if any, is "coherence" prior
    to "consistency"?  One candidate: consistency is definable as the coherence
@@ -146,5 +146,22 @@ is equivalent to $P$.
 
 Seed only.  The central question is mathematically investigable but the formal
 framework does not yet exist.  Develop after main papers are posted.  The
-probability case (CE, Paper I) is the primary worked example; it should not
-drive the general framework.
+probability case (CE, Paper I) is the primary worked example; it should
+constrain but not determine the general framework.
+
+**First formal step (when ready):**
+
+1. Write a provisional formal definition of a "coherence notion" within the
+   three-part schema (local data / global realization / failure mode).
+2. Define what it means for such a notion to be *compact*: every instance of
+   the failure mode is detectable by a finite sub-instance.
+3. Verify that consistency/contradiction is the canonical compact case under
+   this definition.
+4. Test whether CE or any non-extension coherence notion can also be compact
+   in a nontrivial way — or prove it cannot.
+
+Step 4 is the priority theorem target.  A positive answer (another compact
+coherence notion exists) would force a richer taxonomy; a negative answer
+(compactness singles out contradiction-type failure) would give a formal sense
+in which consistency is the unique compact coherence notion, and thereby a
+precise statement of the priority claim.

@@ -95,8 +95,8 @@ support --- are the same condition seen from inside and outside the algebra
 
 \paragraph{Organisation.}
 Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable
-$\sigma$-algebra, compatible charges, and the three hypotheses (Surjective Evaluation,
-Discriminability, CE).  Section~\ref{sec:cara} gives the direct extension theorem:
+$\sigma$-algebra, compatible charges, and the structural hypotheses (Surjective
+Evaluation, Discriminability).  Section~\ref{sec:cara} gives the direct extension theorem:
 given compatible $\sigma$-additive marginals, the global observable law follows
 by Carathéodory.  Section~\ref{sec:ce} establishes CE as the admissibility
 criterion that determines when finitely additive level data warrants that
@@ -248,7 +248,7 @@ $\{\mu_i\}_{i \in \iota}$ with $\mu_i$ on $B_i$ is \emph{compatible} if
 $\mu(\mathrm{Cyl}(i, A)) := \mu_i(\mathrm{Cyl}(i, A))$; compatibility
 ensures this is well-defined.
 
-The main theorems require three conditions.
+The two routes impose different structural conditions on the query system.
 
 \begin{definition}[Surjective Evaluation]
 \label{def:eval-surjective}
@@ -268,34 +268,9 @@ in $\Omega$ there exists $E \in \mathcal{C}$ with $\omega \in E$ and
 $\omega' \notin E$.
 \end{definition}
 
-\noindent Discriminability ensures that the canonical embeddings remain injective.
-
-\begin{definition}[Collective Exhaustion]
-\label{def:ce}
-A charge $\mu$ on $\mathcal{C}$ (the common extension of a compatible family
-$\{\mu_i\}$) satisfies \emph{collective exhaustion} (CE) if: whenever
-$E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{C}$ and
-$\bigcap_n E_n = \emptyset$, we have $\mu(E_n) \to 0$.
-\end{definition}
-
-\noindent CE is the valuation-layer condition studied in \S\ref{sec:ce}: it
-rules out purely finitely additive charges and is necessary and sufficient for
-$\sigma$-additive extensibility (see Example~\ref{ex:finite-cofinite}).
-
-\begin{example}[Finite–cofinite obstruction]
-\label{ex:finite-cofinite}
-Let $\mathbb{N}$ carry the finite–cofinite algebra $\mathcal{E}$ where
-$A \in \mathcal{E}$ if $A$ is finite or $A^c$ is finite.
-Define a normalized charge by $\mu_0(A) = 0$ if $A$ is finite and
-$\mu_0(A) = 1$ if $A$ is cofinite.
-
-Disjoint sets in $\mathcal{E}$ are either both finite or one finite and one
-cofinite (two disjoint cofinite sets cannot exist), so finite additivity holds.
-
-The sequence $E_n = \{n, n+1, \ldots\}$ satisfies $E_n \downarrow \varnothing$,
-yet each $E_n$ is cofinite, so $\mu_0(E_n) = 1$ for all $n$: mass is not
-exhausted.  No $\sigma$-additive extension exists.
-\end{example}
+\noindent Discriminability ensures the Stone embedding is injective; it is
+required by the Stone route (\S\ref{sec:stone}) but not by the Carathéodory
+route.
 
 
 
@@ -305,13 +280,12 @@ exhausted.  No $\sigma$-additive extension exists.
 % ------------------------------------------------------------------
 
 Given compatible $\sigma$-additive probability marginals, Carathéodory's theorem
-yields a global measure directly on the instantiation space.  CE does not appear
-as a proof step; Section~\ref{sec:ce} identifies it as the admissibility
-condition under which finitely additive level data can be promoted to this input.
-
-The input is a query system satisfying surjective evaluation, sequential common
-refinements, and common coarsenings, together with a compatible family of
-$\sigma$-additive probability marginals.
+yields a global measure directly on the instantiation space.  The input is a
+query system satisfying Surjective Evaluation, sequential common refinements,
+and common coarsenings, together with a compatible family of $\sigma$-additive
+probability marginals.  Section~\ref{sec:ce} identifies the admissibility
+condition under which finitely additive level data can be promoted to this
+input.
 
 \subsection{Observational determination}
 
@@ -462,10 +436,38 @@ appeal to tightness or compactness.
 Section~\ref{sec:cara} showed that compatible $\sigma$-additive marginals extend
 directly to a global observable law.  This section identifies the admissibility
 condition that determines when finitely additive level data deserves that
-probabilistic status.  We work first at the level of an abstract directed system
-of Boolean algebras, writing $\mathcal{E}_i$ for the algebra at level $i$ and
-$\ell_i$ for its charge; the query-system interpretation returns in
-\S\ref{sec:stone}.
+probabilistic status.
+
+\begin{definition}[Collective Exhaustion]
+\label{def:ce}
+A charge $\mu$ on $\mathcal{C}$ (the common extension of a compatible family
+$\{\mu_i\}$) satisfies \emph{collective exhaustion} (CE) if: whenever
+$E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{C}$ and
+$\bigcap_n E_n = \emptyset$, we have $\mu(E_n) \to 0$.
+\end{definition}
+
+\noindent CE is a valuation-layer condition: it constrains how charges behave,
+not the Boolean-algebraic index structure.  The following example shows it is
+not automatic.
+
+\begin{example}[Finite--cofinite obstruction]
+\label{ex:finite-cofinite}
+Let $\mathbb{N}$ carry the finite--cofinite algebra $\mathcal{E}$ where
+$A \in \mathcal{E}$ if $A$ is finite or $A^c$ is finite.
+Define a normalized charge by $\mu_0(A) = 0$ if $A$ is finite and
+$\mu_0(A) = 1$ if $A$ is cofinite.
+
+Disjoint sets in $\mathcal{E}$ are either both finite or one finite and one
+cofinite (two disjoint cofinite sets cannot exist), so finite additivity holds.
+
+The sequence $E_n = \{n, n+1, \ldots\}$ satisfies $E_n \downarrow \varnothing$,
+yet each $E_n$ is cofinite, so $\mu_0(E_n) = 1$ for all $n$: mass is not
+exhausted.  No $\sigma$-additive extension exists.
+\end{example}
+
+We work first at the level of an abstract directed system of Boolean algebras,
+writing $\mathcal{E}_i$ for the algebra at level $i$ and $\ell_i$ for its
+charge; the query-system interpretation returns in \S\ref{sec:stone}.
 
 \subsection{Single-algebra extension}
 
@@ -563,9 +565,8 @@ such that $\ell_j(\pi_{ij}^{-1}(E_n)) \to 0$.
 
 \noindent Here $\pi_{ij} : O_j \to O_i$ is the refinement map ($j$ finer than
 $i$), so $\pi_{ij}^{-1}(E_n) \subseteq O_j$ is the preimage of $E_n$ at the
-finer level.  CE is a \emph{valuation-layer} condition: it constrains how
-charges behave, not the Boolean-algebraic index structure --- no level may
-assign persistent mass to events the system as a whole sees as empty.
+finer level.  No level may assign persistent mass to events the system as a
+whole sees as empty.
 
 The following proposition constructs the minimal directed system in which the
 index-layer hypotheses hold while the finite-cofinite charge still fails

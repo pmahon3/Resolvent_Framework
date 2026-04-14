@@ -15,11 +15,9 @@ counterexample and a model-theoretic argument via \L{}o\'{s}'s theorem.
 The result is established by two routes that are not symmetric in their starting
 assumptions.  The \emph{direct Carathéodory route} assumes compatible
 $\sigma$-additive marginals and constructs the global measure directly, with no
-topological assumptions; CE does not appear as a proof step, but
-Theorem~\ref{thm:sp1} identifies when finitely additive level data can be
-promoted to this input.  The \emph{Stone route} assumes only finite additivity: compactness
-of the Stone space manufactures $\sigma$-additivity on the compact completion,
-and CE is the support condition that descends the measure back to the
+topological assumptions.  The \emph{Stone route} assumes only finite additivity:
+compactness of the Stone space manufactures $\sigma$-additivity on the compact
+completion, and CE is the support condition that descends the measure back to the
 instantiation space.  Under shared hypotheses the two constructions coincide.
 
 The Stone space $\mathrm{St}(\mathcal{C})$ is the canonical compact Hausdorff
@@ -283,9 +281,7 @@ Given compatible $\sigma$-additive probability marginals, Carathéodory's theore
 yields a global measure directly on the instantiation space.  The input is a
 query system satisfying surjective evaluation, sequential common refinements,
 and common coarsenings, together with a compatible family of $\sigma$-additive
-probability marginals.  Section~\ref{sec:ce} identifies the admissibility
-condition under which finitely additive level data can be promoted to this
-input.
+probability marginals.
 
 \subsection{Observational determination}
 
@@ -722,12 +718,6 @@ only from finitely additive charges, compactness of the Stone space produces a
 $\sigma$-additive measure on the compact completion; CE then reappears as the
 support condition that returns this measure to the realised instantiation space.
 
-The proof proceeds in four steps.  \S\ref{sec:stepA} identifies the Stone space
-of the direct limit with the inverse limit of individual Stone spaces and applies
-Choksi's theorem.  \S\ref{sec:B1} identifies the pullback of the Baire algebra
-of the Stone space with the observable $\sigma$-algebra.  \S\ref{sec:B2} shows
-CE forces the measure to concentrate on the image of $\Omega$.
-
 \subsection{Stone duality for the direct limit}
 \label{sec:stepA}
 
@@ -984,13 +974,11 @@ is not obvious from the constructions; it is a consequence of uniqueness
 CE appears in the two routes in structurally different forms, yet it is the same
 condition.
 
-In the Carathéodory route, CE does not appear as a proof step: the route begins
-from already $\sigma$-additive marginals.  Theorem~\ref{thm:sp1} identifies CE
-as the algebraic condition explaining when finitely additive level charges
-deserve to be treated as probability measures --- when they do not assign
-persistent mass to events the refinement hierarchy sees as empty.  CE is thus
-the admissibility criterion whose satisfaction licenses the Carathéodory route's
-input.
+The Carathéodory route begins from $\sigma$-additive marginals: CE is the
+condition whose satisfaction licenses that starting point.  A finitely additive
+family deserves to be treated as a probability system precisely when it does not
+assign persistent mass to events the refinement hierarchy sees as empty ---
+and Theorem~\ref{thm:sp1} shows that is exactly CE.
 
 In the Stone route, CE appears as a \emph{topological} condition: the
 Baire measure $\hat{\mu}$ on the Stone space must be supported on
@@ -1022,7 +1010,7 @@ of finitary first-order description: finite coherence can be encoded, but the
 countable-exhaustion behaviour required for probability cannot be derived from it.
 The two routes show two ways of bridging this unavoidable gap: the Carathéodory
 route begins from local laws that already carry probabilistic status, while the
-Stone route bridges it through compactness and the support condition.  What CE names, in both cases, is the same gap.
+Stone route derives that status from compactness and the support condition.
 
 \subsection{The Stone space as compact completion}
 

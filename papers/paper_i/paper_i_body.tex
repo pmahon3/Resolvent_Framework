@@ -12,13 +12,13 @@ whole sees as empty.  CE is not derivable from any structural condition on the
 query system --- a proved boundary, located precisely by the finite-cofinite
 counterexample and a model-theoretic argument via \L{}o\'{s}'s theorem.
 
-The result is established by two routes that are not symmetric in their starting
-assumptions.  The \emph{direct Carathéodory route} assumes compatible
-$\sigma$-additive marginals and constructs the global measure directly, with no
-topological assumptions.  The \emph{Stone route} assumes only finite additivity:
-compactness of the Stone space manufactures $\sigma$-additivity on the compact
-completion, and CE is the support condition that descends the measure back to the
-instantiation space.  Under shared hypotheses the two constructions coincide.
+The result is established by two constructions with different starting
+assumptions.  The \emph{direct Carathéodory construction} assumes compatible
+$\sigma$-additive marginals and builds the global measure directly, with no
+topological assumptions.  The \emph{Stone construction} assumes only finite
+additivity: compactness of the Stone space manufactures $\sigma$-additivity on
+the compact completion, and CE is the support condition that descends the measure
+back to the instantiation space.  Under shared hypotheses the two coincide.
 
 The Stone space $\mathrm{St}(\mathcal{C})$ is the canonical compact Hausdorff
 completion of the observable structure: the space of all consistent distinction
@@ -61,21 +61,21 @@ It is the exact admissibility condition separating observational coherence from
 genuine probability: a coherent family of charges deserves to be treated as a
 probability system precisely when it satisfies CE.
 
-The result is established by two routes that are not symmetric in their starting
+The result is established by two constructions with different starting
 assumptions.
 
-The \emph{Carathéodory route} (\S\ref{sec:cara}) is the direct local-to-global
-extension theorem: given compatible $\sigma$-additive probability marginals, it
-constructs the global observable law directly.  Theorem~\ref{thm:sp1} identifies
-CE as the condition under which finitely additive level data can be promoted to
-the $\sigma$-additive marginals this route assumes.
+The \emph{Carathéodory construction} (\S\ref{sec:cara}) is the direct
+local-to-global extension: given compatible $\sigma$-additive probability
+marginals, it builds the global observable law directly.  Theorem~\ref{thm:sp1}
+identifies CE as the condition under which finitely additive level data can be
+promoted to that starting point.
 
-The \emph{Stone route} (\S\ref{sec:stone}) is the admissibility route: it
-assumes only finitely additive compatible charges and derives $\sigma$-additivity
-from compactness.  Descending from the Stone space to $\Omega$ requires two
-conditions: discriminability ensures the Stone embedding is injective, and CE
-appears as a support condition --- the measure concentrates on the principal
-ultrafilters, i.e., on the image of $\Omega$ inside its Stone compactification.
+The \emph{Stone construction} (\S\ref{sec:stone}) assumes only finitely additive
+compatible charges and derives $\sigma$-additivity from compactness.  Descending
+from the Stone space to $\Omega$ requires two conditions: discriminability ensures
+the Stone embedding is injective, and CE appears as a support condition --- the
+measure concentrates on the principal ultrafilters, i.e., on the image of
+$\Omega$ inside its Stone compactification.
 
 CE is a non-derivable admissibility condition: no first-order structural
 condition on the query system implies it, as shown by the finite-cofinite
@@ -189,7 +189,7 @@ has an upper bound in $\iota$.
 \noindent Sequential common refinements imply common refinements.  Common
 coarsenings ensure cylinder sets form a $\pi$-system
 (Lemma~\ref{lem:pi-system}); sequential common refinements supply the
-$\sigma$-subadditivity step in the Carathéodory route.
+$\sigma$-subadditivity step in the Carathéodory construction.
 
 \begin{definition}[Cylinder sets]
 \label{def:cylinder}
@@ -248,7 +248,7 @@ $\{\mu_i\}_{i \in \iota}$ with $\mu_i$ on $B_i$ is \emph{compatible} if
 $\mu(\mathrm{Cyl}(i, A)) := \mu_i(\mathrm{Cyl}(i, A))$; compatibility
 ensures this is well-defined.
 
-The two routes impose different structural conditions on the query system.
+The two constructions impose different structural conditions on the query system.
 
 \begin{definition}[Surjective Evaluation]
 \label{def:eval-surjective}
@@ -269,8 +269,8 @@ $\omega' \notin E$.
 \end{definition}
 
 \noindent Discriminability ensures the Stone embedding is injective; it is
-required by the Stone route (\S\ref{sec:stone}) but not by the Carathéodory
-route.
+required by the Stone construction (\S\ref{sec:stone}) but not by the
+Carathéodory construction.
 
 % ------------------------------------------------------------------
 \section{Direct extension from compatible probability marginals}
@@ -713,7 +713,7 @@ here; the companion note \cite{MahonCE2026} gives the full general proof.
 \label{sec:stone}
 % ------------------------------------------------------------------
 
-The Stone route shows that $\sigma$-additivity can instead be derived.  Starting
+The Stone construction shows that $\sigma$-additivity can instead be derived.  Starting
 only from finitely additive charges, compactness of the Stone space produces a
 $\sigma$-additive measure on the compact completion; CE then reappears as the
 support condition that returns this measure to the realised instantiation space.

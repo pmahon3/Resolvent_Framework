@@ -79,6 +79,52 @@ Whether "coherence" names a genus of which "consistency" is a species —
 rather than a simple strengthening — is the philosophical claim the formal
 framework should eventually support.
 
+## Forcing as strengthened coherence
+
+The three-part schema distinguishes coherence notions by their failure modes.
+But there is a further distinction within coherence notions: between those that
+merely *permit* a global realization and those that *force* one.
+
+A coherence notion **permits** a global realization when: local data satisfying
+the coherence condition is compatible with at least one global realization.
+
+A coherence notion **forces** a global realization when: local data satisfying
+the coherence condition is compatible with *at most one* type of global
+realization — the structure leaves no room for anything weaker.
+
+This gives a refined hierarchy:
+
+1. **Consistency** — excludes contradiction; permits any model (compact failure mode)
+2. **Coherence** — excludes a specific non-first-order failure mode; may permit
+   multiple completions
+3. **Forcing** — the coherence condition is strong enough that the global
+   realization becomes unavoidable; no admissible completion of the local data
+   can fail to have the target property
+
+In the probability setting, this is exactly the role CE plays.  Compatibility
+alone permits probability but does not force it: the finite-cofinite content is
+compatible yet fails CE and admits no $\sigma$-additive extension.  CE is the
+condition that removes that slack.  Once CE holds, the purely finitely additive
+part vanishes, and the data is forced to admit a probabilistic interpretation —
+Theorem 4.10 of Paper I shows CE is both necessary and sufficient.
+
+So CE upgrades observational coherence into forcing: it is the exact point at
+which coherent finitely additive data leaves no room for anything weaker than
+probability.
+
+**Caution:** this is not forcing in the Cohen/Boolean-valued-model sense of
+set theory.  It is an analogous conceptual pattern — constraint-driven necessity
+— applied in a different domain.  Whether there is a formal connection to
+set-theoretic forcing is an open question.
+
+**The conceptual ladder:**
+
+> consistency: nothing breaks  
+> coherence: the pieces fit together (some global realizations are admitted)  
+> forcing: the fit is now strong enough that a specific global structure is unavoidable
+
+CE is where observational coherence becomes forcing.
+
 ## A provisional taxonomy of failure modes
 
 The following are candidate failure modes, each generating a distinct coherence
@@ -136,6 +182,13 @@ is equivalent to $P$.
    to "consistency"?  One candidate: consistency is definable as the coherence
    notion for the trivial global realization (a single model of the theory), but
    coherence notions in general are not so definable.
+
+6. **Forcing vs admissibility.** CE is both an admissibility condition (it
+   licenses the use of finitely additive data as probabilistic input) and a
+   forcing condition (once satisfied, no weaker global structure is compatible).
+   Are these always the same thing within the schema, or can a coherence notion
+   be admissibility-granting without being forcing?  Is there a clean
+   characterization of when a coherence notion forces rather than merely permits?
 
 5. **Connection to abstract model theory.** Infinitary logics ($L_{\omega_1\omega}$,
    $L_{\infty\omega}$) can express some non-first-order conditions.  Does

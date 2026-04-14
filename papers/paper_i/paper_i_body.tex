@@ -102,7 +102,7 @@ proves its non-derivability from structural conditions, and shows that the
 underlying logical obstruction is not specific to the query-system language
 (\S\ref{sec:metatheorem}).
 Section~\ref{sec:stone} proves the Stone realization from finitely additive data.
-Section~\ref{sec:bridge} draws the routes together and discusses the Stone space.  The main results
+Section~\ref{sec:bridge} draws out CE's unified meaning across both constructions and characterises the Stone space.  The main results
 have been formalized in Lean~4 using Mathlib; source files are available in the
 accompanying repository.
 
@@ -936,16 +936,38 @@ concentrates on the image of $\Omega$ inside its Stone compactification.
 
 
 % ------------------------------------------------------------------
-\section{The bridge}
+\section{Synthesis}
 \label{sec:bridge}
 % ------------------------------------------------------------------
 
-\subsection{Two routes, one measure}
+\subsection{CE has two faces, one meaning}
 
-Under shared structural hypotheses and compatible probability marginals, both
-constructions produce the same measure.
+Collective exhaustion is one condition with two descriptions.  Algebraically,
+it says that a compatible family does not assign persistent mass to events the
+refinement hierarchy sees as empty: whenever $E_n \searrow \emptyset$ in
+$\mathcal{C}$, the mass $\mu(E_n) \to 0$.  Geometrically, it says that the
+Baire measure $\hat{\mu}$ on the Stone space $\mathrm{St}(\mathcal{C})$ is
+supported on $\mathrm{pure}(\Omega)$, the principal ultrafilters --- the
+observer's actual world, not its ideal completion.
 
-\begin{proposition}[Coincidence of routes]
+The Yosida--Hewitt decomposition makes the identity precise.  Every bounded
+charge decomposes uniquely as $\mu = \mu_c + \mu_p$, where $\mu_c$ is
+$\sigma$-additive and $\mu_p$ is purely finitely additive.  Under Stone
+duality, $\mu_p$ is exactly the mass that has escaped to non-principal
+ultrafilters (Proposition~\ref{prop:B2}).  CE is the condition $\mu_p = 0$:
+algebraic convergence is honest, and the geometric measure is confined to
+$\Omega$.  The two descriptions are one.
+
+The observable extension theorem is the consequence.  When CE holds, the
+Carathéodory argument produces a $\sigma$-additive extension directly, because
+CE --- via Theorem~\ref{thm:sp1} --- is precisely the condition under which
+finitely additive level data warrants $\sigma$-additive status.  The Stone
+argument reaches the same measure from the other direction: compactness of
+$\mathrm{St}(\mathcal{C})$ manufactures $\sigma$-additivity on the compact
+completion, and CE returns it to $\Omega$ by forcing the measure off the
+phantom ultrafilters.  Under shared hypotheses, both constructions coincide.
+
+\begin{proposition}[Uniqueness of the observable law]
 \label{prop:coincidence}
 Suppose the query system satisfies Surjective Evaluation, Discriminability, and
 sequential common refinements and common coarsenings, and let $\{\nu_i\}$ be a
@@ -960,57 +982,14 @@ Both measures agree on every cylinder set: $P^{\mathrm{C}}(\mathrm{Cyl}(i, A))
 (Theorem~\ref{thm:obs-determination}), they are equal on $\sigma(\mathcal{C})$.
 \end{proof}
 
-\noindent The two routes answer different questions on the way to the same
-measure.  The Carathéodory route answers the extension question: given
-compatible probability marginals, build the global observable law directly.
-The Stone route answers the admissibility question: starting from finitely
-additive charges, identify CE as the condition licensing $\sigma$-additive
-extension, then realise it via compactness.  That both produce the same measure
-is not obvious from the constructions; it is a consequence of uniqueness
-(Proposition~\ref{thm:obs-determination}).
-
-\subsection{CE's two faces}
-
-CE appears in the two routes in structurally different forms, yet it is the same
-condition.
-
-The Carathéodory route begins from $\sigma$-additive marginals: CE is the
-condition whose satisfaction licenses that starting point.  A finitely additive
-family deserves to be treated as a probability system precisely when it does not
-assign persistent mass to events the refinement hierarchy sees as empty ---
-and Theorem~\ref{thm:sp1} shows that is exactly CE.
-
-In the Stone route, CE appears as a \emph{topological} condition: the
-Baire measure $\hat{\mu}$ on the Stone space must be supported on
-$\mathrm{pure}(\Omega)$, the image of the sample space inside its compact
-compactification.  Mass on non-principal ultrafilters corresponds exactly to the
-purely finitely additive part $\mu_p$, and CE $\Leftrightarrow \mu_p = 0$
-(Proposition~\ref{prop:B2}).  Here, CE is a \emph{geometric} condition: the
-observer's measure does not escape to the ``phantom'' points of the Stone
-compactification.
-
-The Yosida--Hewitt decomposition bridges the two faces: it identifies the
-purely finitely additive part of $\mu$ with the mass escaped to non-principal
-ultrafilters.  CE says both things at once: algebraic convergence is honest,
-and the geometric measure is confined to $\Omega$.
-
-The two routes are therefore not symmetric alternatives.  In the Carathéodory
-route, $\sigma$-additivity is assumed from the outset; CE is the admissibility
-criterion that explains when finitely additive data warrants that assumption.
-In the Stone route, compactness manufactures $\sigma$-additivity on the compact
-completion, and CE is the support condition that descends it to $\Omega$.  In
-both cases CE does the same work: no mass escapes the realised observational
-world.
-
-The metatheoretic scope of this result matters for how the paper's conclusion
-should be read.  The need for CE is not explained by any feature of the
-query-system formalism, nor by any particular choice of index structure.  As
-\S\ref{sec:metatheorem} records, it reflects a genuine expressive limitation
-of finitary first-order description: finite coherence can be encoded, but the
-countable-exhaustion behaviour required for probability cannot be derived from it.
-The two routes show two ways of bridging this unavoidable gap: the Carathéodory
-route begins from local laws that already carry probabilistic status, while the
-Stone route derives that status from compactness and the support condition.
+\noindent That both constructions produce the same measure is a consequence of
+uniqueness, not of the constructions themselves.  A coherent family of
+observations satisfying CE determines a unique probability measure on the
+observable $\sigma$-algebra.  CE is what makes that determination possible:
+without it, finitely additive data may cohere locally without sustaining any
+global probabilistic interpretation.  As \S\ref{sec:metatheorem} records, no
+first-order structural condition can supply CE's role --- the gap it bridges is
+logically unavoidable.
 
 \subsection{The Stone space as compact completion}
 

@@ -84,12 +84,9 @@ with $\mathrm{eval}_i(\omega) = \omega_i$ and  $\omega \in \Omega$ generic.
 Let $\iota$ be the set of finite subsets of $\mathbb{N}$, ordered by inclusion. For $i \in \iota$, set $\mathsf{O}_i = \{0,1\}^{|i|}$ with its discrete $\sigma$-algebra $\mathcal{O}_i$, and for $i \subseteq j$ let $\pi_{ij} : \mathsf{O}_j \to \mathsf{O}_i$ be the coordinate projection. An instantiation assigns to each $\omega$ a consistent family of finite binary observations; the canonical instantiation identifies $\Omega$ with $\{0,1\}^{\mathbb{N}}$.  Cylinder sets correspond to fixing finitely many coordinates, and a compatible family $\{\nu_i\}$ is precisely the system of finite-dimensional distributions of a Bernoulli process.
 \end{example}
 
-\begin{definition}[Common coarsenings and common refinements]
-The index set $(\iota, \leq)$ admits \emph{common coarsenings} if every pair $i, j \in \iota$ has a lower bound: there exists $k \leq i$ and $k \leq j$. It admits \emph{common refinements} if every pair has an upper bound: there exists $k \geq i$ and $k \geq j$.  It admits \emph{sequential common refinements} if every countable family $\{i_n\}_{n \geq 1} \subset \iota$ has an upper bound in $\iota$.
+\begin{definition}[Common coarsenings]
+The index set $(\iota, \leq)$ admits \emph{common coarsenings} if every pair $i, j \in \iota$ has a lower bound: there exists $k \leq i$ and $k \leq j$.
 \end{definition}
-
-\noindent Sequential common refinements imply common refinements.  Common
-coarsenings ensure cylinder sets form a $\pi$-system (Lemma~\ref{lem:pi-system}); sequential common refinements supply the $\sigma$-subadditivity step in the Carathéodory construction.
 
 \begin{definition}[Cylinder sets]
 \label{def:cylinder}
@@ -136,7 +133,7 @@ A \emph{charge} on a Boolean algebra $B$ is a finitely additive function $\mu : 
 \noindent A compatible family also determines a charge on $\mathcal{C}$ by
 $\mu(\mathrm{Cyl}(i, A)) := \mu_i(\mathrm{Cyl}(i, A))$; compatibility ensures this is well-defined.
 
-The two constructions impose different structural conditions on the query system.
+Both constructions require the following condition on the query system.
 
 \begin{definition}[Surjective Evaluation]
 \label{def:eval-surjective}
@@ -145,14 +142,6 @@ The query system satisfies \emph{Surjective Evaluation} if $\mathrm{eval}_i : \O
 
 \noindent Surjective evaluation ensures every outcome at every level is
 realised by some $\omega \in \Omega$; it implies the refinement maps $\pi_{ij}$ are surjective and the connecting maps $\varphi_{ij}$ injective.
-
-\begin{definition}[Discriminability]
-\label{def:discriminability}
-The query system \emph{discriminates points} if for every $\omega \neq \omega'$ in $\Omega$ there exists $E \in \mathcal{C}$ with $\omega \in E$ and $\omega' \notin E$.
-\end{definition}
-
-\noindent Discriminability ensures the Stone embedding is injective; it is
-required by the Stone construction (\S\ref{sec:stone}) but not by the Carathéodory construction.
 
 % ------------------------------------------------------------------
 \section{Direct extension from compatible probability marginals}
@@ -174,6 +163,12 @@ The equality of pushforward laws implies $P$ and $P'$ agree on every cylinder ev
 
 \subsection{Observable content}
 
+\begin{definition}[Common refinements]
+The index set $(\iota, \leq)$ admits \emph{common refinements} if every pair $i, j \in \iota$ has an upper bound: there exists $k \geq i$ and $k \geq j$.
+\end{definition}
+
+\noindent The cylinder family may represent the same event at multiple levels: $\mathrm{Cyl}(i, A)$ and $\mathrm{Cyl}(j, B)$ coincide in $\Omega$ whenever $A$ and $B$ are preimages of a common set at a finer level. Assigning a numerical value to such an event is well-defined only if the two representations agree --- and verifying this requires passing to a common refinement of $i$ and $j$.
+
 \begin{lemma}[Finite observational content]
 \label{thm:finite-content}
 Assume the query system admits common coarsenings and common refinements and satisfies Surjective Evaluation, and let $\{\nu_i\}_{i \in \iota}$ be a family with each $\nu_i \in \mathcal{P}(\Out{i})$ compatible under the refinement maps, i.e.\ $(\pi_{ij})_\# \nu_j = \nu_i$ for all $i \leq j$. Then the assignment
@@ -193,6 +188,12 @@ For disjoint cylinders at possibly different levels, compress to a common refine
 \end{proof}
 
 \subsection{Carathéodory extension theorem}
+
+\begin{definition}[Sequential common refinements]
+The index set $(\iota, \leq)$ admits \emph{sequential common refinements} if every countable family $\{i_n\}_{n \geq 1} \subset \iota$ has an upper bound in $\iota$. Sequential common refinements imply common refinements.
+\end{definition}
+
+\noindent Finite additivity of the cylinder content is not sufficient for Carathéodory's theorem: one needs $\sigma$-subadditivity, which requires compressing a countable cylinder cover $\{\mathrm{Cyl}(i_n, A_n)\}$ to a single level. Common refinements handle finite families; sequential common refinements extend this to countable ones, supplying the index-set reach the proof requires.
 
 \begin{theorem}[Carathéodory observational extension]
 \label{thm:obs-extension}
@@ -431,7 +432,7 @@ Finite coherence therefore underdetermines probability in a logically precise se
 \label{sec:stone}
 % ------------------------------------------------------------------
 
-The Stone construction shows that $\sigma$-additivity can instead be derived.  Starting only from finitely additive charges, compactness of the Stone space produces a $\sigma$-additive measure on the compact completion; CE then reappears as the support condition that returns this measure to the realised instantiation space.
+The Stone construction shows that $\sigma$-additivity can instead be derived.  Starting only from finitely additive charges, compactness of the Stone space produces a $\sigma$-additive measure on the compact completion; CE then reappears as the support condition that returns this measure to the realised instantiation space. Notably, no sequential common refinements are assumed: the $\sigma$-additivity that Carathéodory obtains by compressing countable covers within the index set is here produced by compactness of the Stone space, without any countable reach into $\iota$.
 
 \subsection{Stone duality for the direct limit}
 \label{sec:stepA}
@@ -481,6 +482,15 @@ measures on a cofiltered inverse system of compact Hausdorff spaces with surject
 
 \subsection{Structural identification}
 \label{sec:B1}
+
+The Stone space $\mathrm{St}(\mathcal{C})$ contains $\Omega$ as a subspace via the Stone embedding, but only if distinct states are separated by observable events.
+
+\begin{definition}[Discriminability]
+\label{def:discriminability}
+The query system \emph{discriminates points} if for every $\omega \neq \omega'$ in $\Omega$ there exists $E \in \mathcal{C}$ with $\omega \in E$ and $\omega' \notin E$.
+\end{definition}
+
+\noindent Discriminability ensures the Stone embedding is injective: without it, distinct states would be identified in the completion, and the pullback of the measure on $\mathrm{St}(\mathcal{C})$ would not recover a well-defined measure on $\Omega$.
 
 Let $\mathrm{pure} : \Omega \to \mathrm{St}(\mathcal{C})$ denote the Stone embedding, which sends $\omega \in \Omega$ to its principal ultrafilter $\mathrm{pure}(\omega) = \{E \in \mathcal{C} : \omega \in E\}$. For $E \in \mathcal{C}$, write $[E] = \{u \in \mathrm{St}(\mathcal{C}) : E \in u\}$ for the corresponding basic clopen in $\mathrm{St}(\mathcal{C})$.
 
@@ -572,7 +582,7 @@ for CE.  Compactness ensures $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is $\sigm
 \label{sec:bridge}
 % ------------------------------------------------------------------
 
-The Yosida--Hewitt decomposition identifies the algebraic and geometric faces of CE: $\mu_p = 0$ is both the vanishing of the purely finitely additive part and the condition that no mass escapes to non-principal ultrafilters.  The two descriptions are one.
+The Yosida--Hewitt decomposition identifies the algebraic and geometric faces of CE: $\mu_p = 0$ is both the vanishing of the purely finitely additive part and the condition that no mass escapes to non-principal ultrafilters.
 
 \begin{proposition}[Uniqueness of the observable law]
 \label{prop:coincidence}
@@ -583,10 +593,7 @@ Suppose the query system satisfies Surjective Evaluation, Discriminability, and 
 Both measures agree on every cylinder set: $P^{\mathrm{C}}(\mathrm{Cyl}(i, A)) = \nu_i(A) = P^{\mathrm{S}}(\mathrm{Cyl}(i, A))$.  By observational determination (Theorem~\ref{thm:obs-determination}), they are equal on $\sigma(\mathcal{C})$.
 \end{proof}
 
-\noindent The coincidence is a consequence of uniqueness, not of formal
-similarity between the constructions.  CE is the condition under which finitely additive data attains the $\sigma$-additive status needed for the observable law to be uniquely determined; by \S\ref{sec:metatheorem}, no first-order structural condition can play that role.
-
-The Stone space makes the geometry of that demand visible.  Every point of $\mathrm{St}(\mathcal{C})$ is a maximal consistent assignment of yes/no answers to every observable distinction --- a coherent distinction pattern, whether or not any $\omega \in \Omega$ realises it.  The observer's world sits inside $\mathrm{St}(\mathcal{C})$ as the principal ultrafilters; beyond it lie ideal limit points, internally coherent but unrealised.  CE is the requirement that probability not drift there.
+\noindent CE is the condition under which finitely additive data attains the $\sigma$-additive status needed for the observable law to be uniquely determined; by \S\ref{sec:metatheorem}, no first-order structural condition can play that role. The Stone space makes the geometry of that demand visible.  Every point of $\mathrm{St}(\mathcal{C})$ is a maximal consistent assignment of yes/no answers to every observable distinction --- a coherent distinction pattern, whether or not any $\omega \in \Omega$ realises it.  The observer's world sits inside $\mathrm{St}(\mathcal{C})$ as the principal ultrafilters; beyond it lie ideal limit points, internally coherent but unrealised.
 
 \bibliographystyle{plain}
 \bibliography{references}

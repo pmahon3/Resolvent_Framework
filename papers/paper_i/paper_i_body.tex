@@ -38,7 +38,7 @@ The condition is \emph{collective exhaustion} (CE): a compatible family of finit
 Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable $\sigma$-algebra, compatible charges, and the structural hypotheses (Surjective Evaluation, Discriminability).  Section~\ref{sec:cara} gives the direct extension theorem: given compatible $\sigma$-additive marginals, the global observable law follows by Carathéodory.  Section~\ref{sec:ce} establishes CE as the admissibility criterion that determines when finitely additive level data warrants that probabilistic status, proves its non-derivability from structural conditions, and shows that the underlying logical obstruction is not specific to the query-system language (\S\ref{sec:metatheorem}). Section~\ref{sec:stone} proves the Stone realization from finitely additive data. Section~\ref{sec:bridge} draws out CE's unified meaning across both constructions and characterises the Stone space.  The main results have been formalized in Lean~4 using Mathlib; source files are available in the accompanying repository.  This paper is the first step in a programme deriving canonical dynamics, state-space reconstruction, and certifiability from observational data; the further steps are carried out in the companion papers.
 
 % ------------------------------------------------------------------
-\section{Setup: query systems and charges}
+\section{Query systems and charges}
 \label{sec:setup}
 % ------------------------------------------------------------------
 
@@ -120,7 +120,7 @@ For each $i \in \iota$, let $B_i$ denote the Boolean algebra of level-$i$ cylind
 \]
 This is a well-defined Boolean algebra homomorphism.  The family $\{B_i, \varphi_{ij}\}$ is a directed system of Boolean algebras.
 
-\subsection{Charges and hypotheses}
+\subsection{Compatible charges}
 
 \begin{definition}[Compatible family]
 A \emph{charge} on a Boolean algebra $B$ is a finitely additive function $\mu : B \to [0, \infty)$ with $\mu(\emptyset) = 0$.  A family of charges $\{\mu_i\}_{i \in \iota}$ with $\mu_i$ on $B_i$ is \emph{compatible} if
@@ -161,7 +161,7 @@ Let the query system admit common coarsenings and let $P$, $P'$ be probability m
 The equality of pushforward laws implies $P$ and $P'$ agree on every cylinder event.  By Lemma~\ref{lem:pi-system} the cylinder family $\mathcal{C}$ is a $\pi$-system generating $\sigma(\mathcal{C})$.  The $\pi$--$\lambda$ theorem gives $P = P'$.
 \end{proof}
 
-\subsection{Observable content}
+\subsection{Cylinder content}
 
 \begin{definition}[Common refinements]
 The index set $(\iota, \leq)$ admits \emph{common refinements} if every pair $i, j \in \iota$ has an upper bound: there exists $k \geq i$ and $k \geq j$.

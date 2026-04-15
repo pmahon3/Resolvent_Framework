@@ -10,7 +10,7 @@ The necessary and sufficient condition for $\sigma$-additive extension is \emph{
 
 A \emph{Stone construction} accordingly assumes only finite additivity leveraging exhaustion to extend: compactness of the Stone space manufactures $\sigma$-additivity on the compact completion where CE is the support condition that descends the measure back to the space. In limit-descent exhaustion acquires geometric form via natural completion.
 
-We take the Stone space $\mathrm{St}(\mathcal{C})$ as the  canonical compact Hausdorff completion of the observable structure: the space of all consistent distinction patterns extending the cylinder algebra.
+We take the Stone space $\mathrm{St}(\mathcal{C})$ as the canonical compact Hausdorff completion of the observable structure: the space of all consistent distinction patterns extending the cylinder algebra. The two constructions differ by where the missing $\sigma$-additive structure is supplied --- internally by countable reach in the directed system, or externally by the Stone completion --- and whenever both apply, CE ensures they produce the same observable measure.
 \end{abstract}
 
 \begin{quote}\small
@@ -32,10 +32,10 @@ We facilitate interrogation by a directed system of Boolean algebras connected b
 
 Under such treatment Kolmogorov's question resurfaces without dependence on the ontological status of a global state space. In the language of \emph{queries}: what further condition on valuations is required for finitary data to support a genuine probability measure on the observable $\sigma$-algebra?
 
-The condition is \emph{collective exhaustion} (CE): a compatible family of finitely additive charges extends to a $\sigma$-additive measure if and only if, whenever a decreasing sequence of events vanishes globally, there exists a level at which the sequence's mass converges to zero.  CE rules out purely finitely additive charges, which assign persistent mass to sequences that vanish in the limit.  It is the exact admissibility condition separating observational coherence from genuine probability: a coherent family of charges deserves to be treated as a probability system precisely when it satisfies CE.  A family satisfying CE determines a unique probability measure on the observable $\sigma$-algebra and  no first-order structural condition can substitute for it.
+The condition is \emph{collective exhaustion} (CE): a compatible family of finitely additive charges extends to a $\sigma$-additive measure if and only if, whenever a decreasing sequence of events vanishes globally, there exists a level at which the sequence's mass converges to zero.  CE rules out purely finitely additive charges, which assign persistent mass to sequences that vanish in the limit.  It is the exact admissibility condition separating observational coherence from genuine probability: a coherent family of charges deserves to be treated as a probability system precisely when it satisfies CE.  A family satisfying CE determines a unique probability measure on the observable $\sigma$-algebra; no first-order structural condition can substitute for it.
 
 \paragraph{Organisation.}
-Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable $\sigma$-algebra, compatible charges, and the structural hypotheses (Surjective Evaluation, Discriminability).  Section~\ref{sec:cara} gives the direct extension theorem: given compatible $\sigma$-additive marginals, the global observable law follows by Carathéodory.  Section~\ref{sec:ce} establishes CE as the admissibility criterion that determines when finitely additive level data warrants that probabilistic status, proves its non-derivability from structural conditions, and shows that the underlying logical obstruction is not specific to the query-system language (\S\ref{sec:metatheorem}). Section~\ref{sec:stone} proves the Stone realization from finitely additive data. Section~\ref{sec:bridge} draws out CE's unified meaning across both constructions and characterises the Stone space.  The main results have been formalized in Lean~4 using Mathlib; source files are available in the accompanying repository.  This paper is the first step in a programme deriving canonical dynamics, state-space reconstruction, and certifiability from observational data; the further steps are carried out in the companion papers.
+Section~\ref{sec:setup} introduces query systems, cylinder sets, the observable $\sigma$-algebra, compatible charges, and Surjective Evaluation.  Section~\ref{sec:cara} gives the direct extension theorem: given compatible $\sigma$-additive marginals, the global observable measure follows by Carathéodory.  Section~\ref{sec:ce} establishes CE as the admissibility criterion that determines when finitely additive level data warrants that probabilistic status, proves its non-derivability from structural conditions, and shows that the underlying logical obstruction is not specific to the query-system language (\S\ref{sec:metatheorem}). Section~\ref{sec:stone} proves the Stone realization from finitely additive data, introducing Discriminability as the condition that makes the Stone embedding injective. Section~\ref{sec:bridge} draws out CE's unified meaning across both constructions and characterises the Stone space.  The main results have been formalized in Lean~4 using Mathlib; source files are available in the accompanying repository.  This paper is the first step in a programme deriving canonical dynamics, state-space reconstruction, and certifiability from observational data; the further steps are carried out in the companion papers.
 
 % ------------------------------------------------------------------
 \section{Query systems and charges}
@@ -264,7 +264,7 @@ consistent finite-dimensional distributions, and sequential common refinements r
 \label{sec:ce}
 % ------------------------------------------------------------------
 
-Section~\ref{sec:cara} showed that compatible $\sigma$-additive marginals extend directly to a global observable law.  This section identifies the admissibility condition that determines when finitely additive level data deserves that probabilistic status.
+Section~\ref{sec:cara} showed that compatible $\sigma$-additive marginals extend directly to a global observable measure.  This section identifies the admissibility condition that determines when finitely additive level data deserves that probabilistic status.
 
 \begin{definition}[Collective Exhaustion]
 \label{def:ce}
@@ -584,9 +584,9 @@ for CE.  Compactness ensures $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is $\sigm
 
 The Yosida--Hewitt decomposition identifies the algebraic and geometric faces of CE: $\mu_p = 0$ is both the vanishing of the purely finitely additive part and the condition that no mass escapes to non-principal ultrafilters.
 
-When the index set admits sequential common refinements and the query system discriminates points, both constructions are available simultaneously. The following proposition confirms they produce the same observable law.
+When the index set admits sequential common refinements and the query system discriminates points, both constructions are available simultaneously. The following proposition confirms they produce the same observable measure.
 
-\begin{proposition}[Uniqueness of the observable law]
+\begin{proposition}[Uniqueness of the observable measure]
 \label{prop:coincidence}
 Suppose the query system satisfies Surjective Evaluation, Discriminability, and sequential common refinements and common coarsenings, and let $\{\nu_i\}$ be a compatible family of probability measures.  Let $P^{\mathrm{C}}$ be the measure produced by Theorem~\ref{thm:obs-extension} and $P^{\mathrm{S}}$ the measure produced by Theorem~\ref{thm:stone-main}.  Then $P^{\mathrm{C}} = P^{\mathrm{S}}$.
 \end{proposition}
@@ -595,7 +595,11 @@ Suppose the query system satisfies Surjective Evaluation, Discriminability, and 
 Both measures agree on every cylinder set: $P^{\mathrm{C}}(\mathrm{Cyl}(i, A)) = \nu_i(A) = P^{\mathrm{S}}(\mathrm{Cyl}(i, A))$.  By observational determination (Theorem~\ref{thm:obs-determination}), they are equal on $\sigma(\mathcal{C})$.
 \end{proof}
 
-\noindent CE is the condition under which finitely additive data attains the $\sigma$-additive status needed for the observable law to be uniquely determined; by \S\ref{sec:metatheorem}, no first-order structural condition can play that role. The Stone space makes the geometry of that demand visible.  Every point of $\mathrm{St}(\mathcal{C})$ is a maximal consistent assignment of yes/no answers to every observable distinction --- a coherent distinction pattern, whether or not any $\omega \in \Omega$ realises it.  The observer's world sits inside $\mathrm{St}(\mathcal{C})$ as the principal ultrafilters; beyond it lie ideal limit points, internally coherent but unrealised.
+\begin{corollary}
+The observable measure may be obtained by two distinct constructions: by countable reach in $\iota$ via sequential common refinements (Theorem~\ref{thm:obs-extension}), or by the Stone completion of $\mathcal{C}$ (Theorem~\ref{thm:stone-main}). Whenever both constructions apply, they yield the same measure.
+\end{corollary}
+
+\noindent The Stone space makes the geometry of that demand visible.  Every point of $\mathrm{St}(\mathcal{C})$ is a maximal consistent assignment of yes/no answers to every observable distinction --- a coherent distinction pattern, whether or not any $\omega \in \Omega$ realises it.  The observer's world sits inside $\mathrm{St}(\mathcal{C})$ as the principal ultrafilters; beyond it lie ideal limit points, internally coherent but unrealised.
 
 \bibliographystyle{plain}
 \bibliography{references}

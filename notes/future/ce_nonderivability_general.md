@@ -1,153 +1,149 @@
 ---
 name: CE non-derivability — general Boolean algebra version
-description: Future note — metatheorem that countable additivity is not first-order axiomatizable in the language of Boolean algebras with finitely additive probability; complete proof via ultraproduct of Dirac masses on finite-cofinite algebra; subsumes Paper I Prop 3.9
+description: Future note — metatheorem that countable additivity is not first-order axiomatizable; plus full investigation of ultralimit representation of purely finitely additive charges
 type: project
 ---
 
-# CE Non-Derivability: General Boolean Algebra Version
+# CE Non-Derivability and the Ultralimit Representation Problem
 
-**Status:** Research direction. Not in the current four-paper arc. Revisit after arXiv submission.
-
----
-
-## Context
-
-Paper I, Proposition 3.9 proves that no first-order structural condition in the
-language of query systems can imply CE. The mechanism is Łoś: ultraproducts of
-Dirac masses produce the finite-cofinite charge, which is purely finitely additive
-and fails CE.
-
-The natural generalisation is whether this holds at a strictly more general level —
-in the first-order language of Boolean algebras equipped with a finitely additive
-probability, independent of any query-system structure. The answer is yes, and the
-proof stays close to the existing argument.
+*Extended 2026-04-17 to include literature findings and paper sketch*
 
 ---
 
-## Language $\mathcal{L}_{\mathrm{BA},\mu}$
+## Part I: The Non-Axiomatizability Theorem (complete)
 
-One-sorted first-order language with:
+**Status:** Done. Written up as companion note (`ce_nonderivability_companion.tex`), targeting APAL.
 
-- **Boolean operations:** $\wedge, \vee, \neg, 0, 1$
-- **Rational comparison predicates:** for each $q \in [0,1] \cap \mathbb{Q}$,
-  unary predicate symbols $M_{\leq q}(x)$ and $M_{\geq q}(x)$
+The companion note proves: in the first-order language $\mathcal{L}_{\mathrm{BA},\mu}$ of Boolean algebras with normalized finitely additive charge, no first-order theory characterizes those models whose charge extends to a $\sigma$-additive measure. The proof is the Dirac-mass ultraproduct construction.
 
-**Interpretation:** $M_{\leq q}(a)$ means $\mu(a) \leq q$; $M_{\geq q}(a)$ means
-$\mu(a) \geq q$. This avoids a two-sorted language with a numeric sort.
-
-**What is first-order in $\mathcal{L}_{\mathrm{BA},\mu}$:**
-
-- Boolean algebra axioms (all standard identities)
-- Normalization: $\mu(0) = 0$, $\mu(1) = 1$
-- Order compatibility: $a \leq b \Rightarrow \mu(a) \leq \mu(b)$
-- Rational consistency: $p < q \Rightarrow (M_{\leq p}(a) \Rightarrow M_{\leq q}(a))$, etc.
-- Finite additivity: for each rationals $r, s, t$ with $t = r + s$,
-  $a \wedge b = 0 \wedge M_{=r}(a) \wedge M_{=s}(b) \Rightarrow M_{=t}(a \vee b)$
-  (where $M_{=q}$ abbreviates $M_{\leq q} \wedge M_{\geq q}$)
-
-The class of Boolean algebras with normalized finitely additive probability is
-**first-order axiomatizable** in $\mathcal{L}_{\mathrm{BA},\mu}$.
-
-**What is not first-order:** Countable additivity requires quantification over
-a countable sequence $(a_n)_{n \in \mathbb{N}}$ — not available in first-order
-logic. So countable additivity is not a sentence of $\mathcal{L}_{\mathrm{BA},\mu}$.
+See `papers/paper_i/notes/ce_nonderivability_companion.tex` for the full proof.
 
 ---
 
-## The theorem
+## Part II: The Ultralimit Representation Problem (investigation underway)
 
-> **Proposition.** Let $\mathcal{L}_{\mathrm{BA},\mu}$ be the first-order language
-> of Boolean algebras together with rational comparison predicates for a normalized
-> finitely additive probability. Then countable additivity is not first-order
-> axiomatizable in $\mathcal{L}_{\mathrm{BA},\mu}$.
+### The Question
 
-Equivalently: there is no set $T$ of $\mathcal{L}_{\mathrm{BA},\mu}$-sentences such
-that $(B, \mu) \models T$ if and only if $\mu$ is countably additive.
+Given a purely finitely additive probability charge $\ell$ on a Boolean algebra $B$, does there exist a sequence $(\mu_n)$ of $\sigma$-additive probabilities on $B$ and a nonprincipal ultrafilter $\mathcal{U}$ such that
+$$\ell(A) = \lim_{\mathcal{U}} \mu_n(A) \quad \forall A \in B?$$
 
----
+This arises naturally from the companion note: the non-axiomatizability proof needs only *one* witness (the finite-cofinite charge), but the broader question is which purely finitely additive charges are ultralimits.
 
-## Proof
+### Literature Findings (2026-04-17)
 
-Let $E$ be the finite-cofinite Boolean algebra on a countably infinite set, and let
-$\delta_n$ be the Dirac charges at an enumeration $q : \mathbb{N} \to \mathbb{Q}$ of
-that set. Each $\delta_n$ is countably additive. For a nonprincipal ultrafilter
-$\mathcal{U}$ extending the cofinite filter, the ultralimit
-$$\ell(A) = \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{q(n) \in A}$$
-is the finite-cofinite charge: $\ell(A) = 0$ for finite $A$ and $\ell(A) = 1$ for
-cofinite $A$. This charge is finitely additive but not countably additive — the
-sequence $A_k = \mathbb{Q} \setminus \{q(0), \ldots, q(k)\}$ satisfies
-$\bigcap_k A_k = \varnothing$ but $\ell(A_k) = 1$ for all $k$. Since first-order
-properties are preserved under ultraproducts by Łoś's theorem, countable additivity
-cannot be first-order axiomatizable. $\square$
+**Key sources checked:** Yosida–Hewitt (1952), Rao–Rao (1983), Duanmu–Weiss (2018), Cardona–Mejía–Uribe-Zapata (2025), Dunford–Schwartz (1958), Keisler (1985), Swierczynska (2024).
 
-**Model-theoretic note.** The ultraproduct of the $(E, \delta_n)$ is another
-$\mathcal{L}_{\mathrm{BA},\mu}$-structure; $\ell$ is the charge induced on the
-diagonal copy of $E$ inside it. For an informal note, identifying the ultraproduct
-with $(E, \ell)$ is fine; for full precision, say "the ultraproduct induces the
-finite-cofinite charge on the diagonal copy of $E$."
+#### Case 1: σ-algebras — CLOSED (negative)
 
----
+**Theorem (Nikodym/Vitali–Hahn–Saks):** If $(\mu_n)$ is a sequence of $\sigma$-additive probabilities on a $\sigma$-algebra $\Sigma$, then any pointwise ultralimit $\ell(A) = \lim_\mathcal{U} \mu_n(A)$ is itself $\sigma$-additive.
 
-## Corollary: CE is not first-order
+*Proof sketch:* For disjoint $(A_k)$ with union $A$: $\ell(A) = \lim_\mathcal{U} \mu_n(A) = \lim_\mathcal{U} \sum_k \mu_n(A_k) = \sum_k \lim_\mathcal{U} \mu_n(A_k) = \sum_k \ell(A_k)$, where the interchange holds because $\mu_n(A) = \sum_k \mu_n(A_k)$ exactly for each $n$.
 
-Replacing "countably additive" by "satisfies CE" (equivalently, extends to a
-$\sigma$-additive measure on the generated $\sigma$-algebra) gives:
+**Consequence:** On a $\sigma$-algebra, no purely finitely additive charge is a pointwise ultralimit of $\sigma$-additive measures. This case is settled.
 
-> **Corollary.** In the first-order language $\mathcal{L}_{\mathrm{BA},\mu}$, no
-> first-order condition implies the extension property characterised by CE.
+**Reference:** Dunford–Schwartz, *Linear Operators* I (1958), IV.9.8.
 
-The proof is identical: the finite-cofinite charge witnesses CE failure, and it
-arises as an ultraproduct of CE-satisfying (in fact $\sigma$-additive) charges.
+#### Case 2: General Boolean algebras — OPEN
 
----
+The Nikodym obstruction does not apply when $B$ is merely a Boolean algebra (not $\sigma$-complete). No theorem in either direction appears in the literature. The finite-cofinite algebra is the canonical example of this setting.
 
-## Relation to Paper I Prop 3.9
+**What is known:**
+- Yosida–Hewitt (1952): establishes ba = ca ⊕ pfa (orthogonal decomposition) but does not address representation by limits
+- Rao–Rao (1983): covers classification and extension, no approximation of pfa by ca
+- Cardona–Mejía–Uribe-Zapata (2025): local (finite-partition) approximation of free finitely additive measures by uniform probabilities on finite sets; does **not** address global pointwise ultralimit representation
+- Duanmu–Weiss (2018): on totally bounded separable metric spaces, every finitely additive Borel probability is a weak limit (bounded uniformly continuous test functions) of $\sigma$-additive probabilities; Example 5.14 shows setwise ultralimit approximation fails for ultrafilter charges on discrete sets
 
-Paper I Prop 3.9 is the query-system-specific version: the same Dirac-mass
-ultraproduct argument runs inside the query-system language and shows no first-order
-structural condition in that language can imply CE.
+#### Case 3: Weak* approximation — a different question
 
-This proposition subsumes it: the obstruction is not a feature of query-system
-language specifically, but of any finitary first-order description of Boolean
-probability algebras. CE is non-derivable not merely from the structural axioms of
-query systems, but from first-order algebraic description as such.
+Every purely finitely additive measure is an accumulation point (in the product topology on $[0,1]^B$) of finitely supported (hence $\sigma$-additive) measures (Seidenfeld, cited in Duanmu–Weiss). But this uses nets, not sequences or ultrafilter limits. Weak* limit ≠ pointwise ultralimit.
 
-**Paper-vocabulary formulation (closest to Prop 3.9):**
+#### Case 4: The βN perspective
 
-> **Proposition (General algebraic non-derivability).** Let
-> $\mathcal{L}_{\mathrm{BA},\mu}$ be the first-order language of Boolean algebras
-> equipped with a normalized finitely additive charge. Then no first-order
-> $\mathcal{L}_{\mathrm{BA},\mu}$-theory characterizes those models whose charge
-> extends to a $\sigma$-additive measure on the generated $\sigma$-algebra.
+Every finitely additive probability on $\mathcal{P}(\mathbb{N})$ corresponds bijectively to a regular Borel measure on $\beta\mathbb{N}$ (Stone space). $\sigma$-additive charges ↔ measures supported on $\mathbb{N} \subset \beta\mathbb{N}$ (principal ultrafilters). Purely finitely additive charges ↔ measures supported on $\beta\mathbb{N} \setminus \mathbb{N}$.
 
-**Philosophical bridge sentence (for paper or talks):**
+Ultralimits of Dirac masses produce only {0,1}-valued ultrafilter charges — a proper subclass. General purely finitely additive charges (with values in $(0,1)$) are not of this form. The βN picture gives a clean geometric statement of the problem but does not resolve it.
 
-> The failure of CE to be structurally derivable is not an artifact of the
-> observational formalism. It reflects a more basic limitation: finitary first-order
-> structure can encode coherence, but not the countable-exhaustion behavior required
-> for probability.
+### The Natural Ladder of Sub-Questions
 
-**In the paper:** Prop 3.9 stands as the framework-intrinsic version. A single
-sentence after Prop 3.9 points to the broader metatheorem (already added in
-`paper_i_body.tex`). The full general statement belongs in a companion note or
-appendix.
+1. **Ultrafilter-generated {0,1}-charges:** $\delta_\mathcal{U}(A) = \mathbf{1}_{A \in \mathcal{U}}$. Arise as ultralimits of Dirac masses. ✓ (finite-cofinite witness is of this type)
+
+2. **Free finitely additive probabilities** (assigning zero to all finite sets): Cardona et al. give local approximation; global ultralimit representation unknown.
+
+3. **General purely finitely additive probabilities:** Unknown. May depend on set-theoretic axioms (existence of certain ultrafilters, Ramsey-type properties).
+
+4. **The full representation question:** Is every charge in pfa(B) an ultralimit of $\sigma$-additive charges on $B$? If not, what is the characterization of the representable ones?
+
+### Key Distinctions
+
+- **Fixed algebra vs varying algebra:** Fixed = same $B$ throughout. Varying = $\ell$ arises on a diagonal copy inside an ultraproduct of different $(B_n, \mu_n)$. These are different questions. The companion note uses the fixed-algebra setting.
+
+- **Ultralimit vs ultraproduct:** Ultralimit keeps $B$ fixed and takes $\ell(A) = \lim_\mathcal{U} \mu_n(A)$. Ultraproduct produces a new structure with $\ell$ induced on a diagonal copy. The fixed-algebra ultralimit is the more natural first target.
+
+- **Approximation vs exact representation:** Local finite-partition approximation (Cardona et al.) vs global pointwise ultralimit (the question here). Approximation holds more broadly.
 
 ---
 
-## Ambitious target (separate, deferred)
+## Part III: Paper Sketch
 
-**Classification question:** Which purely finitely additive charges arise as
-ultraproducts or ultralimits of $\sigma$-additive probabilities?
+**Working title:** *Which Purely Finitely Additive Charges are Ultralimits of σ-Additive Probabilities?*
 
-The present proof needs only one witness (the Dirac-mass construction provides it).
-The classification is a separate project.
+**Branch:** `paper-ultralimit-representation`
 
----
+### Proposed structure
 
-## Key references
+**§1 Introduction**
+- State the representation question cleanly
+- Motivation: arises from the non-axiomatizability proof; the Dirac-mass construction produces one witness, but which charges are representable?
+- Summary of results (to be determined as investigation proceeds)
 
-- Łoś's theorem: ultraproduct transfer theorem for first-order sentences;
-  Keisler, *The Ultraproduct Construction*
-- Yosida–Hewitt: finitely additive probability = $\sigma$-additive part + purely
-  finitely additive part; CE $\Leftrightarrow \ell_p = 0$
-- arXiv:2503.08910 — recent survey on finitely additive measures on Boolean algebras
+**§2 Background**
+- Yosida–Hewitt decomposition: ba = ca ⊕ pfa
+- Stone duality and the βN picture
+- The Nikodym convergence theorem
+- Key definitions: ultralimit, ultraproduct, fixed-algebra vs varying-algebra
+
+**§3 The σ-Algebra Case: A Complete Obstruction**
+- Theorem: on a σ-algebra, no pfa charge is a pointwise ultralimit of σ-additive measures
+- Proof via Nikodym / Vitali–Hahn–Saks
+- Corollary: the question is entirely about Boolean algebras (not σ-complete)
+
+**§4 Ultrafilter-Generated Charges**
+- Every {0,1}-valued pfa charge is an ultralimit of Dirac masses ✓
+- Proof: the finite-cofinite construction generalizes
+- βN interpretation: these are the "point masses" on βN \ N
+
+**§5 Free Finitely Additive Measures**
+- Cardona et al. local approximation result
+- Question: can local approximation be upgraded to a global ultralimit?
+- First test case: the uniform measure on an ultrafilter base
+
+**§6 The General Case**
+- Conjectural theorem or counterexample
+- Possible connection to Ramsey theory / set-theoretic combinatorics
+- Relationship to Lauwers (2010): pfa measures are non-constructive
+
+**§7 Open Questions**
+- Classification of representable charges
+- Set-theoretic independence questions
+- Connection to Keisler measures in model theory
+
+### Claims to resolve (open)
+
+- [ ] Is every free finitely additive probability an ultralimit of σ-additive probabilities on the same Boolean algebra?
+- [ ] Is there a purely finitely additive charge on a Boolean algebra that is provably NOT an ultralimit?
+- [ ] Does the βN picture give a characterization?
+- [ ] Is the answer set-theoretically independent?
+
+### References to add to bib
+
+- Duanmu, H. and Weiss, W. (2018). Finitely-additive, countably-additive and internal probability measures. *Comment. Math. Univ. Carolin.* **59**(4), 467–485.
+- Dunford, N. and Schwartz, J. T. (1958). *Linear Operators*, Part I. Interscience.
+- Lauwers, L. (2010). Purely finitely additive measures are non-constructible objects. DPS 10.10, KU Leuven.
+- Cardona, Mejía, Uribe-Zapata (2025). arXiv:2503.08910.
+
+### Next steps
+
+1. Prove or disprove: every free finitely additive probability on the finite-cofinite algebra is an ultralimit of σ-additive probabilities on that algebra.
+2. Investigate the βN / Stone space reformulation more carefully.
+3. Determine whether the general question is set-theoretically sensitive.
+4. Decide scope of paper based on what can be proved.

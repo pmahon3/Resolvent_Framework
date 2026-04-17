@@ -83,7 +83,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 
 ### Key Distinctions
 
-- **Fixed algebra vs varying algebra:** Fixed = same $B$ throughout. Varying = $\ell$ arises on a diagonal copy inside an ultraproduct of different $(B_n, \mu_n)$. These are different questions. The companion note uses the fixed-algebra setting.
+- **Fixed algebra vs varying algebra:** Fixed = same $B$ throughout. Varying = $\ell$ arises on a diagonal copy inside an ultraproduct of different $(B_n, \mu_n)$. These are different questions. The companion note produces its witness through an ultraproduct, but the resulting bad charge is analyzed on the diagonal copy of a fixed algebra $E$. The present representation problem asks for a genuine fixed-algebra ultralimit from the start: $\ell(A) = \lim_\mathcal{U} \mu_n(A)$ with each $\mu_n$ $\sigma$-additive on the same $B$.
 
 - **Ultralimit vs ultraproduct:** Ultralimit keeps $B$ fixed and takes $\ell(A) = \lim_\mathcal{U} \mu_n(A)$. Ultraproduct produces a new structure with $\ell$ induced on a diagonal copy. The fixed-algebra ultralimit is the more natural first target.
 

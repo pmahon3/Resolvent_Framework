@@ -24,8 +24,7 @@
 \newcommand{\N}{\mathbb{N}}
 
 % ---------- Title ----------
-\title{Countable Additivity is Not First-Order:\\
-\large A Companion Note to ``Probability from Observation:\\Collective Exhaustion and the Observable Extension Theorem''}
+\title{Countable Additivity is Not First-Order Axiomatizable}
 \author{Patrick S.\ Mahon}
 \date{}
 
@@ -33,16 +32,51 @@
 \maketitle
 
 \begin{abstract}
-Proposition~3.9 of the companion paper shows that collective exhaustion (CE)
-is not derivable from any first-order structural condition on a query system.
-We show here that this obstruction is not specific to query systems. In the
-first-order language of Boolean algebras equipped with a normalized finitely
-additive charge, no first-order theory characterizes those models whose charge
-extends to a $\sigma$-additive measure on the generated $\sigma$-algebra.
-Equivalently, countable additivity is not first-order axiomatizable in this
-language. The proof uses the same ultraproduct mechanism as Proposition~3.9,
-now stated in full generality.
+In the first-order language of Boolean algebras equipped with a normalized finitely
+additive charge, no first-order theory characterizes those models whose charge extends
+to a $\sigma$-additive measure on the generated $\sigma$-algebra.  Equivalently,
+countable additivity is not first-order axiomatizable among finitely additive probability
+Boolean algebras.  The proof uses a single ultraproduct construction: Dirac charges on
+the finite-cofinite algebra are individually $\sigma$-additive, but their ultraproduct
+is the finite-cofinite charge, which fails $\sigma$-additivity --- contradicting
+\L{}o\'{s}'s theorem if any first-order axiomatization existed.  As an application, the
+same obstruction shows that collective exhaustion --- the necessary and sufficient
+condition for $\sigma$-additive extension in a directed system of Boolean algebras
+\cite{mahon2025} --- cannot be derived from any first-order structural condition.
 \end{abstract}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+A classical question in model theory is whether a mathematically natural property of
+structures can be captured by a first-order theory in an appropriate language.  When
+the property is preserved under ultraproducts, \L{}o\'{s}'s theorem ensures it is at
+least consistent with first-order axiomatization; when it fails in an ultraproduct of
+structures that individually satisfy it, first-order axiomatization is ruled out.
+
+Countable additivity is a fundamental property of probability measures, distinguishing
+$\sigma$-additive measures from merely finitely additive charges.  It is well known
+that countable additivity cannot be expressed by a single first-order sentence, since
+it involves quantification over countable sequences.  The stronger question --- whether
+countable additivity is \emph{axiomatizable} by any first-order theory, i.e., whether
+there exists a set of first-order sentences whose models are exactly the $\sigma$-additive
+ones among finitely additive probability Boolean algebras --- appears not to have been
+explicitly settled in the literature in the natural language we consider here.
+
+We settle this question negatively.  In the first-order language $\Lmu$ of Boolean
+algebras with a normalized finitely additive charge (Section~\ref{sec:language}), no
+first-order theory characterizes those models whose charge extends to a $\sigma$-additive
+measure.  The proof is a direct ultraproduct argument using the finite-cofinite algebra
+on $\Q$ as the canonical witness (Section~\ref{sec:theorem}).
+
+Section~\ref{sec:ce} draws out an application to collective exhaustion (CE), the
+admissibility condition for $\sigma$-additive extension in directed systems of Boolean
+algebras studied in \cite{mahon2025}.  Section~\ref{sec:rep} raises the representation
+question of which purely finitely additive charges arise as ultraproducts of
+$\sigma$-additive ones, which is strictly harder than non-axiomatizability and is left
+open.
 
 % ------------------------------------------------------------------
 \section{The language}
@@ -81,15 +115,15 @@ Let $\Tfa$ be the $\Lmu$-theory axiomatizing:
 \noindent
 The class of Boolean algebras with normalized finitely additive probability is
 first-order axiomatizable in $\Lmu$.  Countable additivity, by contrast, requires
-quantification over an arbitrary countable sequence $(a_n)_{n \in \N}$ — not
-available in first-order logic — and so is not a sentence of $\Lmu$.
+quantification over an arbitrary countable sequence $(a_n)_{n \in \N}$ --- not
+available in first-order logic --- and so is not a sentence of $\Lmu$.
 
 % ------------------------------------------------------------------
-\section{The metatheorem}
+\section{The main theorem}
 \label{sec:theorem}
 % ------------------------------------------------------------------
 
-\begin{proposition}[$\sigma$-additive extension is not first-order]
+\begin{proposition}[$\sigma$-additive extension is not first-order axiomatizable]
 \label{prop:not-fo}
 There is no first-order $\Lmu$-theory $T \supseteq \Tfa$ such that, for every
 $(B, \mu) \models \Tfa$,
@@ -137,43 +171,40 @@ is witnessed on the diagonal copy.
 \end{remark}
 
 % ------------------------------------------------------------------
-\section{Corollary in the language of collective exhaustion}
+\section{Application to collective exhaustion}
 \label{sec:ce}
 % ------------------------------------------------------------------
 
-In the companion paper \cite{mahon2025}, collective exhaustion (CE) is the exact
-condition under which a compatible finitely additive family extends to a
-$\sigma$-additive measure on the observable $\sigma$-algebra.  Proposition~\ref{prop:not-fo} therefore
-implies:
+In \cite{mahon2025}, collective exhaustion (CE) is introduced as the necessary and
+sufficient condition under which a compatible finitely additive family on a directed
+system of Boolean algebras extends to a $\sigma$-additive measure on the observable
+$\sigma$-algebra.  CE is a valuation-layer condition: it requires that whenever a
+decreasing sequence of events has empty intersection, the charges assigned to those
+events converge to zero.
+
+Proposition~\ref{prop:not-fo} implies:
 
 \begin{corollary}[CE is not first-order in the general language]
 \label{cor:ce-not-fo}
 In the first-order language $\Lmu$ of Boolean algebras with normalized finitely
 additive charge, no first-order $\Lmu$-condition characterizes, or in general
-forces, the extension property characterized in the companion paper by collective
+forces, the extension property characterized in \cite{mahon2025} by collective
 exhaustion.
 \end{corollary}
 
 \noindent
-The companion paper establishes this at the level of query systems
-(Proposition~3.9): no first-order structural condition in the query-system language
-implies CE.  Corollary~\ref{cor:ce-not-fo} shows the obstruction is not an artifact
-of the query-system formalism.  It already appears in the more primitive setting of
-Boolean algebras with finitely additive charges, where countable additivity is not
-first-order axiomatizable.
+The paper \cite{mahon2025} establishes this at the level of query systems: no
+first-order structural condition in the query-system language implies CE.
+Corollary~\ref{cor:ce-not-fo} shows the obstruction is not an artifact of that
+formalism.  It already appears in the more primitive setting of Boolean algebras
+with finitely additive charges, where countable additivity is not first-order
+axiomatizable.
 
-The failure of CE to be structurally derivable therefore reflects a genuine
-expressive limitation of finitary first-order description: such descriptions can
-encode finite coherence, but not the countable-exhaustion behavior required for probability.
-
-The philosophical disagreements about the foundations of probability are not
-terminological.  They are disagreements about which extra structure licenses the
-passage from finite coherence to probability --- and the present result shows that
-such extra structure cannot be avoided.  Countable additivity cannot be derived
-from finite coherence alone; it is a genuine additional condition.  This helps
-explain why foundational disputes about probability persist: they turn on what
-must be added, and why, to obtain $\sigma$-additive probability from finite
-coherence.
+Foundational disputes about probability are not terminological.  They concern
+which extra structure licenses the passage from finite coherence to probability,
+and Proposition~\ref{prop:not-fo} shows that some such extra structure is
+logically unavoidable: no accumulation of first-order conditions can close the
+gap between finite additivity and $\sigma$-additivity.
 
 % ------------------------------------------------------------------
 \section{The representation question}

@@ -73,13 +73,17 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 
 1. **Ultrafilter-generated {0,1}-charges:** $\delta_\mathcal{U}(A) = \mathbf{1}_{A \in \mathcal{U}}$. Arise as ultralimits of Dirac masses on the finite-cofinite algebra. ✓ (the companion note proof already gives this)
 
-2. **Free finitely additive probabilities on the finite-cofinite algebra** (assigning zero to all finite sets): Cardona et al. give local finite-partition approximation, which does not upgrade to global pointwise ultralimit. The immediate test case is:
-   > On the finite-cofinite algebra, is every free finitely additive probability an ultralimit of σ-additive probabilities on that same algebra?
-   This is small enough to finish. It will determine whether the investigation becomes a theorem paper, a counterexample paper, or an open-problem note.
+2. **Free finitely additive probabilities on the finite-cofinite algebra** — **RESOLVED (positive).** ✓
+   See `finite_cofinite_calculation.md` for the full argument. Key findings:
+   - On $\mathcal{E}$, $\mathrm{pfa}(\mathcal{E})$ is one-dimensional: the only purely finitely additive (= free) probability is $\ell_{\mathrm{fc}}$ itself.
+   - $\ell_{\mathrm{fc}}$ is the pointwise sequential limit of the uniform measures $\frac{1}{k}\sum_{n<k}\delta_n$, which are $\sigma$-additive on $\mathcal{E}$.
+   - Hence every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit (a fortiori a pointwise ultralimit) of $\sigma$-additive probabilities on the same algebra.
+   - Structural reason: the "spread mass thinly" construction works because $\mathrm{pfa}(\mathcal{E})$ is one-dimensional and $\ell_{\mathrm{fc}}$ has no atom structure to obstruct approximation.
+   - In the βN picture: this is just weak* density of finitely supported measures in all Borel measures on $\beta\mathbb{N}$ — trivial in this case, confirming that the interesting structure begins with algebras where $\mathrm{pfa}(B)$ is multidimensional.
 
-3. **General purely finitely additive probabilities on Boolean algebras:** Unknown. The answer to rung 2 is a prerequisite for knowing whether to expect a positive or negative answer here.
+3. **General purely finitely additive probabilities on Boolean algebras:** Open. The finite-cofinite case is positive but special — $\mathrm{pfa}(\mathcal{E})$ is one-dimensional. The next test case should be an algebra where $\mathrm{pfa}(B)$ is genuinely multidimensional (e.g., a free Boolean algebra on countably many generators, or the algebra of clopen sets of $\beta\mathbb{N}$).
 
-4. **The full representation question and classification:** Is every charge in pfa(B) an ultralimit of $\sigma$-additive charges on $B$? If not, what characterizes the representable ones? Set-theoretic sensitivity is a plausible downstream horizon but remains speculative until rungs 2–3 are resolved.
+4. **The full representation question and classification:** Is every charge in pfa(B) an ultralimit of $\sigma$-additive charges on $B$? If not, what characterizes the representable ones? Set-theoretic sensitivity is a plausible downstream horizon but remains speculative until rung 3 is probed.
 
 ### Key Distinctions
 
@@ -135,12 +139,13 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 - Set-theoretic independence questions
 - Connection to Keisler measures in model theory
 
-### Claims to resolve (open)
+### Claims to resolve
 
-- [ ] Is every free finitely additive probability an ultralimit of σ-additive probabilities on the same Boolean algebra?
-- [ ] Is there a purely finitely additive charge on a Boolean algebra that is provably NOT an ultralimit?
-- [ ] Does the βN picture give a characterization?
-- [ ] Is the answer set-theoretically independent?
+- [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `finite_cofinite_calculation.md`.)
+- [ ] On a Boolean algebra where pfa(B) is multidimensional: does the positive answer persist?
+- [ ] Is there a purely finitely additive charge on some Boolean algebra that is provably NOT a pointwise ultralimit of σ-additive probabilities on the same algebra?
+- [ ] Does the βN / Stone geometric reformulation give a characterization for general B?
+- [ ] Is the answer set-theoretically independent for some class of algebras?
 
 ### References to add to bib
 
@@ -154,11 +159,17 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 **Priority 1 — σ-algebra obstruction (write up carefully):**
 State the exact Dunford–Schwartz IV.9.8 theorem. Do not present the interchange $\lim_\mathcal{U} \sum_k = \sum_k \lim_\mathcal{U}$ as self-evident from the pointwise identity; that is where the real theorem lives. Keep the conclusion; attribute the delicate step to the reference.
 
-**Priority 2 — finite-cofinite algebra (immediate proving ground):**
-- Classify all finitely additive probabilities on the finite-cofinite algebra.
-- Identify which are free / purely finitely additive.
-- Test which are ultralimits of σ-additive probabilities on the same algebra.
-- This is the first rung that is not already settled and is small enough to finish.
+**Priority 2 — finite-cofinite algebra — DONE (positive).** ✓
+Every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit
+of $\sigma$-additive probabilities on $\mathcal{E}$. The key: $\mathrm{pfa}(\mathcal{E})$
+is one-dimensional (only $\ell_{\mathrm{fc}}$), and $\ell_{\mathrm{fc}}$ is the
+limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `finite_cofinite_calculation.md`.
+
+**Next target (Priority 2b) — algebra with multidimensional pfa:**
+Find a Boolean algebra $B$ where $\mathrm{pfa}(B)$ is genuinely multidimensional
+and test whether all purely finitely additive charges are still representable.
+Candidate: $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ (the quotient of all subsets
+by the finite sets), or the clopen algebra of $\beta\mathbb{N}$.
 
 **Priority 3 — Stone/βN geometric reformulation:**
 Translate the fixed-algebra ultralimit problem into the Stone/βN language explicitly. The geometric form is: which regular Borel measures on $\mathrm{St}(B)$ arise as ultralimits of measures supported on principal points? This matches the support geometry of Paper I and is probably the right language for the general investigation.

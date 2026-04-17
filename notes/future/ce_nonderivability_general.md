@@ -35,13 +35,11 @@ This arises naturally from the companion note: the non-axiomatizability proof ne
 
 #### Case 1: σ-algebras — CLOSED (negative)
 
-**Theorem (Nikodym/Vitali–Hahn–Saks):** If $(\mu_n)$ is a sequence of $\sigma$-additive probabilities on a $\sigma$-algebra $\Sigma$, then any pointwise ultralimit $\ell(A) = \lim_\mathcal{U} \mu_n(A)$ is itself $\sigma$-additive.
+**Theorem (via Nikodym/Vitali–Hahn–Saks-type convergence):** If $(\mu_n)$ is a sequence of $\sigma$-additive probabilities on a $\sigma$-algebra $\Sigma$, then any pointwise ultralimit $\ell(A) = \lim_\mathcal{U} \mu_n(A)$ is itself $\sigma$-additive.
 
-*Proof sketch:* For disjoint $(A_k)$ with union $A$: $\ell(A) = \lim_\mathcal{U} \mu_n(A) = \lim_\mathcal{U} \sum_k \mu_n(A_k) = \sum_k \lim_\mathcal{U} \mu_n(A_k) = \sum_k \ell(A_k)$, where the interchange holds because $\mu_n(A) = \sum_k \mu_n(A_k)$ exactly for each $n$.
+**Reference:** Dunford–Schwartz, *Linear Operators* I (1958), IV.9.8. *(The delicate step is interchanging the ultralimit with the countable sum $\sum_k \mu_n(A_k)$; this does not follow merely from the pointwise identity $\mu_n(A) = \sum_k \mu_n(A_k)$, and is where the real theorem lives.)*
 
-**Consequence:** On a $\sigma$-algebra, no purely finitely additive charge is a pointwise ultralimit of $\sigma$-additive measures. This case is settled.
-
-**Reference:** Dunford–Schwartz, *Linear Operators* I (1958), IV.9.8.
+**Consequence:** On a $\sigma$-algebra, no purely finitely additive charge is a pointwise ultralimit of $\sigma$-additive measures. This case is settled. The question is entirely about Boolean algebras that are not $\sigma$-complete — and this retroactively clarifies why the finite-cofinite algebra is not just a convenient example: it is the minimal setting where the Nikodym obstruction disappears and the ultralimit question becomes nontrivial.
 
 #### Case 2: General Boolean algebras — OPEN
 
@@ -57,21 +55,31 @@ The Nikodym obstruction does not apply when $B$ is merely a Boolean algebra (not
 
 Every purely finitely additive measure is an accumulation point (in the product topology on $[0,1]^B$) of finitely supported (hence $\sigma$-additive) measures (Seidenfeld, cited in Duanmu–Weiss). But this uses nets, not sequences or ultrafilter limits. Weak* limit ≠ pointwise ultralimit.
 
-#### Case 4: The βN perspective
+#### Case 4: The βN perspective — likely the right geometric language
 
 Every finitely additive probability on $\mathcal{P}(\mathbb{N})$ corresponds bijectively to a regular Borel measure on $\beta\mathbb{N}$ (Stone space). $\sigma$-additive charges ↔ measures supported on $\mathbb{N} \subset \beta\mathbb{N}$ (principal ultrafilters). Purely finitely additive charges ↔ measures supported on $\beta\mathbb{N} \setminus \mathbb{N}$.
 
-Ultralimits of Dirac masses produce only {0,1}-valued ultrafilter charges — a proper subclass. General purely finitely additive charges (with values in $(0,1)$) are not of this form. The βN picture gives a clean geometric statement of the problem but does not resolve it.
+This matches the geometry of the main paper exactly (principal ultrafilters = realised states; non-principal = ideal limit points). The fixed-algebra ultralimit problem can be restated geometrically as:
+
+> Which regular Borel probability measures on the Stone space of $B$ arise as ultralimits of measures supported on principal points?
+
+This is probably the right language for the investigation. It may not resolve the problem immediately, but it connects the question to the support geometry that drives Paper I's Stone construction and makes the βN picture load-bearing rather than illustrative.
+
+Ultralimits of Dirac masses produce only {0,1}-valued ultrafilter charges — a proper subclass. General purely finitely additive charges (with values in $(0,1)$) are not of this form. Translating the ladder of sub-questions into the Stone/βN language is Priority 3 (see below).
 
 ### The Natural Ladder of Sub-Questions
 
-1. **Ultrafilter-generated {0,1}-charges:** $\delta_\mathcal{U}(A) = \mathbf{1}_{A \in \mathcal{U}}$. Arise as ultralimits of Dirac masses. ✓ (finite-cofinite witness is of this type)
+Do not skip rungs. The first serious feasibility test is narrower than the full question.
 
-2. **Free finitely additive probabilities** (assigning zero to all finite sets): Cardona et al. give local approximation; global ultralimit representation unknown.
+1. **Ultrafilter-generated {0,1}-charges:** $\delta_\mathcal{U}(A) = \mathbf{1}_{A \in \mathcal{U}}$. Arise as ultralimits of Dirac masses on the finite-cofinite algebra. ✓ (the companion note proof already gives this)
 
-3. **General purely finitely additive probabilities:** Unknown. May depend on set-theoretic axioms (existence of certain ultrafilters, Ramsey-type properties).
+2. **Free finitely additive probabilities on the finite-cofinite algebra** (assigning zero to all finite sets): Cardona et al. give local finite-partition approximation, which does not upgrade to global pointwise ultralimit. The immediate test case is:
+   > On the finite-cofinite algebra, is every free finitely additive probability an ultralimit of σ-additive probabilities on that same algebra?
+   This is small enough to finish. It will determine whether the investigation becomes a theorem paper, a counterexample paper, or an open-problem note.
 
-4. **The full representation question:** Is every charge in pfa(B) an ultralimit of $\sigma$-additive charges on $B$? If not, what is the characterization of the representable ones?
+3. **General purely finitely additive probabilities on Boolean algebras:** Unknown. The answer to rung 2 is a prerequisite for knowing whether to expect a positive or negative answer here.
+
+4. **The full representation question and classification:** Is every charge in pfa(B) an ultralimit of $\sigma$-additive charges on $B$? If not, what characterizes the representable ones? Set-theoretic sensitivity is a plausible downstream horizon but remains speculative until rungs 2–3 are resolved.
 
 ### Key Distinctions
 
@@ -141,9 +149,19 @@ Ultralimits of Dirac masses produce only {0,1}-valued ultrafilter charges — a 
 - Lauwers, L. (2010). Purely finitely additive measures are non-constructible objects. DPS 10.10, KU Leuven.
 - Cardona, Mejía, Uribe-Zapata (2025). arXiv:2503.08910.
 
-### Next steps
+### Investigation priorities
 
-1. Prove or disprove: every free finitely additive probability on the finite-cofinite algebra is an ultralimit of σ-additive probabilities on that algebra.
-2. Investigate the βN / Stone space reformulation more carefully.
-3. Determine whether the general question is set-theoretically sensitive.
-4. Decide scope of paper based on what can be proved.
+**Priority 1 — σ-algebra obstruction (write up carefully):**
+State the exact Dunford–Schwartz IV.9.8 theorem. Do not present the interchange $\lim_\mathcal{U} \sum_k = \sum_k \lim_\mathcal{U}$ as self-evident from the pointwise identity; that is where the real theorem lives. Keep the conclusion; attribute the delicate step to the reference.
+
+**Priority 2 — finite-cofinite algebra (immediate proving ground):**
+- Classify all finitely additive probabilities on the finite-cofinite algebra.
+- Identify which are free / purely finitely additive.
+- Test which are ultralimits of σ-additive probabilities on the same algebra.
+- This is the first rung that is not already settled and is small enough to finish.
+
+**Priority 3 — Stone/βN geometric reformulation:**
+Translate the fixed-algebra ultralimit problem into the Stone/βN language explicitly. The geometric form is: which regular Borel measures on $\mathrm{St}(B)$ arise as ultralimits of measures supported on principal points? This matches the support geometry of Paper I and is probably the right language for the general investigation.
+
+**Priority 4 — set-theoretic sensitivity (downstream):**
+Revisit only after Priorities 2–3. Currently a plausible horizon, not an active target.

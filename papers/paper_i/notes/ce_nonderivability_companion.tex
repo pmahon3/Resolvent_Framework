@@ -8,14 +8,12 @@
 \usepackage[numbers]{natbib}
 
 % ---------- Theorem environments ----------
-\newtheorem{theorem}{Theorem}[section]
-\newtheorem{proposition}[theorem]{Proposition}
-\newtheorem{lemma}[theorem]{Lemma}
-\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}[proposition]{Corollary}
 
 \theoremstyle{definition}
-\newtheorem{definition}[theorem]{Definition}
-\newtheorem{remark}[theorem]{Remark}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{remark}[proposition]{Remark}
 
 % ---------- Commands ----------
 \newcommand{\Lmu}{\mathcal{L}_{\mathrm{BA},\mu}}
@@ -36,54 +34,30 @@ In the first-order language of Boolean algebras equipped with a normalized finit
 additive charge, no first-order theory characterizes those models whose charge extends
 to a $\sigma$-additive measure on the generated $\sigma$-algebra.  Equivalently,
 countable additivity is not first-order axiomatizable among finitely additive probability
-Boolean algebras.  The proof uses a single ultraproduct construction: Dirac charges on
-the finite-cofinite algebra are individually $\sigma$-additive, but their ultraproduct
-is the finite-cofinite charge, which fails $\sigma$-additivity --- contradicting
-\L{}o\'{s}'s theorem if any first-order axiomatization existed.  As an application, the
-same obstruction shows that collective exhaustion --- the condition requiring that
-whenever a decreasing sequence of observable events has empty intersection, the assigned
-charges converge to zero --- cannot be derived from any first-order structural condition,
-even though it is the necessary and sufficient condition for $\sigma$-additive extension
-in a directed system of Boolean algebras.
+Boolean algebras.  The proof is a single ultraproduct argument: Dirac charges on the
+finite-cofinite algebra are individually $\sigma$-additive, but their ultraproduct is
+the finite-cofinite charge, which fails $\sigma$-additivity --- contradicting
+\L{}o\'{s}'s theorem if any first-order axiomatization existed.  The same obstruction
+shows that collective exhaustion --- the necessary and sufficient condition for
+$\sigma$-additive extension in a directed system of Boolean algebras --- cannot be
+derived from any first-order structural condition.
 \end{abstract}
 
-% ------------------------------------------------------------------
-\section{Introduction}
-\label{sec:intro}
-% ------------------------------------------------------------------
+A property of structures is first-order axiomatizable in a language $L$ if there exists
+a set of $L$-sentences whose models are exactly the structures satisfying it.
+\L{}o\'{s}'s theorem gives the key diagnostic: if a property fails in an ultraproduct
+of structures that individually satisfy it, no first-order axiomatization exists.
 
-A classical question in model theory is whether a mathematically natural property of
-structures can be captured by a first-order theory in an appropriate language.  When
-the property is preserved under ultraproducts, \L{}o\'{s}'s theorem ensures it is at
-least consistent with first-order axiomatization; when it fails in an ultraproduct of
-structures that individually satisfy it, first-order axiomatization is ruled out.
+Countable additivity distinguishes $\sigma$-additive measures from finitely additive
+charges.  That it cannot be expressed by a single first-order sentence is clear: the
+condition quantifies over countable sequences, unavailable in first-order logic.  The
+sharper question --- whether countable additivity admits a first-order \emph{axiomatization}
+by any set of sentences in the natural language of Boolean algebras with a charge ---
+does not appear to have been settled in the literature.
 
-Countable additivity is a fundamental property of probability measures, distinguishing
-$\sigma$-additive measures from merely finitely additive charges.  It is well known
-that countable additivity cannot be expressed by a single first-order sentence, since
-it involves quantification over countable sequences.  The stronger question --- whether
-countable additivity is \emph{axiomatizable} by any first-order theory, i.e., whether
-there exists a set of first-order sentences whose models are exactly the $\sigma$-additive
-ones among finitely additive probability Boolean algebras --- appears not to have been
-explicitly settled in the literature in the natural language we consider here.
+We settle it negatively.
 
-We settle this question negatively.  In the first-order language $\Lmu$ of Boolean
-algebras with a normalized finitely additive charge (Section~\ref{sec:language}), no
-first-order theory characterizes those models whose charge extends to a $\sigma$-additive
-measure.  The proof is a direct ultraproduct argument using the finite-cofinite algebra
-on $\Q$ as the canonical witness (Section~\ref{sec:theorem}).
-
-Section~\ref{sec:ce} draws out an application to collective exhaustion (CE), the
-necessary and sufficient admissibility condition for $\sigma$-additive extension in
-directed systems of Boolean algebras.  Section~\ref{sec:rep} raises the representation
-question of which purely finitely additive charges arise as ultraproducts of
-$\sigma$-additive ones, which is strictly harder than non-axiomatizability and is left
-open.
-
-% ------------------------------------------------------------------
-\section{The language}
-\label{sec:language}
-% ------------------------------------------------------------------
+\medskip
 
 Let $\Lmu$ be the one-sorted first-order language with:
 \begin{itemize}
@@ -93,11 +67,10 @@ Let $\Lmu$ be the one-sorted first-order language with:
         $\mu(x) \leq q$ and $\mu(x) \geq q$ respectively.
 \end{itemize}
 
-A structure for $\Lmu$ is a Boolean algebra $B$ together with a
-$[0,1]$-valued finitely additive probability $\mu$, encoded through the
-truth of the predicates $M_{\leq q}$ and $M_{\geq q}$.  Using rational
-comparison predicates rather than a function symbol into $[0,1]$ avoids
-introducing a second numeric sort.
+A structure for $\Lmu$ is a Boolean algebra $B$ together with a $[0,1]$-valued finitely
+additive probability $\mu$, encoded through the truth of the predicates $M_{\leq q}$
+and $M_{\geq q}$.  Using rational comparison predicates rather than a function symbol
+into $[0,1]$ avoids introducing a second numeric sort.
 
 \begin{definition}[First-order theory of finitely additive probabilities]
 Let $\Tfa$ be the $\Lmu$-theory axiomatizing:
@@ -120,10 +93,7 @@ first-order axiomatizable in $\Lmu$.  Countable additivity, by contrast, require
 quantification over an arbitrary countable sequence $(a_n)_{n \in \N}$ --- not
 available in first-order logic --- and so is not a sentence of $\Lmu$.
 
-% ------------------------------------------------------------------
-\section{The main theorem}
-\label{sec:theorem}
-% ------------------------------------------------------------------
+\medskip
 
 \begin{proposition}[$\sigma$-additive extension is not first-order axiomatizable]
 \label{prop:not-fo}
@@ -157,25 +127,21 @@ finite-cofinite charge.
 
 The sequence $A_k = \Q \setminus \{q(0), \ldots, q(k)\}$ satisfies
 $A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_k A_k = \varnothing$, yet
-$\ell(A_k) = 1$ for all $k$.  Hence the charge induced on the diagonal copy
-of $E$ fails $\sigma$-additivity and does not extend to a $\sigma$-additive
-measure on $\sigma(E)$.  Consequently the ultraproduct cannot satisfy any
-theory $T$ characterizing $\sigma$-additive extension, contradicting
-\L{}o\'{s}'s theorem applied to the assumption that each $(E, \delta_n) \models T$.
+$\ell(A_k) = 1$ for all $k$.  Hence the charge on the diagonal copy of $E$
+fails $\sigma$-additivity and does not extend to a $\sigma$-additive measure
+on $\sigma(E)$.  Consequently the ultraproduct cannot satisfy any theory $T$
+characterizing $\sigma$-additive extension, contradicting \L{}o\'{s}'s theorem
+applied to the assumption that each $(E, \delta_n) \models T$.
 \end{proof}
 
 \begin{remark}
-For precision: the ultraproduct $\prod_\mathcal{U}(E,\delta_n)$
-is an $\Lmu$-structure in its own right; $\ell$ is the charge induced on the
-diagonal copy of $E$ inside it.  Identifying the ultraproduct with $(E,\ell)$
-is harmless for the contradiction, since the relevant failure of $\sigma$-additivity
-is witnessed on the diagonal copy.
+The ultraproduct $\prod_\mathcal{U}(E,\delta_n)$ is an $\Lmu$-structure in its own
+right; $\ell$ is the charge induced on the diagonal copy of $E$ inside it.
+Identifying the ultraproduct with $(E,\ell)$ is harmless for the contradiction,
+since the failure of $\sigma$-additivity is witnessed on the diagonal copy.
 \end{remark}
 
-% ------------------------------------------------------------------
-\section{Application to collective exhaustion}
-\label{sec:ce}
-% ------------------------------------------------------------------
+\medskip
 
 Let $(\mathcal{E}_i, \ell_i)_{i \in \iota}$ be a directed system of Boolean charge
 spaces: each $\mathcal{E}_i$ is a Boolean algebra and $\ell_i : \mathcal{E}_i \to [0,1]$
@@ -183,28 +149,24 @@ is a normalized finitely additive charge, with compatible connecting maps.
 \emph{Collective exhaustion} (CE) is the following condition on the induced charge
 $\ell$ on the direct limit algebra $\mathcal{E} = \varinjlim \mathcal{E}_i$: whenever
 $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{E}$ with $\bigcap_n E_n = \varnothing$,
-we have $\ell(E_n) \to 0$.
-
-CE is a valuation-layer condition: it constrains how charges behave across the directed
-system, not the Boolean-algebraic structure of the index set.  It is the necessary and
-sufficient condition under which a compatible finitely additive family extends to a
-$\sigma$-additive measure on the observable $\sigma$-algebra generated by the system.
-
-Proposition~\ref{prop:not-fo} implies immediately:
+we have $\ell(E_n) \to 0$.  CE is a valuation-layer condition: it constrains how
+charges behave across the directed system, not the Boolean-algebraic index structure.
+It is the necessary and sufficient condition under which a compatible finitely additive
+family extends to a $\sigma$-additive measure on the observable $\sigma$-algebra
+generated by the system.
 
 \begin{corollary}[CE is not first-order]
 \label{cor:ce-not-fo}
-In the first-order language $\Lmu$ of Boolean algebras with normalized finitely
-additive charge, no first-order $\Lmu$-theory characterizes those models satisfying CE.
-Equivalently, no accumulation of first-order conditions on the Boolean-algebraic
-structure can imply collective exhaustion.
+In the first-order language $\Lmu$, no first-order theory characterizes those models
+satisfying CE.  Equivalently, no accumulation of first-order conditions on the
+Boolean-algebraic structure can imply collective exhaustion.
 \end{corollary}
 
 \noindent
-The finite-cofinite charge of Proposition~\ref{prop:not-fo} is the canonical witness:
-it satisfies every first-order structural condition yet assigns persistent unit mass to
-the decreasing sequence $A_k = \Q \setminus \{q(0), \ldots, q(k)\}$, whose intersection
-is empty.  CE fails precisely because the mass is not exhausted.
+The finite-cofinite charge is the canonical witness: it satisfies every first-order
+structural condition yet assigns persistent unit mass to the decreasing sequence
+$A_k = \Q \setminus \{q(0), \ldots, q(k)\}$, whose intersection is empty.  CE fails
+precisely because the mass is not exhausted.
 
 Foundational disputes about probability are not terminological.  They concern which
 extra structure licenses the passage from finite coherence to probability, and
@@ -213,27 +175,22 @@ no first-order condition can close the gap.  For a full development of CE as the
 admissibility condition for $\sigma$-additive extension in a directed observational
 system, see \cite{mahon2025}.
 
-% ------------------------------------------------------------------
-\section{The representation question}
-\label{sec:rep}
-% ------------------------------------------------------------------
+\medskip
 
 Proposition~\ref{prop:not-fo} shows that \emph{one} purely finitely additive charge
 arises as an ultraproduct of $\sigma$-additive ones --- that single witness suffices
-for the non-axiomatizability conclusion.  A stronger question is:
+for the non-axiomatizability conclusion.  A stronger question remains open:
 
 \begin{quote}
 \emph{Which purely finitely additive charges arise as ultraproducts or ultralimits
 of $\sigma$-additive probabilities?}
 \end{quote}
 
-This is a representation question, and it is strictly harder than non-axiomatizability.
-It may hold only after enlarging the notion of approximation, for example by
-allowing nets or ultralimits more general than literal ultraproducts.  The
-Yosida--Hewitt decomposition \cite{YosidaHewitt1952} identifies the purely
-finitely additive part $\ell_p$ of any finitely additive charge; whether $\ell_p$
-can always be represented as an ultralimit is not settled here and is left as an
-open question.
+This is strictly harder than non-axiomatizability.  A positive answer may require
+enlarging the notion of approximation to nets or ultralimits more general than literal
+ultraproducts.  The Yosida--Hewitt decomposition \cite{YosidaHewitt1952} identifies
+the purely finitely additive part $\ell_p$ of any finitely additive charge; whether
+$\ell_p$ can always be represented as an ultralimit is left open.
 
 \bibliographystyle{plain}
 \bibliography{../references}

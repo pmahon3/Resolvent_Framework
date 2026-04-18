@@ -85,7 +85,8 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    - **Atomic $B$:** positive uniformly — density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ (equivalent to atomicity) implies every finitely additive probability is approximable. Covers $\mathcal{E}$, $\mathcal{E}_k$, $\mathcal{E}_\omega$. See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
    - **Non-atomic, full-support $\sigma$-additive measure exists:** positive — $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. First example: the interval algebra $\mathcal{I}$ of half-open subintervals of $[0,1]$; Lebesgue measure has full support. See `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`.
    - **σ-complete non-atomic $B$:** negative (Nikodym / companion note §2).
-   - **Non-σ-complete non-atomic $B$ without full-support $\sigma$-additive measure:** open — the first genuinely unknown case. Finding an explicit example here is the current frontier.
+   - **Non-σ-complete non-atomic $B$, direct-product with measure-free factor:** negative — $B = \mathcal{I} \times \mathcal{P}(\mathbb{N})/\mathrm{fin}$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(\mathcal{I}) \subsetneq \mathrm{St}(B)$; charges on the $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ factor are not representable. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md`.
+   - **Non-σ-complete non-atomic indecomposable $B$, no full-support σ-additive:** open — the true frontier. The direct-product obstruction is "soft"; whether indecomposable examples exist is unknown.
 
 4. **The full representation question and classification:** The question is now reformulated as: for which $B$ is $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$? This is the theorem-shaped target beyond the easy cases.
 

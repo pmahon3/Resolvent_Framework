@@ -202,7 +202,8 @@ remains downstream speculation until a concrete candidate algebra is identified.
 | Atomic uncountable $B$ | $\mathrm{Prin}(B)$ | Dense; nets positive; sequences unclear | Likely positive |
 | Non-atomic, full-support σ-additive exists | $\mathrm{Supp}_\sigma(B)$ | Full ($= \mathrm{St}(B)$) | Positive |
 | σ-complete non-atomic $B$ | $\mathrm{Supp}_\sigma(B)$ | Strict subset | **Negative** (Nikodym) |
-| Non-σ-complete non-atomic, no full-support σ-additive | $\mathrm{Supp}_\sigma(B)$ | Unknown | **Open** |
+| Non-σ-complete non-atomic, direct-product with measure-free factor (e.g., $\mathcal{I} \times \mathcal{P}(\mathbb{N})/\mathrm{fin}$) | $\mathrm{Supp}_\sigma(B)$ | Strict subset | **Negative** (new; see row5_candidate.md) |
+| Non-σ-complete non-atomic **indecomposable**, no full-support σ-additive | $\mathrm{Supp}_\sigma(B)$ | Unknown | **Open** |
 
 The last row is the frontier. The interval algebra $\mathcal{I}$ falls in row 3
 (positive). Finding an example in row 5 would give the first genuinely negative result
@@ -233,6 +234,7 @@ the frontier question is whether $\mathrm{Supp}_\sigma(B)$ is all of $\mathrm{St
 - [x] σ-complete non-atomic case: negative (Nikodym)
 - [x] Interval algebra $\mathcal{I}$: non-atomic, non-σ-complete, Lebesgue has full support → **positive**
 - [x] Connection to Paper I (CE = $\mathrm{Supp}_\sigma(B)$-support condition) articulated
-- [ ] Find non-σ-complete non-atomic $B$ with $\mathrm{Supp}_\sigma(B) \subsetneq \mathrm{St}(B)$ — first candidate for genuinely negative answer
+- [x] First row-5 example: $B = \mathcal{I} \times \mathcal{P}(\mathbb{N})/\mathrm{fin}$; $\mathrm{Supp}_\sigma(B) = \mathrm{St}(\mathcal{I}) \subsetneq \mathrm{St}(B)$; negative (see row5_candidate.md)
+- [ ] Find **indecomposable** row-5 algebra — genuinely structural obstruction without a measure-free direct summand
 - [ ] Verify load-bearing lemma: pointwise convergence on $B$ ↔ weak* convergence on $\mathrm{St}(B)$ (precise statement and proof)
 - [ ] Determine whether set-theoretic hypotheses are required for any example in the open case

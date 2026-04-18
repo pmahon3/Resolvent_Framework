@@ -8,7 +8,7 @@ type: project
 
 *Working note for Priority 2b of the ultralimit representation investigation.*  
 *Parent: `notes/future/ce_nonderivability_general.md`*  
-*Prerequisite: `papers/paper_i/notes/finite_cofinite_calculation.md` (rung 2 complete, positive).*
+*Prerequisite: `papers/paper_i/notes/ultralimit_investigation/finite_cofinite_calculation.md` (rung 2 complete, positive).*
 
 ---
 

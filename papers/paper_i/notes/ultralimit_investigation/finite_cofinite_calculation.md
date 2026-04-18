@@ -25,45 +25,38 @@ it is exactly the setting where the Nikodym obstruction disappears.
 
 ## Step 1: Classify all normalized finitely additive probabilities on $\mathcal{E}$
 
-**Claim.** Every normalized finitely additive probability $\mu : \mathcal{E} \to [0,1]$
-is of the form
-$$
-\mu = (1-t)\,\delta_F + t\,\ell_{\mathrm{fc}},
-$$
-where $F \subseteq \mathbb{N}$ is finite, $\delta_F$ is a convex combination of
-Dirac masses at points of $F$ (or $\delta_F = 0$ if $F = \emptyset$), $t \in [0,1]$,
-and $\ell_{\mathrm{fc}}$ is the finite-cofinite charge ($\ell_{\mathrm{fc}}(A) = 0$
-if $A$ finite, $1$ if $A$ cofinite).
-
-More precisely:
-
 **Structure theorem for $\mathcal{E}$.** Every normalized finitely additive
-probability $\mu$ on $\mathcal{E}$ is uniquely determined by:
+probability $\mu$ on $\mathcal{E}$ is of the form
+$$
+\mu = \sum_{n=0}^\infty a_n\,\delta_n + t\,\ell_{\mathrm{fc}},
+\qquad a_n \geq 0,\quad \sum_n a_n + t = 1,\quad t \in [0,1],
+$$
+and is uniquely determined by:
 
-- its value $\mu(\{n\}) \geq 0$ for each $n \in \mathbb{N}$ (finitely many nonzero),
-- and its value on cofinite sets, which is forced by:
-  $\mu(A^c) = 1 - \mu(A)$ for finite $A$.
+- the sequence $(a_n)_{n \in \mathbb{N}}$ with $a_n = \mu(\{n\}) \geq 0$ and $\sum_n a_n \leq 1$,
+- and $t = 1 - \sum_n a_n \in [0,1]$ (the purely finitely additive mass).
+
+Values on cofinite sets are forced by $\mu(A^c) = 1 - \mu(A)$ for finite $A$.
 
 **Proof sketch.**
 Every element of $\mathcal{E}$ is either finite or cofinite. If $A$ is finite,
-$\mu(A) = \sum_{n \in A} \mu(\{n\})$ by finite additivity, since singletons are
-disjoint and their union is $A$. If $A$ is cofinite, $\mu(A) = 1 - \mu(A^c)$
-where $A^c$ is finite. So $\mu$ is completely determined by the sequence
-$(\mu(\{n\}))_{n \in \mathbb{N}}$.
+$\mu(A) = \sum_{n \in A} \mu(\{n\})$ by finite additivity. If $A$ is cofinite,
+$\mu(A) = 1 - \mu(A^c)$ where $A^c$ is finite. So $\mu$ is completely determined
+by the sequence $(a_n) = (\mu(\{n\}))_{n \in \mathbb{N}}$.
 
-The constraint is: $\sum_{n \in \mathbb{N}} \mu(\{n\}) \leq 1$ (since any finite
-sub-sum is bounded by $\mu(\mathbb{N}) = 1$). Let $t = 1 - \sum_n \mu(\{n\})
-\in [0,1]$.
+The constraint $\sum_{n \in F} a_n \leq \mu(\mathbb{N}) = 1$ holds for every finite
+$F$, so $\sum_n a_n \leq 1$. Set $t = 1 - \sum_n a_n \in [0,1]$.
 
-- If $t = 0$: $\mu$ is a countable convex combination of Dirac masses, hence
-  $\sigma$-additive. (These are exactly the $\sigma$-additive probabilities on
-  $\mathcal{E}$, since $\sigma(\mathcal{E}) = \mathcal{P}(\mathbb{N})$ and any
-  $\sigma$-additive probability on $\mathcal{E}$ extends uniquely to $\mathcal{P}(\mathbb{N})$.)
-- If $t > 0$: $\mu$ has a purely finitely additive component of mass $t$,
-  concentrated on the "cofinite part." Specifically,
-  $\mu = \sum_n \mu(\{n\}) \delta_n + t \cdot \ell_{\mathrm{fc}}$,
-  where $\ell_{\mathrm{fc}}$ is the unique normalized purely finitely additive
-  probability on $\mathcal{E}$ (the finite-cofinite charge).
+- If $t = 0$: $\mu = \sum_n a_n \delta_n$ is $\sigma$-additive (a countable convex
+  combination of Dirac masses; $\sigma(\mathcal{E}) = \mathcal{P}(\mathbb{N})$ and
+  this measure extends uniquely to $\mathcal{P}(\mathbb{N})$).
+- If $t > 0$: $\mu = \sum_n a_n \delta_n + t \cdot \ell_{\mathrm{fc}}$, where
+  $\ell_{\mathrm{fc}}$ is the unique normalized purely finitely additive probability
+  on $\mathcal{E}$.
+
+Note: the atom sequence $(a_n)$ is in general countably (not just finitely) supported.
+The $\sigma$-additive part $\sum_n a_n \delta_n$ is a discrete measure on $\mathbb{N}$,
+possibly with countably many atoms.
 
 **Observation.** The finite-cofinite charge $\ell_{\mathrm{fc}}$ is the *unique*
 purely finitely additive probability on $\mathcal{E}$ (up to normalization). This
@@ -151,14 +144,23 @@ $k \to \infty$.
 
 ## Step 5: What about mixed charges?
 
-Every charge $\mu = \sum_n p_n \delta_n + t \cdot \ell_{\mathrm{fc}}$ on
-$\mathcal{E}$ ($t \in [0,1]$, $\sum_n p_n = 1-t$) is a pointwise ultralimit of
-$\sigma$-additive probabilities on $\mathcal{E}$.
+Every charge $\mu = \sum_n a_n \delta_n + t \cdot \ell_{\mathrm{fc}}$ on
+$\mathcal{E}$ (with $a_n \geq 0$, $\sum_n a_n = 1-t$, $t \in [0,1]$) is a
+pointwise sequential limit of $\sigma$-additive probabilities on $\mathcal{E}$.
 
-**Construction.** Let $\mu_k^{(t)} = (1-t) \cdot \mu_{\mathrm{atoms}} + t \cdot
-\frac{1}{k}\sum_{n=0}^{k-1}\delta_n$, where $\mu_{\mathrm{atoms}} = \frac{1}{1-t}\sum_n p_n \delta_n$
-(normalized). Each $\mu_k^{(t)}$ is $\sigma$-additive, and
-$\lim_{k \to \infty} \mu_k^{(t)}(A) = \mu(A)$ for every $A \in \mathcal{E}$.
+**Construction.** Set
+$$
+\mu_k = \sum_n a_n \delta_n + \frac{t}{k}\sum_{n=0}^{k-1}\delta_n.
+$$
+Each $\mu_k$ is $\sigma$-additive (a discrete measure with countably many atoms;
+total mass $\sum_n a_n + t = 1$). For any finite $A$:
+$$
+\mu_k(A) = \sum_{n \in A} a_n + \frac{t \cdot |A \cap \{0,\ldots,k-1\}|}{k} \to \sum_{n \in A} a_n = \mu(A).
+$$
+For any cofinite $A$: $\mu_k(A) = 1 - \mu_k(A^c) \to 1 - \mu(A^c) = \mu(A)$. ✓
+
+(When $t = 0$ the construction reduces to $\mu_k = \mu$ for all $k$; when $\sum_n a_n = 0$,
+i.e., $t = 1$, it reduces to the Step 4 construction.)
 
 So **every** finitely additive probability on $\mathcal{E}$ is a pointwise
 (sequential) limit of $\sigma$-additive probabilities on $\mathcal{E}$.
@@ -190,18 +192,23 @@ algebra is special because it has only one purely finitely additive probability,
 and that one is visibly approximable.
 
 **The real question for the next rung.** For a general Boolean algebra $B$ with
-a rich $\mathrm{pfa}(B)$, the spreading construction need not work. A first
-candidate for a harder test case: a free Boolean algebra on $\omega_1$ generators,
-or an algebra where purely finitely additive charges are parameterized by
-non-principal ultrafilters in a more complex way.
+a rich $\mathrm{pfa}(B)$, the spreading construction need not work. The correct
+next test family is partition extensions $\mathcal{E}_k$ (generated by $\mathcal{E}$
+and $k$ infinite pieces of $\mathbb{N}$), where $\mathrm{pfa}(\mathcal{E}_k) \cong \Delta_{k-1}$
+is genuinely multidimensional. (Free Boolean algebras on uncountably many generators
+are the wrong candidate: compactness of their Stone spaces forces pfa to be trivial.)
+See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
 
-**The βN reformulation (Priority 3).** In the βN picture, the result says: every
-regular Borel measure on $\mathrm{St}(\mathcal{E}) = \beta\mathbb{N}$ is a weak
-limit of measures supported on the principal points $\mathbb{N} \subset \beta\mathbb{N}$.
-That is just weak* density of finitely supported measures in all Borel measures on
-$\beta\mathbb{N}$, which is standard. So the finite-cofinite case in the βN language
-is trivial — confirming that the interesting question begins with algebras where
-$\mathrm{pfa}(B)$ is genuinely multidimensional.
+**The Stone reformulation (Priority 3).** The Stone space of $\mathcal{E}$ is
+$\mathrm{St}(\mathcal{E}) = \mathbb{N}^+$, the one-point compactification of the
+discrete space $\mathbb{N}$: the principal ultrafilters $\{\mathcal{U}_n\}$ are the
+isolated points $\mathbb{N}$, and $\ell_{\mathrm{fc}}$ corresponds to the unique
+limit point $\infty$. The rung 2 result is, in Stone language, just the statement
+that $\infty$ is in the closure of $\mathbb{N}$ in $\mathbb{N}^+$ — trivial. This
+confirms that the finite-cofinite case is structurally as simple as possible, and
+that the interesting question begins with algebras where $\mathrm{pfa}(B)$ is
+genuinely multidimensional. (NB: $\mathrm{St}(\mathcal{E}) = \mathbb{N}^+$, not
+$\beta\mathbb{N}$; $\beta\mathbb{N}$ is the Stone space of $\mathcal{P}(\mathbb{N})$.)
 
 ---
 
@@ -211,6 +218,6 @@ $\mathrm{pfa}(B)$ is genuinely multidimensional.
 - [x] Identify free / purely finitely additive charges (unique: $\ell_{\mathrm{fc}}$)
 - [x] Characterize $\sigma$-additive probabilities on $\mathcal{E}$
 - [x] Determine ultralimit representability: **YES, positive answer**
-- [ ] Identify next test case beyond the finite-cofinite algebra
-- [ ] Translate positive result into βN / Stone language explicitly
-- [ ] Determine whether the positive answer extends to larger / richer Boolean algebras
+- [x] Identify next test case: partition extensions $\mathcal{E}_k$ (see rung3 note)
+- [x] Translate positive result into Stone language: $\mathrm{St}(\mathcal{E}) = \mathbb{N}^+$; density of $\mathbb{N}$ gives the result trivially
+- [ ] Determine whether the positive answer extends to non-atomic non-$\sigma$-complete Boolean algebras (see stone_geometric_translation.md)

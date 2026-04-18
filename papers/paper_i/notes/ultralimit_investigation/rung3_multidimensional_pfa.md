@@ -78,15 +78,18 @@ the intersection $A \cap P_i$ is either finite or cofinite in $P_i$.
 **Claim.** Every normalized finitely additive probability $\mu$ on $\mathcal{E}_k$
 is uniquely determined by:
 
-- Singleton masses $\mu(\{n\}) \geq 0$ (finitely many nonzero, one per $n \in \mathbb{N}$).
-- Values $\alpha_i = \mu_\infty(P_i) \in [0,1]$ for each piece, where $\mu_\infty$ is the
-  purely finitely additive part of $\mu$ (the residual mass on each piece's "cofinite tail").
+- Singleton masses $a_n = \mu(\{n\}) \geq 0$ for each $n \in \mathbb{N}$, with $\sum_n a_n \leq 1$
+  (the sequence is countably supported in general, not merely finitely so).
+- Residual pfa weights $\alpha_i \geq 0$ for each piece $P_i$, where $\alpha_i$ is the
+  mass assigned to the "cofinite tail" of $P_i$ by the purely finitely additive part of $\mu$.
 
-**Proof sketch.** Fix a piece $P_i$. Within $P_i$, the induced algebra on subsets of
-$P_i$ is exactly the finite-cofinite algebra on $P_i$ (an infinite countable set).
-By the finite-cofinite classification (rung 2), the restriction $\mu|_{P_i}$ is
-determined by the singleton masses within $P_i$ and a residual $\alpha_i \geq 0$
-carried by the cofinite-in-$P_i$ part. Normalization forces $\sum_i \alpha_i + \sum_n \mu(\{n\}) = 1$.
+Normalization requires $\sum_n a_n + \sum_i \alpha_i = 1$.
+
+**Proof sketch.** Fix a piece $P_i$. The algebra induced on subsets of $P_i$ is
+the finite-cofinite algebra on $P_i$. By the rung-2 classification, the restriction
+$\mu|_{P_i}$ is determined by the singleton masses within $P_i$ (a countably
+supported sequence $(a_n)_{n \in P_i}$ with $\sum_{n \in P_i} a_n \leq \mu(P_i)$)
+and a residual $\alpha_i \geq 0$. Summing over all pieces gives $\sum_i \alpha_i + \sum_n a_n = 1$.
 
 The purely finitely additive part of $\mu$ is then
 $$

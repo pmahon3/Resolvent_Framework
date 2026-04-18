@@ -81,9 +81,13 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    - Structural reason: the "spread mass thinly" construction works because $\mathrm{pfa}(\mathcal{E})$ is one-dimensional and $\ell_{\mathrm{fc}}$ has no atom structure to obstruct approximation.
    - In the βN picture: this is just weak* density of finitely supported measures in all Borel measures on $\beta\mathbb{N}$ — trivial in this case, confirming that the interesting structure begins with algebras where $\mathrm{pfa}(B)$ is multidimensional.
 
-3. **General purely finitely additive probabilities on Boolean algebras:** Partially open. Partition extensions $\mathcal{E}_k$ of $\mathcal{E}$ give $\mathrm{pfa}(\mathcal{E}_k) \cong \Delta_{k-1}$, and representability holds for all finite $k$ (positive). Provisional positive for $\mathcal{E}_\omega$ (countably many pieces). The emerging pattern suggests representability holds whenever pfa charges decompose into countable partition-local components. The open question: does every pfa charge on a separable Boolean algebra decompose this way? Or is there a charge resistant to local decomposition? See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
+3. **General purely finitely additive probabilities on Boolean algebras:** Partially open. The Stone-space analysis (Priority 3) gives the right framework:
+   - **Atomic $B$:** positive uniformly — density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ (equivalent to atomicity) implies every finitely additive probability is approximable. Covers $\mathcal{E}$, $\mathcal{E}_k$, $\mathcal{E}_\omega$. See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
+   - **Non-atomic, full-support $\sigma$-additive measure exists:** positive — $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. First example: the interval algebra $\mathcal{I}$ of half-open subintervals of $[0,1]$; Lebesgue measure has full support. See `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`.
+   - **σ-complete non-atomic $B$:** negative (Nikodym / companion note §2).
+   - **Non-σ-complete non-atomic $B$ without full-support $\sigma$-additive measure:** open — the first genuinely unknown case. Finding an explicit example here is the current frontier.
 
-4. **The full representation question and classification:** Is every charge in pfa(B) an ultralimit of $\sigma$-additive charges on $B$? If not, what characterizes the representable ones? Set-theoretic sensitivity is a plausible downstream horizon but remains speculative until rung 3 is probed.
+4. **The full representation question and classification:** The question is now reformulated as: for which $B$ is $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$? This is the theorem-shaped target beyond the easy cases.
 
 ### Key Distinctions
 

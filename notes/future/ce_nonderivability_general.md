@@ -74,14 +74,14 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 1. **Ultrafilter-generated {0,1}-charges:** $\delta_\mathcal{U}(A) = \mathbf{1}_{A \in \mathcal{U}}$. Arise as ultralimits of Dirac masses on the finite-cofinite algebra. ✓ (the companion note proof already gives this)
 
 2. **Free finitely additive probabilities on the finite-cofinite algebra** — **RESOLVED (positive).** ✓
-   See `finite_cofinite_calculation.md` for the full argument. Key findings:
+   See `papers/paper_i/notes/finite_cofinite_calculation.md` for the full argument. Key findings:
    - On $\mathcal{E}$, $\mathrm{pfa}(\mathcal{E})$ is one-dimensional: the only purely finitely additive (= free) probability is $\ell_{\mathrm{fc}}$ itself.
    - $\ell_{\mathrm{fc}}$ is the pointwise sequential limit of the uniform measures $\frac{1}{k}\sum_{n<k}\delta_n$, which are $\sigma$-additive on $\mathcal{E}$.
    - Hence every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit (a fortiori a pointwise ultralimit) of $\sigma$-additive probabilities on the same algebra.
    - Structural reason: the "spread mass thinly" construction works because $\mathrm{pfa}(\mathcal{E})$ is one-dimensional and $\ell_{\mathrm{fc}}$ has no atom structure to obstruct approximation.
    - In the βN picture: this is just weak* density of finitely supported measures in all Borel measures on $\beta\mathbb{N}$ — trivial in this case, confirming that the interesting structure begins with algebras where $\mathrm{pfa}(B)$ is multidimensional.
 
-3. **General purely finitely additive probabilities on Boolean algebras:** Open. The finite-cofinite case is positive but special — $\mathrm{pfa}(\mathcal{E})$ is one-dimensional. The next test case should be an algebra where $\mathrm{pfa}(B)$ is genuinely multidimensional (e.g., a free Boolean algebra on countably many generators, or the algebra of clopen sets of $\beta\mathbb{N}$).
+3. **General purely finitely additive probabilities on Boolean algebras:** Partially open. Partition extensions $\mathcal{E}_k$ of $\mathcal{E}$ give $\mathrm{pfa}(\mathcal{E}_k) \cong \Delta_{k-1}$, and representability holds for all finite $k$ (positive). Provisional positive for $\mathcal{E}_\omega$ (countably many pieces). The emerging pattern suggests representability holds whenever pfa charges decompose into countable partition-local components. The open question: does every pfa charge on a separable Boolean algebra decompose this way? Or is there a charge resistant to local decomposition? See `papers/paper_i/notes/rung3_multidimensional_pfa.md`.
 
 4. **The full representation question and classification:** Is every charge in pfa(B) an ultralimit of $\sigma$-additive charges on $B$? If not, what characterizes the representable ones? Set-theoretic sensitivity is a plausible downstream horizon but remains speculative until rung 3 is probed.
 
@@ -141,7 +141,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 
 ### Claims to resolve
 
-- [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `finite_cofinite_calculation.md`.)
+- [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `papers/paper_i/notes/finite_cofinite_calculation.md`.)
 - [ ] On a Boolean algebra where pfa(B) is multidimensional: does the positive answer persist?
 - [ ] Is there a purely finitely additive charge on some Boolean algebra that is provably NOT a pointwise ultralimit of σ-additive probabilities on the same algebra?
 - [ ] Does the βN / Stone geometric reformulation give a characterization for general B?
@@ -163,13 +163,16 @@ State the exact Dunford–Schwartz IV.9.8 theorem. Do not present the interchang
 Every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit
 of $\sigma$-additive probabilities on $\mathcal{E}$. The key: $\mathrm{pfa}(\mathcal{E})$
 is one-dimensional (only $\ell_{\mathrm{fc}}$), and $\ell_{\mathrm{fc}}$ is the
-limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `finite_cofinite_calculation.md`.
+limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `papers/paper_i/notes/finite_cofinite_calculation.md`.
 
-**Next target (Priority 2b) — algebra with multidimensional pfa:**
-Find a Boolean algebra $B$ where $\mathrm{pfa}(B)$ is genuinely multidimensional
-and test whether all purely finitely additive charges are still representable.
-Candidate: $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ (the quotient of all subsets
-by the finite sets), or the clopen algebra of $\beta\mathbb{N}$.
+**Priority 2b — algebras with multidimensional pfa — UNDERWAY.** See `papers/paper_i/notes/rung3_multidimensional_pfa.md`.
+
+Key findings so far:
+- $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ and $\mathrm{Clop}(2^\omega)$ ruled out as test cases (wrong reasons: no σ-additive probabilities; pfa trivial by compactness).
+- Correct family: partition extensions $\mathcal{E}_k$ = algebra generated by $\mathcal{E}$ and a $k$-partition of $\mathbb{N}$ into infinite pieces. $\mathrm{pfa}(\mathcal{E}_k) \cong \Delta_{k-1}$ (the $(k-1)$-simplex) — genuinely multidimensional for $k \geq 2$.
+- Representability on $\mathcal{E}_k$ for all finite $k$: **positive** (construction: spread the $\alpha_i$ mass uniformly within each piece $P_i$, independently).
+- Countably many pieces ($\mathcal{E}_\omega$): provisional positive, subject to confirming no "second-order" pfa residual.
+- Open: identify a pfa charge that is NOT locally countably decomposable into piece-local components. This is where obstruction, if it exists, likely lives.
 
 **Priority 3 — Stone/βN geometric reformulation:**
 Translate the fixed-algebra ultralimit problem into the Stone/βN language explicitly. The geometric form is: which regular Borel measures on $\mathrm{St}(B)$ arise as ultralimits of measures supported on principal points? This matches the support geometry of Paper I and is probably the right language for the general investigation.

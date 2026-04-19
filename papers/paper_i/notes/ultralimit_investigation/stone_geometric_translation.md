@@ -114,8 +114,41 @@ $\mathrm{St}(B) \setminus \mathrm{Supp}_\sigma(B)$ and is not approximable. The
 answer is **negative** for all σ-complete non-atomic $B$.
 
 *Non-σ-complete non-atomic $B$:* This is the open territory. The Nikodym obstruction
-does not apply. Whether $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ is a genuine
-question requiring case-by-case analysis.
+does not apply. The following lemma gives a large positive class for free.
+
+**Lemma (subalgebra embedding).** Let $\iota: B \hookrightarrow \Sigma$ be a
+**join-preserving** Boolean algebra embedding — meaning that whenever a pairwise
+disjoint sequence $(A_n)$ in $B$ has a join $J = \bigvee_n A_n$ in $B$, then
+$\iota(J) = \bigcup_n \iota(A_n)$ as sets in $\Sigma$. Suppose there exists a
+$\sigma$-additive probability $\mu$ on $\Sigma$ with $\mu(\iota(A)) > 0$ for every
+non-zero $A \in B$. Then $\nu = \mu \circ \iota$ is a full-support $\sigma$-additive
+probability on $B$, and $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$.
+
+*Proof sketch.* σ-additivity of $\nu$: if $J = \bigvee_n A_n$ exists in $B$, then
+$\iota(J) = \bigcup_n \iota(A_n)$ by join-preservation, so $\nu(J) = \mu(\bigcup_n
+\iota(A_n)) = \sum_n \mu(\iota(A_n)) = \sum_n \nu(A_n)$. Full support from strict
+positivity. See `subalgebra_embedding_lemma.md` for the complete proof with the
+load-bearing step — join-preservation is not automatic from Boolean algebra embedding,
+and must be verified case by case. $\square$
+
+*Note on the hypothesis.* Join-preservation holds whenever $B \subseteq \Sigma$
+by honest set inclusion and the join in $B$ of a disjoint sequence is the
+set-theoretic union. This covers all concrete algebras. It may fail for quotient
+algebras — but those (like $\mathcal{Q}$) fall in the "too few joins" row instead.
+
+**Scope of the lemma.** Every "concrete" non-$\sigma$-complete Boolean algebra —
+interval algebras, Borel subalgebras, partition extensions — satisfies the
+join-preservation condition. A single ambient full-support measure pulls back to a
+full-support σ-additive probability on $B$, giving $\mathrm{Supp}_\sigma(B) =
+\mathrm{St}(B)$ with no case-by-case work.
+
+**What a counterexample to Strategy D requires.** A non-σ-complete non-atomic $B$
+that fails the join-preservation embedding condition — i.e., one that cannot be
+embedded into any σ-algebra via a join-preserving map with a strictly positive ambient
+measure — and where the extra σ-additive measures on $B$ (not arising from restrictions)
+still fail to cover some part of $\mathrm{St}(B)$. This pushes toward abstract
+constructions: submeasure theory, Maharam-type algebras, or forcing. See
+`subalgebra_embedding_lemma.md` for the precise Strategy D formulation.
 
 ---
 
@@ -169,28 +202,35 @@ density of $\mathrm{Prin}(B)$ in the atomic case. Both imply $\mathrm{Supp}_\sig
 
 ## Where Obstruction Must Live
 
-The interval algebra $\mathcal{I}$ is positive — full-support $\sigma$-additive
-measure forces $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. Any non-atomic
-non-σ-complete $B$ with a full-support $\sigma$-additive measure will be positive
-by the same argument.
+The subalgebra embedding lemma shows that every non-σ-complete Boolean algebra
+embeddable into a $\sigma$-algebra with a full-support σ-additive measure has
+$\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. This covers all "concrete" algebras.
 
-**The candidate for a negative answer** is a non-atomic non-σ-complete Boolean
-algebra $B$ such that no $\sigma$-additive probability on $B$ has full support on
-$\mathrm{St}(B)$ — i.e., $\mathrm{Supp}_\sigma(B) \subsetneq \mathrm{St}(B)$ strictly.
+The opposite extreme — algebras like $\mathcal{Q} = \mathcal{P}(\mathbb{N})/\mathrm{fin}$
+with too few countable joins — also have $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$,
+but for the opposite reason: σ-additivity there is vacuous, and every finitely additive
+probability is trivially σ-additive. See `row5_candidate.md`.
 
-For this to happen, there must exist a non-empty clopen $\hat{A} \subset \mathrm{St}(B)$
-(i.e., a non-zero $A \in B$) such that every $\sigma$-additive probability on $B$
-assigns zero mass to $A$. This means $A$ supports no $\sigma$-additive submeasure —
-a strong combinatorial property. It is plausible that such algebras exist (e.g.,
-algebras where some elements are "purely finitely additive-supporting" in the sense
-that no σ-additive measure reaches them), but constructing an explicit example
-requires more work.
+**The completeness gradient.** The hierarchy is really organized by how many countable
+joins $B$ has — equivalently, how much room σ-additivity has to constrain:
+- $\sigma$-complete: maximal joins, maximal constraint, Nikodym closes the door (negative).
+- Intermediate: enough joins for σ-additivity to matter, not enough for Nikodym.
+- Minimal joins (like $\mathcal{Q}$): σ-additivity essentially vacuous (positive trivially).
 
-**Set-theoretic dimension.** Whether $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$
-for all non-σ-complete non-atomic Boolean algebras, or only for some, is likely
-sensitive to set-theoretic hypotheses. The question connects to the existence of
-real-valued measurable cardinals and related combinatorial principles — but this
-remains downstream speculation until a concrete candidate algebra is identified.
+The open frontier is the intermediate regime.
+
+**What a counterexample requires.** For $\mathrm{Supp}_\sigma(B) \subsetneq \mathrm{St}(B)$
+in the intermediate regime, $B$ must fail the embedding condition: it cannot embed into
+any σ-algebra where a full-support measure charges all non-zero elements of $B$. This
+requires abstract constructions — submeasure theory, Maharam-type algebras cut down
+to non-σ-complete subalgebras, or forcing-generic algebras. Whether such algebras exist
+in ZFC, or only under additional set-theoretic hypotheses, is unknown.
+
+**Prior question (Strategy D).** Before seeking a counterexample, one should ask
+whether the open row is vacuous: does every non-σ-complete non-atomic Boolean algebra
+admitting at least one σ-additive probability necessarily have $\mathrm{Supp}_\sigma(B)
+= \mathrm{St}(B)$? A positive answer would collapse the last row. See `row5_candidate.md`
+for the current state of this question.
 
 ---
 
@@ -202,12 +242,15 @@ remains downstream speculation until a concrete candidate algebra is identified.
 | Atomic uncountable $B$ | $\mathrm{Prin}(B)$ | Dense; nets positive; sequences unclear | Likely positive |
 | Non-atomic, full-support σ-additive exists | $\mathrm{Supp}_\sigma(B)$ | Full ($= \mathrm{St}(B)$) | Positive |
 | σ-complete non-atomic $B$ | $\mathrm{Supp}_\sigma(B)$ | Strict subset | **Negative** (Nikodym) |
-| Non-σ-complete non-atomic, direct-product with measure-free factor (e.g., $\mathcal{I} \times \mathcal{P}(\mathbb{N})/\mathrm{fin}$) | $\mathrm{Supp}_\sigma(B)$ | Strict subset | **Negative** (new; see row5_candidate.md) |
-| Non-σ-complete non-atomic **indecomposable**, no full-support σ-additive | $\mathrm{Supp}_\sigma(B)$ | Unknown | **Open** |
+| Non-σ-complete, few joins (e.g., $\mathcal{P}(\mathbb{N})/\mathrm{fin}$) | $\mathrm{Supp}_\sigma(B)$ | Full (σ-additivity vacuous) | Positive (vacuously; see row5_candidate.md) |
+| Non-σ-complete non-atomic, intermediate joins, no full-support σ-additive | $\mathrm{Supp}_\sigma(B)$ | Unknown | **Open** |
 
 The last row is the frontier. The interval algebra $\mathcal{I}$ falls in row 3
-(positive). Finding an example in row 5 would give the first genuinely negative result
-outside the σ-complete case.
+(positive). The algebra $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ falls in row 5
+(positive vacuously — σ-additivity reduces to finite additivity there). The open
+row requires a Boolean algebra with enough joins for σ-additivity to be a genuine
+constraint, but where that constraint still allows some part of $\mathrm{St}(B)$
+to escape the σ-additive support. See `row5_candidate.md` for the corrected analysis.
 
 ---
 
@@ -234,7 +277,15 @@ the frontier question is whether $\mathrm{Supp}_\sigma(B)$ is all of $\mathrm{St
 - [x] σ-complete non-atomic case: negative (Nikodym)
 - [x] Interval algebra $\mathcal{I}$: non-atomic, non-σ-complete, Lebesgue has full support → **positive**
 - [x] Connection to Paper I (CE = $\mathrm{Supp}_\sigma(B)$-support condition) articulated
-- [x] First row-5 example: $B = \mathcal{I} \times \mathcal{P}(\mathbb{N})/\mathrm{fin}$; $\mathrm{Supp}_\sigma(B) = \mathrm{St}(\mathcal{I}) \subsetneq \mathrm{St}(B)$; negative (see row5_candidate.md)
-- [ ] Find **indecomposable** row-5 algebra — genuinely structural obstruction without a measure-free direct summand
+- [x] $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ analyzed: σ-additivity vacuous (disjoint sequences with joins have at most finitely many nonzero terms — proved by selector argument); every finitely additive probability is σ-additive; $\mathrm{Supp}_\sigma(\mathcal{Q}) = \mathrm{St}(\mathcal{Q})$; positive (vacuously) — see row5_candidate.md
+- [x] Direct-product strategy $\mathcal{I} \times \mathcal{P}(\mathbb{N})/\mathrm{fin}$ collapsed: both factors have full σ-additive support; product is positive
+- [x] Subalgebra embedding lemma: any $B$ embedding join-preservingly into a σ-algebra with a full-support measure has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$; covers all "concrete" non-σ-complete algebras — see subalgebra_embedding_lemma.md
+- [x] Completeness gradient identified: the hierarchy is organized by how many countable joins $B$ has; σ-complete (Nikodym, negative) ↔ minimal joins (vacuous, positive) ↔ intermediate (open)
+- [x] Canonical decomposition theorem proved: $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ at every element; any failure of $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ is witnessed by a measure-free direct-product factor; "indecomposable row-5" is impossible — see row5_candidate.md Parts III–IV
+- [x] Strategies A, B, C eliminated: all required indecomposable row-5 algebras, which cannot exist by the canonical decomposition theorem
+- [x] Open row reduced to Strategy D: does a non-σ-complete non-atomic measure-free Boolean algebra exist? If yes, pair with a positive factor for a negative instance. If no, the open row collapses.
+- [x] Strategy D given topological reformulation: equivalent to existence of a compact totally disconnected non-atomic non-basically-disconnected Radon-measure-free space — see row5_candidate.md
+- [x] Set-theoretic sensitivity of Strategy D assessed: positive under MA + ¬CH (at weights $< \mathfrak{c}$); ◇-type constructions may yield counterexamples; problem likely independent of ZFC — see row5_candidate.md
+- [x] ZFC Boolean-algebra methods exhausted: forcing or Radon-measure theory required for resolution; this is the honest frontier
+- [ ] Resolve Strategy D: forcing construction (under ◇) or ZFC proof of non-existence
 - [ ] Verify load-bearing lemma: pointwise convergence on $B$ ↔ weak* convergence on $\mathrm{St}(B)$ (precise statement and proof)
-- [ ] Determine whether set-theoretic hypotheses are required for any example in the open case

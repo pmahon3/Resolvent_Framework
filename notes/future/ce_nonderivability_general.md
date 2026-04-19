@@ -85,10 +85,19 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    - **Atomic $B$:** positive uniformly — density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ (equivalent to atomicity) implies every finitely additive probability is approximable. Covers $\mathcal{E}$, $\mathcal{E}_k$, $\mathcal{E}_\omega$. See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
    - **Non-atomic, full-support $\sigma$-additive measure exists:** positive — $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. First example: the interval algebra $\mathcal{I}$ of half-open subintervals of $[0,1]$; Lebesgue measure has full support. See `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`.
    - **σ-complete non-atomic $B$:** negative (Nikodym / companion note §2).
-   - **Non-σ-complete non-atomic $B$, direct-product with measure-free factor:** negative — $B = \mathcal{I} \times \mathcal{P}(\mathbb{N})/\mathrm{fin}$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(\mathcal{I}) \subsetneq \mathrm{St}(B)$; charges on the $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ factor are not representable. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md`.
-   - **Non-σ-complete non-atomic indecomposable $B$, no full-support σ-additive:** open — the true frontier. The direct-product obstruction is "soft"; whether indecomposable examples exist is unknown.
+   - **Non-σ-complete, few countable joins (e.g., $\mathcal{P}(\mathbb{N})/\mathrm{fin}$):** positive (vacuously) — σ-additivity reduces to finite additivity when too few joins exist; every finitely additive probability is σ-additive. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md`.
+   - **Non-σ-complete non-atomic $B$, intermediate join structure:** open — reduces to **Strategy D**. By the canonical decomposition theorem ($B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ at every $A$), any failure of $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ is witnessed by a measure-free direct-product factor. "Indecomposable row-5" is provably impossible. The open question reduces to: does a non-σ-complete non-atomic measure-free Boolean algebra exist?
 
-4. **The full representation question and classification:** The question is now reformulated as: for which $B$ is $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$? This is the theorem-shaped target beyond the easy cases.
+4. **The full representation question and classification:** The question is now reformulated as: for which $B$ is $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$? The hierarchy is organized by a **completeness gradient** — how many countable joins $B$ has:
+   - σ-complete: maximal joins → Nikodym → negative.
+   - Intermediate joins: σ-additivity is a genuine but limited constraint → open frontier (Strategy D).
+   - Minimal joins (like $\mathcal{Q}$): σ-additivity vacuous → positive trivially.
+   
+   **Canonical decomposition theorem:** $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ canonically at every element $A$. If $\nu$ is σ-additive on $B{\upharpoonright}A$, then $\tilde\nu(C) = \nu(C \wedge A)$ is σ-additive on $B$ (meets distribute over existing joins). Consequence: any gap in $\mathrm{Supp}_\sigma(B)$ is a direct-product decomposition with a measure-free factor. Strategies A, B, C (indecomposable constructions) are eliminated. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` Parts III–IV.
+   
+   **Subalgebra embedding lemma:** any non-σ-complete $B$ that embeds join-preservingly into a σ-algebra $\Sigma$ where some σ-additive probability charges all non-zero elements of $B$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. Covers all "concrete" algebras. See `papers/paper_i/notes/ultralimit_investigation/subalgebra_embedding_lemma.md`.
+   
+   **Strategy D (sole remaining open question):** does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? If yes: pair with a positive factor for a negative instance. If no: the open row collapses and all non-σ-complete non-atomic algebras are positive. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` Part V.
 
 ### Key Distinctions
 
@@ -147,10 +156,16 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 ### Claims to resolve
 
 - [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `papers/paper_i/notes/ultralimit_investigation/finite_cofinite_calculation.md`.)
-- [ ] On a Boolean algebra where pfa(B) is multidimensional: does the positive answer persist?
-- [ ] Is there a purely finitely additive charge on some Boolean algebra that is provably NOT a pointwise ultralimit of σ-additive probabilities on the same algebra?
-- [ ] Does the βN / Stone geometric reformulation give a characterization for general B?
-- [ ] Is the answer set-theoretically independent for some class of algebras?
+- [x] On Boolean algebras where pfa(B) is multidimensional: positive for all partition extensions $\mathcal{E}_k$ and $\mathcal{E}_\omega$. (All atomic; follows from density of $\mathrm{Prin}(B)$.)
+- [x] Stone/βN geometric reformulation: $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ is the condition; positive for atomic and full-support non-atomic cases; negative for σ-complete non-atomic (Nikodym); see stone_geometric_translation.md.
+- [x] Direct-product strategy: collapsed. $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ has σ-additivity vacuous — every finitely additive probability there is σ-additive. Direct products using this factor are not negative examples.
+- [x] Canonical decomposition theorem: $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ at every $A$; any $\mathrm{Supp}_\sigma$ gap is a direct-product gap with a measure-free factor; indecomposable row-5 impossible; Strategies A, B, C eliminated.
+- [x] Weak distributivity thread: Džamonja–Plebanek / Fremlin §391D give a ZFC theorem (weakly distributive + s.p.f.a. ↔ s.p. σ-additive) but only for **σ-complete** algebras. Does not constrain Strategy D. Non-weak-distributivity is not a necessary condition on a Strategy D counterexample.
+- [ ] **Strategy D (sole remaining open question):** Does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? No known construction, no known obstruction. **Topological reformulation** (2026-04-18): Strategy D is equivalent to the existence of a compact totally disconnected non-atomic non-basically-disconnected Radon-measure-free space. **Set-theoretic sensitivity** (2026-04-18): MA + ¬CH narrows candidates (compact spaces of weight $< \mathfrak{c}$ carry strictly positive Radon measures); ◇-type constructions may yield counterexamples. Problem is likely **independent of ZFC**; forcing or advanced Radon-measure theory is required. ZFC Boolean-algebra methods are exhausted.
+
+### Summary of Investigation Outcome
+
+> The representation problem is fully resolved in the atomic regime (positive, by density of $\mathrm{Prin}(B)$), in the concrete join-preserving regime (positive, by the subalgebra embedding lemma), at the vacuous minimal-join extreme (positive, since σ-additivity reduces to finite additivity on $\mathcal{P}(\mathbb{N})/\mathrm{fin}$), and in the σ-complete negative regime (negative, by Nikodym). What remains is a single genuinely open Boolean-algebraic existence problem — **Strategy D** — which is equivalent to a set-theoretic topology question (Radon-measure-free compact totally disconnected non-atomic non-basically-disconnected spaces). It is likely independent of ZFC. ZFC Boolean-algebra methods are exhausted; the next step requires forcing. No further internal reorganization is needed. The frontier is clean.
 
 ### References to add to bib
 
@@ -170,17 +185,17 @@ of $\sigma$-additive probabilities on $\mathcal{E}$. The key: $\mathrm{pfa}(\mat
 is one-dimensional (only $\ell_{\mathrm{fc}}$), and $\ell_{\mathrm{fc}}$ is the
 limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `papers/paper_i/notes/ultralimit_investigation/finite_cofinite_calculation.md`.
 
-**Priority 2b — algebras with multidimensional pfa — UNDERWAY.** See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
+**Priority 2b — algebras with multidimensional pfa — DONE (positive).** ✓ See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
 
-Key findings so far:
-- $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ and $\mathrm{Clop}(2^\omega)$ ruled out as test cases (wrong reasons: no σ-additive probabilities; pfa trivial by compactness).
+Key findings:
+- $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ and $\mathrm{Clop}(2^\omega)$ ruled out as test cases (wrong for rung 3; see row5_candidate.md for corrected analysis of $\mathcal{P}(\mathbb{N})/\mathrm{fin}$).
 - Correct family: partition extensions $\mathcal{E}_k$ = algebra generated by $\mathcal{E}$ and a $k$-partition of $\mathbb{N}$ into infinite pieces. $\mathrm{pfa}(\mathcal{E}_k) \cong \Delta_{k-1}$ (the $(k-1)$-simplex) — genuinely multidimensional for $k \geq 2$.
-- Representability on $\mathcal{E}_k$ for all finite $k$: **positive** (construction: spread the $\alpha_i$ mass uniformly within each piece $P_i$, independently).
-- Countably many pieces ($\mathcal{E}_\omega$): provisional positive, subject to confirming no "second-order" pfa residual.
-- Open: identify a pfa charge that is NOT locally countably decomposable into piece-local components. This is where obstruction, if it exists, likely lives.
+- Representability on $\mathcal{E}_k$ for all finite $k$: **positive** (spread the $\alpha_i$ mass uniformly within each piece $P_i$).
+- Countably many pieces ($\mathcal{E}_\omega$): **positive** (no second-order pfa residual; same construction works).
+- Strategic lesson: positivity for all atomic algebras follows from density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$; the interesting question lies entirely outside the atomic regime.
 
 **Priority 3 — Stone/βN geometric reformulation:**
 Translate the fixed-algebra ultralimit problem into the Stone/βN language explicitly. The geometric form is: which regular Borel measures on $\mathrm{St}(B)$ arise as ultralimits of measures supported on principal points? This matches the support geometry of Paper I and is probably the right language for the general investigation.
 
-**Priority 4 — set-theoretic sensitivity (downstream):**
-Revisit only after Priorities 2–3. Currently a plausible horizon, not an active target.
+**Priority 4 — set-theoretic sensitivity (now the active frontier, 2026-04-18):**
+Strategy D has been topologically reformulated as the Radon-measure-free compact Stone space question. ZFC Boolean-algebra arguments are exhausted. The next step is either a forcing construction (under ◇ or similar) of a measure-free compact totally disconnected non-atomic non-basically-disconnected space, or a consistency proof that none exists. Relevant literature: Fremlin *Measure Theory* §531–534; Kunen (1981) compact L-spaces under ◇; Fedorchuk (1976). This is genuinely a set-theoretic topology problem; standard Boolean-algebra methods do not apply.

@@ -53,8 +53,8 @@ directed system, query system
 - [x] Fix stale `mahon_paper0` self-reference — removed from `references.bib` (2026-04-05)
 - [x] Fix `cardona2025` bib entry format — changed to `@misc` with `howpublished` (2026-04-05)
 - [x] Add MSC 2020 classifications and keywords — added as `\begin{quote}` block after abstract (2026-04-05)
-- [x] `\pagecolor{white}` — already absent from `paper_i.tex`
-- [x] Final compile check — clean (2026-04-05)
+- [x] `\pagecolor{white}` — already absent from `probability_from_observation.tex`
+- [x] Final compile check — clean, 12 pages (2026-04-19)
 - [ ] Upload source files to arXiv
 
 ---

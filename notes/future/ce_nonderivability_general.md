@@ -12,11 +12,11 @@ type: project
 
 ## Part I: The Non-Axiomatizability Theorem (complete)
 
-**Status:** Done. Written up as companion note (`ce_nonderivability_companion.tex`), targeting APAL.
+**Status:** Done. Written up as companion note (`countable_additivity_not_first_order.tex`), targeting APAL.
 
 The companion note proves: in the first-order language $\mathcal{L}_{\mathrm{BA},\mu}$ of Boolean algebras with normalized finitely additive charge, no first-order theory characterizes those models whose charge extends to a $\sigma$-additive measure. The proof is the Dirac-mass ultraproduct construction.
 
-See `papers/paper_i/notes/ce_nonderivability_companion.tex` for the full proof.
+See `papers/paper_i/notes/countable_additivity_not_first_order.tex` for the full proof.
 
 ---
 

@@ -47,7 +47,7 @@ measure on the observable σ-algebra.
 infrastructure), `ProkhorovExtension.lean` (Prokhorov route main theorem),
 `DelayEmbedding.lean` (delay query system instantiation)
 
-**LaTeX:** `papers/paper_i/paper_i.tex` (revised draft, 13 pages)
+**LaTeX:** `papers/paper_i/probability_from_observation.tex` (revised draft, 13 pages)
 
 ---
 

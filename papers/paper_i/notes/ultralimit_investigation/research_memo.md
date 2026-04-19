@@ -8,7 +8,7 @@ type: project
 
 *Research memorandum. Date: 2026-04-18.*  
 *Archival record in: `finite_cofinite_calculation.md`, `rung3_multidimensional_pfa.md`, `stone_geometric_translation.md`, `row5_candidate.md`, `subalgebra_embedding_lemma.md`.*  
-*Formal proof in: `papers/paper_i/notes/ce_nonderivability_companion.tex`.*
+*Formal proof in: `papers/paper_i/notes/countable_additivity_not_first_order.tex`.*
 
 ---
 

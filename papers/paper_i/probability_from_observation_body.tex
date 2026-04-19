@@ -406,7 +406,7 @@ Collective exhaustion is not implied by any structural condition on a query syst
 \end{proposition}
 
 \begin{proof}
-The particular case is Proposition~\ref{prop:independence}: the finite-cofinite content satisfies all named structural hypotheses and fails CE.
+The particular case is Proposition~\ref{prop:independence}: the finite-cofinite charge satisfies all named structural hypotheses and fails CE.
 
 For the universal case, we proceed in three steps.
 
@@ -418,23 +418,22 @@ of query systems, it holds in their ultraproduct.
 \textit{Step 2.}
 Since the finite-cofinite construction works on any countably infinite set, we may realise it on $\mathbb{Q}$.  Fix an enumeration $q : \mathbb{N} \to
 \mathbb{Q}$, let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$
-extending the cofinite filter, and let $\delta_n$ be the point mass at $q(n) \in \mathbb{Q}$.  Each $\delta_n$ is a normalized $\sigma$-additive content satisfying every structural condition including CE.  The ultraproduct $\prod_{\mathcal{U}} \delta_n$ assigns to $E \subseteq \mathbb{Q}$ the value $\lim_{\mathcal{U}} \mathbf{1}_{q(n) \in E}$.
+extending the cofinite filter, and let $\delta_n$ be the point mass at $q(n) \in \mathbb{Q}$.  Each $\delta_n$ is a normalized $\sigma$-additive charge satisfying every structural condition including CE.  The ultraproduct $\prod_{\mathcal{U}} \delta_n$ assigns to $E \subseteq \mathbb{Q}$ the value $\lim_{\mathcal{U}} \mathbf{1}_{q(n) \in E}$.
 
-If $E$ is finite then $q(n) \in E$ holds for only finitely many $n$, so the ultralimit is $0$.  If $E$ is cofinite then $q(n) \in E$ holds for cofinitely many $n$, so the ultralimit is $1$, since $\mathcal{U}$ extends the cofinite filter.  The ultraproduct is therefore exactly the finite-cofinite content $\ell$ of Example~\ref{ex:finite-cofinite} on $\mathbb{Q}$.
+If $E$ is finite then $q(n) \in E$ holds for only finitely many $n$, so the ultralimit is $0$.  If $E$ is cofinite then $q(n) \in E$ holds for cofinitely many $n$, so the ultralimit is $1$, since $\mathcal{U}$ extends the cofinite filter.  The ultraproduct is therefore exactly the finite-cofinite charge $\ell$ of Example~\ref{ex:finite-cofinite} on $\mathbb{Q}$.
 
 \textit{Step 3.}
 By Step~1, any universally valid first-order condition $\Phi$ holds in the ultraproduct whenever it holds in each $\delta_n$.  But by Step~2 the ultraproduct is exactly $\ell$, and $\ell$ fails CE.  Therefore no first-order structural condition can imply CE.
 \end{proof}
 
-\noindent The ultrafilter-based content is the canonical witness: it passes every
+\noindent The ultrafilter-based charge is the canonical witness: it passes every
 finite consistency test yet assigns unit mass to events whose infinite intersection is empty. 
 
 \subsection{Finite coherence does not determine probability}
 \label{sec:metatheorem}
 
 The obstruction in Proposition~\ref{prop:ce-irred} is not an artifact of the query-system language.  In the more primitive setting of Boolean algebras with a normalized finitely additive charge, the same conclusion holds: no first-order theory in that language characterizes those algebras whose charge extends to a $\sigma$-additive measure.  Equivalently, countable additivity is not first-order axiomatizable among finitely additive probability Boolean algebras
-\cite{MahonCE2026}.  The proof is the same ultraproduct mechanism: Dirac charges
-$\delta_n$ would satisfy any putative characterizing theory, yet their ultraproduct is the finite-cofinite charge $\ell$, which fails $\sigma$-additivity --- contradicting \L{}o\'{s}'s theorem.
+\cite{MahonCE2026}.  The probability logic community has treated this as background knowledge --- Hoover~\cite{Hoover1978} requires an infinitary rule to axiomatize $\sigma$-additive probability logic, and Fagin, Halpern, and Megiddo~\cite{FaginHalpernMegiddo1990} state without proof that countable additivity cannot be expressed by any formula in the natural language --- but an explicit proof does not appear in the literature.  The companion note supplies one via the same ultraproduct mechanism: Dirac charges $\delta_n$ satisfy any putative characterizing theory, yet their ultraproduct is the finite-cofinite charge $\ell$, which fails $\sigma$-additivity, contradicting \L{}o\'{s}'s theorem.
 
 Finite coherence therefore underdetermines probability in a logically precise sense.  Foundational disputes about probability are not terminological; they concern which extra structure licenses the passage from finite coherence to probability, and some such structure is unavoidable.  CE is the condition adopted here; the companion note \cite{MahonCE2026} gives the full general proof.
 

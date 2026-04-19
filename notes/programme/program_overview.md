@@ -47,7 +47,7 @@ measure on the observable σ-algebra.
 infrastructure), `ProkhorovExtension.lean` (Prokhorov route main theorem),
 `DelayEmbedding.lean` (delay query system instantiation)
 
-**LaTeX:** `papers/paper_i/paper_i.tex` (revised draft, 13 pages)
+**LaTeX:** `papers/paper_i/probability_from_observation.tex` (revised draft, 13 pages)
 
 ---
 
@@ -337,7 +337,7 @@ Ordered by priority. Cross off as completed.
   (6 pages, compiles cleanly). Sections: setup, density bridge (monotone class proof),
   reconstruction theorem (three-way equivalence), cyclic vector (sufficient condition),
   Stone space identification, Takens comparison. Sketch at
-  `notes/conceptual_sketches/cyclic_vector_theorem_sketch.md`.
+  `notes/archive/cyclic_vector_theorem_sketch.md`.
 - [x] **Formalize Paper III skeleton** — Done 2026-04-04. `ReconstructionTheorem.lean`
   builds cleanly on `stone-duality-extension` branch. Proved: `observableAlgebra`
   definitions, `density_bridge` (via `Lp.simpleFunc.dense`), `delayMap_measurable`.
@@ -438,7 +438,7 @@ the observer's query system already contains.
 **Status:** Conceptual sketch only. Papers I–IV are now complete; this direction
 can be developed after arXiv upload.
 
-**Reference:** `notes/conceptual_sketches/philosophy/topology_from_vanishing_distinction.md`
+**Reference:** `notes/conceptual/philosophy/topology_from_vanishing_distinction.md`
 
 ---
 

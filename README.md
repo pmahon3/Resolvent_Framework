@@ -35,7 +35,7 @@ the observable σ-algebra. Proved by two independent routes:
 The irreducibility of Collective Exhaustion (CE) — the necessary and sufficient
 condition — is established via a finite-cofinite counterexample and Łoś's theorem.
 
-**LaTeX:** `papers/paper_i/` (13 pages, arXiv-ready)
+**LaTeX:** `papers/paper_i/` (12 pages, arXiv-ready)
 **Lean:** `QuerySystem.lean` ✅, `DiscriminabilityFoundations.lean` ✅,
 `StoneDualityExtension.lean` ✅, `TopologicalQuerySystem.lean` ✅,
 `ProkhorovExtension.lean` ✅
@@ -95,7 +95,7 @@ Resolvent_Framework/
 │   ├── paper_i/           ← Paper I LaTeX (arXiv-ready, 13 pages)
 │   ├── paper_ii/          ← Paper II LaTeX (arXiv-ready, 8 pages)
 │   ├── paper_iii/         ← Paper III LaTeX (arXiv-ready, 7 pages)
-│   └── paper_iv/          ← Paper IV LaTeX (complete, 16 pages)
+│   └── paper_iv/          ← Paper IV LaTeX (complete, 17 pages)
 ├── formalization/
 │   └── QuerySystem/       ← Lean 4 / Mathlib formalization
 │       └── QuerySystem/
@@ -109,15 +109,14 @@ Resolvent_Framework/
 │           ├── TopologicalQuerySystem.lean
 │           └── ProkhorovExtension.lean
 ├── notes/
-│   ├── program_overview.md          ← canonical task list and status
-│   ├── arxiv_prep.md                ← arXiv submission checklist (all four papers)
-│   ├── lean_flight_log.md           ← running Lean error/fix log
-│   ├── interstitial_reframing.md    ← philosophical register for paper transitions
-│   ├── stone_duality_vision.md      ← conceptual note on Stone/Prokhorov mechanism
-│   ├── break_reading.md             ← background reading guide
-│   └── conceptual_sketches/
-│       ├── cyclic_vector_theorem_sketch.md
-│       └── philosophy/
+│   ├── archive/                     ← superseded notes and sketches
+│   ├── conceptual/
+│   │   └── philosophy/              ← active philosophical notes
+│   ├── future/                      ← post-arXiv research directions
+│   └── programme/                   ← programme documents, task lists, logs
+│       ├── program_overview.md      ← canonical task list and status
+│       ├── arxiv_prep.md            ← arXiv submission checklist (all four papers)
+│       └── lean_flight_log.md       ← running Lean error/fix log
 └── archive/               ← superseded drafts and notes
 ```
 
@@ -129,11 +128,11 @@ are documented Mathlib-gap markers, not proof-search failures.
 
 ## Current status
 
-See `notes/program_overview.md` for the canonical task list and priorities.
+See `notes/programme/program_overview.md` for the canonical task list and priorities.
 
 - **Paper I**: arXiv-ready (13 pages, MSC classifications, keywords, citations complete).
 - **Paper II**: arXiv-ready (8 pages).
 - **Paper III**: arXiv-ready (7 pages); 2 Mathlib-gap sorrys in `ReconstructionTheorem.lean`.
 - **Paper IV**: complete (17 pages, 2026-04-06); bridge note integrated; Lean formalization not started.
-- **Bridge note**: `papers/notes/bridge_note.tex` — 4-page companion proving the conditional variance identity and entropy characterisation δ(L)→0 ⟺ H₂(ν_L)→∞; cited as `mahon_bridge` in Paper IV.
-- **Next action**: arXiv submission of Papers I–IV (checklist in `notes/arxiv_prep.md`).
+- **Bridge note**: `papers/paper_iv/notes/bridge_note.tex` — 4-page companion proving the conditional variance identity and entropy characterisation δ(L)→0 ⟺ H₂(ν_L)→∞; cited as `mahon_bridge` in Paper IV.
+- **Next action**: arXiv submission of Papers I–IV (checklist in `notes/programme/arxiv_prep.md`).

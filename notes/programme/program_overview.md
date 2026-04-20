@@ -47,7 +47,7 @@ measure on the observable σ-algebra.
 infrastructure), `ProkhorovExtension.lean` (Prokhorov route main theorem),
 `DelayEmbedding.lean` (delay query system instantiation)
 
-**LaTeX:** `papers/paper_i/probability_from_observation.tex` (revised draft, 13 pages)
+**LaTeX:** `papers/paper_i/probability_from_observation.tex` (arXiv-ready, 12 pages)
 
 ---
 
@@ -291,7 +291,7 @@ structural condition) is the deepest open question in the programme.
 
 | Paper | Mathematical status | Lean status | LaTeX status | Next action |
 |-------|--------------------|-----------|----|---|
-| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Revised** — `papers/paper_i/`, 13 pages | Submit |
+| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **arXiv-ready** — `papers/paper_i/`, 12 pages | Submit |
 | II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
 | III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **arXiv ready** — `papers/paper_iii/`, 7 pages | Upload |
 | IV | Complete. All 12 proof obligations closed. Three main theorems: Algebra (Thm 5.7), Dynamics (Thm 6.4), Conjunction (Thm 7.3). Entropy characterisation (Cor 5.12) integrated from bridge note. | Not started | **Complete** — `papers/paper_iv/`, 17 pages | Submit |
@@ -305,7 +305,7 @@ Ordered by priority. Cross off as completed.
 ### Done
 - [x] **Revise Paper A introduction and abstract** — Done 2026-04-02.
 - [x] **Integrate Papers −1 and 0 into Paper I** — Done 2026-04-02. First draft at
-  `papers/paper_i/` (13 pages, compiles cleanly). Plan at
+  `papers/paper_i/` (12 pages, compiles cleanly). Plan at
   `notes/paper_i_integration_plan.md`.
 - [x] **Revise Paper I draft** — Done 2026-04-02. Fixed: §3 notation inconsistency
   (abstract $\mathcal{E}_i$/$\ell_i$ vs query-system $B_i$/$\mu_i$) with transition
@@ -342,7 +342,7 @@ Ordered by priority. Cross off as completed.
   builds cleanly on `stone-duality-extension` branch. Proved: `observableAlgebra`
   definitions, `density_bridge` (via `Lp.simpleFunc.dense`), `delayMap_measurable`.
   6 intentional sorrys — all Mathlib API interaction issues, not mathematical gaps.
-  Flight log at `notes/lean_flight_log.md`; API reference at
+  Flight log at `notes/programme/lean_flight_log.md`; API reference at
   `notes/reconstruction_lean_flight_plan.md`.
 - [x] **Close `delayMap_intertwines_shift` sorry** — Done 2026-04-05. Fixed by indexing
   `delayMap` and `unilateralShift` by `ℕ` (not `ℤ`). Proof: one-line
@@ -374,7 +374,7 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-Submission in three phases (see `notes/arxiv_prep.md` for full checklist):
+Submission in three phases (see `notes/programme/arxiv_prep.md` for full checklist):
 
 **Phase 1 (next):** Submit Papers I and II to arXiv → backfill `mahon_paper1`,
 `mahon_paper2` in downstream refs.

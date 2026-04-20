@@ -123,6 +123,8 @@ If non-canonicity or ill-posedness:
 - Exhibits a natural example where "observation first" does not force probability without additional commitment
 - Any derived dynamics or reconstruction would be charge-relative rather than intrinsic to the function
 
+The ill-posed outcome is identifiable in the coherence/completion/admissibility triad as the case where observational naturality fails to supply the admissibility structure that finite coherence cannot.  Stone duality still produces the completion — all coherent distinction patterns, including nonprincipal ones — but no naturality condition selects which charges on that completion are admissible as genuine probability.  The zeta setting would then be a witness to the general principle: the passage from coherence to probability requires extra structure, and it need not be intrinsically available.
+
 ---
 
 ## Candidate naturality classes (ordered by tractability)

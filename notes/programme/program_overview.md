@@ -397,15 +397,29 @@ LaTeX tasks before Phase 1.
   needed unless scope is widened.
 - Paper IV Lean formalization — not started; no timeline.
 
-**Open mathematical frontiers** (see `notes/program_synthesis.md` for full discussion):
-1. **Fibre mixing irreducibility** — is fibre mixing derivable from any structural
-   condition, or is it irreducible like CE? This is the deepest open question.
-2. **Entropy witness concentration** — finite-$n$ McDiarmid bound for
-   $\hat{H}_2(\nu_L^{(n)})$; most immediate technical extension; no new structural
-   theory needed.
-3. **Paper 0 direction** — separation system + coherent charges as a primitive
-   foundation; CE and fibre mixing as instances of charge-coherence conditions.
-   Not to be developed until after arXiv upload.
+**Open mathematical frontiers** (see `notes/programme/program_synthesis.md` for full dependency analysis):
+
+Ordered by downstream leverage — fibre mixing first, coherence/consistency schema
+second, everything else after.
+
+1. **Fibre mixing irreducibility** *(highest leverage — start here after arXiv).*
+   Is fibre mixing derivable from any structural condition? The Łoś-type argument
+   from CE irreducibility is the template; the question is whether the finite-cofinite
+   construction generalises. Either outcome closes the three-obstruction table and
+   feeds the coherence/consistency schema.
+
+2. **Coherence/consistency schema** *(second, after fibre mixing gives a second example).*
+   Formalise the three-component schema with CE and fibre mixing as worked examples.
+   Priority theorem: contradiction is the unique compact coherence notion.
+   See `notes/future/coherence_consistency_direction.md`.
+
+3. **Entropy witness concentration** *(most immediate technical extension).*
+   McDiarmid bound for $\hat{H}_2(\nu_L^{(n)})$; no new structural theory needed.
+
+4. **Strategy D** *(self-contained; no downstream leverage; leave as named open problem).*
+   ZFC methods exhausted; likely independent. See `notes/future/ce_nonderivability_general.md`.
+
+5. **Paper 0 / zeta / interaction** *(post-arXiv; downstream of 1 and 2).*
 
 ---
 

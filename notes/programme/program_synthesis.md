@@ -83,7 +83,7 @@ Each paper identifies a single obstruction to its main result:
 |-------|------------|--------|
 | I | Lack of CE | Proved irreducible (Łoś's theorem + finite-cofinite counterexample) |
 | III | Lack of density ($\mathcal{O}_h \neq \mathcal{B}$) | Characterised by the density bridge |
-| IV | Lack of fibre mixing | The Paper IV analogue of CE |
+| IV | Lack of fibre mixing | Analogue of CE; irreducibility **open** |
 
 **Fibre mixing is to Paper IV what CE is to Paper I:** both are the minimal
 condition under which a comparison theorem holds. CE makes σ-additivity possible;
@@ -91,8 +91,13 @@ fibre mixing makes the algebraic and information-theoretic witnesses comparable.
 Both are strictly weaker than their natural sufficient condition (ergodicity implies
 fibre mixing; no first-order condition implies CE).
 
-The open question: what is the minimal necessary condition for fibre mixing? Is
-it irreducible in the same sense as CE?
+**The open question:** is fibre mixing irreducible in the same sense as CE — i.e.,
+not derivable from any structural condition on the query system or the dynamics?
+This is the deepest open question in the programme. Resolving it would:
+- Close the three-obstruction table symmetrically
+- Give Paper IV the same foundational standing as Paper I
+- Supply the coherence/consistency schema (see `notes/future/coherence_consistency_direction.md`)
+  with a second fully worked example in a genuinely different domain
 
 ---
 
@@ -129,18 +134,57 @@ under fibre mixing; (2) certifies state-space separation directly.
 ## The true frontier
 
 The programme is complete at the level of four papers. The genuine open
-directions, in order of structural depth:
+directions, ordered by downstream leverage:
 
-1. **Fibre mixing as a structural condition.** Characterise and possibly prove
-   irreducibility of fibre mixing, analogous to the CE irreducibility result in
-   Paper I. This is the most direct continuation.
+### Dependency structure
 
-2. **Concentration of the entropy witness.** A finite-$n$ concentration result
-   for $\hat{H}_2(\nu_L^{(n)})$ comparable to Proposition 4.1 for $\hat\delta$.
-   Requires only McDiarmid bounds on the U-statistic; no new structural theory.
-   This is the most immediate technical extension.
+```
+Fibre mixing irreducibility
+        ↓                        ↘
+Coherence/consistency schema      Paper IV foundational standing
+        ↓              ↓
+  Zeta direction   Interaction direction
 
-3. **Paper 0 direction.** Separation system + coherent charges as a primitive
-   foundation: derive the whole programme from observational distinguishability
-   alone, without assuming a sample space. CE and fibre mixing would both be
-   instances of charge-coherence conditions in this language.
+Strategy D ─────────────────────→ (self-contained; no downstream leverage)
+Entropy witness concentration ──→ Interaction direction only
+```
+
+The highest-leverage move is fibre mixing irreducibility. It feeds the
+coherence/consistency schema with the second worked example that schema needs
+to become a genuine classification. Without it, the schema is a one-example
+framework. With it, it fans out to all other future directions.
+
+The right sequencing is therefore: fibre mixing first, coherence/consistency
+schema second (generalise with two examples in hand), then everything else.
+
+### Open directions
+
+1. **Fibre mixing irreducibility** *(highest leverage — start here).*
+   Is fibre mixing derivable from any structural condition on the query system
+   or dynamics? The Łoś-type argument from CE irreducibility is the natural
+   template; the question is whether the finite-cofinite construction generalises
+   or whether a different witness is needed. Either outcome — irreducible or
+   derivable — has large downstream consequences.
+
+2. **Coherence/consistency schema** *(second, after fibre mixing).*
+   Formalise the three-component schema (local data / global realization /
+   failure mode) with CE and fibre mixing as the two primary worked examples.
+   The priority theorem target: prove that the contradiction failure mode is the
+   unique compact coherence notion, giving a formal sense in which consistency
+   is a distinguished special case. See `notes/future/coherence_consistency_direction.md`.
+
+3. **Concentration of the entropy witness** *(most immediate technical extension).*
+   A finite-$n$ concentration result for $\hat{H}_2(\nu_L^{(n)})$ comparable
+   to Proposition 4.1 for $\hat\delta$. Requires only McDiarmid bounds on the
+   U-statistic; no new structural theory. Downstream leverage: interaction
+   direction.
+
+4. **Strategy D** *(self-contained; no downstream leverage).*
+   Does a non-σ-complete non-atomic Boolean algebra admitting no σ-additive
+   probability exist? Likely ZFC-independent. ZFC Boolean-algebra methods
+   exhausted. Next step requires forcing. Leave as a named open problem unless
+   set-theoretic methods become available.
+
+5. **Paper 0 / zeta / interaction directions** *(post-arXiv, consume results).*
+   All downstream of fibre mixing and the coherence/consistency schema. Do not
+   develop until Papers I–IV are posted and fibre mixing is understood.

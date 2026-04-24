@@ -69,19 +69,15 @@ measures, $K_t g = g \circ \varphi_t$ recovers the classical Koopman operator.
 These structures assemble into the \emph{observable dynamical system}
 $(O_{Q_*}, \nu_{Q_*}, \{K_t\})$, which Paper~III takes as its starting point
 and asks: when does the delay orbit of a single function reconstruct the full
-state space?  The formalism is self-contained: the paper starts from a
-probability space $(\Omega, \mathcal{F}, P)$ and two measurable maps; the
-connection to Paper~I is motivational.  The main theorems are formalized in
-Lean~4 / Mathlib~\cite{Mathlib}; several further results — the experiment
-preorder, general predictive sufficiency, the continuous-time generator — are
-stated but not yet formalized, and are noted as such.
+state space?
 
 % ====================================================================
 \section{Setup}
 \label{sec:setup}
 
-Throughout this paper, $(\Omega, \mathcal{F}, P)$ is a probability space.  We
-fix two measurable maps:
+The paper is self-contained.  The connection to Paper~I~\cite{mahon_paper1} is
+motivational; the formalism starts here from a probability space
+$(\Omega, \mathcal{F}, P)$ and two measurable maps:
 \begin{itemize}
   \item $Q : \Omega \to \alpha$, where $(\alpha, \mathcal{A})$ is a measurable
     space;
@@ -89,14 +85,21 @@ fix two measurable maps:
     Borel space.
 \end{itemize}
 The standard Borel hypothesis on $\beta$ is used once: it is the hypothesis
-under which the Rokhlin disintegration theorem~\cite{Rokhlin1952} guarantees the existence of a
-regular conditional distribution.  All other results hold in greater generality.
+under which the Rokhlin disintegration theorem~\cite{Rokhlin1952} guarantees the
+existence of a regular conditional distribution.  All other results hold in
+greater generality.
 
 We write $\mathcal{P}(\beta)$ for the space of probability measures on $\beta$,
 equipped with its canonical (Giry) $\sigma$-algebra.  The \emph{joint
 pushforward} is the measure $\rho := P \circ (Q, F)^{-1}$ on $\alpha \times
 \beta$; its marginals are $\rho_\alpha = P \circ Q^{-1}$ and $\rho_\beta = P
 \circ F^{-1}$.
+
+The main theorems are formalized in Lean~4 / Mathlib~\cite{Mathlib} in
+\texttt{PredictiveState.lean} and \texttt{PredictiveOperators.lean}.  Several
+further results — the experiment preorder, general predictive sufficiency, the
+continuous-time generator — are stated in the paper but not yet formalized;
+these are noted at the relevant points.
 
 % ====================================================================
 \section{The predictive kernel and the minimal predictive state map}

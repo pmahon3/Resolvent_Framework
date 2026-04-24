@@ -3,28 +3,29 @@
 \begin{abstract}
 Paper~I produced a probability measure $P$ on the observable $\sigma$-algebra
 from coherent structured observations.  This paper asks what temporal structure
-$P$ carries: once the observer's predictions are fixed, what are the laws of
-motion?
+$P$ carries.
 
-The answer is extracted entirely from $P$ without additional assumptions.  Given
-two measurable maps $Q : \Omega \to \alpha$ (present) and $F : \Omega \to \beta$
-(future), the \emph{predictive kernel} $\Pi_Q$ is the regular conditional
-distribution of $F$ given $Q$.  The \emph{minimal predictive state map}
-$Q_* : \Omega \to \mathcal{P}(\beta)$ packages this conditional law as a single
-measurable map; the predictive factorization theorem shows that every conditional
-expectation of a function of $F$ factors through $Q_*$.  Indexing over a
-discrete time horizon, the kernels $\{\Pi_t\}$ compose via the
-Chapman--Kolmogorov equation, which is derived from temporal coherence of
-prediction rather than imposed.  This produces the semigroup law
-$K_{t+s} = K_t \circ K_s$ for the \emph{predictive operators} $\{K_t\}$, and
-the Koopman--Perron duality $\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$
-connects operator-on-functions with measure-on-states.  When the kernels are
-Dirac measures, $K_t g = g \circ \varphi_t$ and the classical Koopman operator
-is recovered.  The whole picture — predictive state space, semigroup,
-Koopman--Perron duality, deterministic limit — assembles into a single structure
-called the \emph{observable dynamical system}, which Paper~III will use as the
-object to be reconstructed from time-delayed observations.  The main theorems
-are formalized in Lean~4 / Mathlib with no outstanding proof obligations.
+The classical approach to dynamics, following Koopman, describes how observable
+functions evolve under a known transformation $T$.  This presupposes access to
+$T$.  The approach here treats prediction as primary: given a current observation
+$Q$, what does the observer predict about the future $F$?  This question has a
+canonical answer — the \emph{predictive kernel} $\Pi_Q$, the regular conditional
+distribution of $F$ given $Q$ — and a canonical minimal form — the
+\emph{minimal predictive state map} $Q_*$, sending each sample point to its
+conditional law.  The \emph{predictive factorization theorem} shows that $Q_*$
+is the minimal sufficient statistic for future prediction.
+
+Indexing over time, the prediction laws compose.  Their composition rule is the
+Chapman--Kolmogorov equation, derived here from temporal coherence rather than
+assumed.  From it emerge the \emph{predictive operators} $\{K_t\}$, their
+semigroup law, and their duality with the measure-evolution operators $\{P_t^*\}$.
+When predictions are certain — Dirac kernels — the construction recovers the
+classical Koopman operator exactly.
+
+The whole construction assembles into the \emph{observable dynamical system}
+$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$.  Setting $Q_t = h \circ T^t$ in a
+measure-preserving system identifies $Q_*$ with the delay map $\Phi_h$, making
+this the direct input to the reconstruction question of Paper~III.
 \end{abstract}
 
 \begin{quote}\small
@@ -57,14 +58,15 @@ given $Q$.  No state-space transformation is assumed.
 
 The predictive kernel packages into the \emph{minimal predictive state map}
 $Q_* : \Omega \to \mathcal{P}(\beta)$, sending each sample point to its
-conditional law.  The predictive factorization theorem shows that every
-conditional expectation of a function of $F$ factors through $Q_*$: it is the
-minimal sufficient statistic for future prediction.  Indexing over time, the
-kernels $\{\Pi_t\}$ compose; their composition law is the Chapman--Kolmogorov
-equation, derived from temporal coherence, not assumed.  This yields a semigroup
-of \emph{predictive operators} $\{K_t\}$ and the Koopman--Perron duality
-$\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$.  When the kernels are Dirac
-measures, $K_t g = g \circ \varphi_t$ recovers the classical Koopman operator.
+conditional law.  The predictive factorization theorem shows that $Q_*$ is the
+minimal sufficient statistic for future prediction: every conditional expectation
+of a function of $F$ factors through it.  Indexing over time, the prediction
+laws compose; their composition rule is the Chapman--Kolmogorov equation, which
+is derived from temporal coherence rather than assumed.  This yields the
+\emph{predictive operators} $\{K_t\}$, their semigroup law, and the
+Koopman--Perron duality connecting operators on functions with operators on
+measures.  When the kernels are Dirac measures, the construction collapses to
+the classical Koopman operator.
 
 These structures assemble into the \emph{observable dynamical system}
 $(O_{Q_*}, \nu_{Q_*}, \{K_t\})$, which Paper~III takes as its starting point
@@ -126,7 +128,7 @@ kernel $\alpha \to \mathcal{P}(\beta)$ such that
 \]
 for all measurable $A \subseteq \alpha$ and $B \subseteq \beta$.
 
-\begin{proposition}[Predictive compatibility, P2.2]
+\begin{proposition}[Predictive compatibility]
 \label{prop:predictive-compat}
 Let $\pi : \alpha \to \alpha'$ be measurable with $Q' = \pi \circ Q$.  Then
 for $(P \circ Q^{-1})$-almost every $q \in \alpha$:
@@ -161,7 +163,7 @@ The value $Q_*(\omega)$ is the full conditional law $P(F \in \cdot \mid Q =
 Q(\omega))$.
 \end{definition}
 
-\begin{proposition}[Measurability, P2.1/P2.3]
+\begin{proposition}[Measurability]
 \label{prop:measurability}
 The maps $\varphi_Q$ and $Q_*$ are measurable.
 \end{proposition}
@@ -183,7 +185,7 @@ The predictive factorization theorem is the central result of this paper.  It
 says that the conditional expectation of any bounded measurable function of $F$,
 given $Q$, factors through the minimal predictive state map $Q_*$.
 
-\begin{theorem}[Predictive factorization, P2.5]
+\begin{theorem}[Predictive factorization]
 \label{thm:predictive-factorization}
 For every bounded measurable $g : \beta \to \mathbb{R}$:
 \[
@@ -220,7 +222,7 @@ By the a.e.\ uniqueness of conditional expectation
 \sigma(Q)]$ $P$-a.e.
 \end{proof}
 
-\begin{corollary}[Predictive sufficiency, P2.5]
+\begin{corollary}[Predictive sufficiency]
 \label{cor:sufficiency}
 $E[g(F) \mid \sigma(Q)] = E[g(F) \mid \sigma(Q_*)]$ $P$-a.e.
 \end{corollary}
@@ -277,7 +279,7 @@ predictive operator} at horizon $t$ is
 \]
 \end{definition}
 
-\begin{proposition}[Basic properties, P3.1/P3.4]
+\begin{proposition}[Basic properties]
 \label{prop:basic-properties}
 For any predictive kernel family $\{\Pi_t\}$:
 \begin{enumerate}[label=(\roman*)]
@@ -294,7 +296,7 @@ integration against a positive measure.  Contractiveness:
 $|(K_t g)(q)| = |\int g\, d\Pi_t(q,\cdot)| \leq \|g\|_\infty \cdot \Pi_t(q, \gamma) = \|g\|_\infty$.
 \end{proof}
 
-\begin{theorem}[Semigroup property, P3.3]
+\begin{theorem}[Semigroup property]
 \label{thm:semigroup}
 Let $\{\Pi_t\}$ be a predictive semigroup kernel.  For every bounded measurable
 $g : \gamma \to \mathbb{R}$:
@@ -337,7 +339,7 @@ on $\gamma$, the \emph{Koopman--Perron push-forward} is
 In Mathlib notation: \texttt{$\mu$.bind (ker $t$)}.
 \end{definition}
 
-\begin{theorem}[Koopman--Perron duality, P3.5]
+\begin{theorem}[Koopman--Perron duality]
 \label{thm:koopman-perron}
 For every bounded measurable $g : \gamma \to \mathbb{R}$ and finite measure
 $\mu$ on $\gamma$:
@@ -364,7 +366,7 @@ The Bochner--Fubini step again uses \texttt{Kernel.integral\_comp}.
 When the dynamics is deterministic, the stochastic picture collapses to the
 classical Koopman picture.
 
-\begin{theorem}[Deterministic specialization, P3.6]
+\begin{theorem}[Deterministic specialization]
 \label{thm:deterministic}
 Suppose $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for a measurable map
 $\varphi_t : \gamma \to \gamma$.  Then for every measurable $g$:
@@ -377,7 +379,7 @@ $(K_t g)(q) = \int g\, d\delta_{\varphi_t(q)} = g(\varphi_t(q))$.  The
 integral against a Dirac measure is \texttt{integral\_dirac'} in Mathlib.
 \end{proof}
 
-\begin{corollary}[Flow law, P3.6]
+\begin{corollary}[Flow law]
 \label{cor:flow-law}
 If $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for all $t$, then
 \[
@@ -399,77 +401,51 @@ Since Dirac measures at distinct points are distinct (under
 \texttt{SeparatesPoints}), we conclude $\varphi_{t+s}(q) = \varphi_t(\varphi_s(q))$.
 \end{proof}
 
-% ====================================================================
-\section{The observable dynamical system}
-\label{sec:obs-dyn-sys}
-
-The results above assemble into a single structure.
+The full structure produced by the construction is named once:
 
 \begin{definition}[Observable dynamical system]
 \label{def:obs-dyn-sys}
 An \emph{observable dynamical system} is a triple
 $(O_{Q_*},\, \nu_{Q_*},\, \{K_t\}_{t \in \mathbb{N}})$
-where:
-\begin{itemize}
-  \item $O_{Q_*} = \mathcal{P}(\beta)$ is the \emph{predictive state space}
-    (the image of $Q_*$);
-  \item $\nu_{Q_*} = P \circ Q_*^{-1}$ is the \emph{predictive state
-    distribution} (the pushforward of $P$ along $Q_*$);
-  \item $\{K_t\}$ is the \emph{predictive operator family} on $O_{Q_*}$,
-    satisfying the semigroup law and Markov properties above.
-\end{itemize}
+where $O_{Q_*} = \mathcal{P}(\beta)$ is the predictive state space,
+$\nu_{Q_*} = P \circ Q_*^{-1}$ is the predictive state distribution, and
+$\{K_t\}$ is the predictive operator family satisfying the semigroup law and
+Markov properties above.
 \end{definition}
 
 % ====================================================================
 \section{Relation to Paper III}
 \label{sec:bridge}
 
-Paper~II has constructed the dynamics from the probability measure $P$ and the
-measurable maps $(Q, F)$.  The output is the observable dynamical system
-$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$: a predictive state space, a distribution, and
-a semigroup.  This raises the inverse question.
+Setting $Q_t = h \circ T^t$ in a measure-preserving system
+$(X, \mathcal{B}, \mu, T)$ with $h \in L^\infty$ specialises the construction
+directly.  Under this choice, $Q_* = \Phi_h$, the delay map $\Phi_h(x) =
+(h(T^n x))_{n \in \mathbb{Z}}$, and the predictive state space $O_{Q_*}$ is
+precisely the delay orbit space.  The observable dynamical system is the input
+to Paper~III.
 
-The construction specialises directly to the setting of Paper~III.  If
-$(X, \mathcal{B}, \mu, T)$ is a measure-preserving system and $h \in L^\infty$,
-set $Q_t = h \circ T^t$.  Then $Q_* = \Phi_h$, the delay map $\Phi_h(x) =
-(h(T^n x))_{n \in \mathbb{Z}}$, and the predictive state space $O_{Q_*}$
-is precisely the delay orbit space of Paper~III.
-
-Paper~III asks: \emph{when does the sequence of time-delayed observations
-$\{h \circ T^n : n \in \mathbb{Z}\}$ of a single function $h$ determine the
-full state space?}  The answer is the \emph{reconstruction theorem}: for a
-measure-preserving system $(X, \mathcal{B}, \mu, T)$ and $h \in L^\infty$, the
+Paper~III asks: when does the delay orbit of a single observable $h$ determine
+the full state space?  The answer is the \emph{reconstruction theorem}: the
 observable $\sigma$-algebra $\mathcal{O}_h = \sigma(\{h \circ T^n\})$ equals
 $\mathcal{B}(X)$ modulo $\mu$ if and only if the algebra generated by
-$\{h \circ T^n\}$ is dense in $L^2(X, \mu)$.  The proof turns on the
-\emph{density bridge}: the $L^2$-closure of a function algebra equals the
-$L^2$-space of the $\sigma$-algebra it generates.
+$\{h \circ T^n\}$ is dense in $L^2(X, \mu)$.  The proof turns on the density
+bridge: the $L^2$-closure of a function algebra equals the $L^2$-space of the
+$\sigma$-algebra it generates.
 
-The Koopman operators $\{U_T^t\}$ on $L^2(X, \mu)$ connect the two papers.
-Paper~II produces $\{K_t\}$ on the predictive state space $O_{Q_*}$; when
-$Q_*$ is injective modulo $P$-null sets, $K_t$ and $U_T^t$ act on the same
-information.  The \emph{cyclic vector condition} — that
-$\overline{\mathrm{span}}\{U_T^n h : n \in \mathbb{Z}\} = L^2(X, \mu)$ —
-appears naturally in the Koopman picture and is a sufficient condition for
-reconstruction.  But it is strictly stronger: reconstruction requires only that
-the \emph{algebra} generated by the delay orbit is $L^2$-dense, whereas
-cyclicity requires the \emph{linear span}.  They coincide only when $U_T$ has
-simple $L^2$-spectrum.
+The Koopman operators $\{U_T^t\}$ connect the two papers.  Paper~II produces
+$\{K_t\}$ on $O_{Q_*}$; when $Q_* = \Phi_h$ is injective modulo null sets,
+$K_t$ and $U_T^t$ act on the same information.  The cyclic vector condition —
+$\overline{\mathrm{span}}\{U_T^n h\} = L^2(X, \mu)$ — is sufficient for
+reconstruction but strictly stronger: reconstruction requires only that the
+\emph{algebra} generated by the delay orbit be $L^2$-dense, not the linear
+span.  They coincide only when $U_T$ has simple spectrum.
 
-When reconstruction holds, the predictive state space $O_{Q_*}$ is, up to
-measure-theoretic identification, the full state space $X$.  The compact Stone
-space $\mathrm{St}(\mathcal{C})$ built in Paper~I as a technical device for
-measure extension is identified by Paper~III, under the reconstruction condition,
-with $X$ itself.  The programme begins with a compact completion of the sample
-space and ends by recognising it as the state space.
-
-\begin{remark}[Continuous-time deferred]
-All results above are stated for discrete time $t \in \mathbb{N}$.  The
-continuous-time ($t \in \mathbb{R}_{\geq 0}$) versions require the
-infinitesimal generator of a $C_0$-semigroup and the Hille--Yosida theorem.
-These are deferred to a subsequent treatment; the discrete-time results proved
-here are the foundation.
-\end{remark}
+When reconstruction holds, $O_{Q_*}$ is the full state space $X$ up to
+measure-theoretic identification.  The compact Stone space introduced in Paper~I
+as a technical device for measure extension is recognised by Paper~III, under
+the reconstruction condition, as $X$ itself.  The programme begins with a
+compact completion of the sample space and ends by identifying it as the state
+space.
 
 \bibliographystyle{plain}
 \bibliography{references}

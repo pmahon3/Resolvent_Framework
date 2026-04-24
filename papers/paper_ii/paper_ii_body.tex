@@ -1,31 +1,33 @@
 \maketitle
 
 \begin{abstract}
-Paper~I produced a probability measure $P$ on the observable $\sigma$-algebra
-from coherent structured observations.  This paper asks what temporal structure
-$P$ carries.
+An observer sees a current state $Q$ and a future state $F$.  The classical
+approach to dynamics, following Koopman, describes the evolution of observable
+functions under a known transformation $T$ — but this presupposes access to
+$T$.  The prior question is: what does the observer \emph{predict} about $F$
+given $Q$, without assuming the dynamics?
 
-The classical approach to dynamics, following Koopman, describes how observable
-functions evolve under a known transformation $T$.  This presupposes access to
-$T$.  The approach here treats prediction as primary: given a current observation
-$Q$, what does the observer predict about the future $F$?  This question has a
-canonical answer — the \emph{predictive kernel} $\Pi_Q$, the regular conditional
-distribution of $F$ given $Q$ — and a canonical minimal form — the
-\emph{minimal predictive state map} $Q_*$, sending each sample point to its
-conditional law.  The \emph{predictive factorization theorem} shows that $Q_*$
-is the minimal sufficient statistic for future prediction.
+Making prediction precise forces an answer: the \emph{predictive kernel}
+$\Pi_Q$ is the regular conditional distribution of $F$ given $Q$.  Its
+existence requires disintegrating a joint distribution — which requires a
+$\sigma$-additive probability measure on the observable algebra.  That measure
+is not assumed here; it is the object constructed in Paper~I from coherent
+structured observations satisfying collective exhaustion.
 
-Indexing over time, the prediction laws compose.  Their composition rule is the
-Chapman--Kolmogorov equation, derived here from temporal coherence rather than
-assumed.  From it emerge the \emph{predictive operators} $\{K_t\}$, their
-semigroup law, and their duality with the measure-evolution operators $\{P_t^*\}$.
-When predictions are certain — Dirac kernels — the construction recovers the
-classical Koopman operator exactly.
+Once $\Pi_Q$ exists, its canonical minimal form is the \emph{minimal predictive
+state map} $Q_*$, sending each sample point to its conditional law.  The
+\emph{predictive factorization theorem} shows that $Q_*$ is the minimal
+sufficient statistic for future prediction.  Indexing over time, the prediction
+laws compose, and their composition rule — the Chapman--Kolmogorov equation —
+is derived from temporal coherence rather than assumed.  From it emerge the
+\emph{predictive operators} $\{K_t\}$, their semigroup law, and the
+Koopman--Perron duality.  When predictions are certain, the construction
+recovers the classical Koopman operator exactly.
 
-The whole construction assembles into the \emph{observable dynamical system}
-$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$.  Setting $Q_t = h \circ T^t$ in a
-measure-preserving system identifies $Q_*$ with the delay map $\Phi_h$, making
-this the direct input to the reconstruction question of Paper~III.
+The output is the \emph{observable dynamical system} $(O_{Q_*}, \nu_{Q_*},
+\{K_t\})$.  Setting $Q_t = h \circ T^t$ identifies $Q_*$ with the delay map
+$\Phi_h$, making this the direct input to the reconstruction question of
+Paper~III.
 \end{abstract}
 
 \begin{quote}\small
@@ -41,36 +43,41 @@ Koopman--Perron duality, observable dynamical system, measure-preserving system.
 \section{Introduction}
 \label{sec:intro}
 
-Paper~I produced a probability measure $P$ on the observable $\sigma$-algebra
-from coherent structured observations; collective exhaustion was the exact
-condition licensing the passage from finite coherence to genuine probability.
-The question this paper addresses is what temporal structure $P$ carries.  Once
-the probability is fixed, the laws of motion are already determined.
-
 The classical approach to dynamics, following Koopman~\cite{Koopman1931},
 describes how observable functions evolve: the operator $U_T f = f \circ T$
-acts by precomposing with the dynamics $T$.  This presupposes access to $T$.
-The approach here replaces that assumption with a prior question: given the
-current observation $Q : \Omega \to \alpha$, what does the observer predict
-about the future observation $F : \Omega \to \beta$?  The answer is the
-\emph{predictive kernel} $\Pi_Q$, the regular conditional distribution of $F$
-given $Q$.  No state-space transformation is assumed.
+acts by precomposing with a known transformation $T$.  This presupposes access
+to $T$ as a primitive.  The question this paper asks is prior: given a current
+observation $Q : \Omega \to \alpha$ and a future observation $F : \Omega \to
+\beta$, what does the observer \emph{predict} about $F$ given $Q$?  The
+dynamics, if there are any, should follow from the answer — not precede it.
 
-The predictive kernel packages into the \emph{minimal predictive state map}
-$Q_* : \Omega \to \mathcal{P}(\beta)$, sending each sample point to its
-conditional law.  The predictive factorization theorem shows that $Q_*$ is the
-minimal sufficient statistic for future prediction: every conditional expectation
-of a function of $F$ factors through it.  Indexing over time, the prediction
-laws compose; their composition rule is the Chapman--Kolmogorov equation, which
-is derived from temporal coherence rather than assumed.  This yields the
+Making prediction precise immediately generates a requirement.  The canonical
+answer is the \emph{predictive kernel} $\Pi_Q$: the regular conditional
+distribution of $F$ given $Q$, the unique Markov kernel realising $P(F \in
+\cdot \mid Q = q)$ simultaneously across all outcomes.  Its existence rests on
+the Rokhlin disintegration theorem, which in turn requires a $\sigma$-additive
+probability measure on the observable $\sigma$-algebra.  That measure is not
+an extra assumption here.  It is what Paper~I constructs: a family of coherent
+finitely additive charges on a directed system of observable algebras extends
+to a genuine probability measure exactly when it satisfies collective exhaustion,
+the condition ruling out persistent mass on globally vanishing events.  The
+predictive programme cannot begin until that measure exists; Paper~I is the
+condition under which it does.
+
+Once $\Pi_Q$ exists, its minimal form is the \emph{minimal predictive state
+map} $Q_* : \Omega \to \mathcal{P}(\beta)$, sending each sample point to its
+conditional law.  The predictive factorization theorem shows that every
+conditional expectation of a function of $F$ factors through $Q_*$: it is the
+minimal sufficient statistic for future prediction.  Indexing over time, the
+prediction laws compose; their composition rule is the Chapman--Kolmogorov
+equation, derived from temporal coherence rather than assumed.  This yields the
 \emph{predictive operators} $\{K_t\}$, their semigroup law, and the
-Koopman--Perron duality connecting operators on functions with operators on
-measures.  When the kernels are Dirac measures, the construction collapses to
-the classical Koopman operator.
+Koopman--Perron duality.  When the kernels are Dirac measures, the construction
+collapses to the classical Koopman picture.
 
 These structures assemble into the \emph{observable dynamical system}
 $(O_{Q_*}, \nu_{Q_*}, \{K_t\})$, which Paper~III takes as its starting point
-and asks: when does the delay orbit of a single function reconstruct the full
+and asks: when does the delay orbit of a single observable reconstruct the full
 state space?
 
 % ====================================================================

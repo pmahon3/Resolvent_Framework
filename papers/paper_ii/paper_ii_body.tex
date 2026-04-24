@@ -1,33 +1,37 @@
 \maketitle
 
 \begin{abstract}
-An observer sees a current state $Q$ and a future state $F$.  The classical
-approach to dynamics, following Koopman, describes the evolution of observable
-functions under a known transformation $T$ — but this presupposes access to
-$T$.  The prior question is: what does the observer \emph{predict} about $F$
-given $Q$, without assuming the dynamics?
+The classical approach to dynamics, following Koopman, describes how observable
+functions evolve under a known transformation $T$ — but this presupposes access
+to $T$.  The prior question is: given a current observation $Q$ and a future
+observation $F$, what does an observer predict about $F$ given $Q$, without
+assuming the dynamics?
 
-Making prediction precise forces an answer: the \emph{predictive kernel}
-$\Pi_Q$ is the regular conditional distribution of $F$ given $Q$.  Its
-existence requires disintegrating a joint distribution — which requires a
-$\sigma$-additive probability measure on the observable algebra.  That measure
-is not assumed here; it is the object constructed in Paper~I from coherent
-structured observations satisfying collective exhaustion.
+Making prediction precise forces an answer.  The canonical answer is the regular
+conditional distribution of $F$ given $Q$, a Markov kernel
+$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ realising $P(F \in \cdot \mid Q = q)$
+across all outcomes simultaneously.  Its existence requires disintegrating a
+joint distribution — which requires a $\sigma$-additive probability measure on
+the observable algebra.  That measure is not assumed here; it is the object
+constructed in~\cite{mahon_paper1} from coherent structured observations
+satisfying collective exhaustion.
 
-Once $\Pi_Q$ exists, its canonical minimal form is the \emph{minimal predictive
-state map} $Q_*$, sending each sample point to its conditional law.  The
-\emph{predictive factorization theorem} shows that $Q_*$ is the minimal
-sufficient statistic for future prediction.  Indexing over time, the prediction
-laws compose, and their composition rule — the Chapman--Kolmogorov equation —
-is derived from temporal coherence rather than assumed.  From it emerge the
-\emph{predictive operators} $\{K_t\}$, their semigroup law, and the
-Koopman--Perron duality.  When predictions are certain, the construction
-recovers the classical Koopman operator exactly.
+Once $\Pi_Q$ exists, composing with $Q$ gives the map
+$Q_* : \Omega \to \mathcal{P}(\beta)$ sending each sample point to its
+conditional law.  The central result — the predictive factorization theorem —
+shows that $Q_*$ is the minimal sufficient statistic for future prediction.
+Indexing over time, the kernels $\{\Pi_t\}$ compose; their composition rule is
+the Chapman--Kolmogorov equation, derived from temporal coherence rather than
+assumed.  From it emerge a semigroup of Markov operators $\{K_t\}$ and the
+duality $\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.  When the kernels
+are Dirac measures, the construction recovers the classical Koopman operator
+exactly.
 
-The output is the \emph{observable dynamical system} $(O_{Q_*}, \nu_{Q_*},
-\{K_t\})$.  Setting $Q_t = h \circ T^t$ identifies $Q_*$ with the delay map
-$\Phi_h$, making this the direct input to the reconstruction question of
-Paper~III.
+The output is a triple $(\mathcal{P}(\beta), \nu_{Q_*}, \{K_t\})$ — predictive
+state space, stationary distribution, Markov semigroup.  Setting
+$Q_t = h \circ T^t$ in a measure-preserving system identifies $Q_*$ with the
+delay map $x \mapsto (h(T^n x))_{n \in \mathbb{Z}}$, making this triple the
+direct input to the reconstruction question studied in~\cite{mahon_paper3}.
 \end{abstract}
 
 \begin{quote}\small
@@ -48,44 +52,47 @@ describes how observable functions evolve: the operator $U_T f = f \circ T$
 acts by precomposing with a known transformation $T$.  This presupposes access
 to $T$ as a primitive.  The question this paper asks is prior: given a current
 observation $Q : \Omega \to \alpha$ and a future observation $F : \Omega \to
-\beta$, what does the observer \emph{predict} about $F$ given $Q$?  The
-dynamics, if there are any, should follow from the answer — not precede it.
+\beta$, what does an observer predict about $F$ given $Q$?  The dynamics, if
+there are any, should follow from the answer — not precede it.
 
 Making prediction precise immediately generates a requirement.  The canonical
-answer is the \emph{predictive kernel} $\Pi_Q$: the regular conditional
-distribution of $F$ given $Q$, the unique Markov kernel realising $P(F \in
-\cdot \mid Q = q)$ simultaneously across all outcomes.  Its existence rests on
-the Rokhlin disintegration theorem, which in turn requires a $\sigma$-additive
-probability measure on the observable $\sigma$-algebra.  That measure is not
-an extra assumption here.  It is what Paper~I constructs: a family of coherent
-finitely additive charges on a directed system of observable algebras extends
-to a genuine probability measure exactly when it satisfies collective exhaustion,
-the condition ruling out persistent mass on globally vanishing events.  The
-predictive programme cannot begin until that measure exists; Paper~I is the
-condition under which it does.
+answer is the regular conditional distribution of $F$ given $Q$: the unique
+Markov kernel $\Pi_Q : \alpha \to \mathcal{P}(\beta)$ realising
+$P(F \in \cdot \mid Q = q)$ simultaneously across all outcomes.  Its existence
+rests on the Rokhlin disintegration theorem, which requires a $\sigma$-additive
+probability measure on the observable $\sigma$-algebra.  That measure is not an
+extra assumption here.  It is what \cite{mahon_paper1} constructs: a coherent
+family of finitely additive charges on a directed system of observable algebras
+extends to a genuine probability measure exactly when it satisfies collective
+exhaustion, the condition ruling out persistent mass on globally vanishing
+events.  The predictive construction cannot begin until that measure exists;
+collective exhaustion is the condition under which it does.
 
-Once $\Pi_Q$ exists, its minimal form is the \emph{minimal predictive state
-map} $Q_* : \Omega \to \mathcal{P}(\beta)$, sending each sample point to its
-conditional law.  The predictive factorization theorem shows that every
-conditional expectation of a function of $F$ factors through $Q_*$: it is the
-minimal sufficient statistic for future prediction.  Indexing over time, the
-prediction laws compose; their composition rule is the Chapman--Kolmogorov
-equation, derived from temporal coherence rather than assumed.  This yields the
-\emph{predictive operators} $\{K_t\}$, their semigroup law, and the
-Koopman--Perron duality.  When the kernels are Dirac measures, the construction
-collapses to the classical Koopman picture.
+Once $\Pi_Q$ exists, composing with $Q$ gives the map
+$Q_* := \Pi_Q(\cdot, -) \circ Q : \Omega \to \mathcal{P}(\beta)$, sending each
+sample point to its conditional law.  The predictive factorization theorem shows
+that every conditional expectation of a function of $F$ factors through $Q_*$:
+it is the minimal sufficient statistic for future prediction.  Indexing over
+time, the kernels $\{\Pi_t\}$ compose; their composition rule is the
+Chapman--Kolmogorov equation, derived from temporal coherence rather than
+assumed.  This yields a semigroup of Markov operators $\{K_t\}$ and the
+Koopman--Perron duality connecting them with the pushforward operators
+$\{\mu \mapsto \mu \star \Pi_t\}$.  When the kernels are Dirac measures, the
+construction collapses to the classical Koopman picture.
 
-These structures assemble into the \emph{observable dynamical system}
-$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$, which Paper~III takes as its starting point
-and asks: when does the delay orbit of a single observable reconstruct the full
-state space?
+The output is a triple $(\mathcal{P}(\beta), \nu_{Q_*}, \{K_t\})$.
+Setting $Q_t = h \circ T^t$ in a measure-preserving system
+$(X, \mathcal{B}, \mu, T)$ with $h \in L^\infty$ identifies $Q_*$ with the
+delay map $\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, and this triple becomes
+the starting point for the reconstruction question of~\cite{mahon_paper3}: when
+does the delay orbit of a single observable determine the full state space?
 
 % ====================================================================
 \section{Setup}
 \label{sec:setup}
 
-The paper is self-contained.  The connection to Paper~I~\cite{mahon_paper1} is
-motivational; the formalism starts here from a probability space
+The paper is self-contained.  The connection to~\cite{mahon_paper1} is
+motivational; the formalism starts from a probability space
 $(\Omega, \mathcal{F}, P)$ and two measurable maps:
 \begin{itemize}
   \item $Q : \Omega \to \alpha$, where $(\alpha, \mathcal{A})$ is a measurable
@@ -99,41 +106,34 @@ existence of a regular conditional distribution.  All other results hold in
 greater generality.
 
 We write $\mathcal{P}(\beta)$ for the space of probability measures on $\beta$,
-equipped with its canonical (Giry) $\sigma$-algebra.  The \emph{joint
-pushforward} is the measure $\rho := P \circ (Q, F)^{-1}$ on $\alpha \times
-\beta$; its marginals are $\rho_\alpha = P \circ Q^{-1}$ and $\rho_\beta = P
-\circ F^{-1}$.
+equipped with its canonical (Giry) $\sigma$-algebra.  The joint pushforward
+$\rho := P \circ (Q, F)^{-1}$ on $\alpha \times \beta$ has marginals
+$\rho_\alpha = P \circ Q^{-1}$ and $\rho_\beta = P \circ F^{-1}$.
 
 The main theorems are formalized in Lean~4 / Mathlib~\cite{Mathlib} in
 \texttt{PredictiveState.lean} and \texttt{PredictiveOperators.lean}.  Several
 further results — the experiment preorder, general predictive sufficiency, the
-continuous-time generator — are stated in the paper but not yet formalized;
-these are noted at the relevant points.
+continuous-time generator — are stated but not yet formalized; these are noted
+at the relevant points.
 
 % ====================================================================
-\section{The predictive kernel and the minimal predictive state map}
+\section{The predictive kernel and the minimal state map}
 \label{sec:predictive}
 
-\subsection{The predictive kernel}
-
-\begin{definition}[Predictive kernel]
-\label{def:predictive-kernel}
-The \emph{predictive kernel} $\Pi_Q : \alpha \to \mathcal{P}(\beta)$ is the
-regular conditional distribution of $F$ given $Q$:
-\[
-  \Pi_Q(q, A) \;=\; P(F \in A \mid Q = q),
-\]
-defined as the disintegration kernel $\Pi_Q(q, \cdot) = \rho(\cdot \mid
-\alpha)$ of the joint pushforward $\rho = P \circ (Q, F)^{-1}$ over its first
-marginal.
-\end{definition}
-
-Concretely: $\Pi_Q$ is the unique (up to $P \circ Q^{-1}$-null sets) Markov
-kernel $\alpha \to \mathcal{P}(\beta)$ such that
+The regular conditional distribution of $F$ given $Q$ is the unique (up to
+$P \circ Q^{-1}$-null sets) Markov kernel $\Pi_Q : \alpha \to \mathcal{P}(\beta)$
+satisfying
 \[
   \int_A \Pi_Q(q, B)\, d(P \circ Q^{-1})(q) \;=\; P(Q \in A,\; F \in B)
 \]
 for all measurable $A \subseteq \alpha$ and $B \subseteq \beta$.
+
+\begin{definition}[Predictive kernel]
+\label{def:predictive-kernel}
+The \emph{predictive kernel} is $\Pi_Q$, the disintegration kernel of
+$\rho = P \circ (Q, F)^{-1}$ over its first marginal:
+$\Pi_Q(q, A) = P(F \in A \mid Q = q)$.
+\end{definition}
 
 \begin{proposition}[Predictive compatibility]
 \label{prop:predictive-compat}
@@ -147,86 +147,61 @@ for $(P \circ Q^{-1})$-almost every $q \in \alpha$:
 The joint pushforward $\rho' = P \circ (Q', F)^{-1}$ satisfies $\rho' = \rho
 \circ (\pi \times \mathrm{id})^{-1}$.  The claim follows from the
 $P \circ Q^{-1}$-a.e.\ uniqueness of the disintegration of $\rho'$ over its
-first marginal, combined with the covariance of condKernel under measurable
-maps (\texttt{eq\_condKernel\_of\_measure\_eq\_compProd} in Mathlib).
+first marginal, combined with the covariance of the conditional kernel under
+measurable maps (\texttt{eq\_condKernel\_of\_measure\_eq\_compProd} in Mathlib).
 \end{proof}
 
-\subsection{The predictive law map and the minimal predictive state map}
+Composing $\Pi_Q$ with $Q$ gives the map sending each sample point to its
+conditional law.
 
-The predictive kernel $\Pi_Q$ maps each value $q \in \alpha$ to a probability
-measure on outcomes.  Packaging this as a single measurable map gives:
-
-\begin{definition}[Predictive law map and minimal predictive state map]
+\begin{definition}[Minimal predictive state map]
 \label{def:minimal-predictive}
-The \emph{predictive law map} is
+The \emph{minimal predictive state map} is
 \[
-  \varphi_Q : \alpha \to \mathcal{P}(\beta), \qquad \varphi_Q(q) = \Pi_Q(q, \cdot).
+  Q_* : \Omega \to \mathcal{P}(\beta), \qquad Q_*(\omega) \;=\; \Pi_Q(Q(\omega), \cdot).
 \]
-The \emph{minimal predictive state map} is the composition
-\[
-  Q_* := \varphi_Q \circ Q : \Omega \to \mathcal{P}(\beta).
-\]
-The value $Q_*(\omega)$ is the full conditional law $P(F \in \cdot \mid Q =
-Q(\omega))$.
 \end{definition}
 
 \begin{proposition}[Measurability]
 \label{prop:measurability}
-The maps $\varphi_Q$ and $Q_*$ are measurable.
+$Q_*$ is measurable.
 \end{proposition}
 \begin{proof}
-$\varphi_Q$ is the underlying map of the Markov kernel $\Pi_Q$, which is
-measurable by definition of a kernel (\texttt{Kernel.measurable} in Mathlib).
-Since $\mathcal{P}(\beta)$ carries the subspace $\sigma$-algebra from the
-Giry space of all measures on $\beta$, the wrap as a \texttt{ProbabilityMeasure}
-is measurable by \texttt{Measurable.subtype\_mk}.  Measurability of $Q_*$ then
-follows from composition.
+$\Pi_Q$ is a Markov kernel, hence measurable (\texttt{Kernel.measurable}).
+The wrap as a \texttt{ProbabilityMeasure} is measurable by
+\texttt{Measurable.subtype\_mk}; measurability of $Q_*$ follows by composition.
 \end{proof}
-
 
 % ====================================================================
 \section{Predictive factorization}
 \label{sec:factorization}
 
-The predictive factorization theorem is the central result of this paper.  It
-says that the conditional expectation of any bounded measurable function of $F$,
-given $Q$, factors through the minimal predictive state map $Q_*$.
-
 \begin{theorem}[Predictive factorization]
 \label{thm:predictive-factorization}
 For every bounded measurable $g : \beta \to \mathbb{R}$:
 \[
-  E[g(F) \mid \sigma(Q)] \;=\; \Bigl(\omega \mapsto \int g\, dQ_*(\omega)\Bigr)
+  E[g(F) \mid \sigma(Q)] \;=\; \int g\, dQ_*(\cdot)
   \quad P\text{-a.e.}
 \]
 \end{theorem}
 \begin{proof}
-Let $h(\omega) := \int g\, dQ_*(\omega) = \int g\, d\Pi_Q(Q(\omega), \cdot)$.
-We verify the two defining properties of the conditional expectation.
+Let $h(\omega) := \int g\, dQ_*(\omega)$.  We verify the two defining properties.
 
 \emph{Measurability.}  The map $q \mapsto \int g\, d\Pi_Q(q, \cdot)$ is
-strongly measurable (Bochner integrability of $g$ against a Markov kernel;
-\texttt{StronglyMeasurable.integral\_kernel} in Mathlib).  Since $Q_* = \varphi_Q
-\circ Q$, the map $h = (\text{predictive operator applied to } g) \circ Q_*$
-is $\sigma(Q)$-measurable.
+strongly measurable (\texttt{StronglyMeasurable.integral\_kernel}); since
+$Q_* = \Pi_Q(Q(\cdot), \cdot)$, the map $h$ is $\sigma(Q)$-measurable.
 
-\emph{Set-integral identity.}  For every $\sigma(Q)$-measurable set $S =
-Q^{-1}(A)$:
+\emph{Set-integral identity.}  For $S = Q^{-1}(A)$:
 \begin{align*}
   \int_S h\, dP
-  &= \int_{Q^{-1}(A)} \!\! \int g\, d\Pi_Q(Q(\omega), \cdot)\, dP(\omega) \\
   &= \int_A \int g\, d\Pi_Q(q, \cdot)\, d(P \circ Q^{-1})(q)
-  \quad\text{(push-forward)} \\
-  &= \int_A \int_{A \times \beta} g(f)\, d\rho(q, f)
-  \quad\text{(disintegration identity)} \\
-  &= \int_{Q^{-1}(A)} g(F(\omega))\, dP(\omega) = \int_S g(F)\, dP.
+  \quad\text{(pushforward)} \\
+  &= \int_{A \times \beta} g(f)\, d\rho(q, f)
+  \quad\text{(disintegration: \texttt{Measure.setIntegral\_condKernel})} \\
+  &= \int_S g(F)\, dP.
 \end{align*}
-The key step is the disintegration identity for $\rho = P \circ (Q, F)^{-1}$,
-which in Mathlib is \texttt{Measure.setIntegral\_condKernel}.
-
-By the a.e.\ uniqueness of conditional expectation
-(\texttt{ae\_eq\_condExp\_of\_forall\_setIntegral\_eq}), $h = E[g(F) \mid
-\sigma(Q)]$ $P$-a.e.
+The conclusion follows from a.e.\ uniqueness of conditional expectation
+(\texttt{ae\_eq\_condExp\_of\_forall\_setIntegral\_eq}).
 \end{proof}
 
 \begin{corollary}[Predictive sufficiency]
@@ -234,225 +209,141 @@ By the a.e.\ uniqueness of conditional expectation
 $E[g(F) \mid \sigma(Q)] = E[g(F) \mid \sigma(Q_*)]$ $P$-a.e.
 \end{corollary}
 \begin{proof}
-Since $Q_* = \varphi_Q \circ Q$, we have $\sigma(Q_*) \subseteq \sigma(Q)$.
-The conditional expectation given $\sigma(Q)$ already factors through $Q_*$
-by Theorem~\ref{thm:predictive-factorization}, so it is $\sigma(Q_*)$-measurable.
+$\sigma(Q_*) \subseteq \sigma(Q)$, and the conditional expectation given
+$\sigma(Q)$ is already $\sigma(Q_*)$-measurable by the theorem.
 \end{proof}
 
-The canonical predictive operator $K_{Q_*}$ is the map
-\[
-  (K_{Q_*} g)(q_*) \;=\; \int g\, dq_*, \qquad q_* \in \mathcal{P}(\beta).
-\]
-Theorem~\ref{thm:predictive-factorization} then reads: $E[g(F) \mid \sigma(Q)]
-= (K_{Q_*} g) \circ Q_*$ $P$-a.e.  This is the canonical operator associated
-with the predictive state.
+The operator $(K_{Q_*} g)(q_*) = \int g\, dq_*$ on $\mathcal{P}(\beta)$
+recasts the theorem as: $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$
+$P$-a.e.
 
 % ====================================================================
-\section{The predictive semigroup}
+\section{Semigroup and duality}
 \label{sec:semigroup}
 
-So far, the setup has been static: a single pair of measurable maps $(Q, F)$
-representing present and future.  To introduce dynamics, we index over a
-discrete time horizon.  For each $t \in \mathbb{N}$, let $F_t : \Omega \to \gamma$ be the
-observable at time $t$, and let $\Pi_t$ be the predictive kernel of $F_t$
-given the current predictive state.
-
-\subsection{Predictive kernel families}
-
-\begin{definition}[Predictive kernel family and semigroup kernel]
-\label{def:kernel-family}
-A \emph{predictive kernel family} on a state space $\gamma$ is a family
-$\{\Pi_t\}_{t \in \mathbb{N}}$ of Markov kernels $\Pi_t : \gamma \to
-\mathcal{P}(\gamma)$ with $\Pi_0 = \delta$ (identity: $\Pi_0(q, \cdot) = \delta_q$).
-
-A \emph{predictive semigroup kernel} is a predictive kernel family satisfying
-the Chapman--Kolmogorov equation:
+To introduce dynamics, index over a discrete time horizon.  For each
+$t \in \mathbb{N}$, let $\Pi_t : \gamma \to \mathcal{P}(\gamma)$ be a Markov
+kernel on the state space $\gamma$, with $\Pi_0(q, \cdot) = \delta_q$.
+A family $\{\Pi_t\}$ satisfying the Chapman--Kolmogorov equation
 \[
   \Pi_{t+s}(q, \cdot) \;=\; \int_\gamma \Pi_t(q', \cdot)\, d\Pi_s(q, q')
-  \quad\text{for all } q \in \gamma,\; t, s \in \mathbb{N}.
+  \quad\text{(i.e., } \Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s\text{)}
 \]
-In kernel notation: $\Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s$ where $\circ_\kappa$
-denotes kernel composition.
-\end{definition}
-
-\subsection{The predictive operator family}
-
-\begin{definition}[Predictive operator family]
-\label{def:predictive-op-family}
-Given a predictive kernel family $\{\Pi_t\}$, the \emph{horizon-indexed
-predictive operator} at horizon $t$ is
+is a \emph{Markov semigroup kernel}.  The associated \emph{Markov operators}
+are
 \[
   (K_t g)(q) \;:=\; \int g\, d\Pi_t(q, \cdot), \qquad g : \gamma \to \mathbb{R}.
 \]
-\end{definition}
 
 \begin{proposition}[Basic properties]
 \label{prop:basic-properties}
-For any predictive kernel family $\{\Pi_t\}$:
-\begin{enumerate}[label=(\roman*)]
-  \item \emph{Identity at zero}: $K_0 g = g$ for all measurable $g$;
-  \item \emph{Positive}: $g \geq 0 \Rightarrow K_t g \geq 0$;
-  \item \emph{Unital}: $K_t \mathbf{1} = \mathbf{1}$;
-  \item \emph{Contractive}: $\|K_t g\|_\infty \leq \|g\|_\infty$.
-\end{enumerate}
+Each $K_t$ is positive, unital, and contractive on bounded measurable functions,
+with $K_0 = \mathrm{id}$.
 \end{proposition}
 \begin{proof}
-Identity at zero: $K_0 g(q) = \int g\, d\delta_q = g(q)$.  Positivity and
-unitality are immediate from the Markov property and non-negativity of
-integration against a positive measure.  Contractiveness:
-$|(K_t g)(q)| = |\int g\, d\Pi_t(q,\cdot)| \leq \|g\|_\infty \cdot \Pi_t(q, \gamma) = \|g\|_\infty$.
+$K_0 g(q) = \int g\, d\delta_q = g(q)$.  Positivity, unitality, and
+contractiveness follow immediately from the Markov property.
 \end{proof}
 
 \begin{theorem}[Semigroup property]
 \label{thm:semigroup}
-Let $\{\Pi_t\}$ be a predictive semigroup kernel.  For every bounded measurable
-$g : \gamma \to \mathbb{R}$:
-\[
-  K_{t+s} g \;=\; K_t(K_s g).
-\]
+$K_{t+s} g = K_t(K_s g)$ for all bounded measurable $g$.
 \end{theorem}
 \begin{proof}
-Using the Chapman--Kolmogorov equation $\Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s$:
-\begin{align*}
-  (K_{t+s} g)(q)
-  &= \int g\, d\Pi_{t+s}(q, \cdot) \\
-  &= \int g\, d(\Pi_t \circ_\kappa \Pi_s)(q, \cdot) \\
-  &= \int \Bigl(\int g\, d\Pi_t(q', \cdot)\Bigr)\, d\Pi_s(q, q')
-  \quad\text{(Bochner--Fubini for kernel composition)} \\
-  &= \int (K_t g)(q')\, d\Pi_s(q, q')
-  \;=\; (K_t(K_s g))(q).
-\end{align*}
-The Bochner--Fubini step is \texttt{Kernel.integral\_comp} from
-\texttt{Mathlib.Probability.Kernel.Composition.IntegralCompProd}.  The
-boundedness hypothesis on $g$ is needed for integrability of $g$ against the
-composed kernel.
+$(K_{t+s} g)(q)
+= \int g\, d(\Pi_t \circ_\kappa \Pi_s)(q, \cdot)
+= \int \bigl(\int g\, d\Pi_t(q', \cdot)\bigr)\, d\Pi_s(q, q')
+= \int (K_t g)(q')\, d\Pi_s(q, q')
+= (K_t(K_s g))(q)$,
+where the exchange of integrals is \texttt{Kernel.integral\_comp}.
 \end{proof}
 
-% ====================================================================
-\section{Koopman--Perron duality}
-\label{sec:duality}
-
-The predictive operators $K_t$ act on functions.  The dual objects act on
-measures.
-
-\begin{definition}[Koopman--Perron dual]
-\label{def:kp-dual}
-Given a predictive semigroup kernel $\{\Pi_t\}$ and a (finite) measure $\mu$
-on $\gamma$, the \emph{Koopman--Perron push-forward} is
-\[
-  P_t^* \mu \;:=\; \mu \mathbin{\star} \Pi_t
-  \;=\; \int_\gamma \Pi_t(q, \cdot)\, d\mu(q).
-\]
-In Mathlib notation: \texttt{$\mu$.bind (ker $t$)}.
-\end{definition}
+The pushforward of a measure $\mu$ on $\gamma$ through the kernel is
+$P_t^* \mu := \mu \star \Pi_t = \int \Pi_t(q, \cdot)\, d\mu(q)$.
 
 \begin{theorem}[Koopman--Perron duality]
 \label{thm:koopman-perron}
-For every bounded measurable $g : \gamma \to \mathbb{R}$ and finite measure
-$\mu$ on $\gamma$:
+For every bounded measurable $g$ and finite measure $\mu$:
 \[
-  \int_\gamma (K_t g)\, d\mu \;=\; \int_\gamma g\, d(P_t^* \mu).
+  \int (K_t g)\, d\mu \;=\; \int g\, d(P_t^* \mu).
 \]
 \end{theorem}
 \begin{proof}
-\begin{align*}
-  \int g\, d(P_t^* \mu)
-  &= \int g\, d(\mu \mathbin{\star} \Pi_t)
-  \;=\; \int g\, d\!\left(\int \Pi_t(q, \cdot)\, d\mu(q)\right) \\
-  &= \int_\gamma \int g\, d\Pi_t(q, \cdot)\, d\mu(q)
-  \quad\text{(Bochner--Fubini)} \\
-  &= \int_\gamma (K_t g)(q)\, d\mu(q).
-\end{align*}
-The Bochner--Fubini step again uses \texttt{Kernel.integral\_comp}.
+$\int g\, d(P_t^* \mu)
+= \int g\, d(\mu \star \Pi_t)
+= \int_\gamma \int g\, d\Pi_t(q, \cdot)\, d\mu(q)
+= \int (K_t g)\, d\mu$,
+by Bochner--Fubini (\texttt{Kernel.integral\_comp}).
 \end{proof}
 
 % ====================================================================
-\section{Deterministic specialization}
+\section{Deterministic limit and the observable dynamical system}
 \label{sec:deterministic}
 
-When the dynamics is deterministic, the stochastic picture collapses to the
-classical Koopman picture.
+When $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for a measurable map
+$\varphi_t : \gamma \to \gamma$, the stochastic picture collapses.
 
-\begin{theorem}[Deterministic specialization]
+\begin{theorem}[Deterministic limit]
 \label{thm:deterministic}
-Suppose $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for a measurable map
-$\varphi_t : \gamma \to \gamma$.  Then for every measurable $g$:
-\[
-  K_t g \;=\; g \circ \varphi_t.
-\]
+If $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$, then $K_t g = g \circ \varphi_t$
+and $\varphi_{t+s} = \varphi_t \circ \varphi_s$.
 \end{theorem}
 \begin{proof}
-$(K_t g)(q) = \int g\, d\delta_{\varphi_t(q)} = g(\varphi_t(q))$.  The
-integral against a Dirac measure is \texttt{integral\_dirac'} in Mathlib.
+$(K_t g)(q) = \int g\, d\delta_{\varphi_t(q)} = g(\varphi_t(q))$
+(\texttt{integral\_dirac'}).  The flow law follows from
+$\delta_{\varphi_{t+s}(q)} = (\Pi_t \circ_\kappa \Pi_s)(q, \cdot)
+= \delta_{\varphi_t(\varphi_s(q))}$,
+and injectivity of the Dirac embedding (\texttt{SeparatesPoints}).
 \end{proof}
 
-\begin{corollary}[Flow law]
-\label{cor:flow-law}
-If $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for all $t$, then
-\[
-  \varphi_{t+s} \;=\; \varphi_t \circ \varphi_s.
-\]
-\end{corollary}
-\begin{proof}
-From $\Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s$ and the Dirac hypothesis:
-\begin{align*}
-  \delta_{\varphi_{t+s}(q)}
-  &= \Pi_{t+s}(q, \cdot)
-  \;=\; (\Pi_t \circ_\kappa \Pi_s)(q, \cdot) \\
-  &= \Pi_s(q, \cdot) \mathbin{\star} \Pi_t
-  \;=\; \delta_{\varphi_s(q)} \mathbin{\star} \Pi_t
-  \;=\; \Pi_t(\varphi_s(q), \cdot)
-  \;=\; \delta_{\varphi_t(\varphi_s(q))}.
-\end{align*}
-Since Dirac measures at distinct points are distinct (under
-\texttt{SeparatesPoints}), we conclude $\varphi_{t+s}(q) = \varphi_t(\varphi_s(q))$.
-\end{proof}
+In the deterministic case, $K_t g = g \circ \varphi_t = U_T^t g$: the Markov
+operator specialises to the classical Koopman operator.  The
+Koopman--Perron duality $\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$ becomes
+the change-of-variables formula $\int g \circ T^t\, d\mu = \int g\, d(T^t_* \mu)$.
 
-The full structure produced by the construction is named once:
+The full structure produced by the construction is:
 
 \begin{definition}[Observable dynamical system]
 \label{def:obs-dyn-sys}
 An \emph{observable dynamical system} is a triple
-$(O_{Q_*},\, \nu_{Q_*},\, \{K_t\}_{t \in \mathbb{N}})$
-where $O_{Q_*} = \mathcal{P}(\beta)$ is the predictive state space,
-$\nu_{Q_*} = P \circ Q_*^{-1}$ is the predictive state distribution, and
-$\{K_t\}$ is the predictive operator family satisfying the semigroup law and
-Markov properties above.
+$(\mathcal{P}(\beta),\, \nu_{Q_*},\, \{K_t\}_{t \in \mathbb{N}})$
+where $\mathcal{P}(\beta)$ is the predictive state space (the image of $Q_*$),
+$\nu_{Q_*} = P \circ Q_*^{-1}$ is the pushforward of $P$ along $Q_*$, and
+$\{K_t\}$ is the Markov semigroup on $\mathcal{P}(\beta)$.
 \end{definition}
 
 % ====================================================================
-\section{Relation to Paper III}
+\section{Reconstruction}
 \label{sec:bridge}
 
 Setting $Q_t = h \circ T^t$ in a measure-preserving system
-$(X, \mathcal{B}, \mu, T)$ with $h \in L^\infty$ specialises the construction
-directly.  Under this choice, $Q_* = \Phi_h$, the delay map $\Phi_h(x) =
-(h(T^n x))_{n \in \mathbb{Z}}$, and the predictive state space $O_{Q_*}$ is
-precisely the delay orbit space.  The observable dynamical system is the input
-to Paper~III.
+$(X, \mathcal{B}, \mu, T)$ with $h \in L^\infty$ specialises the construction.
+Under this choice, $Q_*(\omega) = (h(T^n \omega))_{n \in \mathbb{Z}}$ is the
+delay map $\Phi_h$, and the observable dynamical system is the triple
+$(\Phi_h(X), \mu \circ \Phi_h^{-1}, \{K_t\})$.
 
-Paper~III asks: when does the delay orbit of a single observable $h$ determine
-the full state space?  The answer is the \emph{reconstruction theorem}: the
-observable $\sigma$-algebra $\mathcal{O}_h = \sigma(\{h \circ T^n\})$ equals
-$\mathcal{B}(X)$ modulo $\mu$ if and only if the algebra generated by
+The companion paper~\cite{mahon_paper3} asks: when does the delay orbit of a
+single $h$ determine the full state space?  The answer is the reconstruction
+theorem: the observable $\sigma$-algebra $\mathcal{O}_h = \sigma(\{h \circ T^n\})$
+equals $\mathcal{B}(X)$ modulo $\mu$ if and only if the algebra generated by
 $\{h \circ T^n\}$ is dense in $L^2(X, \mu)$.  The proof turns on the density
 bridge: the $L^2$-closure of a function algebra equals the $L^2$-space of the
 $\sigma$-algebra it generates.
 
-The Koopman operators $\{U_T^t\}$ connect the two papers.  Paper~II produces
-$\{K_t\}$ on $O_{Q_*}$; when $Q_* = \Phi_h$ is injective modulo null sets,
-$K_t$ and $U_T^t$ act on the same information.  The cyclic vector condition —
-$\overline{\mathrm{span}}\{U_T^n h\} = L^2(X, \mu)$ — is sufficient for
-reconstruction but strictly stronger: reconstruction requires only that the
-\emph{algebra} generated by the delay orbit be $L^2$-dense, not the linear
-span.  They coincide only when $U_T$ has simple spectrum.
+The Koopman operators $\{U_T^t\}$ on $L^2(X, \mu)$ relate to the Markov
+operators $\{K_t\}$ on $\Phi_h(X)$: when $\Phi_h$ is injective modulo
+$\mu$-null sets, they act on the same information.  The cyclic vector condition
+$\overline{\mathrm{span}}\{U_T^n h : n \in \mathbb{Z}\} = L^2(X, \mu)$ is
+sufficient for reconstruction but strictly stronger — reconstruction requires
+only that the \emph{algebra} generated by the delay orbit be $L^2$-dense, not
+the linear span.  They coincide only when $U_T$ has simple spectrum.
 
-When reconstruction holds, $O_{Q_*}$ is the full state space $X$ up to
-measure-theoretic identification.  The compact Stone space introduced in Paper~I
-as a technical device for measure extension is recognised by Paper~III, under
-the reconstruction condition, as $X$ itself.  The programme begins with a
-compact completion of the sample space and ends by identifying it as the state
-space.
+When reconstruction holds, $\Phi_h(X)$ is the full state space $X$ up to
+measure-theoretic identification.  The compact Stone space of~\cite{mahon_paper1}
+— introduced as a technical device for $\sigma$-additivity — is, under the
+reconstruction condition, identified with $X$ itself.  The construction begins
+with a compact completion of the sample space and ends by recognising it as the
+state space.
 
 \bibliographystyle{plain}
 \bibliography{references}

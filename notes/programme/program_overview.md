@@ -289,12 +289,15 @@ structural condition) is the deepest open question in the programme.
 
 ## What Each Paper Needs
 
+*Status as of 2026-04-23. "Mathematical status" = the mathematics is worked out.
+"LaTeX status" = quality of the written paper as a submission. These are different.*
+
 | Paper | Mathematical status | Lean status | LaTeX status | Next action |
 |-------|--------------------|-----------|----|---|
-| I | All routes proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **arXiv-ready** — `papers/paper_i/`, 12 pages | Submit |
-| II | Core results proved | `PredictiveState.lean` ✅; `PredictiveOperators.lean` ✅ | **Revised** — `papers/paper_ii/`, 8 pages | Submit |
-| III | Reconstruction theorem proved; density bridge is the key Lean obligation; cyclic vector is sufficient condition not equivalence | `DelayEmbedding.lean` ✅; `ReconstructionTheorem.lean` ✅ (2 sorrys — Mathlib gaps only) | **arXiv ready** — `papers/paper_iii/`, 7 pages | Upload |
-| IV | Complete. All 12 proof obligations closed. Three main theorems: Algebra (Thm 5.7), Dynamics (Thm 6.4), Conjunction (Thm 7.3). Entropy characterisation (Cor 5.12) integrated from bridge note. | Not started | **Complete** — `papers/paper_iv/`, 17 pages | Submit |
+| I | All routes proved; CE irreducibility proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Submission-ready** — `papers/paper_i/`, 12 pages. Prose and structure match companion note in quality. | Upload (waiting on endorsement) |
+| II | Core results proved | Claims "zero sorry" — **needs verification** against current Lean files | **First-draft quality only.** Prose flat; introduction announces but does not motivate; transitions mechanical; voice not at Paper I standard. Substantial editorial revision needed. | Editorial revision before submission |
+| III | Reconstruction theorem proved; density bridge proved; cyclic vector correctly positioned as sufficient condition | Claims 4 proved + 2 Mathlib-gap sorrys — **needs verification** | **First-draft quality only.** Same issues as Paper II; additionally the Lean remark references specific sorry counts that may be stale. | Editorial revision before submission |
+| IV | Mathematics complete. All 12 proof obligations closed. Three main theorems + entropy characterisation. | Not started | **First-draft quality only.** Technically detailed but exposition of witnesses and their relationships underdeveloped; introduction does not situate the paper within the programme adequately; no Lean formalization to note. | Editorial revision before submission |
 
 ---
 
@@ -374,18 +377,15 @@ Ordered by priority. Cross off as completed.
 
 ### Current priorities
 
-Submission in three phases (see `notes/programme/arxiv_prep.md` for full checklist):
+See `notes/programme/arxiv_prep.md` for full checklist.
 
-**Phase 1 (next):** Submit Papers I and II to arXiv → backfill `mahon_paper1`,
-`mahon_paper2` in downstream refs.
+**Immediate:** Obtain math.LO arXiv endorsement (email sent to Halpern).
+On endorsement: upload companion note → upload Paper I.
 
-**Phase 2:** Submit Paper III → backfill `mahon_paper3`.
-
-**Phase 3:** Formalize bridge note in Lean → recompile Paper IV with real arXiv
-IDs → submit Paper IV + bridge note together.
-
-All four papers and bridge note compile cleanly as of 2026-04-06. No outstanding
-LaTeX tasks before Phase 1.
+**Deferred (substantial editorial project):** Bring Papers II–IV to submission
+quality. This is not a polishing task — it requires full prose revision, voice
+alignment with Paper I, restructured introductions, and Lean status verification.
+No timeline set. Do not treat these as near-ready.
 
 ### Long term / deferred
 

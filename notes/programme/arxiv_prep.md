@@ -6,19 +6,55 @@ practice in mathematics.
 
 ---
 
-## Submission phases (agreed 2026-04-06)
+## Honest status as of 2026-04-23
 
-**Phase 1:** Submit Papers I and II → get arXiv IDs → backfill `mahon_paper1`,
-`mahon_paper2` in all downstream references.
+**Companion note** — ready. Standalone logic paper, 3 pages, polished.
+Waiting on arXiv math.LO endorsement (email sent to Halpern).
 
-**Phase 2:** Submit Paper III → get arXiv ID → backfill `mahon_paper3` in Papers
-I, II, IV.
+**Paper I** — ready. 12 pages, all routes proved, CE irreducibility established,
+prose and structure at submission quality. Blocked only by endorsement.
 
-**Phase 3:** Formalize bridge note in Lean → recompile Paper IV with real arXiv
-IDs for Papers I–III → submit Paper IV + bridge note together.
+**Papers II–IV** — mathematics is worked out and LaTeX exists, but none are
+at submission quality. Specifically:
 
-All four papers and the bridge note compile cleanly as of 2026-04-06. No
-outstanding LaTeX tasks before Phase 1.
+- Prose, voice, and structure are at first-draft level throughout. Paper I and
+  the companion note set the standard; Papers II–IV are well below it.
+- The introductions announce results but do not motivate or situate them at the
+  level a reader outside the programme would need.
+- Transitions between sections are mechanical; the connective tissue that makes
+  a paper feel unified is largely absent.
+- The Lean formalization remarks in Papers II and III need reassessment: the
+  claims ("zero sorry obligations") require verification against the actual
+  current state of the Lean files, which has not been done recently.
+- Paper IV has structural issues specific to its content: the three-theorem
+  structure is sound, but the exposition of the witnesses and their relationship
+  to each other and to the programme needs significant development.
+
+These are not minor polishing tasks. Bringing Papers II–IV to submission quality
+is a substantial editorial project, to be undertaken after Papers I and the
+companion note are posted.
+
+---
+
+## Submission phases (revised)
+
+**Phase 0 (current):** Obtain arXiv endorsement for math.LO.
+- Email sent to Halpern (FaginHalpernMegiddo1990).
+- Fallback: Plebanek, Džamonja, Cardona et al.
+
+**Phase 1 (on endorsement):** Upload companion note → get arXiv ID → update
+`MahonCE2026` in `references.bib` → upload Paper I.
+
+**Phase 2 (separate editorial project):** Bring Papers II–IV to submission
+quality. This requires:
+- Full prose revision of each paper: voice, transitions, motivation
+- Reassessment of Lean formalization status (verify sorry inventory)
+- Decisions about scope: what each paper claims vs what is actually proved
+- Cross-reference updates once Papers I and companion note have arXiv IDs
+
+**Phase 3:** Submit Papers II–IV to arXiv in sequence (II, then III, then IV).
+
+No timeline set for Phase 2/3. Do not treat Papers II–IV as near-ready.
 
 ---
 
@@ -27,140 +63,109 @@ outstanding LaTeX tasks before Phase 1.
 MSC = Mathematics Subject Classification. A standard two-level taxonomy used by
 journals and arXiv to categorise papers (e.g. `60A10` = Probability theory,
 foundations). arXiv requires at least one primary MSC class per submission and
-uses them to route papers to mailing lists. Pick from
-https://mathscinet.ams.org/mathscinet/msc/msc2020.html
+uses them to route papers to mailing lists.
+
+---
+
+## Companion note — "Countable Additivity is Not First-Order"
+
+### File
+`papers/paper_i/notes/countable_additivity_not_first_order.tex`
+
+### arXiv category
+Primary: `math.LO` (Logic)
+
+### MSC 2020
+- `03C20` (primary) — Ultraproducts and related constructions
+- `28A60` (secondary) — Measures on Boolean rings, measure algebras
+- `60A10` (secondary) — Probability theory, foundations
+
+### Keywords
+countable additivity, first-order axiomatizability, ultraproduct,
+Boolean algebra, finitely additive measure, Łoś's theorem
+
+### Status
+- [x] MSC and keywords added
+- [x] CE section removed (standalone logic paper, no Paper I dependency)
+- [x] Abstract updated
+- [x] Stronger question in display block (italic), open case stated inline
+- [x] Compiles clean, 3 pages
+- [ ] Obtain math.LO endorsement
+- [ ] Upload to arXiv
 
 ---
 
 ## Paper I — "Probability from Observation"
 
+### File
+`papers/paper_i/probability_from_observation.tex`
+
 ### arXiv category
 Primary: `math.PR` (Probability)
 Cross-list: `math.LO` (Logic; for the CE irreducibility / Łoś's theorem content)
 
-### MSC 2020 (proposed)
+### MSC 2020
 - `60A10` — Probability theory, foundations (primary)
 - `28A60` — Measures on Boolean rings, measure algebras
 - `06E15` — Stone spaces (= Boolean spaces) and related structures
 - `28A05` — Classes of sets, σ-algebras, measurable spaces
 
-### Keywords (proposed)
+### Keywords
 observable extension theorem, collective exhaustion, Carathéodory extension,
 Stone duality, Boolean algebra, finitely additive measure, σ-additivity,
 directed system, query system
 
-### Outstanding tasks
-- [x] Fix stale `mahon_paper0` self-reference — removed from `references.bib` (2026-04-05)
-- [x] Fix `cardona2025` bib entry format — changed to `@misc` with `howpublished` (2026-04-05)
-- [x] Add MSC 2020 classifications and keywords — added as `\begin{quote}` block after abstract (2026-04-05)
-- [x] `\pagecolor{white}` — already absent from `probability_from_observation.tex`
-- [x] Final compile check — clean, 12 pages (2026-04-19)
-- [ ] Upload source files to arXiv
+### Status
+- [x] MSC 2020 classifications and keywords added
+- [x] CE non-derivability remark with metatheorem scope added (§4)
+- [x] Bridge §6 synthesis paragraph added (coherence/completion/admissibility triad)
+- [x] Closing phrase neutralised ("The realised instantiation sits inside...")
+- [x] Final compile: clean, 12 pages
+- [ ] Update `MahonCE2026` bib entry with companion note arXiv ID (after Phase 1 upload)
+- [ ] Upload to arXiv (after companion note upload)
 
 ---
 
-## Paper II — "Dynamics from Probability"
+## Papers II, III, IV — deferred pending editorial revision
 
-### arXiv category
-Primary: `math.DS` (Dynamical Systems)
-Cross-list: `math.FA` (Functional Analysis; for Koopman/semigroup content),
-            `math.PR` (Probability; for predictive kernel content)
+These papers are not tracked at the task level here until Phase 2 begins.
+For reference, the proposed arXiv categories and MSC classes are recorded below
+but should be treated as provisional.
 
-### MSC 2020 (proposed)
-- `37A30` — Ergodic theory, spectral theory, ergodic theorems (primary)
-- `47D06` — One-parameter semigroups and linear evolution equations
-- `60J05` — Markov processes with discrete parameter
-- `28A99` — Classical measure theory, other
+### Paper II — "Dynamics from Probability"
+arXiv: `math.DS` primary; cross-list `math.FA`, `math.PR`
+MSC: `37A30` (primary); `47D06`, `60J05`, `28A99`
 
-### Keywords (proposed)
-Koopman operator, predictive kernel, minimal predictive state, Markov semigroup,
-Koopman–Perron duality, observable dynamical system, measure-preserving system,
-Lean formalization
+### Paper III — "Reconstruction from Observation"
+arXiv: `math.DS` primary; cross-list `math.FA`, `math.PR`
+MSC: `37A05` (primary); `28A60`, `06E15`, `37A30`, `46E30`
 
-### Outstanding tasks
-- [x] Add MSC 2020 classifications and keywords (2026-04-05)
-- [x] Remove `\pagecolor{white}` (2026-04-05)
-- [x] Add missing citations: Koopman1931, Rokhlin1952, Mathlib, mahon_paper1 (2026-04-05)
-- [x] Final compile check — clean (2026-04-05)
-- [ ] Update `mahon_paper1` in `references.bib` with arXiv ID once Paper I is posted
-- [ ] Upload source files to arXiv
+### Paper IV — "Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge"
+arXiv: `math.ST` primary; cross-list `math.DS`, `math.PR`
+MSC: `62G08` (primary); `37A05`, `62M10`, `28A60`, `94A17`
 
 ---
 
-## Paper III — "Reconstruction from Observation"
-
-### arXiv category
-Primary: `math.DS` (Dynamical Systems)
-Cross-list: `math.FA` (Functional Analysis; for density bridge / L² content),
-            `math.PR` (Probability; for connection to Paper I measure content)
-
-### MSC 2020
-- `37A05` — Dynamical aspects of measure-preserving transformations (primary)
-- `28A60` — Measures on Boolean rings, measure algebras
-- `06E15` — Stone spaces and related structures
-- `37A30` — Ergodic theory, spectral theory
-- `46E30` — Spaces of measurable functions
-
-### Keywords
-reconstruction theorem, delay embedding, observable algebra, density bridge,
-measure-theoretic Takens, Stone duality, Koopman operator, measure-preserving system,
-Lean formalization
-
-### Outstanding tasks
-- [x] Add MSC 2020 classifications and keywords (2026-04-05)
-- [x] Remove `\pagecolor{white}` (2026-04-05)
-- [x] Final compile check — clean, 7 pages (2026-04-05)
-- [ ] Add Paper III to `references.bib` in Papers I and II once arXiv ID known
-- [ ] Upload source files to arXiv
-
----
-
-## Paper IV — "Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge"
-
-### arXiv category
-Primary: `math.ST` (Statistics Theory)
-Cross-list: `math.DS` (Dynamical Systems), `math.PR` (Probability)
-
-### MSC 2020 (proposed)
-- `62G08` — Nonparametric estimation (primary; for minimax rate result)
-- `37A05` — Dynamical aspects of measure-preserving transformations
-- `62M10` — Time series, auto-correlation, regression (in time domain)
-- `28A60` — Measures on Boolean rings, measure algebras
-- `94A17` — Measures of information, entropy (for Rényi-2/collision entropy)
-
-### Keywords (proposed)
-reconstruction, delay embedding, σ-algebra approximation, empirical witness,
-minimax rate, stopping rule, collision entropy, Rényi entropy, fibre mixing,
-conditional variance, Takens theorem, measure-preserving system
-
-### Outstanding tasks
-- [x] Paper IV LaTeX complete — 17 pages, all references resolved (2026-04-06)
-- [x] Bridge note (`papers/paper_iv/notes/bridge_note.tex`) complete and cited as `mahon_bridge`
-- [x] Add MSC 2020 classifications and keywords to `paper_iv.tex` (2026-04-06)
-- [x] Add abstract to `paper_iv_body.tex` (2026-04-06)
-- [ ] Final compile check with resolved arXiv IDs for Papers I–III
-- [ ] Upload source files to arXiv (`paper_iv.tex`, `paper_iv_body.tex`, `references.bib`)
-- [ ] Upload bridge note to arXiv or as ancillary file
-- [ ] Backfill arXiv ID `mahon_paper4` in Papers I–III references
-
----
-
-## Suggested journal targets (post-arXiv)
+## Suggested journal targets (post-arXiv, provisional)
 
 | Paper | Primary target | Backup |
 |-------|---------------|--------|
-| I | *Journal of Theoretical Probability* | *Fundamenta Mathematicae* |
+| Companion note | *APAL* (Annals of Pure and Applied Logic) | *MLQ*, *NDJFL* |
+| I | *Proceedings of the London Mathematical Society* | *Journal of Theoretical Probability* |
 | II | *Ergodic Theory and Dynamical Systems* | *Journal of Functional Analysis* |
 | III | *Ergodic Theory and Dynamical Systems* | *Nonlinearity* |
 | IV | *Annals of Statistics* | *Bernoulli* |
 
 ---
 
-## arXiv upload checklist (both papers)
+## arXiv upload checklist (Phase 1)
 
-- [ ] Source files: `.tex`, `_body.tex`, `references.bib` (no `.pdf`, no `.aux` etc.)
-- [ ] Confirm all figures/images included (none currently)
+- [ ] Companion note: source `.tex` + `references.bib`, no PDF, no aux
+- [ ] Paper I: `probability_from_observation.tex` + `probability_from_observation_body.tex` + `references.bib`
+- [ ] Confirm no figures/images to include (none currently)
 - [ ] Author name, affiliation, email set correctly in submission form
-- [ ] Abstract copied from paper (arXiv has its own abstract field — paste from `.tex`)
-- [ ] License: typically `CC BY 4.0` or arXiv default non-exclusive
+- [ ] Abstract copied from paper into arXiv abstract field
+- [ ] License: CC BY 4.0
 - [ ] After upload: check compiled PDF on arXiv before announcing
+- [ ] After companion note ID received: update `MahonCE2026` in `references.bib`
+- [ ] After Paper I ID received: update `mahon_paper1` in downstream refs (Papers II–IV)

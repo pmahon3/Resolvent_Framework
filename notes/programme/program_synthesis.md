@@ -133,8 +133,13 @@ under fibre mixing; (2) certifies state-space separation directly.
 
 ## The true frontier
 
-The programme is complete at the level of four papers. The genuine open
-directions, ordered by downstream leverage:
+The mathematics of all four papers is worked out. Papers II–IV are at
+first-draft quality only — substantial editorial revision (prose, voice,
+structure, introductions) is needed before any of them are ready for
+submission. Paper I and the companion note are submission-ready; upload
+is blocked only by arXiv math.LO endorsement.
+
+The genuine open mathematical directions, ordered by downstream leverage:
 
 ### Dependency structure
 

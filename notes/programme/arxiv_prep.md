@@ -6,7 +6,7 @@ practice in mathematics.
 
 ---
 
-## Honest status as of 2026-04-23
+## Honest status as of 2026-04-24
 
 **Companion note** — ready. Standalone logic paper, 3 pages, polished.
 Waiting on arXiv math.LO endorsement (email sent to Halpern).
@@ -14,25 +14,12 @@ Waiting on arXiv math.LO endorsement (email sent to Halpern).
 **Paper I** — ready. 12 pages, all routes proved, CE irreducibility established,
 prose and structure at submission quality. Blocked only by endorsement.
 
-**Papers II–IV** — mathematics is worked out and LaTeX exists, but none are
-at submission quality. Specifically:
-
-- Prose, voice, and structure are at first-draft level throughout. Paper I and
-  the companion note set the standard; Papers II–IV are well below it.
-- The introductions announce results but do not motivate or situate them at the
-  level a reader outside the programme would need.
-- Transitions between sections are mechanical; the connective tissue that makes
-  a paper feel unified is largely absent.
-- The Lean formalization remarks in Papers II and III need reassessment: the
-  claims ("zero sorry obligations") require verification against the actual
-  current state of the Lean files, which has not been done recently.
-- Paper IV has structural issues specific to its content: the three-theorem
-  structure is sound, but the exposition of the witnesses and their relationship
-  to each other and to the programme needs significant development.
-
-These are not minor polishing tasks. Bringing Papers II–IV to submission quality
-is a substantial editorial project, to be undertaken after Papers I and the
-companion note are posted.
+**Papers II–IV** — editorially polished as of 2026-04-24. Full editorial passes
+complete on all three (voice, structure, hair removal). Page counts: II = 4 pages,
+III = 5 pages, IV = 16 pages. Paper IV additionally has Lemma 5.10 (Positive-fraction
+balance) integrating the fibre mixing investigation. Cross-reference bib entries
+(mahon_paper1, etc.) need updating with arXiv IDs once Paper I is live — that is
+the only remaining mechanical task before Papers II–IV can be submitted.
 
 ---
 
@@ -45,16 +32,9 @@ companion note are posted.
 **Phase 1 (on endorsement):** Upload companion note → get arXiv ID → update
 `MahonCE2026` in `references.bib` → upload Paper I.
 
-**Phase 2 (separate editorial project):** Bring Papers II–IV to submission
-quality. This requires:
-- Full prose revision of each paper: voice, transitions, motivation
-- Reassessment of Lean formalization status (verify sorry inventory)
-- Decisions about scope: what each paper claims vs what is actually proved
-- Cross-reference updates once Papers I and companion note have arXiv IDs
-
-**Phase 3:** Submit Papers II–IV to arXiv in sequence (II, then III, then IV).
-
-No timeline set for Phase 2/3. Do not treat Papers II–IV as near-ready.
+**Phase 2:** Update cross-reference bib entries in Papers II–IV with arXiv IDs
+from Phase 1. Then submit Papers II–IV to arXiv in sequence (II → III → IV).
+No other editorial work needed — all four papers are polished.
 
 ---
 

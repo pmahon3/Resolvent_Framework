@@ -47,7 +47,7 @@ determined. The predictive kernel, minimal predictive state map Q\*, and
 semigroup {K_t} are derived from temporal coherence, not assumed.
 Koopman–Perron duality connects operator-on-functions and measure-on-states.
 
-**LaTeX:** `papers/paper_ii/` (8 pages, arXiv-ready)
+**LaTeX:** `papers/paper_ii/` (4 pages, editorially polished 2026-04-24)
 **Lean:** `PredictiveState.lean` ✅, `PredictiveOperators.lean` ✅ (0 sorrys)
 
 ### Paper III — Reconstruction from Observation
@@ -58,7 +58,7 @@ observable algebra is isomorphic to the state space. Generalises Takens's
 theorem: measurability replaces smoothness, algebraic density replaces the
 dimension count.
 
-**LaTeX:** `papers/paper_iii/` (7 pages, arXiv-ready)
+**LaTeX:** `papers/paper_iii/` (5 pages, editorially polished 2026-04-24)
 **Lean:** `ReconstructionTheorem.lean` ✅ (2 Mathlib-gap sorrys),
 `DelayEmbedding.lean` ✅
 
@@ -83,7 +83,13 @@ The key insight: for deterministic T the predictive kernel Π_h^(L)(x,·) is a
 Dirac delta, making TV separation binary; σ(Φ_h^(L)) = 𝒪_h^(L) is the honest
 bridge connecting the two witnesses.
 
-**LaTeX:** `papers/paper_iv/` (17 pages, complete 2026-04-06; bridge note integrated)
+The central obstruction is **large monochromatic fibres** — fibres of the delay
+map where the conditional measure is near-degenerate. Lemma 5.10 (Positive-fraction
+balance) proves, without any dynamical hypothesis, that a positive ν_L-fraction of
+ε-large fibres are η-balanced. The fibre mixing condition is the upgrade to
+ν_L-a.e. balance; whether ergodicity supplies it is the main open question.
+
+**LaTeX:** `papers/paper_iv/` (16 pages, editorially polished 2026-04-24; bridge note in `notes/bridge_note.tex`)
 **Lean:** Not started
 
 ## Repository structure
@@ -92,10 +98,10 @@ bridge connecting the two witnesses.
 Resolvent_Framework/
 ├── README.md
 ├── papers/
-│   ├── paper_i/           ← Paper I LaTeX (arXiv-ready, 13 pages)
-│   ├── paper_ii/          ← Paper II LaTeX (arXiv-ready, 8 pages)
-│   ├── paper_iii/         ← Paper III LaTeX (arXiv-ready, 7 pages)
-│   └── paper_iv/          ← Paper IV LaTeX (complete, 17 pages)
+│   ├── paper_i/           ← Paper I LaTeX (arXiv-ready, 12 pages)
+│   ├── paper_ii/          ← Paper II LaTeX (polished, 4 pages)
+│   ├── paper_iii/         ← Paper III LaTeX (polished, 5 pages)
+│   └── paper_iv/          ← Paper IV LaTeX (polished, 16 pages)
 ├── formalization/
 │   └── QuerySystem/       ← Lean 4 / Mathlib formalization
 │       └── QuerySystem/
@@ -109,10 +115,13 @@ Resolvent_Framework/
 │           ├── TopologicalQuerySystem.lean
 │           └── ProkhorovExtension.lean
 ├── notes/
-│   ├── archive/                     ← superseded notes and sketches
+│   ├── archive/                     ← superseded notes and scaffolding
+│   │   ├── fibre_mixing_investigation/  ← steps 1–5 (investigative history)
+│   │   └── ultralimit_investigation/    ← resolved rungs and LaTeX drafts
 │   ├── conceptual/
 │   │   └── philosophy/              ← active philosophical notes
 │   ├── future/                      ← post-arXiv research directions
+│   │   └── fibre_mixing_investigation/ ← steps 6–7 + irreducibility (active)
 │   └── programme/                   ← programme documents, task lists, logs
 │       ├── program_overview.md      ← canonical task list and status
 │       ├── arxiv_prep.md            ← arXiv submission checklist (all four papers)
@@ -130,9 +139,9 @@ are documented Mathlib-gap markers, not proof-search failures.
 
 See `notes/programme/program_overview.md` for the canonical task list and priorities.
 
-- **Paper I**: arXiv-ready (13 pages, MSC classifications, keywords, citations complete).
-- **Paper II**: arXiv-ready (8 pages).
-- **Paper III**: arXiv-ready (7 pages); 2 Mathlib-gap sorrys in `ReconstructionTheorem.lean`.
-- **Paper IV**: complete (17 pages, 2026-04-06); bridge note integrated; Lean formalization not started.
+- **Paper I**: arXiv-ready (12 pages, MSC classifications, keywords, citations complete).
+- **Paper II**: editorially polished (4 pages, 2026-04-24).
+- **Paper III**: editorially polished (5 pages, 2026-04-24); 2 Mathlib-gap sorrys in `ReconstructionTheorem.lean`.
+- **Paper IV**: editorially polished (16 pages, 2026-04-24); Lemma 5.10 (Positive-fraction balance) added; Lean formalization not started.
 - **Bridge note**: `papers/paper_iv/notes/bridge_note.tex` — 4-page companion proving the conditional variance identity and entropy characterisation δ(L)→0 ⟺ H₂(ν_L)→∞; cited as `mahon_bridge` in Paper IV.
-- **Next action**: arXiv submission of Papers I–IV (checklist in `notes/programme/arxiv_prep.md`).
+- **Next action**: arXiv submission of Paper I and companion note (checklist in `notes/programme/arxiv_prep.md`); Papers II–IV follow after endorsement.

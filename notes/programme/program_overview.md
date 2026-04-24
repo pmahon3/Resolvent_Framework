@@ -178,25 +178,22 @@ Obs. 9–12 closed 2026-04-06 (details in sketch).
 
 **Status:** Complete. LaTeX written 2026-04-06; bridge note integrated 2026-04-06.
 
-**LaTeX:** `papers/paper_iv/paper_iv.tex` — 17 pages, 8 sections, bibliography
-resolved, all references clean. Sections: Introduction, Setup, Bias Bound and
-Algebra Side, Concentration of the Empirical Witness, The Algebra Theorem,
-The Dynamics Theorem, The Conjunction Theorem, Discussion.
+**LaTeX:** `papers/paper_iv/finite_sample_reconstruction.tex` — 16 pages, 8 sections,
+editorially polished 2026-04-24 (three passes complete). Sections: Introduction,
+Setup and Notation, Bias Bound and Conditional Variance, Concentration of the
+Empirical Witness, The Algebra Theorem, The Dynamics Theorem, The Conjunction
+Theorem, Discussion.
 
 **Key results:**
 - Lemma 3.1 (Conditional Variance Identity: E[Var(1_S|𝒪_L)] = ½∫_{R_L}|1_S(x)-1_S(x')|² d(μ⊗μ))
 - Corollary 3.2 (Easy direction: δ(L) ≤ ½(μ⊗μ)(R_L), unconditional)
 - Lemma 5.1 (dim_eff step function via Sard–Smale)
 - Theorem 5.7 (Algebra Theorem: L̂* achieves minimax rate n^{-s/(2s+d)} without oracle inputs)
-- Corollary 5.12 (Entropy characterisation: δ(L)→0 ⟺ H₂(ν_L)→∞ under fibre mixing)
+- Lemma 5.10 (Positive-fraction balance: ν_L(G(η)) ≥ 4(κ−η), no dynamical hypothesis)
+- Corollary 5.11 (Entropy characterisation: δ(L)→0 ⟺ H₂(ν_L)→∞ under fibre mixing)
 - Theorem 6.4 (Dynamics Theorem: bi-Lipschitz delay map + empirical separation under (US))
-- Lemma 7.1 (algebra separation = metric separation for deterministic T — algebraic identity, not correlation)
+- Lemma 7.1 (algebra separation = metric separation for deterministic T)
 - Theorem 7.3 (Conjunction Theorem with three-part failure-mode analysis; Markov bridge)
-
-**Three computable witnesses (§1.3):**
-1. δ̂(L,n) — algebraic witness
-2. d̂_L(x,x') — delay-map separation
-3. Ĥ₂(ν_L^(n)) — collision entropy (new; computationally simpler: no optimisation over sets)
 
 **Companion note:** `papers/paper_iv/notes/bridge_note.tex` — standalone 4-page note proving
 the conditional variance identity and the entropy characterisation (δ(L)→0 ⟺ H₂→∞)
@@ -204,7 +201,8 @@ in full detail. Cited as `mahon_bridge` in Paper IV.
 
 **Open (named in §8):** polynomial mixing, d≤2s via localised Rademacher, (US)
 from first principles (Anosov case), stochastic T, sharp rates for L̂*,
-concentration of entropy witness Ĥ₂ (most immediate extension).
+derivability of fibre mixing (Step B: does ergodicity upgrade positive-fraction
+to a.e. balance?).
 
 **Lean formalization:** Not started.
 
@@ -289,15 +287,15 @@ structural condition) is the deepest open question in the programme.
 
 ## What Each Paper Needs
 
-*Status as of 2026-04-23. "Mathematical status" = the mathematics is worked out.
+*Status as of 2026-04-24. "Mathematical status" = the mathematics is worked out.
 "LaTeX status" = quality of the written paper as a submission. These are different.*
 
 | Paper | Mathematical status | Lean status | LaTeX status | Next action |
 |-------|--------------------|-----------|----|---|
-| I | All routes proved; CE irreducibility proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Submission-ready** — `papers/paper_i/`, 12 pages. Prose and structure match companion note in quality. | Upload (waiting on endorsement) |
-| II | Core results proved | Claims "zero sorry" — **needs verification** against current Lean files | **First-draft quality only.** Prose flat; introduction announces but does not motivate; transitions mechanical; voice not at Paper I standard. Substantial editorial revision needed. | Editorial revision before submission |
-| III | Reconstruction theorem proved; density bridge proved; cyclic vector correctly positioned as sufficient condition | Claims 4 proved + 2 Mathlib-gap sorrys — **needs verification** | **First-draft quality only.** Same issues as Paper II; additionally the Lean remark references specific sorry counts that may be stale. | Editorial revision before submission |
-| IV | Mathematics complete. All 12 proof obligations closed. Three main theorems + entropy characterisation. | Not started | **First-draft quality only.** Technically detailed but exposition of witnesses and their relationships underdeveloped; introduction does not situate the paper within the programme adequately; no Lean formalization to note. | Editorial revision before submission |
+| I | All routes proved; CE irreducibility proved; bridge written | `QuerySystem.lean` ✅; `DiscriminabilityFoundations.lean` 3 sorrys (Mathlib gaps); `StoneDualityExtension.lean` ✅ (2 intentional Mathlib-gap sorrys); `TopologicalQuerySystem.lean` + `ProkhorovExtension.lean` ✅ (Prokhorov route) | **Submission-ready** — `papers/paper_i/`, 12 pages. | Upload (waiting on endorsement) |
+| II | Core results proved | 0 sorrys (verified) | **Editorially polished** — 4 pages, 2026-04-24. Full editorial pass complete; prediction-first structure; no Lean references; no Paper III forward refs. | Submit after Papers I + companion note posted |
+| III | Reconstruction theorem proved; density bridge proved | 2 Mathlib-gap sorrys | **Editorially polished** — 5 pages, 2026-04-24. Density bridge proof is technical heart; three-way equivalence clean; Stone space identification proved. | Submit after Paper II |
+| IV | Mathematics complete. Three main theorems + entropy characterisation + Lemma 5.10 (Positive-fraction balance). | Not started | **Editorially polished** — 16 pages, 2026-04-24. Three passes complete; 6 load-bearing remarks; fibre mixing fully integrated. | Submit after Paper III |
 
 ---
 
@@ -382,10 +380,9 @@ See `notes/programme/arxiv_prep.md` for full checklist.
 **Immediate:** Obtain math.LO arXiv endorsement (email sent to Halpern).
 On endorsement: upload companion note → upload Paper I.
 
-**Deferred (substantial editorial project):** Bring Papers II–IV to submission
-quality. This is not a polishing task — it requires full prose revision, voice
-alignment with Paper I, restructured introductions, and Lean status verification.
-No timeline set. Do not treat these as near-ready.
+**After Paper I posted:** Submit Papers II–IV in sequence (II → III → IV).
+All four are now editorially polished. Cross-reference bib entries need updating
+with arXiv IDs once Paper I is live.
 
 ### Long term / deferred
 

@@ -163,9 +163,36 @@ is invisible to the observational layer, even if not to the dynamical layer.
 
 ## Status checklist
 
-- [ ] Fix the right language / notion of structural condition (Q1)
-- [ ] Assess whether the Łoś argument transfers (Q2)
-- [ ] Identify candidate failure witnesses (Q3)
+- [x] Fix the right language / notion of structural condition (Q1) — see step1_framing.md
+- [x] Framing B: expressible in conditional cylinder-charge language (step1_framing.md)
+- [x] Framing B irreducibility: provable via Dirac-conditional witness, but witness is
+      too cheap — no dynamical system produces atomic conditionals generically (step2_failure_witness.md)
+- [x] **Pivot: real question is framing A** — is fibre mixing first-order axiomatizable
+      in $\mathcal{L}_{\mathrm{dyn}}$? Correct framework: continuous logic for metric
+      structures (step2_failure_witness.md)
+- [x] Assess whether the Łoś argument transfers in continuous logic (Q2) — yes for
+      lag-by-lag (LBL); UFM escapes continuous logic expressibility; gap is uniformity
+      across lags, exactly as CE (step3_continuous_logic.md)
+- [x] Witness construction well-posed: irrational rotations $\alpha_n \to 0$ with
+      binary observable $h = \mathbf{1}_{[0,1/2)}$; fibre mixing constant
+      $c(\alpha_n, L) \approx \Theta(\alpha_n) \to 0$ for fixed $L$; ultraproduct
+      preserves LBL (Łoś) but loses UFM (no uniform $c'>0$); three-distance theorem
+      governs fibre sizes (step4_rotation_computation.md)
+- [x] Rotation witness hits a fundamental obstruction: binary observable on circle
+      does not reconstruct ($\delta_L \not\to 0$), so fibre mixing corollary is vacuous
+      in this regime. Honest assessment in step5_synthesis.md.
+- [x] Derivability question precisely posed (step6_derivability.md); all of $\delta_L$
+      is from non-monochromatic fibres (proved); near-maximizer carries balanced large fibres
+- [x] Bridge theorem proved (step7_bridge_theorem.md): $\nu(G(\eta)) \geq 2(\kappa-\eta)$
+      where $\kappa$ = large-fibre contribution to approximation error; no ergodicity needed.
+      Key: lower bound on $\nu(G)$ requires upper pointwise bound on integrand ($\leq 1/2$),
+      not lower bound (which gives only an upper bound on $\nu(G)$ — wrong direction).
+- [x] Two-step structure identified: Step A (analytic, $\kappa > 0$ bound) and Step B
+      (dynamical, upgrade positive-fraction to a.e.); bare ergodicity may not suffice for Step B
+- [ ] **Step A:** explicit lower bound for $\kappa$ in terms of $\delta_L$ and $(\mu\otimes\mu)(R_{>\varepsilon})$
+- [ ] **Step B:** identify what dynamical condition forces $\nu(\mathcal{M}_0\cup\mathcal{M}_1)=0$
+      (a.e. large fibre balanced). Ergodicity asserted sufficient in bridge note remark — not proved.
+- [ ] State derivability theorem once Steps A+B resolved; update CE vs UFM parallel accordingly
 - [ ] Determine relationship between fibre mixing and ergodicity more precisely
 - [ ] Determine whether fibre mixing is necessary (not just sufficient) for
       δ(L) ↔ H₂(ν_L) equivalence

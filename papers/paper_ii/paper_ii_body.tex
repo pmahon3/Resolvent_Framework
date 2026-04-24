@@ -41,75 +41,40 @@ Koopman--Perron duality, observable dynamical system, measure-preserving system.
 \label{sec:intro}
 
 Paper~I produced a probability measure $P$ on the observable $\sigma$-algebra
-from coherent structured observations; collective exhaustion (CE) was the
-exact condition that licensed the passage from finite coherence to genuine
-probability.  The question this paper addresses is what temporal structure $P$
-carries.  Once the observer's predictions are fixed, the laws of motion are
-already determined.
+from coherent structured observations; collective exhaustion was the exact
+condition licensing the passage from finite coherence to genuine probability.
+The question this paper addresses is what temporal structure $P$ carries.  Once
+the probability is fixed, the laws of motion are already determined.
 
-The classical approach to dynamics, following Koopman~\cite{Koopman1931}, is
-to describe how functions of the state evolve: the operator $U_T f = f \circ T$
-acts by precomposing with the dynamics $T$.  This presupposes access to $T$ as
-a map on the state space.  The predictive approach taken here replaces this
-assumption with a more elementary question: given the current observation $Q$,
-what does the observer expect about the future observation $F$?  The answer is
-the \emph{predictive kernel} $\Pi_Q$, the regular conditional distribution of
-$F$ given $Q$.  No state-space transformation is assumed.
+The classical approach to dynamics, following Koopman~\cite{Koopman1931},
+describes how observable functions evolve: the operator $U_T f = f \circ T$
+acts by precomposing with the dynamics $T$.  This presupposes access to $T$.
+The approach here replaces that assumption with a prior question: given the
+current observation $Q : \Omega \to \alpha$, what does the observer predict
+about the future observation $F : \Omega \to \beta$?  The answer is the
+\emph{predictive kernel} $\Pi_Q$, the regular conditional distribution of $F$
+given $Q$.  No state-space transformation is assumed.
 
-The predictive kernel packages into a \emph{minimal predictive state map}
-$Q_* : \Omega \to \mathcal{P}(\beta)$, which sends each sample point to its
-full conditional law.  This is the object the observer actually knows: not
-where the system is in a possibly unobservable state space, but what conditional
-distribution it induces on future outcomes.  The predictive factorization theorem
-(Theorem~\ref{thm:predictive-factorization}) shows that $Q_*$ carries all
-conditional information about $F$: every conditional expectation of a function
-of $F$ factors through it.
+The predictive kernel packages into the \emph{minimal predictive state map}
+$Q_* : \Omega \to \mathcal{P}(\beta)$, sending each sample point to its
+conditional law.  The predictive factorization theorem shows that every
+conditional expectation of a function of $F$ factors through $Q_*$: it is the
+minimal sufficient statistic for future prediction.  Indexing over time, the
+kernels $\{\Pi_t\}$ compose; their composition law is the Chapman--Kolmogorov
+equation, derived from temporal coherence, not assumed.  This yields a semigroup
+of \emph{predictive operators} $\{K_t\}$ and the Koopman--Perron duality
+$\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$.  When the kernels are Dirac
+measures, $K_t g = g \circ \varphi_t$ recovers the classical Koopman operator.
 
-Indexing over a discrete time horizon, the predictive kernels $\{\Pi_t\}$
-compose.  Their composition law is not assumed: it is the Chapman--Kolmogorov
-equation, derived from the temporal coherence of the observer's predictions.
-This produces a semigroup of \emph{predictive operators} $\{K_t\}$ on the
-predictive state space, together with the Koopman--Perron duality
-$\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$, which links operators on functions
-with operators on measures.  When the kernels are Dirac measures — the deterministic
-case — $K_t g = g \circ \varphi_t$ recovers the classical Koopman operator, and
-the semigroup law becomes the flow law $\varphi_{t+s} = \varphi_t \circ \varphi_s$.
-
-The results are assembled into a single structure:
-
-\begin{enumerate}[label=(\roman*)]
-  \item the \emph{predictive kernel} $\Pi_Q$ (Definition~\ref{def:predictive-kernel});
-  \item the \emph{minimal predictive state map} $Q_*$ and its factorization
-    theorem (Definitions~\ref{def:minimal-predictive}, Theorem~\ref{thm:predictive-factorization});
-  \item the semigroup law $K_{t+s} = K_t \circ K_s$
-    (Theorem~\ref{thm:semigroup});
-  \item Koopman--Perron duality (Theorem~\ref{thm:koopman-perron});
-  \item the deterministic specialization recovering classical Koopman operators
-    (Theorem~\ref{thm:deterministic}).
-\end{enumerate}
-
-Together these define the \emph{observable dynamical system}
-$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$, the output that Paper~III takes as its
-starting point and asks: when can the state space be recovered from time-delayed
-observations of $h$?
-
-The formalism is self-contained.  Paper~I~\cite{mahon_paper1} is used only as
-motivation: Paper~II starts from a probability space $(\Omega, \mathcal{F}, P)$
-with two measurable maps $Q : \Omega \to \alpha$ (present) and
-$F : \Omega \to \beta$ (future), where $\beta$ is a standard Borel space.  The
-standard Borel hypothesis enters exactly once, as the hypothesis under which
-the Rokhlin disintegration theorem~\cite{Rokhlin1952} guarantees a regular
-conditional distribution.
-
-The main theorems are formalized in Lean~4 / Mathlib~\cite{Mathlib}.  The two
-proof files \texttt{PredictiveState.lean} and \texttt{PredictiveOperators.lean}
-cover, respectively, the predictive kernel and factorization theorem, and the
-semigroup and duality results.  The key Mathlib ingredients are
-\texttt{ProbabilityTheory.Kernel.Disintegration} (Rokhlin disintegration) and
-\texttt{Probability.Kernel.Composition.IntegralCompProd} (Bochner--Fubini for
-kernel compositions).  Several results — the experiment preorder, general
-predictive sufficiency, and the continuous-time semigroup generator — are stated
-in the paper but not yet formalized; these are noted at the relevant points.
+These structures assemble into the \emph{observable dynamical system}
+$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$, which Paper~III takes as its starting point
+and asks: when does the delay orbit of a single function reconstruct the full
+state space?  The formalism is self-contained: the paper starts from a
+probability space $(\Omega, \mathcal{F}, P)$ and two measurable maps; the
+connection to Paper~I is motivational.  The main theorems are formalized in
+Lean~4 / Mathlib~\cite{Mathlib}; several further results — the experiment
+preorder, general predictive sufficiency, the continuous-time generator — are
+stated but not yet formalized, and are noted as such.
 
 % ====================================================================
 \section{Setup}

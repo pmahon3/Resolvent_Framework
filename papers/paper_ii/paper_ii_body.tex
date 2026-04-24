@@ -174,18 +174,6 @@ is measurable by \texttt{Measurable.subtype\_mk}.  Measurability of $Q_*$ then
 follows from composition.
 \end{proof}
 
-The minimal predictive state map identifies points with the same predictive law:
-
-\begin{proposition}[Predictive equivalence, P2.4]
-\label{prop:predictive-equiv}
-For $\omega, \omega' \in \Omega$:
-\[
-  Q_*(\omega) = Q_*(\omega') \;\iff\; \Pi_Q(Q(\omega), \cdot) = \Pi_Q(Q(\omega'), \cdot).
-\]
-\end{proposition}
-
-No quotient construction is needed: the state space is the image of $\varphi_Q$
-inside the standard Borel space $\mathcal{P}(\beta)$.
 
 % ====================================================================
 \section{Predictive factorization}
@@ -250,18 +238,6 @@ Theorem~\ref{thm:predictive-factorization} then reads: $E[g(F) \mid \sigma(Q)]
 = (K_{Q_*} g) \circ Q_*$ $P$-a.e.  This is the canonical operator associated
 with the predictive state.
 
-\begin{proposition}[Properties of $K_{Q_*}$, P2.6]
-\label{prop:operator-properties}
-The canonical predictive operator $K_{Q_*}$ is:
-\begin{enumerate}[label=(\roman*)]
-  \item \emph{positive}: $g \geq 0 \Rightarrow K_{Q_*} g \geq 0$;
-  \item \emph{unital}: $K_{Q_*} \mathbf{1} = \mathbf{1}$;
-  \item \emph{linear}: $K_{Q_*}(g + h) = K_{Q_*} g + K_{Q_*} h$,
-    $K_{Q_*}(\lambda g) = \lambda K_{Q_*} g$;
-  \item \emph{contractive}: $|K_{Q_*} g|(q_*) \leq \|g\|_\infty$.
-\end{enumerate}
-\end{proposition}
-
 % ====================================================================
 \section{The predictive semigroup}
 \label{sec:semigroup}
@@ -289,15 +265,6 @@ the Chapman--Kolmogorov equation:
 In kernel notation: $\Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s$ where $\circ_\kappa$
 denotes kernel composition.
 \end{definition}
-
-\begin{remark}[Derivation, not assumption]
-The Chapman--Kolmogorov equation is \emph{derived} from the temporal coherence
-of prediction (the same observable compatibility that determined $P$ in
-Paper~I), not assumed.  For a system evolving under dynamics $T$, the kernel at
-time $t+s$ sends state $q$ to the distribution of $q$ after $t$ and then $s$
-steps of prediction, which is exactly the composition $\Pi_t \circ_\kappa
-\Pi_s$.
-\end{remark}
 
 \subsection{The predictive operator family}
 
@@ -352,13 +319,6 @@ boundedness hypothesis on $g$ is needed for integrability of $g$ against the
 composed kernel.
 \end{proof}
 
-\begin{remark}[Boundedness hypothesis]
-The hypothesis that $g$ is bounded (i.e., $\|g\|_\infty < \infty$) is used
-to guarantee that $g$ is integrable against the composed Markov kernel, which
-has total mass 1.  The result extends to $g \in L^\infty(\gamma)$ by a
-monotone class argument.
-\end{remark}
-
 % ====================================================================
 \section{Koopman--Perron duality}
 \label{sec:duality}
@@ -396,15 +356,6 @@ $\mu$ on $\gamma$:
 \end{align*}
 The Bochner--Fubini step again uses \texttt{Kernel.integral\_comp}.
 \end{proof}
-
-\begin{remark}[The two sides of the duality]
-$K_t$ acts on the \emph{function algebra}: it takes a function $g$ on the
-state space and returns its predicted value $t$ steps hence.  $P_t^*$ acts on the
-\emph{distribution}: it takes a current distribution of predictive states and
-evolves it $t$ steps forward.  Neither is primary; they are adjoint.  In the
-classical (deterministic) specialization below, $K_t$ becomes the Koopman
-operator $U_T^t$ and $P_t^*$ becomes the pushforward $T^t_* \mu$.
-\end{remark}
 
 % ====================================================================
 \section{Deterministic specialization}
@@ -448,14 +399,6 @@ Since Dirac measures at distinct points are distinct (under
 \texttt{SeparatesPoints}), we conclude $\varphi_{t+s}(q) = \varphi_t(\varphi_s(q))$.
 \end{proof}
 
-\begin{remark}[Classical Koopman]
-In the deterministic case, $K_t g = g \circ \varphi_t = U_T^t g$ where $U_T$
-is the classical Koopman operator.  The semigroup law $K_{t+s} = K_t \circ K_s$
-becomes $U_T^{t+s} = U_T^t \circ U_T^s$, and the Koopman--Perron duality
-$\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$ recovers the change-of-variables
-formula $\int g \circ T^t\, d\mu = \int g\, d(T^t_* \mu)$.
-\end{remark}
-
 % ====================================================================
 \section{The observable dynamical system}
 \label{sec:obs-dyn-sys}
@@ -477,20 +420,20 @@ where:
 \end{itemize}
 \end{definition}
 
-The predictive state distribution $\nu_{Q_*}$ is stationary under $P_t^*$: if
-$(\Omega, P)$ is stationary (i.e., $P \circ T^{-1} = P$), then $P_t^*
-\nu_{Q_*} = \nu_{Q_*}$ for all $t$.  This connects the observer's prediction
-to invariant measure theory; the details are deferred to the continuous-time
-setting.
-
 % ====================================================================
 \section{Relation to Paper III}
 \label{sec:bridge}
 
 Paper~II has constructed the dynamics from the probability measure $P$ and the
 measurable maps $(Q, F)$.  The output is the observable dynamical system
-$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$: a predictive state space, a stationary
-distribution, and a semigroup.  This raises the inverse question.
+$(O_{Q_*}, \nu_{Q_*}, \{K_t\})$: a predictive state space, a distribution, and
+a semigroup.  This raises the inverse question.
+
+The construction specialises directly to the setting of Paper~III.  If
+$(X, \mathcal{B}, \mu, T)$ is a measure-preserving system and $h \in L^\infty$,
+set $Q_t = h \circ T^t$.  Then $Q_* = \Phi_h$, the delay map $\Phi_h(x) =
+(h(T^n x))_{n \in \mathbb{Z}}$, and the predictive state space $O_{Q_*}$
+is precisely the delay orbit space of Paper~III.
 
 Paper~III asks: \emph{when does the sequence of time-delayed observations
 $\{h \circ T^n : n \in \mathbb{Z}\}$ of a single function $h$ determine the

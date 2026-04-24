@@ -1005,6 +1005,46 @@ This condition is independent of~(US) and is not a standing assumption here;
 it is used only in Corollary~\ref{cor:entropy} below.
 \end{definition}
 
+\begin{lemma}[Positive-fraction balance]
+\label{lem:balance}
+Let $S^* \in \Bcal$ be an $\varepsilon$-near-maximizer of $\deltaL$, i.e.\
+$\mathbb{E}[\mathrm{Var}(\mathbbm{1}_{S^*} \mid \OhL)] \geq \deltaL - \varepsilon$.
+Define the \emph{large-fibre contribution}
+\[
+  \kappa \;:=\; \int_{\{p_z \geq \varepsilon\}}
+    p_z\,\mu_z(S^*)\,\mu_z\bigl((S^*)^c\bigr)\,d\nuL(z).
+\]
+For any $\eta \in (0,\tfrac{1}{2})$ with $\kappa > \eta$, the set
+\[
+  G(\eta) \;:=\; \bigl\{z : p_z \geq \varepsilon,\;
+    \mu_z(S^*)\,\mu_z\bigl((S^*)^c\bigr) \geq \eta\bigr\}
+\]
+of $\varepsilon$-large balanced fibres satisfies
+\[
+  \nuL\bigl(G(\eta)\bigr) \;\geq\; 4(\kappa - \eta).
+\]
+No dynamical hypothesis is required.
+\end{lemma}
+
+\begin{proof}
+Partition the $\varepsilon$-large fibres into monochromatic fibres
+$\mathcal{M} = \{z : p_z \geq \varepsilon,\, \mu_z(S^*)\mu_z((S^*)^c) < \eta\}$
+and balanced fibres $G(\eta)$.
+On $\mathcal{M}$: $\mu_z(S^*)\mu_z((S^*)^c) < \eta$, so
+\[
+  \int_{\mathcal{M}} p_z\,\mu_z(S^*)\mu_z\bigl((S^*)^c\bigr)\,d\nuL
+  \;\leq\; \eta\int_{\mathcal{M}} p_z\,d\nuL \;\leq\; \eta.
+\]
+Hence $\int_{G(\eta)} p_z\mu_z(S^*)\mu_z((S^*)^c)\,d\nuL \geq \kappa - \eta$.
+On $G(\eta)$: $\mu_z(S^*)\mu_z((S^*)^c) \leq \tfrac{1}{4}$ pointwise, so
+\[
+  \kappa - \eta
+  \;\leq\; \int_{G(\eta)} p_z\,\mu_z(S^*)\mu_z\bigl((S^*)^c\bigr)\,d\nuL
+  \;\leq\; \tfrac{1}{4}\int_{G(\eta)} p_z\,d\nuL
+  \;\leq\; \tfrac{1}{4}\,\nuL\bigl(G(\eta)\bigr). \qedhere
+\]
+\end{proof}
+
 The collision probability~\eqref{eq:collision-prob} defines a natural
 information-theoretic quantity:
 \begin{equation}
@@ -1040,9 +1080,8 @@ $H_2(\nuL) \to +\infty$.
 
 \begin{remark}[Balance mechanism]
 \label{rem:balance-mechanism}
-The bridge theorem (\cite{mahon_bridge}, Theorem~3.3) guarantees that a
-positive $\nuL$-fraction of $\varepsilon$-large fibres are $\eta$-balanced
-without any dynamical hypothesis.
+Lemma~\ref{lem:balance} guarantees that a positive $\nuL$-fraction of
+$\varepsilon$-large fibres are $\eta$-balanced without any dynamical hypothesis.
 The fibre mixing condition is the upgrade from positive-fraction to
 $\nuL$-a.e.\ balance; whether ergodicity supplies it is the main open
 question (Section~\ref{sec:discussion}).
@@ -1382,9 +1421,8 @@ The central open question is whether the fibre mixing condition
 (Definition~\ref{def:fibre-mixing}) is derivable from dynamical hypotheses, or
 whether it is an irreducible admissibility condition analogous to CE in Paper~I.
 
-The bridge theorem (\cite{mahon_bridge}, Theorem~3.3) and the analysis in
-Remark~\ref{rem:balance-mechanism} settle Step~A: a positive $\nuL$-fraction
-of $\varepsilon$-large fibres are $\eta$-balanced, with an explicit lower bound
+Lemma~\ref{lem:balance} settles Step~A: a positive $\nuL$-fraction of
+$\varepsilon$-large fibres are $\eta$-balanced, with an explicit lower bound
 depending only on the large-fibre contribution $\kappa$ and not on any dynamical
 hypothesis.
 

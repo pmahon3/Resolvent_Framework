@@ -25,20 +25,16 @@ separation and metric separation are the same event --- not merely correlated,
 but identical --- and that both witnesses certify this from data under
 reconstruction and uniform separation.
 
-The key structural insight is a conditional variance identity expressing
-$\delta(L)$ as an integral of the within-fibre variance of the near-maximizer
-over unseparated trajectory pairs.
-This identity isolates the obstruction to equivalence between algebraic and
-information-theoretic reconstruction: it fails to reverse when large delay
-fibres are monochromatic --- entirely inside or outside the hardest-to-approximate
-event.
-Under the fibre mixing condition (that $\nu_L$-almost every large fibre is
-balanced), the identity yields a third computable witness: the collision entropy
-$H_2(\nu_L) := -\log(\mu\otimes\mu)(R_L)$ of the delay-vector distribution,
-which diverges if and only if $\delta(L) \to 0$.
-The three witnesses --- algebraic, geometric, and information-theoretic ---
-all measure the same failure of separation across delay fibres; the entropy
-witness is derived from the other two via the fibre balance mechanism.
+A third computable witness emerges from the fibre structure of the delay map.
+Under the fibre mixing condition --- that $\nu_L$-almost every large fibre is
+balanced --- the collision entropy $H_2(\nu_L) := -\log(\mu\otimes\mu)(R_L)$
+diverges if and only if $\delta(L) \to 0$.
+The key is a conditional variance identity expressing $\delta(L)$ as an
+integral of within-fibre variance over unseparated trajectory pairs; the
+identity reverses under fibre mixing but fails when large fibres are
+monochromatic --- entirely inside or outside the hardest-to-approximate event.
+All three witnesses --- algebraic, geometric, and information-theoretic ---
+measure the same failure of separation across delay fibres.
 \end{abstract}
 
 \begin{quote}\small
@@ -54,30 +50,31 @@ measure-preserving system.
 
 % ============================================================
 \section{Introduction}
-\label{sec:intro}
+\label{III:sec:intro}
 % ============================================================
 
-The reconstruction theorem (\cite{mahon_paper2}) states that the
-observable algebra $\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$
-generates $\mathcal{B}$ modulo $\mu$ if and only if $h$ is a measure-theoretic
-embedding --- an exact condition that says nothing about rates, certificates,
-or what can be verified from a finite time series.
-\cite{mahon_paper1} constructs the canonical probability measure
-on the observation space; \cite{mahon_paper2} establishes the predictive
-kernel and Koopman--Perron duality before proving reconstruction.
+The reconstruction theorem states that the observable algebra
+$\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$ generates
+$\mathcal{B}$ modulo $\mu$ if and only if the delay map $\Phi_h$ is a
+measure-theoretic embedding --- an exact asymptotic condition that says
+nothing about rates, certificates, or what can be verified from a finite
+time series.
 Given a time series $x_1, \ldots, x_n$ from $(X, \mathcal{B}, \mu, T)$
 and a single observable $h$, we ask: can one determine from data alone
 whether reconstruction holds, at what rate, and with what certificates?
 We answer with three theorems: the Algebra Theorem, the Dynamics Theorem,
 and the Conjunction Theorem.
+The probability measure and reconstruction theorem are established
+in~\cite{mahon_paper1} and~\cite{mahon_paper2} respectively; this paper
+takes both as given and asks what finite data can certify.
 
-\textbf{The Algebra Theorem} (Section~\ref{sec:algebra}).
+\textbf{The Algebra Theorem} (Section~\ref{III:sec:algebra}).
 Define the $\sigma$-algebra approximation error
 \[ \deltaL = \sup_{S \in \mathcal{B}} \inf_{E \in \OhL} \mu(S \triangle E),\]
 which measures how much of $\mathcal{B}$ is not yet captured by the
 finite-lag algebra $\OhL = \sigma(h, h\circ T, \ldots, h \circ T^L)$.
 This quantity is estimable from data as $\delhat{L}{n}$ (defined
-in Section~\ref{sec:setup}).
+in Section~\ref{III:sec:setup}).
 The elbow stopping rule $\Lhat$ fires when $\delhat{L}{n}$ stops decreasing.
 Under exponential mixing with resolvability constant $C_\lambda > 4$,
 $\Lhat$ achieves the minimax-optimal rate $n^{-s/(2s+d)}$ for
@@ -86,7 +83,7 @@ without any oracle knowledge of the mixing rate, the lag $L^*(n)$,
 or the smoothness index $s$.
 This is the main finite-sample rate result.
 
-\textbf{The Dynamics Theorem} (Section~\ref{sec:dynamics}).
+\textbf{The Dynamics Theorem} (Section~\ref{III:sec:dynamics}).
 The delay map $\PhiL(x) = (h(x), \ldots, h(T^L x))$ encodes the
 trajectory of $x$ under the observable.
 When $T \in C^r$ and the uniform separation condition~(US)
@@ -97,7 +94,7 @@ that points are being separated by the dynamics.
 The Dynamics Theorem shows that this kernel witness converges to the true
 separation at rate $n^{-\beta/(2\beta+d)}$ and names the places where it can fail.
 
-\textbf{The Conjunction Theorem} (Section~\ref{sec:conjunction}).
+\textbf{The Conjunction Theorem} (Section~\ref{III:sec:conjunction}).
 The two witnesses measure the same event.
 For deterministic $T$, the TV separation $\preddisc{L}(x,x') = 1$ if and
 only if $x$ and $x'$ are separated by $\OhL$ --- not merely correlated, but
@@ -112,12 +109,14 @@ when reconstruction holds.
 The $\sigma$-algebra approximation error $\deltaL$ is observable without
 knowing the mixing rate, the dimension $d$, or the smoothness $s$.
 The elbow rule for $\delhat{L}{n}$ operates upstream of the rate: it asks
-``has the algebra captured $\mathcal{B}$?'' rather than ``at what rate is
-the approximation converging?''
+whether the algebra has captured $\mathcal{B}$, not at what rate the
+approximation is converging.
+For deterministic $T$, all three witnesses certify the same object,
+and finite data suffices to detect it.
 
 % ============================================================
 \section{Setup and Notation}
-\label{sec:setup}
+\label{III:sec:setup}
 % ============================================================
 
 \subsection{The measure-preserving system}
@@ -167,7 +166,7 @@ and under (G1)--(G2) on a smooth manifold reaches zero by lag $L_0 \leq d-1$
 (all three proved in~\cite{mahon_paper2}).
 
 \subsection{Fibre structure and collision probability}
-\label{subsec:fibres}
+\label{III:subsec:fibres}
 
 The delay map $\PhiL$ partitions $X$ into \emph{fibres}: for each
 $z \in \mathbb{R}^{L+1}$, define
@@ -185,7 +184,7 @@ decomposes as $\RL = \bigsqcup_z F_z \times F_z$, giving
 \begin{equation}
   (\mu \otimes \mu)(\RL)
   \;=\; \int p_z^2\,d\nuL(z).
-  \label{eq:collision-prob}
+  \label{III:eq:collision-prob}
 \end{equation}
 This quantity is the \emph{collision probability} of the delay-vector
 distribution: it is the probability that two independent draws from $\mu$
@@ -225,7 +224,7 @@ They are not assumed globally; each theorem states exactly which subset it uses.
     This is a uniform lower Lipschitz bound on $\PhiL$, strictly stronger than
     (G1)--(G2) which give full rank only $\mu$-a.e.
     Condition~(US) is used only in the Dynamics and Conjunction theorems
-    (Sections~\ref{sec:dynamics} and~\ref{sec:conjunction}).
+    (Sections~\ref{III:sec:dynamics} and~\ref{III:sec:conjunction}).
 \end{enumerate}
 
 \subsection{The empirical witness}
@@ -239,15 +238,15 @@ The empirical analogue of $\deltaL$ is
 \]
 where $\PD$ is the class of degree-$D$ polynomials in the delay coordinates
 $\PhiL(x)$ (normalised in $\Lp{2}(\mu)$), and $\Ehat[p \mid \PhiL]$ is the
-Nadaraya--Watson kernel regression estimator (Definition~\ref{def:nw}).
+Nadaraya--Watson kernel regression estimator (Definition~\ref{III:def:nw}).
 
-The main result of Section~\ref{sec:concentration} is that $\delhat{L}{n}$
+The main result of Section~\ref{III:sec:concentration} is that $\delhat{L}{n}$
 concentrates around $\deltaL$ at rate $\varepsilon_n = C\,n^{-2s/(2s+d)}$
 under exponential mixing, provided $d > 2s$.
 
 % ============================================================
 \section{Bias Bound and Conditional Variance}
-\label{sec:bias}
+\label{III:sec:bias}
 % ============================================================
 
 Let $(X, \Bcal, \mu)$ be a probability space and $\mathfrak{m} \subseteq \Bcal$
@@ -257,13 +256,13 @@ Define the \emph{$\sigma$-algebra approximation error}
   \delta(\mathfrak{m})
   \;:=\;
   \sup_{S \in \Bcal} \inf_{E \in \mathfrak{m}} \mu(S \triangle E).
-  \label{eq:delta-def}
+  \label{III:eq:delta-def}
 \end{equation}
 This measures how well $\mathfrak{m}$ approximates $\Bcal$: it is zero if and
 only if $\mathfrak{m} = \Bcal$ modulo $\mu$-null sets.
 
 \begin{lemma}[Conditional variance identity]
-\label{lem:cond-var}
+\label{III:lem:cond-var}
 For any $S \in \Bcal$:
 \[
   \mathbb{E}\bigl[\mathrm{Var}(\mathbbm{1}_S \mid \OhL)\bigr]
@@ -292,19 +291,19 @@ both sides equal $\int \mu_z(S)\mu_z(S^c)\,d\nuL(z)$.
 \end{proof}
 
 \begin{corollary}[Easy direction]
-\label{cor:easy}
+\label{III:cor:easy}
 $\deltaL \;\leq\; \tfrac{1}{2}\,(\mu \otimes \mu)(\RL)$.
 \end{corollary}
 
 \begin{proof}
-In Lemma~\ref{lem:cond-var}, bound $|\mathbbm{1}_S(x) - \mathbbm{1}_S(x')|^2 \leq 1$
+In Lemma~\ref{III:lem:cond-var}, bound $|\mathbbm{1}_S(x) - \mathbbm{1}_S(x')|^2 \leq 1$
 and take the supremum over $S$ using
 $\deltaL = \sup_S \mathbb{E}[\mathrm{Var}(\mathbbm{1}_S \mid \OhL)]$.
 \end{proof}
 
 \begin{remark}[Finite analogue of collective exhaustion]
-Corollary~\ref{cor:easy} and its converse (Corollary~\ref{cor:entropy}, proved
-under fibre mixing in \S\ref{sec:algebra}) together say: algebraic
+Corollary~\ref{III:cor:easy} and its converse (Corollary~\ref{III:cor:entropy}, proved
+under fibre mixing in \S\ref{III:sec:algebra}) together say: algebraic
 indistinguishability $\delta(L)$ vanishes if and only if the mass of
 indistinguishable pairs $(\mu\otimes\mu)(R_L)$ vanishes.  This is the
 finite-sample counterpart of collective exhaustion~\cite{mahon_paper1}.  There, CE
@@ -316,11 +315,11 @@ mixing condition plays an analogous structural role to CE: it is a sufficient
 condition under which the global and pairwise witnesses are comparable.
 Whether fibre mixing is itself derivable from dynamical conditions --- or is
 genuinely irreducible, as CE is proved to be in~\cite{mahon_paper1} --- remains open;
-see the open problems in Section~\ref{sec:discussion}.
+see the open problems in Section~\ref{III:sec:discussion}.
 \end{remark}
 
 \begin{lemma}[Bias bound]
-\label{lem:bias}
+\label{III:lem:bias}
 For every $f \in \Lp{\infty}(\mu)$,
 \[
   \bigl\| f - \mathbb{E}[f \mid \mathfrak{m}] \bigr\|_{\Lp{2}(\mu)}
@@ -372,7 +371,7 @@ coordinates~$\PhiL(x)$.
 Let $\fhat$ denote the empirical risk minimiser over $\AhL$.
 
 \begin{lemma}[Three-term decomposition]
-\label{lem:three-term}
+\label{III:lem:three-term}
 For any $f \in \Lp{\infty}(\mu)$, any $L \geq 0$, and any $D \geq 1$:
 \begin{align}
   \bigl\|f - \fhat\bigr\|_{\Lp{2}(\mu)}
@@ -384,7 +383,7 @@ For any $f \in \Lp{\infty}(\mu)$, any $L \geq 0$, and any $D \geq 1$:
     \bigr\|_{\Lp{2}(\mu)}}_{\text{approx.}}
   \;+\;
     \underbrace{\bigl\|g_D^* - \fhat\bigr\|_{\Lp{2}(\mu)}}_{\text{statistical}},
-  \label{eq:three-term}
+  \label{III:eq:three-term}
 \end{align}
 where $\delta(L) := \delta(\OhL)$ as in~\eqref{eq:delta-def} and
 $g_D^* = \operatorname{argmin}_{g \in \AhL} \|\mathbb{E}[f \mid \OhL] - g\|_{\Lp{2}(\mu)}$.
@@ -393,7 +392,7 @@ $g_D^* = \operatorname{argmin}_{g \in \AhL} \|\mathbb{E}[f \mid \OhL] - g\|_{\Lp
 \begin{proof}
 Triangle inequality applied to the decomposition
 $f - \fhat = (f - \mathbb{E}[f \mid \OhL]) + (\mathbb{E}[f \mid \OhL] - g_D^*)
-+ (g_D^* - \fhat)$, with the first term bounded by Lemma~\ref{lem:bias}.
++ (g_D^* - \fhat)$, with the first term bounded by Lemma~\ref{III:lem:bias}.
 \end{proof}
 
 The three-term bound controls the forward error.
@@ -402,7 +401,7 @@ $\delta(L)$ is large, the estimator $\fhat$ cannot approximate $f$ well,
 regardless of $n$.
 
 \begin{lemma}[Observable reverse lower bound]
-\label{lem:reverse}
+\label{III:lem:reverse}
 There exists a universal constant $c > 0$ such that for any $f \in \Lp{\infty}(\mu)$
 with $\|f\|_{\Lp{\infty}} \geq \frac{1}{2}$ and any $L \geq 0$:
 \[
@@ -447,14 +446,14 @@ with high probability, absorbing the $O(n^{-1/2})$ into the statistical rate.
 
 % ============================================================
 \section{Concentration of the Empirical Witness}
-\label{sec:concentration}
+\label{III:sec:concentration}
 % ============================================================
 
 Throughout this section: $(T,h)$ satisfies (G1)--(G2), $X$ is a compact
 smooth $d$-manifold, $\mu$ has smooth positive density, and $d > 2s$.
 
 \subsection{Uniform boundedness}
-\label{subsec:bounded}
+\label{III:subsec:bounded}
 
 Let $\PD$ denote the class of degree-$D$ polynomials in the delay coordinates
 $\PhiL(x) = (h(x),\ldots,h(T^L x))$, normalised so $\|p\|_{\Lp{2}(\mu)} \leq 1$.
@@ -462,7 +461,7 @@ Since $h \in \Lp{\infty}$ with $\|h\|_{\Lp{\infty}} =: a < \infty$, the delay
 coordinates lie in the compact box $[-a,a]^{L+1}$.
 
 \begin{lemma}[Uniform boundedness]
-\label{lem:bounded}
+\label{III:lem:bounded}
 Define
 \[
   \MLD \;:=\;
@@ -512,7 +511,7 @@ equivalently $2a \geq 1$, so that $\MLD$ grows at most polynomially in $L$.
 \end{proof}
 
 \subsection{Concentration around the mean}
-\label{subsec:mcdiarmiid}
+\label{III:subsec:mcdiarmiid}
 
 Define the function class
 \[
@@ -522,11 +521,11 @@ Define the function class
     \;:\; p \in \PD,\; \|p\|_{\Lp{2}(\mu)} \leq 1\Bigr\},
 \]
 where $\Ehat[p \mid \PhiL]$ is the Nadaraya--Watson estimator
-(Definition~\ref{def:nw}).
+(Definition~\ref{III:def:nw}).
 Then $\delhat{L}{n} = \sup_{f \in \mathcal{F}_{L,D}} \frac{1}{n}\sum_{i=1}^n f(x_i)$.
 
 \begin{proposition}[Concentration, {\upshape\textbf{$\star$}}]
-\label{prop:concentration}
+\label{III:prop:concentration}
 Assume $d > 2s$.
 There exist constants $c, C > 0$ depending only on $(d, s, \|h\|_{\Lp{\infty}})$
 such that for all $t > 0$ and all $n \geq 1$:
@@ -548,7 +547,7 @@ $\varepsilon_n = C'\,n^{-2s/(2s+d)}$:
 
 \begin{proof}
 \emph{Step~1 (Boundedness).}
-By Lemma~\ref{lem:bounded}, every $p \in \PD$ with $\|p\|_{\Lp{2}(\mu)} \leq 1$
+By Lemma~\ref{III:lem:bounded}, every $p \in \PD$ with $\|p\|_{\Lp{2}(\mu)} \leq 1$
 satisfies $\|p\|_{\Lp{\infty}} \leq \MLD$.
 Hence every $f = (p - \Ehat[p|\PhiL])^2 \in \mathcal{F}_{L,D}$ satisfies
 $\|f\|_{\Lp{\infty}} \leq 4\MLD^2 =: B_{L,D}^2$.
@@ -598,7 +597,7 @@ proving the final claim.
 \end{proof}
 
 \begin{remark}[The $d > 2s$ hypothesis]
-\label{rem:d>2s}
+\label{III:rem:d>2s}
 When $d \leq 2s$, the function class $\mathcal{F}_{L,D}$ is too rich for
 $n$ samples to resolve the fine structure of $\deltaL$ at the required scale.
 The fix via localised Rademacher complexity \cite{BartlettBousquetMendelson2005}
@@ -607,10 +606,10 @@ a standing hypothesis.
 \end{remark}
 
 \subsection{Source~1: the LLN gap}
-\label{subsec:source1}
+\label{III:subsec:source1}
 
 \begin{lemma}[LLN gap]
-\label{lem:source1}
+\label{III:lem:source1}
 With notation as above:
 \[
   \sup_{p \in \PD}
@@ -631,13 +630,13 @@ of the empirical mean to the population mean, at rate $O(\sqrt{D^d/n})$.
 \end{proof}
 
 \subsection{Source~2: estimator bias}
-\label{subsec:source2}
+\label{III:subsec:source2}
 
 The estimator $\Ehat[p \mid \PhiL]$ is the Nadaraya--Watson (NW) kernel
 regression estimator.
 
 \begin{definition}[Nadaraya--Watson estimator]
-\label{def:nw}
+\label{III:def:nw}
 For bandwidth $h_n > 0$ and kernel $K : \mathbb{R}^{L+1} \to \mathbb{R}_{\geq 0}$
 (compactly supported, symmetric, $\int K = 1$):
 \[
@@ -649,13 +648,13 @@ For bandwidth $h_n > 0$ and kernel $K : \mathbb{R}^{L+1} \to \mathbb{R}_{\geq 0}
 \end{definition}
 
 \begin{proposition}[Source~2 estimator bias]
-\label{prop:source2}
+\label{III:prop:source2}
 Assume:
 \begin{enumerate}[label=(\roman*)]
   \item $T, h \in C^r$ with $r \geq 2$, $\mu$ smooth positive density $\rho$
         with $\rho_{\min} > 0$.
   \item $\PhiL$ has full rank $\mu$-a.e.\ (follows from (G1)--(G2) and
-        Lemma~\ref{lem:dimeff}).
+        Lemma~\ref{III:lem:dimeff}).
   \item $T$ is exponentially mixing with rate $\lambda > 0$ and
         $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$.
   \item The NW bandwidth satisfies $h_n \sim n^{-1/(2\beta+\deff(L))}$
@@ -689,7 +688,7 @@ where $C_1$ depends on $(\|T\|_{C^r}, \|h\|_{C^r}, \rho_{\min})$.
 the fibre weight; the floor $\beta = 1$ is sufficient for convergence.)
 
 \emph{Link~2 (Bernstein--Markov).}
-From Link~1 and Lemma~\ref{lem:bounded}: for $p \in \PD$ with
+From Link~1 and Lemma~\ref{III:lem:bounded}: for $p \in \PD$ with
 $\|p\|_{\Lp{2}(\mu)} \leq 1$,
 \[
   \bigl|\mathbb{E}[p \mid \PhiL = z] - \mathbb{E}[p \mid \PhiL = z']\bigr|
@@ -723,8 +722,8 @@ Since the bound is $p$-free, it holds uniformly over $\PD$.
 \end{proof}
 
 \begin{theorem}[Full convergence $\delhat{L}{n} \to \deltaL$]
-\label{thm:convergence}
-Under the hypotheses of Proposition~\ref{prop:source2} and with $d > 2s$:
+\label{III:thm:convergence}
+Under the hypotheses of Proposition~\ref{III:prop:source2} and with $d > 2s$:
 \[
   \mathbb{E}\bigl|\delhat{L}{n} - \deltaL\bigr|
   \;\leq\;
@@ -745,27 +744,27 @@ Decompose:
   \underbrace{|\mathbb{E}[\delhat{L}{n}] - \deltaL|}_{\text{bias}}
 \]
 The bias splits as $\text{Source~1} + \text{Source~2}$:
-Source~1 is bounded by $C\sqrt{D^d/n}$ (Lemma~\ref{lem:source1});
+Source~1 is bounded by $C\sqrt{D^d/n}$ (Lemma~\ref{III:lem:source1});
 Source~2 is bounded by $C_2(D,L)^{1/2} \cdot n^{-\beta/(2\beta+\deff(L))}$
-(Proposition~\ref{prop:source2}).
-The concentration term is bounded by $(\star)$ (Proposition~\ref{prop:concentration}).
+(Proposition~\ref{III:prop:source2}).
+The concentration term is bounded by $(\star)$ (Proposition~\ref{III:prop:concentration}).
 Combining at $t = \varepsilon_n/2$ gives the probability statement.
 \end{proof}
 
 % ============================================================
 \section{The Algebra Theorem}
-\label{sec:algebra}
+\label{III:sec:algebra}
 % ============================================================
 
-This section assembles the results of Sections~\ref{sec:bias}
-and~\ref{sec:concentration} into the Algebra Theorem: the data-driven stopping
+This section assembles the results of Sections~\ref{III:sec:bias}
+and~\ref{III:sec:concentration} into the Algebra Theorem: the data-driven stopping
 rule $\Lhat$ achieves the minimax-optimal rate $n^{-s/(2s+d)}$ without knowing
 the oracle lag $L^*(n)$ or the mixing rate of $T$.
 
 \subsection{Effective dimension and the piecewise rate}
 
 \begin{definition}[Effective dimension]
-\label{def:deff}
+\label{III:def:deff}
 The \emph{effective dimension at lag~$L$} is
 \[
   \deff(L) \;:=\; \operatorname{rank}(D\PhiL|_x)
@@ -776,7 +775,7 @@ well-defined $\mu$-a.e.)
 \end{definition}
 
 \begin{lemma}[$\deff$ step function]
-\label{lem:dimeff}
+\label{III:lem:dimeff}
 Under~(G1)--(G2) with $X$ a compact smooth $d$-manifold and $\mu$ smooth
 positive density:
 \[
@@ -833,7 +832,7 @@ Case~1.
 \end{proof}
 
 \begin{proposition}[Piecewise pre-Takens rate]
-\label{prop:piecewise-rate}
+\label{III:prop:piecewise-rate}
 Assume~(G1)--(G2), $X$ compact smooth $d$-manifold, $\mu$ smooth positive
 density, $f \in \mathrm{H\ddot{o}lder}(s) \cap \Lp{\infty}(\mu)$, $d > 2s$,
 and $T \in C^r$ with $r \geq 2$.
@@ -853,17 +852,17 @@ $n^{-s/(2s+d)}$.
 \end{proposition}
 
 \begin{proof}
-Apply the three-term decomposition (Lemma~\ref{lem:three-term}).
+Apply the three-term decomposition (Lemma~\ref{III:lem:three-term}).
 The bias term is bounded by $2\|f\|_{\Lp{\infty}} \cdot \deltaL^{1/2}$
-(Lemma~\ref{lem:bias}).
-By Lemma~\ref{lem:dimeff}, $\PhiL(X)$ is a $\deff(L)$-dimensional smooth
+(Lemma~\ref{III:lem:bias}).
+By Lemma~\ref{III:lem:dimeff}, $\PhiL(X)$ is a $\deff(L)$-dimensional smooth
 submanifold.
 On this submanifold, $\mathbb{E}[f \mid \OhL](x) = g^*(\PhiL(x))$ for some
 $g^* \in \mathrm{H\ddot{o}lder}(s)$; standard polynomial approximation on a
 $\deff(L)$-dimensional smooth domain gives approximation error
 $\leq C_{\mathrm{approx}} \cdot D^{-s/\deff(L)}$.
 The statistical term is $\leq C_{\mathrm{stat}}(D^{\deff(L)}/n)^{1/2}$ by
-Proposition~\ref{prop:concentration} with $d$ replaced by $\deff(L)$.
+Proposition~\ref{III:prop:concentration} with $d$ replaced by $\deff(L)$.
 Balancing: $D^* \sim n^{\deff(L)/(2s+\deff(L))}$ and both terms are
 $O(n^{-s/(2s+\deff(L))})$.
 \end{proof}
@@ -871,7 +870,7 @@ $O(n^{-s/(2s+\deff(L))})$.
 \subsection{The oracle lag and the elbow stopping rule}
 
 \begin{definition}[Oracle lag]
-\label{def:oracle-lag}
+\label{III:def:oracle-lag}
 The \emph{oracle lag} is
 \[
   L^*(n) \;:=\; \min\bigl\{L \geq 0 : \deltaL \leq C_0 \cdot n^{-2s/(2s+d)}\bigr\},
@@ -887,7 +886,7 @@ The empirical witness $\delhat{L}{n}$ sidesteps this: it measures reconstruction
 quality directly from data.
 
 \begin{definition}[Elbow stopping rule]
-\label{def:elbow}
+\label{III:def:elbow}
 Fix a tolerance sequence $\tau_n > 0$.
 The \emph{elbow stopping rule} is
 \[
@@ -897,8 +896,8 @@ The \emph{elbow stopping rule} is
 \end{definition}
 
 \begin{theorem}[Elbow location]
-\label{thm:elbow}
-Assume the hypotheses of Proposition~\ref{prop:piecewise-rate} and
+\label{III:thm:elbow}
+Assume the hypotheses of Proposition~\ref{III:prop:piecewise-rate} and
 exponential mixing $\deltaL \leq A e^{-\lambda L}$ with resolvability constant
 $C_\lambda := (1-e^{-\lambda}) A e^\lambda / C' > 4$.
 Set $\tau_n = \frac{C_\lambda}{2} \cdot C' \cdot n^{-2s/(2s+d)}$.
@@ -916,7 +915,7 @@ and not before (no early stop).
 \emph{No overshoot: $\Lhat \leq L^*(n)$.}
 At $L = L^*(n)$, the population increment satisfies
 $|\delta(L^*(n)+1) - \delta(L^*(n))| \leq \delta(L^*(n)) \leq C_0 n^{-2s/(2s+d)}$ (non-increasing $\delta$).
-By Theorem~\ref{thm:convergence}, $|\delhat{L}{n} - \deltaL| \leq \varepsilon_n = C' n^{-2s/(2s+d)}$ whp.
+By Theorem~\ref{III:thm:convergence}, $|\delhat{L}{n} - \deltaL| \leq \varepsilon_n = C' n^{-2s/(2s+d)}$ whp.
 The empirical increment satisfies
 $\delhat{L^*+1}{n} - \delhat{L^*}{n} \geq -C_0 n^{-2s/(2s+d)} - 2\varepsilon_n > -\tau_n$ whp,
 so the criterion fires.
@@ -924,7 +923,7 @@ so the criterion fires.
 \emph{No early stop: $\Lhat \geq L^*(n)$.}
 For $L < L^*(n)$, exponential mixing gives population decrement
 $\delta(L) - \delta(L+1) \geq \Delta(L) \geq C_\lambda \cdot C' n^{-2s/(2s+d)}$.
-Tracking via Theorem~\ref{thm:convergence}:
+Tracking via Theorem~\ref{III:thm:convergence}:
 \[
   \delhat{L}{n} - \delhat{L+1}{n}
   \;\geq\; C_\lambda C' n^{-2s/(2s+d)} - 2\varepsilon_n
@@ -948,18 +947,18 @@ not proved here.
 \end{proof}
 
 \begin{theorem}[Algebra Theorem]
-\label{thm:algebra}
+\label{III:thm:algebra}
 Assume:
 \begin{enumerate}[label=(\roman*)]
-  \item Hypotheses of Proposition~\ref{prop:piecewise-rate}:
+  \item Hypotheses of Proposition~\ref{III:prop:piecewise-rate}:
     (G1)--(G2), $X$ compact smooth $d$-manifold, $\mu$ smooth positive density,
     $f \in \mathrm{H\ddot{o}lder}(s) \cap \Lp{\infty}(\mu)$, $d > 2s$, $T \in C^r$, $r \geq 2$.
   \item Exponential mixing: $\deltaL \leq A e^{-\lambda L}$ for some $A, \lambda > 0$.
   \item Resolvability: $C_\lambda > 4$.
-  \item Exponential mixing for the estimator bias (Proposition~\ref{prop:source2})
+  \item Exponential mixing for the estimator bias (Proposition~\ref{III:prop:source2})
     and $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$.
 \end{enumerate}
-Let $\Lhat$ be the elbow stopping rule (Definition~\ref{def:elbow}) with
+Let $\Lhat$ be the elbow stopping rule (Definition~\ref{III:def:elbow}) with
 $\tau_n = \frac{C_\lambda}{2} C' n^{-2s/(2s+d)}$.
 Then
 \[
@@ -973,7 +972,7 @@ No oracle input (mixing rate, $L^*(n)$, Sobolev index $s$) is required.
 
 \begin{proof}
 On the event $\{\Lhat = L^*(n)\}$, which has probability tending to~$1$ by
-Theorem~\ref{thm:elbow}:
+Theorem~\ref{III:thm:elbow}:
 \begin{align*}
   \bigl\|f - \hat{f}_n^{(\Lhat)}\bigr\|_{\Lp{2}(\mu)}
   &= \bigl\|f - \hat{f}_n^{(L^*(n))}\bigr\|_{\Lp{2}(\mu)} \\
@@ -986,10 +985,10 @@ Theorem~\ref{thm:elbow}:
 \end{proof}
 
 \subsection{Entropy characterisation of reconstruction}
-\label{subsec:entropy}
+\label{III:subsec:entropy}
 
 \begin{definition}[Fibre mixing]
-\label{def:fibre-mixing}
+\label{III:def:fibre-mixing}
 Fix $\varepsilon > 0$.
 An event $S^* \in \Bcal$ is \emph{$(c,\varepsilon)$-mixing across fibres} if
 there exists $c > 0$ such that
@@ -998,14 +997,14 @@ there exists $c > 0$ such that
   \quad\text{for $\nuL$-a.e.\ $\varepsilon$-large fibre } z.
 \]
 Ergodicity of $T$ is expected to force this condition (see
-Section~\ref{sec:discussion}), but the general derivability question remains
+Section~\ref{III:sec:discussion}), but the general derivability question remains
 open; see the open problems below.
 This condition is independent of~(US) and is not a standing assumption here;
-it is used only in Corollary~\ref{cor:entropy} below.
+it is used only in Corollary~\ref{III:cor:entropy} below.
 \end{definition}
 
 \begin{lemma}[Positive-fraction balance]
-\label{lem:balance}
+\label{III:lem:balance}
 Let $S^* \in \Bcal$ be an $\varepsilon$-near-maximizer of $\deltaL$, i.e.\
 $\mathbb{E}[\mathrm{Var}(\mathbbm{1}_{S^*} \mid \OhL)] \geq \deltaL - \varepsilon$.
 Define the \emph{large-fibre contribution}
@@ -1045,11 +1044,11 @@ On $G(\eta)$: $\mu_z(S^*)\mu_z((S^*)^c) \leq \tfrac{1}{4}$ pointwise, so
 \end{proof}
 
 \begin{lemma}[Fibre mixing bound]
-\label{lem:hard}
+\label{III:lem:hard}
 Let $S^*$ be a $(\deltaL - \varepsilon)$-near-maximizer of
 $\mathrm{E}[\mathrm{Var}(\mathbbm{1}_{\cdot}\mid\OhL)]$ that is
 $(c,\varepsilon)$-mixing across fibres
-(Definition~\ref{def:fibre-mixing}).
+(Definition~\ref{III:def:fibre-mixing}).
 Then
 \[
   (\mu\otimes\mu)(\RL) \;\leq\; \frac{1}{c}\,\deltaL + C(c)\,\varepsilon,
@@ -1092,13 +1091,13 @@ information-theoretic quantity:
 \begin{equation}
   H_2(\nuL) \;:=\; -\log\bigl((\mu \otimes \mu)(\RL)\bigr)
   \;=\; -\log \int p_z^2\,d\nuL(z).
-  \label{eq:entropy}
+  \label{III:eq:entropy}
 \end{equation}
 This is the \emph{Rényi-$2$ (collision) entropy} of the delay-vector distribution.
 
 \begin{corollary}[Entropy characterisation of reconstruction]
-\label{cor:entropy}
-Under the fibre mixing condition of Definition~\ref{def:fibre-mixing}:
+\label{III:cor:entropy}
+Under the fibre mixing condition of Definition~\ref{III:def:fibre-mixing}:
 \[
   \deltaL \to 0
   \quad\iff\quad
@@ -1107,12 +1106,12 @@ Under the fibre mixing condition of Definition~\ref{def:fibre-mixing}:
 Equivalently, reconstruction occurs if and only if the probability that two
 independently drawn delay vectors coincide vanishes as $L \to \infty$.
 Thus reconstruction is equivalent to the vanishing of collision probability
-$(\mu \otimes \mu)(\RL)$ introduced in Section~\ref{subsec:fibres}.
+$(\mu \otimes \mu)(\RL)$ introduced in Section~\ref{III:subsec:fibres}.
 \end{corollary}
 
 \begin{proof}
-Corollary~\ref{cor:easy} gives $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
-For the reverse, Lemma~\ref{lem:hard} with a $\deltaL$-near-maximizer $S^*$
+Corollary~\ref{III:cor:easy} gives $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
+For the reverse, Lemma~\ref{III:lem:hard} with a $\deltaL$-near-maximizer $S^*$
 satisfying the $(c,\varepsilon)$-mixing condition gives
 $(\mu\otimes\mu)(\RL) \leq \frac{1}{c}\,\deltaL + C(c)\,\varepsilon$,
 so $\deltaL \to 0 \iff (\mu\otimes\mu)(\RL) \to 0$.
@@ -1121,16 +1120,16 @@ $H_2(\nuL) \to +\infty$.
 \end{proof}
 
 \begin{remark}[Balance mechanism]
-\label{rem:balance-mechanism}
-Lemma~\ref{lem:balance} guarantees that a positive $\nuL$-fraction of
+\label{III:rem:balance-mechanism}
+Lemma~\ref{III:lem:balance} guarantees that a positive $\nuL$-fraction of
 $\varepsilon$-large fibres are $\eta$-balanced without any dynamical hypothesis.
 The fibre mixing condition is the upgrade from positive-fraction to
 $\nuL$-a.e.\ balance; whether ergodicity supplies it is the main open
-question (Section~\ref{sec:discussion}).
+question (Section~\ref{III:sec:discussion}).
 \end{remark}
 
 \begin{remark}[Empirical entropy witness]
-\label{rem:entropy-witness}
+\label{III:rem:entropy-witness}
 The empirical analogue of $H_2(\nuL)$ is
 \[
   \hat{H}_2\!\left(\nuL^{(n)}\right)
@@ -1142,20 +1141,20 @@ the negative log of the empirical collision probability.
 This is the third computable witness for reconstruction.
 It is \emph{computationally simpler} than $\delhat{L}{n}$: it requires no
 optimisation over sets, only histogram counts over delay vectors.
-Under fibre mixing, Corollary~\ref{cor:entropy} shows that $\Lhat$ could
+Under fibre mixing, Corollary~\ref{III:cor:entropy} shows that $\Lhat$ could
 equivalently be defined as the first $L$ at which $\hat{H}_2(\nuL^{(n)})$
 exceeds a threshold calibrated to $n$.
 \end{remark}
 
 % ============================================================
 \section{The Dynamics Theorem}
-\label{sec:dynamics}
+\label{III:sec:dynamics}
 % ============================================================
 
 \subsection{Lipschitz continuity of the delay map}
 
 \begin{lemma}[Upper Lipschitz bound]
-\label{lem:upper-lip}
+\label{III:lem:upper-lip}
 Assume $T \in \mathrm{Diff}^r(X)$, $h \in C^r(X)$, $r \geq 1$.
 Then $\PhiL$ is Lipschitz:
 \[
@@ -1174,7 +1173,7 @@ Taking Euclidean norm over $j = 0, \ldots, L$ gives the result.
 \end{proof}
 
 \begin{lemma}[Local lower Lipschitz bound]
-\label{lem:lower-lip-local}
+\label{III:lem:lower-lip-local}
 Under~(G1)--(G2) with $L \geq d-1$ (Takens regime), $T \in C^r$, $r \geq 2$:
 for $\mu$-a.e.\ $x \in X$, there exists a neighbourhood $U_x$ and a constant
 $c_x = \sigma_{\min}(D\PhiL|_x) > 0$ such that
@@ -1185,14 +1184,14 @@ $c_x = \sigma_{\min}(D\PhiL|_x) > 0$ such that
 \end{lemma}
 
 \begin{proof}
-By Lemma~\ref{lem:dimeff}, $D\PhiL|_x$ has full rank~$d$ for $\mu$-a.e.\ $x$
+By Lemma~\ref{III:lem:dimeff}, $D\PhiL|_x$ has full rank~$d$ for $\mu$-a.e.\ $x$
 when $L \geq d-1$, so $\sigma_{\min}(D\PhiL|_x) > 0~\mu$-a.e.
 The lower bound on $U_x$ follows from the inverse function theorem applied to
 the immersion $\PhiL$ at $x$.
 \end{proof}
 
 \begin{remark}[Gap between local and global lower bound]
-Lemma~\ref{lem:lower-lip-local} gives a \emph{local} lower bound $c_x > 0$
+Lemma~\ref{III:lem:lower-lip-local} gives a \emph{local} lower bound $c_x > 0$
 varying over $X$.
 (G1)--(G2) guarantee $\sigma_{\min} > 0$~\emph{$\mu$-a.e.}, but not on all of $X$.
 Condition~(US) imposes $c := \inf_X \sigma_{\min}(D\PhiL|_x) > 0$, which is
@@ -1218,7 +1217,7 @@ Separation is binary: $\preddisc{L}(x,x') = 1$ if and only if
 $x$ and $x'$ are distinguished by $\OhL$.
 
 \begin{theorem}[Uniform separation under~(US)]
-\label{thm:sep-stable}
+\label{III:thm:sep-stable}
 Assume~(G1)--(G2), (US), $T \in C^r$, $r \geq 2$, $L \geq d-1$.
 Then $\PhiL$ is bi-Lipschitz on $X$:
 \[
@@ -1238,7 +1237,7 @@ $\varepsilon_n < c \cdot d_X(x,x') / 2$.
 \end{theorem}
 
 \begin{proof}
-Upper bound: Lemma~\ref{lem:upper-lip}.
+Upper bound: Lemma~\ref{III:lem:upper-lip}.
 Lower bound: (US) directly gives $|\PhiL(x) - \PhiL(x')| \geq c \cdot d_X(x,x')$
 for all $x, x' \in X$.
 For the empirical bound: by the triangle inequality,
@@ -1249,11 +1248,11 @@ so the right side is eventually positive.
 \end{proof}
 
 \begin{theorem}[Dynamics Theorem]
-\label{thm:dynamics}
+\label{III:thm:dynamics}
 Assume~(G1)--(G2), (US), $T \in C^r$, $r \geq 2$, $\mu$ smooth positive
 density on compact $d$-manifold $X$, $L \geq d-1$.
 Let $\GamHat$ be the empirical delay map estimator with uniform error
-$\varepsilon_n = C'' n^{-\beta/(2\beta+d)}$ (Proposition~\ref{prop:source2}).
+$\varepsilon_n = C'' n^{-\beta/(2\beta+d)}$ (Proposition~\ref{III:prop:source2}).
 Then:
 \begin{enumerate}[label=(\alph*)]
   \item \emph{(Convergence)} $\|\GamHat - \PhiL\|_{\Lp{\infty}} \to 0$ at
@@ -1267,17 +1266,17 @@ Then:
 \end{theorem}
 
 \begin{proof}
-(a) Proposition~\ref{prop:source2} with $\deff(L) = d$ gives
+(a) Proposition~\ref{III:prop:source2} with $\deff(L) = d$ gives
 $\varepsilon_n \to 0$ at rate $n^{-\beta/(2\beta+d)}$.
 
 (b) Since $\mu$ is non-atomic (smooth positive density), $\mu \otimes \mu$
 almost every pair satisfies $d_X(x,x') > 0$.
 For such pairs $\preddisc{L}(x,x') = 1$ (reconstruction and injectivity of $\PhiL$),
-and by Theorem~\ref{thm:sep-stable}, $\widehat{d}_L(x,x') \geq c \cdot d_X(x,x') - 2\varepsilon_n$.
+and by Theorem~\ref{III:thm:sep-stable}, $\widehat{d}_L(x,x') \geq c \cdot d_X(x,x') - 2\varepsilon_n$.
 For fixed $x \neq x'$, $c \cdot d_X(x,x') > 0$ and $\varepsilon_n \to 0$,
 so the right side is eventually positive.
 
-(c) The proof of Theorem~\ref{thm:sep-stable} uses~(US) in the lower bound.
+(c) The proof of Theorem~\ref{III:thm:sep-stable} uses~(US) in the lower bound.
 Without it, there exist points $x$ where $\sigma_{\min}(D\PhiL|_x) \to 0$
 along sequences $x'_n \to x$, and $|\PhiL(x_n') - \PhiL(x)| / d_X(x,x'_n) \to 0$.
 Any estimator inherits this degeneracy.
@@ -1285,7 +1284,7 @@ Any estimator inherits this degeneracy.
 
 % ============================================================
 \section{The Conjunction Theorem}
-\label{sec:conjunction}
+\label{III:sec:conjunction}
 % ============================================================
 
 This section formalises the complete reconstruction diagnostic and proves
@@ -1306,7 +1305,7 @@ Consequently, the $\sigma$-algebra separation event and the metric separation ev
 are identical:
 
 \begin{lemma}[Algebra separation equals metric separation]
-\label{lem:alg-metric}
+\label{III:lem:alg-metric}
 For deterministic $T$ and $\mu \otimes \mu$-a.e.\ $(x, x')$:
 \[
   \preddisc{L}(x,x') = 1
@@ -1335,7 +1334,7 @@ $\mu \otimes \mu$-a.e.\ $x \neq x'$.
 \subsection{The joint diagnostic}
 
 \begin{definition}[Joint reconstruction diagnostic]
-\label{def:diagnostic}
+\label{III:def:diagnostic}
 Fix tolerances $\tau_n, \eta_n > 0$.
 Define
 \[
@@ -1349,9 +1348,9 @@ Define
 \end{definition}
 
 \begin{theorem}[Conjunction Theorem]
-\label{thm:conjunction}
-Assume the hypotheses of Theorem~\ref{thm:algebra} (for the algebra side)
-and Theorem~\ref{thm:dynamics} (for the dynamics side).
+\label{III:thm:conjunction}
+Assume the hypotheses of Theorem~\ref{III:thm:algebra} (for the algebra side)
+and Theorem~\ref{III:thm:dynamics} (for the dynamics side).
 Set $\tau_n = \frac{C_\lambda}{2} C' n^{-2s/(2s+d)}$ and
 $\eta_n = \sqrt{\varepsilon_n}$ where $\varepsilon_n = C' n^{-2s/(2s+d)}$.
 Then:
@@ -1376,18 +1375,18 @@ In particular: the conjunction is not achievable when either hypothesis fails.
 
 \begin{proof}
 \emph{Part~(a).}
-By Theorem~\ref{thm:elbow}, $P(\Lhat = L^*(n)) \to 1$ exponentially.
+By Theorem~\ref{III:thm:elbow}, $P(\Lhat = L^*(n)) \to 1$ exponentially.
 On $\{\Lhat = L^*(n)\}$:
-(i) $\delhat{\Lhat}{n} \leq \tau_n$ whp by Theorem~\ref{thm:convergence}
+(i) $\delhat{\Lhat}{n} \leq \tau_n$ whp by Theorem~\ref{III:thm:convergence}
 and the definition of $L^*(n)$ ($\delta(L^*(n)) = 0$ under reconstruction).
-(ii) By Theorem~\ref{thm:dynamics}(b), $\widehat{d}_{\Lhat}(x,x') > 0$
+(ii) By Theorem~\ref{III:thm:dynamics}(b), $\widehat{d}_{\Lhat}(x,x') > 0$
 for $\mu \otimes \mu$-a.e.\ $(x,x')$ with $x \neq x'$, eventually.
 The set $\{d_X(x,x') \leq (2\varepsilon_n + \eta_n)/c\}$ has
 $\mu \otimes \mu$-measure $\to 0$ as $\eta_n/c \to 0$, so
 $\widehat{d}_{\Lhat} > \eta_n$ for $\mu\otimes\mu$-most pairs.
 
 \emph{Part~(b).}
-If $\delta(L) > 0$ for all $L$, then by Theorem~\ref{thm:convergence},
+If $\delta(L) > 0$ for all $L$, then by Theorem~\ref{III:thm:convergence},
 $\delhat{L}{n} \geq \delta(L) - \varepsilon_n \geq \delta(L)/2 > \tau_n$
 with high probability for all fixed $L$, so the first condition of
 $\mathrm{Reconstruct}$ never fires.
@@ -1404,12 +1403,12 @@ $\mu \otimes \mu$-measure, and the kernel condition fails.
 
 % ============================================================
 \section{Discussion}
-\label{sec:discussion}
+\label{III:sec:discussion}
 % ============================================================
 
 \textbf{Polynomial mixing.}
-The Algebra Theorem (Theorem~\ref{thm:algebra}) and the Elbow Location Theorem
-(Theorem~\ref{thm:elbow}) require exponential mixing with resolvability constant
+The Algebra Theorem (Theorem~\ref{III:thm:algebra}) and the Elbow Location Theorem
+(Theorem~\ref{III:thm:elbow}) require exponential mixing with resolvability constant
 $C_\lambda > 4$.
 Under polynomial mixing $\deltaL \lesssim L^{-\alpha}$, the elbow drop at
 $L^*(n)$ satisfies $\Delta(L^*(n)) \sim \varepsilon_n / L^*(n) \to 0$ relative
@@ -1419,7 +1418,7 @@ A different stopping criterion (e.g.\ integrated elbow, or a bandwidth-adaptive
 rule) is needed.
 
 \textbf{The $d > 2s$ hypothesis.}
-Proposition~\ref{prop:concentration} requires $d > 2s$ for the Rademacher
+Proposition~\ref{III:prop:concentration} requires $d > 2s$ for the Rademacher
 concentration to be useful at rate $\varepsilon_n$.
 When $d \leq 2s$, localised Rademacher complexity
 (Bartlett--Bousquet--Mendelson~\cite{BartlettBousquetMendelson2005})
@@ -1427,8 +1426,8 @@ gives adaptive concentration without this condition but requires additional
 work.
 
 \textbf{Uniform separation from first principles.}
-Condition~(US) is a hypothesis in Theorems~\ref{thm:dynamics}
-and~\ref{thm:conjunction}.
+Condition~(US) is a hypothesis in Theorems~\ref{III:thm:dynamics}
+and~\ref{III:thm:conjunction}.
 The natural conjecture is that $T$ Anosov with $h$ generic implies~(US) via
 the uniform hyperbolicity constants.
 This would close the gap between~(G1)--(G2) and~(US) in the hyperbolic category.
@@ -1437,20 +1436,20 @@ This would close the gap between~(G1)--(G2) and~(US) in the hyperbolic category.
 For stochastic dynamics, $\PihL(x,\,\cdot\,)$ is not a Dirac delta.
 The TV separation $\preddisc{L}$ is no longer binary, and Hölder continuity
 of $x \mapsto \PihL(x,\,\cdot\,)$ in TV is both necessary and non-trivial.
-The four-link chain of Proposition~\ref{prop:source2} adapts, but the
+The four-link chain of Proposition~\ref{III:prop:source2} adapts, but the
 Conjunction Theorem's proof structure changes substantially.
 
 \textbf{Sharp rates for the data-driven lag.}
-Theorem~\ref{thm:elbow} shows $P(\Lhat = L^*(n)) \to 1$ but does not bound
+Theorem~\ref{III:thm:elbow} shows $P(\Lhat = L^*(n)) \to 1$ but does not bound
 the fluctuations of $\Lhat$ around $L^*(n)$ on the event $\{\Lhat \neq L^*(n)\}$.
 A Berry--Esseen-type result for $\Lhat - L^*(n)$ would sharpen the stopping rule.
 
 \textbf{Concentration of the entropy witness.}
 The empirical collision entropy $\hat{H}_2(\nuL^{(n)})$ is a computationally
-simpler stopping criterion (Remark~\ref{rem:entropy-witness}).
+simpler stopping criterion (Remark~\ref{III:rem:entropy-witness}).
 Asymptotic equivalence with $\delhat{L}{n}$ is established under fibre mixing
-(Corollary~\ref{cor:entropy}), but a finite-$n$ concentration result for
-$\hat{H}_2(\nuL^{(n)})$ --- comparable to Proposition~\ref{prop:concentration}
+(Corollary~\ref{III:cor:entropy}), but a finite-$n$ concentration result for
+$\hat{H}_2(\nuL^{(n)})$ --- comparable to Proposition~\ref{III:prop:concentration}
 for $\delhat{L}{n}$ --- is not proved here.
 Such a result requires only McDiarmid-type bounds on the U-statistic
 $\frac{1}{n^2}\sum_{i,j} \mathbbm{1}[\PhiL(x_i) = \PhiL(x_j)]$, with no
@@ -1458,10 +1457,10 @@ new structural assumptions beyond those already made.
 
 \textbf{Derivability of fibre mixing (the main conceptual open problem).}
 The central open question is whether the fibre mixing condition
-(Definition~\ref{def:fibre-mixing}) is derivable from dynamical hypotheses, or
+(Definition~\ref{III:def:fibre-mixing}) is derivable from dynamical hypotheses, or
 whether it is an irreducible admissibility condition analogous to CE in~\cite{mahon_paper1}.
 
-Lemma~\ref{lem:balance} settles Step~A: a positive $\nuL$-fraction of
+Lemma~\ref{III:lem:balance} settles Step~A: a positive $\nuL$-fraction of
 $\varepsilon$-large fibres are $\eta$-balanced, with an explicit lower bound
 depending only on the large-fibre contribution $\kappa$ and not on any dynamical
 hypothesis.
@@ -1476,5 +1475,7 @@ and the a.e.\ balance condition is the isolated open gap.  If ergodicity
 suffices, the fibre mixing condition is derivable and the structural analogy
 with CE breaks; if it does not, the analogy is complete.
 
+\ifstandalone
 \bibliographystyle{plain}
 \bibliography{references}
+\fi

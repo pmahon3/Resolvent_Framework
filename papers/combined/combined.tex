@@ -1,0 +1,162 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+
+% ---------- Theorem environments (part-and-section numbered) ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands: Paper I ----------
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\Ecal}{\mathcal{E}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Out}[1]{\mathsf{O}_{#1}}
+
+% Stone duality macros
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\Borel}{\mathcal{B}}
+\newcommand{\limproj}{\varprojlim}
+\newcommand{\Clop}{\mathrm{Clop}}
+\newcommand{\pure}{\mathrm{pure}}
+
+% ---------- Commands: Paper II ----------
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\PredOp}{K}
+\newcommand{\Koopman}{U}
+\newcommand{\ProbMeas}{\mathcal{P}}
+\newcommand{\PredKer}{\Pi}
+\newcommand{\Lp}[1]{L^{#1}}
+\newcommand{\alg}{\mathrm{alg}}
+\newcommand{\evalmap}{\mathrm{eval}}
+
+% ---------- Commands: Paper III ----------
+
+% Empirical objects
+\newcommand{\mun}{\mu_n}
+\newcommand{\deltaL}{\delta(L)}
+\newcommand{\delhat}[2]{\hat{\delta}(#1,#2)}
+\newcommand{\fhat}{\hat{f}_n^{(L)}}
+\newcommand{\Ehat}{\hat{\mathbb{E}}}
+
+% Finite-lag objects
+\newcommand{\PhiL}{\Phi_h^{(L)}}
+\newcommand{\OhL}{\mathcal{O}_h^{(L)}}
+\newcommand{\AhL}{\mathcal{A}_h^{(L)}}
+\newcommand{\PD}{\mathcal{P}_D^{(L)}}
+
+% Predictive kernel
+\newcommand{\PihL}{\Pi_h^{(L)}}
+\newcommand{\GamHat}{\hat{\Gamma}_h^{(n)}}
+\newcommand{\preddisc}[1]{d_{#1}}
+\newcommand{\MLD}{M_{D,L}}
+
+% Fibre structure
+\newcommand{\nuL}{\nu_L}
+\newcommand{\RL}{R_L}
+
+% Dimension / rates
+\newcommand{\deff}{d_{\mathrm{eff}}}
+\newcommand{\Lhat}{\hat{L}^*}
+\newcommand{\Rad}{\mathfrak{R}}
+
+% ---------- Standalone flag (false in combined mode) ----------
+\newif\ifstandalone
+\standalonefalse
+
+% ---------- Combined title ----------
+\title{Observable Dynamics:\\[6pt]
+\large Probability, Reconstruction, and Finite-Sample Certification\\
+\large from Structured Observation}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This monograph develops a unified programme showing that probability, dynamics,
+reconstruction, and their finite-sample signatures are not assumptions but
+consequences of coherent structured observation.
+
+\medskip
+\noindent\textbf{Part~I} answers the question: when does observational coherence
+determine probability? A coherent family of observations on a directed system of
+observable algebras extends to a unique $\sigma$-additive probability measure
+exactly when it satisfies collective exhaustion~(CE) — the condition ruling out
+persistent mass on globally vanishing events. Two independent routes establish
+this: Carathéodory extension on the realization space, and compactness of the
+Stone space. CE is shown to be irreducible: no first-order condition on the
+query system implies it.
+
+\medskip
+\noindent\textbf{Part~II} answers the question: given probability, how do
+dynamics and reconstruction arise from observation? Making prediction precise
+forces the introduction of predictive kernels; their temporal composition yields
+a Markov semigroup and Koopman--Perron duality, derived rather than assumed.
+Specialising the minimal predictive state map to a measure-preserving system
+yields the delay map, and the reconstruction question is internal to the same
+framework: whether the predictive state is faithful. The answer is a three-way
+equivalence, with the density bridge lemma as the key. When reconstruction
+holds, the Stone space of Part~I is identified with the state space itself.
+
+\medskip
+\noindent\textbf{Part~III} answers the question: given reconstruction as the
+asymptotic notion, what can finite data certify? Three theorems — the Algebra
+Theorem, the Dynamics Theorem, and the Conjunction Theorem — provide computable
+witnesses for reconstruction, optimal convergence rates, and the result that for
+deterministic systems all three witnesses certify the same object.
+\end{abstract}
+
+\tableofcontents
+
+\newpage
+
+% ============================================================
+\part{When Does Observational Coherence Determine Probability?}
+% ============================================================
+
+\setcounter{section}{0}
+\input{probability_from_observation_body}
+
+\newpage
+
+% ============================================================
+\part{Dynamics and Reconstruction from Observation}
+% ============================================================
+
+\setcounter{section}{0}
+\input{dynamics_and_reconstruction_body}
+
+\newpage
+
+% ============================================================
+\part{Certifying Reconstruction from Finite Data}
+% ============================================================
+
+\setcounter{section}{0}
+\input{finite_sample_reconstruction_body}
+
+\newpage
+
+% ============================================================
+\bibliographystyle{plain}
+\bibliography{references}
+
+\end{document}

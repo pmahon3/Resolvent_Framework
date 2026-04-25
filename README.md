@@ -1,22 +1,22 @@
 # Observable Dynamics Program
 
-This repository develops a four-paper mathematical programme showing that
-probability, dynamics, reconstruction, and their finite-sample signatures
-are not assumptions but consequences of coherent structured observation.
+This repository develops a mathematical programme showing that probability,
+dynamics, reconstruction, and their finite-sample signatures are not
+assumptions but consequences of coherent structured observation.
 
 ## The argument
 
 ```
 Structured observations
-    → [Paper I]   → probability measure P on (Ω, σ(CylGen))
+    → [Paper I]     → probability measure P on (Ω, σ(CylGen))
     → [Paper II]  → dynamics: Koopman operator U_T, semigroup K_t
-    → [Paper III] → reconstruction: state space X ≅ St(observable algebra)
-    → [Paper IV]  → finite-sample: δ̂ stopping rule, rates, honest bridge
+                     + reconstruction: state space X ≅ St(observable algebra)
+    → [Paper III] → finite-sample: δ̂ stopping rule, rates, honest bridge
 ```
 
 The Stone space constructed in Paper I as a technical device for measure
-extension reappears in Paper III as the object being reconstructed.
-Paper IV asks what this reconstruction looks like from finite data,
+extension reappears in Paper II as the object being reconstructed.
+Paper III asks what this reconstruction looks like from finite data,
 and answers with three theorems: one for the algebra side, one for the
 dynamics side, and one for their conjunction.
 
@@ -40,29 +40,30 @@ condition — is established via a finite-cofinite counterexample and Łoś's th
 `StoneDualityExtension.lean` ✅, `TopologicalQuerySystem.lean` ✅,
 `ProkhorovExtension.lean` ✅
 
-### Paper II — Dynamics from Probability
+### Paper II — Dynamics and Reconstruction from Observation
 
-Given a probability measure, the temporal structure of prediction is uniquely
-determined. The predictive kernel, minimal predictive state map Q\*, and
-semigroup {K_t} are derived from temporal coherence, not assumed.
-Koopman–Perron duality connects operator-on-functions and measure-on-states.
+A unified treatment of two linked results. Starting from the probability
+measure of Paper I:
 
-**LaTeX:** `papers/paper_ii/` (4 pages, editorially polished 2026-04-24)
-**Lean:** `PredictiveState.lean` ✅, `PredictiveOperators.lean` ✅ (0 sorrys)
+- **Dynamics**: the predictive kernel Π_Q, minimal predictive state map Q\*,
+  and semigroup {K_t} are derived from temporal coherence, not assumed.
+  Koopman–Perron duality connects the Markov operators with the pushforward
+  operators. When kernels are Dirac measures, the construction recovers the
+  classical Koopman picture exactly.
+- **Reconstruction**: the three-way equivalence — O_h = B mod μ ↔ A_h L²-dense
+  ↔ Φ_h measure-theoretic embedding — proved via the density bridge lemma.
+  When reconstruction holds, the Stone space of Paper I is identified with X.
+  Generalises Takens's theorem: measurability replaces smoothness, algebraic
+  density replaces the dimension count.
 
-### Paper III — Reconstruction from Observation
+The two parts are joined by the observation that the delay map Φ_h is precisely
+the specialisation of Q\* to a measure-preserving system.
 
-Under a cyclic vector condition on the Koopman operator, the delay map
-Φ_h : X → ℝ^ℕ is a measure-theoretic embedding and the Stone space of the
-observable algebra is isomorphic to the state space. Generalises Takens's
-theorem: measurability replaces smoothness, algebraic density replaces the
-dimension count.
+**LaTeX:** `papers/paper_ii/` (7 pages, combined 2026-04-24)
+**Lean:** `PredictiveState.lean` ✅, `PredictiveOperators.lean` ✅ (0 sorrys),
+`DelayEmbedding.lean` ✅, `ReconstructionTheorem.lean` ✅ (2 Mathlib-gap sorrys)
 
-**LaTeX:** `papers/paper_iii/` (5 pages, editorially polished 2026-04-24)
-**Lean:** `ReconstructionTheorem.lean` ✅ (2 Mathlib-gap sorrys),
-`DelayEmbedding.lean` ✅
-
-### Paper IV — Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge
+### Paper III — Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge
 
 Given finite data from the system, can one certify reconstruction from data
 alone, and at what rate? Three theorems answer this:
@@ -89,7 +90,7 @@ balance) proves, without any dynamical hypothesis, that a positive ν_L-fraction
 ε-large fibres are η-balanced. The fibre mixing condition is the upgrade to
 ν_L-a.e. balance; whether ergodicity supplies it is the main open question.
 
-**LaTeX:** `papers/paper_iv/` (16 pages, editorially polished 2026-04-24; bridge note in `notes/bridge_note.tex`)
+**LaTeX:** `papers/paper_iii/` (16 pages, editorially polished 2026-04-24; bridge note in `notes/bridge_note.tex`)
 **Lean:** Not started
 
 ## Repository structure
@@ -99,9 +100,9 @@ Resolvent_Framework/
 ├── README.md
 ├── papers/
 │   ├── paper_i/           ← Paper I LaTeX (arXiv-ready, 12 pages)
-│   ├── paper_ii/          ← Paper II LaTeX (polished, 4 pages)
-│   ├── paper_iii/         ← Paper III LaTeX (polished, 5 pages)
-│   └── paper_iv/          ← Paper IV LaTeX (polished, 16 pages)
+│   ├── paper_ii/      ← Paper II LaTeX combined (7 pages, 2026-04-24)
+│   ├── paper_iii/          ← Paper III LaTeX (polished, 16 pages)
+│   └── archive/           ← original separate Paper II and III sources
 ├── formalization/
 │   └── QuerySystem/       ← Lean 4 / Mathlib formalization
 │       └── QuerySystem/
@@ -140,8 +141,7 @@ are documented Mathlib-gap markers, not proof-search failures.
 See `notes/programme/program_overview.md` for the canonical task list and priorities.
 
 - **Paper I**: arXiv-ready (12 pages, MSC classifications, keywords, citations complete).
-- **Paper II**: editorially polished (4 pages, 2026-04-24).
-- **Paper III**: editorially polished (5 pages, 2026-04-24); 2 Mathlib-gap sorrys in `ReconstructionTheorem.lean`.
-- **Paper IV**: editorially polished (16 pages, 2026-04-24); Lemma 5.10 (Positive-fraction balance) added; Lean formalization not started.
-- **Bridge note**: `papers/paper_iv/notes/bridge_note.tex` — 4-page companion proving the conditional variance identity and entropy characterisation δ(L)→0 ⟺ H₂(ν_L)→∞; cited as `mahon_bridge` in Paper IV.
-- **Next action**: arXiv submission of Paper I and companion note (checklist in `notes/programme/arxiv_prep.md`); Papers II–IV follow after endorsement.
+- **Paper II**: combined and compiled (7 pages, 2026-04-24); merges dynamics and reconstruction into one unified paper; sources in `papers/paper_ii/`.
+- **Paper III**: editorially polished (16 pages, 2026-04-24); Lemma 5.10 (Positive-fraction balance) added; citations updated to `mahon_paper2`; Lean formalization not started.
+- **Bridge note**: `papers/paper_iii/notes/bridge_note.tex` — 4-page companion proving the conditional variance identity and entropy characterisation δ(L)→0 ⟺ H₂(ν_L)→∞; cited as `mahon_bridge` in Paper III.
+- **Next action**: arXiv submission of Paper I and companion note (checklist in `notes/programme/arxiv_prep.md`); Papers II and III follow after endorsement.

@@ -1,4 +1,4 @@
-% paper_iv_body.tex
+% paper_iii_body.tex
 
 \maketitle
 
@@ -57,14 +57,14 @@ measure-preserving system.
 \label{sec:intro}
 % ============================================================
 
-The reconstruction theorem (Paper~III,~\cite{mahon_paper3}) states that the
+The reconstruction theorem (\cite{mahon_paper2}) states that the
 observable algebra $\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$
 generates $\mathcal{B}$ modulo $\mu$ if and only if $h$ is a measure-theoretic
 embedding --- an exact condition that says nothing about rates, certificates,
 or what can be verified from a finite time series.
-Paper~I~\cite{mahon_paper1} constructs the canonical probability measure
-on the observation space; Paper~II~\cite{mahon_paper2} establishes
-Koopman--Perron duality.
+\cite{mahon_paper1} constructs the canonical probability measure
+on the observation space; \cite{mahon_paper2} establishes the predictive
+kernel and Koopman--Perron duality before proving reconstruction.
 Given a time series $x_1, \ldots, x_n$ from $(X, \mathcal{B}, \mu, T)$
 and a single observable $h$, we ask: can one determine from data alone
 whether reconstruction holds, at what rate, and with what certificates?
@@ -164,7 +164,7 @@ The central quantity is the $\sigma$-algebra approximation error
 which measures how much of $\Bcal$ remains outside $\OhL$.
 It is non-increasing in $L$, vanishes if and only if reconstruction holds,
 and under (G1)--(G2) on a smooth manifold reaches zero by lag $L_0 \leq d-1$
-(all three proved in Paper~III~\cite{mahon_paper3}).
+(all three proved in~\cite{mahon_paper2}).
 
 \subsection{Fibre structure and collision probability}
 \label{subsec:fibres}
@@ -289,7 +289,6 @@ $\tfrac{1}{2}\int_{\RL}|\mathbbm{1}_S - \mathbbm{1}_{S'}|^2\,d(\mu\otimes\mu)
 = \int p_z\,\mu_z(S)\mu_z(S^c)\,d\nuL(z)$.
 Since $\mathrm{Var}(\mathbbm{1}_S \mid \OhL)(x) = \mu_z(S)\mu_z(S^c)$ on $F_z$,
 both sides equal $\int \mu_z(S)\mu_z(S^c)\,d\nuL(z)$.
-A standalone development appears in \cite{mahon_bridge}.
 \end{proof}
 
 \begin{corollary}[Easy direction]
@@ -308,7 +307,7 @@ Corollary~\ref{cor:easy} and its converse (Corollary~\ref{cor:entropy}, proved
 under fibre mixing in \S\ref{sec:algebra}) together say: algebraic
 indistinguishability $\delta(L)$ vanishes if and only if the mass of
 indistinguishable pairs $(\mu\otimes\mu)(R_L)$ vanishes.  This is the
-finite-sample counterpart of collective exhaustion from Paper~I.  There, CE
+finite-sample counterpart of collective exhaustion~\cite{mahon_paper1}.  There, CE
 asserts that set-theoretic vanishing must be witnessed at some finite level of
 the refinement order.  Here, the analogous principle is that observational
 indistinguishability cannot persist globally without manifesting as a
@@ -316,7 +315,7 @@ non-vanishing mass of indistinguishable pairs at finite lag~$L$.  The fibre
 mixing condition plays an analogous structural role to CE: it is a sufficient
 condition under which the global and pairwise witnesses are comparable.
 Whether fibre mixing is itself derivable from dynamical conditions --- or is
-genuinely irreducible, as CE is proved to be in Paper~I --- remains open;
+genuinely irreducible, as CE is proved to be in~\cite{mahon_paper1} --- remains open;
 see the open problems in Section~\ref{sec:discussion}.
 \end{remark}
 
@@ -1045,6 +1044,49 @@ On $G(\eta)$: $\mu_z(S^*)\mu_z((S^*)^c) \leq \tfrac{1}{4}$ pointwise, so
 \]
 \end{proof}
 
+\begin{lemma}[Fibre mixing bound]
+\label{lem:hard}
+Let $S^*$ be a $(\deltaL - \varepsilon)$-near-maximizer of
+$\mathrm{E}[\mathrm{Var}(\mathbbm{1}_{\cdot}\mid\OhL)]$ that is
+$(c,\varepsilon)$-mixing across fibres
+(Definition~\ref{def:fibre-mixing}).
+Then
+\[
+  (\mu\otimes\mu)(\RL) \;\leq\; \frac{1}{c}\,\deltaL + C(c)\,\varepsilon,
+  \qquad C(c) := \frac{1+c}{c}.
+\]
+\end{lemma}
+
+\begin{proof}
+Write $(\mu\otimes\mu)(\RL) = \int p_z^2\,d\nuL(z)$ and split into
+$\varepsilon$-large and small-fibre parts.
+
+\emph{Large fibres ($p_z \geq \varepsilon$).}
+The $(c,\varepsilon)$-mixing condition gives
+$\mu_z(S^*)\mu_z((S^*)^c) \geq c\,p_z$ on $\varepsilon$-large fibres, so:
+\[
+  c\int_{\{p_z \geq \varepsilon\}} p_z^2\,d\nuL(z)
+  \;\leq\; \int p_z\,\mu_z(S^*)\mu_z\bigl((S^*)^c\bigr)\,d\nuL(z)
+  \;=\; \mathrm{E}\bigl[\mathrm{Var}(\mathbbm{1}_{S^*}\mid\OhL)\bigr]
+  \;\leq\; \deltaL.
+\]
+Hence $\int_{\{p_z \geq \varepsilon\}} p_z^2\,d\nuL(z) \leq \frac{1}{c}\,\deltaL$.
+
+\emph{Small fibres ($p_z < \varepsilon$).}
+Each such fibre satisfies $p_z^2 \leq \varepsilon\,p_z$, so
+\[
+  \int_{\{p_z < \varepsilon\}} p_z^2\,d\nuL(z)
+  \;\leq\; \varepsilon\int p_z\,d\nuL(z) = \varepsilon.
+\]
+
+\emph{Combining.}
+Since $C(c) = \frac{1+c}{c} \geq 1$ we have $\varepsilon \leq C(c)\,\varepsilon$,
+and therefore
+\[
+  (\mu\otimes\mu)(\RL) \;\leq\; \frac{1}{c}\,\deltaL + C(c)\,\varepsilon. \qedhere
+\]
+\end{proof}
+
 The collision probability~\eqref{eq:collision-prob} defines a natural
 information-theoretic quantity:
 \begin{equation}
@@ -1070,10 +1112,10 @@ $(\mu \otimes \mu)(\RL)$ introduced in Section~\ref{subsec:fibres}.
 
 \begin{proof}
 Corollary~\ref{cor:easy} gives $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
-For the reverse, the $(c,\varepsilon)$-mixing condition on a $\deltaL$-near-maximizer
-$S^*$ gives $(\mu\otimes\mu)(\RL) \leq \frac{1}{c}\,\deltaL + C(c)\,\varepsilon$
-(proved in \cite{mahon_bridge}, Theorem~3.3), so $\deltaL \to 0 \iff
-(\mu\otimes\mu)(\RL) \to 0$.
+For the reverse, Lemma~\ref{lem:hard} with a $\deltaL$-near-maximizer $S^*$
+satisfying the $(c,\varepsilon)$-mixing condition gives
+$(\mu\otimes\mu)(\RL) \leq \frac{1}{c}\,\deltaL + C(c)\,\varepsilon$,
+so $\deltaL \to 0 \iff (\mu\otimes\mu)(\RL) \to 0$.
 Since $(\mu\otimes\mu)(\RL) = e^{-H_2(\nuL)}$, this is equivalent to
 $H_2(\nuL) \to +\infty$.
 \end{proof}
@@ -1103,8 +1145,6 @@ optimisation over sets, only histogram counts over delay vectors.
 Under fibre mixing, Corollary~\ref{cor:entropy} shows that $\Lhat$ could
 equivalently be defined as the first $L$ at which $\hat{H}_2(\nuL^{(n)})$
 exceeds a threshold calibrated to $n$.
-A detailed treatment of $\hat{H}_2$ as a stopping rule appears in
-\cite{mahon_bridge}, Section~4.
 \end{remark}
 
 % ============================================================
@@ -1419,7 +1459,7 @@ new structural assumptions beyond those already made.
 \textbf{Derivability of fibre mixing (the main conceptual open problem).}
 The central open question is whether the fibre mixing condition
 (Definition~\ref{def:fibre-mixing}) is derivable from dynamical hypotheses, or
-whether it is an irreducible admissibility condition analogous to CE in Paper~I.
+whether it is an irreducible admissibility condition analogous to CE in~\cite{mahon_paper1}.
 
 Lemma~\ref{lem:balance} settles Step~A: a positive $\nuL$-fraction of
 $\varepsilon$-large fibres are $\eta$-balanced, with an explicit lower bound

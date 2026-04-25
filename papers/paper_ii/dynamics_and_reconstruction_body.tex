@@ -1,0 +1,582 @@
+\maketitle
+
+\begin{abstract}
+Starting from a $\sigma$-additive probability measure on an observable algebra —
+the object constructed in~\cite{mahon_paper1} from coherent structured observations
+satisfying collective exhaustion — this paper derives two structures that are often
+assumed: the dynamics of prediction, and the recoverability of the state space.
+
+Making prediction precise forces the introduction of the predictive kernel
+$\Pi_Q : \alpha \to \mathcal{P}(\beta)$, the regular conditional distribution of
+a future observation $F$ given a current observation $Q$.  Composing with $Q$ gives
+the minimal predictive state map $Q_* : \Omega \to \mathcal{P}(\beta)$.  Indexing
+over time, the kernels compose via Chapman--Kolmogorov — derived, not assumed —
+yielding a Markov semigroup $\{K_t\}$ and the Koopman--Perron duality
+$\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.
+When the kernels are Dirac measures, $K_t$ collapses to the classical Koopman
+operator.
+
+The construction produces a predictive state space $\mathcal{P}(\beta)$.
+In a measure-preserving system $(X, \mathcal{B}, \mu, T)$ with
+$Q_t = h \circ T^t$, the map $Q_*$ becomes the delay map
+$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$.
+This raises the reconstruction question: when does $\Phi_h$ faithfully represent
+the full state space $X$?
+
+The answer is a three-way equivalence — the reconstruction theorem.
+State-space recovery ($\mathcal{O}_h = \mathcal{B}$ mod $\mu$) holds if and only
+if the delay algebra $\mathcal{A}_h$ is $L^2$-dense, if and only if $\Phi_h$ is a
+measure-theoretic embedding.  The bridge between the first two conditions is a
+general lemma: for any subalgebra $\mathcal{A} \subseteq L^\infty$ containing $1$,
+the $L^2$-closure of $\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$.
+When reconstruction holds, the compact Stone space of~\cite{mahon_paper1} —
+introduced there as a technical device for $\sigma$-additivity — is identified
+with $X$ itself.
+\end{abstract}
+
+\begin{quote}\small
+\textbf{2020 Mathematics Subject Classification.}
+37A30 (primary); 47D06, 60J05, 37A05, 28A60, 06E15, 46E30 (secondary).
+
+\textbf{Keywords.}
+Koopman operator, predictive kernel, minimal predictive state, Markov semigroup,
+Koopman--Perron duality, observable dynamical system, reconstruction theorem,
+delay embedding, observable algebra, density bridge, measure-theoretic Takens,
+Stone duality, measure-preserving system.
+\end{quote}
+
+% ====================================================================
+\section{Introduction}
+\label{sec:intro}
+
+The classical approach to dynamics, following Koopman~\cite{Koopman1931},
+describes how observable functions evolve under a known transformation $T$: the
+operator $U_T f = f \circ T$ acts by precomposing with $T$ as a primitive.  This
+paper asks two questions that precede this picture.
+
+The first is: given a current observation $Q : \Omega \to \alpha$ and a future
+observation $F : \Omega \to \beta$, what does an observer predict about $F$ given
+$Q$?  The dynamics, if there are any, should follow from the answer — not precede
+it.  Making prediction precise immediately requires a $\sigma$-additive probability
+measure on the observable algebra.  That measure is not an extra assumption.  It is
+what~\cite{mahon_paper1} constructs: a coherent family of finitely additive charges
+on a directed system of observable algebras extends to a genuine probability measure
+exactly when it satisfies collective exhaustion, the condition ruling out persistent
+mass on globally vanishing events.
+
+Once the measure exists, the canonical answer to the prediction question is the
+regular conditional distribution of $F$ given $Q$: the unique Markov kernel
+$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ realising $P(F \in \cdot \mid Q = q)$
+simultaneously across all outcomes.  Its existence rests on the Rokhlin
+disintegration theorem~\cite{Rokhlin1952}, which requires $\sigma$-additivity.
+Composing with $Q$ gives the minimal predictive state map
+$Q_* : \Omega \to \mathcal{P}(\beta)$, the minimal sufficient statistic for future
+prediction.  Indexing over time, the kernels $\{\Pi_t\}$ compose; their composition
+rule is the Chapman--Kolmogorov equation, derived from temporal coherence rather than
+assumed.  From it emerge a semigroup of Markov operators $\{K_t\}$ and the
+Koopman--Perron duality connecting them with the pushforward operators.  When the
+kernels are Dirac measures, the construction collapses to the classical Koopman
+picture.
+
+The construction produces a predictive state space $\mathcal{P}(\beta)$ and a
+stationary distribution $\nu_{Q_*}$.  In a measure-preserving system
+$(X, \mathcal{B}, \mu, T)$ with $Q_t = h \circ T^t$ for some $h \in L^\infty$,
+the map $Q_*$ specialises to the delay map
+$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$.  This raises the second question:
+when does $\Phi_h$ faithfully represent the full state space $X$?
+
+The second question is the reconstruction problem.  Whether $\Phi_h$ is injective
+modulo null sets — whether the predictive state space faithfully represents $X$ —
+depends on how much the delay orbit $\{h \circ T^n : n \in \mathbb{Z}\}$
+collectively distinguishes points of $X$.  The reconstruction theorem gives a
+three-way equivalence: the $\sigma$-algebraic condition
+$\mathcal{O}_h = \mathcal{B}$ modulo $\mu$, the analytic condition that the delay
+algebra $\mathcal{A}_h$ is $L^2$-dense, and the geometric condition that $\Phi_h$
+is a measure-theoretic embedding are all equivalent.
+
+The key to the equivalence is the density bridge lemma: for any subalgebra
+$\mathcal{A} \subseteq L^\infty(X,\mu)$ containing the constant $1$, the
+$L^2$-closure of $\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$.  The
+proof goes via the functional monotone class theorem~\cite{Dynkin}.  The
+$\sigma$-algebra and the $L^2$ space it generates are inextricably linked.
+
+The Koopman operator $U_T f = f \circ T$ provides a spectral perspective on the
+second question.  The cyclic vector condition —
+$\overline{\mathrm{span}}\{U_T^n h : n \in \mathbb{Z}\} = L^2$ — implies
+reconstruction but is strictly stronger: it asks for density of the linear span,
+while reconstruction asks only for density of the algebra the orbit generates.
+The two coincide precisely when $U_T$ has simple $L^2$-spectrum.
+
+When reconstruction holds, a compact space introduced in~\cite{mahon_paper1} for
+an entirely different purpose — the Stone space $\mathrm{St}(\mathcal{O}_h)$ of
+the observable algebra, built as a technical completion of the sample space for
+deriving $\sigma$-additivity — turns out to be measure-theoretically isomorphic to
+$X$ itself.  The programme that began by seeking a compact ambient space for the
+measure ends by identifying it with the state space being observed.
+
+The paper is self-contained modulo the probability measure.  Sections~\ref{sec:prediction}
+and~\ref{sec:dynamics} develop the predictive structure from a probability space
+$(\Omega, \mathcal{F}, P)$.  Section~\ref{sec:transition} connects the two parts:
+the observable dynamical system produced by prediction is the natural input to the
+reconstruction problem.  Sections~\ref{sec:density-bridge} and~\ref{sec:stone} carry
+out the reconstruction, proving the density bridge and the reconstruction theorem.
+
+% ====================================================================
+\section{Prediction and the minimal predictive state}
+\label{sec:prediction}
+
+Fix a probability space $(\Omega, \mathcal{F}, P)$ and two measurable maps:
+\begin{itemize}
+  \item $Q : \Omega \to \alpha$, where $(\alpha, \mathcal{A})$ is a measurable space;
+  \item $F : \Omega \to \beta$, where $(\beta, \mathcal{B})$ is a standard Borel space.
+\end{itemize}
+The standard Borel hypothesis on $\beta$ is used once: it is the hypothesis under
+which the Rokhlin disintegration theorem~\cite{Rokhlin1952} guarantees the existence
+of a regular conditional distribution.  All other results hold in greater generality.
+
+We write $\mathcal{P}(\beta)$ for the space of probability measures on $\beta$,
+equipped with its canonical (Giry) $\sigma$-algebra.  The joint pushforward
+$\rho := P \circ (Q, F)^{-1}$ on $\alpha \times \beta$ has marginals
+$\rho_\alpha = P \circ Q^{-1}$ and $\rho_\beta = P \circ F^{-1}$.
+
+The regular conditional distribution of $F$ given $Q$ is the unique (up to
+$P \circ Q^{-1}$-null sets) Markov kernel $\Pi_Q : \alpha \to \mathcal{P}(\beta)$
+satisfying
+\[
+  \int_A \Pi_Q(q, B)\, d(P \circ Q^{-1})(q) \;=\; P(Q \in A,\; F \in B)
+\]
+for all measurable $A \subseteq \alpha$ and $B \subseteq \beta$.
+
+\begin{definition}[Predictive kernel]
+\label{def:predictive-kernel}
+The \emph{predictive kernel} is $\Pi_Q$, the disintegration kernel of
+$\rho = P \circ (Q, F)^{-1}$ over its first marginal:
+$\Pi_Q(q, A) = P(F \in A \mid Q = q)$.
+\end{definition}
+
+The kernel is covariant under measurable maps: if $\pi : \alpha \to \alpha'$ is
+measurable and $Q' = \pi \circ Q$, then $\Pi_Q(q, \cdot) = \Pi_{Q'}(\pi(q), \cdot)$
+for $(P \circ Q^{-1})$-almost every $q$, by uniqueness of disintegration.
+
+Composing $\Pi_Q$ with $Q$ gives the map sending each sample point to its
+conditional law.
+
+\begin{definition}[Minimal predictive state map]
+\label{def:minimal-predictive}
+The \emph{minimal predictive state map} is
+\[
+  Q_* : \Omega \to \mathcal{P}(\beta), \qquad Q_*(\omega) \;=\; \Pi_Q(Q(\omega), \cdot).
+\]
+\end{definition}
+
+Since $\Pi_Q$ is a Markov kernel it is measurable, and $Q_*$ inherits
+measurability by composition.
+
+\begin{theorem}[Predictive factorization]
+\label{thm:predictive-factorization}
+For every bounded measurable $g : \beta \to \mathbb{R}$:
+\[
+  E[g(F) \mid \sigma(Q)] \;=\; \int g\, dQ_*(\cdot)
+  \quad P\text{-a.e.}
+\]
+\end{theorem}
+\begin{proof}
+Let $h(\omega) := \int g\, dQ_*(\omega)$.  We verify the two defining properties.
+
+\emph{Measurability.}  The map $q \mapsto \int g\, d\Pi_Q(q, \cdot)$ is
+strongly measurable; since $Q_* = \Pi_Q(Q(\cdot), \cdot)$, the map $h$ is
+$\sigma(Q)$-measurable.
+
+\emph{Set-integral identity.}  For $S = Q^{-1}(A)$:
+\begin{align*}
+  \int_S h\, dP
+  &= \int_A \int g\, d\Pi_Q(q, \cdot)\, d(P \circ Q^{-1})(q)
+  \quad\text{(pushforward)} \\
+  &= \int_{A \times \beta} g(f)\, d\rho(q, f)
+  \quad\text{(disintegration)} \\
+  &= \int_S g(F)\, dP.
+\end{align*}
+The conclusion follows from a.e.\ uniqueness of conditional expectation.
+\end{proof}
+
+\begin{corollary}[Predictive sufficiency]
+\label{cor:sufficiency}
+$E[g(F) \mid \sigma(Q)] = E[g(F) \mid \sigma(Q_*)]$ $P$-a.e.
+\end{corollary}
+\begin{proof}
+$\sigma(Q_*) \subseteq \sigma(Q)$, and the conditional expectation given
+$\sigma(Q)$ is already $\sigma(Q_*)$-measurable by the theorem.
+\end{proof}
+
+The operator $(K_{Q_*} g)(q_*) = \int g\, dq_*$ on $\mathcal{P}(\beta)$
+recasts the theorem as: $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$
+$P$-a.e.
+
+% ====================================================================
+\section{Dynamics and duality}
+\label{sec:dynamics}
+
+To introduce dynamics, index over a discrete time horizon.  For each
+$t \in \mathbb{N}$, let $\Pi_t : \gamma \to \mathcal{P}(\gamma)$ be a Markov
+kernel on the state space $\gamma$, with $\Pi_0(q, \cdot) = \delta_q$.
+A family $\{\Pi_t\}$ satisfying the Chapman--Kolmogorov equation
+\[
+  \Pi_{t+s}(q, \cdot) \;=\; \int_\gamma \Pi_t(q', \cdot)\, d\Pi_s(q, q')
+  \quad\text{(i.e., } \Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s\text{)}
+\]
+is a \emph{Markov semigroup kernel}.  The associated \emph{Markov operators} are
+\[
+  (K_t g)(q) \;:=\; \int g\, d\Pi_t(q, \cdot), \qquad g : \gamma \to \mathbb{R}.
+\]
+
+Each $K_t$ is positive, unital, and contractive on bounded measurable functions,
+with $K_0 = \mathrm{id}$; positivity, unitality, and contractiveness are immediate
+from the Markov property.
+
+\begin{proposition}[Semigroup property]
+\label{prop:semigroup}
+$K_{t+s} g = K_t(K_s g)$ for all bounded measurable $g$.
+\end{proposition}
+\begin{proof}
+$(K_{t+s} g)(q)
+= \int g\, d(\Pi_t \circ_\kappa \Pi_s)(q, \cdot)
+= \int \bigl(\int g\, d\Pi_t(q', \cdot)\bigr)\, d\Pi_s(q, q')
+= \int (K_t g)(q')\, d\Pi_s(q, q')
+= (K_t(K_s g))(q)$,
+where the exchange of integrals is justified by Bochner--Fubini.
+\end{proof}
+
+The pushforward of a measure $\mu$ on $\gamma$ through the kernel is
+$P_t^* \mu := \mu \star \Pi_t = \int \Pi_t(q, \cdot)\, d\mu(q)$.
+
+\begin{theorem}[Koopman--Perron duality]
+\label{thm:koopman-perron}
+For every bounded measurable $g$ and finite measure $\mu$:
+\[
+  \int (K_t g)\, d\mu \;=\; \int g\, d(P_t^* \mu).
+\]
+\end{theorem}
+\begin{proof}
+$\int g\, d(P_t^* \mu)
+= \int g\, d(\mu \star \Pi_t)
+= \int_\gamma \int g\, d\Pi_t(q, \cdot)\, d\mu(q)
+= \int (K_t g)\, d\mu$,
+by Bochner--Fubini.
+\end{proof}
+
+When $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for a measurable map
+$\varphi_t : \gamma \to \gamma$, the stochastic picture collapses.
+
+\begin{proposition}[Deterministic limit]
+\label{prop:deterministic}
+If $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$, then $K_t g = g \circ \varphi_t$
+and $\varphi_{t+s} = \varphi_t \circ \varphi_s$.
+\end{proposition}
+\begin{proof}
+$(K_t g)(q) = \int g\, d\delta_{\varphi_t(q)} = g(\varphi_t(q))$.
+The flow law follows from
+$\delta_{\varphi_{t+s}(q)} = (\Pi_t \circ_\kappa \Pi_s)(q, \cdot)
+= \delta_{\varphi_t(\varphi_s(q))}$
+and injectivity of the Dirac embedding.
+\end{proof}
+
+In the deterministic case, $K_t g = g \circ \varphi_t = U_T^t g$: the Markov
+operator specialises to the classical Koopman operator.  The
+Koopman--Perron duality $\int K_t g\, d\mu = \int g\, d(P_t^* \mu)$ becomes
+the change-of-variables formula $\int g \circ T^t\, d\mu = \int g\, d(T^t_* \mu)$.
+
+The full structure produced by the prediction construction is captured in one
+definition.
+
+\begin{definition}[Observable dynamical system]
+\label{def:obs-dyn-sys}
+An \emph{observable dynamical system} is a triple
+$(\mathcal{P}(\beta),\, \nu_{Q_*},\, \{K_t\}_{t \in \mathbb{N}})$
+where $\mathcal{P}(\beta)$ is the predictive state space (the image of $Q_*$),
+$\nu_{Q_*} = P \circ Q_*^{-1}$ is the pushforward of $P$ along $Q_*$, and
+$\{K_t\}$ is the Markov semigroup on $\mathcal{P}(\beta)$.
+\end{definition}
+
+% ====================================================================
+\section{From prediction to reconstruction}
+\label{sec:transition}
+
+Setting $Q_t = h \circ T^t$ in a measure-preserving system
+$(X, \mathcal{B}, \mu, T)$ with $h \in L^\infty$ specialises the construction.
+Under this choice, $Q_*(\omega) = (h(T^n \omega))_{n \in \mathbb{Z}}$ is the
+delay map $\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, and the observable
+dynamical system is the triple $(\Phi_h(X), \mu \circ \Phi_h^{-1}, \{K_t\})$.
+
+The predictive state space $\Phi_h(X)$ is a subset of $\mathbb{R}^\mathbb{Z}$
+encoding the dynamical information that $h$ can see.  Whether it is a faithful
+image of $X$ depends on how much the delay orbit
+$\{h \circ T^n : n \in \mathbb{Z}\}$ collectively distinguishes points of $X$.
+Injectivity of $\Phi_h$ modulo $\mu$-null sets is equivalent to the observable
+$\sigma$-algebra
+\[
+  \mathcal{O}_h = \sigma\!\bigl(\{h \circ T^n : n \in \mathbb{Z}\}\bigr)
+\]
+equalling $\mathcal{B}(X)$ modulo $\mu$.
+
+The Koopman--Perron duality (Theorem~\ref{thm:koopman-perron}) connects this to a
+function-space question: the observable $\sigma$-algebra $\mathcal{O}_h$ determines
+the Markov semigroup through the algebra it generates, and the reconstruction question
+is precisely whether that algebra is large enough to recover all of $\mathcal{B}$.
+The next two sections answer this question.
+
+% ====================================================================
+\section{Density bridge and reconstruction}
+\label{sec:density-bridge}
+
+Throughout this section and the next, $(X, \mathcal{B}, \mu)$ is a standard
+probability space, $T : X \to X$ is a measurable, $\mu$-preserving invertible
+bimeasurable bijection with $T_*\mu = \mu$, and $h \in L^\infty(X, \mu)$.
+
+\begin{definition}[Observable algebra]
+\label{def:obs-algebra}
+The \emph{observable algebra} generated by $h$ is
+\[
+  \mathcal{O}_h \;:=\; \sigma\!\bigl(\{h \circ T^n : n \in \mathbb{Z}\}\bigr)
+  \;\subseteq\; \mathcal{B}(X).
+\]
+The \emph{delay algebra} $\mathcal{A}_h$ is the smallest subalgebra of
+$L^\infty(X, \mu)$ containing $1$ and every $h \circ T^n$; concretely, finite
+sums $\sum_\alpha c_\alpha \prod_k (h \circ T^{n_k})^{e_k}$.
+\end{definition}
+
+\begin{definition}[Delay map]
+\label{def:delay-map}
+The \emph{delay map} is
+\[
+  \Phi_h : X \to \mathbb{R}^\mathbb{Z},
+  \qquad
+  \Phi_h(x) \;=\; \bigl(h(T^n x)\bigr)_{n \in \mathbb{Z}}.
+\]
+Since $\pi_n \circ \Phi_h = h \circ T^n$ for each coordinate projection $\pi_n$,
+the map $\Phi_h$ is measurable and
+$\mathcal{O}_h = \Phi_h^{-1}(\mathcal{B}(\mathbb{R}^\mathbb{Z}))$.
+Thus $\mathcal{O}_h = \mathcal{B}$ mod $\mu$ is precisely the condition that
+$\Phi_h$ is a measure-theoretic embedding.
+\end{definition}
+
+The central lemma connects the Boolean algebra level to the $L^2$ level.
+It holds for any subalgebra of $L^\infty$.
+
+\begin{lemma}[Density bridge]
+\label{lem:density-bridge}
+Let $(X, \mathcal{B}, \mu)$ be a probability space and let
+$\mathcal{A} \subseteq L^\infty(X, \mu)$ be a subalgebra containing the
+constant function~$1$.  Then:
+\[
+  \overline{\mathcal{A}}^{L^2}
+  \;=\;
+  L^2(X,\, \sigma(\mathcal{A}),\, \mu).
+\]
+Consequently, $\overline{\mathcal{A}}^{L^2} = L^2(X, \mu)$ if and only if
+$\sigma(\mathcal{A}) = \mathcal{B}$ modulo $\mu$.
+\end{lemma}
+
+\begin{proof}
+Write $\mathcal{M} := \sigma(\mathcal{A})$ and $V := \overline{\mathcal{A}}^{L^2}$.
+
+\textbf{Step 1: $V \subseteq L^2(X, \mathcal{M}, \mu)$.}
+Every $f \in \mathcal{A}$ is $\mathcal{A}$-measurable, hence $\mathcal{M}$-measurable.
+So $\mathcal{A} \subseteq L^2(X, \mathcal{M}, \mu)$.  Since $L^2(X, \mathcal{M}, \mu)$
+is a closed subspace of $L^2(X, \mathcal{B}, \mu)$, taking the closure gives
+$V \subseteq L^2(X, \mathcal{M}, \mu)$.
+
+\textbf{Step 2: $L^2(X, \mathcal{M}, \mu) \subseteq V$.}
+It suffices to show that every indicator $\mathbf{1}_E$ with $E \in \mathcal{M}$
+lies in $V$.  By the functional monotone class theorem~\cite{Dynkin}, the class
+\[
+  \mathcal{H}
+  \;:=\;
+  \bigl\{f \in L^\infty(X, \mathcal{M}, \mu) : f \in V\bigr\}
+\]
+is a vector space containing $\mathcal{A}$ and closed under bounded monotone
+pointwise limits (since if $f_n \in V$ are uniformly bounded and $f_n \to f$
+pointwise a.e.\ with $f \in L^\infty$, then $f_n \to f$ in $L^2$ by dominated
+convergence, so $f \in V$).  Since $\mathcal{A}$ is an algebra containing $1$
+and $\sigma(\mathcal{A}) = \mathcal{M}$, the monotone class theorem gives
+$\mathcal{H} = L^\infty(X, \mathcal{M}, \mu)$.  In particular every
+$\mathcal{M}$-indicator $\mathbf{1}_E \in V$.
+
+Since the $\mathcal{M}$-simple functions are dense in $L^2(X, \mathcal{M}, \mu)$
+and $V$ is closed, $L^2(X, \mathcal{M}, \mu) \subseteq V$.
+
+\textbf{Conclusion.}
+Steps~1 and~2 give $V = L^2(X, \mathcal{M}, \mu)$.  The final equivalence is
+immediate: $V = L^2(X, \mathcal{B}, \mu)$ iff $L^2(X, \mathcal{M}, \mu) =
+L^2(X, \mathcal{B}, \mu)$ iff $\mathcal{M} = \mathcal{B}$ mod $\mu$.
+\end{proof}
+
+\begin{remark}[Role of the algebra structure]
+\label{rem:algebra-necessary}
+The algebra structure of $\mathcal{A}$ is essential.  The corresponding
+statement for the closed \emph{linear} span $\mathcal{H}_{\mathcal{A}} =
+\overline{\mathrm{span}}(\mathcal{A})$ is false in general:
+$\mathcal{H}_{\mathcal{A}} = L^2$ does not imply
+$\sigma(\mathcal{A}) = \mathcal{B}$.
+
+For example, take $X = [0,1]$, $\mu = $ Lebesgue, $T(x) = 2x \bmod 1$ (the
+doubling map), and $h(x) = x$.  The orbit $\{h \circ T^n\}(x) = \{2^n x \bmod 1\}$
+generates $\mathcal{B}([0,1])$ as a $\sigma$-algebra (the dyadic structure separates
+points).  But $\mathrm{span}\{2^n x \bmod 1 : n \geq 0\}$ is a proper subspace of
+$L^2[0,1]$: it does not contain $x^2$.  So the linear span can be a proper dense
+subspace even when $\sigma(\mathcal{A}) = \mathcal{B}$.
+
+In the other direction, $h$ cyclic for $U_T$ (linear span dense) always implies
+$\sigma(\mathcal{A}_h) = \mathcal{B}$ mod $\mu$ — see
+Corollary~\ref{cor:cyclic-implies-reconstruction}.
+\end{remark}
+
+\begin{theorem}[Reconstruction theorem]
+\label{thm:reconstruction}
+Let $(X, \mathcal{B}, \mu, T)$ be an invertible measure-preserving system and
+$h \in L^\infty(X, \mu)$.  The following are equivalent:
+\begin{enumerate}[label=(\roman*)]
+  \item $\mathcal{O}_h = \mathcal{B}$ modulo $\mu$;
+  \item $\mathcal{A}_h$ is dense in $L^2(X, \mu)$;
+  \item $\Phi_h : X \to \mathbb{R}^\mathbb{Z}$ is a measure-theoretic embedding:
+    $\Phi_h^{-1}(\mathcal{B}(\mathbb{R}^\mathbb{Z})) = \mathcal{B}$ modulo $\mu$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+\emph{(i) $\Leftrightarrow$ (ii).}
+Apply the density bridge (Lemma~\ref{lem:density-bridge}) with
+$\mathcal{A} = \mathcal{A}_h$ and $\sigma(\mathcal{A}_h) = \mathcal{O}_h$:
+$\overline{\mathcal{A}_h}^{L^2} = L^2(X, \mu)$ iff $\mathcal{O}_h = \mathcal{B}$
+mod $\mu$.
+
+\emph{(i) $\Leftrightarrow$ (iii).}
+By Definition~\ref{def:delay-map},
+$\mathcal{O}_h = \Phi_h^{-1}(\mathcal{B}(\mathbb{R}^\mathbb{Z}))$.
+So $\mathcal{O}_h = \mathcal{B}$ mod $\mu$ iff
+$\Phi_h^{-1}(\mathcal{B}(\mathbb{R}^\mathbb{Z})) = \mathcal{B}$ mod $\mu$,
+which is exactly condition~(iii).
+\end{proof}
+
+\begin{remark}[What ``measure-theoretic embedding'' means]
+\label{rem:embedding}
+Condition~(iii) says that $\Phi_h$ is \emph{almost everywhere injective} and
+the pullback $\sigma$-algebra is all of $\mathcal{B}$.  More precisely: since
+$\Phi_h^{-1}(\mathcal{B}(\mathbb{R}^\mathbb{Z})) = \mathcal{B}$ mod $\mu$, for
+any two sets $A, A' \in \mathcal{B}$ with $\mu(A \triangle A') > 0$ there exists
+a Borel set $E \subseteq \mathbb{R}^\mathbb{Z}$ with
+$\mu(\Phi_h^{-1}(E) \triangle A) = 0$ and
+$\mu(\Phi_h^{-1}(E) \triangle A') > 0$.  In measure-theoretic language,
+$\Phi_h$ induces an isomorphism of measure algebras
+$(X/\mu, \mathcal{B}/\mu) \cong (\mathbb{R}^\mathbb{Z}/(\Phi_h)_*\mu,
+\mathcal{B}(\mathbb{R}^\mathbb{Z})/(\Phi_h)_*\mu)$.
+
+The $T$-invariance of $\mu$ implies that $(\Phi_h)_*\mu$ is invariant under
+the bilateral shift $\sigma$ on $\mathbb{R}^\mathbb{Z}$, since
+$(\Phi_h(Tx))_n = h(T^{n+1}x) = (\sigma(\Phi_h(x)))_n$ for each $n$.  The
+dynamical system $(X, T, \mu)$ is therefore isomorphic to
+$(\mathbb{R}^\mathbb{Z}, \sigma, (\Phi_h)_*\mu)$ restricted to the image of
+$\Phi_h$.
+\end{remark}
+
+% ====================================================================
+\section{Cyclic vectors and Stone space identification}
+\label{sec:stone}
+
+\begin{definition}[Cyclic vector]
+\label{def:cyclic}
+The function $h \in L^2(X, \mu)$ is a \emph{cyclic vector} for $U_T$ if
+\[
+  \mathcal{H}_h
+  \;:=\;
+  \overline{\mathrm{span}}\!\bigl\{U_T^n h : n \in \mathbb{Z}\bigr\}
+  \;=\; L^2(X, \mu).
+\]
+\end{definition}
+
+\begin{corollary}[Cyclic implies reconstruction]
+\label{cor:cyclic-implies-reconstruction}
+If $h \in L^\infty(X, \mu)$ is a cyclic vector for $U_T$, then
+$\mathcal{O}_h = \mathcal{B}$ modulo $\mu$.
+\end{corollary}
+
+\begin{proof}
+Since $\mathcal{A}_h$ contains $\mathrm{span}\{h \circ T^n\} =
+\mathrm{span}\{U_T^n h\}$ as a subset, $\overline{\mathcal{A}_h}^{L^2}
+\supseteq \mathcal{H}_h = L^2$.  By the density bridge, $\mathcal{O}_h =
+\mathcal{B}$ mod $\mu$.
+\end{proof}
+
+\begin{remark}[The implication is strict]
+\label{rem:strict}
+The converse of Corollary~\ref{cor:cyclic-implies-reconstruction} fails in
+general: $\mathcal{O}_h = \mathcal{B}$ does not imply $h$ is cyclic.
+The doubling map example of Remark~\ref{rem:algebra-necessary} witnesses this.
+
+The cyclic vector condition asks for density of the \emph{linear span} of the
+orbit; reconstruction asks only for density of the \emph{algebra}.  For a bounded
+$h$, the linear span is contained in the algebra, so cyclicity is the stronger
+condition.
+
+The two conditions coincide precisely when $U_T$ has \emph{simple
+$L^2$-spectrum}: $L^2(X,\mu)$ is a cyclic $U_T$-module, meaning there exists
+some cyclic vector.  In this case, every generating observation $h$ (satisfying
+$\mathcal{O}_h = \mathcal{B}$) is automatically cyclic.  Simple spectrum is
+a generic property of ergodic transformations in the Baire category sense
+\cite{Halmos1944} but is not universal.
+\end{remark}
+
+The Stone space $\mathrm{St}(\mathcal{O}_h)$ of the observable algebra is the
+compact Hausdorff space whose points are ultrafilters on $\mathcal{O}_h$, with
+the natural Stone embedding $\iota : X \to \mathrm{St}(\mathcal{O}_h)$ sending
+$x$ to the principal ultrafilter $\{E \in \mathcal{O}_h : x \in E\}$.
+
+\begin{proposition}[Stone space identification]
+\label{prop:stone-id}
+Suppose $\mathcal{O}_h = \mathcal{B}$ modulo $\mu$.  Then $\iota$ is a
+measure-theoretic isomorphism: $\iota$ identifies the measure algebra
+$(X/\mu, \mathcal{B}/\mu)$ with
+$(\mathrm{St}(\mathcal{O}_h)/\iota_*\mu,
+\mathcal{B}(\mathrm{St}(\mathcal{O}_h))/\iota_*\mu)$.
+\end{proposition}
+
+\begin{proof}
+\emph{Injectivity mod $\mu$.}  Suppose $\iota(x) = \iota(x')$.  For any
+$E \in \mathcal{B}$ with $x \in E \not\ni x'$, find $F \in \mathcal{O}_h$
+with $\mu(E \triangle F) = 0$.  Since $x \in F$ and $\iota(x) = \iota(x')$,
+also $x' \in F$, so $x' \in (E \triangle F) \cup F^c$, placing $x'$ in a
+null set.  Hence $\iota$ is injective $\mu$-a.e.
+
+\emph{$\sigma$-algebra identification.}  The pullback $\iota^{-1}$ maps the
+Baire $\sigma$-algebra of $\mathrm{St}(\mathcal{O}_h)$ (generated by the
+clopen sets $[E] = \{u : E \in u\}$) to $\mathcal{O}_h = \mathcal{B}$ mod
+$\mu$.
+
+\emph{Measure recovery.}  Since $\mu$ is $\sigma$-additive on
+$\mathcal{O}_h = \mathcal{B}$, the collective exhaustion condition
+of~\cite{mahon_paper1} forces $\iota_*\mu$ to concentrate on the principal
+ultrafilters $\iota(X)$, so $\iota_*\mu$ is supported on the image and the
+measure algebras are identified.
+\end{proof}
+
+\noindent The Stone space introduced in~\cite{mahon_paper1} as a compact
+ambient space for deriving $\sigma$-additivity is, under the reconstruction
+condition, the state space $X$ itself.  The construction that began by seeking
+a compact completion of the sample space ends by recognising it as the object
+the observer was trying to recover.
+
+The classical Takens embedding theorem~\cite{Takens1981} reaches a related
+conclusion by a different route: for a $C^2$ diffeomorphism on a compact
+$d$-manifold and a generic smooth $h$, the finite-delay map
+$\Phi_h^{(k)}(x) = (h(x), h(Tx), \ldots, h(T^{k-1}x))$ is a diffeomorphic
+embedding into $\mathbb{R}^{2d+1}$ for $k \geq 2d+1$.  The reconstruction
+theorem here requires only measurability, uses all delays simultaneously, and
+replaces the dimension count with the algebraic density condition; in exchange,
+the embedding is measure-theoretic rather than topological.  On a compact
+manifold with generic smooth $h$, the orbit $\{h \circ T^n\}$ separates
+points, so Stone--Weierstrass gives $\mathcal{A}_h$ uniformly dense in $C(M)$
+and hence $L^2$-dense: the density condition holds and the two results are
+compatible.
+
+% ====================================================================
+\bibliographystyle{plain}
+\bibliography{references}

@@ -148,10 +148,10 @@ proved; density bridge and reconstruction theorem not yet formalized)
 
 ---
 
-### Paper IV — Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge
+### Paper III — Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge
 
 **What it asks:** Paper III establishes the reconstruction equivalence theoretically.
-Paper IV asks: what does it look like empirically, at what rate, and with what
+Paper III asks: what does it look like empirically, at what rate, and with what
 witnesses?
 
 **Three honest theorems:**
@@ -178,7 +178,7 @@ Obs. 9–12 closed 2026-04-06 (details in sketch).
 
 **Status:** Complete. LaTeX written 2026-04-06; bridge note integrated 2026-04-06.
 
-**LaTeX:** `papers/paper_iv/finite_sample_reconstruction.tex` — 16 pages, 8 sections,
+**LaTeX:** `papers/paper_iii/finite_sample_reconstruction.tex` — 16 pages, 8 sections,
 editorially polished 2026-04-24 (three passes complete). Sections: Introduction,
 Setup and Notation, Bias Bound and Conditional Variance, Concentration of the
 Empirical Witness, The Algebra Theorem, The Dynamics Theorem, The Conjunction
@@ -195,9 +195,9 @@ Theorem, Discussion.
 - Lemma 7.1 (algebra separation = metric separation for deterministic T)
 - Theorem 7.3 (Conjunction Theorem with three-part failure-mode analysis; Markov bridge)
 
-**Companion note:** `papers/paper_iv/notes/bridge_note.tex` — standalone 4-page note proving
+**Companion note:** `papers/paper_iii/notes/bridge_note.tex` — standalone 4-page note proving
 the conditional variance identity and the entropy characterisation (δ(L)→0 ⟺ H₂→∞)
-in full detail. Cited as `mahon_bridge` in Paper IV.
+in full detail. Cited as `mahon_bridge` in Paper III.
 
 **Open (named in §8):** polynomial mixing, d≤2s via localised Rademacher, (US)
 from first principles (Anosov case), stochastic T, sharp rates for L̂*,
@@ -220,7 +220,7 @@ Structured observations
                     predictive kernels Π_t; dynamics = prediction structure
     → [Paper III] → reconstruction: St(O_h) ≅ X when O_h = B(X) mod μ
                     density bridge closes the loop with Paper I
-    → [Paper IV]  → finite-sample: δ̂ stopping rule achieves minimax rate
+    → [Paper III]  → finite-sample: δ̂ stopping rule achieves minimax rate
                     three witnesses certify reconstruction from data alone
 ```
 
@@ -238,7 +238,7 @@ The four papers track a single object from four angles:
   algebra generation (Paper I) to $L^2$ density (Paper II). The Stone space built as
   a technical tool in Paper I reappears here as the object being reconstructed.
 
-- **Paper IV** (statistical / information-theoretic): the conditional variance identity
+- **Paper III** (statistical / information-theoretic): the conditional variance identity
   connects the algebraic error $\delta(L)$ to the geometry of unseparated pairs $R_L$
   and to the collision entropy $H_2(\nu_L)$. All three witnesses measure the same
   failure of separation.
@@ -248,7 +248,7 @@ made precise at each layer:
 - Paper I: events that never separate across refinements (failure of CE)
 - Paper II: identical predictive laws ($\Pi_t(x,\cdot) = \Pi_t(x',\cdot)$)
 - Paper III: same delay orbit ($\Phi_h(x) = \Phi_h(x')$)
-- Paper IV: same delay vector at lag $L$ ($(x,x') \in R_L$)
+- Paper III: same delay vector at lag $L$ ($(x,x') \in R_L$)
 
 The programme is complete when $(\mu\otimes\mu)(R_L) \to 0$: indistinguishability
 vanishes at all layers simultaneously.
@@ -276,9 +276,9 @@ Each paper identifies a single obstruction:
 |-------|------------|--------|
 | I | Lack of CE | Proved irreducible (Łoś + finite-cofinite counterexample) |
 | III | Lack of density ($\mathcal{O}_h \neq \mathcal{B}$ mod $\mu$) | Characterised by density bridge |
-| IV | Lack of fibre mixing | The Paper IV analogue of CE; irreducibility open |
+| IV | Lack of fibre mixing | The Paper III analogue of CE; irreducibility open |
 
-Fibre mixing is to Paper IV what CE is to Paper I: the minimal condition under which
+Fibre mixing is to Paper III what CE is to Paper I: the minimal condition under which
 the algebraic and information-theoretic witnesses are comparable. Both are strictly
 weaker than ergodicity. Whether fibre mixing is irreducible (not derivable from any
 structural condition) is the deepest open question in the programme.
@@ -392,7 +392,7 @@ with arXiv IDs once Paper I is live.
 - `delayQuerySystem.seqUpperDirected` sorry in `DelayEmbedding.lean` — deliberate
   scope note: the full delay system is NOT sequentially upper-directed. No action
   needed unless scope is widened.
-- Paper IV Lean formalization — not started; no timeline.
+- Paper III Lean formalization — not started; no timeline.
 
 **Open mathematical frontiers** (see `notes/programme/program_synthesis.md` for full dependency analysis):
 

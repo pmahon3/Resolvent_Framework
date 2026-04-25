@@ -14,12 +14,12 @@ Waiting on arXiv math.LO endorsement (email sent to Halpern).
 **Paper I** — ready. 12 pages, all routes proved, CE irreducibility established,
 prose and structure at submission quality. Blocked only by endorsement.
 
-**Papers II–IV** — editorially polished as of 2026-04-24. Full editorial passes
-complete on all three (voice, structure, hair removal). Page counts: II = 4 pages,
-III = 5 pages, IV = 16 pages. Paper IV additionally has Lemma 5.10 (Positive-fraction
-balance) integrating the fibre mixing investigation. Cross-reference bib entries
-(mahon_paper1, etc.) need updating with arXiv IDs once Paper I is live — that is
-the only remaining mechanical task before Papers II–IV can be submitted.
+**Papers II and III** — editorially polished and combined as of 2026-04-24.
+Papers II and III are: Paper II = 7-page combined dynamics+reconstruction paper
+(`papers/paper_ii/`); Paper III = 16 pages with Lemma 5.10 (Positive-fraction
+balance) and citations using `mahon_paper2`. Cross-reference bib entries
+(mahon_paper1, mahon_paper2) need updating with arXiv IDs once Paper I is live —
+that is the only remaining mechanical task before Papers II and III can be submitted.
 
 ---
 
@@ -32,9 +32,9 @@ the only remaining mechanical task before Papers II–IV can be submitted.
 **Phase 1 (on endorsement):** Upload companion note → get arXiv ID → update
 `MahonCE2026` in `references.bib` → upload Paper I.
 
-**Phase 2:** Update cross-reference bib entries in Papers II–IV with arXiv IDs
-from Phase 1. Then submit Papers II–IV to arXiv in sequence (II → III → IV).
-No other editorial work needed — all four papers are polished.
+**Phase 2:** Update cross-reference bib entries in Papers II and III with arXiv IDs
+from Phase 1 (`mahon_paper1` → actual arXiv ID). Then submit Paper II and Paper III
+to arXiv in sequence. No other editorial work needed — both are polished.
 
 ---
 
@@ -106,21 +106,19 @@ directed system, query system
 
 ---
 
-## Papers II, III, IV — deferred pending editorial revision
+## Papers II and III — deferred pending Phase 2
 
 These papers are not tracked at the task level here until Phase 2 begins.
 For reference, the proposed arXiv categories and MSC classes are recorded below
 but should be treated as provisional.
 
-### Paper II — "Dynamics from Probability"
+### Paper II — "Dynamics and Reconstruction from Observation"
+File: `papers/paper_ii/dynamics_and_reconstruction.tex` (7 pages)
 arXiv: `math.DS` primary; cross-list `math.FA`, `math.PR`
-MSC: `37A30` (primary); `47D06`, `60J05`, `28A99`
+MSC: `37A30` (primary); `47D06`, `60J05`, `37A05`, `28A60`, `06E15`, `46E30`
 
-### Paper III — "Reconstruction from Observation"
-arXiv: `math.DS` primary; cross-list `math.FA`, `math.PR`
-MSC: `37A05` (primary); `28A60`, `06E15`, `37A30`, `46E30`
-
-### Paper IV — "Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge"
+### Paper III — "Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge"
+File: `papers/paper_iii/finite_sample_reconstruction.tex` (16 pages)
 arXiv: `math.ST` primary; cross-list `math.DS`, `math.PR`
 MSC: `62G08` (primary); `37A05`, `62M10`, `28A60`, `94A17`
 
@@ -132,8 +130,7 @@ MSC: `62G08` (primary); `37A05`, `62M10`, `28A60`, `94A17`
 |-------|---------------|--------|
 | Companion note | *APAL* (Annals of Pure and Applied Logic) | *MLQ*, *NDJFL* |
 | I | *Proceedings of the London Mathematical Society* | *Journal of Theoretical Probability* |
-| II | *Ergodic Theory and Dynamical Systems* | *Journal of Functional Analysis* |
-| III | *Ergodic Theory and Dynamical Systems* | *Nonlinearity* |
+| II-III | *Ergodic Theory and Dynamical Systems* | *Journal of Functional Analysis* |
 | IV | *Annals of Statistics* | *Bernoulli* |
 
 ---
@@ -148,4 +145,4 @@ MSC: `62G08` (primary); `37A05`, `62M10`, `28A60`, `94A17`
 - [ ] License: CC BY 4.0
 - [ ] After upload: check compiled PDF on arXiv before announcing
 - [ ] After companion note ID received: update `MahonCE2026` in `references.bib`
-- [ ] After Paper I ID received: update `mahon_paper1` in downstream refs (Papers II–IV)
+- [ ] After Paper I ID received: update `mahon_paper1` in downstream refs (Papers II and III)

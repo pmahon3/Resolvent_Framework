@@ -8,7 +8,7 @@ type: project
 
 **Candidate title:** *Interaction from Observation: An Observational Theory of Interaction Ecologies*
 
-This is a new programme inspired by the Observable Dynamics Programme, not part of the current four-paper arc. The four-paper series is structurally closed. This direction instantiates the same architectural ideas for a genuinely different object: interacting systems observed through joint query families.
+This is a new programme inspired by the Structure from Observationme, not part of the current four-paper arc. The four-paper series is structurally closed. This direction instantiates the same architectural ideas for a genuinely different object: interacting systems observed through joint query families.
 
 ---
 

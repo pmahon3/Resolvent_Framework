@@ -1,4 +1,4 @@
-# Observable Dynamics Program — Overview
+# Structure from Observation — Overview
 
 ## The Central Question
 

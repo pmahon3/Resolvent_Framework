@@ -1,6 +1,6 @@
 # QuerySystem — Lean 4 Formalization
 
-Lean 4 / Mathlib formalization of the **Observable Dynamics Program**:
+Lean 4 / Mathlib formalization of the **Structure from Observation**:
 four papers showing that probability, dynamics, reconstruction, and their
 finite-sample witnesses follow from coherent structured observation.
 

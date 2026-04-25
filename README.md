@@ -1,4 +1,4 @@
-# Observable Dynamics Program
+# Structure from Observation
 
 This repository develops a mathematical programme showing that probability,
 dynamics, reconstruction, and their finite-sample signatures are not

@@ -1,9 +1,8 @@
 \maketitle
 
 \begin{abstract}
-Starting from a $\sigma$-additive probability measure on an observable algebra —
-the object constructed in~\cite{mahon_paper1} from coherent structured observations
-satisfying collective exhaustion — this paper derives two structures that are often
+Starting from a $\sigma$-additive probability measure on an observable
+algebra~\cite{mahon_paper1}, this paper derives two structures that are often
 assumed: the dynamics of prediction, and the recoverability of the state space.
 
 Making prediction precise forces the introduction of the predictive kernel
@@ -30,9 +29,9 @@ if the delay algebra $\mathcal{A}_h$ is $L^2$-dense, if and only if $\Phi_h$ is 
 measure-theoretic embedding.  The bridge between the first two conditions is a
 general lemma: for any subalgebra $\mathcal{A} \subseteq L^\infty$ containing $1$,
 the $L^2$-closure of $\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$.
-When reconstruction holds, the compact Stone space of~\cite{mahon_paper1} —
-introduced there as a technical device for $\sigma$-additivity — is identified
-with $X$ itself.
+When reconstruction holds, the compact Stone space~\cite{mahon_paper1} —
+built as a completion of the sample space for deriving $\sigma$-additivity —
+is identified with $X$ itself.
 \end{abstract}
 
 \begin{quote}\small
@@ -59,11 +58,10 @@ The first is: given a current observation $Q : \Omega \to \alpha$ and a future
 observation $F : \Omega \to \beta$, what does an observer predict about $F$ given
 $Q$?  The dynamics, if there are any, should follow from the answer — not precede
 it.  Making prediction precise immediately requires a $\sigma$-additive probability
-measure on the observable algebra.  That measure is not an extra assumption.  It is
-what~\cite{mahon_paper1} constructs: a coherent family of finitely additive charges
-on a directed system of observable algebras extends to a genuine probability measure
-exactly when it satisfies collective exhaustion, the condition ruling out persistent
-mass on globally vanishing events.
+measure on the observable algebra.  That measure is not an extra assumption: a coherent family of finitely additive
+charges on a directed system of observable algebras extends to a genuine probability
+measure exactly when it satisfies collective exhaustion~\cite{mahon_paper1}, the
+condition ruling out persistent mass on globally vanishing events.
 
 Once the measure exists, the canonical answer to the prediction question is the
 regular conditional distribution of $F$ given $Q$: the unique Markov kernel
@@ -552,9 +550,9 @@ ultrafilters $\iota(X)$, so $\iota_*\mu$ is supported on the image and the
 measure algebras are identified.
 \end{proof}
 
-\noindent The Stone space introduced in~\cite{mahon_paper1} as a compact
-ambient space for deriving $\sigma$-additivity is, under the reconstruction
-condition, the state space $X$ itself.  The construction that began by seeking
+\noindent The Stone space~\cite{mahon_paper1} — built as a compact ambient
+space for deriving $\sigma$-additivity — is, under the reconstruction condition,
+the state space $X$ itself.  The construction that began by seeking
 a compact completion of the sample space ends by recognising it as the object
 the observer was trying to recover.
 
@@ -570,6 +568,11 @@ manifold with generic smooth $h$, the orbit $\{h \circ T^n\}$ separates
 points, so Stone--Weierstrass gives $\mathcal{A}_h$ uniformly dense in $C(M)$
 and hence $L^2$-dense: the density condition holds and the two results are
 compatible.
+
+Reconstruction is an exact asymptotic condition: it asks whether the delay
+algebra generates all of $\mathcal{B}$ in the limit of all lags, and says
+nothing about rates, finite approximations, or what a finite time series can
+certify.  Those questions are the subject of what follows.
 
 % ====================================================================
 \ifstandalone

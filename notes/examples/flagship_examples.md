@@ -11,6 +11,60 @@ Each example follows the same pipeline:
 
 ---
 
+## The profinite observational template
+
+Examples A and C are technically analogous at a deep level. Both instantiate
+the same underlying scheme:
+
+> **Finite Boolean quotient observations → direct-limit algebra → Stone/inverse-limit
+> completion → global object recovered from coherent finite prefixes.**
+
+More precisely: in both examples the state (a possible world, or a point of
+the Cantor set) is not primitive. What is primitive is a countable family of
+sharp binary distinctions. At each finite stage only a finite prefix is
+visible; the global object is the coherent completion of all finite prefixes —
+the Stone space of the direct-limit Boolean algebra, equivalently the inverse
+limit of the finite discrete quotient spaces.
+
+This is a **profinite observational scheme**. Both examples are dual exemplars
+of it, applied at different layers of the programme:
+
+| | Example C | Example A |
+|---|---|---|
+| **Basic observables** | Propositional sentences $\phi_1, \phi_2, \ldots$ | Ternary digits of $x$ via delay orbit |
+| **Finite stage** | Lindenbaum subalgebra of $\{\phi_1,\ldots,\phi_n\}$ | Cylinder $\sigma$-algebra at lag $L$ |
+| **Global point** | Complete consistent extension / ultrafilter | Coherent digit sequence / point of $\mathcal{C}$ |
+| **Clopen sets** | Cylinder sets over finite propositional prefixes | Cantor cylinder sets at generation $L$ |
+| **Full space** | Stone space of Lindenbaum algebra | Cantor set as inverse limit |
+| **Layer** | Probability / admissibility (Part I) | Reconstruction / state-space (Part II) |
+| **Key theorem** | CE → σ-additive measure on possible worlds | O_h = B mod μ → state-space recovery |
+
+**Why the analogy holds.** The Stone space of any countable atomless Boolean
+algebra is homeomorphic to the Cantor space. If the Lindenbaum algebra of the
+propositional theory is countable and atomless, its Stone space is
+Cantor-like. Example A is explicitly Cantor-coded from the start. So C is the
+logical/semantic realisation of a Cantor-type Stone space; A is the
+dynamical/geometric realisation of the same.
+
+**Where the analogy breaks.**
+1. *Dynamics*: A has a transformation $T$ and a reconstruction question tied
+   to orbit structure. C is static.
+2. *Admissibility*: C is about CE and the passage from finite additivity to
+   σ-additivity. A is about whether the observable algebra recovers the full
+   Borel structure. The key theorems are different.
+
+**Consequence for presentation.** Examples A and C should be explicitly
+cross-referenced so a reader who sees C in Paper I already has the profinite
+template in mind when they encounter A in Paper II. In the combined document,
+a brief framing note can name the template once before the first example
+appears. In standalone papers, each carries a one-sentence pointer to the
+other. The drafting goal is: build both examples toward this unified
+presentation from the start.
+
+---
+
+---
+
 ## Example C — Paper I
 ### A Propositional Theory as a Query System
 

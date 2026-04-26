@@ -437,6 +437,55 @@ The obstruction in Proposition~\ref{I:prop:ce-irred} is not an artifact of the q
 
 Finite coherence therefore underdetermines probability in a logically precise sense.  Foundational disputes about probability are not terminological; they concern which extra structure licenses the passage from finite coherence to probability, and some such structure is unavoidable.  CE is the condition adopted here; the companion note \cite{MahonCE2026} gives the full general proof.
 
+\begin{example}[Propositional probability as a query system]
+\label{I:ex:propositional}
+The framework is not specific to empirical measurement.  Let $T$ be a consistent
+countable propositional theory with sentences $\phi_1, \phi_2, \ldots$  At level
+$n$, let
+\[
+  \mathcal{E}_n \;=\; \mathrm{Lind}(\phi_1,\ldots,\phi_n)
+\]
+be the finite Boolean algebra of $T$-equivalence classes of Boolean combinations
+of $\phi_1,\ldots,\phi_n$.  Its atoms are the maximal consistent truth-value
+assignments to $\phi_1,\ldots,\phi_n$ compatible with $T$.  For $n \leq m$,
+restricting an assignment on $\phi_1,\ldots,\phi_m$ to its first $n$ sentences
+gives the refinement map $\pi_{nm}$.  The canonical instantiation is
+\[
+  \Omega \;=\; \varprojlim_n\, \mathrm{atoms}(\mathcal{E}_n)
+  \;=\; \{\text{complete consistent extensions of } T\},
+\]
+and $\mathrm{eval}_n(\omega)$ is the restriction of a complete extension $\omega$
+to $\{\phi_1,\ldots,\phi_n\}$.  Surjectivity of each $\mathrm{eval}_n$ follows
+from the Lindenbaum extension lemma: every maximal consistent assignment to
+$\phi_1,\ldots,\phi_n$ extends to a complete consistent extension of $T$.
+
+A compatible family of normalised charges $\{\nu_n\}$ on $\{\mathcal{E}_n\}$ is
+precisely a coherent system of finite-level probability assignments.  A decreasing
+sequence of cylinder events $\mathrm{Cyl}(n_k, A_k)$ with $n_k \nearrow \infty$
+has empty intersection in $\Omega$ if and only if the corresponding propositional
+conditions $\alpha_k \in \mathcal{E}_{n_k}$ are jointly unsatisfiable over $T$:
+no complete extension satisfies all of them simultaneously.  CE requires that the
+charges drain away in this case,
+\[
+  \nu_{n_k}(\alpha_k) \;\longrightarrow\; 0,
+\]
+ruling out persistent mass on conditions that collectively vanish.
+Theorem~\ref{I:thm:sp1} therefore yields a unique $\sigma$-additive probability
+measure on the space of complete consistent extensions of $T$ exactly when the
+charge family satisfies CE.
+\end{example}
+
+\begin{remark}
+Under Stone duality, the Stone space of $\varinjlim_n \mathcal{E}_n$ is the space
+of possible worlds: complete consistent extensions appear as the principal
+ultrafilters, while non-principal ultrafilters are ideal limit points --- internally
+coherent but not realised by any complete extension of $T$.  By
+Proposition~\ref{I:prop:B2}, CE is exactly the condition that no mass escapes to
+these ideal points.  CE is thus not a condition tailored to empirical observation;
+it is the general admissibility principle separating coherent finite-level
+probability assignments from honest probability on the completed space of possible
+worlds.
+\end{remark}
 
 % ------------------------------------------------------------------
 \section{Stone realization from finitely additive data}

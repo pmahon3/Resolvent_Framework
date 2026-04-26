@@ -89,42 +89,194 @@ result (Gaifman/Scott-Krauss) as a consequence.
 - **Compatibility** of the family $\{\nu_n\}$ is the standard coherence
   condition from probability logic (de Finetti/Carnap).
 
-**CE in this setting.**
+**Query system axiom verification.**
 
-CE says: if a sentence $\phi$ is not implied by any finite conjunction of
-axioms, it cannot carry persistent probability mass. More precisely: if
-$\nu_n(\phi) \not\to 0$ along any cofinal sequence, then $\phi$ must be
-implied at some finite level. This is a precise bridge between syntactic
-unprovability and probabilistic negligibility.
+- **Index set and outcome spaces.** Take $\iota = \mathbb{N}$ ordered by $\leq$.
+  At level $n$, the outcome space $O_n$ is the set of atoms of
+  $\mathrm{Lind}(\phi_1,\ldots,\phi_n)$ — equivalently, the set of maximal
+  consistent truth-value assignments to $\{\phi_1,\ldots,\phi_n\}$ (those
+  consistent with $T$). Each $O_n$ is finite (at most $2^n$ atoms).
 
-**The Stone space.**
+- **Refinement maps.** For $n \leq m$, the map $\pi_{nm} : O_m \to O_n$ sends
+  a truth-value assignment to $\{\phi_1,\ldots,\phi_m\}$ to its restriction to
+  $\{\phi_1,\ldots,\phi_n\}$. This is surjective (by $T$-consistency) and the
+  refinement maps compose correctly.
 
-The Stone space of $\mathrm{Lind}(\mathcal{L})$ is the space of
-**ultrafilters** of the Lindenbaum algebra — equivalently, the space of
-**complete consistent extensions** of $T$, i.e. the space of possible worlds.
-The probability measure that emerges from CE + the Carathéodory/Stone route
-is a measure on possible worlds.
+- **Surjective Evaluation.** The instantiation $\Omega$ = space of complete
+  consistent extensions of $T$ (ultrafilters of $\mathrm{Lind}(\mathcal{L})$).
+  Every atom of $\mathrm{Lind}(\phi_1,\ldots,\phi_n)$ is extended to a complete
+  consistent extension by Zorn's lemma applied to $T$, so $\mathrm{eval}_n :
+  \Omega \to O_n$ is surjective. ✓
 
-**Connection to classical results.**
+- **Directed refinements.** The index $\mathbb{N}$ with $\leq$ admits sequential
+  common refinements (upper bounds) trivially. Common coarsenings: $\mathbb{N}$
+  is totally ordered, so any $n, m$ have lower bound $\min(n,m)$. ✓
 
-This recovers and generalises the **Gaifman/Scott-Krauss theorem** on
-probability logic: a coherent probability assignment on a propositional
-language extends to a $\sigma$-additive measure on the space of complete
-extensions. In the framework, this is a special case of the Observable
-Extension Theorem; CE is the exact admissibility condition.
+- **Discriminability / separating points.** Two distinct $\omega, \omega' \in
+  \Omega$ are distinct complete extensions, so they disagree on some $\phi_k$,
+  and hence $\mathrm{eval}_k(\omega) \neq \mathrm{eval}_k(\omega')$. ✓
+
+*All query system axioms are satisfied.*
+
+**CE in this setting — precise formulation.**
+
+Each $\mathcal{E}_n = \mathrm{Lind}(\phi_1,\ldots,\phi_n)$ is a *finite* Boolean
+algebra, so any decreasing sequence within a single level stabilizes. CE is
+therefore trivially satisfied for sequences within a fixed level.
+
+The substantive condition arises from the cylinder algebra $\mathcal{C}$ across
+levels. A decreasing sequence of cylinders $\mathrm{Cyl}(n_k, A_k)$ with
+$A_k \in \mathcal{E}_{n_k}$ and $n_k \nearrow \infty$ has empty intersection in
+$\Omega$ iff no complete consistent extension satisfies all the $A_k$. Writing
+$\alpha_k$ for a representative formula of the equivalence class $A_k$:
+
+> **Infinitary inconsistency:** $T \cup \{\alpha_1, \alpha_2, \ldots\}$ is
+> inconsistent (no world satisfies all $\alpha_k$).
+
+CE requires: if the $\alpha_k$ are jointly unsatisfiable over $T$, then
+$\nu_{n_k}(\alpha_k) \to 0$.
+
+Equivalently: **the probability charge family is tight on the Stone space** —
+no persistent mass can concentrate on events that collectively vanish. In
+topological terms, CE is exactly inner regularity of $\hat{\nu}$ with respect to
+the compact open sets (cylinder sets) of the Stone space
+$\mathrm{St}(\mathrm{Lind}(\mathcal{L}))$.
+
+**CE is not ω-consistency — they are orthogonal.**
+
+ω-consistency is a condition on an *arithmetic theory* $T$ (not $\mathcal{L}$):
+$T$ is ω-consistent if it does not prove $\exists x \neg P(x)$ while separately
+proving $P(\bar{n})$ for every numeral $\bar{n}$. This is a syntactic condition
+on first-order arithmetic theories, and has no direct analogue in propositional
+probability logic (propositional logic has no quantifiers, no numerals, no
+natural-number structure).
+
+CE is a condition on the *charge family* $\{\nu_n\}$, not on $T$. It does not
+say anything about what $T$ proves. A consistent propositional theory $T$
+can be held fixed while the charge family $\{\nu_n\}$ satisfies or fails CE
+independently.
+
+The *closest* syntactic analogue: CE is to probability logic what
+$\omega$-completeness is to arithmetic (every instance provable implies the
+universal statement) — both are "no mass escapes to infinity" conditions —
+but the exact structural parallel is to **tightness**, not ω-consistency.
+
+**Precise connection to tightness.**
+
+Let $S = \mathrm{St}(\mathrm{Lind}(\mathcal{L}))$ be the Stone space (= space
+of complete consistent extensions, with cylinder sets as a basis of clopen sets).
+The charge family $\{\nu_n\}$ determines a Baire measure $\hat{\nu}$ on $S$ via
+the Stone route. Then:
+
+> **CE ⟺ $\hat{\nu}$ is supported on $\mathrm{pure}(\Omega)$
+> ⟺ $\hat{\nu}$ is tight on $S$
+> ⟺ the purely finitely additive part of the charge vanishes.**
+
+In the propositional setting, $\mathrm{pure}(\Omega)$ = the set of principal
+ultrafilters = the set of complete consistent extensions themselves (since
+$\Omega$ embeds into $S$ as the principal ultrafilters). CE says: no mass lives
+on non-principal ultrafilters, i.e., no mass "escapes to the boundary" of the
+compactification.
+
+This is exactly the **Gaifman/Scott-Krauss tightness condition**.
+
+**Connection to classical results — attribution and comparison.**
+
+**Attribution note (important).** The label "Gaifman/Scott-Krauss theorem" used
+earlier in these notes is not well-sourced and should not appear in the paper.
+Specifically:
+
+- Gaifman (1964, *Israel J. Math.*) addresses coherent probabilities on
+  **first-order** quantifier-free sentences — a different setting.
+- Scott–Krauss (1966) assigns probabilities to logical formulas but does not
+  appear to state the propositional extension theorem in the form we need.
+- The companion note (§1) cites Hoover (1978), Keisler (1985), and
+  Fagin–Halpern–Megiddo (1990) as treating non-axiomatizability of σ-additivity
+  as background knowledge — these are the actual probability logic sources in the
+  bib. The extension theorem itself (coherent charge extends to σ-additive measure
+  on complete extensions iff tight) is implicit in this literature but not stated
+  as a single theorem with a single owner.
+
+**The correct framing for the paper.** Rather than attributing to Gaifman/Scott-Krauss
+the example should be framed as follows:
+
+> The extension theorem recovered is a propositional instance of a standard
+> result in probability logic — that a coherent charge on a propositional language
+> extends to a σ-additive measure on the space of complete consistent extensions
+> exactly when it is tight on that space (see Hoover 1978, Keisler 1985). In the
+> framework, this is a special case of the CE Characterisation Theorem: CE is the
+> admissibility condition, identified precisely and shown to be non-derivable.
+
+The payoff of the example is not "we recover Theorem X due to Y." It is:
+
+> **CE reclassifies a classical condition.** What the probability logic literature
+> imposes as a standing hypothesis (tightness / coherence on complete extensions)
+> or derives by a compactness argument is here named, isolated as the sole
+> admissibility condition, and shown to be logically unavoidable.
+
+This is the stronger and more accurate claim.
+
+**The framework result, spelled out.**
+
+The CE Characterisation Theorem (Theorem 4.3 of Paper I) specialises as follows
+in the propositional setting:
+
+> **Propositional Extension Theorem.** Let $\mathcal{L}$ be a countable
+> propositional language, $T$ a consistent theory, and $\{\nu_n\}$ a compatible
+> family of probability charges on the finite Lindenbaum subalgebras
+> $\{\mathrm{Lind}(\phi_1,\ldots,\phi_n)\}$. Then $\{\nu_n\}$ extends to a unique
+> $\sigma$-additive probability measure on $(\Omega, \sigma(\mathcal{C}))$ — where
+> $\Omega$ is the space of complete consistent extensions of $T$ — if and only if
+> the family satisfies CE.
+
+Under the Stone identification, $(\Omega, \sigma(\mathcal{C}))$ is identified with
+the space of complete consistent extensions equipped with the Baire $\sigma$-algebra
+generated by the cylinder sets (= the clopen sets of $\mathrm{St}(\mathrm{Lind}(\mathcal{L}))$
+restricted to the principal ultrafilters). CE is the tightness condition.
+
+**One subtlety about compactness.** The Stone space $S =
+\mathrm{St}(\mathrm{Lind}(\mathcal{L}))$ is compact, so every regular Borel
+measure on $S$ is automatically tight. The issue is that a finitely additive
+charge $\nu$ on $\mathcal{C}$ does *not* automatically correspond to a regular
+Borel measure on $S$: it may have a non-zero purely finitely additive component
+$\nu_p$, which sits on non-principal ultrafilters and cannot be captured by any
+regular Borel measure on $\Omega$. CE rules out $\nu_p \neq 0$. Once CE holds,
+$\nu$ is $\sigma$-additive, the corresponding Borel measure on $S$ is regular,
+and compactness gives tightness for free — but CE is logically prior to that
+conclusion, not a consequence of it. Compactness of $S$ cannot substitute for CE,
+because compactness operates on the extension $S$, not on the canonical
+instantiation $\Omega$.
+
+**Principal ultrafilters — a precision note for the paper.** The notes have
+written "$\mathrm{pure}(\Omega)$ = the set of principal ultrafilters = the set of
+complete consistent extensions." In paper prose, this identification needs one
+careful sentence: $\Omega$ embeds into $S$ via $\omega \mapsto \{A \in \mathcal{C}
+: \omega \in A\}$, sending each realised state to its principal ultrafilter; the
+image of this embedding is $\mathrm{pure}(\Omega)$. CE says the measure is
+supported on this image — i.e., on realised states, not ideal limit points. The
+identification is then a homeomorphism from $\Omega$ (with the subspace topology
+from $\sigma(\mathcal{C})$) onto $\mathrm{pure}(\Omega) \subset S$.
 
 **What needs verification.**
 
-- [ ] Confirm that the Lindenbaum algebra construction fits the query system
-  axioms (Surjective Evaluation, Discriminability, directed refinements)
-- [ ] Make the CE condition explicit in terms of the syntactic/semantic
-  structure of $T$
-- [ ] Identify exactly which classical theorem is recovered and state the
-  comparison precisely
-- [ ] Check: does CE here reduce to $\omega$-consistency or something weaker?
+- [x] Confirm Lindenbaum construction fits query system axioms — done above ✓
+- [x] CE explicit form in propositional setting — done above: cross-level
+  cylinder sequences, joint unsatisfiability, tightness ✓
+- [x] CE vs. ω-consistency — orthogonal; CE is a condition on the charge family,
+  not the theory ✓
+- [x] Attribution — "Gaifman/Scott-Krauss" dropped; correct framing is Hoover
+  (1978) / Keisler (1985) for the background; our contribution is naming CE as
+  the admissibility condition and proving non-derivability ✓
+- [ ] **Remaining:** verify Hoover (1978) §2–3 states something that our theorem
+  subsumes, or confirm the extension theorem is genuinely implicit rather than
+  explicit in that literature — this determines whether the paper says "recovers"
+  or "supplies an explicit proof of" the propositional extension result.
 
-**Candidate tex home.** A worked example or remark in §4 or §6 of Paper I,
-after the CE definition and before or within the bridge section.
+**Candidate tex home.** End of §4 (Collective Exhaustion), after the metatheorem
+subsection (§4.4), before §5 (Stone realization). This positions the example to
+ground the abstract CE machinery in a concrete logical setting immediately after
+the non-derivability result, and before the Stone route is developed. The Stone
+identification then feels earned when it arrives in §5.
 
 ---
 
@@ -132,78 +284,81 @@ after the CE definition and before or within the bridge section.
 ### The Cantor Set: Reconstruction Without Smoothness
 
 **Motivation.** Takens's theorem requires a $C^2$ diffeomorphism on a smooth
-compact manifold. The reconstruction theorem here requires only measurability.
-The Cantor set is the sharpest possible demonstration: it is compact, has no
-smooth structure, and has Hausdorff dimension $\log 2/\log 3 \approx 0.63$
-(not an integer). Takens is simply inapplicable. The reconstruction theorem
-works anyway.
+compact manifold and gives a delay embedding bound $2d+1$ where $d$ is the
+manifold dimension. The Cantor set violates every hypothesis: it is not a
+manifold, it has no smooth structure, and its Hausdorff dimension
+$\log 2/\log 3 \approx 0.63$ is not an integer. Takens is simply inapplicable —
+not merely non-optimal but without a domain of application here. The
+reconstruction theorem of Paper II works anyway, because it is built on
+measurable observable algebras rather than differential geometry.
 
-**The construction.**
+---
 
-- State space: $X = \mathcal{C}$ (middle-thirds Cantor set) with the
-  standard **Cantor measure** $\mu_{\mathcal{C}}$ (the unique self-similar
-  measure with equal weights $1/2$ on each sub-interval).
-- Transformation: $T(x) = 2x \mod 1$ restricted to $\mathcal{C}$
-  (well-defined since $\mathcal{C}$ is $T$-invariant).
-- Observable: $h(x) = x$ (identity on $\mathcal{C} \subset [0,1]$).
+### Paper-ready form
 
-**The claim.**
+**Move 1 — Setup.**
 
-The orbit $\{h \circ T^n : n \geq 0\}$ generates $\mathcal{B}(\mathcal{C})$
-modulo $\mu_{\mathcal{C}}$, so reconstruction holds: $\mathcal{O}_h =
-\mathcal{B}(\mathcal{C})$ mod $\mu_{\mathcal{C}}$.
+- State space: $\mathcal{C}$ (middle-thirds Cantor set), with the **Cantor
+  measure** $\mu_\mathcal{C}$ — the pushforward of the fair-coin product
+  measure $\nu = (\frac{1}{2}\delta_0 + \frac{1}{2}\delta_2)^\mathbb{N}$ under
+  the ternary coding map $\pi(d_1,d_2,\ldots) = \sum_{k \geq 1} d_k/3^k$.
+- Transformation: the **shift map** $S : \mathcal{C} \to \mathcal{C}$,
+  \[
+    S(x) = \begin{cases} 3x & x \in \mathcal{C} \cap [0,\tfrac{1}{3}], \\ 3x-2 & x \in \mathcal{C} \cap [\tfrac{2}{3},1]. \end{cases}
+  \]
+  The system $(\mathcal{C}, \mu_\mathcal{C}, S)$ is measurably conjugate to
+  the Bernoulli shift $(\{0,2\}^\mathbb{N}, \nu, \sigma)$ via $\pi$; in
+  particular $S$ is $\mu_\mathcal{C}$-invariant and ergodic.
+- Observable: $h(x) = x$.
 
-**Sketch of argument.**
+**Move 2 — Symbolic interpretation.**
 
-Points of $\mathcal{C}$ are identified by their ternary expansions using only
-digits $\{0, 2\}$. The map $T$ shifts the ternary expansion. The delay
-vectors $(h(x), h(Tx), \ldots, h(T^L x))$ record the first $L+1$ ternary
-digits of $x$ — so at lag $L$, the delay map distinguishes points that differ
-in their first $L+1$ digits. Since $\mu_{\mathcal{C}}$-a.e. pair of distinct
-points differs at some finite digit, $\mathcal{O}_h = \mathcal{B}(\mathcal{C})$
-mod $\mu_{\mathcal{C}}$.
+For $x = \pi(d_1,d_2,\ldots)$, the shift gives $S^n x = \pi(d_{n+1},d_{n+2},\ldots)$.
+Since every point of $\mathcal{C}$ lies in $[0,\frac{1}{3}] \cup [\frac{2}{3},1]$,
+\[
+  d_{n+1} = 0 \iff S^n x \in \bigl[0,\tfrac{1}{3}\bigr], \qquad
+  d_{n+1} = 2 \iff S^n x \in \bigl[\tfrac{2}{3},1\bigr],
+\]
+so $h \circ S^n$ recovers the $(n+1)$-st ternary digit of $x$. The delay
+vector $\Phi_h^{(L)}(x) = (x, Sx, \ldots, S^L x)$ reads off digits
+$d_1,\ldots,d_{L+1}$. Its fibres are exactly the generation-$(L+1)$ cylinder
+sets
+\[
+  F_z = \{x \in \mathcal{C} : d_k(x) = z_k,\; 1 \leq k \leq L+1\},
+  \quad z \in \{0,2\}^{L+1},
+\]
+each carrying $\mu_\mathcal{C}(F_z) = 2^{-(L+1)}$, so
+\[
+  \mathcal{O}_h^{(L)} = \sigma(\Phi_h^{(L)}) = \sigma\{F_z : z \in \{0,2\}^{L+1}\}.
+\]
 
-**The approximation error $\delta(L)$.**
+**Move 3 — Reconstruction.**
 
-At lag $L$, $\mathcal{O}_h^{(L)}$ is the $\sigma$-algebra generated by the
-first $L+1$ ternary digits — equivalently, the $\sigma$-algebra of the
-$2^L$ Cantor cylinder sets at generation $L$, each carrying
-$\mu_{\mathcal{C}}$-measure $2^{-L}$.
+Since $\mu_\mathcal{C}$-a.e. pair of distinct points differs at some finite
+digit, the algebras $\mathcal{O}_h^{(L)}$ separate points $\mu_\mathcal{C}$-a.e.
+as $L \to \infty$, giving
+\[
+  \mathcal{O}_h = \sigma\!\Bigl(\bigcup_{L \geq 0} \mathcal{O}_h^{(L)}\Bigr)
+  = \mathcal{B}(\mathcal{C}) \quad \text{mod } \mu_\mathcal{C}.
+\]
+Reconstruction holds, and the finite-lag observable algebras refine to the
+full Borel structure at exponential rate.
 
-The worst-approximable sets $S$ are those that cut across level-$L$ cylinders
-non-trivially. The best approximation error for such $S$ is of order
-$\mu_{\mathcal{C}}(\text{one cylinder}) = 2^{-L}$.
+**Move 4 — Contrast with Takens.**
 
-So $\delta(L) \sim 2^{-L}$, with no smoothness index required.
+$\mathcal{C}$ is not a smooth manifold: it is compact and zero-dimensional,
+with Hausdorff dimension $\log 2/\log 3 \approx 0.63$. The differential-geometric
+hypotheses of Takens's theorem — $C^2$ ambient dynamics, integer dimension $d$,
+embedding bound $2d+1$ — are unavailable before one even asks about regularity
+of $S$. Takens has no domain of application here. The reconstruction theorem
+applies because it requires only that the observable algebra be measurably
+generated; smoothness plays no role.
 
-**Note:** an earlier sketch claimed $(2/3)^L$, confusing the geometric ratio
-of the Cantor construction (middle-thirds removal) with the measure-theoretic
-approximation rate, which is governed by cylinder measure under $\mu_{\mathcal{C}}$.
-The correct rate is $2^{-L}$. This needs formal verification.
-
-**What Takens cannot say.**
-
-- $\mathcal{C}$ is not a manifold: no $C^2$ structure, no tangent space,
-  no dimension in the classical sense.
-- The doubling map on $\mathcal{C}$ is not a diffeomorphism.
-- Takens's $2d+1$ delay bound is meaningless here ($d$ is not an integer).
-
-**What needs verification.**
-
-- [ ] Confirm $T$-invariance of $\mu_{\mathcal{C}}$ under the doubling map
-- [ ] Make the ternary digit argument precise (measurability of the
-  separation events)
-- [ ] Compute $\delta(L)$ explicitly and verify the $2^{-L}$ decay rate
-      (rate is governed by cylinder measure $\mu_{\mathcal{C}}(F_z) = 2^{-L}$,
-      not by the $(2/3)^L$ geometric ratio of the Cantor construction)
-- [ ] Check: does the delay-polynomial class $\mathcal{A}_h^{(L)}$ give the
-  same rate, or is there a gap between polynomial approximation and
-  $\sigma$-algebra approximation on $\mathcal{C}$?
-
-**Candidate tex home.** A worked example in §5 of Paper II (Cyclic vectors
-and Stone space identification), after the reconstruction theorem and before
-the Takens comparison paragraph — or as a stand-alone example environment
-in §4.
+**Candidate tex home.** End of §5 of Paper II (Cyclic vectors and Stone space
+identification), after the Stone space identification proposition. The example
+grounds the abstract reconstruction theorem in a concrete fractal setting where
+the classical approach is simply inapplicable — not merely non-optimal but
+without a domain of application.
 
 ---
 

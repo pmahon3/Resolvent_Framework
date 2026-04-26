@@ -555,6 +555,55 @@ the state space $X$ itself.  The construction that began by seeking
 a compact completion of the sample space ends by recognising it as the object
 the observer was trying to recover.
 
+\begin{example}[Cantor set: reconstruction without smoothness]
+\label{II:ex:cantor}
+Let $\mathcal{C} \subset [0,1]$ be the middle-thirds Cantor set, and let
+$\mu_\mathcal{C}$ be the Cantor measure --- the pushforward of the fair-coin
+product measure $\nu = (\tfrac{1}{2}\delta_0 + \tfrac{1}{2}\delta_2)^{\mathbb{N}}$
+under the ternary coding map $\pi(d_1,d_2,\ldots) = \sum_{k \geq 1} d_k/3^k$.
+Let $S : \mathcal{C} \to \mathcal{C}$ be the shift map
+\[
+  S(x) = \begin{cases} 3x & x \in \mathcal{C} \cap [0,\tfrac{1}{3}], \\
+                        3x - 2 & x \in \mathcal{C} \cap [\tfrac{2}{3},1],
+          \end{cases}
+\]
+and let $h(x) = x$.  The system $(\mathcal{C},\mu_\mathcal{C},S)$ is
+measurably conjugate to the Bernoulli shift $(\{0,2\}^{\mathbb{N}},\nu,\sigma)$
+via $\pi$; in particular $S$ is $\mu_\mathcal{C}$-invariant and ergodic.
+
+For $x = \pi(d_1,d_2,\ldots)$ we have $S^n x = \pi(d_{n+1},d_{n+2},\ldots)$.
+Since every point of $\mathcal{C}$ lies in $[0,\tfrac{1}{3}] \cup [\tfrac{2}{3},1]$,
+\[
+  d_{n+1} = 0 \iff S^n x \in \bigl[0,\tfrac{1}{3}\bigr], \qquad
+  d_{n+1} = 2 \iff S^n x \in \bigl[\tfrac{2}{3},1\bigr],
+\]
+so $h \circ S^n$ recovers the $(n+1)$-st ternary digit of $x$.  The delay
+vector $\Phi_h^{(L)}(x) = (x, Sx, \ldots, S^L x)$ reads off digits
+$d_1,\ldots,d_{L+1}$; its fibres are the generation-$(L+1)$ cylinder sets
+\[
+  F_z = \{x \in \mathcal{C} : d_k(x) = z_k,\; 1 \leq k \leq L+1\},
+  \quad z \in \{0,2\}^{L+1},
+\]
+each carrying $\mu_\mathcal{C}(F_z) = 2^{-(L+1)}$, so
+$\mathcal{O}_h^{(L)} = \sigma(\Phi_h^{(L)}) = \sigma\{F_z : z \in \{0,2\}^{L+1}\}$.
+Since $\mu_\mathcal{C}$-a.e.\ pair of distinct points differs at some finite
+digit, these algebras separate points as $L \to \infty$:
+\[
+  \mathcal{O}_h \;=\; \sigma\!\Bigl(\bigcup_{L \geq 0} \mathcal{O}_h^{(L)}\Bigr)
+  \;=\; \mathcal{B}(\mathcal{C}) \quad \text{mod } \mu_\mathcal{C}.
+\]
+Reconstruction holds: the finite-lag observable algebras refine to the full
+Borel structure as $L \to \infty$.
+
+$\mathcal{C}$ is not a smooth manifold: it is compact and zero-dimensional,
+with Hausdorff dimension $\log 2/\log 3 \approx 0.63$.  The differential-geometric
+hypotheses of Takens's theorem --- $C^2$ ambient dynamics, integer manifold
+dimension $d$, embedding bound $2d+1$ --- are unavailable before one even asks
+about regularity of $S$.  Takens has no domain of application here.
+Theorem~\ref{II:thm:reconstruction} applies because it requires only that the
+observable algebra be measurably generated; smoothness plays no role.
+\end{example}
+
 The classical Takens embedding theorem~\cite{Takens1981} reaches a related
 conclusion by a different route: for a $C^2$ diffeomorphism on a compact
 $d$-manifold and a generic smooth $h$, the finite-delay map

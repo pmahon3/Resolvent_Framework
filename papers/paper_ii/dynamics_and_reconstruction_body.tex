@@ -116,6 +116,9 @@ reconstruction, proving the density bridge and the reconstruction theorem.
 \section{Prediction and the minimal predictive state}
 \label{II:sec:prediction}
 
+\subsection{Predictive kernel}
+\label{II:subsec:kernel}
+
 Fix a probability space $(\Omega, \mathcal{F}, P)$ and two measurable maps:
 \begin{itemize}
   \item $Q : \Omega \to \alpha$, where $(\alpha, \mathcal{A})$ is a measurable space;
@@ -151,6 +154,9 @@ for $(P \circ Q^{-1})$-almost every $q$, by uniqueness of disintegration.
 
 Composing $\Pi_Q$ with $Q$ gives the map sending each sample point to its
 conditional law.
+
+\subsection{Minimal predictive state}
+\label{II:subsec:minimal-predictive}
 
 \begin{definition}[Minimal predictive state map]
 \label{II:def:minimal-predictive}
@@ -207,6 +213,9 @@ $P$-a.e.
 \section{Dynamics and duality}
 \label{II:sec:dynamics}
 
+\subsection{Markov semigroup}
+\label{II:subsec:semigroup}
+
 To introduce dynamics, index over a discrete time horizon.  For each
 $t \in \mathbb{N}$, let $\Pi_t : \gamma \to \mathcal{P}(\gamma)$ be a Markov
 kernel on the state space $\gamma$, with $\Pi_0(q, \cdot) = \delta_q$.
@@ -240,6 +249,9 @@ where the exchange of integrals is justified by Bochner--Fubini.
 The pushforward of a measure $\mu$ on $\gamma$ through the kernel is
 $P_t^* \mu := \mu \star \Pi_t = \int \Pi_t(q, \cdot)\, d\mu(q)$.
 
+\subsection{Koopman--Perron duality}
+\label{II:subsec:koopman-perron}
+
 \begin{theorem}[Koopman--Perron duality]
 \label{II:thm:koopman-perron}
 For every bounded measurable $g$ and finite measure $\mu$:
@@ -257,6 +269,9 @@ by Bochner--Fubini.
 
 When $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for a measurable map
 $\varphi_t : \gamma \to \gamma$, the stochastic picture collapses.
+
+\subsection{Specialisation to measure-preserving systems}
+\label{II:subsec:deterministic}
 
 \begin{proposition}[Deterministic limit]
 \label{II:prop:deterministic}
@@ -344,6 +359,9 @@ The next two sections answer this question.
 % ====================================================================
 \section{Density bridge and reconstruction}
 \label{II:sec:density-bridge}
+
+\subsection{Density bridge lemma}
+\label{II:subsec:density-bridge}
 
 Throughout this section and the next, $(X, \mathcal{B}, \mu)$ is a standard
 probability space, $T : X \to X$ is a measurable, $\mu$-preserving invertible
@@ -447,6 +465,9 @@ $\sigma(\mathcal{A}_h) = \mathcal{B}$ mod $\mu$ — see
 Corollary~\ref{II:cor:cyclic-implies-reconstruction}.
 \end{remark}
 
+\subsection{Reconstruction theorem}
+\label{II:subsec:reconstruction}
+
 \begin{theorem}[Reconstruction theorem]
 \label{II:thm:reconstruction}
 Let $(X, \mathcal{B}, \mu, T)$ be an invertible measure-preserving system and
@@ -499,6 +520,9 @@ $\Phi_h$.
 \section{Cyclic vectors and Stone space identification}
 \label{II:sec:stone}
 
+\subsection{Cyclic vectors}
+\label{II:subsec:cyclic}
+
 \begin{definition}[Cyclic vector]
 \label{II:def:cyclic}
 The function $h \in L^2(X, \mu)$ is a \emph{cyclic vector} for $U_T$ if
@@ -541,6 +565,9 @@ $\mathcal{O}_h = \mathcal{B}$) is automatically cyclic.  Simple spectrum is
 a generic property of ergodic transformations in the Baire category sense
 \cite{Halmos1944} but is not universal.
 \end{remark}
+
+\subsection{Stone space identification}
+\label{II:subsec:stone-id}
 
 The Stone space $\mathrm{St}(\mathcal{O}_h)$ of the observable algebra is the
 compact Hausdorff space whose points are ultrafilters on $\mathcal{O}_h$, with
@@ -618,8 +645,8 @@ digit, these algebras separate points as $L \to \infty$:
   \mathcal{O}_h \;=\; \sigma\!\Bigl(\bigcup_{L \geq 0} \mathcal{O}_h^{(L)}\Bigr)
   \;=\; \mathcal{B}(\mathcal{C}) \quad \text{mod } \mu_\mathcal{C}.
 \]
-Reconstruction holds: the finite-lag observable algebras refine to the full
-Borel structure as $L \to \infty$.
+By Theorem~\ref{II:thm:reconstruction}, $\Phi_h$ is a measure-theoretic embedding:
+the finite-lag observable algebras refine to the full Borel structure as $L \to \infty$.
 
 $\mathcal{C}$ is not a smooth manifold: it is compact and zero-dimensional,
 with Hausdorff dimension $\log 2/\log 3 \approx 0.63$.  The differential-geometric

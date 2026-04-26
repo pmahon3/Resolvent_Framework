@@ -363,66 +363,70 @@ without a domain of application.
 ---
 
 ## Example B — Paper II (Dynamics side)
-### A Finite Markov Chain: Predictive Kernels Without Determinism
+### A Finite Markov Chain: Predictive Kernels in the Transparent Case
 
-**Motivation.** The classical Koopman picture requires a deterministic
-measure-preserving transformation. The predictive kernel framework handles
-stochastic systems directly — the kernel is the transition matrix, derived
-rather than assumed. This example shows the dynamics side of Paper II in its
-most transparent possible setting.
+**Role.** Not a flagship. A **pedagogical dynamics example** for §3 of Paper II
+(Dynamics and duality). Its job is to make the predictive kernel, Chapman-Kolmogorov,
+and Koopman-Perron duality concrete in the finite stochastic case, where all the
+abstract objects collapse to familiar matrix algebra. CE and reconstruction each
+get one honest sentence — no more.
 
-**The construction.**
+---
 
-- State space: $X = \{1, \ldots, k\}$, $\mathcal{B} = 2^X$ (all subsets).
-- Transformation: a **finite irreducible aperiodic Markov chain** with
-  transition matrix $P = (p_{ij})$ and unique stationary measure $\mu$.
-- Observable: $Q_t(x) = x$ (identity — observe the full state at each time).
+**Setup.**
 
-**The predictive kernel.**
+- State space: $X = \{1, \ldots, k\}$, $\mathcal{B} = 2^X$.
+- Dynamics: a finite irreducible Markov chain with transition matrix $P = (p_{ij})$
+  and unique stationary measure $\mu$ ($\mu P = \mu$). Aperiodicity is not
+  needed for any of the three structural claims below.
+- Observable: full-state observation, $Q_t = X_t$ (equivalently $h = \mathrm{id}_X$).
 
-The predictive kernel $\Pi_Q(i, \cdot) = P(i, \cdot)$ is the $i$-th row of
-$P$ — the conditional distribution of the next state given the current state.
-This is derived, not assumed: it is the unique Markov kernel satisfying the
-defining equation of $\Pi_Q$ with respect to the stationary joint
-distribution $\mu \otimes P$.
+**The three structural claims.**
 
-**Chapman-Kolmogorov.**
+**(i) Predictive kernel = transition matrix.**
 
-The kernels $\{\Pi_t\}$ compose as $\Pi_{t+s} = \Pi_t \star \Pi_s$
-(matrix multiplication). This is Chapman-Kolmogorov, derived from temporal
-coherence. The Markov semigroup $\{K_t\}$ acts on $L^2(\mu)$ as
-$K_t f(i) = \sum_j P^t_{ij} f(j)$ — the standard Markov operator.
+The predictive kernel is $\Pi_h(i, \cdot) = P(i, \cdot)$ — the $i$-th row of $P$.
+This is derived, not assumed: $\Pi_h$ is the unique Markov kernel satisfying
+\[
+  \mathbb{E}_\mu[f(X_1) \mid X_0 = i] = \sum_j p_{ij} f(j)
+  \qquad \text{for all bounded } f.
+\]
 
-**Koopman-Perron duality.**
+**(ii) Chapman-Kolmogorov = kernel composition = matrix multiplication.**
 
-The Koopman-Perron duality $\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$
-reduces to $\mu^\top P^t g = \mu^\top g$ for the stationary measure — a
-tautology, confirming the framework recovers the classical picture exactly.
+Temporal coherence gives $\Pi_h^{(t+s)} = \Pi_h^{(t)} \star \Pi_h^{(s)}$,
+which is $P^{t+s} = P^t P^s$. The Markov semigroup acts on $L^2(\mu)$ as
+$K_t f(i) = \sum_j p^t_{ij} f(j)$.
 
-**CE in this setting.**
+**(iii) Koopman-Perron duality = stationarity identity.**
 
-CE is automatically satisfied: irreducibility ensures no mass is lost to
-transient states or absorbing subsets. The stationary measure $\mu$ is
-the unique $\sigma$-additive probability measure the framework produces.
+\[
+  \int K_t g\, d\mu = \int g\, d(\mu \star \Pi_h^{(t)})
+  = \mu^\top P^t g = \mu^\top g,
+\]
+using $\mu P^t = \mu$. This is the stationary-measure identity: the duality
+reduces exactly to the fixed-point property of $\mu$.
 
-**Reconstruction.**
+**CE and reconstruction — one sentence each.**
 
-$\mathcal{O}_h = \mathcal{B}(X)$ iff the observable $h : X \to \mathbb{R}$
-separates states — $h(i) \neq h(j)$ for $i \neq j$. This is a purely
-algebraic condition on $h$, independent of $P$.
+*CE:* In the finite-state setting every charge is automatically $\sigma$-additive,
+so the admissibility issue does not arise.
 
-**What needs verification.**
+*Reconstruction:*
+\[
+  \mathcal{O}_h = \sigma(h) = \mathcal{B}(X)
+  \quad \text{iff} \quad h \text{ separates points of } X;
+\]
+for the identity observable this holds at lag $0$, independent of $P$.
 
-- [ ] Write out the query system axioms explicitly for the Markov chain setting
-- [ ] Confirm CE reduces to irreducibility (or state the precise equivalence)
-- [ ] Check whether aperiodicity is needed for CE or only for the stationary
-  measure to be unique
-- [ ] State the reconstruction condition precisely: does $h$ separating states
-  suffice, or is something about the orbit $\{h \circ T^n\}$ needed?
+**What aperiodicity is for.** Irreducibility + aperiodicity gives
+$P^t \to \mathbf{1}\mu^\top$ as $t \to \infty$ (convergence to stationarity).
+Needed only if the example illustrates long-run mixing; not needed for (i)–(iii).
 
-**Candidate tex home.** A worked example in §2 or §3 of Paper II (Prediction
-and minimal predictive state / Dynamics and duality), illustrating the
-predictive kernel construction in the finite stochastic case.
+**Candidate tex home.** §3 of Paper II (Dynamics and duality), as a short example
+after the predictive kernel and Chapman-Kolmogorov definitions, before the general
+Koopman-Perron duality theorem. Its job: show that in the finite stochastic case
+all the abstract machinery collapses to matrix algebra the reader already knows.
 
 ---
 

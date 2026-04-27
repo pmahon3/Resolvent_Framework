@@ -78,7 +78,14 @@ The remainder works in the dynamical specialisation --- a measure-preserving
 system $(X, \mathcal{B}, \mu, T)$, observable $h \in L^\infty$, time series
 $x_1, \ldots, x_n$ --- where mixing and geometry make rate-optimal guarantees
 achievable.  The joined algebra $\mathcal{O}_h^{(L)}$ is an honest refinement
-scheme by construction; the defect specialises to
+scheme by construction --- not a hypothesis to be verified but a consequence
+of the reconstruction theorem itself, which guarantees that $\sigma(\bigcup_L
+\mathcal{O}_h^{(L)}) = \mathcal{B}$ modulo $\mu$ once reconstruction holds.
+This automaticity is what the dynamical setting purchases: in the general query
+setting (Section~\ref{III:sec:general}), honest refinement is a design condition
+that must be imposed on the query family; here it is free, and the remaining
+degrees of freedom --- mixing rate and embedding dimension --- are what
+the rate theorems exploit.  The defect specialises to
 $\deltaL = \delta(\mathcal{O}_h^{(L)})$.  Three theorems certify reconstruction
 in this regime.
 

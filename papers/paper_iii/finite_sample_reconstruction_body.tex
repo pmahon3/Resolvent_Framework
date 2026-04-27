@@ -3,14 +3,24 @@
 \maketitle
 
 \begin{abstract}
-We study finite-sample reconstruction in measure-preserving systems.
-Given a time series $x_1,\ldots,x_n$ from a system $(X,\mathcal{B},\mu,T)$
-and a single observable $h$, we ask whether reconstruction --- the condition
-that the delay algebra $\sigma(h, h\circ T, \ldots)$ generates $\mathcal{B}$
-modulo $\mu$ --- is detectable from data alone, at what rate, and with what
-certificates.
+This paper studies finite-data certification of reconstruction in two settings:
+at the level of general query systems, and in the dynamical specialisation.
 
-We prove three theorems.
+At the level of a general query system~\cite{mahon_paper1}, finite query
+responses certify observational resolution through the \emph{population
+separation defect} $\delta(\mathcal{G})$ --- the worst-case symmetric
+difference between a target event and its best approximation in a finite
+joined query algebra.  Under collective exhaustion and any honest refinement
+scheme, $\delta(\mathcal{G}_k) \to 0$.  The empirical collision probability of
+the joint response is a U-statistic proxy converging to $\delta(\mathcal{G})$
+under IID sampling.  A persistent empirical floor under refinement is evidence
+against collective exhaustion: a CE-shadow theorem with no temporal or geometric
+assumptions.
+
+In the dynamical specialisation --- a measure-preserving system
+$(X,\mathcal{B},\mu,T)$ with observable $h$ and time series
+$x_1,\ldots,x_n$ --- honest refinement is automatic and mixing buys
+rate-optimal guarantees.  Three theorems constitute the dynamical sharpening.
 The \emph{Algebra Theorem} shows that the empirical $\sigma$-algebra
 approximation error $\hat\delta(L,n)$ concentrates around the true error
 $\delta(L)$, and that the elbow stopping rule $\hat{L}^*$ achieves the

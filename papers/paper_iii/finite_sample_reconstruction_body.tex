@@ -3,48 +3,47 @@
 \maketitle
 
 \begin{abstract}
-This paper studies finite-data certification of reconstruction in two settings:
-at the level of general query systems, and in the dynamical specialisation.
+Papers~\cite{mahon_paper1,mahon_paper2} establish two things: that a
+$\sigma$-additive probability measure can be derived from observational data
+satisfying collective exhaustion, and that a probability measure on an
+observable algebra already contains, without further assumption, both the
+conditional regularity structure and the dynamical semigroup — with
+reconstruction as the question of whether the minimal sufficient factor is
+faithful.  This paper asks what finite data can certify about those earned
+structures.
 
-At the level of a general query system~\cite{mahon_paper1}, finite query
-responses certify observational resolution through the \emph{population
-separation defect} $\delta(\mathcal{G})$ --- the worst-case symmetric
-difference between a target event and its best approximation in a finite
-joined query algebra.  Under collective exhaustion and any honest refinement
-scheme, $\delta(\mathcal{G}_k) \to 0$.  The empirical collision probability of
-the joint response is a U-statistic proxy converging to $\delta(\mathcal{G})$
-under IID sampling.  A persistent empirical floor under refinement is evidence
-against collective exhaustion: a CE-shadow theorem with no temporal or geometric
-assumptions.
+The certification question has two levels, and the paper works at both.  At
+the level of a general query system~\cite{mahon_paper1}, the
+\emph{population separation defect} $\delta(\mathcal{G})$ — the worst-case
+symmetric difference between a target event and its best approximation in a
+finite joined algebra — measures how far finite observations fall from full
+resolution.  Under collective exhaustion and any honest refinement scheme,
+$\delta(\mathcal{G}_k) \to 0$.  The empirical collision probability is a
+U-statistic proxy converging to $\delta(\mathcal{G})$ under IID sampling.
+A persistent empirical floor is evidence against collective exhaustion:
+a CE-shadow theorem requiring no temporal or geometric structure.
 
-In the dynamical specialisation --- a measure-preserving system
-$(X,\mathcal{B},\mu,T)$ with observable $h$ and time series
-$x_1,\ldots,x_n$ --- honest refinement is automatic and mixing buys
-rate-optimal guarantees.  Three theorems constitute the dynamical sharpening.
-The \emph{Algebra Theorem} shows that the empirical $\sigma$-algebra
-approximation error $\hat\delta(L,n)$ concentrates around the true error
-$\delta(L)$, and that the elbow stopping rule $\hat{L}^*$ achieves the
-minimax-optimal rate $n^{-s/(2s+d)}$ for $\mathrm{H\ddot{o}lder}(s)$ targets
-on a $d$-dimensional state space, without oracle knowledge of the mixing rate,
-the lag, or the smoothness index.
-The \emph{Dynamics Theorem} shows that under uniform separation, the delay
-map $\Phi_h^{(L)}$ is bi-Lipschitz and estimated delay vectors certify point
-separation at rate $n^{-\beta/(2\beta+d)}$.
-The \emph{Conjunction Theorem} shows that for deterministic $T$, algebra
-separation and metric separation are the same event --- not merely correlated,
-but identical --- and that both witnesses certify this from data under
-reconstruction and uniform separation.
+In the dynamical specialisation, two threads converge.  The general
+certification question meets the reconstruction theorem of~\cite{mahon_paper2},
+and the meeting point is stronger than either alone: honest refinement, a
+design condition in the general setting, is here automatic — a consequence
+of reconstruction itself — and the remaining degrees of freedom (mixing rate,
+embedding dimension) are what rate-optimal guarantees exploit.
 
-A third computable witness arises from the fibre structure of the delay map.
-Under the fibre mixing condition --- that $\nu_L$-almost every large fibre is
-balanced --- the collision entropy $H_2(\nu_L) := -\log(\mu\otimes\mu)(R_L)$
-diverges if and only if $\delta(L) \to 0$.
-The key is a conditional variance identity expressing $\delta(L)$ as an
-integral of within-fibre variance over unseparated trajectory pairs; the
-identity reverses under fibre mixing but fails when large fibres are
-monochromatic --- entirely inside or outside the hardest-to-approximate event.
-All three witnesses --- algebraic, geometric, and information-theoretic ---
-measure the same failure of separation across delay fibres.
+Three theorems certify reconstruction from a time series $x_1,\ldots,x_n$.
+The \emph{Algebra Theorem} shows that the elbow stopping rule achieves the
+minimax-optimal rate $n^{-s/(2s+d)}$ without oracle knowledge of the mixing
+rate, lag, or smoothness index.  The \emph{Dynamics Theorem} shows that under
+uniform separation, empirical delay vectors constitute a geometric witness
+converging at rate $n^{-\beta/(2\beta+d)}$.  The \emph{Conjunction Theorem}
+shows that for deterministic $T$, the algebraic and geometric witnesses certify
+the same event — not merely correlated, but identical.
+
+All three witnesses, together with a fourth information-theoretic one from the
+collision entropy of the delay-vector distribution, measure the same failure:
+separation collapsing across delay fibres.  Under fibre mixing, they are
+equivalent.  The convergence of three independently motivated certifications
+onto a single geometric object is the main message.
 \end{abstract}
 
 \begin{quote}\small
@@ -63,41 +62,55 @@ measure-preserving system.
 \label{III:sec:intro}
 % ============================================================
 
-The reconstruction theorem~\cite{mahon_paper2} states that the observable
-algebra $\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$ generates
-$\mathcal{B}$ modulo $\mu$ if and only if the delay map $\Phi_h$ is a
-measure-theoretic embedding --- an exact asymptotic condition that says
-nothing about rates, certificates, or what can be verified from a finite
-time series.
-The results of~\cite{mahon_paper1,mahon_paper2} are taken as given;
-this paper asks what finite data can certify about the structure they establish.
+A probability measure on an observable algebra already contains, without
+further assumption, a conditional regularity structure --- the systematic,
+outcome-by-outcome account of how one observation is distributed given
+another~\cite{mahon_paper2}.  Concretely, the Rokhlin disintegration of
+any two observations $Q$, $F$ gives a Markov kernel
+$\Pi_Q(q, \cdot) = P(F \in \cdot \mid Q = q)$ that is forced by the
+measure, not chosen.
+Composing with $Q$ gives the minimal sufficient factor $Q_*$, the coarsest
+reduction of the sample point carrying full conditional information about $F$.
+In a measure-preserving system with $Q_t = h \circ T^t$, this factor becomes
+the delay map $\Phi_h$, and the reconstruction question becomes internal: is
+the factor faithful, or does it see only a proper quotient of $X$?
+The reconstruction theorem of~\cite{mahon_paper2} answers in terms of an
+observable algebra condition — $\mathcal{O}_h = \sigma\{h \circ T^n : n \in
+\mathbb{Z}\}$ generates $\mathcal{B}$ modulo $\mu$ if and only if $\Phi_h$
+is a measure-theoretic embedding.
+This is an exact asymptotic result; it says nothing about rates, certificates,
+or what can be inferred from a finite time series.
+The results of~\cite{mahon_paper1,mahon_paper2} are taken as given; this paper
+asks what finite data can certify about the structure they establish.
 
-The certification question has two natural levels.  At the level of the
-general query system~\cite{mahon_paper1}, one can ask: given finite responses
-to a directed family of queries, does the empirical evidence certify that the
-observable structure is resolving correctly, and can CE-failure be detected
-from data?  Section~\ref{III:sec:general} answers this at full generality, with
-no temporal or geometric assumptions.  The central objects are the population
-separation defect $\delta(\mathcal{G})$ and its empirical U-statistic proxy;
-the main results are a population convergence theorem (CE drives the defect to
-zero under honest refinement), an estimation theorem (the empirical proxy
-concentrates under IID sampling), and a CE-shadow corollary (a persistent
-empirical floor is evidence against CE).
+The certification question has two natural levels, and the paper works from
+the more general inward.  At the level of a general query
+system~\cite{mahon_paper1} --- before any dynamical or geometric structure is
+assumed --- one can ask: given finite responses to a directed family of
+queries, does the empirical evidence certify that the observable structure is
+resolving correctly, and can CE-failure be detected from data?
+Section~\ref{III:sec:general} answers this at full generality.
+The central objects are the population separation defect $\delta(\mathcal{G})$
+and its empirical U-statistic proxy; the main results are a population
+convergence theorem (CE drives the defect to zero under honest refinement),
+an estimation theorem (the empirical proxy concentrates under IID sampling),
+and a CE-shadow corollary (a persistent empirical floor is evidence against
+CE).  The corollary has no temporal hypothesis; the admissibility condition CE
+acquires an empirical signature that is entirely independent of dynamics.
 
-The remainder works in the dynamical specialisation --- a measure-preserving
-system $(X, \mathcal{B}, \mu, T)$, observable $h \in L^\infty$, time series
-$x_1, \ldots, x_n$ --- where mixing and geometry make rate-optimal guarantees
-achievable.  The joined algebra $\mathcal{O}_h^{(L)}$ is an honest refinement
-scheme by construction --- not a hypothesis to be verified but a consequence
-of the reconstruction theorem itself, which guarantees that $\sigma(\bigcup_L
-\mathcal{O}_h^{(L)}) = \mathcal{B}$ modulo $\mu$ once reconstruction holds.
-This automaticity is what the dynamical setting secures: in the general query
-setting (Section~\ref{III:sec:general}), honest refinement is a design condition
-that must be imposed on the query family; here it is free, and the remaining
-degrees of freedom --- mixing rate and embedding dimension --- are what
-the rate theorems exploit.  The defect specialises to
-$\deltaL = \delta(\mathcal{O}_h^{(L)})$.  Three theorems certify reconstruction
-in this regime.
+Moving to the dynamical specialisation, the two threads of the programme
+converge.  Section~\ref{III:sec:general}'s certification framework meets the
+reconstruction theorem of~\cite{mahon_paper2}, and the meeting point is
+stronger than either alone.  In the general query setting, honest refinement
+is a design condition: it must be built into the query family.  In the
+dynamical setting, it is automatic --- a consequence of the reconstruction
+theorem itself, which guarantees that $\sigma(\bigcup_L \mathcal{O}_h^{(L)})
+= \mathcal{B}$ modulo $\mu$ once the factor is faithful.  The observer does
+not need to design an honest query path; the dynamics provide it.  The
+remaining degrees of freedom --- mixing rate and embedding dimension --- are
+what the rate theorems exploit.  The defect specialises to
+$\deltaL = \delta(\mathcal{O}_h^{(L)})$.  Three theorems certify
+reconstruction in this regime.
 
 \textbf{The Algebra Theorem} (Section~\ref{III:sec:algebra}).
 The elbow stopping rule $\Lhat$ fires when the empirical defect
@@ -216,9 +229,14 @@ condition for $\sigma$-additivity, but a structural hypothesis with a
 detectable finite-sample consequence.
 \end{remark}
 
-The remainder of this paper establishes what is achievable in the dynamical
-specialisation, where the honest-refinement condition is automatic and mixing
-buys rate-optimal guarantees.
+The remainder of this paper establishes what becomes achievable when the
+general framework of this section meets the dynamical structure of~\cite{mahon_paper2}.
+Specialisation to a dynamical setting might seem to narrow the question;
+instead it strengthens it.  Honest refinement, which must here be a design condition,
+becomes free; the separation defect, which is abstract, becomes geometrically
+interpretable; and the witnesses, which here are qualitative (floor or no
+floor), become quantitative with optimal rates.  That gain is the subject of
+Sections~\ref{III:sec:algebra}--\ref{III:sec:conjunction}.
 
 % ============================================================
 \section{Setup and Notation}
@@ -1295,8 +1313,8 @@ violating~(US) on a $\mu$-null set.
 
 \subsection{Uniform separation}
 
-The one-step predictive kernel for deterministic $T$ is the Dirac family
-$\PihL(x,\,\cdot\,) = \delta_{\PhiL(x)}$.
+For deterministic $T$, the conditional regularity kernel specialises to the
+Dirac family $\PihL(x,\,\cdot\,) = \delta_{\PhiL(x)}$.
 The TV separation pseudometric is therefore
 \[
   \preddisc{L}(x,x')

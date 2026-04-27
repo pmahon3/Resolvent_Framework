@@ -2,36 +2,43 @@
 
 \begin{abstract}
 Starting from a $\sigma$-additive probability measure on an observable
-algebra~\cite{mahon_paper1}, this paper derives two structures that are often
-assumed: the dynamics of prediction, and the recoverability of the state space.
+algebra~\cite{mahon_paper1}, this paper derives two structures that are
+standardly assumed rather than earned: the dynamics of observation under time,
+and the recoverability of the underlying state space.  Both are already present
+in the probability measure; what is required is to read them off.
 
-Making prediction precise forces the introduction of the predictive kernel
-$\Pi_Q : \alpha \to \mathcal{P}(\beta)$, the regular conditional distribution of
-a future observation $F$ given a current observation $Q$.  Composing with $Q$ gives
-the minimal predictive state map $Q_* : \Omega \to \mathcal{P}(\beta)$.  Indexing
-over time, the kernels compose via Chapman--Kolmogorov — derived, not assumed —
-yielding a Markov semigroup $\{K_t\}$ and the Koopman--Perron duality
-$\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.
+Two observations $Q$ and $F$, together with $P$, determine a conditional
+regularity of $F$ relative to $Q$: the unique Markov kernel
+$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
+$P(F \in \cdot \mid Q = q) = \Pi_Q(q, \cdot)$ simultaneously across all outcomes.
+Its existence is forced by the Rokhlin disintegration theorem~\cite{Rokhlin1952}
+once $\sigma$-additivity is in hand; it is not a modelling choice.
+Composing with $Q$ gives the \emph{minimal sufficient factor}
+$Q_* : \Omega \to \mathcal{P}(\beta)$, the coarsest reduction carrying the
+full conditional regularity.  Temporal prediction is the special case in which
+$F$ is a future observable; the object itself is neutral on time.
+
+Indexing over time, the kernels $\{\Pi_t\}$ must compose consistently.
+Temporal coherence of the conditional regularity forces the Chapman--Kolmogorov
+equation — derived, not assumed — yielding a Markov semigroup $\{K_t\}$ and the
+Koopman--Perron duality $\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.
 When the kernels are Dirac measures, $K_t$ collapses to the classical Koopman
-operator.
+operator~\cite{Koopman1931}.
 
-The construction produces a predictive state space $\mathcal{P}(\beta)$.
-In a measure-preserving system $(X, \mathcal{B}, \mu, T)$ with
-$Q_t = h \circ T^t$, the map $Q_*$ becomes the delay map
+In a measure-preserving system $(X, \mathcal{B}, \mu, T)$ with $Q_t = h \circ T^t$,
+the minimal sufficient factor $Q_*$ becomes the delay map
 $\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$.
-The reconstruction question is then internal to the same framework: whether
-this predictive state is faithful — whether the prediction machinery sees all
-of $X$, or only a proper quotient.
+The reconstruction question is then internal to the same structure: whether this
+factor is faithful — whether it sees all of $X$ or only a proper quotient.
 
 The answer is a three-way equivalence — the reconstruction theorem.
 State-space recovery ($\mathcal{O}_h = \mathcal{B}$ mod $\mu$) holds if and only
 if the delay algebra $\mathcal{A}_h$ is $L^2$-dense, if and only if $\Phi_h$ is a
-measure-theoretic embedding.  The bridge between the first two conditions is a
-general lemma: for any subalgebra $\mathcal{A} \subseteq L^\infty$ containing $1$,
-the $L^2$-closure of $\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$.
-When reconstruction holds, the compact Stone space~\cite{mahon_paper1} —
-built as a completion of the sample space for deriving $\sigma$-additivity —
-is identified with $X$ itself.
+measure-theoretic embedding.  The key is the density bridge lemma: for any
+subalgebra $\mathcal{A} \subseteq L^\infty$ containing $1$, the $L^2$-closure of
+$\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$.  The compact Stone
+space~\cite{mahon_paper1} — built as a technical device for deriving
+$\sigma$-additivity — is identified with $X$ itself when reconstruction holds.
 \end{abstract}
 
 \begin{quote}\small
@@ -39,84 +46,83 @@ is identified with $X$ itself.
 37A30 (primary); 47D06, 60J05, 37A05, 28A60, 06E15, 46E30 (secondary).
 
 \textbf{Keywords.}
-Koopman operator, predictive kernel, minimal predictive state, Markov semigroup,
-Koopman--Perron duality, observable dynamical system, reconstruction theorem,
-delay embedding, observable algebra, density bridge, measure-theoretic Takens,
-Stone duality, measure-preserving system.
+Koopman operator, conditional regularity kernel, minimal sufficient factor,
+Markov semigroup, Koopman--Perron duality, observable dynamical system,
+reconstruction theorem, delay embedding, observable algebra, density bridge,
+measure-theoretic Takens, Stone duality, measure-preserving system.
 \end{quote}
 
 % ====================================================================
 \section{Introduction}
 \label{II:sec:intro}
 
-The classical approach to dynamics, following Koopman~\cite{Koopman1931},
-describes how observable functions evolve under a known transformation $T$: the
-operator $U_T f = f \circ T$ acts by precomposing with $T$ as a primitive.  This
-paper asks two questions that precede this picture.
+Starting from a $\sigma$-additive probability measure on an observable
+algebra~\cite{mahon_paper1}, this paper derives two structures that are
+standardly assumed rather than earned: the dynamics of observation under time,
+and the recoverability of the underlying state space.  Both turn out to be
+already present in the probability measure; what is required is to read them
+off.  The compact Stone space built in~\cite{mahon_paper1} as a technical
+device for deriving $\sigma$-additivity reappears at the paper's close as the
+state space itself — the programme that began by constructing an ambient space
+for the measure ends by recognising it as the object the observer was
+always trying to see.
 
-The first is: given a current observation $Q : \Omega \to \alpha$ and a future
-observation $F : \Omega \to \beta$, what does an observer predict about $F$ given
-$Q$?  The dynamics, if there are any, should follow from the answer — not precede
-it.  Making prediction precise immediately requires a $\sigma$-additive probability
-measure on the observable algebra.  That measure is not an extra assumption: a coherent family of finitely additive
-charges on a directed system of observable algebras extends to a genuine probability
-measure exactly when it satisfies collective exhaustion~\cite{mahon_paper1}, the
-condition ruling out persistent mass on globally vanishing events.
+Two observations $Q : \Omega \to \alpha$ and $F : \Omega \to \beta$, together
+with a probability measure $P$ on the observable algebra, already determine a
+conditional regularity of $F$ relative to $Q$: the unique Markov kernel
+$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
+$P(F \in \cdot \mid Q = q) = \Pi_Q(q, \cdot)$ simultaneously across all
+outcomes.  The kernel is not a modelling choice; its existence is forced by the
+Rokhlin disintegration theorem~\cite{Rokhlin1952} once $\sigma$-additivity is
+in hand.  Composing with $Q$ gives the minimal sufficient factor
+$Q_* : \Omega \to \mathcal{P}(\beta)$, $Q_*(\omega) = \Pi_Q(Q(\omega), \cdot)$:
+the coarsest reduction of $\omega$ that already carries the full conditional
+regularity of $F$ given $Q$.  Temporal prediction is the special case in which
+$F$ is a future observable; the object itself is neutral on time.
 
-Once the measure exists, the canonical answer to the prediction question is the
-regular conditional distribution of $F$ given $Q$: the unique Markov kernel
-$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ realising $P(F \in \cdot \mid Q = q)$
-simultaneously across all outcomes.  Its existence rests on the Rokhlin
-disintegration theorem~\cite{Rokhlin1952}, which requires $\sigma$-additivity.
-Composing with $Q$ gives the minimal predictive state map
-$Q_* : \Omega \to \mathcal{P}(\beta)$, the minimal sufficient statistic for future
-prediction.  Indexing over time, the kernels $\{\Pi_t\}$ compose; their composition
-rule is the Chapman--Kolmogorov equation, derived from temporal coherence rather than
-assumed.  From it emerge a semigroup of Markov operators $\{K_t\}$ and the
-Koopman--Perron duality connecting them with the pushforward operators.  When the
-kernels are Dirac measures, the construction collapses to the classical Koopman
-picture.
+Indexing over a time parameter, the kernels $\{\Pi_t\}$ must compose
+consistently.  Temporal coherence of the conditional regularity forces the
+Chapman--Kolmogorov equation — it is not assumed but derived — from which
+emerge a Markov semigroup $\{K_t\}$ and the Koopman--Perron duality
+$\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.  When the kernels are
+Dirac measures, $K_t$ collapses to the classical Koopman
+operator~\cite{Koopman1931}.
 
-The construction produces a predictive state space $\mathcal{P}(\beta)$ and a
-stationary distribution $\nu_{Q_*}$.  In a measure-preserving system
-$(X, \mathcal{B}, \mu, T)$ with $Q_t = h \circ T^t$ for some $h \in L^\infty$,
-the map $Q_*$ specialises to the delay map
-$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$.  The reconstruction question is
-therefore not a separate problem: it asks whether this predictive state is
-faithful — whether the prediction machinery sees all of $X$, or only a proper
-quotient.  The answer is a three-way equivalence: the $\sigma$-algebraic
-condition $\mathcal{O}_h = \mathcal{B}$ modulo $\mu$, the analytic condition
-that the delay algebra $\mathcal{A}_h$ is $L^2$-dense, and the geometric
-condition that $\Phi_h$ is a measure-theoretic embedding are all equivalent.
+The resulting structure is a canonical triple
+$(\mathcal{P}(\beta), \nu_{Q_*}, \{K_t\})$.
+In a measure-preserving system $(X, \mathcal{B}, \mu, T)$ with
+$Q_t = h \circ T^t$, the factor $Q_*$ specialises to the delay map
+$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, encoding the dynamical
+information that $h$ can distinguish.  The question of faithfulness — whether
+this factor sees all of $X$ or only a proper quotient — is then internal to
+the same structure.  The answer is a three-way equivalence: the observable
+$\sigma$-algebra condition $\mathcal{O}_h = \mathcal{B}$ modulo $\mu$, the
+analytic condition that the delay algebra $\mathcal{A}_h$ is $L^2$-dense, and
+the geometric condition that $\Phi_h$ is a measure-theoretic embedding are all
+equivalent.
 
 The key to the equivalence is the density bridge lemma: for any subalgebra
-$\mathcal{A} \subseteq L^\infty(X,\mu)$ containing the constant $1$, the
-$L^2$-closure of $\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$.  The
-proof goes via the functional monotone class theorem~\cite{Dynkin}.  This is
-what lets the $\sigma$-algebraic condition ($\mathcal{O}_h = \mathcal{B}$
-mod $\mu$) and the analytic condition ($\mathcal{A}_h$ $L^2$-dense) pass freely
-between each other — they are not two separate conditions but two descriptions
-of the same constraint.
+$\mathcal{A} \subseteq L^\infty(X,\mu)$ containing $1$, the $L^2$-closure of
+$\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$, proved via the
+functional monotone class theorem~\cite{Dynkin}.  The $\sigma$-algebraic and
+analytic conditions are not two separate constraints but two expressions of the
+same one.
 
-When reconstruction holds, the Stone space~\cite{mahon_paper1}
-$\mathrm{St}(\mathcal{O}_h)$ — built as a compact completion of the sample
-space for deriving $\sigma$-additivity — turns out to be measure-theoretically
-isomorphic to $X$ itself.  The programme that began by seeking a compact ambient space for the
-measure ends by identifying it with the state space being observed.
-
-The paper is self-contained modulo the probability measure.  Sections~\ref{II:sec:prediction}
-and~\ref{II:sec:dynamics} develop the predictive structure from a probability space
-$(\Omega, \mathcal{F}, P)$.  Section~\ref{II:sec:transition} makes the connection explicit: specialising $Q_*$
-to a measure-preserving system yields the delay map, and the reconstruction
-question becomes whether that map is injective modulo null sets.
-Sections~\ref{II:sec:density-bridge} and~\ref{II:sec:stone} carry out the
-reconstruction, proving the density bridge and the reconstruction theorem.
+The paper is self-contained modulo the probability measure.
+Sections~\ref{II:sec:prediction} and~\ref{II:sec:dynamics} derive the
+conditional regularity kernel and the semigroup structure from a probability
+space $(\Omega, \mathcal{F}, P)$.
+Section~\ref{II:sec:transition} specialises to measure-preserving systems,
+where $Q_*$ becomes the delay map and faithfulness of the factor becomes the
+reconstruction question.
+Sections~\ref{II:sec:density-bridge} and~\ref{II:sec:stone} prove the density
+bridge and reconstruction theorem, and identify the Stone space with $X$.
 
 % ====================================================================
-\section{Prediction and the minimal predictive state}
+\section{Conditional regularity and the canonical factor}
 \label{II:sec:prediction}
 
-\subsection{Predictive kernel}
+\subsection{The conditional regularity kernel}
 \label{II:subsec:kernel}
 
 Fix a probability space $(\Omega, \mathcal{F}, P)$ and two measurable maps:
@@ -133,19 +139,23 @@ equipped with its canonical (Giry) $\sigma$-algebra.  The joint pushforward
 $\rho := P \circ (Q, F)^{-1}$ on $\alpha \times \beta$ has marginals
 $\rho_\alpha = P \circ Q^{-1}$ and $\rho_\beta = P \circ F^{-1}$.
 
-The regular conditional distribution of $F$ given $Q$ is the unique (up to
-$P \circ Q^{-1}$-null sets) Markov kernel $\Pi_Q : \alpha \to \mathcal{P}(\beta)$
-satisfying
+Two observations $Q$ and $F$, together with $P$, already determine a conditional
+regularity of $F$ relative to $Q$: a systematic, outcome-by-outcome account of how
+$F$ is distributed given each value of $Q$.  The regular conditional distribution
+of $F$ given $Q$ is the unique (up to $P \circ Q^{-1}$-null sets) Markov kernel
+$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
 \[
   \int_A \Pi_Q(q, B)\, d(P \circ Q^{-1})(q) \;=\; P(Q \in A,\; F \in B)
 \]
 for all measurable $A \subseteq \alpha$ and $B \subseteq \beta$.
 
-\begin{definition}[Predictive kernel]
+\begin{definition}[Conditional regularity kernel]
 \label{II:def:predictive-kernel}
-The \emph{predictive kernel} is $\Pi_Q$, the disintegration kernel of
-$\rho = P \circ (Q, F)^{-1}$ over its first marginal:
+The \emph{conditional regularity kernel} of $F$ given $Q$ is $\Pi_Q$, the
+disintegration kernel of $\rho = P \circ (Q, F)^{-1}$ over its first marginal:
 $\Pi_Q(q, A) = P(F \in A \mid Q = q)$.
+When $F$ is a future observable the kernel describes conditional prediction;
+the object itself is neutral on time.
 \end{definition}
 
 The kernel is covariant under measurable maps: if $\pi : \alpha \to \alpha'$ is
@@ -153,14 +163,14 @@ measurable and $Q' = \pi \circ Q$, then $\Pi_Q(q, \cdot) = \Pi_{Q'}(\pi(q), \cdo
 for $(P \circ Q^{-1})$-almost every $q$, by uniqueness of disintegration.
 
 Composing $\Pi_Q$ with $Q$ gives the map sending each sample point to its
-conditional law.
+conditional regularity.
 
-\subsection{Minimal predictive state}
+\subsection{The minimal sufficient factor}
 \label{II:subsec:minimal-predictive}
 
-\begin{definition}[Minimal predictive state map]
+\begin{definition}[Minimal sufficient factor]
 \label{II:def:minimal-predictive}
-The \emph{minimal predictive state map} is
+The \emph{minimal sufficient factor} is
 \[
   Q_* : \Omega \to \mathcal{P}(\beta), \qquad Q_*(\omega) \;=\; \Pi_Q(Q(\omega), \cdot).
 \]
@@ -169,7 +179,7 @@ The \emph{minimal predictive state map} is
 Since $\Pi_Q$ is a Markov kernel it is measurable, and $Q_*$ inherits
 measurability by composition.
 
-\begin{theorem}[Predictive factorization]
+\begin{theorem}[Factorization via the canonical factor]
 \label{II:thm:predictive-factorization}
 For every bounded measurable $g : \beta \to \mathbb{R}$:
 \[
@@ -197,8 +207,11 @@ The conclusion follows from a.e.\ uniqueness of conditional expectation.
 \end{proof}
 
 Since $\sigma(Q_*) \subseteq \sigma(Q)$ and the right-hand side is already
-$\sigma(Q_*)$-measurable, $Q_*$ is a sufficient statistic:
+$\sigma(Q_*)$-measurable, $Q_*$ is a sufficient statistic for $F$ given $Q$:
 $E[g(F) \mid \sigma(Q)] = E[g(F) \mid \sigma(Q_*)]$ $P$-a.e.
+It is \emph{minimal} in the sense that every sufficient statistic factors through
+it: $Q_*$ is the coarsest reduction of $\omega$ that carries the full conditional
+regularity of $F$ given $Q$.
 The operator $(K_{Q_*} g)(q_*) = \int g\, dq_*$ on $\mathcal{P}(\beta)$
 recasts this as $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$ $P$-a.e.
 
@@ -209,15 +222,23 @@ recasts this as $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$ $P$-a.e.
 \subsection{Markov semigroup}
 \label{II:subsec:semigroup}
 
-To introduce dynamics, index over a discrete time horizon.  For each
-$t \in \mathbb{N}$, let $\Pi_t : \gamma \to \mathcal{P}(\gamma)$ be a Markov
-kernel on the state space $\gamma$, with $\Pi_0(q, \cdot) = \delta_q$.
-A family $\{\Pi_t\}$ satisfying the Chapman--Kolmogorov equation
+When the conditional regularity kernel $\Pi_Q$ is indexed over a time parameter,
+the kernels cannot be chosen independently: the regularity of $F$ at time $t+s$
+given $Q$ at time $0$ must be consistent with first observing at time $s$ and
+then at time $t$.  This consistency requirement forces the
+Chapman--Kolmogorov equation.
+
+Concretely, index over a discrete time horizon $\mathbb{N}$ and let
+$\Pi_t : \gamma \to \mathcal{P}(\gamma)$ be a Markov kernel on a state
+space $\gamma$, with $\Pi_0(q, \cdot) = \delta_q$.  Temporal coherence of
+the conditional regularity demands
 \[
   \Pi_{t+s}(q, \cdot) \;=\; \int_\gamma \Pi_t(q', \cdot)\, d\Pi_s(q, q')
   \quad\text{(i.e., } \Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s\text{)}
 \]
-is a \emph{Markov semigroup kernel}.  The associated \emph{Markov operators} are
+— the Chapman--Kolmogorov equation, derived from the structure rather than
+assumed.  A family $\{\Pi_t\}$ satisfying it is a \emph{Markov semigroup kernel}.
+The associated \emph{Markov operators} are
 \[
   (K_t g)(q) \;:=\; \int g\, d\Pi_t(q, \cdot), \qquad g : \gamma \to \mathbb{R}.
 \]
@@ -289,8 +310,9 @@ the change-of-variables formula $\int g \circ T^t\, d\mu = \int g\, d(T^t_* \mu)
 Let $X = \{1,\ldots,k\}$, $\mathcal{B} = 2^X$, and let $P = (p_{ij})$ be the
 transition matrix of a finite irreducible Markov chain with unique stationary
 distribution $\mu$ ($\mu P = \mu$).  Take full-state observation $Q_t = X_t$.
-The predictive kernel is $\Pi(i,\cdot) = P(i,\cdot)$, the $i$-th row of $P$:
-this is the unique Markov kernel satisfying
+The conditional regularity kernel of $X_1$ given $X_0$ is
+$\Pi(i,\cdot) = P(i,\cdot)$, the $i$-th row of $P$: this is the unique Markov
+kernel satisfying
 $\mathbb{E}_\mu[f(X_1) \mid X_0 = i] = \sum_j p_{ij} f(j)$ for all bounded $f$.
 The $t$-step kernel is $\Pi^{(t)}(i,\cdot) = P^t(i,\cdot)$, and temporal
 coherence gives $\Pi^{(t+s)} = \Pi^{(t)} \circ_\kappa \Pi^{(s)}$, i.e.\
@@ -312,12 +334,13 @@ whenever $h$ separates points of $X$.
 
 The full structure produced by the construction is the triple
 $(\mathcal{P}(\beta),\, \nu_{Q_*},\, \{K_t\}_{t \in \mathbb{N}})$:
-predictive state space, stationary distribution $\nu_{Q_*} = P \circ Q_*^{-1}$,
+the canonical factor space, stationary distribution $\nu_{Q_*} = P \circ Q_*^{-1}$,
 and Markov semigroup.  This is the \emph{observable dynamical system}
-derived from $(Q, F, P)$.
+derived from $(Q, F, P)$: the conditional regularity of $F$ relative to $Q$,
+promoted to a dynamical object by temporal coherence.
 
 % ====================================================================
-\section{From prediction to reconstruction}
+\section{From regularity to reconstruction}
 \label{II:sec:transition}
 
 Setting $Q_t = h \circ T^t$ in a measure-preserving system
@@ -326,7 +349,7 @@ Under this choice, $Q_*(\omega) = (h(T^n \omega))_{n \in \mathbb{Z}}$ is the
 delay map $\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, and the observable
 dynamical system is the triple $(\Phi_h(X), \mu \circ \Phi_h^{-1}, \{K_t\})$.
 
-The predictive state space $\Phi_h(X)$ is a subset of $\mathbb{R}^\mathbb{Z}$
+The canonical factor space $\Phi_h(X)$ is a subset of $\mathbb{R}^\mathbb{Z}$
 encoding the dynamical information that $h$ can see.  Whether it is a faithful
 image of $X$ depends on how much the delay orbit
 $\{h \circ T^n : n \in \mathbb{Z}\}$ collectively distinguishes points of $X$.

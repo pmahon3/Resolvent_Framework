@@ -40,7 +40,7 @@
 \newcommand{\PredOp}{K}
 \newcommand{\Koopman}{U}
 \newcommand{\ProbMeas}{\mathcal{P}}
-\newcommand{\PredKer}{\Pi}
+\newcommand{\CondRegKer}{\Pi}
 \newcommand{\Lp}[1]{L^{#1}}
 \newcommand{\alg}{\mathrm{alg}}
 \newcommand{\evalmap}{\mathrm{eval}}
@@ -60,7 +60,7 @@
 \newcommand{\AhL}{\mathcal{A}_h^{(L)}}
 \newcommand{\PD}{\mathcal{P}_D^{(L)}}
 
-% Predictive kernel
+% Conditional regularity kernel (dynamical specialisation)
 \newcommand{\PihL}{\Pi_h^{(L)}}
 \newcommand{\GamHat}{\hat{\Gamma}_h^{(n)}}
 \newcommand{\preddisc}[1]{d_{#1}}
@@ -105,15 +105,18 @@ Stone space. CE is shown to be irreducible: no first-order condition on the
 query system implies it.
 
 \medskip
-\noindent\textbf{Part~II} answers the question: given probability, how do
-dynamics and reconstruction arise from observation? Making prediction precise
-forces the introduction of predictive kernels; their temporal composition yields
-a Markov semigroup and Koopman--Perron duality, derived rather than assumed.
-Specialising the minimal predictive state map to a measure-preserving system
-yields the delay map, and the reconstruction question is internal to the same
-framework: whether the predictive state is faithful. The answer is a three-way
-equivalence, with the density bridge lemma as the key. When reconstruction
-holds, the Stone space of Part~I is identified with the state space itself.
+\noindent\textbf{Part~II} answers the question: given probability, what does
+the observable measure already contain? The CE-derived probability measure
+already contains, without further assumption, a conditional regularity
+structure: the Rokhlin disintegration forces a Markov kernel
+$\Pi_Q(q,\cdot) = P(F \in \cdot \mid Q = q)$ that is not chosen but read
+off. Indexing over time, temporal coherence forces Chapman--Kolmogorov and
+yields a Markov semigroup and Koopman--Perron duality. Specialising the
+minimal sufficient factor to a measure-preserving system yields the delay
+map, and the reconstruction question is internal: whether the factor is
+faithful. The answer is a three-way equivalence, with the density bridge
+lemma as the key. When reconstruction holds, the Stone space of Part~I is
+identified with the state space itself.
 
 \medskip
 \noindent\textbf{Part~III} answers the question: given reconstruction as the
@@ -137,7 +140,7 @@ deterministic systems all three witnesses certify the same object.
 \newpage
 
 % ============================================================
-\part{Dynamics and Reconstruction from Observation}
+\part{Dynamics and Reconstruction in the Observable Measure}
 % ============================================================
 
 \setcounter{section}{0}

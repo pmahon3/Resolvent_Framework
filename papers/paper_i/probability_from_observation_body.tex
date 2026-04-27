@@ -2,13 +2,42 @@
 \maketitle
 
 \begin{abstract}
-We prove that a coherent family of finitely additive charges satisfying \emph{collective exhaustion} (CE) determines a unique probability measure on the observable $\sigma$-algebra. The setting is a directed system of measurable outcome spaces with surjective refinement maps and a compatible family of charges on the cylinder algebra.
+When does observationally coherent data determine a genuine probability
+measure?  The setting is a directed system of Boolean algebras with
+surjective refinement maps --- a \emph{query system} --- carrying a
+compatible family of finitely additive charges on the cylinder algebra.
+Coherence (agreement across levels) and finite additivity are purely
+finitary conditions; the question is what further condition licenses the
+passage to $\sigma$-additivity.
 
-A direct \emph{Carathéodory construction} assumes compatible $\sigma$-additive marginals and builds the global measure directly without topological assumptions.
+The answer is \emph{collective exhaustion} (CE): a compatible charge
+family extends to a unique $\sigma$-additive measure on the observable
+$\sigma$-algebra if and only if, whenever a decreasing sequence of
+events vanishes globally, there exists a level at which the mass
+converges to zero.  CE is not derivable from any structural condition on
+the query system --- the obstruction is located by the finite-cofinite
+counterexample and a model-theoretic argument via {\L}o\'s's theorem ---
+and the same obstruction already appears in the first-order language of
+Boolean algebras with finitely additive charge, where countable
+additivity is likewise not first-order axiomatizable.  Some extra
+structure is logically unavoidable; CE is one explicit, minimal way of
+supplying it.
 
-The necessary and sufficient condition for a compatible family of finitely additive charges to extend to a $\sigma$-additive measure on the observable $\sigma$-algebra is CE: no level may assign persistent mass to events the system as a whole sees as empty. CE is not derivable from any structural condition on the query system; the obstruction is located by the finite-cofinite counterexample and a model-theoretic argument via \L{}o\'{s}'s theorem.
+Two constructions realise the extension under CE.  A direct
+\emph{Carathéodory construction} assumes compatible $\sigma$-additive
+marginals and builds the global measure without topological assumptions.
+A \emph{Stone construction} starts from finite additivity alone:
+compactness of the Stone space supplies $\sigma$-additivity on the
+compact completion, and CE appears as the support condition ensuring the
+measure descends to the realised instantiation space.  The constructions
+differ by where the missing $\sigma$-additive structure is
+supplied --- internally by countable reach, or externally by completion
+--- and whenever both apply, they yield the same measure.
 
-A \emph{Stone construction} starts from finite additivity alone. Compactness of the Stone space supplies $\sigma$-additivity on the compact completion; CE then appears as the support condition ensuring the resulting measure descends to the realised instantiation space. The two constructions differ by where the missing $\sigma$-additive structure is supplied --- internally by countable reach in the directed system, or externally by the Stone completion --- and whenever both constructions apply, they yield the same observable measure.
+The probability measure produced here is the starting point for
+Papers~II and~III of this series, which show that it already contains
+a conditional regularity structure and a dynamical semigroup, and ask
+what finite data can certify about them.
 \end{abstract}
 
 \begin{quote}\small
@@ -24,13 +53,39 @@ observable extension theorem, collective exhaustion, Carathéodory extension, St
 \label{I:sec:intro}
 % ------------------------------------------------------------------
 
-Observable distinctions are classically typified by Boolean algebras. Their study crucially underpins modern measure theory and its probabilistic extensions. In contrast, the directed nature of observation, wherein finer levels of resolution refine coarser ones, has been relatively misprized toward such ends.  In the foundational treatments of Kolmogorov~\cite{Kolmogorov} and Choksi~\cite{choksi1958}, the global $\sigma$-algebra emerges as the projective limit of compatible measure spaces. Directed structure plays an organisational role: it orders the marginals and licenses the assembly, but is not itself interrogated as a source of probabilistic constraint.
+Observable distinctions are naturally encoded by Boolean algebras, and the
+study of Boolean algebras underpins modern measure theory and its
+probabilistic extensions.  The directed nature of observation --- wherein
+finer levels of resolution refine coarser ones --- has, by contrast,
+played a largely organisational role.  In the foundational treatments of
+Kolmogorov~\cite{Kolmogorov} and Choksi~\cite{choksi1958}, the global
+$\sigma$-algebra emerges as the projective limit of compatible measure
+spaces; directed structure orders the marginals and licenses their
+assembly, but is not itself interrogated as a source of probabilistic
+constraint.
 
-We facilitate interrogation by a directed system of Boolean algebras connected by surjective refinement maps. Valuations enter as compatible families of finitely additive charges on the level algebras: charges at different levels agree on events seen from both. Structural coherence and valuation compatibility together constitute the finitary data.  
+This paper interrogates that structure directly.  We work with a directed
+system of Boolean algebras connected by surjective refinement maps, carrying
+a compatible family of finitely additive charges: charges at different
+levels agree on events seen from both.  Structural coherence and valuation
+compatibility are purely finitary conditions.  The question is what further
+condition on the valuations is required for finitary data to support a
+genuine probability measure on the observable $\sigma$-algebra.
 
-Under such treatment Kolmogorov's question resurfaces without dependence on the ontological status of a global state space. In the language of \emph{queries}: what further condition on valuations is required for finitary data to support a genuine probability measure on the observable $\sigma$-algebra?
-
-The condition is \emph{collective exhaustion} (CE): a compatible family of finitely additive charges extends to a $\sigma$-additive measure if and only if, whenever a decreasing sequence of events vanishes globally, there exists a level at which the sequence's mass converges to zero.  CE rules out purely finitely additive charges, which assign persistent mass to sequences that vanish in the limit.  It is the exact admissibility condition separating observational coherence from genuine probability: a coherent family of charges deserves to be treated as a probability system precisely when it satisfies CE.  A family satisfying CE determines a unique probability measure on the observable $\sigma$-algebra; no first-order structural condition can substitute for it.
+The condition is \emph{collective exhaustion} (CE): a compatible charge
+family extends to a $\sigma$-additive measure if and only if, whenever a
+decreasing sequence of events vanishes globally, there exists a level at
+which the sequence's mass converges to zero.  CE rules out purely finitely
+additive charges, which assign persistent mass to sequences that vanish in
+the limit.  It is the exact admissibility condition separating observational
+coherence from genuine probability: a coherent family of charges deserves
+to be treated as a probability system precisely when it satisfies CE.
+A family satisfying CE determines a unique probability measure on the
+observable $\sigma$-algebra.  No first-order structural condition can
+substitute for it --- the obstruction is not an artifact of the query-system
+formalism but already appears in the more primitive language of Boolean
+algebras with finitely additive charge, where countable additivity is
+likewise not first-order axiomatizable.
 
 
 % ------------------------------------------------------------------

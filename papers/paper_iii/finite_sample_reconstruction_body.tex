@@ -74,12 +74,11 @@ zero under honest refinement), an estimation theorem (the empirical proxy
 concentrates under IID sampling), and a CE-shadow corollary (a persistent
 empirical floor is evidence against CE).
 
-The remainder of the paper works in the dynamical specialisation --- a
-measure-preserving system $(X, \mathcal{B}, \mu, T)$ with observable
-$h \in L^\infty$ and time series $x_1, \ldots, x_n$ --- where the additional
-structure of mixing and geometry makes sharper, rate-optimal guarantees
-achievable.  Here the joined query algebra $\mathcal{O}_h^{(L)}$ is an honest
-refinement scheme by construction, and the separation defect specialises to
+The remainder works in the dynamical specialisation --- a measure-preserving
+system $(X, \mathcal{B}, \mu, T)$, observable $h \in L^\infty$, time series
+$x_1, \ldots, x_n$ --- where mixing and geometry make rate-optimal guarantees
+achievable.  The joined algebra $\mathcal{O}_h^{(L)}$ is an honest refinement
+scheme by construction; the defect specialises to
 $\deltaL = \delta(\mathcal{O}_h^{(L)})$.  Three theorems certify reconstruction
 in this regime.
 
@@ -107,33 +106,28 @@ both witnesses certify the same object; the theorem names two failure modes
 (reconstruction failure collapses the algebra witness; (US)-failure collapses
 the kernel witness) that jointly exhaust the ways certification can fail.
 
-The dynamical specialisation inherits its honest-refinement property from lag
-growth, freeing the mixing assumption to buy rate results that the general
-theory cannot reach.  The discussion section records where each proof requires
-that structure and what would be needed to extend beyond it.
+The discussion section records where each proof requires mixing and what
+would be needed to extend beyond it.
 
 % ============================================================
 \section{General observational certification}
 \label{III:sec:general}
 % ============================================================
 
-The certification question can be posed before any temporal or geometric
-structure is assumed.  Fix a query system $(\mathcal{E}_n)_n$ with
-observable $\sigma$-algebra $\sigma(\mathcal{C})$ and realization measure
-$\mu$ satisfying collective exhaustion (CE)~\cite{mahon_paper1}.  For a
-finite joined query algebra $\mathcal{G} = \mathcal{E}_{n_1} \vee \cdots
-\vee \mathcal{E}_{n_k}$, the \emph{population separation defect} is
+Fix a query system $(\mathcal{E}_n)_n$ with observable $\sigma$-algebra
+$\sigma(\mathcal{C})$ and realization measure $\mu$ satisfying
+CE~\cite{mahon_paper1}.  For a finite joined query algebra
+$\mathcal{G} = \mathcal{E}_{n_1} \vee \cdots \vee \mathcal{E}_{n_k}$,
+the \emph{population separation defect} is
 \[
   \delta(\mathcal{G})
   \;:=\;
   \sup_{A \in \sigma(\mathcal{C})} \inf_{E \in \mathcal{G}} \mu(A \triangle E).
 \]
-It vanishes if and only if $\sigma(\mathcal{G}) = \sigma(\mathcal{C})$
-modulo $\mu$ — that is, the queried family has achieved complete observational
-resolution.  A refinement scheme $(\mathcal{G}_k)$ is \emph{honest} if it is
-increasing and $\sigma(\bigcup_k \mathcal{G}_k) = \sigma(\mathcal{C})$ modulo
-$\mu$: the queries genuinely exhaust the observable system.  Under an honest
-scheme, $\delta(\mathcal{G}_k)$ is non-increasing.
+It vanishes iff $\sigma(\mathcal{G}) = \sigma(\mathcal{C})$ mod $\mu$.
+A scheme $(\mathcal{G}_k)$ is \emph{honest} if it is increasing and
+$\sigma(\bigcup_k \mathcal{G}_k) = \sigma(\mathcal{C})$ mod $\mu$; under
+an honest scheme $\delta(\mathcal{G}_k)$ is non-increasing.
 
 \begin{theorem}[Population theorem]
 \label{III:thm:population}
@@ -144,10 +138,13 @@ Under CE and any honest refinement scheme $(\mathcal{G}_k)$,
 \end{theorem}
 
 \begin{proof}
-CE rules out persistent mass on globally vanishing events~\cite{mahon_paper1}.
-The events in $\sigma(\mathcal{C})$ not approximable by $\mathcal{G}_k$ form
-a decreasing family whose intersection is $\mu$-null as the scheme exhausts
-$\sigma(\mathcal{C})$.  By CE, their $\mu$-measure tends to zero.
+Since $(\mathcal{G}_k)$ is honest, every $A \in \sigma(\mathcal{C})$ is
+$\sigma(\bigcup_k \mathcal{G}_k)$-measurable, so the martingale
+$\mathbb{E}_\mu[\mathbf{1}_A \mid \mathcal{G}_k]$ converges to
+$\mathbf{1}_A$ in $L^1(\mu)$.  Thus $\inf_{E \in \mathcal{G}_k}
+\mu(A \triangle E) \to 0$ for each $A$.  CE~\cite{mahon_paper1} ensures
+this convergence is uniform: no mass persists on the residual sets.
+Hence $\delta(\mathcal{G}_k) \to 0$.
 \end{proof}
 
 Given $N$ independent query responses $\omega_1, \ldots, \omega_N$ drawn
@@ -177,37 +174,34 @@ numbers~\cite{Hoeffding1948}.
 
 \begin{corollary}[CE-shadow]
 \label{III:cor:ce-shadow}
-Suppose $(\mathcal{G}_k)$ is an honest refinement scheme and samples are
-drawn IID.  If $\hat\delta(\mathcal{G}_k, N)$ exhibits a persistent floor
---- failing to decrease below some $c > 0$ as $k \to \infty$ and $N \to
-\infty$ --- that is evidence against CE: CE is the population condition that
-guarantees the floor can be discharged by further refinement.
+Under an honest refinement scheme and IID sampling, if
+$\hat\delta(\mathcal{G}_k, N) \geq c > 0$ for all large $k$ and $N$,
+that is evidence against CE: CE is what guarantees the floor can be
+discharged by further refinement.
 \end{corollary}
 
-\begin{remark}[Scope of the CE-shadow corollary]
+\begin{remark}[Scope]
 \label{III:rem:ce-shadow-scope}
-The corollary is one-directional.  A persistent empirical floor implies
-CE-failure; the converse is not claimed.  The population defect $\delta$
-is defined inside $\sigma(\mathcal{C})$, while CE also controls escape to
-the Stone boundary — non-principal ultrafilters that do not manifest as a
-deficit in the defect functional.  A charge family could achieve
-$\delta(\mathcal{G}_k) \to 0$ (complete resolution within $\sigma(\mathcal{C})$)
-while still failing CE through mass concentrated on non-realised boundary
-points~\cite{mahon_paper1}.
+The corollary is one-directional: persistent floor implies CE-failure;
+$\delta(\mathcal{G}_k) \to 0$ does not imply CE.  The defect is defined
+inside $\sigma(\mathcal{C})$, while CE also controls escape to the Stone
+boundary — non-principal ultrafilters invisible to the defect functional.
+A charge family can resolve $\sigma(\mathcal{C})$ completely while still
+placing mass on non-realised boundary points~\cite{mahon_paper1}.
 
-The honest-refinement condition is essential: without it, a stalling empirical
-defect could be a design artifact (queries not cutting the unresolved atoms)
-rather than a population-level admissibility failure.
+Honest refinement is essential: a stalling empirical defect under a
+poorly-chosen query path is a design artifact, not an admissibility
+failure.  Under an honest scheme it is the latter.
 
-This corollary gives CE an empirical signature it does not have in the
-abstract treatment of~\cite{mahon_paper1}: collective exhaustion is no longer
-only an admissibility condition for deriving $\sigma$-additivity, but also a
-structural hypothesis with a detectable finite-sample consequence.
+CE thereby acquires an empirical signature absent from its abstract
+treatment in~\cite{mahon_paper1}: it is not only the admissibility
+condition for $\sigma$-additivity, but a structural hypothesis with a
+detectable finite-sample consequence.
 \end{remark}
 
 The remainder of this paper establishes what is achievable in the dynamical
 specialisation, where the honest-refinement condition is automatic and mixing
-buys rate-optimal guarantees; see Section~\ref{III:sec:intro} for the overview.
+buys rate-optimal guarantees.
 
 % ============================================================
 \section{Setup and Notation}

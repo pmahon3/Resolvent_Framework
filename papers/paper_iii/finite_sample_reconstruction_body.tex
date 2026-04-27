@@ -652,7 +652,7 @@ $\|f\|_{\Lp{\infty}} \leq 4\MLD^2 =: B_{L,D}^2$.
 \emph{Step~2 (McDiarmid).}
 Replacing one observation $x_i$ with $x_i'$ changes
 $\delhat{L}{n}$ by at most $B_{L,D}^2/n$.
-By the McDiarmid bounded-difference inequality:
+By the McDiarmid bounded-difference inequality~\cite{McDiarmid1989}:
 \[
   P\!\bigl(|\delhat{L}{n} - \mathbb{E}[\delhat{L}{n}]| > t\bigr)
   \;\leq\; 2\exp\!\Bigl(-\frac{2n^2 t^2}{n \cdot (B_{L,D}^2/n)^2}\Bigr)
@@ -665,7 +665,7 @@ By the symmetrisation inequality \cite{BartlettMendelson2002}:
   \mathbb{E}[\delhat{L}{n}] - \delta(L)
   \;\leq\; 2\,\Rad_n(\mathcal{F}_{L,D}).
 \]
-By the Ledoux--Talagrand contraction lemma, since $f = (p - \cdot)^2$ is
+By the Ledoux--Talagrand contraction lemma~\cite{LedouxTalagrand1991}, since $f = (p - \cdot)^2$ is
 $2B_{L,D}$-Lipschitz in the second argument:
 \[
   \Rad_n(\mathcal{F}_{L,D})
@@ -884,8 +884,8 @@ positive density:
 The upper bound $\deff(L) \leq \min(L+1,d)$ holds because $D\PhiL|_x$ is a
 linear map from $T_x X$ (dimension~$d$) to $\mathbb{R}^{L+1}$.
 
-For the lower bound we use the Sard--Smale theorem
-(Smale \cite{Takens1981} framework) applied to two failure maps.
+For the lower bound we use the Sard--Smale theorem~\cite{Smale1965}
+applied to two failure maps.
 
 \emph{Case $L+1 \leq d$.}
 Rank $< L+1$ at $x$ means the cotangent vectors
@@ -1063,7 +1063,7 @@ Then
   \;=\; O_p\!\bigl(n^{-s/(2s+d)}\bigr).
 \]
 The rate $n^{-s/(2s+d)}$ is minimax-optimal for $\mathrm{H\ddot{o}lder}(s)$
-functions on a $d$-dimensional domain.
+functions on a $d$-dimensional domain~\cite{Stone1982}.
 No oracle input (mixing rate, $L^*(n)$, Sobolev index $s$) is required.
 \end{theorem}
 
@@ -1190,7 +1190,7 @@ information-theoretic quantity:
   \;=\; -\log \int p_z^2\,d\nuL(z).
   \label{III:eq:entropy}
 \end{equation}
-This is the \emph{Rényi-$2$ (collision) entropy} of the delay-vector distribution.
+This is the \emph{Rényi-$2$ (collision) entropy}~\cite{Renyi1961} of the delay-vector distribution.
 
 \begin{corollary}[Entropy characterisation of reconstruction]
 \label{III:cor:entropy}

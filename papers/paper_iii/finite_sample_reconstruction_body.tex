@@ -59,7 +59,7 @@ $\mathcal{B}$ modulo $\mu$ if and only if the delay map $\Phi_h$ is a
 measure-theoretic embedding --- an exact asymptotic condition that says
 nothing about rates, certificates, or what can be verified from a finite
 time series.
-Both results of~\cite{mahon_paper1,mahon_paper2} are taken as given;
+The results of~\cite{mahon_paper1,mahon_paper2} are taken as given;
 this paper asks what finite data can certify about the structure they establish.
 
 The certification question has two natural levels.  At the level of the
@@ -150,16 +150,17 @@ a decreasing family whose intersection is $\mu$-null as the scheme exhausts
 $\sigma(\mathcal{C})$.  By CE, their $\mu$-measure tends to zero.
 \end{proof}
 
-Given $N$ independent samples of the joint query response at levels
-$(n_1, \ldots, n_k)$, define the \emph{empirical separation defect}
+Given $N$ independent query responses $\omega_1, \ldots, \omega_N$ drawn
+from $\mu$, let $R_i = (Q_{n_1}(\omega_i), \ldots, Q_{n_k}(\omega_i)) \in
+\alpha_{n_1} \times \cdots \times \alpha_{n_k}$ be the joint response vector
+of the $i$-th sample.  Define the \emph{empirical separation defect}
 \[
   \hat\delta(\mathcal{G}, N)
   \;:=\;
-  \frac{1}{N^2} \sum_{i,j} \mathbf{1}[\text{responses } i \text{ and } j
-  \text{ agree on all of } \mathcal{G}],
+  \frac{1}{N^2} \sum_{i=1}^N \sum_{j=1}^N \mathbf{1}[R_i = R_j],
 \]
-the empirical collision probability of the joint response vector.  This is
-a U-statistic requiring no geometric structure on the realization space.
+the empirical collision probability of the joint response.  This is a
+second-order U-statistic requiring no geometric structure on $\Omega$.
 
 \begin{theorem}[Estimation theorem]
 \label{III:thm:estimation}
@@ -204,15 +205,9 @@ only an admissibility condition for deriving $\sigma$-additivity, but also a
 structural hypothesis with a detectable finite-sample consequence.
 \end{remark}
 
-The remainder of this paper works in the dynamical specialisation — the setting
-where rates are achievable.  Setting $Q_t = h \circ T^t$ in a
-measure-preserving system $(X, \mathcal{B}, \mu, T)$, the joined algebra
-$\mathcal{G} = \mathcal{O}_h^{(L)}$ is automatically an honest refinement
-scheme (increasing lag exhausts $\sigma(\mathcal{C}) = \mathcal{O}_h$ under
-reconstruction), and the population separation defect specialises to
-$\delta(L) := \delta(\mathcal{O}_h^{(L)})$.  Exponential decay of $\delta(L)$
-under mixing then yields the minimax-optimal certification rates of
-Theorems~\ref{III:thm:algebra}--\ref{III:thm:conjunction}.
+The remainder of this paper establishes what is achievable in the dynamical
+specialisation, where the honest-refinement condition is automatic and mixing
+buys rate-optimal guarantees; see Section~\ref{III:sec:intro} for the overview.
 
 % ============================================================
 \section{Setup and Notation}

@@ -359,8 +359,8 @@ The next two sections answer this question.
 \subsection{Separation defect and the role of CE}
 \label{II:subsec:sep-defect}
 
-Before specialising to the delay-map setting, it is worth noting the general
-form of the reconstruction question and the role CE plays in it.  Given any
+Before specialising to the delay-map setting, the general form of the
+reconstruction question and the role CE plays in it deserve to be named.  Given any
 finite family of queried levels $n_1, \ldots, n_k$ from a directed query system
 $(\mathcal{E}_n)_n$ with realization measure $\mu$ on $\Omega$, define the
 \emph{separation defect} of the joined algebra
@@ -392,20 +392,21 @@ refinement scheme $(\mathcal{G}_k)$,
 \end{proposition}
 
 \begin{proof}
-CE rules out persistent mass on globally vanishing events~\cite{mahon_paper1}:
-for any decreasing sequence $A_k \in \sigma(\mathcal{C})$ with $\bigcap_k A_k$
-a $\mu$-null set, $\mu(A_k) \to 0$.  The events in $\sigma(\mathcal{C})$
-not approximable by $\mathcal{G}_k$ form a decreasing sequence whose
-intersection is empty as the refinement exhausts the system.
-By CE, their $\mu$-measure tends to zero, so $\delta(\mathcal{G}_k) \to 0$.
+Fix $\varepsilon > 0$ and $A \in \sigma(\mathcal{C})$.  Since $(\mathcal{G}_k)$
+is honest, $A$ is approximable modulo $\mu$ by some $E_k \in \mathcal{G}_k$
+for all large $k$: the sets $A \triangle E_k$ decrease to a $\mu$-null set.
+CE~\cite{mahon_paper1} rules out persistent mass on globally vanishing events,
+so $\mu(A \triangle E_k) \to 0$.  Taking the supremum over $A$ and the
+infimum over $E_k$ gives $\delta(\mathcal{G}_k) \to 0$.
 \end{proof}
 
 \begin{remark}[The temporal specialisation]
 \label{II:rem:temporal-spec}
 In the measure-preserving setting with $Q_t = h \circ T^t$, the finite
 joined algebra $\mathcal{O}_h^{(L)} = \sigma(h, h \circ T, \ldots, h \circ T^L)$
-is an honest refinement scheme (increasing lag is automatically exhaustive when
-$\mathcal{O}_h = \mathcal{B}$ mod $\mu$).  The separation defect $\delta(\mathcal{G})$
+forms an increasing family, and under reconstruction ($\mathcal{O}_h = \mathcal{B}$
+mod $\mu$, established in §\ref{II:sec:density-bridge}--\ref{II:sec:stone}) it
+is exhaustive — hence an honest refinement scheme.  The separation defect $\delta(\mathcal{G})$
 specialises to $\delta(L) := \delta(\mathcal{O}_h^{(L)})$, the quantity
 that drives the finite-sample theory of~\cite{mahon_paper3}.  There,
 exponential decay of $\delta(L)$ under mixing yields minimax-optimal

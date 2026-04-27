@@ -378,19 +378,11 @@ Since $\mathrm{Var}(\mathbbm{1}_S \mid \OhL)(x) = \mu_z(S)\mu_z(S^c)$ on $F_z$,
 both sides equal $\int \mu_z(S)\mu_z(S^c)\,d\nuL(z)$.
 \end{proof}
 
-\begin{corollary}[Easy direction]
-\label{III:cor:easy}
-$\deltaL \;\leq\; \tfrac{1}{2}\,(\mu \otimes \mu)(\RL)$.
-\end{corollary}
-
-\begin{proof}
-In Lemma~\ref{III:lem:cond-var}, bound $|\mathbbm{1}_S(x) - \mathbbm{1}_S(x')|^2 \leq 1$
-and take the supremum over $S$ using
-$\deltaL = \sup_S \mathbb{E}[\mathrm{Var}(\mathbbm{1}_S \mid \OhL)]$.
-\end{proof}
+Bounding $|\mathbbm{1}_S - \mathbbm{1}_{S'}|^2 \leq 1$ in the lemma and taking the supremum
+gives $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
 
 \begin{remark}[Finite analogue of collective exhaustion]
-Corollary~\ref{III:cor:easy} and its converse (Corollary~\ref{III:cor:entropy}, proved
+This bound and its converse (Corollary~\ref{III:cor:entropy}, proved
 under fibre mixing in \S\ref{III:sec:algebra}) together say: algebraic
 indistinguishability $\delta(L)$ vanishes if and only if the mass of
 indistinguishable pairs $(\mu\otimes\mu)(R_L)$ vanishes.  This is the
@@ -1198,7 +1190,7 @@ $(\mu \otimes \mu)(\RL)$ introduced in Section~\ref{III:subsec:fibres}.
 \end{corollary}
 
 \begin{proof}
-Corollary~\ref{III:cor:easy} gives $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
+Lemma~\ref{III:lem:cond-var} gives $\deltaL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
 For the reverse, Lemma~\ref{III:lem:hard} with a $\deltaL$-near-maximizer $S^*$
 satisfying the $(c,\varepsilon)$-mixing condition gives
 $(\mu\otimes\mu)(\RL) \leq \frac{1}{c}\,\deltaL + C(c)\,\varepsilon$,
@@ -1207,14 +1199,10 @@ Since $(\mu\otimes\mu)(\RL) = e^{-H_2(\nuL)}$, this is equivalent to
 $H_2(\nuL) \to +\infty$.
 \end{proof}
 
-\begin{remark}[Balance mechanism]
-\label{III:rem:balance-mechanism}
-Lemma~\ref{III:lem:balance} guarantees that a positive $\nuL$-fraction of
-$\varepsilon$-large fibres are $\eta$-balanced without any dynamical hypothesis.
-The fibre mixing condition is the upgrade from positive-fraction to
-$\nuL$-a.e.\ balance; whether ergodicity supplies it is the main open
-question (Section~\ref{III:sec:discussion}).
-\end{remark}
+Thus Lemma~\ref{III:lem:balance} guarantees a positive $\nuL$-fraction of
+$\varepsilon$-large fibres are $\eta$-balanced without any dynamical hypothesis;
+the fibre mixing condition is precisely the upgrade from positive-fraction to
+$\nuL$-a.e.\ balance.
 
 \begin{remark}[Empirical entropy witness]
 \label{III:rem:entropy-witness}

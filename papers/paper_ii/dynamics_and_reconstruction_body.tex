@@ -196,18 +196,11 @@ $\sigma(Q)$-measurable.
 The conclusion follows from a.e.\ uniqueness of conditional expectation.
 \end{proof}
 
-\begin{corollary}[Predictive sufficiency]
-\label{II:cor:sufficiency}
+Since $\sigma(Q_*) \subseteq \sigma(Q)$ and the right-hand side is already
+$\sigma(Q_*)$-measurable, $Q_*$ is a sufficient statistic:
 $E[g(F) \mid \sigma(Q)] = E[g(F) \mid \sigma(Q_*)]$ $P$-a.e.
-\end{corollary}
-\begin{proof}
-$\sigma(Q_*) \subseteq \sigma(Q)$, and the conditional expectation given
-$\sigma(Q)$ is already $\sigma(Q_*)$-measurable by the theorem.
-\end{proof}
-
 The operator $(K_{Q_*} g)(q_*) = \int g\, dq_*$ on $\mathcal{P}(\beta)$
-recasts the theorem as: $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$
-$P$-a.e.
+recasts this as $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$ $P$-a.e.
 
 % ====================================================================
 \section{Dynamics and duality}
@@ -320,14 +313,11 @@ whenever $h$ separates points of $X$.
 The full structure produced by the prediction construction is captured in one
 definition.
 
-\begin{definition}[Observable dynamical system]
-\label{II:def:obs-dyn-sys}
-An \emph{observable dynamical system} is a triple
-$(\mathcal{P}(\beta),\, \nu_{Q_*},\, \{K_t\}_{t \in \mathbb{N}})$
-where $\mathcal{P}(\beta)$ is the predictive state space (the image of $Q_*$),
-$\nu_{Q_*} = P \circ Q_*^{-1}$ is the pushforward of $P$ along $Q_*$, and
-$\{K_t\}$ is the Markov semigroup on $\mathcal{P}(\beta)$.
-\end{definition}
+The full structure produced by the construction is the triple
+$(\mathcal{P}(\beta),\, \nu_{Q_*},\, \{K_t\}_{t \in \mathbb{N}})$:
+predictive state space, stationary distribution $\nu_{Q_*} = P \circ Q_*^{-1}$,
+and Markov semigroup.  This is the \emph{observable dynamical system}
+derived from $(Q, F, P)$.
 
 % ====================================================================
 \section{From prediction to reconstruction}
@@ -372,8 +362,8 @@ A sequence $(\mathcal{G}_k)$ is \emph{honest} if it is increasing and
 $\sigma(\bigcup_k \mathcal{G}_k) = \sigma(\mathcal{C})$ mod $\mu$; under an
 honest scheme $\delta(\mathcal{G}_k)$ is non-increasing.
 
-\begin{proposition}[CE drives separation defect to zero]
-\label{II:prop:ce-sep-defect}
+\begin{theorem}[CE drives separation defect to zero]
+\label{II:thm:ce-sep-defect}
 Let $(\mathcal{E}_n)_n$ be a query system with realization measure $\mu$
 satisfying collective exhaustion~\cite{mahon_paper1}.  Under any honest
 refinement scheme $(\mathcal{G}_k)$,
@@ -381,7 +371,7 @@ refinement scheme $(\mathcal{G}_k)$,
   \delta(\mathcal{G}_k) \;\longrightarrow\; 0
   \quad \text{as } k \to \infty.
 \]
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
 Fix $A \in \sigma(\mathcal{C})$.  Since $(\mathcal{G}_k)$ is honest,
@@ -548,26 +538,12 @@ $\Phi_h^{-1}(\mathcal{B}(\mathbb{R}^\mathbb{Z})) = \mathcal{B}$ mod $\mu$,
 which is exactly condition~(iii).
 \end{proof}
 
-\begin{remark}[What ``measure-theoretic embedding'' means]
-\label{II:rem:embedding}
-Condition~(iii) says that $\Phi_h$ is \emph{almost everywhere injective} and
-the pullback $\sigma$-algebra is all of $\mathcal{B}$.  More precisely: since
-$\Phi_h^{-1}(\mathcal{B}(\mathbb{R}^\mathbb{Z})) = \mathcal{B}$ mod $\mu$, for
-any two sets $A, A' \in \mathcal{B}$ with $\mu(A \triangle A') > 0$ there exists
-a Borel set $E \subseteq \mathbb{R}^\mathbb{Z}$ with
-$\mu(\Phi_h^{-1}(E) \triangle A) = 0$ and
-$\mu(\Phi_h^{-1}(E) \triangle A') > 0$.  In measure-theoretic language,
-$\Phi_h$ induces an isomorphism of measure algebras
+Condition~(iii) means $\Phi_h$ induces an isomorphism of measure algebras
 $(X/\mu, \mathcal{B}/\mu) \cong (\mathbb{R}^\mathbb{Z}/(\Phi_h)_*\mu,
 \mathcal{B}(\mathbb{R}^\mathbb{Z})/(\Phi_h)_*\mu)$.
-
-The $T$-invariance of $\mu$ implies that $(\Phi_h)_*\mu$ is invariant under
-the bilateral shift $\sigma$ on $\mathbb{R}^\mathbb{Z}$, since
-$(\Phi_h(Tx))_n = h(T^{n+1}x) = (\sigma(\Phi_h(x)))_n$ for each $n$.  The
-dynamical system $(X, T, \mu)$ is therefore isomorphic to
-$(\mathbb{R}^\mathbb{Z}, \sigma, (\Phi_h)_*\mu)$ restricted to the image of
-$\Phi_h$.
-\end{remark}
+Since $(\Phi_h(Tx))_n = h(T^{n+1}x) = (\sigma(\Phi_h(x)))_n$, the measure
+$(\Phi_h)_*\mu$ is shift-invariant, and $(X, T, \mu)$ is isomorphic to
+$(\mathbb{R}^\mathbb{Z}, \sigma, (\Phi_h)_*\mu)$ restricted to $\Phi_h(X)$.
 
 % ====================================================================
 \section{Cyclic vectors and Stone space identification}
@@ -627,14 +603,14 @@ compact Hausdorff space whose points are ultrafilters on $\mathcal{O}_h$, with
 the natural Stone embedding $\iota : X \to \mathrm{St}(\mathcal{O}_h)$ sending
 $x$ to the principal ultrafilter $\{E \in \mathcal{O}_h : x \in E\}$.
 
-\begin{proposition}[Stone space identification]
-\label{II:prop:stone-id}
+\begin{theorem}[Stone space identification]
+\label{II:thm:stone-id}
 Suppose $\mathcal{O}_h = \mathcal{B}$ modulo $\mu$.  Then $\iota$ is a
 measure-theoretic isomorphism: $\iota$ identifies the measure algebra
 $(X/\mu, \mathcal{B}/\mu)$ with
 $(\mathrm{St}(\mathcal{O}_h)/\iota_*\mu,
 \mathcal{B}(\mathrm{St}(\mathcal{O}_h))/\iota_*\mu)$.
-\end{proposition}
+\end{theorem}
 
 \begin{proof}
 \emph{Injectivity mod $\mu$.}  Suppose $\iota(x) = \iota(x')$.  For any

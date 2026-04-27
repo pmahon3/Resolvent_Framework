@@ -53,65 +53,166 @@ measure-preserving system.
 \label{III:sec:intro}
 % ============================================================
 
-The reconstruction theorem states that the observable algebra
-$\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$ generates
+The reconstruction theorem~\cite{mahon_paper2} states that the observable
+algebra $\mathcal{O}_h = \sigma\{h \circ T^n : n \in \mathbb{Z}\}$ generates
 $\mathcal{B}$ modulo $\mu$ if and only if the delay map $\Phi_h$ is a
 measure-theoretic embedding --- an exact asymptotic condition that says
 nothing about rates, certificates, or what can be verified from a finite
 time series.
-Given a time series $x_1, \ldots, x_n$ from $(X, \mathcal{B}, \mu, T)$
-and a single observable $h$, we ask: can one determine from data alone
-whether reconstruction holds, at what rate, and with what certificates?
-We answer with three theorems: the Algebra Theorem, the Dynamics Theorem,
-and the Conjunction Theorem.
-Both results~\cite{mahon_paper1,mahon_paper2} are taken as given;
-this paper asks what finite data can certify.
+Both results of~\cite{mahon_paper1,mahon_paper2} are taken as given;
+this paper asks what finite data can certify about the structure they establish.
+
+The certification question has two natural levels.  At the level of the
+general query system~\cite{mahon_paper1}, one can ask: given finite responses
+to a directed family of queries, does the empirical evidence certify that the
+observable structure is resolving correctly, and can CE-failure be detected
+from data?  Section~\ref{III:sec:general} answers this at full generality, with
+no temporal or geometric assumptions.  The central objects are the population
+separation defect $\delta(\mathcal{G})$ and its empirical U-statistic proxy;
+the main results are a population convergence theorem (CE drives the defect to
+zero under honest refinement), an estimation theorem (the empirical proxy
+concentrates under IID sampling), and a CE-shadow corollary (a persistent
+empirical floor is evidence against CE).
+
+The remainder of the paper works in the dynamical specialisation --- a
+measure-preserving system $(X, \mathcal{B}, \mu, T)$ with observable
+$h \in L^\infty$ and time series $x_1, \ldots, x_n$ --- where the additional
+structure of mixing and geometry makes sharper, rate-optimal guarantees
+achievable.  Here the joined query algebra $\mathcal{O}_h^{(L)}$ is an honest
+refinement scheme by construction, and the separation defect specialises to
+$\deltaL = \delta(\mathcal{O}_h^{(L)})$.  Three theorems certify reconstruction
+in this regime.
 
 \textbf{The Algebra Theorem} (Section~\ref{III:sec:algebra}).
-Define the $\sigma$-algebra approximation error
-\[ \deltaL = \sup_{S \in \mathcal{B}} \inf_{E \in \OhL} \mu(S \triangle E),\]
-which measures how much of $\mathcal{B}$ is not yet captured by the
-finite-lag algebra $\OhL = \sigma(h, h\circ T, \ldots, h \circ T^L)$.
-This quantity is estimable from data as $\delhat{L}{n}$ (defined
-in Section~\ref{III:sec:setup}).
-The elbow stopping rule $\Lhat$ fires when $\delhat{L}{n}$ stops decreasing.
+The elbow stopping rule $\Lhat$ fires when the empirical defect
+$\delhat{L}{n}$ stops decreasing.
 Under exponential mixing with resolvability constant $C_\lambda > 4$,
 $\Lhat$ achieves the minimax-optimal rate $n^{-s/(2s+d)}$ for
 $\mathrm{H\ddot{o}lder}(s)$ targets on a $d$-dimensional state space,
 without any oracle knowledge of the mixing rate, the lag $L^*(n)$,
 or the smoothness index $s$.
-This is the main finite-sample rate result.
 
 \textbf{The Dynamics Theorem} (Section~\ref{III:sec:dynamics}).
-The delay map $\PhiL(x) = (h(x), \ldots, h(T^L x))$ encodes the
-trajectory of $x$ under the observable.
-When $T \in C^r$ and the uniform separation condition~(US)
-holds (infimum of the smallest singular value of $D\PhiL$ over $X$
-is bounded away from zero), $\PhiL$ is bi-Lipschitz.
-The empirical delay vectors then constitute a second witness: they certify
-that points are being separated by the dynamics.
-The Dynamics Theorem shows that this kernel witness converges to the true
-separation at rate $n^{-\beta/(2\beta+d)}$ and names the places where it can fail.
+When $T \in C^r$ and the uniform separation condition~(US) holds,
+the delay map $\PhiL$ is bi-Lipschitz, and the empirical delay vectors
+constitute a second witness certifying that points are being separated by
+the dynamics.  This kernel witness converges at rate $n^{-\beta/(2\beta+d)}$
+and fails precisely when~(US) fails.
 
 \textbf{The Conjunction Theorem} (Section~\ref{III:sec:conjunction}).
-The two witnesses measure the same event.
 For deterministic $T$, the TV separation $\preddisc{L}(x,x') = 1$ if and
-only if $x$ and $x'$ are separated by $\OhL$ --- not merely correlated, but
-identical.
-This algebraic identity ($\sigma(\PhiL) = \OhL$) is the Markov bridge.
-Under reconstruction and~(US), both witnesses fire correctly and certify the
-same object.
-The theorem also names two failure modes: reconstruction failure makes the
-algebra witness fail; violation of~(US) makes the kernel witness fail even
-when reconstruction holds.
+only if $x$ and $x'$ are separated by $\OhL$ --- the algebraic identity
+$\sigma(\PhiL) = \OhL$ is the Markov bridge.  Under reconstruction and~(US),
+both witnesses certify the same object; the theorem names two failure modes
+(reconstruction failure collapses the algebra witness; (US)-failure collapses
+the kernel witness) that jointly exhaust the ways certification can fail.
 
-The $\sigma$-algebra approximation error $\deltaL$ is observable without
-knowing the mixing rate, the dimension $d$, or the smoothness $s$.
-The elbow rule for $\delhat{L}{n}$ operates upstream of the rate: it asks
-whether the algebra has captured $\mathcal{B}$, not at what rate the
-approximation is converging.
-For deterministic $T$, all three witnesses certify the same object,
-and finite data suffices to detect it.
+The dynamical specialisation inherits its honest-refinement property from lag
+growth, freeing the mixing assumption to buy rate results that the general
+theory cannot reach.  The discussion section records where each proof requires
+that structure and what would be needed to extend beyond it.
+
+% ============================================================
+\section{General observational certification}
+\label{III:sec:general}
+% ============================================================
+
+The certification question can be posed before any temporal or geometric
+structure is assumed.  Fix a query system $(\mathcal{E}_n)_n$ with
+observable $\sigma$-algebra $\sigma(\mathcal{C})$ and realization measure
+$\mu$ satisfying collective exhaustion (CE)~\cite{mahon_paper1}.  For a
+finite joined query algebra $\mathcal{G} = \mathcal{E}_{n_1} \vee \cdots
+\vee \mathcal{E}_{n_k}$, the \emph{population separation defect} is
+\[
+  \delta(\mathcal{G})
+  \;:=\;
+  \sup_{A \in \sigma(\mathcal{C})} \inf_{E \in \mathcal{G}} \mu(A \triangle E).
+\]
+It vanishes if and only if $\sigma(\mathcal{G}) = \sigma(\mathcal{C})$
+modulo $\mu$ — that is, the queried family has achieved complete observational
+resolution.  A refinement scheme $(\mathcal{G}_k)$ is \emph{honest} if it is
+increasing and $\sigma(\bigcup_k \mathcal{G}_k) = \sigma(\mathcal{C})$ modulo
+$\mu$: the queries genuinely exhaust the observable system.  Under an honest
+scheme, $\delta(\mathcal{G}_k)$ is non-increasing.
+
+\begin{theorem}[Population theorem]
+\label{III:thm:population}
+Under CE and any honest refinement scheme $(\mathcal{G}_k)$,
+\[
+  \delta(\mathcal{G}_k) \;\longrightarrow\; 0.
+\]
+\end{theorem}
+
+\begin{proof}
+CE rules out persistent mass on globally vanishing events~\cite{mahon_paper1}.
+The events in $\sigma(\mathcal{C})$ not approximable by $\mathcal{G}_k$ form
+a decreasing family whose intersection is $\mu$-null as the scheme exhausts
+$\sigma(\mathcal{C})$.  By CE, their $\mu$-measure tends to zero.
+\end{proof}
+
+Given $N$ independent samples of the joint query response at levels
+$(n_1, \ldots, n_k)$, define the \emph{empirical separation defect}
+\[
+  \hat\delta(\mathcal{G}, N)
+  \;:=\;
+  \frac{1}{N^2} \sum_{i,j} \mathbf{1}[\text{responses } i \text{ and } j
+  \text{ agree on all of } \mathcal{G}],
+\]
+the empirical collision probability of the joint response vector.  This is
+a U-statistic requiring no geometric structure on the realization space.
+
+\begin{theorem}[Estimation theorem]
+\label{III:thm:estimation}
+Under IID sampling from the observable law of the joined query responses,
+$\hat\delta(\mathcal{G}, N) \to \delta(\mathcal{G})$ in probability as
+$N \to \infty$.
+\end{theorem}
+
+\begin{proof}
+$\hat\delta(\mathcal{G}, N)$ is a second-order U-statistic for a bounded
+kernel; the result is an instance of the standard U-statistic law of large
+numbers~\cite{Hoeffding1948}.
+\end{proof}
+
+\begin{corollary}[CE-shadow]
+\label{III:cor:ce-shadow}
+Suppose $(\mathcal{G}_k)$ is an honest refinement scheme and samples are
+drawn IID.  If $\hat\delta(\mathcal{G}_k, N)$ exhibits a persistent floor
+--- failing to decrease below some $c > 0$ as $k \to \infty$ and $N \to
+\infty$ --- that is evidence against CE: CE is the population condition that
+guarantees the floor can be discharged by further refinement.
+\end{corollary}
+
+\begin{remark}[Scope of the CE-shadow corollary]
+\label{III:rem:ce-shadow-scope}
+The corollary is one-directional.  A persistent empirical floor implies
+CE-failure; the converse is not claimed.  The population defect $\delta$
+is defined inside $\sigma(\mathcal{C})$, while CE also controls escape to
+the Stone boundary — non-principal ultrafilters that do not manifest as a
+deficit in the defect functional.  A charge family could achieve
+$\delta(\mathcal{G}_k) \to 0$ (complete resolution within $\sigma(\mathcal{C})$)
+while still failing CE through mass concentrated on non-realised boundary
+points~\cite{mahon_paper1}.
+
+The honest-refinement condition is essential: without it, a stalling empirical
+defect could be a design artifact (queries not cutting the unresolved atoms)
+rather than a population-level admissibility failure.
+
+This corollary gives CE an empirical signature it does not have in the
+abstract treatment of~\cite{mahon_paper1}: collective exhaustion is no longer
+only an admissibility condition for deriving $\sigma$-additivity, but also a
+structural hypothesis with a detectable finite-sample consequence.
+\end{remark}
+
+The remainder of this paper works in the dynamical specialisation — the setting
+where rates are achievable.  Setting $Q_t = h \circ T^t$ in a
+measure-preserving system $(X, \mathcal{B}, \mu, T)$, the joined algebra
+$\mathcal{G} = \mathcal{O}_h^{(L)}$ is automatically an honest refinement
+scheme (increasing lag exhausts $\sigma(\mathcal{C}) = \mathcal{O}_h$ under
+reconstruction), and the population separation defect specialises to
+$\delta(L) := \delta(\mathcal{O}_h^{(L)})$.  Exponential decay of $\delta(L)$
+under mixing then yields the minimax-optimal certification rates of
+Theorems~\ref{III:thm:algebra}--\ref{III:thm:conjunction}.
 
 % ============================================================
 \section{Setup and Notation}
@@ -1403,6 +1504,17 @@ $\mu \otimes \mu$-measure, and the kernel condition fails.
 \section{Discussion}
 \label{III:sec:discussion}
 % ============================================================
+
+The results of this paper divide into two layers.  Section~\ref{III:sec:general}
+establishes general observational certification: the population separation defect
+$\delta(\mathcal{G})$ converges to zero under CE and honest refinement, the
+empirical U-statistic proxy concentrates under IID sampling, and a persistent
+empirical floor is evidence against CE.  These results require no temporal or
+geometric structure.  Sections~\ref{III:sec:algebra}--\ref{III:sec:conjunction}
+establish the dynamical sharpening: honest refinement is automatic under lag
+growth, and mixing upgrades consistency to minimax-optimal rates with computable
+witnesses.  The open problems below all concern the dynamical layer; the general
+layer is complete at the level of consistency.
 
 \textbf{Polynomial mixing.}
 The Algebra Theorem (Theorem~\ref{III:thm:algebra}) and the Elbow Location Theorem

@@ -315,12 +315,13 @@ Let $X = \{1,\ldots,k\}$, $\mathcal{B} = 2^X$, and let $P = (p_{ij})$ be the
 transition matrix of a finite irreducible Markov chain with unique stationary
 distribution $\mu$ ($\mu P = \mu$).  Take full-state observation $Q_t = X_t$.
 The conditional regularity kernel of $X_1$ given $X_0$ is
-$\Pi(i,\cdot) = P(i,\cdot)$, the $i$-th row of $P$: this is the unique Markov
+$\kappa(i,\cdot) = P(i,\cdot)$, the $i$-th row of $P$: this is the unique Markov
 kernel satisfying
 $\mathbb{E}_\mu[f(X_1) \mid X_0 = i] = \sum_j p_{ij} f(j)$ for all bounded $f$.
-The $t$-step kernel is $\Pi^{(t)}(i,\cdot) = P^t(i,\cdot)$, and temporal
-coherence gives $\Pi^{(t+s)} = \Pi^{(t)} \circ_\kappa \Pi^{(s)}$, i.e.\
-$P^{t+s} = P^t P^s$.  The semigroup acts as
+The $t$-step kernel $\Pi_t(i,\cdot) = P^t(i,\cdot)$ is the corresponding
+semigroup kernel, and temporal coherence gives
+$\Pi_{t+s} = \Pi_t \circ_\kappa \Pi_s$, i.e.\ $P^{t+s} = P^t P^s$.
+The semigroup acts as
 \[
   K_t f(i) = \sum_j p^t_{ij} f(j).
 \]

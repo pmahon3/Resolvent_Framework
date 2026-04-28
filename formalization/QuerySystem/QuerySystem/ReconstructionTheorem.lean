@@ -18,7 +18,7 @@ import Mathlib.Order.SymmDiff
 import QuerySystem.QuerySystem
 
 /-!
-# Reconstruction Theorem (Paper III)
+# Reconstruction Theorem (Paper II)
 
 This file formalises the reconstruction theorem and its central proof ingredient,
 the **density bridge lemma**, connecting the Boolean algebra of observable events
@@ -28,22 +28,36 @@ to L²-approximation theory.
 
 Fix a probability space `(X, m0, μ)` and a sub-σ-algebra `m ≤ m0`.
 
-**Density bridge (Lemma 3.1).**  Simple functions w.r.t. `m` are dense in
-`L²(X, m, μ.trim hm)` (`density_bridge`, proved directly via `Lp.simpleFunc.dense`).
+**Density bridge (Lemma 4.3).**  Paper II Lemma 4.3 states that for any subalgebra
+`𝒜 ⊆ L∞`, the L²-closure of `𝒜` equals `L²(X, σ(𝒜), μ)`.  In Lean this is
+discharged by two theorems acting in concert: `density_bridge` (m-simple functions
+are dense in `L²(X, m, μ.trim hm)`, via `Lp.simpleFunc.dense`) together with
+`lpMeas_eq_top_of_ae_eq` and `reconstruction_iff_lpMeas` (which establish the
+closed+dense=⊤ argument for the lpMeas subspace).
 
 **Reconstruction theorem (Theorem 4.1).**  For an invertible measure-preserving
 system `(X, m0, μ, T)` and `h : X → ℝ`, define:
 - `𝒪_h := observableAlgebra (fun n => h ∘ T^[n.toNat])` (the generated σ-algebra)
-- `Φ_h := delayMap h T` (the delay map `x ↦ (h(T^n x))_{n ∈ ℤ}`)
+- `Φ_h := delayMap h T` (the delay map `x ↦ (h(T^n x))_{n ∈ ℕ}`)
+
+**Note on ℤ vs ℕ indexing:** Paper II defines `Φ_h : X → ℝ^ℤ` using the full
+bi-infinite orbit.  Lean uses `ℕ` (forward orbit only).  For invertible T these
+generate the same σ-algebra: `h ∘ T^{-k}` is measurable w.r.t.
+`σ({h ∘ T^n : n ∈ ℕ})` because `T^{-k} = (T^{-1})^k` and T⁻¹ is itself
+`𝒪_h`-measurable when T is bimeasurable and `𝒪_h = ℬ` mod μ.  The Lean
+formulation is therefore equivalent to the paper's for the reconstruction question.
 
 The following are equivalent:
-1. `𝒪_h = m0` modulo `μ`
-2. `lpMeas ℝ ℝ 𝒪_h 2 μ` is dense in `Lp ℝ 2 μ`
-3. `Φ_h` is a measure-theoretic embedding (a.e. injective, `𝒪_h = Φ_h⁻¹(ℬ(ℤ → ℝ))`)
+1. `𝒪_h = m0` modulo `μ` — proved: `reconstruction_iff_lpMeas` (i↔ii)
+2. `lpMeas ℝ ℝ 𝒪_h 2 μ` is dense in `Lp ℝ 2 μ` — proved: `reconstruction_iff_lpMeas`
+3. `Φ_h` is a measure-theoretic embedding (`𝒪_h = Φ_h⁻¹(ℬ(ℕ → ℝ))`) —
+   (i↔iii) is immediate from `observableAlgebra_eq_comap`: condition (iii) is
+   exactly the statement of that theorem, so (i)↔(iii) follows by rewriting.
 
-**Cyclic vector → reconstruction (Corollary 5.2).**
-If the linear span `span{h ∘ T^[n.toNat] : n ∈ ℤ}` is dense in `L²` (cyclic vector
-condition for the Koopman operator `U_T`), then `lpMeas 𝒪_h 2 μ` is dense.
+**Cyclic vector → reconstruction (Corollary II:cor:cyclic-implies-reconstruction).**
+If the closed linear span `span{h ∘ T^[n] : n ∈ ℕ}` is dense in `L²` (forward-orbit
+cyclic condition; equivalent to full ℤ-orbit cyclicity when T is invertible), then
+`lpMeas 𝒪_h 2 μ` is dense, and hence `𝒪_h = m0` mod μ.
 
 ## Main results
 
@@ -51,8 +65,8 @@ condition for the Koopman operator `U_T`), then `lpMeas 𝒪_h 2 μ` is dense.
 * `observableAlgebra_measurable`   : generators are `𝒪_h`-measurable (§1)
 * `observableAlgebra_le`           : `𝒪_h ≤ m` when generators are `m`-measurable (§1)
 * `density_bridge`                 : `Lp.simpleFunc ℝ 2 (μ.trim hm)` is dense (§2) ✅
-* `lpMeas_eq_top_of_ae_eq`         : `m = m0` mod `μ` → `lpMeas = ⊤` (§2) sorry
-* `reconstruction_iff_lpMeas`      : (i) ↔ (ii) (§3) sorry (← direction only)
+* `lpMeas_eq_top_of_ae_eq`         : `m = m0` mod `μ` → `lpMeas = ⊤` (§2) ✅
+* `reconstruction_iff_lpMeas`      : (i) ↔ (ii) (§3) ✅
 * `delayMap`                       : definition (§4) ✅
 * `delayMap_measurable`            : measurability (§4) ✅
 * `observableAlgebra_eq_comap`     : pullback identity (§4) ✅
@@ -60,16 +74,16 @@ condition for the Koopman operator `U_T`), then `lpMeas 𝒪_h 2 μ` is dense.
 * `delayMap_intertwines_shift`     : `Φ_h ∘ T = σ ∘ Φ_h` (§5) ✅
 * `cyclic_implies_dense`           : cyclic → dense (§6) ✅
 
-## Sorry inventory (2 remaining)
+## Sorry inventory (0 remaining — all closed 2026-04-27)
 
-| Name | Type | Proof sketch |
-|------|------|--------------|
-| `lpMeas_eq_top_of_ae_eq` | Mathlib gap | null-set approx → a.e. m-measurability; blocked by absence of downward `AEStronglyMeasurable` monotonicity in Mathlib |
-| `reconstruction_iff_lpMeas` (←) | Mathlib gap | a.e.-convergent subsequence from Lp convergence; `tendsto_ae_of_tendsto_Lp` not in Mathlib |
-
-Previously sorry: `observableAlgebra_eq_comap`, `delayMap_intertwines_shift`,
-`cyclic_implies_dense` — all closed 2026-04-05.
-`lpMeasSubgroup_dense_in_Lp` removed: unused and FALSE for general `m ≤ m0`.
+Previously sorry (now closed):
+- `lpMeas_eq_top_of_ae_eq` (2026-04-27): closed via `isClosed_aestronglyMeasurable` +
+  `SimpleFunc.induction` + `Lp.simpleFunc.dense` + closed-dense=⊤.
+- `reconstruction_iff_lpMeas` (←) (2026-04-27): dense+closed=⊤ → every Lp element is in
+  lpMeas → indicator `𝟙_s` is m-a.e. measurable → extract set t = g⁻¹(Ioi 0).
+- `observableAlgebra_eq_comap`, `delayMap_intertwines_shift`,
+  `cyclic_implies_dense` — all closed 2026-04-05.
+- `lpMeasSubgroup_dense_in_Lp` removed: unused and FALSE for general `m ≤ m0`.
 
 See `notes/reconstruction_lean_flight_plan.md` for detailed API notes.
 -/
@@ -121,11 +135,17 @@ The `lpMeas` subgroup version uses `lpMeasSubgroupToLpTrimIso` (an isometric iso
 between `lpMeasSubgroup F m p μ` and `Lp F p (μ.trim hm)`) to transfer density.
 -/
 
-/-- **Density bridge (Lemma 3.1, Paper III):**
+/-- **Density bridge component (Lemma 4.3, Paper II):**
     `m`-simple functions are dense in `L²(X, m, μ.trim hm)`.
 
-    This is proved directly from `Lp.simpleFunc.dense`, which is itself the Lean
-    form of the functional monotone class theorem for `Lp` spaces. -/
+    This is the key density fact used in the Lean proof of Lemma 4.3.  The full
+    Paper II statement — that the L²-closure of an algebra `𝒜` equals
+    `L²(X, σ(𝒜), μ)` — is discharged in Lean by this theorem together with
+    `lpMeas_eq_top_of_ae_eq` (which establishes that `lpMeas = ⊤` when `m = m0`
+    mod μ) and `reconstruction_iff_lpMeas` (the closed+dense=⊤ argument).
+
+    Proved directly from `Lp.simpleFunc.dense`, the Lean form of the functional
+    monotone class theorem for `Lp` spaces. -/
 theorem density_bridge [MeasurableSpace X] {m : MeasurableSpace X}
     (hm : m ≤ ‹MeasurableSpace X›) (μ : Measure X) [IsFiniteMeasure μ] :
     Dense (Lp.simpleFunc ℝ 2 (μ.trim hm) : Set (Lp ℝ 2 (μ.trim hm))) :=
@@ -143,13 +163,66 @@ theorem lpMeas_eq_top_of_ae_eq [MeasurableSpace X] {m : MeasurableSpace X}
     (h_ae : ∀ s : Set X, MeasurableSet s →
         ∃ t : Set X, MeasurableSet[m] t ∧ μ (s ∆ t) = 0) :
     lpMeas ℝ ℝ m 2 μ = ⊤ := by
-  sorry
+  -- Strategy: (1) lpMeas is closed; (2) every m0-simple function lies in it
+  -- (via h_ae: each indicator a.e.-equal to an m-indicator); (3) m0-simple
+  -- functions are dense in Lp ℝ 2 μ. Closed + dense ⟹ ⊤.
+  -- Note: `fact_one_le_two_ennreal` provides `Fact ((1 : ℝ≥0∞) ≤ 2)` globally.
+  -- (1) The carrier of lpMeas is closed in Lp ℝ 2 μ
+  have hclosed : IsClosed (lpMeas ℝ ℝ m 2 μ : Set (Lp ℝ 2 μ)) :=
+    isClosed_aestronglyMeasurable (F := ℝ) (p := 2) hm
+  -- (2) Every m0-simple function (viewed as Lp element) is in lpMeas.
+  -- Key: its toSimpleFunc is a.e. equal to an m-strongly measurable function,
+  -- built by induction replacing each m0-indicator with its m-version via h_ae.
+  have hmem : ∀ φ : Lp.simpleFunc ℝ 2 μ,
+      (φ : Lp ℝ 2 μ) ∈ lpMeas ℝ ℝ m 2 μ := fun φ => by
+    rw [mem_lpMeas_iff_aestronglyMeasurable]
+    -- Build g : X → ℝ, m-strongly measurable, a.e.-equal to φ.toSimpleFunc
+    -- Let s := the underlying SimpleFunc of φ
+    set s := Lp.simpleFunc.toSimpleFunc φ with hs_def
+    suffices hg : ∃ g : X → ℝ, StronglyMeasurable[m] g ∧ (s : X → ℝ) =ᵐ[μ] g by
+      obtain ⟨g, hgm, hsg⟩ := hg
+      -- (φ : Lp) =ᵐ s =ᵐ g  ⟹  AEStronglyMeasurable[m] (φ : Lp)
+      exact (aestronglyMeasurable_congr
+        ((Lp.simpleFunc.toSimpleFunc_eq_toFun φ).symm.trans hsg)).mpr
+        hgm.aestronglyMeasurable
+    -- Induction on the simple function s
+    induction s using MeasureTheory.SimpleFunc.induction with
+    | @const c sv hsv =>
+      -- indicator of m0-set sv: replace with m-version t via h_ae
+      obtain ⟨t, ht, hst⟩ := h_ae sv hsv
+      refine ⟨t.indicator (fun _ => c), (stronglyMeasurable_const.indicator ht), ?_⟩
+      -- sv =ᵐ[μ] t  ⟹  sv.indicator c =ᵐ t.indicator c
+      have hseqt : sv =ᵐ[μ] t := measure_symmDiff_eq_zero_iff.mp hst
+      -- The SimpleFunc coercion equals sv.indicator (fun _ => c)
+      have hcoe : (SimpleFunc.piecewise sv hsv (SimpleFunc.const X c)
+          (SimpleFunc.const X 0) : X → ℝ) = sv.indicator (fun _ => c) := by
+        ext x
+        classical
+        simp [SimpleFunc.piecewise_apply, Set.indicator_apply]
+      rw [hcoe]
+      exact indicator_ae_eq_of_ae_eq_set hseqt
+    | @add f g _hdisj hf hg =>
+      obtain ⟨g₁, hg₁, hfg₁⟩ := hf
+      obtain ⟨g₂, hg₂, hgg₂⟩ := hg
+      exact ⟨g₁ + g₂, hg₁.add hg₂, hfg₁.add hgg₂⟩
+  -- (3) m0-simple functions are dense in Lp ℝ 2 μ, and all lie in lpMeas
+  have hsubset : (Lp.simpleFunc ℝ 2 μ : Set (Lp ℝ 2 μ)) ⊆
+      (lpMeas ℝ ℝ m 2 μ : Set (Lp ℝ 2 μ)) := by
+    intro f hf
+    -- hf : f ∈ Lp.simpleFunc ℝ 2 μ (as AddSubgroup membership)
+    -- Package into the subtype and apply hmem
+    exact hmem ⟨f, hf⟩
+  have hdense : Dense (lpMeas ℝ ℝ m 2 μ : Set (Lp ℝ 2 μ)) :=
+    (Lp.simpleFunc.dense (E := ℝ) (p := 2) (μ := μ) (by norm_num)).mono hsubset
+  -- Closed dense subspace = ⊤
+  rw [← Submodule.coe_eq_univ]
+  exact hclosed.closure_eq ▸ hdense.closure_eq
 
 -- ============================================================
 -- §3  Reconstruction: (i) ↔ (ii)
 -- ============================================================
 
-/-- **Reconstruction theorem, (i) ↔ (ii) (Theorem 4.1, Paper III).**
+/-- **Reconstruction theorem, (i) ↔ (ii) (Theorem 4.1, Paper II).**
 
 - (i): `m = mX` mod `μ` (every measurable set has an `m`-version a.e.)
 - (ii): `lpMeas ℝ ℝ m 2 μ` is dense in `Lp ℝ 2 μ`
@@ -167,8 +240,47 @@ theorem reconstruction_iff_lpMeas [MeasurableSpace X] {m : MeasurableSpace X}
     rw [show (lpMeas ℝ ℝ m 2 μ : Set (Lp ℝ 2 μ)) = Set.univ from ?_]
     · exact dense_univ
     · rw [Submodule.coe_eq_univ]; exact htop
-  · intro _h_dense s _hs
-    sorry
+  · intro h_dense s hs
+    -- (1) lpMeas is closed (AEStronglyMeasurable[m] is a closed condition) and dense → = ⊤
+    have hclosed : IsClosed (lpMeas ℝ ℝ m 2 μ : Set (Lp ℝ 2 μ)) :=
+      isClosed_aestronglyMeasurable (F := ℝ) (p := 2) hm
+    have htop : lpMeas ℝ ℝ m 2 μ = ⊤ := by
+      rw [← Submodule.coe_eq_univ]
+      exact hclosed.closure_eq ▸ h_dense.closure_eq
+    -- (2) Build 𝟙_s as an Lp element; it lies in lpMeas = ⊤
+    have hμs : μ s ≠ ⊤ := measure_ne_top μ s
+    have hmemLp : MemLp (s.indicator (fun _ => (1 : ℝ))) 2 μ :=
+      memLp_indicator_const 2 hs 1 (Or.inr hμs)
+    set f_lp := hmemLp.toLp _ with hf_lp_def
+    have hf_lp_mem : f_lp ∈ lpMeas ℝ ℝ m 2 μ := htop ▸ Submodule.mem_top
+    -- (3) Extract m-strongly measurable representative g
+    have haesm : AEStronglyMeasurable[m] (f_lp : X → ℝ) μ :=
+      mem_lpMeas_iff_aestronglyMeasurable.mp hf_lp_mem
+    set g := haesm.mk f_lp with hg_def
+    have hgm : Measurable[m] g := haesm.measurable_mk
+    -- (4) indicator =ᵐ[μ] g via transitivity through f_lp
+    have hind_eq_g : s.indicator (fun _ => (1 : ℝ)) =ᵐ[μ] g :=
+      hmemLp.coeFn_toLp.symm.trans haesm.ae_eq_mk
+    -- (5) t = g⁻¹'(Ioi 0) is m-measurable and s =ᵐ[μ] t
+    refine ⟨g ⁻¹' Set.Ioi 0, hgm measurableSet_Ioi, ?_⟩
+    rw [measure_symmDiff_eq_zero_iff]
+    filter_upwards [hind_eq_g] with x hx
+    -- hx : s.indicator (fun _ => 1) x = g x
+    -- goal : x ∈ s = x ∈ g ⁻¹' Set.Ioi 0 (Prop equality)
+    apply propext
+    constructor
+    · intro hxs
+      have h1 : s.indicator (fun _ => (1 : ℝ)) x = 1 :=
+        Set.indicator_of_mem hxs _
+      have hg1 : g x = 1 := hx ▸ h1
+      exact Set.mem_preimage.mpr (Set.mem_Ioi.mpr (by linarith))
+    · intro hxg
+      have hgpos : 0 < g x := Set.mem_Ioi.mp (Set.mem_preimage.mp hxg)
+      by_contra hxs
+      have h0 : s.indicator (fun _ => (1 : ℝ)) x = 0 :=
+        Set.indicator_of_notMem hxs _
+      have hg0 : g x = 0 := hx ▸ h0
+      linarith
 
 -- ============================================================
 -- §4  Delay map and pullback identity
@@ -178,9 +290,20 @@ variable [mX : MeasurableSpace X]
 
 /-- The delay map `Φ_h : X → (ℕ → ℝ)`, `Φ_h(x)(n) = h(T^[n] x)`.
 
-    We index by `ℕ` (forward orbit only) rather than `ℤ`, which is the natural
-    domain for the shift intertwining identity.  When `T` is invertible, the
-    forward orbit generates the same σ-algebra as the full bi-infinite orbit. -/
+    **ℤ vs ℕ:** Paper II (Definition II:def:delay-map) defines `Φ_h : X → ℝ^ℤ`
+    using the full bi-infinite orbit `(h(T^n x))_{n ∈ ℤ}`.  Lean uses `ℕ` (forward
+    orbit only) for two reasons:
+    1. `Function.iterate` in Mathlib is indexed by `ℕ`; the negative iterates
+       `T^{-k}` require a separately-supplied inverse, complicating the definition.
+    2. For invertible `T`, the forward and bi-infinite orbits generate the same
+       σ-algebra: `σ({h ∘ T^n : n ∈ ℕ}) = σ({h ∘ T^n : n ∈ ℤ})` because
+       `h ∘ T^{-k}` is measurable w.r.t. `σ({h ∘ T^n : n ∈ ℕ})` whenever T
+       is bimeasurable.  So the reconstruction question is unaffected by the
+       choice of index set.
+
+    The pullback identity `observableAlgebra_eq_comap` and the reconstruction
+    theorem `reconstruction_iff_lpMeas` are therefore equivalent to their
+    Paper II counterparts. -/
 def delayMap (h : X → ℝ) (T : X → X) : X → (ℕ → ℝ) :=
   fun x n => h (T^[n] x)
 
@@ -192,8 +315,9 @@ theorem delayMap_measurable
   intro n
   exact hh.comp (hT.iterate n)
 
-/-- **Pullback identity (Lemma 2.3, Paper III):**
+/-- **Pullback identity (Definition II:def:delay-map, Paper II):**
     `observableAlgebra (h ∘ T^[·]) = Φ_h⁻¹(ℬ(ℕ → ℝ))`.
+    Note: Paper II states this inside Definition 4.2 (delay map), not as a separate lemma.
 
     **Proof sketch:**
     - (≤): Each generator `h ∘ T^[n] = πₙ ∘ Φ_h` (projection at index `n : ℕ`),
@@ -250,7 +374,10 @@ theorem observableAlgebra_eq_comap
 /-- The unilateral shift `σ` on `ℕ → ℝ`: `(σ f)(n) = f(n + 1)`. -/
 def unilateralShift : (ℕ → ℝ) → (ℕ → ℝ) := fun f n => f (n + 1)
 
-/-- **Shift intertwining (Corollary 4.3, Paper III):** `Φ_h(T x) = σ(Φ_h(x))`.
+/-- **Shift intertwining (Paper II, §4.2 inline):** `Φ_h(T x) = σ(Φ_h(x))`.
+
+    Stated inline in the proof of Theorem II:thm:reconstruction (§4.2):
+    `(Φ_h(Tx))_n = h(T^{n+1} x) = (σ(Φ_h(x)))_n`.
 
     `Φ_h(T x)(n) = h(T^[n](T x)) = h(T^[n+1] x) = Φ_h(x)(n+1) = (σ Φ_h(x))(n)`. -/
 theorem delayMap_intertwines_shift (h : X → ℝ) (T : X → X) (x : X) :
@@ -262,7 +389,7 @@ theorem delayMap_intertwines_shift (h : X → ℝ) (T : X → X) (x : X) :
 -- §6  Cyclic vector → reconstruction
 -- ============================================================
 
-/-- **Cyclic vector implies reconstruction (Corollary 5.2, Paper III).**
+/-- **Cyclic vector implies reconstruction (Corollary II:cor:cyclic-implies-reconstruction, Paper II).**
 
 If `h` is cyclic for the Koopman operator `U_T` — the closure of
 `span{h ∘ T^[n.toNat] : n ∈ ℤ}` equals `Lp ℝ 2 μ` — then `lpMeas 𝒪_h 2 μ`

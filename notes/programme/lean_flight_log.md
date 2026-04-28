@@ -5,6 +5,64 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-04-27 — ReconstructionTheorem.lean (closing lpMeas_eq_top_of_ae_eq)
+
+### Goal
+
+Close `lpMeas_eq_top_of_ae_eq` (Sorry 1 of 2) in `ReconstructionTheorem.lean`.
+
+**Mathematical plan:**
+1. `isClosed_aestronglyMeasurable` — `lpMeas ℝ ℝ m 2 μ` is closed.
+2. `induction s using MeasureTheory.SimpleFunc.induction` — every Lp simple function
+   has an `m`-version a.e., using `h_ae` for the `const` case.
+3. `Lp.simpleFunc.dense` — Lp simple functions are dense in `Lp ℝ 2 μ`.
+4. `Dense.mono hsubset` — `lpMeas` is dense (contains a dense subset).
+5. Closed + dense = ⊤ via `IsClosed.closure_eq` + `Dense.closure_eq`.
+
+### Problem: `simp only [SetLike.mem_coe] at hf; obtain ⟨φ, rfl⟩ := hf`
+
+**File:** `ReconstructionTheorem.lean`, `hsubset` inside `lpMeas_eq_top_of_ae_eq`
+
+**Symptom:**
+```
+error: QuerySystem/ReconstructionTheorem.lean:191:13:
+  Invalid `⟨...⟩` notation: The expected type of this term could not be determined
+```
+
+**Root cause:** `simp only [SetLike.mem_coe]` transforms `hf : f ∈ (Lp.simpleFunc ℝ 2 μ : Set (Lp ℝ 2 μ))` but leaves the type in a form `obtain ⟨φ, rfl⟩` cannot pattern-match (expected type is not exposed as an existential).
+
+**Fix:** `Lp.simpleFunc ℝ 2 μ` is an `AddSubgroup`, so membership `hf : f ∈ Lp.simpleFunc ℝ 2 μ` is an `AddSubgroup` membership proposition — not an existential. The subtype term is `⟨f, hf⟩ : Lp.simpleFunc ℝ 2 μ`. Replace the `simp + obtain` block with:
+```lean
+exact hmem ⟨f, hf⟩
+```
+The coercion `↑⟨f, hf⟩ = f` is definitional, so `hmem ⟨f, hf⟩` has type `(⟨f, hf⟩ : Lp.simpleFunc ℝ 2 μ : Lp ℝ 2 μ) ∈ lpMeas ...`, which reduces to `f ∈ lpMeas ...`.
+
+**Lesson:** For `AddSubgroup`-backed sets, membership is a proposition, not an existential. Package `⟨f, hf⟩` into the subtype directly. Do not use `simp [SetLike.mem_coe]` + `obtain ⟨φ, rfl⟩`.
+
+**Status:** RESOLVED ✅ (2026-04-27). `lpMeas_eq_top_of_ae_eq` closed. Build clean.
+
+### Problem: `reconstruction_iff_lpMeas` ← direction (Sorry 2)
+
+**File:** `ReconstructionTheorem.lean`, `reconstruction_iff_lpMeas`
+
+**Goal:** `Dense (lpMeas ℝ ℝ m 2 μ) → ∀ s, MeasurableSet s → ∃ t, MeasurableSet[m] t ∧ μ(s △ t) = 0`
+
+**Key insight:** The sorry inventory's description ("tendsto_ae_of_tendsto_Lp not in Mathlib") was a red herring. The proof does NOT need convergence-in-measure. It follows by:
+1. `lpMeas` is closed (`isClosed_aestronglyMeasurable`) + dense (hypothesis) → `lpMeas = ⊤` (same argument as → direction)
+2. Build `𝟙_s ∈ Lp ℝ 2 μ` via `memLp_indicator_const 2 hs 1 (Or.inr (measure_ne_top μ s))` + `MemLp.toLp`
+3. `f_lp ∈ ⊤ = lpMeas` → `AEStronglyMeasurable[m] f_lp μ` via `mem_lpMeas_iff_aestronglyMeasurable`
+4. Get rep `g := haesm.mk f_lp` with `Measurable[m] g` and `𝟙_s =ᵐ[μ] g` (via `coeFn_toLp` + `ae_eq_mk`)
+5. Set `t := g⁻¹' Ioi 0`: `MeasurableSet[m] t` from `hgm measurableSet_Ioi`; `s =ᵐ[μ] t` via `filter_upwards` + `Set.indicator_of_mem`/`Set.indicator_of_notMem` + `linarith`
+
+**Pitfalls:**
+- `filter_upwards ... with x hx` gives pointwise Prop *equality* (not iff) goal — must use `propext` before `constructor`
+- `simp [Set.mem_preimage, Set.mem_Ioi]` often makes no progress when the goal is already in the right form; use `Set.mem_preimage.mpr`, `Set.mem_Ioi.mp` directly
+- `Set.indicator_of_not_mem` — WRONG name. Correct: `Set.indicator_of_notMem`
+
+**Status:** RESOLVED ✅ (2026-04-27). Both sorrys in `ReconstructionTheorem.lean` closed. File now has 0 sorrys.
+
+---
+
 ## 2026-04-05 — ReconstructionTheorem.lean (cleanup) + Paper III revision
 
 ### Action: deleted `lpMeasSubgroup_dense_in_Lp`

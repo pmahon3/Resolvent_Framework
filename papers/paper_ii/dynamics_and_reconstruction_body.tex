@@ -9,8 +9,8 @@ in the probability measure; what is required is to read them off.
 
 Two observations $Q$ and $F$, together with $P$, determine a conditional
 regularity of $F$ relative to $Q$: the unique Markov kernel
-$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
-$P(F \in \cdot \mid Q = q) = \Pi_Q(q, \cdot)$ simultaneously across all outcomes.
+$\\kappa_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
+$P(F \in \cdot \mid Q = q) = \\kappa_Q(q, \cdot)$ simultaneously across all outcomes.
 Its existence is forced by the Rokhlin disintegration theorem~\cite{Rokhlin1952}
 once $\sigma$-additivity is in hand; it is not a modelling choice.
 Composing with $Q$ gives the \emph{minimal sufficient factor}
@@ -18,6 +18,8 @@ $Q_* : \Omega \to \mathcal{P}(\beta)$, the coarsest reduction carrying the
 full conditional regularity.  Temporal prediction is the special case in which
 $F$ is a future observable; the object itself is neutral on time.
 
+We write $\kappa_Q$ for the conditional regularity kernel of $F$ given $Q$,
+reserving $\Pi_t$ for the time-indexed semigroup kernels.
 Indexing over time, the kernels $\{\Pi_t\}$ must compose consistently.
 Temporal coherence of the conditional regularity forces the Chapman--Kolmogorov
 equation — derived, not assumed — yielding a Markov semigroup $\{K_t\}$ and the
@@ -70,16 +72,18 @@ always trying to see.
 Two observations $Q : \Omega \to \alpha$ and $F : \Omega \to \beta$, together
 with a probability measure $P$ on the observable algebra, already determine a
 conditional regularity of $F$ relative to $Q$: the unique Markov kernel
-$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
-$P(F \in \cdot \mid Q = q) = \Pi_Q(q, \cdot)$ simultaneously across all
+$\\kappa_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
+$P(F \in \cdot \mid Q = q) = \\kappa_Q(q, \cdot)$ simultaneously across all
 outcomes.  The kernel is not a modelling choice; its existence is forced by the
 Rokhlin disintegration theorem~\cite{Rokhlin1952} once $\sigma$-additivity is
 in hand.  Composing with $Q$ gives the minimal sufficient factor
-$Q_* : \Omega \to \mathcal{P}(\beta)$, $Q_*(\omega) = \Pi_Q(Q(\omega), \cdot)$:
+$Q_* : \Omega \to \mathcal{P}(\beta)$, $Q_*(\omega) = \\kappa_Q(Q(\omega), \cdot)$:
 the coarsest reduction of $\omega$ that already carries the full conditional
 regularity of $F$ given $Q$.  Temporal prediction is the special case in which
 $F$ is a future observable; the object itself is neutral on time.
 
+We write $\kappa_Q$ for the conditional regularity kernel of $F$ given $Q$,
+reserving $\Pi_t$ for the time-indexed semigroup kernels.
 Indexing over a time parameter, the kernels $\{\Pi_t\}$ must compose
 consistently.  Temporal coherence of the conditional regularity forces the
 Chapman--Kolmogorov equation — it is not assumed but derived — from which
@@ -143,26 +147,26 @@ Two observations $Q$ and $F$, together with $P$, already determine a conditional
 regularity of $F$ relative to $Q$: a systematic, outcome-by-outcome account of how
 $F$ is distributed given each value of $Q$.  The regular conditional distribution
 of $F$ given $Q$ is the unique (up to $P \circ Q^{-1}$-null sets) Markov kernel
-$\Pi_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
+$\\kappa_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
 \[
-  \int_A \Pi_Q(q, B)\, d(P \circ Q^{-1})(q) \;=\; P(Q \in A,\; F \in B)
+  \int_A \\kappa_Q(q, B)\, d(P \circ Q^{-1})(q) \;=\; P(Q \in A,\; F \in B)
 \]
 for all measurable $A \subseteq \alpha$ and $B \subseteq \beta$.
 
 \begin{definition}[Conditional regularity kernel]
 \label{II:def:predictive-kernel}
-The \emph{conditional regularity kernel} of $F$ given $Q$ is $\Pi_Q$, the
+The \emph{conditional regularity kernel} of $F$ given $Q$ is $\\kappa_Q$, the
 disintegration kernel of $\rho = P \circ (Q, F)^{-1}$ over its first marginal:
-$\Pi_Q(q, A) = P(F \in A \mid Q = q)$.
+$\\kappa_Q(q, A) = P(F \in A \mid Q = q)$.
 When $F$ is a future observable the kernel describes conditional prediction;
 the object itself is neutral on time.
 \end{definition}
 
 The kernel is covariant under measurable maps: if $\pi : \alpha \to \alpha'$ is
-measurable and $Q' = \pi \circ Q$, then $\Pi_Q(q, \cdot) = \Pi_{Q'}(\pi(q), \cdot)$
+measurable and $Q' = \pi \circ Q$, then $\\kappa_Q(q, \cdot) = \kappa_{Q'}(\pi(q), \cdot)$
 for $(P \circ Q^{-1})$-almost every $q$, by uniqueness of disintegration.
 
-Composing $\Pi_Q$ with $Q$ gives the map sending each sample point to its
+Composing $\\kappa_Q$ with $Q$ gives the map sending each sample point to its
 conditional regularity.
 
 \subsection{The minimal sufficient factor}
@@ -172,11 +176,11 @@ conditional regularity.
 \label{II:def:minimal-predictive}
 The \emph{minimal sufficient factor} is
 \[
-  Q_* : \Omega \to \mathcal{P}(\beta), \qquad Q_*(\omega) \;=\; \Pi_Q(Q(\omega), \cdot).
+  Q_* : \Omega \to \mathcal{P}(\beta), \qquad Q_*(\omega) \;=\; \\kappa_Q(Q(\omega), \cdot).
 \]
 \end{definition}
 
-Since $\Pi_Q$ is a Markov kernel it is measurable, and $Q_*$ inherits
+Since $\\kappa_Q$ is a Markov kernel it is measurable, and $Q_*$ inherits
 measurability by composition.
 
 \begin{theorem}[Factorization via the canonical factor]
@@ -190,14 +194,14 @@ For every bounded measurable $g : \beta \to \mathbb{R}$:
 \begin{proof}
 Let $h(\omega) := \int g\, dQ_*(\omega)$.  We verify the two defining properties.
 
-\emph{Measurability.}  The map $q \mapsto \int g\, d\Pi_Q(q, \cdot)$ is
-strongly measurable; since $Q_* = \Pi_Q(Q(\cdot), \cdot)$, the map $h$ is
+\emph{Measurability.}  The map $q \mapsto \int g\, d\\kappa_Q(q, \cdot)$ is
+strongly measurable; since $Q_* = \\kappa_Q(Q(\cdot), \cdot)$, the map $h$ is
 $\sigma(Q)$-measurable.
 
 \emph{Set-integral identity.}  For $S = Q^{-1}(A)$:
 \begin{align*}
   \int_S h\, dP
-  &= \int_A \int g\, d\Pi_Q(q, \cdot)\, d(P \circ Q^{-1})(q)
+  &= \int_A \int g\, d\\kappa_Q(q, \cdot)\, d(P \circ Q^{-1})(q)
   \quad\text{(pushforward)} \\
   &= \int_{A \times \beta} g(f)\, d\rho(q, f)
   \quad\text{(disintegration)} \\
@@ -222,7 +226,7 @@ recasts this as $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$ $P$-a.e.
 \subsection{Markov semigroup}
 \label{II:subsec:semigroup}
 
-When the conditional regularity kernel $\Pi_Q$ is indexed over a time parameter,
+When the conditional regularity kernel $\\kappa_Q$ is indexed over a time parameter,
 the kernels cannot be chosen independently: the regularity of $F$ at time $t+s$
 given $Q$ at time $0$ must be consistent with first observing at time $s$ and
 then at time $t$.  This consistency requirement forces the

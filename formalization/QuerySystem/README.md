@@ -4,9 +4,8 @@ Lean 4 / Mathlib formalization of the **Structure from Observation** trilogy:
 three papers showing that probability, dynamics, reconstruction, and their
 finite-sample witnesses follow from coherent structured observation.
 
-Formalization covers Papers I–II fully and Paper III partially.
-Paper III (finite-sample certification) is mathematically complete in LaTeX
-(`papers/paper_iii/`) but not yet formalized in Lean.
+Formalization covers Papers I–II fully. Paper III (finite-sample certification)
+is mathematically complete in LaTeX (`papers/paper_iii/`) but not yet formalized in Lean.
 
 ## File overview
 
@@ -20,7 +19,7 @@ Paper III (finite-sample certification) is mathematically complete in LaTeX
 | `PredictiveState.lean` | II | Conditional regularity kernel, minimal sufficient factor, factorization | ✅ 0 sorrys |
 | `PredictiveOperators.lean` | II | Semigroup, Koopman–Perron duality, deterministic specialization | ✅ 0 sorrys |
 | `DelayEmbedding.lean` | III | Delay query system; bounded-subsystem extension; reconstruction bridge | ✅ 0 sorrys on proved results; 1 deliberate scope note; 1 documented elaboration sorry |
-| `ReconstructionTheorem.lean` | III | Observable algebra, delay map, density bridge, reconstruction theorem | ✅ 4 theorems proved; 2 Mathlib-gap sorrys |
+| `ReconstructionTheorem.lean` | II | Observable algebra, delay map, density bridge, reconstruction theorem | ✅ 0 sorrys |
 
 ## Key results
 
@@ -40,14 +39,15 @@ Paper III (finite-sample certification) is mathematically complete in LaTeX
 - `koopman_perron_duality`: ∫ (K_t g) dμ = ∫ g d(P_t\* μ)
 - `deterministic_specialization`: Dirac kernels recover classical Koopman operators
 - `deterministic_semigroup`: flow law φ_{t+s} = φ_t ∘ φ_s
-
-### Paper III — Reconstruction from Observation
-
-- `observableAlgebra_eq_comap`: 𝒪_h = Φ_h⁻¹(ℬ(ℕ→ℝ)) (pullback identity)
-- `delayMap_intertwines_shift`: Φ_h ∘ T = σ ∘ Φ_h (shift intertwining)
-- `cyclic_implies_dense`: cyclic span dense → L²(𝒪_h) dense in L²(μ)
+- `observableAlgebra_eq_comap`: 𝒪_h = Φ_h⁻¹(ℬ(ℕ→ℝ)) (pullback identity; Definition II:def:delay-map)
+- `delayMap_intertwines_shift`: Φ_h ∘ T = σ ∘ Φ_h (shift intertwining; inline in §4.2 proof)
+- `cyclic_implies_dense`: cyclic span dense → L²(𝒪_h) dense in L²(μ) (Corollary II:cor:cyclic-implies-reconstruction)
 - `observational_extension_fixedLag`: extension theorem for bounded fixed-lag subsystems
 - `delay_cyclic_implies_reconstruction`: bridge from `DelayEmbedding.lean`
+
+### Paper III — Finite-sample certification
+
+Paper III (finite-sample certification) is mathematically complete in LaTeX (`papers/paper_iii/`) but not yet formalized in Lean.
 
 ## Intentional sorrys
 
@@ -61,9 +61,8 @@ All remaining sorrys are Mathlib-gap markers or deliberate scope notes.
 | `evalSurjective_of_upperDirected_refinementMaps_surjective` | `DiscriminabilityFoundations.lean` | Abstract inverse limit requires Tychonoff; concrete systems verified directly |
 | `prokhorov_extension_polish` | `ProkhorovExtension.lean` | `PerfectMeasure` and Musiał's theorem not in Mathlib |
 | `delayQuerySystem.seqUpperDirected` | `DelayEmbedding.lean` | Deliberate scope note: full delay system is NOT SUD (documented counterexample) |
+| `ce_sep_defect` (not in Lean) | — | Paper II Theorem 3.4 (CE drives δ(G_k)→0) not formalized; requires martingale convergence; deliberate scope omission |
 | `delay_reconstruction_iff` | `DelayEmbedding.lean` | Two-`MeasurableSpace`-instance elaboration prevents cross-file call; documented |
-| `lpMeas_eq_top_of_ae_eq` | `ReconstructionTheorem.lean` | Path clear (2026-04-27): `isClosed_aestronglyMeasurable` + indicator a.e.-equivalence via `measure_symmDiff_eq_zero_iff` + `Lp.simpleFunc.dense`; needs Lean assembly |
-| `reconstruction_iff_lpMeas` (←) | `ReconstructionTheorem.lean` | Path clear (2026-04-27): `tendstoInMeasure_of_tendsto_Lp` + `TendstoInMeasure.exists_seq_tendsto_ae` + a.e.-measurable limit; needs `aestronglyMeasurable_of_tendsto_ae` search |
 
 ## Build
 

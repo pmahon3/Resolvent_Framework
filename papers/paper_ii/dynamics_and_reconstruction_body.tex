@@ -4,43 +4,17 @@
 Starting from a $\sigma$-additive probability measure on an observable
 algebra~\cite{mahon_paper1}, this paper derives two structures that are
 standardly assumed rather than earned: the dynamics of observation under time,
-and the recoverability of the underlying state space.  Both are already present
-in the probability measure; what is required is to read them off.
-
-Two observations $Q$ and $F$, together with $P$, determine a conditional
-regularity of $F$ relative to $Q$: the unique Markov kernel
-$\\kappa_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
-$P(F \in \cdot \mid Q = q) = \\kappa_Q(q, \cdot)$ simultaneously across all outcomes.
-Its existence is forced by the Rokhlin disintegration theorem~\cite{Rokhlin1952}
-once $\sigma$-additivity is in hand; it is not a modelling choice.
-Composing with $Q$ gives the \emph{minimal sufficient factor}
-$Q_* : \Omega \to \mathcal{P}(\beta)$, the coarsest reduction carrying the
-full conditional regularity.  Temporal prediction is the special case in which
-$F$ is a future observable; the object itself is neutral on time.
-
-We write $\kappa_Q$ for the conditional regularity kernel of $F$ given $Q$,
-reserving $\Pi_t$ for the time-indexed semigroup kernels.
-Indexing over time, the kernels $\{\Pi_t\}$ must compose consistently.
-Temporal coherence of the conditional regularity forces the Chapman--Kolmogorov
-equation — derived, not assumed — yielding a Markov semigroup $\{K_t\}$ and the
-Koopman--Perron duality $\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.
-When the kernels are Dirac measures, $K_t$ collapses to the classical Koopman
-operator~\cite{Koopman1931}.
-
-In a measure-preserving system $(X, \mathcal{B}, \mu, T)$ with $Q_t = h \circ T^t$,
-the minimal sufficient factor $Q_*$ becomes the delay map
-$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$.
-The reconstruction question is then internal to the same structure: whether this
-factor is faithful — whether it sees all of $X$ or only a proper quotient.
-
-The answer is a three-way equivalence — the reconstruction theorem.
-State-space recovery ($\mathcal{O}_h = \mathcal{B}$ mod $\mu$) holds if and only
-if the delay algebra $\mathcal{A}_h$ is $L^2$-dense, if and only if $\Phi_h$ is a
-measure-theoretic embedding.  The key is the density bridge lemma: for any
-subalgebra $\mathcal{A} \subseteq L^\infty$ containing $1$, the $L^2$-closure of
-$\mathcal{A}$ equals $L^2(X, \sigma(\mathcal{A}), \mu)$.  The compact Stone
-space~\cite{mahon_paper1} — built as a technical device for deriving
-$\sigma$-additivity — is identified with $X$ itself when reconstruction holds.
+and the recoverability of the underlying state space.  The Rokhlin disintegration
+theorem forces a conditional regularity kernel $\kappa_Q$ into existence once
+$\sigma$-additivity holds; composing with $Q$ gives the minimal sufficient factor
+$Q_*$, the coarsest reduction carrying full conditional information.  Indexing
+over time, temporal coherence forces the Chapman--Kolmogorov equation — derived,
+not assumed — yielding a Markov semigroup $\{\Pi_t\}$ and Koopman--Perron duality.
+In a measure-preserving system $Q_*$ becomes the delay map $\Phi_h$, and
+reconstruction — that $\mathcal{O}_h = \mathcal{B}$ mod $\mu$, density of the delay
+algebra in $L^2$, and injectivity of $\Phi_h$ are equivalent — is the faithfulness
+question about this factor.  The Stone space~\cite{mahon_paper1} built to derive
+$\sigma$-additivity is identified with $X$ itself when reconstruction holds.
 \end{abstract}
 
 \begin{quote}\small
@@ -109,10 +83,8 @@ equipped with its canonical (Giry) $\sigma$-algebra.  The joint pushforward
 $\rho := P \circ (Q, F)^{-1}$ on $\alpha \times \beta$ has marginals
 $\rho_\alpha = P \circ Q^{-1}$ and $\rho_\beta = P \circ F^{-1}$.
 
-Two observations $Q$ and $F$, together with $P$, already determine a conditional
-regularity of $F$ relative to $Q$: a systematic, outcome-by-outcome account of how
-$F$ is distributed given each value of $Q$.  The regular conditional distribution
-of $F$ given $Q$ is the unique (up to $P \circ Q^{-1}$-null sets) Markov kernel
+The regular conditional distribution of $F$ given $Q$ is the unique
+(up to $P \circ Q^{-1}$-null sets) Markov kernel
 $\\kappa_Q : \alpha \to \mathcal{P}(\beta)$ satisfying
 \[
   \int_A \\kappa_Q(q, B)\, d(P \circ Q^{-1})(q) \;=\; P(Q \in A,\; F \in B)
@@ -693,7 +665,7 @@ compatible.
 Reconstruction is an exact asymptotic condition: it asks whether the delay
 algebra generates all of $\mathcal{B}$ in the limit of all lags, and says
 nothing about rates, finite approximations, or what a finite time series can
-certify.  Those questions are the subject of what follows.
+certify.  Those questions are taken up in~\cite{mahon_paper3}.
 
 % ====================================================================
 \ifstandalone

@@ -1,15 +1,13 @@
 \maketitle
 
 \begin{abstract}
-Starting from a $\sigma$-additive probability measure on an observable
-algebra~\cite{mahon_paper1}, this paper derives two structures that are
-standardly assumed rather than earned: the dynamics of observation under time,
-and the recoverability of the underlying state space.  The Rokhlin disintegration
-theorem forces a conditional regularity kernel $\kappa_Q$ into existence once
-$\sigma$-additivity holds; composing with $Q$ gives the minimal sufficient factor
-$Q_*$, the coarsest reduction carrying full conditional information.  Indexing
-over time, temporal coherence forces the Chapman--Kolmogorov equation — derived,
-not assumed — yielding a Markov semigroup $\{\Pi_t\}$ and Koopman--Perron duality.
+The dynamics of observation, and underlying state space up to isometry,
+are derived from a $\sigma$-additive probability measure on the algebra of discriminable 
+events~\cite{mahon_paper1}.  The Rokhlin disintegration theorem (once 
+$\sigma$-additivity holds) forces a conditional regularity kernel composed by the minimal 
+sufficient factor $Q_*$ carrying the coarsest full conditionally informative reduction. 
+ Indexing over time, temporal coherence forces the Chapman--Kolmogorov equation 
+ yielding a  Markov semigroup $\{\Pi_t\}$ and Koopman--Perron duality.
 In a measure-preserving system $Q_*$ becomes the delay map $\Phi_h$, and
 reconstruction — that $\mathcal{O}_h = \mathcal{B}$ mod $\mu$, density of the delay
 algebra in $L^2$, and injectivity of $\Phi_h$ are equivalent — is the faithfulness
@@ -32,16 +30,19 @@ measure-theoretic Takens, Stone duality, measure-preserving system.
 \section{Introduction}
 \label{II:sec:intro}
 
-To study a dynamical system through its observables, Koopman~\cite{Koopman1931}
-begins from the transformation $T$ and defines an operator: $f \mapsto f \circ T$.
-To study prediction, the stochastic-process tradition begins from a filtration
-and builds conditional expectations within it~\cite{Doob1953}.  In both cases
-the dynamical or temporal structure is written in first, and the probability
-measure is defined on top of it.  This is the natural order.
+Koopman studied dynamical systems through observables~\cite{Koopman1931}, but
+the dynamical law $T$ remains primitive: the operator $U_T f = f \circ T$ is
+defined only after an underlying evolution has already been specified.  The
+classical stochastic-process tradition proceeds similarly.  Prediction is
+formulated relative to a filtration, so temporal order and information flow are
+built into the formalism from the outset~\cite{Doob1953}.  That ordering is
+natural, but it need not be conceptually prior.  One may instead ask whether an
+observable probability measure already contains a conditional regularity of one
+query relative to another — and whether the familiar semigroup and predictive
+structures emerge only when such regularities are indexed coherently over time.
 
-But the probability measure, once in hand, already contains more than it was
-given credit for.  Any two observations $Q$ and $F$ — no hypothesis on time or
-order — determine a conditional regularity of $F$ given $Q$: the Markov kernel
+It does.  Any two observations $Q$ and $F$ — no hypothesis on time or
+order — already determine a conditional regularity of $F$ given $Q$: the Markov kernel
 $\kappa_Q(q,\cdot) = P(F \in \cdot \mid Q = q)$, which the Rokhlin
 disintegration theorem~\cite{Rokhlin1952} forces into existence once
 $\sigma$-additivity holds.  It is not added; it is already there.  Composing

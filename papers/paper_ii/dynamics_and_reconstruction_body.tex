@@ -58,39 +58,35 @@ measure-theoretic Takens, Stone duality, measure-preserving system.
 \section{Introduction}
 \label{II:sec:intro}
 
-The standard approaches to dynamics and prediction each commit to temporal
-structure before probability is fully in hand.  Koopman's
-approach~\cite{Koopman1931} begins from a transformation $T$ and studies how
-it acts on observables; the dynamical system is primitive, and the operator
-$f \mapsto f \circ T$ is derived.  The stochastic-process tradition begins
-from a filtration — time-indexed $\sigma$-algebras carrying what is known up
-to each moment — and builds prediction within that ordered
-structure~\cite{Doob1953}.  Both take order as given.
+To study a dynamical system through its observables, Koopman~\cite{Koopman1931}
+begins from the transformation $T$ and defines an operator: $f \mapsto f \circ T$.
+To study prediction, the stochastic-process tradition begins from a filtration
+and builds conditional expectations within it~\cite{Doob1953}.  In both cases
+the dynamical or temporal structure is written in first, and the probability
+measure is defined on top of it.  This is the natural order.
 
-The present paper begins earlier.  Any two observations $Q$ and $F$ of a
-probability space, with no hypothesis on time or order, already determine a
-conditional regularity of $F$ given $Q$: a Markov kernel
-$\kappa_Q(q, \cdot) = P(F \in \cdot \mid Q = q)$, forced by the Rokhlin
-disintegration theorem~\cite{Rokhlin1952} once $\sigma$-additivity is in hand.
-It is not a modelling choice.  Composing with $Q$ gives the minimal sufficient
-factor $Q_*$, the coarsest reduction of the sample point carrying full
-conditional information about $F$.  Temporal prediction is the special case in
-which $F$ is a future observable; the object itself is neutral on time.
+But the probability measure, once in hand, already contains more than it was
+given credit for.  Any two observations $Q$ and $F$ — no hypothesis on time or
+order — determine a conditional regularity of $F$ given $Q$: the Markov kernel
+$\kappa_Q(q,\cdot) = P(F \in \cdot \mid Q = q)$, which the Rokhlin
+disintegration theorem~\cite{Rokhlin1952} forces into existence once
+$\sigma$-additivity holds.  It is not added; it is already there.  Composing
+with $Q$ gives the minimal sufficient factor $Q_*$, the coarsest reduction of
+the sample point that carries full conditional information about $F$.  Temporal
+prediction is the special case in which $F$ is a future observable; nothing in
+the construction requires it.
 
-When the conditional regularity is indexed over time, the kernels $\{\Pi_t\}$
-must compose consistently.  That coherence forces the Chapman--Kolmogorov
-equation — it is derived, not assumed — yielding a Markov semigroup and
-Koopman--Perron duality $\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.
-In a measure-preserving system $(X, \mathcal{B}, \mu, T)$ with
-$Q_t = h \circ T^t$, the factor $Q_*$ specialises to the delay map
-$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$.  The reconstruction question is
-then internal: does this factor see all of $X$, or only a proper quotient?
-The answer is a three-way equivalence — $\mathcal{O}_h = \mathcal{B}$ mod
-$\mu$, density of the delay algebra in $L^2$, and injectivity of $\Phi_h$ as a
-measure-theoretic embedding — proved via a density bridge between
-$\sigma$-algebra generation and $L^2$ closure.  The Stone
-space~\cite{mahon_paper1} built to derive $\sigma$-additivity is identified
-with $X$ itself when reconstruction holds.
+Index the conditional regularity over time and the kernels $\{\Pi_t\}$ must
+compose consistently.  That coherence forces Chapman--Kolmogorov — derived,
+not assumed — and from it a Markov semigroup and Koopman--Perron duality
+$\int K_t g\, d\mu = \int g\, d(\mu \star \Pi_t)$.  In a measure-preserving
+system with $Q_t = h \circ T^t$, the factor $Q_*$ becomes the delay map
+$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, and the question becomes
+internal: does this factor see all of $X$, or only a proper quotient?  The
+answer — that $\mathcal{O}_h = \mathcal{B}$ mod $\mu$, density of the delay
+algebra in $L^2$, and injectivity of $\Phi_h$ are all equivalent — is the
+reconstruction theorem.  The Stone space~\cite{mahon_paper1} built to derive
+$\sigma$-additivity is identified with $X$ itself when reconstruction holds.
 
 % ====================================================================
 \section{Conditional regularity and the canonical factor}

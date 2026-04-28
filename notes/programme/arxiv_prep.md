@@ -112,13 +112,14 @@ These papers are not tracked at the task level here until Phase 2 begins.
 For reference, the proposed arXiv categories and MSC classes are recorded below
 but should be treated as provisional.
 
-### Paper II — "Dynamics and Reconstruction from Observation"
-File: `papers/paper_ii/dynamics_and_reconstruction.tex` (7 pages)
+### Paper II — "Dynamics and Reconstruction in the Observable Measure"
+File: `papers/paper_ii/dynamics_and_reconstruction.tex` (9 pages)
 arXiv: `math.DS` primary; cross-list `math.FA`, `math.PR`
 MSC: `37A30` (primary); `47D06`, `60J05`, `37A05`, `28A60`, `06E15`, `46E30`
+Notation: κ_Q (conditional regularity kernel), Π_t (semigroup kernels), K_t (operators)
 
-### Paper III — "Finite-Sample Reconstruction: Rates, Witnesses, and the Honest Bridge"
-File: `papers/paper_iii/finite_sample_reconstruction.tex` (16 pages)
+### Paper III — "Certifying Reconstruction from Finite Data"
+File: `papers/paper_iii/finite_sample_reconstruction.tex` (18 pages)
 arXiv: `math.ST` primary; cross-list `math.DS`, `math.PR`
 MSC: `62G08` (primary); `37A05`, `62M10`, `28A60`, `94A17`
 
@@ -130,8 +131,8 @@ MSC: `62G08` (primary); `37A05`, `62M10`, `28A60`, `94A17`
 |-------|---------------|--------|
 | Companion note | *APAL* (Annals of Pure and Applied Logic) | *MLQ*, *NDJFL* |
 | I | *Proceedings of the London Mathematical Society* | *Journal of Theoretical Probability* |
-| II-III | *Ergodic Theory and Dynamical Systems* | *Journal of Functional Analysis* |
-| IV | *Annals of Statistics* | *Bernoulli* |
+| II | *Ergodic Theory and Dynamical Systems* | *Journal of Functional Analysis* |
+| III | *Annals of Statistics* | *Bernoulli* |
 
 ---
 

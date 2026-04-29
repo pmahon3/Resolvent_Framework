@@ -3,41 +3,34 @@
 \maketitle
 
 \begin{abstract}
-Papers~\cite{mahon_paper1,mahon_paper2} establish two things: that a
-$\sigma$-additive probability measure can be derived from observational data
-satisfying collective exhaustion, and that a probability measure on an
-observable algebra already contains, without further assumption, both the
-conditional regularity structure and the dynamical semigroup — with
-reconstruction as the question of whether the minimal sufficient factor is
-faithful.  This paper asks what finite data can certify about those earned
-structures.
+Papers~\cite{mahon_paper1,mahon_paper2} establish that a $\sigma$-additive
+probability measure is forced by observational coherence (collective
+exhaustion), and that this measure already contains, without further
+assumption, both the conditional regularity structure and the dynamical
+semigroup — with reconstruction as the question of whether the minimal
+sufficient factor is faithful.  This paper asks what finite data can certify
+about those structures.
 
-The certification question has two levels, and the paper works at both.  At
-the level of a general query system~\cite{mahon_paper1}, the
-\emph{population separation defect} $\delta(\mathcal{G})$ — the worst-case
-symmetric difference between a target event and its best approximation in a
-finite joined algebra — measures how far finite observations fall from full
-resolution.  Under collective exhaustion and any honest refinement scheme,
-$\delta(\mathcal{G}_k) \to 0$.  The empirical collision probability is a
-U-statistic proxy converging to $\delta(\mathcal{G})$ under IID sampling.
-A persistent empirical floor is evidence against collective exhaustion:
-a CE-shadow theorem requiring no temporal or geometric structure.
+At the level of a general query system, the \emph{population separation
+defect} $\delta(\mathcal{G})$ measures how far finite observations fall from
+full resolution; it vanishes under collective exhaustion and honest refinement.
+The empirical collision probability is a U-statistic proxy, and a persistent
+empirical floor is evidence against collective exhaustion — a CE-shadow theorem
+requiring no temporal or geometric structure.
 
-In the dynamical specialisation, two threads converge.  The general
-certification question meets the reconstruction theorem of~\cite{mahon_paper2},
-and the meeting point is stronger than either alone: honest refinement, a
-design condition in the general setting, is here automatic — a consequence
-of reconstruction itself — and the remaining degrees of freedom (mixing rate,
-embedding dimension) are what rate-optimal guarantees exploit.
-
-Three theorems certify reconstruction from a time series $x_1,\ldots,x_n$.
-The \emph{Algebra Theorem} shows that the elbow stopping rule achieves the
-minimax-optimal rate $n^{-s/(2s+d)}$ without oracle knowledge of the mixing
-rate, lag, or smoothness index.  The \emph{Dynamics Theorem} shows that under
-uniform separation, empirical delay vectors constitute a geometric witness
-converging at rate $n^{-\beta/(2\beta+d)}$.  The \emph{Conjunction Theorem}
-shows that for deterministic $T$, the algebraic and geometric witnesses certify
-the same event — not merely correlated, but identical.
+In the dynamical specialisation, the certification framework meets the
+reconstruction theorem of~\cite{mahon_paper2}: honest refinement, a design
+condition in the general setting, is here automatic — a consequence of
+reconstruction — and the remaining degrees of freedom (mixing rate, embedding
+dimension) are what rate-optimal guarantees exploit.  Three theorems certify
+reconstruction from a time series $x_1,\ldots,x_n$.  The \emph{Algebra
+Theorem} shows that the elbow stopping rule achieves the minimax-optimal rate
+$n^{-s/(2s+d)}$ without oracle knowledge of the mixing rate, lag, or smoothness
+index.  The \emph{Dynamics Theorem} shows that under uniform separation,
+empirical delay vectors constitute a geometric witness converging at rate
+$n^{-\beta/(2\beta+d)}$.  The \emph{Conjunction Theorem} shows that for
+deterministic $T$, the algebraic and geometric witnesses certify the same
+event — not merely correlated, but identical.
 
 All three witnesses, together with a fourth information-theoretic one from the
 collision entropy of the delay-vector distribution, measure the same failure:

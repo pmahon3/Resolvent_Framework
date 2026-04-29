@@ -1,3 +1,12 @@
+> **ARCHIVED 2026-04-29.** Examples A (Cantor set, Paper II §5) and C
+> (Propositional query system, Paper I §3) are integrated into the papers.
+> Example B (pedagogical dynamics) was not flagshipped. Example D (numerical,
+> Paper III) remains reserved pending empirical work — see
+> `notes/future/interaction_discrimination_direction.md` for the post-arXiv
+> empirical direction.
+
+---
+
 # Flagship Examples — Structure from Observation
 
 Three worked examples, one per paper, demonstrating the payoff of the

@@ -29,3 +29,10 @@ dist/
 
 # Claude Code settings (local, not for sharing)
 .claude/
+
+# JetBrains IDE
+.idea/
+
+# Jupyter notebook checkpoints
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/

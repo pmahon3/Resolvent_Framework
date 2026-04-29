@@ -1,3 +1,10 @@
+> **ARCHIVED 2026-04-29.** The general observational certification content
+> (CE-shadow theorem, population separation defect, empirical collision probability,
+> honest refinement) was absorbed into Paper III §2 ("General observational
+> certification"). That section is the live home for this material.
+
+---
+
 # Paper IIIa Skeleton — General Observational Certification
 
 **Status:** Programme note, post-arXiv priority.

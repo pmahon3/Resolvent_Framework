@@ -57,12 +57,13 @@ not tangent expansion. Close in spirit to classical Lyapunov when reconstruction
 observable separation exponent recover the top Lyapunov exponent? To pressure-test
 this, the key choice is which metric on $\Phi_h(X) \subset \mathbb{R}^{L+1}$ gives
 the right chance of matching the top exponent in the smooth reconstructed case.
-In the Euclidean metric on $\mathbb{R}^{L+1}$, the delay map inflates distances
-by a factor related to the Jacobian of $\Phi_h^{(L)}$, which for generic $h$ and
-smooth $T$ should capture the top Lyapunov exponent in the limit $L \to \infty$.
-The precise statement would need a result about how the Euclidean metric on the
-reconstructed image relates to the Riemannian metric on $X$ as $L$ grows —
-this is where Takens-type genericity arguments would enter.
+In the Euclidean metric on $\mathbb{R}^{L+1}$, the delay map measures separation
+through the derivative of the finite-lag embedding $\Phi_h^{(L)}$. Under genericity
+and faithful reconstruction, one expects the resulting observable separation rate to
+reflect the fastest expanding tangent direction, but making this precise requires a
+theorem comparing the induced metric on $\Phi_h^{(L)}(X)$ with the ambient Riemannian
+geometry as $L \to \infty$ — this is where Takens-type genericity arguments would enter,
+and where the claim earns its theorem status rather than resting on intuition.
 
 Natural as a focused future note or appendix to Paper II.
 

@@ -243,8 +243,7 @@ Sections~\ref{III:sec:algebra}--\ref{III:sec:conjunction}.
 \label{III:sec:setup}
 % ============================================================
 
-\subsection{The measure-preserving system}
-
+\textbf{The measure-preserving system.}\enspace
 Let $(X, \Bcal, \mu)$ be a probability space where $X$ is a compact smooth
 $d$-dimensional Riemannian manifold and $\mu$ is a Borel probability measure
 with smooth, everywhere-positive density $\rho : X \to \mathbb{R}_{>0}$
@@ -256,8 +255,7 @@ Let $T : X \to X$ be a $\mu$-preserving measurable map.
 We make no injectivity or invertibility assumption on $T$ beyond what
 is stated in each hypothesis.
 
-\subsection{The observable and the delay map}
-
+\textbf{The observable and the delay map.}\enspace
 Fix an observable $h \in \Lp{\infty}(\mu)$ with $\|h\|_{\Lp{\infty}} =: a < \infty$.
 For each lag depth $L \geq 0$ define the \emph{delay map}
 \[
@@ -277,20 +275,18 @@ The \emph{delay-polynomial class} of degree $D \geq 1$ is
 \]
 Since $\PhiL(X) \subseteq [-a,a]^{L+1}$, all elements of $\AhL$ are bounded.
 
-\subsection{The approximation error}
-
+\textbf{The approximation error.}\enspace
 The central quantity is the $\sigma$-algebra approximation error
-\[
+\begin{equation}
   \deltaL \;:=\; \delta(\OhL) \;=\;
   \sup_{S \in \Bcal} \inf_{E \in \OhL} \mu(S \triangle E),
-\]
+  \label{III:eq:delta-def}
+\end{equation}
 which measures how much of $\Bcal$ remains outside $\OhL$.
 It is non-increasing in $L$, vanishes if and only if reconstruction holds,
 and under (G1)--(G2) on a smooth manifold reaches zero by lag $L_0 \leq d-1$~\cite{mahon_paper2}.
 
-\subsection{Fibre structure and collision probability}
-\label{III:subsec:fibres}
-
+\textbf{Fibre structure and collision probability.}\label{III:subsec:fibres}\enspace
 The delay map $\PhiL$ partitions $X$ into \emph{fibres}: for each
 $z \in \mathbb{R}^{L+1}$, define
 \[
@@ -313,8 +309,28 @@ This quantity is the \emph{collision probability} of the delay-vector
 distribution: it is the probability that two independent draws from $\mu$
 produce the same delay vector.
 
-\subsection{The data model}
+\begin{remark}[Information horizon]
+\label{III:rem:info-horizon}
+The fibre structure imposes a hard constraint on what finite data can certify.
+At lag~$L$ the observable algebra partitions $X$ into at most $2^{L+1}$
+atoms (in the binary-coded case; more generally, the number of fibres grows
+exponentially with $L$).
+With a sample of size~$n$, the mean occupancy per fibre is $n/2^{L+1}$, which
+halves with each additional lag.
+The \emph{information horizon} is
+\[
+  L^* \;:=\; \lfloor \log_2 n \rfloor,
+\]
+the lag at which mean fibre occupancy drops to~$1$.
+Beyond $L^*$ the sample is partitioned across more fibres than it contains
+points, so empirical fibre statistics become unreliable.
+This gives a first-principles derivation --- from the observable algebra
+structure alone --- of why the concentration rate $\varepsilon_n \sim n^{-2s/(2s+d)}$
+and the elbow stopping rule of Theorem~\ref{III:thm:conjunction} fire when they do:
+doubling the sample size buys exactly one more trustworthy lag.
+\end{remark}
 
+\textbf{The data model.}\enspace
 We observe a time series $x_1, x_2, \ldots, x_n$ which is an orbit segment of
 $T$: $x_i = T^{i-1}x_1$ for some initial condition $x_1 \in X$ drawn from
 $\mu$.
@@ -322,8 +338,7 @@ The empirical measure is $\mun := \frac{1}{n}\sum_{i=1}^n \delta_{x_i}$.
 We do not assume ergodicity or density of the orbit; each result states the
 mixing hypothesis it uses.
 
-\subsection{Structural hypotheses}
-
+\textbf{Structural hypotheses.}\enspace
 The following hypotheses are referenced throughout.
 They are not assumed globally; each theorem states exactly which subset it uses.
 
@@ -350,8 +365,7 @@ They are not assumed globally; each theorem states exactly which subset it uses.
     (Sections~\ref{III:sec:dynamics} and~\ref{III:sec:conjunction}).
 \end{enumerate}
 
-\subsection{The empirical witness}
-
+\textbf{The empirical witness.}\enspace
 The empirical analogue of $\deltaL$ is
 \[
   \delhat{L}{n}
@@ -373,16 +387,7 @@ under exponential mixing, provided $d > 2s$.
 % ============================================================
 
 Let $(X, \Bcal, \mu)$ be a probability space and $\mathfrak{m} \subseteq \Bcal$
-a sub-$\sigma$-algebra.
-Define the \emph{$\sigma$-algebra approximation error}
-\begin{equation}
-  \delta(\mathfrak{m})
-  \;:=\;
-  \sup_{S \in \Bcal} \inf_{E \in \mathfrak{m}} \mu(S \triangle E).
-  \label{III:eq:delta-def}
-\end{equation}
-This measures how well $\mathfrak{m}$ approximates $\Bcal$: it is zero if and
-only if $\mathfrak{m} = \Bcal$ modulo $\mu$-null sets.
+a sub-$\sigma$-algebra, with $\delta(\mathfrak{m})$ as in~\eqref{III:eq:delta-def}.
 
 \begin{lemma}[Conditional variance identity]
 \label{III:lem:cond-var}
@@ -444,46 +449,15 @@ For every $f \in \Lp{\infty}(\mu)$,
 \end{lemma}
 
 \begin{proof}
-\emph{Step~1 (Indicators).}
-Fix $S \in \Bcal$.
-By definition of $\delta(\mathfrak{m})$, there exists $E \in \mathfrak{m}$
-with $\mu(S \triangle E) \leq \delta(\mathfrak{m})$.
-Since $\mathbbm{1}_E \in \Lp{2}(X, \mathfrak{m}, \mu)$ and
-$\mathbb{E}[\mathbbm{1}_S \mid \mathfrak{m}]$ is the $\Lp{2}$-best
-$\mathfrak{m}$-measurable approximation to $\mathbbm{1}_S$,
-\[
-  \|\mathbbm{1}_S - \mathbb{E}[\mathbbm{1}_S \mid \mathfrak{m}]\|_{\Lp{2}}^2
-  \;\leq\;
-  \|\mathbbm{1}_S - \mathbbm{1}_E\|_{\Lp{2}}^2
-  \;=\; \mu(S \triangle E) \;\leq\; \delta(\mathfrak{m}).
-\]
-
-\emph{Step~2 (Bounded $f$ via layer cake).}
-For $f \in \Lp{\infty}(\mu)$ with $\|f\|_{\Lp{\infty}} \leq M$, the layer
-cake representation gives $f = \int_{-M}^{M} \mathbbm{1}_{S_t}\,dt$ where
-$S_t = \{x : f(x) > t\}$.
-Since $\mathbb{E}[\,\cdot\mid \mathfrak{m}]$ is linear and continuous in $\Lp{2}$,
-\[
-  f - \mathbb{E}[f \mid \mathfrak{m}]
-  \;=\; \int_{-M}^{M}
-    \bigl(\mathbbm{1}_{S_t} - \mathbb{E}[\mathbbm{1}_{S_t} \mid \mathfrak{m}]\bigr)\,dt.
-\]
-Applying Minkowski's inequality for integrals and Step~1:
-\[
-  \bigl\|f - \mathbb{E}[f \mid \mathfrak{m}]\bigr\|_{\Lp{2}}
-  \;\leq\; \int_{-M}^{M}
-    \bigl\|\mathbbm{1}_{S_t} - \mathbb{E}[\mathbbm{1}_{S_t} \mid \mathfrak{m}]\bigr\|_{\Lp{2}}\,dt
-  \;\leq\; 2M \cdot \delta(\mathfrak{m})^{1/2}. \qedhere
-\]
+For an indicator $\mathbbm{1}_S$: the conditional expectation is the $\Lp{2}$-projection, so
+$\|\mathbbm{1}_S - \mathbb{E}[\mathbbm{1}_S \mid \mathfrak{m}]\|_{\Lp{2}}^2 \leq \mu(S \triangle E)
+\leq \delta(\mathfrak{m})$ for the best $E \in \mathfrak{m}$.
+The general bounded case follows by the layer-cake representation
+$f = \int_{-M}^{M} \mathbbm{1}_{\{f > t\}}\,dt$ and Minkowski's inequality for integrals,
+giving $\|f - \mathbb{E}[f \mid \mathfrak{m}]\|_{\Lp{2}} \leq 2M \cdot \delta(\mathfrak{m})^{1/2}$.
 \end{proof}
 
-We now specialise to the delay setting.
-Let $(X, \Bcal, \mu, T)$ be a measure-preserving system and $h \in \Lp{\infty}(\mu)$.
-Write $\OhL = \sigma(\PhiL)$ for the observable $\sigma$-algebra at lag~$L$, where
-$\PhiL(x) = (h(x), h(Tx), \ldots, h(T^L x))$,
-and $\AhL$ for the class of degree-$D$ polynomials in the delay
-coordinates~$\PhiL(x)$.
-Let $\fhat$ denote the empirical risk minimiser over $\AhL$.
+In the delay setting of Section~\ref{III:sec:setup}, let $\fhat$ denote the empirical risk minimiser over $\AhL$.
 
 \begin{lemma}[Three-term decomposition]
 \label{III:lem:three-term}
@@ -594,35 +568,18 @@ Then for every $p \in \PD$:
 \end{lemma}
 
 \begin{proof}
-Rescale to the unit box by setting $y_i = x_i/a$; polynomials of degree
-$\leq D$ in $x \in [-a,a]^{L+1}$ correspond to polynomials $\tilde{p}$ of
-degree $\leq D$ in $y \in [-1,1]^{L+1}$.
-Expand $\tilde{p}$ in the tensor-product Legendre basis
-$\{P_\alpha\}_{|\alpha|\leq D}$, where
-$P_\alpha(y) = \prod_{i=1}^{L+1} P_{\alpha_i}(y_i)$ and $\|P_k\|_{\Lp{\infty}[-1,1]} = 1$.
+Rescale to $y = x/a \in [-1,1]^{L+1}$ and expand $\tilde p$ in the
+tensor-product Legendre basis $\{P_\alpha\}_{|\alpha|\leq D}$.
 Since $\|P_\alpha\|_{\Lp{\infty}} = 1$, Cauchy--Schwarz gives
-\[
-  |\tilde{p}(y)|
-  \;\leq\; \sum_{|\alpha|\leq D} |c_\alpha|
-  \;\leq\; N(D,L+1)^{1/2} \Bigl(\sum_{|\alpha|\leq D}|c_\alpha|^2\Bigr)^{1/2},
-\]
-where $N(D,L+1) = \binom{D+L+1}{L+1}$ counts the basis elements.
-From the $\Lp{2}$ orthogonality
-$\|P_\alpha\|_{\Lp{2}[-1,1]}^2 = \prod_i (2\alpha_i+1)^{-1}$,
-the coefficient norm satisfies
-\[
-  \sum_{|\alpha|\leq D}|c_\alpha|^2
-  \;\leq\; (2D+1)\,\|\tilde{p}\|_{\Lp{2}}^2,
-\]
-since the maximum of $\prod_i(2\alpha_i+1)$ over $|\alpha|\leq D$ is
-$2D+1$, achieved at $\alpha=(D,0,\ldots,0)$ — the constraint $|\alpha|\leq D$
-forces all weight onto one coordinate, giving an $L$-independent maximum.
-Converting back via $\|\tilde{p}\|_{\Lp{2}[-1,1]^{L+1}}
-= (2a)^{-(L+1)/2}\|p\|_{\Lp{2}(\mathrm{vol})}$ and
-$\|p\|_{\Lp{2}(\mathrm{vol})} \leq \rho_{\min}^{-1/2}\|p\|_{\Lp{2}(\mu)}$
+$|\tilde p(y)| \leq N(D,L+1)^{1/2}(\sum|c_\alpha|^2)^{1/2}$
+with $N(D,L+1) = \binom{D+L+1}{L+1}$.
+The Legendre orthogonality $\|P_\alpha\|_{\Lp{2}}^2 = \prod_i(2\alpha_i+1)^{-1}$
+gives $\sum|c_\alpha|^2 \leq (2D+1)\|\tilde p\|_{\Lp{2}}^2$ (the
+maximum $(2D+1)$ is $L$-independent, achieved at $\alpha=(D,0,\ldots,0)$).
+Converting back via
+$\|\tilde p\|_{\Lp{2}[-1,1]^{L+1}} = (2a)^{-(L+1)/2}\|p\|_{\Lp{2}(\mathrm{vol})}$
+and $\|p\|_{\Lp{2}(\mathrm{vol})} \leq \rho_{\min}^{-1/2}\|p\|_{\Lp{2}(\mu)}$
 yields the result.
-The subsequent arguments require $\|h\|_{\Lp{\infty}} \geq \frac{1}{2}$,
-equivalently $2a \geq 1$, so that $\MLD$ grows at most polynomially in $L$.
 \end{proof}
 
 \subsection{Concentration around the mean}
@@ -1553,6 +1510,31 @@ and~\ref{III:thm:conjunction}.
 The natural conjecture is that $T$ Anosov with $h$ generic implies~(US) via
 the uniform hyperbolicity constants.
 This would close the gap between~(G1)--(G2) and~(US) in the hyperbolic category.
+
+\begin{remark}[Observable separation and Lyapunov exponents]
+\label{III:rem:lyapunov}
+The bi-Lipschitz property of $\PhiL$ established in Theorem~\ref{III:thm:dynamics}
+under (G1)--(G2)+(US) has a direct bearing on the observable separation exponent
+introduced in~\cite{mahon_paper2} (Remark~II.7).
+Recall that the \emph{observable separation exponent} is
+\[
+  \lambda_h(x,y)
+  \;:=\; \limsup_{n\to\infty} \frac{1}{n}
+  \log d\!\bigl(\PhiL(T^n x),\, \PhiL(T^n y)\bigr),
+\]
+measuring how fast the observable distinguishes initial conditions under iteration.
+The bi-Lipschitz sandwich $c\,d(x,y) \leq d(\PhiL(x),\PhiL(y)) \leq C\,d(x,y)$,
+valid $\mu$-a.e.\ under (G1)--(G2)+(US), implies
+\[
+  \lambda_h(x,y) \;=\; \lambda_1(x,y) \quad \mu\text{-a.e.},
+\]
+where $\lambda_1$ is the top Lyapunov exponent of $T$ in the ambient metric.
+That is, under faithful reconstruction and uniform separation, the observable
+separation rate and the geometric instability rate coincide.
+This identifies the observable separation exponent as a computable proxy for
+$\lambda_1$ accessible directly from time-series data, without knowledge of
+the tangent bundle or the derivative cocycle.
+\end{remark}
 
 \textbf{Stochastic $T$.}
 For stochastic dynamics, $\PihL(x,\,\cdot\,)$ is not a Dirac delta.

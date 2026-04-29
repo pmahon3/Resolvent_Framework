@@ -18,6 +18,7 @@
 .lake/build/
 
 # Python
+.venv/
 __pycache__/
 *.pyc
 *.pyo

@@ -1,12 +1,13 @@
 # Programme Synthesis — The Full Architecture
 
-*Written 2026-04-06, after completion of Papers I–IV and bridge note integration.*
+*Written 2026-04-06. Updated 2026-04-29 after renumbering (Papers I–IV → I–III)
+and editorial completion of Papers II and III.*
 
 ---
 
 ## The single unifying object
 
-Across all four papers, the programme tracks a single notion:
+Across all three papers, the programme tracks a single notion:
 
 **observational indistinguishability**
 
@@ -15,12 +16,11 @@ Each paper gives it a different form:
 | Paper | Indistinguishability | Object |
 |-------|---------------------|--------|
 | I | events that never separate across refinements | failure of CE |
-| II | identical predictive laws | $\Pi_t(x,\cdot) = \Pi_t(x',\cdot)$ |
-| III | same delay orbit | $\Phi_h(x) = \Phi_h(x')$ |
-| IV | same delay vector at lag $L$ | $(x,x') \in R_L$ |
+| II | identical conditional regularity laws | $\kappa_Q(q,\cdot) = \kappa_Q(q',\cdot)$ |
+| III | same delay vector at lag $L$ | $(x,x') \in R_L$ |
 
 These are the same equivalence relation, made precise at increasing levels of
-structure. Paper IV makes this explicit: the set of unseparated pairs
+structure. Paper III makes this explicit: the set of unseparated pairs
 $R_L = \{(x,x') : \Phi_h^{(L)}(x) = \Phi_h^{(L)}(x')\}$ and its measure
 $(\mu\otimes\mu)(R_L)$ is the final invariant. Everything reduces to this.
 
@@ -43,7 +43,7 @@ Layer 3 — Dynamics
 Layer 4 — Geometry
   delay map, embedding
 
-Layer 5 — Statistics (Paper IV)
+Layer 5 — Statistics (Paper III)
   empirical witnesses, rates, entropy
 ```
 
@@ -62,12 +62,12 @@ Boolean  ←→  Measure  ←→  Function space  ←→  Geometry  ←→  Info
 | Bridge | Paper | Identity |
 |--------|-------|----------|
 | Boolean → Measure | I | Carathéodory / Stone: CE makes σ-additivity possible |
-| Boolean → $L^2$ | III | Density bridge: $\sigma$-algebra generation ↔ $L^2$ density |
-| $L^2$ → Geometry | III/IV | Delay map: $\sigma(\Phi_h^{(L)}) = \mathcal{O}_h^{(L)}$ |
-| Geometry → Information | IV | Conditional variance identity: $\delta(L) = \frac{1}{2}\int_{R_L}|\mathbf{1}_S - \mathbf{1}_{S'}|^2\,d(\mu\otimes\mu)$ |
+| Boolean → $L^2$ | II | Density bridge: $\sigma$-algebra generation ↔ $L^2$ density |
+| $L^2$ → Geometry | II/III | Delay map: $\sigma(\Phi_h^{(L)}) = \mathcal{O}_h^{(L)}$ |
+| Geometry → Information | III | Conditional variance identity: $\delta(L) = \frac{1}{2}\int_{R_L}|\mathbf{1}_S - \mathbf{1}_{S'}|^2\,d(\mu\otimes\mu)$ |
 
-The last bridge is proved in the companion note (`papers/paper_iv/notes/bridge_note.tex`)
-and integrated into Paper IV as Lemma 3.1 + Corollary 5.12.
+The last bridge is integrated into Paper III as the conditional variance identity
+(Lemma~III:lem:cond-var) and Corollary~III:cor:entropy.
 
 This is a closed chain. The Stone space introduced in Paper I as a technical
 device for measure extension reappears in Paper III as the object being
@@ -82,10 +82,10 @@ Each paper identifies a single obstruction to its main result:
 | Paper | Obstruction | Status |
 |-------|------------|--------|
 | I | Lack of CE | Proved irreducible (Łoś's theorem + finite-cofinite counterexample) |
-| III | Lack of density ($\mathcal{O}_h \neq \mathcal{B}$) | Characterised by the density bridge |
-| IV | Lack of fibre mixing | Analogue of CE; irreducibility **open** |
+| II | Lack of density ($\mathcal{O}_h \neq \mathcal{B}$ mod $\mu$) | Characterised by density bridge; faithfulness of Φ_h |
+| III | Lack of fibre mixing | Analogue of CE; irreducibility **open** |
 
-**Fibre mixing is to Paper IV what CE is to Paper I:** both are the minimal
+**Fibre mixing is to Paper III what CE is to Paper I:** both are the minimal
 condition under which a comparison theorem holds. CE makes σ-additivity possible;
 fibre mixing makes the algebraic and information-theoretic witnesses comparable.
 Both are strictly weaker than their natural sufficient condition (ergodicity implies
@@ -95,15 +95,15 @@ fibre mixing; no first-order condition implies CE).
 not derivable from any structural condition on the query system or the dynamics?
 This is the deepest open question in the programme. Resolving it would:
 - Close the three-obstruction table symmetrically
-- Give Paper IV the same foundational standing as Paper I
+- Give Paper III the same foundational standing as Paper I
 - Supply the coherence/consistency schema (see `notes/future/coherence_consistency_direction.md`)
   with a second fully worked example in a genuinely different domain
 
 ---
 
-## What Paper IV adds (precisely)
+## What Paper III adds (precisely)
 
-Paper IV is not applied statistics appended to a pure theory. It does two
+Paper III is not applied statistics appended to a pure theory. It does two
 structurally new things:
 
 **(A) Identifies the observable invariant.**
@@ -133,11 +133,10 @@ under fibre mixing; (2) certifies state-space separation directly.
 
 ## The true frontier
 
-The mathematics of all four papers is worked out. Papers II–IV are at
-first-draft quality only — substantial editorial revision (prose, voice,
-structure, introductions) is needed before any of them are ready for
-submission. Paper I and the companion note are submission-ready; upload
-is blocked only by arXiv math.LO endorsement.
+All three papers are mathematically complete and editorially polished.
+Paper I and the companion note are arXiv-ready; Papers II and III are
+editorially polished pending Paper I's arXiv ID for cross-reference updates.
+Upload is blocked only by arXiv math.LO endorsement.
 
 The genuine open mathematical directions, ordered by downstream leverage:
 
@@ -192,4 +191,4 @@ schema second (generalise with two examples in hand), then everything else.
 
 5. **Paper 0 / zeta / interaction directions** *(post-arXiv, consume results).*
    All downstream of fibre mixing and the coherence/consistency schema. Do not
-   develop until Papers I–IV are posted and fibre mixing is understood.
+   develop until Papers I–III are posted and fibre mixing is understood.

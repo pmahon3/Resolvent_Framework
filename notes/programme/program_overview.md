@@ -91,8 +91,16 @@ closes the loop with Paper I.
 **Lean:** `PredictiveState.lean`, `PredictiveOperators.lean`,
 `ReconstructionTheorem.lean` (0 sorrys), `DelayEmbedding.lean`
 
-**LaTeX:** `papers/paper_ii/dynamics_and_reconstruction.tex` (9 pages, editorially
+**LaTeX:** `papers/paper_ii/dynamics_and_reconstruction.tex` (~11 pages, editorially
 polished; arXiv pending Paper I upload)
+
+**Added 2026-04-29:**
+- `Definition II:def:faithful` — "faithful modulo μ" formally defined at the
+  point where prose motivates it; reconstruction question cast as the faithfulness
+  question about Φ_h
+- `§Discussion` — synthesis section closing the paper: names the three-step
+  disclosure arc, states that the Stone space of Paper I collapses onto X when
+  Φ_h is faithful, hands the certification question to Paper III
 
 ---
 
@@ -119,8 +127,25 @@ dynamical hypothesis. (Note: κ here is a scalar integral, not the kernel κ_Q.)
 
 **Lean:** Not started.
 
-**LaTeX:** `papers/paper_iii/finite_sample_reconstruction.tex` (18 pages,
-editorially polished)
+**LaTeX:** `papers/paper_iii/finite_sample_reconstruction.tex` (~18 pages
+standalone arXiv build with proof sketches; full proofs in `papers/combined/`
+via `\ifdraft` toggle; editorially polished)
+
+**Updated 2026-04-29:**
+- `\ifdraft` conditional: `\draftfalse` in standalone (sketch proofs for arXiv),
+  `\drafttrue` in `combined.tex` (full proofs for monograph). Three standard-technique
+  proofs gated (McDiarmid/Rademacher concentration, NW bias, Sard-Smale d_eff);
+  all conceptually novel proofs remain inline in both builds.
+- Abstract compressed to 3 paragraphs (was 4); transitional paragraph merged into
+  theorem-list paragraph.
+- `Remark III:rem:info-horizon` (§3): information horizon L* = ⌊log₂n⌋ derived
+  from first principles; makes fibre-dilution explanation explicit.
+- `Remark III:rem:lyapunov` (§9): observable separation exponent λ_h = λ_1 μ-a.e.
+  under bi-Lipschitz reconstruction; Paper III closes the deferred Lyapunov claim
+  from Paper II Remark II:rem:lyapunov.
+- **Re-evaluation resolved (Direction 1):** fibre-dilution picture made explicit
+  via the information horizon remark; no structural reframing. Three-theorem spine
+  retained.
 
 ---
 

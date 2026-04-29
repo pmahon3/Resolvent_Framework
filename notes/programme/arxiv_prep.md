@@ -113,13 +113,13 @@ For reference, the proposed arXiv categories and MSC classes are recorded below
 but should be treated as provisional.
 
 ### Paper II — "Dynamics and Reconstruction in the Observable Measure"
-File: `papers/paper_ii/dynamics_and_reconstruction.tex` (9 pages)
+File: `papers/paper_ii/dynamics_and_reconstruction.tex` (~11 pages)
 arXiv: `math.DS` primary; cross-list `math.FA`, `math.PR`
 MSC: `37A30` (primary); `47D06`, `60J05`, `37A05`, `28A60`, `06E15`, `46E30`
 Notation: κ_Q (conditional regularity kernel), Π_t (semigroup kernels), K_t (operators)
 
 ### Paper III — "Certifying Reconstruction from Finite Data"
-File: `papers/paper_iii/finite_sample_reconstruction.tex` (18 pages)
+File: `papers/paper_iii/finite_sample_reconstruction.tex` (~18 pages standalone arXiv build)
 arXiv: `math.ST` primary; cross-list `math.DS`, `math.PR`
 MSC: `62G08` (primary); `37A05`, `62M10`, `28A60`, `94A17`
 

@@ -674,6 +674,29 @@ points, so Stone--Weierstrass gives $\mathcal{A}_h$ uniformly dense in $C(M)$
 and hence $L^2$-dense: the density condition holds and the two results are
 compatible.
 
+\begin{remark}[Observable separation and Lyapunov exponents]
+\label{II:rem:lyapunov}
+When $T$ is $C^r$ and reconstruction holds, the delay map $\Phi_h$ carries a
+natural instability rate: for $\mu$-a.e.\ $x$ and nearby $y$,
+\[
+  \lambda_h(x,y)
+  \;:=\;
+  \limsup_{n\to\infty} \frac{1}{n}
+  \log d\!\bigl(\Phi_h(T^n x),\, \Phi_h(T^n y)\bigr).
+\]
+This \emph{observable separation exponent} measures how fast the reconstructed
+dynamics distinguishes initial conditions through the observable, rather than
+how fast tangent vectors grow.  When $h$ is generic in the sense of
+Takens~\cite{Takens1981}, the finite-lag embedding $\Phi_h^{(L)}$ is
+bi-Lipschitz on the attractor, sandwiching $\lambda_h$ between the top
+Lyapunov exponent $\lambda_1$ from above and below; one expects
+$\lambda_h = \lambda_1$ $\mu$-a.e., but making this precise requires
+comparing the induced metric on $\Phi_h^{(L)}(X)$ with the ambient
+Riemannian geometry as $L \to \infty$, which is beyond the scope of the
+present paper.  The quantitative geometry of fibre separation in this setting
+is taken up in~\cite{mahon_paper3}.
+\end{remark}
+
 
 % ====================================================================
 \ifstandalone

@@ -617,6 +617,7 @@ $\varepsilon_n = C'\,n^{-2s/(2s+d)}$:
 \]
 \end{proposition}
 
+\ifdraft
 \begin{proof}
 \emph{Step~1 (Boundedness).}
 By Lemma~\ref{III:lem:bounded}, every $p \in \PD$ with $\|p\|_{\Lp{2}(\mu)} \leq 1$
@@ -667,6 +668,21 @@ Setting $t = \varepsilon_n/2 = C'n^{-2s/(2s+d)}/2$, the exponent becomes
 This tends to $+\infty$ if and only if $d > 2s$,
 proving the final claim.
 \end{proof}
+\else
+\begin{proof}
+Uniform boundedness of $\mathcal{F}_{L,D}$ (Lemma~\ref{III:lem:bounded}) gives
+$\|f\|_{\Lp{\infty}} \leq 4\MLD^2$ for each $f \in \mathcal{F}_{L,D}$, so a
+one-point replacement changes $\delhat{L}{n}$ by at most $4\MLD^2/n$.
+The McDiarmid inequality~\cite{McDiarmid1989} gives the stated exponential tail.
+The bias term $|\mathbb{E}[\delhat{L}{n}] - \delta(L)|$ is controlled by
+symmetrisation and the Ledoux--Talagrand contraction lemma~\cite{LedouxTalagrand1991},
+reducing to the Rademacher complexity of $\PD$; since $\PhiL(X)$ is a
+$d$-dimensional submanifold in the Takens regime, the VC dimension of $\PD$
+is $O(D^d)$~\cite{Gyorfi2002} and $\Rad_n(\PD) \leq C\sqrt{D^d/n}$.
+Combining and setting $t = C'n^{-2s/(2s+d)}$ gives the result; the exponent
+diverges iff $d > 2s$.
+\end{proof}
+\fi
 
 \begin{remark}[The $d > 2s$ hypothesis]
 \label{III:rem:d>2s}
@@ -741,6 +757,7 @@ uniformly in $p \in \PD$, where $C_2(D,L) = 2\MLD^2 C_1^2 A^{2\beta}$ and
 $A$ is a constant depending on $(\beta, \deff(L), \rho_{\min})$.
 \end{proposition}
 
+\ifdraft
 \begin{proof}
 The proof is a four-link chain.
 
@@ -792,6 +809,21 @@ $C_2(D,L) \cdot n^{-2\beta/(2\beta+\deff(L))}$ with
 $C_2(D,L) = 2\MLD^2 C_1^2 A^{2\beta}$.
 Since the bound is $p$-free, it holds uniformly over $\PD$.
 \end{proof}
+\else
+\begin{proof}
+The key input is that the conditional expectation $z \mapsto \mathbb{E}[p \mid \PhiL = z]$
+is $\mathrm{H\ddot{o}lder}(\beta)$ uniformly over $p \in \PD$.
+This follows from TV-Hölder continuity of the fibre measures:
+under conditions~(i)--(ii), a Rokhlin disintegration and implicit-function-theorem
+argument give $\|\mu_z - \mu_{z'}\|_{\mathrm{TV}} \leq C_1|z-z'|^\beta$,
+and hence $|\mathbb{E}[p|\PhiL=z] - \mathbb{E}[p|\PhiL=z']| \leq \MLD C_1|z-z'|^\beta$
+by Lemma~\ref{III:lem:bounded}.
+Standard Nadaraya--Watson theory~\cite{Gyorfi2002} for a $\mathrm{H\ddot{o}lder}(\beta)$
+regression function on a $\deff(L)$-dimensional domain then gives the stated rate
+$n^{-2\beta/(2\beta+\deff(L))}$ at the optimal bandwidth; the $\MLD^2$ factors
+cancel in the bias-variance balance and the bound is uniform over $\PD$.
+\end{proof}
+\fi
 
 \begin{theorem}[Full convergence $\delhat{L}{n} \to \deltaL$]
 \label{III:thm:convergence}
@@ -855,6 +887,7 @@ positive density:
 \]
 \end{lemma}
 
+\ifdraft
 \begin{proof}
 The upper bound $\deff(L) \leq \min(L+1,d)$ holds because $D\PhiL|_x$ is a
 linear map from $T_x X$ (dimension~$d$) to $\mathbb{R}^{L+1}$.
@@ -902,6 +935,19 @@ has dimension $< d-1$ and $\mu$-measure zero.
 Condition~(G2) places $h$ in the regular-value set by the same argument as
 Case~1.
 \end{proof}
+\else
+\begin{proof}
+The upper bound $\deff(L) \leq \min(L+1,d)$ is immediate from dimension counting.
+For the lower bound, the Sard--Smale theorem~\cite{Smale1965} is applied to two
+failure maps encoding rank deficiency.
+In each case, (G1) (distinct orbit points) gives surjectivity of the derivative
+of the failure map onto the target, making the failure locus a submanifold of
+too low a dimension to carry $\mu$-mass; (G2) places $h$ in the resulting
+residual generic set.
+Full details of the transversality argument follow the template of
+Takens~\cite{Takens1981}.
+\end{proof}
+\fi
 
 \begin{proposition}[Piecewise pre-Takens rate]
 \label{III:prop:piecewise-rate}

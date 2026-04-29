@@ -18,9 +18,10 @@ of asymptotic instability rates of observational regularity. The framework alrea
 contains the upstream ingredients to define a more general notion.
 
 **Slogan:** Classical Lyapunov exponents measure how fast the *geometry forgets initial
-conditions*; the observational framework measures how fast the *observable algebra
-resolves them*. These are dual directions — Lyapunov is about divergence of trajectories,
-the observational version is about convergence of the observable partition to the point.
+conditions*; the observational framework measures how fast *observational structure
+resolves or distinguishes them*. These are dual directions — Lyapunov is about divergence
+of trajectories, the observational version is about how quickly initial conditions become
+distinguishable through the observable algebra, semigroup, or partition.
 In smooth ergodic systems they are related by Pesin's formula.
 
 The direction fits the programme for the same reason the earlier papers do: it does not

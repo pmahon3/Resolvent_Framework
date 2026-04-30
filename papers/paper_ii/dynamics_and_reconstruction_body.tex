@@ -48,7 +48,7 @@ given.  It does, however, already carry more than it was built to carry.  Any
 two observations $Q$ and $F$ — no hypothesis on time or order — determine a
 conditional regularity of $F$ given $Q$: the Markov kernel
 $\kappa_Q(q,\cdot) = P(F \in \cdot \mid Q = q)$, which the Rokhlin
-disintegration theorem~\cite{Rokhlin1952} forces into existence.  It is not added; it is already there.  Composing
+disintegration theorem~\cite{Rokhlin1952} forces into existence — it need not be separately posited.  Composing
 with $Q$ gives the minimal sufficient factor $Q_*$, the coarsest reduction of
 the sample point that carries full conditional information about $F$.  Temporal
 prediction is the special case in which $F$ is a future observable; nothing in
@@ -667,23 +667,29 @@ $\mathcal{C}$ is not a smooth manifold: it is compact and zero-dimensional,
 with Hausdorff dimension $\log 2/\log 3 \approx 0.63$.  The differential-geometric
 hypotheses of Takens's theorem --- $C^2$ ambient dynamics, integer manifold
 dimension $d$, embedding bound $2d+1$ --- are unavailable before one even asks
-about regularity of $S$.  Takens has no domain of application here.
+about regularity of $S$; nor do the finite-lag extensions of
+Sauer--Yorke--Casdagli~\cite{SauerYorkeCasdagli1991}, which still require a
+finite-dimensional ambient manifold or attractor, apply.
 Theorem~\ref{II:thm:reconstruction} applies because it requires only that the
-observable algebra be measurably generated; smoothness plays no role.
+observable algebra be measurably generated; smoothness and finite dimensionality
+play no role.
 \end{example}
 
 The classical Takens embedding theorem~\cite{Takens1981} reaches a related
 conclusion by a different route: for a $C^2$ diffeomorphism on a compact
 $d$-manifold and a generic smooth $h$, the finite-delay map
 $\Phi_h^{(k)}(x) = (h(x), h(Tx), \ldots, h(T^{k-1}x))$ is a diffeomorphic
-embedding into $\mathbb{R}^{2d+1}$ for $k \geq 2d+1$.  The reconstruction
-theorem here requires only measurability, uses all delays simultaneously, and
-replaces the dimension count with the algebraic density condition; in exchange,
-the embedding is measure-theoretic rather than topological.  On a compact
-manifold with generic smooth $h$, the orbit $\{h \circ T^n\}$ separates
-points, so Stone--Weierstrass gives $\mathcal{A}_h$ uniformly dense in $C(M)$
-and hence $L^2$-dense: the density condition holds and the two results are
-compatible.  For non-smooth or zero-dimensional systems — the Cantor example
+embedding into $\mathbb{R}^{2d+1}$ for $k \geq 2d+1$.
+Sauer--Yorke--Casdagli~\cite{SauerYorkeCasdagli1991} extend this to
+prevalence-generic observables and Lipschitz maps, while retaining the
+finite-dimensional manifold hypothesis and the finite-lag, finite-dimension
+embedding framework.  The reconstruction theorem here differs in kind: it
+requires only measurability, uses all delays simultaneously, and replaces the
+dimension count with the algebraic density condition; in exchange, the
+embedding is measure-theoretic rather than topological.  On a compact manifold
+with generic smooth $h$, the orbit $\{h \circ T^n\}$ separates points, so
+Stone--Weierstrass gives $\mathcal{A}_h$ uniformly dense in $C(M)$ and hence
+$L^2$-dense: the density condition holds and the results are compatible.  For non-smooth or zero-dimensional systems — the Cantor example
 being representative — the closer historical ancestor is the symbolic dynamics
 and generating-partition tradition~\cite{Adler1998}: representing orbits
 through successively finer finite partitions is exactly what the observable

@@ -1,3 +1,6 @@
+# Submission packages (venue-specific, not source)
+papers/**/submission_*/
+
 # LaTeX build artifacts
 *.aux
 *.bbl

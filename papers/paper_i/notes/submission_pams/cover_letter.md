@@ -5,7 +5,7 @@
 **Re:** Submission of "Countable Additivity is Not First-Order Axiomatizable"
         for consideration as a Shorter Note
 
-**Suggested Editor:** Itay Neeman (UCLA)
+**Suggested Editor:** Maryanthe Malliaris (University of Chicago)
 
 ---
 

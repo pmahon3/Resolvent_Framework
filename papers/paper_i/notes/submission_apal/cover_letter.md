@@ -44,4 +44,4 @@ under consideration elsewhere.
 Sincerely,
 Patrick S. Mahon
 Research Computing Group, Simon Fraser University
-pmahon3@sfu.ca
+pmahon@sfu.ca

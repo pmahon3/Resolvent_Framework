@@ -18,7 +18,6 @@
 % ---------- Commands ----------
 \newcommand{\Lmu}{\mathcal{L}_{\mathrm{BA},\mu}}
 \newcommand{\Tfa}{T_{\mathrm{fa}}}
-\newcommand{\Q}{\mathbb{Q}}
 \newcommand{\N}{\mathbb{N}}
 
 % ---------- Title ----------
@@ -42,13 +41,14 @@ Boolean algebra, finitely additive measure, \L{}o\'s's theorem.
 
 \begin{abstract}
 In the first-order language of Boolean algebras equipped with a normalized finitely
-additive charge, no first-order theory characterizes those models whose charge extends
-to a $\sigma$-additive measure on the generated $\sigma$-algebra.  Equivalently,
-countable additivity is not first-order axiomatizable among finitely additive probability
-Boolean algebras.  The proof is a single ultraproduct argument: Dirac charges on the
-finite-cofinite algebra are individually $\sigma$-additive, but their ultraproduct is
-the finite-cofinite charge, which fails $\sigma$-additivity --- contradicting
-\L{}o\'{s}'s theorem if any first-order axiomatization existed.
+additive charge, no first-order theory characterizes the models in which the charge
+is $\sigma$-additive.  Equivalently, countable additivity is not first-order
+axiomatizable among finitely additive probability Boolean algebras.  The proof is a
+single ultraproduct argument via \L{}o\'{s}'s theorem: Dirac masses on $\mathcal{P}(\N)$
+are individually $\sigma$-additive, but the charge induced on the diagonal copy of
+$\mathcal{P}(\N)$ in their ultraproduct is the $\{0,1\}$-valued ultrafilter charge,
+which is purely finitely additive --- contradicting \L{}o\'{s}'s theorem if any
+first-order axiomatization existed.
 \end{abstract}
 
 A property of structures is first-order axiomatizable in a language $L$ if there exists
@@ -72,7 +72,7 @@ We settle it negatively.
 Let $\Lmu$ be the one-sorted first-order language with:
 \begin{itemize}
   \item Boolean operations $\wedge, \vee, \neg, 0, 1$;
-  \item for each rational $q \in [0,1] \cap \Q$, unary relation symbols
+  \item for each rational $q \in [0,1] \cap \mathbb{Q}$, unary relation symbols
         $M_{\leq q}(x)$ and $M_{\geq q}(x)$, intended to mean
         $\mu(x) \leq q$ and $\mu(x) \geq q$ respectively.
 \end{itemize}
@@ -105,70 +105,62 @@ available in first-order logic --- and so is not a sentence of $\Lmu$.
 
 \medskip
 
-\begin{proposition}[$\sigma$-additive extension is not first-order axiomatizable]
+\begin{proposition}[$\sigma$-additivity is not first-order axiomatizable]
 \label{prop:not-fo}
 There is no first-order $\Lmu$-theory $T \supseteq \Tfa$ such that, for every
 $(B, \mu) \models \Tfa$,
 \[
-  (B, \mu) \models T \quad\Longleftrightarrow\quad
-  \mu \text{ extends to a $\sigma$-additive measure on } \sigma(B).
+  (B, \mu) \models T \quad\Longleftrightarrow\quad \mu \text{ is $\sigma$-additive}.
 \]
 Equivalently, countable additivity is not first-order axiomatizable among
 finitely additive probability Boolean algebras.
 \end{proposition}
 
 \begin{proof}
-Let $E$ be the Boolean algebra of finite-cofinite subsets of $\Q$, fix an
-enumeration $q : \N \to \Q$, and let $\delta_n$ be the Dirac charge at
-$q(n)$.  Each $(E, \delta_n)$ is a model of $\Tfa$ in which $\delta_n$ is
-$\sigma$-additive.  Suppose for contradiction that a theory $T$ as described
-exists; then each $(E, \delta_n) \models T$.
+Let $\delta_n$ be the Dirac probability at $n \in \N$ on the $\sigma$-algebra
+$\mathcal{P}(\N)$.  Each $(\mathcal{P}(\N), \delta_n)$ is a model of $\Tfa$ in
+which $\delta_n$ is $\sigma$-additive.  Suppose for contradiction that a theory
+$T$ as described exists; then each $(\mathcal{P}(\N), \delta_n) \models T$.
 
-Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\N$ extending the cofinite
-filter.  By \L{}o\'{s}'s theorem \cite{Los1955}, the ultraproduct $\prod_\mathcal{U}(E,\delta_n)$
-also models $T$.  The charge induced on the diagonal copy of $E$ is
+Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\N$.  By \L{}o\'{s}'s
+theorem \cite{Los1955}, the ultraproduct
+$\prod_\mathcal{U}(\mathcal{P}(\N),\delta_n)$ also models $T$.  The charge
+induced on the diagonal copy of $\mathcal{P}(\N)$ is
 \[
-  \ell(A) = \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{q(n) \in A}.
+  \ell(A) = \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{n \in A}.
 \]
-If $A$ is finite, $q(n) \in A$ for only finitely many $n$, so $\ell(A) = 0$.
-If $A$ is cofinite, $q(n) \in A$ for cofinitely many $n$, so $\ell(A) = 1$
-since $\mathcal{U}$ extends the cofinite filter.  Thus $\ell$ is the
-finite-cofinite charge.
+This is the $\{0,1\}$-valued charge corresponding to $\mathcal{U}$: $\ell(A) = 1$
+iff $A \in \mathcal{U}$.  Since $\mathcal{U}$ is nonprincipal, $\ell(\{n\}) = 0$
+for every $n$, yet $\ell(\N) = 1$.  Thus the sets $A_k = \{k, k+1, \ldots\}$
+satisfy $A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_k A_k = \varnothing$,
+yet $\ell(A_k) = 1$ for all $k$ (since $A_k \in \mathcal{U}$ for all $k$, as
+$\mathcal{U}$ is nonprincipal).  Hence $\ell$ is not $\sigma$-additive.
 
-The sequence $A_k = \Q \setminus \{q(0), \ldots, q(k)\}$ satisfies
-$A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_k A_k = \varnothing$, yet
-$\ell(A_k) = 1$ for all $k$.  Hence the charge on the diagonal copy of $E$
-fails $\sigma$-additivity and does not extend to a $\sigma$-additive measure
-on $\sigma(E)$.  Consequently the ultraproduct cannot satisfy any theory $T$
-characterizing $\sigma$-additive extension, contradicting \L{}o\'{s}'s theorem
-applied to the assumption that each $(E, \delta_n) \models T$.
+Consequently the charge on the diagonal copy of $\mathcal{P}(\N)$ fails
+$\sigma$-additivity, so the ultraproduct cannot satisfy any theory $T$
+axiomatizing $\sigma$-additivity, contradicting \L{}o\'{s}'s theorem applied
+to the assumption that each $(\mathcal{P}(\N), \delta_n) \models T$.
 \end{proof}
 
 \begin{remark}
-The ultraproduct $\prod_\mathcal{U}(E,\delta_n)$ is an $\Lmu$-structure in its own
-right; $\ell$ is the charge induced on the diagonal copy of $E$ inside it.
-Identifying the ultraproduct with $(E,\ell)$ is harmless for the contradiction,
-since the failure of $\sigma$-additivity is witnessed on the diagonal copy.
+The ultraproduct $\prod_\mathcal{U}(\mathcal{P}(\N),\delta_n)$ is an
+$\Lmu$-structure in its own right; $\ell$ is the charge induced on the diagonal
+copy of $\mathcal{P}(\N)$ inside it.  The diagonal copy is isomorphic to
+$\mathcal{P}(\N)$ as a Boolean algebra, and $\ell$ is the $\{0,1\}$-valued
+ultrafilter charge on it: a purely finitely additive probability that is not
+$\sigma$-additive.
 \end{remark}
 
 \medskip
 
-The proof produces one purely finitely additive charge as an ultraproduct of
-$\sigma$-additive ones; that single witness suffices for the non-axiomatizability
-conclusion.  A stronger question is:
-
-\begin{quote}
-\itshape
-Which purely finitely additive charges on a Boolean algebra arise as pointwise
-ultralimits of $\sigma$-additive probabilities on the same algebra?
-\end{quote}
-
-\noindent On a $\sigma$-algebra the answer is none: any pointwise ultralimit of
-$\sigma$-additive probabilities is itself $\sigma$-additive, by Nikodym-type
-convergence \cite{DunfordSchwartz1958}, IV.9.8.  On a general Boolean algebra the
-situation is more structured, and the problem is settled in several natural regimes.
-The remaining open case reduces to whether there exists a non-$\sigma$-complete
-non-atomic Boolean algebra admitting no $\sigma$-additive probability.
+The proof exhibits a purely finitely additive charge --- the ultrafilter charge on
+$\mathcal{P}(\N)$ --- as a $\mathcal{U}$-ultralimit of $\sigma$-additive
+probabilities.  This shows that the class of $\sigma$-additive structures is not
+closed under ultraproducts, hence not first-order axiomatizable.  A natural
+follow-up question is which purely finitely additive charges on a Boolean algebra
+arise as pointwise ultralimits of $\sigma$-additive probabilities on the same
+algebra; the answer depends sensitively on the algebra's structural properties and
+remains open in the non-$\sigma$-complete non-atomic case.
 
 \bibliographystyle{plain}
 \bibliography{../references}

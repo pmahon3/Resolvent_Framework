@@ -465,47 +465,18 @@ $\sigma$-additivity?'' is ill-posed: it conflates conditions on the index struct
 \subsection{CE is non-derivable}
 \label{I:sec:ce-irred}
 
-The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} identifies the obstruction Proposition~\ref{I:prop:independence} has exposed.  Every finitely additive probability decomposes uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is $\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}. The finite-cofinite content has $\ell_p = \ell$.  By Theorem~\ref{I:thm:sp1}, CE holds precisely when $\ell_p = 0$.  The obstruction is therefore not a feature of any particular structural hypothesis: it is the persistence of a purely finitely additive component that no first-order structural condition can eliminate. 
+The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} identifies the obstruction Proposition~\ref{I:prop:independence} has exposed.  Every finitely additive probability decomposes uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is $\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}. The finite-cofinite content has $\ell_p = \ell$.  By Theorem~\ref{I:thm:sp1}, CE holds precisely when $\ell_p = 0$.  The obstruction is therefore not a feature of any particular structural hypothesis: it is the persistence of a purely finitely additive component that no first-order structural condition can eliminate.
 
 \begin{proposition}[CE non-derivability]
 \label{I:prop:ce-irred}
-Collective exhaustion is not implied by any structural condition on a query system.
-\begin{enumerate}[label=(\roman*)]
-  \item \emph{(Particular case.)}  Sequential upper-directedness, compatibility,
-        and normalization do not imply CE.
-  \item \emph{(Universal case.)}  No condition $\Phi$ expressible in the
-        first-order language of query systems implies CE.
-\end{enumerate}
+No condition expressible in the first-order language of query systems implies collective exhaustion.  More generally, $\sigma$-additivity is not first-order axiomatizable among finitely additive probability Boolean algebras~\cite{MahonCE2026}.
 \end{proposition}
 
 \begin{proof}
-The particular case is Proposition~\ref{I:prop:independence}: the finite-cofinite charge satisfies all named structural hypotheses and fails CE.
-
-For the universal case, we proceed in three steps.
-
-\textit{Step 1.}
-A first-order condition on query systems is preserved under ultraproducts by
-\L{}o\'{s}'s theorem~\cite{Los1955}: if $\Phi$ holds in every member of a family
-of query systems, it holds in their ultraproduct.
-
-\textit{Step 2.}
-Let $\delta_n$ be the Dirac probability at $n \in \mathbb{N}$ on $\mathcal{P}(\mathbb{N})$, and let $\mathcal{U}$ be a nonprincipal ultrafilter on $\mathbb{N}$.  Each $\delta_n$ is a normalized $\sigma$-additive charge satisfying every structural condition including CE.  The charge induced on the diagonal copy of $\mathcal{P}(\mathbb{N})$ in the ultraproduct $\prod_{\mathcal{U}} (\mathcal{P}(\mathbb{N}), \delta_n)$ is
-\[
-  \ell(A) \;=\; \lim_{\mathcal{U}} \mathbf{1}_{n \in A},
-\]
-the $\{0,1\}$-valued ultrafilter charge: $\ell(A)=1$ iff $A \in \mathcal{U}$.  Since $\mathcal{U}$ is nonprincipal, $\ell(\{n\})=0$ for every $n$, yet $\ell(\mathbb{N})=1$.  The sets $A_k = \{k, k{+}1, \ldots\}$ satisfy $A_k \downarrow \varnothing$ and $\ell(A_k)=1$ for all $k$, so $\ell$ fails CE.
-
-\textit{Step 3.}
-By Step~1, any universally valid first-order condition $\Phi$ holds in the ultraproduct whenever it holds in each $\delta_n$.  But by Step~2 the charge on the diagonal copy fails CE.  Therefore no first-order structural condition can imply CE.
+Proposition~\ref{I:prop:independence} provides the particular case: the finite-cofinite charge satisfies all named structural hypotheses and fails CE.  The universal case is proved in~\cite{MahonCE2026} via \L{}o\'{s}'s theorem~\cite{Los1955}: Dirac masses $\delta_n$ on $\mathcal{P}(\mathbb{N})$ are individually $\sigma$-additive, but the charge induced on the diagonal copy of $\mathcal{P}(\mathbb{N})$ in their ultraproduct is the $\{0,1\}$-valued ultrafilter charge, which fails $\sigma$-additivity.  Since a first-order theory satisfied by every $\delta_n$ is satisfied by the ultraproduct, no such theory can axiomatize $\sigma$-additivity.
 \end{proof}
 
-\noindent The ultrafilter-based charge is the canonical witness: it passes every
-finite consistency test yet assigns unit mass to events whose infinite intersection is empty. 
-
-\subsection{Finite coherence does not determine probability}
-\label{I:sec:metatheorem}
-
-The obstruction in Proposition~\ref{I:prop:ce-irred} is not an artifact of the query-system language.  In the more primitive setting of Boolean algebras with a normalized finitely additive charge, the same conclusion holds: no first-order theory in that language characterizes the models in which the charge is $\sigma$-additive.  In particular, countable additivity is not first-order axiomatizable among finitely additive probability Boolean algebras \cite{MahonCE2026}.  The probability logic community has treated this as background knowledge --- Hoover~\cite{Hoover1978} requires an infinitary rule to axiomatize $\sigma$-additive probability logic, and Fagin, Halpern, and Megiddo~\cite{FaginHalpernMegiddo1990} state without proof that countable additivity cannot be expressed by any formula in the natural language.  The companion note \cite{MahonCE2026} records a self-contained ultraproduct proof: Dirac masses $\delta_n$ on $\mathcal{P}(\mathbb{N})$ are individually $\sigma$-additive, but the charge induced on the diagonal copy of $\mathcal{P}(\mathbb{N})$ in their ultraproduct is the $\{0,1\}$-valued ultrafilter charge, which is not $\sigma$-additive --- contradicting \L{}o\'{s}'s theorem if any first-order axiomatization existed.
+\noindent This obstruction is not an artifact of the query-system formalism: it already appears in the more primitive language of Boolean algebras with finitely additive charge.  The probability-logic tradition --- Hoover~\cite{Hoover1978} and Fagin, Halpern, and Megiddo~\cite{FaginHalpernMegiddo1990} --- treated this as background knowledge; the companion note~\cite{MahonCE2026} records a self-contained proof.
 
 Finite coherence therefore underdetermines probability in a logically precise sense.  Foundational disputes about probability are not terminological; they concern which extra structure licenses the passage from finite coherence to probability, and some such structure is unavoidable.  CE is the condition adopted here.
 

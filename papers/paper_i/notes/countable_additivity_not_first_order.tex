@@ -60,12 +60,12 @@ Countable additivity distinguishes $\sigma$-additive measures from finitely addi
 charges.  That it cannot be expressed by a single first-order sentence is clear: the
 condition quantifies over countable sequences, unavailable in first-order logic.  Its
 non-first-order character is treated as background knowledge in the probability logic
-literature~\cite{Hoover1978,Keisler1985,FaginHalpernMegiddo1990}, but the sharper
-question --- whether countable additivity admits a first-order \emph{axiomatization}
-by any set of sentences, not merely a single formula --- does not appear to have been
-settled by an explicit proof.
+literature~\cite{Hoover1978,Keisler1985,FaginHalpernMegiddo1990}, but a short
+self-contained ultraproduct proof in the Boolean-algebra-with-charge setting ---
+showing non-axiomatizability by \emph{any} set of sentences, not merely a single
+formula --- seems not to have been recorded.
 
-We settle it negatively.
+We provide one here.
 
 \medskip
 
@@ -95,6 +95,11 @@ Let $\Tfa$ be the $\Lmu$-theory axiomatizing:
         \]
         and similarly for lower bounds.
 \end{enumerate}
+The theory $\Tfa$ may be supplemented with rational-cut coherence axioms
+(monotonicity of the predicates in $q$, and $M_{\leq 1}(x)$, $M_{\geq 0}(x)$
+for all $x$) to ensure that the predicates determine a unique value
+$\mu(x) \in [0,1]$ for each element; the proof below does not depend on whether
+these are included.
 \end{definition}
 
 \noindent
@@ -136,10 +141,11 @@ satisfy $A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_k A_k = \varnothing$,
 yet $\ell(A_k) = 1$ for all $k$ (since $A_k \in \mathcal{U}$ for all $k$, as
 $\mathcal{U}$ is nonprincipal).  Hence $\ell$ is not $\sigma$-additive.
 
-Consequently the charge on the diagonal copy of $\mathcal{P}(\N)$ fails
-$\sigma$-additivity, so the ultraproduct cannot satisfy any theory $T$
-axiomatizing $\sigma$-additivity, contradicting \L{}o\'{s}'s theorem applied
-to the assumption that each $(\mathcal{P}(\N), \delta_n) \models T$.
+If the ultraproduct's charge were $\sigma$-additive, its restriction to the
+diagonal copy of $\mathcal{P}(\N)$ would be $\sigma$-additive; but this
+restriction is $\ell$, which is not.  Hence the ultraproduct does not satisfy
+$\sigma$-additivity, contradicting \L{}o\'{s}'s theorem applied to the
+assumption that each $(\mathcal{P}(\N), \delta_n) \models T$.
 \end{proof}
 
 \begin{remark}

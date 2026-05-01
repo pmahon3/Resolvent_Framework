@@ -329,12 +329,11 @@ For any $A \in \mathcal{O}_i$, $P(\mathrm{Cyl}(i, A)) = \mu_0(\mathrm{Cyl}(i, A)
 Two probability measures with the same evaluation marginals agree on $\mathcal{C}$, hence on $\sigma(\mathcal{C})$ by Proposition~\ref{I:thm:obs-determination}.
 \end{proof}
 
-\begin{remark}[Relation to Kolmogorov's extension theorem]
+\begin{remark}[Scope and relation to Kolmogorov's extension theorem]
 \label{I:rem:kolmogorov}
-Kolmogorov's theorem~\cite{Kolmogorov} constructs a probability measure on $S^T$ from consistent finite-dimensional distributions.  Theorem~\ref{I:thm:obs-extension} plays the same role for query systems: the instantiation $\Omega = \varprojlim
-\Out{i}$ replaces the product $S^T$, compatible marginals replace
-consistent finite-dimensional distributions, and sequential common refinements replace the countable-cofinality condition.  The key conceptual difference is that no topology is imposed on the outcome spaces: the measure $P$ is built directly on the measurable structure of $\Omega$ by Carathéodory, without any appeal to tightness or compactness.
+Theorem~\ref{I:thm:obs-extension} requires sequential common refinements: every countable family of indices must have an upper bound.  This holds for the linearly ordered index sets $(\mathbb{N}, \leq)$ and $(\mathbb{R}, \leq)$, but \emph{not} for the finite-subset indexing of Example~\ref{I:ex:bernoulli}, where a countable family of finite subsets can have infinite union.  Classical discrete-time Bernoulli processes are covered by Kolmogorov's theorem~\cite{Kolmogorov} directly; the present theorem addresses query systems whose index structure already admits countable refinements.  The Stone construction (\S\ref{I:sec:stone}) avoids sequential common refinements by using compactness, at the cost of requiring discriminability and CE.
 
+The key conceptual difference from Kolmogorov is that no topology is imposed on the outcome spaces: the measure $P$ is built directly on the measurable structure of $\Omega$ by Carathéodory, without any appeal to tightness or compactness.
 \end{remark}
 
 
@@ -665,9 +664,12 @@ The proof assembles the preceding propositions:
 \textit{Existence.}
 By Proposition~\ref{I:prop:stepA}, $\mathrm{St}(\mathcal{C}) \cong \varprojlim_i \mathrm{St}(B_i)$. By Proposition~\ref{I:prop:invlim}, the compatible family $\{\mu_i\}$ extends to a Baire probability measure $\hat{\mu}$ on $\varprojlim_i \mathrm{St}(B_i) \cong \mathrm{St}(\mathcal{C})$.
 
-By Proposition~\ref{I:prop:B2}, $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.  Since $\mathrm{pure}$ is injective (discriminability), the pushforward $P = (\mathrm{pure})_*\hat{\mu}$ --- the image measure under $\mathrm{pure}^{-1}$ on the support --- is a well-defined probability measure on $\Omega$.
-
-By Proposition~\ref{I:prop:B1}, $\mathrm{pure}^{-1}$ maps Baire sets in $\mathrm{St}(\mathcal{C})$ to sets in $\sigma(\mathcal{C})$, so $P$ is defined on $\sigma(\mathcal{C})$.  For any cylinder set $E = \mathrm{Cyl}(i, A)$,
+By Proposition~\ref{I:prop:B2}, $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.  Since $\mathrm{pure}$ is injective (discriminability), define the descended measure $P$ on $\sigma(\mathcal{C})$ by
+\[
+  P(A) \;=\; \hat{\mu}\!\bigl(\mathrm{pure}(A)\bigr)
+  \qquad \text{for } A \in \sigma(\mathcal{C}).
+\]
+By Proposition~\ref{I:prop:B1}, $\mathrm{pure}^{-1}$ maps Baire sets in $\mathrm{St}(\mathcal{C})$ to sets in $\sigma(\mathcal{C})$; equivalently, $\mathrm{pure}$ maps $\sigma(\mathcal{C})$-sets into Baire sets, so $P$ is well-defined.  For any cylinder set $E = \mathrm{Cyl}(i, A)$,
 \[
   P(E) \;=\; \hat{\mu}([E]) \;=\; \mu_i(\mathrm{Cyl}(i, A)).
 \]

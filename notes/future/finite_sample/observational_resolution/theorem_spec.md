@@ -68,6 +68,13 @@ $\Lambda(k)=\log(1/\varepsilon_k)$.  In dynamical cases it may be accumulated
 expansion.  In logical or computational cases it may be proof depth,
 description length, or resource cost.
 
+The valuation may be prior to measure or measure-relative, depending on the
+choice of numerator.  If $H=H_0$ is atom-count entropy, the ratio is a
+structural refinement invariant.  If $H=H_1$ or $H_2$, the ratio is
+measure-relative.  Young's surface-diffeomorphism formula belongs to the latter
+case: the numerator is $h_\mu(f)$ and the valuation is supplied by Lyapunov
+exponents converting orbit time into metric scale.
+
 Define the effective observational dimension
 
 $$
@@ -315,4 +322,3 @@ examples:
 - uniform Cantor/self-similar observations;
 - nonuniform or multifractal observations;
 - symbolic/generating partition observations.
-

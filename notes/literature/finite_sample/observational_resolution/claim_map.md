@@ -73,10 +73,14 @@ Replace with:
 - Lindenstrauss and Tsukamoto: metric mean dimension and rate-distortion
   dimension.
 - Manning, Young, Ledrappier-Young: entropy, Lyapunov exponents, and
-  dimension.
+  dimension; Young is the key measure-relative benchmark
+  $\operatorname{HD}(\mu)=h_\mu(f)(1/\lambda_1+1/|\lambda_2|)$ for surface
+  diffeomorphisms.
+- Coates-Gelfert: non-statistical neutral dynamics where generic basins can be
+  full Hausdorff dimension but zero Lebesgue measure and zero topological
+  entropy.
 - Amari; Ay-Jost-Le-Schwachhofer: divergence and Fisher/information geometry.
 - Kpotufe: local intrinsic dimension and nonparametric rates.
 - Lutz and Mayordomo line: resource-bounded/effective dimension.
 - Kigami and Lapidus line: spectral/fractal zeta dimension analogues.
 - Lawvere: cost/enriched metric viewpoint.
-

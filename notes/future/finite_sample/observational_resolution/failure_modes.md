@@ -159,6 +159,15 @@ Possible dimensions:
 - essential supremum/infimum of local exponents;
 - task-specific effective dimension.
 
+Recent dynamical warning:
+
+- Coates-Gelfert (2025) exhibit non-statistical interval/circle maps with
+  several neutral fixed points where basins of generic points for neutral
+  fixed-point measures have full Hausdorff dimension, while those same basins
+  are null for Lebesgue measure and have zero topological entropy.  Thus
+  "large" can mean full-dimensional, measure-negligible, and entropy-negligible
+  at the same time.
+
 Guardrail:
 
 > A global $D$ theorem needs uniformity assumptions.  Without uniformity, expect
@@ -232,4 +241,3 @@ For each proposed theorem, answer:
 - Is the theorem about the hidden state space or the observable quotient?
 - Does collision mean exact, finite-algebra, or coarse-grained collision?
 - Which existing literature already proves the closest version?
-

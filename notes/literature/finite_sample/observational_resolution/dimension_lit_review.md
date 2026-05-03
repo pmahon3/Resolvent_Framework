@@ -201,14 +201,36 @@ Key references:
   Hausdorff dimension for Axiom A surface diffeomorphisms.
   Source: https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/relation-between-lyapunov-exponents-hausdorff-dimension-and-entropy/67A549D96A0005B564EF4B6AFB54EB30
 
-- Young relates Hausdorff dimension of invariant measures to entropy and
-  Lyapunov exponents and discusses capacity and Renyi dimensions in that
-  context.
+- Young relates the Hausdorff dimension of an ergodic invariant measure for a
+  $C^2$ surface diffeomorphism to measure entropy and Lyapunov exponents.  In
+  the hyperbolic case $\lambda_1>0>\lambda_2$, the formula has the form
+
+$$
+\operatorname{HD}(\mu)
+=
+h_\mu(f)
+\left(
+\frac{1}{\lambda_1}
++
+\frac{1}{|\lambda_2|}
+\right),
+$$
+
+  where $\operatorname{HD}(\mu)$ is the infimum of Hausdorff dimensions of
+  full-$\mu$-measure sets.  The paper also discusses capacity and Renyi
+  dimensions and proves equivalence in this setting.
   Source: https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/dimension-entropy-and-lyapunov-exponents/5B6962A34BACD4A07EA5C7B6AE539051
 
 - Ledrappier and Young give a deeper entropy/exponent/dimension theory for
   diffeomorphisms.
   Source: https://annals.math.princeton.edu/1985/122-3/p03
+
+- Coates and Gelfert study interval/circle Markov maps with several equally
+  sticky neutral fixed points and no physical probability measure.  For these
+  non-statistical systems, generic basins for measures supported on the neutral
+  fixed-point simplex can have full Hausdorff dimension, even though the basins
+  have zero Lebesgue measure and zero topological entropy.
+  Source: https://arxiv.org/pdf/2509.00241
 
 Use for the programme:
 
@@ -216,6 +238,29 @@ Use for the programme:
   $\Lambda(k)\sim ak$ or $\Lambda(t)\sim \lambda t$.
 - It supports the slogan that dimension can be entropy growth divided by
   scale-generation.
+- Young is the clean benchmark for how this works after measure and smooth
+  dynamics are already available.  The numerator is measure-theoretic entropy
+  $h_\mu(f)$, i.e. typical orbit-distinction growth per unit time.  The
+  valuation is supplied by Lyapunov exponents: to resolve a metric ball of
+  radius $r$, one needs roughly $\log(1/r)/\lambda_1$ forward iterates in the
+  unstable direction and $\log(1/r)/|\lambda_2|$ backward iterates in the stable
+  direction.  Thus the two-sided refinement cost is
+
+$$
+\Lambda_\mu(r)
+\sim
+\left(
+\frac{1}{\lambda_1}
++
+\frac{1}{|\lambda_2|}
+\right)\log(1/r),
+$$
+
+  and the local dimension is the corresponding entropy-over-valuation ratio.
+- The Coates-Gelfert example is a useful caution: Hausdorff dimension,
+  topological entropy, and measure-theoretic prevalence can rank the same basin
+  in incompatible ways.  A reconstruction or rate theorem must declare which
+  size functional its witness is actually measuring.
 - The observational version should ask whether the observation process itself
   supplies the expansion valuation, rather than assuming a hidden smooth
   dynamical system.
@@ -498,6 +543,9 @@ Develop a general theory of valued observational refinement:
   https://www.cambridge.org/core/journals/ergodic-theory-and-dynamical-systems/article/dimension-entropy-and-lyapunov-exponents/5B6962A34BACD4A07EA5C7B6AE539051
 - Ledrappier, F. and Young, L.-S. "The metric entropy of diffeomorphisms. Part
   II." Source: https://annals.math.princeton.edu/1985/122-3/p03
+- Coates, D. and Gelfert, K. "Hausdorff Dimension of Sets of Generic Points for
+  Non-statistical Dynamical Systems." Source:
+  https://arxiv.org/pdf/2509.00241
 - Amari, S.-I. *Information Geometry and Its Applications.* Source:
   https://link.springer.com/book/10.1007/978-4-431-55978-8
 - Kpotufe, S. "$k$-NN Regression Adapts to Local Intrinsic Dimension." Source:

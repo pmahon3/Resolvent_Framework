@@ -631,9 +631,11 @@ Let $\mu$ be a charge on $\mathcal{C}$ satisfying CE.  Then the corresponding Ba
 \end{proposition}
 
 \begin{proof}
-By the Yosida--Hewitt theorem \cite{YosidaHewitt1952, rao1983}, every bounded charge on a Boolean algebra decomposes uniquely as $\mu = \mu_c + \mu_p$, where $\mu_c$ is countably additive and $\mu_p$ is purely finitely additive.  Under Stone duality, $\mu_c$ corresponds to mass on the principal ultrafilters $\mathrm{pure}(\Omega) \subset \mathrm{St}(\mathcal{C})$, while $\mu_p$ corresponds to mass on the non-principal ultrafilters~\cite{rao1983}, Ch.~10.
+By the Yosida--Hewitt theorem \cite{YosidaHewitt1952, rao1983}, every bounded charge on a Boolean algebra decomposes uniquely as $\mu = \mu_c + \mu_p$, where $\mu_c$ is countably additive and $\mu_p$ is purely finitely additive.  By Theorem~\ref{I:thm:sp1}, CE is equivalent to $\mu_p = 0$, i.e.\ $\mu$ is itself $\sigma$-additive on $\mathcal{C}$.
 
-CE is equivalent to $\mu_p = 0$: CE requires $\mu(E_n) \to 0$ whenever $E_n \searrow \emptyset$, which is exactly the condition that the purely finitely additive part vanishes (Theorem~\ref{I:thm:sp1}).  Therefore $\hat{\mu}_p = 0$ and $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.
+A $\sigma$-additive probability on a Boolean algebra $\mathcal{C}$ extends uniquely to a measure on $\sigma(\mathcal{C})$.  Under the Stone correspondence, this measure lifts to a Baire measure $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$.  For any non-principal ultrafilter $u \in \mathrm{St}(\mathcal{C}) \setminus \mathrm{pure}(\Omega)$, every clopen neighbourhood $[E]$ of $u$ satisfies $E \neq \varnothing$ in $\mathcal{C}$; but because $u$ is non-principal, for each $\omega \in \Omega$ there exists $E_\omega \in \mathcal{C}$ with $\omega \in E_\omega$ and $E_\omega \notin u$.  In particular, $u$ is not an evaluation ultrafilter.  Discriminability ensures that the principal ultrafilters separate elements of $\mathcal{C}$, so $\mathrm{pure}(\Omega)$ is dense in $\mathrm{St}(\mathcal{C})$; but the support of a $\sigma$-additive measure need not concentrate on the dense set without further argument.
+
+The required link is classical~\cite{rao1983}, Ch.~10: for a $\sigma$-additive charge $\mu$ on a Boolean algebra $\mathcal{C}$ realised as a field of subsets of $\Omega$, the corresponding Baire measure on $\mathrm{St}(\mathcal{C})$ assigns full mass to those ultrafilters that are closed under countable intersection in $\mathcal{C}$.  Each principal ultrafilter $\mathrm{pure}(\omega)$ is closed under countable intersection (it evaluates at a point of $\Omega$), so $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.
 \end{proof}
 
 \subsection{The Stone observational extension}
@@ -689,7 +691,7 @@ for CE.  Compactness yields a $\sigma$-additive Baire measure $\hat{\mu}$ on $\m
 
 The results of this paper separate three layers: coherence, completion, and admissibility.  A finitely additive charge gives a coherent valuation on the Boolean algebra of observable distinctions; Stone duality completes that algebra into the space of all coherent distinction patterns, including nonprincipal ones; and collective exhaustion is the condition that determines when such a valuation extends to genuine probability.  In this sense, the gap between finite coherence and probability is the gap between unrestricted support on the Stone completion and support that remains honest under observational exhaustion.
 
-The Yosida--Hewitt decomposition makes this precise: $\mu_p = 0$ is both the vanishing of the purely finitely additive part and the condition that no mass escapes to non-principal ultrafilters.
+The Yosida--Hewitt decomposition makes this precise: $\mu_p = 0$ is the vanishing of the purely finitely additive part.  On the Stone side, this translates (Proposition~\ref{I:prop:B2}) into the condition that the Baire measure concentrates on $\mathrm{pure}(\Omega)$ --- mass cannot escape to non-principal ultrafilters.
 
 When the index set admits sequential common refinements and the query system discriminates points, both constructions are available simultaneously. The following proposition confirms they produce the same observable measure.
 

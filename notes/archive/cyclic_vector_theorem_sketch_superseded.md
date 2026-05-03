@@ -321,7 +321,7 @@ without differentiability.
 
 5. **Takens comparison remark** — not a proof obligation, a remark.
 
-6. **Correction to program overview** — update `notes/program_overview.md` once theorem is
+6. **Correction to program overview** — update `notes/programme/program_overview.md` once theorem is
    settled.
 
 ---

@@ -85,7 +85,8 @@ Previously sorry (now closed):
   `cyclic_implies_dense` — all closed 2026-04-05.
 - `lpMeasSubgroup_dense_in_Lp` removed: unused and FALSE for general `m ≤ m0`.
 
-See `notes/reconstruction_lean_flight_plan.md` for detailed API notes.
+See `archive/notes_archived_artifacts/reconstruction_lean_flight_plan.md` for
+detailed API notes.
 -/
 
 open MeasureTheory MeasurableSpace Set Filter

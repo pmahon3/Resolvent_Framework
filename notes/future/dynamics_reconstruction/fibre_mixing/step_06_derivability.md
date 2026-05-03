@@ -56,7 +56,7 @@ Ergodicity prevents this alignment.
 
 ## The derivability question, precisely posed
 
-**Question.** In the Paper IV regime (measure-preserving $(X, \mathcal{B}, \mu, T)$,
+**Question.** In the Paper III finite-sample regime (measure-preserving $(X, \mathcal{B}, \mu, T)$,
 ergodic $T$, $h \in L^\infty(\mu)$): does ergodicity guarantee that for every $L$,
 every $\varepsilon$-maximizer $S^*$ of $\delta_L$ is $(c_L, \varepsilon)$-mixing
 with $c_L$ bounded below by a function of $\delta_L$ — specifically, with

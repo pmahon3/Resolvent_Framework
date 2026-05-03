@@ -335,7 +335,7 @@ depending on which direction you probe.
 ## Revised next steps (2026-04-05)                                                                                                                                        
                                                                                                                                                                           
 - [x] **Attempt the forward direction first:** Done — see                                                                                                                 
-      `notes/conceptual_sketches/forward_direction_sketch.md`,                                                                                                            
+      `archive/notes_archived_artifacts/paper_iv_working_sketches/forward_direction_sketch.md`,                                                                                                            
       `bias_bound_attempt.md`, `variance_bound_verification.md`.                                                                                                          
       Result: ‖f − f̂_n^(L)‖ ≤ 2‖f‖_{L∞}·δ(L)^{1/2} + C·n^{-s/(2s+d)}                                                                                                      
       in the Takens regime, with Condition 3 (g* smoothness) verified.                                                                                                    

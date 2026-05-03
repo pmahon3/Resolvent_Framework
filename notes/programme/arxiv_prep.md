@@ -6,7 +6,7 @@ practice in mathematics.
 
 ---
 
-## Honest status as of 2026-04-24
+## Honest status as of 2026-05-03
 
 **Companion note** — ready. Standalone logic paper, 3 pages, polished.
 Waiting on arXiv math.LO endorsement (email sent to Halpern).
@@ -15,8 +15,8 @@ Waiting on arXiv math.LO endorsement (email sent to Halpern).
 prose and structure at submission quality. Blocked only by endorsement.
 
 **Papers II and III** — editorially polished and combined as of 2026-04-24.
-Papers II and III are: Paper II = 7-page combined dynamics+reconstruction paper
-(`papers/paper_ii/`); Paper III = 16 pages with Lemma 5.10 (Positive-fraction
+Papers II and III are: Paper II = 9-page dynamics+reconstruction paper
+(`papers/paper_ii/`); Paper III = 18 pages with Lemma 5.10 (Positive-fraction
 balance) and citations using `mahon_paper2`. Cross-reference bib entries
 (mahon_paper1, mahon_paper2) need updating with arXiv IDs once Paper I is live —
 that is the only remaining mechanical task before Papers II and III can be submitted.

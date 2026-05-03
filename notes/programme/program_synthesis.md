@@ -1,7 +1,7 @@
 # Programme Synthesis — The Full Architecture
 
-*Written 2026-04-06. Updated 2026-04-29 after renumbering (Papers I–IV → I–III)
-and editorial completion of Papers II and III.*
+*Written 2026-04-06. Updated 2026-05-03 after notes reorganization and
+renumbering cleanup into the current three-paper architecture.*
 
 ---
 
@@ -96,7 +96,7 @@ not derivable from any structural condition on the query system or the dynamics?
 This is the deepest open question in the programme. Resolving it would:
 - Close the three-obstruction table symmetrically
 - Give Paper III the same foundational standing as Paper I
-- Supply the coherence/consistency schema (see `notes/future/coherence_consistency_direction.md`)
+- Supply the coherence/consistency schema (see `notes/future/foundations/coherence_completion/conceptual_schema.md`)
   with a second fully worked example in a genuinely different domain
 
 ---
@@ -145,12 +145,13 @@ The genuine open mathematical directions, ordered by downstream leverage:
 ```
 Fibre mixing irreducibility
         ↓                        ↘
-Coherence/consistency schema      Paper IV foundational standing
+Coherence/consistency schema      Paper III foundational standing
         ↓              ↓
   Zeta direction   Interaction direction
 
 Strategy D ─────────────────────→ (self-contained; no downstream leverage)
 Entropy witness concentration ──→ Interaction direction only
+Observational resolution ───────→ Paper III remark / future theorem
 ```
 
 The highest-leverage move is fibre mixing irreducibility. It feeds the
@@ -175,7 +176,9 @@ schema second (generalise with two examples in hand), then everything else.
    failure mode) with CE and fibre mixing as the two primary worked examples.
    The priority theorem target: prove that the contradiction failure mode is the
    unique compact coherence notion, giving a formal sense in which consistency
-   is a distinguished special case. See `notes/future/coherence_consistency_direction.md`.
+   is a distinguished special case. See
+   `notes/future/foundations/coherence_completion/conceptual_schema.md` and
+   `notes/README.md`.
 
 3. **Concentration of the entropy witness** *(most immediate technical extension).*
    A finite-$n$ concentration result for $\hat{H}_2(\nu_L^{(n)})$ comparable
@@ -183,12 +186,18 @@ schema second (generalise with two examples in hand), then everything else.
    U-statistic; no new structural theory. Downstream leverage: interaction
    direction.
 
-4. **Strategy D** *(self-contained; no downstream leverage).*
+4. **Observational resolution dimension** *(Paper III-adjacent future theorem).*
+   Treat exponents such as \(n^{-s/(2s+D)}\) as arising from valued
+   distinguishability growth.  The current stance is conservative: a Paper III
+   remark is acceptable, but real integration waits for a theorem.  See
+   `notes/future/finite_sample/observational_resolution/index.md`.
+
+5. **Strategy D** *(self-contained; no downstream leverage).*
    Does a non-σ-complete non-atomic Boolean algebra admitting no σ-additive
    probability exist? Likely ZFC-independent. ZFC Boolean-algebra methods
    exhausted. Next step requires forcing. Leave as a named open problem unless
    set-theoretic methods become available.
 
-5. **Paper 0 / zeta / interaction directions** *(post-arXiv, consume results).*
+6. **Foundational topology / zeta / interaction directions** *(post-arXiv, consume results).*
    All downstream of fibre mixing and the coherence/consistency schema. Do not
    develop until Papers I–III are posted and fibre mixing is understood.

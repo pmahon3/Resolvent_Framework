@@ -187,7 +187,7 @@ mixing is irreducible is the deepest open question in the programme.
 
 ---
 
-## Submission Status (as of 2026-04-28)
+## Submission Status (as of 2026-05-03)
 
 | Paper | Mathematical status | Lean status | LaTeX status | Blocker |
 |-------|--------------------|-----------|----|---|
@@ -214,16 +214,23 @@ Ordered by downstream leverage:
 
 2. **Coherence/consistency schema** *(second, after fibre mixing)*
    Formalise the three-component schema with CE and fibre mixing as worked examples.
-   See `notes/future/coherence_consistency_direction.md`.
+   See `notes/future/foundations/coherence_completion/conceptual_schema.md` and
+   `notes/README.md`.
 
 3. **Entropy witness concentration** *(most immediate technical extension)*
    McDiarmid bound for Ĥ_2(ν_L^(n)); no new structural theory needed.
 
 4. **Strategy D** *(self-contained; leave as named open problem)*
    ZFC methods exhausted; likely independent.
-   See `notes/future/ce_nonderivability_general.md`.
+   See `notes/future/foundations/ce_nonderivability/index.md` and
+   `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.
 
-5. **Paper 0 / zeta / interaction** *(post-arXiv)*
+5. **Observational resolution dimension** *(Paper III-adjacent; theorem first)*
+   Generalise the \(n^{-s/(2s+D)}\) rate as distinguishability growth per unit
+   observational valuation.  Keep to a Paper III remark until a clean theorem is
+   proved.  See `notes/future/finite_sample/observational_resolution/index.md`.
+
+6. **Foundational topology / zeta / interaction** *(post-arXiv)*
    Topology from vanishing distinction; zeta critical-line curve as query system.
 
 ---

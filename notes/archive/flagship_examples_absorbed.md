@@ -2,7 +2,7 @@
 > (Propositional query system, Paper I §3) are integrated into the papers.
 > Example B (pedagogical dynamics) was not flagshipped. Example D (numerical,
 > Paper III) remains reserved pending empirical work — see
-> `notes/future/interaction_discrimination_direction.md` for the post-arXiv
+> `notes/future/finite_sample/interaction/discrimination_direction.md` for the post-arXiv
 > empirical direction.
 
 ---

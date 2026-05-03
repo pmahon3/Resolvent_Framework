@@ -79,6 +79,51 @@ Whether "coherence" names a genus of which "consistency" is a species —
 rather than a simple strengthening — is the philosophical claim the formal
 framework should eventually support.
 
+## Conceptual grammar: continuation and closure
+
+A useful working distinction:
+
+> consistency = possible coexistence  
+> coherence = structured continuation  
+> admissibility = licensed completion
+
+Equivalently:
+
+> coherence is consistency under intended continuation.
+
+Consistency says that the pieces can stand together without contradiction.
+Coherence asks whether they can continue together toward the kind of global
+form they are meant to disclose.  The failure of coherence is therefore not
+always explosion or inconsistency.  It may be a failure of directional
+integrity: the pieces coexist, and may pass every local test, but they do not
+sustain the intended whole.
+
+This gives a sharper reading of the probability example.  Finite additivity and
+normalization are locally consistent.  They even support finitely additive
+charges.  But without CE they do not sustain probabilistic continuation toward
+a $\sigma$-additive measure.  The finite-cofinite/ultrafilter witness is not a
+contradiction; it is a horizon that remains locally coherent while failing to
+close in the intended probabilistic way.
+
+The programme can therefore be read as a grammar of admissibility:
+
+> coherent distinction does not eliminate assumptions; it locates the exact
+> condition under which a richer mathematical structure becomes licensed.
+
+Examples:
+
+| Passage | Local structure does not force | Horizon condition |
+|---|---|---|
+| finite coherence $\to$ probability | $\sigma$-additive measure | CE |
+| refinement $\to$ dimension | scale or valuation | valuation $\Lambda$ |
+| observation $\to$ reconstruction | hidden-state recovery | faithfulness / exhaustion |
+| population structure $\to$ finite-sample rate | concentration | sampling/mixing hypotheses |
+| static law $\to$ dynamics | temporal evolution | temporal indexing/coherence |
+
+The most compressed form is:
+
+> open horizon / licensed closure.
+
 ## Forcing as strengthened coherence
 
 The three-part schema distinguishes coherence notions by their failure modes.
@@ -124,6 +169,104 @@ set-theoretic forcing is an open question.
 > forcing: the fit is now strong enough that a specific global structure is unavoidable
 
 CE is where observational coherence becomes forcing.
+
+## Objecthood as open horizon
+
+The preceding schema suggests a sharper philosophical reading.  An object should
+not be understood as a completed substrate behind its possible observations, nor
+as a merely external target to which local data are later attached.  The object
+is the horizon of coherent refinement: the structured field within which
+distinctions can be made, related, extended, valued, and tested for admissible
+completion.
+
+This horizon is necessarily open.  If it were complete in itself, local
+coherence would already determine every intended global realization.  The
+probability case shows otherwise.  Normalization, finite additivity, and
+first-order coherence do not force countable additivity.  The ultraproduct of
+Dirac probabilities is locally indistinguishable, by first-order tests, from the
+$\sigma$-additive structures from which it is built; nevertheless, on the
+diagonal copy of $\mathcal P(\mathbb N)$, it induces a purely finitely additive
+ultrafilter charge.
+
+The failure is not contradiction.  It is a failure of automatic closure.  Thus
+openness is not an empirical defect or a temporary lack of information.  It is a
+structural feature of horizons of refinement.  The negation of openness would
+identify local consistency with global realizability, but the Łoś-boundary
+example shows that this identification is incoherent: the local tests all pass
+while the intended global property fails.
+
+CE closes one such horizon.  It is not merely another local consistency
+condition; it is the admissibility condition that rules out a specific
+non-compact failure mode, namely persistence of mass along globally vanishing
+sequences.  In this sense, CE does not discover a probability already hidden
+inside finite coherence.  It supplies the condition under which probabilistic
+completion is forced.
+
+The general pattern is:
+
+> object = open horizon of coherent refinement  
+> completion = attempted global realization  
+> failure mode = way the horizon refuses automatic closure  
+> admissibility = condition that closes the horizon relative to a target
+
+Forcing is therefore local closure within an open horizon, not total completion
+of the object.
+
+## Valuation of refinement
+
+The same pattern appears beyond probability.  A refinement system by itself does
+not determine a scale, dimension, rate, or divergence.  It gives a hierarchy
+
+$$
+\mathcal G_0 \preceq \mathcal G_1 \preceq \mathcal G_2 \preceq \cdots,
+$$
+
+but not automatically a valuation of how costly, fine, distant, or informative
+the passage from $\mathcal G_i$ to $\mathcal G_j$ is.
+
+A **valuation of refinement** is a map
+
+$$
+\Lambda(i,j) =
+\text{the scale, cost, divergence, proof-depth, or information distance
+associated with refining } i \text{ to } j.
+$$
+
+In one-parameter examples this becomes a sequence $\Lambda(k)$.  In geometric
+examples, $\Lambda(k)=\log(1/\varepsilon_k)$.  For the middle-thirds Cantor set,
+$\Lambda(k)=k\log 3$.  In symbolic or hyperbolic dynamics, $\Lambda(k)$ is
+supplied by cylinder scale or Lyapunov expansion.  In information geometry, it
+may be KL/Fisher divergence.  In logical settings it may be formula depth,
+quantifier rank, or type complexity.  In algorithmic settings it may be
+description length.
+
+Dimension-like quantities then have the general form
+
+$$
+D_\Lambda
+= \limsup_{k\to\infty}
+\frac{H(\mathcal G_k)}{\Lambda(k)},
+$$
+
+where $H(\mathcal G_k)$ measures the growth of distinguishable alternatives:
+atom-count entropy, Shannon entropy, collision entropy, type entropy, spectral
+counting entropy, or Kolmogorov complexity.
+
+This shows that valuation, like probability, is not internal to the object as a
+completed monad.  It is horizon-internal: it belongs to the object as an open
+field of admissible refinement.  Once a horizon is fixed, the object may
+strongly constrain which valuations are admissible; but the horizon is part of
+the mathematical situation, not an accidental presentation.
+
+The zeta critical-line curve is a natural boundary test for this view.  Its
+zero-sensitive query system is highly structured, but it is not obvious that the
+curve alone determines a canonical valuation of refinement.  Height, near-zero
+thresholds, winding, zero density, functional-equation symmetry, normalized
+zero spacing, and arithmetic structure each suggest different horizons.  The
+question is therefore not whether zeta contains an intrinsic probability or
+dimension in isolation, but whether a declared zero-sensitive horizon supports a
+nonvacuous naturality class, a valuation of refinement, and a canonical
+CE-satisfying charge.
 
 ## A provisional taxonomy of failure modes
 

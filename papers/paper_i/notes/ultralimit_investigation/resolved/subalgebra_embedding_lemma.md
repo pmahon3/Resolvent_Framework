@@ -7,7 +7,7 @@ type: project
 # The Subalgebra Embedding Lemma
 
 *Working note for the ultralimit representation investigation.*  
-*Parent: `notes/future/ce_nonderivability_general.md`*  
+*Parent: `notes/future/foundations/ce_nonderivability/index.md`*  
 *Cross-references: `stone_geometric_translation.md` (where the lemma is stated), `row5_candidate.md` (what a counterexample to Strategy D must overcome).*
 
 ---

@@ -1,7 +1,7 @@
 # Archive
 
 Superseded drafts, working notes, and predecessor material from earlier
-stages of the Observable Dynamics Program. Nothing here is canonical —
+stages of the Structure from Observation programme. Nothing here is canonical —
 the live programme lives in `papers/`, `formalization/`, and `notes/`.
 
 ---
@@ -11,7 +11,7 @@ the live programme lives in `papers/`, `formalization/`, and `notes/`.
 ### `superseded_drafts/`
 
 Earlier standalone LaTeX drafts that were absorbed into or replaced by
-the four canonical papers. PDFs retained for reference; build artifacts
+the three current papers. PDFs retained for reference; build artifacts
 removed.
 
 | Directory | Contents | Superseded by |
@@ -23,7 +23,7 @@ removed.
 | `prokhorov_extension/` | Standalone Prokhorov extension draft | Paper I (`ProkhorovExtension.lean`) |
 | `stone_duality_extension/` | Standalone Stone duality draft | Paper I (`StoneDualityExtension.lean`) |
 | `papers_archived/` | Earlier combined drafts | Papers I–III |
-| `program/` | Early programme overview document | `README.md`, `notes/program_overview.md` |
+| `program/` | Early programme overview document | `README.md`, `notes/programme/program_overview.md` |
 
 ### `notes_archived_artifacts/`
 
@@ -32,12 +32,12 @@ during development and are now superseded.
 
 | File / Directory | Contents | Superseded by |
 |-----------------|----------|---------------|
-| `paper_iv_working_sketches/` | Bias bound, variance, forward direction, Paper IV sketch | `papers/paper_iv/paper_iv_body.tex` |
+| `paper_iv_working_sketches/` | Bias bound, variance, forward direction, old finite-sample sketch | Paper III finite-sample reconstruction |
 | `reconstruction_lean_flight_plan.md` | Lean flight plan for Paper III | Lean work complete |
 | `stone_duality_lean_flight_plan.md` | Lean flight plan for Stone route | Lean work complete |
 | `paper_i_integration_plan.md` | Plan for merging Papers −1/0 into Paper I | Done |
 | `stone_duality_branch_plan.md` | Stone duality branch plan | Done |
-| `step_a_step_b_analysis.md` | Working analysis of bias bound steps | Paper IV §3 |
+| `step_a_step_b_analysis.md` | Working analysis of bias bound steps | Paper III finite-sample layer |
 | `tex_proof_plan.md` | Early proof planning for LaTeX | Superseded |
 | `assumption_audit.md` | Audit of hypotheses across papers | Superseded |
 | `revision_checklist.md` | Earlier revision tracking | Superseded |
@@ -49,7 +49,7 @@ during development and are now superseded.
 
 ### `articles/`
 
-A separate older project (unrelated to the Observable Dynamics Program).
+A separate older project unrelated to the current programme.
 Left intact.
 
 ### `thesis/`

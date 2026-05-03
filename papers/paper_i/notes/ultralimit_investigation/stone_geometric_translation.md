@@ -7,8 +7,8 @@ type: project
 # Priority 3: The Stone/βN Geometric Reformulation
 
 *Working note for Priority 3 of the ultralimit representation investigation.*  
-*Parent: `notes/future/ce_nonderivability_general.md`*  
-*Prerequisites: `papers/paper_i/notes/ultralimit_investigation/finite_cofinite_calculation.md` (rung 2), `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md` (rung 3).*
+*Parent: `notes/future/foundations/ce_nonderivability/index.md`*  
+*Prerequisites: `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md` (rung 2), `papers/paper_i/notes/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md` (rung 3).*
 
 ---
 

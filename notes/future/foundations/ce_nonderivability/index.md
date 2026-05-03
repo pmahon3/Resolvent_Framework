@@ -8,6 +8,13 @@ type: project
 
 *Extended 2026-04-17 to include literature findings and paper sketch*
 
+For the current future-note map and consolidation policy, see
+`notes/README.md`.
+
+This note is the parent overview for the CE non-derivability / ultralimit
+representation direction.  The active Strategy D investigation now lives in
+`papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.
+
 ---
 
 ## Part I: The Non-Axiomatizability Theorem (complete)
@@ -74,7 +81,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 1. **Ultrafilter-generated {0,1}-charges:** $\delta_\mathcal{U}(A) = \mathbf{1}_{A \in \mathcal{U}}$. Arise as ultralimits of Dirac masses on the finite-cofinite algebra. ✓ (the companion note proof already gives this)
 
 2. **Free finitely additive probabilities on the finite-cofinite algebra** — **RESOLVED (positive).** ✓
-   See `papers/paper_i/notes/ultralimit_investigation/finite_cofinite_calculation.md` for the full argument. Key findings:
+   See `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md` for the full argument. Key findings:
    - On $\mathcal{E}$, $\mathrm{pfa}(\mathcal{E})$ is one-dimensional: the only purely finitely additive (= free) probability is $\ell_{\mathrm{fc}}$ itself.
    - $\ell_{\mathrm{fc}}$ is the pointwise sequential limit of the uniform measures $\frac{1}{k}\sum_{n<k}\delta_n$, which are $\sigma$-additive on $\mathcal{E}$.
    - Hence every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit (a fortiori a pointwise ultralimit) of $\sigma$-additive probabilities on the same algebra.
@@ -82,7 +89,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    - In the βN picture: this is just weak* density of finitely supported measures in all Borel measures on $\beta\mathbb{N}$ — trivial in this case, confirming that the interesting structure begins with algebras where $\mathrm{pfa}(B)$ is multidimensional.
 
 3. **General purely finitely additive probabilities on Boolean algebras:** Partially open. The Stone-space analysis (Priority 3) gives the right framework:
-   - **Atomic $B$:** positive uniformly — density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ (equivalent to atomicity) implies every finitely additive probability is approximable. Covers $\mathcal{E}$, $\mathcal{E}_k$, $\mathcal{E}_\omega$. See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
+   - **Atomic $B$:** positive uniformly — density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ (equivalent to atomicity) implies every finitely additive probability is approximable. Covers $\mathcal{E}$, $\mathcal{E}_k$, $\mathcal{E}_\omega$. See `papers/paper_i/notes/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md`.
    - **Non-atomic, full-support $\sigma$-additive measure exists:** positive — $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. First example: the interval algebra $\mathcal{I}$ of half-open subintervals of $[0,1]$; Lebesgue measure has full support. See `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`.
    - **σ-complete non-atomic $B$:** negative (Nikodym / companion note §2).
    - **Non-σ-complete, few countable joins (e.g., $\mathcal{P}(\mathbb{N})/\mathrm{fin}$):** positive (vacuously) — σ-additivity reduces to finite additivity when too few joins exist; every finitely additive probability is σ-additive. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md`.
@@ -95,7 +102,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    
    **Canonical decomposition theorem:** $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ canonically at every element $A$. If $\nu$ is σ-additive on $B{\upharpoonright}A$, then $\tilde\nu(C) = \nu(C \wedge A)$ is σ-additive on $B$ (meets distribute over existing joins). Consequence: any gap in $\mathrm{Supp}_\sigma(B)$ is a direct-product decomposition with a measure-free factor. Strategies A, B, C (indecomposable constructions) are eliminated. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` Parts III–IV.
    
-   **Subalgebra embedding lemma:** any non-σ-complete $B$ that embeds join-preservingly into a σ-algebra $\Sigma$ where some σ-additive probability charges all non-zero elements of $B$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. Covers all "concrete" algebras. See `papers/paper_i/notes/ultralimit_investigation/subalgebra_embedding_lemma.md`.
+   **Subalgebra embedding lemma:** any non-σ-complete $B$ that embeds join-preservingly into a σ-algebra $\Sigma$ where some σ-additive probability charges all non-zero elements of $B$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. Covers all "concrete" algebras. See `papers/paper_i/notes/ultralimit_investigation/resolved/subalgebra_embedding_lemma.md`.
    
    **Strategy D (sole remaining open question):** does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? If yes: pair with a positive factor for a negative instance. If no: the open row collapses and all non-σ-complete non-atomic algebras are positive. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` Part V.
 
@@ -155,13 +162,26 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 
 ### Claims to resolve
 
-- [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `papers/paper_i/notes/ultralimit_investigation/finite_cofinite_calculation.md`.)
+- [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md`.)
 - [x] On Boolean algebras where pfa(B) is multidimensional: positive for all partition extensions $\mathcal{E}_k$ and $\mathcal{E}_\omega$. (All atomic; follows from density of $\mathrm{Prin}(B)$.)
 - [x] Stone/βN geometric reformulation: $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ is the condition; positive for atomic and full-support non-atomic cases; negative for σ-complete non-atomic (Nikodym); see stone_geometric_translation.md.
 - [x] Direct-product strategy: collapsed. $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ has σ-additivity vacuous — every finitely additive probability there is σ-additive. Direct products using this factor are not negative examples.
 - [x] Canonical decomposition theorem: $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ at every $A$; any $\mathrm{Supp}_\sigma$ gap is a direct-product gap with a measure-free factor; indecomposable row-5 impossible; Strategies A, B, C eliminated.
 - [x] Weak distributivity thread: Džamonja–Plebanek / Fremlin §391D give a ZFC theorem (weakly distributive + s.p.f.a. ↔ s.p. σ-additive) but only for **σ-complete** algebras. Does not constrain Strategy D. Non-weak-distributivity is not a necessary condition on a Strategy D counterexample.
 - [ ] **Strategy D (sole remaining open question):** Does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? No known construction, no known obstruction. **Topological reformulation** (2026-04-18): Strategy D is equivalent to the existence of a compact totally disconnected non-atomic non-basically-disconnected Radon-measure-free space. **Set-theoretic sensitivity** (2026-04-18): MA + ¬CH narrows candidates (compact spaces of weight $< \mathfrak{c}$ carry strictly positive Radon measures); ◇-type constructions may yield counterexamples. Problem is likely **independent of ZFC**; forcing or advanced Radon-measure theory is required. ZFC Boolean-algebra methods are exhausted.
+
+**Strategy D launchpad:** see
+`papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` for the
+consolidated formulations, necessary conditions, attack modes, and terminology
+risks.
+
+**Conceptual meaning of Strategy D:** a positive answer would produce a
+coherent non-atomic Stone horizon that is structurally inhospitable to
+sigma-additive probability; a negative answer would show that probability is
+broadly available in the non-sigma-complete non-atomic regime, shifting the
+central issue from existence to admissible support/descent.  See
+`papers/paper_i/notes/ultralimit_investigation/row5_candidate.md`,
+"Conceptual meaning of the two outcomes."
 
 ### Summary of Investigation Outcome
 
@@ -183,9 +203,9 @@ State the exact Dunford–Schwartz IV.9.8 theorem. Do not present the interchang
 Every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit
 of $\sigma$-additive probabilities on $\mathcal{E}$. The key: $\mathrm{pfa}(\mathcal{E})$
 is one-dimensional (only $\ell_{\mathrm{fc}}$), and $\ell_{\mathrm{fc}}$ is the
-limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `papers/paper_i/notes/ultralimit_investigation/finite_cofinite_calculation.md`.
+limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md`.
 
-**Priority 2b — algebras with multidimensional pfa — DONE (positive).** ✓ See `papers/paper_i/notes/ultralimit_investigation/rung3_multidimensional_pfa.md`.
+**Priority 2b — algebras with multidimensional pfa — DONE (positive).** ✓ See `papers/paper_i/notes/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md`.
 
 Key findings:
 - $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ and $\mathrm{Clop}(2^\omega)$ ruled out as test cases (wrong for rung 3; see row5_candidate.md for corrected analysis of $\mathcal{P}(\mathbb{N})/\mathrm{fin}$).

@@ -1,6 +1,6 @@
 ---
 name: Interaction discrimination research direction
-description: Separate future programme — two-entity discrimination theorem via joint query systems and predictive kernels; not part of the current four-paper arc
+description: Separate future programme — two-entity discrimination theorem via joint query systems and predictive kernels; not part of the current three-paper arc
 type: project
 ---
 
@@ -8,7 +8,7 @@ type: project
 
 **Candidate title:** *Interaction from Observation: An Observational Theory of Interaction Ecologies*
 
-This is a new programme inspired by the Structure from Observationme, not part of the current four-paper arc. The four-paper series is structurally closed. This direction instantiates the same architectural ideas for a genuinely different object: interacting systems observed through joint query families.
+This is a new programme inspired by the Structure from Observation programme, not part of the current three-paper arc. The three-paper series is structurally closed. This direction instantiates the same architectural ideas for a genuinely different object: interacting systems observed through joint query families.
 
 ---
 
@@ -50,7 +50,7 @@ The deeper motivation is the persistent ecological problem of local-to-global pa
 - **Paper I:** When is the joint observational object honest — surjective evaluation, discriminability, CE. Separates phantom interaction (coarse artifact) from genuine interaction (survives refinement).
 - **Paper II:** Predictive kernels and minimal predictive states are the natural carrier of interaction effects. Non-factorization of the joint kernel signals interaction exists, relative to the chosen predictive observable and baseline — absolute non-factorization may be too blunt in the presence of nuisance dependencies.
 - **Paper III:** Reconstructibility from delays via the density bridge. Joint delay algebra may separate interaction classes that marginal algebras cannot.
-- **Paper IV:** Honest finite-sample witnesses and explicit separation diagnostics. Interaction class becomes empirically certifiable at finite lag.
+- **Paper III:** Honest finite-sample witnesses and explicit separation diagnostics. Interaction class becomes empirically certifiable at finite lag.
 
 ---
 
@@ -87,7 +87,7 @@ That is sufficient for a standalone paper. ~10–15 pages.
 
 1. **Interaction existence theorem:** kernel non-factorization / predictive-effect nontriviality, relative to a chosen observable and baseline.
 2. **Interaction signature stability theorem:** signature is invariant or covariant under observational refinement and delay enrichment.
-3. **Interaction witness theorem:** finite-sample certification of class separation, analogous to Paper IV's pairwise witness.
+3. **Interaction witness theorem:** finite-sample certification of class separation, analogous to Paper III's pairwise witness.
 
 ---
 
@@ -99,7 +99,7 @@ It can establish when an interaction class is:
 - observationally honest (Paper I layer)
 - dynamically meaningful (Paper II layer)
 - reconstructible from delays (Paper III layer)
-- empirically detectable at finite sample (Paper IV layer)
+- empirically detectable at finite sample (Paper III layer)
 
 It does **not**, by itself, determine who captures the surplus, whether it is already priced, or whether it is investable. The surplus-capture layer is genuinely separate.
 
@@ -133,4 +133,4 @@ For an entity graph $G = (V, E)$, the line graph $L(G)$ has one vertex per edge 
 
 ## Status
 
-Deferred. Not part of the core programme. Revisit after arXiv submission of Papers I–IV.
+Deferred. Not part of the core programme. Revisit after arXiv submission of Papers I–III.

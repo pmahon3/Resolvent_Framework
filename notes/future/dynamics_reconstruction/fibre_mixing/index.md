@@ -16,7 +16,7 @@ first-order (or finitary structural) condition can imply it?
 
 ## What fibre mixing says
 
-**Definition** (Paper IV, Definition 5.1). Fix $\varepsilon > 0$. An event
+**Definition** (Paper III, fibre-mixing condition). Fix $\varepsilon > 0$. An event
 $S^* \in \mathcal{B}$ is $(c, \varepsilon)$-mixing across fibres if there
 exists $c > 0$ such that
 
@@ -33,14 +33,14 @@ $$\delta(L) \to 0 \iff H_2(\nu_L) \to +\infty.$$
 
 **Where it sits:** Ergodicity implies fibre mixing. Fibre mixing is
 independent of the uniform separation condition (US). It is not a standing
-assumption of Paper IV — it is used only in the entropy characterisation
+assumption of Paper III — it is used only in the entropy characterisation
 (Corollary 5.12).
 
 ---
 
 ## The CE parallel
 
-CE is to Paper I what fibre mixing is to Paper IV:
+CE is to Paper I what fibre mixing is to the Paper III entropy bridge:
 
 | | CE | Fibre mixing |
 |---|---|---|
@@ -181,9 +181,9 @@ is invisible to the observational layer, even if not to the dynamical layer.
 - [x] Rotation witness hits a fundamental obstruction: binary observable on circle
       does not reconstruct ($\delta_L \not\to 0$), so fibre mixing corollary is vacuous
       in this regime. Honest assessment in step5_synthesis.md.
-- [x] Derivability question precisely posed (step6_derivability.md); all of $\delta_L$
+- [x] Derivability question precisely posed (`step_06_derivability.md`); all of $\delta_L$
       is from non-monochromatic fibres (proved); near-maximizer carries balanced large fibres
-- [x] Bridge theorem proved (step7_bridge_theorem.md): $\nu(G(\eta)) \geq 2(\kappa-\eta)$
+- [x] Bridge theorem proved (`step_07_bridge_theorem.md`): $\nu(G(\eta)) \geq 2(\kappa-\eta)$
       where $\kappa$ = large-fibre contribution to approximation error; no ergodicity needed.
       Key: lower bound on $\nu(G)$ requires upper pointwise bound on integrand ($\leq 1/2$),
       not lower bound (which gives only an upper bound on $\nu(G)$ — wrong direction).
@@ -203,7 +203,7 @@ is invisible to the observational layer, even if not to the dynamical layer.
 
 Once this investigation has a result — irreducibility or derivability — it
 becomes the second worked example in the coherence/consistency schema
-(`notes/future/coherence_consistency_direction.md`):
+(`notes/future/foundations/coherence_completion/conceptual_schema.md`):
 
 - **Local data:** finitary observational data from the query system
 - **Global realization:** equivalence of algebraic and entropy witnesses

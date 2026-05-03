@@ -1,12 +1,12 @@
 ---
 name: Zeta observational question
-description: Future direction — probing the Riemann zeta critical-line curve via the Papers I–IV observational framework; real question is whether observational naturality supplies the extra structure that finite coherence cannot; first milestone is defining one explicit naturality class and verifying the two sanity conditions
+description: Future direction — probing the Riemann zeta critical-line curve via the Papers I–III observational framework; real question is whether observational naturality supplies the extra structure that finite coherence cannot; first milestone is defining one explicit naturality class and verifying the two sanity conditions
 type: project
 ---
 
 # The Zeta Curve as an Observational Structure
 
-**Status:** Post-arXiv direction. Framing is settled; first concrete milestone is defined. Not part of the current four-paper arc.
+**Status:** Post-arXiv direction. Framing is settled; first concrete milestone is defined. Not part of the current three-paper arc.
 
 ---
 
@@ -16,7 +16,7 @@ The critical-line curve is the map
 
 $$t \mapsto \gamma(t) := \zeta\!\left(\tfrac{1}{2} + it\right) \in \mathbb{C},$$
 
-treated not as a dynamical system with a known generator, but as an observed record. The Papers I–IV framework is applied from the observation side: distinctions first, then ask what probability, dynamics, and reconstruction are forced.
+treated not as a dynamical system with a known generator, but as an observed record. The Papers I–III framework is applied from the observation side: distinctions first, then ask what probability, dynamics, reconstruction, and finite witnesses are forced.
 
 ---
 
@@ -72,6 +72,59 @@ This makes the criterion operational. The decisive next task is to show that $\m
 
 ---
 
+## Valuation of refinement
+
+The naturality class $\mathcal{G}$ should be understood not only as a symmetry
+constraint on admissible charges, but also as a candidate source of a valuation
+of refinement.  A query system supplies the order of refinement, but not by
+itself the scale, cost, divergence, or information distance attached to a
+refinement step.
+
+In the Cantor example this valuation is supplied by construction:
+
+$$
+\Lambda(k)=\log(1/3^{-k})=k\log 3.
+$$
+
+The symbolic growth is $H(k)\sim k\log 2$, so the entropy/valuation ratio gives
+$\log 2/\log 3$.  In dynamical examples the valuation may be supplied by
+cylinder scale, expansion, or Lyapunov growth.  In information-geometric
+examples it may be supplied by KL/Fisher divergence.
+
+For the zeta curve the analogous valuation is not obvious.  Height, near-zero
+thresholds, winding, zero density, local zero spacing, and functional-equation
+covariance all suggest different ways to value refinement.  This is the point
+of the boundary test: the critical-line curve is highly structured, but it need
+not determine a unique scale of refinement in isolation.
+
+For a declared naturality class $\mathcal{G}$, the sharper question is therefore
+whether $\mathcal{G}$ induces or constrains a nontrivial valuation
+
+$$
+\Lambda_\mathcal{G}(i,j)
+= \text{admissible cost/scale/divergence of refining } i \text{ to } j.
+$$
+
+If such a valuation exists, one can ask whether the zero-sensitive query system
+has an intrinsic observable dimension of the form
+
+$$
+D_{\zeta,\mathcal{G}}
+= \limsup_{k\to\infty}
+\frac{H(\mathcal{G}_k)}{\Lambda_\mathcal{G}(k)},
+$$
+
+where $H(\mathcal{G}_k)$ measures the growth of distinguishable zero-sensitive
+alternatives: atom-count entropy, collision entropy, winding entropy, or another
+quantity forced by the chosen horizon.
+
+Thus the zeta question is not merely whether observational coherence determines
+probability.  It is whether a non-empirical mathematical object supplies, under
+a specified query horizon, the valuation structure needed to turn refinement
+into dimension, rate, or canonical law.
+
+---
+
 ## The central trichotomy
 
 The main question, once $\mathcal{G}$ is specified, is:
@@ -105,7 +158,7 @@ The next substantive task — not yet attempted — is to specify $\mathcal{G}$ 
 
 $$|\mathcal{G}| > 1 \qquad \text{and} \qquad \mathcal{G}\text{-naturality excludes at least some compatible CE-families.}$$
 
-If $\mathcal{G}$ collapses to the identity (which may happen if the query system is too fine), $\mathcal{G}$-naturality imposes no real constraint and the question degenerates back toward ordinary existence/nonuniqueness. Both conditions must hold for the declared naturality class to be the right one.
+If $\mathcal{G}$ collapses to the identity (which may happen if the query system is too fine), $\mathcal{G}$-naturality imposes no real constraint and the question degenerates back toward ordinary existence/nonuniqueness. Both conditions must hold for the declared naturality class to be the right one.  A third, secondary sanity condition is now visible: once $\mathcal{G}$ is nonvacuous and constraining, determine whether it induces a nontrivial valuation $\Lambda_\mathcal{G}$ or merely constrains charges without supplying scale.
 
 See the candidate naturality classes section below.
 
@@ -113,10 +166,10 @@ See the candidate naturality classes section below.
 
 ## Consequences if the pipeline opens
 
-If canonical rigid extension exists, Papers I–IV become a coherent pipeline:
+If canonical rigid extension exists, Papers I–III become a coherent pipeline:
 - **Paper II:** predictive kernels and semigroup derivable from the observable measure, not imposed
 - **Paper III:** reconstruction question becomes meaningful — do delays of $\gamma(t)$ separate states measure-theoretically?
-- **Paper IV:** finite witnesses $\hat{\delta}(L,n)$, collision entropy, and pairwise separation become computable
+- **Paper III:** finite witnesses $\hat{\delta}(L,n)$, collision entropy, and pairwise separation become computable
 
 If non-canonicity or ill-posedness:
 - Sharpens Paper I's claim that the valuation layer is not only a non-derivable admissibility condition within the query-system formalism, but an instance of the broader metatheorem that $\sigma$-additive extension is not first-order derivable from finite coherence — the zeta setting would be a concrete witness to that general limitation
@@ -171,13 +224,15 @@ The goal of the first phase is not to prove canonicity. It is to determine wheth
 
 1. Define one explicit $\mathcal{G}$ (start with coarsening-compatible rescaling).
 2. Verify or refute the two sanity conditions for that $\mathcal{G}$.
-3. If both sanity conditions hold: construct two obviously different CE-satisfying families and test whether $\mathcal{G}$-naturality distinguishes them.
-4. If sanity conditions fail: diagnose why, move to the next candidate.
-5. Repeat for functional-equation reflection.
+3. If both sanity conditions hold: determine whether $\mathcal{G}$ induces a nontrivial valuation $\Lambda_\mathcal{G}$.
+4. Construct two obviously different CE-satisfying families and test whether $\mathcal{G}$-naturality distinguishes them.
+5. If sanity conditions fail: diagnose why, move to the next candidate.
+6. Repeat for functional-equation reflection.
 
 **Clean failure modes** (any of these terminates the first phase with a useful result):
 - $\mathcal{G}$ collapses to the identity for every tractable candidate.
 - $\mathcal{G}$-naturality imposes no restriction on any CE-satisfying family.
+- $\mathcal{G}$ is nonvacuous and constraining but induces no meaningful valuation of refinement.
 - The only $\mathcal{G}$ satisfying the sanity conditions is clearly artificial (depends sensitively on presentation choices in the query system).
 
 Any of these outcomes is informative: it would support the "boundary of the programme" interpretation and constitute a genuine result, not a failure.
@@ -186,6 +241,6 @@ Any of these outcomes is informative: it would support the "boundary of the prog
 
 ---
 
-## Relationship to the Papers I–IV program
+## Relationship to the Papers I–III program
 
 This is not an application of the programme in the standard sense. It is a probe of the programme's boundary: a test case designed to find where "observation first" does and does not force canonical probability. The zeta curve is chosen because its number-theoretic structure is highly non-arbitrary, making the naturality criterion meaningful in a way that generic smooth curves are not.

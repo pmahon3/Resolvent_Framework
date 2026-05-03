@@ -7,8 +7,9 @@ type: project
 # Toward a Row-5 Algebra: Corrected Foundations
 
 *Working note for the frontier of the ultralimit representation investigation.*  
-*Parent: `notes/future/ce_nonderivability_general.md`*  
+*Parent: `notes/future/foundations/ce_nonderivability/index.md`*  
 *Prerequisites: `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md` (Stone note, especially the hierarchy table).*
+*Launchpad: `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.*
 
 ---
 
@@ -328,6 +329,38 @@ failure would require a measure-free factor, but no such non-σ-complete non-ato
 measure-free factor exists). The open row of the hierarchy collapses, and the answer
 is always positive in the non-σ-complete non-atomic case.
 
+### Conceptual meaning of the two outcomes
+
+Strategy D is not merely a technical row in the hierarchy.  It asks whether the
+Stone completion of a rich distinction system can be structurally inhospitable
+to honest probability.
+
+In the Boolean language, a non-atomic Boolean algebra is a system of
+distinctions with no indivisible atoms.  Its Stone space is the compact horizon
+of complete coherent distinction patterns.  A sigma-additive probability is an
+honest countably additive valuation on that distinction system.  Strategy D asks
+whether there is an intermediate Boolean algebra -- non-atomic but not
+sigma-complete -- whose horizon admits no such honest probabilistic valuation.
+
+If Strategy D has a **positive** answer, then there exist coherent horizons of
+distinction that cannot host sigma-additive probability at all.  In the
+coherence/completion language, this would show more than failure of automatic
+closure: some completed horizons are structurally measure-free.  Probability is
+not merely underdetermined there; it is unavailable.
+
+If Strategy D has a **negative** answer, then sigma-additive probability is much
+more widely available in the non-sigma-complete non-atomic regime than expected.
+The philosophical weight then shifts away from existence and toward selection:
+the central problem is not whether honest probability can live on such horizons,
+but which admissibility/support condition selects the relevant probability or
+ensures descent to realised states.
+
+Thus either outcome informs the central theme:
+
+- positive Strategy D: some coherent horizons are probability-inhospitable;
+- negative Strategy D: probability is broadly available, and CE-like conditions
+  govern admissible support/descent rather than bare existence.
+
 **Evidence toward "no" (open row vacuous).** The subalgebra embedding lemma
 (see subalgebra_embedding_lemma.md) gives a large positive class: if $B$ embeds
 join-preservingly into a $\sigma$-algebra $\Sigma$ carrying a strictly positive
@@ -536,4 +569,4 @@ asks whether such a factor can exist.
 - [x] Honest frontier declared: ZFC Boolean-algebra methods exhausted; forcing or advanced Radon-measure theory required for resolution
 - [ ] Resolve Strategy D: forcing construction (under ◇) or ZFC proof of non-existence
 - [ ] Update `stone_geometric_translation.md` to record topological reformulation
-- [ ] Update parent note `notes/future/ce_nonderivability_general.md` to record set-theoretic sensitivity
+- [ ] Update parent note `notes/future/foundations/ce_nonderivability/index.md` to record set-theoretic sensitivity

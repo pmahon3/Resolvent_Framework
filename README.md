@@ -64,7 +64,7 @@ work, but read off.
 
 **LaTeX:** `papers/paper_ii/` (9 pages)
 **Lean:** `PredictiveState.lean` ✅, `PredictiveOperators.lean` ✅ (0 sorrys),
-`DelayEmbedding.lean` ✅, `ReconstructionTheorem.lean` ✅ (2 Mathlib-gap sorrys)
+`DelayEmbedding.lean` ✅, `ReconstructionTheorem.lean` ✅ (0 sorrys)
 
 ### Paper III — Certifying Reconstruction from Finite Data
 
@@ -97,8 +97,8 @@ Resolvent_Framework/
 ├── README.md
 ├── papers/
 │   ├── paper_i/           ← Paper I LaTeX (arXiv-ready, 12 pages)
-│   ├── paper_ii/      ← Paper II LaTeX combined (7 pages, 2026-04-24)
-│   ├── paper_iii/          ← Paper III LaTeX (polished, 16 pages)
+│   ├── paper_ii/          ← Paper II LaTeX (polished, 9 pages)
+│   ├── paper_iii/         ← Paper III LaTeX (polished, 18 pages)
 │   └── archive/           ← original separate Paper II and III sources
 ├── formalization/
 │   └── QuerySystem/       ← Lean 4 / Mathlib formalization
@@ -113,16 +113,21 @@ Resolvent_Framework/
 │           ├── TopologicalQuerySystem.lean
 │           └── ProkhorovExtension.lean
 ├── notes/
+│   ├── README.md                    ← note map and naming conventions
 │   ├── archive/                     ← superseded notes and scaffolding
-│   │   ├── fibre_mixing_investigation/  ← steps 1–5 (investigative history)
-│   │   └── ultralimit_investigation/    ← resolved rungs and LaTeX drafts
 │   ├── conceptual/
-│   │   └── philosophy/              ← active philosophical notes
-│   ├── future/                      ← post-arXiv research directions
-│   │   └── fibre_mixing_investigation/ ← steps 6–7 + irreducibility (active)
+│   │   └── foundations/             ← conceptual scaffolds not yet theorem programmes
+│   ├── future/
+│   │   ├── foundations/             ← CE, coherence/completion, zeta
+│   │   ├── dynamics_reconstruction/ ← fibre mixing and Lyapunov directions
+│   │   └── finite_sample/           ← observational resolution and interaction
+│   ├── literature/
+│   │   ├── foundations/
+│   │   ├── finite_sample/
+│   │   └── programme_reception/
 │   └── programme/                   ← programme documents, task lists, logs
 │       ├── program_overview.md      ← canonical task list and status
-│       ├── arxiv_prep.md            ← arXiv submission checklist (all four papers)
+│       ├── arxiv_prep.md            ← arXiv submission checklist
 │       └── lean_flight_log.md       ← running Lean error/fix log
 └── archive/               ← superseded drafts and notes
 ```
@@ -137,7 +142,7 @@ are documented Mathlib-gap markers, not proof-search failures.
 
 See `notes/programme/program_overview.md` for the canonical task list and priorities.
 
-- **Paper I**: arXiv-ready (13 pages). Narrative: interrogative register, CE as logically unavoidable admissibility condition. Abstract updated 2026-04-27 with trilogy arc.
+- **Paper I**: arXiv-ready (12 pages). Narrative: interrogative register, CE as logically unavoidable admissibility condition. Abstract updated 2026-04-27 with trilogy arc.
 - **Paper II**: 9 pages. Disclosure register: structures read off from the measure, not constructed. Title updated to "Dynamics and Reconstruction in the Observable Measure" (2026-04-27). Terminology: "conditional regularity kernel", "minimal sufficient factor".
 - **Paper III**: 18 pages. Opens by picking up Paper II's disclosure register; §2→§3 transition frames the general-to-dynamical move as convergence and strengthening, not specialisation. Abstract updated 2026-04-27 with story arc.
 - **Combined monograph**: `papers/combined/combined.tex` — all three papers as Parts I–III; abstract updated to match new register.

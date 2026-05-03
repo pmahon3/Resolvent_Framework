@@ -156,8 +156,8 @@ integrated into the unified Paper I draft at `papers/paper_i/paper_i.tex`.
 
 | Document | Status |
 |----------|--------|
-| `notes/step_a_step_b_analysis.md` | Complete |
-| `notes/tex_proof_plan.md` | Complete — used to produce the LaTeX drafts |
+| `archive/notes_archived_artifacts/step_a_step_b_analysis.md` | Complete |
+| `archive/notes_archived_artifacts/tex_proof_plan.md` | Complete — used to produce the LaTeX drafts |
 | `papers/stone_duality_extension/` | Superseded by integration into Paper I |
 | `papers/paper_i/paper_i.tex` | **Authoritative LaTeX** — 13 pages, compiles cleanly |
 

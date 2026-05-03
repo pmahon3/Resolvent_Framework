@@ -68,6 +68,36 @@ Path examples:
 - `notes/literature/foundations/coherence_completion/logic_lit_review.md`;
 - `notes/literature/programme_reception/novelty_audit.md`.
 
+## Recurring Motifs
+
+The active future notes should use a small shared vocabulary.
+
+**Valuation of refinement** is the preferred phrase for the quantitative
+structure that turns an ordered refinement system into scale, cost, divergence,
+proof depth, description length, or another denominator for a dimension/rate
+law.  A refinement system gives an order of distinctions; a valuation of
+refinement turns that order into a measurable scale.  Dimension is then
+distinguishability growth per unit valuation.
+
+Use this phrase across the observational-resolution, zeta, and coherence notes
+when the issue is the denominator in an expression such as
+
+$$
+D_\Lambda
+=
+\limsup_k
+\frac{H(\mathcal G_k)}{\Lambda(k)}.
+$$
+
+Do not use "scale" alone when the scale might be non-geometric.  Do not call
+the valuation "intrinsic" unless the note identifies the naturality,
+admissibility, or construction that supplies it.
+
+**Admissibility** is the preferred phrase for the condition that licenses a
+completion as genuine structure rather than merely formal closure.  CE is the
+prototype for probability; fibre mixing may become the Paper III analogue;
+valuation of refinement is the quantitative analogue for dimension/rates.
+
 ## Active Clusters
 
 The clusters below are organized by programme architecture first, then by

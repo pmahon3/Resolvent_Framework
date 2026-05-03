@@ -14,6 +14,17 @@ The countable-additivity companion note is the prototype.  CE supplies the
 admissibility condition in Paper I; Strategy D tests how far that prototype can
 be pushed through Boolean algebra and Stone duality.
 
+A parallel issue appears in the dimension/rate directions.  A refinement order
+alone does not determine a scale.  A **valuation of refinement** is the
+additional quantitative structure that turns coherent refinement into dimension
+or rate data.  Thus the coherence/completion cluster and the
+observational-resolution cluster share the same grammar:
+
+- local refinement data;
+- completion or limiting object;
+- admissibility or valuation condition licensing the intended passage;
+- failure mode when the passage is not forced by the local data alone.
+
 ## Note Roles
 
 - `conceptual_schema.md` — conceptual seed: consistency, coherence,

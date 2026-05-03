@@ -39,6 +39,36 @@ The safe broad claim is:
 > and valuation ($\Lambda$), and asks which such exponent controls
 > reconstruction from finite observation.
 
+The rate itself is not new.  The classical form
+
+$$
+n^{-s/(2s+d)}
+$$
+
+and its squared-risk variant
+
+$$
+n^{-2s/(2s+d)}
+$$
+
+belong to standard nonparametric bias-variance and minimax theory.  Nor is it
+new that ambient Euclidean dimension can be replaced by intrinsic, fractal,
+doubling, local, or metric dimensions.  The proposed contribution is the
+explanatory factorization:
+
+$$
+\frac{\text{distinguishability growth}}
+{\text{valuation growth}}
+\quad\leadsto\quad
+\text{effective dimension}
+\quad\leadsto\quad
+\text{standard rate}.
+$$
+
+Equivalently: the rate is classical; the programme asks which observable
+refinement, which distinguishability entropy, and which valuation of refinement
+produce the effective dimension entering that classical rate.
+
 This is strong enough to be interesting and weak enough to survive contact with
 the existing literature.
 
@@ -46,6 +76,7 @@ the existing literature.
 
 Avoid:
 
+- "We discovered the rate $n^{-s/(2s+d)}$."
 - "We derive fractal dimension from observation."
 - "Topology is irrelevant."
 - "The rate depends on Hausdorff dimension."
@@ -55,6 +86,8 @@ Avoid:
 
 Replace with:
 
+- "The rate is classical; the contribution is the observational factorization
+  of the effective dimension parameter."
 - "The relevant exponent is the one induced by the chosen observable
   refinement and valuation."
 - "In smooth regimes this exponent often agrees with manifold dimension."

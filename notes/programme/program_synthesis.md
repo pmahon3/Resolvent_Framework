@@ -131,6 +131,44 @@ under fibre mixing; (2) certifies state-space separation directly.
 
 ---
 
+## Passage Conditions
+
+The mature programme claim is not that observation alone determines every
+stronger structure.  The sharper claim is:
+
+> The framework identifies what is forced by observation and exactly what extra
+> admissibility or valuation is needed for stronger structures.
+
+This gives the recurring grammar:
+
+| Passage | Not forced by | Added/licensing condition |
+|---|---|---|
+| finite coherence $\to$ probability | compatibility alone | CE |
+| probability + indexed observations $\to$ dynamics | measure alone | temporal coherence / composition structure |
+| observation $\to$ reconstruction | finite queries alone | faithfulness / exhaustion of the observable algebra |
+| reconstruction $\to$ rates | population structure alone | sampling, regularity, and concentration |
+| refinement $\to$ dimension | refinement ordering alone | valuation of refinement $\Lambda$ |
+| entropy witness $\leftrightarrow$ algebraic witness | separation alone | fibre mixing |
+| zeta curve $\to$ canonical law | function alone | naturality / admissibility / valuation |
+
+The shared form is:
+
+$$
+\text{local data}
+\quad+\quad
+\text{completion or limiting object}
+\quad+\quad
+\text{admissibility or valuation}
+\quad\Rightarrow\quad
+\text{genuine structure}.
+$$
+
+The failure modes are as important as the positive theorems.  They mark where
+local coherence, finite refinement, or formal completion stops short of the
+intended object.
+
+---
+
 ## The true frontier
 
 All three papers are mathematically complete and editorially polished.

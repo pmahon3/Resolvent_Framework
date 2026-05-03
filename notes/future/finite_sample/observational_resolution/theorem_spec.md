@@ -23,6 +23,20 @@ $$
 becomes a theorem about valued observable refinements rather than an informal
 analogy with smooth or fractal geometry.
 
+This is a template theorem, not a claim of a new numerical rate.  The rate
+$n^{-s/(2s+D)}$ and the squared-risk form $n^{-2s/(2s+D)}$ are classical.  The
+purpose here is to factor the effective dimension parameter into:
+
+$$
+D
+=
+\frac{\text{distinguishability growth}}
+{\text{valuation growth}},
+$$
+
+and to state exactly which observational assumptions make the standard
+bias-variance balance apply.
+
 ## Basic Objects
 
 Let $(X,\mathcal A,\mu)$ be the observable probability space obtained from the

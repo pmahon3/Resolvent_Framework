@@ -3,39 +3,35 @@
 
 \begin{abstract}
 When does observationally coherent data determine a genuine probability
-measure?  The setting is a directed system of Boolean algebras with
-surjective refinement maps --- a \emph{query system} --- carrying a
-compatible family of finitely additive charges on the cylinder algebra.
-Coherence (agreement across levels) and finite additivity are purely
-finitary conditions; the question is what further condition licenses the
-passage to $\sigma$-additivity.
+measure?  We work with a directed system of Boolean algebras carrying a
+compatible family of finitely additive charges.  Coherence and finite
+additivity are purely finitary conditions; the question is what further
+condition licenses the passage to $\sigma$-additivity.
 
-The answer is \emph{collective exhaustion} (CE): a compatible charge
-family extends to a unique $\sigma$-additive measure on the observable
-$\sigma$-algebra if and only if, whenever a decreasing sequence of
-events vanishes globally, there exists a level at which the mass
-converges to zero.  CE is not derivable from any structural condition on
-the query system --- a concrete counterexample shows the particular case,
-and $\sigma$-additivity is not first-order axiomatizable among finitely
-additive probability Boolean algebras~\cite{MahonCE2026}.  Some extra
-structure is logically unavoidable; CE is one explicit, minimal way of
-supplying it.
+Finitary coherence alone does not suffice: the finite--cofinite charge
+on $\mathbb{N}$ satisfies every structural condition yet assigns
+persistent mass to a sequence of events that vanishes.  More generally,
+$\sigma$-additivity is not first-order axiomatizable among finitely
+additive probability Boolean algebras~\cite{MahonCE2026}.  Some
+condition beyond finitary coherence is therefore genuinely required.
 
-Two constructions realise the extension under CE.  A direct
-\emph{Carathéodory construction} assumes compatible $\sigma$-additive
-marginals and builds the global measure without topological assumptions.
-A \emph{Stone construction} starts from finite additivity alone:
-compactness of the Stone space supplies $\sigma$-additivity on the
-compact completion, and CE appears as the support condition ensuring the
-measure descends to the realised instantiation space.  The constructions
-differ by where the missing $\sigma$-additive structure is
-supplied --- internally by countable reach, or externally by completion
---- and whenever both apply, they yield the same measure.
+We call this condition \emph{collective exhaustion}~(CE): whenever a
+decreasing sequence of events vanishes globally, there exists a level at
+which the mass converges to zero.  A compatible charge family extends to
+a unique $\sigma$-additive probability measure on the observable
+$\sigma$-algebra if and only if it satisfies CE.
 
-The probability measure produced here is the starting point for
-Papers~II and~III of this series, which show that it already contains
-a conditional regularity structure and a dynamical semigroup, and ask
-what finite data can certify about them.
+Two constructions realise the extension.  A direct Carath\'{e}odory
+construction assumes compatible $\sigma$-additive marginals and builds
+the global measure without topological assumptions.  A Stone
+construction starts from finite additivity alone: compactness of the
+Stone space supplies $\sigma$-additivity on the compact completion, and
+CE reappears as the support condition ensuring the measure descends to
+the realised instantiation space.  The constructions differ by where the
+missing $\sigma$-additive structure is supplied --- internally by
+countable reach, or externally by completion --- and whenever both
+apply, they yield the same measure.
+
 \end{abstract}
 
 \begin{quote}\small
@@ -51,67 +47,100 @@ collective exhaustion, Carathéodory observational extension, Stone observationa
 \label{I:sec:intro}
 % ------------------------------------------------------------------
 
-Observable distinctions are naturally encoded by Boolean algebras, and the
-study of Boolean algebras underpins modern measure theory and its
-probabilistic extensions.  The directed nature of observation --- wherein
-finer levels of resolution refine coarser ones --- has, by contrast,
-played a largely organisational role.  In the foundational treatments of
-Kolmogorov~\cite{Kolmogorov} and Choksi~\cite{choksi1958}, the global
-$\sigma$-algebra emerges as the projective limit of compatible measure
-spaces; directed structure orders the marginals and licenses their
-assembly, but is not itself interrogated as a source of probabilistic
-constraint.  The classical Carathéodory extension theorem asks when a
-premeasure on a fixed semiring extends to a $\sigma$-additive measure on
-the generated $\sigma$-algebra; the relevant condition (continuity at
-zero, or equivalently $\sigma$-additivity of the premeasure itself) is
-local --- it concerns a single set function on a single ring.  The
-question here is structurally different: the data are a \emph{family}
-of charges on a directed system of Boolean algebras, and the coherence
-condition (compatibility across levels) is already satisfied by
-hypothesis.  What is needed is a condition operating across levels ---
-one that the finite-cofinite example shows cannot be inferred from the
-first-order properties of each individual charge.
+A probability measure on a field $\mathcal{F}\subseteq 2^\Omega$ is a
+set function $P : \mathcal{F} \to [0,1]$
+satisfying~\cite{Billingsley, Kolmogorov}:
+\begin{alignat}{2}
+  &\text{(positivity)}    &\qquad& P(A) \geq 0;
+    \label{I:eq:positivity} \\
+  &\text{(normalisation)} &\qquad& P(\Omega) = 1;
+    \label{I:eq:normalisation} \\
+  &\text{(countable additivity)} &\qquad&
+    P\!\Bigl(\textstyle\bigcup_{n=1}^{\infty} A_n\Bigr)
+    = \textstyle\sum_{n=1}^{\infty} P(A_n)
+    \quad (\text{disjoint } A_n,\;
+           \textstyle\bigcup A_n \in \mathcal{F}).
+    \label{I:eq:countable-additivity}
+\end{alignat}
+For a finitely additive $P$,
+\eqref{I:eq:countable-additivity} is equivalent to
+\begin{equation}\label{I:eq:continuity-at-empty}
+  E_n \downarrow \varnothing
+  \quad\Longrightarrow\quad
+  P(E_n) \to 0:
+\end{equation}
+mass cannot persist along a vanishing sequence of events.  In the
+Kolmogorov and Carath\'{e}odory extension theorems this is
+postulated~\cite{Kolmogorov, choksi1958}.
 
-This paper interrogates that structure directly.  We work with a directed
-system of Boolean algebras connected by surjective refinement maps, carrying
-a compatible family of finitely additive charges: charges at different
-levels agree on events seen from both.  Structural coherence and valuation
-compatibility are purely finitary conditions.  The question is what further
-condition on the valuations is required for finitary data to support a
-genuine probability measure on the observable $\sigma$-algebra.
+The classical extension problem already has directed structure:
+compatible finite-dimensional distributions live on a directed family of
+coordinate projections.  We isolate that structure --- a directed
+system $(\iota, \leq)$ of event algebras $\mathcal{E}_i$ with surjective
+refinement maps
+\[
+  \pi_{ij} : O_j \to O_i
+  \qquad (i \leq j),
+  \qquad
+  \pi_{ik} = \pi_{ij} \circ \pi_{jk}
+  \qquad (i \leq j \leq k)
+\]
+--- and ask what the directed structure alone determines.
+Positivity and normalisation become local: each $\ell_i$ is a normalised
+finitely additive charge on $\mathcal{E}_i$.  Compatibility replaces
+agreement of marginals:
+\begin{equation}\label{I:eq:compatibility}
+  \ell_j\!\bigl(\pi_{ij}^{-1}(A)\bigr) = \ell_i(A)
+  \qquad (i \leq j,\; A \in \mathcal{E}_i).
+\end{equation}
+These are finitary.
+Countable additivity~\eqref{I:eq:countable-additivity} is not.
 
-The condition is \emph{collective exhaustion} (CE): a compatible charge
-family extends to a $\sigma$-additive measure if and only if, whenever a
-decreasing sequence of events vanishes globally, there exists a level at
-which the sequence's mass converges to zero.  CE rules out purely finitely
-additive charges, which assign persistent mass to sequences that vanish in
-the limit; the Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} makes
-this precise by splitting any bounded charge uniquely into a $\sigma$-additive
-part and a purely finitely additive part, with CE equivalent to the vanishing
-of the latter.  In this directed observational formalism, CE is the exact
-admissibility criterion separating compatible finitely additive observational
-data from $\sigma$-additive probability on the observable $\sigma$-algebra:
-a coherent family of charges extends to a $\sigma$-additive probability measure
-if and only if it satisfies CE.
-A family satisfying CE determines a unique probability measure on the
-observable $\sigma$-algebra.  No first-order structural condition can
-substitute for it --- the obstruction is not an artifact of the query-system
-formalism but already appears in the more primitive language of Boolean
-algebras with finitely additive charge, where countable additivity is
-likewise not first-order axiomatizable~\cite{MahonCE2026}.  The
-probability-logic tradition --- Hoover~\cite{Hoover1978} and Fagin, Halpern,
-and Megiddo~\cite{FaginHalpernMegiddo1990} --- treated this as a background
-fact; the companion note records a self-contained proof.
+The finite--cofinite algebra on $\mathbb{N}$ shows how it fails.  Set
+$\mu(A) = 0$ for finite $A$, $\mu(A) = 1$ for cofinite $A$.  Then
+$\mu$ satisfies~\eqref{I:eq:positivity}--\eqref{I:eq:compatibility},
+yet
+\[
+  E_n = \{n, n{+}1, \ldots\}
+  \;\downarrow\; \varnothing,
+  \qquad
+  \mu(E_n) = 1 \;\;\forall\, n:
+\]
+mass persists because $\bigcap_n E_n = \varnothing$ is a countable fact
+no finite check can see.  In general, $\sigma$-additivity is not
+first-order axiomatizable among finitely additive probability Boolean
+algebras~\cite{MahonCE2026, Hoover1978, FaginHalpernMegiddo1990}.
+If $\sigma$-additivity is to be \emph{recovered} rather than assumed,
+the condition must fall on the charges themselves.
 
+We call this condition \emph{collective exhaustion}~(CE):
+\begin{equation}\label{I:eq:ce}
+  E_n \in \mathcal{E}_i,\quad
+  E_n \downarrow \varnothing
+  \quad\Longrightarrow\quad
+  \exists\, j \geq i \;\text{s.t.}\;
+  \ell_j\!\bigl(\pi_{ij}^{-1}(E_n)\bigr) \to 0.
+\end{equation}
+A compatible family extends to a unique $\sigma$-additive measure on the
+observable $\sigma$-algebra if and only if it satisfies~\eqref{I:eq:ce}
+(Theorem~\ref{I:thm:sp1}).  The Yosida--Hewitt
+decomposition~\cite{YosidaHewitt1952} makes the content precise: $\mu =
+\mu_c + \mu_p$ with $\mu_c$ countably additive and $\mu_p$ purely
+finitely additive; CE is $\mu_p = 0$.
+
+Two constructions realise the extension.  A Carath\'{e}odory
+construction (\S\ref{I:sec:cara}) assumes compatible $\sigma$-additive
+marginals and extends directly.  A Stone construction
+(\S\ref{I:sec:stone}) starts from finite additivity alone: compactness
+of the Stone space supplies $\sigma$-additivity on the completion, and
+CE reappears as the support condition returning the measure to the
+realised instantiation space.  Whenever both apply, they yield the same
+measure (Proposition~\ref{I:prop:coincidence}).
 
 % ------------------------------------------------------------------
 \section{Observational structure and compatible charges}
 \label{I:sec:setup}
 % ------------------------------------------------------------------
-
-\subsection{Observational structure}
-
-Rather than a single $\sigma$-algebra of events, we work with a directed system of Boolean algebras representing observable distinctions at increasing resolution; the global $\sigma$-algebra arises as their completion.
 
 \begin{definition}[Observational structure]
 \label{I:def:obs-structure}
@@ -128,12 +157,17 @@ satisfying $\pi_{ik} = \pi_{ij} \circ \pi_{jk}$ for all $i \leq j \leq k$.
 
 \begin{definition}[Instantiation; query system]
 \label{I:def:query-system}
-An \emph{instantiation} of an observational structure $(\iota, \leq, \{(\Out{i}, \mathcal{O}_i)\}, \{\pi_{ij}\})$ is a set $\Omega$ together with maps $\mathrm{eval}_i : \Omega \to \Out{i}$ for each $i \in \iota$, the \emph{evaluation maps}, satisfying the \emph{coherence condition} $\pi_{ij} \circ \mathrm{eval}_j = \mathrm{eval}_i$ for all $i \leq j$. A \emph{query system} is an observational structure together with an instantiation.
+An \emph{instantiation} is a set $\Omega$ with \emph{evaluation maps}
+$\mathrm{eval}_i : \Omega \to \Out{i}$ satisfying
+\[
+  \pi_{ij} \circ \mathrm{eval}_j = \mathrm{eval}_i
+  \qquad (i \leq j).
+\]
+A \emph{query system} is an observational structure together with an
+instantiation.
 \end{definition}
 
-\subsection{Canonical instantiation and observables}
-
-Every observational structure admits a canonical instantiation: the space of all coherent assignments of outcomes across levels.  This identifies $\Omega$ with the set of all globally consistent observation patterns.  Explicitly, the canonical instantiation is the projective limit
+Every observational structure admits a canonical instantiation: the projective limit
 \[
   \Omega
   = \varprojlim_{i \in \iota} \Out{i} = \Bigl\{
@@ -183,9 +217,7 @@ For each $i \in \iota$, let $B_i$ denote the Boolean algebra of level-$i$ cylind
   \qquad
   \varphi_{ij}(\mathrm{Cyl}(i, A)) = \mathrm{Cyl}(j, \pi_{ij}^{-1}(A)).
 \]
-This is a well-defined Boolean algebra homomorphism.  The family $\{B_i, \varphi_{ij}\}$ is a directed system of Boolean algebras.
-
-\subsection{Compatible charges}
+The family $\{B_i, \varphi_{ij}\}$ is a directed system of Boolean algebras.
 
 \begin{definition}[Compatible family]
 A \emph{charge} on a Boolean algebra $B$ is a finitely additive function $\mu : B \to [0, \infty)$ with $\mu(\emptyset) = 0$.  A family of charges $\{\mu_i\}_{i \in \iota}$ with $\mu_i$ on $B_i$ is \emph{compatible} if
@@ -195,17 +227,13 @@ A \emph{charge} on a Boolean algebra $B$ is a finitely additive function $\mu : 
 \]
 \end{definition}
 
-\noindent A compatible family also determines a charge on $\mathcal{C}$ by
-$\mu(\mathrm{Cyl}(i, A)) := \mu_i(\mathrm{Cyl}(i, A))$; compatibility ensures this is well-defined.
-
-Both constructions require the following condition on the query system.
+\noindent Compatibility ensures a well-defined charge on $\mathcal{C}$
+via $\mu(\mathrm{Cyl}(i, A)) := \mu_i(\mathrm{Cyl}(i, A))$.
 
 \begin{definition}[Surjective Evaluation]
 \label{I:def:eval-surjective}
 The query system satisfies \emph{Surjective Evaluation} if $\mathrm{eval}_i : \Omega \to \Out{i}$ is surjective for every $i \in \iota$.
 \end{definition}
-
-\noindent Surjective evaluation ensures every outcome at every level is realised by some $\omega \in \Omega$.
 
 \begin{lemma}[Surjectivity and injectivity from Surjective Evaluation]
 \label{I:lem:surj-inj}
@@ -227,10 +255,6 @@ For (ii): $\varphi_{ij}$ is a Boolean homomorphism by construction. If $\varphi_
 \label{I:sec:cara}
 % ------------------------------------------------------------------
 
-Given compatible $\sigma$-additive probability marginals, Carathéodory's theorem yields a global measure directly on the instantiation space.  The input is a query system satisfying surjective evaluation, sequential common refinements, and common coarsenings, together with a compatible family of $\sigma$-additive probability marginals.
-
-\subsection{Observational determination}
-
 \begin{proposition}[Observational determination]
 \label{I:thm:obs-determination}
 Let the query system admit common coarsenings and let $P$, $P'$ be probability measures on $(\Omega, \sigma(\mathcal{C}))$.  If $(\mathrm{eval}_i)_\# P = (\mathrm{eval}_i)_\# P'$ for all $i \in \iota$, then $P = P'$.
@@ -240,13 +264,9 @@ Let the query system admit common coarsenings and let $P$, $P'$ be probability m
 The equality of pushforward laws implies $P$ and $P'$ agree on every cylinder event.  By Lemma~\ref{I:lem:pi-system} the cylinder family $\mathcal{C}$ is a $\pi$-system generating $\sigma(\mathcal{C})$.  The $\pi$--$\lambda$ theorem gives $P = P'$.
 \end{proof}
 
-\subsection{Cylinder content}
-
 \begin{definition}[Common refinements]
 The index set $(\iota, \leq)$ admits \emph{common refinements} if every pair $i, j \in \iota$ has an upper bound: there exists $k \geq i$ and $k \geq j$.
 \end{definition}
-
-\noindent The cylinder family may represent the same event at multiple levels: $\mathrm{Cyl}(i, A)$ and $\mathrm{Cyl}(j, B)$ coincide in $\Omega$ whenever $A$ and $B$ are preimages of a common set at a finer level. Assigning a numerical value to such an event is well-defined only if the two representations agree --- and verifying this requires passing to a common refinement of $i$ and $j$.
 
 \begin{lemma}[Finite observational content]
 \label{I:thm:finite-content}
@@ -266,13 +286,9 @@ Suppose $\mathrm{Cyl}(i, A) = \mathrm{Cyl}(j, B)$.  Use common refinements to fi
 For disjoint cylinders at possibly different levels, compress to a common refinement $k$ and use additivity of $\nu_k$.
 \end{proof}
 
-\subsection{Carathéodory extension theorem}
-
 \begin{definition}[Sequential common refinements]
 The index set $(\iota, \leq)$ admits \emph{sequential common refinements} if every countable family $\{i_n\}_{n \geq 1} \subset \iota$ has an upper bound in $\iota$. Sequential common refinements imply common refinements.
 \end{definition}
-
-\noindent Finite additivity of the cylinder content is not sufficient for Carathéodory's theorem: one needs $\sigma$-subadditivity, which requires compressing a countable cylinder cover $\{\mathrm{Cyl}(i_n, A_n)\}$ to a single level. Common refinements handle finite families; sequential common refinements extend this to countable ones, supplying the index-set reach the proof requires.
 
 \begin{theorem}[Carathéodory observational extension]
 \label{I:thm:obs-extension}
@@ -336,56 +352,59 @@ Theorem~\ref{I:thm:obs-extension} requires sequential common refinements: every 
 The key conceptual difference from Kolmogorov is that no topology is imposed on the outcome spaces: the measure $P$ is built directly on the measurable structure of $\Omega$ by Carathéodory, without any appeal to tightness or compactness.
 \end{remark}
 
-
 % ------------------------------------------------------------------
 \section{Collective Exhaustion}
 \label{I:sec:ce}
 % ------------------------------------------------------------------
 
-Compatible $\sigma$-additive marginals extend directly to a global observable measure.  The obstruction to passing from finite additivity to $\sigma$-additivity is the possibility that mass persists along a decreasing sequence of events whose intersection is empty.
-
 \begin{example}[Finite--cofinite obstruction]
 \label{I:ex:finite-cofinite}
-Let $\mathbb{N}$ carry the finite--cofinite algebra $\mathcal{E}$ where $A \in \mathcal{E}$ if $A$ is finite or $A^c$ is finite. Define a normalized charge by $\mu_0(A) = 0$ if $A$ is finite and $\mu_0(A) = 1$ if $A$ is cofinite.
-
-Disjoint sets in $\mathcal{E}$ are either both finite or one finite and one cofinite (two disjoint cofinite sets cannot exist), so finite additivity holds.
-
-The sequence $E_n = \{n, n+1, \ldots\}$ satisfies $E_n \downarrow \varnothing$, yet each $E_n$ is cofinite, so $\mu_0(E_n) = 1$ for all $n$: the events shrink to nothing but the mass does not drain away.  No $\sigma$-additive extension exists.
+On $\mathbb{N}$, let $\mathcal{E}$ be the finite--cofinite algebra and
+$\mu_0(A) = 0$ for finite $A$, $\mu_0(A) = 1$ for cofinite $A$.  Then
+$\mu_0$ is a normalised finitely additive charge, but
+$E_n = \{n, n{+}1, \ldots\} \downarrow \varnothing$ with
+$\mu_0(E_n) = 1$ for all~$n$.
 \end{example}
-
-\noindent The admissibility condition that rules out this failure is:
 
 \begin{definition}[Collective Exhaustion]
 \label{I:def:ce}
-A charge $\mu$ on $\mathcal{C}$ (the common extension of a compatible family $\{\mu_i\}$) satisfies \emph{collective exhaustion} (CE) if: whenever $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{C}$ and $\bigcap_n E_n = \emptyset$, we have $\mu(E_n) \to 0$.
+A charge $\mu$ on $\mathcal{C}$ satisfies \emph{collective exhaustion}
+(CE) if $E_n \downarrow \varnothing$ in $\mathcal{C}$ implies
+$\mu(E_n) \to 0$.
 \end{definition}
 
-\noindent CE is a valuation-layer condition: it constrains how charges behave, not the Boolean-algebraic index structure.
-
-We work first at the level of an abstract directed system of Boolean algebras, writing $\mathcal{E}_i$ for the algebra at level $i$ and $\ell_i$ for its charge; the query-system interpretation returns in \S\ref{I:sec:stone}.
-
-\subsection{Single-algebra extension}
+\noindent We work at the level of an abstract directed system, writing
+$\mathcal{E}_i$ for the algebra at level $i$ and $\ell_i$ for its charge.
 
 \begin{definition}[Boolean charge space]
 A \emph{Boolean charge space} is a pair $(\mathcal{E}, \ell)$ where $\mathcal{E}$ is a Boolean algebra of subsets of a set $O$ and $\ell : \mathcal{E} \to [0,1]$ is a normalized finitely-additive valuation. No $\sigma$-algebra and no topology are assumed on $O$.
 \end{definition}
 
-By Stone's representation theorem~\cite{Stone1936}, $\mathcal{E}$ is isomorphic to the clopen algebra of a compact totally-disconnected Hausdorff space $S(\mathcal{E})$, and $\sigma(\mathcal{E})$ is the Baire $\sigma$-algebra of $S(\mathcal{E})$.  The sets in $\sigma(\mathcal{E}) \setminus \mathcal{E}$ are Baire events that countable operations can reach but no single observable distinction can name.
+By Stone's representation theorem~\cite{Stone1936}, $\mathcal{E} \cong
+\mathrm{Clop}(S(\mathcal{E}))$ for a compact totally disconnected
+$S(\mathcal{E})$, and $\sigma(\mathcal{E})$ is its Baire
+$\sigma$-algebra.
 
 \begin{lemma}[Extension criterion]
 \label{I:thm:extension-criterion}
-A normalized finitely-additive $\ell : \mathcal{E} \to [0,1]$ extends to a $\sigma$-additive measure on $\sigma(\mathcal{E})$ if and only if $\ell$ is continuous at $\emptyset$: for every decreasing sequence $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{E}$ with $\bigcap_n E_n = \emptyset$ in $\sigma(\mathcal{E})$, we have $\ell(E_n) \to 0$.  The extension is then unique.
+A normalized finitely-additive $\ell : \mathcal{E} \to [0,1]$ extends
+uniquely to a $\sigma$-additive measure on $\sigma(\mathcal{E})$ if and
+only if
+\[
+  E_n \downarrow \varnothing \text{ in } \mathcal{E}
+  \quad\Longrightarrow\quad
+  \ell(E_n) \to 0.
+\]
 \end{lemma}
 
 \begin{proof}
-Standard; see Halmos~\cite{Halmos1950} or Fremlin~\cite{Fremlin2003} Vol.~1.  Continuity at $\emptyset$ is used in the Carathéodory extension argument to pass from finite additivity to $\sigma$-additivity on $\sigma(\mathcal{E})$.
+Standard; see Halmos~\cite{Halmos1950} or
+Fremlin~\cite{Fremlin2003}, Vol.~1.
 \end{proof}
 
-\noindent The condition in Lemma~\ref{I:thm:extension-criterion} is not verifiable
-within $\mathcal{E}$ alone: confirming $\bigcap_n E_n = \emptyset$ requires access to $\sigma(\mathcal{E})$.  In a directed system, one might hope a finer level $j \geq i$ could witness the emptiness level $i$ cannot see.
-
-\subsection{Nontrivial refinement}
-\label{I:sec:incompleteness}
+\noindent Confirming $\bigcap_n E_n = \emptyset$ requires access to
+$\sigma(\mathcal{E})$; the condition is not verifiable within
+$\mathcal{E}$ alone.
 
 \begin{definition}[Nontrivial refinement]
 Let $\pi : O_j \to O_i$ be a surjective refinement map, inducing the Boolean algebra homomorphism $\pi^{-1} : \mathcal{E}_i \to \mathcal{E}_j$.  The refinement is \emph{nontrivial} if there exists $A \in \mathcal{E}_j$ with $A \notin \pi^{-1}(\mathcal{E}_i)$.
@@ -411,21 +430,17 @@ Let $\mathcal{E}$ be a Boolean algebra of subsets of a countably infinite set $O
 If $\mathcal{E}$ is not a $\sigma$-algebra, there exists a countable family $\{A_n\} \subset \mathcal{E}$ with $\bigcup_n A_n \notin \mathcal{E}$.  By definition $\bigcup_n A_n \in \sigma(\mathcal{E})$, so it lies in $\sigma(\mathcal{E}) \setminus \mathcal{E}$.
 \end{proof}
 
-\subsection{CE characterises $\sigma$-additivity}
-\label{I:sec:sp1}
-
-The directed-system version of CE and the main equivalence are as follows.
-
 \begin{definition}[Collectively exhaustive family]
 \label{I:def:collectively-exhaustive}
-A compatible family $\{\ell_i\}$ of normalized finitely-additive charges on a directed system is \emph{collectively exhaustive} if: for every $i \in \mathcal{I}$ and every decreasing sequence $E_1 \supseteq E_2 \supseteq \cdots$ in $\mathcal{E}_i$ with $\bigcap_n E_n = \emptyset$, there exists $j \geq i$ such that $\ell_j(\pi_{ij}^{-1}(E_n)) \to 0$.
+A compatible family $\{\ell_i\}$ of normalized finitely-additive charges
+on a directed system is \emph{collectively exhaustive} if for every
+$i \in \mathcal{I}$ and every $E_n \downarrow \varnothing$ in
+$\mathcal{E}_i$,
+\[
+  \exists\, j \geq i \;\text{such that}\;
+  \ell_j\!\bigl(\pi_{ij}^{-1}(E_n)\bigr) \to 0.
+\]
 \end{definition}
-
-
-\noindent $\pi_{ij} : O_j \to O_i$ is the refinement map ($j$ finer than
-$i$) and $\pi_{ij}^{-1}(E_n) \subseteq O_j$ is the preimage of $E_n$ at the finer level.  No level may assign persistent mass to events the system as a whole sees as empty. 
-
-We identify the minimal directed system in which the index-layer hypotheses hold while the finite-cofinite charge still fails $\sigma$-additive extension.
 
 \begin{proposition}[Index-layer conditions do not force $\sigma$-additivity]
 \label{I:prop:independence}
@@ -435,8 +450,6 @@ There exists a compatible family of normalized finitely-additive charges on a se
 \begin{proof}
 We take the simplest sequentially upper-directed index set: adjoin a single terminal element $\omega$ to $\mathbb{N}$, setting $n \leq \omega$ for all $n \in \mathbb{N}$.  Take all outcome spaces to be $\mathbb{N}$, all event algebras to be the finite-cofinite algebra $\mathcal{E}$, all refinement maps to be the identity, and each $\ell_i$ to be the finite-cofinite charge $\ell$ of Example~\ref{I:ex:finite-cofinite}.  Compatibility holds trivially.  The system satisfies every structural condition.  By Example~\ref{I:ex:finite-cofinite}, $\ell$ is not $\sigma$-additive and admits no $\sigma$-additive extension; hence every level fails $\sigma$-additive extension.
 \end{proof}
-
-Thus the obstruction reappears: finite additivity at $j$ does not force continuity at $\emptyset$.
 
 \begin{theorem}[CE Characterisation]
 \label{I:thm:sp1}
@@ -456,13 +469,16 @@ Fix $i \in \mathcal{I}$ and a decreasing sequence $E_n \searrow \emptyset$ in $\
 Suppose $\ell_i$ extends to $\mu_i$ for every $i$.  Let $E_n \searrow \emptyset$ in $\mathcal{E}_i$.  Then $\ell_i(E_n) = \mu_i(E_n) \to \mu_i(\emptyset) = 0$ by $\sigma$-additivity of $\mu_i$ and normalization.  Take $j = i$.
 \end{proof}
 
-\noindent The question ``do the structural conditions on a directed system force
-$\sigma$-additivity?'' is ill-posed: it conflates conditions on the index structure with conditions on the charges.  Proposition~\ref{I:prop:independence} separates them; Theorem~\ref{I:thm:sp1} identifies the exact valuation-layer condition.  Sequential upper-directedness enters only when assembling per-level extensions into a global measure (\S\ref{I:sec:cara}).
-
-\subsection{CE is non-derivable}
-\label{I:sec:ce-irred}
-
-The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} identifies the obstruction Proposition~\ref{I:prop:independence} has exposed.  Every finitely additive probability decomposes uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is $\sigma$-additive and $\ell_p$ is \emph{purely finitely additive}. The finite-cofinite content has $\ell_p = \ell$.  By Theorem~\ref{I:thm:sp1}, CE holds precisely when $\ell_p = 0$.  The obstruction is therefore not a feature of any particular structural hypothesis: it is the persistence of a purely finitely additive component that no first-order structural condition can eliminate.
+The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952} writes every
+bounded charge uniquely as
+\[
+  \ell = \ell_c + \ell_p,
+  \qquad
+  \ell_c \text{ countably additive},
+  \quad
+  \ell_p \text{ purely finitely additive}.
+\]
+By Theorem~\ref{I:thm:sp1}, CE is $\ell_p = 0$.
 
 \begin{proposition}[CE non-derivability]
 \label{I:prop:ce-irred}
@@ -473,80 +489,43 @@ No condition expressible in the first-order language of query systems implies co
 Proposition~\ref{I:prop:independence} provides the particular case: the finite-cofinite charge satisfies all named structural hypotheses and fails CE.  The universal case is proved in~\cite{MahonCE2026} via \L{}o\'{s}'s theorem~\cite{Los1955}: Dirac masses $\delta_n$ on $\mathcal{P}(\mathbb{N})$ are individually $\sigma$-additive, but the charge induced on the diagonal copy of $\mathcal{P}(\mathbb{N})$ in their ultraproduct is the $\{0,1\}$-valued ultrafilter charge, which fails $\sigma$-additivity.  Since a first-order theory satisfied by every $\delta_n$ is satisfied by the ultraproduct, no such theory can axiomatize $\sigma$-additivity.
 \end{proof}
 
-\noindent This obstruction is not an artifact of the query-system formalism: it already appears in the more primitive language of Boolean algebras with finitely additive charge.  The probability-logic tradition --- Hoover~\cite{Hoover1978} and Fagin, Halpern, and Megiddo~\cite{FaginHalpernMegiddo1990} --- treated this as background knowledge; the companion note~\cite{MahonCE2026} records a self-contained proof.
-
-Finite coherence therefore underdetermines probability in a logically precise sense.  Foundational disputes about probability are not terminological; they concern which extra structure licenses the passage from finite coherence to probability, and some such structure is unavoidable.  CE is the condition adopted here.
-
 \begin{example}[Propositional probability as a query system]
 \label{I:ex:propositional}
 The framework is not specific to empirical measurement.  Let $T$ be a consistent
-countable propositional theory with sentences $\phi_1, \phi_2, \ldots$  At level
+countable propositional theory with sentences $\phi_1,\phi_2,\ldots$  At level
 $n$, let
 \[
   \mathcal{E}_n \;=\; \mathrm{Lind}(\phi_1,\ldots,\phi_n)
 \]
-be the finite Boolean algebra of $T$-equivalence classes of Boolean combinations
-of $\phi_1,\ldots,\phi_n$.  Its atoms are the maximal consistent truth-value
-assignments to $\phi_1,\ldots,\phi_n$ compatible with $T$.  For $n \leq m$,
-restricting an assignment on $\phi_1,\ldots,\phi_m$ to its first $n$ sentences
-gives the refinement map $\pi_{nm}$.  The canonical instantiation is
+be the finite Lindenbaum algebra of Boolean combinations of
+$\phi_1,\ldots,\phi_n$, modulo $T$-equivalence.  Restriction from the first $m$
+sentences to the first $n$ gives the refinement map for $n \leq m$, and the
+canonical instantiation is
 \[
   \Omega \;=\; \varprojlim_n\, \mathrm{atoms}(\mathcal{E}_n)
   \;=\; \{\text{complete consistent extensions of } T\},
 \]
-and $\mathrm{eval}_n(\omega)$ is the restriction of a complete extension $\omega$
-to $\{\phi_1,\ldots,\phi_n\}$.  Surjectivity of each $\mathrm{eval}_n$ follows
-from the Lindenbaum extension lemma: every maximal consistent assignment to
-$\phi_1,\ldots,\phi_n$ extends to a complete consistent extension of $T$.
+with evaluation given by restriction to finite fragments.  Surjective evaluation
+is exactly the Lindenbaum extension lemma: every finite consistent assignment
+extends to a complete consistent extension of $T$.
 
-A compatible family of normalised charges $\{\nu_n\}$ on $\{\mathcal{E}_n\}$ is
-precisely a coherent system of finite-level probability assignments.  A decreasing
-sequence of cylinder events $\mathrm{Cyl}(n_k, A_k)$ with $n_k \nearrow \infty$
-has empty intersection in $\Omega$ if and only if the corresponding propositional
-conditions $\alpha_k \in \mathcal{E}_{n_k}$ are jointly unsatisfiable over $T$:
-no complete extension satisfies all of them simultaneously.  CE requires that the
-charges drain away in this case,
+A compatible family of normalised charges is therefore a coherent system of
+finite-level probability assignments.  A decreasing sequence of cylinder events
+has empty intersection in $\Omega$ exactly when the corresponding finite
+propositional conditions are jointly unsatisfiable over $T$.  CE requires the
+assigned masses to drain away in this case,
 \[
   \nu_{n_k}(\alpha_k) \;\longrightarrow\; 0,
 \]
-ruling out persistent mass on conditions that collectively vanish.
-Theorem~\ref{I:thm:sp1} therefore yields a unique $\sigma$-additive probability
-measure on the space of complete consistent extensions of $T$ exactly when the
-charge family satisfies CE.
+ruling out persistent mass on finite conditions that collectively vanish.
+Theorem~\ref{I:thm:sp1} then yields a unique $\sigma$-additive probability
+measure on complete consistent extensions exactly when CE holds.
 \end{example}
-
-\begin{remark}
-Under Stone duality, the Stone space of $\varinjlim_n \mathcal{E}_n$ is the space
-of possible worlds: complete consistent extensions appear as the principal
-ultrafilters, while non-principal ultrafilters are ideal limit points --- internally
-coherent but not realised by any complete extension of $T$.  By
-Proposition~\ref{I:prop:B2}, CE is exactly the condition that no mass escapes to
-these ideal points.  CE is thus not a condition tailored to empirical observation;
-it is the general admissibility principle separating coherent finite-level
-probability assignments from honest probability on the completed space of possible
-worlds.
-\end{remark}
 
 % ------------------------------------------------------------------
 \section{Stone realization from finitely additive data}
 \label{I:sec:stone}
 % ------------------------------------------------------------------
-
-Fortunately $\sigma$-additivity can be derived.  Starting only from finitely additive charges, compactness of the Stone space produces a $\sigma$-additive measure on the compact completion; CE then reappears as the support condition that returns this measure to the realised instantiation. No sequential common refinements are assumed: the $\sigma$-additivity that Carathéodory obtains by compressing countable covers within the index set is reproduced here by compactness of the Stone space, without any countable reach into $\iota$.
-
-\subsection{Stone duality for the direct limit}
-\label{I:sec:stepA}
-
-\noindent Injectivity of the connecting maps (Lemma~\ref{I:lem:surj-inj}(ii)) is the key structural input for the Stone construction; we restate it here for reference.
-
-\begin{lemma}[Injectivity of connecting maps]
-\label{I:lem:phi-inj}
-If the query system satisfies Surjective Evaluation, then $\varphi_{ij} : B_i \to B_j$ is an injective Boolean algebra homomorphism for every $i \leq j$.
-\end{lemma}
-
-\begin{proof}
-Lemma~\ref{I:lem:surj-inj}(ii).
-\end{proof}
 
 \begin{proposition}[Stone duality for the direct limit]
 \label{I:prop:stepA}
@@ -554,12 +533,11 @@ The Stone space of the direct limit satisfies $\mathrm{St}\!\bigl(\bigcup_i B_i\
 \end{proposition}
 
 \begin{proof}
-By Lemma~\ref{I:lem:phi-inj}, the connecting maps $\varphi_{ij}$ are injective Boolean algebra homomorphisms.  Under Stone duality, injective Boolean algebra homomorphisms correspond to surjective continuous maps between Stone spaces. The Stone space functor $\mathrm{St}$ converts colimits in the category of Boolean algebras to limits in the category of compact Hausdorff spaces
+By Lemma~\ref{I:lem:surj-inj}(ii), the connecting maps $\varphi_{ij}$ are injective Boolean algebra homomorphisms.  Under Stone duality, injective Boolean algebra homomorphisms correspond to surjective continuous maps between Stone spaces. The Stone space functor $\mathrm{St}$ converts colimits in the category of Boolean algebras to limits in the category of compact Hausdorff spaces
 \cite[II.4]{johnstone1982}.  Applied to $\bigcup_i B_i$ with its injective
 system, this gives $\mathrm{St}\!\bigl(\bigcup_i B_i\bigr) \cong \varprojlim_i \mathrm{St}(B_i)$.
 \end{proof}
 
-\subsection{The inverse limit measure}
 \label{I:sec:invlim}
 
 \begin{proposition}[Inverse limit measure]
@@ -582,19 +560,12 @@ Each $\mathrm{St}(B_i)$ is compact Hausdorff.  The inverse limit $\varprojlim_i 
 measures on a cofiltered inverse system of compact Hausdorff spaces with surjective bonding maps extends uniquely to a regular Borel probability measure on the inverse limit.  This gives $\hat{\mu}$ on $\mathcal{B}(\varprojlim_i \mathrm{St}(B_i))$.
 \end{proof}
 
-\subsection{Structural identification}
-\label{I:sec:B1}
-
-The Stone space $\mathrm{St}(\mathcal{C})$ contains $\Omega$ as a subspace via the Stone embedding, but only if distinct states are separated by observable events.
-
 \begin{definition}[Discriminability]
 \label{I:def:discriminability}
 The query system \emph{discriminates points} if for every $\omega \neq \omega'$ in $\Omega$ there exists $E \in \mathcal{C}$ with $\omega \in E$ and $\omega' \notin E$.
 \end{definition}
 
-\noindent Discriminability ensures the Stone embedding is injective: without it, distinct states would be identified in the completion, and the pullback of the measure on $\mathrm{St}(\mathcal{C})$ would not recover a well-defined measure on $\Omega$.
-
-Let $\mathrm{pure} : \Omega \to \mathrm{St}(\mathcal{C})$ denote the Stone embedding, which sends $\omega \in \Omega$ to its principal ultrafilter $\mathrm{pure}(\omega) = \{E \in \mathcal{C} : \omega \in E\}$. For $E \in \mathcal{C}$, write $[E] = \{u \in \mathrm{St}(\mathcal{C}) : E \in u\}$ for the corresponding basic clopen in $\mathrm{St}(\mathcal{C})$.
+\noindent Write $\mathrm{pure}(\omega) = \{E \in \mathcal{C} : \omega \in E\}$ for the principal ultrafilter at $\omega$, and $[E] = \{u \in \mathrm{St}(\mathcal{C}) : E \in u\}$ for the basic clopen.  Discriminability makes $\mathrm{pure}$ injective.
 
 \begin{proposition}[Structural identification]
 \label{I:prop:B1}
@@ -622,9 +593,6 @@ Discriminability (Definition~\ref{I:def:discriminability}) implies $\mathrm{pure
 On a compact Hausdorff space the Baire $\sigma$-algebra is contained in the Borel $\sigma$-algebra, with equality when the space is second-countable. We work throughout with the Baire $\sigma$-algebra on $\mathrm{St}(\mathcal{C})$; this suffices because the measure $\hat{\mu}$ constructed above is a Baire measure (it is the unique extension of a charge on the clopen algebra), and Choksi's theorem applies to Baire measures on compact spaces.
 \end{remark}
 
-\subsection{CE as support condition}
-\label{I:sec:B2}
-
 \begin{proposition}[Support condition]
 \label{I:prop:B2}
 Let $\mu$ be a charge on $\mathcal{C}$ satisfying CE.  Then the corresponding Baire measure $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is supported on $\mathrm{pure}(\Omega)$, the set of principal ultrafilters.
@@ -637,9 +605,6 @@ A $\sigma$-additive probability on a Boolean algebra $\mathcal{C}$ extends uniqu
 
 The required link is classical~\cite{rao1983}, Ch.~10: for a $\sigma$-additive charge $\mu$ on a Boolean algebra $\mathcal{C}$ realised as a field of subsets of $\Omega$, the corresponding Baire measure on $\mathrm{St}(\mathcal{C})$ assigns full mass to those ultrafilters that are closed under countable intersection in $\mathcal{C}$.  Each principal ultrafilter $\mathrm{pure}(\omega)$ is closed under countable intersection (it evaluates at a point of $\Omega$), so $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.
 \end{proof}
-
-\subsection{The Stone observational extension}
-\label{I:sec:assembly}
 
 \begin{theorem}[Stone observational extension]
 \label{I:thm:stone-main}
@@ -683,17 +648,7 @@ Two probability measures on $(\Omega, \sigma(\mathcal{C}))$ agreeing on all cyli
 \noindent It may appear that compactness of the Stone space eliminates the need
 for CE.  Compactness yields a $\sigma$-additive Baire measure $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$, not yet on $\Omega$.  Descent to $\Omega$ is equivalent to $\hat{\mu}$ being supported on $\mathrm{pure}(\Omega)$, the principal ultrafilters; and by Proposition~\ref{I:prop:B2} this support condition is exactly CE.  In the Stone picture, CE is not an additional hypothesis but a \emph{support condition}: it is what ensures the measure concentrates on realised states rather than ideal limit points.
 
-
-% ------------------------------------------------------------------
-\section{Synthesis}
-\label{I:sec:bridge}
-% ------------------------------------------------------------------
-
-The results of this paper separate three layers: coherence, completion, and admissibility.  A finitely additive charge gives a coherent valuation on the Boolean algebra of observable distinctions; Stone duality completes that algebra into the space of all coherent distinction patterns, including nonprincipal ones; and collective exhaustion is the condition that determines when such a valuation extends to genuine probability.  In this sense, the gap between finite coherence and probability is the gap between unrestricted support on the Stone completion and support that remains honest under observational exhaustion.
-
-The Yosida--Hewitt decomposition makes this precise: $\mu_p = 0$ is the vanishing of the purely finitely additive part.  On the Stone side, this translates (Proposition~\ref{I:prop:B2}) into the condition that the Baire measure concentrates on $\mathrm{pure}(\Omega)$ --- mass cannot escape to non-principal ultrafilters.
-
-When the index set admits sequential common refinements and the query system discriminates points, both constructions are available simultaneously. The following proposition confirms they produce the same observable measure.
+When the index set admits sequential common refinements and the query system discriminates points, both constructions are available simultaneously.
 
 \begin{proposition}[Uniqueness of the observable measure]
 \label{I:prop:coincidence}
@@ -708,9 +663,14 @@ Both measures agree on every cylinder set: $P^{\mathrm{C}}(\mathrm{Cyl}(i, A)) =
 The observable measure may be obtained by two distinct constructions: by countable reach in $\iota$ via sequential common refinements (Theorem~\ref{I:thm:obs-extension}), or by the Stone completion of $\mathcal{C}$ (Theorem~\ref{I:thm:stone-main}). Whenever both constructions apply, they yield the same measure.
 \end{corollary}
 
-\noindent The Stone space makes the geometry of that demand visible.  Every point of $\mathrm{St}(\mathcal{C})$ is a maximal consistent assignment of yes/no answers to every observable distinction --- a coherent distinction pattern, whether or not any $\omega \in \Omega$ realises it.  The realised instantiation sits inside $\mathrm{St}(\mathcal{C})$ as the principal ultrafilters; beyond it lie ideal limit points, internally coherent but unrealised.
+% ------------------------------------------------------------------
+\section{Synthesis}
+\label{I:sec:bridge}
+% ------------------------------------------------------------------
 
-The measure now exists.  The next question is what it implies: whether prediction, dynamics, and ultimately the recovery of the underlying state space follow from observation alone --- or whether they too must be assumed.
+The results of this paper separate three layers.  A finitely additive charge gives a coherent valuation on the Boolean algebra of observable distinctions --- this is the finitary layer, verifiable at any single level.  Stone duality completes that algebra into the space of all coherent distinction patterns, including nonprincipal ones; compactness of the completion supplies $\sigma$-additivity there automatically.  But the completed space is larger than the realised instantiation: it contains ideal limit points, internally coherent but unrealised.  Collective exhaustion is the condition that closes the gap, ensuring the measure descends from the completion to the realised space.
+
+Every point of $\mathrm{St}(\mathcal{C})$ is a maximal consistent assignment of yes/no answers to every observable distinction --- a coherent distinction pattern, whether or not any $\omega \in \Omega$ realises it.  The realised instantiation sits inside $\mathrm{St}(\mathcal{C})$ as the principal ultrafilters; beyond it lie ideal limit points.  In classical formulations, $\sigma$-additivity is postulated and the distinction between realised and ideal points does not arise.  In the present formulation, the distinction is visible and CE is its resolution: mass cannot persist on events that the system as a whole sees as empty.
 
 \ifstandalone
 \bibliographystyle{plain}

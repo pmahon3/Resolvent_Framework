@@ -27,10 +27,12 @@ observational-resolution cluster share the same grammar:
 
 ## Note Roles
 
-- `conceptual_schema.md` — conceptual seed: consistency, coherence,
-  admissibility, failure modes, object as open horizon.
-- `mathematical_language.md` — theorem-clean language, definitions, templates,
-  and candidate examples.
+- `development.md` — working log for philosophy ↔ math iteration; the messy
+  middle where concepts are refined before graduating to stable files.
+- `conceptual_schema.md` — stabilized vocabulary and taxonomy: consistency,
+  coherence, admissibility, failure modes, object as open horizon.
+- `mathematical_language.md` — stabilized formal objects: definitions, schemas,
+  templates, and candidate examples.
 - `paper_sketch.md` — exposition-shaped sketch for a possible downstream paper.
 
 Related literature:

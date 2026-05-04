@@ -2,6 +2,17 @@
 
 *Seed note - 2026-05-02*
 
+## Structure
+
+This note has three zones.  The probability/CE case runs through all three
+as the seed example.
+
+| Zone | Sections | Role |
+|---|---|---|
+| **A. Seed example** | Prototype through Four Faces of CE | The worked probability instance: language, witness, three layers, CE readings |
+| **B. Abstract schema** | Minimal Abstract Schema through Public Wording | Formal skeleton: $(L,T,K,P,A)$, closure test, obstruction-passage pattern, expository discipline |
+| **C. Generalization** | Beyond the Łoś Diagnostic through Immediate Next Step | Completion-descent, institution form, horizon plurality, coherence problem, compactness, candidate definitions and examples |
+
 ## Purpose
 
 This note records the first mathematical language for the

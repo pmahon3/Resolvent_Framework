@@ -29,7 +29,7 @@ Directory conventions:
 - topic-specific literature mirrors the same architecture layer when useful:
   `notes/literature/<architecture_layer>/<topic>/`;
 - programme-wide reception reports live under
-  `notes/literature/programme_reception/`;
+  `notes/programme/programme_reception/`;
 - conceptual scaffolds that are not yet active theorem programmes live under an
   architectural area, usually `notes/conceptual/foundations/`;
 - superseded material stays under `notes/archive/`.
@@ -55,6 +55,10 @@ File conventions:
 - use `paper_sketch.md` only for exposition-shaped notes, not proof notebooks;
 - use `*_lit_review.md` for literature surveys and `claim_map.md` for
   citation/claim discipline;
+- use `development.md` for the working log where philosophy ↔ math iteration
+  happens; entries are chronological and do not need to be clean; material
+  graduates into the stable files (`conceptual_schema.md`,
+  `mathematical_language.md`, `paper_sketch.md`) when it stabilizes;
 - use `step_01_...md`, `step_02_...md`, etc. for sequential investigations;
 - use `snake_case.md`; avoid dates, spaces, CamelCase, and generated chat titles
   in active filenames;
@@ -66,7 +70,7 @@ Path examples:
 - `notes/future/foundations/coherence_completion/mathematical_language.md`;
 - `notes/future/finite_sample/observational_resolution/theorem_spec.md`;
 - `notes/literature/foundations/coherence_completion/logic_lit_review.md`;
-- `notes/literature/programme_reception/novelty_audit.md`.
+- `notes/programme/programme_reception/novelty_audit.md`.
 
 ## Recurring Motifs
 
@@ -128,6 +132,7 @@ Do not merge these.  The clean division is:
 
 | Need | Edit |
 |---|---|
+| active philosophy ↔ math iteration | `notes/future/foundations/coherence_completion/development.md` |
 | conceptual vocabulary | `notes/future/foundations/coherence_completion/conceptual_schema.md` |
 | definitions / lemmas / theorem targets | `notes/future/foundations/coherence_completion/mathematical_language.md` |
 | eventual article narrative | `notes/future/foundations/coherence_completion/paper_sketch.md` |
@@ -196,7 +201,7 @@ Primary notes:
   boundary for Paper III.
 - `notes/literature/finite_sample/observational_resolution/dimension_lit_review.md` —
   literature placement.
-- `notes/literature/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
+- `notes/future/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
   map.
 
 Consolidation decision:
@@ -231,6 +236,30 @@ Consolidation decision:
 - Use it as the likely second worked example for the coherence/completion
   schema only after the derivability question is settled.
 
+### Dynamics and Reconstruction: Lyapunov / Observational Exponents
+
+Primary note:
+
+- `notes/future/dynamics_reconstruction/lyapunov/observational_direction.md`
+
+Role:
+
+- Frames classical Lyapunov exponents as special cases of observational
+  distinguishability rates.
+- Post-arXiv direction; not part of the current three-paper arc.
+
+### Finite Sample: Interaction Discrimination
+
+Primary note:
+
+- `notes/future/finite_sample/interaction/discrimination_direction.md`
+
+Role:
+
+- Separate future programme on interaction ecologies via joint query systems
+  and predictive kernels.
+- Post-arXiv direction; not part of the current three-paper arc.
+
 ### Foundations: Zeta / Rational Mathematical Objects
 
 Primary note:
@@ -262,10 +291,10 @@ Role:
 
 Primary notes:
 
-- `notes/literature/programme_reception/historical_placement.md`
-- `notes/literature/programme_reception/field_by_field.md`
-- `notes/literature/programme_reception/novelty_audit.md`
-- `notes/literature/programme_reception/novelty_summary.md`
+- `notes/programme/programme_reception/historical_placement.md`
+- `notes/programme/programme_reception/field_by_field.md`
+- `notes/programme/programme_reception/novelty_audit.md`
+- `notes/programme/programme_reception/novelty_summary.md`
 
 Role:
 
@@ -308,10 +337,35 @@ Keep archived notes as provenance.  If an archived argument becomes active
 again, copy the relevant claim into an active note with attribution to the
 archive rather than editing the archive in place.
 
+## Development Logs
+
+Active clusters may have a `development.md` file.  This is the working surface
+where philosophical intuition and mathematical formalization iterate freely.
+Entries are chronological and do not need to be clean.
+
+The development log relates to the stable files as follows:
+
+| File | Role | Updated when |
+|---|---|---|
+| `development.md` | Working log: philosophy → math → philosophy → math | Continuously during active thinking |
+| `conceptual_schema.md` | Stabilized vocabulary and taxonomy | A concept or distinction settles in the log |
+| `mathematical_language.md` | Stabilized formal objects: definitions, lemmas, schemas | A definition or theorem target crystallizes |
+| `paper_sketch.md` | Exposition plan | The narrative shape becomes clear |
+
+The log is the workshop; the other files are the showroom.  Material moves from
+log to stable file when it stops changing.  Movement is not one-directional:
+a mathematical attempt that fails may send the log back to philosophical
+register.  The expectation is that the log averages forward over time.
+
+Do not put raw iteration into the stable files.  Do not require the log to be
+clean.  The log's job is to be the declared space for the messy middle.
+
 ## Consolidation Rule
 
 Before adding material, ask:
 
+0. Is this part of an active philosophy ↔ math iteration? Put it in the
+   cluster's `development.md`.
 1. Is this a theorem/proof target? Put it in the relevant mathematical-language
    or theorem-spec note.
 2. Is this a source/literature placement issue? Put it in `notes/literature/`.

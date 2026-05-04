@@ -2,30 +2,11 @@
 
 *Seed note - 2026-05-02*
 
-## Consolidation Status
+## Role
 
-This is the exposition-facing sketch for the coherence/completion direction.
-It should not become the proof notebook.  For navigation across the active
-future notes, see `notes/README.md`.
-
-Working division:
-
-- conceptual seed: `notes/future/foundations/coherence_completion/conceptual_schema.md`;
-- formal language: `notes/future/foundations/coherence_completion/mathematical_language.md`;
-- logic placement: `notes/literature/foundations/coherence_completion/logic_lit_review.md`;
-- philosophical scaffold:
-  `notes/literature/foundations/coherence_completion/philosophy_lit_review.md`;
-- concrete Boolean/Stone frontier:
-  `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.
-
-## Source
-
-This note extracts a paper-shaped suggestion from the May 2026 exchange on
-observational resolution dimension, zeta, and object-as-horizon language.  The
-suggestion is distinct from Paper III.  It points toward a separate
-foundations/coherence paper downstream of the submission-ready companion
-theorem note on countable additivity not being first-order axiomatizable:
-`papers/paper_i/notes/countable_additivity_not_first_order.tex`.
+Exposition-shaped sketch for a possible coherence/completion paper downstream of
+the companion note.  Not the proof notebook.  For the full cluster map, see
+`index.md`.
 
 Possible titles:
 
@@ -35,52 +16,24 @@ Possible titles:
 
 ## Core Thesis
 
-The object should not be understood as a completed substrate behind its possible
-observations, nor as a merely external target to which local data are later
-attached.  The object is the horizon of coherent refinement: the structured
-field within which distinctions can be made, related, extended, valued, and
-tested for admissible completion.
+(For vocabulary definitions, see `conceptual_schema.md`.)
 
-This horizon is open, not complete.  Openness is not a temporary empirical
-defect.  It is witnessed by non-compact failure modes: local or first-order
-coherence may persist while the intended global realization fails.
+The object is the horizon of coherent refinement — open, not complete.  Openness
+is structural, not defect: it is witnessed by non-compact failure modes where
+local coherence persists while the intended global realization fails.
 
 In a freer register:
 
 > the object is not what stands behind the horizon; the object is the horizon's
 > stable way of opening.
 
-Objecthood is not closure.  Objecthood is stable openness: the capacity to be
-returned to coherently under refinement while still admitting further
-distinctions, completions, obstructions, and failures of fit.  The object is not
-a hidden kernel behind possible disclosures.  It is the structured possibility
-of further disclosure.
+The paper's conceptual grammar:
 
-This suggests a compact conceptual grammar:
+> consistency = possible coexistence;
+> coherence = structured continuation;
+> admissibility = licensed completion.
 
-> consistency = possible coexistence  
-> coherence = structured continuation  
-> admissibility = licensed completion
-
-or:
-
-> coherence is consistency under intended continuation.
-
-Consistency says that the pieces can coexist.  Coherence asks whether they
-continue together toward the kind of whole they are supposed to disclose.
-Incoherence, in this sense, need not be contradiction.  It can be the failure of
-locally compatible pieces to sustain the intended global form.
-
-In slogan form:
-
-> object = open horizon of coherent refinement  
-> completion = attempted global realization  
-> failure mode = way the horizon refuses automatic closure  
-> admissibility = condition that closes the horizon relative to a target
-
-The paired phrase to keep:
-
-> open horizon / licensed closure
+The paired phrase: **open horizon / licensed closure**.
 
 ## Mathematical Witness
 
@@ -100,62 +53,17 @@ Consequently:
 CE names the additional admissibility condition that closes this horizon
 relative to $\sigma$-additive probability.
 
-## Relation to Existing Notes
+## Relation to Other Notes
 
-The submission-ready companion note should stay theorem-clean:
+For the full cluster map, see `index.md`.
 
-> language -> finitely additive probability structures -> Dirac structures ->
-> ultraproduct -> ultrafilter charge -> not $\sigma$-additive.
+The companion note supplies the theorem witness; this paper explains its
+structural meaning.  Do not insert philosophical/mathematical interpretation
+into the companion note itself.
 
-The deeper philosophical/mathematical interpretation should not be inserted into
-that note.  It belongs in the coherence/consistency direction and, eventually,
-in this separate paper.  The countable-additivity note supplies the theorem
-witness; the foundations paper explains the structural meaning of that witness.
-
-Existing nearby notes:
-
-- `notes/future/foundations/coherence_completion/conceptual_schema.md`: seed schema and
-  primary home;
-- `notes/future/foundations/ce_nonderivability/index.md`: related non-first-order direction;
-- `notes/future/foundations/zeta/observational_question.md`: boundary probe for
-  mathematical objects and horizon-internal valuation;
-- `notes/future/finite_sample/observational_resolution/index.md`: valuation-of-refinement
-  analogue;
-- `notes/future/foundations/coherence_completion/mathematical_language.md`: first attempt
-  at the notation and theorem-clean language extending the countable-additivity
-  note;
-- `notes/literature/foundations/coherence_completion/philosophy_lit_review.md`:
-  philosophical scaffolding to help generate the mathematical concepts, to be
-  discarded or compressed once the expository path is clear.
-
-The most important older note is
-`notes/future/foundations/coherence_completion/conceptual_schema.md`.  It already contains
-the mathematical spine:
-
-- the Los boundary as diagnostic;
-- the three-part schema of local data / global realization / failure mode;
-- consistency as the compact contradiction case;
-- CE as non-compact probabilistic coherence;
-- forcing as strengthened coherence;
-- objecthood as open horizon;
-- valuation of refinement as a second instance.
-
-This paper sketch should therefore be read as an extraction and expansion plan
-for that note, not as a competing direction.
-
-The fibre-mixing investigation is relevant but should be staged carefully.  It
-may become a second worked example of the schema, with:
-
-- local data: finitary observational/dynamical data;
-- global realization: equivalence of algebraic and entropy witnesses;
-- failure mode: fibre mixing fails, so the witnesses decouple;
-- admissibility: whatever dynamical condition forces the needed fibre balance.
-
-However, that investigation is not settled.  The notes currently identify a
-two-step gap: an analytic lower bound for the large-fibre contribution
-`kappa`, and a dynamical upgrade from positive-fraction balance to almost
-everywhere balance.  Until those are resolved, fibre mixing should appear only
-as a prospective second example, not as part of the core paper theorem.
+Fibre mixing may become a second worked example (Version B), but only after
+the derivability question is settled.  See
+`notes/future/dynamics_reconstruction/fibre_mixing/index.md`.
 
 ## Proposed Paper Claim
 
@@ -285,73 +193,27 @@ Question:
 
 ## Philosophical Payoff
 
-The exchange framed this through the contrast with monadic and totalizing
-rationalist pictures.
+Three positions rejected:
 
-The rejected monadic view:
+- **Monadic:** the object contains all admissible completions internally.
+- **Naive empiricist:** the object is external; observations accumulate toward it.
+- **Proposed:** the object is the open structure of possible coherent refinement.
 
-> the object contains all admissible scales, completions, valuations, and
-> relations internally.
-
-The rejected naive empiricist view:
-
-> the object is external, and observations merely accumulate toward it.
-
-The proposed middle view:
-
-> the object is the open structure of possible coherent refinement.
-
-In this view, probability, dimension, rates, dynamics, and valuation are not
-inside the object in isolation.  They are licensed when the relevant horizon
-satisfies the relevant admissibility condition.
-
-Merleau-Ponty is useful here because the mathematical structure is not raw data
-and not pure form.  It is structured access under a horizon.
-
-The phrase "structured accessibility" may be the cleanest nontechnical
-expression.  It avoids both extremes:
-
-- not a completed object containing all admissible completions internally;
-- not arbitrary access imposed from outside;
-- rather, objecthood as constrained openness under a horizon of possible
-  refinement.
-
-This gives a mature statement of the programme:
+The mature programme statement:
 
 > The framework does not found probability, dynamics, or dimension by reducing
 > them to observation.  It gives a grammar of admissibility: it says what must
 > be added to coherent distinction for each richer form of objectivity to become
 > licensed.
 
-This is the line that protects the programme from overclaiming.  It does not
-pretend assumptions disappear.  It relocates assumptions and makes them
-structurally visible.
+This protects against overclaiming: assumptions are relocated and made
+structurally visible, not eliminated.
 
 ## Relation to Valuation and Zeta
 
-The valuation discussion is a second instance of the same pattern.
-
-Refinement alone gives
-
-$$
-\mathcal G_0\preceq\mathcal G_1\preceq\cdots,
-$$
-
-but does not force a scale $\Lambda(k)$.  Thus:
-
-> refinement does not force valuation.
-
-This mirrors:
-
-> finite coherence does not force probability.
-
-The zeta critical-line curve is therefore a boundary test.  The question is not
-whether zeta contains an intrinsic probability or dimension in isolation, but
-whether a specified query horizon supports:
-
-- a nonvacuous naturality class;
-- a valuation of refinement;
-- a canonical CE-satisfying compatible charge.
+The pattern recurs: refinement alone does not force valuation, just as finite
+coherence does not force probability.  The zeta critical-line curve is a
+boundary test — see `notes/future/foundations/zeta/observational_question.md`.
 
 ## Proposed Structure
 
@@ -420,16 +282,5 @@ The mathematics should be carried by:
 
 ## Status
 
-This is paper-shaped but not yet paper-ready.
-
-Minimum next step:
-
-1. Make the local/global/failure-mode schema formal.
-2. Define compactness of a failure mode.
-3. Prove the probability/CE case is a non-compact failure mode.
-4. Decide whether there is a theorem separating contradiction-type compact
-   failures from CE-type non-compact failures.
-
-If those steps work, this could become a serious foundations/coherence paper
-after Papers I-III or as a companion essay with one hard theorem and several
-formal open problems.
+Paper-shaped but not paper-ready.  Next steps and iteration tracked in
+`development.md`.

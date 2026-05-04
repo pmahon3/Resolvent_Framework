@@ -25,7 +25,7 @@ Related notes:
   boundary for Paper III;
 - `notes/literature/finite_sample/observational_resolution/dimension_lit_review.md` —
   literature placement;
-- `notes/literature/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
+- `notes/future/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
   map.
 
 ## Basic principle

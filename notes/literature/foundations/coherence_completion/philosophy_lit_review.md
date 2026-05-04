@@ -2,11 +2,16 @@
 
 *Seed note - 2026-05-02*
 
+## See also
+
+- `notes/future/foundations/coherence_completion/index.md` — front door for the
+ working notes this review serves.
+
 ## Purpose
 
 This note surveys philosophical literature that may help scaffold the
-coherence/completion direction.  The goal is not to make the eventual
-mathematical exposition depend on philosophy.  The goal is to use philosophy as
+coherence/completion direction. The goal is not to make the eventual
+mathematical exposition depend on philosophy. The goal is to use philosophy as
 temporary scaffolding while clarifying the mathematical concepts:
 
 - local data;
@@ -22,7 +27,7 @@ away or compressed into a few careful orientation sentences.
 ## Working Thesis
 
 The programme is not best read as a reduction of probability, dynamics,
-dimension, or reconstruction to observation.  It is better read as a grammar of
+dimension, or reconstruction to observation. It is better read as a grammar of
 admissibility:
 
 > coherent distinction does not eliminate assumptions; it locates the condition
@@ -30,8 +35,8 @@ admissibility:
 
 The philosophical scaffold should help articulate the distinction:
 
-> consistency = possible coexistence  
-> coherence = structured continuation  
+> consistency = possible coexistence
+> coherence = structured continuation
 > admissibility = licensed completion
 
 and the guiding image:
@@ -44,29 +49,29 @@ and the guiding image:
 
 - Edmund Husserl: intentionality, noema, horizon, constitution.
 - Maurice Merleau-Ponty: perception as embodied access, neither passive
-  reception nor intellectual construction.
+ reception nor intellectual construction.
 
 Useful source anchors:
 
 - David Woodruff Smith, "Constitution Through Noema and Horizon: Husserl's
-  Theory of Intentionality."
-  Source: https://link.springer.com/chapter/10.1007/978-3-031-26074-2_4
+ Theory of Intentionality."
+ Source: https://link.springer.com/chapter/10.1007/978-3-031-26074-2_4
 
 - General orientation to Merleau-Ponty's *Phenomenology of Perception*.
-  Source: https://philopedia.org/works/phenomenology-of-perception/
+ Source: https://philopedia.org/works/phenomenology-of-perception/
 
 ### What Helps
 
 Phenomenology gives vocabulary for the thought that an object is not a sealed
-thing behind appearances, nor a construction imposed by a subject.  The object
-is disclosed through a horizon of possible access.  This is close to the
+thing behind appearances, nor a construction imposed by a subject. The object
+is disclosed through a horizon of possible access. This is close to the
 mathematical phrase:
 
 > objecthood = stable openness under refinement.
 
-In our setting, the primitive is not a hidden probability space.  It is a query
-horizon: a structured field of possible distinctions.  CE, valuation, temporal
-coherence, and faithfulness are not subjective additions.  They are horizon
+In our setting, the primitive is not a hidden probability space. It is a query
+horizon: a structured field of possible distinctions. CE, valuation, temporal
+coherence, and faithfulness are not subjective additions. They are horizon
 conditions under which particular completions become legitimate.
 
 ### What To Keep
@@ -88,7 +93,7 @@ Translate into mathematics as:
 ### What To Discard Later
 
 Do not make the mathematical paper depend on claims about consciousness,
-embodiment, subjectivity, or perception.  Merleau-Ponty is a guide to phrasing,
+embodiment, subjectivity, or perception. Merleau-Ponty is a guide to phrasing,
 not a mathematical premise.
 
 ## 2. Neo-Kantian and Cassirer Line: Function, Objectivity, and Symbolic Form
@@ -97,31 +102,31 @@ not a mathematical premise.
 
 - Ernst Cassirer, especially *Substance and Function*.
 - Michael Friedman, especially the relativized a priori in *Dynamics of
-  Reason*.
+ Reason*.
 
 Useful source anchors:
 
 - Britannica page on Cassirer's *Substance and Function*.
-  Source: https://www.britannica.com/topic/Substance-and-Function
+ Source: https://www.britannica.com/topic/Substance-and-Function
 
 - "Mathematical sciences as symbolic form: the objects and objectivity of
-  science in Ernst Cassirer's philosophy of science and culture."
-  Source: https://link.springer.com/article/10.1007/s11007-024-09645-3
+ science in Ernst Cassirer's philosophy of science and culture."
+ Source: https://link.springer.com/article/10.1007/s11007-024-09645-3
 
 - "The objectivity of mathematics in Cassirer's symbol-theoretical approach."
-  Source: https://link.springer.com/article/10.1007/s11007-024-09662-2
+ Source: https://link.springer.com/article/10.1007/s11007-024-09662-2
 
 - "Realism, functions, and the a priori: Ernst Cassirer's philosophy of
-  science."
-  Source: https://www.sciencedirect.com/science/article/pii/S0039368114000776
+ science."
+ Source: https://www.sciencedirect.com/science/article/pii/S0039368114000776
 
 - Michael Friedman, *Dynamics of Reason*.
-  Source: https://web.stanford.edu/group/cslipublications/cslipublicationssite/1575862921.shtml
+ Source: https://web.stanford.edu/group/cslipublications/cslipublicationssite/1575862921.shtml
 
 ### What Helps
 
 Cassirer is probably the strongest scaffold for "object is not substance behind
-relations."  His contrast between substance-concepts and function-concepts fits
+relations." His contrast between substance-concepts and function-concepts fits
 the programme well:
 
 - substance picture: object as completed substrate;
@@ -131,13 +136,13 @@ This is close to:
 
 > object = horizon of coherent refinement.
 
-It also helps avoid naive empiricism.  The object is not just accumulated data.
+It also helps avoid naive empiricism. The object is not just accumulated data.
 It is stabilized through lawful relations, transformations, invariants, and
 symbolic forms.
 
-Friedman's relativized a priori helps with the admissibility idea.  The
+Friedman's relativized a priori helps with the admissibility idea. The
 conditions licensing objectivity may be constitutive within a framework without
-being eternal or absolute.  This resembles:
+being eternal or absolute. This resembles:
 
 > valuation is horizon-internal, not object-internal absolutely.
 
@@ -159,7 +164,7 @@ Potential mathematical translation:
 
 ### What To Discard Later
 
-Avoid presenting the programme as neo-Kantian philosophy.  The useful residue is
+Avoid presenting the programme as neo-Kantian philosophy. The useful residue is
 not the historical doctrine but the mathematical posture:
 
 > do not seek a hidden substance; specify the relational/admissibility structure
@@ -172,23 +177,23 @@ not the historical doctrine but the mathematical posture:
 - Stewart Shapiro: ante rem structuralism.
 - Geoffrey Hellman: modal structuralism.
 - Steve Awodey, Elaine Landry, Jean-Pierre Marquis, Colin McLarty:
-  category-theoretic structuralism.
+ category-theoretic structuralism.
 
 Useful source anchors:
 
 - SEP, "Structuralism in the Philosophy of Mathematics."
-  Source: https://plato.stanford.edu/entries/structuralism-mathematics/
+ Source: https://plato.stanford.edu/entries/structuralism-mathematics/
 
 - Routledge Encyclopedia entry on mathematical structuralism.
-  Source: https://www.rep.routledge.com/articles/thematic/structuralism-in-the-philosophy-of-mathematics/v-1
+ Source: https://www.rep.routledge.com/articles/thematic/structuralism-in-the-philosophy-of-mathematics/v-1
 
 - Hellman and Shapiro, *Mathematical Structuralism*.
-  Source: https://mitpressbookstore.mit.edu/book/9781108456432
+ Source: https://mitpressbookstore.mit.edu/book/9781108456432
 
 ### What Helps
 
 Structuralism makes it normal to understand mathematical objects through their
-places in systems of relations.  Category-theoretic structuralism is especially
+places in systems of relations. Category-theoretic structuralism is especially
 close because it treats objects through maps, invariance, and universal
 properties rather than through internal substance.
 
@@ -197,7 +202,7 @@ This supports the anti-monadic point:
 > mathematical objecthood need not mean an internally complete entity.
 
 However, ordinary structuralism may still be too static for the present
-programme.  We need not only structure but continuation:
+programme. We need not only structure but continuation:
 
 > coherence is consistency under intended continuation.
 
@@ -215,7 +220,7 @@ Keep:
 - invariance under appropriate equivalence;
 - categorical attention to maps and preservation;
 - anti-foundational use of category theory as language rather than ultimate
-  ontology.
+ ontology.
 
 Possible mathematical translation:
 
@@ -227,7 +232,7 @@ Possible mathematical translation:
 ### What To Discard Later
 
 Do not fight old structuralism battles about ante rem vs in re vs modal
-structuralism unless needed.  The programme's mathematical issue is more
+structuralism unless needed. The programme's mathematical issue is more
 specific:
 
 > which local structures force which global completions, and which failure modes
@@ -238,34 +243,34 @@ specific:
 ### Useful Figures
 
 - Jean Cavailles: philosophy of the concept and internal development of
-  mathematical thought.
+ mathematical thought.
 - Albert Lautman: mathematical theories as solutions to dialectical problems.
 - Gilles-Gaston Granger: formal thought, structural method, and objectification.
 - Fernando Zalamea: synthetic philosophy of contemporary mathematics; local and
-  global, sheafification, mathematical gestures.
+ global, sheafification, mathematical gestures.
 
 Useful source anchors:
 
 - J.-stage article on Cavailles, logic, and theory of science.
-  Source: https://www.jstage.jst.go.jp/article/philosophy/2013/64/2013_127/_article
+ Source: https://www.jstage.jst.go.jp/article/philosophy/2013/64/2013_127/_article
 
 - Simon Duffy, "Lautman on problems as the conditions of existence of
-  solutions."
-  Source: https://philpapers.org/rec/DUFLOP
+ solutions."
+ Source: https://philpapers.org/rec/DUFLOP
 
 - James Bahoh, "Deleuze's Theory of Dialectical Ideas: The Influence of Lautman
-  and Heidegger."
-  Source: https://digitalcommons.memphis.edu/facpubs/18257/
+ and Heidegger."
+ Source: https://digitalcommons.memphis.edu/facpubs/18257/
 
 - Gilles-Gaston Granger, *Formal Thought and the Sciences of Man*.
-  Source: https://link.springer.com/book/10.1007/978-94-009-7037-3
+ Source: https://link.springer.com/book/10.1007/978-94-009-7037-3
 
 - Fernando Zalamea, *Synthetic Philosophy of Contemporary Mathematics*.
-  Source: https://philpapers.org/rec/ZALSPO
+ Source: https://philpapers.org/rec/ZALSPO
 
 - Urbanomic excerpt on Zalamea, local/global, sheafification, and contemporary
-  mathematics.
-  Source: https://www.urbanomic.com/chapter/synthetic-philosophy-of-contemporary-mathematics-fragments-of-a-transitory-ontology/
+ mathematics.
+ Source: https://www.urbanomic.com/chapter/synthetic-philosophy-of-contemporary-mathematics-fragments-of-a-transitory-ontology/
 
 ### What Helps
 
@@ -281,7 +286,7 @@ That resonates with:
 > local horizon / global completion / failure mode.
 
 Cavailles and Granger support a non-psychological, non-subjectivist version of
-conceptual development.  The issue is not mental construction; it is the
+conceptual development. The issue is not mental construction; it is the
 internal pressure of formal systems, concepts, and transformations.
 
 Zalamea is relevant because he explicitly values modern mathematical themes
@@ -305,11 +310,11 @@ Possible mathematical translation:
 - global realization = solution/completion;
 - admissibility = condition under which a solution is licensed;
 - failure mode = obstruction showing that local solvability does not imply
-  global solution.
+ global solution.
 
 ### What To Discard Later
 
-Avoid making Lautman/Deleuze/Zalamea the expository center.  They are useful for
+Avoid making Lautman/Deleuze/Zalamea the expository center. They are useful for
 imagination, but the eventual mathematical paper should be carried by:
 
 - Los theorem;
@@ -329,18 +334,18 @@ imagination, but the eventual mathematical paper should be carried by:
 Useful source anchors:
 
 - Oxford page for Maddy's *Second Philosophy*.
-  Source: https://academic.oup.com/book/4868
+ Source: https://academic.oup.com/book/4868
 
 - SEP archive, "Naturalism in the Philosophy of Mathematics."
-  Source: https://plato.stanford.edu/archives/spr2021/entries/naturalism-mathematics/
+ Source: https://plato.stanford.edu/archives/spr2021/entries/naturalism-mathematics/
 
 - Notre Dame Philosophical Reviews review of *Second Philosophy*.
-  Source: https://ndpr.nd.edu/reviews/second-philosophy-a-naturalistic-method/
+ Source: https://ndpr.nd.edu/reviews/second-philosophy-a-naturalistic-method/
 
 ### What Helps
 
-This literature is useful as a disciplinary guardrail.  The philosophy should
-not tell the mathematics what it must be.  If the mathematical investigation
+This literature is useful as a disciplinary guardrail. The philosophy should
+not tell the mathematics what it must be. If the mathematical investigation
 pushes against the philosophical image, the image must be revised or discarded.
 
 This aligns exactly with the intended use of this note:
@@ -355,11 +360,11 @@ Keep:
 - respect mathematical practice;
 - do not let metaphysical language outrun theorem statements;
 - use philosophy to generate questions and distinctions, not to prove
-  mathematical claims.
+ mathematical claims.
 
 ### What To Discard Later
 
-Do not import a full naturalist programme.  Use the methodological warning:
+Do not import a full naturalist programme. Use the methodological warning:
 
 > philosophy serves the mathematical clarification; it does not command it.
 
@@ -390,14 +395,14 @@ The second strongest cluster is:
 
 > objecthood as stable openness under coherent refinement.
 
-This is philosophically rich, but should be used cautiously.  It is best kept
+This is philosophically rich, but should be used cautiously. It is best kept
 as orientation, not as theorem language.
 
 The third strongest cluster is:
 
 > failure of automatic closure.
 
-This is the most mathematically robust phrase.  It names exactly what the
+This is the most mathematically robust phrase. It names exactly what the
 countable-additivity theorem demonstrates: local/first-order coherence does not
 force the intended global property.
 
@@ -407,11 +412,11 @@ For immediate scaffolding:
 
 1. Cassirer, *Substance and Function*.
 2. Merleau-Ponty, *Phenomenology of Perception*, selected passages on horizon
-   and object perception.
+ and object perception.
 3. SEP, "Structuralism in the Philosophy of Mathematics."
 4. Friedman, *Dynamics of Reason*, for relativized constitutive principles.
 5. Zalamea, *Synthetic Philosophy of Contemporary Mathematics*, selected parts
-   on local/global and contemporary mathematical practice.
+ on local/global and contemporary mathematical practice.
 
 For later, if the coherence paper becomes serious:
 
@@ -431,7 +436,7 @@ Avoid:
 - collapsing all admissibility conditions into one master condition;
 - saying "coherence is prior to consistency" as if already proved;
 - drifting into general metaphysics of objecthood without returning to failure
-  modes.
+ modes.
 
 Prefer:
 
@@ -453,10 +458,10 @@ internal/external binary:
 4. Probability is neither, in that simple binary sense.
 
 The framework's answer is closest to the fourth, but it should not be presented
-as a formal tetralemma in mathematical exposition.  The useful residue is:
+as a formal tetralemma in mathematical exposition. The useful residue is:
 
 > The question is not whether probability is inside or outside finite
-> coherence.  The question is which admissibility condition licenses the passage
+> coherence. The question is which admissibility condition licenses the passage
 > from finite coherence to probability.
 
 For CE, the mathematical answer has four faces:
@@ -467,7 +472,7 @@ For CE, the mathematical answer has four faces:
 - model-theoretic: not first-order forced by the lean local language.
 
 This gives a disciplined mathematical substitute for the philosophical
-fourfold.  It preserves the insight without importing non-occidental
+fourfold. It preserves the insight without importing non-occidental
 argumentation as formal machinery.
 
 ## 11. Methodological Guardrail: Do Not Objectify the Middle
@@ -478,7 +483,7 @@ pointing:
 > let $X$ be... define $P$... then...
 
 That style easily turns the middle position into another object with an
-essence.  This would betray the intuition that the relevant space must remain
+essence. This would betray the intuition that the relevant space must remain
 open enough for the passage to be meaningful.
 
 The current strategy should therefore be:
@@ -495,11 +500,11 @@ In mathematical terms:
 For CE:
 
 - false closure: finite/first-order coherence does not force
-  $\sigma$-additivity;
+ $\sigma$-additivity;
 - non-arbitrariness: CE is necessary and sufficient in the observational
-  extension theorem;
+ extension theorem;
 - admissibility: CE is continuity from above / no purely finitely additive part
-  / support on realised Stone points;
+ / support on realised Stone points;
 - restraint: do not say CE is the essence of probability.
 
 Preferred mathematical style:
@@ -520,7 +525,7 @@ This is likely the most rigorous way to preserve the open space:
 The philosophical literature suggests a strong but disciplined reading:
 
 > Mathematical objecthood should be approached not as completed substance, but
-> as structured accessibility under coherent refinement.  Global objects appear
+> as structured accessibility under coherent refinement. Global objects appear
 > when a horizon of local distinctions is supplied with the admissibility
 > condition needed to close a specific failure mode.
 

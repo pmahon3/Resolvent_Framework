@@ -95,18 +95,13 @@ instance stoneSpace_t2Space : T2Space (stoneSpace S) :=
 instance stoneSpace_totallyDisconnected : TotallyDisconnectedSpace (stoneSpace S) :=
   inferInstance
 
-/-- `Ultrafilter.map f` agrees with `Ultrafilter.extend (pure ∘ f)` when the target
-    is compact Hausdorff. Both are continuous maps `Ultrafilter α → Ultrafilter β`
-    agreeing on `pure α` (the dense subspace), so they agree everywhere. -/
-private theorem ultrafilter_map_eq_extend {α β : Type*} (f : α → β) :
-    Ultrafilter.map f = Ultrafilter.extend (pure ∘ f) := by
-  funext u
-  -- Both sides are continuous maps Ultrafilter α → Ultrafilter β agreeing on pure(α).
-  -- Ultrafilter.extend (pure ∘ f) is by definition the unique continuous extension.
-  -- Ultrafilter.map f agrees on pure: map f (pure a) = pure (f a) = (pure ∘ f) a.
-  -- By density of pure and T2, they agree everywhere.
-  -- Proof: use isDenseInducing_pure.extend_eq_of_tendsto
-  sorry -- WIP: needs Tendsto (pure ∘ f) (comap pure (𝓝 u)) (𝓝 (map f u))
+/-- `Ultrafilter.map f` is continuous: preimages of basic opens `{u | s ∈ u}`
+    are basic opens `{u | f⁻¹'s ∈ u}`. -/
+private theorem continuous_ultrafilter_map {α β : Type*} (f : α → β) :
+    Continuous (Ultrafilter.map f) := by
+  rw [ultrafilterBasis_is_basis.continuous_iff]
+  rintro _ ⟨s, rfl⟩
+  exact ultrafilter_isOpen_basic (f ⁻¹' s)
 
 /-- The Stone embedding sends each point of `S.Omega` to its principal ultrafilter. -/
 def stoneEmbedding : S.Omega → stoneSpace S := pure
@@ -139,8 +134,7 @@ noncomputable def stoneEval (i : S.ι) : stoneSpace S → Ultrafilter (S.q i).Ou
     `Ultrafilter.extend` applies via `continuous_ultrafilter_extend`. -/
 theorem stoneEval_continuous (i : S.ι) : Continuous (stoneEval S i) := by
   unfold stoneEval
-  rw [ultrafilter_map_eq_extend]
-  exact continuous_ultrafilter_extend _
+  exact continuous_ultrafilter_map _
 
 /-- `stoneEval` commutes with refinement: `stoneOutcomeMap hij ∘ stoneEval j = stoneEval i`. -/
 theorem stoneEval_compat {i j : S.ι} (hij : S.le i j) :
@@ -173,8 +167,7 @@ noncomputable def stoneOutcomeMap {i j : S.ι} (hij : S.le i j) :
 theorem stoneOutcomeMap_continuous {i j : S.ι} (hij : S.le i j) :
     Continuous (stoneOutcomeMap S hij) := by
   unfold stoneOutcomeMap
-  rw [ultrafilter_map_eq_extend]
-  exact continuous_ultrafilter_extend _
+  exact continuous_ultrafilter_map _
 
 /-- Transitivity: bonding maps compose correctly.
     `S.π_trans hij hjk : (π (le_trans hij hjk)).π = (π hjk).π ∘ (π hij).π`. -/

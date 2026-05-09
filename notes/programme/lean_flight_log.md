@@ -5,6 +5,103 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-05-09 — Formalization Alignment Plan (post Paper I revision)
+
+### Context
+
+Paper I revised from 13pp to 8pp. Main structural change: four-way main
+equivalence theorem (Thm 6.1) added in synthesis, gathering:
+- (i) Kolmogorov: each $\ell_i$ σ-additive
+- (ii) CE: collectively exhaustive
+- (iii) Yosida-Hewitt: $\ell_p = 0$
+- (iv) Stone support: $\hat\mu(\mathrm{pure}(\Omega)) = 1$
+
+No new mathematical content — all four equivalences were already proved
+in the body. The theorem assembles them.
+
+### Current sorry inventory (corrected)
+
+| File | Sorrys | Type |
+|------|--------|------|
+| `DiscriminabilityFoundations.lean` | 3 | 1 intentional (abstract inv limit), 2 infra (QS ultraproduct) |
+| `StoneDualityExtension.lean` | 2 | Mathlib gaps (clopen→Borel, Choksi) |
+| `DelayEmbedding.lean` | 4 | SUD issue; bounded subsystem proved |
+| `ProkhorovExtension.lean` | 1 | Mathlib gap (PerfectMeasure) |
+| `TopologicalQuerySystem.lean` | 1 | Intentional skeleton |
+
+Key fact: `sp1_iff` (CE characterisation, Paper I Thm 4.3) is PROVED
+with 0 sorry. The 3 sorrys in DiscriminabilityFoundations are all in the
+non-derivability/irreducibility section, not in the characterisation.
+
+### Prioritized plan
+
+**Tier 1 — Highest leverage (blocks submission quality)**
+
+P1. **Main equivalence theorem (Thm 6.1)**
+    File: new theorem, likely in `StoneDualityExtension.lean` or new file
+    Depends on: sp1_iff (✅), Yosida-Hewitt (❌ Mathlib gap),
+    Prop B2 support condition (⚠️ 2 sorry)
+    Action: Formalize the assembling theorem. Accept Mathlib-gap sorrys
+    for legs (iii) and (iv); legs (i)↔(ii) already proved.
+    Effort: Low (assembles existing results)
+
+P2. **Stone support condition (Prop 5.5)**
+    File: `StoneDualityExtension.lean`
+    Gap: 2 sorrys at clopen→Borel and Choksi
+    Action: Assess whether these can be worked around inline or need
+    Mathlib contributions. If workaround possible, close. If not,
+    document as Mathlib frontier sorrys.
+    Effort: Medium (Mathlib assessment needed)
+
+**Tier 2 — Valuable but not blocking**
+
+P3. **IsFinitarilyExpressible + ce_irreducibility**
+    File: `DiscriminabilityFoundations.lean`
+    Gap: needs ultraproduct construction for QuerySystem
+    Action: Either build minimal ultraproduct infrastructure or accept
+    sorry with documentation. The companion note (UltrafilterCharge.lean,
+    0 sorry) already proves the result at the Boolean algebra level.
+    Effort: High (ultraproduct infra) or Low (accept sorry)
+
+P4. **Abstract EvalSurjective from inverse limit**
+    File: `DiscriminabilityFoundations.lean`
+    Gap: needs Tychonoff for abstract inverse limit
+    Action: Accept sorry. Concrete delay systems bypass this entirely.
+    Not load-bearing for any paper result.
+    Effort: N/A (accept)
+
+**Tier 3 — Supporting**
+
+P5. `DelayEmbedding.lean` — 4 sorrys around SUD. Not blocking.
+P6. `ProkhorovExtension.lean` — Mathlib gap. Not blocking.
+P7. `TopologicalQuerySystem.lean` — skeleton. Not blocking.
+
+### Honest frontier
+
+The formalization already covers Paper I's central results:
+- Carathéodory extension (0 sorry) ✅
+- CE characterisation (0 sorry) ✅
+- Ultrafilter charge non-σ-additivity (0 sorry) ✅
+- CE independence from structural conditions (0 sorry) ✅
+
+The remaining sorrys are at Mathlib infrastructure boundaries:
+- Stone-space measure theory (clopen→Borel, Choksi)
+- Ultraproduct construction for first-order structures
+- Yosida-Hewitt decomposition
+
+These are genuine Mathlib gaps, not proof-logic gaps. The mathematical
+content behind every sorry is clear and documented.
+
+### Decision needed
+
+Accept Mathlib-frontier sorrys and submit with current coverage, or
+invest in closing them first? The companion note (UltrafilterCharge.lean)
+is already 0 sorry. The Carathéodory route is 0 sorry. The Stone route
+has 2 documented Mathlib sorrys. This is a strong formalization for a
+submission.
+
+---
+
 ## 2026-04-27 — ReconstructionTheorem.lean (closing lpMeas_eq_top_of_ae_eq)
 
 ### Goal

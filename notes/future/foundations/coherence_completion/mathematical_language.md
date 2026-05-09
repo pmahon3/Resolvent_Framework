@@ -1340,6 +1340,38 @@ Status:
 Boundary probe.  Useful for the philosophy of objecthood, not a theorem source
 yet.
 
+### Propositional Probability
+
+*Cut from Paper I body 2026-05-09.*
+
+Local data:
+
+> Finite Lindenbaum algebras $\mathcal{E}_n = \mathrm{Lind}(\phi_1, \ldots,
+> \phi_n)$ of a consistent countable propositional theory $T$, with restriction
+> as refinement.
+
+Target global property:
+
+> a $\sigma$-additive probability on complete consistent extensions of $T$.
+
+Canonical instantiation:
+
+$$
+\Omega = \varprojlim_n \mathrm{atoms}(\mathcal{E}_n)
+= \{\text{complete consistent extensions of } T\}.
+$$
+
+Surjective evaluation is the Lindenbaum extension lemma.  A compatible family
+of normalised charges is a coherent system of finite-level probability
+assignments.  CE requires assigned masses to drain on finite conditions that
+collectively vanish; the CE characterisation theorem yields a unique
+$\sigma$-additive measure exactly when CE holds.
+
+Status:
+
+Theorem-clean instance of the schema in a non-empirical setting.  Shows the
+framework applies to logical probability, not only to physical observation.
+
 ## Working Notation
 
 Use:

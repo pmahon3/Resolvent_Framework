@@ -95,6 +95,19 @@ instance stoneSpace_t2Space : T2Space (stoneSpace S) :=
 instance stoneSpace_totallyDisconnected : TotallyDisconnectedSpace (stoneSpace S) :=
   inferInstance
 
+/-- `Ultrafilter.map f` agrees with `Ultrafilter.extend (pure ∘ f)` when the target
+    is compact Hausdorff. Both are continuous maps `Ultrafilter α → Ultrafilter β`
+    agreeing on `pure α` (the dense subspace), so they agree everywhere. -/
+private theorem ultrafilter_map_eq_extend {α β : Type*} (f : α → β) :
+    Ultrafilter.map f = Ultrafilter.extend (pure ∘ f) := by
+  funext u
+  -- Both sides are continuous maps Ultrafilter α → Ultrafilter β agreeing on pure(α).
+  -- Ultrafilter.extend (pure ∘ f) is by definition the unique continuous extension.
+  -- Ultrafilter.map f agrees on pure: map f (pure a) = pure (f a) = (pure ∘ f) a.
+  -- By density of pure and T2, they agree everywhere.
+  -- Proof: use isDenseInducing_pure.extend_eq_of_tendsto
+  sorry -- WIP: needs Tendsto (pure ∘ f) (comap pure (𝓝 u)) (𝓝 (map f u))
+
 /-- The Stone embedding sends each point of `S.Omega` to its principal ultrafilter. -/
 def stoneEmbedding : S.Omega → stoneSpace S := pure
 
@@ -126,15 +139,8 @@ noncomputable def stoneEval (i : S.ι) : stoneSpace S → Ultrafilter (S.q i).Ou
     `Ultrafilter.extend` applies via `continuous_ultrafilter_extend`. -/
 theorem stoneEval_continuous (i : S.ι) : Continuous (stoneEval S i) := by
   unfold stoneEval
-  -- Ultrafilter.map f is the unique continuous extension of pure ∘ f along the dense
-  -- embedding pure : S.Omega → Ultrafilter S.Omega, so equals Ultrafilter.extend (pure ∘ f).
-  suffices h : (fun u : stoneSpace S ↦ Ultrafilter.map (S.eval i) u) =
-               Ultrafilter.extend (pure ∘ S.eval i) by
-    -- h rewrites the eta-expanded form; use funext to eta-contract for continuity
-    have : Ultrafilter.map (S.eval i) = Ultrafilter.extend (pure ∘ S.eval i) :=
-      funext fun u => congr_fun h u
-    rw [this]; exact continuous_ultrafilter_extend _
-  sorry -- technical: Ultrafilter.map f = Ultrafilter.extend (pure ∘ f); not load-bearing
+  rw [ultrafilter_map_eq_extend]
+  exact continuous_ultrafilter_extend _
 
 /-- `stoneEval` commutes with refinement: `stoneOutcomeMap hij ∘ stoneEval j = stoneEval i`. -/
 theorem stoneEval_compat {i j : S.ι} (hij : S.le i j) :
@@ -167,12 +173,8 @@ noncomputable def stoneOutcomeMap {i j : S.ι} (hij : S.le i j) :
 theorem stoneOutcomeMap_continuous {i j : S.ι} (hij : S.le i j) :
     Continuous (stoneOutcomeMap S hij) := by
   unfold stoneOutcomeMap
-  suffices h : (fun u : Ultrafilter (S.q j).Outcome ↦ Ultrafilter.map (S.π hij).π u) =
-               Ultrafilter.extend (pure ∘ (S.π hij).π) by
-    have : Ultrafilter.map (S.π hij).π = Ultrafilter.extend (pure ∘ (S.π hij).π) :=
-      funext fun u => congr_fun h u
-    rw [this]; exact continuous_ultrafilter_extend _
-  sorry -- technical: Ultrafilter.map f = Ultrafilter.extend (pure ∘ f); not load-bearing
+  rw [ultrafilter_map_eq_extend]
+  exact continuous_ultrafilter_extend _
 
 /-- Transitivity: bonding maps compose correctly.
     `S.π_trans hij hjk : (π (le_trans hij hjk)).π = (π hjk).π ∘ (π hij).π`. -/

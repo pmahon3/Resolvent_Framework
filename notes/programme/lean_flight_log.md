@@ -102,6 +102,57 @@ submission.
 
 ---
 
+## 2026-05-09 — StoneDualityExtension.lean (ultrafilter_map_eq_extend)
+
+### Goal
+
+Close two "technical" sorrys in `stoneEval_continuous` and
+`stoneOutcomeMap_continuous`. Both need the same fact:
+`Ultrafilter.map f = Ultrafilter.extend (pure ∘ f)`.
+
+### Mathematical proof
+
+Both sides are continuous maps `Ultrafilter α → Ultrafilter β` that
+agree on `pure(α)`: `map f (pure a) = pure (f a) = (pure ∘ f) a`.
+By density of `pure` (`denseRange_pure`) and T2 separation of
+`Ultrafilter β`, they agree everywhere.
+
+### Lean status
+
+Extracted as `ultrafilter_map_eq_extend`. The helper lemma compiles
+as a sorry; the two call sites are cleaned up to:
+```lean
+rw [ultrafilter_map_eq_extend]
+exact continuous_ultrafilter_extend _
+```
+
+### Proof attempts
+
+1. `rw [ultrafilter_extend_eq_iff]` + manual Filter.map manipulation:
+   blocked by coercion issues between `Ultrafilter.map` and `Filter.map`.
+   `↑(Ultrafilter.map pure v)` parsed as `Ultrafilter (Ultrafilter β)`,
+   not `Filter (Ultrafilter β)`.
+
+2. `simp only [Ultrafilter.coe_map, Filter.map_map]` + `change`:
+   `simp` didn't fire on `Filter.map_map` (unused argument warning).
+
+3. Term-mode via `isDenseInducing_pure.extend_eq_of_tendsto`:
+   needs `Tendsto (pure ∘ f) (comap pure (𝓝 u)) (𝓝 (map f u))`.
+   This should follow from `ultrafilter_comap_pure_nhds` but the
+   composition with `f` needs care.
+
+### Next step
+
+Try: `isDenseInducing_pure.extend_eq_of_tendsto` with
+`Tendsto` constructed via `ultrafilter_comap_pure_nhds` and
+`Ultrafilter.map_pure`. Or: prove `Continuous (Ultrafilter.map f)`
+directly without the `extend` detour, using `Ultrafilter.map_pure`
+and `isTopologicalBasis_ultrafilterBasis`.
+
+### Status: WIP (1 temporary sorry, down from 2 sorrys)
+
+---
+
 ## 2026-04-27 — ReconstructionTheorem.lean (closing lpMeas_eq_top_of_ae_eq)
 
 ### Goal

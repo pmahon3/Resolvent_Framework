@@ -1,0 +1,163 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+
+\title{Billingsley's Probability Measure Axiom and Collective Exhaustion}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Classical starting point}
+
+In Billingsley's formulation, a probability measure is a set function
+$P$ on a field $\mathcal F$ of subsets of $\Omega$ satisfying:
+\begin{enumerate}
+  \item[(i)] $P(A) \ge 0$ for every $A \in \mathcal F$;
+  \item[(ii)] $P(\Omega)=1$;
+  \item[(iii)] if $A_1,A_2,\ldots \in \mathcal F$ are pairwise disjoint and
+  $\bigcup_n A_n \in \mathcal F$, then
+  \[
+    P\!\left(\bigcup_{n=1}^{\infty} A_n\right)
+    =
+    \sum_{n=1}^{\infty} P(A_n).
+  \]
+\end{enumerate}
+
+For a finitely additive probability, this third axiom is equivalent to
+continuity at the empty set:
+\[
+  E_1 \supseteq E_2 \supseteq \cdots,
+  \qquad
+  \bigcap_n E_n = \emptyset
+  \quad\Longrightarrow\quad
+  P(E_n) \to 0.
+\]
+Thus the analytic content of countable additivity is that mass cannot
+persist along a descending sequence of events that has vanished.
+
+\section*{Paper I starting point}
+
+Paper I begins one step earlier.  Instead of assuming a single
+countably additive probability measure, it starts with a directed query
+system: Boolean algebras $\mathcal E_i$ connected by refinement maps
+$\pi_{ij}$, together with compatible finitely additive charges
+$\{\ell_i\}$.
+
+The structural input is a query system consisting of
+\[
+  \bigl(\mathcal I,\le\bigr),
+  \qquad
+  (O_i,\mathcal E_i)_{i\in\mathcal I},
+  \qquad
+  \pi_{ij}:O_j\to O_i\quad(i\le j).
+\]
+These data are required to satisfy the standing refinement identities
+\[
+  \pi_{ii}=\mathrm{id},\qquad
+  \pi_{ik}=\pi_{ij}\circ\pi_{jk}\quad(i\le j\le k),
+\]
+and the relevant directedness hypotheses used by the chosen extension route.
+No separate underlying sample space is needed at this stage.  When a realised
+space is required, Paper I may take the canonical instantiation
+\[
+  \Omega
+  =
+  \varprojlim_{i\in\mathcal I}O_i
+  =
+  \left\{
+    (\omega_i)_i\in\prod_i O_i:
+    \pi_{ij}(\omega_j)=\omega_i\ \text{for }i\le j
+  \right\},
+\]
+with evaluation maps $\mathrm{eval}_i(\omega)=\omega_i$.  Thus
+\[
+  \mathrm{eval}_i=\pi_{ij}\circ\mathrm{eval}_j\quad(i\le j)
+\]
+holds by construction.  The additional evaluation and separation hypotheses
+used in the descent to a realised observable measure are:
+\[
+  \mathrm{eval}_i:\Omega\to O_i\ \text{is surjective},
+\]
+and, for the Stone route, discriminability:
+\[
+  \omega\ne\omega'
+  \quad\Longrightarrow\quad
+  \exists i\in\mathcal I,\ \exists A\in\mathcal E_i
+  \ \text{such that}\
+  \mathrm{eval}_i(\omega)\in A,\quad
+  \mathrm{eval}_i(\omega')\notin A.
+\]
+The observable cylinder algebra is
+\[
+  \mathcal C
+  =
+  \{\mathrm{eval}_i^{-1}(A):i\in\mathcal I,\ A\in\mathcal E_i\}.
+\]
+
+The observable-data analogue of Billingsley's definition is not yet a
+probability measure on a $\sigma$-algebra.  It is an admissible coherent
+probability datum: a family $\{\ell_i\}$ satisfying the following
+conditions.
+\begin{enumerate}
+  \item[(i)] Local finite probability: each $\ell_i$ is a normalised finitely
+  additive charge on $\mathcal E_i$, i.e.
+  \[
+    \ell_i(A) \ge 0 \quad (A \in \mathcal E_i),
+    \qquad
+    \ell_i(O_i)=1,
+  \]
+  and for disjoint $A,B \in \mathcal E_i$,
+  \[
+    \ell_i(A \cup B)=\ell_i(A)+\ell_i(B);
+  \]
+
+  \item[(ii)] Compatibility under refinement:
+  \[
+    \ell_j(\pi_{ij}^{-1}A)=\ell_i(A)
+    \qquad
+    (i \le j,\; A \in \mathcal E_i);
+  \]
+
+  \item[(iii)] Collective exhaustion (CE): if $i \in \mathcal I$ and
+  $E_1,E_2,\ldots \in \mathcal E_i$ satisfy
+  \[
+    E_1 \supseteq E_2 \supseteq \cdots,
+    \qquad
+    \bigcap_{n=1}^{\infty} E_n = \emptyset,
+  \]
+  then there exists $j \ge i$ such that
+  \[
+    \ell_j\!\left(\pi_{ij}^{-1}(E_n)\right) \longrightarrow 0.
+  \]
+\end{enumerate}
+
+Here local finite probability expands into positivity, normalization, and finite
+additivity at each level.  Compatibility is the new query-system coherence
+condition.  CE replaces direct assumption of countable additivity at the
+observable-data level: no compatible charge family may assign persistent mass to
+finite observable conditions that collectively vanish under refinement.
+
+These three conditions are the minimal measure-side hypotheses.  Together with
+the structural query-system hypotheses above, they imply
+\[
+  \begin{aligned}
+  &\exists!\,P:\sigma(\mathcal C)\to[0,1],\\
+  &P\ \text{is countably additive},\\
+  &(\mathrm{eval}_i)_\#P=\ell_i
+    \qquad (i\in\mathcal I).
+  \end{aligned}
+\]
+
+Thus Paper I does not alter the target notion of probability measure.  The
+delivered object is an ordinary countably additive probability measure on
+$(\Omega,\sigma(\mathcal C))$.  The change is in the input: countable
+additivity is not assumed of a global $P$ at the outset; it is recovered from
+local finite probability, refinement compatibility, and CE.
+
+\end{document}

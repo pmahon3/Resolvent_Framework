@@ -189,7 +189,22 @@ TD space, every compact = finite union of clopens. Monotonicity and
 sub-additivity follow. `Content.measure` gives the extension. Similar
 line count but different API threading.
 
-### Status: NOT ATTEMPTED — detailed plan logged for next session.
+### Progress (2026-05-10)
+
+Steps 1-2 completed:
+- `isSetRing_ultrafilterBasis` ✅ (empty/union/diff via ultrafilter API)
+- `isSetSemiring_stoneClopens` ✅ (transfer from CylGen + Ultrafilter.exists_mem_of_sUnion_mem)
+- `stone_clopen_injective` ✅
+- `Ultrafilter.exists_mem_of_sUnion_mem` ✅ (Finset.induction_on + union_mem_iff)
+
+Remaining steps 3-6 need:
+- `AddContent` on `stoneClopens` from `NormalizedCompatibleContents`
+  (charge function from P.ν, well-definedness from compatibility)
+- `IsSigmaSubadditive` via compactness
+- `AddContent.measure` application
+- `IsProbabilityMeasure` from normalization
+
+### Status: PARTIALLY COMPLETE — semiring infrastructure done, charge transfer remaining.
 
 ---
 

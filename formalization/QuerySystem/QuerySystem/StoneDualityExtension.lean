@@ -273,9 +273,30 @@ theorem isSetSemiring_stoneClopens [Nonempty S.ι] (udir : S.UpperDirected) :
       obtain ⟨E, hEI, rfl⟩ := hV
       exact ⟨E, hIC (Finset.mem_coe.mpr hEI), rfl⟩
     · -- pairwise disjoint: φ preserves disjointness
-      sorry -- φ preserves disjointness (inter_mem + disjoint)
+      intro V₁ hV₁ V₂ hV₂ hne
+      simp only [Finset.coe_image, Set.mem_image] at hV₁ hV₂
+      obtain ⟨E₁, hE₁I, rfl⟩ := hV₁
+      obtain ⟨E₂, hE₂I, rfl⟩ := hV₂
+      simp only [Function.onFun, id]
+      rw [Set.disjoint_left]
+      intro u h1 h2
+      have hne' : E₁ ≠ E₂ := fun h => hne (by rw [h])
+      have hdis : Disjoint E₁ E₂ := by
+        have := hIdis (Finset.mem_coe.mpr hE₁I) (Finset.mem_coe.mpr hE₂I) hne'
+        simpa [Function.onFun, id] using this
+      have hmem := Filter.mem_of_superset (Filter.inter_mem h1 h2) hdis.le_bot
+      exact (u : Filter S.Omega).empty_notMem hmem
     · -- sUnion: {u | s ∈ u} \ {u | t ∈ u} = ⋃₀ (I.image φ)
-      sorry -- transfer of s \ t = ⋃₀ I through φ
+      ext u
+      simp only [Set.mem_diff, Set.mem_setOf_eq, Set.mem_sUnion, Finset.coe_image,
+        Set.mem_image, Finset.mem_coe]
+      rw [show (s ∈ u ∧ t ∉ u) ↔ s \ t ∈ u from (u.diff_mem_iff).symm, hIeq]
+      constructor
+      · intro h
+        -- ⋃₀ I ∈ u → ∃ E ∈ I, E ∈ u: use Ultrafilter.union_mem_iff inductively
+        sorry -- ultrafilter on finite disjoint union picks one piece
+      · intro ⟨_, ⟨E, hEI, rfl⟩, hEu⟩
+        exact Filter.mem_of_superset hEu (Set.subset_sUnion_of_mem (Finset.mem_coe.mpr hEI))
 
 /-- Given a normalized compatible family of charges `P` on the outcome spaces of `S`,
     there exists a Borel probability measure `P̂` on `stoneSpace S`.

@@ -15,13 +15,14 @@ $\sigma$-additivity is not first-order axiomatizable among finitely
 additive probability Boolean algebras~\cite{MahonCE2026}.  Some
 condition beyond finitary coherence is therefore genuinely required.
 
-We call this condition \emph{collective exhaustion}~(CE).  The main
-result is a four-way equivalence: CE, $\sigma$-additivity of each
-marginal, vanishing of the purely finitely additive part in the
-Yosida--Hewitt decomposition, and concentration of the Stone--space
-measure on realised states are all equivalent.  Two constructions ---
-Carath\'{e}odory and Stone --- realise the extension and yield the same
-measure.
+We call this condition \emph{collective exhaustion}~(CE).  A compatible
+charge family extends to a unique $\sigma$-additive probability measure
+if and only if it satisfies CE; equivalently, if and only if the purely
+finitely additive part in the Yosida--Hewitt decomposition vanishes at
+every level.  Under a separation hypothesis (discriminability), CE is
+further equivalent to concentration of the Stone--space measure on
+realised states.  Two constructions --- Carath\'{e}odory and Stone ---
+realise the extension.
 
 \end{abstract}
 
@@ -62,10 +63,10 @@ For a finitely additive $P$,
   P(E_n) \to 0:
 \end{equation}
 mass cannot persist along a vanishing sequence of events.
-Kolmogorov's extension theorem~\cite{Kolmogorov} and
-Carath\'{e}odory's~\cite{choksi1958} both take $\sigma$-additive
-marginals as input, bundling~\eqref{I:eq:countable-additivity} into the
-hypothesis.
+In the Kolmogorov~\cite{Kolmogorov} and
+Carath\'{e}odory~\cite{Bogachev} extension theorems, this is
+postulated: $\sigma$-additive marginals are
+bundled into the input.
 
 The directed structure is already present in the classical problem:
 compatible finite-dimensional distributions live on a directed family of
@@ -115,12 +116,13 @@ We call this condition \emph{collective exhaustion}~(CE):
   \exists\, j \geq i \;\text{s.t.}\;
   \ell_j\!\bigl(\pi_{ij}^{-1}(E_n)\bigr) \to 0.
 \end{equation}
-CE is the exact admissibility criterion: a compatible charge family
-extends to a unique $\sigma$-additive measure on the observable
-$\sigma$-algebra if and only if it satisfies~\eqref{I:eq:ce}
-(Theorem~\ref{I:thm:main}).  Two constructions realise the
-extension --- one by Carath\'{e}odory (\S\ref{I:sec:cara}), one by
-Stone duality (\S\ref{I:sec:stone}).
+A compatible charge family extends to a unique $\sigma$-additive measure
+on $\sigma(\mathcal{C})$ if and only if it
+satisfies~\eqref{I:eq:ce} (Theorem~\ref{I:thm:main}); under
+discriminability, this is equivalent to concentration of the Stone--space
+measure on realised states (Corollary~\ref{I:cor:stone-support}).  Two
+constructions realise the extension --- one by Carath\'{e}odory
+(\S\ref{I:sec:cara}), one by Stone duality (\S\ref{I:sec:stone}).
 
 % ------------------------------------------------------------------
 \section{Observational structure and compatible charges}
@@ -453,134 +455,127 @@ CE is $\ell_p = 0$.
 \label{I:sec:stone}
 % ------------------------------------------------------------------
 
-The Carath\'{e}odory construction assumes $\sigma$-additive marginals.
-Starting from finitely additive charges alone, one completes instead:
+No first-order condition forces CE (\S\ref{I:sec:ce}).  But
+$\sigma$-additivity need not come from the charges.  The cylinder
+algebra $\mathcal{C}$ is a Boolean algebra; its Stone space
+$\mathrm{St}(\mathcal{C})$ is compact; and any finitely additive charge
+on a compact Boolean algebra extends to a $\sigma$-additive Baire
+measure --- unconditionally.  The resulting measure lives on
+$\mathrm{St}(\mathcal{C})$, not on $\Omega$:
 \[
   \{\ell_i\}
   \;\xrightarrow{\;\text{Stone}\;}
   \hat{\mu} \text{ on } \mathrm{St}(\mathcal{C})
-  \;\xrightarrow{\;\text{CE}\;}
+  \;\xrightarrow{\;\text{descend}\;}
   P \text{ on } (\Omega,\, \sigma(\mathcal{C})).
 \]
-Compactness of $\mathrm{St}(\mathcal{C})$ supplies $\sigma$-additivity
-at the first arrow.  CE controls the second: the completed space
-contains ideal points that no $\omega \in \Omega$ realises, and CE is
-the condition ensuring the measure concentrates on the realised part.
+The first arrow is free.  The second is not.  Each
+$\omega \in \Omega$ determines a principal ultrafilter
+$\mathrm{pure}(\omega) = \{E \in \mathcal{C} : \omega \in E\}$, but
+$\mathrm{St}(\mathcal{C})$ also contains non-principal ultrafilters ---
+ideal points corresponding to no realised state --- and $\hat{\mu}$ may
+assign them positive mass.  The question is whether
+\[
+  \hat{\mu}\!\bigl(\mathrm{pure}(\Omega)\bigr) = 1.
+\]
 
 \begin{proposition}[Stone duality for the direct limit]
 \label{I:prop:stepA}
-The Stone space of the direct limit satisfies $\mathrm{St}\!\bigl(\bigcup_i B_i\bigr) \cong \varprojlim_i \mathrm{St}(B_i)$.
+$\mathrm{St}\!\bigl(\bigcup_i B_i\bigr) \cong \varprojlim_i
+\mathrm{St}(B_i)$.
 \end{proposition}
 
 \begin{proof}
-By Lemma~\ref{I:lem:surj-inj}(ii), the connecting maps $\varphi_{ij}$ are injective Boolean algebra homomorphisms.  Under Stone duality, injective Boolean algebra homomorphisms correspond to surjective continuous maps between Stone spaces. The Stone space functor $\mathrm{St}$ converts colimits in the category of Boolean algebras to limits in the category of compact Hausdorff spaces
-\cite[II.4]{johnstone1982}.  Applied to $\bigcup_i B_i$ with its injective
-system, this gives $\mathrm{St}\!\bigl(\bigcup_i B_i\bigr) \cong \varprojlim_i \mathrm{St}(B_i)$.
+The connecting maps $\varphi_{ij}$ are injective
+(Lemma~\ref{I:lem:surj-inj}(ii)); $\mathrm{St}$ sends colimits of
+Boolean algebras to limits of compact Hausdorff
+spaces~\cite[II.4]{johnstone1982}.
 \end{proof}
 
 \begin{proposition}[Inverse limit measure]
 \label{I:prop:invlim}
-Let $\{\mu_i\}$ be a compatible family of normalised charges on $\{B_i\}$. Then there exists a unique probability measure $\hat{\mu}$ on $\mathcal{B}(\varprojlim_i \mathrm{St}(B_i))$ whose pushforward along each projection $\varprojlim_i \mathrm{St}(B_i) \to \mathrm{St}(B_j)$ agrees with the Borel measure on $\mathrm{St}(B_j)$ corresponding to $\mu_j$.
+A compatible family of normalised charges $\{\mu_i\}$ on $\{B_i\}$
+extends to a unique Baire probability measure $\hat{\mu}$ on
+$\mathrm{St}(\mathcal{C})$.
 \end{proposition}
 
 \begin{proof}
-\textit{Step 1: Single-algebra correspondence.}
-For each $i$, Stone duality identifies $B_i$ with the clopen algebra $\mathrm{Clop}(\mathrm{St}(B_i))$.  A charge $\mu_i$ on $B_i$ thus defines a finitely additive set function on the clopens of the compact Hausdorff space $\mathrm{St}(B_i)$.  Since $\mathrm{St}(B_i)$ is compact and totally disconnected, the clopens form a base for the topology and a finitely additive charge on them extends uniquely to a regular Borel measure; see
-\cite{cardona2025}, \S6, or \cite{Halmos1950}, \S\S53--54.  Call this measure
-$\hat{\mu}_i$ on $\mathrm{St}(B_i)$.
-
-\textit{Step 2: Compatibility.}
-The compatibility condition $\mu_j(\varphi_{ij}(E)) = \mu_i(E)$ translates, under Stone correspondence, to $\hat{\mu}_i$ being the pushforward of $\hat{\mu}_j$ along the bonding map $\mathrm{St}(B_j) \to \mathrm{St}(B_i)$. The family $\{\hat{\mu}_i\}$ is compatible on the inverse system $\{\mathrm{St}(B_i)\}$.
-
-\textit{Step 3: Extension to the inverse limit.}
-Each $\mathrm{St}(B_i)$ is compact Hausdorff.  The inverse limit $\varprojlim_i \mathrm{St}(B_i)$ is compact Hausdorff.  By
-\cite[Theorem~1]{choksi1958}, a compatible family of regular Borel probability
-measures on a cofiltered inverse system of compact Hausdorff spaces with surjective bonding maps extends uniquely to a regular Borel probability measure on the inverse limit.  This gives $\hat{\mu}$ on $\mathcal{B}(\varprojlim_i \mathrm{St}(B_i))$.
+Each $\mu_i$ extends to a regular Borel measure $\hat{\mu}_i$ on
+$\mathrm{St}(B_i)$ (compact, totally disconnected; clopens form a
+base~\cite{cardona2025, Halmos1950}).  Compatibility
+translates to $(\pi_j^i)_\# \hat{\mu}_j = \hat{\mu}_i$.
+Choksi~\cite[Theorem~1]{choksi1958} extends the compatible family to
+the inverse limit.
 \end{proof}
 
 \begin{definition}[Discriminability]
 \label{I:def:discriminability}
-The query system \emph{discriminates points} if for every $\omega \neq \omega'$ in $\Omega$ there exists $E \in \mathcal{C}$ with $\omega \in E$ and $\omega' \notin E$.
+The query system \emph{discriminates points} if for every
+$\omega \neq \omega'$ in $\Omega$ there exists $E \in \mathcal{C}$
+separating them.
 \end{definition}
 
-\noindent Write $\mathrm{pure}(\omega) = \{E \in \mathcal{C} : \omega \in E\}$ for the principal ultrafilter at $\omega$, and $[E] = \{u \in \mathrm{St}(\mathcal{C}) : E \in u\}$ for the basic clopen.  Discriminability makes $\mathrm{pure}$ injective.
+\noindent Write
+$\mathrm{pure}(\omega) = \{E \in \mathcal{C} : \omega \in E\}$ and
+$[E] = \{u \in \mathrm{St}(\mathcal{C}) : E \in u\}$.
+Discriminability makes $\mathrm{pure}$ injective.
 
 \begin{proposition}[Structural identification]
 \label{I:prop:B1}
-Suppose the query system discriminates points.  Then
+Under Discriminability,
 \[
   \mathrm{pure}^{-1}\!\bigl(\mathcal{B}_{\mathrm{Ba}}(\mathrm{St}(\mathcal{C}))\bigr)
-  \;=\; \sigma(\mathcal{C}),
+  \;=\; \sigma(\mathcal{C}).
 \]
-where $\mathcal{B}_{\mathrm{Ba}}$ denotes the Baire $\sigma$-algebra.
 \end{proposition}
 
 \begin{proof}
-\textbf{($\supseteq$):}
-For any $E = \mathrm{Cyl}(i, A) \in \mathcal{C}$, $\mathrm{pure}^{-1}([E]) = \{\omega : E \in \mathrm{pure}(\omega)\} = \{\omega : \omega \in E\} = E$. Since $[E]$ is clopen, hence Baire, every cylinder set is in $\mathrm{pure}^{-1}(\mathcal{B}_{\mathrm{Ba}})$, and therefore $\sigma(\mathcal{C}) \subseteq \mathrm{pure}^{-1}(\mathcal{B}_{\mathrm{Ba}})$.
-
-\textbf{($\subseteq$):}
-The Stone space $\mathrm{St}(\mathcal{C})$ is compact and totally disconnected, so its clopens form a topological basis.  The clopens are exactly the sets $[E]$ for $E \in \mathcal{C}$ \cite[I.3.2]{johnstone1982}, so the Baire $\sigma$-algebra of $\mathrm{St}(\mathcal{C})$ is $\sigma(\{[E] : E \in \mathcal{C}\})$. For any Baire set $V$, $\mathrm{pure}^{-1}(V) \in
-\sigma(\{\mathrm{pure}^{-1}([E]) : E \in \mathcal{C}\}) = \sigma(\mathcal{C})$.
-
-\textbf{Injectivity.}
-Discriminability (Definition~\ref{I:def:discriminability}) implies $\mathrm{pure}$ is injective: if $\omega \neq \omega'$, there exists $E \in \mathcal{C}$ with $\omega \in E$ and $\omega' \notin E$, so $E \in \mathrm{pure}(\omega)$ but $E \notin \mathrm{pure}(\omega')$. Injectivity ensures the pullback does not conflate distinct events.
+$(\supseteq)$: $\mathrm{pure}^{-1}([E]) = E$ for each cylinder $E$, and
+$[E]$ is clopen hence Baire.
+$(\subseteq)$: clopens of $\mathrm{St}(\mathcal{C})$ are exactly $[E]$
+for $E \in \mathcal{C}$~\cite[I.3.2]{johnstone1982}, so
+$\mathrm{pure}^{-1}$ maps Baire sets into $\sigma(\mathcal{C})$.
+Injectivity of $\mathrm{pure}$ ensures the pullback does not conflate
+events.
 \end{proof}
-
-\noindent We work with the Baire $\sigma$-algebra on
-$\mathrm{St}(\mathcal{C})$ throughout; Choksi's theorem applies to Baire
-measures on compact spaces.
 
 \begin{proposition}[Support condition]
 \label{I:prop:B2}
-Let $\mu$ be a charge on $\mathcal{C}$ satisfying CE.  Then the corresponding Baire measure $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is supported on $\mathrm{pure}(\Omega)$, the set of principal ultrafilters.
+If $\mu$ satisfies CE, then $\hat{\mu}$ is supported on
+$\mathrm{pure}(\Omega)$.
 \end{proposition}
 
 \begin{proof}
-By the Yosida--Hewitt theorem \cite{YosidaHewitt1952, rao1983}, every bounded charge on a Boolean algebra decomposes uniquely as $\mu = \mu_c + \mu_p$, where $\mu_c$ is countably additive and $\mu_p$ is purely finitely additive.  By Theorem~\ref{I:thm:sp1}, CE is equivalent to $\mu_p = 0$, i.e.\ $\mu$ is itself $\sigma$-additive on $\mathcal{C}$.
-
-A $\sigma$-additive probability on a Boolean algebra $\mathcal{C}$ extends uniquely to a measure on $\sigma(\mathcal{C})$.  Under the Stone correspondence, this measure lifts to a Baire measure $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$.  For any non-principal ultrafilter $u \in \mathrm{St}(\mathcal{C}) \setminus \mathrm{pure}(\Omega)$, every clopen neighbourhood $[E]$ of $u$ satisfies $E \neq \varnothing$ in $\mathcal{C}$; but because $u$ is non-principal, for each $\omega \in \Omega$ there exists $E_\omega \in \mathcal{C}$ with $\omega \in E_\omega$ and $E_\omega \notin u$.  In particular, $u$ is not an evaluation ultrafilter.  Discriminability ensures that the principal ultrafilters separate elements of $\mathcal{C}$, so $\mathrm{pure}(\Omega)$ is dense in $\mathrm{St}(\mathcal{C})$; but the support of a $\sigma$-additive measure need not concentrate on the dense set without further argument.
-
-The required link is classical~\cite{rao1983}, Ch.~10: for a $\sigma$-additive charge $\mu$ on a Boolean algebra $\mathcal{C}$ realised as a field of subsets of $\Omega$, the corresponding Baire measure on $\mathrm{St}(\mathcal{C})$ assigns full mass to those ultrafilters that are closed under countable intersection in $\mathcal{C}$.  Each principal ultrafilter $\mathrm{pure}(\omega)$ is closed under countable intersection (it evaluates at a point of $\Omega$), so $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.
+By Theorem~\ref{I:thm:sp1}, CE gives $\mu_p = 0$, so $\mu$ is
+$\sigma$-additive.  The corresponding Baire measure on
+$\mathrm{St}(\mathcal{C})$ assigns full mass to ultrafilters closed
+under countable intersection~\cite[Ch.~10]{rao1983}.  Each principal
+ultrafilter $\mathrm{pure}(\omega)$ is closed under countable
+intersection, so $\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.
 \end{proof}
 
 \begin{theorem}[Stone observational extension]
 \label{I:thm:stone-main}
-Let the query system satisfy Surjective Evaluation, Discriminability, and common coarsenings, and let $\{\mu_i\}$ be a compatible family of normalised charges on $\{B_i\}$ satisfying CE.  Then there exists a unique probability measure $P$ on $(\Omega, \sigma(\mathcal{C}))$ such that
+Under Surjective Evaluation, Discriminability, common coarsenings,
+and~CE, a compatible family of normalised charges extends to a unique
+$P \in \mathcal{P}(\Omega, \sigma(\mathcal{C}))$ with
 \[
-  P(\mathrm{Cyl}(i, A))
-  \;=\; \mu_i(\mathrm{Cyl}(i, A))
-  \qquad \text{for all } i \in \iota \text{ and } A \in \mathcal{O}_i.
+  P(\mathrm{Cyl}(i, A)) = \mu_i(\mathrm{Cyl}(i, A))
+  \qquad (i \in \iota,\; A \in \mathcal{O}_i).
 \]
 \end{theorem}
 
 \begin{proof}
-The proof assembles the preceding propositions:
+Proposition~\ref{I:prop:invlim} gives $\hat{\mu}$ on
+$\mathrm{St}(\mathcal{C})$.  Proposition~\ref{I:prop:B2} gives
+$\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.  Define
 \[
-  \{\mu_i\}
-  \;\xrightarrow{\;\text{Stone}\;}
-  \{\hat{\mu}_i\}
-  \;\xrightarrow{\;\text{Prop.}~\ref{I:prop:invlim}\;}
-  \hat{\mu} \text{ on } \mathrm{St}(\mathcal{C})
-  \;\xrightarrow{\;\text{Prop.}~\ref{I:prop:B2}\;}
-  P \text{ on } \sigma(\mathcal{C}).
+  P(A) = \hat{\mu}\!\bigl(\mathrm{pure}(A)\bigr)
+  \qquad (A \in \sigma(\mathcal{C}));
 \]
-
-\textit{Existence.}
-By Proposition~\ref{I:prop:stepA}, $\mathrm{St}(\mathcal{C}) \cong \varprojlim_i \mathrm{St}(B_i)$. By Proposition~\ref{I:prop:invlim}, the compatible family $\{\mu_i\}$ extends to a Baire probability measure $\hat{\mu}$ on $\varprojlim_i \mathrm{St}(B_i) \cong \mathrm{St}(\mathcal{C})$.
-
-By Proposition~\ref{I:prop:B2}, $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$.  Since $\mathrm{pure}$ is injective (discriminability), define the descended measure $P$ on $\sigma(\mathcal{C})$ by
-\[
-  P(A) \;=\; \hat{\mu}\!\bigl(\mathrm{pure}(A)\bigr)
-  \qquad \text{for } A \in \sigma(\mathcal{C}).
-\]
-By Proposition~\ref{I:prop:B1}, $\mathrm{pure}^{-1}$ maps Baire sets in $\mathrm{St}(\mathcal{C})$ to sets in $\sigma(\mathcal{C})$; equivalently, $\mathrm{pure}$ maps $\sigma(\mathcal{C})$-sets into Baire sets, so $P$ is well-defined.  For any cylinder set $E = \mathrm{Cyl}(i, A)$,
-\[
-  P(E) \;=\; \hat{\mu}([E]) \;=\; \mu_i(\mathrm{Cyl}(i, A)).
-\]
-
-\textit{Uniqueness.}
-Two probability measures on $(\Omega, \sigma(\mathcal{C}))$ agreeing on all cylinder sets are equal by Proposition~\ref{I:thm:obs-determination}, which requires common coarsenings.  The Stone theorem therefore assumes common coarsenings in addition to surjective evaluation, discriminability, and CE.
+well-definedness follows from Proposition~\ref{I:prop:B1} and
+injectivity of $\mathrm{pure}$.  Uniqueness by
+Lemma~\ref{I:thm:obs-determination}.
 \end{proof}
 
 % ------------------------------------------------------------------
@@ -598,29 +593,42 @@ of the construction:
 \begin{theorem}[Main equivalence]
 \label{I:thm:main}
 Let $\{\ell_i\}$ be a compatible family of normalised finitely additive
-charges on a directed system satisfying the hypotheses of
-Theorems~\ref{I:thm:obs-extension} and~\ref{I:thm:stone-main}.  The
+charges on a directed system.  Write $\ell_i = \ell_{i,c} + \ell_{i,p}$
+for the Yosida--Hewitt decomposition~\cite{YosidaHewitt1952}.  The
 following are equivalent:
 \begin{enumerate}[label=(\roman*)]
-  \item \textup{(Kolmogorov)} Each $\ell_i$ is $\sigma$-additive.
-  \item \textup{(CE)} The family is collectively exhaustive.
-  \item \textup{(Yosida--Hewitt)} $\ell_p = 0$ for every $i$.
-  \item \textup{(Stone support)}
-    $\hat{\mu}\!\bigl(\mathrm{pure}(\Omega)\bigr) = 1$.
+  \item Each $\ell_i$ is $\sigma$-additive.
+  \item The family is collectively exhaustive.
+  \item $\ell_{i,p} = 0$ for every $i$.
 \end{enumerate}
 \end{theorem}
 
 \begin{proof}
 (i)~$\Leftrightarrow$~(ii) is Theorem~\ref{I:thm:sp1}.
-(ii)~$\Leftrightarrow$~(iii) is the Yosida--Hewitt
-decomposition~\cite{YosidaHewitt1952}.
-(iii)~$\Leftrightarrow$~(iv) is Proposition~\ref{I:prop:B2}.
+(ii)~$\Leftrightarrow$~(iii): CE holds iff each $\ell_i$ extends
+$\sigma$-additively; the Yosida--Hewitt decomposition identifies this
+with $\ell_{i,p} = 0$.
 \end{proof}
 
-\noindent When any of these holds, the Carath\'{e}odory and Stone
-extensions (Theorems~\ref{I:thm:obs-extension}
-and~\ref{I:thm:stone-main}) agree on $\mathcal{C}$ and hence on
-$\sigma(\mathcal{C})$ by Lemma~\ref{I:thm:obs-determination}.
+\begin{corollary}
+\label{I:cor:stone-support}
+Under Discriminability
+(Definition~\ref{I:def:discriminability}),
+\textup{(i)--(iii)} are each equivalent to
+\[
+  \hat{\mu}\!\bigl(\mathrm{pure}(\Omega)\bigr) = 1,
+\]
+where $\hat{\mu}$ is the Baire measure on $\mathrm{St}(\mathcal{C})$.
+\end{corollary}
+
+\begin{proof}
+Proposition~\ref{I:prop:B2}.
+\end{proof}
+
+\noindent When any of these holds and $(\iota, \leq)$ admits sequential
+common refinements, the Carath\'{e}odory and Stone extensions
+(Theorems~\ref{I:thm:obs-extension} and~\ref{I:thm:stone-main}) yield
+the same measure by Lemma~\ref{I:thm:obs-determination}.
 
 \ifstandalone
 \bibliographystyle{plain}

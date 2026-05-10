@@ -233,6 +233,19 @@ theorem isSetRing_ultrafilterBasis :
     rintro _ _ ⟨s, rfl⟩ ⟨t, rfl⟩
     exact ⟨s \ t, by ext u; simp [Ultrafilter.diff_mem_iff]⟩
 
+/-- An ultrafilter on a finite union of sets must contain one of them. -/
+private theorem Ultrafilter.exists_mem_of_sUnion_mem {α : Type*} (u : Ultrafilter α)
+    (I : Finset (Set α)) (h : ⋃₀ ↑I ∈ u) : ∃ E ∈ I, E ∈ u := by
+  induction I using Finset.induction_on with
+  | empty => simp at h
+  | @insert E I' hne ih =>
+    rw [Finset.coe_insert, Set.sUnion_insert] at h
+    have := Ultrafilter.union_mem_iff.mp h
+    rcases this with hE | hI'
+    · exact ⟨E, Finset.mem_insert_self E I', hE⟩
+    · obtain ⟨F, hFI', hFu⟩ := ih hI'
+      exact ⟨F, Finset.mem_insert_of_mem hFI', hFu⟩
+
 end StoneMeasureConstruction
 
 /-- The cylinder clopens on the Stone space: the image of the cylinder family
@@ -293,8 +306,8 @@ theorem isSetSemiring_stoneClopens [Nonempty S.ι] (udir : S.UpperDirected) :
       rw [show (s ∈ u ∧ t ∉ u) ↔ s \ t ∈ u from (u.diff_mem_iff).symm, hIeq]
       constructor
       · intro h
-        -- ⋃₀ I ∈ u → ∃ E ∈ I, E ∈ u: use Ultrafilter.union_mem_iff inductively
-        sorry -- ultrafilter on finite disjoint union picks one piece
+        obtain ⟨E, hEI, hEu⟩ := Ultrafilter.exists_mem_of_sUnion_mem u I h
+        exact ⟨{v | E ∈ v}, ⟨E, hEI, rfl⟩, hEu⟩
       · intro ⟨_, ⟨E, hEI, rfl⟩, hEu⟩
         exact Filter.mem_of_superset hEu (Set.subset_sUnion_of_mem (Finset.mem_coe.mpr hEI))
 

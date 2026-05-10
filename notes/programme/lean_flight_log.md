@@ -102,6 +102,54 @@ submission.
 
 ---
 
+## 2026-05-10 — StoneDualityExtension.lean (stone_measure_exists assessment)
+
+### Goal
+
+Close `stone_measure_exists` sorry: construct a Borel probability measure
+on `stoneSpace S` from the compatible charges.
+
+### Assessment
+
+The statement `∃ Phat, IsProbabilityMeasure Phat` is weaker than intended —
+it doesn't require `Phat` to extend the charges. Should be strengthened.
+
+### Mathlib infrastructure available (2025)
+
+- `AddContent` (structure): finitely additive set function on a family `C`
+- `AddContent.measure`: extends an `AddContent` on a semiring to a `Measure`
+  via Carathéodory, requires `IsSetSemiring C`, `mα ≤ generateFrom C`,
+  and `IsSigmaSubadditive`
+- `IsProjectiveMeasureFamily`, `IsProjectiveLimit.unique`: projective limit
+  framework (existence NOT proved — Kolmogorov extension not in Mathlib)
+- `ProjectiveFamilyContent`: builds `AddContent` from projective families
+
+### Proof plan for single-algebra step
+
+1. Define `stoneContent : Set (stoneSpace S) → ℝ≥0∞` on clopens `{u | E ∈ u}`
+   via `P.ν` (the compatible charge on cylinder sets)
+2. Prove `stoneContent` is an `AddContent` on clopens (finite additivity)
+3. Prove clopens of `stoneSpace S` form an `IsSetSemiring`
+4. Prove `IsSigmaSubadditive stoneContent` via compactness:
+   if clopens `U_n` cover a clopen `K`, finitely many suffice by compactness,
+   then finite additivity gives the σ-subadditivity bound
+5. Apply `AddContent.measure` with `borel (stoneSpace S) ≤ generateFrom clopens`
+6. Prove `IsProbabilityMeasure` via normalization
+
+Each step is ~10-20 lines. Total: ~100 lines of new Lean code.
+
+### Choksi step (projective limit)
+
+NOT needed for single-algebra construction. The Stone space `St(C)` of
+the direct limit carries the measure directly — no need to build on
+each `St(B_i)` and take an inverse limit. The projective limit
+identification `St(⋃ B_i) ≅ lim St(B_i)` (Proposition 5.1) shows
+they're the same space.
+
+### Status: NOT ATTEMPTED — clear proof plan logged.
+
+---
+
 ## 2026-05-09 — DelayEmbedding.lean (reconstruction refactor attempt)
 
 ### Goal

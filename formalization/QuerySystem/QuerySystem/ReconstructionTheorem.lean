@@ -129,28 +129,21 @@ lemma observableAlgebra_le {m : MeasurableSpace X}
 /-!
 ## Density bridge
 
-The core Mathlib fact: `Lp.simpleFunc.dense` (from `SimpleFuncDenseLp.lean`) gives
-density of simple functions in `Lp`.  We apply it to `μ.trim hm`.
-
-The `lpMeas` subgroup version uses `lpMeasSubgroupToLpTrimIso` (an isometric iso
-between `lpMeasSubgroup F m p μ` and `Lp F p (μ.trim hm)`) to transfer density.
+Uses the Mathlib `variable {m m0 : MeasurableSpace X}` pattern (no typeclass)
+to ensure `Measure X` resolves to `m0`, not to any sub-σ-algebra in scope.
+This is critical for cross-file calls from `DelayEmbedding.lean`.
 -/
 
-/-- **Density bridge component (Lemma 4.3, Paper II):**
-    `m`-simple functions are dense in `L²(X, m, μ.trim hm)`.
+section DensityBridge
 
-    This is the key density fact used in the Lean proof of Lemma 4.3.  The full
-    Paper II statement — that the L²-closure of an algebra `𝒜` equals
-    `L²(X, σ(𝒜), μ)` — is discharged in Lean by this theorem together with
-    `lpMeas_eq_top_of_ae_eq` (which establishes that `lpMeas = ⊤` when `m = m0`
-    mod μ) and `reconstruction_iff_lpMeas` (the closed+dense=⊤ argument).
+variable {m m0 : MeasurableSpace X} {μ : Measure X}
 
-    Proved directly from `Lp.simpleFunc.dense`, the Lean form of the functional
-    monotone class theorem for `Lp` spaces. -/
-theorem density_bridge [MeasurableSpace X] {m : MeasurableSpace X}
-    (hm : m ≤ ‹MeasurableSpace X›) (μ : Measure X) [IsFiniteMeasure μ] :
-    Dense (Lp.simpleFunc ℝ 2 (μ.trim hm) : Set (Lp ℝ 2 (μ.trim hm))) :=
-  Lp.simpleFunc.dense (by norm_num)
+theorem density_bridge
+    (hm : m ≤ m0) [IsFiniteMeasure μ] :
+    Dense ((@Lp.simpleFunc X ℝ m _ 2 (μ.trim hm)) :
+      Set (@Lp X ℝ m _ 2 (μ.trim hm))) := by
+  letI : MeasurableSpace X := m
+  exact Lp.simpleFunc.dense (by norm_num)
 
 /-- When `m = m0` mod `μ`, `lpMeas ℝ ℝ m 2 μ = ⊤`.
 
@@ -159,8 +152,8 @@ theorem density_bridge [MeasurableSpace X] {m : MeasurableSpace X}
     `m0`-indicator `𝟙_s` is a.e. equal to an `m`-indicator.  Hence every
     `m0`-simple function is a.e. `m`-measurable → `f` is a.e. `m`-measurable
     → `f ∈ lpMeas m`. -/
-theorem lpMeas_eq_top_of_ae_eq [MeasurableSpace X] {m : MeasurableSpace X}
-    (hm : m ≤ ‹MeasurableSpace X›) (μ : Measure X) [IsFiniteMeasure μ]
+theorem lpMeas_eq_top_of_ae_eq
+    (hm : m ≤ m0) [IsFiniteMeasure μ]
     (h_ae : ∀ s : Set X, MeasurableSet s →
         ∃ t : Set X, MeasurableSet[m] t ∧ μ (s ∆ t) = 0) :
     lpMeas ℝ ℝ m 2 μ = ⊤ := by
@@ -230,14 +223,14 @@ theorem lpMeas_eq_top_of_ae_eq [MeasurableSpace X] {m : MeasurableSpace X}
 
 (i)→(ii): by `lpMeas_eq_top_of_ae_eq`, `lpMeas = ⊤`, which is dense.
 (ii)→(i): L²-approximation of `𝟙_s` by `lpMeas` elements gives a.e.-`m` version. -/
-theorem reconstruction_iff_lpMeas [MeasurableSpace X] {m : MeasurableSpace X}
-    (hm : m ≤ ‹MeasurableSpace X›) (μ : Measure X) [IsFiniteMeasure μ] :
+theorem reconstruction_iff_lpMeas
+    (hm : m ≤ m0) [IsFiniteMeasure μ] :
     (∀ s : Set X, MeasurableSet s →
         ∃ t : Set X, MeasurableSet[m] t ∧ μ (s ∆ t) = 0) ↔
     Dense (lpMeas ℝ ℝ m 2 μ : Set (Lp ℝ 2 μ)) := by
   constructor
   · intro h_ae
-    have htop := lpMeas_eq_top_of_ae_eq hm μ h_ae
+    have htop := lpMeas_eq_top_of_ae_eq hm h_ae
     rw [show (lpMeas ℝ ℝ m 2 μ : Set (Lp ℝ 2 μ)) = Set.univ from ?_]
     · exact dense_univ
     · rw [Submodule.coe_eq_univ]; exact htop
@@ -282,6 +275,8 @@ theorem reconstruction_iff_lpMeas [MeasurableSpace X] {m : MeasurableSpace X}
         Set.indicator_of_notMem hxs _
       have hg0 : g x = 0 := hx ▸ h0
       linarith
+
+end DensityBridge
 
 -- ============================================================
 -- §4  Delay map and pullback identity

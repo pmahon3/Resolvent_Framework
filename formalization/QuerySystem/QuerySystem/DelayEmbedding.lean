@@ -599,12 +599,7 @@ theorem delay_reconstruction_iff
     (∀ s : Set X, MeasurableSet s →
         ∃ t : Set X, MeasurableSet[delayObservableAlgebra h T] t ∧ μ (s ∆ t) = 0) ↔
     Dense (lpMeas ℝ ℝ (delayObservableAlgebra h T) 2 μ : Set (Lp ℝ 2 μ)) := by
-  -- This is reconstruction_iff_lpMeas hm μ, but direct @-application fails:
-  -- Lean synthesizes delayObservableAlgebra as the ambient [MeasurableSpace X]
-  -- for Measure X, so hm : m ≤ m instead of m ≤ ambient. A known elaboration
-  -- limitation when two MeasurableSpace instances coexist. Would require
-  -- ReconstructionTheorem to use explicit (not typeclass) MeasurableSpace args.
-  sorry
+  exact reconstruction_iff_lpMeas (m0 := ‹MeasurableSpace X›) (μ := μ) hm
 
 /-- **Cyclic vector implies delay reconstruction (Paper III, Corollary 5.2).**
 

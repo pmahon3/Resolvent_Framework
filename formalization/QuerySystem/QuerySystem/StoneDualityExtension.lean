@@ -7,6 +7,9 @@ import Mathlib.Topology.Compactification.StoneCech
 import Mathlib.Topology.Connected.TotallyDisconnected
 import Mathlib.MeasureTheory.Measure.Content
 import Mathlib.MeasureTheory.Measure.Regular
+import Mathlib.MeasureTheory.Measure.AddContent
+import Mathlib.MeasureTheory.OuterMeasure.OfAddContent
+import Mathlib.MeasureTheory.SetSemiring
 import QuerySystem.QuerySystem
 import QuerySystem.DiscriminabilityFoundations
 
@@ -209,8 +212,28 @@ end StoneBondingMaps
 -- Hausdorff spaces with surjective bonding maps has a unique projective limit.
 -- This is not in Mathlib.
 --
--- Both gaps are documented here as intentional sorrys, which constitute a
--- meaningful record of the Mathlib frontier.
+-- ---------------------------------------------------------------------------
+-- Stone measure construction via AddContent
+-- ---------------------------------------------------------------------------
+
+section StoneMeasureConstruction
+
+open MeasureTheory
+
+variable {α : Type*}
+
+/-- The ultrafilter basis `{u | s ∈ u}` for `s : Set α` forms an `IsSetRing`. -/
+theorem isSetRing_ultrafilterBasis :
+    IsSetRing (ultrafilterBasis α) where
+  empty_mem := ⟨∅, by ext u; simp [Filter.empty_notMem]⟩
+  union_mem := by
+    rintro _ _ ⟨s, rfl⟩ ⟨t, rfl⟩
+    exact ⟨s ∪ t, by ext u; simp [Ultrafilter.union_mem_iff]⟩
+  diff_mem := by
+    rintro _ _ ⟨s, rfl⟩ ⟨t, rfl⟩
+    exact ⟨s \ t, by ext u; simp [Ultrafilter.diff_mem_iff]⟩
+
+end StoneMeasureConstruction
 
 /-- Given a normalized compatible family of charges `P` on the outcome spaces of `S`,
     there exists a regular Borel probability measure `P̂` on `stoneSpace S` whose

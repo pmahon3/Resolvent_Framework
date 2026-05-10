@@ -102,6 +102,52 @@ submission.
 
 ---
 
+## 2026-05-09 — DelayEmbedding.lean (reconstruction refactor attempt)
+
+### Goal
+
+Close `delay_reconstruction_iff` sorry by calling `reconstruction_iff_lpMeas`
+across the file boundary.
+
+### Root cause (confirmed)
+
+`reconstruction_iff_lpMeas` has signature `[MeasurableSpace X] {m : MeasurableSpace X}`.
+At the call site in `DelayEmbedding.lean`, `delayObservableAlgebra h T : MeasurableSpace X`
+is in scope. When Lean elaborates `reconstruction_iff_lpMeas hm`, it unifies
+`[MeasurableSpace X]` with `delayObservableAlgebra h T` instead of the section-level
+ambient instance, making `hm : m ≤ ambient` fail to unify with `m ≤ m`.
+
+### Approaches tried
+
+1. **Named argument**: `reconstruction_iff_lpMeas (m := delayObservableAlgebra h T) hm μ`
+   — fails: same unification
+
+2. **`@` with explicit instances**: `@reconstruction_iff_lpMeas X mX (delayObservableAlgebra h T) hm μ inferInstance`
+   — fails: Lean ignores the explicitly-passed `mX` and still synthesizes `delayObservableAlgebra`
+
+3. **`change` to force goal type**: changed goal to use `@MeasurableSet X mX s`, then
+   called `reconstruction_iff_lpMeas` — fails: same unification on `hm`
+
+4. **Refactor ReconstructionTheorem.lean** to use `{m0 : MeasurableSpace X}` instead of
+   `[MeasurableSpace X]`: cascades "synthesized type class instance is not definitionally
+   equal" errors through all Mathlib API calls (`isClosed_aestronglyMeasurable`,
+   `memLp_indicator_const`, `mem_lpMeas_iff_aestronglyMeasurable`, etc.)
+
+5. **Branch `refactor/reconstruction-measurable-space`**: created and deleted; not viable
+   without a major rewrite of both files
+
+### Correct fix (not yet attempted)
+
+Match Mathlib's ConditionalExpectation pattern exactly: the section in
+`DelayEmbedding.lean` should use `variable {X : Type u}` with NO `[MeasurableSpace X]`,
+then `variable {m0 : MeasurableSpace X}` and `{μ : @Measure X m0}` explicitly. This
+would cascade through every theorem in the `ReconstructionBridge` section
+(`delayObservableAlgebra_eq_comap`, `delayMap_shift_intertwining`, etc.).
+
+### Status: DEFERRED — sorry retained. Mathematical content correct.
+
+---
+
 ## 2026-05-09 — StoneDualityExtension.lean (ultrafilter_map_eq_extend)
 
 ### Goal

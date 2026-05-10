@@ -193,7 +193,7 @@ mixing is irreducible is the deepest open question in the programme.
 | Paper | Mathematical status | Lean status | LaTeX status | Blocker |
 |-------|--------------------|-----------|----|---|
 | Companion note | Complete | N/A | arXiv-ready, 3 pages | math.LO endorsement |
-| I | All routes proved; CE irreducibility proved | ⚠️ 3 sorry (CE irred./infra) + 2 sorry (Stone/Mathlib) | arXiv-ready, 8 pages | math.LO endorsement |
+| I | All routes proved; CE irreducibility proved | ⚠️ 3 sorry (CE irred./infra) + 2 sorry (Stone/Mathlib); DelayEmbedding 0 sorry | arXiv-ready, 7 pages | math.LO endorsement |
 | II | Complete | ✅ 0 sorrys | Editorially polished, 9 pages | Paper I arXiv ID |
 | III | Complete | Not started | Editorially polished, 18 pages | Paper II arXiv ID |
 

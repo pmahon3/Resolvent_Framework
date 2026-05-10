@@ -144,7 +144,28 @@ then `variable {m0 : MeasurableSpace X}` and `{μ : @Measure X m0}` explicitly. 
 would cascade through every theorem in the `ReconstructionBridge` section
 (`delayObservableAlgebra_eq_comap`, `delayMap_shift_intertwining`, etc.).
 
-### Status: DEFERRED — sorry retained. Mathematical content correct.
+### Resolution (2026-05-10)
+
+The correct fix was simpler than expected. Wrap §§2-3 of
+`ReconstructionTheorem.lean` in a `section DensityBridge` with:
+
+```lean
+variable {m m0 : MeasurableSpace X} {μ : Measure X}
+```
+
+No `[MeasurableSpace X]` typeclass in the section. `Measure X` resolves
+to `m0` (last declared). Inside `density_bridge`, use
+`letI : MeasurableSpace X := m` to resolve `Lp.simpleFunc.dense` against
+the sub-σ-algebra.
+
+Call site in `DelayEmbedding.lean`:
+```lean
+exact reconstruction_iff_lpMeas (m0 := ‹MeasurableSpace X›) (μ := μ) hm
+```
+
+19 lines changed, 0 sorrys remaining in DelayEmbedding.lean.
+
+### Status: RESOLVED ✅ (2026-05-10)
 
 ---
 

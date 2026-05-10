@@ -274,9 +274,25 @@ theorem upperDirected : (delayQuerySystem X).UpperDirected := by
     subfamily `{Q_{d_n, τ_n}}` for which `sup_n (d_n-1)*k_n` is finite. This is the
     correct scope of Paper 1's extension theorem.
 
-    This sorry is a deliberate placeholder recording the definition gap. -/
-theorem seqUpperDirected : (delayQuerySystem X).SequentiallyUpperDirected := by
-  sorry
+    This is recorded as the negation `not_seqUpperDirected`. -/
+theorem not_seqUpperDirected : ¬ (delayQuerySystem X).SequentiallyUpperDirected := by
+  intro h
+  -- Counterexample: u n = (n+2, 1).
+  let u : ℕ → (delayQuerySystem X).ι :=
+    fun n => ⟨⟨n + 2, by omega⟩, ⟨1, Nat.one_pos⟩⟩
+  obtain ⟨⟨⟨d', hd'⟩, ⟨τ', hτ'⟩⟩, hk⟩ := h u
+  -- Apply to n = d': need delayLe (d'+2) 1 d' τ'
+  have hle := hk d'
+  -- delayLe requires τ' ∣ 1 and (d'+2-1)*(1/τ') < d', i.e., (d'+1)/τ' < d'
+  -- But τ' ∣ 1 forces τ' = 1, giving d'+1 < d', contradiction.
+  simp only [u, delayQuerySystem] at hle
+  unfold delayLe at hle
+  obtain ⟨hdvd, hbnd⟩ := hle
+  -- hdvd : τ' ∣ 1, so τ' = 1
+  have hτ1 : (τ' : ℕ) = 1 := Nat.eq_one_of_dvd_one hdvd
+  rcases hbnd with h0 | hlt
+  · omega
+  · simp [hτ1] at hlt
 
 /-! ## Realizability -/
 

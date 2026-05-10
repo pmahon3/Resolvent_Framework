@@ -235,27 +235,70 @@ theorem isSetRing_ultrafilterBasis :
 
 end StoneMeasureConstruction
 
-/-- Given a normalized compatible family of charges `P` on the outcome spaces of `S`,
-    there exists a regular Borel probability measure `P̂` on `stoneSpace S` whose
-    pushforward along each `stoneEval i` agrees with the Stone-space measure
-    corresponding to `P.ν i`.
+/-- The cylinder clopens on the Stone space: the image of the cylinder family
+    under the Stone embedding `E ↦ {u | E ∈ u}`. -/
+def stoneClopens (S : QuerySystem) : Set (Set (stoneSpace S)) :=
+  (fun E => { u : stoneSpace S | E ∈ u }) '' S.CylGen
 
-    **Intentional sorry**: requires the clopen-algebra → Borel-measure extension
-    theorem and Choksi's projective limit theorem, neither of which is in Mathlib. -/
+/-- The map `E ↦ {u | E ∈ u}` is injective on sets: if two sets determine
+    the same ultrafilter membership, they are equal. -/
+theorem stone_clopen_injective {s t : Set S.Omega} :
+    ({u : stoneSpace S | s ∈ u} = {u | t ∈ u}) → s = t := by
+  intro h
+  ext x
+  have : (pure x : Ultrafilter S.Omega) ∈ {u : stoneSpace S | s ∈ u} ↔
+         (pure x : Ultrafilter S.Omega) ∈ {u | t ∈ u} := by rw [h]
+  simpa using this
+
+/-- The cylinder clopens inherit `IsSetSemiring` from `CylGen`. -/
+theorem isSetSemiring_stoneClopens [Nonempty S.ι] (udir : S.UpperDirected) :
+    IsSetSemiring (stoneClopens S) where
+  empty_mem := by
+    refine ⟨∅, (S.isSetSemiring_CylGen udir).empty_mem, ?_⟩
+    ext u; simp [Filter.empty_notMem]
+  inter_mem := by
+    rintro _ ⟨s, hs, rfl⟩ _ ⟨t, ht, rfl⟩
+    refine ⟨s ∩ t, (S.isSetSemiring_CylGen udir).inter_mem s hs t ht, ?_⟩
+    ext u
+    simp only [Set.mem_setOf_eq, Set.mem_inter_iff]
+    exact Filter.inter_mem_iff
+  diff_eq_sUnion' := by
+    rintro _ ⟨s, hs, rfl⟩ _ ⟨t, ht, rfl⟩
+    obtain ⟨I, hIC, hIdis, hIeq⟩ :=
+      (S.isSetSemiring_CylGen udir).diff_eq_sUnion' s hs t ht
+    refine ⟨I.image (fun E => {u : stoneSpace S | E ∈ u}), ?_, ?_, ?_⟩
+    · -- I.image φ ⊆ stoneClopens S
+      intro V hV
+      simp only [Finset.coe_image, Set.mem_image] at hV
+      obtain ⟨E, hEI, rfl⟩ := hV
+      exact ⟨E, hIC (Finset.mem_coe.mpr hEI), rfl⟩
+    · -- pairwise disjoint: φ preserves disjointness
+      sorry -- φ preserves disjointness (inter_mem + disjoint)
+    · -- sUnion: {u | s ∈ u} \ {u | t ∈ u} = ⋃₀ (I.image φ)
+      sorry -- transfer of s \ t = ⋃₀ I through φ
+
+/-- Given a normalized compatible family of charges `P` on the outcome spaces of `S`,
+    there exists a Borel probability measure `P̂` on `stoneSpace S`.
+
+    **Construction:** The existing `cylGen_addContent` (from `QuerySystem.lean`)
+    gives a σ-subadditive `AddContent` on the cylinder algebra.  The Stone
+    embedding `E ↦ {u | E ∈ u}` transfers this to the cylinder clopens on
+    `stoneSpace S`.  `AddContent.measure` (Carathéodory) extends to a Borel
+    measure.  Compactness ensures σ-subadditivity is preserved. -/
 theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
     (udir : S.UpperDirected)
     (surj : S.EvalSurjective)
     (P : S.NormalizedCompatibleContents) :
-    -- The Borel σ-algebra makes stoneSpace a measurable space
     haveI : MeasurableSpace (stoneSpace S) := borel (stoneSpace S)
     ∃ Phat : MeasureTheory.Measure (stoneSpace S),
       MeasureTheory.IsProbabilityMeasure Phat := by
   haveI : MeasurableSpace (stoneSpace S) := borel (stoneSpace S)
-  -- Mathlib gaps:
-  --   (1) Clopen charge → regular Borel measure on compact T2D space
-  --       (Halmos §53–54, Fremlin Vol. 1 §311E)
-  --   (2) Choksi's projective limit theorem for compatible measures on
-  --       a cofiltered inverse system of compact Hausdorff spaces
+  -- TODO: construct via AddContent.measure on stoneClopens
+  -- Step 1: Transfer cylGen_addContent to stoneClopens (isometry of charges)
+  -- Step 2: Prove IsSetSemiring (stoneClopens S) (from isSetRing_stoneClopens)
+  -- Step 3: Prove borel ≤ generateFrom (stoneClopens S)
+  -- Step 4: Prove IsSigmaSubadditive (compactness of Stone space)
+  -- Step 5: Apply AddContent.measure
   sorry
 
 -- ---------------------------------------------------------------------------

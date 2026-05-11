@@ -272,11 +272,15 @@ promoted to a dynamical object by temporal coherence.
 \section{Reconstruction}
 \label{II:sec:reconstruction}
 
-Setting $Q_t = h \circ T^t$ in a measure-preserving system
-$(X, \mathcal{B}, \mu, T)$ with $h \in L^\infty$ specialises the construction.
-Under this choice, $Q_*(\omega) = (h(T^n \omega))_{n \in \mathbb{Z}}$ is the
-delay map $\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, and the observable
-dynamical system is the triple $(\Phi_h(X), \mu \circ \Phi_h^{-1}, \{K_t\})$.
+The structures of §\ref{II:sec:prediction} require only a probability
+measure and two observables.  We now specialise: let
+$(X, \mathcal{B}, \mu, T)$ be an invertible measure-preserving system and
+$h \in L^\infty$ an observable.  Setting $Q_t = h \circ T^t$ gives
+$Q_*(\omega) = (h(T^n \omega))_{n \in \mathbb{Z}}$, the delay map
+$\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, and the observable
+dynamical system $(\Phi_h(X), \mu \circ \Phi_h^{-1}, \{K_t\})$.
+The measure-preserving hypothesis and the choice of $h$ are genuine
+inputs; what follows from them is not.
 
 The canonical factor space $\Phi_h(X)$ is a subset of $\mathbb{R}^\mathbb{Z}$
 encoding all dynamical information accessible to $h$.  Whether it is a faithful
@@ -347,9 +351,8 @@ $A \triangle E_k$, confirming $\inf_{E \in \mathcal{G}_k}\mu(A \triangle E)
 \label{II:rem:temporal-spec}
 With $Q_t = h \circ T^t$, the algebra $\mathcal{O}_h^{(L)}$ is an honest
 refinement scheme once reconstruction holds.
-The separation defect specialises to $\delta(L) := \delta(\mathcal{O}_h^{(L)})$,
-the central quantity of~\cite{mahon_paper3}: exponential decay of $\delta(L)$
-under mixing yields minimax-optimal certification rates.  In the general
+The separation defect specialises to $\delta(L) := \delta(\mathcal{O}_h^{(L)})$;
+under mixing, $\delta(L)$ decays exponentially.  In the general
 query setting, exhaustion and mixing are separate conditions; the delay-map
 setting collapses the first by construction.
 \end{remark}
@@ -492,6 +495,12 @@ Since $(\Phi_h(Tx))_n = h(T^{n+1}x) = (\sigma(\Phi_h(x)))_n$, the measure
 $(\Phi_h)_*\mu$ is shift-invariant, and $(X, T, \mu)$ is isomorphic to
 $(\mathbb{R}^\mathbb{Z}, \sigma, (\Phi_h)_*\mu)$ restricted to $\Phi_h(X)$.
 
+Reconstruction is an asymptotic condition: the finite-lag algebras
+$\mathcal{O}_h^{(L)} \uparrow \mathcal{O}_h$ are monotone, and the
+separation defect $\delta(L) = \delta(\mathcal{O}_h^{(L)})$ measures
+the gap at finite lag.  The rate at which $\delta(L)$ vanishes
+determines the practical content of the theorem and depends on
+mixing and geometric hypotheses beyond the scope of the present paper.
 
 \begin{definition}[Cyclic vector]
 \label{II:def:cyclic}
@@ -677,9 +686,7 @@ bi-Lipschitz on the attractor, sandwiching $\lambda_h$ between the top
 Lyapunov exponent $\lambda_1$ from above and below; one expects
 $\lambda_h = \lambda_1$ $\mu$-a.e., but making this precise requires
 comparing the induced metric on $\Phi_h^{(L)}(X)$ with the ambient
-Riemannian geometry as $L \to \infty$, which is beyond the scope of the
-present paper.  The quantitative geometry of fibre separation in this setting
-is taken up in~\cite{mahon_paper3}.
+Riemannian geometry as $L \to \infty$.
 \end{remark}
 
 
@@ -721,10 +728,8 @@ Theorem~\ref{II:thm:reconstruction} jointly force $\sigma(\Phi_h) =
 itself: the abstract completion is the concrete state space.  The
 question left open in~\cite{mahon_paper1} --- whether prediction,
 dynamics, and state recovery follow from observation --- is answered
-affirmatively, under faithfulness.
-
-What faithfulness means in practice, and whether it can be certified
-from finite data, is taken up in~\cite{mahon_paper3}.
+affirmatively, under faithfulness.  What faithfulness means in practice,
+and whether it can be certified from finite data, remain open.
 
 % ====================================================================
 \ifstandalone

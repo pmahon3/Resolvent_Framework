@@ -8,21 +8,23 @@ compatible family of finitely additive charges.  Coherence and finite
 additivity are purely finitary conditions; the question is what further
 condition licenses the passage to $\sigma$-additivity.
 
-Finitary coherence alone does not suffice: the finite--cofinite charge
-on $\mathbb{N}$ satisfies every structural condition yet assigns
-persistent mass to a sequence of events that vanishes.  More generally,
-$\sigma$-additivity is not first-order axiomatizable among finitely
-additive probability Boolean algebras~\cite{MahonCE2026}.  Some
-condition beyond finitary coherence is therefore genuinely required.
+The exact boundary is $\sigma$-additivity of each charge ---
+equivalently, vanishing of the purely finitely additive part in the
+Yosida--Hewitt decomposition.  No weaker condition suffices:
+compatibility renders every witnessing formulation equivalent to
+$\sigma$-additivity itself.  No first-order condition can force
+it~\cite{MahonCE2026}.  Two
+constructions --- Carath\'{e}odory and Stone --- realise the extension.
 
-We call this condition \emph{collective exhaustion}~(CE).  A compatible
-charge family extends to a unique $\sigma$-additive probability measure
-if and only if it satisfies CE; equivalently, if and only if the purely
-finitely additive part in the Yosida--Hewitt decomposition vanishes at
-every level.  Under a separation hypothesis (discriminability), CE is
-further equivalent to concentration of the Stone--space measure on
-realised states.  Two constructions --- Carath\'{e}odory and Stone ---
-realise the extension.
+The Stone route requires no assumption of $\sigma$-additivity: any
+compatible charges produce a Baire probability measure on the Stone
+space $\mathrm{St}(\mathcal{C})$ --- unconditionally.  The resulting
+measure may, however, assign mass to non-principal ultrafilters: ideal
+points that correspond to no realised state.  Under discriminability,
+$\sigma$-additivity is equivalent to concentration of this measure on
+realised states.  The passage from coherent charges to probability is
+thus not a derivation but a geometric commitment: $\sigma$-additivity
+determines where the mass lives, not whether it exists.
 
 \end{abstract}
 
@@ -108,7 +110,8 @@ algebras~\cite{MahonCE2026, Hoover1978, FaginHalpernMegiddo1990}.
 If $\sigma$-additivity is to be \emph{recovered} rather than assumed,
 the condition must fall on the charges themselves.
 
-We call this condition \emph{collective exhaustion}~(CE):
+In the directed-system setting, $\sigma$-additivity takes a natural
+form that we abbreviate~\textup{CE} (\emph{collective exhaustion}):
 \begin{equation}\label{I:eq:ce}
   E_n \in \mathcal{E}_i,\quad
   E_n \downarrow \varnothing
@@ -116,18 +119,21 @@ We call this condition \emph{collective exhaustion}~(CE):
   \exists\, j \geq i \;\text{s.t.}\;
   \ell_j\!\bigl(\pi_{ij}^{-1}(E_n)\bigr) \to 0.
 \end{equation}
+Compatibility collapses the existential: the witness $j$ adds no
+information beyond level~$i$, and~\eqref{I:eq:ce} reduces to
+$\sigma$-additivity of each~$\ell_i$.  No condition strictly between
+first-order coherence and $\sigma$-additivity exists in this framework.
 A compatible charge family extends to a unique $\sigma$-additive measure
-on $\sigma(\mathcal{C})$ if and only if it
-satisfies~\eqref{I:eq:ce} (Theorem~\ref{I:thm:main}); under
-discriminability, this is equivalent to concentration of the Stone--space
-measure on realised states (Corollary~\ref{I:cor:stone-support}).  Two
-constructions realise the extension --- one by Carath\'{e}odory
-(\S\ref{I:sec:cara}), one by Stone duality (\S\ref{I:sec:stone}).
+on $\sigma(\mathcal{C})$ if and only if it satisfies~\eqref{I:eq:ce}
+(Theorem~\ref{I:thm:main}).
 
-% ------------------------------------------------------------------
-\section{Observational structure and compatible charges}
-\label{I:sec:setup}
-% ------------------------------------------------------------------
+Two constructions realise the extension --- one by Carath\'{e}odory
+(\S\ref{I:sec:cara}), one by Stone duality (\S\ref{I:sec:stone}).
+The Stone route requires no assumption of $\sigma$-additivity: it
+produces a probability measure on
+$\mathrm{St}(\mathcal{C})$ unconditionally.  Under discriminability,
+$\sigma$-additivity is equivalent to concentration of this measure on
+realised states (Corollary~\ref{I:cor:stone-support}).
 
 \begin{definition}[Observational structure]
 \label{I:def:obs-structure}
@@ -279,6 +285,9 @@ For (i): given $y \in \Out{i}$, surjectivity of $\mathrm{eval}_i$ yields $\omega
 For (ii): $\varphi_{ij}$ is a Boolean homomorphism by construction. If $\varphi_{ij}(\mathrm{Cyl}(i,A)) = \varphi_{ij}(\mathrm{Cyl}(i,A'))$, then $\pi_{ij}^{-1}(A) = \pi_{ij}^{-1}(A')$ in $\Out{j}$. Applying $\pi_{ij}$ and using surjectivity gives $A = A'$, so $\varphi_{ij}$ is injective.
 \end{proof}
 
+\noindent With these structures in hand, we can state the first
+extension result --- which assumes $\sigma$-additive marginals as input.
+
 % ------------------------------------------------------------------
 \section{Direct extension from compatible probability marginals}
 \label{I:sec:cara}
@@ -373,13 +382,16 @@ Any two extensions agree on $\mathcal{C}$, hence on $\sigma(\mathcal{C})$
 by the $\pi$--$\lambda$ theorem.
 \end{proof}
 
+\noindent This extends the classical theory to directed systems, but
+inherits its limitation: $\sigma$-additivity of each $\nu_i$ is assumed,
+not derived.  What if only finitely additive charges are given?
+
 % ------------------------------------------------------------------
 \section{Collective Exhaustion}
 \label{I:sec:ce}
 % ------------------------------------------------------------------
 
-Theorem~\ref{I:thm:obs-extension} assumes $\sigma$-additive marginals.
-What if only finitely additive charges are given?  At a single algebra,
+At a single algebra,
 a finitely additive charge extends to a $\sigma$-additive measure on
 $\sigma(\mathcal{E})$ if and only if it
 satisfies~\eqref{I:eq:continuity-at-empty}
@@ -398,9 +410,10 @@ $E_n = \{n, n{+}1, \ldots\} \downarrow \varnothing$ with
 $\mu_0(E_n) = 1$ for all~$n$.
 \end{example}
 
-\noindent The condition that rules out this failure is:
+\noindent In the directed-system setting, $\sigma$-additivity of the
+family takes the following form:
 
-\begin{definition}[Collectively exhaustive family]
+\begin{definition}[Collectively exhaustive family (CE)]
 \label{I:def:collectively-exhaustive}
 The family is \emph{collectively exhaustive} if for every
 $i \in \mathcal{I}$ and every $E_n \downarrow \varnothing$ in
@@ -439,7 +452,16 @@ If $\ell_i$ extends to $\mu_i$, then $\ell_i(E_n) = \mu_i(E_n) \to 0$
 by $\sigma$-additivity.  Take $j = i$.
 \end{proof}
 
-\noindent The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952}
+\noindent
+Note that compatibility renders the existential quantifier
+in~\eqref{I:eq:ce} vacuous:
+$\ell_j(\pi_{ij}^{-1}(E_n)) = \ell_i(E_n)$ for every $j \geq i$, so
+CE reduces to $\ell_i(E_n) \to 0$ ---
+$\sigma$-additivity of~$\ell_i$.  The proof
+above makes this explicit: both directions are one-line applications of
+compatibility.
+
+The Yosida--Hewitt decomposition~\cite{YosidaHewitt1952}
 makes the content precise:
 \[
   \ell = \ell_c + \ell_p,
@@ -448,7 +470,10 @@ makes the content precise:
   \quad
   \ell_p \text{ purely finitely additive}.
 \]
-CE is $\ell_p = 0$.
+CE is $\ell_p = 0$.  (For countable partitions, this is equivalent to
+conglomerability of the associated conditional
+charges~\cite{Dubins1975, deFinetti1974}; the reformulation does not
+create an intermediate position.)
 
 % ------------------------------------------------------------------
 \section{Stone realization from finitely additive data}
@@ -547,11 +572,13 @@ $\mathrm{pure}(\Omega)$.
 
 \begin{proof}
 By Theorem~\ref{I:thm:sp1}, CE gives $\mu_p = 0$, so $\mu$ is
-$\sigma$-additive.  The corresponding Baire measure on
-$\mathrm{St}(\mathcal{C})$ assigns full mass to ultrafilters closed
-under countable intersection~\cite[Ch.~10]{rao1983}.  Each principal
-ultrafilter $\mathrm{pure}(\omega)$ is closed under countable
-intersection, so $\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.
+$\sigma$-additive.  Rao and Rao~\cite[Theorem~10.5.3]{rao1983}
+characterise $\sigma$-additivity by the vanishing of $\hat{\mu}$
+on meagre Baire sets in $\mathrm{St}(\mathcal{C})$; the algebraic
+counterpart is that $\hat{\mu}$ assigns full mass to ultrafilters
+closed under countable intersection.  Each principal ultrafilter
+$\mathrm{pure}(\omega)$ is closed under countable intersection, so
+$\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.
 \end{proof}
 
 \begin{theorem}[Stone observational extension]
@@ -578,10 +605,7 @@ injectivity of $\mathrm{pure}$.  Uniqueness by
 Lemma~\ref{I:thm:obs-determination}.
 \end{proof}
 
-% ------------------------------------------------------------------
-\section{Synthesis}
-\label{I:sec:bridge}
-% ------------------------------------------------------------------
+\medskip
 
 Kolmogorov's hypothesis --- compatible $\sigma$-additive marginals ---
 decomposes into a finitary part

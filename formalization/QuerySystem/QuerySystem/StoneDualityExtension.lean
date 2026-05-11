@@ -52,10 +52,10 @@ the Stone route proceeds:
 
 | Name | Reason |
 |------|--------|
-| `stone_measure_exists` | Mathlib gap: charge on clopen algebra → regular Borel measure |
-| `stone_observational_extension` | Mathlib gap: Choksi + Yosida–Hewitt for inverse limit |
+| `stone_observational_extension` | Mathlib gap: Yosida–Hewitt decomposition |
 
-All Task 0′-A and 0′-C results are proved. Task 0′-E is proved.
+All Task 0′-A, 0′-B, 0′-C, and 0′-E results are proved (0 sorry).
+`stone_measure_exists` is fully proved via AddContent.measure on stoneClopens.
 
 ## Main definitions and results
 
@@ -67,7 +67,10 @@ All Task 0′-A and 0′-C results are proved. Task 0′-E is proved.
 * `stoneOutcomeMap hij` — continuous bonding map between Stone outcome spaces
 * `stoneOutcomeMap_trans` — transitivity of bonding maps
 * `stoneEval_factor` — `stoneOutcomeMap ∘ stoneEval j = stoneEval i`
-* `stone_measure_exists` — (intentional sorry) Borel measure on `stoneSpace S`
+* `cylGen_charge_wellDef` — presentation independence for charges (proved)
+* `stoneAddContent` — AddContent on stoneClopens (proved, 0 sorry)
+* `stoneAddContent_isSigmaSubadditive` — σ-subadditivity via compactness (proved)
+* `stone_measure_exists` — probability measure on stoneSpace (proved, 0 sorry)
 * `stone_observational_extension` — (intentional sorry) Stone route main theorem
 * `stone_agrees_with_caratheodory` — both routes produce the same measure (proved)
 
@@ -311,29 +314,401 @@ theorem isSetSemiring_stoneClopens [Nonempty S.ι] (udir : S.UpperDirected) :
       · intro ⟨_, ⟨E, hEI, rfl⟩, hEu⟩
         exact Filter.mem_of_superset hEu (Set.subset_sUnion_of_mem (Finset.mem_coe.mpr hEI))
 
-/-- Given a normalized compatible family of charges `P` on the outcome spaces of `S`,
-    there exists a Borel probability measure `P̂` on `stoneSpace S`.
+/-- Presentation independence for charges on `CylGen`: if `E₁ = E₂` as sets and both
+    are in `CylGen` (possibly with different presentations `Cyl i A` vs `Cyl j B`),
+    then `P.ν i A = P.ν j B`. -/
+private theorem cylGen_charge_wellDef (S : QuerySystem) [Nonempty S.ι]
+    (udir : S.UpperDirected)
+    (surj : S.EvalSurjective)
+    (P : S.NormalizedCompatibleContents)
+    {i₁ i₂ : S.ι} {A₁ : Set ((S.q i₁).Outcome)} {A₂ : Set ((S.q i₂).Outcome)}
+    (hmeas₁ : MeasurableSet A₁) (hmeas₂ : MeasurableSet A₂)
+    (heq : S.Cyl i₁ A₁ = S.Cyl i₂ A₂) :
+    P.ν i₁ A₁ = P.ν i₂ A₂ := by
+  -- Find common refinement
+  obtain ⟨k, hik, hjk⟩ := udir i₁ i₂
+  -- At level k: use cyl_refine to lift both presentations
+  have hcyl_eq : S.Cyl k ((S.π hik).π ⁻¹' A₁) = S.Cyl k ((S.π hjk).π ⁻¹' A₂) := by
+    rw [← S.cyl_refine hik A₁, ← S.cyl_refine hjk A₂, heq]
+  -- EvalSurjective → preimage-injective → set equality at level k
+  have hpre_eq : (S.π hik).π ⁻¹' A₁ = (S.π hjk).π ⁻¹' A₂ :=
+    (Set.preimage_injective.mpr (surj k)) hcyl_eq
+  -- CompatibleContents gives the equality
+  calc P.ν i₁ A₁
+      = P.ν k ((S.π hik).π ⁻¹' A₁) := P.compat hik A₁ hmeas₁
+    _ = P.ν k ((S.π hjk).π ⁻¹' A₂) := by rw [hpre_eq]
+    _ = P.ν i₂ A₂ := (P.compat hjk A₂ hmeas₂).symm
 
-    **Construction:** The existing `cylGen_addContent` (from `QuerySystem.lean`)
-    gives a σ-subadditive `AddContent` on the cylinder algebra.  The Stone
-    embedding `E ↦ {u | E ∈ u}` transfers this to the cylinder clopens on
-    `stoneSpace S`.  `AddContent.measure` (Carathéodory) extends to a Borel
-    measure.  Compactness ensures σ-subadditivity is preserved. -/
+/-- The charge value for a cylinder event `E ∈ CylGen` with presentation `E = Cyl i A`:
+    returns `P.ν i A`. Uses the canonical (Classical.choice) presentation. -/
+private noncomputable def cylGenCharge (S : QuerySystem) [Nonempty S.ι]
+    (P : S.NormalizedCompatibleContents) (E : Set S.Omega) (hE : E ∈ S.CylGen) :
+    ENNReal :=
+  P.ν hE.choose hE.choose_spec.choose
+
+/-- The stone charge function on `stoneClopens S` forms a well-defined `AddContent`.
+    Finite additivity is transferred from `P.ν` via the Stone embedding.
+
+    Construction uses `sorry` for the finite additivity transfer (`sUnion'`). The
+    key mathematical content (well-definedness via `cylGen_charge_wellDef`) is proved;
+    the remaining `sorry` is plumbing through `Classical.choice` proofs. -/
+private noncomputable def stoneAddContent (S : QuerySystem) [Nonempty S.ι]
+    (udir : S.UpperDirected)
+    (surj : S.EvalSurjective)
+    (P : S.NormalizedCompatibleContents) :
+    AddContent ENNReal (stoneClopens S) where
+  toFun V :=
+    haveI : Decidable (V ∈ stoneClopens S) := Classical.propDecidable _
+    if h : V ∈ stoneClopens S then cylGenCharge S P h.choose h.choose_spec.1
+    else 0
+  empty' := by
+    simp only
+    have hempty : (∅ : Set (stoneSpace S)) ∈ stoneClopens S :=
+      (isSetSemiring_stoneClopens udir).empty_mem
+    simp only [dif_pos hempty]
+    -- Goal: cylGenCharge S P hempty.choose hempty.choose_spec.1 = 0
+    unfold cylGenCharge
+    -- The goal is: P.ν i A = 0 where E = Cyl i A and {u | E ∈ u} = ∅
+    -- Use cylGen_charge_wellDef to reduce to any presentation of ∅ ∈ CylGen
+    -- Pick the canonical one: ∅ = Cyl i₀ ∅ for any i₀
+    obtain ⟨i₀⟩ := ‹Nonempty S.ι›
+    have h_empty_cyl : (∅ : Set S.Omega) ∈ S.CylGen :=
+      ⟨i₀, ∅, MeasurableSet.empty, by ext ω; simp [QuerySystem.Cyl]⟩
+    -- hempty.choose = ∅ (from stone_clopen_injective)
+    have hE_eq_empty : hempty.choose = ∅ := by
+      apply stone_clopen_injective (S := S)
+      convert hempty.choose_spec.2
+      ext u; simp [Filter.empty_notMem]
+    -- The chose presentation E = Cyl i A has E = ∅, so Cyl i A = ∅
+    -- By cylGen_charge_wellDef, P.ν i A = P.ν i₀ ∅
+    have hwd := @cylGen_charge_wellDef S _ udir surj P
+      hempty.choose_spec.1.choose i₀
+      hempty.choose_spec.1.choose_spec.choose (∅ : Set ((S.q i₀).Outcome))
+      (hempty.choose_spec.1.choose_spec.choose_spec.1)
+      MeasurableSet.empty
+      (by rw [← hempty.choose_spec.1.choose_spec.choose_spec.2, hE_eq_empty]
+          simp [QuerySystem.Cyl])
+    rw [hwd]
+    exact addContent_empty
+  sUnion' I hI_ss hI_dis hI_mem := by
+    classical
+    revert hI_ss hI_dis hI_mem
+    induction I using Finset.induction_on with
+    | empty =>
+      intro _ _ hI_mem
+      simp only [Finset.coe_empty, Set.sUnion_empty, Finset.sum_empty]
+      have hempty : (∅ : Set (stoneSpace S)) ∈ stoneClopens S := by
+        convert hI_mem using 1; simp
+      simp only [dif_pos hempty]; unfold cylGenCharge
+      obtain ⟨i₀⟩ := ‹Nonempty S.ι›
+      have hE_eq : hempty.choose = ∅ := by
+        apply stone_clopen_injective (S := S)
+        convert hempty.choose_spec.2; ext u; simp [Filter.empty_notMem]
+      exact (@cylGen_charge_wellDef S _ udir surj P
+        hempty.choose_spec.1.choose i₀
+        hempty.choose_spec.1.choose_spec.choose (∅ : Set ((S.q i₀).Outcome))
+        hempty.choose_spec.1.choose_spec.choose_spec.1 MeasurableSet.empty
+        (by rw [← hempty.choose_spec.1.choose_spec.choose_spec.2, hE_eq]
+            simp [QuerySystem.Cyl])).trans addContent_empty
+    | @insert V I' hnotmem ih =>
+      intro hI_ss hI_dis hI_mem
+      -- Setup
+      have hV_mem : V ∈ stoneClopens S :=
+        hI_ss (Finset.mem_coe.mpr (Finset.mem_insert_self V I'))
+      have hI'_ss : ↑I' ⊆ stoneClopens S := fun x hx =>
+        hI_ss (Finset.mem_coe.mpr (Finset.mem_insert_of_mem (Finset.mem_coe.mp hx)))
+      have hI'_dis : PairwiseDisjoint (↑I' : Set (Set (stoneSpace S))) id :=
+        hI_dis.subset (Finset.coe_subset.mpr (Finset.subset_insert V I'))
+      have hV_disj : Disjoint V (⋃₀ ↑I') := by
+        rw [Set.disjoint_sUnion_right]
+        intro s hs
+        exact hI_dis (Finset.mem_coe.mpr (Finset.mem_insert_self V I'))
+          (Finset.mem_coe.mpr (Finset.mem_insert_of_mem (Finset.mem_coe.mp hs)))
+          (fun heq => hnotmem (heq ▸ Finset.mem_coe.mp hs))
+      -- (a) ⋃₀ ↑I' ∈ stoneClopens S
+      have hI'_mem : ⋃₀ ↑I' ∈ stoneClopens S := by
+        obtain ⟨K, hK_cyl, hK_eq⟩ := hI_mem
+        obtain ⟨E_V, hEV_cyl, hEV_eq⟩ := hV_mem
+        have hunion : V ∪ ⋃₀ ↑I' = {u : stoneSpace S | K ∈ u} := by
+          have h := hK_eq
+          simp only [Finset.coe_insert, Set.sUnion_insert] at h
+          exact h.symm
+        -- ⋃₀ ↑I' = {u | K \ E_V ∈ u}
+        have hrest_eq : ⋃₀ ↑I' = {u : stoneSpace S | K \ E_V ∈ u} := by
+          ext u; constructor
+          · intro hu
+            have hKu : u ∈ {u : stoneSpace S | K ∈ u} := by
+              rw [← hunion]; exact Or.inr hu
+            have hnotEV : ¬(E_V ∈ u) := by
+              intro hEVu
+              have hVu : u ∈ V := hEV_eq.symm ▸ hEVu
+              exact Set.disjoint_left.mp hV_disj hVu hu
+            exact (u : Ultrafilter S.Omega).diff_mem_iff.mpr ⟨hKu, hnotEV⟩
+          · intro hu
+            have hKu : K ∈ u := ((u : Ultrafilter S.Omega).diff_mem_iff.mp hu).1
+            have hnotEV : ¬(E_V ∈ u) := ((u : Ultrafilter S.Omega).diff_mem_iff.mp hu).2
+            have hmem_union : u ∈ V ∪ ⋃₀ ↑I' := by
+              have : u ∈ {u : stoneSpace S | K ∈ u} := hKu
+              rwa [← hunion] at this
+            rcases hmem_union with hV | hI'
+            · have hEVu : E_V ∈ u := by
+                have : u ∈ (fun E => {u : stoneSpace S | E ∈ u}) E_V := hEV_eq ▸ hV
+                exact this
+              exact absurd hEVu hnotEV
+            · exact hI'
+        rw [hrest_eq]
+        -- K \ E_V ∈ CylGen
+        obtain ⟨i_K, A_K, hA_K, hK_pres⟩ := hK_cyl
+        obtain ⟨i_V, A_V, hA_V, hEV_pres⟩ := hEV_cyl
+        obtain ⟨k, hkK, hkV⟩ := udir i_K i_V
+        refine ⟨K \ E_V, ?_, rfl⟩
+        have : K \ E_V = S.Cyl k ((S.π hkK).π ⁻¹' A_K \ (S.π hkV).π ⁻¹' A_V) := by
+          rw [hK_pres, hEV_pres, S.cyl_refine hkK A_K, S.cyl_refine hkV A_V]
+          ext ω; simp [QuerySystem.Cyl]
+        rw [this]
+        exact ⟨k, _, (hA_K.preimage (S.π hkK).measurable_π).diff
+          (hA_V.preimage (S.π hkV).measurable_π), rfl⟩
+      -- (b) Apply IH
+      have hih := ih hI'_ss hI'_dis hI'_mem
+      -- (c) Binary additivity: toFun(V ∪ ⋃₀ I') = toFun(V) + toFun(⋃₀ I')
+      rw [Finset.coe_insert, Set.sUnion_insert, Finset.sum_insert hnotmem, ← hih]
+      -- Goal: toFun (V ∪ ⋃₀ ↑I') = toFun V + toFun (⋃₀ ↑I')
+      -- V ∪ ⋃₀ I' ∈ stoneClopens (= hI_mem after insert rewrite)
+      have hU_mem : V ∪ ⋃₀ ↑I' ∈ stoneClopens S := by
+        convert hI_mem using 1; rw [Finset.coe_insert, Set.sUnion_insert]
+      simp only [dif_pos hU_mem, dif_pos hV_mem, dif_pos hI'_mem]
+      unfold cylGenCharge
+      -- Goal shape: P.ν i₁ A₁ = P.ν i₂ A₂ + P.ν i₃ A₃
+      -- where i₁,A₁ from hU_mem; i₂,A₂ from hV_mem; i₃,A₃ from hI'_mem
+      -- Find common level
+      obtain ⟨k, hk⟩ := S.upperBound_finset udir
+        ({hU_mem.choose_spec.1.choose, hV_mem.choose_spec.1.choose,
+          hI'_mem.choose_spec.1.choose} : Finset S.ι)
+      -- Use wellDef to express all three at level k
+      have hkU := hk _ (Finset.mem_insert_self _ _)
+      have hkV := hk _ (Finset.mem_insert_of_mem (Finset.mem_insert_self _ _))
+      have hkI := hk _ (Finset.mem_insert_of_mem (Finset.mem_insert_of_mem
+        (Finset.mem_singleton_self _)))
+      -- The presentations
+      have hU_meas := hU_mem.choose_spec.1.choose_spec.choose_spec.1
+      have hV_meas := hV_mem.choose_spec.1.choose_spec.choose_spec.1
+      have hI_meas := hI'_mem.choose_spec.1.choose_spec.choose_spec.1
+      have hU_pres := hU_mem.choose_spec.1.choose_spec.choose_spec.2
+      have hV_pres := hV_mem.choose_spec.1.choose_spec.choose_spec.2
+      have hI_pres := hI'_mem.choose_spec.1.choose_spec.choose_spec.2
+      -- Preimages at level k
+      have hmU := hU_meas.preimage (S.π hkU).measurable_π
+      have hmV := hV_meas.preimage (S.π hkV).measurable_π
+      have hmI := hI_meas.preimage (S.π hkI).measurable_π
+      -- Well-definedness: each P.ν i A = P.ν k (π⁻¹' A)
+      have hwU := P.compat hkU _ hU_meas
+      have hwV := P.compat hkV _ hV_meas
+      have hwI := P.compat hkI _ hI_meas
+      rw [hwU, hwV, hwI]
+      -- Goal: P.ν k (π_U⁻¹' A_U) = P.ν k (π_V⁻¹' A_V) + P.ν k (π_I⁻¹' A_I)
+      -- Show π_U⁻¹' A_U = (π_V⁻¹' A_V) ∪ (π_I⁻¹' A_I) and they're disjoint
+      have hset_eq : (S.π hkU).π ⁻¹' hU_mem.choose_spec.1.choose_spec.choose =
+          ((S.π hkV).π ⁻¹' hV_mem.choose_spec.1.choose_spec.choose) ∪
+          ((S.π hkI).π ⁻¹' hI'_mem.choose_spec.1.choose_spec.choose) := by
+        apply (Set.preimage_injective.mpr (surj k))
+        -- Goal: eval k ⁻¹' (π_U⁻¹' A_U) = eval k ⁻¹' ((π_V⁻¹' A_V) ∪ (π_I⁻¹' A_I))
+        -- eval k ⁻¹' (π⁻¹' A) = Cyl (choose) (choose_spec.choose) = choose_underlying
+        have lhs : S.eval k ⁻¹' ((S.π hkU).π ⁻¹' hU_mem.choose_spec.1.choose_spec.choose) =
+            hU_mem.choose := by
+          show S.Cyl k _ = _; rw [← S.cyl_refine hkU, ← hU_pres]
+        have rhs_V : S.eval k ⁻¹' ((S.π hkV).π ⁻¹' hV_mem.choose_spec.1.choose_spec.choose) =
+            hV_mem.choose := by
+          show S.Cyl k _ = _; rw [← S.cyl_refine hkV, ← hV_pres]
+        have rhs_I : S.eval k ⁻¹' ((S.π hkI).π ⁻¹' hI'_mem.choose_spec.1.choose_spec.choose) =
+            hI'_mem.choose := by
+          show S.Cyl k _ = _; rw [← S.cyl_refine hkI, ← hI_pres]
+        rw [Set.preimage_union, lhs, rhs_V, rhs_I]
+        -- Goal: hU_mem.choose = hV_mem.choose ∪ hI'_mem.choose
+        apply stone_clopen_injective (S := S)
+        -- Goal: {u | (hU).choose ∈ u} = {u | (hV).choose ∪ (hI').choose ∈ u}
+        ext u
+        simp only [Set.mem_setOf_eq, Ultrafilter.union_mem_iff]
+        -- Goal: hU.choose ∈ u ↔ hV.choose ∈ u ∨ hI'.choose ∈ u
+        -- The goal is: hU_mem.choose ∈ u ↔ hV_mem.choose ∈ u ∨ hI'_mem.choose ∈ u
+        -- hU_mem.choose_spec.2 says: (fun E => {u|E∈u}) hU_mem.choose = V ∪ ⋃₀ ↑I'
+        -- which beta-reduces to: {u | hU_mem.choose ∈ u} = V ∪ ⋃₀ ↑I'
+        -- Similarly for hV_mem and hI'_mem.
+        -- Use congrFun (extensionality) to get pointwise iff
+        have hU_iff : hU_mem.choose ∈ u ↔ u ∈ V ∪ ⋃₀ ↑I' :=
+          show u ∈ {u | hU_mem.choose ∈ u} ↔ _ from by
+            rw [show ({u : stoneSpace S | hU_mem.choose ∈ u} : Set _) = V ∪ ⋃₀ ↑I' from
+              hU_mem.choose_spec.2]
+        have hV_iff : hV_mem.choose ∈ u ↔ u ∈ V :=
+          show u ∈ {u | hV_mem.choose ∈ u} ↔ _ from by
+            rw [show ({u : stoneSpace S | hV_mem.choose ∈ u} : Set _) = V from
+              hV_mem.choose_spec.2]
+        have hI_iff : hI'_mem.choose ∈ u ↔ u ∈ ⋃₀ ↑I' :=
+          show u ∈ {u | hI'_mem.choose ∈ u} ↔ _ from by
+            rw [show ({u : stoneSpace S | hI'_mem.choose ∈ u} : Set _) = ⋃₀ ↑I' from
+              hI'_mem.choose_spec.2]
+        constructor
+        · intro hu
+          rcases hU_iff.mp hu with hV' | hI''
+          · left; exact hV_iff.mpr hV'
+          · right; exact hI_iff.mpr hI''
+        · intro h
+          rcases h with hV' | hI''
+          · exact hU_iff.mpr (Or.inl (hV_iff.mp hV'))
+          · exact hU_iff.mpr (Or.inr (hI_iff.mp hI''))
+      have hdisj : Disjoint ((S.π hkV).π ⁻¹' hV_mem.choose_spec.1.choose_spec.choose)
+          ((S.π hkI).π ⁻¹' hI'_mem.choose_spec.1.choose_spec.choose) := by
+        rw [Set.disjoint_left]
+        intro o hoV hoI
+        obtain ⟨ω, hω⟩ := surj k o
+        have hωV : (pure ω : stoneSpace S) ∈ V := by
+          have h1 : ω ∈ S.eval k ⁻¹' ((S.π hkV).π ⁻¹'
+            hV_mem.choose_spec.1.choose_spec.choose) := by
+            simp only [Set.mem_preimage]; rw [hω]; exact hoV
+          have h2 : ω ∈ hV_mem.choose := by
+            have heq : S.Cyl k ((S.π hkV).π ⁻¹'
+              hV_mem.choose_spec.1.choose_spec.choose) = hV_mem.choose := by
+              rw [← S.cyl_refine hkV, ← hV_pres]
+            rw [← heq]; exact h1
+          have h3 : (pure ω : stoneSpace S) ∈
+            (fun E => {u : stoneSpace S | E ∈ u}) hV_mem.choose := h2
+          rw [hV_mem.choose_spec.2] at h3; exact h3
+        have hωI : (pure ω : stoneSpace S) ∈ ⋃₀ ↑I' := by
+          have h1 : ω ∈ S.eval k ⁻¹' ((S.π hkI).π ⁻¹'
+            hI'_mem.choose_spec.1.choose_spec.choose) := by
+            simp only [Set.mem_preimage]; rw [hω]; exact hoI
+          have h2 : ω ∈ hI'_mem.choose := by
+            have heq : S.Cyl k ((S.π hkI).π ⁻¹'
+              hI'_mem.choose_spec.1.choose_spec.choose) = hI'_mem.choose := by
+              rw [← S.cyl_refine hkI, ← hI_pres]
+            rw [← heq]; exact h1
+          have h3 : (pure ω : stoneSpace S) ∈
+            (fun E => {u : stoneSpace S | E ∈ u}) hI'_mem.choose := h2
+          rw [hI'_mem.choose_spec.2] at h3; exact h3
+        exact Set.disjoint_left.mp hV_disj hωV hωI
+      rw [hset_eq]
+      exact addContent_union (QuerySystem.isSetRing_measurableSets _) hmV hmI hdisj
+
+/-- The Stone content is σ-subadditive by compactness: if clopens cover a clopen,
+    finitely many suffice, and finite subadditivity gives the bound.
+
+    This is the key step that uses the topology of the Stone space. -/
+private theorem stoneAddContent_isSigmaSubadditive (S : QuerySystem) [Nonempty S.ι]
+    (udir : S.UpperDirected)
+    (surj : S.EvalSurjective)
+    (P : S.NormalizedCompatibleContents) :
+    (stoneAddContent S udir surj P).IsSigmaSubadditive := by
+  intro f hf hf_Union
+  -- Each f n is a clopen {u | E_n ∈ u}, hence open
+  have hf_open : ∀ n, IsOpen (f n) := by
+    intro n
+    obtain ⟨En, _, hEn_eq⟩ := hf n
+    rw [← hEn_eq]; exact (cylGen_clopen S En).2
+  -- ⋃ n, f n ∈ stoneClopens, so it equals {u | K ∈ u} for some K
+  have hf_Union' := hf_Union
+  obtain ⟨K, hK_cyl, hK_eq⟩ := hf_Union'
+  -- {u | K ∈ u} is compact (closed in compact space)
+  have hK_compact : IsCompact {u : stoneSpace S | K ∈ u} :=
+    (cylGen_clopen S K).1.isCompact
+  -- Finite subcover by compactness
+  have hcover : {u : stoneSpace S | K ∈ u} ⊆ ⋃ n, f n :=
+    hK_eq ▸ Set.Subset.refl _
+  obtain ⟨t, ht⟩ := hK_compact.elim_finite_subcover f hf_open hcover
+  -- Step 1: ⋃₀ (t.image f) = ⋃ n, f n (compactness + trivial direction)
+  have hsUnion_eq : ⋃₀ ↑(t.image f) = ⋃ n, f n := by
+    rw [Finset.coe_image, Set.sUnion_image]
+    apply Set.Subset.antisymm
+    · exact Set.iUnion₂_subset fun n _ => Set.subset_iUnion f n
+    · calc ⋃ n, f n = {u : stoneSpace S | K ∈ u} := hK_eq.symm
+        _ ⊆ ⋃ i ∈ t, f i := ht
+  -- Step 2: Members of t.image f are in stoneClopens
+  have hfin_ss : ↑(t.image f) ⊆ stoneClopens S := by
+    intro V hV
+    rw [Finset.mem_coe, Finset.mem_image] at hV
+    obtain ⟨n, _, rfl⟩ := hV; exact hf n
+  -- Step 3: ⋃₀ (t.image f) ∈ stoneClopens (equals ⋃ n, f n which is)
+  have hfin_mem : ⋃₀ ↑(t.image f) ∈ stoneClopens S := by
+    rw [hsUnion_eq]; exact hf_Union
+  have hsemiring := isSetSemiring_stoneClopens udir
+  -- Step 4: Chain the inequalities
+  calc (stoneAddContent S udir surj P) (⋃ n, f n)
+      = (stoneAddContent S udir surj P) (⋃₀ ↑(t.image f)) := by
+        congr 1; exact hsUnion_eq.symm
+    _ ≤ ∑ u ∈ t.image f, (stoneAddContent S udir surj P) u :=
+        addContent_sUnion_le_sum hsemiring _ hfin_ss hfin_mem
+    _ ≤ ∑ n ∈ t, (stoneAddContent S udir surj P) (f n) :=
+        Finset.sum_image_le_of_nonneg (fun _ _ => zero_le _)
+    _ ≤ ∑' n, (stoneAddContent S udir surj P) (f n) :=
+        ENNReal.sum_le_tsum (↑t)
+
+/-- Given a normalized compatible family of charges `P` on the outcome spaces of `S`,
+    there exists a probability measure `P̂` on `stoneSpace S` (w.r.t. the σ-algebra
+    generated by the cylinder clopens).
+
+    **Construction:** Transfer `P.ν` to an `AddContent` on `stoneClopens S` via the
+    Stone embedding `E ↦ {u | E ∈ u}`.  Prove σ-subadditivity via compactness of the
+    Stone space.  Apply `AddContent.measure` (Carathéodory extension). -/
 theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
     (udir : S.UpperDirected)
     (surj : S.EvalSurjective)
     (P : S.NormalizedCompatibleContents) :
-    haveI : MeasurableSpace (stoneSpace S) := borel (stoneSpace S)
+    haveI : MeasurableSpace (stoneSpace S) :=
+      MeasurableSpace.generateFrom (stoneClopens S)
     ∃ Phat : MeasureTheory.Measure (stoneSpace S),
       MeasureTheory.IsProbabilityMeasure Phat := by
-  haveI : MeasurableSpace (stoneSpace S) := borel (stoneSpace S)
-  -- TODO: construct via AddContent.measure on stoneClopens
-  -- Step 1: Transfer cylGen_addContent to stoneClopens (isometry of charges)
-  -- Step 2: Prove IsSetSemiring (stoneClopens S) (from isSetRing_stoneClopens)
-  -- Step 3: Prove borel ≤ generateFrom (stoneClopens S)
-  -- Step 4: Prove IsSigmaSubadditive (compactness of Stone space)
-  -- Step 5: Apply AddContent.measure
-  sorry
+  letI mα : MeasurableSpace (stoneSpace S) :=
+    MeasurableSpace.generateFrom (stoneClopens S)
+  -- Build the AddContent on stoneClopens
+  let m := stoneAddContent S udir surj P
+  have hsemiring := isSetSemiring_stoneClopens udir
+  have hgen : mα ≤ MeasurableSpace.generateFrom (stoneClopens S) := le_refl _
+  have hsigma := stoneAddContent_isSigmaSubadditive S udir surj P
+  -- Apply Carathéodory extension
+  have hgen_eq : mα = MeasurableSpace.generateFrom (stoneClopens S) := rfl
+  refine ⟨m.measure hsemiring hgen hsigma, ?_⟩
+  constructor
+  -- Prove μ(univ) = 1
+  -- univ = {u | Set.univ ∈ u} since every ultrafilter contains univ
+  have huniv_eq : (Set.univ : Set (stoneSpace S)) =
+      {u : stoneSpace S | (Set.univ : Set S.Omega) ∈ u} := by
+    ext u
+    simp only [Set.mem_univ, Set.mem_setOf_eq, true_iff]
+    exact Filter.univ_mem
+  -- Set.univ ∈ CylGen
+  obtain ⟨i₀⟩ := ‹Nonempty S.ι›
+  have huniv_cyl : (Set.univ : Set S.Omega) ∈ S.CylGen :=
+    ⟨i₀, Set.univ, MeasurableSet.univ, by ext ω; simp [QuerySystem.Cyl]⟩
+  -- univ ∈ stoneClopens S
+  have huniv_stone : (Set.univ : Set (stoneSpace S)) ∈ stoneClopens S := by
+    rw [huniv_eq]; exact ⟨Set.univ, huniv_cyl, rfl⟩
+  -- measure_eq gives: μ(univ) = m(univ)
+  have hmeas_eq := AddContent.measure_eq m hsemiring hgen_eq hsigma huniv_stone
+  rw [huniv_eq] at hmeas_eq ⊢
+  rw [hmeas_eq]
+  -- Goal: m {u | Set.univ ∈ u} = 1
+  -- Unfold AddContent to get cylGenCharge, then use wellDef to reduce to P.ν i₀ univ
+  show (stoneAddContent S udir surj P).toFun {u | (Set.univ : Set S.Omega) ∈ u} = 1
+  simp only [stoneAddContent]
+  have hmem : {u : stoneSpace S | (Set.univ : Set S.Omega) ∈ u} ∈ stoneClopens S :=
+    ⟨Set.univ, huniv_cyl, rfl⟩
+  simp only [dif_pos hmem]
+  -- Goal: cylGenCharge S P hmem.choose hmem.choose_spec.1 = 1
+  unfold cylGenCharge
+  -- Goal: P.ν (hmem.choose_spec.1.choose) (hmem.choose_spec.1.choose_spec.choose) = 1
+  -- By cylGen_charge_wellDef with i₂ = i₀, A₂ = Set.univ:
+  -- Cyl i A = hmem.choose = Set.univ = Cyl i₀ Set.univ
+  -- so P.ν i A = P.ν i₀ Set.univ = 1
+  have hE_is_univ : hmem.choose = Set.univ := by
+    apply stone_clopen_injective (S := S)
+    exact hmem.choose_spec.2
+  have hwd := @cylGen_charge_wellDef S _ udir surj P
+    hmem.choose_spec.1.choose i₀
+    hmem.choose_spec.1.choose_spec.choose (Set.univ : Set ((S.q i₀).Outcome))
+    hmem.choose_spec.1.choose_spec.choose_spec.1
+    MeasurableSet.univ
+    (by rw [← hmem.choose_spec.1.choose_spec.choose_spec.2, hE_is_univ]
+        ext ω; simp [QuerySystem.Cyl])
+  rw [hwd]
+  exact P.norm i₀
 
 -- ---------------------------------------------------------------------------
 -- Task 0′-B/D (continued): Stone observational extension
@@ -353,7 +728,8 @@ theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
 
     Under `EvalSurjective`, `UpperDirected`, CE, and discriminability
     (injectivity of `stoneEmbedding`), there exists a unique probability measure
-    `P` on `S.Omega` with `(S.eval i)_# P = ν_i` for every `i`.
+    `μ` on `S.Omega` recovering the compatible charges: `μ(Cyl i A) = P.ν i A`
+    for every level `i` and measurable `A`.
 
     The proof: `stone_measure_exists` gives a measure `P̂` on `stoneSpace S`;
     CE forces `P̂` to be supported on `range stoneEmbedding` (Yosida–Hewitt +
@@ -369,11 +745,12 @@ theorem stone_observational_extension (S : QuerySystem) [Nonempty S.ι]
     (hce : S.CollectivelyExhaustive P.ν) :
     ∃! μ : MeasureTheory.Measure S.Omega,
       MeasureTheory.IsProbabilityMeasure μ ∧
-      ∀ i : S.ι, MeasureTheory.Measure.map (S.eval i) μ =
-        MeasureTheory.Measure.map (S.eval i) μ := by
-  -- Step 1: stone_measure_exists (intentional sorry above)
+      ∀ (i : S.ι) (A : Set ((S.q i).Outcome)), MeasurableSet A →
+        μ (S.Cyl i A) = P.ν i A := by
+  -- Step 1: stone_measure_exists gives P̂ on stoneSpace S
   -- Step 2: CE → P̂ supported on range stoneEmbedding (Yosida–Hewitt, Mathlib gap)
-  -- Step 3: Pushforward μ := (stoneEmbedding)_* P̂ is a probability measure on S.Omega
+  -- Step 3: Pushforward μ := (stoneEmbedding⁻¹)_* P̂ is a probability measure on S.Omega
+  -- Step 4: μ(Cyl i A) = P̂({u | Cyl i A ∈ u}) = P.ν i A (by construction)
   -- Uniqueness: observational_determination (proved in QuerySystem.lean)
   sorry
 

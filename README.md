@@ -37,8 +37,7 @@ condition — is established via a finite-cofinite counterexample and Łoś's th
 
 **LaTeX:** `papers/paper_i/` (12 pages, arXiv-ready)
 **Lean:** `QuerySystem.lean` ✅, `DiscriminabilityFoundations.lean` ✅,
-`StoneDualityExtension.lean` ✅, `TopologicalQuerySystem.lean` ✅,
-`ProkhorovExtension.lean` ✅
+`StoneDualityExtension.lean` ✅, `UltrafilterCharge.lean` ✅
 
 ### Paper II — Dynamics and Reconstruction in the Observable Measure
 
@@ -110,8 +109,7 @@ Resolvent_Framework/
 │           ├── PredictiveOperators.lean
 │           ├── DelayEmbedding.lean
 │           ├── ReconstructionTheorem.lean
-│           ├── TopologicalQuerySystem.lean
-│           └── ProkhorovExtension.lean
+│           └── UltrafilterCharge.lean
 ├── notes/
 │   ├── README.md                    ← note map and naming conventions
 │   ├── archive/                     ← superseded notes and scaffolding

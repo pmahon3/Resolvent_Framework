@@ -1005,30 +1005,10 @@ without additional structure (compactness of outcome spaces, or an ambient coher
 For the programmes's concrete systems (delay queries), the hypothesis is verified directly.
 -/
 
-/-- **Positive companion** (abstract proof open, concrete instances verified): surjectivity
-    of all refinement maps is NECESSARY for `EvalSurjective`, but NOT sufficient in full
-    generality.
-
-    **Necessity:** `sp3CounterexampleQS_not_evalSurjective` shows the implication
-    EvalSurjective → surjective π_{ij} via contrapositive.
-
-    **Concrete sufficiency:** For delay query systems, `DelayEmbedding.evalSurjective`
-    proves `EvalSurjective` directly: any `y ∈ Xᵈ` is lifted by a stream `s` realising `y`,
-    and the coherent family `ω.1 (d',τ') = delayEval d' τ' s` is explicit.
-
-    **Abstract proof:** In general, the existence of a coherent family in the inverse limit
-    requires compactness of outcome spaces (Tychonoff) or an ambient coherent embedding.
-    This theorem is stated with the natural hypotheses; the sorry marks the gap between
-    these hypotheses and the full abstract proof. -/
-theorem evalSurjective_of_upperDirected_refinementMaps_surjective
-    (S : QuerySystem.{u, v})
-    (udir : S.UpperDirected)
-    (hπ_surj : ∀ {i j : S.ι} (hij : S.le i j), Function.Surjective (S.π hij).π) :
-    S.EvalSurjective := by
-  intro i y
-  -- Open: the abstract inverse limit theorem requires compactness or an ambient embedding.
-  -- See note in the positive companion section above.
-  sorry
+-- NOTE: The abstract converse (surjective refinement maps → EvalSurjective) requires
+-- compactness of outcome spaces (Tychonoff / inverse limit nonemptiness) and is not
+-- needed for any paper result. Concrete systems (delay queries) verify EvalSurjective
+-- directly in DelayEmbedding.lean.
 
 end SP3Independence
 
@@ -1059,60 +1039,9 @@ theorem ce_independence :
     ¬ counterexampleQS.CollectivelyExhaustive counterexampleNCC.ν :=
   ⟨counterexampleQS_seqUpperDir, counterexampleNCC_not_collectivelyExhaustive⟩
 
-/-- A condition on NCC families is **finitarily expressible** if it is preserved under
-    ultraproducts of NCC families.
-
-    Formally: `Φ` is finitary if whenever `(S_α, P_α)` is a family of query systems
-    with NCC families all satisfying `Φ`, the ultraproduct `(∏_U S_α, ∏_U P_α)` over
-    any ultrafilter `U` also satisfies `Φ`. By Łoś's theorem, this characterises exactly
-    the first-order-definable conditions in the language of query systems.
-
-    **Infrastructure gap:** This definition requires ultraproducts of `QuerySystem`
-    structures, which are not yet in Mathlib. The sorry marks this formalization gap —
-    the mathematical content is clear but the required categorical machinery is absent.
-    Compare: `prokhorov_extension_polish` (blocked on `PerfectMeasure`). -/
-def IsFinitarilyExpressible
-    (Φ : ∀ (S : QuerySystem), S.NormalizedCompatibleContents → Prop) : Prop := by
-  sorry -- needs ultraproduct construction for QuerySystem (not in Mathlib)
-
-/-- **CE Irreducibility**: No finitarily expressible condition on NCC families implies
-    `CollectivelyExhaustive`.
-
-    **Proof sketch (mathematical):**
-    Any finitarily expressible `Φ` is preserved under ultraproducts (by definition).
-    The counterexample `counterexampleNCC` is (up to isomorphism) an ultraproduct of
-    point-mass contents over the hyperfilter on ℕ — maximally finitely consistent by
-    construction. Therefore `Φ` holds for the counterexample whenever it holds
-    universally. Since the counterexample fails CE
-    (`counterexampleNCC_not_collectivelyExhaustive`), `Φ` cannot imply CE.
-
-    The purely finitely additive part of the Yosida-Hewitt decomposition provides the
-    general witness: every purely finitely additive content satisfies all algebraic
-    conditions and fails CE. The hyperfilter content is one such.
-
-    **Formal status:** The proof is blocked only by the `IsFinitarilyExpressible`
-    infrastructure gap above (ultraproducts for QuerySystem). Once that definition is
-    filled, the proof goes through by exhibiting `counterexampleQS` and
-    `counterexampleNCC` as the required witness.
-
-    **Mathematical status:** True. Not a conjecture.
-    **Philosophical status:** CE is an irreducible primitive — not a structural
-    consequence. The gap between "coherence" and "probability" in the program's chain
-    is a proved boundary, not an open question.
-    See: notes/conceptual_sketches/philosophy/ce_irreducibility.md -/
-theorem ce_irreducibility
-    (Φ : ∀ (S : QuerySystem), S.NormalizedCompatibleContents → Prop)
-    (hΦ : IsFinitarilyExpressible Φ)
-    (hΦ_holds : ∀ S P, Φ S P) :
-    ∃ S P, Φ S P ∧ ¬ S.CollectivelyExhaustive P.ν := by
-  -- Witness: counterexampleQS and counterexampleNCC.
-  -- hΦ_holds gives Φ(counterexampleQS, counterexampleNCC).
-  -- counterexampleNCC_not_collectivelyExhaustive gives ¬ CE.
-  -- The role of hΦ (IsFinitarilyExpressible) is to guarantee that Φ, being a finitary
-  -- condition, cannot distinguish the counterexample from a CE-satisfying system —
-  -- i.e., that Φ's truth on all systems does not secretly encode CE.
-  -- This step requires the ultraproduct construction (see IsFinitarilyExpressible).
-  sorry -- blocked on IsFinitarilyExpressible (ultraproduct infrastructure, not in Mathlib)
+-- NOTE: IsFinitarilyExpressible and ce_irreducibility were removed (not in papers).
+-- They are in git history if needed. The key result (ce_independence above) shows
+-- that CE is not implied by structural conditions — that IS the paper's claim.
 
 end CEIndependence
 

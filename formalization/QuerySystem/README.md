@@ -11,15 +11,14 @@ is mathematically complete in LaTeX (`papers/paper_iii/`) but not yet formalized
 
 | File | Paper | Content | Status |
 |------|-------|---------|--------|
-| `QuerySystem.lean` | I (Carathéodory route) | Query system, cylinder algebra, observational extension | ✅ 0 sorrys |
-| `DiscriminabilityFoundations.lean` | I (CE theory) | CE theorem, irreducibility, Łoś argument | ✅ 0 sorrys on main results; 3 Mathlib-gap sorrys |
-| `StoneDualityExtension.lean` | I (Stone route) | Stone space, bonding maps, route coincidence | ✅ 0 sorrys on proved tasks; 2 intentional Mathlib-gap sorrys |
-| `TopologicalQuerySystem.lean` | I (Prokhorov route) | Topological query systems, inverse limit | ✅ 0 sorrys on new theorems; 1 intentional skeleton |
-| `ProkhorovExtension.lean` | I (Prokhorov route) | Prokhorov extension main theorem | ✅ 1 Mathlib-blocked sorry |
-| `PredictiveState.lean` | II | Conditional regularity kernel, minimal sufficient factor, factorization | ✅ 0 sorrys |
-| `PredictiveOperators.lean` | II | Semigroup, Koopman–Perron duality, deterministic specialization | ✅ 0 sorrys |
-| `DelayEmbedding.lean` | III | Delay query system; bounded-subsystem extension; reconstruction bridge | ✅ 0 sorrys on proved results; 1 deliberate scope note; 1 documented elaboration sorry |
-| `ReconstructionTheorem.lean` | II | Observable algebra, delay map, density bridge, reconstruction theorem | ✅ 0 sorrys |
+| `QuerySystem.lean` | I §§2–3 | Query system, cylinder algebra, Carathéodory extension | ✅ 0 sorrys |
+| `DiscriminabilityFoundations.lean` | I §4 | CE characterization, counterexample, independence | ✅ 0 sorrys |
+| `StoneDualityExtension.lean` | I §5 | Stone space, stone_measure_exists, route coincidence | ✅ 0 sorrys on proved tasks; 1 Mathlib-gap sorry |
+| `UltrafilterCharge.lean` | Companion | Non-σ-additivity of ultrafilter charges | ✅ 0 sorrys |
+| `PredictiveState.lean` | II §2 | Conditional regularity kernel, minimal sufficient factor | ✅ 0 sorrys |
+| `PredictiveOperators.lean` | II §3 | Semigroup, Koopman–Perron duality | ✅ 0 sorrys |
+| `ReconstructionTheorem.lean` | II §§4–5 | Density bridge, reconstruction theorem | ✅ 0 sorrys |
+| `DelayEmbedding.lean` | I+III | Delay query system, reconstruction bridge | ✅ 0 sorrys |
 
 ## Key results
 
@@ -51,18 +50,24 @@ Paper III (finite-sample certification) is mathematically complete in LaTeX (`pa
 
 ## Intentional sorrys
 
-All remaining sorrys are Mathlib-gap markers or deliberate scope notes.
+One sorry remains. It is a Mathlib-gap marker, not a proof-search failure.
 
 | Sorry | Location | Reason |
 |-------|----------|--------|
-| `stone_measure_exists` | `StoneDualityExtension.lean` | Clopen-algebra charge → regular Borel measure; not in Mathlib |
-| `stone_observational_extension` | `StoneDualityExtension.lean` | Choksi's theorem + Yosida–Hewitt; not in Mathlib |
-| `IsFinitarilyExpressible` | `DiscriminabilityFoundations.lean` | Ultraproduct construction for QuerySystem not in Mathlib |
-| `evalSurjective_of_upperDirected_refinementMaps_surjective` | `DiscriminabilityFoundations.lean` | Abstract inverse limit requires Tychonoff; concrete systems verified directly |
-| `prokhorov_extension_polish` | `ProkhorovExtension.lean` | `PerfectMeasure` and Musiał's theorem not in Mathlib |
-| `delayQuerySystem.seqUpperDirected` | `DelayEmbedding.lean` | Deliberate scope note: full delay system is NOT SUD (documented counterexample) |
-| `ce_sep_defect` (not in Lean) | — | Paper II Theorem 3.4 (CE drives δ(G_k)→0) not formalized; requires martingale convergence; deliberate scope omission |
-| `delay_reconstruction_iff` | `DelayEmbedding.lean` | Two-`MeasurableSpace`-instance elaboration prevents cross-file call; documented |
+| `stone_observational_extension` | `StoneDualityExtension.lean` | Yosida–Hewitt decomposition not in Mathlib |
+
+This sorry blocks the descent from the Stone-space measure (fully constructed by
+`stone_measure_exists`, 0 sorry) back to a measure on Ω. The paper's main extension
+theorem (Thm 3.3) is proved via the Carathéodory route with 0 sorry.
+
+## Archived files
+
+The following files formalize supplementary routes not in the papers:
+
+| File | Content | Reason for archival |
+|------|---------|-------------------|
+| `archive/TopologicalQuerySystem.lean` | Topological/Polish query systems | Kolmogorov extension route; not a paper theorem |
+| `archive/ProkhorovExtension.lean` | Prokhorov extension | Classical result; not a paper contribution |
 
 ## Build
 

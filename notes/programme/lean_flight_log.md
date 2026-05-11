@@ -19,19 +19,23 @@ equivalence theorem (Thm 6.1) added in synthesis, gathering:
 No new mathematical content — all four equivalences were already proved
 in the body. The theorem assembles them.
 
-### Current sorry inventory (corrected)
+### Current sorry inventory (updated 2026-05-10)
 
 | File | Sorrys | Type |
 |------|--------|------|
-| `DiscriminabilityFoundations.lean` | 3 | 1 intentional (abstract inv limit), 2 infra (QS ultraproduct) |
-| `StoneDualityExtension.lean` | 2 | Mathlib gaps (clopen→Borel, Choksi) |
-| `DelayEmbedding.lean` | 4 | SUD issue; bounded subsystem proved |
-| `ProkhorovExtension.lean` | 1 | Mathlib gap (PerfectMeasure) |
-| `TopologicalQuerySystem.lean` | 1 | Intentional skeleton |
+| `StoneDualityExtension.lean` | 1 | `stone_observational_extension` (Yosida-Hewitt) |
+| All other active files | 0 ✅ | |
 
-Key fact: `sp1_iff` (CE characterisation, Paper I Thm 4.3) is PROVED
-with 0 sorry. The 3 sorrys in DiscriminabilityFoundations are all in the
-non-derivability/irreducibility section, not in the characterisation.
+**Total: 1 sorry** in active codebase. Mathlib infrastructure gap (Yosida-Hewitt decomposition).
+
+Archived (not in papers): `TopologicalQuerySystem.lean`, `ProkhorovExtension.lean` → `archive/`
+Removed (not in papers): `IsFinitarilyExpressible`, `ce_irreducibility`, `evalSurjective_of_upperDirected...`
+
+Key proved results:
+- `sp1_iff` (CE characterisation, Paper I Thm 4.2): 0 sorry
+- `observational_extension` (Carathéodory route, Paper I Thm 3.3): 0 sorry
+- `stone_measure_exists` (Stone route measure, Paper I §5): 0 sorry
+- `ce_independence` (CE not implied by structural conditions, Paper I §4): 0 sorry
 
 ### Prioritized plan
 
@@ -197,14 +201,43 @@ Steps 1-2 completed:
 - `stone_clopen_injective` ✅
 - `Ultrafilter.exists_mem_of_sUnion_mem` ✅ (Finset.induction_on + union_mem_iff)
 
-Remaining steps 3-6 need:
-- `AddContent` on `stoneClopens` from `NormalizedCompatibleContents`
-  (charge function from P.ν, well-definedness from compatibility)
-- `IsSigmaSubadditive` via compactness
-- `AddContent.measure` application
-- `IsProbabilityMeasure` from normalization
+Steps 3-6 progress:
+- `cylGen_charge_wellDef` ✅ (presentation independence: CompatibleContents +
+  EvalSurjective + cyl_refine at common refinement)
+- `cylGenCharge` ✅ (extracts P.ν value for cylinder event)
+- `stoneAddContent` partial: `empty'` ✅, `sUnion'` ❌ (1 sorry — Finset plumbing)
+- `stoneAddContent_isSigmaSubadditive` ✅ (compactness argument:
+  IsCompact.elim_finite_subcover + addContent_sUnion_le_sum +
+  Finset.sum_image_le_of_nonneg + ENNReal.sum_le_tsum)
+- `stone_measure_exists` structural: AddContent.measure application ✅,
+  IsProbabilityMeasure ✅ (measure_eq + cylGen_charge_wellDef + P.norm)
+- Statement changed: MeasurableSpace := generateFrom (stoneClopens S) instead of borel,
+  since stoneClopens ⊊ all clopens and may not generate full Borel σ-algebra.
 
-### Status: PARTIALLY COMPLETE — semiring infrastructure done, charge transfer remaining.
+### Remaining sorry in stone_measure_exists
+
+One sorry: `sUnion'` in `stoneAddContent`. This is pure Finset plumbing:
+- For each V ∈ I, extract E_V via Classical.choice from stoneClopens membership
+- Show K = ⋃₀ {E_V} via stone_clopen_injective
+- Find common refinement level for all E_V (Finset + UpperDirected)
+- Use P.ν's own AddContent.sUnion' at that level (via CompatibleContents transfer)
+- Thread through cylGen_charge_wellDef for each term
+
+No mathematical gap. Closing requires ~50 lines of Finset.induction + Classical.choice threading.
+
+### Status: COMPLETE — `stone_measure_exists` proved with 0 sorry.
+
+Only remaining sorry in file: `stone_observational_extension` (intentional, Yosida-Hewitt).
+
+The `sUnion'` proof uses Finset.induction_on with:
+- Base: cylGen_charge_wellDef + addContent_empty
+- Step (a): ⋃₀ ↑I' ∈ stoneClopens via Ultrafilter.diff_mem_iff + cyl_refine + measurable diff
+- Step (c): Binary additivity via cylGen_charge_wellDef at common level + addContent_union
+
+Key Lean technique: avoid `set` with Classical.choice projections. Use explicit
+`have` statements and `rw` with named equalities. The `(fun E => {u|E∈u})` wrapper
+from `Set.mem_image` requires `rw [spec.2]` on typed intermediate hypotheses rather
+than `▸` on the goal.
 
 ---
 

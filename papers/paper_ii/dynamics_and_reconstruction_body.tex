@@ -102,17 +102,11 @@ for all measurable $A \subseteq \alpha$ and $B \subseteq \beta$.
 The \emph{conditional regularity kernel} of $F$ given $Q$ is $\kappa_Q$, the
 disintegration kernel of $\rho = P \circ (Q, F)^{-1}$ over its first marginal:
 $\kappa_Q(q, A) = P(F \in A \mid Q = q)$.
-When $F$ is a future observable the kernel describes conditional prediction;
-the object itself is neutral on time.
 \end{definition}
 
 The kernel is covariant under measurable maps: if $\pi : \alpha \to \alpha'$ is
 measurable and $Q' = \pi \circ Q$, then $\kappa_Q(q, \cdot) = \kappa_{Q'}(\pi(q), \cdot)$
 for $(P \circ Q^{-1})$-almost every $q$, by uniqueness of disintegration.
-
-Composing $\kappa_Q$ with $Q$ gives the map sending each sample point to its
-conditional regularity.
-
 
 \begin{definition}[Minimal sufficient factor]
 \label{II:def:minimal-predictive}
@@ -287,9 +281,9 @@ delay map $\Phi_h(x) = (h(T^n x))_{n \in \mathbb{Z}}$, and the observable
 dynamical system is the triple $(\Phi_h(X), \mu \circ \Phi_h^{-1}, \{K_t\})$.
 
 The canonical factor space $\Phi_h(X)$ is a subset of $\mathbb{R}^\mathbb{Z}$
-encoding the dynamical information that $h$ can see.  Whether it is a faithful
-image of $X$ depends on how much the delay orbit
-$\{h \circ T^n : n \in \mathbb{Z}\}$ collectively distinguishes points of $X$.
+encoding all dynamical information accessible to $h$.  Whether it is a faithful
+image of $X$ depends on whether the delay orbit
+$\{h \circ T^n : n \in \mathbb{Z}\}$ separates points of $X$.
 Injectivity of $\Phi_h$ modulo $\mu$-null sets is equivalent to the observable
 $\sigma$-algebra
 \[
@@ -351,9 +345,6 @@ $A \triangle E_k$, confirming $\inf_{E \in \mathcal{G}_k}\mu(A \triangle E)
 \to 0$ uniformly over $A$.  Hence $\delta(\mathcal{G}_k) \to 0$.
 \end{proof}
 
-The density bridge and reconstruction theorem below carry out the
-reconstruction in the delay-map setting.
-
 \begin{remark}[The temporal specialisation]
 \label{II:rem:temporal-spec}
 With $Q_t = h \circ T^t$, the algebra $\mathcal{O}_h^{(L)}$ is an honest
@@ -366,7 +357,7 @@ setting collapses the first by construction.
 \end{remark}
 
 
-Throughout this section and the next, $(X, \mathcal{B}, \mu)$ is a standard
+Throughout, $(X, \mathcal{B}, \mu)$ is a standard
 probability space, $T : X \to X$ is a measurable, $\mu$-preserving invertible
 bimeasurable bijection with $T_*\mu = \mu$, and $h \in L^\infty(X, \mu)$.
 
@@ -637,8 +628,7 @@ rate of the observable algebra.
 $\mathcal{C}$ is not a smooth manifold: it is compact and zero-dimensional,
 with Hausdorff dimension $\log 2/\log 3 \approx 0.63$.  The differential-geometric
 hypotheses of Takens's theorem --- $C^2$ ambient dynamics, integer manifold
-dimension $d$, embedding bound $2d+1$ --- are unavailable before one even asks
-about regularity of $S$; nor do the finite-lag extensions of
+dimension $d$, embedding bound $2d+1$ --- do not apply; nor do the finite-lag extensions of
 Sauer--Yorke--Casdagli~\cite{SauerYorkeCasdagli1991}, which still require a
 finite-dimensional ambient manifold or attractor, apply.
 Theorem~\ref{II:thm:reconstruction} applies because it requires only that the

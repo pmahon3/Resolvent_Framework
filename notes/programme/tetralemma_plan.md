@@ -264,7 +264,31 @@ they might close this.
 
 ---
 
-## Resolution: Outcome A (gap is empty)
+## Resolution: The gap is NOT empty, but it doesn't matter
+
+**The "no intermediate condition" theorem is FALSE at every scope.**
+
+- Broad (isomorphism-invariant): ‖ℓ_p‖ ≤ c thresholds interpolate.
+- Medium (charge values + countable quantifiers): "lim sup ℓ(A_n) < c for
+  all A_n ↓ ∅" reconstructs the YH norm from observable data, interpolates.
+- Narrow (first-order): Łoś gives the theorem but it's just Łoś.
+
+Intermediate conditions exist — but they don't give extensibility. The
+extension to Ω is all-or-nothing: either μ̂(pure(Ω)) = 1 (full σ-additivity,
+measure on Ω exists) or μ̂(pure(Ω)) < 1 (no measure on Ω). There is no
+"partial extension" that recovers some but not all of the charges.
+
+**What IS true (and what the paper correctly claims):**
+σ-additivity is the exact boundary for extensibility. The Stone space
+geometrizes this: the mass always exists (on St(C)), and the question
+is whether it lives on Ω or on phantoms. This is a binary question —
+not a spectrum.
+
+The tetralemma is a framing observation, not a formalizable theorem.
+The paper's current text (witness collapse remark + "exact boundary"
+language) is the right level of claim.
+
+## Previous analysis (superseded): Outcome A
 
 The counterexample QS (DiscriminabilityFoundations.lean) has:
 - Index set: WithTop ℕ (richest directed structure: SequentiallyUpperDirected)

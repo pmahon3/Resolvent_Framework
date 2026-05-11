@@ -1,73 +1,43 @@
 # QuerySystem — Lean 4 Formalization
 
-Lean 4 / Mathlib formalization of the **Structure from Observation** trilogy:
-three papers showing that probability, dynamics, reconstruction, and their
-finite-sample witnesses follow from coherent structured observation.
+Lean 4 / Mathlib formalization of Paper I: "When Does Observational
+Coherence Determine Probability?"
 
-Formalization covers Papers I–II fully. Paper III (finite-sample certification)
-is mathematically complete in LaTeX (`papers/paper_iii/`) but not yet formalized in Lean.
+## Active files (Paper I + companion note)
 
-## File overview
+| File | Content | Status |
+|------|---------|--------|
+| `QuerySystem.lean` | Query system, cylinder algebra, Carathéodory extension | ✅ 0 sorrys |
+| `DiscriminabilityFoundations.lean` | CE characterization, counterexample, independence | ✅ 0 sorrys |
+| `StoneDualityExtension.lean` | Stone space, stone_measure_exists, route coincidence | 1 Mathlib-gap sorry |
+| `UltrafilterCharge.lean` | Non-σ-additivity of ultrafilter charges | ✅ 0 sorrys |
 
-| File | Paper | Content | Status |
-|------|-------|---------|--------|
-| `QuerySystem.lean` | I §§2–3 | Query system, cylinder algebra, Carathéodory extension | ✅ 0 sorrys |
-| `DiscriminabilityFoundations.lean` | I §4 | CE characterization, counterexample, independence | ✅ 0 sorrys |
-| `StoneDualityExtension.lean` | I §5 | Stone space, stone_measure_exists, route coincidence | ✅ 0 sorrys on proved tasks; 1 Mathlib-gap sorry |
-| `UltrafilterCharge.lean` | Companion | Non-σ-additivity of ultrafilter charges | ✅ 0 sorrys |
-| `PredictiveState.lean` | II §2 | Conditional regularity kernel, minimal sufficient factor | ✅ 0 sorrys |
-| `PredictiveOperators.lean` | II §3 | Semigroup, Koopman–Perron duality | ✅ 0 sorrys |
-| `ReconstructionTheorem.lean` | II §§4–5 | Density bridge, reconstruction theorem | ✅ 0 sorrys |
-| `DelayEmbedding.lean` | I+III | Delay query system, reconstruction bridge | ✅ 0 sorrys |
+## Retained files (classical results, not load-bearing)
+
+Papers II and III were withdrawn after novelty audit (2026-05-11).
+These Lean files remain as correct proofs of classical results:
+
+| File | Content | Status |
+|------|---------|--------|
+| `PredictiveState.lean` | Rokhlin disintegration, sufficiency | ✅ 0 sorrys |
+| `PredictiveOperators.lean` | Markov semigroup, Koopman-Perron | ✅ 0 sorrys |
+| `ReconstructionTheorem.lean` | Density bridge, generating partitions | ✅ 0 sorrys |
+| `DelayEmbedding.lean` | Delay query systems | ✅ 0 sorrys |
 
 ## Key results
 
-### Paper I — Probability from Observation
-
 - `observational_determination`: uniqueness of P via π-λ theorem
-- `observational_extension`: compatible σ-additive marginals + SUD + EvalSurjective → unique global P
+- `observational_extension`: compatible σ-additive marginals → unique global P
 - `sp1_iff`: CE ↔ σ-additive extensibility at every level
 - `ce_independence`: SUD + NCC does not imply CE (finite-cofinite counterexample)
-- `stone_agrees_with_caratheodory`: Stone and Carathéodory routes produce the same measure
+- `stone_measure_exists`: Stone-space probability measure from finitely-additive charges (0 sorry)
+- `stone_agrees_with_caratheodory`: both routes produce the same measure
 
-### Paper II — Dynamics and Reconstruction in the Observable Measure
-
-- `predictive_factorization`: E[g(F) | σ(Q)] factors through the minimal sufficient factor Q\*
-- `predictive_sufficiency`: E[g(F)|Q] = E[g(F)|Q\*]
-- `semigroup_property`: K_{t+s} = K_t ∘ K_s (Chapman–Kolmogorov)
-- `koopman_perron_duality`: ∫ (K_t g) dμ = ∫ g d(P_t\* μ)
-- `deterministic_specialization`: Dirac kernels recover classical Koopman operators
-- `deterministic_semigroup`: flow law φ_{t+s} = φ_t ∘ φ_s
-- `observableAlgebra_eq_comap`: 𝒪_h = Φ_h⁻¹(ℬ(ℕ→ℝ)) (pullback identity; Definition II:def:delay-map)
-- `delayMap_intertwines_shift`: Φ_h ∘ T = σ ∘ Φ_h (shift intertwining; inline in §4.2 proof)
-- `cyclic_implies_dense`: cyclic span dense → L²(𝒪_h) dense in L²(μ) (Corollary II:cor:cyclic-implies-reconstruction)
-- `observational_extension_fixedLag`: extension theorem for bounded fixed-lag subsystems
-- `delay_cyclic_implies_reconstruction`: bridge from `DelayEmbedding.lean`
-
-### Paper III — Finite-sample certification
-
-Paper III (finite-sample certification) is mathematically complete in LaTeX (`papers/paper_iii/`) but not yet formalized in Lean.
-
-## Intentional sorrys
-
-One sorry remains. It is a Mathlib-gap marker, not a proof-search failure.
+## Intentional sorry
 
 | Sorry | Location | Reason |
 |-------|----------|--------|
 | `stone_observational_extension` | `StoneDualityExtension.lean` | Yosida–Hewitt decomposition not in Mathlib |
-
-This sorry blocks the descent from the Stone-space measure (fully constructed by
-`stone_measure_exists`, 0 sorry) back to a measure on Ω. The paper's main extension
-theorem (Thm 3.3) is proved via the Carathéodory route with 0 sorry.
-
-## Archived files
-
-The following files formalize supplementary routes not in the papers:
-
-| File | Content | Reason for archival |
-|------|---------|-------------------|
-| `archive/TopologicalQuerySystem.lean` | Topological/Polish query systems | Kolmogorov extension route; not a paper theorem |
-| `archive/ProkhorovExtension.lean` | Prokhorov extension | Classical result; not a paper contribution |
 
 ## Build
 
@@ -75,15 +45,4 @@ The following files formalize supplementary routes not in the papers:
 lake build
 ```
 
-Requires Lean 4 and Mathlib. All files build cleanly; sorry warnings are
-expected for the documented gaps above.
-
-## Mathematical framework
-
-A **query system** consists of a preordered index set ι, a family of measurable
-spaces indexed by ι, evaluation maps from a sample space Ω to each outcome
-space, and surjective refinement maps between outcome spaces — all satisfying a
-coherence condition. The **observable σ-algebra** is generated by the cylinder
-sets. A **compatible family of charges** on the cylinder algebras extends to a
-unique global probability measure if and only if it is **collectively exhaustive**
-(CE). CE is irreducible: not derivable from any finitary or structural condition.
+Requires Lean 4 and Mathlib.

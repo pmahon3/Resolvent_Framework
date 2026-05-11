@@ -5,6 +5,17 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-05-11 — Papers II+III withdrawn; Lean files retained
+
+Papers II and III withdrawn after deep novelty audit revealed all results
+are classical. Lean files (`PredictiveState.lean`, `PredictiveOperators.lean`,
+`ReconstructionTheorem.lean`, `DelayEmbedding.lean`) remain as correct proofs
+of classical results but are no longer load-bearing for any paper claim.
+
+Active formalization: Paper I only (4 files, 1 sorry).
+
+---
+
 ## 2026-05-09 — Formalization Alignment Plan (post Paper I revision)
 
 ### Context

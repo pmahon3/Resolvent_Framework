@@ -73,8 +73,6 @@ realise $\sigma$-additivity is identified with $X$ itself when reconstruction ho
 \section{Conditional regularity, dynamics, and duality}
 \label{II:sec:prediction}
 
-\subsection{The conditional regularity kernel}
-\label{II:subsec:kernel}
 
 Let $(\Omega, \mathcal{F}, P)$ be a $\sigma$-additive probability space on an
 observable algebra~\cite{mahon_paper1}, and let $Q, F$ be two measurable maps:
@@ -115,8 +113,6 @@ for $(P \circ Q^{-1})$-almost every $q$, by uniqueness of disintegration.
 Composing $\kappa_Q$ with $Q$ gives the map sending each sample point to its
 conditional regularity.
 
-\subsection{The minimal sufficient factor}
-\label{II:subsec:minimal-predictive}
 
 \begin{definition}[Minimal sufficient factor]
 \label{II:def:minimal-predictive}
@@ -165,8 +161,6 @@ regularity of $F$ given $Q$.
 The operator $(K_{Q_*} g)(q_*) = \int g\, dq_*$ on $\mathcal{P}(\beta)$
 recasts this as $E[g(F) \mid \sigma(Q)] = (K_{Q_*} g) \circ Q_*$ $P$-a.e.
 
-\subsection{Markov semigroup}
-\label{II:subsec:semigroup}
 
 When the conditional regularity kernel $\kappa_Q$ is indexed over a time parameter,
 the kernels cannot be chosen independently: the regularity of $F$ at time $t+s$
@@ -209,8 +203,6 @@ where the exchange of integrals is justified by Bochner--Fubini.
 The pushforward of a measure $\mu$ on $\gamma$ through the kernel is
 $P_t^* \mu := \mu \star \Pi_t = \int \Pi_t(q, \cdot)\, d\mu(q)$.
 
-\subsection{Koopman--Perron duality}
-\label{II:subsec:koopman-perron}
 
 \begin{theorem}[Koopman--Perron duality]
 \label{II:thm:koopman-perron}
@@ -230,8 +222,6 @@ by Bochner--Fubini.
 When $\Pi_t(q, \cdot) = \delta_{\varphi_t(q)}$ for a measurable map
 $\varphi_t : \gamma \to \gamma$, the stochastic picture collapses.
 
-\subsection{Specialisation to measure-preserving systems}
-\label{II:subsec:deterministic}
 
 \begin{proposition}[Deterministic limit]
 \label{II:prop:deterministic}
@@ -323,8 +313,6 @@ function-space question: the observable $\sigma$-algebra $\mathcal{O}_h$ determi
 the Markov semigroup through the algebra it generates, and the reconstruction question
 is precisely whether that algebra is large enough to recover all of $\mathcal{B}$.
 
-\subsection{Separation defect and the role of CE}
-\label{II:subsec:sep-defect}
 
 For a finite joined query algebra $\mathcal{G} = \mathcal{E}_{n_1} \vee \cdots
 \vee \mathcal{E}_{n_k}$ from a directed system $(\mathcal{E}_n)_n$, the
@@ -377,8 +365,6 @@ query setting, exhaustion and mixing are separate conditions; the delay-map
 setting collapses the first by construction.
 \end{remark}
 
-\subsection{Density bridge lemma}
-\label{II:subsec:density-bridge}
 
 Throughout this section and the next, $(X, \mathcal{B}, \mu)$ is a standard
 probability space, $T : X \to X$ is a measurable, $\mu$-preserving invertible
@@ -482,8 +468,6 @@ $\sigma(\mathcal{A}_h) = \mathcal{B}$ mod $\mu$ — see
 Corollary~\ref{II:cor:cyclic-implies-reconstruction}.
 \end{remark}
 
-\subsection{Reconstruction theorem}
-\label{II:subsec:reconstruction}
 
 \begin{theorem}[Reconstruction theorem]
 \label{II:thm:reconstruction}
@@ -519,8 +503,6 @@ Since $(\Phi_h(Tx))_n = h(T^{n+1}x) = (\sigma(\Phi_h(x)))_n$, the measure
 $(\Phi_h)_*\mu$ is shift-invariant, and $(X, T, \mu)$ is isomorphic to
 $(\mathbb{R}^\mathbb{Z}, \sigma, (\Phi_h)_*\mu)$ restricted to $\Phi_h(X)$.
 
-\subsection{Cyclic vectors}
-\label{II:subsec:cyclic}
 
 \begin{definition}[Cyclic vector]
 \label{II:def:cyclic}
@@ -565,8 +547,6 @@ a generic property of ergodic transformations in the Baire category sense
 \cite{Halmos1944} but is not universal.
 \end{remark}
 
-\subsection{Stone space identification}
-\label{II:subsec:stone-id}
 
 The Stone space $\mathrm{St}(\mathcal{O}_h)$ of the observable algebra is the
 compact Hausdorff space whose points are ultrafilters on $\mathcal{O}_h$, with

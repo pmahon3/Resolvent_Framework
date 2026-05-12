@@ -63,16 +63,18 @@ theorem LatticeUltrafilter.compl_mem_or_mem {α : Type*} [BooleanAlgebra α]
   · left; exact h
   · right
     -- a ⊓ b = ⊥ implies b ≤ aᶜ in a Boolean algebra
-    have hle : b ≤ aᶜ := by
-      -- a ⊓ b = ⊥ ↔ Disjoint a b ↔ b ≤ aᶜ in a Boolean algebra
-      sorry
+    have hle : b ≤ aᶜ :=
+      le_compl_iff_disjoint_left.mpr (disjoint_iff.mpr hab)
     exact u.up_closed hb hle
 
 /-- **Existence of lattice ultrafilters on nontrivial Boolean algebras.**
 By Zorn's lemma, every proper filter extends to a maximal one. -/
 theorem lattice_ultrafilter_exists (α : Type*) [BooleanAlgebra α] [Nontrivial α] :
     Nonempty (LatticeUltrafilter α) := by
-  sorry -- Zorn's lemma on the poset of proper filters; standard but needs setup
+  -- Zorn's lemma on the poset of proper filters gives a maximal proper filter.
+  -- Maximality + Boolean algebra structure gives the `maximal` field.
+  -- Standard but requires ~30 lines of filter-poset setup not yet factored.
+  sorry
 
 -- ===========================================================================
 -- §2. States and dispersion-free states
@@ -123,7 +125,20 @@ noncomputable def ultrafilterState {α : Type*} [BooleanAlgebra α]
   top_eq_one := by unfold ultrafilterInd; simp [u.top_mem]
   add_disjoint := fun a b hdisj => by
     unfold ultrafilterInd
-    sorry -- Indicator of lattice ultrafilter is additive on disjoint pairs
+    by_cases ha : a ∈ u.carrier <;> by_cases hb : b ∈ u.carrier <;> simp [ha, hb]
+    · -- Both in u: a ⊓ b ∈ u but a ⊓ b = ⊥, contradicting proper
+      exact absurd (hdisj ▸ u.inf_closed ha hb) u.bot_not_mem
+    · -- a ∈ u, b ∉ u: a ⊔ b ∈ u by up_closed
+      exact u.up_closed ha le_sup_left
+    · -- a ∉ u, b ∈ u: symmetric
+      exact u.up_closed hb le_sup_right
+    · -- Neither: (a ⊔ b)ᶜ = aᶜ ⊓ bᶜ ∈ u, so a ⊔ b ∉ u
+      intro hab
+      have hacu := (u.compl_mem_or_mem a).resolve_left ha
+      have hbcu := (u.compl_mem_or_mem b).resolve_left hb
+      have : (a ⊔ b)ᶜ ∈ u.carrier := by
+        rw [compl_sup]; exact u.inf_closed hacu hbcu
+      exact u.bot_not_mem (by rw [← inf_compl_eq_bot]; exact u.inf_closed hab this)
 
 /-- The state induced by a lattice ultrafilter is dispersion-free. -/
 theorem ultrafilterState_isDispersionFree {α : Type*} [BooleanAlgebra α]

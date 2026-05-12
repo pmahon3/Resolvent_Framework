@@ -489,7 +489,324 @@ VDR & \checkmark\, (ultrafilters) & $\times$\, (Kochen--Specker) \\
 \noindent The single structural difference --- distributivity versus
 non-distributivity --- controls exactly the VDR row.
 
+% ------------------------------------------------------------------
+\section{The descent problem for OMLs}
+\label{sec:descent}
+% ------------------------------------------------------------------
+
+In the Boolean case, the descent from $\hat{\mu}$ on
+$\St(\mathcal{C})$ to $P$ on $(\Omega, \sigma(\mathcal{C}))$
+requires $\sigma$-additivity of the charges and a choice of
+realisation space $\Omega$.  The algebra imposes no constraint on
+$\Omega$.
+
+For OMLs, the descent problem has a different character.  A state
+$s$ on $A$ defines $\mu(h(a)) = s(a)$ on the clopen $\perp$-stable
+sets $\CO(S_0(A))^\dagger$.
+
+\subsection*{The extension obstacle}
+
+In the Boolean case, $\Clop(\St(\mathcal{C}))$ is a Boolean algebra
+of sets, and $s$ is finitely additive on it.  The
+Carath\'{e}odory--Choksi extension machinery applies: compactness of
+$\St(\mathcal{C})$ gives $\sigma$-subadditivity, and the extension
+to a Baire measure is automatic.
+
+In the OML case, $\CO(S_0(A))^\dagger$ is an OML of sets --- closed
+under $\cap$ and ${}^\perp$ but \emph{not} under arbitrary $\cup$.
+The state $s$ is additive on orthogonal pairs only.
+Carath\'{e}odory does not apply: there is no Boolean algebra of
+sets on which $s$ is finitely additive.
+
+For the prototypical case $A = L(H)$ with $\dim H \geq 3$,
+Gleason's theorem (Theorem~\ref{thm:gleason}) provides the
+extension: every state arises from a density operator, giving a
+$\sigma$-additive measure via the Born rule.  For general OMLs,
+the extension problem is open.
+
+\subsection*{Partial value-definite descent}
+
+Even when probabilistic descent succeeds (Gleason), value-definite
+descent does not.  The Bub--Clifton
+theorem~\cite{BubClifton1996} addresses what \emph{can} be
+salvaged:
+
+\begin{theorem}[Bub--Clifton~\cite{BubClifton1996}]
+\label{thm:bub-clifton}
+Given a state $\rho$ on $L(H)$ and a preferred observable $R$,
+there is a unique maximal sublattice
+$D(\rho, R) \subseteq L(H)$ such that:
+\begin{enumerate}[label=(\roman*)]
+  \item $D(\rho, R)$ is a Boolean algebra;
+  \item $D(\rho, R)$ contains the spectral projections of $R$;
+  \item The restriction of $\rho$ to $D(\rho, R)$ is a mixture of
+    dispersion-free states.
+\end{enumerate}
+\end{theorem}
+
+\noindent In our terminology: $D(\rho, R)$ is the maximal Boolean
+subalgebra on which VDR is available --- the largest ``classical
+context'' in which all observables simultaneously have definite
+values, given the state $\rho$ and the preferred observable $R$.
+
+This is a \emph{partial} and \emph{context-dependent} descent.  It
+is partial because $D(\rho, R) \subsetneq L(H)$: not all
+observables receive definite values.  It is context-dependent
+because $D(\rho, R)$ depends on the choice of $R$ --- different
+preferred observables yield different maximal Boolean subalgebras.
+
+The Bub--Clifton result thus sharpens the Kochen--Specker
+obstruction: VDR fails globally, but it succeeds locally --- within
+each Boolean context.  The failure is in the \emph{global}
+assembly, not in any individual context.
+
+% ------------------------------------------------------------------
+\section{Distributivity as the commensurability condition}
+\label{sec:commensurability}
+% ------------------------------------------------------------------
+
+We can now state the main structural result.
+
+\begin{theorem}[Commensurability]
+\label{thm:commensurability}
+Let $A$ be a complemented lattice.
+\begin{enumerate}[label=(\alph*)]
+  \item If $A$ is distributive \textup{(}Boolean\textup{)}, then
+    EA, PR, and VDR are mutually commensurable:
+    \begin{itemize}
+      \item EA is unconditional
+        \textup{(}Stone construction\textup{)}.
+      \item PR holds iff the charges are $\sigma$-additive
+        \textup{\cite{mahon2026}}.
+      \item VDR holds unconditionally
+        \textup{(}ultrafilters exist\textup{)}.
+    \end{itemize}
+    Moreover, the choice of realisation space $\Omega$ is
+    unconstrained by the algebra.
+
+  \item If $A$ is non-distributive \textup{(}OML with
+    $A \cong L(H)$, $\dim H \geq 3$\textup{)}, then:
+    \begin{itemize}
+      \item EA is unconditional.
+      \item PR holds \textup{(}Gleason,
+        Theorem~\textup{\ref{thm:gleason})}.
+      \item VDR fails globally
+        \textup{(}Kochen--Specker,
+        Theorem~\textup{\ref{thm:KS})}.
+      \item VDR holds locally within each Boolean context
+        \textup{(}Bub--Clifton,
+        Theorem~\textup{\ref{thm:bub-clifton})}.
+    \end{itemize}
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+Part~(a) is Proposition~\ref{prop:boolean-comm}.  For
+part~(b): EA follows from the existence of states on $L(H)$ and the
+McDonald--Bimb\'{o} dual~\cite{McDonaldBimbo2023}; PR from
+Gleason's theorem; VDR-failure from Kochen--Specker;
+local VDR from Bub--Clifton.
+\end{proof}
+
+\begin{corollary}
+\label{cor:distributivity}
+Distributivity of the observation algebra is the exact condition
+under which value-definite realism and empirical adequacy are
+commensurable.
+\end{corollary}
+
+\begin{proof}
+If $A$ is distributive, VDR holds
+(Theorem~\ref{thm:commensurability}(a)).  If $A$ is
+non-distributive with $A \cong L(H)$ and $\dim H \geq 3$, VDR
+fails (Theorem~\ref{thm:commensurability}(b)).  Since an OML is
+Boolean iff it is distributive~\cite{McDonaldBimbo2023}, the
+dividing line is exactly distributivity.
+\end{proof}
+
+\begin{remark}
+The corollary requires the dimensional condition $\dim H \geq 3$
+for the Kochen--Specker direction.  For $\dim H = 2$, the OML
+$L(\mathbb{C}^2)$ is non-distributive but admits dispersion-free
+states: VDR holds despite non-distributivity.  The sharp
+characterisation is: VDR is commensurable with EA iff $A$ is
+distributive \emph{or} every non-distributive component has
+dimension at most $2$.  In physically relevant cases
+($\dim H \geq 3$), distributivity is the effective dividing line.
+\end{remark}
+
+% ------------------------------------------------------------------
+\section{The coherence hierarchy}
+\label{sec:hierarchy}
+% ------------------------------------------------------------------
+
+The preceding analysis reveals a four-level hierarchy of coherence
+conditions on an observation algebra $A$, each strictly stronger
+than the last.
+
+\begin{definition}[Coherence levels]
+\label{def:hierarchy}
+Let $A$ be a complemented lattice with a family of charges.
+\begin{enumerate}
+  \item[\textbf{Level~1.}] \textbf{Consistency.}
+    No contradiction within any single Boolean context: each
+    maximal Boolean subalgebra of $A$ admits a 2-valued
+    homomorphism compatible with the charges.
+
+  \item[\textbf{Level~2.}] \textbf{Contextual coherence.}
+    The assignments across all Boolean contexts are compatible: a
+    state $s : A \to [0,1]$ exists, agreeing with the charges on
+    each context.
+
+  \item[\textbf{Level~3.}] \textbf{Probabilistic coherence.}
+    The state extends to a $\sigma$-additive probability measure on
+    the dual space of $A$ --- i.e., PR holds.
+
+  \item[\textbf{Level~4.}] \textbf{Value-definite coherence.}
+    A global dispersion-free state exists: a 2-valued homomorphism
+    on the full algebra $A$ --- i.e., VDR holds.
+\end{enumerate}
+\end{definition}
+
+\noindent Each level implies the previous one:
+$4 \Rightarrow 3 \Rightarrow 2 \Rightarrow 1$.  The converses
+fail in general.  The following table records which transitions are
+obstructed:
+
+\medskip
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Transition & Boolean & OML ($\dim \geq 3$) & Obstruction \\
+\midrule
+$1 \to 2$ & Trivial & Non-trivial & Contextuality \\
+$2 \to 3$ & $\sigma$-additivity & Gleason-type & Infinitary \\
+$3 \to 4$ & Free (ultrafilters) & Blocked & Kochen--Specker \\
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+\noindent In the Boolean case, transitions $1 \to 2$ and $3 \to 4$
+are trivial: distributivity collapses them.  The only non-trivial
+transition is $2 \to 3$, which is the content
+of~\cite{mahon2026}.
+
+In the OML case, every transition is non-trivial.  The critical
+obstruction is at $3 \to 4$: the Kochen--Specker theorem blocks the
+passage from probabilistic coherence to value-definite coherence.
+This is the precise level at which distributivity is load-bearing.
+
+\begin{remark}[Relation to contextuality hierarchies]
+Abramsky and Brandenburger~\cite{AbramskyBrandenburger2011}
+introduced a hierarchy of contextuality: probabilistic,
+possibilistic (logical), and strong contextuality.  Their hierarchy
+grades the \emph{strength of the obstruction} to a global section of
+a presheaf of probability distributions.  Our hierarchy grades
+\emph{coherence demands}: what kind of global object the
+observation algebra can support.  The two hierarchies are
+complementary and orthogonal: theirs asks ``how badly does a global
+section fail?''; ours asks ``what kind of global object can the
+algebra support?''
+\end{remark}
+
+% ------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+% ------------------------------------------------------------------
+
+\subsection*{The realism debate is not uniform}
+
+The standard philosophical debate between scientific realism and
+constructive empiricism treats the question as uniform: either
+theories aim at truth or they aim at empirical adequacy.  The
+algebraic analysis above shows that the question is
+\emph{parametrised} by the observation algebra.
+
+For Boolean observations, the debate is genuine: the mathematics
+does not prefer one position over another.  EA, PR, and VDR are all
+available; $\sigma$-additivity is the only bridge condition, and it
+is a property of the charges, not of the algebra.
+
+For non-Boolean observations, the mathematics is not neutral.  VDR
+is algebraically impossible (for $\dim \geq 3$); PR is available
+but structurally constrained; EA is always available.  The
+constructive empiricist position~\cite{vanFraassen1980} is the
+generic one.  Value-definite realism is the special case --- the
+case in which the observation algebra happens to be distributive.
+
+\subsection*{Historical echoes}
+
+The distinction among the three positions illuminates classical
+debates:
+\begin{itemize}
+  \item \emph{Einstein's realism} (``God does not play dice'') is
+    the demand for VDR.  The Kochen--Specker theorem shows this is
+    not merely philosophically contestable but algebraically
+    impossible for $\dim \geq 3$.
+
+  \item \emph{Bohr's complementarity} is the observation that
+    different Boolean contexts cannot be simultaneously realised.
+    In our hierarchy, this is the non-triviality of the $1 \to 2$
+    transition.
+
+  \item \emph{Bell's beables}~\cite{HalvorsonClifton1999} ---
+    the observables that \emph{can} have definite values --- are
+    exactly the elements of the maximal Boolean subalgebra
+    $D(\rho, R)$ identified by Bub--Clifton
+    (Theorem~\ref{thm:bub-clifton}).
+
+  \item \emph{De Finetti's operationalism} is EA in the Boolean
+    case: probability as coherent betting rates on observables,
+    without commitment to an underlying state space.
+\end{itemize}
+
+\subsection*{Beyond quantum mechanics}
+
+The analysis applies wherever observations are incompatible ---
+not only in quantum mechanics.  Orthomodular structure arises in
+contextual behavioural science, distributed systems with
+interfering sensors, database queries with access restrictions, and
+experimental designs with mutually exclusive protocols.  In each
+setting, the question ``does empirical adequacy entail
+value-definiteness?'' has the same algebraic answer: only if the
+observation algebra is distributive.
+
+\subsection*{Open questions}
+
+Several directions remain:
+\begin{enumerate}
+  \item \emph{The OML extension problem.}
+    Does every state on a general OML extend to a $\sigma$-additive
+    measure on $S_0(A)$, as in the Boolean case?  Gleason's theorem
+    answers this for $L(H)$; the general case is open
+    (\S\ref{sec:descent}).
+
+  \item \emph{Intermediate algebras.}
+    Between Boolean algebras and arbitrary OMLs lie the
+    MO$_n$-free OMLs, modular ortholattices, and other
+    subvarieties.  Where exactly does VDR fail in this spectrum?
+
+  \item \emph{Dynamical structure.}
+    If the observation algebra carries a group action (stationarity,
+    exchangeability), how does symmetry interact with the coherence
+    hierarchy?  The Boolean case is partially understood
+    (de~Finetti's theorem for exchangeability); the OML case is
+    unexplored.
+
+  \item \emph{The topos connection.}
+    The D\"{o}ring--Isham topos approach~\cite{DoeringIsham2008}
+    addresses closely related questions via spectral presheaves
+    rather than the McDonald--Bimb\'{o} filter-space duality.  A
+    comparison of the two frameworks --- and whether the
+    commensurability theorem has a topos-theoretic formulation ---
+    is a natural next step.
+\end{enumerate}
+
 \ifstandalone
+\bibliographystyle{plain}
+\bibliography{references}
+\fi
 \bibliographystyle{plain}
 \bibliography{references}
 \fi

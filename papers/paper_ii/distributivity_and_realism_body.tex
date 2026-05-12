@@ -154,10 +154,16 @@ i.e., that $\hat{\mu}$ concentrates on the principal ultrafilters.
 This holds if and only if each $\ell_i$ is
 $\sigma$-additive~\cite{mahon2026}.
 
-Every Boolean algebra admits ultrafilters (by Zorn's lemma), and
-every ultrafilter is a 2-valued homomorphism.  A 2-valued
-homomorphism assigns to each element $a \in \mathcal{C}$ a definite
-value in $\{0, 1\}$, respecting the lattice operations.
+Every Boolean algebra admits lattice ultrafilters --- maximal proper
+filters --- by Zorn's lemma.  On a Boolean algebra, maximality
+forces a dichotomy: for every~$a$, either $a \in F$ or
+$a^c \in F$.  The proof extends~$F$ to include~$a^c$ whenever
+$a \notin F$; the extension remains proper because
+$a^c \wedge f \neq \bot$ for all $f \in F$, which follows from
+distributivity.  This dichotomy makes every lattice ultrafilter a
+2-valued homomorphism, assigning each $a \in \mathcal{C}$ a definite
+value in $\{0, 1\}$.  On a non-distributive OML, the extension
+argument fails, and maximal proper filters need not be 2-valued.
 
 Moreover, any subset $S \subseteq \St(\mathcal{C})$ that projects
 surjectively onto each $\St(B_i)$ can serve as a realisation space:

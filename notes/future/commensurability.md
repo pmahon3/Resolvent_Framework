@@ -1,91 +1,76 @@
-# Commensurability of Empirical Adequacy and Realism
+# Commensurability of Realism and Empirical Adequacy
 
-## The two theory types
+## Three kinds of realism (critical distinction)
 
-Both sit on the same Stone-type construction:
+"Realism" is not monolithic.  Three nested positions:
 
-**Type E (empirically adequate):** Work with the measure on the
-dual space (μ̂ on St(C) or S₀(A)).  No descent to a realization
-space.  Answers every finitary question.  No ontological claim.
+**Value-definite realism (VDR):** Every observable simultaneously
+has a definite value.  Mathematically: a global 2-valued
+homomorphism (dispersion-free state) exists.
 
-**Type R (realist):** Descend to a measure P on (Ω, σ(C)).
-Requires σ-additivity + choice of Ω.  Claims which observation-
-patterns correspond to real states.
+**Probabilistic realism (PR):** There exists an underlying
+probability space (Ω, σ(C), P) generating the observations.
+Mathematically: descent from the dual-space measure to a
+measure on a realization space.
+
+**Empirical adequacy (EA):** The measure on the dual space
+agrees with all observations.  No claim about an underlying Ω.
+
+Nested: VDR ⟹ PR ⟹ EA.
+
+## The algebra determines which positions are available
+
+| Type | Boolean | OML (dim ≥ 3) |
+|------|---------|---------------|
+| EA | Available (Stone) | Available (OML dual) |
+| PR | Available (Paper I descent) | Available (Gleason/Born) |
+| VDR | Available (ultrafilters) | **Blocked** (Kochen-Specker) |
 
 ## The Boolean case (Paper I)
 
-E and R agree on all finitary predictions: μ̂([E]) = ℓᵢ(E).
-They disagree only at the infinitary level (tail events, limits).
+All three positions commensurable.  Distributivity guarantees
+2-valued homomorphisms exist, so VDR is available.  The choice
+among EA, PR, VDR is philosophical, not mathematical.
 
-The algebra imposes no constraint on descent (realization is
-freely chosen structure).  So:
+Paper I's content: PR requires σ-additivity (the bridge from
+EA to PR).  But once σ-additivity holds, realization is
+unconstrained — the algebra imposes no constraint on Ω.
 
-- Every Type E theory admits a Type R completion (choose any
-  surjective-projecting S ⊆ St(C) as Ω)
-- Every Type R theory has a Type E shadow (forget Ω, keep μ̂)
-- The choice between E and R is philosophical, not mathematical
-- Distributivity guarantees full commensurability
+## The OML case
 
-## The OML case (non-Boolean)
-
-Kochen-Specker: no global 2-valued homomorphism on L(H) for
-dim ≥ 3.  You CANNOT descend to a full realization — no
-assignment of definite values to all observables simultaneously.
+EA and PR remain commensurable (Gleason gives the bridge for
+L(H), dim ≥ 3).  But VDR is **blocked**: Kochen-Specker says
+no global dispersion-free state exists.
 
 Bub-Clifton: given a state and a preferred observable, there IS
-a unique maximal Boolean subalgebra admitting definite values.
-So descent is possible, but only partially — to a context-
-dependent Boolean subalgebra.
-
-This means:
-
-- Type E still works: states on the OML give well-defined
-  probabilities for all (compatible) observations
-- Type R is constrained: descent is partial, context-dependent,
-  and not unique (depends on preferred observable)
-- There exist Type E theories with no Type R completion
-- The gap is mathematical, not philosophical
+a unique maximal Boolean subalgebra admitting value-definite
+descent.  But this is partial, context-dependent, and not global.
 
 ## The structural theorem
 
-**Distributivity is the condition under which empirical adequacy
-and realism are commensurable.**
+**Distributivity is the exact algebraic condition under which
+value-definite realism and empirical adequacy are commensurable.**
 
-| Algebra | E-theories | R-theories | Relation |
-|---------|-----------|-----------|----------|
-| Boolean | μ̂ on St(C) | P on (Ω, σ(C)) | E ≅ R (modulo Ω choice) |
-| OML | state on S₀(A) | Partial descent | E ⊋ R (strict containment) |
+- Boolean (distributive): EA ↔ PR ↔ VDR (all commensurable)
+- OML (non-distributive, dim ≥ 3): EA ↔ PR but VDR blocked
 
-When observations are compatible (Boolean / distributive):
-- E and R are two descriptions of the same mathematics
-- The realism/empiricism debate is a philosophical preference
-- σ-additivity is the only bridge condition (Paper I)
-
-When observations are incompatible (OML / non-distributive):
-- E is strictly more general than R
-- Full realism is blocked (Kochen-Specker)
-- Partial realism is possible but context-dependent (Bub-Clifton)
-- The algebra settles — at least partially — in favour of
-  empirical adequacy
+This is the precise mathematical content of the realism/
+empiricism debate as it pertains to the observation algebra.
 
 ## What this means
 
-The realism/empiricism debate in philosophy of science is not a
-single debate.  It has different mathematical answers depending on
-the observation algebra:
+1. **Classical physics** (Boolean): VDR, PR, EA all available.
+   Genuine philosophical choice.  Paper I's "geometric commitment"
+   is freely available at every level.
 
-1. **Classical physics** (Boolean observations): genuine
-   philosophical choice.  The mathematics is neutral.  Paper I's
-   "geometric commitment" is freely available.
+2. **Quantum/contextual** (OML): PR and EA available, VDR blocked.
+   The demand for value-definiteness is algebraically refuted.
+   The "God does not play dice" position (Einstein) is not just
+   philosophically resisted but algebraically impossible.
 
-2. **Quantum physics** (OML observations): the mathematics is not
-   neutral.  Full realism requires structure the algebra cannot
-   provide.  Empirical adequacy is the natural resting place.
-
-3. **The boundary** is distributivity.  The exact point where
-   realism becomes mathematically optional (Boolean) or
-   mathematically constrained (non-Boolean) is the point where
-   the observation algebra loses distributivity.
+3. **Van Fraassen's EA** is always available — it's the generic
+   position.  The question is which *stronger* positions the
+   algebra permits.
 
 ## Connection to Paper I
 

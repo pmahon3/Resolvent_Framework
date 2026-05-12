@@ -611,11 +611,15 @@ quantum analogue via Dutch book arguments on $L(H)$.
 
 The analysis is not specific to quantum mechanics.  Dzhafarov and
 Kujala~\cite{DzhafarovKujala2017} demonstrate orthomodular
-contextuality in behavioural science; similar structures arise in
-distributed systems with interfering sensors and experimental
-designs with mutually exclusive protocols.  Wherever observations
-are incompatible, empirical adequacy entails value-definiteness
-only if the observation algebra is distributive.
+contextuality in behavioural science; Derr and
+Williamson~\cite{DerrWilliamson2023} show that partial
+observability in machine learning produces sub-Boolean event
+structures (pre-Dynkin systems) that decompose into maximal Boolean
+blocks.  Wherever observations are incompatible, the commensurability
+theorem provides a diagnostic: if a deterministic latent-state model
+fails, the failure may be algebraic --- the observation algebra does
+not support VDR --- rather than a consequence of noise or
+insufficient data.
 
 Several directions remain open:
 \begin{enumerate}
@@ -636,6 +640,15 @@ Several directions remain open:
     hierarchy?  The Boolean case is partially understood
     (de~Finetti's theorem for exchangeability); the OML case is
     unexplored.
+
+  \item \emph{Causal inference.}
+    Holland's fundamental problem of causal
+    inference~\cite{Holland1986} --- that both potential outcomes
+    $Y(0)$ and $Y(1)$ cannot be observed for the same unit --- is
+    structurally analogous to Bohr complementarity.  Whether partial
+    identification constraints generate non-Boolean algebraic
+    structure, and whether the commensurability theorem applies to
+    counterfactual reasoning, is unexplored.
 
   \item \emph{The topos connection.}
     The topos approach to quantum

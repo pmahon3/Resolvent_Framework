@@ -1,0 +1,221 @@
+
+\maketitle
+
+\begin{abstract}
+When does an empirically adequate theory admit a value-definite
+completion --- an assignment of simultaneous definite values to all
+observables?  We show that the answer depends on the algebraic
+structure of the observations.  For a directed system of Boolean
+algebras carrying compatible charges, the Stone construction produces
+an unconditional measure on the dual space, and every observable
+admits a simultaneous definite value via ultrafilters.  The passage to
+a probability measure on an underlying state space requires only
+$\sigma$-additivity, and the choice of state space is unconstrained by
+the algebra~\cite{mahon2026}.
+
+For orthomodular lattices --- the algebraic framework for incompatible
+observations --- the situation is structurally different.  The
+McDonald--Bimb\'{o} dual space carries principal filters as
+distinguished structure, and the Kochen--Specker theorem blocks
+global value-definiteness.  Probabilistic realism (descent to a
+probability measure) remains available via Gleason-type results, but
+value-definite realism does not.
+
+The dividing line is distributivity.  We identify a four-level
+coherence hierarchy --- consistency, contextual coherence,
+probabilistic coherence, value-definite coherence --- and show that
+distributivity of the observation algebra is the exact condition under
+which all four levels are mutually commensurable.
+\end{abstract}
+
+\begin{quote}\small
+\textbf{2020 Mathematics Subject Classification.}
+03G12 (primary); 06C15, 81P10, 60A10 (secondary).
+
+\textbf{Keywords.}
+orthomodular lattice, Stone duality, value-definiteness,
+Kochen--Specker theorem, Gleason's theorem, empirical adequacy,
+constructive empiricism, Boolean algebra, directed system,
+$\sigma$-additivity.
+\end{quote}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+A central question in the philosophy of science asks when an
+empirically successful theory can be completed to a realist one ---
+one that assigns definite properties to an underlying reality, not
+merely adequate predictions to observable phenomena.  Van
+Fraassen~\cite{vanFraassen1980} argues that science need only aim at
+\emph{empirical adequacy}: agreement with all observable phenomena.
+The scientific realist demands more --- an underlying state space
+whose properties generate the observations.
+
+This debate is usually conducted in philosophical terms.  We give it
+a mathematical formulation and show that its resolution depends on
+the algebraic structure of the observations.
+
+\subsection*{Three kinds of realism}
+
+We distinguish three nested positions, each a strengthening of the
+previous:
+
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Empirical adequacy (EA).}
+    A measure on the dual space of the observation algebra that
+    agrees with all observed charges.  No commitment to an
+    underlying state space.
+
+  \item \textbf{Probabilistic realism (PR).}
+    A probability measure on an underlying state space
+    $(\Omega, \sigma(\mathcal{C}))$ that generates the observations.
+    Requires descent from the dual-space measure.
+
+  \item \textbf{Value-definite realism (VDR).}
+    Every observable simultaneously has a definite value.  A global
+    dispersion-free state --- equivalently, a 2-valued homomorphism
+    on the full observation algebra.
+\end{enumerate}
+
+\noindent These are nested: VDR implies PR implies EA.  The question
+is which implications reverse, and what governs the answer.
+
+\subsection*{The role of the observation algebra}
+
+Consider two settings:
+
+\smallskip
+\noindent\emph{Compatible observations.}
+When all observations can be performed simultaneously, the
+observation algebra is a Boolean algebra --- a complemented
+distributive lattice.  Every Boolean algebra admits 2-valued
+homomorphisms (ultrafilters exist by Zorn's lemma).  In this
+setting, all three positions are available and mutually
+commensurable.  The passage from EA to PR requires
+$\sigma$-additivity of the charges~\cite{mahon2026}; the further
+passage to VDR is free.
+
+\smallskip
+\noindent\emph{Incompatible observations.}
+When some observations cannot be performed simultaneously --- as in
+quantum mechanics, contextual experimental design, or distributed
+systems with interfering sensors --- the observation algebra is an
+orthomodular lattice (OML), a complemented but non-distributive
+lattice.  The Kochen--Specker theorem~\cite{KochenSpecker1967}
+shows that for the prototypical case $L(H)$ with $\dim H \geq 3$,
+no 2-valued homomorphism exists: VDR is blocked.  Probabilistic
+realism remains available via Gleason's
+theorem~\cite{Gleason1957}, and empirical adequacy is unconditional.
+
+\smallskip
+The dividing line is distributivity.
+
+\subsection*{Contributions}
+
+We develop the following:
+
+\begin{enumerate}
+  \item A unified framework based on directed systems of
+    complemented lattices, with the Boolean and orthomodular cases
+    as instances (\S\ref{sec:boolean}--\S\ref{sec:oml-dual}).
+
+  \item A four-level coherence hierarchy --- consistency, contextual
+    coherence, probabilistic coherence, value-definite coherence ---
+    with the obstruction at each level identified
+    (\S\ref{sec:hierarchy}).
+
+  \item A structural theorem: distributivity of the observation
+    algebra is the exact condition under which all four levels are
+    mutually commensurable (\S\ref{sec:commensurability}).
+
+  \item An analysis of the philosophical consequences: the
+    realism/empiricism debate has different mathematical answers
+    depending on the observation algebra (\S\ref{sec:discussion}).
+\end{enumerate}
+
+% ------------------------------------------------------------------
+\section{The Boolean case}
+\label{sec:boolean}
+% ------------------------------------------------------------------
+
+We recall the framework and results of~\cite{mahon2026}, which treats
+directed systems of Boolean algebras.
+
+\subsection*{Directed systems and compatible charges}
+
+Let $(\iota, \leq)$ be a directed set indexing a family of Boolean
+algebras $\{B_i\}_{i \in \iota}$ with injective homomorphisms
+$\varphi_{ij} : B_i \to B_j$ for $i \leq j$.  Write
+$\mathcal{C} = \bigcup_i B_i$ for the direct limit --- the
+\emph{cylinder algebra}.
+
+A \emph{compatible family of normalised charges} is a collection
+$\{\ell_i\}$ with $\ell_i : B_i \to [0,1]$ finitely additive,
+$\ell_i(1) = 1$, and $\ell_j \circ \varphi_{ij} = \ell_i$ for
+$i \leq j$.
+
+\subsection*{The Stone construction}
+
+The Stone space $\St(\mathcal{C})$ is the space of ultrafilters on
+$\mathcal{C}$, compact and totally disconnected.  Each
+$\omega \in \Omega$ determines a principal ultrafilter
+$\pure(\omega) = \{E \in \mathcal{C} : \omega \in E\}$.
+
+Any compatible family of normalised charges extends to a
+$\sigma$-additive Baire probability measure $\hat{\mu}$ on
+$\St(\mathcal{C})$ --- unconditionally, with no assumption of
+$\sigma$-additivity~\cite{choksi1958, mahon2026}.  This is the
+\emph{empirically adequate} object: it agrees with all charges on
+cylinder events.
+
+\subsection*{Descent and $\sigma$-additivity}
+
+The measure $\hat{\mu}$ lives on $\St(\mathcal{C})$, not on
+$\Omega$.  Descent to a probability measure $P$ on
+$(\Omega, \sigma(\mathcal{C}))$ requires
+$\hat{\mu}(\pure(\Omega)) = 1$ --- that $\hat{\mu}$ concentrates on
+the principal ultrafilters.  This holds if and only if each charge
+$\ell_i$ is $\sigma$-additive~\cite{mahon2026}.
+
+\subsection*{Value-definiteness in the Boolean case}
+
+Every Boolean algebra admits ultrafilters (by Zorn's lemma), and
+every ultrafilter is a 2-valued homomorphism.  A 2-valued
+homomorphism assigns to each element $a \in \mathcal{C}$ a definite
+value in $\{0, 1\}$, respecting the lattice operations.
+
+Moreover, any subset $S \subseteq \St(\mathcal{C})$ that projects
+surjectively onto each $\St(B_i)$ can serve as a realisation space:
+set $\Omega = S$ with evaluation maps given by the restriction maps.
+The algebra imposes no constraint on the choice of
+$\Omega$~\cite{mahon2026}.
+
+\begin{proposition}[Boolean commensurability]
+\label{prop:boolean-comm}
+For a directed system of Boolean algebras with compatible charges:
+\begin{enumerate}[label=(\alph*)]
+  \item EA is unconditional: $\hat{\mu}$ on $\St(\mathcal{C})$
+    always exists.
+  \item PR holds iff each $\ell_i$ is $\sigma$-additive.
+  \item VDR holds unconditionally: $\St(\mathcal{C})$ consists
+    entirely of 2-valued homomorphisms.
+\end{enumerate}
+In particular, EA, PR, and VDR are mutually commensurable: the
+only obstruction is $\sigma$-additivity at the EA--PR transition,
+and it is a condition on the charges, not the algebra.
+\end{proposition}
+
+\begin{proof}
+Part~(a) is the Stone construction~\cite{choksi1958, mahon2026}.
+Part~(b) is~\cite[Theorem~1]{mahon2026}.  Part~(c): ultrafilters on
+a Boolean algebra are exactly the 2-valued homomorphisms; their
+existence follows from Zorn's lemma applied to the filter generated
+by any non-zero element.
+\end{proof}
+
+\ifstandalone
+\bibliographystyle{plain}
+\bibliography{references}
+\fi

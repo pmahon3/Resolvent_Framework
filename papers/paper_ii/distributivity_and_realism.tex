@@ -1,0 +1,41 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\pure}{\mathrm{pure}}
+\newcommand{\Clop}{\mathrm{Clop}}
+\newcommand{\CO}{\mathrm{CO}}
+
+% ---------- Standalone flag ----------
+\newif\ifstandalone
+\standalonetrue
+
+% ---------- Title ----------
+\title{Distributivity and the Commensurability of\\
+Value-Definite Realism and Empirical Adequacy}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\input{distributivity_and_realism_body}
+\end{document}

@@ -21,11 +21,14 @@ global value-definiteness.  Probabilistic realism (descent to a
 probability measure) remains available via Gleason-type results, but
 value-definite realism does not.
 
-The dividing line is distributivity.  We identify a four-level
-coherence hierarchy --- consistency, contextual coherence,
-probabilistic coherence, value-definite coherence --- and show that
-distributivity of the observation algebra is the exact condition under
-which all four levels are mutually commensurable.
+The dividing line is distributivity.  The state space admits a
+natural filtration
+$\mathcal{S} \supseteq \mathcal{S}_\sigma \supseteq
+\mathcal{S}_{\mathrm{df}}$, whose three transitions --- pasting,
+regularity, sharpness --- are of different mathematical character.
+Distributivity is the exact condition under which the filtration
+degenerates: all three obstructions vanish, and value-definite
+realism becomes commensurable with empirical adequacy.
 \end{abstract}
 
 \begin{quote}\small
@@ -121,14 +124,16 @@ We develop the following:
     complemented lattices, with the Boolean and orthomodular cases
     as instances (\S\ref{sec:boolean}--\S\ref{sec:oml-dual}).
 
-  \item A four-level coherence hierarchy --- consistency, contextual
-    coherence, probabilistic coherence, value-definite coherence ---
-    with the obstruction at each level identified
+  \item A coherence filtration
+    $\mathcal{S}(A) \supseteq \mathcal{S}_\sigma(A) \supseteq
+    \mathcal{S}_{\mathrm{df}}(A)$ whose three transitions ---
+    pasting, regularity, sharpness --- are of different mathematical
+    character, with the obstruction at each identified
     (\S\ref{sec:hierarchy}).
 
   \item A structural theorem: distributivity of the observation
-    algebra is the exact condition under which all four levels are
-    mutually commensurable (\S\ref{sec:commensurability}).
+    algebra is the exact condition under which the filtration
+    degenerates (\S\ref{sec:commensurability}).
 
   \item An analysis of the philosophical consequences: the
     realism/empiricism debate has different mathematical answers
@@ -640,74 +645,100 @@ dimension at most $2$.  In physically relevant cases
 \label{sec:hierarchy}
 % ------------------------------------------------------------------
 
-The preceding analysis reveals a four-level hierarchy of coherence
-conditions on an observation algebra $A$, each strictly stronger
-than the last.
+The preceding analysis reveals a filtration of coherence conditions
+on an observation algebra~$A$.  The conditions are linearly ordered
+by implication, but the three transitions between them are of
+different mathematical character --- each requires a different key.
 
-\begin{definition}[Coherence levels]
+\subsection*{The coherence filtration}
+
+\begin{definition}[Coherence conditions]
 \label{def:hierarchy}
 Let $A$ be a complemented lattice with a family of charges.
-\begin{enumerate}
-  \item[\textbf{Level~1.}] \textbf{Consistency.}
-    No contradiction within any single Boolean context: each
-    maximal Boolean subalgebra of $A$ admits a 2-valued
-    homomorphism compatible with the charges.
-
-  \item[\textbf{Level~2.}] \textbf{Contextual coherence.}
-    The assignments across all Boolean contexts are compatible: a
-    state $s : A \to [0,1]$ exists, agreeing with the charges on
-    each context.
-
-  \item[\textbf{Level~3.}] \textbf{Probabilistic coherence.}
-    The state extends to a $\sigma$-additive probability measure on
-    the dual space of $A$ --- i.e., PR holds.
-
-  \item[\textbf{Level~4.}] \textbf{Value-definite coherence.}
-    A global dispersion-free state exists: a 2-valued homomorphism
-    on the full algebra $A$ --- i.e., VDR holds.
-\end{enumerate}
+The \emph{state space} of $A$ admits a descending filtration:
+\[
+  \mathcal{S}(A)
+  \;\supseteq\;
+  \mathcal{S}_\sigma(A)
+  \;\supseteq\;
+  \mathcal{S}_{\mathrm{df}}(A),
+\]
+where:
+\begin{itemize}
+  \item $\mathcal{S}(A)$ is the set of states on $A$
+    (contextual coherence);
+  \item $\mathcal{S}_\sigma(A) \subseteq \mathcal{S}(A)$ is the
+    subset of $\sigma$-additive states
+    (probabilistic coherence);
+  \item $\mathcal{S}_{\mathrm{df}}(A) \subseteq
+    \mathcal{S}_\sigma(A)$ is the subset of dispersion-free states
+    (value-definite coherence).
+\end{itemize}
+Beneath the filtration sits a local condition:
+\emph{consistency} requires only that each maximal Boolean
+subalgebra of $A$ individually admits a compatible state.
 \end{definition}
 
-\noindent Each level implies the previous one:
-$4 \Rightarrow 3 \Rightarrow 2 \Rightarrow 1$.  The converses
-fail in general.  The following table records which transitions are
-obstructed:
+\noindent Each inclusion can be strict.  The three transitions have
+different mathematical character:
 
 \medskip
 \begin{center}
 \begin{tabular}{@{}llll@{}}
 \toprule
-Transition & Boolean & OML ($\dim \geq 3$) & Obstruction \\
+Transition & Character & Key & Obstruction \\
 \midrule
-$1 \to 2$ & Trivial & Non-trivial & Contextuality \\
-$2 \to 3$ & $\sigma$-additivity & Gleason-type & Infinitary \\
-$3 \to 4$ & Free (ultrafilters) & Blocked & Kochen--Specker \\
+Consistency $\to$ $\mathcal{S}(A)$
+  & Pasting (topological)
+  & Do local sections glue?
+  & Contextuality \\[3pt]
+$\mathcal{S}(A) \to \mathcal{S}_\sigma(A)$
+  & Regularity (analytic)
+  & Does the state have good limits?
+  & $\sigma$-additivity \\[3pt]
+$\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}(A)$
+  & Sharpness (algebraic)
+  & Can probabilities collapse to $\{0,1\}$?
+  & Kochen--Specker \\
 \bottomrule
 \end{tabular}
 \end{center}
 \medskip
 
-\noindent In the Boolean case, transitions $1 \to 2$ and $3 \to 4$
-are trivial: distributivity collapses them.  The only non-trivial
-transition is $2 \to 3$, which is the content
-of~\cite{mahon2026}.
+\subsection*{Effect of distributivity}
 
-In the OML case, every transition is non-trivial.  The critical
-obstruction is at $3 \to 4$: the Kochen--Specker theorem blocks the
-passage from probabilistic coherence to value-definite coherence.
-This is the precise level at which distributivity is load-bearing.
+Distributivity collapses the filtration.  For a Boolean algebra:
+\begin{itemize}
+  \item \emph{Pasting} is trivial: every local assignment extends
+    to a global state (distributivity guarantees compatibility).
+  \item \emph{Sharpness} is free: ultrafilters exist (Zorn's lemma),
+    so $\mathcal{S}_{\mathrm{df}}(A) \neq \varnothing$
+    unconditionally.
+  \item The only non-trivial transition is \emph{regularity}:
+    $\sigma$-additivity of the charges.  This is the content
+    of~\cite{mahon2026}.
+\end{itemize}
+For an OML with $\dim \geq 3$, every transition is non-trivial:
+\begin{itemize}
+  \item \emph{Pasting} is non-trivial: contextuality obstructions
+    are possible.
+  \item \emph{Regularity} requires Gleason-type results.
+  \item \emph{Sharpness} is blocked: $\mathcal{S}_{\mathrm{df}}(A)
+    = \varnothing$ (Kochen--Specker).
+\end{itemize}
+
+\noindent The filtration is thus a diagnostic: distributivity is
+the condition that makes it degenerate.
 
 \begin{remark}[Relation to contextuality hierarchies]
 Abramsky and Brandenburger~\cite{AbramskyBrandenburger2011}
-introduced a hierarchy of contextuality: probabilistic,
-possibilistic (logical), and strong contextuality.  Their hierarchy
-grades the \emph{strength of the obstruction} to a global section of
-a presheaf of probability distributions.  Our hierarchy grades
-\emph{coherence demands}: what kind of global object the
-observation algebra can support.  The two hierarchies are
-complementary and orthogonal: theirs asks ``how badly does a global
-section fail?''; ours asks ``what kind of global object can the
-algebra support?''
+introduced a hierarchy of contextuality --- probabilistic,
+possibilistic, and strong --- grading the \emph{strength of the
+obstruction} to a global section of a presheaf of probability
+distributions.  Our filtration is complementary: it grades
+\emph{what the algebra can support}, not how badly a global section
+fails.  Their axis measures obstruction strength; ours measures
+coherence demands.
 \end{remark}
 
 % ------------------------------------------------------------------

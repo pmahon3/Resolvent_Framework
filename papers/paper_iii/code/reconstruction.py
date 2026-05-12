@@ -14,10 +14,8 @@ Core components:
 from __future__ import annotations
 from dataclasses import dataclass
 from typing import Literal, Optional
-
 import numpy as np
 import numpy.typing as npt
-from scipy.spatial import KDTree
 
 Array = npt.NDArray[np.float64]
 
@@ -83,11 +81,12 @@ def local_pushforward(
     h: float,
     ridge: float = 1e-8,
     min_pts: int = 20,
+    tree: Optional[object] = None,
 ) -> Optional[LocalPushforward]:
     """Compute the local linearized pushforward at z0.
 
     Fits z_{t+1} ≈ A · (z_t - z0) + b near z0 using tricube-weighted
-    least squares.
+    least squares.  Uses KDTree for fast neighbour lookup.
 
     Parameters
     ----------
@@ -98,24 +97,41 @@ def local_pushforward(
     z0 : Array, shape (d,)
         Query point.
     h : float
-        Bandwidth (kernel radius).
+        Bandwidth (kernel radius).  Tricube has compact support at h.
     ridge : float
         Ridge regularization.
     min_pts : int
         Minimum effective sample size.
+    tree : scipy.spatial.KDTree, optional
+        Pre-built KDTree on Z for fast queries.  Built if not provided.
 
     Returns
     -------
     result : LocalPushforward or None
         None if insufficient data in the neighbourhood.
     """
-    n, d = Z.shape
+    from scipy.spatial import KDTree as _KDTree
+
+    d = Z.shape[1]
+
+    # Fast neighbour lookup: only points within radius h
+    if tree is None:
+        tree = _KDTree(Z)
+    nbr_idx = tree.query_ball_point(z0, h)
+
+    if len(nbr_idx) < min_pts:
+        return None
+
+    nbr_idx = np.array(nbr_idx)
+    Z_local = Z[nbr_idx]
+    Z_next_local = Z_next[nbr_idx]
+    n_local = len(nbr_idx)
 
     # Centre at z0
-    Delta = Z - z0.reshape(1, -1)
+    Delta = Z_local - z0.reshape(1, -1)
     dists = np.linalg.norm(Delta, axis=1)
 
-    # Tricube weights
+    # Tricube weights (all points are within h by construction)
     w = tricube_weights(dists, h)
     w_sum = w.sum()
 
@@ -126,9 +142,13 @@ def local_pushforward(
     Delta_scaled = Delta / h
 
     # Weighted least squares: (Δ'WΔ + ridge·I) g = Δ'W Y
-    W = np.diag(w)
-    DtWD = Delta_scaled.T @ W @ Delta_scaled + ridge * np.eye(d)
-    DtWY = Delta_scaled.T @ W @ Z_next
+    # Use broadcasting instead of diag(w) for efficiency
+    w_sqrt = np.sqrt(w)
+    Delta_w = Delta_scaled * w_sqrt[:, None]
+    Y_w = Z_next_local * w_sqrt[:, None]
+
+    DtWD = Delta_w.T @ Delta_w + ridge * np.eye(d)
+    DtWY = Delta_w.T @ Y_w
 
     try:
         g = np.linalg.solve(DtWD, DtWY)  # shape (d, d)
@@ -137,17 +157,19 @@ def local_pushforward(
 
     # Intercept
     w_normed = w / w_sum
-    b_vec = np.average(Z_next - Delta_scaled @ g, axis=0, weights=w_normed)
+    b_vec = np.average(Z_next_local - Delta_scaled @ g, axis=0,
+                       weights=w_normed)
 
     # Jacobian in original coordinates: A = g / h
     A = g.T / h  # shape (d, d)
 
     # Residuals
     predicted = Delta @ A.T + b_vec.reshape(1, -1)
-    residuals = Z_next - predicted
+    residuals = Z_next_local - predicted
 
-    # Weighted residual covariance
-    Sigma = (residuals.T @ W @ residuals) / w_sum
+    # Weighted residual covariance (efficient: no diag matrix)
+    res_w = residuals * w[:, None]
+    Sigma = (res_w.T @ residuals) / w_sum
 
     # Divergence
     div_val = np.trace(A)
@@ -182,6 +204,9 @@ def map_attractor(
 ) -> list[LocalPushforward]:
     """Sweep local_pushforward over the reconstructed attractor.
 
+    Builds a KDTree once for fast neighbour queries, then evaluates
+    the local pushforward at n_query randomly sampled points.
+
     Parameters
     ----------
     Z : Array, shape (n, d)
@@ -200,14 +225,19 @@ def map_attractor(
     results : list of LocalPushforward
         One per successful query point.
     """
+    from scipy.spatial import KDTree
+
     rng = np.random.default_rng(seed)
     n = len(Z)
     idx = rng.choice(n, size=min(n_query, n), replace=False)
 
+    # Build KDTree once
+    tree = KDTree(Z)
+
     results = []
     for i in idx:
         res = local_pushforward(Z, Z_next, Z[i], h=h, ridge=ridge,
-                                min_pts=min_pts)
+                                min_pts=min_pts, tree=tree)
         if res is not None:
             results.append(res)
 

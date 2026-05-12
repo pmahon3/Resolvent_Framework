@@ -215,7 +215,284 @@ existence follows from Zorn's lemma applied to the filter generated
 by any non-zero element.
 \end{proof}
 
+% ------------------------------------------------------------------
+\section{Orthomodular observation algebras}
+\label{sec:oml}
+% ------------------------------------------------------------------
+
+The Boolean assumption is that all observations are compatible: any
+finite collection can be performed simultaneously.  When this fails
+--- when some observations preclude others --- the observation
+algebra loses distributivity.  The appropriate generalisation is the
+orthomodular lattice.
+
+\subsection*{Orthomodular lattices}
+
+\begin{definition}
+An \emph{ortholattice} is a bounded lattice
+$A = (A,\, \wedge,\, \vee,\, {}^\perp,\, 0,\, 1)$ with an
+orthocomplementation ${}^\perp : A \to A$ satisfying
+$a \wedge a^\perp = 0$, \; $a \vee a^\perp = 1$, \;
+$a^{\perp\perp} = a$, and \; $a \leq b \Rightarrow b^\perp \leq a^\perp$.
+\end{definition}
+
+\begin{definition}
+An \emph{orthomodular lattice} (OML) is an ortholattice satisfying
+the \emph{orthomodular law}:
+\[
+  a \leq b
+  \quad\Longrightarrow\quad
+  b = a \vee (a^\perp \wedge b).
+\]
+\end{definition}
+
+\noindent Every Boolean algebra is an OML (the orthomodular law
+follows from distributivity), but the converse fails.  An OML is
+Boolean if and only if it is
+distributive~\cite[Proposition~2.3]{McDonaldBimbo2023}.
+
+\begin{example}
+Let $H$ be a separable Hilbert space with $\dim H \geq 3$.  The
+lattice $L(H)$ of closed linear subspaces, ordered by inclusion with
+$U^\perp = \{x \in H : \langle x, y \rangle = 0 \;\forall y \in U\}$,
+is an orthomodular lattice that is not
+distributive~\cite{Kalmbach1983}.
+\end{example}
+
+\begin{example}[Incompatible experimental design]
+Consider an experiment with three binary measurements $A$, $B$, $C$,
+where $(A,B)$ and $(A,C)$ can be performed jointly but $(B,C)$
+cannot.  The jointly measurable pairs generate Boolean subalgebras,
+but the full observation algebra is orthomodular, not Boolean.
+This situation arises in contextual behavioural science, clinical
+trials with mutually exclusive protocols, and sensor networks with
+interfering instruments.
+\end{example}
+
+\subsection*{Commutativity and classical contexts}
+
+Two elements $a, b$ in an OML are said to \emph{commute} if they
+generate a Boolean subalgebra.  A maximal set of pairwise commuting
+elements forms a \emph{Boolean context} --- a maximal Boolean
+subalgebra of $A$.  Within each context, classical logic and
+classical probability apply.  The non-classical character of the
+OML arises from the relationships \emph{between} contexts.
+
+\subsection*{States on OMLs}
+
+\begin{definition}
+A \emph{state} on an OML $A$ is a function $s : A \to [0,1]$ with
+$s(1) = 1$ and
+\[
+  a \perp b
+  \quad\Longrightarrow\quad
+  s(a \vee b) = s(a) + s(b),
+\]
+where $a \perp b$ means $a \leq b^\perp$.
+\end{definition}
+
+\noindent A state is additive on \emph{orthogonal} pairs only ---
+not on arbitrary joins.  This is the OML analogue of a finitely
+additive charge on a Boolean algebra.
+
+\begin{definition}
+A state $s$ is \emph{dispersion-free} if $s(a) \in \{0,1\}$ for
+all $a \in A$.
+\end{definition}
+
+\noindent A dispersion-free state is a 2-valued homomorphism: it
+assigns a definite truth value to every proposition in $A$.  On a
+Boolean algebra, dispersion-free states are exactly the
+ultrafilters.
+
+\subsection*{The Kochen--Specker obstruction}
+
+\begin{theorem}[Kochen--Specker~\cite{KochenSpecker1967}]
+\label{thm:KS}
+If $\dim H \geq 3$, there is no dispersion-free state on $L(H)$.
+\end{theorem}
+
+\noindent No assignment of simultaneous definite values to all
+observables is consistent with the algebraic structure.  This is
+not a limitation of knowledge but a structural impossibility: the
+OML $L(H)$ does not admit a 2-valued homomorphism.
+
+The obstruction is dimensional: for $\dim H = 2$, dispersion-free
+states exist (every maximal Boolean subalgebra of $L(\mathbb{C}^2)$
+is a four-element Boolean algebra, and 2-valued homomorphisms are
+plentiful).  The critical threshold is $\dim H = 3$.
+
+\subsection*{Gleason's theorem}
+
+Despite the absence of dispersion-free states, \emph{probabilistic}
+states on $L(H)$ are well-behaved:
+
+\begin{theorem}[Gleason~\cite{Gleason1957}]
+\label{thm:gleason}
+If $\dim H \geq 3$, every $\sigma$-additive state on $L(H)$ is of
+the form $s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
+$\rho$ on~$H$.
+\end{theorem}
+
+\noindent Gleason's theorem says that probabilistic realism is
+available for $L(H)$: every state extends to a well-defined
+probability assignment via the Born rule.  What fails is
+value-definite realism --- the demand that every observable have a
+simultaneous definite value.
+
+% ------------------------------------------------------------------
+\section{The OML dual space}
+\label{sec:oml-dual}
+% ------------------------------------------------------------------
+
+In the Boolean case, Stone duality provides the dual space
+$\St(\mathcal{C})$ of ultrafilters.  For OMLs, the analogue is the
+McDonald--Bimb\'{o} duality~\cite{McDonaldBimbo2023}, which we now
+describe.
+
+\subsection*{Filters on an OML}
+
+Let $A$ be an OML.  A \emph{filter} on $A$ is a non-empty subset
+$x \subseteq A$ that is upward closed ($a \in x$ and $a \leq b$
+implies $b \in x$) and closed under finite meets ($a, b \in x$
+implies $a \wedge b \in x$).  A filter is \emph{proper} if
+$0 \notin x$; the unique \emph{improper} filter is $\omega = A$.
+
+For each $a \in A$, the \emph{principal filter} generated by $a$ is
+${\uparrow}a = \{b \in A : a \leq b\}$.  Write $F(A)$ for the
+collection of all filters on $A$, and $P(A) \subseteq F(A)$ for the
+subcollection of principal filters.
+
+\subsection*{The dual space}
+
+\begin{definition}[McDonald--Bimb\'{o}~\cite{McDonaldBimbo2023}]
+\label{def:oml-dual}
+Let $A$ be an OML.  The \emph{dual space} of $A$ is the ordered
+relational topological space
+\[
+  S_0(A) = \bigl(F(A),\; \subseteq,\; \perp_A,\; P(A),\; \mathcal{T}\bigr),
+\]
+where:
+\begin{enumerate}[label=(\roman*)]
+  \item $F(A)$ is the set of all filters on $A$;
+  \item $\subseteq$ is set inclusion;
+  \item $x \perp_A y$ iff there exists $a \in A$ with $a \in x$ and
+    $a^\perp \in y$;
+  \item $P(A)$ is the collection of principal filters;
+  \item $\mathcal{T}$ is the topology generated by the subbasis
+    $\{h(a) : a \in A\} \cup \{F(A) \setminus h(a) : a \in A\}$,
+    where $h(a) = \{x \in F(A) : a \in x\}$.
+\end{enumerate}
+\end{definition}
+
+\begin{theorem}[McDonald--Bimb\'{o}~\cite{McDonaldBimbo2023}]
+\label{thm:oml-duality}
+$S_0(A)$ is an orthomodular space (compact, totally disconnected).
+The category of OMLs and homomorphisms is dually equivalent to the
+category of orthomodular spaces and continuous weak p-morphisms.
+Moreover, $A \cong \CO(S_0(A))^\dagger$, the OML of clopen
+$\perp$-stable subsets of $S_0(A)$.
+\end{theorem}
+
+\subsection*{Structural comparison with Stone duality}
+
+The critical differences are collected in the following table:
+
+\medskip
+\begin{center}
+\begin{tabular}{@{}lll@{}}
+\toprule
+Feature & Boolean (Stone) & OML (McDonald--Bimb\'{o}) \\
+\midrule
+Dual points & Ultrafilters & All filters \\
+Distinguished subset & None & $P(A)$ (principal filters) \\
+Clopens & Boolean algebra & OML \\
+Orthogonality & Trivial & Non-trivial ($\perp_A$) \\
+2-valued homomorphisms & Plentiful (Zorn) & May not exist (KS) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+\noindent In Stone duality, the principal filters (i.e., the
+principal ultrafilters $\pure(\omega)$ for $\omega \in \Omega$) are
+\emph{invisible}: they play no distinguished role in the dual space.
+Which ultrafilters are principal depends on the choice of
+$\Omega$~\cite{mahon2026}.
+
+In the McDonald--Bimb\'{o} duality, $P(A)$ is \emph{part of the
+structure} of the dual space: the orthomodular frame conditions
+(Definition~\ref{def:oml-dual}) explicitly reference $P(A)$.  This
+is the algebraic formalisation of the observation that, for
+non-distributive algebras, the distinction between realised and
+unrealised observation-patterns is not freely chosen but is
+constrained by the algebra.
+
+% ------------------------------------------------------------------
+\section{Three kinds of realism, revisited}
+\label{sec:three-kinds}
+% ------------------------------------------------------------------
+
+We now have the framework to state the three positions precisely in
+both settings.
+
+\begin{definition}
+Let $A$ be a complemented lattice (Boolean or orthomodular) with a
+state $s : A \to [0,1]$.
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{Empirical adequacy (EA):}
+    $s$ defines a consistent assignment $\mu(h(a)) = s(a)$ on the
+    clopens of the dual space.
+
+  \item \textbf{Probabilistic realism (PR):}
+    $\mu$ extends to a $\sigma$-additive probability measure on the
+    Baire $\sigma$-algebra of the dual space, concentrating on
+    $P(A)$.
+
+  \item \textbf{Value-definite realism (VDR):}
+    There exists a dispersion-free state on $A$ --- a 2-valued
+    homomorphism assigning simultaneous definite values to all
+    elements.
+\end{enumerate}
+\end{definition}
+
+\begin{proposition}[OML status]
+\label{prop:oml-status}
+For $A = L(H)$ with $\dim H \geq 3$:
+\begin{enumerate}[label=(\alph*)]
+  \item EA holds: every state defines a consistent assignment on
+    $\CO(S_0(A))^\dagger$.
+  \item PR holds: Gleason's theorem~\textup{(\ref{thm:gleason})}
+    gives a $\sigma$-additive measure via $s(P) = \mathrm{tr}(\rho P)$.
+  \item VDR fails: the Kochen--Specker
+    theorem~\textup{(\ref{thm:KS})} shows no dispersion-free state
+    exists.
+\end{enumerate}
+\end{proposition}
+
+\noindent Comparing with Proposition~\ref{prop:boolean-comm}:
+
+\medskip
+\begin{center}
+\begin{tabular}{@{}lccc@{}}
+\toprule
+Position & Boolean & OML ($\dim \geq 3$) \\
+\midrule
+EA & \checkmark\, (unconditional) & \checkmark\, (unconditional) \\
+PR & \checkmark\, (iff $\sigma$-additive) & \checkmark\, (Gleason) \\
+VDR & \checkmark\, (ultrafilters) & $\times$\, (Kochen--Specker) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\medskip
+
+\noindent The single structural difference --- distributivity versus
+non-distributivity --- controls exactly the VDR row.
+
 \ifstandalone
+\bibliographystyle{plain}
+\bibliography{references}
+\fi
 \bibliographystyle{plain}
 \bibliography{references}
 \fi

@@ -183,8 +183,9 @@ by any non-zero element.
 \label{sec:oml}
 % ------------------------------------------------------------------
 
-When some observations preclude others, the observation algebra
-loses distributivity.
+Proposition~\ref{prop:boolean-comm} depends on distributivity at
+exactly one point: the existence of 2-valued homomorphisms.  When
+observations are incompatible, this fails.
 
 \begin{definition}
 An \emph{ortholattice} is a bounded lattice
@@ -351,18 +352,23 @@ $\Omega$~\cite{mahon2026}.
 In the McDonald--Bimb\'{o} duality, $P(A)$ is \emph{part of the
 structure} of the dual space: the orthomodular frame conditions
 (Definition~\ref{def:oml-dual}) explicitly reference $P(A)$.  This
-is the algebraic formalisation of the observation that, for
-non-distributive algebras, the distinction between realised and
-unrealised observation-patterns is not freely chosen but is
-constrained by the algebra.
+is the algebraic formalisation: for non-distributive algebras,
+the distinction between realised and unrealised observation-patterns
+is constrained by the algebra.  Distributivity is the condition
+under which this constraint vanishes.
 
 % ------------------------------------------------------------------
 \section{The descent problem for OMLs}
 \label{sec:descent}
 % ------------------------------------------------------------------
 
-A state $s$ on $A$ defines $\mu(h(a)) = s(a)$ on the clopen
-$\perp$-stable sets $\CO(S_0(A))^\dagger$.
+The dual space $S_0(A)$ is compact, so the topological machinery
+of~\S\ref{sec:boolean} applies.  But the algebraic input is
+weaker: $\CO(S_0(A))^\dagger$ is an OML of sets, not a Boolean
+algebra.
+
+A state $s$ on $A$ defines $\mu(h(a)) = s(a)$ on
+$\CO(S_0(A))^\dagger$.
 
 In the Boolean case, $\Clop(\St(\mathcal{C}))$ is a Boolean algebra
 of sets, and $s$ is finitely additive on it.  The
@@ -413,6 +419,18 @@ yield different maximal Boolean subalgebras.
 \section{Distributivity as the commensurability condition}
 \label{sec:commensurability}
 % ------------------------------------------------------------------
+
+The status of the three positions depends on the algebra:
+\[
+  \underbrace{\text{EA}}_{\text{always}}
+  \;\xleftarrow{\;\sigma\text{-add.}\;}
+  \underbrace{\text{PR}}_{\text{Gleason}}
+  \;\xleftarrow{\;\text{VDR}\;}
+  \underbrace{\text{dispersion-free}}_{\text{Zorn (Boolean) /
+    KS-blocked (OML)}}
+\]
+The rightmost arrow is free in the Boolean case and obstructed in
+the OML case.
 
 \begin{theorem}[Commensurability]
 \label{thm:commensurability}
@@ -487,10 +505,9 @@ dimension at most $2$.  In physically relevant cases
 \label{sec:hierarchy}
 % ------------------------------------------------------------------
 
-The preceding analysis reveals a filtration of coherence conditions
-on an observation algebra~$A$.  The conditions are linearly ordered
-by implication, but the three transitions between them are of
-different mathematical character --- each requires a different key.
+Theorem~\ref{thm:commensurability} identifies distributivity as
+the switch.  The underlying structure is a filtration of the state
+space, whose three transitions require different keys.
 
 \begin{definition}[Coherence filtration]
 \label{def:hierarchy}

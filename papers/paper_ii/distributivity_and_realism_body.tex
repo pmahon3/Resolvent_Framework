@@ -4,8 +4,8 @@
 \begin{abstract}
 When does an empirically adequate theory admit a value-definite
 completion --- an assignment of simultaneous definite values to all
-observables?  We show that the answer depends on the algebraic
-structure of the observations.  For a directed system of Boolean
+observables?  The answer depends on the algebraic structure of the
+observations.  For a directed system of Boolean
 algebras carrying compatible charges, the Stone construction produces
 an unconditional measure on the dual space, and every observable
 admits a simultaneous definite value via ultrafilters.  The passage to
@@ -127,7 +127,7 @@ $\pure(\omega) = \{E \in \mathcal{C} : \omega \in E\}$.
 Any compatible family of normalised charges extends to a
 $\sigma$-additive Baire probability measure $\hat{\mu}$ on
 $\St(\mathcal{C})$ --- unconditionally, with no assumption of
-$\sigma$-additivity~\cite{choksi1958, mahon2026}.  This is the
+$\sigma$-additivity~\cite[Theorem~1]{choksi1958},~\cite{mahon2026}.  This is the
 \emph{empirically adequate} object: it agrees with all charges on
 cylinder events.
 
@@ -159,9 +159,8 @@ For a directed system of Boolean algebras with compatible charges:
   \item VDR holds unconditionally: $\St(\mathcal{C})$ consists
     entirely of 2-valued homomorphisms.
 \end{enumerate}
-In particular, EA, PR, and VDR are mutually commensurable: the
-only obstruction is $\sigma$-additivity at the EA--PR transition,
-and it is a condition on the charges, not the algebra.
+The only obstruction is $\sigma$-additivity at the EA--PR
+transition, and it is a condition on the charges, not the algebra.
 \end{proposition}
 
 \begin{proof}
@@ -205,29 +204,24 @@ Boolean if and only if it is
 distributive~\cite[Proposition~2.3]{McDonaldBimbo2023}.
 
 \begin{example}
-Let $H$ be a separable Hilbert space with $\dim H \geq 3$.  The
-lattice $L(H)$ of closed linear subspaces, ordered by inclusion with
+The lattice $L(H)$ of closed linear subspaces of a separable Hilbert
+space $H$ with $\dim H \geq 3$, ordered by inclusion with
 $U^\perp = \{x \in H : \langle x, y \rangle = 0 \;\forall y \in U\}$,
 is an orthomodular lattice that is not
-distributive~\cite{Kalmbach1983}.
+distributive~\cite[Chapter~1]{Kalmbach1983}.
 \end{example}
 
-\begin{example}[Incompatible experimental design]
-Consider an experiment with three binary measurements $A$, $B$, $C$,
-where $(A,B)$ and $(A,C)$ can be performed jointly but $(B,C)$
-cannot.  The jointly measurable pairs generate Boolean subalgebras,
-but the full observation algebra is orthomodular, not Boolean.
-This situation arises in contextual behavioural science, clinical
-trials with mutually exclusive protocols, and sensor networks with
-interfering instruments.
+\begin{example}[Incompatible measurements]
+Three binary measurements $A$, $B$, $C$, where $(A,B)$ and $(A,C)$
+can be performed jointly but $(B,C)$ cannot.  The jointly measurable
+pairs generate Boolean subalgebras; the full observation algebra is
+orthomodular, not Boolean.
 \end{example}
 
-Two elements $a, b$ in an OML are said to \emph{commute} if they
-generate a Boolean subalgebra.  A maximal set of pairwise commuting
-elements forms a \emph{Boolean context} --- a maximal Boolean
-subalgebra of $A$.  Within each context, classical logic and
-classical probability apply.  The non-classical character of the
-OML arises from the relationships \emph{between} contexts.
+Two elements $a, b$ in an OML \emph{commute} if they generate a
+Boolean subalgebra.  A maximal set of pairwise commuting elements
+forms a \emph{Boolean context} --- a maximal Boolean subalgebra
+of~$A$.
 
 \begin{definition}
 A \emph{state} on an OML $A$ is a function $s : A \to [0,1]$ with
@@ -259,10 +253,8 @@ ultrafilters.
 If $\dim H \geq 3$, there is no dispersion-free state on $L(H)$.
 \end{theorem}
 
-\noindent The obstruction is dimensional: for $\dim H = 2$, dispersion-free
-states exist (every maximal Boolean subalgebra of $L(\mathbb{C}^2)$
-is a four-element Boolean algebra, and 2-valued homomorphisms are
-plentiful).  The critical threshold is $\dim H = 3$.
+\noindent For $\dim H = 2$, dispersion-free states exist; the
+obstruction is specific to $\dim H \geq 3$.
 
 \begin{theorem}[Gleason~\cite{Gleason1957}]
 \label{thm:gleason}
@@ -386,13 +378,8 @@ $D(\rho, R) \subseteq L(H)$ such that:
 \end{enumerate}
 \end{theorem}
 
-\noindent In our terminology: $D(\rho, R)$ is the maximal Boolean
-subalgebra on which VDR is available --- the largest ``classical
-context'' in which all observables simultaneously have definite
-values, given the state $\rho$ and the preferred observable $R$.
-
-VDR fails globally but succeeds locally: $D(\rho, R) \subsetneq L(H)$
-depends on the choice of $R$, and different preferred observables
+\noindent $D(\rho, R)$ is the maximal Boolean subalgebra on which
+VDR is available.  It depends on $R$: different preferred observables
 yield different maximal Boolean subalgebras.
 
 % ------------------------------------------------------------------

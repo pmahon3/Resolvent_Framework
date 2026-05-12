@@ -181,24 +181,12 @@ A \emph{query system} is an observational structure together with an
 instantiation.
 \end{definition}
 
-Every observational structure admits a canonical instantiation: the projective limit
-\[
-  \Omega
-  = \varprojlim_{i \in \iota} \Out{i} = \Bigl\{
-      \omega \in \prod_{i \in \iota} \Out{i}
-      \;\Big|\;
-      \pi_{ij}(\omega_j) = \omega_i \text{ whenever } i \leq j
-    \Bigr\},
-\]
-with $\mathrm{eval}_i(\omega) = \omega_i$.  In
+Every observational structure admits a canonical instantiation: the
+projective limit $\Omega = \varprojlim_{i} \Out{i}$, the space of
+coherent threads through all outcome spaces, with
+$\mathrm{eval}_i(\omega) = \omega_i$.  In
 Example~\ref{I:ex:time-series}, $\Omega = S^{\mathbb{N}}$ is the space
-of complete observed trajectories: each $\omega \in \Omega$ is a full
-record
-\[
-  \omega = \bigl(h(x),\, h(Tx),\, h(T^2 x),\, \ldots\bigr)
-\]
-and $\mathrm{eval}_L(\omega) = (\omega_1, \ldots, \omega_L)$ extracts
-the first $L$ entries.
+of complete observed trajectories.
 
 \begin{definition}[Common coarsenings]
 The index set $(\iota, \leq)$ admits \emph{common coarsenings} if every pair $i, j \in \iota$ has a lower bound: there exists $k \leq i$ and $k \leq j$.

@@ -1,7 +1,8 @@
 # Structure from Observation
 
 When does observationally coherent data determine a genuine probability
-measure?  This repository develops the mathematical answer.
+measure?  And when does the observation algebra permit value-definite
+realism?  This repository develops the mathematical answers.
 
 ## Paper I — "When Does Observational Coherence Determine Probability?"
 
@@ -26,6 +27,24 @@ probability Boolean algebras.  Proof via ultraproduct of Dirac masses.
 
 **Lean-verified:** `UltrafilterCharge.lean` (0 sorry)
 
+## Paper II — "Distributivity and the Commensurability of Value-Definite Realism and Empirical Adequacy"
+
+Distributivity of the observation algebra is the exact condition (for
+dim ≥ 3) under which value-definite realism and empirical adequacy are
+commensurable.  Three nested positions — empirical adequacy (EA),
+probabilistic realism (PR), value-definite realism (VDR) — are all
+available for Boolean algebras.  For orthomodular lattices, VDR is
+blocked by the Kochen–Specker theorem while PR remains available via
+Gleason.
+
+The state space admits a filtration S ⊇ S_σ ⊇ S_df whose three
+transitions (pasting, regularity, sharpness) are of different
+mathematical character.  Distributivity collapses the filtration.
+Any collection of Boolean contexts produces an OML via categorical
+gluing; the commensurability theorem applies to the colimit.
+
+**LaTeX:** `papers/paper_ii/`
+
 ## Lean formalization
 
 | File | Status | Content |
@@ -43,21 +62,18 @@ See `formalization/QuerySystem/README.md` for details.
 Resolvent_Framework/
 ├── papers/
 │   ├── paper_i/              ← Paper I LaTeX
-│   └── archive/              ← withdrawn Papers II, III
+│   ├── paper_ii/             ← Paper II LaTeX
+│   └── archive/              ← withdrawn earlier Papers II, III
 ├── formalization/
 │   └── QuerySystem/          ← Lean 4 / Mathlib formalization
 └── notes/
-    └── programme/            ← planning docs, flight log
+    ├── programme/            ← planning docs, flight log
+    └── future/               ← scoping notes for future directions
 ```
 
 ## Status
 
-Paper I is complete and ready for submission.  The classical Boolean
-setting has been fully explored: realization is unconstrained by the
-algebra, and the passage from coherent charges to probability is a
-geometric commitment (σ-additivity), not a derivation.
-
-Future directions involve non-Boolean observation algebras
-(orthomodular lattices), where the algebra constrains realization
-and the extension problem connects to Gleason-type results.
-See `notes/future/` for scoping notes.
+Paper I is complete and ready for submission.  Paper II (first draft,
+8 pages) extends the framework to orthomodular observation algebras
+via the McDonald–Bimbó duality and the Gunji et al. colimit
+construction.  Target venue: Synthese.

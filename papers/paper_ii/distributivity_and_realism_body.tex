@@ -194,7 +194,12 @@ by any non-zero element.
 
 Proposition~\ref{prop:boolean-comm} depends on distributivity at
 exactly one point: the existence of 2-valued homomorphisms.  When
-observations are incompatible, this fails.
+observations are incompatible, this fails.  The non-distributive
+structure need not be postulated: Gunji et
+al.~\cite{Gunji2026} show that gluing Boolean algebras along
+shared boundaries via categorical pushout produces an orthomodular
+lattice, generically non-distributive.  The OML is \emph{forced}
+by the context structure.
 
 \begin{definition}
 An \emph{ortholattice} is a bounded lattice
@@ -609,17 +614,20 @@ maximal Boolean subalgebra $D(\rho, R)$
 EA in the Boolean case; Pitowsky~\cite{Pitowsky1989} develops the
 quantum analogue via Dutch book arguments on $L(H)$.
 
-The analysis is not specific to quantum mechanics.  Dzhafarov and
-Kujala~\cite{DzhafarovKujala2017} demonstrate orthomodular
-contextuality in behavioural science; Derr and
-Williamson~\cite{DerrWilliamson2023} show that partial
-observability in machine learning produces sub-Boolean event
-structures (pre-Dynkin systems) that decompose into maximal Boolean
-blocks.  Wherever observations are incompatible, the commensurability
-theorem provides a diagnostic: if a deterministic latent-state model
-fails, the failure may be algebraic --- the observation algebra does
-not support VDR --- rather than a consequence of noise or
-insufficient data.
+The analysis is not specific to quantum mechanics.  Any collection
+of individually Boolean observation contexts --- jointly performable
+measurements in behavioural
+science~\cite{DzhafarovKujala2017}, jointly queryable attributes
+in machine learning~\cite{DerrWilliamson2023}, simultaneously
+administrable treatments in experimental design --- produces an
+observation algebra via categorical
+gluing~\cite{Gunji2026}.  If the contexts are mutually compatible,
+the colimit is Boolean and VDR is available.  If not, the colimit
+is orthomodular and VDR may be blocked.  The commensurability
+theorem thus provides a diagnostic across domains: when a
+deterministic latent-state model fails, the failure may be
+algebraic --- the observation algebra does not support VDR ---
+rather than a consequence of noise or insufficient data.
 
 Several directions remain open:
 \begin{enumerate}
@@ -628,11 +636,6 @@ Several directions remain open:
     measure on $S_0(A)$, as in the Boolean case?  Gleason's theorem
     answers this for $L(H)$; the general case is open
     (\S\ref{sec:descent}).
-
-  \item \emph{Intermediate algebras.}
-    Between Boolean algebras and arbitrary OMLs lie the
-    MO$_n$-free OMLs, modular ortholattices, and other
-    subvarieties.  Where exactly does VDR fail in this spectrum?
 
   \item \emph{Dynamical structure.}
     If the observation algebra carries a group action (stationarity,

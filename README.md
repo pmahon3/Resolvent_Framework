@@ -52,6 +52,12 @@ Resolvent_Framework/
 
 ## Status
 
-Paper I is complete and ready for submission.  The open question —
-whether the Stone space construction can give rise to dynamical
-structure without positing a dynamical law — is under investigation.
+Paper I is complete and ready for submission.  The classical Boolean
+setting has been fully explored: realization is unconstrained by the
+algebra, and the passage from coherent charges to probability is a
+geometric commitment (σ-additivity), not a derivation.
+
+Future directions involve non-Boolean observation algebras
+(orthomodular lattices), where the algebra constrains realization
+and the extension problem connects to Gleason-type results.
+See `notes/future/` for scoping notes.

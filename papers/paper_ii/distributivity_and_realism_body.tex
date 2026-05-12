@@ -57,13 +57,9 @@ The scientific realist demands more --- an underlying state space
 whose properties generate the observations.
 
 This debate is usually conducted in philosophical terms.  We give it
-a mathematical formulation and show that its resolution depends on
-the algebraic structure of the observations.
+a mathematical formulation.
 
-\subsection*{Three kinds of realism}
-
-We distinguish three nested positions, each a strengthening of the
-previous:
+Three nested positions, each a strengthening of the previous:
 
 \begin{enumerate}[label=(\roman*)]
   \item \textbf{Empirical adequacy (EA).}
@@ -82,12 +78,8 @@ previous:
     on the full observation algebra.
 \end{enumerate}
 
-\noindent These are nested: VDR implies PR implies EA.  The question
-is which implications reverse, and what governs the answer.
-
-\subsection*{The role of the observation algebra}
-
-Consider two settings:
+\noindent These are nested: VDR implies PR implies EA.  Which
+implications reverse depends on the observation algebra:
 
 \smallskip
 \noindent\emph{Compatible observations.}
@@ -115,40 +107,12 @@ theorem~\cite{Gleason1957}, and empirical adequacy is unconditional.
 \smallskip
 The dividing line is distributivity.
 
-\subsection*{Contributions}
-
-We develop the following:
-
-\begin{enumerate}
-  \item A unified framework based on directed systems of
-    complemented lattices, with the Boolean and orthomodular cases
-    as instances (\S\ref{sec:boolean}--\S\ref{sec:oml-dual}).
-
-  \item A coherence filtration
-    $\mathcal{S}(A) \supseteq \mathcal{S}_\sigma(A) \supseteq
-    \mathcal{S}_{\mathrm{df}}(A)$ whose three transitions ---
-    pasting, regularity, sharpness --- are of different mathematical
-    character, with the obstruction at each identified
-    (\S\ref{sec:hierarchy}).
-
-  \item A structural theorem: distributivity of the observation
-    algebra is the exact condition under which the filtration
-    degenerates (\S\ref{sec:commensurability}).
-
-  \item An analysis of the philosophical consequences: the
-    realism/empiricism debate has different mathematical answers
-    depending on the observation algebra (\S\ref{sec:discussion}).
-\end{enumerate}
-
 % ------------------------------------------------------------------
 \section{The Boolean case}
 \label{sec:boolean}
 % ------------------------------------------------------------------
 
-We recall the framework and results of~\cite{mahon2026}, which treats
-directed systems of Boolean algebras.
-
-\subsection*{Directed systems and compatible charges}
+We recall the framework of~\cite{mahon2026}.
 
 Let $(\iota, \leq)$ be a directed set indexing a family of Boolean
 algebras $\{B_i\}_{i \in \iota}$ with injective homomorphisms
@@ -160,8 +124,6 @@ A \emph{compatible family of normalised charges} is a collection
 $\{\ell_i\}$ with $\ell_i : B_i \to [0,1]$ finitely additive,
 $\ell_i(1) = 1$, and $\ell_j \circ \varphi_{ij} = \ell_i$ for
 $i \leq j$.
-
-\subsection*{The Stone construction}
 
 The Stone space $\St(\mathcal{C})$ is the space of ultrafilters on
 $\mathcal{C}$, compact and totally disconnected.  Each
@@ -175,16 +137,12 @@ $\sigma$-additivity~\cite{choksi1958, mahon2026}.  This is the
 \emph{empirically adequate} object: it agrees with all charges on
 cylinder events.
 
-\subsection*{Descent and $\sigma$-additivity}
-
 The measure $\hat{\mu}$ lives on $\St(\mathcal{C})$, not on
 $\Omega$.  Descent to a probability measure $P$ on
 $(\Omega, \sigma(\mathcal{C}))$ requires
 $\hat{\mu}(\pure(\Omega)) = 1$ --- that $\hat{\mu}$ concentrates on
 the principal ultrafilters.  This holds if and only if each charge
 $\ell_i$ is $\sigma$-additive~\cite{mahon2026}.
-
-\subsection*{Value-definiteness in the Boolean case}
 
 Every Boolean algebra admits ultrafilters (by Zorn's lemma), and
 every ultrafilter is a 2-valued homomorphism.  A 2-valued
@@ -225,13 +183,8 @@ by any non-zero element.
 \label{sec:oml}
 % ------------------------------------------------------------------
 
-The Boolean assumption is that all observations are compatible: any
-finite collection can be performed simultaneously.  When this fails
---- when some observations preclude others --- the observation
-algebra loses distributivity.  The appropriate generalisation is the
-orthomodular lattice.
-
-\subsection*{Orthomodular lattices}
+When some observations preclude others, the observation algebra
+loses distributivity.
 
 \begin{definition}
 An \emph{ortholattice} is a bounded lattice
@@ -274,16 +227,12 @@ trials with mutually exclusive protocols, and sensor networks with
 interfering instruments.
 \end{example}
 
-\subsection*{Commutativity and classical contexts}
-
 Two elements $a, b$ in an OML are said to \emph{commute} if they
 generate a Boolean subalgebra.  A maximal set of pairwise commuting
 elements forms a \emph{Boolean context} --- a maximal Boolean
 subalgebra of $A$.  Within each context, classical logic and
 classical probability apply.  The non-classical character of the
 OML arises from the relationships \emph{between} contexts.
-
-\subsection*{States on OMLs}
 
 \begin{definition}
 A \emph{state} on an OML $A$ is a function $s : A \to [0,1]$ with
@@ -310,27 +259,15 @@ assigns a definite truth value to every proposition in $A$.  On a
 Boolean algebra, dispersion-free states are exactly the
 ultrafilters.
 
-\subsection*{The Kochen--Specker obstruction}
-
 \begin{theorem}[Kochen--Specker~\cite{KochenSpecker1967}]
 \label{thm:KS}
 If $\dim H \geq 3$, there is no dispersion-free state on $L(H)$.
 \end{theorem}
 
-\noindent No assignment of simultaneous definite values to all
-observables is consistent with the algebraic structure.  This is
-not a limitation of knowledge but a structural impossibility: the
-OML $L(H)$ does not admit a 2-valued homomorphism.
-
-The obstruction is dimensional: for $\dim H = 2$, dispersion-free
+\noindent The obstruction is dimensional: for $\dim H = 2$, dispersion-free
 states exist (every maximal Boolean subalgebra of $L(\mathbb{C}^2)$
 is a four-element Boolean algebra, and 2-valued homomorphisms are
 plentiful).  The critical threshold is $\dim H = 3$.
-
-\subsection*{Gleason's theorem}
-
-Despite the absence of dispersion-free states, \emph{probabilistic}
-states on $L(H)$ are well-behaved:
 
 \begin{theorem}[Gleason~\cite{Gleason1957}]
 \label{thm:gleason}
@@ -339,23 +276,13 @@ the form $s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
 $\rho$ on~$H$.
 \end{theorem}
 
-\noindent Gleason's theorem says that probabilistic realism is
-available for $L(H)$: every state extends to a well-defined
-probability assignment via the Born rule.  What fails is
-value-definite realism --- the demand that every observable have a
-simultaneous definite value.
-
 % ------------------------------------------------------------------
 \section{The OML dual space}
 \label{sec:oml-dual}
 % ------------------------------------------------------------------
 
-In the Boolean case, Stone duality provides the dual space
-$\St(\mathcal{C})$ of ultrafilters.  For OMLs, the analogue is the
-McDonald--Bimb\'{o} duality~\cite{McDonaldBimbo2023}, which we now
-describe.
-
-\subsection*{Filters on an OML}
+For OMLs, the analogue of Stone duality is the
+McDonald--Bimb\'{o} duality~\cite{McDonaldBimbo2023}.
 
 Let $A$ be an OML.  A \emph{filter} on $A$ is a non-empty subset
 $x \subseteq A$ that is upward closed ($a \in x$ and $a \leq b$
@@ -367,8 +294,6 @@ For each $a \in A$, the \emph{principal filter} generated by $a$ is
 ${\uparrow}a = \{b \in A : a \leq b\}$.  Write $F(A)$ for the
 collection of all filters on $A$, and $P(A) \subseteq F(A)$ for the
 subcollection of principal filters.
-
-\subsection*{The dual space}
 
 \begin{definition}[McDonald--Bimb\'{o}~\cite{McDonaldBimbo2023}]
 \label{def:oml-dual}
@@ -399,9 +324,7 @@ Moreover, $A \cong \CO(S_0(A))^\dagger$, the OML of clopen
 $\perp$-stable subsets of $S_0(A)$.
 \end{theorem}
 
-\subsection*{Structural comparison with Stone duality}
-
-The critical differences are collected in the following table:
+The critical differences from Stone duality:
 
 \medskip
 \begin{center}
@@ -434,82 +357,12 @@ unrealised observation-patterns is not freely chosen but is
 constrained by the algebra.
 
 % ------------------------------------------------------------------
-\section{Three kinds of realism, revisited}
-\label{sec:three-kinds}
-% ------------------------------------------------------------------
-
-We now have the framework to state the three positions precisely in
-both settings.
-
-\begin{definition}
-Let $A$ be a complemented lattice (Boolean or orthomodular) with a
-state $s : A \to [0,1]$.
-\begin{enumerate}[label=(\roman*)]
-  \item \textbf{Empirical adequacy (EA):}
-    $s$ defines a consistent assignment $\mu(h(a)) = s(a)$ on the
-    clopens of the dual space.
-
-  \item \textbf{Probabilistic realism (PR):}
-    $\mu$ extends to a $\sigma$-additive probability measure on the
-    Baire $\sigma$-algebra of the dual space, concentrating on
-    $P(A)$.
-
-  \item \textbf{Value-definite realism (VDR):}
-    There exists a dispersion-free state on $A$ --- a 2-valued
-    homomorphism assigning simultaneous definite values to all
-    elements.
-\end{enumerate}
-\end{definition}
-
-\begin{proposition}[OML status]
-\label{prop:oml-status}
-For $A = L(H)$ with $\dim H \geq 3$:
-\begin{enumerate}[label=(\alph*)]
-  \item EA holds: every state defines a consistent assignment on
-    $\CO(S_0(A))^\dagger$.
-  \item PR holds: Gleason's theorem~\textup{(\ref{thm:gleason})}
-    gives a $\sigma$-additive measure via $s(P) = \mathrm{tr}(\rho P)$.
-  \item VDR fails: the Kochen--Specker
-    theorem~\textup{(\ref{thm:KS})} shows no dispersion-free state
-    exists.
-\end{enumerate}
-\end{proposition}
-
-\noindent Comparing with Proposition~\ref{prop:boolean-comm}:
-
-\medskip
-\begin{center}
-\begin{tabular}{@{}lccc@{}}
-\toprule
-Position & Boolean & OML ($\dim \geq 3$) \\
-\midrule
-EA & \checkmark\, (unconditional) & \checkmark\, (unconditional) \\
-PR & \checkmark\, (iff $\sigma$-additive) & \checkmark\, (Gleason) \\
-VDR & \checkmark\, (ultrafilters) & $\times$\, (Kochen--Specker) \\
-\bottomrule
-\end{tabular}
-\end{center}
-\medskip
-
-\noindent The single structural difference --- distributivity versus
-non-distributivity --- controls exactly the VDR row.
-
-% ------------------------------------------------------------------
 \section{The descent problem for OMLs}
 \label{sec:descent}
 % ------------------------------------------------------------------
 
-In the Boolean case, the descent from $\hat{\mu}$ on
-$\St(\mathcal{C})$ to $P$ on $(\Omega, \sigma(\mathcal{C}))$
-requires $\sigma$-additivity of the charges and a choice of
-realisation space $\Omega$.  The algebra imposes no constraint on
-$\Omega$.
-
-For OMLs, the descent problem has a different character.  A state
-$s$ on $A$ defines $\mu(h(a)) = s(a)$ on the clopen $\perp$-stable
-sets $\CO(S_0(A))^\dagger$.
-
-\subsection*{The extension obstacle}
+A state $s$ on $A$ defines $\mu(h(a)) = s(a)$ on the clopen
+$\perp$-stable sets $\CO(S_0(A))^\dagger$.
 
 In the Boolean case, $\Clop(\St(\mathcal{C}))$ is a Boolean algebra
 of sets, and $s$ is finitely additive on it.  The
@@ -529,10 +382,8 @@ extension: every state arises from a density operator, giving a
 $\sigma$-additive measure via the Born rule.  For general OMLs,
 the extension problem is open.
 
-\subsection*{Partial value-definite descent}
-
-Even when probabilistic descent succeeds (Gleason), value-definite
-descent does not.  The Bub--Clifton
+Even when probabilistic descent succeeds, value-definite descent
+does not.  The Bub--Clifton
 theorem~\cite{BubClifton1996} addresses what \emph{can} be
 salvaged:
 
@@ -554,23 +405,14 @@ subalgebra on which VDR is available --- the largest ``classical
 context'' in which all observables simultaneously have definite
 values, given the state $\rho$ and the preferred observable $R$.
 
-This is a \emph{partial} and \emph{context-dependent} descent.  It
-is partial because $D(\rho, R) \subsetneq L(H)$: not all
-observables receive definite values.  It is context-dependent
-because $D(\rho, R)$ depends on the choice of $R$ --- different
-preferred observables yield different maximal Boolean subalgebras.
-
-The Bub--Clifton result thus sharpens the Kochen--Specker
-obstruction: VDR fails globally, but it succeeds locally --- within
-each Boolean context.  The failure is in the \emph{global}
-assembly, not in any individual context.
+VDR fails globally but succeeds locally: $D(\rho, R) \subsetneq L(H)$
+depends on the choice of $R$, and different preferred observables
+yield different maximal Boolean subalgebras.
 
 % ------------------------------------------------------------------
 \section{Distributivity as the commensurability condition}
 \label{sec:commensurability}
 % ------------------------------------------------------------------
-
-We can now state the main structural result.
 
 \begin{theorem}[Commensurability]
 \label{thm:commensurability}
@@ -650,9 +492,7 @@ on an observation algebra~$A$.  The conditions are linearly ordered
 by implication, but the three transitions between them are of
 different mathematical character --- each requires a different key.
 
-\subsection*{The coherence filtration}
-
-\begin{definition}[Coherence conditions]
+\begin{definition}[Coherence filtration]
 \label{def:hierarchy}
 Let $A$ be a complemented lattice with a family of charges.
 The \emph{state space} of $A$ admits a descending filtration:
@@ -705,9 +545,7 @@ $\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}(A)$
 \end{center}
 \medskip
 
-\subsection*{Effect of distributivity}
-
-Distributivity collapses the filtration.  For a Boolean algebra:
+\noindent Distributivity collapses the filtration.  For a Boolean algebra:
 \begin{itemize}
   \item \emph{Pasting} is trivial: every local assignment extends
     to a global state (distributivity guarantees compatibility).

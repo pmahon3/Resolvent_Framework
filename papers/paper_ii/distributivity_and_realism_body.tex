@@ -115,14 +115,19 @@ $\mathcal{C} = \bigcup_i B_i$ for the direct limit --- the
 \emph{cylinder algebra}.
 
 A \emph{compatible family of normalised charges} is a collection
-$\{\ell_i\}$ with $\ell_i : B_i \to [0,1]$ finitely additive,
-$\ell_i(1) = 1$, and $\ell_j \circ \varphi_{ij} = \ell_i$ for
-$i \leq j$.
+$\{\ell_i\}$ with each $\ell_i : B_i \to [0,1]$ finitely additive,
+$\ell_i(1) = 1$, and
+\[
+  \ell_j \circ \varphi_{ij} = \ell_i
+  \qquad (i \leq j).
+\]
 
 The Stone space $\St(\mathcal{C})$ is the space of ultrafilters on
 $\mathcal{C}$, compact and totally disconnected.  Each
 $\omega \in \Omega$ determines a principal ultrafilter
-$\pure(\omega) = \{E \in \mathcal{C} : \omega \in E\}$.
+\[
+  \pure(\omega) = \{E \in \mathcal{C} : \omega \in E\}.
+\]
 
 Any compatible family of normalised charges extends to a
 $\sigma$-additive Baire probability measure $\hat{\mu}$ on
@@ -134,9 +139,12 @@ cylinder events.
 The measure $\hat{\mu}$ lives on $\St(\mathcal{C})$, not on
 $\Omega$.  Descent to a probability measure $P$ on
 $(\Omega, \sigma(\mathcal{C}))$ requires
-$\hat{\mu}(\pure(\Omega)) = 1$ --- that $\hat{\mu}$ concentrates on
-the principal ultrafilters.  This holds if and only if each charge
-$\ell_i$ is $\sigma$-additive~\cite{mahon2026}.
+\[
+  \hat{\mu}\!\bigl(\pure(\Omega)\bigr) = 1,
+\]
+i.e., that $\hat{\mu}$ concentrates on the principal ultrafilters.
+This holds if and only if each $\ell_i$ is
+$\sigma$-additive~\cite{mahon2026}.
 
 Every Boolean algebra admits ultrafilters (by Zorn's lemma), and
 every ultrafilter is a 2-valued homomorphism.  A 2-valued
@@ -340,7 +348,10 @@ under which this constraint vanishes.
 
 $S_0(A)$ is compact, so the topological machinery applies.\label{sec:descent}
 But the algebraic input is weaker.  A state $s$ on $A$ defines
-$\mu(h(a)) = s(a)$ on $\CO(S_0(A))^\dagger$.
+\[
+  \mu(h(a)) = s(a)
+\]
+on $\CO(S_0(A))^\dagger$.
 
 In the Boolean case, $\Clop(\St(\mathcal{C}))$ is a Boolean algebra
 of sets, and $s$ is finitely additive on it.  The

@@ -67,14 +67,88 @@ theorem LatticeUltrafilter.compl_mem_or_mem {α : Type*} [BooleanAlgebra α]
       le_compl_iff_disjoint_left.mpr (disjoint_iff.mpr hab)
     exact u.up_closed hb hle
 
-/-- **Existence of lattice ultrafilters on nontrivial Boolean algebras.**
-By Zorn's lemma, every proper filter extends to a maximal one. -/
+/-- The set of "proper filter carriers" on a Boolean algebra: sets containing ⊤,
+not containing ⊥, upward closed, and closed under ⊓. -/
+private def IsProperFilterCarrier (α : Type*) [BooleanAlgebra α] (S : Set α) : Prop :=
+  ⊤ ∈ S ∧ ⊥ ∉ S ∧ (∀ {a b : α}, a ∈ S → a ≤ b → b ∈ S) ∧
+  (∀ {a b : α}, a ∈ S → b ∈ S → a ⊓ b ∈ S)
+
+/-- The union of a chain of proper filter carriers is a proper filter carrier. -/
+private theorem isProperFilterCarrier_sUnion {α : Type*} [BooleanAlgebra α]
+    {c : Set (Set α)} (hc : ∀ S ∈ c, IsProperFilterCarrier α S)
+    (hchain : IsChain (· ⊆ ·) c) (hne : c.Nonempty) :
+    IsProperFilterCarrier α (⋃₀ c) := by
+  obtain ⟨s₀, hs₀⟩ := hne
+  refine ⟨⟨s₀, hs₀, (hc s₀ hs₀).1⟩, ?_, ?_, ?_⟩
+  · rintro ⟨s, hs, hbot⟩; exact (hc s hs).2.1 hbot
+  · rintro a b ⟨s, hs, ha⟩ hab; exact ⟨s, hs, (hc s hs).2.2.1 ha hab⟩
+  · rintro a b ⟨sa, hsa, ha⟩ ⟨sb, hsb, hb⟩
+    rcases hchain.total hsa hsb with h | h
+    · exact ⟨sb, hsb, (hc sb hsb).2.2.2 (h ha) hb⟩
+    · exact ⟨sa, hsa, (hc sa hsa).2.2.2 ha (h hb)⟩
+
+/-- In a Boolean algebra, if a ∉ maximal proper filter F, then adding a
+would make the filter improper: ∃ b ∈ F, a ⊓ b = ⊥. -/
+private theorem maximal_proper_filter_dichotomy {α : Type*} [BooleanAlgebra α]
+    {F : Set α} (hF : IsProperFilterCarrier α F)
+    (hmax : ∀ G, IsProperFilterCarrier α G → F ⊆ G → G ⊆ F)
+    (a : α) : a ∈ F ∨ aᶜ ∈ F := by
+  by_contra h
+  push_neg at h
+  obtain ⟨ha, hac⟩ := h
+  -- If neither a nor aᶜ is in F, we can extend F to include aᶜ.
+  -- Define G = {x : α | ∃ f ∈ F, aᶜ ⊓ f ≤ x}
+  set G := {x : α | ∃ f ∈ F, aᶜ ⊓ f ≤ x} with hGdef
+  have hFG : F ⊆ G := fun x hx => ⟨x, hx, inf_le_right⟩
+  have hac_in : aᶜ ∈ G := ⟨⊤, hF.1, by simp⟩
+  have hG_proper : IsProperFilterCarrier α G := by
+    refine ⟨hFG hF.1, ?_, ?_, ?_⟩
+    · rintro ⟨f, hf, hle⟩
+      -- aᶜ ⊓ f ≤ ⊥ implies f ≤ a in Boolean algebra (disjoint + compl_compl)
+      have hfa : f ≤ a := by
+        have h1 : Disjoint aᶜ f := disjoint_iff.mpr (le_bot_iff.mp hle)
+        exact disjoint_compl_left_iff.mp h1
+      exact ha (hF.2.2.1 hf hfa)
+    · rintro a' b' ⟨f, hf, hle⟩ hab
+      exact ⟨f, hf, le_trans hle hab⟩
+    · rintro a' b' ⟨fa, hfa, hlea⟩ ⟨fb, hfb, hleb⟩
+      refine ⟨fa ⊓ fb, hF.2.2.2 hfa hfb, ?_⟩
+      -- aᶜ ⊓ (fa ⊓ fb) ≤ (aᶜ ⊓ fa) ⊓ (aᶜ ⊓ fb) ≤ a' ⊓ b'
+      calc aᶜ ⊓ (fa ⊓ fb) ≤ (aᶜ ⊓ fa) ⊓ (aᶜ ⊓ fb) :=
+            le_inf (inf_le_inf_left _ inf_le_left) (inf_le_inf_left _ inf_le_right)
+        _ ≤ a' ⊓ b' := inf_le_inf hlea hleb
+  -- G is a proper filter carrier strictly containing F (aᶜ ∈ G but aᶜ ∉ F)
+  have : G ⊆ F := hmax G hG_proper hFG
+  exact hac (this hac_in)
+
 theorem lattice_ultrafilter_exists (α : Type*) [BooleanAlgebra α] [Nontrivial α] :
     Nonempty (LatticeUltrafilter α) := by
-  -- Zorn's lemma on the poset of proper filters gives a maximal proper filter.
-  -- Maximality + Boolean algebra structure gives the `maximal` field.
-  -- Standard but requires ~30 lines of filter-poset setup not yet factored.
-  sorry
+  -- The principal filter {x | ⊤ ≤ x} = {⊤} is a proper filter carrier
+  have hstart : IsProperFilterCarrier α (Set.Ici ⊤) :=
+    ⟨le_refl _, fun (h : ⊤ ≤ ⊥) => absurd (le_antisymm bot_le h) bot_ne_top,
+     fun ha hab => le_trans ha hab,
+     fun ha hb => le_inf ha hb⟩
+  -- Zorn gives a maximal proper filter carrier
+  obtain ⟨m, hmstart, hmmax⟩ := zorn_subset_nonempty
+    {S : Set α | IsProperFilterCarrier α S}
+    (fun c hcS hchain hne => ⟨⋃₀ c, isProperFilterCarrier_sUnion
+      (fun S hS => hcS hS) hchain hne, fun s hs => Set.subset_sUnion_of_mem hs⟩)
+    (Set.Ici ⊤) hstart
+  have hm : IsProperFilterCarrier α m := hmmax.prop
+  -- Maximality: if G is a proper filter carrier containing m, then G = m
+  have hmaximal : ∀ G, IsProperFilterCarrier α G → m ⊆ G → G ⊆ m :=
+    fun G hG hFG => (hmmax.eq_of_le hG hFG).symm ▸ le_refl _
+  -- Maximality gives: ∀ a, a ∈ m ∨ aᶜ ∈ m
+  have hdict := maximal_proper_filter_dichotomy hm hmaximal
+  -- Construct the LatticeUltrafilter
+  exact ⟨{
+    carrier := m
+    top_mem := hm.1
+    bot_not_mem := hm.2.1
+    up_closed := fun ha hab => hm.2.2.1 ha hab
+    inf_closed := fun ha hb => hm.2.2.2 ha hb
+    maximal := fun a => (hdict a).imp id (fun hac => ⟨aᶜ, hac, inf_compl_eq_bot⟩)
+  }⟩
 
 -- ===========================================================================
 -- §2. States and dispersion-free states

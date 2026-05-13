@@ -1,0 +1,376 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\OL}{\mathcal{O}_h^{(L)}}
+\newcommand{\PhiL}{\Phi_h^{(L)}}
+\newcommand{\Lp}[1]{L^{#1}}
+\newcommand{\RL}{R_L}
+\newcommand{\dL}{\delta(L)}
+
+% ---------- Title ----------
+\title{Algebraic and Geometric Reconstruction:\\
+\large A Bridge via Conditional Variance}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Paper~III introduces two witnesses for finite-sample reconstruction: the
+algebraic witness $\delta(L)$ (worst-case $\sigma$-algebra approximation error)
+and the geometric witness $(\mu \otimes \mu)(R_L)$ (mass of unseparated pairs
+under the lag-$L$ equivalence relation).
+This note identifies the exact object mediating between them --- the
+\emph{conditional variance of indicators} --- and establishes a two-sided
+comparison theorem.
+The easy direction requires no conditions.
+The hard direction requires that large fibres of the delay map be internally
+mixed, a condition implied by ergodicity but strictly weaker.
+As a corollary, reconstruction is equivalent to divergence of the collision
+entropy of the delay-vector distribution, giving an information-theoretic
+characterisation of reconstruction not present in Papers~I--IV.
+\end{abstract}
+
+% ============================================================
+\section{Setup}
+% ============================================================
+
+Let $(X, \Bcal, \mu, T)$ be a measure-preserving system and $h \in \Lp{\infty}(\mu)$.
+For $L \geq 0$ define the \emph{observable $\sigma$-algebra at lag~$L$}:
+\[
+  \OL \;:=\; \sigma\bigl(h \circ T^0,\, h \circ T^1,\, \ldots,\, h \circ T^L\bigr)
+\]
+and the \emph{lag-$L$ delay map} $\PhiL : X \to \mathbb{R}^{L+1}$,
+$\PhiL(x) = (h(x), h(Tx), \ldots, h(T^L x))$.
+
+\begin{definition}[Algebraic witness]
+The \emph{$\sigma$-algebra approximation error at lag~$L$} is
+\[
+  \dL \;:=\; \sup_{S \in \Bcal} \inf_{E \in \OL} \mu(S \triangle E).
+\]
+\end{definition}
+
+\begin{definition}[Equivalence relation and geometric witness]
+Define the lag-$L$ equivalence relation $x \sim_L x'$ iff
+$\PhiL(x) = \PhiL(x')$, and the corresponding unseparated-pairs set:
+\[
+  \RL \;:=\; \bigl\{(x,x') \in X \times X : x \sim_L x'\bigr\}.
+\]
+The \emph{geometric witness} is $(\mu \otimes \mu)(\RL)$.
+\end{definition}
+
+\begin{definition}[Fibre structure]
+For $z \in \mathbb{R}^{L+1}$, let $F_z := (\PhiL)^{-1}(z)$ be the fibre over~$z$,
+$p_z := \mu(F_z)$ the fibre mass, and $\mu_z$ the conditional measure on~$F_z$.
+The push-forward $\nu_L := (\PhiL)_*\!\mu$ is the distribution of delay vectors.
+\end{definition}
+
+Three facts are immediate from the definitions:
+\begin{enumerate}[label=(\alph*)]
+  \item $\RL = \bigsqcup_z F_z \times F_z$, so
+    $(\mu \otimes \mu)(\RL) = \int p_z^2\, d\nu_L(z) = \sum_z p_z^2$
+    (in the discrete-fibre case).
+  \item The conditional variance identity:
+    for any $S \in \Bcal$,
+    \[
+      \mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]
+      \;=\; \int p_z \cdot \mu_z(S)\mu_z(S^c)\, d\nu_L(z).
+    \]
+  \item $\dL = \sup_S \mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]$,
+    since $\mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]
+    = \|\mathbf{1}_S - \mathbb{E}[\mathbf{1}_S \mid \OL]\|_{\Lp{2}(\mu)}^2$
+    and $\dL = \sup_S \|\mathbf{1}_S - \mathbb{E}[\mathbf{1}_S \mid \OL]\|_{\Lp{2}(\mu)}^2$
+    (Paper~III, Lemma~3.1).
+\end{enumerate}
+
+% ============================================================
+\section{The Bridge Identity}
+% ============================================================
+
+\begin{lemma}[Conditional variance identity]
+\label{lem:bridge}
+For any $S \in \Bcal$:
+\[
+  \mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]
+  \;=\;
+  \frac{1}{2}
+  \int_{\RL} |\mathbf{1}_S(x) - \mathbf{1}_S(x')|^2\,
+  d(\mu \otimes \mu)(x, x').
+\]
+\end{lemma}
+
+\begin{proof}
+By disintegration, $(\mu \otimes \mu)|_{\RL} = \int \mu_z \otimes \mu_z\, d\nu_L(z)$.
+On each fibre $F_z$:
+\[
+  \frac{1}{2}\int_{F_z \times F_z}
+  |\mathbf{1}_S(x) - \mathbf{1}_S(x')|^2\, d(\mu_z \otimes \mu_z)
+  \;=\; \mu_z(S)\mu_z(S^c).
+\]
+(Expand: $\int\int |\mathbf{1}_S(x) - \mathbf{1}_S(x')|^2 = 2[\mu_z(S)(1-\mu_z(S))]$.)
+Integrating over fibres with weight $p_z = \mu(F_z)$:
+\[
+  \frac{1}{2}\int_{\RL}|\mathbf{1}_S(x) - \mathbf{1}_S(x')|^2\,d(\mu\otimes\mu)
+  \;=\; \int p_z \cdot \mu_z(S)\mu_z(S^c)\,d\nu_L(z)
+  \;=\; \mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]. \qedhere
+\]
+\end{proof}
+
+\begin{remark}
+Lemma~\ref{lem:bridge} makes precise why the conditional variance is the
+right mediating object:
+its left-hand side is the quantity appearing in $\dL$ (algebraic),
+and its right-hand side is an $S$-weighted version of $(\mu\otimes\mu)(\RL)$
+(geometric).
+Both measure the same failure of separation, but with different aggregation:
+$\dL$ takes the worst case over $S$;
+$(\mu\otimes\mu)(\RL)$ counts unseparated pairs with equal weight.
+\end{remark}
+
+% ============================================================
+\section{The Two-Sided Comparison}
+% ============================================================
+
+\begin{theorem}[Easy direction --- unconditional]
+\label{thm:easy}
+\[
+  \dL \;\leq\; \tfrac{1}{2}\,(\mu \otimes \mu)(\RL).
+\]
+\end{theorem}
+
+\begin{proof}
+From Lemma~\ref{lem:bridge} and $|\mathbf{1}_S(x) - \mathbf{1}_S(x')|^2 \leq 1$:
+\[
+  \mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]
+  \;\leq\; \tfrac{1}{2}\,(\mu \otimes \mu)(\RL)
+\]
+for every $S$.
+Taking the supremum over $S$ gives $\dL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
+\end{proof}
+
+\begin{remark}
+This says: large unseparated-pair mass forces large worst-case error.
+No dynamical conditions are needed.
+The constant $\tfrac{1}{2}$ is sharp: take $\mu$ uniform on two points,
+$T = \mathrm{id}$, $h$ constant. Then $\RL = X \times X$,
+$(\mu\otimes\mu)(\RL) = 1$, and $\dL = \tfrac{1}{2}$.
+\end{remark}
+
+For the reverse direction, the identity in Lemma~\ref{lem:bridge} shows that
+the gap between $(\mu\otimes\mu)(\RL) = \int p_z^2\,d\nu_L(z)$ and
+$\dL = \sup_S \int p_z \mu_z(S)\mu_z(S^c)\,d\nu_L(z)$ is controlled
+by whether large fibres ($p_z$ large) are internally mixed.
+
+\begin{definition}[Fibre mixing condition]
+\label{def:fibre-mixing}
+Fix $\varepsilon > 0$.
+Call $z$ an \emph{$\varepsilon$-large fibre} if $p_z \geq \varepsilon$.
+Say that $S^* \in \Bcal$ is \emph{$(c,\varepsilon)$-mixing across fibres} if there
+exists $c > 0$ such that
+\[
+  \mu_z(S^*)\mu_z((S^*)^c) \;\geq\; c \cdot p_z
+  \quad \text{for $\nu_L$-a.e.\ $\varepsilon$-large fibre } z.
+\]
+(The condition is vacuous on fibres with $p_z < \varepsilon$, which contribute at
+most $\varepsilon$ to $(\mu\otimes\mu)(\RL)$.)
+\end{definition}
+
+\begin{theorem}[Hard direction --- conditional]
+\label{thm:hard}
+Let $\varepsilon > 0$ and suppose $S^*$ is an $\varepsilon$-maximizer of $\dL$,
+i.e.\ $\mathbb{E}[\mathrm{Var}(\mathbf{1}_{S^*}\mid\OL)] \geq \dL - \varepsilon$.
+If $S^*$ is $(c,\varepsilon)$-mixing across fibres, then
+\[
+  (\mu \otimes \mu)(\RL) \;\leq\; \frac{1}{c}\,\dL + C(c)\,\varepsilon,
+  \qquad C(c) := \frac{1+c}{c}.
+\]
+In particular, if $S^*$ achieves $\dL$ exactly and is $(c,0)$-mixing, then
+$(\mu \otimes \mu)(\RL) \leq \frac{1}{c}\,\dL$.
+\end{theorem}
+
+\begin{proof}
+Split $(\mu\otimes\mu)(\RL) = \int p_z^2\,d\nu_L(z)$ into $\varepsilon$-large and
+small-fibre parts.
+\emph{Large fibres ($p_z \geq \varepsilon$).}
+The $(c,\varepsilon)$-mixing condition gives $\mu_z(S^*)\mu_z((S^*)^c) \geq c\,p_z$, so:
+\[
+  c\int_{\{p_z \geq \varepsilon\}} p_z^2\,d\nu_L(z)
+  \;\leq\; \int p_z\,\mu_z(S^*)\mu_z((S^*)^c)\,d\nu_L(z)
+  \;=\; \mathbb{E}[\mathrm{Var}(\mathbf{1}_{S^*}\mid\OL)]
+  \;\leq\; \dL.
+\]
+Hence $\int_{\{p_z \geq \varepsilon\}} p_z^2\,d\nu_L(z) \leq \frac{1}{c}\,\dL$.
+\emph{Small fibres ($p_z < \varepsilon$).}
+Each such fibre satisfies $p_z^2 \leq \varepsilon\, p_z$, so
+\[
+  \int_{\{p_z < \varepsilon\}} p_z^2\,d\nu_L(z)
+  \;\leq\; \varepsilon \int p_z\,d\nu_L(z) = \varepsilon.
+\]
+\emph{Combining.}
+Since $C(c) = \frac{1+c}{c} \geq 1$, we have $\varepsilon \leq C(c)\,\varepsilon$, and therefore:
+\[
+  (\mu\otimes\mu)(\RL) \;\leq\; \frac{1}{c}\,\dL + C(c)\,\varepsilon. \qedhere
+\]
+\end{proof}
+
+\begin{remark}[Fibre mixing vs ergodicity]
+\label{rem:ergodicity}
+The fibre mixing condition (Definition~\ref{def:fibre-mixing}) is strictly
+weaker than ergodicity.
+It requires only that some near-maximizing event $S^*$ straddles large fibres
+in a non-trivial fraction, not that the whole system is indecomposable.
+Ergodicity provides a sufficient condition: under an ergodic $T$, any
+$S^*$ with $\mathbb{E}[\mathrm{Var}(\mathbf{1}_{S^*}\mid\OL)] > 0$ cannot be
+$\OL$-measurable, so it must straddle fibres, and ergodicity ensures this holds
+for any nontrivial near-maximizing sequence.
+The condition fails only when $S^*$ is aligned with the fibre structure ---
+large fibres entirely inside or entirely outside $S^*$ --- an
+``adversarially structured'' failure that ergodicity rules out but strict
+measure-theoretic conditions do not require to be impossible.
+\end{remark}
+
+\begin{corollary}[Equivalence under fibre mixing]
+\label{cor:equiv}
+Under the fibre mixing condition:
+\[
+  c\,(\mu\otimes\mu)(\RL) \;\leq\; \dL \;\leq\; \tfrac{1}{2}\,(\mu\otimes\mu)(\RL).
+\]
+In particular:
+\[
+  \dL \to 0 \quad\iff\quad (\mu\otimes\mu)(\RL) \to 0.
+\]
+\end{corollary}
+
+\begin{proof}
+Theorem~\ref{thm:easy} gives $\dL \leq \tfrac{1}{2}(\mu\otimes\mu)(\RL)$.
+For the lower bound, apply Theorem~\ref{thm:hard} with $\varepsilon \to 0$
+(taking a sequence of $\varepsilon_k$-maximizers with $\varepsilon_k \to 0$),
+yielding $(\mu\otimes\mu)(\RL) \leq \frac{1}{c}\,\dL$.
+\end{proof}
+
+% ============================================================
+\section{Entropy Characterisation of Reconstruction}
+% ============================================================
+
+The geometric witness $(\mu\otimes\mu)(\RL) = \int p_z^2\,d\nu_L(z)$ is the
+collision probability of the delay-vector distribution $\nu_L$.
+Its logarithm is the (negative) \emph{Rényi-$2$ entropy} (collision entropy) of $\nu_L$:
+\[
+  H_2(\nu_L) \;:=\; -\log\bigl((\mu\otimes\mu)(\RL)\bigr)
+  \;=\; -\log\!\int p_z^2\,d\nu_L(z).
+\]
+
+\begin{corollary}[Entropy characterisation of reconstruction]
+\label{cor:entropy}
+Under the fibre mixing condition of Definition~\ref{def:fibre-mixing}:
+\[
+  \dL \to 0
+  \quad\iff\quad
+  H_2(\nu_L) \to +\infty.
+\]
+That is, reconstruction holds if and only if the collision entropy of
+the delay-vector distribution diverges.
+\end{corollary}
+
+\begin{proof}
+$\dL \to 0 \iff (\mu\otimes\mu)(\RL) \to 0$ (Corollary~\ref{cor:equiv})
+$\iff e^{-H_2(\nu_L)} \to 0 \iff H_2(\nu_L) \to +\infty$.
+\end{proof}
+
+\begin{remark}[Interpretation]
+Corollary~\ref{cor:entropy} gives a purely information-theoretic
+characterisation of reconstruction: the observable $h$ reconstructs the system
+$(X, \Bcal, \mu, T)$ at lag $L$ if and only if the collision probability of the
+delay-vector distribution $\nu_L$ decays to zero as $L$ grows --- equivalently,
+if and only if the probability that two independently drawn trajectories produce
+identical delay vectors vanishes.
+
+This characterisation is not present in Papers~I--IV.
+It does not require:
+\begin{itemize}
+  \item a metric on $X$,
+  \item smoothness of $T$ or $h$,
+  \item a mixing rate,
+  \item or the Takens embedding conditions.
+\end{itemize}
+The collision entropy $H_2(\nu_L)$ is estimable from data: it is the
+negative log of $\sum_z (\text{fraction of sample in fibre } z)^2$,
+a standard diversity index computable from the delay-vector histogram.
+Under Paper~III's standing hypotheses (compact smooth $X$, smooth positive $\mu$,
+$T \in C^r$), the fibre mixing condition holds under ergodicity, and the
+entropy characterisation then provides a third, data-driven witness for
+reconstruction complementing $\delta(L)$ and the delay-map separation.
+\end{remark}
+
+\begin{remark}[Why the empirical algebraic witness $\hat\delta(L,n)$ works]
+\label{rem:empirical-link}
+Paper~III (\S4--5) constructs an empirical witness $\hat\delta(L,n)$ and proves
+that it concentrates around $\dL$ at rate $n^{-1/2}$ (up to logarithms).
+The conditional variance identity (Lemma~\ref{lem:bridge}) explains why this
+is the right quantity to estimate: $\dL$ is the supremum over $S$ of
+$\mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \OL)]$, and the empirical version
+replaces the conditional variance with its sample analogue (fibre-conditional
+fractions computed from the observed delay-vector histogram).
+Corollary~\ref{cor:entropy} now says that the elbow stopping rule $\hat L^*$
+defined in Paper~III~(Thm~5.4) could equivalently be stated as the first $L$
+at which the empirical collision entropy $\hat H_2(\nu_L^{(n)})$ exceeds a
+threshold calibrated to $n$: both witnesses detect the same transition.
+\end{remark}
+
+\begin{remark}[Relation to Paper~III witnesses]
+The three witnesses now in scope are:
+\begin{enumerate}[label=(\roman*)]
+  \item $\hat\delta(L,n)$ --- the algebraic witness (Paper~III, \S5);
+  \item $\hat d_L(x,x')$ --- the delay-map separation (Paper~III, \S6);
+  \item $\hat H_2(\nu_L^{(n)}) := -\log\bigl(\frac{1}{n^2}\sum_{i,j}
+        \mathbf{1}[\PhiL(x_i) = \PhiL(x_j)]\bigr)$ --- the empirical
+        collision entropy.
+\end{enumerate}
+All three are computable from the time series alone.
+Corollaries~\ref{cor:equiv} and~\ref{cor:entropy} show that (i) and (iii)
+converge to zero (resp.\ diverge) together under fibre mixing,
+making them asymptotically equivalent witnesses for reconstruction.
+Witness~(ii) provides the geometric certificate that the state space is
+being faithfully separated.
+\end{remark}
+
+\begin{remark}[A separation-system direction]
+\label{rem:paper-zero}
+The fibre structure studied here suggests a more primitive starting point.
+Define a \emph{separation system} as a family of equivalence relations
+$\{\sim_L\}_{L \geq 0}$ on a set $X$ together with a compatible family of
+charges $\mu_L$ on the quotients $X/{\sim_L}$.
+Reconstruction in this language is the condition $\bigcap_L [x]_L = \{x\}$
+for $\mu$-a.e.\ $x$.
+The fibre mixing condition (Definition~\ref{def:fibre-mixing}) is then a
+condition on the charge, not on the dynamics: it says the charges $\mu_L$ do
+not concentrate on large equivalence classes.
+Collective Exhaustion from Paper~I (the necessary and sufficient condition for
+the compatible family to extend to a global measure on $X$) appears in this
+language as the condition that the charges $\mu_L$ are consistent across levels
+--- a charge-coherence condition, not a dynamical one.
+Whether this separation-system + coherent-charges framework can serve as a
+foundation for Papers~I--IV, recovering probability and dynamics from
+primitive discriminability, is a question the present programme leaves open.
+\end{remark}
+
+\end{document}

@@ -41,19 +41,12 @@ the colimit.
 **Lean:** `formalization/QuerySystem/QuerySystem/Commensurability.lean` (0 sorry)
 **Status:** First draft, 9 pages.  Target: Synthese.
 
-## Paper III — "Noise Thresholds for Jacobian-Based Embedding Criteria and a Residual-Whiteness Alternative"
+## Paper III — WITHDRAWN (novelty audit, 2026-05-12)
 
-Jacobian-based embedding criteria (FNN, Lyapunov convergence) share a
-noise threshold (~2-5%) above which they lose all diagnostic value.
-Residual autocorrelation convergence provides a noise-robust alternative
-for both dimension and lag selection.
-
-The embedding problem is algebraically underdetermined (Paper I): this is
-why different empirical criteria have different operating regimes.
-
-**LaTeX:** `papers/paper_iii/`
-**Code:** `papers/paper_iii/code/`
-**Status:** First draft, 5 pages + figures.  Target: Chaos / Phys Rev E.
+Attempted: noise thresholds for embedding diagnostics + residual
+criterion.  Novelty audit revealed all claims have clear precedent
+(Rhodes-Morari 1997, Billings-Voon 1986, Casdagli 1991, Kantz-Schreiber
+textbook).  Archived to `papers/archive/paper_iii_canned/`.
 
 ## Lean formalization
 
@@ -83,7 +76,7 @@ Resolvent_Framework/
 
 ## The programme
 
-The three papers share a single thread: *what you can know depends on
+Papers I and II share a single thread: *what you can know depends on
 what you're willing to assume, and the boundary between the unconditional
 and the committed is algebraic.*
 
@@ -91,5 +84,3 @@ and the committed is algebraic.*
   descent to a probability on Ω requires σ-additivity
 - Paper II: empirical adequacy is always available; value-definite
   realism requires distributivity
-- Paper III: residual-based diagnostics always work; Jacobian-based
-  diagnostics require clean (deterministic) data

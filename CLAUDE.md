@@ -123,7 +123,9 @@ idea to `notes/covered_leads/`. Do NOT draft it.
 Zero-sorry Lean proofs substitute for institutional credibility.
 A paper with machine-checked proofs is harder to dismiss than
 one relying solely on peer review trust. Prioritize closing
-sorrys on novel results.
+sorrys on **novel** results. Classical infrastructure sorrys
+(e.g., Yosida-Hewitt = Mathlib gap) can remain honestly documented
+— they're infrastructure, not research claims.
 
 Consider adopting **leanblueprint** (Massot) to connect LaTeX
 to Lean with dependency tracking and public progress visibility.

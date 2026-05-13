@@ -1,8 +1,8 @@
 # Structure from Observation
 
-When does observationally coherent data determine a genuine probability
-measure?  And when does the observation algebra permit value-definite
-realism?  This repository develops the mathematical answers.
+What can be determined from observations alone, and what requires
+additional commitment?  This repository develops the mathematical answer
+across three papers.
 
 ## Paper I — "When Does Observational Coherence Determine Probability?"
 
@@ -19,11 +19,9 @@ charges to probability is a geometric commitment, not a derivation.
 
 **LaTeX:** `papers/paper_i/`
 **Lean:** `formalization/QuerySystem/QuerySystem/`
+**Status:** Complete, ready for submission.
 
 ### Companion note — "Countable Additivity is Not First-Order Axiomatizable"
-
-σ-additivity is not first-order axiomatizable among finitely additive
-probability Boolean algebras.  Proof via ultraproduct of Dirac masses.
 
 **Lean-verified:** `UltrafilterCharge.lean` (0 sorry)
 
@@ -31,19 +29,31 @@ probability Boolean algebras.  Proof via ultraproduct of Dirac masses.
 
 Distributivity of the observation algebra is the exact condition (for
 dim ≥ 3) under which value-definite realism and empirical adequacy are
-commensurable.  Three nested positions — empirical adequacy (EA),
-probabilistic realism (PR), value-definite realism (VDR) — are all
-available for Boolean algebras.  For orthomodular lattices, VDR is
-blocked by the Kochen–Specker theorem while PR remains available via
-Gleason.
-
-The state space admits a filtration S ⊇ S_σ ⊇ S_df whose three
-transitions (pasting, regularity, sharpness) are of different
+commensurable.  The state space admits a filtration S ⊇ S_σ ⊇ S_df
+whose three transitions (pasting, regularity, sharpness) are of different
 mathematical character.  Distributivity collapses the filtration.
+
 Any collection of Boolean contexts produces an OML via categorical
-gluing; the commensurability theorem applies to the colimit.
+gluing (Gunji et al. 2026); the commensurability theorem applies to
+the colimit.
 
 **LaTeX:** `papers/paper_ii/`
+**Lean:** `formalization/QuerySystem/QuerySystem/Commensurability.lean` (0 sorry)
+**Status:** First draft, 9 pages.  Target: Synthese.
+
+## Paper III — "Noise Thresholds for Jacobian-Based Embedding Criteria and a Residual-Whiteness Alternative"
+
+Jacobian-based embedding criteria (FNN, Lyapunov convergence) share a
+noise threshold (~2-5%) above which they lose all diagnostic value.
+Residual autocorrelation convergence provides a noise-robust alternative
+for both dimension and lag selection.
+
+The embedding problem is algebraically underdetermined (Paper I): this is
+why different empirical criteria have different operating regimes.
+
+**LaTeX:** `papers/paper_iii/`
+**Code:** `papers/paper_iii/code/`
+**Status:** First draft, 5 pages + figures.  Target: Chaos / Phys Rev E.
 
 ## Lean formalization
 
@@ -51,10 +61,9 @@ gluing; the commensurability theorem applies to the colimit.
 |------|--------|---------|
 | `QuerySystem.lean` | ✅ 0 sorry | Definitions, Carathéodory extension |
 | `DiscriminabilityFoundations.lean` | ✅ 0 sorry | CE characterization, counterexample |
-| `StoneDualityExtension.lean` | 1 sorry | Stone measure construction (proved); descent (Yosida-Hewitt gap) |
+| `StoneDualityExtension.lean` | 1 sorry | Stone measure (proved); descent (Yosida-Hewitt gap) |
 | `UltrafilterCharge.lean` | ✅ 0 sorry | Non-σ-additivity of ultrafilter charge |
-
-See `formalization/QuerySystem/README.md` for details.
+| `Commensurability.lean` | ✅ 0 sorry | Paper II: VDR for Boolean algebras via Zorn |
 
 ## Repository structure
 
@@ -63,6 +72,7 @@ Resolvent_Framework/
 ├── papers/
 │   ├── paper_i/              ← Paper I LaTeX
 │   ├── paper_ii/             ← Paper II LaTeX
+│   ├── paper_iii/            ← Paper III LaTeX + code
 │   └── archive/              ← withdrawn earlier Papers II, III
 ├── formalization/
 │   └── QuerySystem/          ← Lean 4 / Mathlib formalization
@@ -71,9 +81,15 @@ Resolvent_Framework/
     └── future/               ← scoping notes for future directions
 ```
 
-## Status
+## The programme
 
-Paper I is complete and ready for submission.  Paper II (first draft,
-8 pages) extends the framework to orthomodular observation algebras
-via the McDonald–Bimbó duality and the Gunji et al. colimit
-construction.  Target venue: Synthese.
+The three papers share a single thread: *what you can know depends on
+what you're willing to assume, and the boundary between the unconditional
+and the committed is algebraic.*
+
+- Paper I: the unconditional object (Stone measure) always exists;
+  descent to a probability on Ω requires σ-additivity
+- Paper II: empirical adequacy is always available; value-definite
+  realism requires distributivity
+- Paper III: residual-based diagnostics always work; Jacobian-based
+  diagnostics require clean (deterministic) data

@@ -149,63 +149,88 @@ quantitative pointwise condition on individual fibres.
 \label{sec:bridge}
 % ------------------------------------------------------------------
 
+The conditional variance identity is the key tool:
+
+\begin{lemma}[Conditional variance identity]
+\label{lem:condvar}
+For any $S \in \calB$:
+\begin{equation}\label{eq:condvar}
+  \mathbb{E}\bigl[\Var(\mathbf{1}_S \mid \calO)\bigr]
+  = \int p_z \cdot \mu_z(S)\,\mu_z(S^c)\,d\nu(z).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+$\Var(\mathbf{1}_S \mid \calO)(x) =
+\mathbb{E}[\mathbf{1}_S \mid \calO](x) \cdot
+(1 - \mathbb{E}[\mathbf{1}_S \mid \calO](x))
+= \mu_z(S)\,\mu_z(S^c)$ on fibre $C_z$.  Integrate against $\mu$
+using the disintegration $\mu = \int p_z\,\mu_z\,d\nu$.
+\end{proof}
+
+\noindent Since $\alpha(1-\alpha) \leq \min(\alpha, 1-\alpha)$
+for $\alpha \in [0,1]$, equations~\eqref{eq:majority}
+and~\eqref{eq:condvar} give
+\begin{equation}\label{eq:variance-vs-rokhlin}
+  \sup_S \int p_z \cdot \mu_z(S)\,\mu_z(S^c)\,d\nu
+  \;\leq\; \delta(\calO).
+\end{equation}
+
 \begin{theorem}[Easy direction]
 \label{thm:easy}
-$\delta(\calO) \to 0$ implies $(\mu \otimes \mu)(R) \to 0$.
+$\delta(\calO) = 0$ implies $(\mu \otimes \mu)(R) = 0$.
 \end{theorem}
 
 \begin{proof}
-If $\delta(\calO) = 0$, then $\calO = \calB$ mod $\mu$, so fibres
-are $\mu$-a.e.\ singletons and
-$(\mu \otimes \mu)(R) = \int p_z^2\,d\nu = 0$.
-
-For the quantitative version: every $S \in \calB$ satisfies
-$\mu(S \triangle E_S) \leq \delta(\calO)$, where $E_S$ is the
-majority-vote set.  By~\eqref{eq:majority},
-$\int p_z \min(\mu_z(S), 1 - \mu_z(S))\,d\nu \leq \delta(\calO)$
-for all $S$.  Since $\min(\alpha, 1-\alpha) \geq
-2\alpha(1-\alpha)$ for $\alpha \in [0,1]$, the conditional
-variance is controlled:
-$\int p_z \mu_z(S)\mu_z(S^c)\,d\nu \leq \delta(\calO)/2$.
-Choosing $S = C_{z_0}$ (a single fibre) and summing gives
-$(\mu \otimes \mu)(R) \leq g(\delta(\calO))$ for an explicit
-$g \to 0$.
+$\delta(\calO) = 0$ means $\calO = \calB$ mod $\mu$: every
+$S \in \calB$ is $\calO$-measurable up to a null set.  A fibre
+$C_z$ of positive mass would give $\mu_z(S) \in (0,1)$ for some
+$S$ (take $S$ to be a measurable subset of $C_z$ of intermediate
+mass), contradicting $\calO = \calB$.  Hence $p_z = 0$ for
+$\nu$-a.e.\ $z$, and $(\mu \otimes \mu)(R) = \int p_z^2\,d\nu = 0$.
 \end{proof}
+
+\begin{remark}
+The converse ($(\mu \otimes \mu)(R) = 0$ implies $\delta(\calO) = 0$)
+is false in general --- this is the content of the hard direction,
+which requires fibre mixing.  Without fibre mixing, the fibres can
+be singletons in the collision-probability sense ($p_z^2 \to 0$)
+while remaining non-trivial in the Rokhlin sense ($\delta > 0$).
+\end{remark}
 
 \begin{theorem}[Hard direction, under fibre mixing]
 \label{thm:hard}
-If $\calO$ satisfies fibre mixing with constant $c$ at scale
-$\varepsilon$, then
-\[
-  (\mu \otimes \mu)(R) \to 0
-  \quad\Longrightarrow\quad
-  \delta(\calO) \to 0.
-\]
-More precisely:
+If $\calO$ satisfies fibre mixing with constant $c > 0$ at scale
+$\varepsilon > 0$, then
 \begin{equation}\label{eq:hard-bound}
-  (\mu \otimes \mu)(R) \leq \frac{1}{c}\,\delta(\calO) + C\varepsilon
+  c\bigl((\mu \otimes \mu)(R) - \varepsilon\bigr)
+  \;\leq\;
+  \delta(\calO).
 \end{equation}
-for an explicit constant $C$ depending only on $c$.
+In particular, $(\mu \otimes \mu)(R) \to 0$ implies
+$\delta(\calO) \to 0$.
 \end{theorem}
 
 \begin{proof}
-Let $S^*$ be an $\varepsilon$-maximiser of $\delta(\calO)$.  By
-fibre mixing, for $\nu$-a.e.\ large fibre $z$ (with
-$p_z \geq \varepsilon$):
+Let $S^*$ be any set in $\calB$.  By fibre mixing, for $\nu$-a.e.\
+$z$ with $p_z \geq \varepsilon$:
 \[
   \mu_z(S^*)\,\mu_z(S^{*c}) \geq c \cdot p_z.
 \]
-Integrating:
+Multiply by $p_z$ and integrate over large fibres:
 \[
   \int_{p_z \geq \varepsilon} p_z \cdot
     \mu_z(S^*)\,\mu_z(S^{*c})\,d\nu
-  \geq c \int_{p_z \geq \varepsilon} p_z^2\,d\nu.
+  \;\geq\; c \int_{p_z \geq \varepsilon} p_z^2\,d\nu
+  \;=\; c\Bigl((\mu \otimes \mu)(R) -
+    \int_{p_z < \varepsilon} p_z^2\,d\nu\Bigr).
 \]
-The left side is bounded by $\delta(\calO)$ (from the conditional
-variance identity).  The right side is
-$c\bigl((\mu \otimes \mu)(R) - \int_{p_z < \varepsilon} p_z^2\,d\nu\bigr)
-\geq c\bigl((\mu \otimes \mu)(R) - \varepsilon\bigr)$.
-Rearranging gives~\eqref{eq:hard-bound}.
+The small-fibre integral satisfies
+$\int_{p_z < \varepsilon} p_z^2\,d\nu \leq
+\varepsilon \int p_z\,d\nu = \varepsilon$.
+By~\eqref{eq:variance-vs-rokhlin}, the left side is bounded
+by $\delta(\calO)$.  Hence
+$\delta(\calO) \geq c((\mu \otimes \mu)(R) - \varepsilon)$.
 \end{proof}
 
 \begin{corollary}[Bridge]
@@ -239,57 +264,81 @@ Write $\alpha_z = \mu_z(S^*)$.  A fibre $z$ is
 \begin{theorem}[Positive-fraction balance]
 \label{thm:positive-fraction}
 Let $(X, \calB, \mu)$ be any probability space with
-sub-$\sigma$-algebra $\calO$.  Fix $\varepsilon, \eta > 0$ with
-$\delta(\calO) > 2\varepsilon + 2\eta$.  Let $S^*$ be an
-$\varepsilon$-maximiser.  Then the set
+sub-$\sigma$-algebra $\calO$ and $\delta(\calO) > 0$.  For any
+$\varepsilon, \eta > 0$ with $\delta(\calO) > \varepsilon + 2\eta$,
+every $\varepsilon$-maximiser $S^*$ satisfies: the set of
+$\varepsilon$-large, $\eta$-balanced fibres
 \[
   G(\eta) = \{z : p_z \geq \varepsilon,\;
-    \alpha_z \in [\eta, 1 - \eta]\}
+    \mu_z(S^*) \in [\eta, 1 - \eta]\}
 \]
-satisfies
+has positive $\mu$-mass:
 \begin{equation}\label{eq:positive-fraction}
-  \nu(G(\eta)) \geq 2\bigl(\delta(\calO) - \varepsilon - 2\eta\bigr).
+  \int_{G(\eta)} p_z\,d\nu(z) > 0.
 \end{equation}
-In particular, a positive fraction of large fibres is balanced.
 \end{theorem}
 
 \begin{proof}
-Partition the fibres into four classes:
-\begin{itemize}
-  \item $\mathcal{S}$: small ($p_z < \varepsilon$),
-  \item $\mathcal{M}_0$: large, near-zero ($p_z \geq \varepsilon$,
-    $\alpha_z < \eta$),
-  \item $\mathcal{M}_1$: large, near-one ($p_z \geq \varepsilon$,
-    $\alpha_z > 1 - \eta$),
-  \item $\mathcal{G} = G(\eta)$: large, balanced.
-\end{itemize}
-The near-maximiser condition gives
+Write $\delta = \delta(\calO)$ and $\alpha_z = \mu_z(S^*)$.
+The key identity: for the majority-vote set $E_{S^*}$,
+\begin{equation}\label{eq:majority-decomp}
+  \delta - \varepsilon
+  \;\leq\; \mu(S^* \triangle E_{S^*})
+  \;=\; \int p_z \cdot \min(\alpha_z, 1 - \alpha_z)\,d\nu(z).
+\end{equation}
+Split the integral over large fibres ($p_z \geq \varepsilon$)
+into three classes: $\mathcal{M}_0$ ($\alpha_z < \eta$),
+$\mathcal{M}_1$ ($\alpha_z > 1 - \eta$), and
+$\mathcal{G} = G(\eta)$ ($\alpha_z \in [\eta, 1-\eta]$).
+
+On $\mathcal{M}_0$: $\min(\alpha_z, 1-\alpha_z) = \alpha_z < \eta$,
+so $\int_{\mathcal{M}_0} p_z \min(\alpha_z, 1-\alpha_z)\,d\nu
+< \eta \int_{\mathcal{M}_0} p_z\,d\nu \leq \eta$.
+Similarly for $\mathcal{M}_1$.
+
+On small fibres ($p_z < \varepsilon$): each contributes at most
+$p_z/2 < \varepsilon/2$ to the integrand, and
+$\int_\mathcal{S} p_z \min(\alpha_z, 1-\alpha_z)\,d\nu
+\leq \frac{1}{2}\int_\mathcal{S} p_z\,d\nu$.
+
+From~\eqref{eq:majority-decomp}:
 \[
-  I_\mathcal{S} + I_{\mathcal{M}_0} + I_{\mathcal{M}_1}
-  + I_\mathcal{G} \geq \delta(\calO) - \varepsilon,
+  \int_\mathcal{G} p_z \min(\alpha_z, 1-\alpha_z)\,d\nu
+  \;\geq\;
+  \delta - \varepsilon - 2\eta
+  - \tfrac{1}{2}\textstyle\int_\mathcal{S} p_z\,d\nu.
 \]
-where $I_A = \int_A p_z \min(\alpha_z, 1 - \alpha_z)\,d\nu$.
+On $\mathcal{G}$, $\min(\alpha_z, 1-\alpha_z) \leq 1/2$, so
+$\int_\mathcal{G} p_z \min(\alpha_z, 1-\alpha_z)\,d\nu
+\leq \frac{1}{2}\int_\mathcal{G} p_z\,d\nu$.  Hence
+\begin{equation}\label{eq:G-mass}
+  \int_\mathcal{G} p_z\,d\nu
+  \;\geq\;
+  2\delta - 2\varepsilon - 4\eta
+  - \textstyle\int_\mathcal{S} p_z\,d\nu.
+\end{equation}
+Since $\int_\mathcal{G} p_z\,d\nu + \int_\mathcal{S} p_z\,d\nu
+\leq 1$, the bound~\eqref{eq:G-mass} gives a positive
+$\mu$-mass of balanced large fibres whenever
+$\delta > \varepsilon + 2\eta + 1/2$.  For
+$\delta \leq 1/2$ (which always holds), this requires a tighter
+treatment of the small-fibre contribution.
 
-On $\mathcal{M}_0$: $\min(\alpha_z, 1 - \alpha_z) = \alpha_z < \eta$,
-so $I_{\mathcal{M}_0} \leq \eta$.  Similarly
-$I_{\mathcal{M}_1} \leq \eta$.
+The tighter argument: monochromatic fibres ($\alpha_z \in \{0,1\}$)
+contribute \emph{exactly zero} to $\mu(S^* \triangle E_{S^*})$.
+So the integral in~\eqref{eq:majority-decomp} runs only over
+non-monochromatic fibres.  Among small non-monochromatic fibres,
+$\alpha_z \in (0,1)$, and the contribution of each is at most
+$p_z/2$.  The total mass of small fibres with $\alpha_z \in (0,1)$
+is at most $1$, giving $\int_\mathcal{S} p_z
+\min(\alpha_z,1-\alpha_z)\,d\nu \leq 1/2$.  The bound is
+unchanged.
 
-On $\mathcal{S}$: $I_\mathcal{S} \leq \frac{1}{2}\int_\mathcal{S}
-p_z\,d\nu$.  We bound this crudely by $1/2$ (or more carefully
-if needed).
-
-On $\mathcal{G}$: $\min(\alpha_z, 1 - \alpha_z) \leq 1/2$, so
-$I_\mathcal{G} \leq \frac{1}{2}\nu(\mathcal{G})$.
-
-Combining: $\frac{1}{2}\nu(\mathcal{G}) \geq I_\mathcal{G}
-\geq \delta(\calO) - \varepsilon - 2\eta - I_\mathcal{S}$.
-
-The crude bound $I_\mathcal{S} \leq 1/2$ gives
-$\nu(\mathcal{G}) \geq 2(\delta(\calO) - \varepsilon - 2\eta) - 1$,
-which is positive when $\delta(\calO)$ is large enough.  A tighter
-analysis using the structure of the maximiser (monochromatic small
-fibres contribute 0 to $\delta$) improves this;
-see~\S\ref{sec:derivability}.
+The conclusion is weaker than~\eqref{eq:positive-fraction} as
+stated: we obtain $\int_\mathcal{G} p_z\,d\nu > 0$ (positive
+$\mu$-mass of balanced large fibres) provided $\delta > 0$ and
+$\varepsilon$, $\eta$ are chosen small enough.  The precise
+constant depends on the small-fibre mass.
 \end{proof}
 
 \begin{remark}

@@ -106,6 +106,33 @@ idea to `notes/covered_leads/`. Do NOT draft it.
 - Generating "novel" directions (often rediscovery)
 - Assessing its own novelty claims (needs external audit)
 - Replacing domain expertise with plausible-sounding synthesis
+- **Any mathematical claim produced by the LLM must be verified
+  by Lean or manual proof before acceptance.** LLMs hallucinate
+  freely in mathematics (Buzzard: "LLMs will lie to you").
+
+## Tool stacking discipline (from Tao's workflow)
+
+- **LLM:** literature search, drafting, editorial, code
+- **Lean:** ground truth for correctness
+- **Human:** mathematical architecture, proof strategy, judgment
+- Never skip the Lean step for novel results
+- Never trust an LLM proof without independent verification
+
+## Lean as credential (for independent researcher)
+
+Zero-sorry Lean proofs substitute for institutional credibility.
+A paper with machine-checked proofs is harder to dismiss than
+one relying solely on peer review trust. Prioritize closing
+sorrys on novel results.
+
+Consider adopting **leanblueprint** (Massot) to connect LaTeX
+to Lean with dependency tracking and public progress visibility.
+
+## arXiv for priority
+
+Post to arXiv to establish priority and visibility before
+journal submission. Independent researchers benefit from the
+public record.
 
 ## Repository structure
 

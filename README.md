@@ -1,86 +1,52 @@
 # Structure from Observation
 
-What can be determined from observations alone, and what requires
-additional commitment?  This repository develops the mathematical answer
-across three papers.
+## Status after novelty audit (2026-05-13)
 
-## Paper I — "When Does Observational Coherence Determine Probability?"
+Rigorous skeptical audits of all papers and artifacts revealed:
 
-A compatible family of finitely additive charges on a directed system of
-Boolean algebras extends to a unique σ-additive probability measure if and
-only if each charge is σ-additive.  No weaker condition suffices; no
-first-order condition can force it.
+- **Paper I** — known theorems with useful synthesis (not novel)
+- **Paper II** — incremental, publishable at a philosophy venue if
+  honestly framed (EA/PR/VDR vocabulary is novel; mathematics is not)
+- **Paper III** — withdrawn (rediscovery)
+- **Old Papers II+III** — withdrawn (classical results throughout)
 
-The Stone construction produces a measure unconditionally: any compatible
-charges yield a Baire probability measure on the Stone space St(C).
-σ-additivity is equivalent to concentration of this measure on the
-principal ultrafilters — the realized states.  The passage from coherent
-charges to probability is a geometric commitment, not a derivation.
+Two active leads survive: the entropy characterization of
+reconstruction and the fibre mixing condition.
 
-**LaTeX:** `papers/paper_i/`
-**Lean:** `formalization/QuerySystem/QuerySystem/`
-**Status:** Complete, ready for submission.
+## Active leads
 
-### Companion note — "Countable Additivity is Not First-Order Axiomatizable"
+1. **Entropy characterization:** δ(L) → 0 iff H₂(ν_L) → ∞ bridges
+   Rokhlin distance to Rényi-2 entropy in delay reconstruction.
+   See `notes/active_leads/entropy_characterization.md`
 
-**Lean-verified:** `UltrafilterCharge.lean` (0 sorry)
-
-## Paper II — "Distributivity and the Commensurability of Value-Definite Realism and Empirical Adequacy"
-
-Distributivity of the observation algebra is the exact condition (for
-dim ≥ 3) under which value-definite realism and empirical adequacy are
-commensurable.  The state space admits a filtration S ⊇ S_σ ⊇ S_df
-whose three transitions (pasting, regularity, sharpness) are of different
-mathematical character.  Distributivity collapses the filtration.
-
-Any collection of Boolean contexts produces an OML via categorical
-gluing (Gunji et al. 2026); the commensurability theorem applies to
-the colimit.
-
-**LaTeX:** `papers/paper_ii/`
-**Lean:** `formalization/QuerySystem/QuerySystem/Commensurability.lean` (0 sorry)
-**Status:** First draft, 9 pages.  Target: Synthese.
-
-## Paper III — WITHDRAWN (novelty audit, 2026-05-12)
-
-Attempted: noise thresholds for embedding diagnostics + residual
-criterion.  Novelty audit revealed all claims have clear precedent
-(Rhodes-Morari 1997, Billings-Voon 1986, Casdagli 1991, Kantz-Schreiber
-textbook).  Archived to `papers/archive/paper_iii_canned/`.
-
-## Lean formalization
-
-| File | Status | Content |
-|------|--------|---------|
-| `QuerySystem.lean` | ✅ 0 sorry | Definitions, Carathéodory extension |
-| `DiscriminabilityFoundations.lean` | ✅ 0 sorry | CE characterization, counterexample |
-| `StoneDualityExtension.lean` | 1 sorry | Stone measure (proved); descent (Yosida-Hewitt gap) |
-| `UltrafilterCharge.lean` | ✅ 0 sorry | Non-σ-additivity of ultrafilter charge |
-| `Commensurability.lean` | ✅ 0 sorry | Paper II: VDR for Boolean algebras via Zorn |
+2. **Fibre mixing:** novel spatial non-degeneracy condition on fibres
+   of delay maps, with open derivability question.
+   See `notes/active_leads/fibre_mixing.md`
 
 ## Repository structure
 
 ```
 Resolvent_Framework/
 ├── papers/
-│   ├── paper_i/              ← Paper I LaTeX
-│   ├── paper_ii/             ← Paper II LaTeX
-│   ├── paper_iii/            ← Paper III LaTeX + code
-│   └── archive/              ← withdrawn earlier Papers II, III
+│   ├── paper_i/          ← Paper I (synthesis, ready but not novel)
+│   ├── paper_ii/         ← Paper II (EA/PR/VDR, drafting)
+│   └── archive/          ← all withdrawn/canned papers
 ├── formalization/
-│   └── QuerySystem/          ← Lean 4 / Mathlib formalization
+│   └── QuerySystem/      ← Lean 4 / Mathlib (1 sorry total)
 └── notes/
-    ├── programme/            ← planning docs, flight log
-    └── future/               ← scoping notes for future directions
+    ├── active_leads/     ← 2 leads: entropy characterization, fibre mixing
+    ├── covered_leads/    ← well-expressed known results (reference)
+    ├── unsorted/         ← Tier 3 pile (needs individual assessment)
+    ├── archive/          ← dead ends and superseded notes
+    └── future/           ← fibre mixing source material
 ```
 
-## The programme
+## Lean formalization
 
-Papers I and II share a single thread: *what you can know depends on
-what you're willing to assume, and the boundary between the unconditional
-and the committed is algebraic.*
-
-- Paper I: the unconditional object (Stone measure) always exists;
-  descent to a probability on Ω requires σ-additivity
-- Paper II: empirical adequacy is always available; value-definite
-  realism requires distributivity
+| File | Status |
+|------|--------|
+| QuerySystem.lean | ✅ 0 sorry |
+| DiscriminabilityFoundations.lean | ✅ 0 sorry |
+| StoneDualityExtension.lean | 1 sorry (Yosida-Hewitt) |
+| UltrafilterCharge.lean | ✅ 0 sorry |
+| Commensurability.lean | ✅ 0 sorry (1 axiom: KS) |

@@ -1,0 +1,35 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+% ---------- Commands ----------
+\newcommand{\Var}{\operatorname{Var}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calO}{\mathcal{O}}
+
+% ---------- Title ----------
+\title{Algebraic and Geometric Reconstruction:\\
+A Bridge via Fibre Mixing}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\input{fibre_mixing_body}
+\end{document}

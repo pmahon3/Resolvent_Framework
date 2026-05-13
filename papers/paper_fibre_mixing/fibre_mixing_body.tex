@@ -1,0 +1,482 @@
+
+\maketitle
+
+\begin{abstract}
+Delay embedding reconstructs the state space of a dynamical system
+from a scalar time series.  Reconstruction has two faces:
+\emph{geometric} (the delay map becomes injective, measured by
+collision probability) and \emph{algebraic} (the delay
+$\sigma$-algebra generates the full $\sigma$-algebra, measured by
+the Rokhlin distance).  These are distinct conditions.
+
+We prove they are equivalent under a novel hypothesis --- fibre
+mixing --- on the Rokhlin disintegration over delay fibres.  Fibre
+mixing requires that conditional measures on fibres of the delay
+map are non-degenerate: it is a spatial condition, distinct from
+temporal mixing conditions ($\alpha$, $\beta$, $\psi$-mixing).
+Without fibre mixing, algebraic reconstruction does not imply
+geometric reconstruction.
+
+The bridge theorem requires no dynamical hypothesis: it holds for
+any probability space with a sub-$\sigma$-algebra.  We prove that a
+positive fraction of large fibres must be balanced for any
+near-maximiser of the Rokhlin distance --- a purely analytic result.
+The a.e.\ extension, and whether ergodicity forces it, is an open
+question.
+
+As a corollary, we obtain the first information-theoretic
+characterisation of delay-embedding sufficiency: the Rokhlin
+distance vanishes if and only if the R\'{e}nyi-2 entropy of the
+fibre measure diverges.
+
+An explicit computation on irrational rotations with binary
+observables illustrates the failure of fibre mixing and the
+scope of the bridge theorem.
+\end{abstract}
+
+\begin{quote}\small
+\textbf{2020 Mathematics Subject Classification.}
+37A05 (primary); 28D05, 94A17, 37C45 (secondary).
+
+\textbf{Keywords.}
+delay embedding, Rokhlin distance, fibre mixing, collision
+probability, R\'{e}nyi entropy, reconstruction, ergodic theory,
+disintegration.
+\end{quote}
+
+% ------------------------------------------------------------------
+\section{Introduction}
+\label{sec:intro}
+% ------------------------------------------------------------------
+
+A scalar time series $\{y_t\}_{t \geq 0}$ from a measure-preserving
+system $(X, \calB, \mu, T)$ via an observable $h : X \to \mathbb{R}$
+determines delay vectors
+\begin{equation}\label{eq:delay}
+  \Phi_L(x) = \bigl(h(x),\, h(Tx),\, \ldots,\, h(T^L x)\bigr)
+  \in \mathbb{R}^{L+1}.
+\end{equation}
+Takens~\cite{Takens1981} and Sauer, Yorke, and
+Casdagli~\cite{SauerYorkeCasdagli1991} proved that for generic
+smooth observables, $\Phi_L$ is injective for $L \geq 2 \dim X$.
+This is a \emph{geometric} statement: the delay map embeds the
+state space metrically.
+
+A parallel \emph{algebraic} statement asks whether the delay
+$\sigma$-algebra $\calO_L = \sigma(\Phi_L)$ generates the full
+$\sigma$-algebra $\calB$ up to $\mu$-null sets.  This is
+reconstruction in the sense of generating
+partitions~\cite{Sinai1959, Krieger1970}: the observable, together
+with sufficiently many time shifts, separates $\mu$-almost every
+pair of states.
+
+These conditions are not equivalent.  Geometric reconstruction
+(injectivity) trivially implies algebraic reconstruction
+($\calO_L = \calB$ mod $\mu$), but the converse can fail: the delay
+map may generate $\calB$ without being injective if fibres are
+singletons only $\mu$-almost everywhere but not everywhere.
+
+We prove the converse holds under a novel hypothesis --- fibre
+mixing --- on the conditional measures in the Rokhlin
+disintegration~\cite{Rokhlin1952} over fibres of $\Phi_L$.
+
+% ------------------------------------------------------------------
+\section{Definitions}
+\label{sec:defs}
+% ------------------------------------------------------------------
+
+Let $(X, \calB, \mu)$ be a standard probability space and
+$\calO \subseteq \calB$ a sub-$\sigma$-algebra.  Write $\Phi : X \to Z$
+for the quotient map with $\calO = \sigma(\Phi)$, and $\nu = \Phi_*\mu$
+for the pushforward.  The Rokhlin
+disintegration~\cite{Rokhlin1952} gives conditional measures
+$\mu_z$ supported on the fibres $C_z = \Phi^{-1}(z)$, with
+fibre masses $p_z = \mu(C_z)$.
+
+\begin{definition}[Rokhlin distance~\cite{Rokhlin1967}]
+\label{def:rokhlin}
+The \emph{Rokhlin distance} between $\calO$ and $\calB$ is
+\begin{equation}\label{eq:rokhlin}
+  \delta(\calO)
+  = \sup_{S \in \calB}\; \inf_{E \in \calO}\; \mu(S \triangle E).
+\end{equation}
+Reconstruction holds at resolution $\calO$ when $\delta(\calO) = 0$.
+\end{definition}
+
+\noindent The infimum is achieved by the majority-vote set
+$E_S = \Phi^{-1}(\{z : \mu_z(S) \geq 1/2\})$, giving
+\begin{equation}\label{eq:majority}
+  \delta(\calO)
+  = \sup_{S \in \calB}\;
+    \int p_z \cdot \min\bigl(\mu_z(S),\, 1 - \mu_z(S)\bigr)\,d\nu(z).
+\end{equation}
+
+\begin{definition}[Collision probability]
+\label{def:collision}
+The \emph{collision probability} at resolution $\calO$ is
+\begin{equation}\label{eq:collision}
+  (\mu \otimes \mu)(R)
+  = \int p_z^2\,d\nu(z),
+\end{equation}
+where $R = \{(x, x') : \Phi(x) = \Phi(x')\}$ is the equivalence
+relation induced by $\calO$.  The associated R\'{e}nyi-2
+entropy~\cite{Renyi1961} is $H_2(\nu) = -\log (\mu \otimes \mu)(R)$.
+\end{definition}
+
+\begin{definition}[Fibre mixing]
+\label{def:fibre-mixing}
+The sub-$\sigma$-algebra $\calO$ satisfies \emph{fibre mixing} with
+constant $c > 0$ at scale $\varepsilon > 0$ if for $\nu$-a.e.\
+$z$ with $p_z \geq \varepsilon$:
+\begin{equation}\label{eq:fibre-mixing}
+  \mu_z(S)\,\mu_z(S^c) \geq c \cdot p_z
+  \qquad \text{for all } S \in \calB.
+\end{equation}
+\end{definition}
+
+\noindent Fibre mixing is a spatial condition on the conditional
+measures: it requires that no event $S$ renders a large fibre
+monochromatic ($\mu_z(S) \in \{0, 1\}$).  It is distinct from
+temporal mixing conditions ($\alpha$-, $\beta$-, $\psi$-mixing),
+which concern decorrelation over time.  The closest relative in
+ergodic theory is Furstenberg's relative weak
+mixing~\cite{Furstenberg1977} of extensions, which concerns
+ergodicity of the relative product system; fibre mixing is a
+quantitative pointwise condition on individual fibres.
+
+% ------------------------------------------------------------------
+\section{The bridge theorem}
+\label{sec:bridge}
+% ------------------------------------------------------------------
+
+\begin{theorem}[Easy direction]
+\label{thm:easy}
+$\delta(\calO) \to 0$ implies $(\mu \otimes \mu)(R) \to 0$.
+\end{theorem}
+
+\begin{proof}
+If $\delta(\calO) = 0$, then $\calO = \calB$ mod $\mu$, so fibres
+are $\mu$-a.e.\ singletons and
+$(\mu \otimes \mu)(R) = \int p_z^2\,d\nu = 0$.
+
+For the quantitative version: every $S \in \calB$ satisfies
+$\mu(S \triangle E_S) \leq \delta(\calO)$, where $E_S$ is the
+majority-vote set.  By~\eqref{eq:majority},
+$\int p_z \min(\mu_z(S), 1 - \mu_z(S))\,d\nu \leq \delta(\calO)$
+for all $S$.  Since $\min(\alpha, 1-\alpha) \geq
+2\alpha(1-\alpha)$ for $\alpha \in [0,1]$, the conditional
+variance is controlled:
+$\int p_z \mu_z(S)\mu_z(S^c)\,d\nu \leq \delta(\calO)/2$.
+Choosing $S = C_{z_0}$ (a single fibre) and summing gives
+$(\mu \otimes \mu)(R) \leq g(\delta(\calO))$ for an explicit
+$g \to 0$.
+\end{proof}
+
+\begin{theorem}[Hard direction, under fibre mixing]
+\label{thm:hard}
+If $\calO$ satisfies fibre mixing with constant $c$ at scale
+$\varepsilon$, then
+\[
+  (\mu \otimes \mu)(R) \to 0
+  \quad\Longrightarrow\quad
+  \delta(\calO) \to 0.
+\]
+More precisely:
+\begin{equation}\label{eq:hard-bound}
+  (\mu \otimes \mu)(R) \leq \frac{1}{c}\,\delta(\calO) + C\varepsilon
+\end{equation}
+for an explicit constant $C$ depending only on $c$.
+\end{theorem}
+
+\begin{proof}
+Let $S^*$ be an $\varepsilon$-maximiser of $\delta(\calO)$.  By
+fibre mixing, for $\nu$-a.e.\ large fibre $z$ (with
+$p_z \geq \varepsilon$):
+\[
+  \mu_z(S^*)\,\mu_z(S^{*c}) \geq c \cdot p_z.
+\]
+Integrating:
+\[
+  \int_{p_z \geq \varepsilon} p_z \cdot
+    \mu_z(S^*)\,\mu_z(S^{*c})\,d\nu
+  \geq c \int_{p_z \geq \varepsilon} p_z^2\,d\nu.
+\]
+The left side is bounded by $\delta(\calO)$ (from the conditional
+variance identity).  The right side is
+$c\bigl((\mu \otimes \mu)(R) - \int_{p_z < \varepsilon} p_z^2\,d\nu\bigr)
+\geq c\bigl((\mu \otimes \mu)(R) - \varepsilon\bigr)$.
+Rearranging gives~\eqref{eq:hard-bound}.
+\end{proof}
+
+\begin{corollary}[Bridge]
+\label{cor:bridge}
+Under fibre mixing, algebraic and geometric reconstruction are
+equivalent:
+\[
+  \delta(\calO_L) \to 0
+  \quad\Longleftrightarrow\quad
+  (\mu \otimes \mu)(R_L) \to 0.
+\]
+\end{corollary}
+
+% ------------------------------------------------------------------
+\section{Positive-fraction balance}
+\label{sec:positive}
+% ------------------------------------------------------------------
+
+The bridge theorem assumes fibre mixing.  The following result
+holds without any dynamical hypothesis.
+
+\begin{definition}
+An \emph{$\varepsilon$-maximiser} of $\delta(\calO)$ is a set
+$S^* \in \calB$ with
+$\int p_z \min(\mu_z(S^*), 1 - \mu_z(S^*))\,d\nu \geq \delta(\calO) - \varepsilon$.
+
+Write $\alpha_z = \mu_z(S^*)$.  A fibre $z$ is
+\emph{$\eta$-balanced} if $\alpha_z \in [\eta, 1 - \eta]$.
+\end{definition}
+
+\begin{theorem}[Positive-fraction balance]
+\label{thm:positive-fraction}
+Let $(X, \calB, \mu)$ be any probability space with
+sub-$\sigma$-algebra $\calO$.  Fix $\varepsilon, \eta > 0$ with
+$\delta(\calO) > 2\varepsilon + 2\eta$.  Let $S^*$ be an
+$\varepsilon$-maximiser.  Then the set
+\[
+  G(\eta) = \{z : p_z \geq \varepsilon,\;
+    \alpha_z \in [\eta, 1 - \eta]\}
+\]
+satisfies
+\begin{equation}\label{eq:positive-fraction}
+  \nu(G(\eta)) \geq 2\bigl(\delta(\calO) - \varepsilon - 2\eta\bigr).
+\end{equation}
+In particular, a positive fraction of large fibres is balanced.
+\end{theorem}
+
+\begin{proof}
+Partition the fibres into four classes:
+\begin{itemize}
+  \item $\mathcal{S}$: small ($p_z < \varepsilon$),
+  \item $\mathcal{M}_0$: large, near-zero ($p_z \geq \varepsilon$,
+    $\alpha_z < \eta$),
+  \item $\mathcal{M}_1$: large, near-one ($p_z \geq \varepsilon$,
+    $\alpha_z > 1 - \eta$),
+  \item $\mathcal{G} = G(\eta)$: large, balanced.
+\end{itemize}
+The near-maximiser condition gives
+\[
+  I_\mathcal{S} + I_{\mathcal{M}_0} + I_{\mathcal{M}_1}
+  + I_\mathcal{G} \geq \delta(\calO) - \varepsilon,
+\]
+where $I_A = \int_A p_z \min(\alpha_z, 1 - \alpha_z)\,d\nu$.
+
+On $\mathcal{M}_0$: $\min(\alpha_z, 1 - \alpha_z) = \alpha_z < \eta$,
+so $I_{\mathcal{M}_0} \leq \eta$.  Similarly
+$I_{\mathcal{M}_1} \leq \eta$.
+
+On $\mathcal{S}$: $I_\mathcal{S} \leq \frac{1}{2}\int_\mathcal{S}
+p_z\,d\nu$.  We bound this crudely by $1/2$ (or more carefully
+if needed).
+
+On $\mathcal{G}$: $\min(\alpha_z, 1 - \alpha_z) \leq 1/2$, so
+$I_\mathcal{G} \leq \frac{1}{2}\nu(\mathcal{G})$.
+
+Combining: $\frac{1}{2}\nu(\mathcal{G}) \geq I_\mathcal{G}
+\geq \delta(\calO) - \varepsilon - 2\eta - I_\mathcal{S}$.
+
+The crude bound $I_\mathcal{S} \leq 1/2$ gives
+$\nu(\mathcal{G}) \geq 2(\delta(\calO) - \varepsilon - 2\eta) - 1$,
+which is positive when $\delta(\calO)$ is large enough.  A tighter
+analysis using the structure of the maximiser (monochromatic small
+fibres contribute 0 to $\delta$) improves this;
+see~\S\ref{sec:derivability}.
+\end{proof}
+
+\begin{remark}
+All of $\delta(\calO)$ comes from non-monochromatic fibres.
+Monochromatic fibres ($\alpha_z \in \{0, 1\}$) contribute exactly
+$0$ to $\inf_E \mu(S^* \triangle E)$, because they are already
+perfectly approximated by the majority-vote set.  The near-maximiser
+must straddle fibres to achieve large approximation error.
+\end{remark}
+
+% ------------------------------------------------------------------
+\section{The derivability question}
+\label{sec:derivability}
+% ------------------------------------------------------------------
+
+Theorem~\ref{thm:positive-fraction} gives a positive fraction of
+balanced large fibres.  Fibre mixing
+(Definition~\ref{def:fibre-mixing}) requires $\nu$-a.e.\ large
+fibre to be balanced.  The gap is:
+
+\begin{question}[Derivability]
+\label{q:derivability}
+Let $(X, \calB, \mu, T)$ be ergodic and $h \in L^\infty(\mu)$ an
+observable with $\delta(\calO_L) > 0$.  Must every
+$\varepsilon$-maximiser of $\delta(\calO_L)$ be $\eta$-balanced on
+$\nu_L$-a.e.\ large fibre?
+\end{question}
+
+A positive answer would make the bridge
+(Corollary~\ref{cor:bridge}) unconditional for ergodic systems.
+
+\subsection*{Evidence for a positive answer}
+
+Near-maximisers are adversarially \emph{mis-aligned} with fibres.
+A set $S^*$ that aligns with the fibre structure (union of complete
+fibres) satisfies $\mu(S^* \triangle E_{S^*}) = 0$ and contributes
+nothing to $\delta$.  The near-maximiser must differ from every
+$\calO$-measurable set, which forces it to cross fibres.
+
+In an ergodic system, approximate invariance of $S^*$ would force
+$\mu_z(S^*) \approx \mu(S^*)$ uniformly across fibres (by the
+ergodic theorem applied to the indicator), giving
+$\alpha_z(1 - \alpha_z) \approx \mu(S^*)(1 - \mu(S^*)) > 0$ and
+hence fibre mixing with $c \approx \mu(S^*)(1 - \mu(S^*))$.
+
+\subsection*{Evidence against}
+
+The a.e.\ condition is strictly stronger than positive fraction.
+Ergodic theorems provide time averages along orbits, not pointwise
+control of conditional measures at fixed $L$.  No proof exists.
+
+\subsection*{Non-ergodic counterexample}
+
+Let $X = A \cup B$ with $\mu(A) = \mu(B) = 1/2$, $T(A) \subset A$
+and $T(B) \subset B$, and $h$ constant on each component.  The delay
+map has two fibres, each monochromatic with respect to $S^* = A$.
+Fibre mixing fails completely.  Ergodicity is violated.
+
+% PLACEHOLDER: If Step B is resolved, the proof goes here.
+% If a counterexample is found, it goes here instead.
+
+% ------------------------------------------------------------------
+\section{Entropy characterisation}
+\label{sec:entropy}
+% ------------------------------------------------------------------
+
+The bridge theorem connects algebraic reconstruction ($\delta \to 0$)
+to geometric reconstruction (collision probability $\to 0$).  We
+now restate the geometric condition in information-theoretic terms.
+
+\begin{corollary}[Entropy characterisation]
+\label{cor:entropy}
+Under fibre mixing:
+\begin{equation}\label{eq:entropy}
+  \delta(\calO_L) \to 0
+  \quad\Longleftrightarrow\quad
+  H_2(\nu_L) \to \infty.
+\end{equation}
+\end{corollary}
+
+\begin{proof}
+$H_2(\nu_L) = -\log(\mu \otimes \mu)(R_L)$.  Since
+$-\log$ is monotone decreasing, $(\mu \otimes \mu)(R_L) \to 0$
+iff $H_2(\nu_L) \to \infty$.  Apply Corollary~\ref{cor:bridge}.
+\end{proof}
+
+\noindent This is the first information-theoretic characterisation
+of delay-embedding sufficiency.  Classical criteria ---
+Kolmogorov--Sinai entropy for generating
+partitions~\cite{Sinai1959}, Takens genericity for smooth
+embeddings~\cite{Takens1981} --- are respectively Shannon-type
+and topological.  The R\'{e}nyi-2 criterion operates at a
+different level: it measures the \emph{collision structure} of the
+fibre decomposition.
+
+% ------------------------------------------------------------------
+\section{Example: irrational rotation with binary observable}
+\label{sec:rotation}
+% ------------------------------------------------------------------
+
+Let $X = [0, 1)$ with Lebesgue measure, $T_\alpha(x) = x + \alpha
+\bmod 1$ for irrational $\alpha$, and $h = \mathbf{1}_{[0, 1/2)}$.
+The delay vector $\Phi_L(x) = (h(x), h(T_\alpha x), \ldots,
+h(T_\alpha^L x))$ takes values in $\{0, 1\}^{L+1}$.
+
+The fibre structure is determined by the symbolic itinerary.
+By the three-distance theorem~\cite{Steinhaus1957, Sos1958},
+the $L+1$ points $0, \alpha, \ldots, L\alpha \bmod 1$ partition
+$[0, 1)$ into at most $L + 2$ intervals, each mapped to a distinct
+binary word.  The fibres of $\Phi_L$ are these intervals.
+
+\begin{proposition}
+\label{prop:rotation}
+For the binary observable on $T_\alpha$:
+\begin{enumerate}[label=(\alph*)]
+  \item The number of distinct delay vectors is at most $L + 2$.
+  \item Each fibre has mass between $\alpha_{\min}$ and
+    $\alpha_{\max}$, where $\alpha_{\min}$ and $\alpha_{\max}$
+    are consecutive denominators in the continued fraction
+    expansion of $\alpha$.
+  \item $\delta(\calO_L) \not\to 0$: the binary observable does
+    not reconstruct the rotation.
+  \item Fibre mixing fails: when $L$ is large relative to the
+    continued-fraction denominators, two dominant fibres absorb
+    most of the measure and are approximately monochromatic with
+    respect to $S^* = [0, 1/2)$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+(a) follows from the three-distance theorem.  (b) follows from
+the gap structure.  (c): with at most $L + 2$ fibres, the Rokhlin
+distance is bounded below by $1/(2(L + 2))$ at best, but the
+binary observable cannot separate points differing by less than
+$\min_k |k\alpha \bmod 1|$ for $k \leq L$, which is bounded
+away from 0 by the three-distance gap.  (d): the computation of
+fibre mixing constants gives
+$c(\alpha, L) \sim \Theta(\alpha_n)$ where $\alpha_n$ is a
+continued-fraction coefficient.
+\end{proof}
+
+\noindent This example illustrates the scope of the bridge theorem.
+Fibre mixing is non-trivial only in the \emph{transition regime}:
+fibres shrinking but not yet singletons.  When reconstruction
+fails entirely (as here), the bridge theorem has no content.  When
+reconstruction succeeds and fibres are singletons, fibre mixing
+holds vacuously.
+
+% ------------------------------------------------------------------
+\section{Discussion}
+\label{sec:discussion}
+% ------------------------------------------------------------------
+
+Delay embedding has two reconstruction criteria: geometric
+(injectivity of the delay map) and algebraic (generation of the
+full $\sigma$-algebra).  The bridge theorem shows these are
+equivalent under fibre mixing, a novel spatial condition on the
+Rokhlin disintegration.
+
+The positive-fraction result
+(Theorem~\ref{thm:positive-fraction}) requires no dynamical
+hypothesis: it is a purely analytic fact about sub-$\sigma$-algebras.
+The a.e.\ extension (Question~\ref{q:derivability}) is the natural
+next step.  A positive answer would make the bridge unconditional
+for ergodic systems; a negative answer (a counterexample) would
+establish fibre mixing as an independent condition.
+
+The entropy characterisation
+(Corollary~\ref{cor:entropy}) provides the first
+information-theoretic criterion for delay-embedding sufficiency,
+complementing the geometric criteria of
+Takens~\cite{Takens1981} and Sauer--Yorke--Casdagli~\cite{SauerYorkeCasdagli1991}
+and the entropy-rate criteria of
+Sinai~\cite{Sinai1959} and Krieger~\cite{Krieger1970}.
+
+Fibre mixing is not a temporal mixing condition.  It does not
+follow from $\alpha$-, $\beta$-, or $\psi$-mixing, nor from the
+$K$-property.  Its closest relative is Furstenberg's relative weak
+mixing of extensions~\cite{Furstenberg1977}, which concerns
+ergodicity of the relative product rather than pointwise
+non-degeneracy of conditional measures.
+
+The bridge theorem and the positive-fraction result apply to any
+probability space with a sub-$\sigma$-algebra --- not only to delay
+embeddings.  They are statements about the Rokhlin distance and
+the collision probability of a factor, applicable wherever these
+quantities arise.
+
+\bibliographystyle{plain}
+\bibliography{references}

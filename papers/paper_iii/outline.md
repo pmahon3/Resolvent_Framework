@@ -1,38 +1,33 @@
-# Paper III Outline (revised: commitment-indexed diagnostics)
+# Paper III Outline (revised: honest framing)
 
 ## Working title
 
-"Commitment-Indexed Diagnostics for Delay-Reconstructed
-Dynamical Systems"
+"Noise Thresholds for Jacobian-Based Embedding Criteria and a
+Residual-Whiteness Alternative"
 
 ## One-sentence summary
 
-The appropriate diagnostic for a delay reconstruction depends on
-the modelling commitment: deterministic embeddings require
-Jacobian-trace convergence, stochastic embeddings require residual
-whiteness, and mismatching commitment to diagnostic produces
-unreliable assessments.
+Jacobian-based embedding criteria (including Lyapunov convergence)
+have a sharp noise threshold above which they lose all diagnostic
+value; residual autocorrelation convergence with embedding
+dimension provides a noise-robust alternative for both dimension
+and lag selection.
 
 ## Core idea
 
-The delay reconstruction problem is algebraically underdetermined
-(Paper I): the observation algebra doesn't determine the
-realization.  Practitioners navigate this underdetermination by
-making a modelling commitment — an assumption about the structure
-of the reconstructed dynamics.  Each commitment has a natural
-diagnostic; applying the wrong diagnostic (commitment mismatch)
-gives misleading results.
+Embedding parameter selection (dimension d, lag L) relies on
+diagnostics that implicitly assume the data is clean and
+deterministic.  FNN, Jacobian-trace convergence, and prediction-
+error minimization all degrade above a noise threshold.  We:
 
-This is not one diagnostic but a taxonomy:
-
-| Commitment | Assumes | Natural diagnostic |
-|---|---|---|
-| Deterministic embedding | z_{t+1} = F(z_t) | Jacobian-trace convergence with d |
-| Stochastic embedding | z_{t+1} = F(z) + σ(z)η | Residual whiteness + σ uniformity |
-| Measure-preserving | det(A) = 1 | Volume conservation test |
-
-Matching commitment to diagnostic is the practitioner's art.
-The framework makes this explicit.
+1. Characterize this threshold empirically (~2-5% noise-to-signal
+   for Lorenz, confirmed on Rössler)
+2. Propose residual autocorrelation convergence with d (and
+   U-shaped minimum with L) as an alternative that works across
+   the threshold
+3. Explain the threshold via a modelling-commitment framework:
+   deterministic criteria test for properties that noise destroys;
+   residual-based criteria test for properties that survive noise
 
 ## Antecedents
 
@@ -48,32 +43,45 @@ The framework makes this explicit.
 - **Sano-Sawada (1985):** Jacobian estimation for Lyapunov exponents.
   Uses Jacobian after embedding — we use it to assess embedding.
 
-## What's new
+## What's new (honest assessment)
 
-1. **Systematic taxonomy** of commitments and their natural
-   diagnostics (deterministic → tr(A), stochastic → whiteness).
-   Nobody has formalized this.
+1. **The noise threshold itself.** Nobody has characterized the
+   sharp transition where Jacobian-based criteria lose all
+   information.  The phase diagram (noise × dimension) is a new
+   empirical result.
 
-2. **Jacobian trace as embedding diagnostic** (not just dynamical
-   invariant).  tr(A) convergence with d determines sufficient
-   embedding for deterministic data.
+2. **Residual acf convergence as an embedding criterion.**  Using
+   the decrease of residual autocorrelation with d to identify
+   sufficient embedding dimension — and the U-shaped minimum with
+   L to identify optimal lag — is a new application.  The acf
+   itself is standard (Ljung-Box 1978); the application to
+   embedding selection is not.
 
-3. **Demonstration that commitment mismatch degrades diagnostics.**
-   Applying the deterministic diagnostic (div) to stochastic data
-   gives garbage — explained by the framework.
+3. **The explanation via modelling commitment.**  Why the threshold
+   exists (deterministic criteria assume single-valued dynamics,
+   noise violates this) and why residual criteria survive (they
+   assume stochastic dynamics, noise is built in).
 
-4. **The stochastic diagnostic (residual whiteness) works where
-   the deterministic one fails** — and vice versa for clean data.
+## What's NOT new
+
+- Residual autocorrelation as a model diagnostic (Ljung-Box 1978)
+- Jacobian estimation from time series (Sano-Sawada 1985)
+- Local prediction error for embedding selection (Ragwitz-Kantz 2002)
+- Lyapunov convergence to validate embedding (standard practice)
+- The reverse application (using Lyapunov convergence as embedding
+  criterion) is the contrapositive of standard practice — a
+  reframing, not a discovery
 
 ## Structure
 
 ### §1. Introduction
 
-The reconstruction problem is underdetermined (cite Papers I+II).
-Practitioners choose embedding parameters (d, L) via heuristic
-criteria (FNN, mutual information, prediction error).  These
-criteria implicitly assume a modelling commitment.  We make this
-explicit: different commitments require different diagnostics.
+Embedding parameter selection is a central practical problem in
+nonlinear time series analysis.  Standard criteria (FNN, mutual
+information, Lyapunov convergence, prediction error) work well for
+clean data but degrade under observational noise.  We characterize
+this degradation, identify a noise threshold, and propose a
+residual-based alternative that is robust across the threshold.
 
 ### §2. Framework: commitments and diagnostics
 
@@ -155,42 +163,42 @@ Position-dependent σ(x).  Level 2 diagnostic should detect it.
 
 ### §5. Discussion
 
-- The art of reconstruction is navigating the underdetermined
-  descent from St(C) to Ω (Papers I+II)
-- The commitment determines which aspects of the descent you're
-  testing
-- Mismatching commitment to diagnostic is a category error —
-  not a failure of the diagnostic itself
-- Connection to surrogate methods (Theiler): one instance of the
-  general taxonomy
+- The noise threshold is explained by modelling commitment:
+  deterministic criteria test for single-valuedness of the
+  dynamics, which noise destroys; residual criteria test for
+  absence of deterministic structure in the residuals, which
+  survives noise
+- Connection to FNN: FNN is a deterministic criterion (tests for
+  non-injectivity); expected to fail above the same threshold
 - Connection to Ragwitz-Kantz: their prediction-error criterion
-  is Level 2 (stochastic commitment)
-- Connection to FNN: Level 1 (deterministic commitment — tests
-  for non-injectivity)
-- Open: formalizing the commitment/diagnostic mapping categorically
-  (Fritz's Markov categories may be the right language)
+  is residual-based and should be noise-robust; our acf criterion
+  is a complementary residual diagnostic
+- Connection to Papers I+II (brief): the algebraic underdetermination
+  of reconstruction means embedding selection is necessarily
+  empirical — no algebraic criterion can determine d and L.  The
+  commitment framework explains why different empirical criteria
+  have different operating regimes.
+- Open: adaptive bandwidth selection; extending to multivariate
+  observables; comparison with FNN degradation under noise
 
-## Key experimental question
+## Key results (confirmed experimentally)
 
-**Experiment C is the make-or-break.** If the residual whiteness
-diagnostic correctly identifies sufficient d for noisy Lorenz
-where tr(A) failed, the paper has its punchline: commitment match
-succeeds where mismatch fails.
+1. Sharp noise threshold at ~2-5% for Jacobian-based criteria (Lorenz)
+2. Residual acf convergence identifies sufficient d under 5-20% noise
+3. Residual acf U-shaped minimum identifies optimal L under 5% noise
+4. Both patterns validated on Rössler (different attractor topology)
+5. Phase diagram showing operating regimes of both criteria
 
-If Experiment C also fails, the paper is weaker — it explains
-failure (diagnostic mismatch) but doesn't prescribe success.
+## Relation to Paper I+II (brief, in discussion)
 
-## Relation to Paper I+II
-
-- Paper I: descent requires σ-additivity; the algebra doesn't
-  constrain Ω → the reconstruction is underdetermined
-- Paper II: distributivity controls which realism positions are
-  available → different commitments have different scope
-- Paper III: different commitments require different diagnostics →
-  the art has structure
-
-This is the "colour theory" paper: it doesn't tell you what to
-paint, but it tells you which pigments work with which medium.
+Papers I+II establish that the reconstruction problem is
+algebraically underdetermined: the observation algebra doesn't
+constrain the choice of realization.  Embedding selection is
+therefore necessarily empirical.  The noise threshold we identify
+is a practical manifestation of this underdetermination: different
+empirical criteria have different operating regimes because they
+implicitly assume different model classes for the reconstructed
+dynamics.
 
 ## Target venue
 

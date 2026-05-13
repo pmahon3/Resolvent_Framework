@@ -74,9 +74,29 @@ observable, not just the dynamics.
 - Rotation computation: notes/archive/fibre_mixing_investigation/
   step4_rotation_computation.md
 
-## Status
+## Status (updated 2026-05-13)
 
-Active lead. The definition is novel, the open question is
-well-posed, and the relationship to Furstenberg relative mixing
-is unexplored. Needs: (1) Furstenberg comparison, (2) attempt
-at Step A/B, (3) assessment of publishability.
+**BLOCKED on motivation.** The definition is novel and the open
+question is well-posed. However:
+
+1. The bridge theorem may be solving a non-problem: for fixed L
+   on standard Borel spaces, algebraic and geometric reconstruction
+   are essentially equivalent. The theorem is about convergence
+   rates as L grows, but nobody distinguishes these modes.
+
+2. The entropy characterization is a reinterpretation of what
+   Grassberger-Procaccia already computes, not a new tool.
+
+3. The paper NEEDS a concrete motivating example: a system where
+   fibre mixing fails and the two reconstruction modes actually
+   diverge. The irrational rotation example doesn't work (both
+   modes fail together).
+
+**Before committing to Step B:** spend time looking for the
+motivating example. If it doesn't exist, the paper may be
+technically correct but unmotivated.
+
+**Verification issue:** The draft proofs (written by LLM) contain
+a critical error in Theorem 3.3 (inequality direction backwards).
+See verification_checklist.md. All proofs need manual verification
+before any further development.

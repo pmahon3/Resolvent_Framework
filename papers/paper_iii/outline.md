@@ -1,208 +1,205 @@
-# Paper III Outline (revised after initial experiments)
+# Paper III Outline (revised: commitment-indexed diagnostics)
 
 ## Working title
 
-"Divergence Stabilization as an Embedding Diagnostic for
-Delay-Reconstructed Dynamical Systems"
+"Commitment-Indexed Diagnostics for Delay-Reconstructed
+Dynamical Systems"
 
 ## One-sentence summary
 
-The trace of the locally linearized pushforward in a delay
-reconstruction converges to the Lyapunov sum as embedding
-dimension increases; stabilization indicates sufficient
-embedding, providing a diagnostic independent of bandwidth
-and robust to local nonlinearity.
+The appropriate diagnostic for a delay reconstruction depends on
+the modelling commitment: deterministic embeddings require
+Jacobian-trace convergence, stochastic embeddings require residual
+whiteness, and mismatching commitment to diagnostic produces
+unreliable assessments.
 
-## Motivation (from Papers I+II)
+## Core idea
 
-The observation algebra determines a measure on the dual space
-unconditionally, but descent to a specific realization is
-unconstrained (Paper I).  In practice, delay embedding is a
-choice of realization.  The divergence of the local pushforward
-detects whether this choice is sufficient.
+The delay reconstruction problem is algebraically underdetermined
+(Paper I): the observation algebra doesn't determine the
+realization.  Practitioners navigate this underdetermination by
+making a modelling commitment — an assumption about the structure
+of the reconstructed dynamics.  Each commitment has a natural
+diagnostic; applying the wrong diagnostic (commitment mismatch)
+gives misleading results.
 
-## The algorithm
+This is not one diagnostic but a taxonomy:
 
-### Input
-A scalar time series {y_t}, t = 1, ..., N.
+| Commitment | Assumes | Natural diagnostic |
+|---|---|---|
+| Deterministic embedding | z_{t+1} = F(z_t) | Jacobian-trace convergence with d |
+| Stochastic embedding | z_{t+1} = F(z) + σ(z)η | Residual whiteness + σ uniformity |
+| Measure-preserving | det(A) = 1 | Volume conservation test |
 
-### Step 1: Delay embedding
-Form delay vectors:
-  x_t = (y_t, y_{t-L}, y_{t-2L}, ..., y_{t-(d-1)L})
+Matching commitment to diagnostic is the practitioner's art.
+The framework makes this explicit.
 
-for chosen dimension d and lag L.
+## Antecedents
 
-### Step 2: Local linearization of the pushforward
-For each x_t, identify neighbours within radius h (via KDTree).
-Fit a local linear model using tricube-weighted least squares:
+- **Casdagli (1991):** deterministic-vs-stochastic continuum via
+  prediction error as function of smoothing parameter.  The
+  philosophical ancestor of commitment-indexed analysis.
+- **Ragwitz-Kantz (2002):** local prediction error minimized
+  over (d,τ) for stochastic/Markov embedding selection.  Closest
+  existing work — one commitment, one diagnostic.
+- **Theiler et al. (1992):** surrogate methods.  Template for
+  commitment/diagnostic pairs: null hypothesis (linear stochastic)
+  defines the commitment; discriminating statistic is diagnostic.
+- **Sano-Sawada (1985):** Jacobian estimation for Lyapunov exponents.
+  Uses Jacobian after embedding — we use it to assess embedding.
 
-  x_{t+1} ≈ A(x_t) · (x_t - x₀) + b(x_t)
+## What's new
 
-where A(x_t) ∈ ℝ^{d×d} is the local Jacobian.
+1. **Systematic taxonomy** of commitments and their natural
+   diagnostics (deterministic → tr(A), stochastic → whiteness).
+   Nobody has formalized this.
 
-### Step 3: Two diagnostics
+2. **Jacobian trace as embedding diagnostic** (not just dynamical
+   invariant).  tr(A) convergence with d determines sufficient
+   embedding for deterministic data.
 
-**Primary: divergence stabilization.**
+3. **Demonstration that commitment mismatch degrades diagnostics.**
+   Applying the deterministic diagnostic (div) to stochastic data
+   gives garbage — explained by the framework.
 
-  div F(x_t) = tr(A(x_t))
+4. **The stochastic diagnostic (residual whiteness) works where
+   the deterministic one fails** — and vice versa for clean data.
 
-Average over the attractor: ⟨div F⟩ ≈ Σ λᵢ (sum of Lyapunov
-exponents).  As embedding dimension d increases, ⟨div F⟩
-converges to the true Lyapunov sum.  Stabilization indicates
-sufficient embedding.
+## Structure
 
-This diagnostic is:
-- Independent of bandwidth h (the Lyapunov sum is intrinsic)
-- Robust to local nonlinearity (tr(A) captures the leading
-  linear term, which gives the correct Lyapunov contribution)
-- Cheaper than FNN (no pairwise distance comparisons)
+### §1. Introduction
 
-**Secondary: residual noise amplitude.**
+The reconstruction problem is underdetermined (cite Papers I+II).
+Practitioners choose embedding parameters (d, L) via heuristic
+criteria (FNN, mutual information, prediction error).  These
+criteria implicitly assume a modelling commitment.  We make this
+explicit: different commitments require different diagnostics.
 
-  σ²(x_t) = tr(Σ(x_t)) / d
+### §2. Framework: commitments and diagnostics
 
-where Σ is the weighted residual covariance.  σ measures total
-residual = nonlinearity + noise + embedding artefacts.  It does
-NOT decrease cleanly with d at fixed h because nonlinearity
-dominates at coarse bandwidths.
+**Definition.** A *modelling commitment* C is a class of dynamics
+on the reconstructed space: C = {z_{t+1} = G(z_t) : G ∈ F} for
+some function class F.
 
-σ becomes informative when combined with div:
-- div stable + σ large → genuine noise or nonlinearity
-- div unstable + σ large → embedding insufficient
-- div stable + σ small → faithful deterministic reconstruction
+**Definition.** A *diagnostic* for commitment C is a test statistic
+whose value indicates whether the data, at embedding (d, L), is
+consistent with some G ∈ F.
 
-### Step 4: Stochastic model (when div is stable)
-Once sufficient d is identified via div stabilization, the
-output is a local Langevin model:
+Three levels:
 
-  x_{t+1} = A(x) · x + b(x) + σ(x) · η_t
+**Level 1: Deterministic.** F = smooth maps.  The delay map Φ is
+an embedding (Takens).  The diagnostic tests whether the local
+dynamics are well-defined (single-valued):
+  - Jacobian trace tr(A(z)) averaged over the attractor
+  - Convergence of ⟨tr(A)⟩ with d indicates sufficient embedding
+  - Rationale: if Φ is injective, the dynamics are single-valued,
+    and the Jacobian is well-defined; instability of tr(A) with d
+    signals non-injectivity
 
-The pair (A(x), σ(x)) characterizes the local stochastic
-dynamics.  σ(x) is now interpretable as genuine noise (not
-embedding artefact) because div has stabilized.
+**Level 2: Stochastic.** F = drift + diffusion (Langevin).  The
+delay map need not be injective — noise captures the multi-
+valuedness.  The diagnostic tests whether the residuals are
+structurally noise:
+  - Residual autocorrelation: ε_t should be uncorrelated
+  - Spatial uniformity of σ(z): σ shouldn't depend on position
+    (or if it does, it should be smooth, not erratic)
+  - Normality: ε_t ~ N(0, Σ) locally
+  - Rationale: if the Langevin model captures all deterministic
+    structure, the residual IS noise
 
-## Key insight (revised from experiments)
+**Level 3: Measure-preserving.** F = volume-preserving maps
+(Hamiltonian dynamics).  Additional constraint: det(A) = 1.
+  - Diagnostic: |det(A) - 1| averaged over the attractor
+  - Convergence with d indicates sufficient embedding + volume
+    preservation
 
-The original hypothesis was: σ(z) decreases as embedding
-dimension increases, and σ → 0 indicates faithful embedding.
+### §3. Algorithm
 
-The experiments show: **div stabilizes before σ does.**  This is
-because σ captures all sources of residual (nonlinearity + noise +
-embedding artefacts) while div captures only the volume change,
-which converges to the Lyapunov sum once the embedding is
-sufficient.
+For each commitment level, the pipeline is:
 
-**The divergence is the intrinsic diagnostic; the residual
-amplitude is the composite one.**  The paper's contribution shifts
-from "noise estimation" to "divergence stabilization as embedding
-criterion," with noise estimation as a secondary output once
-sufficiency is established.
+1. Delay embed y → Z at (d, L)
+2. Build KDTree on Z
+3. At query points, fit local linear model (tricube WLS)
+4. Extract A(z), b(z), residuals ε(z)
+5. Compute commitment-specific diagnostic:
+   - Deterministic: tr(A) convergence with d
+   - Stochastic: residual whiteness (Ljung-Box on ε, spatial σ)
+   - Volume-preserving: det(A) ≈ 1
 
-## Algebraic framing (one paragraph in intro)
+### §4. Experiments
 
-From Papers I+II: the reconstruction problem is algebraically
-underdetermined — the observation algebra doesn't constrain
-realization.  The divergence diagnostic detects whether a
-*specific* realization (choice of d, L) has captured the
-dynamical content.  Stabilization = the descent from St(C) to Ω
-has succeeded; the remaining residual is genuine, not structural.
+**Experiment A: Commitment match (deterministic data, deterministic diagnostic).**
+Lorenz-63, clean. tr(A) converges with d. Diagnostic works. [DONE]
 
-## Relation to existing work
+**Experiment B: Commitment mismatch (stochastic data, deterministic diagnostic).**
+Lorenz + noise. tr(A) does NOT converge — diagnostic fails. [DONE]
+The framework explains: you applied the wrong diagnostic.
 
-### Botvinick-Greenhouse et al. (2025)
-Global measure-theoretic Takens (Wasserstein/OT).  We give the
-local complement: drift + diffusion at each point.  They don't
-compute divergence or distinguish embedding noise from genuine
-noise.
+**Experiment C: Commitment match (stochastic data, stochastic diagnostic).**
+Lorenz + noise. Apply residual whiteness test.  Does it correctly
+identify sufficient d where tr(A) failed?  [TO DO — key experiment]
 
-### Classical embedding criteria
-- FNN (Kennel-Brown-Abarbanel 1992): detects dimension
-  insufficiency via false neighbours.  Our div diagnostic
-  detects it via Lyapunov sum convergence — no pairwise distance
-  computation, no threshold parameter.
-- Mutual information (Fraser-Swinney 1986): lag selection.
-  We can test lag via div stability across L values.
-- Cao (1997): practical alternative to FNN.  Our approach is
-  related but uses the Jacobian trace rather than nearest-
-  neighbour ratios.
+**Experiment D: Bandwidth dependence explained.**
+tr(A) depends on h because the local linear approximation is
+scale-dependent.  At commitment Level 1, this is a nuisance
+parameter.  At Level 2, h is part of the model (kernel regression
+bandwidth).  The framework explains why h matters differently at
+each level.  [TO DO]
 
-### Lyapunov exponent estimation
-- Benettin et al. (1980): standard QR-based Lyapunov estimation.
-- Sano-Sawada (1985): Jacobian-based estimation from time series.
-- Our div computation is closely related to Sano-Sawada but framed
-  as an *embedding diagnostic* rather than a dynamical invariant.
-  The key difference: we track convergence WITH d, not just
-  compute at fixed d.
+**Experiment E: Rössler (different topology).**
+Same taxonomy, different attractor.  Validates generality.  [TO DO]
 
-### Noise estimation
-- Lalley-Nobel (2006), Kantz-Schreiber (2004), Lamouroux-Lehnertz
-  (2009).  Our σ(x) is a byproduct of the local linear fit;
-  the novelty is using div to determine when σ is trustworthy.
+**Experiment F: Logistic map (discrete, stochastic).**
+Position-dependent σ(x).  Level 2 diagnostic should detect it.
+[TO DO]
 
-## Numerical experiments (revised)
+### §5. Discussion
 
-### Experiment 1: Lorenz-63 dimension sweep (DONE — preliminary)
-N=50000, L=10, d=2..6, h=3,5,8.
-Result: div converges, σ doesn't decrease cleanly.
-**Need:** Larger N, finer h grid, comparison with known
-Lyapunov sum (-13.66 continuous-time).
+- The art of reconstruction is navigating the underdetermined
+  descent from St(C) to Ω (Papers I+II)
+- The commitment determines which aspects of the descent you're
+  testing
+- Mismatching commitment to diagnostic is a category error —
+  not a failure of the diagnostic itself
+- Connection to surrogate methods (Theiler): one instance of the
+  general taxonomy
+- Connection to Ragwitz-Kantz: their prediction-error criterion
+  is Level 2 (stochastic commitment)
+- Connection to FNN: Level 1 (deterministic commitment — tests
+  for non-injectivity)
+- Open: formalizing the commitment/diagnostic mapping categorically
+  (Fritz's Markov categories may be the right language)
 
-### Experiment 2: Bandwidth stability
-Fix d=3 (correct for Lorenz).  Sweep h from 1 to 15.
-Show: ⟨div⟩ is approximately h-independent while ⟨σ⟩ varies
-strongly with h.  This demonstrates div's robustness.
+## Key experimental question
 
-### Experiment 3: Lorenz + observational noise
-Add Gaussian noise with amplitude ε = 0.1, 0.5, 1.0 to the
-scalar time series.  Show:
-- div still converges (robust to moderate noise)
-- σ has an irreducible floor (= true noise level)
-- At high noise, div convergence degrades
+**Experiment C is the make-or-break.** If the residual whiteness
+diagnostic correctly identifies sufficient d for noisy Lorenz
+where tr(A) failed, the paper has its punchline: commitment match
+succeeds where mismatch fails.
 
-### Experiment 4: Rössler (different attractor topology)
-R ossler has a simpler folding structure.  Show div
-converges at d=3 with a different Lyapunov sum.
+If Experiment C also fails, the paper is weaker — it explains
+failure (diagnostic mismatch) but doesn't prescribe success.
 
-### Experiment 5: Logistic map (discrete time)
-Discrete dynamics.  σ(x) should vary with position (high near
-the boundary of the chaotic attractor).
+## Relation to Paper I+II
 
-### Experiment 6: Lag selection via div
-Fix d=3 for Lorenz.  Sweep L=1..30.  Show div is approximately
-L-independent for good lags and degrades for L too small or
-too large (oversampling or undersampling of the dynamics).
+- Paper I: descent requires σ-additivity; the algebra doesn't
+  constrain Ω → the reconstruction is underdetermined
+- Paper II: distributivity controls which realism positions are
+  available → different commitments have different scope
+- Paper III: different commitments require different diagnostics →
+  the art has structure
 
-### Experiment 7: Comparison with FNN
-Compute FNN percentage as a function of d alongside our div.
-Show: div stabilization agrees with FNN threshold for
-sufficient d, but div requires no distance threshold parameter.
-
-## What's implemented
-
-- ✅ delay_embed
-- ✅ local_pushforward (KDTree-accelerated, tricube kernel)
-- ✅ map_attractor (KDTree built once, serial loop)
-- ✅ dimension_sweep
-- ✅ lorenz63, rossler, logistic_map generators
-- ✅ Preliminary Lorenz results
-
-## What's needed
-
-- Experiment harness for bandwidth sweep (easy)
-- Noise-added versions of generators (easy)
-- FNN implementation (moderate — standard algorithm)
-- Lag sweep (easy — reuse dimension_sweep with L varying)
-- Plotting infrastructure for paper figures (moderate)
-- Continuous-time Lyapunov sum reference values
+This is the "colour theory" paper: it doesn't tell you what to
+paint, but it tells you which pigments work with which medium.
 
 ## Target venue
 
-Chaos (AIP) — the divergence diagnostic is a practical tool for
-the nonlinear dynamics community.  8-12 pages with figures.
+Chaos (AIP) or Physical Review E — applied nonlinear dynamics,
+10-15 pages with figures.
 
 ## Estimated effort
 
-- Remaining experiments: ~1-2 weeks
+- Experiment C (stochastic diagnostic): ~3-4 days
+- Experiments D-F: ~1 week
 - Writing: ~1 week
-- Figures: ~3-4 days
-- Total: ~3-4 weeks from now
+- Total: ~3 weeks from Experiment C result

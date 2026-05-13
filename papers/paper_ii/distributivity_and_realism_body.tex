@@ -21,14 +21,14 @@ global value-definiteness.  Probabilistic realism (descent to a
 probability measure) remains available via Gleason-type results, but
 value-definite realism does not.
 
-The dividing line is distributivity.  The state space admits a
-natural filtration
+Distributivity guarantees value-definiteness; for the physically
+central case $L(H)$, $\dim H \geq 3$, non-distributivity blocks it.
+The state space admits a natural filtration
 $\mathcal{S} \supseteq \mathcal{S}_\sigma \supseteq
 \mathcal{S}_{\mathrm{df}}$, whose three transitions --- pasting,
 regularity, sharpness --- are of different mathematical character.
-Distributivity is the exact condition under which the filtration
-degenerates: all three obstructions vanish, and value-definite
-realism becomes commensurable with empirical adequacy.
+Distributivity collapses the filtration; non-distributivity can
+(but need not) open it.
 \end{abstract}
 
 \begin{quote}\small
@@ -105,7 +105,8 @@ realism remains available via Gleason's
 theorem~\cite{Gleason1957}, and empirical adequacy is unconditional.
 
 \smallskip
-The dividing line is distributivity.  The individual ingredients ---
+Distributivity guarantees value-definiteness; for $L(H)$ with
+$\dim H \geq 3$, its absence blocks it.  The individual ingredients ---
 Stone duality, the Kochen--Specker theorem, Gleason's theorem, the
 Bub--Clifton uniqueness result, and the recent McDonald--Bimb\'{o}
 duality for orthomodular lattices~\cite{McDonaldBimbo2023} --- are
@@ -475,16 +476,14 @@ local VDR from Bub--Clifton.
 
 \begin{corollary}
 \label{cor:distributivity}
-For OMLs of the form $L(H)$ with $\dim H \geq 3$, distributivity
-is the exact condition under which value-definite realism and
-empirical adequacy are commensurable.
+Distributivity is sufficient for VDR.  For the physically central
+case $A = L(H)$ with $\dim H \geq 3$, non-distributivity blocks
+VDR.
 \end{corollary}
 
 \begin{proof}
-If $A$ is distributive, VDR holds
-(Theorem~\ref{thm:commensurability}(a)).  If $A \cong L(H)$ with
-$\dim H \geq 3$, then $A$ is non-distributive and VDR fails
-(Theorem~\ref{thm:commensurability}(b)).
+Sufficiency: Theorem~\ref{thm:commensurability}(a).  Blockage:
+Theorem~\ref{thm:commensurability}(b).
 \end{proof}
 
 \begin{remark}
@@ -501,8 +500,12 @@ the physically and epistemologically central case $\dim H \geq 3$,
 it is the effective dividing line.
 \end{remark}
 
-The underlying structure is a filtration of the state space, whose
-three transitions require different keys.
+The containment $\mathcal{S}(A) \supseteq \mathcal{S}_\sigma(A)
+\supseteq \mathcal{S}_{\mathrm{df}}(A)$ is standard in quantum
+logic~\cite{PtakPulmannova1991, Kalmbach1983}.  What we add is the
+identification of three transitions of different mathematical
+character, and the observation that distributivity controls which
+are trivial.
 
 \begin{definition}[Coherence filtration]
 \label{def:hierarchy}
@@ -577,8 +580,8 @@ For an OML with $\dim \geq 3$, every transition is non-trivial:
     = \varnothing$ (Kochen--Specker).
 \end{itemize}
 
-\noindent The filtration is thus a diagnostic: distributivity is
-the condition that makes it degenerate.
+\noindent Distributivity is sufficient to collapse the filtration.
+For $L(H)$ with $\dim \geq 3$, non-distributivity opens it fully.
 
 \begin{remark}[Relation to contextuality hierarchies]
 Abramsky and Brandenburger~\cite{AbramskyBrandenburger2011}
@@ -609,10 +612,13 @@ value-definite realism is the special case --- the case in which
 the observation algebra happens to be distributive.
 
 This reframing retroactively sharpens classical debates.
-Einstein's realism (``God does not play dice'') is the demand for
-VDR; the Kochen--Specker theorem shows it is algebraically
-impossible, not merely philosophically contestable.  Bohr's
-complementarity is the non-triviality of the pasting transition.
+The EPR argument for completeness~\cite{EPR1935} amounts to the
+demand that all observables simultaneously possess definite values
+--- i.e., VDR.  The Kochen--Specker theorem shows this is
+algebraically blocked for $\dim H \geq 3$.  Bohr's
+complementarity corresponds to the non-triviality of the pasting
+transition: incompatible contexts cannot be simultaneously
+realised.
 Bell's beables~\cite{HalvorsonClifton1999} --- the observables
 that \emph{can} have definite values --- are the elements of the
 maximal Boolean subalgebra $D(\rho, R)$
@@ -659,19 +665,22 @@ Several directions remain open:
     structure, and whether the commensurability theorem applies to
     counterfactual reasoning, is unexplored.
 
-  \item \emph{The topos connection.}
-    The topos approach to quantum
-    theory~\cite{IshamButterfield1998, DoeringIsham2008,
-    HeunenLandsmanSpitters2009} addresses closely related questions
-    via spectral presheaves rather than the McDonald--Bimb\'{o}
-    filter-space duality.  In particular, the Bohrification
-    programme of Heunen, Landsman, and
-    Spitters~\cite{HeunenLandsmanSpitters2009} constructs a topos
-    from the poset of Boolean subalgebras --- the same contexts
-    that appear in our filtration.  A comparison of the two
-    frameworks --- and whether the commensurability theorem has a
-    topos-theoretic formulation ---
-    is a natural next step.
+  \item \emph{Relation to the topos programme.}
+    The Bohrification programme~\cite{IshamButterfield1998,
+    DoeringIsham2008, HeunenLandsmanSpitters2009} encodes related
+    structure more powerfully: the spectral presheaf over the poset
+    of Boolean subalgebras captures VDR-failure as absence of global
+    sections (Kochen--Specker), and local VDR within each Boolean
+    context is built into the presheaf's local sections.  Our
+    filtration operates at a coarser level --- distinguishing EA, PR,
+    and VDR as properties of the algebra's state space rather than as
+    sheaf-cohomological obstructions.  The McDonald--Bimb\'{o} duality
+    offers a complementary perspective: a single topological dual
+    space (not a presheaf over contexts) in which principal filters
+    are structurally distinguished.  Whether the EA/PR/VDR vocabulary
+    translates into the topos framework, and whether the filtration
+    refines or merely simplifies the sheaf-theoretic picture, remains
+    open.
 \end{enumerate}
 
 \ifstandalone

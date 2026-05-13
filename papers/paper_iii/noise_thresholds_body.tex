@@ -59,19 +59,8 @@ they degrade.  FNN in particular is known to be sensitive to
 noise~\cite{RagwitzKantz2002}, but the degradation has not been
 systematically characterised.
 
-We make three contributions:
-\begin{enumerate}
-  \item We characterise the noise threshold at which
-    Jacobian-based criteria (including FNN and Lyapunov
-    convergence) lose diagnostic value
-    (\S\ref{sec:threshold}).
-  \item We propose residual autocorrelation convergence as a
-    noise-robust embedding criterion for both dimension and lag
-    selection (\S\ref{sec:residual}).
-  \item We explain the threshold via the distinction between
-    deterministic and stochastic modelling commitments
-    (\S\ref{sec:discussion}).
-\end{enumerate}
+We characterise the threshold, propose a noise-robust alternative,
+and explain why deterministic criteria share the same vulnerability.
 
 % ------------------------------------------------------------------
 \section{Method}
@@ -134,12 +123,11 @@ autocorrelation at sufficient $d$.}
 \label{sec:threshold}
 % ------------------------------------------------------------------
 
-We generate a Lorenz-63 trajectory ($N = 50\,000$, $\Delta t =
-0.01$) and observe the $x$-component corrupted by additive
-Gaussian noise at amplitudes $0$--$20\%$ of the signal standard
-deviation.  Delay vectors are formed with lag $L = 10$.
-
-\subsection*{False nearest neighbours}
+Both diagnostics of~\S\ref{sec:method} require a local linear fit,
+which in turn requires neighbours within bandwidth $h$.  We test
+on Lorenz-63 ($N = 50\,000$, $\Delta t = 0.01$, $h = 5$, $L = 10$),
+observing the $x$-component corrupted by additive Gaussian noise
+at amplitudes $0$--$20\%$ of the signal standard deviation.
 
 Table~\ref{tab:fnn} shows FNN percentages (threshold $R = 2$) at
 the correct embedding dimension $d = 3$ as a function of noise
@@ -161,12 +149,6 @@ rejects the true dimension.}
 \label{tab:fnn}
 \end{table}
 
-\noindent At $5\%$ noise, FNN reports $62\%$ false neighbours at
-the correct dimension --- indistinguishable from an insufficient
-embedding.  The criterion becomes useless.
-
-\subsection*{Jacobian trace}
-
 The mean $|\langle\mathrm{tr}(A)\rangle|$ across the attractor
 shows a similar threshold.  For clean data, it increases from
 $0.7$ ($d = 2$) to $47.7$ ($d = 6$), clearly indicating
@@ -175,13 +157,30 @@ $0.02$--$0.68$: no diagnostic signal remains.
 
 The transition is sharp: at $2\%$ noise, diagnostic signal
 persists (range $0.7$--$7.2$); at $5\%$, it vanishes.
+Figure~\ref{fig:phase} shows the full noise--dimension phase
+diagram for both diagnostics.
+
+\begin{figure}[t]
+\centering
+\includegraphics[width=\textwidth]{code/phase_diagram.png}
+\caption{Phase diagram: noise level vs.\ embedding dimension for
+the deterministic diagnostic (left: $|\langle\mathrm{tr}(A)\rangle|$)
+and the residual diagnostic (centre: $1 - \mathrm{acf}(1)$,
+where higher = whiter residuals).  The deterministic diagnostic
+loses signal above $\sim 2$--$5\%$ noise; the residual diagnostic
+functions across the full range.}
+\label{fig:phase}
+\end{figure}
 
 % ------------------------------------------------------------------
 \section{Residual autocorrelation as embedding criterion}
 \label{sec:residual}
 % ------------------------------------------------------------------
 
-\subsection*{Dimension selection}
+The Jacobian trace fails above $\sim 2\%$ noise because it tests a
+property (well-defined local expansion rate) that noise destroys.
+The residual diagnostic tests a different property: absence of
+predictable structure in the fit errors.
 
 Table~\ref{tab:acf} shows the lag-1 residual autocorrelation as a
 function of embedding dimension, for both clean and $5\%$-noisy
@@ -205,20 +204,23 @@ Jacobian trace do not.}
 \end{table}
 
 \noindent The residual autocorrelation decreases with $d$ and
-stabilises, correctly indicating sufficient embedding.  This holds
-across the full noise range tested ($0$--$20\%$; see
-Figure~\ref{fig:phase}).
-
-\subsection*{Lag selection}
+stabilises across the full noise range tested ($0$--$20\%$).
 
 At fixed $d = 3$, the residual autocorrelation as a function of
 lag $L$ shows a U-shaped profile with a minimum near $L \approx
 7$--$11$ (corresponding to $0.07$--$0.11$ orbital periods).  This
-minimum persists under $5\%$ noise, providing a noise-robust lag
-selection criterion where mutual information has limited
-applicability.
+minimum persists under $5\%$ noise (Figure~\ref{fig:lag}),
+providing a noise-robust lag selection criterion.
 
-\subsection*{Validation on R\"{o}ssler}
+\begin{figure}[t]
+\centering
+\includegraphics[width=0.8\textwidth]{code/lag_sweep.png}
+\caption{Lag sweep ($d = 3$, Lorenz-63).  Top left: Jacobian
+trace vs.\ lag (bell-shaped for clean, flat for noisy).  Top
+right: residual acf(1) vs.\ lag (U-shaped for both clean and
+noisy, minimum at $L \approx 7$--$11$).}
+\label{fig:lag}
+\end{figure}
 
 The same patterns hold for the R\"{o}ssler system ($a = 0.2$, $b =
 0.2$, $c = 5.7$): residual autocorrelation decreases with $d$ for
@@ -263,8 +265,6 @@ deterministic criteria (FNN, Jacobian convergence) provide sharp
 diagnostics.  Above this threshold, use residual autocorrelation
 convergence for dimension selection and the U-shaped minimum for
 lag selection.
-
-\subsection*{Relation to existing methods}
 
 The local linear computation is shared with
 S-maps~\cite{Sugihara1994, DeyleSugihara2011, CenciSugiharaSaavedra2019}

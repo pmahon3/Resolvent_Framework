@@ -260,11 +260,16 @@ $\mathbf{z}_{t+1} = F(\mathbf{z}_t) + \sigma(\mathbf{z}_t)
 the model, and the diagnostic tests only for remaining
 deterministic structure.
 
-The practical recommendation: for clean data ($< 2\%$ noise),
-deterministic criteria (FNN, Jacobian convergence) provide sharp
-diagnostics.  Above this threshold, use residual autocorrelation
-convergence for dimension selection and the U-shaped minimum for
-lag selection.
+The embedding problem is algebraically underdetermined: the
+observation algebra determines a measure on compatible
+observation-patterns but does not constrain which patterns
+correspond to realised states~\cite{mahon2026}.  This is why
+embedding selection is necessarily empirical, and why different
+empirical criteria have different operating regimes.  The practical
+recommendation: for clean data ($< 2\%$ noise), deterministic
+criteria (FNN, Jacobian convergence) provide sharp diagnostics.
+Above this threshold, use residual autocorrelation convergence for
+dimension selection and the U-shaped minimum for lag selection.
 
 The local linear computation is shared with
 S-maps~\cite{Sugihara1994, DeyleSugihara2011, CenciSugiharaSaavedra2019}

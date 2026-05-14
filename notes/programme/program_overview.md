@@ -105,32 +105,13 @@ polished; arXiv pending Paper I upload)
 
 ---
 
-### Paper III — Certifying Reconstruction from Finite Data
+### Paper III — WITHDRAWN
 
-**What it asks:** Paper II establishes the reconstruction equivalence theoretically.
-Paper III asks: what does it look like empirically, at what rate, and with what
-witnesses?
+**Status:** Canned (2026-05-13). Novelty audit revealed rediscovery throughout:
+residual autocorrelation = Billings-Voon (1986), FNN noise sensitivity =
+Rhodes-Morari (1997), elbow stopping = Lepski (1991).
 
-**Two-thread structure:** General query certification (Paper I level, no
-temporal/geometric assumptions) converges with dynamical reconstruction (Paper II).
-In the dynamical setting, honest refinement is automatic — not a design condition.
-
-**Three theorems:**
-1. **(Algebra theorem):** δ̂(L,n) concentrates around δ(L); stopping rule achieves
-   minimax rate n^{-s/(2s+d)} without oracle inputs.
-2. **(Dynamics theorem):** Under uniform separation (US), estimated edge law Γ̂_h^(n)
-   converges to Γ_h at rate n^{-β/(2β+d)}.
-3. **(Conjunction theorem):** Under reconstruction ∧ US, witnesses δ̂ and d̂_L certify
-   the same object; Markov bridge connects them.
-
-**Key lemma:** Lemma 5.10 (Positive-fraction balance): ν_L(G(η)) ≥ 4(κ−η), no
-dynamical hypothesis. (Note: κ here is a scalar integral, not the kernel κ_Q.)
-
-**Lean:** Not started.
-
-**LaTeX:** `papers/paper_iii/finite_sample_reconstruction.tex` (~18 pages
-standalone arXiv build with proof sketches; full proofs in `papers/combined/`
-via `\ifdraft` toggle; editorially polished)
+**LaTeX:** `papers/archive/paper_iii_withdrawn/` and `papers/archive/paper_iii_canned/`
 
 **Updated 2026-04-29:**
 - `\ifdraft` conditional: `\draftfalse` in standalone (sketch proofs for arXiv),
@@ -169,8 +150,10 @@ The unifying object across all three papers is **observational indistinguishabil
 - Paper II: identical conditional regularity (κ_Q(q,·) = κ_Q(q',·)); same delay orbit (Φ_h(x) = Φ_h(x'))
 - Paper III: same delay vector at lag L — (x,x') ∈ R_L
 
-The programme is complete when (μ⊗μ)(R_L) → 0: indistinguishability vanishes at
-all layers simultaneously.
+The programme is complete when δ(L) → 0: the observable σ-algebra generates
+the full σ-algebra. Note: this is strictly stronger than collision convergence
+(μ⊗μ)(R_L) → 0, which only measures geometric fibre refinement. The bridge
+theorem claiming their equivalence under fibre mixing is false (2026-05-14).
 
 ---
 
@@ -180,27 +163,26 @@ all layers simultaneously.
 |-------|------------|--------|
 | I | Lack of CE | Proved irreducible (Łoś + finite-cofinite counterexample) |
 | II | Lack of density (𝒪_h ≠ ℬ mod μ) | Characterised by density bridge |
-| III | Lack of fibre mixing | CE analogue; irreducibility open |
+| III | Hidden factor obstruction | Bridge theorem false; geometric ≠ algebraic |
 
-Fibre mixing is to Paper III what CE is to Paper I: the minimal condition under
-which algebraic and information-theoretic witnesses are comparable. Whether fibre
-mixing is irreducible is the deepest open question in the programme.
+**Updated 2026-05-14:** The bridge theorem (algebraic ↔ geometric reconstruction
+under fibre mixing) is false. The core identity has a disintegration error (p_z
+vs p_z² weighting). The skew-product counterexample (X = A^Z × B^Z, h(a,b) = a₀)
+shows collision → 0 while δ = 1/4. The active direction is now a
+negative/clarification note proving geometric and algebraic reconstruction are
+inequivalent.
 
 ---
 
-## Submission Status (as of 2026-05-03)
+## Submission Status (updated 2026-05-14)
 
-| Paper | Mathematical status | Lean status | LaTeX status | Blocker |
-|-------|--------------------|-----------|----|---|
-| Companion note | Complete | N/A | arXiv-ready, 3 pages | math.LO endorsement |
-| I | All routes proved; CE irreducibility proved | ⚠️ 3 sorry (CE irred./infra) + 2 sorry (Stone/Mathlib); DelayEmbedding 0 sorry | arXiv-ready, 7 pages | math.LO endorsement |
-| II | Complete | ✅ 0 sorrys | Editorially polished, 9 pages | Paper I arXiv ID |
-| III | Complete | Not started | Editorially polished, 18 pages | Paper II arXiv ID |
-
-**Submission phases:**
-- **Phase 0 (current):** Obtain math.LO endorsement (email sent to Halpern).
-- **Phase 1:** Upload companion note → get ID → update MahonCE2026 bib entry → upload Paper I.
-- **Phase 2:** Update mahon_paper1 cross-refs → upload Papers II and III in sequence.
+| Paper | Status | Target |
+|-------|--------|--------|
+| Companion note | arXiv-ready, 3 pages | APAL |
+| I | Synthesis, not novel. arXiv-ready, 7 pages | Expositiones |
+| II | EA/PR/VDR framing novel; math classical. 9 pages | Synthese |
+| III | Withdrawn (rediscovery) | — |
+| Fibre mixing | Dead (bridge theorem false) | — |
 
 ---
 
@@ -208,41 +190,30 @@ mixing is irreducible is the deepest open question in the programme.
 
 Ordered by downstream leverage:
 
-1. **Fibre mixing irreducibility** *(highest leverage)*
-   Is fibre mixing derivable from any structural condition? The Łoś template from
-   CE irreducibility applies; the question is whether the finite-cofinite construction
-   generalises. Either outcome closes the three-obstruction table.
+**No active standalone leads as of 2026-05-14.**
 
-2. **Coherence/consistency schema** *(second, after fibre mixing)*
-   Formalise the three-component schema with CE and fibre mixing as worked examples.
-   See `notes/future/foundations/coherence_completion/conceptual_schema.md` and
-   `notes/README.md`.
+Previously listed directions closed or parked:
+- Geometric ≠ algebraic reconstruction — known/obvious (audited)
+- Entropy witness concentration — dead (depended on false bridge theorem)
+- Fibre mixing derivability — dead (bridge theorem false)
 
-3. **Entropy witness concentration** *(most immediate technical extension)*
-   McDiarmid bound for Ĥ_2(ν_L^(n)); no new structural theory needed.
-
-4. **Strategy D** *(self-contained; leave as named open problem)*
-   ZFC methods exhausted; likely independent.
-   See `notes/future/foundations/ce_nonderivability/index.md` and
-   `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.
-
-5. **Observational resolution dimension** *(Paper III-adjacent; theorem first)*
-   Generalise the \(n^{-s/(2s+D)}\) rate as distinguishability growth per unit
-   observational valuation.  Keep to a Paper III remark until a clean theorem is
-   proved.  See `notes/future/finite_sample/observational_resolution/index.md`.
-
-6. **Foundational topology / zeta / interaction** *(post-arXiv)*
-   Topology from vanishing distinction; zeta critical-line curve as query system.
+Remaining signposts (not projects):
+1. **CE as sheaf condition** — stalled seed, needs fresh approach.
+   See `notes/unsorted/ce_as_sheaf_condition.md`.
+2. **Strategy D** — ZFC methods exhausted; likely independent.
+   See `notes/unsorted/foundations/ce_nonderivability/index.md`.
+3. **OML extension problem** — genuinely open, needs OML expertise.
+4. **Foundational topology / zeta** — post-arXiv, speculative.
 
 ---
 
 ## Repository Layout
 
-- `papers/paper_i/` — Paper I LaTeX (arXiv-ready)
-- `papers/paper_ii/` — Paper II LaTeX (dynamics + reconstruction, combined)
-- `papers/paper_iii/` — Paper III LaTeX (finite-sample certification)
-- `papers/combined/` — combined monograph (relative \input paths)
-- `papers/archive/` — superseded separate Papers II and III sources
+- `papers/paper_i/` — Paper I (synthesis, expository)
+- `papers/paper_ii/` — Paper II (EA/PR/VDR, strongest contribution)
+- `papers/archive/` — all withdrawn/canned/dead papers
 - `formalization/QuerySystem/QuerySystem/` — Lean source files
-- `notes/programme/arxiv_prep.md` — arXiv submission checklist
-- `notes/programme/lean_flight_log.md` — Lean error/fix running log
+- `notes/knowledge_map/` — research control panel
+- `notes/reading_directions/` — guided reading with questions
+- `notes/programme/` — programme-level docs
+- `.claude/agents/` — 7 custom agents

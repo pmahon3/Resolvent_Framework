@@ -1,52 +1,65 @@
 # Structure from Observation
 
-## Status after novelty audit (2026-05-13)
+## Status (2026-05-14)
 
-Rigorous skeptical audits of all papers and artifacts revealed:
+**No active standalone leads.** All previous leads closed by audit.
+Papers I and II are synthesis/positioning, not novel research.
+Paper II (EA/PR/VDR, van Fraassen-to-duality) is the strongest
+novelty zone.
 
-- **Paper I** — known theorems with useful synthesis (not novel)
-- **Paper II** — incremental, publishable at a philosophy venue if
-  honestly framed (EA/PR/VDR vocabulary is novel; mathematics is not)
+### Papers
+
+- **Paper I** — known theorems with useful synthesis (not novel).
+  Expositiones target.
+- **Paper II** — EA/PR/VDR vocabulary novel; math classical.
+  Synthese target. Core thesis: "the realism/empiricism boundary
+  is algebraic."
 - **Paper III** — withdrawn (rediscovery)
-- **Old Papers II+III** — withdrawn (classical results throughout)
+- **Fibre mixing paper** — dead (bridge theorem false, disintegration
+  error). Archived.
 
-Two active leads survive: the entropy characterization of
-reconstruction and the fibre mixing condition.
+### Closed leads
 
-## Active leads
+- **Entropy characterization** — depended on bridge theorem (false).
+  See `notes/covered_leads/entropy_characterization.md`
+- **Fibre mixing** — bridge theorem false; replacement observation
+  (geometric ≠ algebraic reconstruction) is known/obvious.
+  See `notes/covered_leads/fibre_mixing.md`
 
-1. **Entropy characterization:** δ(L) → 0 iff H₂(ν_L) → ∞ bridges
-   Rokhlin distance to Rényi-2 entropy in delay reconstruction.
-   See `notes/active_leads/entropy_characterization.md`
+### Seeds (unaudited, in notes/unsorted/)
 
-2. **Fibre mixing:** novel spatial non-degeneracy condition on fibres
-   of delay maps, with open derivability question.
-   See `notes/active_leads/fibre_mixing.md`
+- Excess Fisher curvature — likely known, needs Phase 2 audit
+- CE as sheaf condition — stalled, needs fresh approach
 
 ## Repository structure
 
 ```
 Resolvent_Framework/
+├── .claude/
+│   └── agents/           ← 7 custom agents (auditor, advisor, etc.)
 ├── papers/
-│   ├── paper_i/          ← Paper I (synthesis, ready but not novel)
-│   ├── paper_ii/         ← Paper II (EA/PR/VDR, drafting)
-│   └── archive/          ← all withdrawn/canned papers
+│   ├── paper_i/          ← Paper I (synthesis, expository)
+│   ├── paper_ii/         ← Paper II (EA/PR/VDR, strongest contribution)
+│   └── archive/          ← all withdrawn/canned/dead papers
 ├── formalization/
 │   └── QuerySystem/      ← Lean 4 / Mathlib (1 sorry total)
 └── notes/
-    ├── active_leads/     ← 2 leads: entropy characterization, fibre mixing
-    ├── covered_leads/    ← well-expressed known results (reference)
-    ├── unsorted/         ← Tier 3 pile (needs individual assessment)
-    ├── archive/          ← dead ends and superseded notes
-    └── future/           ← fibre mixing source material
+    ├── active_leads/     ← currently empty
+    ├── covered_leads/    ← known results + dead leads (reference)
+    ├── unsorted/         ← seeds + unassessed material
+    ├── knowledge_map/    ← research control panel
+    ├── reading_directions/ ← guided reading with questions
+    ├── programme/        ← programme-level docs
+    ├── archive/          ← dead ends and superseded
+    └── literature/       ← literature reviews by topic
 ```
 
 ## Lean formalization
 
 | File | Status |
 |------|--------|
-| QuerySystem.lean | ✅ 0 sorry |
-| DiscriminabilityFoundations.lean | ✅ 0 sorry |
+| QuerySystem.lean | 0 sorry |
+| DiscriminabilityFoundations.lean | 0 sorry |
 | StoneDualityExtension.lean | 1 sorry (Yosida-Hewitt) |
-| UltrafilterCharge.lean | ✅ 0 sorry |
-| Commensurability.lean | ✅ 0 sorry (1 axiom: KS) |
+| UltrafilterCharge.lean | 0 sorry |
+| Commensurability.lean | 0 sorry (1 axiom: KS) |

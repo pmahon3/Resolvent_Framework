@@ -25,7 +25,7 @@ Directory conventions:
 
 - directory names are lowercase `snake_case`;
 - active multi-note directions live under
-  `notes/future/<architecture_layer>/<topic>/`;
+  `notes/unsorted/<architecture_layer>/<topic>/`;
 - topic-specific literature mirrors the same architecture layer when useful:
   `notes/literature/<architecture_layer>/<topic>/`;
 - programme-wide reception reports live under
@@ -66,9 +66,9 @@ File conventions:
 
 Path examples:
 
-- `notes/future/foundations/coherence_completion/index.md`;
-- `notes/future/foundations/coherence_completion/mathematical_language.md`;
-- `notes/future/finite_sample/observational_resolution/theorem_spec.md`;
+- `notes/unsorted/foundations/coherence_completion/index.md`;
+- `notes/unsorted/foundations/coherence_completion/mathematical_language.md`;
+- `notes/unsorted/finite_sample/observational_resolution/theorem_spec.md`;
 - `notes/literature/foundations/coherence_completion/logic_lit_review.md`;
 - `notes/programme/programme_reception/novelty_audit.md`.
 
@@ -99,7 +99,8 @@ admissibility, or construction that supplies it.
 
 **Admissibility** is the preferred phrase for the condition that licenses a
 completion as genuine structure rather than merely formal closure.  CE is the
-prototype for probability; fibre mixing may become the Paper III analogue;
+prototype for probability; the Paper III analogue is open (fibre mixing was
+the candidate but the bridge theorem it supported is false --- 2026-05-14);
 valuation of refinement is the quantitative analogue for dimension/rates.
 
 ## Active Clusters
@@ -116,11 +117,11 @@ Central question:
 
 Primary notes:
 
-- `notes/future/foundations/coherence_completion/conceptual_schema.md` — conceptual seed and
+- `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` — conceptual seed and
   schema: consistency, coherence, admissibility, failure modes.
-- `notes/future/foundations/coherence_completion/mathematical_language.md` — formal
+- `notes/unsorted/foundations/coherence_completion/mathematical_language.md` — formal
   language, definitions, theorem templates, and candidate examples.
-- `notes/future/foundations/coherence_completion/paper_sketch.md` — exposition/paper-shape
+- `notes/unsorted/foundations/coherence_completion/paper_sketch.md` — exposition/paper-shape
   sketch; not the proof notebook.
 - `notes/literature/foundations/coherence_completion/logic_lit_review.md` — mathematical
   logic placement and opportunity map.
@@ -132,17 +133,18 @@ Do not merge these.  The clean division is:
 
 | Need | Edit |
 |---|---|
-| active philosophy ↔ math iteration | `notes/future/foundations/coherence_completion/development.md` |
-| conceptual vocabulary | `notes/future/foundations/coherence_completion/conceptual_schema.md` |
-| definitions / lemmas / theorem targets | `notes/future/foundations/coherence_completion/mathematical_language.md` |
-| eventual article narrative | `notes/future/foundations/coherence_completion/paper_sketch.md` |
+| active philosophy ↔ math iteration | `notes/unsorted/foundations/coherence_completion/development.md` |
+| conceptual vocabulary | `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` |
+| definitions / lemmas / theorem targets | `notes/unsorted/foundations/coherence_completion/mathematical_language.md` |
+| eventual article narrative | `notes/unsorted/foundations/coherence_completion/paper_sketch.md` |
 | logic literature placement | `notes/literature/foundations/coherence_completion/logic_lit_review.md` |
 | philosophical scaffolding | `notes/literature/foundations/coherence_completion/philosophy_lit_review.md` |
 
 Current mathematical front:
 
 - Strategy D, via Boolean algebra / Stone duality / Radon measure support.
-- Possible second example later: fibre mixing in continuous or metric logic.
+- Fibre mixing was a candidate second example but the bridge theorem
+  is false (2026-05-14). No current second example.
 
 ### Foundations: Strategy D and CE Non-Derivability
 
@@ -154,7 +156,7 @@ Central question:
 
 Primary notes:
 
-- `notes/future/foundations/ce_nonderivability/index.md` — parent overview connecting the
+- `notes/unsorted/foundations/ce_nonderivability/index.md` — parent overview connecting the
   companion note, ultralimit representation, and Strategy D.
 - `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` —
   active launchpad for the Strategy D investigation.
@@ -191,17 +193,17 @@ Central question:
 
 Primary notes:
 
-- `notes/future/finite_sample/observational_resolution/index.md` — conceptual and
+- `notes/unsorted/finite_sample/observational_resolution/index.md` — conceptual and
   technical overview.
-- `notes/future/finite_sample/observational_resolution/theorem_spec.md` — theorem target and
+- `notes/unsorted/finite_sample/observational_resolution/theorem_spec.md` — theorem target and
   proof skeleton.
-- `notes/future/finite_sample/observational_resolution/failure_modes.md` — guardrails and
+- `notes/unsorted/finite_sample/observational_resolution/failure_modes.md` — guardrails and
   known ways the idea can overreach.
-- `notes/future/finite_sample/observational_resolution/paper_iii_integration.md` — editorial
+- `notes/unsorted/finite_sample/observational_resolution/paper_iii_integration.md` — editorial
   boundary for Paper III.
 - `notes/literature/finite_sample/observational_resolution/dimension_lit_review.md` —
   literature placement.
-- `notes/future/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
+- `notes/unsorted/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
   map.
 
 Consolidation decision:
@@ -217,30 +219,30 @@ Immediate next tasks:
 2. Prove one clean balanced-partition specialization.
 3. Only then decide whether Paper III should include more than a remark.
 
-### Dynamics and Reconstruction: Fibre Mixing Investigation
+### Dynamics and Reconstruction: Geometric vs Algebraic Reconstruction
 
-Central question:
+Central question (revised 2026-05-14):
 
-> Is fibre mixing an independent admissibility condition, or can it be derived
-> from structural hypotheses already present in the reconstruction framework?
+> Geometric reconstruction (collision → 0) and algebraic reconstruction
+> (δ → 0) are inequivalent. The bridge theorem claiming equivalence under
+> fibre mixing is false (disintegration error). What conditions on the
+> factor map make collision → 0 imply δ → 0?
 
 Primary notes:
 
-- `notes/future/dynamics_reconstruction/fibre_mixing/index.md`
-- `notes/future/dynamics_reconstruction/fibre_mixing/step_06_derivability.md`
-- `notes/future/dynamics_reconstruction/fibre_mixing/step_07_bridge_theorem.md`
+- `notes/covered_leads/fibre_mixing.md` — revised lead (dead)
+- `papers/archive/paper_fibre_mixing/verification_checklist.md` — error documentation
+- `papers/archive/paper_fibre_mixing/bridge_note_source.tex` — contains the error
+- `notes/archive/fibre_mixing_investigation/` — historical investigation (dead)
 
-Consolidation decision:
-
-- Keep this as its own investigation.
-- Use it as the likely second worked example for the coherence/completion
-  schema only after the derivability question is settled.
+Status: The old bridge theorem and derivability question are dead. The
+replacement direction is a short negative/clarification note.
 
 ### Dynamics and Reconstruction: Lyapunov / Observational Exponents
 
 Primary note:
 
-- `notes/future/dynamics_reconstruction/lyapunov/observational_direction.md`
+- `notes/unsorted/lyapunov_direction/observational_direction.md`
 
 Role:
 
@@ -252,7 +254,7 @@ Role:
 
 Primary note:
 
-- `notes/future/finite_sample/interaction/discrimination_direction.md`
+- `notes/unsorted/finite_sample/interaction/discrimination_direction.md`
 
 Role:
 
@@ -264,7 +266,7 @@ Role:
 
 Primary note:
 
-- `notes/future/foundations/zeta/observational_question.md`
+- `notes/unsorted/foundations/zeta/observational_question.md`
 
 Role:
 
@@ -330,8 +332,7 @@ Important archived clusters:
   architecture.
 - `notes/archive/break_reading_superseded.md` — earlier reading plan.
 - `notes/archive/fibre_mixing_investigation/` — steps 1-5 of the fibre-mixing
-  investigation, superseded by the active `notes/future/dynamics_reconstruction/fibre_mixing/`
-  notes.
+  investigation. Bridge theorem declared false 2026-05-14; investigation dead.
 
 Keep archived notes as provenance.  If an archived argument becomes active
 again, copy the relevant claim into an active note with attribution to the

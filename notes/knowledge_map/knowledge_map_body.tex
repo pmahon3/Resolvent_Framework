@@ -330,23 +330,37 @@ a significant attribution gap.
 
 \subsection{What is genuinely novel (but motivation unclear)}
 
-\textbf{Fibre mixing:} A spatial non-degeneracy condition on the
-Rokhlin disintegration over delay fibres.  Not equivalent to any
-standard temporal mixing condition.  Closest relative: Furstenberg
-relative weak mixing (different condition).
-\emph{Novel definition.  Open derivability question.}
+\textbf{Geometric $\neq$ algebraic reconstruction (2026-05-14):}
+The bridge note claimed $\delta(L) \to 0 \Leftrightarrow
+(\mu \otimes \mu)(R_L) \to 0$ under a fibre mixing condition.
+This is \textbf{false}: the core identity (Lemma~2.1 of the
+bridge note) has a disintegration error.  The conditional
+variance $\mathbb{E}[\mathrm{Var}(\mathbf{1}_S \mid \mathcal{O}_L)]
+= \sum_z p_z \,\mu_z(S)\mu_z(S^c)$ is weighted by $p_z$,
+while the collision integral $(1/2)\int_{R_L}
+|\mathbf{1}_S - \mathbf{1}_{S'}|^2\,d(\mu\otimes\mu)
+= \sum_z p_z^2 \,\mu_z(S)\mu_z(S^c)$ is weighted by $p_z^2$.
+The bridge note equated them; they are genuinely different.
 
-\textbf{Bridge theorem:} Algebraic reconstruction ($\delta \to 0$)
-$\Leftrightarrow$ geometric reconstruction (collision probability
-$\to 0$) under fibre mixing.
-\emph{Novel.  But: on standard Borel spaces with fixed $L$, the
-two conditions are essentially equivalent anyway.  The theorem is
-about convergence rates as $L$ grows.  Motivation unclear ---
-needs an example where the two modes actually diverge.}
+\textbf{Skew-product counterexample:} $X = A^{\mathbb{Z}} \times
+B^{\mathbb{Z}}$, $T = \sigma \times \sigma$, $h(a,b) = a_0$,
+independent iid uniform.  Then collision $= 2^{-(L+1)} \to 0$
+(fibres shrink in the $a$-coordinate) but $\delta_L = 1/4$ for
+all $L$ (the event $\{b_0 = 0\}$ is maximally unresolved).
+This falsifies even the ``easy direction.''
 
-\textbf{Entropy characterization:} $\delta(L) \to 0$ iff
-$H_2(\nu_L) \to \infty$.  \emph{Novel.  But: a reinterpretation
-of what Grassberger--Procaccia already computes, not a new tool.}
+\textbf{What survives:} The definitions (collision probability,
+Rokhlin distance, fibre mixing) are well-posed.
+The trivial direction $\delta \to 0 \Rightarrow
+\text{collision} \to 0$ holds.  The converse and the entropy
+characterization $\delta \to 0 \Leftrightarrow H_2 \to \infty$
+are both dead.
+
+\textbf{Replacement direction:} A short note proving that
+geometric and algebraic reconstruction are inequivalent,
+with the skew-product as the central theorem.  The open
+question becomes: what conditions on the factor map make
+collision $\to 0$ imply $\delta \to 0$?
 
 \subsection{What I understand from this}
 
@@ -370,9 +384,11 @@ of what Grassberger--Procaccia already computes, not a new tool.}
     the ``collision structure'' of the fibre decomposition.
     Grassberger--Procaccia already extracts this from data.
 
-  \item Fibre mixing is about the \emph{transition regime}:
-    fibres shrinking but not yet singletons.  It is vacuous at
-    both endpoints (no reconstruction, and full reconstruction).
+  \item The bridge theorem linking collision convergence to
+    $\sigma$-algebra generation is false: the disintegration error
+    ($p_z$ vs $p_z^2$ weighting) means the proposed identity is
+    simply the wrong identity, and the inequivalence of geometric
+    and algebraic reconstruction is known/obvious.
 \end{enumerate}
 
 % ==================================================================
@@ -406,6 +422,54 @@ of what Grassberger--Procaccia already computes, not a new tool.}
     no condition interpolates between first-order and
     $\sigma$-additivity is false.
     $\limsup \ell(A_n) < c$ trivially interpolates.
+
+  \item \textbf{Bridge theorem (fibre mixing):} The claimed
+    equivalence $\delta(L) \to 0 \Leftrightarrow
+    (\mu \otimes \mu)(R_L) \to 0$ under fibre mixing is false.
+    The core identity has a disintegration error: the conditional
+    variance integral is weighted by $p_z$, the collision integral
+    by $p_z^2$.  The skew-product $X = A^{\mathbb{Z}} \times
+    B^{\mathbb{Z}}$, $h(a,b) = a_0$ falsifies even the easy
+    direction.  The replacement observation (geometric $\neq$
+    algebraic reconstruction) is known to ergodic theorists.
+    Both the positive bridge and the negative note fail the audit.
+
+  \item \textbf{Entropy characterization:}
+    $\delta(L) \to 0 \Leftrightarrow H_2(\nu_L) \to \infty$
+    depended entirely on the bridge theorem.  Dead.
+
+  \item \textbf{Nonlinear semigroups / Hille operator (Phase 1):}
+    $C_n$-semigroups on Banach spaces, resolvent from finite
+    difference spectra, max-entropy fitting.  Abandoned approach
+    --- the semigroup formalism was too heavy for the applied
+    question.  The Rose kernel was the lighter successor.
+
+  \item \textbf{Rose--Takens measure conjugacy:}
+    ``Takens embedding + $D_{\mathrm{KL}}(h_\#\mu \| \nu) = 0$
+    implies measure conjugacy.''  Trivially true by definition:
+    diffeomorphism + pushforward = target measure IS measure
+    conjugacy.  Not a theorem.
+
+  \item \textbf{CGF $\to$ Fisher $\to$ Landau chain:}
+    Standard information geometry~\cite{Amari1985}.  The CGF-Fisher
+    connection is the definition of Fisher information.
+
+  \item \textbf{KL = least action (discrete Onsager--Machlup):}
+    Known: \cite{Eyink1996}, \cite{MaesNetocny2003}, large
+    deviations literature.
+
+  \item \textbf{Fisher clock / entropy production:}
+    Broken detailed balance $\to$ entropy production is
+    \cite{Schnakenberg1976}.  The ``Fisher clock'' framing is
+    poetic but the mathematics is standard nonequilibrium
+    statistical mechanics.
+
+  \item \textbf{Neutral operator edge law:}
+    The joint edge law $\Gamma = \nu \otimes K$ and its
+    $f$-divergence structure were absorbed into Paper II
+    (conditional regularity kernel $\kappa_Q$).  The diagnostic
+    exponents $\eta = 2s$, $\zeta = 2s/(2s+d)$ are the same
+    Lepski/Stone rates already canned in Paper III.
 \end{enumerate}
 
 % ==================================================================
@@ -414,12 +478,6 @@ of what Grassberger--Procaccia already computes, not a new tool.}
 % ==================================================================
 
 \begin{enumerate}
-  \item \textbf{Fibre mixing derivability:} Does ergodicity force
-    $\nu$-a.e.\ large fibre to be balanced for near-maximizers of
-    the Rokhlin distance?  \emph{Well-posed, partially solved
-    (positive fraction proved), but the paper built around it may
-    lack motivation.  Need a motivating example first.}
-
   \item \textbf{OML extension problem:} Does every state on a
     general OML extend to a $\sigma$-additive measure on the
     McDonald--Bimb\'{o} dual $S_0(A)$?  Gleason answers for
@@ -465,12 +523,11 @@ One sentence per insight:
   \item Delay reconstruction is algebraically underdetermined:
     embedding selection is necessarily empirical.
 
-  \item Fibre mixing is a novel spatial condition on the
-    disintegration, distinct from temporal mixing, relevant only
-    in the transition regime.
-
-  \item The bridge between algebraic and geometric reconstruction
-    may be solving a problem that doesn't arise naturally.
+  \item Geometric reconstruction (collision $\to 0$) and algebraic
+    reconstruction ($\delta \to 0$) are genuinely inequivalent.
+    The bridge theorem claiming their equivalence under fibre
+    mixing was false (disintegration error in the core identity).
+    The skew-product counterexample is definitive.
 
   \item Every practical reconstruction diagnostic implicitly
     assumes a modelling commitment; noise violates deterministic

@@ -1,0 +1,138 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{Reading Directions\\
+\large Not a syllabus.\ Questions to bring to specific sources.}
+\author{Patrick S.\ Mahon \\ \small Personal reference}
+\date{May 2026}
+
+\begin{document}
+\maketitle
+
+\section*{The persistent question}
+
+Across all phases of this programme:
+\begin{quote}
+\emph{What must be added to observation to get structure?}
+\end{quote}
+
+\begin{itemize}[nosep]
+  \item Phase 1: observation $\to$ dynamics (semigroup)
+  \item Phase 2--3: observation $\to$ geometry (curvature, metric, action)
+  \item Phase 4--6: observation $\to$ probability (CE),
+    realization (descent), value-definiteness (distributivity)
+\end{itemize}
+
+\medskip\noindent
+The reading question is not ``learn more $X$.''  It is:
+\begin{quote}
+\emph{Where does someone identify the exact condition that forces
+a valuation to behave --- and what structure does that condition
+live in?}
+\end{quote}
+
+% ==================================================================
+\section{Caramello --- \emph{Theories, Sites, Toposes} (2018)}
+
+\textbf{Question while reading:} Is there a Morita equivalence
+that makes CE into a geometric (site-theoretic) condition?
+
+\medskip\noindent
+\textbf{Why.}  Caramello systematically translates model-theoretic
+properties into topos-theoretic ones.  The CE question --- when
+does a structural condition force $\sigma$-additivity? --- is
+exactly this kind of translation problem.  If CE corresponds to
+a topological/geometric property of the classifying topos, the
+sheaf-condition seed becomes a theorem.
+
+\medskip\noindent
+\textbf{Contact with programme:} CE-as-sheaf seed directly.
+
+% ==================================================================
+\section{Vickers --- \emph{Topology via Logic} (1989)}
+
+\textbf{Question while reading:} Is CE literally continuity of
+the charge viewed as a frame map?
+
+\medskip\noindent
+\textbf{Why.}  The constructive/locale-theoretic approach treats
+$\sigma$-additivity as continuity of a frame homomorphism
+(preserving directed joins).  CE might already be this condition
+in the locale of opens on the Stone space.
+
+\medskip\noindent
+\textbf{Contact with programme:} CE characterization, Paper~I
+Stone route, the ``what does descent require?''\ question.
+
+% ==================================================================
+\section{R\'{e}dei \& Summers --- quantum probability structure}
+
+\textbf{Question while reading:} What do they identify as the
+obstruction to extending states across non-Boolean joins?
+
+\medskip\noindent
+\textbf{Why.}  They work at the Boolean/non-Boolean boundary,
+which is Paper~II's territory.  Their work on quantum probability
+structure might identify the exact algebraic condition where VDR
+fails --- more precisely than ``non-distributive $+$ $\dim \geq 3$.''
+
+\medskip\noindent
+\textbf{Contact with programme:} Paper~II (EA/PR/VDR), OML
+extension problem.
+
+% ==================================================================
+\section{D\"{o}ring \& Isham --- topos quantum mechanics}
+
+\textbf{Question while reading:} Does daseinisation give a
+concrete example of descent from the Stone space to a realization?
+
+\medskip\noindent
+\textbf{Why.}  Their topos approach makes contextual states into
+global sections of a presheaf.  This is adjacent to both the
+CE-as-sheaf seed and the OML extension problem.  Daseinisation
+(approximating quantum propositions by classical ones) is
+structurally similar to ``descending from $\mathrm{St}(\mathcal{C})$
+to $\Omega$.''
+
+\medskip\noindent
+\textbf{Contact with programme:} CE-as-sheaf, OML extension,
+Paper~II.
+
+% ==================================================================
+\section{Fremlin Vol.\ 3 --- measure algebras}
+
+\textbf{Question while reading:} Is there a known algebraic
+condition on a Boolean algebra that forces every finitely additive
+charge to be $\sigma$-additive?
+
+\medskip\noindent
+\textbf{Why.}  Measure algebras (Boolean algebras with strictly
+positive countably additive measures) are exactly the algebras
+where CE holds automatically.  Fremlin's characterization of when
+a Boolean algebra admits such a measure might be CE in algebraic
+language.
+
+\medskip\noindent
+\textbf{Contact with programme:} Paper~I, CE irreducibility, the
+``exact boundary'' question.
+
+% ==================================================================
+\section*{How to use this document}
+
+When reading, annotate in the margins or on a separate sheet:
+\begin{enumerate}[nosep]
+  \item What theorem or definition surprised you.
+  \item What connected to the programme.
+  \item What contradicted the knowledge map.
+  \item What suggested a concrete Phase~1 seed note.
+\end{enumerate}
+
+\noindent
+When a reading direction produces a concrete claim worth auditing,
+extract it to \texttt{notes/unsorted/} and run Phase~2.
+
+\end{document}

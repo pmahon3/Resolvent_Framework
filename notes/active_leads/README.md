@@ -2,14 +2,14 @@
 
 Potentially novel ideas with concrete next steps.
 
-## 1. Entropy characterization of reconstruction
-δ(L) → 0 iff H₂(ν_L) → ∞. Bridges Rokhlin distance to Rényi-2
-entropy in delay reconstruction. Needs novelty verification.
-→ [entropy_characterization.md](entropy_characterization.md)
+**No active standalone leads as of 2026-05-14.**
 
-## 2. Fibre mixing condition
-Novel spatial non-degeneracy condition on fibres of delay maps.
-Open derivability question. Closest relative: Furstenberg
-relative mixing.
-→ [fibre_mixing.md](fibre_mixing.md)
-→ Source: notes/future/dynamics_reconstruction/fibre_mixing/
+Both previous leads were closed:
+
+1. **Entropy characterization** — depended on bridge theorem which
+   is false. Moved to `covered_leads/entropy_characterization.md`.
+
+2. **Fibre mixing / bridge theorem** — core identity has a
+   disintegration error; the replacement negative result (geometric
+   ≠ algebraic reconstruction) is known/obvious to ergodic
+   theorists. Moved to `covered_leads/fibre_mixing.md`.

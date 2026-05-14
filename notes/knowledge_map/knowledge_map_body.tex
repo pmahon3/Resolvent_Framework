@@ -45,34 +45,28 @@ make all three available.
 \begin{itemize}
   \item \textbf{Continuity from above:} A finitely additive charge
     on an algebra is $\sigma$-additive iff
-    $E_n \downarrow \varnothing \Rightarrow \ell(E_n) \to 0$.
-    \emph{Halmos, Measure Theory (1950), \S13, Theorem~D.}
+    $E_n \downarrow \varnothing \Rightarrow \ell(E_n) \to 0$
+    \cite[\S13, Theorem~D]{Halmos1950}.
 
   \item \textbf{Carath\'{e}odory extension:} A $\sigma$-additive
     premeasure on a semiring extends uniquely to a measure on the
-    generated $\sigma$-algebra.
-    \emph{Carath\'{e}odory (1914); Halmos \S13; Bogachev Vol.~1,
-    Ch.~1.}
+    generated $\sigma$-algebra
+    \cite[\S13]{Halmos1950}, \cite[Vol.~1, Ch.~1]{Bogachev2007}.
 
   \item \textbf{Kolmogorov extension:} Compatible
     finite-dimensional distributions on a product space extend to a
     unique probability measure, under standard Borel / tightness
-    conditions.
-    \emph{Kolmogorov, Grundbegriffe (1933); Billingsley,
-    Probability and Measure, Ch.~36.}
+    conditions \cite[Ch.~36]{Billingsley1995}.
 
   \item \textbf{Choksi inverse limits:} Compatible measures on an
     inverse system of compact Hausdorff spaces extend to the
-    inverse limit.
-    \emph{Choksi, Inverse limits of measure spaces, Proc.\ London
-    Math.\ Soc.\ (1958), Theorem~1.}
+    inverse limit \cite[Theorem~1]{Choksi1958}.
 
   \item \textbf{Yosida--Hewitt decomposition:} Every bounded
     finitely additive charge decomposes uniquely as
     $\ell = \ell_c + \ell_p$ where $\ell_c$ is $\sigma$-additive
-    and $\ell_p$ is purely finitely additive.
-    \emph{Yosida \& Hewitt, Finitely additive measures, Trans.\
-    AMS (1952).}
+    and $\ell_p$ is purely finitely additive
+    \cite{YosidaHewitt1952}.
 \end{itemize}
 
 \subsection{What I proved (turned out classical)}
@@ -103,10 +97,9 @@ verified infrastructure, even though the theorems are classical.
     first-order / finitary conditions.
 
   \item No first-order condition can force $\sigma$-additivity.
-    \emph{Immediate from \L{}o\'{s}'s theorem: the ultraproduct of
+    Immediate from \L{}o\'{s}'s theorem: the ultraproduct of
     Dirac masses on $\mathbb{N}$ is a purely finitely additive
-    charge.  Hoover (1978), Fagin--Halpern--Megiddo (1990) for
-    the probability-logic formulation.}
+    charge \cite{Hoover1978, FaginHalpernMegiddo1990}.
 
   \item The finite-cofinite charge on $\mathbb{N}$ is the
     canonical obstruction: normalized, finitely additive,
@@ -126,21 +119,20 @@ verified infrastructure, even though the theorems are classical.
 \begin{itemize}
   \item \textbf{Stone representation:} Every Boolean algebra is
     isomorphic to the clopen algebra of a compact, Hausdorff,
-    totally disconnected space (its Stone space).
-    \emph{Stone (1936); Johnstone, Stone Spaces (1982).}
+    totally disconnected space (its Stone space)
+    \cite{Johnstone1982}.
 
   \item \textbf{Charge $\leftrightarrow$ measure on Stone space:}
     Every finitely additive charge on a Boolean algebra $B$
     corresponds to a regular Borel (Baire) measure on its Stone
-    space $\St(B)$ (the space of ultrafilters on $B$).
-    \emph{Fremlin, Measure Theory, Vol.~3, \S326 and Vol.~4, \S416;
-    Halmos (1950).}
+    space $\St(B)$ (the space of ultrafilters on $B$)
+    \cite[\S326]{Fremlin2003}, \cite[\S53]{Halmos1950}.
 
   \item \textbf{$\sigma$-additivity $\leftrightarrow$ support:}
     A charge on $B$ is $\sigma$-additive iff the corresponding
     Stone-space measure vanishes on meagre Baire sets, equivalently
-    assigns full mass to countably complete ultrafilters.
-    \emph{Rao \& Rao, Theory of Charges (1983), Theorem~10.5.3.}
+    assigns full mass to countably complete ultrafilters
+    \cite[Theorem~10.5.3]{RaoRao1983}.
 
   \item \textbf{Principal ultrafilters:} Every principal ultrafilter
     is countably complete.  The converse holds for $\mathcal{P}(\kappa)$
@@ -211,30 +203,30 @@ the abstractness of Boolean algebras recognized since Stone (1936).
 
   \item \textbf{Kochen--Specker:} For the lattice $L(H)$ of closed
     linear subspaces of a Hilbert space $H$ with $\dim H \geq 3$,
-    no dispersion-free state (2-valued homomorphism) exists.
-    \emph{Kochen \& Specker (1967).}
+    no dispersion-free state (2-valued homomorphism) exists
+    \cite{KochenSpecker1967}.
 
   \item \textbf{Gleason:} For $L(H)$, $\dim H \geq 3$, every
-    $\sigma$-additive state is $s(P) = \mathrm{tr}(\rho P)$.
-    \emph{Gleason (1957).}
+    $\sigma$-additive state is $s(P) = \mathrm{tr}(\rho P)$
+    \cite{Gleason1957}.
 
   \item \textbf{Bub--Clifton:} Given a state $\rho$ and a
     preferred observable $R$, there is a unique maximal Boolean
     subalgebra $D(\rho, R) \subseteq L(H)$ on which the state is
     a mixture of dispersion-free states.
-    \emph{Bub \& Clifton (1996); Halvorson \& Clifton (1999).}
+    \cite{BubClifton1996, HalvorsonClifton1999}.
 
   \item \textbf{Orthomodular lattice (OML) duality:} The category
     of OMLs is dually equivalent to a category of orthomodular
     spaces.  Principal filters $P(A)$ are part of the dual
     structure (unlike Stone duality where they are invisible).
-    \emph{McDonald \& Bimb\'{o} (2023), MLQ.  Zero citations in
-    quantum foundations as of 2026.}
+    \cite{McDonaldBimbo2023}.  Zero citations in quantum
+    foundations as of 2026.
 
   \item \textbf{Colimit generation:} Gluing Boolean algebras via
     categorical pushout produces orthomodular lattices, generically
     non-distributive.
-    \emph{Gunji, Haruna \& Uragami (2026), arXiv:2603.22353.}
+    \cite{Gunji2026}.
 \end{itemize}
 
 \subsection{What I proved (classical + one novel framing)}
@@ -294,44 +286,47 @@ distributivity collapses the filtration are new packaging.
 \subsection{The classical results}
 
 \begin{itemize}
-  \item \textbf{Takens (1981):} Generic smooth observable gives an
-    injective delay map for $L \geq 2 \dim X$.
+  \item \textbf{Takens:} Generic smooth observable gives an
+    injective delay map for $L \geq 2 \dim X$ \cite{Takens1981}.
 
-  \item \textbf{Sauer--Yorke--Casdagli (1991):} Prevalence-based
-    embedding theorem.
+  \item \textbf{Sauer--Yorke--Casdagli:} Prevalence-based
+    embedding theorem \cite{SauerYorkeCasdagli1991}.
 
-  \item \textbf{Generating partitions (Sinai 1959, Krieger 1970):}
-    $h(T, P) = h(T)$ iff $P$ generates.
+  \item \textbf{Generating partitions:}
+    $h(T, P) = h(T)$ iff $P$ generates
+    \cite{Sinai1959, Krieger1970}.
 
   \item \textbf{Grassberger--Procaccia:} Correlation integral
     estimates $D_2$ and $K_2$ (R\'{e}nyi-2 dimension and entropy)
     from delay data.
 
-  \item \textbf{False nearest neighbours (FNN)
-    (Kennel--Brown--Abarbanel 1992):} Embedding dimension selection.
-    Sensitive to noise (Rhodes--Morari 1997).
+  \item \textbf{False nearest neighbours (FNN):} Embedding
+    dimension selection \cite{KennelBrownAbarbanel1992}.  Sensitive
+    to noise \cite{RhodesMorari1997}.
 
-  \item \textbf{Ragwitz--Kantz (2002):} Local prediction error
-    minimization for $(d, L)$ selection.
+  \item \textbf{Ragwitz--Kantz:} Local prediction error
+    minimization for $(d, L)$ selection \cite{RagwitzKantz2002}.
 
-  \item \textbf{Botvinick-Greenhouse et al.\ (2025):}
-    Measure-theoretic Takens via optimal transport.  Lifts
-    embedding to probability spaces.
+  \item \textbf{Botvinick-Greenhouse et al.:}
+    Measure-theoretic Takens via optimal transport
+    \cite{BotvinickGreenhouse2025}.
 \end{itemize}
 
 \subsection{What I proved (mostly classical)}
 
 \textbf{Reconstruction theorem:} Observable $\sigma$-algebra $=$
 full $\sigma$-algebra mod $\mu$ iff delay algebra dense in $L^2$
-iff delay map is measure-theoretic embedding.  \emph{This is
-Krieger's generating partition theorem in delay-map language.}
+iff delay map is measure-theoretic embedding.  This is
+Krieger's generating partition theorem~\cite{Krieger1970} in
+delay-map language.
 
 \textbf{Predictive factorization, Chapman--Kolmogorov, Koopman--Perron:}
 All classical (Rokhlin, Kolmogorov, Koopman 1931).
 
 \textbf{Finite-sample convergence rates:} Minimax rates
-$n^{-s/(2s+d)}$ via Stone (1982); elbow stopping via Lepski (1991).
-\emph{Not cited in the original work --- a significant gap.}
+$n^{-s/(2s+d)}$~\cite{Stone1982}; elbow stopping via
+Lepski~\cite{Lepski1991}.  Not cited in the original work ---
+a significant attribution gap.
 
 \subsection{What is genuinely novel (but motivation unclear)}
 
@@ -401,10 +396,11 @@ of what Grassberger--Procaccia already computes, not a new tool.}
     structure on $\Omega$.
 
   \item \textbf{Paper III (noise thresholds):} Residual
-    autocorrelation as embedding diagnostic = Billings--Voon (1986)
-    / Casdagli (1991).  FNN noise sensitivity = Rhodes--Morari
-    (1997).  Elbow stopping = Lepski (1991).  Rediscovery
-    throughout.
+    autocorrelation as embedding diagnostic =
+    Billings--Voon~\cite{BillingsVoon1986} /
+    Casdagli~\cite{Casdagli1992}.  FNN noise sensitivity =
+    Rhodes--Morari~\cite{RhodesMorari1997}.  Elbow stopping =
+    Lepski~\cite{Lepski1991}.  Rediscovery throughout.
 
   \item \textbf{``No intermediate condition'':} The claim that
     no condition interpolates between first-order and
@@ -484,103 +480,41 @@ One sentence per insight:
 \end{enumerate}
 
 % ==================================================================
-\section{Key references}
+\section{References by subject}
 \label{sec:refs}
 % ==================================================================
 
-\subsection*{Measure extension and charges}
+\noindent Full bibliographic details are in the reference list below.
+This section groups them for navigation.
 
-\begin{itemize}
-  \item Halmos, \emph{Measure Theory} (1950) --- \S13, \S53--54
-  \item Billingsley, \emph{Probability and Measure} --- Ch.~36
-  \item Bogachev, \emph{Measure Theory} --- Vol.~1, Ch.~1
-  \item Rao \& Rao, \emph{Theory of Charges} (1983) --- Thm~10.5.3
-  \item Yosida \& Hewitt (1952) --- Trans.\ AMS
-  \item Choksi (1958) --- Proc.\ London Math.\ Soc.
-  \item Fremlin, \emph{Measure Theory} --- Vol.~3 \S326, Vol.~4 \S416
-\end{itemize}
+\subsection*{Measure extension and charges}
+\cite{Halmos1950, Billingsley1995, Bogachev2007, RaoRao1983,
+YosidaHewitt1952, Choksi1958, Fremlin2003}
 
 \subsection*{Stone duality}
-
-\begin{itemize}
-  \item Johnstone, \emph{Stone Spaces} (1982)
-  \item Stone (1936) --- Trans.\ AMS
-\end{itemize}
+\cite{Johnstone1982}
 
 \subsection*{Quantum logic and contextuality}
-
-\begin{itemize}
-  \item Kalmbach, \emph{Orthomodular Lattices} (1983)
-  \item Pt\'{a}k \& Pulmannov\'{a}, \emph{Orthomodular Structures
-    as Quantum Logics} (1991)
-  \item Kochen \& Specker (1967) --- J.\ Math.\ Mech.
-  \item Gleason (1957) --- J.\ Math.\ Mech.
-  \item Bub \& Clifton (1996) --- SHPMP
-  \item Halvorson \& Clifton (1999) --- IJTP
-  \item Abramsky \& Brandenburger (2011) --- New J.\ Phys.
-  \item McDonald \& Bimb\'{o} (2023) --- MLQ
-  \item Gunji, Haruna \& Uragami (2026) --- arXiv:2603.22353
-\end{itemize}
+\cite{Kalmbach1983, PtakPulmannova1991, KochenSpecker1967,
+Gleason1957, BubClifton1996, HalvorsonClifton1999,
+AbramskyBrandenburger2011, McDonaldBimbo2023, Gunji2026}
 
 \subsection*{Topos approaches}
-
-\begin{itemize}
-  \item Isham \& Butterfield (1998) --- IJTP
-  \item D\"{o}ring \& Isham (2008) --- JMP
-  \item Heunen, Landsman \& Spitters (2009) --- CMP
-\end{itemize}
+\cite{IshamButterfield1998, HeunenLandsmanSpitters2009}
 
 \subsection*{Delay embedding and reconstruction}
-
-\begin{itemize}
-  \item Takens (1981) --- Lecture Notes in Math.
-  \item Sauer, Yorke \& Casdagli (1991) --- J.\ Stat.\ Phys.
-  \item Kennel, Brown \& Abarbanel (1992) --- Phys.\ Rev.\ A
-  \item Fraser \& Swinney (1986) --- Phys.\ Rev.\ A
-  \item Ragwitz \& Kantz (2002) --- Phys.\ Rev.\ E
-  \item Botvinick-Greenhouse et al.\ (2025) --- J.\ Stat.\ Phys.
-  \item Kantz \& Schreiber, \emph{Nonlinear Time Series
-    Analysis} (2004)
-\end{itemize}
+\cite{Takens1981, SauerYorkeCasdagli1991, KennelBrownAbarbanel1992,
+RagwitzKantz2002, BotvinickGreenhouse2025, RhodesMorari1997}
 
 \subsection*{Ergodic theory}
-
-\begin{itemize}
-  \item Rokhlin (1949/1962) --- disintegration
-  \item Rokhlin (1967) --- entropy lectures, Rokhlin distance
-  \item Sinai (1959) --- generating partitions
-  \item Krieger (1970) --- generator theorem
-  \item Furstenberg (1977) --- relative mixing, Szemer\'{e}di
-  \item Shields, \emph{Ergodic Theory of Discrete Sample Paths}
-\end{itemize}
+\cite{Rokhlin1967, Sinai1959, Krieger1970, Furstenberg1977}
 
 \subsection*{Philosophy of science}
-
-\begin{itemize}
-  \item van Fraassen, \emph{The Scientific Image} (1980)
-  \item van Fraassen, \emph{Quantum Mechanics: An Empiricist
-    View} (1991)
-  \item de Finetti, \emph{Theory of Probability} (1974)
-  \item Pitowsky, \emph{Quantum Probability --- Quantum Logic}
-    (1989)
-\end{itemize}
+\cite{vanFraassen1980, deFinetti1974}
 
 \subsection*{Nonparametric statistics}
-
-\begin{itemize}
-  \item Stone (1982) --- minimax rates
-  \item Lepski (1991) --- adaptive estimation
-  \item Hoeffding (1948) --- U-statistics
-  \item Billings \& Voon (1986) --- NARMAX residual validation
-  \item Casdagli (1991/1992) --- deterministic vs stochastic
-\end{itemize}
+\cite{Stone1982, Lepski1991, BillingsVoon1986, Casdagli1992}
 
 \subsection*{Model theory and probability logic}
+\cite{Hoover1978, FaginHalpernMegiddo1990}
 
-\begin{itemize}
-  \item \L{}o\'{s} (1955) --- ultraproduct theorem
-  \item Hoover (1978) --- probability logic
-  \item Fagin, Halpern \& Megiddo (1990) --- probability logic
-\end{itemize}
-
-\end{document}

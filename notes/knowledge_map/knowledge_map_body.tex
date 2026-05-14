@@ -131,7 +131,8 @@ verified infrastructure, even though the theorems are classical.
 
   \item \textbf{Charge $\leftrightarrow$ measure on Stone space:}
     Every finitely additive charge on a Boolean algebra $B$
-    corresponds to a regular Borel (Baire) measure on $\St(B)$.
+    corresponds to a regular Borel (Baire) measure on its Stone
+    space $\St(B)$ (the space of ultrafilters on $B$).
     \emph{Fremlin, Measure Theory, Vol.~3, \S326 and Vol.~4, \S416;
     Halmos (1950).}
 
@@ -156,8 +157,10 @@ charges produce a Baire probability measure $\hat{\mu}$ on
 $\St(\mathcal{C})$.  This is Stone representation + Choksi.
 Lean-verified (0~sorry).
 
-\textbf{Descent requires $\hat{\mu}(\pure(\Omega)) = 1$:}
-concentration on principal ultrafilters.  Under discriminability
+\textbf{Descent requires $\hat{\mu}(\pure(\Omega)) = 1$}
+(where $\pure(\omega) = \{E \in \mathcal{C} : \omega \in E\}$ is
+the principal ultrafilter at $\omega$)\textbf{:} concentration on
+principal ultrafilters.  Under discriminability
 and the assumption that all countably-complete ultrafilters in the
 relevant subalgebra are principal (which holds for $\sigma$-complete
 algebras below the first measurable cardinal), this is equivalent

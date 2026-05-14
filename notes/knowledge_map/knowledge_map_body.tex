@@ -31,8 +31,9 @@ This decomposes into three layers:
 \end{enumerate}
 
 Each layer requires a commitment the previous does not.
-Distributivity of the observation algebra controls which
-commitments are available.
+The algebraic structure of the observation algebra constrains
+which commitments are available; distributivity is sufficient to
+make all three available.
 
 % ==================================================================
 \section{Layer 1: From charges to measures}
@@ -97,9 +98,9 @@ verified infrastructure, even though the theorems are classical.
 
 \begin{enumerate}
   \item The passage from finite additivity to $\sigma$-additivity
-    is the \emph{only} non-finitary step in probability.  Everything
-    else (compatibility, normalization, finite additivity) is
-    first-order / finitary.
+    is the critical non-finitary step in probability.
+    Compatibility, normalization, and finite additivity are all
+    first-order / finitary conditions.
 
   \item No first-order condition can force $\sigma$-additivity.
     \emph{Immediate from \L{}o\'{s}'s theorem: the ultraproduct of
@@ -156,9 +157,12 @@ $\St(\mathcal{C})$.  This is Stone representation + Choksi.
 Lean-verified (0~sorry).
 
 \textbf{Descent requires $\hat{\mu}(\pure(\Omega)) = 1$:}
-concentration on principal ultrafilters.  Under discriminability,
-this is equivalent to $\sigma$-additivity.  This is Rao--Rao
-10.5.3 restated.
+concentration on principal ultrafilters.  Under discriminability
+and the assumption that all countably-complete ultrafilters in the
+relevant subalgebra are principal (which holds for $\sigma$-complete
+algebras below the first measurable cardinal), this is equivalent
+to $\sigma$-additivity.  The support characterization is Rao--Rao
+10.5.3; the principal-vs-countably-complete gap is the subtlety.
 
 \textbf{Realization is unconstrained:} Any surjective-projecting
 $S \subseteq \St(\mathcal{C})$ can serve as $\Omega$.  This is
@@ -446,11 +450,15 @@ One sentence per insight:
     in the Boolean case and constrained structure in the OML case.
 
   \item Distributivity is sufficient for value-definiteness;
-    non-distributivity (dim $\geq 3$) blocks it.
+    non-distributivity blocks it for $L(H)$, $\dim \geq 3$, but
+    not for all non-distributive OMLs (e.g.\ $L(\mathbb{C}^2)$,
+    horizontal sums).
 
   \item The realism/empiricism boundary is algebraic:
     van Fraassen's empirical adequacy is the unconditional level;
-    value-definite realism requires distributivity.
+    value-definite realism requires the algebra to admit
+    dispersion-free states (guaranteed by distributivity,
+    blocked by KS for $L(H)$, $\dim \geq 3$).
 
   \item Delay reconstruction is algebraically underdetermined:
     embedding selection is necessarily empirical.

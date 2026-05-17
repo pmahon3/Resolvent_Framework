@@ -140,6 +140,27 @@ topos-theoretic property. That would be a definition of coherence.
 **Contact with programme:** Open question #6 (logical hierarchy of
 failure modes), the punnet square's vertical axis.
 
+### 12. Epperson & Zafiris — "Foundations of Relational Realism" (2013)
+
+**Question while reading:** Does Zafiris's Boolean localization
+(sheaves of Boolean algebras over a quantum event algebra) give a
+sheaf-theoretic formulation of when local states glue to a global
+σ-additive state? Is the gluing obstruction related to CE?
+
+**Why:** Zafiris works on representing OMLs as sheaves of Boolean
+algebras over a base site. This is the "sheaves over contexts"
+approach to the non-Boolean setting. If the failure of global
+σ-additive states is a cohomological obstruction (à la Abramsky-
+Brandenburger for contextuality), that would connect CE to a
+topological invariant — exactly what the locale approach tried
+but from a different (contextual/sheaf-over-site) angle.
+
+**Contact with programme:** CE-as-sheaf seed (revived from a
+different direction), Square A vertical axis, the non-Boolean
+column, the "what forces σ-additivity?" question.
+
+**Checked out from SFU.**
+
 ## Papers to obtain (OML σ-additivity — populates bottom-right cell)
 
 ### 9. Pták — "Exotic logics" (1987, Colloquium Mathematicae 54(1), 1–7)

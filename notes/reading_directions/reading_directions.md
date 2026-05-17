@@ -36,16 +36,28 @@ sheaf-condition seed becomes a theorem.
 
 ### 2. Vickers — "Topology via Logic" (1989) / constructive measure theory
 
-**Question while reading:** Is CE literally continuity of the
-charge viewed as a frame map?
+**Question while reading:** In the locale corresponding to St(B),
+what is the frame-theoretic characterization of "a valuation is
+supported on the sublocale of principal ultrafilters (= realized
+points)"? Is this expressible as a continuity/preservation
+condition on the valuation itself, without reference to points?
 
-**Why:** The constructive/locale-theoretic approach treats
-σ-additivity as continuity of a frame homomorphism (preserving
-directed joins). Your CE might already be this condition in
-the locale of opens on the Stone space.
+**Why:** We are trading the algebraic formulation of CE (where the
+sheaf approach stalled — emptiness invisible at the finitary level)
+for a topological one. Stone duality converts:
+- Boolean algebra B → compact Hausdorff space St(B)
+- Finitely additive charge ℓ → regular Borel measure μ̂
+- CE: E_n ↓ ∅ ⟹ ℓ(E_n) → 0  ↔  μ̂(pure(Ω)) = 1
 
-**Contact with programme:** CE characterization, Paper I Stone
-route, the "what does descent require?" question.
+The algebraic version is invisible finitely. The topological version
+is a well-posed support condition. The locale version would express
+CE as a frame-internal property of the valuation — structural (from
+B via Stone duality) without being first-order (escaping Łoś).
+
+If this exists, it's the non-circular characterization of coherence.
+
+**Contact with programme:** CE characterization, the stalled sheaf
+seed, the tetralemma (nailing leg 2), the definition of coherence.
 
 ### 3. Rédei & Summers — quantum probability structure
 
@@ -86,6 +98,71 @@ algebra admits such a measure might be CE in algebraic language.
 
 **Contact with programme:** Paper I, CE irreducibility, the
 "exact boundary" question.
+
+## Papers (arXiv / online — read before library books)
+
+### 6. Howson — "De Finetti, Countable Additivity, Consistency and Coherence" (2008)
+
+**Question while reading:** Does de Finetti's refusal of σ-additivity
+as a coherence constraint map exactly onto our consistency/coherence
+gap? Does Howson formalize it or just philosophize?
+
+**Why:** Uses exactly our terminology for exactly our distinction.
+De Finetti: coherence = finite additivity (Dutch book), σ-additivity
+is beyond. Howson clarifies why this position is internally consistent.
+
+**Contact with programme:** The punnet square, Paper I's CE, the
+question of whether "coherence" has a definition.
+
+### 7. Frot — "Gödel's Completeness and Deligne's Theorem" (2013, arXiv:1309.0389)
+
+**Question while reading:** Is Deligne's theorem literally the
+compactness theorem for toposes? If so, is CE's failure exactly
+"the classifying topos lacks enough points"?
+
+**Why:** This is the bridge between the model-theoretic reading
+(Hodges) and the topos-theoretic reading (Caramello). Makes the
+connection Gödel completeness = Deligne completeness explicit.
+
+**Contact with programme:** CE-as-sheaf seed, the compactness
+boundary, the "coherent theory" technical term.
+
+### 8. Espíndola — "Infinitary Generalizations of Deligne's Completeness Theorem" (2017, arXiv:1709.01967)
+
+**Question while reading:** Can the hierarchy of failure modes
+(first-order → L_{ω₁ω} → beyond) be indexed by properties of
+κ-coherent toposes?
+
+**Why:** If CE is expressible in L_{ω₁ω} and Espíndola generalizes
+Deligne to that level, then CE might correspond to a specific
+topos-theoretic property. That would be a definition of coherence.
+
+**Contact with programme:** Open question #6 (logical hierarchy of
+failure modes), the punnet square's vertical axis.
+
+## Papers to obtain (OML σ-additivity — populates bottom-right cell)
+
+### 9. Pták — "Exotic logics" (1987, Colloquium Mathematicae 54(1), 1–7)
+
+**Question while reading:** What exactly is the construction? Is the
+obstruction purely from the center, or is there a genuinely non-Boolean
+mechanism?
+
+**Why:** This populates the bottom-right cell of the square. Constructs
+σ-orthocomplete OMPs with finitely additive states but no σ-additive
+states. The primary reference for "Gleason is the exception."
+
+**Contact with programme:** Square A directly. The OML extension problem.
+
+### 10. Navara — "Regularity and σ-additivity of states" (1992, Proc. AMS 115(2), 427–429)
+
+**Question while reading:** Under what conditions does regularity force
+σ-additivity? Is this the "admissibility condition" for the right column?
+
+### 11. Navara & Rüttimann — "A characterization of σ-state spaces" (1991, Expo. Math. 9, 275–284)
+
+**Question while reading:** How does the σ-state space sit inside the
+full state space? What's the geometric/convex relationship?
 
 ## How to use this note
 

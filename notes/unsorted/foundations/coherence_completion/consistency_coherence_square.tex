@@ -1,0 +1,171 @@
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{The Consistency/Coherence Square\\
+\large Working note --- intuition pump, not a theorem}
+\author{Patrick S.\ Mahon \\ \small Development log entry, 2026-05-15}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Two faces of consistency}
+
+Consistency has a syntactic and a semantic face:
+\begin{itemize}[nosep]
+  \item \textbf{Syntactic:} No derivation of $\bot$ from the axioms.
+  \item \textbf{Semantic:} There exists a model.
+\end{itemize}
+The completeness theorem connects them: for first-order logic, these coincide.
+
+\medskip\noindent
+\textbf{Question.} Does coherence have two faces?  Or is it inherently
+semantic --- the failure mode being non-compact, hence inaccessible to
+any finitary proof calculus?
+
+\section*{The punnet square}
+
+Rather than seeking a syntactic face of coherence directly, consider
+the $2 \times 2$ of consistent/inconsistent $\times$ coherent/incoherent:
+
+\bigskip
+\begin{center}
+\begin{tabular}{l|p{5.5cm}|p{5.5cm}|}
+\cline{2-3}
+& \textbf{Consistent} & \textbf{Inconsistent} \\
+\hline
+\multicolumn{1}{|l|}{\textbf{Coherent}}
+& Classical probability.  Local data embeds in one Boolean algebra;
+  CE holds; $\sigma$-additive measure exists.
+& Quantum probability.  Incompatible observables (no single Boolean
+  embedding), but Gleason gives a global $\sigma$-additive state. \\
+\hline
+\multicolumn{1}{|l|}{\textbf{Incoherent}}
+& The ultrafilter charge.  No contradiction --- every first-order test
+  passes --- but $\sigma$-additivity fails.  CE fails.
+& Pt\'{a}k's ``exotic logics'' (1987).  Non-Boolean OML admitting
+  finitely additive states but no $\sigma$-additive state.
+  Obstruction can come from the center $C(L)$. \\
+\hline
+\end{tabular}
+\end{center}
+
+\section*{Candidate axes}
+
+\begin{itemize}[nosep]
+  \item \textbf{Consistency axis} $=$ distributivity / Boolean
+    embeddability.  ``Can the local data coexist in a single
+    classical context?''
+  \item \textbf{Coherence axis} $=$ state extension /
+    $\sigma$-additivity / CE-type admissibility.  ``Does the local
+    data force a global realization of the target property?''
+\end{itemize}
+
+\section*{Programme mapping}
+
+The programme's papers correspond to slices of the square:
+\begin{itemize}[nosep]
+  \item \textbf{Paper I:} Top row (Boolean).  Distinguishes coherent
+    from incoherent by identifying CE as the admissibility condition.
+  \item \textbf{Paper II:} Left column (state exists).  Distinguishes
+    consistent from inconsistent --- i.e., Boolean (EA/PR/VDR all
+    available) from non-Boolean (VDR blocked by Kochen--Specker).
+  \item \textbf{The diagonal} from top-left to bottom-right traces the
+    full filtration: $\mathrm{VDR} \to \mathrm{PR} \to \mathrm{EA}
+    \to \text{nothing}$.
+\end{itemize}
+
+\section*{What's excluded from this square}
+
+\begin{itemize}[nosep]
+  \item \textbf{Kochen--Specker:} about dispersion-free states (VDR),
+    not $\sigma$-additive states.  A different global property $P$.
+    KS is a compact/finitary obstruction (finite colouring argument),
+    closer to inconsistency than to incoherence.
+  \item \textbf{Abramsky--Brandenburger contextuality:} about joint
+    distributions on compatible sets, closer to VDR level.
+  \item \textbf{De Finetti coherence:} the EA level (finite
+    additivity) --- below this square.
+\end{itemize}
+
+\section*{The key tension}
+
+The horizontal axis is labeled ``Boolean / non-Boolean'' not
+``consistent / inconsistent.''  Whether non-Booleanness constitutes
+a species of ``inconsistency'' remains open.  A non-Boolean OML is
+not inconsistent in the proof-theoretic sense (no $\bot$ derivable),
+but it is incompatible with single-context classical embedding.
+
+\section*{The center obstruction (2026-05-16)}
+
+Pt\'{a}k's construction reveals a striking fact: the bottom-right
+obstruction can be \emph{exactly} the bottom-left obstruction (CE
+failure on the Boolean center $C(L)$), just embedded in a non-Boolean
+wrapper.  This suggests the admissibility condition for non-Boolean OMLs
+might simply be CE applied to the center.
+
+For $L(H)$: the center is trivial ($\{0, H\}$), so the center
+obstruction is vacuous.  Gleason then provides $\sigma$-additivity
+from lattice geometry (the continuum structure of projective space).
+
+Tentative picture:
+\begin{itemize}[nosep]
+  \item Center non-trivial $\to$ CE on center is the obstruction
+    (same mechanism as Boolean case)
+  \item Center trivial (factor) $\to$ lattice geometry forces
+    $\sigma$-additivity (Gleason)
+  \item Center trivial but lattice too discrete $\to$ ??? (possible
+    third obstruction, genuinely non-Boolean)
+\end{itemize}
+
+\section*{Questions for reading}
+
+When reading Caramello, Vickers, Kalmbach, Hodges, Pt\'{a}k--Pulmannov\'{a}:
+\begin{enumerate}[nosep]
+  \item Does the author's formalism give a definition of coherence?
+  \item Does the author distinguish consistency from coherence?
+  \item Where would the author place CE in their framework?
+  \item Does the non-Boolean case (quantum) fit naturally, or require
+    a separate treatment?
+  \item Is there a formal sense in which ``incompatibility'' (non-Boolean)
+    is a species of ``inconsistency,'' or are they genuinely independent?
+\end{enumerate}
+
+\section*{Devil's advocate warnings (2026-05-16)}
+
+\begin{enumerate}[nosep]
+  \item \textbf{Q3 may be a category error.}  CE adds a hypothesis
+    (to get $\sigma$-additivity).  Gleason has no hypothesis --- the
+    lattice alone forces it.  A ``unified condition $C$'' that is
+    substantive for Boolean algebras and vacuous for $L(H)$ is not
+    a unification.  For Q3 to survive, one needs a mechanism-level
+    (not just output-level) connection.
+  \item \textbf{The square organizes, doesn't predict.}  Until it
+    produces a theorem of the form ``given lattice property $X$,
+    forcing holds iff $Y$,'' it is a filing system.
+  \item \textbf{``Irreducibly algebraic'' is premature.}  One failed
+    locale approach (Simpson) does not prove non-expressibility.
+    Weaken to: tentative conclusion pending further investigation.
+  \item \textbf{The Simpson conjecture is dead.}  $\delta_U$
+    counterexample kills $\Leftarrow$; compact Hausdorff + Radon
+    makes $\Rightarrow$ trivially true for all measures.  Locale
+    non-spatiality is a constructive phenomenon that vanishes
+    classically.
+\end{enumerate}
+
+\section*{Status}
+
+Intuition pump.  Do not promote to stable files until a definition
+crystallizes.  Hold lightly while reading.
+
+The square is useful as a \emph{lens for reading} (organizes what to
+look for in Kalmbach, Pt\'{a}k--Pulmannov\'{a}), not as a theorem
+target.  The practical path remains: ship Papers~I and~II, close
+Lean sorrys, consider formalization venues (ITP/CPP).
+
+\end{document}

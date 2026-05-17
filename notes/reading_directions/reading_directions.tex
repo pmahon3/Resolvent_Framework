@@ -55,18 +55,40 @@ sheaf-condition seed becomes a theorem.
 % ==================================================================
 \section{Vickers --- \emph{Topology via Logic} (1989)}
 
-\textbf{Question while reading:} Is CE literally continuity of
-the charge viewed as a frame map?
+\textbf{Question while reading:} In the locale corresponding to
+$\mathrm{St}(B)$, what is the frame-theoretic characterization of
+``a valuation is supported on the sublocale of principal
+ultrafilters (= realized points)''?  Is this expressible as a
+continuity/preservation condition on the valuation itself, without
+reference to points?
 
 \medskip\noindent
-\textbf{Why.}  The constructive/locale-theoretic approach treats
-$\sigma$-additivity as continuity of a frame homomorphism
-(preserving directed joins).  CE might already be this condition
-in the locale of opens on the Stone space.
+\textbf{Why.}  We are trading the algebraic formulation of CE
+(where the sheaf approach stalled --- emptiness invisible at the
+finitary level) for a topological one via Stone duality:
+\[
+\begin{array}{rcl}
+B &\longleftrightarrow& \mathrm{St}(B) \\[3pt]
+\text{f.a.\ charge } \ell &\longleftrightarrow&
+  \text{regular Borel measure } \hat\mu \\[3pt]
+\text{CE: } E_n \downarrow \varnothing \Rightarrow
+  \ell(E_n) \to 0
+  &\longleftrightarrow&
+  \hat\mu(\mathrm{pure}(\Omega)) = 1
+\end{array}
+\]
+The algebraic version is invisible finitely (Ło\'{s}).  The
+topological version is a well-posed support condition.  The locale
+version would express CE as a frame-internal property of the
+valuation --- structural (from $B$ via Stone duality) without being
+first-order (escaping Ło\'{s}).
+
+If this exists, it is the non-circular characterization of coherence.
 
 \medskip\noindent
-\textbf{Contact with programme:} CE characterization, Paper~I
-Stone route, the ``what does descent require?''\ question.
+\textbf{Contact with programme:} CE characterization, the stalled
+sheaf seed, the tetralemma (nailing leg~2), the definition of
+coherence.
 
 % ==================================================================
 \section{R\'{e}dei \& Summers --- quantum probability structure}
@@ -119,6 +141,122 @@ language.
 \medskip\noindent
 \textbf{Contact with programme:} Paper~I, CE irreducibility, the
 ``exact boundary'' question.
+
+% ==================================================================
+\section{Howson --- ``De Finetti, Countable Additivity, Consistency
+and Coherence'' (2008)}
+
+\textbf{Question while reading:} Does de Finetti's refusal of
+$\sigma$-additivity as a coherence constraint map exactly onto our
+consistency/coherence gap?  Does Howson formalize it or just
+philosophize?
+
+\medskip\noindent
+\textbf{Why.}  Uses exactly our terminology for exactly our
+distinction.  De Finetti: coherence $=$ finite additivity (Dutch
+book); $\sigma$-additivity is beyond --- an additional structural
+requirement not groundable the same way.  Howson clarifies why this
+position is internally consistent.
+
+\medskip\noindent
+\textbf{Contact with programme:} The punnet square, Paper~I's CE,
+the question of whether ``coherence'' has a definition.
+
+\medskip\noindent
+\textbf{Source:} \emph{BJPS} 59(1):1--23.  Likely online.
+
+% ==================================================================
+\section{Frot --- ``G\"{o}del's Completeness and Deligne's Theorem''
+(2013)}
+
+\textbf{Question while reading:} Is Deligne's theorem literally the
+compactness theorem for toposes?  If so, is CE's failure exactly
+``the classifying topos lacks enough points''?
+
+\medskip\noindent
+\textbf{Why.}  This is the bridge between the model-theoretic reading
+(Hodges) and the topos-theoretic reading (Caramello).  Makes the
+equivalence G\"{o}del completeness $=$ Deligne completeness explicit.
+
+\medskip\noindent
+\textbf{Contact with programme:} CE-as-sheaf seed, the compactness
+boundary, the ``coherent theory'' technical term.
+
+\medskip\noindent
+\textbf{Source:} arXiv:1309.0389.
+
+% ==================================================================
+\section{Esp\'{i}ndola --- ``Infinitary Generalizations of Deligne's
+Completeness Theorem'' (2017)}
+
+\textbf{Question while reading:} Can the hierarchy of failure modes
+(first-order $\to$ $L_{\omega_1\omega}$ $\to$ beyond) be indexed by
+properties of $\kappa$-coherent toposes?
+
+\medskip\noindent
+\textbf{Why.}  If CE is expressible in $L_{\omega_1\omega}$ and
+Esp\'{i}ndola generalizes Deligne to that level, then CE might
+correspond to a specific topos-theoretic property.  That would be
+a definition of coherence.
+
+\medskip\noindent
+\textbf{Contact with programme:} Logical hierarchy of failure modes,
+the punnet square's vertical axis.
+
+\medskip\noindent
+\textbf{Source:} arXiv:1709.01967.
+
+% ==================================================================
+\section{Pt\'{a}k --- ``Exotic logics'' (1987)}
+
+\textbf{Question while reading:} What is the construction?  Is the
+obstruction purely from the center, or is there a genuinely non-Boolean
+mechanism?
+
+\medskip\noindent
+\textbf{Why.}  This populates the bottom-right cell of the square:
+constructs $\sigma$-orthocomplete OMPs with finitely additive states
+but no $\sigma$-additive states.  Primary reference for ``Gleason is
+the exception, not the rule.''
+
+\medskip\noindent
+\textbf{Contact with programme:} Square~A directly.  The OML extension
+problem.
+
+\medskip\noindent
+\textbf{Source:} \emph{Colloquium Math.}\ 54(1), 1--7.
+
+% ==================================================================
+\section{Navara --- ``Regularity and $\sigma$-additivity of states''
+(1992)}
+
+\textbf{Question while reading:} Under what conditions does regularity
+force $\sigma$-additivity?  Is this the ``admissibility condition'' for
+the right column of the square?
+
+\medskip\noindent
+\textbf{Source:} \emph{Proc.\ AMS} 115(2), 427--429.
+
+% ==================================================================
+\section*{Context from literature audit (2026-05-15)}
+
+The consistency/coherence gap is real and recognized implicitly in
+4+ traditions, but never unified under a single name:
+\begin{itemize}[nosep]
+  \item Philosophy of probability (de Finetti/Howson): coherence vs.\
+    countable additivity as separate desiderata.
+  \item Topos theory (Caramello/Johnstone): ``coherent theory'' =
+    compactness-controlled; non-coherent = beyond.
+  \item Quantum foundations (Abramsky et al.): contextuality as
+    obstruction to global sections (sheaf cohomology).
+  \item Imprecise probability (Walley): conglomerability =
+    ``$\sigma$-coherence'' in all but name.
+  \item Continuous model theory (Ben Yaacov): sidestep --- change the
+    logic so $\sigma$-additivity becomes first-order.
+\end{itemize}
+No one has unified these.  The unification is the opportunity;
+the risk is that it may be terminological packaging rather than
+a theorem.
 
 % ==================================================================
 \section*{How to use this document}

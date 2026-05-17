@@ -44,12 +44,26 @@ and `notes/knowledge_map/` for full state.
 
 ## Custom agents (`.claude/agents/`)
 
-Seven specialized agents encapsulate the advisory and review
-functions. Use them by phase:
+## Skill: `/audit` (`.claude/skills/audit/`)
+
+Unified research audit with mode argument. Gates the pipeline
+at Phase 2 and Phase 7.
+
+| Invocation | What it does |
+|------------|-------------|
+| `/audit pure [target]` | Skeptical novelty audit (hostile referee) |
+| `/audit applied [target]` | Applied utility assessment (practitioner test) |
+| `/audit both [target]` | Both evaluations, cross-referenced |
+
+The skill runs in a forked context (opus, with web search) so
+audit results don't flood the main conversation.
+
+## Custom agents (`.claude/agents/`)
+
+Six specialized agents for non-audit advisory and review:
 
 | Agent | Role | When |
 |-------|------|------|
-| `skeptical-auditor` | "Is this known? Hostile referee." | Phase 2, 7 |
 | `literature-scout` | "Find everything under every name." | Phase 2, ad hoc |
 | `devils-advocate` | "Argue against this before I commit." | Phase 2/4 gates |
 | `thesis-advisor` | "Persist or pivot? Right problem?" | Any checkpoint |
@@ -58,8 +72,6 @@ functions. Use them by phase:
 | `repo-hygiene` | "Orphans, stale refs, structural issues." | Periodic / after reorg |
 
 Each agent has its own system prompt with detailed instructions.
-Delegate to the appropriate agent rather than trying to fill
-all roles in the main conversation.
 
 Run `repo-hygiene` periodically (after major reorganizations,
 before commits that touch many files, or when the repo feels
@@ -93,7 +105,8 @@ infrastructure sorrys can remain honestly documented.
 
 ```
 .claude/
-  agents/             ← 7 custom agents (auditor, advisor, etc.)
+  agents/             ← 6 custom agents + 1 skill (/audit)
+  skills/             ← /audit (pure, applied, or both)
 
 papers/
   paper_i/            ← Synthesis (expository, not novel)

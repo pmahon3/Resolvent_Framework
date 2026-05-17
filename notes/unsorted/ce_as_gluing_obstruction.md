@@ -107,26 +107,87 @@ the charges. This might avoid the circularity.
   for ANY topology on finite sub-algebras)
 - This might be the same dead end as before in different language
 
-## Status: CONDITIONAL (audit 2026-05-17)
+## Status: DEAD (2026-05-17)
 
-Not found in literature, but possibly tautological.
+Both prior-art candidates from the seed's decision criterion
+resolve negative. The sheaf-theoretic characterization of CE
+is a dictionary translation, not a theorem.
 
-**The devastating objection:** σ-additivity IS the sheaf condition
-for countable-partition topology by definition. μ(A) = Σμ(Aᵢ) for
-countable partitions = "sheaf for countable covers." If that's all
-this is, it's a dictionary translation, not a theorem.
+### What was read
 
-**The salvage route:** Does the cohomological formulation UNIFY
-CE failure with Abramsky-Brandenburger contextuality? If both are
-H¹ classes of the same presheaf in different topologies on the same
-site, that's a genuine structural insight connecting Paper I to
-quantum foundations. This would NOT be a dictionary translation.
-
-**Prior art to read before proceeding:**
+- Epperson & Zafiris, *Foundations of Relational Realism* (2013),
+  Chapters 6, 8, 9, 10 — the book's full sheaf-theoretic framework
 - Zafiris (2006) "Sheaf-theoretic representation of quantum measure
-  algebras" — J. Math. Phys. 47, 092103 (CHECKED OUT in book form)
-- Biesel (2024) "Sheaves of Probability" — arXiv:2401.01968
-- Abramsky et al. (2015) "Contextuality, Cohomology and Paradox"
+  algebras" — J. Math. Phys. 47, 092103 — the paper that puts
+  *measures* (not just events) on the Boolean localization site
+- Biesel (2024) "Sheaves of Probability" — arXiv:2401.01968 —
+  sheaves of measures/probability on measurable spaces
 
-**Decision after reading:** If route 2 (unification) has substance
-→ promote to active lead. If only dictionary translation → dead.
+### Why dead: Zafiris (four discriminating constraints)
+
+1. **σ-completeness is presupposed, not produced.** Zafiris (2006)
+   p. 5: "The σ-completeness condition... is also required in order
+   to have a well-defined theory of observables over L." It's an
+   axiom on L, not something the sheaf condition forces.
+
+2. **States are finitely additive throughout.** p. 2: p(x∨y) =
+   p(x) + p(y) for x⊥y. σ-additivity never appears as a property
+   states must satisfy or that gluing produces.
+
+3. **The topology J = epimorphic families, no cardinality grading.**
+   Section VII.B (p. 14): covering sieves are epimorphic families
+   in Q — the index set I is unconstrained. Finite, countable, and
+   uncountable covers satisfy J uniformly. The finite/countable
+   boundary where CE lives is invisible to J.
+
+4. **No cohomology is computed.** The salvage route (H¹ unification
+   with Abramsky-Brandenburger contextuality) does not appear.
+   Zafiris proves a *reconstruction* theorem (counit ε_L is iso),
+   not an *obstruction* theorem.
+
+### Why dead: Biesel (the dictionary translation confirmed)
+
+Biesel proves measures form a sheaf for *finite* covers (Theorem 8)
+and probability measures form a sheaf for finite covers (Theorem 11).
+Countable covers are explicitly excluded (Remark 7: compatible
+family of uniform measures on {1,...,n} fails to glue to ℕ).
+
+The key sentence (§5, p. 6): "Theorems 8 and 11 and Corollary 9
+remain valid when we consider measures that are merely *finitely
+additive*... since our finite covers do not require us to break any
+sets into countable disjoint unions."
+
+This IS the devastating objection stated as a theorem:
+- Finitely additive ↔ sheaf for finite covers
+- σ-additive ↔ sheaf for countable covers
+- The step from finite to countable is exactly CE
+- No hidden cohomological structure; just the tautology
+
+For countable covers: Theorem 8 (Meas) still holds, Corollary 9
+needs "σ-finite" replacing "finite," Theorem 11 generalizes only
+up to scaling (σ-finite equivalence classes). Standard measure
+theory throughout.
+
+### The devastating objection: final form
+
+The seed asked: is there a topology on the site of contexts such
+that the sheaf condition = σ-additivity? Answer: yes, trivially —
+the countable-partition topology. But this is a restatement of the
+definition of σ-additivity, not a characterization. The two
+candidates that might have given non-trivial content (Zafiris's
+epimorphic-family topology, Biesel's finite-cover lattice) both
+fail: Zafiris can't see the finite/countable boundary, and Biesel
+sees it exactly but confirms it's just the definition.
+
+No cohomological unification with Abramsky-Brandenburger
+contextuality was found in either source. The H¹ salvage route
+has no positive evidence from the two closest candidates.
+
+### Useful residue (not a lead, but citable)
+
+- Biesel's Theorems 8 and 11 are clean citations for Paper I's CE
+  discussion: "finitely additive charges form a sheaf for finite
+  covers; σ-additivity reappears exactly at countable covers."
+- Ross (2012) "All roads lead to violations of countable additivity"
+  (*Phil. Studies* 161:381–390) — Biesel's ref [2] — potentially
+  relevant for the Howson/de Finetti reading direction.

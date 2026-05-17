@@ -2,21 +2,73 @@
 
 *Not a syllabus. A list of questions to bring to specific sources.*
 
-## The persistent question
+## The programme's questions
 
-Across all phases of this programme:
+The programme reconstructs structure from relations, not spaces.
+Point-spaces (the real line, Stone spaces, Hilbert spaces) are
+outcomes of the reconstruction, not its starting material. This
+is a bet: that the relational description — contexts, reference
+frames, directed refinement — is the right starting point, and
+that the structures usually assumed (points, σ-algebras, global
+states) are *reconstructed* from it.
 
-> What must be added to observation to get structure?
+Three central questions organize the reading:
+
+### 1. What must be added to observation to get structure?
+
+The persistent question across all phases:
 
 - Phase 1: observation → dynamics (semigroup)
 - Phase 2-3: observation → geometry (curvature, metric, action)
 - Phase 4-6: observation → probability (CE), realization (descent),
   value-definiteness (distributivity)
 
-The reading question is not "learn more X." It is:
+The reading form: *Where does someone identify the exact condition
+that forces a valuation to behave — and what structure does that
+condition live in?*
 
-> Where does someone identify the exact condition that forces a
-> valuation to behave — and what structure does that condition live in?
+### 2. Reconstruction without points.
+
+When can observation be modeled relationally — via contexts and
+reference frames — rather than by presupposing an underlying
+set-theoretic structure of points? Numerical identity
+(point-evaluation) is the degenerate case where all contexts
+contract to a single point.
+
+Paper I does this for the Boolean case: probability is
+reconstructed from directed refinement of finite Boolean algebras,
+without assuming a sample space. The open question is whether this
+extends beyond the Boolean case, and if so what plays the role of
+"directed refinement" when the algebra is not distributive.
+
+*(Sharpened by Zafiris, Ch. 6 of Foundations of Relational Realism:
+the relational description is not a technical convenience but the
+starting point; point-spaces are what you reconstruct, not what
+you assume.)*
+
+### 3. Local-to-global extension.
+
+When does locally defined information (on each Boolean context)
+determine a global object? What are the *conditions on the site*
+— not the individual valuations — that control whether local data
+extend globally?
+
+CE is one instance: local charges always glue finitely additively
+(Kolmogorov), but gluing to a σ-additive measure requires something
+extra — and that "something extra" is not a sheaf condition on any
+known topology (Zafiris 2006, Biesel 2024: dictionary translation,
+not theorem). Paper II's EA/PR/VDR is another instance: the
+obstruction to global state extension in the non-Boolean case is
+non-distributivity rather than failure of σ-additivity.
+
+The general form: both the Boolean and non-Boolean extension
+problems are local-to-global questions on different categories.
+What controls the answer is the structure of the site, not the
+properties of individual states.
+
+*(Sharpened by Zafiris, Ch. 6: the gluing conditions on overlapping
+Boolean reference frames are the structural content; the topology
+of the site is what does the work.)*
 
 ## Directions (ordered by contact with programme core)
 
@@ -142,24 +194,21 @@ failure modes), the punnet square's vertical axis.
 
 ### 12. Epperson & Zafiris — "Foundations of Relational Realism" (2013)
 
-**Question while reading:** Does Zafiris's Boolean localization
-(sheaves of Boolean algebras over a quantum event algebra) give a
+**READ (2026-05-17). Verdict: does not address CE.**
+
+Read Chapters 6, 8, 9, 10 of the book and Zafiris (2006) J. Math.
+Phys. 47, 092103 (the paper that puts measures on the site). The
+Grothendieck topology J (epimorphic families) does not grade covers
+by cardinality — finite, countable, and uncountable covers satisfy J
+uniformly. The finite/countable boundary where CE lives is invisible.
+States are finitely additive throughout; σ-completeness is an axiom,
+not a sheaf condition. No cohomology is computed; the paper proves a
+*reconstruction* theorem (counit is iso), not an obstruction theorem.
+The H¹ unification with Abramsky-Brandenburger does not appear.
+
+**Original question:** Does Zafiris's Boolean localization give a
 sheaf-theoretic formulation of when local states glue to a global
-σ-additive state? Is the gluing obstruction related to CE?
-
-**Why:** Zafiris works on representing OMLs as sheaves of Boolean
-algebras over a base site. This is the "sheaves over contexts"
-approach to the non-Boolean setting. If the failure of global
-σ-additive states is a cohomological obstruction (à la Abramsky-
-Brandenburger for contextuality), that would connect CE to a
-topological invariant — exactly what the locale approach tried
-but from a different (contextual/sheaf-over-site) angle.
-
-**Contact with programme:** CE-as-sheaf seed (revived from a
-different direction), Square A vertical axis, the non-Boolean
-column, the "what forces σ-additivity?" question.
-
-**Checked out from SFU.**
+σ-additive state? **Answer: No.**
 
 ## Papers to obtain (OML σ-additivity — populates bottom-right cell)
 
@@ -184,6 +233,27 @@ states. The primary reference for "Gleason is the exception."
 
 **Question while reading:** How does the σ-state space sit inside the
 full state space? What's the geometric/convex relationship?
+
+### 13. Biesel — "Sheaves of Probability" (2024, arXiv:2401.01968)
+
+**READ (2026-05-17). Verdict: confirms dictionary translation.**
+
+Proves measures form a sheaf for finite covers (Thm 8), probability
+measures likewise (Thm 11). Countable covers explicitly excluded
+(Remark 7: uniform measures on {1,...,n} fail to glue to N). Section 5
+states explicitly that results hold for merely finitely additive
+charges. For countable covers, σ-finiteness is needed — standard
+measure theory, no hidden structure.
+
+**Original question:** Is the step from finite to countable covers
+exactly the CE boundary? **Answer: Yes, but tautologically.** Finitely
+additive = sheaf for finite covers; σ-additive = sheaf for countable
+covers. Restatement, not characterization.
+
+**Useful residue:** Thms 8 and 11 are clean citations for Paper I's CE
+discussion. Ref [2] (Ross 2012, "All roads lead to violations of
+countable additivity," *Phil. Studies*) relevant for Howson/de Finetti
+direction.
 
 ## How to use this note
 

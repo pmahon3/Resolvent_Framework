@@ -13,27 +13,86 @@
 \begin{document}
 \maketitle
 
-\section*{The persistent question}
+\section*{The programme's questions}
 
-Across all phases of this programme:
-\begin{quote}
-\emph{What must be added to observation to get structure?}
-\end{quote}
-
-\begin{itemize}[nosep]
-  \item Phase 1: observation $\to$ dynamics (semigroup)
-  \item Phase 2--3: observation $\to$ geometry (curvature, metric, action)
-  \item Phase 4--6: observation $\to$ probability (CE),
-    realization (descent), value-definiteness (distributivity)
-\end{itemize}
+The programme reconstructs structure from relations, not spaces.
+Point-spaces (the real line, Stone spaces, Hilbert spaces) are
+outcomes of the reconstruction, not its starting material.  This
+is a bet: that the relational description --- contexts, reference
+frames, directed refinement --- is the right starting point, and
+that the structures usually assumed (points, $\sigma$-algebras,
+global states) are \emph{reconstructed} from it.
 
 \medskip\noindent
-The reading question is not ``learn more $X$.''  It is:
-\begin{quote}
-\emph{Where does someone identify the exact condition that forces
-a valuation to behave --- and what structure does that condition
-live in?}
-\end{quote}
+Three central questions organize the reading:
+
+\begin{enumerate}
+  \item \textbf{What must be added to observation to get structure?}
+
+    The persistent question across all phases:
+    \begin{itemize}[nosep]
+      \item Phase 1: observation $\to$ dynamics (semigroup)
+      \item Phase 2--3: observation $\to$ geometry
+        (curvature, metric, action)
+      \item Phase 4--6: observation $\to$ probability (CE),
+        realization (descent), value-definiteness (distributivity)
+    \end{itemize}
+
+    \smallskip\noindent
+    The reading form: \emph{Where does someone identify the exact
+    condition that forces a valuation to behave --- and what
+    structure does that condition live in?}
+
+  \item \textbf{Reconstruction without points.}
+
+    When can observation be modeled relationally --- via contexts
+    and reference frames --- rather than by presupposing an
+    underlying set-theoretic structure of points?  Numerical
+    identity (point-evaluation) is the degenerate case where all
+    contexts contract to a single point.
+
+    \smallskip\noindent
+    Paper~I does this for the Boolean case: probability is
+    reconstructed from directed refinement of finite Boolean
+    algebras, without assuming a sample space.  The open question
+    is whether this extends beyond the Boolean case, and if so
+    what plays the role of ``directed refinement'' when the
+    algebra is not distributive.
+
+    \smallskip\noindent
+    \emph{(Sharpened by Zafiris, Ch.~6 of Foundations of
+    Relational Realism: the relational description is not a
+    technical convenience but the starting point; point-spaces
+    are what you reconstruct, not what you assume.)}
+
+  \item \textbf{Local-to-global extension.}
+
+    When does locally defined information (on each Boolean context)
+    determine a global object?  What are the \emph{conditions on
+    the site} --- not the individual valuations --- that control
+    whether local data extend globally?
+
+    \smallskip\noindent
+    CE is one instance: local charges always glue finitely
+    additively (Kolmogorov), but gluing to a $\sigma$-additive
+    measure requires something extra --- and that ``something
+    extra'' is not a sheaf condition on any known topology
+    (Zafiris 2006, Biesel 2024: dictionary translation, not
+    theorem).  Paper~II's EA/PR/VDR is another instance: the
+    obstruction to global state extension in the non-Boolean case
+    is non-distributivity rather than failure of $\sigma$-additivity.
+
+    \smallskip\noindent
+    The general form: both the Boolean and non-Boolean extension
+    problems are local-to-global questions on different categories.
+    What controls the answer is the structure of the site, not the
+    properties of individual states.
+
+    \smallskip\noindent
+    \emph{(Sharpened by Zafiris, Ch.~6: the gluing conditions
+    on overlapping Boolean reference frames are the structural
+    content; the topology of the site is what does the work.)}
+\end{enumerate}
 
 % ==================================================================
 \section{Caramello --- \emph{Theories, Sites, Toposes} (2018)}
@@ -241,49 +300,52 @@ the right column of the square?
 \section{Epperson \& Zafiris --- \emph{Foundations of Relational
 Realism} (2013)}
 
-\textbf{Question while reading:} Does Zafiris's Boolean localization
-(sheaves of Boolean algebras over a quantum event algebra) give a
-sheaf-theoretic formulation of when local states glue to a global
-$\sigma$-additive state?  Is the gluing obstruction related to CE?
+\textbf{READ (2026-05-17).  Verdict: does not address CE.}
 
 \medskip\noindent
-\textbf{Why.}  Zafiris (2006) already constructs sheaves of Boolean
-\emph{measure} algebras and studies pasting conditions for states.
-If CE failure and Abramsky--Brandenburger contextuality are both
-$H^1$ classes of the same presheaf in different topologies on the
-same site, that unifies the left and right columns of Square~A
-under one cohomological framework.
+Read Chapters 6, 8, 9, 10 of the book and Zafiris (2006)
+\emph{J.\ Math.\ Phys.}\ 47, 092103 (the paper that puts measures
+on the site).  The Grothendieck topology $J$ (epimorphic families)
+does not grade covers by cardinality --- finite, countable, and
+uncountable covers satisfy $J$ uniformly.  The finite/countable
+boundary where CE lives is invisible.  States are finitely additive
+throughout; $\sigma$-completeness is an axiom, not a sheaf
+condition.  No cohomology is computed; the paper proves a
+\emph{reconstruction} theorem (counit is iso), not an obstruction
+theorem.  The $H^1$ unification with Abramsky--Brandenburger does
+not appear.
 
 \medskip\noindent
-\textbf{The devastating objection to watch for:}
-$\sigma$-additivity IS the sheaf condition for countable-partition
-topology by definition ($\mu(A) = \sum \mu(A_i)$ for countable
-partitions = ``sheaf for countable covers'').  If that's all this
-is, it's a dictionary translation, not a theorem.  The test: does
-the cohomological machinery yield something the classical analysis
-doesn't?
-
-\medskip\noindent
-\textbf{Contact with programme:} CE-as-sheaf seed (revived via
-gluing, not frame-internal), Square~A unification, Paper~I $\to$
-quantum foundations connection.
-
-\medskip\noindent
-\textbf{Checked out from SFU.}
+\textbf{Original question:} Does Zafiris's Boolean localization
+give a sheaf-theoretic formulation of when local states glue to a
+global $\sigma$-additive state?  \textbf{Answer: No.}
 
 % ==================================================================
 \section{Biesel --- ``Sheaves of Probability'' (2024)}
 
-\textbf{Question while reading:} Is the step from finite covers
-(where probability measures form a sheaf) to countable covers
-(where $\sigma$-additivity is needed) exactly the CE boundary?
+\textbf{READ (2026-05-17).  Verdict: confirms dictionary translation.}
 
 \medskip\noindent
-\textbf{Why.}  Biesel shows probability measures form a sheaf for
-finite covers.  He notes generalization to countable covers requires
-$\sigma$-finiteness.  This is one step from: ``finitely additive
-charges form a presheaf that satisfies sheaf condition for finite
-covers but may fail for countable covers --- and that failure is CE.''
+Proves measures form a sheaf for finite covers (Thm~8),
+probability measures likewise (Thm~11).  Countable covers
+explicitly excluded (Remark~7: uniform measures on $\{1,\ldots,n\}$
+fail to glue to $\mathbb{N}$).  Section~5 states explicitly that
+the results hold for merely finitely additive charges.  For
+countable covers, $\sigma$-finiteness is needed --- standard
+measure theory, no hidden structure.
+
+\medskip\noindent
+\textbf{Original question:} Is the step from finite to countable
+covers exactly the CE boundary?  \textbf{Answer: Yes, but
+tautologically.}  Finitely additive $=$ sheaf for finite covers;
+$\sigma$-additive $=$ sheaf for countable covers.  This is a
+restatement, not a characterization.
+
+\medskip\noindent
+\textbf{Useful residue:} Thms~8 and~11 are clean citations for
+Paper~I's CE discussion.  Ref~[2] (Ross 2012, ``All roads lead to
+violations of countable additivity,'' \emph{Phil.\ Studies})
+relevant for Howson/de~Finetti direction.
 
 \medskip\noindent
 \textbf{Source:} arXiv:2401.01968.

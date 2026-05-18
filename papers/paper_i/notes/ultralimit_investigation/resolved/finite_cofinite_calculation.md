@@ -7,7 +7,7 @@ type: project
 # The Finite-Cofinite Algebra: Ultralimit Representation
 
 *Working note for Priority 2 of the ultralimit representation investigation.*
-*Parent: `notes/future/foundations/ce_nonderivability/index.md`*
+*Parent: `notes/unsorted/foundations/ce_nonderivability/index.md`*
 
 ---
 

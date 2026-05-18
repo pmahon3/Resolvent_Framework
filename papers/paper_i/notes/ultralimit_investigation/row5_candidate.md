@@ -7,7 +7,7 @@ type: project
 # Toward a Row-5 Algebra: Corrected Foundations
 
 *Working note for the frontier of the ultralimit representation investigation.*  
-*Parent: `notes/future/foundations/ce_nonderivability/index.md`*  
+*Parent: `notes/unsorted/foundations/ce_nonderivability/index.md`*  
 *Prerequisites: `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md` (Stone note, especially the hierarchy table).*
 *Launchpad: `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.*
 
@@ -569,4 +569,4 @@ asks whether such a factor can exist.
 - [x] Honest frontier declared: ZFC Boolean-algebra methods exhausted; forcing or advanced Radon-measure theory required for resolution
 - [ ] Resolve Strategy D: forcing construction (under ◇) or ZFC proof of non-existence
 - [ ] Update `stone_geometric_translation.md` to record topological reformulation
-- [ ] Update parent note `notes/future/foundations/ce_nonderivability/index.md` to record set-theoretic sensitivity
+- [ ] Update parent note `notes/unsorted/foundations/ce_nonderivability/index.md` to record set-theoretic sensitivity

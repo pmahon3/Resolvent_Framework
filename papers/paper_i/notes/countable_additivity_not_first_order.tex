@@ -60,10 +60,32 @@ Countable additivity distinguishes $\sigma$-additive measures from finitely addi
 charges.  That it cannot be expressed by a single first-order sentence is clear: the
 condition quantifies over countable sequences, unavailable in first-order logic.  Its
 non-first-order character is treated as background knowledge in the probability logic
-literature~\cite{Hoover1978,Keisler1985,FaginHalpernMegiddo1990}.  We record
-a short self-contained ultraproduct proof in the Boolean-algebra-with-charge
-setting, showing non-axiomatizability by \emph{any} set of sentences, not merely
-a single formula.
+literature~\cite{Hoover1978,Keisler1985,FaginHalpernMegiddo1990}.
+
+The philosophical significance of this gap was articulated by
+Howson~\cite{Howson2008}, who observed that de~Finetti's consistency criterion
+(finite additivity) shares two structural features with first-order
+logic --- absoluteness and compactness --- and that both fail for
+$\sigma$-additivity.  He identified a missing ``completeness theorem telling us
+that the rules of probability extend to finite but not countable additivity''
+\cite[p.~17]{Howson2008}.  The ultraproduct argument below makes this
+observation precise: the class of $\sigma$-additive structures is not
+elementary, so no first-order coherence condition can enforce
+$\sigma$-additivity.\footnote{A parallel non-axiomatizability result holds in the
+pure Boolean algebra language (without charge predicates): the property of
+admitting a strictly positive $\sigma$-additive probability --- characterized
+algebraically by Kantorovich--Vulikh--Pinsker (Dedekind $\sigma$-completeness $+$
+weak $(\sigma,\infty)$-distributivity $+$ chargeability;
+see~\cite[391D]{Fremlin3}) --- is not first-order axiomatizable.  This follows
+from Tarski's classification of atomless Boolean algebras: the Lebesgue measure
+algebra satisfies all three KVP conditions, while the Cohen algebra
+$\mathrm{RO}(2^{<\omega})$ is Dedekind complete and chargeable but fails weak
+$(\sigma,\infty)$-distributivity; yet both are atomless and hence elementarily
+equivalent.}
+
+We record a short self-contained ultraproduct proof in the
+Boolean-algebra-with-charge setting, showing non-axiomatizability by \emph{any}
+set of sentences, not merely a single formula.
 
 \medskip
 
@@ -163,8 +185,12 @@ probabilities.  This shows that the class of $\sigma$-additive structures is not
 closed under ultraproducts, hence not first-order axiomatizable.  A natural
 follow-up question is which purely finitely additive charges on a Boolean algebra
 arise as pointwise ultralimits of $\sigma$-additive probabilities on the same
-algebra; the answer depends sensitively on the algebra's structural properties and
-remains open in the non-$\sigma$-complete non-atomic case.
+algebra.  On a $\sigma$-algebra the answer is none: any pointwise ultralimit of
+$\sigma$-additive probabilities is itself $\sigma$-additive, by Nikodym-type
+convergence~\cite{DunfordSchwartz1958}, IV.9.8.  On a general Boolean algebra the
+situation is more structured, and the problem is settled in several natural regimes.
+The remaining open case reduces to whether there exists a non-$\sigma$-complete
+non-atomic Boolean algebra admitting no $\sigma$-additive probability.
 
 \bibliographystyle{plain}
 \bibliography{../references}

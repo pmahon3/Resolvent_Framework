@@ -7,7 +7,7 @@ type: project
 # Rung 3: Algebras with Multidimensional pfa
 
 *Working note for Priority 2b of the ultralimit representation investigation.*  
-*Parent: `notes/future/foundations/ce_nonderivability/index.md`*  
+*Parent: `notes/unsorted/foundations/ce_nonderivability/index.md`*  
 *Prerequisite: `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md` (rung 2 complete, positive).*
 
 ---

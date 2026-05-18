@@ -1,0 +1,911 @@
+\maketitle
+
+\section*{The programme's questions}
+
+The programme reconstructs structure from relations, not spaces.
+Point-spaces (the real line, Stone spaces, Hilbert spaces) are
+outcomes of the reconstruction, not its starting material.  This
+is a bet: that the relational description --- contexts, reference
+frames, directed refinement --- is the right starting point, and
+that the structures usually assumed (points, $\sigma$-algebras,
+global states) are \emph{reconstructed} from it.
+
+\medskip\noindent
+Three central questions organize the reading:
+
+\begin{enumerate}
+  \item \textbf{What must be added to observation to get structure?}
+
+    The persistent question across all phases:
+    \begin{itemize}[nosep]
+      \item Phase 1: observation $\to$ dynamics (semigroup)
+      \item Phase 2--3: observation $\to$ geometry
+        (curvature, metric, action)
+      \item Phase 4--6: observation $\to$ probability (CE),
+        realization (descent), value-definiteness (distributivity)
+    \end{itemize}
+
+    \smallskip\noindent
+    The reading form: \emph{Where does someone identify the exact
+    condition that forces a valuation to behave --- and what
+    structure does that condition live in?}
+
+  \item \textbf{Reconstruction without points.}
+
+    When can observation be modeled relationally --- via contexts
+    and reference frames --- rather than by presupposing an
+    underlying set-theoretic structure of points?  Numerical
+    identity (point-evaluation) is the degenerate case where all
+    contexts contract to a single point.
+
+    \smallskip\noindent
+    Paper~I does this for the Boolean case: probability is
+    reconstructed from directed refinement of finite Boolean
+    algebras, without assuming a sample space.  The open question
+    is whether this extends beyond the Boolean case, and if so
+    what plays the role of ``directed refinement'' when the
+    algebra is not distributive.
+
+    \smallskip\noindent
+    \emph{(Sharpened by Zafiris, Ch.~6 of Foundations of
+    Relational Realism: the relational description is not a
+    technical convenience but the starting point; point-spaces
+    are what you reconstruct, not what you assume.)}
+
+  \item \textbf{Local-to-global extension.}
+
+    When does locally defined information (on each Boolean context)
+    determine a global object?  What are the \emph{conditions on
+    the site} --- not the individual valuations --- that control
+    whether local data extend globally?
+
+    \smallskip\noindent
+    CE is one instance: local charges always glue finitely
+    additively (Kolmogorov), but gluing to a $\sigma$-additive
+    measure requires something extra --- and that ``something
+    extra'' is not a sheaf condition on any known topology
+    (Zafiris 2006, Biesel 2024: dictionary translation, not
+    theorem).  Paper~II's EA/PR/VDR is another instance: the
+    obstruction to global state extension in the non-Boolean case
+    is non-distributivity rather than failure of $\sigma$-additivity.
+
+    \smallskip\noindent
+    The general form: both the Boolean and non-Boolean extension
+    problems are local-to-global questions on different categories.
+    What controls the answer is the structure of the site, not the
+    properties of individual states.
+
+    \smallskip\noindent
+    \emph{(Sharpened by Zafiris, Ch.~6: the gluing conditions
+    on overlapping Boolean reference frames are the structural
+    content; the topology of the site is what does the work.)}
+\end{enumerate}
+
+% ==================================================================
+\section{Caramello --- \emph{Theories, Sites, Toposes} (2018)}
+
+\textbf{READ (2026-05-17).  Verdict: the bridge technique cannot
+see CE.  $\sigma$-additivity is not expressible in finitary
+geometric logic, so it cannot appear as a quotient in Caramello's
+framework.}
+
+\medskip\noindent
+Read Chapters 1, 3--10.  The book develops the ``bridge technique'':
+given a geometric theory $\mathbb{T}$ of presheaf type with
+canonical Morita equivalence
+\[
+  \mathbf{Sh}(\text{f.p.}\mathbb{T}\text{-mod}(\mathbf{Set})^{op},
+  J_{\mathrm{at}})
+  \;\simeq\;
+  \mathbf{Sh}(\mathcal{C}_{\mathbb{T}'}, J_{\mathbb{T}'}),
+\]
+transfer properties between the syntactic site
+$(\mathcal{C}_{\mathbb{T}'}, J_{\mathbb{T}'})$ and the semantic
+site $(\text{f.p.}\mathbb{T}\text{-mod}(\mathbf{Set})^{op},
+J_{\mathrm{at}})$ to obtain new results.
+
+\medskip\noindent
+\textbf{The discriminating constraint.}  A ``quotient'' of a
+geometric theory $\mathbb{T}$ means adding a \emph{geometric}
+sequent --- built from finite conjunctions, small disjunctions,
+existential quantification.  $\sigma$-additivity requires
+\emph{countable} universal quantification and countable
+conjunction: it is not a geometric axiom.  So $\sigma$-additivity
+literally cannot be expressed as a quotient of any geometric theory
+in Caramello's framework.  The bridge technique cannot see the
+finite/countable boundary where CE lives --- for the same
+structural reason that Deligne/Frot cannot: finitary
+expressiveness.
+
+\medskip\noindent
+\textbf{The infinitary escape.}  At $\kappa = \omega_1$
+(Esp\'{i}ndola's generalization), $\sigma$-additivity becomes
+expressible in $\kappa$-geometric logic.  But we already
+established (\S 8 above) that Property~T at $\omega_1$ on the CE
+site reduces to classical conditions.  The bridge either can't see
+CE (finitary) or reduces it to known content (infinitary).
+
+\medskip\noindent
+\textbf{What the book does provide:}
+\begin{itemize}[nosep]
+  \item Theorem~3.2.5 (Duality): bijection between quotients of
+    $\mathbb{T}$ and subtoposes of $\mathbf{Set}[\mathbb{T}]$.
+  \item Chapter~4: coHeyting algebra on subtoposes,
+    Booleanization, DeMorganization.
+  \item Chapter~6 (\S 6.1.1): canonical Morita equivalences for
+    presheaf-type theories.
+  \item Chapter~10: applications --- Fra\"{i}ss\'{e}'s theorem
+    topos-theoretically, Galois representations.
+  \item p.~337(b): the theory of decidable Boolean algebras is of
+    presheaf type; f.p.\ models $=$ finite Boolean algebras;
+    homogeneous models $=$ atomless Boolean algebras.  But this is
+    the \emph{algebraic} theory --- no measures, charges, or
+    $\sigma$-additivity.
+\end{itemize}
+
+\medskip\noindent
+\textbf{No measure-theoretic applications.}  Caramello has no
+published work applying the bridge technique to measure theory,
+valuations, or probability.
+
+\medskip\noindent
+\textbf{Contact with programme:} None directly.  The bridge
+technique operates within finitary geometric logic, which cannot
+express $\sigma$-additivity.  Sixth instance of the pattern: CE is
+invisible to every finitary framework tried (Zafiris, Biesel,
+Frot/Deligne, Esp\'{i}ndola-reduced, Caramello).
+
+\medskip\noindent
+\textbf{Source:} Oxford University Press, 2018.
+ISBN 978-0-19-875891-4.
+
+% ==================================================================
+\section{Vickers --- \emph{Topology via Logic} (1989)}
+
+\textbf{READ (2026-05-17).  Verdict: provides the framework
+(locales, sublocales, Stone duality) but not the application to
+measures.  The question remains open --- requires later literature.}
+
+\medskip\noindent
+The book is a domain theory / logic textbook.  It develops:
+\begin{itemize}[nosep]
+  \item Locales (\S 5.4): points $=$ frame homomorphisms to
+    $\mathbf{2}$; spatialization/localization functors.
+  \item Sublocales (\S 6.2): $=$ nuclei on frames $=$ frame
+    quotients.  The sublocale of ``realized points'' (principal
+    ultrafilters) is well-defined in this framework.
+  \item Spectral algebraic locales (\S\S 9.2--9.3): coherent
+    presentations, compact coprime opens, Stone duality.
+  \item Stone spaces (\S 9.5): spectral $+$ Hausdorff
+    $\leftrightarrow$ Boolean algebra.  Clopens $=$ elements of the
+    Boolean algebra.  Booleanization functor.  Patch topology.
+  \item $\omega$-algebraicity (\S 9.4): second countability,
+    $\omega$-chain completions.  The finite/countable boundary
+    appears here --- finite locales are spectral algebraic
+    (Prop.~9.4.1); second countable $\leftrightarrow$
+    $\omega$-algebraic (Thm.~9.4.6).
+\end{itemize}
+
+\medskip\noindent
+\textbf{What the book does NOT provide:}
+\begin{itemize}[nosep]
+  \item No theory of valuations/measures on locales.
+  \item No discussion of $\sigma$-additivity or CE in
+    locale-theoretic terms.
+  \item No characterization of ``a valuation is supported on the
+    sublocale of principal ultrafilters.''
+\end{itemize}
+
+\medskip\noindent
+\textbf{Original question:} Is CE expressible as a frame-internal
+property of a valuation?  \textbf{Answer: cannot be determined from
+this book.}  The framework is here (locales, sublocales, Stone
+duality for Boolean algebras), but the theory of valuations on
+locales is post-1989: Heckmann (1996), Vickers (2008, ``A localic
+theory of lower and upper integrals'').  The reading direction
+remains open but now points to Vickers's later work on localic
+measure theory, not this textbook.
+
+\medskip\noindent
+\textbf{Useful residue:}
+\begin{itemize}[nosep]
+  \item \S 9.2 Theorem~9.2.2: a frame is \emph{coherent} iff it
+    has a coherent presentation iff $A \cong \mathrm{Idl}(K)$ for a
+    distributive lattice $K$.  This is the frame-level notion
+    behind Deligne/Frot.
+  \item \S 9.4 Definition~9.4.3: second countability $=$ countable
+    basis.  The step from finite to countable basis is exactly the
+    step from coherent to $\omega$-algebraic --- parallel to the
+    logical step from finitary to $L_{\omega_1,\omega}$
+    (Esp\'{i}ndola).
+  \item \S 6.2 Proposition~6.2.8: sublocales characterized by
+    closure under all meets $+$ Heyting implication condition.
+    The sublocale machinery is available for formulating the
+    support condition --- what is missing is the valuation side.
+\end{itemize}
+
+\medskip\noindent
+\textbf{Contact with programme.}  The framework is now in hand.
+The open question is whether Vickers's later localic measure theory
+(2011) provides the valuation-on-locale machinery needed to
+formulate ``$\mu$ is supported on the sublocale of principal
+ultrafilters'' as a frame-internal condition.  This would be the
+next reading direction if the CE question is revisited.
+
+\medskip\noindent
+\textbf{Source:} Cambridge University Press, 1989.  ISBN 0\,521\,36062\,5.
+
+% ==================================================================
+\section{R\'{e}dei \& Summers --- ``Quantum Probability Theory''
+(2006)}
+
+\textbf{READ (2026-05-17).  Verdict: review paper, Paper~II
+reference.}
+
+\medskip\noindent
+Reviews quantum probability in the von Neumann algebra framework.
+Classical probability $=$ abelian von Neumann algebra; quantum $=$
+nonabelian.  Normal states ($=$ $\sigma$-additive) characterized
+by continuity.  The type I/II/III classification controls which
+probability-theoretic phenomena appear.
+
+\medskip\noindent
+\textbf{Original question:} What is the obstruction to extending
+states across non-Boolean joins?  \textbf{Answer:}
+Noncommutativity itself.  The type classification refines this
+but no single algebraic condition beyond ``non-distributive
+$+$ $\dim \geq 3$'' is isolated.
+
+\medskip\noindent
+\textbf{Useful for Paper~II:} clean reference for the parallel
+between classical and quantum probability in the operator algebra
+framework.
+
+\medskip\noindent
+\textbf{Source:} arXiv:quant-ph/0601158.
+
+% ==================================================================
+\section{D\"{o}ring \& Isham --- ``What is a Thing?'' (2008)}
+
+\textbf{READ (2026-05-17).  Verdict: Paper~II reference.
+Daseinisation is descent-adjacent but not CE-relevant.}
+
+\medskip\noindent
+The topos is $\mathbf{Sets}^{\mathcal{V}(\mathcal{H})^{op}}$:
+presheaves on the poset $\mathcal{V}(\mathcal{H})$ of commutative
+subalgebras of $B(\mathcal{H})$.  The spectral presheaf $\underline{\Sigma}$
+assigns to each Boolean context $V$ its Gelfand spectrum; it has
+no global elements ($=$ Kochen--Specker).  Daseinisation (\S 5.2--5.3)
+maps a projection $\hat{P}$ to a sub-object of $\underline{\Sigma}$
+by approximating $\hat{P}$ within each Boolean context.
+
+\medskip\noindent
+\textbf{Original question:} Does daseinisation give descent from
+Stone space to realization?  \textbf{Answer:} Structurally adjacent
+but different.  Daseinisation goes \emph{up} (approximating
+non-Boolean by Boolean); descent goes \emph{down} (Stone space to
+realized points).  The failure of global sections IS Kochen--Specker,
+reformulated topos-theoretically --- the non-Boolean analogue of CE
+failure, but with a different obstruction mechanism
+(noncommutativity vs.\ non-$\sigma$-additivity).
+
+\medskip\noindent
+\textbf{Contact with programme:} Paper~II directly.  Not
+CE-relevant.
+
+\medskip\noindent
+\textbf{Source:} arXiv:0803.0417.
+
+% ==================================================================
+\section{Fremlin Vol.\ 3, Ch.\ 39 --- measurable algebras}
+
+\textbf{READ (2026-05-17).  Verdict: answers the question
+precisely.  Weak $(\sigma,\infty)$-distributivity is the algebraic
+CE condition.}
+
+\medskip\noindent
+\textbf{391D Theorem} (Kantorovich--Vulikh--Pinsker 1950).  A
+Boolean algebra $\mathfrak{A}$ is measurable iff:
+\begin{enumerate}[nosep]
+  \item $\mathfrak{A}$ is Dedekind $\sigma$-complete,
+  \item $\mathfrak{A}$ is weakly $(\sigma,\infty)$-distributive,
+  \item $\mathfrak{A}$ is chargeable (admits a strictly positive
+    finitely additive functional).
+\end{enumerate}
+
+\medskip\noindent
+\textbf{391J Theorem} (Kelley).  $\mathfrak{A}$ is chargeable iff
+$\mathfrak{A} = \{0\}$ or $\mathfrak{A} \setminus \{0\}$ is a
+countable union of sets with non-zero intersection numbers.
+
+\medskip\noindent
+\textbf{Original question:} Is there a known algebraic condition
+forcing every charge to be $\sigma$-additive?  \textbf{Answer:
+Yes --- weak $(\sigma,\infty)$-distributivity} (plus
+$\sigma$-completeness).  KVP 1950 is the theorem.  This is NOT a
+tautological restatement: weak $(\sigma,\infty)$-distributivity is
+a genuine lattice condition on how countable infima interact with
+arbitrary suprema.
+
+\medskip\noindent
+\textbf{Contact with programme.}  This is the algebraic answer to
+Question~3 (local-to-global extension) for the Boolean case.  The
+condition controlling whether local charges extend to a
+$\sigma$-additive global measure is a property of the
+\emph{algebra} (the site), not the charges (the sections) ---
+exactly what the programme's framing predicts.  Weak
+$(\sigma,\infty)$-distributivity is the algebraic face of CE.
+
+\medskip\noindent
+\textbf{Key citation for Paper~I:} KVP 1950 (via Fremlin 391D)
+characterizes the exact algebraic boundary.  This is what
+Howson's ``missing completeness theorem'' looks like in algebraic
+language.
+
+\medskip\noindent
+\textbf{Source:} Fremlin, \emph{Measure Theory} Vol.~3, Ch.~39,
+freely available at
+\texttt{https://www1.essex.ac.uk/maths/people/fremlin/chap39.pdf}.
+
+% ==================================================================
+\section{Vickers --- ``A localic theory of lower and upper
+integrals'' (2008)}
+
+\textbf{Question while reading:} Can ``a valuation is supported on
+the sublocale of principal ultrafilters'' be formulated as a
+frame-internal condition on a localic valuation?  Does
+$\sigma$-additivity of the valuation emerge as a locale-theoretic
+property (e.g., preservation of directed joins, or a continuity
+condition on the valuation map)?
+
+\medskip\noindent
+\textbf{Why.}  Vickers (1989) provides the framework (locales,
+sublocales, Stone duality) but not the application to measures.
+This later work develops valuations on locales constructively.
+The programme's question --- is CE a frame-internal property? ---
+requires this machinery.  If the support condition
+``$\mu(\text{sublocale of realized points}) = 1$'' can be expressed
+without reference to points, it would be the non-circular
+characterization of coherence.
+
+\medskip\noindent
+\textbf{Contact with programme:} CE characterization directly.
+This is the actual target that Vickers (1989) pointed toward.
+
+\medskip\noindent
+\textbf{Source:} \emph{Math.\ Logic Quarterly} 54(1), 109--123.
+
+% ==================================================================
+\section{Howson --- ``De Finetti, Countable Additivity, Consistency
+and Coherence'' (2008)}
+
+\textbf{READ (2026-05-17).  Verdict: identifies the same gap
+(finite additivity vs.\ $\sigma$-additivity) but does not
+formalize it.  TERMINOLOGICAL WARNING: Howson uses ``consistency''
+and ``coherence'' as synonyms for de Finetti's criterion (finite
+additivity / no Dutch book).  $\sigma$-additivity sits above both.
+This is opposite to the programme's usage, where consistency $=$
+finite additivity and coherence $=$ the stronger condition
+including $\sigma$-additivity.}
+
+\medskip\noindent
+Howson clarifies de Finetti's position on countable additivity
+and shows it is internally consistent.  Key findings:
+
+\medskip\noindent
+\textbf{The mistranslation.}  De Finetti's Italian \emph{coerenza}
+$=$ ``consistency'' (\emph{consistenza}).  His 1972 book uniformly
+uses ``consistency.''  The English translators (Kyburg) imposed
+``coherence'' against de Finetti's own usage (p.~3).  The
+programme's terminology aligns with de Finetti's original, not the
+mistranslation.
+
+\medskip\noindent
+\textbf{Consistency $=$ finite additivity, precisely.}  De Finetti's
+criterion: $P$ is consistent iff no finite combination of bets at
+the $P$-rates guarantees a loss.  Characterizes exactly the
+finitely additive probability functions.  Two properties parallel
+first-order logic: \emph{absoluteness} (consistency depends only
+on $P[E]$, not on which algebra $E$ sits in) and
+\emph{compactness} (inconsistency detected by a finite subset).
+Both fail for $\sigma$-additivity (pp.~8--9).
+
+\medskip\noindent
+\textbf{De Finetti's argument against the Dutch Book for
+$\sigma$-additivity (\S\S 3--4).}  The infinite fair lottery
+($p_n = 0$ for all $n$) is Dutch-Bookable only if postulate~(A)
+--- ``a finite sum of fair bets is fair'' --- is extended to
+countable sums.  De Finetti: this extension \emph{entails}
+$\sigma$-additivity, making the Dutch Book argument circular.
+
+\medskip\noindent
+\textbf{Cox $\to$ finite additivity only (\S 6, p.~19).}  Cox's
+three scale-free axioms $+$ propositional logic $\to$ finitely
+additive probability.  ``Cox's result does not extend to endorsing
+countable additivity.  There are infinitary propositional
+languages\ldots\ $L_{\omega_1,\omega}$\ldots\ but there is no
+natural extension of Cox's proof which would exploit that
+additional structure.''
+
+\medskip\noindent
+\textbf{The open problem (p.~17).}  ``Something is nevertheless
+missing, and that is a type of completeness theorem telling us that
+the rules of probability extend to finite but not countable
+additivity.''  This is precisely the gap that Frot and
+Esp\'{i}ndola formalize: Deligne (finitary completeness) $=$
+consistency; CE requires $\omega_1$-completeness.
+
+\medskip\noindent
+\textbf{Contact with programme.}  Howson (2008) is the primary
+prior-art citation for the companion note.  He identifies the gap
+(finite additivity has compactness, $\sigma$-additivity doesn't)
+and states the open problem (p.~17: ``missing completeness
+theorem'').  The companion note makes this precise via ultraproduct
+proof.  The Frot/Esp\'{i}ndola boundary is the formal version of
+Howson's philosophical observation: Deligne (finitary completeness)
+$=$ consistency; CE requires something beyond
+($\omega_1$-completeness).  Cox's axioms are the right starting
+material for the programme: they produce finite additivity from
+structural principles; $\sigma$-additivity requires something extra
+that is not grounded the same way.
+
+\medskip\noindent
+\textbf{Five-traditions unification: DEAD (2026-05-18).}
+Abramsky's contextuality obstruction is compact (finite covers);
+the $\sigma$-additivity gap is non-compact (invisible to finite
+tests).  Category error.  Removing Abramsky reduces the thesis to
+Howson (2008) with fancier coordinates.  No new theorem.
+
+\medskip\noindent
+\textbf{Source:} \emph{BJPS} 59(1):1--23.
+
+% ==================================================================
+\section{Frot --- ``G\"{o}del's Completeness and Deligne's Theorem''
+(2013)}
+
+\textbf{READ (2026-05-17).  Verdict: confirms the dictionary,
+places CE.}
+
+\medskip\noindent
+Proves Deligne's theorem (``coherent topoi have enough points'')
+is equivalent to G\"{o}del's completeness for first-order logic.
+The dictionary: models $=$ points of the topos (geometric morphisms
+$\mathcal{E} \to \mathbf{Set}$); consistency $=$ non-triviality;
+coherent theory $=$ finitary axioms $=$ coherent topos.
+
+\medskip\noindent
+\textbf{Original question:} Is CE's failure exactly ``the
+classifying topos lacks enough points''?  \textbf{Answer: Not
+exactly.}  CE is not expressible in coherent (finitary) logic
+(confirming \L o\'{s}), so Deligne's theorem does not apply.  CE
+lives \emph{above} the coherent level --- the guarantee of enough
+points stops before reaching $\sigma$-additivity.  The right
+framing: CE requires a completeness theorem for the
+\emph{infinitary} fragment where $\sigma$-additivity lives.
+
+\medskip\noindent
+\textbf{What connects.}  Finite additivity IS coherent ---
+Biesel's result (sheaf for finite covers) is the measure-theoretic
+face of Deligne.  $\sigma$-additivity requires countable
+operations, escaping coherence.  Frot makes this boundary precise:
+it is the boundary between finitary and infinitary logic,
+equivalently between coherent and non-coherent toposes.
+
+\medskip\noindent
+\textbf{Source:} arXiv:1309.0389.
+
+% ==================================================================
+\section{Esp\'{i}ndola --- ``Infinitary Generalizations of Deligne's
+Completeness Theorem'' (2017; published \emph{JSL} 85(3), 2020)}
+
+\textbf{READ (2026-05-17).  Verdict: places CE at $\kappa =
+\omega_1$; identifies Property~$T$ as the structural condition.}
+
+\medskip\noindent
+Generalizes Deligne to $\kappa$-geometric logic (conjunctions and
+disjunctions of ${<}\,\kappa$ formulas, existential quantification
+over ${<}\,\kappa$ variables).  Key results:
+\begin{itemize}[nosep]
+  \item \textbf{Theorem~2.11.}  If $\kappa$ is regular with
+    $\kappa^{<\kappa} = \kappa$, $\kappa$-geometric theories of
+    cardinality ${\leq}\,\kappa$ are complete w.r.t.\
+    $\mathbf{Set}$-valued models.
+  \item \textbf{Corollary~3.1.}  Under same hypothesis, every
+    $\kappa$-separable topos has enough $\kappa$-points.
+  \item \textbf{Theorem~3.4.}  If $\kappa$ is weakly compact, every
+    $\kappa$-coherent topos has enough $\kappa$-points.
+  \item \textbf{Corollary~3.3.}  $\kappa$-coherent theories of
+    cardinality ${\leq}\,\kappa$ are complete ($=$ Karp's
+    completeness for $\mathcal{L}_{\kappa,\kappa}$).
+\end{itemize}
+
+\medskip\noindent
+\textbf{Property~$T$} (Definition~2.2): an exactness condition on
+the category --- every proper diagram (tree with bar) is completely
+proper.  Combines strong distributivity $+$ dependent choice.  At
+$\kappa = \omega$, property~$T$ is automatic (Remark~2.7),
+recovering classical Deligne.  At $\kappa > \omega$ it is a genuine
+restriction.  Rule~$T$ (p.~1150) is the syntactic counterpart.
+
+\medskip\noindent
+\textbf{Where CE lives.}  $\sigma$-additivity uses countable
+universal quantification and countable conjunction $\to$
+expressible in $L_{\omega_1,\omega}$ $\to$ relevant level is
+$\kappa = \omega_1$.  At this level:
+\begin{itemize}[nosep]
+  \item Theorem~2.11 applies under CH
+    ($\omega_1^{<\omega_1} = \omega_1$).
+  \item Theorem~3.4 requires $\omega_1$ weakly compact (large
+    cardinal axiom).
+\end{itemize}
+
+\medskip\noindent
+\textbf{Reduction check (2026-05-17).}  Property~$T$ at
+$\kappa = \omega_1$ on the site of finite Boolean subalgebras
+reduces to $\sigma$-completeness of the underlying algebra $+$
+uniqueness of the Carath\'{e}odory extension.  Both classical,
+both already assumed in any CE setup.  No gap for a theorem.
+Fifth instance of the pattern: CE-adjacent seeds die because
+the topos/sheaf/logical machinery, applied to the specific site
+where CE lives, restates classical conditions.
+
+\medskip\noindent
+\textbf{Status.}  The \emph{coordinates} are genuine (CE lives at
+$\kappa = \omega_1$ in Esp\'{i}ndola's hierarchy, above Deligne
+but within Karp).  Useful for exposition (Paper~I) and for the
+Caramello reading direction (specifies what her machinery would
+need to do).  Does not produce a seed.  The Caramello direction
+remains open --- her Morita equivalence approach is structurally
+different from ``apply Property~$T$ to this site.''
+
+\medskip\noindent
+\textbf{Source:} arXiv:1709.01967.
+
+% ==================================================================
+\section{Pt\'{a}k --- ``Exotic logics'' (1987)}
+
+\textbf{READ (2026-05-17).  Verdict: populates Square~A bottom-right.
+Obstruction is combinatorial (Greechie pasting), not from the center.}
+
+\medskip\noindent
+\textbf{The construction.}  An \emph{exotic logic} is a
+$\sigma$-orthocomplete OMP that admits finitely additive states but no
+$\sigma$-additive states.  Pt\'{a}k constructs these by
+\emph{Greechie pasting}: start with a collection of Boolean algebras
+(blocks), identify certain atoms across blocks so that the resulting
+structure is an OMP, and show that any $\sigma$-additive state would
+require the atoms of one block to sum to more than~1 (by the
+identifications forcing double-counting).
+
+\medskip\noindent
+\textbf{Original question:} Is the obstruction purely from the center,
+or is there a genuinely non-Boolean mechanism?  \textbf{Answer:}
+genuinely non-Boolean.  The obstruction is combinatorial: the atom
+identifications across blocks create contradictory partition-of-unity
+constraints.  Each block individually admits $\sigma$-additive states
+(it is Boolean), but the pasting forces any global state to satisfy
+incompatible normalization conditions at the $\sigma$-additive level.
+The center of the resulting OMP can be prescribed independently
+(Theorem~3: any logic embeds into an exotic logic with given center).
+
+\medskip\noindent
+\textbf{Key result (Theorem~1).}  There exist exotic logics of
+arbitrary cardinality.  The construction is explicit: the pasting
+diagram and the atom identifications are given.
+
+\medskip\noindent
+\textbf{Contact with programme:} Square~A directly.  Confirms that the
+OML extension problem (bottom-right cell) has a different character
+from the Boolean extension problem (top-right, CE): the obstruction is
+combinatorial/geometric (from the pasting), not analytic (from failure
+of $\sigma$-additivity on a single Boolean algebra).  Gleason's theorem
+is the exception --- it requires $\dim \geq 3$ and orthomodularity,
+and even then only forces $\sigma$-additivity on specific algebras.
+
+\medskip\noindent
+\textbf{Source:} \emph{Colloquium Math.}\ 54(1), 1--7.
+
+% ==================================================================
+\section{Navara --- ``Regularity and $\sigma$-additivity of states''
+(1992)}
+
+\textbf{READ (2026-05-17).  Verdict: counterexample kills the
+conjecture that regularity forces $\sigma$-additivity.  Not an
+admissibility condition.}
+
+\medskip\noindent
+\textbf{The result.}  B\'{e}aver and Cook (1989) proved: on
+\emph{projection lattices of von Neumann algebras}, every
+$P$-regular state (= inner regular w.r.t.\ finite-dimensional
+projections) is $\sigma$-additive.  Navara shows this does NOT
+generalize: there exist $\sigma$-orthocomplete quantum logics
+(OMPs) on which all states are $P$-regular yet some are not
+$\sigma$-additive.
+
+\medskip\noindent
+\textbf{Original question:} Does regularity force $\sigma$-additivity
+on general quantum logics?  Is this the admissibility condition for
+the right column?  \textbf{Answer: No.}  The B\'{e}aver--Cook result
+is special to von Neumann algebras (where the projection lattice has
+additional structure: completeness, modularity in finite type,
+type decomposition).  On general $\sigma$-orthocomplete OMPs,
+regularity is strictly weaker than $\sigma$-additivity.
+
+\medskip\noindent
+\textbf{The construction.}  Navara modifies Pt\'{a}k's exotic-logic
+construction: takes a Greechie pasting that admits only non-$\sigma$-additive
+states, then verifies that all states on this logic are $P$-regular
+(because the finite-dimensional sub-logics approximate the full logic
+sufficiently well for inner regularity, but not for
+$\sigma$-additivity).
+
+\medskip\noindent
+\textbf{Contact with programme:} Clarifies the bottom-right cell of
+Square~A.  The OML extension problem does \emph{not} have a simple
+admissibility condition analogous to regularity.  The gap between
+finitely additive states and $\sigma$-additive states on OMPs is
+not bridgeable by regularity alone --- the obstruction (Pt\'{a}k's
+combinatorial pasting) persists even when all states are regular.
+This confirms that the non-Boolean extension problem is
+structurally harder than the Boolean one (where weak
+$(\sigma,\infty)$-distributivity does the job via KVP~1950).
+
+\medskip\noindent
+\textbf{Source:} \emph{Proc.\ AMS} 115(2), 427--429.
+
+% ==================================================================
+\section{Shultz --- ``A characterization of state spaces of
+orthomodular lattices'' (1974)}
+
+\textbf{READ (2026-05-17).  Verdict: orthomodularity imposes NO
+geometric constraint on state spaces; but $\sigma$-additive state
+spaces CAN be geometrically degenerate.}
+
+\medskip\noindent
+\textbf{Main Theorem (p.~321).}  If $C$ is a compact convex subset
+of a locally convex space, then $C \cong S(L)$ (affinely
+homeomorphic to the state space) of some $\sigma$-orthomodular
+lattice~$L$.  If $C$ is a rational polytope, $L$ can be chosen
+finite.
+
+\medskip\noindent
+\textbf{Construction.}  Uses Greechie's $G$-spaces (the same
+pasting technique as Pt\'{a}k's exotic logics): points $+$ frames
+with loop constraints.  Lemma~1: any $G$-space yields a
+$\sigma$-OML whose state space is affinely homeomorphic to the
+weight space $W(X, \mathscr{F})$.  Lemmas~2--3: forcing techniques
+(adjoining points, controlling weight values) to realize arbitrary
+compact convex sets as weight spaces.
+
+\medskip\noindent
+\textbf{The negative result for $\sigma$-states (p.~327).}  The
+converse is FALSE for $\sigma$-additive states.  Take $L$ $=$
+Borel subsets of $\mathbb{R}$ modulo Lebesgue-null sets (a
+$\sigma$-Boolean algebra).  Then $S_\sigma(L)$ has no extreme
+points --- by Krein--Milman, $S_\sigma(L)$ is NOT affinely
+equivalent to any compact convex subset of a locally convex space.
+The $\sigma$-state space can be geometrically degenerate in ways
+the full state space cannot.
+
+\medskip\noindent
+\textbf{Open question (p.~327).}  How to characterize $S(L)$ if
+$L$ admits an order-determining set of states?  Shultz conjectures
+there exist compact convex subsets not representable even with this
+extra assumption.
+
+\medskip\noindent
+\textbf{Contact with programme:} Square~A, bottom row.
+\begin{enumerate}[nosep]
+  \item Orthomodularity alone imposes NO constraint on state-space
+    geometry --- any compact convex set arises.  The obstruction to
+    $\sigma$-additivity (Pt\'{a}k) cannot be read off from convex
+    geometry.
+  \item $S_\sigma(L)$ is structurally different from $S(L)$: it can
+    lack extreme points entirely.  This is not just ``a smaller
+    convex set'' --- it can fail to be a compact convex set at all
+    in the relevant sense.
+  \item Greechie pasting is the common tool behind both Shultz
+    (state-space universality) and Pt\'{a}k (exotic logics with no
+    $\sigma$-states).  The pasting is the fundamental technique for
+    the non-Boolean column.
+\end{enumerate}
+
+\medskip\noindent
+\textbf{Source:} \emph{J.\ Combin.\ Theory~A} 17(3), 317--328.
+DOI: 10.1016/0097-3165(74)90096-X.
+
+% ==================================================================
+\section{Epperson \& Zafiris --- \emph{Foundations of Relational
+Realism} (2013)}
+
+\textbf{READ (2026-05-17).  Verdict: does not address CE.}
+
+\medskip\noindent
+Read Chapters 6, 8, 9, 10 of the book and Zafiris (2006)
+\emph{J.\ Math.\ Phys.}\ 47, 092103 (the paper that puts measures
+on the site).  The Grothendieck topology $J$ (epimorphic families)
+does not grade covers by cardinality --- finite, countable, and
+uncountable covers satisfy $J$ uniformly.  The finite/countable
+boundary where CE lives is invisible.  States are finitely additive
+throughout; $\sigma$-completeness is an axiom, not a sheaf
+condition.  No cohomology is computed; the paper proves a
+\emph{reconstruction} theorem (counit is iso), not an obstruction
+theorem.  The $H^1$ unification with Abramsky--Brandenburger does
+not appear.
+
+\medskip\noindent
+\textbf{Original question:} Does Zafiris's Boolean localization
+give a sheaf-theoretic formulation of when local states glue to a
+global $\sigma$-additive state?  \textbf{Answer: No.}
+
+% ==================================================================
+\section{Biesel --- ``Sheaves of Probability'' (2024)}
+
+\textbf{READ (2026-05-17).  Verdict: confirms dictionary translation.}
+
+\medskip\noindent
+Proves measures form a sheaf for finite covers (Thm~8),
+probability measures likewise (Thm~11).  Countable covers
+explicitly excluded (Remark~7: uniform measures on $\{1,\ldots,n\}$
+fail to glue to $\mathbb{N}$).  Section~5 states explicitly that
+the results hold for merely finitely additive charges.  For
+countable covers, $\sigma$-finiteness is needed --- standard
+measure theory, no hidden structure.
+
+\medskip\noindent
+\textbf{Original question:} Is the step from finite to countable
+covers exactly the CE boundary?  \textbf{Answer: Yes, but
+tautologically.}  Finitely additive $=$ sheaf for finite covers;
+$\sigma$-additive $=$ sheaf for countable covers.  This is a
+restatement, not a characterization.
+
+\medskip\noindent
+\textbf{Useful residue:} Thms~8 and~11 are clean citations for
+Paper~I's CE discussion.  Ref~[2] (Ross 2012, ``All roads lead to
+violations of countable additivity,'' \emph{Phil.\ Studies})
+relevant for Howson/de~Finetti direction.
+
+\medskip\noindent
+\textbf{Source:} arXiv:2401.01968.
+
+% ==================================================================
+\section*{Open leads: literature audit results (2026-05-17)}
+
+\subsection*{Strategy D}
+
+\textbf{Core question:} Does there exist a non-$\sigma$-complete,
+non-atomic Boolean algebra admitting no $\sigma$-additive probability?
+
+\textbf{Key structural clarification.}  On the \emph{clopen} algebra
+of a Stone space, $\sigma$-additivity is vacuous by compactness:
+there are no nontrivial countable disjoint families whose join is
+also clopen.  The real Strategy~D question is about \emph{Radon
+measures} on the Stone space (the Borel/Baire $\sigma$-algebra
+generated by clopens).
+
+\textbf{Literature findings:}
+\begin{itemize}[nosep]
+  \item \textbf{Plebanek (2024 survey):} most current secondary
+    source on strictly positive measures on compact spaces.
+    Covers Kelley condition, chain conditions, Fremlin's problem
+    list.  Confirms the exact parameter regime (non-basically-disconnected,
+    zero-dimensional, non-atomic) is open.
+  \item \textbf{Argyros (1983):} constructs (under CH) a compact,
+    totally disconnected, non-atomic, Radon-measure-free space ---
+    but it is basically disconnected (corresponding Boolean algebra
+    is $\sigma$-complete).  Wrong row of the hierarchy.
+  \item No ZFC construction or obstruction is known for Strategy~D's
+    exact conditions.  Likely independent.
+\end{itemize}
+
+\textbf{Verdict:} genuinely open, positioned precisely in the
+landscape.  Next step would be consistency constructions
+(diamond/CH) or reduction to known independence results.
+
+\subsection*{OML extension problem}
+
+\textbf{Core question:} What condition on a non-Boolean OML forces
+every state to be $\sigma$-additive (or extendable to a
+$\sigma$-additive measure on the McDonald--Bimb\'{o} dual)?
+
+\textbf{The structural diagnosis.}  Pt\'{a}k--Pulmannov\'{a} (1994)
+prove: if every unital subadditive measure on an OMP is a state,
+the lattice must be Boolean.  This is the killer result ---
+conditions strong enough to force $\sigma$-additivity destroy the
+non-Boolean structure.
+
+\textbf{Literature findings:}
+\begin{itemize}[nosep]
+  \item \textbf{Bunce--Wright (1992):} $\sigma$-additivity via
+    operator-algebraic structure (JBW-algebras).  Positive but
+    narrow: requires completeness close to von Neumann.
+  \item \textbf{Chetcuti--Dvure\v{c}enskij (2003, 2005):} lattice
+    effects algebras; positive results under strong completeness
+    conditions.
+  \item \textbf{Navara (1992):} regularity does NOT force
+    $\sigma$-additivity on general OMPs.
+  \item \textbf{Recent incremental work:} Vor\'{a}\v{c}ek--Pt\'{a}k
+    (2023), Bure\v{s}ov\'{a}--Pt\'{a}k (2023), De~Simone--Navara
+    (ongoing).  No breakthrough.
+  \item \textbf{Wilce (2009), Handbook of Quantum Logic Ch.~24:}
+    confirms Greechie pasting is the universal construction tool
+    for exotic OML state spaces.
+\end{itemize}
+
+\textbf{Verdict:} genuinely open, structurally resistant.  The gap
+between ``too weak'' and ``too strong'' appears robust.  Needs a new
+idea (novel pasting technique, or categorical/topos bypass), not
+more reading.
+
+% ==================================================================
+\section*{Context from literature audits (2026-05-15 to 2026-05-17)}
+
+The consistency/coherence gap is real and recognized implicitly in
+five traditions, but never unified under a single name:
+\begin{itemize}[nosep]
+  \item Philosophy of probability (de Finetti/Howson): consistency
+    $=$ finite additivity; $\sigma$-additivity is beyond.  Howson
+    (2008) confirms and defends de Finetti's position.
+  \item Topos theory (Caramello/Johnstone): ``coherent theory'' $=$
+    compactness-controlled; non-coherent $=$ beyond.  Frot (2013)
+    proves Deligne $=$ G\"{o}del completeness.
+  \item Infinitary logic (Esp\'{i}ndola 2020): CE lives at
+    $\kappa = \omega_1$ in the $\kappa$-coherent hierarchy, above
+    Deligne but within Karp.  Property~$T$ at $\omega_1$ reduces to
+    classical conditions on the CE site --- no gap for a theorem.
+  \item Quantum foundations (Abramsky et al.): contextuality as
+    obstruction to global sections (sheaf cohomology).
+  \item Imprecise probability (Walley): conglomerability $=$
+    ``$\sigma$-coherence'' in all but name.
+  \item Continuous model theory (Ben Yaacov): sidestep --- change the
+    logic so $\sigma$-additivity becomes first-order.
+\end{itemize}
+No one has unified these.  The unification is the opportunity;
+the risk is that it may be terminological packaging rather than
+a theorem.
+
+\medskip\noindent
+The boundary is now precisely located from three angles:
+\begin{itemize}[nosep]
+  \item \textbf{Philosophical:} Howson --- Cox's axioms produce
+    finite additivity only; no ``natural extension'' to
+    $L_{\omega_1,\omega}$ gives $\sigma$-additivity.
+  \item \textbf{Logical:} Frot --- Deligne (enough points for
+    coherent topoi) $=$ finitary completeness $=$ consistency.
+    $\sigma$-additivity escapes coherence.
+  \item \textbf{Topos-theoretic:} Esp\'{i}ndola --- $\omega_1$-coherent
+    completeness exists but Property~$T$ on the CE site collapses
+    to classical conditions.  The machinery doesn't produce new
+    content at this site.
+\end{itemize}
+
+\medskip\noindent
+\textbf{Earlier findings (2026-05-15 to 2026-05-17):}
+\begin{itemize}[nosep]
+  \item The Simpson sublocale conjecture is \textbf{dead}: $\delta_U$
+    counterexample kills $\Leftarrow$; compact Hausdorff makes
+    $\Rightarrow$ trivially true.
+  \item The sheaf/gluing approach (CE as descent) confirmed as
+    \textbf{dictionary translation} by Zafiris (2006) and Biesel
+    (2024): $\sigma$-additivity IS the sheaf condition for
+    countable-partition topology by definition.
+  \item Resolution-dependent charges / fiber defect: \textbf{dead}.
+    Collapses to tail mass (Astbury 1981).  Interval-charge framework
+    produces no theorem.
+\end{itemize}
+
+% ==================================================================
+\section*{How to use this document}
+
+When reading, annotate in the margins or on a separate sheet:
+\begin{enumerate}[nosep]
+  \item What theorem or definition surprised you.
+  \item What connected to the programme.
+  \item What contradicted the knowledge map.
+  \item What suggested a concrete Phase~1 seed note.
+\end{enumerate}
+
+\noindent
+When a reading direction produces a concrete claim worth auditing,
+extract it to \texttt{notes/unsorted/} and run Phase~2.
+

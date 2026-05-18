@@ -1,5 +1,11 @@
 # Paper Sketch: Coherence, Completion, and Automatic Closure
 
+**PARKED 2026-05-18.** Hostile-referee audit found Howson (2008, BJPS)
+already made the core observation (consistency has compactness,
+σ-additivity doesn't; "missing completeness theorem" p. 17). Paper
+would restate Howson with ultraproduct proof. Salvage: Howson citation +
+KVP footnote added to companion note. See plan for full audit.
+
 *Seed note - 2026-05-02*
 
 ## Role
@@ -63,7 +69,7 @@ into the companion note itself.
 
 Fibre mixing may become a second worked example (Version B), but only after
 the derivability question is settled.  See
-`notes/future/dynamics_reconstruction/fibre_mixing/index.md`.
+`notes/archive/dynamics_reconstruction_dead/fibre_mixing/index.md`.
 
 ## Proposed Paper Claim
 
@@ -213,7 +219,7 @@ structurally visible, not eliminated.
 
 The pattern recurs: refinement alone does not force valuation, just as finite
 coherence does not force probability.  The zeta critical-line curve is a
-boundary test — see `notes/future/foundations/zeta/observational_question.md`.
+boundary test — see `notes/unsorted/foundations/zeta/observational_question.md`.
 
 ## Proposed Structure
 

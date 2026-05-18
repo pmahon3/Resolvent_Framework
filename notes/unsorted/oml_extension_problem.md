@@ -96,6 +96,71 @@ together constrain which filters are "realized."
   probabilities; related but different generalization (partial
   precision on Boolean algebra vs full precision on non-Boolean)
 
+## The structural diagnosis (literature audit 2026-05-17)
+
+**Key finding:** Pták-Pulmannová (1994) proves that conditions
+strong enough to force σ-additivity on OML states collapse
+the OML back to a Boolean algebra.  This is the structural
+reason no KVP analogue exists for OMLs.
+
+Specifically: if every unital subadditive measure on an OMP is
+a state (the condition needed for Carathéodory-style extension),
+the lattice must be Boolean.  The non-distributivity of OMLs is
+load-bearing — it blocks the Boolean extension machinery at the
+algebraic level, not just by lacking the right theorem.
+
+### Why this is harder than "find the right condition"
+
+In the Boolean case, KVP (Fremlin Theorem 391D) gives:
+  measurable ⟺ Dedekind σ-complete + weakly (σ,∞)-distributive + chargeable
+
+Each condition is algebraic and non-trivially constraining.  For OMLs:
+- Dedekind σ-completeness makes sense but is very strong
+- Weak (σ,∞)-distributivity has no clean OML analogue
+- Chargeability (existence of a strictly positive finitely additive
+  measure) has no known structural characterization on OMLs
+
+The OML extension problem requires genuinely new ideas, not
+adaptation of Boolean techniques.
+
+### What the recent literature shows
+
+**Positive results (special cases):**
+- Gleason (1957): L(H), dim ≥ 3 — the prototype
+- Bunce-Wright (1992): JBW-algebras; σ-additivity via
+  operator-algebraic structure
+- Chetcuti-Dvurečenskij (2003, 2005): lattice effects algebras;
+  positive results when the algebra has "enough structure"
+  (completeness conditions close to von Neumann)
+
+**Negative/obstructive results:**
+- Pták-Pulmannová (1994): unital subadditive → Boolean (the killer)
+- Navara (1992): regularity does NOT force σ-additivity on
+  general OMPs; Béaver-Cook is special to von Neumann algebras
+- Pták (1987): exotic OML state spaces; obstruction is
+  combinatorial (Greechie pasting), not from center
+
+**Recent incremental work (2020s):**
+- Voráček-Pták (2023): signed measures on OMPs
+- Burešová-Pták (2023): variations on regularity conditions
+- De Simone-Navara (ongoing): YH-type decompositions for OMPs
+
+**Assessment:** The field is active but no one has found the
+right condition.  The gap between "too weak" (allows non-σ-additive
+states) and "too strong" (collapses to Boolean) appears
+structurally robust.  This is not a problem where more reading
+will unstick it — it needs a new idea.
+
+### Construction tools
+
+All known exotic OML state spaces are built by **Greechie pasting**
+(confirmed by Wilce 2009, Handbook of Quantum Logic ch. 24;
+Shultz 1974; Pták 1987).  Any progress on the extension problem
+likely requires either:
+- A new pasting technique that controls σ-additivity, or
+- An approach that bypasses the state space entirely (e.g.,
+  categorical/topos-theoretic)
+
 ## Assessment
 
 This is a precise, well-formulated problem.  The main theorem
@@ -107,10 +172,14 @@ This is a precise, well-formulated problem.  The main theorem
 under a single framework: states on directed OMLs → measures
 on dual spaces → constrained descent.
 
-**Difficulty:** High.  Requires expertise in OML theory, quantum
-logic, and possibly topos theory.  Not solvable by the author
-alone — needs collaboration.
+**Difficulty:** High.  The Pták-Pulmannová obstruction shows this
+is not merely "find the right condition" — conditions strong enough
+to force extension destroy the non-Boolean structure.  Requires a
+genuinely new approach.
 
 **Novelty:** The formulation via McDonald-Bimbó duality appears
 to be new.  The Döring-Isham topos approach addresses related
 questions but via presheaves, not the filter-space duality.
+
+**Status:** OPEN but structurally resistant (2026-05-17).  Not a
+current active lead — needs collaboration or a new idea.

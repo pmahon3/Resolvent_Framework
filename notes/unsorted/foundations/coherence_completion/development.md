@@ -1,5 +1,7 @@
 # Development Log: Coherence and Completion
 
+**PARKED 2026-05-18.** See `paper_sketch.md` header for reason.
+
 Working log for the philosophy-math iteration on coherence, consistency,
 failure modes, and admissibility.  Entries are chronological.  Material
 graduates to the stable files when it stops changing.

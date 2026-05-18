@@ -104,4 +104,4 @@ not the LOWER bound that fibre mixing provides.
 - Bridge note (contains the error): papers/paper_fibre_mixing/bridge_note_source.tex
 - Verification checklist: papers/paper_fibre_mixing/verification_checklist.md
 - Steps 1-5: notes/archive/fibre_mixing_investigation/
-- Steps 6-7: notes/future/dynamics_reconstruction/fibre_mixing/
+- Steps 6-7: notes/archive/dynamics_reconstruction_dead/fibre_mixing/

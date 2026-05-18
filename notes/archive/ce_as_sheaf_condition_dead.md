@@ -1,6 +1,14 @@
 # Seed Note: CE as Sheaf Condition on Query System Category
 
-## Phase: 1 (seed) — needs Phase 2 audit before development
+## Phase: DEAD (2026-05-17)
+
+Superseded by the gluing-obstruction seed (also dead). Reading of
+Zafiris (2006), Biesel (2024), and Caramello (2018) confirmed: any
+sheaf-theoretic reformulation of CE is a dictionary translation, not
+a theorem. The finite/countable boundary where CE lives is invisible
+to every finitary Grothendieck topology; the countable-partition
+topology that does see it restates the definition of σ-additivity.
+See `notes/reading_directions/reading_directions.tex` §§1, 7, 12, 13.
 
 ## The claim
 

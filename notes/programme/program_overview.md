@@ -44,14 +44,14 @@ measure on the observable σ-algebra.
 **CE metatheorem (companion note):** The same ultraproduct argument shows the
 obstruction is not an artifact of the query-system formalism — in the more primitive
 first-order language of Boolean algebras with finitely additive charge, countable
-additivity is likewise not first-order axiomatizable. Companion note (3 pages,
-APAL target) proves this in full.
+additivity is likewise not first-order axiomatizable. Companion note (3 pages)
+proves this in full.
 
 **Lean:** `DiscriminabilityFoundations.lean`, `QuerySystem.lean`,
 `StoneDualityExtension.lean`, `TopologicalQuerySystem.lean`,
 `ProkhorovExtension.lean`, `DelayEmbedding.lean`
 
-**LaTeX:** `papers/paper_i/probability_from_observation.tex` (arXiv-ready, 8 pages;
+**LaTeX:** `papers/paper_i/probability_from_observation.tex` (complete, 8 pages;
 revised 2026-05-09 — four-way main equivalence theorem added in §6)
 
 ---
@@ -92,8 +92,7 @@ closes the loop with Paper I.
 **Lean:** `PredictiveState.lean`, `PredictiveOperators.lean`,
 `ReconstructionTheorem.lean` (0 sorrys), `DelayEmbedding.lean`
 
-**LaTeX:** `papers/paper_ii/dynamics_and_reconstruction.tex` (~11 pages, editorially
-polished; arXiv pending Paper I upload)
+**LaTeX:** `papers/paper_ii/dynamics_and_reconstruction.tex` (~11 pages, complete)
 
 **Added 2026-04-29:**
 - `Definition II:def:faithful` — "faithful modulo μ" formally defined at the
@@ -174,15 +173,15 @@ inequivalent.
 
 ---
 
-## Submission Status (updated 2026-05-14)
+## Paper Status (updated 2026-05-18)
 
-| Paper | Status | Target |
-|-------|--------|--------|
-| Companion note | arXiv-ready, 3 pages | APAL |
-| I | Synthesis, not novel. arXiv-ready, 7 pages | Expositiones |
-| II | EA/PR/VDR framing novel; math classical. 9 pages | Synthese |
-| III | Withdrawn (rediscovery) | — |
-| Fibre mixing | Dead (bridge theorem false) | — |
+| Paper | Status |
+|-------|--------|
+| Companion note | Complete, 3 pages |
+| I | Synthesis, not novel. Complete, 7 pages |
+| II | EA/PR/VDR framing novel; math classical. Complete, 9 pages |
+| III | Withdrawn (rediscovery) |
+| Fibre mixing | Dead (bridge theorem false) |
 
 ---
 
@@ -190,20 +189,56 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**No active standalone leads as of 2026-05-14.**
+**No active standalone leads as of 2026-05-18.**
 
 Previously listed directions closed or parked:
+- **Five-traditions unification** — DEAD (2026-05-18). Abramsky
+  inclusion is a category error (compact contextuality ≠ non-compact
+  σ-closure). Candidate theorem assembles KVP (1950) + Seidenfeld et
+  al. (1984) + vacuous reduction — no new equivalence. Removing
+  Abramsky reduces thesis to Howson (2008) with fancier coordinates.
 - Geometric ≠ algebraic reconstruction — known/obvious (audited)
 - Entropy witness concentration — dead (depended on false bridge theorem)
 - Fibre mixing derivability — dead (bridge theorem false)
+- **Coherence/completion paper** — PARKED (2026-05-18). Howson (2008,
+  BJPS) already identified the core observation (de Finetti's consistency
+  has compactness; σ-additivity lacks it; "missing completeness theorem"
+  p. 17). Thread restates Howson with ultraproduct proof. Salvage: 2-3
+  sentences in companion note intro. See plan for full audit.
+- **KVP + non-axiomatizability merger** — DEAD (2026-05-18). Headline
+  theorem is 5-line Tarski corollary (folklore). Salvage: footnote in
+  companion note.
 
-Remaining signposts (not projects):
-1. **CE as sheaf condition** — stalled seed, needs fresh approach.
-   See `notes/unsorted/ce_as_sheaf_condition.md`.
-2. **Strategy D** — ZFC methods exhausted; likely independent.
-   See `notes/unsorted/foundations/ce_nonderivability/index.md`.
-3. **OML extension problem** — genuinely open, needs OML expertise.
-4. **Foundational topology / zeta** — post-arXiv, speculative.
+Dead signposts:
+1. **CE as sheaf condition** — DEAD (2026-05-17). Dictionary
+   translation per Biesel/Zafiris/Caramello. Archived.
+
+Open directions — the extension boundary:
+
+> **Core question:** What structural conditions on an algebra of
+> propositions force honest (σ-additive) probability?
+
+2. **Ultralimit question** — SCOPED (2026-05-18). Reduces to
+   Strategy D via canonical decomposition. Settled in all regimes
+   except non-σ-complete non-atomic (where measure-free factor
+   iff failure). On P(N), trivially answered (Krein-Milman).
+   Duanmu-Weiss (2018), Cardona et al. (2025), Fremlin §326-328
+   checked — none address this question. Not an independent
+   direction.
+3. **Strategy D** — Does there exist
+   a non-σ-complete non-atomic measure-free Boolean algebra?
+   Equivalently: compact, totally disconnected, no isolated points,
+   not basically disconnected, no strictly positive Radon probability.
+   Likely independent of ZFC. Nearest examples (Argyros, Kunen,
+   Fedorchuk) miss at least one condition. Plebanek (2024 survey)
+   confirms the exact parameter regime is open.
+   See `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.
+4. **OML extension problem** (algebraic face) — What replaces
+   Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
+   (1994): conditions strong enough to force σ-additivity collapse
+   OMLs to Boolean. Gleason handles L(H); general case open.
+   See `notes/unsorted/oml_extension_problem.md`.
+5. **Foundational topology / zeta** — speculative.
 
 ---
 

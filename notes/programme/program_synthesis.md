@@ -96,7 +96,7 @@ not derivable from any structural condition on the query system or the dynamics?
 This is the deepest open question in the programme. Resolving it would:
 - Close the three-obstruction table symmetrically
 - Give Paper III the same foundational standing as Paper I
-- Supply the coherence/consistency schema (see `notes/future/foundations/coherence_completion/conceptual_schema.md`)
+- Supply the coherence/consistency schema (see `notes/unsorted/foundations/coherence_completion/conceptual_schema.md`)
   with a second fully worked example in a genuinely different domain
 
 ---
@@ -215,7 +215,7 @@ schema second (generalise with two examples in hand), then everything else.
    The priority theorem target: prove that the contradiction failure mode is the
    unique compact coherence notion, giving a formal sense in which consistency
    is a distinguished special case. See
-   `notes/future/foundations/coherence_completion/conceptual_schema.md` and
+   `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` and
    `notes/README.md`.
 
 3. **Concentration of the entropy witness** *(most immediate technical extension).*
@@ -228,7 +228,7 @@ schema second (generalise with two examples in hand), then everything else.
    Treat exponents such as \(n^{-s/(2s+D)}\) as arising from valued
    distinguishability growth.  The current stance is conservative: a Paper III
    remark is acceptable, but real integration waits for a theorem.  See
-   `notes/future/finite_sample/observational_resolution/index.md`.
+   `notes/unsorted/finite_sample/observational_resolution/index.md`.
 
 5. **Strategy D** *(self-contained; no downstream leverage).*
    Does a non-σ-complete non-atomic Boolean algebra admitting no σ-additive

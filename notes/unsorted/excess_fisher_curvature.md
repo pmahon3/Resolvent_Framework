@@ -1,6 +1,6 @@
 # Seed Note: Excess Fisher Curvature as Non-Additivity Diagnostic
 
-## Phase: 1 (seed) — needs Phase 2 audit before development
+## Phase: 1 (seed) — PARKED (likely known, low priority, 2026-05-17)
 
 ## The claim
 

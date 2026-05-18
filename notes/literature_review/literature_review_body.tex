@@ -1,0 +1,751 @@
+\maketitle
+
+\begin{abstract}
+A thematic survey of the literature bearing on the question:
+\emph{when does observationally coherent data determine a genuine
+probability measure, and what additional commitments does this
+require?}  The review is organized around four themes: (1)~the
+boundary between finite additivity and $\sigma$-additivity,
+(2)~Stone duality and the problem of realization,
+(3)~value-definiteness and obstruction in non-distributive algebras,
+and (4)~delay reconstruction as a source of observation algebras.
+Within each theme, classical results are placed alongside the
+philosophical, logical, and topos-theoretic perspectives that
+illuminate the boundary.  Open problems and closed directions are
+documented where they arise.  This is a working survey, not a
+journal submission; it occasionally marks my own contributions and
+dead ends alongside the literature.
+\end{abstract}
+
+\tableofcontents
+
+% ==================================================================
+\section{Introduction}
+\label{sec:intro}
+% ==================================================================
+
+The central question of this survey decomposes into three layers:
+\begin{enumerate}
+  \item \textbf{Extension:} When do compatible finitely additive
+    charges on a directed system of Boolean algebras determine a
+    $\sigma$-additive probability measure?
+  \item \textbf{Realization:} When does a measure on a dual space
+    (Stone space) descend to a measure on an underlying state space?
+  \item \textbf{Value-definiteness:} When does a probabilistic
+    description admit simultaneous definite values for all
+    observables?
+\end{enumerate}
+Each layer requires a commitment the previous does not.  The
+algebraic structure of the observation algebra constrains which
+commitments are available; distributivity is sufficient to make all
+three available.
+
+The survey draws on measure theory, Boolean algebra, Stone duality,
+orthomodular lattice theory, topos theory, philosophy of
+probability, model theory, and dynamical systems.  Coverage is not
+exhaustive within any one field; the aim is to document the results
+that bear on the three-layer decomposition, including the negative
+results that close off natural research directions.
+
+\medskip\noindent
+\textbf{Scope.}  The review covers:
+\begin{itemize}[nosep]
+  \item The classical extension theorems (Carath\'{e}odory,
+    Kolmogorov, Choksi) and their algebraic characterization
+    (Yosida--Hewitt, Kantorovich--Vulikh--Pinsker);
+  \item The model-theoretic obstruction to first-order
+    characterization of $\sigma$-additivity
+    (\L{}o\'{s}, Hoover, Keisler);
+  \item The philosophical context (de Finetti, Howson, Cox) and the
+    logical coordinates (Frot, Esp\'{i}ndola, Caramello);
+  \item Stone duality and the realization problem
+    (Stone, Fremlin, Rao--Rao);
+  \item Orthomodular lattice theory and contextuality
+    (Kochen--Specker, Gleason, Pt\'{a}k--Pulmannov\'{a},
+    McDonald--Bimb\'{o});
+  \item Delay embedding and reconstruction
+    (Takens, Krieger, Sauer--Yorke--Casdagli);
+  \item Sheaf-theoretic and topos-theoretic approaches to the
+    extension problem (Zafiris, Biesel, Caramello, Vickers);
+  \item Four open problems at the boundary.
+\end{itemize}
+
+% ==================================================================
+\section{The extension boundary: charges to measures}
+\label{sec:extension}
+% ==================================================================
+
+\subsection{Classical extension theorems}
+
+The foundational results on extending finitely additive charges to
+$\sigma$-additive measures are well established:
+
+\begin{itemize}
+  \item \textbf{Continuity from above.}  A finitely additive charge
+    $\ell$ on an algebra $\mathcal{A}$ is $\sigma$-additive if and
+    only if $E_n \downarrow \varnothing$ implies
+    $\ell(E_n) \to 0$~\cite[\S13, Theorem~D]{Halmos1950}.
+
+  \item \textbf{Carath\'{e}odory extension.}  A $\sigma$-additive
+    premeasure on a semiring extends uniquely to a measure on the
+    generated $\sigma$-algebra~\cite[\S13]{Halmos1950},
+    \cite[Vol.~1, Ch.~1]{Bogachev2007}.
+
+  \item \textbf{Kolmogorov extension.}  Compatible
+    finite-dimensional distributions on a product space extend to a
+    unique probability measure under standard Borel/tightness
+    conditions~\cite[Ch.~36]{Billingsley1995}.
+
+  \item \textbf{Choksi inverse limits.}  Compatible measures on an
+    inverse system of compact Hausdorff spaces extend to the inverse
+    limit~\cite[Theorem~1]{Choksi1958}.
+\end{itemize}
+
+The \textbf{Yosida--Hewitt decomposition}~\cite{YosidaHewitt1952}
+gives the structural anatomy: every bounded finitely additive charge
+decomposes uniquely as $\ell = \ell_c + \ell_p$, where $\ell_c$ is
+$\sigma$-additive and $\ell_p$ is purely finitely additive (PFA).
+The extension problem reduces to: when is $\ell_p = 0$?
+
+\subsection{The algebraic characterization}
+\label{sec:kvp}
+
+The deepest algebraic answer is the Kantorovich--Vulikh--Pinsker
+theorem~\cite[391D]{Fremlin2003}: a Boolean algebra $\mathfrak{A}$
+admits a strictly positive $\sigma$-additive probability if and only
+if $\mathfrak{A}$ is
+\begin{enumerate}[label=(\roman*),nosep]
+  \item Dedekind $\sigma$-complete,
+  \item weakly $(\sigma,\infty)$-distributive, and
+  \item chargeable (admits a strictly positive finitely additive
+    functional).
+\end{enumerate}
+Kelley's theorem~\cite[391J]{Fremlin2003} characterizes
+chargeability combinatorially.
+
+Condition~(ii) is the algebraic face of $\sigma$-additivity: it is
+a genuine lattice condition on how countable infima interact with
+arbitrary suprema, not a tautological restatement.  This is the
+structural answer to the question of what property of the
+\emph{algebra} (the site) --- rather than the charges (the
+sections) --- controls whether local data extend to a
+$\sigma$-additive global measure.
+
+\subsection{Non-axiomatizability}
+
+A finitely additive charge on a Boolean algebra satisfies all
+first-order conditions that each individual measure in a family
+satisfies, by \L{}o\'{s}'s theorem~\cite{Los1955}.  Applied to
+Dirac masses $(\delta_n)_{n \in \N}$ on $\mathcal{P}(\N)$ with a
+nonprincipal ultrafilter $\mathcal{U}$: each $\delta_n$ is
+$\sigma$-additive, but the ultraproduct charge $\ell(A) =
+\lim_\mathcal{U}\delta_n(A) = \mathbf{1}_{A \in \mathcal{U}}$ is
+the $\{0,1\}$-valued ultrafilter charge, which is purely finitely
+additive.  Hence no first-order theory of Boolean algebras with
+charge can characterize $\sigma$-additivity
+(Hoover~\cite{Hoover1978}; Fagin--Halpern--Megiddo~\cite{FaginHalpernMegiddo1990};
+see also Keisler~\cite{Keisler1985}).
+
+The same technique establishes non-axiomatizability at the level of
+pure Boolean algebra language (without charge predicates): the
+Lebesgue measure algebra and the Cohen algebra
+$\mathrm{RO}(2^{<\omega})$ are both atomless, hence elementarily
+equivalent by Tarski's classification, yet only the former admits a
+strictly positive $\sigma$-additive probability.  (It satisfies all
+three KVP conditions; the Cohen algebra fails weak
+$(\sigma,\infty)$-distributivity.)  This folklore observation
+appears implicit in Koppelberg~\cite[Ch.~18]{Koppelberg1989}.
+
+\subsection{The philosophical context}
+\label{sec:philosophical}
+
+De Finetti~\cite{deFinetti1974} grounds probability in
+\emph{coherence} (his term; the Italian \emph{coerenza} was
+mistranslated as ``coherence'' by English translators against de
+Finetti's own preference for ``consistency'').  His criterion ---
+no finite combination of bets at the given rates guarantees a
+loss --- characterizes exactly the finitely additive probability
+functions.  De Finetti maintained that $\sigma$-additivity is a
+mathematical convenience with no operational justification: the
+Dutch Book argument for it requires extending the ``finite sum of
+fair bets is fair'' postulate to countable sums, which circularly
+entails $\sigma$-additivity~\cite[\S\S3--4]{Howson2008}.
+
+Howson~\cite{Howson2008} makes de Finetti's position precise by
+identifying two structural properties that de Finetti's consistency
+shares with first-order logic:
+\begin{itemize}[nosep]
+  \item \emph{Absoluteness:} consistency of $P$ depends only on
+    $P[E]$, not on which algebra $E$ sits in.
+  \item \emph{Compactness:} inconsistency is detected by a finite
+    subset of the assignments.
+\end{itemize}
+Both fail for $\sigma$-additivity.  Howson identifies a missing
+``completeness theorem telling us that the rules of probability
+extend to finite but not countable additivity''~\cite[p.~17]{Howson2008}.
+
+Cox's axioms~\cite{Cox1946} produce finitely additive probability
+from three scale-free structural principles plus propositional
+logic.  Howson notes~\cite[\S6]{Howson2008}: ``Cox's result does not
+extend to endorsing countable additivity.  There are infinitary
+propositional languages\ldots\ $L_{\omega_1,\omega}$\ldots\ but
+there is no natural extension of Cox's proof which would exploit
+that additional structure.''  Ross~\cite{Ross2012} argues from the
+opposite direction that ``all roads lead to violations of countable
+additivity,'' reinforcing the view that $\sigma$-additivity requires
+commitment beyond coherence.
+
+\subsection{Logical coordinates}
+\label{sec:logical}
+
+Three results locate the extension boundary within formal logic and
+topos theory.
+
+\medskip\noindent
+\textbf{Frot (2013).}  Deligne's theorem (``coherent topoi have
+enough points'') is equivalent to G\"{o}del's completeness theorem
+for first-order logic~\cite{Frot2013}.  The dictionary: models $=$
+points of the classifying topos; consistency $=$ non-triviality;
+coherent theory $=$ finitary axioms.  Finite additivity is a
+coherent condition; $\sigma$-additivity is not (it requires
+countable universal quantification).  So Deligne's theorem
+guarantees the existence of finitely additive charges but is silent
+about $\sigma$-additive measures.
+
+\medskip\noindent
+\textbf{Esp\'{i}ndola (2020).}  Generalizes Deligne to
+$\kappa$-geometric logic~\cite{Espindola2020}: at
+$\kappa = \omega_1$, $\sigma$-additivity becomes expressible.
+Property~$T$ (an exactness condition combining strong
+distributivity and dependent choice) is the structural content at
+each level.  At $\kappa = \omega$, Property~$T$ is automatic,
+recovering Deligne.  At $\kappa = \omega_1$, it is a genuine
+restriction --- but applied to the site of finite Boolean
+subalgebras where $\sigma$-additivity lives, Property~$T$ reduces
+to $\sigma$-completeness of the underlying algebra plus uniqueness
+of the Carath\'{e}odory extension.  Both are classical conditions
+already assumed in any CE setup.  The machinery does not produce new
+content at this specific site.
+
+\medskip\noindent
+\textbf{Caramello (2018).}  The bridge technique~\cite{Caramello2018}
+transfers properties between syntactic and semantic sites via Morita
+equivalences.  But $\sigma$-additivity cannot be expressed as a
+geometric sequent (which permits only finite conjunction and small
+disjunction), so it cannot appear as a quotient of any geometric
+theory in Caramello's framework.
+
+\subsection{Synthesis: five perspectives on the same boundary}
+\label{sec:extension-synthesis}
+
+A remarkable convergence emerges.  Five independent traditions ---
+operating with different vocabularies, motivations, and proof
+techniques --- identify the same structural boundary:
+
+\begin{enumerate}
+  \item \textbf{Philosophy of probability} (de Finetti, Howson):
+    consistency (finite additivity) has absoluteness and compactness;
+    $\sigma$-additivity has neither.  Cox's axioms produce finite
+    additivity only.
+
+  \item \textbf{Logic and topos theory} (Frot, Esp\'{i}ndola,
+    Caramello): Deligne (coherent topoi have enough points)
+    $=$ G\"{o}del completeness $=$ finitary completeness.
+    $\sigma$-additivity escapes coherence.  The
+    $\omega_1$-coherent level can express it, but the machinery
+    collapses to classical conditions on the relevant site.
+
+  \item \textbf{Algebraic measure theory} (Fremlin, KVP): weak
+    $(\sigma,\infty)$-distributivity is the lattice condition that
+    forces $\sigma$-additivity, answering Howson's question in
+    algebraic language.
+
+  \item \textbf{Model theory} (\L{}o\'{s}, Hoover, Keisler):
+    ultraproducts kill first-order axiomatizability.  The class of
+    $\sigma$-additive structures is not elementary.
+
+  \item \textbf{Imprecise probability} (Walley~\cite{Walley1991},
+    Seidenfeld~\cite{Seidenfeld1984}): conglomerability
+    ($=$ ``$\sigma$-coherence'') is the operational face of
+    $\sigma$-additivity in the imprecise setting.
+\end{enumerate}
+
+No published work unifies these five perspectives under a single
+theorem.  Whether such a unification would constitute genuine
+mathematics or terminological packaging is an open question.  At
+minimum, the convergence confirms that the finite/countable boundary
+is a robust structural phenomenon, not an artifact of any particular
+framework.
+
+\subsection{Sheaf-theoretic approaches: closed directions}
+\label{sec:sheaf-closed}
+
+Several natural attempts to reformulate $\sigma$-additivity as a
+sheaf or descent condition have been investigated and found to yield
+dictionary translations rather than theorems:
+
+\begin{itemize}
+  \item \textbf{Zafiris (2006).}  The Grothendieck topology $J$
+    (epimorphic families) on the site of Boolean subalgebras does
+    not grade covers by cardinality~\cite{Zafiris2006}.  Finite,
+    countable, and uncountable covers satisfy $J$ uniformly; the
+    finite/countable boundary is invisible.
+
+  \item \textbf{Biesel (2024).}  Measures form a sheaf for finite
+    covers~\cite[Theorem~8]{Biesel2024}; probability measures
+    likewise~\cite[Theorem~11]{Biesel2024}.  Countable covers are
+    explicitly excluded~\cite[Remark~7]{Biesel2024}.  The step
+    from finite to countable covers is exactly the
+    $\sigma$-additivity boundary, but this is tautological:
+    finitely additive $=$ sheaf for finite covers;
+    $\sigma$-additive $=$ sheaf for countable covers.
+
+  \item \textbf{Caramello (2018).}  The bridge technique cannot
+    express $\sigma$-additivity (\S\ref{sec:logical}).
+
+  \item \textbf{Vickers (2008).}  The localic theory of
+    valuations~\cite{Vickers2008} provides the framework for
+    formulating ``a valuation is supported on the sublocale of
+    principal ultrafilters'' as a frame-internal condition, but
+    this formulation has not been carried out.  The earlier
+    textbook~\cite{Vickers1989} develops locales and sublocales
+    without addressing measures.
+\end{itemize}
+
+The pattern is consistent: every finitary framework (sheaf-theoretic,
+topos-theoretic, locale-theoretic) either cannot see the
+finite/countable boundary or restates $\sigma$-additivity as a
+definition.  The one framework that can express it (Esp\'{i}ndola's
+$\omega_1$-geometric logic) collapses to classical conditions on
+the relevant site.
+
+\subsection{Open problems at the extension boundary}
+
+\begin{openproblem}[Measure-free Boolean algebra --- Strategy~D]
+\label{op:strategy-d}
+Does there exist a Boolean algebra $B$ satisfying:
+\begin{enumerate}[label=(\roman*),nosep]
+  \item $B$ is non-$\sigma$-complete
+    $($equivalently, $\St(B)$ is not basically disconnected$)$;
+  \item $B$ is non-atomic
+    $($equivalently, $\St(B)$ has no isolated points$)$;
+  \item $B$ is measure-free: $B$ admits no strictly positive
+    $\sigma$-additive probability
+    $($equivalently, $\St(B)$ carries no strictly positive Radon
+    probability measure$)$?
+\end{enumerate}
+Here $\sigma$-additivity on a non-$\sigma$-complete $B$ is
+interpreted for disjoint countable families whose join exists in $B$.
+\end{openproblem}
+
+On the clopen algebra of any Stone space, $\sigma$-additivity is
+vacuous by compactness; the real question concerns Radon measures on
+the Stone space.  Nearest constructions:
+Argyros~(1983,~\cite{Argyros1983}) builds (under CH) a compact,
+totally disconnected, non-atomic, Radon-measure-free space, but it
+is basically disconnected ($\sigma$-complete Boolean algebra).
+Plebanek's survey~\cite{Plebanek2024} confirms the exact parameter
+regime remains open.  Likely ZFC-independent.
+
+\begin{openproblem}[Ultralimit representability --- reduces to
+  Problem~\ref{op:strategy-d}]
+\label{op:ultralimit}
+Let $B$ be a Boolean algebra, $\mathcal{U}$ a nonprincipal
+ultrafilter on an index set $I$, and $(\mu_i)_{i \in I}$ a family
+of $\sigma$-additive probabilities on $B$.  Call a purely finitely
+additive charge $\ell$ on $B$ \emph{ultralimit-representable} if
+$\ell(b) = \lim_\mathcal{U}\mu_i(b)$ for all $b \in B$.
+
+For which Boolean algebras $B$ is every purely finitely additive
+charge ultralimit-representable?
+\end{openproblem}
+
+Settled in all regimes except Problem~\ref{op:strategy-d}:
+\begin{itemize}[nosep]
+  \item \emph{Atomic $B$} (e.g.\ $\mathcal{P}(\N)$): every PFA
+    charge is representable (ultrafilter charges via Diracs; the
+    rest by Krein--Milman).
+  \item \emph{$\sigma$-complete $B$:} Nikod\'{y}m convergence
+    \cite[IV.9.8]{DunfordSchwartz1958} forces ultralimits to stay
+    $\sigma$-additive.  No PFA charge arises.
+  \item \emph{Non-$\sigma$-complete, non-atomic $B$:} failure of
+    representability is witnessed by a measure-free direct-product
+    factor, reducing to Problem~\ref{op:strategy-d}.
+\end{itemize}
+
+% ==================================================================
+\section{Stone duality and realization}
+\label{sec:realization}
+% ==================================================================
+
+\subsection{Classical framework}
+
+\textbf{Stone representation.}  Every Boolean algebra $B$ is
+isomorphic to the clopen algebra of a compact, Hausdorff, totally
+disconnected space $\St(B)$ (its Stone
+space)~\cite{Johnstone1982}.
+
+\textbf{Charge--measure correspondence.}  Every finitely additive
+charge on $B$ corresponds to a regular Borel (Baire) measure on
+$\St(B)$~\cite[\S326]{Fremlin2003}, \cite[\S53]{Halmos1950}.
+
+\textbf{Support characterization.}  A charge on $B$ is
+$\sigma$-additive if and only if the corresponding Stone-space
+measure vanishes on meagre Baire sets, equivalently assigns full
+mass to countably complete
+ultrafilters~\cite[Theorem~10.5.3]{RaoRao1983}.
+
+\textbf{Principal ultrafilters.}  Every principal ultrafilter is
+countably complete.  The converse holds for $\mathcal{P}(\kappa)$
+when $\kappa$ is below the first measurable cardinal (Ulam's
+theorem).  For non-$\sigma$-complete algebras (typical cylinder
+algebras), countably-complete non-principal ultrafilters can exist
+without large cardinals.
+
+\subsection{The realization problem}
+
+The Stone construction gives an \emph{unconditional} object: a Baire
+probability measure $\hat{\mu}$ on $\St(\mathcal{C})$ always exists
+from compatible charges, by Stone representation combined with
+Choksi's inverse limit theorem.
+
+Descent to a state space $\Omega$ requires that $\hat{\mu}$ be
+concentrated on principal ultrafilters:
+$\hat{\mu}(\pure(\Omega)) = 1$, where
+$\pure(\omega) = \{E \in \mathcal{C} : \omega \in E\}$.  Under
+discriminability and the assumption that countably-complete
+ultrafilters are principal (which holds for $\sigma$-complete
+algebras below the first measurable cardinal), concentration on
+principal ultrafilters is equivalent to $\sigma$-additivity of the
+component charges.
+
+The three-level nesting captures the structure:
+\[
+  \pure(\Omega) \;\subseteq\;
+  \{\text{countably complete ultrafilters}\} \;\subseteq\;
+  \St(\mathcal{C}).
+\]
+$\sigma$-additivity gives mass on the middle set (intrinsic to the
+algebra).  Descent to $\Omega$ requires mass on the inner set
+(depends on the choice of realization).
+
+\subsection{The philosophical dimension}
+\label{sec:ea-pr-vdr}
+
+Which ultrafilters count as ``realized'' is additional structure
+over the algebra.  In the Boolean case, the distinction between the
+Stone measure (unconditional) and its descent to $\Omega$ parallels
+van Fraassen's~\cite{vanFraassen1980} distinction between empirical
+adequacy and realist commitment: the Stone measure is the
+``empirically adequate'' object; descent requires choosing which
+points are real.  The identification of Stone-space construction
+with empirical adequacy (EA), descent with probabilistic realism
+(PR), and concentration on dispersion-free states with value-definite
+realism (VDR) has no precedent in the literature.  It is a
+philosophical contribution connecting van Fraassen to quantum logic
+via McDonald--Bimb\'{o} duality, not a mathematical theorem.
+
+% ==================================================================
+\section{Value-definiteness and quantum logic}
+\label{sec:vdr}
+% ==================================================================
+
+\subsection{Distributivity and ultrafilters}
+
+Boolean algebras admit 2-valued homomorphisms (ultrafilters) by
+Zorn's lemma.  These are the dispersion-free states: they assign
+definite values (0 or 1) to every proposition simultaneously.
+
+The Kochen--Specker theorem~\cite{KochenSpecker1967} shows that
+for the lattice $L(H)$ of closed subspaces of a Hilbert space $H$
+with $\dim H \geq 3$, no dispersion-free state exists.
+Non-distributivity is the structural cause: $L(H)$ is orthomodular
+but not distributive, and the failure of distributivity blocks the
+lattice-theoretic argument that guarantees ultrafilters in the
+Boolean case.
+
+Gleason's theorem~\cite{Gleason1957} completes the picture for
+$L(H)$, $\dim H \geq 3$: every $\sigma$-additive state is of the
+form $s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
+$\rho$.  Value-definiteness is blocked, but probabilistic realism
+(states as density operators) is available.
+
+The Bub--Clifton theorem~\cite{BubClifton1996},
+\cite{HalvorsonClifton1999} identifies the maximal Boolean
+subalgebra $D(\rho, R) \subseteq L(H)$ on which a given state is a
+mixture of dispersion-free states.  This gives the precise boundary
+of value-definiteness within a non-Boolean algebra.
+
+\subsection{Orthomodular lattice duality}
+
+McDonald--Bimb\'{o}~\cite{McDonaldBimbo2023} establish a topological
+duality for orthomodular lattices analogous to Stone duality for
+Boolean algebras.  A key structural difference: principal filters
+$P(A)$ are part of the dual structure in the OML case (unlike Stone
+duality where they are invisible).  This means realization is
+\emph{constrained} structure in the OML case, not \emph{additional}
+structure as in the Boolean case.  As of 2026, this duality has zero
+citations in quantum foundations.
+
+Gunji--Haruna--Uragami~\cite{Gunji2026} show that gluing Boolean
+algebras via categorical pushout produces orthomodular lattices,
+generically non-distributive.
+
+\subsection{Topos approaches}
+
+Three programmes reformulate quantum logic in topos-theoretic terms:
+
+\begin{itemize}
+  \item \textbf{Isham--Butterfield~\cite{IshamButterfield1998}:}
+    the topos $\mathbf{Sets}^{\mathcal{V}(\mathcal{H})^{op}}$ of
+    presheaves on the poset of commutative subalgebras.  The spectral
+    presheaf $\underline{\Sigma}$ assigns to each Boolean context its
+    Gelfand spectrum; it has no global elements $=$ Kochen--Specker.
+
+  \item \textbf{D\"{o}ring--Isham~\cite{DoringIsham2008}:}
+    Daseinisation maps a projection to a sub-object of
+    $\underline{\Sigma}$ by approximating within each Boolean context.
+    This goes \emph{up} (approximating non-Boolean by Boolean);
+    descent goes \emph{down} (Stone space to realized points).
+
+  \item \textbf{Heunen--Landsman--Spitters~\cite{HeunenLandsmanSpitters2009}:}
+    Bohrification encodes the same structure via spectral presheaves.
+    More powerful than the single-dual-space approach (presheaf over
+    contexts, not single Stone space) but connects less directly to
+    van Fraassen's framework.
+\end{itemize}
+
+R\'{e}dei--Summers~\cite{RedeiSummers2006} review quantum
+probability in the von Neumann algebra framework: classical
+probability $=$ abelian von Neumann algebra; quantum $=$ nonabelian;
+normal states $=$ $\sigma$-additive.
+
+\subsection{The OML extension problem}
+
+\subsubsection{State space universality}
+
+Shultz~\cite{Shultz1974} proves that orthomodularity imposes
+\emph{no} geometric constraint on state spaces: every compact convex
+subset of a locally convex space arises as the state space of some
+$\sigma$-orthomodular lattice.  The construction uses Greechie
+pasting ($G$-spaces): points and frames with loop constraints.
+However, $\sigma$-additive state spaces can be geometrically
+degenerate --- the Lebesgue measure algebra has a $\sigma$-state
+space with no extreme points, hence not affinely equivalent to any
+compact convex set~\cite[p.~327]{Shultz1974}.
+
+\subsubsection{Exotic logics and the Greechie pasting technique}
+
+Pt\'{a}k~\cite{Ptak1987} constructs \emph{exotic logics}:
+$\sigma$-orthocomplete OMPs admitting finitely additive states but
+no $\sigma$-additive states.  The construction uses Greechie
+pasting: atom identifications across Boolean blocks create
+contradictory partition-of-unity constraints at the
+$\sigma$-additive level.  Each block individually admits
+$\sigma$-additive states; the global pasting forbids them.
+
+Navara~\cite{Navara1992} shows that regularity ($P$-regularity,
+inner regularity with respect to finite-dimensional projections)
+does \emph{not} force $\sigma$-additivity on general OMPs.  He
+modifies Pt\'{a}k's construction to produce exotic logics on which
+all states are $P$-regular yet none are $\sigma$-additive.  (The
+B\'{e}aver--Cook result that regularity forces $\sigma$-additivity
+is special to von Neumann algebras.)
+
+\medskip\noindent
+\textbf{Synthesis.}  Greechie pasting is the universal construction
+tool for non-Boolean phenomena:
+Pt\'{a}k~\cite{Ptak1987} uses it to produce exotic logics,
+Shultz~\cite{Shultz1974} to prove state-space universality,
+Navara~\cite{Navara1992} to kill regularity as an admissibility
+condition, and Wilce~\cite{Wilce2009} surveys the technique
+systematically.  The obstruction to $\sigma$-additive extension in
+the non-Boolean case is combinatorial/geometric (from the pasting),
+structurally different from the Boolean case where the obstruction
+is analytic (weak $(\sigma,\infty)$-distributivity).
+
+\subsubsection{The structural obstruction}
+
+Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994} prove: if every
+unital subadditive measure on an OMP is a state, the lattice must
+be Boolean.  Conditions strong enough to force $\sigma$-additivity
+destroy the non-Boolean structure.
+
+Recent incremental work (Bunce--Wright~\cite{BunceWright1992} for
+von Neumann algebras; Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2003}
+for inner product spaces) gives positive results under strong
+completeness conditions close to von Neumann.  No breakthrough
+bridging the gap between ``too weak'' (allowing
+non-$\sigma$-additive states) and ``too strong'' (forcing
+Booleanity).
+
+\begin{openproblem}[OML extension]
+\label{op:oml-extension}
+Let $A$ be an orthomodular lattice and
+$s \colon A \to [0,1]$ a state.  Let $S_0(A)$ be the
+McDonald--Bimb\'{o} dual space with clopen $\perp$-stable sets
+$\mathrm{CO}(S_0(A))^\dagger$, and define $\mu(h(a)) = s(a)$ where
+$h(a) = \{x \in F(A) : a \in x\}$.
+\begin{enumerate}[label=(\alph*),nosep]
+  \item Under what conditions on $A$ does $\mu$ extend to a
+    $\sigma$-additive measure on the Baire $\sigma$-algebra of
+    $S_0(A)$?
+  \item Does any condition strictly weaker than Booleanity suffice?
+\end{enumerate}
+\end{openproblem}
+
+For $A = L(H)$ with $\dim H \geq 3$, Gleason gives the extension.
+For general OMLs, Gleason-type results are unavailable and
+Carath\'{e}odory does not apply (the clopens form an OML, not a
+Boolean algebra).
+
+% ==================================================================
+\section{Delay reconstruction}
+\label{sec:reconstruction}
+% ==================================================================
+
+\subsection{Embedding theorems}
+
+\textbf{Takens (1981).}  For a smooth compact manifold $M$ with
+$C^2$ diffeomorphism $T$ and generic $C^2$ observable $h$, the delay
+map $\Phi_L(x) = (h(x), h(Tx), \ldots, h(T^{L-1}x))$ is an
+injective immersion for
+$L \geq 2\dim M$~\cite{Takens1981}.
+
+\textbf{Sauer--Yorke--Casdagli (1991).}  Prevalence-based
+generalization: the set of observables for which $\Phi_L$ is an
+embedding has full prevalence measure for $L > 2d_B(X)$ where
+$d_B$ is the box-counting dimension~\cite{SauerYorkeCasdagli1991}.
+
+\textbf{Botvinick-Greenhouse et al.\ (2025).}  Measure-theoretic
+Takens theorem via optimal transport: if the pushforward measures
+converge in Wasserstein distance, the delay map is a
+measure-theoretic embedding~\cite{BotvinickGreenhouse2025}.
+
+\subsection{Generating partitions and algebraic reconstruction}
+
+The ergodic-theoretic parallel: an observable $\sigma$-algebra
+equals the full $\sigma$-algebra mod $\mu$ if and only if the delay
+algebra is dense in $L^2$, if and only if the delay map is a
+measure-theoretic embedding.  This is Krieger's generating partition
+theorem~\cite{Krieger1970} in delay-map language
+(cf.~Sinai~\cite{Sinai1959} for the entropy definition,
+Rokhlin~\cite{Rokhlin1967} for the metric).
+
+The Rokhlin distance $\delta(\mathcal{O})$ measures how close the
+observable $\sigma$-algebra is to generating everything.
+Collision probability ($=$R\'{e}nyi-2 entropy of the fibre
+decomposition) measures the resolution structure.
+
+\textbf{Geometric $\neq$ algebraic reconstruction.}
+Collision convergence (geometric) and $\delta \to 0$ (algebraic)
+are genuinely inequivalent.  A skew-product counterexample
+($X = A^{\mathbb{Z}} \times B^{\mathbb{Z}}$, $T = \sigma \times
+\sigma$, $h(a,b) = a_0$) gives collision $= 2^{-(L+1)} \to 0$
+(fibres shrink in the $a$-coordinate) but $\delta_L = 1/4$ for all
+$L$ ($\{b_0 = 0\}$ is maximally unresolved).  This is the one
+observation from this programme that I have not found in the prior
+literature, though it may well be known to ergodic theorists.
+
+\subsection{Practical diagnostics}
+
+\begin{itemize}[nosep]
+  \item \textbf{False nearest neighbours (FNN):}
+    embedding dimension selection~\cite{KennelBrownAbarbanel1992},
+    sensitive to noise~\cite{RhodesMorari1997}.
+
+  \item \textbf{Ragwitz--Kantz:} local prediction error minimization
+    for $(d, L)$ selection~\cite{RagwitzKantz2002}.
+
+  \item \textbf{Billings--Voon:} residual autocorrelation as
+    model validity test~\cite{BillingsVoon1986}.
+
+  \item \textbf{Casdagli:} deterministic vs.\ stochastic modelling
+    discrimination~\cite{Casdagli1992}.
+\end{itemize}
+
+Every practical criterion implicitly assumes a modelling commitment:
+deterministic criteria fail under noise because noise violates the
+commitment.  Finite-sample convergence rates are
+$n^{-s/(2s+d)}$~\cite{Stone1982}; elbow stopping via
+Lepski~\cite{Lepski1991}.
+
+\subsection{The reconstruction problem in programme context}
+
+The delay setting is the primary source of observation algebras for
+this programme: a dynamical system with a scalar observable produces
+a directed system of Boolean algebras (delay algebras at increasing
+embedding dimension).  The three-layer question then becomes: under
+what conditions on the dynamics and observable do the resulting
+charges extend ($\sigma$-additivity), descend (realization), and
+determine definite values (value-definiteness)?
+
+In the Boolean case (classical dynamics), all three are available in
+principle; the obstruction is purely at the extension level
+($\sigma$-additivity).  In the quantum case (non-commutative
+dynamics), value-definiteness is blocked by Kochen--Specker and the
+extension problem takes a different form
+(Problem~\ref{op:oml-extension}).
+
+% ==================================================================
+\section{Ergodic theory of finitely additive charges}
+\label{sec:ergodic}
+% ==================================================================
+
+The Yosida--Hewitt decomposition commutes with shift-invariance:
+if $\ell$ is a $T$-invariant charge, both $\ell_c$ and $\ell_p$ are
+$T$-invariant.  The structure of the $\sigma$-additive part is the
+subject of classical ergodic theory (Birkhoff, von Neumann).  The
+purely finitely additive part is far less understood.
+
+\begin{openproblem}[Extreme PFA shift-invariant charges]
+\label{op:ergodic-pfa}
+Let $T \colon \Omega \to \Omega$ be a measurable transformation on a
+standard Borel space.  What are the extreme points of the convex set
+of $T$-invariant purely finitely additive charges on $\Omega$?
+\end{openproblem}
+
+This connects to the structure of Banach limits and invariant means.
+The problem appears out of reach with current techniques.
+
+% ==================================================================
+\section{Summary of the boundary}
+\label{sec:summary}
+% ==================================================================
+
+The extension boundary takes different forms in different algebraic
+settings:
+
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+\textbf{Setting} & \textbf{Obstruction} &
+  \textbf{Characterization} & \textbf{Status} \\
+\midrule
+Boolean, $\sigma$-complete & analytic &
+  KVP (391D) & classical \\
+Boolean, non-$\sigma$-complete & analytic/topological &
+  Problem~\ref{op:strategy-d} & open \\
+OML, $L(H)$, $\dim \geq 3$ & algebraic &
+  Gleason & classical \\
+OML, general & combinatorial &
+  Problem~\ref{op:oml-extension} & open \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The Boolean and non-Boolean extension problems are structurally
+independent: the Boolean obstruction is analytic (weak
+$(\sigma,\infty)$-distributivity, or existence of measure-free
+factors), while the OML obstruction is combinatorial (Greechie
+pasting creating contradictory normalization).  Neither subsumes the
+other.
+
+Sheaf-theoretic, topos-theoretic, and locale-theoretic approaches
+to the Boolean extension problem converge on dictionary translations
+rather than theorems: the finite/countable boundary is invisible to
+finitary frameworks, and infinitary frameworks restate classical
+conditions.  The OML extension problem has received less attention
+from these perspectives; the McDonald--Bimb\'{o} duality provides
+the natural framework but the extension question within it remains
+unasked in the literature.

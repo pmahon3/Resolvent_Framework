@@ -26,12 +26,13 @@ Directory conventions:
 - directory names are lowercase `snake_case`;
 - active multi-note directions live under
   `notes/unsorted/<architecture_layer>/<topic>/`;
-- topic-specific literature mirrors the same architecture layer when useful:
-  `notes/literature/<architecture_layer>/<topic>/`;
+- topic-specific literature reviews (`*_lit_review.md`) live alongside the
+  working notes they serve, in `notes/unsorted/<layer>/<topic>/`;
+- the LaTeX literature review document and PDF library live in
+  `notes/literature_review/`;
+- guided reading questions live in `notes/reading_directions/`;
 - programme-wide reception reports live under
   `notes/programme/programme_reception/`;
-- conceptual scaffolds that are not yet active theorem programmes live under an
-  architectural area, usually `notes/conceptual/foundations/`;
 - superseded material stays under `notes/archive/`.
 
 Architectural layers:
@@ -69,7 +70,7 @@ Path examples:
 - `notes/unsorted/foundations/coherence_completion/index.md`;
 - `notes/unsorted/foundations/coherence_completion/mathematical_language.md`;
 - `notes/unsorted/finite_sample/observational_resolution/theorem_spec.md`;
-- `notes/literature/foundations/coherence_completion/logic_lit_review.md`;
+- `notes/unsorted/foundations/coherence_completion/logic_lit_review.md`;
 - `notes/programme/programme_reception/novelty_audit.md`.
 
 ## Recurring Motifs
@@ -123,9 +124,9 @@ Primary notes:
   language, definitions, theorem templates, and candidate examples.
 - `notes/unsorted/foundations/coherence_completion/paper_sketch.md` — exposition/paper-shape
   sketch; not the proof notebook.
-- `notes/literature/foundations/coherence_completion/logic_lit_review.md` — mathematical
+- `notes/unsorted/foundations/coherence_completion/logic_lit_review.md` — mathematical
   logic placement and opportunity map.
-- `notes/literature/foundations/coherence_completion/philosophy_lit_review.md` —
+- `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md` —
   philosophical scaffold, to be compressed or discarded once the mathematical
   path is stable.
 
@@ -137,8 +138,8 @@ Do not merge these.  The clean division is:
 | conceptual vocabulary | `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` |
 | definitions / lemmas / theorem targets | `notes/unsorted/foundations/coherence_completion/mathematical_language.md` |
 | eventual article narrative | `notes/unsorted/foundations/coherence_completion/paper_sketch.md` |
-| logic literature placement | `notes/literature/foundations/coherence_completion/logic_lit_review.md` |
-| philosophical scaffolding | `notes/literature/foundations/coherence_completion/philosophy_lit_review.md` |
+| logic literature placement | `notes/unsorted/foundations/coherence_completion/logic_lit_review.md` |
+| philosophical scaffolding | `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md` |
 
 Current mathematical front:
 
@@ -201,7 +202,7 @@ Primary notes:
   known ways the idea can overreach.
 - `notes/unsorted/finite_sample/observational_resolution/paper_iii_integration.md` — editorial
   boundary for Paper III.
-- `notes/literature/finite_sample/observational_resolution/dimension_lit_review.md` —
+- `notes/unsorted/finite_sample/observational_resolution/dimension_lit_review.md` —
   literature placement.
 - `notes/unsorted/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
   map.
@@ -275,11 +276,11 @@ Role:
 - Philosophically relevant to the open-horizon language, but not yet ready for
   theorem-level integration.
 
-### Conceptual Foundations: Topology from Vanishing Distinction
+### Foundations: Topology from Vanishing Distinction
 
 Primary note:
 
-- `notes/conceptual/foundations/topology_from_vanishing_distinction.md`
+- `notes/unsorted/foundations/topology_from_vanishing_distinction.md`
 
 Role:
 
@@ -369,7 +370,8 @@ Before adding material, ask:
    cluster's `development.md`.
 1. Is this a theorem/proof target? Put it in the relevant mathematical-language
    or theorem-spec note.
-2. Is this a source/literature placement issue? Put it in `notes/literature/`.
+2. Is this a source/literature placement issue? Put it in the relevant
+   `*_lit_review.md` alongside the topic's working notes.
 3. Is this a philosophical scaffold? Put it in the relevant philosophy note, and
    mark what should eventually be discarded.
 4. Is this a live proof investigation? Put it in the narrow investigation

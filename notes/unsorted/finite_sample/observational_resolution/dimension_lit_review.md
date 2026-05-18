@@ -4,7 +4,7 @@
 
 ## See also
 
-- `notes/future/finite_sample/observational_resolution/index.md` — front door
+- `notes/unsorted/finite_sample/observational_resolution/index.md` — front door
  for the working notes this review serves.
 
 ## Purpose

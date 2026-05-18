@@ -37,12 +37,12 @@ observational-resolution cluster share the same grammar:
 
 Related literature:
 
-- `notes/literature/foundations/coherence_completion/logic_lit_review.md`
-- `notes/literature/foundations/coherence_completion/philosophy_lit_review.md`
+- `notes/unsorted/foundations/coherence_completion/logic_lit_review.md`
+- `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md`
 
 Related active investigation:
 
-- `notes/future/foundations/ce_nonderivability/index.md`
+- `notes/unsorted/foundations/ce_nonderivability/index.md`
 - `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`
 
 ## Current Stance

@@ -4,7 +4,7 @@
 
 ## See also
 
-- `notes/future/foundations/coherence_completion/index.md` — front door for the
+- `notes/unsorted/foundations/coherence_completion/index.md` — front door for the
  working notes this review serves.
 
 ## Purpose

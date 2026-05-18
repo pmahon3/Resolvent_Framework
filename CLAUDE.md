@@ -10,16 +10,18 @@ partially fill that gap.
 
 ## Current state of the programme
 
-**No active standalone leads as of 2026-05-14.**
+**No active standalone leads as of 2026-05-18.**
 Dynamics/reconstruction remains a source of examples and
-contrasts, but not a current paper track.
+contrasts, but not a current research direction.
 
-Papers I and II are synthesis/positioning, not novel research.
-Paper II (EA/PR/VDR, van Fraassen-to-duality) is the strongest
-novelty zone.
+Papers I and II are synthesis/positioning. Paper II (EA/PR/VDR,
+van Fraassen-to-duality) is the strongest novelty zone.
+Publication is not a goal of this repo — the work is
+research-oriented. Papers may be shared eventually but the
+driver is understanding, not shipping.
 
-See `notes/active_leads/README.md`, `notes/covered_leads/`,
-and `notes/knowledge_map/` for full state.
+See `notes/covered_leads/` and `notes/knowledge_map/` for full state.
+No active standalone leads as of 2026-05-18.
 
 ## The research workflow (FOLLOW THIS)
 
@@ -31,8 +33,8 @@ and `notes/knowledge_map/` for full state.
 4. **Mathematical work** (user does this, not LLM)
 5. **Formalization** (Lean, novel results ONLY)
 6. **Draft** (LaTeX, editorial principles)
-7. **Second audit** (before submission)
-8. **Submit or park**
+7. **Second audit** (before declaring complete)
+8. **Complete or park**
 
 ### Key rules:
 
@@ -95,9 +97,9 @@ and structural drift.
 - Never skip the Lean step for novel results
 - Never trust an LLM proof without independent verification
 
-## Lean as credential
+## Lean as verification
 
-Zero-sorry Lean proofs substitute for institutional credibility.
+Zero-sorry Lean proofs are the ground truth for novel results.
 Prioritize closing sorrys on **novel** results. Classical
 infrastructure sorrys can remain honestly documented.
 
@@ -117,10 +119,11 @@ formalization/
   QuerySystem/        ← Lean 4 / Mathlib (1 sorry total)
 
 notes/
-  active_leads/       ← Currently empty (no active leads)
   covered_leads/      ← Known results + dead leads (reference)
   unsorted/           ← Needs individual assessment
   knowledge_map/      ← Research control panel
   reading_directions/ ← Guided reading with questions
+  literature_review/  ← LaTeX lit review + PDF library
+  programme/          ← Orientation, synthesis, reception
   archive/            ← Dead ends and superseded
 ```

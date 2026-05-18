@@ -1,5 +1,7 @@
 # Mathematical Language: Coherence and Automatic Closure
 
+**PARKED 2026-05-18.** See `paper_sketch.md` header for reason.
+
 *Seed note - 2026-05-02*
 
 ## Structure
@@ -38,7 +40,7 @@ For the current note map and consolidation policy, see:
 
 For literature alignment, see:
 
-`notes/literature/foundations/coherence_completion/logic_lit_review.md`
+`notes/unsorted/foundations/coherence_completion/logic_lit_review.md`
 
 The main warning from that review is that the public mathematical language
 should join existing conversations: abstract model theory, Stone

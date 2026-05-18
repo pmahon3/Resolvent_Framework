@@ -18,14 +18,14 @@ For the current note map and consolidation policy, see
 
 Related notes:
 
-- `notes/future/finite_sample/observational_resolution/theorem_spec.md` — formal theorem
+- `notes/unsorted/finite_sample/observational_resolution/theorem_spec.md` — formal theorem
   target;
-- `notes/future/finite_sample/observational_resolution/failure_modes.md` — guardrails;
-- `notes/future/finite_sample/observational_resolution/paper_iii_integration.md` — editorial
+- `notes/unsorted/finite_sample/observational_resolution/failure_modes.md` — guardrails;
+- `notes/unsorted/finite_sample/observational_resolution/paper_iii_integration.md` — editorial
   boundary for Paper III;
-- `notes/literature/finite_sample/observational_resolution/dimension_lit_review.md` —
+- `notes/unsorted/finite_sample/observational_resolution/dimension_lit_review.md` —
   literature placement;
-- `notes/future/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
+- `notes/unsorted/finite_sample/observational_resolution/claim_map.md` — safe/unsafe claim
   map.
 
 ## Basic principle

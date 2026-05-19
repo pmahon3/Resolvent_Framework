@@ -110,8 +110,11 @@ The extension problem reduces to: when is $\ell_p = 0$?
 \subsection{The algebraic characterization}
 \label{sec:kvp}
 
-The deepest algebraic answer is the Kantorovich--Vulikh--Pinsker
-theorem~\cite[391D]{Fremlin2003}: a Boolean algebra $\mathfrak{A}$
+The deepest algebraic answer is
+Fremlin's~\cite[\S391]{Fremlin2003} packaging of results going back
+to Kelley and to the theory of weakly
+$(\sigma,\infty)$-distributive algebras: a Boolean algebra
+$\mathfrak{A}$
 admits a strictly positive $\sigma$-additive probability if and only
 if $\mathfrak{A}$ is
 \begin{enumerate}[label=(\roman*),nosep]
@@ -130,6 +133,13 @@ structural answer to the question of what property of the
 \emph{algebra} (the site) --- rather than the charges (the
 sections) --- controls whether local data extend to a
 $\sigma$-additive global measure.
+
+The boundary between chargeability and measurability was sharpened by
+Talagrand~\cite{Talagrand2008}, who constructed a Maharam submeasure
+that is not equivalent to any measure, resolving Maharam's 1947
+control problem.  This shows that the gap between conditions~(iii)
+and~(i)--(iii) together is genuine: an algebra can be chargeable
+without admitting any $\sigma$-additive probability.
 
 \subsection{Non-axiomatizability}
 
@@ -160,9 +170,9 @@ appears implicit in Koppelberg~\cite[Ch.~18]{Koppelberg1989}.
 \label{sec:philosophical}
 
 De Finetti~\cite{deFinetti1974} grounds probability in
-\emph{coherence} (his term; the Italian \emph{coerenza} was
-mistranslated as ``coherence'' by English translators against de
-Finetti's own preference for ``consistency'').  His criterion ---
+\emph{coherence} (the Italian \emph{coerenza}, which translates
+equally well as ``coherence'' or ``consistency''; the English
+literature settled on ``coherence'').  His criterion ---
 no finite combination of bets at the given rates guarantees a
 loss --- characterizes exactly the finitely additive probability
 functions.  De Finetti maintained that $\sigma$-additivity is a
@@ -264,10 +274,15 @@ techniques --- identify the same structural boundary:
     ultraproducts kill first-order axiomatizability.  The class of
     $\sigma$-additive structures is not elementary.
 
-  \item \textbf{Imprecise probability} (Walley~\cite{Walley1991},
-    Seidenfeld~\cite{Seidenfeld1984}): conglomerability
-    ($=$ ``$\sigma$-coherence'') is the operational face of
-    $\sigma$-additivity in the imprecise setting.
+  \item \textbf{Conglomerability and imprecise probability}
+    (Seidenfeld et al.~\cite{Seidenfeld1984},
+    Walley~\cite{Walley1991}): conglomerability --- the requirement
+    that conditional probabilities given a partition constrain the
+    unconditional probability --- is the operational face of
+    $\sigma$-additivity.  Schervish--Seidenfeld--Kadane show its
+    failure is pervasive under finite additivity; Walley develops
+    the imprecise-probability framework where the distinction is
+    central.
 \end{enumerate}
 
 No published work unifies these five perspectives under a single
@@ -467,8 +482,10 @@ Boolean case.
 Gleason's theorem~\cite{Gleason1957} completes the picture for
 $L(H)$, $\dim H \geq 3$: every $\sigma$-additive state is of the
 form $s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
-$\rho$.  Value-definiteness is blocked, but probabilistic realism
-(states as density operators) is available.
+$\rho$.  (The theorem fails for $\dim H = 2$, where
+dispersion-free states on $L(\mathbb{C}^2)$ do exist.)
+Value-definiteness is blocked in dimension $\geq 3$, but
+probabilistic realism (states as density operators) is available.
 
 The Bub--Clifton theorem~\cite{BubClifton1996},
 \cite{HalvorsonClifton1999} identifies the maximal Boolean
@@ -484,8 +501,8 @@ Boolean algebras.  A key structural difference: principal filters
 $P(A)$ are part of the dual structure in the OML case (unlike Stone
 duality where they are invisible).  This means realization is
 \emph{constrained} structure in the OML case, not \emph{additional}
-structure as in the Boolean case.  As of 2026, this duality has zero
-citations in quantum foundations.
+structure as in the Boolean case.  As of 2026, this duality has received essentially no attention in
+quantum foundations.
 
 Gunji--Haruna--Uragami~\cite{Gunji2026} show that gluing Boolean
 algebras via categorical pushout produces orthomodular lattices,
@@ -566,17 +583,20 @@ is analytic (weak $(\sigma,\infty)$-distributivity).
 
 \subsubsection{The structural obstruction}
 
-Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994} prove: if every
-unital subadditive measure on an OMP is a state, the lattice must
-be Boolean.  Conditions strong enough to force $\sigma$-additivity
-destroy the non-Boolean structure.
+Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994} prove: if an
+orthomodular lattice possesses a unital set of subadditive probability
+measures, it must be Boolean (distributive).  Conditions rich enough
+to force $\sigma$-additivity destroy the non-Boolean structure.
 
-Recent incremental work (Bunce--Wright~\cite{BunceWright1992} for
-von Neumann algebras; Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2003}
-for inner product spaces) gives positive results under strong
-completeness conditions close to von Neumann.  No breakthrough
-bridging the gap between ``too weak'' (allowing
-non-$\sigma$-additive states) and ``too strong'' (forcing
+Related results exist under strong completeness conditions:
+Bunce--Wright~\cite{BunceWright1992} solve the Mackey--Gleason problem
+for von Neumann algebras (every bounded finitely additive measure on
+the projection lattice extends to a bounded linear functional),
+and Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2003} use
+finitely additive states to characterize completeness of inner product
+spaces.  Neither directly addresses the FA-to-$\sigma$-additive
+extension question, and no result bridges the gap between ``too weak''
+(allowing non-$\sigma$-additive states) and ``too strong'' (forcing
 Booleanity).
 
 \begin{openproblem}[OML extension]
@@ -610,7 +630,7 @@ Boolean algebra).
 $C^2$ diffeomorphism $T$ and generic $C^2$ observable $h$, the delay
 map $\Phi_L(x) = (h(x), h(Tx), \ldots, h(T^{L-1}x))$ is an
 injective immersion for
-$L \geq 2\dim M$~\cite{Takens1981}.
+$L \geq 2\dim M + 1$~\cite{Takens1981}.
 
 \textbf{Sauer--Yorke--Casdagli (1991).}  Prevalence-based
 generalization: the set of observables for which $\Phi_L$ is an

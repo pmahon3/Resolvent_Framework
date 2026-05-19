@@ -1,5 +1,18 @@
 # Tail Decay and Graded Sigma-Additivity
 
+**Status: PARKED (2026-05-18).** Phase 2 audit failed. The central
+thesis — a single graded parameter interpolating light tails →
+heavy tails → PFA — is contradicted by Schervish-Seidenfeld-Kadane
+(2021), who show that improper-distribution limits (interior tail
+behavior) and FAP limits (boundary mass) are independent
+characteristics, not endpoints of one axis. The
+supremum-over-refinements definition collapses to {0, ∞} (recovers
+only the binary Halmos dichotomy). The filtration-dependent version
+is Rényi information dimension under a different name. The candidate
+theorem restates definitions. Taxonomic — no new mathematics.
+
+---
+
 ## The question
 
 Sigma-additivity is a binary condition: either $\mu(E_n) \to 0$

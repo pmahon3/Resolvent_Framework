@@ -220,7 +220,7 @@ the abstractness of Boolean algebras recognized since Stone (1936).
     of OMLs is dually equivalent to a category of orthomodular
     spaces.  Principal filters $P(A)$ are part of the dual
     structure (unlike Stone duality where they are invisible).
-    \cite{McDonaldBimbo2023}.  Zero citations in quantum
+    \cite{McDonaldBimbo2023}.  Essentially no attention in quantum
     foundations as of 2026.
 
   \item \textbf{Colimit generation:} Gluing Boolean algebras via
@@ -287,7 +287,7 @@ distributivity collapses the filtration are new packaging.
 
 \begin{itemize}
   \item \textbf{Takens:} Generic smooth observable gives an
-    injective delay map for $L \geq 2 \dim X$ \cite{Takens1981}.
+    injective delay map for $L \geq 2 \dim X + 1$ \cite{Takens1981}.
 
   \item \textbf{Sauer--Yorke--Casdagli:} Prevalence-based
     embedding theorem \cite{SauerYorkeCasdagli1991}.
@@ -486,6 +486,18 @@ collision $\to 0$ imply $\delta \to 0$?
     (definitional); the non-trivial direction (prediction of $h$
     implies generation) is just the reconstruction theorem
     (Paper~II).
+
+  \item \textbf{Graded $\sigma$-additivity (tail decay):}
+    Proposed a single graded parameter interpolating light tails
+    ($\sigma$-additive) $\to$ heavy tails ($\sigma$-additive, slow
+    decay) $\to$ PFA (no decay).
+    Contradicted by Schervish--Seidenfeld--Kadane~(2021): interior
+    tail behavior and boundary/PFA mass are independent
+    characteristics, not endpoints of one axis.  The
+    supremum-over-refinements definition collapses to
+    $\{0,\infty\}$ (recovers only the Halmos binary).  The
+    filtration-dependent version is R\'{e}nyi information dimension
+    under a different name.  Taxonomic.
 \end{enumerate}
 
 % ==================================================================
@@ -544,13 +556,16 @@ OMLs, Gleason-type results are unavailable and Carath\'{e}odory does
 not apply (the clopens form an OML, not a Boolean algebra).
 
 The structural obstruction:
-Pt\'{a}k--Pulmannov\'{a}~(1994) prove that if every unital
-subadditive measure on an OMP is a state, the lattice must be
-Boolean.  The gap between ``too weak'' (allows non-$\sigma$-additive
-states) and ``too strong'' (forces Booleanity) appears structurally
-robust.  Recent incremental work (Bunce--Wright 1992;
-Chetcuti--Dvure\v{c}en\-skij 2003/2005;
-Vor\'{a}\v{c}ek--Pt\'{a}k 2023) confirms no breakthrough.  All
+Pt\'{a}k--Pulmannov\'{a}~(1994) prove that if an orthomodular
+lattice possesses a unital set of subadditive probability measures,
+it must be Boolean.  The gap between ``too weak'' (allows
+non-$\sigma$-additive states) and ``too strong'' (forces Booleanity)
+appears structurally robust.  Bunce--Wright~(1992) solve the
+Mackey--Gleason problem for von Neumann algebras (a different
+question); Chetcuti--Dvure\v{c}en\-skij~(2003/2005) use FA states
+to characterize completeness of inner product spaces (also
+different).  Vor\'{a}\v{c}ek--Pt\'{a}k~(2023) confirms no
+breakthrough on the extension question proper.  All
 exotic OML state spaces use Greechie pasting (Wilce 2009, Handbook
 of Quantum Logic Ch.~24).  Needs a new idea, not more reading.
 

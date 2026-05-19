@@ -19,6 +19,13 @@ as reference and teaching material, not publishable as novel work.
   moments). The Stone factoring of de Finetti is trivial.
   Dead end for novel results; clean writeup of why.
 
+- [tail_decay_graded_sigma_additivity.md](tail_decay_graded_sigma_additivity.md) —
+  Proposed graded parameter interpolating light tails → heavy tails
+  → PFA. Killed: SSK (2021) shows interior tail behavior and
+  boundary mass are independent; the proposed axis doesn't exist.
+  Supremum-over-refinements collapses to {0, ∞}; filtration-dependent
+  version is Rényi information dimension.
+
 ## From the papers
 
 Paper I, Paper II, and the withdrawn Papers II+III are all

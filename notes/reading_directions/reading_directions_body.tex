@@ -895,6 +895,188 @@ The boundary is now precisely located from three angles:
 \end{itemize}
 
 % ==================================================================
+\section*{Openness as primitive (exploratory, 2026-05-19)}
+
+The programme's central question --- what forces the transition from
+finite to countable additivity --- discovers incompleteness as a
+\emph{consequence}: the finitely additive framework is definite and
+consistent; $\sigma$-additivity is the extra structure that fails to
+be derivable from it.  A complementary question: are there frameworks
+that take openness, indeterminacy, or incompleteness as \emph{primitive},
+and if so, do they make contact with the FA/$\sigma$A boundary?
+
+This section collects reading directions for that question.  Each
+entry carries a specific discriminating question.  The question is
+what determines whether the reference produces a Phase~1 seed or
+gets parked.
+
+\subsubsection*{Dzhafarov--Kujala, Contextuality by Default}
+
+\noindent\textbf{Primary:} E.~N.~Dzhafarov and J.~V.~Kujala,
+``Contextuality-by-Default 2.0,'' \emph{Lecture Notes in Computer
+Science} 10106 (2017), 16--32.  See also Dzhafarov and Kujala,
+``Context-content systems of random variables,'' \emph{Philosophical
+Transactions of the Royal Society A} 375 (2017), 20160389.
+
+\medskip\noindent
+CbD starts from the position that random variables measured in
+different contexts \emph{lack a joint distribution primitively}.
+A joint distribution (coupling) is an achievement, not a given.
+Contextuality is then the failure of a maximally connected coupling
+to exist.  The framework is probabilistic, measure-theoretic, and
+has a precise notion of ``obstruction to global coherence.''
+
+\medskip\noindent\textbf{Discriminating question:} Does CbD's
+coupling-existence criterion have an analogue for the FA $\to$
+$\sigma$A extension problem?  Concretely: can $\sigma$-additivity
+be characterized as the existence of a coupling across refinement
+contexts --- i.e., the existence of a joint distribution on
+$\bigcup_k \mathcal{G}_k$ compatible with each $\mu|_{\mathcal{G}_k}$?
+If yes, this would give a non-trivial structural characterization.
+If the analogy is only verbal (``obstruction to coherence'' in
+both cases but different mathematical content), park it.
+
+\subsubsection*{Ellerman, Partition Logic and Information}
+
+\noindent\textbf{Primary:} D.~Ellerman, \emph{New Foundations for
+Information Theory: Logical Entropy and Shannon Entropy}, Springer
+(2021).  See also Ellerman, ``The Logic of Partitions,'' \emph{Review
+of Symbolic Logic} 3 (2010), 287--350.
+
+\medskip\noindent
+Ellerman develops a ``logic of partitions'' dual to the Boolean logic
+of subsets.  Where subsets model definiteness (an element is in or
+out), partitions model indefiniteness (elements are distinguished or
+not).  The basic objects are ``dits'' (distinctions) rather than
+``bits.''  Shannon entropy is derived from a more primitive ``logical
+entropy'' defined on partitions.  Partition refinement is the natural
+order.
+
+\medskip\noindent\textbf{Discriminating question:} Does partition
+refinement give a non-trivial functor to charge refinement --- i.e.,
+does the passage from partitions to the Boolean algebra they generate,
+equipped with a finitely additive charge, preserve or reveal structure
+not visible in the algebra alone?  Or is the dit/bit translation just
+relabeling entropy without producing new content about the
+FA/$\sigma$A boundary?  The test: find a theorem in partition logic
+whose translation into Boolean-algebra language says something about
+extension that is not already in Halmos/Yosida-Hewitt.
+
+\subsubsection*{Walley, Imprecise Probability}
+
+\noindent\textbf{Primary:} P.~Walley, \emph{Statistical Reasoning
+with Imprecise Probabilities}, Chapman \& Hall (1991).  For a concise
+treatment, see M.~C.~M.~Troffaes and G.~de Cooman, \emph{Lower
+Previsions}, Wiley (2014).
+
+\medskip\noindent
+Walley takes as primitive a \emph{set} of probability measures (a
+credal set), not a single measure.  Sharp (precise) probability is
+the special case where the credal set is a singleton.  The framework
+has a natural hierarchy: upper/lower previsions $\to$ coherent
+previsions $\to$ precise previsions $\to$ $\sigma$-additive previsions.
+Each inclusion is strict.  The theory of ``natural extension'' ---
+the smallest coherent prevision dominating a given assessment --- is
+formally analogous to the problem of extending a finitely additive
+charge.
+
+\medskip\noindent\textbf{Discriminating question:} Is there a
+Walley-type framing where the set of $\sigma$-additive extensions of
+a finitely additive measure on a subalgebra is itself the primitive
+object, and $\sigma$-additivity $=$ singleton extension set?  If so,
+does this give a useful topology or duality on the extension sets
+(connecting to Choquet theory, Phelps simplex structure)?  If the
+Walley framework only redescribes the same extension problem in
+different language without new theorems, park it.
+
+\subsubsection*{Abramsky--Brandenburger, Sheaf-Theoretic Formalism}
+
+\noindent\textbf{Primary:} S.~Abramsky and A.~Brandenburger, ``The
+Sheaf-Theoretic Structure of Non-Locality and Contextuality,''
+\emph{New Journal of Physics} 13 (2011), 113036.
+
+\medskip\noindent
+\textbf{Re-scoped.}  The contextuality application was previously
+killed: the contextuality obstruction is compact (witnessed by finite
+covers), while the $\sigma$-additivity gap is non-compact (invisible
+to any finite test).  These are different phenomena.
+
+What survives is the \emph{formalism}: a presheaf of local sections
+(compatible local data), a sheaf condition (existence of a global
+section), and a cohomological obstruction ($H^1$ or higher) measuring
+the failure.  The question is whether this formal apparatus can be
+applied to the Yosida-Hewitt decomposition, where the ``local
+sections'' are the restrictions of a finitely additive charge to
+finite subalgebras and the ``global section'' is a $\sigma$-additive
+extension.
+
+\medskip\noindent\textbf{Discriminating question:} Can the purely
+finitely additive part $\mu_p$ of the Yosida-Hewitt decomposition be
+expressed as a cohomological obstruction in the sense of
+Abramsky-Brandenburger --- i.e., as a non-trivial class in $H^1$ of
+a presheaf on a suitable category of finite subalgebras?  If so, does
+the cohomological degree correspond to anything meaningful (e.g.,
+``how far'' from $\sigma$-additivity)?  The key test is whether the
+compact/non-compact mismatch is fatal to the formalism, not just the
+application: the Yosida-Hewitt obstruction lives at countable limits,
+and \v{C}ech cohomology of a Stone space is trivial for compact
+coefficients.  If the cohomology is always zero, the formalism
+doesn't apply.
+
+\subsubsection*{Sambin, Positive Topology}
+
+\noindent\textbf{Primary:} G.~Sambin, ``Some points in formal
+topology,'' \emph{Theoretical Computer Science} 305 (2003), 347--408.
+See also Sambin, \emph{Positive Topology: Completing the Foundational
+Trilogy} (book in preparation, drafts circulating since 2020).
+
+\medskip\noindent
+Sambin's positive topology has two primitives: a \emph{cover relation}
+(when does a collection of opens cover an open?) and a
+\emph{positivity predicate} (which opens are ``inhabited'' ---
+non-trivially instantiated).  Points are \emph{derived}, not
+primitive: a point is a filter satisfying both cover and positivity
+constraints.  The framework is constructive and works without
+classical logic or the axiom of choice.
+
+\medskip\noindent\textbf{Discriminating question:} Can the
+FA/$\sigma$A transition be viewed as a completion in Sambin's sense,
+where finitely additive charges live on a ``basic'' cover and
+$\sigma$-additivity is the positivity predicate forcing concentration
+on derived points?  Concretely: for a Boolean algebra $B$, is the
+$\sigma$-additive part $\mu_c$ of a charge characterized by a
+positivity condition on the Stone space (``every open containing a
+point of $\operatorname{supp}(\mu_c)$ is positive''), and if so,
+does this give a constructive proof of the Yosida-Hewitt
+decomposition?  If the framework only redescribes Stone duality in
+constructive language, park it.
+
+\subsubsection*{Supporting philosophical references}
+
+The following are not expected to produce Phase~1 seeds directly but
+may sharpen the question of what ``starting from openness'' means.
+
+\begin{itemize}[nosep]
+  \item \textbf{Gisin (2021):} N.~Gisin, ``Indeterminism in
+    Physics, Classical Chaos and Bohmian Mechanics,'' \emph{Erkenntnis}
+    86 (2021), 1553--1590.  Argues that classical determinism is an
+    artifact of completed infinities in the real-number continuum;
+    intuitionistic reals leave room for genuine indeterminacy.
+    \emph{Relevance:} if $\sigma$-additivity depends on completed
+    countable operations, does an intuitionistic treatment change the
+    extension boundary?
+  \item \textbf{Linnebo--Shapiro (2019):} {\O}.~Linnebo and S.~Shapiro,
+    ``Actual and Potential Infinity,'' \emph{No\^{u}s} 53 (2019),
+    160--191.  Distinguishes potential from actual infinity with formal
+    precision.  See also Hamkins's set-theoretic potentialism.
+    \emph{Relevance:} the FA/$\sigma$A boundary is exactly where
+    potential infinity (finite additivity: every finite test passes)
+    meets actual infinity ($\sigma$-additivity: the countable limit
+    exists).  Does the potentialist framework produce a formal
+    distinction beyond the known one?
+\end{itemize}
+
+% ==================================================================
 \section*{How to use this document}
 
 When reading, annotate in the margins or on a separate sheet:

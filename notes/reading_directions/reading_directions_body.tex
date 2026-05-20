@@ -936,31 +936,40 @@ If yes, this would give a non-trivial structural characterization.
 If the analogy is only verbal (``obstruction to coherence'' in
 both cases but different mathematical content), park it.
 
-\subsubsection*{Ellerman, Partition Logic and Information}
+\subsubsection*{Ellerman, Partition Logic and Information --- PARKED}
 
-\noindent\textbf{Primary:} D.~Ellerman, \emph{New Foundations for
-Information Theory: Logical Entropy and Shannon Entropy}, Springer
-(2021).  See also Ellerman, ``The Logic of Partitions,'' \emph{Review
-of Symbolic Logic} 3 (2010), 287--350.
+\noindent\textbf{Primary:} D.~Ellerman, ``An Introduction to
+Partition Logic,'' \emph{Logic Journal of the IGPL} 22 (2014),
+94--125.  See also Ellerman, ``The Logic of Partitions,''
+\emph{Review of Symbolic Logic} 3 (2010), 287--350; and
+\emph{New Foundations for Information Theory}, Springer (2021).
 
 \medskip\noindent
-Ellerman develops a ``logic of partitions'' dual to the Boolean logic
-of subsets.  Where subsets model definiteness (an element is in or
-out), partitions model indefiniteness (elements are distinguished or
-not).  The basic objects are ``dits'' (distinctions) rather than
-``bits.''  Shannon entropy is derived from a more primitive ``logical
-entropy'' defined on partitions.  Partition refinement is the natural
-order.
+\textbf{Status: PARKED (2026-05-19).}  Read in full.
+Ellerman builds a complete dual logic where partitions (equivalence
+relations) play the role that subsets play in Boolean logic.
+Distinctions (``dits'') dualize elements; the partition lattice
+$\Pi(U)$ is non-distributive; each partition $\pi$ generates a
+Boolean core $\mathcal{B}_\pi \cong \mathcal{P}(\pi_{ns})$.
+``Logical entropy'' $h(\pi) = \sum p_i(1-p_i)$ is the normalized
+dit-counting measure.
 
-\medskip\noindent\textbf{Discriminating question:} Does partition
-refinement give a non-trivial functor to charge refinement --- i.e.,
-does the passage from partitions to the Boolean algebra they generate,
-equipped with a finitely additive charge, preserve or reveal structure
-not visible in the algebra alone?  Or is the dit/bit translation just
-relabeling entropy without producing new content about the
-FA/$\sigma$A boundary?  The test: find a theorem in partition logic
-whose translation into Boolean-algebra language says something about
-extension that is not already in Halmos/Yosida-Hewitt.
+\medskip\noindent
+\textbf{Verdict on discriminating question:}  The dit/bit translation
+\emph{is} relabeling entropy.  Logical entropy $h(\pi) = 1 -
+\sum p_i^2 = 1 - \operatorname{Coll}_\mu(\mathcal{G})$, i.e., one
+minus the collision probability already used in the programme's
+observational-resolution notes.  The partition refinement order
+recovers the cylinder-algebra filtration.  The paper stays entirely
+in the finite setting --- no measures, no charges, no limit behavior,
+no extension problems.  No theorem in partition logic translates to
+new content about the FA/$\sigma$A boundary.
+
+\medskip\noindent
+\textbf{Possible re-scoping (not pursued):} The non-distributivity
+of $\Pi(U)$ and the Boolean core construction could speak to the
+OML extension problem (where distributivity fails), but this would
+be a different question from the one that motivated the entry.
 
 \subsubsection*{Walley, Imprecise Probability}
 

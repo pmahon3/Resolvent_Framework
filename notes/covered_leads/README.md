@@ -26,6 +26,16 @@ as reference and teaching material, not publishable as novel work.
   Supremum-over-refinements collapses to {0, ∞}; filtration-dependent
   version is Rényi information dimension.
 
+- [operational_boundary/index.md](operational_boundary/index.md) —
+  The finite/countable boundary is epistemically inaccessible but
+  operationally present via convergence-rate plateaus. Killed:
+  PFA-as-bias-floor = Liu-Gao 2019 (ε-contamination minimax);
+  plateau detection = Lepski adaptive methods; D_Λ substitution
+  = intrinsic dimension literature (Kpotufe 2011, Yang-Barron 1999).
+  Theorem attempt killed: Kolmogorov extension guarantees PFA
+  structure is invisible at finite resolution — no improved floor.
+  Synthesis folded into literature review §2.9.
+
 ## From the papers
 
 Paper I, Paper II, and the withdrawn Papers II+III are all

@@ -67,6 +67,23 @@ make all three available.
     $\ell = \ell_c + \ell_p$ where $\ell_c$ is $\sigma$-additive
     and $\ell_p$ is purely finitely additive
     \cite{YosidaHewitt1952}.
+
+  \item \textbf{KVP measurability criterion:} A Boolean algebra
+    $\mathfrak{A}$ admits a strictly positive $\sigma$-additive
+    probability iff (i)~$\mathfrak{A}$ is Dedekind
+    $\sigma$-complete, (ii)~$\mathfrak{A}$ is weakly
+    $(\sigma,\infty)$-distributive, and (iii)~$\mathfrak{A}$ is
+    chargeable (admits a strictly positive finitely additive
+    functional) \cite[391D]{Fremlin2003}.  Chargeability is
+    characterized by Kelley's intersection-number condition
+    \cite[391J]{Fremlin2003}.  Originally
+    Kantorovich--Vulikh--Pinsker (1950).
+
+  \item \textbf{Conglomerability $\leftrightarrow$ countable
+    additivity:} For precise (linear) previsions,
+    $\mathcal{B}$-conglomerability is equivalent to countable
+    additivity on $\mathcal{B}$
+    \cite{Seidenfeld1984}.
 \end{itemize}
 
 \subsection{What I proved (turned out classical)}
@@ -107,6 +124,28 @@ verified infrastructure, even though the theorems are classical.
 
   \item The Yosida--Hewitt decomposition gives the exact
     characterization: CE $\Leftrightarrow$ $\ell_p = 0$.
+
+  \item The \emph{algebraic} condition for a Boolean algebra to
+    \emph{admit} a strictly positive $\sigma$-additive probability is
+    weak $(\sigma,\infty)$-distributivity (plus Dedekind
+    $\sigma$-completeness and chargeability; KVP 1950, Fremlin 391D).
+    This is a genuine lattice condition on how countable infima
+    interact with arbitrary suprema --- the algebraic face of CE.
+
+  \item Finite additivity has compactness (inconsistency detected
+    by finite subsets) and absoluteness (depends only on $P[E]$,
+    not on the ambient algebra).  $\sigma$-additivity has neither.
+    This is the structural reason no finitary framework can see
+    the FA/$\sigma$A boundary \cite{Howson2008}.
+
+  \item The FA/$\sigma$A boundary is \emph{pointwise invisible}
+    (Kolmogorov extension: at any fixed finite resolution, PFA
+    marginals are indistinguishable from $\sigma$-additive ones)
+    but \emph{asymptotically visible} (YH singularity: PFA
+    marginals eventually leave every fixed smoothness class as
+    resolution increases).  The boundary is ``felt but not seen'':
+    invisible at each snapshot, visible in the trajectory of
+    increasing resolution driven by increasing data.
 \end{enumerate}
 
 % ==================================================================
@@ -498,6 +537,44 @@ collision $\to 0$ imply $\delta \to 0$?
     $\{0,\infty\}$ (recovers only the Halmos binary).  The
     filtration-dependent version is R\'{e}nyi information dimension
     under a different name.  Taxonomic.
+
+  \item \textbf{Operational boundary theorem:}
+    Attempted to turn the observation ``PFA = Huber contamination''
+    into a theorem with novel content.  Two candidate routes killed:
+    \begin{itemize}[nosep]
+      \item \emph{PFA structure improves the contamination floor:}
+        No.  At fixed resolution, Kolmogorov extension makes PFA
+        indistinguishable from arbitrary contamination.  The floor
+        stays $\varepsilon^2$.
+      \item \emph{Trajectory $\hat\varepsilon(n) \to \varepsilon_0$
+        as consistent test:} Correct, but known.  The mechanism
+        (YH singularity forces PFA marginals out of smooth classes
+        as $k\to\infty$) is the contrapositive of YH decomposition
+        itself.  The consistent test is Patra--Sen~(2016) /
+        Chen--Gao--Ren~(2016).
+    \end{itemize}
+    What was learned: Kolmogorov extension is the precise mechanism
+    behind pointwise inaccessibility; YH singularity is the
+    mechanism behind asymptotic distinguishability.  The boundary is
+    invisible at each snapshot but visible in the trajectory of
+    increasing resolution.  Synthesis folded into literature review
+    \S2.9.  No new theorem.
+
+  \item \textbf{``Openness as primitive'' (six frameworks):}
+    Tested whether frameworks that take indeterminacy or
+    incompleteness as primitive make contact with the FA/$\sigma$A
+    boundary: Walley (imprecise probability), Abramsky--Brandenburger
+    (sheaf contextuality), Sambin (positive topology),
+    Dzhafarov--Kujala (contextuality by default), Ellerman (partition
+    logic), Gisin/Linnebo--Shapiro (philosophical).  All six parked;
+    none produces a new theorem about when $\sigma$-additive extension
+    exists.  The kills differ: vocabulary-only (Walley --- the
+    load-bearing theorem is SSK~(1984)); compact/non-compact mismatch
+    (AB, CbD --- obstructions witnessed by finite data, while the
+    FA/$\sigma$A gap is invisible to any finite test); wrong
+    primitives (Sambin --- positivity is co-inductive, no measure
+    theory); no measure-theoretic content (Ellerman, Gisin,
+    Linnebo--Shapiro).  Details in the reading directions document.
 \end{enumerate}
 
 % ==================================================================
@@ -555,19 +632,27 @@ extension: every state is $s(P)=\mathrm{tr}(\rho P)$.  For general
 OMLs, Gleason-type results are unavailable and Carath\'{e}odory does
 not apply (the clopens form an OML, not a Boolean algebra).
 
-The structural obstruction:
-Pt\'{a}k--Pulmannov\'{a}~(1994) prove that if an orthomodular
-lattice possesses a unital set of subadditive probability measures,
-it must be Boolean.  The gap between ``too weak'' (allows
-non-$\sigma$-additive states) and ``too strong'' (forces Booleanity)
-appears structurally robust.  Bunce--Wright~(1992) solve the
-Mackey--Gleason problem for von Neumann algebras (a different
-question); Chetcuti--Dvure\v{c}en\-skij~(2003/2005) use FA states
-to characterize completeness of inner product spaces (also
-different).  Vor\'{a}\v{c}ek--Pt\'{a}k~(2023) confirms no
-breakthrough on the extension question proper.  All
-exotic OML state spaces use Greechie pasting (Wilce 2009, Handbook
-of Quantum Logic Ch.~24).  Needs a new idea, not more reading.
+The structural obstruction is combinatorial.
+Pt\'{a}k--Pulmannov\'{a}~(1994) prove that if an OML possesses a
+unital set of subadditive probability measures, it must be Boolean
+(the ``too strong'' side).  On the ``too weak'' side,
+Pt\'{a}k~\cite{Ptak1987} constructs \emph{exotic logics}:
+$\sigma$-orthocomplete OMPs admitting FA states but no
+$\sigma$-additive states, via Greechie pasting --- atom
+identifications across Boolean blocks force contradictory
+partition-of-unity constraints at the $\sigma$-additive level.
+Each block individually admits $\sigma$-additive states; the
+pasting makes them globally incompatible.  The center can be
+prescribed independently (Theorem~3).  Navara~\cite{Navara1992}
+sharpens this: regularity ($P$-regularity, inner regularity
+w.r.t.\ finite-dimensional projections), the natural candidate
+admissibility condition from von Neumann projection lattices
+(B\'{e}aver--Cook 1989), does not force $\sigma$-additivity on
+general OMPs.  The gap between too weak and too strong appears
+structurally robust.  Bunce--Wright~(1992), Chetcuti--Dvure\v{c}en\-skij~(2003/2005), and
+Vor\'{a}\v{c}ek--Pt\'{a}k~(2023) address adjacent questions
+without breaking through on the extension problem proper.  Needs
+a new idea, not more reading.
 
 % ---- Ultralimit question (scoped) ----
 
@@ -680,7 +765,8 @@ One sentence per insight:
   \item Rao \& Rao, \emph{Theory of Charges}, Academic Press, 1983.  Thm~10.5.3 (Stone-space support characterization).~\cite{RaoRao1983}
   \item Yosida \& Hewitt, ``Finitely additive measures,'' \emph{Trans.\ AMS} 72 (1952), 46--66.~\cite{YosidaHewitt1952}
   \item Choksi, ``Inverse limits of measure spaces,'' \emph{Proc.\ London Math.\ Soc.} s3-8 (1958), 321--342.  Thm~1.~\cite{Choksi1958}
-  \item Fremlin, \emph{Measure Theory}, Vol.~3, Torres Fremlin, 2003.  \S326 (additive functionals on Boolean algebras).~\cite{Fremlin2003}
+  \item Fremlin, \emph{Measure Theory}, Vol.~3, Torres Fremlin, 2003.  \S326 (additive functionals on Boolean algebras), 391D (KVP measurability criterion), 391J (Kelley chargeability).~\cite{Fremlin2003}
+  \item Schervish, Seidenfeld \& Kadane, ``The extent of non-conglomerability of finitely additive probabilities,'' \emph{Z.\ Wahrscheinlichkeitstheorie} 66 (1984), 205--226.  Conglomerability $\leftrightarrow$ countable additivity.~\cite{Seidenfeld1984}
 \end{itemize}
 
 \subsection*{Stone duality}
@@ -699,6 +785,8 @@ One sentence per insight:
   \item Abramsky \& Brandenburger, ``The sheaf-theoretic structure of non-locality and contextuality,'' \emph{New J.\ Phys.} 13 (2011), 113036.~\cite{AbramskyBrandenburger2011}
   \item McDonald \& Bimb\'{o}, ``Topological duality for orthomodular lattices,'' \emph{Math.\ Logic Quart.} 69 (2023), 514--541.~\cite{McDonaldBimbo2023}
   \item Gunji, Haruna \& Uragami, ``Contextuality as a left adjoint,'' arXiv:2603.22353 (2026).~\cite{Gunji2026}
+  \item Pt\'{a}k, ``Exotic logics,'' \emph{Colloquium Math.}\ 54(1) (1987), 1--7.  Greechie-pasting construction of OMPs with FA but no $\sigma$-additive states.~\cite{Ptak1987}
+  \item Navara, ``Regularity and $\sigma$-additivity of states,'' \emph{Proc.\ AMS} 115(2) (1992), 427--429.  Regularity does not force $\sigma$-additivity on general OMPs.~\cite{Navara1992}
 \end{itemize}
 
 \subsection*{Topos approaches}
@@ -729,6 +817,7 @@ One sentence per insight:
 \begin{itemize}
   \item van Fraassen, \emph{The Scientific Image}, Oxford University Press, 1980.~\cite{vanFraassen1980}
   \item de Finetti, \emph{Theory of Probability}, Vol.~1, Wiley, 1974.~\cite{deFinetti1974}
+  \item Howson, ``De Finetti, countable additivity, consistency and coherence,'' \emph{BJPS} 59(1) (2008), 1--23.  Compactness/absoluteness of FA; non-compactness of $\sigma$A; ``missing completeness theorem.''~\cite{Howson2008}
 \end{itemize}
 
 \subsection*{Nonparametric statistics}

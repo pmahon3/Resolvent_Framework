@@ -28,7 +28,14 @@ No active standalone leads as of 2026-05-18.
 ### The 8-phase pipeline:
 
 1. **Seed note** (md, 30 min) → `notes/unsorted/`
-2. **Skeptical audit** → GATE: stop if known
+   Declare claimed contribution type(s) and per-type bars.
+   Format: `**Claimed type(s):** Type N (name). **Bar:** [what
+   this seed must demonstrate to clear that type's bar].`
+   Pre-existing seeds without declarations are grandfathered;
+   declarations are added when next audited.
+2. **Skeptical audit** → GATE: evaluate against each claimed type's bar.
+   Default: `/audit full` for Phase 2. Use `pure`/`applied` for
+   targeted re-audits only.
 3. **Problem statement** (md) → `notes/active_leads/`
 4. **Mathematical work** (user does this, not LLM)
 5. **Formalization** (Lean, novel results ONLY)
@@ -36,26 +43,44 @@ No active standalone leads as of 2026-05-18.
 7. **Second audit** (before declaring complete)
 8. **Complete or park**
 
+### Contribution types (see `notes/programme/contribution_evaluation.md`):
+
+Seeds are evaluated against 7 types, each with its own bar:
+1. New theorem — is it known?
+2. New proof — new technique, unexpected connection, or major simplification?
+3. Unifying framework — does it enable method transfer (not just analogy)?
+4. Vocabulary — three-statements test (3 new statements + 1 non-trivial result)
+5. Impossibility — closes off an active direction or sharpens non-trivially?
+6. Exposition/translation — named audience, inaccessible literature, non-trivial work?
+7. Methodology — demonstrated advantage, sharp regimes, reproducible?
+
+Broader lens, not broader standard. Each type has a concrete bar.
+
 ### Key rules:
 
 - **Audit before you draft.** Never draft LaTeX for unaudited claims.
+- **Declare types before you audit.** Seeds must commit to claimed
+  contribution types; the audit evaluates each type's bar.
 - **Don't formalize known results.** Use `axiom` with citation.
 - **Name things last.** Don't name until you've checked the literature.
-- **Park honestly.** If known, stop. Don't rescue with framing.
+- **Park honestly.** If no type's bar is cleared, stop. Don't rescue
+  with framing or by switching to a more permissive type.
 - **Verify LLM proofs independently.** Lean or manual check only.
 
 ## Custom agents (`.claude/agents/`)
 
 ## Skill: `/audit` (`.claude/skills/audit/`)
 
-Unified research audit with mode argument. Gates the pipeline
-at Phase 2 and Phase 7.
+Research audit with mode argument. Gates the pipeline at Phase 2
+and Phase 7. Evaluates theorem novelty, applied utility, and/or
+contribution type bars.
 
 | Invocation | What it does |
 |------------|-------------|
 | `/audit pure [target]` | Skeptical novelty audit (hostile referee) |
 | `/audit applied [target]` | Applied utility assessment (practitioner test) |
-| `/audit both [target]` | Both evaluations, cross-referenced |
+| `/audit both [target]` | Pure + applied, cross-referenced |
+| `/audit full [target]` | All contribution types evaluated against per-type bars |
 
 The skill runs in a forked context (opus, with web search) so
 audit results don't flood the main conversation.
@@ -119,6 +144,7 @@ formalization/
   QuerySystem/        ← Lean 4 / Mathlib (1 sorry total)
 
 notes/
+  open_questions/     ← Precise, open, dormant (re-audit on new input)
   covered_leads/      ← Known results + dead leads (reference)
   unsorted/           ← Needs individual assessment
   knowledge_map/      ← Research control panel

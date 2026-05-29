@@ -56,51 +56,51 @@ revised 2026-05-09 — four-way main equivalence theorem added in §6)
 
 ---
 
-### Paper II — Dynamics and Reconstruction in the Observable Measure
+### Paper II — Distributivity and the Commensurability of Empirical Adequacy and Realism
 
-**What it shows:** Given a probability measure on the observable σ-algebra, the
-dynamics and reconstruction structure of the system are uniquely determined —
-read off from the measure, not constructed by the observer.
+**What it shows:** Whether an empirically adequate theory admits a realist
+completion depends on the algebraic structure of the observation algebra.
+Distributivity is the exact dividing line.
 
-**Register:** Disclosure, not construction. The structures are *in* the measure.
+**Vocabulary:** Three positions, each a constraint on where the dual-space
+measure lives:
+- **Empirical Adequacy (EA):** measure on the dual space agrees with all
+  observations. No claim about an underlying Ω.
+- **Probabilistic Realism (PR):** descent from the dual-space measure to a
+  measure on an underlying realisation space.
+- **Value-Definite Realism (VDR):** a global 2-valued homomorphism on the
+  observation algebra — every observable simultaneously has a definite value.
 
-**Part 1 — Conditional regularity and dynamics:**
+These are nested: VDR ⟹ PR ⟹ EA.
 
-The Rokhlin disintegration of any two observations Q, F gives a Markov kernel
-κ_Q(q,·) = P(F ∈ · | Q = q) — forced by the measure, not chosen. Composing with Q
-gives the minimal sufficient factor Q_*, the coarsest reduction carrying full
-conditional information. Indexing over time, temporal coherence forces
-Chapman–Kolmogorov — derived, not assumed — yielding a Markov semigroup {Π_t} and
-Koopman–Perron duality ∫ K_t g dμ = ∫ g d(P_t* μ). When kernels are Dirac measures,
-K_t collapses to the classical Koopman operator.
+**The commensurability theorem (Theorem 4):**
+- *Boolean case:* all three positions are commensurable. Every EA-theory
+  admits a VDR-completion (via ultrafilters). The realisation is unconstrained.
+- *OML case (dim ≥ 3):* EA and PR remain commensurable (Gleason), but VDR
+  is blocked (Kochen–Specker). Partial VDR is context-dependent (Bub–Clifton).
 
-**Notation:** κ_Q = conditional regularity kernel (disintegration layer);
-Π_t = time-indexed semigroup kernels; K_t = operator layer. These are kept
-notationally distinct throughout.
+**Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
+of different character: pasting (topological), regularity (analytic),
+sharpness (algebraic).
 
-**Part 2 — Reconstruction:**
+**Mathematical content:** Assembled from Stone duality, Kochen–Specker,
+Gleason, Bub–Clifton, and McDonald–Bimbó (2023) OML duality. The paper
+self-acknowledges: "the individual ingredients are known; what has not been
+stated is the synthesis."
 
-For an invertible measure-preserving system (X, ℬ, μ, T) with h ∈ L^∞, define the
-observable algebra 𝒪_h = σ({h ∘ T^n : n ∈ ℤ}). The following are equivalent:
-1. 𝒪_h = ℬ mod μ
-2. alg{h ∘ T^n} is dense in L^2(X, μ)
-3. The delay map Φ_h : X → ℝ^ℤ is a measure-theoretic embedding
+**Contribution type:** Type 4 (vocabulary — EA/PR/VDR enable the
+commensurability theorem and coherence filtration) + Type 6 (exposition —
+translates between algebraic logic, quantum foundations, and philosophy
+of science). Strongest contribution in the programme.
 
-The density bridge (Lemma 4.3) connects (1) and (2). The Stone space identification
-closes the loop with Paper I.
+**LaTeX:** `papers/paper_ii/distributivity_and_realism.tex` (~15 pages, complete)
 
-**Lean:** `PredictiveState.lean`, `PredictiveOperators.lean`,
-`ReconstructionTheorem.lean` (0 sorrys), `DelayEmbedding.lean`
+**Lean:** `Commensurability.lean` (0 sorrys)
 
-**LaTeX:** `papers/paper_ii/dynamics_and_reconstruction.tex` (~11 pages, complete)
-
-**Added 2026-04-29:**
-- `Definition II:def:faithful` — "faithful modulo μ" formally defined at the
-  point where prose motivates it; reconstruction question cast as the faithfulness
-  question about Φ_h
-- `§Discussion` — synthesis section closing the paper: names the three-step
-  disclosure arc, states that the Stone space of Paper I collapses onto X when
-  Φ_h is faithful, hands the certification question to Paper III
+*Previous Paper II (dynamics/reconstruction) withdrawn 2026-05-11;
+see `papers/archive/paper_ii_withdrawn/`. Withdrawal reason: all results
+classical (Rokhlin, Doob, Chapman–Kolmogorov); the "disclosure" framing
+was mis-stated (T assumed throughout, not derived from the measure).*
 
 ---
 
@@ -237,7 +237,7 @@ Open directions — the extension boundary:
    Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
    (1994): conditions strong enough to force σ-additivity collapse
    OMLs to Boolean. Gleason handles L(H); general case open.
-   See `notes/unsorted/oml_extension_problem.md`.
+   See `notes/open_questions/oml_extension_problem.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---
@@ -249,6 +249,7 @@ Open directions — the extension boundary:
 - `papers/archive/` — all withdrawn/canned/dead papers
 - `formalization/QuerySystem/QuerySystem/` — Lean source files
 - `notes/knowledge_map/` — research control panel
+- `notes/open_questions/` — precise, open, dormant (re-audit on new input)
 - `notes/reading_directions/` — guided reading with questions
 - `notes/programme/` — programme-level docs
 - `.claude/agents/` — 7 custom agents

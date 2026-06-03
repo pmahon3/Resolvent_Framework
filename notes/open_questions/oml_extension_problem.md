@@ -79,23 +79,52 @@ is {ω}, not ∅).
 
 **(A) Extension axis.** Extend the orthogonally-additive set function
 μ from the ⊥-stable clopens to a finitely additive charge on the
-*full* Boolean algebra of clopens. This requires assigning consistent
-values to non-⊥-stable clopens — unions h(a) ∪ h(b) for non-orthogonal
-a, b, which exist outside im(h) whenever A is non-Boolean. **This is
-the Pták-Pulmannová frontier; σ-additivity of the state does not help
-here.**
+*full* Boolean algebra of clopens — the classical Boolean extension
+problem (Horn-Tarski 1948). Because h preserves meets, a∧b = 0 forces
+h(a)∩h(b) = h(0): meet-zero elements map to *disjoint* clopens. So a
+charge must satisfy, for every pairwise-meet-zero family {aᵢ},
+Σ s(aᵢ) ≤ 1 — a Pitowsky correlation-polytope / Bell-Boole inequality
+system. σ-additivity does not help here.
 
 **(B) Compactness.** Once (A) succeeds, the charge extends to a
 σ-additive Borel measure automatically (Stone space, compactness gives
 σ-subadditivity for free). This step is unconditional.
 
-**The key correction:** in the Boolean case (Paper I), axis (A) is
-*free* — finite additivity on the clopen Boolean algebra plus
-compactness gives the Stone measure unconditionally ("the first arrow
-is free"). σ-additivity enters only at descent. **In the OML case,
-axis (A) is no longer free** — it is the open problem. The
-non-distributivity that blocks Carathéodory is exactly the obstruction
-to extending past the orthogonal pairs.
+**The obstruction is meet-zero vs orthogonal (CORRECTED 2026-06-03).**
+Earlier this note called axis (A) "the Pták-Pulmannová frontier needing
+a new idea." That was wrong. Three strengthening conditions on s
+(Pták-Pulmannová 1994, Def. 2):
+1. *State* — additive on orthogonal pairs (a ≤ b⊥).
+2. *Valuation* — additive on meet-zero pairs (a∧b=0); binary;
+   strictly stronger, since meet-zero is coarser than orthogonality in
+   a non-distributive OML.
+3. *Extends to a Boolean charge* — the n-ary condition Σ s(aᵢ) ≤ 1 for
+   every pairwise-meet-zero family; strictly stronger again.
+
+Axis (A) is condition (3). **It can fail for every state.** On MO₃
+(three 2×2 blocks pasted at 0,1) all six atoms are pairwise meet-zero,
+so orthoadditivity forces the three complementary pairs to sum to 3
+while a charge demands ≤ 1 — no state extends. Verified by independent
+LP (`/tmp/mo3_extension.py`, 216-state grid + maximally-mixed: all
+infeasible). The maximally-mixed s ≡ ½ *is* a valuation (satisfies (2))
+yet fails (3) at {p,q,r} where ½+½+½ = 3/2 > 1. So the obstruction is
+the meet-zero/orthogonal gap — **not** σ-additivity and **not**
+non-contextuality.
+
+Pták-Pulmannová 1994 Theorem 1 ("unital set of subadditive states ⟹
+Boolean") is about the *supply* of valuations, NOT whether a given
+state extends — a different statement. Citing it as the extension
+obstruction was the error.
+
+**Status of axis (A):**
+- *Concrete (set-representable) OMLs:* meet = intersection, so
+  meet-zero = orthogonal; (A) reduces to the classical marginal /
+  Pitowsky non-contextuality problem.
+- *Non-concrete OMLs* (MO₃, L(H)): (A) is strictly stronger, can fail
+  universally.
+- *Finite case:* a decidable LP — NOT a structurally resistant frontier.
+- *Infinite case* (L(H), actual σ-additive measure on S₀(A)): the
+  finite counterexample does not speak to it. OPEN.
 
 ## The descent question
 

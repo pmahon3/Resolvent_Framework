@@ -321,12 +321,16 @@ of $h$.  These share only meet; join, complement, and bottom differ.
     labelwidth=2.5cm, leftmargin=3cm]
   \item[Extension]
     Extend $\mu$ from the $\perp$-stable clopens to a finitely
-    additive charge on the \emph{full} Boolean algebra of clopens.
-    This requires consistent values on non-$\perp$-stable clopens
-    --- unions $h(a) \cup h(b)$ for non-orthogonal $a, b$, which lie
-    outside $\mathrm{im}(h)$ whenever $A$ is non-Boolean.  This is
-    the Pt\'{a}k--Pulmannov\'{a} frontier; $\sigma$-additivity of
-    the state does not help here.
+    additive charge on the \emph{full} Boolean algebra of clopens
+    --- the classical Boolean extension
+    problem~\cite{HornTarski1948}.  Since $h$ preserves meets,
+    $a \wedge b = 0$ forces $h(a) \cap h(b) = h(0)$, so meet-zero
+    elements of $A$ map to \emph{disjoint} clopens.  A charge must
+    therefore satisfy, for every pairwise-meet-zero family
+    $\{a_i\}$, $\sum_i s(a_i) \leq 1$ --- a Pitowsky correlation
+    polytope / Bell--Boole inequality
+    system~\cite{Pitowsky1989}. $\sigma$-additivity of the state
+    does not help here.
   \item[Compactness]
     Once extension succeeds, the charge extends to a
     $\sigma$-additive Borel measure automatically.  Unconditional.
@@ -335,9 +339,46 @@ In the Boolean case (Paper~I), the extension axis is \emph{free}:
 finite additivity on the clopen Boolean algebra plus compactness
 gives the Stone measure unconditionally --- ``the first arrow is
 free.''  In the OML case, \textbf{the extension axis is no longer
-free} --- it is the open problem.  The non-distributivity that blocks
-Carath\'{e}odory is exactly the obstruction to extending past the
-orthogonal pairs.
+free.}
+
+\paragraph{The extension obstruction is meet-zero versus orthogonal.}
+Three strengthening conditions on $s$ must be distinguished
+(Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994}, Def.~2):
+\begin{enumerate}[label=(\arabic*), noitemsep]
+  \item \emph{State}: additive on \emph{orthogonal} pairs
+    ($a \leq b^\perp$).
+  \item \emph{Valuation}: additive on \emph{meet-zero} pairs
+    ($a \wedge b = 0$) --- a binary condition, strictly stronger,
+    since in a non-distributive OML meet-zero is coarser than
+    orthogonality.
+  \item \emph{Extends to a Boolean charge}: the \emph{$n$-ary}
+    condition $\sum_i s(a_i) \leq 1$ for every pairwise-meet-zero
+    family --- strictly stronger again.
+\end{enumerate}
+The extension axis is condition~(3).  It can fail for \emph{every}
+state.  On the smallest non-distributive OML $\mathrm{MO}_3$ (three
+$2{\times}2$ blocks pasted at $0$ and $1$), all six atoms are
+pairwise meet-zero, so orthoadditivity forces the three
+complementary pairs to sum to $3$ while a charge demands
+$\leq 1$: no state extends.  The maximally mixed state
+$s \equiv \tfrac{1}{2}$ \emph{is} a valuation (it satisfies the
+binary condition~(2)) yet already fails the $n$-ary
+condition~(3) at the triple $\{p, q, r\}$, where
+$\tfrac{1}{2} + \tfrac{1}{2} + \tfrac{1}{2} = \tfrac{3}{2} > 1$.
+So the obstruction is the gap between meet-zero and orthogonality,
+not $\sigma$-additivity and not non-contextuality.
+
+\paragraph{Status of the extension axis.}
+For \emph{concrete} (set-representable) OMLs the lattice meet is
+set intersection, so meet-zero coincides with orthogonality, and
+the extension axis reduces to the classical marginal /
+Pitowsky non-contextuality problem.  For \emph{non-concrete} OMLs
+($\mathrm{MO}_3$, $L(H)$) it is strictly stronger and can fail
+universally.  In the \emph{finite} case it is a decidable linear
+program, not a structurally resistant frontier.  What remains open
+is the \emph{infinite} case --- $L(H)$ and the actual
+$\sigma$-additive measure on $S_0(A)$ --- to which the finite
+counterexample does not speak.
 
 \paragraph{Descent.}
 $\sigma$-additivity of the state governs descent, not extension.
@@ -463,14 +504,16 @@ Bure\v{s}ov\'{a}--Pt\'{a}k~\cite{BuresovaPtak2023} investigate
 variations on regularity conditions; De~Simone--Navara study
 Yosida--Hewitt-type decompositions for orthomodular posets.
 
-The gap between ``too weak'' (allows non-$\sigma$-additive states)
-and ``too strong'' (collapses to Boolean) appears structurally
-robust.  This is not a problem where further reading will produce
-the answer --- it requires a new idea.
+For the \emph{$\sigma$-additivity / descent} side, the gap between
+``too weak'' (allows non-$\sigma$-additive states) and ``too
+strong'' (collapses to Boolean) appears structurally robust ---
+this is the part where further reading has not produced the answer.
+(This robustness is about the descent axis; the extension axis is
+classical, per \S\ref{sec:problem}.)
 
 All known exotic OML state spaces are built by \textbf{Greechie
 pasting}~\cite{Wilce2009, Shultz1974, Ptak1987}.  Progress on the
-extension problem likely requires either:
+descent residue likely requires either:
 \begin{enumerate}[label=(\alph*)]
   \item a new pasting technique that controls $\sigma$-additivity,
     or
@@ -484,32 +527,52 @@ extension problem likely requires either:
 \label{sec:assessment}
 % ==================================================================
 
-Question~\ref{q:extension} is a precise, well-formulated problem.
-A positive answer would unify three results under a single
-framework --- states on OMLs $\to$ measures on dual spaces $\to$
-constrained descent:
-\begin{enumerate}[label=(\roman*), noitemsep]
-  \item Paper~I~\cite{mahon2025}: the Boolean case.
-  \item Gleason's theorem~\cite{Gleason1957}: the $L(H)$ case.
-  \item The Bub--Clifton theorem~\cite{BubClifton1996}: descent
-    and realisation.
-\end{enumerate}
+Question~\ref{q:extension}, once split into its two axes, is not a
+single open problem but a settled axis and an open one.
 
 \medskip\noindent
-\textbf{Difficulty.}\enspace High.  The Pt\'{a}k--Pulmannov\'{a}
-obstruction shows this is not merely ``find the right condition''
---- conditions strong enough to force extension destroy the
-non-Boolean structure.
+\textbf{Extension axis: largely settled, and partly degenerate.}
+This is the classical Boolean extension
+problem~\cite{HornTarski1948} / Pitowsky polytope
+feasibility~\cite{Pitowsky1989}.  Because $h$ preserves meets, it
+is governed by the gap between meet-zero and orthogonality, which
+in a non-distributive OML is non-empty.  In the finite case it is a
+decidable linear program; it can fail for \emph{every} state
+($\mathrm{MO}_3$).  This is not a structurally resistant frontier
+and does not require a new idea.  The earlier framing of this axis
+as ``the Pt\'{a}k--Pulmannov\'{a} frontier needing a new idea'' was
+mistaken --- Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994}
+concerns the \emph{supply} of valuations (a unital set forces
+Boolean), not whether a given state extends, and extension is in
+any case strictly stronger than the valuation condition.
+
+\medskip\noindent
+\textbf{Descent axis: genuinely open.}  Whether a measure on
+$S_0(A)$ concentrates on the physical points $P(A)$, and the
+analogue of Paper~I's ``$\sigma$-additivity $\Leftrightarrow$
+concentration,'' cannot even be stated rigorously without
+$\sigma$-completeness and continuity hypotheses, because the
+McDonald--Bimb\'{o} duality is finitary (the countable-join
+identity fails). This is the live residue.
+
+\medskip\noindent
+\textbf{The infinite extension case.}  The finite counterexample
+does not speak to $L(H)$ or to the actual $\sigma$-additive measure
+on $S_0(A)$ for an infinite OML.  Whether the meet-zero/orthogonal
+gap produces the same universal failure infinitely, or whether
+$\sigma$-completeness changes the picture, is open.
 
 \medskip\noindent
 \textbf{Novelty.}\enspace The formulation via McDonald--Bimb\'{o}
-duality~\cite{McDonaldBimbo2023} appears to be new.  The
-D\"{o}ring--Isham topos approach~\cite{DoeringIsham2008} addresses
-related questions but via presheaves, not the filter-space duality.
+duality~\cite{McDonaldBimbo2023} appears to be new; the
+identification of the extension axis with classical Horn--Tarski /
+Pitowsky feasibility de-mystifies it.  For $L(H)$, Gleason resolves
+both axes at once.
 
 \medskip\noindent
-\textbf{Status.}\enspace Open but structurally resistant.  Not a
-current active lead --- needs collaboration or a new idea.
+\textbf{Status.}\enspace Extension axis: settled (finite),
+open (infinite).  Descent axis: open, contingent on a rigorous
+finitary-to-$\sigma$ bridge.  Not a current active lead.
 
 \bibliographystyle{plain}
 \bibliography{references_oml}

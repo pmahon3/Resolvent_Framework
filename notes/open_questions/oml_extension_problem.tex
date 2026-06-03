@@ -1,0 +1,516 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{question}[theorem]{Question}
+
+% ---------- Commands ----------
+\newcommand{\Ccal}{\mathcal{C}}
+\newcommand{\St}{\mathrm{St}}
+\newcommand{\Clop}{\mathrm{Clop}}
+\newcommand{\pure}{\mathrm{pure}}
+\newcommand{\CO}{\mathrm{CO}}
+\newcommand{\tr}{\mathrm{tr}}
+
+% ---------- Title ----------
+\title{The Extension Problem for Orthomodular\\
+Observation Algebras}
+\author{Patrick S.\ Mahon}
+\date{Research note --- June 2026}
+
+\begin{document}
+\maketitle
+
+% ==================================================================
+\section{Background}
+\label{sec:background}
+% ==================================================================
+
+All measurement is finite.  An experimenter performs finitely many
+trials, records finitely many digits, distinguishes finitely many
+outcomes.  Yet the mathematical frameworks we use to organise
+empirical knowledge --- probability theory, quantum mechanics,
+statistical mechanics --- rest on infinite structures:
+$\sigma$-algebras, Hilbert spaces, continuous symmetry groups.
+The passage from finite observation to infinite structure is not
+automatic; it requires a commitment that no finite body of
+evidence can compel.
+
+In probability theory, the locus of this commitment is
+\emph{countable additivity}.  Given a Boolean algebra
+$\mathcal{E}$ of events and a finitely additive charge
+$\ell : \mathcal{E} \to [0,1]$ with $\ell(\Omega) = 1$,
+the condition
+\begin{equation}\label{eq:sigma-additivity}
+  E_n \downarrow \varnothing
+  \quad\Longrightarrow\quad
+  \ell(E_n) \to 0
+\end{equation}
+--- that mass cannot persist along a vanishing sequence of events
+--- is not derivable from any finite collection of observations.
+De Finetti~\cite{deFinetti1974} argued that only finite additivity
+is empirically grounded; Kolmogorov~\cite{Kolmogorov} adopted
+$\sigma$-additivity as an axiom and built modern probability on
+it.  The question of \emph{when} and \emph{why} the passage from
+one to the other is justified has never been fully resolved.
+
+In quantum theory, the same tension appears in a different guise.
+The algebra of propositions about a quantum system is not Boolean:
+incompatible observables cannot be simultaneously determined.  The
+closed subspaces of a Hilbert space $H$ form an orthomodular
+lattice $L(H)$ --- a structure in which complementation is
+well-defined but distribution of meet over join may fail:
+\begin{equation}\label{eq:non-distributive}
+  a \wedge (b \vee c) \;\neq\; (a \wedge b) \vee (a \wedge c)
+  \qquad\text{in general.}
+\end{equation}
+A \emph{state} on such a lattice is a function
+$s : L(H) \to [0,1]$ satisfying
+\begin{equation}\label{eq:state-def}
+  s(\mathbf{1}) = 1,
+  \qquad
+  s(a \vee b) = s(a) + s(b) \quad\text{whenever } a \perp b.
+\end{equation}
+The non-distributivity means that $s$ is additive only on
+orthogonal pairs, not on arbitrary finite unions.  The classical
+machinery for extending finitely additive assignments to
+$\sigma$-additive ones --- Carath\'{e}odory's outer-measure
+construction, which requires a Boolean algebra of sets --- does
+not apply.
+
+For the specific lattice $L(H)$, this difficulty is resolved by a
+remarkable rigidity.  Gleason's theorem~\cite{Gleason1957} shows
+that, when $\dim H \geq 3$, every state has the form
+\begin{equation}\label{eq:gleason}
+  s(P) \;=\; \tr(\rho\, P)
+\end{equation}
+for a unique density operator $\rho$, and is therefore
+automatically $\sigma$-additive.  The geometry of Hilbert space is
+so constraining that the problem of the infinite simply does not
+arise --- states have no room to misbehave.
+
+But Hilbert space is very special.  Orthomodular lattices arise in
+many other settings --- the projection lattices of operator
+algebras, the logics of quantum systems with superselection rules,
+and the abstract lattices studied in quantum logic --- and for
+these, no analogue of Gleason's rigidity is known.  The question
+that probability theory and quantum theory share --- when does
+finite coherence force countable behaviour? --- remains open in
+this broader setting, and is the subject of the present note.
+
+\medskip
+
+The programme ``Structure from Observation''~\cite{mahon2025}
+approaches this question from a particular direction: rather than
+beginning with a pre-given space $\Omega$ of outcomes and asking
+which $\sigma$-algebras it supports, it begins with the
+\emph{observations themselves} --- a directed system of event
+algebras $\mathcal{E}_i$ with compatible charges $\ell_i$ --- and
+asks what the directed structure alone determines.
+
+Paper~I answers this for Boolean event algebras.  A compatible
+family of finitely additive charges extends to a $\sigma$-additive
+probability measure if and only if collective exhaustion (CE) holds
+--- condition~\eqref{eq:sigma-additivity} applied uniformly across
+the directed system.  Two constructions realise the extension:
+\begin{itemize}[noitemsep]
+  \item \textbf{Carath\'{e}odory:} assumes CE; produces a measure
+    on $(\Omega,\, \sigma(\Ccal))$ directly.
+  \item \textbf{Stone:} assumes nothing; produces a Baire measure
+    on the Stone space $\St(\Ccal)$ unconditionally.
+\end{itemize}
+Under discriminability, the two agree.  Three questions orient the
+broader programme:
+\begin{enumerate}[label=(\arabic*)]
+  \item What must be added to observation to get structure?
+  \item Reconstruction without points: what structure is already
+    present in the relational description --- contexts, directed
+    refinement --- before point-spaces are assumed?
+  \item Local-to-global extension: what conditions on the
+    \emph{site} control whether local data extend globally?
+\end{enumerate}
+Paper~I resolves~(2) and~(3) for Boolean algebras.  The present
+note asks whether any of this survives when the event algebra is
+orthomodular but not distributive.
+
+Epperson and Zafiris~\cite{EppersonZafiris2013} advocate a
+\emph{relational realist} ontology in which structure is
+constituted by relations among contexts, not by points in a
+pre-given space.  An orthomodular lattice $A$ is the natural
+algebraic expression of this: its elements are propositions, its
+partial order is entailment, and its non-distributivity reflects
+the impossibility of assigning simultaneous truth values to all
+propositions.  The dual space $S_0(A)$ of
+McDonald--Bimb\'{o}~\cite{McDonaldBimbo2023} is built from
+\emph{filters} --- consistent collections of propositions --- not
+from points of a pre-existing space.  This is question~(2) applied
+to non-Boolean algebras: what structure does the relational
+description already contain?
+
+In the Boolean case, one might hope that the passage from finite to
+countable additivity could be understood as a \emph{sheaf condition}
+--- local states gluing to a global $\sigma$-additive measure.
+Biesel~\cite{Biesel2024} shows this hope is disappointed:
+\begin{itemize}[noitemsep]
+  \item Finitely additive charges form a sheaf for finite covers.
+  \item $\sigma$-additive measures form a sheaf for countable
+    covers.
+  \item The step between is the \emph{definition} of
+    $\sigma$-additivity, not a structural theorem.
+\end{itemize}
+This is the boundary at which the present problem begins.
+
+Paper~II~\cite{MahonPaperII2026} introduces three positions on the
+relationship between observation and reality, each a constraint on
+where the dual-space measure lives:
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=3.5cm, leftmargin=4cm]
+  \item[Empirical adequacy (EA)]
+    The dual-space measure agrees with all observations.
+  \item[Probabilistic realism (PR)]
+    The measure descends to a realisation space.
+  \item[Value-definite realism (VDR)]
+    A global two-valued homomorphism exists.
+\end{description}
+These are nested: $\text{VDR} \Rightarrow \text{PR}
+\Rightarrow \text{EA}$.  For Boolean algebras, all three are
+commensurable --- every EA-theory admits a VDR-completion.  For
+OMLs with $\dim \geq 3$, Gleason's
+theorem~\eqref{eq:gleason} rescues PR, but
+Kochen--Specker~\cite{KochenSpecker1967} blocks VDR.  The
+extension problem sits at the $\text{EA} \to \text{PR}$ transition:
+can we pass from a state on the algebra (EA) to a
+$\sigma$-additive measure on the dual space (PR)?  If so, under
+what conditions --- and is descent then a free choice (as in the
+Boolean case) or a structural consequence of the algebra and state
+together?
+
+Van Fraassen's distinction~\cite{vanFraassen1980} between
+empirical adequacy and structural commitment, which Paper~I makes
+precise via the Stone construction, thus acquires a sharper form
+in the OML setting: the Stone route is no longer available, the
+Carath\'{e}odory route is blocked by non-distributivity, and the
+passage from coherent local data to global probability ---
+question~(3) --- requires genuinely new ideas.
+
+% ==================================================================
+\section{The problem}
+\label{sec:problem}
+% ==================================================================
+
+Let $A$ be an orthomodular lattice (OML) and let $s : A \to [0,1]$
+be a state~\eqref{eq:state-def}.  The McDonald--Bimb\'{o}
+duality~\cite{McDonaldBimbo2023} associates to $A$ a compact
+topological space
+\[
+  S_0(A) \;=\; \bigl(F(A),\, \subseteq,\, \perp_A,\, P(A),\,
+  T(S)\bigr),
+\]
+where $F(A)$ is the set of filters on $A$ and
+$P(A) \subseteq F(A)$ is the set of prime filters.  For each
+$a \in A$, set
+\[
+  h(a) \;=\; \{x \in F(A) : a \in x\}.
+\]
+The map $h$ is an OML isomorphism from $A$ onto the
+$\perp$-stable clopen sets $\CO(S_0(A))^\dagger$.  Define a set
+function $\mu$ on these clopens by
+\begin{equation}\label{eq:mu-def}
+  \mu\bigl(h(a)\bigr) \;=\; s(a).
+\end{equation}
+
+\begin{question}[Extension]\label{q:extension}
+Under what conditions on the OML $A$ does $\mu$ extend to a
+$\sigma$-additive measure on the Baire (or Borel) $\sigma$-algebra
+of $S_0(A)$?
+\end{question}
+
+This is the direct OML analogue of the Stone extension theorem
+established for Boolean algebras in~\cite{mahon2025}.
+
+In the Boolean case, the extension is automatic.  The clopens
+$\Clop(\St(\Ccal))$ form a Boolean algebra, the state $s$
+restricts to a finitely additive charge on this algebra, and the
+Carath\'{e}odory extension theorem (or Choksi's projective-limit
+argument~\cite{choksi1958}) produces the $\sigma$-additive
+extension.  Compactness of the Stone space gives
+$\sigma$-subadditivity for free.
+
+In the OML case each of these steps breaks:
+\begin{enumerate}[label=(\roman*)]
+  \item $\CO(S_0(A))^\dagger$ is an OML, \emph{not} a Boolean
+    algebra.
+  \item The state $s$ is additive on orthogonal pairs only, not on
+    arbitrary finite unions.
+  \item \textbf{Carath\'{e}odory does not apply} --- there is no
+    Boolean algebra of sets on which to run the outer-measure
+    construction.
+  \item Compactness holds (McDonald--Bimb\'{o},
+    Lemma~3.5~\cite{McDonaldBimbo2023}), but the
+    $\sigma$-subadditivity argument requires orthogonality
+    structure that the topology alone does not provide.
+\end{enumerate}
+The gap is sharp: ``finitely additive on a compact Boolean algebra
+of clopens'' automatically extends; ``orthogonally additive on a
+compact OML of clopen $\perp$-stable sets'' does \emph{not}.
+
+For the prototypical case $A = L(H)$ with $\dim H \geq 3$,
+Gleason's theorem~\eqref{eq:gleason} resolves the problem
+completely: every state is induced by a density operator, and the
+resulting measure is $\sigma$-additive on $L(H)$.  The extension
+to $S_0(L(H))$ follows.  For general OMLs, no Gleason-type
+representation is available.  Question~\ref{q:extension} asks for
+the structural conditions that substitute for the Hilbert-space
+geometry.
+
+\begin{table}[ht]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}l p{4.8cm} p{5.2cm}@{}}
+\toprule
+\textbf{Feature} & \textbf{Boolean (Paper~I)} & \textbf{OML (this problem)} \\
+\midrule
+Dual space
+  & $\St(A)$ (ultrafilters)
+  & $S_0(A)$ (all filters) \\
+Distinguished subset
+  & $\pure(\Omega)$, not canonical
+  & $P(A)$, canonical \\
+Clopens
+  & Boolean algebra
+  & OML (non-distributive) \\
+Additivity of $s$
+  & full (finite)
+  & orthogonal pairs only \\
+Extension
+  & automatic (Carath\'{e}odory)
+  & requires Gleason-type result \\
+Realisation constrained?
+  & No
+  & Yes (Kochen--Specker~\cite{KochenSpecker1967}) \\
+\bottomrule
+\end{tabular}
+\caption{Structural comparison of the extension problem.}
+\label{tab:comparison}
+\end{table}
+
+\paragraph{Two axes: extension and descent.}
+The passage from a state on $A$ to a measure on $S_0(A)$ splits into
+two axes that the Boolean case fuses but the OML case separates.
+Since $S_0(A)$ is a Stone space, its \emph{full} clopen algebra
+$\CO(S_0(A))$ is Boolean, whereas the state lives only on the
+$\perp$-stable clopens $\CO(S_0(A))^\dagger$ --- the OML, the image
+of $h$.  These share only meet; join, complement, and bottom differ.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=2.5cm, leftmargin=3cm]
+  \item[Extension]
+    Extend $\mu$ from the $\perp$-stable clopens to a finitely
+    additive charge on the \emph{full} Boolean algebra of clopens.
+    This requires consistent values on non-$\perp$-stable clopens
+    --- unions $h(a) \cup h(b)$ for non-orthogonal $a, b$, which lie
+    outside $\mathrm{im}(h)$ whenever $A$ is non-Boolean.  This is
+    the Pt\'{a}k--Pulmannov\'{a} frontier; $\sigma$-additivity of
+    the state does not help here.
+  \item[Compactness]
+    Once extension succeeds, the charge extends to a
+    $\sigma$-additive Borel measure automatically.  Unconditional.
+\end{description}
+In the Boolean case (Paper~I), the extension axis is \emph{free}:
+finite additivity on the clopen Boolean algebra plus compactness
+gives the Stone measure unconditionally --- ``the first arrow is
+free.''  In the OML case, \textbf{the extension axis is no longer
+free} --- it is the open problem.  The non-distributivity that blocks
+Carath\'{e}odory is exactly the obstruction to extending past the
+orthogonal pairs.
+
+\paragraph{Descent.}
+$\sigma$-additivity of the state governs descent, not extension.
+Even once $\mu$ extends to a measure $\hat\mu$ on $S_0(A)$, the
+\emph{descent} question --- whether $\hat\mu$ concentrates on the
+``physical'' points --- changes character:
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=2.5cm, leftmargin=3cm]
+  \item[Boolean]
+    Does $\hat\mu$ concentrate on $\pure(\Omega)$?  If and only if
+    the charges are $\sigma$-additive.  The choice of realisation
+    space $\Omega$ is unconstrained.
+  \item[OML]
+    Does $\hat\mu$ concentrate on $P(A)$?  Here $P(A)$ is part of
+    the structure, not a free choice.  The Kochen--Specker
+    obstruction~\cite{KochenSpecker1967} prevents simultaneous
+    realisation of all filters; the Bub--Clifton
+    theorem~\cite{BubClifton1996} shows that the state determines
+    a maximal Boolean subalgebra of definite values.
+\end{description}
+In the OML setting, the algebra and state \emph{together}
+constrain which filters are ``realised.''  Descent is not a
+geometric commitment but a structural consequence.
+
+\begin{remark}[Decomposition lives on the descent axis]
+De Simone--Navara~\cite{DeSimoneNavara2001} decompose OMP states as
+$s = s_\sigma + s_{\mathrm{wpfa}}$ (a $\sigma$-additive part and a
+weakly purely finitely additive part), the orthomodular analogue of
+Yosida--Hewitt.  By the axis split above, the wpfa component governs
+the \emph{descent} axis --- it is the analogue of the purely finitely
+additive part $\ell_p$ in the Boolean case --- and \emph{not} the
+extension axis.  A natural-looking conjecture, ``$s$ extends iff
+$s_{\mathrm{wpfa}} = 0$,'' is therefore mis-targeted: vanishing of
+$s_{\mathrm{wpfa}}$ concerns whether the (already $\sigma$-additive)
+state's measure concentrates on $P(A)$, while extension is blocked by
+non-distributivity regardless of the wpfa component.  The
+decomposition theory and the extension problem live on different
+axes.
+
+A caveat compounds this.  The McDonald--Bimb\'{o}
+duality~\cite{McDonaldBimbo2023} is \emph{finitary}: the identity
+$h(\bigvee_n a_n) = (\bigcup_n h(a_n))^{\perp\perp}$ holds for finite
+joins but fails in general for countable joins, since finitary OML
+homomorphisms need not preserve infinite suprema.  Making even the
+descent argument rigorous --- the analogue of Paper~I's
+``$\sigma$-additivity $\Leftrightarrow$ concentration'' --- requires
+$\sigma$-completeness and continuity hypotheses the 2023 duality does
+not supply, and is itself open.
+\end{remark}
+
+% ==================================================================
+\section{What is known}
+\label{sec:known}
+% ==================================================================
+
+In the Boolean case, the Kelley--Vladimirov--Pt\'{a}k
+characterisation (Fremlin,
+Theorem~391D~\cite{Fremlin3}) gives a complete algebraic answer:
+
+\begin{theorem}[KVP]\label{thm:kvp}
+A Boolean algebra $B$ carries a strictly positive
+$\sigma$-additive measure if and only if $B$ is
+\begin{enumerate}[label=(\alph*), noitemsep]
+  \item Dedekind $\sigma$-complete,
+  \item weakly $(\sigma,\infty)$-distributive, and
+  \item chargeable (carries a strictly positive finitely additive
+    measure).
+\end{enumerate}
+\end{theorem}
+
+Each condition is algebraic and non-trivially constraining.  For
+OMLs, the analogues fail or degenerate:
+\begin{enumerate}[label=(\alph*), noitemsep]
+  \item Dedekind $\sigma$-completeness makes sense but is very
+    strong.
+  \item Weak $(\sigma,\infty)$-distributivity has no clean OML
+    analogue --- the definition relies on distributivity of
+    $\bigwedge$ over $\bigvee$, which may fail orthomodularly.
+  \item Chargeability has no known structural characterisation on
+    OMLs; the existence of a strictly positive finitely additive
+    measure cannot be read off from the lattice structure.
+\end{enumerate}
+
+The positive results that do exist for OMLs all require algebraic
+structure rich enough to approximate Hilbert-space geometry:
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=4cm, leftmargin=4.5cm]
+  \item[Gleason~\cite{Gleason1957}]
+    $A = L(H)$, $\dim H \geq 3$.  Every state has the
+    form~\eqref{eq:gleason}; $\sigma$-additivity is automatic.
+  \item[Bunce--Wright~\cite{BunceWright1992}]
+    $A$ the projection lattice of a JBW-algebra.
+    $\sigma$-additivity via operator-algebraic structure.
+  \item[Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2005}]
+    Lattice effect algebras with completeness conditions close to
+    von~Neumann algebras.
+\end{description}
+
+The obstructive results show that the Boolean extension machinery
+cannot be transplanted:
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=4cm, leftmargin=4.5cm]
+  \item[Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1991}]
+    If every unital subadditive measure on an orthomodular poset is
+    a state, the poset must be Boolean.  This is the structural
+    reason no KVP analogue exists for OMLs: conditions strong enough
+    to force $\sigma$-additivity collapse the lattice back to a
+    Boolean algebra.
+  \item[Navara~\cite{Navara1992}]
+    Regularity does \emph{not} force $\sigma$-additivity on general
+    orthomodular posets.  The B\'{e}aver--Cook result is special to
+    von~Neumann algebras.
+  \item[Pt\'{a}k~\cite{Ptak1987}]
+    Exotic OML state spaces exist; the obstruction is combinatorial
+    (Greechie pasting), not from the centre.
+\end{description}
+
+Recent incremental work confirms the field is active but no one
+has found the right condition:
+Vor\'{a}\v{c}ek--Pt\'{a}k~\cite{VoracekPtak2023} study signed
+measures on orthomodular posets;
+Bure\v{s}ov\'{a}--Pt\'{a}k~\cite{BuresovaPtak2023} investigate
+variations on regularity conditions; De~Simone--Navara study
+Yosida--Hewitt-type decompositions for orthomodular posets.
+
+The gap between ``too weak'' (allows non-$\sigma$-additive states)
+and ``too strong'' (collapses to Boolean) appears structurally
+robust.  This is not a problem where further reading will produce
+the answer --- it requires a new idea.
+
+All known exotic OML state spaces are built by \textbf{Greechie
+pasting}~\cite{Wilce2009, Shultz1974, Ptak1987}.  Progress on the
+extension problem likely requires either:
+\begin{enumerate}[label=(\alph*)]
+  \item a new pasting technique that controls $\sigma$-additivity,
+    or
+  \item an approach that bypasses the state space entirely (e.g.,
+    categorical or
+    topos-theoretic~\cite{DoeringIsham2008}).
+\end{enumerate}
+
+% ==================================================================
+\section{Assessment}
+\label{sec:assessment}
+% ==================================================================
+
+Question~\ref{q:extension} is a precise, well-formulated problem.
+A positive answer would unify three results under a single
+framework --- states on OMLs $\to$ measures on dual spaces $\to$
+constrained descent:
+\begin{enumerate}[label=(\roman*), noitemsep]
+  \item Paper~I~\cite{mahon2025}: the Boolean case.
+  \item Gleason's theorem~\cite{Gleason1957}: the $L(H)$ case.
+  \item The Bub--Clifton theorem~\cite{BubClifton1996}: descent
+    and realisation.
+\end{enumerate}
+
+\medskip\noindent
+\textbf{Difficulty.}\enspace High.  The Pt\'{a}k--Pulmannov\'{a}
+obstruction shows this is not merely ``find the right condition''
+--- conditions strong enough to force extension destroy the
+non-Boolean structure.
+
+\medskip\noindent
+\textbf{Novelty.}\enspace The formulation via McDonald--Bimb\'{o}
+duality~\cite{McDonaldBimbo2023} appears to be new.  The
+D\"{o}ring--Isham topos approach~\cite{DoeringIsham2008} addresses
+related questions but via presheaves, not the filter-space duality.
+
+\medskip\noindent
+\textbf{Status.}\enspace Open but structurally resistant.  Not a
+current active lead --- needs collaboration or a new idea.
+
+\bibliographystyle{plain}
+\bibliography{references_oml}
+\end{document}

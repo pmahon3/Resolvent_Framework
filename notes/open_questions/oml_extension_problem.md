@@ -67,10 +67,40 @@ S₀(A)?
 | Extension | automatic (Carathéodory) | requires Gleason-type result |
 | Realization constrained? | No | Yes (Kochen-Specker) |
 
+## Two axes: extension and descent (sharpened 2026-06-02)
+
+The bridge from a state on A to a measure on S₀(A) splits into two
+distinct axes that the Boolean case fuses but the OML case separates.
+S₀(A) is a Stone space (McDonald-Bimbó Cor. 3.7). Its *full* clopen
+algebra CO(S₀(A)) is Boolean; the state lives only on the ⊥-stable
+clopens CO(S₀(A))† — the OML, = image of h (Thm. 3.9). These share
+only meet (∩); join, complement, and bottom all differ (OML bottom
+is {ω}, not ∅).
+
+**(A) Extension axis.** Extend the orthogonally-additive set function
+μ from the ⊥-stable clopens to a finitely additive charge on the
+*full* Boolean algebra of clopens. This requires assigning consistent
+values to non-⊥-stable clopens — unions h(a) ∪ h(b) for non-orthogonal
+a, b, which exist outside im(h) whenever A is non-Boolean. **This is
+the Pták-Pulmannová frontier; σ-additivity of the state does not help
+here.**
+
+**(B) Compactness.** Once (A) succeeds, the charge extends to a
+σ-additive Borel measure automatically (Stone space, compactness gives
+σ-subadditivity for free). This step is unconditional.
+
+**The key correction:** in the Boolean case (Paper I), axis (A) is
+*free* — finite additivity on the clopen Boolean algebra plus
+compactness gives the Stone measure unconditionally ("the first arrow
+is free"). σ-additivity enters only at descent. **In the OML case,
+axis (A) is no longer free** — it is the open problem. The
+non-distributivity that blocks Carathéodory is exactly the obstruction
+to extending past the orthogonal pairs.
+
 ## The descent question
 
-Even if μ extends to a measure on S₀(A), the descent question
-changes character:
+σ-additivity of the state governs *descent*, not extension. Even
+once μ extends to a measure μ̂ on S₀(A):
 
 - Boolean: does μ̂ concentrate on pure(Ω)? Answer: iff
   σ-additive. Unconstrained choice of Ω.
@@ -82,6 +112,26 @@ changes character:
 
 So the descent is not a free choice — the algebra + state
 together constrain which filters are "realized."
+
+**Caveat on the descent mechanism.** The McDonald-Bimbó duality is
+*finitary*. The identity h(∨ₙ aₙ) = (∪ₙ h(aₙ))^⊥⊥ holds for *finite*
+joins but is false in general for countable joins — finitary OML
+homomorphisms do not preserve infinite suprema. So even the
+σ-additivity ⟹ concentration story (the analogue of Paper I's
+descent argument) requires additional σ-completeness + continuity
+hypotheses that the 2023 duality does not supply. Making the descent
+argument rigorous in the OML setting is itself open.
+
+**The Yosida-Hewitt connection.** De Simone-Navara (2001) decompose
+OMP states as s = s_σ + s_wpfa (σ-additive + weakly purely finitely
+additive). By the axis split above, the wpfa component governs the
+*descent* axis — the analogue of ℓ_p in Yosida-Hewitt — NOT the
+extension axis. A natural-looking conjecture ("s extends iff
+s_wpfa = 0") is therefore mis-targeted: wpfa = 0 concerns descent
+(does the σ-additive state's measure concentrate on P(A)?), while
+extension (axis A) is blocked by non-distributivity regardless of
+the wpfa component. The decomposition theory and the extension
+problem live on different axes.
 
 ## Connections
 

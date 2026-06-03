@@ -266,6 +266,66 @@ extension (axis A) is blocked by non-distributivity regardless of
 the wpfa component. The decomposition theory and the extension
 problem live on different axes.
 
+## Two grades of probabilistic realism (PR_lattice / PR_dual) — 2026-06-03
+
+The two axes above, re-expressed in Paper II's EA/PR/VDR vocabulary,
+split "probabilistic realism (PR)" into two grades that the Boolean case
+fuses and non-distributivity separates. This is the same extension/descent
+split, named in the realism language — NOT a separate construction.
+
+- **PR_lattice(s):** a σ-additive measure on the *lattice* A agreeing
+  with s. For L(H), dim ≥ 3, Gleason supplies this for every σ-additive
+  state.
+- **PR_dual(s):** a σ-additive Borel measure μ̂ on the *dual* S₀(A) with
+  μ̂(h(a)) = s(a) that concentrates on the physical points, μ̂(P(A)) = 1.
+  This is extension (axis A) followed by descent (the σ-side).
+
+**Settled: PR_lattice ⊋ PR_dual is a real, strict, witnessed stratification.**
+L(H) normal states are the witness: they clear PR_lattice (Gleason) and
+fail PR_dual (entry point #1 — no charge on S₀(L(H)) exists at all, so a
+fortiori none concentrating). This is the cleanest statement of #1's
+significance in the realism vocabulary, and it dissolves the (a)/(b)
+tension over how to fix Paper II: one asserts BOTH grades — Gleason clears
+PR_lattice for L(H), and PR_dual fails — suppressing neither. Boolean case:
+the two grades coincide (Stone gives μ̂ unconditionally, descent ⟺
+σ-additivity), which is exactly why Paper II could write a single "PR".
+
+**Philosophically secular.** The stratification commits to no metaphysics
+about which grade is "the real one": a Born-rule realist reads off
+PR_lattice, a relational realist reads off PR_dual, a fictionalist reads
+EA. The framework marks the distinctions and serves all three (van
+Fraassen's stance). The Whitehead/process reading of "descent to P(A) =
+concrescence" is an optional *lens* on why a relational realist privileges
+PR_dual — not an axiom in the framework.
+
+**Open (the refined question): does descent do any INDEPENDENT work?**
+Every known PR_dual failure is an *extension* failure. In finite dim,
+descent is vacuous (only non-principal point is ω, already killed by
+s(0)=0; verified `verification/pr_dual_inhabitation.py` — PR_dual on MO₂
+collapses to the extension LP). The descent half can be strictly weaker
+than extension only in INFINITE dim, where free non-principal filters can
+carry mass — and that is exactly where entry point #2 bites: descent is
+not rigorously *statable* (MB duality finitary, no σ-Loomis-Sikorski). So:
+
+> **Conjecture / open question (precondition included).** Is there a σ-OML
+> regime in which descent is BOTH statable AND strictly weaker than
+> extension — i.e. a non-distributive OML + state that EXTENDS to a charge
+> on S₀(A) but fails to CONCENTRATE on P(A)? The only candidate is the
+> singular-state sliver from #1 (does a singular state that extends
+> concentrate?), which runs into the #2 statability wall. The answerable
+> meta-frontier is the statability gate (#2), not the witness itself.
+
+If such a witness exists, PR_dual becomes a genuine third grade (clearing
+the "new vocabulary" three-statements bar). Until then PR_lattice/PR_dual
+is **honest bookkeeping** — a real strict stratification (#1), but with the
+descent half not yet shown independent of extension. NOT claimed as a new
+theorem.
+
+**Paper II integration is the user's pending call.** Whether to fold the
+two-grade vocabulary into Paper II's Commensurability theorem (vs. simply
+flipping the L(H) row to "PR fails for normal states") is a
+mathematical-architecture decision, not resolved here.
+
 ## Connections
 
 - **Paper I:** the Boolean special case; Stone construction;

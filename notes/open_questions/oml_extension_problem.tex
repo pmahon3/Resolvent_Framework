@@ -600,6 +600,57 @@ known for this class; the contribution here is the map of dead routes,
 which sharpens ``needs a new idea'' into ``needs a representation
 bypassing all three.''
 
+\paragraph{Two grades of probabilistic realism.}
+The two axes, re-expressed in the EA/PR/VDR vocabulary of
+Paper~II~\cite{MahonPaperII2026}, split \emph{probabilistic realism}
+(PR) into two grades that the Boolean case fuses and non-distributivity
+separates --- the same extension/descent split, named in the realism
+language, not a new construction.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=2.2cm, leftmargin=2.6cm]
+  \item[$\text{PR}_{\text{lat}}$]
+    A $\sigma$-additive measure on the \emph{lattice} $A$ agreeing with
+    $s$. For $L(H)$, $\dim H \geq 3$, Gleason supplies this for every
+    $\sigma$-additive state.
+  \item[$\text{PR}_{\text{dual}}$]
+    A $\sigma$-additive Borel measure $\hat\mu$ on the \emph{dual}
+    $S_0(A)$ with $\hat\mu(h(a)) = s(a)$ concentrating on the physical
+    points, $\hat\mu(P(A)) = 1$ --- extension (\S\ref{sec:problem})
+    followed by descent.
+\end{description}
+The containment $\text{PR}_{\text{dual}} \subsetneq
+\text{PR}_{\text{lat}}$ is a \emph{real, strict, witnessed}
+stratification: $L(H)$ normal states clear $\text{PR}_{\text{lat}}$
+(Gleason) and fail $\text{PR}_{\text{dual}}$ (\S\ref{sec:lh}: no charge
+on $S_0(L(H))$ exists, a fortiori none concentrating).  This is the
+cleanest statement of the infinite-extension result in the realism
+vocabulary, and it lets one assert \emph{both} grades at once --- Gleason
+clears $\text{PR}_{\text{lat}}$ for $L(H)$ while $\text{PR}_{\text{dual}}$
+fails --- without suppressing either.  In the Boolean case the two grades
+coincide (Stone gives $\hat\mu$ unconditionally; descent $\Leftrightarrow$
+$\sigma$-additivity), which is why Paper~II could write a single PR.  The
+distinction is philosophically neutral: a Born-rule realist reads off
+$\text{PR}_{\text{lat}}$, a relational realist $\text{PR}_{\text{dual}}$,
+a constructive empiricist EA.
+
+What is \emph{not} established is that descent does any work independent
+of extension.  Every known $\text{PR}_{\text{dual}}$ failure is an
+extension failure; in finite dimensions descent is vacuous (the only
+non-principal point is the improper filter, already null by $s(0)=0$ ---
+verified, \texttt{verification/pr\_dual\_inhabitation.py}, where
+$\text{PR}_{\text{dual}}$ on $\mathrm{MO}_2$ collapses to the extension
+LP).  The descent half can be strictly weaker than extension only in
+infinite dimensions, where free non-principal filters can carry mass ---
+exactly where the finitary-to-$\sigma$ bridge above fails.  Hence the
+open question: \emph{is there a $\sigma$-OML regime in which descent is
+both statable and strictly weaker than extension --- a non-distributive
+OML and state that extends to a charge on $S_0(A)$ but fails to
+concentrate on $P(A)$?}  The only candidate is the singular-state sliver
+of \S\ref{sec:lh}, which runs into the same statability wall.  Until such
+a witness exists, $\text{PR}_{\text{lat}}/\text{PR}_{\text{dual}}$ is a
+strict stratification with the descent half not yet shown independent ---
+a vocabulary refinement, not a new theorem.
+
 % ==================================================================
 \section{What is known}
 \label{sec:known}

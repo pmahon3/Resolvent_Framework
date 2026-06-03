@@ -116,12 +116,44 @@ Boolean") is about the *supply* of valuations, NOT whether a given
 state extends — a different statement. Citing it as the extension
 obstruction was the error.
 
+**The concrete/non-concrete boundary (CORRECTED 2026-06-03 — earlier
+claim refuted).** An earlier version of this section claimed: "for
+concrete (set-representable) OMLs the lattice meet is set intersection,
+so meet-zero = orthogonal, and (A) reduces to Pitowsky
+non-contextuality." **This is false.** A set-representable OMP (P, L)
+requires only complement- and *disjoint-union*-closure (Burešová-Pták
+arXiv:2401.13798, Def 1.1); intersection-closure is NOT required — it
+would force Boolean. The lattice meet a∧b is the greatest L-member
+contained in A∩B, so a∧b ⊆ A∩B with equality iff A∩B ∈ L. Hence
+*orthogonal ⟹ meet-zero always, but meet-zero ⇏ orthogonal* for
+incompatible pairs.
+
+- MO₂ is an explicit concrete logic (P={1,2,3,4}, L = {∅, {1,2}, {3,4},
+  {1,3}, {2,4}, P}) where {1,2}∧{1,3} = 0 yet {1,2}∩{1,3} = {1} ≠ ∅:
+  meet-zero without orthogonality. Verified independently
+  (`verification/concrete_meetzero_vs_orthogonal.py`).
+- **MO₃ is itself concrete** (set-representable: it has 2³ ordering
+  two-valued states, Gudder's representation theorem). So MO₃ — the
+  flagship "meet-zero ≠ orthogonal" example above — is a *concrete*
+  logic. The boundary that matters is therefore NOT concrete vs
+  non-concrete.
+- The real dividing line is a **richness / atomicity** condition:
+  meet-zero = orthogonal iff every nonempty A∩B (A,B ∈ L) contains a
+  nonzero member of L (sufficient: singletons ∈ L). This property has
+  no established standard name (cousins, all distinct: Jauch-Piron;
+  Tkadlec "regional"; Burešová-Pták "point-distinguishing"). MO₂, MO₃
+  fail it.
+- *Terminology trap:* MO₃'s famous non-representability is von Neumann
+  *coordinatization* (not a subspace lattice of a projective geometry),
+  a different notion from set-representability. Do not conflate.
+
 **Status of axis (A):**
-- *Concrete (set-representable) OMLs:* meet = intersection, so
-  meet-zero = orthogonal; (A) reduces to the classical marginal /
-  Pitowsky non-contextuality problem.
-- *Non-concrete OMLs* (MO₃, L(H)): (A) is strictly stronger, can fail
-  universally.
+- *Rich/atomic concrete OMLs* (singletons in L, or the weaker
+  intersection-richness): meet-zero = orthogonal; (A) reduces to the
+  classical marginal / Pitowsky non-contextuality problem.
+- *Non-rich concrete OMLs (MO₂, MO₃) and non-concrete OMLs (L(H)):* the
+  meet-zero/orthogonal gap is non-empty; (A) is strictly stronger and
+  can fail universally.
 - *Finite case:* a decidable LP — NOT a structurally resistant frontier.
 - *Infinite case* (L(H), actual σ-additive measure on S₀(A)): the
   finite counterexample does not speak to it. OPEN.
@@ -261,12 +293,18 @@ a settled axis and an open one.
 **Extension axis: largely settled, partly degenerate.** Classical
 Boolean extension problem (Horn-Tarski 1948) / Pitowsky polytope
 feasibility. Governed by the meet-zero/orthogonal gap, which is
-non-empty in a non-distributive OML. Finite case = decidable LP;
+non-empty whenever the concrete representation is non-rich (and a
+fortiori in any non-distributive OML). Finite case = decidable LP;
 can fail for *every* state (MO₃). NOT a structurally resistant
-frontier. The earlier framing of this axis as "the Pták-Pulmannová
-frontier needing a new idea" was mistaken — PP 1994 concerns the
-supply of valuations, and extension is in any case strictly stronger
-than the valuation condition.
+frontier. Two earlier framings of this axis were mistaken: (i) "the
+Pták-Pulmannová frontier needing a new idea" — PP 1994 concerns the
+*supply* of valuations, and extension is strictly stronger than the
+valuation condition; (ii) "concrete OMLs reduce (A) to Pitowsky
+non-contextuality because meet = intersection" — false, since
+concreteness requires only disjoint-union closure, and MO₂/MO₃ are
+concrete logics with meet-zero ≠ orthogonal (see the
+concrete/non-concrete boundary discussion above). The gap closes only
+under a richness/atomicity hypothesis, not under concreteness.
 
 **Descent axis: genuinely open.** Whether a measure on S₀(A)
 concentrates on physical points P(A), and the analogue of Paper I's

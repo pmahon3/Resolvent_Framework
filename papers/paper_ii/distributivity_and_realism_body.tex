@@ -17,9 +17,13 @@ For orthomodular lattices --- the algebraic framework for incompatible
 observations --- the situation is structurally different.  The
 McDonald--Bimb\'{o} dual space carries principal filters as
 distinguished structure, and the Kochen--Specker theorem blocks
-global value-definiteness.  Probabilistic realism (descent to a
-probability measure) remains available via Gleason-type results, but
-value-definite realism does not.
+global value-definiteness.  Probabilistic realism splits into two
+grades: Gleason-type results supply a $\sigma$-additive measure on the
+\emph{lattice} ($\text{PR}_{\text{lat}}$), but the passage to a measure
+on the \emph{dual space} ($\text{PR}_{\text{dual}}$) fails --- for the
+central case $L(H)$, no normal state extends to a charge on the dual,
+so even probabilistic realism in the dual-space sense is obstructed, and
+value-definite realism fails outright.
 
 Distributivity guarantees value-definiteness; for the physically
 central case $L(H)$, $\dim H \geq 3$, non-distributivity blocks it.
@@ -78,6 +82,17 @@ Three nested positions, each a strengthening of the previous:
     on the full observation algebra.
 \end{enumerate}
 
+Both EA and PR as stated presuppose a genuine measure on the dual space:
+EA \emph{is} such a measure, and PR descends from it.  In the Boolean
+case this presupposition is free (the Stone construction supplies the
+dual-space measure unconditionally).  In the OML case it is not, and PR
+accordingly refines into two grades --- $\text{PR}_{\text{lat}}$, a
+measure on the lattice, and $\text{PR}_{\text{dual}}$, a measure on the
+dual space concentrating on the physical points --- which coincide for
+Boolean algebras and separate for $L(H)$ (\S\ref{thm:commensurability}).
+Where the distinction matters we write the grade explicitly; an
+unqualified ``PR'' refers to the Boolean case, where the two agree.
+
 \noindent These are nested: VDR implies PR implies EA.  Which
 implications reverse depends on the observation algebra:
 
@@ -101,8 +116,10 @@ orthomodular lattice (OML), a complemented but non-distributive
 lattice.  The Kochen--Specker theorem~\cite{KochenSpecker1967}
 shows that for the prototypical case $L(H)$ with $\dim H \geq 3$,
 no 2-valued homomorphism exists: VDR is blocked.  Probabilistic
-realism remains available via Gleason's
-theorem~\cite{Gleason1957}, and empirical adequacy is unconditional.
+realism on the \emph{lattice} remains available via Gleason's
+theorem~\cite{Gleason1957}, but its \emph{dual-space} form fails for
+normal states (no extension to a charge on $S_0(L(H))$); empirical
+adequacy is unconditional in the $\perp$-stable set-function sense.
 
 \smallskip
 Distributivity guarantees value-definiteness; for $L(H)$ with
@@ -386,12 +403,26 @@ Carath\'{e}odory does not apply: there is no Boolean algebra of
 sets on which $s$ is finitely additive.
 
 For the prototypical case $A = L(H)$ with $\dim H \geq 3$,
-Gleason's theorem (Theorem~\ref{thm:gleason}) supplies the
-extension for $\sigma$-additive states: every such state arises
-from a density operator, giving a $\sigma$-additive measure via the
-Born rule.  For general OMLs, the extension problem is
+Gleason's theorem (Theorem~\ref{thm:gleason}) supplies a
+$\sigma$-additive measure \emph{on the lattice} $L(H)$ for every
+$\sigma$-additive state: every such state arises from a density
+operator via the Born rule.  This is a measure on $A$ itself, and is
+\emph{not} the same as a measure on the dual space $S_0(A)$ --- a
+distinction the Boolean case obscures and the OML case forces.  Indeed
+the passage to the dual space \emph{fails} for $L(H)$: no normal
+(Gleason) state extends to a charge on the clopens of $S_0(L(H))$, by a
+clustering argument inside a single two-dimensional subspace.\footnote{%
+Fix a $2$-dimensional subspace $e$.  For $k$ distinct lines $p_1, \dots,
+p_k \subset e$ the $2k$ lines $\{p_i, p_i^\perp\}$ are pairwise
+meet-zero, so $h$ sends them to pairwise-disjoint clopens, and a charge
+forces $\sum_i [s(p_i) + s(p_i^\perp)] = k\, s(e) \leq 1$ for every $k$;
+hence any state with $s(e) > 0$ for some finite-dimensional $e$ ---
+every normal state --- fails.  $\sigma$-completeness of the lattice is
+irrelevant; the obstruction is finitary.  Only \emph{singular} states
+($s(e) = 0$ on all finite-dimensional $e$) escape, and whether one
+extends is open.}  For general OMLs the extension problem is
 open.\footnote{The extension splits into two axes that the Boolean
-case fuses. The \emph{extension axis} --- passing from the
+case fuses.  The \emph{extension axis} --- passing from the
 orthogonally additive state on the OML of $\perp$-stable clopens to
 a charge on the full Boolean algebra of clopens of $S_0(A)$ --- is
 the classical Boolean extension problem~\cite{HornTarski1948}: since
@@ -399,11 +430,13 @@ the representation map preserves meets, meet-zero elements map to
 disjoint sets, so the condition is $\sum_i s(a_i) \leq 1$ over
 pairwise-meet-zero families, a Pitowsky polytope
 condition~\cite{Pitowsky1989} strictly stronger than orthoadditivity
-when the OML is non-distributive. It is not governed by
+when the OML is non-distributive.  It is not governed by
 $\sigma$-additivity, and in the finite case is a decidable linear
-program. The \emph{descent axis} --- whether the resulting measure
+program.  The \emph{descent axis} --- whether the resulting measure
 concentrates on the physical points --- is what $\sigma$-additivity
-governs. For $L(H)$, Gleason resolves both at once.}
+governs.  For $L(H)$, Gleason settles the lattice measure, but the
+extension axis itself fails (preceding footnote): Gleason does
+\emph{not} deliver the dual-space measure.}
 
 Even when probabilistic descent succeeds, value-definite descent
 does not.  The Bub--Clifton
@@ -435,23 +468,54 @@ maximal Boolean subalgebras.
 \label{sec:commensurability}
 % ------------------------------------------------------------------
 
-The status of the three positions depends on the algebra:
+The status of the three positions depends on the algebra.  In the OML
+case probabilistic realism splits into two grades that the Boolean case
+fuses: $\text{PR}_{\text{lat}}$, a $\sigma$-additive measure on the
+\emph{lattice} $A$ (Gleason, for $L(H)$), and $\text{PR}_{\text{dual}}$,
+a measure on the \emph{dual} $S_0(A)$ concentrating on the physical
+points.  We take $\text{PR}_{\text{dual}}$ to be the \emph{stronger}
+grade --- a dual-space measure restricts, on the $\perp$-stable clopens,
+to a finitely orthoadditive set function recovering $s$; promoting that
+to a $\sigma$-additive lattice measure ($\text{PR}_{\text{lat}}$) is free
+in the Boolean case but only conditional in general (see~$(\ast)$).  The
+relationship the two grades certainly exhibit is a \emph{witnessed
+separation}, not a proven nesting: for $L(H)$, $\text{PR}_{\text{lat}}$
+holds while $\text{PR}_{\text{dual}}$ fails.  The positions, ordered with
+the stronger to the right (a node marked $\dagger$ is not realised for
+$L(H)$):
 \[
-  \underbrace{\text{EA}}_{\text{always}}
-  \;\xleftarrow{\;\sigma\text{-add.}\;}
-  \underbrace{\text{PR}}_{\text{Gleason}}
-  \;\xleftarrow{\;\text{VDR}\;}
-  \underbrace{\text{dispersion-free}}_{\text{Zorn (Boolean) /
-    KS-blocked (OML)}}
+  \underbrace{\text{EA}}_{\text{$\perp$-stable set fn.}}
+  \;\Longleftarrow\;
+  \underbrace{\text{PR}_{\text{lat}}}_{\text{Gleason }(L(H))}
+  \;\overset{(\ast)}{\Longleftarrow}\;
+  \underbrace{\text{PR}_{\text{dual}}^{\dagger}}_{\text{fails for }L(H)}
+  \;\Longleftarrow\;
+  \underbrace{\text{VDR}^{\dagger}}_{\text{KS-blocked (OML)}}
 \]
-The rightmost arrow is free in the Boolean case and obstructed in
-the OML case.  The middle (EA $\leftarrow$ PR) arrow is labelled by
-$\sigma$-additivity only in the Boolean case, where extension to the
-dual-space measure is free and $\sigma$-additivity governs descent
-alone. In the OML case this arrow also carries the extension step
-(state $\to$ measure on $S_0(A)$), which is governed by
-distributivity, not $\sigma$-additivity; for $L(H)$ Gleason supplies
-both at once.
+The implications run weak-from-strong: VDR (a global $2$-valued
+homomorphism) implies $\text{PR}_{\text{dual}}$ (a dual-space measure);
+$\text{PR}_{\text{dual}}$ implies $\text{PR}_{\text{lat}}$ only
+conditionally (the restriction of $\hat\mu$ to the $\perp$-stable clopens
+is finitely orthoadditive, but its $\sigma$-additivity on the lattice
+needs $\hat\mu$ to be null on countable-join defects --- free in the
+Boolean case, conditional in general; see~$(\ast)$); and
+$\text{PR}_{\text{lat}}$ implies EA.  For
+$L(H)$ the two strongest positions are not realised: VDR by
+Kochen--Specker, and $\text{PR}_{\text{dual}}$ by the clustering argument
+above --- the \emph{upward} extension construction
+$\text{PR}_{\text{lat}} \to \text{PR}_{\text{dual}}$ (build a dual-space
+measure from the lattice measure) is obstructed, governed by
+distributivity rather than $\sigma$-additivity.  Gleason delivers
+$\text{PR}_{\text{lat}}$ but Gleason does not climb to
+$\text{PR}_{\text{dual}}$.  The two grades coincide only in the Boolean
+case, where the extension is free and the ladder collapses to the single
+$\text{EA} \Leftarrow \text{PR}$ of Paper~I.  ($\ast$)~The arrow
+$\text{PR}_{\text{lat}} \Leftarrow \text{PR}_{\text{dual}}$ is free in
+the Boolean case but holds only conditionally in general (it requires a
+$\sigma$-continuity hypothesis on the dual measure that the finitary
+McDonald--Bimb\'{o} duality does not supply); we use it only in the
+direction stated.  EA in the OML case is the $\perp$-stable clopen set
+function (the hedged reading below), not itself a dual-space measure.
 
 \begin{theorem}[Commensurability]
 \label{thm:commensurability}
@@ -463,7 +527,10 @@ Let $A$ be a complemented lattice.
       \item EA is unconditional
         \textup{(}Stone construction\textup{)}.
       \item PR holds iff the charges are $\sigma$-additive
-        \textup{\cite{mahon2026}}.
+        \textup{\cite{mahon2026}}.  Here $\text{PR}_{\text{lat}}$ and
+        $\text{PR}_{\text{dual}}$ coincide: the extension step is free,
+        so a lattice measure and a dual-space measure stand or fall
+        together.
       \item VDR holds unconditionally
         \textup{(}ultrafilters exist\textup{)}.
     \end{itemize}
@@ -473,15 +540,24 @@ Let $A$ be a complemented lattice.
   \item If $A$ is non-distributive \textup{(}OML with
     $A \cong L(H)$, $\dim H \geq 3$\textup{)}, then:
     \begin{itemize}
-      \item EA is unconditional.\footnote{Under the reading of EA
-        as the orthogonally additive set function on the
-        $\perp$-stable clopens. Promoting this to a genuine Baire
-        measure on $S_0(A)$ is the extension step, which for $L(H)$
-        is supplied by Gleason and for general OMLs is open. The
-        unconditional claim is thus about the existence of the
-        clopen set function, not about the dual-space measure.}
-      \item PR holds \textup{(}Gleason,
-        Theorem~\textup{\ref{thm:gleason})}.
+      \item EA is unconditional \emph{in the $\perp$-stable set-function
+        sense}.\footnote{EA here is the orthogonally additive set
+        function $\mu(h(a)) = s(a)$ on the $\perp$-stable clopens, which
+        always exists.  It is \emph{not} a genuine Baire measure on
+        $S_0(A)$: promoting it to one is the extension step, which for
+        $L(H)$ \emph{fails} for every normal state (the clustering
+        argument above) and for general OMLs is open.  The unconditional
+        claim is thus about the clopen set function, not the dual-space
+        measure.}
+      \item $\text{PR}_{\text{lat}}$ holds \textup{(}Gleason,
+        Theorem~\textup{\ref{thm:gleason})}: a $\sigma$-additive measure
+        on the lattice $L(H)$.
+      \item $\text{PR}_{\text{dual}}$ \emph{fails} for every normal
+        state: no charge on $S_0(L(H))$ exists (clustering argument
+        above), so a fortiori none concentrating on $P(A)$.  Equivalently,
+        the extension step $\text{PR}_{\text{lat}} \to
+        \text{PR}_{\text{dual}}$ is obstructed --- the one transition the
+        Boolean case leaves free.
       \item VDR fails globally
         \textup{(}Kochen--Specker,
         Theorem~\textup{\ref{thm:KS})}.
@@ -494,11 +570,17 @@ Let $A$ be a complemented lattice.
 
 \begin{proof}
 Part~(a) is Proposition~\ref{prop:boolean-comm}.  For
-part~(b): PR follows from Gleason's theorem
-(Theorem~\ref{thm:gleason}), which supplies the
-$\sigma$-additive measure on $S_0(L(H))$ for any
-$\sigma$-additive state; EA follows from PR, since
-$\text{PR} \Rightarrow \text{EA}$; VDR-failure from
+part~(b): $\text{PR}_{\text{lat}}$ follows from Gleason's theorem
+(Theorem~\ref{thm:gleason}), which supplies a $\sigma$-additive measure
+on the lattice $L(H)$ for any $\sigma$-additive state.
+$\text{PR}_{\text{dual}}$ fails for normal states by the clustering
+argument above: no charge on the clopens of $S_0(L(H))$ exists, so no
+Baire measure on $S_0(L(H))$ and a fortiori none concentrating on
+$P(A)$.  EA holds in the $\perp$-stable set-function sense
+unconditionally --- the assignment $\mu(h(a)) = s(a)$ on
+$\CO(S_0(A))^\dagger$ always exists; note this does \emph{not} go via
+$\text{PR}_{\text{dual}}$ (which fails), since for $L(H)$ the genuine
+dual-space measure does not exist.  VDR-failure is from
 Kochen--Specker; local VDR from Bub--Clifton.
 \end{proof}
 
@@ -604,11 +686,13 @@ For an OML with $\dim \geq 3$, every transition is non-trivial:
   \item \emph{Pasting} is non-trivial: contextuality obstructions
     are possible.
   \item \emph{Regularity} requires Gleason-type results. (This
-    filtration grades \emph{internal} states of $A$; the further
-    passage from a $\sigma$-additive state to a measure on the dual
-    space $S_0(A)$ --- the extension step, free in the Boolean case
-    but blocked by non-distributivity in general --- is a separate
-    question, supplied by Gleason for $L(H)$ and open otherwise.)
+    filtration grades \emph{internal} states of $A$ --- i.e.\
+    $\text{PR}_{\text{lat}}$, the lattice measure, which Gleason
+    supplies for $L(H)$; the further passage to a measure on the dual
+    space $S_0(A)$, namely $\text{PR}_{\text{dual}}$ --- the extension
+    step, free in the Boolean case but blocked by non-distributivity ---
+    is a separate question that for $L(H)$ \emph{fails} for normal
+    states and for general OMLs is open.)
   \item \emph{Sharpness} is blocked: $\mathcal{S}_{\mathrm{df}}(A)
     = \varnothing$ (Kochen--Specker).
 \end{itemize}
@@ -678,9 +762,11 @@ Several directions remain open:
 \begin{enumerate}
   \item \emph{The OML extension problem.}
     Does every state on a general OML extend to a $\sigma$-additive
-    measure on $S_0(A)$, as in the Boolean case?  Gleason's theorem
-    answers this for $L(H)$; the general case is open
-    (\S\ref{sec:descent}).
+    measure on $S_0(A)$, as in the Boolean case?  For $L(H)$ the answer
+    is \emph{negative} for normal states (the clustering argument of
+    \S\ref{sec:descent}: Gleason supplies the lattice measure but no
+    dual-space charge exists); only the singular states remain open, as
+    does the general OML case.
 
   \item \emph{Dynamical structure.}
     If the observation algebra carries a group action (stationarity,

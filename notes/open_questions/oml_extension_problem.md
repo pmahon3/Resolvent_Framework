@@ -105,7 +105,7 @@ Axis (A) is condition (3). **It can fail for every state.** On MO₃
 (three 2×2 blocks pasted at 0,1) all six atoms are pairwise meet-zero,
 so orthoadditivity forces the three complementary pairs to sum to 3
 while a charge demands ≤ 1 — no state extends. Verified by independent
-LP (`/tmp/mo3_extension.py`, 216-state grid + maximally-mixed: all
+LP (`verification/mo3_extension.py`, 216-state grid + maximally-mixed: all
 infeasible). The maximally-mixed s ≡ ½ *is* a valuation (satisfies (2))
 yet fails (3) at {p,q,r} where ½+½+½ = 3/2 > 1. So the obstruction is
 the meet-zero/orthogonal gap — **not** σ-additivity and **not**
@@ -175,20 +175,31 @@ problem live on different axes.
   probabilities; related but different generalization (partial
   precision on Boolean algebra vs full precision on non-Boolean)
 
-## The structural diagnosis (literature audit 2026-05-17)
+## The structural diagnosis (literature audit 2026-05-17;
+## RESCOPED to the descent axis 2026-06-03)
 
-**Key finding:** Pták-Pulmannová (1994) proves that conditions
-strong enough to force σ-additivity on OML states collapse
+**Scope note (2026-06-03):** This section was written before the
+two-axis correction and originally read as a diagnosis of the whole
+problem. It is correct as a diagnosis of the **descent / σ-additivity**
+axis only. The **extension** axis is NOT structurally resistant — it
+is the classical Horn-Tarski/Pitowsky problem (see "Two axes" above),
+decidable in the finite case. The Pták-Pulmannová result below
+concerns the *supply* of valuations, not whether a given state
+extends.
+
+**Key finding (descent axis):** Pták-Pulmannová (1994) proves that
+conditions strong enough to force σ-additivity on OML states collapse
 the OML back to a Boolean algebra.  This is the structural
-reason no KVP analogue exists for OMLs.
+reason no KVP analogue exists for OMLs on the σ-additivity side.
 
-Specifically: if every unital subadditive measure on an OMP is
-a state (the condition needed for Carathéodory-style extension),
-the lattice must be Boolean.  The non-distributivity of OMLs is
-load-bearing — it blocks the Boolean extension machinery at the
-algebraic level, not just by lacking the right theorem.
+Specifically: if every nonzero element carries a subadditive state
+(unital w.r.t. subadditive states), the lattice must be Boolean (PP
+1994 Thm 1, via Prop 2: every subadditive state is a valuation).
+This is a statement about the *supply* of valuations across the
+lattice — NOT a statement that a given state fails to extend. The
+non-distributivity of OMLs is load-bearing on the descent side.
 
-### Why this is harder than "find the right condition"
+### Why the descent side is harder than "find the right condition"
 
 In the Boolean case, KVP (Fremlin Theorem 391D) gives:
   measurable ⟺ Dedekind σ-complete + weakly (σ,∞)-distributive + chargeable
@@ -199,8 +210,9 @@ Each condition is algebraic and non-trivially constraining.  For OMLs:
 - Chargeability (existence of a strictly positive finitely additive
   measure) has no known structural characterization on OMLs
 
-The OML extension problem requires genuinely new ideas, not
-adaptation of Boolean techniques.
+The σ-additivity/descent side requires genuinely new ideas, not
+adaptation of Boolean techniques. (The extension side, by contrast,
+is classical — see "Two axes" above.)
 
 ### What the recent literature shows
 
@@ -224,11 +236,12 @@ adaptation of Boolean techniques.
 - Burešová-Pták (2023): variations on regularity conditions
 - De Simone-Navara (ongoing): YH-type decompositions for OMPs
 
-**Assessment:** The field is active but no one has found the
-right condition.  The gap between "too weak" (allows non-σ-additive
-states) and "too strong" (collapses to Boolean) appears
-structurally robust.  This is not a problem where more reading
-will unstick it — it needs a new idea.
+**Assessment (descent axis):** The field is active but no one has
+found the right condition.  The gap between "too weak" (allows
+non-σ-additive states) and "too strong" (collapses to Boolean)
+appears structurally robust.  This is not a problem where more
+reading will unstick it — it needs a new idea. (This applies to the
+σ-additivity/descent axis; the extension axis is classical.)
 
 ### Construction tools
 
@@ -240,25 +253,37 @@ likely requires either:
 - An approach that bypasses the state space entirely (e.g.,
   categorical/topos-theoretic)
 
-## Assessment
+## Assessment (rewritten 2026-06-03 to match the two-axis correction)
 
-This is a precise, well-formulated problem.  The main theorem
-(extension from OML state to measure on S₀(A)) would unify:
-- Paper I (Boolean case)
-- Gleason's theorem (L(H) case)
-- Bub-Clifton (descent/realization)
+Once split into its two axes, this is not a single open problem but
+a settled axis and an open one.
 
-under a single framework: states on directed OMLs → measures
-on dual spaces → constrained descent.
+**Extension axis: largely settled, partly degenerate.** Classical
+Boolean extension problem (Horn-Tarski 1948) / Pitowsky polytope
+feasibility. Governed by the meet-zero/orthogonal gap, which is
+non-empty in a non-distributive OML. Finite case = decidable LP;
+can fail for *every* state (MO₃). NOT a structurally resistant
+frontier. The earlier framing of this axis as "the Pták-Pulmannová
+frontier needing a new idea" was mistaken — PP 1994 concerns the
+supply of valuations, and extension is in any case strictly stronger
+than the valuation condition.
 
-**Difficulty:** High.  The Pták-Pulmannová obstruction shows this
-is not merely "find the right condition" — conditions strong enough
-to force extension destroy the non-Boolean structure.  Requires a
-genuinely new approach.
+**Descent axis: genuinely open.** Whether a measure on S₀(A)
+concentrates on physical points P(A), and the analogue of Paper I's
+"σ-additivity ⟺ concentration," cannot even be stated rigorously
+without σ-completeness + continuity hypotheses, because the
+McDonald-Bimbó duality is finitary (countable-join identity fails).
+This is the live residue.
 
-**Novelty:** The formulation via McDonald-Bimbó duality appears
-to be new.  The Döring-Isham topos approach addresses related
-questions but via presheaves, not the filter-space duality.
+**Infinite extension case: open.** The finite MO₃ counterexample is
+silent on L(H) and on the actual σ-additive measure on S₀(A) for an
+infinite OML.
 
-**Status:** OPEN but structurally resistant (2026-05-17).  Not a
-current active lead — needs collaboration or a new idea.
+**Novelty:** The formulation via McDonald-Bimbó duality appears to be
+new; identifying the extension axis with classical Horn-Tarski/
+Pitowsky feasibility de-mystifies it. For L(H), Gleason resolves both
+axes at once.
+
+**Status:** Extension axis settled (finite) / open (infinite).
+Descent axis open, contingent on a rigorous finitary-to-σ bridge.
+Not a current active lead.

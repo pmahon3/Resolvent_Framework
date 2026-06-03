@@ -374,9 +374,11 @@ of a state on $A$ to a measure on $S_0(A)$ decomposes:
 
 - **(A) Extension axis** — extend the orthogonally-additive state
   from the OML of ⊥-stable clopens to a finitely additive charge on
-  the *full* Boolean algebra of clopens. Requires assigning
-  consistent values to non-⊥-stable clopens (unions $h(a) \cup h(b)$
-  for non-orthogonal $a,b$). This is the Pták-Pulmannová frontier.
+  the *full* Boolean algebra of clopens. (Corrected 2026-06-03: this
+  is the classical Horn-Tarski/Pitowsky extension problem — meet-zero
+  elements map to disjoint sets, so Σs(aᵢ)≤1 over pairwise-meet-zero
+  families; a decidable LP, NOT the "Pták-Pulmannová frontier" as
+  first written here. See `open_questions/oml_extension_problem`.)
   **σ-additivity does not help here.**
 - **(B) Compactness** — once (A) succeeds, the charge extends to a
   σ-additive Borel measure automatically (Stone space). Free.

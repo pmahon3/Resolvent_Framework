@@ -183,6 +183,52 @@ descent argument) requires additional σ-completeness + continuity
 hypotheses that the 2023 duality does not supply. Making the descent
 argument rigorous in the OML setting is itself open.
 
+**The finitary-to-σ bridge: open, with three named routes blocked
+(entry point #2, 2026-06-03).** Paper I's descent runs on a
+*Loomis-Sikorski* engine: σ-additive measures on the Stone space
+correspond to σ-homomorphisms off the ideal points, which is what
+makes "σ-additive ⟺ concentrates on pure(Ω)" go through. The OML
+descent question is whether that engine has an OML analogue — i.e.
+whether a σ-complete OML admits a Loomis-Sikorski-type representation
+(quotient of a σ-tribe of sets by a σ-ideal) and/or a countable-join-
+preserving σ-Stone duality. The literature settles this only for the
+*known routes*, all of which are blocked:
+- **RDP / effect-algebra route — blocked.** Loomis-Sikorski holds for
+  σ-complete MV-algebras (Dvurečenskij, *J. Austral. Math. Soc.* 68(2)
+  (2000) 261–277) and for monotone σ-complete effect algebras *with
+  RDP* (Dvurečenskij 2005). But a lattice effect algebra has RDP iff it
+  is an MV-algebra (Riečanová; Paseka), and an OML that is an MV-algebra
+  (all pairs compatible) is Boolean (Kalmbach). So **OML + RDP ⟺
+  Boolean** — the RDP machinery has nothing non-Boolean to act on.
+- **MacNeille-completion route — blocked.** Harding (*Order* 8 (1991)
+  93–103): the MacNeille completion of an OML need not be orthomodular,
+  so one cannot complete to absorb countable joins. (Harding notes the
+  embed-into-complete-OML question is itself longstanding open.)
+- **σ-Stone-duality route — none exists.** McDonald-Bimbó is
+  irreducibly finitary (join → biorthogonal hull); their "future work"
+  lists only Sasaki operations, no σ-version. Freytes (*Soft Computing*
+  24 (2020) 10257–10264) gives an *equational/Hilbert-style* theory of
+  σ-complete OMLs but **no** set/tribe representation.
+- **Concentration carrier.** In the Boolean case "σ-additive ⟺
+  concentrates on points" needs a point space; for OMLs that may not
+  exist (Greechie stateless lattices are non-concrete). But this is a
+  red herring for the *live* case: L(H) is non-concrete yet Gleason
+  resolves descent positively, and MO₃ is concrete. The genuinely open
+  class is **concrete, non-Boolean, infinite σ-OMLs** — where the
+  non-concreteness obstruction is *absent* and the RDP argument blocks
+  only one route.
+
+**Status of #2: OPEN, not impossible.** No impossibility theorem exists
+for the concrete-infinite-non-Boolean σ-OML class (verified: literature
+addresses it neither positively nor negatively). The contribution here
+is a *map of the dead routes* — RDP forces Boolean, MacNeille breaks
+orthomodularity, MB is finitary — which sharpens "needs a new idea"
+into "needs a representation that bypasses all three." The remaining
+Phase-4 question (the user's): what minimal σ-completeness + continuity
+hypotheses make "σ-additivity ⟺ concentration on P(A)" *statable* for
+this class. The fastest route is to re-derive Paper I's descent step by
+step and mark the exact step that needs a σ-OML object MB cannot supply.
+
 **The Yosida-Hewitt connection.** De Simone-Navara (2001) decompose
 OMP states as s = s_σ + s_wpfa (σ-additive + weakly purely finitely
 additive). By the axis split above, the wpfa component governs the
@@ -306,12 +352,20 @@ concrete logics with meet-zero ≠ orthogonal (see the
 concrete/non-concrete boundary discussion above). The gap closes only
 under a richness/atomicity hypothesis, not under concreteness.
 
-**Descent axis: genuinely open.** Whether a measure on S₀(A)
-concentrates on physical points P(A), and the analogue of Paper I's
-"σ-additivity ⟺ concentration," cannot even be stated rigorously
-without σ-completeness + continuity hypotheses, because the
-McDonald-Bimbó duality is finitary (countable-join identity fails).
-This is the live residue.
+**Descent axis: genuinely open, dead routes mapped (entry point #2).**
+Whether a measure on S₀(A) concentrates on physical points P(A), and
+the analogue of Paper I's "σ-additivity ⟺ concentration," cannot even
+be stated rigorously without σ-completeness + continuity hypotheses,
+because the McDonald-Bimbó duality is finitary (countable-join identity
+fails). The descent argument runs on a Loomis-Sikorski engine; the
+three known routes to an OML analogue are all blocked (RDP forces
+Boolean; MacNeille breaks orthomodularity per Harding; no σ-Stone
+duality exists, Freytes gives only an equational theory) — but NO
+impossibility theorem is known for the live class (concrete, non-
+Boolean, infinite σ-OMLs). This is the live residue, sharpened from
+"needs a new idea" to "needs a representation bypassing all three
+blocked routes." See the descent-mechanism section above for the full
+route map.
 
 **Infinite extension case: open.** The finite MO₃ counterexample is
 silent on L(H) and on the actual σ-additive measure on S₀(A) for an

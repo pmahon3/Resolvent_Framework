@@ -462,6 +462,49 @@ $\sigma$-completeness and continuity hypotheses the 2023 duality does
 not supply, and is itself open.
 \end{remark}
 
+\paragraph{The finitary-to-$\sigma$ bridge: open, with three named
+routes blocked.}
+Paper~I's descent runs on a \emph{Loomis--Sikorski} engine:
+$\sigma$-additive measures on the Stone space correspond to
+$\sigma$-homomorphisms off the ideal points, which is what makes
+``$\sigma$-additive $\Leftrightarrow$ concentrates on
+$\pure(\Omega)$'' go through.  The OML descent question is whether
+that engine has an OML analogue --- whether a $\sigma$-complete OML
+admits a Loomis--Sikorski representation (quotient of a
+$\sigma$-tribe of sets by a $\sigma$-ideal) or a countable-join-
+preserving $\sigma$-Stone duality.  The literature settles only the
+known \emph{routes}, all of which are blocked.
+\begin{enumerate}[label=(\roman*), noitemsep]
+  \item \textbf{RDP / effect-algebra route --- blocked.}
+    Loomis--Sikorski holds for $\sigma$-complete MV-algebras
+    (Dvure\v{c}enskij~\cite{Dvurecenskij2000}) and for monotone
+    $\sigma$-complete effect algebras \emph{with} the Riesz
+    Decomposition Property (RDP)~\cite{Dvurecenskij2005}.  But a
+    lattice effect algebra has RDP iff it is an MV-algebra
+    (Rie\v{c}anov\'{a}; Paseka), and an OML that is an MV-algebra ---
+    all pairs compatible --- is Boolean (Kalmbach~\cite{Kalmbach1983}).
+    So $\text{OML} + \text{RDP} \Leftrightarrow \text{Boolean}$: the
+    RDP machinery has no non-Boolean OML to act on.
+  \item \textbf{MacNeille-completion route --- blocked.}
+    Harding~\cite{Harding1991} shows the MacNeille completion of an
+    OML need not be orthomodular, so one cannot complete to absorb
+    countable joins.
+  \item \textbf{$\sigma$-Stone-duality route --- none exists.}
+    McDonald--Bimb\'{o} is irreducibly finitary; Freytes' equational
+    theory of $\sigma$-complete OMLs~\cite{Freytes2020} supplies no
+    set/tribe representation.
+\end{enumerate}
+A concentration statement needs a point space, which a general OML
+may lack (Greechie stateless lattices are non-concrete).  But that is
+a red herring for the live case: $L(H)$ is non-concrete yet Gleason
+resolves descent positively, and $\mathrm{MO}_3$ is concrete.  The
+genuinely open class is \textbf{concrete, non-Boolean, infinite
+$\sigma$-OMLs}, where the non-concreteness obstruction is absent and
+the RDP argument blocks only one route.  No impossibility theorem is
+known for this class; the contribution here is the map of dead routes,
+which sharpens ``needs a new idea'' into ``needs a representation
+bypassing all three.''
+
 % ==================================================================
 \section{What is known}
 \label{sec:known}
@@ -587,13 +630,21 @@ concrete logics in which meet-zero $\neq$ orthogonality
 atomicity hypothesis, not under concreteness.
 
 \medskip\noindent
-\textbf{Descent axis: genuinely open.}  Whether a measure on
-$S_0(A)$ concentrates on the physical points $P(A)$, and the
-analogue of Paper~I's ``$\sigma$-additivity $\Leftrightarrow$
+\textbf{Descent axis: genuinely open, dead routes mapped.}  Whether a
+measure on $S_0(A)$ concentrates on the physical points $P(A)$, and
+the analogue of Paper~I's ``$\sigma$-additivity $\Leftrightarrow$
 concentration,'' cannot even be stated rigorously without
 $\sigma$-completeness and continuity hypotheses, because the
-McDonald--Bimb\'{o} duality is finitary (the countable-join
-identity fails). This is the live residue.
+McDonald--Bimb\'{o} duality is finitary (the countable-join identity
+fails).  The descent argument runs on a Loomis--Sikorski engine, and
+the three known routes to an OML analogue are all blocked --- the
+RDP / effect-algebra route ($\text{OML} + \text{RDP} \Leftrightarrow
+\text{Boolean}$), the MacNeille completion (Harding), and a
+$\sigma$-Stone duality (none exists; Freytes gives only an equational
+theory).  But \emph{no impossibility theorem} is known for the live
+class --- concrete, non-Boolean, infinite $\sigma$-OMLs.  This is the
+live residue, now sharpened from ``needs a new idea'' to ``needs a
+representation bypassing all three blocked routes.''
 
 \medskip\noindent
 \textbf{The infinite extension case.}  The finite counterexample

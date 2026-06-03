@@ -618,18 +618,33 @@ language, not a new construction.
     points, $\hat\mu(P(A)) = 1$ --- extension (\S\ref{sec:problem})
     followed by descent.
 \end{description}
-The containment $\text{PR}_{\text{dual}} \subsetneq
-\text{PR}_{\text{lat}}$ is a \emph{real, strict, witnessed}
-stratification: $L(H)$ normal states clear $\text{PR}_{\text{lat}}$
-(Gleason) and fail $\text{PR}_{\text{dual}}$ (\S\ref{sec:lh}: no charge
-on $S_0(L(H))$ exists, a fortiori none concentrating).  This is the
-cleanest statement of the infinite-extension result in the realism
-vocabulary, and it lets one assert \emph{both} grades at once --- Gleason
-clears $\text{PR}_{\text{lat}}$ for $L(H)$ while $\text{PR}_{\text{dual}}$
-fails --- without suppressing either.  In the Boolean case the two grades
-coincide (Stone gives $\hat\mu$ unconditionally; descent $\Leftrightarrow$
-$\sigma$-additivity), which is why Paper~II could write a single PR.  The
-distinction is philosophically neutral: a Born-rule realist reads off
+The relation between the two grades is a \emph{witnessed
+one-directional separation}, not a proven nesting.  $L(H)$ normal states
+\emph{separate} them: they clear $\text{PR}_{\text{lat}}$ (Gleason) and
+fail $\text{PR}_{\text{dual}}$ (\S\ref{sec:lh}: no charge on $S_0(L(H))$
+exists, a fortiori none concentrating).  The reverse inclusion
+$\text{PR}_{\text{dual}} \Rightarrow \text{PR}_{\text{lat}}$ is
+\emph{not} free: restricting a dual measure $\hat\mu$ to the
+$\perp$-stable clopens recovers $s$ only as a \emph{finitely}
+orthoadditive state, whereas $\text{PR}_{\text{lat}}$ needs
+$\sigma$-additivity on the lattice, $s(\bigvee_n a_n) = \sum_n s(a_n)$.
+The gap is $\hat\mu(D)$, $D = h(\bigvee_n a_n) \setminus \bigcup_n
+h(a_n)$, and concentration on $P(A)$ does \emph{not} force $\hat\mu(D) =
+0$: $D$ contains \emph{principal} filters (e.g.\ $\uparrow\!p$ with
+$p = \mathrm{span}(v)$, $v$ of infinite support, $a_n = \mathrm{span}(e_n)$:
+$p \leq \bigvee_n a_n$ but $p \not\leq a_n$ for all $n$).  So
+$\text{PR}_{\text{dual}} \Rightarrow \text{PR}_{\text{lat}}$ requires an
+extra $\sigma$-continuity hypothesis ($\hat\mu$ null on countable-join
+defects) that the finitary McDonald--Bimb\'{o} duality does not supply
+--- the \emph{same} finitary wall flagged above (verified against the
+primary source, \texttt{verification/mb\_primeness\_check.md}).  What
+\emph{is} established is the separation, and it lets one assert
+\emph{both} grades at once --- Gleason clears $\text{PR}_{\text{lat}}$
+for $L(H)$ while $\text{PR}_{\text{dual}}$ fails --- without suppressing
+either.  In the Boolean case the two grades coincide (Stone gives
+$\hat\mu$ unconditionally; descent $\Leftrightarrow$ $\sigma$-additivity),
+which is why Paper~II could write a single PR.  The distinction is
+philosophically neutral: a Born-rule realist reads off
 $\text{PR}_{\text{lat}}$, a relational realist $\text{PR}_{\text{dual}}$,
 a constructive empiricist EA.
 

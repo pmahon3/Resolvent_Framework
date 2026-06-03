@@ -280,15 +280,30 @@ split, named in the realism language — NOT a separate construction.
   μ̂(h(a)) = s(a) that concentrates on the physical points, μ̂(P(A)) = 1.
   This is extension (axis A) followed by descent (the σ-side).
 
-**Settled: PR_lattice ⊋ PR_dual is a real, strict, witnessed stratification.**
-L(H) normal states are the witness: they clear PR_lattice (Gleason) and
-fail PR_dual (entry point #1 — no charge on S₀(L(H)) exists at all, so a
-fortiori none concentrating). This is the cleanest statement of #1's
+**Settled: a witnessed one-directional SEPARATION (not a proven nesting).**
+L(H) normal states *separate* the grades: they clear PR_lattice (Gleason)
+and fail PR_dual (entry point #1 — no charge on S₀(L(H)) exists at all, so
+a fortiori none concentrating). This is the cleanest statement of #1's
 significance in the realism vocabulary, and it dissolves the (a)/(b)
 tension over how to fix Paper II: one asserts BOTH grades — Gleason clears
-PR_lattice for L(H), and PR_dual fails — suppressing neither. Boolean case:
-the two grades coincide (Stone gives μ̂ unconditionally, descent ⟺
-σ-additivity), which is exactly why Paper II could write a single "PR".
+PR_lattice for L(H), and PR_dual fails — suppressing neither.
+
+**NOT settled: the nesting PR_dual ⟹ PR_lattice (audit 2026-06-03).** The
+reverse inclusion is NOT free. Restricting a dual measure μ̂ to the
+⊥-stable clopens recovers s only as a *finitely* orthoadditive state;
+PR_lattice needs σ-additivity on the lattice, s(⋁ₙaₙ)=Σₙs(aₙ). The gap is
+μ̂(D), D = h(⋁ₙaₙ) ∖ ⋃ₙh(aₙ), and concentration on P(A) does NOT force
+μ̂(D)=0 — because D contains *principal* filters (↑p with p=span(v), v
+infinite-support, aₙ=span(eₙ): p ≤ ⋁ₙaₙ but p ≰ aₙ ∀n). Confirmed against
+the McDonald-Bimbó primary source: filters carry NO σ-prime condition, P(A)
+= principal (not prime) filters; see `verification/mb_primeness_check.md`.
+So PR_dual ⟹ PR_lattice needs an extra σ-continuity hypothesis (μ̂ null on
+countable-join defects) the finitary duality does not supply — the SAME
+finitary wall as #2. Earlier this section wrote "⊋ strict stratification",
+which was internally inconsistent with that wall; corrected to
+separation-not-nesting. Boolean case: the two grades coincide (Stone gives
+μ̂ unconditionally, descent ⟺ σ-additivity), which is why Paper II could
+write a single "PR".
 
 **Philosophically secular.** The stratification commits to no metaphysics
 about which grade is "the real one": a Born-rule realist reads off

@@ -386,10 +386,20 @@ Carath\'{e}odory does not apply: there is no Boolean algebra of
 sets on which $s$ is finitely additive.
 
 For the prototypical case $A = L(H)$ with $\dim H \geq 3$,
-Gleason's theorem (Theorem~\ref{thm:gleason}) provides the
-extension: every state arises from a density operator, giving a
-$\sigma$-additive measure via the Born rule.  For general OMLs,
-the extension problem is open.
+Gleason's theorem (Theorem~\ref{thm:gleason}) supplies the
+extension for $\sigma$-additive states: every such state arises
+from a density operator, giving a $\sigma$-additive measure via the
+Born rule.  For general OMLs, the extension problem is
+open.\footnote{The extension splits into two axes that the Boolean
+case fuses. The \emph{extension axis} --- passing from the
+orthogonally additive state on the OML of $\perp$-stable clopens to
+a charge on the full Boolean algebra of clopens of $S_0(A)$ --- is
+blocked by non-distributivity (the Pt\'{a}k--Pulmannov\'{a}
+frontier) and is not governed by $\sigma$-additivity. The
+\emph{descent axis} --- whether the resulting measure concentrates
+on the physical points --- is what $\sigma$-additivity governs. For
+$L(H)$, Gleason resolves both at once; for general OMLs the
+extension axis is the open problem.}
 
 Even when probabilistic descent succeeds, value-definite descent
 does not.  The Bub--Clifton
@@ -431,7 +441,13 @@ The status of the three positions depends on the algebra:
     KS-blocked (OML)}}
 \]
 The rightmost arrow is free in the Boolean case and obstructed in
-the OML case.
+the OML case.  The middle (EA $\leftarrow$ PR) arrow is labelled by
+$\sigma$-additivity only in the Boolean case, where extension to the
+dual-space measure is free and $\sigma$-additivity governs descent
+alone. In the OML case this arrow also carries the extension step
+(state $\to$ measure on $S_0(A)$), which is governed by
+distributivity, not $\sigma$-additivity; for $L(H)$ Gleason supplies
+both at once.
 
 \begin{theorem}[Commensurability]
 \label{thm:commensurability}
@@ -453,7 +469,13 @@ Let $A$ be a complemented lattice.
   \item If $A$ is non-distributive \textup{(}OML with
     $A \cong L(H)$, $\dim H \geq 3$\textup{)}, then:
     \begin{itemize}
-      \item EA is unconditional.
+      \item EA is unconditional.\footnote{Under the reading of EA
+        as the orthogonally additive set function on the
+        $\perp$-stable clopens. Promoting this to a genuine Baire
+        measure on $S_0(A)$ is the extension step, which for $L(H)$
+        is supplied by Gleason and for general OMLs is open. The
+        unconditional claim is thus about the existence of the
+        clopen set function, not about the dual-space measure.}
       \item PR holds \textup{(}Gleason,
         Theorem~\textup{\ref{thm:gleason})}.
       \item VDR fails globally
@@ -468,10 +490,12 @@ Let $A$ be a complemented lattice.
 
 \begin{proof}
 Part~(a) is Proposition~\ref{prop:boolean-comm}.  For
-part~(b): EA follows from the existence of states on $L(H)$ and the
-McDonald--Bimb\'{o} dual~\cite{McDonaldBimbo2023}; PR from
-Gleason's theorem; VDR-failure from Kochen--Specker;
-local VDR from Bub--Clifton.
+part~(b): PR follows from Gleason's theorem
+(Theorem~\ref{thm:gleason}), which supplies the
+$\sigma$-additive measure on $S_0(L(H))$ for any
+$\sigma$-additive state; EA follows from PR, since
+$\text{PR} \Rightarrow \text{EA}$; VDR-failure from
+Kochen--Specker; local VDR from Bub--Clifton.
 \end{proof}
 
 \begin{corollary}
@@ -575,7 +599,12 @@ For an OML with $\dim \geq 3$, every transition is non-trivial:
 \begin{itemize}
   \item \emph{Pasting} is non-trivial: contextuality obstructions
     are possible.
-  \item \emph{Regularity} requires Gleason-type results.
+  \item \emph{Regularity} requires Gleason-type results. (This
+    filtration grades \emph{internal} states of $A$; the further
+    passage from a $\sigma$-additive state to a measure on the dual
+    space $S_0(A)$ --- the extension step, free in the Boolean case
+    but blocked by non-distributivity in general --- is a separate
+    question, supplied by Gleason for $L(H)$ and open otherwise.)
   \item \emph{Sharpness} is blocked: $\mathcal{S}_{\mathrm{df}}(A)
     = \varnothing$ (Kochen--Specker).
 \end{itemize}

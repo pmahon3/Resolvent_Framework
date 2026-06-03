@@ -237,7 +237,13 @@ Open directions — the extension boundary:
    Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
    (1994): conditions strong enough to force σ-additivity collapse
    OMLs to Boolean. Gleason handles L(H); general case open.
-   See `notes/open_questions/oml_extension_problem.md`.
+   Sharpened 2026-06-02: extension splits into two axes — the
+   *extension axis* (state → charge on the full clopen Boolean
+   algebra of S₀(A)) is blocked by non-distributivity and is NOT
+   governed by σ-additivity; σ-additivity governs only the *descent
+   axis* (concentration on physical points). Boolean fuses them
+   (extension free); OML separates them (extension is the open
+   problem). See `notes/open_questions/oml_extension_problem.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---

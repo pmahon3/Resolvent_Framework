@@ -46,11 +46,16 @@ space, dim(H) ≥ 3):
 
 - Gleason's theorem: every state on L(H) is of the form
   s(P) = tr(ρP) for a density operator ρ
-- This gives a σ-additive measure on L(H)
-- The extension to S₀(L(H)) follows
+- This gives a σ-additive measure ON THE LATTICE L(H) — the DESCENT
+  side only
+- It does NOT give the extension to the DUAL S₀(L(H)): that is the
+  extension axis, and the clustering argument (entry point #1, "Two
+  axes" / "Status of axis (A)" below) shows it FAILS for every normal
+  state. Gleason resolves descent, not extension. (The two-axis split
+  is exactly what separates "measure on L(H)" from "measure on S₀(L(H))".)
 
-For general OMLs, Gleason-type results are not available.  The
-extension problem is the theorem:
+For general OMLs, Gleason-type results are not available even on the
+descent side.  The extension problem is the theorem:
 
 **Theorem (to prove or disprove):** Under what conditions on the
 OML A does every state s extend to a σ-additive measure on
@@ -64,7 +69,7 @@ S₀(A)?
 | Distinguished subset | pure(Ω), not canonical | P(A), canonical |
 | Clopens | Boolean algebra | OML (non-distributive) |
 | Additivity | full (finite) | orthogonal pairs only |
-| Extension | automatic (Carathéodory) | requires Gleason-type result |
+| Extension (to dual) | automatic (Carathéodory) | fails for normal states (#1); Gleason is descent-side |
 | Realization constrained? | No | Yes (Kochen-Specker) |
 
 ## Two axes: extension and descent (sharpened 2026-06-02)
@@ -155,8 +160,28 @@ incompatible pairs.
   meet-zero/orthogonal gap is non-empty; (A) is strictly stronger and
   can fail universally.
 - *Finite case:* a decidable LP — NOT a structurally resistant frontier.
-- *Infinite case* (L(H), actual σ-additive measure on S₀(A)): the
-  finite counterexample does not speak to it. OPEN.
+- *Infinite case* (L(H)): RESOLVED for normal states (entry point #1,
+  2026-06-03). A clustering argument inside one 2-plane — k distinct
+  lines pᵢ, all pairwise meet-zero, force Σ[s(pᵢ)+s(pᵢ⊥)] = k·s(e) ≤ 1
+  for every k — kills any state with s(e)>0 for even one finite-dim e,
+  i.e. EVERY normal (Gleason) state. σ-completeness is irrelevant;
+  extension is finitary. The argument is analytic (a 1-line deduction
+  from orthoadditivity); `verification/lh_infinite_extension.py`
+  instance-checks the inequality (finite k, lines in ℝ², charge LP
+  infeasible once k·s(e)>1) — it does NOT touch infinite-dim S₀(L(H)).
+  The only escapees are SINGULAR states (s(e)=0 on all finite-dim e),
+  which exist (ultrafilter vector states, H separable; Calkin pullbacks)
+  and form a clean dichotomy with normal states: lift to a functional φ
+  on B(H) via Mackey-Gleason/Bunce-Wright (valid — B(H) has no type I₂
+  summand), Takesaki gives φ = φ_n + φ_s (both positive, φ_s annihilates
+  K(H) — a statement at the φ level, AFTER the lift), and s(e)=0 ∀
+  finite-dim e ⟹ ρ=0 by rank-one projections. The density φ_n=tr(ρ·) is
+  named by predual duality B(H)_* = trace class, NOT by Gleason. No third
+  class (decomposition unique). Hand-verified (foundations cited with
+  hypotheses checked, gluing by hand): `verification/lh_singular_dichotomy.md`.
+  Whether a singular orthoadditive state extends — meet-zero families now
+  infinite-dim subspaces, σ-additivity OF THE STATE the operative
+  condition — is the OPEN sliver.
 
 ## The descent question
 
@@ -213,7 +238,8 @@ preserving σ-Stone duality. The literature settles this only for the
   concentrates on points" needs a point space; for OMLs that may not
   exist (Greechie stateless lattices are non-concrete). But this is a
   red herring for the *live* case: L(H) is non-concrete yet Gleason
-  resolves descent positively, and MO₃ is concrete. The genuinely open
+  hands it a clean lattice measure (non-concreteness no obstacle there),
+  and MO₃ is concrete. The genuinely open
   class is **concrete, non-Boolean, infinite σ-OMLs** — where the
   non-concreteness obstruction is *absent* and the RDP argument blocks
   only one route.
@@ -245,7 +271,9 @@ problem live on different axes.
 - **Paper I:** the Boolean special case; Stone construction;
   unconditional measure on St(C); descent requires Ω
 - **McDonald-Bimbó 2023:** the OML duality providing S₀(A)
-- **Gleason 1957:** extension for L(H), dim ≥ 3
+- **Gleason 1957:** σ-additive LATTICE measure for L(H), dim ≥ 3
+  (descent/lattice level — NOT dual-space extension, which fails for
+  normal states, see #1)
 - **Bub-Clifton 1996:** uniqueness of definite-value subalgebra
 - **Döring-Isham 2008:** topos approach; spectral presheaf; 
   states ↔ measures on presheaf
@@ -295,7 +323,8 @@ is classical — see "Two axes" above.)
 ### What the recent literature shows
 
 **Positive results (special cases):**
-- Gleason (1957): L(H), dim ≥ 3 — the prototype
+- Gleason (1957): L(H), dim ≥ 3 — the prototype (lattice-level
+  σ-additivity; not dual-space extension, cf. #1)
 - Bunce-Wright (1992): JBW-algebras; σ-additivity via
   operator-algebraic structure
 - Chetcuti-Dvurečenskij (2003, 2005): lattice effects algebras;
@@ -367,15 +396,26 @@ Boolean, infinite σ-OMLs). This is the live residue, sharpened from
 blocked routes." See the descent-mechanism section above for the full
 route map.
 
-**Infinite extension case: open.** The finite MO₃ counterexample is
-silent on L(H) and on the actual σ-additive measure on S₀(A) for an
-infinite OML.
+**Infinite extension case: resolved for normal states; singular case
+open (entry point #1).** The finite MO₃ counterexample is silent on
+L(H), but a clustering argument inside one 2-plane (k distinct lines,
+pairwise meet-zero, k·s(e) ≤ 1 for all k) kills every state with s(e)>0
+on some finite-dim e — i.e. every normal (Gleason) state. σ-completeness
+is irrelevant (extension is finitary). Only singular states (s(e)=0 on
+all finite-dim e; ultrafilter/Calkin states) escape the argument; they
+form a clean dichotomy with the normal states (Takesaki / Bunce-Wright).
+Whether a singular orthoadditive state extends is the open residue.
 
 **Novelty:** The formulation via McDonald-Bimbó duality appears to be
 new; identifying the extension axis with classical Horn-Tarski/
-Pitowsky feasibility de-mystifies it. For L(H), Gleason resolves both
-axes at once.
+Pitowsky feasibility de-mystifies it. For L(H), Gleason gives the
+σ-additive measure on the LATTICE L(H) itself, but this lattice-level
+rigidity does NOT transfer to the dual: the clustering argument (#1)
+shows the passage to a charge on S₀(L(H)) fails for every normal
+state. Since extension fails there is no dual measure to descend, so
+the descent question does not arise for normal states on L(H).
 
-**Status:** Extension axis settled (finite) / open (infinite).
-Descent axis open, contingent on a rigorous finitary-to-σ bridge.
+**Status:** Extension axis settled (finite; infinite L(H) resolved for
+normal states, singular case the open sliver). Descent axis open, three
+known routes blocked (RDP/MacNeille/σ-Stone), no impossibility theorem.
 Not a current active lead.

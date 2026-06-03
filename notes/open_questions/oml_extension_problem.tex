@@ -101,9 +101,12 @@ that, when $\dim H \geq 3$, every state has the form
   s(P) \;=\; \tr(\rho\, P)
 \end{equation}
 for a unique density operator $\rho$, and is therefore
-automatically $\sigma$-additive.  The geometry of Hilbert space is
-so constraining that the problem of the infinite simply does not
-arise --- states have no room to misbehave.
+automatically $\sigma$-additive \emph{on the lattice}.  The geometry
+of Hilbert space is so constraining that, for additivity on $L(H)$
+itself, the problem of the infinite does not arise --- states have no
+room to misbehave.  (On the \emph{extension} axis --- passage to a
+measure on the dual $S_0(L(H))$ --- even these rigid states fail, by
+\S\ref{sec:lh}; the rigidity is descent-side only.)
 
 But Hilbert space is very special.  Orthomodular lattices arise in
 many other settings --- the projection lattices of operator
@@ -192,14 +195,22 @@ These are nested: $\text{VDR} \Rightarrow \text{PR}
 \Rightarrow \text{EA}$.  For Boolean algebras, all three are
 commensurable --- every EA-theory admits a VDR-completion.  For
 OMLs with $\dim \geq 3$, Gleason's
-theorem~\eqref{eq:gleason} rescues PR, but
+theorem~\eqref{eq:gleason} secures a $\sigma$-additive measure on the
+\emph{lattice} $L(H)$, while
 Kochen--Specker~\cite{KochenSpecker1967} blocks VDR.  The
 extension problem sits at the $\text{EA} \to \text{PR}$ transition:
 can we pass from a state on the algebra (EA) to a
-$\sigma$-additive measure on the dual space (PR)?  If so, under
-what conditions --- and is descent then a free choice (as in the
-Boolean case) or a structural consequence of the algebra and state
-together?
+$\sigma$-additive measure on the dual space (PR)?  This dual-space
+reading of PR is \emph{stricter} than the lattice-level realisation
+Gleason supplies (which is the sense in which Paper~II's PR is met for
+$L(H)$, with the MB dual never entering): \S\ref{sec:lh} shows the
+dual-space passage \emph{fails} for every normal state, so even $L(H)$
+does not clear this stronger, dual-space refinement of PR on the
+extension axis.  Paper~II's L(H) realisation claim is untouched --- the
+failure is of the strictly stronger dual-space notion, not of the
+lattice realisation.  Under what conditions, then --- and is descent a
+free choice (as in the Boolean case) or a structural consequence of the
+algebra and state together?
 
 Van Fraassen's distinction~\cite{vanFraassen1980} between
 empirical adequacy and structural commitment, which Paper~I makes
@@ -271,13 +282,18 @@ of clopens'' automatically extends; ``orthogonally additive on a
 compact OML of clopen $\perp$-stable sets'' does \emph{not}.
 
 For the prototypical case $A = L(H)$ with $\dim H \geq 3$,
-Gleason's theorem~\eqref{eq:gleason} resolves the problem
-completely: every state is induced by a density operator, and the
-resulting measure is $\sigma$-additive on $L(H)$.  The extension
-to $S_0(L(H))$ follows.  For general OMLs, no Gleason-type
-representation is available.  Question~\ref{q:extension} asks for
-the structural conditions that substitute for the Hilbert-space
-geometry.
+Gleason's theorem~\eqref{eq:gleason} gives a $\sigma$-additive measure
+on the \emph{lattice} $L(H)$ itself: every state is induced by a
+density operator.  But this lattice-level rigidity does \emph{not}
+transfer to the \emph{extension} axis --- the passage to a charge on
+the dual $S_0(L(H))$ --- which \S\ref{sec:lh} shows fails for every
+normal state.  (The two-axis split below is exactly what separates
+``measure on $L(H)$'' from ``measure on $S_0(L(H))$.'')  And since
+extension fails, no dual measure exists to descend, so the descent
+question does not arise for normal states on $L(H)$.  For general OMLs,
+no Gleason-type representation is available even at the lattice level.
+Question~\ref{q:extension} asks for the structural conditions that
+substitute for the Hilbert-space geometry.
 
 \begin{table}[ht]
 \centering
@@ -298,9 +314,9 @@ Clopens
 Additivity of $s$
   & full (finite)
   & orthogonal pairs only \\
-Extension
+Extension (to the dual)
   & automatic (Carath\'{e}odory)
-  & requires Gleason-type result \\
+  & fails for normal states ($\S\ref{sec:lh}$); Gleason is descent-side \\
 Realisation constrained?
   & No
   & Yes (Kochen--Specker~\cite{KochenSpecker1967}) \\
@@ -409,9 +425,82 @@ Pitowsky non-contextuality problem.  For \emph{non-rich} concrete OMLs
 meet-zero/orthogonal gap is non-empty, and the extension axis is
 strictly stronger and can fail universally.  In the \emph{finite} case
 it is a decidable linear program, not a structurally resistant
-frontier.  What remains open is the \emph{infinite} case --- $L(H)$ and
-the actual $\sigma$-additive measure on $S_0(A)$ --- to which the
-finite counterexample does not speak.
+frontier.  The \emph{infinite} case --- $L(H)$, to which the finite
+counterexample does not directly speak --- is resolved for normal
+states by the clustering argument of \S\ref{sec:lh} below, with only
+the singular states left open.
+
+\subsection{The infinite extension case for $L(H)$}
+\label{sec:lh}
+
+For $L(H)$ with $\dim H = \infty$ the extension axis admits a decisive
+finite-dimensional argument, sharper than the $\mathrm{MO}_3$ linear
+program.  Fix a $2$-dimensional subspace $e \subset H$.  For any line
+$p \subset e$, its perpendicular $p^\perp \subset e$ satisfies
+$p \perp p^\perp$ and $p \vee p^\perp = e$, so orthoadditivity gives
+\begin{equation}\label{eq:lh-pair}
+  s(p) + s(p^\perp) = s(e).
+\end{equation}
+Choose $k$ distinct lines $p_1, \dots, p_k \subset e$ in general
+position, so that the $2k$ lines $\{p_i, p_i^\perp\}$ are pairwise
+distinct.  Distinct lines meet only at $0$, hence are pairwise
+meet-zero, so $h$ sends them to $2k$ pairwise-disjoint clopens.  A
+finitely additive charge extending $\mu(h(a)) = s(a)$ must therefore
+satisfy, using~\eqref{eq:lh-pair},
+\begin{equation}\label{eq:lh-bound}
+  \sum_{i=1}^{k} \bigl[s(p_i) + s(p_i^\perp)\bigr] = k\, s(e) \leq 1
+  \qquad\text{for every } k \geq 1.
+\end{equation}
+If $s(e) > 0$, taking $k > 1/s(e)$ violates~\eqref{eq:lh-bound}.  Hence:
+
+\begin{proposition}\label{prop:lh}
+Any state $s$ on $L(H)$ with $s(e) > 0$ for even one finite-dimensional
+$e$ fails to extend to a charge on the full clopen algebra of
+$S_0(L(H))$.  In particular no normal (Gleason) state extends.  The
+argument uses only orthoadditivity on lines in a single $2$-plane;
+$\sigma$-completeness of the lattice is irrelevant.
+\end{proposition}
+
+Every normal state $s = \tr(\rho\,\cdot)$ has $s(e) > 0$ for some $2$-dim
+$e$ (as $\rho \neq 0$), so Proposition~\ref{prop:lh} kills the entire
+$\sigma$-additive (Gleason) state space.  This answers the infinite
+extension question for the physically central states, and answers
+``does $\sigma$-completeness change it?'' in the negative.
+
+The only states the argument does \emph{not} reach are the
+\emph{singular} ones: $s(e) = 0$ for every finite-dimensional $e$, where
+the bound~\eqref{eq:lh-bound} is vacuous.  These exist (take $H$
+separable) --- e.g.\ the ultrafilter vector state
+$s(a) = \lim_\omega \langle a e_n, e_n\rangle$ for a free ultrafilter
+$\omega$ and an orthonormal basis $(e_n)$, or any pullback of a state on
+the Calkin algebra $B(H)/K(H)$.  Moreover, lifting a lattice state to a
+bounded functional $\varphi$ on $B(H)$ by Mackey--Gleason /
+Bunce--Wright~\cite{BunceWright1992, Christensen1982} (valid as $B(H)$
+has no type $\mathrm{I}_2$ summand), the Takesaki normal/singular
+decomposition $\varphi = \varphi_n + \varphi_s$ with both parts
+positive~\cite{Takesaki1979} writes
+$B(H)^* = (\text{trace class}) \oplus K(H)^\perp$ --- where the singular
+part $\varphi_s$ \emph{annihilates the compacts} $K(H)$ (a statement at
+the level of $\varphi$, after the lift, not of the bare lattice state).
+A finite-rank projection $e$ then has $s(e) = \tr(\rho\, e)$, and
+$s(e) = 0$ for all finite-dim $e$ forces $\rho = 0$ (taking $e$ rank-one
+gives $\langle \rho \xi, \xi\rangle = 0$ for all $\xi$).  So a state is
+\emph{either} detected by some finite-rank projection (killed by
+Proposition~\ref{prop:lh}) \emph{or} purely singular --- a clean
+dichotomy with no third class (the decomposition being unique).  The
+density $\varphi_n = \tr(\rho\,\cdot)$ is named by predual duality
+$B(H)_* = $ trace class, \emph{not} by Gleason.  Whether a singular orthoadditive state
+extends is the open residue; there the relevant meet-zero families are
+infinite-dimensional subspaces with trivial intersection, and
+$\sigma$-additivity \emph{of the state} (not of the lattice) is what
+bites.  (Proposition~\ref{prop:lh} is the proof; the inequality is
+instance-checked --- finitely many lines in $\mathbb{R}^2$, the charge
+LP infeasible once $k\,s(e) > 1$ --- by
+\texttt{verification/lh\_infinite\_extension.py}, which does not itself
+touch the infinite-dimensional $S_0(L(H))$.  The singular/normal
+dichotomy is hand-verified --- foundations cited with hypotheses
+checked, gluing checked by hand --- in
+\texttt{verification/lh\_singular\_dichotomy.md}.)
 
 \paragraph{Descent.}
 $\sigma$-additivity of the state governs descent, not extension.
@@ -497,9 +586,10 @@ known \emph{routes}, all of which are blocked.
 A concentration statement needs a point space, which a general OML
 may lack (Greechie stateless lattices are non-concrete).  But that is
 a red herring for the live case: $L(H)$ is non-concrete yet Gleason
-resolves descent positively, and $\mathrm{MO}_3$ is concrete.  The
-genuinely open class is \textbf{concrete, non-Boolean, infinite
-$\sigma$-OMLs}, where the non-concreteness obstruction is absent and
+hands it a clean lattice measure (the non-concreteness is no obstacle
+there), and $\mathrm{MO}_3$ is concrete.  The genuinely open class is
+\textbf{concrete, non-Boolean, infinite $\sigma$-OMLs}, where the
+non-concreteness obstruction is absent and
 the RDP argument blocks only one route.  No impossibility theorem is
 known for this class; the contribution here is the map of dead routes,
 which sharpens ``needs a new idea'' into ``needs a representation
@@ -544,7 +634,9 @@ structure rich enough to approximate Hilbert-space geometry:
     labelwidth=4cm, leftmargin=4.5cm]
   \item[Gleason~\cite{Gleason1957}]
     $A = L(H)$, $\dim H \geq 3$.  Every state has the
-    form~\eqref{eq:gleason}; $\sigma$-additivity is automatic.
+    form~\eqref{eq:gleason}; $\sigma$-additivity \emph{on the lattice}
+    is automatic (this is lattice-level, not dual-space extension ---
+    cf.\ \S\ref{sec:lh}).
   \item[Bunce--Wright~\cite{BunceWright1992}]
     $A$ the projection lattice of a JBW-algebra.
     $\sigma$-additivity via operator-algebraic structure.
@@ -647,23 +739,43 @@ live residue, now sharpened from ``needs a new idea'' to ``needs a
 representation bypassing all three blocked routes.''
 
 \medskip\noindent
-\textbf{The infinite extension case.}  The finite counterexample
-does not speak to $L(H)$ or to the actual $\sigma$-additive measure
-on $S_0(A)$ for an infinite OML.  Whether the meet-zero/orthogonal
-gap produces the same universal failure infinitely, or whether
-$\sigma$-completeness changes the picture, is open.
+\textbf{The infinite extension case: no normal state extends; the
+singular case is the open sliver.}  For $L(H)$ with $\dim H = \infty$
+the extension fails decisively for every normal state, by a clustering
+argument inside a single $2$-plane (\S\ref{sec:lh}).  Fix a $2$-dim
+subspace $e$; for $k$ distinct lines $p_1, \dots, p_k \subset e$, the
+$2k$ lines $\{p_i, p_i^\perp\}$ are pairwise meet-zero, so a charge
+forces $\sum_i [s(p_i) + s(p_i^\perp)] = k\, s(e) \leq 1$ for every $k$.
+Hence any state with $s(e) > 0$ for even one finite-dim $e$ fails ---
+which is every normal (Gleason) state.  $\sigma$-completeness of the
+lattice is irrelevant; extension is a finitary charge condition.  The
+only escapees are \emph{singular} states ($s(e) = 0$ for all finite-dim
+$e$); these exist (e.g.\ ultrafilter vector states, or pullbacks of
+Calkin-algebra states) and form, with the normal states, a clean
+dichotomy (Takesaki normal/singular decomposition via the Bunce--Wright
+lift~\cite{BunceWright1992}).  Whether a singular orthoadditive state
+extends --- where the relevant meet-zero families are infinite-dim
+subspaces with trivial intersection, and $\sigma$-additivity \emph{of
+the state} is what bites --- is the open sliver.
 
 \medskip\noindent
 \textbf{Novelty.}\enspace The formulation via McDonald--Bimb\'{o}
 duality~\cite{McDonaldBimbo2023} appears to be new; the
 identification of the extension axis with classical Horn--Tarski /
-Pitowsky feasibility de-mystifies it.  For $L(H)$, Gleason resolves
-both axes at once.
+Pitowsky feasibility de-mystifies it.  For $L(H)$, Gleason gives the
+$\sigma$-additive measure on the \emph{lattice} $L(H)$ itself --- but
+this lattice-level rigidity does \emph{not} transfer to the dual: the
+clustering argument (\S\ref{sec:lh}) shows the passage to a charge on
+$S_0(L(H))$ fails for every normal state.  Since extension fails there
+is no dual measure $\hat\mu$ to descend, so the descent question does
+not even arise for normal states on $L(H)$.
 
 \medskip\noindent
-\textbf{Status.}\enspace Extension axis: settled (finite),
-open (infinite).  Descent axis: open, contingent on a rigorous
-finitary-to-$\sigma$ bridge.  Not a current active lead.
+\textbf{Status.}\enspace Extension axis: settled (finite; infinite
+$L(H)$ resolved for normal states by Proposition~\ref{prop:lh}, the
+singular case the open sliver).  Descent axis: open, three known routes
+blocked (RDP / MacNeille / $\sigma$-Stone), no impossibility theorem.
+Not a current active lead.
 
 \bibliographystyle{plain}
 \bibliography{references_oml}

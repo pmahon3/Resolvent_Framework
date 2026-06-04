@@ -50,7 +50,7 @@ measure theory (§5).
 
 ## 2. Preliminaries
 
-All notions standard except *valuation* (local convention, flagged).
+All notions standard.
 
 ### 2.1 Orthomodular lattices, and the orthogonal/meet-zero gap
 
@@ -84,18 +84,19 @@ example is concrete. The gap closes under a *richness/atomicity* condition,
 not concreteness; the abstract form `a∧b=0 ⟹ a⊥b` is Tkadlec's *Boolean
 orthoposet* condition (≠ Boolean *algebra*).
 
-### 2.2 The state / valuation / charge ladder
+### 2.2 The state / meet-additive / charge ladder
 
-**Def 2.7 (State; valuation; charge-extendible).** A *state*: `s:A→[0,1]`,
-`s(1)=1`, additive on **orthogonal** pairs. Three strengthenings, strictly
-increasing once non-distributive:
+**Def 2.7 (State; meet-additive state; charge-extendible).** A *state*:
+`s:A→[0,1]`, `s(1)=1`, additive on **orthogonal** pairs. Three
+strengthenings, strictly increasing once non-distributive:
 1. **State** — additive on orthogonal pairs.
-2. **Valuation** (local) — additive on every **meet-zero** pair (binary,
-   stronger). *Warning:* not the standard lattice valuation.
+2. **Meet-additive** — additive on every **meet-zero** pair (binary,
+   stronger). We avoid "valuation": in lattice theory that denotes the
+   modular function `v(a)+v(b)=v(a∧b)+v(a∨b)`, a different condition.
 3. **Charge-extendible** — *n*-ary: `Σ s(aᵢ) ≤ 1` for every
    pairwise-meet-zero family. *This is the extension condition (§3).*
 
-**Example 2.8 (Ladder is strict).** On MO₃, `s ≡ ½` is a valuation but
+**Example 2.8 (Ladder is strict).** On MO₃, `s ≡ ½` is meet-additive but
 fails (3) at `{p,q,r}` (`³⁄₂ > 1`). No state on MO₃ is charge-extendible.
 
 ### 2.3 The McDonald–Bimbó dual space

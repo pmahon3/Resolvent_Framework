@@ -50,7 +50,7 @@ propositions of a quantum system --- this machinery breaks, and the
 question of when finite coherence forces countable behaviour is open. This
 note surveys the problem at the level needed to begin work on it. We fix
 the apparatus (orthomodular lattices, the gap between orthogonality and
-meet-zero, the state/valuation/charge ladder, the McDonald--Bimb\'{o} dual
+meet-zero, the state/meet-additive/charge ladder, the McDonald--Bimb\'{o} dual
 space), separate the question into two independent axes --- \emph{extension}
 and \emph{descent} --- review what is known and what is ruled out, and
 isolate the one residue that remains genuinely open: whether a concrete,
@@ -106,8 +106,7 @@ theory (\S\ref{sec:problem}).
 \label{sec:prelim}
 % ==================================================================
 
-We collect the lattice-theoretic apparatus. All notions are standard
-except \emph{valuation}, where we adopt a local convention flagged below.
+We collect the lattice-theoretic apparatus; all notions are standard.
 
 \subsection{Orthomodular lattices, and the orthogonal/meet-zero gap}
 \label{sec:oml}
@@ -177,20 +176,20 @@ b$ is Tkadlec's \emph{Boolean orthoposet} condition (which does
 \emph{not} mean Boolean \emph{algebra}).
 \end{remark}
 
-\subsection{The state/valuation/charge ladder}
+\subsection{The state/meet-additive/charge ladder}
 \label{sec:ladder}
 
-\begin{definition}[State; valuation; charge-extendible]\label{def:ladder}
+\begin{definition}[State; meet-additive state; charge-extendible]\label{def:ladder}
 Let $A$ be an OML. A \emph{state} is a map $s : A \to [0,1]$ with
 $s(\mathbf 1)=1$ that is additive on \emph{orthogonal} pairs:
 $s(a \vee b) = s(a) + s(b)$ whenever $a \perp b$. Three strengthenings,
 strictly increasing once $A$ is non-distributive:
 \begin{enumerate}[label=(\arabic*), noitemsep]
   \item \emph{State} --- additive on orthogonal pairs.
-  \item \emph{Valuation} (local convention) --- additive on every
-    \emph{meet-zero} pair $a \wedge b = \mathbf 0$ (binary, strictly
-    stronger). \textbf{Warning:} not the standard lattice-theoretic
-    valuation $v(a)+v(b)=v(a\wedge b)+v(a \vee b)$.
+  \item \emph{Meet-additive} --- additive on every \emph{meet-zero} pair
+    $a \wedge b = \mathbf 0$ (binary, strictly stronger). We avoid the
+    word ``valuation'' here: in lattice theory it denotes the modular
+    function $v(a)+v(b)=v(a\wedge b)+v(a \vee b)$, a different condition.
   \item \emph{Charge-extendible} --- the $n$-ary condition
     $\sum_i s(a_i) \leq 1$ for every pairwise-meet-zero family $\{a_i\}$
     (strictly stronger again). This is the \emph{extension} condition of
@@ -200,7 +199,7 @@ strictly increasing once $A$ is non-distributive:
 
 \begin{example}[The ladder is strict]\label{ex:strict}
 On $\mathrm{MO}_3$ with complementary pairs $(p,p^\perp),(q,q^\perp),
-(r,r^\perp)$, the maximally mixed $s \equiv \tfrac12$ is a valuation
+(r,r^\perp)$, the maximally mixed $s \equiv \tfrac12$ is meet-additive
 (clears~(2)) yet fails~(3) at $\{p,q,r\}$:
 $\tfrac12+\tfrac12+\tfrac12 = \tfrac32 > 1$. So no state on
 $\mathrm{MO}_3$ is charge-extendible.

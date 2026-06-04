@@ -601,32 +601,36 @@ all finite-dim e; ultrafilter/Calkin states) escape the argument; they
 form a clean dichotomy with the normal states (Takesaki / Bunce-Wright).
 Whether a singular orthoadditive state extends is the open residue.
 
-**The singular discriminator is INFINITARY — settled 2026-06-04. Both
-branches gate on the σ-wall; there is no computational shortcut.** The
-prior handoff posed "settle finite-vs-countable first: does the singular
-extension obstruction get reached with finite or countable meet-zero
-families? — that decides whether branch (b) dodges the σ-wall." It is now
-settled, and the answer kills the optimistic reading. Per
-`verification/lh_singular_dichotomy.md` (103–107): for a singular state
-the relevant pairwise-meet-zero families are *infinite-dimensional*
-subspaces with trivial intersection (not lines), and the operative
-condition is **σ-additivity OF THE STATE** — countable, not finite. So:
-- The normal case was settleable precisely *because* it is finitary
-  (the clustering LP, `lh_infinite_extension.py`); σ-completeness was
-  irrelevant there.
-- The singular case loses finiteness by construction. Its operative
-  condition IS the σ-additivity condition, i.e. it IS the #2 statability
-  wall, not a precondition reachable before it.
-- **Therefore branch (b) does NOT dodge the σ-wall.** Both branches
-  ((a) chase the σ-OML duality; (b) attack the singular sliver) gate on
-  the same missing object: a σ-additive structure on a native
-  non-distributive OML with no finitary representation. The "more
-  tractable, self-contained" framing of (b) was too optimistic.
-- *Strategic payload of this session:* computation and literature are
-  exhausted (every `.py` is finitary because the finitary part is the
-  whole computable boundary; the residue has no LP to run). What remains
-  is purely non-computational — build the σ-duality and prove the
-  σ-additivity theorem. There is no shortcut around it on either branch.
+**The singular discriminator is still OPEN — finite-vs-countable not
+settled (corrected 2026-06-04, was over-stated).** The prior handoff
+posed "settle finite-vs-countable first: does the singular extension
+obstruction get reached with finite or countable meet-zero families? —
+that decides whether branch (b) dodges the σ-wall." That is the right
+first move and it is NOT yet done. What IS established (per
+`verification/lh_singular_dichotomy.md`): for a singular state the
+relevant pairwise-meet-zero families are *infinite-dimensional* subspaces
+with trivial intersection (not lines), and the line-clustering finitary
+kill (`lh_infinite_extension.py`) is *vacuous* there (s(e)=0 on every
+finite-dim e). What is NOT established: that the obstruction therefore
+requires a *countable* family. A FINITE family of infinite-dimensional
+pairwise-meet-zero subspaces with Σs(aᵢ) > 1 is unanalyzed — "the known
+finitary route is vacuous" is NOT "the obstruction is provably countable"
+(the same blocked-routes-≠-impossible slip the thread is careful about
+for #2). So:
+- The normal case was settleable because it is finitary (the clustering
+  LP); σ-completeness was irrelevant there.
+- The singular case loses the LINE-clustering route, but whether a finite
+  obstruction exists among infinite-dim subspaces is open. If finite,
+  branch (b) dodges the σ-wall and is a self-contained operator-algebra
+  problem (Calkin / Bunce–Wright) to attack ahead of (a). If countable,
+  (b) is entangled with the same finitary-to-σ bridge as (a).
+- **So branch (b) is CONDITIONALLY more tractable**, gated on the
+  finite-vs-countable hinge. Settling that hinge is the concrete first
+  move — and it is human mathematical work, not yet done.
+- *(Earlier "SETTLED = infinitary, both branches gate on the σ-wall" was
+  an over-read of the dichotomy file, which calls the extension question
+  OPEN; no new math justified the upgrade. Weakened back per the
+  weaken-don't-overclaim rule.)*
 
 **Novelty:** The formulation via McDonald-Bimbó duality appears to be
 new; identifying the extension axis with classical Horn-Tarski/
@@ -638,9 +642,10 @@ state. Since extension fails there is no dual measure to descend, so
 the descent question does not arise for normal states on L(H).
 
 **Status:** Extension axis settled (finite; infinite L(H) resolved for
-normal states, singular case the open sliver — and its discriminator now
-shown INFINITARY, so both branches gate on the σ-wall: no computational
-shortcut, see the discriminator block above). Descent axis open, three
+normal states, singular case the open sliver — its finite-vs-countable
+discriminator still OPEN, so branch (b) is CONDITIONALLY more tractable,
+gated on settling that hinge; see the discriminator block above). Descent
+axis open, three
 known routes blocked (RDP/MacNeille/σ-Stone), no impossibility theorem
 (both negatives stress-tested 2026-06-04 against primary sources, MISS).
 **Novelty gate (2026-06-03/04): PASSED conditionally** — scout verdict

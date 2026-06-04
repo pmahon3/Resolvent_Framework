@@ -239,9 +239,9 @@ relations, point-free") may *look* delivered by `L(H)`+Gleason. It is not.
 defines *realisation* = concentration on **(B)**. Gleason removes **(B)**
 but *requires* **(A)** — and is a *representation* theorem (reduces every
 lattice state to the point datum `ρ`, the most point-ful result available).
-So `L(H)`/Gleason witnesses the PR_lattice/PR_dual *separation* (a
-σ-additive measure exists on the lattice while none concentrates on
-`P(A)`), NOT point-freeness, and cannot be the existence proof. Because it
+So `L(H)`/Gleason exhibits a *separation* — a σ-additive measure exists on
+the lattice while none concentrates on the dual points `P(A)` — NOT
+point-freeness, and cannot be the existence proof. Because it
 cannot, the σ-OML representation is the *only* candidate engine; it would be
 an error to regard Gleason's theorem as already furnishing a relational,
 point-free probability.
@@ -260,12 +260,11 @@ Two branches lead toward the open problem, and they share one wall.
   Takesaki), *conditionally* self-contained.
 
 **Attack (b) first** — informative either way. If a singular state fails to
-extend, then *no* state on `L(H)` extends, so PR_dual fails throughout
-`L(H)`; since the singular sliver is the only candidate witness for
-"descent does work independent of extension," this closes that third-grade
-question negatively. If one *does* extend, it is the first concrete object
-that extends but may fail to concentrate — handing branch (a) its
-motivating example.
+extend, then *no* state on `L(H)` extends; the singular sliver is the only
+candidate witness for descent doing work independent of extension, so its
+failure would settle that question negatively. If one *does* extend, it is
+the first concrete object that extends but may fail to concentrate —
+handing branch (a) its motivating example.
 
 > **Open Problem (the hinge that gates (b) — settle this first).** Is the
 > singular-extension obstruction reached with a **finite** or a

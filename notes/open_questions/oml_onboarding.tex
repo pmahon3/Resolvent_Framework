@@ -193,23 +193,25 @@ into \textbf{two independent axes} that the Boolean case fuses. Most of
 the problem is already settled; one residue is live.
 
 \begin{center}
-\begin{tikzpicture}[font=\footnotesize, node distance=4mm]
-  \node (s) [draw, rounded corners, align=center]
-    {state $s$ on OML $A$};
-  \node (ext) [draw, rounded corners, align=left, below left=10mm and -25mm of s, text width=6.4cm]
+\begin{tikzpicture}[font=\footnotesize,
+    box/.style={draw, rounded corners, align=left, text width=11cm,
+                inner sep=2mm}]
+  \node (s) [draw, rounded corners, align=center] {state $s$ on OML $A$};
+  \node (ext) [box, below=9mm of s]
     {\textbf{EXTENSION axis:} does $\mu$ extend to a finitely additive
      charge on the \emph{full} Boolean clopen algebra of $S_0(A)$?\\[1mm]
      $\rightarrow$ governed by the meet-zero/orthogonal gap (\S1a)\\
      $\rightarrow$ \textbf{SETTLED}: Horn--Tarski / Pitowsky feasibility;
      finite case $=$ decidable LP; can fail for every state.};
-  \node (desc) [draw, rounded corners, align=left, below right=10mm and -25mm of s, text width=6.4cm]
+  \node (desc) [box, below=5mm of ext]
     {\textbf{DESCENT axis:} once extended, does the measure concentrate on
      the physical points $P(A)$?\\[1mm]
      $\rightarrow$ governed by $\sigma$-additivity (needs the missing
      engine, \S1d)\\
      $\rightarrow$ \textbf{OPEN}. This is the residue.};
-  \draw[-{Latex}] (s) -- (ext);
-  \draw[-{Latex}] (s) -- (desc);
+  % both axes branch independently from the state (not ext -> desc)
+  \draw[-{Latex}] (s) -- (ext.north);
+  \draw[-{Latex}] (s.west) -- ++(-0.7,0) |- (desc.west);
 \end{tikzpicture}
 \end{center}
 

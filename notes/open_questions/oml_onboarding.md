@@ -78,8 +78,9 @@ example: `L(H)`.
 
 **Example 2.4 (MOₙ, the gap made concrete).** `MOₙ` = `0`, `1`, and `n`
 complementary pairs of incomparable atoms sharing only `0`,`1`.
-Non-distributive for `n≥2`: any two distinct atoms have `a∧b=0` yet are
-*not* orthogonal. `MO₃` is the smallest non-distributive OML.
+Non-distributive for `n≥2`: two atoms from *distinct* complementary pairs
+have `a∧b=0` yet are *not* orthogonal. `MO₃` is the smallest
+non-distributive OML.
 
 **Def 2.5 (OMP; concrete logic).** Orthomodular *poset*: joins required
 only for orthogonal pairs. *Concrete* (= set-representable): embeds in
@@ -88,7 +89,7 @@ only for orthogonal pairs. *Concrete* (= set-representable): embeds in
 **Remark 2.6 (Concreteness does not close the gap).** Set-representable
 needs only complement + *disjoint*-union closure (Burešová–Pták);
 intersection-closure would force Boolean. `MO₃` is *itself* concrete (Gudder
-order-determining two-valued states), so the flagship meet-zero≠orthogonal
+order-determining two-valued states), so the paradigmatic meet-zero≠orthogonal
 example is concrete. The gap closes under a *richness/atomicity* condition,
 not concreteness; the abstract form `a∧b=0 ⟹ a⊥b` is Tkadlec's *Boolean
 orthoposet* condition (≠ Boolean *algebra*).
@@ -97,7 +98,7 @@ orthoposet* condition (≠ Boolean *algebra*).
 
 **Def 2.7 (State; meet-additive state; charge-extendible).** A *state*:
 `s:A→[0,1]`, `s(1)=1`, additive on **orthogonal** pairs. Three
-strengthenings, strictly increasing once non-distributive:
+strengthenings, strictly increasing in general (e.g. on MO₃, Ex 2.8):
 1. **State** — additive on orthogonal pairs.
 2. **Meet-additive** — additive on every **meet-zero** pair (binary,
    stronger). We avoid "valuation": in lattice theory that denotes the
@@ -139,7 +140,7 @@ proof needs one and doesn't have it.
 
 ## 3. Two axes: extension and descent
 
-The headline question — *when does a state `s` on OML `A` extend to a
+The central question — *when does a state `s` on OML `A` extend to a
 σ-additive measure on `S₀(A)`?* — splits into two **independent** axes the
 Boolean case fuses:
 
@@ -147,7 +148,7 @@ Boolean case fuses:
 |-------------|--------------------|------------------|
 | **Question**    | Does μ extend to a finitely additive charge on the FULL Boolean clopen algebra of S₀(A)? | Once extended, does the measure concentrate on the physical points P(A)? |
 | **Governed by** | the meet-zero/orthogonal gap (§2.1) | σ-additivity — needs the missing engine (§2.4) |
-| **Status**      | **settled**: Horn–Tarski/Pitowsky feasibility; finite case = decidable LP; can fail for every state. | **open**. *This is the residue.* |
+| **Status**      | **settled**: Horn–Tarski/Pitowsky feasibility; finite case = decidable LP; can fail for every state. | **open**. *The descent residue.* |
 
 **Prop 3.1 (Finite case).** For finite `A` the extension condition is a
 decidable LP (Horn–Tarski / Pitowsky feasibility); since `h` preserves
@@ -157,17 +158,21 @@ meets, meet-zero elements map to disjoint clopens and a charge needs
 
 **Prop 3.2 (Infinite L(H), normal states).** For `dim H=∞`, any state with
 `s(e)>0` for some finite-dimensional `e` fails to extend to a charge on `S₀(L(H))`;
-in particular no normal (Gleason) state extends. *Proof sketch:* in a
-2-plane `e`, `k` distinct lines give `2k` pairwise-meet-zero lines, forcing
-`k·s(e) ≤ 1` for all `k`; take `k>1/s(e)`. Finitary; σ-completeness
+in particular no normal (Gleason) state extends. *Proof sketch:* fix a
+2-plane `e₀` (where `s>0`); choose `k` lines in `e₀` no two orthogonal, so
+the `2k` lines `{pᵢ, pᵢ^⊥}` are distinct and pairwise meet-zero. Per pair
+`s(pᵢ)+s(pᵢ^⊥)=s(e₀)`; a charge on the disjoint clopens forces `k·s(e₀) ≤ 1`
+for all `k`; take `k>1/s(e₀)`. Finitary; σ-completeness
 irrelevant.
 
-By Takesaki normal/singular decomposition (Mackey–Gleason/Bunce–Wright
-lift, valid as `B(H)` has no type I₂ summand), the only escapees are the
-**singular** states (`s(e)=0` for all finite-dimensional `e`; ultrafilter vector
-states, Calkin pullbacks), forming a clean dichotomy with the normal
-states. So the sole survivors on the extension axis are the singular states
-of `L(H)` (§6). The genuine open problem lives on the descent axis (§5).
+Lift `s` via Mackey–Gleason/Bunce–Wright (valid as `B(H)` has no type I₂
+summand) and apply the Takesaki decomposition `s = s_n + s_sing`. Any state
+with `s_n ≠ 0` has `s(e)>0` on some finite-dimensional `e` and is killed by
+Prop 3.2; the only survivors are the **purely singular** states (`s_n=0`,
+i.e. `s(e)=0` for all finite-dimensional `e`; ultrafilter vector states,
+Calkin pullbacks). So the sole survivors on the extension axis are the
+purely singular states of `L(H)` (§6). The genuine open problem lives on
+the descent axis (§5).
 
 ---
 
@@ -222,8 +227,9 @@ would lie in the σ-additive-point-free-native combination.)
 
 **Remark 4.1 (The boundary of the negative results).**
 (i) *No impossibility theorem* covers the **concrete** class: known no-gos
-are finite/two-valued, and the one positive occupant P(H)+Gleason is
-*non-concrete* (Kochen–Specker), so concreteness is the qualifier on which
+are finite/two-valued, and the one positive occupant L(H)+Gleason is
+*non-concrete* (Kochen–Specker, dim ≥ 3: L(H) admits no two-valued states
+at all, a fortiori none order-determining), so concreteness is the qualifier on which
 the open frontier turns. (ii) *The absence of a σ-Loomis–Sikorski* is
 visible in the dualities themselves: both take infinite joins as a
 *closure* not a union (Cannon–Döring `cls(⋃Sᵢ)`, MB `(⋃h(aₙ))^⊥⊥`). One
@@ -260,7 +266,8 @@ defines *realisation* = concentration on **(B)**. Gleason removes **(B)**
 but *requires* **(A)** — and is a *representation* theorem (reduces every
 lattice state to the point datum `ρ`, the most point-ful result available).
 So `L(H)`/Gleason exhibits a *separation* — a σ-additive measure exists on
-the lattice while none concentrates on the dual points `P(A)` — NOT
+the lattice while (by Prop 3.2) no normal state even extends to a charge on
+`S₀(L(H))`, so a fortiori none concentrates on the dual points `P(A)` — NOT
 point-freeness, and cannot be the existence proof. Because it
 cannot, the σ-OML representation is the *only* candidate engine; it would be
 an error to regard Gleason's theorem as already furnishing a relational,

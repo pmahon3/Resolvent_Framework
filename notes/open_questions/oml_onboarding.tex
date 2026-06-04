@@ -24,8 +24,6 @@
 \newtheorem*{problem}{Open Problem}
 
 % ---------- Commands ----------
-\newcommand{\St}{\mathrm{St}}
-\newcommand{\Clop}{\mathrm{Clop}}
 \newcommand{\CO}{\mathrm{CO}}
 \newcommand{\tr}{\mathrm{tr}}
 
@@ -134,7 +132,8 @@ Elements $a,b$ are \emph{orthogonal}, written $a \perp b$, if
 $a \leq b^\perp$ (equivalently $b \leq a^\perp$). They are
 \emph{meet-zero} if $a \wedge b = \mathbf 0$. Orthogonality always implies
 meet-zero; the converse holds in every Boolean algebra but \textbf{fails}
-once the lattice is non-distributive. This gap drives everything below.
+once the lattice is non-distributive. This gap underlies the distinctions
+developed below.
 \end{definition}
 
 \begin{definition}[Orthomodular lattice]\label{def:oml}
@@ -151,10 +150,11 @@ Hilbert space with $a^\perp$ the orthogonal complement.
 \begin{example}[$\mathrm{MO}_n$, and the gap made concrete]\label{ex:mo}
 $\mathrm{MO}_n$ is the lattice with $\mathbf 0$, $\mathbf 1$, and $n$
 complementary pairs of incomparable atoms, all sharing only $\mathbf 0$
-and $\mathbf 1$. It is orthomodular and non-distributive ($n \geq 2$): any
-two distinct atoms $a,b$ have $a \wedge b = \mathbf 0$ yet are
-\emph{not} orthogonal, so meet-zero $\neq$ orthogonal already here.
-$\mathrm{MO}_3$ is the smallest non-distributive OML.
+and $\mathbf 1$. It is orthomodular and non-distributive ($n \geq 2$): two
+atoms drawn from \emph{distinct} complementary pairs have
+$a \wedge b = \mathbf 0$ yet are \emph{not} orthogonal, so meet-zero
+$\neq$ orthogonal already here. $\mathrm{MO}_3$ is the smallest
+non-distributive OML.
 \end{example}
 
 \begin{definition}[OMP; concrete logic]\label{def:omp}
@@ -172,12 +172,12 @@ force a field of sets, hence Boolean. The lattice meet $a \wedge b$ is the
 greatest $L$-member inside $A \cap B$, so orthogonality
 ($A \cap B = \varnothing$) implies meet-zero, but not conversely. Indeed
 $\mathrm{MO}_3$ is \emph{itself} concrete (it carries an order-determining
-set of two-valued states; Gudder), so the flagship meet-zero-$\neq$-
+set of two-valued states; Gudder), so the paradigmatic meet-zero-$\neq$-
 orthogonal example is a concrete logic. The condition that closes the gap
 is not concreteness but a richness/atomicity condition (meet-zero
 coincides with orthogonality iff every nonempty $A \cap B$ contains a
-nonzero $L$-member); the abstract form $a \wedge b = 0 \Rightarrow a \perp
-b$ is Tkadlec's \emph{Boolean orthoposet} condition (which does
+nonzero $L$-member); the abstract form $a \wedge b = \mathbf 0 \Rightarrow
+a \perp b$ is Tkadlec's \emph{Boolean orthoposet} condition (which does
 \emph{not} mean Boolean \emph{algebra}).
 \end{remark}
 
@@ -188,7 +188,8 @@ b$ is Tkadlec's \emph{Boolean orthoposet} condition (which does
 Let $A$ be an OML. A \emph{state} is a map $s : A \to [0,1]$ with
 $s(\mathbf 1)=1$ that is additive on \emph{orthogonal} pairs:
 $s(a \vee b) = s(a) + s(b)$ whenever $a \perp b$. Three strengthenings,
-strictly increasing once $A$ is non-distributive:
+strictly increasing in general (e.g.\ on $\mathrm{MO}_3$,
+Example~\ref{ex:strict}):
 \begin{enumerate}[label=(\arabic*), noitemsep]
   \item \emph{State} --- additive on orthogonal pairs.
   \item \emph{Meet-additive} --- additive on every \emph{meet-zero} pair
@@ -217,14 +218,15 @@ $\mathrm{MO}_3$ is charge-extendible.
 The McDonald--Bimb\'{o} duality~\cite{McDonaldBimbo2023} assigns to an OML
 $A$ a compact space
 \[
-  S_0(A) = \bigl(F(A), \subseteq, \perp_A, P(A), T(S)\bigr),
+  S_0(A) = \bigl(F(A), \subseteq, \perp_A, P(A), T\bigr),
 \]
-where $F(A)$ is the set of \emph{filters} of $A$ and $P(A) \subseteq F(A)$
-the \emph{principal} filters --- the ``physical points,'' the realisation
-datum (canonical, unlike the non-canonical pure points of the Boolean
-case). For $a \in A$ set $h(a) = \{x \in F(A) : a \in x\}$; then $h$ is an
-OML isomorphism onto the $\perp$-stable clopens $\CO(S_0(A))^\dagger$.
-Define $\mu(h(a)) = s(a)$.
+where $F(A)$ is the set of \emph{filters} of $A$, ordered by $\subseteq$
+and carrying an orthogonality relation $\perp_A$ and a Stone topology $T$,
+and $P(A) \subseteq F(A)$ is the set of \emph{principal} filters --- the
+``physical points,'' the realisation datum (canonical, unlike the
+non-canonical pure points of the Boolean case). For $a \in A$ set
+$h(a) = \{x \in F(A) : a \in x\}$; then $h$ is an OML isomorphism onto the
+$\perp$-stable clopens $\CO(S_0(A))^\dagger$. Define $\mu(h(a)) = s(a)$.
 \end{definition}
 
 \begin{remark}[The duality is finitary --- the wall]\label{rem:finitary}
@@ -257,7 +259,7 @@ Boolean proof has an engine; the OML proof needs one and does not have it.
 \label{sec:axes}
 % ==================================================================
 
-The headline question --- \emph{when does a state $s$ on an OML $A$ extend
+The central question --- \emph{when does a state $s$ on an OML $A$ extend
 to a $\sigma$-additive measure on $S_0(A)$?} --- splits into two
 \textbf{independent} axes that the Boolean case fuses. A state $s$ on $A$
 faces:
@@ -279,7 +281,7 @@ faces:
 \textbf{Status}
   & \textbf{settled}: Horn--Tarski / Pitowsky feasibility; finite case
     $=$ decidable LP; can fail for every state.
-  & \textbf{open}. \emph{This is the residue.} \\
+  & \textbf{open}. \emph{The descent residue.} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -302,23 +304,30 @@ particular no normal (Gleason) state extends.
 \end{proposition}
 
 \begin{proof}[Proof sketch]
-Fix a $2$-plane $e$. For $k$ distinct lines $p_1,\dots,p_k \subset e$ the
-$2k$ lines $\{p_i, p_i^\perp\}$ are pairwise meet-zero, so $h$ sends them
-to disjoint clopens and orthoadditivity forces
-$\sum_i [s(p_i)+s(p_i^\perp)] = k\,s(e) \leq 1$ for every $k$. If
-$s(e)>0$, take $k > 1/s(e)$. The argument is finitary;
+Since $s(e)>0$ on some finite-dimensional $e$, it is positive on a
+$2$-plane inside it; fix such a $2$-plane $e_0$, with $p^\perp$ the
+orthocomplement of a line $p$ \emph{within} $e_0$. Choose $k$ lines
+$p_1,\dots,p_k \subset e_0$ no two of which are orthogonal; then the $2k$
+lines $\{p_i, p_i^\perp\}$ are distinct and pairwise meet-zero (distinct
+lines meet at $\mathbf 0$), so $h$ sends them to pairwise-disjoint clopens.
+Orthoadditivity gives $s(p_i)+s(p_i^\perp)=s(e_0)$ for each $i$, and a
+charge on the disjoint clopens forces
+$\sum_i [s(p_i)+s(p_i^\perp)] = k\,s(e_0) \leq 1$ for every $k$. If
+$s(e_0)>0$, take $k > 1/s(e_0)$. The argument is finitary;
 $\sigma$-completeness of the lattice is irrelevant.
 \end{proof}
 
-By the Takesaki normal/singular decomposition (lifted via Mackey--Gleason
-/ Bunce--Wright~\cite{BunceWright1992}, valid as $B(H)$ has no type
-$\mathrm{I}_2$ summand), the only states escaping
-Proposition~\ref{prop:lh} are the \emph{singular} ones ($s(e)=0$ for all
-finite-dimensional $e$; e.g.\ ultrafilter vector states, or pullbacks of
-Calkin-algebra states). These form a clean dichotomy with the normal
-states. So on the extension axis the sole survivors are the singular
-states of $L(H)$, treated in \S\ref{sec:first}. The genuine open
-problem lives on the descent axis (\S\ref{sec:problem}).
+Lift $s$ to a bounded functional via Mackey--Gleason /
+Bunce--Wright~\cite{BunceWright1992} (valid as $B(H)$ has no type
+$\mathrm{I}_2$ summand) and apply the Takesaki normal/singular
+decomposition $s = s_{\mathrm n} + s_{\mathrm{sing}}$. Any state with
+$s_{\mathrm n} \neq 0$ has $s(e)>0$ on some finite-dimensional $e$ and is
+killed by Proposition~\ref{prop:lh}; the only survivors are the
+\emph{purely singular} states ($s_{\mathrm n}=0$, equivalently $s(e)=0$ for
+all finite-dimensional $e$; e.g.\ ultrafilter vector states, or pullbacks
+of Calkin-algebra states). So on the extension axis the sole survivors are
+the purely singular states of $L(H)$, treated in \S\ref{sec:first}. The
+genuine open problem lives on the descent axis (\S\ref{sec:problem}).
 
 % ==================================================================
 \section{What is known}
@@ -412,9 +421,10 @@ $\sigma$-additive-point-free-native combination.)
 Two qualifications sharpen what is and is not ruled out. \emph{(i)~No
 impossibility theorem} covers the \emph{concrete} class: the known no-go
 results are finite or two-valued, and the one positive occupant
-$P(H)$$+$Gleason is \emph{non-concrete} (Kochen--Specker~\cite{KochenSpecker1967}:
-no separating two-valued states), so concreteness is the qualifier on which
-the open frontier turns. \emph{(ii)~The absence of a
+$L(H)$$+$Gleason is \emph{non-concrete} (Kochen--Specker~\cite{KochenSpecker1967},
+$\dim \geq 3$: $L(H)$ admits no two-valued states at all, a fortiori none
+order-determining), so concreteness is the qualifier on which the open
+frontier turns. \emph{(ii)~The absence of a
 $\sigma$-Loomis--Sikorski} is visible in the dualities themselves: both
 take infinite joins as a \emph{closure}, not a union (Cannon--D\"{o}ring
 $\mathrm{cls}(\bigcup S_i)$; McDonald--Bimb\'{o}
@@ -458,8 +468,10 @@ Gleason removes \textbf{(B)} but \emph{requires} \textbf{(A)} --- and is a
 \emph{representation} theorem, reducing every lattice state to the point
 datum $\rho$, the most point-ful result available. So $L(H)$/Gleason
 exhibits a \emph{separation} --- a $\sigma$-additive measure exists on the
-lattice while none concentrates on the dual points $P(A)$ --- not
-point-freeness, and cannot serve as the existence proof sought. Because it
+lattice, while (by Proposition~\ref{prop:lh}) no normal state even extends
+to a charge on $S_0(L(H))$, so a fortiori none concentrates on the dual
+points $P(A)$ --- not point-freeness, and it cannot serve as the existence
+proof sought. Because it
 cannot, the $\sigma$-OML representation above is the \emph{only} candidate
 engine; it would be an error to regard Gleason's theorem as already
 furnishing a relational, point-free probability.

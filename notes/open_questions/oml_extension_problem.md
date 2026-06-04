@@ -244,9 +244,36 @@ preserving σ-Stone duality. The literature settles this only for the
   non-concreteness obstruction is *absent* and the RDP argument blocks
   only one route.
 
-**Status of #2: OPEN, not impossible.** No impossibility theorem exists
-for the concrete-infinite-non-Boolean σ-OML class (verified: literature
-addresses it neither positively nor negatively). The contribution here
+**Status of #2: OPEN, not impossible. STRESS-TESTED 2026-06-04 (two
+hostile primary-source searches, both MISS — claim survives).** No
+impossibility theorem exists for the concrete-infinite-non-Boolean σ-OML
+class, and no σ-Loomis–Sikorski / countable-join-preserving σ-Stone
+duality exists. Both negative claims survived a deliberate attempt to
+overturn them:
+- *Impossibility half — MISS.* The only no-go results (Greechie 1971,
+  Voráček–Pták 2023 stateless OML, Tkadlec–Svozil two-valued
+  nonexistence) are FINITE or two-valued; none bites on a single state's
+  σ-additivity for the infinite class. Nothing stronger than
+  Pták–Pulmannová 1994 (supply of valuations) surfaced. *Sharpening:*
+  the positive side has exactly one occupant, P(H)+Gleason — which is
+  NON-concrete (Kochen–Specker: no separating two-valued states, so not
+  set-representable). So "concrete" is the load-bearing qualifier; the
+  open frontier is precisely concrete ∩ non-Boolean ∩ infinite ∩
+  σ-complete, and the closest concrete-σ literature (Navara–Pták
+  σ-classes) handles only two-valued states. BF01883240 ("Measures on
+  infinite-dim orthomodular spaces") classified: non-archimedean
+  generalized-power-series spaces, measures NOT separating — does not
+  supply a concrete separating σ-measure, does not overturn the MISS.
+- *Duality half — MISS, now from PRIMARY TEXT.* Confirmed directly in
+  the source PDFs that BOTH OML dualities take infinite joins as a
+  CLOSURE, not a set union: Cannon–Döring `⋁ᵢSᵢ = cls(⋃ᵢSᵢ)`,
+  McDonald–Bimbó join `= (⋃h(aₙ))^⊥⊥`. Neither mentions σ/countable/
+  Loomis/tribe. RDP route (forces Boolean), MacNeille route (Harding),
+  Freytes (equational only) all re-confirmed. *Overclaim guard:* do NOT
+  say "no non-Boolean σ-OML is set-representable" — Gudder concrete
+  logics are set-representable non-Boolean orthoposets; they are just
+  point-ful posets, not a σ-LS universality theorem.
+The contribution here
 is a *map of the dead routes* — RDP forces Boolean, MacNeille breaks
 orthomodularity, MB is finitary — which sharpens "needs a new idea"
 into "needs a representation that bypasses all three." The remaining
@@ -574,6 +601,33 @@ all finite-dim e; ultrafilter/Calkin states) escape the argument; they
 form a clean dichotomy with the normal states (Takesaki / Bunce-Wright).
 Whether a singular orthoadditive state extends is the open residue.
 
+**The singular discriminator is INFINITARY — settled 2026-06-04. Both
+branches gate on the σ-wall; there is no computational shortcut.** The
+prior handoff posed "settle finite-vs-countable first: does the singular
+extension obstruction get reached with finite or countable meet-zero
+families? — that decides whether branch (b) dodges the σ-wall." It is now
+settled, and the answer kills the optimistic reading. Per
+`verification/lh_singular_dichotomy.md` (103–107): for a singular state
+the relevant pairwise-meet-zero families are *infinite-dimensional*
+subspaces with trivial intersection (not lines), and the operative
+condition is **σ-additivity OF THE STATE** — countable, not finite. So:
+- The normal case was settleable precisely *because* it is finitary
+  (the clustering LP, `lh_infinite_extension.py`); σ-completeness was
+  irrelevant there.
+- The singular case loses finiteness by construction. Its operative
+  condition IS the σ-additivity condition, i.e. it IS the #2 statability
+  wall, not a precondition reachable before it.
+- **Therefore branch (b) does NOT dodge the σ-wall.** Both branches
+  ((a) chase the σ-OML duality; (b) attack the singular sliver) gate on
+  the same missing object: a σ-additive structure on a native
+  non-distributive OML with no finitary representation. The "more
+  tractable, self-contained" framing of (b) was too optimistic.
+- *Strategic payload of this session:* computation and literature are
+  exhausted (every `.py` is finitary because the finitary part is the
+  whole computable boundary; the residue has no LP to run). What remains
+  is purely non-computational — build the σ-duality and prove the
+  σ-additivity theorem. There is no shortcut around it on either branch.
+
 **Novelty:** The formulation via McDonald-Bimbó duality appears to be
 new; identifying the extension axis with classical Horn-Tarski/
 Pitowsky feasibility de-mystifies it. For L(H), Gleason gives the
@@ -584,8 +638,11 @@ state. Since extension fails there is no dual measure to descend, so
 the descent question does not arise for normal states on L(H).
 
 **Status:** Extension axis settled (finite; infinite L(H) resolved for
-normal states, singular case the open sliver). Descent axis open, three
-known routes blocked (RDP/MacNeille/σ-Stone), no impossibility theorem.
+normal states, singular case the open sliver — and its discriminator now
+shown INFINITARY, so both branches gate on the σ-wall: no computational
+shortcut, see the discriminator block above). Descent axis open, three
+known routes blocked (RDP/MacNeille/σ-Stone), no impossibility theorem
+(both negatives stress-tested 2026-06-04 against primary sources, MISS).
 **Novelty gate (2026-06-03/04): PASSED conditionally** — scout verdict
 PARTIALLY OCCUPIED; the point-free × σ-additive × native-non-distributive
 slot is genuinely unoccupied (Döring=finite, Bohrification/localic=

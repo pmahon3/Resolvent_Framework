@@ -36,9 +36,31 @@ concretes") are mutually contradictory. The second is the wrong one.
 The correct dividing line is NOT concrete vs non-concrete. It is a
 RICHNESS / atomicity condition: meet-zero = orthogonal holds iff every
 nonempty A∩B (A,B ∈ L) contains a nonzero member of L (sufficient:
-all singletons of P lie in L). This property has no established standard
-name in the primary literature (cousins: Jauch–Piron, Tkadlec "regional",
-"point-distinguishing" — all distinct). MO_2/MO_3 fail it.
+all singletons of P lie in L). MO_2/MO_3 fail it.
+
+NAMING (CORRECTED 2026-06-04, was wrong here). The earlier claim that
+this property "has no established standard name" is FALSE. The ABSTRACT
+condition `a∧b=0 ⟹ a⊥b` is named: Tkadlec calls such an OMP a "Boolean
+orthoposet" (Tkadlec, "Boolean orthoposets — concreteness and
+orthocompleteness," Math. Bohemica 119 (1994) 123–128; verbatim as cond.
+(3a) / Prop 1.5 in Tatra Mt. Math. Publ. 10 (1997) 55–62). In a concrete
+logic, `a⊥b ⟺ A∩B=∅` and `a∧b=0 ⟺` no nonzero L-member ⊆ A∩B, so the
+converse `a∧b=0 ⟹ a⊥b` is EXACTLY intersection-richness — i.e.
+intersection-richness is the *concrete face* of the Boolean-orthoposet
+condition. That specific concrete phrasing has no separate name; the
+abstract condition does.
+TERMINOLOGY TRAP: Tkadlec's "Boolean orthoposet" does NOT mean Boolean
+ALGEBRA (the note uses "Boolean" = Boolean algebra throughout, e.g.
+"OML+RDP⟺Boolean"). Keep "intersection-richness" as the working term;
+cite Tkadlec as the named abstract form, flagged ≠ Boolean algebra.
+CAVEAT (Tkadlec Ex. 2.3): MO_2/MO_3 also fail the strictly WEAKER
+"weakly Boolean" condition (`a∧b=a∧b'=0 ⟹ a=0`), so they do NOT
+discriminate Boolean from weakly-Boolean; use a different witness if a
+grade separation between the two is ever needed.
+The genuine cousins remain distinct: Jauch–Piron (about states),
+Tkadlec "regional"/"regular", "point-distinguishing" (separates points,
+Burešová–Pták 2401.13798 Def 2.1), set-representability (the ambient
+notion).
 
 Terminology trap: MO_3's famous NON-representability is von Neumann
 COORDINATIZATION (not a subspace lattice of a projective geometry) — a

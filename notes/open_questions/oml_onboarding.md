@@ -202,14 +202,16 @@ non-distributive × directed-system-built — is exactly the descent residue.
 of Bohrification and colimit-over-Boolean-contexts generation. Novelty
 would lie in the σ-additive-point-free-native combination.)
 
-**Remark 4.1 (Both standing negatives stress-tested, 2026-06-04).**
-(i) *No impossibility theorem* for the **concrete** class: known no-gos are
-finite/two-valued, and the one positive occupant P(H)+Gleason is
-*non-concrete* (Kochen–Specker) — so "concrete" is load-bearing. (ii) *No
-σ-Loomis–Sikorski*: both OML dualities take infinite joins as a *closure*
-not a union (Cannon–Döring `cls(⋃Sᵢ)`, MB `(⋃h(aₙ))^⊥⊥`). *Guard:* Gudder
-concrete logics ARE set-representable non-Boolean — but point-ful posets,
-not a σ-LS theorem.
+**Remark 4.1 (The boundary of the negative results).**
+(i) *No impossibility theorem* covers the **concrete** class: known no-gos
+are finite/two-valued, and the one positive occupant P(H)+Gleason is
+*non-concrete* (Kochen–Specker), so concreteness is the qualifier on which
+the open frontier turns. (ii) *The absence of a σ-Loomis–Sikorski* is
+visible in the dualities themselves: both take infinite joins as a
+*closure* not a union (Cannon–Döring `cls(⋃Sᵢ)`, MB `(⋃h(aₙ))^⊥⊥`). One
+should not overstate this: Gudder concrete logics ARE set-representable
+non-Boolean orthoposets — but as point-ful posets, not via a
+σ-Loomis–Sikorski theorem.
 
 ---
 

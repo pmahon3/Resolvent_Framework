@@ -1,7 +1,8 @@
 """
 Entry point #3 (concrete/non-concrete boundary) — REFUTATION.
 
-The note `oml_extension_problem.{md,tex}` claims:
+The (archived) note `archive/oml_extension_problem_superseded.{md,tex}`
+claimed:
 
   "For concrete (set-representable) OMLs the lattice meet is set
    intersection, so meet-zero coincides with orthogonality, and the

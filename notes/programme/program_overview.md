@@ -86,7 +86,10 @@ PR_lattice / PR_dual — that the Boolean case fuses; see below.)
   state extends to a charge on S₀(L(H)). So EA holds, PR_lattice holds,
   PR_dual fails. The earlier "EA and PR remain commensurable (Gleason)" line
   was the L(H) PR error, corrected in Paper II and the open-questions note.
-  See `notes/open_questions/oml_extension_problem.md` §"Two grades".
+  See `notes/archive/oml_extension_problem_superseded.md` §"Two grades"
+  (system of record for the two-grades vocabulary and the Paper II
+  correction; the problem statement itself is now the survey
+  `notes/open_questions/oml_onboarding.{tex,md}`).
 
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
@@ -252,7 +255,8 @@ Open directions — the extension boundary:
    governed by σ-additivity; σ-additivity governs only the *descent
    axis* (concentration on physical points). Boolean fuses them
    (extension free); OML separates them (extension is the open
-   problem). See `notes/open_questions/oml_extension_problem.md`.
+   problem). See the survey `notes/open_questions/oml_onboarding.{tex,md}`
+   (archived predecessor: `notes/archive/oml_extension_problem_superseded.md`).
 5. **Foundational topology / zeta** — speculative.
 
 ---

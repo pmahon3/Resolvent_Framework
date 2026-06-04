@@ -1,5 +1,14 @@
 # The Extension Problem for Orthomodular Observation Algebras
 
+> **SUPERSEDED (2026-06-04).** For posing and contextualizing the open
+> problem, see the standalone survey
+> `notes/open_questions/oml_onboarding.{tex,md}`, which replaces this
+> note's problem-statement function. This file is retained as the
+> **system of record** for content the survey deliberately omits: the
+> PR_lattice/PR_dual "two grades" vocabulary and the Paper II
+> PR-correction audit trail (see §"Two grades" / "PAPER II ERROR FIXED").
+> Do not extend this note; record new problem-statement work in the survey.
+
 ## Problem statement
 
 Let A be an orthomodular lattice with a state s : A → [0,1]

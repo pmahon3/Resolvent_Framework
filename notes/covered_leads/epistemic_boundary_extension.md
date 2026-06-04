@@ -5,7 +5,7 @@
 **Status:** PARKED. The three-way unification (Paper I / OML / κ_Q)
 FAILS — see Q0 verdict below. Productive residue (the two-axis
 correction to the OML problem) was extracted and applied to
-`notes/open_questions/oml_extension_problem` and Paper II. This note
+`notes/archive/oml_extension_problem_superseded` and Paper II. This note
 is retained as the end-to-end record of *why* the unification fails
 and how the two-axis distinction was found.
 
@@ -378,7 +378,7 @@ of a state on $A$ to a measure on $S_0(A)$ decomposes:
   is the classical Horn-Tarski/Pitowsky extension problem — meet-zero
   elements map to disjoint sets, so Σs(aᵢ)≤1 over pairwise-meet-zero
   families; a decidable LP, NOT the "Pták-Pulmannová frontier" as
-  first written here. See `open_questions/oml_extension_problem`.)
+  first written here. See `archive/oml_extension_problem_superseded`.)
   **σ-additivity does not help here.**
 - **(B) Compactness** — once (A) succeeds, the charge extends to a
   σ-additive Borel measure automatically (Stone space). Free.
@@ -432,7 +432,7 @@ is a sharpened statement of the OML extension problem itself:
 > full clopen Boolean algebra of $S_0(A)$ is the open problem, and
 > σ-additivity (wpfa) governs descent, not this extension.
 
-This correction belongs in `open_questions/oml_extension_problem`
+This correction belongs in `archive/oml_extension_problem_superseded`
 and is applied there. It does not depend on Q0.
 
 ## Audit history

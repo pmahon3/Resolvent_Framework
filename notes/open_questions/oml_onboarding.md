@@ -116,20 +116,13 @@ The headline question — *when does a state on an OML `A` extend to a
 independent axes** that the Boolean case fuses. Most of the problem is
 already settled; one residue is live.
 
-```
-  state s on OML A
-        │
-        ├── EXTENSION axis: does μ extend to a finitely additive
-        │   charge on the FULL Boolean clopen algebra of S₀(A)?
-        │   → governed by the meet-zero/orthogonal gap (§1a)
-        │   → SETTLED: classical Horn–Tarski/Pitowsky feasibility;
-        │     finite case = decidable LP; can fail for every state.
-        │
-        └── DESCENT axis: once extended, does the measure concentrate
-            on the physical points P(A)?
-            → governed by σ-additivity (needs the missing engine, §1d)
-            → OPEN. This is the residue.
-```
+A state `s` on `A` faces two independent axes:
+
+|             | **EXTENSION axis** | **DESCENT axis** |
+|-------------|--------------------|------------------|
+| **Question**    | Does μ extend to a finitely additive charge on the FULL Boolean clopen algebra of S₀(A)? | Once extended, does the measure concentrate on the physical points P(A)? |
+| **Governed by** | the meet-zero/orthogonal gap (§1a) | σ-additivity — needs the missing engine (§1d) |
+| **Status**      | **SETTLED**: Horn–Tarski/Pitowsky feasibility; finite case = decidable LP; can fail for every state. | **OPEN**. *This is the residue.* |
 
 Two sharp results pin down the extension axis so you don't re-fight it:
 
@@ -146,7 +139,7 @@ So on the extension axis the *only* survivors are the **singular states**
 of `L(H)` (`s(e)=0` on every finite-dim `e`) — see §4. The descent axis
 is where the real open problem lives — see §3.
 
-> **Checkpoint 2.** Draw the two-axis diagram from memory. Why is the
+> **Checkpoint 2.** Reproduce the two-axis table from memory. Why is the
 > extension axis "settled but partly degenerate"? Which states on `L(H)`
 > survive the clustering kill, and why does the kill not touch them?
 

@@ -7,8 +7,6 @@
 \usepackage{enumitem}
 \usepackage{booktabs}
 \usepackage{array}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta, positioning}
 \usepackage{caption}
 \usepackage{tcolorbox}
 \tcbuselibrary{breakable}
@@ -192,27 +190,28 @@ a $\sigma$-additive measure on $S_0(A)$?} (note, Question~2.6) --- splits
 into \textbf{two independent axes} that the Boolean case fuses. Most of
 the problem is already settled; one residue is live.
 
+A state $s$ on $A$ faces two independent axes:
+
 \begin{center}
-\begin{tikzpicture}[font=\footnotesize,
-    box/.style={draw, rounded corners, align=left, text width=11cm,
-                inner sep=2mm}]
-  \node (s) [draw, rounded corners, align=center] {state $s$ on OML $A$};
-  \node (ext) [box, below=9mm of s]
-    {\textbf{EXTENSION axis:} does $\mu$ extend to a finitely additive
-     charge on the \emph{full} Boolean clopen algebra of $S_0(A)$?\\[1mm]
-     $\rightarrow$ governed by the meet-zero/orthogonal gap (\S1a)\\
-     $\rightarrow$ \textbf{SETTLED}: Horn--Tarski / Pitowsky feasibility;
-     finite case $=$ decidable LP; can fail for every state.};
-  \node (desc) [box, below=5mm of ext]
-    {\textbf{DESCENT axis:} once extended, does the measure concentrate on
-     the physical points $P(A)$?\\[1mm]
-     $\rightarrow$ governed by $\sigma$-additivity (needs the missing
-     engine, \S1d)\\
-     $\rightarrow$ \textbf{OPEN}. This is the residue.};
-  % both axes branch independently from the state (not ext -> desc)
-  \draw[-{Latex}] (s) -- (ext.north);
-  \draw[-{Latex}] (s.west) -- ++(-0.7,0) |- (desc.west);
-\end{tikzpicture}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}p{2.3cm} p{5.3cm} p{5.3cm}@{}}
+\toprule
+ & \textbf{EXTENSION axis} & \textbf{DESCENT axis} \\
+\midrule
+\textbf{Question}
+  & Does $\mu$ extend to a finitely additive charge on the \emph{full}
+    Boolean clopen algebra of $S_0(A)$?
+  & Once extended, does the measure concentrate on the physical points
+    $P(A)$? \\
+\textbf{Governed by}
+  & the meet-zero/orthogonal gap (\S1a)
+  & $\sigma$-additivity --- needs the missing engine (\S1d) \\
+\textbf{Status}
+  & \textbf{SETTLED}: Horn--Tarski / Pitowsky feasibility; finite case
+    $=$ decidable LP; can fail for every state.
+  & \textbf{OPEN}. \emph{This is the residue.} \\
+\bottomrule
+\end{tabular}
 \end{center}
 
 \noindent Two sharp results pin down the extension axis so you don't
@@ -236,7 +235,7 @@ see \S\ref{sec:firstmove}. The descent axis is where the real open
 problem lives --- see \S\ref{sec:question}.
 
 \begin{checkpoint}[Checkpoint 2]
-Draw the two-axis diagram from memory. Why is the extension axis
+Reproduce the two-axis table from memory. Why is the extension axis
 ``settled but partly degenerate''? Which states on $L(H)$ survive the
 clustering kill, and why does the kill not touch them?
 \end{checkpoint}

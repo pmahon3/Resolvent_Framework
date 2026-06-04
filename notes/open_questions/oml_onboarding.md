@@ -9,12 +9,20 @@ governed by a single condition (countable additivity) and executed by
 classical machinery (Carathéodory; Loomis–Sikorski; Stone duality). On a
 *non-distributive* orthomodular lattice (OML) — the algebra of propositions
 of a quantum system — this machinery breaks, and the question of when
-finite coherence forces countable behaviour is open. This note surveys the
-problem at the level needed to begin work on it: the apparatus, the split
-into two independent axes (*extension* / *descent*), what is known and
-ruled out, and the one open residue — whether a concrete, non-Boolean,
-infinite σ-complete OML admits a Loomis–Sikorski-type representation. We
-close by setting out the two directions of attack.
+finite coherence forces countable behaviour is open. We survey the problem
+at the level needed to begin work on it. After fixing the apparatus
+(orthomodular lattices, the gap between orthogonality and meet-zero, the
+state/meet-additive/charge ladder, the McDonald–Bimbó dual space), we
+separate the question into two axes. The *extension* axis is classical
+(Horn–Tarski feasibility), settled but for a single residual case —
+singular states on `L(H)`; the *descent* axis is genuinely open and rests
+on a representation that does not exist: a Loomis–Sikorski theorem for
+σ-complete OMLs. The stake is more than technical: such a representation
+would furnish a *point-free*, σ-additive probability theory on a
+non-distributive lattice — the non-Boolean analogue of localic measure
+theory — built from the entailment relation rather than descended from a
+sample space. We review what is known and what is ruled out, and close with
+the two directions in which the open problem might be approached.
 
 ---
 
@@ -35,8 +43,9 @@ OMLs no analogue is known.
 
 This note asks the shared question — *when does finite coherence force
 countable behaviour?* — in the OML setting. Our organising observation: the
-question splits into two independent axes, one classical and settled, the
-other genuinely open.
+question splits into two axes that the Boolean case fuses — an *extension*
+axis, classical and settled but for one residual case, and a *descent* axis
+that is genuinely open.
 
 **The relational standpoint.** Following "structure from observation"
 (Paper I): begin with propositions and their entailment order, not a space
@@ -163,6 +172,12 @@ of `L(H)` (§6). The genuine open problem lives on the descent axis (§5).
 ---
 
 ## 4. What is known
+
+The extension axis is settled apart from the singular case of §6; the
+descent axis turns on whether the Boolean engine of §2.4 has an OML
+analogue. We survey what the literature supplies on that question — the
+Boolean benchmark it would have to match, the partial OML results, and the
+routes already known to be blocked.
 
 **4.1 Boolean benchmark.** Kelley–Vladimirov–Pták (Fremlin Thm 391D): a
 Boolean algebra carries a strictly positive σ-additive measure iff Dedekind

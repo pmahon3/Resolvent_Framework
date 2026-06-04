@@ -332,14 +332,99 @@ not rigorously *statable* (MB duality finitary, no σ-Loomis-Sikorski). So:
 
 If such a witness exists, PR_dual becomes a genuine third grade (clearing
 the "new vocabulary" three-statements bar). Until then PR_lattice/PR_dual
-is **honest bookkeeping** — a real strict stratification (#1), but with the
-descent half not yet shown independent of extension. NOT claimed as a new
-theorem.
+is **honest bookkeeping** — a witnessed one-directional SEPARATION (#1, not
+a proven nesting), with the descent half not yet shown independent of
+extension. NOT claimed as a new theorem.
 
 **Paper II integration is the user's pending call.** Whether to fold the
 two-grade vocabulary into Paper II's Commensurability theorem (vs. simply
 flipping the L(H) row to "PR fails for normal states") is a
 mathematical-architecture decision, not resolved here.
+
+## What's at stake: relational probability without realizations (2026-06-03)
+
+The descent residue (#2) has a motivation beyond technical completeness.
+Paper I's finding: *realization* — which points are "real" — is structure
+ADDED to a coherent assignment, not forced by it. In the McDonald-Bimbó
+setting, realization = concentration on the dual points P(A) ⊆ S₀(A). A
+σ-additive probability on a non-distributive OML that does NOT pass through
+such concentration would be probability built from the entailment relation
+alone — **relational, point-free probability**, the non-Boolean analogue of
+the localic (pointless) measures distributivity already permits. This is
+the real stake of branch (a) (the σ-OML duality): it is the *engine* for
+relational probability without realizations.
+
+**TWO POINT-SPACES — do not equivocate (caught 2026-06-03, advisor).**
+"Realization" and "point-free" slide between two different point-spaces:
+- **(A)** the rays/vectors of H — L(H) and the Gleason density ρ in
+  s = tr(ρ·) are *built from these*.
+- **(B)** the MB dual filters P(A) ⊆ S₀(A) — what #1 shows the measure
+  fails to concentrate on.
+
+The programme DEFINES realization = concentration on P(A) = **(B)**. But
+"no sample space / point-free" means no **(A)**. The L(H) separation
+(PR_lattice holds via Gleason, PR_dual fails by #1) shows a lattice measure
+need not descend to the **(B)** points — but it does NOT exhibit
+point-freeness: Gleason removes (B) while resting ENTIRELY on (A), and is
+in fact a *representation* theorem (every lattice state reduces to the point
+datum ρ). So **L(H)/Gleason witnesses the SEPARATION, not point-freeness,
+and cannot be the existence proof.** Do NOT write "for L(H) we already
+built relational probability without realizations; Gleason is the existence
+theorem" — it is backwards. The honest claim: the point-free witness must be
+BUILT (residue #2), and since L(H)/Gleason does not supply it, #2 is the
+*only* candidate engine — which strengthens, not weakens, the case for (a).
+(Written into the .tex §"What is at stake".) See
+`~/.claude/.../memory/oml_two_point_spaces.md`.
+
+## Prior art and novelty verdict (literature scout 2026-06-03/04)
+
+**Verdict: PARTIALLY OCCUPIED — the precise slot is open.** Every existing
+point-free / directed-context construction of quantum probability gives up
+exactly one of the three needed properties, landing on one side of the
+σ-additivity-on-a-non-distributive-structure line:
+
+- **Gleason tradition** (Varadarajan, Kalmbach, Pták-Pulmannová): σ-additive
+  on a non-distributive OML, but real-valued on a FIXED lattice — not
+  point-free, not directed-system-built.
+- **Döring 2009** ("Quantum States and Measures on the Spectral Presheaf",
+  arXiv:0809.4847): point-free measures over the directed poset of abelian
+  subalgebras — but provably only FINITELY ADDITIVE (linearity of the
+  state), on the distributive Heyting algebra of clopen subobjects.
+- **Heunen-Landsman-Spitters / Bohrification** (CMP 2009, arXiv:0709.4364;
+  "Bohrification" 2011): point-free quantum probability over the directed
+  poset of commutative subalgebras. **VERIFIED 2026-06-04 (read in full):
+  their internal valuation IS σ-additive** — a *continuous* (Scott-
+  continuous) valuation, μ(⋁↑Uᵢ)=⋁μ(Uᵢ) on directed families (Def 11 /
+  Def 6.11). But it factors through an internally DISTRIBUTIVE locale;
+  externally σ-additive only PER countably complete Boolean sublattice of
+  Proj(A), glued over contexts. Non-distributivity tamed by retreat to
+  commutative contexts, not carried natively. (Earlier guess "HLS might be
+  finite" was WRONG — flipped on reading. So the distinction is NOT
+  "σ vs finite"; it is distributive-detour vs native-non-distributive.)
+- **Localic valuations** (Vickers, Simpson, Coquand-Spitters): point-free
+  σ-additive (Scott-continuous), but valuations are defined on FRAMES,
+  distributive by definition; no orthomodular analogue exists.
+- **OML Stone dualities**: TWO finitary ones — McDonald-Bimbó (filter
+  spectrum, used here) and Cannon-Döring 2013/2018 (spectral presheaf).
+  Both PURELY STRUCTURAL; neither carries a measure on the non-distributive
+  dual, neither has a σ-version. (MB chosen over Cannon-Döring because it
+  carries P(A) explicitly = the realization datum.)
+- Also confirmed: **Abramsky-Brandenburger is finitary** (X,O finite),
+  does not see σ-additivity — prior claim verified.
+
+**The unoccupied conjunction (= the descent residue):** point-free ×
+σ-additive × NATIVELY non-distributive OML × directed observation system ×
+realization (P(A)) as separable structure. Döring gives up σ-additivity;
+Bohrification/localic give up native non-distributivity; Gleason gives up
+point-freeness. **Novel atom:** the σ-OML representation itself + the
+collective-exhaustion extension mechanism delivering σ-additivity
+point-free where Döring reaches only finite. The
+directed-context→non-distributivity IDEA on its own is NOT new (it is the
+shape of Bohrification, and of Gunji et al. 2026 colimit-over-Boolean
+generation of OMLs). Novelty gate PASSED conditionally: the slot is open,
+but the contribution IS building the σ-duality + proving the theorem — not
+the framing. Full record:
+`~/.claude/.../memory/oml_relational_prob_novelty.md`.
 
 ## Connections
 
@@ -352,6 +437,14 @@ mathematical-architecture decision, not resolved here.
 - **Bub-Clifton 1996:** uniqueness of definite-value subalgebra
 - **Döring-Isham 2008:** topos approach; spectral presheaf; 
   states ↔ measures on presheaf
+- **Döring 2009 (arXiv:0809.4847):** measures on the spectral presheaf —
+  point-free over directed contexts but FINITELY ADDITIVE; closest rival
+- **Heunen-Landsman-Spitters 2009/2011 (Bohrification):** point-free
+  σ-additive (Scott-continuous) quantum probability, but via an internally
+  DISTRIBUTIVE locale / per-Boolean-context; the canonical occupant of the
+  adjacent slot
+- **Cannon-Döring 2013/2018:** rival OML Stone duality (spectral presheaf);
+  purely structural, no measure on the dual
 - **Derr-Williamson 2023:** pre-Dynkin systems; coherent partial
   probabilities; related but different generalization (partial
   precision on Boolean algebra vs full precision on non-Boolean)
@@ -493,4 +586,10 @@ the descent question does not arise for normal states on L(H).
 **Status:** Extension axis settled (finite; infinite L(H) resolved for
 normal states, singular case the open sliver). Descent axis open, three
 known routes blocked (RDP/MacNeille/σ-Stone), no impossibility theorem.
-Not a current active lead.
+**Novelty gate (2026-06-03/04): PASSED conditionally** — scout verdict
+PARTIALLY OCCUPIED; the point-free × σ-additive × native-non-distributive
+slot is genuinely unoccupied (Döring=finite, Bohrification/localic=
+distributive, Gleason=not-point-free), but the contribution IS building
+the σ-OML duality + σ-additivity theorem, not the framing. Reframed as
+the engine for "relational probability without realizations."
+Not a current active lead; the bar-clearing work is mathematical (user's).

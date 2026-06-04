@@ -71,13 +71,22 @@ measure lives:
 - **Value-Definite Realism (VDR):** a global 2-valued homomorphism on the
   observation algebra — every observable simultaneously has a definite value.
 
-These are nested: VDR ⟹ PR ⟹ EA.
+These are nested: VDR ⟹ PR ⟹ EA. (PR itself splits into two grades —
+PR_lattice / PR_dual — that the Boolean case fuses; see below.)
 
 **The commensurability theorem (Theorem 4):**
 - *Boolean case:* all three positions are commensurable. Every EA-theory
   admits a VDR-completion (via ultrafilters). The realisation is unconstrained.
-- *OML case (dim ≥ 3):* EA and PR remain commensurable (Gleason), but VDR
-  is blocked (Kochen–Specker). Partial VDR is context-dependent (Bub–Clifton).
+- *OML case (dim ≥ 3) — CORRECTED 2026-06-03:* VDR is blocked
+  (Kochen–Specker); partial VDR is context-dependent (Bub–Clifton). PR does
+  NOT stay simply commensurable with EA: it splits. PR_lattice (σ-additive
+  measure on the lattice) holds for L(H) via Gleason; but **PR_dual**
+  (descent to a measure on the dual S₀(L(H)) concentrating on P(A)) **FAILS
+  for every normal state** — the clustering argument (#1) shows no normal
+  state extends to a charge on S₀(L(H)). So EA holds, PR_lattice holds,
+  PR_dual fails. The earlier "EA and PR remain commensurable (Gleason)" line
+  was the L(H) PR error, corrected in Paper II and the open-questions note.
+  See `notes/open_questions/oml_extension_problem.md` §"Two grades".
 
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),

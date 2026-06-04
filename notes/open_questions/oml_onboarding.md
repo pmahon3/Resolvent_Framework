@@ -14,7 +14,7 @@ problem at the level needed to begin work on it: the apparatus, the split
 into two independent axes (*extension* / *descent*), what is known and
 ruled out, and the one open residue — whether a concrete, non-Boolean,
 infinite σ-complete OML admits a Loomis–Sikorski-type representation. We
-close with the first concrete move.
+close by setting out the two directions of attack.
 
 ---
 
@@ -253,38 +253,48 @@ point-free probability.
 
 ---
 
-## 6. The first concrete move
+## 6. Directions
 
-Two branches lead toward the open problem, and they share one wall.
-- **(a) The deep unlock** — build the Loomis–Sikorski-type /
-  countable-join-preserving σ-Stone duality for a concrete non-Boolean
-  infinite σ-OML, or prove none exists. High ceiling, no current foothold.
-- **(b) The tractable special case** — the singular sliver: does a
-  *singular* orthoadditive state on `L(H)` extend to a charge on
-  `S₀(L(H))`? Concrete operator-algebra question (Calkin, Bunce–Wright,
-  Takesaki), *conditionally* self-contained.
+Two lines of attack present themselves, both bounded by the same
+finitary-to-σ obstruction.
+- **The general construction** — construct a Loomis–Sikorski-type
+  representation, or a countable-join-preserving σ-Stone duality, for a
+  concrete non-Boolean infinite σ-OML, or prove none exists. This resolves
+  the open problem directly, but no partial construction is currently in
+  hand.
+- **The singular case for L(H)** — determine whether a *singular*
+  orthoadditive state on `L(H)` extends to a charge on `S₀(L(H))`: a
+  question about one specific lattice, accessible to operator-algebraic
+  methods (Calkin, Bunce–Wright, Takesaki), and conditionally
+  self-contained (subject to the finite-versus-countable question below).
 
-**Attack (b) first** — informative either way. If a singular state fails to
-extend, then *no* state on `L(H)` extends; the singular sliver is the only
-candidate witness for descent doing work independent of extension, so its
-failure would settle that question negatively. If one *does* extend, it is
-the first concrete object that extends but may fail to concentrate —
-handing branch (a) its motivating example.
+The singular case is the more tractable entry point, and it is informative
+whichever way it resolves. If a singular state fails to extend, then by the
+dichotomy following Prop 3.2 *no* state on `L(H)` extends; since the
+singular states are the only remaining candidates for a state whose descent
+behaviour is independent of extension, this would settle that subsidiary
+question negatively. If a singular state does extend, it is the first
+explicit example of a state that extends but may fail to concentrate on
+`P(A)` — the motivating example the general construction lacks.
 
-> **Open Problem (the hinge that gates (b) — settle this first).** Is the
-> singular-extension obstruction reached with a **finite** or a
-> **countable** meet-zero family?
+Whether the singular case is genuinely more tractable, however, turns on a
+prior question.
 
-This is **open**, and it decides whether (b) is genuinely the easier
-branch. Prop 3.2 is finitary (lines in a 2-plane) and dodges the
-descent-axis wall. For singular states the relevant pairwise-meet-zero
-families are *infinite-dimensional* subspaces with trivial intersection, so
-that *line*-clustering route is vacuous (`s(e)=0` on all finite-dimensional `e`).
-But **"the line route is vacuous" is NOT "the obstruction is countable"**: a
-*finite* family of infinite-dimensional pairwise-meet-zero subspaces with
-`Σ s(aᵢ) > 1` is **unanalysed**. If such a finite obstruction exists, (b)
-is a self-contained operator-algebra problem to settle ahead of (a); if
-only countable, (b) is entangled with the same finitary-to-σ bridge as (a).
-The concrete object to examine is a finite family of infinite-dimensional,
-pairwise-trivially-intersecting subspaces of `H`, and whether
-orthoadditivity of a singular state forces `Σᵢ s(aᵢ) > 1` on it.
+> **Open Problem (finite versus countable).** Is the obstruction to
+> extending a singular state on `L(H)` realised by a **finite** or only by
+> a **countable** pairwise-meet-zero family?
+
+Prop 3.2 is finitary — it uses finitely many lines in a single 2-plane —
+which is why it avoids the descent-axis obstruction entirely. For singular
+states the relevant pairwise-meet-zero families are infinite-dimensional
+subspaces with trivial intersection, and the line argument is vacuous there
+(`s(e)=0` on every finite-dimensional `e`). That the line argument is
+vacuous does not, however, imply that the obstruction requires a countable
+family: whether a *finite* family of infinite-dimensional pairwise-meet-zero
+subspaces can force `Σᵢ s(aᵢ) > 1` is unsettled. If such a finite
+obstruction exists, the singular case is a self-contained operator-algebraic
+problem, separable from the general construction; if only a countable family
+obstructs, it is governed by the same finitary-to-σ passage as the general
+case. The question reduces, concretely, to whether orthoadditivity of a
+singular state forces `Σᵢ s(aᵢ) > 1` on some finite family of
+infinite-dimensional, pairwise-trivially-intersecting subspaces of `H`.

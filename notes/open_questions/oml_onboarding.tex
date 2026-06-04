@@ -53,7 +53,7 @@ space), separate the question into two independent axes --- \emph{extension}
 and \emph{descent} --- review what is known and what is ruled out, and
 isolate the one residue that remains genuinely open: whether a concrete,
 non-Boolean, infinite $\sigma$-complete OML admits a Loomis--Sikorski-type
-representation. We close with the first concrete move.
+representation. We close by setting out the two directions of attack.
 \end{abstract}
 
 % ==================================================================
@@ -310,7 +310,7 @@ Proposition~\ref{prop:lh} are the \emph{singular} ones ($s(e)=0$ for all
 finite-dimensional $e$; e.g.\ ultrafilter vector states, or pullbacks of
 Calkin-algebra states). These form a clean dichotomy with the normal
 states. So on the extension axis the sole survivors are the singular
-states of $L(H)$ --- the sliver of \S\ref{sec:first}. The genuine open
+states of $L(H)$, treated in \S\ref{sec:first}. The genuine open
 problem lives on the descent axis (\S\ref{sec:problem}).
 
 % ==================================================================
@@ -459,52 +459,61 @@ furnishing a relational, point-free probability.
 \end{remark}
 
 % ==================================================================
-\section{The first concrete move}
+\section{Directions}
 \label{sec:first}
 % ==================================================================
 
-Two branches lead toward the open problem, and they share one wall.
+Two lines of attack present themselves, both bounded by the same
+finitary-to-$\sigma$ obstruction.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
-    labelwidth=2.6cm, leftmargin=3cm]
-  \item[(a)~The deep unlock]
-    Build the Loomis--Sikorski-type / countable-join-preserving
-    $\sigma$-Stone duality for a concrete non-Boolean infinite
-    $\sigma$-OML, or prove none exists. High ceiling, no current foothold.
-  \item[(b)~The tractable special case]
-    The singular sliver: does a \emph{singular} orthoadditive state on
-    $L(H)$ extend to a charge on $S_0(L(H))$? A concrete operator-algebra
-    question (Calkin, Bunce--Wright, Takesaki), \emph{conditionally}
-    self-contained.
+    labelwidth=3.4cm, leftmargin=3.8cm]
+  \item[The general construction]
+    Construct a Loomis--Sikorski-type representation, or a
+    countable-join-preserving $\sigma$-Stone duality, for a concrete
+    non-Boolean infinite $\sigma$-OML --- or prove that none exists. This
+    resolves the open problem directly, but no partial construction is
+    currently in hand.
+  \item[The singular case for $L(H)$]
+    Determine whether a \emph{singular} orthoadditive state on $L(H)$
+    extends to a charge on $S_0(L(H))$ --- a question about one specific
+    lattice, accessible to operator-algebraic methods (Calkin,
+    Bunce--Wright, Takesaki), and conditionally self-contained (subject to
+    the finite-versus-countable question below).
 \end{description}
 
-\noindent\textbf{Attack (b) first} --- it is informative either way. If a
-singular state fails to extend, then \emph{no} state on $L(H)$ extends; the
-singular sliver is the only candidate witness for descent doing work
-independent of extension, so its failure would settle that question
-negatively. If a singular state \emph{does} extend, it is the first
-concrete object that extends but may fail to concentrate, handing
-branch~(a) its motivating example.
+\noindent The singular case is the more tractable entry point, and it is
+informative whichever way it resolves. If a singular state fails to extend,
+then by the dichotomy following Proposition~\ref{prop:lh} \emph{no} state on
+$L(H)$ extends; since the singular states are the only remaining candidates
+for a state whose descent behaviour is independent of extension, this would
+settle that subsidiary question negatively. If a singular state does extend,
+it is the first explicit example of a state that extends but may fail to
+concentrate on $P(A)$ --- the motivating example the general construction
+lacks.
 
-\begin{problem}[The hinge that gates (b) --- settle this first]
-Is the singular-extension obstruction reached with a \emph{finite} or a
-\emph{countable} meet-zero family?
+Whether the singular case is genuinely more tractable, however, turns on a
+prior question.
+
+\begin{problem}[Finite versus countable]
+Is the obstruction to extending a singular state on $L(H)$ realised by a
+\emph{finite} or only by a \emph{countable} pairwise-meet-zero family?
 \end{problem}
 
-\noindent This is \textbf{open}, and it decides whether (b) is genuinely
-the easier branch. Proposition~\ref{prop:lh} is finitary (lines in a
-$2$-plane) and so dodges the descent-axis wall. For singular states the
-relevant pairwise-meet-zero families are \emph{infinite-dimensional}
-subspaces with trivial intersection, so that \emph{line}-clustering route
-is vacuous ($s(e)=0$ on all finite-dimensional $e$). But ``the line route is
-vacuous'' is \emph{not} ``the obstruction is countable'': a \emph{finite}
-family of infinite-dimensional pairwise-meet-zero subspaces with
-$\sum_i s(a_i) > 1$ is unanalysed. If such a finite obstruction exists, (b)
-is a self-contained operator-algebra problem to settle ahead of (a); if
-only a countable family obstructs, (b) is entangled with the same
-finitary-to-$\sigma$ bridge as (a). The concrete object to examine is a
-finite family of infinite-dimensional, pairwise-trivially-intersecting
-subspaces of $H$, and whether orthoadditivity of a singular state forces
-$\sum_i s(a_i) > 1$ on it.
+\noindent Proposition~\ref{prop:lh} is finitary --- it uses finitely many
+lines in a single $2$-plane --- which is why it avoids the descent-axis
+obstruction entirely. For singular states the relevant pairwise-meet-zero
+families are infinite-dimensional subspaces with trivial intersection, and
+the line argument is vacuous there ($s(e)=0$ on every finite-dimensional
+$e$). That the line argument is vacuous does not, however, imply that the
+obstruction requires a countable family: whether a \emph{finite} family of
+infinite-dimensional, pairwise-meet-zero subspaces can force
+$\sum_i s(a_i) > 1$ is unsettled. If such a finite obstruction exists, the
+singular case is a self-contained operator-algebraic problem, separable
+from the general construction; if only a countable family obstructs, it is
+governed by the same finitary-to-$\sigma$ passage as the general case. The
+question therefore reduces, concretely, to whether orthoadditivity of a
+singular state forces $\sum_i s(a_i) > 1$ on some finite family of
+infinite-dimensional, pairwise-trivially-intersecting subspaces of $H$.
 
 \bibliographystyle{plain}
 \bibliography{references_oml}

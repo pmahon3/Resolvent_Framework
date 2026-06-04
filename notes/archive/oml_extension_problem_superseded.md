@@ -1,13 +1,15 @@
 # The Extension Problem for Orthomodular Observation Algebras
 
-> **SUPERSEDED (2026-06-04).** For posing and contextualizing the open
-> problem, see the standalone survey
-> `notes/open_questions/oml_onboarding.{tex,md}`, which replaces this
-> note's problem-statement function. This file is retained as the
-> **system of record** for content the survey deliberately omits: the
-> PR_lattice/PR_dual "two grades" vocabulary and the Paper II
-> PR-correction audit trail (see §"Two grades" / "PAPER II ERROR FIXED").
-> Do not extend this note; record new problem-statement work in the survey.
+> **SUPERSEDED (2026-06-04) — fully archived, not a live record.**
+> Its two functions have been split out:
+> - **Problem statement / context** → the standalone survey
+>   `notes/open_questions/oml_onboarding.{tex,md}`.
+> - **PR_lattice/PR_dual "two grades" overlay + the pending Paper II
+>   decision** → `papers/paper_ii/two_grades_of_pr.md`.
+>
+> This file is retained only as the historical audit trail (the full
+> derivation and the already-applied Paper II PR-correction narrative).
+> Do not extend it or cite it as the live source; use the two notes above.
 
 ## Problem statement
 

@@ -111,8 +111,11 @@ the realisation datum (canonical here, unlike the Boolean pure points).
 **Remark 2.10 (The duality is finitary — the wall).** `h(⋁ₙ aₙ) =
 (⋃ₙ h(aₙ))^⊥⊥` holds for *finite* joins, fails for countable — finitary
 OML homs need not preserve infinite suprema. This is the wall the open
-problem runs into. Cannon–Döring is also finitary, no measure; MB chosen
-for carrying `P(A)` explicitly.
+problem runs into. (It is a *countable*-join phenomenon, not specific to
+joins: since `a ↦ a^⊥` is an order anti-isomorphism, `⋀ₙ aₙ = (⋁ₙ aₙ^⊥)^⊥`,
+so the failure to preserve countable meets is its De Morgan dual — the wall
+obstructs countable meets and joins together.) Cannon–Döring is also
+finitary, no measure; MB chosen for carrying `P(A)` explicitly.
 
 ### 2.4 The Boolean engine: Loomis–Sikorski
 

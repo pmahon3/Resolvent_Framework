@@ -55,9 +55,7 @@ space), separate the question into two independent axes --- \emph{extension}
 and \emph{descent} --- review what is known and what is ruled out, and
 isolate the one residue that remains genuinely open: whether a concrete,
 non-Boolean, infinite $\sigma$-complete OML admits a Loomis--Sikorski-type
-representation. We close with the first concrete move. This note is a guide
-to the companion research note \cite{mahonOMLnote}; the underlying
-verification scripts are referenced where claims are checked.
+representation. We close with the first concrete move.
 \end{abstract}
 
 % ==================================================================
@@ -86,12 +84,10 @@ rigidity theorem~\cite{Gleason1957}, but Hilbert space is special: for
 general OMLs no analogue is known.
 
 This note asks the shared question --- \emph{when does finite coherence
-force countable behaviour?} --- in the OML setting, and surveys it to the
-point where one can begin work. The contribution of the companion
-note~\cite{mahonOMLnote} is largely a clarification: the question, vague as
-usually posed, splits into two independent axes, one of which turns out to
-be classical and settled, the other genuinely open. The survey here is
-organised around that split.
+force countable behaviour?} --- in the OML setting. Our organising
+observation is that the question, vague as usually posed, splits into two
+independent axes: one turns out to be classical and settled, the other
+genuinely open. The survey is built around that split.
 
 \paragraph{The relational standpoint.} We work in the spirit of the
 ``structure from observation'' programme~\cite{mahon2025}: rather than
@@ -112,8 +108,6 @@ theory (\S\ref{sec:problem}).
 
 We collect the lattice-theoretic apparatus. All notions are standard
 except \emph{valuation}, where we adopt a local convention flagged below.
-The elementary laws are exactly those verified for $\mathrm{MO}_3$ in the
-companion scripts (\texttt{verification/mo3\_extension.py}).
 
 \subsection{Orthomodular lattices, and the orthogonal/meet-zero gap}
 \label{sec:oml}
@@ -180,8 +174,7 @@ is not concreteness but a richness/atomicity condition (meet-zero
 coincides with orthogonality iff every nonempty $A \cap B$ contains a
 nonzero $L$-member); the abstract form $a \wedge b = 0 \Rightarrow a \perp
 b$ is Tkadlec's \emph{Boolean orthoposet} condition (which does
-\emph{not} mean Boolean \emph{algebra}). Verified:
-\texttt{verification/concrete\_meetzero\_vs\_orthogonal.py}.
+\emph{not} mean Boolean \emph{algebra}).
 \end{remark}
 
 \subsection{The state/valuation/charge ladder}
@@ -210,7 +203,7 @@ On $\mathrm{MO}_3$ with complementary pairs $(p,p^\perp),(q,q^\perp),
 (r,r^\perp)$, the maximally mixed $s \equiv \tfrac12$ is a valuation
 (clears~(2)) yet fails~(3) at $\{p,q,r\}$:
 $\tfrac12+\tfrac12+\tfrac12 = \tfrac32 > 1$. So no state on
-$\mathrm{MO}_3$ is charge-extendible. \emph{(\texttt{mo3\_extension.py}.)}
+$\mathrm{MO}_3$ is charge-extendible.
 \end{example}
 
 \subsection{The McDonald--Bimb\'{o} dual space}
@@ -237,8 +230,7 @@ homomorphisms need not preserve infinite suprema. This finitariness is the
 wall the open problem of \S\ref{sec:problem} runs into. The rival OML
 duality of Cannon--D\"{o}ring~\cite{Cannon2013} is also finitary and
 carries no measure; we use McDonald--Bimb\'{o} because it carries $P(A)$ as
-explicit structure. Verified against the primary source:
-\texttt{verification/mb\_primeness\_check.md}.
+explicit structure.
 \end{remark}
 
 \subsection{The Boolean engine: Loomis--Sikorski}
@@ -249,9 +241,8 @@ In the Boolean case, the descent argument
 physical points'') runs on a \emph{Loomis--Sikorski} representation: a
 $\sigma$-complete Boolean algebra is a $\sigma$-tribe of sets modulo a
 $\sigma$-ideal. There is \emph{no} OML analogue, and supplying one --- or
-proving none exists --- is the open problem of \S\ref{sec:problem}. The
-slogan: the Boolean proof has an engine; the OML proof needs one and does
-not have it.
+proving none exists --- is the open problem of \S\ref{sec:problem}: the
+Boolean proof has an engine; the OML proof needs one and does not have it.
 
 % ==================================================================
 \section{Two axes: extension and descent}
@@ -309,15 +300,13 @@ to disjoint clopens and orthoadditivity forces
 $\sum_i [s(p_i)+s(p_i^\perp)] = k\,s(e) \leq 1$ for every $k$. If
 $s(e)>0$, take $k > 1/s(e)$. The argument is finitary;
 $\sigma$-completeness of the lattice is irrelevant.
-(\texttt{verification/lh\_infinite\_extension.py};
-\texttt{lh\_singular\_dichotomy.md}.)
 \end{proof}
 
 By the Takesaki normal/singular decomposition (lifted via Mackey--Gleason
 / Bunce--Wright~\cite{BunceWright1992}, valid as $B(H)$ has no type
 $\mathrm{I}_2$ summand), the only states escaping
 Proposition~\ref{prop:lh} are the \emph{singular} ones ($s(e)=0$ for all
-finite-dim $e$; e.g.\ ultrafilter vector states, or pullbacks of
+finite-dimensional $e$; e.g.\ ultrafilter vector states, or pullbacks of
 Calkin-algebra states). These form a clean dichotomy with the normal
 states. So on the extension axis the sole survivors are the singular
 states of $L(H)$ --- the sliver of \S\ref{sec:first}. The genuine open
@@ -327,6 +316,12 @@ problem lives on the descent axis (\S\ref{sec:problem}).
 \section{What is known}
 \label{sec:known}
 % ==================================================================
+
+The extension axis is settled; the descent axis turns on whether the
+Boolean engine of \S\ref{sec:ls} has an OML analogue. We survey what the
+literature supplies on that question --- the Boolean benchmark it would
+have to match, the partial OML results, and the routes already known to be
+blocked.
 
 \subsection{The Boolean benchmark}
 In the Boolean case the Kelley--Vladimirov--Pt\'{a}k characterisation
@@ -432,15 +427,15 @@ $\sigma$-ideal), or a countable-join-preserving $\sigma$-Stone duality
 \end{problem}
 
 \noindent A positive answer is the engine for \emph{relational probability
-without realizations}: $\sigma$-additive probability built from the
+without realisations}: $\sigma$-additive probability built from the
 entailment relation of a non-distributive OML, not descended from any
 sample space --- the non-Boolean analogue of localic (pointless) measure
 theory. A negative answer (an impossibility theorem) closes the whole
-cluster, including both residues, at once. The outcome is binary and
-large. No impossibility theorem is known for the live class
-(Remark~\ref{rem:miss}); all three constructive routes are blocked
-(\S\ref{sec:routes}). The contribution sharpens ``needs a new idea'' to
-``needs a representation bypassing all three blocked routes.''
+cluster, including both residues, at once. Either way the outcome is
+decisive: no impossibility theorem is known for the live class
+(Remark~\ref{rem:miss}), and all three constructive routes are blocked
+(\S\ref{sec:routes}), so the state of the art is not ``needs a new idea''
+but ``needs a representation bypassing all three blocked routes.''
 
 \begin{remark}[Why $L(H)$+Gleason does \emph{not} already settle this ---
 the (A)/(B) point-space equivocation]\label{rem:AB}
@@ -449,7 +444,7 @@ The motivating idea (``probability from relations, point-free'') may
 genuine equivocation between two point-spaces. \textbf{(A)} the Hilbert
 rays of $H$, from which the Gleason density $\rho$ in $s = \tr(\rho\,\cdot)$
 is built; \textbf{(B)} the McDonald--Bimb\'{o} dual filters $P(A)$. The
-programme defines \emph{realization} as concentration on \textbf{(B)}.
+programme defines \emph{realisation} as concentration on \textbf{(B)}.
 Gleason removes \textbf{(B)} but \emph{requires} \textbf{(A)} --- and is a
 \emph{representation} theorem, reducing every lattice state to the point
 datum $\rho$, the most point-ful result available. So $L(H)$/Gleason
@@ -457,8 +452,8 @@ witnesses the $\PRlat / \PRdual$ \emph{separation} (a $\sigma$-additive
 measure exists on the lattice while none concentrates on $P(A)$), not
 point-freeness, and cannot serve as the existence proof sought. Because it
 cannot, the $\sigma$-OML representation above is the \emph{only} candidate
-engine. One must \emph{not} write ``Gleason already builds relational
-probability.'' (Companion: \texttt{oml\_two\_point\_spaces.md}.)
+engine; it would be an error to regard Gleason's theorem as already
+furnishing a relational, point-free probability.
 \end{remark}
 
 % ==================================================================
@@ -466,8 +461,7 @@ probability.'' (Companion: \texttt{oml\_two\_point\_spaces.md}.)
 \label{sec:first}
 % ==================================================================
 
-The computational and literature work is exhausted; what remains is human
-mathematics, in two branches sharing one wall.
+Two branches lead toward the open problem, and they share one wall.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=2.6cm, leftmargin=3cm]
   \item[(a)~The deep unlock]
@@ -499,96 +493,18 @@ the easier branch. Proposition~\ref{prop:lh} is finitary (lines in a
 $2$-plane) and so dodges the descent-axis wall. For singular states the
 relevant pairwise-meet-zero families are \emph{infinite-dimensional}
 subspaces with trivial intersection, so that \emph{line}-clustering route
-is vacuous ($s(e)=0$ on all finite-dim $e$). But ``the line route is
+is vacuous ($s(e)=0$ on all finite-dimensional $e$). But ``the line route is
 vacuous'' is \emph{not} ``the obstruction is countable'': a \emph{finite}
 family of infinite-dimensional pairwise-meet-zero subspaces with
 $\sum_i s(a_i) > 1$ is unanalysed. If such a finite obstruction exists, (b)
 is a self-contained operator-algebra problem to settle ahead of (a); if
 only a countable family obstructs, (b) is entangled with the same
-finitary-to-$\sigma$ bridge as (a). The very first thing to write down: a
+finitary-to-$\sigma$ bridge as (a). The concrete object to examine is a
 finite family of infinite-dimensional, pairwise-trivially-intersecting
-subspaces of $H$, and the question of whether orthoadditivity of a singular
-state forces $\sum s > 1$. (Setup:
-\texttt{verification/lh\_singular\_dichotomy.md}, the singular-state
-constructions and the open statement.)
+subspaces of $H$, and whether orthoadditivity of a singular state forces
+$\sum_i s(a_i) > 1$ on it.
 
-\begin{remark}[Methodological]
-The thread's hard-won rules: verify by building the smallest example and
-reading the primary source, not by recollection; weaken
-``settled/strict/resolves'' to ``open/separation/conditional'' unless both
-directions are checked; blocked routes $\neq$ impossible. A prior
-``settled $=$ infinitary'' claim about the hinge above was an over-read of
-the dichotomy file (which calls the question open) and was withdrawn --- a
-cautionary instance of exactly the third rule.
-\end{remark}
-
-\begin{thebibliography}{99}
-\small
-\bibitem{BunceWright1992} L.~J.\ Bunce and J.~D.~M.\ Wright,
-  \emph{The Mackey--Gleason problem}, Bull.\ Amer.\ Math.\ Soc.\ \textbf{26}
-  (1992), 288--293.
-\bibitem{BuresovaPtak2024} D.~Bure\v{s}ov\'{a} and P.~Pt\'{a}k,
-  \emph{Set representation of orthomodular posets}, arXiv:2401.13798
-  (2024).
-\bibitem{Cannon2013} S.~Cannon and A.~D\"{o}ring,
-  \emph{A generalisation of Stone duality to orthomodular lattices},
-  in \emph{Reality and Measurement in Algebraic Quantum Theory},
-  Springer (2018).
-\bibitem{ChetcutiDvurecenskij2005} E.~Chetcuti and A.~Dvure\v{c}enskij,
-  \emph{Measures on lattice effect algebras}, (2005).
-\bibitem{deFinetti1974} B.~de~Finetti, \emph{Theory of Probability},
-  Wiley (1974).
-\bibitem{Doering2009measures} A.~D\"{o}ring,
-  \emph{Quantum states and measures on the spectral presheaf},
-  Adv.\ Sci.\ Lett.\ \textbf{2} (2009); arXiv:0809.4847.
-\bibitem{Dvurecenskij2000} A.~Dvure\v{c}enskij,
-  \emph{Loomis--Sikorski theorem for $\sigma$-complete MV-algebras and
-  $\ell$-groups}, J.\ Austral.\ Math.\ Soc.\ \textbf{68} (2000), 261--277.
-\bibitem{Dvurecenskij2005} A.~Dvure\v{c}enskij,
-  \emph{Loomis--Sikorski representation of monotone $\sigma$-complete
-  effect algebras with RDP}, (2005).
-\bibitem{Fremlin3} D.~H.\ Fremlin, \emph{Measure Theory, Vol.~3:
-  Measure Algebras}, Torres Fremlin (2002).
-\bibitem{Freytes2020} H.~Freytes,
-  \emph{An equational theory of $\sigma$-complete orthomodular lattices},
-  Soft Computing \textbf{24} (2020).
-\bibitem{Gleason1957} A.~M.\ Gleason,
-  \emph{Measures on the closed subspaces of a Hilbert space},
-  J.\ Math.\ Mech.\ \textbf{6} (1957), 885--893.
-\bibitem{Harding1991} J.~Harding,
-  \emph{Orthomodular lattices whose MacNeille completions are not
-  orthomodular}, Order \textbf{8} (1991), 93--103.
-\bibitem{HeunenLandsmanSpitters2009} C.~Heunen, N.~P.\ Landsman, B.~Spitters,
-  \emph{A topos for algebraic quantum theory}, Comm.\ Math.\ Phys.\
-  \textbf{291} (2009); arXiv:0709.4364.
-\bibitem{HeunenLandsmanSpitters2011} C.~Heunen, N.~P.\ Landsman, B.~Spitters,
-  \emph{Bohrification}, arXiv:0909.3468 (2011).
-\bibitem{HornTarski1948} A.~Horn and A.~Tarski,
-  \emph{Measures in Boolean algebras}, Trans.\ Amer.\ Math.\ Soc.\
-  \textbf{64} (1948), 467--497.
-\bibitem{Kalmbach1983} G.~Kalmbach, \emph{Orthomodular Lattices},
-  Academic Press (1983).
-\bibitem{KochenSpecker1967} S.~Kochen and E.~P.\ Specker,
-  \emph{The problem of hidden variables in quantum mechanics},
-  J.\ Math.\ Mech.\ \textbf{17} (1967), 59--87.
-\bibitem{Kolmogorov} A.~N.\ Kolmogorov,
-  \emph{Foundations of the Theory of Probability}, Chelsea (1956).
-\bibitem{mahon2025} P.~S.\ Mahon, \emph{Structure from Observation
-  (Paper~I)}, manuscript (2025).
-\bibitem{mahonOMLnote} P.~S.\ Mahon, \emph{The extension problem for
-  orthomodular observation algebras}, companion research note (2026).
-\bibitem{McDonaldBimbo2023} J.~McDonald and K.~Bimb\'{o},
-  \emph{A Stone-type duality for orthomodular lattices},
-  Math.\ Logic Quarterly (2023); arXiv:2208.07430.
-\bibitem{Navara1992} M.~Navara,
-  \emph{Regularity does not imply $\sigma$-additivity}, (1992).
-\bibitem{Pitowsky1989} I.~Pitowsky, \emph{Quantum Probability ---
-  Quantum Logic}, Lecture Notes in Physics \textbf{321}, Springer (1989).
-\bibitem{Ptak1987} P.~Pt\'{a}k, \emph{Exotic logics}, (1987).
-\bibitem{PtakPulmannova1991} P.~Pt\'{a}k and S.~Pulmannov\'{a},
-  \emph{Orthomodular Structures as Quantum Logics}, Kluwer (1991).
-\bibitem{Takesaki1979} M.~Takesaki, \emph{Theory of Operator Algebras~I},
-  Springer (1979).
-\end{thebibliography}
+\bibliographystyle{plain}
+\bibliography{references_oml}
 
 \end{document}

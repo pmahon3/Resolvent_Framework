@@ -13,9 +13,8 @@ finite coherence forces countable behaviour is open. This note surveys the
 problem at the level needed to begin work on it: the apparatus, the split
 into two independent axes (*extension* / *descent*), what is known and
 ruled out, and the one open residue — whether a concrete, non-Boolean,
-infinite σ-complete OML admits a Loomis–Sikorski-type representation. It
-guides the companion research note `oml_extension_problem.tex`;
-verification scripts are cited where claims are checked.
+infinite σ-complete OML admits a Loomis–Sikorski-type representation. We
+close with the first concrete move.
 
 ---
 
@@ -35,9 +34,9 @@ Gleason's rigidity theorem; but Hilbert space is special, and for general
 OMLs no analogue is known.
 
 This note asks the shared question — *when does finite coherence force
-countable behaviour?* — in the OML setting. The companion note's
-contribution is largely a clarification: the question splits into two
-independent axes, one classical and settled, the other genuinely open.
+countable behaviour?* — in the OML setting. Our organising observation: the
+question splits into two independent axes, one classical and settled, the
+other genuinely open.
 
 **The relational standpoint.** Following "structure from observation"
 (Paper I): begin with propositions and their entailment order, not a space
@@ -52,7 +51,6 @@ measure theory (§5).
 ## 2. Preliminaries
 
 All notions standard except *valuation* (local convention, flagged).
-Elementary laws verified for MO₃ in `verification/mo3_extension.py`.
 
 ### 2.1 Orthomodular lattices, and the orthogonal/meet-zero gap
 
@@ -84,8 +82,7 @@ intersection-closure would force Boolean. `MO₃` is *itself* concrete (Gudder
 order-determining two-valued states), so the flagship meet-zero≠orthogonal
 example is concrete. The gap closes under a *richness/atomicity* condition,
 not concreteness; the abstract form `a∧b=0 ⟹ a⊥b` is Tkadlec's *Boolean
-orthoposet* condition (≠ Boolean *algebra*). Verified:
-`concrete_meetzero_vs_orthogonal.py`.
+orthoposet* condition (≠ Boolean *algebra*).
 
 ### 2.2 The state / valuation / charge ladder
 
@@ -106,7 +103,7 @@ fails (3) at `{p,q,r}` (`³⁄₂ > 1`). No state on MO₃ is charge-extendible.
 **Def 2.9 (Dual space; representation map).** MB duality assigns to `A` a
 compact space `S₀(A) = (F(A), ⊆, ⊥_A, P(A), T(S))`, with `F(A)` the
 *filters* and `P(A) ⊆ F(A)` the *principal* filters — the physical points,
-the realization datum (canonical here, unlike the Boolean pure points).
+the realisation datum (canonical here, unlike the Boolean pure points).
 `h(a)={x∈F(A):a∈x}` is an OML iso onto the ⊥-stable clopens; set
 `μ(h(a))=s(a)`.
 
@@ -114,7 +111,7 @@ the realization datum (canonical here, unlike the Boolean pure points).
 (⋃ₙ h(aₙ))^⊥⊥` holds for *finite* joins, fails for countable — finitary
 OML homs need not preserve infinite suprema. This is the wall the open
 problem runs into. Cannon–Döring is also finitary, no measure; MB chosen
-for carrying `P(A)` explicitly. Verified: `mb_primeness_check.md`.
+for carrying `P(A)` explicitly.
 
 ### 2.4 The Boolean engine: Loomis–Sikorski
 
@@ -146,15 +143,15 @@ meets, meet-zero elements map to disjoint clopens and a charge needs
 (MO₃, Ex 2.8).
 
 **Prop 3.2 (Infinite L(H), normal states).** For `dim H=∞`, any state with
-`s(e)>0` for some finite-dim `e` fails to extend to a charge on `S₀(L(H))`;
+`s(e)>0` for some finite-dimensional `e` fails to extend to a charge on `S₀(L(H))`;
 in particular no normal (Gleason) state extends. *Proof sketch:* in a
 2-plane `e`, `k` distinct lines give `2k` pairwise-meet-zero lines, forcing
 `k·s(e) ≤ 1` for all `k`; take `k>1/s(e)`. Finitary; σ-completeness
-irrelevant. (`lh_infinite_extension.py`, `lh_singular_dichotomy.md`.)
+irrelevant.
 
 By Takesaki normal/singular decomposition (Mackey–Gleason/Bunce–Wright
 lift, valid as `B(H)` has no type I₂ summand), the only escapees are the
-**singular** states (`s(e)=0` for all finite-dim `e`; ultrafilter vector
+**singular** states (`s(e)=0` for all finite-dimensional `e`; ultrafilter vector
 states, Calkin pullbacks), forming a clean dichotomy with the normal
 states. So the sole survivors on the extension axis are the singular states
 of `L(H)` (§6). The genuine open problem lives on the descent axis (§5).
@@ -223,13 +220,14 @@ not a σ-LS theorem.
 > exists?**
 
 A positive answer is the engine for *relational probability without
-realizations*: σ-additive probability built from the entailment relation of
+realisations*: σ-additive probability built from the entailment relation of
 a non-distributive OML, not descended from any sample space — the
 non-Boolean analogue of localic measure theory. A negative answer
 (impossibility theorem) closes the whole cluster, both residues, at once.
-Binary and large. No impossibility theorem is known for the live class
-(Rmk 4.1); all three constructive routes are blocked (§4.3). Sharpens
-"needs a new idea" to "needs a representation bypassing all three blocked
+Either way the outcome is decisive: no impossibility theorem is known for
+the live class (Rmk 4.1), and all three constructive routes are blocked
+(§4.3), so the state of the art is not "needs a new idea" but "needs a
+representation bypassing all three blocked
 routes."
 
 **Remark 5.1 (Why L(H)+Gleason does NOT already settle this — the (A)/(B)
@@ -237,22 +235,21 @@ point-space equivocation).** The motivating idea ("probability from
 relations, point-free") may *look* delivered by `L(H)`+Gleason. It is not.
 **(A)** the Hilbert rays of `H`, from which the Gleason density `ρ` in
 `s=tr(ρ·)` is built; **(B)** the MB dual filters `P(A)`. The programme
-defines *realization* = concentration on **(B)**. Gleason removes **(B)**
+defines *realisation* = concentration on **(B)**. Gleason removes **(B)**
 but *requires* **(A)** — and is a *representation* theorem (reduces every
 lattice state to the point datum `ρ`, the most point-ful result available).
 So `L(H)`/Gleason witnesses the PR_lattice/PR_dual *separation* (a
 σ-additive measure exists on the lattice while none concentrates on
 `P(A)`), NOT point-freeness, and cannot be the existence proof. Because it
-cannot, the σ-OML representation is the *only* candidate engine. **Never
-write "Gleason already builds relational probability."** (Companion:
-`oml_two_point_spaces.md`.)
+cannot, the σ-OML representation is the *only* candidate engine; it would be
+an error to regard Gleason's theorem as already furnishing a relational,
+point-free probability.
 
 ---
 
 ## 6. The first concrete move
 
-Computational and literature work is exhausted; what remains is human
-mathematics, two branches sharing one wall.
+Two branches lead toward the open problem, and they share one wall.
 - **(a) The deep unlock** — build the Loomis–Sikorski-type /
   countable-join-preserving σ-Stone duality for a concrete non-Boolean
   infinite σ-OML, or prove none exists. High ceiling, no current foothold.
@@ -277,21 +274,12 @@ This is **open**, and it decides whether (b) is genuinely the easier
 branch. Prop 3.2 is finitary (lines in a 2-plane) and dodges the
 descent-axis wall. For singular states the relevant pairwise-meet-zero
 families are *infinite-dimensional* subspaces with trivial intersection, so
-that *line*-clustering route is vacuous (`s(e)=0` on all finite-dim `e`).
+that *line*-clustering route is vacuous (`s(e)=0` on all finite-dimensional `e`).
 But **"the line route is vacuous" is NOT "the obstruction is countable"**: a
 *finite* family of infinite-dimensional pairwise-meet-zero subspaces with
-`Σ s(aᵢ) > 1` is **unanalyzed**. If such a finite obstruction exists, (b)
+`Σ s(aᵢ) > 1` is **unanalysed**. If such a finite obstruction exists, (b)
 is a self-contained operator-algebra problem to settle ahead of (a); if
 only countable, (b) is entangled with the same finitary-to-σ bridge as (a).
-First thing to write down: a finite family of infinite-dimensional,
+The concrete object to examine is a finite family of infinite-dimensional,
 pairwise-trivially-intersecting subspaces of `H`, and whether
-orthoadditivity of a singular state forces `Σ s > 1`. (Setup:
-`lh_singular_dichotomy.md`.)
-
-**Remark (methodological).** Verify by building the smallest example and
-reading the primary source, not by recollection; weaken
-"settled/strict/resolves" to "open/separation/conditional" unless both
-directions checked; blocked routes ≠ impossible. A prior "settled =
-infinitary" claim about the hinge above was an over-read of the dichotomy
-file (which calls the question open) and was withdrawn — a cautionary
-instance of exactly the third rule.
+orthoadditivity of a singular state forces `Σᵢ s(aᵢ) > 1` on it.

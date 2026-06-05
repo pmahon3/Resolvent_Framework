@@ -48,10 +48,19 @@ filter containing ⋁ₙaₙ must contain some aₙ).
 ## Verdict: nesting is NOT free
 
 Principal filters are NOT σ-prime. Concrete witness in C(H) = L(H):
-let aₙ = span(eₙ) (orthonormal basis), p = span(v) for v of infinite
-support. Then p ≤ ⋁ₙaₙ = H, so ↑p ∋ ⋁ₙaₙ; but p ≰ aₙ for every n, so
-↑p ∌ aₙ. Hence ↑p ∈ D ∩ P(A): the defect set contains principal filters.
-A measure concentrating on P(A) can put mass on ↑p, so μ̂(D) need not be 0.
+let aₙ = span(eₙ) (orthonormal basis), p = span(v) for any line not
+aligned with a basis vector. Then p ≤ ⋁ₙaₙ = H, so ↑p ∋ ⋁ₙaₙ; but p ≰ aₙ
+for every n, so ↑p ∌ aₙ. Hence ↑p ∈ D ∩ P(A): the defect set contains
+principal filters. A measure concentrating on P(A) can put mass on ↑p, so
+μ̂(D) need not be 0.
+
+**Correction (2026-06-05).** Earlier wording said "v of infinite support."
+That is stronger than the actual condition and is WRONG as a descriptor:
+↑p ∈ D iff p ≤ ⋁aₙ (always =H) and p ≰ aₙ ∀n, i.e. v is not parallel to any
+basis vector eₙ. The finite-support v = e₁+e₂ already qualifies. The
+condition is "non-basis-aligned line" and is basis-DEPENDENT (e₁+e₂ is
+aligned in a rotated basis). The verdict is unchanged — such ↑p exist —
+but the "infinite support" framing was an overclaim.
 
 Therefore **PR_dual ⟹ PR_lattice is NOT free** — it requires an extra
 σ-continuity hypothesis (μ̂ null on countable-join defects D) that the

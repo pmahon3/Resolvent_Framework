@@ -150,8 +150,8 @@ The Boolean bridge fuses two conditions on a realised point `x`: being
 (`x ∋ ⋁aₙ ⟹ x ∋ aₙ` for some `n`); Rao–Rao's "vanishes on meagre sets" is
 their coincidence. In a non-distributive OML they *split*: a principal
 filter `↑p` is always meet-closed, yet may fail join-primeness (`p ≤ ⋁aₙ`
-does not force `p ≤ aₙ` for any `n`; take `p=span(v)`, `v` infinite-support,
-`aₙ=span(eₙ)`). Such `↑p` is a *realised* point sitting inside the
+does not force `p ≤ aₙ` for any `n`; take `aₙ=span(eₙ)` and `p=span(v)` for
+any line not basis-aligned — already `v=e₁+e₂`). Such `↑p` is a *realised* point sitting inside the
 join-defect `D = h(⋁aₙ)∖⋃h(aₙ)`, and is topologically *isolated* in
 `S₀(L(H))`, so `D` is non-meagre — the reverse of the Boolean nowhere-dense
 case. The category route (clopens mod meagre) chokes on the same `D` as the

@@ -26,8 +26,12 @@ dense, hence meagre, hence (under σ-additivity) null.
 
 Defect set `D = h(⋁ₙ aₙ) ∖ ⋃ₙ h(aₙ)`, nonempty because the OML join is the
 biorthogonal closure `(⋃ₙ h(aₙ))^⊥⊥ ⊋ ⋃ₙ h(aₙ)`. Witness on `L(H)`:
-`aₙ = span(eₙ)`, `p = span(v)`, `v` of infinite support; then `↑p ∈ D ∩ P(A)`
-(a *realised* point in the defect).
+`aₙ = span(eₙ)`, `p = span(v)` for any line not aligned with a basis vector
+(already `v = e₁+e₂`); then `↑p ∈ D ∩ P(A)` (a *realised* point in the
+defect). [Corrected 2026-06-05: the condition is "non-basis-aligned line",
+basis-DEPENDENT — NOT "infinite support". `↑p ∈ D` iff `p ≤ ⋁aₙ` (always,
+=H) but `p ≰ aₙ ∀n`, i.e. `v` not parallel to any `eₙ`; finite-support
+`e₁+e₂` already qualifies.]
 
 ## What was proved
 

@@ -47,8 +47,9 @@ the lattice, s(⋁ₙaₙ) = Σₙ s(aₙ). The gap is μ̂(D) for
     D = h(⋁ₙ aₙ) \ ⋃ₙ h(aₙ),
 
 and concentration on P(A) does **not** force μ̂(D) = 0: D contains
-*principal* filters — e.g. ↑p with p = span(v), v of infinite support, and
-aₙ = span(eₙ), so p ≤ ⋁ₙ aₙ yet p ≰ aₙ for all n. (Confirmed against the
+*principal* filters — e.g. ↑p with aₙ = span(eₙ) and p = span(v) for any
+line not aligned with a basis vector (already v = e₁+e₂), so p ≤ ⋁ₙ aₙ = H
+yet p ≰ aₙ for all n. (Confirmed against the
 McDonald–Bimbó primary source: filters carry no σ-prime condition, and
 P(A) consists of principal — not prime — filters; see
 `notes/open_questions/verification/mb_primeness_check.md`.) So

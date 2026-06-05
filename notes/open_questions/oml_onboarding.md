@@ -133,13 +133,16 @@ In the Boolean case the descent argument ("σ-additive ⟺ measure
 concentrates on the physical points") runs on **Stone duality**: a Boolean
 event algebra embeds in the clopen algebra of its Stone space, a charge
 extends to a Baire measure there (Carathéodory), and σ-additivity is
-equivalent to concentration on the realised points (Paper I). Behind the
-σ-additive step stands the **Loomis–Sikorski** representation — a
-σ-complete Boolean algebra is a σ-tribe of sets mod a σ-ideal — which makes
-the countable-join bookkeeping go through. **There is no OML analogue of
-either** — supplying one, or proving none exists, is the open problem (§5).
-The Boolean proof has an engine; the OML proof needs one and doesn't have
-it.
+equivalent to concentration on the realised points (Paper I). That
+σ-additive step is realised measure-theoretically by the meagre-sets
+characterization (Rao–Rao): the measure vanishes on meagre Baire sets,
+equivalently lives on the ultrafilters closed under countable intersection
+— exactly the realised points. This is the measure-theoretic face of the
+**Loomis–Sikorski** representation — a σ-complete Boolean algebra is a
+σ-tribe of sets mod a σ-ideal — the countable-join bookkeeping that makes
+the equivalence go through. **There is no OML analogue of any of this** —
+supplying one, or proving none exists, is the open problem (§5). The
+Boolean proof has an engine; the OML proof needs one and doesn't have it.
 
 ---
 

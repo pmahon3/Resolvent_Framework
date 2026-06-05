@@ -265,6 +265,27 @@ and supplying one --- or proving none exists --- is the open problem of
 \S\ref{sec:problem}: the Boolean proof has an
 engine; the OML proof needs one and does not have it.
 
+\begin{remark}[Why the bridge breaks: meet-closed but not join-prime]
+\label{rem:bridge}
+The Boolean bridge fuses two conditions on a realised point $x$: being
+\emph{closed under countable meets} and being \emph{off the
+countable-join defect} ($x \ni \bigvee_n a_n \Rightarrow x \ni a_n$ for
+some $n$). Rao--Rao's ``vanishes on meagre sets'' is exactly the
+coincidence of the two. In a non-distributive OML they \emph{split}: a
+principal filter $x = {\uparrow}p$ is always closed under countable meets,
+yet may fail join-primeness, since $p \leq \bigvee_n a_n$ does not force
+$p \leq a_n$ for any $n$ (take $p = \mathrm{span}(v)$, $v$ of infinite
+support, $a_n = \mathrm{span}(e_n)$ in $L(H)$). Such an $x$ is a
+\emph{realised} point that sits inside the join-defect $D = h(\bigvee_n
+a_n) \setminus \bigcup_n h(a_n)$. Topologically ${\uparrow}p$ is an
+\emph{isolated} point of $S_0(L(H))$, so $D$ is non-meagre --- the reverse
+of the Boolean case, where the defect is nowhere dense. This is the
+finitary wall of Remark~\ref{rem:finitary} seen on the dual: the
+category route (clopens modulo the meagre ideal) chokes on the same $D$
+as the measure route, and in fact reduces to the MacNeille completion of
+\S\ref{sec:routes}(ii).
+\end{remark}
+
 % ==================================================================
 \section{Two axes: extension and descent}
 \label{sec:axes}
@@ -386,7 +407,10 @@ The three known routes are all blocked.
     So $\text{OML}+\text{RDP} \Leftrightarrow \text{Boolean}$.
   \item \textbf{MacNeille completion.} The MacNeille completion of an OML
     need not be orthomodular (Harding~\cite{Harding1991}); one cannot
-    complete to absorb countable joins.
+    complete to absorb countable joins. The topological version of this
+    route --- clopens of $S_0(A)$ modulo the meagre ideal --- is the same
+    completion in disguise (the regular-open algebra), and collapses
+    non-distributivity (Remark~\ref{rem:bridge}).
   \item \textbf{$\sigma$-Stone duality.} None exists. McDonald--Bimb\'{o}
     is finitary (Remark~\ref{rem:finitary}); Freytes'
     theory~\cite{Freytes2020} of $\sigma$-complete OMLs is equational, with

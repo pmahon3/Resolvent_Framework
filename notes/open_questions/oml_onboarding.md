@@ -144,6 +144,20 @@ the equivalence go through. **There is no OML analogue of any of this** —
 supplying one, or proving none exists, is the open problem (§5). The
 Boolean proof has an engine; the OML proof needs one and doesn't have it.
 
+**Remark 2.11 (why the bridge breaks: meet-closed but not join-prime).**
+The Boolean bridge fuses two conditions on a realised point `x`: being
+*closed under countable meets* and being *off the countable-join defect*
+(`x ∋ ⋁aₙ ⟹ x ∋ aₙ` for some `n`); Rao–Rao's "vanishes on meagre sets" is
+their coincidence. In a non-distributive OML they *split*: a principal
+filter `↑p` is always meet-closed, yet may fail join-primeness (`p ≤ ⋁aₙ`
+does not force `p ≤ aₙ` for any `n`; take `p=span(v)`, `v` infinite-support,
+`aₙ=span(eₙ)`). Such `↑p` is a *realised* point sitting inside the
+join-defect `D = h(⋁aₙ)∖⋃h(aₙ)`, and is topologically *isolated* in
+`S₀(L(H))`, so `D` is non-meagre — the reverse of the Boolean nowhere-dense
+case. The category route (clopens mod meagre) chokes on the same `D` as the
+measure route, and reduces to the MacNeille completion (§4.3(ii)). See
+`verification/meagre_vs_measure_check.md`.
+
 ---
 
 ## 3. Two axes: extension and descent
@@ -211,7 +225,9 @@ Loomis–Sikorski representation. The three known routes are all blocked.
 σ-effect algebras *with* RDP, but lattice-EA has RDP iff MV, and OML∩MV =
 Boolean. So **OML+RDP ⟺ Boolean**.
 (ii) **MacNeille completion** — need not be orthomodular (Harding); can't
-complete to absorb joins.
+complete to absorb joins. The topological version (clopens of S₀(A) mod the
+meagre ideal) is the same completion in disguise and collapses
+non-distributivity (Rmk 2.11).
 (iii) **σ-Stone duality** — none exists. MB finitary (Rmk 2.10); Freytes
 equational, no set/tribe representation.
 

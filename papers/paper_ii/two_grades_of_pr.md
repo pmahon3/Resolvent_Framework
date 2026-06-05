@@ -81,6 +81,26 @@ PR_lattice/PR_dual is honest bookkeeping — a separation, not a new
 theorem** (it would clear the new-vocabulary bar only with an
 extends-but-does-not-concentrate witness).
 
+**Sharper form of the statability wall (2026-06-04, from
+[[meagre_vs_measure_check]]).** The reason descent is not statable is now
+diagnosed precisely: in the Boolean case a realised point being
+*countably-meet-closed* coincides with being *off the countable-join
+defect* (Rao–Rao bridges them, so "σ-additive = vanishes on meagre sets").
+In a non-distributive OML these split — a principal filter ↑p is always
+meet-closed but need not be join-prime, so it sits inside the join-defect
+D = h(⋁aₙ)∖⋃h(aₙ), and is topologically *isolated* in S₀(L(H)) (so D is
+non-meagre, the reverse of the Boolean nowhere-dense case). Both the
+category route (clopens mod meagre) and the measure route choke on this
+same D; the category route is moreover just the MacNeille completion
+(Harding-blocked). The precise remaining open sub-question:
+
+> Is there an ideal I ⊆ CO(S₀(A)) with CO(S₀(A))/I a σ-complete OML
+> isomorphic to the σ-completion of A? Any defect-killing I must kill
+> D ⊇ {↑p}, but ↑p ∈ P(A) is the realisation datum — so a defect-killing
+> ideal appears to destroy realisation. Strongly suggested impossible,
+> NOT proved; making "destroys realisation ⟹ no representation" precise is
+> the live sub-problem.
+
 ## Pending Paper II decision
 
 Whether to fold the two-grade vocabulary into Paper II's Commensurability

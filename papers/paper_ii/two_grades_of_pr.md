@@ -102,14 +102,18 @@ same D; the category route is moreover just the MacNeille completion
 > NOT proved; making "destroys realisation ⟹ no representation" precise is
 > the live sub-problem.
 
-## Pending Paper II decision
+## Paper II decision — RESOLVED (fold in, 2026-06-05)
 
-Whether to fold the two-grade vocabulary into Paper II's Commensurability
-theorem, or simply flip the L(H) row to "PR fails for normal states," is a
-mathematical-architecture decision and is **not resolved**. The correction
-to the L(H) PR claim was already applied to Paper II's body (commit
-514fc98); what remains open is whether the two-grade refinement is worth
-the added vocabulary in the paper, or whether the single flip suffices.
+**Decision: fold the two-grade vocabulary into Paper II.** Confirmed
+2026-06-05. The body now carries PR_lat/PR_dual end to end — abstract
+(ll. 20–26), intro framing (§ "splits into two grades"), the
+Commensurability theorem part (b) (the four-item EA / PR_lat / PR_dual /
+VDR breakdown with the witnessed-separation `(∗)` arrow), and the
+open-problems list (item 1, "negative for *every* state," singular case
+folded in). The L(H) PR-claim correction was applied earlier (commit
+514fc98); the two-grade fold-in is the chosen refinement over the bare
+single-flip, and it is consistent throughout the body. No further
+architecture decision is pending on Paper II.
 
 ## Cross-references
 

@@ -424,8 +424,11 @@ $\dim \geq 3$; $\sigma$-additivity \emph{on the lattice}),
 Bunce--Wright~\cite{BunceWright1992} (JBW projection lattices),
 Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2005}. The
 obstructive results show the Boolean machinery cannot be transplanted:
-Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1991} (conditions forcing
-$\sigma$-additivity collapse the lattice to Boolean),
+Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994} (a \emph{finitary}
+measure condition --- \emph{subadditive}-unitality, $s(a\vee b)\le
+s(a)+s(b)$ with no countable joins --- collapses the lattice to Boolean;
+their Theorem~1 is lattice-only, and the orthomodular-\emph{poset}
+version fails, by M\"uller's set-representable counterexample),
 Navara~\cite{Navara1992} (regularity does not force $\sigma$-additivity),
 Pt\'{a}k~\cite{Ptak1987} (exotic state spaces via Greechie pasting).
 
@@ -516,6 +519,45 @@ Loomis--Sikorski-type representation (a $\sigma$-tribe of sets modulo a
 $\sigma$-ideal), or a countable-join-preserving $\sigma$-Stone duality
 --- or can one prove that none exists?
 \end{problem}
+
+\begin{remark}[The prior inhabitation question --- is the class even a
+stage?]
+Before asking whether the class admits a representation, ask whether it
+contains an example that \emph{exercises the descent axis at all}. A
+member is descent-relevant only if it carries \textbf{non-trivial countable
+orthogonal structure} (infinite pairwise-orthogonal families, so
+$\sigma$-additivity is more than finite additivity) \emph{and}
+meet-zero${}\neq{}$orthogonal pairs. The completeness the \emph{measure}
+question needs is therefore \textbf{$\sigma$-orthocompleteness} (countable
+\emph{orthogonal} joins) --- full $\sigma$-completeness is the stronger
+structural notion the Loomis--Sikorski \emph{representation} manipulates.
+The obvious members dodge this: $\mathrm{MO}_\kappa$ ($\kappa$ infinite) is
+concrete, infinite, non-Boolean and complete, but its maximal
+pairwise-orthogonal family of nonzero elements has only \emph{two} elements
+($a \perp b$ among atoms iff $a = b^\perp$), so descent is vacuous and it
+carries the $\mathrm{MO}_2$ obstruction (no state extends, as on $L(H)$).
+The genuine near-miss is \textbf{Navara's $\sigma$-orthocomplete lattice
+logic}~\cite{Navara1992}: infinite, non-Boolean, $\sigma$-orthocomplete,
+\emph{with} rich countable orthogonal structure --- yet \textbf{non-concrete},
+because its Greechie-stateless building blocks leave too few two-valued
+states to be order-determining. \emph{Caution:} $L(H)$ and Navara are
+non-concrete by \emph{different} mechanisms --- for $L(H)$ the orthogonal
+richness \emph{itself} obstructs two-valued states (Kochen--Specker
+colouring), whereas Navara's state-poverty comes from an imported
+\emph{finite, orthogonality-free} stateless block, with its richness bolted
+on separately by the product/constancy machinery. So only $L(H)$ evidences
+``richness starves concreteness''; that is a one-example conjecture, not a
+two-witness pattern. Navara is better read as a \textbf{construction
+template}: rerunning its product/constancy machinery over a \emph{concrete,
+stateful, non-Boolean} block ($\mathrm{MO}_2$) would yield a concrete result
+for free (sub-OMPs and products of concrete logics are concrete), and the
+live question is whether \textbf{$\sigma$-orthocompleteness survives the
+swap}. If it does, the refined class is \emph{inhabited} and the problem
+flips to construction; if it fails \emph{because} $\mathrm{MO}_2$'s states
+obstruct Navara's constancy step, that is evidence the closure device needs
+state-poverty. Whether the refined class is inhabited is open and this
+check decides it.
+\end{remark}
 
 \noindent A positive answer is the engine for \emph{relational probability
 without realisations}: $\sigma$-additive probability built from the

@@ -232,9 +232,12 @@ structural OML characterisation.
 
 **4.2 Positive / obstructive OML results.** Positive (need Hilbert-like
 richness): Gleason (`L(H)`, σ-additive *on the lattice*), Bunce–Wright
-(JBW), Chetcuti–Dvurečenskij. Obstructive: Pták–Pulmannová (forcing
-σ-additivity collapses to Boolean), Navara (regularity ⇏ σ-additivity),
-Pták (exotic state spaces via Greechie pasting).
+(JBW), Chetcuti–Dvurečenskij. Obstructive: Pták–Pulmannová 1994
+(*subadditive*-unitality collapses to Boolean — a **finitary** measure
+condition `s(a∨b)≤s(a)+s(b)` + unitality, **no** σ-additivity or
+countable joins; Theorem 1, lattice-only — the OMP version is *false*,
+Müller's set-representable counterexample), Navara (regularity ⇏
+σ-additivity), Pták (exotic state spaces via Greechie pasting).
 
 **4.3 Three blocked routes to a σ-OML engine.** The descent argument needs
 an OML analogue of the Boolean engine — a σ-Stone duality, equivalently a
@@ -289,6 +292,41 @@ non-Boolean orthoposets — but as point-ful posets, not via a
 > Loomis–Sikorski-type representation (a σ-tribe of sets mod a σ-ideal), or
 > a countable-join-preserving σ-Stone duality — or can one prove none
 > exists?**
+
+**Remark 5.0 (the prior inhabitation question — is the class even a
+stage?).** Before asking whether the class admits a representation, ask
+whether it contains an example that *exercises the descent axis at all*. A
+member is descent-relevant only if it carries **non-trivial countable
+orthogonal structure** (infinite pairwise-orthogonal families, so
+σ-additivity is more than finite additivity) **and** meet-zero≠orthogonal
+pairs. The completeness the *measure* question needs is therefore
+**σ-orthocompleteness** (countable *orthogonal* joins) — full
+σ-completeness is the stronger structural notion the Loomis–Sikorski
+*representation* manipulates. The obvious members all dodge this: `MO_κ`
+(κ infinite) is concrete, infinite, non-Boolean and complete, but its max
+pairwise-orthogonal family has only **2** elements (`a⊥b` among atoms iff
+`a=b^⊥`), so descent is vacuous and it carries the `MO₂` Σ=2 obstruction
+(no state extends, as on `L(H)`). The genuine near-miss is **Navara's
+σ-orthocomplete lattice logic** (Navara 1992): infinite, non-Boolean,
+σ-orthocomplete, *with* rich countable orthogonal structure — yet
+**non-concrete**, because its Greechie-stateless building blocks leave too
+few two-valued states to be order-determining. **Caution:** `L(H)` and
+Navara are non-concrete by *different* mechanisms — for `L(H)` the
+orthogonal richness *itself* obstructs two-valued states (Kochen–Specker
+coloring), whereas Navara's state-poverty comes from an imported *finite,
+orthogonality-free* Greechie-stateless block, with its richness bolted on
+separately by the product/constancy machinery. So only `L(H)` evidences
+"richness starves concreteness"; that remains a one-example conjecture, not
+a two-witness pattern. Navara is better read as a **construction template**:
+rerunning its product/constancy machinery over a *concrete, stateful,
+non-Boolean* block (`MO₂`) would yield a concrete result for free (sub-OMPs
+and products of concrete logics are concrete), and the live question is
+whether **σ-orthocompleteness survives the swap** — if it does, the refined
+class is *inhabited* and the open problem flips to construction; if it fails
+*because* `MO₂`'s states obstruct Navara's constancy step, that is genuine
+evidence the closure device needs state-poverty. Whether the refined class
+is inhabited is open and this check decides it. See
+`verification/inhabitation_check.md`.
 
 A positive answer is the engine for *relational probability without
 realisations*: σ-additive probability built from the entailment relation of

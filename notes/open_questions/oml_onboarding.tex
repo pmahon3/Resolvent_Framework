@@ -243,16 +243,22 @@ finitary and carries no measure; we use McDonald--Bimb\'{o} because it
 carries $P(A)$ as explicit structure.
 \end{remark}
 
-\subsection{The Boolean engine: Loomis--Sikorski}
+\subsection{The Boolean engine: Stone duality}
 \label{sec:ls}
 
 In the Boolean case, the descent argument
 (``$\sigma$-additive $\Leftrightarrow$ the measure concentrates on the
-physical points'') runs on a \emph{Loomis--Sikorski} representation: a
-$\sigma$-complete Boolean algebra is a $\sigma$-tribe of sets modulo a
-$\sigma$-ideal. There is \emph{no} OML analogue, and supplying one --- or
-proving none exists --- is the open problem of \S\ref{sec:problem}: the
-Boolean proof has an engine; the OML proof needs one and does not have it.
+physical points'') runs on \emph{Stone duality}: a Boolean event algebra
+embeds in the clopen algebra of its Stone space, a charge extends to a
+Baire measure there (Carath\'{e}odory), and $\sigma$-additivity is
+equivalent to concentration of that measure on the realised
+points~\cite{mahon2025}. Standing behind the $\sigma$-additive step is the
+\emph{Loomis--Sikorski} representation --- a $\sigma$-complete Boolean
+algebra is a $\sigma$-tribe of sets modulo a $\sigma$-ideal --- which is
+what makes the countable-join bookkeeping go through. There is \emph{no}
+OML analogue of either, and supplying one --- or proving none exists ---
+is the open problem of \S\ref{sec:problem}: the Boolean proof has an
+engine; the OML proof needs one and does not have it.
 
 % ==================================================================
 \section{Two axes: extension and descent}
@@ -363,8 +369,9 @@ Pt\'{a}k~\cite{Ptak1987} (exotic state spaces via Greechie pasting).
 
 \subsection{Three blocked routes to a $\sigma$-OML engine}
 \label{sec:routes}
-The descent argument needs an OML Loomis--Sikorski. The three known routes
-are all blocked.
+The descent argument needs an OML analogue of the Boolean engine --- a
+$\sigma$-Stone duality, or equivalently a Loomis--Sikorski representation.
+The three known routes are all blocked.
 \begin{enumerate}[label=(\roman*)]
   \item \textbf{RDP / effect-algebra.} Loomis--Sikorski holds for
     $\sigma$-MV algebras~\cite{Dvurecenskij2000} and monotone

@@ -127,14 +127,19 @@ so the failure to preserve countable meets is its De Morgan dual — the wall
 obstructs countable meets and joins together.) Cannon–Döring is also
 finitary, no measure; MB chosen for carrying `P(A)` explicitly.
 
-### 2.4 The Boolean engine: Loomis–Sikorski
+### 2.4 The Boolean engine: Stone duality
 
 In the Boolean case the descent argument ("σ-additive ⟺ measure
-concentrates on the physical points") runs on a **Loomis–Sikorski**
-representation: a σ-complete Boolean algebra is a σ-tribe of sets mod a
-σ-ideal. **There is no OML analogue** — supplying one, or proving none
-exists, is the open problem (§5). The Boolean proof has an engine; the OML
-proof needs one and doesn't have it.
+concentrates on the physical points") runs on **Stone duality**: a Boolean
+event algebra embeds in the clopen algebra of its Stone space, a charge
+extends to a Baire measure there (Carathéodory), and σ-additivity is
+equivalent to concentration on the realised points (Paper I). Behind the
+σ-additive step stands the **Loomis–Sikorski** representation — a
+σ-complete Boolean algebra is a σ-tribe of sets mod a σ-ideal — which makes
+the countable-join bookkeeping go through. **There is no OML analogue of
+either** — supplying one, or proving none exists, is the open problem (§5).
+The Boolean proof has an engine; the OML proof needs one and doesn't have
+it.
 
 ---
 
@@ -196,7 +201,9 @@ richness): Gleason (`L(H)`, σ-additive *on the lattice*), Bunce–Wright
 σ-additivity collapses to Boolean), Navara (regularity ⇏ σ-additivity),
 Pták (exotic state spaces via Greechie pasting).
 
-**4.3 Three blocked routes to a σ-OML engine.**
+**4.3 Three blocked routes to a σ-OML engine.** The descent argument needs
+an OML analogue of the Boolean engine — a σ-Stone duality, equivalently a
+Loomis–Sikorski representation. The three known routes are all blocked.
 (i) **RDP/effect-algebra** — Loomis–Sikorski holds for σ-MV and monotone
 σ-effect algebras *with* RDP, but lattice-EA has RDP iff MV, and OML∩MV =
 Boolean. So **OML+RDP ⟺ Boolean**.

@@ -100,12 +100,17 @@ blind spot (`s(e) = 0` makes the bound `k·s(e) ≤ 1` vacuous). So:
   - *Calkin pullback:* the Calkin algebra `Q = B(H)/K(H)` is unital,
     nonzero, hence has states; pull any back along `π : B(H) → Q`; it
     annihilates `K(H)` by construction.
-- **Whether a singular orthoadditive state extends is OPEN.** There the
-  relevant pairwise-meet-zero families are *infinite-dimensional*
-  subspaces with trivial intersection (not lines), and the operative
-  condition is σ-additivity **of the state**, not σ-completeness of the
-  lattice. Not closed here; "open" is the honest verb. (Matches the #2
-  stance: map what's settled, don't overclaim the residue.)
+- **Whether a singular orthoadditive state extends: now SETTLED — it
+  does not** (resolved 2026-06-05, [[lh_singular_finite_obstruction]]).
+  The relevant pairwise-meet-zero families are *infinite-dimensional*
+  subspaces with trivial intersection (not lines), as anticipated here.
+  A **finite** such family (n=4: MO₂ realised as H₀⊗ℂ² with infinite-dim
+  atoms) forces Σ s(aᵢ)=2>1 by orthoadditivity alone, contradicting any
+  charge — *no* singular state extends. The discriminator
+  (`oml_onboarding.tex` §6) thus resolves **FINITE**: the singular case
+  is self-contained and finitary, separable from the σ-wall. The count
+  is folklore (Kalmbach MO₂); the application — infinite-dim atoms to
+  reach singular states — is what was open.
 
 ## What is verified vs. cited
 

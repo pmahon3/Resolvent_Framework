@@ -69,7 +69,11 @@ must treat them separately.
 
 ## Open / not determinable
 
-- Whether a singular state extends at all: OPEN (unchanged).
+- Whether a singular state extends at all: **SETTLED 2026-06-05 — it
+  does not** ([[lh_singular_finite_obstruction]]). A finite n=4 family
+  (MO₂ with infinite-dim atoms) forces Σ s=2>1 state-independently. This
+  also kills the hoped-for "extends-but-doesn't-concentrate" witness
+  below: no state extends, so none can be that witness.
 - Whether infinite-dim ↑p are isolated points / can be charge atoms: not
   determinable from MB (no measure/category content in the source; the
   isolation result is the programme's, proved only for atoms).

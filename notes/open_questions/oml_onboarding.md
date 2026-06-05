@@ -14,10 +14,10 @@ at the level needed to begin work on it. After fixing the apparatus
 (orthomodular lattices, the gap between orthogonality and meet-zero, the
 state/meet-additive/charge ladder, the McDonald–Bimbó dual space), we
 separate the question into two axes. The *extension* axis is classical
-(Horn–Tarski feasibility), settled but for a single residual case —
-singular states on `L(H)`; the *descent* axis is genuinely open and rests
-on a representation that does not exist: a Loomis–Sikorski theorem for
-σ-complete OMLs. The stake is more than technical: such a representation
+(Horn–Tarski feasibility) and fully settled: on `L(H)` no state of any
+kind extends, by an elementary finite construction; the *descent* axis is
+genuinely open and rests on a representation that does not exist: a
+Loomis–Sikorski theorem for σ-complete OMLs. The stake is more than technical: such a representation
 would furnish a *point-free*, σ-additive probability theory on a
 non-distributive lattice — the non-Boolean analogue of localic measure
 theory — built from the entailment relation rather than descended from a
@@ -44,8 +44,8 @@ OMLs no analogue is known.
 This note asks the shared question — *when does finite coherence force
 countable behaviour?* — in the OML setting. Our organising observation: the
 question splits into two axes that the Boolean case fuses — an *extension*
-axis, classical and settled but for one residual case, and a *descent* axis
-that is genuinely open.
+axis, classical and fully settled (on `L(H)` no state extends), and a
+*descent* axis that is genuinely open.
 
 **The relational standpoint.** Following "structure from observation"
 (Paper I): begin with propositions and their entailment order, not a space
@@ -178,29 +178,47 @@ meets, meet-zero elements map to disjoint clopens and a charge needs
 `Σ s(aᵢ) ≤ 1` over pairwise-meet-zero families. Can fail for *every* state
 (MO₃, Ex 2.8).
 
-**Prop 3.2 (Infinite L(H), normal states).** For `dim H=∞`, any state with
-`s(e)>0` for some finite-dimensional `e` fails to extend to a charge on `S₀(L(H))`;
-in particular no normal (Gleason) state extends. *Proof sketch:* fix a
-2-plane `e₀` (where `s>0`); choose `k` lines in `e₀` no two orthogonal, so
-the `2k` lines `{pᵢ, pᵢ^⊥}` are distinct and pairwise meet-zero. Per pair
-`s(pᵢ)+s(pᵢ^⊥)=s(e₀)`; a charge on the disjoint clopens forces `k·s(e₀) ≤ 1`
-for all `k`; take `k>1/s(e₀)`. Finitary; σ-completeness
-irrelevant.
+**Prop 3.2 (Infinite L(H), all states).** For `dim H=∞`, *no* state on
+`L(H)` — normal or singular — extends to a charge on `S₀(L(H))`. *Proof:*
+write `H = H₀ ⊗ ℂ²` with `H₀` infinite-dimensional and `e,f` an
+orthonormal basis of `ℂ²`. The four infinite-dimensional subspaces
+`a₁ = H₀⊗ℂe`, `a₁^⊥ = H₀⊗ℂf`, `a₂ = H₀⊗ℂ(e+f)`, `a₂^⊥ = H₀⊗ℂ(e−f)` form a
+copy of `MO₂`: `a₁⊥a₁^⊥`, `a₂⊥a₂^⊥`, each pair joining to `H`, all four
+*cross* pairs meet-zero (`aᵢ∩aⱼ=0`) but not orthogonal. Orthoadditivity
+gives `s(aᵢ)+s(aᵢ^⊥)=s(H)=1` (uses only `s(1)=1` + additivity on
+orthogonal pairs — so *every* state), whence `Σ s(aᵢ)=2` over the
+pairwise-meet-zero family. Since `h` preserves meets (filters are
+meet-closed), meet-zero elements map to disjoint clopens, so any charge
+forces `Σ ≤ 1`. Contradiction. Finite (`n=4`); σ-completeness irrelevant.
 
-Lift `s` via Mackey–Gleason/Bunce–Wright (valid as `B(H)` has no type I₂
-summand) and apply the Takesaki decomposition `s = s_n + s_sing`. Any state
-with `s_n ≠ 0` has `s(e)>0` on some finite-dimensional `e` and is killed by
-Prop 3.2; the only survivors are the **purely singular** states (`s_n=0`,
-i.e. `s(e)=0` for all finite-dimensional `e`; ultrafilter vector states,
-Calkin pullbacks). So the sole survivors on the extension axis are the
-purely singular states of `L(H)` (§6). The genuine open problem lives on
-the descent axis (§5).
+The `MO₂` count is folklore (orthoadditivity + `s(1)=1`; cf. Kalmbach
+1983), and `Σ s(aᵢ)=2` is already state-independent in `L(ℂ²)`. What it
+buys *here* is reaching the states that vanish on finite rank. In `L(ℂ²)`
+the atoms are lines (finite rank), so a singular state (`s(e)=0` on every
+finite-dim `e`) assigns them `0` and the count, though valid, says nothing
+— it constrains only states positive on finite rank. Infinite-dimensional
+`H₀` keeps the atoms infinite-dim, so `s(aᵢ)+s(aᵢ^⊥)=1` regardless of
+behaviour on finite rank — dropping the finite-rank precondition of the
+line argument (Rem 3.3) and catching singular states too. That is what
+closes the extension axis on `L(H)` completely.
+
+*Alternative argument, normal states only (Rem 3.3).* If `s(e)>0` on some
+finite-dim `e`, fix a 2-plane `e₀` where `s>0`; `k` pairwise-non-orthogonal
+lines in `e₀` give `2k` distinct pairwise-meet-zero lines with
+`s(pᵢ)+s(pᵢ^⊥)=s(e₀)`, so a charge forces `k·s(e₀) ≤ 1` for all `k` —
+impossible once `s(e₀)>0`. Lifting via Mackey–Gleason/Bunce–Wright (`B(H)`
+has no type I₂ summand) and the Takesaki decomposition identifies the
+states reached — nonzero normal part, including every Gleason state — and
+those missed — the purely singular ones (ultrafilter vector states, Calkin
+pullbacks). Prop 3.2 subsumes this; the line argument is recorded for its
+independent technique and because it locates the singular states. The
+genuine open problem lives on the descent axis (§5).
 
 ---
 
 ## 4. What is known
 
-The extension axis is settled apart from the singular case of §6; the
+The extension axis is settled — on `L(H)` no state extends (Prop 3.2); the
 descent axis turns on whether the Boolean engine of §2.4 has an OML
 analogue. We survey what the literature supplies on that question — the
 Boolean benchmark it would have to match, the partial OML results, and the
@@ -292,8 +310,9 @@ defines *realisation* = concentration on **(B)**. Gleason removes **(B)**
 but *requires* **(A)** — and is a *representation* theorem (reduces every
 lattice state to the point datum `ρ`, the most point-ful result available).
 So `L(H)`/Gleason exhibits a *separation* — a σ-additive measure exists on
-the lattice while (by Prop 3.2) no normal state even extends to a charge on
-`S₀(L(H))`, so a fortiori none concentrates on the dual points `P(A)` — NOT
+the lattice (Gleason, for the normal states) while (by Prop 3.2) no state
+of any kind even extends to a charge on `S₀(L(H))`, so a fortiori none
+concentrates on the dual points `P(A)` — NOT
 point-freeness, and cannot be the existence proof. Because it
 cannot, the σ-OML representation is the *only* candidate engine; it would be
 an error to regard Gleason's theorem as already furnishing a relational,
@@ -303,46 +322,33 @@ point-free probability.
 
 ## 6. Directions
 
-Two lines of attack present themselves, both bounded by the same
-finitary-to-σ obstruction.
+With the extension axis closed on `L(H)` (Prop 3.2), a single direction
+remains.
 - **The general construction** — construct a Loomis–Sikorski-type
   representation, or a countable-join-preserving σ-Stone duality, for a
   concrete non-Boolean infinite σ-OML, or prove none exists. This resolves
   the open problem directly, but no partial construction is currently in
-  hand.
-- **The singular case for L(H)** — determine whether a *singular*
-  orthoadditive state on `L(H)` extends to a charge on `S₀(L(H))`: a
-  question about one specific lattice, accessible to operator-algebraic
-  methods (Calkin, Bunce–Wright, Takesaki), and conditionally
-  self-contained (subject to the finite-versus-countable question below).
+  hand. This is the *descent*-axis residue: the obstruction is the failure
+  of `h` to preserve countable joins (§2.3), not the orthogonal/meet-zero
+  gap, so Prop 3.2 does not reach it.
 
-The singular case is the more tractable entry point, and it is informative
-whichever way it resolves. If a singular state fails to extend, then by the
-dichotomy following Prop 3.2 *no* state on `L(H)` extends; since the
-singular states are the only remaining candidates for a state whose descent
-behaviour is independent of extension, this would settle that subsidiary
-question negatively. If a singular state does extend, it is the first
-explicit example of a state that extends but may fail to concentrate on
-`P(A)` — the motivating example the general construction lacks.
+The other candidate direction — the singular case for `L(H)` — is now
+closed, and the way it closed is instructive. One might hope a *singular*
+state would extend even though no normal state does, furnishing the first
+explicit "extends but may fail to concentrate" example the general
+construction lacks. It does not: Prop 3.2 catches every state, singular
+included.
 
-Whether the singular case is genuinely more tractable, however, turns on a
-prior question.
-
-> **Open Problem (finite versus countable).** Is the obstruction to
-> extending a singular state on `L(H)` realised by a **finite** or only by
-> a **countable** pairwise-meet-zero family?
-
-Prop 3.2 is finitary — it uses finitely many lines in a single 2-plane —
-which is why it avoids the descent-axis obstruction entirely. For singular
-states the relevant pairwise-meet-zero families are infinite-dimensional
-subspaces with trivial intersection, and the line argument is vacuous there
-(`s(e)=0` on every finite-dimensional `e`). That the line argument is
-vacuous does not, however, imply that the obstruction requires a countable
-family: whether a *finite* family of infinite-dimensional pairwise-meet-zero
-subspaces can force `Σᵢ s(aᵢ) > 1` is unsettled. If such a finite
-obstruction exists, the singular case is a self-contained operator-algebraic
-problem, separable from the general construction; if only a countable family
-obstructs, it is governed by the same finitary-to-σ passage as the general
-case. The question reduces, concretely, to whether orthoadditivity of a
-singular state forces `Σᵢ s(aᵢ) > 1` on some finite family of
-infinite-dimensional, pairwise-trivially-intersecting subspaces of `H`.
+> **Finite versus countable: finite suffices.** One could ask whether the
+> obstruction to extending a singular state is realised by a **finite** or
+> only by a **countable** pairwise-meet-zero family. The line argument
+> (Rem 3.3) is finitary but vacuous on singular states (`s(e)=0` on every
+> finite-dim `e`), which might suggest the singular obstruction needs a
+> countable family and is entangled with the descent-axis passage. It does
+> not: the four infinite-dimensional subspaces of Prop 3.2 are a **finite**
+> (`n=4`) pairwise-meet-zero family forcing `Σᵢ s(aᵢ)=2`,
+> state-independently. So the singular case is self-contained and finitary,
+> separable from the general construction — not governed by the
+> finitary-to-σ passage at all. The line argument is vacuous on singular
+> states; the `MO₂`-with-infinite-dimensional-atoms argument is not, and
+> that is the whole difference.

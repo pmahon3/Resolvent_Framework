@@ -48,10 +48,11 @@ survey the problem at the level needed to begin work on it. After fixing
 the apparatus (orthomodular lattices, the gap between orthogonality and
 meet-zero, the state/meet-additive/charge ladder, the McDonald--Bimb\'{o}
 dual space), we separate the question into two axes. The \emph{extension}
-axis is classical (Horn--Tarski feasibility), settled but for a single
-residual case --- singular states on $L(H)$; the \emph{descent} axis is
-genuinely open and rests on a representation that does not exist: a
-Loomis--Sikorski theorem for $\sigma$-complete OMLs. The stake is more than
+axis is classical (Horn--Tarski feasibility) and fully settled: on
+$L(H)$ no state of any kind extends, by an elementary finite
+construction; the \emph{descent} axis is genuinely open and rests on a
+representation that does not exist: a Loomis--Sikorski theorem for
+$\sigma$-complete OMLs. The stake is more than
 technical: such a representation would furnish a \emph{point-free},
 $\sigma$-additive probability theory on a non-distributive lattice --- the
 non-Boolean analogue of localic measure theory --- built from the
@@ -89,8 +90,8 @@ This note asks the shared question --- \emph{when does finite coherence
 force countable behaviour?} --- in the OML setting. Our organising
 observation is that the question, vague as usually posed, splits into two
 axes that the Boolean case fuses: an \emph{extension} axis, classical and
-settled but for one residual case, and a \emph{descent} axis that is
-genuinely open. The survey is built around that split.
+fully settled (on $L(H)$ no state extends), and a \emph{descent} axis
+that is genuinely open. The survey is built around that split.
 
 \paragraph{The relational standpoint.} We work in the spirit of the
 ``structure from observation'' programme~\cite{mahon2025}: rather than
@@ -330,45 +331,79 @@ $\sum_i s(a_i) \leq 1$ over pairwise-meet-zero families. It can fail for
 \emph{every} state ($\mathrm{MO}_3$, Example~\ref{ex:strict}).
 \end{proposition}
 
-\begin{proposition}[Infinite $L(H)$, normal states]\label{prop:lh}
-Let $\dim H = \infty$. Any state $s$ on $L(H)$ with $s(e) > 0$ for some
-finite-dimensional $e$ fails to extend to a charge on $S_0(L(H))$; in
-particular no normal (Gleason) state extends.
+\begin{proposition}[Infinite $L(H)$, all states]\label{prop:lh}
+Let $\dim H = \infty$. \emph{No} state on $L(H)$ --- normal or singular
+--- extends to a charge on $S_0(L(H))$.
 \end{proposition}
 
-\begin{proof}[Proof sketch]
-Since $s(e)>0$ on some finite-dimensional $e$, it is positive on a
-$2$-plane inside it; fix such a $2$-plane $e_0$, with $p^\perp$ the
-orthocomplement of a line $p$ \emph{within} $e_0$. Choose $k$ lines
-$p_1,\dots,p_k \subset e_0$ no two of which are orthogonal; then the $2k$
-lines $\{p_i, p_i^\perp\}$ are distinct and pairwise meet-zero (distinct
-lines meet at $\mathbf 0$), so $h$ sends them to pairwise-disjoint clopens.
-Orthoadditivity gives $s(p_i)+s(p_i^\perp)=s(e_0)$ for each $i$, and a
-charge on the disjoint clopens forces
-$\sum_i [s(p_i)+s(p_i^\perp)] = k\,s(e_0) \leq 1$ for every $k$. If
-$s(e_0)>0$, take $k > 1/s(e_0)$. The argument is finitary;
+\begin{proof}
+Write $H = H_0 \otimes \mathbb{C}^2$ with $H_0$ infinite-dimensional, and
+fix an orthonormal basis $e,f$ of $\mathbb{C}^2$. Set
+\[
+  a_1 = H_0 \otimes \mathbb{C}e,\quad
+  a_1^\perp = H_0 \otimes \mathbb{C}f,\quad
+  a_2 = H_0 \otimes \mathbb{C}(e{+}f),\quad
+  a_2^\perp = H_0 \otimes \mathbb{C}(e{-}f).
+\]
+These four (infinite-dimensional) subspaces form a copy of $\mathrm{MO}_2$
+inside $L(H)$: $a_1 \perp a_1^\perp$ and $a_2 \perp a_2^\perp$, each pair
+joining to $H$, while all four \emph{cross} pairs are meet-zero
+(distinct lines in $\mathbb{C}^2$ give $a_i \cap a_j = \mathbf 0$) but
+\emph{not} orthogonal. Orthoadditivity gives $s(a_i)+s(a_i^\perp)=s(H)=1$
+for $i=1,2$ --- this uses only $s(\mathbf 1)=1$ and additivity on
+orthogonal pairs, so it holds for \emph{every} state --- whence
+$\sum s(a_i)=2$ over the pairwise-meet-zero family
+$\{a_1,a_1^\perp,a_2,a_2^\perp\}$. Since $h$ preserves meets
+($h(a\wedge b)=h(a)\cap h(b)$, the filters being meet-closed), meet-zero
+elements map to disjoint clopens, so any charge forces
+$\sum s(a_i)\le 1$. Contradiction. The construction is finite ($n=4$) and
 $\sigma$-completeness of the lattice is irrelevant.
 \end{proof}
 
-Lift $s$ to a bounded functional via Mackey--Gleason /
-Bunce--Wright~\cite{BunceWright1992} (valid as $B(H)$ has no type
-$\mathrm{I}_2$ summand) and apply the Takesaki normal/singular
-decomposition $s = s_{\mathrm n} + s_{\mathrm{sing}}$. Any state with
-$s_{\mathrm n} \neq 0$ has $s(e)>0$ on some finite-dimensional $e$ and is
-killed by Proposition~\ref{prop:lh}; the only survivors are the
-\emph{purely singular} states ($s_{\mathrm n}=0$, equivalently $s(e)=0$ for
-all finite-dimensional $e$; e.g.\ ultrafilter vector states, or pullbacks
-of Calkin-algebra states). So on the extension axis the sole survivors are
-the purely singular states of $L(H)$, treated in \S\ref{sec:first}. The
-genuine open problem lives on the descent axis (\S\ref{sec:problem}).
+\noindent The $\mathrm{MO}_2$ count is folklore (orthoadditivity plus
+$s(\mathbf 1)=1$; cf.\ \cite{Kalmbach1983}), and the $\sum s(a_i)=2$ is
+already state-independent in $L(\mathbb{C}^2)$. What it buys \emph{here} is
+different: realising $\mathrm{MO}_2$ with \emph{infinite-dimensional} atoms
+makes the obstruction reach the states that vanish on finite rank. In
+$L(\mathbb{C}^2)$ the four atoms are lines (finite rank), and a singular
+state --- one with $s(e)=0$ for every finite-dimensional $e$ --- assigns
+them all $0$, so the count, though valid, says nothing there; it
+constrains only states positive on finite rank. Infinite-dimensional $H_0$
+keeps each atom infinite-dimensional, so $s(a_i)+s(a_i^\perp)=1$ holds
+regardless of behaviour on finite rank --- dropping the finite-rank
+precondition of the line argument (Remark~\ref{rem:linearg}) and catching
+the singular states as well. This is the role of infinite-dimensionality,
+and it is what closes the extension axis on $L(H)$ completely.
+
+\begin{remark}[An alternative argument for normal states only]
+\label{rem:linearg}
+A second, technique-disjoint argument reaches the normal states without
+the $\mathrm{MO}_2$ family. If $s(e)>0$ on some finite-dimensional $e$,
+it is positive on a $2$-plane $e_0$; choosing $k$ pairwise-non-orthogonal
+lines $p_1,\dots,p_k \subset e_0$ gives $2k$ distinct pairwise-meet-zero
+lines with $s(p_i)+s(p_i^\perp)=s(e_0)$, so a charge forces
+$k\,s(e_0)\le 1$ for all $k$ --- impossible once $s(e_0)>0$. Lifting $s$
+to a functional via Mackey--Gleason / Bunce--Wright~\cite{BunceWright1992}
+($B(H)$ has no type $\mathrm I_2$ summand) and applying the Takesaki
+normal/singular decomposition identifies the states it reaches --- those
+with nonzero normal part, i.e.\ $s(e)>0$ on some finite-dimensional $e$,
+including every normal (Gleason) state --- and the states it misses, the
+purely singular ones ($s(e)=0$ on all finite $e$; e.g.\ ultrafilter
+vector states or Calkin-algebra pullbacks). Proposition~\ref{prop:lh}
+subsumes this case; the line argument is recorded because its technique
+is independent and because it makes precise where the singular states
+sit. The genuine open problem lives on the descent axis
+(\S\ref{sec:problem}).
+\end{remark}
 
 % ==================================================================
 \section{What is known}
 \label{sec:known}
 % ==================================================================
 
-The extension axis is settled apart from the singular case of
-\S\ref{sec:first}; the descent axis turns on whether the Boolean engine of
+The extension axis is settled --- on $L(H)$ no state extends
+(Proposition~\ref{prop:lh}); the descent axis turns on whether the
+Boolean engine of
 \S\ref{sec:ls} has an OML analogue. We survey what the literature supplies
 on that question --- the Boolean benchmark it would have to match, the
 partial OML results, and the routes already known to be blocked.
@@ -504,10 +539,11 @@ programme defines \emph{realisation} as concentration on \textbf{(B)}.
 Gleason removes \textbf{(B)} but \emph{requires} \textbf{(A)} --- and is a
 \emph{representation} theorem, reducing every lattice state to the point
 datum $\rho$, the most point-ful result available. So $L(H)$/Gleason
-exhibits a \emph{separation} --- a $\sigma$-additive measure exists on the
-lattice, while (by Proposition~\ref{prop:lh}) no normal state even extends
-to a charge on $S_0(L(H))$, so a fortiori none concentrates on the dual
-points $P(A)$ --- not point-freeness, and it cannot serve as the existence
+exhibits a \emph{separation} --- $\sigma$-additive measures exist on the
+lattice (Gleason, for the normal states), while (by
+Proposition~\ref{prop:lh}) no state of any kind even extends to a charge
+on $S_0(L(H))$, so a fortiori none concentrates on the dual points
+$P(A)$ --- not point-freeness, and it cannot serve as the existence
 proof sought. Because it
 cannot, the $\sigma$-OML representation above is the \emph{only} candidate
 engine; it would be an error to regard Gleason's theorem as already
@@ -519,8 +555,8 @@ furnishing a relational, point-free probability.
 \label{sec:first}
 % ==================================================================
 
-Two lines of attack present themselves, both bounded by the same
-finitary-to-$\sigma$ obstruction.
+With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), a
+single direction remains.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=3.4cm, leftmargin=3.8cm]
   \item[The general construction]
@@ -528,48 +564,38 @@ finitary-to-$\sigma$ obstruction.
     countable-join-preserving $\sigma$-Stone duality, for a concrete
     non-Boolean infinite $\sigma$-OML --- or prove that none exists. This
     resolves the open problem directly, but no partial construction is
-    currently in hand.
-  \item[The singular case for $L(H)$]
-    Determine whether a \emph{singular} orthoadditive state on $L(H)$
-    extends to a charge on $S_0(L(H))$ --- a question about one specific
-    lattice, accessible to operator-algebraic methods (Calkin,
-    Bunce--Wright, Takesaki), and conditionally self-contained (subject to
-    the finite-versus-countable question below).
+    currently in hand. This is the \emph{descent}-axis residue: the
+    obstruction is the failure of $h$ to preserve countable joins
+    (Remark~\ref{rem:finitary}), not the orthogonal/meet-zero gap, and so
+    Proposition~\ref{prop:lh} does not reach it.
 \end{description}
 
-\noindent The singular case is the more tractable entry point, and it is
-informative whichever way it resolves. If a singular state fails to extend,
-then by the dichotomy following Proposition~\ref{prop:lh} \emph{no} state on
-$L(H)$ extends; since the singular states are the only remaining candidates
-for a state whose descent behaviour is independent of extension, this would
-settle that subsidiary question negatively. If a singular state does extend,
-it is the first explicit example of a state that extends but may fail to
-concentrate on $P(A)$ --- the motivating example the general construction
-lacks.
+\noindent The other candidate direction --- the singular case for
+$L(H)$ --- is now closed, and the way it closed is instructive. One might
+hope a \emph{singular} state would extend even though no normal state
+does, furnishing the first explicit ``extends but may fail to
+concentrate'' example the general construction lacks. It does not:
+Proposition~\ref{prop:lh} catches every state, singular included. The
+reduction that settled it is worth recording, since the natural
+expectation was that the singular case would require infinitary methods.
 
-Whether the singular case is genuinely more tractable, however, turns on a
-prior question.
-
-\begin{problem}[Finite versus countable]
-Is the obstruction to extending a singular state on $L(H)$ realised by a
-\emph{finite} or only by a \emph{countable} pairwise-meet-zero family?
-\end{problem}
-
-\noindent Proposition~\ref{prop:lh} is finitary --- it uses finitely many
-lines in a single $2$-plane --- which is why it avoids the descent-axis
-obstruction entirely. For singular states the relevant pairwise-meet-zero
-families are infinite-dimensional subspaces with trivial intersection, and
-the line argument is vacuous there ($s(e)=0$ on every finite-dimensional
-$e$). That the line argument is vacuous does not, however, imply that the
-obstruction requires a countable family: whether a \emph{finite} family of
-infinite-dimensional, pairwise-meet-zero subspaces can force
-$\sum_i s(a_i) > 1$ is unsettled. If such a finite obstruction exists, the
-singular case is a self-contained operator-algebraic problem, separable
-from the general construction; if only a countable family obstructs, it is
-governed by the same finitary-to-$\sigma$ passage as the general case. The
-question therefore reduces, concretely, to whether orthoadditivity of a
-singular state forces $\sum_i s(a_i) > 1$ on some finite family of
-infinite-dimensional, pairwise-trivially-intersecting subspaces of $H$.
+\begin{remark}[Finite versus countable: finite suffices]\label{rem:finvscount}
+One could ask whether the obstruction to extending a singular state is
+realised by a \emph{finite} or only by a \emph{countable}
+pairwise-meet-zero family. The line argument of
+Remark~\ref{rem:linearg} is finitary but vacuous on singular states
+($s(e)=0$ on every finite-dimensional $e$), which might suggest the
+singular obstruction needs a countable family and is therefore entangled
+with the descent-axis passage. It does not: the four
+infinite-dimensional subspaces of Proposition~\ref{prop:lh} are a
+\emph{finite} ($n=4$) pairwise-meet-zero family forcing
+$\sum_i s(a_i)=2$, and the forcing is state-independent. So the singular
+case is a self-contained, finitary problem, separable from the general
+construction --- not governed by the finitary-to-$\sigma$ passage at all.
+The line argument is vacuous on singular states; the
+$\mathrm{MO}_2$-with-infinite-dimensional-atoms argument is not, and that
+is the whole difference.
+\end{remark}
 
 \bibliographystyle{plain}
 \bibliography{references_oml}

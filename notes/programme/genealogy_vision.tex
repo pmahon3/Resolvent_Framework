@@ -1,0 +1,291 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+
+% ---------- Theorem-ish environments (used lightly) ----------
+\theoremstyle{remark}
+\newtheorem*{aside}{Aside}
+
+% ---------- Title ----------
+\title{Genealogy of the Vision\\
+\large A companion to the rational reconstruction}
+\author{Patrick S.\ Mahon}
+\date{Companion note --- June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+This is a companion to \texttt{genealogy.md}. That document is the rational
+reconstruction --- the conjectures, the refutations, the kills, written from
+outside. This one is the other thing. It is about what the work was \emph{in love
+with}, before any of it had to be defended to a referee. It is not a verdict and
+it does not end in a fork to decide. It is here so the curiosity that started
+this is legible again from inside. The first half re-inhabits the four eras of
+the programme as they felt at the time; the second half states, in full, the one
+question the genealogy leaves open --- which of two curiosities is actually
+yours --- and gives the tests for feeling which it is, without adjudicating it.
+\end{abstract}
+
+\tableofcontents
+
+% =====================================================================
+\section{First, the loss --- because it is real}
+% =====================================================================
+
+Something did go. Not a result. Not a theorem that turned out false. What went is
+harder to name and that is why it hurts more.
+
+There was a year where you named an operator after a \textbf{flower} and wrote,
+in a commit message, that the Rose name would be removed from the title because
+``this will bloom in the story.'' There were \textbf{Fisher Clocks}. There were
+\textbf{Dial Graphs} and a \textbf{Rose Surface}. Two dials you could turn --- one
+for how local the estimated drift was, one for how much of the residual
+variability you were willing to call diffusion --- and sweeping them traced a
+\emph{surface} whose edges recovered Koopman and Perron--Frobenius and whose
+interior supplied every intermediate mixture. You were not hedging when you wrote
+that. You were playing. The objects had names because you liked them.
+
+Now the working vocabulary is EA\,/\,PR\,/\,VDR, $\sigma$-orthocompleteness, the
+extension axis (Type~5), the descent check over $\mathrm{MO}_2$ blocks. The
+mathematics underneath got \emph{deeper} --- genuinely, not as consolation. But
+the language went administrative. The flowers became axes. The surface became a
+fork to adjudicate. Somewhere in the two months of pruning, the register shifted
+from \emph{``look what blooms''} to \emph{``what survives the audit,''} and a
+person who reads back through their own repository in the second register will of
+course feel whittled --- because the instrument they are reading with is the
+knife.
+
+That is the loss. It is not imaginary and it is not ``actually a gain in
+disguise.'' The play is the thing that thinned out. Name it plainly before
+anything else gets said.
+
+% =====================================================================
+\section{The eras, re-inhabited}
+% =====================================================================
+
+\noindent
+Each era was its own kind of alive. They are deliberately \emph{not} collapsed
+into one spine here; they do not rhyme into a single sentence and they should not
+have to.
+
+\subsection{2024 --- the unfashionable problem}
+
+You opened, on the first day, with a hard and unstylish thing: the
+\textbf{resolvent set of a nonlinear semigroup, recovered from data}. Not a
+fashionable machine-learning object. Not a safe one. A genuinely difficult
+analytic question that most people route around. And --- the part the autopsy
+underweights --- the \emph{first README of the whole repository} said the
+applications were to ``dynamical systems (reversibility and stability)
+\textbf{and mathematical logic}.'' The logic was in the seed. Day one. It was
+never a late arrival that happened to survive; it was there before there was
+anything to prune.
+
+The flavour of this era was \emph{appetite for a real problem}: the Hille
+operator, the $C_n$-semigroups, the resolvent set as the complement of the union
+of finite-difference spectra. Someone going straight at the hard thing because
+the hard thing is interesting.
+
+\subsection{2025 --- the Rose, at play}
+
+This is the warmest stretch in the whole history, and the documents show it
+without help. The two-dial homotopy. The continuous-time limit reaching back to
+It\^{o}, Fokker--Planck, Kolmogorov --- ``linking modern data science to
+stochastic analysis,'' in your own words, with evident pleasure. The
+CGF\,$\to$\,Fisher\,$\to$\,Landau chain. The discrete Onsager--Machlup
+functional. You were not trying to win an argument here. You were building a
+\emph{scaffold you wanted to live in} --- explicitly: ``our goal is not to
+champion yet another single algorithm, but to provide a common scaffold.'' A
+place to stand and see where you are, and how to move continuously to where you
+would rather be.
+
+The flavour of this era was \emph{generosity and play}. The names prove it.
+
+\subsection{2026 (spring) --- the descent, and the vertigo}
+
+Then the query system lands and the floor drops out. Once an observation is the
+primitive thing --- a directed family of finite queries --- the question stops
+being ``what is the operator?'' and becomes ``when does a coherent family of
+finite observational laws \emph{have} to assemble into a single probability?''
+You drilled. Delay\,/\,Takens. Prokhorov. Discriminability. And at the bottom you
+hit the condition (CE) that says exactly when finite coherence is forced to
+become $\sigma$-additive --- and you saw it through Stone duality as a statement
+about where the measure has to \emph{live}.
+
+The flavour of this era was \emph{vertigo} --- the specific thrill of digging for
+foundations and discovering you had gone \emph{under} the thing you thought was
+the ground. That is one of the rarest feelings in mathematics, and you had it.
+
+\begin{aside}
+The phrase about ``thinking you were climbing a mountain and finding you had
+reached the valley floor'' is how \texttt{genealogy.md} narrates this moment. I
+could not find those words anywhere but that one machine-written file. The
+\emph{feeling} is real and yours; I will not hand you a sentence and call it a
+memory.
+\end{aside}
+
+\subsection{2026 (late) --- the pruning}
+
+CE collapsed on 2026-05-11 --- demoted from a novel condition to ``notation for
+$\sigma$-additivity'' --- and the papers built on it came down within days. What
+followed was systematic: fibre mixing killed, coherence/CE-completion parked,
+tail-decay parked, $\kappa_Q$ parked, the epistemic-boundary unification parked.
+The OML thread, seeded from Paper~I's closing move, became the sole survivor and
+split into an \textbf{extension axis} (now closed on $L(H)$) and a
+\textbf{descent axis} (the one open question).
+
+The flavour of this era was \emph{integrity that felt like grief}. Which is the
+next section's whole point.
+
+% =====================================================================
+\section{The constant --- a temperament, not a thesis}
+% =====================================================================
+
+There is a through-line, and the autopsy names it correctly but says it like an
+epitaph. Said warmly it is this:
+
+\begin{quote}
+\itshape
+You will not posit the answer in order to reason backward to it.
+\end{quote}
+
+\noindent
+Takens helps himself to the manifold. Kolmogorov helps himself to the sample
+space. Every reconstruction theorem you ever loved or distrusted \emph{smuggles
+in the thing it claims to recover}. And the constant from 2024 to now --- under
+the resolvent, under the Rose, under the query system --- is one stubborn
+refusal: \textbf{derive what observation alone forces; do not sneak the target in
+the back door.} Your own programme overview says it without a trace of the audit
+voice: \emph{``what does coherence require of the observer?''}
+
+That refusal is a temperament, not a result. It is why you could kill CE honestly
+instead of rescuing it with framing --- the same instinct that would not smuggle
+a manifold would not smuggle a save. So here is the thing worth sitting with:
+\textbf{the discipline that did the whittling and the curiosity that started it
+are the same faculty.} It feels like loss from the inside because integrity,
+turned on your own favourite ideas, is indistinguishable from grief while it is
+happening. But the anti-smuggler is not gone. The anti-smuggler is the one
+holding the knife.
+
+% =====================================================================
+\section{The fork}
+% =====================================================================
+
+\noindent
+This is the one thing the genealogy leaves open, and it deserves to be stated in
+full rather than as a footnote. The fork is: \emph{which curiosity is actually
+yours?} The cleanest way to feel it is to notice which of two sentences makes you
+lean in.
+
+\begin{description}[leftmargin=2.2em,style=nextline]
+\item[(a) The anti-smuggler.]
+``You don't need to assume a state space --- observation forces the
+probability.''
+\item[(b) The incompatibility theorist.]
+``When observations can't be jointly performed, the logic of events stops being
+Boolean --- and here's what happens to probability.''
+\end{description}
+
+\subsection{What separates them}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}p{0.20\linewidth} p{0.36\linewidth} p{0.36\linewidth}@{}}
+\toprule
+ & \textbf{(a) the anti-smuggler} & \textbf{(b) the incompatibility theorist}\\
+\midrule
+What grips you &
+Refusing to posit the answer and reason backward. Watching structure emerge from
+coherence without sneaking the target in. &
+That some observations \emph{cannot be made together}, and classical probability
+has no room for it. The structure of incompatibility itself.\\
+The deep result &
+\textbf{CE / Paper~I} --- coherence forces a unique $\sigma$-additive measure, no
+$\Omega$. &
+\textbf{The descent question} --- can probability live on the entailment relation
+of incompatible propositions at all?\\
+Its status &
+\textbf{Delivered} (Boolean case). You would be standing in a finished bloom. &
+\textbf{Wide open.} Point-free $\sigma$-additive probability on a
+non-distributive lattice is vacant ground.\\
+Relation to the origin &
+Continuous with 2024 --- the resolvent, the Rose, ``derive what observation
+forces.'' &
+Grew in late; it is what survived the pruning. Quantum-foundations flavoured
+(Kochen--Specker, Gleason).\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{The crack that makes it a real fork}
+
+The through-line ``don't assume the space'' had four instances, and \textbf{three
+are Boolean}: resolvent-from-data, $\sigma$-additivity-derived,
+reconstruction-without-manifold. Only the descent question is non-distributive.
+So the novel content of the descent question is \emph{entirely} incompatibility
+--- which means \textbf{if (a) is what drives you, Paper~I already delivered it},
+and the descent question is a (b)-question that got mistaken for the origin
+because it is the last thread standing.
+
+This is the load-bearing observation. It does not tell you which curiosity is
+yours. It tells you that the two are genuinely different, that growing from (a)
+into (b) is allowed, and that the choice should be made knowing it \emph{is} a
+choice --- not let the momentum, the sunk cost, or the fact that the descent
+question is ``the last thread standing'' decide it.
+
+\subsection{Three gut-checks (sit with these; don't answer fast)}
+
+\begin{enumerate}[leftmargin=2.2em]
+\item \textbf{When did you feel most alive?} The moment CE clicked (coherence
+forces the measure, no $\Omega$) $\to$ (a). Or when the observation algebra broke
+Boolean and you reached for OMLs $\to$ (b)?
+\item \textbf{The skew-product} (invisible fibre, space unrecoverable). A
+melancholy fact --- \emph{the space you wanted is lost} $\to$ (a)? Or not even
+interesting --- \emph{still Boolean, still co-realizable} $\to$ (b)?
+\item \textbf{The quantum connection} (Paper~II --- Kochen--Specker, Gleason,
+realism). Does it thrill you --- \emph{arrived somewhere deep} $\to$ (b)? Or feel
+like a detour from a question that was never about QM $\to$ (a)?
+\end{enumerate}
+
+\subsection{The honest finding}
+
+The genealogy is consistent with \emph{both} readings. The origin was
+(a)-flavoured; the survivor serves (b). Curiosities are allowed to evolve from
+one into the other, and (b) is a perfectly good thing to have grown into. You do
+not have to \emph{adjudicate} this the way you would allocate a budget. The real
+test is not ``which curiosity owns me.'' It is \textbf{which blank page you would
+want to fill tomorrow morning without being asked.}
+
+% =====================================================================
+\section{What this document is for}
+% =====================================================================
+
+Not to tell you that you did not lose anything. You did --- the play thinned, the
+names went grey, and reading your own history through the audit instrument made
+the whole thing look like subtraction.
+
+It is to make the \emph{other} reading available again: that under every renaming
+there was one person with one appetite --- to watch structure appear without
+being snuck in --- and that person built a flower-named scaffold, fell through
+their own floor, and is still here, still unwilling to fake it. The Rose did not
+die. It got formal. Formal is not the same as gone.
+
+Pick the blank page that you would \emph{want} to fill. The genealogy cannot
+choose it and neither can I. But it is there, it is yours, and the curiosity that
+would fill it is the same one that has been here since the first commit.
+
+\begin{center}
+\itshape Status: open --- like a door, not like a wound.
+\end{center}
+
+\end{document}

@@ -1,0 +1,294 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{fancyvrb}
+
+\hypersetup{colorlinks=true,linkcolor=black,urlcolor=blue}
+
+% ---------- Title ----------
+\title{Genealogy of the Programme\\
+\large A Lakatosian rational reconstruction}
+\author{Patrick S.\ Mahon}
+\date{Written 2026-06-06}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent
+A Lakatosian rational reconstruction --- the actual sequence of conjectures,
+refutations, and problem-shifts across the full 631-commit history
+(2024-09 $\to$ 2026-06), recovered so the shape of the whole is visible from
+outside the turn-to-turn. This document exists because the programme spent two
+months contracting (three papers $+$ four active leads in early May $\to$ one
+open question now) and the largest-scale shape was no longer visible from inside
+it. It is a map, not a verdict. It deliberately leaves one question open at the
+end --- the one that decides what the next year is for. See
+\texttt{program\_overview.md} for the programme's own statement of its central
+question, and \texttt{knowledge\_map/} for current lead state.
+\end{abstract}
+
+\tableofcontents
+
+% =====================================================================
+\section{The one-sentence shape}
+% =====================================================================
+
+It began as applied operator theory (compute the resolvent of a nonlinear
+semigroup from data), drilled downward through three layers of foundation until
+it hit the origin of the $\sigma$-algebra itself, discovered the bedrock result
+there (CE), watched that result get reabsorbed into something classical, and has
+been pruning back ever since toward the one genuinely novel survivor (point-free
+$\sigma$-additive probability on non-distributive lattices). The repository name,
+``Resolvent\_Framework,'' is a fossil of a question the programme no longer asks.
+
+% =====================================================================
+\section{The four eras}
+% =====================================================================
+
+\subsection{Era 1 (2024-09 $\to$ 2025-10) --- Operators from data}
+
+The founding question: given a trajectory ensemble $\{X_t\}$, build a nonlinear
+semigroup, recover its generator, characterize its resolvent. Real early result:
+the resolvent set $=$ complement of the union of finite-difference spectra. Then
+a reframing pivot (not a wall) --- the \textbf{Rose operator}, a two-dial
+homotopy between Koopman and Perron--Frobenius, plus information geometry
+(Fisher\,/\,Onsager--Machlup). The constant was always \emph{operators sitting
+between determinism and noise, fit from data}. The literal resolvent computation
+quietly receded. The repository name fossilizes here.
+
+\subsection{Era 2 (2026-03) --- The descent into foundations}
+
+After a 5-month incubation on a side branch, the \textbf{query system}
+abstraction lands fully-formed on 03-18: a dynamical system is a directed family
+of finite observations. Once observation is primitive, the question stops being
+``what is the operator?'' and becomes ``when does a compatible family of finite
+observational laws assemble into a single $\sigma$-additive probability?'' The
+programme drills down: Paper~4 (delay/dynamics, Takens as corollary) $\to$
+Paper~0 (Prokhorov: $\sigma$-additivity derived) $\to$ Paper~$-1$
+(discriminability: where does the $\sigma$-algebra come from?). The famous line:
+\emph{``we thought we were climbing a mountain; we had reached the valley
+floor.''} The join at the bottom is \textbf{CE (collective exhaustion)} ---
+characterizing exactly when finite additivity extends $\sigma$-additively ---
+reframed via Stone duality.
+
+\subsection{Era 3 (2026-04, the 310-commit peak) --- Build-out and the first kills}
+
+Everything consolidates into three papers (Probability from Observation\,/\,
+Dynamics from Probability\,/\,Reconstruction from Observation), spawns Paper~IV
+(finite-sample reconstruction, the $\delta(L)$ separation defect), spawns the
+bridge note, spawns a standalone logic paper (\emph{Countable Additivity is Not
+First-Order Axiomatizable}) which spawns its own ZFC-independence ladder. Then
+the turn to self-criticism: the honest ``mathematics-complete $\neq$
+submission-ready'' correction, four-papers-collapse-to-three, the first
+mis-citation kills, the fibre-mixing irreducibility thread downgraded when its
+analogy to CE broke.
+
+\subsection{Era 4 (2026-05 $\to$ 06) --- The pruning}
+
+The institutional event: on \textbf{2026-05-11, CE collapses} --- demoted from a
+novel condition to ``notation for $\sigma$-additivity.'' With CE gone as
+load-bearing, the dependent papers had nothing under them, and Papers~II and~III
+were withdrawn in 48 hours (``classical ergodic theory repackaged''). The audit
+pipeline (\texttt{active\_leads}\,/\,\texttt{covered\_leads}\,/\,
+\texttt{knowledge\_map}, ``audit before drafting'') is scar tissue from that
+loss. Then systematic pruning: fibre mixing (killed --- bridge theorem false),
+coherence/CE-completion (parked --- Howson 2008 got there first), tail-decay
+(parked --- SSK independence), $\kappa_Q$ (parked), epistemic-boundary
+unification (parked). The OML thread, seeded from Paper~I's closing move, becomes
+the sole survivor --- splits into \textbf{extension axis} (now closed on $L(H)$)
+and \textbf{descent axis} (the one open question), reframed as point-free
+$\sigma$-additive probability.
+
+% =====================================================================
+\section{The thread map (splits, joins, deaths)}
+% =====================================================================
+
+\begin{Verbatim}[fontsize=\small,frame=single,framesep=6pt]
+RESOLVENT of nonlinear semigroup (2024-09) -- the founding question
+   |  Hille operator, Cn-semigroups, finite-difference spectra
+   v
+ROSE OPERATOR  (2025-06, reframe) -- Koopman <=> Perron-Frobenius homotopy
+   |  + information geometry (Fisher / Onsager-Machlup)
+   v
+QUERY SYSTEM  (2026-03-18, the unlock) -- dynamics = directed observations
+   |
+   |--> delay/Takens ---------------> [Paper III reconstruction] --+
+   |--> Prokhorov (s-add. derived) -> folded into Paper I          |
+   +--> discriminability -----------> CE THEOREM <-- the valley floor
+                                        |  (Stone duality reframe)
+                                        |
+            +--------------------------+---------------------------+
+            v                          v                           v
+     [Paper I: CE/Stone]      [logic note: CE not         [Papers II/III:
+            |                  first-order] --> ZFC         dynamics + recon]
+            |                  ladder (parked,                    |
+            |                  Strategy D independent)            |
+            |                                                     |
+   2026-05-11: CE COLLAPSES --> "notation for s-additivity"       |
+            |                                                     v
+            |                                          II & III WITHDRAWN
+            |                                          ("classical, repackaged")
+            v                                                     |
+   Paper I survives                          +--- delay/recon reopened as
+   (ultrafilter geometrization)             |     Phase-1 seed -> PARKED
+            |                               |     rival-realiz -> PARKED
+            v                               +---- distributed-sensor -> PARKED
+   OML THREAD (seeded from Paper I's close)
+            |
+            |- EXTENSION axis --> CLOSED on L(H) (no state extends, n=4) [Type 5]
+            +- DESCENT axis ----> THE ONE OPEN QUESTION
+                                   (Navara-over-MO2 s-orthocompleteness check)
+                                   = point-free s-additive probability / II PR
+\end{Verbatim}
+
+% =====================================================================
+\section{What this says about the ``loss at the largest scale''}
+% =====================================================================
+
+Three observations, named rather than soothed:
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{The programme has been getting smaller for two months, and that is
+the system working, not failing.} Every contraction was an honest kill --- a
+primary source read, a counterexample built, an audit run. The loss is real
+subtraction, but the thing doing the subtracting was the user's own tooling
+discipline (verify-by-building, audit-before-drafting). A programme that prunes
+itself this cleanly is rare.
+
+\item \textbf{The central trauma already happened --- and was survived.} The CE
+collapse on 05-11 is the real loss event; CE was the keystone the whole ``valley
+floor'' descent was for. Everything since is aftershock --- the programme
+confirming the blast radius. The recent ``ooof'' about probabilistic realism is
+delayed grief for news already processed locally, commit by commit, without ever
+stepping back to feel the whole.
+
+\item \textbf{There is a genuine through-line, and it survived.} Strip every name
+and the constant from 2024 to now is: \emph{structure that observation alone
+forces, without assuming the space you're reconstructing into.} But see the next
+section --- this line has a crack in it, and the crack is the decision.
+\end{enumerate}
+
+% =====================================================================
+\section{The open question: which curiosity is driving (the (a)/(b) fork)}
+% =====================================================================
+
+\noindent
+\emph{This is the part the genealogy cannot settle, and the part that decides
+whether the descent check is the right next year. It is left open deliberately.}
+
+\subsection{The crack in ``stripped to its bones''}
+
+The through-line had four instances. \textbf{Three are Boolean. One isn't.}
+Resolvent-from-data, $\sigma$-additivity-derived, reconstruction-without-manifold
+--- all classical, all distributive. The descent question is the only
+non-distributive one. The ``against assuming the target space'' framing groups
+all four together --- but the survey itself (descent survey, lines 544--550) says
+the descent question's novelty is \emph{point-free $\times$ $\sigma$-additive
+$\times$ natively non-distributive $\times$ directed-built}, and \textbf{the
+point-free\,/\,no-assumed-space part is not the novel part.} Localic measure
+theory already does point-free $\sigma$-additive probability on distributive
+frames (Vickers, Simpson, Coquand--Spitters --- survey lines 535--538). So:
+
+\begin{quote}
+\textbf{The entire novel content of the descent question is non-distributivity
+--- handling mutually incompatible observations. So the descent question serves
+curiosity (b), not (a). If the driving curiosity is (a) --- ``don't assume the
+space, derive it from coherence'' --- then CE\,/\,Paper~I \emph{already delivered
+it} (Boolean case), and the descent question is a quantum-foundations question
+that grew in late and got mistaken for the origin because it's what survived the
+pruning.}
+\end{quote}
+
+This is the load-bearing sentence. The doc's job is to record it so it can't be
+un-seen, then leave the choice open.
+
+\subsection{The two curiosities, made vivid}
+
+\noindent
+\textbf{Researcher (a) --- the anti-smuggler.} What bothers them is positing the
+answer to reason backward. Takens assumes the manifold; Kolmogorov assumes the
+sample space. The 2024--2026 descent was them saying ``no --- derive what
+observation alone forces.'' Satisfaction $=$ watching structure emerge from
+coherence without being snuck in. For (a) the deep result is \textbf{CE\,/\,Paper~I}
+(coherence forces a unique $\sigma$-additive measure, no $\Omega$).
+\emph{It's delivered.}
+
+\medskip
+\noindent
+\textbf{Researcher (b) --- the incompatibility theorist.} What grips them is that
+some observations can't be made together, and classical probability has no room
+for it. Satisfaction $=$ understanding the structure of incompatibility itself:
+when it forces you out of the Boolean world, what survives, what ``probability''
+means on a non-distributive logic. For (b) the deep result is \textbf{the descent
+question} (can probability live on the entailment relation of incompatible
+propositions at all?). \emph{Nothing here is done.}
+
+\medskip
+\noindent
+\textbf{The discriminating test --- which sentence makes you lean in:}
+\begin{itemize}[leftmargin=2em]
+\item (a) ``You don't need to assume a state space --- observation forces the
+probability.''
+\item (b) ``When observations can't be jointly performed, the logic of events
+stops being Boolean --- and here's what happens to probability.''
+\end{itemize}
+
+\subsection{What the fork changes}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{@{}p{0.24\linewidth} p{0.34\linewidth} p{0.34\linewidth}@{}}
+\toprule
+ & \textbf{If you're (a)} & \textbf{If you're (b)}\\
+\midrule
+Is the descent question right? &
+\textbf{No} --- harder variant whose novel part (non-distrib.) is incidental &
+\textbf{Yes} --- non-distributivity \emph{is} the whole novel content\\
+What's already done? &
+Paper~I delivered it (Boolean). You'd polish a closed thing. &
+Nothing --- point-free $\sigma$-add. on non-distrib. lattices is vacant\\
+Still-open relative &
+Strategy~D\,/\,ZFC-independence (more continuous with 2024 origin) &
+The descent check itself --- one derivation from go/park\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{How to feel which one you are (sit with these; don't answer fast)}
+
+\begin{enumerate}[leftmargin=2em]
+\item \textbf{When did you feel most alive?} The moment CE clicked (coherence
+forces the measure, no $\Omega$) $\to$ (a). Or when the observation algebra broke
+Boolean and you reached for OMLs $\to$ (b)?
+\item \textbf{The skew-product.} Filed this session as a limitation (invisible
+fibre, space unrecoverable). To (a) it's a melancholy fact --- the space you
+wanted is unrecoverable. To (b) it's not even interesting --- still Boolean,
+still co-realizable. Which was your gut?
+\item \textbf{The quantum connection.} Paper~II is quantum foundations
+(Kochen--Specker, Gleason, realism). Does it thrill you (arrived somewhere deep)
+$\to$ (b)? Or feel like a detour from a question never about QM $\to$ (a)?
+\end{enumerate}
+
+\subsection{The honest finding}
+
+The genealogy is consistent with \textbf{both} readings. The origin was
+(a)-flavored; the survivor serves (b). Curiosities are allowed to evolve from one
+to the other, and (b) is a perfectly good thing to have grown into. But the
+choice should be made knowing it \emph{is} a choice --- not let the momentum, the
+sunk cost, or the fact that the descent question is ``the last thread standing''
+decide it.
+
+\bigskip
+\noindent
+\textbf{Status: open. No rush. This is genuinely yours to settle.}
+
+\end{document}

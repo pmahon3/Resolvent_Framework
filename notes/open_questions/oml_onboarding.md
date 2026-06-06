@@ -49,7 +49,14 @@ the compatible/incompatible dichotomy is the organising point of Paper II.
 The OML is forced by the context structure, not postulated; incompatibility —
 quantum complementarity, but equally contextual experimental design or
 interfering sensors — is what drives the observation algebra out of the
-Boolean world. `L(H)` (closed subspaces of a Hilbert space, distributivity
+Boolean world. For the non-quantum examples the incompatibility must be
+*operationally imposed* (contexts genuinely non-co-realizable, no joint
+probability space): it cannot arise intrinsically from the dynamics of a
+single classical system, since any finite family of classical observables on
+a common space jointly distributes (Kolmogorov), hence stays Boolean —
+contextuality there is failure of a global section (Abramsky–Brandenburger
+2011; Fine 1982), a statement about non-co-realizable settings, not about one
+underlying process. `L(H)` (closed subspaces of a Hilbert space, distributivity
 failing) is the prototype, not the premise.
 
 On any such OML, distributivity may fail, so Carathéodory's outer measure

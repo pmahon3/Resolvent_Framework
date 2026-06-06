@@ -31,8 +31,7 @@ the two directions in which the open problem might be approached.
 All measurement is finite, yet the frameworks that organise empirical
 knowledge rest on infinite structures. The passage requires a commitment
 no finite evidence can compel. In probability theory the locus is
-**countable additivity** — that probability mass cannot leak away along a
-shrinking sequence of events:
+**countable additivity**:
 
 $$A_1 \supseteq A_2 \supseteq \cdots, \quad \bigcap_n A_n = \varnothing
 \quad\Longrightarrow\quad \mu(A_n) \to 0.$$
@@ -53,34 +52,29 @@ question splits into two axes that the Boolean case fuses — an *extension*
 axis, classical and fully settled (on `L(H)` no state extends), and a
 *descent* axis that is genuinely open.
 
-**The relational standpoint.** Two well-established moves motivate the
-approach. Probability theory itself can be founded without a presupposed
-sample space: in de Finetti's operationalism, probabilities are coherent
-commitments about events, not measures on a pre-given Ω. Quantum theory,
-since Birkhoff and von Neumann, reads the propositions of a system as a
-lattice — the orthomodular lattice of §2 — rather than as subsets of a phase
-space. Combining the two, we begin not with a space of outcomes and ask
-which σ-algebras it supports, but with the propositions and their entailment
-order, and ask what that relational structure alone determines. The
-methodological analogue on the topological side is pointless (localic)
-topology, which recovers spaces from their lattices of opens; we ask for its
-measure-theoretic, non-distributive counterpart. For non-Boolean algebras
-the natural dual is then the McDonald–Bimbó space of *filters* (§2.3). A
-positive answer to the open problem would be a **point-free** (relational)
-σ-additive probability theory on a non-distributive lattice — the
-non-Boolean analogue of localic measure theory (§5). This standpoint is
-developed further in Paper I.
+**The relational standpoint.** Two established moves motivate the approach.
+De Finetti's operationalism founds probability without a presupposed sample
+space: probabilities are coherent commitments about events, not measures on a
+pre-given Ω. Quantum theory, since Birkhoff and von Neumann, reads
+propositions as a lattice — the orthomodular lattice of §2 — rather than as
+subsets of a phase space. Combining the two, we begin from the propositions
+and their entailment order, not from a space of outcomes, and ask what that
+relational structure alone determines. This is the measure-theoretic,
+non-distributive counterpart of pointless (localic) topology, which recovers
+spaces from their lattices of opens. The natural dual is then not a point
+space but the McDonald–Bimbó space of *filters* (§2.3), and a positive answer
+to the open problem would be a **point-free** σ-additive probability theory
+on a non-distributive lattice — the non-Boolean analogue of localic measure
+theory (§5). The standpoint is developed further in Paper I.
 
 ---
 
 ## 2. Preliminaries
 
-All notions standard.
-
 ### 2.1 Orthomodular lattices, and the orthogonal/meet-zero gap
 
-*All notions standard. Everything later turns on one gap (Def 2.2) that
-classical logic does not have, so it is flagged where it first appears.*
+*All notions standard. The one gap that classical logic lacks (Def 2.2) is
+flagged where it first appears.*
 
 **Def 2.1 (Orthocomplemented lattice).** A bounded lattice (join `∨`, meet
 `∧`, top `1`, bottom `0`) with a negation `a ↦ a^⊥` satisfying
@@ -98,9 +92,9 @@ $$a \perp b \iff a \le b^\perp \quad(\text{one entails the other's negation
 0 \quad(\text{no common refinement, weaker}).$$
 
 > **The gap.** Orthogonal ⟹ meet-zero always; the converse holds in every
-> Boolean algebra but **FAILS once non-distributive**. *Meet-zero is
-> strictly weaker than orthogonal* — this single gap drives every
-> distinction below.
+> Boolean algebra but **fails once non-distributive**. *Meet-zero is
+> strictly weaker than orthogonal* — the distinctions below all turn on
+> this.
 
 **Def 2.3 (Orthomodular lattice).** Orthocomplemented, plus the orthomodular
 law
@@ -316,7 +310,7 @@ states reached — nonzero normal part, including every Gleason state — and
 those missed — the purely singular ones (ultrafilter vector states, Calkin
 pullbacks). Prop 3.2 subsumes this; the line argument is recorded for its
 independent technique and because it locates the singular states. The
-genuine open problem lives on the descent axis (§5).
+open problem is on the descent axis (§5).
 
 ---
 
@@ -324,9 +318,9 @@ genuine open problem lives on the descent axis (§5).
 
 The extension axis is settled — on `L(H)` no state extends (Prop 3.2); the
 descent axis turns on whether the Boolean engine of §2.4 has an OML
-analogue. We survey what the literature supplies on that question — the
-Boolean benchmark it would have to match, the partial OML results, and the
-routes already known to be blocked.
+analogue. Three things bear on that question: the Boolean benchmark such an
+analogue would have to match, the partial OML results, and the routes already
+known to be blocked.
 
 **4.1 Boolean benchmark.** *(The target an OML engine would have to hit.)*
 Kelley–Vladimirov–Pták (Fremlin Thm 391D): a Boolean algebra carries a
@@ -452,7 +446,7 @@ but a representation that bypasses all three routes.
 **Remark 5.2 (Why L(H)+Gleason does not already settle this — the (A)/(B)
 point-space equivocation).** The motivating idea ("probability from
 relations, point-free") may *look* delivered by `L(H)`+Gleason. It is not,
-and the reason is a genuine equivocation between two point-spaces: (A) the
+and the reason is an equivocation between two point-spaces: (A) the
 Hilbert rays of `H`, from which the Gleason density `ρ` in `s=tr(ρ·)` is
 built, and (B) the MB dual filters `P(A)`. The programme defines
 *realisation* as concentration on (B). Gleason removes (B) but *requires* (A)

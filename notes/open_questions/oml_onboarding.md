@@ -31,8 +31,14 @@ the two directions in which the open problem might be approached.
 All measurement is finite, yet the frameworks that organise empirical
 knowledge rest on infinite structures. The passage requires a commitment
 no finite evidence can compel. In probability theory the locus is
-**countable additivity**; de Finetti held only finite additivity is
-empirically grounded, Kolmogorov adopted σ-additivity as an axiom.
+**countable additivity** — that probability mass cannot leak away along a
+shrinking sequence of events:
+
+$$A_1 \supseteq A_2 \supseteq \cdots, \quad \bigcap_n A_n = \varnothing
+\quad\Longrightarrow\quad \mu(A_n) \to 0.$$
+
+De Finetti held only finite additivity is empirically grounded; Kolmogorov
+adopted σ-additivity as an axiom.
 
 In quantum theory the same tension recurs: the propositions of a quantum
 system form an **orthomodular lattice** `L(H)` (closed subspaces of a
@@ -47,13 +53,23 @@ question splits into two axes that the Boolean case fuses — an *extension*
 axis, classical and fully settled (on `L(H)` no state extends), and a
 *descent* axis that is genuinely open.
 
-**The relational standpoint.** Following "structure from observation"
-(Paper I): begin with propositions and their entailment order, not a space
-of outcomes. For non-Boolean algebras the natural dual is the
-McDonald–Bimbó space of *filters* (§2.3). A positive answer to the open
-problem would be a **point-free** (relational) σ-additive probability
-theory on a non-distributive lattice — the non-Boolean analogue of localic
-measure theory (§5).
+**The relational standpoint.** Two well-established moves motivate the
+approach. Probability theory itself can be founded without a presupposed
+sample space: in de Finetti's operationalism, probabilities are coherent
+commitments about events, not measures on a pre-given Ω. Quantum theory,
+since Birkhoff and von Neumann, reads the propositions of a system as a
+lattice — the orthomodular lattice of §2 — rather than as subsets of a phase
+space. Combining the two, we begin not with a space of outcomes and ask
+which σ-algebras it supports, but with the propositions and their entailment
+order, and ask what that relational structure alone determines. The
+methodological analogue on the topological side is pointless (localic)
+topology, which recovers spaces from their lattices of opens; we ask for its
+measure-theoretic, non-distributive counterpart. For non-Boolean algebras
+the natural dual is then the McDonald–Bimbó space of *filters* (§2.3). A
+positive answer to the open problem would be a **point-free** (relational)
+σ-additive probability theory on a non-distributive lattice — the
+non-Boolean analogue of localic measure theory (§5). This standpoint is
+developed further in Paper I.
 
 ---
 
@@ -63,67 +79,126 @@ All notions standard.
 
 ### 2.1 Orthomodular lattices, and the orthogonal/meet-zero gap
 
+*All notions standard. Everything later turns on one gap (Def 2.2) that
+classical logic does not have, so it is flagged where it first appears.*
+
 **Def 2.1 (Orthocomplemented lattice).** A bounded lattice (join `∨`, meet
-`∧`, top `1`, bottom `0`) with `a ↦ a^⊥` satisfying (i) `a∧a^⊥=0`,
-`a∨a^⊥=1`; (ii) `a^⊥⊥=a`; (iii) `a≤b ⟹ b^⊥≤a^⊥`.
+`∧`, top `1`, bottom `0`) with a negation `a ↦ a^⊥` satisfying
 
-**Def 2.2 (Orthogonal; meet-zero).** `a ⊥ b` if `a ≤ b^⊥`; *meet-zero* if
-`a∧b=0`. **Orthogonal ⟹ meet-zero always; the converse holds in every
-Boolean algebra but FAILS once non-distributive.** This gap drives
-everything.
+$$a \wedge a^\perp = 0, \quad a \vee a^\perp = 1, \quad a^{\perp\perp} = a,
+\quad a \le b \Rightarrow b^\perp \le a^\perp.$$
 
-**Def 2.3 (Orthomodular lattice).** Orthocomplemented + `a≤b ⟹ b =
-a∨(a^⊥∧b)`. Boolean = distributive special case. Motivating non-Boolean
-example: `L(H)`.
+*(The properties of Hilbert-space orthogonal complement that survive without
+distributivity.)*
+
+**Def 2.2 (Orthogonal; meet-zero).**
+
+$$a \perp b \iff a \le b^\perp \quad(\text{one entails the other's negation
+— decisively incompatible}); \qquad a \text{ meet-zero } b \iff a \wedge b =
+0 \quad(\text{no common refinement, weaker}).$$
+
+> **The gap.** Orthogonal ⟹ meet-zero always; the converse holds in every
+> Boolean algebra but **FAILS once non-distributive**. *Meet-zero is
+> strictly weaker than orthogonal* — this single gap drives every
+> distinction below.
+
+**Def 2.3 (Orthomodular lattice).** Orthocomplemented, plus the orthomodular
+law
+
+$$a \le b \quad\Longrightarrow\quad b = a \vee (a^\perp \wedge b).$$
+
+*(The controlled amount of distributivity quantum logic keeps.)* Boolean =
+distributive special case. Motivating non-Boolean example: `L(H)`.
 
 **Example 2.4 (MOₙ, the gap made concrete).** `MOₙ` = `0`, `1`, and `n`
-complementary pairs of incomparable atoms sharing only `0`,`1`.
-Non-distributive for `n≥2`: two atoms from *distinct* complementary pairs
-have `a∧b=0` yet are *not* orthogonal. `MO₃` is the smallest
-non-distributive OML.
+complementary pairs of incomparable atoms sharing only `0`,`1`. *Picture `n`
+lines through the origin: each line `a` is `⊥` to its perpendicular `a^⊥`,
+but two atoms from distinct pairs are non-perpendicular lines —*
+
+$$a \wedge b = 0 \quad(\text{meet only at the origin}) \qquad\text{yet}\qquad
+a \not\perp b.$$
+
+Non-distributive for `n≥2`; `MO₃` is the smallest non-distributive OML.
 
 **Def 2.5 (OMP; concrete logic).** Orthomodular *poset*: joins required
 only for orthogonal pairs. *Concrete* (= set-representable): embeds in
-`(P(X),⊆,complement)` preserving orthogonal joins.
+
+$$(P(X), \subseteq, \text{complement}) \quad\text{preserving orthogonal
+joins}$$
+
+— *its propositions model as actual sets of outcomes.* *(Concreteness
+separates the open frontier from the settled cases, §5.)*
 
 **Remark 2.6 (Concreteness does not close the gap).** Set-representable
 needs only complement + *disjoint*-union closure (Burešová–Pták);
 intersection-closure would force Boolean. `MO₃` is *itself* concrete (Gudder
-order-determining two-valued states), so the paradigmatic meet-zero≠orthogonal
+1979, order-determining two-valued states), so the paradigmatic meet-zero≠orthogonal
 example is concrete. The gap closes under a *richness/atomicity* condition,
 not concreteness; the abstract form `a∧b=0 ⟹ a⊥b` is Tkadlec's *Boolean
-orthoposet* condition (≠ Boolean *algebra*).
+orthoposet* condition (Tkadlec 1994; ≠ Boolean *algebra*).
 
 ### 2.2 The state / meet-additive / charge ladder
 
-**Def 2.7 (State; meet-additive state; charge-extendible).** A *state*:
-`s:A→[0,1]`, `s(1)=1`, additive on **orthogonal** pairs. Three
-strengthenings, strictly increasing in general (e.g. on MO₃, Ex 2.8):
+**Def 2.7 (State; meet-additive state; charge-extendible).** A *state* is a
+map
+
+$$s : A \to [0,1], \quad s(1) = 1, \quad s(a \vee b) = s(a) + s(b)
+\text{ for } a \perp b.$$
+
+*(Probability, but additivity is only guaranteed where propositions are
+decisively incompatible.)* Three strengthenings, strictly increasing in
+general (e.g. on MO₃, Ex 2.8), differing in **which** pairs additivity is
+demanded on:
 1. **State** — additive on orthogonal pairs.
 2. **Meet-additive** — additive on every **meet-zero** pair (binary,
-   stronger). We avoid "valuation": in lattice theory that denotes the
-   modular function `v(a)+v(b)=v(a∧b)+v(a∨b)`, a different condition.
-3. **Charge-extendible** — *n*-ary: `Σ s(aᵢ) ≤ 1` for every
-   pairwise-meet-zero family. *This is the extension condition (§3).*
+   stronger — it reaches the gap pairs of Def 2.2). We avoid "valuation": in
+   lattice theory that denotes the modular function `v(a)+v(b) =
+   v(a∧b)+v(a∨b)`, a different condition.
+3. **Charge-extendible** — the *n*-ary version,
 
-**Example 2.8 (Ladder is strict).** On MO₃, `s ≡ ½` is meet-additive but
-fails (3) at `{p,q,r}` (`³⁄₂ > 1`). No state on MO₃ is charge-extendible.
+   $$\sum_i s(a_i) \le 1 \quad\text{for every pairwise-meet-zero family }
+   \{a_i\}.$$
+
+   *This is the extension condition (§3).*
+
+**Example 2.8 (Ladder is strict).** On MO₃ the uniform assignment `s ≡ ½`
+is meet-additive, but fails (3) on the three atoms `{p,q,r}`:
+
+$$s(p) + s(q) + s(r) = \tfrac{3}{2} > 1.$$
+
+No state on MO₃ is charge-extendible.
 
 ### 2.3 The McDonald–Bimbó dual space
 
 **Def 2.9 (Dual space; representation map).** MB duality assigns to `A` a
-compact space `S₀(A) = (F(A), ⊆, ⊥_A, P(A), T(S))`, with `F(A)` the
-*filters* and `P(A) ⊆ F(A)` the *principal* filters — the physical points,
-the realisation datum (canonical here, unlike the Boolean pure points).
-`h(a)={x∈F(A):a∈x}` is an OML iso onto the ⊥-stable clopens; set
-`μ(h(a))=s(a)`.
+compact space
 
-**Remark 2.10 (The duality is finitary — the wall).** `h(⋁ₙ aₙ) =
-(⋃ₙ h(aₙ))^⊥⊥` holds for *finite* joins, fails for countable — finitary
-OML homs need not preserve infinite suprema. This is the wall the open
-problem runs into. (It is a *countable*-join phenomenon, not specific to
-joins: since `a ↦ a^⊥` is an order anti-isomorphism, `⋀ₙ aₙ = (⋁ₙ aₙ^⊥)^⊥`,
-so the failure to preserve countable meets is its De Morgan dual — the wall
+$$S_0(A) = (F(A),\ \subseteq,\ \perp_A,\ P(A),\ T(S)),$$
+
+with `F(A)` the *filters* and `P(A) ⊆ F(A)` the *principal* filters — the
+physical points, the realisation datum (canonical here, unlike the Boolean
+pure points). The representation map
+
+$$h(a) = \{x \in F(A) : a \in x\}, \qquad \mu(h(a)) = s(a),$$
+
+is an OML iso onto the ⊥-stable clopens, carrying a state `s` to a set
+function `μ`. *(Read `h(a)` as "the points where `a` holds" — the open
+problem is whether `μ` survives countable operations on these sets.)*
+
+**Remark 2.10 (The duality is finitary — the wall).** The representation
+respects *finite* joins,
+
+$$h\Big(\bigvee_{n=1}^{N} a_n\Big) = \Big(\bigcup_{n=1}^{N}
+h(a_n)\Big)^{\perp\perp},$$
+
+but **fails** for countable ones — finitary OML homs need not preserve
+infinite suprema. This is the wall the open problem runs into. (It is a
+*countable*-join phenomenon, not specific to joins: since `a ↦ a^⊥` is an
+order anti-isomorphism,
+
+$$\bigwedge_n a_n = \Big(\bigvee_n a_n^\perp\Big)^\perp,$$
+
+so the failure to preserve countable meets is the De Morgan dual — the wall
 obstructs countable meets and joins together.) Cannon–Döring is also
 finitary, no measure; MB chosen for carrying `P(A)` explicitly.
 
@@ -145,17 +220,30 @@ supplying one, or proving none exists, is the open problem (§5). The
 Boolean proof has an engine; the OML proof needs one and doesn't have it.
 
 **Remark 2.11 (why the bridge breaks: meet-closed but not join-prime).**
-The Boolean bridge fuses two conditions on a realised point `x`: being
-*closed under countable meets* and being *off the countable-join defect*
-(`x ∋ ⋁aₙ ⟹ x ∋ aₙ` for some `n`); Rao–Rao's "vanishes on meagre sets" is
-their coincidence. In a non-distributive OML they *split*: a principal
-filter `↑p` is always meet-closed, yet may fail join-primeness (`p ≤ ⋁aₙ`
-does not force `p ≤ aₙ` for any `n`; take `aₙ=span(eₙ)` and `p=span(v)` for
-any line not basis-aligned — already `v=e₁+e₂`). Such `↑p` is a *realised* point sitting inside the
-join-defect `D = h(⋁aₙ)∖⋃h(aₙ)`, and is topologically *isolated* in
-`S₀(L(H))`, so `D` is non-meagre — the reverse of the Boolean nowhere-dense
-case. The category route (clopens mod meagre) chokes on the same `D` as the
-measure route, and reduces to the MacNeille completion (§4.3(ii)). See
+*The slogan: in the Boolean world "realised" bundles two properties that
+quantum non-distributivity pulls apart.* The Boolean bridge fuses two
+conditions on a realised point `x` — being *closed under countable meets*
+and being *off the countable-join defect*,
+
+$$x \ni \bigvee_n a_n \quad\Longrightarrow\quad x \ni a_n \text{ for some }
+n \quad(\text{join-primeness});$$
+
+Rao–Rao's "vanishes on meagre sets" is exactly their coincidence. In a
+non-distributive OML they *split*: a principal filter `↑p` is always
+meet-closed, yet may fail join-primeness —
+
+$$p \le \bigvee_n a_n \quad\not\Longrightarrow\quad p \le a_n \text{ for any
+} n \qquad\big(a_n = \mathrm{span}(e_n),\ p = \mathrm{span}(v),\ v = e_1 +
+e_2\big).$$
+
+Such `↑p` is a *realised* point sitting inside the join-defect
+
+$$D = h\Big(\bigvee_n a_n\Big) \setminus \bigcup_n h(a_n),$$
+
+and is topologically *isolated* in `S₀(L(H))`, so `D` is non-meagre — the
+reverse of the Boolean nowhere-dense case. The category route (clopens mod
+meagre) chokes on the same `D` as the measure route, and reduces to the
+MacNeille completion (§4.3(ii)). See
 `verification/meagre_vs_measure_check.md`.
 
 ---
@@ -179,17 +267,31 @@ meets, meet-zero elements map to disjoint clopens and a charge needs
 (MO₃, Ex 2.8).
 
 **Prop 3.2 (Infinite L(H), all states).** For `dim H=∞`, *no* state on
-`L(H)` — normal or singular — extends to a charge on `S₀(L(H))`. *Proof:*
-write `H = H₀ ⊗ ℂ²` with `H₀` infinite-dimensional and `e,f` an
-orthonormal basis of `ℂ²`. The four infinite-dimensional subspaces
-`a₁ = H₀⊗ℂe`, `a₁^⊥ = H₀⊗ℂf`, `a₂ = H₀⊗ℂ(e+f)`, `a₂^⊥ = H₀⊗ℂ(e−f)` form a
-copy of `MO₂`: `a₁⊥a₁^⊥`, `a₂⊥a₂^⊥`, each pair joining to `H`, all four
-*cross* pairs meet-zero (`aᵢ∩aⱼ=0`) but not orthogonal. Orthoadditivity
-gives `s(aᵢ)+s(aᵢ^⊥)=s(H)=1` (uses only `s(1)=1` + additivity on
-orthogonal pairs — so *every* state), whence `Σ s(aᵢ)=2` over the
-pairwise-meet-zero family. Since `h` preserves meets (filters are
-meet-closed), meet-zero elements map to disjoint clopens, so any charge
-forces `Σ ≤ 1`. Contradiction. Finite (`n=4`); σ-completeness irrelevant.
+`L(H)` — normal or singular — extends to a charge on `S₀(L(H))`.
+
+*Proof.* *(The idea: hide a copy of MO₂ inside `L(H)` whose four atoms are
+all infinite-dimensional, so even singular states must charge them.)* Write
+`H = H₀ ⊗ ℂ²` with `H₀` infinite-dimensional and `e,f` an orthonormal basis
+of `ℂ²`. The four infinite-dimensional subspaces
+
+$$a_1 = H_0 \otimes \mathbb{C}e, \quad a_1^\perp = H_0 \otimes \mathbb{C}f,
+\quad a_2 = H_0 \otimes \mathbb{C}(e+f), \quad a_2^\perp = H_0 \otimes
+\mathbb{C}(e-f)$$
+
+form a copy of `MO₂`: `a₁⊥a₁^⊥`, `a₂⊥a₂^⊥`, each pair joining to `H`, all
+four *cross* pairs meet-zero (`aᵢ∩aⱼ=0`) but not orthogonal.
+Orthoadditivity gives
+
+$$s(a_i) + s(a_i^\perp) = s(H) = 1 \qquad(\text{uses only } s(1)=1 +
+\text{additivity on orthogonal pairs — so } \textit{every} \text{ state}),$$
+
+whence summing over the pairwise-meet-zero family `{a₁,a₁^⊥,a₂,a₂^⊥}`,
+
+$$\sum_i s(a_i) = 2.$$
+
+Since `h` preserves meets (filters are meet-closed), meet-zero elements map
+to disjoint clopens, so any charge forces `Σ ≤ 1`. Contradiction. Finite
+(`n=4`); σ-completeness irrelevant. ∎
 
 The `MO₂` count is folklore (orthoadditivity + `s(1)=1`; cf. Kalmbach
 1983), and `Σ s(aᵢ)=2` is already state-independent in `L(ℂ²)`. What it
@@ -205,8 +307,10 @@ closes the extension axis on `L(H)` completely.
 *Alternative argument, normal states only (Rem 3.3).* If `s(e)>0` on some
 finite-dim `e`, fix a 2-plane `e₀` where `s>0`; `k` pairwise-non-orthogonal
 lines in `e₀` give `2k` distinct pairwise-meet-zero lines with
-`s(pᵢ)+s(pᵢ^⊥)=s(e₀)`, so a charge forces `k·s(e₀) ≤ 1` for all `k` —
-impossible once `s(e₀)>0`. Lifting via Mackey–Gleason/Bunce–Wright (`B(H)`
+`s(pᵢ)+s(pᵢ^⊥)=s(e₀)`, so a charge forces
+
+$$k \cdot s(e_0) \le 1 \quad\text{for all } k \quad\Longrightarrow\quad
+\text{impossible once } s(e_0) > 0.$$ Lifting via Mackey–Gleason/Bunce–Wright (`B(H)`
 has no type I₂ summand) and the Takesaki decomposition identifies the
 states reached — nonzero normal part, including every Gleason state — and
 those missed — the purely singular ones (ultrafilter vector states, Calkin
@@ -224,11 +328,16 @@ analogue. We survey what the literature supplies on that question — the
 Boolean benchmark it would have to match, the partial OML results, and the
 routes already known to be blocked.
 
-**4.1 Boolean benchmark.** Kelley–Vladimirov–Pták (Fremlin Thm 391D): a
-Boolean algebra carries a strictly positive σ-additive measure iff Dedekind
-σ-complete + weakly (σ,∞)-distributive + chargeable. No clean OML analogue:
-weak (σ,∞)-distributivity relies on `⋀` over `⋁`; chargeability has no
-structural OML characterisation.
+**4.1 Boolean benchmark.** *(The target an OML engine would have to hit.)*
+Kelley–Vladimirov–Pták (Fremlin Thm 391D): a Boolean algebra carries a
+strictly positive σ-additive measure iff
+
+$$\text{Dedekind } \sigma\text{-complete} \;+\; \text{weakly }
+(\sigma,\infty)\text{-distributive} \;+\; \text{chargeable}.$$
+
+No clean OML analogue: weak (σ,∞)-distributivity relies on `⋀` over `⋁`
+(distributing meets over joins — exactly what non-distributivity denies);
+chargeability has no structural OML characterisation.
 
 **4.2 Positive / obstructive OML results.** Positive (need Hilbert-like
 richness): Gleason (`L(H)`, σ-additive *on the lattice*), Bunce–Wright
@@ -236,7 +345,7 @@ richness): Gleason (`L(H)`, σ-additive *on the lattice*), Bunce–Wright
 (*subadditive*-unitality collapses to Boolean — a **finitary** measure
 condition `s(a∨b)≤s(a)+s(b)` + unitality, **no** σ-additivity or
 countable joins; Theorem 1, lattice-only — the OMP version is *false*,
-Müller's set-representable counterexample), Navara (regularity ⇏
+Müller's 1993 set-representable counterexample), Navara (regularity ⇏
 σ-additivity), Pták (exotic state spaces via Greechie pasting).
 
 **4.3 Three blocked routes to a σ-OML engine.** The descent argument needs
@@ -244,7 +353,10 @@ an OML analogue of the Boolean engine — a σ-Stone duality, equivalently a
 Loomis–Sikorski representation. The three known routes are all blocked.
 (i) **RDP/effect-algebra** — Loomis–Sikorski holds for σ-MV and monotone
 σ-effect algebras *with* RDP, but lattice-EA has RDP iff MV, and OML∩MV =
-Boolean. So **OML+RDP ⟺ Boolean**.
+Boolean, so the hypothesis that would buy the representation collapses the
+class:
+
+$$\text{OML} + \text{RDP} \iff \text{Boolean}.$$
 (ii) **MacNeille completion** — need not be orthomodular (Harding); can't
 complete to absorb joins. The topological version (clopens of S₀(A) mod the
 meagre ideal) is the same completion in disguise and collapses
@@ -280,9 +392,9 @@ at all, a fortiori none order-determining), so concreteness is the qualifier on 
 the open frontier turns. (ii) *The absence of a σ-Loomis–Sikorski* is
 visible in the dualities themselves: both take infinite joins as a
 *closure* not a union (Cannon–Döring `cls(⋃Sᵢ)`, MB `(⋃h(aₙ))^⊥⊥`). One
-should not overstate this: Gudder concrete logics ARE set-representable
-non-Boolean orthoposets — but as point-ful posets, not via a
-σ-Loomis–Sikorski theorem.
+should not overstate this: Gudder's concrete logics (Gudder 1979) are
+set-representable non-Boolean orthoposets — but as point-ful posets, not via
+a σ-Loomis–Sikorski theorem.
 
 ---
 
@@ -293,65 +405,64 @@ non-Boolean orthoposets — but as point-ful posets, not via a
 > a countable-join-preserving σ-Stone duality — or can one prove none
 > exists?**
 
-**Remark 5.0 (the prior inhabitation question — is the class even a
-stage?).** Before asking whether the class admits a representation, ask
-whether it contains an example that *exercises the descent axis at all*. A
-member is descent-relevant only if it carries **non-trivial countable
-orthogonal structure** (infinite pairwise-orthogonal families, so
-σ-additivity is more than finite additivity) **and** meet-zero≠orthogonal
-pairs. The completeness the *measure* question needs is therefore
-**σ-orthocompleteness** (countable *orthogonal* joins) — full
-σ-completeness is the stronger structural notion the Loomis–Sikorski
-*representation* manipulates. The obvious members all dodge this: `MO_κ`
-(κ infinite) is concrete, infinite, non-Boolean and complete, but its max
-pairwise-orthogonal family has only **2** elements (`a⊥b` among atoms iff
-`a=b^⊥`), so descent is vacuous and it carries the `MO₂` Σ=2 obstruction
-(no state extends, as on `L(H)`). The genuine near-miss is **Navara's
-σ-orthocomplete lattice logic** (Navara 1992): infinite, non-Boolean,
-σ-orthocomplete, *with* rich countable orthogonal structure — yet
-**non-concrete**, because its Greechie-stateless building blocks leave too
-few two-valued states to be order-determining. **Caution:** `L(H)` and
-Navara are non-concrete by *different* mechanisms — for `L(H)` the
-orthogonal richness *itself* obstructs two-valued states (Kochen–Specker
-coloring), whereas Navara's state-poverty comes from an imported *finite,
-orthogonality-free* Greechie-stateless block, with its richness bolted on
-separately by the product/constancy machinery. So only `L(H)` evidences
-"richness starves concreteness"; that remains a one-example conjecture, not
-a two-witness pattern. Navara is better read as a **construction template**:
-rerunning its product/constancy machinery over a *concrete, stateful,
-non-Boolean* block (`MO₂`) would yield a concrete result for free (sub-OMPs
-and products of concrete logics are concrete), and the live question is
-whether **σ-orthocompleteness survives the swap** — if it does, the refined
-class is *inhabited* and the open problem flips to construction; if it fails
-*because* `MO₂`'s states obstruct Navara's constancy step, that is genuine
-evidence the closure device needs state-poverty. Whether the refined class
-is inhabited is open and this check decides it. See
-`verification/inhabitation_check.md`.
+**Remark 5.0 (whether the class is inhabited).** A prior question is whether
+the class contains an example that exercises the descent axis at all. A
+member is descent-relevant only if it carries non-trivial countable
+orthogonal structure (infinite pairwise-orthogonal families, so that
+σ-additivity is more than finite additivity) and meet-zero≠orthogonal pairs.
+The completeness the measure question requires is therefore
+σ-*ortho*completeness (countable *orthogonal* joins), not full
+σ-completeness, which is the stronger structural notion that the
+Loomis–Sikorski representation manipulates. The obvious candidates do not
+qualify: `MO_κ` (κ infinite) is concrete, infinite, non-Boolean and
+complete, but its maximal pairwise-orthogonal family of nonzero elements has
+only two members (`a⊥b` among atoms iff `a=b^⊥`), so descent is vacuous, and
+it carries the `MO₂` obstruction (no state extends, as on `L(H)`).
 
-A positive answer is the engine for *relational probability without
-realisations*: σ-additive probability built from the entailment relation of
-a non-distributive OML, not descended from any sample space — the
-non-Boolean analogue of localic measure theory. A negative answer
-(impossibility theorem) closes the whole cluster, both residues, at once.
-Either way the outcome is decisive: no impossibility theorem is known for
-the live class (Rmk 4.1), and all three constructive routes are blocked
-(§4.3), so the state of the art is not "needs a new idea" but "needs a
-representation bypassing all three blocked
-routes."
+The closest candidate is Navara's σ-orthocomplete lattice logic (Navara
+1992): infinite, non-Boolean, and σ-orthocomplete, with rich countable
+orthogonal structure, yet non-concrete, since its Greechie-stateless building
+blocks leave too few two-valued states to be order-determining. Substituting
+a concrete, stateful, non-Boolean block (`MO₂`) for Navara's stateless one
+yields concreteness for free, since sub-OMPs and products of concrete logics
+are concrete; whether σ-orthocompleteness survives the substitution is open,
+and it turns on the single step of Navara's closure argument (Navara 1992,
+p. 428) that uses the block's orthogonality structure. Two qualifications
+matter here. First, `L(H)` and Navara fail to be concrete for *different*
+reasons: for `L(H)` the orthogonal richness itself obstructs two-valued
+states (Kochen–Specker colouring), whereas Navara's state-poverty is imported
+with a finite, orthogonality-free stateless block, its richness added
+separately by the product/constancy machinery. Only `L(H)` therefore
+evidences the heuristic that richness obstructs concreteness, which remains a
+one-example observation rather than a two-witness pattern. Second, the
+relevant completeness is σ-orthocompleteness, not σ-completeness. Details of
+the substitution are recorded in `verification/inhabitation_check.md`.
 
-**Remark 5.1 (Why L(H)+Gleason does NOT already settle this — the (A)/(B)
+A positive answer would furnish a relational probability theory without
+realisations: σ-additive probability built from the entailment relation of a
+non-distributive OML rather than descended from a sample space — the
+non-Boolean analogue of localic (pointless) measure theory. A negative
+answer, in the form of an impossibility theorem, would close the entire
+cluster, both residues, at once. The present state of the art constrains the
+problem from both sides: no impossibility theorem is known for the concrete
+class (Rmk 4.1), while all three constructive routes to a σ-OML engine are
+blocked (§4.3). What is required is therefore not a new idea in the abstract
+but a representation that bypasses all three routes.
+
+**Remark 5.2 (Why L(H)+Gleason does not already settle this — the (A)/(B)
 point-space equivocation).** The motivating idea ("probability from
-relations, point-free") may *look* delivered by `L(H)`+Gleason. It is not.
-**(A)** the Hilbert rays of `H`, from which the Gleason density `ρ` in
-`s=tr(ρ·)` is built; **(B)** the MB dual filters `P(A)`. The programme
-defines *realisation* = concentration on **(B)**. Gleason removes **(B)**
-but *requires* **(A)** — and is a *representation* theorem (reduces every
-lattice state to the point datum `ρ`, the most point-ful result available).
+relations, point-free") may *look* delivered by `L(H)`+Gleason. It is not,
+and the reason is a genuine equivocation between two point-spaces: (A) the
+Hilbert rays of `H`, from which the Gleason density `ρ` in `s=tr(ρ·)` is
+built, and (B) the MB dual filters `P(A)`. The programme defines
+*realisation* as concentration on (B). Gleason removes (B) but *requires* (A)
+— and is a *representation* theorem, reducing every lattice state to the
+point datum `ρ`, the most point-ful result available.
 So `L(H)`/Gleason exhibits a *separation* — a σ-additive measure exists on
 the lattice (Gleason, for the normal states) while (by Prop 3.2) no state
 of any kind even extends to a charge on `S₀(L(H))`, so a fortiori none
-concentrates on the dual points `P(A)` — NOT
-point-freeness, and cannot be the existence proof. Because it
+concentrates on the dual points `P(A)` — not
+point-freeness, and it cannot serve as the existence proof sought. Because it
 cannot, the σ-OML representation is the *only* candidate engine; it would be
 an error to regard Gleason's theorem as already furnishing a relational,
 point-free probability.
@@ -384,7 +495,7 @@ included.
 > finite-dim `e`), which might suggest the singular obstruction needs a
 > countable family and is entangled with the descent-axis passage. It does
 > not: the four infinite-dimensional subspaces of Prop 3.2 are a **finite**
-> (`n=4`) pairwise-meet-zero family forcing `Σᵢ s(aᵢ)=2`,
+> (`n=4`) pairwise-meet-zero family forcing `Σᵢ s(aᵢ) = 2`,
 > state-independently. So the singular case is self-contained and finitary,
 > separable from the general construction — not governed by the
 > finitary-to-σ passage at all. The line argument is vacuous on singular

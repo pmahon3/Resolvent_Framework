@@ -80,15 +80,31 @@ De~Finetti~\cite{deFinetti1974} held that only finite additivity is
 empirically grounded; Kolmogorov~\cite{Kolmogorov} adopted
 $\sigma$-additivity as an axiom.
 
-In quantum theory the same tension recurs in a different guise. The algebra
-of propositions about a quantum system is not Boolean: incompatible
-observables cannot be jointly determined, and the closed subspaces of a
-Hilbert space $H$ form an \emph{orthomodular lattice} $L(H)$ in which
-distributivity may fail. The classical extension machinery ---
-Carath\'{e}odory's outer measure, which needs a Boolean algebra of sets ---
-does not apply. For the single lattice $L(H)$ this is rescued by Gleason's
-rigidity theorem~\cite{Gleason1957}, but Hilbert space is special: for
-general OMLs no analogue is known.
+The same tension recurs once observations need not be jointly performable.
+An observation \emph{context} --- a set of measurements that can be performed
+together --- is Boolean. Gluing contexts along their shared observations (a
+categorical colimit) returns a Boolean algebra when the contexts are mutually
+compatible, but a generically non-distributive \emph{orthomodular lattice}
+(OML) when they are not: Gunji et al.~\cite{Gunji2026} show the gluing
+produces an OML, and the compatible/incompatible dichotomy is the organising
+point of the companion paper~\cite{MahonPaperII2026}. The OML is forced by
+the context structure, not postulated; incompatibility --- quantum
+complementarity, but equally contextual experimental design or interfering
+sensors --- is what drives the observation algebra out of the Boolean world.
+The closed subspaces of a Hilbert space $H$ form the prototype $L(H)$, not
+the premise.
+
+On any such OML distributivity may fail, so Carath\'{e}odory's outer measure
+--- which needs a Boolean algebra of sets --- does not apply. For the single
+lattice $L(H)$ this is rescued by Gleason's rigidity
+theorem~\cite{Gleason1957}, but Hilbert space is special: for general OMLs no
+analogue is known. Dropping distributivity does not by itself remove the
+2-valued homomorphisms the Boolean engine needs --- $\mathrm{MO}_3$ is
+non-distributive yet still carries them (\S\ref{sec:oml}, \S\ref{sec:known})
+--- but it removes the \emph{guarantee}, and for $L(H)$ at $\dim \geq 3$ they
+fail outright (Kochen--Specker~\cite{KochenSpecker1967}). Whether enough
+survive is a question of concreteness, not non-distributivity, and it is the
+qualifier on which the open problem turns (\S\ref{sec:known}, \S\ref{sec:problem}).
 
 This note asks the shared question --- \emph{when does finite coherence
 force countable behaviour?} --- in the OML setting. Our organising

@@ -39,12 +39,28 @@ $$A_1 \supseteq A_2 \supseteq \cdots, \quad \bigcap_n A_n = \varnothing
 De Finetti held only finite additivity is empirically grounded; Kolmogorov
 adopted σ-additivity as an axiom.
 
-In quantum theory the same tension recurs: the propositions of a quantum
-system form an **orthomodular lattice** `L(H)` (closed subspaces of a
-Hilbert space) in which distributivity may fail, so Carathéodory's outer
-measure does not apply. For the single lattice `L(H)` this is rescued by
-Gleason's rigidity theorem; but Hilbert space is special, and for general
-OMLs no analogue is known.
+The same tension recurs once observations need not be jointly performable.
+An observation *context* — a set of measurements that can be performed
+together — is Boolean. Gluing contexts along their shared observations (a
+categorical colimit) returns a Boolean algebra when the contexts are mutually
+compatible, but a generically non-distributive **orthomodular lattice** (OML)
+when they are not: Gunji et al. (2026) show the gluing produces an OML, and
+the compatible/incompatible dichotomy is the organising point of Paper II.
+The OML is forced by the context structure, not postulated; incompatibility —
+quantum complementarity, but equally contextual experimental design or
+interfering sensors — is what drives the observation algebra out of the
+Boolean world. `L(H)` (closed subspaces of a Hilbert space, distributivity
+failing) is the prototype, not the premise.
+
+On any such OML, distributivity may fail, so Carathéodory's outer measure
+does not apply. For the single lattice `L(H)` this is rescued by Gleason's
+rigidity theorem; but Hilbert space is special, and for general OMLs no
+analogue is known. Dropping distributivity does not by itself remove the
+2-valued homomorphisms the Boolean engine needs — `MO₃` is non-distributive
+yet still carries them (§2.1, §4) — but it removes the *guarantee*, and for
+`L(H)` at `dim ≥ 3` they fail outright (Kochen–Specker, §4). Whether enough
+survive is a question of concreteness, not non-distributivity — and it is the
+qualifier on which the open problem turns (§4, §5).
 
 This note asks the shared question — *when does finite coherence force
 countable behaviour?* — in the OML setting. Our organising observation: the

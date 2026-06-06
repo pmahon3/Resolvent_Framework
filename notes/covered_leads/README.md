@@ -36,6 +36,34 @@ as reference and teaching material, not publishable as novel work.
   structure is invisible at finite resolution — no improved floor.
   Synthesis folded into literature review §2.9.
 
+- [relational_reconstruction_separation.md](relational_reconstruction_separation.md) —
+  Posing reconstruction relationally separates predictive/probabilistic
+  content (recoverable, no assumed space) from geometric state-space
+  (provably underdetermined, skew-product). Killed: this *is* the
+  factor-vs-conjugacy distinction, and the delay-embedding translation
+  (fibre-indistinguishability, faithfulness-as-observability,
+  manifold-free stochastic reconstruction) is already published in the
+  audience's own venues — Botvinick-Greenhouse (J. Stat. Phys. 2025,
+  arXiv 2409.08768), functional observability (arXiv 2301.04108),
+  probabilistic Takens. "Faithful canonical factor" = Krieger generating
+  partition. Type 6 + Type 4 both FAIL. The one survivor — predictive half
+  depends on the CE measure existing — belongs upstream to the CE locus
+  (recorded in the parked note, not inserted into the finished reception docs).
+
+- [distributed_sensor_contextuality.md](distributed_sensor_contextuality.md) —
+  Can distributed/multi-sensor (non-co-realizable) observers force a genuine
+  OML on a reconstruction problem, where single-series and rival-realization
+  contextuality were both decorative? Killed (double): (i) the construction
+  *is* the definition of contextuality — Abramsky–Brandenburger no-global-section
+  (arXiv:1102.0264), Fine 1982, Dzhafarov–Kujala CbD — and the Boolean→OML
+  transfer is published (arXiv:2603.22353, "Contextuality as a Left Adjoint" =
+  Paper II §7 as a general theorem); (ii) the only *uninhabited* slot —
+  non-co-measurability intrinsic to the dynamics of one classical system — is
+  empty by Kolmogorov/Fine ("classical observables on a common space always
+  jointly distribute"). Any OML here is imported, not load-bearing. Type 1 +
+  Type 3 FAIL. Follow-up: add a scope caveat to Paper II §3 (distributed-systems
+  contextuality needs *imposed* incompatible contexts, not dynamics-intrinsic).
+
 ## From the papers
 
 Paper I, Paper II, and the withdrawn Papers II+III are all

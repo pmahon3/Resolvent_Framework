@@ -110,6 +110,48 @@ algebraic underdetermination, *not* a contextuality.
    CE measure existing at all. Make that dependency explicit; it is where any
    genuine theorem-content lives.
 
+## Phase 2 audit verdict — PARK (2026-06-06)
+
+`/audit full` (opus, web search). **Pure: KNOWN. Type 6: FAIL. Type 4: FAIL.**
+
+The predictive/geometric separation *is* the **factor-vs-conjugacy
+distinction** of ergodic theory (Walters, Glasner, Einsiedler–Ward,
+Petersen all carry it). The specific delay-embedding translation this seed
+offers is not merely "known to ergodic theorists" — it is **already
+published in the target audience's own venues**, which kills the Type 6
+"inaccessible literature" bar directly:
+
+- *Fibre-indistinguishability* (non-injective observable → invisible fibre →
+  distinct states, distinct futures): Botvinick-Greenhouse, *J. Stat. Phys.*
+  2025 (arXiv 2409.08768) — the measure-theoretic Takens recast as a
+  pushforward, fibres = non-injectivity. Already cited in our knowledge map
+  as `BotvinickGreenhouse2025`.
+- *Observability as a checkable property controlling faithfulness*:
+  "Functional observability and subspace reconstruction in nonlinear
+  systems," arXiv 2301.04108 — the seed's exact move.
+- *Stochastic/manifold-free reconstruction without clean genericity*: the
+  probabilistic-Takens line (a.e.-orbit, self-intersections up to negligible
+  probability).
+
+**Type 4 three-statements test, run on the seed's own three candidates,
+all fail:** (1) "faithfulness as checkable criterion" = "the partition
+generates mod μ" (Krieger; δ(𝒪)→0 is the Rokhlin metric, named since 1967);
+(2) "skew-product as canonical failure" = a standard non-generating factor
+(project off an independent fibre); (3) "manifold-free stochastic
+reconstruction" backfires — manifold-freeness is the *default* setting of
+the abstract p.m.p./Cantor machinery (Jewett–Krieger), not a capability the
+vocabulary unlocks.
+
+This matches the seed's own pre-registered kill condition: it collapsed into
+"Krieger in delay-map language," and the audience already has it.
+
+**The one load-bearing observation that survives** — the predictive half
+depends entirely on the CE / Part I measure existing at all — belongs to the
+CE / Part I locus (`notes/programme/programme_reception/`), where the genuine
+theorem-content already lives; it is recorded here, not inserted into those
+finished reception documents. This seed parks as a known restatement. Filed:
+`notes/covered_leads/`.
+
 ## Cross-references
 - Geometric ≠ algebraic reconstruction; skew-product counterexample:
   `notes/knowledge_map/knowledge_map_body.tex` (§ reconstruction,

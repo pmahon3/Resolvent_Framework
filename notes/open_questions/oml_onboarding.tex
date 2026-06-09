@@ -8,6 +8,8 @@
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{caption}
+\usepackage{tikz}
+\usetikzlibrary{calc}
 
 % ---------- Theorem environments ----------
 \newtheorem{theorem}{Theorem}[section]
@@ -256,6 +258,62 @@ complementary pairs have
 \]
 so meet-zero $\neq$ orthogonal already here. $\mathrm{MO}_3$ is the smallest
 non-distributive OML.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.0, baseline=(current bounding box.center)]
+  % ---- Left: geometric model (MO_2 as lines in R^2) ----
+  \begin{scope}[shift={(0,0)}]
+    \def\R{1.7}
+    % the four atom-lines (two orthogonal pairs)
+    \draw[thick] (-\R,0) -- (\R,0)  node[right] {$a_1$};        % horizontal
+    \draw[thick] (0,-\R) -- (0,\R)  node[above] {$a_1^\perp$};  % vertical
+    \draw[thick] ({-\R*0.707},{-\R*0.707}) -- ({\R*0.707},{\R*0.707})
+        node[above right] {$a_2$};                              % +45
+    \draw[thick] ({-\R*0.707},{\R*0.707}) -- ({\R*0.707},{-\R*0.707})
+        node[below right] {$a_2^\perp$};                        % -45
+    % right-angle mark: a_1 \perp a_1^\perp
+    \draw (0.22,0) -- (0.22,0.22) -- (0,0.22);
+    % the a_1 -- a_2 angle (45deg): NOT orthogonal
+    \draw[->] (0.62,0) arc (0:45:0.62);
+    \node at (0.96,0.27) {\scriptsize $45^\circ$};
+    % origin = 0
+    \fill (0,0) circle (1.6pt);
+    \node[below left] at (0,0) {\scriptsize $\mathbf 0$};
+    \node[align=center] at (0,-2.25)
+      {\scriptsize $a_1\!\perp\!a_1^\perp$ (right angle),\\[-2pt]
+       \scriptsize $a_1\!\not\perp\!a_2$ but $a_1\wedge a_2=\mathbf 0$};
+  \end{scope}
+
+  % ---- Right: Hasse diagram of MO_3 ----
+  \begin{scope}[shift={(6.4,0)}]
+    \def\y{1.55}
+    \coordinate (top) at (0,\y);
+    \coordinate (bot) at (0,-\y);
+    \fill (top) circle (1.6pt) node[above] {$\mathbf 1$};
+    \fill (bot) circle (1.6pt) node[below] {$\mathbf 0$};
+    % six atoms across the middle
+    \foreach \i/\lab in {1/{p},2/{p^\perp},3/{q},4/{q^\perp},5/{r},6/{r^\perp}} {
+      \coordinate (m\i) at ({(\i-3.5)*0.78},0);
+      \fill (m\i) circle (1.4pt);
+      \draw (bot) -- (m\i) -- (top);
+      \node[font=\scriptsize] at ({(\i-3.5)*0.78},0.32) {$\lab$};
+    }
+    \node[align=center] at (0,-2.25)
+      {\scriptsize complementary pairs $(p,p^\perp),(q,q^\perp),(r,r^\perp)$;\\[-2pt]
+       \scriptsize any two non-paired atoms meet at $\mathbf 0$, join at $\mathbf 1$};
+  \end{scope}
+\end{tikzpicture}
+\caption{$\mathrm{MO}_n$ illustrated. \emph{Left:} the geometric model for
+$\mathrm{MO}_2$ --- four atoms as lines through the origin in $\mathbb R^2$.
+The pair $a_1,a_1^\perp$ meets at a right angle (orthogonal), whereas
+$a_1,a_2$ meet at $45^\circ$: their lattice meet is still $\mathbf 0$ (only the
+origin in common), yet they are \emph{not} orthogonal --- the meet-zero
+$\neq$ orthogonal gap. \emph{Right:} the Hasse diagram of $\mathrm{MO}_3$,
+the smallest non-distributive OML: three complementary pairs of incomparable
+atoms between $\mathbf 0$ and $\mathbf 1$.}
+\label{fig:mo}
+\end{figure}
 \end{example}
 
 \begin{definition}[OMP; order-determining states; concrete logic]\label{def:omp}

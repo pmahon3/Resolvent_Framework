@@ -81,62 +81,78 @@ empirically grounded; Kolmogorov~\cite{Kolmogorov} adopted
 $\sigma$-additivity as an axiom.
 
 The same tension recurs once observations need not be jointly performable.
-An observation \emph{context} --- a set of measurements that can be performed
-together --- is Boolean. Gluing contexts along their shared observations (a
-categorical colimit) returns a Boolean algebra when the contexts are mutually
-compatible, but a generically non-distributive \emph{orthomodular lattice}
-(OML) when they are not: Gunji et al.~\cite{Gunji2026} show the gluing
-produces an OML, and the compatible/incompatible dichotomy is the organising
-point of the companion paper~\cite{MahonPaperII2026}. The OML is forced by
-the context structure, not postulated; incompatibility --- quantum
-complementarity, but equally contextual experimental design or interfering
-sensors --- is what drives the observation algebra out of the Boolean world.
-For the non-quantum examples the incompatibility must be \emph{operationally
-imposed} (the contexts genuinely non-co-realizable, with no joint
-probability space): it cannot arise intrinsically from the dynamics of a
-single classical system, since any finite family of classical observables
-on a common space jointly distributes (Kolmogorov), hence stays Boolean ---
-contextuality there is failure of a global section
+An observation \emph{context} --- a set of measurements performable together
+--- is Boolean; gluing contexts along shared observations (a categorical
+colimit) returns:
+\[
+  \text{contexts mutually compatible}\ \Rightarrow\ \text{Boolean algebra},
+  \qquad
+  \text{incompatible}\ \Rightarrow\ \text{non-distributive OML}
+\]
+(Gunji et al.~\cite{Gunji2026}; the dichotomy organises the companion
+paper~\cite{MahonPaperII2026}). The OML is \emph{forced} by the context
+structure, not postulated. Incompatibility --- quantum complementarity, but
+equally contextual experimental design or interfering sensors --- drives the
+algebra out of the Boolean world. One caveat fixes the scope: for non-quantum
+examples the incompatibility must be \emph{operationally imposed} (contexts
+genuinely non-co-realizable, no joint probability space); it cannot arise
+intrinsically from one classical system's dynamics, since any finite family of
+classical observables on a common space jointly distributes (Kolmogorov),
+hence stays Boolean --- contextuality there is failure of a global section
 (Abramsky--Brandenburger~\cite{AbramskyBrandenburger2011};
-Fine~\cite{Fine1982}), a statement about non-co-realizable settings rather
-than about one underlying process. The closed subspaces of a Hilbert space
-$H$ form the prototype $L(H)$, not the premise.
+Fine~\cite{Fine1982}). The closed subspaces of a Hilbert space $H$ form the
+prototype $L(H)$, not the premise.
 
-On any such OML distributivity may fail, so Carath\'{e}odory's outer measure
---- which needs a Boolean algebra of sets --- does not apply. For the single
-lattice $L(H)$ this is rescued by Gleason's rigidity
-theorem~\cite{Gleason1957}, but Hilbert space is special: for general OMLs no
-analogue is known. Dropping distributivity does not by itself remove the
-2-valued homomorphisms the Boolean engine needs --- $\mathrm{MO}_3$ is
-non-distributive yet still carries them (\S\ref{sec:oml}, \S\ref{sec:known})
---- but it removes the \emph{guarantee}, and for $L(H)$ at $\dim \geq 3$ they
-fail outright (Kochen--Specker~\cite{KochenSpecker1967}). Whether enough
-survive is a question of concreteness, not non-distributivity, and it is the
-qualifier on which the open problem turns (\S\ref{sec:known}, \S\ref{sec:problem}).
+On a non-distributive OML, Carath\'{e}odory's outer measure --- needing a
+Boolean algebra of sets --- does not apply, and the rescue is local to $L(H)$:
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item For $L(H)$, Gleason's rigidity theorem~\cite{Gleason1957} rescues it;
+    Hilbert space is special and no general-OML analogue is known.
+  \item Non-distributivity \emph{per se} does not remove the 2-valued
+    homomorphisms the Boolean engine needs --- $\mathrm{MO}_3$ is
+    non-distributive yet carries them (\S\ref{sec:oml}, \S\ref{sec:known}) ---
+    but it removes the \emph{guarantee}; for $L(H)$, $\dim\!\geq\!3$ they fail
+    outright (Kochen--Specker~\cite{KochenSpecker1967}).
+\end{itemize}
+\emph{Whether enough survive is a question of concreteness, not
+non-distributivity} --- the qualifier on which the open problem turns
+(\S\ref{sec:known},~\S\ref{sec:problem}).
 
-This note asks the shared question --- \emph{when does finite coherence
-force countable behaviour?} --- in the OML setting. Our organising
-observation is that the question, vague as usually posed, splits into two
-axes that the Boolean case fuses: an \emph{extension} axis, classical and
-fully settled (on $L(H)$ no state extends), and a \emph{descent} axis
-that is genuinely open. The survey is built around that split.
+\paragraph{The organising split.} This note asks the shared question ---
+\emph{when does finite coherence force countable behaviour?} --- on an OML.
+The vague question splits into two axes that the Boolean case fuses, and the
+survey is built around the split:
+\begin{center}
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Axis} & \textbf{Asks} & \textbf{Status} \\
+\midrule
+Extension & does a state extend to a charge on $S_0(A)$?
+  & settled (on $L(H)$, \emph{none} does) \\
+Descent & does the charge concentrate on physical points?
+  & \textbf{open} \\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \paragraph{The relational standpoint.} Two established moves motivate the
-approach. De~Finetti's operationalism~\cite{deFinetti1974} founds probability
-without a presupposed sample space: probabilities are coherent commitments
-about events, not measures on a pre-given $\Omega$. Quantum theory, since
-Birkhoff and von~Neumann, reads propositions as a lattice --- the
-orthomodular lattice of \S\ref{sec:prelim} --- rather than as subsets of a
-phase space. Combining the two, we begin from the propositions and their
-entailment order, not from a space $\Omega$ of outcomes, and ask what that
-relational structure alone determines. This is the measure-theoretic,
-non-distributive counterpart of pointless (localic) topology, which recovers
-spaces from their lattices of opens. The natural dual is then not a space of
-points but the McDonald--Bimb\'{o} space of \emph{filters} (\S\ref{sec:dual}),
-and a positive answer to the open problem would be a \emph{point-free}
-$\sigma$-additive probability theory on a non-distributive lattice --- the
-non-Boolean analogue of localic measure theory (\S\ref{sec:problem}). The
-standpoint is developed further in~\cite{mahon2025}.
+approach:
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item De~Finetti~\cite{deFinetti1974} --- probability without a presupposed
+    sample space: coherent commitments about events, not measures on a given
+    $\Omega$.
+  \item Birkhoff--von~Neumann --- propositions as a lattice (the OML of
+    \S\ref{sec:prelim}), not as subsets of a phase space.
+\end{itemize}
+\noindent Combining them, we start from the propositions and their entailment
+order and ask what that relational structure alone determines --- the
+measure-theoretic counterpart of pointless (localic) topology. The dual is
+then not a space of points but the McDonald--Bimb\'{o} space of \emph{filters}
+(\S\ref{sec:dual}), and a positive answer to the open problem would be a
+\emph{point-free} $\sigma$-additive probability theory on a non-distributive
+lattice --- the non-Boolean analogue of localic measure theory
+(\S\ref{sec:problem}; developed further in~\cite{mahon2025}).
 
 % ==================================================================
 \section{Preliminaries}
@@ -419,19 +435,27 @@ $\sigma$-completeness of the lattice is irrelevant.
 \end{proof}
 
 \noindent The $\mathrm{MO}_2$ count is folklore (orthoadditivity plus
-$s(\mathbf 1)=1$; cf.\ \cite{Kalmbach1983}), and the $\sum s(a_i)=2$ is
-already state-independent in $L(\mathbb{C}^2)$. What it buys \emph{here} is
-different: realising $\mathrm{MO}_2$ with \emph{infinite-dimensional} atoms
-makes the obstruction reach the states that vanish on finite rank. In
-$L(\mathbb{C}^2)$ the four atoms are lines (finite rank), and a singular
-state --- one with $s(e)=0$ for every finite-dimensional $e$ --- assigns
-them all $0$, so the count, though valid, says nothing there; it
-constrains only states positive on finite rank. Infinite-dimensional $H_0$
-keeps each atom infinite-dimensional, so $s(a_i)+s(a_i^\perp)=1$ holds
-regardless of behaviour on finite rank --- dropping the finite-rank
-precondition of the line argument (Remark~\ref{rem:linearg}) and catching
-the singular states as well. This is the role of infinite-dimensionality,
-and it is what closes the extension axis on $L(H)$ completely.
+$s(\mathbf 1)=1$; cf.\ \cite{Kalmbach1983}) and $\sum s(a_i)=2$ is already
+state-independent in $L(\mathbb C^2)$. What the \emph{infinite-dimensional}
+realisation buys is reach to the singular states ($s(e)=0$ on every
+finite-rank $e$):
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}lll@{}}
+\toprule
+\textbf{Atoms of $\mathrm{MO}_2$} & \textbf{$s(a_i)+s(a_i^\perp)$} &
+  \textbf{Reaches} \\
+\midrule
+lines in $L(\mathbb C^2)$ (finite rank)
+  & $=1$ only if $s$ charges finite rank & normal states only \\
+$H_0\otimes(\cdot)$, $\dim H_0=\infty$
+  & $=1$ regardless of finite-rank behaviour & \textbf{all states (sing.\ incl.)} \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent Keeping each atom infinite-dimensional drops the finite-rank
+precondition of the line argument (Remark~\ref{rem:linearg}), and that is what
+closes the extension axis on $L(H)$ completely.
 
 \begin{remark}[An alternative argument for normal states only]
 \label{rem:linearg}
@@ -460,37 +484,55 @@ sit. The open problem is on the descent axis
 % ==================================================================
 
 The extension axis is settled --- on $L(H)$ no state extends
-(Proposition~\ref{prop:lh}); the descent axis turns on whether the
-Boolean engine of
-\S\ref{sec:ls} has an OML analogue. Three things bear on that question ---
-the Boolean benchmark such an analogue would have to match, the partial OML
-results, and the routes already known to be blocked.
+(Proposition~\ref{prop:lh}); the descent axis turns on whether the Boolean
+engine of \S\ref{sec:ls} has an OML analogue. Three things bear on that:
+\begin{enumerate}[label=\textbf{\arabic*.}, noitemsep, topsep=2pt]
+  \item the Boolean benchmark such an analogue must match (\S\ref{sec:known}.1);
+  \item the partial OML results, positive and obstructive (\S\ref{sec:known}.2);
+  \item the routes already known to be blocked (\S\ref{sec:routes}).
+\end{enumerate}
 
 \subsection{The Boolean benchmark}
-\emph{(The target an OML engine would have to hit.)}
-In the Boolean case the Kelley--Vladimirov--Pt\'{a}k characterisation
-(Fremlin~\cite{Fremlin3}, Thm 391D) is complete: a Boolean algebra carries
-a strictly positive $\sigma$-additive measure iff it is Dedekind
-$\sigma$-complete, weakly $(\sigma,\infty)$-distributive, and chargeable.
-Each condition has \emph{no} clean OML analogue: weak
-$(\sigma,\infty)$-distributivity relies on distributivity of $\bigwedge$
-over $\bigvee$; chargeability has no structural characterisation on OMLs.
+\emph{(The target an OML engine would have to hit.)} The
+Kelley--Vladimirov--Pt\'{a}k characterisation (Fremlin~\cite{Fremlin3},
+Thm 391D) is complete: a Boolean algebra carries a strictly positive
+$\sigma$-additive measure iff it satisfies all three conditions below ---
+each of which loses its meaning off the distributive world.
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{5.1cm} p{8.2cm}@{}}
+\toprule
+\textbf{Boolean (KVP) condition} & \textbf{OML analogue} \\
+\midrule
+Dedekind $\sigma$-completeness & exists ($\sigma$-orthocompleteness) \\
+weak $(\sigma,\infty)$-distributivity
+  & \textbf{none} --- relies on $\bigwedge$ distributing over $\bigvee$ \\
+chargeability
+  & \textbf{none} --- no structural characterisation on OMLs \\
+\bottomrule
+\end{tabular}
+\end{center}
 
 \subsection{Positive and obstructive OML results}
-The positive results require structure rich enough to approximate
-Hilbert-space geometry: Gleason~\cite{Gleason1957} ($L(H)$,
-$\dim \geq 3$; $\sigma$-additivity \emph{on the lattice}),
-Bunce--Wright~\cite{BunceWright1992} (JBW projection lattices),
-Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2005}. The
-obstructive results show the Boolean machinery cannot be transplanted:
-Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994} (a \emph{finitary}
-measure condition --- \emph{subadditive}-unitality, $s(a\vee b)\le
-s(a)+s(b)$ with no countable joins --- collapses the lattice to Boolean;
-their Theorem~1 is lattice-only, and the orthomodular-\emph{poset}
-version fails, by M\"uller's set-representable
-counterexample~\cite{Muller1993}),
-Navara~\cite{Navara1992} (regularity does not force $\sigma$-additivity),
-Pt\'{a}k~\cite{Ptak1987} (exotic state spaces via Greechie pasting).
+\textbf{Positive} (require structure rich enough to approximate Hilbert-space
+geometry):
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item Gleason~\cite{Gleason1957} --- $L(H)$, $\dim\!\geq\!3$;
+    $\sigma$-additivity \emph{on the lattice}.
+  \item Bunce--Wright~\cite{BunceWright1992} --- JBW projection lattices;
+    Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2005}.
+\end{itemize}
+\textbf{Obstructive} (Boolean machinery cannot be transplanted):
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994} --- a
+    \emph{finitary} condition (\emph{subadditive}-unitality
+    $s(a\vee b)\le s(a)+s(b)$, no countable joins) already collapses the
+    \emph{lattice} to Boolean (their Thm 1); the OM\emph{poset} version fails
+    (M\"uller's set-representable counterexample~\cite{Muller1993}).
+  \item Navara~\cite{Navara1992} --- regularity does not force
+    $\sigma$-additivity. \quad Pt\'{a}k~\cite{Ptak1987} --- exotic state
+    spaces via Greechie pasting.
+\end{itemize}
 
 \subsection{Three blocked routes to a $\sigma$-OML engine}
 \label{sec:routes}
@@ -549,13 +591,17 @@ side of the $\sigma$-additivity-on-a-non-distributive-structure line.
     Cannon--D\"{o}ring~\cite{Cannon2013}: purely structural, no measure,
     no $\sigma$-version.
 \end{description}
-The unoccupied conjunction --- point-free $\times$ $\sigma$-additive
-$\times$ natively non-distributive $\times$ directed-system-built --- is
-exactly the descent residue. (The
-directed-context-yields-non-distributivity \emph{idea} is itself not new;
-it is the shape of Bohrification and of colimit-over-Boolean-contexts
-generation of OMLs. Novelty would lie in the
-$\sigma$-additive-point-free-native combination.)
+Every entry above occupies the line on one side. The gap is their
+conjunction:
+\begin{center}
+\fbox{\parbox{0.92\linewidth}{\centering \textbf{The descent residue} ---
+unoccupied: point-free $\times$ $\sigma$-additive $\times$ natively
+non-distributive $\times$ directed-system-built.}}
+\end{center}
+\noindent (The directed-context-yields-non-distributivity \emph{idea} is not
+new --- it is the shape of Bohrification and of colimit-over-Boolean-contexts
+generation. Novelty would lie only in the
+$\sigma$-additive\,$\times$\,point-free\,$\times$\,native combination.)
 
 \begin{remark}[The boundary of the negative results]\label{rem:miss}
 Two qualifications sharpen what is and is not ruled out. \emph{(i)~No
@@ -673,38 +719,45 @@ reasons (KS colouring vs.\ an imported stateless block). Details: the
 inhabitation note.
 \end{remark}
 
-\noindent A positive answer would furnish a relational probability theory
-without realisations: $\sigma$-additive probability built from the
-entailment relation of a non-distributive OML rather than descended from a
-sample space --- the non-Boolean analogue of localic (pointless) measure
-theory. A negative answer, in the form of an impossibility theorem, would
-close the entire cluster, both residues, at once. The present state of the
-art constrains the problem from both sides: no impossibility theorem is known
-for the concrete class (Remark~\ref{rem:miss}), while all three constructive
-routes to a $\sigma$-OML engine are blocked (\S\ref{sec:routes}). What is
-required is therefore not a new idea in the abstract but a representation
-that bypasses all three routes.
+\noindent Either resolution is consequential:
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=2.4cm, leftmargin=2.8cm, noitemsep, topsep=2pt]
+  \item[Positive] a relational probability theory without realisations ---
+    $\sigma$-additive probability from the entailment relation of a
+    non-distributive OML, the non-Boolean analogue of localic measure theory.
+  \item[Negative] an impossibility theorem closing the entire cluster, both
+    residues, at once.
+\end{description}
+\noindent The art constrains it from both sides: \emph{no} impossibility
+theorem covers the concrete class (Remark~\ref{rem:miss}), yet \emph{all three}
+constructive routes are blocked (\S\ref{sec:routes}). What is required is not a
+new idea in the abstract but a representation that bypasses all three routes.
 
 \begin{remark}[Why $L(H)$+Gleason does \emph{not} already settle this ---
 the (A)/(B) point-space equivocation]\label{rem:AB}
-The motivating idea (``probability from relations, point-free'') may
-\emph{look} delivered by $L(H)$ + Gleason. It is not, and the reason is a
-equivocation between two point-spaces: (A) the Hilbert
-rays of $H$, from which the Gleason density $\rho$ in $s = \tr(\rho\,\cdot)$
-is built, and (B) the McDonald--Bimb\'{o} dual filters $P(A)$. The
-programme defines \emph{realisation} as concentration on~(B).
-Gleason removes (B) but \emph{requires} (A) --- and is a
-\emph{representation} theorem, reducing every lattice state to the point
-datum $\rho$, the most point-ful result available. So $L(H)$/Gleason
-exhibits a \emph{separation} --- $\sigma$-additive measures exist on the
-lattice (Gleason, for the normal states), while (by
-Proposition~\ref{prop:lh}) no state of any kind even extends to a charge
-on $S_0(L(H))$, so a fortiori none concentrates on the dual points
-$P(A)$ --- not point-freeness, and it cannot serve as the existence
-proof sought. Because it
-cannot, the $\sigma$-OML representation above is the \emph{only} candidate
-engine; it would be an error to regard Gleason's theorem as already
-furnishing a relational, point-free probability.
+``Probability from relations, point-free'' may \emph{look} delivered by
+$L(H)$+Gleason. It is not: the appearance rests on conflating two
+point-spaces, and \emph{realisation} is defined as concentration on (B).
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}cp{4.6cm}p{6.7cm}@{}}
+\toprule
+ & \textbf{Point-space} & \textbf{Gleason's relation to it} \\
+\midrule
+(A) & Hilbert rays of $H$ & \emph{requires} them --- $\rho$ in
+  $s=\tr(\rho\,\cdot)$ is built from rays \\
+(B) & MB dual filters $P(A)$ & \emph{removes} them, but only by being a
+  representation theorem \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent So Gleason is the \emph{most} point-ful result available (every
+lattice state $\mapsto$ the point datum $\rho$), and what $L(H)$ exhibits is a
+\emph{separation}, not point-freeness: $\sigma$-additive measures exist on the
+lattice (Gleason, normal states), yet no state extends to a charge on
+$S_0(L(H))$ (Prop.~\ref{prop:lh}), so a fortiori none concentrates on $P(A)$.
+It cannot serve as the existence proof sought --- so the $\sigma$-OML
+representation above is the \emph{only} candidate engine.
 \end{remark}
 
 % ==================================================================
@@ -727,14 +780,13 @@ single direction remains.
     Proposition~\ref{prop:lh} does not reach it.
 \end{description}
 
-\noindent The other candidate direction --- the singular case for
-$L(H)$ --- is now closed, and the way it closed is instructive. One might
-hope a \emph{singular} state would extend even though no normal state
-does, furnishing the first explicit ``extends but may fail to
-concentrate'' example the general construction lacks. It does not:
+\noindent A second candidate direction --- the singular case for $L(H)$ ---
+is now \emph{closed}, instructively. The hope: a singular state might extend
+where no normal state does, giving the first explicit ``extends but may fail
+to concentrate'' example the general construction lacks. It does not ---
 Proposition~\ref{prop:lh} catches every state, singular included. The
-reduction that settled it is worth recording, since the natural
-expectation was that the singular case would require infinitary methods.
+reduction is worth recording, since one expected the singular case to require
+infinitary methods.
 
 \begin{remark}[Finite versus countable: finite suffices]\label{rem:finvscount}
 One could ask whether the obstruction to extending a singular state is

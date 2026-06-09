@@ -204,23 +204,31 @@ Hilbert space with $a^\perp$ the orthogonal complement.
 
 \begin{definition}[Completeness notions]\label{def:complete}
 Two countable-completeness conditions on an OML $A$ are distinguished
-throughout, the second strictly weaker:
+throughout, the second strictly weaker. In each, ``$s$ is the join of
+$\{a_n\}$'' abbreviates the least-upper-bound property
+\[
+  \mathrm{lub}\bigl(s,\{a_n\}\bigr):\quad
+  \bigl(\forall n\ a_n\leq s\bigr)\ \wedge\
+  \bigl(\forall b\in A:\ (\forall n\ a_n\leq b)\Rightarrow s\leq b\bigr).
+\]
 \begin{itemize}[noitemsep, topsep=2pt]
   \item $A$ is \emph{$\sigma$-complete} if
     \[
-      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A:\quad
-      \textstyle\bigvee_n a_n \text{ exists in } A
+      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A\ \
+      \exists\, s\in A:\ \mathrm{lub}\bigl(s,\{a_n\}\bigr)
     \]
-    (equivalently $\bigwedge_n a_n$, by $\bigwedge_n a_n=(\bigvee_n a_n^\perp)^\perp$);
+    (equivalently every countable family has a greatest lower bound, by
+    $\bigwedge_n a_n=(\bigvee_n a_n^\perp)^\perp$);
   \item $A$ is \emph{$\sigma$-orthocomplete} if
     \[
-      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A \text{ with }
-      a_i\perp a_j\ (i\neq j):\quad
-      \textstyle\bigvee_n a_n \text{ exists in } A.
+      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A
+      \ \bigl(a_i\perp a_j\ \text{for } i\neq j\bigr)\ \
+      \exists\, s\in A:\ \mathrm{lub}\bigl(s,\{a_n\}\bigr).
     \]
 \end{itemize}
-The restriction to pairwise-orthogonal families is the only difference, so
-the first condition implies the second but not conversely. The
+Such an $s$, when it exists, is unique (antisymmetry), and is denoted
+$\bigvee_n a_n$. The restriction to pairwise-orthogonal families is the only
+difference, so the first condition implies the second but not conversely. The
 measure-theoretic questions below require only $\sigma$-orthocompleteness,
 since $\sigma$-additivity of a state constrains only countable orthogonal
 joins; full $\sigma$-completeness is the stronger condition manipulated by the

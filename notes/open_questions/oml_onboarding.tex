@@ -179,18 +179,29 @@ is a map $a \mapsto a^\perp$ satisfying, for all $a,b$:
 \end{enumerate}
 \end{definition}
 
-\begin{definition}[Orthogonal; meet-zero]\label{def:ortho}
-Elements $a,b$ are \emph{orthogonal}, written $a \perp b$, if
-$a \leq b^\perp$ (equivalently $b \leq a^\perp$) --- one entails the other's
-negation, \emph{decisively incompatible}. They are \emph{meet-zero} if
-$a \wedge b = \mathbf 0$ --- no common refinement, a weaker condition.
+\begin{definition}[Incomparable; meet-zero; orthogonal]\label{def:ortho}
+For elements $a,b$ of an orthocomplemented lattice, three relations of
+increasing strength:
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item \emph{incomparable}: $a\not\leq b$ and $b\not\leq a$ --- neither
+    entails the other (an order condition);
+  \item \emph{meet-zero}: $a\wedge b=\mathbf 0$ --- no common refinement;
+  \item \emph{orthogonal}, written $a\perp b$: $a\leq b^\perp$ (equivalently
+    $b\leq a^\perp$) --- one entails the other's negation, \emph{decisively
+    incompatible}.
+\end{itemize}
+Each implies the one above it ($a\perp b\Rightarrow a\wedge b=\mathbf 0
+\Rightarrow$ incomparable, for $a,b\notin\{\mathbf 0,\mathbf 1\}$). For two
+\emph{distinct atoms}, incomparable and meet-zero coincide --- an atom has only
+$\mathbf 0$ below it, so $a\wedge b\in\{\mathbf 0,a\}$, and $a\wedge b=a$ would
+force $a\leq b$; orthogonality remains strictly stronger.
 \end{definition}
 
 \begin{quote}
-\textbf{The gap.} Orthogonality always implies meet-zero; the converse holds
-in every Boolean algebra but \textbf{fails} once the lattice is
-non-distributive. \emph{Meet-zero is strictly weaker than orthogonal} ---
-the distinctions developed below all turn on this.
+\textbf{The gap.} The implication $a\perp b\Rightarrow a\wedge b=\mathbf 0$
+\emph{reverses} in every Boolean algebra but \textbf{fails} once the lattice
+is non-distributive. \emph{Meet-zero is then strictly weaker than orthogonal}
+--- the distinctions developed below all turn on this.
 \end{quote}
 
 \begin{definition}[Orthomodular lattice]\label{def:oml}

@@ -269,6 +269,21 @@ Open directions — the extension boundary:
    (extension free); OML separates them (extension is the open
    problem). See the survey `notes/open_questions/oml_onboarding.{tex,md}`
    (archived predecessor: `notes/archive/oml_extension_problem_superseded.md`).
+
+   **Descent-inhabitation sharpened (2026-06-08).** The extension axis is
+   fully closed on L(H) (no state extends, Prop 3.2). The live frontier is
+   the *descent axis*: does a concrete σ-orthocomplete non-Boolean OML
+   genuinely exercise it? Resolved the standing MO₂-swap check —
+   σ-orthocompleteness *survives* substituting MO₂ for Navara's stateless
+   block (closure proof is state-free), so the class is **inhabited as
+   stated** and the "richness starves concreteness" conjecture is **false as
+   literally worded**. The whole question now reduces to one orthocomplement
+   check (HINGE): in Navara's L₂, is `a|C ⊀ (b|C)^⊥`? The candidate witness
+   `p = ⋁ₙ b|Cₙ` satisfies the interleaving condition (★) in the product W;
+   only its transfer to L₂ is open. HINGE-yes ⟹ conjecture false, L₂ is the
+   sought relational-probability object; HINGE-no ⟹ L₂ segregates, L(H) stays
+   the lone witness. By-hand (HINGE) computation is the open Phase-4 step.
+   Full record: `notes/open_questions/verification/inhabitation_check.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---

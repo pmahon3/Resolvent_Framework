@@ -203,6 +203,19 @@ Ordered by downstream leverage:
 **No active standalone leads as of 2026-05-18.**
 
 Previously listed directions closed or parked:
+- **Mechanistic feasibility from observational coherence** — PARKED
+  (2026-06-08). Type 6/4 audit FAIL. The "descent ladder unifies four
+  feasibility literatures" reading is afternoon's relabeling: R1–R3
+  (marginal problem / set identification / specification testing) are one
+  field, R1↔R2 bridge already in Molinari (Handbook of Econometrics Vol 7A,
+  2019, via Artstein); only R2↔R4 (set ID ↔ Takens) is unstacked, and it's
+  unstacked because nobody needs it — the dynamics side already answers
+  feasibility natively (functional observability 2301.04108;
+  Botvinick-Greenhouse JSP 2025). σ-additivity layer DECORATIVE for
+  feasibility (CE non-derivability ⟹ invisible to finite tests). Fourth
+  death of the empirical-reconnection arc, same R4 rock as
+  relational-reconstruction. Never touched the live OML descent frontier.
+  See `notes/covered_leads/descent_ladder_mechanistic_feasibility.md`.
 - **Five-traditions unification** — DEAD (2026-05-18). Abramsky
   inclusion is a category error (compact contextuality ≠ non-compact
   σ-closure). Candidate theorem assembles KVP (1950) + Seidenfeld et

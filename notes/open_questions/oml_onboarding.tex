@@ -205,10 +205,11 @@ Hilbert space with $a^\perp$ the orthogonal complement.
 \begin{example}[$\mathrm{MO}_n$, and the gap made concrete]\label{ex:mo}
 $\mathrm{MO}_n$ is the lattice with $\mathbf 0$, $\mathbf 1$, and $n$
 complementary pairs of incomparable atoms, all sharing only $\mathbf 0$
-and $\mathbf 1$. \emph{Picture $n$ lines through the origin: each line $a$
-is $\perp$ to its perpendicular $a^\perp$, but two atoms from distinct pairs
-are non-perpendicular lines.} It is orthomodular and non-distributive
-($n \geq 2$): two atoms drawn from \emph{distinct} complementary pairs have
+and $\mathbf 1$. The geometric model is $n$ lines through the origin: each
+line $a$ is orthogonal to its perpendicular $a^\perp$, while two atoms from
+distinct pairs are non-perpendicular lines. It is orthomodular and
+non-distributive ($n \geq 2$): two atoms drawn from \emph{distinct}
+complementary pairs have
 \[
   a \wedge b = \mathbf 0 \quad(\text{meet only at the origin})
   \qquad\text{yet}\qquad a \not\perp b,
@@ -252,12 +253,11 @@ condition~\cite{Tkadlec1994} (which does
 \begin{definition}[State; meet-additive state; charge-extendible]\label{def:ladder}
 Let $A$ be an OML. A \emph{state} is a map $s : A \to [0,1]$ with
 $s(\mathbf 1)=1$ that is additive on \emph{orthogonal} pairs:
-$s(a \vee b) = s(a) + s(b)$ whenever $a \perp b$. \emph{(Probability, but
-additivity is only guaranteed where propositions are decisively
-incompatible.)} Three strengthenings, differing in \emph{which} pairs
-additivity is demanded on, strictly increasing in general (e.g.\ on
-$\mathrm{MO}_3$,
-Example~\ref{ex:strict}):
+$s(a \vee b) = s(a) + s(b)$ whenever $a \perp b$; that is, a probability
+assignment whose additivity is guaranteed only on decisively incompatible
+propositions. Three strengthenings, differing in which pairs additivity is
+demanded on and strictly increasing in general (Example~\ref{ex:strict} on
+$\mathrm{MO}_3$):
 \begin{enumerate}[label=(\arabic*), noitemsep]
   \item \emph{State} --- additive on orthogonal pairs.
   \item \emph{Meet-additive} --- additive on every \emph{meet-zero} pair
@@ -296,16 +296,16 @@ and $P(A) \subseteq F(A)$ is the set of \emph{principal} filters --- the
 non-canonical pure points of the Boolean case). For $a \in A$ set
 $h(a) = \{x \in F(A) : a \in x\}$; then $h$ is an OML isomorphism onto the
 $\perp$-stable clopens $\CO(S_0(A))^\dagger$. Define $\mu(h(a)) = s(a)$.
-\emph{(Read $h(a)$ as ``the points where $a$ holds'' and $\mu$ as the state
-pushed onto those sets --- the open problem is whether $\mu$ survives
-countable operations on them.)}
+Here $h(a)$ is the set of points at which $a$ holds and $\mu$ is the state
+transported onto those sets; the open problem is whether $\mu$ is preserved
+under countable operations on them.
 \end{definition}
 
-\begin{remark}[The duality is finitary --- the wall]\label{rem:finitary}
+\begin{remark}[The duality is finitary]\label{rem:finitary}
 The identity $h(\bigvee_n a_n) = (\bigcup_n h(a_n))^{\perp\perp}$ holds for
 \emph{finite} joins but fails for countable ones: finitary OML
 homomorphisms need not preserve infinite suprema. This finitariness is the
-wall the open problem of \S\ref{sec:problem} runs into. (It is a
+central obstruction the open problem of \S\ref{sec:problem} confronts. (It is a
 \emph{countable}-join phenomenon, not specific to joins: since $a \mapsto
 a^\perp$ is an order anti-isomorphism, $\bigwedge_n a_n = (\bigvee_n
 a_n^\perp)^\perp$, so the failure to preserve countable meets is its De
@@ -318,45 +318,83 @@ carries $P(A)$ as explicit structure.
 \subsection{The Boolean engine: Stone duality}
 \label{sec:ls}
 
-In the Boolean case, the descent argument
-(``$\sigma$-additive $\Leftrightarrow$ the measure concentrates on the
-physical points'') runs on \emph{Stone duality}: a Boolean event algebra
-embeds in the clopen algebra of its Stone space, a charge extends to a
-Baire measure there (Carath\'{e}odory), and $\sigma$-additivity is
-equivalent to concentration of that measure on the realised
-points~\cite{mahon2025}. That $\sigma$-additive step is realised
-measure-theoretically by the meagre-sets characterisation of
-$\sigma$-additivity (Rao--Rao~\cite{rao1983}): the measure vanishes on
-meagre Baire sets, equivalently lives on the ultrafilters closed under
-countable intersection, which are exactly the realised points. This is the
-measure-theoretic face of the \emph{Loomis--Sikorski} representation --- a
-$\sigma$-complete Boolean algebra is a $\sigma$-tribe of sets modulo a
-$\sigma$-ideal --- the countable-join bookkeeping that makes the
-equivalence go through. There is \emph{no} OML analogue of any of this,
-and supplying one --- or proving none exists --- is the open problem of
-\S\ref{sec:problem}: the Boolean proof has an
-engine; the OML proof needs one and does not have it.
+In the Boolean case the descent equivalence
+\[
+  \sigma\text{-additive}
+  \quad\Longleftrightarrow\quad
+  \text{the measure concentrates on the physical points}
+\]
+is proved through \emph{Stone duality}, in four steps~\cite{mahon2025}:
+\begin{enumerate}[label=\textup{(S\arabic*)}, noitemsep, topsep=2pt]
+  \item a Boolean event algebra $B$ embeds in the clopen algebra
+    $\CO(\mathrm{St}\,B)$ of its Stone space;
+  \item a charge on $B$ extends to a Baire measure on $\mathrm{St}\,B$
+    (Carath\'{e}odory);
+  \item $\sigma$-additivity $\iff$ the measure vanishes on meagre Baire sets
+    (Rao--Rao~\cite{rao1983});
+  \item meagre-null $\iff$ the measure lives on the ultrafilters closed under
+    countable intersection $=$ the realised points.
+\end{enumerate}
+Steps (S3)--(S4) are the measure-theoretic face of the
+\emph{Loomis--Sikorski} representation,
+\[
+  \text{$\sigma$-complete Boolean algebra}
+  \;\cong\;
+  (\text{$\sigma$-tribe of sets})\,/\,(\text{$\sigma$-ideal}),
+\]
+the countable-join bookkeeping that drives the equivalence. The contrast with
+the OML case is exact:
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}ll@{}}
+\toprule
+\textbf{Boolean} & \textbf{OML} \\
+\midrule
+Stone duality + Loomis--Sikorski (the engine)
+  & \textbf{no analogue} (\S\ref{sec:routes}) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent Supplying such an engine, or proving none exists, is the open
+problem of \S\ref{sec:problem}.
 
 \begin{remark}[Why the bridge breaks: meet-closed but not join-prime]
 \label{rem:bridge}
-\emph{The slogan: in the Boolean world ``realised'' bundles two properties
-that quantum non-distributivity pulls apart.} The Boolean bridge fuses two
-conditions on a realised point $x$: being \emph{closed under countable
-meets} and being \emph{off the countable-join defect}
-($x \ni \bigvee_n a_n \Rightarrow x \ni a_n$ for some $n$). Rao--Rao's ``vanishes on meagre sets'' is exactly the
-coincidence of the two. In a non-distributive OML they \emph{split}: a
-principal filter $x = {\uparrow}p$ is always closed under countable meets,
-yet may fail join-primeness, since $p \leq \bigvee_n a_n$ does not force
-$p \leq a_n$ for any $n$ (take $a_n = \mathrm{span}(e_n)$ in $L(H)$ and
-$p = \mathrm{span}(v)$ for \emph{any} line not aligned with a basis vector
---- already $v = e_1 + e_2$: $p \leq \bigvee_n a_n = H$ but $p \not\leq
-a_n$ for every $n$). Such an $x$ is a \emph{realised} point that sits
-inside the join-defect $D = h(\bigvee_n a_n) \setminus \bigcup_n h(a_n)$. Topologically ${\uparrow}p$ is an
-\emph{isolated} point of $S_0(L(H))$, so $D$ is non-meagre --- the reverse
-of the Boolean case, where the defect is nowhere dense. This is the
-finitary wall of Remark~\ref{rem:finitary} seen on the dual: the
-category route (clopens modulo the meagre ideal) chokes on the same $D$
-as the measure route, and in fact reduces to the MacNeille completion of
+A ``realised'' point $x$ carries two conditions, which Rao--Rao's
+``vanishes on meagre sets'' makes coincide in the Boolean case:
+\[
+  \text{(M)}\ \ \text{closed under countable meets};
+  \qquad
+  \text{(J)}\ \ x\ni\textstyle\bigvee_n a_n \Rightarrow x\ni a_n\ \text{some }n
+  \quad(\text{off the join-defect}).
+\]
+Non-distributivity separates them. For a principal filter $x={\uparrow}p$:
+\[
+\renewcommand{\arraystretch}{1.3}
+\begin{array}{r@{\quad}l}
+\text{(M)} & \text{always holds.}\\
+\text{(J)} & \text{can fail: } p\leq\textstyle\bigvee_n a_n
+  \text{ does not force } p\leq a_n.
+\end{array}
+\]
+\textbf{Witness in $L(H)$.}\quad
+$a_n=\mathrm{span}(e_n)$, \ $p=\mathrm{span}(e_1+e_2)$:
+\[
+  p \;\leq\; \textstyle\bigvee_n a_n = H,
+  \qquad\text{yet}\qquad
+  p \;\not\leq\; a_n \ \ \text{for every } n.
+\]
+So ${\uparrow}p$ is a realised point lying inside the join-defect
+$D = h(\bigvee_n a_n)\setminus\bigcup_n h(a_n)$. Topologically ${\uparrow}p$ is
+\emph{isolated} in $S_0(L(H))$, hence:
+\[
+  D \text{ non-meagre (OML)}
+  \qquad\text{vs.}\qquad
+  D \text{ nowhere dense (Boolean)}.
+\]
+This is the finitary obstruction of Remark~\ref{rem:finitary} on the dual:
+the category route (clopens modulo the meagre ideal) fails on the same $D$
+as the measure route, and reduces to the MacNeille completion of
 \S\ref{sec:routes}(ii).
 \end{remark}
 
@@ -409,9 +447,9 @@ Let $\dim H = \infty$. \emph{No} state on $L(H)$ --- normal or singular
 \end{proposition}
 
 \begin{proof}
-\emph{(The idea: hide a copy of $\mathrm{MO}_2$ inside $L(H)$ whose four
-atoms are all infinite-dimensional, so even singular states must charge
-them.)} Write $H = H_0 \otimes \mathbb{C}^2$ with $H_0$ infinite-dimensional,
+The argument embeds a copy of $\mathrm{MO}_2$ in $L(H)$ whose four atoms are
+infinite-dimensional, so that the obstruction reaches the singular states as
+well. Write $H = H_0 \otimes \mathbb{C}^2$ with $H_0$ infinite-dimensional,
 and fix an orthonormal basis $e,f$ of $\mathbb{C}^2$. Set
 \[
   a_1 = H_0 \otimes \mathbb{C}e,\quad
@@ -419,29 +457,37 @@ and fix an orthonormal basis $e,f$ of $\mathbb{C}^2$. Set
   a_2 = H_0 \otimes \mathbb{C}(e{+}f),\quad
   a_2^\perp = H_0 \otimes \mathbb{C}(e{-}f).
 \]
-These four (infinite-dimensional) subspaces form a copy of $\mathrm{MO}_2$
-inside $L(H)$: $a_1 \perp a_1^\perp$ and $a_2 \perp a_2^\perp$, each pair
-joining to $H$, while all four \emph{cross} pairs are meet-zero
-(distinct lines in $\mathbb{C}^2$ give $a_i \cap a_j = \mathbf 0$) but
-\emph{not} orthogonal. Orthoadditivity gives $s(a_i)+s(a_i^\perp)=s(H)=1$
-for $i=1,2$ --- this uses only $s(\mathbf 1)=1$ and additivity on
-orthogonal pairs, so it holds for \emph{every} state --- whence
-$\sum s(a_i)=2$ over the pairwise-meet-zero family
-$\{a_1,a_1^\perp,a_2,a_2^\perp\}$. Since $h$ preserves meets
-($h(a\wedge b)=h(a)\cap h(b)$, the filters being meet-closed), meet-zero
-elements map to disjoint clopens, so any charge forces
-$\sum s(a_i)\le 1$. Contradiction. The construction is finite ($n=4$) and
-$\sigma$-completeness of the lattice is irrelevant.
+These four infinite-dimensional subspaces form a copy of $\mathrm{MO}_2$ in
+$L(H)$:
+\[
+  a_1\perp a_1^\perp,\quad a_2\perp a_2^\perp,\quad a_i\vee a_i^\perp=H;
+  \qquad
+  a_i\wedge a_j=\mathbf 0 \ \text{ but }\ a_i\not\perp a_j
+  \ \ (\text{cross pairs}).
+\]
+Orthoadditivity with $s(\mathbf 1)=1$ gives $s(a_i)+s(a_i^\perp)=1$ for
+$i=1,2$, using only additivity on orthogonal pairs, so it holds for
+\emph{every} state. The family $\{a_1,a_1^\perp,a_2,a_2^\perp\}$ is pairwise
+meet-zero, and since $h$ preserves meets ($h(a\wedge b)=h(a)\cap h(b)$), its
+members map to disjoint clopens; hence any charge satisfies
+$\sum_i s(a_i)\le 1$. The two counts collide:
+\[
+  \sum_i s(a_i) = 2 \ \ (\text{orthoadditivity})
+  \qquad\text{versus}\qquad
+  \sum_i s(a_i)\le 1 \ \ (\text{any charge}).
+\]
+The construction is finite ($n=4$); $\sigma$-completeness of the lattice plays
+no role.
 \end{proof}
 
-\noindent The $\mathrm{MO}_2$ count is folklore (orthoadditivity plus
-$s(\mathbf 1)=1$; cf.\ \cite{Kalmbach1983}) and $\sum s(a_i)=2$ is already
-state-independent in $L(\mathbb C^2)$. What the \emph{infinite-dimensional}
-realisation buys is reach to the singular states ($s(e)=0$ on every
-finite-rank $e$):
+\noindent The $\mathrm{MO}_2$ count is standard (orthoadditivity together with
+$s(\mathbf 1)=1$; see~\cite{Kalmbach1983}) and $\sum s(a_i)=2$ is already
+state-independent in $L(\mathbb C^2)$. The role of the
+\emph{infinite-dimensional} realisation is to extend the obstruction to the
+singular states ($s(e)=0$ on every finite-rank $e$):
 \begin{center}
 \renewcommand{\arraystretch}{1.25}
-\begin{tabular}{@{}lll@{}}
+\begin{tabular}{@{}p{4.0cm} p{5.0cm} p{3.7cm}@{}}
 \toprule
 \textbf{Atoms of $\mathrm{MO}_2$} & \textbf{$s(a_i)+s(a_i^\perp)$} &
   \textbf{Reaches} \\
@@ -449,7 +495,7 @@ finite-rank $e$):
 lines in $L(\mathbb C^2)$ (finite rank)
   & $=1$ only if $s$ charges finite rank & normal states only \\
 $H_0\otimes(\cdot)$, $\dim H_0=\infty$
-  & $=1$ regardless of finite-rank behaviour & \textbf{all states (sing.\ incl.)} \\
+  & $=1$ regardless of finite-rank behaviour & \textbf{all states, incl.\ singular} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -459,23 +505,34 @@ closes the extension axis on $L(H)$ completely.
 
 \begin{remark}[An alternative argument for normal states only]
 \label{rem:linearg}
-A second, technique-disjoint argument reaches the normal states without
-the $\mathrm{MO}_2$ family. If $s(e)>0$ on some finite-dimensional $e$,
-it is positive on a $2$-plane $e_0$; choosing $k$ pairwise-non-orthogonal
-lines $p_1,\dots,p_k \subset e_0$ gives $2k$ distinct pairwise-meet-zero
-lines with $s(p_i)+s(p_i^\perp)=s(e_0)$, so a charge forces
-$k\,s(e_0)\le 1$ for all $k$ --- impossible once $s(e_0)>0$. Lifting $s$
-to a functional via Mackey--Gleason / Bunce--Wright~\cite{BunceWright1992}
-($B(H)$ has no type $\mathrm I_2$ summand) and applying the Takesaki
-normal/singular decomposition identifies the states it reaches --- those
-with nonzero normal part, i.e.\ $s(e)>0$ on some finite-dimensional $e$,
-including every normal (Gleason) state --- and the states it misses, the
-purely singular ones ($s(e)=0$ on all finite $e$; e.g.\ ultrafilter
-vector states or Calkin-algebra pullbacks). Proposition~\ref{prop:lh}
-subsumes this case; the line argument is recorded because its technique
-is independent and because it makes precise where the singular states
-sit. The open problem is on the descent axis
-(\S\ref{sec:problem}).
+A second, technique-disjoint argument reaches the normal states without the
+$\mathrm{MO}_2$ family. If $s(e)>0$ on some finite-dimensional $e$, it is
+positive on a $2$-plane $e_0$; taking $k$ pairwise-non-orthogonal lines
+$p_1,\dots,p_k\subset e_0$ yields $2k$ pairwise-meet-zero lines with
+$s(p_i)+s(p_i^\perp)=s(e_0)$, so a charge forces
+\[
+  k\,s(e_0)\le 1 \ \ \text{for all } k
+  \quad\Longrightarrow\quad
+  s(e_0)=0,
+\]
+contradicting $s(e_0)>0$. Lifting $s$ to a functional via Mackey--Gleason /
+Bunce--Wright~\cite{BunceWright1992} ($B(H)$ has no type $\mathrm I_2$ summand)
+and applying the Takesaki normal/singular decomposition identifies which
+states the argument reaches:
+\begin{center}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabular}{@{}l p{10.5cm}@{}}
+\toprule
+\textbf{reached} & nonzero normal part ($s(e)>0$ on some finite $e$);
+  includes every normal (Gleason) state \\
+\textbf{missed}  & purely singular ($s(e)=0$ for all finite $e$); e.g.\
+  ultrafilter vector states, Calkin-algebra pullbacks \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent Proposition~\ref{prop:lh} subsumes the missed case; this argument is
+recorded because its technique is independent and locates the singular states
+precisely.
 \end{remark}
 
 % ==================================================================
@@ -493,7 +550,7 @@ engine of \S\ref{sec:ls} has an OML analogue. Three things bear on that:
 \end{enumerate}
 
 \subsection{The Boolean benchmark}
-\emph{(The target an OML engine would have to hit.)} The
+The conditions an OML engine would have to reproduce. The
 Kelley--Vladimirov--Pt\'{a}k characterisation (Fremlin~\cite{Fremlin3},
 Thm 391D) is complete: a Boolean algebra carries a strictly positive
 $\sigma$-additive measure iff it satisfies all three conditions below ---
@@ -545,15 +602,15 @@ The three known routes are all blocked.
     $\sigma$-effect algebras \emph{with} the Riesz Decomposition Property
     \cite{Dvurecenskij2005}; but a lattice effect algebra has RDP iff it
     is MV, and OML $\cap$ MV $=$ Boolean (Kalmbach~\cite{Kalmbach1983}), so
-    the hypothesis that would buy the representation collapses the class:
+    the hypothesis that would yield the representation collapses the class:
     \[
       \text{OML} + \text{RDP} \iff \text{Boolean}.
     \]
   \item \textbf{MacNeille completion.} The MacNeille completion of an OML
     need not be orthomodular (Harding~\cite{Harding1991}); one cannot
     complete to absorb countable joins. The topological version of this
-    route --- clopens of $S_0(A)$ modulo the meagre ideal --- is the same
-    completion in disguise (the regular-open algebra), and collapses
+    route --- clopens of $S_0(A)$ modulo the meagre ideal --- is this same
+    completion in another form (the regular-open algebra), and collapses
     non-distributivity (Remark~\ref{rem:bridge}).
   \item \textbf{$\sigma$-Stone duality.} None exists. McDonald--Bimb\'{o}
     is finitary (Remark~\ref{rem:finitary}); Freytes'
@@ -563,8 +620,9 @@ The three known routes are all blocked.
 
 \subsection{Prior art on point-free quantum probability}
 \label{sec:priorart}
-Every existing point-free or directed-context construction lands on one
-side of the $\sigma$-additivity-on-a-non-distributive-structure line.
+Every existing point-free or directed-context construction fails at least one
+of the two requirements --- $\sigma$-additivity and a natively
+non-distributive structure --- as tabulated below.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=3.2cm, leftmargin=3.6cm]
   \item[Gleason tradition]
@@ -591,33 +649,42 @@ side of the $\sigma$-additivity-on-a-non-distributive-structure line.
     Cannon--D\"{o}ring~\cite{Cannon2013}: purely structural, no measure,
     no $\sigma$-version.
 \end{description}
-Every entry above occupies the line on one side. The gap is their
-conjunction:
+Each entry satisfies some of the requirements but not all. The open case is
+their conjunction:
 \begin{center}
-\fbox{\parbox{0.92\linewidth}{\centering \textbf{The descent residue} ---
-unoccupied: point-free $\times$ $\sigma$-additive $\times$ natively
+\fbox{\parbox{0.92\linewidth}{\centering \textbf{The descent residue}
+(unoccupied): point-free $\times$ $\sigma$-additive $\times$ natively
 non-distributive $\times$ directed-system-built.}}
 \end{center}
-\noindent (The directed-context-yields-non-distributivity \emph{idea} is not
+\noindent (The directed-context-yields-non-distributivity construction is not
 new --- it is the shape of Bohrification and of colimit-over-Boolean-contexts
 generation. Novelty would lie only in the
 $\sigma$-additive\,$\times$\,point-free\,$\times$\,native combination.)
 
 \begin{remark}[The boundary of the negative results]\label{rem:miss}
-Two qualifications sharpen what is and is not ruled out. \emph{(i)~No
-impossibility theorem} covers the \emph{concrete} class: the known no-go
-results are finite or two-valued, and the one positive occupant
-$L(H)$$+$Gleason is \emph{non-concrete} (Kochen--Specker~\cite{KochenSpecker1967},
-$\dim \geq 3$: $L(H)$ admits no two-valued states at all, a fortiori none
-order-determining), so concreteness is the qualifier on which the open
-frontier turns. \emph{(ii)~The absence of a
-$\sigma$-Loomis--Sikorski} is visible in the dualities themselves: both
-take infinite joins as a \emph{closure}, not a union (Cannon--D\"{o}ring
-$\mathrm{cls}(\bigcup S_i)$; McDonald--Bimb\'{o}
-$(\bigcup h(a_n))^{\perp\perp}$). One should not overstate this: Gudder's
-concrete logics~\cite{Gudder1979} \emph{are} set-representable non-Boolean
-orthoposets ---
-but as point-ful posets, not via a $\sigma$-Loomis--Sikorski theorem.
+Two qualifications delimit what is ruled out.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=1.2cm, leftmargin=1.5cm, topsep=2pt]
+  \item[(i)] \textbf{No impossibility theorem covers the concrete class.} The
+    known no-go results are finite or two-valued, and the one positive
+    occupant is non-concrete:
+    \[
+      L(H)\ (\dim\!\geq\!3):\quad
+      \text{no two-valued states at all (Kochen--Specker~\cite{KochenSpecker1967})},
+    \]
+    a fortiori none order-determining. Concreteness is the qualifier on which
+    the open frontier turns.
+  \item[(ii)] \textbf{No $\sigma$-Loomis--Sikorski exists}, and this is visible
+    in the dualities: both take infinite joins as a closure, not a union,
+    \[
+      \text{Cannon--D\"{o}ring: } \mathrm{cls}(\textstyle\bigcup S_i);
+      \qquad
+      \text{McDonald--Bimb\'{o}: } (\textstyle\bigcup h(a_n))^{\perp\perp}.
+    \]
+    This is not to be overstated: Gudder's concrete logics~\cite{Gudder1979}
+    \emph{are} set-representable non-Boolean orthoposets --- but as point-ful
+    posets, not via a $\sigma$-Loomis--Sikorski theorem.
+\end{description}
 \end{remark}
 
 % ==================================================================
@@ -666,57 +733,65 @@ $L(H)$, $\dim\!\geq\!3$
 Navara $\mathcal L$~\cite{Navara1992}
   & infinite, $\sigma$-orthocomplete, rich --- but stateless block
   & \textbf{no} & yes \\
-\textbf{$\mathrm{MO}_2$-swap}
+$\mathcal L_2$ (substitution)
   & Navara's $\mathcal L$ with block $:=\mathrm{MO}_2$
-  & \textbf{yes} & \textbf{?} \\
+  & \textbf{yes} & \textbf{open} \\
 \bottomrule
 \end{tabular}
 \end{center}
 
-\noindent The bottom row is the live case. It is concrete (sub-OMPs and
-products of concrete logics are concrete) and $\sigma$-orthocomplete (Navara's
-closure step \cite[p.~428]{Navara1992} is state-free: ``$f_j(m)=0,\ f_i\perp
-f_j \Rightarrow f_j=0$ on the block'' holds in $\mathrm{MO}_2$, where the only
-elements ${}\leq a^\perp$ are $\{0,a^\perp\}$). So the class of the
-Open Problem \emph{is} inhabited; the only question left is ($\bigstar$).
+\noindent The last row is the open case. Write $\mathcal L_2$ for Navara's
+construction with the stateless block replaced by $\mathrm{MO}_2$. It is
+concrete (sub-OMPs and products of concrete logics are concrete) and
+$\sigma$-orthocomplete: Navara's closure step \cite[p.~428]{Navara1992} is
+independent of the states on the block, and the one step that uses the block
+---
+``$f_j(m)=0$ and $f_i\perp f_j$ imply $f_j=0$ on the block'' --- holds in
+$\mathrm{MO}_2$, where the only elements ${}\leq a^\perp$ are $\{0,a^\perp\}$.
+Hence the class of the Open Problem is inhabited, and the remaining question is
+whether $\mathcal L_2$ satisfies~\eqref{eq:interleave}.
 
-\smallskip\noindent\textbf{Candidate witness.} $\mathrm{MO}_2$ atoms
-$a,a^\perp,b,b^\perp$; $a\wedge b=0$, $a\not\perp b$. With $\mathcal F$
-mutually disjoint (Navara's elements are $\bigvee_{C\in\mathcal F}v_C|C$), and
-$\mathrm{MO}_2$ capping within-block orthogonal families at $2$, an infinite
-orthogonal family forces infinitely many disjoint $C_n$:
+\smallskip\noindent\textbf{A candidate witness.} Let the atoms of
+$\mathrm{MO}_2$ be $a,a^\perp,b,b^\perp$ with $a\wedge b=0$ and $a\not\perp b$.
+Navara's elements have the form $\bigvee_{C\in\mathcal F}v_C\,|\,C$ with
+$\mathcal F$ mutually disjoint, and $\mathrm{MO}_2$ caps within-block
+orthogonal families at $2$, so an infinite orthogonal family requires
+infinitely many disjoint $C_n$. Set
 \begin{equation}\label{eq:witness}
   a_n := a\,|\,C_n,\qquad
   p := \bigvee_{n} b\,|\,C_n
-  \quad(\in\mathcal L,\ \text{by }\sigma\text{-orthocompleteness}).
+  \quad(p\in\mathcal L_2 \text{ by } \sigma\text{-orthocompleteness}).
 \end{equation}
-Constancy is per-coordinate and the $C_n$ disjoint, so $p$ is admissible; and
-\emph{in $\mathcal W$}: $\ p\wedge a_n=0$ (on $C_n$, $a\wedge b=0$; off,
-disjoint) and $p\not\perp a_n$ (on $C_n$, $a\not\perp b$). Thus ($\bigstar$)
-holds \emph{in $\mathcal W$}.
+The constancy condition is imposed coordinatewise and the $C_n$ are disjoint,
+so $p$ is admissible; and in $\mathcal W$ one has $p\wedge a_n=0$ (on $C_n$,
+$a\wedge b=0$; off $C_n$, disjoint supports) and $p\not\perp a_n$ (on $C_n$,
+$a\not\perp b$). Thus~\eqref{eq:interleave} holds in $\mathcal W$.
 
-\smallskip\noindent\textbf{The sole open step ($\bigstar$) in $\mathcal L$.}
-Navara warns ``the lattice operations in $\mathcal L$ do not coincide with
-those of $\mathcal W$''; orthogonality runs through the orthocomplement. The
-whole question is whether ($\bigstar$) transfers:
+\smallskip\noindent\textbf{The remaining step.} Navara notes that the lattice
+operations of $\mathcal L$ need not coincide with those of $\mathcal W$, and
+orthogonality is defined through the orthocomplement, so it remains to
+determine whether~\eqref{eq:interleave} transfers from $\mathcal W$ to
+$\mathcal L_2$. The question reduces to a single relation:
 \begin{equation}\label{eq:hinge}
-\boxed{\ \text{\textbf{(HINGE)}}\quad
-  \text{In }\mathcal L,\ \ a\,|\,C \;\not\perp\; b\,|\,C\,?
-  \quad(\text{distinct non-complementary }\mathrm{MO}_2\text{ atoms, same }C)\ }
+\boxed{\ (\dagger)\quad
+  \text{In }\mathcal L_2,\ \ \text{is}\ \ a\,|\,C \;\not\perp\; b\,|\,C\,?
+  \quad(a,b\text{ distinct non-complementary }\mathrm{MO}_2\text{ atoms})\ }
 \end{equation}
 \[
 \begin{array}{r@{\ \Rightarrow\ }l}
-\text{(HINGE) yes}
-  & p\text{ witnesses (}\bigstar\text{); conjecture \textbf{false}; the swap is the sought object.}\\[2pt]
-\text{(HINGE) no}
-  & \text{swap segregates; } L(H) \text{ stays the lone witness.}
+(\dagger)\text{ holds}
+  & p\text{ witnesses~\eqref{eq:interleave}; the conjecture fails, and }
+    \mathcal L_2 \text{ realises}\\[1pt]
+  & \text{the relational-probability structure of \S\ref{sec:problem}.}\\[3pt]
+(\dagger)\text{ fails}
+  & \mathcal L_2 \text{ segregates, and } L(H) \text{ remains the only known instance.}
 \end{array}
 \]
 
-\noindent Two riders: completeness here is $\sigma$-orthocompleteness, not
-$\sigma$-completeness; and $L(H)$ vs.\ Navara fail concreteness for different
-reasons (KS colouring vs.\ an imported stateless block). Details: the
-inhabitation note.
+\noindent Two qualifications: the relevant completeness is
+$\sigma$-orthocompleteness rather than $\sigma$-completeness; and $L(H)$ and
+Navara's construction fail concreteness for distinct reasons (the
+Kochen--Specker colouring obstruction versus an imported stateless block).
 \end{remark}
 
 \noindent Either resolution is consequential:

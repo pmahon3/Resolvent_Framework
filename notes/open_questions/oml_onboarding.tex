@@ -587,94 +587,90 @@ $\sigma$-ideal), or a countable-join-preserving $\sigma$-Stone duality
 \end{problem}
 
 \begin{remark}[Whether the class is inhabited]\label{rem:inhabited}
-A prior question is whether the class contains an example that exercises the
-descent axis at all. A member is descent-relevant only if it carries
-non-trivial countable orthogonal structure (infinite pairwise-orthogonal
-families, so that $\sigma$-additivity is more than finite additivity) and
-meet-zero${}\neq{}$orthogonal pairs. The completeness the measure question
-requires is therefore $\sigma$-\emph{ortho}completeness (countable
-\emph{orthogonal} joins), not full $\sigma$-completeness, which is the
-stronger structural notion that the Loomis--Sikorski representation
-manipulates. The obvious candidates do not qualify: $\mathrm{MO}_\kappa$
-($\kappa$ infinite) is concrete, infinite, non-Boolean and complete, but its
-maximal pairwise-orthogonal family of nonzero elements has only two members
-($a \perp b$ among atoms iff $a = b^\perp$), so descent is vacuous, and it
-carries the $\mathrm{MO}_2$ obstruction (no state extends, as on $L(H)$).
+A member is \emph{descent-relevant} only if it carries an infinite
+pairwise-orthogonal family (so $\sigma$-additivity exceeds finite additivity)
+\emph{and} meet-zero${}\neq{}$orthogonal pairs. The relevant completeness is
+thus $\sigma$-\emph{ortho}completeness (countable orthogonal joins), weaker
+than the $\sigma$-completeness the Loomis--Sikorski representation needs.
 
-The closest candidate is Navara's $\sigma$-orthocomplete lattice
-logic~\cite{Navara1992}: infinite, non-Boolean, and $\sigma$-orthocomplete,
-with rich countable orthogonal structure, yet non-concrete, since its
-Greechie-stateless building blocks leave too few two-valued states to be
-order-determining. Substituting a concrete, stateful, non-Boolean block
-($\mathrm{MO}_2$) for Navara's stateless one yields concreteness for free,
-since sub-OMPs and products of concrete logics are concrete; and
-$\sigma$-orthocompleteness \emph{survives} the substitution, since Navara's
-closure argument (\cite[p.~428]{Navara1992}) is state-free --- the one step
-that uses the block, ``$f_j(m)=0$ and $f_i \perp f_j$ force $f_j$ constant
-($=0$) on the block,'' carries verbatim for $\mathrm{MO}_2$, where the only
-elements below $a^\perp$ are $\{0,a^\perp\}$. The swap is thus a genuine
-member of the class of the Problem (concrete, $\sigma$-orthocomplete,
-infinite, non-Boolean), so the class \emph{is} inhabited as stated.
-
-The sharper question is whether any such member is descent-relevant in the
-strong sense that the non-distributivity and the infinite orthogonal
-structure interleave, rather than segregating into a Boolean support skeleton
-carrying merely decorative non-Boolean blocks. The discriminating condition
-is \emph{element-versus-family}:
+\smallskip\noindent
+\textbf{The discriminating condition} (element-versus-family; within one
+orthogonal family it is vacuous, as such a family is Boolean and there
+meet-zero ${}={}$ orthogonality):
 \begin{equation}\label{eq:interleave}
-\exists\, p \text{ and an \emph{infinite} orthogonal family } \{a_n\}
-\text{ with } p \wedge a_n = 0 \ \forall n, \text{ yet } p \not\perp a_n.
+\textbf{(}\bigstar\textbf{)}\quad
+\exists\, p,\ \exists\,\{a_n\}\text{ infinite orthogonal},\quad
+p \wedge a_n = 0\ (\forall n),\quad p \not\perp a_n\ (\forall n).
 \end{equation}
-(Within a single orthogonal family this never occurs --- such a family
-generates a Boolean subalgebra, where meet-zero \emph{is} orthogonality --- so
-the interleaving must be of one element \emph{against} the family.) On $L(H)$,
-\eqref{eq:interleave} holds: for an orthonormal basis $\{e_n\}$ and a skew
-vector $f=\sum_n c_n e_n$ with all $c_n\neq 0$, the ray $P_f$ meets each
-$P_{e_n}$ at $0$ yet is orthogonal to none. On $\mathrm{MO}_\kappa$ it fails
-vacuously (no infinite orthogonal family).
 
-For the $\mathrm{MO}_2$-swap, \eqref{eq:interleave} is \textbf{not} blocked by
-the constancy condition, and there is an explicit candidate witness. Navara's
-elements are $\bigvee_{C\in\mathcal F} v_C\,|\,C$ with $\mathcal F$ a family of
-\emph{mutually disjoint} subsets of $M$ (\cite[p.~428]{Navara1992}); an
-infinite orthogonal family forces infinitely many disjoint $C_n$, since
-$\mathrm{MO}_2$ caps within-block orthogonal families at two. Write
-$\mathrm{MO}_2$'s atoms as $a,a^\perp,b,b^\perp$ with $a\wedge b=0$,
-$a\not\perp b$. Set $a_n := a\,|\,C_n$ and
-\[
-  p := \bigvee_{n} b\,|\,C_n .
-\]
-The constancy condition is \emph{per coordinate} and the $C_n$ are disjoint,
-so $p$ violates nothing; $p\in\mathcal L$ as a countable join of
-disjoint-support (hence orthogonal) elements, supplied by
-$\sigma$-orthocompleteness itself. Coordinatewise in $\mathcal W$: $p\wedge
-a_n=0$ on $C_n$ (since $a\wedge b=0$) and disjoint off $C_n$, while
-$p\not\perp a_n$ (since $a\not\perp b$). So \eqref{eq:interleave} holds
-\emph{in $\mathcal W$}.
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}p{2.6cm} p{5.1cm} cc@{}}
+\toprule
+\textbf{Candidate} & \textbf{Status vs.\ the four hypotheses}
+  & \textbf{Concrete?} & \textbf{($\bigstar$)?} \\
+\midrule
+$\mathrm{MO}_\kappa$ ($\kappa$ inf.)
+  & max orthogonal family $=2$; descent vacuous; carries
+    $\mathrm{MO}_2$ obstruction
+  & yes & \textbf{no} (vacuous) \\
+$L(H)$, $\dim\!\geq\!3$
+  & skew ray $P_f$ vs.\ basis $\{P_{e_n}\}$, $f=\sum c_n e_n$, $c_n\neq0$
+  & \textbf{no} (KS) & \textbf{yes} \\
+Navara $\mathcal L$~\cite{Navara1992}
+  & infinite, $\sigma$-orthocomplete, rich --- but stateless block
+  & \textbf{no} & yes \\
+\textbf{$\mathrm{MO}_2$-swap}
+  & Navara's $\mathcal L$ with block $:=\mathrm{MO}_2$
+  & \textbf{yes} & \textbf{?} \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\textbf{The sole open step} is whether it transfers to $\mathcal L$. Navara
-warns that ``the lattice operations in $\mathcal L$ do not coincide with those
-of $\mathcal W$'' (\cite[p.~428]{Navara1992}), and orthogonality is defined
-through the orthocomplement. The whole question reduces to one check:
+\noindent The bottom row is the live case. It is concrete (sub-OMPs and
+products of concrete logics are concrete) and $\sigma$-orthocomplete (Navara's
+closure step \cite[p.~428]{Navara1992} is state-free: ``$f_j(m)=0,\ f_i\perp
+f_j \Rightarrow f_j=0$ on the block'' holds in $\mathrm{MO}_2$, where the only
+elements ${}\leq a^\perp$ are $\{0,a^\perp\}$). So the class of the
+Open Problem \emph{is} inhabited; the only question left is ($\bigstar$).
+
+\smallskip\noindent\textbf{Candidate witness.} $\mathrm{MO}_2$ atoms
+$a,a^\perp,b,b^\perp$; $a\wedge b=0$, $a\not\perp b$. With $\mathcal F$
+mutually disjoint (Navara's elements are $\bigvee_{C\in\mathcal F}v_C|C$), and
+$\mathrm{MO}_2$ capping within-block orthogonal families at $2$, an infinite
+orthogonal family forces infinitely many disjoint $C_n$:
+\begin{equation}\label{eq:witness}
+  a_n := a\,|\,C_n,\qquad
+  p := \bigvee_{n} b\,|\,C_n
+  \quad(\in\mathcal L,\ \text{by }\sigma\text{-orthocompleteness}).
+\end{equation}
+Constancy is per-coordinate and the $C_n$ disjoint, so $p$ is admissible; and
+\emph{in $\mathcal W$}: $\ p\wedge a_n=0$ (on $C_n$, $a\wedge b=0$; off,
+disjoint) and $p\not\perp a_n$ (on $C_n$, $a\not\perp b$). Thus ($\bigstar$)
+holds \emph{in $\mathcal W$}.
+
+\smallskip\noindent\textbf{The sole open step ($\bigstar$) in $\mathcal L$.}
+Navara warns ``the lattice operations in $\mathcal L$ do not coincide with
+those of $\mathcal W$''; orthogonality runs through the orthocomplement. The
+whole question is whether ($\bigstar$) transfers:
 \begin{equation}\label{eq:hinge}
-  \text{in } \mathcal L,\quad
-  a\,|\,C \;\not\perp\; b\,|\,C
-  \quad(\text{distinct non-complementary } \mathrm{MO}_2 \text{ atoms, same } C)?
+\boxed{\ \text{\textbf{(HINGE)}}\quad
+  \text{In }\mathcal L,\ \ a\,|\,C \;\not\perp\; b\,|\,C\,?
+  \quad(\text{distinct non-complementary }\mathrm{MO}_2\text{ atoms, same }C)\ }
 \end{equation}
-If \eqref{eq:hinge} holds (the relation inherits from $\mathrm{MO}_2$), then $p$
-witnesses \eqref{eq:interleave}: the $\mathrm{MO}_2$-swap is a concrete
-$\sigma$-orthocomplete non-Boolean OML satisfying the interleaving condition,
-the richness-starves-concreteness conjecture is \textbf{false}, and the swap is
-the relational-probability object sought. If $\mathcal L$'s orthocomplement
-forces $a\,|\,C\perp b\,|\,C$, the swap segregates and $L(H)$ remains the only
-known witness. Earlier this remark stated the swap as ``open by an element in
-$\mathrm{MO}_2$-position in infinitely many blocks''; working the constancy
-condition shows that is \emph{permitted}, so the live hinge is the
-orthocomplement check \eqref{eq:hinge}, not the support count. Two
-qualifications carry over: the relevant completeness is
-$\sigma$-orthocompleteness, not $\sigma$-completeness; and $L(H)$ and Navara
-fail concreteness for different reasons (Kochen--Specker colouring versus an
-imported stateless block). Details are recorded in the inhabitation note.
+\[
+\begin{array}{r@{\ \Rightarrow\ }l}
+\text{(HINGE) yes}
+  & p\text{ witnesses (}\bigstar\text{); conjecture \textbf{false}; the swap is the sought object.}\\[2pt]
+\text{(HINGE) no}
+  & \text{swap segregates; } L(H) \text{ stays the lone witness.}
+\end{array}
+\]
+
+\noindent Two riders: completeness here is $\sigma$-orthocompleteness, not
+$\sigma$-completeness; and $L(H)$ vs.\ Navara fail concreteness for different
+reasons (KS colouring vs.\ an imported stateless block). Details: the
+inhabitation note.
 \end{remark}
 
 \noindent A positive answer would furnish a relational probability theory

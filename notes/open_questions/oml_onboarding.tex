@@ -206,16 +206,25 @@ Hilbert space with $a^\perp$ the orthogonal complement.
 Two countable-completeness conditions on an OML $A$ are distinguished
 throughout, the second strictly weaker:
 \begin{itemize}[noitemsep, topsep=2pt]
-  \item $A$ is \emph{$\sigma$-complete} if \emph{every} countable subset has a
-    join (equivalently a meet);
-  \item $A$ is \emph{$\sigma$-orthocomplete} if every countable
-    \emph{pairwise-orthogonal} family $\{a_n\}$ has a join $\bigvee_n a_n$.
+  \item $A$ is \emph{$\sigma$-complete} if
+    \[
+      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A:\quad
+      \textstyle\bigvee_n a_n \text{ exists in } A
+    \]
+    (equivalently $\bigwedge_n a_n$, by $\bigwedge_n a_n=(\bigvee_n a_n^\perp)^\perp$);
+  \item $A$ is \emph{$\sigma$-orthocomplete} if
+    \[
+      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A \text{ with }
+      a_i\perp a_j\ (i\neq j):\quad
+      \textstyle\bigvee_n a_n \text{ exists in } A.
+    \]
 \end{itemize}
-The measure-theoretic questions below require only
-$\sigma$-orthocompleteness, since $\sigma$-additivity of a state constrains
-only countable orthogonal joins; full $\sigma$-completeness is the stronger
-condition manipulated by the Loomis--Sikorski representation
-(\S\ref{sec:ls}).
+The restriction to pairwise-orthogonal families is the only difference, so
+the first condition implies the second but not conversely. The
+measure-theoretic questions below require only $\sigma$-orthocompleteness,
+since $\sigma$-additivity of a state constrains only countable orthogonal
+joins; full $\sigma$-completeness is the stronger condition manipulated by the
+Loomis--Sikorski representation (\S\ref{sec:ls}).
 \end{definition}
 
 \begin{example}[$\mathrm{MO}_n$, and the gap made concrete]\label{ex:mo}
@@ -287,16 +296,16 @@ propositions. Three strengthenings, differing in which pairs additivity is
 demanded on and strictly increasing in general (Example~\ref{ex:strict} on
 $\mathrm{MO}_3$):
 \begin{enumerate}[label=(\arabic*), noitemsep]
-  \item \emph{State} --- additive on orthogonal pairs.
-  \item \emph{Meet-additive} --- additive on every \emph{meet-zero} pair
-    $a \wedge b = \mathbf 0$ (binary, strictly stronger --- it reaches the
-    gap pairs of Definition~\ref{def:ortho}). We avoid the
-    word ``valuation'' here: in lattice theory it denotes the modular
-    function $v(a)+v(b)=v(a\wedge b)+v(a \vee b)$, a different condition.
-  \item \emph{Charge-extendible} --- the $n$-ary condition
-    $\sum_i s(a_i) \leq 1$ for every pairwise-meet-zero family $\{a_i\}$
-    (strictly stronger again). This is the necessary condition for extension
-    to a charge on the dual space (Definition~\ref{def:charge}) and the
+  \item \emph{State}: $\ s(a\vee b)=s(a)+s(b)$ whenever $a\perp b$.
+  \item \emph{Meet-additive}: $\ s(a\vee b)=s(a)+s(b)$ whenever
+    $a\wedge b=\mathbf 0$ (binary, strictly stronger --- it reaches the gap
+    pairs of Definition~\ref{def:ortho}). We avoid the word ``valuation''
+    here: in lattice theory it denotes the modular function
+    $v(a)+v(b)=v(a\wedge b)+v(a\vee b)$, a different condition.
+  \item \emph{Charge-extendible}: $\ \sum_i s(a_i)\leq 1$ for every
+    pairwise-meet-zero family $\{a_i\}$ ($a_i\wedge a_j=\mathbf 0$, $i\neq j$;
+    strictly stronger again). This is the condition necessary for extension to
+    a charge on the dual space (Definition~\ref{def:charge}) and the
     \emph{extension} condition of \S\ref{sec:axes}.
 \end{enumerate}
 \end{definition}
@@ -312,11 +321,18 @@ $\mathrm{MO}_3$ is charge-extendible.
 \begin{definition}[Normal and singular states on $L(H)$]\label{def:normalsing}
 On $A = L(H)$ a state $s$ is
 \begin{itemize}[noitemsep, topsep=2pt]
-  \item \emph{normal} if it is completely additive on projections;
+  \item \emph{normal} if it is completely additive on every orthogonal family
+    of projections,
+    \[
+      s\Bigl(\textstyle\bigvee_{i\in I} p_i\Bigr)=\sum_{i\in I} s(p_i)
+      \quad\text{for all (not only countable) orthogonal } \{p_i\},
+    \]
     equivalently $s(\cdot)=\tr(\rho\,\cdot)$ for a density operator $\rho$
     (Gleason~\cite{Gleason1957}, $\dim\!\geq\!3$);
-  \item \emph{singular} (purely) if $s(e)=0$ for every finite-rank projection
-    $e$.
+  \item \emph{singular} (purely) if
+    \[
+      s(e)=0 \quad\text{for every finite-rank projection } e.
+    \]
 \end{itemize}
 Every state decomposes into a normal and a singular part (Takesaki); the two
 classes are exactly those distinguished by the arguments of \S\ref{sec:axes}.
@@ -333,8 +349,9 @@ $A$ a compact space
 \]
 where $F(A)$ is the set of \emph{filters} of $A$, ordered by $\subseteq$
 and carrying an orthogonality relation $\perp_A$ and a Stone topology $T$,
-and $P(A) \subseteq F(A)$ is the set of \emph{principal} filters --- the
-``physical points,'' the realisation datum (canonical, unlike the
+and $P(A) = \{\,{\uparrow}p : p\in A\,\} \subseteq F(A)$, with
+${\uparrow}p=\{a\in A : a\geq p\}$, is the set of \emph{principal} filters ---
+the ``physical points,'' the realisation datum (canonical, unlike the
 non-canonical pure points of the Boolean case). For $a \in A$ set
 $h(a) = \{x \in F(A) : a \in x\}$; then $h$ is an OML isomorphism onto the
 $\perp$-stable clopens $\CO(S_0(A))^\dagger$. Define $\mu(h(a)) = s(a)$.
@@ -344,11 +361,16 @@ under countable operations on them.
 \end{definition}
 
 \begin{definition}[Charge]\label{def:charge}
-A \emph{charge} on $S_0(A)$ is a finitely additive map
-$\nu : \CO(S_0(A)) \to [0,1]$ with $\nu(S_0(A))=1$, defined on the
+A \emph{charge} on $S_0(A)$ is a map $\nu : \CO(S_0(A)) \to [0,1]$ on the
 \emph{full} Boolean algebra of clopen subsets (not merely the $\perp$-stable
-ones in the image of $h$). A state $s$ \emph{extends to a charge} if some such
-$\nu$ satisfies $\nu(h(a)) = s(a)$ for all $a \in A$. Because $h$ preserves
+ones in the image of $h$), with
+\[
+  \nu(S_0(A))=1,
+  \qquad
+  \nu(U\cup V)=\nu(U)+\nu(V) \ \text{ whenever } U\cap V=\varnothing.
+\]
+A state $s$ \emph{extends to a charge} if some such $\nu$ satisfies
+$\nu(h(a)) = s(a)$ for all $a \in A$. Because $h$ preserves
 meets, a pairwise-meet-zero family in $A$ maps to disjoint clopens, so a
 charge necessarily satisfies $\sum_i s(a_i)\le 1$ over such families --- the
 charge-extendibility condition of Definition~\ref{def:ladder}(3).

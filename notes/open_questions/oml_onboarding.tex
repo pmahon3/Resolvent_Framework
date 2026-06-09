@@ -222,12 +222,24 @@ it exists; ``$\exists\,\bigvee_n a_n\in A$'' asserts that it does.
       \exists\,\textstyle\bigvee_n a_n\in A.
     \]
 \end{itemize}
-The restriction to pairwise-orthogonal families is the only difference, so
-the first condition implies the second but not conversely. The
-measure-theoretic questions below require only $\sigma$-orthocompleteness,
-since $\sigma$-additivity of a state constrains only countable orthogonal
-joins; full $\sigma$-completeness is the stronger condition manipulated by the
-Loomis--Sikorski representation (\S\ref{sec:ls}).
+The orthogonal families are a subclass of all countable families, so
+$\sigma$-completeness quantifies over a strictly larger domain and is the
+stronger hypothesis:
+\[
+  \{a_n\}\text{ pairwise orthogonal}\ \subseteq\ \{a_n\}\text{ arbitrary}
+  \qquad\Longrightarrow\qquad
+  \sigma\text{-complete}\ \Rightarrow\ \sigma\text{-orthocomplete}.
+\]
+Only the weaker condition is needed below. For a state $s$,
+$\sigma$-additivity is the requirement
+\[
+  s\Bigl(\textstyle\bigvee_n a_n\Bigr)=\sum_n s(a_n)
+  \qquad\text{for every countable }\{a_n\}\text{ with } a_i\perp a_j\ (i\neq j),
+\]
+whose left side invokes $\bigvee_n a_n$ \emph{only} for orthogonal families ---
+so $\sigma$-orthocompleteness is exactly the hypothesis that makes it
+well-posed. Full $\sigma$-completeness is the stronger condition manipulated
+by the Loomis--Sikorski representation (\S\ref{sec:ls}).
 \end{definition}
 
 \begin{example}[$\mathrm{MO}_n$, and the gap made concrete]\label{ex:mo}

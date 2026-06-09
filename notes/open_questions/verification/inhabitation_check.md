@@ -185,52 +185,70 @@ as a non-genuine inhabitant. It is the **MO_κ disease one level up**: MO_κ
 failed by having *no* infinite orthogonal families; the swap fails by having
 infinite-but-*Boolean* ones. So the swap does **not** fire the attack branch.
 
-### One-family probe (verify-by-building) — the whole argument in miniature
+### The discriminator (CORRECTED 2026-06-08) — element-vs-family, not within-family
 
-> Exhibit a single countable orthogonal family in the MO₂-swap containing a
-> meet-zero ≠ orthogonal pair.
+**Earlier draft of this note used a vacuous probe** ("exhibit an orthogonal
+family containing a meet-zero≠orthogonal pair"). That is impossible in
+*every* OML — an orthogonal family generates a Boolean subalgebra (Kalmbach),
+where meet-zero *is* orthogonality — so it holds in L(H) too and discriminates
+nothing. The "by definition" exclusion was the tell. **Discard it.**
 
-Impossible: any two members sharing a block are `≤ 2` and complementary
-(`{a,a^⊥}`); a merely-meet-zero (non-orthogonal) pair is excluded from an
-orthogonal family by definition. **Run this by hand before trusting the
-write-up** (Phase 4 = user's call). It replaces the general structural trace.
+The interleaving that actually separates the segregated swap from the genuine
+witness is **element-versus-family**:
+
+> **(★)** ∃ an element `p` and an *infinite* orthogonal family `{aₙ}` with
+> `p ∧ aₙ = 0` for all `n`, yet `p ⊀ aₙ^⊥` (`p` not orthogonal to any `aₙ`).
+
+- **L(H): (★) holds.** Basis `{eₙ}`, skew vector `f = Σ cₙ eₙ`, all `cₙ ≠ 0`:
+  ray `P_f` meets each `P_{eₙ}` at `0` but is orthogonal to none.
+- **MO_κ: fails vacuously** (no infinite orthogonal family) — correctly excluded.
+- **MO₂-swap: the outstanding by-hand check.** A `p` supported in finitely
+  many blocks is meet-zero-not-orthogonal to only finitely many cross-block
+  `aₙ`; (★) requires the constancy condition to admit a `p` in MO₂-position in
+  **infinitely many blocks at once**. **Not yet run** (Phase 4 = user's call).
+
+**Do NOT use the word "irreducible"** for the sharpened hypothesis. As a
+technical term it means trivial center, and Navara's horizontal-sum
+construction is center-irreducible — so "irreducible" would *not* exclude the
+swap. (★) sidesteps the center question entirely; use (★), not a one-word
+hypothesis.
 
 ### Net: the conjecture SHARPENS — neither attack nor park
 
-1. **As currently written, the conjecture is FALSE.** The MO₂ swap is
-   concrete, σ-orthocomplete, infinite-orthogonal, non-Boolean — all four
-   stated hypotheses — but a reducible/segregated fake.
-2. **The live frontier needs an irreducibility clause:**
+1. **The class as stated IS inhabited.** σ-orthocompleteness survives the
+   swap (closure proof state-free, see above), so the MO₂ swap is concrete,
+   σ-orthocomplete, infinite-orthogonal, and non-Boolean — all four stated
+   hypotheses. The "richness starves concreteness" conjecture as literally
+   worded (no concrete member exists) is therefore **false**; what the swap
+   may still be is a *segregated* member, not a strong-descent witness.
+2. **The sharpened question is the (★) interleaving condition** (above), NOT
+   an "irreducibility" clause (that word is wrong — Navara's horizontal sums
+   are center-irreducible). Restated:
 
-   > Does a concrete, **irreducible** (non-segregated), σ-orthocomplete,
-   > non-Boolean OML with infinite orthogonal families exist — one where
-   > infinite orthogonal joins and meet-zero ≠ orthogonal pairs genuinely
-   > **interleave** (rather than living in separable Boolean vs finite-block
-   > factors)?
+   > Does a concrete σ-orthocomplete non-Boolean OML satisfy (★) — an element
+   > meet-zero-but-not-orthogonal to an *infinite* orthogonal family? L(H)
+   > does; MO_κ does not; whether the MO₂-swap does is the **outstanding
+   > by-hand check**.
 
-3. **L(H) is the irreducible witness, non-concrete by KS.** No finite-block
-   product/sublogic construction reaches the irreducible case: interleaving
-   infinite orthogonal families with non-distributive pairs requires an
-   *infinite concrete non-Boolean block*, which is the conjecture itself.
-   Mechanism: orthogonal families generate Boolean subalgebras, so
-   σ-orthocompleteness only ever exercises Boolean structure; non-
-   distributivity lives in non-orthogonal pairs; making them coexist
-   non-trivially needs lattice **irreducibility**, which products and
-   sublogics cannot manufacture.
+3. **L(H) is the only structure known to satisfy (★), and it is non-concrete
+   by KS.** Whether a *concrete* OML can satisfy (★) is open. The MO₂-swap is
+   the test case: if its constancy condition admits no element in MO₂-position
+   in infinitely many blocks at once, the swap is **segregated** and L(H)
+   stays the lone (★)-witness — sharpening, not removing, the one-example
+   status of the richness-obstructs-concreteness heuristic.
 
 The finite-cofinite/ultraproduct toolkit did its job as a **diagnostic** (not
-an engine): it exposed *segregation* as the failure mode and isolated
-*irreducibility* as the missing hypothesis. The "richness starves
-concreteness" conjecture is now precisely: **a concrete σ-orthocomplete OML
-in which infinite orthogonal families and non-distributive pairs interleave
-is impossible** — with L(H)+KS the only evidence, and product constructions
-provably unable to supply a counterexample.
+an engine): it forced the (★) reduction and showed segregation is the failure
+mode to rule out. **Status: still OPEN, reduced to the unrun (★)-on-MO₂-swap
+check** — not "resolved to segregation" (that probe has not actually been
+run). Still not a park (L(H) is live evidence that (★) is satisfiable
+somewhere); orthogonal to the four parked empirical-reconnection seeds.
 
-**Decision update:** the unrun MO₂ check is no longer the go/park hinge — it
-resolves to segregation. The new hinge is the **irreducibility-clause**
-conjecture, which no product construction can touch. Still OPEN; still not a
-park (L(H)+KS is live evidence *for* it); orthogonal to the four parked
-empirical-reconnection seeds.
+*(Caveat on the "sharpen" outcome per `feedback_research_workflow` lifecycle:
+the standing MO₂-swap-survival check DID flip — σ-orthocompleteness survives,
+inhabitation-as-stated confirmed — and the (★) clause excludes the old
+segregated instance, so this clears the sharpen guardrail. But the (★) check
+itself is unrun; the segregation verdict is provisional, not settled.)*
 
 ## Cross-references / corrections applied this session
 - Survey §4.2 **mis-citation fixed** (both .md and .tex): Pták–Pulmannová

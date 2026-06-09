@@ -607,19 +607,46 @@ with rich countable orthogonal structure, yet non-concrete, since its
 Greechie-stateless building blocks leave too few two-valued states to be
 order-determining. Substituting a concrete, stateful, non-Boolean block
 ($\mathrm{MO}_2$) for Navara's stateless one yields concreteness for free,
-since sub-OMPs and products of concrete logics are concrete; whether
-$\sigma$-orthocompleteness survives the substitution is open, and it turns on
-the single step of Navara's closure argument (\cite[p.~428]{Navara1992}) that
-uses the block's orthogonality structure. Two qualifications matter here.
-First, $L(H)$ and Navara fail to be concrete for \emph{different} reasons:
-for $L(H)$ the orthogonal richness itself obstructs two-valued states
-(Kochen--Specker colouring), whereas Navara's state-poverty is imported with
-a finite, orthogonality-free stateless block, its richness added separately
-by the product/constancy machinery. Only $L(H)$ therefore evidences the
-heuristic that richness obstructs concreteness, which remains a
-one-example observation rather than a two-witness pattern. Second, the
-relevant completeness is $\sigma$-orthocompleteness, not $\sigma$-completeness.
-Details of the substitution are recorded in the inhabitation note.
+since sub-OMPs and products of concrete logics are concrete; and
+$\sigma$-orthocompleteness \emph{survives} the substitution, since Navara's
+closure argument (\cite[p.~428]{Navara1992}) is state-free --- the one step
+that uses the block, ``$f_j(m)=0$ and $f_i \perp f_j$ force $f_j$ constant
+($=0$) on the block,'' carries verbatim for $\mathrm{MO}_2$, where the only
+elements below $a^\perp$ are $\{0,a^\perp\}$. The swap is thus a genuine
+member of the class of the Problem (concrete, $\sigma$-orthocomplete,
+infinite, non-Boolean), so the class \emph{is} inhabited as stated.
+
+The sharper question is whether any such member is descent-relevant in the
+strong sense that the non-distributivity and the infinite orthogonal
+structure interleave, rather than segregating into a Boolean support skeleton
+carrying merely decorative non-Boolean blocks. The discriminating condition
+is \emph{element-versus-family}:
+\begin{equation}\label{eq:interleave}
+\exists\, p \text{ and an \emph{infinite} orthogonal family } \{a_n\}
+\text{ with } p \wedge a_n = 0 \ \forall n, \text{ yet } p \not\perp a_n.
+\end{equation}
+(Within a single orthogonal family this never occurs --- such a family
+generates a Boolean subalgebra, where meet-zero \emph{is} orthogonality --- so
+the interleaving must be of one element \emph{against} the family.) On $L(H)$,
+\eqref{eq:interleave} holds: for an orthonormal basis $\{e_n\}$ and a skew
+vector $f=\sum_n c_n e_n$ with all $c_n\neq 0$, the ray $P_f$ meets each
+$P_{e_n}$ at $0$ yet is orthogonal to none. On $\mathrm{MO}_\kappa$ it fails
+vacuously (no infinite orthogonal family). For the $\mathrm{MO}_2$-swap the
+condition is the \emph{outstanding by-hand check}: an element supported in
+finitely many blocks is meet-zero-not-orthogonal to only finitely many of the
+cross-block $a_n$, so \eqref{eq:interleave} requires the constancy condition
+to admit an element in $\mathrm{MO}_2$-position in infinitely many blocks at
+once. If it cannot, the swap is segregated --- a member of the as-stated class
+but not a strong-descent witness --- and $L(H)$ remains the only structure
+known to satisfy \eqref{eq:interleave}, with no product/sublogic construction
+able to manufacture it (this sharpens, rather than replaces, the
+one-example status of the richness-obstructs-concreteness heuristic:
+$L(H)$ alone, by Kochen--Specker, both satisfies \eqref{eq:interleave} and is
+non-concrete). Two qualifications carry over: the relevant completeness is
+$\sigma$-orthocompleteness, not $\sigma$-completeness; and $L(H)$ and Navara
+fail concreteness for different reasons (Kochen--Specker colouring versus an
+imported stateless block). Details of the substitution and the
+\eqref{eq:interleave} reduction are recorded in the inhabitation note.
 \end{remark}
 
 \noindent A positive answer would furnish a relational probability theory

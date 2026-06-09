@@ -442,18 +442,47 @@ orthogonal structure, yet non-concrete, since its Greechie-stateless building
 blocks leave too few two-valued states to be order-determining. Substituting
 a concrete, stateful, non-Boolean block (`MO₂`) for Navara's stateless one
 yields concreteness for free, since sub-OMPs and products of concrete logics
-are concrete; whether σ-orthocompleteness survives the substitution is open,
-and it turns on the single step of Navara's closure argument (Navara 1992,
-p. 428) that uses the block's orthogonality structure. Two qualifications
-matter here. First, `L(H)` and Navara fail to be concrete for *different*
-reasons: for `L(H)` the orthogonal richness itself obstructs two-valued
-states (Kochen–Specker colouring), whereas Navara's state-poverty is imported
-with a finite, orthogonality-free stateless block, its richness added
-separately by the product/constancy machinery. Only `L(H)` therefore
-evidences the heuristic that richness obstructs concreteness, which remains a
-one-example observation rather than a two-witness pattern. Second, the
-relevant completeness is σ-orthocompleteness, not σ-completeness. Details of
-the substitution are recorded in `verification/inhabitation_check.md`.
+are concrete; and σ-orthocompleteness **survives** the substitution, since
+Navara's closure argument (Navara 1992, p. 428) is state-free — the one step
+that uses the block, "`f_j(m)=0` and `f_i ⊥ f_j` force `f_j` constant (`=0`)
+on the block," carries verbatim for `MO₂`, where the only elements below
+`a^⊥` are `{0, a^⊥}`. So the swap is a genuine member of the class of the
+open problem (concrete, σ-orthocomplete, infinite, non-Boolean): **the class
+is inhabited as stated.**
+
+The sharper question is whether any such member is descent-relevant in the
+strong sense — the non-distributivity and the infinite orthogonal structure
+**interleave**, rather than segregating into a Boolean support skeleton
+carrying merely decorative non-Boolean blocks. The discriminating condition
+is *element-versus-family*:
+
+> (★) ∃ an element `p` and an **infinite** orthogonal family `{aₙ}` with
+> `p ∧ aₙ = 0` for all `n`, yet `p ⊀ aₙ^⊥` (i.e. `p` is not orthogonal to
+> any `aₙ`).
+
+Within a single orthogonal family this never happens — such a family
+generates a Boolean subalgebra, where meet-zero *is* orthogonality — so the
+interleaving must be of one element *against* the family. On `L(H)`, (★)
+holds: for an orthonormal basis `{eₙ}` and a skew vector `f = Σ cₙ eₙ` with
+all `cₙ ≠ 0`, the ray `P_f` meets each `P_{eₙ}` at `0` yet is orthogonal to
+none. On `MO_κ` it fails vacuously (no infinite orthogonal family). For the
+`MO₂`-swap, (★) is the **outstanding by-hand check**: an element supported in
+finitely many blocks is meet-zero-not-orthogonal to only finitely many
+cross-block `aₙ`, so (★) requires the constancy condition to admit an element
+in `MO₂`-position in infinitely many blocks at once. If it cannot, the swap
+is **segregated** — a member of the as-stated class but not a strong-descent
+witness — and `L(H)` remains the only structure known to satisfy (★), with no
+product/sublogic construction able to manufacture it.
+
+Two qualifications carry over. First, `L(H)` and Navara fail to be concrete
+for *different* reasons: for `L(H)` the orthogonal richness itself obstructs
+two-valued states (Kochen–Specker colouring), whereas Navara's state-poverty
+is imported with a finite, orthogonality-free stateless block. This sharpens
+rather than replaces the one-example status of the
+richness-obstructs-concreteness heuristic: `L(H)` alone, by Kochen–Specker,
+both satisfies (★) and is non-concrete. Second, the relevant completeness is
+σ-orthocompleteness, not σ-completeness. Details of the substitution and the
+(★) reduction are recorded in `verification/inhabitation_check.md`.
 
 A positive answer would furnish a relational probability theory without
 realisations: σ-additive probability built from the entailment relation of a

@@ -230,21 +230,29 @@ that separates the open frontier from the settled cases in
 \end{definition}
 
 \begin{remark}[Concreteness does not close the gap]\label{rem:concrete}
-A set-representable OMP needs only closure under complement and
-\emph{disjoint} union~\cite{BuresovaPtak2024}; intersection-closure would
-force a field of sets, hence Boolean. The lattice meet $a \wedge b$ is the
-greatest $L$-member inside $A \cap B$, so orthogonality
-($A \cap B = \varnothing$) implies meet-zero, but not conversely. Indeed
-$\mathrm{MO}_3$ is \emph{itself} concrete (it carries an order-determining
-set of two-valued states; Gudder~\cite{Gudder1979}), so the paradigmatic
-meet-zero-$\neq$-
-orthogonal example is a concrete logic. The condition that closes the gap
-is not concreteness but a richness/atomicity condition (meet-zero
-coincides with orthogonality iff every nonempty $A \cap B$ contains a
-nonzero $L$-member); the abstract form $a \wedge b = \mathbf 0 \Rightarrow
-a \perp b$ is Tkadlec's \emph{Boolean orthoposet}
-condition~\cite{Tkadlec1994} (which does
-\emph{not} mean Boolean \emph{algebra}).
+A set-representable OMP needs only closure under complement and \emph{disjoint}
+union~\cite{BuresovaPtak2024}; intersection-closure would force a field of
+sets, hence Boolean. The lattice meet $a\wedge b$ is the greatest $L$-member
+inside $A\cap B$, so
+\[
+  \underbrace{A\cap B=\varnothing}_{\text{orthogonal}}
+  \ \Longrightarrow\
+  \underbrace{a\wedge b=\mathbf 0}_{\text{meet-zero}},
+  \qquad\text{but not conversely.}
+\]
+Concreteness does not force the converse: $\mathrm{MO}_3$ is itself concrete
+(it carries an order-determining set of two-valued states,
+Gudder~\cite{Gudder1979}), so the paradigmatic meet-zero-$\neq$-orthogonal
+example is already a concrete logic. What closes the gap is a
+richness/atomicity condition, not concreteness:
+\[
+  a\wedge b=\mathbf 0 \Rightarrow a\perp b
+  \quad\Longleftrightarrow\quad
+  \text{every nonempty } A\cap B \text{ contains a nonzero } L\text{-member,}
+\]
+the abstract form being Tkadlec's \emph{Boolean orthoposet}
+condition~\cite{Tkadlec1994} (which does \emph{not} mean Boolean
+\emph{algebra}).
 \end{remark}
 
 \subsection{The state/meet-additive/charge ladder}
@@ -302,17 +310,22 @@ under countable operations on them.
 \end{definition}
 
 \begin{remark}[The duality is finitary]\label{rem:finitary}
-The identity $h(\bigvee_n a_n) = (\bigcup_n h(a_n))^{\perp\perp}$ holds for
-\emph{finite} joins but fails for countable ones: finitary OML
-homomorphisms need not preserve infinite suprema. This finitariness is the
-central obstruction the open problem of \S\ref{sec:problem} confronts. (It is a
-\emph{countable}-join phenomenon, not specific to joins: since $a \mapsto
-a^\perp$ is an order anti-isomorphism, $\bigwedge_n a_n = (\bigvee_n
-a_n^\perp)^\perp$, so the failure to preserve countable meets is its De
-Morgan dual --- the wall obstructs countable meets and joins together.)
-The rival OML duality of Cannon--D\"{o}ring~\cite{Cannon2013} is also
-finitary and carries no measure; we use McDonald--Bimb\'{o} because it
-carries $P(A)$ as explicit structure.
+The representation map $h$ satisfies
+\[
+  h\Bigl(\bigvee_{i\leq n} a_i\Bigr)=\Bigl(\bigcup_{i\leq n} h(a_i)\Bigr)^{\perp\perp}
+  \ \ (\text{finite}),
+  \qquad
+  h\Bigl(\bigvee_{n} a_n\Bigr)\neq\Bigl(\bigcup_{n} h(a_n)\Bigr)^{\perp\perp}
+  \ \ (\text{countable}):
+\]
+finitary OML homomorphisms need not preserve infinite suprema. This is the
+central obstruction the open problem of \S\ref{sec:problem} confronts, and it
+is self-dual: since $a\mapsto a^\perp$ is an order anti-isomorphism,
+$\bigwedge_n a_n=(\bigvee_n a_n^\perp)^\perp$, so the failure for countable
+meets is the De~Morgan dual of the failure for countable joins. The rival
+duality of Cannon--D\"{o}ring~\cite{Cannon2013} is also finitary and carries no
+measure; we use McDonald--Bimb\'{o} because it carries $P(A)$ as explicit
+structure.
 \end{remark}
 
 \subsection{The Boolean engine: Stone duality}
@@ -826,13 +839,19 @@ point-spaces, and \emph{realisation} is defined as concentration on (B).
 \bottomrule
 \end{tabular}
 \end{center}
-\noindent So Gleason is the \emph{most} point-ful result available (every
-lattice state $\mapsto$ the point datum $\rho$), and what $L(H)$ exhibits is a
-\emph{separation}, not point-freeness: $\sigma$-additive measures exist on the
-lattice (Gleason, normal states), yet no state extends to a charge on
-$S_0(L(H))$ (Prop.~\ref{prop:lh}), so a fortiori none concentrates on $P(A)$.
-It cannot serve as the existence proof sought --- so the $\sigma$-OML
-representation above is the \emph{only} candidate engine.
+\noindent Gleason is thus the \emph{most} point-ful result available (every
+lattice state $\mapsto$ the point datum $\rho$). What $L(H)$ exhibits is a
+\emph{separation}, not point-freeness:
+\[
+\renewcommand{\arraystretch}{1.3}
+\begin{array}{ll}
+\text{on the lattice} & \sigma\text{-additive measures exist (Gleason, normal states);}\\
+\text{on the dual } S_0(L(H)) & \text{no state extends to a charge (Prop.~\ref{prop:lh}),}\\
+& \text{so a fortiori none concentrates on } P(A).
+\end{array}
+\]
+It cannot serve as the existence proof required, so the $\sigma$-OML
+representation of \S\ref{sec:problem} is the only candidate engine.
 \end{remark}
 
 % ==================================================================
@@ -856,29 +875,30 @@ single direction remains.
 \end{description}
 
 \noindent A second candidate direction --- the singular case for $L(H)$ ---
-is now \emph{closed}, instructively. The hope: a singular state might extend
-where no normal state does, giving the first explicit ``extends but may fail
-to concentrate'' example the general construction lacks. It does not ---
-Proposition~\ref{prop:lh} catches every state, singular included. The
-reduction is worth recording, since one expected the singular case to require
-infinitary methods.
+is now closed. One might have hoped a singular state would extend where no
+normal state does, providing the first explicit ``extends but may fail to
+concentrate'' example that the general construction lacks; Proposition~\ref{prop:lh}
+rules this out, catching every state, singular included. The reduction is
+recorded because the singular case was expected to require infinitary methods
+and does not (Remark~\ref{rem:finvscount}).
 
 \begin{remark}[Finite versus countable: finite suffices]\label{rem:finvscount}
-One could ask whether the obstruction to extending a singular state is
-realised by a \emph{finite} or only by a \emph{countable}
-pairwise-meet-zero family. The line argument of
-Remark~\ref{rem:linearg} is finitary but vacuous on singular states
-($s(e)=0$ on every finite-dimensional $e$), which might suggest the
-singular obstruction needs a countable family and is therefore entangled
-with the descent-axis passage. It does not: the four
-infinite-dimensional subspaces of Proposition~\ref{prop:lh} are a
-\emph{finite} ($n=4$) pairwise-meet-zero family forcing
-$\sum_i s(a_i)=2$, and the forcing is state-independent. So the singular
-case is a self-contained, finitary problem, separable from the general
-construction --- not governed by the finitary-to-$\sigma$ passage at all.
-The line argument is vacuous on singular states; the
-$\mathrm{MO}_2$-with-infinite-dimensional-atoms argument is not, and that
-is the whole difference.
+Is the obstruction to extending a singular state realised by a \emph{finite}
+or only by a \emph{countable} pairwise-meet-zero family? The two arguments
+divide on exactly this point:
+\[
+\renewcommand{\arraystretch}{1.3}
+\begin{array}{lll}
+\textbf{line argument (Rmk~\ref{rem:linearg})}
+  & \text{finitary, but } \textbf{vacuous} \text{ on singular } (s(e)=0\ \forall\text{ finite } e)\\
+\textbf{$\mathrm{MO}_2$, $\infty$-dim atoms (Prop.~\ref{prop:lh})}
+  & \text{finite } (n=4),\ \sum_i s(a_i)=2 \text{ state-independently}
+\end{array}
+\]
+So the singular obstruction is \emph{not} entangled with the descent-axis
+passage, as the vacuity of the line argument might suggest: it is realised by a
+finite family, hence a self-contained finitary problem, separable from the
+general construction and not governed by the finitary-to-$\sigma$ passage.
 \end{remark}
 
 \bibliographystyle{plain}

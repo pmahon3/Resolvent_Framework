@@ -465,14 +465,35 @@ generates a Boolean subalgebra, where meet-zero *is* orthogonality — so the
 interleaving must be of one element *against* the family. On `L(H)`, (★)
 holds: for an orthonormal basis `{eₙ}` and a skew vector `f = Σ cₙ eₙ` with
 all `cₙ ≠ 0`, the ray `P_f` meets each `P_{eₙ}` at `0` yet is orthogonal to
-none. On `MO_κ` it fails vacuously (no infinite orthogonal family). For the
-`MO₂`-swap, (★) is the **outstanding by-hand check**: an element supported in
-finitely many blocks is meet-zero-not-orthogonal to only finitely many
-cross-block `aₙ`, so (★) requires the constancy condition to admit an element
-in `MO₂`-position in infinitely many blocks at once. If it cannot, the swap
-is **segregated** — a member of the as-stated class but not a strong-descent
-witness — and `L(H)` remains the only structure known to satisfy (★), with no
-product/sublogic construction able to manufacture it.
+none. On `MO_κ` it fails vacuously (no infinite orthogonal family).
+
+For the `MO₂`-swap, (★) is **not** blocked by constancy, and there is an
+explicit candidate witness. Navara's elements are `⋁_{C∈ℱ} v_C|C` with `ℱ`
+mutually disjoint subsets of `M` (p. 428); an infinite orthogonal family
+forces infinitely many disjoint `Cₙ` (`MO₂` caps within-block orthogonal
+families at 2). Write `MO₂` atoms `a, a^⊥, b, b^⊥` with `a∧b = 0`, `a ⊀ b^⊥`.
+Set `aₙ := a|Cₙ` and `p := ⋁ₙ b|Cₙ`. Constancy is **per coordinate** and the
+`Cₙ` are disjoint, so `p` violates nothing; `p ∈ L` as a countable
+orthogonal (disjoint-support) join, supplied by σ-orthocompleteness itself.
+Coordinatewise in `W`: `p ∧ aₙ = 0` (on `Cₙ`, `a∧b=0`; off `Cₙ`, disjoint),
+yet `p ⊀ aₙ^⊥` (on `Cₙ`, `a ⊀ b^⊥`). So **(★) holds in `W`**.
+
+**The sole open step** is whether it transfers to `L`. Navara warns "the
+lattice operations in `L` do not coincide with those of `W`" (p. 428), and
+orthogonality is defined through the orthocomplement. The whole question
+reduces to one check:
+
+> **(HINGE)** In `L`, is `a|C ⊀ (b|C)^⊥` — i.e. are distinct non-complementary
+> `MO₂` atoms on the same `C` non-orthogonal in `L` (inheriting from `MO₂`)?
+
+If (HINGE) holds, `p` witnesses (★): the swap is a concrete σ-orthocomplete
+non-Boolean OML satisfying interleaving, the richness-starves-concreteness
+conjecture is **false**, and the swap is the relational-probability object
+sought. If `L`'s orthocomplement forces `a|C ⊥ b|C`, the swap **segregates**
+and `L(H)` remains the only known witness. (Earlier framing — "open by an
+element in `MO₂`-position in infinitely many blocks" — is resolved:
+constancy *permits* it; the live hinge is the orthocomplement check, not the
+support count.)
 
 Two qualifications carry over. First, `L(H)` and Navara fail to be concrete
 for *different* reasons: for `L(H)` the orthogonal richness itself obstructs

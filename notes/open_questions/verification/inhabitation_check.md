@@ -202,10 +202,33 @@ witness is **element-versus-family**:
 - **L(H): (★) holds.** Basis `{eₙ}`, skew vector `f = Σ cₙ eₙ`, all `cₙ ≠ 0`:
   ray `P_f` meets each `P_{eₙ}` at `0` but is orthogonal to none.
 - **MO_κ: fails vacuously** (no infinite orthogonal family) — correctly excluded.
-- **MO₂-swap: the outstanding by-hand check.** A `p` supported in finitely
-  many blocks is meet-zero-not-orthogonal to only finitely many cross-block
-  `aₙ`; (★) requires the constancy condition to admit a `p` in MO₂-position in
-  **infinitely many blocks at once**. **Not yet run** (Phase 4 = user's call).
+- **MO₂-swap: (★) is NOT blocked by constancy — explicit candidate witness
+  exists (2026-06-08, worked from Navara p.428).** Elements of L are
+  `⋁_{C∈ℱ} v_C|C`, ℱ mutually disjoint (p.428); infinite orthogonal family ⟹
+  infinitely many disjoint `Cₙ` (MO₂ caps within-block orthogonal families
+  at 2). MO₂ atoms `a,a^⊥,b,b^⊥`, `a∧b=0`, `a⊀b^⊥`. Set `aₙ:=a|Cₙ`,
+  `p:=⋁ₙ b|Cₙ`. Constancy is **per-coordinate**, `Cₙ` disjoint ⟹ `p` violates
+  nothing; `p∈L` as a countable disjoint-support (orthogonal) join — supplied
+  by σ-orthocompleteness itself. In W: `p∧aₙ=0`, `p⊀aₙ^⊥`. **(★) holds in W.**
+
+  **SOLE OPEN STEP — does it transfer to L?** Navara: "lattice operations in L
+  do not coincide with those of W" (p.428). Orthogonality is via the
+  orthocomplement. Reduces to one check:
+
+  > **(HINGE)** In L, is `a|C ⊀ (b|C)^⊥`? (distinct non-complementary MO₂
+  > atoms, same C, non-orthogonal in L inheriting from MO₂)
+
+  - HINGE holds ⟹ `p` witnesses (★) ⟹ swap is concrete σ-orthocomplete
+    non-Boolean satisfying interleaving ⟹ **conjecture FALSE**, swap IS the
+    relational-probability object.
+  - L's orthocomplement forces `a|C ⊥ b|C` ⟹ swap **segregates**, L(H) stays
+    the only known witness.
+
+  **Lean update:** prior framing ("open by an element in MO₂-position in ∞
+  blocks") is RESOLVED — constancy *permits* it. The live hinge is the
+  orthocomplement check (HINGE), not the support count. **(HINGE) not yet run**
+  (Phase 4 = user's call). The verdict now leans FALSE-conjecture (witness
+  exists in W, only an L-orthocomplement subtlety stands between it and (★)).
 
 **Do NOT use the word "irreducible"** for the sharpened hypothesis. As a
 technical term it means trivial center, and Navara's horizontal-sum
@@ -230,19 +253,19 @@ hypothesis.
    > does; MO_κ does not; whether the MO₂-swap does is the **outstanding
    > by-hand check**.
 
-3. **L(H) is the only structure known to satisfy (★), and it is non-concrete
-   by KS.** Whether a *concrete* OML can satisfy (★) is open. The MO₂-swap is
-   the test case: if its constancy condition admits no element in MO₂-position
-   in infinitely many blocks at once, the swap is **segregated** and L(H)
-   stays the lone (★)-witness — sharpening, not removing, the one-example
-   status of the richness-obstructs-concreteness heuristic.
+3. **A candidate (★)-witness for the MO₂-swap EXISTS in W** (`p = ⋁ₙ b|Cₙ`,
+   see the discriminator section). It satisfies (★) coordinatewise in W and
+   lies in L by σ-orthocompleteness. The only gap is whether MO₂-orthogonality
+   transfers to L's orthocomplement — the **(HINGE)** check. So the verdict now
+   **leans conjecture-FALSE**: the witness is built; only an L-orthocomplement
+   subtlety stands between it and (★). This reverses the earlier provisional
+   lean ("likely segregates").
 
-The finite-cofinite/ultraproduct toolkit did its job as a **diagnostic** (not
-an engine): it forced the (★) reduction and showed segregation is the failure
-mode to rule out. **Status: still OPEN, reduced to the unrun (★)-on-MO₂-swap
-check** — not "resolved to segregation" (that probe has not actually been
-run). Still not a park (L(H) is live evidence that (★) is satisfiable
-somewhere); orthogonal to the four parked empirical-reconnection seeds.
+**Status: OPEN, reduced to the single check (HINGE)** — is `a|C ⊀ (b|C)^⊥` in
+L? One yes/no decides everything: YES ⟹ conjecture false, swap is the
+relational-probability object; NO ⟹ swap segregates, L(H) stays the lone
+witness. Not a park; orthogonal to the four parked empirical-reconnection
+seeds.
 
 *(Caveat on the "sharpen" outcome per `feedback_research_workflow` lifecycle:
 the standing MO₂-swap-survival check DID flip — σ-orthocompleteness survives,

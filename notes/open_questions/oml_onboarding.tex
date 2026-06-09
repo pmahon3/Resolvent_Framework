@@ -631,22 +631,50 @@ the interleaving must be of one element \emph{against} the family.) On $L(H)$,
 \eqref{eq:interleave} holds: for an orthonormal basis $\{e_n\}$ and a skew
 vector $f=\sum_n c_n e_n$ with all $c_n\neq 0$, the ray $P_f$ meets each
 $P_{e_n}$ at $0$ yet is orthogonal to none. On $\mathrm{MO}_\kappa$ it fails
-vacuously (no infinite orthogonal family). For the $\mathrm{MO}_2$-swap the
-condition is the \emph{outstanding by-hand check}: an element supported in
-finitely many blocks is meet-zero-not-orthogonal to only finitely many of the
-cross-block $a_n$, so \eqref{eq:interleave} requires the constancy condition
-to admit an element in $\mathrm{MO}_2$-position in infinitely many blocks at
-once. If it cannot, the swap is segregated --- a member of the as-stated class
-but not a strong-descent witness --- and $L(H)$ remains the only structure
-known to satisfy \eqref{eq:interleave}, with no product/sublogic construction
-able to manufacture it (this sharpens, rather than replaces, the
-one-example status of the richness-obstructs-concreteness heuristic:
-$L(H)$ alone, by Kochen--Specker, both satisfies \eqref{eq:interleave} and is
-non-concrete). Two qualifications carry over: the relevant completeness is
+vacuously (no infinite orthogonal family).
+
+For the $\mathrm{MO}_2$-swap, \eqref{eq:interleave} is \textbf{not} blocked by
+the constancy condition, and there is an explicit candidate witness. Navara's
+elements are $\bigvee_{C\in\mathcal F} v_C\,|\,C$ with $\mathcal F$ a family of
+\emph{mutually disjoint} subsets of $M$ (\cite[p.~428]{Navara1992}); an
+infinite orthogonal family forces infinitely many disjoint $C_n$, since
+$\mathrm{MO}_2$ caps within-block orthogonal families at two. Write
+$\mathrm{MO}_2$'s atoms as $a,a^\perp,b,b^\perp$ with $a\wedge b=0$,
+$a\not\perp b$. Set $a_n := a\,|\,C_n$ and
+\[
+  p := \bigvee_{n} b\,|\,C_n .
+\]
+The constancy condition is \emph{per coordinate} and the $C_n$ are disjoint,
+so $p$ violates nothing; $p\in\mathcal L$ as a countable join of
+disjoint-support (hence orthogonal) elements, supplied by
+$\sigma$-orthocompleteness itself. Coordinatewise in $\mathcal W$: $p\wedge
+a_n=0$ on $C_n$ (since $a\wedge b=0$) and disjoint off $C_n$, while
+$p\not\perp a_n$ (since $a\not\perp b$). So \eqref{eq:interleave} holds
+\emph{in $\mathcal W$}.
+
+\textbf{The sole open step} is whether it transfers to $\mathcal L$. Navara
+warns that ``the lattice operations in $\mathcal L$ do not coincide with those
+of $\mathcal W$'' (\cite[p.~428]{Navara1992}), and orthogonality is defined
+through the orthocomplement. The whole question reduces to one check:
+\begin{equation}\label{eq:hinge}
+  \text{in } \mathcal L,\quad
+  a\,|\,C \;\not\perp\; b\,|\,C
+  \quad(\text{distinct non-complementary } \mathrm{MO}_2 \text{ atoms, same } C)?
+\end{equation}
+If \eqref{eq:hinge} holds (the relation inherits from $\mathrm{MO}_2$), then $p$
+witnesses \eqref{eq:interleave}: the $\mathrm{MO}_2$-swap is a concrete
+$\sigma$-orthocomplete non-Boolean OML satisfying the interleaving condition,
+the richness-starves-concreteness conjecture is \textbf{false}, and the swap is
+the relational-probability object sought. If $\mathcal L$'s orthocomplement
+forces $a\,|\,C\perp b\,|\,C$, the swap segregates and $L(H)$ remains the only
+known witness. Earlier this remark stated the swap as ``open by an element in
+$\mathrm{MO}_2$-position in infinitely many blocks''; working the constancy
+condition shows that is \emph{permitted}, so the live hinge is the
+orthocomplement check \eqref{eq:hinge}, not the support count. Two
+qualifications carry over: the relevant completeness is
 $\sigma$-orthocompleteness, not $\sigma$-completeness; and $L(H)$ and Navara
 fail concreteness for different reasons (Kochen--Specker colouring versus an
-imported stateless block). Details of the substitution and the
-\eqref{eq:interleave} reduction are recorded in the inhabitation note.
+imported stateless block). Details are recorded in the inhabitation note.
 \end{remark}
 
 \noindent A positive answer would furnish a relational probability theory

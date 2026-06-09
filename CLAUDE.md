@@ -43,6 +43,21 @@ No active standalone leads as of 2026-05-18.
 7. **Second audit** (before declaring complete)
 8. **Complete or park**
 
+### The open-question lifecycle (sibling to the seed pipeline):
+
+Open questions in `notes/open_questions/` are a *different unit* than
+seeds — no claimed type, not headed for a draft, dormant until **new
+input** (an adjacent question, source, or probe) triggers a re-audit.
+On re-audit they exit to one of three outcomes: **promote-to-seed**
+(enter Phase 1), **sharpen-in-place** (refine, stay), or **kill** (to
+`covered_leads/`).
+
+**Sharpen guardrail.** "Sharpen" is legitimate ONLY when BOTH: (a) a
+standing check actually flipped OR a new hypothesis excludes the old
+(now-false) instance — name the check that changed; (b) a concrete
+witness keeps it live. Else it's a kill. Don't relabel a death as a
+refinement.
+
 ### Contribution types (see `notes/programme/contribution_evaluation.md`):
 
 Seeds are evaluated against 7 types, each with its own bar:
@@ -65,6 +80,8 @@ Broader lens, not broader standard. Each type has a concrete bar.
 - **Name things last.** Don't name until you've checked the literature.
 - **Park honestly.** If no type's bar is cleared, stop. Don't rescue
   with framing or by switching to a more permissive type.
+- **Sharpen honestly.** Refining an open question is not a way to keep
+  a dead one alive. Both guardrail conditions must hold (see lifecycle).
 - **Verify LLM proofs independently.** Lean or manual check only.
 
 ## Custom agents (`.claude/agents/`)

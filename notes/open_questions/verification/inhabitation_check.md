@@ -139,6 +139,99 @@ infinite M. **Not yet run.**
 σ-orthocompleteness check (by hand, infinite M). Per CLAUDE.md Phase 4,
 attempting that derivation is the user's call.
 
+## UPDATE 2026-06-08 — the MO₂ swap resolves, but as a SEGREGATED fake; conjecture needs an irreducibility clause
+
+Triggered by the question "is there a finite-cofinite analogue on OMLs?"
+(session 2026-06-08). The chain: finite-cofinite charge → its OML analogue
+is **Boolean (decorative)** because σ-additivity only ever sees countable
+*orthogonal* families, and a pairwise-orthogonal family generates a Boolean
+subalgebra (Kalmbach) — so σ-additivity failure is intrinsically
+within-block/Boolean (the L(H)/MASA/singular-state realization is the
+finite-cofinite charge verbatim). The ultraproduct/Łoś toolkit re-enters not
+on the charge (job A, decorative) but as a **diagnostic** on the inhabitation
+conjecture. Running that diagnostic on the proposed MO₂ swap settles the
+"unrun check" above — in the **segregation** direction, not the attack one.
+
+### The MO₂-block σ-orthocompleteness check — RUN (structurally), survives
+
+Navara's closure-under-countable-orthogonal-joins proof (p. 428) is **state-
+free**: orthocomplement-stays-in-block (horizontal sum) + the constancy
+condition + coordinatewise join. State-poverty enters **only** the final
+non-concreteness paragraph (`{v|C}` admits one state). The one step that
+could break under the swap — "`f_j(m)=0`, `f_i ⊥ f_j ⇒ f_j` constant `(=0)`
+on C" — carries verbatim: in MO₂ the only elements `≤ a^⊥` are `{0, a^⊥}`,
+so the nonzero case is still killed by constancy. **σ-orthocompleteness
+survives the MO₂ swap.** Concreteness is free (products/sub-OMPs of concrete
+logics are concrete).
+
+The standing note (line 123–128) flagged the block-collapse to `{a,a^⊥}` as a
+**possible threat to closure**. That was backwards: it is not a threat to
+closure — it is a **forced segregation** (see next).
+
+### But it survives VACUOUSLY — the swap is a segregated reducible fake
+
+MO₂ is **finite** ⟹ no infinite orthogonal family fits inside one block ⟹
+every infinite orthogonal join must come from **disjoint supports across M**,
+and disjoint-support orthogonality is **Boolean**. Consequence:
+
+- the infinite-orthogonal structure (where σ-additivity lives) is entirely
+  Boolean — a `2^M`-style support skeleton;
+- the non-distributivity (`a|C` vs `b|C`: meet-zero ≠ orthogonal pairs) is
+  **confined to finite blocks that never enter an infinite orthogonal join**.
+
+This is **exactly** the "segregated Boolean-factor vs MO₂-factor"
+configuration the decision criterion (line 131–133) was written to **exclude**
+as a non-genuine inhabitant. It is the **MO_κ disease one level up**: MO_κ
+failed by having *no* infinite orthogonal families; the swap fails by having
+infinite-but-*Boolean* ones. So the swap does **not** fire the attack branch.
+
+### One-family probe (verify-by-building) — the whole argument in miniature
+
+> Exhibit a single countable orthogonal family in the MO₂-swap containing a
+> meet-zero ≠ orthogonal pair.
+
+Impossible: any two members sharing a block are `≤ 2` and complementary
+(`{a,a^⊥}`); a merely-meet-zero (non-orthogonal) pair is excluded from an
+orthogonal family by definition. **Run this by hand before trusting the
+write-up** (Phase 4 = user's call). It replaces the general structural trace.
+
+### Net: the conjecture SHARPENS — neither attack nor park
+
+1. **As currently written, the conjecture is FALSE.** The MO₂ swap is
+   concrete, σ-orthocomplete, infinite-orthogonal, non-Boolean — all four
+   stated hypotheses — but a reducible/segregated fake.
+2. **The live frontier needs an irreducibility clause:**
+
+   > Does a concrete, **irreducible** (non-segregated), σ-orthocomplete,
+   > non-Boolean OML with infinite orthogonal families exist — one where
+   > infinite orthogonal joins and meet-zero ≠ orthogonal pairs genuinely
+   > **interleave** (rather than living in separable Boolean vs finite-block
+   > factors)?
+
+3. **L(H) is the irreducible witness, non-concrete by KS.** No finite-block
+   product/sublogic construction reaches the irreducible case: interleaving
+   infinite orthogonal families with non-distributive pairs requires an
+   *infinite concrete non-Boolean block*, which is the conjecture itself.
+   Mechanism: orthogonal families generate Boolean subalgebras, so
+   σ-orthocompleteness only ever exercises Boolean structure; non-
+   distributivity lives in non-orthogonal pairs; making them coexist
+   non-trivially needs lattice **irreducibility**, which products and
+   sublogics cannot manufacture.
+
+The finite-cofinite/ultraproduct toolkit did its job as a **diagnostic** (not
+an engine): it exposed *segregation* as the failure mode and isolated
+*irreducibility* as the missing hypothesis. The "richness starves
+concreteness" conjecture is now precisely: **a concrete σ-orthocomplete OML
+in which infinite orthogonal families and non-distributive pairs interleave
+is impossible** — with L(H)+KS the only evidence, and product constructions
+provably unable to supply a counterexample.
+
+**Decision update:** the unrun MO₂ check is no longer the go/park hinge — it
+resolves to segregation. The new hinge is the **irreducibility-clause**
+conjecture, which no product construction can touch. Still OPEN; still not a
+park (L(H)+KS is live evidence *for* it); orthogonal to the four parked
+empirical-reconnection seeds.
+
 ## Cross-references / corrections applied this session
 - Survey §4.2 **mis-citation fixed** (both .md and .tex): Pták–Pulmannová
   1994 is a *finitary* subadditive-unitality→Boolean theorem (Theorem 1,

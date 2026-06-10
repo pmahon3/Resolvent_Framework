@@ -49,6 +49,18 @@ flags are mine and are fallible. Primary source: `navara_1992.pdf` (PAMS 115,
 > `aᵢ^⊥` is coordinatewise also for union-of-block-supported elements (only
 > single-block checked); (iii) Claim 1's closure (VERIFY 1).
 >
+> **✓ USER-CONFIRMED 2026-06-10 — leg (i) HOLDS.** User read p.428 verbatim:
+> "construct our counterexample 𝓛, as a **sublogic of the product** W = ∏ V. We
+> define 𝓛 as **the collection of all f ∈ W** satisfying [constancy]." This is a
+> SUBSET of W (not quotient, not completion); order = restriction of product
+> order; join = "join in W" (coordinatewise), proved to land in 𝓛. **The
+> load-bearing fact is verified from the primary source.** Witness transfers ⟹
+> **hinge YES** ⟹ park → **ATTACK**. Remaining: legs (ii) [union-of-block ⊥
+> coordinatewise — likely moot, witness uses single-block aᵢ] and (iii) [closure
+> Claim 1] are consistency checks, not reversals. Minor open: leg (ii′) confirm
+> a,b realizing the gap sit in the SAME horizontal-sum copy 𝓤_C (they do by
+> construction — aₙ=a|Cₙ, p=b within each Cₙ).
+>
 > ---
 >
 > *(Original §1–§4 below preserved as the derivation path; §3's "leans NO /

@@ -1,5 +1,16 @@
 # L₂ state space: the dispersion-free / homomorphism separation (2026-06-10)
 
+> **KILLED 2026-06-10** (`/audit full`, hostile referee, primary-source-
+> verified). Clears no contribution-type bar — 5th death on the
+> decorative-σ-additivity rock. The math is correct (verified-by-building);
+> the *contribution* is not novel: df-state ≠ 2-valued homomorphism on MO₂
+> is textbook (Kalmbach 1983, Pták–Pulmannová), σ-additivity is free here
+> so L₂ is decorative packaging on a finite MO₂ fact, and the only genuine
+> output — the Paper II §5 line-304 fix — is an already-applied internal
+> bug-fix, not a contribution. Full audit + disposition in the companion
+> kill-note: `l2_dispersion_free_homomorphism_separation.md`. Original seed
+> body preserved below verbatim for the record.
+
 **Status: VERIFIED by building (Python, elementary), reconciled against Paper II.**
 This is the output of the post-★ reorientation: scouting the finite→limit
 degeneration of *states* (Limit 2) after ★ settled the *lattice* limit (Limit 1).

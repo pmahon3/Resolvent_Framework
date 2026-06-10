@@ -1,3 +1,9 @@
+> **⚠ SUPERSEDED 2026-06-10 — see `HANDOFF_separation_audit.md`.** The lattice ★
+> ATTACK described below is DONE (rungs + hand-legs (ii)/(iii) all Lean-verified,
+> 0 sorry). The active frontier moved to the STATE level: L₂ has dispersion-free
+> states that aren't homomorphisms — a candidate Type-4 contribution now awaiting
+> `/audit full`. This file is retained as the lattice-side audit trail.
+
 # HANDOFF — descent inhabitation, ATTACK phase (2026-06-10)
 
 Everything below is durable + committed; working tree clean. This file is the

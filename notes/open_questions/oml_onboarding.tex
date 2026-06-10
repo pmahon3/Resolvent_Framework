@@ -52,14 +52,17 @@ meet-zero, the state/meet-additive/charge ladder, the McDonald--Bimb\'{o}
 dual space), we separate the question into two axes. The \emph{extension}
 axis is classical (Horn--Tarski feasibility) and fully settled: on
 $L(H)$ no state of any kind extends, by an elementary finite
-construction; the \emph{descent} axis is genuinely open and rests on a
-representation that does not exist: a Loomis--Sikorski theorem for
-$\sigma$-complete OMLs. The stake is more than
-technical: such a representation would furnish a \emph{point-free},
+construction; the \emph{descent} axis is genuinely open. There it splits into
+two coupled questions, distinguished by which countable joins they require: a
+\emph{structural} one --- whether a $\sigma$-complete OML admits a
+Loomis--Sikorski representation, neither constructed nor ruled out --- and a
+\emph{descent-relevance} one on the weaker $\sigma$-orthocomplete class, which we
+show is non-empty but whose members may yet segregate. A positive resolution would
+furnish a \emph{point-free},
 $\sigma$-additive probability theory on a non-distributive lattice --- the
 non-Boolean analogue of localic measure theory --- built from the
 entailment relation rather than descended from a sample space. We review
-what is known and what is ruled out, and close with the two directions in
+what is known and what is ruled out, and close with the directions in
 which the open problem might be approached.
 \end{abstract}
 
@@ -117,7 +120,11 @@ Boolean algebra of sets --- does not apply, and the rescue is local to $L(H)$:
     outright (Kochen--Specker~\cite{KochenSpecker1967}).
 \end{itemize}
 \emph{Whether enough survive is a question of concreteness, not
-non-distributivity} --- the qualifier on which the open problem turns
+non-distributivity} --- where an OML is \emph{concrete} (Definition~\ref{def:omp})
+when its elements can be faithfully modelled as honest \emph{sets of outcomes},
+equivalently when it carries an order-determining set of two-valued states
+(Gudder~\cite{Gudder1979}); ``enough survive'' is then almost the definition.
+This is the qualifier on which the open problem turns
 (\S\ref{sec:known},~\S\ref{sec:problem}).
 
 \paragraph{The organising split.} This note asks the shared question ---
@@ -197,12 +204,12 @@ $\mathbf 0$ below it, so $a\wedge b\in\{\mathbf 0,a\}$, and $a\wedge b=a$ would
 force $a\leq b$; orthogonality remains strictly stronger.
 \end{definition}
 
-\begin{quote}
-\textbf{The gap.} The implication $a\perp b\Rightarrow a\wedge b=\mathbf 0$
-\emph{reverses} in every Boolean algebra but \textbf{fails} once the lattice
-is non-distributive. \emph{Meet-zero is then strictly weaker than orthogonal}
---- the distinctions developed below all turn on this.
-\end{quote}
+\begin{remark}[Meet-zero versus orthogonal]\label{rem:gap}
+The implication $a\perp b\Rightarrow a\wedge b=\mathbf 0$ reverses in every
+Boolean algebra, but fails once the lattice is non-distributive: there
+meet-zero is strictly weaker than orthogonality. The distinctions developed
+below all turn on this separation.
+\end{remark}
 
 \begin{definition}[Orthomodular lattice]\label{def:oml}
 An orthocomplemented lattice $A$ is \emph{orthomodular} if
@@ -541,8 +548,8 @@ Non-distributivity separates them. For a principal filter $x={\uparrow}p$:
   \text{ does not force } p\leq a_n.
 \end{array}
 \]
-\textbf{Witness in $L(H)$.}\quad
-$a_n=\mathrm{span}(e_n)$, \ $p=\mathrm{span}(e_1+e_2)$:
+In $L(H)$ this is witnessed by $a_n=\mathrm{span}(e_n)$ and
+$p=\mathrm{span}(e_1+e_2)$:
 \[
   p \;\leq\; \textstyle\bigvee_n a_n = H,
   \qquad\text{yet}\qquad
@@ -587,9 +594,9 @@ faces:
   & the meet-zero/orthogonal gap (\S\ref{sec:oml})
   & $\sigma$-additivity --- needs the missing engine (\S\ref{sec:ls}) \\
 \textbf{Status}
-  & \textbf{settled}: Horn--Tarski / Pitowsky feasibility; finite case
+  & settled: Horn--Tarski / Pitowsky feasibility; finite case
     $=$ decidable LP; can fail for every state.
-  & \textbf{open}. \emph{The descent residue.} \\
+  & open. \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -755,11 +762,16 @@ geometry):
     spaces via Greechie pasting.
 \end{itemize}
 
-\subsection{Three blocked routes to a $\sigma$-OML engine}
+\subsection{Three routes to a $\sigma$-OML engine, all unavailable}
 \label{sec:routes}
 The descent argument needs an OML analogue of the Boolean engine --- a
-$\sigma$-Stone duality, or equivalently a Loomis--Sikorski representation.
-The three known routes are all blocked.
+$\sigma$-Stone duality, or equivalently a Loomis--Sikorski representation. The
+three known routes are all unavailable, but not on the same footing: routes
+(i) and (ii) are closed by \emph{theorem} (the hypothesis that would yield the
+representation provably forces Boolean, resp.\ leaves the category), whereas
+route (iii) is open in the strong sense --- no construction is known, and no
+impossibility theorem rules one out (Remark~\ref{rem:miss}). It is route (iii),
+restated, that is the Open Problem of \S\ref{sec:problem}.
 \begin{enumerate}[label=(\roman*)]
   \item \textbf{RDP / effect-algebra.} Loomis--Sikorski holds for
     $\sigma$-MV algebras~\cite{Dvurecenskij2000} and monotone
@@ -776,10 +788,11 @@ The three known routes are all blocked.
     route --- clopens of $S_0(A)$ modulo the meagre ideal --- is this same
     completion in another form (the regular-open algebra), and collapses
     non-distributivity (Remark~\ref{rem:bridge}).
-  \item \textbf{$\sigma$-Stone duality.} None exists. McDonald--Bimb\'{o}
-    is finitary (Remark~\ref{rem:finitary}); Freytes'
-    theory~\cite{Freytes2020} of $\sigma$-complete OMLs is equational, with
-    no set/tribe representation.
+  \item \textbf{$\sigma$-Stone duality.} None is \emph{known}, and none is
+    \emph{ruled out}: the existing dualities are finitary
+    (McDonald--Bimb\'{o}, Remark~\ref{rem:finitary}) or equational with no
+    set/tribe representation (Freytes~\cite{Freytes2020}, on $\sigma$-complete
+    OMLs), but no theorem forbids a countable-join-preserving one.
 \end{enumerate}
 
 \subsection{Prior art on point-free quantum probability}
@@ -814,11 +827,11 @@ non-distributive structure --- as tabulated below.
     no $\sigma$-version.
 \end{description}
 Each entry satisfies some of the requirements but not all. The open case is
-their conjunction:
+their conjunction, satisfied by no existing construction:
 \begin{center}
-\fbox{\parbox{0.92\linewidth}{\centering \textbf{The descent residue}
-(unoccupied): point-free $\times$ $\sigma$-additive $\times$ natively
-non-distributive $\times$ directed-system-built.}}
+\fbox{\parbox{0.92\linewidth}{\centering point-free $\times$
+$\sigma$-additive $\times$ natively non-distributive $\times$
+directed-system-built.}}
 \end{center}
 \noindent (The directed-context-yields-non-distributivity construction is not
 new --- it is the shape of Bohrification and of colimit-over-Boolean-contexts
@@ -857,23 +870,46 @@ Two qualifications delimit what is ruled out.
 % ==================================================================
 
 \begin{problem}
-Does a $\sigma$-complete, concrete, non-Boolean, infinite OML admit a
-Loomis--Sikorski-type representation (a $\sigma$-tribe of sets modulo a
-$\sigma$-ideal), or a countable-join-preserving $\sigma$-Stone duality
---- or can one prove that none exists?
+Two coupled questions, distinguished by which completeness they require.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=2.4cm, leftmargin=2.8cm, noitemsep, topsep=2pt]
+  \item[(Q1) Structural]
+    Does a \emph{$\sigma$-complete}, concrete, non-Boolean, infinite OML admit a
+    Loomis--Sikorski-type representation (a $\sigma$-tribe of sets modulo a
+    $\sigma$-ideal), or a countable-join-preserving $\sigma$-Stone duality ---
+    or can one prove that none exists? (Open via route~(iii) of
+    \S\ref{sec:routes}.)
+  \item[(Q2) Descent-relevance]
+    The \emph{$\sigma$-orthocomplete}, concrete, non-Boolean, infinite class is
+    non-empty (Remark~\ref{rem:inhabited}, $\mathcal L_2$). Does any member
+    \emph{exercise descent} --- carry an $(\bigstar)$-witness~\eqref{eq:interleave}
+    --- or does every member segregate into a Boolean skeleton with merely
+    decorative non-Boolean blocks?
+\end{description}
 \end{problem}
 
-\begin{remark}[Whether the class is inhabited]\label{rem:inhabited}
+\noindent The two questions ask for different objects because they invoke
+different countable joins. A $\sigma$-tribe is closed under \emph{all} countable
+unions, so a representation of the lattice as one needs full
+$\sigma$-completeness (Q1); a state's $\sigma$-additivity invokes
+$\bigvee_n a_n$ \emph{only} for orthogonal families
+(Definition~\ref{def:complete}), so descent needs only $\sigma$-orthocompleteness
+(Q2). The two coincide in the Boolean case --- any countable family
+orthogonalises, $b_n=a_n\wedge(a_1\vee\cdots\vee a_{n-1})^\perp$ --- which is why
+the classical statement fuses them; non-distributivity is what splits Q1 from Q2,
+the same way it splits extension from descent (\S\ref{sec:axes}).
+
+\begin{remark}[Non-emptiness and descent-relevance of the Q2 class]\label{rem:inhabited}
 A member is \emph{descent-relevant} only if it carries an infinite
 pairwise-orthogonal family (so $\sigma$-additivity exceeds finite additivity)
-\emph{and} meet-zero${}\neq{}$orthogonal pairs. The completeness at issue is
-therefore $\sigma$-orthocompleteness, not $\sigma$-completeness
-(Definition~\ref{def:complete}).
+\emph{and} meet-zero${}\neq{}$orthogonal pairs --- which is why Q2 turns on
+$\sigma$-orthocompleteness, not the $\sigma$-completeness of Q1.
 
 \smallskip\noindent
-\textbf{The discriminating condition} (element-versus-family; within one
-orthogonal family it is vacuous, as such a family is Boolean and there
-meet-zero ${}={}$ orthogonality):
+The condition that discriminates descent-relevant members is one of
+element-versus-family type. Within a single orthogonal family it is vacuous,
+since such a family generates a Boolean subalgebra in which meet-zero coincides
+with orthogonality; the relevant condition is therefore
 \begin{equation}\label{eq:interleave}
 \textbf{(}\bigstar\textbf{)}\quad
 \exists\, p,\ \exists\,\{a_n\}\text{ infinite orthogonal},\quad
@@ -912,10 +948,16 @@ independent of the states on the block, and the one step that uses the block
 ---
 ``$f_j(m)=0$ and $f_i\perp f_j$ imply $f_j=0$ on the block'' --- holds in
 $\mathrm{MO}_2$, where the only elements ${}\leq a^\perp$ are $\{0,a^\perp\}$.
-Hence the class of the Open Problem is inhabited, and the remaining question is
-whether $\mathcal L_2$ satisfies~\eqref{eq:interleave}.
+Two claims must be kept apart. \emph{Non-emptiness} of the class
+$\{\text{concrete},\ \sigma\text{-orthocomplete},\ \text{infinite},\
+\text{non-Boolean}\}$ is thereby \textbf{established}: $\mathcal L_2$ is such a
+member. \emph{Descent-relevance} --- whether
+\emph{any} member of the class exercises the descent axis, i.e.\ carries an
+$(\bigstar)$-witness~\eqref{eq:interleave} --- remains \textbf{open}, and for
+$\mathcal L_2$ it reduces to the single relation~\eqref{eq:hinge} below.
 
-\smallskip\noindent\textbf{A candidate witness.} Let the atoms of
+\smallskip\noindent
+A candidate witness is constructed as follows. Let the atoms of
 $\mathrm{MO}_2$ be $a,a^\perp,b,b^\perp$ with $a\wedge b=0$ and $a\not\perp b$.
 Navara's elements have the form $\bigvee_{C\in\mathcal F}v_C\,|\,C$ with
 $\mathcal F$ mutually disjoint, and $\mathrm{MO}_2$ caps within-block
@@ -931,11 +973,11 @@ so $p$ is admissible; and in $\mathcal W$ one has $p\wedge a_n=0$ (on $C_n$,
 $a\wedge b=0$; off $C_n$, disjoint supports) and $p\not\perp a_n$ (on $C_n$,
 $a\not\perp b$). Thus~\eqref{eq:interleave} holds in $\mathcal W$.
 
-\smallskip\noindent\textbf{The remaining step.} Navara notes that the lattice
-operations of $\mathcal L$ need not coincide with those of $\mathcal W$, and
-orthogonality is defined through the orthocomplement, so it remains to
-determine whether~\eqref{eq:interleave} transfers from $\mathcal W$ to
-$\mathcal L_2$. The question reduces to a single relation:
+\smallskip\noindent
+It remains to determine whether~\eqref{eq:interleave} transfers from
+$\mathcal W$ to $\mathcal L_2$. Navara notes that the lattice operations of
+$\mathcal L$ need not coincide with those of $\mathcal W$, and orthogonality is
+defined through the orthocomplement; the question reduces to a single relation:
 \begin{equation}\label{eq:hinge}
 \boxed{\ (\dagger)\quad
   \text{In }\mathcal L_2,\ \ \text{is}\ \ a\,|\,C \;\not\perp\; b\,|\,C\,?
@@ -952,10 +994,9 @@ $\mathcal L_2$. The question reduces to a single relation:
 \end{array}
 \]
 
-\noindent Two qualifications: the relevant completeness is
-$\sigma$-orthocompleteness rather than $\sigma$-completeness; and $L(H)$ and
-Navara's construction fail concreteness for distinct reasons (the
-Kochen--Specker colouring obstruction versus an imported stateless block).
+\noindent One qualification: $L(H)$ and Navara's construction fail concreteness
+for distinct reasons --- the Kochen--Specker colouring obstruction versus an
+imported stateless block --- so neither subsumes the other as a near-miss.
 \end{remark}
 
 \noindent Either resolution is consequential:
@@ -964,13 +1005,16 @@ Kochen--Specker colouring obstruction versus an imported stateless block).
   \item[Positive] a relational probability theory without realisations ---
     $\sigma$-additive probability from the entailment relation of a
     non-distributive OML, the non-Boolean analogue of localic measure theory.
-  \item[Negative] an impossibility theorem closing the entire cluster, both
-    residues, at once.
+  \item[Negative] an impossibility theorem closing the entire cluster at once.
 \end{description}
-\noindent The art constrains it from both sides: \emph{no} impossibility
-theorem covers the concrete class (Remark~\ref{rem:miss}), yet \emph{all three}
-constructive routes are blocked (\S\ref{sec:routes}). What is required is not a
-new idea in the abstract but a representation that bypasses all three routes.
+\noindent The art constrains it from both sides without closing it: \emph{no}
+impossibility theorem covers the concrete class
+(Remark~\ref{rem:miss}), while the two \emph{theorem-closed} routes to an engine
+--- RDP and MacNeille (\S\ref{sec:routes}(i),(ii)) --- are ruled out, leaving
+only the third, $\sigma$-Stone duality, which is itself open. What is required is
+not a new idea in the abstract but a representation in that gap:
+non-distributive enough to evade routes (i),(ii), yet $\sigma$-faithful where the
+known dualities are merely finitary.
 
 \begin{remark}[Why $L(H)$+Gleason does \emph{not} already settle this ---
 the (A)/(B) point-space equivocation]\label{rem:AB}
@@ -1010,19 +1054,27 @@ representation of \S\ref{sec:problem} is the only candidate engine.
 \label{sec:first}
 % ==================================================================
 
-With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), a
-single direction remains.
+With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), the
+descent axis remains, entered through either of its two coupled questions
+(\S\ref{sec:problem}).
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=3.4cm, leftmargin=3.8cm]
-  \item[The general construction]
+  \item[The hinge check (Q2)]
+    The near-term entry point. Decide the single relation~\eqref{eq:hinge} in
+    $\mathcal L_2$ --- whether distinct non-complementary $\mathrm{MO}_2$ atoms
+    on a common coordinate stay non-orthogonal in Navara's lattice. A positive
+    answer makes $\mathcal L_2$ a descent-relevant witness and refutes
+    segregation; a negative one leaves $L(H)$ the only known instance. This is a
+    concrete, finitary check, not a general construction.
+  \item[The general construction (Q1)]
     Construct a Loomis--Sikorski-type representation, or a
     countable-join-preserving $\sigma$-Stone duality, for a concrete
-    non-Boolean infinite $\sigma$-OML --- or prove that none exists. This
-    resolves the open problem directly, but no partial construction is
-    currently in hand. This is the \emph{descent}-axis residue: the
-    obstruction is the failure of $h$ to preserve countable joins
-    (Remark~\ref{rem:finitary}), not the orthogonal/meet-zero gap, and so
-    Proposition~\ref{prop:lh} does not reach it.
+    non-Boolean infinite \emph{$\sigma$-complete} OML --- or prove that none
+    exists. This resolves the structural question directly, but no partial
+    construction is currently in hand. This is the deeper open case on the
+    \emph{descent} axis: the obstruction is the failure of $h$ to preserve
+    countable joins (Remark~\ref{rem:finitary}), not the orthogonal/meet-zero
+    gap, and so Proposition~\ref{prop:lh} does not reach it.
 \end{description}
 
 \noindent A second candidate direction --- the singular case for $L(H)$ ---

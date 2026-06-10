@@ -16,13 +16,16 @@ state/meet-additive/charge ladder, the McDonald–Bimbó dual space), we
 separate the question into two axes. The *extension* axis is classical
 (Horn–Tarski feasibility) and fully settled: on `L(H)` no state of any
 kind extends, by an elementary finite construction; the *descent* axis is
-genuinely open and rests on a representation that does not exist: a
-Loomis–Sikorski theorem for σ-complete OMLs. The stake is more than technical: such a representation
-would furnish a *point-free*, σ-additive probability theory on a
-non-distributive lattice — the non-Boolean analogue of localic measure
-theory — built from the entailment relation rather than descended from a
-sample space. We review what is known and what is ruled out, and close with
-the two directions in which the open problem might be approached.
+genuinely open. There it splits into two coupled questions, distinguished by
+which countable joins they require: a *structural* one — whether a σ-complete
+OML admits a Loomis–Sikorski representation, neither constructed nor ruled out —
+and a *descent-relevance* one on the weaker σ-orthocomplete class, which we show
+is non-empty but whose members may yet segregate. The stake is more than
+technical: a positive resolution would furnish a *point-free*, σ-additive
+probability theory on a non-distributive lattice — the non-Boolean analogue of
+localic measure theory — built from the entailment relation rather than
+descended from a sample space. We review what is known and what is ruled out,
+and close with the directions in which the open problem might be approached.
 
 ---
 
@@ -66,7 +69,10 @@ analogue is known. Dropping distributivity does not by itself remove the
 2-valued homomorphisms the Boolean engine needs — `MO₃` is non-distributive
 yet still carries them (§2.1, §4) — but it removes the *guarantee*, and for
 `L(H)` at `dim ≥ 3` they fail outright (Kochen–Specker, §4). Whether enough
-survive is a question of concreteness, not non-distributivity — and it is the
+survive is a question of concreteness, not non-distributivity — where an OML is
+*concrete* (Def 2.5) when its elements model faithfully as honest *sets of
+outcomes*, equivalently when it carries an order-determining set of two-valued
+states (Gudder); "enough survive" is then almost the definition. This is the
 qualifier on which the open problem turns (§4, §5).
 
 This note asks the shared question — *when does finite coherence force
@@ -114,10 +120,10 @@ $$a \perp b \iff a \le b^\perp \quad(\text{one entails the other's negation
 — decisively incompatible}); \qquad a \text{ meet-zero } b \iff a \wedge b =
 0 \quad(\text{no common refinement, weaker}).$$
 
-> **The gap.** Orthogonal ⟹ meet-zero always; the converse holds in every
-> Boolean algebra but **fails once non-distributive**. *Meet-zero is
-> strictly weaker than orthogonal* — the distinctions below all turn on
-> this.
+**Remark 2.2a (meet-zero versus orthogonal).** Orthogonal ⟹ meet-zero always;
+the converse holds in every Boolean algebra but fails once the lattice is
+non-distributive, where meet-zero is strictly weaker than orthogonality. The
+distinctions developed below all turn on this separation.
 
 **Def 2.3 (Orthomodular lattice).** Orthocomplemented, plus the orthomodular
 law
@@ -275,7 +281,7 @@ Boolean case fuses:
 |-------------|--------------------|------------------|
 | **Question**    | Does μ extend to a finitely additive charge on the FULL Boolean clopen algebra of S₀(A)? | Once extended, does the measure concentrate on the physical points P(A)? |
 | **Governed by** | the meet-zero/orthogonal gap (§2.1) | σ-additivity — needs the missing engine (§2.4) |
-| **Status**      | **settled**: Horn–Tarski/Pitowsky feasibility; finite case = decidable LP; can fail for every state. | **open**. *The descent residue.* |
+| **Status**      | settled: Horn–Tarski/Pitowsky feasibility; finite case = decidable LP; can fail for every state. | open. |
 
 **Prop 3.1 (Finite case).** For finite `A` the extension condition is a
 decidable LP (Horn–Tarski / Pitowsky feasibility); since `h` preserves
@@ -365,9 +371,11 @@ countable joins; Theorem 1, lattice-only — the OMP version is *false*,
 Müller's 1993 set-representable counterexample), Navara (regularity ⇏
 σ-additivity), Pták (exotic state spaces via Greechie pasting).
 
-**4.3 Three blocked routes to a σ-OML engine.** The descent argument needs
-an OML analogue of the Boolean engine — a σ-Stone duality, equivalently a
-Loomis–Sikorski representation. The three known routes are all blocked.
+**4.3 Three routes to a σ-OML engine, all unavailable.** The descent argument
+needs an OML analogue of the Boolean engine — a σ-Stone duality, equivalently a
+Loomis–Sikorski representation. The three known routes are all unavailable, but
+not on the same footing: (i) and (ii) are closed by *theorem*; (iii) is *open*
+(no construction known, none ruled out) — and is the Open Problem of §5 restated.
 (i) **RDP/effect-algebra** — Loomis–Sikorski holds for σ-MV and monotone
 σ-effect algebras *with* RDP, but lattice-EA has RDP iff MV, and OML∩MV =
 Boolean, so the hypothesis that would buy the representation collapses the
@@ -378,8 +386,10 @@ $$\text{OML} + \text{RDP} \iff \text{Boolean}.$$
 complete to absorb joins. The topological version (clopens of S₀(A) mod the
 meagre ideal) is the same completion in disguise and collapses
 non-distributivity (Rmk 2.11).
-(iii) **σ-Stone duality** — none exists. MB finitary (Rmk 2.10); Freytes
-equational, no set/tribe representation.
+(iii) **σ-Stone duality** — none *known*, none *ruled out*. The existing
+dualities are finitary (MB, Rmk 2.10) or equational with no set/tribe
+representation (Freytes), but no theorem forbids a countable-join-preserving
+one. This is the open route = the Open Problem (§5).
 
 **4.4 Prior art on point-free quantum probability.** Each construction
 lands on one side of the σ-additivity-on-non-distributive line:
@@ -395,8 +405,9 @@ lands on one side of the σ-additivity-on-non-distributive line:
 - **OML Stone dualities** (McDonald–Bimbó, Cannon–Döring) — purely
   structural, no measure, no σ-version.
 
-The unoccupied conjunction — point-free × σ-additive × natively
-non-distributive × directed-system-built — is exactly the descent residue.
+The open case is their conjunction — point-free × σ-additive × natively
+non-distributive × directed-system-built — satisfied by no existing
+construction.
 (The directed-context⟹non-distributivity *idea* is not new — it's the shape
 of Bohrification and colimit-over-Boolean-contexts generation. Novelty
 would lie in the σ-additive-point-free-native combination.)
@@ -417,10 +428,25 @@ a σ-Loomis–Sikorski theorem.
 
 ## 5. The open problem
 
-> **Does a σ-complete, concrete, non-Boolean, infinite OML admit a
-> Loomis–Sikorski-type representation (a σ-tribe of sets mod a σ-ideal), or
-> a countable-join-preserving σ-Stone duality — or can one prove none
-> exists?**
+> **Two coupled questions, distinguished by which completeness they require.**
+>
+> **(Q1) Structural.** Does a *σ-complete*, concrete, non-Boolean, infinite OML
+> admit a Loomis–Sikorski-type representation (a σ-tribe of sets mod a σ-ideal),
+> or a countable-join-preserving σ-Stone duality — or can one prove none exists?
+> (Open via route (iii), §4.3.)
+>
+> **(Q2) Descent-relevance.** The *σ-orthocomplete*, concrete, non-Boolean,
+> infinite class is non-empty (`MO₂`-swap, below). Does any member *exercise
+> descent* — carry an (★)-witness — or does every member segregate into a
+> Boolean skeleton with merely decorative non-Boolean blocks?
+
+The two ask for different objects because they invoke different countable joins:
+a σ-tribe is closed under *all* countable unions (→ σ-complete, Q1), whereas a
+state's σ-additivity invokes `⋁ₙ aₙ` *only* for orthogonal families (→
+σ-orthocomplete, Q2). They coincide in the Boolean case — any countable family
+orthogonalises, `bₙ = aₙ ∧ (a₁∨…∨aₙ₋₁)^⊥` — which is why the classical statement
+fuses them; non-distributivity splits Q1 from Q2, as it splits extension from
+descent (§3).
 
 **Remark 5.0 (whether the class is inhabited).** A prior question is whether
 the class contains an example that exercises the descent axis at all. A
@@ -446,9 +472,10 @@ are concrete; and σ-orthocompleteness **survives** the substitution, since
 Navara's closure argument (Navara 1992, p. 428) is state-free — the one step
 that uses the block, "`f_j(m)=0` and `f_i ⊥ f_j` force `f_j` constant (`=0`)
 on the block," carries verbatim for `MO₂`, where the only elements below
-`a^⊥` are `{0, a^⊥}`. So the swap is a genuine member of the class of the
-open problem (concrete, σ-orthocomplete, infinite, non-Boolean): **the class
-is inhabited as stated.**
+`a^⊥` are `{0, a^⊥}`. So `MO₂` is a genuine member of the class
+{concrete, σ-orthocomplete, infinite, non-Boolean}: **non-emptiness of this
+class is established** (no further check needed). Whether any member is
+*descent-relevant* is a separate, open question.
 
 The sharper question is whether any such member is descent-relevant in the
 strong sense — the non-distributivity and the infinite orthogonal structure
@@ -478,7 +505,7 @@ orthogonal (disjoint-support) join, supplied by σ-orthocompleteness itself.
 Coordinatewise in `W`: `p ∧ aₙ = 0` (on `Cₙ`, `a∧b=0`; off `Cₙ`, disjoint),
 yet `p ⊀ aₙ^⊥` (on `Cₙ`, `a ⊀ b^⊥`). So **(★) holds in `W`**.
 
-**The sole open step** is whether it transfers to `L`. Navara warns "the
+It remains only to determine whether this transfers to `L`. Navara warns "the
 lattice operations in `L` do not coincide with those of `W`" (p. 428), and
 orthogonality is defined through the orthocomplement. The whole question
 reduces to one check:
@@ -495,26 +522,29 @@ element in `MO₂`-position in infinitely many blocks" — is resolved:
 constancy *permits* it; the live hinge is the orthocomplement check, not the
 support count.)
 
-Two qualifications carry over. First, `L(H)` and Navara fail to be concrete
+One qualification carries over: `L(H)` and Navara fail to be concrete
 for *different* reasons: for `L(H)` the orthogonal richness itself obstructs
 two-valued states (Kochen–Specker colouring), whereas Navara's state-poverty
 is imported with a finite, orthogonality-free stateless block. This sharpens
 rather than replaces the one-example status of the
 richness-obstructs-concreteness heuristic: `L(H)` alone, by Kochen–Specker,
-both satisfies (★) and is non-concrete. Second, the relevant completeness is
-σ-orthocompleteness, not σ-completeness. Details of the substitution and the
-(★) reduction are recorded in `verification/inhabitation_check.md`.
+both satisfies (★) and is non-concrete. (The σ-ortho-vs-σ-complete distinction
+is now carried by the Q1/Q2 split of the problem statement above.) Details of
+the substitution and the (★) reduction are recorded in
+`verification/inhabitation_check.md`.
 
 A positive answer would furnish a relational probability theory without
 realisations: σ-additive probability built from the entailment relation of a
 non-distributive OML rather than descended from a sample space — the
 non-Boolean analogue of localic (pointless) measure theory. A negative
 answer, in the form of an impossibility theorem, would close the entire
-cluster, both residues, at once. The present state of the art constrains the
-problem from both sides: no impossibility theorem is known for the concrete
-class (Rmk 4.1), while all three constructive routes to a σ-OML engine are
-blocked (§4.3). What is required is therefore not a new idea in the abstract
-but a representation that bypasses all three routes.
+cluster at once. The present state of the art constrains the
+problem from both sides without closing it: no impossibility theorem is known
+for the concrete class (Rmk 4.1), while the two *theorem-closed* routes to a
+σ-OML engine — RDP and MacNeille (§4.3(i),(ii)) — are ruled out, leaving only
+σ-Stone duality (iii), which is itself open. What is required is a
+representation that lives in that gap: non-distributive enough to evade
+(i),(ii), yet σ-faithful where the known dualities are merely finitary.
 
 **Remark 5.2 (Why L(H)+Gleason does not already settle this — the (A)/(B)
 point-space equivocation).** The motivating idea ("probability from
@@ -538,15 +568,21 @@ point-free probability.
 
 ## 6. Directions
 
-With the extension axis closed on `L(H)` (Prop 3.2), a single direction
-remains.
-- **The general construction** — construct a Loomis–Sikorski-type
+With the extension axis closed on `L(H)` (Prop 3.2), the descent axis remains,
+entered through either of its two coupled questions (§5).
+- **The hinge check (Q2)** — the near-term entry point. Decide the single
+  relation `(†)` in `𝓛₂`: whether distinct non-complementary `MO₂` atoms on a
+  common coordinate stay non-orthogonal in Navara's lattice. A positive answer
+  makes `𝓛₂` a descent-relevant witness and refutes segregation; a negative one
+  leaves `L(H)` the only known instance. A concrete, finitary check, not a
+  general construction.
+- **The general construction (Q1)** — construct a Loomis–Sikorski-type
   representation, or a countable-join-preserving σ-Stone duality, for a
-  concrete non-Boolean infinite σ-OML, or prove none exists. This resolves
-  the open problem directly, but no partial construction is currently in
-  hand. This is the *descent*-axis residue: the obstruction is the failure
-  of `h` to preserve countable joins (§2.3), not the orthogonal/meet-zero
-  gap, so Prop 3.2 does not reach it.
+  concrete non-Boolean infinite *σ-complete* OML, or prove none exists. This
+  resolves the structural question directly, but no partial construction is
+  currently in hand. This is the deeper open case on the *descent* axis: the obstruction
+  is the failure of `h` to preserve countable joins (§2.3), not the
+  orthogonal/meet-zero gap, so Prop 3.2 does not reach it.
 
 The other candidate direction — the singular case for `L(H)` — is now
 closed, and the way it closed is instructive. One might hope a *singular*

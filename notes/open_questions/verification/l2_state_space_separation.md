@@ -30,10 +30,18 @@ separating 2-valued states = points.
 
 ## The separation (the real finding) — corrects a Paper II conflation
 
-These dispersion-free states are **NOT 2-valued homomorphisms.** MO₂ admits
-**no** homomorphism at all: for the gap pair `a∧b=0` with `s(a)=s(b)=1`,
-`s(a∧b)=0 ≠ 1=s(a)∧s(b)` (multiplicativity fails on the gap; this is exactly
-the `point 1 ∈ a∩b` case of `concrete_meetzero_vs_orthogonal.py`). So:
+These dispersion-free states are **NOT 2-valued homomorphisms.** And **L₂ admits
+no homomorphism at all** — but note this does NOT follow from "MO₂ has none" by
+itself (the W-vs-L subtlety: a block copy `U_C` has top `1_C ≠ ⊤`, so a
+homomorphism could sit at `0` on that whole block and dodge the block's gap).
+The clean argument is the **DIAGONAL** copy (`diag_hom.py`, verified): the
+constant functions `{⊥, c_a, c_a', c_b, c_b', ⊤}` (`c_x(n)=x ∀n`) form a sub-OML
+of L₂ with **global** top/bot (`c_⊤=⊤`, `c_⊥=⊥`), closed under coordinatewise
+ops, on which the gap survives (`c_a∧c_b=⊥`, `c_a⊀c_b'`). Any homomorphism
+`h:L₂→{0,1}` restricts to a homomorphism on this MO₂-copy — and MO₂ has none
+(gap pair `a∧b=0`, `s(a)=s(b)=1` ⟹ `s(a∧b)=0≠1`; the `point 1∈a∩b` case of
+`concrete_meetzero_vs_orthogonal.py`). `decide`-reducible to the same MO₂ fact,
+NO lift needed. So:
 
 | Property | Boolean | L(H) dim≥3 | **L₂ (MO₂-blocks)** |
 |---|---|---|---|

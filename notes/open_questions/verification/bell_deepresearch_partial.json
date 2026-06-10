@@ -1,0 +1,294 @@
+{
+  "summary": "Deep research harness — fan-out web searches, fetch sources, adversarially verify claims, synthesize a cited report.",
+  "agentCount": 102,
+  "logs": [
+    "Q: How does the open problem of σ-additive (countably additive) probability and Loo…",
+    "Decomposed into 5 angles: Bell as joint-distribution extension and correlation-polytope feasibility, sigma-additivity versus finite additivity and Gleason normal versus singular states, Kochen-Specker concreteness two-valued states and the Bell-KS relationship, Sheaf and topos unification of contextuality and Bohrification, Point-free localic sigma-additive measure on non-distributive structures",
+    "Bell as joint-distribution extension and correlation-polytope feasibility: 6 results",
+    "Kochen-Specker concreteness two-valued states and the Bell-KS relationship: 6 results",
+    "Sheaf and topos unification of contextuality and Bohrification: 6 results",
+    "Sheaf and topos unification of contextuality and Bohrification: 3 novel (3 filtered)",
+    "Point-free localic sigma-additive measure on non-distributive structures: 6 results",
+    "Point-free localic sigma-additive measure on non-distributive structures: 3 novel (3 filtered)",
+    "sigma-additivity versus finite additivity and Gleason normal versus singular states: 6 results",
+    "sigma-additivity versus finite additivity and Gleason normal versus singular states: 2 novel (4 filtered)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[fetch:unknown] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "Fetched 7 sources → 26 claims → verifying top 25",
+    "[v0:Fine (1982) proves that, for a quantum c] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[v1:Pitowsky defines 'correlation polytopes'] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[v1:Fine (1982) proves that, for a quantum c] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[v0:Pitowsky defines 'correlation polytopes'] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[v0:Fine establishes a five-way equivalence ] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "[v2:Fine (1982) proves that, for a quantum c] failed: You've hit your session limit · resets 7:50pm (America/Vancouver)",
+    "\"Fine (1982) proves that, for a quantum correlation…\": 0-0 (3 abstain) ✗",
+    "\"Pitowsky defines 'correlation polytopes' as a fami…\": 1-0 (2 abstain) ✗",
+    "\"Deciding membership in a correlation polytope is N…\": 3-0 ✓",
+    "\"Fine establishes a five-way equivalence chaining d…\": 2-0 (1 abstain) ✓",
+    "\"Budroni-Morchio prove a general equivalence/unific…\": 3-0 ✓",
+    "\"Classical representability (existence of a hidden-…\": 3-0 ✓",
+    "\"The paper's criterion of classical representabilit…\": 3-0 ✓",
+    "\"A Kochen-Specker contradiction is the impossibilit…\": 3-0 ✓",
+    "\"Bell/Clauser-Horne inequalities are exactly the fa…\": 3-0 ✓",
+    "\"Bell's theorem is an extension/joint-distribution …\": 3-0 ✓",
+    "[v1:Bell-inequality violation requires only ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v0:Bell inequalities are computed via polyh] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:Bell inequalities are computed via polyh] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:Bell inequalities are computed via polyh] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"Bell inequalities are computed via polyhedral proj…\": 0-0 (3 abstain) ✗",
+    "[v0:Abramsky-Brandenburger (2011) provide a ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:Abramsky-Brandenburger (2011) provide a ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:Abramsky-Brandenburger (2011) provide a ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"Abramsky-Brandenburger (2011) provide a single she…\": 0-0 (3 abstain) ✗",
+    "[v1:Contextuality (and Bell non-locality) is] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v0:Contextuality (and Bell non-locality) is] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v0:The Fine equivalence is finitary: it con] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:Contextuality (and Bell non-locality) is] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"Contextuality (and Bell non-locality) is character…\": 0-0 (3 abstain) ✗",
+    "[v2:The marginal problem is the question of ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:The Fine equivalence is finitary: it con] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:The Fine equivalence is finitary: it con] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"The Fine equivalence is finitary: it concerns a fi…\": 0-0 (3 abstain) ✗",
+    "[v0:The publication is Pitowsky, 'Correlatio] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:Bell inequalities are an instance of Geo] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:The publication is Pitowsky, 'Correlatio] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:The publication is Pitowsky, 'Correlatio] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"The publication is Pitowsky, 'Correlation polytope…\": 0-0 (3 abstain) ✗",
+    "[v0:The correlation-polytope framework links] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:The correlation-polytope framework links] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:The correlation-polytope framework links] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"The correlation-polytope framework links directly …\": 0-0 (3 abstain) ✗",
+    "[v0:The entire framework is explicitly finit] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:The entire framework is explicitly finit] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:The entire framework is explicitly finit] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"The entire framework is explicitly finitary: only …\": 0-0 (3 abstain) ✗",
+    "[v0:Pitowsky explicitly treats the completen] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:Pitowsky explicitly treats the completen] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:Pitowsky explicitly treats the completen] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"Pitowsky explicitly treats the completeness/σ-addi…\": 0-0 (3 abstain) ✗",
+    "[v0:The same marginal-problem machinery appl] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:The same marginal-problem machinery appl] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v0:The paper's treatment is entirely finite] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:The paper's treatment is entirely finite] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:The paper's treatment is entirely finite] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"The paper's treatment is entirely finite/finitary …\": 0-0 (3 abstain) ✗",
+    "[v1:There is a proper hierarchy of strengths] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v0:There is a proper hierarchy of strengths] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:The same marginal-problem machinery appl] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"The same marginal-problem machinery applies to cau…\": 0-0 (3 abstain) ✗",
+    "[v2:There is a proper hierarchy of strengths] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"There is a proper hierarchy of strengths of no-go …\": 0-0 (3 abstain) ✗",
+    "[v0:The marginal problem is the question of ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v1:Kochen-Specker-type results are recovere] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v0:Kochen-Specker-type results are recovere] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "[v2:Kochen-Specker-type results are recovere] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"Kochen-Specker-type results are recovered within t…\": 0-0 (3 abstain) ✗",
+    "[v2:Bell-inequality violation requires only ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"Bell-inequality violation requires only a FINITE s…\": 1-0 (2 abstain) ✗",
+    "[v1:The marginal problem is the question of ] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"The marginal problem is the question of whether gi…\": 0-0 (3 abstain) ✗",
+    "[v1:Bell inequalities are an instance of Geo] failed: You've hit your session limit · resets 12:50am (America/Vancouver)",
+    "\"Bell inequalities are an instance of George Boole'…\": 1-0 (2 abstain) ✗",
+    "Verify done: 25 claims → 8 confirmed, 17 killed",
+    "[synthesize] failed: You've hit your session limit · resets 12:50am (America/Vancouver)"
+  ],
+  "result": {
+    "question": "How does the open problem of σ-additive (countably additive) probability and Loomis–Sikorski representation on σ-(ortho)complete orthomodular lattices relate to Bell's theorem and the broader landscape of quantum non-classicality results?\n\nSpecifically investigate these connections, distinguishing what is genuinely established in the literature from loose analogy:\n\n1. BELL AS AN EXTENSION/JOINT-DISTRIBUTION QUESTION. Is it correct that Bell's theorem is, at the abstract level, a statement about the non-existence of a joint probability distribution extending finitely-additive correlations — i.e. that Bell-inequality satisfaction ⟺ existence of a joint distribution (Fine 1982), and that this is captured by Pitowsky's correlation polytope feasibility? How does this relate to the \"extension axis\" of quantum probability — extending a finitely-additive state on a non-Boolean structure to a charge/measure on a Boolean envelope? Cite Pitowsky (Quantum Probability — Quantum Logic, 1989), Fine (1982 PRL), and any work explicitly framing Bell as a state-extension / Horn–Tarski-type feasibility problem.\n\n2. THE FINITE-vs-COUNTABLE (σ-ADDITIVITY) DISTINCTION. Bell and Kochen–Specker are FINITE/finitary no-go theorems (finite measurement settings, finite correlation polytopes, finite KS colorings). Is there any literature on whether countable additivity (σ-additivity) adds anything ESSENTIAL beyond finite additivity in the quantum/contextuality setting — i.e. results that genuinely require infinite orthogonal families and are invisible to finite tests? Look for: σ-additive vs finitely-additive states on orthomodular lattices, Gleason's theorem and its σ-additive formulation, normal vs singular states on B(H)/von Neumann algebras, and whether any \"Bell-type\" or contextuality phenomenon is intrinsically infinitary.\n\n3. KOCHEN–SPECKER, CONCRETENESS, AND TWO-VALUED STATES. The survey frames KS as a CONCRETENESS obstruction (L(H), dim≥3, admits no order-determining set of two-valued states, hence is not set-representable / not a \"concrete logic\" in Gudder's sense). Confirm or correct: is the standard reading of Kochen–Specker as the non-existence of two-valued homomorphisms / the failure of set-representability of the quantum logic? How does this relate to Bell (which is about CORRELATIONS / joint distributions across parties) vs KS (about a single system's value-definiteness)? Cite the precise logical relationship between Bell non-locality and KS contextuality (e.g. Abramsky–Brandenburger sheaf-theoretic unification, 2011).\n\n4. THE SHEAF / PRESHEAF / TOPOS UNIFICATION. Abramsky–Brandenburger (2011) unify Bell non-locality and KS contextuality as the non-existence of a global section of a presheaf of local (Boolean) data — \"contextuality = no global section.\" How does this \"no global section\" framing relate to (a) the extension-axis / joint-distribution view, and (b) the topos-theoretic / Bohrification programme (Isham–Butterfield, Döring–Isham, Heunen–Landsman–Spitters) which builds quantum probability point-free over a poset of commutative (Boolean) contexts? Is the σ-additive / countably-additive question addressed anywhere in the topos/sheaf contextuality literature, or is it (as the survey claims) a gap?\n\n5. THE POINT-FREE / LOCALIC ANGLE. Is there established work connecting Bell/contextuality to point-free (localic, pointless) measure theory or to the non-existence of an underlying sample space (Ω)? De Finetti's no-sample-space stance, Gudder's concrete logics, localic/measure-theoretic valuations (Vickers, Coquand–Spitters), and whether anyone has posed the specific question of a σ-additive point-free probability on a NATIVELY non-distributive (orthomodular, not Heyting/frame) structure.\n\nThe goal: a precise map of how a σ-additive-OML-probability open problem sits relative to Bell's theorem — what Bell IS in this language (an extension-axis/finitary obstruction), what it is NOT (it does not touch the σ-additive descent layer), and whether the specific combination {σ-additive × point-free × natively non-distributive} that the open problem targets is genuinely unoccupied in the literature or has been approached. Flag any results that would COLLAPSE or PRE-EMPT the open problem, and any that confirm the gap is real.",
+    "summary": "Synthesis step was skipped or failed — returning 8 verified claims unmerged.",
+    "findings": [],
+    "confirmed": [
+      {
+        "claim": "Fine establishes a five-way equivalence chaining deterministic hidden-variable models, factorizable stochastic models, the single joint distribution, compatible pairwise/triple joint distributions for commuting AND noncommuting observables, and the Bell inequalities — i.e. Bell is a joint-distribution-existence (extension) question, not merely a locality/factorizability question.",
+        "source": "https://scispace.com/papers/hidden-variables-joint-probability-and-the-bell-inequalities-2crf8icnod",
+        "quote": "the following statements ... are mutually equivalent: (1) There is a deterministic hidden-variables model ... (2) There is a factorizable, stochastic model. (3) There is one joint distribution for all observables ... (4) There are well-defined, compatible joint distributions for all pairs and triples of commuting and noncommuting observables. (5) The Bell inequalities hold.",
+        "vote": "2-0"
+      },
+      {
+        "claim": "Deciding membership in a correlation polytope is NP-complete, and deciding its facets is probably not even in NP. This establishes the computational-complexity (feasibility) face of the Bell/joint-distribution-extension question: determining whether finitely-additive correlation data admits a joint distribution is a finite, computationally hard feasibility problem (it is a FINITARY no-go, not an infinitary/sigma-additive one).",
+        "source": "https://link.springer.com/article/10.1007/BF01594946",
+        "quote": "deciding membership in a correlation polytope is an NP-complete problem, and deciding facets is probably not even in NP.",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Budroni-Morchio prove a general equivalence/unification of the Bell-type and Kochen-Specker-type approaches to classical representability, framing both as instances of the extension problem for partial Boolean algebras (PBAs) and partial probability theories (PPTs). This confirms the survey's 'Bell as an extension/joint-distribution question' reading at the level of partial Boolean structure.",
+        "source": "https://arxiv.org/pdf/1010.4662",
+        "quote": "Alternative partial Boolean structures... are characterized, with definite general conclusions on the equivalence of the approaches going back to Bell and Kochen-Specker... PBAs and PPTs provide a unification of the Kochen-Specker-type and Bell-type approaches to classical representability.",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Classical representability (existence of a hidden-variable / joint distribution) is identified with extension of the partial Boolean algebra to a single Boolean algebra carrying a normalized measure, and the necessary-and-sufficient conditions are supplied by Horn and Tarski's notion of partial measure. This is the explicit 'state-extension / Horn-Tarski feasibility' framing of Bell sought in the research question.",
+        "source": "https://arxiv.org/pdf/1010.4662",
+        "quote": "the classical \"hidden variable\" problem concerns the existence of a classical representation, identifying partial Boolean structures and measures on them as restrictions of a single probability theory... the solution of this extension problem (with necessary and sufficient conditions) is then implicit in the work of Horn and Tarski... A PPT C = ({Bi };{µi}) such that {Bi} extends to a Boolean algebra will be called a Horn-Tarski (H-T) partial probability theory.",
+        "vote": "3-0"
+      },
+      {
+        "claim": "The paper's criterion of classical representability is obtained directly from Pitowsky's correlation-polytope results, and it recovers Fine's 1982 result (a four-observable Bell model exists iff two three-observable models agree on overlaps). This ties the abstract extension framing concretely to Pitowsky 1989 and Fine 1982, the two anchors of the 'Bell = joint-distribution feasibility' claim.",
+        "source": "https://arxiv.org/pdf/1010.4662",
+        "quote": "two applications of the criterion of classical representability... obtained from the translation of Pitowsky's correlation polytopes results into the Boolean framework... Theorem IV.2 shows that for four observables with Bell-type compatibility relations a probabilistic model for the four observables exists if and only if there are two models for three observables that coincide on the intersection; a result obtained by Fine.",
+        "vote": "3-0"
+      },
+      {
+        "claim": "A Kochen-Specker contradiction is the impossibility of a consistent truth assignment, i.e. the non-existence of a homomorphism from the projection PBA to {0,1} (a two-valued/multiplicative measure); the paper shows any such KS obstruction also forces a Bell-inequality violation for every quantum state. This confirms the survey's reading of KS as non-existence of two-valued homomorphisms, and logically links it to Bell.",
+        "source": "https://arxiv.org/pdf/1010.4662",
+        "quote": "a set of predictions that generates a Kochen-Specker-type contradiction, namely the impossibility of a consistent truth assignment (i.e. a homomorphism between projections PBA and {0,1}), also generates a Bell-type contradiction for all quantum states... each quantum state violates at least one Bell inequality.",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Bell/Clauser-Horne inequalities are exactly the facet inequalities of a correlation polytope: the classical probability vector P=(P(x1),P(x2),P(y1),P(y2),P(x1y1),...) must lie in the convex hull of the 16 truth-value vertices in R^8, and the facets of this polytope are precisely the (non-trivial) Bell inequalities. Quantum mechanics produces probability vectors that fall OUTSIDE this classical polytope.",
+        "source": "https://philsci-archive.pitt.edu/2474/1/TOBUB1.pdf",
+        "quote": "lies in the convex hull of these 16 vectors, which is a correlation polytope in R8 with the 16 truth values as vertices shown schematically in Fig(3). The facets of the polytope, are given by linear inequalities in the probabilities... They are called Clauser-Horne inequalities, they are among what is generally known as Bell inequalities... we see that the quantum range is larger than the classical one, and some points lie outside the classical polytope (Fig 3), that is, they violate one of the facet inequalities of Clauser and Horne.",
+        "vote": "3-0"
+      },
+      {
+        "claim": "Bell's theorem is an extension/joint-distribution feasibility obstruction: violation arises because the Bell (Clauser-Horne / Boole) inequalities depend on viewing probabilities as weighted averages of truth values, i.e. on assuming a single joint truth-value assignment over incompatible propositions; this assumption (a global joint distribution) is what fails in QM, while sufficiency of the inequalities for a joint distribution is attributed to Fine.",
+        "source": "https://philsci-archive.pitt.edu/2474/1/TOBUB1.pdf",
+        "quote": "The derivation of Clauser-Horne inequalities, indeed of many of Boole's conditions, is blocked since it is based on the Boolean view of probabilities as weighted averages of truth values. This, in turn, involves the metaphysical assumption that there is, simultaneously, a matter of fact concerning the truth values of incompatible propositions such as x1 = a1 1 and x2 = a2 1.",
+        "vote": "3-0"
+      }
+    ],
+    "refuted": [
+      {
+        "claim": "Fine (1982) proves that, for a quantum correlation experiment, the existence of one joint probability distribution for all observables returning the experimental probabilities is equivalent to the Bell inequalities holding. This makes Bell-inequality satisfaction equivalent to existence of a joint (extending) distribution returning the given marginals/correlations.",
+        "vote": "0-0",
+        "source": "https://scispace.com/papers/hidden-variables-joint-probability-and-the-bell-inequalities-2crf8icnod"
+      },
+      {
+        "claim": "Pitowsky defines 'correlation polytopes' as a family of polytopes arising in probability theory and propositional logic, and shows they are tightly connected to combinatorial problems in the foundations of quantum mechanics. This is the geometric formulation underlying the Bell-as-joint-distribution-feasibility view: a correlation vector lies in the polytope iff a joint distribution exists, and Bell-type inequalities are the polytope's facets.",
+        "vote": "1-0",
+        "source": "https://link.springer.com/article/10.1007/BF01594946"
+      },
+      {
+        "claim": "Bell inequalities are an instance of George Boole's 19th-century 'conditions of possible experience' — the general linear-inequality constraints on probabilities of events derivable from their logical relations — establishing the historical/abstract identity of Bell with the classical correlation-feasibility (Horn-Tarski-type) problem rather than with locality.",
+        "vote": "1-0",
+        "source": "https://philsci-archive.pitt.edu/2474/1/TOBUB1.pdf"
+      },
+      {
+        "claim": "Bell-inequality violation requires only a FINITE structure: it can be exhibited within a single finite 'quantum gamble', and EPR-Bell and Kochen-Specker alike have explicit finite-set constructions — i.e. these no-go results are finitary and do not invoke countable/σ-additive machinery.",
+        "vote": "1-0",
+        "source": "https://philsci-archive.pitt.edu/2474/1/TOBUB1.pdf"
+      },
+      {
+        "claim": "The marginal problem is the question of whether given partial/marginal probability information is compatible with (extends to) a single joint probability distribution, and Bell non-locality is a direct application of this framework. This confirms the 'extension/joint-distribution' reading of Bell at the abstract level (point 1).",
+        "vote": "0-0",
+        "source": "https://arxiv.org/pdf/1805.03313"
+      },
+      {
+        "claim": "Bell inequalities are computed via polyhedral projection / quantifier elimination over marginal sets — i.e. Bell-inequality characterization is a finitary polytope/linear-feasibility problem (correlation-polytope-style feasibility), placing Bell squarely on the finite-additivity extension axis.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/pdf/1805.03313"
+      },
+      {
+        "claim": "Abramsky-Brandenburger (2011) provide a single sheaf-theoretic framework that unifies Bell non-locality and Kochen-Specker contextuality, with non-locality treated as a special case of contextuality.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/1102.0264"
+      },
+      {
+        "claim": "Contextuality (and Bell non-locality) is characterized exactly as the non-existence of a global section of a presheaf/sheaf whose local data are the (Boolean, commutative) measurement contexts — confirming the 'contextuality = no global section' framing and the local-to-global joint-distribution view.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/1102.0264"
+      },
+      {
+        "claim": "The Fine equivalence is finitary: it concerns a finite quantum correlation experiment (finitely many observables, their pairs and triples), with no appeal to countable additivity or infinite orthogonal families. This supports the survey's claim that Bell lives on the finite extension axis and does not touch a σ-additive descent layer.",
+        "vote": "0-0",
+        "source": "https://scispace.com/papers/hidden-variables-joint-probability-and-the-bell-inequalities-2crf8icnod"
+      },
+      {
+        "claim": "The publication is Pitowsky, 'Correlation polytopes: Their geometry and complexity,' Mathematical Programming 50, 395–414 (1991) — a peer-reviewed mathematical-programming paper, situating the Bell/joint-distribution problem in the language of polyhedral combinatorics and linear feasibility rather than measure theory or sigma-additivity.",
+        "vote": "0-0",
+        "source": "https://link.springer.com/article/10.1007/BF01594946"
+      },
+      {
+        "claim": "The correlation-polytope framework links directly to Boole's 'conditions of possible experience' (which Pitowsky later developed in a 1994 paper), i.e. the classical finite linear constraints that a set of correlation/probability numbers must satisfy to be jointly realizable — the historical antecedent of treating Bell inequalities as a joint-distribution-existence (extension) problem.",
+        "vote": "0-0",
+        "source": "https://link.springer.com/article/10.1007/BF01594946"
+      },
+      {
+        "claim": "The entire framework is explicitly finitary: only finite partial Boolean algebras and finite Boolean algebras (finite atom sets) are considered, with measures defined only by finite additivity on disjoint pairs; there is no treatment of σ-additivity, countable additivity, or infinite orthogonal families. This supports the survey's claim that the Bell/KS extension axis is a finite/finitary obstruction that does not touch the σ-additive descent layer, leaving the {σ-additive × point-free × non-distributive} combination unoccupied here.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/pdf/1010.4662"
+      },
+      {
+        "claim": "Pitowsky explicitly treats the completeness/σ-additivity (full lattice closure under arbitrary unions) axiom H3 as carrying NO essential quantum content — it can hold even classically (in some set-theoretic models all reals are Lebesgue measurable), so the quantum/classical separation comes solely from irreducibility (H4, non-distributivity), not from the countable-closure layer. Probability semantics is read off only finite segments of L.",
+        "vote": "0-0",
+        "source": "https://philsci-archive.pitt.edu/2474/1/TOBUB1.pdf"
+      },
+      {
+        "claim": "The same marginal-problem machinery applies to causal inference networks beyond bipartite Bell scenarios (tripartite Bell, complex causal networks), showing the joint-distribution-extension framing generalizes across quantum non-classicality and causal modeling.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/pdf/1805.03313"
+      },
+      {
+        "claim": "The paper's treatment is entirely finite/finitary (finite marginal sets, polytopes, polyhedral projection) with no engagement with countable/sigma-additivity, orthomodular lattices, or point-free measure structure — confirming that this Bell-as-marginal-problem literature does not touch the sigma-additive descent layer the open problem targets.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/pdf/1805.03313"
+      },
+      {
+        "claim": "There is a proper hierarchy of strengths of no-go theorems, with Bell, Hardy, and GHZ occupying successively higher levels, so Bell-type and KS-type results are different strengths of one phenomenon rather than fundamentally distinct.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/1102.0264"
+      },
+      {
+        "claim": "Kochen-Specker-type results are recovered within the framework as generic, model-independent proofs of maximal (strong) contextuality, placing KS at the top of the contextuality hierarchy.",
+        "vote": "0-0",
+        "source": "https://arxiv.org/abs/1102.0264"
+      }
+    ],
+    "sources": [
+      {
+        "url": "https://scispace.com/papers/hidden-variables-joint-probability-and-the-bell-inequalities-2crf8icnod",
+        "quality": "primary",
+        "claimCount": 3
+      },
+      {
+        "url": "https://link.springer.com/article/10.1007/BF01594946",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://arxiv.org/pdf/1010.4662",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://philsci-archive.pitt.edu/2474/1/TOBUB1.pdf",
+        "quality": "primary",
+        "claimCount": 5
+      },
+      {
+        "url": "https://arxiv.org/pdf/1805.03313",
+        "quality": "primary",
+        "claimCount": 4
+      },
+      {
+        "url": "https://dokumen.pub/quantum-probability-logic-the-work-and-influence-of-itamar-pitowsky-1nbsped-3030343154-9783030343156.html",
+        "quality": "unreliable",
+        "claimCount": 0
+      },
+      {
+        "url": "https://arxiv.org/abs/1102.0264",
+        "quality": "primary",
+        "claimCount": 5
+      }
+    ],
+    "stats": {
+      "angles": 5,
+      "sources": 7,
+      "claims": 26,
+      "verified": 25,
+      "confirmed": 8,
+      "killed": 17,
+      "afterSynthesis": 0
+    }
+  }
+}

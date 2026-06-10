@@ -57,7 +57,10 @@ two coupled questions, distinguished by which countable joins they require: a
 \emph{structural} one --- whether a $\sigma$-complete OML admits a
 Loomis--Sikorski representation, neither constructed nor ruled out --- and a
 \emph{descent-relevance} one on the weaker $\sigma$-orthocomplete class, which we
-show is non-empty but whose members may yet segregate. A positive resolution would
+show is non-empty and (update 2026-06-10) whose $\mathrm{MO}_2$-swap member
+$\mathcal L_2$ satisfies the interleaving condition~$(\star)$ --- so it does
+\emph{not} segregate --- but whose \textbf{concreteness} is the remaining open
+question that decides everything. A positive resolution would
 furnish a \emph{point-free},
 $\sigma$-additive probability theory on a non-distributive lattice --- the
 non-Boolean analogue of localic measure theory --- built from the
@@ -1009,6 +1012,25 @@ defined through the orthocomplement; the question reduces to a single relation:
 \noindent One qualification: $L(H)$ and Navara's construction fail concreteness
 for distinct reasons --- the Kochen--Specker colouring obstruction versus an
 imported stateless block --- so neither subsumes the other as a near-miss.
+
+\medskip
+\noindent\fbox{\parbox{0.96\linewidth}{\textbf{Resolution (2026-06-10) ---
+$(\dagger)$ holds, but the deciding question is \emph{concreteness}, not
+$(\dagger)$.} Reading Navara p.~428 in full: $\mathcal L_2$ is a \emph{sublogic
+of}~$W$ (order = restriction), closed under orthocomplements \emph{in}~$W$, with
+countable orthogonal joins computed \emph{in}~$W$. Hence $a\,|\,C \not\perp
+b\,|\,C$ transfers from $\mathrm{MO}_2$, $(\dagger)$ holds, and $p=\bigvee_n
+b\,|\,C_n$ witnesses~$(\star)$ in $\mathcal L_2$ --- segregation is
+\emph{refuted}. \emph{But this does not falsify the conjecture}, which is about
+\emph{concrete} OMLs: $(\star)$ does not give concreteness. Navara's block is
+stateless precisely to make $\mathcal L_2$ non-concrete; the $\mathrm{MO}_2$-swap
+drops statelessness to \emph{try} for concreteness, but the
+\textbf{horizontal-sum step} ($V$ = pasting of $T\times\mathrm{MO}_2$ copies ---
+pasting destroys states) is where it can fail. ``Sub-OMP of concrete is
+concrete'' covers the product and sublogic steps, \emph{not} the horizontal sum.
+\textbf{The open problem is now: is $\mathcal L_2$ concrete?} --- the
+\texttt{/audit full} target. Canonical statement:
+\texttt{descent\_axis\_residue\_post\_kill.md}.}}
 \end{remark}
 
 \noindent Either resolution is consequential:
@@ -1072,12 +1094,21 @@ descent axis remains, entered through either of its two coupled questions
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=3.4cm, leftmargin=3.8cm]
   \item[The hinge check (Q2)]
-    The near-term entry point. Decide the single relation~\eqref{eq:hinge} in
-    $\mathcal L_2$ --- whether distinct non-complementary $\mathrm{MO}_2$ atoms
-    on a common coordinate stay non-orthogonal in Navara's lattice. A positive
-    answer makes $\mathcal L_2$ a descent-relevant witness and refutes
-    segregation; a negative one leaves $L(H)$ the only known instance. This is a
-    concrete, finitary check, not a general construction.
+    \textbf{Resolved YES (2026-06-10).} Distinct non-complementary $\mathrm{MO}_2$
+    atoms on a common coordinate \emph{do} stay non-orthogonal in Navara's
+    $\mathcal L_2$ (order/orthocomplement/orthogonal-join all restrict
+    coordinatewise from $W$, p.~428), so $\mathcal L_2$ satisfies~$(\star)$ and
+    segregation is refuted. This is \emph{no longer} the entry point; the new
+    near-term question is concreteness (Q3) --- see the resolution box in
+    \S\ref{sec:problem} and \texttt{descent\_axis\_residue\_post\_kill.md}.
+  \item[The concreteness check (Q3) --- the new near-term entry point]
+    Is $\mathcal L_2$ concrete (an order-determining family of two-valued
+    states)? The crux is the horizontal sum $V$ of $T\times\mathrm{MO}_2$ copies:
+    pasting can destroy states (the Greechie mechanism), and ``sub-OMP of concrete
+    is concrete'' does not cover it. A positive answer makes $\mathcal L_2$ a
+    concrete $\sigma$-orthocomplete non-Boolean OML exercising descent (conjecture
+    false, candidate contribution); a negative one leaves $L(H)$ the only known
+    instance (conjecture stands). This is the \texttt{/audit full} target.
   \item[The general construction (Q1)]
     Construct a Loomis--Sikorski-type representation, or a
     countable-join-preserving $\sigma$-Stone duality, for a concrete

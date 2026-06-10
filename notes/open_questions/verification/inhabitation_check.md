@@ -267,6 +267,10 @@ relational-probability object; NO ⟹ swap segregates, L(H) stays the lone
 witness. Not a park; orthogonal to the four parked empirical-reconnection
 seeds.
 
+> **⊳ SUPERSEDED 2026-06-10 — see the resolution box below and the canonical
+> statement in `../descent_axis_residue_post_kill.md`. The HINGE resolved YES,
+> but the deciding question turned out to be CONCRETENESS, not the HINGE.**
+
 *(Caveat on the "sharpen" outcome per `feedback_research_workflow` lifecycle:
 the standing MO₂-swap-survival check DID flip — σ-orthocompleteness survives,
 inhabitation-as-stated confirmed — and the (★) clause excludes the old
@@ -283,3 +287,38 @@ itself is unrun; the segregation verdict is provisional, not settled.)*
 - Primary sources read: `ptak_pulmannova_1994.pdf`, `navara_1992.pdf`.
 - Verification: `navara_separation_check.py` (the load-bearing separation
   fact).
+
+---
+
+## RESOLUTION 2026-06-10 — (★)/HINGE = YES, but CONCRETENESS is the real deciding question
+
+Read Navara 1992 p. 428 **in full and directly** (not just the closure
+paragraph). Two corrections to everything above:
+
+**1. The HINGE resolves YES — and the prior "leans NO / segregates" was a
+support-slip.** The worry that `p = ⋁ₙ b|Cₙ` and `aₙ = a|Cₙ` sit on disjoint
+blocks (forcing orthogonality) misread the witness: `b|Cₙ` attains value `b`
+*on* `Cₙ`, so at `m∈Cₙ`, `p(m)=b` and `aₙ(m)=a` — **same block.** "Mutually
+disjoint" governs `aₙ ⊥ aₘ`, not `p` vs `aₙ`. The within-block MO₂ gap gives
+`p∧aₙ=0`, `p⊀aₙ^⊥`. (★) holds in W. **Transfer W→L is confirmed by p. 428**
+(not open as line 264 claimed): L is a *sublogic of W* (order = restriction),
+closed under orthocomplements *in W*, and the closure proof computes orthogonal
+joins *in W* (coordinatewise). So order/orthocomplement/orthogonal-join all
+restrict from W ⟹ (★) transfers. The Lean `Sub`/`navaraJoin` axioms are faithful.
+
+**2. But (★) = YES does NOT settle the conjecture — CONCRETENESS does, and it is
+OPEN.** The conjecture "richness starves concreteness" is about *concrete* OMLs.
+(★) gives non-Boolean + σ-orthocomplete descent structure, but **not**
+concreteness. Navara's block is Greechie STATELESS *precisely* to make his L
+non-concrete; the MO₂-swap drops statelessness to *try* for concreteness — but
+the **horizontal-sum step** (V = pasting of T×MO₂ copies; pasting is the Greechie
+state-destroying mechanism) is exactly where it can fail. "Sub-OMP of concrete is
+concrete" covers the product (`∏`) + sublogic (constancy-cut) steps, NOT the
+horizontal sum. So concreteness is the open question.
+
+**Net:** the deciding question moved from the HINGE (now YES) to **concreteness
+of L_MO₂** — the audit target. (★)=YES is genuine forward motion (structure
+established, segregation ruled out), but the conjecture is NOT yet falsified and
+there is NOT yet a contribution; both wait on concreteness. NEXT = `/audit full`
+pointed at "is L_MO₂ concrete?" Canonical statement + audit plan:
+`../descent_axis_residue_post_kill.md`.

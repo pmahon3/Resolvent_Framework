@@ -7,12 +7,35 @@ dispersion-free/homomorphism state-separation was KILLED by `/audit full`
 and the two retired handoffs as the descent-axis entry point.*
 
 > **HEADLINE (updated 2026-06-10, after reading Navara p. 428 directly):** the
-> state-level separation is dead, BUT the **lattice-level HINGE resolved YES** —
-> `L_MO₂` is a concrete σ-orthocomplete non-Boolean OML that genuinely exercises
-> descent ((★) holds; "richness starves concreteness" is FALSE as worded). This
-> is a **live candidate contribution — the first since 2026-05-18 — pending
-> `/audit full`.** Two opposite results in one session: a kill (state side) and
-> an inhabitation (lattice side). They are NOT the same object.
+> state-level separation is dead, BUT the **lattice-level (★) resolved YES** —
+> L_MO₂ carries genuine non-distributive **descent structure**. This is the
+> first forward motion on the descent axis since 2026-05-18. It is **NOT yet a
+> contribution and NOT yet a falsification of the conjecture** — both hinge on
+> one open question (is L_MO₂ concrete?) that `/audit full` will decide. Two
+> results in one session, on different objects: a kill (state side) and a
+> structural advance (lattice side). See the canonical statement next.
+
+## ⓘ CANONICAL STATEMENT (the single source of truth — copy verbatim, do not re-improvise)
+
+> **(★) resolves YES** (Navara 1992 p. 428, read directly 2026-06-10): L_MO₂
+> carries genuine non-distributive **descent structure** — order, orthocomplement,
+> and countable orthogonal join all restrict coordinatewise from W, so the witness
+> `p = ⋁ₙ b|Cₙ` against the family `aₙ = a|Cₙ` satisfies `p∧aₙ=0` and `p⊀aₙ^⊥`.
+> **This much is ESTABLISHED.**
+>
+> Whether this *falsifies* the conjecture "richness starves concreteness," AND
+> whether it is a contribution at all, both hinge on the **SAME one open
+> question: is L_MO₂ concrete?** The conjecture is a statement *about concrete
+> OMLs*; (★) gives non-Boolean + σ-orthocomplete, but concreteness is unproven.
+> The **horizontal-sum step is the crux**: V is a horizontal sum (pasting) of
+> copies of T×MO₂, and pasting is exactly where states get destroyed (the
+> Greechie mechanism Navara exploits with his *stateless* block). "Sub-OMP of
+> concrete is concrete" covers the product and sublogic steps but **not** the
+> horizontal sum. So concreteness is NOT free.
+>
+> **`/audit full`** (target: *is L_MO₂ concrete?*) decides everything downstream.
+> If concrete → conjecture falsified AND a candidate contribution. If not →
+> L_MO₂ is another L(H)-analogue, conjecture stands, no contribution.
 
 ## The axis, in one frame
 
@@ -74,12 +97,14 @@ discriminator:
 > trapped in finite blocks, infinite orthogonal structure Boolean), and L(H)
 > stays the lone witness.
 
-## STATUS OF THE HINGE — RESOLVED YES (Navara p. 428 read directly, 2026-06-10)
+## STATUS OF THE HINGE — (★) RESOLVED YES; concreteness STILL OPEN (Navara p. 428 read directly, 2026-06-10)
 
-**The HINGE resolves YES. The "richness starves concreteness" conjecture is
-FALSE as worded.** Settled by reading Navara 1992 p. 428 in full (the PDF is in
+**The (★)/HINGE resolves YES — L_MO₂ carries genuine non-distributive descent
+structure.** Settled by reading Navara 1992 p. 428 in full (the PDF is in
 `notes/literature_review/literature/navara_1992.pdf`), which resolves the exact
-join-faithfulness question the Lean axioms had only *encoded*.
+join-faithfulness question the Lean axioms had only *encoded*. **This does NOT
+yet falsify the conjecture** — see the concreteness caveat below; the conjecture
+is about *concrete* OMLs, and concreteness is the open audit question.
 
 **Why the worksheet's lean-NO was wrong — the support slip.** The earlier
 by-hand worry was that `p = ⋁ₙ b|Cₙ` and `aₙ = a|Cₙ` live on disjoint blocks and
@@ -115,64 +140,70 @@ satisfied — inside block `Cₙ`, where `p` and `aₙ` overlap.
 Order, orthocomplement, and orthogonal-join all restrict from W ⟹ (★)-in-W
 transfers to (★)-in-L. **HINGE = YES.**
 
-**On statelessness (the one thing that looked like a violation, but isn't).**
-Navara's *original* block is a finite Greechie logic admitting NO states — and
-statelessness is load-bearing for his result, because it is what makes his L the
-*non-concrete*, L(H)-analogue object. The MO₂-swap deliberately replaces the
-stateless block with concrete/stateful MO₂. That is the *correct* move, because
-we WANT concreteness — statelessness was load-bearing only for the property
-we are trying to avoid. The closure proof is state-free (verified), so
-`L_MO₂` is a genuine concrete σ-orthocomplete OML.
+**On statelessness, and why concreteness is NOT yet established (the crux).**
+Navara's *original* block is a finite Greechie logic admitting NO states —
+statelessness is load-bearing for *his* result, because it is what makes his L
+the *non-concrete*, L(H)-analogue object. The MO₂-swap replaces the stateless
+block with concrete/stateful MO₂ — the *correct* move, since we WANT
+concreteness. The closure proof is state-free (verified), so L_MO₂ is a genuine
+σ-orthocomplete non-Boolean OML. **But that does not make L_MO₂ concrete.**
+Concreteness = an order-determining (separating) family of 2-valued states, and
+the construction has a step that can *destroy* states: **V is a horizontal sum
+(pasting) of copies of T×MO₂, and pasting is exactly the Greechie mechanism that
+kills states.** "Sub-OMP of a concrete logic is concrete" covers the *product*
+(`∏`) and *sublogic* (constancy-cut) steps — but **NOT the horizontal sum.** So
+concreteness of L_MO₂ is **the open question**, not a free corollary of the swap.
 
-**So the descent axis is INHABITED:** `L_MO₂` is a concrete, σ-orthocomplete,
-non-Boolean OML satisfying (★) — it genuinely exercises descent. This reverses
-the session's earlier "unsure"; it is not another oscillation but a primary-
-source resolution (the p. 428 read is new evidence and points one way).
+**So the descent axis has a structural advance, NOT yet an inhabitant.** L_MO₂
+satisfies (★) (non-Boolean + σ-orthocomplete descent structure — ESTABLISHED),
+which is genuine forward motion and reverses the session's earlier "leans NO /
+segregates" (that was a support-slip, now a primary-source resolution). But
+"inhabits the *concrete* descent class" — the thing that would falsify the
+conjecture and constitute a contribution — requires concreteness, which is
+unproven. That is what the audit decides. (See the canonical statement at the
+top of this file; this section is its long form.)
 
-## THE CANDIDATE IS NOW ACTIVE — and needs `/audit full` BEFORE it is called a win
+## THE NEXT MOVE — `/audit full` pointed at ONE question: is L_MO₂ concrete?
 
-With the HINGE = YES, the result —
-> *`L_MO₂` is a concrete, σ-orthocomplete, non-Boolean OML hosting point-free
-> non-distributive σ-additive probability (descent genuinely exercised, (★)
-> satisfied)*
-— is a **candidate contribution, and a bigger one than the state separation
-just killed today.** It has NOT had a hostile audit. **DISCIPLINE: do not fold
-it into Paper II, do not call it a win, until it clears `/audit full`** (opus
-Agent per [[feedback_audit_invocation]]). The asymmetry to guard against: the
-state-separation got a skeptical referee and died; this lattice result must get
-the same referee — it should not ride a green Lean checkmark to acceptance, the
-more so because the Lean *axiomatized* the construction (faithfulness now
-hand-verified against p. 428, but the *contribution* question is untouched by
-Lean).
+With (★) = YES, L_MO₂ has established non-distributive descent structure, but
+the conjecture-falsification and the contribution both collapse to **one
+unproven precondition: concreteness of L_MO₂.** So the audit is narrowly
+pointed, not full-spectrum-diffuse. **DISCIPLINE: do not fold anything into
+Paper II, do not call it a win, until `/audit full` resolves concreteness**
+(opus Agent per [[feedback_audit_invocation]]). The asymmetry to guard against:
+the state-separation got a skeptical referee and died; this lattice result must
+get the same referee — it should not ride a green Lean checkmark, the more so
+because the Lean *axiomatized* the construction (axiom-faithfulness is now
+hand-verified against p. 428, but the *concreteness* and *contribution*
+questions are untouched by Lean).
 
-**What the audit must verify hardest (the load-bearing kill-risks):**
-1. **Concreteness of `L_MO₂` — the single load-bearing claim.** The whole result
-   is "*concrete* σ-orthocomplete non-Boolean exercising descent." The
-   concreteness rests on "products and sub-OMPs of concrete logics are concrete"
-   (MO₂ concrete per `concrete_meetzero_vs_orthogonal.py`). The audit must check
-   that `W = ∏(horizontal sum of T×MO₂)` is genuinely concrete AND that the
-   restriction to L still has an order-determining (separating, ideally
-   2-valued) family of states. If concreteness fails, `L_MO₂` is just another
-   L(H)-analogue and the result collapses.
-2. **Novelty vs. localic / Navara.** Likely-kill, same family as the arc's prior
-   5 deaths: *"localic measure theory already does point-free σ-additive
-   probability — is the non-distributive instance genuinely new content, or a
-   decorative variation on Navara's construction with the block swapped?"* The
-   contribution must be a witness that does something localic/distributive
-   point-free measure theory provably *cannot* (host σ-additive probability on a
-   natively non-distributive event lattice). The conjecture being false-as-worded
-   is NOT yet the contribution.
-3. **Is "concrete σ-orthocomplete non-Boolean OML exercising (★)" already
-   named/published?** Pták–Pulmannová, Gudder, Navara himself, Cannon–Döring —
-   has someone already exhibited exactly this object or proved the class
-   nonempty? (The conjecture may be folklore-false.)
+**Audit target + kill-risks, in priority order:**
+1. **[PRIMARY — decides everything] Is L_MO₂ concrete?** Concreteness = an
+   order-determining (separating, ideally 2-valued) family of states. The
+   construction's risky step is the **horizontal sum**: V is a pasting of copies
+   of T×MO₂, and pasting is the Greechie state-destroying mechanism. "Sub-OMP of
+   concrete is concrete" covers the product (`∏`) and constancy-cut (sublogic)
+   steps but **NOT** the horizontal sum. The audit must establish whether the
+   horizontal sum of concrete T×MO₂ blocks keeps an order-determining state
+   family, and whether the restriction to L still separates. YES → conjecture
+   falsified AND a candidate contribution. NO → L_MO₂ is another L(H)-analogue,
+   conjecture stands, no contribution.
+2. **[SECONDARY — only if concrete] Novelty vs. localic / Navara.** Same family
+   as the arc's prior 5 deaths: *"localic measure theory already does point-free
+   σ-additive probability — is the non-distributive instance genuinely new, or a
+   decorative variation on Navara with the block swapped?"* The contribution must
+   do something localic/distributive point-free measure theory provably *cannot*
+   (host σ-additive probability on a natively non-distributive event lattice).
+3. **[TERTIARY] Already named/published?** Pták–Pulmannová, Gudder, Navara,
+   Cannon–Döring — has someone already exhibited a concrete σ-orthocomplete
+   non-Boolean OML with (★), or settled the conjecture?
 
-If it clears: this is a genuine descent-axis contribution and the first live
-standalone lead since 2026-05-18 — route per the audit (Paper II §5/§6, or a
-short standalone). If it dies on concreteness or novelty: park to
-`covered_leads/`, and the *segregation/degeneration* picture (below) becomes the
-salvage — but note the HINGE being YES means it does NOT segregate, so a kill
-here would be a novelty/concreteness kill, not a segregation one.
+If concreteness clears (and novelty survives): a genuine descent-axis
+contribution and the first live standalone lead since 2026-05-18 — route per the
+audit (Paper II §5/§6, or a short standalone). If concreteness fails: park to
+`covered_leads/`. Note (★) = YES means it does NOT *segregate* — a kill here is a
+concreteness/novelty kill, not the old segregation one; the *degeneration*
+picture (below) is then the salvage.
 
 ## The degeneration picture (holds under EITHER HINGE verdict)
 
@@ -187,25 +218,26 @@ mechanism" — the σ-orthocompletion device provably *needs* state-poverty.
 
 ## ROUTING / next move (the user's call, no rush)
 
-The HINGE is now settled YES, so the descent axis has, for the first time since
-2026-05-18, a **live candidate**. The next move is no longer a derivation — it is
-the audit gate.
+(★) = YES is forward motion (structure established), but the descent axis does
+NOT yet have a confirmed contribution or a falsified conjecture — both wait on
+concreteness. The next move is the audit gate, narrowly pointed.
 
-1. **THE NEXT MOVE — `/audit full` on the `L_MO₂` descent-witness result**
-   (opus Agent, per [[feedback_audit_invocation]]). Target = "*`L_MO₂` is a
-   concrete σ-orthocomplete non-Boolean OML exercising descent ((★)), hosting
-   point-free non-distributive σ-additive probability*." Kill-risks 1–3 above;
-   the load-bearing one is **concreteness of `L_MO₂`**. Decide-after-audit; do
-   NOT pre-place into a paper.
-2. **If it clears:** first standalone lead in ~3 weeks; serves curiosity (b)
-   (incompatibility theorist). Route per audit verdict — Paper II §5/§6
-   refinement or a short standalone note. Consider a Lean companion making the
-   concreteness explicit (the current suite axiomatizes Navara; a concreteness
-   proof would be new content).
-3. **If it dies (concreteness or novelty):** park to `covered_leads/`. Would be
-   the arc's 6th death, but for a *different* reason than the prior 5 (not
-   decorative-σ — the HINGE makes σ-additivity genuinely live here; the kill
-   would be concreteness-fails or localic-already-does-it).
+1. **THE NEXT MOVE — `/audit full` pointed at "is L_MO₂ concrete?"** (opus Agent,
+   per [[feedback_audit_invocation]]). PRIMARY target = concreteness (the
+   horizontal-sum crux); SECONDARY = novelty vs localic/Navara; TERTIARY =
+   already-published. (See the audit-target section above.) Decide-after-audit;
+   do NOT pre-place into a paper.
+2. **If concreteness clears (and novelty survives):** then — and only then — a
+   genuine descent-axis contribution, the first live standalone lead since
+   2026-05-18; serves curiosity (b) (incompatibility theorist). Route per audit
+   verdict — Paper II §5/§6 refinement or a short standalone note. A Lean
+   companion proving concreteness would be new content (the current suite only
+   axiomatizes Navara's construction).
+3. **If concreteness fails:** park to `covered_leads/`. Would be the arc's 6th
+   death, but for a *different* reason than the prior 5 — not decorative-σ ((★)
+   makes the descent structure genuinely live), but concreteness-fails (the
+   horizontal sum starves states, i.e. "richness starves concreteness" turns out
+   TRUE after all, with L_MO₂ as one more L(H)-analogue).
 4. **The (a)/(b) fork still stands underneath** (`genealogy.md`): even if this
    clears, it is a (b) result. If the user is really an (a) — anti-smuggler —
    then CE/Paper I already delivered, and **Strategy D** (ZFC-independence of a

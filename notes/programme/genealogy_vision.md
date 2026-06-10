@@ -141,6 +141,14 @@ trying to rank them as one fork feels cold:
   — that corner is *vacant*. If what grips you is incompatibility itself, this is
   a frontier with your name not yet on it.
 
+  > *(Operational update 2026-06-10, after this vision doc was written: the
+  > descent axis took its first concrete step — L_MO₂ has genuine non-distributive
+  > descent structure ((★) resolved YES). It is NOT yet a contribution; whether
+  > the corner is truly vacant or whether L_MO₂ fills it hinges on one open
+  > question — is L_MO₂ concrete? — now at the `/audit full` gate. The vision
+  > stands; the corner is being approached, not yet owned. See
+  > `descent_axis_residue_post_kill.md`.)*
+
 These are not two candidates for one job. They're two different things to be in
 love with, and the genealogy is honest that the origin leaned toward the first
 and the survivor serves the second. You don't have to *decide* that the way you'd

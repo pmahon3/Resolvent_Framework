@@ -64,6 +64,43 @@ as reference and teaching material, not publishable as novel work.
   Type 3 FAIL. Follow-up: add a scope caveat to Paper II §3 (distributed-systems
   contextuality needs *imposed* incompatible contexts, not dynamics-intrinsic).
 
+- [l2_dispersion_free_homomorphism_separation.md](l2_dispersion_free_homomorphism_separation.md) —
+  *(kill-note, 2026-06-10)* L₂ splits dispersion-free states from 2-valued
+  homomorphisms. KILLED by `/audit full`: clears no contribution bar. df-state ≠
+  homomorphism on MO₂ is textbook (Kalmbach Chinese lantern, Pták–Pulmannová),
+  σ-additivity is free here so L₂ is decorative packaging on a finite MO₂ fact,
+  strict-point-free disclaimed. 5th death on the decorative-σ rock. The Paper II
+  §5 line-304 fix it produced STANDS as an internal correction. NOTE: this is the
+  *state-level* object — distinct from the *lattice-level* L_MO₂ descent witness
+  (still live, pending audit; see `open_questions/descent_axis_residue_post_kill.md`).
+
+- [l2_state_space_separation_seed.md](l2_state_space_separation_seed.md) —
+  The original verified-by-building seed for the above (correct math, killed as a
+  contribution). KILLED banner at top; body preserved for the record.
+
+- [descent_ladder_mechanistic_feasibility.md](descent_ladder_mechanistic_feasibility.md) —
+  "Descent ladder unifies 4 feasibility literatures." Killed (Type 6/4): R1–R3
+  one field, only R2↔R4 unstacked because nobody needs it (dynamics answers
+  feasibility natively); σ-layer decorative. 4th death of the empirical-
+  reconnection arc.
+
+- [kappa_q_characterisation_ladder.md](kappa_q_characterisation_ladder.md) +
+  [kappa_q_characterisation_ladder_audit.md](kappa_q_characterisation_ladder_audit.md) —
+  κ_Q characterisation ladder + its audit. Parked (T1 revival candidate).
+
+- [epistemic_boundary_extension.md](epistemic_boundary_extension.md) —
+  Epistemic-boundary unification, parked.
+
+- [residual_structure_inference.md](residual_structure_inference.md) —
+  Residual-structure inference, covered/parked.
+
+- [entropy_characterization.md](entropy_characterization.md) —
+  Entropy witness concentration — dead (depended on the false bridge theorem).
+
+- [fibre_mixing.md](fibre_mixing.md) —
+  Fibre-mixing irreducibility — dead (bridge theorem false; geometric ≠
+  algebraic reconstruction).
+
 ## From the papers
 
 Paper I, Paper II, and the withdrawn Papers II+III are all

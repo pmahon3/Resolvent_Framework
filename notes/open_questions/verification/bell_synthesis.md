@@ -186,7 +186,14 @@ not an artifact of the truncated deep-research run. **No pre-emption found.**
 The §5 framing survives intact and is positively corroborated: **Bell = finitary
 extension axis (Pitowsky/Horn–Tarski/Fine/Budroni–Morchio), settled; the σ-additive
 descent axis (Q1/Q2, hinge †) is untouched and unoccupied.** Verdict on the open
-problem is unchanged. No citation in the survey needs revision; optionally,
+problem is unchanged.
+
+> *(Note 2026-06-10: this conclusion — Bell does not touch the descent axis —
+> remains correct. Separately, the hinge (†)/(★) itself was later resolved YES
+> from Navara p. 428 (descent structure established); the open descent question
+> moved to concreteness of L_MO₂. That resolution is internal to the descent
+> work and does not change anything Bell-theoretic here. See
+> `../descent_axis_residue_post_kill.md`.)* No citation in the survey needs revision; optionally,
 **Budroni–Morchio (arXiv:1010.4662)** is a clean citation to add for the
 "Bell+KS = one extension problem" point, since it states the Horn–Tarski framing
 more explicitly than Pitowsky alone.

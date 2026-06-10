@@ -20,7 +20,10 @@ genuinely open. There it splits into two coupled questions, distinguished by
 which countable joins they require: a *structural* one — whether a σ-complete
 OML admits a Loomis–Sikorski representation, neither constructed nor ruled out —
 and a *descent-relevance* one on the weaker σ-orthocomplete class, which we show
-is non-empty but whose members may yet segregate. The stake is more than
+is non-empty and (update 2026-06-10, §5 resolution box) whose `MO₂`-swap member
+`𝓛₂` satisfies the interleaving condition (★) — so it does *not* segregate — but
+whose **concreteness** is the remaining open question that decides everything.
+The stake is more than
 technical: a positive resolution would furnish a *point-free*, σ-additive
 probability theory on a non-distributive lattice — the non-Boolean analogue of
 localic measure theory — built from the entailment relation rather than
@@ -533,6 +536,22 @@ element in `MO₂`-position in infinitely many blocks" — is resolved:
 constancy *permits* it; the live hinge is the orthocomplement check, not the
 support count.)
 
+> **▶ RESOLUTION (2026-06-10) — (HINGE) = YES, but the deciding question is
+> CONCRETENESS, not (HINGE).** Reading Navara p. 428 in full: `L` is a *sublogic
+> of* `W` (order = restriction), closed under orthocomplements *in* `W`, and its
+> countable orthogonal joins are computed *in* `W` (the closure proof says "let
+> `f` be its join in `W`"). So `a|C ⊀ (b|C)^⊥` transfers from `MO₂`, (HINGE)
+> holds, and `p = ⋁ₙ b|Cₙ` witnesses (★) in `L`. **However, this does NOT
+> falsify the conjecture, because the conjecture is about *concrete* OMLs and
+> (★) does not give concreteness.** Navara's block is Greechie *stateless*
+> precisely to make `L` non-concrete; the `MO₂`-swap drops statelessness to *try*
+> for concreteness, but the **horizontal-sum step** (`V` = pasting of `T×MO₂`
+> copies — pasting destroys states) is exactly where concreteness can fail.
+> "Sub-OMP of concrete is concrete" covers the product and sublogic steps, NOT
+> the horizontal sum. **So the open problem is now: is `L_MO₂` concrete?** —
+> the `/audit full` target. Canonical statement:
+> `descent_axis_residue_post_kill.md`.
+
 One qualification carries over: `L(H)` and Navara fail to be concrete
 for *different* reasons: for `L(H)` the orthogonal richness itself obstructs
 two-valued states (Kochen–Specker colouring), whereas Navara's state-poverty
@@ -581,12 +600,21 @@ point-free probability.
 
 With the extension axis closed on `L(H)` (Prop 3.2), the descent axis remains,
 entered through either of its two coupled questions (§5).
-- **The hinge check (Q2)** — the near-term entry point. Decide the single
-  relation `(†)` in `𝓛₂`: whether distinct non-complementary `MO₂` atoms on a
-  common coordinate stay non-orthogonal in Navara's lattice. A positive answer
-  makes `𝓛₂` a descent-relevant witness and refutes segregation; a negative one
-  leaves `L(H)` the only known instance. A concrete, finitary check, not a
-  general construction.
+- **The hinge check (Q2)** — ✅ **RESOLVED YES (2026-06-10).** Distinct
+  non-complementary `MO₂` atoms on a common coordinate *do* stay non-orthogonal
+  in Navara's `L` (order/orthocomplement/orthogonal-join all restrict
+  coordinatewise from `W`, p. 428), so `𝓛₂` satisfies (★) and segregation is
+  refuted. **This is no longer the entry point.** The new near-term question is
+  **concreteness (Q3, below)** — whether the horizontal-sum step keeps `𝓛₂`
+  concrete; that, not the hinge, decides whether the conjecture is false and
+  whether there is a contribution. See the §5 resolution box and
+  `descent_axis_residue_post_kill.md`.
+- **The concreteness check (Q3) — THE NEW NEAR-TERM ENTRY POINT.** Is `𝓛₂`
+  concrete (an order-determining family of 2-valued states)? The crux is the
+  horizontal sum `V` of `T×MO₂` copies — pasting can destroy states (the
+  Greechie mechanism). YES ⟹ `𝓛₂` is a concrete σ-orthocomplete non-Boolean OML
+  exercising descent, the conjecture is false, candidate contribution. NO ⟹
+  another `L(H)`-analogue, conjecture stands. This is the `/audit full` target.
 - **The general construction (Q1)** — construct a Loomis–Sikorski-type
   representation, or a countable-join-preserving σ-Stone duality, for a
   concrete non-Boolean infinite *σ-complete* OML, or prove none exists. This

@@ -1,9 +1,16 @@
 # RESUME — Bell ↔ σ-additive-OML deep research (synthesis only)
 
+> **✅ DONE — this resume is CLOSED (2026-06-10).** The synthesis was completed:
+> see `bell_synthesis.md` (same directory). Verdict confirmed — Bell = finitary
+> extension axis; does NOT touch the σ-additive descent axis. Nothing to resume.
+> File retained only as a record of the deep-research run + the
+> [[feedback_token_economy]] 1.35M-token incident (see Cost note below). Do NOT
+> re-run.
+
 **Status (2026-06-09):** deep-research workflow ran, adversarially verified
 ~25 claims, then **died at the synthesis step** on a session/token limit. The
 verified claims are saved and durable. Only the *synthesis* remains — it needs
-**no** web fetches or new agents.
+**no** web fetches or new agents. *(↑ superseded: synthesis is now done, see banner.)*
 
 ## To finish, in a FRESH context, paste this:
 

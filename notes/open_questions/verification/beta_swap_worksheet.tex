@@ -1,0 +1,300 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{hyperref}
+
+\newcommand{\MOtwo}{\mathrm{MO}_2}
+\newcommand{\hinge}{(\dagger)}
+\newcommand{\Lt}{\mathcal{L}_2}
+\newcommand{\Ucal}{\mathcal{U}}
+\newcommand{\Vcal}{\mathcal{V}}
+\newcommand{\Wcal}{\mathcal{W}}
+\newcommand{\Lcal}{\mathcal{L}}
+\newcommand{\Scal}{\mathcal{S}}
+\newcommand{\Tcal}{\mathcal{T}}
+
+\newmdenv[linecolor=red!60,linewidth=1pt,backgroundcolor=red!4,
+  skipabove=6pt,skipbelow=6pt]{verify}
+\newmdenv[linecolor=blue!50,linewidth=1pt,backgroundcolor=blue!4,
+  skipabove=6pt,skipbelow=6pt]{claimbox}
+
+\title{The $(\beta)$ swap: closure, hinge, and the finite$\to$limit
+degeneration\\[2pt]
+\large An LLM-attempted derivation --- \textbf{not verified}}
+\author{Worktree note}
+\date{2026-06-10}
+
+\begin{document}
+\maketitle
+
+\begin{verify}
+\noindent\textbf{Status: LLM-ATTEMPTED, NOT VERIFIED.} Per CLAUDE.md
+(``verify LLM proofs independently'') and the verify-by-building discipline,
+every claim is a candidate for the user to check by hand or in Lean.
+Confidence flags are the model's and are fallible. Primary source:
+\texttt{navara\_1992.pdf} (PAMS 115, 1992), read directly; formulas quoted
+from p.~428.
+\end{verify}
+
+% =====================================================================
+\section{The $(\beta)$ construction, fixed precisely}
+% =====================================================================
+
+Chosen per the programme's anti-smuggler orientation
+(\texttt{genealogy\_vision.md}: ``watch structure appear without being snuck
+in''): $\MOtwo$ is the \emph{primitive atom}; Navara's state-engineering
+scaffold ($\Tcal\times\Scal$, stateless $\Scal$) is \emph{discarded}.
+
+\begin{description}[leftmargin=1.4em,itemsep=2pt]
+  \item[Block.] $\Ucal := \MOtwo$, atoms $a,a^\perp,b,b^\perp$, with
+    $a\wedge b=\mathbf 0$, $a\not\le b^\perp$ (i.e.\ $a\not\perp b$), and
+    complementary pairs $\{a,a^\perp\},\{b,b^\perp\}$. Bounds $\mathbf 0,
+    \mathbf 1$. \emph{(Contrast Navara: $\Ucal=\Tcal\times\Scal$. We drop the
+    $\Tcal\times$ wrapper.)}
+  \item[Copies + horizontal sum.] For each $C\subseteq M$ ($M$ countable) a
+    copy $\Ucal_C$; $\Vcal :=$ horizontal sum of $\{\Ucal_C:C\subseteq M\}$
+    (copies glued only at $\mathbf 0,\mathbf 1$).
+  \item[Product + constancy.] $\Wcal := \prod_{m\in M}\Vcal$; $\Lcal\subseteq
+    \Wcal$ = all $f$ with Navara's constancy condition (p.~428, verbatim, with
+    $\Ucal_C$ now an $\MOtwo$-copy):
+    \begin{quote}
+    whenever $f(m)\in\Ucal_C\setminus\{\mathbf 0,\mathbf 1\}$ for some
+    $m\in M$, $C\subseteq M$, then $m\in C$ and $f$ is constant on $C$.
+    \end{quote}
+  \item[Notation.] $v\,|\,C$ = the element of $\Lcal$ attaining $v\in\Ucal_C$
+    on $C$, $\mathbf 0$ on $M\setminus C$. Witness: $a_n:=a\,|\,C_n$,
+    $p:=\bigvee_n b\,|\,C_n$, for disjoint $C_n$.
+\end{description}
+
+% =====================================================================
+\section{Closure step re-derived for $\MOtwo$ blocks
+  \quad{\normalfont\small[the load-bearing check]}}
+% =====================================================================
+
+\noindent\textbf{Goal.} Navara's proof shows $\Lcal$ closed under countable
+orthogonal joins ($\sigma$-orthocompleteness). The one block-dependent step
+(p.~428):
+\begin{quote}\itshape
+``Suppose $f(m)\in\Ucal_C\setminus\{0,1\}$ \dots\ All $f_n(m)\le_\Vcal f(m)$,
+so belong to $\Ucal_C$. All $f_n$ with $f_n(m)\neq0$ must be constant on $C$.
+There is some $f_i$ with $f_i(m)\neq0$. For all $f_j$ with $f_j(m)=0$, the
+relation $f_i\perp f_j$ implies $f_j$ attains values from $\Ucal_C$ on $C$.
+Hence $f_j$ is constant $(=0)$ on $C$.''
+\end{quote}
+
+\noindent\textbf{The step that must carry for $\MOtwo$:}
+``$f_i\perp f_j$ and $f_i(m)\neq0\Rightarrow f_j$ constant $=0$ on $C$.''
+Navara's reason: $f_j\le f_i^\perp$, and the elements $\le f_i^\perp$ in the
+block are limited enough to force $f_j=0$ on $C$.
+
+\medskip
+\noindent\textbf{Derivation \textnormal{(confidence: MEDIUM-HIGH on the lattice
+fact, MEDIUM on sufficiency).}}
+Take $f_i(m)=x\in\{a,a^\perp,b,b^\perp\}$ (nonzero non-$\mathbf 1$; if
+$f_i(m)\in\{\mathbf 0,\mathbf 1\}$ the constancy clause is not triggered). In
+$\MOtwo$, for an atom $x$,
+\[
+  {\downarrow}(x^\perp)=\{\mathbf 0,\,x^\perp\}
+  \qquad(\text{$x^\perp$ an atom; nothing strictly below it}).
+\]
+So $f_j(m)\le x^\perp$ forces $f_j(m)\in\{\mathbf 0,x^\perp\}$.
+\begin{itemize}[noitemsep]
+  \item $f_j(m)=\mathbf 0$: the desired ``$=0$ on $C$'' at coordinate $m$. \checkmark
+  \item $f_j(m)=x^\perp$: then $f_j$ is nonzero-non-$\mathbf 1$ on the block,
+    so by constancy $f_j$ is constant $=x^\perp$ on $C$ --- \emph{not} $=0$. So
+    this branch must be excluded by the \emph{orthogonal-family} hypothesis,
+    not by the block alone.
+\end{itemize}
+
+\noindent\textbf{Where it closes.} The family $\{f_n\}$ is pairwise orthogonal.
+If $f_i,f_j$ were both $\neq0$ on $C$ (values $x,x^\perp$), they are a
+within-block orthogonal pair (size 2, allowed). A \emph{third} $f_k\neq0$ on
+$C$ needs $f_k(m)\le x^\perp\wedge(x^\perp)^\perp=x^\perp\wedge x=\mathbf 0$,
+forcing $\mathbf 0$. Hence:
+
+\begin{claimbox}
+\noindent\textbf{Claim 1 (closure survives, MEDIUM confidence).} On any block
+$C$, at most \emph{two} family members are nonzero (a complementary pair
+$x,x^\perp$); all others are $\mathbf 0$ on $C$. Countable orthogonal joins are
+computed coordinatewise with $\le2$ support per block, stay constant on each
+$C$, land in $\Lcal$. \textbf{$\sigma$-orthocompleteness survives the $\MOtwo$
+swap.}
+\end{claimbox}
+
+\noindent This \emph{matches} the notes' assertion (``only elements $\le
+a^\perp$ are $\{0,a^\perp\}$'') but names the hidden gap: the nonzero branch
+$f_j=x^\perp$ is killed by the \emph{family cap}, not the block down-set alone.
+
+\begin{verify}
+\noindent\textbf{VERIFY 1:} Is ``$\le2$ nonzero family members per block, rest
+$0$'' sufficient for Navara's coordinatewise-join-lands-in-$\Lcal$ conclusion?
+I think yes (each is constant on $C$; the join of a $2$-element within-block
+orthogonal pair plus disjoint-support tails is constancy-legal), but confirm
+against his intended argument --- he proves $=0$ outright, I get it only after
+invoking pairwise-orthogonality of the whole family.
+\end{verify}
+
+% =====================================================================
+\section{Finite truncation $\Lt^{(N)}$: statefulness lives here
+  \quad{\normalfont\small[the limit intuition]}}
+% =====================================================================
+
+Restrict $M$ to $N$ blocks $C_1,\dots,C_N$ (or take the sub-OML generated by
+the first $N$ block-coordinates): $\Lt^{(N)}$.
+
+\begin{claimbox}
+\noindent\textbf{Claim 2 (confidence: HIGH).} $\Lt^{(N)}$ is finite,
+non-Boolean (each block carries the live $a\wedge b=\mathbf 0$, $a\not\perp b$
+gap), and \textbf{concrete + stateful}: $\MOtwo$ is concrete (order-determining
+$2$-valued states); finite products and sub-OMPs of concrete logics are
+concrete. So $\Lt^{(N)}$ has a separating state space --- \textbf{proper
+probability tables exist at every finite stage.}
+\end{claimbox}
+
+\noindent This is the ``statefulness'' the limit intuition expects: present and
+healthy at every finite truncation. The directed family $\{\Lt^{(N)}\}_N$ with
+inclusions $\Lt^{(N)}\hookrightarrow\Lt^{(N+1)}$ has $\Lt=\bigcup_N\Lt^{(N)}$
+completed under the $\sigma$-join. \emph{The question is what survives the
+colimit $+$ closure.}
+
+\begin{verify}
+\noindent\textbf{VERIFY 2:} that $\Lt$ is the $\sigma$-orthocompletion of the
+directed colimit of the $\Lt^{(N)}$ --- finite truncations cofinal, closure
+only adds infinite orthogonal joins. Plausible from constancy; not checked.
+\end{verify}
+
+% =====================================================================
+\section{The hinge $+$ the degeneration map \quad{\normalfont\small[verdict]}}
+% =====================================================================
+
+The $(\bigstar)$ test on $p=\bigvee_n b\,|\,C_n$ vs $a_n=a\,|\,C_n$, computed
+in $\Lt$ (not $\Wcal$).
+
+\medskip
+\noindent\textbf{Fact (1): $p\wedge a_n=\mathbf 0$. (HIGH.)} Coordinatewise: on
+$C_n$, $b\wedge a=\mathbf 0$; off $C_n$, disjoint support $\to\mathbf 0$. Meets
+are coordinatewise, not deformed by closure (closure adds joins). \checkmark
+
+\medskip
+\noindent\textbf{Fact (2): is $p\perp a_n$, i.e.\ $p\le a_n^\perp$ in $\Lt$?
+$\;\leftarrow$ THE HINGE.}
+
+\noindent\textbf{Derivation \textnormal{(confidence: MEDIUM --- the crux,
+treat skeptically).}} $a_n=a$ on $C_n$, $\mathbf 0$ elsewhere. Its
+orthocomplement in $\Lcal$:
+\[
+  a_n^\perp=(a\,|\,C_n)^\perp
+  \;=\; a^\perp\,|\,C_n \;\vee\; \mathbf 1\,|\,(M\setminus C_n)
+\]
+--- $a^\perp$ on $C_n$, $\mathbf 1$ everywhere else. \emph{Confidence
+MEDIUM-HIGH:} standard orthocomplement of a $C_n$-supported element; crucially
+(from the source) it is taken \emph{inside the horizontal-sum copy
+$\Ucal_{C_n}$}, where for the atom $a$, $a^\perp$ is the $\MOtwo$
+orthocomplement (an atom). Constancy preserved. So $a_n^\perp\in\Lcal$.
+\checkmark
+
+Test $p\le a_n^\perp$ coordinatewise:
+\begin{itemize}[noitemsep]
+  \item Off $C_n$: $a_n^\perp=\mathbf 1$, $p\le\mathbf 1$. \checkmark no constraint.
+  \item On $C_n$: $a_n^\perp=a^\perp$, $p=b$. So the hinge reduces to:
+\end{itemize}
+\[
+\boxed{\;\hinge\quad\text{In }\MOtwo:\ \text{is}\ \ b\le a^\perp\,?\;}
+\]
+\textbf{And in $\MOtwo$, $b\le a^\perp$ is FALSE} --- the defining
+meet-zero$\,\neq\,$orthogonal property ($a\not\perp b$ \emph{means}
+$b\not\le a^\perp$).
+
+\begin{claimbox}
+\noindent\textbf{Claim 3 (hinge YES --- $\bigstar$ HOLDS --- conjecture FALSE).
+CONFIDENCE: LOW-to-MEDIUM. Contradicts the notes' ``leans NO.'' See the
+adversarial check before believing it.}
+$p\not\le a_n^\perp$ for every $n$, so $(\bigstar)$ holds in $\Lt$: $p$ a
+genuine element, $\{a_n\}$ infinite orthogonal, $p\wedge a_n=\mathbf 0$ yet
+$p\not\le a_n^\perp$. $\Lt$ would be a concrete, $\sigma$-orthocomplete,
+non-Boolean OML exercising descent --- the sought point-free
+relational-probability object.
+\end{claimbox}
+
+\subsection*{$\blacktriangleright$ Adversarial check on Claim 3 --- why I do
+NOT trust it}
+
+The derivation is ``too easy'' and the notes lean the other way. Three places
+it can break, by priority:
+
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2em]
+  \item \textbf{The orthocomplement formula may be deformed by closure (HIGH
+    suspicion).} I assumed $a_n^\perp=a^\perp|C_n\vee\mathbf 1|(M\setminus
+    C_n)$. Navara \emph{warns} ``the lattice operations in $\Lcal$ do not
+    coincide with those of $\Wcal$.'' If the join $a^\perp|C_n\vee\mathbf
+    1|(M\setminus C_n)$ is enlarged in $\Lcal$'s completion, or if $p$'s closed
+    form exceeds $b$-on-$\bigcup C_n$, the on-block comparison changes. \emph{I
+    did not re-derive $p$ as a closed join} --- a real gap.
+  \item \textbf{$p\le a_n^\perp$ is an ORDER relation in $\Lcal$, and $\le$ in a
+    completion can hold for coordinatewise-incomparable elements (MEDIUM).} The
+    completion can add order relations: ``coordinatewise $b\not\le a^\perp$ on
+    $C_n$'' may not survive as ``$p\not\le a_n^\perp$ in $\Lcal$.'' This is
+    exactly the segregation mechanism --- Boolean-ization across blocks could
+    force $p$ below $a_n^\perp$ \emph{globally} though it fails \emph{locally}.
+  \item \textbf{The segregation argument (notes, 2026-06-08) is not addressed
+    above.} Notes: infinite orthogonal families in $\Lcal$ are disjoint-support
+    $\Rightarrow$ Boolean $\Rightarrow$ non-distributivity trapped in finite
+    blocks. Claim 3 asserts $p$ (one element) escapes the trap by being tested
+    \emph{against} the family, not \emph{in} it. \textbf{Which is right is the
+    whole open question.} My derivation tacitly assumes the coordinatewise
+    order \emph{is} the $\Lcal$ order; the segregation view says closure changes
+    it. I lean to distrusting Claim 3, precisely because I skipped the
+    closed-join derivation of $p$ (item 1).
+\end{enumerate}
+
+\subsection*{The degeneration picture (holds under EITHER verdict)}
+
+Regardless of the hinge: finite truncations $\Lt^{(N)}$ are quantum + stateful
+(\S3). The map $\Lt^{(N)}\to\Lt$ ($N\to\infty$, completed) is where
+state-tables and the quantum gap either stay married (Claim 3 / yes) or divorce
+(segregation / no). This degeneration --- \emph{how the proper probability
+tables of the finite stages relate to the limit} --- is the object the
+``statefulness reappears in a limit'' intuition names, worth characterizing
+either way:
+\begin{itemize}[noitemsep]
+  \item \textbf{yes:} the gap survives to the limit; $p$ is the witness; tables
+    persist.
+  \item \textbf{no:} the limit Boolean-izes; tables survive on the skeleton $+$
+    finite stages; the gap dies in the passage --- an explicit picture of
+    $\sigma$-additivity destroying non-distributivity (the descent obstruction,
+    made visible).
+\end{itemize}
+
+% =====================================================================
+\section{What to verify, in priority order}
+% =====================================================================
+
+\begin{enumerate}[label=\textbf{\arabic*.},leftmargin=2em,itemsep=2pt]
+  \item \textbf{[crux] Re-derive $p$ as a CLOSED join in $\Lcal$} (not naive
+    $b$-on-$\bigcup C_n$). Does the $\sigma$-orthocompletion enlarge it? The gap
+    that makes me distrust Claim 3.
+  \item \textbf{[crux] Is $\le$ in $\Lcal$ the coordinatewise order or the
+    completion order?} If completion order, does it force $p\le a_n^\perp$
+    globally (segregation)?
+  \item \textbf{[closure] Confirm Claim 1} (``$\le2$ nonzero family members per
+    block'') matches Navara's intended argument.
+  \item \textbf{[colimit] Confirm $\Lt=$ $\sigma$-orthocompletion of the
+    directed colimit of $\Lt^{(N)}$.}
+  \item \textbf{Then, and only then:} the hinge verdict $+$ the degeneration
+    map.
+\end{enumerate}
+
+\begin{verify}
+\noindent\textbf{Honest bottom line.} I derived a \emph{candidate YES} (Claim
+3), but my own adversarial check finds the derivation incomplete at exactly the
+point (closed-join of $p$, completion-order) where the notes' ``leans NO''
+would bite. So this worksheet does \textbf{not} overturn the leaning verdict ---
+it \textbf{localizes the open question to two concrete sub-derivations} (items
+1--2), which is the real deliverable. The hinge is now: \emph{does $\Lcal$'s
+completion enlarge $p$ or add the order relation $p\le a_n^\perp$?}
+\end{verify}
+
+\end{document}

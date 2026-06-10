@@ -119,19 +119,15 @@ QUERY SYSTEM  (2026-03-18, the unlock) ── dynamics = directed observations
    OML THREAD (seeded from Paper I's close)
             │
             ├─ EXTENSION axis ──► CLOSED on L(H) (no state extends, n=4 witness) [Type 5]
-            └─ DESCENT axis ────► (★) RESOLVED YES (2026-06-10, Navara p.428):
-                                   L_MO₂ has non-distributive descent STRUCTURE.
-                                   OPEN QUESTION now = is L_MO₂ CONCRETE?
-                                   (horizontal-sum crux) → /audit full decides.
-                                   = point-free σ-additive probability / Paper II PR
+            └─ DESCENT axis ────► the live frontier (= point-free σ-additive
+                                   probability / Paper II PR). Current status:
+                                   see `program_overview.md` item 4.
 ```
 
-*(Thread-map terminal node updated 2026-06-10. The descent axis is no longer
-"the one open question = the σ-orthocompleteness/HINGE check" — that check
-resolved YES. The open question moved to concreteness of L_MO₂. The state-level
-df-state/hom separation that briefly looked like a contribution was KILLED the
-same day. Canonical statement:
-`notes/open_questions/descent_axis_residue_post_kill.md`.)*
+*(For the current descent-axis status — what is settled, what is open, and the
+pending `/audit full` — see `program_overview.md` (item 4, authoritative) and
+the axis's own single-source `notes/open_questions/descent_axis_residue_post_kill.md`.
+This document narrates history, not live state.)*
 
 ---
 

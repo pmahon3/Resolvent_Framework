@@ -77,9 +77,12 @@ Three nested positions, each a strengthening of the previous:
     Requires descent from the dual-space measure.
 
   \item \textbf{Value-definite realism (VDR).}
-    Every observable simultaneously has a definite value.  A global
-    dispersion-free state --- equivalently, a 2-valued homomorphism
-    on the full observation algebra.
+    Every observable simultaneously has a definite value: a global
+    dispersion-free state on the full observation algebra.  On a
+    Boolean algebra (and on $L(H)$) this coincides with a 2-valued
+    homomorphism; on a general OML the two come apart (Remark below),
+    and it is the dispersion-free state that is the operative notion
+    throughout.
 \end{enumerate}
 
 Both EA and PR as stated presuppose a genuine measure on the dual space:
@@ -301,10 +304,21 @@ A state $s$ is \emph{dispersion-free} if $s(a) \in \{0,1\}$ for
 all $a \in A$.
 \end{definition}
 
-\noindent A dispersion-free state is a 2-valued homomorphism: it
-assigns a definite truth value to every proposition in $A$.  On a
-Boolean algebra, dispersion-free states are exactly the
-ultrafilters.
+\noindent A dispersion-free state assigns a definite truth value
+to every proposition in $A$.  Every 2-valued homomorphism is
+dispersion-free; the converse holds on Boolean algebras (where
+dispersion-free states are exactly the ultrafilters) and on
+$L(H)$, but \emph{fails} on a general OML: a dispersion-free state
+need not be multiplicative across incompatible propositions.  The
+minimal witness is $MO_2$ (the horizontal sum of two Boolean
+$2^2$ blocks): assigning $1$ to one atom of each block gives a
+dispersion-free state $s$, yet for the gap pair $a, b$ with
+$a \wedge b = 0$ and $s(a) = s(b) = 1$ one has
+$s(a \wedge b) = 0 \neq 1 = s(a) \wedge s(b)$, so $s$ is not a
+homomorphism.  Throughout, the operative notion of value-definiteness
+is the dispersion-free state (equivalently, non-emptiness of
+$\mathcal{S}_{\mathrm{df}}(A)$), not the strictly stronger 2-valued
+homomorphism.
 
 \begin{theorem}[Kochen--Specker~\cite{KochenSpecker1967}]
 \label{thm:KS}
@@ -613,11 +627,12 @@ Theorem~\ref{thm:commensurability}(b).
 The dimensional restriction is necessary.  For $\dim H = 2$,
 $L(\mathbb{C}^2)$ is non-distributive but admits dispersion-free
 states.  More generally, horizontal sums of Boolean algebras and
-certain finite OMLs are non-distributive yet admit 2-valued
-homomorphisms~\cite[Chapter~4]{Kalmbach1983}.  The sharp
-characterisation for general OMLs is: VDR is available iff $A$
-admits a dispersion-free state, which is a property of $A$, not of
-distributivity alone.  Distributivity is sufficient
+certain finite OMLs are non-distributive yet admit dispersion-free
+states~\cite[Chapter~4]{Kalmbach1983} --- though, as $MO_2$ shows,
+these dispersion-free states need not be 2-valued homomorphisms.
+The sharp characterisation for general OMLs is: VDR is available
+iff $A$ admits a dispersion-free state, which is a property of $A$,
+not of distributivity alone.  Distributivity is sufficient
 (ultrafilters exist) but not necessary in full generality.  For
 the physically and epistemologically central case $\dim H \geq 3$,
 it is the effective dividing line.

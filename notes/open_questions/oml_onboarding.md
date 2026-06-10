@@ -283,8 +283,19 @@ Boolean case fuses:
 | **Governed by** | the meet-zero/orthogonal gap (§2.1) | σ-additivity — needs the missing engine (§2.4) |
 | **Status**      | settled: Horn–Tarski/Pitowsky feasibility; finite case = decidable LP; can fail for every state. | open. |
 
+The extension axis is the abstract form of the Bell question: extending a
+finitely-additive assignment on incompatible propositions to a single joint
+distribution is exactly the feasibility behind the Bell inequalities (Fine
+1982: Bell model ⟺ joint distribution; Pitowsky 1989: Bell inequalities =
+facets of a correlation polytope), and Bell + Kochen–Specker non-classicality
+are jointly one extension problem for partial Boolean algebras
+(Budroni–Morchio, arXiv:1010.4662, with the necessary-and-sufficient Horn–Tarski
+conditions). The obstruction is the same *finitary* one — it does **not** reach
+the σ-additive descent axis below.
+
 **Prop 3.1 (Finite case).** For finite `A` the extension condition is a
-decidable LP (Horn–Tarski / Pitowsky feasibility); since `h` preserves
+decidable LP (Horn–Tarski / Pitowsky feasibility; Budroni–Morchio for the
+partial-Boolean-algebra form); since `h` preserves
 meets, meet-zero elements map to disjoint clopens and a charge needs
 `Σ s(aᵢ) ≤ 1` over pairwise-meet-zero families. Can fail for *every* state
 (MO₃, Ex 2.8).

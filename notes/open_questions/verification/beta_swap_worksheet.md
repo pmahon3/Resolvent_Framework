@@ -55,11 +55,32 @@ flags are mine and are fallible. Primary source: `navara_1992.pdf` (PAMS 115,
 > SUBSET of W (not quotient, not completion); order = restriction of product
 > order; join = "join in W" (coordinatewise), proved to land in 𝓛. **The
 > load-bearing fact is verified from the primary source.** Witness transfers ⟹
-> **hinge YES** ⟹ park → **ATTACK**. Remaining: legs (ii) [union-of-block ⊥
-> coordinatewise — likely moot, witness uses single-block aᵢ] and (iii) [closure
-> Claim 1] are consistency checks, not reversals. Minor open: leg (ii′) confirm
+> **hinge YES** ⟹ park → **ATTACK**. Minor open: leg (ii′) confirm
 > a,b realizing the gap sit in the SAME horizontal-sum copy 𝓤_C (they do by
 > construction — aₙ=a|Cₙ, p=b within each Cₙ).
+>
+> **✓ LEAN-VERIFIED 2026-06-10 — legs (ii) + (iii) closed (0 sorry, 0 new
+> axioms).** `DescentWitnessClosure.lean` (imports only the concrete model, NOT
+> the Navara axioms — `#print axioms` shows just propext/Classical.choice/
+> Quot.sound, so the legs stand on the model alone, not on the axioms re-proving
+> themselves):
+> - **leg (ii)** — `meet_bot_iff_blockwise`, `ortho_iff_blockwise`: the ⊥-test
+>   and the orthogonality-test localize per-coordinate for ARBITRARY
+>   (union-of-block) supports, not just the single-block witness. Confirms (ii)
+>   was indeed moot in the worst case (holds for all x,y).
+> - **leg (iii)(a)** [= VERIFY 1 lattice content] — `mo2_cap_two` /
+>   `mo2_pairwise_ortho_one_zero`: a pairwise-orthogonal triple in MO₂ forces a ⊥
+>   member (no orthogonal family of 3 nonzero elements). Confirms Claim 1's
+>   "cap at 2 per block" by `decide`.
+> - **leg (iii)(b)** [= VERIFY 1 closure content] — `aW_pairwise_ortho`: the
+>   witness family {aₙ} is genuinely infinite-orthogonal. **Scope decision
+>   (programme-aligned):** closure is WITNESS-SCOPED — singleton blocks Cₙ={n}
+>   make constancy vacuous, so the join lands in 𝓛 automatically. The general-C
+>   σ-orthocompleteness is Navara's CITED classical result (PAMS 115, 1992,
+>   p.428), axiomatized in `DescentWitnessInfinite.lean`, NOT re-proved (per
+>   CLAUDE.md: don't formalize known results). A `SingletonConstancy := True`
+>   predicate was deliberately NOT introduced (triviality theater); the real
+>   content is the orthogonality lemma + the cited closure.
 >
 > ---
 >
@@ -146,11 +167,12 @@ block" step is the one to check against Navara's intent — he proves `=0`
 outright, I get `=0` only after invoking pairwise-orthogonality of the whole
 family. Verify this is what his proof actually uses.**
 
-⚠ **VERIFY 1:** Is "at most 2 nonzero family members per block, rest 0"
-sufficient for his coordinatewise-join-lands-in-L conclusion? I think yes
-(constancy holds for each, join is constant on `C`), but confirm the join of a
-2-element within-block orthogonal pair plus disjoint-support tails is itself
-constancy-legal.
+⚠ **VERIFY 1 — ✓ CLOSED (Lean, 2026-06-10).** "At most 2 nonzero family
+members per block" is now `mo2_cap_two`/`mo2_pairwise_ortho_one_zero` in
+`DescentWitnessClosure.lean` (`decide`, 0 sorry). The "join-lands-in-L"
+conclusion is witness-scoped (singleton blocks ⟹ constancy vacuous); the
+general-`C` closure is Navara's cited classical result, axiomatized not
+re-proved. See the resolution box's "LEAN-VERIFIED" note.
 
 ---
 

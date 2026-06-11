@@ -571,11 +571,11 @@ Three directions bear on it.
   probability on a non-Boolean σ-complete OML (or its dual frame) that does *not*
   descend to a point space — a genuine non-Boolean localic measure — or prove
   that any such structure collapses to a point space or to the Boolean case. The
-  point-based form is already ruled out (Rmk 5.1: non-Boolean OMLs have no
-  two-valued homomorphisms, so no σ-tribe representation exists at any
-  cardinality); the open content is whether the point-free form can be
-  non-trivial, which is why the engine must be sought localically (route (iii),
-  §4.3), not as a field of sets.
+  point-based form is already ruled out (Rmk 5.1: a faithful σ-tribe
+  representation has a distributive image, forcing the OML Boolean — so no σ-tribe
+  representation of a non-Boolean OML exists at any cardinality); the open content
+  is whether the point-free form can be non-trivial, which is why the engine must
+  be sought localically (route (iii), §4.3), not as a field of sets.
 - **Settle the (A)/(B) status of `L(H)`+Gleason.** Decide whether `L(H)`+Gleason
   counts as a genuine point-free non-distributive σ-additive witness or is
   disqualified by the point-space equivocation (Rmk 5.2); if it counts, ask

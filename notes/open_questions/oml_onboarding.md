@@ -21,8 +21,10 @@ which countable joins they require: a *structural* one — whether a σ-complete
 OML admits a Loomis–Sikorski representation, neither constructed nor ruled out —
 and a *descent-relevance* one on the weaker σ-orthocomplete class, which we show
 is non-empty and (update 2026-06-10, §5 resolution box) whose `MO₂`-swap member
-`𝓛₂` satisfies the interleaving condition (★) — so it does *not* segregate — but
-whose **concreteness** is the remaining open question that decides everything.
+`𝓛₂` satisfies the interleaving condition (★) — so it does *not* segregate — and
+(RESOLVED 2026-06-10, axis PARKED) **is concrete**, so the conjecture is false as
+worded, yet is **not a contribution**: trivial (∏ₙ`MO₂` carries the whole bundle)
+and already characterized by Pták–Pulmannová 1994.
 The stake is more than
 technical: a positive resolution would furnish a *point-free*, σ-additive
 probability theory on a non-distributive lattice — the non-Boolean analogue of
@@ -550,7 +552,7 @@ support count.)
 > "Sub-OMP of concrete is concrete" covers the product and sublogic steps, NOT
 > the horizontal sum. **So the open problem is now: is `L_MO₂` concrete?** —
 > the `/audit full` target. Canonical statement:
-> `descent_axis_residue_post_kill.md`.
+> `../covered_leads/descent_axis_residue_post_kill.md`.
 >
 > **⛔ RESOLVED 2026-06-10 (`/audit full`, opus Agent — descent axis PARKED).**
 > `L_MO₂` **IS** concrete, so the conjecture is FALSE as worded — but the lead is

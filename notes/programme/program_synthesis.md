@@ -3,6 +3,16 @@
 *Written 2026-04-06. Updated 2026-05-03 after notes reorganization and
 renumbering cleanup into the current three-paper architecture.*
 
+> **⚠ STALE SNAPSHOT (pre-dates the 2026-05-11 CE collapse).** This document
+> describes the architecture as of early May and presents leads — notably
+> **fibre-mixing irreducibility** ("the highest-leverage move", §"The true
+> frontier") — that have since died or parked. Fibre mixing was **killed**
+> (bridge theorem false); Papers II/III were withdrawn; the OML thread that
+> succeeded them has itself closed/parked (descent axis, 2026-06-10). Read this
+> for the historical architecture only. For current state the authoritative doc
+> is `program_overview.md`; for the kill history see `genealogy.md`. Left
+> un-rewritten because it is a dated snapshot, not a live state doc.
+
 ---
 
 ## The single unifying object

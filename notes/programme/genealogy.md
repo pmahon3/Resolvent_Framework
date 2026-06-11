@@ -6,7 +6,8 @@ sequence of conjectures, refutations, and problem-shifts across the full
 is visible from outside the turn-to-turn.*
 
 This document exists because the programme spent two months contracting
-(three papers + four active leads in early May → one open question now) and
+(three papers + four active leads in early May → one open question by 2026-06-06,
+since closed: see the thread-map footnote below) and
 the largest-scale shape was no longer visible from inside it. It is a map,
 not a verdict. It deliberately leaves one question open at the end — the one
 that decides what the next year is for. See `program_overview.md` for the

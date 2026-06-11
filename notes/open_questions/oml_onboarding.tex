@@ -65,17 +65,22 @@ $\sigma$-tribe representation has a distributive image, forcing the OML Boolean,
 so the point-based route is closed for every non-Boolean OML (and the witness
 $\prod_n\mathrm{MO}_2$ has, concretely, no two-valued homomorphisms at all); the
 forcing boundary to Boolean is \emph{subadditivity} of the separating states
-(Pt\'ak--Pulmannov\'a), not $\sigma$-additivity. The open problem is therefore necessarily
-\textbf{point-free}: does a non-Boolean, $\sigma$-complete OML carry a
-$\sigma$-additive probability that is genuinely relational --- the non-Boolean
-analogue of a localic (point-free) measure --- rather than reducible to a point
-space? The two richly non-distributive poles frame it: $L(H)$+Gleason has a
+(Pt\'ak--Pulmannov\'a), not $\sigma$-additivity. The open problem is therefore
+\textbf{representation-irreducible}: does a non-Boolean, $\sigma$-complete OML
+carry a $\sigma$-additive probability that is genuinely relational --- not
+recovered from a faithful (Boolean) representation on points --- rather than
+reducible to a measure on an underlying point space? The two richly
+non-distributive poles frame it: $L(H)$+Gleason has a
 $\sigma$-additive lattice measure but is the \emph{most} point-ful object, not
 point-free (the (A)/(B) analysis of \S\ref{sec:problem}); the concrete
-combinatorial objects are segregated. A positive answer is the non-Boolean
-analogue of localic measure theory; a negative answer, an impossibility theorem
-closing the cluster. We review what is known and what is ruled out, and close
-with the directions in which the problem might be approached.
+combinatorial objects are segregated. The decisive subtlety is that
+``point-free / relational'' does not yet have an agreed predicate
+(\S\ref{sec:predicate}): the natural candidates are either vacuous or
+fork-dependent, and which one is intended is the (a)/(b) fork --- so the problem
+is, first, to \emph{define} its own success criterion. A positive answer is the
+non-Boolean analogue of localic measure theory; a negative answer, an
+impossibility theorem closing the cluster. We review what is known and what is
+ruled out, and close with the directions in which the problem might be approached.
 \end{abstract}
 
 % ==================================================================
@@ -903,33 +908,76 @@ underlying point space? Or can one prove that any such structure collapses ---
 either to a point space, or to the Boolean case?
 \end{problem}
 
-\noindent ``Point-free'' qualifies the \emph{measure}, and it must negate
-\emph{both} point-spaces of Remark~\ref{rem:AB}: the measure must neither
-concentrate on the (B)-realisation (the dual points $P(A)$) \emph{nor} be built
-by reduction to the (A)-points (e.g.\ recovered as $s=\tr(\rho\,\cdot)$ from an
-underlying ray/density datum). Negating (B) alone is not enough --- $L(H)$+Gleason
-passes (B) (Proposition~\ref{prop:lh}: nothing concentrates on $P(A)$) yet is the
-\emph{most} (A)-ful object there is --- so a witness must escape both, which is
-what ``genuinely relational'' means here. The condition bites even when the
-lattice itself happens to be set-representable: it is the \emph{measure}, not the
-lattice, that must be point-free. The localic framing is forced,
-not preferred, because the point-based route is closed in advance. A full
-$\sigma$-tribe / Loomis--Sikorski representation preserves $\wedge,\vee$ as
-$\cap,\cup$, so its image is a sublattice of a Boolean algebra, hence
-distributive --- forcing the OML Boolean (Remark~\ref{rem:concrete}). So
-``relational probability via a faithful set representation'' is impossible by a
-one-line argument for \emph{any} non-Boolean OML; the only coherent target is the
-point-free one, where the measure lives on the lattice (or its dual frame)
-without descending to points.
-The two richly non-distributive poles frame the difficulty: $L(H)$+Gleason gives
-a $\sigma$-additive measure on the lattice but is \emph{not} point-free --- it is
-the \emph{most} point-ful object available (Remark~\ref{rem:AB}, the (A)/(B)
-analysis) --- while the concrete combinatorial objects are \emph{segregated}
-(non-distributivity confined to finite blocks, the countable structure Boolean
-across them, \S\ref{sec:why-sigma}). The open problem is whether a genuinely
-point-free, genuinely non-distributive $\sigma$-additive probability exists
-between these poles; a positive answer is the non-Boolean analogue of localic
-measure theory, a negative one an impossibility theorem closing the cluster.
+\noindent One genuine universal is available and frames everything: a
+\emph{faithful set representation} ($\sigma$-tribe / Loomis--Sikorski, preserving
+$\wedge,\vee$ as $\cap,\cup$) has a distributive image, so it forces the OML
+Boolean (Remark~\ref{rem:concrete}). Hence ``relational probability via a faithful
+set representation'' is impossible for \emph{any} non-Boolean OML, so the target
+measure must live on the lattice (or its dual frame) without a faithful descent to
+points. This much is fork-independent; how much \emph{more} is required ---
+whether merely no faithful (Boolean) representation, or strictly no points at all
+--- is the open predicate of \S\ref{sec:predicate}. The two richly
+non-distributive poles frame the difficulty: $L(H)$+Gleason gives a
+$\sigma$-additive measure on the lattice but is recovered from the (A)-rays
+(Remark~\ref{rem:AB}, the (A)/(B) analysis) --- while the concrete combinatorial
+objects are \emph{segregated} (\S\ref{sec:why-sigma}).
+
+\subsection{The predicate ``point-free / relational'' is not yet defined --- and the fork it forces}
+\label{sec:predicate}
+
+The phrase ``point-free / genuinely relational'' is doing essential work above,
+and it does not yet have an agreed mathematical referent. This is not a wording
+gap; it is the structural heart of the problem, and it splits along the two senses
+of ``relational'' the programme has carried. A worker who tries to pin the
+predicate down finds the candidates fall into two useless extremes and one
+fork-dependent middle:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{5.2cm}ccp{3.3cm}@{}}
+\toprule
+\textbf{candidate predicate} & $L(H)$+Gl. & $\prod_n\mathrm{MO}_2$ & \textbf{use}\\
+\midrule
+built from the lattice alone & passes & passes & vacuous ($\rho$ derived, not input)\\
+no faithful set representation & passes & passes & vacuous ($=$ non-classicality, $\vee\neq\cup$)\\
+not a barycentric average over an auxiliary point space ($P_{\mathrm{int}}$)
+  & \textbf{fails} & \textbf{fails} & bites --- but fork-dependent\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent The weak predicates only restate non-distributivity. The biting
+predicate $P_{\mathrm{int}}$ excludes $L(H)$+Gleason for a structural, Gleason-free
+reason (it averages over the rays) and also excludes $\prod_n\mathrm{MO}_2$ (its
+states average over the canonical points $P(A)$). \textbf{Whether $P_{\mathrm{int}}$
+excludes \emph{every} concrete OML is open}: it holds for $\mathrm{MO}_2$ and its
+products, where the extreme states are two-valued, but it is \emph{not} a theorem
+in general --- the extreme states of a concrete OML need not be two-valued, and on
+$L(H)$ there are no two-valued states at all. The two readings divide here:
+
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=2.4cm, leftmargin=2.8cm, topsep=2pt]
+  \item[Reading 1 (no hidden realisation)] The objection is to smuggled hidden
+    variables --- the (A)-points (Gleason's ray-space). The canonical dual $P(A)$
+    is permitted. Then point-richness is not a defect, there is no tension, and the
+    open task is to \emph{define non-segregation} (the predicate separating
+    $\prod_n\mathrm{MO}_2$ from a real witness), still missing. The prize stays
+    alive.
+  \item[Reading 2 (strictly point-free)] No points at all; the measure lives on
+    the frame. Then concreteness is the enemy, $P_{\mathrm{int}}$ is the right
+    predicate, and the question is whether it has \emph{any} non-Boolean model ---
+    likely none, i.e.\ impossibility.
+\end{description}
+
+\noindent\textbf{The gap in the universal is where the prize would live.} Under
+either reading the sought object is a concrete OML (point-rich on the canonical
+$P(A)$) carrying a $\sigma$-additive measure \emph{not} reducible to an average
+over those points. That such an object is not excluded by the table --- because
+the ``every concrete OML'' universal is unproven --- is precisely the room the
+open problem occupies. A positive answer is the non-Boolean analogue of localic
+measure theory; a negative one an impossibility theorem closing the cluster. (The
+computations behind the table are recorded in the companion note
+\texttt{direction2\_gate\_finding.md}.)
 
 \subsection{What the combinatorial route settles, and why it is not enough}
 \label{sec:why-sigma}
@@ -1049,43 +1097,38 @@ $\sigma$-additive structure of \S\ref{sec:problem} is the only candidate engine.
 With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}) and the
 combinatorial ($\sigma$-orthocomplete, set-representable) route shown to deliver
 only segregated objects (\S\ref{sec:why-sigma}), the live problem is the
-point-free existence question of \S\ref{sec:problem}. Three directions bear on
-it.
+representation-irreducible existence question of \S\ref{sec:problem} --- whose
+first obstacle (\S\ref{sec:predicate}) is that ``point-free / relational'' is not
+yet a defined predicate. The directions therefore organise around the fork, not
+around a settled
+target.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
-    labelwidth=3.4cm, leftmargin=3.8cm]
-  \item[Build the point-free engine, or prove it collapses]
-    Seek a $\sigma$-additive probability on a non-Boolean $\sigma$-complete OML
-    (or its dual frame) that does \emph{not} descend to a point space --- a
-    genuine non-Boolean localic measure --- or prove that any such structure
-    collapses to a point space or to the Boolean case. The point-based form is
-    already ruled out (Remark~\ref{rem:inhabited}: a faithful $\sigma$-tribe
-    representation has a distributive image, forcing the OML Boolean --- so none
-    exists for a non-Boolean OML at any cardinality); the open content is
-    precisely whether the point-free form can be non-trivial, which is why the
-    engine must be sought localically (route (iii), \S\ref{sec:routes}), not as a
-    field of sets.
-  \item[Settle the (A)/(B) status of $L(H)$+Gleason]
-    Decide whether $L(H)$+Gleason counts as a genuine point-free
-    non-distributive $\sigma$-additive witness or is disqualified by the
-    point-space equivocation (Remark~\ref{rem:AB}); if it counts, ask whether it
-    is essentially unique. This is the same problem as the first item under a
-    semantic rather than constructive description --- ``does point-free
-    non-distributive $\sigma$-additive probability exist?'' is the content of the
-    localic-engine question --- so progress on either informs the other.
-    \emph{(Pursued 2026-06-11; see the companion note
-    \texttt{direction2\_gate\_finding.md}. The gate produced no Gleason verdict
-    but a sharper finding: ``point-free'' has no stable referent --- every
-    formalization is either vacuous or excludes all concrete OMLs --- and the
-    question bottoms out at the unresolved (a)/(b) fork. Gleason is out under both
-    readings; uniqueness is moot.)}
-  \item[Sharpen the impossibility side via subadditivity]
-    The Boolean boundary is subadditivity of the separating states
-    (Pt\'ak--Pulmannov\'a, Remark~\ref{rem:inhabited}). A negative resolution
-    would likely run through the dual frame: quantify how far a non-Boolean OML's
-    measures must fail subadditivity, and whether requiring a point-free
-    $\sigma$-additive measure forces enough subadditive structure to collapse the
-    object to a point space or to the Boolean case --- the impossibility form of
-    the open problem.
+    labelwidth=2.6cm, leftmargin=3.0cm]
+  \item[The gate: define ``relational,'' which fixes the fork]
+    Prior to all else, choose the predicate (\S\ref{sec:predicate}): is a
+    relational measure one with \emph{no hidden (A)-realisation} (Reading~1 --- the
+    canonical dual $P(A)$ is permitted), or one that is \emph{strictly point-free}
+    in the localic sense (Reading~2 --- no points at all)? This is the (a)/(b) fork
+    in technical form, and it is not a matter of taste: the two readings route to
+    different live problems below. $L(H)$+Gleason is \emph{out} under both (it
+    requires the (A)-rays), so its uniqueness is moot; the gate's content is the
+    definition, not a verdict on Gleason.
+  \item[Reading 1: define non-segregation, then build]
+    The open predicate is the one separating $\prod_n\mathrm{MO}_2$ (point-rich but
+    segregated) from a genuine witness. Make ``non-segregation'' precise (the junk
+    must fail it, a real witness pass), then seek a concrete OML carrying a
+    $\sigma$-additive measure not reducible to an average over its canonical points
+    $P(A)$ --- the gap of \S\ref{sec:predicate}. The faithful set representation is
+    already ruled out (\S\ref{sec:why-sigma}: it forces Boolean), so the engine, if
+    it exists, must be sought localically (route (iii), \S\ref{sec:routes}).
+  \item[Reading 2: settle the impossibility]
+    Ask whether $P_{\mathrm{int}}$ (no average over any auxiliary points) has
+    \emph{any} non-Boolean model. The Boolean boundary is subadditivity of the
+    separating states (Pt\'ak--Pulmannov\'a, Remark~\ref{rem:inhabited}); a
+    negative resolution would run through the dual frame --- quantifying how far a
+    non-Boolean OML's measures must fail subadditivity, and whether a strictly
+    point-free $\sigma$-additive measure forces collapse to a point space or to
+    Boolean. This is the impossibility form of the problem.
 \end{description}
 
 \noindent A candidate direction now closed: the singular case for $L(H)$. One

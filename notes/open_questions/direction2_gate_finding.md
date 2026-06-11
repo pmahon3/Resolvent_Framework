@@ -44,14 +44,19 @@ states are convex averages over its coordinate points P(A).)
 **The vise.** Every formalization of "point-free / relational" is either:
 - **too weak** (P₁, P₂): passes everything non-classical, so it only restates
   "non-distributive," which we already had — it does *not* isolate "relational"; or
-- **too strong** (P_int): the one predicate that excludes Gleason for a stated,
-  Gleason-free reason *also* excludes ∏ₙMO₂ and threatens to exclude **every
-  concrete OML** — because concreteness *is* having order-determining points, and
-  a measure on a point-ful lattice *is* an average over those points. So
-  **P_int ∧ concrete is near-contradictory.**
+- **fork-dependent and possibly too strong** (P_int): the one predicate that
+  excludes Gleason for a stated, Gleason-free reason *also* excludes ∏ₙMO₂. It is
+  tempting to read this as "P_int excludes every concrete OML" (concreteness =
+  order-determining points, and a measure on a point-ful lattice averages over
+  them) — **but that universal is UNPROVEN, and likely false.** It holds for MO₂
+  and its products, where the extreme states are 2-valued; in general the extreme
+  states of a concrete OML need not be 2-valued (on L(H) there are none at all, yet
+  Gleason's states span via the rays). So P_int ∧ concrete is *not* known to be
+  contradictory — and the gap is exactly where a witness could live.
 
-"Point-free" wants the lattice **point-poor** (no points to average over);
-"concrete" forces it **point-rich**. The open problem asks for an object that is
+The tension, stated without the false universal: "point-free" pushes toward
+**point-poor** (no points to average over); "concrete" gives **point-rich**. The
+open problem asks for an object that is
 both.
 
 ## The deeper diagnosis — the recurring (A)/(B) equivocation

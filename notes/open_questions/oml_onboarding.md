@@ -588,7 +588,12 @@ Three directions bear on it.
   whether it is essentially unique. This is the same problem as the first item
   under a semantic rather than constructive description — "does point-free
   non-distributive σ-additive probability exist?" *is* the content of the
-  localic-engine question — so progress on either informs the other.
+  localic-engine question — so progress on either informs the other. *(Pursued
+  2026-06-11 — see `direction2_gate_finding.md`: the gate did not produce a
+  Gleason verdict but a sharper finding — "point-free" has no stable referent
+  (every formalization is vacuous or excludes all concrete OMLs), and the
+  question bottoms out at the unresolved (a)/(b) fork. Gleason is out under both
+  readings; uniqueness (2b) is moot.)**
 - **Sharpen the impossibility side via subadditivity.** The Boolean boundary is
   subadditivity of the separating states (Pták–Pulmannová, Rmk 5.1). A negative
   resolution would likely run through the dual frame: quantify how far a

@@ -1,14 +1,15 @@
 # Fork scout — path (b): the incompatibility theorist / point-free descent
 
-*Branch `explore/b-descent-impossibility`, written 2026-06-11. One of two
-scouting notes (sibling: path (a), branch `explore/a-strategy-d`). Makes the (b)
-path legible enough to decide whether it is worth a year. See
+*Branch `explore/b-pointfree-descent`, written 2026-06-11. One of two scouting
+notes (sibling: path (a), branch `explore/a-strategy-d`). Makes the (b) path
+legible enough to decide whether it is worth a year. See
 `programme/genealogy.md` §"THE OPEN QUESTION" for the (a)/(b) fork.*
 
-> **Branch name is a misnomer, kept for traceability.** It says
-> "impossibility," but the corrected framing below shows the live (b) question is
-> **classification, not impossibility.** "Prove descent is impossible" has no live
-> target (see next section). Do not let the branch name re-seed the dead frame.
+> **Note on the dead frame.** This file's name still says "impossibility" (kept
+> for traceability with the session that created it), but the branch was renamed
+> to `explore/b-pointfree-descent` because the live (b) question is
+> **classification, not impossibility** — "prove descent is impossible" has no
+> live target (see next section). Don't let the filename re-seed the dead frame.
 
 ## Which curiosity this serves
 

@@ -231,36 +231,20 @@ compatibility condition holds automatically.
 
 \begin{theorem}[Extension theorem --- adjunction form]\label{thm:extension-adjunction}
 Under the conditions of Paper~1 (query system sequentially upper-directed and
-realizable), the functor $\Phi$ is an \emph{isomorphism of categories}:
-every compatible family $\{\nu_i\}$ extends uniquely to a measure $P$ on
-$\Omega$, and $\Phi(P) = \{\nu_i\}$.
-
-In particular, $\Phi$ has a two-sided inverse (the extension functor), so
-the adjunction $\mathrm{Ext} \dashv \Phi$ is in fact an equivalence.
+realizable), the marginalisation functor $\Phi$ is an \emph{isomorphism of
+categories}: every compatible family $\{\nu_i\}$ extends uniquely to a measure
+$P$ on $\Omega$, and $\Phi(P) = \{\nu_i\}$. So $\Phi$ has a two-sided inverse
+(the extension functor) and the adjunction $\mathrm{Ext} \dashv \Phi$ is in fact
+an equivalence.
 \end{theorem}
 
-\begin{proof}[Proof (sketch)]
-The uniqueness direction --- that $\Phi$ is injective --- is the
-Observational Determination Theorem (Paper~1, Theorem~5.2): two measures
-on $\Omega$ with the same marginals on all query outcomes are equal, since
-the query $\sigma$-algebra generates $\Bcal_\Omega$.
-
-The existence direction --- that $\Phi$ has a left inverse --- is the
-Observational Extension Theorem (Paper~1, Theorem~6.1): the
-Carathéodory extension of the finitely additive content defined by the
-$\{\nu_i\}$ on cylinder sets is $\sigma$-additive, hence extends to a
-measure $P$ on $\Omega$.  The key steps are:
-\begin{enumerate}
-  \item Define $\mu_0$ on cylinder sets via $\mu_0(\pr_i^{-1}(A)) = \nu_i(A)$.
-  \item Show $\mu_0$ is a well-defined finitely additive content
-    (using compatibility and upper-directedness of the query system).
-  \item Show $\mu_0$ is $\sigma$-subadditive (using realizability to pass
-    from empty cylinder intersections to empty intersections in $\Omega$).
-  \item Apply the Carathéodory extension theorem to obtain $P$.
-\end{enumerate}
-The Lean~4 formalization in \texttt{QuerySystem.lean} proves this in full
-generality; see \texttt{observational\_extension} (line~1450ff).
-\end{proof}
+\noindent The careful development --- the categories $\mathrm{QSys}$,
+$\mathrm{PSys}$, the functors, the unit/counit, and the proof (uniqueness =
+Paper~1 Determination Thm; existence = the Carathéodory route, realizability
+replacing tightness; Lean: \texttt{observational\_extension} in
+\texttt{QuerySystem.lean}) --- is in the companion
+\texttt{categorical\_adjunction.tex} (Thms.~on the adjunction and the
+equivalence). It is not repeated here.
 
 \begin{remark}[The Polish replacement]
 The classical Kolmogorov extension theorem obtains existence by a topological
@@ -439,32 +423,13 @@ presupposed beneath them.
 \label{sec:mathlib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\begin{itemize}
-  \item \textbf{Available}: \texttt{CategoryTheory.Monad.Kleisli} gives the
-    general Kleisli construction.  Instantiated at the Giry monad, morphisms
-    are Markov kernels (\texttt{Probability.Kernel}), which are extensively
-    developed.
-
-  \item \textbf{Available}: \texttt{CategoryTheory.Monad.Algebra} gives
-    the Eilenberg--Moore category and the free/forgetful adjunction.  The
-    query system adjunction (Theorem~\ref{thm:extension-adjunction}) is a
-    specific instance of this pattern.
-
-  \item \textbf{Available}: \texttt{MeasureTheory.Measure.GiryMonad} for
-    the monad laws; \texttt{MeasureTheory.Constructions.Pi} for finite
-    products; \texttt{MeasureTheory.Constructions.Projective} for
-    projective families (partial).
-
-  \item \textbf{Built in-house}: \texttt{QuerySystem.lean} provides
-    \texttt{observational\_extension} --- the main theorem --- as new Lean~4
-    infrastructure not yet in Mathlib.  This fills the Kolmogorov extension
-    gap for the query system setting.
-
-  \item \textbf{Gap}: the precise adjunction of
-    Theorem~\ref{thm:extension-adjunction} (defining $\Prob(\Omega)$ and
-    $\mathrm{Compat}(\{O_i\})$ as Lean~4 categories and verifying the
-    adjunction axioms) has not been formalized.  This is the next categorical
-    formalization target.
-\end{itemize}
+See \texttt{mathlib\_gaps.md} (this directory) for the consolidated audit
+(Kleisli / Eilenberg--Moore / Giry monad / Markov kernels present; projective
+limits and Kolmogorov extension absent; \texttt{QuerySystem.lean}'s
+\texttt{observational\_extension} fills the extension gap in-house for the query
+setting). The one gap specific to \emph{this} document: the adjunction of
+Theorem~\ref{thm:extension-adjunction} (defining $\Prob(\Omega)$ and
+$\mathrm{Compat}(\{O_i\})$ as Lean~4 categories and verifying the adjunction
+axioms) is not formalized --- the next categorical formalization target.
 
 \end{document}

@@ -392,27 +392,12 @@ development.  See the companion note on the program's picture.
 \section{Mathlib availability}\label{sec:mathlib}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-For reference, the following relevant structures are available in Mathlib:
-
-\begin{itemize}
-  \item \texttt{MeasureTheory.Measure.GiryMonad}: the Giry monad on
-    \texttt{MeasurableSpace} (\texttt{Mathlib.MeasureTheory.Measure.GiryMonad}).
-  \item \texttt{CategoryTheory.Monad.Kleisli}: the Kleisli construction for
-    any monad in a category (\texttt{Mathlib.CategoryTheory.Monad.Kleisli}).
-  \item \texttt{MeasureTheory.Constructions.Projective}: projective limits of
-    measure spaces, \texttt{IsProjectiveMeasureFamily},
-    \texttt{IsProjectiveLimit}.
-  \item \texttt{MeasureTheory.Measure.Regular}: Radon measures and inner
-    regularity.
-  \item \textbf{Gap}: the Kolmogorov extension theorem (existence under Polish
-    hypotheses) is explicitly noted as not yet in Mathlib as of v4.28
-    (\texttt{ProjectiveFamilyContent.lean}, line~27).
-\end{itemize}
-
-The formalization strategy for the categorical picture would build on
-\texttt{GiryMonad} and \texttt{Kleisli} to state the query system as a
-diagram in $\Kl(\Pcal)$, and then connect to the existing
-\texttt{QuerySystem.lean} formalization via the embedding of $\Meas$ into
-$\Kl(\Pcal)$.
+See \texttt{mathlib\_gaps.md} (this directory) for the consolidated audit of
+what Mathlib~4 has and lacks for this picture --- Giry monad, Kleisli, Markov
+kernels present; projective limits in $\Meas$ and the Kolmogorov extension
+theorem absent (formalization gaps, not mathematical ones). The classical
+construction here builds on \texttt{GiryMonad} and \texttt{Kleisli} and connects
+to the in-house \texttt{QuerySystem.lean} via the embedding $\Meas \hookrightarrow
+\Kl(\Pcal)$.
 
 \end{document}

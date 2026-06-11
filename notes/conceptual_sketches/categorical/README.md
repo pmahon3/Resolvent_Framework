@@ -21,12 +21,21 @@ reference / route-finding sketch, not as live work.*
   Extension Theorem of Paper I read as an **adjunction** `Ext ⊣ Forget : PSys ⇄
   QSys`. The categorical statement of Paper I. This is the piece most likely to
   matter if the categorical framing is ever revived.
-- **`categorical_foundations.md`** — working note sketching both pictures (classical
-  + inversion) and identifying the open problems as categorical questions.
-- **`mathlib_gaps.md`** — audit of what Mathlib 4 has / lacks for formalizing the
-  categorical program (Giry monad ✓, Kleisli ✓, Markov kernels ✓; projective
-  limits in Meas and Kolmogorov extension absent — formalization gaps, not
-  mathematical ones).
+- **`categorical_foundations.md`** — the original prose sketch, trimmed to its
+  unique residue: the **phenomenological reading** of the inversion (Merleau-Ponty
+  correspondence table) plus the open-problems-as-categorical-questions list. The
+  formal Meas/Giry/Kleisli/extension development it once duplicated now lives in
+  the `.tex` files; the `.md` carries a pointer map to them.
+- **`mathlib_gaps.md`** — the **single source** for the Mathlib has/lacks audit
+  (Giry monad ✓, Kleisli ✓, Markov kernels ✓; projective limits in Meas and
+  Kolmogorov extension absent — formalization gaps, not mathematical ones). The
+  `.tex` files' former Mathlib sections now point here.
+
+*Condensed 2026-06-11 (section-level dedup, no content lost): Mathlib material
+consolidated into `mathlib_gaps.md`; the duplicated adjunction proof in
+`categorical_program.tex` replaced by a pointer to `categorical_adjunction.tex`
+(its unique predictive-query / delay / Rose section kept); `categorical_foundations.md`
+slimmed to its phenomenological residue. PDFs rebuilt to match.*
 
 ## Status / how to use
 

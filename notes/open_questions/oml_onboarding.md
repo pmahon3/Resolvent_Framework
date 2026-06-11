@@ -15,30 +15,28 @@ at the level needed to begin work on it. After fixing the apparatus
 state/meet-additive/charge ladder, the McDonald–Bimbó dual space), we
 separate the question into two axes. The *extension* axis is classical
 (Horn–Tarski feasibility) and fully settled: on `L(H)` no state of any
-kind extends, by an elementary finite construction; the *descent* axis is
-genuinely open. There it splits into two coupled questions, distinguished by
-which countable joins they require: a *structural* one — whether a σ-complete
-OML admits a Loomis–Sikorski representation, neither constructed nor ruled out —
-and a *descent-relevance* one on the weaker σ-orthocomplete class, which we show
-is non-empty and (update 2026-06-10, §5 resolution box) whose `MO₂`-swap member
-`𝓛₂` satisfies the interleaving condition (★) — so it does *not* segregate — and
-(RESOLVED 2026-06-10, axis PARKED) **is concrete**, so the conjecture is false as
-worded, yet is **not a contribution**: trivial (∏ₙ`MO₂` carries the whole bundle)
-and already characterized by Pták–Pulmannová 1994. **What survives the kill** —
-and is the live residue this survey now exists to frame — is the *other* coupled
-question: the **structural** one (§6 Q1: does a σ-complete OML admit a
-Loomis–Sikorski representation / a countable-join-preserving σ-Stone duality, or
-is it ruled out by the join-preservation obstruction?), together with the
-**point-free classification** question (is L(H)+Gleason a genuine point-free,
-non-distributive, σ-additive witness — or disqualified by the (A)/(B) dual-space
-equivocation — and if it counts, is it unique?). The L_MO₂ *inhabitation* attempt
-is dead; these are not.
-The stake is more than
-technical: a positive resolution would furnish a *point-free*, σ-additive
-probability theory on a non-distributive lattice — the non-Boolean analogue of
-localic measure theory — built from the entailment relation rather than
-descended from a sample space. We review what is known and what is ruled out,
-and close with the directions in which the open problem might be approached.
+kind extends, by an elementary finite construction. The *descent* axis is where
+the genuinely open question lives, and we locate it precisely. The combinatorial
+route — seeking the object among concrete, σ-orthocomplete, set-representable
+OMLs — is **settled and does not produce it**: the interleaving property that
+would make σ-additivity exceed finite additivity on a concrete non-Boolean
+lattice is satisfied trivially by the plain product `∏ₙ MO₂`, which is concrete,
+σ-complete, non-Boolean, infinite — and exactly the *segregated* object
+(non-distributivity confined to finite blocks) that a relational probability
+theory must exclude. The deeper reason is that a faithful σ-tribe representation
+has a distributive image, forcing the OML Boolean, so the point-based route is
+closed for every non-Boolean OML (and the witness `∏ₙ MO₂` has, concretely, no
+two-valued homomorphisms at all); the forcing boundary to Boolean is
+*subadditivity* of the separating states (Pták–Pulmannová), not σ-additivity. The open problem is therefore necessarily
+**point-free**: does a non-Boolean, σ-complete OML carry a σ-additive probability
+that is genuinely relational — the non-Boolean analogue of a localic (point-free)
+measure — rather than reducible to a point space? The two richly non-distributive
+poles frame it: `L(H)`+Gleason has a σ-additive lattice measure but is the *most*
+point-ful object, not point-free (the (A)/(B) analysis of §5); the concrete
+combinatorial objects are segregated. A positive answer is the non-Boolean
+analogue of localic measure theory; a negative answer, an impossibility theorem
+closing the cluster. We review what is known and what is ruled out, and close
+with the directions in which the problem might be approached.
 
 ---
 
@@ -452,157 +450,96 @@ a σ-Loomis–Sikorski theorem.
 
 ## 5. The open problem
 
-> **Two coupled questions, distinguished by which completeness they require.**
->
-> **(Q1) Structural.** Does a *σ-complete*, concrete, non-Boolean, infinite OML
-> admit a Loomis–Sikorski-type representation (a σ-tribe of sets mod a σ-ideal),
-> or a countable-join-preserving σ-Stone duality — or can one prove none exists?
-> (Open via route (iii), §4.3.)
->
-> **(Q2) Descent-relevance.** The *σ-orthocomplete*, concrete, non-Boolean,
-> infinite class is non-empty (`MO₂`-swap, below). Does any member *exercise
-> descent* — carry an (★)-witness — or does every member segregate into a
-> Boolean skeleton with merely decorative non-Boolean blocks?
+> **Open problem.** Does a *point-free*, non-distributive σ-additive probability
+> theory exist? Concretely: is there a non-Boolean, σ-complete OML carrying a
+> σ-additive probability that is genuinely *relational* — built from the
+> entailment order of incompatible propositions, the non-Boolean analogue of a
+> localic (point-free) measure — rather than reducible to a measure on an
+> underlying point space? Or can one prove that any such structure collapses,
+> either to a point space or to the Boolean case?
 
-The two ask for different objects because they invoke different countable joins:
-a σ-tribe is closed under *all* countable unions (→ σ-complete, Q1), whereas a
-state's σ-additivity invokes `⋁ₙ aₙ` *only* for orthogonal families (→
-σ-orthocomplete, Q2). They coincide in the Boolean case — any countable family
-orthogonalises, `bₙ = aₙ ∧ (a₁∨…∨aₙ₋₁)^⊥` — which is why the classical statement
-fuses them; non-distributivity splits Q1 from Q2, as it splits extension from
-descent (§3).
+"Point-free" qualifies the *measure*: it must not descend to a measure on a point
+space (the (B)-realisation of Rmk 5.2), even when the lattice itself happens to be
+set-representable. The localic framing is forced, not preferred, because the
+point-based route is closed in advance. A full σ-tribe / Loomis–Sikorski
+representation preserves `∧,∨` as `∩,∪`, so its image is a sublattice of a Boolean
+algebra, hence distributive — forcing the OML Boolean (§2). So "relational
+probability via a faithful set representation" is impossible by a one-line
+argument for *any* non-Boolean OML; the only coherent target is the point-free
+one, where the measure lives on the lattice (or its dual frame) without descending
+to points. The two richly non-distributive poles frame
+the difficulty: `L(H)`+Gleason gives a σ-additive measure on the lattice but is
+*not* point-free — it is the *most* point-ful object available (Rmk 5.2, the
+(A)/(B) analysis) — while the concrete combinatorial objects are *segregated*
+(non-distributivity confined to finite blocks, the countable structure Boolean
+across them, §5.1). The open problem is whether a genuinely point-free, genuinely
+non-distributive σ-additive probability exists between these poles; a positive
+answer is the non-Boolean analogue of localic measure theory, a negative one an
+impossibility theorem closing the cluster.
 
-**Remark 5.0 (whether the class is inhabited).** A prior question is whether
-the class contains an example that exercises the descent axis at all. A
-member is descent-relevant only if it carries non-trivial countable
-orthogonal structure (infinite pairwise-orthogonal families, so that
-σ-additivity is more than finite additivity) and meet-zero≠orthogonal pairs.
-The completeness the measure question requires is therefore
-σ-*ortho*completeness (countable *orthogonal* joins), not full
-σ-completeness, which is the stronger structural notion that the
-Loomis–Sikorski representation manipulates. The obvious candidates do not
-qualify: `MO_κ` (κ infinite) is concrete, infinite, non-Boolean and
-complete, but its maximal pairwise-orthogonal family of nonzero elements has
-only two members (`a⊥b` among atoms iff `a=b^⊥`), so descent is vacuous, and
-it carries the `MO₂` obstruction (no state extends, as on `L(H)`).
+### 5.1 What the combinatorial route settles, and why it is not enough
 
-The closest candidate is Navara's σ-orthocomplete lattice logic (Navara
-1992): infinite, non-Boolean, and σ-orthocomplete, with rich countable
-orthogonal structure, yet non-concrete, since its Greechie-stateless building
-blocks leave too few two-valued states to be order-determining. Substituting
-a concrete, stateful, non-Boolean block (`MO₂`) for Navara's stateless one
-yields concreteness for free, since sub-OMPs and products of concrete logics
-are concrete; and σ-orthocompleteness **survives** the substitution, since
-Navara's closure argument (Navara 1992, p. 428) is state-free — the one step
-that uses the block, "`f_j(m)=0` and `f_i ⊥ f_j` force `f_j` constant (`=0`)
-on the block," carries verbatim for `MO₂`, where the only elements below
-`a^⊥` are `{0, a^⊥}`. So `MO₂` is a genuine member of the class
-{concrete, σ-orthocomplete, infinite, non-Boolean}: **non-emptiness of this
-class is established** (no further check needed). Whether any member is
-*descent-relevant* is a separate, open question.
-
-The sharper question is whether any such member is descent-relevant in the
-strong sense — the non-distributivity and the infinite orthogonal structure
-**interleave**, rather than segregating into a Boolean support skeleton
-carrying merely decorative non-Boolean blocks. The discriminating condition
-is *element-versus-family*:
+It is tempting to look for the object among concrete σ-*orthocomplete* OMLs, on
+the grounds that a state's σ-additivity invokes `⋁ₙ aₙ` only for orthogonal
+families (§2.1). **This route is settled, and it does not produce the object.**
+The property that would make σ-additivity genuinely exceed finite additivity on a
+concrete non-Boolean lattice is the interleaving condition
 
 > (★) ∃ an element `p` and an **infinite** orthogonal family `{aₙ}` with
-> `p ∧ aₙ = 0` for all `n`, yet `p ⊀ aₙ^⊥` (i.e. `p` is not orthogonal to
-> any `aₙ`).
+> `p ∧ aₙ = 0` for all `n`, yet `p ⊀ aₙ^⊥`,
 
-Within a single orthogonal family this never happens — such a family
-generates a Boolean subalgebra, where meet-zero *is* orthogonality — so the
-interleaving must be of one element *against* the family. On `L(H)`, (★)
-holds: for an orthonormal basis `{eₙ}` and a skew vector `f = Σ cₙ eₙ` with
-all `cₙ ≠ 0`, the ray `P_f` meets each `P_{eₙ}` at `0` yet is orthogonal to
-none. On `MO_κ` it fails vacuously (no infinite orthogonal family).
+and (★) is satisfied **trivially** by the plain product `∏ₙ MO₂`: take `aₙ = a`
+in coordinate `n` (0 elsewhere), and `p = ⋁ₙ bₙ` where `bₙ = b` in coordinate `n`
+(0 elsewhere) — a genuine countable *orthogonal* join, so `p = (b,b,b,…)` exists
+by σ-orthocompleteness. Then `p ∧ aₙ = 0` (coordinate `n`: `a∧b = 0`; elsewhere
+`aₙ=0`) and `p ⊀ aₙ^⊥` (coordinate `n`: `b ⊀ a^⊥`). Since `∏ₙ MO₂` is concrete,
+σ-complete (a product of finite, hence complete, lattices), non-Boolean, and
+infinite, it satisfies (★) and *every* combinatorial hypothesis one might
+impose — yet it is exactly the *segregated* object the open problem must exclude.
+So the combinatorial axioms (σ-completeness, concreteness, (★)) are *not* the
+discriminator; the missing ingredient is non-segregation, a point-free notion,
+not a closure property.
 
-For the `MO₂`-swap, (★) is **not** blocked by constancy, and there is an
-explicit candidate witness. Navara's elements are `⋁_{C∈ℱ} v_C|C` with `ℱ`
-mutually disjoint subsets of `M` (p. 428); an infinite orthogonal family
-forces infinitely many disjoint `Cₙ` (`MO₂` caps within-block orthogonal
-families at 2). Write `MO₂` atoms `a, a^⊥, b, b^⊥` with `a∧b = 0`, `a ⊀ b^⊥`.
-Set `aₙ := a|Cₙ` and `p := ⋁ₙ b|Cₙ`. Constancy is **per coordinate** and the
-`Cₙ` are disjoint, so `p` violates nothing; `p ∈ L` as a countable
-orthogonal (disjoint-support) join, supplied by σ-orthocompleteness itself.
-Coordinatewise in `W`: `p ∧ aₙ = 0` (on `Cₙ`, `a∧b=0`; off `Cₙ`, disjoint),
-yet `p ⊀ aₙ^⊥` (on `Cₙ`, `a ⊀ b^⊥`). So **(★) holds in `W`**.
+**Remark 5.1 (the witness has no points, and the Boolean boundary).** The
+universal closure above (a faithful set representation forces distributivity)
+already rules out the point-based route for every non-Boolean OML. The witness
+`∏ₙ MO₂` shows the failure concretely and at the level of points: `MO₂` admits
+**no** two-valued *homomorphism* — each of its four separating two-valued *states*
+(`a↦0, b↦0`, etc.) fails `ω(a∨b) ≤ ω(a)+ω(b)` because `a∨b = 1`, so none
+preserves `∨` — and `∏ₙ MO₂` inherits this, since its diagonal copy
+`{⊥, ⊤, (a,a,…), (a^⊥,…), (b,b,…), (b^⊥,…)}` is a sub-`MO₂` on which any
+homomorphism would restrict to one of `MO₂`'s (none exists). (This is special to
+`MO₂` and its products — a generic non-Boolean OML such as `2 × MO₂` *does* carry
+homomorphisms, e.g. the projection; the universal obstruction is the
+distributivity argument, not homomorphism-scarcity.) So the witness is concrete
+(order-determining two-valued *states*) and σ-complete yet has no points in the
+homomorphism sense at all — the point-free target is forced, not engineered. The
+same arithmetic records the sharp Boolean boundary: an OML is Boolean iff it
+carries a unital set of *subadditive* states (Pták–Pulmannová 1994), so concrete
+non-Boolean OMLs exist precisely *because* their separating two-valued states fail
+subadditivity — and the forcing property is subadditivity, not σ-additivity.
 
-It remains only to determine whether this transfers to `L`. Navara warns "the
-lattice operations in `L` do not coincide with those of `W`" (p. 428), and
-orthogonality is defined through the orthocomplement. The whole question
-reduces to one check:
+**A worked instance (the cautionary example).** Navara's construction (1992)
+produces an infinite, σ-orthocomplete, rich OML whose inner block is a finite
+*stateless* Greechie logic — which is exactly what makes Navara's `L`
+non-concrete. Replacing the stateless block by `MO₂` (write `L₂`) removes the
+only source of non-concreteness: the assembly is a product of a sublogic of a
+*Kalmbach horizontal sum* (blocks glued only at `{0,1}`, **not** an atom-sharing
+Greechie loop), and pure horizontal sums of concrete logics are concrete, as are
+sublogics and products. So `L₂` is concrete, σ-orthocomplete, non-Boolean, and
+carries (★) — yet it is not a new object: it is `∏ₙ MO₂` with extra scaffolding,
+segregated in the same way, and it likewise admits no σ-tribe representation. It
+is the cautionary example: exhibiting (★) and concreteness together is easy and
+does *not* reach the open problem. (Derivation history of this dead inhabitation
+attempt:
+`../archive/oml_descent_inhabitation_dead/inhabitation_check.md`.)
 
-> **(HINGE)** In `L`, is `a|C ⊀ (b|C)^⊥` — i.e. are distinct non-complementary
-> `MO₂` atoms on the same `C` non-orthogonal in `L` (inheriting from `MO₂`)?
-
-If (HINGE) holds, `p` witnesses (★): the swap is a concrete σ-orthocomplete
-non-Boolean OML satisfying interleaving, the richness-starves-concreteness
-conjecture is **false**, and the swap is the relational-probability object
-sought. If `L`'s orthocomplement forces `a|C ⊥ b|C`, the swap **segregates**
-and `L(H)` remains the only known witness. (Earlier framing — "open by an
-element in `MO₂`-position in infinitely many blocks" — is resolved:
-constancy *permits* it; the live hinge is the orthocomplement check, not the
-support count.)
-
-> **▶ RESOLUTION (2026-06-10) — (HINGE) = YES, but the deciding question is
-> CONCRETENESS, not (HINGE).** Reading Navara p. 428 in full: `L` is a *sublogic
-> of* `W` (order = restriction), closed under orthocomplements *in* `W`, and its
-> countable orthogonal joins are computed *in* `W` (the closure proof says "let
-> `f` be its join in `W`"). So `a|C ⊀ (b|C)^⊥` transfers from `MO₂`, (HINGE)
-> holds, and `p = ⋁ₙ b|Cₙ` witnesses (★) in `L`. **However, this does NOT
-> falsify the conjecture, because the conjecture is about *concrete* OMLs and
-> (★) does not give concreteness.** Navara's block is Greechie *stateless*
-> precisely to make `L` non-concrete; the `MO₂`-swap drops statelessness to *try*
-> for concreteness, but the **horizontal-sum step** (`V` = pasting of `T×MO₂`
-> copies — pasting destroys states) is exactly where concreteness can fail.
-> "Sub-OMP of concrete is concrete" covers the product and sublogic steps, NOT
-> the horizontal sum. **So the open problem is now: is `L_MO₂` concrete?** —
-> the `/audit full` target. Canonical statement:
-> `../covered_leads/descent_axis_residue_post_kill.md`.
->
-> **⛔ RESOLVED 2026-06-10 (`/audit full`, opus Agent — descent axis PARKED).**
-> `L_MO₂` **IS** concrete, so the conjecture is FALSE as worded — but the lead is
-> DEAD anyway, and the framing above contained a false premise. **(i)** `V` is a
-> **Kalmbach horizontal sum (blocks glued only at {0,1})**, NOT atom-sharing
-> Greechie pasting (Navara p. 428: "construct the horizontal sum 𝒱 … see [5]
-> [=Kalmbach 1983]"). Pure horizontal sums of concretes are concrete; the
-> horizontal sum was never the danger — **statelessness** was Navara's only
-> source of non-concreteness, and the MO₂-swap removes it. Concreteness is then
-> mechanical (MO₂ → 𝒯×MO₂ → hsum → `W=∏V` → `L⊆W`). **(ii)** No contribution:
-> plain `∏ₙ MO₂` exhibits the whole bundle (concrete + σ-orthocomplete +
-> non-Boolean + (★)) with zero Navara scaffolding (Types 1/3/5 FAIL on
-> triviality). **(iii)** Already characterized, sharper — **Pták–Pulmannová 1994**:
-> an OML is Boolean iff it has a unital set of *subadditive* measures; the
-> Boolean-forcing property is **subadditivity**, not σ-additivity/concreteness.
-> 6th death of the descent arc, NEW reason. Parked:
-> `../covered_leads/descent_axis_residue_post_kill.md`.
-
-One qualification carries over: `L(H)` and Navara fail to be concrete
-for *different* reasons: for `L(H)` the orthogonal richness itself obstructs
-two-valued states (Kochen–Specker colouring), whereas Navara's state-poverty
-is imported with a finite, orthogonality-free stateless block. This sharpens
-rather than replaces the one-example status of the
-richness-obstructs-concreteness heuristic: `L(H)` alone, by Kochen–Specker,
-both satisfies (★) and is non-concrete. (The σ-ortho-vs-σ-complete distinction
-is now carried by the Q1/Q2 split of the problem statement above.) Details of
-the substitution and the (★) reduction are recorded in
-`../archive/oml_descent_inhabitation_dead/inhabitation_check.md` (archived — the
-L_MO₂ inhabitation lead is dead; this is derivation history only).
-
-A positive answer would furnish a relational probability theory without
-realisations: σ-additive probability built from the entailment relation of a
-non-distributive OML rather than descended from a sample space — the
-non-Boolean analogue of localic (pointless) measure theory. A negative
-answer, in the form of an impossibility theorem, would close the entire
-cluster at once. The present state of the art constrains the
-problem from both sides without closing it: no impossibility theorem is known
-for the concrete class (Rmk 4.1), while the two *theorem-closed* routes to a
-σ-OML engine — RDP and MacNeille (§4.3(i),(ii)) — are ruled out, leaving only
-σ-Stone duality (iii), which is itself open. What is required is a
-representation that lives in that gap: non-distributive enough to evade
-(i),(ii), yet σ-faithful where the known dualities are merely finitary.
+The art constrains the open (σ-complete) problem from both sides without closing
+it: no impossibility theorem is known for the concrete class (Rmk 4.1), while the
+two *theorem-closed* routes to a σ-OML engine — RDP and MacNeille (§4.3(i),(ii))
+— are ruled out, leaving only σ-Stone duality (iii), which is itself open. What
+is required is a representation that lives in that gap: non-distributive enough
+to evade (i),(ii), yet σ-faithful where the known dualities are merely finitary.
 
 **Remark 5.2 (Why L(H)+Gleason does not already settle this — the (A)/(B)
 point-space equivocation).** The motivating idea ("probability from
@@ -626,33 +563,33 @@ point-free probability.
 
 ## 6. Directions
 
-With the extension axis closed on `L(H)` (Prop 3.2), the descent axis remains,
-entered through either of its two coupled questions (§5).
-- **The hinge check (Q2)** — ✅ **RESOLVED YES (2026-06-10).** Distinct
-  non-complementary `MO₂` atoms on a common coordinate *do* stay non-orthogonal
-  in Navara's `L` (order/orthocomplement/orthogonal-join all restrict
-  coordinatewise from `W`, p. 428), so `𝓛₂` satisfies (★) and segregation is
-  refuted. **This is no longer the entry point.** The new near-term question is
-  **concreteness (Q3, below)** — whether the horizontal-sum step keeps `𝓛₂`
-  concrete; that, not the hinge, decides whether the conjecture is false and
-  whether there is a contribution. See the §5 resolution box and
-  `../covered_leads/descent_axis_residue_post_kill.md`.
-- **The concreteness check (Q3) — ⛔ RESOLVED 2026-06-10, axis PARKED.** `𝓛₂`
-  **IS** concrete (conjecture FALSE as worded), but the lead is DEAD: the §5-box
-  framing had a false premise — `V` is a **Kalmbach horizontal sum (glued at
-  {0,1})**, NOT Greechie atom-sharing, so it does not destroy states;
-  statelessness was Navara's only obstruction, and the MO₂-swap removes it. The
-  result is then trivial (plain `∏ₙ MO₂` has the bundle) and already characterized
-  (**Pták–Pulmannová 1994**: *subadditivity*, not σ-additivity, is the
-  Boolean-forcing property). No contribution. Parked:
-  `../covered_leads/descent_axis_residue_post_kill.md`.
-- **The general construction (Q1)** — construct a Loomis–Sikorski-type
-  representation, or a countable-join-preserving σ-Stone duality, for a
-  concrete non-Boolean infinite *σ-complete* OML, or prove none exists. This
-  resolves the structural question directly, but no partial construction is
-  currently in hand. This is the deeper open case on the *descent* axis: the obstruction
-  is the failure of `h` to preserve countable joins (§2.3), not the
-  orthogonal/meet-zero gap, so Prop 3.2 does not reach it.
+With the extension axis closed on `L(H)` (Prop 3.2) and the combinatorial
+(σ-orthocomplete, set-representable) route shown to deliver only segregated
+objects (§5.1), the live problem is the point-free existence question of §5.
+Three directions bear on it.
+- **Build the point-free engine, or prove it collapses.** Seek a σ-additive
+  probability on a non-Boolean σ-complete OML (or its dual frame) that does *not*
+  descend to a point space — a genuine non-Boolean localic measure — or prove
+  that any such structure collapses to a point space or to the Boolean case. The
+  point-based form is already ruled out (Rmk 5.1: non-Boolean OMLs have no
+  two-valued homomorphisms, so no σ-tribe representation exists at any
+  cardinality); the open content is whether the point-free form can be
+  non-trivial, which is why the engine must be sought localically (route (iii),
+  §4.3), not as a field of sets.
+- **Settle the (A)/(B) status of `L(H)`+Gleason.** Decide whether `L(H)`+Gleason
+  counts as a genuine point-free non-distributive σ-additive witness or is
+  disqualified by the point-space equivocation (Rmk 5.2); if it counts, ask
+  whether it is essentially unique. This is the same problem as the first item
+  under a semantic rather than constructive description — "does point-free
+  non-distributive σ-additive probability exist?" *is* the content of the
+  localic-engine question — so progress on either informs the other.
+- **Sharpen the impossibility side via subadditivity.** The Boolean boundary is
+  subadditivity of the separating states (Pták–Pulmannová, Rmk 5.1). A negative
+  resolution would likely run through the dual frame: quantify how far a
+  non-Boolean OML's measures must fail subadditivity, and whether requiring a
+  point-free σ-additive measure forces enough subadditive structure to collapse
+  the object to a point space or to the Boolean case — the impossibility form of
+  the open problem.
 
 The other candidate direction — the singular case for `L(H)` — is now
 closed, and the way it closed is instructive. One might hope a *singular*

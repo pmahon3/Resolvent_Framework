@@ -200,12 +200,16 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**Status 2026-06-10:** No *confirmed* standalone lead, but the descent axis has
-a **pre-audit candidate** (see item 4 below). The L₂ state-level separation was
-KILLED this day (parked); the lattice-level (★) resolved YES (descent structure
-established), leaving one open question — *is L_MO₂ concrete?* — that `/audit
-full` will decide. Canonical statement + audit target:
-`notes/open_questions/descent_axis_residue_post_kill.md`.
+**Status 2026-06-10 (descent axis CLOSED):** No confirmed standalone lead. The
+descent axis is now **parked** — `/audit full` on concreteness resolved it
+(see item 4 below). Both descent results died this day: the L₂ state-level
+separation (decorative-σ) and the lattice-level L_MO₂ candidate. The latter is
+the arc's 6th death, for a NEW reason: L_MO₂ **IS** concrete (so the conjecture
+"richness starves concreteness" is FALSE as worded), but the witness is trivial
+(plain ∏ₙ MO₂ has the whole bundle) and the Boolean-forcing boundary was already
+characterized — Pták–Pulmannová 1994 (*subadditivity*, not σ-additivity, is the
+discriminator). Canonical record (now parked):
+`notes/covered_leads/descent_axis_residue_post_kill.md`.
 
 Previously listed directions closed or parked:
 - **Mechanistic feasibility from observational coherence** — PARKED
@@ -275,27 +279,34 @@ Open directions — the extension boundary:
    problem). See the survey `notes/open_questions/oml_onboarding.{tex,md}`
    (archived predecessor: `notes/archive/oml_extension_problem_superseded.md`).
 
-   **Descent-axis status — UPDATED 2026-06-10 ((★) resolved YES; concreteness
-   open).** The extension axis is fully closed on L(H) (no state extends, Prop
-   3.2). The live frontier is the *descent axis*: does a **concrete**
-   σ-orthocomplete non-Boolean OML genuinely exercise it? **(★) resolved YES**
-   (Navara 1992 p. 428, read directly): L_MO₂ carries genuine non-distributive
-   descent structure — order/orthocomplement/orthogonal-join all restrict
-   coordinatewise from W, so witness `p = ⋁ₙ b|Cₙ` against `aₙ = a|Cₙ` satisfies
-   `p∧aₙ=0`, `p⊀aₙ^⊥`. **This does NOT yet falsify "richness starves
-   concreteness" and is NOT yet a contribution:** both hinge on the SAME open
-   question — **is L_MO₂ concrete?** The conjecture is about *concrete* OMLs;
-   the **horizontal-sum step** (pasting copies of T×MO₂ — the Greechie
-   state-destroying mechanism) is the crux, and "sub-OMP of concrete is
-   concrete" does NOT cover it. NEXT = `/audit full` pointed at concreteness
-   (primary), novelty-vs-localic (secondary). Concrete → conjecture falsified +
-   candidate contribution (first standalone lead since 2026-05-18); not concrete
-   → another L(H)-analogue, conjecture stands. **Earlier (2026-06-08) framing —
-   "inhabited as stated / conjecture false as literally worded / HINGE the only
-   open step" — is SUPERSEDED: the HINGE (transfer to L) resolved YES, but
-   concreteness, not transfer, is the deciding question.** Canonical statement:
-   `notes/open_questions/descent_axis_residue_post_kill.md`; derivation history:
-   `notes/open_questions/verification/inhabitation_check.md`.
+   **Descent-axis status — CLOSED/PARKED 2026-06-10 (`/audit full` on
+   concreteness).** The extension axis is fully closed on L(H) (no state extends,
+   Prop 3.2). The descent axis is now also closed: the audit resolved the one
+   open question — *is L_MO₂ concrete?* — and the answer killed the lead on a
+   cell the framing did not predict. **L_MO₂ IS concrete** (so "richness starves
+   concreteness" is FALSE as worded), via three findings:
+   - **The loaded premise was false.** V is a **Kalmbach horizontal sum (blocks
+     glued only at {0,1})**, NOT atom-sharing Greechie pasting (Navara p. 428,
+     read directly: "construct the horizontal sum 𝒱 … see [5] [=Kalmbach
+     1983]"). Pure horizontal sums of concretes are concrete; **statelessness**,
+     not the horizontal sum, was Navara's only source of non-concreteness, and
+     the MO₂-swap removes it. Concreteness is then mechanical (MO₂ → 𝒯×MO₂ →
+     hsum → W=∏V → L⊆W, order inherited / separation restricts).
+   - **No contribution — trivial + occupied.** The full bundle (concrete +
+     σ-orthocomplete + non-Boolean + (★)) is exhibited by plain **∏ₙ MO₂** with
+     zero Navara scaffolding; the constancy-cut existed to extract non-σ-additive
+     states from a *stateless* block and is inert once the block is stateful.
+     Types 1/3/5 FAIL on triviality.
+   - **Already characterized, more sharply.** **Pták–Pulmannová 1994**: an OML is
+     Boolean iff it has a unital set of *subadditive* measures — the forcing
+     property is **subadditivity**, not σ-additivity/concreteness. The conjecture
+     named the wrong discriminator.
+
+   6th death of the arc, NEW reason (triviality + prior-art, not decorative-σ and
+   not the predicted concreteness-failure). The (★)=YES Lean structure stands as
+   established but was always irrelevant to the kill. Nothing routed to Paper II.
+   Canonical record (parked): `notes/covered_leads/descent_axis_residue_post_kill.md`;
+   derivation history: `notes/open_questions/verification/inhabitation_check.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---

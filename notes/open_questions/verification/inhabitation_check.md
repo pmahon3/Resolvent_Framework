@@ -268,8 +268,10 @@ witness. Not a park; orthogonal to the four parked empirical-reconnection
 seeds.
 
 > **⊳ SUPERSEDED 2026-06-10 — see the resolution box below and the canonical
-> statement in `../descent_axis_residue_post_kill.md`. The HINGE resolved YES,
-> but the deciding question turned out to be CONCRETENESS, not the HINGE.**
+> statement in `../../covered_leads/descent_axis_residue_post_kill.md` (now
+> PARKED). The HINGE resolved YES, but the deciding question turned out to be
+> CONCRETENESS, not the HINGE — and concreteness resolved YES with the lead
+> dying anyway on triviality + prior-art (Pták–Pulmannová 1994).**
 
 *(Caveat on the "sharpen" outcome per `feedback_research_workflow` lifecycle:
 the standing MO₂-swap-survival check DID flip — σ-orthocompleteness survives,
@@ -316,9 +318,12 @@ state-destroying mechanism) is exactly where it can fail. "Sub-OMP of concrete i
 concrete" covers the product (`∏`) + sublogic (constancy-cut) steps, NOT the
 horizontal sum. So concreteness is the open question.
 
-**Net:** the deciding question moved from the HINGE (now YES) to **concreteness
-of L_MO₂** — the audit target. (★)=YES is genuine forward motion (structure
-established, segregation ruled out), but the conjecture is NOT yet falsified and
-there is NOT yet a contribution; both wait on concreteness. NEXT = `/audit full`
-pointed at "is L_MO₂ concrete?" Canonical statement + audit plan:
-`../descent_axis_residue_post_kill.md`.
+**Net (RESOLVED 2026-06-10):** the deciding question moved from the HINGE (YES)
+to **concreteness of L_MO₂**, and `/audit full` settled it: L_MO₂ **IS** concrete
+(conjecture FALSE as worded), but the lead is **DEAD** anyway — the witness is
+trivial (plain ∏ₙ MO₂ has the whole bundle) and the Boolean-forcing boundary was
+already characterized (Pták–Pulmannová 1994: *subadditivity*, not σ-additivity).
+Also corrected: V is a Kalmbach horizontal sum (glued at {0,1}), NOT Greechie
+atom-sharing, so statelessness — not the horizontal sum — was the only obstruction
+to concreteness. Parked. Canonical statement (parked):
+`../../covered_leads/descent_axis_residue_post_kill.md`.

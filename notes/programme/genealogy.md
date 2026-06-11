@@ -124,9 +124,9 @@ QUERY SYSTEM  (2026-03-18, the unlock) ── dynamics = directed observations
                                    see `program_overview.md` item 4.
 ```
 
-*(For the current descent-axis status — what is settled, what is open, and the
-pending `/audit full` — see `program_overview.md` (item 4, authoritative) and
-the axis's own single-source `notes/open_questions/descent_axis_residue_post_kill.md`.
+*(For the current descent-axis status — now CLOSED/PARKED after the `/audit full`
+on concreteness (2026-06-10) — see `program_overview.md` (item 4, authoritative)
+and the axis's own single-source `notes/covered_leads/descent_axis_residue_post_kill.md`.
 This document narrates history, not live state.)*
 
 ---

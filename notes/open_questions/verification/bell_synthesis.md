@@ -193,7 +193,8 @@ problem is unchanged.
 > from Navara p. 428 (descent structure established); the open descent question
 > moved to concreteness of L_MO₂. That resolution is internal to the descent
 > work and does not change anything Bell-theoretic here. See
-> `../descent_axis_residue_post_kill.md`.)* No citation in the survey needs revision; optionally,
+> `../../covered_leads/descent_axis_residue_post_kill.md` (now parked — concreteness
+> resolved YES, lead dead on triviality + prior-art).)* No citation in the survey needs revision; optionally,
 **Budroni–Morchio (arXiv:1010.4662)** is a clean citation to add for the
 "Bell+KS = one extension problem" point, since it states the Horn–Tarski framing
 more explicitly than Pitowsky alone.

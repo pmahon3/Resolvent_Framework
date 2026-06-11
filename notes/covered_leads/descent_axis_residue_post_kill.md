@@ -6,7 +6,42 @@ dispersion-free/homomorphism state-separation was KILLED by `/audit full`
 `verification/inhabitation_check.md`, `verification/beta_swap_worksheet.md`,
 and the two retired handoffs as the descent-axis entry point.*
 
-> **HEADLINE (updated 2026-06-10, after reading Navara p. 428 directly):** the
+> **⛔ AUDIT RESOLVED — DESCENT AXIS PARKED (2026-06-10, `/audit full` on
+> concreteness, opus Agent).** The concreteness audit landed on a cell the
+> framing below did NOT predict: **L_MO₂ IS concrete (conjecture FALSE), AND it
+> is NOT a contribution.** Three findings, in order of importance:
+> 1. **The loaded premise was false.** V is a **Kalmbach horizontal sum (blocks
+>    glued only at {0,1})**, NOT atom-sharing Greechie pasting — verified against
+>    Navara p. 428 directly ("let us construct the horizontal sum 𝒱 … see [5]
+>    [=Kalmbach 1983]"). Pure horizontal sums of concretes are concrete. The
+>    horizontal sum was never the danger; **statelessness** was Navara's only
+>    source of non-concreteness, and the MO₂-swap deliberately removes it. So
+>    concreteness is mechanical: MO₂ concrete → 𝒯×MO₂ concrete → hsum concrete →
+>    W=∏V concrete → L⊆W concrete (order inherited, separation restricts).
+> 2. **No contribution — trivial + occupied.** The full property bundle
+>    (concrete + σ-orthocomplete + non-Boolean + (★)) is exhibited by plain
+>    **∏ₙ MO₂** with ZERO Navara scaffolding — the seed's own witness `p=⋁ₙ b|Cₙ`
+>    vs `aₙ=a|Cₙ` lives there natively. Navara's constancy-cut existed to extract
+>    non-σ-additive states from a *stateless* block; with stateful MO₂ it is
+>    inert packaging. Type 1/3/5 all FAIL on triviality.
+> 3. **Already characterized, more sharply (prior art).** **Pták–Pulmannová 1994**
+>    (Comment. Math. Univ. Carolin.; [EUDML doc/247580](https://eudml.org/doc/247580)):
+>    an OML is Boolean **iff** it has a unital set of *subadditive* probability
+>    measures. The Boolean-forcing property is **subadditivity**, NOT σ-additivity
+>    or concreteness. The conjecture named the wrong discriminator and was
+>    effectively settled in 1994 — before it was posed here.
+>
+> **6th death of the arc, but a NEW reason:** not the prior five decorative-σ
+> deaths, and not the predicted concreteness-failure — it dies on **triviality +
+> prior-art (P–P 1994)**. Nothing routed to Paper II (discipline upheld). The
+> (★)=YES Lean structure stands as established but was always irrelevant to the
+> kill (concreteness/contribution untouched by Lean). **Salvage (internal, not a
+> contribution):** concrete non-Boolean OMLs exist precisely because their
+> separating 2-valued states fail *subadditivity* — the actual Boolean
+> discriminator (P–P 1994). Parked to `covered_leads/`. The pre-audit framing
+> below is RETAINED FOR THE RECORD but is superseded by this banner.
+
+> **HEADLINE (pre-audit, 2026-06-10, SUPERSEDED by the audit banner above):** the
 > state-level separation is dead, BUT the **lattice-level (★) resolved YES** —
 > L_MO₂ carries genuine non-distributive **descent structure**. This is the
 > first forward motion on the descent axis since 2026-05-18. It is **NOT yet a
@@ -15,27 +50,37 @@ and the two retired handoffs as the descent-axis entry point.*
 > results in one session, on different objects: a kill (state side) and a
 > structural advance (lattice side). See the canonical statement next.
 
-## ⓘ CANONICAL STATEMENT (the single source of truth — copy verbatim, do not re-improvise)
+## ⛔ CANONICAL STATEMENT — SUPERSEDED 2026-06-10 (do NOT copy this box; see the top banner)
 
-> **(★) resolves YES** (Navara 1992 p. 428, read directly 2026-06-10): L_MO₂
-> carries genuine non-distributive **descent structure** — order, orthocomplement,
-> and countable orthogonal join all restrict coordinatewise from W, so the witness
-> `p = ⋁ₙ b|Cₙ` against the family `aₙ = a|Cₙ` satisfies `p∧aₙ=0` and `p⊀aₙ^⊥`.
-> **This much is ESTABLISHED.**
+> **⛔ THIS BOX CONTAINED A FALSE PREMISE. Do not copy it verbatim — the "copy
+> verbatim, do not re-improvise" instruction is RESCINDED.** Two corrections from
+> the `/audit full` resolution (see the top banner for the full verdict):
+> 1. **"V is a horizontal sum (pasting) … pasting is exactly where states get
+>    destroyed (the Greechie mechanism)" is WRONG.** V is a *Kalmbach* horizontal
+>    sum — blocks glued only at {0,1} — which is NOT the Greechie atom-sharing
+>    mechanism and does NOT destroy states (pure horizontal sums of concretes are
+>    concrete). Navara's non-concreteness came from his *stateless block*, not the
+>    horizontal sum; the MO₂-swap removes statelessness, so L_MO₂ IS concrete.
+> 2. **Concreteness did NOT decide "everything downstream."** L_MO₂ is concrete
+>    (so the conjecture is false as worded — though that was already known
+>    pre-audit, see §"LATTICE-LEVEL inhabitation" lines ~80), yet there is **no
+>    contribution**: the bundle is trivial (plain ∏ₙ MO₂) and the Boolean boundary
+>    was already characterized (Pták–Pulmannová 1994: *subadditivity*). PARKED.
 >
-> Whether this *falsifies* the conjecture "richness starves concreteness," AND
-> whether it is a contribution at all, both hinge on the **SAME one open
-> question: is L_MO₂ concrete?** The conjecture is a statement *about concrete
-> OMLs*; (★) gives non-Boolean + σ-orthocomplete, but concreteness is unproven.
-> The **horizontal-sum step is the crux**: V is a horizontal sum (pasting) of
-> copies of T×MO₂, and pasting is exactly where states get destroyed (the
-> Greechie mechanism Navara exploits with his *stateless* block). "Sub-OMP of
-> concrete is concrete" covers the product and sublogic steps but **not** the
-> horizontal sum. So concreteness is NOT free.
+> *The original (false) text is struck through below, retained only for the record:*
 >
-> **`/audit full`** (target: *is L_MO₂ concrete?*) decides everything downstream.
-> If concrete → conjecture falsified AND a candidate contribution. If not →
-> L_MO₂ is another L(H)-analogue, conjecture stands, no contribution.
+> > ~~**(★) resolves YES** (Navara 1992 p. 428): L_MO₂ carries genuine
+> > non-distributive descent structure — order, orthocomplement, countable
+> > orthogonal join restrict coordinatewise from W; witness `p = ⋁ₙ b|Cₙ` against
+> > `aₙ = a|Cₙ` satisfies `p∧aₙ=0`, `p⊀aₙ^⊥`. ESTABLISHED.~~ *(This part is true —
+> > (★)=YES, descent structure established. Only the horizontal-sum/Greechie and
+> > "concreteness decides everything" claims below were false.)*
+> >
+> > ~~The horizontal-sum step is the crux: V is a horizontal sum (pasting) of
+> > copies of T×MO₂, and pasting is exactly where states get destroyed (the
+> > Greechie mechanism). "Sub-OMP of concrete is concrete" covers product and
+> > sublogic but not the horizontal sum. So concreteness is NOT free. `/audit
+> > full` decides everything downstream.~~ ← **FALSE, see corrections above.**
 
 ## The axis, in one frame
 

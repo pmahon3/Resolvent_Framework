@@ -551,6 +551,23 @@ support count.)
 > the horizontal sum. **So the open problem is now: is `L_MO₂` concrete?** —
 > the `/audit full` target. Canonical statement:
 > `descent_axis_residue_post_kill.md`.
+>
+> **⛔ RESOLVED 2026-06-10 (`/audit full`, opus Agent — descent axis PARKED).**
+> `L_MO₂` **IS** concrete, so the conjecture is FALSE as worded — but the lead is
+> DEAD anyway, and the framing above contained a false premise. **(i)** `V` is a
+> **Kalmbach horizontal sum (blocks glued only at {0,1})**, NOT atom-sharing
+> Greechie pasting (Navara p. 428: "construct the horizontal sum 𝒱 … see [5]
+> [=Kalmbach 1983]"). Pure horizontal sums of concretes are concrete; the
+> horizontal sum was never the danger — **statelessness** was Navara's only
+> source of non-concreteness, and the MO₂-swap removes it. Concreteness is then
+> mechanical (MO₂ → 𝒯×MO₂ → hsum → `W=∏V` → `L⊆W`). **(ii)** No contribution:
+> plain `∏ₙ MO₂` exhibits the whole bundle (concrete + σ-orthocomplete +
+> non-Boolean + (★)) with zero Navara scaffolding (Types 1/3/5 FAIL on
+> triviality). **(iii)** Already characterized, sharper — **Pták–Pulmannová 1994**:
+> an OML is Boolean iff it has a unital set of *subadditive* measures; the
+> Boolean-forcing property is **subadditivity**, not σ-additivity/concreteness.
+> 6th death of the descent arc, NEW reason. Parked:
+> `../covered_leads/descent_axis_residue_post_kill.md`.
 
 One qualification carries over: `L(H)` and Navara fail to be concrete
 for *different* reasons: for `L(H)` the orthogonal richness itself obstructs
@@ -608,13 +625,16 @@ entered through either of its two coupled questions (§5).
   **concreteness (Q3, below)** — whether the horizontal-sum step keeps `𝓛₂`
   concrete; that, not the hinge, decides whether the conjecture is false and
   whether there is a contribution. See the §5 resolution box and
-  `descent_axis_residue_post_kill.md`.
-- **The concreteness check (Q3) — THE NEW NEAR-TERM ENTRY POINT.** Is `𝓛₂`
-  concrete (an order-determining family of 2-valued states)? The crux is the
-  horizontal sum `V` of `T×MO₂` copies — pasting can destroy states (the
-  Greechie mechanism). YES ⟹ `𝓛₂` is a concrete σ-orthocomplete non-Boolean OML
-  exercising descent, the conjecture is false, candidate contribution. NO ⟹
-  another `L(H)`-analogue, conjecture stands. This is the `/audit full` target.
+  `../covered_leads/descent_axis_residue_post_kill.md`.
+- **The concreteness check (Q3) — ⛔ RESOLVED 2026-06-10, axis PARKED.** `𝓛₂`
+  **IS** concrete (conjecture FALSE as worded), but the lead is DEAD: the §5-box
+  framing had a false premise — `V` is a **Kalmbach horizontal sum (glued at
+  {0,1})**, NOT Greechie atom-sharing, so it does not destroy states;
+  statelessness was Navara's only obstruction, and the MO₂-swap removes it. The
+  result is then trivial (plain `∏ₙ MO₂` has the bundle) and already characterized
+  (**Pták–Pulmannová 1994**: *subadditivity*, not σ-additivity, is the
+  Boolean-forcing property). No contribution. Parked:
+  `../covered_leads/descent_axis_residue_post_kill.md`.
 - **The general construction (Q1)** — construct a Loomis–Sikorski-type
   representation, or a countable-join-preserving σ-Stone duality, for a
   concrete non-Boolean infinite *σ-complete* OML, or prove none exists. This

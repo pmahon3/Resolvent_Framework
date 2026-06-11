@@ -1,7 +1,7 @@
 # Fork scout — path (a): the anti-smuggler / Strategy D
 
 *Branch `explore/a-strategy-d`, written 2026-06-11. One of two scouting notes
-(sibling: path (b), branch `explore/b-descent-impossibility`). This note exists
+(sibling: path (b), branch `explore/b-pointfree-descent`). This note exists
 to make the (a) path legible enough to decide whether it is worth a year, NOT to
 do the math. See `programme/genealogy.md` §"THE OPEN QUESTION" for the (a)/(b)
 fork this branches.*
@@ -97,4 +97,4 @@ The genealogy's caveat stands: choosing (a) means accepting that the deep (a) th
 is done and this is faithful continuation, not fresh territory.
 
 → Sibling path (b) and the asymmetry between them: `fork_scout_b_descent_impossibility.md`
-(on branch `explore/b-descent-impossibility`).
+(on branch `explore/b-pointfree-descent`).

@@ -1,0 +1,435 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,positioning,cd}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{conjecture}{Conjecture}
+
+% ---------- Commands ----------
+\newcommand{\Meas}{\mathbf{Meas}}
+\newcommand{\Set}{\mathbf{Set}}
+\newcommand{\Prob}{\mathbf{Prob}}
+\newcommand{\Kl}{\mathrm{Kl}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\Zcal}{\mathcal{Z}}
+\newcommand{\Fcal}{\mathcal{F}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Acal}{\mathcal{A}}
+\newcommand{\Qcal}{\mathcal{Q}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\varlim}{\varprojlim}
+
+\title{
+The Observable Dynamics Program:\\
+A Categorical Reading
+}
+
+\author{Patrick S. Mahon}
+
+\date{Working note --- \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This note develops the Observable Dynamics Program in categorical language,
+as a direct companion to the classical picture in \emph{categorical\_classical.tex}.
+The classical construction is algebra-first: a probability measure is freely
+chosen and marginals are derived from it.  The program is diagram-first: the
+measure is derived from the coherence of a system of marginals.  We trace this
+inversion through the same categorical layers --- $\Meas$, the Giry monad
+$\Pcal$, its Kleisli category $\Kl(\Pcal)$ of Markov kernels, and the
+extension theorem --- and identify where the program's arguments must go and
+what remains open.  The inversion amounts to asking whether the forgetful
+functor from probability spaces to compatible marginal systems has a left
+adjoint, and under what conditions.
+\end{abstract}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The inversion: diagram-first probability}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The classical construction of probability (see \emph{categorical\_classical.tex},
+\S6) has a single free parameter: the choice of measure $P \in \Pcal X$ at
+Step~3.  Everything else --- pushforwards, marginals, kernels, projective
+limits --- is forced by the categorical structure of $\Meas$ and $\Kl(\Pcal)$.
+
+The Observable Dynamics Program asks: can Step~3 be replaced by a derivation?
+Specifically: given a projective system of measurable spaces and a compatible
+family of probability measures on its finite-dimensional factors, is there a
+\emph{canonical} probability measure on the projective limit that is forced
+by the coherence data, rather than freely chosen?
+
+The program's answer is yes --- under conditions that we now identify
+categorically.
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+\textbf{Classical (algebra-first)} & \textbf{Program (diagram-first)} \\
+\hline
+Choose $P \in \Pcal X$ freely & Derive $P$ from cocone data \\
+Marginals follow from $P$ & $P$ follows from marginals \\
+Monad algebra assumed & Monad algebra forced \\
+Step 3 is a free parameter & Step 3 is a theorem \\
+\hline
+\end{tabular}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Query systems as diagrams in $\Kl(\Pcal)$}
+\label{sec:query-system}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[Query system]\label{def:query-system}
+A \emph{query system} $(\Qcal, \preceq)$ consists of:
+\begin{itemize}
+  \item A directed preorder $(I, \leq)$ of \emph{query indices}.
+  \item For each $i \in I$, a measurable space $(O_i, \Ocal_i)$ --- the
+    \emph{outcome space} of query $i$.
+  \item For each $i \leq j$, a measurable function $\pi_{ij} : O_j \to O_i$
+    --- the \emph{refinement map} from finer query $j$ to coarser query $i$
+    --- satisfying $\pi_{ii} = \id$ and $\pi_{ij} \circ \pi_{jk} = \pi_{ik}$
+    for $i \leq j \leq k$.
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Query systems as functors]
+A query system is a functor $F : I^\op \to \Meas$, where $I$ is the preorder
+category with objects the query indices and morphisms the order relations.
+This is precisely a \emph{projective system} in $\Meas$.
+
+The refinement maps $\pi_{ij}$ are deterministic, so they embed into
+$\Kl(\Pcal)$ via the Dirac kernel $\hat\pi_{ij}(o, \cdot) = \delta_{\pi_{ij}(o)}$.
+The query system therefore lives in $\Meas$, but it is a diagram in $\Kl(\Pcal)$
+under this embedding.  We work in $\Kl(\Pcal)$ because the morphisms we
+ultimately care about --- compatible marginals and extension kernels --- are
+genuinely stochastic.
+\end{remark}
+
+\begin{definition}[Realization space]
+The \emph{realization space} of a query system is the projective limit
+\[
+  \Omega = \varlim_{i \in I} O_i
+  = \left\{ (o_i)_{i \in I} \in \prod_i O_i \;\middle|\;
+    \pi_{ij}(o_j) = o_i \text{ for all } i \leq j \right\}
+\]
+equipped with the subspace $\sigma$-algebra from the product.  The projections
+$\pr_i : \Omega \to O_i$ are the canonical measurable maps.
+\end{definition}
+
+\begin{remark}[What $\Omega$ represents]
+A point $\omega \in \Omega$ is a \emph{coherent tuple} of query outcomes: a
+choice of answer to every query simultaneously, consistent across all
+refinement relations.  This is the program's analogue of a point in the sample
+space $X$ --- except $\Omega$ is constructed from the queries, not assumed.
+
+In the delay query system (Paper~4 / \emph{observational\_probability.tex}),
+$\Omega \subseteq X^{\mathbb{Z}}$ is the set of bi-infinite sensor streams
+that are coherent under all delay-and-sample operations.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Compatible marginals as cocones}
+\label{sec:cocones}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[Compatible marginals]\label{def:compat-marginals}
+A \emph{compatible family of probability measures} for a query system
+$(\{O_i\}, \{\pi_{ij}\})$ is a collection $\{\nu_i \in \Pcal O_i\}_{i \in I}$
+satisfying
+\[
+  (\pi_{ij})_\sharp \nu_j = \nu_i \qquad \text{for all } i \leq j.
+\]
+\end{definition}
+
+\begin{remark}[Cocone interpretation]
+In $\Kl(\Pcal)$, the compatible family $\{\nu_i\}$ is a \emph{cocone} over
+the diagram $F : I^\op \to \Kl(\Pcal)$.  Specifically, each $\nu_i$ is a
+morphism $1 \to O_i$ in $\Kl(\Pcal)$ (a stochastic map from the terminal
+object to $O_i$), and the compatibility condition says that these morphisms
+commute with the refinement maps:
+\[
+\begin{tikzcd}
+  1 \arrow[r, "\nu_j"] \arrow[dr, "\nu_i"'] & O_j \arrow[d, "\hat\pi_{ij}"] \\
+  & O_i
+\end{tikzcd}
+\]
+The apex of the cocone is (if it exists) a measure $P$ on $\Omega$ with
+$(\pr_i)_\sharp P = \nu_i$ for all $i$.
+
+The program's central question is: \emph{does this cocone have a canonical
+apex?}
+\end{remark}
+
+\begin{remark}[Classical vs.\ program direction]
+Classically, the apex $P$ is freely chosen first, and the cocone data
+$\{\nu_i\}$ are derived as pushforwards $(\pr_i)_\sharp P$.  This is a
+\emph{cone}: $P$ is the apex and the $\nu_i$ are its projections.
+
+The program runs in the opposite direction: the cocone data $\{\nu_i\}$ are
+given (from observations), and the apex $P$ is derived.  This is the
+categorical form of the epistemological inversion: the global measure is
+constituted by the coherence of its parts, not given as a prior that
+determines the parts.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The extension theorem as an adjunction}
+\label{sec:adjunction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We now state the program's main theorem --- the Observational Extension
+Theorem of Paper~1 --- in categorical language.
+
+\begin{definition}[Categories for the adjunction]
+Define two categories:
+\begin{itemize}
+  \item $\Prob(\Omega)$: the category whose objects are probability measures
+    $P \in \Pcal\Omega$ and whose morphisms are measurable maps of probability
+    spaces over $\Omega$.  (For route-finding purposes, we may take this to be
+    a discrete category: objects are measures, no non-trivial morphisms.)
+  \item $\mathrm{Compat}(\{O_i\})$: the category of compatible families
+    $\{\nu_i\}$ over the query system, with morphisms being families of
+    measure-preserving maps compatible with the refinements.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[The forgetful functor]
+The \emph{marginalisation functor}
+\[
+  \Phi : \Prob(\Omega) \to \mathrm{Compat}(\{O_i\})
+\]
+sends a probability measure $P$ on $\Omega$ to the compatible family of its
+marginals:
+\[
+  \Phi(P) = \left\{ (\pr_i)_\sharp P \right\}_{i \in I}.
+\]
+This functor is always well-defined: pushforward is functorial and the
+compatibility condition holds automatically.
+\end{definition}
+
+\begin{theorem}[Extension theorem --- adjunction form]\label{thm:extension-adjunction}
+Under the conditions of Paper~1 (query system sequentially upper-directed and
+realizable), the marginalisation functor $\Phi$ is an \emph{isomorphism of
+categories}: every compatible family $\{\nu_i\}$ extends uniquely to a measure
+$P$ on $\Omega$, and $\Phi(P) = \{\nu_i\}$. So $\Phi$ has a two-sided inverse
+(the extension functor) and the adjunction $\mathrm{Ext} \dashv \Phi$ is in fact
+an equivalence.
+\end{theorem}
+
+\noindent The careful development --- the categories $\mathrm{QSys}$,
+$\mathrm{PSys}$, the functors, the unit/counit, and the proof (uniqueness =
+Paper~1 Determination Thm; existence = the Carathéodory route, realizability
+replacing tightness; Lean: \texttt{observational\_extension} in
+\texttt{QuerySystem.lean}) --- is in the companion
+\texttt{categorical\_adjunction.tex} (Thms.~on the adjunction and the
+equivalence). It is not repeated here.
+
+\begin{remark}[The Polish replacement]
+The classical Kolmogorov extension theorem obtains existence by a topological
+route: Polish spaces are regular enough that Prokhorov's tightness theorem
+guarantees inner regularity, which in turn forces $\sigma$-additivity.
+
+The program obtains existence by a purely measure-theoretic route: the
+realizability condition replaces inner regularity.  Realizability says that
+the projections $\pr_i : \Omega \to O_i$ are surjective, so that the
+projective limit is ``full enough'' that vanishing marginals imply vanishing
+cylinder content.
+
+This is why the two approaches are complementary rather than redundant: the
+program's route works in settings where the spaces need not be Polish (any
+standard measurable space with the right query structure), and the
+relationship to the Prokhorov/tightness route is precisely what the
+Conjecture~2 / CFA work on the \texttt{equicontinuity-cfa-conjecture} branch
+is probing.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The minimal predictive query in $\Kl(\Pcal)$}
+\label{sec:predictive}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+We now identify the objects of Paper~2 as morphisms in $\Kl(\Pcal)$.
+
+\begin{definition}[Delay query system]
+Fix a measurable sensor alphabet $(X, \Xcal)$ and work on the path space
+$X^{\mathbb{Z}}$ with the product $\sigma$-algebra.  The \emph{delay query
+system} has:
+\begin{itemize}
+  \item \emph{Queries}: pairs $(d, \tau) \in \mathbb{N}_{>0} \times \mathbb{N}_{>0}$
+    with outcome space $O_{d,\tau} = X^d$ and evaluation map
+    \[
+      \mathrm{ev}_{d,\tau} : X^{\mathbb{Z}} \to X^d,
+      \qquad
+      \omega \mapsto (\omega_0, \omega_{-\tau}, \omega_{-2\tau}, \ldots, \omega_{-(d-1)\tau}).
+    \]
+  \item \emph{Refinement maps}: $\pi_{(d,\tau),(d',\tau')} : X^{d'} \to X^d$
+    defined when $(d,\tau) \preceq (d',\tau')$, projecting to the
+    corresponding coordinates.
+\end{itemize}
+The realization space is $\Omega \subseteq X^{\mathbb{Z}}$, the set of
+streams coherent under all delay evaluations.
+\end{definition}
+
+\begin{definition}[Predictive kernel as Kleisli morphism]
+Given a compatible family $\{\nu_{d,\tau}\}$ and the extended measure $P$ on
+$\Omega$ (from Theorem~\ref{thm:extension-adjunction}), the \emph{predictive
+kernel} at time $t$ is a morphism in $\Kl(\Pcal)$:
+\[
+  K_t : \Omega \to O_F, \qquad
+  K_t(\omega, \cdot) = P\bigl((\sigma^t \omega \in \cdot) \mid \Fcal_{-\infty}^0\bigr),
+\]
+where $\sigma$ is the shift map and $O_F = X^{\mathbb{N}}$ is the future
+observable space.  The \emph{minimal predictive query} $Q_*$ is the
+$\sigma$-algebra generated by $\{K_t\}_{t \geq 0}$ --- the coarsest
+measurable structure on $\Omega$ from which all future conditional
+distributions can be computed.
+\end{definition}
+
+\begin{remark}[Semigroup in $\Kl(\Pcal)$]
+The Markov property of $\{K_t\}$ is exactly closure of this collection under
+Chapman--Kolmogorov composition in $\Kl(\Pcal)$:
+\[
+  K_{s+t} = K_t \circ K_s \qquad \text{(equality in } \Kl(\Pcal)\text{)}.
+\]
+The semigroup property of the predictive operator (Paper~2, Theorem~5.2) is
+associativity of composition in $\Kl(\Pcal)$.  The operator-theoretic content
+of Paper~3 (resolvent, spectral theory) is the analysis of this semigroup
+acting on $L^2(\Omega, P)$.
+\end{remark}
+
+\begin{remark}[The Rose condition as isomorphism]
+Two delay embeddings (via different $(d, \tau)$ parameters) are
+\emph{observationally equivalent} if their induced predictive sub-diagrams
+are isomorphic in $\Kl(\Pcal)$.  The Rose condition --- $D_f(\Gamma_Y \| \Gamma_Z) = 0$
+--- is the information-theoretic criterion for this isomorphism.  It says that
+no $f$-divergence can distinguish the two predictive distributions, which in
+$\Kl(\Pcal)$ means the two kernels are equal as morphisms.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Open problems as categorical questions}
+\label{sec:open}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The program's open problems now have precise categorical formulations.
+
+\begin{conjecture}[Conjecture~2 --- $\sigma$-additivity from coherence alone]
+\label{conj:sigma-additivity}
+There exist purely algebraic conditions on the query system --- without
+realizability or Polish hypotheses --- that force the finitely additive content
+$\mu_0$ to be $\sigma$-additive.
+
+\emph{Categorically}: what conditions on a diagram $F : I^\op \to \Kl(\Pcal)$
+guarantee that the colimit exists in $\Pcal\Omega$?  This is a cocompleteness
+question for $\Kl(\Pcal)$ restricted to diagrams of a particular shape.
+
+\emph{Connection to equicontinuity}: the CFA (Compact Family Argument) work
+on the \texttt{equicontinuity-cfa-conjecture} branch is developing the
+Prokhorov-type tightness argument for this.  If successful, it would give a
+topological route to cocompleteness analogous to the classical case, and
+potentially feed into a Mathlib formalization of the Kolmogorov extension
+theorem.
+\end{conjecture}
+
+\begin{conjecture}[Stopping Point~1 --- measurability from discriminability]
+\label{conj:measurability}
+The $\sigma$-algebra $\Xcal$ on the sensor alphabet $X$ should be derivable
+from primitive discriminative structure: the ability of the observer to
+distinguish finite families of events.
+
+\emph{Categorically}: is there a category more primitive than $\Meas$ ---
+perhaps of \emph{locales}, \emph{domains}, or \emph{topological spaces} ---
+whose image in $\Meas$ under a forgetful functor gives the right
+$\sigma$-algebras?  The $\sigma$-algebra would then be the \emph{sheaf of
+reportable distinctions} on a suitable site, and the assumption of $(X, \Xcal)$
+in the current program would be replaced by a construction.
+
+\emph{Connection to Boole}: Boolean algebras of propositions (Boole's algebra
+of thought) are the finite discriminative structure; the $\sigma$-algebra is
+their countable closure.  The conjecture is that any system capable of
+coherent countable probabilistic reasoning must already have this closure.
+\end{conjecture}
+
+\begin{remark}[The adjunction gap]
+Theorem~\ref{thm:extension-adjunction} states the extension theorem as an
+isomorphism of categories.  The full adjunction statement --- identifying the
+unit and counit, showing they satisfy the triangle identities, and characterising
+the fixpoints --- has not been written out precisely.  This is a concrete
+mathematical task: define the two categories properly, write down the functors
+$\Phi$ and $\mathrm{Ext}$, and verify the adjunction axioms.  It would give
+the cleanest categorical statement of what Paper~1 proves.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Comparison table: classical vs.\ program}
+\label{sec:comparison}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\hline
+\textbf{Step} & \textbf{Classical} & \textbf{Program} \\
+\hline
+1. Starting point & Sample space $(X, \Xcal)$ assumed & Query system $(\{O_i\}, \{\pi_{ij}\})$ given \\
+2. Ambient category & $\Meas$ and $\Kl(\Pcal)$ & $\Meas$ and $\Kl(\Pcal)$ (same) \\
+3. Measure & Free choice $P : 1 \to \Pcal X$ & Derived: $P = \mathrm{Ext}(\{\nu_i\})$ \\
+4. Marginals & Derived from $P$ & Given as input (observations) \\
+5. Limit space & $X$ is assumed & $\Omega = \varlim O_i$ is constructed \\
+6. Extension & Kolmogorov (Polish) & Paper~1 (sequential, realizable) \\
+7. Dynamics & Markov kernel $T : X \to X$ in $\Kl(\Pcal)$ & Predictive kernel $K_t : \Omega \to O_F$ \\
+8. Semigroup & Chapman--Kolmogorov & Composition in $\Kl(\Pcal)$ (same) \\
+9. Objectivity & Ground truth assumed & Limit of coherent query perspectives \\
+\hline
+\end{tabular}
+\end{center}
+
+Row~3 is the inversion.  Rows~2 and~8 show that the categorical machinery
+is the same in both directions --- the difference is not in the tools but in
+the direction of travel.
+
+Row~9 deserves emphasis: the program does not eliminate objectivity but
+\emph{derives} it.  When all queries cohere --- when the compatible family
+$\{\nu_i\}$ is globally consistent --- the extension $P$ is the unique
+probability measure on $\Omega$ that everyone with access to all queries
+would agree on.  This is the mathematical form of the phenomenological claim
+that objectivity is constituted by the coherence of perspectives, not
+presupposed beneath them.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Mathlib availability for the program's picture}
+\label{sec:mathlib}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+See \texttt{mathlib\_gaps.md} (this directory) for the consolidated audit
+(Kleisli / Eilenberg--Moore / Giry monad / Markov kernels present; projective
+limits and Kolmogorov extension absent; \texttt{QuerySystem.lean}'s
+\texttt{observational\_extension} fills the extension gap in-house for the query
+setting). The one gap specific to \emph{this} document: the adjunction of
+Theorem~\ref{thm:extension-adjunction} (defining $\Prob(\Omega)$ and
+$\mathrm{Compat}(\{O_i\})$ as Lean~4 categories and verifying the adjunction
+axioms) is not formalized --- the next categorical formalization target.
+
+\end{document}

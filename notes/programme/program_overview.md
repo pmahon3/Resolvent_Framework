@@ -306,7 +306,7 @@ Open directions — the extension boundary:
    not the predicted concreteness-failure). The (★)=YES Lean structure stands as
    established but was always irrelevant to the kill. Nothing routed to Paper II.
    Canonical record (parked): `notes/covered_leads/descent_axis_residue_post_kill.md`;
-   derivation history: `notes/open_questions/verification/inhabitation_check.md`.
+   derivation history (archived): `notes/archive/oml_descent_inhabitation_dead/inhabitation_check.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---

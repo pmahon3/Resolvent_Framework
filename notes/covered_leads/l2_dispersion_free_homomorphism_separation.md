@@ -119,6 +119,7 @@ Source seed (moved from `open_questions/verification/`):
 ---
 
 (See git history `9ebe51e`, `9fd95d8`, `31e88fd`, `3148123` for the
-verified-by-building record; scripts `l2_states.py`,
-`verify_mo2_state.py`, `diag_hom.py` remain in
-`open_questions/verification/`.)
+verified-by-building record. Scripts: `verify_mo2_state.py` remains in
+`open_questions/verification/` (foundational MO₂ fact); `l2_states.py` and
+`diag_hom.py` were archived 2026-06-11 to
+`archive/oml_descent_inhabitation_dead/` with the dead L_MO₂ lead.)

@@ -458,9 +458,15 @@ a σ-Loomis–Sikorski theorem.
 > underlying point space? Or can one prove that any such structure collapses,
 > either to a point space or to the Boolean case?
 
-"Point-free" qualifies the *measure*: it must not descend to a measure on a point
-space (the (B)-realisation of Rmk 5.2), even when the lattice itself happens to be
-set-representable. The localic framing is forced, not preferred, because the
+"Point-free" qualifies the *measure*, and it must negate *both* point-spaces of
+Rmk 5.2: the measure must neither concentrate on the (B)-realisation (the dual
+points `P(A)`) *nor* be built by reduction to the (A)-points (e.g. recovered as
+`s = tr(ρ·)` from an underlying ray/density datum). Negating (B) alone is not
+enough — `L(H)`+Gleason passes (B) (Prop 3.2: nothing concentrates on `P(A)`) yet
+is the *most* (A)-ful object there is — so a witness must escape both, which is
+what "genuinely relational" means here. The condition bites even when the lattice
+itself happens to be set-representable: it is the *measure*, not the lattice, that
+must be point-free. The localic framing is forced, not preferred, because the
 point-based route is closed in advance. A full σ-tribe / Loomis–Sikorski
 representation preserves `∧,∨` as `∩,∪`, so its image is a sublattice of a Boolean
 algebra, hence distributive — forcing the OML Boolean (§2). So "relational

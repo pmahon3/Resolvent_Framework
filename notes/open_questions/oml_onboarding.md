@@ -24,7 +24,15 @@ is non-empty and (update 2026-06-10, §5 resolution box) whose `MO₂`-swap memb
 `𝓛₂` satisfies the interleaving condition (★) — so it does *not* segregate — and
 (RESOLVED 2026-06-10, axis PARKED) **is concrete**, so the conjecture is false as
 worded, yet is **not a contribution**: trivial (∏ₙ`MO₂` carries the whole bundle)
-and already characterized by Pták–Pulmannová 1994.
+and already characterized by Pták–Pulmannová 1994. **What survives the kill** —
+and is the live residue this survey now exists to frame — is the *other* coupled
+question: the **structural** one (§6 Q1: does a σ-complete OML admit a
+Loomis–Sikorski representation / a countable-join-preserving σ-Stone duality, or
+is it ruled out by the join-preservation obstruction?), together with the
+**point-free classification** question (is L(H)+Gleason a genuine point-free,
+non-distributive, σ-additive witness — or disqualified by the (A)/(B) dual-space
+equivocation — and if it counts, is it unique?). The L_MO₂ *inhabitation* attempt
+is dead; these are not.
 The stake is more than
 technical: a positive resolution would furnish a *point-free*, σ-additive
 probability theory on a non-distributive lattice — the non-Boolean analogue of
@@ -580,7 +588,8 @@ richness-obstructs-concreteness heuristic: `L(H)` alone, by Kochen–Specker,
 both satisfies (★) and is non-concrete. (The σ-ortho-vs-σ-complete distinction
 is now carried by the Q1/Q2 split of the problem statement above.) Details of
 the substitution and the (★) reduction are recorded in
-`verification/inhabitation_check.md`.
+`../archive/oml_descent_inhabitation_dead/inhabitation_check.md` (archived — the
+L_MO₂ inhabitation lead is dead; this is derivation history only).
 
 A positive answer would furnish a relational probability theory without
 realisations: σ-additive probability built from the entailment relation of a

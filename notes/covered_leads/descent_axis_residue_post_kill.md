@@ -3,8 +3,9 @@
 *Single consolidated map of the descent-axis frontier, written after the L₂
 dispersion-free/homomorphism state-separation was KILLED by `/audit full`
 (parked to `covered_leads/`). Supersedes the scattered status across
-`verification/inhabitation_check.md`, `verification/beta_swap_worksheet.md`,
-and the two retired handoffs as the descent-axis entry point.*
+`../archive/oml_descent_inhabitation_dead/inhabitation_check.md`,
+`../archive/oml_descent_inhabitation_dead/beta_swap_worksheet.md` (both archived
+2026-06-11), and the two retired handoffs as the descent-axis entry point.*
 
 > **⛔ AUDIT RESOLVED — DESCENT AXIS PARKED (2026-06-10, `/audit full` on
 > concreteness, opus Agent).** The concreteness audit landed on a cell the
@@ -292,10 +293,15 @@ concreteness. The next move is the audit gate, narrowly pointed.
 5. **Empirical-reconnection arc:** dead 5×, same decorative-σ rock. Not a route.
 
 ## SOURCES / ARTIFACTS
-- `verification/inhabitation_check.md` — full HINGE derivation history (the
-  (★) discriminator, the two near-misses L(H)/Navara, the segregation analysis).
-- `verification/beta_swap_worksheet.md` — the by-hand (★) attempt; leans NO,
-  localizes the gap to closed-join + completion-order (items 1–2 §4).
+*(The L_MO₂-specific worksheets were archived 2026-06-11 to
+`../archive/oml_descent_inhabitation_dead/` — derivation history for the dead
+lead. See that directory's README.)*
+- `../archive/oml_descent_inhabitation_dead/inhabitation_check.md` — full HINGE
+  derivation history (the (★) discriminator, the two near-misses L(H)/Navara, the
+  segregation analysis).
+- `../archive/oml_descent_inhabitation_dead/beta_swap_worksheet.md` — the by-hand
+  (★) attempt; leans NO, localizes the gap to closed-join + completion-order
+  (items 1–2 §4).
 - `formalization/QuerySystem/QuerySystem/DescentWitness{Finite,Infinite,Consistency,Closure}.lean`
   — 0 sorry. Proves (★) from `Sub` + `navaraJoin` axioms (gap → `MO2.gap`). The
   axioms encode the HINGE answer; **their p. 428 faithfulness is now hand-verified

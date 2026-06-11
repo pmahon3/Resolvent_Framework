@@ -23,6 +23,10 @@ to the infinite limit object), the next question was the programme prize: a
 "PR-survival is the open question" by building the finite state space
 (`l2_states.py`, `verify_mo2_state.py`):
 
+> *(Script locations, after the 2026-06-11 archive sweep: `verify_mo2_state.py`
+> is in `open_questions/verification/`; `l2_states.py` and `diag_hom.py` moved to
+> `archive/oml_descent_inhabitation_dead/` with the dead L_MO₂ lead.)*
+
 **L₂ has a separating family of σ-additive, dispersion-free (2-valued) states** —
 the per-block **evaluation states** `s_{m,σ}(f) = σ(f(m))`, σ a 2-valued MO₂
 state. Each:

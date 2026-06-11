@@ -172,9 +172,10 @@ problem, and that generality is what makes it occupied at every rung. The
 recurrence is a signal, not a coincidence to extend — the empirical-science
 bridge is canned ground.
 
-**What it never touched:** the one live frontier — OML *descent
+**What it never touched:** the then-live frontier — OML *descent
 inhabitation* (does σ-orthocompleteness survive Navara's product/constancy
-machinery over concrete stateful MO₂ blocks?) — has nothing
+machinery over concrete stateful MO₂ blocks?), since itself closed/parked
+2026-06-10 — has nothing
 non-distributive in it. Mechanistic feasibility lives entirely in the
 Boolean/realised half of the programme, where everything is classical and
 occupied. The frontier is on the non-distributive descent axis; this seed

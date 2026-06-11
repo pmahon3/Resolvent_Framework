@@ -1,0 +1,674 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{tikz-cd}
+\usetikzlibrary{arrows.meta,positioning,cd}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Definition}
+\newtheorem{lemma}{Lemma}
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newtheorem{example}{Example}
+\newtheorem{conjecture}{Conjecture}
+
+% ---------- Commands ----------
+\newcommand{\Meas}{\mathbf{Meas}}
+\newcommand{\QSys}{\mathbf{QuerySys}}
+\newcommand{\PSys}{\mathbf{ProbSys}}
+\newcommand{\Kl}{\mathrm{Kl}}
+\newcommand{\Pcal}{\mathcal{P}}
+\newcommand{\Xcal}{\mathcal{X}}
+\newcommand{\Ycal}{\mathcal{Y}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\Bcal}{\mathcal{B}}
+\newcommand{\Qcal}{\mathcal{Q}}
+\newcommand{\id}{\mathrm{id}}
+\newcommand{\op}{\mathrm{op}}
+\newcommand{\pr}{\mathrm{pr}}
+\newcommand{\Ext}{\mathrm{Ext}}
+\newcommand{\Forget}{\mathrm{Forget}}
+\newcommand{\varlim}{\varprojlim}
+\newcommand{\sharppush}{_\sharp}
+
+\title{
+The Extension--Marginalisation Adjunction:\\
+A Categorical Statement of Paper~1
+}
+
+\author{Patrick S. Mahon}
+
+\date{Working note --- \today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+The Observational Extension Theorem of Paper~1 has a clean categorical
+formulation: the extension construction and the marginalisation functor
+form an adjunction
+\[
+  \Ext \dashv \Forget : \PSys \rightleftharpoons \QSys
+\]
+between a category of \emph{query systems with compatible measures} and a
+category of \emph{probability spaces with query structure}.  Under the
+hypotheses of Paper~1 --- sequential upper-directedness, realizability, and
+observational determination --- this adjunction is an \emph{equivalence of
+categories}: both the unit and counit are natural isomorphisms.
+
+The adjunction is the mathematical form of the program's philosophical
+inversion.  The forgetful functor $\Forget$ extracts the marginal system from
+a probability space; the extension functor $\Ext$ constructs the canonical
+probability space from marginal data.  That $\Ext \dashv \Forget$ is an
+equivalence says precisely that these two operations are inverses --- that
+the global measure is fully determined by, and fully determines, the
+coherent system of its marginals.
+
+The residual assumption --- $\sigma$-algebras $\mathcal{O}_i$ on the
+individual query outcome spaces --- is identified as the honest epistemic
+boundary of the program: measurability is assumed only at the level of what
+the observer can directly report, and the global measurable structure on the
+realization space is derived.
+\end{abstract}
+
+\tableofcontents
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Motivation: relocating the assumption}
+\label{sec:motivation}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The classical construction of probability assumes a $\sigma$-algebra and a
+measure on a sample space $\Omega$ that the observer never directly accesses.
+All observations are derived from this assumed global structure.  The
+Observable Dynamics Program inverts this: it begins with what the observer
+can directly report (query outcomes) and derives the global structure from
+the coherence of those reports.
+
+After the inversion, the assumption has not been eliminated but
+\emph{relocated}:
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lll}
+\hline
+\textbf{Level} & \textbf{What is assumed} & \textbf{Status} \\
+\hline
+$\sigma$-algebras $\Ocal_i$ on outcome spaces $O_i$
+  & Observer's reportable distinctions
+  & Assumed (residual) \\
+$\sigma$-algebra $\Bcal_\Omega$ on realization space $\Omega$
+  & Global measurable structure
+  & \emph{Derived} from queries \\
+Probability measure $P$ on $\Omega$
+  & Global probability
+  & \emph{Derived} from $\{\nu_i\}$ \\
+Objectivity
+  & Agreement of all coherent observers
+  & \emph{Forced} by coherence \\
+\hline
+\end{tabular}
+\end{center}
+
+The residual assumption --- $\sigma$-algebras on each $O_i$ --- is
+epistemologically grounded: it encodes the observer's capacity to distinguish
+outcomes at query level $i$.  It does not presuppose any global structure.
+The global measurable structure on $\Omega$ is the join
+\[
+  \Bcal_\Omega = \bigvee_{i \in I} \sigma(\pr_i)
+  = \sigma\!\left(\pr_i^{-1}(A) : i \in I,\, A \in \Ocal_i\right),
+\]
+constituted by the coherence of the queries, not presupposed beneath them.
+
+The adjunction $\Ext \dashv \Forget$ is the precise mathematical statement
+that the second and third rows of this table are theorems.
+
+\begin{remark}[The deeper question]
+The residual assumption --- $\Ocal_i$ on each $O_i$ --- is itself a candidate
+for derivation.  Can the $\sigma$-algebras on outcome spaces be derived from
+something more primitive, such as the observer's finite discriminative
+capacity (Boolean closure of distinguishable events)?  This is Stopping
+Point~1 of the program and is not addressed here.  If resolved, it would
+eliminate the residual assumption entirely, grounding the whole measurable
+structure in operational discriminability.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The category $\QSys$ of query systems}
+\label{sec:qsys}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[Objects of $\QSys$]\label{def:qsys-objects}
+An object of $\QSys$ is a pair $(F, \nu)$ where:
+\begin{itemize}
+  \item $F : I^\op \to \Meas$ is a \emph{query system}: a functor from a
+    directed preorder $I^\op$ to $\Meas$, giving measurable spaces
+    $\{(O_i, \Ocal_i)\}_{i \in I}$ and refinement maps
+    $\{\pi_{ij} : O_j \to O_i\}_{i \leq j}$ with $\pi_{ii} = \id$ and
+    $\pi_{ij} \circ \pi_{jk} = \pi_{ik}$.
+  \item $\nu = \{\nu_i \in \Pcal O_i\}_{i \in I}$ is a \emph{compatible
+    family} of probability measures: $(\pi_{ij})\sharppush \nu_j = \nu_i$
+    for all $i \leq j$.
+\end{itemize}
+\end{definition}
+
+\begin{definition}[Morphisms of $\QSys$]\label{def:qsys-morphisms}
+A morphism $(F, \nu) \to (G, \mu)$ in $\QSys$ --- where $F : I^\op \to \Meas$
+and $G : J^\op \to \Meas$ --- consists of:
+\begin{itemize}
+  \item A functor $\phi : I \to J$ (a map of index sets preserving the order).
+  \item For each $i \in I$, a measurable map $f_i : O'_{\phi(i)} \to O_i$
+    intertwining the refinements: for all $i \leq i'$ in $I$,
+    \[
+      f_i \circ \pi'_{\phi(i),\phi(i')} = \pi_{i,i'} \circ f_{i'},
+    \]
+    and pushing $\mu_{\phi(i)}$ forward to $\nu_i$:
+    \[
+      (f_i)\sharppush \mu_{\phi(i)} = \nu_i.
+    \]
+\end{itemize}
+Composition of morphisms is composition of functors and pointwise
+composition of the measurable maps.  The identity morphism has $\phi = \id_I$
+and $f_i = \id_{O_i}$.
+\end{definition}
+
+\begin{remark}[Cofinality: when the construction is justified]
+A morphism $(\phi, \{f_i\})$ always induces a measurable map
+$h : \varlim O'_j \to \varlim O_i$ between realization spaces (see
+Section~\ref{sec:functors}), and $h$ is always measure-preserving on
+cylinders in the image of $\phi$.  The construction never breaks.
+
+However, if $\phi$ is not \emph{cofinal} --- i.e.\ if there exist $j \in J$
+with no $i \in I$ satisfying $j \leq \phi(i)$ --- then $h$ may fail to be
+an isomorphism: parts of $\Omega'$ indexed by $J$-queries outside the image
+of $\phi$ are invisible to $F$, and the extension $\Ext(\phi, \{f_i\})$ may
+collapse or discard measure-theoretic content.
+
+Cofinality is therefore not a gate that filters out illegal morphisms but
+a \emph{condition under which the induced map is an isomorphism} ---
+the condition that the source query system is comprehensive enough to
+justify the completion it produces.  It is the morphism-level analogue of
+realizability: just as realizability says the query projections
+$\pr_i : \Omega \to O_i$ are surjective (no part of $\Omega$ escapes the
+queries), cofinality says the image of $\phi$ is eventually dominating
+(no part of $J$ escapes $I$).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lll}
+\hline
+\textbf{Condition} & \textbf{Level} & \textbf{Role} \\
+\hline
+Realizability & Within a query system
+  & $\pr_i$ surjective --- queries cover $\Omega$ \\
+Cofinality & Between query systems
+  & $\phi(I)$ cofinal in $J$ --- source covers target \\
+Both & & Extension is justified, not extrapolated \\
+\hline
+\end{tabular}
+\end{center}
+\end{remark}
+
+\begin{remark}[Morphisms as query comparisons]
+A morphism $(F, \nu) \to (G, \mu)$ says: the $G$-query system is at least as
+fine as the $F$-query system, and the measures are compatible under this
+comparison.  Each $G$-query $\phi(i)$ projects via $f_i$ to the $F$-query
+$i$, with the marginal $\mu_{\phi(i)}$ pushing forward to $\nu_i$.  When
+$\phi$ is cofinal, $G$ is genuinely finer: it sees everything $F$ sees and
+more, and the extension construction reflects this faithfully.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The category $\PSys$ of probability spaces with query structure}
+\label{sec:psys}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[Objects of $\PSys$]\label{def:psys-objects}
+An object of $\PSys$ is a triple $(\Omega, P, F)$ where:
+\begin{itemize}
+  \item $(\Omega, \Bcal_\Omega)$ is a measurable space.
+  \item $P \in \Pcal\Omega$ is a probability measure.
+  \item $F : I^\op \to \Meas$ is a query system as above, together with
+    measurable projections $\{\pr_i : \Omega \to O_i\}_{i \in I}$ satisfying
+    $\pi_{ij} \circ \pr_j = \pr_i$ for all $i \leq j$, and such that
+    \[
+      \Bcal_\Omega = \sigma\!\left(\pr_i^{-1}(A) : i \in I,\, A \in \Ocal_i\right).
+    \]
+\end{itemize}
+The last condition says that $\Bcal_\Omega$ is \emph{exactly} the
+$\sigma$-algebra generated by the query projections --- no more and no less.
+$\Omega$ carries only the measurable structure that the queries can see.
+\end{definition}
+
+\begin{definition}[Morphisms of $\PSys$]\label{def:psys-morphisms}
+A morphism $(\Omega, P, F) \to (\Omega', P', G)$ in $\PSys$ consists of:
+\begin{itemize}
+  \item A measurable map $h : \Omega \to \Omega'$ with $h\sharppush P = P'$.
+  \item A morphism $(\phi, \{f_i\}) : (F, \Forget(\Omega, P, F)) \to
+    (G, \Forget(\Omega', P', G))$ in $\QSys$ (defined below) such that
+    for all $i \in I$:
+    \[
+      f_i \circ \pr'_{\phi(i)} \circ h = \pr_i.
+    \]
+\end{itemize}
+That is, $h$ is a measure-preserving map that is compatible with the
+query projections via the query morphism $(\phi, \{f_i\})$.
+\end{definition}
+
+\begin{remark}[The $\sigma$-algebra condition]
+The condition $\Bcal_\Omega = \sigma(\pr_i^{-1}(A))$ is the categorical
+form of \emph{observational determination}: $\Omega$ is fully described by
+its query projections.  It rules out probability spaces that carry ``hidden''
+measurable structure invisible to all queries.  In the program, this is
+guaranteed by the fact that $\Omega = \varlim O_i$ is constructed as a
+subspace of the product, so its $\sigma$-algebra is by definition generated
+by the coordinate projections.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The functors}
+\label{sec:functors}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{definition}[The forgetful functor $\Forget$]\label{def:forget}
+The functor $\Forget : \PSys \to \QSys$ is defined as follows.
+\begin{itemize}
+  \item \emph{On objects}: $\Forget(\Omega, P, F) = (F, \{(\pr_i)\sharppush P\})$.
+    It retains the query system $F$ and replaces the global measure $P$ with
+    its marginals.
+  \item \emph{On morphisms}: a morphism $h : (\Omega, P, F) \to (\Omega', P', G)$
+    maps to the underlying query morphism $(\phi, \{f_i\})$.
+\end{itemize}
+$\Forget$ is well-defined: the marginals $\{(\pr_i)\sharppush P\}$ form a
+compatible family by functoriality of pushforward, and $(\phi, \{f_i\})$
+is a morphism in $\QSys$ by the compatibility condition in the definition
+of $\PSys$-morphisms.
+\end{definition}
+
+\begin{definition}[The extension functor $\Ext$]\label{def:ext}
+The functor $\Ext : \QSys \to \PSys$ is defined as follows.
+\begin{itemize}
+  \item \emph{On objects}: $\Ext(F, \nu) = (\varlim O_i,\, P,\, F)$ where:
+    \begin{itemize}
+      \item $\varlim O_i$ is the projective limit measurable space with
+        the subspace $\sigma$-algebra from $\prod_i O_i$,
+      \item $P$ is the unique probability measure on $\varlim O_i$ with
+        $(\pr_i)\sharppush P = \nu_i$ for all $i$, constructed by the
+        Carathéodory extension of the finitely additive content defined
+        on cylinder sets by the compatible family $\nu$.
+    \end{itemize}
+    The $\sigma$-algebra on $\varlim O_i$ is by construction exactly
+    $\sigma(\pr_i^{-1}(A) : i \in I, A \in \Ocal_i)$, so the object
+    condition of $\PSys$ is satisfied.
+  \item \emph{On morphisms}: a morphism $(\phi, \{f_i\}) : (F, \nu) \to
+    (G, \mu)$ in $\QSys$ induces a measurable map
+    $h = \Ext(\phi, \{f_i\}) : \varlim O'_j \to \varlim O_i$
+    via the \emph{universal property} of $\varlim O_i$.
+    For each $i \in I$, define $g_i : \varlim O'_j \to O_i$ by
+    \[
+      g_i(\omega') = f_i\!\left(\pr'_{\phi(i)}(\omega')\right).
+    \]
+    The family $\{g_i\}$ is a compatible cone over the $I$-diagram: for
+    $i \leq i'$,
+    \[
+      \pi_{i,i'}(g_{i'}(\omega'))
+      = \pi_{i,i'}(f_{i'}(\pr'_{\phi(i')}(\omega')))
+      = f_i(\pi'_{\phi(i),\phi(i')}(\pr'_{\phi(i')}(\omega')))
+      = f_i(\pr'_{\phi(i)}(\omega'))
+      = g_i(\omega'),
+    \]
+    using the intertwining condition on $\{f_i\}$ and compatibility of
+    $\{\pr'_j\}$.  The universal property of $\varlim O_i$ then gives a
+    unique measurable map $h : \varlim O'_j \to \varlim O_i$ with
+    $\pr_i \circ h = g_i$ for all $i$.
+
+    Measure-preservation $h\sharppush Q = P$ holds on cylinders: for
+    $A \in \Ocal_i$,
+    \[
+      h\sharppush Q(\pr_i^{-1}(A))
+      = Q(g_i^{-1}(A))
+      = Q\!\left((\pr'_{\phi(i)})^{-1}(f_i^{-1}(A))\right)
+      = \mu_{\phi(i)}(f_i^{-1}(A))
+      = \nu_i(A)
+      = P(\pr_i^{-1}(A)),
+    \]
+    using $(\pr'_{\phi(i)})\sharppush Q = \mu_{\phi(i)}$ and
+    $(f_i)\sharppush \mu_{\phi(i)} = \nu_i$.  Since cylinders generate
+    $\Bcal_\Omega$, the Determination Theorem gives $h\sharppush Q = P$.
+
+    When $\phi$ is cofinal, $h$ is an isomorphism; in general $h$ is a
+    well-defined measure-preserving map that may not be surjective.
+\end{itemize}
+\end{definition}
+
+\begin{remark}[Existence and uniqueness in $\Ext$]
+The definition of $\Ext$ on objects invokes the Observational Extension
+Theorem (Paper~1, Theorem~6.1) for existence of $P$, and the Observational
+Determination Theorem (Paper~1, Theorem~4.1) for uniqueness.  The extension
+theorem requires the query system $(F, \nu)$ to admit common coarsenings,
+sequential common refinements, and realizability; the determination theorem
+requires only common coarsenings.
+
+We include these as standing hypotheses on the objects of $\QSys$ and $\PSys$
+respectively, so that $\Ext$ and $\Forget$ are well-defined on the full
+categories.
+\end{remark}
+
+\begin{remark}[Morphisms go beyond Paper~1]
+Paper~1 works entirely over a \emph{fixed} query system.  It proves existence
+and uniqueness of the extension for a given $(F, \nu)$ but says nothing about
+maps between different query systems.
+
+The morphisms $(\phi, \{f_i\}) : (F, \nu) \to (G, \mu)$ in $\QSys$ ---
+and the functoriality of $\Ext$ on them --- are new categorical
+infrastructure built \emph{on top of} Paper~1's results.  The proof that
+$\Ext$ is functorial (Section~\ref{sec:functors}) uses the projective limit
+universal property together with Paper~1's Determination Theorem, but the
+statement itself does not appear in Paper~1.
+
+This means the adjunction $\Ext \dashv \Forget$ is a stronger claim than
+Paper~1 alone: it asserts not just that each individual query system has a
+canonical extension, but that these extensions are \emph{coherently
+organised} into a functor between categories.  Verifying this coherence ---
+that $\Ext$ preserves composition and identities of query morphisms --- is
+the additional content that the categorical picture contributes.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The adjunction}
+\label{sec:adjunction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{theorem}[Extension--marginalisation adjunction]\label{thm:adjunction}
+The functors $\Ext : \QSys \to \PSys$ and $\Forget : \PSys \to \QSys$ form
+an adjunction $\Ext \dashv \Forget$, witnessed by natural transformations:
+\begin{align*}
+  \eta &: \id_{\QSys} \Rightarrow \Forget \circ \Ext
+    \qquad \text{(unit)}, \\
+  \varepsilon &: \Ext \circ \Forget \Rightarrow \id_{\PSys}
+    \qquad \text{(counit)},
+\end{align*}
+satisfying the triangle identities.  Under the standing hypotheses, both
+$\eta$ and $\varepsilon$ are natural isomorphisms, so $\Ext \dashv \Forget$
+is an \emph{equivalence of categories}.
+\end{theorem}
+
+\begin{proof}[Construction of the unit $\eta$]
+For an object $(F, \nu) \in \QSys$, define
+\[
+  \eta_{(F,\nu)} : (F, \nu) \to \Forget(\Ext(F, \nu))
+  = \left(F,\, \{(\pr_i)\sharppush P\}\right)
+\]
+to be the identity morphism on the query system $F$, together with the
+identity maps $f_i = \id_{O_i}$.  This is a valid $\QSys$-morphism because
+the extension $P$ satisfies $(\pr_i)\sharppush P = \nu_i$ by construction
+(the Observational Extension Theorem), so the pushforward condition
+$(f_i)\sharppush \mu_{\phi(i)} = \nu_i$ holds with $\mu_{\phi(i)} = \nu_i$
+and $f_i = \id$.
+
+Thus $\eta_{(F,\nu)}$ is the identity morphism in $\QSys$.  In particular
+it is an isomorphism.  Naturality is immediate since all components are
+identity morphisms.
+\end{proof}
+
+\begin{proof}[Construction of the counit $\varepsilon$]
+For an object $(\Omega, P, F) \in \PSys$, define
+\[
+  \varepsilon_{(\Omega, P, F)} :
+  \Ext(\Forget(\Omega, P, F)) \to (\Omega, P, F).
+\]
+We have $\Ext(\Forget(\Omega, P, F)) = \Ext(F, \{(\pr_i)\sharppush P\})
+= (\varlim O_i, P', F)$ where $P'$ is the Carathéodory extension of the
+marginals $\{(\pr_i)\sharppush P\}$.
+
+The canonical map is the measurable map
+\[
+  h : \varlim O_i \to \Omega, \qquad
+  (o_i)_{i \in I} \mapsto \text{(the unique } \omega \in \Omega
+  \text{ with } \pr_i(\omega) = o_i \text{ for all } i\text{)},
+\]
+induced by the universal property of the projective limit in $\Meas$:
+the projections $\pr_i : \Omega \to O_i$ form a compatible cone over the
+diagram $F$, so they factor uniquely through $\varlim O_i$.
+
+This map $h$ is an isomorphism of measurable spaces: it is measurable
+(by the universal property), bijective (because $\Bcal_\Omega = \sigma(\pr_i^{-1}(A))$
+means $\Omega$ is already a projective limit), and its inverse is measurable
+for the same reason.
+
+Measure-preservation $h\sharppush P' = P$ follows from:
+both $P'$ and $h\sharppush P'$ agree with $P$ on all cylinder sets
+$\pr_i^{-1}(A)$, and these generate $\Bcal_\Omega$, so by uniqueness
+(Observational Determination) $h\sharppush P' = P$.
+
+Thus $\varepsilon_{(\Omega,P,F)} = h$ is an isomorphism.  Naturality
+follows from the universal property of projective limits.
+\end{proof}
+
+\begin{proof}[Triangle identities]
+Since both $\eta$ and $\varepsilon$ are natural isomorphisms (in fact
+the unit is the identity and the counit is induced by the projective limit
+universal property), the triangle identities
+\[
+  \varepsilon_{\Ext(F,\nu)} \circ \Ext(\eta_{(F,\nu)}) = \id_{\Ext(F,\nu)},
+  \qquad
+  \Forget(\varepsilon_{(\Omega,P,F)}) \circ \eta_{\Forget(\Omega,P,F)}
+  = \id_{\Forget(\Omega,P,F)}
+\]
+follow directly: the first because $\Ext$ applied to the identity morphism
+$\eta_{(F,\nu)}$ is the identity on $\Ext(F,\nu)$, and $\varepsilon$ on
+the result is the identity isomorphism; the second because $\Forget$ of an
+isomorphism is an isomorphism and composing with the identity unit gives
+the identity.
+\end{proof}
+
+\begin{theorem}[Equivalence of categories]\label{thm:equivalence}
+Let $\QSys^{\mathrm{cof}}$ denote the subcategory of $\QSys$ consisting of
+all objects but only \emph{cofinal} morphisms.  Under the standing hypotheses
+(query systems sequentially upper-directed and realizable; probability spaces
+observationally determined), $\QSys^{\mathrm{cof}}$ and $\PSys$ are equivalent
+categories:
+\[
+  \QSys^{\mathrm{cof}} \simeq \PSys.
+\]
+The equivalence says: \emph{a query system with compatible measures and a
+probability space with query structure carry exactly the same information,
+provided query comparisons are comprehensive enough to justify the
+completions they produce.}  Passing from one to the other via $\Ext$ or
+$\Forget$ loses nothing.
+
+On the full category $\QSys$ (allowing non-cofinal morphisms), $\Ext$ is
+still a functor and $\Ext \dashv \Forget$ is still an adjunction, but the
+unit and counit are no longer isomorphisms: non-cofinal morphisms produce
+completions that discard information, and the adjunction witnesses this
+asymmetry rather than an equivalence.
+\end{theorem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{What the equivalence means}
+\label{sec:meaning}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{remark}[The philosophical payoff]
+The equivalence $\QSys \simeq \PSys$ is the mathematical form of the
+program's central claim.  It says that the classical starting point
+(a probability space with a measure) and the program's starting point
+(a query system with compatible marginals) are interchangeable under the
+program's hypotheses.
+
+This does not mean the two starting points are identical --- $\Ext$ and
+$\Forget$ are non-trivial constructions.  It means that \emph{no information
+is lost or gained in either direction}: the global measure is fully
+determined by the marginal system, and the marginal system is fully
+determined by the global measure.
+
+Objectivity --- the global measure $P$ --- is not assumed beneath the
+observations but \emph{forced by their coherence}.  The equivalence is the
+theorem that makes this precise.
+\end{remark}
+
+\begin{remark}[What the hypotheses are doing]
+Paper~1 uses two distinct directedness conditions, each doing separate work.
+The equivalence requires all four of the following:
+\begin{enumerate}
+  \item \emph{Common coarsenings} (lower-directedness): any two queries
+    have a common coarsening.  This makes the cylinder family a
+    $\pi$-system, which is the condition for the Determination Theorem
+    (uniqueness of $P$ given its marginals) and for $\mu_0$ to be
+    well-defined as a finitely additive content.  It is needed for
+    $\Forget$ to be faithful.
+  \item \emph{Sequential common refinements} (sequential upper-directedness):
+    every countable family of queries has a common refinement.  This is
+    strictly stronger than pairwise upper-directedness and is the analytic
+    condition that forces $\sigma$-subadditivity of $\mu_0$, allowing
+    Carathéodory's theorem to apply.  It is needed for $\Ext$ to be
+    well-defined on objects.
+  \item \emph{Realizability}: the projective limit $\Omega = \varlim O_i$
+    has surjective projections $\pr_i$.  This is the condition that makes
+    $\sigma$-additivity hold: vanishing marginals imply vanishing cylinder
+    content.  Without it, $\sigma$-subadditivity fails and the Carathéodory
+    extension may not produce a probability measure.
+  \item \emph{Observational determination}: $\Bcal_\Omega$ is generated by
+    the query projections.  This makes $\Forget$ faithful --- no hidden
+    measurable structure on $\Omega$ escapes the query system.
+\end{enumerate}
+
+Conditions 1--3 are hypotheses on objects of $\QSys$.  Condition 4 is a
+hypothesis on objects of $\PSys$ and is automatically satisfied for objects
+in the image of $\Ext$.
+
+The separation of conditions 1 and 2 matters: uniqueness (Determination) is
+\emph{cheaper} than existence (Extension).  $\Forget$ is faithful under
+condition~1 alone; $\Ext$ needs the stronger conditions 2 and~3.  The
+adjunction is asymmetric in this sense: it is easier to forget a global
+measure into its marginals than to recover a global measure from marginal
+data.
+
+If condition 3 (realizability) fails, $\Ext$ may not exist.  This is the
+content of Conjecture~2: can realizability be replaced by a weaker or more
+algebraic condition?
+\end{remark}
+
+\begin{remark}[Connection to Kolmogorov]
+The classical Kolmogorov extension theorem gives the same equivalence for
+projective systems of Polish spaces.  The difference is:
+\begin{itemize}
+  \item Kolmogorov uses \emph{topological} hypotheses (Polish spaces,
+    inner regularity, Prokhorov tightness) to establish $\sigma$-additivity.
+  \item The program uses \emph{realizability} --- a purely measure-theoretic
+    condition on the projective limit --- to establish $\sigma$-additivity.
+\end{itemize}
+The two routes are complementary.  The program's route applies in settings
+where the spaces need not be Polish (any standard measurable space with a
+realizable query structure), and the Prokhorov/equicontinuity work on the
+\texttt{equicontinuity-cfa-conjecture} branch is probing whether the
+topological route can be adapted to close Conjecture~2.
+\end{remark}
+
+\begin{remark}[The Prokhorov route: a broader $\Ext$]
+Paper~1 (Section~7) establishes a second, independent construction of $\Ext$
+that does not require the marginals $\{\nu_i\}$ to be countably additive.
+Instead it assumes only \emph{finitely additive} marginals satisfying a
+\emph{surjective projective uniform tightness} (SPUT) condition --- a
+compactness hypothesis on the outcome spaces that forces $\sigma$-additivity
+to emerge rather than be assumed.
+
+In categorical terms, this extends $\Ext$ to a broader category
+$\QSys^{\mathrm{fa}}$ whose objects have only finitely additive compatible
+families:
+\[
+  \Ext^{\mathrm{fa}} : \QSys^{\mathrm{fa}} \to \PSys.
+\]
+The SPUT condition plays the role that realizability plays in the
+countably-additive route: it is the condition under which $\Ext^{\mathrm{fa}}$
+is well-defined.  Under shared hypotheses, both routes produce the same
+measure $P$.
+
+This is directly relevant to Conjecture~2: the SPUT condition is a
+topological/compactness condition on the outcome spaces $O_i$, and
+identifying when it can be replaced by a purely algebraic condition on
+the query system is one path toward closing the conjecture.  The
+equicontinuity/CFA work on the \texttt{equicontinuity-cfa-conjecture}
+branch is developing exactly this topological route.
+\end{remark}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{The residual assumption and Stopping Point 1}
+\label{sec:residual}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+The equivalence $\QSys \simeq \PSys$ takes the $\sigma$-algebras $\Ocal_i$
+on the outcome spaces $O_i$ as given.  These are the \emph{residual
+assumption} of the program: the assumption that has been relocated from the
+global space $\Omega$ to the local query outcome spaces.
+
+The relocation is epistemologically meaningful:
+\begin{itemize}
+  \item The $\Ocal_i$ encode the observer's capacity to distinguish outcomes
+    at query level $i$ --- a directly operational assumption.
+  \item The $\sigma$-algebra $\Bcal_\Omega$ is not assumed but derived as
+    the join $\bigvee_i \sigma(\pr_i)$.
+  \item The measure $P$ is not assumed but derived by extension.
+  \item Objectivity ($P$ is canonical, not a free choice) is a theorem.
+\end{itemize}
+
+\begin{conjecture}[Stopping Point 1 --- measurability from discriminability]
+The $\sigma$-algebras $\Ocal_i$ on query outcome spaces can themselves be
+derived from the observer's primitive discriminative capacity: the ability
+to distinguish finite families of events, closed under finite Boolean
+operations.
+
+If true, the category $\QSys$ could be replaced by a category $\QSys^0$ of
+query systems with only Boolean (finitely additive) event structure, and the
+$\sigma$-algebras $\Ocal_i$ would emerge as the minimal countably additive
+extension supporting coherent probabilistic reasoning.  The equivalence
+$\QSys^0 \simeq \PSys$ would then ground the entire measurable and
+probabilistic structure in operational discriminability alone.
+\end{conjecture}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Summary}
+\label{sec:summary}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{center}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{lll}
+\hline
+\textbf{Object} & \textbf{In $\QSys$} & \textbf{In $\PSys$} \\
+\hline
+Spaces & Outcome spaces $O_i$ (assumed) & $\Omega = \varlim O_i$ (constructed) \\
+$\sigma$-algebras & $\Ocal_i$ on $O_i$ (assumed); $\Bcal_\Omega$ derived
+  & $\Bcal_\Omega = \sigma(\pr_i^{-1}(A))$ (by construction) \\
+Measures & Compatible family $\{\nu_i\}$ (given) & Global measure $P$ (derived) \\
+Morphisms & Query maps $(\phi, \{f_i\})$ + measure intertwining & Measure-preserving maps + query compatibility \\
+Equivalence condition & $\phi$ cofinal (covers target queries) & Observational determination ($\Bcal_\Omega$ generated by $\pr_i$) \\
+\hline
+\textbf{Functor} & \multicolumn{2}{l}{\textbf{Action}} \\
+\hline
+$\Ext$ & \multicolumn{2}{l}{$(F, \nu) \mapsto (\varlim O_i, P, F)$
+  via Carathéodory extension} \\
+$\Forget$ & \multicolumn{2}{l}{$(\Omega, P, F) \mapsto (F, \{(\pr_i)\sharppush P\})$
+  via marginalisation} \\
+\hline
+\textbf{Natural transformation} & \multicolumn{2}{l}{\textbf{Content}} \\
+\hline
+Unit $\eta$ & \multicolumn{2}{l}{Identity: marginals of extension = original
+  $\nu_i$ (Extension Theorem)} \\
+Counit $\varepsilon$ & \multicolumn{2}{l}{Projective limit universal property:
+  $\Omega \cong \varlim O_i$ (Determination Theorem)} \\
+\hline
+\end{tabular}
+\end{center}
+
+The adjunction $\Ext \dashv \Forget$ encodes both main theorems of Paper~1
+in a single categorical statement.  The equivalence $\QSys \simeq \PSys$
+is the categorical form of the program's philosophical inversion.
+
+\end{document}

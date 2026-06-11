@@ -181,5 +181,5 @@ Filed: `notes/covered_leads/`.
 - Parent (parked) seed, escape hatch named: `notes/covered_leads/relational_reconstruction_separation.md` ("What this is NOT," contexts that cannot share one measure algebra).
 - Closure of the rival-realizations sibling (joining over common factor): same file, Phase-2 audit verdict (2026-06-06).
 - Paper II forcing (compatible→Boolean, incompatible→OML; §3 names distributed systems; §7 distributivity⟺commensurability): `papers/paper_ii/outline.md`, `papers/paper_ii/distributivity_and_realism_body.tex`.
-- Descent-axis inhabitant connection: [[oml_descent_inhabitation]], `notes/open_questions/verification/inhabitation_check.md`.
+- Descent-axis inhabitant connection: [[oml_descent_inhabitation]], `notes/archive/oml_descent_inhabitation_dead/inhabitation_check.md` (archived — lead dead).
 - Method discipline (build the smallest concrete example, don't analogize): [[feedback_verify_by_building]]; the "Stone/Takens = rhyme" burn (`0ff3387`) is the standing warning against framing-analogies in this exact corner.

@@ -668,8 +668,15 @@ analysis of $Y_n$'s cozero structure.
 > - **(witness, unconditional, intrinsic)** Find strictly increasing $\mathfrak{T}$-clopens
 >   $G_1\subseteq G_2\subseteq\cdots$ in $Y_n$ with **no least clopen upper bound**
 >   (closure of union not open) ⟹ $\operatorname{Clop}(Y_n)$ non-σ-complete ⟹ **ZFC
->   Strategy D example**. Soft families (single-branch, coordinate/all-zeros)
->   provably have sups — a witness must use **limit-branch** tree structure.
+>   Strategy D example**. **UPDATE 2026-06-12 — THREE families now killed by one
+>   mechanism** (single-branch; coordinate/all-zeros; and the $V_\Sigma$-accumulation
+>   to a limit branch): the overshoot points are themselves *subbasic open* $V_\Sigma$,
+>   hence **interior** to the closure, so the closure stays open and the sup exists. A
+>   witness needs a closure point that is **not interior** — a true boundary point in
+>   *no* $V_\Sigma$ — and the abundance of open $V_\Sigma$ makes that hard. This is a
+>   strong structural obstruction (not yet a formalized theorem) and **shifts the prior
+>   toward "route closed."** Full account: `argyros_sigma_completeness_handoff.md`,
+>   §"THREE families killed by one mechanism."
 > - **(named open sub-lemma)** Is $(Y_n,\mathfrak{T})$ **strongly** zero-dimensional
 >   ($\dim=0$, i.e. $\beta Y_n$ zero-dim)? Argyros gives only a clopen base
 >   ($\operatorname{ind}=0$); this does NOT follow, and $\mathfrak{T}$ finer-than-product

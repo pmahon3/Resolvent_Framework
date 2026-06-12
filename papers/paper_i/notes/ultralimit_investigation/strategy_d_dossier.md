@@ -324,6 +324,16 @@ Argyros (1983) — direct reading (2026-05-21):
   sets, or locating a remark in Comfort-Negrepontis or Fremlin that
   $\beta Y_n$ is (or is not) basically disconnected.
 
+  **UPDATE 2026-06-12 (GJ-grounded — supersedes the "requires direct analysis"
+  framing above, and corrects one claim):** Gillman–Jerison gives the lever (1H,
+  6M.1, 6W — see "Next concrete steps" and `argyros_sigma_completeness_handoff.md`),
+  reducing the question to two precise sub-questions (the limit-branch witness; the
+  strong-zero-dim sub-lemma). NOTE the bare "$\beta Y_n$ … zero-dimensional" above
+  is imprecise: Argyros gives only $\operatorname{ind}=0$ (a clopen base); strong
+  zero-dimensionality ($\dim=0$, needed for $\beta Y_n$ zero-dim) is an OPEN
+  sub-lemma. The witness direction routes around it by working in
+  $\operatorname{Clop}(Y_n)$ directly.
+
 Current assessment (revised 2026-05-21):
 
 > Strategy D is likely independent of ZFC.  The systematic read of
@@ -450,6 +460,13 @@ hypothesis are natural candidates for reduction targets.
   (also extremally disconnected).  Theorem 6.4 = Kelley's theorem.
   Corollary 6.17 = s.p. measure ⟹ $K_{\alpha,n}$ for all $\alpha$
   with $\text{cf}(\alpha)>\omega$, all $n$.
+- **Gillman–Jerison, *Rings of Continuous Functions*, §1H, §6M, §6W.**
+  READ (2026-06-12; page scans in
+  `notes/literature_review/literature/gillman_jerison_pages/`). 1H: basically
+  disconnected ⟺ every cozero-set has open closure. 6M.1: $\beta X$ b.d. ⟺ $X$
+  b.d. 6W: in $\beta\mathbb N\setminus\mathbb N$ the closure of a strictly
+  increasing sequence of clopens is never open (the non-b.d. witness template).
+  This is the lever for the step-1 reduction (see "Next concrete steps").
 - **Argyros (1982), "Boolean algebras without free families,"
   Algebra Universalis 14.** READ (2026-05-21).  Theorem A: no free
   family of cardinality $\lambda$ under filter conditions.
@@ -642,16 +659,32 @@ analysis of $Y_n$'s cozero structure.
 
 **Next concrete steps:**
 
-1. **Determine whether $\operatorname{Clop}(\beta Y_n)$
-   is σ-complete.**  Equivalent to whether $\beta Y_n$ (equivalently,
-   $Y_n$) is basically disconnected.  If NO, then $\beta Y_n$ is
-   a Strategy D example.  Requires direct topological analysis
-   of $Y_n$'s cozero sets, not literature search.
-2. Verify the two foundational equivalences (σ-completeness ↔
-   basically disconnected; measure-free BA ↔ Radon-measure-free
-   Stone space) with exact references.
-3. If pre-Gleason investigation fails (i.e., $\beta Y_n$ IS basically
-   disconnected), investigate attack mode C (consistency construction
-   under ◇/CH).
-4. Inspect Kunen/Fedorchuk examples against Strategy D conditions.
-5. Further progress likely requires collaboration with a set theorist.
+> **STEP 1 ADVANCED 2026-06-12 (GJ-grounded reduction).** "Is
+> $\operatorname{Clop}(Y_n)$ σ-complete?" is now reduced via Gillman–Jerison
+> (1H: b.d. ⟺ every cozero has open closure; 6M.1: $\beta X$ b.d. ⟺ $X$ b.d.;
+> 6W: the strictly-increasing-clopen non-b.d. witness template) to **two precise
+> sub-questions**, full working in `argyros_sigma_completeness_handoff.md` +
+> `..._scratch.md`:
+> - **(witness, unconditional, intrinsic)** Find strictly increasing $\mathfrak{T}$-clopens
+>   $G_1\subseteq G_2\subseteq\cdots$ in $Y_n$ with **no least clopen upper bound**
+>   (closure of union not open) ⟹ $\operatorname{Clop}(Y_n)$ non-σ-complete ⟹ **ZFC
+>   Strategy D example**. Soft families (single-branch, coordinate/all-zeros)
+>   provably have sups — a witness must use **limit-branch** tree structure.
+> - **(named open sub-lemma)** Is $(Y_n,\mathfrak{T})$ **strongly** zero-dimensional
+>   ($\dim=0$, i.e. $\beta Y_n$ zero-dim)? Argyros gives only a clopen base
+>   ($\operatorname{ind}=0$); this does NOT follow, and $\mathfrak{T}$ finer-than-product
+>   can break the Lindelöf upgrade. Needed only for the *impossibility* direction;
+>   the witness direction routes around it (work in $B=\operatorname{Clop}(Y_n)$,
+>   $\sigma$-complete ⟺ $\operatorname{St}(B)=\beta_0 Y_n$ b.d., unconditionally).
+>
+> GJ scans: `notes/literature_review/literature/gillman_jerison_pages/`. The
+> reduction is rigorous/citeable; the witness construction and impossibility proof
+> are the human Phase-4 step (not LLM-derivable).
+
+1. **The two sub-questions above** (limit-branch witness; strong-zero-dim
+   sub-lemma) — the live concrete targets for step 1.
+2. If $Y_n$ proves basically disconnected (route closed), investigate attack
+   mode C (consistency construction under ◇/CH).
+3. Inspect Kunen/Fedorchuk examples against Strategy D conditions.
+4. Further progress on the impossibility side likely requires collaboration with
+   a set theorist; the witness side is a concrete hand-construction in $Y_n$.

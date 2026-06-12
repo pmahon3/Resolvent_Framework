@@ -8,10 +8,13 @@ renumbering cleanup into the current three-paper architecture.*
 > **fibre-mixing irreducibility** ("the highest-leverage move", §"The true
 > frontier") — that have since died or parked. Fibre mixing was **killed**
 > (bridge theorem false); Papers II/III were withdrawn; the OML thread that
-> succeeded them has itself closed/parked (descent axis, 2026-06-10). Read this
-> for the historical architecture only. For current state the authoritative doc
-> is `program_overview.md`; for the kill history see `genealogy.md`. Left
-> un-rewritten because it is a dated snapshot, not a live state doc.
+> succeeded them had its L_MO₂ lead killed (2026-06-10) then reframed under
+> Reading 1 to a live *uninhabited* open problem (σ-essential contextual state;
+> 2026-06-12), and Strategy D advanced (GJ-grounded). Read this for the historical
+> architecture only. For current state the authoritative doc is
+> `program_overview.md` (Open Frontiers + item 4); for the kill history see
+> `genealogy.md`. Left un-rewritten because it is a dated snapshot, not a live
+> state doc.
 
 ---
 

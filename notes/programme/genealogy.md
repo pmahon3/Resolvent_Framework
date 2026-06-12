@@ -240,3 +240,16 @@ the sunk cost, or the fact that the descent question is "the last thread
 standing" decide it.
 
 **Status: open. No rush. This is genuinely yours to settle.**
+
+*Update 2026-06-12 — evidence, not a verdict.* Working the descent problem this
+session, the user chose **Reading 1** for its success criterion (relational = no
+hidden realisation; the (a)-flavored answer *for that problem*). Two consequences
+bear on the deeper fork, without closing it: (i) the descent prize, pursued under
+Reading 1, **reduced to a contextuality / compactness-failure question that
+reconnects to CE / Paper I** — i.e. the (b)-looking survivor, taken (a)-wards,
+rejoined the (a)-origin; (ii) Strategy D (purely (a), anti-smuggler) advanced in
+the same session. So both faces are now live and *both point back toward (a)*.
+This is suggestive that the driving curiosity was (a) all along — but choosing
+Reading 1 for a problem is not the same as self-diagnosing the curiosity, so the
+fork stays **open** by the doc's own standard. Recorded so it can inform the call,
+not make it.

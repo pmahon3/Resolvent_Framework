@@ -200,16 +200,27 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**Status 2026-06-10 (descent axis CLOSED):** No confirmed standalone lead. The
-descent axis is now **parked** — `/audit full` on concreteness resolved it
-(see item 4 below). Both descent results died this day: the L₂ state-level
-separation (decorative-σ) and the lattice-level L_MO₂ candidate. The latter is
-the arc's 6th death, for a NEW reason: L_MO₂ **IS** concrete (so the conjecture
-"richness starves concreteness" is FALSE as worded), but the witness is trivial
-(plain ∏ₙ MO₂ has the whole bundle) and the Boolean-forcing boundary was already
-characterized — Pták–Pulmannová 1994 (*subadditivity*, not σ-additivity, is the
-discriminator). Canonical record (now parked):
-`notes/covered_leads/descent_axis_residue_post_kill.md`.
+**Status 2026-06-12 (two open problems, both uninhabited; no confirmed lead).**
+After the L_MO₂ concreteness kill (2026-06-10), the descent axis had an *afterlife*
+(2026-06-11/12): pursuing it under **Reading 1** (relational = no hidden
+realisation; user's chosen framing) reduced the prize to a sharp, principled,
+**uninhabited** open problem — *is there a σ-complete concrete OML carrying a
+σ-essential contextual state?* — which reconnects to CE/Paper I (a compactness
+failure). Simultaneously **Strategy D** advanced: its step 1 (is `Clop(Yₙ)`
+σ-complete?) is now a GJ-grounded reduction to two precise sub-questions
+(limit-branch witness; strong-zero-dim sub-lemma). So the frontier is **two
+well-posed open problems with identified levers, neither inhabited** — not "no
+leads," not "confirmed leads." Both are (a)-aligned (incompatibility face = OML
+descent; anti-smuggler face = Strategy D). Working layer:
+`notes/open_questions/{reading1_prize_reduction,direction2_gate_finding,subsession_sigma_essential_via_CE}.md`,
+`papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`.
+
+The L_MO₂ kill itself stands (6th death of the arc: L_MO₂ **IS** concrete —
+conjecture "richness starves concreteness" FALSE as worded — but the witness is
+trivial, ∏ₙ MO₂ has the bundle, and the Boolean boundary is Pták–Pulmannová 1994's
+*subadditivity*). Canonical kill record (parked):
+`notes/covered_leads/descent_axis_residue_post_kill.md`. The reframed live problem
+supersedes it as the *open* question.
 
 Previously listed directions closed or parked:
 - **Mechanistic feasibility from observational coherence** — PARKED
@@ -265,7 +276,12 @@ Open directions — the extension boundary:
    Likely independent of ZFC. Nearest examples (Argyros, Kunen,
    Fedorchuk) miss at least one condition. Plebanek (2024 survey)
    confirms the exact parameter regime is open.
-   See `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.
+   **Step 1 advanced 2026-06-12 (GJ-grounded):** "is `Clop(Yₙ)` σ-complete?"
+   (the Argyros pre-Gleason candidate) reduces via Gillman–Jerison 1H/6M/6W to two
+   precise sub-questions — a limit-branch witness (strictly increasing clopens with
+   no least upper bound ⟹ ZFC example) and a named strong-zero-dim sub-lemma.
+   See `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`
+   (+ `argyros_sigma_completeness_handoff.md`).
 4. **OML extension problem** (algebraic face) — What replaces
    Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
    (1994): conditions strong enough to force σ-additivity collapse
@@ -279,11 +295,15 @@ Open directions — the extension boundary:
    problem). See the survey `notes/open_questions/oml_onboarding.{tex,md}`
    (archived predecessor: `notes/archive/oml_extension_problem_superseded.md`).
 
-   **Descent-axis status — CLOSED/PARKED 2026-06-10 (`/audit full` on
-   concreteness).** The extension axis is fully closed on L(H) (no state extends,
-   Prop 3.2). The descent axis is now also closed: the audit resolved the one
-   open question — *is L_MO₂ concrete?* — and the answer killed the lead on a
-   cell the framing did not predict. **L_MO₂ IS concrete** (so "richness starves
+   **Descent-axis status — L_MO₂ KILLED 2026-06-10, then REFRAMED to a live open
+   problem 2026-06-11/12.** The extension axis is fully closed on L(H) (no state
+   extends, Prop 3.2). The L_MO₂ concreteness lead was killed by `/audit full` (the
+   three findings below). **But the axis did not stay closed:** pursued under
+   Reading 1 it reduced to a sharp, principled, *uninhabited* open problem (see the
+   afterlife note at the end of this item). First the kill, then the reframe.
+
+   The audit resolved the question — *is L_MO₂ concrete?* — and killed the lead on
+   a cell the framing did not predict. **L_MO₂ IS concrete** (so "richness starves
    concreteness" is FALSE as worded), via three findings:
    - **The loaded premise was false.** V is a **Kalmbach horizontal sum (blocks
      glued only at {0,1})**, NOT atom-sharing Greechie pasting (Navara p. 428,
@@ -307,6 +327,21 @@ Open directions — the extension boundary:
    established but was always irrelevant to the kill. Nothing routed to Paper II.
    Canonical record (parked): `notes/covered_leads/descent_axis_residue_post_kill.md`;
    derivation history (archived): `notes/archive/oml_descent_inhabitation_dead/inhabitation_check.md`.
+
+   **AFTERLIFE — the reframed live problem (2026-06-11/12).** Pursuing the descent
+   question under **Reading 1** (relational = no hidden realisation; the user's
+   chosen framing of the (a)/(b) fork) reduced it, via Fine's theorem, to a
+   *contextuality* question: a relational measure ⟺ a **contextual** state (not
+   spanned by the dispersion-free states). Bounded by Wright 1978 (a *finite*
+   concrete OML with a contextual state), the only live cell is **σ-essential**
+   contextuality — contextual in the σ-complete whole but in no finite sub-OML, a
+   *compactness failure* that reconnects to CE/Paper I. Status: well-posed,
+   principled, **uninhabited** (no witness — ∏ₙMO₂ fails it, Wright is finite — and
+   no impossibility proof); two Phase-4 exits (build a σ-essential witness / prove
+   a spanning-impossibility). The survey `notes/open_questions/oml_onboarding.{md,tex}`
+   is now committed to this Reading-1 framing; working layer:
+   `reading1_prize_reduction.md`, `direction2_gate_finding.md`,
+   `subsession_sigma_essential_via_CE.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---

@@ -63,36 +63,76 @@ with **no minimum**, the overshoot being a `V_{Σ*}`-amount for a limit branch `
 This is exactly where the difficulty lives, and is honest evidence the route is hard,
 not quick.
 
-## The lever to use (NOT the §1.3 lemma)
+## The reduction (GJ now in hand) — and the one named sub-lemma
 
-The right tool is a **βX-vs-base-space basic-disconnectedness theorem**, not
-Argyros's FIP machinery:
+GJ pages obtained 2026-06-12 (scans in
+`notes/literature_review/literature/gillman_jerison_pages/`). The relevant facts:
 
-- **Gillman–Jerison, *Rings of Continuous Functions*** has the standard results on
-  when a Stone–Čech / zero-dimensional compactification is basically (or extremally)
-  disconnected in terms of a cozero property of the base space `(Y,𝔗)`. **GJ is not
-  in the repo** — the next step needs its **exact theorem statement** (the
-  "`βX` basically disconnected iff `X` is basically disconnected and `X` is ...
-  / iff every cozero set of `X` has open closure" family). Get it from the source;
-  do not reconstruct from memory.
-- That theorem likely reduces the compactification question to a **cozero property
-  of `(Y,𝔗)` directly** — far more tractable than computing in `β₀Y`. The concrete
-  target then: is there a cozero set `G ⊆ Y` (countable union of `𝔗`-clopens, e.g.
-  a limit-branch family) whose `𝔗`-closure is **not** open? That single set, if it
-  exists, is the Strategy D witness.
+- **GJ 1H (definition):** `X` is *basically disconnected* ⟺ every **cozero-set**
+  of `X` has **open closure**.
+- **GJ 6M.1:** *`βX` is basically disconnected ⟺ `X` is basically disconnected.*
+  (Clean iff, no side condition.)
+- **GJ 6W** (the witness template): in `βN−N`, *the closure of the union of a
+  **strictly increasing sequence of clopen sets** is never open* — hence not
+  basically disconnected. This is the shape any non-σ-completeness witness must
+  take.
 
-## Realistic endpoints (set expectations honestly)
+**The clean reduction — route AROUND `βYₙ`, stay in the Boolean algebra (this
+avoids a real gap).** The Strategy-D object is `B = Clop(Yₙ)`. Unconditionally
+(Stone / Loomis–Sikorski):
+> `B` is σ-complete ⟺ `St(B) = β₀Yₙ` (the Banaschewski compactification = Stone
+> space of `B`) is basically disconnected.
+This needs **no** Stone–Čech machinery and **no** zero-dimensionality hypothesis —
+`St(B)` is a Stone space by construction, and its cozero sets are exactly countable
+unions of basic clopens, i.e. countable subsets of `B`. So:
+> `B` σ-complete ⟺ every countable subset of `B` has a sup in `B` ⟺ (GJ 1H form)
+> every countable union of clopens of `St(B)` has open closure.
 
-Per the dossier's own prior (40+ years of expert work in this neighbourhood; a
-clean overlooked ZFC example is unlikely):
+**⚠ Named sub-lemma — do NOT use the GJ 6M `βYₙ` form without it.** It is tempting
+to apply GJ 6M.1 to push the question to "`Yₙ` basically disconnected ⟺ cozero-in-`Yₙ`."
+That requires `St(Clop Yₙ) = βYₙ`, i.e. **`Yₙ` strongly zero-dimensional**
+(`dim Yₙ = 0`, equivalently `βYₙ` zero-dimensional) — which is NOT free from `Yₙ`
+having a clopen base (`ind = 0 ≠ dim = 0`). Argyros (§1.2) only gives a clopen base
+(`ind = 0`) and that `𝔗` is finer than the product topology (which can destroy the
+Lindelöf condition that would upgrade `ind=0` to `dim=0`). So:
+- **SUB-LEMMA (open, needs proof or a citation): is `(Yₙ,𝔗)` strongly
+  zero-dimensional?** If YES → `β₀Yₙ = βYₙ` and the question becomes the cleaner
+  "every cozero-set of `Yₙ` has `𝔗`-open closure," directly in `Yₙ`. If unknown →
+  work intrinsically in `B = Clop(Yₙ)` (the route above), which needs nothing extra.
 
-- **βYₙ IS basically disconnected** → route closed → fall back to the consistency
-  construction (attack mode C, ◇/CH).
-- **Genuinely open** → needs a set theorist; the deliverable is then the sharp
-  reduced cozero question above, ready to pose.
+## The intrinsic witness question (unconditional — this is the live target)
 
-The honest framing of this whole step: *sharp reduced question + the lever + evidence
-the easy attacks fail* — **not** "close to a ZFC example."
+The **positive (Strategy-D-YES) direction needs none of the above** — it is purely
+Boolean-algebraic and checkable in `Yₙ`:
+
+> **Find `𝔗`-clopens `G₁ ⊆ G₂ ⊆ ⋯` in `Yₙ` (strictly increasing) such that the
+> family `{Gₖ}` has NO least clopen upper bound in `Clop(Yₙ)`** — equivalently,
+> `cl_𝔗(⋃ₖ Gₖ)` is not `𝔗`-open (so no clopen sits between `⋃Gₖ` and its closure).
+
+Exists → `Clop(Yₙ)` non-σ-complete → **ZFC Strategy D example**. (This is exactly
+the GJ 6W shape, transported into `Yₙ`.) The prior work shows where to look: the
+family must exploit the **limit-branch structure** of the tree `T` — single-branch
+and coordinate/all-zeros families provably have sups (see below).
+
+The **negative (route-closed) direction** is the genuinely hard quantification:
+prove every countable clopen family has a sup. Here the strong-zero-dim sub-lemma
+helps (it lets you argue over cozero sets of `Yₙ` rather than in `β₀Yₙ`).
+
+## Realistic endpoints (honest)
+
+Per the dossier's prior (40+ yrs expert work nearby; clean overlooked ZFC example
+unlikely):
+- **Witness found** (increasing clopens, no least upper bound, via a limit branch) →
+  ZFC Strategy D example. The reduction is now sharp enough that this is a concrete
+  hand-construction attempt in `Yₙ`, not a literature hunt.
+- **Provably basically disconnected** → route closed → consistency construction
+  (attack mode C, ◇/CH).
+- **Stuck** → the sub-lemma (strong zero-dim of `Yₙ`) and the limit-branch witness
+  are the two precise sub-questions to hand a set theorist.
+
+The reduction itself (GJ 1H + 6M/6W + Stone/Sikorski, routed through `B`) is
+rigorous and citeable; the witness construction / impossibility proof is the human
+Phase-4 step (not Lean-checkable, deliberately not hand-derived here).
 
 ## Sources
 - Argyros 1983, PJM 105(2), 257–261 — `notes/literature_review/literature/argyros_1983.pdf`
@@ -101,7 +141,10 @@ the easy attacks fail* — **not** "close to a ZFC example."
   line 572 `Clop(βYₙ)≅Clop(Yₙ)`).
 - Working file: `argyros_sigma_completeness_scratch.md` (reviewed sound: V_Σ-kill
   correct, β₀Y reframe correct; FACT B "Y non-compact" under-argued but harmless).
-- Needed, not in repo: **Gillman–Jerison**, basic-disconnectedness-of-`βX` theorem.
+- **Gillman–Jerison, *Rings of Continuous Functions*** — scans of the relevant
+  pages in `notes/literature_review/literature/gillman_jerison_pages/`: §1H (p.22–23,
+  basically/extremally disconnected + cozero-closure def), §6M (p.96, `βX` b.d. ⟺
+  `X` b.d.), §6W (p.100, the strictly-increasing-clopen non-b.d. witness).
 - Comfort–Negrepontis 1982 (`literature/comfort_negrepontis_1982`) and Fremlin Vol 5
   (`literature/fremlin_2003`) — for the Gleason-space distinction and measure-free
   background; the famous "extremally disconnected Argyros example" is `G(Xₙ)` (the

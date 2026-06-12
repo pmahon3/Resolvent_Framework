@@ -62,25 +62,24 @@ which is concrete, $\sigma$-complete, non-Boolean, infinite --- and exactly the
 \emph{segregated} object (non-distributivity confined to finite blocks) that a
 relational probability theory must exclude. The deeper reason is that a faithful
 $\sigma$-tribe representation has a distributive image, forcing the OML Boolean,
-so the point-based route is closed for every non-Boolean OML (and the witness
-$\prod_n\mathrm{MO}_2$ has, concretely, no two-valued homomorphisms at all); the
-forcing boundary to Boolean is \emph{subadditivity} of the separating states
-(Pt\'ak--Pulmannov\'a), not $\sigma$-additivity. The open problem is therefore
-\textbf{representation-irreducible}: does a non-Boolean, $\sigma$-complete OML
-carry a $\sigma$-additive probability that is genuinely relational --- not
-recovered from a faithful (Boolean) representation on points --- rather than
-reducible to a measure on an underlying point space? The two richly
-non-distributive poles frame it: $L(H)$+Gleason has a
-$\sigma$-additive lattice measure but is the \emph{most} point-ful object, not
-point-free (the (A)/(B) analysis of \S\ref{sec:problem}); the concrete
-combinatorial objects are segregated. The decisive subtlety is that
-``point-free / relational'' does not yet have an agreed predicate
-(\S\ref{sec:predicate}): the natural candidates are either vacuous or
-fork-dependent, and which one is intended is the (a)/(b) fork --- so the problem
-is, first, to \emph{define} its own success criterion. A positive answer is the
-non-Boolean analogue of localic measure theory; a negative answer, an
-impossibility theorem closing the cluster. We review what is known and what is
-ruled out, and close with the directions in which the problem might be approached.
+so no relational measure can arise from a faithful descent to points; the forcing
+boundary to Boolean is \emph{subadditivity} of the separating states
+(Pt\'ak--Pulmannov\'a), not $\sigma$-additivity. Read ``relational'' as \emph{no
+hidden realisation} --- the measure not recoverable from a posited auxiliary space
+of definite states --- which, by Fine's theorem, is exactly a \emph{contextual}
+state: one not in the closed convex hull of the lattice's dispersion-free states.
+The open problem is then sharp: \textbf{does a non-Boolean, $\sigma$-complete,
+concrete OML carry a $\sigma$-additive contextual state whose contextuality is
+$\sigma$-essential} (witnessed by no finite sub-OML)? The finite version is
+\emph{already settled} --- Wright's pentagon is a finite concrete OML with a
+contextual state --- so the live content is the $\sigma$-essential refinement,
+which is a \emph{compactness failure} of exactly the Paper~I (CE) type and rejoins
+the programme's origin. The state of the question: well-posed and principled but
+\emph{uninhabited} --- no witness ($\prod_n\mathrm{MO}_2$ fails it; Wright is
+finite), no impossibility proof. A positive answer is the non-Boolean analogue of
+localic measure theory; a negative one a $\sigma$-essential impossibility theorem,
+reinstating empiricist-underdetermination as a theorem. We review what is known
+and ruled out, and close with the two exits.
 \end{abstract}
 
 % ==================================================================
@@ -176,9 +175,11 @@ order and ask what that relational structure alone determines --- the
 measure-theoretic counterpart of pointless (localic) topology. The dual is
 then not a space of points but the McDonald--Bimb\'{o} space of \emph{filters}
 (\S\ref{sec:dual}), and a positive answer to the open problem would be a
-\emph{point-free} $\sigma$-additive probability theory on a non-distributive
-lattice --- the non-Boolean analogue of localic measure theory
-(\S\ref{sec:problem}; developed further in~\cite{mahon2025}).
+\emph{relational} $\sigma$-additive probability theory on a non-distributive
+lattice --- the non-Boolean analogue of localic measure theory. (The
+\S\ref{sec:problem} statement makes ``relational'' precise as a
+\emph{contextual} state, no hidden realisation; developed further
+in~\cite{mahon2025}.)
 
 % ==================================================================
 \section{Preliminaries}
@@ -899,84 +900,80 @@ Two qualifications delimit what is ruled out.
 % ==================================================================
 
 \begin{problem}
-Does a \emph{point-free}, non-distributive $\sigma$-additive probability theory
-exist? Concretely: is there a non-Boolean, $\sigma$-complete OML carrying a
-$\sigma$-additive probability that is genuinely \emph{relational} --- built from
-the entailment order of incompatible propositions, the non-Boolean analogue of a
-localic (point-free) measure --- rather than reducible to a measure on an
-underlying point space? Or can one prove that any such structure collapses ---
-either to a point space, or to the Boolean case?
+Is there a non-Boolean, $\sigma$-complete, \emph{concrete} OML carrying a
+$\sigma$-additive \emph{contextual} state --- a state with no global hidden joint
+distribution, equivalently one not lying in the closed convex hull of the
+lattice's dispersion-free (two-valued) states --- whose contextuality is
+\emph{$\sigma$-essential}, i.e.\ witnessed by no finite sub-OML? Or can one prove
+that no such state exists?
 \end{problem}
 
-\noindent One genuine universal is available and frames everything: a
-\emph{faithful set representation} ($\sigma$-tribe / Loomis--Sikorski, preserving
-$\wedge,\vee$ as $\cap,\cup$) has a distributive image, so it forces the OML
-Boolean (Remark~\ref{rem:concrete}). Hence ``relational probability via a faithful
-set representation'' is impossible for \emph{any} non-Boolean OML, so the target
-measure must live on the lattice (or its dual frame) without a faithful descent to
-points. This much is fork-independent; how much \emph{more} is required ---
-whether merely no faithful (Boolean) representation, or strictly no points at all
---- is the open predicate of \S\ref{sec:predicate}. The two richly
-non-distributive poles frame the difficulty: $L(H)$+Gleason gives a
-$\sigma$-additive measure on the lattice but is recovered from the (A)-rays
-(Remark~\ref{rem:AB}, the (A)/(B) analysis) --- while the concrete combinatorial
-objects are \emph{segregated} (\S\ref{sec:why-sigma}).
+\noindent This is the relational-probability prize made precise. ``Relational''
+means \emph{no hidden realisation}: the measure must not be recoverable from
+positing an auxiliary space of definite states behind the propositions. Three
+point-spaces must be kept apart (the recurring trap of this subject): the
+\emph{canonical} dual $P(A)=\{{\uparrow}p\}$ (one principal filter per
+\emph{element}, \S\ref{sec:dual}); the \emph{dispersion-free states} (two-valued
+states, one per consistent global \emph{valuation} --- the hidden-variable points);
+and the \emph{external (A)-points} (Gleason's Hilbert rays, Remark~\ref{rem:AB}).
+The canonical $P(A)$ is \emph{permitted}; the objection is only to building the
+measure on a \emph{smuggled} space --- the (A)-points, or equivalently a global
+hidden-variable joint over the dispersion-free states. A state has a hidden
+realisation exactly when it is a mixture of dispersion-free states (Fine's
+theorem), so a relational measure is precisely a \emph{contextual} state, and the
+reduction below turns the existence question into this one. (Note this is a
+condition on the dispersion-free states, \emph{not} on $P(A)$: a witness is
+point-rich on $P(A)$ yet has no global dispersion-free joint --- the two spaces are
+different, which is exactly why ``permitted'' and ``escaped'' do not conflict.) (We do not pursue the stricter
+``strictly point-free / no canonical points either'' reading: it makes concreteness
+itself the enemy and collapses against the universal that follows, so it offers no
+inhabitable target.)
 
-\subsection{The predicate ``point-free / relational'' is not yet defined --- and the fork it forces}
+\subsection{The reduction to contextuality, and what frames it}
 \label{sec:predicate}
 
-The phrase ``point-free / genuinely relational'' is doing essential work above,
-and it does not yet have an agreed mathematical referent. This is not a wording
-gap; it is the structural heart of the problem, and it splits along the two senses
-of ``relational'' the programme has carried. A worker who tries to pin the
-predicate down finds the candidates fall into two useless extremes and one
-fork-dependent middle:
+\paragraph{The universal floor.} A \emph{faithful set representation}
+($\sigma$-tribe / Loomis--Sikorski, preserving $\wedge,\vee$ as $\cap,\cup$) has a
+distributive image, so it forces the OML Boolean (Remark~\ref{rem:concrete}).
+Hence no non-Boolean OML admits one, and a relational measure can never arise from
+a faithful descent to points. What a concrete OML \emph{does} have is an
+order-determining family of dispersion-free states; the live question is whether
+every state is built from them.
 
-\begin{center}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}p{5.2cm}ccp{3.3cm}@{}}
-\toprule
-\textbf{candidate predicate} & $L(H)$+Gl. & $\prod_n\mathrm{MO}_2$ & \textbf{use}\\
-\midrule
-built from the lattice alone & passes & passes & vacuous ($\rho$ derived, not input)\\
-no faithful set representation & passes & passes & vacuous ($=$ non-classicality, $\vee\neq\cup$)\\
-not a barycentric average over an auxiliary point space ($P_{\mathrm{int}}$)
-  & \textbf{fails} & \textbf{fails} & bites --- but fork-dependent\\
-\bottomrule
-\end{tabular}
-\end{center}
+\paragraph{The reduction.} A $\sigma$-additive state $w$ on a concrete OML is
+\emph{non-contextual} iff it lies in the closed convex hull of the
+dispersion-free states iff it admits a global hidden joint. So:
+\[
+  \text{relational (no hidden realisation)} \;\Longleftrightarrow\;
+  \text{contextual (not spanned by dispersion-free states).}
+\]
+The handle is \emph{spanning}, not simplicity --- non-uniqueness of the
+decomposition is irrelevant; only the \emph{existence} of a dispersion-free
+decomposition matters. The prize is therefore a concrete $\sigma$-complete OML
+with a $\sigma$-additive state outside the dispersion-free hull.
 
-\noindent The weak predicates only restate non-distributivity. The biting
-predicate $P_{\mathrm{int}}$ excludes $L(H)$+Gleason for a structural, Gleason-free
-reason (it averages over the rays) and also excludes $\prod_n\mathrm{MO}_2$ (its
-states average over the canonical points $P(A)$). \textbf{Whether $P_{\mathrm{int}}$
-excludes \emph{every} concrete OML is open}: it holds for $\mathrm{MO}_2$ and its
-products, where the extreme states are two-valued, but it is \emph{not} a theorem
-in general --- the extreme states of a concrete OML need not be two-valued, and on
-$L(H)$ there are no two-valued states at all. The two readings divide here:
+\paragraph{Why $\sigma$-essential, and why it is principled.} The finite version
+of this is \emph{already inhabited}: Wright's pentagon~\cite{Wright1978} is a
+finite, concrete OML (a Greechie loop of length five, hence a lattice) with a
+separating family of dispersion-free states yet a state outside their hull --- a
+contextual state. So ``concrete OML with a contextual state'' is a 1978 fact, and
+the general spanning theorem is correspondingly false. What Wright does not supply
+is contextuality that \emph{requires} the countable structure: the pentagon's is
+witnessed by a finite sub-OML (itself). The prize must therefore be
+\emph{$\sigma$-essential} --- contextual in the $\sigma$-complete whole but in no
+finite sub-OML. This is not a device to evade Wright: ``every finite piece has a
+global section, the countable whole has none'' is a \emph{compactness failure},
+the same finite-additivity-has-compactness / $\sigma$-additivity-lacks-it structure
+that is the core of Paper~I (CE). The descent question thereby rejoins the
+programme's origin.
 
-\begin{description}[style=nextline, font=\normalfont\bfseries,
-    labelwidth=2.4cm, leftmargin=2.8cm, topsep=2pt]
-  \item[Reading 1 (no hidden realisation)] The objection is to smuggled hidden
-    variables --- the (A)-points (Gleason's ray-space). The canonical dual $P(A)$
-    is permitted. Then point-richness is not a defect, there is no tension, and the
-    open task is to \emph{define non-segregation} (the predicate separating
-    $\prod_n\mathrm{MO}_2$ from a real witness), still missing. The prize stays
-    alive.
-  \item[Reading 2 (strictly point-free)] No points at all; the measure lives on
-    the frame. Then concreteness is the enemy, $P_{\mathrm{int}}$ is the right
-    predicate, and the question is whether it has \emph{any} non-Boolean model ---
-    likely none, i.e.\ impossibility.
-\end{description}
-
-\noindent\textbf{The gap in the universal is where the prize would live.} Under
-either reading the sought object is a concrete OML (point-rich on the canonical
-$P(A)$) carrying a $\sigma$-additive measure \emph{not} reducible to an average
-over those points. That such an object is not excluded by the table --- because
-the ``every concrete OML'' universal is unproven --- is precisely the room the
-open problem occupies. A positive answer is the non-Boolean analogue of localic
-measure theory; a negative one an impossibility theorem closing the cluster. (The
-computations behind the table are recorded in the companion note
+\paragraph{Status.} The $\sigma$-essential cell has \emph{no known inhabitant} and
+\emph{no impossibility proof}. $\prod_n\mathrm{MO}_2$ provably fails it (its
+contextual states are only finitely additive --- diffuse states on its central
+$P(\mathbb N)$; $\sigma$-additivity forces concentration on points and kills them,
+\S\ref{sec:why-sigma}); Wright is finite; no construction is in hand. The question
+is well-posed and principled but uninhabited. (Computations and the literature
+verdict: companion notes \texttt{reading1\_prize\_reduction.md} and
 \texttt{direction2\_gate\_finding.md}.)
 
 \subsection{What the combinatorial route settles, and why it is not enough}
@@ -1094,41 +1091,33 @@ $\sigma$-additive structure of \S\ref{sec:problem} is the only candidate engine.
 \label{sec:first}
 % ==================================================================
 
-With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}) and the
-combinatorial ($\sigma$-orthocomplete, set-representable) route shown to deliver
-only segregated objects (\S\ref{sec:why-sigma}), the live problem is the
-representation-irreducible existence question of \S\ref{sec:problem} --- whose
-first obstacle (\S\ref{sec:predicate}) is that ``point-free / relational'' is not
-yet a defined predicate. The directions therefore organise around the fork, not
-around a settled
-target.
+With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), the
+combinatorial route shown to deliver only segregated objects
+(\S\ref{sec:why-sigma}), and the prize reduced to a $\sigma$-essential contextual
+state (\S\ref{sec:predicate}), the problem has a clean win/kill dichotomy. Two
+exits, each a genuine terminus.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=2.6cm, leftmargin=3.0cm]
-  \item[The gate: define ``relational,'' which fixes the fork]
-    Prior to all else, choose the predicate (\S\ref{sec:predicate}): is a
-    relational measure one with \emph{no hidden (A)-realisation} (Reading~1 --- the
-    canonical dual $P(A)$ is permitted), or one that is \emph{strictly point-free}
-    in the localic sense (Reading~2 --- no points at all)? This is the (a)/(b) fork
-    in technical form, and it is not a matter of taste: the two readings route to
-    different live problems below. $L(H)$+Gleason is \emph{out} under both (it
-    requires the (A)-rays), so its uniqueness is moot; the gate's content is the
-    definition, not a verdict on Gleason.
-  \item[Reading 1: define non-segregation, then build]
-    The open predicate is the one separating $\prod_n\mathrm{MO}_2$ (point-rich but
-    segregated) from a genuine witness. Make ``non-segregation'' precise (the junk
-    must fail it, a real witness pass), then seek a concrete OML carrying a
-    $\sigma$-additive measure not reducible to an average over its canonical points
-    $P(A)$ --- the gap of \S\ref{sec:predicate}. The faithful set representation is
-    already ruled out (\S\ref{sec:why-sigma}: it forces Boolean), so the engine, if
-    it exists, must be sought localically (route (iii), \S\ref{sec:routes}).
-  \item[Reading 2: settle the impossibility]
-    Ask whether $P_{\mathrm{int}}$ (no average over any auxiliary points) has
-    \emph{any} non-Boolean model. The Boolean boundary is subadditivity of the
-    separating states (Pt\'ak--Pulmannov\'a, Remark~\ref{rem:inhabited}); a
-    negative resolution would run through the dual frame --- quantifying how far a
-    non-Boolean OML's measures must fail subadditivity, and whether a strictly
-    point-free $\sigma$-additive measure forces collapse to a point space or to
-    Boolean. This is the impossibility form of the problem.
+  \item[Exhibit a $\sigma$-essential witness]
+    Construct an infinite concrete OML carrying a $\sigma$-additive contextual
+    state that no finite sub-OML witnesses --- the relational prize. The likely
+    attack is a compactness-failure construction in the CE mould: a concrete
+    $\sigma$-complete OML whose finite sublogics are all classically interpretable
+    (dispersion-free states span them), but whose countable joins force a
+    Kochen--Specker-type obstruction only in the limit. The faithful set
+    representation is ruled out at every stage (\S\ref{sec:why-sigma}), so the
+    obstruction must be carried by the $\sigma$-structure itself, not by any finite
+    block.
+  \item[Prove no such witness exists]
+    A compactness/spanning theorem: every $\sigma$-additive state on a
+    $\sigma$-complete concrete OML lies in the closed convex hull of its
+    dispersion-free states \emph{except} where a finite sub-OML is already
+    contextual (Wright). This is a Type-5 impossibility, and it would reinstate the
+    \emph{empiricist-underdetermination} conclusion as a theorem: relational
+    $\sigma$-additive probability that is $\sigma$-essential cannot exist, so the
+    relational content the programme seeks is operationally invisible after all.
+    The Boolean boundary --- subadditivity of the separating states
+    (Pt\'ak--Pulmannov\'a, Remark~\ref{rem:inhabited}) --- is the natural lever.
 \end{description}
 
 \noindent A candidate direction now closed: the singular case for $L(H)$. One

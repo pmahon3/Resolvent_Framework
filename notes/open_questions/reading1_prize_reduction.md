@@ -122,22 +122,34 @@ needed; only one holds. Hence: dormant, well-posed, uninhabited.
 
 ## The two exits (Phase-4 — the mathematician's, not the LLM's)
 
+> **Both exits SHARPENED by the CE-routing subsession (2026-06-12, verdict GAP —
+> `sigma_essential_nonemptiness_finding.md`).** CE does not settle non-emptiness,
+> but it localized why: the Boolean CE/Stone kill of ∏ₙMO₂ rests on the
+> Boolean-only triple identity *principal ultrafilter = atom = dispersion-free
+> state*; on an OML, σ-additivity forces concentration on **central** atoms, but a
+> central atom subtends a (non-Boolean) block where a state can stay contextual.
+> Irreducible (trivial-center) ⟹ the argument is vacuous. Consequences below.
+
 1. **Exhibit a σ-essential witness** — an infinite concrete OML carrying a
    σ-additive contextual state that no finite sub-OML witnesses. This is the
    relational prize, and it would be genuinely new: a non-Boolean σ-additive
    probability with no global hidden joint, concrete (point-rich on canonical
-   P(A)) yet irreducibly contextual *because of* its countable structure. (Likely
-   attack: engineer a concrete σ-complete OML whose finite sublogics are all
-   pentagon-free / classically interpretable, but whose countable joins force a
-   KS-type obstruction only in the limit — a compactness-failure construction in
-   the CE mould.)
+   P(A)) yet irreducibly contextual *because of* its countable structure.
+   **Target sharpened (GAP finding):** the witness must put its infinitary
+   structure **off-center** (irreducible / non-central-infinite) — a *product of
+   finite blocks like ∏ₙMO₂ is excluded a priori*, because it forces all
+   infinitary content into the Boolean center, into Stone's reach. **Pasting /
+   countable colimit of Wright-type blocks** is the CE-sanctioned place to look
+   (finite sublogics non-contextual, σ-join forces the obstruction, center kept
+   trivial); CE raises no objection.
 2. **Prove none exists** — a compactness theorem: *every σ-additive state on a
    σ-complete concrete OML is spanned by its dispersion-free states except where a
    finite sub-OML is already contextual.* This is a Type-5 impossibility, equally a
    real result, and it **reinstates the empiricist-underdetermination
    meta-theorem** (`direction2_gate_finding.md`) as a theorem rather than a
-   conditional: σ-essential relational probability cannot exist, so the relational
-   prize is empiricist-invisible after all.
+   conditional. **Caveat sharpened (GAP finding):** this **cannot reuse the ∏ₙMO₂
+   / Stone-over-center mechanism** — that is vacuous off-center. A genuinely
+   different finite-witnessing argument is required.
 
 Either exit is a genuine terminus. Neither is solo-LLM work; both are the
 user's Phase-4 mathematics. The durable result of this arc is the **reduction

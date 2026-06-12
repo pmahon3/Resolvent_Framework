@@ -338,10 +338,16 @@ Open directions — the extension boundary:
    *compactness failure* that reconnects to CE/Paper I. Status: well-posed,
    principled, **uninhabited** (no witness — ∏ₙMO₂ fails it, Wright is finite — and
    no impossibility proof); two Phase-4 exits (build a σ-essential witness / prove
-   a spanning-impossibility). The survey `notes/open_questions/oml_onboarding.{md,tex}`
-   is now committed to this Reading-1 framing; working layer:
-   `reading1_prize_reduction.md`, `direction2_gate_finding.md`,
-   `subsession_sigma_essential_via_CE.md`.
+   a spanning-impossibility). The CE-routing subsession (2026-06-12) returned
+   **GAP** — CE can't settle non-emptiness; the Boolean Stone-kill of ∏ₙMO₂ doesn't
+   transfer (it controls only the Boolean center, vacuous off-center). This
+   **sharpens both exits**: a witness must put its infinitary structure off-center
+   (irreducible/non-central-infinite — products of finite blocks excluded; pasting
+   constructions the place to look), and the impossibility direction can't reuse
+   the ∏ₙMO₂ mechanism. The survey `notes/open_questions/oml_onboarding.{md,tex}`
+   is committed to this Reading-1 framing; working layer:
+   `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,
+   `direction2_gate_finding.md`, `subsession_sigma_essential_via_CE.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---

@@ -622,7 +622,13 @@ concrete σ-complete OML whose finite sublogics are all classically interpretabl
 (dispersion-free states span them), but whose countable joins force a
 Kochen–Specker-type obstruction only in the limit. The faithful set representation
 is ruled out at every stage (§5.1), so the obstruction must be carried by the
-σ-structure itself, not by any finite block.
+σ-structure itself, not by any finite block. *Target sharpened (CE-routing
+subsession, 2026-06-12): the witness must put its infinitary structure
+**off-center** (irreducible / non-central-infinite) — a product of finite blocks
+like ∏ₙMO₂ is excluded a priori, since it forces all infinitary content into the
+Boolean center where the Stone argument kills it. Pasting / countable colimit of
+Wright-type blocks is the place to look. See* `reading1_prize_reduction.md`,
+`sigma_essential_nonemptiness_finding.md`.
 
 **Prove no such witness exists.** A compactness/spanning theorem: every σ-additive
 state on a σ-complete concrete OML lies in the closed convex hull of its
@@ -631,7 +637,9 @@ dispersion-free states *except* where a finite sub-OML is already contextual
 *empiricist-underdetermination* conclusion as a theorem: σ-essential relational
 probability cannot exist, so the relational content the programme seeks is
 operationally invisible after all. The Boolean boundary — subadditivity of the
-separating states (Pták–Pulmannová, Rmk 5.1) — is the natural lever.
+separating states (Pták–Pulmannová, Rmk 5.1) — is the natural lever. *Caveat
+(2026-06-12): this cannot reuse the ∏ₙMO₂ / Stone-over-center mechanism — vacuous
+off-center — so a genuinely different finite-witnessing argument is needed.*
 
 The other candidate direction — the singular case for `L(H)` — is now
 closed, and the way it closed is instructive. One might hope a *singular*

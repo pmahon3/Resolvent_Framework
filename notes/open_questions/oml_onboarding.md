@@ -613,7 +613,9 @@ point-free probability.
 With the extension axis closed on `L(H)` (Prop 3.2), the combinatorial route shown
 to deliver only segregated objects (§5.2), and the prize reduced to a σ-essential
 contextual state (§5.1), the problem has a clean win/kill dichotomy. Two exits,
-each a genuine terminus.
+each a genuine terminus. *(Pen-and-paper kit:* `problemset_oml_descent.{tex,pdf}` —
+a self-contained working problem-set with the apparatus, the formal target, and
+these exits as concrete sub-tasks.)*
 
 **Exhibit a σ-essential witness.** Construct an infinite concrete OML carrying a
 σ-additive contextual state that no finite sub-OML witnesses — the relational

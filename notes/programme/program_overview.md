@@ -281,7 +281,8 @@ Open directions — the extension boundary:
    precise sub-questions — a limit-branch witness (strictly increasing clopens with
    no least upper bound ⟹ ZFC example) and a named strong-zero-dim sub-lemma.
    See `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`
-   (+ `argyros_sigma_completeness_handoff.md`).
+   (+ `argyros_sigma_completeness_handoff.md`). **Pen-and-paper kit:**
+   `problemset_strategy_d.{tex,pdf}` (self-contained working problem-set).
 4. **OML extension problem** (algebraic face) — What replaces
    Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
    (1994): conditions strong enough to force σ-additivity collapse
@@ -348,6 +349,8 @@ Open directions — the extension boundary:
    is committed to this Reading-1 framing; working layer:
    `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,
    `direction2_gate_finding.md`, `subsession_sigma_essential_via_CE.md`.
+   **Pen-and-paper kit:** `problemset_oml_descent.{tex,pdf}` (self-contained
+   working problem-set).
 5. **Foundational topology / zeta** — speculative.
 
 ---

@@ -139,15 +139,23 @@ adequacy is unconditional in the $\perp$-stable set-function sense.
 
 \smallskip
 Distributivity guarantees value-definiteness; for $L(H)$ with
-$\dim H \geq 3$, its absence blocks it.  The individual ingredients ---
-Stone duality, the Kochen--Specker theorem, Gleason's theorem, the
-Bub--Clifton uniqueness result, and the recent McDonald--Bimb\'{o}
-duality for orthomodular lattices~\cite{McDonaldBimbo2023} --- are
-known.  What has not been stated is the synthesis: that
-distributivity of the observation algebra is the condition
-controlling which of the three positions are available, and that the
-state space admits a filtration whose transitions are of different
-mathematical character.  We begin with the Boolean
+$\dim H \geq 3$, its absence blocks it.  The individual ingredients are
+known --- not only the mathematical ones (Stone duality, the
+Kochen--Specker theorem, Gleason's theorem, the Bub--Clifton uniqueness
+result, and the recent McDonald--Bimb\'{o} duality for orthomodular
+lattices~\cite{McDonaldBimbo2023}) but the philosophical reading as
+well: that value-definiteness is separable from realism and rests on
+the Boolean structure of jointly performable observations is
+Stairs~\cite{Stairs1983}; that the realism question turns on
+distributivity is the Putnam~\cite{Putnam1968}--Dummett dispute; and
+that the Boolean/non-Boolean event structure is primitive is
+Bub--Pitowsky~\cite{BubPitowsky2010}.  What we add is not a new
+philosophical thesis but an organising one: that these settle onto a
+single axis indexed by distributivity --- EA, $\text{PR}_{\text{lat}}$,
+$\text{PR}_{\text{dual}}$, VDR --- whose transitions (pasting,
+regularity, sharpness) are of different mathematical character, and one
+of which, the $\sigma$-additive passage to the dual space, the existing
+treatments do not isolate.  We begin with the Boolean
 case~\cite{mahon2026}.
 
 Let $(\iota, \leq)$ be a directed set indexing a family of Boolean
@@ -747,7 +755,7 @@ coherence demands.
 The standard philosophical debate between scientific realism and
 constructive empiricism treats the question as uniform: either
 theories aim at truth or they aim at empirical adequacy.  The
-algebraic analysis above shows that the question is
+algebraic analysis above lets us recast that choice as
 \emph{parametrised} by the observation algebra.  For Boolean
 observations, the mathematics does not prefer one position over
 another.  For non-Boolean observations ($\dim \geq 3$), VDR is
@@ -756,18 +764,42 @@ position~\cite{vanFraassen1980} is the generic one, and
 value-definite realism is the special case --- the case in which
 the observation algebra happens to be distributive.
 
-This reframing retroactively sharpens classical debates.
+That value-definiteness is \emph{separable} from realism --- that the
+realist is not, qua realist, entitled to simultaneous definite values,
+and that what underwrites them is the Boolean (distributive) structure
+of jointly performable observations --- is not new with us.  It is the
+conclusion Stairs~\cite{Stairs1983} reached directly: the requirement
+that all magnitudes carry classically definite values constrains the
+admissible structures for reasons independent of realism, turning on
+Boolean representability rather than on realist commitment; his
+realism-without-value-definiteness position is, in the present
+vocabulary, the $\text{PR}$ layer with $\mathcal{S}_{\mathrm{df}}$
+empty.  The parallel link between realism and distributivity is the
+Putnam~\cite{Putnam1968}--Dummett battleground (Putnam revises logic to
+keep value-definiteness; we instead read its loss off the algebra), and
+the primacy of the Boolean/non-Boolean event structure over any hidden
+dynamics is the Bub--Pitowsky~\cite{BubPitowsky2010} thesis.  What the
+filtration adds to these is not a new philosophical position but an
+organising one: it locates EA, $\text{PR}_{\text{lat}}$,
+$\text{PR}_{\text{dual}}$, and VDR on a single axis indexed by
+distributivity, and separates the obstructions (pasting, regularity,
+sharpness) that the debate treats as one.
+
+Several classical positions translate directly into this vocabulary,
+which is offered as a uniform restatement rather than a sharpening of
+any one of them.
 The EPR argument for completeness~\cite{EPR1935} amounts to the
 demand that all observables simultaneously possess definite values
---- i.e., VDR.  The Kochen--Specker theorem shows this is
-algebraically blocked for $\dim H \geq 3$.  Bohr's
+--- i.e., VDR --- which the Kochen--Specker theorem blocks
+algebraically for $\dim H \geq 3$.  Bohr's
 complementarity corresponds to the non-triviality of the pasting
 transition: incompatible contexts cannot be simultaneously
 realised.
 Bell's beables~\cite{HalvorsonClifton1999} --- the observables
 that \emph{can} have definite values --- are the elements of the
 maximal Boolean subalgebra $D(\rho, R)$
-(Theorem~\ref{thm:bub-clifton}).  De~Finetti's operationalism is
+(Theorem~\ref{thm:bub-clifton}), restating Bub--Clifton in this
+vocabulary.  De~Finetti's operationalism is
 EA in the Boolean case; Pitowsky~\cite{Pitowsky1989} develops the
 quantum analogue via Dutch book arguments on $L(H)$.
 
@@ -780,11 +812,29 @@ administrable treatments in experimental design --- produces an
 observation algebra via categorical
 gluing~\cite{Gunji2026}.  If the contexts are mutually compatible,
 the colimit is Boolean and VDR is available.  If not, the colimit
-is orthomodular and VDR may be blocked.  The commensurability
-theorem thus provides a diagnostic across domains: when a
-deterministic latent-state model fails, the failure may be
-algebraic --- the observation algebra does not support VDR ---
-rather than a consequence of noise or insufficient data.
+is orthomodular and VDR may be blocked.  In principle this suggests a
+diagnostic: when a deterministic latent-state model fails, the failure
+may be algebraic --- the observation algebra does not support VDR ---
+rather than a consequence of noise or insufficient data.  We state this
+only to mark its limits.  By the equivalence used
+above\footnote{Non-distributivity of the colimit is equivalent to the
+non-existence of a joint distribution, i.e.\ to contextuality as failure
+of a global section~\cite{AbramskyBrandenburger2011, Fine1982}; the
+categorical form of this equivalence, orthomodularity as the obstruction
+to a global section, is~\cite{Gunji2026}.} ``the
+failure is algebraic, not statistical'' is the same diagnostic as ``the
+failure is contextuality, not nuisance,'' which the
+Contextuality-by-Default programme~\cite{DzhafarovKujala2017,
+CervantesDzhafarov2018} already operationalises on empirical data ---
+and operationalises in the harder regime, since the sheaf/orthomodular
+formulation requires consistent connectedness (no marginal-selectivity
+violation), whereas real data routinely violates it and
+Contextuality-by-Default is built to handle that case.  The
+contribution here is therefore not a new empirical test; it is the
+placement of that already-finitary diagnostic within the filtration,
+where the one obstruction it cannot see --- the $\sigma$-additive,
+dual-space ($\text{PR}_{\text{dual}}$) layer, which is infinitary ---
+becomes visible as a distinct transition.
 
 Several directions remain open:
 \begin{enumerate}

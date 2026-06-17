@@ -167,3 +167,24 @@ matter.
 - Related: [[reading1_prize_reduction]], [[oml_descent_inhabitation]],
   [[oml_two_point_spaces]] (the three-point-space distinction this verdict
   depends on), [[direction2_gate_finding]].
+
+---
+
+## Update 2026-06-17 — the GAP/off-center routing was right; now made precise
+
+This note's verdict (CE can't settle non-emptiness; the witness must put its
+infinitary structure **off-center**, products of finite blocks excluded, pasting the
+place to look) was the correct routing. The 2026-06-17 push made it precise (full
+record: `[[sigma_essential_construction_attempt]]` memory):
+
+- "Off-center / infinitary / not products of finite blocks" sharpens to the proved
+  **necessary condition**: any witness needs **uncountably many infinite atomic
+  blocks**, because `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B` is `G_δ` (⟹ Exit B) as soon
+  as there are ≤ℵ₀ atomic blocks. "Pasting" = exactly building the uncountable block
+  family.
+- The single live construction target is **(B)**: uncountably many atomic blocks on a
+  countable ground set ℕ (|L| = 𝔠). The "one non-atomic block" shortcut is **struck**
+  (Boolean ⟹ reducible + distributive ⟹ fails irreducible + non-Boolean).
+- CE-reconnection confirmed at the **measure** level (not lattice): the leak is "can a
+  representing μ dodge an uncountable union of fake-sets on `S_df`," a
+  strictly-positive-measure question — same flavour as Strategy D's measure axis.

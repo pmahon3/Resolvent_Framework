@@ -167,3 +167,29 @@ sharp, classically-grounded open problem with a clean win/kill dichotomy.
 - Related: [[oml_descent_inhabitation]], [[oml_two_point_spaces]],
   [[distributed_sensor_contextuality_seed]] (the prior contextuality contact —
   note its kill was about *dynamics-intrinsic* contextuality, a different claim).
+
+---
+
+## Update 2026-06-17 — structural dichotomy landed (the prize now has proved structure)
+
+A multi-day hand+compute+lit+advisor push gave the prize a sharp internal
+characterization (full record: `[[sigma_essential_construction_attempt]]` memory;
+summary in `programme/program_overview.md` §"OML descent / AFTERLIFE"):
+
+- **Sharp theorem.** With `S_df` the compact space of dispersion-free states and
+  `O_B = {s : s principal on block B}` (open), `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B`.
+  So **≤ℵ₀ atomic blocks ⟹ `S_df^σ` is `G_δ` ⟹ no leak ⟹ Exit B** (any ground set).
+  Rests on F1 (block σ-closure) + the proved tail-chain null lemma; no cross-block ∩.
+- **Necessary for any witness:** uncountably many infinite atomic blocks (`S_df^σ`
+  non-`G_δ`).
+- **The only live construction target is (B):** uncountably many *atomic* blocks on a
+  *countable* ground set ℕ (|L| = 𝔠) — the partition-logic non-`G_δ` question. The
+  alternative "one non-atomic block" is **struck** (Boolean ⟹ reducible + distributive,
+  fails the irreducible + non-Boolean prize constraints).
+- **Caveat:** `S_df^σ` ⊋ point-evaluations — consistent atom-threads are σ-additive by
+  F1 even when no point of ℕ; the witness `w` must dodge `closed-conv` of all threads.
+
+The two-exit framing of this note still holds (build the witness / prove
+impossibility), but the witness exit is now pinned to route (B) and the impossibility
+exit is bounded below by the sharp `G_δ` theorem (it must defeat the non-`G_δ`
+necessary condition, not merely the finite ∏ₙMO₂ mechanism).

@@ -200,20 +200,42 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**Status 2026-06-12 (two open problems, both uninhabited; no confirmed lead).**
+**Status 2026-06-17 (two open problems; OML descent now carries a LANDED structural
+dichotomy, not a verdict; no confirmed lead).**
 After the L_MO₂ concreteness kill (2026-06-10), the descent axis had an *afterlife*
 (2026-06-11/12): pursuing it under **Reading 1** (relational = no hidden
 realisation; user's chosen framing) reduced the prize to a sharp, principled,
 **uninhabited** open problem — *is there a σ-complete concrete OML carrying a
 σ-essential contextual state?* — which reconnects to CE/Paper I (a compactness
-failure). Simultaneously **Strategy D** advanced: its step 1 (is `Clop(Yₙ)`
+failure). A multi-day hand+compute+lit+advisor push (2026-06-17) then **landed a
+structural dichotomy** (see `[[sigma_essential_construction_attempt]]` memory):
+the **sharp theorem** `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B` (O_B = principal-on-B,
+open) gives **≤ℵ₀ atomic blocks ⟹ S_df^σ is G_δ ⟹ no leak / Exit B** (any ground
+set), and a **necessary condition** for any witness: *uncountably many infinite
+atomic blocks* (S_df^σ non-G_δ). The escape routes were pinned: **(A)** a single
+non-atomic block is **struck** (Boolean ⟹ reducible + distributive, violating the
+irreducible + non-Boolean prize constraints); **(B)** *uncountably many atomic
+blocks on ℕ* (|L|=𝔠, countable ground set — the partition-logic non-G_δ question)
+is the **only** live route, and is the old "(1)+(2) frontier" correctly relabeled.
+Retracted en route (flag discipline, ~9 reversals): the "RESOLVED ⟺ measurable
+cardinal" verdict, the barycenter-cancellation question (not truth-apt), "Strategy D
+= same object" (NO at the lattice level — SD is Boolean/distributive, the OML leak
+needs non-distributivity; the `[[mixing_barycenter_transfer_rhyme]]` RHYME verdict
+stands — but right-flavored at the *measure* level), and "ℕ likely Exit B" (illusory:
+|Ω| countable ⇏ |L| countable). So the descent frontier is now **one landed theorem +
+a single well-posed research-level construction target (B)**, not "two Phase-4 exits."
+Simultaneously **Strategy D** advanced: its step 1 (is `Clop(Yₙ)`
 σ-complete?) is now a GJ-grounded reduction to two precise sub-questions
 (limit-branch witness; strong-zero-dim sub-lemma). So the frontier is **two
 well-posed open problems with identified levers, neither inhabited** — not "no
 leads," not "confirmed leads." Both are (a)-aligned (incompatibility face = OML
-descent; anti-smuggler face = Strategy D). Working layer:
+descent; anti-smuggler face = Strategy D). Strategy D's strictly-positive-measure
+machinery is now the right toolkit for (B)'s *measure-level* obstruction (the one
+honest reconnection between the two problems — at the measure axis, not the lattice).
+Working layer:
 `notes/open_questions/{reading1_prize_reduction,direction2_gate_finding,subsession_sigma_essential_via_CE}.md`,
-`papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`.
+`papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`;
+full session reasoning in the `[[sigma_essential_construction_attempt]]` memory.
 
 The L_MO₂ kill itself stands (6th death of the arc: L_MO₂ **IS** concrete —
 conjecture "richness starves concreteness" FALSE as worded — but the witness is
@@ -345,12 +367,53 @@ Open directions — the extension boundary:
    **sharpens both exits**: a witness must put its infinitary structure off-center
    (irreducible/non-central-infinite — products of finite blocks excluded; pasting
    constructions the place to look), and the impossibility direction can't reuse
-   the ∏ₙMO₂ mechanism. The survey `notes/open_questions/oml_onboarding.{md,tex}`
+   the ∏ₙMO₂ mechanism.
+
+   **STRUCTURAL DICHOTOMY LANDED (2026-06-17, hand+compute+lit+advisor; full record
+   in the `[[sigma_essential_construction_attempt]]` memory).** Not a verdict — but
+   the question now has proved structure:
+   - **Sharp theorem.** `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B`, where `O_B = {s :
+     s principal on B}` is open in the compact space `S_df`. Hence **≤ℵ₀ atomic
+     blocks ⟹ `S_df^σ` is `G_δ` ⟹ μ(fakes)=0 ⟹ every σ-additive state is
+     non-contextual (Exit B)**, on *any* ground set. (Corrected "countable-block
+     theorem": the hypothesis is *atomic* blocks — free on ℕ, a genuine extra
+     condition off ℕ; via the proved Steps A,B + F1 block-σ-closure, with no
+     cross-block intersection. F1 is the single load-bearing lemma.)
+   - **Necessary condition for any witness:** *uncountably many infinite atomic
+     blocks* (so the 𝔠-fold `⋂_B O_B` is non-`G_δ` — leak room). The would-be
+     "Exit B on ℕ" is the *boundary* of the theorem, not a fixable gap.
+   - **Escape routes pinned.** **(A)** a single non-atomic block is **struck** — it
+     is Boolean ⟹ reducible + distributive, violating *irreducible + non-Boolean*;
+     its statelessness is the atomless-measure-algebra (distributive) kind, not the
+     non-distributive kind an OML-descent witness needs. **(B)** *uncountably many
+     atomic blocks on ℕ* (|L|=𝔠, countable ground set; the partition-logic
+     non-`G_δ` question) is the **only** route respecting the prize constraints —
+     it *is* the old "(1)+(2) frontier" relabeled. Compute cannot touch (B): finite
+     truncations have finite atomic blocks ⟹ `S_df = S_df^σ` ⟹ Exit B by König; it
+     is infinitary hand-analysis.
+   - **Caveat for (B):** `S_df^σ` is *not* just the point-evaluations `{δ_n}` — a
+     consistent atom-thread is principal-on-every-block (σ-additive by F1) even when
+     it is no point of ℕ, and `w` must be separated from `closed-conv` of *all*
+     such threads.
+   - **Honest reconnection to Strategy D:** at the *lattice* level the two problems
+     are different objects (Strategy D Boolean/distributive — the
+     `[[mixing_barycenter_transfer_rhyme]]` verdict stands); at the *measure* level,
+     "can μ dodge an uncountable union of fake-sets on the compact zero-dim `S_df`"
+     is strictly-positive-measure-flavoured, so Strategy D's machinery is the right
+     toolkit for (B)'s obstruction.
+   - **Lit read this session (from PDF):** Tkadlec 1998 (concrete σ-logic +
+     3-covering ⟹ Boolean; escape = fail finite-covering, which MO₂ already does;
+     c-orthocomplete ⟺ σ-orthocomplete on countable Ω), Müller 1993 (non-Boolean
+     all-states-Jauch–Piron needs |L|=ω₁, MPT Thm 4.1 = no countable *L*; Thm 2 needs
+     *complete* not merely σ-complete — the σ-complete crack is where a witness lives).
+
+   The survey `notes/open_questions/oml_onboarding.{md,tex}`
    is committed to this Reading-1 framing; working layer:
    `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,
    `direction2_gate_finding.md`, `subsession_sigma_essential_via_CE.md`.
    **Pen-and-paper kit:** `problemset_oml_descent.{tex,pdf}` (self-contained
-   working problem-set).
+   working problem-set; note the contextuality definition there should be read
+   against the landed `S_df^σ`/`G_δ` characterization above).
 5. **Foundational topology / zeta** — speculative.
 
 ---

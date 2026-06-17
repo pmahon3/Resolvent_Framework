@@ -10,7 +10,10 @@ renumbering cleanup into the current three-paper architecture.*
 > (bridge theorem false); Papers II/III were withdrawn; the OML thread that
 > succeeded them had its L_MO₂ lead killed (2026-06-10) then reframed under
 > Reading 1 to a live *uninhabited* open problem (σ-essential contextual state;
-> 2026-06-12), and Strategy D advanced (GJ-grounded). Read this for the historical
+> 2026-06-12), which then (2026-06-17) gained a *landed structural dichotomy* — a
+> sharp `G_δ` theorem (≤ℵ₀ atomic blocks ⟹ Exit B) and a single live construction
+> target (uncountably many atomic blocks on ℕ) — and Strategy D advanced
+> (GJ-grounded). Read this for the historical
 > architecture only. For current state the authoritative doc is
 > `program_overview.md` (Open Frontiers + item 4); for the kill history see
 > `genealogy.md`. Left un-rewritten because it is a dated snapshot, not a live

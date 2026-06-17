@@ -407,6 +407,143 @@ Open directions — the extension boundary:
      all-states-Jauch–Piron needs |L|=ω₁, MPT Thm 4.1 = no countable *L*; Thm 2 needs
      *complete* not merely σ-complete — the σ-complete crack is where a witness lives).
 
+   **SESSION 2 (2026-06-17) — RE-VERIFIED + LATTICE LEVEL CLEARED + FRONTIER SHARPENED.**
+   Re-verified F1, Step A, and the measure conclusion by hand + advisor (one method
+   fix: μ(fakes)=0 routes through per-block nullity + countability, *not* through
+   G_δ-ness — `G_δ ⟹ conull` is false in general; the G_δ statement is a topological
+   *sibling*, not the premise). **Lean ruled out:** Mathlib v4.29.0 has no
+   orthomodular-lattice / Foulis–Holland infrastructure, and F1 (= Kalmbach) and
+   Step A (= standard OML measure theory) are known ⟹ axiom-with-citation, not
+   formalize. Attacked Exit (B) by construction (failure-mode = impossibility proof):
+   - **The lattice level is NOT where the verdict lives.** Retrieved the verbatim
+     lattice gate (Svozil–Tkadlec Thm 2.5: "no order-4 loop ⟺ lattice"; astroid =
+     4-cycle, Dichtl 1984). Lattice-ness and proper below-top cross-block *binding*
+     **coexist** (astroid-free regime; n-cycle pastes n≥5 are lattices). The verified
+     pentagon is irreducible + binding + lattice + genuinely contextual *finitely* ⟹
+     substrate mechanics are achievable, not the obstruction.
+   - **Load-bearing negative:** the entire pasting lattice theory is *uniformly
+     chain-finite* (Harding–Heunen–Lindenhovius–Navara arXiv:1711.03748: "Greechie
+     diagrams apply only to chain-finite OMPs"). **No published lattice criterion for
+     infinite-chain pasting, no σ-completeness criterion for any infinite paste** —
+     a genuine gap, no prior art to collide with.
+   - **Loops are MOOT for the verdict:** a loop has *countably many* blocks ⟹ by the
+     landed theorem, Exit B both branches. The Greechie/loop intuition driving the
+     whole arc *cannot reach* the uncountable-block regime. Route B is **not a loop**
+     — it is an uncountable *family* of countable partitions of ℕ sharing atoms.
+   - **Two-block germ retired:** irreducible + proper binding is impossible at two
+     blocks (any shared non-{0,1} element is central ⟹ reducible; share only {0,1} ⟹
+     no binding). The germ is ≥3 blocks. *Not* Exit-B evidence — wrong block count.
+   - **Errors caught at the threshold (not hardened):** the singleton-collapse horn
+     (`{n}=⋂{S∋n} ⟹ Boolean`) is *Boolean reasoning* — in the binding/non-distributive
+     case lattice-meet is strictly below set-intersection, so the meet-gap can keep
+     `{n}` out; the horn bites only where there is no binding (= MO_𝔠, dead). So the
+     antagonism is **not** proven forced.
+   - **Five-property death map** (the accurate "why this is hard"): a witness needs
+     five orthogonal properties — *count* (uncountably many blocks), *size* (infinite
+     atomic blocks), *binding* (proper below-top cross-block joins), *irreducible*,
+     *concrete + σ-complete*. Each prior death secured all but one: loops — count ✗
+     (countable); MO_{ω₁} — size ✗ (finite blocks); ω₁-horizontal-sum of P(ℕ) —
+     binding ✗ (cross-joins collapse to top); two-block — irreducible ✗ (centrality);
+     Navara-over-concrete — concrete ✗ (statelessness needs the exotic base).
+   - **★ The sharpest open frontier (Route B, tied to its closest near-miss):** the
+     ω₁-horizontal-sum of P(ℕ) already secures count + size + irreducible + concrete +
+     σ-complete and dies *only* on binding. So the frontier is precisely: **can genuine
+     below-top binding be added to the ω₁-horizontal-sum of P(ℕ) without (a) collapsing
+     cross-joins to top, (b) breaking the lattice, (c) breaking σ-completeness, or (d)
+     reintroducing singletons** — carrying a σ-additive `w` off `closed-conv(S_df^σ)`?
+     Only attacks left: a pure-hand explicit construction, or a forcing/impossibility
+     theorem — both research-level. Deliverable = a sharpened Exit-B *lean*, **not a
+     verdict**.
+
+   **SESSION 3 (2026-06-17) — SINGLE COUNTABLE JOINS ARE TAME; *IF* there is an
+   obstruction it is state-level (transfinite-completion still open).** A new structural
+   theorem and a state-level reformulation, turning the lean into a three-layered "why
+   this is hard" map:
+   - **Block-local-join theorem (new, hand-verified):** in a σ-complete *lattice* OML,
+     *every* countable join lies in a single block (orthogonal-increment construction
+     `e_{n+1}=J_{n+1}∧J_n^⊥` + F1). Hence orthocomplements of countable joins are clean
+     set-complements, interior overshoot cannot happen infinitarily (only inherited from
+     finite astroid-level joins), and there is **no OML-lattice analogue of the
+     Strategy-D limit branch at the single-join level**. NOTE the hypothesis is "*in* a
+     σ-complete lattice OML" — the theorem shows joins are tame *given* the substrate; it
+     does **not** show the substrate *exists*. **The transfinite-completion question —
+     does a binding paste σ-complete to a concrete non-Boolean irreducible *lattice*?
+     (Harding: an OMP need not embed in any σ-complete OMP) — remains OPEN and is still
+     substrate/lattice-level.**
+   - **(d) fully closed, binding-independent:** countable meets can't make singletons
+     (`⋀A_k =` largest L-elt `⊆⋂A_k = ∅` when `{n}∉L`) and the dual kills co-singletons;
+     the non-distributive meet-gap protects singleton-freeness for free, robust through
+     transfinite iteration.
+   - **Tkadlec route dead:** binding ⟺ covering-*failure* (a proper cross-block `A∩B`
+     with no L-element below it *is* the covering failure; σ-completion preserves the gap
+     permanently), so the covering theorems can never trigger.
+   - **State-level reformulation (where the verdict actually lives):** the σ-essential
+     leak ⟺ a finite consistent partial atom-selection across blocks that extends to a
+     global df-state but to **no full σ-additive thread** — a **non-compact**
+     inverse-limit obstruction on the 𝔠-family (each factor `atoms(B)` is
+     countable-discrete, non-compact, so the Bourbaki–Steenrod argument that gives
+     `w∈closed-conv(S_df)` fails for `S_df^σ`; the missing compactness is the
+     free-ultrafilter room). Equivalent to the earlier Hahn–Banach necessary condition;
+     not finitely checkable; family-dependent.
+   - **Net:** *if* there is an obstruction it is neither single-join-lattice nor
+     measure-on-ℕ but a **non-compact thread-extension** phenomenon on the 𝔠-family —
+     with the transfinite-completion (Harding) lattice question still open alongside it.
+     Verdict unchanged (sharpened Exit-B lean, not a verdict; could still be Exit A);
+     the two research-level attacks stand. Stopped per the armed stop-gate. Full record:
+     `[[sigma_essential_construction_attempt]]` memory.
+
+   **SESSION 4 (2026-06-17) — PRIMARY-SOURCE READ: Surface 1 (transfinite completion)
+   is a STUDIED problem with PUBLISHED negative results.** Read Harding–Wang
+   arXiv:2108.09819 §3 in full (now in the library). Findings, decisive for the
+   construction side:
+   - **Concrete OMLs form a variety that is NOT closed under MacNeille *or* canonical
+     completions** (Harding–Wang Rmk 3.14 / Thm 3.13). Completing a concrete OML
+     generically leaves the concrete class — exactly the Surface-1 collapse risk,
+     confirmed.
+   - **No *regular* (join-preserving) completion exists for OMLs** (Cor 3.9); there is
+     an OMP that cannot be regularly embedded into a σ-complete OMP (Thm 3.8).
+   - **The natural iteration I would have tried is addressed and shown to fail**
+     (Rmk 3.18): iterating Boolean amalgamation "requires that we preserve joins
+     completed at an early stage, and [it] does not do this"; "one particular join can
+     always be inserted" — they lean toward non-completability.
+   - **The positive completion results (Thm 3.15, Bugajska–Bugajski/Guz) require
+     atomistic / strong-state structures** and "will not hold in a non-atomic Boolean
+     algebra" — the well-behaved regime, not the exotic binding paste.
+   - **General embedding (their Problem 2, "can every oml/omp embed in a σ-complete
+     one?") is OPEN** — so this is *not* a proof of Exit B, but it removes the natural
+     construction routes and confirms substrate-existence is genuinely hard.
+   - **HHLN arXiv:1711.03748 is a reconstruction paper (Sub-poset / directions /
+     hypergraphs), not a completion paper** — only confirms the chain-finite scope of
+     Greechie diagrams; firewall it from Surface 1.
+   - **Net reweighting:** Surface 1 is no longer "open, no prior art" — it is studied
+     with published negatives, materially **strengthening the Exit-B inclination** (the
+     construction side lost its natural tools to a published obstruction) without
+     proving Exit B.
+   - **Harding [34] tracked down + read** ("Canonical completions of lattices and
+     ortholattices," Tatra Mt. Math. Publ. 15 (1998) 85–96; converted from PostScript,
+     now in the library). It pins the obstruction to the exact object:
+     • **Prop 3.4(5):** the canonical completion of an OML carrying *two increasing
+       sequences* `xₙ↑, yₙ↑` (with `x_{n+1}^⊥∧yₙ=0`) has `x^⊥∧y=0` while `x<y` —
+       **fails orthomodularity** — built via *Kalmbach's construction on `(ω+1)×2`*, a
+       countable ascending-chain-driven OML. That is precisely the
+       infinite-ascending-cross-block regime a σ-essential witness needs; its
+       completion breaking orthomodularity is the published shadow of the Surface-1
+       collapse.
+     • **Cor 4.2:** "A variety of OMLs admits a regular completion iff it is closed
+       under MacNeille completions." Combined with Rmk 3.14 (concrete OMLs not
+       MacNeille-closed) ⟹ **the variety of concrete OMLs admits no regular
+       completion**; and (Prop 4.1, after Palko) MacNeille is the *only* candidate for a
+       regular completion, so a sharp/join-preserving σ-completion staying concrete
+       provably does not exist as a variety operation.
+   - **Net:** Surface 1's natural and sharp routes are **closed by published results.**
+     The only surviving construction route is a *non-regular* embedding into a larger
+     concrete σ-complete OML — which generically adds joins/states that dilute the
+     binding or the contextuality (the point-rich/point-poor antagonism, at the
+     completion level), and has no published tool. This does not formally prove Exit B
+     (Harding–Wang Problem 2 is open; non-regular over-embedding not excluded) but
+     leaves the Exit-B inclination strongly literature-grounded. Per "understanding,
+     not shipping," this is a clean stopping point.
+
    The survey `notes/open_questions/oml_onboarding.{md,tex}`
    is committed to this Reading-1 framing; working layer:
    `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,

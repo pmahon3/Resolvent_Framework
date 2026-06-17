@@ -12,8 +12,12 @@ renumbering cleanup into the current three-paper architecture.*
 > Reading 1 to a live *uninhabited* open problem (σ-essential contextual state;
 > 2026-06-12), which then (2026-06-17) gained a *landed structural dichotomy* — a
 > sharp `G_δ` theorem (≤ℵ₀ atomic blocks ⟹ Exit B) and a single live construction
-> target (uncountably many atomic blocks on ℕ) — and Strategy D advanced
-> (GJ-grounded). Read this for the historical
+> target (uncountably many atomic blocks on ℕ) — further sharpened the same day to
+> an Exit-B *lean* (lattice level cleared: binding and lattice-ness coexist; the
+> pasting lattice theory is uniformly chain-finite, no published infinite criterion;
+> a five-property death map; the frontier = adding below-top binding to the
+> ω₁-horizontal-sum of P(ℕ)) — and Strategy D advanced (GJ-grounded). Read this for
+> the historical
 > architecture only. For current state the authoritative doc is
 > `program_overview.md` (Open Frontiers + item 4); for the kill history see
 > `genealogy.md`. Left un-rewritten because it is a dated snapshot, not a live

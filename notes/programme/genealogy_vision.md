@@ -141,10 +141,12 @@ trying to rank them as one fork feels cold:
   — that corner is *vacant*. If what grips you is incompatibility itself, this is
   a frontier with your name not yet on it.
 
-  > *(For the descent-axis status — now CLOSED/PARKED (2026-06-10): L_MO₂ is
-  > concrete but trivial + already characterized (Pták–Pulmannová 1994) — see
-  > `program_overview.md` (item 4) and `covered_leads/descent_axis_residue_post_kill.md`.
-  > The vision stands regardless of that outcome; this document is motivation,
+  > *(For the descent-axis status — the L_MO₂ lead was killed (2026-06-10: concrete
+  > but trivial + already characterized, Pták–Pulmannová 1994), then the axis was
+  > REFRAMED under Reading 1 to the live *uninhabited* open problem this vision points
+  > at (σ-essential contextual state); as of 2026-06-17 it carries a landed dichotomy
+  > + an Exit-B inclination, not a verdict. See `program_overview.md` (item 4) and
+  > `covered_leads/descent_axis_residue_post_kill.md`. This document is motivation,
   > not operational status.)*
 
 These are not two candidates for one job. They're two different things to be in

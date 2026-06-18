@@ -11,8 +11,10 @@ renumbering cleanup into the current three-paper architecture.*
 > succeeded them had its L_MO₂ lead killed (2026-06-10) then reframed under
 > Reading 1 to a live *uninhabited* open problem (σ-essential contextual state;
 > 2026-06-12), which then (2026-06-17) gained a *landed structural dichotomy* — a
-> sharp `G_δ` theorem (≤ℵ₀ atomic blocks ⟹ Exit B) and a single live construction
-> target (uncountably many atomic blocks on ℕ) — further sharpened the same day to
+> sharp countable-block theorem (≤ℵ₀ atomic blocks ⟹ Exit B, via per-block-nullity
+> + countability; the `G_δ`-ness of `S_df^σ` is a parallel topological sibling, not
+> the cause) and a single live construction target (uncountably many atomic blocks
+> on ℕ) — further sharpened the same day to
 > an Exit-B *lean* (lattice level cleared: binding and lattice-ness coexist; the
 > pasting lattice theory is uniformly chain-finite, no published infinite criterion;
 > a five-property death map; the frontier = adding below-top binding to the

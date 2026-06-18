@@ -125,10 +125,13 @@ QUERY SYSTEM  (2026-03-18, the unlock) ── dynamics = directed observations
                                    see `program_overview.md` item 4.
 ```
 
-*(For the current descent-axis status — now CLOSED/PARKED after the `/audit full`
-on concreteness (2026-06-10) — see `program_overview.md` (item 4, authoritative)
-and the axis's own single-source `notes/covered_leads/descent_axis_residue_post_kill.md`.
-This document narrates history, not live state.)*
+*(For the current descent-axis status — the L_MO₂ lead was killed by the `/audit full`
+on concreteness (2026-06-10), then the axis was REFRAMED under Reading 1 to a live
+*uninhabited* open problem (σ-essential contextual state), which by 2026-06-17 carries
+a landed structural dichotomy + an Exit-B inclination (not a verdict). See
+`program_overview.md` (item 4, authoritative) and the L_MO₂ residue at
+`notes/covered_leads/descent_axis_residue_post_kill.md`. This document narrates history,
+not live state.)*
 
 ---
 

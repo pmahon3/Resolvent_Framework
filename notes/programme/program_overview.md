@@ -596,6 +596,30 @@ Open directions — the extension boundary:
      (set-theorist, *moot* here given `X` — it asks only whether regime (c) is non-empty):
      does a `𝔠`-AD family with no member almost-covered by countably many others exist in
      ZFC? Full record: `[[sigma_essential_construction_attempt]]` memory (Sessions 5, 5b, 6).
+   - **Session 7 (lever 1 — the σ-completion adjoining `X`, re-framed + sharpened):**
+     "interrogate the σ-completion" was a trap (the named MacNeille/canonical completions
+     are already answered; building one re-derives a known negative). The real lever = a
+     one-round closure computation: *does adjoining `X` force a singleton* (regime-(b)
+     Boolean collapse)? Round-1 generator meets (`X` vs rows / cells / a second join `X′`)
+     force **no** singleton — `X` is a disjoint ∪ of whole cells, subdividing no atom; the
+     row-vs-column-cutter meet-gap that *defines* regime (c) shields them. **But the
+     dichotomy was backwards** (advisor): *existence is free* — `P(Ω)` is a σ-complete
+     concrete OML over `L∪{X}`; the crux is **(σ-complete ∧ lattice ∧ non-Boolean ∧
+     regular-over-`L`) simultaneously** = non-regularity of the smallest closure = HW
+     Problem 2. **A circularity was caught (reversal #21, retracted):** "same-column cells
+     incompatible ⟹ meet `∅` ⟹ no singleton" assumes the conclusion — "meet `∅` in `L̄`"
+     *is* "(S∩S′)×{0} ∉ `L̄`" = the non-Booleanness to prove; σ-closure is exactly what
+     might add the intersection. **The genuine increment (sharper than "regime (c) = HW
+     Problem 2"):** `Ω=ℕ×ℕ` is *countable* and the generators *separate points* ⟹ they
+     generate the full `P(Ω)`, so **`L̄` non-Boolean ⟺ `L̄ ⊊ P(Ω)` ⟺ disjoint-union-closure
+     is proper ⟺ the finite sets `(S∩S′)×{0}` stay out**. Single-axis invariants can't
+     decide it (row-trace and column-slice are each σ-homomorphisms *onto* `P(ℕ)`); the
+     obstruction is irreducibly joint/2D. Non-circular target = an intrinsic class `𝒦`
+     (closed under complement + disjoint ∪, omitting the finite column-sets); its existence
+     is open both ways (construct = witness substrate; refute = regime (c) collapses Boolean
+     too) — not a hand-session task. Substrate ≠ witness: the state `w` is untouched.
+     Inclination unchanged in strength. Full record: `[[sigma_essential_construction_attempt]]`
+     memory (Session 7).
 
    The survey `notes/open_questions/oml_onboarding.{md,tex}`
    is committed to this Reading-1 framing; working layer:

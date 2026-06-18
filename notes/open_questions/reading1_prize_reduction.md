@@ -178,7 +178,9 @@ summary in `programme/program_overview.md` §"OML descent / AFTERLIFE"):
 
 - **Sharp theorem.** With `S_df` the compact space of dispersion-free states and
   `O_B = {s : s principal on block B}` (open), `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B`.
-  So **≤ℵ₀ atomic blocks ⟹ `S_df^σ` is `G_δ` ⟹ no leak ⟹ Exit B** (any ground set).
+  So **≤ℵ₀ atomic blocks ⟹ μ(fakes)=0 ⟹ no leak ⟹ Exit B** (any ground set) —
+  conullity via per-block-nullity + countability, **not** via G_δ-ness (`G_δ ⟹ conull`
+  is false in general; `S_df^σ` G_δ is a parallel topological sibling, not the cause).
   Rests on F1 (block σ-closure) + the proved tail-chain null lemma; no cross-block ∩.
 - **Necessary for any witness:** uncountably many infinite atomic blocks (`S_df^σ`
   non-`G_δ`).

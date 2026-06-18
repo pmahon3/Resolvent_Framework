@@ -210,8 +210,10 @@ realisation; user's chosen framing) reduced the prize to a sharp, principled,
 failure). A multi-day hand+compute+lit+advisor push (2026-06-17) then **landed a
 structural dichotomy** (see `[[sigma_essential_construction_attempt]]` memory):
 the **sharp theorem** `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B` (O_B = principal-on-B,
-open) gives **≤ℵ₀ atomic blocks ⟹ S_df^σ is G_δ ⟹ no leak / Exit B** (any ground
-set), and a **necessary condition** for any witness: *uncountably many infinite
+open) gives **≤ℵ₀ atomic blocks ⟹ μ(fakes)=0 ⟹ no leak / Exit B** (any ground
+set) — conullity via per-block-nullity + countability, *not* via G_δ-ness (G_δ
+⟹ conull is false in general; `S_df^σ` G_δ is a parallel topological restatement,
+not the cause). A **necessary condition** for any witness: *uncountably many infinite
 atomic blocks* (S_df^σ non-G_δ). The escape routes were pinned: **(A)** a single
 non-atomic block is **struck** (Boolean ⟹ reducible + distributive, violating the
 irreducible + non-Boolean prize constraints); **(B)** *uncountably many atomic
@@ -374,8 +376,12 @@ Open directions — the extension boundary:
    the question now has proved structure:
    - **Sharp theorem.** `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B`, where `O_B = {s :
      s principal on B}` is open in the compact space `S_df`. Hence **≤ℵ₀ atomic
-     blocks ⟹ `S_df^σ` is `G_δ` ⟹ μ(fakes)=0 ⟹ every σ-additive state is
-     non-contextual (Exit B)**, on *any* ground set. (Corrected "countable-block
+     blocks ⟹ μ(fakes)=0 ⟹ every σ-additive state is non-contextual (Exit B)**,
+     on *any* ground set — conullity via per-block-nullity + countability (each
+     `{free on B}` null by the cofinite tail-chain + Step A; countable union of
+     nulls is null), **not** via `S_df^σ` being `G_δ` (`G_δ ⟹ conull` is false in
+     general; the `G_δ` characterization is a parallel topological sibling, see
+     the caveat below). On *any* ground set. (Corrected "countable-block
      theorem": the hypothesis is *atomic* blocks — free on ℕ, a genuine extra
      condition off ℕ; via the proved Steps A,B + F1 block-σ-closure, with no
      cross-block intersection. F1 is the single load-bearing lemma.)

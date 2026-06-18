@@ -179,8 +179,10 @@ record: `[[sigma_essential_construction_attempt]]` memory):
 
 - "Off-center / infinitary / not products of finite blocks" sharpens to the proved
   **necessary condition**: any witness needs **uncountably many infinite atomic
-  blocks**, because `S_df^σ(L) = S_df ∩ ⋂_{block B} O_B` is `G_δ` (⟹ Exit B) as soon
-  as there are ≤ℵ₀ atomic blocks. "Pasting" = exactly building the uncountable block
+  blocks**, because with ≤ℵ₀ atomic blocks μ(fakes)=0 (per-block-nullity +
+  countability) ⟹ Exit B. (`S_df^σ(L) = S_df ∩ ⋂_{block B} O_B` is then `G_δ` too,
+  but that is a parallel topological restatement, not the cause — `G_δ ⟹ conull` is
+  false in general.) "Pasting" = exactly building the uncountable block
   family.
 - The single live construction target is **(B)**: uncountably many atomic blocks on a
   countable ground set ℕ (|L| = 𝔠). The "one non-atomic block" shortcut is **struck**

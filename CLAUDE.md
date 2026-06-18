@@ -122,6 +122,39 @@ before commits that touch many files, or when the repo feels
 cluttered) to catch orphaned files, stale cross-references,
 and structural drift.
 
+## Memory hygiene (the auto-memory at `~/.claude/.../memory/`)
+
+The memory dir has a **hot path** (`MEMORY.md`, loaded into context
+every session) and a **cold path** (topic files, loaded on demand).
+Keep the hot path tiny; let the cold path hold detail. The failure
+mode to prevent: appending a session log to the `MEMORY.md` index
+line each session — paid on every startup, forever.
+
+**Rules:**
+- **`MEMORY.md` entry = one line: title + one-sentence current-status
+  hook + pointer.** Hard target ~200 chars (the flagship active-thread
+  entry may run ~400). NEVER a per-session log, NEVER a proof, NEVER a
+  paragraph. If you're tempted, the content goes in the topic file.
+- **Per-session detail lives ONLY in the topic file**, appended as a
+  dated block. The index entry's hook gets *updated in place* to the
+  new current status — it does not grow.
+- **Preserve actionable specifics in the hook** (a citation gap, a
+  file/line to fix, an open sub-question) — those are easy to lose and
+  cheap to keep. Drop re-derivable narrative.
+- **Topic-file cap ~40 KB.** Past that, `Read` truncates (~25 K tokens)
+  and the file stops being usable whole. When a running log exceeds it,
+  collapse the *oldest* sessions into a short "settled facts" summary
+  at the top and keep recent sessions verbatim — ask first, since this
+  discards reasoning-trail detail.
+- **Before trimming index prose, verify the pointed-to file holds the
+  detail** (it usually duplicates the index — then trimming loses
+  nothing). Update the topic file's frontmatter `description` when the
+  thread's status changes, so recall still matches.
+- **Periodic check:** when `MEMORY.md` nears its size limit, scan for
+  the longest lines (`awk '{print length": "NR}' MEMORY.md | sort -rn`)
+  and collapse the offenders — they are almost always leaked session
+  logs.
+
 ## Communication preferences
 
 - Direct, concise. No preamble, no trailing summaries.

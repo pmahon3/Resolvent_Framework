@@ -550,6 +550,53 @@ Open directions — the extension boundary:
      leaves the Exit-B inclination strongly literature-grounded. Per "understanding,
      not shipping," this is a clean stopping point.
 
+   **SESSIONS 5–6 (2026-06-17) — THE HARDING LEVER IS SUBSUMED; A REAL CRACK AT THE
+   ω₁ CONSTRUCTION PROPER CONVERGES (bottom-up) TO THE HARDING–WANG WALL.**
+   - **Session 5 (Harding [3] lever, subsumed):** the suggested Exit-B lever — adapt
+     Prop 3.4(5)'s non-orthomodularity construction — crosses neither gap. Porting the
+     *configuration* (not the argument): in a genuine OML, OM is automatic ⟹ `x<y`
+     forces `x^⊥∧y > 0`, so the question is *joint realizability*, never "meet 0." The
+     meet computes to `W>0, W≤⋁yₙ, W∧yₙ=0 ∀n` = **meet-continuity failure** (Harding's
+     own Prop 3.4(2)), achievable via the non-distributive meet-gap. The config is two
+     *countable* chains ⟹ block-local ⟹ **finitely many blocks** ⟹ caught by the
+     landed countable-block theorem (Exit A = tame curiosity); as Exit B it only
+     re-derives completion-failure (HW Problem 2 untouched). The gadget is lattice-level
+     / finitely-many-blocks; the frontier is uncountable-block / state-level — no
+     crossing.
+   - **Session 6 (the ω₁ construction proper, real crack):** vehicle = a partition-logic
+     on ℕ (Route B — concreteness and "every point is a σ-additive df-state" are free).
+     The **band family** (`ℕ≅ℕ×ℕ`; blocks `B_S = {rows i∉S} ∪ {S×{j}:j∈ℕ}`, `S` ranging
+     over an almost-disjoint index) is the first to carry a genuine
+     *incompatible-not-orthogonal* pair (`a=S_α×{0}`, `b=S_β×{0}` with `S_α∩S_β` finite
+     nonempty). The **band-family trichotomy** — a whole-family verdict, exhaustive over
+     the index choice:
+     • **(a) index not finite-union-closed** ⟹ `cl(a∪b)` needs `S_α∪S_β` in the index,
+       which escapes ⟹ **not a lattice** [the AD case; Strategy-D limit-branch on the OML
+       side];
+     • **(b) finite-union-closed with a comparable-finite-difference pair** ⟹ points enter
+       `L` as *differences of comparable cross-block elements* (`ℕ×{0}` and `(ℕ∖{0})×{0}`
+       comparable, different blocks ⟹ `{(0,0)}∈L`), forcing all singletons ⟹ **Boolean**
+       [the all-infinite-sets case]; the meet-gap shields only *incompatible* pairs, not
+       comparable ones;
+     • **(c) finite-union-closed, no such pair** ⟹ the paste survives, so the mixed-column
+       orthogonal join `X = ⊔ⱼ(S_{αⱼ}×{j})` (σ-completeness demands `X∈L`) **escapes** —
+       any block-element has a fixed-across-columns background `T′⊆⋂ⱼS_{αⱼ}=` finite (AD),
+       so it cannot match infinitely many distinct `S_{αⱼ}` ⟹ **not σ-complete.** (`X` is
+       regime-(c)'s death specifically; its proof needs the paste premise, which fails in
+       (b).)
+     ⟹ **no band index yields a concrete σ-complete non-Boolean lattice.** Three "forced
+     squeezes" (region-count, AD-count, ∪-closure) each failed at their own flagged link
+     (e.g. the union block is a *container, not a merger* — binding survives).
+     **Convergence = the finding:** regime (c)'s repair (adjoin `X`) is a σ-completion of
+     a concrete non-Boolean irreducible OMP = **exactly Harding–Wang Problem 2 / the
+     Session-4 wall**, now reached bottom-up with a concrete witness join. Win condition
+     (a definite substrate verdict on explicit families) **met**; **not** an Exit verdict
+     (the σ-completion is HW Problem 2, open; a non-regular over-embedding adjoining `X`
+     is not excluded, just untooled). Inclination unchanged in strength. Open sub-question
+     (set-theorist, *moot* here given `X` — it asks only whether regime (c) is non-empty):
+     does a `𝔠`-AD family with no member almost-covered by countably many others exist in
+     ZFC? Full record: `[[sigma_essential_construction_attempt]]` memory (Sessions 5, 5b, 6).
+
    The survey `notes/open_questions/oml_onboarding.{md,tex}`
    is committed to this Reading-1 framing; working layer:
    `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,

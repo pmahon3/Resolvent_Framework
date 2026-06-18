@@ -578,12 +578,11 @@ Open directions — the extension boundary:
        comparable, different blocks ⟹ `{(0,0)}∈L`), forcing all singletons ⟹ **Boolean**
        [the all-infinite-sets case]; the meet-gap shields only *incompatible* pairs, not
        comparable ones;
-     • **(c) finite-union-closed, no such pair** ⟹ the paste survives, so the mixed-column
-       orthogonal join `X = ⊔ⱼ(S_{αⱼ}×{j})` (σ-completeness demands `X∈L`) **escapes** —
-       any block-element has a fixed-across-columns background `T′⊆⋂ⱼS_{αⱼ}=` finite (AD),
-       so it cannot match infinitely many distinct `S_{αⱼ}` ⟹ **not σ-complete.** (`X` is
-       regime-(c)'s death specifically; its proof needs the paste premise, which fails in
-       (b).)
+     • **(c) finite-union-closed, no such pair** ⟹ [**SUPERSEDED BY SESSION 8 — regime (c)
+       is BOOLEAN too, see below; the trichotomy collapses to a dichotomy.** Original
+       Session-6 reading, now corrected:] the paste survives, so the mixed-column
+       orthogonal join `X = ⊔ⱼ(S_{αⱼ}×{j})` (σ-completeness demands `X∈L`) escapes ⟹ not
+       σ-complete.
      ⟹ **no band index yields a concrete σ-complete non-Boolean lattice.** Three "forced
      squeezes" (region-count, AD-count, ∪-closure) each failed at their own flagged link
      (e.g. the union block is a *container, not a merger* — binding survives).
@@ -620,6 +619,55 @@ Open directions — the extension boundary:
      too) — not a hand-session task. Substrate ≠ witness: the state `w` is untouched.
      Inclination unchanged in strength. Full record: `[[sigma_essential_construction_attempt]]`
      memory (Session 7).
+   - **Session 8 (the band-family trichotomy collapses to a dichotomy — Exit-A-via-band
+     CLOSED):** the Session-7 "regime (c) = HW Problem 2, open both ways" target was settled
+     on the **smallest explicit regime-(c) family**, and the answer overturns the trichotomy.
+     A **two-relative-complement chain** forces the forbidden finite set into `L̄` at the
+     *finite pre-σ level*, for **every** finite-∪-closed index: for a binding pair `S_α,S_β`,
+     finite-∪-closure puts `S_α∪S_β∈ℐ`, so (1) `S_α ⊆ S_α∪S_β` comparable ⟹ `(S_β∖S_α)×{j}∈L̄`,
+     then (2) `(S_β∖S_α) ⊆ S_β` comparable ⟹ `(S_α∩S_β)×{j}∈L̄`. Relative complement of a
+     comparable pair is legal in any sub-OML closed under complement + disjoint ∪
+     (`B∖A=(B^c⊔A)^c`, `A⊥B^c`), **at any difference size** — so the (b)/(c) finite-difference
+     cut was spurious. By Session-7's equivalence (`L̄` non-Boolean ⟺ those finite sets stay
+     out), this forces **Boolean**. The trichotomy collapses to a **dichotomy**: ∪-closed ⟹
+     **Boolean**; not-∪-closed ⟹ not-a-lattice. **No band index yields a concrete σ-complete
+     non-Boolean lattice** — the Exit-A-via-band route is closed, and regime (c)'s recorded
+     "not σ-complete" death is superseded (the relative-complement closure manufactures the
+     finite sets first; the X-escape was computed on the pre-closure object). This is the
+     strict generalization of Session-6 DEATH 2 (finite-diff/one-step/ℕ-union → any-diff/
+     two-step/any-in-`ℐ`-union) that closes the gap (b) left open. **Correctly scoped — NOT
+     a verdict:** this kills *one* concrete construction route (the one Sessions 6–7 converged
+     on), **not** global Exit B; HW Problem 2 in general and non-band pasting are untouched;
+     the σ-essential state `w` was never reached (substrate-level throughout). The most
+     promising concrete handle is gone ⟹ Exit-B inclination **strengthened, still an
+     inclination**. Full record: `[[sigma_essential_construction_attempt]]` memory (Session 8).
+   - **Session 8b (the Lean-as-search-container pivot — formalization restarts):**
+     because Session 8 turned on a *verifiable* object (a two-step set-theoretic
+     chain), the substrate is being formalized in Lean to contain the search — each
+     construction piece a small bite, "have we hit the object" a `lake build` rather
+     than a token-cloud judgment. Key unlock: the substrate is pure `Set (ℕ×ℕ)`
+     combinatorics (a concrete logic à la Kalmbach is just a complement-and-disjoint-∪-
+     closed subset collection), so **no orthomodular-lattice typeclass is instantiated**
+     and the standing "Mathlib v4.29 has no OML/Foulis–Holland" wall is *escaped* (that
+     wall is about abstract OML). **Bites 1–2 landed** —
+     `formalization/QuerySystem/QuerySystem/BandClosure.lean` (0 sorry, 0 axiom):
+     *Bite 1* — the `InClosure` predicate, the `relCompl` workhorse (which makes the by-hand
+     disjointness legality-check non-skippable), and `band_chain_inter` certifying the
+     Session-8 chain. *Bite 2* — `csUnion` (countable disjoint union, the σ-step) and
+     `forces_boolean` (all singletons ⟹ *every* subset = `P(Ω)`, via **assembly by disjoint
+     union**, NOT intersection — Session-7's "{x}=countable ∩" was the wrong route, it would
+     silently compute the *Boolean* σ-algebra instead of the concrete-logic σ-closure, which
+     is the open crux); `band_forces_boolean` composes the two mechanisms. **What Lean
+     certifies (correctly scoped):** the forcing+assembly *mechanism* (triple → meet cell →
+     singleton → all sets), **conditional on singleton-production** — the family-specific
+     step (finite-∪-closed index ⟹ a binding pair localizes at every point) remains the
+     Session-8 hand-argument, not in Lean. The constructor set is held to *exactly*
+     {complement, countable disjoint ∪}. Frontier bite (bite 3, the **user's call** — no
+     candidate on the table): a candidate `𝒦` for an *infinite* regime-(c) family as a Lean
+     predicate, which either checks (witness substrate) or returns the exact breaking step
+     (the transpose-catch, mechanized). The σ-essential **state `w`** is out of Lean scope
+     (heavy measure wiring; already Exit B on countable substrates). Full record:
+     `[[formalization_status]]`, `[[sigma_essential_construction_attempt]]` (Sessions 8b/8c).
 
    The survey `notes/open_questions/oml_onboarding.{md,tex}`
    is committed to this Reading-1 framing; working layer:

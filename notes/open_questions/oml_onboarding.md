@@ -418,6 +418,14 @@ non-distributivity (Rmk 2.11).
 dualities are finitary (MB, Rmk 2.10) or equational with no set/tribe
 representation (Freytes), but no theorem forbids a countable-join-preserving
 one. This is the open route = the Open Problem (§5).
+**[ORIENTATION POLE — the standing target across sessions.** Route (iii) =
+"is there a σ-Loomis–Sikorski for *concrete* OMLs?" is the live objective. Two
+fences: (a) the *faithful* σ-tribe (∧,∨ → ∩,∪) is Boolean-forcing by §5.1, CLOSED;
+the open object is the non-faithful concrete logic. (b) The obstruction is NOT the
+representation/join — ∏ₙMO₂ already has a concrete non-union join and still fails;
+the teeth are off-center σ-essential contextuality on an *irreducible* concrete
+σ-complete OML (non-band generators, HW Problem 2, untooled). NB ⊥⊥-closure joins
+are a dead end here (`X^⊥⊥=X` in a concrete logic; ⊥⊥ lives in non-concrete L(H)).**]
 
 **4.4 Prior art on point-free quantum probability.** Each construction
 lands on one side of the σ-additivity-on-non-distributive line:

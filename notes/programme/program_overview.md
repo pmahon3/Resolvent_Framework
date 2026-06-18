@@ -202,6 +202,17 @@ Ordered by downstream leverage:
 
 **Status 2026-06-17 (two open problems; OML descent now carries a LANDED structural
 dichotomy, not a verdict; no confirmed lead).**
+
+> **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
+> of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /
+> σ-Stone duality for **concrete** OMLs?* (= the §5 σ-essential open problem). Fences:
+> the *faithful* σ-tribe (∧,∨→∩,∪) is Boolean-forcing, CLOSED; the open object is the
+> non-faithful concrete logic. The obstruction is **not** the representation/join
+> (∏ₙMO₂ has a concrete non-union join and still fails) — it is **off-center σ-essential
+> contextuality on an irreducible concrete σ-complete OML** (non-band generators, HW
+> Problem 2, untooled). Exit A / Exit B are two *outcomes* of one (tetralemma-shaped)
+> question, not rival goals; the faithful position is the inclination, held open. Full
+> orientation in the `[[sigma_essential_construction_attempt]]` memory's "THE POLE" block.
 After the L_MO₂ concreteness kill (2026-06-10), the descent axis had an *afterlife*
 (2026-06-11/12): pursuing it under **Reading 1** (relational = no hidden
 realisation; user's chosen framing) reduced the prize to a sharp, principled,

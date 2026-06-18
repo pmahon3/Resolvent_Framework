@@ -146,7 +146,7 @@ theorem forces_boolean [Countable Ω] (hsingleton : ∀ x : Ω, InClosure G {x})
     (A : Set Ω) : InClosure G A := by
   have hassemble : A = ⋃₀ (Set.singleton '' A) := by
     ext x
-    simp only [Set.mem_sUnion, Set.mem_image, Set.mem_singleton_iff]
+    simp only [Set.mem_sUnion, Set.mem_image]
     constructor
     · intro hx; exact ⟨{x}, ⟨x, hx, rfl⟩, rfl⟩
     · rintro ⟨_, ⟨y, hy, rfl⟩, rfl⟩; exact hy

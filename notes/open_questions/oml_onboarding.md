@@ -410,6 +410,16 @@ Boolean, so the hypothesis that would buy the representation collapses the
 class:
 
 $$\text{OML} + \text{RDP} \iff \text{Boolean}.$$
+
+The **"sharp-skeleton" evasion** (represent the OML as the *sharp* elements of an
+ambient RDP effect algebra, so only the ambient carries RDP, not the OML) also
+**closes**: in any RDP effect algebra the sharp elements coincide with the center
+and are therefore Boolean (Jenča 2001, Cor. 4.3 — `a` sharp ⟺ central ⟺ principal,
+given RDP — via Greechie–Foulis–Pulmannová 1995, *The center of an effect algebra*,
+Order 12). A non-Boolean sharp skeleton in fact *witnesses* RDP-failure (Jenča 2001,
+Ex. 5.7). So route (i) is closed against this refinement too. *(σ-completeness is not
+on the load path — "Boolean" suffices for the kill. Verdict:
+`sharp_skeleton_RDP_subroute_verdict.md`.)*
 (ii) **MacNeille completion** — need not be orthomodular (Harding); can't
 complete to absorb joins. The topological version (clopens of S₀(A) mod the
 meagre ideal) is the same completion in disguise and collapses

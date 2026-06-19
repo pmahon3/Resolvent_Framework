@@ -4,7 +4,7 @@
 candidate for route (iii) of `oml_onboarding` §4.3 (a countable-join-preserving,
 measure-carrying σ-Stone duality for concrete OMLs). NOT a construction attempt.
 Feeds the §4.4 "What the topos route does and doesn't buy" addition in both
-`oml_onboarding.{tex,md}`.*
+`oml_onboarding.tex`.*
 
 ## VERDICT: SAME-WALL-WITH-MACHINERY
 

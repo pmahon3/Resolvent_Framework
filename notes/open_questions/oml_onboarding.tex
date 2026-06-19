@@ -39,47 +39,48 @@ A Survey and an Open Problem}
 \maketitle
 
 \begin{abstract}
-The passage from a finitely coherent assignment of probabilities to a
-countably additive measure is, in the Boolean case, governed by a single
-condition (countable additivity) and executed by classical machinery
-(Carath\'{e}odory; Loomis--Sikorski; Stone duality). On a
-\emph{non-distributive} orthomodular lattice (OML) --- the algebra of
-propositions of a quantum system --- this machinery breaks, and the
-question of when finite coherence forces countable behaviour is open. We
-survey the problem at the level needed to begin work on it. After fixing
-the apparatus (orthomodular lattices, the gap between orthogonality and
-meet-zero, the state/meet-additive/charge ladder, the McDonald--Bimb\'{o}
-dual space), we separate the question into two axes. The \emph{extension}
-axis is classical (Horn--Tarski feasibility) and fully settled: on
-$L(H)$ no state of any kind extends, by an elementary finite
-construction. The \emph{descent} axis is where the genuinely open question
-lives, and we locate it precisely. The combinatorial route --- seeking the
-object among concrete, $\sigma$-orthocomplete, set-representable OMLs --- is
-\textbf{settled and does not produce it}: the interleaving property that would
-make $\sigma$-additivity exceed finite additivity on a concrete non-Boolean
-lattice is satisfied trivially by the plain product $\prod_n \mathrm{MO}_2$,
-which is concrete, $\sigma$-complete, non-Boolean, infinite --- and exactly the
-\emph{segregated} object (non-distributivity confined to finite blocks) that a
-relational probability theory must exclude. The deeper reason is that a faithful
-$\sigma$-tribe representation has a distributive image, forcing the OML Boolean,
-so no relational measure can arise from a faithful descent to points; the forcing
-boundary to Boolean is \emph{subadditivity} of the separating states
-(Pt\'ak--Pulmannov\'a), not $\sigma$-additivity. Read ``relational'' as \emph{no
-hidden realisation} --- the measure not recoverable from a posited auxiliary space
-of definite states --- which, by Fine's theorem, is exactly a \emph{contextual}
-state: one not in the closed convex hull of the lattice's dispersion-free states.
-The open problem is then sharp: \textbf{does a non-Boolean, $\sigma$-complete,
-concrete OML carry a $\sigma$-additive contextual state whose contextuality is
-$\sigma$-essential} (witnessed by no finite sub-OML)? The finite version is
-\emph{already settled} --- Wright's pentagon is a finite concrete OML with a
-contextual state --- so the live content is the $\sigma$-essential refinement,
-which is a \emph{compactness failure} of exactly the Paper~I (CE) type and rejoins
-the programme's origin. The state of the question: well-posed and principled but
-\emph{uninhabited} --- no witness ($\prod_n\mathrm{MO}_2$ fails it; Wright is
-finite), no impossibility proof. A positive answer is the non-Boolean analogue of
-localic measure theory; a negative one a $\sigma$-essential impossibility theorem,
-reinstating empiricist-underdetermination as a theorem. We review what is known
-and ruled out, and close with the two exits.
+For a Boolean algebra, the passage from a finitely additive, finitely coherent
+assignment of probabilities to a countably additive measure is governed by a
+single condition (countable additivity) and executed by classical machinery
+(Carath\'{e}odory; Loomis--Sikorski; Stone duality). On a \emph{non-distributive}
+orthomodular lattice (OML) this machinery breaks, and the question of when finite
+coherence forces countable behaviour is open. This note surveys the problem and
+isolates a precise open question. After fixing the apparatus (orthomodular
+lattices, the gap between orthogonality and meet-zero, the state/meet-additive/charge
+ladder, the McDonald--Bimb\'{o} dual space of filters), we separate the question into
+two axes that the Boolean case fuses. The \emph{extension} axis --- does a state
+extend to a charge on the dual? --- is a classical Horn--Tarski feasibility question
+and is settled negatively for $L(H)$ by an elementary finite construction. The
+\emph{descent} axis --- does such a charge concentrate on the physical points? --- is
+open, and we locate it precisely. The combinatorial route to a witness (concrete,
+$\sigma$-orthocomplete, set-representable OMLs) is shown not to produce one: the
+interleaving property that would make $\sigma$-additivity exceed finite additivity on
+a concrete non-Boolean lattice is already satisfied by the product
+$\prod_n \mathrm{MO}_2$, which is concrete, $\sigma$-complete, non-Boolean and
+infinite, yet has its non-distributivity confined to finite blocks
+(\emph{segregated}) and so fails to be a witness. The structural reason is that a
+faithful set representation ($\sigma$-tribe) of an OML has a distributive image and
+hence forces the lattice Boolean (Theorem~\ref{thm:floor}), so no measure with no
+hidden realisation can arise from a faithful descent to points; the forcing boundary
+to Boolean is \emph{subadditivity} of a unital set of states
+(Pt\'ak--Pulmannov\'a~\cite{PtakPulmannova1994}), not $\sigma$-additivity. Taking
+``no hidden realisation'' to mean that the measure is not a mixture of dispersion-free
+states, this is equivalent to the state being \emph{contextual} ---
+not in the closed convex hull of the lattice's dispersion-free states
+(Lemma~\ref{lem:relational}, in the lineage of Fine, Pitowsky and
+Abramsky--Brandenburger). The open problem is then sharp:
+\textbf{does a non-Boolean, $\sigma$-complete, concrete OML carry a $\sigma$-additive
+contextual state whose contextuality is $\sigma$-essential} --- witnessed by no finite
+sub-OML? The finite version is already inhabited: Wright's pentagon
+(\cite{Wright1978}) is a finite concrete OML carrying a non-classical $\{0,\tfrac12\}$-valued
+state outside the dispersion-free hull, so the general spanning statement is false and
+only the $\sigma$-essential refinement remains. That refinement is a
+\emph{compactness failure} of the same type as the non-axiomatizability of countable
+additivity over finitely additive coherence. The question is well-posed but
+\emph{uninhabited}: no witness ($\prod_n\mathrm{MO}_2$ fails it; Wright is finite),
+and no impossibility proof. A positive answer would be a non-Boolean analogue of
+localic measure theory; a negative one a $\sigma$-essential impossibility theorem. We
+review what is known and what is ruled out, and close with the two exits.
 \end{abstract}
 
 % ==================================================================
@@ -110,8 +111,7 @@ colimit) returns:
   \qquad
   \text{incompatible}\ \Rightarrow\ \text{non-distributive OML}
 \]
-(Gunji et al.~\cite{Gunji2026}; the dichotomy organises the companion
-paper~\cite{MahonPaperII2026}). The OML is \emph{forced} by the context
+(Gunji et al.~\cite{Gunji2026}). The OML is \emph{forced} by the context
 structure, not postulated. Incompatibility --- quantum complementarity, but
 equally contextual experimental design or interfering sensors --- drives the
 algebra out of the Boolean world. One caveat fixes the scope: for non-quantum
@@ -1021,9 +1021,10 @@ and the \emph{external (A)-points} (Gleason's Hilbert rays, Remark~\ref{rem:AB})
 The canonical $P(A)$ is \emph{permitted}; the objection is only to building the
 measure on a \emph{smuggled} space --- the (A)-points, or equivalently a global
 hidden-variable joint over the dispersion-free states. A state has a hidden
-realisation exactly when it is a mixture of dispersion-free states (Fine's
-theorem), so a relational measure is precisely a \emph{contextual} state, and the
-reduction below turns the existence question into this one. (Note this is a
+realisation exactly when it is a mixture of dispersion-free states
+(Lemma~\ref{lem:relational}), so a relational measure is precisely a
+\emph{contextual} state, and the reduction below turns the existence question into
+this one. (Note this is a
 condition on the dispersion-free states, \emph{not} on $P(A)$: a witness is
 point-rich on $P(A)$ yet has no global dispersion-free joint --- the two spaces are
 different, which is exactly why ``permitted'' and ``escaped'' do not conflict.) (We do not pursue the stricter
@@ -1035,49 +1036,93 @@ inhabitable target.)
 \label{sec:reduction}
 \label{sec:predicate}
 
-\paragraph{The universal floor.} A \emph{faithful set representation}
-($\sigma$-tribe / Loomis--Sikorski, preserving $\wedge,\vee$ as $\cap,\cup$) has a
-distributive image, so it forces the OML Boolean (Remark~\ref{rem:concrete}).
-Hence no non-Boolean OML admits one, and a relational measure can never arise from
-a faithful descent to points. What a concrete OML \emph{does} have is an
+\paragraph{The universal floor.} The naive route --- realise the lattice as honest
+sets so that a measure becomes a measure on a space --- is closed for every
+non-Boolean OML.
+
+\begin{theorem}[Universal floor]\label{thm:floor}
+A \emph{faithful set representation} of an OML $L$ --- an injective
+$h:L\to\mathcal P(\Omega)$ with $h(a\wedge b)=h(a)\cap h(b)$, $h(a\vee b)=h(a)\cup
+h(b)$, $h(a^\perp)=\Omega\setminus h(a)$ (a $\sigma$-tribe / Loomis--Sikorski
+representation when $\sigma$-joins are preserved) --- exists only if $L$ is Boolean.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Set operations $\cap,\cup,{}^c$ on $\mathcal P(\Omega)$ distribute, so the image
+$h(L)$ is a distributive sublattice; $h$ injective and lattice-preserving makes $L$
+isomorphic to a distributive ortholattice, i.e.\ Boolean.
+\end{proof}
+
+\noindent Hence no relational measure can arise from a faithful descent to points.
+What a concrete OML \emph{does} have (Definition~\ref{def:omp}) is an
 order-determining family of dispersion-free states; the live question is whether
-every state is built from them.
+every state is a mixture of them.
 
-\paragraph{The reduction.} A $\sigma$-additive state $w$ on a concrete OML is
-\emph{non-contextual} iff it lies in the closed convex hull of the
-dispersion-free states iff it admits a global hidden joint. So:
-\[
-  \text{relational (no hidden realisation)} \;\Longleftrightarrow\;
-  \text{contextual (not spanned by dispersion-free states).}
-\]
-The handle is \emph{spanning}, not simplicity --- non-uniqueness of the
-decomposition is irrelevant; only the \emph{existence} of a dispersion-free
-decomposition matters. The prize is therefore a concrete $\sigma$-complete OML
-with a $\sigma$-additive state outside the dispersion-free hull.
+\paragraph{The reduction.} The following equivalence reduces ``no hidden
+realisation'' to a spanning condition on the dispersion-free states. Its content is
+not new --- for a Bell scenario it is Fine's theorem~\cite{Fine1982} (a joint
+distribution exists iff a deterministic hidden-variable model does), and the
+convex-geometric form is Pitowsky's correlation-polytope picture~\cite{Pitowsky1989};
+the formulation for a general (concrete) OML, with dispersion-free states as the
+deterministic vertices, is the natural lift, in the lineage of the
+sheaf-theoretic account of contextuality~\cite{AbramskyBrandenburger2011}.
 
-\paragraph{Why $\sigma$-essential, and why it is principled.} The finite version
-of this is \emph{already inhabited}: Wright's pentagon~\cite{Wright1978} is a
-finite, concrete OML (a Greechie loop of length five, hence a lattice) with a
-separating family of dispersion-free states yet a state outside their hull --- a
-contextual state. So ``concrete OML with a contextual state'' is a 1978 fact, and
-the general spanning theorem is correspondingly false. What Wright does not supply
-is contextuality that \emph{requires} the countable structure: the pentagon's is
-witnessed by a finite sub-OML (itself). The prize must therefore be
-\emph{$\sigma$-essential} --- contextual in the $\sigma$-complete whole but in no
-finite sub-OML. This is not a device to evade Wright: ``every finite piece has a
-global section, the countable whole has none'' is a \emph{compactness failure},
-the same finite-additivity-has-compactness / $\sigma$-additivity-lacks-it structure
-that is the core of Paper~I (CE). The descent question thereby rejoins the
-programme's origin.
+\begin{lemma}[Relational $=$ contextual]\label{lem:relational}
+Let $L$ be a concrete OML with dispersion-free state space $S_{\mathrm{df}}$, and
+$w$ a state on $L$. Then $w$ admits a hidden realisation --- a probability measure
+on a space of global two-valued valuations of $L$ inducing $w$ --- if and only if
+$w \in \overline{\mathrm{conv}}\,(S_{\mathrm{df}})$. We call $w$ \emph{contextual}
+when it is not.
+\end{lemma}
+\begin{proof}[Proof sketch]
+A global two-valued valuation of $L$ is exactly a dispersion-free state, so a
+hidden realisation is a probability measure $\mu$ on $S_{\mathrm{df}}$ with
+$w(a)=\int \omega(a)\,d\mu(\omega)$ for all $a$ --- i.e.\ $w$ is the barycentre of
+$\mu$. The barycentres of probability measures on the (weak-$*$ compact) set
+$S_{\mathrm{df}}$ are exactly $\overline{\mathrm{conv}}(S_{\mathrm{df}})$. The
+handle is \emph{spanning}, not simplicity: non-uniqueness of $\mu$ is irrelevant;
+only its \emph{existence} matters.
+\end{proof}
+
+\noindent The prize is therefore a concrete $\sigma$-complete OML with a
+$\sigma$-additive state outside the dispersion-free hull.
+
+\paragraph{Why $\sigma$-essential.} The finite version of this is already
+inhabited. Wright's pentagon~\cite{Wright1978} is a finite, concrete OML --- a
+Greechie loop of five three-atom blocks, hence a lattice --- with an
+order-determining family of dispersion-free states, yet it carries a non-classical
+$\{0,\tfrac12\}$-valued state lying outside their closed convex hull. (The five
+intertwining atoms form a $5$-cycle in which consecutive atoms share a block, so any
+dispersion-free state, taking at most one of each adjacent pair to $1$, sets at most
+$2$ of the $5$ to $1$; their hull has vertex-sum $\leq 2$, whereas the
+$\{0,\tfrac12\}$ state --- a legitimate state, each block summing to $1$ --- has
+vertex-sum $\tfrac52$. This is the KCBS inequality~\cite{KCBS2008}.) So ``concrete
+OML with a contextual state'' is a $1978$ fact, and the general spanning statement
+is false. What Wright does \emph{not} supply is contextuality that requires the
+countable structure: the pentagon's is witnessed by a finite sub-OML (itself). The
+prize must therefore be \emph{$\sigma$-essential} --- contextual in the
+$\sigma$-complete whole but in no finite sub-OML. This is not a device to evade
+Wright: ``every finite piece has a global section, the countable whole has none'' is
+a \emph{compactness failure} of exactly the type by which countable additivity is
+not first-order axiomatizable over finitely additive coherence (see
+Remark~\ref{rem:ce}).
 
 \paragraph{Status.} The $\sigma$-essential cell has \emph{no known inhabitant} and
-\emph{no impossibility proof}. $\prod_n\mathrm{MO}_2$ provably fails it (its
+\emph{no impossibility proof}. The product $\prod_n\mathrm{MO}_2$ fails it: its
 contextual states are only finitely additive --- diffuse states on its central
-$P(\mathbb N)$; $\sigma$-additivity forces concentration on points and kills them,
-\S\ref{sec:why-sigma}); Wright is finite; no construction is in hand. The question
-is well-posed and principled but uninhabited. (Computations and the literature
-verdict: companion notes \texttt{reading1\_prize\_reduction.md} and
-\texttt{direction2\_gate\_finding.md}.)
+$P(\mathbb N)$, which $\sigma$-additivity forces to concentrate on points, killing
+the contextuality (\S\ref{sec:why-sigma}); Wright is finite; no other construction
+is known. The question is well-posed but uninhabited.
+
+\begin{remark}[The compactness-failure analogy]\label{rem:ce}
+The $\sigma$-essential requirement places the open problem alongside a known
+Boolean phenomenon. Over a Boolean algebra, countable additivity of a finitely
+additive charge is not first-order axiomatizable: an ultraproduct of $\sigma$-additive
+charges can be finitely additive but not $\sigma$-additive, so every finite (indeed
+first-order) test is passed while the global property fails~\cite{mahon2025}. A
+$\sigma$-essential contextual state would be the non-distributive analogue --- finite
+sub-OMLs all classically interpretable, the obstruction carried only by the countable
+whole.
+\end{remark}
 
 \subsection{What the combinatorial route settles, and why it is not enough}
 \label{sec:why-sigma}
@@ -1124,11 +1169,13 @@ is the distributivity argument, not homomorphism-scarcity.) So the witness is
 concrete (Definition~\ref{def:omp}: order-determining two-valued \emph{states})
 and $\sigma$-complete yet has no points in the homomorphism sense at all --- the
 point-free target is forced, not engineered. The same arithmetic records the
-sharp Boolean boundary: an OML is Boolean iff it carries a unital set of
-\emph{subadditive} states (Pt\'ak--Pulmannov\'a~\cite{PtakPulmannova1994}), so
-concrete non-Boolean OMLs exist precisely \emph{because} their separating
-two-valued states fail subadditivity --- and the forcing property is
-subadditivity, not $\sigma$-additivity.
+sharp Boolean boundary: an OML is Boolean iff it admits a \emph{unital} set of
+\emph{subadditive} states --- one with, for each nonzero $a$, a subadditive state
+giving $a$ value $1$ (Pt\'ak--Pulmannov\'a~\cite{PtakPulmannova1994}, for OMLs). A
+concrete non-Boolean OML therefore cannot have its separating two-valued states
+form such a unital set: some fail subadditivity (here all four of $\mathrm{MO}_2$'s
+fail $\omega(a\vee b)\leq\omega(a)+\omega(b)$). The forcing property to Boolean is
+thus subadditivity --- a finitary condition --- not $\sigma$-additivity.
 \end{remark}
 
 \noindent A worked instance fixes the picture. Navara's
@@ -1255,41 +1302,38 @@ collapsing Axis~2 into Axis~1 --- treating ``non-distributive'' as if it meant
 With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), the
 combinatorial route shown to deliver only segregated objects
 (\S\ref{sec:why-sigma}), and the prize reduced to a $\sigma$-essential contextual
-state (\S\ref{sec:predicate}), the problem has a clean win/kill dichotomy. Two
-exits, each a genuine terminus. \emph{(Pen-and-paper kit:}
-\texttt{problemset\_oml\_descent.\{tex,pdf\}} --- a self-contained working
-problem-set with the apparatus, the formal target, and these exits as concrete
-sub-tasks.\emph{)}
+state (\S\ref{sec:predicate}), the problem has a clean dichotomy: two exits, each a
+genuine terminus.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=2.6cm, leftmargin=3.0cm]
   \item[Exhibit a $\sigma$-essential witness]
     Construct an infinite concrete OML carrying a $\sigma$-additive contextual
-    state that no finite sub-OML witnesses --- the relational prize. The likely
-    attack is a compactness-failure construction in the CE mould: a concrete
+    state that no finite sub-OML witnesses. The natural attack is a
+    compactness-failure construction (cf.\ Remark~\ref{rem:ce}): a concrete
     $\sigma$-complete OML whose finite sublogics are all classically interpretable
-    (dispersion-free states span them), but whose countable joins force a
+    (dispersion-free states span them) but whose countable joins force a
     Kochen--Specker-type obstruction only in the limit. The faithful set
-    representation is ruled out at every stage (\S\ref{sec:why-sigma}), so the
+    representation is ruled out at every stage (Theorem~\ref{thm:floor}), so the
     obstruction must be carried by the $\sigma$-structure itself, not by any finite
-    block. \emph{Target sharpened (CE-routing subsession, 2026-06-12): the witness
-    must put its infinitary structure \textbf{off-center} (irreducible /
-    non-central-infinite) --- a product of finite blocks like $\prod_n\mathrm{MO}_2$
-    is excluded a priori, since it forces all infinitary content into the Boolean
-    center where the Stone argument kills it. Pasting / countable colimit of
-    Wright-type blocks is the place to look.}
+    block. A necessary condition follows: the witness must place its infinitary
+    structure \emph{off-center} (irreducible, with non-central infinite blocks). A
+    product of finite blocks such as $\prod_n\mathrm{MO}_2$ is excluded a priori,
+    since it forces all infinitary content into the Boolean center, where
+    $\sigma$-additivity concentrates the contextual states onto points and removes
+    them (\S\ref{sec:why-sigma}); a pasting or countable colimit of Wright-type
+    blocks is the natural place to look.
   \item[Prove no such witness exists]
-    A compactness/spanning theorem: every $\sigma$-additive state on a
-    $\sigma$-complete concrete OML lies in the closed convex hull of its
-    dispersion-free states \emph{except} where a finite sub-OML is already
-    contextual (Wright). This is a Type-5 impossibility, and it would reinstate the
-    \emph{empiricist-underdetermination} conclusion as a theorem: relational
-    $\sigma$-additive probability that is $\sigma$-essential cannot exist, so the
-    relational content the programme seeks is operationally invisible after all.
-    The Boolean boundary --- subadditivity of the separating states
-    (Pt\'ak--Pulmannov\'a, Remark~\ref{rem:inhabited}) --- is the natural lever.
-    \emph{Caveat (2026-06-12): this cannot reuse the $\prod_n\mathrm{MO}_2$ /
-    Stone-over-center mechanism --- vacuous off-center --- so a genuinely different
-    finite-witnessing argument is needed.}
+    A spanning theorem: every $\sigma$-additive state on a $\sigma$-complete
+    concrete OML lies in the closed convex hull of its dispersion-free states
+    \emph{except} where a finite sub-OML is already contextual (Wright). This would
+    be an impossibility result --- a $\sigma$-essential contextual state cannot
+    exist, so relational $\sigma$-additive probability is operationally invisible
+    (present finitely or not at all). The Boolean boundary --- subadditivity of a
+    unital set of states (Pt\'ak--Pulmannov\'a, Remark~\ref{rem:inhabited}) --- is
+    the natural lever. Note that such an argument cannot reuse the
+    $\prod_n\mathrm{MO}_2$ mechanism (concentration on the Boolean center): that is
+    vacuous off-center, so a genuinely different finite-witnessing argument is
+    required.
 \end{description}
 
 \noindent A candidate direction now closed: the singular case for $L(H)$. One

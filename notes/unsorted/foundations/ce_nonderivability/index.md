@@ -14,7 +14,7 @@ type: project
 > target. The CE non-derivability content of this note STANDS; only the
 > Strategy-D framing is stale. Verdict:
 > `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
-> The lone open problem is now OML σ-essential descent (`oml_onboarding.md`).
+> The lone open problem is now OML σ-essential descent (`oml_onboarding.tex`).
 
 *Extended 2026-04-17 to include literature findings and paper sketch*
 

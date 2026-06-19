@@ -90,7 +90,7 @@ center-localization question (sub-question 1) as the load-bearing pivot.
   §"Paper I", routes 1–2 and the CE metatheorem.
 - The reduction this serves: `reading1_prize_reduction.md` (relational ⟺
   contextual; σ load-bearing; the ∏ₙMO₂ center/diffuse computation; Wright bound).
-- The committed problem statement: `oml_onboarding.{md,tex}` §5 (the σ-essential
+- The committed problem statement: `oml_onboarding.tex` §5 (the σ-essential
   contextual-state prize; the three point-spaces — P(A) vs dispersion-free states
   vs (A)-rays — kept distinct).
 - CE Lean (if formal grounding needed): `StoneDualityExtension.lean`,

@@ -1,6 +1,6 @@
 # Sharp-skeleton evasion of route (i): VERDICT
 
-*Literature settling note — June 2026. Feeds `oml_onboarding.{md,tex}` §4.3(i).*
+*Literature settling note — June 2026. Feeds `oml_onboarding.tex` §4.3(i).*
 
 ## The question
 

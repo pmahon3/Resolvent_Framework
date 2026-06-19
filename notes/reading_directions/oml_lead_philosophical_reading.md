@@ -176,7 +176,7 @@ From `philosophy_lit_review.md`:
 
 ## Pointers
 - Whole-programme scaffold: `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md`.
-- The lead's technical state + orientation pole: `oml_onboarding.{md,tex}` (§4.3
+- The lead's technical state + orientation pole: `oml_onboarding.tex` (§4.3
   route-(iii), §5 the open problem); the `sigma_essential_construction_attempt` memory
   (THE POLE block).
 - Paper II (the realism vocabulary this reading supports): `papers/paper_ii/`.

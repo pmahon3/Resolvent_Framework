@@ -127,7 +127,7 @@ non-segregation); Reading 2 pushes toward impossibility.**
 
 ## Pointers
 
-- Survey + the three directions: `oml_onboarding.{md,tex}` §5–§6.
+- Survey + the three directions: `oml_onboarding.tex` §5–§6.
 - The fork this bottoms out at: `programme/genealogy.md` §"THE OPEN QUESTION".
 - Live OML branch (Direction 2 was its "move 1"): `explore/b-pointfree-descent`,
   `programme/fork_scout_b_descent_impossibility.md` — this finding sharpens that

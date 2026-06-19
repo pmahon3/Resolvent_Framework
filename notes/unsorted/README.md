@@ -7,7 +7,7 @@ covered leads, or dead ends. Tier 3 — needs individual assessment.
 
 - [commensurability.md](commensurability.md) — EA/PR/VDR vocabulary
 - [non_boolean_observation_algebras.md](non_boolean_observation_algebras.md) — OML programme scoping
-- [oml_onboarding.md](../open_questions/oml_onboarding.md) — open question, survey + problem statement (needs OML expertise; supersedes the archived extension note)
+- [oml_onboarding.tex](../open_questions/oml_onboarding.tex) — open question, survey + problem statement (needs OML expertise; supersedes the archived extension note)
 - [oml_reading_guide.md](oml_reading_guide.md) — background reading
 - [coherence_structure.md](coherence_structure.md) — filtration structure analysis
 - [excess_fisher_curvature.md](excess_fisher_curvature.md) — likely known, low priority (parked)

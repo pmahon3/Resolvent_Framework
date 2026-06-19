@@ -88,7 +88,7 @@ PR_lattice / PR_dual — that the Boolean case fuses; see below.)
   was the L(H) PR error, corrected in Paper II and the open-questions note.
   See `papers/paper_ii/two_grades_of_pr.md` (the two-grades vocabulary and
   the pending Paper II decision; the problem statement itself is the survey
-  `notes/open_questions/oml_onboarding.{tex,md}`).
+  `notes/open_questions/oml_onboarding.tex`).
 
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
@@ -354,7 +354,7 @@ Open directions — the extension boundary:
    governed by σ-additivity; σ-additivity governs only the *descent
    axis* (concentration on physical points). Boolean fuses them
    (extension free); OML separates them (extension is the open
-   problem). See the survey `notes/open_questions/oml_onboarding.{tex,md}`
+   problem). See the survey `notes/open_questions/oml_onboarding.tex`
    (archived predecessor: `notes/archive/oml_extension_problem_superseded.md`).
 
    **Descent-axis status — L_MO₂ KILLED 2026-06-10, then REFRAMED to a live open
@@ -708,7 +708,7 @@ Open directions — the extension boundary:
      (heavy measure wiring; already Exit B on countable substrates). Full record:
      `[[formalization_status]]`, `[[sigma_essential_construction_attempt]]` (Sessions 8b/8c).
 
-   The survey `notes/open_questions/oml_onboarding.{md,tex}`
+   The survey `notes/open_questions/oml_onboarding.tex`
    is committed to this Reading-1 framing; working layer:
    `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,
    `direction2_gate_finding.md`, `subsession_sigma_essential_via_CE.md`.

@@ -144,7 +144,7 @@ Do not merge these.  The clean division is:
 Current mathematical front:
 
 - **OML σ-essential descent** (non-Boolean) — the LONE open problem. See
-  `notes/open_questions/oml_onboarding.{md,tex}` (the survey; route-(iii) σ-Loomis–Sikorski
+  `notes/open_questions/oml_onboarding.tex` (the survey; route-(iii) σ-Loomis–Sikorski
   pole) and the `sigma_essential_construction_attempt` memory.
 - *Strategy D — RETIRED 2026-06-18* (killed on prior-art; see below).
 - Fibre mixing was a candidate second example but the bridge theorem

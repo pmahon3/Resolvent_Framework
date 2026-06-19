@@ -1,6 +1,6 @@
 # verification/ — worksheets supporting the OML descent survey
 
-*Working/verification artifacts for `../oml_onboarding.md` (the standing OML
+*Working/verification artifacts for `../oml_onboarding.tex` (the standing OML
 descent problem-statement). After the 2026-06-11 archive sweep, the files here
 support either a **still-open** question or a **settled-reference** fact — the
 worksheets specific to the now-dead **L_MO₂ inhabitation lead** were moved to

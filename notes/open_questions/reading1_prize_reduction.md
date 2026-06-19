@@ -159,7 +159,7 @@ sharp, classically-grounded open problem with a clean win/kill dichotomy.
 ## Pointers
 - Predecessor: `direction2_gate_finding.md` (the (a)/(b) fork, why "point-free"
   has no stable referent).
-- Survey: `oml_onboarding.{md,tex}` §5–§6 (the open problem + the fork).
+- Survey: `oml_onboarding.tex` §5–§6 (the open problem + the fork).
 - Origin theme this reconnects to: CE / Paper I (finite-additivity vs σ-additivity,
   the compactness gap) — `programme/program_overview.md`,
   `papers/paper_i/`. The reduction makes the descent axis continuous with the

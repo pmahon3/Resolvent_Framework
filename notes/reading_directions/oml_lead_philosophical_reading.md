@@ -41,6 +41,35 @@ probabilistic world*, or whether removing the hidden whole also removes the
 coherence. **The lead lives precisely where phenomenology's "open horizon" meets
 quantum logic's "no value-definiteness."**
 
+### Openness, made precise (the f.a.-vs-σ framing) ⟦2026-06-19⟧
+
+Trying to formalize "openness" and "coherence" abstractly (as properties of a
+closure operator on an OML) and assume them jointly with non-distributivity yields a
+sharp diagnostic, *not* a new theorem: **openness is not an order-theoretic or
+convex-geometric property — it is a σ-additivity property.** Concretely:
+
+> **Openness = the gap between the *finitely-additive completion* of the classical
+> core (which always exists — Stone duality, "the first arrow is free") and the
+> *σ-completion* (which may not carry a coherent world). Non-distributivity is what
+> forbids collapsing the two via a faithful representation** (faithful set-rep ⟹
+> distributive image ⟹ Boolean — the universal floor).
+
+Why this matters for reading: the coarse abstraction (convexity/order only) is
+*provably too coarse* — at that level local coherence + compactness always yields a
+global classical mixture (`closed-conv(D)` is compact, inverse limit nonempty), so
+openness can be neither forced nor forbidden. Openness only becomes *stateable* at
+the σ-level, where `S_df^σ` is non-compact. And at the σ-level, "are openness +
+coherence + non-distributivity jointly consistent?" *is* the open problem verbatim
+(consistent = a witness exists = Exit A; inconsistent = Exit B) — there is no
+altitude where the difficulty evaporates. **The convergence is the signal:** three
+independent framings this session — the σ-additivity *tetralemma* (assume/negate/
+both/neither each self-destruct), *Loomis–Sikorski* (faithful ⟹ Boolean, so the
+measure-carrying σ-duality is the open piece), and *openness/coherence* (the f.a.-
+vs-σ gap) — all land on **one wall: the absence of a σ-Loomis–Sikorski for
+non-distributive lattices.** That is grip on *why* the problem is hard and *where*
+the single hard thing lives; it is not a way through. The one thing that would be
+progress is a tool for the f.a.-vs-σ gap on non-distributive lattices (route-(iii)).
+
 ## Where it sits relative to what's done
 
 CE / Paper I answered the *same* question in the **Boolean (classical)** world:

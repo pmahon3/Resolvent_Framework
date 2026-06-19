@@ -1,5 +1,15 @@
 # Strategy D step 1 — reduced state of "is Clop(βYₙ) σ-complete?"
 
+> **⚠ SUPERSEDED 2026-06-18 — RESOLVED WITH WITNESS.** `Clop(Y,𝔗)` is **NOT**
+> σ-complete (elementary field-of-sets witness at `0̄`: the gap family
+> `A_k = [0^{k-1}11]`). The Argyros pre-Gleason algebra is a **ZFC Strategy D
+> example**. The "lean toward route-closed / basically disconnected" prior below was
+> WRONG — it analyzed only `V_Σ`-built families and missed the trivial
+> usual-topology witness at `0̄ ∉` any `V_Σ`. The obstruction premise ("only
+> `V_Σ`-accumulation makes new closure points") is FALSE. The GJ/β₀Y/strong-zero-dim
+> machinery is correct but MOOT. See **`argyros_sigma_completeness_RESOLVED.md`**.
+> The text below is retained as the (now-closed) reduction trail.
+
 *Reduction note, 2026-06-11. Companion to `argyros_sigma_completeness_scratch.md`
 (the in-progress working file, reviewed and found sound). This note records the
 SHARP reduced question, the lever to attack it, and the evidence that the easy

@@ -334,6 +334,21 @@ Argyros (1983) — direct reading (2026-05-21):
   sub-lemma. The witness direction routes around it by working in
   $\operatorname{Clop}(Y_n)$ directly.
 
+> **⚠ RESOLVED 2026-06-18 — the assessment below is RETRACTED for the
+> pre-Gleason candidate.** Direct field-of-sets analysis shows `Clop(Y_n,𝔗)` is
+> **NOT σ-complete** (gap family `A_k=[0^{k-1}11]` at `0̄∉` any `V_Σ`, no LUB), so
+> the **pre-Gleason `βY_n` is NOT basically disconnected** — exactly the open hinge
+> flagged at lines 306–317. Combined with atomless + measure-free (Argyros Thm 1.9),
+> **`βY_n` (equiv. `Clop(Y_n)`) is a ZFC Strategy D example.** This FALSIFIES
+> assessment item 1 below ("every known measure-free non-atomic construction is
+> σ-complete"): item 1 cited "Argyros 1983" but the σ-complete object is the GLEASON
+> COVER `G(X_n)` (Near-Miss Table row 1), NOT the pre-Gleason `βY_n`. The "likely
+> independent of ZFC" verdict was a conjecture transferred from the σ-complete
+> Maharam regime + prior constructions; the pre-Gleason space (item 7) was the
+> explicit ZFC candidate to break it, and does. Full proof:
+> `argyros_sigma_completeness_RESOLVED.md`. Text below retained as the (closed)
+> reasoning trail.
+
 Current assessment (revised 2026-05-21):
 
 > Strategy D is likely independent of ZFC.  The systematic read of

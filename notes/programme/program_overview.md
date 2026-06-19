@@ -200,8 +200,8 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**Status 2026-06-17 (two open problems; OML descent now carries a LANDED structural
-dichotomy, not a verdict; no confirmed lead).**
+**Status 2026-06-18 (ONE open problem; Strategy D RESOLVED with a witness 2026-06-18;
+OML descent carries a LANDED structural dichotomy, not a verdict; no confirmed lead).**
 
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /
@@ -237,14 +237,19 @@ needs non-distributivity; the `[[mixing_barycenter_transfer_rhyme]]` RHYME verdi
 stands — but right-flavored at the *measure* level), and "ℕ likely Exit B" (illusory:
 |Ω| countable ⇏ |L| countable). So the descent frontier is now **one landed theorem +
 a single well-posed research-level construction target (B)**, not "two Phase-4 exits."
-Simultaneously **Strategy D** advanced: its step 1 (is `Clop(Yₙ)`
-σ-complete?) is now a GJ-grounded reduction to two precise sub-questions
-(limit-branch witness; strong-zero-dim sub-lemma). So the frontier is **two
-well-posed open problems with identified levers, neither inhabited** — not "no
-leads," not "confirmed leads." Both are (a)-aligned (incompatibility face = OML
-descent; anti-smuggler face = Strategy D). Strategy D's strictly-positive-measure
-machinery is now the right toolkit for (B)'s *measure-level* obstruction (the one
-honest reconnection between the two problems — at the measure axis, not the lattice).
+**Strategy D step 1 RESOLVED WITH WITNESS 2026-06-18** (see
+[[strategy_d_resolved]] + `argyros_sigma_completeness_RESOLVED.md`): `Clop(Y,𝔗)`
+(Argyros 1983 pre-Gleason clopen algebra) is **NOT σ-complete** — the gap family
+`A_k = [0^{k-1}11]` accumulates at `0̄` (which lies in no `V_Σ`, so its 𝔗-nbhd base
+is the usual Cantor one), giving a non-open closure with no least clopen upper
+bound. ⟹ the Argyros pre-Gleason algebra is a **ZFC Strategy D example**
+(non-σ-complete + atomless + measure-free); no ◇/CH fallback needed. The earlier
+"route-closed / basically disconnected" prior was WRONG (it analyzed only
+`V_Σ`-built families; one gap character breaks σ-completeness via ordinary Cantor
+accumulation), and the GJ 1H/6M/6W + β₀Y + strong-zero-dim machinery is MOOT (the
+answer is a direct field-of-sets check). So **ONE open problem remains** — OML
+descent (the (b) incompatibility face). Strategy D was the (a) anti-smuggler face
+= the extremal Boolean floor of the CE result; it is now **closed with a witness.**
 Working layer:
 `notes/open_questions/{reading1_prize_reduction,direction2_gate_finding,subsession_sigma_essential_via_CE}.md`,
 `papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`;
@@ -304,20 +309,24 @@ Open directions — the extension boundary:
    Duanmu-Weiss (2018), Cardona et al. (2025), Fremlin §326-328
    checked — none address this question. Not an independent
    direction.
-3. **Strategy D** — Does there exist
-   a non-σ-complete non-atomic measure-free Boolean algebra?
-   Equivalently: compact, totally disconnected, no isolated points,
-   not basically disconnected, no strictly positive Radon probability.
-   Likely independent of ZFC. Nearest examples (Argyros, Kunen,
-   Fedorchuk) miss at least one condition. Plebanek (2024 survey)
-   confirms the exact parameter regime is open.
-   **Step 1 advanced 2026-06-12 (GJ-grounded):** "is `Clop(Yₙ)` σ-complete?"
-   (the Argyros pre-Gleason candidate) reduces via Gillman–Jerison 1H/6M/6W to two
-   precise sub-questions — a limit-branch witness (strictly increasing clopens with
-   no least upper bound ⟹ ZFC example) and a named strong-zero-dim sub-lemma.
-   See `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`
-   (+ `argyros_sigma_completeness_handoff.md`). **Pen-and-paper kit:**
-   `problemset_strategy_d.{tex,pdf}` (self-contained working problem-set).
+3. **Strategy D** — Does there exist a non-σ-complete non-atomic measure-free
+   Boolean algebra? Equivalently: compact, totally disconnected, no isolated
+   points, not basically disconnected, no strictly positive Radon probability.
+   **RESOLVED WITH A WITNESS 2026-06-18 — YES, in ZFC.** The Argyros 1983
+   pre-Gleason clopen algebra `Clop(Y,𝔗)` is the example: Argyros already gave
+   atomless + measure-free (Thm 1.9), and step 1 ("is `Clop(Y)` σ-complete?")
+   resolves **NO** — the gap family `A_k = [0^{k-1}11]` accumulates at `0̄`
+   (which lies in no `V_Σ`, so its 𝔗-neighbourhood base is the usual Cantor one),
+   so `cl_𝔗(⋃A_k)` is non-open with no least clopen upper bound ⟹ no sup. So
+   `Clop(Y,𝔗)` is simultaneously **non-σ-complete + atomless + measure-free**, a
+   ZFC Strategy D example; no ◇/CH fallback. The earlier GJ 1H/6M/6W + β₀Y +
+   strong-zero-dim machinery is MOOT (direct field-of-sets check); the
+   "route-closed" prior was wrong (it analyzed only `V_Σ`-built families, which
+   all have sups — one gap character breaks σ-completeness via ordinary Cantor
+   accumulation). ⟦HAND — verified⟧ (re-derived twice + advisor). Canonical:
+   `papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md`;
+   memory [[strategy_d_resolved]]. (Handoff/dossier/problemset now superseded —
+   handoff carries a SUPERSEDED banner.)
 4. **OML extension problem** (algebraic face) — What replaces
    Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
    (1994): conditions strong enough to force σ-additivity collapse

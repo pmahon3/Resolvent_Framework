@@ -900,6 +900,97 @@ Two qualifications delimit what is ruled out.
 \end{description}
 \end{remark}
 
+\subsection{What the topos route does and does not buy}
+\label{sec:topos}
+The topos / Bohrification programme is the one machinery that supplies a
+genuinely point-free \emph{and} $\sigma$-additive (directed-continuous) valuation
+on a quantum logic, so it is the natural candidate to crack route~(iii). A
+mechanism-level read of the two principal constructions shows it is
+\emph{the same wall, with tools}: the $\sigma$-additive valuation always lives on
+a \emph{distributive} object, and the bridge to the non-distributive lattice
+routes its countable additivity through per-context Boolean blocks. The
+non-distributivity is relocated into base-poset variation and a coarse-graining
+map, never carried by the measure. This is the topos analogue of the universal
+floor (\S\ref{sec:reduction}): a measure that meets the non-distributive
+structure faithfully forces it Boolean.
+
+\paragraph{Bohrification (Heunen--Landsman--Spitters).} A state on $A$ becomes a
+\emph{continuous probability valuation} $\mu : O(\Sigma(A)) \to [0,1]_l$ on the
+internal Gelfand spectrum $\Sigma(A)$, which is an internal
+\emph{locale} --- by construction a compact regular \emph{frame}
+\cite[\S2,\,\S6]{HeunenLandsmanSpitters2011}, hence internally distributive. The
+defining continuity axiom $\mu(\bigvee_i U_i) = \bigvee_i \mu(U_i)$ for directed
+families (Def.~6.11) is precisely the localic, Scott-continuous form of
+$\sigma$-additivity --- but it is asked of $O(\Sigma(A))$, a frame, where
+$\bigvee$ is distributive. The non-commutativity of $A$ sits entirely in the base
+poset $\mathcal{C}(A)$ of commutative subalgebras and in the topos's
+intuitionistic internal logic; the valuation never integrates over a
+non-distributive lattice.
+
+\begin{remark}[The HLS valuation does not reach the prize --- objection and
+answer]\label{rem:hls-defuse}
+Theorem~6.19 of \cite{HeunenLandsmanSpitters2011} is a bijection between
+continuous probability valuations on $\Sigma(A)$ \emph{and} probability measures
+on $\mathrm{Proj}(A)$ --- the genuinely non-distributive object --- so it
+\emph{looks} like a $\sigma$-additive measure on a non-distributive OML. It is
+not a counterexample to the wall, for two independent reasons.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=1.9cm, leftmargin=2.2cm, topsep=2pt]
+  \item[Primary ($\sigma$-essential).] By Definition~6.17(a) a probability
+    measure on the countably complete OML $\mathrm{Proj}(A)$ is a map that
+    \emph{restricts to a $\sigma$-Boolean-algebra morphism on every countably
+    complete Boolean sublattice}. Its countable additivity is thus
+    \emph{defined block-by-block on the Boolean sub-structure} and glued by
+    naturality over $\mathcal{C}(A)$; it never crosses a non-distributive
+    (non-commuting) join. This is the \emph{antithesis} of $\sigma$-essential
+    contextuality (\S\ref{sec:reduction}): the prize demands contextuality
+    witnessed by the countable whole and by \emph{no} Boolean sub-structure,
+    whereas the topos route confines \emph{all} of its countable additivity
+    \emph{inside} Boolean contexts. This argument is independent of concreteness.
+  \item[Secondary (non-concrete).] The non-distributive object here is
+    $\mathrm{Proj}(A)$, the projection lattice of a (Rickart) $C^*$-algebra ---
+    the Gleason / $L(H)$-type lattice, non-concrete by Kochen--Specker
+    (Rmk~\ref{rem:miss}). So Bohrification \emph{recasts the Gleason occupant}
+    (the top row of \S\ref{sec:priorart}) in topos language; it does not reach
+    the concrete class on which the open frontier turns.
+\end{description}
+\end{remark}
+
+\paragraph{D\"{o}ring--Isham (spectral presheaf).} Measures live on the clopen
+subobjects $\mathrm{Sub}_{cl}(\Sigma)$, a complete Heyting algebra / locale ---
+distributive, and \emph{explicitly not} a $\sigma$-algebra
+\cite{Doering2009measures}. The non-distributive $\mathrm{Proj}(H)$ enters only
+through \emph{daseinisation} $\delta : \mathrm{Proj}(H) \to
+\mathrm{Sub}_{cl}(\Sigma)$, which is a coarse-graining, not a lattice
+homomorphism: outer $\delta^o$ preserves all joins but not meets, inner
+$\delta^i$ preserves all meets but not joins, and --- in Wolters' words
+\cite{Wolters2013} --- ``it cannot preserve both, as [$\mathrm{Sub}_{cl}(\Sigma)$]
+is distributive, whereas [$\mathrm{Proj}(H)$] is nondistributive.'' This is the
+exact topos twin of the finitary-duality wall (Rmk~\ref{rem:finitary}). The
+measure is in general only \emph{finitely} additive; the ceiling is driven by the
+state class (to cover type-III / KMS / non-normal states), and $\sigma$-additivity
+is recovered only \emph{locally} --- countable additivity for families pairwise
+orthogonal at a single context $V$, equivalently within one Boolean block, and
+only for normal states. As with HLS, the apparent ``$\sigma$-additive on
+projections'' statement holds only over pairwise-\emph{orthogonal} (hence
+commuting, hence single-context, hence Boolean) families: the additivity never
+crosses a non-distributive join.
+
+\paragraph{The f.a.-vs-$\sigma$ diagnosis.} The route lands on the programme's
+finitely-additive-versus-$\sigma$ gap exactly: $\sigma$-additivity is available
+\emph{precisely where the object is distributive} --- the internal frame, or the
+per-context Boolean blocks where Loomis--Sikorski already applies (``the first
+arrow is free'') --- and degrades to finite additivity (D\"{o}ring) precisely
+when a single global measure is demanded across the non-distributive whole. Of
+the four requirements
+(point-free $\times$ $\sigma$-additive $\times$ \emph{natively non-distributive}
+$\times$ directed-system-built), the topos route satisfies three and misses
+exactly the one that is the crux: native non-distributivity. The machinery
+engages the problem; it does not hold a handle on it. It \emph{sidesteps} the
+wall (an internally distributive Gelfand spectrum is a design goal, so
+constructive Gelfand duality goes through) rather than \emph{settling} the
+$\sigma$-essential question --- which stays open, neither inhabited nor closed.
+
 % ==================================================================
 \section{The open problem}
 \label{sec:problem}
@@ -936,6 +1027,7 @@ itself the enemy and collapses against the universal that follows, so it offers 
 inhabitable target.)
 
 \subsection{The reduction to contextuality, and what frames it}
+\label{sec:reduction}
 \label{sec:predicate}
 
 \paragraph{The universal floor.} A \emph{faithful set representation}

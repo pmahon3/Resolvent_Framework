@@ -458,6 +458,56 @@ construction.
 of Bohrification and colimit-over-Boolean-contexts generation. Novelty
 would lie in the σ-additive-point-free-native combination.)
 
+**The topos route, read for the mechanism (does/doesn't buy).** The
+topos/Bohrification programme is the one machinery supplying a point-free *and*
+σ-additive (directed-continuous) valuation on a quantum logic, so it is the
+candidate to crack route (iii). A primary-source read settles it as **the same
+wall, with tools**: the σ-additive valuation always lives on a *distributive*
+object, and the bridge to the non-distributive lattice routes its countable
+additivity through per-context Boolean blocks. (Verdict log:
+`verification/topos_route_read_2026-06-19.md`.)
+- **Bohrification (HLS, "Bohrification", arXiv:0909.3468; Def/Thm numbers from
+  this chapter, not the CMP "A topos for algebraic quantum theory").** A state becomes a *continuous
+  probability valuation* `μ : O(Σ(A)) → [0,1]_l` on the internal Gelfand
+  spectrum `Σ(A)` — an internal **locale** (compact regular *frame*), hence
+  distributive. The continuity axiom `μ(⋁ᵢUᵢ)=⋁ᵢμ(Uᵢ)` for directed families
+  (Def 6.11) *is* the localic Scott-continuous form of σ-additivity — but on a
+  frame, where `⋁` is distributive. Non-commutativity sits in the base poset
+  `𝒞(A)` and the internal intuitionistic logic; the valuation never integrates
+  over a non-distributive lattice.
+  - *Objection (Thm 6.19).* HLS bijects valuations on `Σ(A)` with probability
+    *measures on `Proj(A)`* — the non-distributive object — so it *looks* like a
+    σ-measure on a non-distributive OML. **Defused, two independent ways.**
+    (1) *σ-essential (primary, concreteness-free):* by Def 6.17(a) such a measure
+    restricts to a σ-Boolean morphism *on every countably complete Boolean
+    sublattice* — its countable additivity is defined block-by-block and glued by
+    naturality over `𝒞(A)`, never crossing a non-distributive join. That is the
+    **antithesis** of σ-essential contextuality (the prize wants contextuality
+    witnessed by no Boolean sub-structure; the topos route puts *all* its
+    σ-additivity *inside* Boolean blocks). (2) *Non-concrete (secondary):*
+    `Proj(A)` is the Gleason/`L(H)`-type lattice, non-concrete by Kochen–Specker
+    — Bohrification *recasts the Gleason occupant* in topos language; it does not
+    reach the concrete class.
+- **Döring–Isham (spectral presheaf, arXiv:0809.4847).** Measures live on
+  `Sub_cl(Σ)`, a complete Heyting algebra / locale — distributive, explicitly
+  *not* a σ-algebra. `Proj(H)` enters only via *daseinisation*
+  `δ : Proj(H) → Sub_cl(Σ)`, a coarse-graining, *not* a homomorphism: outer `δ^o`
+  preserves all joins but not meets, inner `δ^i` all meets but not joins, and
+  (Wolters, arXiv:1010.2031) *"it cannot preserve both, as `Sub_cl(Σ)` is
+  distributive whereas `Proj(H)` is non-distributive"* — the exact topos twin of
+  the finitary-duality wall (Rmk 2.10). The measure is only *finitely* additive
+  (ceiling driven by the state class — type III/KMS/non-normal); σ-additivity is
+  recovered only *locally*, for families orthogonal at one context `V` (one
+  Boolean block) and only for normal states.
+- **f.a.-vs-σ diagnosis.** σ-additivity is available *precisely where the object
+  is distributive* (internal frame, or per-context Boolean blocks where
+  Loomis–Sikorski already applies — "the first arrow is free"), and degrades to
+  finite additivity exactly when one global measure is demanded across the
+  non-distributive whole. Of the four requirements the route satisfies three and
+  misses *native non-distributivity* — the crux. It **sidesteps** the wall (an
+  internally distributive spectrum is a design goal) rather than **settling** the
+  σ-essential question, which stays open.
+
 **Remark 4.1 (The boundary of the negative results).**
 (i) *No impossibility theorem* covers the **concrete** class: known no-gos
 are finite/two-valued, and the one positive occupant L(H)+Gleason is

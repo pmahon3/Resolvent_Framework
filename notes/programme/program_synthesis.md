@@ -18,7 +18,8 @@ renumbering cleanup into the current three-paper architecture.*
 > an Exit-B *lean* (lattice level cleared: binding and lattice-ness coexist; the
 > pasting lattice theory is uniformly chain-finite, no published infinite criterion;
 > a five-property death map; the frontier = adding below-top binding to the
-> ω₁-horizontal-sum of P(ℕ)) — and Strategy D advanced (GJ-grounded). Read this for
+> ω₁-horizontal-sum of P(ℕ)) — and Strategy D (since KILLED 2026-06-18 on prior-art,
+> Gaifman 1964; retired). Read this for
 > the historical
 > architecture only. For current state the authoritative doc is
 > `program_overview.md` (Open Frontiers + item 4); for the kill history see

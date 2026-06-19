@@ -218,7 +218,7 @@ incompatible propositions at all?). *Nothing here is done.*
 |-------------------------|--------------------------------------------------------------------|----------------------------------------------------------------|
 | Is the descent question right? | **No** — harder variant whose novel part (non-distrib.) is incidental | **Yes** — non-distributivity *is* the whole novel content      |
 | What's already done?    | Paper I delivered it (Boolean). You'd polish a closed thing.        | Nothing — point-free σ-add. on non-distrib. lattices is vacant |
-| Still-open relative     | Strategy D / ZFC-independence (more continuous with 2024 origin)   | The descent check itself — one derivation from go/park         |
+| Still-open relative     | ~~Strategy D / ZFC-independence~~ **RETIRED 2026-06-18** (killed on prior-art; see the dated update below) — the (a)-line has no open target left | The descent check itself — one derivation from go/park         |
 
 ### How to feel which one you are (sit with these; don't answer fast)
 

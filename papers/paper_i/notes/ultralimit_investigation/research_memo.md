@@ -6,6 +6,12 @@ type: project
 
 # CE Non-Derivability and the Ultralimit Representation Investigation: Current Status
 
+> **⛔ STALE ON STRATEGY-D STATUS (2026-06-18).** The "Strategy D — Open" section
+> below is superseded: Strategy D was KILLED 2026-06-18 (`/audit full`, prior-art)
+> — positive ZFC answer, not a contribution (Gaifman 1964 inhabits the cell,
+> stronger; never field-open). RETIRED. The CE non-derivability content STANDS.
+> Verdict: `strategy_d_AUDIT_VERDICT.md`.
+
 *Research memorandum. Date: 2026-04-18.*  
 *Archival record in: `finite_cofinite_calculation.md`, `rung3_multidimensional_pfa.md`, `stone_geometric_translation.md`, `row5_candidate.md`, `subalgebra_embedding_lemma.md`.*  
 *Formal proof in: `papers/paper_i/notes/countable_additivity_not_first_order.tex`.*

@@ -388,7 +388,9 @@ Open directions — the extension boundary:
    *compactness failure* that reconnects to CE/Paper I. Status: well-posed,
    principled, **uninhabited** (no witness — ∏ₙMO₂ fails it, Wright is finite — and
    no impossibility proof); two Phase-4 exits (build a σ-essential witness / prove
-   a spanning-impossibility). The CE-routing subsession (2026-06-12) returned
+   a spanning-impossibility). *(Historical 2026-06-12 framing; superseded by the
+   Session-8 dichotomy below — now "one construction target," not "two exits," per
+   the Status block above.)* The CE-routing subsession (2026-06-12) returned
    **GAP** — CE can't settle non-emptiness; the Boolean Stone-kill of ∏ₙMO₂ doesn't
    transfer (it controls only the Boolean center, vacuous off-center). This
    **sharpens both exits**: a witness must put its infinitary structure off-center

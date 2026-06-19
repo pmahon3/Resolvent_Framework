@@ -117,6 +117,25 @@ as reference and teaching material, not publishable as novel work.
   Fibre-mixing irreducibility — dead (bridge theorem false; geometric ≠
   algebraic reconstruction).
 
+- [mixing_barycenter_transfer_rhyme.md](mixing_barycenter_transfer_rhyme.md) —
+  "Mixing" as a Type-3 method-transfer between OML descent and Strategy D —
+  KILLED 2026-06-12 (RHYME, not transfer; forks on object type, bridge = faithful
+  set rep provably absent off Boolean). Shared content = only the CE shape.
+
+- [two_species_underdetermination_kill.md](two_species_underdetermination_kill.md) —
+  Paper-II philosophical-upshot search — TRIPLE KILL 2026-06-13 (every route owned:
+  Stairs 1983 / Putnam–Dummett / Bub–Pitowsky / Contextuality-by-Default). Real
+  contribution is mathematical/synthetic (Type-3/6 positioning), not philosophy
+  novelty. Actionable: two Paper-II citation gaps (Stairs 1983; arXiv:2603.22353).
+
+- **Strategy D — KILLED 2026-06-18 (`/audit full`, prior-art).** Killed-lead record
+  lives in `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`
+  (not in this directory). The math (`Clop(Y,𝔗)` not σ-complete) is true but not a
+  contribution — Gaifman 1964 inhabits the ZFC cell, stronger; "Strategy D" was the
+  programme's private name, never field-open. Retired as a research target.
+  *(First kill of the (a)/anti-smuggler Strategy-D line; distinct from the
+  descent-arc deaths above.)*
+
 ## From the papers
 
 Paper I, Paper II, and the withdrawn Papers II+III are all

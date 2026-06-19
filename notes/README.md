@@ -143,46 +143,45 @@ Do not merge these.  The clean division is:
 
 Current mathematical front:
 
-- Strategy D, via Boolean algebra / Stone duality / Radon measure support.
+- **OML σ-essential descent** (non-Boolean) — the LONE open problem. See
+  `notes/open_questions/oml_onboarding.{md,tex}` (the survey; route-(iii) σ-Loomis–Sikorski
+  pole) and the `sigma_essential_construction_attempt` memory.
+- *Strategy D — RETIRED 2026-06-18* (killed on prior-art; see below).
 - Fibre mixing was a candidate second example but the bridge theorem
   is false (2026-05-14). No current second example.
 
-### Foundations: Strategy D and CE Non-Derivability
+### Foundations: Strategy D (RETIRED 2026-06-18) and CE Non-Derivability
 
-Central question:
+> **⛔ Strategy D KILLED 2026-06-18 (`/audit full`, prior-art).** The central
+> question below — does a non-σ-complete, non-atomic, measure-free Boolean
+> algebra exist? — has a *positive* ZFC answer and is **not a contribution**.
+> **Gaifman 1964** (PJM 14(1):61–73, Thm 2.2 + property (†)) already exhibits one,
+> in ZFC and 19 years prior, *stronger* (no strictly-positive finitely-additive
+> measure). The Argyros pre-Gleason witness (`Clop(Y,𝔗)` not σ-complete) is true
+> math but the non-σ-complete + atomless legs are trivial and the only hard
+> ingredient (measure-freeness) is Argyros's published theorem; "Strategy D" was
+> this programme's private name, never field-open. **Retired as a research
+> target.** Verdict: `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
+> The notes below are the closed reasoning trail, retained for the record.
+
+Central question (now ANSWERED — positive in ZFC, non-novel; see banner):
 
 > Does there exist a non-sigma-complete, non-atomic Boolean algebra admitting no
 > sigma-additive probability, in the appropriate strictly-positive/support
 > sense?
 
-Primary notes:
+Reasoning-trail notes (closed; retained for the record):
 
-- `notes/unsorted/foundations/ce_nonderivability/index.md` — parent overview connecting the
-  companion note, ultralimit representation, and Strategy D.
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` —
-  active launchpad for the Strategy D investigation.
-- `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` — detailed
-  row-5 history, corrections, and hierarchy.
-- `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`
-  — Stone-space translation and support geometry.
-
-Consolidation decision:
-
-- Keep `strategy_d_dossier.md` as the entry point.
-- Keep `row5_candidate.md` as the historical/detail note.
-- Keep `stone_geometric_translation.md` as the dictionary/proof-translation
-  note.
-- Do not fold these into the coherence notes; Strategy D is a concrete
-  subproblem with its own technical trail.
-
-Immediate next tasks:
-
-1. Verify the exact Stone duality equivalence between sigma-completeness and
-   basic disconnectedness.
-2. Separate "no sigma-additive probability" from "no strictly positive
-   sigma-additive probability".
-3. Check the set-theoretic topology literature around measure-free compact
-   zero-dimensional spaces.
+- `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md` —
+  the kill verdict (Gaifman 1964 prior-art). **Entry point.**
+- `papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md`
+  — the (correct, non-novel) math, under an AUDIT-KILL banner.
+- `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` — the
+  (closed) reduction trail; carries a kill banner.
+- `notes/unsorted/foundations/ce_nonderivability/index.md` — parent overview
+  (stale on Strategy-D status; CE content stands).
+- `papers/paper_i/notes/ultralimit_investigation/{row5_candidate,stone_geometric_translation}.md`
+  — historical detail / Stone translation.
 
 ### Finite Sample: Observational Resolution Dimension
 

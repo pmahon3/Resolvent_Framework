@@ -6,14 +6,24 @@ type: project
 
 # CE Non-Derivability and the Ultralimit Representation Problem
 
+> **⛔ STALE ON STRATEGY-D STATUS (2026-06-18).** This note repeatedly calls
+> Strategy D "the sole remaining open question." That is **no longer true**:
+> Strategy D was KILLED 2026-06-18 (`/audit full`, prior-art) — the math has a
+> positive ZFC answer but it is not a contribution (Gaifman 1964 inhabits the
+> cell, stronger; "Strategy D" was never field-open). RETIRED as a research
+> target. The CE non-derivability content of this note STANDS; only the
+> Strategy-D framing is stale. Verdict:
+> `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
+> The lone open problem is now OML σ-essential descent (`oml_onboarding.md`).
+
 *Extended 2026-04-17 to include literature findings and paper sketch*
 
 For the current future-note map and consolidation policy, see
 `notes/README.md`.
 
 This note is the parent overview for the CE non-derivability / ultralimit
-representation direction.  The active Strategy D investigation now lives in
-`papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.
+representation direction.  *(The Strategy D investigation it points to is RETIRED
+— see banner above.)*
 
 ---
 
@@ -104,7 +114,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    
    **Subalgebra embedding lemma:** any non-σ-complete $B$ that embeds join-preservingly into a σ-algebra $\Sigma$ where some σ-additive probability charges all non-zero elements of $B$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. Covers all "concrete" algebras. See `papers/paper_i/notes/ultralimit_investigation/resolved/subalgebra_embedding_lemma.md`.
    
-   **Strategy D (sole remaining open question):** does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? If yes: pair with a positive factor for a negative instance. If no: the open row collapses and all non-σ-complete non-atomic algebras are positive. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` Part V.
+   **Strategy D (~~sole remaining open question~~ RETIRED 2026-06-18 — see top banner):** does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? **ANSWERED: yes, in ZFC, and not a contribution** — Gaifman 1964 already inhabits the cell, stronger; "Strategy D" was never field-open. See `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`. (Original framing retained below for the record.)
 
 ### Key Distinctions
 
@@ -168,7 +178,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 - [x] Direct-product strategy: collapsed. $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ has σ-additivity vacuous — every finitely additive probability there is σ-additive. Direct products using this factor are not negative examples.
 - [x] Canonical decomposition theorem: $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ at every $A$; any $\mathrm{Supp}_\sigma$ gap is a direct-product gap with a measure-free factor; indecomposable row-5 impossible; Strategies A, B, C eliminated.
 - [x] Weak distributivity thread: Džamonja–Plebanek / Fremlin §391D give a ZFC theorem (weakly distributive + s.p.f.a. ↔ s.p. σ-additive) but only for **σ-complete** algebras. Does not constrain Strategy D. Non-weak-distributivity is not a necessary condition on a Strategy D counterexample.
-- [ ] **Strategy D (sole remaining open question):** Does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? No known construction, no known obstruction. **Topological reformulation** (2026-04-18): Strategy D is equivalent to the existence of a compact totally disconnected non-atomic non-basically-disconnected Radon-measure-free space. **Set-theoretic sensitivity** (2026-04-18): MA + ¬CH narrows candidates (compact spaces of weight $< \mathfrak{c}$ carry strictly positive Radon measures); ◇-type constructions may yield counterexamples. Problem is likely **independent of ZFC**; forcing or advanced Radon-measure theory is required. ZFC Boolean-algebra methods are exhausted.
+- [x] **Strategy D — RETIRED 2026-06-18 (killed on prior-art; NOT independent of ZFC after all).** Does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? **YES, in ZFC** — Gaifman 1964 (atomless BA, no strictly-positive *finitely*-additive measure, stronger). The "likely independent of ZFC / ZFC methods exhausted" assessment below was WRONG: it read σ-completeness off the *completed*/Gleason-cover form, not the base algebra. "Strategy D" was this programme's private name, never field-open; not a contribution; retired. See `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`. *(Original 2026-04-18 assessment retained below for the record:)* No known construction, no known obstruction. **Topological reformulation** (2026-04-18): Strategy D is equivalent to the existence of a compact totally disconnected non-atomic non-basically-disconnected Radon-measure-free space. **Set-theoretic sensitivity** (2026-04-18): MA + ¬CH narrows candidates (compact spaces of weight $< \mathfrak{c}$ carry strictly positive Radon measures); ◇-type constructions may yield counterexamples. Problem is likely **independent of ZFC**; forcing or advanced Radon-measure theory is required. ZFC Boolean-algebra methods are exhausted.
 
 **Strategy D launchpad:** see
 `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` for the

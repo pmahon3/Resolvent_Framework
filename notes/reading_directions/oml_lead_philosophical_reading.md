@@ -61,14 +61,22 @@ openness can be neither forced nor forbidden. Openness only becomes *stateable* 
 the σ-level, where `S_df^σ` is non-compact. And at the σ-level, "are openness +
 coherence + non-distributivity jointly consistent?" *is* the open problem verbatim
 (consistent = a witness exists = Exit A; inconsistent = Exit B) — there is no
-altitude where the difficulty evaporates. **The convergence is the signal:** three
-independent framings this session — the σ-additivity *tetralemma* (assume/negate/
-both/neither each self-destruct), *Loomis–Sikorski* (faithful ⟹ Boolean, so the
-measure-carrying σ-duality is the open piece), and *openness/coherence* (the f.a.-
-vs-σ gap) — all land on **one wall: the absence of a σ-Loomis–Sikorski for
-non-distributive lattices.** That is grip on *why* the problem is hard and *where*
-the single hard thing lives; it is not a way through. The one thing that would be
-progress is a tool for the f.a.-vs-σ gap on non-distributive lattices (route-(iii)).
+altitude where the difficulty evaporates. **The convergence is the signal:** four
+independent framings now land on the same wall — (1) the σ-additivity *tetralemma*
+(assume/negate/both/neither each self-destruct), (2) *Loomis–Sikorski* (faithful ⟹
+Boolean, so the measure-carrying σ-duality is the open piece), (3) *openness/
+coherence* (the f.a.-vs-σ gap), and (4) the *topos/Bohrification* read (2026-06-19):
+the one machinery giving a point-free σ-additive valuation on a quantum logic
+confines its σ-additivity to a *distributive* object / per-context Boolean blocks
+(HLS Def 6.17(a); Döring via daseinisation, which Wolters proves can't be a
+homomorphism) — the topos analogue of faithful ⟹ Boolean. All land on **one wall:
+the absence of a σ-measure that crosses a genuine non-distributive join — a
+σ-Loomis–Sikorski for non-distributive lattices.** That is strong grip on *why* the
+problem is hard and *where* the single hard thing lives; it is not a way through (the
+topos route *sidesteps* the wall by design — internally distributive spectrum — it
+does not prove impossibility). The one thing that would be progress is a tool for the
+f.a.-vs-σ gap on non-distributive lattices (route-(iii)); known machinery is now
+exhausted as a *crack*.
 
 ## Where it sits relative to what's done
 

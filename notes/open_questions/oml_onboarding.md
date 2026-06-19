@@ -427,7 +427,11 @@ non-distributivity (Rmk 2.11).
 (iii) **σ-Stone duality** — none *known*, none *ruled out*. The existing
 dualities are finitary (MB, Rmk 2.10) or equational with no set/tribe
 representation (Freytes), but no theorem forbids a countable-join-preserving
-one. This is the open route = the Open Problem (§5).
+one. This is the open route = the Open Problem (§5). *(The one existing machinery
+that supplies a point-free σ-additive valuation — topos/Bohrification — was read
+for the mechanism and SIDESTEPS this route rather than settling it: its
+σ-additivity lives on a distributive object / per-context Boolean blocks. See §4.4.
+So route (iii) stays open, but known candidate-machinery is exhausted as a crack.)*
 **[ORIENTATION POLE — the standing target across sessions.** Route (iii) =
 "is there a σ-Loomis–Sikorski for *concrete* OMLs?" is the live objective. Two
 fences: (a) the *faithful* σ-tribe (∧,∨ → ∩,∪) is Boolean-forcing by §5.1, CLOSED;

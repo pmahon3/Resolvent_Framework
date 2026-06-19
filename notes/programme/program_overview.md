@@ -214,6 +214,18 @@ carries a LANDED structural dichotomy, not a verdict; no confirmed lead).**
 > Problem 2, untooled). Exit A / Exit B are two *outcomes* of one (tetralemma-shaped)
 > question, not rival goals; the faithful position is the inclination, held open. Full
 > orientation in the `[[sigma_essential_construction_attempt]]` memory's "THE POLE" block.
+>
+> **Route status (updated 2026-06-19, two literature-reads of §4.3).** (i) RDP —
+> CLOSED by theorem, *including* the sharp-skeleton evasion (Jenča 2001: RDP ⟹
+> sharp = center = Boolean). (ii) MacNeille — CLOSED. (iii) σ-Stone duality — the
+> sole OPEN route, but the one existing point-free-σ-additive machinery
+> (topos/Bohrification) was read and **sidesteps** it (σ-additivity lives on a
+> distributive object / per-context Boolean blocks — HLS Def 6.17(a), Döring via
+> daseinisation; the topos analogue of faithful ⟹ Boolean). So route (iii) stays
+> open, known candidate-machinery exhausted as a *crack*. **Four independent framings
+> now converge on the one wall** (tetralemma; Loomis–Sikorski; openness/coherence;
+> topos) — strong diagnostic grip on *why/where*, NOT an impossibility proof. See
+> `oml_onboarding` §4.3(i), §4.4 + `verification/topos_route_read_2026-06-19.md`.
 After the L_MO₂ concreteness kill (2026-06-10), the descent axis had an *afterlife*
 (2026-06-11/12): pursuing it under **Reading 1** (relational = no hidden
 realisation; user's chosen framing) reduced the prize to a sharp, principled,

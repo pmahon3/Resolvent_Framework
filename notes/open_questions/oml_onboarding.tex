@@ -1,17 +1,17 @@
-\documentclass[11pt]{article}
+\documentclass[11pt,reqno]{amsart}
 
 % ---------- Packages ----------
-\usepackage[a4paper,margin=1in]{geometry}
-\usepackage{amsmath,amssymb,amsthm,mathtools}
-\usepackage{hyperref}
-\usepackage{enumitem}
+\usepackage{amssymb,mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage[shortlabels]{enumitem}
 \usepackage{booktabs}
 \usepackage{array}
-\usepackage{caption}
+\usepackage{microtype}
 \usepackage{tikz}
 \usetikzlibrary{calc}
 
 % ---------- Theorem environments ----------
+\theoremstyle{plain}
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{proposition}[theorem]{Proposition}
 \newtheorem{lemma}[theorem]{Lemma}
@@ -27,16 +27,16 @@
 
 % ---------- Commands ----------
 \newcommand{\CO}{\mathrm{CO}}
-\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\tr}{\operatorname{tr}}
 
 % ---------- Title ----------
-\title{$\sigma$-Additive Probability on Orthomodular Lattices:\\
-A Survey and an Open Problem}
+\title[$\sigma$-Additive Probability on Orthomodular Lattices]
+  {$\sigma$-Additive Probability on Orthomodular Lattices:\\
+   A Survey and an Open Problem}
 \author{Patrick S.\ Mahon}
-\date{Survey note --- June 2026}
+\date{June 2026}
 
 \begin{document}
-\maketitle
 
 \begin{abstract}
 For a Boolean algebra, the passage from a finitely additive, finitely coherent
@@ -83,6 +83,8 @@ localic measure theory; a negative one a $\sigma$-essential impossibility theore
 review what is known and what is ruled out, and close with the two exits.
 \end{abstract}
 
+\maketitle
+
 % ==================================================================
 \section{Introduction}
 \label{sec:intro}
@@ -107,9 +109,10 @@ An observation \emph{context} --- a set of measurements performable together
 --- is Boolean; gluing contexts along shared observations (a categorical
 colimit) returns:
 \[
-  \text{contexts mutually compatible}\ \Rightarrow\ \text{Boolean algebra},
-  \qquad
-  \text{incompatible}\ \Rightarrow\ \text{non-distributive OML}
+  \begin{aligned}
+  \text{contexts mutually compatible} &\ \Rightarrow\ \text{Boolean algebra},\\
+  \text{incompatible} &\ \Rightarrow\ \text{non-distributive OML.}
+  \end{aligned}
 \]
 (Gunji et al.~\cite{Gunji2026}). The OML is \emph{forced} by the context
 structure, not postulated. Incompatibility --- quantum complementarity, but
@@ -148,15 +151,14 @@ This is the qualifier on which the open problem turns
 The vague question splits into two axes that the Boolean case fuses, and the
 survey is built around the split:
 \begin{center}
-\renewcommand{\arraystretch}{1.2}
-\begin{tabular}{@{}lll@{}}
+\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.40\linewidth}>{\raggedright\arraybackslash}p{0.30\linewidth}@{}}
 \toprule
 \textbf{Axis} & \textbf{Asks} & \textbf{Status} \\
 \midrule
-Extension & does a state extend to a charge on $S_0(A)$?
-  & settled (on $L(H)$, \emph{none} does) \\
-Descent & does the charge concentrate on physical points?
-  & \textbf{open} \\
+Extension & Does a state extend to a charge on $S_0(A)$?
+  & Settled (on $L(H)$, none does). \\[2pt]
+Descent & Does the charge concentrate on the physical points?
+  & Open. \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -262,19 +264,14 @@ it exists; ``$\exists\,\bigvee_n a_n\in A$'' asserts that it does.
 \end{itemize}
 The orthogonal families are a subclass of all countable families, so
 $\sigma$-completeness quantifies over a strictly larger domain and is the
-stronger hypothesis:
-\[
-  \{a_n\}\text{ pairwise orthogonal}\ \subseteq\ \{a_n\}\text{ arbitrary}
-  \qquad\Longrightarrow\qquad
-  \sigma\text{-complete}\ \Rightarrow\ \sigma\text{-orthocomplete}.
-\]
+stronger hypothesis: $\sigma$-completeness $\Rightarrow$ $\sigma$-orthocompleteness.
 Only the weaker condition is needed below. For a state $s$,
-$\sigma$-additivity is the requirement
+$\sigma$-additivity is the requirement that
 \[
   s\Bigl(\textstyle\bigvee_n a_n\Bigr)=\sum_n s(a_n)
-  \qquad\text{for every countable }\{a_n\}\text{ with } a_i\perp a_j\ (i\neq j),
 \]
-whose left side invokes $\bigvee_n a_n$ \emph{only} for orthogonal families ---
+for every countable pairwise-orthogonal family $\{a_n\}$. Its left side invokes
+$\bigvee_n a_n$ \emph{only} for orthogonal families ---
 so $\sigma$-orthocompleteness is exactly the hypothesis that makes it
 well-posed. Full $\sigma$-completeness is the stronger condition manipulated
 by the Loomis--Sikorski representation (\S\ref{sec:ls}).
@@ -384,10 +381,9 @@ Concreteness does not force the converse: $\mathrm{MO}_3$ is itself concrete
 meet-zero-$\neq$-orthogonal example is already a concrete logic. What closes the gap is a
 richness/atomicity condition, not concreteness:
 \[
-  a\wedge b=\mathbf 0 \Rightarrow a\perp b
-  \quad\Longleftrightarrow\quad
-  \text{every nonempty } A\cap B \text{ contains a nonzero } L\text{-member,}
+  a\wedge b=\mathbf 0 \;\Rightarrow\; a\perp b,
 \]
+equivalently: every nonempty $A\cap B$ contains a nonzero $L$-member ---
 the abstract form being Tkadlec's \emph{Boolean orthoposet}
 condition~\cite{Tkadlec1994} (which does \emph{not} mean Boolean
 \emph{algebra}).
@@ -488,11 +484,12 @@ charge-extendibility condition of Definition~\ref{def:ladder}(3).
 \begin{remark}[The duality is finitary]\label{rem:finitary}
 The representation map $h$ satisfies
 \[
-  h\Bigl(\bigvee_{i\leq n} a_i\Bigr)=\Bigl(\bigcup_{i\leq n} h(a_i)\Bigr)^{\perp\perp}
-  \ \ (\text{finite}),
-  \qquad
-  h\Bigl(\bigvee_{n} a_n\Bigr)\neq\Bigl(\bigcup_{n} h(a_n)\Bigr)^{\perp\perp}
-  \ \ (\text{countable}):
+  \begin{aligned}
+  h\Bigl(\bigvee_{i\leq n} a_i\Bigr)&=\Bigl(\bigcup_{i\leq n} h(a_i)\Bigr)^{\perp\perp}
+    && (\text{finite}),\\
+  h\Bigl(\bigvee_{n} a_n\Bigr)&\neq\Bigl(\bigcup_{n} h(a_n)\Bigr)^{\perp\perp}
+    && (\text{countable}):
+  \end{aligned}
 \]
 finitary OML homomorphisms need not preserve infinite suprema. This is the
 central obstruction the open problem of \S\ref{sec:problem} confronts, and it
@@ -532,19 +529,9 @@ Steps (S3)--(S4) are the measure-theoretic face of the
   (\text{$\sigma$-tribe of sets})\,/\,(\text{$\sigma$-ideal}),
 \]
 the countable-join bookkeeping that drives the equivalence. The contrast with
-the OML case is exact:
-\begin{center}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{@{}ll@{}}
-\toprule
-\textbf{Boolean} & \textbf{OML} \\
-\midrule
-Stone duality + Loomis--Sikorski (the engine)
-  & \textbf{no analogue} (\S\ref{sec:routes}) \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent Supplying such an engine, or proving none exists, is the open
+the OML case is exact: the Boolean engine (Stone duality together with the
+Loomis--Sikorski representation) has \emph{no} known OML analogue
+(\S\ref{sec:routes}). Supplying such an engine, or proving none exists, is the open
 problem of \S\ref{sec:problem}.
 
 \begin{remark}[Why the bridge breaks: meet-closed but not join-prime]
@@ -552,20 +539,15 @@ problem of \S\ref{sec:problem}.
 A ``realised'' point $x$ carries two conditions, which Rao--Rao's
 ``vanishes on meagre sets'' makes coincide in the Boolean case:
 \[
-  \text{(M)}\ \ \text{closed under countable meets};
-  \qquad
-  \text{(J)}\ \ x\ni\textstyle\bigvee_n a_n \Rightarrow x\ni a_n\ \text{some }n
-  \quad(\text{off the join-defect}).
+  \begin{aligned}
+  &\text{(M)}\ \ \text{closed under countable meets};\\
+  &\text{(J)}\ \ x\ni\textstyle\bigvee_n a_n \Rightarrow x\ni a_n\ \text{for some }n
+    \quad(\text{off the join-defect}).
+  \end{aligned}
 \]
-Non-distributivity separates them. For a principal filter $x={\uparrow}p$:
-\[
-\renewcommand{\arraystretch}{1.3}
-\begin{array}{r@{\quad}l}
-\text{(M)} & \text{always holds.}\\
-\text{(J)} & \text{can fail: } p\leq\textstyle\bigvee_n a_n
-  \text{ does not force } p\leq a_n.
-\end{array}
-\]
+Non-distributivity separates them. For a principal filter $x={\uparrow}p$,
+condition~(M) always holds, whereas (J) can fail: $p\leq\bigvee_n a_n$ does not
+force $p\leq a_n$ for some~$n$.
 In $L(H)$ this is witnessed by $a_n=\mathrm{span}(e_n)$ and
 $p=\mathrm{span}(e_1+e_2)$:
 \[
@@ -594,30 +576,17 @@ as the measure route, and reduces to the MacNeille completion of
 
 The central question --- \emph{when does a state $s$ on an OML $A$ extend
 to a $\sigma$-additive measure on $S_0(A)$?} --- splits into two
-\textbf{independent} axes that the Boolean case fuses. A state $s$ on $A$
-faces:
-
-\begin{center}
-\renewcommand{\arraystretch}{1.35}
-\begin{tabular}{@{}p{2.3cm} p{5.3cm} p{5.3cm}@{}}
-\toprule
- & \textbf{Extension axis} & \textbf{Descent axis} \\
-\midrule
-\textbf{Question}
-  & Does $\mu$ extend to a finitely additive charge on the \emph{full}
-    Boolean clopen algebra of $S_0(A)$?
-  & Once extended, does the measure concentrate on the physical points
-    $P(A)$? \\
-\textbf{Governed by}
-  & the meet-zero/orthogonal gap (\S\ref{sec:oml})
-  & $\sigma$-additivity --- needs the missing engine (\S\ref{sec:ls}) \\
-\textbf{Status}
-  & settled: Horn--Tarski / Pitowsky feasibility; finite case
-    $=$ decidable LP; can fail for every state.
-  & open. \\
-\bottomrule
-\end{tabular}
-\end{center}
+\textbf{independent} axes that the Boolean case fuses.
+\begin{description}[style=nextline, leftmargin=0pt, itemsep=4pt]
+  \item[\normalfont\itshape Extension.] Does $s$ extend to a finitely additive
+    charge on the \emph{full} Boolean clopen algebra of $S_0(A)$? This is governed
+    by the meet-zero/orthogonal gap (\S\ref{sec:oml}) and is \emph{settled}: it is a
+    Horn--Tarski/Pitowsky feasibility question, a decidable linear program in the
+    finite case, and can fail for every state.
+  \item[\normalfont\itshape Descent.] Once extended, does the charge concentrate on
+    the physical points $P(A)$? This is governed by $\sigma$-additivity --- it needs
+    the missing engine (\S\ref{sec:ls}) --- and is \emph{open}.
+\end{description}
 
 \noindent The extension axis is the abstract form of a familiar question:
 extending a finitely-additive assignment on incompatible propositions to a
@@ -661,10 +630,11 @@ and fix an orthonormal basis $e,f$ of $\mathbb{C}^2$. Set
 These four infinite-dimensional subspaces form a copy of $\mathrm{MO}_2$ in
 $L(H)$:
 \[
-  a_1\perp a_1^\perp,\quad a_2\perp a_2^\perp,\quad a_i\vee a_i^\perp=H;
-  \qquad
-  a_i\wedge a_j=\mathbf 0 \ \text{ but }\ a_i\not\perp a_j
-  \ \ (\text{cross pairs}).
+  \begin{aligned}
+  &a_1\perp a_1^\perp,\quad a_2\perp a_2^\perp,\quad a_i\vee a_i^\perp=H;\\
+  &a_i\wedge a_j=\mathbf 0 \ \text{ but }\ a_i\not\perp a_j
+    \ \ (\text{cross pairs}).
+  \end{aligned}
 \]
 Orthoadditivity with $s(\mathbf 1)=1$ gives $s(a_i)+s(a_i^\perp)=1$ for
 $i=1,2$, using only additivity on orthogonal pairs, so it holds for
@@ -687,16 +657,15 @@ state-independent in $L(\mathbb C^2)$. The role of the
 \emph{infinite-dimensional} realisation is to extend the obstruction to the
 singular states ($s(e)=0$ on every finite-rank $e$):
 \begin{center}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{@{}p{4.0cm} p{5.0cm} p{3.7cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}>{\raggedright\arraybackslash}p{0.24\linewidth}@{}}
 \toprule
 \textbf{Atoms of $\mathrm{MO}_2$} & \textbf{$s(a_i)+s(a_i^\perp)$} &
   \textbf{Reaches} \\
 \midrule
 lines in $L(\mathbb C^2)$ (finite rank)
-  & $=1$ only if $s$ charges finite rank & normal states only \\
+  & $=1$ only if $s$ charges finite rank & normal states only \\[2pt]
 $H_0\otimes(\cdot)$, $\dim H_0=\infty$
-  & $=1$ regardless of finite-rank behaviour & \textbf{all states, incl.\ singular} \\
+  & $=1$ regardless of finite-rank behaviour & all states, incl.\ singular \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -719,19 +688,11 @@ $s(p_i)+s(p_i^\perp)=s(e_0)$, so a charge forces
 contradicting $s(e_0)>0$. Lifting $s$ to a functional via Mackey--Gleason /
 Bunce--Wright~\cite{BunceWright1992} ($B(H)$ has no type $\mathrm I_2$ summand)
 and applying the Takesaki normal/singular decomposition identifies which
-states the argument reaches:
-\begin{center}
-\renewcommand{\arraystretch}{1.25}
-\begin{tabular}{@{}l p{10.5cm}@{}}
-\toprule
-\textbf{reached} & nonzero normal part ($s(e)>0$ on some finite $e$);
-  includes every normal (Gleason) state \\
-\textbf{missed}  & purely singular ($s(e)=0$ for all finite $e$); e.g.\
-  ultrafilter vector states, Calkin-algebra pullbacks \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent Proposition~\ref{prop:lh} subsumes the missed case; this argument is
+states the argument reaches: it covers states with a nonzero normal part
+($s(e)>0$ for some finite-rank $e$), including every normal (Gleason) state, and
+misses the purely singular states ($s(e)=0$ for all finite-rank $e$; e.g.\
+ultrafilter vector states or Calkin-algebra pullbacks).
+Proposition~\ref{prop:lh} subsumes the missed case; this argument is
 recorded because its technique is independent and locates the singular states
 precisely.
 \end{remark}
@@ -757,16 +718,15 @@ Thm 391D) is complete: a Boolean algebra carries a strictly positive
 $\sigma$-additive measure iff it satisfies all three conditions below ---
 each of which loses its meaning off the distributive world.
 \begin{center}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}p{5.1cm} p{8.2cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.56\linewidth}@{}}
 \toprule
 \textbf{Boolean (KVP) condition} & \textbf{OML analogue} \\
 \midrule
-Dedekind $\sigma$-completeness & exists ($\sigma$-orthocompleteness) \\
+Dedekind $\sigma$-completeness & exists ($\sigma$-orthocompleteness) \\[2pt]
 weak $(\sigma,\infty)$-distributivity
-  & \textbf{none} --- relies on $\bigwedge$ distributing over $\bigvee$ \\
+  & none --- relies on $\bigwedge$ distributing over $\bigvee$ \\[2pt]
 chargeability
-  & \textbf{none} --- no structural characterisation on OMLs \\
+  & none --- no structural characterisation on OMLs \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1206,33 +1166,17 @@ known dualities are merely finitary.
 \begin{remark}[Why $L(H)$+Gleason does \emph{not} already settle this ---
 the (A)/(B) point-space equivocation]\label{rem:AB}
 ``Probability from relations, point-free'' may \emph{look} delivered by
-$L(H)$+Gleason. It is not: the appearance rests on conflating two
-point-spaces, and \emph{realisation} is defined as concentration on (B).
-\begin{center}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}cp{4.6cm}p{6.7cm}@{}}
-\toprule
- & \textbf{Point-space} & \textbf{Gleason's relation to it} \\
-\midrule
-(A) & Hilbert rays of $H$ & \emph{requires} them --- $\rho$ in
-  $s=\tr(\rho\,\cdot)$ is built from rays \\
-(B) & MB dual filters $P(A)$ & \emph{removes} them, but only by being a
-  representation theorem \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent Gleason is thus the \emph{most} point-ful result available (every
-lattice state $\mapsto$ the point datum $\rho$). What $L(H)$ exhibits is a
-\emph{separation}, not point-freeness:
-\[
-\renewcommand{\arraystretch}{1.3}
-\begin{array}{ll}
-\text{on the lattice} & \sigma\text{-additive measures exist (Gleason, normal states);}\\
-\text{on the dual } S_0(L(H)) & \text{no state extends to a charge (Prop.~\ref{prop:lh}),}\\
-& \text{so a fortiori none concentrates on } P(A).
-\end{array}
-\]
-It cannot serve as the existence proof required, so the point-free
+$L(H)$+Gleason. It is not: the appearance rests on conflating two point-spaces, and
+\emph{realisation} is defined as concentration on the second. The two are (A) the
+Hilbert rays of $H$, which Gleason \emph{requires} --- the density $\rho$ in
+$s=\tr(\rho\,\cdot)$ is built from them --- and (B) the McDonald--Bimb\'{o} dual
+filters $P(A)$, which Gleason \emph{removes}, but only by being a representation
+theorem. Gleason is thus the \emph{most} point-ful result available (every
+lattice state corresponds to the point datum $\rho$). What $L(H)$ exhibits is a
+\emph{separation}, not point-freeness: $\sigma$-additive measures exist on the
+lattice (Gleason, for normal states), yet on the dual $S_0(L(H))$ no state extends
+to a charge at all (Proposition~\ref{prop:lh}), so a fortiori none concentrates on
+$P(A)$. It cannot serve as the existence proof required, so the point-free
 $\sigma$-additive structure of \S\ref{sec:problem} is the only candidate engine.
 \end{remark}
 
@@ -1253,17 +1197,17 @@ into one.
     two senses of ``point'' come apart (the (A)/(B) equivocation, Rmk~\ref{rem:AB}).
 \end{itemize}
 \begin{center}
-\renewcommand{\arraystretch}{1.3}
-\begin{tabular}{@{}p{2.4cm}p{4.4cm}p{6.0cm}@{}}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.33\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}@{}}
 \toprule
- & \textbf{distributive (commuting)} & \textbf{non-distributive (non-commuting)} \\
+ & \textbf{distributive\newline(commuting)} & \textbf{non-distributive\newline(non-commuting)} \\
 \midrule
-\textbf{concrete} (valuations span) & classical: Boolean $\sigma$-algebra,
-  Loomis--Sikorski free & \textbf{$\leftarrow$ the descent witness lives here};
-  concrete $\sigma$-complete non-Boolean OML ($\prod_n\mathrm{MO}_2$ is here but segregated) \\
-\textbf{non-concrete} (KS: few valuations) & atomless measure algebra
-  (valuation-poor) & $L(H)$: rays abundant, valuations KS-barred --- the
-  operator / e.s.a.\ world, the \emph{excluded} pole \\
+\textbf{concrete}\newline(valuations span) & classical: Boolean $\sigma$-algebra,
+  Loomis--Sikorski free & the descent witness lives here: a concrete
+  $\sigma$-complete non-Boolean OML ($\prod_n\mathrm{MO}_2$ lies here, but
+  segregated) \\[4pt]
+\textbf{non-concrete}\newline(KS: few valuations) & atomless measure algebra
+  (valuation-poor) & $L(H)$: rays abundant, valuations KS-barred --- the operator /
+  e.s.a.\ world, the excluded pole \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -1346,19 +1290,14 @@ require infinitary methods and does not (Remark~\ref{rem:finvscount}).
 \begin{remark}[Finite versus countable: finite suffices]\label{rem:finvscount}
 Is the obstruction to extending a singular state realised by a \emph{finite}
 or only by a \emph{countable} pairwise-meet-zero family? The two arguments
-divide on exactly this point:
-\[
-\renewcommand{\arraystretch}{1.3}
-\begin{array}{lll}
-\textbf{line argument (Rmk~\ref{rem:linearg})}
-  & \text{finitary, but } \textbf{vacuous} \text{ on singular } (s(e)=0\ \forall\text{ finite } e)\\
-\textbf{$\mathrm{MO}_2$, $\infty$-dim atoms (Prop.~\ref{prop:lh})}
-  & \text{finite } (n=4),\ \sum_i s(a_i)=2 \text{ state-independently}
-\end{array}
-\]
-So the singular obstruction is \emph{not} entangled with the descent-axis
-passage, as the vacuity of the line argument might suggest: it is realised by a
-finite family, hence a self-contained finitary problem, separable from the
+divide on exactly this point. The line argument (Remark~\ref{rem:linearg}) is
+finitary but \emph{vacuous} on a singular state ($s(e)=0$ for every finite-rank
+$e$); the $\mathrm{MO}_2$ argument with infinite-dimensional atoms
+(Proposition~\ref{prop:lh}) uses a finite family ($n=4$) and gives
+$\sum_i s(a_i)=2$ state-independently, catching the singular case as well. So the
+singular obstruction is \emph{not} entangled with the descent-axis passage, as the
+vacuity of the line argument might suggest: it is realised by a finite family,
+hence a self-contained finitary problem, separable from the
 general construction and not governed by the finitary-to-$\sigma$ passage.
 \end{remark}
 

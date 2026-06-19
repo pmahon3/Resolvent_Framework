@@ -1189,6 +1189,64 @@ It cannot serve as the existence proof required, so the point-free
 $\sigma$-additive structure of \S\ref{sec:problem} is the only candidate engine.
 \end{remark}
 
+\subsection{Two axes, two dictionaries --- and the cell with no dictionary}
+\label{sec:twoaxes}
+The recurring confusion of this subject
+(Remarks~\ref{rem:inhabited}, \ref{rem:AB}) is best held as a
+\textbf{$2\times2$} on two \emph{independent} axes, which must not be collapsed
+into one.
+\begin{itemize}
+  \item \textbf{Axis 1 --- distributivity $=$ commutativity.} One condition in two
+    dialects: a family of projections commutes \emph{iff} the lattice they generate
+    is distributive. ``Commutativity'' is the operator word, ``distributivity'' the
+    lattice word, for the \emph{same} dividing line --- not different sides.
+  \item \textbf{Axis 2 --- concreteness.} A non-Boolean lattice can be
+    \emph{point-rich in rays} (atoms $=$ $1$-dim subspaces) yet \emph{point-free in
+    valuations} (no two-valued homomorphisms, Kochen--Specker), or the reverse: the
+    two senses of ``point'' come apart (the (A)/(B) equivocation, Rmk~\ref{rem:AB}).
+\end{itemize}
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{@{}p{2.4cm}p{4.4cm}p{6.0cm}@{}}
+\toprule
+ & \textbf{distributive (commuting)} & \textbf{non-distributive (non-commuting)} \\
+\midrule
+\textbf{concrete} (valuations span) & classical: Boolean $\sigma$-algebra,
+  Loomis--Sikorski free & \textbf{$\leftarrow$ the descent witness lives here};
+  concrete $\sigma$-complete non-Boolean OML ($\prod_n\mathrm{MO}_2$ is here but segregated) \\
+\textbf{non-concrete} (KS: few valuations) & atomless measure algebra
+  (valuation-poor) & $L(H)$: rays abundant, valuations KS-barred --- the
+  operator / e.s.a.\ world, the \emph{excluded} pole \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent There is \emph{not} one ``lattice $\leftrightarrow$ space'' dictionary but
+two, one per row.
+\emph{Birkhoff--von Neumann} (bottom-right): elements $\leftrightarrow$ closed
+subspaces, atoms $\leftrightarrow$ \textbf{rays}, $a\vee b\leftrightarrow$ closed
+span (the overshoot --- a $2$-plane holds rays in neither joinand: the geometric
+face of the meet/join gap, Def.~\ref{def:ortho}), compatibility $\leftrightarrow$
+commutativity; rich in ray-points, KS-barred from valuation-points, hence
+\emph{non-concrete}.
+\emph{Stone / concrete-logic} (Gudder; top row): elements $\leftrightarrow$ sets of
+outcomes, atoms $\leftrightarrow$ points of $\Omega$ (genuine valuation points),
+orthogonal $\vee\leftrightarrow$ disjoint union (only \emph{incompatible} joins
+overshoot); rich in valuation-points, hence \emph{concrete}.
+The operator question and the descent question share \textbf{Axis~1} (same column)
+but sit in \textbf{opposite rows}: operators \emph{force} the bottom-right cell
+(spectral projections $\Rightarrow L(H)\Rightarrow$ KS $\Rightarrow$ non-concrete),
+whereas the descent witness must be \textbf{top-right}. So the descent problem is the
+one cell \emph{no operator algebra can occupy} --- which is why the witness must be a
+pasting / countable colimit of concrete blocks, not a Hilbert-space construction, and
+why $L(H)$+Gleason (Rmk~\ref{rem:AB}) cannot settle it. In this language the open
+problem (route~(iii), \S\ref{sec:routes}) is exactly: \emph{is there a
+logic\,$\leftrightarrow$\,geometry dictionary for the top-right cell at all?} ---
+Birkhoff--von Neumann covers bottom-right, Stone covers the concrete distributive
+corner, and a $\sigma$-Loomis--Sikorski for concrete OMLs \emph{is} the missing
+top-right dictionary. (Orientation, not a new result; the danger it guards is
+collapsing Axis~2 into Axis~1 --- treating ``non-distributive'' as if it meant
+``$L(H)$'' --- which re-merges the two poles concreteness separates.)
+
 % ==================================================================
 \section{Directions}
 \label{sec:first}

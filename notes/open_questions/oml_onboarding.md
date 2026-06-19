@@ -678,6 +678,60 @@ cannot, the σ-OML representation is the *only* candidate engine; it would be
 an error to regard Gleason's theorem as already furnishing a relational,
 point-free probability.
 
+### 5.3 Two axes, two dictionaries — and the cell with no dictionary (orientation)
+
+The recurring confusion of this subject (Rmk 5.1, 5.2) is best held as a **2×2**,
+on two *independent* axes — and they must not be collapsed into one.
+
+- **Axis 1 — distributivity = commutativity.** A *single* condition in two
+  dialects: a family of projections commutes **iff** the lattice they generate is
+  distributive (Boolean). "Commutativity" is the operator word; "distributivity" is
+  the lattice word; they are the *same* dividing line, not different sides.
+- **Axis 2 — concreteness (which kind of "point" exists).** A non-Boolean lattice
+  can be *point-rich in rays* (atoms / 1-dim subspaces, abundant) yet *point-free in
+  valuations* (no 2-valued homomorphisms — Kochen–Specker), or the reverse. **The two
+  senses of "point" come apart** (the (A)/(B) equivocation, Rmk 5.2): rays/(A) ≠
+  dispersion-free valuations/(B).
+
+```
+                 DISTRIBUTIVE (commuting)        NON-DISTRIBUTIVE (non-commuting)
+ CONCRETE        classical: Boolean σ-algebra,   ← THE DESCENT WITNESS LIVES HERE →
+ (2-valued       Loomis–Sikorski free            concrete σ-complete non-Boolean OML
+  valuations     (the "Boolean context")         (∏ₙMO₂ is here but segregated)
+  span)
+ NON-CONCRETE    atomless measure algebra        L(H): rays abundant, valuations
+ (KS: no/few     (distributive, valuation-poor)  KS-barred. The operator / e.s.a.
+  valuations)                                     world, the EXCLUDED pole.
+```
+
+**Two logic↔geometry dictionaries, one per non-concrete vs concrete row** — there is
+*not* a single "lattice ↔ space" correspondence:
+- **Birkhoff–von Neumann** (bottom-right): lattice elements ↔ closed subspaces of `H`;
+  atoms ↔ **rays**; `a∨b` ↔ *closed span* (the overshoot — a 2-plane holds rays in
+  neither joinand: the geometric face of the meet/join gap); compatibility ↔
+  commutativity. Rich in ray-points, KS-barred from valuation-points ⟹ *non-concrete*.
+- **Stone / concrete-logic (Gudder)** (top-left and the target top-right): lattice
+  elements ↔ honest **sets of outcomes**; atoms ↔ points of `Ω` (genuine valuation
+  points); orthogonal `∨` ↔ disjoint union (only *incompatible* joins overshoot).
+  Rich in valuation-points ⟹ *concrete*.
+
+The point of the grid: the e.s.a.-operator question and the descent question share
+**Axis 1** (both non-distributive — same column) but sit in **opposite rows** of Axis 2.
+Operators *force* the bottom-right cell (spectral projections ⟹ `L(H)` ⟹ KS ⟹
+non-concrete); the descent witness must sit **top-right** (concrete). So the descent
+problem is the **one cell no operator algebra can occupy** — which is exactly why the
+witness must be a *pasting / countable colimit* of concrete blocks, not a
+Hilbert-space construction, and why `L(H)`+Gleason (Rmk 5.2) cannot settle it.
+
+Said in this language, the open problem (route (iii), §4.3) is precisely: **is there a
+logic↔geometry dictionary for the top-right cell at all?** Birkhoff–von Neumann covers
+bottom-right; Stone covers the concrete *distributive* corner; the existing OML
+dualities (MB, Cannon–Döring) are finitary or measure-free. A σ-Loomis–Sikorski for
+concrete OMLs *is* the missing top-right dictionary. (Orientation only; this records
+the framing, not a new result. The danger it guards: collapsing Axis 2 into Axis 1 —
+treating "non-distributive" as if it meant "`L(H)`" — which re-merges the two poles the
+concreteness axis separates.)
+
 ---
 
 ## 6. Directions

@@ -1,9 +1,14 @@
 # Strategy D step 1 — reduced state of "is Clop(βYₙ) σ-complete?"
 
-> **⚠ SUPERSEDED 2026-06-18 — RESOLVED WITH WITNESS.** `Clop(Y,𝔗)` is **NOT**
-> σ-complete (elementary field-of-sets witness at `0̄`: the gap family
-> `A_k = [0^{k-1}11]`). The Argyros pre-Gleason algebra is a **ZFC Strategy D
-> example**. The "lean toward route-closed / basically disconnected" prior below was
+> **⚠ SUPERSEDED 2026-06-18 — math RESOLVED, then KILLED AS A CONTRIBUTION (audit).**
+> `Clop(Y,𝔗)` is **NOT** σ-complete (elementary field-of-sets witness at `0̄`: the gap
+> family `A_k = [0^{k-1}11]`) — TRUE math. **But /audit full (prior-art) killed it as a
+> contribution:** Gaifman 1964 already inhabits the ZFC cell, stronger (no
+> strictly-positive *finitely*-additive measure); the only hard leg (measure-free) is
+> Argyros's published theorem; "Strategy D" was never field-open. NOT a contribution;
+> retired. See `strategy_d_AUDIT_VERDICT.md`. (The "ZFC Strategy D example" phrasing
+> below is correct *math* but superseded on *contribution* status.)
+> The "lean toward route-closed / basically disconnected" prior below was
 > WRONG — it analyzed only `V_Σ`-built families and missed the trivial
 > usual-topology witness at `0̄ ∉` any `V_Σ`. The obstruction premise ("only
 > `V_Σ`-accumulation makes new closure points") is FALSE. The GJ/β₀Y/strong-zero-dim

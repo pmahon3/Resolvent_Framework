@@ -200,8 +200,9 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**Status 2026-06-18 (ONE open problem; Strategy D RESOLVED with a witness 2026-06-18;
-OML descent carries a LANDED structural dichotomy, not a verdict; no confirmed lead).**
+**Status 2026-06-18 (ONE open problem; Strategy D KILLED on prior-art 2026-06-18 —
+true math, no contribution, Gaifman 1964 inhabits the cell stronger; OML descent
+carries a LANDED structural dichotomy, not a verdict; no confirmed lead).**
 
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /
@@ -237,19 +238,23 @@ needs non-distributivity; the `[[mixing_barycenter_transfer_rhyme]]` RHYME verdi
 stands — but right-flavored at the *measure* level), and "ℕ likely Exit B" (illusory:
 |Ω| countable ⇏ |L| countable). So the descent frontier is now **one landed theorem +
 a single well-posed research-level construction target (B)**, not "two Phase-4 exits."
-**Strategy D step 1 RESOLVED WITH WITNESS 2026-06-18** (see
-[[strategy_d_resolved]] + `argyros_sigma_completeness_RESOLVED.md`): `Clop(Y,𝔗)`
-(Argyros 1983 pre-Gleason clopen algebra) is **NOT σ-complete** — the gap family
-`A_k = [0^{k-1}11]` accumulates at `0̄` (which lies in no `V_Σ`, so its 𝔗-nbhd base
-is the usual Cantor one), giving a non-open closure with no least clopen upper
-bound. ⟹ the Argyros pre-Gleason algebra is a **ZFC Strategy D example**
-(non-σ-complete + atomless + measure-free); no ◇/CH fallback needed. The earlier
-"route-closed / basically disconnected" prior was WRONG (it analyzed only
-`V_Σ`-built families; one gap character breaks σ-completeness via ordinary Cantor
-accumulation), and the GJ 1H/6M/6W + β₀Y + strong-zero-dim machinery is MOOT (the
-answer is a direct field-of-sets check). So **ONE open problem remains** — OML
-descent (the (b) incompatibility face). Strategy D was the (a) anti-smuggler face
-= the extremal Boolean floor of the CE result; it is now **closed with a witness.**
+**Strategy D KILLED ON PRIOR-ART 2026-06-18** (/audit full, hostile-referee,
+primary-source; see [[strategy_d_resolved]] + `strategy_d_AUDIT_VERDICT.md`). The
+math is TRUE — `Clop(Y,𝔗)` (Argyros 1983 pre-Gleason) is NOT σ-complete (gap family
+`A_k=[0^{k-1}11]` at `0̄∉` any `V_Σ`, no LUB) — but it clears **no contribution
+bar**: **Gaifman 1964** (PJM 14(1):61–73, Thm 2.2 + property (†)) already exhibits,
+IN ZFC and 19 years prior, an atomless BA with **no strictly-positive FINITELY-
+additive measure** — strictly STRONGER than the "no σ-additive" leg. non-σ-complete
++ atomless are conceded-trivial; the only hard ingredient (measure-freeness) is
+Argyros's published theorem. "Strategy D" was the programme's **PRIVATE name**,
+never field-open; the "likely ZFC-independent" prior was a LOCAL MISREADING
+(σ-completeness read off the completion/Gleason cover — Comfort–Negrepontis 6.23
+Gaifman / 6.25 Argyros record the *completed* forms — not the trivially-non-σ-complete
+base). **L_MO₂-shape kill (true + trivial + occupied) — the first kill of the Strategy-D (a)-line, NOT a descent-arc death.** So **ONE
+open problem remains** — OML descent (the (b)/incompatibility face). The
+(a)/anti-smuggler line's delivered result is **CE/Paper I ONLY**; Strategy D was its
+candidate extremal-Boolean-floor frontier and it is now retired (the cell was
+already inhabited in ZFC). Survives: a one-line Gaifman-1964 citation, no contribution.
 Working layer:
 `notes/open_questions/{reading1_prize_reduction,direction2_gate_finding,subsession_sigma_essential_via_CE}.md`,
 `papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`;
@@ -310,23 +315,23 @@ Open directions — the extension boundary:
    checked — none address this question. Not an independent
    direction.
 3. **Strategy D** — Does there exist a non-σ-complete non-atomic measure-free
-   Boolean algebra? Equivalently: compact, totally disconnected, no isolated
-   points, not basically disconnected, no strictly positive Radon probability.
-   **RESOLVED WITH A WITNESS 2026-06-18 — YES, in ZFC.** The Argyros 1983
-   pre-Gleason clopen algebra `Clop(Y,𝔗)` is the example: Argyros already gave
-   atomless + measure-free (Thm 1.9), and step 1 ("is `Clop(Y)` σ-complete?")
-   resolves **NO** — the gap family `A_k = [0^{k-1}11]` accumulates at `0̄`
-   (which lies in no `V_Σ`, so its 𝔗-neighbourhood base is the usual Cantor one),
-   so `cl_𝔗(⋃A_k)` is non-open with no least clopen upper bound ⟹ no sup. So
-   `Clop(Y,𝔗)` is simultaneously **non-σ-complete + atomless + measure-free**, a
-   ZFC Strategy D example; no ◇/CH fallback. The earlier GJ 1H/6M/6W + β₀Y +
-   strong-zero-dim machinery is MOOT (direct field-of-sets check); the
-   "route-closed" prior was wrong (it analyzed only `V_Σ`-built families, which
-   all have sups — one gap character breaks σ-completeness via ordinary Cantor
-   accumulation). ⟦HAND — verified⟧ (re-derived twice + advisor). Canonical:
-   `papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md`;
-   memory [[strategy_d_resolved]]. (Handoff/dossier/problemset now superseded —
-   handoff carries a SUPERSEDED banner.)
+   Boolean algebra? **KILLED AS A CONTRIBUTION 2026-06-18 (/audit full, prior-art).**
+   The answer is YES in ZFC and the worked witness (`Clop(Y,𝔗)` not σ-complete,
+   gap family `A_k=[0^{k-1}11]` at `0̄`) is correct math — but it clears **no
+   contribution bar**. **Gaifman 1964** (PJM 14(1):61–73, Thm 2.2 + property (†))
+   already exhibits, IN ZFC and 19 years prior, an atomless BA with no strictly-
+   positive FINITELY-additive measure — strictly stronger than the no-σ-additive
+   leg. The non-σ-complete + atomless conditions are trivial; the only hard
+   ingredient (measure-freeness) is Argyros's published theorem. "Strategy D" was
+   this programme's PRIVATE name, never a field-recognized open problem; the
+   "likely ZFC-independent" prior was a local misreading (σ-completeness read off
+   the completion/Gleason cover, not the base algebra — C–N 6.23/6.25 record the
+   completed forms). L_MO₂-shape kill (true + trivial + occupied) — the first kill of the Strategy-D (a)-line, NOT a descent-arc death.
+   RETIRED as a research target. Survives: a one-line Gaifman-1964 citation, no
+   contribution. Verdict:
+   `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`;
+   the `..._RESOLVED.md` writeup carries an AUDIT-KILL banner (math retained);
+   memory [[strategy_d_resolved]].
 4. **OML extension problem** (algebraic face) — What replaces
    Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
    (1994): conditions strong enough to force σ-additivity collapse

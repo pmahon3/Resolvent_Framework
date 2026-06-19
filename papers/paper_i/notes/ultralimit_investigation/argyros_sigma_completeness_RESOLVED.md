@@ -1,8 +1,25 @@
-# Strategy D step 1 — RESOLVED WITH WITNESS (2026-06-18)
+# Strategy D step 1 — math RESOLVED, but KILLED AS A CONTRIBUTION (2026-06-18)
 
-**Clop(Y,𝔗) is NOT σ-complete. The Argyros pre-Gleason algebra is a ZFC
-Strategy D example.** ⟦HAND — verified⟧ (elementary field-of-sets argument;
-each step a finite hand-check; independently re-derived twice + advisor-checked).
+> **⛔ AUDIT KILL (KNOWN-OR-FOLKLORE, /audit full hostile-referee, primary-source).**
+> The math in this file is TRUE (the witness is correct) but it is **NOT a
+> contribution** — clears no type bar. **Gaifman 1964** (PJM 14(1):61–73, Thm 2.2 +
+> property (†)) already exhibits, IN ZFC and 19 years prior, an atomless Boolean
+> algebra with **no strictly positive FINITELY-additive measure** — strictly
+> STRONGER than the "no σ-additive" leg here. The non-σ-complete + atomless legs are
+> conceded-trivial; the only hard ingredient (measure-freeness) is Argyros's already-
+> published theorem. "Strategy D" was this programme's PRIVATE name, never field-open;
+> the "likely ZFC-independent" prior was a LOCAL MISREADING (σ-completeness read off
+> the completion/Gleason cover — Comfort–Negrepontis 6.23/6.25 record the *completed*
+> forms — not the trivially-non-σ-complete base). L_MO₂-shape kill (true + trivial
+> + occupied) — first kill of the Strategy-D (a)-line, NOT a descent-arc death.
+> Strategy D RETIRED. Survives: a one-line Gaifman-1964
+> citation, no contribution. Full verdict: `strategy_d_AUDIT_VERDICT.md`. The
+> proof below is RETAINED FOR THE RECORD (correct math); its "contribution" /
+> "ZFC Strategy D example" framing is SUPERSEDED by this banner.
+
+**Clop(Y,𝔗) is NOT σ-complete** (TRUE — but NOT a contribution; see banner).
+⟦HAND — verified⟧ (elementary field-of-sets argument; each step a finite
+hand-check; independently re-derived twice + advisor-checked).
 
 This SUPERSEDES the "lean toward route-closed / basically disconnected" prior in
 `argyros_sigma_completeness_handoff.md` and `..._scratch.md`. The prior was wrong:

@@ -257,12 +257,16 @@ Reading 1 for a problem is not the same as self-diagnosing the curiosity, so the
 fork stays **open** by the doc's own standard. Recorded so it can inform the call,
 not make it.
 
-*Update 2026-06-18 — Strategy D RESOLVED (the (a) "still-open relative" is now
-delivered).* `Clop(Y,𝔗)` (Argyros pre-Gleason) is **not σ-complete** ⟹ a ZFC
-Strategy D example (non-σ-complete + atomless + measure-free); see
-[[strategy_d_resolved]]. The (a)/anti-smuggler face has now produced **two**
-delivered results (CE/Paper I + Strategy D); the (b)/incompatibility face (OML
-σ-essential descent) remains the lone open thread (Exit-B inclination, untooled).
-The row-221 "Still-open relative = Strategy D" is superseded. This does NOT settle
-the fork — it sharpens the stakes: continuing OML descent is now an explicitly
-(b)-committed choice, with the (a) program-line fully delivered.
+*Update 2026-06-18 — Strategy D KILLED on prior-art (the (a) "still-open relative"
+is retired, NOT delivered).* The worked math (`Clop(Y,𝔗)`, Argyros pre-Gleason, is
+not σ-complete) is TRUE but clears no contribution bar (/audit full): **Gaifman 1964**
+already inhabits the ZFC cell, stronger (atomless BA, no strictly-positive
+*finitely*-additive measure); non-σ-complete + atomless are trivial, measure-freeness
+is Argyros's published theorem; "Strategy D" was a private name, never field-open
+(the "ZFC-independent" prior was a misreading off the completion/Gleason cover). See
+[[strategy_d_resolved]] + `strategy_d_AUDIT_VERDICT.md`. So the (a)/anti-smuggler face
+has **one** delivered result (CE/Paper I); the (b)/incompatibility face (OML
+σ-essential descent) remains the lone open thread (Exit-B inclination, untooled). The
+row-221 "Still-open relative = Strategy D" is superseded (the relative is retired, not
+solved). This does NOT settle the fork — but it removes the (a)-side's last *open*
+target, so continuing OML descent is now an explicitly (b)-committed choice.

@@ -334,20 +334,24 @@ Argyros (1983) — direct reading (2026-05-21):
   sub-lemma. The witness direction routes around it by working in
   $\operatorname{Clop}(Y_n)$ directly.
 
-> **⚠ RESOLVED 2026-06-18 — the assessment below is RETRACTED for the
-> pre-Gleason candidate.** Direct field-of-sets analysis shows `Clop(Y_n,𝔗)` is
-> **NOT σ-complete** (gap family `A_k=[0^{k-1}11]` at `0̄∉` any `V_Σ`, no LUB), so
-> the **pre-Gleason `βY_n` is NOT basically disconnected** — exactly the open hinge
-> flagged at lines 306–317. Combined with atomless + measure-free (Argyros Thm 1.9),
-> **`βY_n` (equiv. `Clop(Y_n)`) is a ZFC Strategy D example.** This FALSIFIES
-> assessment item 1 below ("every known measure-free non-atomic construction is
-> σ-complete"): item 1 cited "Argyros 1983" but the σ-complete object is the GLEASON
-> COVER `G(X_n)` (Near-Miss Table row 1), NOT the pre-Gleason `βY_n`. The "likely
-> independent of ZFC" verdict was a conjecture transferred from the σ-complete
-> Maharam regime + prior constructions; the pre-Gleason space (item 7) was the
-> explicit ZFC candidate to break it, and does. Full proof:
-> `argyros_sigma_completeness_RESOLVED.md`. Text below retained as the (closed)
-> reasoning trail.
+> **⚠ 2026-06-18 — math RESOLVED, contribution KILLED ON PRIOR-ART (audit); whole
+> dossier RETIRED.** Direct field-of-sets analysis shows `Clop(Y_n,𝔗)` is **NOT
+> σ-complete** (gap family `A_k=[0^{k-1}11]` at `0̄∉` any `V_Σ`, no LUB), so the
+> pre-Gleason `βY_n` is NOT basically disconnected — TRUE, and it does inhabit the
+> Strategy-D cell in ZFC. **BUT /audit full (hostile-referee, primary-source) KILLED
+> it as a contribution:** **Gaifman 1964** (PJM 14(1):61–73, Thm 2.2 + (†)) already
+> exhibits, in ZFC and 19 yrs prior, an atomless BA with no strictly-positive
+> *finitely*-additive measure — strictly STRONGER. non-σ-complete + atomless are
+> conceded-trivial; the only hard leg (measure-free) is Argyros's published theorem.
+> "Strategy D" was this programme's PRIVATE name, never field-open; the "likely
+> ZFC-independent" verdict was a LOCAL MISREADING (this dossier's Near-Miss Table read
+> σ-completeness off the completion/Gleason cover, not the base — C–N 6.23 Gaifman /
+> 6.25 Argyros are the completed forms). L_MO₂-shape kill (true + trivial +
+> occupied) — first kill of the Strategy-D (a)-line, NOT a descent-arc death.
+> Strategy D RETIRED; survives only as a one-line Gaifman-1964
+> citation. Verdict: `strategy_d_AUDIT_VERDICT.md`; math: `..._RESOLVED.md` (carries
+> an AUDIT-KILL banner). The entire dossier below is the (closed) reasoning trail of
+> a target that turned out non-novel — retained for the record only.
 
 Current assessment (revised 2026-05-21):
 

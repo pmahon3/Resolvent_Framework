@@ -173,6 +173,6 @@ answer. They reduce "σ-complete?" to "basically disconnected?" — a true equiv
   (§1.0–1.5 read directly; construction, separation Lemma 1.3, measure-freeness
   Claim 1.5 all verified against the source).
 - Handoff (now superseded): `argyros_sigma_completeness_handoff.md`.
-- Problemset kit: `problemset_strategy_d.{tex,pdf}` (Task `witness` is the slot this
-  fills; Tasks `tighten`/`szd`/`cons` are now moot).
+- Problemset kit (ARCHIVED 2026-06-19, `notes/archive/strategy_d_killed/problemset_strategy_d.{tex,pdf}`):
+  Task `witness` is the slot this fills; Tasks `tighten`/`szd`/`cons` are now moot.
 - Dossier: `strategy_d_dossier.md` (line 589, the Clop iso).

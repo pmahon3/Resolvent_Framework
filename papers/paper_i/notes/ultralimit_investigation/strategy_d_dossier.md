@@ -678,9 +678,11 @@ analysis of $Y_n$'s cozero structure.
 
 **Next concrete steps:**
 
-> **PEN-AND-PAPER KIT:** `problemset_strategy_d.{tex,pdf}` — self-contained working
+> **PEN-AND-PAPER KIT (ARCHIVED 2026-06-19 — Strategy D killed, see top banner):**
+> `notes/archive/strategy_d_killed/problemset_strategy_d.{tex,pdf}` — self-contained
 > problem-set (definitions, Stone duality, GJ lever, the Argyros construction, the
-> open target, the obstruction, the sub-tasks). Start there to work it by hand.
+> target, the obstruction, the sub-tasks). Historical artifact; do NOT work it as
+> open (the problem is killed on prior-art).
 >
 > **STEP 1 ADVANCED 2026-06-12 (GJ-grounded reduction).** "Is
 > $\operatorname{Clop}(Y_n)$ σ-complete?" is now reduced via Gillman–Jerison

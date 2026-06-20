@@ -24,6 +24,24 @@
 > "conditionally SOLVED-NEGATIVE" header below is essentially right; read "conditional"
 > as "in the Polish-representable case." (Author attribution "Fröhlich" was WRONG →
 > **Derr & Williamson**, Tübingen.)
+>
+> **Maharam 1972 §8 read directly (2026-06-20, `maharam_1972.pdf` = the source D–W
+> Thm D.6 leans on).** The topological hypothesis is **load-bearing** — confirms the
+> residue is real and stable: §8.1 shows a topology-free σ-extension always exists but
+> only on the *enlarged Stone space* (ultrafilters of the field → phantom points), not
+> the original points; §8.2 (Thm 8.1) keeps it on the original space only under
+> **Hausdorff + inner-regularity** (8.1) + a positivity condition (8.2). So the open
+> sub-question "is the topological hypothesis removable?" = **NO** (removing it lands
+> on the wrong, enlarged object — the f.a.-vs-σ gap, by analogy not identity: Maharam's
+> Stone-space-of-a-*field* vs the OML dual, which has no global field). NOT recordable
+> / unverified (USER's math call): (a) whether D–W's *Polish* (stronger than Maharam's
+> Hausdorff+regular) is reducible in D–W's σ-block-*pasting* port — that's in their
+> proof, unread; (b) the sharper residue conjecture — since `S_df` weak-* IS compact
+> Hausdorff, the binding residual condition may be **inner-regularity + Borel-σ-generation
+> on the natural `S_df` representation**, not "Polish" per se, sharpening "witness must be
+> non-Polish-representable" to "fails regularity/Borel-σ-gen on its own df-representation."
+> STOP-CHASE noted: both load-bearing sources (D–W, Maharam) now read; verdict held
+> across both; Kellerer/embedding-ref are diminishing-returns regress.
 
 *Hostile prior-art search, 2026-06-19. Supersedes the "GENUINELY-OPEN" framing of
 `reading1_prize_reduction.md` / `sigma_essential_nonemptiness_finding.md` to the

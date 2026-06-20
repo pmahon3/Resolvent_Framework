@@ -200,9 +200,21 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**Status 2026-06-18 (ONE open problem; Strategy D KILLED on prior-art 2026-06-18 —
-true math, no contribution, Gaifman 1964 inhabits the cell stronger; OML descent
-carries a LANDED structural dichotomy, not a verdict; no confirmed lead).**
+**Status 2026-06-20 (NO plainly-open problem left; both prior leads resolved against
+the literature). Strategy D KILLED on prior-art 2026-06-18 (Gaifman 1964 inhabits the
+cell stronger). OML descent NOT PLAINLY OPEN as of 2026-06-20: prior-art
+(Derr–Williamson 2023, arXiv:2302.03522, via Maharam 1972 §8) settles it NEGATIVELY in
+the Polish-representable case — for a concrete σ-complete OML realised as regular Borel
+sets of a Polish/Hausdorff point space, finite-non-contextuality ⟹ global
+non-contextuality, so the σ-essential cell is EMPTY. The residue (a genuine but sharply
+located open core): a witness must be NON-(topologically-)representable —
+`S_df^σ` non-Polish / failing inner-regularity + Borel-σ-generation on its own
+dispersion-free representation — which IS the σ-Loomis–Sikorski wall (route iii),
+descriptive-set-theory-flavoured. Maharam §8 confirms the topological hypothesis is
+load-bearing (topology-free σ-extension reaches only the enlarged Stone space). See
+`oml_onboarding` Rmk `rem:dw` + `sigma_essential_prior_art_verdict.md`. The earlier
+"LANDED structural dichotomy, uninhabited open problem" framing is SUPERSEDED by this
+literature finding.**
 
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /
@@ -226,6 +238,16 @@ carries a LANDED structural dichotomy, not a verdict; no confirmed lead).**
 > now converge on the one wall** (tetralemma; Loomis–Sikorski; openness/coherence;
 > topos) — strong diagnostic grip on *why/where*, NOT an impossibility proof. See
 > `oml_onboarding` §4.3(i), §4.4 + `verification/topos_route_read_2026-06-19.md`.
+>
+> **UPDATE 2026-06-20 — prior-art settles the Polish-representable case NEGATIVELY.**
+> Derr–Williamson 2023 (arXiv:2302.03522, via Maharam 1972 §8): on a concrete
+> σ-complete OML realised as regular Borel sets of a Polish/Hausdorff point space,
+> the σ-essential cell is EMPTY (finite-non-contextual ⟹ global non-contextual). So
+> route (iii) is no longer "plainly open" — it is open ONLY in the
+> non-(topologically-)representable case, i.e. exactly where a σ-Loomis–Sikorski
+> representation FAILS. The four-framing wall and this finding agree: the open core is
+> precisely the absence of a (regular, Borel-σ-generating) point representation. See
+> `oml_onboarding` Rmk `rem:dw` + `sigma_essential_prior_art_verdict.md`.
 After the L_MO₂ concreteness kill (2026-06-10), the descent axis had an *afterlife*
 (2026-06-11/12): pursuing it under **Reading 1** (relational = no hidden
 realisation; user's chosen framing) reduced the prize to a sharp, principled,

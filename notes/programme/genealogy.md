@@ -270,3 +270,14 @@ has **one** delivered result (CE/Paper I); the (b)/incompatibility face (OML
 row-221 "Still-open relative = Strategy D" is superseded (the relative is retired, not
 solved). This does NOT settle the fork — but it removes the (a)-side's last *open*
 target, so continuing OML descent is now an explicitly (b)-committed choice.
+
+*Update 2026-06-20 — the (b)-face is no longer plainly open either.* Prior-art
+(Derr–Williamson 2023, via Maharam 1972 §8) settles OML σ-essential descent
+NEGATIVELY in the Polish-representable case; it is open only for
+non-(topologically-)representable witnesses = the σ-Loomis–Sikorski wall (see
+`oml_onboarding` Rmk `rem:dw`, `sigma_essential_prior_art_verdict.md`). So neither
+face now has a *plainly-open* lead: (a)'s was retired (Strategy D), (b)'s is settled
+in the representable case with a sharply-located descriptive-set-theory residue.
+Both prior leads resolved against the literature within 48h, both by cross-field
+papers found only on hostile search — the standing lesson (run hostile cross-field
+prior-art FIRST) is now doubly earned.

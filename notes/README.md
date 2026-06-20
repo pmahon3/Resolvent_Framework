@@ -143,9 +143,12 @@ Do not merge these.  The clean division is:
 
 Current mathematical front:
 
-- **OML σ-essential descent** (non-Boolean) — the LONE open problem. See
-  `notes/open_questions/oml_onboarding.tex` (the survey; route-(iii) σ-Loomis–Sikorski
-  pole) and the `sigma_essential_construction_attempt` memory.
+- **OML σ-essential descent** (non-Boolean) — **NOT plainly open (2026-06-20):**
+  prior-art (Derr–Williamson 2023, via Maharam 1972 §8) settles it NEGATIVELY in the
+  Polish-representable case; open ONLY for non-(topologically-)representable witnesses
+  = exactly the σ-Loomis–Sikorski wall. See `notes/open_questions/oml_onboarding.tex`
+  (survey, Rmk `rem:dw`), `sigma_essential_prior_art_verdict.md`, and the
+  `sigma_essential_construction_attempt` memory.
 - *Strategy D — RETIRED 2026-06-18* (killed on prior-art; see below).
 - Fibre mixing was a candidate second example but the bridge theorem
   is false (2026-05-14). No current second example.

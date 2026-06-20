@@ -144,8 +144,11 @@ trying to rank them as one fork feels cold:
   > *(For the descent-axis status — the L_MO₂ lead was killed (2026-06-10: concrete
   > but trivial + already characterized, Pták–Pulmannová 1994), then the axis was
   > REFRAMED under Reading 1 to the live *uninhabited* open problem this vision points
-  > at (σ-essential contextual state); as of 2026-06-17 it carries a landed dichotomy
-  > + an Exit-B inclination, not a verdict. See `program_overview.md` (item 4) and
+  > at (σ-essential contextual state). UPDATE 2026-06-20: this is no longer *plainly*
+  > open — prior-art (Derr–Williamson 2023, via Maharam 1972 §8) settles it negatively
+  > in the Polish-representable case; open only for non-(topologically-)representable
+  > witnesses = the σ-Loomis–Sikorski wall. See `program_overview.md` (item 4),
+  > `open_questions/sigma_essential_prior_art_verdict.md`, and
   > `covered_leads/descent_axis_residue_post_kill.md`. This document is motivation,
   > not operational status.)*
 

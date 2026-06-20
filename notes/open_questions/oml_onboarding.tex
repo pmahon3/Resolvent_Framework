@@ -76,11 +76,15 @@ sub-OML? The finite version is already inhabited: Wright's pentagon
 state outside the dispersion-free hull, so the general spanning statement is false and
 only the $\sigma$-essential refinement remains. That refinement is a
 \emph{compactness failure} of the same type as the non-axiomatizability of countable
-additivity over finitely additive coherence. The question is well-posed but
-\emph{uninhabited}: no witness ($\prod_n\mathrm{MO}_2$ fails it; Wright is finite),
-and no impossibility proof. A positive answer would be a non-Boolean analogue of
-localic measure theory; a negative one a $\sigma$-essential impossibility theorem. We
-review what is known and what is ruled out, and close with the two exits.
+additivity over finitely additive coherence. The question is well-posed and has no
+construction in hand; recent work on coherent probabilities over Dynkin-systems
+(Derr--Williamson~\cite{DerrWilliamson2023}) settles it \emph{negatively under a
+Polish/Borel-regularity hypothesis}, leaving as the residue a descriptive-set-theory
+question --- whether a witness can live where the $\sigma$-additive dispersion-free
+state space is non-Polish (Remark~\ref{rem:dw}). A positive answer would be a
+non-Boolean analogue of localic measure theory; a negative one a $\sigma$-essential
+impossibility theorem. We review what is known and what is ruled out, and close with
+the two exits.
 \end{abstract}
 
 \maketitle
@@ -969,6 +973,39 @@ lattice's dispersion-free (two-valued) states --- whose contextuality is
 \emph{$\sigma$-essential}, i.e.\ witnessed by no finite sub-OML? Or can one prove
 that no such state exists?
 \end{problem}
+
+\begin{remark}[Relation to Derr--Williamson 2023 --- status under
+assessment]\label{rem:dw}
+The problem above is \textbf{not known to be plainly open}: it must be read against
+Derr--Williamson~\cite{DerrWilliamson2023}, which studies coherent probabilities on
+\emph{pre-Dynkin-systems} (concrete orthomodular posets) and \emph{Dynkin-systems}
+(concrete $\sigma$-complete OMLs) from the imprecise-probability side. Their
+Theorem~4.5 characterises finite-additive global extendability by a finite condition
+that matches ``non-contextual on every finite sub-OML,'' and their Theorem~D.6
+upgrades this to a \emph{countably additive} global extension \emph{under the
+hypotheses} that the underlying set is Polish, the generated $\sigma$-algebra is its
+Borel algebra, and the $\sigma$-blocks are inner-regular. Where those hypotheses
+hold, the $\sigma$-essential cell is \emph{empty} --- no witness exists. Two
+identifications, however, remain to be verified against their definitions before the
+present problem can be declared (conditionally) settled, and each is a known trap of
+this subject:
+\begin{enumerate}[(i)]
+  \item whether their ``$\sigma$-extendable'' (extends to a countably additive
+    measure on the underlying point set) coincides with ``non-contextual'' here
+    (lies in the closed convex hull of the \emph{dispersion-free} states), which on a
+    concrete logic form a strictly larger set than the point evaluations; and
+  \item whether their Polish hypothesis on the underlying \emph{point set} is the
+    same condition as Polishness of the \emph{state space} $S_{\mathrm{df}}^\sigma$
+    --- a $\sigma$-version of the (A)/(B) point-space equivocation of
+    Remark~\ref{rem:AB}.
+\end{enumerate}
+Pending these, the honest status is: the finite-additive boundary
+(Theorem~4.5) is settled and agrees with the account below; the $\sigma$-essential
+cell is settled \emph{negatively under Polish/Borel regularity}, with the residual
+question --- whether a witness can live where $S_{\mathrm{df}}^\sigma$ is
+analytic-but-not-Borel / non-Polish --- a descriptive-set-theory problem that
+subsumes the off-centre/non-band constraints of \S\ref{sec:first}.
+\end{remark}
 
 \noindent This is the relational-probability prize made precise. ``Relational''
 means \emph{no hidden realisation}: the measure must not be recoverable from

@@ -974,37 +974,43 @@ lattice's dispersion-free (two-valued) states --- whose contextuality is
 that no such state exists?
 \end{problem}
 
-\begin{remark}[Relation to Derr--Williamson 2023 --- status under
-assessment]\label{rem:dw}
-The problem above is \textbf{not known to be plainly open}: it must be read against
+\begin{remark}[Relation to Derr--Williamson 2023]\label{rem:dw}
+The problem above is \textbf{not plainly open}: it must be read against
 Derr--Williamson~\cite{DerrWilliamson2023}, which studies coherent probabilities on
 \emph{pre-Dynkin-systems} (concrete orthomodular posets) and \emph{Dynkin-systems}
 (concrete $\sigma$-complete OMLs) from the imprecise-probability side. Their
 Theorem~4.5 characterises finite-additive global extendability by a finite condition
-that matches ``non-contextual on every finite sub-OML,'' and their Theorem~D.6
-upgrades this to a \emph{countably additive} global extension \emph{under the
-hypotheses} that the underlying set is Polish, the generated $\sigma$-algebra is its
-Borel algebra, and the $\sigma$-blocks are inner-regular. Where those hypotheses
-hold, the $\sigma$-essential cell is \emph{empty} --- no witness exists. Two
-identifications, however, remain to be verified against their definitions before the
-present problem can be declared (conditionally) settled, and each is a known trap of
-this subject:
-\begin{enumerate}[(i)]
-  \item whether their ``$\sigma$-extendable'' (extends to a countably additive
-    measure on the underlying point set) coincides with ``non-contextual'' here
-    (lies in the closed convex hull of the \emph{dispersion-free} states), which on a
-    concrete logic form a strictly larger set than the point evaluations; and
-  \item whether their Polish hypothesis on the underlying \emph{point set} is the
-    same condition as Polishness of the \emph{state space} $S_{\mathrm{df}}^\sigma$
-    --- a $\sigma$-version of the (A)/(B) point-space equivocation of
-    Remark~\ref{rem:AB}.
-\end{enumerate}
-Pending these, the honest status is: the finite-additive boundary
-(Theorem~4.5) is settled and agrees with the account below; the $\sigma$-essential
-cell is settled \emph{negatively under Polish/Borel regularity}, with the residual
-question --- whether a witness can live where $S_{\mathrm{df}}^\sigma$ is
-analytic-but-not-Borel / non-Polish --- a descriptive-set-theory problem that
-subsumes the off-centre/non-band constraints of \S\ref{sec:first}.
+matching ``non-contextual on every finite sub-OML,'' and their Theorem~D.6 upgrades
+this to a \emph{countably additive} extension to the ambient Borel $\sigma$-algebra
+\emph{under the hypotheses} that the OML is realised as a Dynkin-system $D_\sigma$ of
+Borel sets of a \emph{Polish} space $\Omega$ with $\sigma(D_\sigma)=\mathrm{Borel}
+(\Omega)$ and inner-regular $\sigma$-blocks.
+
+The link to the present formulation is one-directional but in the direction that
+matters. A point $\omega\in\Omega$ gives the evaluation $\delta_\omega$, which is a
+two-valued and (since $A_n\downarrow\varnothing\Rightarrow\omega\notin A_n$
+eventually) $\sigma$-additive dispersion-free state; a countably additive
+$\nu$ on $\mathrm{Borel}(\Omega)$ with $\nu|_{D_\sigma}=w$ exhibits $w$ as the
+barycentre $w(A)=\int\delta_\omega(A)\,d\nu$, hence $w\in\overline{\mathrm{conv}}
+(S_{\mathrm{df}}^\sigma)$ --- non-contextual. So $\sigma$\nobreakdash-extendable
+$\Rightarrow$ non-contextual, and through Theorem~D.6 the implication
+``finitely non-contextual everywhere $\Rightarrow$ globally non-contextual'' holds
+\emph{whenever the OML admits such a Polish Borel realisation}. \textbf{Under that
+hypothesis the $\sigma$-essential cell is empty: no witness exists.} (The converse,
+non-contextual $\Rightarrow\sigma$-extendable, does \emph{not} hold --- the
+dispersion-free states properly contain the point evaluations $\delta_\omega$ --- but
+it is not needed for the negative conclusion.)
+
+The residue is therefore a single condition, and it is precisely the
+representability the whole problem turns on: \textbf{can a $\sigma$-essential witness
+exist that admits \emph{no} Polish Borel realisation} ($S_{\mathrm{df}}^\sigma$
+non-Polish / analytic-but-not-Borel)? This is a descriptive-set-theory question, and
+it is the same wall as the absence of a $\sigma$-Loomis--Sikorski representation
+(\S\ref{sec:routes}); the off-centre/non-band constraints of \S\ref{sec:first} are
+its lattice-side shadow. Beware the $\sigma$-version of the (A)/(B) point-space
+equivocation (Remark~\ref{rem:AB}): Derr--Williamson's Polish hypothesis is on the
+underlying \emph{point set} $\Omega$, and obtaining such an $\Omega$ for an abstract
+concrete $\sigma$-complete OML is itself the missing engine, not a free input.
 \end{remark}
 
 \noindent This is the relational-probability prize made precise. ``Relational''

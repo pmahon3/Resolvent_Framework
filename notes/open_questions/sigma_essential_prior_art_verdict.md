@@ -1,27 +1,29 @@
 # σ-essential contextual state: hostile prior-art verdict — **NOT plainly open; status under assessment**
 
-> **⚠ STATUS (2026-06-19, advisor-gated).** The headline below ("conditionally
-> SOLVED-NEGATIVE") is the sub-agent's reading and is **NOT yet verified**. What is
-> CERTAIN: the problem can no longer be presented as plainly open — **Derr–Williamson
-> 2023** (arXiv:2302.03522, `derr_williamson_2023.pdf`) studies exactly concrete
-> σ-complete OMLs (Dynkin-systems) and proves a σ-extension theorem that, IF its
-> objects coincide with ours, empties the cell under a Polish/Borel hypothesis. What
-> is NOT verified (two cross-framework bridges, each a known trap of this subject;
-> USER's primary-source call, not a sub-agent's):
-> 1. **σ-extendable (D–W) = non-contextual (here)?** D–W's "σ-extendable" = extends to
->    a countably additive measure on the underlying POINT SET; "non-contextual" here =
->    in closed-conv of the DISPERSION-FREE states (strictly larger than point
->    evaluations on a concrete logic). Same object, or neighbour? Direction of the
->    inclusion decides whether D.6 kills our exact cell.
-> 2. **Polish-on-Ω (D–W hypothesis) = Polish-on-S_df^σ (the residue)?** D.6's
->    hypothesis is on the base set Ω; the residue restates it on the STATE SPACE. These
->    are different spaces — exactly the (A)/(B) point-space equivocation
->    (oml_onboarding Rmk rem:AB). Be hostile to the slide.
-> Until the user reads arXiv:2302.03522 §D + the definitions and adjudicates these,
-> the honest status is **"not plainly open; relation to D–W under assessment"** —
-> recorded in oml_onboarding.tex Rmk~`rem:dw`. Do NOT propagate "solved" as settled.
-> (NB the prior author attribution "Fröhlich" was WRONG — corrected to **Derr &
-> Williamson**, Tübingen.)
+> **✅ STATUS (2026-06-20, primary-source-adjudicated — converged).** The two bridges
+> the 2026-06-19 banner flagged as unverified have now been checked against
+> Derr–Williamson's actual Definitions 4.4 / D.5 and Theorems 4.5 / D.6 (PDF pp.14,
+> 48). Converged verdict — **NOT plainly open; settled NEGATIVELY in the
+> Polish-representable case; residue is a descriptive-set-theory / σ-Loomis–Sikorski
+> question.** Do not swing this further (the verdict oscillated
+> uninhabited→cond-closed→open→here; this is the stable point).
+> - **Bridge (i) RESOLVED — the needed direction HOLDS.** Cell-emptying needs only
+>   *σ-extendable ⟹ non-contextual*, and that holds: a point ω gives δ_ω, a two-valued
+>   σ-additive dispersion-free state; a ctbly-add ν on Borel(Ω) with ν|_{D_σ}=w makes
+>   w=∫δ_ω dν a barycentre of S_df^σ ⟹ non-contextual. (The converse fails — dispersion-free
+>   states ⊋ point-evals — but the converse is NOT in the cell-emptying chain. The
+>   2026-06-19 worry "different objects ⟹ D–W misses" was a non-sequitur: it refuted
+>   the unused direction.)
+> - **Bridge (ii) is the REAL (and sole) limit.** D.6's Polish + σ(D_σ)=Borel(Ω) +
+>   inner-regular hypotheses are all on the underlying POINT SET Ω. D–W *presuppose* a
+>   Polish Borel realisation; for an abstract concrete σ-complete OML, producing such an
+>   Ω is itself the σ-Loomis–Sikorski problem. So D.6 empties the cell exactly for
+>   Polish-representable OMLs; a witness must be NON-Polish-representable. That residue
+>   = the σ-LS wall, DST-flavoured (rhymes with Strategy D's ZFC-independence).
+> Recorded in oml_onboarding.tex Rmk `rem:dw` (refined 2026-06-20). The
+> "conditionally SOLVED-NEGATIVE" header below is essentially right; read "conditional"
+> as "in the Polish-representable case." (Author attribution "Fröhlich" was WRONG →
+> **Derr & Williamson**, Tübingen.)
 
 *Hostile prior-art search, 2026-06-19. Supersedes the "GENUINELY-OPEN" framing of
 `reading1_prize_reduction.md` / `sigma_essential_nonemptiness_finding.md` to the

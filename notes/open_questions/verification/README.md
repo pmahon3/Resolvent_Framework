@@ -30,6 +30,23 @@ questions — see the survey §6):
 - `verify_mo2_state.py` — MO₂ has a genuine state that is not a homomorphism.
 - `concrete_meetzero_vs_orthogonal.py` — refutes "concrete ⟹ meet-zero =
   orthogonal" (MO₂ counterexample).
+- `mo3_extension.py` — MO₃ computation; also confirms (this session) that MO₃ is
+  NON-contextual (dispersion-free states = all 8 cube vertices ⇒ hull = whole cube),
+  the basis for "non-distributivity ≠ contextuality" in the survey figure.
+
+**Prior-art / leads (the 2026-06-19/20/21 external-deep-research cycle):**
+- `../sigma_essential_prior_art_verdict.md` *(in the parent `open_questions/`, not here)*
+  — hostile prior-art verdict: NOT plainly open; settled NEGATIVELY in the
+  Polish-representable case (Derr–Williamson 2023 via Maharam 1972 §8); residue =
+  non-Polish-representability = the σ-LS wall. CONVERGED, primary-source adjudicated.
+  Authoritative for the current verdict.
+- `topos_route_read_2026-06-19.md` — topos/Bohrification route: same-wall-with-machinery
+  (σ-additivity on a distributive object / per-context Boolean blocks).
+- `residue_attack_leads.md` — leads from the attack-the-problem deep-research + the
+  construction push: the flawed Riesz reduction (FLAGGED — S_df^σ-not-compact), the
+  descriptive-tameness lever (Bishop–de Leeuw/MacGibbon, UNVERIFIED), the operational
+  "off-center = non-central Boolean subalgebra" reframing, the Reyes Spec-functor
+  citation. Research leads, NOT survey material; verdict UNMOVED.
 
 ## Archived (dead L_MO₂ inhabitation lead)
 

@@ -214,7 +214,14 @@ descriptive-set-theory-flavoured. Maharam §8 confirms the topological hypothesi
 load-bearing (topology-free σ-extension reaches only the enlarged Stone space). See
 `oml_onboarding` Rmk `rem:dw` + `sigma_essential_prior_art_verdict.md`. The earlier
 "LANDED structural dichotomy, uninhabited open problem" framing is SUPERSEDED by this
-literature finding.**
+literature finding. ARTIFACT STATE (2026-06-21): the survey `oml_onboarding.tex` is now
+a standalone, professional (amsart) survey — citation-fidelity-audited, prior-art-
+verified-open, de-personalised, with two contextuality figures (MO₂ + pentagon,
+`figures/`); a reader-facing companion essay (`companion_probability_without_a_joint_world.pdf`)
+and a CE-leak intuition figure (`figures/ce_leak_intuition`) sit alongside as
+orientation aids. Paper II checked, requires no updates (it cites Fine narrowly and
+D–W only as a domain example; the descent material lives in the survey, not Paper II).
+The remaining `mahon2025` "Preprint" cite needs an arXiv id before any posting.**
 
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /

@@ -38,5 +38,5 @@ The still-open **Q1 / structural** question (Loomis–Sikorski / σ-Stone for a
 point-free non-distributive σ-additive witness; PR_dual vs PR_lattice) are NOT
 addressed by these worksheets — their support files (Bell synthesis, MB primeness,
 meagre-vs-measure, pr_dual_inhabitation, and the settled extension-axis records)
-remain in `open_questions/verification/`. See `open_questions/oml_onboarding.md`
+remain in `open_questions/verification/`. See `open_questions/oml_onboarding.tex`
 (the standing problem-statement survey, still in open_questions).

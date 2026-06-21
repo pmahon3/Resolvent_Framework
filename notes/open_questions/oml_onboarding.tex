@@ -994,10 +994,10 @@ $\sigma$-additive state outside the dispersion-free hull
   \draw[->] (0,-0.3)--(0,3.6) node[above]{\footnotesize $s(b)$};
   \node[font=\scriptsize] at (3.0,-0.26){$1$}; \node[font=\scriptsize] at (-0.2,3.0){$1$};
   \foreach \x/\y in {0/0,3/0,0/3,3/3}{\fill[black] (\x,\y) circle (2.2pt);}
-  \fill[red] (1.8,1.05) circle (2.4pt);
-  \node[red!70!black,font=\scriptsize,anchor=west] at (1.92,1.05){$w$};
-  \node[font=\footnotesize,align=center] at (1.5,1.9)
-    {$S(\mathrm{MO}_2)=\overline{\mathrm{conv}}(S_{\mathrm{df}})$};
+  \fill[red] (1.5,1.15) circle (2.4pt);
+  \node[red!70!black,font=\scriptsize,anchor=south] at (1.5,1.28){$w$};
+  \node[font=\footnotesize,align=center] at (1.5,2.05)
+    {$S(\mathrm{MO}_2)$\\$=\overline{\mathrm{conv}}(S_{\mathrm{df}})$};
 \end{tikzpicture}
 \caption{$\mathrm{MO}_2$: the state space is the square $[0,1]^2$ (a state is fixed by
 $(s(a),s(b))$), and the four dispersion-free states are its corners, so
@@ -1031,36 +1031,40 @@ Remark~\ref{rem:ce}).
 \begin{figure}[ht]
 \centering
 \begin{tikzpicture}[scale=1.0]
-  % the lattice: Greechie 5-loop of atoms a_1..a_5
+  % --- the lattice (top): Greechie 5-loop of atoms a_1..a_5, centred high ---
   \foreach \i/\ang in {1/90,2/162,3/234,4/306,5/18}{
-    \coordinate (v\i) at ($(0,0)+(\ang:0.95)$);}
+    \coordinate (v\i) at ($(0,3.0)+(\ang:0.85)$);}
   \draw[gray!70,thick] (v1)--(v2)--(v3)--(v4)--(v5)--cycle;
   \foreach \i in {1,...,5}{\fill[black] (v\i) circle (2.0pt);}
   \node[font=\scriptsize,above] at (v1){$a_1$};
   \node[font=\scriptsize,left] at (v2){$a_2$};
-  \node[font=\scriptsize,below left] at (v3){$a_3$};
-  \node[font=\scriptsize,below right] at (v4){$a_4$};
+  \node[font=\scriptsize,below=1pt] at (v3){$a_3$};
+  \node[font=\scriptsize,below=1pt] at (v4){$a_4$};
   \node[font=\scriptsize,right] at (v5){$a_5$};
-  \node[gray!55!black,font=\scriptsize,align=center] at (0,0){edge $=$\\shared\\block};
-  % projection arrow
-  \draw[->,gray!60] (1.9,0)--(2.9,0) node[midway,above,font=\scriptsize]{$f=\sum_i s(a_i)$};
-  % the value axis (the honest hull-membership picture)
-  \def\axx{3.6}\def\axy{0}
-  \draw[->] (\axx,\axy)--(\axx+4.0,\axy) node[right]{\footnotesize $f$};
+  \node[gray!55!black,font=\scriptsize,anchor=west] at (1.5,3.0){edge $=$ shared block};
+  % === ZONE 2: projection arrow + label, centred, in its own band (y ~ 1.4-2.0) ===
+  \draw[->,gray!60] (0,2.0)--(0,1.45);
+  \node[gray!55!black,font=\scriptsize,anchor=south] at (0,2.02){$f(s)=\textstyle\sum_i s(a_i)$};
+  % === ZONE 3: the value axis (y = axy and below) ===
+  \def\axy{0.7}
+  \draw[->] (-2.4,\axy)--(2.3,\axy) node[right]{\footnotesize $f$};
   \foreach \v/\lab in {0/0,1/1,2/2,3/3}
-     {\draw (\axx+\v,{\axy-0.08})--(\axx+\v,{\axy+0.08});
-      \node[font=\scriptsize,below] at (\axx+\v,{\axy-0.06}){$\lab$};}
-  % image of the hull under f: the interval [0,2] (a 1-D shadow, bracketed segment)
-  \draw[orange!70!black,line width=2.6pt] (\axx,\axy)--(\axx+2,\axy);
-  \draw[orange!70!black,thick] (\axx,{\axy-0.13})--(\axx,{\axy+0.13});
-  \draw[orange!70!black,thick] (\axx+2,{\axy-0.13})--(\axx+2,{\axy+0.13});
-  \node[orange!60!black,font=\scriptsize,anchor=south] at (\axx+1,{\axy+0.18})
+     {\draw (-2.4+\v,{\axy-0.08})--(-2.4+\v,{\axy+0.08});
+      \node[font=\scriptsize,below] at (-2.4+\v,{\axy-0.05}){$\lab$};}
+  % image of the hull under f: the interval [0,2], bracketed segment ON the axis
+  \draw[orange!70!black,line width=2.6pt] (-2.4,\axy)--(-0.4,\axy);
+  \draw[orange!70!black,thick] (-2.4,{\axy-0.13})--(-2.4,{\axy+0.13});
+  \draw[orange!70!black,thick] (-0.4,{\axy-0.13})--(-0.4,{\axy+0.13});
+  \foreach \v in {1,2}{\fill[black] (-2.4+\v,\axy) circle (1.8pt);}
+  % [0,2] label just above the bracket, left of the f=2 mark
+  \node[orange!60!black,font=\scriptsize,anchor=south] at (-1.4,{\axy+0.12})
      {$f\bigl(\overline{\mathrm{conv}}(S_{\mathrm{df}})\bigr)=[0,2]$};
-  \foreach \v in {1,2}{\fill[black] (\axx+\v,\axy) circle (1.8pt);}
-  \draw[red!60!black,thick,dashed] (\axx+2,{\axy-0.55})--(\axx+2,{\axy+0.5});
-  \node[red!55!black,font=\scriptsize,anchor=north] at (\axx+2,{\axy-0.55}){$f=2$};
-  \fill[red] (\axx+2.5,\axy) circle (2.6pt);
-  \node[red!70!black,font=\scriptsize,anchor=south] at (\axx+2.5,{\axy+0.12}){$w:f=\tfrac52$};
+  % separating face f=2: short dashed mark + label BELOW the axis
+  \draw[red!60!black,thick,dashed] (-0.4,{\axy-0.05})--(-0.4,{\axy-0.38});
+  \node[red!55!black,font=\scriptsize,anchor=north] at (-0.4,{\axy-0.38}){$f=2$};
+  % the witness: dot on the axis at f=2.5, label above-right (clear of [0,2] and f=2)
+  \fill[red] (0.1,\axy) circle (2.6pt);
+  \node[red!70!black,font=\scriptsize,anchor=south west] at (0.05,{\axy+0.12}){$w:f=\tfrac52$};
 \end{tikzpicture}
 \caption{Wright's pentagon (a Greechie $5$-loop; left), and the same hull-membership
 question read off a separating functional (right). The state space is $5$-dimensional

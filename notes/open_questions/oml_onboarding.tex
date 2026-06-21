@@ -1043,10 +1043,10 @@ Remark~\ref{rem:ce}).
   \node[font=\scriptsize,right] at (v5){$a_5$};
   \node[gray!55!black,font=\scriptsize,anchor=west] at (1.5,3.0){edge $=$ shared block};
   % === ZONE 2: projection arrow + label, centred, in its own band (y ~ 1.4-2.0) ===
-  \draw[->,gray!60] (0,2.0)--(0,1.45);
-  \node[gray!55!black,font=\scriptsize,anchor=south] at (0,2.02){$f(s)=\textstyle\sum_i s(a_i)$};
+  \draw[->,gray!60] (0,2.0)--(0,1.0);
+  \node[gray!55!black,font=\scriptsize,anchor=west] at (0,1.5){$f(s)=\textstyle\sum_i s(a_i)$};
   % === ZONE 3: the value axis (y = axy and below) ===
-  \def\axy{0.7}
+  \def\axy{0.1}
   \draw[->] (-2.4,\axy)--(2.3,\axy) node[right]{\footnotesize $f$};
   \foreach \v/\lab in {0/0,1/1,2/2,3/3}
      {\draw (-2.4+\v,{\axy-0.08})--(-2.4+\v,{\axy+0.08});

@@ -838,12 +838,17 @@ the $\sigma$-essential question, which stays open.
 % ==================================================================
 
 \begin{problem}
-Is there a non-Boolean, $\sigma$-complete, \emph{concrete} OML carrying a
-$\sigma$-additive \emph{contextual} state --- a state with no global hidden joint
-distribution, equivalently one not lying in the closed convex hull of the
-lattice's dispersion-free (two-valued) states --- whose contextuality is
-\emph{$\sigma$-essential}, i.e.\ witnessed by no finite sub-OML? Or can one prove
-that no such state exists?
+Does there exist a concrete, $\sigma$-complete, non-Boolean OML $L$ and a
+$\sigma$-additive state $w$ on $L$ such that
+\[
+  \text{\emph{(contextual)}}\quad w\notin\overline{\mathrm{conv}}\,(S_{\mathrm{df}}^\sigma),
+  \qquad
+  \text{\emph{($\sigma$-essential)}}\quad
+  w|_F\in\overline{\mathrm{conv}}\,(S_{\mathrm{df}}(F))\ \text{for every finite sub-OML }F\subseteq L\,?
+\]
+That is, $w$ has no global hidden joint over the dispersion-free states, yet its
+restriction to every finite sub-OML does. Equivalently: can one prove no such
+$(L,w)$ exists?
 \end{problem}
 
 \begin{remark}[Relation to Derr--Williamson 2023]\label{rem:dw}
@@ -861,11 +866,18 @@ Borel sets of a \emph{Polish} space $\Omega$ with $\sigma(D_\sigma)=\mathrm{Bore
 The link to the present formulation is one-directional but in the direction that
 matters. A point $\omega\in\Omega$ gives the evaluation $\delta_\omega$, which is a
 two-valued and (since $A_n\downarrow\varnothing\Rightarrow\omega\notin A_n$
-eventually) $\sigma$-additive dispersion-free state; a countably additive
-$\nu$ on $\mathrm{Borel}(\Omega)$ with $\nu|_{D_\sigma}=w$ exhibits $w$ as the
-barycentre $w(A)=\int\delta_\omega(A)\,d\nu$, hence $w\in\overline{\mathrm{conv}}
-(S_{\mathrm{df}}^\sigma)$ --- non-contextual. So $\sigma$\nobreakdash-extendable
-$\Rightarrow$ non-contextual, and through Theorem~D.6 the implication
+eventually) $\sigma$-additive dispersion-free state; a countably additive $\nu$ on
+$\mathrm{Borel}(\Omega)$ with $\nu|_{D_\sigma}=w$ exhibits $w$ as a barycentre,
+\[
+  w(A)=\int_\Omega \delta_\omega(A)\,d\nu(\omega)
+  \quad\Longrightarrow\quad
+  w\in\overline{\mathrm{conv}}\,(S_{\mathrm{df}}^\sigma).
+\]
+Thus
+\[
+  \text{$\sigma$-extendable}\ \Longrightarrow\ \text{non-contextual},
+\]
+and through Theorem~D.6 the implication
 ``finitely non-contextual everywhere $\Rightarrow$ globally non-contextual'' holds
 \emph{whenever the OML admits such a Polish Borel realisation}. \textbf{Under that
 hypothesis the $\sigma$-essential cell is empty: no witness exists.} (The converse,

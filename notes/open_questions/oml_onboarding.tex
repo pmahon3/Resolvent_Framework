@@ -792,45 +792,44 @@ Two qualifications delimit what is ruled out.
 \label{sec:topos}
 The topos / Bohrification programme is the one machinery supplying a point-free
 \emph{and} $\sigma$-additive valuation on a quantum logic, so it is the natural
-candidate to crack route~(iii). A mechanism-level read shows it is \emph{the same
-wall, with tools}: the $\sigma$-additive valuation always lives on a distributive
-object, its countable additivity routed through per-context Boolean blocks. This is
-the topos analogue of the universal floor (\S\ref{sec:reduction}).
+candidate for route~(iii). In both principal constructions the $\sigma$-additive
+valuation lives on a \emph{distributive} object, its countable additivity routed
+through per-context Boolean blocks; this is the topos analogue of the universal floor
+(\S\ref{sec:reduction}).
 
-\paragraph{Bohrification (Heunen--Landsman--Spitters).} A state on $A$ becomes a
-continuous probability valuation on the internal Gelfand spectrum $\Sigma(A)$, a
-compact regular \emph{frame} \cite[\S2,\S6]{HeunenLandsmanSpitters2011}, hence
-internally distributive; the continuity axiom (Def.~6.11) is localic $\sigma$-additivity
-on a frame, where $\bigvee$ distributes. The non-commutativity sits in the base poset
-$\mathcal{C}(A)$, not the measure. Theorem~6.19 bijects these valuations with
-measures on the non-distributive $\mathrm{Proj}(A)$ and so \emph{looks} like a
-counterexample, but is not: by Definition~6.17(a) such a measure restricts to a
-$\sigma$-Boolean morphism on every countably complete Boolean sublattice --- its
-countable additivity is defined block-by-block and glued by naturality, never
-crossing a non-commuting join. That is the antithesis of $\sigma$-essential
-contextuality. (And $\mathrm{Proj}(A)$ is the non-concrete Gleason / $L(H)$ object,
-Rmk~\ref{rem:miss}, not the concrete class the frontier turns on.)
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}@{}}
+\toprule
+ & \textbf{Bohrification (HLS)} & \textbf{D\"{o}ring--Isham} \\
+\midrule
+measure on
+  & internal Gelfand spectrum $\Sigma(A)$, a compact regular frame
+  & clopen subobjects $\mathrm{Sub}_{cl}(\Sigma)$, a Heyting algebra \\
+why distributive
+  & a frame: $\bigvee$ distributes \cite[Def.~6.11]{HeunenLandsmanSpitters2011}
+  & a locale, not a $\sigma$-algebra \cite{Doering2009measures} \\
+how $\mathrm{Proj}$ enters
+  & Thm~6.19 bijection; the measure restricts to a $\sigma$-Boolean morphism on each
+    Boolean sublattice (Def.~6.17(a))
+  & daseinisation, which ``cannot preserve both [joins and meets]''
+    \cite{Wolters2013} \\
+additivity left
+  & block-by-block, glued by naturality; never crosses a non-commuting join
+  & only \emph{finitely} additive; $\sigma$ per-block, normal states only \\
+\bottomrule
+\end{tabular}
+\end{center}
 
-\paragraph{D\"{o}ring--Isham (spectral presheaf).} Measures live on
-$\mathrm{Sub}_{cl}(\Sigma)$, a Heyting algebra / locale --- distributive, and
-\emph{not} a $\sigma$-algebra \cite{Doering2009measures}. The non-distributive
-$\mathrm{Proj}(H)$ enters only through daseinisation, a coarse-graining that, in
-Wolters' words \cite{Wolters2013}, ``cannot preserve both [joins and meets], as
-[$\mathrm{Sub}_{cl}(\Sigma)$] is distributive whereas [$\mathrm{Proj}(H)$] is
-nondistributive.'' The measure is in general only \emph{finitely} additive;
-$\sigma$-additivity is recovered only locally, for families orthogonal at a single
-context (one Boolean block) and only for normal states.
-
-\paragraph{The f.a.-vs-$\sigma$ diagnosis.} The route lands on the programme's
-finitely-additive-versus-$\sigma$ gap exactly: $\sigma$-additivity is available
-precisely where the object is distributive (the internal frame, or the per-context
-Boolean blocks where Loomis--Sikorski already applies), and degrades to finite
-additivity precisely when a single global measure is demanded across the
-non-distributive whole. Of the four requirements (point-free, $\sigma$-additive,
-natively non-distributive, directed-system-built) the topos route satisfies three and
-misses the essential one: native non-distributivity. It \emph{sidesteps} the wall --- an
-internally distributive Gelfand spectrum is a design goal --- rather than settling
-the $\sigma$-essential question, which stays open.
+\noindent In neither case does the additivity cross a non-distributive join; HLS
+confines all of it inside Boolean contexts, the antithesis of $\sigma$-essential
+contextuality, and its non-distributive object $\mathrm{Proj}(A)$ is the
+non-concrete Gleason / $L(H)$ lattice (Rmk~\ref{rem:miss}), not the concrete class in
+question. The route thus lands on the finitely-additive-versus-$\sigma$ gap exactly:
+of the four requirements (point-free, $\sigma$-additive, natively non-distributive,
+directed-system-built) it satisfies three and misses native non-distributivity. It
+\emph{sidesteps} the wall --- an internally distributive Gelfand spectrum is a design
+goal --- rather than settling the $\sigma$-essential question, which stays open.
 
 % ==================================================================
 \section{The open problem}

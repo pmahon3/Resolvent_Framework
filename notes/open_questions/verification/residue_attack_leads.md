@@ -81,3 +81,37 @@ KS-type emptiness (full matrix algebras M_n(R), n≥3, map to the empty object).
 independent route to the same wall (alongside lattice duality, topos/Bohrification,
 measure-extension); UNVERIFIED. Could cite if the survey ever wants the "many programs
 converge" point made concretely. Not new content — same wall.
+
+## Operational reframing of "off-center" (from a construction push, 2026-06-21)
+Pushing the "experimental/infinitary-overflow" picture into two concrete ⟦HAND⟧
+construction attempts — (1) a chain of 2-atom blocks sharing atoms ("ladder"); (2) an
+infinite odd-path closed at infinity via even/odd σ-joins p=⋁a_{2n}, q=⋁a_{2n+1} —
+BOTH DIED THE SAME DEATH, and the death is instructive (not an obstruction; see below).
+
+- (1) dies: a chain/tree of Boolean blocks has no odd loop ⟹ no overflow, finite or
+  infinite (Greechie loop lemma). Pure-path = non-contextual everywhere.
+- (2) dies: the σ-leak family was placed CENTRALLY. A mutually orthogonal family
+  generates a Boolean subalgebra (orthogonal ⟹ compatible ⟹ Boolean-among-themselves —
+  TRUE), but that does NOT force it central (central = commutes with ALL of L, strictly
+  stronger; orthogonal projections in L(H) can sum to a non-commuting-with-a-third
+  element — so "Boolean-among-themselves ⇏ central"). Attempt 2 routed the leak through
+  a center by CHOICE, reproducing the ∏ₙMO₂ failure.
+
+**NOT an obstruction — the open question in disguise.** The tempting conclusion
+("σ-additivity only sees orthogonal=Boolean=distributive joins, non-distributivity is
+finite/local, so σ-essential is structurally impossible") is CIRCULAR: "is the
+σ-carrying orthogonal family forced central?" IS the open problem verbatim. Do not
+record as evidence for Exit B beyond the standing inclination.
+
+**= S8 band closure, re-derived from the construction side.** Both attempts are BAND
+pastings (σ-structure built from orthogonal/compatible = ∪-closed families); S8 already
+closed band pastings (∪-closed⟹Boolean / not⟹not-a-lattice). The push re-derived WHY
+the frontier sits where it does; the NON-band concrete σ-complete OML (HW Problem 2,
+bite 3) — the named frontier — is exactly what neither attempt reached. Frontier
+UNMOVED; verdict UNMOVED (Exit-B lean intact, still open).
+
+**The real gain — sharper "off-center":** the orthogonal family carrying the σ-leak
+must generate a **non-central** Boolean subalgebra (not merely "irreducible /
+non-central-infinite"). More precise and more usable; the two dead attempts are clean
+worked examples of the central-collapse failure mode. Still no non-band idea on the
+table (us, the four prompts, the literature) — that remains the missing ingredient.

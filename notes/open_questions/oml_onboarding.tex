@@ -1353,6 +1353,144 @@ hence a self-contained finitary problem, separable from the
 general construction and not governed by the finitary-to-$\sigma$ passage.
 \end{remark}
 
+\appendix
+% ==================================================================
+\section{Glossary of definitions}
+\label{app:glossary}
+% ==================================================================
+
+A self-contained list of the notions used in the paper. Entries that restate a
+numbered definition in the body cross-reference it; the remaining entries are stated
+here. Throughout, $L$ is an orthomodular lattice with orthocomplementation
+$a\mapsto a^\perp$, bottom $\mathbf 0$, top $\mathbf 1$.
+
+\subsection*{Lattice notions}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[Orthocomplemented lattice; orthomodular lattice (OML).]
+  A bounded lattice with an order-reversing, involutive complement $a^\perp$
+  satisfying $a\vee a^\perp=\mathbf 1$, $a\wedge a^\perp=\mathbf 0$
+  (Definition~\ref{def:ocl}); it is \emph{orthomodular} if $a\leq b\Rightarrow
+  b=a\vee(b\wedge a^\perp)$ (Definition~\ref{def:oml}). A \emph{Boolean algebra} is a
+  distributive OML.
+\item[Orthogonal; meet-zero; incomparable.]
+  $a\perp b$ means $a\leq b^\perp$; \emph{meet-zero} means $a\wedge b=\mathbf 0$.
+  Orthogonal implies meet-zero; the converse fails off the Boolean case, and that gap
+  drives the subject (Definition~\ref{def:ortho}).
+\item[Compatible; block.]
+  $a,b$ are \emph{compatible} if they generate a Boolean subalgebra, equivalently
+  $a=(a\wedge b)\vee(a\wedge b^\perp)$. A \emph{block} is a maximal pairwise-compatible
+  subset of $L$; it is a maximal Boolean sub-OML, and every OML is the union of its
+  blocks. (In a concrete logic, compatibility of $A,B$ is $A=(A\cap B)\cup(A\cap
+  B^c)$.)
+\item[Completeness.]
+  $L$ is \emph{$\sigma$-complete} if every countable subset has a join; it is
+  \emph{$\sigma$-orthocomplete} if every countable \emph{pairwise-orthogonal} family
+  has a join (Definition~\ref{def:complete}).
+\item[Centre; irreducible.]
+  The \emph{centre} $Z(L)$ is the set of elements compatible with all of $L$; it is a
+  Boolean subalgebra. $L$ is \emph{irreducible} if $Z(L)=\{\mathbf 0,\mathbf 1\}$
+  (no nontrivial direct-product decomposition).
+\item[$\mathrm{MO}_n$; $L(H)$.]
+  $\mathrm{MO}_n$ is the modular ortholattice with $\mathbf 0,\mathbf 1$ and $n$
+  complementary atom-pairs ($\mathrm{MO}_2$: atoms $a,a^\perp,b,b^\perp$, all distinct
+  meets $\mathbf 0$); it is non-distributive for $n\geq 2$. $L(H)$ is the lattice of
+  closed subspaces of a Hilbert space $H$ (orthocomplement $=$ orthogonal complement,
+  join $=$ closed span), the prototype non-distributive OML.
+\end{description}
+
+\subsection*{Representations}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[OMP; concrete logic; order-determining states.]
+  An \emph{orthomodular poset} (OMP) weakens an OML to a partial join (only of
+  orthogonal elements). $L$ is a \emph{concrete logic} (set-representable) if it
+  embeds in some $\mathcal P(\Omega)$ with $a^\perp\mapsto\Omega\setminus a$ and
+  orthogonal joins as disjoint unions, equivalently if it carries an
+  \emph{order-determining} (separating) family of two-valued states
+  (Definition~\ref{def:omp}).
+\item[Faithful set representation; $\sigma$-tribe.]
+  An injection $h:L\to\mathcal P(\Omega)$ with $h(a\wedge b)=h(a)\cap h(b)$,
+  $h(a\vee b)=h(a)\cup h(b)$, $h(a^\perp)=\Omega\setminus h(a)$ (preserving
+  \emph{all} meets and joins as $\cap,\cup$); a \emph{$\sigma$-tribe} /
+  Loomis--Sikorski representation also preserves countable joins. By
+  Theorem~\ref{thm:floor} only Boolean $L$ admits one. (Contrast a concrete logic,
+  which preserves only \emph{orthogonal} joins as unions.)
+\item[Dual space $S_0(A)$; canonical points $P(A)$.]
+  $S_0(A)$ is the McDonald--Bimb\'o space of filters of $A$; $P(A)=\{{\uparrow}p:p\in
+  A\}$ is the set of principal filters, one per element (Definition~\ref{def:dual}).
+\end{description}
+
+\subsection*{States and measures}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[State; meet-additive; charge.]
+  A \emph{state} is $s:L\to[0,1]$ with $s(\mathbf 1)=1$ and $s(a\vee b)=s(a)+s(b)$
+  for $a\perp b$ (Definition~\ref{def:ladder}); a \emph{charge} is a finitely
+  additive set function on a Boolean algebra (Definition~\ref{def:charge}).
+\item[$\sigma$-additive state.]
+  A state $s$ with $s\bigl(\bigvee_n a_n\bigr)=\sum_n s(a_n)$ for every countable
+  pairwise-orthogonal $\{a_n\}$ (Definition~\ref{def:complete}).
+\item[Dispersion-free state.]
+  A two-valued state, i.e.\ a state taking only the values $0,1$ (equivalently a
+  $\{0,1\}$-homomorphism on each block); $S_{\mathrm{df}}$ denotes their set and
+  $S_{\mathrm{df}}^\sigma$ the $\sigma$-additive ones. These are the deterministic /
+  hidden-variable points.
+\item[Normal; singular state on $L(H)$.]
+  $s$ is \emph{normal} if $s(\cdot)=\tr(\rho\,\cdot)$ for a density operator $\rho$;
+  \emph{singular} if $s$ vanishes on every finite-rank projection
+  (Definition~\ref{def:normalsing}).
+\item[Subadditive state.]
+  A state $s$ with $s(a\vee b)\leq s(a)+s(b)$ for \emph{all} $a,b$ (not only
+  orthogonal pairs). A family of states is \emph{unital} if for each $a\neq\mathbf 0$
+  some member gives $s(a)=1$.
+\end{description}
+
+\subsection*{The descent vocabulary}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[Contextual state.]
+  A state $w$ that is \emph{not} in the closed convex hull
+  $\overline{\mathrm{conv}}(S_{\mathrm{df}})$ of the dispersion-free states ---
+  equivalently (Lemma~\ref{lem:relational}) a state with no hidden realisation, i.e.\
+  not a mixture of dispersion-free states. A non-contextual state is one that is such
+  a mixture.
+\item[$\sigma$-essentially contextual state.]
+  A $\sigma$-additive state $w$ on a $\sigma$-complete $L$ that is \emph{contextual}
+  --- $w\notin\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ --- yet whose
+  restriction to \emph{every finite sub-OML} of $L$ is non-contextual. (All three
+  clauses are required: $\sigma$-additive, globally contextual, finitely
+  non-contextual. The finite version without the third clause is already inhabited,
+  Wright's pentagon.)
+\item[Extension axis; descent axis.]
+  The \emph{extension} axis asks whether a state extends to a charge on the full
+  clopen algebra of $S_0(A)$ (a Horn--Tarski feasibility question); the
+  \emph{descent} axis asks whether such a charge concentrates on the physical points
+  $P(A)$ (governed by $\sigma$-additivity). See \S\ref{sec:axes}.
+\item[Segregated.]
+  Of an OML: one whose non-distributivity is confined to finite blocks, so that
+  $S_{\mathrm{df}}=S_{\mathrm{df}}^\sigma$ and no $\sigma$-essential leak is possible
+  (e.g.\ $\prod_n\mathrm{MO}_2$, \S\ref{sec:why-sigma}).
+\end{description}
+
+\subsection*{Prior-art objects (\S\ref{sec:problem}, Remark~\ref{rem:dw})}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[Pre-Dynkin-system; Dynkin-system.]
+  In Derr--Williamson's terminology, a \emph{pre-Dynkin-system} on $\Omega$ is a
+  concrete OMP (a family of subsets containing $\Omega$, closed under complement and
+  under disjoint unions); a \emph{Dynkin-system} additionally is closed under
+  countable disjoint unions --- a concrete $\sigma$-complete OML.
+\item[$\sigma$-extendable.]
+  In Derr--Williamson, a countably additive probability $\mu_\sigma$ on a
+  Dynkin-system $D_\sigma\subseteq\mathrm{Borel}(\Omega)$ ($\Omega$ Polish) is
+  \emph{$\sigma$-extendable} if it extends to a countably additive probability on
+  $\mathrm{Borel}(\Omega)$.
+\item[Polish space; inner regular.]
+  A \emph{Polish} space is a separable completely metrizable space. A measure $\mu$
+  is \emph{inner regular} if $\mu(F)=\sup\{\mu(K):K\subseteq F,\ K\text{ compact}\}$.
+\end{description}
+
 \bibliographystyle{plain}
 \bibliography{references_oml}
 

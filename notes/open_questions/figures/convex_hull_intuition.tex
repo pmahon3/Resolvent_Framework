@@ -9,7 +9,7 @@
 % PANEL 1: MO_2 -- 2D is FAITHFUL here (2 coords, 4 corners, hull = square)
 % =====================================================================
 \begin{scope}[shift={(0,0)}]
-  \node[anchor=south,align=center] at (1.5,3.7) {\textbf{(1) $\mathrm{MO}_2$}\\[-1pt]\footnotesize corners fill the state space};
+  \node[anchor=south,align=center] at (1.5,4.05) {\textbf{(1) $\mathrm{MO}_2$}\\[-1pt]\footnotesize corners fill the state space};
   \fill[blue!12] (0,0) rectangle (3,3);
   \draw[blue!55,thick] (0,0) rectangle (3,3);
   \draw[->] (-0.3,0)--(3.5,0) node[right]{\footnotesize $s(a)$};
@@ -33,31 +33,46 @@
 % A point outside a convex hull is witnessed by ONE separating value.
 % =====================================================================
 \begin{scope}[shift={(6.2,0)}]
-  \node[anchor=south,align=center] at (1.6,3.7) {\textbf{(2) Pentagon}\\[-1pt]\footnotesize a state on the far side of a face};
-  % the value axis for f(s) = sum_i s(a_i), drawn 0..3
-  \def\axy{0.7}
-  \draw[->] (-0.2,\axy)--(3.5,\axy) node[right]{\footnotesize $\sum_i s(a_i)$};
+  \node[anchor=south,align=center] at (1.6,4.05) {\textbf{(2) Pentagon}\\[-1pt]\footnotesize the lattice, and its hull projected};
+  % ---- the lattice itself: Greechie 5-loop of atoms a_1..a_5 ----
+  % vertices of a regular pentagon, centred high at (1.6,3.35), radius 0.62
+  \foreach \i/\ang in {1/90,2/162,3/234,4/306,5/18}{
+    \coordinate (v\i) at ($(1.6,3.35)+(\ang:0.62)$);}
+  % edges = "consecutive atoms share a block" (cannot both be 1)
+  \draw[gray!70,thick] (v1)--(v2)--(v3)--(v4)--(v5)--cycle;
+  \foreach \i in {1,...,5}{\fill[black] (v\i) circle (2.0pt);}
+  \node[font=\scriptsize] at ($(1.6,3.35)+(90:0.92)$){$a_1$};
+  \node[font=\scriptsize] at ($(1.6,3.35)+(162:0.95)$){$a_2$};
+  \node[font=\scriptsize] at ($(1.6,3.35)+(234:0.95)$){$a_3$};
+  \node[font=\scriptsize] at ($(1.6,3.35)+(306:0.95)$){$a_4$};
+  \node[font=\scriptsize] at ($(1.6,3.35)+(18:0.92)$){$a_5$};
+  \node[gray!55!black,font=\scriptsize,anchor=west,align=left] at (2.5,3.35){edge $=$\\shared block};
+  % ---- projection arrow ----
+  \draw[->,gray!60] (1.6,2.45)--(1.6,2.02) node[midway,right,font=\scriptsize]{\,$f(s)=\sum_i s(a_i)$};
+  % ---- the value axis (honest hull-membership picture) ----
+  \def\axy{0.95}
+  \draw[->] (-0.2,\axy)--(3.5,\axy) node[right]{\footnotesize $f$};
   \foreach \v/\lab in {0/0,1/1,2/2,3/3}
-     {\draw (\v,{\axy-0.08})--(\v,{\axy+0.08}); \node[font=\scriptsize] at (\v,{\axy-0.32}){$\lab$};}
-  % region reachable by mixtures of corners: f in [0,2]  (the corner-hull's f-image)
-  \fill[orange!25] (0,{\axy+0.12}) rectangle (2,{\axy+0.55});
-  \draw[orange!70!black,thick] (0,{\axy+0.12}) rectangle (2,{\axy+0.55});
-  \node[orange!60!black,font=\scriptsize,align=center] at (1.0,{\axy+1.05})
+     {\draw (\v,{\axy-0.07})--(\v,{\axy+0.07}); \node[font=\scriptsize] at (\v,{\axy-0.30}){$\lab$};}
+  % image of the hull under f: the INTERVAL [0,2] on the axis (a 1-D shadow,
+  % not a 2-D region -- drawn as a thick bracketed segment ON the axis)
+  \draw[orange!70!black,line width=2.6pt] (0,\axy)--(2,\axy);
+  \draw[orange!70!black,thick] (0,{\axy-0.13})--(0,{\axy+0.13});
+  \draw[orange!70!black,thick] (2,{\axy-0.13})--(2,{\axy+0.13});
+  \node[orange!60!black,font=\scriptsize,anchor=south west] at (-0.15,{\axy+0.16})
      {$f\bigl(\overline{\mathrm{conv}}(S_{\mathrm{df}})\bigr)=[0,2]$};
-  % corners cluster (every dispersion-free state has f <= 2): show a few ticks
-  \foreach \v in {1,2,2}{\fill[black] (\v,{\axy+0.335}) circle (1.8pt);}
-  \fill[black] (1,{\axy+0.335}) circle (1.8pt);
-  \node[font=\scriptsize] at (1.5,{\axy+0.84}){\scriptsize corners};
-  % the separating hyperplane f = 2
-  \draw[red!60!black,thick,dashed] (2,{\axy-0.2})--(2,{\axy+1.4});
-  \node[red!55!black,font=\scriptsize,anchor=south] at (2,{\axy+1.42}){$f=2$ (KCBS face)};
-  % w at f = 5/2, strictly on the far side
-  \fill[red] (2.5,{\axy+0.335}) circle (2.8pt);
-  \node[red!70!black,font=\scriptsize,anchor=south] at (2.5,{\axy+0.52}){$w:\ f=\tfrac52$};
+  % corner f-values (each dispersion-free state has f <= 2), sitting on the axis
+  \foreach \v in {1,2}{\fill[black] (\v,\axy) circle (1.8pt);}
+  % separating face f = 2
+  \draw[red!60!black,thick,dashed] (2,{\axy-0.45})--(2,{\axy+0.62});
+  \node[red!55!black,font=\scriptsize,anchor=south] at (2.05,{\axy+0.62}){$f=2$ (KCBS face)};
+  % w at f = 5/2, strictly on the far side, on the axis
+  \fill[red] (2.5,\axy) circle (2.8pt);
+  \node[red!70!black,font=\scriptsize,anchor=north] at (2.5,{\axy-0.16}){$w:\,f=\tfrac52$};
   \node[font=\scriptsize,align=center] at (1.6,-1.05)
-    {every dispersion-free corner has $f=\sum s(a_i)\le 2$,\\
-     so every mixture does; but $w\equiv\tfrac12$ has $f=\tfrac52$\\
-     $\Rightarrow$ $w$ is on the \textbf{far side of the face} $=$ \textbf{contextual}};
+    {every dispersion-free corner has $f=\sum s(a_i)\le 2$\\
+     (odd loop: no two adjacent atoms both $1$), so every\\
+     mixture does; but $w\equiv\tfrac12$ has $f=\tfrac52$ $\Rightarrow$ \textbf{contextual}};
 \end{scope}
 
 % =====================================================================
@@ -66,7 +81,7 @@
 % the full (with-fakes) corners reach up to g<=m_full > m_sigma; w sits in (m_sigma, m_full].
 % =====================================================================
 \begin{scope}[shift={(12.6,0)}]
-  \node[anchor=south,align=center] at (1.6,3.7) {\textbf{(3) $\sigma$-essential}\\[-1pt]\footnotesize the leak between two hulls};
+  \node[anchor=south,align=center] at (1.6,4.05) {\textbf{(3) $\sigma$-essential}\\[-1pt]\footnotesize the leak between two hulls};
   \def\axy{0.7}
   \draw[->] (-0.2,\axy)--(3.6,\axy) node[right]{\footnotesize $g$ (a separating functional)};
   % image of conv(S_df^sigma): g in [0, m_sigma], m_sigma = 1.7

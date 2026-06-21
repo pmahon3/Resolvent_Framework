@@ -1,70 +1,96 @@
 \documentclass[border=12pt]{standalone}
 \usepackage{tikz}
 \usepackage{amsmath,amssymb}
-\usetikzlibrary{calc,decorations.pathreplacing,arrows.meta}
+\usetikzlibrary{calc,arrows.meta}
 \begin{document}
 \begin{tikzpicture}[scale=1.0]
 
-% ======================= PANEL 1: MO2 — corners fill the square =======
+% =====================================================================
+% PANEL 1: MO_2 -- 2D is FAITHFUL here (2 coords, 4 corners, hull = square)
+% =====================================================================
 \begin{scope}[shift={(0,0)}]
-  \node[anchor=south] at (1.5,3.4) {\textbf{(1) $\mathrm{MO}_2$: corners fill it}};
-  % the square = state space [0,1]^2
+  \node[anchor=south,align=center] at (1.5,3.7) {\textbf{(1) $\mathrm{MO}_2$}\\[-1pt]\footnotesize corners fill the state space};
   \fill[blue!12] (0,0) rectangle (3,3);
   \draw[blue!55,thick] (0,0) rectangle (3,3);
   \draw[->] (-0.3,0)--(3.5,0) node[right]{\footnotesize $s(a)$};
   \draw[->] (0,-0.3)--(0,3.5) node[above]{\footnotesize $s(b)$};
+  \node[font=\scriptsize] at (3.0,-0.28){$1$}; \node[font=\scriptsize] at (-0.22,3.0){$1$};
   % four dispersion-free corners
   \foreach \x/\y in {0/0,3/0,0/3,3/3}{\fill[black] (\x,\y) circle (2.4pt);}
-  \node[font=\scriptsize] at (3.45,-0.28){$1$}; \node[font=\scriptsize] at (-0.22,3.4){$1$};
-  \node[font=\footnotesize,align=center] at (1.5,1.5)
-    {$S(\mathrm{MO}_2)$\\$=\overline{\mathrm{conv}}(S_{\mathrm{df}})$};
-  \node[font=\scriptsize,align=center,blue!50!black] at (1.5,-0.95)
-    {every state is a mixture\\of the 4 corners $\Rightarrow$ \textbf{no contextual state}};
+  % a generic state, genuinely inside
+  \fill[red] (1.8,1.05) circle (2.6pt);
+  \node[red!70!black,font=\scriptsize,anchor=west] at (1.92,1.05){$w$};
+  \node[font=\footnotesize,align=center] at (1.5,2.05)
+    {$S(\mathrm{MO}_2)=\overline{\mathrm{conv}}(S_{\mathrm{df}})$};
+  \node[font=\scriptsize,align=center,blue!50!black] at (1.5,-1.05)
+    {hull of the 4 corners $=$ the whole square;\\
+     \emph{every} state is a mixture of corners\\$\Rightarrow$ \textbf{no contextual state}};
 \end{scope}
 
-% ======================= PANEL 2: pentagon — hull pinched, state pokes out
-\begin{scope}[shift={(6.0,0)}]
-  \node[anchor=south] at (1.5,3.4) {\textbf{(2) Pentagon: a state pokes out}};
-  % schematic: the fat state space (light), the pinched corner-hull (dark) inside it
-  \fill[blue!10] (1.5,1.5) circle (1.85);                 % full state space S(L) (fat)
-  \draw[blue!45,thick] (1.5,1.5) circle (1.85);
-  % corner-hull = inner pentagon (the corners satisfy Sum<=2, pinched inward)
-  \fill[orange!22]
-    (1.5,2.85) -- (2.78,1.92) -- (2.29,0.42) -- (0.71,0.42) -- (0.22,1.92) -- cycle;
-  \draw[orange!70!black,thick]
-    (1.5,2.85) -- (2.78,1.92) -- (2.29,0.42) -- (0.71,0.42) -- (0.22,1.92) -- cycle;
-  \foreach \p in {(1.5,2.85),(2.78,1.92),(2.29,0.42),(0.71,0.42),(0.22,1.92)}
-    {\fill[black] \p circle (2.2pt);}
-  % the contextual state: the 1/2-everywhere state, OUTSIDE the corner-hull
-  \fill[red] (1.5,1.5) circle (2.6pt);
-  \node[red!70!black,font=\scriptsize,anchor=west] at (1.62,1.5){$w=(\tfrac12,\dots)$};
-  \node[orange!60!black,font=\scriptsize] at (1.5,0.05){$\overline{\mathrm{conv}}(S_{\mathrm{df}})$};
-  \node[blue!50!black,font=\scriptsize,anchor=west] at (2.95,3.0){$S(L)$};
-  \node[font=\scriptsize,align=center] at (1.5,-0.95)
-    {odd-cycle corners obey $\sum s(a_i)\le2$;\\
-     $w$ has $\sum=\tfrac52$ $\Rightarrow$ \textbf{outside the hull = contextual}};
+% =====================================================================
+% PANEL 2: pentagon -- the HONEST picture: project onto the separating
+% functional f(s)=\sum s(a_i). All corners land in [0,2]; w lands at 5/2.
+% A point outside a convex hull is witnessed by ONE separating value.
+% =====================================================================
+\begin{scope}[shift={(6.2,0)}]
+  \node[anchor=south,align=center] at (1.6,3.7) {\textbf{(2) Pentagon}\\[-1pt]\footnotesize a state on the far side of a face};
+  % the value axis for f(s) = sum_i s(a_i), drawn 0..3
+  \def\axy{0.7}
+  \draw[->] (-0.2,\axy)--(3.5,\axy) node[right]{\footnotesize $\sum_i s(a_i)$};
+  \foreach \v/\lab in {0/0,1/1,2/2,3/3}
+     {\draw (\v,{\axy-0.08})--(\v,{\axy+0.08}); \node[font=\scriptsize] at (\v,{\axy-0.32}){$\lab$};}
+  % region reachable by mixtures of corners: f in [0,2]  (the corner-hull's f-image)
+  \fill[orange!25] (0,{\axy+0.12}) rectangle (2,{\axy+0.55});
+  \draw[orange!70!black,thick] (0,{\axy+0.12}) rectangle (2,{\axy+0.55});
+  \node[orange!60!black,font=\scriptsize,align=center] at (1.0,{\axy+1.05})
+     {$f\bigl(\overline{\mathrm{conv}}(S_{\mathrm{df}})\bigr)=[0,2]$};
+  % corners cluster (every dispersion-free state has f <= 2): show a few ticks
+  \foreach \v in {1,2,2}{\fill[black] (\v,{\axy+0.335}) circle (1.8pt);}
+  \fill[black] (1,{\axy+0.335}) circle (1.8pt);
+  \node[font=\scriptsize] at (1.5,{\axy+0.84}){\scriptsize corners};
+  % the separating hyperplane f = 2
+  \draw[red!60!black,thick,dashed] (2,{\axy-0.2})--(2,{\axy+1.4});
+  \node[red!55!black,font=\scriptsize,anchor=south] at (2,{\axy+1.42}){$f=2$ (KCBS face)};
+  % w at f = 5/2, strictly on the far side
+  \fill[red] (2.5,{\axy+0.335}) circle (2.8pt);
+  \node[red!70!black,font=\scriptsize,anchor=south] at (2.5,{\axy+0.52}){$w:\ f=\tfrac52$};
+  \node[font=\scriptsize,align=center] at (1.6,-1.05)
+    {every dispersion-free corner has $f=\sum s(a_i)\le 2$,\\
+     so every mixture does; but $w\equiv\tfrac12$ has $f=\tfrac52$\\
+     $\Rightarrow$ $w$ is on the \textbf{far side of the face} $=$ \textbf{contextual}};
 \end{scope}
 
-% ======================= PANEL 3: the sigma-essential annulus ==========
-\begin{scope}[shift={(12.0,0)}]
-  \node[anchor=south] at (1.5,3.4) {\textbf{(3) $\sigma$-essential: the leak}};
-  \fill[blue!8] (1.5,1.5) circle (1.95);                  % all states
-  \draw[blue!40,thick] (1.5,1.5) circle (1.95);
-  % conv(S_df): ALL dispersion-free corners (incl. fakes) -- bigger hull (outer)
-  \fill[green!16] (1.5,1.5) circle (1.55);
-  \draw[green!55!black,thick,dashed] (1.5,1.5) circle (1.55);
-  % conv(S_df^sigma): only sigma-additive corners -- smaller hull (inner)
-  \fill[orange!22] (1.5,1.5) circle (1.05);
-  \draw[orange!75!black,thick] (1.5,1.5) circle (1.05);
-  % the witness state: in the annulus -- inside conv(S_df), outside conv(S_df^sigma)
-  \fill[red] (1.5,2.30) circle (2.6pt);
-  \node[red!70!black,font=\scriptsize,anchor=west] at (1.66,2.42){$w$};
-  \node[orange!65!black,font=\scriptsize] at (1.5,1.5){\,$\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$};
-  \node[green!45!black,font=\scriptsize,anchor=west] at (1.55,0.55){$\overline{\mathrm{conv}}(S_{\mathrm{df}})$ (with fakes)};
-  \node[font=\scriptsize,align=center] at (1.5,-1.25)
-    {$w$ is inside the hull of \emph{all} corners (a fake catches it),\\
-     but \textbf{outside} the hull of the $\sigma$-additive corners.\\
-     The leak lives in the \textbf{annulus} -- and no finite face sees it.};
+% =====================================================================
+% PANEL 3: sigma-essential -- same honest device, now TWO thresholds.
+% A separating functional g: the sigma-additive corners reach only g<=m_sigma;
+% the full (with-fakes) corners reach up to g<=m_full > m_sigma; w sits in (m_sigma, m_full].
+% =====================================================================
+\begin{scope}[shift={(12.6,0)}]
+  \node[anchor=south,align=center] at (1.6,3.7) {\textbf{(3) $\sigma$-essential}\\[-1pt]\footnotesize the leak between two hulls};
+  \def\axy{0.7}
+  \draw[->] (-0.2,\axy)--(3.6,\axy) node[right]{\footnotesize $g$ (a separating functional)};
+  % image of conv(S_df^sigma): g in [0, m_sigma], m_sigma = 1.7
+  \fill[orange!25] (0,{\axy+0.12}) rectangle (1.7,{\axy+0.55});
+  \draw[orange!75!black,thick] (0,{\axy+0.12}) rectangle (1.7,{\axy+0.55});
+  % image of conv(S_df) WITH fakes: g in [0, m_full], m_full = 2.9  (strictly larger)
+  \draw[green!55!black,thick,dashed] (0,{\axy+0.70}) rectangle (2.9,{\axy+0.95});
+  \fill[green!18] (1.7,{\axy+0.70}) rectangle (2.9,{\axy+0.95}); % the extra reach from fakes
+  % threshold lines
+  \draw[orange!75!black,thick,dotted] (1.7,{\axy-0.2})--(1.7,{\axy+1.45});
+  \node[orange!65!black,font=\scriptsize,anchor=south] at (1.7,{\axy+1.46}){$m_\sigma$};
+  \draw[green!50!black,thick,dotted] (2.9,{\axy-0.2})--(2.9,{\axy+1.25});
+  \node[green!45!black,font=\scriptsize,anchor=south] at (2.9,{\axy+1.26}){$m_{\mathrm{full}}$};
+  % labels for the two reach-bands (placed left, clear of w and the bands)
+  \node[orange!65!black,font=\scriptsize,anchor=east] at (-0.25,{\axy+0.335}){$\sigma$-corners};
+  \node[green!42!black,font=\scriptsize,anchor=east] at (-0.25,{\axy+0.825}){all corners};
+  % the witness, in the annulus: m_sigma < g(w) <= m_full  (in the orange-row gap)
+  \fill[red] (2.3,{\axy+0.335}) circle (2.8pt);
+  \node[red!70!black,font=\scriptsize,anchor=north] at (2.3,{\axy+0.06}){$w$};
+  \node[font=\scriptsize,align=center] at (1.6,-1.30)
+    {the $\sigma$-additive corners reach only $g\le m_\sigma$; the\\
+     extra ``fake'' corners push the full hull to $g\le m_{\mathrm{full}}$.\\
+     $w$ has $m_\sigma < g(w)\le m_{\mathrm{full}}$: \textbf{outside} $\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$,\\
+     \textbf{inside} $\overline{\mathrm{conv}}(S_{\mathrm{df}})$ --- and no finite face sees it};
 \end{scope}
 
 \end{tikzpicture}

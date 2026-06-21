@@ -70,3 +70,14 @@ points criterion (ScienceDirect S0022123672900602).
 - TO DO before any of this informs a written claim: verify the MacGibbon metrizability
   statement; do NOT re-import the Riesz reduction without resolving the
   `S_df^σ`-not-compact gap (it cannot be resolved — that non-compactness is the problem).
+
+## One citation from the Prompt-4 companion essay (otherwise pure re-synthesis)
+The Prompt-4 essay ("Probability Without a Joint World") was a clean but
+fundamentally-non-new re-synthesis of the survey + reading note + this file; not
+saved. The only atom not already on record: **Reyes / Ben-Zvi–Ma–Reyes** (arXiv:1101.2239,
+"Obstructing extensions of the functor Spec to noncommutative rings") — extending a
+commutative spectrum functor to genuinely noncommutative rings / C*-algebras hits a
+KS-type emptiness (full matrix algebras M_n(R), n≥3, map to the empty object). A FOURTH
+independent route to the same wall (alongside lattice duality, topos/Bohrification,
+measure-extension); UNVERIFIED. Could cite if the survey ever wants the "many programs
+converge" point made concretely. Not new content — same wall.

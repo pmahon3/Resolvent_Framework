@@ -809,94 +809,47 @@ Two qualifications delimit what is ruled out.
 
 \subsection{What the topos route does and does not buy}
 \label{sec:topos}
-The topos / Bohrification programme is the one machinery that supplies a
-genuinely point-free \emph{and} $\sigma$-additive (directed-continuous) valuation
-on a quantum logic, so it is the natural candidate to crack route~(iii). A
-mechanism-level read of the two principal constructions shows it is
-\emph{the same wall, with tools}: the $\sigma$-additive valuation always lives on
-a \emph{distributive} object, and the bridge to the non-distributive lattice
-routes its countable additivity through per-context Boolean blocks. The
-non-distributivity is relocated into base-poset variation and a coarse-graining
-map, never carried by the measure. This is the topos analogue of the universal
-floor (\S\ref{sec:reduction}): a measure that meets the non-distributive
-structure faithfully forces it Boolean.
+The topos / Bohrification programme is the one machinery supplying a point-free
+\emph{and} $\sigma$-additive valuation on a quantum logic, so it is the natural
+candidate to crack route~(iii). A mechanism-level read shows it is \emph{the same
+wall, with tools}: the $\sigma$-additive valuation always lives on a distributive
+object, its countable additivity routed through per-context Boolean blocks. This is
+the topos analogue of the universal floor (\S\ref{sec:reduction}).
 
 \paragraph{Bohrification (Heunen--Landsman--Spitters).} A state on $A$ becomes a
-\emph{continuous probability valuation} $\mu : O(\Sigma(A)) \to [0,1]_l$ on the
-internal Gelfand spectrum $\Sigma(A)$, which is an internal
-\emph{locale} --- by construction a compact regular \emph{frame}
-\cite[\S2,\,\S6]{HeunenLandsmanSpitters2011}, hence internally distributive. The
-defining continuity axiom $\mu(\bigvee_i U_i) = \bigvee_i \mu(U_i)$ for directed
-families (Def.~6.11) is precisely the localic, Scott-continuous form of
-$\sigma$-additivity --- but it is asked of $O(\Sigma(A))$, a frame, where
-$\bigvee$ is distributive. The non-commutativity of $A$ sits entirely in the base
-poset $\mathcal{C}(A)$ of commutative subalgebras and in the topos's
-intuitionistic internal logic; the valuation never integrates over a
-non-distributive lattice.
+continuous probability valuation on the internal Gelfand spectrum $\Sigma(A)$, a
+compact regular \emph{frame} \cite[\S2,\S6]{HeunenLandsmanSpitters2011}, hence
+internally distributive; the continuity axiom (Def.~6.11) is localic $\sigma$-additivity
+on a frame, where $\bigvee$ distributes. The non-commutativity sits in the base poset
+$\mathcal{C}(A)$, not the measure. Theorem~6.19 bijects these valuations with
+measures on the non-distributive $\mathrm{Proj}(A)$ and so \emph{looks} like a
+counterexample, but is not: by Definition~6.17(a) such a measure restricts to a
+$\sigma$-Boolean morphism on every countably complete Boolean sublattice --- its
+countable additivity is defined block-by-block and glued by naturality, never
+crossing a non-commuting join. That is the antithesis of $\sigma$-essential
+contextuality. (And $\mathrm{Proj}(A)$ is the non-concrete Gleason / $L(H)$ object,
+Rmk~\ref{rem:miss}, not the concrete class the frontier turns on.)
 
-\begin{remark}[The HLS valuation does not reach the prize --- objection and
-answer]\label{rem:hls-defuse}
-Theorem~6.19 of \cite{HeunenLandsmanSpitters2011} is a bijection between
-continuous probability valuations on $\Sigma(A)$ \emph{and} probability measures
-on $\mathrm{Proj}(A)$ --- the genuinely non-distributive object --- so it
-\emph{looks} like a $\sigma$-additive measure on a non-distributive OML. It is
-not a counterexample to the wall, for two independent reasons.
-\begin{description}[style=nextline, font=\normalfont\bfseries,
-    labelwidth=1.9cm, leftmargin=2.2cm, topsep=2pt]
-  \item[Primary ($\sigma$-essential).] By Definition~6.17(a) a probability
-    measure on the countably complete OML $\mathrm{Proj}(A)$ is a map that
-    \emph{restricts to a $\sigma$-Boolean-algebra morphism on every countably
-    complete Boolean sublattice}. Its countable additivity is thus
-    \emph{defined block-by-block on the Boolean sub-structure} and glued by
-    naturality over $\mathcal{C}(A)$; it never crosses a non-distributive
-    (non-commuting) join. This is the \emph{antithesis} of $\sigma$-essential
-    contextuality (\S\ref{sec:reduction}): the prize demands contextuality
-    witnessed by the countable whole and by \emph{no} Boolean sub-structure,
-    whereas the topos route confines \emph{all} of its countable additivity
-    \emph{inside} Boolean contexts. This argument is independent of concreteness.
-  \item[Secondary (non-concrete).] The non-distributive object here is
-    $\mathrm{Proj}(A)$, the projection lattice of a (Rickart) $C^*$-algebra ---
-    the Gleason / $L(H)$-type lattice, non-concrete by Kochen--Specker
-    (Rmk~\ref{rem:miss}). So Bohrification \emph{recasts the Gleason occupant}
-    (the top row of \S\ref{sec:priorart}) in topos language; it does not reach
-    the concrete class on which the open frontier turns.
-\end{description}
-\end{remark}
-
-\paragraph{D\"{o}ring--Isham (spectral presheaf).} Measures live on the clopen
-subobjects $\mathrm{Sub}_{cl}(\Sigma)$, a complete Heyting algebra / locale ---
-distributive, and \emph{explicitly not} a $\sigma$-algebra
-\cite{Doering2009measures}. The non-distributive $\mathrm{Proj}(H)$ enters only
-through \emph{daseinisation} $\delta : \mathrm{Proj}(H) \to
-\mathrm{Sub}_{cl}(\Sigma)$, which is a coarse-graining, not a lattice
-homomorphism: outer $\delta^o$ preserves all joins but not meets, inner
-$\delta^i$ preserves all meets but not joins, and --- in Wolters' words
-\cite{Wolters2013} --- ``it cannot preserve both, as [$\mathrm{Sub}_{cl}(\Sigma)$]
-is distributive, whereas [$\mathrm{Proj}(H)$] is nondistributive.'' This is the
-exact topos twin of the finitary-duality wall (Rmk~\ref{rem:finitary}). The
-measure is in general only \emph{finitely} additive; the ceiling is driven by the
-state class (to cover type-III / KMS / non-normal states), and $\sigma$-additivity
-is recovered only \emph{locally} --- countable additivity for families pairwise
-orthogonal at a single context $V$, equivalently within one Boolean block, and
-only for normal states. As with HLS, the apparent ``$\sigma$-additive on
-projections'' statement holds only over pairwise-\emph{orthogonal} (hence
-commuting, hence single-context, hence Boolean) families: the additivity never
-crosses a non-distributive join.
+\paragraph{D\"{o}ring--Isham (spectral presheaf).} Measures live on
+$\mathrm{Sub}_{cl}(\Sigma)$, a Heyting algebra / locale --- distributive, and
+\emph{not} a $\sigma$-algebra \cite{Doering2009measures}. The non-distributive
+$\mathrm{Proj}(H)$ enters only through daseinisation, a coarse-graining that, in
+Wolters' words \cite{Wolters2013}, ``cannot preserve both [joins and meets], as
+[$\mathrm{Sub}_{cl}(\Sigma)$] is distributive whereas [$\mathrm{Proj}(H)$] is
+nondistributive.'' The measure is in general only \emph{finitely} additive;
+$\sigma$-additivity is recovered only locally, for families orthogonal at a single
+context (one Boolean block) and only for normal states.
 
 \paragraph{The f.a.-vs-$\sigma$ diagnosis.} The route lands on the programme's
 finitely-additive-versus-$\sigma$ gap exactly: $\sigma$-additivity is available
-\emph{precisely where the object is distributive} --- the internal frame, or the
-per-context Boolean blocks where Loomis--Sikorski already applies (``the first
-arrow is free'') --- and degrades to finite additivity (D\"{o}ring) precisely
-when a single global measure is demanded across the non-distributive whole. Of
-the four requirements
-(point-free $\times$ $\sigma$-additive $\times$ \emph{natively non-distributive}
-$\times$ directed-system-built), the topos route satisfies three and misses
-exactly the one that is the crux: native non-distributivity. The machinery
-engages the problem; it does not hold a handle on it. It \emph{sidesteps} the
-wall (an internally distributive Gelfand spectrum is a design goal, so
-constructive Gelfand duality goes through) rather than \emph{settling} the
-$\sigma$-essential question --- which stays open, neither inhabited nor closed.
+precisely where the object is distributive (the internal frame, or the per-context
+Boolean blocks where Loomis--Sikorski already applies), and degrades to finite
+additivity precisely when a single global measure is demanded across the
+non-distributive whole. Of the four requirements (point-free, $\sigma$-additive,
+natively non-distributive, directed-system-built) the topos route satisfies three and
+misses the crux: native non-distributivity. It \emph{sidesteps} the wall --- an
+internally distributive Gelfand spectrum is a design goal --- rather than settling
+the $\sigma$-essential question, which stays open.
 
 % ==================================================================
 \section{The open problem}
@@ -1188,32 +1141,22 @@ into one.
 \bottomrule
 \end{tabular}
 \end{center}
-\noindent There is \emph{not} one ``lattice $\leftrightarrow$ space'' dictionary but
-two, one per row.
-\emph{Birkhoff--von Neumann} (bottom-right): elements $\leftrightarrow$ closed
-subspaces, atoms $\leftrightarrow$ \textbf{rays}, $a\vee b\leftrightarrow$ closed
-span (the overshoot --- a $2$-plane holds rays in neither joinand: the geometric
-face of the meet/join gap, Def.~\ref{def:ortho}), compatibility $\leftrightarrow$
-commutativity; rich in ray-points, KS-barred from valuation-points, hence
-\emph{non-concrete}.
-\emph{Stone / concrete-logic} (Gudder; top row): elements $\leftrightarrow$ sets of
-outcomes, atoms $\leftrightarrow$ points of $\Omega$ (genuine valuation points),
-orthogonal $\vee\leftrightarrow$ disjoint union (only \emph{incompatible} joins
-overshoot); rich in valuation-points, hence \emph{concrete}.
-The operator question and the descent question share \textbf{Axis~1} (same column)
-but sit in \textbf{opposite rows}: operators \emph{force} the bottom-right cell
-(spectral projections $\Rightarrow L(H)\Rightarrow$ KS $\Rightarrow$ non-concrete),
-whereas the descent witness must be \textbf{top-right}. So the descent problem is the
-one cell \emph{no operator algebra can occupy} --- which is why the witness must be a
-pasting / countable colimit of concrete blocks, not a Hilbert-space construction, and
-why $L(H)$+Gleason (Rmk~\ref{rem:AB}) cannot settle it. In this language the open
-problem (route~(iii), \S\ref{sec:routes}) is exactly: \emph{is there a
-logic\,$\leftrightarrow$\,geometry dictionary for the top-right cell at all?} ---
-Birkhoff--von Neumann covers bottom-right, Stone covers the concrete distributive
-corner, and a $\sigma$-Loomis--Sikorski for concrete OMLs \emph{is} the missing
-top-right dictionary. (Orientation, not a new result; the danger it guards is
-collapsing Axis~2 into Axis~1 --- treating ``non-distributive'' as if it meant
-``$L(H)$'' --- which re-merges the two poles concreteness separates.)
+\noindent There is not one ``lattice $\leftrightarrow$ space'' dictionary but two,
+one per row: \emph{Birkhoff--von Neumann} (bottom row) sends elements to closed
+subspaces and atoms to \textbf{rays}, with $a\vee b$ the closed span --- rich in
+ray-points, KS-barred from valuation-points, hence non-concrete; \emph{Stone /
+concrete-logic} (Gudder, top row) sends elements to sets of outcomes and atoms to
+points of $\Omega$ --- rich in valuation-points, hence concrete. The operator
+question and the descent question share Axis~1 but sit in opposite rows: spectral
+projections \emph{force} $L(H)$ (bottom-right), whereas the descent witness must be
+top-right. So the descent problem is the one cell no operator algebra can occupy ---
+why a witness must be a pasting / countable colimit of concrete blocks, not a
+Hilbert-space construction, and why $L(H)$+Gleason cannot settle it. In this language
+the open problem (route~(iii)) is exactly: \emph{is there a
+logic\,$\leftrightarrow$\,geometry dictionary for the top-right cell?} --- and a
+$\sigma$-Loomis--Sikorski for concrete OMLs \emph{is} that missing dictionary.
+(Orientation, not a new result; it guards against collapsing Axis~2 into Axis~1, i.e.\
+treating ``non-distributive'' as ``$L(H)$''.)
 
 % ==================================================================
 \section{Directions}

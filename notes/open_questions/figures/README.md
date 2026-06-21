@@ -1,81 +1,55 @@
 # Figures
 
-- `convex_hull_intuition.{tex,pdf}` — intuition-builder for contextuality as
-  "state outside the closed convex hull of dispersion-free states." Three panels +
-  a footer spelling out the spaces.
-  - **(1) MO₂** — faithful 2D picture: state space is the square [0,1]²,
-    the 4 dispersion-free states are its corners, their hull IS the whole square,
-    so every state is a mixture of corners ⇒ no contextual state.
-  - **(2) pentagon** — the lattice (Greechie 5-loop of atoms a₁…a₅, edge = shared
-    block) drawn up top, then projected by f(s)=Σ s(aᵢ) onto a value axis: every
-    dispersion-free corner has f ≤ 2 (odd-loop: no two adjacent atoms both 1), so the
-    corner-hull's image is [0,2]; the state w ≡ ½ has f = 5/2, past the f=2 (KCBS)
-    face ⇒ outside the hull ⇒ contextual.
-  - **(3) σ-essential** — two stacked reaches of the same value-axis device: the
-    σ-additive corners reach only g ≤ m_σ; the extra non-σ-additive "fake" corners
-    push the full hull to g ≤ m_full > m_σ; the witness w lies in the gap
-    (m_σ, m_full] — outside conv(S_df^σ), inside conv(S_df) — the leak no finite face
-    sees.
+- `ce_leak_intuition.{tex,pdf}` — the Boolean "uniform over ℕ" leak, as an intuition
+  companion (NOT in the survey, by design). Draws a PROVED object: a finitely-additive
+  charge with μ({1..k})=0 for every k and μ(ℕ)=1, which σ-additivity cannot realize
+  (it would force 1=Σ0=0), so the unit of mass sits on the ideal points βℕ∖ℕ, not on
+  any real point — the CE phenomenon. It is the honest stand-in for the σ-essential
+  mechanism: the OML witness would need the SAME leak OFF-CENTRE, on non-distributive
+  structure where no Boolean boundary (βℕ∖ℕ) absorbs it — the open part. Kept separate
+  from the survey precisely because it is the *Boolean shadow*; putting it in the OML
+  survey would risk the reader taking the βℕ leak FOR the σ-essential object, which is
+  exactly what the survey must keep distinct.
 
-## The three spaces (footer of the figure)
+## The contextuality figure now lives IN the survey
 
-- **L** — the lattice itself (pentagon = 5 atoms + loop relations). An order-theoretic
-  object, NOT a vector space; it has no linear dimension. It is the *index set* for the
-  spaces below.
-- **S(L) ⊆ ℝ^L** — the STATE SPACE. A state assigns a number to each lattice element, so
-  it is a point in ℝ^L. For the pentagon, the state axioms pin a state down by its 5
-  atom-values, giving a polytope S(L) ⊆ [0,1]⁵ ⊆ ℝ⁵. The dispersion-free states S_df are
-  its {0,1}-valued VERTICES; closed-conv(S_df) is a sub-polytope, ALSO in ℝ⁵ —
-  high-dimensional and undrawable. Contextuality (w ∉ closed-conv(S_df)) is a genuine ℝ⁵
-  statement.
-- **ℝ** — the projection target / value axis drawn in panels 2–3.
+The convex-hull intuition figure (MO₂ corners-fill-the-square vs the pentagon's
+separating-functional projection) was integrated into `oml_onboarding.tex` as
+`Figure~\ref{fig:contextuality}` in §5.1 (after Lemma `lem:relational`), so the
+standalone copy was removed. The reasoning behind that figure, retained here for
+reference:
 
-## What the projection is (and is not)
+### The three spaces (why the pentagon panel is a projection)
+- **L** — the lattice (pentagon = 5 atoms + loop relations); an order-theoretic object,
+  not a vector space; it INDEXES the others.
+- **S(L) ⊆ ℝ^L** — the STATE SPACE. A state assigns a number to each element ⇒ a point
+  in ℝ^L; for the pentagon, pinned by the 5 atom-values, a polytope in ℝ⁵. S_df = its
+  {0,1}-valued VERTICES; closed-conv(S_df) is a sub-polytope, also in ℝ⁵ —
+  high-dimensional and undrawable.
+- **ℝ** — the projection target. A SEPARATING FUNCTIONAL g : ℝ^L → ℝ (weighted sum of
+  atom-values; the figure uses g = Σ s(aᵢ)) sends everything to the line. Linear ⇒
+  g(hull) is an interval; g(w) outside it ⟹ w outside the hull (one-way certificate).
+  g is CHOSEN for this w, not canonical: by Hahn–Banach, w is contextual iff SOME g
+  separates it.
 
-- A SEPARATING FUNCTIONAL is a linear map g : ℝ^L → ℝ, i.e. a weighted sum of
-  atom-values; panel 2 uses g = f = Σ s(aᵢ). Because g is linear, g(closed-conv(S_df))
-  is an INTERVAL [min, max], and the image of the hull equals the hull of the image.
-- ONE-WAY CERTIFICATE: g(w) outside that interval ⟹ w outside the hull (sound). The
-  converse fails — a contextual w may have g(w) inside the interval while poking out in
-  another direction.
-- NOT CANONICAL: g is *chosen* to separate THIS w (here, the KCBS functional separates
-  the ½-state). By the separating-hyperplane theorem (Hahn–Banach), w is contextual IFF
-  SOME linear g sends it strictly past the hull's image. One g detects the states
-  violating *that* inequality, not all contextual states. The figure shows "a separating
-  functional for this witness," not "the projection of the hull."
+### Why no honest low-dimensional panel WITH contextuality exists
+- MO_n are non-contextual: independent blocks ⇒ dispersion-free states = all 2ⁿ cube
+  vertices ⇒ hull = whole cube = whole state space. (MO₃'s (½,½,½) is the centroid =
+  a mixture of corners; the survey's `ex:strict`, ½+½+½=3/2>1, is the EXTENSION-axis
+  charge-extendibility failure — a different functional — not a contextuality witness.)
+- Lesson: **non-distributivity ≠ contextuality.** MO_n are non-distributive yet
+  non-contextual; contextuality needs the loop/frustration (shared atoms, odd cycle)
+  that independent blocks lack — the finite shadow of why ∏ₙMO₂ is "segregated."
+- Among STANDARD minimal examples there is therefore no drawable honest
+  hull-with-contextuality (even loops unfrustrated; loops <5 excluded by the Greechie
+  loop lemma; smallest odd loop = pentagon = 5-dim) — so the separating-functional
+  projection is the appropriate tool, not a shortcut. (A statement about standard
+  examples, NOT a proof that no exotic low-dim contextual concrete OML exists.)
 
-## Why panels 2–3 use a value-axis, not a 2D blob
-
+### Why panels use a value-axis, not a 2D blob
 Membership in a convex hull is "satisfies every supporting inequality." A 2D
-"point inside/outside a region" cartoon CANNOT show a point outside its own corner-hull
-(a convex polygon always contains its centroid) — an earlier draft did exactly that and
-was geometrically wrong. Projecting onto a separating functional makes "outside the
-hull" = "past a threshold value," which cannot misrepresent membership. The value-axes
-and the [0,2] interval are faithful; only the specific numbers (2, m_σ, m_full) are
-illustrative. Panel 1 stays 2D because MO₂ is genuinely 2-dimensional (2 atom-values,
-4 corners, hull = the whole square) — there the picture is honest.
-
-## Why there is no honest low-dimensional panel WITH contextuality
-
-A natural idea is to add an MO₃ panel showing contextuality in honest 3D. It does not
-work, and the reason is instructive (computed, 2026-06-21):
-
-- MO₃'s state space is the cube [0,1]³ (pinned by (s(p),s(q),s(r))); its dispersion-free
-  states are all 8 cube vertices, so closed-conv(S_df) = the whole cube = the whole
-  state space ⇒ **MO₃ is non-contextual.** (Same for every MO_n: independent blocks ⇒
-  dispersion-free states = all 2ⁿ vertices ⇒ hull = whole cube.) The maximally-mixed
-  state (½,½,½) is the cube's centroid = the uniform average of the 8 corners — a
-  mixture of dispersion-free states, hence non-contextual. (NB the survey's `ex:strict`,
-  ½+½+½ = 3/2 > 1, is the EXTENSION-axis charge-extendibility failure — a different
-  functional — not a contextuality witness.)
-- **The real lesson: non-distributivity ≠ contextuality.** MO_n are non-distributive
-  (MO₂ is the canonical non-distributive ortholattice) yet non-contextual. Contextuality
-  needs the loop/frustration (shared atoms, odd cycle) that independent blocks lack —
-  the finite shadow of why ∏ₙMO₂ is "segregated" in the survey.
-- Among the STANDARD minimal examples there is therefore no drawable honest hull picture
-  with contextuality: MO_n are non-contextual; even loops are 2-colorable (unfrustrated);
-  loops shorter than 5 are excluded by the Greechie loop lemma; the smallest frustrated
-  (odd) loop is the pentagon, whose state space is 5-dimensional. So the separating-
-  functional projection in panels 2–3 is the appropriate tool, not a shortcut. (This is
-  a statement about the standard minimal examples, NOT a proof that no exotic low-
-  dimensional contextual concrete OML exists — that was not checked and is not needed.)
+point-in/out-of-a-region cartoon CANNOT show a point outside its own corner-hull (a
+convex polygon contains its centroid) — an earlier draft did exactly that and was
+wrong. Projecting onto a separating functional makes "outside the hull" = "past a
+threshold value," which cannot misrepresent membership. The MO₂ panel stays 2D because
+MO₂ is genuinely 2-dimensional (2 atom-values, 4 corners, hull = the whole square).

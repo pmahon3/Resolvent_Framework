@@ -54,3 +54,28 @@ hull" = "past a threshold value," which cannot misrepresent membership. The valu
 and the [0,2] interval are faithful; only the specific numbers (2, m_σ, m_full) are
 illustrative. Panel 1 stays 2D because MO₂ is genuinely 2-dimensional (2 atom-values,
 4 corners, hull = the whole square) — there the picture is honest.
+
+## Why there is no honest low-dimensional panel WITH contextuality
+
+A natural idea is to add an MO₃ panel showing contextuality in honest 3D. It does not
+work, and the reason is instructive (computed, 2026-06-21):
+
+- MO₃'s state space is the cube [0,1]³ (pinned by (s(p),s(q),s(r))); its dispersion-free
+  states are all 8 cube vertices, so closed-conv(S_df) = the whole cube = the whole
+  state space ⇒ **MO₃ is non-contextual.** (Same for every MO_n: independent blocks ⇒
+  dispersion-free states = all 2ⁿ vertices ⇒ hull = whole cube.) The maximally-mixed
+  state (½,½,½) is the cube's centroid = the uniform average of the 8 corners — a
+  mixture of dispersion-free states, hence non-contextual. (NB the survey's `ex:strict`,
+  ½+½+½ = 3/2 > 1, is the EXTENSION-axis charge-extendibility failure — a different
+  functional — not a contextuality witness.)
+- **The real lesson: non-distributivity ≠ contextuality.** MO_n are non-distributive
+  (MO₂ is the canonical non-distributive ortholattice) yet non-contextual. Contextuality
+  needs the loop/frustration (shared atoms, odd cycle) that independent blocks lack —
+  the finite shadow of why ∏ₙMO₂ is "segregated" in the survey.
+- Among the STANDARD minimal examples there is therefore no drawable honest hull picture
+  with contextuality: MO_n are non-contextual; even loops are 2-colorable (unfrustrated);
+  loops shorter than 5 are excluded by the Greechie loop lemma; the smallest frustrated
+  (odd) loop is the pentagon, whose state space is 5-dimensional. So the separating-
+  functional projection in panels 2–3 is the appropriate tool, not a shortcut. (This is
+  a statement about the standard minimal examples, NOT a proof that no exotic low-
+  dimensional contextual concrete OML exists — that was not checked and is not needed.)

@@ -39,52 +39,27 @@
 \begin{document}
 
 \begin{abstract}
-For a Boolean algebra, the passage from a finitely additive, finitely coherent
-assignment of probabilities to a countably additive measure is governed by a
-single condition (countable additivity) and executed by classical machinery
-(Carath\'{e}odory; Loomis--Sikorski; Stone duality). On a \emph{non-distributive}
-orthomodular lattice (OML) this machinery breaks, and the question of when finite
-coherence forces countable behaviour is open. This note surveys the problem and
-isolates a precise open question. After fixing the apparatus (orthomodular
-lattices, the gap between orthogonality and meet-zero, the state/meet-additive/charge
-ladder, the McDonald--Bimb\'{o} dual space of filters), we separate the question into
-two axes that the Boolean case fuses. The \emph{extension} axis --- does a state
-extend to a charge on the dual? --- is a classical Horn--Tarski feasibility question
-and is settled negatively for $L(H)$ by an elementary finite construction. The
-\emph{descent} axis --- does such a charge concentrate on the physical points? --- is
-open, and we locate it precisely. The combinatorial route to a witness (concrete,
-$\sigma$-orthocomplete, set-representable OMLs) is shown not to produce one: the
-interleaving property that would make $\sigma$-additivity exceed finite additivity on
-a concrete non-Boolean lattice is already satisfied by the product
-$\prod_n \mathrm{MO}_2$, which is concrete, $\sigma$-complete, non-Boolean and
-infinite, yet has its non-distributivity confined to finite blocks
-(\emph{segregated}) and so fails to be a witness. The structural reason is that a
-faithful set representation ($\sigma$-tribe) of an OML has a distributive image and
-hence forces the lattice Boolean (Theorem~\ref{thm:floor}), so no measure with no
-hidden realisation can arise from a faithful descent to points; the forcing boundary
-to Boolean is \emph{subadditivity} of a unital set of states
-(Pt\'ak--Pulmannov\'a~\cite{PtakPulmannova1994}), not $\sigma$-additivity. Taking
-``no hidden realisation'' to mean that the measure is not a mixture of dispersion-free
-states, this is equivalent to the state being \emph{contextual} ---
-not in the closed convex hull of the lattice's dispersion-free states
-(Lemma~\ref{lem:relational}, in the lineage of Fine, Pitowsky and
-Abramsky--Brandenburger). The open problem is then sharp:
-\textbf{does a non-Boolean, $\sigma$-complete, concrete OML carry a $\sigma$-additive
-contextual state whose contextuality is $\sigma$-essential} --- witnessed by no finite
-sub-OML? The finite version is already inhabited: Wright's pentagon
-(\cite{Wright1978}) is a finite concrete OML carrying a non-classical $\{0,\tfrac12\}$-valued
-state outside the dispersion-free hull, so the general spanning statement is false and
-only the $\sigma$-essential refinement remains. That refinement is a
-\emph{compactness failure} of the same type as the non-axiomatizability of countable
-additivity over finitely additive coherence. The question is well-posed and has no
-construction in hand; recent work on coherent probabilities over Dynkin-systems
+On a Boolean algebra, a finitely coherent probability extends to a countably
+additive measure by classical machinery (Carath\'{e}odory; Loomis--Sikorski; Stone).
+On a non-distributive orthomodular lattice (OML) this machinery breaks. We survey
+the problem and isolate a precise open question, splitting it into two axes the
+Boolean case fuses: the \emph{extension} axis (does a state extend to a charge on the
+dual?), a Horn--Tarski feasibility question settled negatively for $L(H)$; and the
+\emph{descent} axis (does the charge concentrate on the physical points?). The
+combinatorial route fails --- $\prod_n\mathrm{MO}_2$ is concrete, $\sigma$-complete
+and non-Boolean yet \emph{segregated} (non-distributivity confined to finite blocks)
+--- because a faithful set representation forces the OML Boolean
+(Theorem~\ref{thm:floor}). Reading ``no hidden realisation'' as not being a mixture
+of dispersion-free states makes a relational measure a \emph{contextual} state
+(Lemma~\ref{lem:relational}). The open question: \textbf{does a non-Boolean,
+$\sigma$-complete, concrete OML carry a $\sigma$-additive contextual state whose
+contextuality is $\sigma$-essential} --- witnessed by no finite sub-OML? The finite
+case is inhabited (Wright's pentagon), so only the $\sigma$-essential refinement
+remains, a compactness failure of CE type. Recent work on Dynkin-systems
 (Derr--Williamson~\cite{DerrWilliamson2023}) settles it \emph{negatively under a
-Polish/Borel-regularity hypothesis}, leaving as the residue a descriptive-set-theory
-question --- whether a witness can live where the $\sigma$-additive dispersion-free
-state space is non-Polish (Remark~\ref{rem:dw}). A positive answer would be a
-non-Boolean analogue of localic measure theory; a negative one a $\sigma$-essential
-impossibility theorem. We review what is known and what is ruled out, and close with
-the two exits.
+Polish/Borel-regularity hypothesis}, leaving the residue --- whether a witness can be
+non-Polish-representable --- a descriptive-set-theory question
+(Remark~\ref{rem:dw}).
 \end{abstract}
 
 \maketitle
@@ -118,74 +93,37 @@ colimit) returns:
   \text{incompatible} &\ \Rightarrow\ \text{non-distributive OML.}
   \end{aligned}
 \]
-(Gunji et al.~\cite{Gunji2026}). The OML is \emph{forced} by the context
-structure, not postulated. Incompatibility --- quantum complementarity, but
-equally contextual experimental design or interfering sensors --- drives the
-algebra out of the Boolean world. One caveat fixes the scope: for non-quantum
-examples the incompatibility must be \emph{operationally imposed} (contexts
-genuinely non-co-realizable, no joint probability space); it cannot arise
-intrinsically from one classical system's dynamics, since any finite family of
-classical observables on a common space jointly distributes (Kolmogorov),
-hence stays Boolean --- contextuality there is failure of a global section
-(Abramsky--Brandenburger~\cite{AbramskyBrandenburger2011};
-Fine~\cite{Fine1982}). The closed subspaces of a Hilbert space $H$ form the
+(Gunji et al.~\cite{Gunji2026}). The OML is \emph{forced} by the context structure,
+not postulated; for non-quantum examples the incompatibility must be operationally
+imposed, since classical observables on a common space jointly distribute
+(Kolmogorov) and stay Boolean. The closed subspaces of a Hilbert space $H$ form the
 prototype $L(H)$, not the premise.
 
-On a non-distributive OML, Carath\'{e}odory's outer measure --- needing a
-Boolean algebra of sets --- does not apply, and the rescue is local to $L(H)$:
-\begin{itemize}[noitemsep, topsep=2pt]
-  \item For $L(H)$, Gleason's rigidity theorem~\cite{Gleason1957} rescues it;
-    Hilbert space is special and no general-OML analogue is known.
-  \item Non-distributivity \emph{per se} does not remove the 2-valued
-    homomorphisms the Boolean engine needs --- $\mathrm{MO}_3$ is
-    non-distributive yet carries them (\S\ref{sec:oml}, \S\ref{sec:known}) ---
-    but it removes the \emph{guarantee}; for $L(H)$, $\dim\!\geq\!3$ they fail
-    outright (Kochen--Specker~\cite{KochenSpecker1967}).
-\end{itemize}
-\emph{Whether enough survive is a question of concreteness, not
-non-distributivity} --- where an OML is \emph{concrete} (Definition~\ref{def:omp})
-when its elements can be faithfully modelled as honest \emph{sets of outcomes},
-equivalently when it carries an order-determining set of two-valued states
-(Gudder~\cite{Gudder1979}); ``enough survive'' is then almost the definition.
-This is the qualifier on which the open problem turns
-(\S\ref{sec:known},~\S\ref{sec:problem}).
+On a non-distributive OML, Carath\'{e}odory's outer measure does not apply. For
+$L(H)$ it is rescued by Gleason's theorem~\cite{Gleason1957}, with no general-OML
+analogue known. Non-distributivity \emph{per se} does not remove the two-valued
+homomorphisms the Boolean engine needs ($\mathrm{MO}_3$ keeps them), but it removes
+the \emph{guarantee}; for $L(H)$, $\dim\geq3$, they fail outright
+(Kochen--Specker~\cite{KochenSpecker1967}). Whether enough survive is a question of
+\emph{concreteness}, not non-distributivity: an OML is \emph{concrete}
+(Definition~\ref{def:omp}) when it carries an order-determining set of two-valued
+states (Gudder~\cite{Gudder1979}), and this is the qualifier on which the open
+problem turns.
 
-\paragraph{The organising split.} This note asks the shared question ---
-\emph{when does finite coherence force countable behaviour?} --- on an OML.
-The vague question splits into two axes that the Boolean case fuses, and the
-survey is built around the split:
-\begin{center}
-\begin{tabular}{@{}l>{\raggedright\arraybackslash}p{0.40\linewidth}>{\raggedright\arraybackslash}p{0.30\linewidth}@{}}
-\toprule
-\textbf{Axis} & \textbf{Asks} & \textbf{Status} \\
-\midrule
-Extension & Does a state extend to a charge on $S_0(A)$?
-  & Settled (on $L(H)$, none does). \\[2pt]
-Descent & Does the charge concentrate on the physical points?
-  & Open. \\
-\bottomrule
-\end{tabular}
-\end{center}
+\paragraph{The organising split.} The question splits into two axes the Boolean case
+fuses: \emph{extension} (does a state extend to a charge on $S_0(A)$? --- settled,
+none does on $L(H)$) and \emph{descent} (does the charge concentrate on the physical
+points? --- open).
 
-\paragraph{The relational standpoint.} Two established moves motivate the
-approach:
-\begin{itemize}[noitemsep, topsep=2pt]
-  \item De~Finetti~\cite{deFinetti1974} --- probability without a presupposed
-    sample space: coherent commitments about events, not measures on a given
-    $\Omega$.
-  \item Birkhoff--von~Neumann --- propositions as a lattice (the OML of
-    \S\ref{sec:prelim}), not as subsets of a phase space.
-\end{itemize}
-\noindent Combining them, we start from the propositions and their entailment
-order and ask what that relational structure alone determines --- the
-measure-theoretic counterpart of pointless (localic) topology. The dual is
-then not a space of points but the McDonald--Bimb\'{o} space of \emph{filters}
-(\S\ref{sec:dual}), and a positive answer to the open problem would be a
-\emph{relational} $\sigma$-additive probability theory on a non-distributive
-lattice --- the non-Boolean analogue of localic measure theory. (The
-\S\ref{sec:problem} statement makes ``relational'' precise as a
-\emph{contextual} state, no hidden realisation; developed further
-in~\cite{mahon2025}.)
+\paragraph{The relational standpoint.} Following De~Finetti~\cite{deFinetti1974}
+(probability without a presupposed sample space) and Birkhoff--von~Neumann
+(propositions as a lattice, not subsets of a phase space), we start from the
+propositions and ask what their order alone determines --- the measure-theoretic
+counterpart of pointless topology. The dual is then the McDonald--Bimb\'{o} space of
+\emph{filters} (\S\ref{sec:dual}), and a positive answer would be a $\sigma$-additive
+probability theory on a non-distributive lattice, the non-Boolean analogue of localic
+measure theory (made precise in \S\ref{sec:problem} as a \emph{contextual} state;
+cf.~\cite{mahon2025}).
 
 % ==================================================================
 \section{Preliminaries}
@@ -1013,27 +951,19 @@ underlying \emph{point set} $\Omega$, and obtaining such an $\Omega$ for an abst
 concrete $\sigma$-complete OML is itself the missing engine, not a free input.
 \end{remark}
 
-\noindent This is the relational-probability prize made precise. ``Relational''
-means \emph{no hidden realisation}: the measure must not be recoverable from
-positing an auxiliary space of definite states behind the propositions. Three
+\noindent Here ``relational'' means \emph{no hidden realisation}: the measure is not
+recoverable from an auxiliary space of definite states behind the propositions. Three
 point-spaces must be kept apart (the recurring trap of this subject): the
-\emph{canonical} dual $P(A)=\{{\uparrow}p\}$ (one principal filter per
-\emph{element}, \S\ref{sec:dual}); the \emph{dispersion-free states} (two-valued
-states, one per consistent global \emph{valuation} --- the hidden-variable points);
+\emph{canonical} dual $P(A)=\{{\uparrow}p\}$ (one principal filter per element,
+\S\ref{sec:dual}); the \emph{dispersion-free states} (the hidden-variable points);
 and the \emph{external (A)-points} (Gleason's Hilbert rays, Remark~\ref{rem:AB}).
-The canonical $P(A)$ is \emph{permitted}; the objection is only to building the
-measure on a \emph{smuggled} space --- the (A)-points, or equivalently a global
-hidden-variable joint over the dispersion-free states. A state has a hidden
-realisation exactly when it is a mixture of dispersion-free states
-(Lemma~\ref{lem:relational}), so a relational measure is precisely a
-\emph{contextual} state, and the reduction below turns the existence question into
-this one. (Note this is a
-condition on the dispersion-free states, \emph{not} on $P(A)$: a witness is
-point-rich on $P(A)$ yet has no global dispersion-free joint --- the two spaces are
-different, which is exactly why ``permitted'' and ``escaped'' do not conflict.) (We do not pursue the stricter
-``strictly point-free / no canonical points either'' reading: it makes concreteness
-itself the enemy and collapses against the universal that follows, so it offers no
-inhabitable target.)
+$P(A)$ is \emph{permitted}; the objection is only to a measure built on a smuggled
+space --- the (A)-points, equivalently a global hidden-variable joint over the
+dispersion-free states. By Lemma~\ref{lem:relational} a state has a hidden
+realisation iff it is a mixture of dispersion-free states, so a relational measure is
+precisely a \emph{contextual} state. This is a condition on the dispersion-free
+states, not on $P(A)$: a witness is point-rich on $P(A)$ yet has no global
+dispersion-free joint.
 
 \subsection{The reduction to contextuality, and what frames it}
 \label{sec:reduction}

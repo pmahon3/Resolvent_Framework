@@ -697,45 +697,31 @@ geometry):
 \subsection{Three routes to a $\sigma$-OML engine, all unavailable}
 \label{sec:routes}
 The descent argument needs an OML analogue of the Boolean engine --- a
-$\sigma$-Stone duality, or equivalently a Loomis--Sikorski representation. The
-three known routes are all unavailable, but not on the same footing: routes
-(i) and (ii) are closed by \emph{theorem} (the hypothesis that would yield the
-representation provably forces Boolean, resp.\ leaves the category), whereas
-route (iii) is open in the strong sense --- no construction is known, and no
-impossibility theorem rules one out (Remark~\ref{rem:miss}). It is route (iii),
-restated, that is the Open Problem of \S\ref{sec:problem}.
+$\sigma$-Stone duality, equivalently a Loomis--Sikorski representation. Routes
+(i),(ii) are closed by \emph{theorem}; route (iii) is open in the strong sense (no
+construction known, none ruled out), and is the Open Problem of \S\ref{sec:problem}.
 \begin{enumerate}[label=(\roman*)]
-  \item \textbf{RDP / effect-algebra.} Loomis--Sikorski holds for
-    $\sigma$-MV algebras~\cite{Dvurecenskij2000} and monotone
-    $\sigma$-effect algebras \emph{with} the Riesz Decomposition Property
-    \cite{Dvurecenskij2005}; but a lattice effect algebra has RDP iff it
-    is MV, and OML $\cap$ MV $=$ Boolean (Kalmbach~\cite{Kalmbach1983}), so
-    the hypothesis that would yield the representation collapses the class:
-    \[
-      \text{OML} + \text{RDP} \iff \text{Boolean}.
-    \]
-    The \emph{sharp-skeleton} evasion --- representing the OML as the
-    \emph{sharp} elements of an ambient RDP effect algebra, so that only the
-    ambient carries RDP --- also closes: in any RDP effect algebra the sharp
-    elements coincide with the center and are hence Boolean (Jen\v{c}a 2001,
-    Cor.~4.3; via Greechie--Foulis--Pulmannov\'a 1995), so a non-Boolean sharp
-    skeleton witnesses RDP-failure. Route~(i) is closed against this refinement
-    too ($\sigma$-completeness is not on the load path). The MacNeille completion of an OML
-    need not be orthomodular (Harding~\cite{Harding1991}); one cannot
-    complete to absorb countable joins. The topological version of this
-    route --- clopens of $S_0(A)$ modulo the meagre ideal --- is this same
-    completion in another form (the regular-open algebra), and collapses
-    non-distributivity (Remark~\ref{rem:bridge}).
-  \item \textbf{$\sigma$-Stone duality.} None is \emph{known}, and none is
-    \emph{ruled out}: the existing dualities are finitary
-    (McDonald--Bimb\'{o}, Remark~\ref{rem:finitary}) or equational with no
-    set/tribe representation (Freytes~\cite{Freytes2020}, on $\sigma$-complete
-    OMLs), but no theorem forbids a countable-join-preserving one. The one
-    machinery that supplies a point-free $\sigma$-additive valuation ---
-    topos/Bohrification --- \emph{sidesteps} this route rather than settling it
-    (its $\sigma$-additivity lives on a distributive object / per-context Boolean
-    blocks; see \S\ref{sec:topos}), so route~(iii) stays open but the known
-    candidate-machinery is exhausted as a crack.
+  \item \textbf{RDP / effect-algebra.} Loomis--Sikorski holds for $\sigma$-MV
+    algebras and monotone $\sigma$-effect algebras \emph{with} the Riesz
+    Decomposition Property \cite{Dvurecenskij2000,Dvurecenskij2005}; but a lattice
+    effect algebra has RDP iff it is MV, and OML $\cap$ MV $=$ Boolean
+    (Kalmbach~\cite{Kalmbach1983}): $\text{OML}+\text{RDP}\iff\text{Boolean}$. The
+    \emph{sharp-skeleton} evasion (represent the OML as the sharp elements of an
+    ambient RDP effect algebra) also closes: in an RDP effect algebra the sharp
+    elements coincide with the center, hence are Boolean (Jen\v{c}a 2001, Cor.~4.3,
+    via Greechie--Foulis--Pulmannov\'a 1995).
+  \item \textbf{MacNeille completion.} The MacNeille completion of an OML need not
+    be orthomodular (Harding~\cite{Harding1991}), so one cannot complete to absorb
+    countable joins; the topological version (clopens of $S_0(A)$ modulo the meagre
+    ideal) is the same completion and collapses non-distributivity
+    (Remark~\ref{rem:bridge}).
+  \item \textbf{$\sigma$-Stone duality.} None is known, none ruled out: the existing
+    dualities are finitary (McDonald--Bimb\'{o}, Remark~\ref{rem:finitary}) or
+    equational with no set/tribe representation (Freytes~\cite{Freytes2020}), but no
+    theorem forbids a countable-join-preserving one. The one machinery supplying a
+    point-free $\sigma$-additive valuation, topos/Bohrification, \emph{sidesteps}
+    this route ($\sigma$-additivity on a distributive object / per-context Boolean
+    blocks, \S\ref{sec:topos}) rather than settling it.
 \end{enumerate}
 
 \subsection{Prior art on point-free quantum probability}
@@ -769,17 +755,12 @@ non-distributive structure --- as tabulated below.
     Cannon--D\"{o}ring~\cite{Cannon2013}: purely structural, no measure,
     no $\sigma$-version.
 \end{description}
-Each entry satisfies some of the requirements but not all. The open case is
-their conjunction, satisfied by no existing construction:
+The open case is their conjunction, met by no existing construction:
 \begin{center}
 \fbox{\parbox{0.92\linewidth}{\centering point-free $\times$
 $\sigma$-additive $\times$ natively non-distributive $\times$
 directed-system-built.}}
 \end{center}
-\noindent (The directed-context-yields-non-distributivity construction is not
-new --- it is the shape of Bohrification and of colimit-over-Boolean-contexts
-generation. Novelty would lie only in the
-$\sigma$-additive\,$\times$\,point-free\,$\times$\,native combination.)
 
 \begin{remark}[The boundary of the negative results]\label{rem:miss}
 Two qualifications delimit what is ruled out.

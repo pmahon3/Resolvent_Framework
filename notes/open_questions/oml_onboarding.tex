@@ -51,7 +51,7 @@ and non-Boolean yet \emph{segregated} (non-distributivity confined to finite blo
 --- because a faithful set representation forces the OML Boolean
 (Theorem~\ref{thm:floor}). Reading ``no hidden realisation'' as not being a mixture
 of dispersion-free states makes a relational measure a \emph{contextual} state
-(Lemma~\ref{lem:relational}). The open question: \textbf{does a non-Boolean,
+(Lemma~\ref{lem:relational}). The open question: \emph{does a non-Boolean,
 $\sigma$-complete, concrete OML carry a $\sigma$-additive contextual state whose
 contextuality is $\sigma$-essential} --- witnessed by no finite sub-OML? The finite
 case is inhabited (Wright's pentagon), so only the $\sigma$-essential refinement
@@ -132,7 +132,7 @@ cf.~\cite{mahon2025}).
 
 We collect the lattice-theoretic apparatus; all notions are standard.
 
-\subsection{Orthomodular lattices, and the orthogonal/meet-zero gap}
+\subsection{Orthomodular lattices}
 \label{sec:oml}
 
 \begin{definition}[Orthocomplemented lattice]\label{def:ocl}
@@ -512,13 +512,13 @@ as the measure route, and reduces to the MacNeille completion of
 \end{remark}
 
 % ==================================================================
-\section{Two axes: extension and descent}
+\section{Extension and descent}
 \label{sec:axes}
 % ==================================================================
 
 The central question --- \emph{when does a state $s$ on an OML $A$ extend
 to a $\sigma$-additive measure on $S_0(A)$?} --- splits into two
-\textbf{independent} axes that the Boolean case fuses.
+\emph{independent} axes that the Boolean case fuses.
 \begin{description}[style=nextline, leftmargin=0pt, itemsep=4pt]
   \item[\normalfont\itshape Extension.] Does $s$ extend to a finitely additive
     charge on the \emph{full} Boolean clopen algebra of $S_0(A)$? This is governed
@@ -673,7 +673,7 @@ chargeability
 \end{tabular}
 \end{center}
 
-\subsection{Positive and obstructive OML results}
+\subsection{Known results for general OMLs}
 \textbf{Positive} (require structure rich enough to approximate Hilbert-space
 geometry):
 \begin{itemize}[noitemsep, topsep=2pt]
@@ -694,7 +694,7 @@ geometry):
     spaces via Greechie pasting.
 \end{itemize}
 
-\subsection{Three routes to a $\sigma$-OML engine, all unavailable}
+\subsection{Three routes to a $\sigma$-OML engine}
 \label{sec:routes}
 The descent argument needs an OML analogue of the Boolean engine --- a
 $\sigma$-Stone duality, equivalently a Loomis--Sikorski representation. Routes
@@ -788,7 +788,7 @@ Two qualifications delimit what is ruled out.
 \end{description}
 \end{remark}
 
-\subsection{What the topos route does and does not buy}
+\subsection{The topos approach}
 \label{sec:topos}
 The topos / Bohrification programme is the one machinery supplying a point-free
 \emph{and} $\sigma$-additive valuation on a quantum logic, so it is the natural
@@ -828,7 +828,7 @@ Boolean blocks where Loomis--Sikorski already applies), and degrades to finite
 additivity precisely when a single global measure is demanded across the
 non-distributive whole. Of the four requirements (point-free, $\sigma$-additive,
 natively non-distributive, directed-system-built) the topos route satisfies three and
-misses the crux: native non-distributivity. It \emph{sidesteps} the wall --- an
+misses the essential one: native non-distributivity. It \emph{sidesteps} the wall --- an
 internally distributive Gelfand spectrum is a design goal --- rather than settling
 the $\sigma$-essential question, which stays open.
 
@@ -853,7 +853,7 @@ $(L,w)$ exists?
 \end{problem}
 
 \begin{remark}[Relation to Derr--Williamson 2023]\label{rem:dw}
-The problem above is \textbf{not plainly open}: it must be read against
+The problem above is not plainly open: it must be read against
 Derr--Williamson~\cite{DerrWilliamson2023}, which studies coherent probabilities on
 \emph{pre-Dynkin-systems} (concrete orthomodular posets) and \emph{Dynkin-systems}
 (concrete $\sigma$-complete OMLs) from the imprecise-probability side. Their
@@ -880,15 +880,15 @@ Thus
 \]
 and through Theorem~D.6 the implication
 ``finitely non-contextual everywhere $\Rightarrow$ globally non-contextual'' holds
-\emph{whenever the OML admits such a Polish Borel realisation}. \textbf{Under that
-hypothesis the $\sigma$-essential cell is empty: no witness exists.} (The converse,
-non-contextual $\Rightarrow\sigma$-extendable, does \emph{not} hold --- the
+\emph{whenever the OML admits such a Polish Borel realisation}: under that
+hypothesis the $\sigma$-essential cell is empty, and no witness exists. (The converse,
+non-contextual $\Rightarrow\sigma$-extendable, does not hold --- the
 dispersion-free states properly contain the point evaluations $\delta_\omega$ --- but
 it is not needed for the negative conclusion.)
 
-The residue is therefore a single condition, and it is precisely the
-representability the whole problem turns on: \textbf{can a $\sigma$-essential witness
-exist that admits \emph{no} Polish Borel realisation} ($S_{\mathrm{df}}^\sigma$
+The residue is then a single condition, the representability the whole problem turns
+on: can a $\sigma$-essential witness exist that admits \emph{no} Polish Borel
+realisation ($S_{\mathrm{df}}^\sigma$
 non-Polish / analytic-but-not-Borel)? This is a descriptive-set-theory question, and
 it is the same wall as the absence of a $\sigma$-Loomis--Sikorski representation
 (\S\ref{sec:routes}); the off-centre/non-band constraints of \S\ref{sec:first} are
@@ -900,7 +900,7 @@ concrete $\sigma$-complete OML is itself the missing engine, not a free input.
 
 \noindent Here ``relational'' means \emph{no hidden realisation}: the measure is not
 recoverable from an auxiliary space of definite states behind the propositions. Three
-point-spaces must be kept apart (the recurring trap of this subject): the
+point-spaces must be kept distinct: the
 \emph{canonical} dual $P(A)=\{{\uparrow}p\}$ (one principal filter per element,
 \S\ref{sec:dual}); the \emph{dispersion-free states} (the hidden-variable points);
 and the \emph{external (A)-points} (Gleason's Hilbert rays, Remark~\ref{rem:AB}).
@@ -912,7 +912,7 @@ precisely a \emph{contextual} state. This is a condition on the dispersion-free
 states, not on $P(A)$: a witness is point-rich on $P(A)$ yet has no global
 dispersion-free joint.
 
-\subsection{The reduction to contextuality, and what frames it}
+\subsection{Reduction to contextuality}
 \label{sec:reduction}
 \label{sec:predicate}
 
@@ -963,7 +963,7 @@ handle is \emph{spanning}, not simplicity: non-uniqueness of $\mu$ is irrelevant
 only its \emph{existence} matters.
 \end{proof}
 
-\noindent The prize is therefore a concrete $\sigma$-complete OML with a
+\noindent The object sought is therefore a concrete $\sigma$-complete OML with a
 $\sigma$-additive state outside the dispersion-free hull.
 
 \paragraph{Why $\sigma$-essential.} The finite version of this is already
@@ -979,7 +979,7 @@ vertex-sum $\tfrac52$. This is the KCBS inequality~\cite{KCBS2008}.) So ``concre
 OML with a contextual state'' is a $1978$ fact, and the general spanning statement
 is false. What Wright does \emph{not} supply is contextuality that requires the
 countable structure: the pentagon's is witnessed by a finite sub-OML (itself). The
-prize must therefore be \emph{$\sigma$-essential} --- contextual in the
+such a state must therefore be \emph{$\sigma$-essential} --- contextual in the
 $\sigma$-complete whole but in no finite sub-OML. This is not a device to evade
 Wright: ``every finite piece has a global section, the countable whole has none'' is
 a \emph{compactness failure} of exactly the type by which countable additivity is
@@ -1008,13 +1008,13 @@ sub-OMLs all classically interpretable, the obstruction carried only by the coun
 whole.
 \end{remark}
 
-\subsection{What the combinatorial route settles, and why it is not enough}
+\subsection{The combinatorial route}
 \label{sec:why-sigma}
 
-It is tempting to look for the object among concrete $\sigma$-orthocomplete OMLs,
+One might seek the object among concrete $\sigma$-orthocomplete OMLs,
 on the grounds that a state's $\sigma$-additivity invokes $\bigvee_n a_n$ only
 for orthogonal families (Definition~\ref{def:complete}). This route is
-\textbf{settled, and it does not produce the object.} The property that would
+settled, and does not produce the object. The property that would
 make $\sigma$-additivity genuinely exceed finite additivity on a concrete
 non-Boolean lattice is the interleaving condition
 \begin{equation}\label{eq:interleave}
@@ -1104,11 +1104,11 @@ $P(A)$. It cannot serve as the existence proof required, so the point-free
 $\sigma$-additive structure of \S\ref{sec:problem} is the only candidate engine.
 \end{remark}
 
-\subsection{Two axes, two dictionaries --- and the cell with no dictionary}
+\subsection{Two axes of obstruction}
 \label{sec:twoaxes}
 The recurring confusion of this subject
 (Remarks~\ref{rem:inhabited}, \ref{rem:AB}) is best held as a
-\textbf{$2\times2$} on two \emph{independent} axes, which must not be collapsed
+$2\times2$ table on two \emph{independent} axes, which must not be collapsed
 into one.
 \begin{itemize}
   \item \textbf{Axis 1 --- distributivity $=$ commutativity.} One condition in two
@@ -1148,9 +1148,9 @@ why a witness must be a pasting / countable colimit of concrete blocks, not a
 Hilbert-space construction, and why $L(H)$+Gleason cannot settle it. In this language
 the open problem (route~(iii)) is exactly: \emph{is there a
 logic\,$\leftrightarrow$\,geometry dictionary for the top-right cell?} --- and a
-$\sigma$-Loomis--Sikorski for concrete OMLs \emph{is} that missing dictionary.
-(Orientation, not a new result; it guards against collapsing Axis~2 into Axis~1, i.e.\
-treating ``non-distributive'' as ``$L(H)$''.)
+$\sigma$-Loomis--Sikorski for concrete OMLs is that missing dictionary. Axes~1 and~2
+are independent: non-distributivity does not entail non-concreteness, and a witness
+must be concrete and non-distributive simultaneously.
 
 % ==================================================================
 \section{Directions}
@@ -1159,7 +1159,7 @@ treating ``non-distributive'' as ``$L(H)$''.)
 
 With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), the
 combinatorial route shown to deliver only segregated objects
-(\S\ref{sec:why-sigma}), and the prize reduced to a $\sigma$-essential contextual
+(\S\ref{sec:why-sigma}), and the question reduced to a $\sigma$-essential contextual
 state (\S\ref{sec:predicate}), the problem has a clean dichotomy: two exits, each a
 genuine terminus. The negative exit is, moreover, \emph{already taken in the
 Polish-representable case} (Derr--Williamson, Remark~\ref{rem:dw}); both exits below
@@ -1182,7 +1182,7 @@ regular Borel point-realisation.
     since it forces all infinitary content into the Boolean center, where
     $\sigma$-additivity concentrates the contextual states onto points and removes
     them (\S\ref{sec:why-sigma}); a pasting or countable colimit of Wright-type
-    blocks is the natural place to look.
+    blocks is the natural candidate.
   \item[Prove no such witness exists]
     A spanning theorem: every $\sigma$-additive state on a $\sigma$-complete
     concrete OML lies in the closed convex hull of its dispersion-free states

@@ -539,6 +539,11 @@ Bell inequalities are the facets of a correlation polytope), and Bell and
 Kochen--Specker non-classicality are jointly an extension problem for partial
 Boolean algebras (Budroni--Morchio~\cite{BudroniMorchio2010}, with the
 necessary-and-sufficient conditions of Horn--Tarski~\cite{HornTarski1948}).
+It is also the marginal problem of probability theory --- extending consistent
+marginals to a joint law (Kellerer~\cite{Kellerer1964}) --- and the
+coherence/extendability question of imprecise probability
+(Walley~\cite{Walley1991}); the equivalence of these formulations to the
+quantum-logical one is made precise by Derr--Williamson~\cite{DerrWilliamson2023}.
 What is distinctive here is only that the extension is sought against the dual
 $S_0(A)$ rather than within a fixed scenario; the obstruction is the same
 finitary one, and it is settled. Two observations pin it down.
@@ -677,9 +682,10 @@ chargeability
 \textbf{Positive} (require structure rich enough to approximate Hilbert-space
 geometry):
 \begin{itemize}[noitemsep, topsep=2pt]
-  \item Gleason~\cite{Gleason1957} --- $L(H)$, $\dim\!\geq\!3$;
-    $\sigma$-additivity \emph{on the lattice}.
-  \item Bunce--Wright~\cite{BunceWright1992} --- JBW projection lattices;
+  \item Gleason~\cite{Gleason1957} --- on $L(H)$ for a \emph{separable} Hilbert space
+    of $\dim\geq3$, every countably additive measure on the projection lattice has the
+    trace form $s(\cdot)=\tr(\rho\,\cdot)$: $\sigma$-additivity \emph{on the lattice}.
+  \item Bunce--Wright~\cite{BunceWright1992} --- the projection-lattice (JBW) form;
     Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2005}.
 \end{itemize}
 \textbf{Obstructive} (Boolean machinery cannot be transplanted):
@@ -702,14 +708,15 @@ $\sigma$-Stone duality, equivalently a Loomis--Sikorski representation. Routes
 construction known, none ruled out), and is the Open Problem of \S\ref{sec:problem}.
 \begin{enumerate}[label=(\roman*)]
   \item \textbf{RDP / effect-algebra.} Loomis--Sikorski holds for $\sigma$-MV
-    algebras and monotone $\sigma$-effect algebras \emph{with} the Riesz
-    Decomposition Property \cite{Dvurecenskij2000,Dvurecenskij2005}; but a lattice
+    algebras~\cite{Dvurecenskij2000} and for monotone $\sigma$-complete effect
+    algebras \emph{with} the Riesz Decomposition Property
+    \cite{Dvurecenskij2006}; but a lattice
     effect algebra has RDP iff it is MV, and OML $\cap$ MV $=$ Boolean
     (Kalmbach~\cite{Kalmbach1983}): $\text{OML}+\text{RDP}\iff\text{Boolean}$. The
     \emph{sharp-skeleton} evasion (represent the OML as the sharp elements of an
     ambient RDP effect algebra) also closes: in an RDP effect algebra the sharp
     elements coincide with the center, hence are Boolean (Jen\v{c}a 2001, Cor.~4.3,
-    via Greechie--Foulis--Pulmannov\'a 1995).
+    via Greechie--Foulis--Pulmannov\'a~\cite{GreechieFoulisPulmannova1995}).
   \item \textbf{MacNeille completion.} The MacNeille completion of an OML need not
     be orthomodular (Harding~\cite{Harding1991}), so one cannot complete to absorb
     countable joins; the topological version (clopens of $S_0(A)$ modulo the meagre
@@ -853,15 +860,23 @@ $(L,w)$ exists?
 
 \begin{remark}[Relation to Derr--Williamson 2023]\label{rem:dw}
 The problem above is not plainly open: it must be read against
-Derr--Williamson~\cite{DerrWilliamson2023}, which studies coherent probabilities on
+Derr--Williamson~\cite{DerrWilliamson2023}, who study coherent probabilities on
 \emph{pre-Dynkin-systems} (concrete orthomodular posets) and \emph{Dynkin-systems}
-(concrete $\sigma$-complete OMLs) from the imprecise-probability side. Their
-Theorem~4.5 characterises finite-additive global extendability by a finite condition
-matching ``non-contextual on every finite sub-OML,'' and their Theorem~D.6 upgrades
-this to a \emph{countably additive} extension to the ambient Borel $\sigma$-algebra
-\emph{under the hypotheses} that the OML is realised as a Dynkin-system $D_\sigma$ of
-Borel sets of a \emph{Polish} space $\Omega$ with $\sigma(D_\sigma)=\mathrm{Borel}
-(\Omega)$ and inner-regular $\sigma$-blocks.
+(concrete $\sigma$-complete OMLs) from the imprecise-probability side. Three distinct
+levels of statement are involved, and should not be conflated:
+\begin{enumerate}[label=(\alph*), noitemsep, topsep=2pt]
+  \item a finite-additive extendability criterion (their Theorem~4.5, a Horn--Tarski
+    feasibility condition) matching ``non-contextual on every finite sub-OML'';
+  \item a \emph{countably additive} extension to the ambient Borel $\sigma$-algebra
+    (their Theorem~D.6), valid \emph{under the hypotheses} that the OML is realised
+    as a Dynkin-system $D_\sigma$ of Borel sets of a \emph{Polish} space $\Omega$
+    with $\sigma(D_\sigma)=\mathrm{Borel}(\Omega)$ and inner-regular $\sigma$-blocks
+    --- a result they obtain by specialising
+    Maharam's extension theorem~\cite[Thm~8.1]{Maharam1972} (Hausdorff base,
+    inner-regular measures); and
+  \item the inference from (b) to non-contextuality of $w$, below, which is the
+    survey's own step.
+\end{enumerate}
 
 The link to the present formulation is one-directional but in the direction that
 matters. A point $\omega\in\Omega$ gives the evaluation $\delta_\omega$, which is a
@@ -1054,7 +1069,8 @@ and $\sigma$-complete yet has no points in the homomorphism sense at all --- the
 point-free target is forced, not engineered. The same arithmetic records the
 sharp Boolean boundary: an OML is Boolean iff it admits a \emph{unital} set of
 \emph{subadditive} states --- one with, for each nonzero $a$, a subadditive state
-giving $a$ value $1$ (Pt\'ak--Pulmannov\'a~\cite{PtakPulmannova1994}, for OMLs). A
+giving $a$ value $1$ (Pt\'ak--Pulmannov\'a~\cite[Thm~1]{PtakPulmannova1994}, for OMLs;
+the orthomodular-poset version fails). A
 concrete non-Boolean OML therefore cannot have its separating two-valued states
 form such a unital set: some fail subadditivity (here all four of $\mathrm{MO}_2$'s
 fail $\omega(a\vee b)\leq\omega(a)+\omega(b)$). The forcing property to Boolean is

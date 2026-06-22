@@ -1220,26 +1220,48 @@ point-realisation.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=2.6cm, leftmargin=3.0cm]
   \item[Exhibit a $\sigma$-essential witness]
-    Construct an infinite concrete OML carrying a $\sigma$-additive contextual
-    state that no finite sub-OML witnesses. The object to be built can be specified
-    precisely. As $\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ is compact, $w\notin
-    \overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ is separated by a
-    \emph{finite}-support functional $\sum_i c_i s(a_i)$ (Hahn--Banach); the $a_i$
-    generate a finite sub-OML $F$ on which $\sigma$-essentiality gives
-    $w|_F\in\overline{\mathrm{conv}}(S_{\mathrm{df}}(F))$. So contextuality is finitely
-    \emph{detected} though no finite sub-OML is itself contextual, and the target is a
-    single \emph{restriction gap}, $\{s|_F : s\in S_{\mathrm{df}}^\sigma\}\subsetneq
-    S_{\mathrm{df}}(F)$ for some finite $F$: the global dispersion-free $\sigma$-states
-    fail to restrict onto the full local dispersion-free hull. The obstruction is thus
-    carried by the $\sigma$-structure (faithful set representation barred at every
-    stage, Theorem~\ref{thm:floor}), not by any finite block. A necessary condition:
-    the witness must place its infinitary structure \emph{off-centre} (irreducible,
-    non-central infinite blocks), since $\prod_n\mathrm{MO}_2$ forces infinitary
-    content into the Boolean centre where $\sigma$-additivity removes the contextual
-    states (\S\ref{sec:why-sigma}). The compositional recipes --- a
-    compactness-failure limit (Remark~\ref{rem:ce}) or a pasting/countable colimit of
-    Wright-type blocks --- appear to collapse onto these excluded cases (segregation,
-    or charge-non-$\sigma$-additivity) rather than reach the gap.
+    Construct an infinite concrete OML $L$ carrying a $\sigma$-additive state $w$ that
+    is contextual yet witnessed by no finite sub-OML. The object can be pinned down.
+    Write, for a finite sub-OML $F$,
+    \[
+      A_F := \overline{\mathrm{conv}}\,(S_{\mathrm{df}}(F)),
+      \qquad
+      B_F := \overline{\mathrm{conv}}\,\{\,s|_F : s\in S_{\mathrm{df}}^\sigma\,\},
+    \]
+    the full local dispersion-free hull and the hull of restrictions of the
+    \emph{global} $\sigma$-states. The inclusion
+    \[
+      B_F\ \subseteq\ A_F
+    \]
+    always holds, since a restriction $s|_F$ of a global dispersion-free state is a
+    dispersion-free state on $F$. The two defining properties of $w$ now combine.
+    Because $w$ is contextual, $w\notin\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$;
+    this hull is compact, so by Hahn--Banach a finite-support functional separates $w$
+    from it, and the elements in its support generate a finite sub-OML $F$ with
+    \[
+      w|_F\ \notin\ B_F .
+    \]
+    Because $w$ is $\sigma$-essential, on that same $F$
+    \[
+      w|_F\ \in\ A_F .
+    \]
+    The two statements, with $B_F\subseteq A_F$, give $w|_F\in A_F\setminus B_F$, so
+    \[
+      B_F\ \subsetneq\ A_F .
+    \]
+    The upshot: contextuality is finitely \emph{detected} --- it shows at the single
+    finite $F$ --- though no finite sub-OML is itself contextual, and the whole target
+    reduces to this one \emph{restriction gap}, the failure of the global
+    $\sigma$-states to restrict onto the full local hull. The obstruction is therefore
+    carried by the $\sigma$-structure, not by any finite block.
+
+    One necessary condition follows. The witness must be \emph{off-centre} (irreducible,
+    with non-central infinite blocks): a central decomposition would route the
+    infinitary content into a Boolean centre, where $\sigma$-additivity concentrates the
+    contextual states onto points and removes them --- this is the $\prod_n\mathrm{MO}_2$
+    mechanism (\S\ref{sec:why-sigma}). The two obvious recipes both fail this test: a
+    compactness-failure limit (Remark~\ref{rem:ce}) collapses to non-$\sigma$-additivity,
+    and a pasting or countable colimit of Wright-type blocks collapses to segregation.
   \item[Prove no such witness exists]
     A spanning theorem: the restriction gap above is always empty (off a contextual
     finite sub-OML, Wright), so $\sigma$-essential relational probability is

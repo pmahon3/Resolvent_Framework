@@ -569,86 +569,18 @@ Let $\dim H = \infty$. \emph{No} state on $L(H)$ --- normal or singular
 --- extends to a charge on $S_0(L(H))$.
 \end{proposition}
 
-\begin{proof}
-The argument embeds a copy of $\mathrm{MO}_2$ in $L(H)$ whose four atoms are
-infinite-dimensional, so that the obstruction reaches the singular states as
-well. Write $H = H_0 \otimes \mathbb{C}^2$ with $H_0$ infinite-dimensional,
-and fix an orthonormal basis $e,f$ of $\mathbb{C}^2$. Set
-\[
-  a_1 = H_0 \otimes \mathbb{C}e,\quad
-  a_1^\perp = H_0 \otimes \mathbb{C}f,\quad
-  a_2 = H_0 \otimes \mathbb{C}(e{+}f),\quad
-  a_2^\perp = H_0 \otimes \mathbb{C}(e{-}f).
-\]
-These four infinite-dimensional subspaces form a copy of $\mathrm{MO}_2$ in
-$L(H)$:
-\[
-  \begin{aligned}
-  &a_1\perp a_1^\perp,\quad a_2\perp a_2^\perp,\quad a_i\vee a_i^\perp=H;\\
-  &a_i\wedge a_j=\mathbf 0 \ \text{ but }\ a_i\not\perp a_j
-    \ \ (\text{cross pairs}).
-  \end{aligned}
-\]
-Orthoadditivity with $s(\mathbf 1)=1$ gives $s(a_i)+s(a_i^\perp)=1$ for
-$i=1,2$, using only additivity on orthogonal pairs, so it holds for
-\emph{every} state. The family $\{a_1,a_1^\perp,a_2,a_2^\perp\}$ is pairwise
-meet-zero, and since $h$ preserves meets ($h(a\wedge b)=h(a)\cap h(b)$), its
-members map to disjoint clopens; hence any charge satisfies
-$\sum_i s(a_i)\le 1$. The two counts collide:
-\[
-  \sum_i s(a_i) = 2 \ \ (\text{orthoadditivity})
-  \qquad\text{versus}\qquad
-  \sum_i s(a_i)\le 1 \ \ (\text{any charge}).
-\]
-The construction is finite ($n=4$); $\sigma$-completeness of the lattice plays
-no role.
+\begin{proof}[Proof sketch]
+Embed $\mathrm{MO}_2$ in $L(H)$ with \emph{infinite-dimensional} atoms: writing
+$H=H_0\otimes\mathbb C^2$ ($\dim H_0=\infty$), the four subspaces
+$H_0\otimes\mathbb Ce,\,H_0\otimes\mathbb Cf,\,H_0\otimes\mathbb C(e{+}f),\,
+H_0\otimes\mathbb C(e{-}f)$ are pairwise meet-zero with $a_i\vee a_i^\perp=H$.
+Orthoadditivity forces $\sum_i s(a_i)=2$ for every state, while disjointness of
+the images under the meet-preserving $h$ forces $\sum_i s(a_i)\le 1$ for any
+charge --- a state-independent collision. The construction is finite ($n=4$), so
+$\sigma$-completeness plays no role; the infinite-dimensional atoms are what carry
+the obstruction past the finite-rank states to the singular ones (where every
+finite-rank projection has measure zero), closing the axis completely.
 \end{proof}
-
-\noindent The $\mathrm{MO}_2$ count is standard (orthoadditivity together with
-$s(\mathbf 1)=1$; see~\cite{Kalmbach1983}) and $\sum s(a_i)=2$ is already
-state-independent in $L(\mathbb C^2)$. The role of the
-\emph{infinite-dimensional} realisation is to extend the obstruction to the
-singular states ($s(e)=0$ on every finite-rank $e$):
-\begin{center}
-\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.30\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}>{\raggedright\arraybackslash}p{0.24\linewidth}@{}}
-\toprule
-\textbf{Atoms of $\mathrm{MO}_2$} & \textbf{$s(a_i)+s(a_i^\perp)$} &
-  \textbf{Reaches} \\
-\midrule
-lines in $L(\mathbb C^2)$ (finite rank)
-  & $=1$ only if $s$ charges finite rank & normal states only \\[2pt]
-$H_0\otimes(\cdot)$, $\dim H_0=\infty$
-  & $=1$ regardless of finite-rank behaviour & all states, incl.\ singular \\
-\bottomrule
-\end{tabular}
-\end{center}
-\noindent Keeping each atom infinite-dimensional drops the finite-rank
-precondition of the line argument (Remark~\ref{rem:linearg}), and that is what
-closes the extension axis on $L(H)$ completely.
-
-\begin{remark}[An alternative argument for normal states only]
-\label{rem:linearg}
-A second, technique-disjoint argument reaches the normal states without the
-$\mathrm{MO}_2$ family. If $s(e)>0$ on some finite-dimensional $e$, it is
-positive on a $2$-plane $e_0$; taking $k$ pairwise-non-orthogonal lines
-$p_1,\dots,p_k\subset e_0$ yields $2k$ pairwise-meet-zero lines with
-$s(p_i)+s(p_i^\perp)=s(e_0)$, so a charge forces
-\[
-  k\,s(e_0)\le 1 \ \ \text{for all } k
-  \quad\Longrightarrow\quad
-  s(e_0)=0,
-\]
-contradicting $s(e_0)>0$. Lifting $s$ to a functional via Mackey--Gleason /
-Bunce--Wright~\cite{BunceWright1992} ($B(H)$ has no type $\mathrm I_2$ summand)
-and applying the Takesaki normal/singular decomposition identifies which
-states the argument reaches: it covers states with a nonzero normal part
-($s(e)>0$ for some finite-rank $e$), including every normal (Gleason) state, and
-misses the purely singular states ($s(e)=0$ for all finite-rank $e$; e.g.\
-ultrafilter vector states or Calkin-algebra pullbacks).
-Proposition~\ref{prop:lh} subsumes the missed case; this argument is
-recorded because its technique is independent and locates the singular states
-precisely.
-\end{remark}
 
 % ==================================================================
 \section{What is known}
@@ -1313,26 +1245,12 @@ regular Borel point-realisation.
     lever, but cannot reuse the $\prod_n\mathrm{MO}_2$ mechanism, vacuous off-center.
 \end{description}
 
-\noindent A candidate direction now closed: the singular case for $L(H)$. One
-might have hoped a singular state would extend where no normal state does,
-providing the first explicit ``extends but may fail to concentrate'' example;
-Proposition~\ref{prop:lh} rules this out, catching every state, singular
-included. The reduction is recorded because the singular case was expected to
-require infinitary methods and does not (Remark~\ref{rem:finvscount}).
-
-\begin{remark}[Finite versus countable: finite suffices]\label{rem:finvscount}
-Is the obstruction to extending a singular state realised by a \emph{finite}
-or only by a \emph{countable} pairwise-meet-zero family? The two arguments
-divide on exactly this point. The line argument (Remark~\ref{rem:linearg}) is
-finitary but \emph{vacuous} on a singular state ($s(e)=0$ for every finite-rank
-$e$); the $\mathrm{MO}_2$ argument with infinite-dimensional atoms
-(Proposition~\ref{prop:lh}) uses a finite family ($n=4$) and gives
-$\sum_i s(a_i)=2$ state-independently, catching the singular case as well. So the
-singular obstruction is \emph{not} entangled with the descent-axis passage, as the
-vacuity of the line argument might suggest: it is realised by a finite family,
-hence a self-contained finitary problem, separable from the
-general construction and not governed by the finitary-to-$\sigma$ passage.
-\end{remark}
+\noindent One hope is thereby closed: that a singular state might extend where no
+normal state does, the first ``extends but fails to concentrate'' example.
+Proposition~\ref{prop:lh} rules this out by a \emph{finite} family ($n=4$), so the
+singular case --- expected to need infinitary methods --- is a self-contained finitary
+matter, not governed by the finitary-to-$\sigma$ passage that carries the open
+question.
 
 \appendix
 % ==================================================================

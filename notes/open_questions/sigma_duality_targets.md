@@ -355,6 +355,47 @@ witness — but a new fence and the actionable relocation of where a witness liv
   problem (= HW Problem 2, untooled). **No carrier on the table; Exit-B inclination
   held open (NOT a verdict); `rem:dw` unmoved.**
 
+## 8. DST construction attempt (2026-06-22, Session 10) → the deliverable is the restriction-gap, not non-Borelness
+
+*Took the §7 probe and the S9-flagged DST route to ground. Three corrections to §7,
+one verified fact, one new sub-theorem. No witness; reduces to σ-lifting-failure.*
+
+- **Correction to §7's hedge: "iff" → "⟹".** Lifting (`S_df(F)={s|_F:s∈S_df}` ∀
+  finite `F`) is **sufficient**, not strictly necessary, for `w∈conv̄(S_df)` (`w|_F`
+  can land in the smaller restricted-hull even where lifting fails). State it
+  "lifting ⟹ two-hull framing valid".
+- **The probe is a degenerate bracket, not a discriminator.** `∏ₙMO₂` lifts *because*
+  segregated (only ever confirms "holds"); Wright's pentagon is a loop where lifting
+  fails AND is already excluded (finitely witnessed). They bracket the fork without
+  touching the non-segregated regime — there lifting is *as hard as the main problem*.
+  Smuggle-trap flagged+avoided: "lifting fails ⟹ finitely witnessed ⟹ not σ-essential"
+  is FALSE (local hull `S_df(F)` strictly bigger than restricted-global hull; the
+  "lifting fails"/KS branch is NOT closed by the loop-kills).
+- **VERIFIED (load-bearing): off-hull is ALWAYS finitely witnessed.**
+  `w∉conv̄(S_df^σ)` ⟺ a *finite* combination `Σcᵢ s(aᵢ)` separates `w`
+  (Hahn–Banach in `ℝ^L`, product topology; continuous functionals = finite-support).
+- **DELIVERABLE RE-IDENTIFIED.** Off-hull + σ-essential FORCE the strict
+  **restriction-gap** `{s|_F:s∈S_df^σ} ⊊ S_df(F)` — global σ-additive df-states fail to
+  restrict onto the local df-state hull. `w` exists EXACTLY when this gap does.
+  Non-Borelness of `S_df^σ` is only its descriptive SHADOW — neither target nor
+  sufficient. **The gap IS σ-lifting-failure = route-(iii) σ-LS wall = `rem:dw`
+  residue.** Aim at the gap, not at a complicated state space.
+- **Countably-generated checkpoint: PERMITS, not FORCES.** Countable generation permits
+  non-point-like σ-states (π–λ wall blocks LS collapse) but does not force the gap —
+  `∏ₙMO₂` is countably generated, non-π-system generators, yet lifting holds. π–λ
+  failure NECESSARY not SUFFICIENT.
+- **NEW SUB-THEOREM CANDIDATE (flagged, NOT claimed — Type-5):** *every countably
+  generated concrete σ-complete OML satisfies lifting?* If true ⟹ witness must be
+  **uncountably generated** (narrows search). Does NOT follow from π–λ; a theorem to
+  prove. **Cleanest next move.**
+- **Negative-space finding.** The 5 primitive binding modes each land on a closed horn;
+  the residual region = "non-orthogonal joins, non-trivial value" = the open problem in
+  local terms, NOT a mechanism. Every *compositional* (pairwise) join-specification
+  collapses to a horn ⟹ **the lever, if any, must be GLOBAL/non-compositional** — why
+  finite-assembly construction always fails.
+- **Tripwire (not triggered):** extra set-theoretic axioms (meas. cardinal / V=L / ¬MA)
+  would confirm `rem:dw`'s ZFC-independence rhyme. Not seen.
+
 ---
 
 *Status: working scaffold, not survey-ready. §5 sub-task ATTEMPTED (§6) → intrinsic

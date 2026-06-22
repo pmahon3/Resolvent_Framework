@@ -5,17 +5,40 @@
 ROUTING verdict (which exit the investigation takes), not a construction or a
 proof. Continues `reading1_prize_reduction.md`.*
 
-> **VERDICT: GAP.** CE does **not** settle whether σ-essential contextuality can
-> occur. The Boolean CE/Stone argument that killed `∏ₙMO₂` ("σ-additive ⟹
-> concentration on principal points ⟹ non-contextual") **provably does not
-> transfer** to the non-distributive case: it controls only the Boolean *center*
-> of a concrete σ-complete OML and is *vacuous* off-center. So EMPTY is
-> unestablished (the impossibility tool has no content where a witness would
-> live), and no positive consistency argument was found either, so NON-EMPTY is
-> unestablished. The durable payload is the **named break-point** and the
-> **sharpened Exit-A target**: a witness must put its infinitary structure
-> *off-center* (irreducible / non-central-infinite), which a product of finite
-> blocks like `∏ₙMO₂` structurally cannot do.
+> **VERDICT: GAP** *(2026-06-12; SHARPENED 2026-06-22 — frontier narrowed, see
+> below).* CE does **not** settle whether σ-essential contextuality can occur. The
+> Boolean CE/Stone argument that killed `∏ₙMO₂` ("σ-additive ⟹ concentration on
+> principal points ⟹ non-contextual") **provably does not transfer** to the
+> non-distributive case: it controls only the Boolean *center* of a concrete
+> σ-complete OML and is *vacuous* off-center. So EMPTY is unestablished (the
+> impossibility tool has no content where a witness would live), and no positive
+> consistency argument was found either, so NON-EMPTY is unestablished. The durable
+> payload is the **named break-point** and the **sharpened Exit-A target**: a
+> witness must put its infinitary structure *off-center* (irreducible /
+> non-central-infinite), which a product of finite blocks like `∏ₙMO₂` cannot do.
+>
+> **SHARPEN (2026-06-22, on two new inputs — legitimate per guardrail: a standing
+> check FLIPPED and a concrete witness keeps it live).**
+> *Check that flipped:* the "EMPTY is unestablished" clause above is **no longer
+> true in general** — Derr–Williamson Thm D.6 (primary-source-adjudicated
+> 2026-06-20, `sigma_essential_prior_art_verdict.md` / survey `rem:dw`) **does
+> establish EMPTY for the Polish/regular-representable case**. The full GAP has
+> narrowed to a residue.
+> *New frontier (this session's reduction, `sigma_duality_targets.md`):* the whole
+> problem reduces with no remainder to **clause (iii)** — is the σ-additive state
+> `w` a barycentre of a σ-additive measure on the **dispersion-free states**,
+> `w ∈ conv̄(S_df^σ)` — **off the regular-realizable case**. Representation
+> conditions (i)+(ii) are settled (a definitional pin; inhabited by `∏ₙMO₂`). The
+> binding open condition is **inner-regularity + Borel-σ-generation on the natural
+> `S_df^σ` weak-\* representation** (verdict file's sharper form), not "Polish" per
+> se. **Descent space is `S_df^σ`, NOT `P(A)`** (the (A)/(B) equivocation, `rem:AB`
+> — re-flagged because the first draft of the σ-duality note committed exactly this
+> error and it was caught on audit).
+> *Live witness keeping it open:* a candidate `(L,w)` whose `S_df^σ` admits no
+> inner-regular Borel-σ-generating realization (non-Polish / analytic-not-Borel);
+> not inhabited, not killed — the DST-flavoured residue. `∏ₙMO₂` = standing negative
+> control. Does NOT move the STABLE `rem:dw` verdict; restates its residue on the
+> correct space.
 
 ---
 

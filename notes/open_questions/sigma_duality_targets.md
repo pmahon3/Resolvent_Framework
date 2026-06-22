@@ -322,6 +322,30 @@ edge: that meet-free uniqueness argument.
 analog of the `P(A)`/`S_df^σ` switch caught on audit. First question on any positive
 result: *where did meet-closure / inner-regularity enter?*
 
+## 7. Construction attempt (2026-06-22) → fence + the two-hull relocation
+
+*Tried to construct the missing non-segregated concrete σ-complete OML witness.
+Advisor-gated; two substrate ideas, both = the `∏ₙMO₂` death in new clothes. No
+witness — but a new fence and the actionable relocation of where a witness lives.*
+
+- **Fence (CE-charge-limit cannot carry it).** Making the non-distributivity/
+  contextuality BE the CE limit-failure (`A_n↓`, `μ(A_n)↛0`, `⋀A_n=0`) is dead: that
+  limit-failure *is* failure of continuity-from-above = *is* non-σ-additivity, so the
+  carrier state is finitely-additive-not-σ — the `∏ₙMO₂` death. Dual concreteness
+  fence: meets never overshoot (`h(⋀A_n)⊆⋂h(A_n)` always), so non-distributivity is
+  **finite/binary** and cannot live in the countable limit, either side.
+- **Relocation (where the witness lives).** The carrier is **not a limit gadget** —
+  it is the **two-hull geometry**: a witness is `w ∈ conv̄(S_df) \ conv̄(S_df^σ)` with
+  `w` **genuinely σ-additive**, i.e. `conv̄(S_df^σ)` a *strictly smaller closed hull*
+  than `conv̄(S_df)` (a separation of the two df-state sets), **off-center**. Both
+  hulls compact (§6). This is §6's CE-leak, now identified as the search target.
+- **Gate for any candidate `w` escaping `conv̄(S_df^σ)`:** *does the escape come from
+  charge-non-σ-additivity?* YES ⟹ `∏ₙMO₂` death, reject. A live witness needs `w`
+  σ-additive with the escape carried by `S_df^σ ⊊ S_df` as closed hulls. Whether that
+  gap is inhabited for an irreducible off-center concrete σ-complete OML is the open
+  problem (= HW Problem 2, untooled). **No carrier on the table; Exit-B inclination
+  held open (NOT a verdict); `rem:dw` unmoved.**
+
 ---
 
 *Status: working scaffold, not survey-ready. §5 sub-task ATTEMPTED (§6) → intrinsic

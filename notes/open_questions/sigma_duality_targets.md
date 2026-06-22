@@ -196,16 +196,91 @@ fourth target clause.
   "(i)+(ii) ⟹ Boolean" or "(ii) ⟹ no contextual σ-state" must fail on `∏ₙMO₂`** —
   if it doesn't, the bug is a slide from ⊥-perp to set-complement, or from
   disjoint-union to intersection (the two functors of §2b conflated).
-- Next concrete sub-task (if pursued): test whether the **Maharam inner-regularity
-  step (D.6) can be made intrinsic** — whether `w ∈ conv̄(S_df^σ)` can be forced
-  from the abstract σ-OML structure rather than read off a pre-given Polish/regular
-  realization of `S_df^σ`. Per the verdict file's sharper form, the binding
-  condition is inner-regularity + Borel-σ-generation on the natural `S_df^σ` weak-\*
-  representation, not "Polish" per se. That is the live edge of the `rem:dw`
-  residue, and the only unforced target clause.
+## 6. §5 sub-task, ATTEMPTED → BLOCKED at the π–λ wall (a finding, not a threshold)
+
+*Worked 2026-06-22, after advisor. **Reframed deliverable:** NOT "force
+`w ∈ conv̄(S_df^σ)` in general / close the cell" — that is foreclosed (Maharam §8
+topological hypothesis is LOAD-BEARING, primary-source-adjudicated; a closure result
+would contradict the STABLE `rem:dw` verdict). The target was to **pin which
+regularity condition `S_df^σ` needs and which OMLs supply it for free.** Result: the
+intrinsic route is **blocked** — and the block is itself the distributivity wall (π–λ
+needs meet-closure; the Floor forbids it). Read the OUTCOME box, not the chain above
+it, for the verdict; the metrizability chain is recorded as the attempt that exposed
+where it breaks.*
+
+**Reduction of the residue to one predicate.** `S_df^σ` is weak-\* compact
+**Hausdorff** (claimed; sits in `[0,1]^L`), so Maharam §8.2's Hausdorff-base
+hypothesis is **free**. The only thing §8.2 needs beyond it is that the barycentric
+measure be **inner-regular (Radon)**. So the entire residue collapses to:
+> **Is the barycentric measure on `S_df^σ` inner-regular (Radon)?**
+
+**The metrizability chain.** ⟦HAND — load-bearing, unverified⟧
+- A compact Hausdorff `K ⊆ [0,1]^L` (product topology) is **metrizable ⟺
+  second-countable ⟺ a countable `D ⊆ L` separates the points of `S_df^σ`** (the
+  evaluations `s ↦ s(a)`, `a∈D`, separate states).
+- **`L` countably generated (as a σ-OML) ⟹ `S_df^σ` metrizable.** If countable
+  `G ⊆ L` has `σ(G)=L`: two σ-additive states agreeing on `G` agree on `σ(G)=L` (the
+  agreement set is a σ-sub-structure containing `G`; monotone-class/Dynkin), so `G`
+  separates `S_df^σ` ⟹ second-countable ⟹ metrizable.
+- **metrizable ⟹ Radon.** On a compact *metric* space every finite Borel measure is
+  inner-regular (standard). So the barycentric measure is automatically Radon, §8.2
+  applies, and **descent holds**.
+- *Converse is weaker:* metrizable ⟹ countably many coordinates *separate* `S_df^σ`,
+  which is separation, not generation — so "metrizable ⟹ `L` countably generated"
+  need **not** hold. The clean direction is the one above (generated ⟹ metrizable ⟹
+  Radon ⟹ descent).
+
+**OUTCOME: the intrinsic route is BLOCKED at the generation⟹separation step — and
+the block is the π–λ / meet-closure obstruction, i.e. the SAME distributivity wall.**
+⟦HAND⟧ The metrizability chain's load-bearing arrow "`L` countably generated ⟹ `G`
+separates `S_df^σ`" **fails as stated.** Diagnosis (advisor-confirmed):
+
+- The agreement set `E={a : s(a)=t(a)}` is a **λ-system** (Dynkin): contains `1`,
+  complement-closed, closed under countable *orthogonal* joins. Boolean
+  uniqueness-from-generators is the **π–λ theorem**, which requires `G` to be a
+  **π-system: meet-closed.**
+- In an OML you **cannot propagate agreement to meets** — `s(a∧b)` is not determined
+  by `s(a),s(b)` (the same non-determination as non-orthogonal joins) — and
+  meet-closure of generators is exactly the **Floor / `rem:concrete`** trigger toward
+  Boolean. So the uniqueness step breaks on the *same* distributivity obstruction as
+  the rest of the problem. That is the finding: descent resists going intrinsic
+  because the measure-uniqueness machinery is π–λ, π-systems are meet-closed, and
+  meet-closure is what the Floor forbids.
+
+**Unit-test probe (`∏ₙMO₂`, separation question).** ⟦HAND⟧ Do the coordinate atoms
+`{a^{(n)},b^{(n)}}` separate `S_df^σ(∏ₙMO₂)`? **YES** — but *degenerately*: within a
+single MO₂ block every non-orthogonal join/meet is trivial (`a∨b=1`, `a∧b=0`), so
+there is nothing for π–λ to propagate to; per-coordinate data `(s(a^{(n)}),s(b^{(n)}))`
++ σ-additivity pins the state. So separation holds on `∏ₙMO₂` **precisely because it is
+segregated** — the π–λ gap is *invisible* on the unit test and bites only on a
+**non-segregated** OML (non-orthogonal joins taking non-trivial values) — which is
+exactly where a real witness must live. The control does not catch this gap; do not
+mistake its passing for a general result.
+
+**Second, independent crack: is `S_df^σ` even weak-\* compact?** ⟦HAND — unverified⟧
+The set of *all* states is weak-\* compact, but **σ-additive states need not be weak-\*
+closed** — a weak-\* limit of σ-additive states can be merely finitely additive (the
+CE phenomenon, `rem:ce`). So `S_df^σ` may fail compactness, and then `lem:relational`'s
+barycentre/Choquet machinery (stated for the weak-\* compact `S_df`) does **not**
+transfer to the σ-version for free. The whole §6 scaffold rests on this unchecked claim.
+
+**Honest status of §6.** Intrinsic route **attempted and blocked**: (1) the
+generation⟹separation arrow fails at the π–λ/meet-closure step (= the distributivity
+wall again); (2) compactness of `S_df^σ` is unverified and may fail by CE. This is a
+real finding — *why* the residue resists intrinsic resolution — and a sharpening of the
+obstruction, NOT a completed threshold result and NOT a closure. Does **not** swing
+`rem:dw`. The "countably generated ⟹ descent" claim is **withdrawn** pending a
+meet-free uniqueness argument (none known) and a compactness check.
+
+**Red-flag rule (standing).** If any later argument forces `w ∈ conv̄(S_df^σ)` for
+*general* `L`, STOP — it has smuggled inner-regularity/Radon (or a π-system), the
+analog of the `P(A)`/`S_df^σ` switch caught on audit. First question on any positive
+result: *where did meet-closure / inner-regularity enter?*
 
 ---
 
-*Status: working scaffold, not survey-ready. Decide incorporation after the §5
-sub-task is attempted. Does NOT reopen the `rem:dw` verdict (STABLE); only
+*Status: working scaffold, not survey-ready. §5 sub-task ATTEMPTED (§6) → intrinsic
+route BLOCKED at the π–λ/meet-closure wall (the distributivity obstruction again);
+compactness of `S_df^σ` also unverified (may fail by CE). A finding, not a threshold
+result. Does NOT reopen the `rem:dw` verdict (STABLE); only
 restates its residue as a right-side specification gap.*

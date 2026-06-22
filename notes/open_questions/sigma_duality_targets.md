@@ -257,20 +257,45 @@ segregated** — the π–λ gap is *invisible* on the unit test and bites only 
 exactly where a real witness must live. The control does not catch this gap; do not
 mistake its passing for a general result.
 
-**Second, independent crack: is `S_df^σ` even weak-\* compact?** ⟦HAND — unverified⟧
-The set of *all* states is weak-\* compact, but **σ-additive states need not be weak-\*
-closed** — a weak-\* limit of σ-additive states can be merely finitely additive (the
-CE phenomenon, `rem:ce`). So `S_df^σ` may fail compactness, and then `lem:relational`'s
-barycentre/Choquet machinery (stated for the weak-\* compact `S_df`) does **not**
-transfer to the σ-version for free. The whole §6 scaffold rests on this unchecked claim.
+**Second crack — RESOLVED (advisor-checked 2026-06-22): real but mislocated, and it
+is a CE *connection*, not a threat.** ⟦HAND⟧ The first draft overstated it. Three
+facts settle it:
+1. **`S_df` (ALL 2-valued states) IS weak-\* compact** — closed in `[0,1]^L`
+   (`s(1)=1`, orthoadditivity, and 2-valuedness `⋂_a{s:s(a)∈{0,1}}` are each closed
+   conditions) ∩ Tychonoff. So **`lem:relational`, stated for `S_df`, STANDS** — it
+   was never in danger. *(Owned check: orthoadditivity is the only state condition in
+   this setup, so the closedness argument is complete.)*
+2. **`S_df^σ` is NOT weak-\* closed** (the δ_{x_n}→free-ultrafilter argument; = CE,
+   `rem:ce`), hence not compact. True — but see (3).
+3. **`conv̄(S_df^σ)` is compact regardless** (closed convex hull inside the compact
+   `S_df`), so the **contextuality predicate `w ∉ conv̄(S_df^σ)` needs NO compactness
+   assumption.** The crack does not touch the predicate.
 
-**Honest status of §6.** Intrinsic route **attempted and blocked**: (1) the
-generation⟹separation arrow fails at the π–λ/meet-closure step (= the distributivity
-wall again); (2) compactness of `S_df^σ` is unverified and may fail by CE. This is a
-real finding — *why* the residue resists intrinsic resolution — and a sharpening of the
-obstruction, NOT a completed threshold result and NOT a closure. Does **not** swing
-`rem:dw`. The "countably generated ⟹ descent" claim is **withdrawn** pending a
-meet-free uniqueness argument (none known) and a compactness check.
+So the crack lives in exactly one place: the *realization direction* of the σ-analog
+of `lem:relational`. `w ∈ conv̄(S_df^σ)` gives a barycentre of a measure on
+`cl(S_df^σ)`, which may charge `cl(S_df^σ)\S_df^σ` = the finitely-additive
+dispersion-free states = **the CE phantoms (`rem:ce`)**. Hence "genuine σ-additive
+hidden-variable mixture" (measure on `S_df^σ`) is potentially **strictly stronger**
+than `w ∈ conv̄(S_df^σ)`. This is a one-directional **closure gap = the CE leak**: a
+refinement connecting the scaffold to `rem:ce`, NOT a transfer failure. Sub-question
+**CLOSED** (refined to a CE connection, not a death).
+
+> **Flagged forward-looking sub-question (do NOT act unprompted — touches the
+> survey's `lem:relational`/`rem:ce` definitions):** if "measure genuinely on
+> `S_df^σ`" is strictly stronger than `w∈conv̄(S_df^σ)`, the survey's contextuality
+> predicate may be the *weaker* of two inequivalent σ-notions. A witness for the
+> stronger one (a σ-additive measure charging no CE phantom) would be a cleaner
+> object — and possibly the *right* target. Whether the two notions actually differ
+> on some `L`, and which the open problem should use, is an open definitional
+> question for the user's call, not a settled refinement.
+
+**Honest status of §6.** Intrinsic route **attempted and blocked at ONE wall** (the
+π–λ/meet-closure step = the distributivity obstruction again); the second worry
+resolved to a CE-leak refinement (above), not a crack. A real finding — *why* the
+residue resists intrinsic resolution — NOT a completed threshold result and NOT a
+closure. Does **not** swing `rem:dw`. The "countably generated ⟹ descent" claim is
+**withdrawn** pending a meet-free uniqueness argument (none known). Remaining live
+edge: that meet-free uniqueness argument.
 
 **Red-flag rule (standing).** If any later argument forces `w ∈ conv̄(S_df^σ)` for
 *general* `L`, STOP — it has smuggled inner-regularity/Radon (or a π-system), the
@@ -280,7 +305,10 @@ result: *where did meet-closure / inner-regularity enter?*
 ---
 
 *Status: working scaffold, not survey-ready. §5 sub-task ATTEMPTED (§6) → intrinsic
-route BLOCKED at the π–λ/meet-closure wall (the distributivity obstruction again);
-compactness of `S_df^σ` also unverified (may fail by CE). A finding, not a threshold
-result. Does NOT reopen the `rem:dw` verdict (STABLE); only
+route BLOCKED at the π–λ/meet-closure wall (the distributivity obstruction again).
+Second worry (compactness of `S_df^σ`) RESOLVED: `lem:relational` stands on the
+compact `S_df`; the σ-realization direction has a closure gap = the CE leak (`rem:ce`)
+— a refinement, not a crack. A finding, not a threshold result. Sole remaining live
+edge: a meet-free uniqueness argument (none known). Does NOT reopen the `rem:dw`
+verdict (STABLE); only
 restates its residue as a right-side specification gap.*

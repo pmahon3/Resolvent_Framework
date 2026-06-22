@@ -1046,11 +1046,18 @@ representation (\S\ref{sec:routes}), a descriptive-set-theory question.
 The $\sigma$-essential requirement places the open problem alongside a known
 Boolean phenomenon. Over a Boolean algebra, countable additivity of a finitely
 additive charge is not first-order axiomatizable: an ultraproduct of $\sigma$-additive
-charges can be finitely additive but not $\sigma$-additive, so every finite (indeed
-first-order) test is passed while the global property fails~\cite{mahon2025}. A
-$\sigma$-essential contextual state would be the non-distributive analogue --- finite
-sub-OMLs all classically interpretable, the obstruction carried only by the countable
-whole.
+charges can be finitely additive but not $\sigma$-additive, so every finite test is
+passed while the global property fails~\cite{mahon2025}. The $\sigma$-essential
+contextual state is the non-distributive analogue, but with one sharpening the Boolean
+case obscures: the obstruction is \emph{finitely detected but globally caused}. Each
+finite sub-OML is classically interpretable --- its restriction lies in the full local
+hull $\overline{\mathrm{conv}}(S_{\mathrm{df}}(F))$ --- yet contextuality is detected
+already at a single finite $F$, against the strictly smaller hull
+$\overline{\mathrm{conv}}(\{s|_F:s\in S_{\mathrm{df}}^\sigma\})$ of restrictions of the
+\emph{global} $\sigma$-states. The gap between the two is what the countable whole
+supplies; it is not a property that emerges only in the limit (a vanishing-in-the-limit
+margin would be failure of $\sigma$-additivity itself, the segregated $\prod_n\mathrm
+{MO}_2$ case, not a witness).
 \end{remark}
 
 \subsection{The combinatorial route}
@@ -1108,20 +1115,14 @@ fail $\omega(a\vee b)\leq\omega(a)+\omega(b)$). The forcing property to Boolean 
 thus subadditivity --- a finitary condition --- not $\sigma$-additivity.
 \end{remark}
 
-\noindent A worked instance fixes the picture. Navara's
-construction~\cite{Navara1992} produces an infinite, $\sigma$-orthocomplete,
-rich OML whose inner block is a finite \emph{stateless} Greechie logic --- which
-is exactly what makes Navara's $\mathcal L$ non-concrete. Replacing the stateless
-block by $\mathrm{MO}_2$ (write $\mathcal L_2$) removes the only source of
-non-concreteness: the assembly is a product of a sublogic of a Kalmbach
-horizontal sum (blocks glued only at $\{0,1\}$, \emph{not} an atom-sharing
-Greechie loop), and pure horizontal sums of concrete logics are concrete, as are
-sublogics and products. So $\mathcal L_2$ is concrete, $\sigma$-orthocomplete,
-non-Boolean, and carries $(\bigstar)$ --- yet it is not a new object: it is
-$\prod_n \mathrm{MO}_2$ with extra scaffolding, segregated in the same way, and
-it likewise admits no $\sigma$-tribe representation. It is the cautionary example
-showing that exhibiting $(\bigstar)$ and concreteness together is easy and does
-\emph{not} reach the open problem.
+\noindent The lesson survives elaboration. Navara's
+construction~\cite{Navara1992} --- once its stateless Greechie block (the source of
+non-concreteness) is replaced by $\mathrm{MO}_2$ --- yields a concrete,
+$\sigma$-orthocomplete, non-Boolean OML carrying $(\bigstar)$; yet it is
+$\prod_n\mathrm{MO}_2$ with scaffolding, segregated in the same way, with no
+$\sigma$-tribe representation. So $(\bigstar)$ and concreteness together are easy and
+do \emph{not} reach the open problem: the missing ingredient is non-segregation, and
+that is what the witness must supply.
 
 \medskip
 \noindent The art constrains the open ($\sigma$-complete) problem from both sides

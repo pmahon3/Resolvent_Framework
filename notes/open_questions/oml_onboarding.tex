@@ -1273,34 +1273,34 @@ regular Borel point-realisation.
     labelwidth=2.6cm, leftmargin=3.0cm]
   \item[Exhibit a $\sigma$-essential witness]
     Construct an infinite concrete OML carrying a $\sigma$-additive contextual
-    state that no finite sub-OML witnesses. The natural attack is a
-    compactness-failure construction (cf.\ Remark~\ref{rem:ce}): a concrete
-    $\sigma$-complete OML whose finite sublogics are all classically interpretable
-    (dispersion-free states span them) but whose countable joins force a
-    Kochen--Specker-type obstruction only in the limit. The faithful set
-    representation is ruled out at every stage (Theorem~\ref{thm:floor}), so the
-    obstruction must be carried by the $\sigma$-structure itself, not by any finite
-    block. A necessary condition follows: the witness must place its infinitary
-    structure \emph{off-center} (irreducible, with non-central infinite blocks). A
-    product of finite blocks such as $\prod_n\mathrm{MO}_2$ is excluded a priori,
-    since it forces all infinitary content into the Boolean center, where
-    $\sigma$-additivity concentrates the contextual states onto points and removes
-    them (\S\ref{sec:why-sigma}); a pasting or countable colimit of Wright-type
-    blocks is the natural candidate.
+    state that no finite sub-OML witnesses. What must be built is sharp. As
+    $\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ is compact, $w\notin
+    \overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ is separated by a
+    \emph{finite}-support functional $\sum_i c_i s(a_i)$ (Hahn--Banach); the $a_i$
+    generate a finite sub-OML $F$ on which $\sigma$-essentiality gives
+    $w|_F\in\overline{\mathrm{conv}}(S_{\mathrm{df}}(F))$. So contextuality is finitely
+    \emph{detected} though no finite sub-OML is itself contextual, and the target is a
+    single \emph{restriction gap}, $\{s|_F : s\in S_{\mathrm{df}}^\sigma\}\subsetneq
+    S_{\mathrm{df}}(F)$ for some finite $F$: the global dispersion-free $\sigma$-states
+    fail to restrict onto the full local dispersion-free hull. The obstruction is thus
+    carried by the $\sigma$-structure (faithful set representation barred at every
+    stage, Theorem~\ref{thm:floor}), not by any finite block. A necessary condition:
+    the witness must place its infinitary structure \emph{off-center} (irreducible,
+    non-central infinite blocks), since $\prod_n\mathrm{MO}_2$ forces infinitary
+    content into the Boolean center where $\sigma$-additivity removes the contextual
+    states (\S\ref{sec:why-sigma}). The compositional recipes --- a
+    compactness-failure limit (Remark~\ref{rem:ce}) or a pasting/countable colimit of
+    Wright-type blocks --- appear to collapse onto these excluded cases (segregation,
+    or charge-non-$\sigma$-additivity) rather than reach the gap.
   \item[Prove no such witness exists]
-    A spanning theorem: every $\sigma$-additive state on a $\sigma$-complete
-    concrete OML lies in the closed convex hull of its dispersion-free states
-    \emph{except} where a finite sub-OML is already contextual (Wright). This would
-    be an impossibility result --- a $\sigma$-essential contextual state cannot
-    exist, so relational $\sigma$-additive probability is operationally invisible
-    (present finitely or not at all). \emph{This is already established for
-    Polish-representable OMLs} (Derr--Williamson, Remark~\ref{rem:dw}); a full
-    impossibility result must extend it to the non-representable case, where the
-    Polish/Borel-regularity hypothesis of their Theorem~D.6 is unavailable. The
-    Boolean boundary --- subadditivity of a unital set of states
-    (Pt\'ak--Pulmannov\'a, Remark~\ref{rem:inhabited}) --- is a natural lever; note
-    that such an argument cannot reuse the $\prod_n\mathrm{MO}_2$ mechanism
-    (concentration on the Boolean center), which is vacuous off-center.
+    A spanning theorem: the restriction gap above is always empty (off a contextual
+    finite sub-OML, Wright), so $\sigma$-essential relational probability is
+    operationally invisible --- present finitely or not at all. This is already
+    established in the Polish-representable case (Derr--Williamson,
+    Remark~\ref{rem:dw}); a full result must extend it to the non-representable case,
+    where their Theorem~D.6 hypothesis is unavailable. The Boolean boundary
+    (subadditivity of a unital set of states, Remark~\ref{rem:inhabited}) is a natural
+    lever, but cannot reuse the $\prod_n\mathrm{MO}_2$ mechanism, vacuous off-center.
 \end{description}
 
 \noindent A candidate direction now closed: the singular case for $L(H)$. One

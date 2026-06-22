@@ -239,13 +239,20 @@ separates `S_df^σ`" **fails as stated.** Diagnosis (advisor-confirmed):
   complement-closed, closed under countable *orthogonal* joins. Boolean
   uniqueness-from-generators is the **π–λ theorem**, which requires `G` to be a
   **π-system: meet-closed.**
-- In an OML you **cannot propagate agreement to meets** — `s(a∧b)` is not determined
-  by `s(a),s(b)` (the same non-determination as non-orthogonal joins) — and
-  meet-closure of generators is exactly the **Floor / `rem:concrete`** trigger toward
-  Boolean. So the uniqueness step breaks on the *same* distributivity obstruction as
-  the rest of the problem. That is the finding: descent resists going intrinsic
-  because the measure-uniqueness machinery is π–λ, π-systems are meet-closed, and
-  meet-closure is what the Floor forbids.
+- **CORRECTED MECHANISM (advisor 2026-06-22 — first draft's "meet-closure ⟹ Floor"
+  was WRONG).** Taking `G` meet-closed is **free** and triggers nothing: MO₂ is
+  itself meet-, join-, complement-closed and non-Boolean. The Floor (`thm:floor`)
+  needs a *faithful set representation* (simultaneously `∧→∩`, `∨→∪`, `⊥→`complement);
+  "`G` meet-closed inside `L`" is a far weaker condition with no Boolean collapse. So
+  the block is NOT at meet-closure. With `G` meet-closed, the real failure is that
+  **π–λ does not transfer**: `λ(G)` [complement + orthogonal-join closure = the
+  agreement set] need not reach `σ(G)` [+ arbitrary joins]. It fails at the
+  **disjointification identity**
+  > `(a∨b) ∧ a^⊥ = b ∧ a^⊥`,
+  which Boolean π–λ uses to rewrite an arbitrary join `a∨b` as an orthogonal join
+  `a ⊔ (b∧a^⊥)`. That identity is **distributive and false on OMLs**. So the
+  obstruction is genuinely non-distributivity, entering at **disjointification**, not
+  via meet-closure→Floor.
 
 **Unit-test probe (`∏ₙMO₂`, separation question).** ⟦HAND⟧ Do the coordinate atoms
 `{a^{(n)},b^{(n)}}` separate `S_df^σ(∏ₙMO₂)`? **YES** — but *degenerately*: within a
@@ -256,6 +263,19 @@ segregated** — the π–λ gap is *invisible* on the unit test and bites only 
 **non-segregated** OML (non-orthogonal joins taking non-trivial values) — which is
 exactly where a real witness must live. The control does not catch this gap; do not
 mistake its passing for a general result.
+
+**Key consequence — PROOF-BLOCK ≠ UNIQUENESS-FAILURE (so this is NOT a second wall).**
+⟦HAND⟧ On `∏ₙMO₂` the disjointification identity **already fails** (non-orthogonal
+atoms `a,b` in one block: `(a∨b)∧a^⊥ = 1∧a^⊥ = a^⊥ ≠ 0 = b∧a^⊥`), **yet separation
+holds** (above). So "disjointification fails" does **not** imply "separation/uniqueness
+fails" — the broken identity kills only the *standard π–λ proof*, not the conclusion.
+To make a genuine second wall one would need two σ-states agreeing on `λ(G)` but
+differing on `σ(G)` — which requires a **non-segregated concrete σ-complete OML**, the
+exact object the whole problem lacks. **So the meet-free-uniqueness edge has no
+independent attack surface: it is gated by the same missing witness as the main
+problem.** Honest status: π–λ transfer fails at the distributive disjointification
+identity; whether separation actually fails is OPEN and entangled with the same
+existence gap (`rem:dw` residue). Not a wall, not hand-closeable now.
 
 **Second crack — RESOLVED (advisor-checked 2026-06-22): real but mislocated, and it
 is a CE *connection*, not a threat.** ⟦HAND⟧ The first draft overstated it. Three
@@ -308,7 +328,11 @@ result: *where did meet-closure / inner-regularity enter?*
 route BLOCKED at the π–λ/meet-closure wall (the distributivity obstruction again).
 Second worry (compactness of `S_df^σ`) RESOLVED: `lem:relational` stands on the
 compact `S_df`; the σ-realization direction has a closure gap = the CE leak (`rem:ce`)
-— a refinement, not a crack. A finding, not a threshold result. Sole remaining live
-edge: a meet-free uniqueness argument (none known). Does NOT reopen the `rem:dw`
-verdict (STABLE); only
+— a refinement, not a crack. Meet-free-uniqueness edge also resolved-to-GATED: π–λ
+transfer fails at the distributive disjointification identity `(a∨b)∧a^⊥=b∧a^⊥`, but
+proof-block ≠ uniqueness-failure (∏ₙMO₂ breaks the identity yet separates), so it has
+no independent attack surface — gated by the same missing non-segregated witness as
+the main problem. **Both hand-edges now bottom out at the same `rem:dw` residue;
+further hand-progress needs a new object or new abstract input.** A finding, not a
+threshold result. Does NOT reopen the `rem:dw` verdict (STABLE); only
 restates its residue as a right-side specification gap.*

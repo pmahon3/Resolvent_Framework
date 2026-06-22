@@ -976,25 +976,32 @@ merely incompatible elements.}
 \label{fig:mo2hull}
 \end{figure}
 
-\paragraph{Why $\sigma$-essential.} The finite version of this is already
-inhabited. Wright's pentagon~\cite{Wright1978} is a finite, concrete OML --- a
-Greechie loop of five three-atom blocks, hence a lattice --- with an
-order-determining family of dispersion-free states, yet it carries a non-classical
-$\{0,\tfrac12\}$-valued state lying outside their closed convex hull. (The five
-intertwining atoms form a $5$-cycle in which consecutive atoms share a block, so any
-dispersion-free state, taking at most one of each adjacent pair to $1$, sets at most
-$2$ of the $5$ to $1$; their hull has vertex-sum $\leq 2$, whereas the
-$\{0,\tfrac12\}$ state --- a legitimate state, each block summing to $1$ --- has
-vertex-sum $\tfrac52$. This is the KCBS inequality~\cite{KCBS2008}.) So ``concrete
-OML with a contextual state'' is a $1978$ fact, and the general spanning statement
-is false. What Wright does \emph{not} supply is contextuality that requires the
-countable structure: the pentagon's is witnessed by a finite sub-OML (itself). The
-such a state must therefore be \emph{$\sigma$-essential} --- contextual in the
-$\sigma$-complete whole but in no finite sub-OML. This is not a device to evade
-Wright: ``every finite piece has a global section, the countable whole has none'' is
-a \emph{compactness failure} of exactly the type by which countable additivity is
-not first-order axiomatizable over finitely additive coherence (see
-Remark~\ref{rem:ce}).
+\paragraph{Why $\sigma$-essential.} The finite version of this is already inhabited.
+Wright's pentagon~\cite{Wright1978} is a finite, concrete OML --- a Greechie loop of
+five three-atom blocks, hence a lattice --- with an order-determining family of
+dispersion-free states, yet it carries a non-classical $\{0,\tfrac12\}$-valued state
+outside their closed convex hull. The reason is a vertex-sum collision. The five atoms
+form a $5$-cycle in which consecutive atoms share a block, so a dispersion-free state
+takes at most one of each adjacent pair to $1$, hence at most $2$ of the $5$; its hull
+therefore satisfies
+\[
+  \textstyle\sum_{i=1}^5 \omega(a_i)\ \le\ 2 .
+\]
+The $\{0,\tfrac12\}$ state --- legitimate, each block summing to $1$ --- instead has
+\[
+  \textstyle\sum_{i=1}^5 \omega(a_i)\ =\ \tfrac52 ,
+\]
+so it lies outside the hull (this is the KCBS inequality~\cite{KCBS2008}). Thus
+``concrete OML with a contextual state'' is a $1978$ fact, and the general spanning
+statement is false.
+
+What Wright does \emph{not} supply is contextuality that requires the countable
+structure: the pentagon's is witnessed by a finite sub-OML, namely itself. A
+$\sigma$-essential witness must therefore be contextual in the $\sigma$-complete whole
+but in no finite sub-OML. This is not a device to evade Wright: ``every finite piece has
+a global section, the countable whole has none'' is a \emph{compactness failure} of
+exactly the type by which countable additivity is not first-order axiomatizable over
+finitely additive coherence (Remark~\ref{rem:ce}).
 
 \begin{figure}[ht]
 \centering

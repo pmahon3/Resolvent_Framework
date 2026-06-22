@@ -85,16 +85,21 @@ $\sigma$-additivity as an axiom.
 
 The same tension recurs once observations need not be jointly performable.
 An observation \emph{context} --- a set of measurements performable together
---- is Boolean; gluing contexts along shared observations (a categorical
-colimit) returns:
+--- is Boolean; \emph{pasting} contexts along their shared observations (the
+horizontal-sum / partial-Boolean-algebra construction~\cite{Kalmbach1983})
+returns:
 \[
   \begin{aligned}
   \text{contexts mutually compatible} &\ \Rightarrow\ \text{Boolean algebra},\\
   \text{incompatible} &\ \Rightarrow\ \text{non-distributive OML.}
   \end{aligned}
 \]
-(Gunji et al.~\cite{Gunji2026}). The OML is \emph{forced} by the context structure,
-not postulated; for non-quantum examples the incompatibility must be operationally
+The pasting of incompatible Boolean blocks is a non-distributive OML
+(Kalmbach~\cite{Kalmbach1983}), and its failure to remain Boolean is exactly the
+contextuality obstruction of the partial-Boolean-algebra / sheaf account
+(Abramsky--Brandenburger~\cite{AbramskyBrandenburger2011};
+Budroni--Morchio~\cite{BudroniMorchio2010}). The OML is thus \emph{forced} by the
+context structure, not postulated; for non-quantum examples the incompatibility must be operationally
 imposed, since classical observables on a common space jointly distribute
 (Kolmogorov) and stay Boolean. The closed subspaces of a Hilbert space $H$ form the
 prototype $L(H)$, not the premise.
@@ -729,10 +734,9 @@ construction known, none ruled out), and is the Open Problem of \S\ref{sec:probl
   \item \textbf{$\sigma$-Stone duality.} None is known, none ruled out: the existing
     dualities are finitary (McDonald--Bimb\'{o}, Remark~\ref{rem:finitary}) or
     equational with no set/tribe representation (Freytes~\cite{Freytes2020}), but no
-    theorem forbids a countable-join-preserving one. The one machinery supplying a
-    point-free $\sigma$-additive valuation, topos/Bohrification, \emph{sidesteps}
-    this route ($\sigma$-additivity on a distributive object / per-context Boolean
-    blocks, \S\ref{sec:topos}) rather than settling it.
+    theorem forbids a countable-join-preserving one. This is route~(c) of the
+    faithfulness trichotomy (\S\ref{sec:reduction}): a representation faithful on
+    countable \emph{orthogonal} joins without forcing distributivity.
 \end{enumerate}
 
 \subsection{Prior art on point-free quantum probability}
@@ -786,16 +790,12 @@ Two qualifications delimit what is ruled out.
     \]
     a fortiori none order-determining. Concreteness is the qualifier on which
     the open frontier turns.
-  \item[(ii)] \textbf{No $\sigma$-Loomis--Sikorski exists}, and this is visible
-    in the dualities: both take infinite joins as a closure, not a union,
-    \[
-      \text{Cannon--D\"{o}ring: } \mathrm{cls}(\textstyle\bigcup S_i);
-      \qquad
-      \text{McDonald--Bimb\'{o}: } (\textstyle\bigcup h(a_n))^{\perp\perp}.
-    \]
-    This is not to be overstated: Gudder's concrete logics~\cite{Gudder1979}
-    \emph{are} set-representable non-Boolean orthoposets --- but as point-ful
-    posets, not via a $\sigma$-Loomis--Sikorski theorem.
+  \item[(ii)] \textbf{No $\sigma$-Loomis--Sikorski exists} (route~(c),
+    \S\ref{sec:reduction}): the dualities take infinite joins as a closure, not a
+    union (Remark~\ref{rem:finitary}). Not to be overstated, though: Gudder's
+    concrete logics~\cite{Gudder1979} \emph{are} set-representable non-Boolean
+    orthoposets --- but as point-ful posets, not via a $\sigma$-Loomis--Sikorski
+    theorem.
 \end{description}
 \end{remark}
 
@@ -803,10 +803,10 @@ Two qualifications delimit what is ruled out.
 \label{sec:topos}
 The topos / Bohrification programme is the one machinery supplying a point-free
 \emph{and} $\sigma$-additive valuation on a quantum logic, so it is the natural
-candidate for route~(iii). In both principal constructions the $\sigma$-additive
-valuation lives on a \emph{distributive} object, its countable additivity routed
-through per-context Boolean blocks; this is the topos analogue of the universal floor
-(\S\ref{sec:reduction}).
+candidate --- but it takes route~(b) of the trichotomy (\S\ref{sec:reduction}): in
+both principal constructions the valuation lives on a \emph{distributive} object,
+its countable additivity routed through per-context Boolean blocks, hence sidesteps
+rather than settles route~(c).
 
 \begin{center}
 \renewcommand{\arraystretch}{1.35}
@@ -832,15 +832,12 @@ additivity left
 \end{tabular}
 \end{center}
 
-\noindent In neither case does the additivity cross a non-distributive join; HLS
-confines all of it inside Boolean contexts, the antithesis of $\sigma$-essential
-contextuality, and its non-distributive object $\mathrm{Proj}(A)$ is the
+\noindent Two route-(b) details specific to the topos case: HLS confines all
+additivity inside Boolean contexts (the antithesis of $\sigma$-essential
+contextuality), and its non-distributive object $\mathrm{Proj}(A)$ is the
 non-concrete Gleason / $L(H)$ lattice (Rmk~\ref{rem:miss}), not the concrete class in
-question. The route thus lands on the finitely-additive-versus-$\sigma$ gap exactly:
-of the four requirements (point-free, $\sigma$-additive, natively non-distributive,
-directed-system-built) it satisfies three and misses native non-distributivity. It
-\emph{sidesteps} the wall --- an internally distributive Gelfand spectrum is a design
-goal --- rather than settling the $\sigma$-essential question, which stays open.
+question --- so of the four requirements (point-free, $\sigma$-additive, natively
+non-distributive, directed-system-built) it misses exactly native non-distributivity.
 
 % ==================================================================
 \section{The open problem}
@@ -950,10 +947,18 @@ $h(L)$ is a distributive sublattice; $h$ injective and lattice-preserving makes 
 isomorphic to a distributive ortholattice, i.e.\ Boolean.
 \end{proof}
 
-\noindent Hence no relational measure can arise from a faithful descent to points.
-What a concrete OML \emph{does} have (Definition~\ref{def:omp}) is an
-order-determining family of dispersion-free states; the live question is whether
-every state is a mixture of them.
+\noindent The Floor fixes \emph{where} a $\sigma$-engine may give faithfulness up,
+a trichotomy organising \S\S\ref{sec:routes}--\ref{sec:priorart}:
+\textbf{(a)} all $\wedge,\vee$ as $\cap,\cup$ forces Boolean (Theorem~\ref{thm:floor})
+--- \emph{dead};
+\textbf{(b)} all joins but in a \emph{distributive} ambient object (frame/topos) is
+$\sigma$-additive only per Boolean context (\S\ref{sec:topos}) --- \emph{sidesteps};
+\textbf{(c)} only countable \emph{orthogonal} joins, faithful to order and $\perp$
+but not to the meets that would force distributivity --- exactly a concrete logic
+(Definition~\ref{def:omp}), exactly what $\sigma$-additivity invokes
+(Definition~\ref{def:complete}) --- \emph{the live route} (\S\ref{sec:routes}(iii)).
+So a concrete OML has an order-determining family of dispersion-free states; the
+live question is whether every state is a mixture of them.
 
 \paragraph{The reduction.} The following equivalence reduces ``no hidden
 realisation'' to a spanning condition on the dispersion-free states. Its content is

@@ -42,7 +42,7 @@
 \begin{abstract}
 On a Boolean algebra, a finitely coherent probability extends to a countably
 additive measure by classical machinery (Carath\'{e}odory; Loomis--Sikorski; Stone).
-On a non-distributive orthomodular lattice (OML) this machinery breaks. We survey
+On a non-distributive orthomodular lattice (OML) this machinery fails. We survey
 the problem and isolate a precise open question, splitting it into two axes the
 Boolean case fuses: the \emph{extension} axis (does a state extend to a charge on the
 dual?), a Horn--Tarski feasibility question settled negatively for $L(H)$; and the
@@ -482,7 +482,7 @@ Loomis--Sikorski representation) has \emph{no} known OML analogue
 (\S\ref{sec:routes}). Supplying such an engine, or proving none exists, is the open
 problem of \S\ref{sec:problem}.
 
-\begin{remark}[Why the bridge breaks: meet-closed but not join-prime]
+\begin{remark}[Why the bridge fails: meet-closed but not join-prime]
 \label{rem:bridge}
 A ``realised'' point $x$ carries two conditions, which Rao--Rao's
 ``vanishes on meagre sets'' makes coincide in the Boolean case:
@@ -837,13 +837,13 @@ it is not needed for the negative conclusion.)
 The residue is then a single condition, the representability the whole problem turns
 on: can a $\sigma$-essential witness exist that admits \emph{no} Polish Borel
 realisation ($S_{\mathrm{df}}^\sigma$
-non-Polish / analytic-but-not-Borel)? This is a descriptive-set-theory question, and
-it is the same wall as the absence of a $\sigma$-Loomis--Sikorski representation
-(\S\ref{sec:routes}); the off-centre/non-band constraints of \S\ref{sec:first} are
-its lattice-side shadow. Beware the $\sigma$-version of the (A)/(B) point-space
-equivocation (Remark~\ref{rem:AB}): Derr--Williamson's Polish hypothesis is on the
-underlying \emph{point set} $\Omega$, and obtaining such an $\Omega$ for an abstract
-concrete $\sigma$-complete OML is itself the missing engine, not a free input.
+non-Polish / analytic-but-not-Borel)? This is a descriptive-set-theory question,
+equivalent to the absence of a $\sigma$-Loomis--Sikorski representation
+(\S\ref{sec:routes}); the off-centre/non-band constraints of \S\ref{sec:first} are its
+lattice-side counterpart. One caution concerns the $\sigma$-version of the (A)/(B)
+point-space equivocation (Remark~\ref{rem:AB}): Derr--Williamson's Polish hypothesis is
+on the underlying \emph{point set} $\Omega$, and obtaining such an $\Omega$ for an
+abstract concrete $\sigma$-complete OML is itself the missing engine, not a free input.
 \end{remark}
 
 \noindent Here ``relational'' means \emph{no hidden realisation}: the measure is not
@@ -883,14 +883,15 @@ isomorphic to a distributive ortholattice, i.e.\ Boolean.
 \noindent The universal floor (Theorem~\ref{thm:floor}) fixes \emph{where} a
 $\sigma$-engine may relinquish faithfulness, a trichotomy organising
 \S\S\ref{sec:routes}--\ref{sec:priorart}:
-\textbf{(a)} all $\wedge,\vee$ as $\cap,\cup$ forces Boolean (Theorem~\ref{thm:floor})
---- \emph{dead};
+\textbf{(a)} all $\wedge,\vee$ as $\cap,\cup$ forces Boolean (Theorem~\ref{thm:floor}),
+and is \emph{excluded};
 \textbf{(b)} all joins but in a \emph{distributive} ambient object (frame/topos) is
-$\sigma$-additive only per Boolean context (\S\ref{sec:topos}) --- \emph{sidesteps};
+$\sigma$-additive only per Boolean context (\S\ref{sec:topos}), and \emph{sidesteps}
+rather than settles the question;
 \textbf{(c)} only countable \emph{orthogonal} joins, faithful to order and $\perp$ but
 not to the distributivity-forcing meets --- a concrete logic, exactly what
-$\sigma$-additivity invokes --- \emph{the live route} (\S\ref{sec:routes}(iii)),
-elaborated next.
+$\sigma$-additivity invokes --- is \emph{the remaining open route}
+(\S\ref{sec:routes}(iii)), elaborated next.
 Route (c) is the candidate for the missing $\sigma$-duality --- the contravariant
 equivalence one would want, between concrete $\sigma$-complete OMLs and a category of
 $\sigma$-spaces whose points are the dispersion-free states. The universal floor fixes
@@ -1092,7 +1093,7 @@ no contextuality of its own. So the combinatorial axioms ($\sigma$-completeness,
 concreteness, $(\bigstar)$) are \emph{not} the discriminator; the missing ingredient is
 \emph{non-segregation}, a structural rather than a closure property.
 
-\begin{remark}[The witness has no points, and the Boolean boundary]\label{rem:inhabited}
+\begin{remark}[Absence of two-valued homomorphisms; the Boolean boundary]\label{rem:inhabited}
 The universal closure above (a faithful set representation forces distributivity)
 already rules out the point-based route for every non-Boolean OML. The witness
 $\prod_n\mathrm{MO}_2$ shows the failure concretely and at the level of points:
@@ -1211,17 +1212,17 @@ must be concrete and non-distributive simultaneously.
 With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), the
 combinatorial route shown to deliver only segregated objects
 (\S\ref{sec:why-sigma}), and the question reduced to a $\sigma$-essential contextual
-state (\S\ref{sec:predicate}), the problem has a clean dichotomy: two exits, each a
-genuine terminus. The negative exit is, moreover, \emph{already taken in the
-Polish-representable case} (Derr--Williamson, Remark~\ref{rem:dw}); both exits below
-therefore live or die on the same feature --- whether a witness can fail to admit a
-regular Borel point-realisation.
+state (\S\ref{sec:predicate}), the problem admits two mutually exclusive resolutions:
+construct such a state, or prove none exists. The second is already established in the
+Polish-representable case (Derr--Williamson, Remark~\ref{rem:dw}), so both turn on a
+single feature --- whether a witness can fail to admit a regular Borel
+point-realisation.
 \begin{description}[style=nextline, font=\normalfont\bfseries,
     labelwidth=2.6cm, leftmargin=3.0cm]
   \item[Exhibit a $\sigma$-essential witness]
     Construct an infinite concrete OML carrying a $\sigma$-additive contextual
-    state that no finite sub-OML witnesses. What must be built is sharp. As
-    $\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ is compact, $w\notin
+    state that no finite sub-OML witnesses. The object to be built can be specified
+    precisely. As $\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ is compact, $w\notin
     \overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ is separated by a
     \emph{finite}-support functional $\sum_i c_i s(a_i)$ (Hahn--Banach); the $a_i$
     generate a finite sub-OML $F$ on which $\sigma$-essentiality gives
@@ -1250,12 +1251,12 @@ regular Borel point-realisation.
     lever, but cannot reuse the $\prod_n\mathrm{MO}_2$ mechanism, vacuous off-centre.
 \end{description}
 
-\noindent One hope is thereby closed: that a singular state might extend where no
-normal state does, the first ``extends but fails to concentrate'' example.
-Proposition~\ref{prop:lh} rules this out by a \emph{finite} family ($n=4$), so the
-singular case --- expected to need infinitary methods --- is a self-contained finitary
-matter, not governed by the finitary-to-$\sigma$ passage that carries the open
-question.
+\noindent This also settles a subsidiary question: whether a singular state might
+extend where no normal state does, which would give a first example of extension
+without concentration. Proposition~\ref{prop:lh} excludes it by a \emph{finite} family
+($n=4$), so the singular case --- which was expected to require infinitary methods ---
+is a self-contained finitary matter, not governed by the finitary-to-$\sigma$ passage
+that carries the open question.
 
 \appendix
 % ==================================================================

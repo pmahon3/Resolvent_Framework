@@ -572,13 +572,21 @@ Let $\dim H = \infty$. \emph{No} state on $L(H)$ --- normal or singular
 \begin{proof}[Proof sketch]
 Embed $\mathrm{MO}_2$ in $L(H)$ with \emph{infinite-dimensional} atoms: writing
 $H=H_0\otimes\mathbb C^2$ ($\dim H_0=\infty$), the four subspaces
-$H_0\otimes\mathbb Ce,\,H_0\otimes\mathbb Cf,\,H_0\otimes\mathbb C(e{+}f),\,
-H_0\otimes\mathbb C(e{-}f)$ are pairwise meet-zero with $a_i\vee a_i^\perp=H$.
-Orthoadditivity forces $\sum_i s(a_i)=2$ for every state, while disjointness of
-the images under the meet-preserving $h$ forces $\sum_i s(a_i)\le 1$ for any
-charge --- a state-independent collision. The construction is finite ($n=4$), so
-$\sigma$-completeness plays no role; the infinite-dimensional atoms are what carry
-the obstruction past the finite-rank states to the singular ones (where every
+$H_0\otimes\mathbb Ce,\ H_0\otimes\mathbb Cf,\ H_0\otimes\mathbb C(e{+}f),\
+H_0\otimes\mathbb C(e{-}f)$ are pairwise meet-zero with $a_i\vee a_i^\perp=H$. Two
+counts of $\sum_i s(a_i)$ now collide. Orthoadditivity with $s(\mathbf 1)=1$ gives
+$s(a_i)+s(a_i^\perp)=1$, so for every state
+\[
+  \sum_i s(a_i)=2 .
+\]
+The meet-preserving $h$ sends this pairwise-meet-zero family to disjoint sets, so any
+charge satisfies
+\[
+  \sum_i s(a_i)\le 1 .
+\]
+The two are incompatible for every state, so none extends. The construction is finite
+($n=4$), so $\sigma$-completeness plays no role; the infinite-dimensional atoms are what
+carry the obstruction past the finite-rank states to the singular ones (where every
 finite-rank projection has measure zero), closing the axis completely.
 \end{proof}
 
@@ -895,20 +903,25 @@ $\sigma$-additivity invokes --- is \emph{the remaining open route}
 Route (c) is the candidate for the missing $\sigma$-duality --- the contravariant
 equivalence one would want, between concrete $\sigma$-complete OMLs and a category of
 $\sigma$-spaces whose points are the dispersion-free states. The universal floor fixes
-what is \emph{forced} on the right-side object: non-distributivity cannot live in the sets
-(faithful $\wedge,\vee\mapsto\cap,\cup$ forces Boolean, Theorem~\ref{thm:floor}), so it
-sits in the meet being a sub-intersection under the Gudder/concrete-logic functor
-(orthogonal joins as disjoint unions, set-complement); the descent space is
-$S_{\mathrm{df}}^\sigma$, \emph{not} the principal points $P(A)$ (permitted;
-Remark~\ref{rem:AB}); the field of sets is $\sigma$-generated, not Stone clopen. Under
-that functor the \emph{representation} is settled --- a concrete $\sigma$-Dynkin-system
-does not collapse to Boolean (Remark~\ref{rem:concrete}; $\prod_n\mathrm{MO}_2$ inhabits
-it) --- but this is a \emph{definitional pin}, not a theorem: fixing the target to
-$\sigma$-Dynkin-systems makes it hold by the chosen functor. The entire weight thus
-rests on the remaining clause, the \emph{measure descent} --- whether a $\sigma$-additive
-state is a mixture of the $S_{\mathrm{df}}^\sigma$, off the regular-realisable case
-(Remark~\ref{rem:dw}). So a concrete OML has an order-determining family of
-dispersion-free states; the one open question is whether every state is a mixture.
+three features of the right-side object:
+\begin{itemize}[noitemsep, topsep=2pt, leftmargin=1.5em]
+  \item non-distributivity cannot live in the sets (faithful
+    $\wedge,\vee\mapsto\cap,\cup$ forces Boolean, Theorem~\ref{thm:floor}); it sits
+    instead in the meet being a sub-intersection under the Gudder/concrete-logic functor
+    (orthogonal joins as disjoint unions, set-complement);
+  \item the descent space is $S_{\mathrm{df}}^\sigma$, \emph{not} the principal points
+    $P(A)$ (which are permitted; Remark~\ref{rem:AB});
+  \item the field of sets is $\sigma$-generated, not a Stone clopen algebra.
+\end{itemize}
+Under that functor the \emph{representation} is settled: a concrete
+$\sigma$-Dynkin-system does not collapse to Boolean (Remark~\ref{rem:concrete};
+$\prod_n\mathrm{MO}_2$ inhabits it). But this is a \emph{definitional pin}, not a theorem
+--- fixing the target to $\sigma$-Dynkin-systems makes the representation hold by the
+chosen functor. The entire weight therefore rests on the one remaining clause, the
+\emph{measure descent}: whether a $\sigma$-additive state is a mixture of the
+$S_{\mathrm{df}}^\sigma$, off the regular-realisable case (Remark~\ref{rem:dw}). So a
+concrete OML has an order-determining family of dispersion-free states, and the one open
+question is whether every state is a mixture of them.
 
 \paragraph{The reduction.} The following equivalence reduces ``no hidden
 realisation'' to a spanning condition on the dispersion-free states. Its content is
@@ -1095,29 +1108,32 @@ concreteness, $(\bigstar)$) are \emph{not} the discriminator; the missing ingred
 
 \begin{remark}[Absence of two-valued homomorphisms; the Boolean boundary]\label{rem:inhabited}
 The universal closure above (a faithful set representation forces distributivity)
-already rules out the point-based route for every non-Boolean OML. The witness
-$\prod_n\mathrm{MO}_2$ shows the failure concretely and at the level of points:
-$\mathrm{MO}_2$ admits \emph{no} two-valued \emph{homomorphism} --- each of its
-four separating two-valued \emph{states} ($a\mapsto0,\,b\mapsto0$, etc.) fails
-$\omega(a\vee b)\leq\omega(a)+\omega(b)$ since $a\vee b=\mathbf 1$, so none
-preserves $\vee$ --- and $\prod_n\mathrm{MO}_2$ inherits this, since its diagonal
-copy $\{\mathbf 0,\mathbf 1,(a,a,\dots),(a^\perp,\dots),(b,b,\dots),(b^\perp,\dots)\}$
-is a sub-$\mathrm{MO}_2$ on which any homomorphism would restrict to one of
-$\mathrm{MO}_2$'s (none exists). (This is special to $\mathrm{MO}_2$ and its
-products --- a generic non-Boolean OML such as $\mathbf 2\times\mathrm{MO}_2$
-\emph{does} carry homomorphisms, e.g.\ the projection; the universal obstruction
-is the distributivity argument, not homomorphism-scarcity.) So the witness is
-concrete (Definition~\ref{def:omp}: order-determining two-valued \emph{states})
-and $\sigma$-complete yet has no points in the homomorphism sense at all --- the
-point-free target is forced, not engineered. The same arithmetic records the
-sharp Boolean boundary: an OML is Boolean iff it admits a \emph{unital} set of
-\emph{subadditive} states --- one with, for each nonzero $a$, a subadditive state
-giving $a$ value $1$ (Pt\'ak--Pulmannov\'a~\cite[Thm~1]{PtakPulmannova1994}, for OMLs;
-the orthomodular-poset version fails). A
-concrete non-Boolean OML therefore cannot have its separating two-valued states
-form such a unital set: some fail subadditivity (here all four of $\mathrm{MO}_2$'s
-fail $\omega(a\vee b)\leq\omega(a)+\omega(b)$). The forcing property to Boolean is
-thus subadditivity --- a finitary condition --- not $\sigma$-additivity.
+already rules out the point-based route for every non-Boolean OML; $\prod_n\mathrm{MO}_2$
+shows the failure concretely, at the level of points.
+
+First, $\mathrm{MO}_2$ admits \emph{no} two-valued homomorphism. Each of its four
+separating two-valued states ($a\mapsto0,\ b\mapsto0$, and so on) fails subadditivity,
+\[
+  \omega(a\vee b)=\omega(\mathbf 1)=1 \ >\ 0=\omega(a)+\omega(b),
+\]
+so none preserves $\vee$. The product inherits this: the diagonal copy
+$\{\mathbf 0,\mathbf 1,(a,a,\dots),(a^\perp,\dots),(b,b,\dots),(b^\perp,\dots)\}$ is a
+sub-$\mathrm{MO}_2$, and any homomorphism of $\prod_n\mathrm{MO}_2$ would restrict to one
+on it, of which there are none. (This is special to $\mathrm{MO}_2$ and its products: a
+generic non-Boolean OML such as $\mathbf 2\times\mathrm{MO}_2$ \emph{does} carry
+homomorphisms, e.g.\ a projection. The universal obstruction is the distributivity
+argument, not homomorphism-scarcity.) So $\prod_n\mathrm{MO}_2$ is concrete
+(Definition~\ref{def:omp}: order-determining two-valued \emph{states}) and
+$\sigma$-complete, yet carries no two-valued homomorphism at all --- the point-free
+target is forced, not engineered.
+
+The same arithmetic records the sharp Boolean boundary. An OML is Boolean iff it admits a
+\emph{unital} set of \emph{subadditive} states --- one giving each nonzero $a$ value $1$
+for some such state (Pt\'ak--Pulmannov\'a~\cite[Thm~1]{PtakPulmannova1994}, for OMLs; the
+orthomodular-poset version fails). A concrete non-Boolean OML cannot have its separating
+two-valued states form such a set: some must fail subadditivity --- above, all four of
+$\mathrm{MO}_2$'s do. The property that forces Boolean is therefore subadditivity, a
+finitary condition, not $\sigma$-additivity.
 \end{remark}
 
 \noindent The lesson survives elaboration. Navara's

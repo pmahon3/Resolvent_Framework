@@ -223,6 +223,50 @@ orientation aids. Paper II checked, requires no updates (it cites Fine narrowly 
 D–W only as a domain example; the descent material lives in the survey, not Paper II).
 The remaining `mahon2025` "Preprint" cite needs an arXiv id before any posting.**
 
+> **SESSION UPDATE 2026-06-22 (survey-tightening + σ-duality note + construction
+> attempt; 9 commits, branch `oml-descent-sigma-essential-reduction`).** Five threads,
+> all in working tree, none pushed:
+> 1. **Gunji et al. (arXiv:2603.22353) DROPPED from the survey** — its "quantum logic
+>    as a left adjoint via a pushout in **Bool**" is broken (Prop 4 ⊥ Prop 8: the
+>    construction is the OML horizontal sum, not a Bool-pushout; 2={0,1} is initial in
+>    Bool so the pushout is the coproduct = 2⁴, not MO₂). Machine-checked
+>    (`verification/gunji_pushout_check.py`, dependency-free, brute-force universal
+>    property). The framing it supported (incompatible contexts paste → non-distributive
+>    OML) re-attributed to Kalmbach + Abramsky–Brandenburger + Budroni–Morchio (all
+>    already cited). No survey claim depended on the broken mechanism.
+> 2. **Faithfulness TRICHOTOMY** added to the survey after `thm:floor`: (a) all ∧,∨ as
+>    ∩,∪ → Boolean (dead); (b) all joins in a distributive ambient object → σ-add only
+>    per-context (sidesteps); (c) only orthogonal joins, faithful to order+⊥ → concrete
+>    logic = the live route (iii). Condensed four scattered re-expositions into one.
+> 3. **σ-duality TARGETS note** (`sigma_duality_targets.md`, audited): the missing
+>    duality σOML_conc ≃ ? has LEFT side forced (= D–W Dynkin-systems) and route (c)
+>    SPLITS — representation (i)+(ii) settled+inhabited (∏ₙMO₂; a definitional pin), so
+>    the SOLE open clause is (iii) the measure-descent, **on S_df^σ NOT P(A)** (audit
+>    caught the σ-form of the (A)/(B) equivocation in the first draft). Survey updated to
+>    state the split (commit 5666ac2).
+> 4. **§6 intrinsic-descent attempt → BLOCKED** at the π–λ wall (corrected mechanism:
+>    NOT meet-closure→Floor [false: MO₂ meet-closed & non-Boolean]; the real block is
+>    π–λ transfer failing at the distributive disjointification identity (a∨b)∧a^⊥=b∧a^⊥).
+>    And NOT a second wall: proof-block ≠ uniqueness-failure (∏ₙMO₂ breaks it yet
+>    separates). Compactness crack RESOLVED: S_df weak-* compact ⟹ lem:relational stands;
+>    the σ-realization has a 1-way **CE-leak** (w∈conv̄(S_df^σ) may charge CE phantoms in
+>    cl(S_df^σ)\S_df^σ). So "genuine σ-mixture" ⊋ the hull predicate — a CE connection.
+> 5. **Construction attempt (Session 9) → fence + RELOCATION.** No witness. New fence:
+>    CE-charge-limit can't carry it (the limit-failure IS non-σ-additivity = ∏ₙMO₂ death;
+>    dual: meets never overshoot ⟹ non-distributivity is finite/binary, not in the
+>    limit). **Relocation (deliverable): the carrier is the TWO-HULL GEOMETRY** — a
+>    witness is w ∈ conv̄(S_df) \ conv̄(S_df^σ), w genuinely σ-additive, i.e. conv̄(S_df^σ)
+>    a strictly smaller closed hull, off-center. ⚠ HEDGE: `w ∈ conv̄(S_df)` is a
+>    *heuristic* conditional on **every finite df-state lifting to a global df-state**
+>    (KS/extension, stronger than concreteness); absent lifting a witness need only be
+>    outside conv̄(S_df^σ). **DECISIVE next-session probe (finite, yes/no): does
+>    `S_df(F) = {s|_F : s∈S_df}` for finite F?** — determines whether the two-hull
+>    framing even holds; lead with this, *then* the convex/Choquet geometry of
+>    conv̄(S_df^σ) ⊊ conv̄(S_df) if it survives. A different toolkit than the (all-dead)
+>    lattice-construction attempts. Frontier sharpened, Exit-B inclination UNCHANGED
+>    (held open), `rem:dw` unmoved. Full record: `sigma_duality_targets.md` §6–7 +
+>    `[[sigma_essential_construction_attempt]]` Session 9.
+
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /
 > σ-Stone duality for **concrete** OMLs?* (= the §5 σ-essential open problem). Fences:

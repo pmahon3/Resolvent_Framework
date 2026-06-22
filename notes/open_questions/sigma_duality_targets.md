@@ -339,6 +339,15 @@ witness — but a new fence and the actionable relocation of where a witness liv
   `w` **genuinely σ-additive**, i.e. `conv̄(S_df^σ)` a *strictly smaller closed hull*
   than `conv̄(S_df)` (a separation of the two df-state sets), **off-center**. Both
   hulls compact (§6). This is §6's CE-leak, now identified as the search target.
+  > **HEDGE (do not state as established — survey-blocked):** the survey *defines*
+  > contextual as `w ∉ conv̄(S_df^σ)` only. The extra membership `w ∈ conv̄(S_df)` is a
+  > *separate* claim — it holds (via Hahn–Banach) **iff every finite df-state lifts to a
+  > global df-state**, a KS/extension condition strictly stronger than concreteness
+  > (order-determining global df-states). So `w ∈ conv̄(S_df) \ conv̄(S_df^σ)` is a
+  > search *heuristic*, conditional on lifting; absent lifting, a witness need only sit
+  > outside `conv̄(S_df^σ)` and could lie outside `conv̄(S_df)` entirely. **Decisive
+  > probe:** does `S_df(F) = {s|_F : s ∈ S_df}` for finite `F`? (Finite, yes/no;
+  > determines whether the two-hull framing even holds.)
 - **Gate for any candidate `w` escaping `conv̄(S_df^σ)`:** *does the escape come from
   charge-non-σ-additivity?* YES ⟹ `∏ₙMO₂` death, reject. A live witness needs `w`
   σ-additive with the escape carried by `S_df^σ ⊊ S_df` as closed hulls. Whether that

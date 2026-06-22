@@ -657,7 +657,7 @@ construction known, none ruled out), and is the Open Problem of \S\ref{sec:probl
     (Kalmbach~\cite{Kalmbach1983}): $\text{OML}+\text{RDP}\iff\text{Boolean}$. The
     \emph{sharp-skeleton} evasion (represent the OML as the sharp elements of an
     ambient RDP effect algebra) also closes: in an RDP effect algebra the sharp
-    elements coincide with the center, hence are Boolean (Jen\v{c}a 2001, Cor.~4.3,
+    elements coincide with the centre, hence are Boolean (Jen\v{c}a 2001, Cor.~4.3,
     via Greechie--Foulis--Pulmannov\'a~\cite{GreechieFoulisPulmannova1995}).
   \item \textbf{MacNeille completion.} The MacNeille completion of an OML need not
     be orthomodular (Harding~\cite{Harding1991}), so one cannot complete to absorb
@@ -852,8 +852,8 @@ point-spaces must be kept distinct: the
 \emph{canonical} dual $P(A)=\{{\uparrow}p\}$ (one principal filter per element,
 \S\ref{sec:dual}); the \emph{dispersion-free states} (the hidden-variable points);
 and the \emph{external (A)-points} (Gleason's Hilbert rays, Remark~\ref{rem:AB}).
-$P(A)$ is \emph{permitted}; the objection is only to a measure built on a smuggled
-space --- the (A)-points, equivalently a global hidden-variable joint over the
+$P(A)$ is \emph{permitted}; the objection is only to a measure built on an
+illicitly introduced space --- the (A)-points, equivalently a global hidden-variable joint over the
 dispersion-free states. By Lemma~\ref{lem:relational} a state has a hidden
 realisation iff it is a mixture of dispersion-free states, so a relational measure is
 precisely a \emph{contextual} state. This is a condition on the dispersion-free
@@ -880,8 +880,9 @@ $h(L)$ is a distributive sublattice; $h$ injective and lattice-preserving makes 
 isomorphic to a distributive ortholattice, i.e.\ Boolean.
 \end{proof}
 
-\noindent The Floor fixes \emph{where} a $\sigma$-engine may give faithfulness up,
-a trichotomy organising \S\S\ref{sec:routes}--\ref{sec:priorart}:
+\noindent The universal floor (Theorem~\ref{thm:floor}) fixes \emph{where} a
+$\sigma$-engine may relinquish faithfulness, a trichotomy organising
+\S\S\ref{sec:routes}--\ref{sec:priorart}:
 \textbf{(a)} all $\wedge,\vee$ as $\cap,\cup$ forces Boolean (Theorem~\ref{thm:floor})
 --- \emph{dead};
 \textbf{(b)} all joins but in a \emph{distributive} ambient object (frame/topos) is
@@ -892,8 +893,8 @@ $\sigma$-additivity invokes --- \emph{the live route} (\S\ref{sec:routes}(iii)),
 elaborated next.
 Route (c) is the candidate for the missing $\sigma$-duality --- the contravariant
 equivalence one would want, between concrete $\sigma$-complete OMLs and a category of
-$\sigma$-spaces whose points are the dispersion-free states. The Floor fixes what is
-\emph{forced} on the right-side object: non-distributivity cannot live in the sets
+$\sigma$-spaces whose points are the dispersion-free states. The universal floor fixes
+what is \emph{forced} on the right-side object: non-distributivity cannot live in the sets
 (faithful $\wedge,\vee\mapsto\cap,\cup$ forces Boolean, Theorem~\ref{thm:floor}), so it
 sits in the meet being a sub-intersection under the Gudder/concrete-logic functor
 (orthogonal joins as disjoint unions, set-complement); the descent space is
@@ -1084,9 +1085,12 @@ $b\not\leq a^\perp$). Since $\prod_n \mathrm{MO}_2$ is concrete, $\sigma$-comple
 (a product of finite, hence complete, lattices), non-Boolean, and infinite, it
 satisfies $(\bigstar)$ and \emph{every} combinatorial hypothesis one might
 impose --- yet it is exactly the \emph{segregated} object the open problem must
-exclude. So the combinatorial axioms ($\sigma$-completeness, concreteness,
-$(\bigstar)$) are \emph{not} the discriminator; the missing ingredient is
-non-segregation, which is a point-free notion, not a closure property.
+exclude. Call an OML \emph{segregated} when its non-distributivity is confined to a
+direct product (or central decomposition) of finite blocks, so that every
+dispersion-free state factors through the blocks and the infinitary structure carries
+no contextuality of its own. So the combinatorial axioms ($\sigma$-completeness,
+concreteness, $(\bigstar)$) are \emph{not} the discriminator; the missing ingredient is
+\emph{non-segregation}, a structural rather than a closure property.
 
 \begin{remark}[The witness has no points, and the Boolean boundary]\label{rem:inhabited}
 The universal closure above (a faithful set representation forces distributivity)
@@ -1125,8 +1129,8 @@ do \emph{not} reach the open problem: the missing ingredient is non-segregation,
 that is what the witness must supply.
 
 \medskip
-\noindent The art constrains the open ($\sigma$-complete) problem from both sides
-without closing it: \emph{no} impossibility theorem covers the concrete class
+\noindent The known results constrain the open ($\sigma$-complete) problem from both
+sides without closing it: \emph{no} impossibility theorem covers the concrete class
 (Remark~\ref{rem:miss}), while the two \emph{theorem-closed} routes to an engine
 --- RDP and MacNeille (\S\ref{sec:routes}(i),(ii)) --- are ruled out, leaving
 only the third, $\sigma$-Stone duality, which is itself open. What is required is
@@ -1228,9 +1232,9 @@ regular Borel point-realisation.
     fail to restrict onto the full local dispersion-free hull. The obstruction is thus
     carried by the $\sigma$-structure (faithful set representation barred at every
     stage, Theorem~\ref{thm:floor}), not by any finite block. A necessary condition:
-    the witness must place its infinitary structure \emph{off-center} (irreducible,
+    the witness must place its infinitary structure \emph{off-centre} (irreducible,
     non-central infinite blocks), since $\prod_n\mathrm{MO}_2$ forces infinitary
-    content into the Boolean center where $\sigma$-additivity removes the contextual
+    content into the Boolean centre where $\sigma$-additivity removes the contextual
     states (\S\ref{sec:why-sigma}). The compositional recipes --- a
     compactness-failure limit (Remark~\ref{rem:ce}) or a pasting/countable colimit of
     Wright-type blocks --- appear to collapse onto these excluded cases (segregation,
@@ -1243,7 +1247,7 @@ regular Borel point-realisation.
     Remark~\ref{rem:dw}); a full result must extend it to the non-representable case,
     where their Theorem~D.6 hypothesis is unavailable. The Boolean boundary
     (subadditivity of a unital set of states, Remark~\ref{rem:inhabited}) is a natural
-    lever, but cannot reuse the $\prod_n\mathrm{MO}_2$ mechanism, vacuous off-center.
+    lever, but cannot reuse the $\prod_n\mathrm{MO}_2$ mechanism, vacuous off-centre.
 \end{description}
 
 \noindent One hope is thereby closed: that a singular state might extend where no

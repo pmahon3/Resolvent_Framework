@@ -267,6 +267,78 @@ The remaining `mahon2025` "Preprint" cite needs an arXiv id before any posting.*
 >    (held open), `rem:dw` unmoved. Full record: `sigma_duality_targets.md` §6–7 +
 >    `[[sigma_essential_construction_attempt]]` Session 9.
 
+> **SESSION UPDATE 2026-06-22 (Sessions 10–11; continues the branch, working tree).**
+> The Session-9 two-hull probe above is now SUPERSEDED on two points:
+> 1. **The two-hull probe was a degenerate bracket, not a discriminator (Session 10).**
+>    The decisive finite probe "does `S_df(F) = {s|_F : s∈S_df}`?" only ever confirms
+>    "holds" on segregated objects (∏ₙMO₂) and is already-excluded on loops (Wright);
+>    it never touches the non-segregated regime where a witness must live. **Deliverable
+>    re-identified:** a σ-essential witness exists ⟺ the strict **restriction-gap**
+>    `{s|_F : s∈S_df^σ} ⊊ S_df(F)` is non-empty — i.e. **σ-additive lifting fails**.
+>    Non-Borelness of `S_df^σ` is only its descriptive shadow. Off-hull is ALWAYS
+>    finitely detected (Hahn–Banach in ℝ^L). Survey "Exhibit a witness" item now states
+>    the gap with the displayed `A_F`/`B_F` chain; `rem:ce` states the finitely-detected
+>    form. Full record: `sigma_duality_targets.md` §8.
+> 2. **The countable-generation sub-theorem WORKED → PARKED unresolved-open (Session
+>    11).** Decisive move: "every countably-generated concrete σ-complete OML satisfies
+>    lifting?" (Type-5 impossibility candidate). Hostile prior-art FIRST (scout): OPEN —
+>    no off-the-shelf theorem reaches the **countably-generated cut** (distinct from
+>    `rem:dw`'s Polish cut). Structural fact: **tribe-vs-points gap is real** — every
+>    non-Boolean LS theorem (effect-algebra/MV/D-poset) gives a function-tribe, NOT
+>    separating σ-additive 2-valued points, and needs RDP (OMLs fail it), so the proof
+>    route can't ride existing LS. New read **Burešová–Pták arXiv:2401.13798 (2024)**
+>    (not "Anguelov"; OMPs, no σ): Dirac-rep blow-up is indexed by the count of ALL
+>    (incl. non-σ) states, which countable generation does NOT bound (Borel(2^ℕ):
+>    countably-gen, 2^ℵ₀ states, yet lifts) ⟹ the cardinality-control axis DISSOLVED.
+>    **THE FINDING:** the existence route and the separation route (§6) are **duals**,
+>    and **both** dual surfaces lack a non-Boolean-σ engine (separation→disjointification
+>    `(a∨b)∧a⊥=b∧a⊥`; existence→σ-LS point-existence). The double-absence — three doors,
+>    two dual walls — is the result. **GUARDRAIL:** "no engine" ≠ "lifting fails";
+>    lifting is strictly weaker than full σ-LS and may be TRUE. Status = unresolved-open,
+>    PARKED; NOT promoted to impossible. **FORWARD:** the new object the problem needs
+>    must supply σ-points **non-constructively** (no LS engine for non-Boolean σ-OMLs) —
+>    the shape of the abstract input a future session waits on. `rem:dw` STABLE/untouched;
+>    survey unchanged (conjecture stays in working notes). Full record:
+>    `sigma_duality_targets.md` §9 + §9a; `[[sigma_essential_construction_attempt]]`
+>    Session 11.
+
+> **SESSION UPDATE 2026-06-23 (Sessions 12–13; continues the branch, working tree).**
+> The forcing-scout reconnaissance is now COMPLETE and the programme is fully priced.
+> 1. **Navigation clarified + infra built (S12).** All-roads-through-Door-1: the "three
+>    doors" are three EXITS of ONE task — construct/refute a binding global σ-additive
+>    2-valued point over a concrete σ-complete non-Boolean OML (exists→witness /
+>    model-dependent→independence(Door 3) / can't-exist→impossible). By-hand CLOSED ⟹
+>    lever must be global/non-constructive ⟹ tool = forcing. Nav infra:
+>    `MAP_sigma_essential.{md}` (one-task action map), `CHARTED_sigma_essential.md`
+>    (grep-first ledger of all charted territory), band+Lean prose archived.
+> 2. **DW citation primary-source verified (S13).** arXiv:2302.03522v3 (= repo's
+>    `derr_williamson_2023.pdf`, identical bytes): Thm 4.5 (Horn–Tarski finite) + Thm D.6
+>    (σ, Polish+Borel+inner-regular, via Maharam Thm 8.1) confirmed; D.6's own proof text
+>    names Hausdorff+inner-regular as load-bearing. `rem:dw` citation CLEAN; the paper's
+>    form is extendability⟺coherence (iff), which only strengthens `rem:dw`.
+> 3. **Forcing scout + deep-research sweep (S13) — WALL verdict, programme priced.** A
+>    4-agent hostile prior-art sweep (substituting for a blocked advisor pass) found:
+>    (i) **the forcing sentence Ψ is WELL-POSED** — flags (a)/(b)/(c) all cleared: Φ a
+>    clean existential (Horn–Tarski lineage), off-center genuinely *derived* (Kalmbach,
+>    lossless restriction), Ψ ZFC-independent-*statable before* a witness (von
+>    Neumann/Maharam precedent) ⟹ flag-(c) pessimism REFUTED, Door 3 is statable;
+>    (ii) **"Q stated nowhere" PARTIALLY REFUTED** — Blecher–Weaver (arXiv:1607.08505,
+>    *JFA* 272, 2017) state+solve the σ-additive 2-valued state existence question on
+>    `B(ℓ²(κ))`'s projection OML ⟺ κ Ulam-measurable (active 2026 line: Dzhenzher
+>    2604.25854/2605.24923) — MUST be cited as prior-art anchor;
+>    (iii) **but `rem:dw` is STRENGTHENED** — the cardinal bites ONLY via the abelian
+>    diagonal masa `ℓ∞(κ)≅P(κ)` (from B–W's own proof); non-distributivity does no work;
+>    σ-LS is solved only for RDP structures (OMLs lack RDP, MO₂); the DST+ZFC-independence
+>    framing of the residue has NO prior art (synthesis original). **The price is now
+>    known: a forcing programme must first build the "distributive routing port" (route
+>    the witness df-state space through a Boolean structure where Ulam bites) — and that
+>    port IS the σ-LS / tribe-vs-points wall.** Forcing bottoms out at Door 1, now with a
+>    named cardinal target (Ulam-measurable). **OPEN CALL = persist-vs-park (human's;
+>    leading option on the evidence = confirm the park — three independent passes each
+>    strengthened `rem:dw`).** Full record: `CHARTED_sigma_essential.md` DEEP-RESEARCH
+>    block; `MAP_sigma_essential.md` forcing-scout result; `sigma_essential_prior_art_verdict.md`
+>    2026-06-23 ADDENDUM; `forcing_scout_sentence.md`.
+>
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /
 > σ-Stone duality for **concrete** OMLs?* (= the §5 σ-essential open problem). Fences:

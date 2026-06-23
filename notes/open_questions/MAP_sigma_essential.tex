@@ -1,0 +1,254 @@
+\documentclass[9pt]{extarticle}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=0.5in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage[T1]{fontenc}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{mdframed}
+\usepackage{stmaryrd}  % \llbracket \rrbracket
+
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=blue}
+
+% ---------- Macros ----------
+\newcommand{\Sdf}{S_{\mathrm{df}}}
+\newcommand{\Sdfs}{S_{\mathrm{df}}^{\sigma}}
+\newcommand{\hand}{\llbracket\textsc{hand}\rrbracket}
+\newcommand{\remdw}{\texttt{rem:dw}}
+\newcommand{\file}[1]{\texttt{#1}}
+
+% Door box style
+\newmdenv[
+  linewidth=0.7pt,
+  linecolor=black!55,
+  backgroundcolor=black!2,
+  roundcorner=2pt,
+  skipabove=2pt,
+  skipbelow=2pt,
+  innertopmargin=2pt,
+  innerbottommargin=2pt,
+  innerleftmargin=5pt,
+  innerrightmargin=5pt,
+]{door}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5pt}
+
+% Tighten section headings
+\usepackage{titlesec}
+\titlespacing*{\section}{0pt}{3pt}{1pt}
+\titleformat{\section}{\normalfont\bfseries\normalsize}{}{0pt}{}
+
+\begin{document}
+
+\begin{center}
+{\large\bfseries MAP --- $\sigma$-essential descent}\\[1pt]
+{\footnotesize\itshape Read this FIRST. 30 seconds to recover the shape. One task, three
+exits, one cheap next action. Last synced 2026-06-22 (rewritten around the single task).
+If this drifts from the working notes, the working notes win --- but fix this.}
+\end{center}
+
+\vspace{-2pt}
+\hrule
+\vspace{3pt}
+\small
+
+%==================================================================
+\section*{The target (the whole thing, one sentence)}
+
+\begingroup\centering
+\fbox{\parbox{0.9\linewidth}{\centering\bfseries
+Is there a concrete $\sigma$-complete OML carrying a $\sigma$-additive contextual
+state witnessed by no finite sub-OML?}}\par
+\endgroup
+\vspace{2pt}
+
+\textbf{Equivalently (the sharp form):} a concrete $\sigma$-complete OML $L$ with a
+\emph{restriction-gap} $\{\, s|_F : s \in \Sdfs \,\} \subsetneq \Sdf(F)$ for some finite
+$F$ --- i.e.\ global $\sigma$-additive dispersion-free states fail to restrict onto the
+local df-state hull. \emph{($=\sigma$-additive lifting failure.)}
+
+\textbf{STATUS: OPEN, PARKED.} Not solved, not proved impossible.
+
+%==================================================================
+\section*{You are here}
+
+Both sides of the duality are determined at the representation level (clauses
+(i)+(ii), settled $+$ inhabited by $\prod_n MO_2$). The entire weight sits on
+\textbf{clause (iii) $=$ the measure descent $=$ \remdw{} residue $=$ the one task
+below.} The three ``doors'' of the prior map are \emph{not} three routes --- they are
+the three possible \textsc{exits} of one question. The predicate fork (P-weak vs
+P-strong) is \textbf{resolved} (2026-06-22) and collapsed \emph{into} that one task.
+
+%==================================================================
+\section*{The one thing to do (everything reduces to this)}
+
+\begin{door}
+\centering\bfseries
+Construct --- or refute the existence of --- a binding global $\sigma$-additive
+2-valued point over a concrete $\sigma$-complete non-Boolean OML.
+\end{door}
+
+This is \textbf{Door 1. It is the only way through.} Door 2 (a candidate object) is the
+\emph{same construction} (an object is a witness only if it carries the point); Door 3
+can't even be \emph{stated} until the object exists. The three exits:
+
+\begin{center}
+\begin{tabular}{@{}p{0.46\linewidth}p{0.27\linewidth}p{0.18\linewidth}@{}}
+\toprule
+\textbf{If Door 1 resolves as\ldots} & \textbf{\ldots the exit is} & \textbf{name} \\
+\midrule
+the point \textsc{exists} (construct it) & a \textbf{witness} & Exit A \\
+exists in one ZFC model, fails in another (forcing) & an \textbf{independence} result & Door 3 \\
+the point provably \textsc{cannot} exist & an \textbf{impossibility} & Exit B \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\textbf{You do not choose an exit. You work Door 1 and find out which one it has.}
+
+%==================================================================
+\section*{How Door 1 must be attacked (the tool is forced)}
+
+\begin{door}
+\textbf{By-hand / compositional construction is CLOSED} --- every elementary assembly
+hits a horn (the graveyard in ``Settled'' below). The lever must be \textsc{global} and
+\textsc{non-constructive}: any pairwise/finite-assembly spec of $A\vee B$ across
+non-orthogonal pairs collapses to a closed horn, so the point cannot be \emph{built}
+locally --- it must be \emph{summoned} globally.\\[2pt]
+$\Rightarrow$ \textbf{The only tool left is FORCING} (or an inner-model argument). The
+missing object and the independence proof are plausibly the \emph{same} forcing
+construction. \textbf{Where it bites:} only at the \textsc{uncountable-block} /
+$\Sdfs$-density level --- on $\mathbb{N}$ the obstruction is a clean ZFC contradiction
+($\bigcap A_k=\emptyset$), no independence there.\\[2pt]
+\textbf{Honest cost:} months-long, set-theory-heavy (iterated forcing, plausibly a
+measurable cardinal or its failure); real chance the answer is ``the object can't be set
+up coherently'' rather than a clean theorem.
+\end{door}
+
+%==================================================================
+\section*{The actual next action (cheap, before the months-long commitment)}
+
+\begin{door}
+\textbf{FORCING SCOUT --- do NOT start the heavy construction cold.} Bounded effort first:
+\begin{enumerate}[label=(\arabic*),leftmargin=2.2em,topsep=1pt,itemsep=1pt]
+  \item \textbf{Pin the precise set-theoretic sentence} whose independence you'd prove
+        (``a binding $\sigma$-point exists over [object schema]''). Check it isn't already
+        decided.
+  \item \textbf{Survey what forcing / large-cardinal tech could apply} to $\sigma$-point
+        existence over non-distributive structures (RVM cardinals, Boolean-valued models,
+        Blecher--Weaver \emph{no-RVM $\Rightarrow$ $\sigma$-states restrict normally}, the
+        $\mathrm{add}(\mathcal{N})$ lead --- but $\mathrm{add}(\mathcal{N})\Rightarrow$
+        independence was already fenced as \textsc{not} earned).
+\end{enumerate}
+Outcome: a \textsc{foothold} (a forcing notion that plausibly acts) or
+\textsc{confirmation the wall is load-bearing}. Both worth the low cost; neither commits
+the months. \textbf{Recommended before opening a forcing branch.}
+\end{door}
+
+\textbf{The persist-vs-pivot call is yours} (problem-selection $=$ human): commit to the
+forcing programme now, run the scout first, or confirm the park. No rush.
+
+%==================================================================
+\section*{The standing guardrails (violating these $=$ the failure mode)}
+
+\begin{itemize}[leftmargin=1.3em,topsep=1pt,itemsep=1pt]
+  \item \textbf{\remdw{} is STABLE.} $\sigma$-essential cell \textsc{empty} for
+        Polish/regular-representable OMLs (Derr--Williamson). Residue $=$
+        non-representable case $=$ $\sigma$-LS wall. Restate, never reopen.
+  \item \textbf{``Couldn't build it'' $\neq$ ``needs choice'' $\neq$ ``independent of
+        ZFC.''} Three claims, increasing strength. We have the first (proved), suspect the
+        second (conjecture), have \textsc{not} shown the third ($=$ Door 3, the open
+        work). Don't slide up the chain without doing the math. (Nor couldn't-refute
+        $\to$ proved.)
+  \item \textbf{CARRYING vs SELECTING} (the 2026-06-22 Door-1 discriminator): the
+        difficulty is \textsc{not} that blocks can't hold the mass --- states are
+        plentiful ($\Sdf$ compact, $\prod_n MO_2$ state-rich;
+        ``horizontal-sum-destroys-states'' is a \textsc{killed} premise). It is that
+        \textsc{selecting} one globally-coherent $\sigma$-additive point across all
+        incompatible block-pairs at once is the non-compact inverse-limit /
+        free-ultrafilter existence step. Door 1 is a \emph{selecting} problem.
+  \item \textbf{Exit-B inclination held OPEN, not a verdict.} $\sim$23 reversals on
+        record.
+  \item \textbf{Red-flag rule:} on \textsc{any} positive result, first ask \emph{where
+        did the smuggle enter?} --- inner-regularity / a $\pi$-system / the
+        $P(A)\leftrightarrow\Sdfs$ switch / a finitary obstruction masquerading as
+        $\sigma$-essential.
+  \item All novel hand-work flagged $\hand$; user verifies. Survey gets \textsc{no}
+        unproven claim.
+\end{itemize}
+
+\vspace{2pt}
+\begin{center}\footnotesize\itshape
+--- end of the action map (p.1 = the whole shape: one task, three exits, the forcing
+scout). Page 2 is the reference annex: settled facts, file pointers, persist-vs-pivot. ---
+\end{center}
+
+\clearpage
+%==================================================================
+\section*{Settled --- do NOT re-walk (most of the $\sim$23 reversals, now closed)}
+
+\begin{itemize}[leftmargin=1.3em,topsep=1pt,itemsep=1pt]
+  \item \textbf{Deliverable $=$ the restriction-gap} (above). Non-Borelness of $\Sdfs$ is
+        only its descriptive shadow. Off-hull is \textsc{always} finitely detected
+        (Hahn--Banach in $\mathbb{R}^L$).
+  \item \textbf{Duality determined at (i)+(ii)} $=$ Derr--Williamson $\sigma$-Dynkin
+        systems, inhabited by $\prod_n MO_2$. A definitional pin, not a theorem; all
+        weight on (iii).
+  \item \textbf{Predicate fork RESOLVED} (P-weak $\Rightarrow$ P-strong; co-extensive
+        $\Leftrightarrow$ $\sigma$-point-realization $=$ Door 1; agree on all
+        segregated/Polish objects; diverge only on the missing witness; use P-strong if a
+        witness ever appears). A restatement of Door 1, not a new door.
+  \item \textbf{Countable-generation $\Rightarrow$ lifting: PARKED} (prior-art OPEN;
+        tribe-vs-points structural; cardinality-control axis DISSOLVED by
+        Bure\v{s}ov\'a--Pt\'ak). Witness, if any, uncountably generated.
+  \item \textbf{Order-determination does \textsc{not} help} (Paper-I Stone-descent
+        transfer): $\delta_x$ are order-determining for free yet lifting can fail --- it's
+        the settled (i)+(ii) leg, not the descent leg. The OML lacks the
+        Stone-\textsc{duality} leg $=$ Door 1.
+  \item \textbf{All carrier constructions dead:} faithful $\sigma$-tribe (Floor); 5
+        binding modes; band family (S8 dichotomy, Lean-certified);
+        loops/Greechie/KS (finite-character). \emph{This is why the lever must be
+        global/non-compositional $\to$ forcing.}
+  \item \textbf{Strategy D KILLED} (prior-art, Gaifman 1964). Separate from the descent
+        arc.
+\end{itemize}
+
+%==================================================================
+\section*{Reference annex --- the doorway map (which file answers which question)}
+
+\begin{center}
+\begin{tabular}{@{}p{0.5\linewidth}p{0.42\linewidth}@{}}
+\toprule
+\textbf{If you're asking\ldots} & \textbf{Go to} \\
+\midrule
+``What's the shape / what do I do?'' & \textbf{this file} \\
+``Live record of the park $+$ forward pointer?'' & \file{sigma\_duality\_targets.md} \S9, \S9a \\
+``The two sides of the duality?'' & \file{sigma\_duality\_targets.md} \S1--5 \\
+``The predicate fork resolution?'' & \file{sigma\_duality\_targets.md} \S6 RESOLVED block \\
+``Has new input arrived / what un-parks?'' & \file{NEXT\_SESSION\_sigma\_essential.md} \\
+``Why is each construction route dead?'' & \file{sigma\_essential\_construction\_attempt.md} \\
+``Is it open / prior-art?'' & \file{sigma\_essential\_prior\_art\_verdict.md} \\
+``The authoritative math write-up'' & \file{oml\_onboarding.\{tex,pdf\}} (survey) \\
+``Work it by hand'' & \file{problemset\_oml\_descent.\{tex,pdf\}} \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+%==================================================================
+\section*{The non-math fork (if the weight is ``right problem?'' not ``what do I do?'')}
+
+Three moves, all \textsc{your} call (problem-selection $=$ human):
+\begin{itemize}[leftmargin=1.3em,topsep=1pt,itemsep=1pt]
+  \item \textbf{(a) Commit to the forcing programme now} --- open a branch, start the
+        heavy set-theory work on Door 1. Large, real; may end in ``the park is deeper.''
+  \item \textbf{(b) Run the forcing scout first} (p.1) --- bounded cost, finds a foothold
+        or confirms the wall is load-bearing. \emph{Recommended.}
+  \item \textbf{(c) Confirm the park and step away.} Honest; the method named the residue.
+\end{itemize}
+This is thesis-advisor territory (persist vs pivot), not something to settle by guessing.
+
+\end{document}

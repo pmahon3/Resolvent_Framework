@@ -1,136 +1,156 @@
-# Next-session prompt — σ-essential descent (the countable-generation ⟹ lifting sub-theorem)
+# Next-session prompt — σ-essential descent (PARKED; what would un-park it)
 
-*Drop-in prompt for the next working session on the lone open problem. Written
-2026-06-22 at the end of Session 10 (the DST construction attempt). Supersedes the
-prior two-hull-probe prompt — that probe is RESOLVED (it was a degenerate bracket, not
-a discriminator; see §8 of `sigma_duality_targets.md`). Self-contained; detail lives in
-the files it points to.*
+*Drop-in prompt for the next working session on the lone open problem. Updated
+2026-06-23 (end of Session 13). Since the 2026-06-22 rewrite, the **forcing scout has
+run and COMPLETED** (S12 pinned the sentence; S13 ran a deep-research hostile sweep that
+priced the forcing route and settled the (a)/(b)/(c) well-posedness flags). Net change:
+the forcing route is now **fully priced** — it bottoms out at the same σ-LS wall, with a
+named cardinal target (Ulam-measurable). The open call is **persist-vs-park**, and the
+leading option on the evidence is **confirm the park**. This prompt records that and names
+what would still re-open productive work. Self-contained; detail in the files it points to.*
+
+> **Lost? Read `MAP_sigma_essential.md` first** — one page, the target sentence, the
+> three doors, "you are here." Recover the shape in 30 seconds, then come back here.
 
 ---
 
+## Status in one paragraph
+
+The lone open problem — **is there a concrete σ-complete OML carrying a σ-additive
+contextual state witnessed by no finite sub-OML?** — is **OPEN but PARKED**. Not solved,
+not proved impossible. Three independent attack doors (separation §6, cardinality-control,
+existence/lifting) have all bottomed out, and Sessions 10–11 showed *why*: the problem
+reduces to a **restriction-gap = σ-additive lifting failure**, whose two governing
+surfaces (separation and existence) are **duals**, and **both lack any off-the-shelf
+engine for the non-Boolean σ case**. The new abstract input that Session 11 went looking
+for (a Loomis–Sikorski-type lever) does not exist for non-Boolean σ-OMLs — confirmed by
+hostile prior-art. So further *hand*-progress needs a genuinely new object or new abstract
+input. **Do NOT re-attack the conjecture or re-walk the doors; read this and decide
+whether new input has arrived.**
+
 ## Orientation (read these first, in order)
 
-1. `sigma_duality_targets.md` **§8** — Session-10 findings: the deliverable is the
-   restriction-gap, NOT non-Borel `S_df^σ`; off-hull is finitely *detected*; the
-   countable-generation sub-theorem. **This is the live edge.**
-2. `oml_onboarding.tex` (the survey) — now driven to the ridge, plainly stated. The
-   "Exhibit a witness" item in §Directions states the restriction-gap target with the
-   displayed `A_F` / `B_F` chain; `rem:ce` states the finitely-detected/globally-caused
-   form. The survey is the authoritative artifact — do NOT put unproven conjectures
-   into it (the sub-theorem below stays in the working notes until proved).
-3. `[[sigma_essential_construction_attempt]]` memory, "THE POLE" block + Session 10 —
-   standing orientation + what's closed.
+1. `sigma_duality_targets.md` **§9 + §9a** — Session-11 prior-art + existence-route
+   result + the two-dual-walls finding + the forward pointer. **This is the live record
+   of the park.** §8 = Session-10 (restriction-gap re-identification).
+2. `[[sigma_essential_construction_attempt]]` memory — "THE POLE" block (standing
+   orientation) + Sessions 9/10/11. Sessions 8b/8c (Lean) and the generator-hunt toolkit
+   are now collapsed to spines (band family dead); don't expect verbatim there.
+3. `oml_onboarding.tex` (the survey) — authoritative artifact. The "Exhibit a witness"
+   item states the restriction-gap target (`A_F`/`B_F` chain); `rem:dw` states the
+   Polish-representable settlement; `rem:ce` the finitely-detected form. **Do NOT put the
+   parked conjecture or any unproven claim into the survey.**
 
 ## The standing guardrails (do not violate)
 
-- **`rem:dw` is STABLE.** The σ-essential cell is EMPTY for Polish/regular-representable
-  OMLs (Derr–Williamson). The residue is the non-representable case = the σ-Loomis–
-  Sikorski wall. Do NOT reopen or re-adjudicate; restate its residue only.
-- **Exit-B inclination is held OPEN, NOT a verdict.** ~23 reversals on record; the
-  failure mode is tidying "no candidate / no proof yet" → "impossible/proved." **Run the
-  red-flag rule:** any positive result, first ask *where did the smuggle enter?*
+- **`rem:dw` is STABLE.** σ-essential cell EMPTY for Polish/regular-representable OMLs
+  (Derr–Williamson). The residue is the non-representable case = the σ-Loomis–Sikorski
+  wall. Do NOT reopen; restate its residue only.
+- **The park is "unresolved-open," NOT "impossible."** Lifting (σ-points over each finite
+  `F`) is strictly *weaker* than full σ-LS point-realization; the absence of an LS engine
+  does NOT entail lifting fails. "No engine" ≠ "lifting fails." Lifting may be TRUE. Do
+  NOT promote "couldn't prove" → "proved impossible."
+- **Exit-B inclination is held OPEN, NOT a verdict.** ~23 reversals on record. Red-flag
+  rule: any positive result, first ask *where did the smuggle enter?* (inner-regularity /
+  a π-system / the P(A)↔S_df^σ switch / a finitary obstruction masquerading as σ-essential).
 - All novel hand-work flagged `⟦HAND⟧` / `⟦HAND — unverified⟧`; user verifies.
+
+## What is settled / closed (do NOT re-walk)
+
+- **The deliverable IS the restriction-gap** `{s|_F : s∈S_df^σ} ⊊ S_df(F)` = σ-additive
+  lifting failure. Non-Borelness of `S_df^σ` is only its descriptive shadow. Off-hull is
+  ALWAYS finitely detected (Hahn–Banach in ℝ^L). (§8.)
+- **The countable-generation ⟹ lifting conjecture is PARKED.** Prior-art OPEN (no
+  off-the-shelf theorem; the **tribe-vs-points gap** is structural — non-Boolean LS gives
+  a function-tribe, not separating σ-additive 2-valued points, and needs RDP which OMLs
+  fail). The **cardinality-control axis is DISSOLVED** (Burešová–Pták arXiv:2401.13798:
+  blow-up indexed by count of ALL states; Borel(2^ℕ) is countably-gen with 2^ℵ₀ states yet
+  lifts). The **finitary per-step is always free** (MO₂ (0,0)); only σ-limit relations
+  `gₙ₊₁=∨ₖhₖ` can block. (§9, §9a.)
+- **Both dual surfaces are walled-of-tools:** separation (§6) → disjointification
+  `(a∨b)∧a⊥=b∧a⊥`; existence → σ-LS point-existence. The double-absence is the finding.
+- **All carrier-construction routes dead:** faithful σ-tribe (Floor); all five binding
+  modes; the entire band family (S8 dichotomy, Lean-certified); loops/Greechie/KS-configs
+  (finite-character ⟹ fail σ-essential); finite-assembly generally (the lever must be
+  GLOBAL/non-compositional, S11 negative-space). The carrier, if it exists, is
+  **non-loop, non-central, non-band, non-segregated, non-finite-character**, plausibly
+  **uncountably generated**, and its σ-points must arise **non-constructively**.
+
+## THE ONLY THING WORTH DOING NEXT (gate the session on it)
+
+**Has new input arrived?** Productive hand-work needs ONE of:
+
+1. **A non-constructive σ-point existence principle for non-Boolean σ-OMLs.** The forward
+   pointer (§9a): no LS engine delivers σ-points for non-Boolean σ-OMLs, so a witness's
+   σ-additive 2-valued states (or the proof that enough exist) must come from a
+   *non-constructive* source — a fixed-point / compactness / Baire-category / forcing-style
+   argument, NOT a representation theorem. If you can NAME such a principle and it bears on
+   either (a) "enough σ-additive 2-valued states to lift every finite df-state" [⟹ lifting
+   TRUE, witness must be uncountably generated] or (b) a σ-OML where they provably fail to
+   lift [⟹ the witness], that is the call to make. Take it to the advisor framed as: "I can
+   name lever X that supplies/denies σ-points without an LS engine — does it touch lifting?"
+
+2. **A genuinely new candidate object** that is non-segregated, off-center, σ-complete,
+   concrete, non-Boolean — the object the whole programme lacks. Before spending effort,
+   run it against the three unit tests (§9a refutation gate): (i) must NOT segregate
+   (∏ₙMO₂); (ii) must NOT reintroduce intersection-closure (Floor → Boolean); (iii) must
+   NOT be finite-character (Wright → finitely witnessed → not σ-essential). A candidate
+   surviving all three is the prize; one failing a test is logged and dropped.
+
+3. **The set-theoretic tripwire fires.** If any construction starts needing extra axioms
+   (measurable cardinal / V=L / ¬MA), that is the `rem:dw` "rhymes with ZFC-independence"
+   prediction coming true — record it as an independence-flavoured finding, a real result.
+   **⟦S13 UPDATE: the tripwire is now PARTIALLY visible from prior art, not just predicted.⟧**
+   Blecher–Weaver (arXiv:1607.08505, *JFA* 272 2017) prove that on `B(ℓ²(κ))`'s projection
+   OML, a singular σ-additive 2-valued (pure) state exists ⟺ κ is **Ulam-measurable** — a
+   genuine large-cardinal tripwire on a non-distributive σ-complete OML. **BUT** the cardinal
+   bites only through the abelian diagonal masa `ℓ∞(κ)≅P(κ)` (the "distributive routing port");
+   the non-distributivity does no work, and no instance is known where a measurable cardinal
+   bites WITHOUT factoring through a Boolean sub-object. So to fire the tripwire *for the
+   abstract concrete-σ-OML target*, a construction would first have to build that port — which
+   IS the σ-LS / tribe-vs-points wall. The named cardinal target (Ulam-measurable) and the
+   B–W/Dzhenzher anchor are the new toolkit if you pursue this. Detail:
+   `sigma_essential_prior_art_verdict.md` 2026-06-23 ADDENDUM; `CHARTED` DEEP-RESEARCH block.
+
+**If none of the three has arrived, the honest move is: confirm the park stands, do NOT
+manufacture a fourth door, and stop.** ⟦S13: the forcing scout has now run and priced the
+forcing route — it does not get around the wall (it must first build the distributive
+routing port = the same σ-LS wall). The (a)/(b)/(c) flags are settled: the forcing sentence
+is well-posed, so Door 3 *can* be cleanly stated; what's missing is not formulation but the
+port. The persist-vs-park decision is therefore decidable NOW (human's call;
+`thesis-advisor` agent is the right checkpoint). Leading option on the evidence: confirm the
+park (three independent passes — S11 dual-walls, S12 forcing-wall, S13 deep-research-wall —
+each strengthened `rem:dw`).⟧ The three-doors-→-two-dual-walls convergence is the current
+finding; thrashing for a fourth route is the ~23-reversal failure mode. A *partial* result
+(e.g. "lifting holds under hypothesis H") is progress; a *failed* candidate that died on a
+unit test is progress (log which test). "Couldn't prove" ≠ "impossible"; "couldn't refute"
+≠ "proved."
 
 ## The fixed setting (definitions you need)
 
-`L` a concrete σ-complete OML, realised as a σ-Dynkin system `D ⊆ P(X)`. For a finite
+`L` a concrete σ-complete OML, realised as a σ-Dynkin system `D ⊆ P(X)`. For finite
 sub-OML `F ⊆ L`:
-
-- `S_df` = global dispersion-free states (2-valued states on all of `L`).
+- `S_df` = global dispersion-free states (2-valued on all of `L`); weak-* compact.
 - `S_df^σ` = the **σ-additive** dispersion-free states — a (possibly proper) subset of
-  `S_df` (glossary, survey). The contextuality predicate is stated against `S_df^σ`
-  (`w ∉ conv̄(S_df^σ)`); the σ-additivity restriction is load-bearing, not cosmetic.
-- `S_df(F)` = **all** 2-valued states on the finite `F` (the full *local* hull's
-  vertices). On a finite `F` every state is trivially σ-additive, so there is no
-  `S_df(F)` vs `S_df^σ(F)` distinction — the σ-content lives only in which *global*
-  states restrict to `F`.
-- **Lifting holds** ⟺ `S_df(F) = { s|_F : s ∈ S_df^σ }` for every finite `F` — i.e. every
-  local dispersion-free state is the restriction of a global **σ-additive** one. (This
-  is the σ-additive lifting; it is what the restriction-gap measures. A weaker
-  "lifts to some global df-state, not necessarily σ-additive" question also exists but
-  is NOT the one that decides the witness.)
+  `S_df`; NOT weak-* closed (the CE phantoms, `rem:ce`). Contextuality predicate is
+  `w ∉ conv̄(S_df^σ)` (the σ-restriction is load-bearing).
+- `S_df(F)` = ALL 2-valued states on finite `F`. On finite `F` every state is σ-additive,
+  so the σ-content lives only in which *global* states restrict to `F`.
+- **Lifting holds** ⟺ `S_df(F) = { s|_F : s ∈ S_df^σ }` for every finite `F` — every local
+  df-state is the restriction of a global **σ-additive** one. Always `⊆`; lifting is `⊇`.
+- A σ-essential witness exists ⟺ the **restriction-gap** `{s|_F:s∈S_df^σ} ⊊ S_df(F)` is
+  non-empty for some finite `F`.
 
-Standing facts (verified Session 10):
-- Always `{ s|_F : s∈S_df^σ } ⊆ S_df(F)`. Lifting is the reverse inclusion.
-- **Off-hull is finitely detected:** `w ∉ conv̄(S_df^σ)` ⟺ a finite-support functional
-  `Σcᵢ s(aᵢ)` separates `w` (Hahn–Banach in `ℝ^L`, product topology). ⟦HAND — verified⟧
-- A σ-essential contextual witness exists ⟺ the **restriction-gap**
-  `{ s|_F : s∈S_df^σ } ⊊ S_df(F)` is non-empty for some finite `F`. (Lifting-failure.)
+## Flagged forward-looking sub-question — RESOLVED 2026-06-22 (no longer a live edge)
 
-## THE DECISIVE MOVE (lead with this — a theorem to prove or refute)
-
-> **Conjecture (Type-5 impossibility candidate).** *Every **countably generated**
-> concrete σ-complete OML satisfies lifting — i.e. its restriction-gap is empty at every
-> finite `F`.*
-
-**Why it is the right next move.** It is a genuine theorem (not a re-description of the
-gap), and *either* outcome advances the problem non-trivially:
-
-- **If TRUE** ⟹ a witness must be **uncountably generated**. This is a real impossibility
-  result (closes the countable case) and narrows the search decisively — every
-  construction attempt to date (band families, ∏ₙMO₂, Navara, loops) is countably
-  generated, so the theorem would explain *en bloc* why they all failed and redirect
-  effort to uncountable carriers.
-- **If FALSE** ⟹ the refuting object is a **countably generated witness** (or a clean
-  obstruction-free path to one) — i.e. Exit-A, the prize. A counterexample here IS the
-  witness.
-
-**Crucial gate (the smuggle-trap to avoid).** This does NOT follow from the π–λ
-observation. `∏ₙMO₂` is countably generated with non-π-system generators (π–λ
-propagation blocked) **yet lifting HOLDS there** (it is segregated ⟹ coordinatewise
-extension ⟹ gap empty). So π–λ-failure is **necessary but not sufficient** for the gap.
-The conjecture is consistent with `∏ₙMO₂` whether it is true or false; the unit-test
-object decides nothing here. A real argument is required.
-
-## How to attack it (both directions)
-
-**Proof direction (lifting holds).** The target arrow is: *a 2-valued σ-additive state
-on a finite `F` extends to a global 2-valued σ-additive state on a countably generated
-`L`.* The natural machine:
-- Enumerate generators `g₁, g₂, …`. Build the global state by a back-and-forth /
-  one-generator-at-a-time extension, maintaining 2-valued σ-additive coherence on the
-  sub-OML generated so far.
-- The **obstruction to watch**: at each step the agreement/extension set is a **λ-system**
-  (complement- and countable-disjoint-union-closed), and propagating a partial 2-valued
-  state to the generated σ-OML is a π–λ argument that *needs a π-system* (meet-closed
-  generating set) — which an OML can't supply without triggering the Floor. **This is the
-  same π–λ wall as §6.** The question is whether *countability of the generator list* +
-  *σ-additivity* (continuity from above) is enough to push the extension through the
-  countably many steps **despite** the missing π-system — or whether a generator can
-  appear at which no coherent 2-valued value exists. That is the crux; it is NOT yet
-  settled either way.
-- Concrete sub-question: does `σ-additivity` force the extension to be *determined* (not
-  merely *constrained*) once values on the generators are fixed? If determined ⟹ lifting
-  via a limiting/monotone-class argument. If only constrained ⟹ a branch where two global
-  states agree on generators but differ on `L` = exactly the refutation seed.
-
-**Refutation direction (lifting fails).** Seek a countably generated concrete σ-complete
-`L` and a finite `F` with a 2-valued state `s_0` on `F` that extends to NO global
-σ-additive 2-valued state. By the standing facts this `s_0` (suitably mixed) yields the
-σ-essential witness `w`. **Gate:** the failure must be a genuine df-state-set separation
-(`{s|_F} ⊊ S_df(F)`), NOT charge-non-σ-additivity (= the ∏ₙMO₂ death). Check any
-candidate against the three unit tests:
-1. Does it segregate? (run on `∏ₙMO₂` structure — must NOT.)
-2. Does it reintroduce intersection-closure? (Floor fires → Boolean — must NOT.)
-3. Is it finite-character? (Wright 1978 → finitely witnessed → not σ-essential — must NOT.)
-
-A counterexample surviving all three is the prize; if every candidate fails a test, that
-is evidence (not proof) toward the TRUE side.
-
-## What's CLOSED (do not re-walk)
-
-Faithful σ-tribe (Floor); all binding modes (coordinatewise→segregated, atom-share→
-loop/band, subtractive→Navara/band); the entire band family (Session-8 dichotomy);
-loops/Greechie/KS-configs (finite-character ⟹ fail σ-essential); the two-hull probe
-(degenerate bracket, §8); the intrinsic π–λ route as a *standalone* attack (it gates the
-sub-theorem above but is not itself a separate open thread). The carrier, if it exists,
-must be **non-loop, non-central, non-band, non-segregated**, with contextuality of
-**non-finite character** — and, per the conjecture, plausibly **uncountably generated**.
-
-## If the session ends without resolving it
-
-Record honestly: a *partial* proof (e.g. "lifting holds under additional hypothesis H")
-is progress; a *failed* counterexample that died on a unit test is progress (log which
-test). Do NOT promote "couldn't refute" to "proved," nor "couldn't prove" to
-"refuted/impossible." Both are the ~23-reversal failure mode. The conjecture stays in the
-working notes (`sigma_duality_targets.md`) — NOT the survey — until genuinely proved.
+The predicate fork ("σ-additive measure genuinely on `S_df^σ`" [P-strong] vs
+`w ∈ conv̄(S_df^σ)` [P-weak]) is **settled** (user picked it, advisor-checked;
+`sigma_duality_targets.md` §6 RESOLVED block). Result: **P-weak ⟹ P-strong always; on
+σ-additive `w` the two are CO-EXTENSIVE ⟺ σ-point-realization (door 1)** — so they agree
+on Boolean, Polish-representable (`rem:dw`), and all **segregated** objects (central
+decomposition + σ-additivity ⟹ point-concentration; verified on `∏ₙMO₂`). They diverge
+**only on the missing non-segregated/non-Polish witness**, where P-strong is the cleaner
+target. **Net for the open problem: the predicate choice doesn't matter until a witness
+exists; if one does, state it with P-strong.** This is a restatement of door 1, NOT a new
+door — does not un-park. (The trivial reading — any `w` — splits vacuously via phantoms;
+that is a smuggle-trap, not inhabitation.)

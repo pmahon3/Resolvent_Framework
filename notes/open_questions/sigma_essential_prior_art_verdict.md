@@ -189,6 +189,65 @@ regime? A killer paper (either direction) could sit in:
   AMS 19:319** — block-extension of dispersion-free states; finite/algebraic, not
   σ-additive-infinite. Origin of the framing, not a solution.
 
+## ⟦ADDENDUM 2026-06-23 — deep-research hostile sweep (set-theoretic angle)⟧
+
+A 4-agent hostile prior-art sweep (substituting for a blocked advisor pass) probed the
+**set-theoretic-existence** framing that the 2026 forcing scout had reached, with the
+explicit instruction to refute "Q is stated nowhere." Result: the blanket claim **does
+not survive**, and there is a load-bearing new anchor.
+
+**The hit — Blecher & Weaver, "Quantum measurable cardinals," arXiv:1607.08505, *J.
+Funct. Anal.* 272 (2017).** They state and resolve the σ-additive 2-valued state
+existence question on a **non-distributive σ-complete OML** — the projection lattice of
+`B(ℓ²(κ))`:
+
+> a singular countably-additive **pure** (hence `{0,1}`-valued on its multiplicative
+> domain) state on `B(ℓ²(κ))` exists **iff κ is Ulam-measurable**; the `<κ`-additive
+> version iff κ is measurable.
+
+This is the cleanest inhabitant of the "set-theoretic existence of a σ-essential 2-valued
+state on a non-Boolean σ-OML" cell, with the answer = a large-cardinal axiom (not
+ZFC-provable). It is an **active 2026 line** (Dzhenzher, arXiv:2604.25854 and 2605.24923).
+**It must be cited** as the prior-art anchor for any set-theoretic σ-essential claim, and
+it pins the relevant strength: **Ulam-measurable** (σ-complete free ultrafilter), not RVM.
+
+**But `rem:dw` is STRENGTHENED, not breached — this is the Gaifman/Derr–Williamson
+pattern again, one level up.** The cardinal in Blecher–Weaver bites **only through the
+abelian diagonal masa `ℓ∞(κ) ≅ measures on P(κ)`** (confirmed from their own proof:
+forward = a diagonal `{0,1}`-measure pushed up by conditional expectation `φ∘E`; converse
+= restrict to the diagonal masa). The non-distributive lattice does **no work** in
+summoning the cardinal; the 2026 follow-ups say so verbatim ("exclusively on abelian
+subalgebras"; genuine non-commutative extension is **open**). Contrast cases confirm:
+Bunce–Wright (Mackey–Gleason, arXiv:math/9204228) handles non-distributive
+projection-lattice measures with **no** large cardinal; Koszmider's non-diagonalizable
+pure states (arXiv:2002.05230) need **no** measurable cardinal. **A measurable cardinal
+that bites WITHOUT factoring through a Boolean sub-object was NOT FOUND** — this is the
+"distributive routing port" intuition, externally corroborated.
+
+**σ-Loomis–Sikorski for OMLs — confirmed absent.** σ-LS is solved for MV-algebras and
+RDP effect algebras (Dvurečenskij 2000, *J. Aust. Math. Soc.* 68; Barbieri–Weber;
+Dvurečenskij–Ventriglia 2008) as a tribe **σ-epimorphic image**. It **fails for
+non-distributive OMLs precisely because they lack RDP** (MO₂ the standard witness) — the
+published form of the Floor/distributivity wall. The tribe-vs-points gap is real but
+**unnamed/folklore**; the DST (analytic-not-Borel) + ZFC-independence framing of the
+residue has **no prior art** — the programme's synthesis appears original.
+
+**The frontier, sharpened (set-theoretic dress):** *does the `B(H)` measurable-cardinal
+dichotomy survive passage to abstract concrete σ-complete OMLs that are NOT
+Hilbert/Polish-realizable?* `B(H)` sidesteps σ-LS by supplying `H`; the target lacks it,
+so the gap = the `rem:dw` residue. That is the unclaimed cell.
+
+**Forcing-sentence well-posedness (the staged advisor flags, now settled by the sweep):**
+(a) `Φ` is a clean existential (Horn–Tarski 1948 → marginal problem → De Simone–Navara–Pták
+arXiv:math-ph/0311012, who exhibit a ¬Φ restriction-gap on finite concrete logics; uniqueness
+only in the separate Mackey–Gleason branch). (b) Off-center is genuinely *derived* (Kalmbach
+center-decomposition + product-state factorization), so the C4 restriction is lossless. (c)
+`Ψ` is ZFC-independent-*statable before* a witness exists (von Neumann/Maharam problem =
+ZFC-independent via Suslin tree, Balcar–Jech–Pazák arXiv:math/0312473; Talagrand; RVM
+cardinals; Fremlin Ch. 39/54) — so flag (c)'s pessimistic "the wall blocks *formulating*
+Door 3" is **refuted**. The 2-valued + non-Boolean concrete-OML specialization is the only
+piece with no precedent — the open edge.
+
 ## Bottom line for the survey
 
 Do **not** present this as a clean open problem. The defensible statement is:

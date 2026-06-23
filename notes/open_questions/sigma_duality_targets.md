@@ -309,6 +309,45 @@ refinement connecting the scaffold to `rem:ce`, NOT a transfer failure. Sub-ques
 > on some `L`, and which the open problem should use, is an open definitional
 > question for the user's call, not a settled refinement.
 
+> **RESOLVED 2026-06-22 (user picked this fork; advisor-checked). The two
+> predicates are co-extensive on every accessible object and diverge EXACTLY on the
+> missing witness — so the definitional question is settled without needing the
+> witness.** ⟦HAND — advisor-confirmed⟧
+> Name the two σ-notions of contextual on a concrete σ-complete OML `L`:
+> - **(P-weak)** `w ∉ conv̄(S_df^σ)` — the survey's current predicate (`lem:relational` σ-form).
+> - **(P-strong)** `w` is NOT the barycentre of any σ-additive probability measure
+>   supported **on `S_df^σ` itself** (charging no CE phantom, `rem:ce`).
+> Write `A = conv̄(S_df^σ)` and `B = {barycentres of σ-measures on S_df^σ}`. Always
+> `B ⊆ A`, so **¬P-strong ⟹ ¬P-weak**, i.e. **P-weak ⟹ P-strong** (P-strong holds
+> for more states). The fork = is the implication strict.
+> - **TRIVIAL reading (any `w`): always split, VACUOUSLY.** A phantom `φ ∈ cl(S_df^σ) ⊆ A`
+>   but `φ ∉ B` (a σ-measure on `S_df^σ` has a σ-additive barycentre; `φ` is
+>   finitely-additive-not-σ). So `A\B ≠ ∅` whenever phantoms exist — but these are
+>   non-σ-additive `w`, not contextual *states* in the substantive sense. Don't let
+>   "phantoms exist" read as inhabiting the fork. **Smuggle-trap.**
+> - **SUBSTANTIVE reading (σ-additive `w`): the real question, and it equals door 1.**
+>   For σ-additive `w`: **`B = A` ⟺ every σ-additive state in `conv̄(S_df^σ)` is a
+>   genuine σ-mixture of σ-additive POINTS = σ-point-realization** (the tribe-vs-points
+>   gap, §9 / door 1). (⟸ point-mixture gives the measure; ⟹ `B=A` makes every hull
+>   state a point-measure.) A σ-additive `w` needs to charge phantoms iff it is a
+>   *limit barycentre* of points that is not a genuine point-mixture — which **is** the
+>   σ-LS failure.
+> - **Why this is general, not a `∏ₙMO₂` accident.** Agreement holds wherever
+>   point-concentration holds: Boolean (Stone), Polish-representable (D–W, `rem:dw`),
+>   and **segregated objects generally** — central decomposition + σ-additivity forces
+>   a σ-additive state onto the central atoms, so a σ-additive hull-state IS a
+>   point-mixture. Verified on `∏ₙMO₂` (survey line 1056–1059: contextual states are
+>   only finitely-additive on the central `P(ℕ)`; σ-additivity forces concentration on
+>   points). **The split can occur ONLY on a non-segregated, non-Polish object — the
+>   exact witness class the programme lacks.**
+> - **THE ANSWER to "which predicate should the open problem use":** it does not
+>   matter until the witness exists; **P-weak and P-strong are co-extensive on every
+>   object the programme can access.** If/when a witness exists, state it with
+>   **P-strong** (genuine σ-measure charging no phantom) — the strictly stronger,
+>   cleaner target. **Guardrail: this does NOT un-park.** The divergence sits on the
+>   SAME wall (door 1); it is a restatement of the residue, not a new attack surface.
+>   `rem:dw` STABLE; survey unchanged.
+
 **Honest status of §6.** Intrinsic route **attempted and blocked at ONE wall** (the
 π–λ/meet-closure step = the distributivity obstruction again); the second worry
 resolved to a CE-leak refinement (above), not a crack. A real finding — *why* the
@@ -395,6 +434,122 @@ one verified fact, one new sub-theorem. No witness; reduces to σ-lifting-failur
   finite-assembly construction always fails.
 - **Tripwire (not triggered):** extra set-theoretic axioms (meas. cardinal / V=L / ¬MA)
   would confirm `rem:dw`'s ZFC-independence rhyme. Not seen.
+
+## 9. Prior-art on the countably-generated cut (2026-06-22, Session 11) → OPEN, no off-the-shelf theorem reaches it; the tribe-vs-points gap is confirmed structural
+
+*Hostile cross-field prior-art scout (per the standing rule — Strategy D died here) on
+the §8 sub-theorem candidate: "every **countably generated** concrete σ-complete OML is
+point-realizable / satisfies σ-additive lifting." Sweep complete across Pták–Pulmannová,
+Hamhalter, Navara, Gudder, de Lucia, Kalmbach/Greechie, effect-algebra/MV/D-poset LS,
+Derr–Williamson. **Verdict: OPEN — the exact conjunction (countably generated ∧ concrete
+∧ σ-complete ⟹ point-realizable with separating σ-additive 2-valued states) is stated
+nowhere, proved or refuted.** This is the **countably-generated cut**, explicitly DISTINCT
+from `rem:dw`'s **Polish-representable** cut — a different, weaker slice of the same σ-LS
+wall. Does NOT reopen `rem:dw`.*
+
+- **The tribe-vs-points gap is REAL and structural (main deliverable).** Every
+  Loomis–Sikorski theorem that exists for non-Boolean structures (effect-algebra:
+  Barbieri–Weber/Dvurečenskij; MV: Mundici/Dvurečenskij; D-poset) gives a
+  **σ-epimorphic image of a function-tribe**, NOT a point set with separating σ-additive
+  2-valued states. Two obstructions for our purpose: (1) they require the **Riesz
+  Decomposition Property (RDP)**, which non-Boolean OMLs generically **FAIL**; (2) even
+  when applicable, a function-tribe quotient can carry **zero** 2-valued states. Boolean
+  is the ONLY case where tribe-quotient = point set with separating 2-valued states
+  (Booleanness forces a determining set of Dirac states). **Consequence: the proof route
+  CANNOT ride on existing LS machinery — off-the-shelf σ-LS gives the easy thing
+  (tribe), not the hard thing (separating σ-additive 2-valued points).** This vindicates
+  the long-standing worry "representable as a σ-tribe ≠ point-realizable."
+- **NEW ABSTRACT INPUT on the point side (the hard side): Burešová–Pták, arXiv:2401.13798
+  (2024)**, "On the Set-Representable Orthomodular Posets that are Point-Distinguishing."
+  *(Author corrected 2026-06-22 from "Anguelov" — verified against the arXiv abstract;
+  authors are Dominika Burešová & Pavel Pták.)*
+  Post-dates the programme's reading. Separates "set-representable" from
+  "point-distinguishing"; their Stone-type construction over ALL 2-valued states makes
+  every 2-valued state a **Dirac state** — but only after **possibly enlarging the point
+  set significantly (a CARDINALITY COST)**. **It is SILENT on σ-completeness and countable
+  generation.** That cardinality blow-up is *exactly* the mechanism a countable-generation
+  hypothesis would have to control. THE LIVE FORK: does countable generation **bound** the
+  blow-up (⟹ lifting/point-realizable holds, TRUE side) or genuinely **force uncountable
+  points even for countably-generated `L`** (⟹ refutation seed)? This is the natural
+  battleground; the experts on point-distinguishing OMPs have not run the σ analysis.
+- **The refutation side is STRUCTURALLY STARVED — but this is WEAKER evidence than it
+  looks (wrong axis).** Known state-poor OMLs (Greechie's state-free constructions;
+  Navara's no-group-valued-measure OML; Navara–Pták) are **combinatorial loop/pasting
+  constructions, finite or finitely generated, and NOT σ-complete.** σ-completeness is a
+  real filter that rules out exactly the constructions that kill states. ⚠⚠ **CAVEAT
+  (advisor 2026-06-22): those are STATE-POVERTY constructions, but lifting-failure is
+  RESTRICTION-NON-SURJECTIVITY — a local 2-valued state on `F` that no global σ-additive
+  state restricts onto.** These are DIFFERENT failure modes: an `L` can be state-*rich*
+  (`S_df^σ` separating) yet have the restriction map miss a local pattern. So the
+  starvation point addresses the wrong axis — it is necessary-not-sufficient evidence and
+  must NOT accrue weight toward TRUE. ⚠ Doubly an **absence-of-counterexample universal**
+  — Exit-B shape.
+- **Bounds on the open cut.** Lower bound (free): function-tribe representation (too weak,
+  no points). Upper bound (settled positively): Derr–Williamson Polish-representable case
+  (`rem:dw`) — strictly STRONGER hypothesis than countable generation; nobody has bridged
+  Polish-representable ⟸ countably-generated.
+- **Citations to pull:** Burešová–Pták arXiv:2401.13798 (Thm 2.5, 3.1); Dvurečenskij
+  effect-algebra LS (survey arXiv:1204.6486 for the RDP hypothesis); Pták–Pulmannová
+  *Concrete Quantum Logics* + the 1994 CMUC 35:205–208 subadditive-measures⟹Boolean
+  prior-art (already held); Derr–Williamson arXiv:2302.03522 (upper bound).
+- **PROOF-DIRECTION DISCIPLINE (carry into the attack).** Attack **existence** (does a
+  2-valued state `s_0` on finite `F` extend to a global σ-additive 2-valued state on
+  countably-generated `L`?). Do NOT attack the prompt's "is the extension *determined*
+  once generator-values are fixed?" (prompt lines 102–105) — that is *uniqueness* = §6,
+  already gated by the missing witness, and "determined ⟹ lifting" is an INVALID
+  inference (determinacy ≠ existence). Re-walking it re-runs §6 under a new name.
+
+### 9a. Existence route worked → PARKED (the two-dual-walls convergence)
+
+*Worked + advisor-checked 2026-06-22, Session 11, after the Burešová–Pták read.
+Outcome: **unresolved-open, PARKED** — not impossible, not walled-shut. A convergence
+finding.*
+
+- **The finitary per-step CANNOT block (so don't compute it).** In the back-and-forth
+  (extend a 2-valued σ-additive `s` from `Lₙ=⟨g₁…gₙ⟩` to `Lₙ₊₁`), assigning `s(gₙ₊₁)` at
+  a **finitary** step is **always free** (the MO₂ phenomenon: state `(0,0)` has
+  `s(a)=s(b)=0` yet `s(a∨b)=1`, value unconstrained). A finitary obstruction would be
+  finite-character = Wright = unit-test-3 excluded = **not σ-essential**. So a finitary
+  disjointification contradiction can only ever confirm "finite works" — it cannot find
+  the witness and cannot park the problem. ⟦HAND — advisor-confirmed⟧
+- **The ONLY blocking relations are the countable-join / σ-additivity ones.** When
+  `gₙ₊₁ = ∨ₖhₖ`, σ-additivity FORCES `s(gₙ₊₁)=1 ⟺ some s(hₖ)=1`. That σ-limit is the
+  one place a value isn't free and a contradiction can arise. The conjecture, stated
+  correctly, IS **σ-point-richness for the countably-generated cut**: "every
+  countably-generated concrete σ-complete OML has *enough σ-additive* 2-valued states to
+  lift every finite local df-state."
+- **Borel(2^ℕ) sanity check (shape confirmed).** Countably generated, σ-complete,
+  point-realizable, lifting HOLDS — *despite* carrying free-ultrafilter (finitely-additive-
+  not-σ) states = the `rem:ce` phantoms — because it ALSO has enough `δ_x`. So CE phantoms
+  existing does NOT break lifting; lifting needs enough *σ-additive* states regardless.
+  Open: do non-Boolean countably-generated concrete σ-OMLs keep that richness?
+- **THE FINDING — both DUAL surfaces lack a tool for the non-Boolean σ case (NOT "one
+  wall").** Existence and separation/uniqueness are **duals**, genuinely distinct
+  surfaces:
+  - **Separation route (§6):** blocked at the **disjointification** identity
+    `(a∨b)∧a⊥=b∧a⊥` (a uniqueness surface).
+  - **Existence route (here):** needs **σ-LS point-existence** (a σ-homomorphism
+    `L→{0,1}` with prescribed values on `F`) — the **dual** surface.
+  - **Cardinality-control route:** DISSOLVED (wrong axis — Burešová–Pták blow-up is
+    indexed by the count of ALL [incl. non-σ] states, which countable generation does not
+    bound; Borel(2^ℕ) has 2^ℵ₀ states yet lifts).
+
+  Three doors, two genuinely-dual walls, **both** without an off-the-shelf engine for the
+  non-Boolean σ case (scout: LS gives tribe-not-points, RDP fails; BP: wrong tool). That
+  **double-absence** is the finding — more honest and more informative than collapsing
+  them to "one wall."
+- **GUARDRAIL — "no engine" ≠ "lifting fails."** Lifting (σ-points over each finite `F`)
+  is strictly **weaker** than full σ-LS point-realization (separating all of `L`). Absence
+  of an LS engine does NOT entail lifting fails. **Lifting may well be TRUE.** Status:
+  **unresolved-open, PARKED** — do NOT promote "couldn't prove" → "impossible/walled."
+- **FORWARD POINTER (the shape of the new input a future session waits on).** The new
+  object the problem needs must supply σ-points **non-constructively** — no LS engine will
+  deliver them for non-Boolean σ-OMLs. That is the shape of the "new abstract input"
+  required to move either way. Until such input arrives, the existence route adds no
+  nameable lever beyond what §6 already exhausted on the dual side.
+- **Survey unchanged** (guardrail): the conjecture and this convergence stay in working
+  notes, NOT `oml_onboarding`. `rem:dw` STABLE/untouched (Polish-representable cut; this is
+  the countably-generated cut).
 
 ---
 

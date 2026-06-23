@@ -129,9 +129,11 @@ non-segregation); Reading 2 pushes toward impossibility.**
 
 - Survey + the three directions: `oml_onboarding.tex` §5–§6.
 - The fork this bottoms out at: `programme/genealogy.md` §"THE OPEN QUESTION".
-- Live OML branch (Direction 2 was its "move 1"): `explore/b-pointfree-descent`,
-  `programme/fork_scout_b_descent_impossibility.md` — this finding sharpens that
-  scout's framing (the scout said "fix the question"; this is *why* the question
-  resists fixing).
+- Live OML branch (Direction 2 was its "move 1"): the (b)-descent scout
+  (`fork_scout_b_descent_impossibility.md`, since SUPERSEDED by the Reading-1
+  contextuality reduction, commit 18ce527 — file removed) — this finding sharpened
+  that scout's framing (the scout said "fix the question"; this is *why* the question
+  resists fixing). The live successor is the σ-essential descent thread
+  (`MAP_sigma_essential.md`, `CHARTED_sigma_essential.md`).
 - Related memories: [[oml_descent_inhabitation]], [[oml_two_point_spaces]]
   (the (A)/(B) point-space distinction, which this finding shows is the crux).

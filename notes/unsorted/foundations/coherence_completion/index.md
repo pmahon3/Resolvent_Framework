@@ -43,7 +43,7 @@ Related literature:
 Related active investigation:
 
 - `notes/unsorted/foundations/ce_nonderivability/index.md`
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`
+- `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_dossier.md`
 
 ## Current Stance
 

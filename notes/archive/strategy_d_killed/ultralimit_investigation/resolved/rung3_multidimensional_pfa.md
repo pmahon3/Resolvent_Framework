@@ -8,7 +8,7 @@ type: project
 
 *Working note for Priority 2b of the ultralimit representation investigation.*  
 *Parent: `notes/unsorted/foundations/ce_nonderivability/index.md`*  
-*Prerequisite: `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md` (rung 2 complete, positive).*
+*Prerequisite: `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/finite_cofinite_calculation.md` (rung 2 complete, positive).*
 
 ---
 
@@ -222,7 +222,7 @@ family entirely and confronting the non-atomic case, where the "principal locus"
 is no longer the right notion and the Stone-space geometry becomes substantially
 richer.
 
-That analysis is in `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`.
+That analysis is in `notes/archive/strategy_d_killed/ultralimit_investigation/stone_geometric_translation.md`.
 
 ---
 

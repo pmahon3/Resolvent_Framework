@@ -8,7 +8,7 @@ type: project
 
 *Working note for Priority 3 of the ultralimit representation investigation.*  
 *Parent: `notes/unsorted/foundations/ce_nonderivability/index.md`*  
-*Prerequisites: `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md` (rung 2), `papers/paper_i/notes/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md` (rung 3).*
+*Prerequisites: `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/finite_cofinite_calculation.md` (rung 2), `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md` (rung 3).*
 
 ---
 

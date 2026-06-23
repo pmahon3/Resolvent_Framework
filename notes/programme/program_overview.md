@@ -423,7 +423,7 @@ candidate extremal-Boolean-floor frontier and it is now retired (the cell was
 already inhabited in ZFC). Survives: a one-line Gaifman-1964 citation, no contribution.
 Working layer:
 `notes/open_questions/{reading1_prize_reduction,direction2_gate_finding,subsession_sigma_essential_via_CE}.md`,
-`papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`;
+`notes/archive/strategy_d_killed/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`;
 full session reasoning in the `[[sigma_essential_construction_attempt]]` memory.
 
 The L_MO₂ kill itself stands (6th death of the arc: L_MO₂ **IS** concrete —
@@ -495,7 +495,7 @@ Open directions — the extension boundary:
    completed forms). L_MO₂-shape kill (true + trivial + occupied) — the first kill of the Strategy-D (a)-line, NOT a descent-arc death.
    RETIRED as a research target. Survives: a one-line Gaifman-1964 citation, no
    contribution. Verdict:
-   `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`;
+   `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`;
    the `..._RESOLVED.md` writeup carries an AUDIT-KILL banner (math retained);
    memory [[strategy_d_resolved]].
 4. **OML extension problem** (algebraic face) — What replaces

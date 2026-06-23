@@ -129,7 +129,7 @@ as reference and teaching material, not publishable as novel work.
   novelty. Actionable: two Paper-II citation gaps (Stairs 1983; arXiv:2603.22353).
 
 - **Strategy D — KILLED 2026-06-18 (`/audit full`, prior-art).** Killed-lead record
-  lives in `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`
+  lives in `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`
   (not in this directory). The math (`Clop(Y,𝔗)` not σ-complete) is true but not a
   contribution — Gaifman 1964 inhabits the ZFC cell, stronger; "Strategy D" was the
   programme's private name, never field-open. Retired as a research target.

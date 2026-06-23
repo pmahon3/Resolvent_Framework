@@ -164,7 +164,7 @@ Current mathematical front:
 > math but the non-σ-complete + atomless legs are trivial and the only hard
 > ingredient (measure-freeness) is Argyros's published theorem; "Strategy D" was
 > this programme's private name, never field-open. **Retired as a research
-> target.** Verdict: `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
+> target.** Verdict: `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
 > The notes below are the closed reasoning trail, retained for the record.
 
 Central question (now ANSWERED — positive in ZFC, non-novel; see banner):
@@ -175,15 +175,15 @@ Central question (now ANSWERED — positive in ZFC, non-novel; see banner):
 
 Reasoning-trail notes (closed; retained for the record):
 
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md` —
+- `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md` —
   the kill verdict (Gaifman 1964 prior-art). **Entry point.**
-- `papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md`
+- `notes/archive/strategy_d_killed/ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md`
   — the (correct, non-novel) math, under an AUDIT-KILL banner.
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` — the
+- `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_dossier.md` — the
   (closed) reduction trail; carries a kill banner.
 - `notes/unsorted/foundations/ce_nonderivability/index.md` — parent overview
   (stale on Strategy-D status; CE content stands).
-- `papers/paper_i/notes/ultralimit_investigation/{row5_candidate,stone_geometric_translation}.md`
+- `notes/archive/strategy_d_killed/ultralimit_investigation/{row5_candidate,stone_geometric_translation}.md`
   — historical detail / Stone translation.
 
 ### Finite Sample: Observational Resolution Dimension

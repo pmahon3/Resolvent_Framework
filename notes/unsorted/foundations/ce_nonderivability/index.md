@@ -13,7 +13,7 @@ type: project
 > cell, stronger; "Strategy D" was never field-open). RETIRED as a research
 > target. The CE non-derivability content of this note STANDS; only the
 > Strategy-D framing is stale. Verdict:
-> `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
+> `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
 > The lone open problem is now OML σ-essential descent (`oml_onboarding.tex`).
 
 *Extended 2026-04-17 to include literature findings and paper sketch*
@@ -91,7 +91,7 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 1. **Ultrafilter-generated {0,1}-charges:** $\delta_\mathcal{U}(A) = \mathbf{1}_{A \in \mathcal{U}}$. Arise as ultralimits of Dirac masses on the finite-cofinite algebra. ✓ (the companion note proof already gives this)
 
 2. **Free finitely additive probabilities on the finite-cofinite algebra** — **RESOLVED (positive).** ✓
-   See `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md` for the full argument. Key findings:
+   See `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/finite_cofinite_calculation.md` for the full argument. Key findings:
    - On $\mathcal{E}$, $\mathrm{pfa}(\mathcal{E})$ is one-dimensional: the only purely finitely additive (= free) probability is $\ell_{\mathrm{fc}}$ itself.
    - $\ell_{\mathrm{fc}}$ is the pointwise sequential limit of the uniform measures $\frac{1}{k}\sum_{n<k}\delta_n$, which are $\sigma$-additive on $\mathcal{E}$.
    - Hence every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit (a fortiori a pointwise ultralimit) of $\sigma$-additive probabilities on the same algebra.
@@ -99,10 +99,10 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    - In the βN picture: this is just weak* density of finitely supported measures in all Borel measures on $\beta\mathbb{N}$ — trivial in this case, confirming that the interesting structure begins with algebras where $\mathrm{pfa}(B)$ is multidimensional.
 
 3. **General purely finitely additive probabilities on Boolean algebras:** Partially open. The Stone-space analysis (Priority 3) gives the right framework:
-   - **Atomic $B$:** positive uniformly — density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ (equivalent to atomicity) implies every finitely additive probability is approximable. Covers $\mathcal{E}$, $\mathcal{E}_k$, $\mathcal{E}_\omega$. See `papers/paper_i/notes/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md`.
-   - **Non-atomic, full-support $\sigma$-additive measure exists:** positive — $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. First example: the interval algebra $\mathcal{I}$ of half-open subintervals of $[0,1]$; Lebesgue measure has full support. See `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`.
+   - **Atomic $B$:** positive uniformly — density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ (equivalent to atomicity) implies every finitely additive probability is approximable. Covers $\mathcal{E}$, $\mathcal{E}_k$, $\mathcal{E}_\omega$. See `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md`.
+   - **Non-atomic, full-support $\sigma$-additive measure exists:** positive — $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. First example: the interval algebra $\mathcal{I}$ of half-open subintervals of $[0,1]$; Lebesgue measure has full support. See `notes/archive/strategy_d_killed/ultralimit_investigation/stone_geometric_translation.md`.
    - **σ-complete non-atomic $B$:** negative (Nikodym / companion note §2).
-   - **Non-σ-complete, few countable joins (e.g., $\mathcal{P}(\mathbb{N})/\mathrm{fin}$):** positive (vacuously) — σ-additivity reduces to finite additivity when too few joins exist; every finitely additive probability is σ-additive. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md`.
+   - **Non-σ-complete, few countable joins (e.g., $\mathcal{P}(\mathbb{N})/\mathrm{fin}$):** positive (vacuously) — σ-additivity reduces to finite additivity when too few joins exist; every finitely additive probability is σ-additive. See `notes/archive/strategy_d_killed/ultralimit_investigation/row5_candidate.md`.
    - **Non-σ-complete non-atomic $B$, intermediate join structure:** open — reduces to **Strategy D**. By the canonical decomposition theorem ($B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ at every $A$), any failure of $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ is witnessed by a measure-free direct-product factor. "Indecomposable row-5" is provably impossible. The open question reduces to: does a non-σ-complete non-atomic measure-free Boolean algebra exist?
 
 4. **The full representation question and classification:** The question is now reformulated as: for which $B$ is $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$? The hierarchy is organized by a **completeness gradient** — how many countable joins $B$ has:
@@ -110,11 +110,11 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
    - Intermediate joins: σ-additivity is a genuine but limited constraint → open frontier (Strategy D).
    - Minimal joins (like $\mathcal{Q}$): σ-additivity vacuous → positive trivially.
    
-   **Canonical decomposition theorem:** $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ canonically at every element $A$. If $\nu$ is σ-additive on $B{\upharpoonright}A$, then $\tilde\nu(C) = \nu(C \wedge A)$ is σ-additive on $B$ (meets distribute over existing joins). Consequence: any gap in $\mathrm{Supp}_\sigma(B)$ is a direct-product decomposition with a measure-free factor. Strategies A, B, C (indecomposable constructions) are eliminated. See `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` Parts III–IV.
+   **Canonical decomposition theorem:** $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ canonically at every element $A$. If $\nu$ is σ-additive on $B{\upharpoonright}A$, then $\tilde\nu(C) = \nu(C \wedge A)$ is σ-additive on $B$ (meets distribute over existing joins). Consequence: any gap in $\mathrm{Supp}_\sigma(B)$ is a direct-product decomposition with a measure-free factor. Strategies A, B, C (indecomposable constructions) are eliminated. See `notes/archive/strategy_d_killed/ultralimit_investigation/row5_candidate.md` Parts III–IV.
    
-   **Subalgebra embedding lemma:** any non-σ-complete $B$ that embeds join-preservingly into a σ-algebra $\Sigma$ where some σ-additive probability charges all non-zero elements of $B$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. Covers all "concrete" algebras. See `papers/paper_i/notes/ultralimit_investigation/resolved/subalgebra_embedding_lemma.md`.
+   **Subalgebra embedding lemma:** any non-σ-complete $B$ that embeds join-preservingly into a σ-algebra $\Sigma$ where some σ-additive probability charges all non-zero elements of $B$ has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$. Covers all "concrete" algebras. See `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/subalgebra_embedding_lemma.md`.
    
-   **Strategy D (~~sole remaining open question~~ RETIRED 2026-06-18 — see top banner):** does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? **ANSWERED: yes, in ZFC, and not a contribution** — Gaifman 1964 already inhabits the cell, stronger; "Strategy D" was never field-open. See `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`. (Original framing retained below for the record.)
+   **Strategy D (~~sole remaining open question~~ RETIRED 2026-06-18 — see top banner):** does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? **ANSWERED: yes, in ZFC, and not a contribution** — Gaifman 1964 already inhabits the cell, stronger; "Strategy D" was never field-open. See `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`. (Original framing retained below for the record.)
 
 ### Key Distinctions
 
@@ -172,16 +172,16 @@ Do not skip rungs. The first serious feasibility test is narrower than the full 
 
 ### Claims to resolve
 
-- [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md`.)
+- [x] On the finite-cofinite algebra: every finitely additive probability is a pointwise sequential limit of σ-additive probabilities on the same algebra. (Positive. See `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/finite_cofinite_calculation.md`.)
 - [x] On Boolean algebras where pfa(B) is multidimensional: positive for all partition extensions $\mathcal{E}_k$ and $\mathcal{E}_\omega$. (All atomic; follows from density of $\mathrm{Prin}(B)$.)
 - [x] Stone/βN geometric reformulation: $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ is the condition; positive for atomic and full-support non-atomic cases; negative for σ-complete non-atomic (Nikodym); see stone_geometric_translation.md.
 - [x] Direct-product strategy: collapsed. $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ has σ-additivity vacuous — every finitely additive probability there is σ-additive. Direct products using this factor are not negative examples.
 - [x] Canonical decomposition theorem: $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ at every $A$; any $\mathrm{Supp}_\sigma$ gap is a direct-product gap with a measure-free factor; indecomposable row-5 impossible; Strategies A, B, C eliminated.
 - [x] Weak distributivity thread: Džamonja–Plebanek / Fremlin §391D give a ZFC theorem (weakly distributive + s.p.f.a. ↔ s.p. σ-additive) but only for **σ-complete** algebras. Does not constrain Strategy D. Non-weak-distributivity is not a necessary condition on a Strategy D counterexample.
-- [x] **Strategy D — RETIRED 2026-06-18 (killed on prior-art; NOT independent of ZFC after all).** Does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? **YES, in ZFC** — Gaifman 1964 (atomless BA, no strictly-positive *finitely*-additive measure, stronger). The "likely independent of ZFC / ZFC methods exhausted" assessment below was WRONG: it read σ-completeness off the *completed*/Gleason-cover form, not the base algebra. "Strategy D" was this programme's private name, never field-open; not a contribution; retired. See `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`. *(Original 2026-04-18 assessment retained below for the record:)* No known construction, no known obstruction. **Topological reformulation** (2026-04-18): Strategy D is equivalent to the existence of a compact totally disconnected non-atomic non-basically-disconnected Radon-measure-free space. **Set-theoretic sensitivity** (2026-04-18): MA + ¬CH narrows candidates (compact spaces of weight $< \mathfrak{c}$ carry strictly positive Radon measures); ◇-type constructions may yield counterexamples. Problem is likely **independent of ZFC**; forcing or advanced Radon-measure theory is required. ZFC Boolean-algebra methods are exhausted.
+- [x] **Strategy D — RETIRED 2026-06-18 (killed on prior-art; NOT independent of ZFC after all).** Does there exist a non-σ-complete non-atomic Boolean algebra admitting no σ-additive probability? **YES, in ZFC** — Gaifman 1964 (atomless BA, no strictly-positive *finitely*-additive measure, stronger). The "likely independent of ZFC / ZFC methods exhausted" assessment below was WRONG: it read σ-completeness off the *completed*/Gleason-cover form, not the base algebra. "Strategy D" was this programme's private name, never field-open; not a contribution; retired. See `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`. *(Original 2026-04-18 assessment retained below for the record:)* No known construction, no known obstruction. **Topological reformulation** (2026-04-18): Strategy D is equivalent to the existence of a compact totally disconnected non-atomic non-basically-disconnected Radon-measure-free space. **Set-theoretic sensitivity** (2026-04-18): MA + ¬CH narrows candidates (compact spaces of weight $< \mathfrak{c}$ carry strictly positive Radon measures); ◇-type constructions may yield counterexamples. Problem is likely **independent of ZFC**; forcing or advanced Radon-measure theory is required. ZFC Boolean-algebra methods are exhausted.
 
 **Strategy D launchpad:** see
-`papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` for the
+`notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_dossier.md` for the
 consolidated formulations, necessary conditions, attack modes, and terminology
 risks.
 
@@ -190,7 +190,7 @@ coherent non-atomic Stone horizon that is structurally inhospitable to
 sigma-additive probability; a negative answer would show that probability is
 broadly available in the non-sigma-complete non-atomic regime, shifting the
 central issue from existence to admissible support/descent.  See
-`papers/paper_i/notes/ultralimit_investigation/row5_candidate.md`,
+`notes/archive/strategy_d_killed/ultralimit_investigation/row5_candidate.md`,
 "Conceptual meaning of the two outcomes."
 
 ### Summary of Investigation Outcome
@@ -213,9 +213,9 @@ State the exact Dunford–Schwartz IV.9.8 theorem. Do not present the interchang
 Every finitely additive probability on $\mathcal{E}$ is a pointwise sequential limit
 of $\sigma$-additive probabilities on $\mathcal{E}$. The key: $\mathrm{pfa}(\mathcal{E})$
 is one-dimensional (only $\ell_{\mathrm{fc}}$), and $\ell_{\mathrm{fc}}$ is the
-limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `papers/paper_i/notes/ultralimit_investigation/resolved/finite_cofinite_calculation.md`.
+limit of $\frac{1}{k}\sum_{n<k}\delta_n$. See `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/finite_cofinite_calculation.md`.
 
-**Priority 2b — algebras with multidimensional pfa — DONE (positive).** ✓ See `papers/paper_i/notes/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md`.
+**Priority 2b — algebras with multidimensional pfa — DONE (positive).** ✓ See `notes/archive/strategy_d_killed/ultralimit_investigation/resolved/rung3_multidimensional_pfa.md`.
 
 Key findings:
 - $\mathcal{P}(\mathbb{N})/\mathrm{fin}$ and $\mathrm{Clop}(2^\omega)$ ruled out as test cases (wrong for rung 3; see row5_candidate.md for corrected analysis of $\mathcal{P}(\mathbb{N})/\mathrm{fin}$).

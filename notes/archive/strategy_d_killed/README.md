@@ -14,10 +14,12 @@ programme's *private* name, never a field-open problem.
 The kit presents the problem as **open**, with a "live entry point" and sub-tasks —
 which is now actively misleading, hence the move out of the live working layer.
 
-**Authoritative records (live, not archived):**
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md` — the kill verdict.
-- `papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md` — the (correct, non-novel) math, under an AUDIT-KILL banner.
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` — the (closed) reduction trail, under a kill banner.
+**The full Strategy-D dossier now lives here too** (moved 2026-06-23 from
+`papers/paper_i/notes/ultralimit_investigation/` — Strategy D is dead, so the dossier
+belongs with the kill record, not the live Paper-I notes):
+- `ultralimit_investigation/strategy_d_AUDIT_VERDICT.md` — the kill verdict.
+- `ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md` — the (correct, non-novel) math, under an AUDIT-KILL banner.
+- `ultralimit_investigation/strategy_d_dossier.md` — the (closed) reduction trail, under a kill banner.
 - Memory: `strategy_d_resolved.md`.
 
 Retained here only as the historical pen-and-paper artifact. Do **not** work it as

@@ -8,8 +8,8 @@ type: project
 
 *Working note for the frontier of the ultralimit representation investigation.*  
 *Parent: `notes/unsorted/foundations/ce_nonderivability/index.md`*  
-*Prerequisites: `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md` (Stone note, especially the hierarchy table).*
-*Launchpad: `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`.*
+*Prerequisites: `notes/archive/strategy_d_killed/ultralimit_investigation/stone_geometric_translation.md` (Stone note, especially the hierarchy table).*
+*Launchpad: `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_dossier.md`.*
 
 ---
 

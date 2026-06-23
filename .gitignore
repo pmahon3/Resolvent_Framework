@@ -1,6 +1,15 @@
 # Submission packages (venue-specific, not source)
 papers/**/submission_*/
 
+# Literature library — third-party paper PDFs + page scans (downloaded copies,
+# not our work; ~94 MB of binaries, not redistributable). Kept on disk locally,
+# not tracked. The library is reconstructable from the bibliography; the
+# literature_review .bib/.tex (and the compiled review PDF) stay tracked.
+notes/literature_review/literature/**/*.pdf
+notes/literature_review/literature/**/*.jpg
+notes/literature_review/literature/**/*.jpeg
+notes/literature_review/literature/**/*.png
+
 # LaTeX build artifacts
 *.aux
 *.bbl

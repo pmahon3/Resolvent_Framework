@@ -81,23 +81,34 @@ What it returned:
   OML — the projection lattice of `B(ℓ²(κ))`: a singular ctbly-additive pure ({0,1})
   state exists ⟺ κ Ulam-measurable (not ZFC-provable; active 2026 line, Dzhenzher
   2604.25854 / 2605.24923). **You must engage this directly** as the prior-art anchor.
-- **But the wall is STRENGTHENED, not breached.** B–W's cardinal bites only through the
-  *abelian diagonal* masa `ℓ∞(κ)≅P(κ)` measures (confirmed from their own proof);
-  non-distributivity does no work. No measurable-cardinal phenomenon that bites WITHOUT
-  factoring through a Boolean sub-object exists in the literature. σ-Loomis–Sikorski is
-  solved only for RDP structures (MV/effect algebras); OMLs lack RDP (MO₂), so the
-  σ-LS/tribe-vs-points wall is the published form of the obstruction. The DST +
-  ZFC-independence framing of the residue has **no prior art** — programme's synthesis
-  is original.
-- **The frontier, sharpened (set-theoretic dress):** *does the B(H) measurable-cardinal
-  dichotomy SURVIVE passage to abstract concrete σ-complete OMLs that are NOT
-  Hilbert/Polish-realizable?* B–W sidesteps σ-LS by supplying `H`; the target lacks it.
-  That gap = `rem:dw` residue = the unclaimed cell.
+- **The wall holds for the park — but for the σ-LS/RDP reason, NOT a "Boolean-factoring"
+  one.** ⚠⚠ **CORRECTION 2026-06-23 (Phase-2 audit, B–W proof read verbatim):** the first
+  write-up here claimed "B–W STRENGTHENS the wall — the cardinal bites only through the
+  abelian diagonal; no phenomenon bites without a Boolean sub-object." That is **FALSE**.
+  Masa-factoring holds only for B–W's *real-valued* dichotomy; the **pure / 2-valued**
+  case (the σ-essential object) does NOT factor — B–W use Marcus–Spielman–Srivastava
+  paving because Anderson's conjecture is false (CH), and **Akemann–Weaver (PNAS 105(14)
+  2008) give a pure state multiplicative on NO masa** = a direct counterexample. The
+  "Boolean-factoring / distributive-routing-port" thesis is RETRACTED (also failed
+  Phase-2 audit as a Type-5 seed: definitional tautology + inverted evidence). What
+  genuinely walls the park is the **σ-LS / RDP gap**: σ-Loomis–Sikorski is solved only
+  for RDP structures (MV/effect algebras); OMLs lack RDP (MO₂), so no σ-LS for
+  non-distributive OMLs. The DST + ZFC-independence framing of the residue has no prior
+  art. `rem:dw` UNAFFECTED (it's the DW Polish cut, not a B(H) claim). Full retraction:
+  `sigma_essential_prior_art_verdict.md` 2026-06-23 CORRECTION; `CHARTED` ⚠⚠ + FENCE;
+  parked seed `notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md`.
+- **The frontier (set-theoretic dress, corrected):** the genuinely open analogue is
+  whether **σ-additive 2-valued state existence on an abstract concrete σ-complete OML
+  (not Hilbert/Polish-realizable) is ZFC-independent** — the B(H) case (B–W) shows the
+  *Hilbert-realized* version is large-cardinal-sensitive, but it sidesteps σ-LS by
+  supplying `H`; the target lacks `H`. That gap = `rem:dw` residue = the unclaimed cell.
 
-**The price is now known: a forcing programme must first build the "distributive routing
-port" (route the witness df-state space through a Boolean structure where Ulam bites) —
-and that port IS the σ-LS / tribe-vs-points wall.** Forcing does not get *around* Door 1;
-it bottoms out at the same place, now with a named cardinal target (Ulam-measurable).
+**The price of a forcing programme: it must first supply σ-points for a non-Hilbert,
+non-Polish concrete σ-OML — which is the σ-LS / tribe-vs-points wall (no σ-LS for
+non-distributive OMLs).** Forcing does not get *around* Door 1; it bottoms out at the
+same place. (The cardinal target is Ulam-measurable on the Boolean side, but — per the
+correction above — there is no established "routing port" carrying it to the
+non-distributive side; that routing was the retracted thesis.)
 
 ---
 

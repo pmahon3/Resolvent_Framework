@@ -125,27 +125,54 @@ Named leads (from the record, to confirm/extend, NOT re-derive):
 
 ## Part 2 RESULT (2026-06-23, general-purpose scout, ~69k tok) — WALL, foothold named
 
-**Verdict: the wall is LOAD-BEARING.** All existing set-theoretic σ-state machinery lives
-on the DISTRIBUTIVE/abelian side; the non-distributive OML case is genuinely untouched in
-the literature. Q is stated nowhere. This is the same distributive-engine / port-is-the-
-open-work shape as every other frontier here.
+> **⚠⚠ CORRECTION 2026-06-23 (Phase-2 audit, B–W proof read VERBATIM — this Part-2 block
+> read abstracts/gloss, NOT the §4–5 proof, and got the central mechanism BACKWARDS).
+> Read this banner before trusting anything below it.**
+> - **"The bite always routes through the abelian diagonal" is FALSE for the
+>   pure/2-valued case** (the σ-essential object). Masa-factoring holds only for B–W's
+>   *real-valued* dichotomy (Thm 3.1/3.3). The **pure** dichotomy (Thm 2.4(ii),(iv))
+>   does NOT factor: B–W §4 say it needs Anderson's conjecture, which "is known to be
+>   FALSE" (CH), and they use **Marcus–Spielman–Srivastava paving** precisely because
+>   the pure state does not reduce to a masa. **Akemann–Weaver (PNAS 105(14) 2008,
+>   p.5313): a pure state on B(H) multiplicative on NO masa** = a direct counterexample
+>   to "no instance bites without a Boolean sub-object."
+> - **"Q is stated nowhere" → PARTIALLY REFUTED.** B–W *state and solve* the existence
+>   question on B(ℓ²(κ))'s projection OML (⟺ Ulam-measurable). The abstract OML-off-B(H)
+>   case is what's untouched, not the question wholesale.
+> - **"Distributive routing port" meta-principle: RETRACTED + FENCED.** No such principle;
+>   the pure/2-valued non-commutative case is genuinely OPEN, not a port to be built.
+> - **What SURVIVES:** the wall is still load-bearing FOR THE PARK, but for the
+>   σ-LS / RDP residue reason (OMLs lack RDP; no σ-LS for non-distributive OMLs), NOT
+>   the Boolean-factoring reason. `rem:dw` UNAFFECTED. Park verdict (S13) STANDS.
+> - Full retraction: `sigma_essential_prior_art_verdict.md` 2026-06-23 CORRECTION;
+>   `CHARTED_sigma_essential.md` ⚠⚠ + FENCE; parked seed
+>   `notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md`.
 
-- **Blecher–Weaver arXiv:1607.08505 (VERIFIED verbatim)** — σ-additive-state existence IS
+*⟦The original Part-2 text is kept below for the trail. Its "abelian diagonal / port"
+mechanism is SUPERSEDED by the banner; do not cite it as current.⟧*
+
+**Verdict: the wall is LOAD-BEARING.** ~~All existing set-theoretic σ-state machinery lives
+on the DISTRIBUTIVE/abelian side; the non-distributive OML case is genuinely untouched in
+the literature. Q is stated nowhere.~~ *(banner: mechanism backwards; Q only partially
+untouched)* This is the same distributive-engine / port-is-the-open-work shape as every
+other frontier here. *(banner: "port" retracted)*
+
+- **Blecher–Weaver arXiv:1607.08505 (VERIFIED verbatim — but see banner: the verbatim
+  read was of the abstract, not §4–5)** — σ-additive-state existence IS
   large-cardinal-sensitive: *singular countably-additive pure states on B(ℓ²(κ)) exist
-  ⟺ κ Ulam measurable* (and <κ-additive ⟺ κ measurable). BUT the bite always routes
-  through the **abelian diagonal subalgebra** ℓ∞(κ) = classical Ulam measure theory on
-  P(κ). Non-distributive vessel, distributive engine. State type = real-valued PURE
-  states, NOT 2-valued df-states (a second gap).
+  ⟺ κ Ulam measurable* (and <κ-additive ⟺ κ measurable). ~~BUT the bite always routes
+  through the **abelian diagonal subalgebra** ℓ∞(κ).~~ *(banner: FALSE for pure case —
+  Akemann–Weaver counterexample.)*
 - **WHY it doesn't port (the wall, = the known π–λ/RDP gap):** on a Boolean algebra a
   2-valued σ-additive state IS a {0,1}-measure on P(κ) ⟹ Ulam applies directly. On a
   non-distributive OML, df-states are NOT induced by powerset measures (joins ≠ unions)
-  ⟹ Ulam machinery has no direct analogue.
+  ⟹ Ulam machinery has no direct analogue. *(This RDP/π–λ point survives — it's the real
+  residue reason; only the "B–W confirms it" framing was wrong.)*
 - **The relevant cardinal is ULAM-MEASURABLE, not RVM** (RVM governs [0,1]-valued
   atomless measures; 2-valued σ-additive = Ulam). Sharpens the target.
-- **FOOTHOLD (named, not yet a lever):** can a witness OML's df-state space be routed
-  through an abelian/Boolean structure where Ulam bites? That is the σ-LS / tribe-vs-
-  points gap AGAIN, now with a concrete large-cardinal target (Ulam measurability). No
-  existing forcing notion does this; constructing the routing IS the open work.
+- ~~**FOOTHOLD (named, not yet a lever):** route a witness OML's df-state space through an
+  abelian/Boolean structure where Ulam bites.~~ *(banner: RETRACTED — this "routing port"
+  was the Boolean-factoring thesis, which failed audit. Not a foothold.)*
 - **No forcing-over-quantum-logic exists.** Takeuti/Ozawa OML-valued set theory
   (arXiv:0908.0367) is orthogonal (set theory built OVER an OML ≠ controlling the OML's
   state space). Zero results forcing to change a non-distributive OML's state space.

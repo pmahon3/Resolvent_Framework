@@ -55,12 +55,17 @@ cardinal target. **The park stands, better-informed.**
   - **"Q stated nowhere" PARTIALLY REFUTED:** Blecher–Weaver (arXiv:1607.08505, JFA 272
     2017) state+solve the σ-additive 2-valued state existence question on B(ℓ²(κ))'s
     projection lattice ⟺ κ Ulam-measurable. Active 2026 line (Dzhenzher). MUST be cited.
-    BUT cardinal bites via the abelian diagonal masa only — rem:dw STRENGTHENED, the
-    abstract-non-Hilbert case stays the open residue.
-  - Detail: `CHARTED_sigma_essential.md` DEEP-RESEARCH block; MAP forcing-scout result.
+    ⚠⚠ **CORRECTION (Phase-2 audit, B–W proof verbatim):** the gloss "BUT cardinal bites
+    via the abelian diagonal masa only — rem:dw STRENGTHENED" is **RETRACTED, FALSE for the
+    pure/2-valued case** — masa-factoring holds only real-valued; Akemann–Weaver (PNAS 2008)
+    give a pure state on NO masa = counterexample; B–W use MSS paving. No "routing port"
+    meta-principle. rem:dw UNAFFECTED (it's the DW Polish cut). The park holds for the
+    σ-LS/RDP-residue reason, NOT a Boolean-factoring one.
+  - Detail: `sigma_essential_prior_art_verdict.md` 2026-06-23 CORRECTION; `CHARTED` ⚠⚠ +
+    FENCE; parked seed `notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md`.
 - **NET: the forcing sentence is well-posed; the programme is fully priced; the open call
   is persist-vs-park (see MAP "THE ACTUAL NEXT ACTION"). Leading option on the evidence =
-  (b) confirm the park (three independent passes each strengthened rem:dw).** A staged
+  (b) confirm the park (three independent passes converge on the σ-LS residue).** A staged
   advisor pass is no longer needed; if you still want a human-checkpoint, run the
   `thesis-advisor` agent on the persist-vs-park call.
 
@@ -145,12 +150,16 @@ Full draft: `forcing_scout_sentence.md`. In brief:
 ## THE DECISION WAITING (persist-vs-pivot — USER's call, now better-informed)
 
 The forcing scout did its job: it priced the forcing programme **before** the months-long
-commitment, and the price is "first solve the port, which is the same wall." So:
-- **(a) Commit to the forcing programme** — accept that step 1 is building the
-  distributive-routing port (= attacking the σ-LS/tribe-vs-points gap with an Ulam-
-  measurable target). Large, real, and bottoms out at the known wall.
-- **(b) Confirm the park** — the method named the residue twice now (S11 dual-walls, S12
-  forcing-wall). Honest stop.
+commitment, and the price is "first supply σ-points for a non-Hilbert/non-Polish concrete
+σ-OML, which is the σ-LS wall." *(⟦S13 audit: the earlier "distributive-routing port"
+framing of this price is RETRACTED — see the ⚠⚠ banner at the TOP of this file; the cost
+is the σ-LS / RDP gap, NOT a Boolean-factoring port.⟧)* So:
+- **(a) Commit to the forcing programme** — accept that step 1 is supplying σ-points for a
+  non-representable concrete σ-OML (= attacking the σ-LS/tribe-vs-points gap, no σ-LS for
+  non-distributive OMLs, with an Ulam-measurable target on the Boolean side). Large, real,
+  bottoms out at the known wall.
+- **(b) Confirm the park** — the method named the residue thrice now (S11 dual-walls, S12
+  forcing-wall, S13 audit). Honest stop. *(Leading option.)*
 - **(c) Something else entirely** — a genuinely new object or abstract input (the only
   thing that un-parks; none has arrived).
 

@@ -100,22 +100,31 @@ whether new input has arrived.**
 3. **The set-theoretic tripwire fires.** If any construction starts needing extra axioms
    (measurable cardinal / V=L / ¬MA), that is the `rem:dw` "rhymes with ZFC-independence"
    prediction coming true — record it as an independence-flavoured finding, a real result.
-   **⟦S13 UPDATE: the tripwire is now PARTIALLY visible from prior art, not just predicted.⟧**
+   **⟦S13 UPDATE (CORRECTED after Phase-2 audit): the tripwire is partially visible from
+   prior art, but NOT via a "Boolean-factoring port" — that was retracted.⟧**
    Blecher–Weaver (arXiv:1607.08505, *JFA* 272 2017) prove that on `B(ℓ²(κ))`'s projection
    OML, a singular σ-additive 2-valued (pure) state exists ⟺ κ is **Ulam-measurable** — a
-   genuine large-cardinal tripwire on a non-distributive σ-complete OML. **BUT** the cardinal
-   bites only through the abelian diagonal masa `ℓ∞(κ)≅P(κ)` (the "distributive routing port");
-   the non-distributivity does no work, and no instance is known where a measurable cardinal
-   bites WITHOUT factoring through a Boolean sub-object. So to fire the tripwire *for the
-   abstract concrete-σ-OML target*, a construction would first have to build that port — which
-   IS the σ-LS / tribe-vs-points wall. The named cardinal target (Ulam-measurable) and the
-   B–W/Dzhenzher anchor are the new toolkit if you pursue this. Detail:
-   `sigma_essential_prior_art_verdict.md` 2026-06-23 ADDENDUM; `CHARTED` DEEP-RESEARCH block.
+   genuine large-cardinal tripwire on a non-distributive σ-complete OML. ⚠⚠ The earlier
+   gloss here — *"the cardinal bites only through the abelian diagonal masa (the
+   'distributive routing port'); no instance bites WITHOUT factoring through a Boolean
+   sub-object"* — is **RETRACTED, FALSE for the pure/2-valued case.** Masa-factoring holds
+   only for B–W's *real-valued* dichotomy; the **pure** case does NOT factor (B–W use
+   Marcus–Spielman–Srivastava paving because Anderson's conjecture is false under CH), and
+   **Akemann–Weaver (PNAS 105(14) 2008, p.5313) give a pure state on B(H) multiplicative on
+   NO masa** — a direct counterexample. There is **no "routing port" meta-principle**; the
+   pure/2-valued non-commutative case is itself genuinely OPEN. So the honest reading: the
+   B(H) tripwire is real but does NOT reduce to the abstract-OML target, and the residue is
+   the **σ-LS / RDP wall** (no σ-Loomis–Sikorski for non-distributive OMLs), not a port to
+   build. The Ulam-measurable target + the B–W/Dzhenzher anchor remain the toolkit IF you
+   pursue this, with Akemann–Weaver as the cautionary counterexample. Detail:
+   `sigma_essential_prior_art_verdict.md` 2026-06-23 CORRECTION; `CHARTED` ⚠⚠ + FENCE;
+   parked seed `notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md`.
 
 **If none of the three has arrived, the honest move is: confirm the park stands, do NOT
 manufacture a fourth door, and stop.** ⟦S13: the forcing scout has now run and priced the
-forcing route — it does not get around the wall (it must first build the distributive
-routing port = the same σ-LS wall). The (a)/(b)/(c) flags are settled: the forcing sentence
+forcing route — it does not get around the wall (it must first supply σ-points for a
+non-representable concrete σ-OML = the same σ-LS wall; the "routing port" phrasing for this
+is RETRACTED, see the corrected item-3 above). The (a)/(b)/(c) flags are settled: the forcing sentence
 is well-posed, so Door 3 *can* be cleanly stated; what's missing is not formulation but the
 port. The persist-vs-park decision is therefore decidable NOW (human's call;
 `thesis-advisor` agent is the right checkpoint). Leading option on the evidence: confirm the

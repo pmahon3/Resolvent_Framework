@@ -346,7 +346,7 @@ The remaining `mahon2025` "Preprint" cite needs an arXiv id before any posting.*
 >    verdict still holds (park) — for the σ-LS-residue reason, not a Boolean-factoring
 >    one. Full record: `CHARTED_sigma_essential.md` (⚠⚠ retraction + FENCE);
 >    `sigma_essential_prior_art_verdict.md` 2026-06-23 CORRECTION; parked seed
->    `notes/unsorted/boolean_factoring_sigma_essential.md`.
+>    `notes/covered_leads/boolean_factoring_sigma_essential_PARKED.md`.
 >
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /

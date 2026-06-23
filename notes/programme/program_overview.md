@@ -326,18 +326,27 @@ The remaining `mahon2025` "Preprint" cite needs an arXiv id before any posting.*
 >    *JFA* 272, 2017) state+solve the σ-additive 2-valued state existence question on
 >    `B(ℓ²(κ))`'s projection OML ⟺ κ Ulam-measurable (active 2026 line: Dzhenzher
 >    2604.25854/2605.24923) — MUST be cited as prior-art anchor;
->    (iii) **but `rem:dw` is STRENGTHENED** — the cardinal bites ONLY via the abelian
->    diagonal masa `ℓ∞(κ)≅P(κ)` (from B–W's own proof); non-distributivity does no work;
->    σ-LS is solved only for RDP structures (OMLs lack RDP, MO₂); the DST+ZFC-independence
->    framing of the residue has NO prior art (synthesis original). **The price is now
->    known: a forcing programme must first build the "distributive routing port" (route
->    the witness df-state space through a Boolean structure where Ulam bites) — and that
->    port IS the σ-LS / tribe-vs-points wall.** Forcing bottoms out at Door 1, now with a
->    named cardinal target (Ulam-measurable). **OPEN CALL = persist-vs-park (human's;
->    leading option on the evidence = confirm the park — three independent passes each
->    strengthened `rem:dw`).** Full record: `CHARTED_sigma_essential.md` DEEP-RESEARCH
->    block; `MAP_sigma_essential.md` forcing-scout result; `sigma_essential_prior_art_verdict.md`
->    2026-06-23 ADDENDUM; `forcing_scout_sentence.md`.
+>    (iii) the DST+ZFC-independence framing of the residue has NO prior art (synthesis
+>    original); σ-LS is solved only for RDP structures (OMLs lack RDP, MO₂). **The price
+>    of a forcing programme is known: it must first build a Boolean routing structure
+>    where the Ulam cardinal bites = the σ-LS / tribe-vs-points wall.** Forcing bottoms
+>    out at Door 1, with a named cardinal target (Ulam-measurable). **OPEN CALL =
+>    persist-vs-park (human's; leading = confirm the park).**
+>    **⚠ CORRECTION 2026-06-23 (Phase-2 audit, B–W proof read verbatim):** the first
+>    write-up of this block claimed "B–W STRENGTHENS rem:dw — the cardinal bites ONLY via
+>    the abelian diagonal; a measurable cardinal biting without a Boolean sub-object was
+>    NOT FOUND." That is **WRONG**. Masa-factoring holds for B–W's *real-valued* dichotomy
+>    only; the **pure / 2-valued** case (the σ-essential object) does NOT factor — B–W use
+>    MSS paving because Anderson's conjecture is false (CH), and **Akemann–Weaver (PNAS
+>    105(14) 2008, p.5313) give a pure state multiplicative on NO masa** = a direct
+>    counterexample. The "Boolean-factoring / distributive-routing-port" thesis is
+>    RETRACTED (also failed Phase-2 audit as a Type-5 seed — definitional tautology +
+>    inverted evidence). `rem:dw` itself is UNAFFECTED (it's the DW Polish cut, not a
+>    B(H) claim); only the "B–W-strengthens" gloss is withdrawn. The persist-vs-park
+>    verdict still holds (park) — for the σ-LS-residue reason, not a Boolean-factoring
+>    one. Full record: `CHARTED_sigma_essential.md` (⚠⚠ retraction + FENCE);
+>    `sigma_essential_prior_art_verdict.md` 2026-06-23 CORRECTION; parked seed
+>    `notes/unsorted/boolean_factoring_sigma_essential.md`.
 >
 > **ORIENTATION POLE (2026-06-18).** The standing OML-descent target is **route (iii)**
 > of `oml_onboarding` §4.3: *is there a countable-join-preserving σ-Loomis–Sikorski /

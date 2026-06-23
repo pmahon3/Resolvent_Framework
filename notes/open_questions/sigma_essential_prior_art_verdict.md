@@ -211,18 +211,43 @@ ZFC-provable). It is an **active 2026 line** (Dzhenzher, arXiv:2604.25854 and 26
 **It must be cited** as the prior-art anchor for any set-theoretic σ-essential claim, and
 it pins the relevant strength: **Ulam-measurable** (σ-complete free ultrafilter), not RVM.
 
-**But `rem:dw` is STRENGTHENED, not breached — this is the Gaifman/Derr–Williamson
-pattern again, one level up.** The cardinal in Blecher–Weaver bites **only through the
-abelian diagonal masa `ℓ∞(κ) ≅ measures on P(κ)`** (confirmed from their own proof:
-forward = a diagonal `{0,1}`-measure pushed up by conditional expectation `φ∘E`; converse
-= restrict to the diagonal masa). The non-distributive lattice does **no work** in
-summoning the cardinal; the 2026 follow-ups say so verbatim ("exclusively on abelian
-subalgebras"; genuine non-commutative extension is **open**). Contrast cases confirm:
-Bunce–Wright (Mackey–Gleason, arXiv:math/9204228) handles non-distributive
-projection-lattice measures with **no** large cardinal; Koszmider's non-diagonalizable
-pure states (arXiv:2002.05230) need **no** measurable cardinal. **A measurable cardinal
-that bites WITHOUT factoring through a Boolean sub-object was NOT FOUND** — this is the
-"distributive routing port" intuition, externally corroborated.
+**⚠ CORRECTION 2026-06-23 (Phase-2 audit, primary-source verbatim read — SUPERSEDES the
+"strengthened wall / NOT FOUND" reading first recorded here).** The deep-research sweep's
+reading of Blecher–Weaver was WRONG for the case that matters. The verbatim proof
+(arXiv:1607.08505, JFA 272 2017, pp.1–9) splits two ways:
+- **Real-valued (non-pure) dichotomy (Thm 3.1/3.3):** strength DOES factor cleanly
+  through the diagonal masa `ℓ∞(κ)` via conditional expectation `φ∘E`. Masa-factoring
+  holds *here* — but this is NOT the σ-essential dispersion-free (2-valued) object.
+- **Pure / 2-valued dichotomy (Thm 2.4(ii),(iv)) — the object we actually care about:**
+  masa-factoring **FAILS**. B–W §4 (p.6) state that clean factoring "would be easy if
+  **Anderson's conjecture were true**... **the conjecture is known to be false**" (for
+  any infinite-dim `H` under CH); they invoke a generalized Kadison–Singer /
+  Marcus–Spielman–Srivastava **paving** theorem — genuinely non-commutative operator
+  theory — *precisely because the pure state does not reduce to a masa*.
+- **Direct counterexample:** **Akemann–Weaver, "B(H) has a pure state that is not
+  multiplicative on any masa," PNAS 105(14) (2008) 5313** (under CH) — a pure (2-valued
+  on its mult. domain) state factoring through **NO** abelian subalgebra whatsoever.
+
+**So the claim "a measurable cardinal that bites WITHOUT factoring through a Boolean
+sub-object was NOT FOUND" is FALSE — Akemann–Weaver IS exactly such an object.** The
+CHARTED file's own ⚠ flag ("BW abelian-restriction phrasing INFERRED not verbatim") was
+right to worry; the inference did not survive the verbatim read. Where masa-factoring IS
+true (the real-valued case), it is published prior art (Weaver, "Set theory and
+C*-algebras," arXiv:math/0604198; Farah, *Combinatorial Set Theory of C*-algebras*, 2019;
+Dzhenzher arXiv:2604.25854 frames the full-`B(ℓ²(κ))` extension as OPEN). Bunce–Wright
+(arXiv:math/9204228) and Koszmider (arXiv:2002.05230) remain valid contrast points (no
+large cardinal needed) but do NOT support a "Boolean-factoring" thesis — they are silent
+on it. **NET: there is no "distributive routing port" meta-principle; the pure/2-valued
+non-commutative case is genuinely OPEN, not closed.** `rem:dw` itself is UNAFFECTED (it is
+about the DW Polish cut on concrete OMLs, not about B(H) masa-factoring) — only the
+"strengthened by B–W" gloss is withdrawn.
+
+---
+
+*(superseded reading, kept for the trail — DO NOT cite as current:)* ~~The cardinal in
+Blecher–Weaver bites only through the abelian diagonal masa; the non-distributive lattice
+does no work; a measurable cardinal that bites without factoring through a Boolean
+sub-object was NOT FOUND.~~ See CORRECTION above.
 
 **σ-Loomis–Sikorski for OMLs — confirmed absent.** σ-LS is solved for MV-algebras and
 RDP effect algebras (Dvurečenskij 2000, *J. Aust. Math. Soc.* 68; Barbieri–Weber;

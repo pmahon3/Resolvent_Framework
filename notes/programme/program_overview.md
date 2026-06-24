@@ -16,6 +16,23 @@ structure of observation already contains.
 
 ### Paper I — Probability from Observation
 
+> **⚠ AUDITED + FIXED + PARKED 2026-06-23.** A two-pronged hostile audit found a
+> FATAL proof error in the headline Stone-route claim (Prop "Support condition":
+> it inferred the Stone measure concentrates on the *principal* ultrafilters
+> `pure(Ω)` from concentration on the *countably-complete* ultrafilters Σ — the
+> missing step is the σ-Loomis–Sikorski realization gap, the same failure mode
+> that retired the companion note) and folklore contribution pieces (the Stone
+> dichotomy is owned by Lacy 1974 / Bhaskara Rao 1983 = the paper's own cite /
+> Choksi / Mallory–Sion; CE is a name for continuity-at-∅ by the paper's own
+> remark). THE VISE: the realization hypothesis that fixes the proof collapses
+> the Stone route to Kolmogorov, so no regime is both correct and novel. The
+> paper's claims have been MADE HONEST (abstract, B2, Stone-main, Corollary now
+> realization-conditional; CE demoted to a Proposition) and the paper is PARKED —
+> no submission as a novelty/theorem paper. The CE/geometric-commitment content
+> survives as honest exposition only. **The description below is the pre-audit
+> framing and overstates the contribution; see banner + `PAPER_I_AUDIT_VERDICT.md`
+> + memory `paper_i_audited_parked.md`.** (Paper II is unaffected.)
+
 **What it shows:** A coherent family of observations determines a unique probability
 measure on the observable σ-algebra.
 

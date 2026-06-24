@@ -47,10 +47,17 @@ uses them to route papers to mailing lists.
 
 ---
 
-## Companion note — "Countable Additivity is Not First-Order"
+## Companion note — "Countable Additivity is Not First-Order" — ⛔ RETIRED, DO NOT UPLOAD
+
+> **RETIRED 2026-06-23.** Do not submit/upload. The note's proof was broken
+> (same defect it was withdrawn for) and the corrected result is FOLKLORE
+> (FHM 1990 + Loeb 1975 — see memory `countable_additivity_note_proof_broken.md`).
+> Clears no contribution bar. The CE non-derivability content survives only as
+> internal synthesis in Paper I. The arXiv-prep metadata below is dead; kept as
+> historical record.
 
 ### File
-`papers/paper_i/notes/countable_additivity_not_first_order.tex`
+`papers/paper_i/notes/countable_additivity_not_first_order.tex` (moving to `papers/archive/countable_additivity_retired/`)
 
 ### arXiv category
 Primary: `math.LO` (Logic)
@@ -70,8 +77,8 @@ Boolean algebra, finitely additive measure, Łoś's theorem
 - [x] Abstract updated
 - [x] Stronger question in display block (italic), open case stated inline
 - [x] Compiles clean, 3 pages
-- [ ] Obtain math.LO endorsement
-- [ ] Upload to arXiv
+- [~] ~~Obtain math.LO endorsement~~ — CANCELLED (note retired, folklore result)
+- [~] ~~Upload to arXiv~~ — CANCELLED (note retired, folklore result)
 
 ---
 

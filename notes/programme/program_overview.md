@@ -41,11 +41,14 @@ measure on the observable σ-algebra.
    completion of the sample space. This observation connects Paper I to Paper II: when
    reconstruction holds, the Stone space *is* the state space.
 
-**CE metatheorem (companion note):** The same ultraproduct argument shows the
-obstruction is not an artifact of the query-system formalism — in the more primitive
-first-order language of Boolean algebras with finitely additive charge, countable
-additivity is likewise not first-order axiomatizable. Companion note (3 pages)
-proves this in full.
+**CE metatheorem (now Paper-I internal synthesis; standalone note RETIRED
+2026-06-23):** In the first-order language of Boolean algebras with finitely
+additive charge, countable additivity is not first-order axiomatizable. This fact
+holds and is used inside Paper I (cited to FHM 1990 / Łoś). The **standalone
+companion note is RETIRED — do not submit**: its proof was broken (same defect it
+was withdrawn for) and the corrected result is FOLKLORE (stated in FHM 1990, the
+note's own cited ref; proved via Loeb 1975 saturation). Clears no contribution
+bar. See memory `countable_additivity_note_proof_broken.md`.
 
 **Lean:** `DiscriminabilityFoundations.lean`, `QuerySystem.lean`,
 `StoneDualityExtension.lean`, `TopologicalQuerySystem.lean`,
@@ -188,7 +191,7 @@ inequivalent.
 
 | Paper | Status |
 |-------|--------|
-| Companion note | Complete, 3 pages |
+| Companion note | ⛔ RETIRED 2026-06-23 (broken proof + folklore result; do not submit) |
 | I | Synthesis, not novel. Complete, 7 pages |
 | II | EA/PR/VDR framing novel; math classical. Complete, 9 pages |
 | III | Withdrawn (rediscovery) |

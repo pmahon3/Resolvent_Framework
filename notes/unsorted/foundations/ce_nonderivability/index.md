@@ -1,10 +1,23 @@
 ---
 name: CE non-derivability — general Boolean algebra version
-description: Future note — metatheorem that countable additivity is not first-order axiomatizable; plus full investigation of ultralimit representation of purely finitely additive charges
+description: RETIRED standalone note (folklore result — FHM 1990 + Loeb 1975); CE non-derivability survives only as Paper-I internal synthesis. Plus the (separate) ultralimit representation investigation.
 type: project
 ---
 
 # CE Non-Derivability and the Ultralimit Representation Problem
+
+> **⛔ STANDALONE NOTE RETIRED (2026-06-23).** The companion note
+> `countable_additivity_not_first_order.tex` is **retired — do not submit**.
+> Double kill: (1) the submitted/withdrawn ultraproduct-of-Diracs proof is
+> FATALLY BROKEN (diagonal-copy / ℵ₁-saturation defect — the same one it was
+> withdrawn for); (2) the corrected ultrapower proof is sound but the RESULT IS
+> FOLKLORE — stated in **FHM 1990** (the note's own cited reference) and proved
+> via **Loeb 1975** saturation, repeated as standard motivation across the
+> model-theory-of-measure literature. Clears no contribution bar (Type 1 + 2
+> FAIL). The **CE non-derivability fact still holds and survives as internal
+> synthesis in Paper I** (which now cites FHM 1990 / Łoś directly, not the note).
+> Verdict: memory `countable_additivity_note_proof_broken.md`. The "Part I —
+> complete / targeting APAL" status below is STALE; see this banner.
 
 > **⛔ STALE ON STRATEGY-D STATUS (2026-06-18).** This note repeatedly calls
 > Strategy D "the sole remaining open question." That is **no longer true**:
@@ -27,9 +40,11 @@ representation direction.  *(The Strategy D investigation it points to is RETIRE
 
 ---
 
-## Part I: The Non-Axiomatizability Theorem (complete)
+## Part I: The Non-Axiomatizability Theorem (RETIRED — folklore; see top banner)
 
-**Status:** Done. Written up as companion note (`countable_additivity_not_first_order.tex`), targeting APAL.
+**Status:** RETIRED 2026-06-23. The fact is true but FOLKLORE (FHM 1990 + Loeb 1975),
+and the standalone note's proof was broken. Not submitted. The result lives on only
+as internal synthesis in Paper I. ~~Done. Written up as companion note, targeting APAL.~~
 
 The companion note proves: in the first-order language $\mathcal{L}_{\mathrm{BA},\mu}$ of Boolean algebras with normalized finitely additive charge, no first-order theory characterizes those models whose charge extends to a $\sigma$-additive measure. The proof is the Dirac-mass ultraproduct construction.
 

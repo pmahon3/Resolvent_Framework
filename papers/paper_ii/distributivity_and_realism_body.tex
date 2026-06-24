@@ -92,7 +92,7 @@ dual-space measure unconditionally).  In the OML case it is not, and PR
 accordingly refines into two grades --- $\text{PR}_{\text{lat}}$, a
 measure on the lattice, and $\text{PR}_{\text{dual}}$, a measure on the
 dual space concentrating on the physical points --- which coincide for
-Boolean algebras and separate for $L(H)$ (\S\ref{thm:commensurability}).
+Boolean algebras and separate for $L(H)$ (Theorem~\ref{thm:commensurability}).
 Where the distinction matters we write the grade explicitly; an
 unqualified ``PR'' refers to the Boolean case, where the two agree.
 
@@ -134,8 +134,12 @@ shows that for the prototypical case $L(H)$ with $\dim H \geq 3$,
 no 2-valued homomorphism exists: VDR is blocked.  Probabilistic
 realism on the \emph{lattice} remains available via Gleason's
 theorem~\cite{Gleason1957}, but its \emph{dual-space} form fails for
-normal states (no extension to a charge on $S_0(L(H))$); empirical
-adequacy is unconditional in the $\perp$-stable set-function sense.
+normal states (no extension to a charge on the McDonald--Bimb\'{o} dual
+space $S_0(L(H))$, Definition~\ref{def:oml-dual}).  Empirical adequacy
+itself is hedged in the OML case: it is the orthogonally additive set
+function on the $\perp$-stable clopens, which always exists, rather
+than a full measure on the dual space --- promotion to such a measure
+is the extension step that fails for $L(H)$.
 
 \smallskip
 Distributivity guarantees value-definiteness; for $L(H)$ with
@@ -241,8 +245,10 @@ For a directed system of Boolean algebras with compatible charges:
   \item VDR holds unconditionally: $\St(\mathcal{C})$ consists
     entirely of 2-valued homomorphisms.
 \end{enumerate}
-The only obstruction is $\sigma$-additivity at the EA--PR
-transition, and it is a condition on the charges, not the algebra.
+The obstruction at the EA--PR transition is $\sigma$-additivity of the
+charges, together with the Loomis--Sikorski realization condition on
+$\Omega$ (automatic for countably generated systems); both are
+conditions on the charges and the realization, not on the algebra.
 \end{proposition}
 
 \begin{proof}
@@ -340,7 +346,7 @@ dispersion-free; the converse holds on Boolean algebras (where
 dispersion-free states are exactly the ultrafilters) and on
 $L(H)$, but \emph{fails} on a general OML: a dispersion-free state
 need not be multiplicative across incompatible propositions.  The
-minimal witness is $MO_2$ (the horizontal sum of two Boolean
+minimal witness is $\mathrm{MO}_2$ (the horizontal sum of two Boolean
 $2^2$ blocks): assigning $1$ to one atom of each block gives a
 dispersion-free state $s$, yet for the gap pair $a, b$ with
 $a \wedge b = 0$ and $s(a) = s(b) = 1$ one has
@@ -409,6 +415,13 @@ Moreover, $A \cong \CO(S_0(A))^\dagger$, the OML of clopen
 $\perp$-stable subsets of $S_0(A)$.
 \end{theorem}
 
+\noindent
+A subset $U \subseteq S_0(A)$ is \emph{$\perp$-stable} if it is closed
+under the dual orthogonality: $y \in U$ and $x \perp_A y$ imply
+$x \notin U$.  We write $\CO(S_0(A))^\dagger$ for the sub-OML of clopen
+$\perp$-stable subsets; its meet is intersection and its complement the
+dual orthocomplement, but its join is \emph{not} set union.
+
 The critical differences from Stone duality:
 
 \medskip
@@ -440,7 +453,11 @@ the distinction between realised and unrealised observation-patterns
 is constrained by the algebra.  Distributivity is the condition
 under which this constraint vanishes.
 
-$S_0(A)$ is compact, so the topological machinery applies.\label{sec:descent}
+\subsection{Descent to the dual space and its obstruction}
+\label{sec:descent}
+
+\noindent
+$S_0(A)$ is compact, so the topological machinery applies.
 But the algebraic input is weaker.  A state $s$ on $A$ defines
 \[
   \mu(h(a)) = s(a)
@@ -470,9 +487,9 @@ the passage to the dual space \emph{fails} for $L(H)$: no normal
 (Gleason) state extends to a charge on the clopens of $S_0(L(H))$.  This
 is a finitary non-extendability of the
 Kochen--Specker~\cite{KochenSpecker1967} and Pitowsky
-correlation-polytope~\cite{Pitowsky1989} type, which we invoke rather
-than reprove.\footnote{%
-The mechanism: within a single $2$-dimensional subspace $e$, the lines
+correlation-polytope~\cite{Pitowsky1989} type, whose mechanism we
+sketch rather than prove in full.\footnote{%
+Within a single $2$-dimensional subspace $e$, the lines
 $p$ and their orthocomplements-within-$e$ furnish, for every $k$,
 $2k$ pairwise meet-zero elements whose $\perp$-stable clopen images are
 pairwise disjoint, while orthoadditivity gives
@@ -580,15 +597,16 @@ needs $\hat\mu$ to be null on countable-join defects --- free in the
 Boolean case, conditional in general; see~$(\ast)$); and
 $\text{PR}_{\text{lat}}$ implies EA.  For
 $L(H)$ the two strongest positions are not realised: VDR by
-Kochen--Specker, and $\text{PR}_{\text{dual}}$ by the clustering argument
-above --- the \emph{upward} extension construction
+Kochen--Specker, and $\text{PR}_{\text{dual}}$ by the
+Kochen--Specker / Pitowsky non-extendability of \S\ref{sec:descent}
+--- the \emph{upward} extension construction
 $\text{PR}_{\text{lat}} \to \text{PR}_{\text{dual}}$ (build a dual-space
 measure from the lattice measure) is obstructed, governed by
 distributivity rather than $\sigma$-additivity.  Gleason delivers
 $\text{PR}_{\text{lat}}$ but Gleason does not climb to
 $\text{PR}_{\text{dual}}$.  The two grades coincide only in the Boolean
 case, where the extension is free and the ladder collapses to the single
-$\text{EA} \Leftarrow \text{PR}$ of Paper~I.  ($\ast$)~The arrow
+$\text{EA} \Leftarrow \text{PR}$ of the Boolean case.  ($\ast$)~The arrow
 $\text{PR}_{\text{lat}} \Leftarrow \text{PR}_{\text{dual}}$ is free in
 the Boolean case but holds only conditionally in general (it requires a
 $\sigma$-continuity hypothesis on the dual measure that the finitary
@@ -625,8 +643,8 @@ Let $A$ be a complemented lattice.
         function $\mu(h(a)) = s(a)$ on the $\perp$-stable clopens, which
         always exists.  It is \emph{not} a genuine Baire measure on
         $S_0(A)$: promoting it to one is the extension step, which for
-        $L(H)$ \emph{fails} for every normal state (the clustering
-        argument above) and for general OMLs is open.  The unconditional
+        $L(H)$ \emph{fails} for every normal state
+        (\S\ref{sec:descent}) and for general OMLs is open.  The unconditional
         claim is thus about the clopen set function, not the dual-space
         measure.}
       \item $\text{PR}_{\text{lat}}$ holds \textup{(}Gleason,
@@ -684,7 +702,7 @@ The dimensional restriction is necessary.  For $\dim H = 2$,
 $L(\mathbb{C}^2)$ is non-distributive but admits dispersion-free
 states.  More generally, horizontal sums of Boolean algebras and
 certain finite OMLs are non-distributive yet admit dispersion-free
-states~\cite[Chapter~4]{Kalmbach1983} --- though, as $MO_2$ shows,
+states~\cite[Chapter~4]{Kalmbach1983} --- though, as $\mathrm{MO}_2$ shows,
 these dispersion-free states need not be 2-valued homomorphisms.
 The sharp characterisation for general OMLs is: VDR is available
 iff $A$ admits a dispersion-free state, which is a property of $A$,
@@ -890,8 +908,9 @@ Several directions remain open:
     Does every state on a general OML extend to a $\sigma$-additive
     measure on $S_0(A)$, as in the Boolean case?  For $L(H)$ the answer
     is \emph{negative} for \emph{every} state: Gleason supplies the
-    lattice measure but no dual-space charge exists --- the clustering
-    argument of \S\ref{sec:descent} settles the normal states, and a
+    lattice measure but no dual-space charge exists --- the
+    Kochen--Specker / Pitowsky non-extendability of \S\ref{sec:descent}
+    settles the normal states, and a
     finite family of infinite-dimensional, pairwise-meet-zero subspaces
     (a copy of $\mathrm{MO}_2$ with infinite-dimensional atoms) settles
     the singular states. The general OML case remains open.

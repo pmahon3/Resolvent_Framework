@@ -11,7 +11,7 @@ an unconditional measure on the dual space, and every observable
 admits a simultaneous definite value via ultrafilters.  The passage to
 a probability measure on an underlying state space turns on
 $\sigma$-additivity of the charges, together with a Loomis--Sikorski
-realization condition on the choice of state space~\cite{mahon2026}.
+realization condition on the choice of state space.
 
 For orthomodular lattices --- the algebraic framework for incompatible
 observations --- the situation is structurally different.  The
@@ -107,8 +107,8 @@ distributive lattice.  Every Boolean algebra admits 2-valued
 homomorphisms (ultrafilters exist by Zorn's lemma).  In this
 setting, all three positions are available and mutually
 commensurable.  The passage from EA to PR requires
-$\sigma$-additivity of the charges~\cite{mahon2026}; the further
-passage to VDR is free.
+$\sigma$-additivity of the charges (and a realization condition on
+$\Omega$, developed below); the further passage to VDR is free.
 
 \smallskip
 \noindent\emph{Incompatible observations.}
@@ -163,7 +163,10 @@ EA, $\text{PR}_{\text{lat}}$, $\text{PR}_{\text{dual}}$, and VDR onto a
 single axis indexed by distributivity.  Within the
 philosophy-of-physics literature, and via this duality, the
 $\sigma$-additive passage to the dual space is not previously isolated.
-We begin with the Boolean case~\cite{mahon2026}.
+We begin with the Boolean case.\footnote{The Boolean construction is
+self-contained here; a fuller treatment of the directed-system Stone
+extension and the realization condition is developed
+in~\cite{mahon2026}.}
 
 Let $(\iota, \leq)$ be a directed set indexing a family of Boolean
 algebras $\{B_i\}_{i \in \iota}$ with injective homomorphisms
@@ -189,7 +192,12 @@ $\omega \in \Omega$ determines a principal ultrafilter
 Any compatible family of normalised charges extends to a
 $\sigma$-additive Baire probability measure $\hat{\mu}$ on
 $\St(\mathcal{C})$ --- unconditionally, with no assumption of
-$\sigma$-additivity~\cite[Theorem~1]{choksi1958},~\cite{mahon2026}.  This is the
+$\sigma$-additivity.  Each charge extends to a regular Baire measure on
+the compact, totally disconnected $\St(B_i)$, where the clopens form a
+base and compactness makes finite additivity automatically
+$\sigma$-subadditive~\cite{rao1983, Halmos1950}; compatibility then
+assembles these into $\hat{\mu}$ on the inverse limit
+$\St(\mathcal{C})$~\cite[Theorem~1]{choksi1958}.  This is the
 \emph{empirically adequate} object: it agrees with all charges on
 cylinder events.
 
@@ -203,8 +211,7 @@ i.e., that $\hat{\mu}$ concentrates on the principal ultrafilters.
 Such concentration implies each $\ell_i$ is $\sigma$-additive; the
 converse holds when $\Omega$ realizes every countably-complete
 ultrafilter of $\mathcal{C}$, a Loomis--Sikorski condition that is
-automatic for countably generated systems but not in
-general~\cite{mahon2026}.
+automatic for countably generated systems but not in general.
 
 Every Boolean algebra admits lattice ultrafilters --- maximal proper
 filters --- by Zorn's lemma.  On a Boolean algebra, maximality
@@ -220,8 +227,7 @@ argument fails, and maximal proper filters need not be 2-valued.
 Moreover, any subset $S \subseteq \St(\mathcal{C})$ that projects
 surjectively onto each $\St(B_i)$ can serve as a realisation space:
 set $\Omega = S$ with evaluation maps given by the restriction maps.
-The algebra imposes no constraint on the choice of
-$\Omega$~\cite{mahon2026}.
+The algebra imposes no constraint on the choice of $\Omega$.
 
 \begin{proposition}[Boolean commensurability]
 \label{prop:boolean-comm}
@@ -240,8 +246,10 @@ transition, and it is a condition on the charges, not the algebra.
 \end{proposition}
 
 \begin{proof}
-Part~(a) is the Stone construction~\cite{choksi1958, mahon2026}.
-Part~(b) is~\cite[Theorem~1]{mahon2026}.  Part~(c): ultrafilters on
+Part~(a) is the Stone construction above~\cite{rao1983, choksi1958}.
+Part~(b): descent to $\Omega$ requires $\hat\mu(\pure(\Omega)) = 1$,
+which forces each $\ell_i$ $\sigma$-additive, and conversely under the
+realization condition (discussion above).  Part~(c): ultrafilters on
 a Boolean algebra are exactly the 2-valued homomorphisms; their
 existence follows from Zorn's lemma applied to the filter generated
 by any non-zero element.
@@ -352,8 +360,9 @@ obstruction is specific to $\dim H \geq 3$.
 
 \begin{theorem}[Gleason~\cite{Gleason1957}]
 \label{thm:gleason}
-If $\dim H \geq 3$, every $\sigma$-additive state on $L(H)$ is of
-the form $s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
+If $H$ is a separable Hilbert space with $\dim H \geq 3$, every
+$\sigma$-additive state on $L(H)$ is of the form
+$s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
 $\rho$ on~$H$.
 \end{theorem}
 
@@ -421,8 +430,7 @@ Orthogonality & Trivial & Non-trivial ($\perp_A$) \\
 \noindent In Stone duality, the principal filters (i.e., the
 principal ultrafilters $\pure(\omega)$ for $\omega \in \Omega$) are
 \emph{invisible}: they play no distinguished role in the dual space.
-Which ultrafilters are principal depends on the choice of
-$\Omega$~\cite{mahon2026}.
+Which ultrafilters are principal depends on the choice of $\Omega$.
 
 In the McDonald--Bimb\'{o} duality, $P(A)$ is \emph{part of the
 structure} of the dual space: the orthomodular frame conditions
@@ -513,7 +521,8 @@ does not.  The Bub--Clifton
 theorem~\cite{BubClifton1996} addresses what \emph{can} be
 salvaged:
 
-\begin{theorem}[Bub--Clifton~\cite{BubClifton1996}]
+\begin{theorem}[Bub--Clifton~\cite{BubClifton1996};
+Halvorson--Clifton~\cite{HalvorsonClifton1999}]
 \label{thm:bub-clifton}
 Given a state $\rho$ on $L(H)$ and a preferred observable $R$,
 there is a unique maximal sublattice
@@ -598,7 +607,7 @@ Let $A$ be a complemented lattice.
         \textup{(}Stone construction\textup{)}.
       \item PR requires the charges to be $\sigma$-additive, and is
         equivalent to it under the Loomis--Sikorski realization
-        condition on $\Omega$ \textup{\cite{mahon2026}}.  Here
+        condition on $\Omega$.  Here
         $\text{PR}_{\text{lat}}$ and $\text{PR}_{\text{dual}}$ coincide:
         the $\perp$-stable extension step is free, so a lattice measure
         and a dual-space measure stand or fall together.
@@ -753,8 +762,8 @@ $\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}(A)$
     so $\mathcal{S}_{\mathrm{df}}(A) \neq \varnothing$
     unconditionally.
   \item The only non-trivial transition is \emph{regularity}:
-    $\sigma$-additivity of the charges.  This is the content
-    of~\cite{mahon2026}.
+    $\sigma$-additivity of the charges (with the realization condition
+    on $\Omega$), as developed above.
 \end{itemize}
 For an OML with $\dim \geq 3$, every transition is non-trivial:
 \begin{itemize}

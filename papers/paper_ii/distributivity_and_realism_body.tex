@@ -9,9 +9,9 @@ observations.  For a directed system of Boolean
 algebras carrying compatible charges, the Stone construction produces
 an unconditional measure on the dual space, and every observable
 admits a simultaneous definite value via ultrafilters.  The passage to
-a probability measure on an underlying state space requires only
-$\sigma$-additivity, and the choice of state space is unconstrained by
-the algebra~\cite{mahon2026}.
+a probability measure on an underlying state space turns on
+$\sigma$-additivity of the charges, together with a Loomis--Sikorski
+realization condition on the choice of state space~\cite{mahon2026}.
 
 For orthomodular lattices --- the algebraic framework for incompatible
 observations --- the situation is structurally different.  The
@@ -149,14 +149,21 @@ the Boolean structure of jointly performable observations is
 Stairs~\cite{Stairs1983}; that the realism question turns on
 distributivity is the Putnam~\cite{Putnam1968}--Dummett dispute; and
 that the Boolean/non-Boolean event structure is primitive is
-Bub--Pitowsky~\cite{BubPitowsky2010}.  What we add is not a new
-philosophical thesis but an organising one: that these settle onto a
-single axis indexed by distributivity --- EA, $\text{PR}_{\text{lat}}$,
-$\text{PR}_{\text{dual}}$, VDR --- whose transitions (pasting,
-regularity, sharpness) are of different mathematical character, and one
-of which, the $\sigma$-additive passage to the dual space, the existing
-treatments do not isolate.  We begin with the Boolean
-case~\cite{mahon2026}.
+Bub--Pitowsky~\cite{BubPitowsky2010}; and, in the von Neumann algebra
+setting, the separation between a state qua measure on the lattice and
+the Kochen--Specker absence of global points is the content of
+D\"{o}ring's spectral-presheaf analysis~\cite{Doring2008}.  What we add
+is neither a new philosophical thesis nor a new theorem but a
+\emph{bridge}: we carry this separation across the recent
+McDonald--Bimb\'{o} duality for orthomodular
+lattices~\cite{McDonaldBimbo2023} --- a quantum-logic result with no
+prior contact with the philosophy-of-science literature --- and read it
+against the van Fraassen empirical-adequacy/realism debate, organising
+EA, $\text{PR}_{\text{lat}}$, $\text{PR}_{\text{dual}}$, and VDR onto a
+single axis indexed by distributivity.  Within the
+philosophy-of-physics literature, and via this duality, the
+$\sigma$-additive passage to the dual space is not previously isolated.
+We begin with the Boolean case~\cite{mahon2026}.
 
 Let $(\iota, \leq)$ be a directed set indexing a family of Boolean
 algebras $\{B_i\}_{i \in \iota}$ with injective homomorphisms
@@ -193,8 +200,11 @@ $(\Omega, \sigma(\mathcal{C}))$ requires
   \hat{\mu}\!\bigl(\pure(\Omega)\bigr) = 1,
 \]
 i.e., that $\hat{\mu}$ concentrates on the principal ultrafilters.
-This holds if and only if each $\ell_i$ is
-$\sigma$-additive~\cite{mahon2026}.
+Such concentration implies each $\ell_i$ is $\sigma$-additive; the
+converse holds when $\Omega$ realizes every countably-complete
+ultrafilter of $\mathcal{C}$, a Loomis--Sikorski condition that is
+automatic for countably generated systems but not in
+general~\cite{mahon2026}.
 
 Every Boolean algebra admits lattice ultrafilters --- maximal proper
 filters --- by Zorn's lemma.  On a Boolean algebra, maximality
@@ -219,7 +229,9 @@ For a directed system of Boolean algebras with compatible charges:
 \begin{enumerate}[label=(\alph*)]
   \item EA is unconditional: $\hat{\mu}$ on $\St(\mathcal{C})$
     always exists.
-  \item PR holds iff each $\ell_i$ is $\sigma$-additive.
+  \item PR requires each $\ell_i$ to be $\sigma$-additive, and is
+    equivalent to it under the Loomis--Sikorski realization condition
+    on $\Omega$ (automatic for countably generated systems).
   \item VDR holds unconditionally: $\St(\mathcal{C})$ consists
     entirely of 2-valued homomorphisms.
 \end{enumerate}
@@ -313,7 +325,9 @@ all $a \in A$.
 \end{definition}
 
 \noindent A dispersion-free state assigns a definite truth value
-to every proposition in $A$.  Every 2-valued homomorphism is
+to every proposition in $A$ --- the statistical/dispersion-free
+distinction in the standard quantum-logic
+sense~\cite{BeltramettiCassinelli1981}.  Every 2-valued homomorphism is
 dispersion-free; the converse holds on Boolean algebras (where
 dispersion-free states are exactly the ultrafilters) and on
 $L(H)$, but \emph{fails} on a general OML: a dispersion-free state
@@ -445,15 +459,21 @@ operator via the Born rule.  This is a measure on $A$ itself, and is
 \emph{not} the same as a measure on the dual space $S_0(A)$ --- a
 distinction the Boolean case obscures and the OML case forces.  Indeed
 the passage to the dual space \emph{fails} for $L(H)$: no normal
-(Gleason) state extends to a charge on the clopens of $S_0(L(H))$, by a
-clustering argument inside a single two-dimensional subspace.\footnote{%
-Fix a $2$-dimensional subspace $e$.  For $k$ distinct lines $p_1, \dots,
-p_k \subset e$ the $2k$ lines $\{p_i, p_i^\perp\}$ are pairwise
-meet-zero, so $h$ sends them to pairwise-disjoint clopens, and a charge
-forces $\sum_i [s(p_i) + s(p_i^\perp)] = k\, s(e) \leq 1$ for every $k$;
-hence any state with $s(e) > 0$ for some finite-dimensional $e$ ---
-every normal state --- fails.  $\sigma$-completeness of the lattice is
-irrelevant; the obstruction is finitary.  Only \emph{singular} states
+(Gleason) state extends to a charge on the clopens of $S_0(L(H))$.  This
+is a finitary non-extendability of the
+Kochen--Specker~\cite{KochenSpecker1967} and Pitowsky
+correlation-polytope~\cite{Pitowsky1989} type, which we invoke rather
+than reprove.\footnote{%
+The mechanism: within a single $2$-dimensional subspace $e$, the lines
+$p$ and their orthocomplements-within-$e$ furnish, for every $k$,
+$2k$ pairwise meet-zero elements whose $\perp$-stable clopen images are
+pairwise disjoint, while orthoadditivity gives
+$s(p) + s(e \ominus p) = s(e)$.  A charge would then force
+$k\,s(e) \leq 1$ for all $k$, so $s(e) = 0$ for every
+finite-dimensional $e$ --- excluding every normal state.  This is the
+$2$-dimensional case of the Pitowsky correlation-polytope
+condition~\cite{Pitowsky1989}; $\sigma$-completeness of the lattice is
+irrelevant, the obstruction being finitary.  Only \emph{singular} states
 ($s(e) = 0$ on all finite-dimensional $e$) escape, and whether one
 extends is open.}  For general OMLs the extension problem is
 open.\footnote{The extension splits into two axes that the Boolean
@@ -472,6 +492,21 @@ concentrates on the physical points --- is what $\sigma$-additivity
 governs.  For $L(H)$, Gleason settles the lattice measure, but the
 extension axis itself fails (preceding footnote): Gleason does
 \emph{not} deliver the dual-space measure.}
+
+The conceptual separation between a measure on the lattice and the
+non-existence of a measure concentrated on points is, in the von
+Neumann algebra setting, already present in D\"{o}ring's analysis of
+the spectral presheaf~\cite{Doring2008}: states correspond to measures
+on the clopen subobjects of the presheaf $\Sigma$
+($\text{PR}_{\text{lat}}$ in our terms), while the absence of global
+sections of $\Sigma$ is the Kochen--Specker obstruction
+($\text{PR}_{\text{dual}}$ failing).  Our contribution is not this
+separation as such but its transposition: we phrase it through the
+McDonald--Bimb\'{o} duality for orthomodular lattices rather than the
+topos-theoretic presheaf, identify $\sigma$-additivity as the precise
+marker of the descent axis (D\"{o}ring's measures are finitely additive
+in general), and read the whole off against the van Fraassen empirical
+adequacy/realism debate, a framing absent from the topos literature.
 
 Even when probabilistic descent succeeds, value-definite descent
 does not.  The Bub--Clifton
@@ -561,11 +596,12 @@ Let $A$ be a complemented lattice.
     \begin{itemize}
       \item EA is unconditional
         \textup{(}Stone construction\textup{)}.
-      \item PR holds iff the charges are $\sigma$-additive
-        \textup{\cite{mahon2026}}.  Here $\text{PR}_{\text{lat}}$ and
-        $\text{PR}_{\text{dual}}$ coincide: the extension step is free,
-        so a lattice measure and a dual-space measure stand or fall
-        together.
+      \item PR requires the charges to be $\sigma$-additive, and is
+        equivalent to it under the Loomis--Sikorski realization
+        condition on $\Omega$ \textup{\cite{mahon2026}}.  Here
+        $\text{PR}_{\text{lat}}$ and $\text{PR}_{\text{dual}}$ coincide:
+        the $\perp$-stable extension step is free, so a lattice measure
+        and a dual-space measure stand or fall together.
       \item VDR holds unconditionally
         \textup{(}ultrafilters exist\textup{)}.
     \end{itemize}
@@ -588,8 +624,10 @@ Let $A$ be a complemented lattice.
         Theorem~\textup{\ref{thm:gleason})}: a $\sigma$-additive measure
         on the lattice $L(H)$.
       \item $\text{PR}_{\text{dual}}$ \emph{fails} for every normal
-        state: no charge on $S_0(L(H))$ exists (clustering argument
-        above), so a fortiori none concentrating on $P(A)$.  Equivalently,
+        state: no charge on $S_0(L(H))$ \emph{extending $s$} exists
+        (Kochen--Specker / Pitowsky non-extendability,
+        \S\ref{sec:descent}), so a fortiori none concentrating on
+        $P(A)$.  Equivalently,
         the extension step $\text{PR}_{\text{lat}} \to
         \text{PR}_{\text{dual}}$ is obstructed --- the one transition the
         Boolean case leaves free.
@@ -608,9 +646,10 @@ Part~(a) is Proposition~\ref{prop:boolean-comm}.  For
 part~(b): $\text{PR}_{\text{lat}}$ follows from Gleason's theorem
 (Theorem~\ref{thm:gleason}), which supplies a $\sigma$-additive measure
 on the lattice $L(H)$ for any $\sigma$-additive state.
-$\text{PR}_{\text{dual}}$ fails for normal states by the clustering
-argument above: no charge on the clopens of $S_0(L(H))$ exists, so no
-Baire measure on $S_0(L(H))$ and a fortiori none concentrating on
+$\text{PR}_{\text{dual}}$ fails for normal states by the
+Kochen--Specker / Pitowsky non-extendability of \S\ref{sec:descent}: no
+charge on the clopens of $S_0(L(H))$ \emph{extending $s$} exists, so no
+such Baire measure on $S_0(L(H))$ and a fortiori none concentrating on
 $P(A)$.  EA holds in the $\perp$-stable set-function sense
 unconditionally --- the assignment $\mu(h(a)) = s(a)$ on
 $\CO(S_0(A))^\dagger$ always exists; note this does \emph{not} go via

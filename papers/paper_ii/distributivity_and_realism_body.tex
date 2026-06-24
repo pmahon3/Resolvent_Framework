@@ -197,9 +197,11 @@ Any compatible family of normalised charges extends to a
 $\sigma$-additive Baire probability measure $\hat{\mu}$ on
 $\St(\mathcal{C})$ --- unconditionally, with no assumption of
 $\sigma$-additivity.  Each charge extends to a regular Baire measure on
-the compact, totally disconnected $\St(B_i)$, where the clopens form a
-base and compactness makes finite additivity automatically
-$\sigma$-subadditive~\cite{rao1983, Halmos1950}; compatibility then
+the compact, totally disconnected $\St(B_i)$: the clopens are compact,
+so any countable clopen cover of a clopen set has a finite subcover,
+making a finitely additive charge automatically countably additive on
+the clopen algebra (a premeasure), which Carath\'{e}odory
+extends~\cite{rao1983, Halmos1950}; compatibility then
 assembles these into $\hat{\mu}$ on the inverse limit
 $\St(\mathcal{C})$~\cite[Theorem~1]{choksi1958}.  This is the
 \emph{empirically adequate} object: it agrees with all charges on
@@ -416,9 +418,11 @@ $\perp$-stable subsets of $S_0(A)$.
 \end{theorem}
 
 \noindent
-A subset $U \subseteq S_0(A)$ is \emph{$\perp$-stable} if it is closed
-under the dual orthogonality: $y \in U$ and $x \perp_A y$ imply
-$x \notin U$.  We write $\CO(S_0(A))^\dagger$ for the sub-OML of clopen
+A subset $U \subseteq S_0(A)$ is \emph{$\perp$-stable} if
+$U = U^{\perp\perp}$, where
+$U^\perp = \{x : x \perp_A y \text{ for all } y \in U\}$ ---
+i.e.\ $U$ is closed under the double dual-orthocomplement.
+We write $\CO(S_0(A))^\dagger$ for the sub-OML of clopen
 $\perp$-stable subsets; its meet is intersection and its complement the
 dual orthocomplement, but its join is \emph{not} set union.
 

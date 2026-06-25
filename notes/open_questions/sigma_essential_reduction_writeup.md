@@ -114,26 +114,38 @@ problem.
   independence-ready sentence (see [[forcing_programme_status]]); it is currently an
   open math problem, not an undecided sentence.
 
-## 5. The convergence as evidence
+## 5. A bottleneck, not a convergence — ⚠ CORRECTED 2026-06-25 (hostile audit)
 
-Seven independent attack directions reduce to wall A: a non-classical-logic
-(catuṣkoṭi) reframing; a structural-reduction shortcut; the Blecher–Weaver
-concreteness check; the ¬Ψ Ulam-lever; the direct Con(Ψ) construction; the template
-no-go; and the A↔C weld run — plus ~21 prior fenced reversals across the
-OML-descent thread. That every route bottoms out at the *same* state-realization wall
-is itself the structural finding: **the σ-essential question is σ-point-selection in
-disguise**, and σ-point-selection for non-distributive concrete σ-OMLs is the genuine,
-located, open object.
+**An earlier draft of this section claimed "seven independent routes converge on
+wall A" and treated that as a unification. A hostile audit BROKE that claim. The
+honest finding is a BOTTLENECK, not a convergence — and a bottleneck is nearly
+tautological once the core is named.** The corrected count:
 
-The final (weld) run did more than converge — it **cleaned the map**: the one
-remaining cross-edge (A↔C) resolved to *orthogonality* (§3, type mismatch), removing
-HW Problem 2 as a red herring. So the map is now complete: **wall A (σ-point-selection)
-is the sole bottom**, a state-realization question on a fixed σ-complete lattice,
-strictly above faithful-tribe-representability (B), with the lattice-completion
-problem (C) shown not to be on the route at all. There is no further in-field edge to
-fill — the thread's understanding is delivered. ⟦The orthogonality verdict is
-self-checked, advisor-pass pending; even if a subtler A↔C relation later surfaced, the
-*reduction to A* stands regardless.⟧
+- **Genuine independent reductions to wall A: ≈ 1.** The §2 equivalence (witness ⟺
+  σ-point-selection) is the one real reduction.
+- **Routes 4 (¬Ψ-lever), 5 (Con(Ψ) construction), 6 (template no-go) are ONE
+  argument, three angles** — refute / build / bound the *same* clause-(ii) object.
+  The ledger says so verbatim: "#28 and #29 are ONE theorem"; "one task, three
+  exits." Not three confirmations; one fact viewed three ways.
+- **Route 3 (Blecher–Weaver) does NOT reduce to wall A.** It is the *Hilbert* sector
+  (pure states on `B(ℓ²(κ))`, non-concrete by KS); Akemann–Weaver's "no routing
+  port" means the concrete 2-valued question does not factor through it. Listing it
+  as a route to A is a THIRD HW2-style weld (cf. §3) — caught here, struck.
+- **Routes 1 (catuṣkoṭi) and 2 (structural-reduction) are failed dissolutions**, not
+  reductions ("4 obstacles dissolved on inspection"); route 2 has no ledger record.
+- **Route 7 (weld run) is a map *subtraction*** (HW2 removed as orthogonal), not a
+  reduction TO A.
+
+**So the structural finding is:** σ-point-selection (wall A) is a **load-bearing
+bottleneck** — every *complete* attack on the σ-essential witness question must
+engage clause (ii) of §2 — NOT a Type-3 unification of separate areas (the
+"convergence" buys no method-transfer; it says distinct directions stall on the same
+missing fact). The §2 reduction stands; the seven-route gloss was inflation.
+
+**What remains true and load-bearing:** the §2 equivalence (witness ⟺
+σ-point-selection); wall A strictly above B (§3, cited); HW2 (C) orthogonal (§3, the
+weld run). σ-point-selection for non-distributive concrete σ-OMLs is the genuine,
+located, open object — reached by one reduction, not seven.
 
 ## 6. Primary sources
 

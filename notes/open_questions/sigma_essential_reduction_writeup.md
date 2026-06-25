@@ -159,3 +159,34 @@ located, open object — reached by one reduction, not seven.
 - Derr & Williamson, arXiv:2302.03522, Thm D.6 (Polish-representable ⟹ no gap; the
   upper bound — any witness must be non-Polish).
 - Akemann & Weaver, PNAS 105(14) (2008) (pure state on no masa — no routing port).
+
+## 6. THE SWING — the boldest *true* target (2026-06-25)
+
+After correcting §5, the honest fence:
+
+> **CONJECTURE.** The existence of a concrete σ-essential witness is **independent of
+> ZFC** — a new ZFC-independence phenomenon in quantum logic (concrete σ-OMLs).
+
+**Strength is CONJECTURED, not assumed.** Discipline check (so the just-struck
+Blecher–Weaver weld does not walk back in through the framing):
+- **¬-side has independent evidence.** "No measurable cardinal ⟹ every σ-additive
+  2-valued state on a concrete σ-OML is Dirac" is a direct structural fact about the
+  *concrete* object — it does NOT route through B(H). So the *refutation* direction
+  genuinely touches "no measurable cardinal." This is real, in-field evidence the
+  object is independence-flavored.
+- **Con-side strength is NOT independently established.** "Measurable cardinal
+  *suffices* to build the witness" was entirely inherited from the B–W Hilbert
+  analogy — which §5 STRUCK (no routing port). So the consistency direction, and its
+  exact strength, is the open construction to be EARNED, not imported. Do not state
+  "measurable-cardinal strength" as a premise.
+
+**Two halves of the swing:** (Con) build a concrete σ-essential witness under *some*
+large-cardinal hypothesis — genuinely new, in-field construction; (¬) prove no
+witness in L — the ¬Ψ lever exists but stalled at the σ-class-vs-σ-algebra gap.
+
+**STOP-CONDITION (pre-committed, before swinging):** if the construction's first
+concrete step does NOT survive the σ-class-vs-σ-algebra gap that already stalled the
+¬Ψ run, that is the signal the move is genuinely out-of-field — the honest output is
+then **"independence-conjecture-with-evidence, recorded for a set-theorist,"** NOT an
+nth run. This is where hubris and discipline coexist concretely: swing hard, with a
+defined miss.

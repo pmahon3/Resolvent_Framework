@@ -135,11 +135,32 @@ problem.
   NOT an equivalence with a separate harder named problem (§1).
 - **Is not a proof the cell is empty (¬Ψ).** Blecher–Weaver: the *Hilbert* analogue —
   a singular σ-additive pure state on B(ℓ²(κ))'s projection lattice — **exists ⟺ κ is
-  Ulam-measurable.** So ¬Ψ is not a ZFC theorem; the witness exists under a large
-  cardinal in the Hilbert sector. The concrete sector is the open transfer.
-- **Is not an independence proof.** That would need wall A turned into a clean
+  Ulam-measurable.** So ¬Ψ is not a ZFC theorem; the analogous object exists under a
+  large cardinal in the Hilbert sector. The concrete sector is the open transfer.
+- **Is not an independence proof.** That would need clause (ii) turned into a clean
   independence-ready sentence (see [[forcing_programme_status]]); it is currently an
   open math problem, not an undecided sentence.
+
+**Scoping remark (why the solved Hilbert case does not close (ii)).** ⟦remark-strength,
+cited facts — NOT a theorem; the openness of (ii) is established by the literature
+sweep, not by this remark.⟧ The Hilbert result lives in a genuinely different sector,
+and the obvious transfer tool fails:
+- **Sectors differ (Kochen–Specker).** A *concrete* σ-OML has, by definition (Gudder),
+  an order-determining family of 2-valued states; `L(H)` (dim ≥ 3) has **none**
+  (Kochen–Specker). So concrete σ-OMLs are not projection lattices — B–W's object and
+  ours are not the same kind of structure.
+- **The obvious bridge fails (Akemann–Weaver).** The natural transfer between a
+  non-commutative algebra and an abelian subalgebra — masa-factoring — **fails for the
+  pure 2-valued case** (Akemann–Weaver 2008: a pure state on B(H) multiplicative on no
+  masa; B–W themselves use MSS paving for exactly this reason).
+
+⟹ B–W's Hilbert dichotomy does not transfer to the concrete sector by the obvious
+routes, and clause (ii) for concrete σ-OMLs is **open** (no prior art; validation
+literature sweep, 2026-06-25). This is the honest scope of the "no routing port"
+observation — a remark assembling two cited facts, **not** a categorical
+non-reducibility theorem (which would need a fixed reduction notion à la
+Borel-reducibility, out of scope and not needed: the deliverable rests on the §2
+localization + the literature-established openness of (ii) + this boundary map).
 
 ## 5. A bottleneck, not a convergence — ⚠ CORRECTED 2026-06-25 (hostile audit)
 
@@ -262,4 +283,21 @@ Two validation scouts (is-the-prize-real + framing/payoff). Verdict:
 
 **THE REDIRECT (both scouts converge):** the reachable, in-field, publishable deliverable is the **REDUCTION-AND-BOUNDARY-MAP**, NOT the independence theorem (which bottoms out in forcing = expertise mismatch, needs a set-theorist collaborator). Package: the §2 reduction (witness ⟺ σ-point-selection) + boundary results (Polish→no-gap; no-routing-port; disjointification ⟹ non-distributive mechanism) as one clean map, written for the set-theory-of-op-algebras register (JFA/IJM/Fund.Math.), OML setup made legible. Then hand a set-theorist a sharply-posed, already-reduced problem — the no-competition gap becomes an ASSET.
 
-**THE TWO LOAD-BEARING TASKS (the referee to-do list):** (1) make the §2 reduction AIRTIGHT (currently ⟦self-checked, advisor-pass pending⟧ — THE real task, in-field); (2) turn the no-routing-port NON-FACTORIZATION into a theorem / sharp obstruction (the whole novelty rests on it; currently plausible-but-unproven). Both are in-field and reachable. Realistic outcome = (ii) "located + reduced an open problem," publishable as such — NOT (i) a named independence theorem solo.
+**THE LOAD-BEARING TASKS — UPDATED 2026-06-25 (both resolved):**
+- **(1) Make the §2 reduction AIRTIGHT — DONE.** 7/7 claims verified
+  (`reduction_airtight_verification.md`); the airtight pass downgraded the headline
+  from "reduces to" to **localization** (§1/§2 corrected). The core is now verified +
+  honestly framed.
+- **(2) "Turn no-routing-port into a theorem" — DEMOTED TO A REMARK (the 4th overclaim
+  caught).** The paper does NOT need a non-reducibility theorem: "no reduction exists"
+  has no theorem-shaped meaning without a fixed reduction notion (Borel-reducibility
+  style), which is out of scope and unneeded. What the deliverable needs is "**clause
+  (ii) is open**" — already established by the literature sweep, not by any
+  no-routing-port claim. Written as the §4 **scoping remark** (KS sectors-differ +
+  A–W masa-factoring-fails, both cited, remark-strength).
+
+**∴ The in-field deliverable is essentially COMPLETE:** the §2 localization (airtight)
++ the literature-established openness of (ii) + the boundary map (§3–4: Polish→no-gap,
+HW2 orthogonal, faithful-tribe below, the scoping remark). Realistic outcome = "located
++ localized an open problem," publishable as such, pending the eventual set-theorist
+hand-off for the independence question itself. NOT a named independence theorem solo.

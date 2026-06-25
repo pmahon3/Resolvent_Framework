@@ -590,13 +590,26 @@ $\sigma$-additive measure is a point mass, so every countably-complete
 ultrafilter charged by $\hat\mu$ is realized by a point of $\Omega$ and
 $\Sigma = \mathrm{pure}(\Omega)$ up to a null set (Loomis--Sikorski
 representation~\cite{Halmos1950}).  In this regime the Stone route
-reproduces the Kolmogorov extension.  Outside it the hypothesis can fail:
-a countably-complete ultrafilter of $\mathcal{C}$ need not be realized in
-$\Omega$ --- it is then a ``phantom point'' of the Stone space carrying
-$\hat\mu$-mass with no underlying $\omega$ --- and ruling such points out
-is the $\sigma$-additive Loomis--Sikorski realization problem, not a
-consequence of CE or of the charges. This is a genuine set-theoretic
-boundary on the construction, not a step the present methods close.
+reproduces the Kolmogorov extension: the niceness that closes the gap is
+also what collapses the construction to the classical theorem.
+
+Outside it the hypothesis can fail.  An unrealized
+$\mathrm{pure}(\Omega)$-mass would have to sit on a \emph{non-principal}
+countably-complete ultrafilter of $\mathcal{C}$ --- a ``phantom point''
+of the Stone space carrying $\hat\mu$-mass with no underlying $\omega$.
+But such an ultrafilter is an exotic object: a set admits a non-principal
+countably-complete ultrafilter only when its cardinality reaches a
+\emph{measurable cardinal}, a large-cardinal threshold far beyond any
+countable or standard-Borel $\Omega$, where by definition none exists.
+So the gap cannot bite on the observation spaces of ordinary practice; it
+opens only for realization spaces large enough to host such a point, and
+ruling those out is exactly the $\sigma$-additive Loomis--Sikorski
+realization problem.  This is a genuine set-theoretic boundary on the
+construction, not a step the present methods close --- and it is the same
+realization wall met, in the non-distributive (orthomodular) setting, by
+the question of whether a $\sigma$-additive state descends to the dual
+space; in both places the obstruction is the existence of measure-bearing
+points with no underlying realization.
 
 \begin{theorem}[Stone observational extension]
 \label{I:thm:stone-main}
@@ -690,14 +703,13 @@ realised states --- and which are artefacts of insufficient resolution
 --- is a central problem wherever latent structure must be inferred
 from observable data.
 
-It's worth noting the gap between unconditional                                                                                                      
-Stone measure and conditional descent to realisation is a distinction                                                                                                      
-familiar in the philosophy of science. The constructive  empiricist holds                                                                                                  
-that empirical adequacy --- agreement with all observable phenomena                                                                                                        
---- does not require commitment to unobservable                                                                                                                            
-structure~\cite{vanFraassen1980}.  The Stone construction makes                                                                                                            
-this precise: $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is empirically                                                                                                   
-adequate by construction; the passage to $P$ on
+The gap between the unconditional Stone measure and the conditional
+descent to realisation is a distinction familiar in the philosophy of
+science.  The constructive empiricist holds that empirical adequacy ---
+agreement with all observable phenomena --- does not require commitment
+to unobservable structure~\cite{vanFraassen1980}.  The Stone construction
+makes this precise: $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is
+empirically adequate by construction; the passage to $P$ on
 $(\Omega,\,\sigma(\mathcal{C}))$ is the additional commitment.
 \ifstandalone
 \bibliographystyle{plain}

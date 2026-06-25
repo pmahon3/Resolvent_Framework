@@ -192,3 +192,36 @@ concrete step does NOT survive the σ-class-vs-σ-algebra gap that already stall
 then **"independence-conjecture-with-evidence, recorded for a set-theorist,"** NOT an
 nth run. This is where hubris and discipline coexist concretely: swing hard, with a
 defined miss.
+
+## 7. THE SWING — taken, and the stop-condition FIRED (2026-06-25)
+
+The ¬-side first step was attempted (its first step IS the pre-committed miss-test).
+**Redirect logged:** mid-swing the ¬-target mutated from "¬Ψ via no-measurable-cardinal"
+to "ZFC no-witness via countable-carrier collapse" (a legitimate redirect — more
+decidable, not less). The sharp question reached: *does a finitely-coherent
+Dirac-unrealizable s₀ exist on a COUNTABLE concrete σ-OML with no non-Dirac rescuer?*
+
+**Attempted argument:** on a countable carrier, the tower `A_k ↓ ∅` gives orthogonal
+increments in L, so σ-additivity forces `s(A_k) → 0`, killing any rescuer ⟹ ¬Ψ
+provable for countably-generated L ⟹ (tempting) Paper-I gap closable in ZFC.
+
+**WHIFF — verified against own ledger (CHARTED line 64).** The load-bearing step
+"`A_k↓∅` gives orthogonal increments IN L" REQUIRES the disjointification identity
+`(a∨b)∧a⊥=b∧a⊥`, which CHARTED records as a WALL: **distributive, FALSE on OMLs.** On a
+non-Boolean L the tower lives across incompatible blocks; its increments need not be in
+L *even when Ω is countable*. So "countable ⟹ no rescuer" is FALSE — what was actually
+shown is "orthogonally-refinable ⟹ no rescuer," and refinability is the
+**distributivity (Floor/RDP) axis, NOT the cardinality axis.** The fork is
+refinable-vs-not, which is the σ-class-vs-σ-algebra gap — **this "new result" is the
+4th costume of the same weld**, not a theorem. (Unit test confirms: ∏ₙMO₂'s gap can't
+bite because it's *segregated*, not because it's countable — CHARTED 111.)
+
+**∴ STOP-CONDITION FIRED, honestly.** The construction's first concrete step did NOT
+survive the σ-class/σ-algebra gap — exactly the pre-committed miss (§6). Per the
+pre-commitment, the honest output is now: **independence-conjecture-with-evidence,
+recorded for a set-theorist** — NOT a 5th angle. The witness, if it exists, requires a
+NON-refinable (distributivity-failing, plausibly uncountable) carrier; whether such a
+carrier hosts the obstruction without a large cardinal is the genuinely open
+set-theory question, out-of-field by the stated driver. **Paper-I gap NOT closable by
+this route** (its carrier isn't forced refinable). The swing was real, the miss is
+real, and it's called — discipline and hubris, both honored.

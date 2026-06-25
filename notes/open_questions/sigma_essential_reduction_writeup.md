@@ -27,8 +27,10 @@ OML-descent programme, and (independently) the same realization gap that parks P
 > σ-point-selection failure**: a locally coherent 2-valued pattern on `L` with no
 > globally coherent σ-additive 2-valued **state** realizing it. Consequently its
 > existence is neither *constructible* nor *refutable* in ZFC by any route attempted;
-> it is **reducible** to this state-realization question, to which a
-> measurable-cardinal (Ulam) strength attaches.
+> it is **reducible** to this state-realization question. (Whether it carries
+> *measurable-cardinal strength* is CONJECTURED, not established — see §5/§6: the
+> strength claim rode the now-struck Blecher–Weaver weld; only the *refutation* side
+> has independent evidence touching "no measurable cardinal.")
 
 The reduction is the deliverable. The witness is neither built nor refuted; it is
 *located* — pinned to a precise, named open wall.
@@ -61,7 +63,7 @@ recurring error, so they are named separately:
 
 | | wall | character | cardinal? |
 |---|---|---|---|
-| **A** | **σ-point-selection** | does a coherent local 2-valued pattern extend to a global σ-additive **state**? | yes (Ulam, via Blecher–Weaver on the Hilbert analogue) |
+| **A** | **σ-point-selection** | does a coherent local 2-valued pattern extend to a global σ-additive **state**? | CONJECTURED (the Ulam link via Blecher–Weaver is the Hilbert analogue, STRUCK as a transfer — §5; only the ¬-side has independent cardinal evidence) |
 | **B** | **faithful-tribe-representability** | does `L` embed faithfully into a σ-tribe of *honest sets*? | — |
 | **C** | **HW Problem 2** | does `L` embed into *some* σ-complete **OMP** `L̄` (not a tribe of sets, not concrete, not state-separating)? | no (plain ZFC) |
 

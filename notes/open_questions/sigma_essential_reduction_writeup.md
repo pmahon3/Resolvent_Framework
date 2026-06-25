@@ -225,3 +225,16 @@ carrier hosts the obstruction without a large cardinal is the genuinely open
 set-theory question, out-of-field by the stated driver. **Paper-I gap NOT closable by
 this route** (its carrier isn't forced refinable). The swing was real, the miss is
 real, and it's called — discipline and hubris, both honored.
+
+## 8. SWING VALIDATION — deep research (2026-06-25): redirect to the reduction-map
+
+Two validation scouts (is-the-prize-real + framing/payoff). Verdict:
+
+- **Q1 PRIZE REAL — genuinely open, no settling result either direction.** Concrete-vs-Hilbert gap intact; Ulam transfer conjectured not proven (no-routing-port confirmed). Not a kill.
+- **Q2 RECOGNIZED — PARTIAL.** The GENRE (set-theoretic strength of state existence: Naimark/Akemann–Weaver, Blecher–Weaver, live 2026 Dzhenzher line) is flagship-valued. But THIS exact concrete-σ-OML question is stated NOWHERE — an unclaimed gap BETWEEN set-theory-of-operator-algebras (has the forcing tools, works on B(H)) and OML/quantum-logic (owns the structures, doesn't force). Opportunity (no competitor) + risk (no external pull; you motivate it).
+- **⚠ OVERCLAIM CAUGHT + CORRECTED:** "independence phenomenon" is PART OF THE CONJECTURE, not established. Routing port closed ⟹ no basis to assume independent vs. plain-ZFC-decidable. Honest object = "an open, located, reduced problem whose set-theoretic CHARACTER is unknown." NEVER frame as "new independence phenomenon"; always pair Blecher–Weaver with the no-routing-port caveat.
+- **Blecher–Weaver is the PURE-state analogue, not the two-valued one** (two-valued ≠ pure on B(H); 2-valued generically nonexistent by Gleason). Makes the analogy LOOSER — reinforces nothing transfers automatically. State as "pure-state precedent shows the phenomenon CAN be large-cardinal-sensitive at all," not "the OML image of B–W."
+
+**THE REDIRECT (both scouts converge):** the reachable, in-field, publishable deliverable is the **REDUCTION-AND-BOUNDARY-MAP**, NOT the independence theorem (which bottoms out in forcing = expertise mismatch, needs a set-theorist collaborator). Package: the §2 reduction (witness ⟺ σ-point-selection) + boundary results (Polish→no-gap; no-routing-port; disjointification ⟹ non-distributive mechanism) as one clean map, written for the set-theory-of-op-algebras register (JFA/IJM/Fund.Math.), OML setup made legible. Then hand a set-theorist a sharply-posed, already-reduced problem — the no-competition gap becomes an ASSET.
+
+**THE TWO LOAD-BEARING TASKS (the referee to-do list):** (1) make the §2 reduction AIRTIGHT (currently ⟦self-checked, advisor-pass pending⟧ — THE real task, in-field); (2) turn the no-routing-port NON-FACTORIZATION into a theorem / sharp obstruction (the whole novelty rests on it; currently plausible-but-unproven). Both are in-field and reachable. Realistic outcome = (ii) "located + reduced an open problem," publishable as such — NOT (i) a named independence theorem solo.

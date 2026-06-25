@@ -44,7 +44,7 @@
 > across both; Kellerer/embedding-ref are diminishing-returns regress.
 
 *Hostile prior-art search, 2026-06-19. Supersedes the "GENUINELY-OPEN" framing of
-`reading1_prize_reduction.md` / `sigma_essential_nonemptiness_finding.md` to the
+`notes/archive/reading1_prize_reduction_superseded.md` / `notes/archive/sigma_essential_nonemptiness_finding_dead.md` to the
 extent of "not plainly open" (the conditional-negative is unverified — see banner).
 Three parallel literature sweeps (Czech/Slovak school, contextuality/gluing,
 barycentric/Choquet) + a sub-agent read of the killer paper's verbatim theorem.
@@ -68,7 +68,7 @@ FA-extendable but NOT σ-extendable** to a global hidden-variable joint. Equival
 
 - the programme's "non-contextual" = `w` in the **closed convex hull of dispersion-free
   states** = a **countably-additive (σ-additive)** mixture of two-valued states = a
-  σ-additive global joint. (Confirmed from `reading1_prize_reduction.md` lines 68–74:
+  σ-additive global joint. (Confirmed from `notes/archive/reading1_prize_reduction_superseded.md` lines 68–74:
   the ∏ₙMO₂ analysis treats a *finitely-additive* diffuse state as contextual and a
   *σ-additive* state as forced into the hull. So the hull is the σ-mixture hull.)
 - "contextual but finite-restrictions-classical" (clause b) = **a finitely-additive

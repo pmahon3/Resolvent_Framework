@@ -101,8 +101,8 @@ the "B–W-strengthens-it" gloss was withdrawn. The CHARTED file's own standing 
 
 ## Pointers
 
-- The lone open problem (still parked): `notes/open_questions/MAP_sigma_essential.md`,
-  `NEXT_SESSION_sigma_essential.md`, `sigma_essential_prior_art_verdict.md`.
+- The lone open problem (still parked): `notes/open_questions/notes/archive/MAP_sigma_essential_superseded.md`,
+  `notes/archive/NEXT_SESSION_sigma_essential_superseded.md`, `sigma_essential_prior_art_verdict.md`.
 - Corrected prior-art: same verdict file, 2026-06-23 CORRECTION; `CHARTED` DEEP-RESEARCH
   ⚠⚠ retraction.
 - Primary sources: Blecher–Weaver arXiv:1607.08505; Akemann–Weaver PNAS 105(14) 2008

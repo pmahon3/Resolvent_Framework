@@ -48,7 +48,7 @@ as internal synthesis in Paper I. ~~Done. Written up as companion note, targetin
 
 The companion note proves: in the first-order language $\mathcal{L}_{\mathrm{BA},\mu}$ of Boolean algebras with normalized finitely additive charge, no first-order theory characterizes those models whose charge extends to a $\sigma$-additive measure. The proof is the Dirac-mass ultraproduct construction.
 
-See `papers/paper_i/notes/countable_additivity_not_first_order.tex` for the full proof.
+See `papers/archive/countable_additivity_retired/countable_additivity_not_first_order.tex` for the full proof.
 
 ---
 

@@ -192,7 +192,7 @@ sat orthogonal to it.
   `papers/archive/paper_iii_withdrawn/` (and `paper_iii_canned/`).
 - σ-additivity invisible to finite tests (the (c) kill):
   `notes/unsorted/foundations/ce_nonderivability/index.md` Part I;
-  `papers/paper_i/notes/countable_additivity_not_first_order.tex`.
+  `papers/archive/countable_additivity_retired/countable_additivity_not_first_order.tex`.
 - Shah–Peters impossibility, already engaged:
   `notes/covered_leads/residual_structure_inference.md`.
 - Manski / partial-identification already engaged:

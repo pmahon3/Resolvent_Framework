@@ -57,7 +57,7 @@ uses them to route papers to mailing lists.
 > historical record.
 
 ### File
-`papers/paper_i/notes/countable_additivity_not_first_order.tex` (moving to `papers/archive/countable_additivity_retired/`)
+`papers/archive/countable_additivity_retired/countable_additivity_not_first_order.tex` (moving to `papers/archive/countable_additivity_retired/`)
 
 ### arXiv category
 Primary: `math.LO` (Logic)

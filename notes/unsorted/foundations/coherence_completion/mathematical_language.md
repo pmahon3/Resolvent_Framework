@@ -21,7 +21,7 @@ This note records the first mathematical language for the
 coherence/completion direction.  The right starting point is the
 submission-ready companion note:
 
-`papers/paper_i/notes/countable_additivity_not_first_order.tex`
+`papers/archive/countable_additivity_retired/countable_additivity_not_first_order.tex`
 
 That note gives the clean prototype:
 

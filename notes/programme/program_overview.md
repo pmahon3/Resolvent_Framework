@@ -457,8 +457,8 @@ open problem remains** — OML descent (the (b)/incompatibility face). The
 (a)/anti-smuggler line's delivered result is **CE/Paper I ONLY**; Strategy D was its
 candidate extremal-Boolean-floor frontier and it is now retired (the cell was
 already inhabited in ZFC). Survives: a one-line Gaifman-1964 citation, no contribution.
-Working layer:
-`notes/open_questions/{reading1_prize_reduction,direction2_gate_finding,subsession_sigma_essential_via_CE}.md`,
+Working layer (archived 2026-06-25 — see status banner above):
+`notes/archive/{reading1_prize_reduction_superseded,direction2_gate_finding_dead,subsession_sigma_essential_via_CE_dead}.md`,
 `notes/archive/strategy_d_killed/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`;
 full session reasoning in the `[[sigma_essential_construction_attempt]]` memory.
 

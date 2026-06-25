@@ -220,6 +220,22 @@ inequivalent.
 
 Ordered by downstream leverage:
 
+**⚑ CURRENT STATUS 2026-06-25 — σ-essential thread RESOLVED into a reduction; canonical
+files updated.** The σ-essential contextual witness question **reduces to
+σ-point-selection** (a state-realization wall, cardinal-sensitive), strictly above
+faithful-tribe-representability, with HW Problem 2 shown **orthogonal** (dropped out);
+the forcing programme is **parked as premature** (its target dissolved upstream into
+the reduction). Canonical records: `notes/open_questions/sigma_essential_reduction_writeup.md`
+(the clean result), `…_reduction_result.md` (corrections trail),
+`forcing_programme_status.md` (forcing post-mortem), `CHARTED_sigma_essential.md`
+(working ledger). **The dated session-log blocks below (and their inline pointers to
+`MAP_sigma_essential`, `sigma_duality_targets`, `reading1_prize_reduction`,
+`direction2_gate_finding`, `subsession_…`, `…_nonemptiness_finding`,
+`NEXT_SESSION_…`, `forcing_scout_sentence`, `HANDOFF_session12`) are HISTORICAL: those
+notes were archived 2026-06-25 to `notes/archive/` with `_superseded`/`_dead` suffixes
+(reasoning trail preserved). `sigma_essential_prior_art_verdict.md` +
+`czech_school_prior_art_…md` stay live (underpin `rem:dw`).**
+
 **Status 2026-06-20 (NO plainly-open problem left; both prior leads resolved against
 the literature). Strategy D KILLED on prior-art 2026-06-18 (Gaifman 1964 inhabits the
 cell stronger). OML descent NOT PLAINLY OPEN as of 2026-06-20: prior-art

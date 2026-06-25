@@ -8,7 +8,7 @@ everywhere already ruled out, so the navigation survives even as session prose i
 archived. New entries appended at the bottom of each section, dated. Detail pointers:
 `A:` = `notes/archive/sigma_construction_log_archive.md`; `L:` =
 `sigma_essential_construction_attempt.md` (memory topic file, recent sessions);
-`D:` = `sigma_duality_targets.md`; `R:` = `descent_axis_residue_post_kill.md`.*
+`D:` = `notes/archive/sigma_duality_targets_superseded.md` (archived 2026-06-25; §6/§9a detail preserved there); `R:` = `descent_axis_residue_post_kill.md`.*
 
 **Verdict legend:** DEAD (ruled out, route closed) · WALL (named obstruction, not a
 death) · OPEN (live) · FENCE (a reversal caught at threshold — do NOT revive) · FACT

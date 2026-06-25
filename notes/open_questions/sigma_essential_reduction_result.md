@@ -1,11 +1,21 @@
-# The σ-essential reduction — standing result (conditional)
+# The σ-essential reduction — standing result
 
-*Recorded 2026-06-25, CORRECTED same day. The theorem-shaped finding of the
-forcing-programme work: the σ-essential contextual witness question REDUCES to
-σ-point-selection failure (a state-realization wall, cardinal-sensitive) — whose
-relationship to the named open problem HW2 (a lattice-embedding wall, plain ZFC)
-is itself open. ⟦HAND — "witness ⟺ σ-point-selection-failure" verified at sketch
-level; the σ-point-selection↔HW2 weld is the open content of [[#29]].⟧*
+> **⚑ FINAL STATUS (weld run, 2026-06-25): the A↔HW2 weld is RESOLVED — they are
+> ORTHOGONAL, and HW2 DROPS OUT.** This note's body below still narrates the
+> earlier "weld open / three walls" stage (kept for the trail); the resolution
+> supersedes it. **The witness reduces to σ-point-selection (A) FULL STOP** — a
+> state-realization question on a fixed σ-complete lattice, strictly above
+> faithful-tribe (B); the lattice-completion problem HW2 (C) is a *type-mismatched*
+> red herring, not on the route. A's carrier is already σ-complete, so C is
+> trivially-yes there; A-failure is a state defect, not a completion defect.
+> Clean statement: [[sigma_essential_reduction_writeup]] §3 + §5. ⟦self-checked
+> adversarially, advisor-pass pending; reduction-to-A stands regardless.⟧
+
+*Recorded 2026-06-25, CORRECTED + then RESOLVED same day. Theorem-shaped finding of
+the forcing-programme work: the σ-essential contextual witness question REDUCES to
+σ-point-selection failure (a state-realization wall, cardinal-sensitive). ⟦HAND —
+"witness ⟺ σ-point-selection-failure" verified at sketch level.⟧ Body below records
+the intermediate "is it HW2?" stage now closed by the weld run.*
 
 ---
 

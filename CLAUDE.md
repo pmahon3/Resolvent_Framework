@@ -200,6 +200,7 @@ notes/
   knowledge_map/      ← Research control panel
   reading_directions/ ← Guided reading with questions
   literature_review/  ← LaTeX lit review + PDF library
+  conceptual_sketches/← Informal exploratory sketches
   programme/          ← Orientation, synthesis, reception
   archive/            ← Dead ends and superseded
 ```

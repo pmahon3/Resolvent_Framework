@@ -5,6 +5,15 @@ sequence of conjectures, refutations, and problem-shifts across the full
 631-commit history (2024-09 → 2026-06), recovered so the shape of the whole
 is visible from outside the turn-to-turn.*
 
+> **⚑ Post-dating update (2026-06-25):** since this was written, two states
+> below changed — the **logic/companion note** went from "parked" to
+> **RETIRED** (broken proof + folklore: FHM 1990 + Loeb 1975), and **Paper I**
+> is now **PARKED** (audited 2026-06-23: σ-Loomis–Sikorski realization gap +
+> folklore dichotomy, claims made honest). The OML σ-essential thread
+> **resolved into a reduction** (witness ⟺ σ-point-selection; forcing parked
+> as premature). This historical narrative is left as-was; current state is in
+> `program_overview.md` and the `papers/*/PAPER_*_AUDIT_VERDICT.md` files.
+
 This document exists because the programme spent two months contracting
 (three papers + four active leads in early May → one open question by 2026-06-06,
 since closed: see the thread-map footnote below) and

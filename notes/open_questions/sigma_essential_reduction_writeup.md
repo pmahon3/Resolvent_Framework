@@ -1,4 +1,8 @@
-# The σ-essential contextual witness reduces to σ-point-selection
+# The σ-essential contextual witness localizes to a non-Dirac σ-state core
+
+*(Title was "…reduces to σ-point-selection"; corrected 2026-06-25 — it is a
+LOCALIZATION to clause (ii), not a reduction to a separate harder named problem. See
+§1 and the airtight verification.)*
 
 *Standalone writeup, 2026-06-25. For understanding and record (not submission). This
 consolidates the scattered ledger material into one coherent statement. The terse
@@ -21,40 +25,60 @@ Motivation: this is the lattice-theoretic form of "a contextual probability assi
 witnessed by no finite sub-system but blocked at the σ-level" — the residue of the
 OML-descent programme, and (independently) the same realization gap that parks Paper I.
 
-## 1. The result
+## 1. The result — a LOCALIZATION
 
-> **Reduction.** The existence of a concrete σ-essential witness is **equivalent to a
-> σ-point-selection failure**: a locally coherent 2-valued pattern on `L` with no
-> globally coherent σ-additive 2-valued **state** realizing it. Consequently its
-> existence is neither *constructible* nor *refutable* in ZFC by any route attempted;
-> it is **reducible** to this state-realization question. (Whether it carries
-> *measurable-cardinal strength* is CONJECTURED, not established — see §5/§6: the
-> strength claim rode the now-struck Blecher–Weaver weld; only the *refutation* side
-> has independent evidence touching "no measurable cardinal.")
+> **Localization.** A concrete σ-essential witness exists **iff** (i) no
+> point-evaluation `δ_ω` extends the local pattern `s₀` **and** (ii) no **non-Dirac**
+> σ-additive 2-valued state extends it. Clause (i) is **concrete and freely
+> arrangeable** (the Navara–Pták device makes it hold for free); therefore all the
+> difficulty — and any set-theoretic sensitivity — **localizes to clause (ii): the
+> existence of a non-Dirac σ-additive 2-valued state realizing `s₀`.** Call clause
+> (ii) the **σ-point-selection** core.
 
-The reduction is the deliverable. The witness is neither built nor refuted; it is
-*located* — pinned to a precise, named open wall.
+**Honest scope (⚠ corrected — this is a localization, NOT a reduction to a harder
+named problem).** σ-point-selection is *our name for clause (ii)*; it is written down
+in no prior literature (validation scouts). So the value is **localizing** the witness
+question to its non-Dirac core — *not* an equivalence with a separate, recognized,
+harder problem. ("Witness ⟺ no σ-state-of-any-kind extends `s₀`" is a tautology — it
+just unfolds the definition of witness; the content is that the *Dirac* half is
+arrangeable, so the weight falls entirely on the *non-Dirac* half.) Whether (ii)
+carries *measurable-cardinal strength* is CONJECTURED, not established (§5/§6: the
+strength claim rode the struck Blecher–Weaver weld; only the refutation side has
+independent evidence touching "no measurable cardinal").
 
-## 2. Why (the mechanism)
+The witness is neither built nor refuted; it is *located* — its difficulty pinned to
+the non-Dirac realization core (ii).
 
-A global σ-additive 2-valued state on `L ⊆ P(Ω)` is either a point-evaluation `δ_ω`
-(always present) or a **non-Dirac** σ-state. A finite local `s₀` fails to extend iff:
+## 2. Why (the mechanism) — ⟦verified 2026-06-25, `reduction_airtight_verification.md`⟧
 
-(i) **no `δ_ω` realizes it** — i.e. `⋂{generators s₀ sends to 1} = ∅`. This is freely
+Let `B ⊆ L` be a **⊥-closed finite sub-orthoposet** (the quantifier is sub-orthoposets,
+not generating sets — load-bearing below) and `s₀` a 2-valued state on `B`. Every
+global σ-additive 2-valued state on `L ⊆ P(Ω)` is either a point-evaluation `δ_ω`
+(always a σ-state) or **non-Dirac**, and these exhaust all σ-states. So `s₀` **extends
+to no** global σ-state iff:
+
+(i) **no `δ_ω` extends it** — i.e. `⋂{A ∈ B : s₀(A)=1} = ∅`. (The `s₀`-false
+    constraints are *subsumed*: `B` ⊥-closed ⟹ a false `A` has `A^⊥ ∈ B` true, already
+    in the intersection — so only the `s₀`-true elements matter.) This is freely
     arrangeable: the Navara–Pták 1983 intersection device (`B∩C∩D=∅` on a concrete
-    σ-class over ℚ²) makes it so for free; and
+    σ-class over ℚ²) makes the intersection empty for free; **and**
 
-(ii) **no non-Dirac σ-state rescues it.**
+(ii) **no non-Dirac σ-state extends it** — the **σ-point-selection** core.
 
-Clause (ii) *is* the **σ-point-selection problem**: does a globally coherent σ-additive
-2-valued state thread the locally-coherent constraints? Hence witness ⟺ (i) ∧ ¬(ii) ⟺
-σ-point-selection fails. ⟦verified at sketch level — the genuine equivalence⟧
+Hence **witness ⟺ (i) ∧ (ii)** (both negative clauses; the partition Dirac/non-Dirac
+is exhaustive of all σ-states). Since (i) is arrangeable, the witness question is
+*essentially* (ii), modulo the freely-arranged (i): a **localization** of the
+difficulty to the non-Dirac realization core — not an equivalence with a separate
+harder problem (§1).
 
-The Navara–Pták concentration criterion (their Thm 1: a 2-valued σ-measure is additive
-iff concentrated at a point) is the engine of clause (i); their explicit example shows
-clause (i) *alone* is not a witness, because they construct a non-Dirac σ-state through
-the gap — i.e. their example *fails* clause (ii), which is exactly why the device alone
-never suffices and the whole weight falls on σ-point-selection.
+**Navara–Pták supplies two things** (verified against the paper): the
+*concentration = Dirac* identification (their "concentrated measure" := `∃x, m(A)=1
+⟺ x∈A`, i.e. `δ_x`), which is what clause (i) uses; and their **explicit example** — a
+2-valued σ-state that is *not* concentrated (`B∩C∩D=∅`) — which is a genuine non-Dirac
+state extending the local pattern. So their example *satisfies (i) but fails (ii)*:
+the device alone is **not** a witness because N–P *build the rescuer*. That is exactly
+why the whole weight falls on (ii). (We use their concentration concept + example, not
+their integration-additivity theorem, which concerns a different question.)
 
 ## 3. Three walls, kept distinct
 
@@ -105,9 +129,10 @@ problem.
 
 ## 4. What it is and is not
 
-- **Is:** a reduction of the σ-essential witness question to σ-point-selection (wall
-  A), with A's location relative to B and C pinned. The honest, recorded form of "the
-  wall is load-bearing."
+- **Is:** a **localization** of the σ-essential witness question to the non-Dirac
+  σ-state core (clause (ii), "wall A"), with A's location relative to B and C pinned.
+  The honest, recorded form of "the difficulty is load-bearing and lives in (ii)" —
+  NOT an equivalence with a separate harder named problem (§1).
 - **Is not a proof the cell is empty (¬Ψ).** Blecher–Weaver: the *Hilbert* analogue —
   a singular σ-additive pure state on B(ℓ²(κ))'s projection lattice — **exists ⟺ κ is
   Ulam-measurable.** So ¬Ψ is not a ZFC theorem; the witness exists under a large

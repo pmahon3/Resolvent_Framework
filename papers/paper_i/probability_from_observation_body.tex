@@ -568,9 +568,9 @@ $\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.
 
 \begin{proof}
 By Theorem~\ref{I:thm:sp1}, CE gives $\mu_p = 0$, so $\mu$ is
-$\sigma$-additive.  Rao and Rao~\cite[Theorem~10.5.3]{rao1983}
-characterise $\sigma$-additivity by the vanishing of $\hat{\mu}$
-on meagre Baire sets in $\mathrm{St}(\mathcal{C})$; the algebraic
+$\sigma$-additive.  The null ideal of the canonical Baire measure on a
+Stone space coincides with the meagre ideal~\cite[\S321K, \S314M]{Fremlin3};
+so $\hat\mu$ vanishes on meagre Baire sets, and its algebraic
 counterpart is that $\hat{\mu}$ assigns full mass to the
 countably-complete ultrafilters, so $\hat{\mu}(\Sigma) = 1$.  Each
 principal ultrafilter $\mathrm{pure}(\omega)$ is countably complete, so
@@ -583,12 +583,20 @@ two conclusions follow.
 \end{proof}
 
 \noindent
-The realization hypothesis is automatic when the index $\iota$ is
-countable and each $\mathcal{O}_i$ is countably generated (e.g.\ standard
-Borel): then $\mathcal{C}$ is countably generated, every
-countably-complete ultrafilter is principal, $\Sigma = \mathrm{pure}(\Omega)$,
-and the Stone route reproduces the Kolmogorov extension.  In general it
-is a genuine condition on the realization space, not a consequence of CE.
+The realization hypothesis is a condition on the \emph{realization space}
+$\Omega$, not on $\mathcal{C}$ alone.  It holds when $\Omega$ is standard
+Borel (Polish with its Borel structure): there a two-valued
+$\sigma$-additive measure is a point mass, so every countably-complete
+ultrafilter charged by $\hat\mu$ is realized by a point of $\Omega$ and
+$\Sigma = \mathrm{pure}(\Omega)$ up to a null set (Loomis--Sikorski
+representation~\cite{Halmos1950}).  In this regime the Stone route
+reproduces the Kolmogorov extension.  Outside it the hypothesis can fail:
+a countably-complete ultrafilter of $\mathcal{C}$ need not be realized in
+$\Omega$ --- it is then a ``phantom point'' of the Stone space carrying
+$\hat\mu$-mass with no underlying $\omega$ --- and ruling such points out
+is the $\sigma$-additive Loomis--Sikorski realization problem, not a
+consequence of CE or of the charges. This is a genuine set-theoretic
+boundary on the construction, not a step the present methods close.
 
 \begin{theorem}[Stone observational extension]
 \label{I:thm:stone-main}

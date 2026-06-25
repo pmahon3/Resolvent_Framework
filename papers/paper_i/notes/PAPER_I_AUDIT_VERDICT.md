@@ -7,6 +7,40 @@ contribution pieces are folklore. Consistent with the programme's own
 self-understanding (CLAUDE.md: Paper I is synthesis/positioning, Paper II is the
 novelty zone) — this is not a new collapse, it confirms the existing read.
 
+## ⟦CONFIRM-OR-REFUTE PASS, primary-source verified (2026-06-25)⟧
+
+Both park grounds re-verified the way the note's kill was (don't assert — verify):
+
+- **PRONG 1 (proof error) — CONFIRMED + STRENGTHENED.** The B2 σ-Loomis–Sikorski gap
+  is real. A hand-attempt to "fix" it (does the clean σ(𝒞)-argument transfer to the
+  non-σ-complete direct-limit 𝒞?) was CIRCULAR — advisor-caught: μ̂ lives on St(𝒞),
+  where ⋂ₖ[Cₖ] = {u} ∋ the unrealized ultrafilter (μ̂=δ_u), so NO Cₖ↓∅ contradiction;
+  the step "⋂Cₖ=∅ if unrealized" computes the meet in Ω, which presupposes the B2
+  conclusion. SAME circularity as the original broken B2, relocated to the direct
+  limit (the exact relocation I was watching for, still got past me). It contradicts
+  the verified DW/Maharam read (realization is a hypothesis on the POINT SET Ω, not on
+  countable-generation of 𝒞; the unrealized u is a Maharam §8.1 phantom point). 2nd
+  independent confirmation B2 was broken. ALSO surfaced + FIXED a NEW overclaim in the
+  parked text: "countably generated 𝒞 ⟹ every countably-complete ultrafilter principal"
+  was not just unproven but WRONG AS STATED — rewritten to scope the hypothesis to Ω
+  standard-Borel, cite Loomis–Sikorski (Halmos1950), and document the general case as
+  the σ-LS phantom-point residue (cross-ref the charted rem:dw verdict).
+- **PRONG 2 (folklore/novelty) — CONFIRMED OWNED, but the ATTRIBUTION WAS WRONG.** The
+  Stone-measure-on-dual dichotomy IS genuinely owned (novelty kill stands) — but in
+  **Fremlin, Measure Theory Vol. 3, §321K/§314M** (verbatim: "the null ideal of [the
+  canonical Stone-space measure] coincides with the ideal of meagre subsets"), NOT in
+  rao1983 Thm 10.5.3. **The `rao1983 Thm 10.5.3` citation in the B2 proof is a
+  MISCITATION** — Ch. 10 of Theory of Charges is titled "Pure Charges" (purely-f.a.
+  charges), no citing paper references that theorem with this content, and Oxtoby's
+  Bull. AMS review calls the book's Stone-space treatment "too esoteric." This is the
+  note-failure-mode (cited theorem ≠ claimed result) in PAPER I's OWN citation. FIXED:
+  B2 now cites Fremlin3 §321K/§314M; rao1983 no longer cited (was its only use).
+
+NET: park CONFIRMED on both grounds (proof genuinely broken; dichotomy genuinely
+owned). Two real corrections applied to the parked text (false "countably-gen ⟹
+realized" overclaim; rao1983→Fremlin3 miscitation). Builds clean 8pp. The dichotomy's
+true home is Fremlin Vol. 3; the σ-LS residue is the same wall as the OML thread.
+
 ## Prong 1 — proof correctness
 
 ### FATAL: Prop "Support condition" (`I:prop:B2`, line ~550), and everything downstream

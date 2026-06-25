@@ -75,11 +75,31 @@ Established relations:
 - **C does not entail B.** ⟦HAND, 2026-06-25⟧ HW2's `L̄` may be a non-distributive
   *abstract* σ-OMP with no tribe-of-sets structure, so it sidesteps the Floor entirely.
   (One non-implication only — **not** mutual independence.)
-- **∴ C is a genuinely third wall**, off to the side of A; the A ↔ C relation (the
-  "weld") is **open** in both directions.
+- **A and C are ORTHOGONAL — a TYPE MISMATCH** ⟦HAND, self-checked, advisor-pass
+  pending (advisor was down at recording)⟧. **The weld run (2026-06-25) resolves the
+  A↔C relation: neither cross-implication holds, for a structural reason.**
+  - *C-fails ⟹ A-fails: VACUOUS.* A's carrier is **already σ-complete** (C2 is a
+    standing hypothesis; the witness is "concrete σ-**complete**"). C (does an OMP
+    embed into *some* σ-complete OMP?) is **trivially YES** on A's carriers — they
+    are their own σ-completion. So C-failure can only occur for *non*-σ-complete
+    OMPs, which A's carrier class **excludes**. The two walls do not range over the
+    same lattices.
+  - *A-fails ⟹ C-fails: also fails.* A-failure is a **state** defect on an
+    already-σ-complete `L`; it exhibits no OMP *lacking* a σ-completion. (`L` has one
+    — itself.)
+  - *Adversarial self-check (advisor down):* could A-failure secretly encode a
+    completion failure of the **finite** sub-OMP `⟨B⟩`? No — `⟨B⟩` is finite, hence
+    trivially σ-complete and σ-embeds into `L`; the defect is in the **state**, not
+    the lattice. No hidden completion question inside A.
+- **∴ HW Problem 2 (C) DROPS OUT of the picture.** It is not "the bottom," not
+  "above," not "below" A — it is about a *different* phenomenon (lattice completion
+  of non-σ-complete OMPs) than A (state realization on σ-complete OMLs). The earlier
+  "the witness reduces to HW2 / σ-LS" framing welded two genuinely orthogonal walls.
 
-So the bottom is **A (σ-point-selection)**, strictly above B, with C an adjacent open
-embedding question — not the single "σ-LS / HW2" the first draft asserted.
+So the bottom is **A (σ-point-selection) — full stop**, strictly above B, with C
+removed as a red herring. A is a **state-realization** question on a fixed
+σ-complete lattice; the reduction does NOT route through any lattice-completion
+problem.
 
 ## 4. What it is and is not
 
@@ -99,11 +119,21 @@ embedding question — not the single "σ-LS / HW2" the first draft asserted.
 Seven independent attack directions reduce to wall A: a non-classical-logic
 (catuṣkoṭi) reframing; a structural-reduction shortcut; the Blecher–Weaver
 concreteness check; the ¬Ψ Ulam-lever; the direct Con(Ψ) construction; the template
-no-go; and the A-vs-C weld clarification — plus ~21 prior fenced reversals across the
+no-go; and the A↔C weld run — plus ~21 prior fenced reversals across the
 OML-descent thread. That every route bottoms out at the *same* state-realization wall
 is itself the structural finding: **the σ-essential question is σ-point-selection in
 disguise**, and σ-point-selection for non-distributive concrete σ-OMLs is the genuine,
 located, open object.
+
+The final (weld) run did more than converge — it **cleaned the map**: the one
+remaining cross-edge (A↔C) resolved to *orthogonality* (§3, type mismatch), removing
+HW Problem 2 as a red herring. So the map is now complete: **wall A (σ-point-selection)
+is the sole bottom**, a state-realization question on a fixed σ-complete lattice,
+strictly above faithful-tribe-representability (B), with the lattice-completion
+problem (C) shown not to be on the route at all. There is no further in-field edge to
+fill — the thread's understanding is delivered. ⟦The orthogonality verdict is
+self-checked, advisor-pass pending; even if a subtler A↔C relation later surfaced, the
+*reduction to A* stands regardless.⟧
 
 ## 6. Primary sources
 

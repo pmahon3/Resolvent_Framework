@@ -25,15 +25,32 @@ Motivation: this is the lattice-theoretic form of "a contextual probability assi
 witnessed by no finite sub-system but blocked at the σ-level" — the residue of the
 OML-descent programme, and (independently) the same realization gap that parks Paper I.
 
-## 1. The result — a LOCALIZATION
+## 1. The result — a verified LOCALIZATION (the problem's spine, not its headline)
 
-> **Localization.** A concrete σ-essential witness exists **iff** (i) no
-> point-evaluation `δ_ω` extends the local pattern `s₀` **and** (ii) no **non-Dirac**
-> σ-additive 2-valued state extends it. Clause (i) is **concrete and freely
-> arrangeable** (the Navara–Pták device makes it hold for free); therefore all the
-> difficulty — and any set-theoretic sensitivity — **localizes to clause (ii): the
+**What this is, stated honestly (⚠ reframed 2026-06-25).** This is NOT a "theorem"
+in the banked sense that headlines a paper — the *headline question* (does the
+σ-essential witness exist / is its existence ZFC-independent) is **open**. What we
+have is a **precise problem statement with a verified decomposition**: a clean iff
+that isolates the irreducible hard core. That decomposition is the rigorous spine that
+makes the open question sharp.
+
+> **Localization (the verified decomposition).** A concrete σ-essential witness exists
+> **iff** (i) no point-evaluation `δ_ω` extends the local pattern `s₀` **and** (ii) no
+> **non-Dirac** σ-additive 2-valued state extends it. Clause (i) is **concrete and
+> freely arrangeable** (the Navara–Pták device makes it hold for free); therefore all
+> the difficulty — and any set-theoretic sensitivity — **localizes to clause (ii): the
 > existence of a non-Dirac σ-additive 2-valued state realizing `s₀`.** Call clause
-> (ii) the **σ-point-selection** core.
+> (ii) the **σ-point-selection** core. ⟦HAND-verified 7/7,
+> `reduction_airtight_verification.md`.⟧
+
+**On Lean (programme standard = zero-sorry Lean for *novel* results): the localization
+is EXEMPT, not pending.** The iff (claims 4–5) is a *partition tautology* (a state is
+Dirac or non-Dirac; "no state extends `s₀`" iff "no Dirac" ∧ "no non-Dirac"); its
+content — clause (i) freely arrangeable — rests on the **Navara–Pták example (their
+published theorem, cited)**, not a novel result of ours. So there is no novel
+non-tautological kernel here for Lean to certify; formalizing it would add rigor where
+it is least needed. The Lean step belongs **later, on a real partial result about
+clause (ii)** (the open part) — rescheduled by the honest reframe, not skipped.
 
 **Honest scope (⚠ corrected — this is a localization, NOT a reduction to a harder
 named problem).** σ-point-selection is *our name for clause (ii)*; it is written down

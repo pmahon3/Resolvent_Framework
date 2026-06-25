@@ -1,9 +1,11 @@
 # The σ-essential reduction — standing result (conditional)
 
-*Recorded 2026-06-25. The theorem-shaped finding of the forcing-programme work:
-the σ-essential contextual witness question REDUCES to a named open problem.
-⟦HAND — the reduction direction "witness ⟹ σ-LS-failure" is verified at sketch
-level; the converse and the exact strength are the content of [[#29]]/HW2.⟧*
+*Recorded 2026-06-25, CORRECTED same day. The theorem-shaped finding of the
+forcing-programme work: the σ-essential contextual witness question REDUCES to
+σ-point-selection failure (a state-realization wall, cardinal-sensitive) — whose
+relationship to the named open problem HW2 (a lattice-embedding wall, plain ZFC)
+is itself open. ⟦HAND — "witness ⟺ σ-point-selection-failure" verified at sketch
+level; the σ-point-selection↔HW2 weld is the open content of [[#29]].⟧*
 
 ---
 

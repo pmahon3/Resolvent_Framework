@@ -50,9 +50,76 @@ NOT add the two-family `K` as a math correction — it is redundant under ⊥-cl
 
 ---
 
-## REMAINING (claims 4–7) — to verify, same gap-vs-wording discriminator
-- **(4)** forward: witness ⟹ (i)∧¬(ii). [near-definitional; pin "extends" vs "realizes"]
-- **(5)** reverse: (i)∧¬(ii) ⟹ witness, confirming the Dirac/non-Dirac taxonomy is
-  exhaustive of ALL σ-states extending `s₀`.
-- **(6)** clause (ii) = σ-point-selection is a faithful restatement, not a relabel.
-- **(7)** Navara–Pták engine (their Thm 1 + example) used correctly — verify vs the PDF.
+## Claim 4 — forward: witness ⟹ (i)∧(ii) — VERIFIED ✓ (wording: "extends")
+Witness = no global σ-state `s` has `s|_B=s₀`. σ-states partition Dirac+non-Dirac
+(Claim 2, exhaustive). So "no σ-state extends s₀" = "no Dirac extends" (i) ∧ "no
+non-Dirac extends" (ii). Definitional via the partition. **Standardize "extends"
+(`s|_B=s₀`) throughout; drop the loose synonym "realizes."** Wording, not math. ✓
+
+## Claim 5 — reverse: (i)∧(ii) ⟹ witness — VERIFIED ✓
+(i)∧(ii) = no σ-state of either type extends s₀; the types are exhaustive of ALL
+global σ-states (Claim 2); ⟹ no global σ-state extends s₀ = witness. ✓
+**So witness ⟺ (i)∧(ii)** — the polarity is **(i)∧(ii)**, both NEGATIVE clauses
+("no Dirac…" ∧ "no non-Dirac…"). ⚠ The writeup §2 formula "(i)∧¬(ii)" has a SIGN
+SLIP — (ii) is already "no non-Dirac rescues", so it must be (i)∧(ii), not (i)∧¬(ii).
+FIX in the writeup.
+
+## Claim 6 — "= σ-point-selection" — ⚠ NOT a reduction; it's a LOCALIZATION (FIXED)
+**The genuine gap of the whole pass (advisor-confirmed). The headline overstated.**
+- §1 defined σ-point-selection failure as "no σ-additive 2-valued **STATE** realizes
+  it." But Diracs ARE states (Claim 1) ⟹ that = "no σ-state extends s₀" = the witness
+  VERBATIM ⟹ "witness ⟺ σ-point-selection" is a **TAUTOLOGY** (renaming), not a
+  reduction.
+- §2 said clause (ii) (non-Dirac only) "IS σ-point-selection" — under THAT reading
+  "witness ⟺ σ-point-selection" is **FALSE** (witness needs (i) too).
+- Validation scouts: σ-point-selection is written down NOWHERE = it is just our name
+  for clause (ii), NOT a separate harder named problem to reduce TO.
+**RESOLUTION (keeps real content, downgrades the claim honestly):** the contribution
+is **LOCALIZATION**, not equivalence-to-a-harder-problem. witness ⟺ (i)∧(ii); clause
+(i) is **concrete + freely arrangeable** (N–P device: ⋂{s₀-true}=∅ for free); ∴ all
+difficulty + any cardinal-sensitivity **localizes to the non-Dirac realization core
+(ii).** That is genuinely contentful; the boundary map (Polish→no-gap, HW2 orthogonal,
+faithful-tribe below, no-routing-port) hangs off (ii). **Headline = "the σ-essential
+witness question LOCALIZES TO the non-Dirac realization core," NOT "reduces to
+σ-point-selection."**
+- FIXES: (a) define σ-point-selection := clause (ii) and rewrite §1 to match (drop the
+  "any state" phrasing that collapses to the witness); (b) restate central claim as
+  localization "essentially clause (ii), modulo the arrangeable (i)" — keep the
+  "modulo" as the content; (c) fix the (i)∧(ii) vs (i)∧¬(ii) polarity slip (Claim 5).
+
+## Claim 7 — Navara–Pták engine — VERIFIED ✓ (vs the PDF; ONE wording tightening)
+Checked against `navara_ptak_1983_…pdf`:
+- **7a (concentration = Dirac):** N–P Thm 1 condition (2): "m restricted to A_{f,g} is
+  *concentrated*" := "∃ x∈Q s.t. for any A, m(A)=1 iff x∈A" = **exactly δ_x = our
+  Dirac.** So clause (i)'s "Dirac-realizable" IS N–P "concentrated." ✓
+- **7b (example = non-Dirac rescuer):** their Example (Q=ℚ²; m(A)=1 iff A⊇ one of
+  B,C,D; B∩C∩D=∅) gives a genuine 2-valued **measure (σ-state) that is NOT
+  concentrated** — a non-Dirac σ-state realizing the local pattern {B,C,D true} that
+  NO Dirac realizes. = exactly "(i) holds, (ii) fails." ✓ This is why the device alone
+  is not a witness — N–P BUILD the rescuer.
+- **⚠ WORDING TIGHTENING:** the writeup cites "their Thm 1: a 2-valued σ-measure is
+  additive iff concentrated." That is N–P's OWN result (about *integration*-additivity,
+  their problem). Our reduction does NOT use the additivity-iff — it uses only
+  (concentration = Dirac) + (the example). Cite N–P for the **concentration-concept +
+  example**, not for an additivity-equivalence the reduction doesn't depend on. (Avoids
+  importing a dependency we don't need.)
+
+---
+
+## VERDICT — airtight pass COMPLETE (7/7)
+**The §2 mechanism is mathematically SOUND but the §2/§1 FRAMING overstated.** No math
+gap in the equivalence `witness ⟺ (i)∧(ii)` (claims 4,5 ✓). The genuine finding
+(Claim 6): it is a **LOCALIZATION** (difficulty localizes to the non-Dirac core (ii),
+since (i) is freely arrangeable), NOT a reduction to a separate harder named problem.
+Fixes to apply to `sigma_essential_reduction_writeup.md`:
+1. **§2 wording:** "generators" → "σ-true elements of the ⊥-closed sub-orthoposet B";
+   add the false-constraints-subsumed line (Claim 3).
+2. **§2 polarity:** the formula "(i)∧¬(ii)" → "(i)∧(ii)" (both negative clauses) (Claim 5).
+3. **§2 "extends" standardized**, drop "realizes" (Claim 4).
+4. **§1 + headline:** define σ-point-selection := clause (ii); restate the central claim
+   as **LOCALIZATION** ("essentially clause (ii), modulo the freely-arrangeable (i)"),
+   NOT "reduces to σ-point-selection." Drop §1's "any state" phrasing (collapses to the
+   witness) (Claim 6).
+5. **§2 N–P citation:** cite for concentration-concept + example, not the additivity-iff
+   (Claim 7).
+⟦All claims HAND-verified; Claim 6 is the load-bearing correction, advisor-confirmed.⟧

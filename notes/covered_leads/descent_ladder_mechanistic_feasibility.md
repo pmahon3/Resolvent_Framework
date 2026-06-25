@@ -196,7 +196,7 @@ sat orthogonal to it.
 - Shah–Peters impossibility, already engaged:
   `notes/covered_leads/residual_structure_inference.md`.
 - Manski / partial-identification already engaged:
-  `notes/unsorted/disintegration_diagnostic.md` (Phase 2 audit table).
+  `notes/covered_leads/disintegration_diagnostic.md` (Phase 2 audit table).
 
 ## Key references found in audit
 

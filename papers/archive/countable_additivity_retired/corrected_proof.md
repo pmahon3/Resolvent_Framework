@@ -1,11 +1,52 @@
 # The corrected proof — σ-additivity is not first-order axiomatizable
 
 *Written 2026-06-24, for understanding (not for submission). The standalone note
-this belongs to is RETIRED (the result is in FHM 1990 and the proof below is
-Loeb-measure folklore — see the retirement header in the `.tex` and memory
-`countable_additivity_note_proof_broken.md`). This file records the **correct**
-argument, since the originally-submitted proof was broken. Verified sound by
-audit + advisor; the one genuinely checkable piece is Lean-verified.*
+this belongs to is RETIRED. This file records the **correct** argument, since the
+originally-submitted proof was broken. Verified sound by audit + advisor; the one
+genuinely checkable piece is Lean-verified.*
+
+---
+
+## The kill — primary-source verified (2026-06-24)
+
+Both the result (in its strongest form) and the proof method are explicitly in
+print, so the note clears no contribution bar (Type 1/2 fail; Type 6 fails — the
+bridge is not unmade). Three verified quotes:
+
+**1. The STRONGER result ("not axiomatizable by any set of sentences" = not
+elementary) — explicitly stated.**
+> "…the class of probability algebras **is not elementary in classical first order
+> logic**, a fact which restricts considerably what can be done or proved…"
+> — Itaï Ben Yaacov, *On Theories of Random Variables*, Israel J. Math. (rev. 2011),
+> introduction, p. 1. `http://math.univ-lyon1.fr/~begnac/articles/RandVar.pdf`
+
+"Not elementary in classical first-order logic" = not the model class of any *set*
+of first-order sentences. This is precisely the note's strongest claim. Stated as
+known background motivating continuous logic; the field exists *because* of it.
+
+**2. The WEAKER single-formula version — in the note's OWN cited reference.**
+> "…our axiom system does not imply countable additivity, since **countable
+> additivity cannot be expressed by a formula in our language**." (with witness
+> p(T)=0 for finite T, p(T)=1 for co-finite T)
+> — Fagin, Halpern & Megiddo, *A Logic for Reasoning about Probabilities*,
+> Information and Computation **87** (1990), §2.2.
+> `http://theory.stanford.edu/~megiddo/pdf/fag-hal.pdf`
+
+**3. The proof ENGINE (saturation ⟹ σ-additive) — folklore, explicit.**
+> An internal finitely-additive measure on the internal algebra A (every countable
+> cover of an A-set has a finite subcover) is **automatically countably additive**;
+> Carathéodory extends it to a σ-additive (Loeb) measure.
+> — Peter A. Loeb, *Conversion from Nonstandard to Standard Measure Spaces…*,
+> Trans. AMS **211** (1975), 113–122.
+
+**Note on the search history (so the strength of the kill is honest):** FHM owns
+only the single-formula version. The note's actual claim is the stronger
+sentence-set version, which a 2026-06-24 hostile search initially could NOT find
+stated explicitly — at which point "folklore" rested only on "experts could
+assemble it from FHM-witness + Loeb/Łoś saturation + Keisler–Shelah." A *hard
+targeted* second search then found the explicit statement (Ben Yaacov 2011),
+closing the question on primary sources rather than on assembly. The kill is now
+overdetermined for **every** strength of the claim.
 
 ---
 

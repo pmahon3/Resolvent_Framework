@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `forcing_programme_status.md` + `CHARTED_sigma_essential.md`. Kept for the reasoning trail; not current.
+
 # HANDOFF — end of Session 12 (2026-06-23) → drop-in prompt for the next session
 
 *Self-contained handoff. Session 12 did NO new math — it (1) clarified the navigation

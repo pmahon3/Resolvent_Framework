@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `sigma_essential_reduction_writeup.md` (the point-free fork resolved via Reading 1). Kept for the reasoning trail; not current.
+
 # Direction 2 gate finding — "point-free" has no stable referent, and it bottoms out at the (a)/(b) fork
 
 *Finding note, 2026-06-11. Records what came out of pursuing §6 Direction 2 of

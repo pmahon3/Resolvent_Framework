@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `sigma_essential_nonemptiness_finding_dead.md` (its answer, also archived). Kept for the reasoning trail; not current.
+
 # Subsession brief — is σ-essential contextuality non-empty? (via CE)
 
 *Targeted subsession brief, 2026-06-11. Self-contained: a fresh agent/session

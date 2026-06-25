@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `sigma_essential_reduction_writeup.md` §3 (walls A/B/C); the §6/§9a detail is preserved in THIS file. Kept for the reasoning trail; not current.
+
 # The two targets of the missing σ-duality: what is forced, what is free
 
 *Working note, 2026-06-22. Continues the faithfulness trichotomy now in the

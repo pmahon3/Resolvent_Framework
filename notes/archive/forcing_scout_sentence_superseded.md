@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `forcing_programme_status.md` (forcing target dissolved upstream into the reduction). Kept for the reasoning trail; not current.
+
 # Forcing scout — Part 1: the pinned sentence
 
 *Session 12 (2026-06-22), forcing-scout step 1. Goal: state the precise set-theoretic

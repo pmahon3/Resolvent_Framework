@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `forcing_programme_status.md` (the persist-vs-park call is resolved: forcing parked). Kept for the reasoning trail; not current.
+
 # Next-session prompt — σ-essential descent (PARKED; what would un-park it)
 
 *Drop-in prompt for the next working session on the lone open problem. Updated

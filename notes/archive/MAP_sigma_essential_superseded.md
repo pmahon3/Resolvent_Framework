@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by the resolved result `sigma_essential_reduction_writeup.md` + the working ledger `CHARTED_sigma_essential.md`. Kept for the reasoning trail; not current.
+
 # MAP — σ-essential descent (read this FIRST, 30 seconds to recover the shape)
 
 *The one-page index. Everything detailed lives elsewhere; this is the map that was

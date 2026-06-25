@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `sigma_essential_reduction_writeup.md` §2 (the mechanism). Kept for the reasoning trail; not current.
+
 # σ-essential contextuality: non-emptiness routing verdict — **GAP**
 
 *Subsession finding, 2026-06-12. Answers the one question of

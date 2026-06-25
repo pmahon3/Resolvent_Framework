@@ -1,3 +1,5 @@
+> ⚑ ARCHIVED 2026-06-25 (σ-essential thread cleanup). Superseded by `sigma_essential_reduction_writeup.md` §0 (the question, now answered). Kept for the reasoning trail; not current.
+
 # The Reading-1 prize reduces to a contextual-state question (and σ is load-bearing)
 
 *Finding note, 2026-06-11. Continues `direction2_gate_finding.md`. After the

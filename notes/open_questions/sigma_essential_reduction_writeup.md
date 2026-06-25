@@ -52,6 +52,43 @@ non-tautological kernel here for Lean to certify; formalizing it would add rigor
 it is least needed. The Lean step belongs **later, on a real partial result about
 clause (ii)** (the open part) — rescheduled by the honest reframe, not skipped.
 
+## 1a. The DEFINE, completed — clause (ii) stripped to bare set theory (2026-06-25)
+
+Pushing "define and solve": clause (ii), stripped of all OML/quantum-logic scaffolding
+so a set-theorist reads it cold —
+
+> **Bare statement.** There is a function selecting, from each of a family of
+> overlapping **countable partitions** of a set Ω, one cell, such that the selections
+> (a) **cohere** across overlapping partitions, (b) are **σ-additive** (commute with
+> countable disjoint unions), (c) are **non-principal** (not "the cell containing
+> `ω₀`" for any fixed `ω₀`), and (d) realize a prescribed **finite pattern that no
+> single point realizes**.
+
+This **is the define, completed** — the hand-off artifact. Two honest readings of it,
+both load-bearing:
+
+- **It does NOT reduce to a named principle (solve-by-citation POSITIVELY CLOSED).** On
+  a *Boolean* base this bare object is a non-principal countably-complete ultrafilter =
+  a measurable cardinal. The base here is **non-distributive** (overlapping
+  *incompatible* contexts), and the coherence-across-overlaps condition is strictly
+  more than an ultrafilter — the non-distributivity is exactly what blocks the
+  reduction to "measurable cardinal" (the no-routing-port / RDP findings). So the
+  strip-down, undertaken to find a solve-by-citation, *proved there isn't one*: it
+  rhymes with a measurable cardinal but is not equivalent to it. A real (negative)
+  result of the define.
+- **The bare form is σ-level sheaf-theoretic contextuality** ("coherent local
+  selections, no global section" = Abramsky–Brandenburger), the σ-additive version
+  (Abramsky et al., *σ-additive sheaf-theoretic contextuality*, CMP 391, 2022) —
+  **already in the programme** (cited in `sigma_essential_prior_art_verdict.md`; it is
+  the `rem:dw` residue in another dress). ⚠ NOT a new "H¹ obstruction" object — that
+  framing was a 5th in-the-moment costume (caught: the analogy was generated at the
+  point of non-progress, like the prior four; it re-derives a decade-old fact).
+
+**∴ DEFINE = done (bare statement above). SOLVE-by-citation = positively closed (does
+not reduce). SOLVE-by-construction = the forcing/large-cardinal wall, unchanged —
+collaborator territory.** The define is the swing that connected; the solve is the
+charted wall.
+
 **Honest scope (⚠ corrected — this is a localization, NOT a reduction to a harder
 named problem).** σ-point-selection is *our name for clause (ii)*; it is written down
 in no prior literature (validation scouts). So the value is **localizing** the witness

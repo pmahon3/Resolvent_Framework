@@ -1,3 +1,5 @@
+> ⚑ PARKED 2026-05-18, ARCHIVED 2026-06-25. The coherence/CE-completion direction is parked — Howson 2008 owns the core result (per program_overview.md). Moved from notes/unsorted/foundations/ in the repo hygiene pass; kept for the reasoning trail, not a live lead.
+
 # Coherence and Completion
 
 *Front door note - 2026-05-03*

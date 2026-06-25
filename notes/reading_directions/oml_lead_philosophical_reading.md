@@ -3,7 +3,7 @@
 *Written 2026-06-18. A focused, durable reading path for the ONE remaining open
 problem (OML σ-essential descent), oriented around the big-picture question it
 sits inside — not the whole programme scaffold (for that, see
-`notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md`, which is
+`notes/archive/coherence_completion_parked/philosophy_lit_review.md`, which is
 explicitly "scaffolding to be cast away"). This note is orientation, not
 load-bearing argument: the mathematics carries the work; the philosophy phrases the
 question.*
@@ -175,7 +175,7 @@ From `philosophy_lit_review.md`:
   inclination into a verdict — that recurs and must be braked.)
 
 ## Pointers
-- Whole-programme scaffold: `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md`.
+- Whole-programme scaffold: `notes/archive/coherence_completion_parked/philosophy_lit_review.md`.
 - The lead's technical state + orientation pole: `oml_onboarding.tex` (§4.3
   route-(iii), §5 the open problem); the `sigma_essential_construction_attempt` memory
   (THE POLE block).

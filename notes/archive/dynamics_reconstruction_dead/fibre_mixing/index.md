@@ -203,7 +203,7 @@ is invisible to the observational layer, even if not to the dynamical layer.
 
 Once this investigation has a result — irreducibility or derivability — it
 becomes the second worked example in the coherence/consistency schema
-(`notes/unsorted/foundations/coherence_completion/conceptual_schema.md`):
+(`notes/archive/coherence_completion_parked/conceptual_schema.md`):
 
 - **Local data:** finitary observational data from the query system
 - **Global realization:** equivalence of algebraic and entropy witnesses

@@ -14,7 +14,7 @@ covered leads, or dead ends. Tier 3 — needs individual assessment.
 
 ## Foundations (philosophical, may or may not be novel)
 
-- [foundations/coherence_completion/](foundations/coherence_completion/) — coherence/completion programme
+- [archive/coherence_completion_parked/](archive/coherence_completion_parked/) — coherence/completion programme
 - [foundations/ce_nonderivability/](foundations/ce_nonderivability/) — non-axiomatizability (Part I done; Part II open)
 - [foundations/zeta/](foundations/zeta/) — speculative zeta connection
 

@@ -119,7 +119,7 @@ not derivable from any structural condition on the query system or the dynamics?
 This is the deepest open question in the programme. Resolving it would:
 - Close the three-obstruction table symmetrically
 - Give Paper III the same foundational standing as Paper I
-- Supply the coherence/consistency schema (see `notes/unsorted/foundations/coherence_completion/conceptual_schema.md`)
+- Supply the coherence/consistency schema (see `notes/archive/coherence_completion_parked/conceptual_schema.md`)
   with a second fully worked example in a genuinely different domain
 
 ---
@@ -238,7 +238,7 @@ schema second (generalise with two examples in hand), then everything else.
    The priority theorem target: prove that the contradiction failure mode is the
    unique compact coherence notion, giving a formal sense in which consistency
    is a distinguished special case. See
-   `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` and
+   `notes/archive/coherence_completion_parked/conceptual_schema.md` and
    `notes/README.md`.
 
 3. **Concentration of the entropy witness** *(most immediate technical extension).*

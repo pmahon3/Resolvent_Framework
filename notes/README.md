@@ -67,10 +67,10 @@ File conventions:
 
 Path examples:
 
-- `notes/unsorted/foundations/coherence_completion/index.md`;
-- `notes/unsorted/foundations/coherence_completion/mathematical_language.md`;
+- `notes/archive/coherence_completion_parked/index.md`;
+- `notes/archive/coherence_completion_parked/mathematical_language.md`;
 - `notes/unsorted/finite_sample/observational_resolution/theorem_spec.md`;
-- `notes/unsorted/foundations/coherence_completion/logic_lit_review.md`;
+- `notes/archive/coherence_completion_parked/logic_lit_review.md`;
 - `notes/programme/programme_reception/novelty_audit.md`.
 
 ## Recurring Motifs
@@ -118,15 +118,15 @@ Central question:
 
 Primary notes:
 
-- `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` — conceptual seed and
+- `notes/archive/coherence_completion_parked/conceptual_schema.md` — conceptual seed and
   schema: consistency, coherence, admissibility, failure modes.
-- `notes/unsorted/foundations/coherence_completion/mathematical_language.md` — formal
+- `notes/archive/coherence_completion_parked/mathematical_language.md` — formal
   language, definitions, theorem templates, and candidate examples.
-- `notes/unsorted/foundations/coherence_completion/paper_sketch.md` — exposition/paper-shape
+- `notes/archive/coherence_completion_parked/paper_sketch.md` — exposition/paper-shape
   sketch; not the proof notebook.
-- `notes/unsorted/foundations/coherence_completion/logic_lit_review.md` — mathematical
+- `notes/archive/coherence_completion_parked/logic_lit_review.md` — mathematical
   logic placement and opportunity map.
-- `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md` —
+- `notes/archive/coherence_completion_parked/philosophy_lit_review.md` —
   philosophical scaffold, to be compressed or discarded once the mathematical
   path is stable.
 
@@ -134,12 +134,12 @@ Do not merge these.  The clean division is:
 
 | Need | Edit |
 |---|---|
-| active philosophy ↔ math iteration | `notes/unsorted/foundations/coherence_completion/development.md` |
-| conceptual vocabulary | `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` |
-| definitions / lemmas / theorem targets | `notes/unsorted/foundations/coherence_completion/mathematical_language.md` |
-| eventual article narrative | `notes/unsorted/foundations/coherence_completion/paper_sketch.md` |
-| logic literature placement | `notes/unsorted/foundations/coherence_completion/logic_lit_review.md` |
-| philosophical scaffolding | `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md` |
+| active philosophy ↔ math iteration | `notes/archive/coherence_completion_parked/development.md` |
+| conceptual vocabulary | `notes/archive/coherence_completion_parked/conceptual_schema.md` |
+| definitions / lemmas / theorem targets | `notes/archive/coherence_completion_parked/mathematical_language.md` |
+| eventual article narrative | `notes/archive/coherence_completion_parked/paper_sketch.md` |
+| logic literature placement | `notes/archive/coherence_completion_parked/logic_lit_review.md` |
+| philosophical scaffolding | `notes/archive/coherence_completion_parked/philosophy_lit_review.md` |
 
 Current mathematical front:
 

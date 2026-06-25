@@ -64,6 +64,35 @@ Hence:
   σ-point-selection, and whether that equals HW2 is the unproven weld** — NOT a
   verified equivalence.
 
+### THREE walls, not two (2026-06-25 — #29 sharpened, NOT resolved)
+
+A sharper sub-result, distinguishing three distinct objects (keep these lexically
+separate — blurring them was the recurring error):
+
+1. **σ-point-selection** (state-realization): does a coherent local 2-valued
+   pattern extend to a global σ-additive 2-valued **state**? (Cardinal-sensitive.)
+2. **faithful-tribe-representability**: does `L` embed faithfully into a σ-tribe of
+   *honest sets* (a σ-algebra)?
+3. **HW2-embedding**: does `L` embed into *some* σ-complete **OMP** `L̄` (not
+   required to be a tribe of sets, not concrete, not state-separating)?
+
+Established:
+- **σ-point-selection-failure is STRICTLY ABOVE faithful-tribe-representability**
+  ⟦charted, cited: the Floor (`thm:floor`) forces faithful tribe-of-sets ⟹
+  distributive ⟹ Boolean; Dvurečenskij σ-LS (J.Aust.MS 68, 2000) gives only a
+  σ-*epimorphic* (lossy, non-faithful) tribe image, which does NOT separate the
+  2-valued points — the "tribe-vs-points gap"; RDP needed, OMLs lack it (MO₂)⟧.
+- **HW2-embedding does NOT entail faithful-tribe-representability** ⟦HAND, today⟧:
+  HW2's `L̄` may be a *non-distributive abstract* σ-OMP carrying no tribe-of-sets
+  structure, so it sidesteps the Floor entirely. (One non-implication — NOT mutual
+  independence; HW2 ⟹ σ-point-selection and the converse both remain open.)
+
+**∴ HW2 is a genuinely THIRD wall, off to the side of the state wall — NOT shown to
+be the same as σ-point-selection.** This *narrows* the reduction's bottom from
+"σ-LS / HW2" to "σ-point-selection, strictly above faithful-tribe, with HW2 a
+separate open embedding question." The #29 weld (σ-point-selection ↔ HW2) is
+**still open** — sharpened and precisely located, not closed.
+
 ## What this DISsolves and what it does NOT
 
 - **Resolves the framing confusion:** "the construction keeps hitting a wall" is

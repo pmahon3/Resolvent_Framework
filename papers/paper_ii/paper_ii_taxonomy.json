@@ -1,0 +1,194 @@
+{
+  "$meta": {
+    "title": "Paper II (EA/PR/VDR, van Fraassen-to-duality) — attempt taxonomy",
+    "purpose": "Zoom-out index of the Paper-II problem collection. Load first for the shape; follow `detail` pointers to drill in.",
+    "updated": "2026-06-26",
+    "what_is_it": "Paper II indexes three realism positions — EA (empirical adequacy) ⊂ PR (property realism) ⊂ VDR (value-definite realism) — by DISTRIBUTIVITY of the event algebra, bridging McDonald–Bimbó OML duality to the van Fraassen realism debate.",
+    "status": "REVISE — the SURVIVOR, the programme's strongest novelty zone. Audited 2026-06-23: central math SOUND, no fatal error, no retirement. Type-6 (exposition/bridge) bar CLEARS; Type 1/2/4 FAIL or weak. Submit after blocking fixes.",
+    "the_shape": "The contribution is a Type-6 BRIDGE (McDonald–Bimbó quantum-logic duality ↔ van Fraassen realism, via Gleason/Kochen–Specker), NOT a theorem-novelty win. Crown jewel = the clustering argument (PR_dual fails for L(H)) — correct, but a KS/Pitowsky repackage, so claim USE not discovery. The structural payload (distributivity ⟺ commensurability of EA/PR/VDR) survives cleanly. Four BLOCKING fixes before submission, all fixable (citations + notation + a stale cross-reference), no broken proof.",
+    "scope_note": "EXCLUDES the programme_reception/ files (historical_placement, field_by_field, novelty_audit, novelty_summary) — verified by inventory to describe a WITHDRAWN three-paper observational arc, NOT Paper II (zero EA/PR/VDR or van Fraassen content). Those stay as standalone historical docs; genealogy + contribution_evaluation are programme-meta, also excluded.",
+    "categories": {
+      "contribution": "a contribution verdict (what clears / fails which bar)",
+      "result": "an established mathematical result in the paper",
+      "concept": "a vocabulary / framework piece",
+      "owned": "a cited result the paper correctly deploys (not claimed)",
+      "blocking_gap": "a citation/notation/cross-ref fix required before submission",
+      "kill": "a philosophy-upshot route that was killed",
+      "polish": "a non-blocking correction"
+    },
+    "headline": {
+      "strongest": "Type-6 bridge",
+      "crown_jewel": "clustering arg (PR_dual fails on L(H))",
+      "blocking_fixes": 4,
+      "polish_fixes": 2,
+      "killed_upshot_routes": 2
+    }
+  },
+  "contributions": [
+    {
+      "id": "contrib.type6_bridge",
+      "name": "Type-6 bridge: McDonald–Bimbó ↔ van Fraassen",
+      "category": "contribution",
+      "status": "accepted",
+      "one_line": "STRONGEST survivor. Bridges quantum-logic OML duality (McDonald–Bimbó 2023) to the van Fraassen realism debate via Gleason/Kochen–Specker, for an audience owning neither strand. Type-6 bar CLEARS; rest the contribution HERE.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#type-6"
+    },
+    {
+      "id": "contrib.type4_weak",
+      "name": "Type-4 vocabulary (EA/PR/VDR trichotomy)",
+      "category": "contribution",
+      "status": "weak",
+      "one_line": "The named axis EA⊂PR⊂VDR is folklore-adjacent (pieces owned: van Fraassen modal/value split; Beltrametti–Cassinelli 1981 statistical vs dispersion-free). Three-statements test MARGINAL. Drop the Type-4 lean; novelty is in packaging + bridge, not the taxonomy.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#type-4"
+    }
+  ],
+  "results": [
+    {
+      "id": "res.clustering",
+      "name": "Clustering argument (crown jewel)",
+      "category": "result",
+      "status": "sound",
+      "one_line": "CORRECT: no normal state on L(H) (dim≥3) extends to a charge on the dual S₀(L(H)) — PR_dual FAILS. Independently verified; distinct from Paper I's phantom-point failure mode. But it is a KS/Pitowsky repackage ⟹ claim USE, not discovery.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#clustering"
+    },
+    {
+      "id": "res.distributivity_commensurability",
+      "name": "Distributivity ⟺ commensurability",
+      "category": "result",
+      "status": "accepted",
+      "one_line": "Structural theorem: Boolean ⟹ EA/PR/VDR all commensurable; OML (dim≥3) ⟹ VDR blocked (Kochen–Specker). The distributivity axis as organizing principle — the structural payload, independent of the clustering argument. Survives audit cleanly.",
+      "detail": "../../notes/unsorted/commensurability.md"
+    },
+    {
+      "id": "res.pr_split",
+      "name": "PR_lat / PR_dual split",
+      "category": "result",
+      "status": "partially_owned",
+      "one_line": "PR splits in the OML case: PR_lat (σ-add measure on the lattice, holds via Gleason) vs PR_dual (descent to a measure on the dual, FAILS). Partially owned by Döring 2008 (states↔measures on Sub_cl(Σ); no-global-sections=KS). Differentiators real (σ-additivity separator, MB not spectral presheaf, van Fraassen) ⟹ packaging novelty.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#pr-split"
+    }
+  ],
+  "concepts": [
+    {
+      "id": "concept.coherence_filtration",
+      "name": "Coherence filtration S(A)⊇S_σ(A)⊇S_df(A)",
+      "category": "concept",
+      "status": "novel_synthesis",
+      "one_line": "Three transitions (pasting, regularity, sharpness) unified under one distributivity-indexed ladder; not assembled as a single ladder before. Part of the Type-6 bridge contribution.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#filtration"
+    }
+  ],
+  "owned": [
+    {
+      "id": "owned.kochen_specker",
+      "name": "Kochen–Specker (VDR blockade)",
+      "category": "owned",
+      "status": "owned",
+      "one_line": "KS proves VDR impossible on L(H) dim≥3; deployed as the OML blockade. Correctly cited, not claimed.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md"
+    },
+    {
+      "id": "owned.gleason",
+      "name": "Gleason (PR_lat holds)",
+      "category": "owned",
+      "status": "owned",
+      "one_line": "Gleason 1957: a σ-additive measure on L(H) exists; the bridge showing PR_lat is available when PR_dual fails. Correctly deployed.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md"
+    },
+    {
+      "id": "owned.bub_clifton",
+      "name": "Bub–Clifton partial VDR",
+      "category": "owned",
+      "status": "owned",
+      "one_line": "Given a state + preferred observable, a unique maximal Boolean subalgebra admits value-definite descent (contextual, not global) = the OML partial VDR. Correctly cited.",
+      "detail": "../../notes/unsorted/commensurability.md"
+    },
+    {
+      "id": "owned.putnam_dummett",
+      "name": "Putnam–Dummett realism↔distributivity",
+      "category": "owned",
+      "status": "owned",
+      "one_line": "Putnam 1968 / Friedman–Putnam 1978 / Dummett own the realism↔distributivity link; Paper II lives inside this decades-old debate. Cited, context correctly positioned.",
+      "detail": "../../notes/covered_leads/two_species_underdetermination_kill.md"
+    }
+  ],
+  "blocking_gaps": [
+    {
+      "id": "gap.doring",
+      "name": "Döring 2008 prior-art (MISSING)",
+      "category": "blocking_gap",
+      "status": "open",
+      "one_line": "CRITICAL — single largest prior-art gap. Döring 2008 (arXiv:0809.4847) already has the PR_lat/PR_dual distinction (states↔measures on Sub_cl(Σ); no-global-sections=KS). Must CITE + differentiate (σ-additivity separator, MB not spectral presheaf, van Fraassen engagement). Currently absent from bib.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#pr-split"
+    },
+    {
+      "id": "gap.stairs",
+      "name": "Stairs 1983 entitlement-decoupling (MISSING)",
+      "category": "blocking_gap",
+      "status": "open",
+      "one_line": "CRITICAL — Stairs 1983 (Phil. Sci. 50:578) already owns the §4 upshot: value-definiteness 'has nothing to do with realism' (p.583), grounds in Boolean-representability (p.585) = Paper II's PR middle layer. Absent from bib; would sink §4 with any informed referee.",
+      "detail": "../../notes/covered_leads/two_species_underdetermination_kill.md"
+    },
+    {
+      "id": "gap.notation_bug",
+      "name": "p_i^⊥ notation bug in clustering footnote",
+      "category": "blocking_gap",
+      "status": "open",
+      "one_line": "Footnote uses standard L(H) p_i^⊥=I−p_i, making s(p_i)+s(p_i^⊥)=s(e) FALSE. Only coherent reading is e⊖p_i (orthocomplement WITHIN e). FIX: rewrite as e⊖p_i, OR (advisor-recommended) replace footnote with a KS/Pitowsky citation — sidesteps the bug AND the low-novelty issue, more honest.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#clustering"
+    },
+    {
+      "id": "gap.stale_biconditional",
+      "name": "Stale biconditional from corrected Paper I",
+      "category": "blocking_gap",
+      "status": "open",
+      "one_line": "Paper II imports 'μ̂(pure(Ω))=1 ⟺ each ℓ_i σ-additive' UNCONDITIONALLY, but Paper I was corrected this session to state it realization-conditionally (σ-LS gap). Paper II now misrepresents its own cited source. Hedge the Boolean-half framing; crown jewel does NOT depend on it.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md#biconditional"
+    }
+  ],
+  "kills": [
+    {
+      "id": "kill.two_species",
+      "name": "Two-species underdetermination (philosophy upshot)",
+      "category": "kill",
+      "status": "killed",
+      "killed": "2026-06-13",
+      "one_line": "Attempted to use Paper II as a philosophy flagship (realization-space underdetermination vs value-definite-completion impossibility, sorted by distributivity). KILLED: the distinction is already drawn (Egg–Saatsi 2021, Redhead 1987); and the OML-exclusive σ-layer is infinitary, invisible to finite empirical methods ⟹ fails as a practitioner diagnostic.",
+      "detail": "../../notes/covered_leads/two_species_underdetermination_kill.md"
+    },
+    {
+      "id": "kill.cbd_diagnostic",
+      "name": "Algebraic-vs-noise-misfit diagnostic",
+      "category": "kill",
+      "status": "killed",
+      "one_line": "The 'OML apparatus tells you algebraic vs statistical misfit' upshot = contextuality detection, already owned by Dzhafarov–Kujala CbD (with empirical wins). Paper II's σ-layer is infinitary; CbD is finite ⟹ on the empirical dimension OML is STRICTLY LESS applicable. FENCE: every philosophy-upshot route is owned; reposition §4 as POSITIONING, not novelty.",
+      "detail": "../../notes/covered_leads/two_species_underdetermination_kill.md"
+    },
+    {
+      "id": "kill.gunji_dropped",
+      "name": "arXiv:2603.22353 (Gunji) — dropped, not a gap",
+      "category": "kill",
+      "status": "killed",
+      "one_line": "Once listed as a Paper-II citation gap, then DROPPED 2026-06-22: Gunji's Bool-pushout theorem is machine-checked FALSE (the construction is the OML horizontal sum). The framing it supported re-attributed to Kalmbach + Abramsky–Brandenburger + Budroni–Morchio. Do NOT list as a current gap.",
+      "detail": "../../notes/programme/program_overview.md"
+    }
+  ],
+  "polish": [
+    {
+      "id": "polish.no_charge",
+      "name": "'No charge exists' overstatement",
+      "category": "polish",
+      "status": "open",
+      "one_line": "Lines ~591/612 say 'no charge on S₀(L(H)) exists' (FALSE — Diracs exist); the proven claim is 'no charge EXTENDING s'. Align with the already-correct line 447.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md"
+    },
+    {
+      "id": "polish.beltrametti",
+      "name": "Cite Beltrametti–Cassinelli 1981",
+      "category": "polish",
+      "status": "open",
+      "one_line": "EA/PR/VDR trichotomy pieces (statistical vs dispersion-free states) source to BC 1981; cite explicitly.",
+      "detail": "PAPER_II_AUDIT_VERDICT.md"
+    }
+  ]
+}

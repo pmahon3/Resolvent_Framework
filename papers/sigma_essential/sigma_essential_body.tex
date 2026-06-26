@@ -306,6 +306,21 @@ precisely because the pure state does not reduce to a masa. So one cannot obtain
 positive answer to Question~\ref{q:bare} by importing Blecher--Weaver through a
 Boolean subobject.
 
+The failure is in fact more basic than the absence of a masa, and is structural
+rather than incidental to the pure case. Blecher--Weaver extract their cardinal from a
+genuine \emph{ultrafilter} on the diagonal masa $\ell^\infty(\kappa)$, where
+projections are subsets of $\kappa$ and the filter is intersection-closed. On a
+concrete non-Boolean $\sigma$-OML the corresponding object $\mathcal{F}_s = \{A \in
+\Lo : s(A) = 1\}$ is not an ultrafilter for \emph{any} two-valued state $s$ ---
+indeed not even a filter, since it fails finite meet-closure already for a point
+evaluation $\delta_\omega$: in any concrete $MO_2$ the atoms $a,b$ meet as sets
+($a \cap b \neq \varnothing$, else they would be orthogonal) while their lattice meet
+is $0$, so $\delta_\omega(a) = \delta_\omega(b) = 1$ yet $\delta_\omega(a \wedge b) =
+0$. Thus the object an Ulam-style argument would consume --- a countably-complete
+ultrafilter --- is structurally absent from the carrier, independently of any masa.
+This is the same non-distributivity (lattice meet $\neq$ set intersection) seen one
+level down.
+
 \begin{remark}\label{rem:no-bridge}
 Remarks~\ref{rem:not-measurable} and the two paragraphs above are deliberately
 stated at the strength of \emph{cited facts assembled}, not of a non-reducibility
@@ -419,12 +434,20 @@ argued (\S\ref{sec:boundary}) that it does not transfer, so the strength of $\Ps
 is \emph{conjectural and not inherited}. The relevant cardinal, if any, is
 Ulam-measurable rather than real-valued measurable: $\Psi$ concerns two-valued
 ($\{0,1\}$) selections, where the real-valued-measurable machinery governing
-$[0,1]$-valued measures does not directly apply. Boolean-valued models / forcing
-over a candidate carrier, and the von Neumann--Maharam circle of independence
-results~\cite{BalcarJechPazak2005, Fremlin}, are the natural tools; but all known
-precedents are real-valued and strictly positive, and the two-valued
-non-distributive case is, as far as we are aware, untreated. We therefore state the
-strength as an open question, not a theorem:
+$[0,1]$-valued measures does not directly apply. A clarifying caveat on technique:
+forcing is the natural tool for the \emph{independence} framing --- producing models
+in which $\Psi$ holds and fails --- but it cannot supply the \emph{existence}
+direction by construction. The bare object (\S\ref{sec:bare}) has, on a Boolean base,
+the strength of a countably-complete non-principal ultrafilter, i.e.\ a measurable
+cardinal; and set-forcing is consistency-strength preserving (it does not create
+measurables, by L\'evy--Solovay~\cite{LevySolovay1967}). So ``force a witness into
+existence over a candidate carrier'' is not available: the positive direction is a
+\emph{direct} large-cardinal question, as Blecher--Weaver's threshold (an
+equivalence, not a forcing construction) already indicates. With that caveat, the von
+Neumann--Maharam circle of independence results~\cite{BalcarJechPazak2005, Fremlin}
+is the natural setting; but all known precedents are real-valued and strictly
+positive, and the two-valued non-distributive case is, as far as we are aware,
+untreated. We therefore state the strength as an open question, not a theorem:
 \[
   \text{Is } \Psi \text{ independent of ZFC, and if so, of what consistency strength?}
 \]

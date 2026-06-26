@@ -377,6 +377,59 @@ Neumann--Maharam problem~\cite{BalcarJechPazak2005}, real-valued measurable
 cardinals~\cite{Fremlin}) are all real-valued and strictly positive, leaving the
 two-valued, non-distributive case --- Question~\ref{q:main} --- as the open edge.
 
+
+\section{A forcing target}\label{sec:forcing}
+
+The shape of the boundary map suggests where a resolution of
+Question~\ref{q:main} should be sought: not in ZFC and not in a single named
+combinatorial principle, but in an independence proof. We record the target
+precisely, as a hand-off for set-theoretic methods.
+
+For an admissible carrier $\Lo$ (concrete, $\sigma$-complete, non-Boolean,
+irreducible) write
+\[
+  \Phi(\Lo) \;:\equiv\; \text{every two-valued state on a finite }\perp\text{-closed }
+  B \subseteq \Lo \text{ extends to a global $\sigma$-additive two-valued state,}
+\]
+the \emph{$\sigma$-additive lifting} property, and let
+$\Psi :\equiv \exists\,\Lo\ \neg\Phi(\Lo)$ assert the existence of a witness in the
+sense of Definition~\ref{def:sigma-essential}. By Theorem~\ref{thm:localization},
+$\neg\Phi(\Lo)$ holds iff some local pattern realises clause~(ii); by
+Proposition~\ref{prop:boolean}, $\Phi$ holds for all Boolean $\Lo$, so any witness
+is non-distributive. $\Psi$ is the existence sentence whose status is
+Question~\ref{q:main}.
+
+Two features make $\Psi$ a forcing target rather than a construction target.
+First, by the analysis of \S\ref{sec:bare}--\S\ref{sec:boundary} no admissible
+$\Lo$ can be assembled compositionally: any countable, refinable approximation
+collapses to the Boolean case (Proposition~\ref{prop:boolean},
+Remark~\ref{rem:segregated}), so a witness must be uncountably generated and
+globally non-compositional. Second, an independence proof need not exhibit a fixed
+$\Lo$: it suffices to produce a model of set theory in which $\Psi$ holds and one
+in which it fails, the carrier being supplied by the model rather than constructed
+in advance --- as in the von Neumann problem on measure algebras, whose
+independence is established by models, not by a fixed algebra
+\cite{BalcarJechPazak2005, Maharam1972}.
+
+\begin{remark}[Candidate technology and conjectured strength]\label{rem:technology}
+The natural setting is the set theory of measure-theoretic and operator-algebraic
+structures. The nearest precedent with an explicit cardinal is Blecher--Weaver's
+Ulam-measurable dichotomy on $B(\ell^2(\kappa))$~\cite{BlecherWeaver2017}; we have
+argued (\S\ref{sec:boundary}) that it does not transfer, so the strength of $\Psi$
+is \emph{conjectural and not inherited}. The relevant cardinal, if any, is
+Ulam-measurable rather than real-valued measurable: $\Psi$ concerns two-valued
+($\{0,1\}$) selections, where the real-valued-measurable machinery governing
+$[0,1]$-valued measures does not directly apply. Boolean-valued models / forcing
+over a candidate carrier, and the von Neumann--Maharam circle of independence
+results~\cite{BalcarJechPazak2005, Fremlin}, are the natural tools; but all known
+precedents are real-valued and strictly positive, and the two-valued
+non-distributive case is, as far as we are aware, untreated. We therefore state the
+strength as an open question, not a theorem:
+\[
+  \text{Is } \Psi \text{ independent of ZFC, and if so, of what consistency strength?}
+\]
+\end{remark}
+
 \paragraph{Acknowledgements.}
 The author thanks the anonymous referees (forthcoming) and acknowledges the use of
 large language model assistance (Anthropic Claude, OpenAI ChatGPT) for literature

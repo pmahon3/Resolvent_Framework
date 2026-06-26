@@ -435,7 +435,7 @@
     {
       "id": "open.intrinsic_K",
       "name": "Intrinsic class 𝒦 (frontier object)",
-      "one_line": "UNBUILT target carrier: generators ∈ 𝒦, closed under complement + countable disjoint union, forbidden finite intersections (S∩S′)×{0} ∉ 𝒦. Exists ⟺ witness exists. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional.",
+      "one_line": "UNBUILT target carrier: generators ∈ 𝒦, closed under complement + countable disjoint union, forbidden finite intersections (S∩S′)×{0} ∉ 𝒦. Exists ⟺ witness exists. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional. SHARPENED 2026-06-26 (hybrid analysis, large_cardinal_bounds §3d): the obstruction is irreducibly NON-CENTRAL — neither central (segregated/excluded) nor absent (Gleason/no-obstruction); the strength axis factors out, leaving this as the sole target. See ce.concept.oml_center (the assessed-and-failed center pairing).",
       "detail": "../archive/sigma_construction_log_archive.md"
     }
   ]

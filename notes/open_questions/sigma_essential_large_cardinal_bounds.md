@@ -231,6 +231,65 @@ NOT the new abstract input. Recorded as education.** The instinct (transcend set
 was reasonable; it conflates cardinality (how big) with strength (how strong an axiom) —
 Ch. 23 buys the first, Ψ needs the second. ⟦read + advisor-checked + text-verified⟧.
 
+## 3d. Hybrid analysis: can Ch.23 (strength axis) pair with a second method for the OTHER axis? (2026-06-26)
+
+**The question (user):** Ch. 23 handles one orthogonal issue — could it be used in a HYBRID
+with another method to handle the other? Standard set-theory shape: large cardinal supplies
+STRENGTH, then (mild/class) forcing supplies STRUCTURE, cardinal survives (Solovay's RVM
+model = measurable + random forcing; Lévy–Solovay run forwards).
+
+**Axis correction (important — fixes the §3c framing).** The two real obstacles were never
+"cardinality vs strength." They are **(I) consistency strength** (need a measurable) and
+**(II) non-distributivity** (the disjointification wall). Ch. 23 conquers *cardinality*,
+which was never one of our two obstacles. So the hybrid:
+- **Axis (I) — handled.** Assume a measurable κ → get the κ-complete ultrafilter `U`; force
+  mildly; κ survives. Real reframing GAIN: strength is no longer the question.
+- **Axis (II) — NOT handled, and forcing-invariant.** `(a∨b)∧a⊥=b∧a⊥` is false on OMLs — a
+  ZFC theorem, true in every forcing extension under every large cardinal. The hybrid's
+  step-2 "use `U` to seed the witness on the OML" = transport `U` from Boolean `P(κ)` onto
+  orthogonal-only closure = **costume #8** (`costume.embedding_transport`, already FORBIDDEN).
+
+**∴ The hybrid is a correct DECOMPOSITION, not a route to a proof.** It factors strength out
+and isolates the whole difficulty as the single non-distributivity transport. Cleanest form
+of the open problem to date: *given a measurable κ and its `U` on `P(κ)`, is there a concrete
+non-Boolean σ-OML + a transport of `U`'s completeness onto its orthogonal-join structure
+yielding a σ-essential witness — or is that transport obstructed in ZFC?* Strength assumed
+away; transport is the sole wall.
+
+**Taxonomy search for a genuine axis-(II) partner (all 6 collections scanned).** One real
+non-costume candidate surfaced: **`ce.concept.oml_center`** (OPEN) — route the σ-state
+obstruction through the OML's Boolean **center** `C(L)`, where a measurable/`U` applies
+NATIVELY (the center is intersection-closed, no disjointification wall). Pták 1987 "exotic
+logics": σ-orthocomplete OMLs with f.a. but no σ-add states, obstruction in `C(L)≅BA` with
+no σ-add probability. This is structurally different from costume #8 (acts on the Boolean
+center, not the whole non-Boolean lattice).
+
+**Center hybrid FAILS on a dichotomy ⟦HAND, advisor-pending — load-bearing, confirm when
+advisor is back⟧:**
+- *Trivial center* (`{∅,Ω}`): the witness is REQUIRED irreducible (`rem:offcenter`,
+  Def). But trivial center ⟹ Gleason exceptionality ⟹ geometry forces σ-additivity ⟹ NO
+  obstruction to route. (This is why L(H), a factor, is σ-additively "easy".)
+- *Non-trivial center*: hosts the obstruction, BUT the carrier is then **segregated**
+  (`rem:segregated`) — contextuality routed through a central Boolean factor, σ-states
+  concentrate at points ⟹ NO witness, EXCLUDED.
+- **Both horns kill it.** The place the hybrid would put the strength (the center) is exactly
+  the place the witness requirement forces to be either trivial (no obstruction) or
+  disqualifying (segregated). No inhabited middle.
+
+**RESIDUE (the genuine gain, not consolation).** The center analysis SHARPENS the target: the
+witness's non-distributivity can be neither central (segregated, excluded) nor absent
+(Gleason, no obstruction) — so the σ-obstruction must live in the **irreducible, non-central
+part**. That is exactly `open.intrinsic_K` (the unbuilt frontier carrier). The center hybrid,
+by failing, CONFIRMS the obstruction is irreducibly non-central — narrowing the target rather
+than hitting it. Standing stop-condition unchanged: needs a genuinely NEW object, not a
+strength supplier (which the hybrid shows is correctly factored out).
+
+**⚠ TO CONFIRM WITH ADVISOR (overloaded this turn):** the center dichotomy rests on (a)
+Gleason-exceptionality applying to ALL trivial-center OMLs (not just L(H)/Hilbert factors —
+if it's L(H)-specific, a trivial-center NON-Hilbert OML might escape and reopen the hybrid),
+and (b) `rem:segregated` excluding ALL non-trivial-center carriers. Both are in-paper but the
+"Gleason generalizes to all factors" step is the one to pressure-test.
+
 ## 4. Sources
 - Takeuti & Zaring, *Axiomatic Set Theory* (GTM 8, Springer 1973), Ch. 23 — class-sized
   complete Boolean algebras; UCL; Easton splittability. (1st ed.; the Boolean-valued

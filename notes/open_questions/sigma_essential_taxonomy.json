@@ -217,7 +217,12 @@
       "name": "Localization reduction",
       "status": "settled",
       "one_line": "Witness ⟺ (i) no Dirac extends s₀ ∧ (ii) no non-Dirac σ-state does; (i) freely arrangeable (Navara–Pták), so all weight on (ii) = Wall A. The one genuine reduction.",
-      "detail": "sigma_essential_reduction_writeup.md#2; thm:localization"
+      "detail": "sigma_essential_reduction_writeup.md#2; thm:localization",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialLocalization.lean",
+        "name": "localization",
+        "status": "proved-edge"
+      }
     },
     {
       "id": "strat.navara_ptak",
@@ -225,7 +230,12 @@
       "status": "dead",
       "examined": "2026-06-25",
       "one_line": "Defeats Diracs but N–P BUILD their own non-Dirac σ-state rescuer ⟹ not a witness; supplies clause (i) only. Carrier Boolean-enough (two compatible observables).",
-      "detail": "navara_ptak_1983_byhand_read.md; survey ex:navara-ptak"
+      "detail": "navara_ptak_1983_byhand_read.md; survey ex:navara-ptak",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialLocalization.lean",
+        "name": "navara_ptak_kernel_empty / kernel_empty_arrangeable",
+        "status": "cited-axiom"
+      }
     },
     {
       "id": "strat.bw_transfer",
@@ -233,21 +243,36 @@
       "status": "dead",
       "one_line": "Tried to import B–W (pure σ-state on B(ℓ²κ) ⟺ κ Ulam-measurable) to concrete sector. Fails: wrong carrier (Kochen–Specker, non-concrete), masa transfer fails (Akemann–Weaver), the consumed ultrafilter is structurally absent.",
       "same_as": "wall.disjointification",
-      "detail": "sigma_essential_large_cardinal_bounds.md#3a; survey sec:boundary"
+      "detail": "sigma_essential_large_cardinal_bounds.md#3a; survey sec:boundary",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
+        "name": "embedding_transport_dead (same masa/intersection mechanism)",
+        "status": "strategy-refuted"
+      }
     },
     {
       "id": "strat.lower_bound",
       "name": "Lower bound: Ψ ⟹ ∃ measurable",
       "status": "open",
       "one_line": "Plausible, NOT proven. Stalled at σ-class-vs-σ-algebra gap (Ulam's matrix needs a σ-algebra; carrier is only a σ-class). Sharpened: masa-free route from a 2-valued σ-state's quantum filter to a measurable?",
-      "detail": "sigma_essential_large_cardinal_bounds.md#2"
+      "detail": "sigma_essential_large_cardinal_bounds.md#2",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
+        "name": "LowerBound",
+        "status": "open-prop"
+      }
     },
     {
       "id": "strat.upper_bound",
       "name": "Upper bound: ∃X ⟹ Ψ",
       "status": "open",
       "one_line": "X unidentified, implication unestablished. Forcing CANNOT supply it (Lévy–Solovay, strength-preserving); a direct large-cardinal construction. 'Measurable suffices' was inherited from B–W and STRUCK.",
-      "detail": "sigma_essential_large_cardinal_bounds.md#2"
+      "detail": "sigma_essential_large_cardinal_bounds.md#2",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
+        "name": "UpperBound",
+        "status": "open-prop"
+      }
     },
     {
       "id": "strat.strategy_d",

@@ -123,7 +123,19 @@ An entry that has a Lean counterpart carries an optional `lean` object:
 - `detector` — the costume-detector obstruction (`IntersectionClosed`/`costume_kills_witness`)
 - `detector-rekill` — a covered (dead) item the detector formally re-kills
 - `conjecture-survives-triage` — a candidate stress-tested: ingredients suffice, gap isolated
+- `strategy-refuted` — a strategy whose key step is shown blocked (links the refuting theorem)
 - `cited-axiom` — an external known result, `axiom` with citation
+
+Strategy entries link the same way (to the theorem that advances or refutes them).
+
+**Identified gap (not yet built): strategy-as-frontier.** There is currently no
+first-class Lean object for a strategy *mid-flight* — an attack that is neither proved
+nor refuted, where one wants to record "this is the move, here is how far it gets, and
+here is the precise unmet goal (as an explicit open `Prop`)". `intrinsicK_gap_is_wallA`
+is an ad-hoc instance (a strategy whose frontier = wall A). Generalizing it — a proved
+reduction `ingredients → ReducedGoal` with `ReducedGoal` a named open Prop — is the
+missing piece. Deliberately deferred: building it now would couple early exploration to
+the current obstruction shape. Build it when a real mid-flight attack needs recording.
 
 The point is triangulation: a hand-claim with a `lean` field is machine-checked to the
 status shown; `proved-edge` holds regardless of whether the open Props are true. The

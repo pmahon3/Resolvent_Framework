@@ -5,8 +5,8 @@ LOCALIZATION to clause (ii), not a reduction to a separate harder named problem.
 §1 and the airtight verification.)*
 
 *Standalone writeup, 2026-06-25. For understanding and record (not submission). This
-consolidates the scattered ledger material into one coherent statement. The terse
-working record is `CHARTED_sigma_essential.md`; the result-with-corrections is
+consolidates the scattered ledger material into one coherent statement. The zoom-out
+index is [[sigma_essential_taxonomy]] (JSON); the result-with-corrections is
 [[sigma_essential_reduction_result]]; the forcing-context post-mortem is
 [[forcing_programme_status]]. ⟦HAND throughout — verified at sketch level + advisor-
 checked; not Lean-formalized, not refereed.⟧*
@@ -305,16 +305,16 @@ Dirac-unrealizable s₀ exist on a COUNTABLE concrete σ-OML with no non-Dirac r
 increments in L, so σ-additivity forces `s(A_k) → 0`, killing any rescuer ⟹ ¬Ψ
 provable for countably-generated L ⟹ (tempting) Paper-I gap closable in ZFC.
 
-**WHIFF — verified against own ledger (CHARTED line 64).** The load-bearing step
-"`A_k↓∅` gives orthogonal increments IN L" REQUIRES the disjointification identity
-`(a∨b)∧a⊥=b∧a⊥`, which CHARTED records as a WALL: **distributive, FALSE on OMLs.** On a
+**WHIFF — verified against the ledger ([[sigma_essential_taxonomy]] `wall.disjointification`).**
+The load-bearing step "`A_k↓∅` gives orthogonal increments IN L" REQUIRES the
+disjointification identity `(a∨b)∧a⊥=b∧a⊥`, a recorded WALL: **distributive, FALSE on OMLs.** On a
 non-Boolean L the tower lives across incompatible blocks; its increments need not be in
 L *even when Ω is countable*. So "countable ⟹ no rescuer" is FALSE — what was actually
 shown is "orthogonally-refinable ⟹ no rescuer," and refinability is the
 **distributivity (Floor/RDP) axis, NOT the cardinality axis.** The fork is
 refinable-vs-not, which is the σ-class-vs-σ-algebra gap — **this "new result" is the
 4th costume of the same weld**, not a theorem. (Unit test confirms: ∏ₙMO₂'s gap can't
-bite because it's *segregated*, not because it's countable — CHARTED 111.)
+bite because it's *segregated*, not because it's countable.)
 
 **∴ STOP-CONDITION FIRED, honestly.** The construction's first concrete step did NOT
 survive the σ-class/σ-algebra gap — exactly the pre-committed miss (§6). Per the

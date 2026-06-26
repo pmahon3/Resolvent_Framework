@@ -227,8 +227,9 @@ faithful-tribe-representability, with HW Problem 2 shown **orthogonal** (dropped
 the forcing programme is **parked as premature** (its target dissolved upstream into
 the reduction). Canonical records: `notes/open_questions/sigma_essential_reduction_writeup.md`
 (the clean result), `…_reduction_result.md` (corrections trail),
-`forcing_programme_status.md` (forcing post-mortem), `CHARTED_sigma_essential.md`
-(working ledger). **The dated session-log blocks below (and their inline pointers to
+`forcing_programme_status.md` (forcing post-mortem), `sigma_essential_taxonomy.json`
+(zoom-out index; replaced the CHARTED ledger 2026-06-26, with detail extracted to
+`sigma_essential_{load_bearing_facts,construction_runs}.md` + `navara_ptak_1983_byhand_read.md`). **The dated session-log blocks below (and their inline pointers to
 `MAP_sigma_essential`, `sigma_duality_targets`, `reading1_prize_reduction`,
 `direction2_gate_finding`, `subsession_…`, `…_nonemptiness_finding`,
 `NEXT_SESSION_…`, `forcing_scout_sentence`, `HANDOFF_session12`) are HISTORICAL: those

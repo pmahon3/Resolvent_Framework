@@ -122,10 +122,10 @@ separate open embedding question." The #29 weld (σ-point-selection ↔ HW2) is
 
 ## Pointers
 
-- Mechanism + verification: `CHARTED_sigma_essential.md` (TEMPLATE NO-GO block,
-  ¬Ψ FIRST RUN block, Con(Ψ) CONSTRUCTION block, 2026-06-25).
+- Mechanism + verification: [[sigma_essential_construction_runs]] (¬Ψ first run,
+  Con(Ψ) run, template no-go, selection-first kill).
 - HW Problem 2 / no regular completion: Harding 1998; Harding–Wang
-  arXiv:2108.09819. CHARTED L:NAMED WALLS line 66.
+  arXiv:2108.09819.
 - Navara–Pták 1983 (template + concentration criterion):
   `literature/navara_ptak_1983_two_valued_measures_sigma_classes.pdf`.
 - Hilbert-side precedent (the measurable-cardinal flavor): Blecher–Weaver

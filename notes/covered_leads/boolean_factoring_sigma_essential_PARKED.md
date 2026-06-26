@@ -78,12 +78,13 @@ three-statements test fails; no method — Type 7 N/A).
 The session's earlier records asserted *"a measurable cardinal that bites WITHOUT
 factoring through a Boolean sub-object was NOT FOUND"* and *"B–W STRENGTHENS rem:dw."*
 **Both are FALSE** (Akemann–Weaver is exactly such an object). Corrected in:
-`sigma_essential_prior_art_verdict.md` (2026-06-23 CORRECTION block),
-`CHARTED_sigma_essential.md` (⚠⚠ retraction + FENCE), `program_overview.md` (S12–13
-CORRECTION), and `MEMORY.md`. **`rem:dw` itself is UNAFFECTED** — it is the
-Derr–Williamson Polish cut on concrete OMLs, not a claim about B(H) masa-factoring; only
-the "B–W-strengthens-it" gloss was withdrawn. The CHARTED file's own standing ⚠ flag
-("BW abelian-restriction phrasing INFERRED not verbatim") had correctly anticipated this.
+`sigma_essential_prior_art_verdict.md` (2026-06-23 CORRECTION block), the
+[[sigma_essential_taxonomy]] (`fence.boolean_factoring` + `fact.bw`),
+`program_overview.md` (S12–13 CORRECTION), and `MEMORY.md`. **`rem:dw` itself is
+UNAFFECTED** — it is the Derr–Williamson Polish cut on concrete OMLs, not a claim about
+B(H) masa-factoring; only the "B–W-strengthens-it" gloss was withdrawn. (The standing ⚠
+flag "BW abelian-restriction phrasing INFERRED not verbatim" had correctly anticipated
+this; see [[sigma_essential_load_bearing_facts]] for the corrected B–W statement.)
 
 ## Lessons logged
 
@@ -101,10 +102,10 @@ the "B–W-strengthens-it" gloss was withdrawn. The CHARTED file's own standing 
 
 ## Pointers
 
-- The lone open problem (still parked): `notes/open_questions/notes/archive/MAP_sigma_essential_superseded.md`,
-  `notes/archive/NEXT_SESSION_sigma_essential_superseded.md`, `sigma_essential_prior_art_verdict.md`.
-- Corrected prior-art: same verdict file, 2026-06-23 CORRECTION; `CHARTED` DEEP-RESEARCH
-  ⚠⚠ retraction.
+- The lone open problem (still parked): [[sigma_essential_taxonomy]] (zoom-out index),
+  `sigma_essential_prior_art_verdict.md`.
+- Corrected prior-art: same verdict file, 2026-06-23 CORRECTION; [[sigma_essential_load_bearing_facts]]
+  (B–W correction).
 - Primary sources: Blecher–Weaver arXiv:1607.08505; Akemann–Weaver PNAS 105(14) 2008
   p.5313; Weaver arXiv:math/0604198; Farah, *Comb. Set Theory of C\*-algebras* (2019);
   Dzhenzher arXiv:2604.25854; Burešová–Pták arXiv:2401.13798.

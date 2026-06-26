@@ -380,20 +380,58 @@ Question~\ref{q:main} should be sought: not in ZFC and not in a single named
 combinatorial principle, but in an independence proof. We record the target
 precisely, as a hand-off for set-theoretic methods.
 
-For an admissible carrier $\Lo$ (concrete, $\sigma$-complete, non-Boolean,
-irreducible) write
-\begin{multline*}
-  \Phi(\Lo) \;:\equiv\; \text{every two-valued state on a finite }\perp\text{-closed }
-  B \subseteq \Lo \\
-  \text{extends to a global $\sigma$-additive two-valued state,}
-\end{multline*}
-the \emph{$\sigma$-additive lifting} property, and let
-$\Psi :\equiv \exists\,\Lo\ \neg\Phi(\Lo)$ assert the existence of a witness in the
-sense of Definition~\ref{def:sigma-essential}. By Theorem~\ref{thm:localization},
-$\neg\Phi(\Lo)$ holds iff some local pattern realises clause~(ii); by
-Proposition~\ref{prop:boolean}, $\Phi$ holds for all Boolean $\Lo$, so any witness
-is non-distributive. $\Psi$ is the existence sentence whose status is
-Question~\ref{q:main}.
+We build the target sentence in layers, so that its quantifier structure --- the
+feature that decides which set-theoretic methods apply --- is visible. Write
+$\mathrm{St}(B)$ for the two-valued states on a sub-orthoposet $B$ and
+$\mathrm{St}_\sigma(\Lo)$ for the global $\sigma$-additive two-valued states on $\Lo$.
+
+\emph{The atom: a lift.} That a global state $\mu$ extends a local pattern $s$ is the
+single equation
+\[
+  \mu \restr B = s, \qquad \mu \in \mathrm{St}_\sigma(\Lo),\ s \in \mathrm{St}(B).
+\]
+
+\emph{Layer one: $s$ admits a lift.} Fixing $B$ and $s$, the assertion that some
+global $\sigma$-additive state realises $s$ is an existential:
+\[
+  \mathrm{lift}(B,s) \;:\equiv\; \exists\, \mu \in \mathrm{St}_\sigma(\Lo)\ \ \mu \restr B = s .
+\]
+
+\emph{Layer two: every pattern lifts.} Quantifying over all finite $\perp$-closed
+$B$ (write $B \in \mathrm{Fin}_\perp(\Lo)$) and all patterns on them gives the
+\emph{$\sigma$-additive lifting} property of the carrier:
+\[
+  \Phi(\Lo) \;:\equiv\;
+  \forall\, B \in \mathrm{Fin}_\perp(\Lo)\ \ \forall\, s \in \mathrm{St}(B)\ \
+  \exists\, \mu \in \mathrm{St}_\sigma(\Lo)\ \ \mu \restr B = s .
+\]
+
+\emph{Layer three: a binding pattern.} Negating exhibits a local pattern no global
+state can rescue --- exactly a $\sigma$-essential contextual state
+(Def.~\ref{def:sigma-essential}, Thm.~\ref{thm:localization}):
+\[
+  \neg\Phi(\Lo) \;\equiv\;
+  \exists\, B\ \ \exists\, s \in \mathrm{St}(B)\ \
+  \forall\, \mu \in \mathrm{St}_\sigma(\Lo)\ \ \mu \restr B \neq s .
+\]
+
+\emph{Layer four: a witness exists.} Quantifying over admissible carriers
+(concrete, $\sigma$-complete, non-Boolean, irreducible; write $\Lo \in \mathrm{Adm}$)
+yields the target sentence:
+\[
+  \Psi \;:\equiv\; \exists\, \Lo \in \mathrm{Adm}\ \ \neg\Phi(\Lo)
+  \;\equiv\;
+  \exists\, \Lo \in \mathrm{Adm}\ \exists\, B\ \exists\, s\ \
+  \forall\, \mu \in \mathrm{St}_\sigma(\Lo)\ \ \mu \restr B \neq s .
+\]
+
+Reading off the shape: $\Psi$ is $\exists\exists\exists\forall$, and its leading
+quantifier ranges over carriers $\Lo$ --- a second-order object, a family of subsets
+of $\Omega$, not a natural number. By Proposition~\ref{prop:boolean}, $\Phi$ holds for
+every Boolean $\Lo$, so the witness $\Lo$ in $\Psi$ is necessarily non-distributive.
+It is this leading second-order existential over an unbounded carrier, not the inner
+arithmetic, that places $\Psi$ beyond a single combinatorial principle --- as the two
+features below make precise.
 
 Two features make $\Psi$ a forcing target, not a construction target:
 \begin{enumerate}[label=\textup{(\arabic*)},leftmargin=*]

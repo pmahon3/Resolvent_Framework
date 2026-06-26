@@ -110,9 +110,6 @@ as reference and teaching material, not publishable as novel work.
 - [residual_structure_inference.md](residual_structure_inference.md) —
   Residual-structure inference, covered/parked.
 
-- [entropy_characterization.md](entropy_characterization.md) —
-  Entropy witness concentration — dead (depended on the false bridge theorem).
-
 - [fibre_mixing.md](fibre_mixing.md) —
   Fibre-mixing irreducibility — dead (bridge theorem false; geometric ≠
   algebraic reconstruction).

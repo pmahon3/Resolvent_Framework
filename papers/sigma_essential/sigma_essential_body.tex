@@ -57,11 +57,10 @@ the non-distributive case, reduce to the irreducible core, and locate it.
 obstructions). \S\ref{sec:localization}: the \emph{Localization Theorem}
 (Thm.~\ref{thm:localization}) --- a witness exists iff (i)~no Dirac and (ii)~no
 non-Dirac $\sigma$-additive two-valued state extends $s_0$, with (i) freely
-arrangeable, localising all weight to (ii). \S\ref{sec:bare}: clause (ii) stripped
-to a bare set-theoretic selection problem (Q.~\ref{q:bare}). \S\ref{sec:boundary}:
-the boundary map --- empty above the Polish case, irreducible to Blecher--Weaver,
-irreducible to a measurable cardinal. \S\ref{sec:open}--\S\ref{sec:forcing}: the
-open problem and its forcing target.
+arrangeable, localising all weight to (ii), which strips to a bare set-theoretic
+selection problem (Q.~\ref{q:bare}). \S\ref{sec:boundary}: the boundary map --- empty
+above the Polish case, irreducible to Blecher--Weaver, irreducible to a measurable
+cardinal. \S\ref{sec:open}: the open problem and its forcing target.
 
 \begin{remark}[Irreducibility is not vacuous]\label{rem:offcenter}
 The carrier class is inhabited: the horizontal sum $MO_\kappa$ ($\kappa$ orthogonal
@@ -201,14 +200,12 @@ which no non-Dirac state repairs the gap.
 \end{remark}
 
 
-\section{The bare statement}\label{sec:bare}
-
-Stripped of lattice scaffolding, clause (ii) is a problem about selections. A
-two-valued state selects one ``true'' cell within each block --- a maximal compatible
-context, equivalently a countable partition of $\Omega$ into elements of $\Lo$. Three
-conditions encode the structure: overlapping blocks agree on shared events (coherence);
-$\sigma$-additivity constrains countable joins; and non-Diracness means no single point
-realises the selection.
+Stripped of lattice scaffolding, this core --- clause (ii) --- is a problem about
+selections. A two-valued state selects one ``true'' cell within each
+block, a maximal compatible context, equivalently a countable partition of $\Omega$
+into elements of $\Lo$. Three conditions encode the structure: overlapping blocks agree
+on shared events (coherence); $\sigma$-additivity constrains countable joins; and
+non-Diracness means no single point realises the selection.
 
 \begin{question}[$\sigma$-point-selection, bare form]\label{q:bare}
 Given a set $\Omega$ and a family $\{\Pi_\alpha\}$ of countable partitions of
@@ -253,27 +250,26 @@ non-Hilbert (abstractly concrete) carrier $+$ a $\{0,1\}$-valued selection.
 
 \section{The boundary map}\label{sec:boundary}
 
-We locate Question~\ref{q:bare}: where its answer is known, and where the obvious
-bridges fail.
+We locate Question~\ref{q:bare} between an upper boundary where it is known empty and
+the lower routes that fail to settle it.
 
-\paragraph{The Polish boundary: empty above it.}
-Derr and Williamson~\cite{DerrWilliamson2023} prove a $\sigma$-extension
+The upper boundary is the Polish-representable case. Derr and
+Williamson~\cite{DerrWilliamson2023} prove a $\sigma$-extension
 criterion for coherent probabilities on pre-Dynkin systems: when the carrier is
 \emph{Polish-representable} --- $\Omega$ Polish, the generated $\sigma$-class
 equal to the Borel $\sigma$-algebra, with inner-regular blocks --- finite
 coherence implies $\sigma$-extendability (their Theorem~D.6, via
 Maharam~\cite{Maharam1972}). Specialised to two-valued states, this says that on a
 Polish-representable carrier every finitely coherent $s_0$ globalises: \emph{no
-$\sigma$-essential contextual state exists}. Hence a witness, if one exists, must
-live on a carrier that is \emph{not} Polish-representable. This is the upper
-boundary of the problem.
+$\sigma$-essential contextual state exists}. A witness, if one exists, must therefore
+live on a carrier that is \emph{not} Polish-representable.
 
-\paragraph{The Hilbert boundary: an analogue that does not transfer.}
-Blecher--Weaver~\cite{BlecherWeaver2017}: on the projection lattice of
-$B(\ell^2(\kappa))$, a singular countably additive \emph{pure} state exists iff
-$\kappa$ is Ulam measurable --- the nearest positive precedent that countable
-additivity on a non-distributive $\sigma$-complete OML \emph{can} carry set-theoretic
-strength. It does not settle Question~\ref{q:bare}; three obstructions point the same way.
+A Hilbert-space analogue exists, but does not transfer down to the concrete case. On
+the projection lattice of $B(\ell^2(\kappa))$, Blecher--Weaver~\cite{BlecherWeaver2017}
+show a singular countably additive \emph{pure} state exists iff $\kappa$ is Ulam
+measurable --- the nearest positive precedent that countable additivity on a
+non-distributive $\sigma$-complete OML \emph{can} carry set-theoretic strength. It does
+not settle Question~\ref{q:bare}; three obstructions point the same way.
 
 \begin{enumerate}[label=\textup{(\arabic*)},leftmargin=*]
   \item \emph{Wrong carrier.} For $\dim H\geq 3$ the projection lattice of $B(H)$
@@ -308,10 +304,10 @@ masa'' --- do not close Question~\ref{q:bare}, the obstruction in each being the
 non-distributivity. This is what leaves the question open rather than a corollary.
 \end{remark}
 
-\paragraph{Below: faithful representation forces distributivity.}
-Routing Question~\ref{q:bare} through a faithful $\sigma$-tribe representation
-(embedding $\Lo$ into a $\sigma$-algebra of sets, so two-valued states become point
-evaluations) is unavailable: a faithful tribe-of-sets representation forces
+The remaining route from below, faithful representation, is barred by the same
+obstruction. Routing Question~\ref{q:bare} through a faithful $\sigma$-tribe
+representation (embedding $\Lo$ into a $\sigma$-algebra of sets, so two-valued states
+become point evaluations) is unavailable: a faithful tribe-of-sets representation forces
 distributivity, hence Booleanness (the ``Floor''~\cite{PtakPulmannova1991}).
 $\sigma$-Loomis--Sikorski holds under the Riesz Decomposition Property
 ($\sigma$-complete MV-algebras, RDP effect algebras~\cite{Dvurecenskij2000}), but
@@ -331,7 +327,7 @@ non-Boolean, non-Polish-representable regime.
 \end{remark}
 
 
-\section{The open problem}\label{sec:open}
+\section{The open problem and its forcing target}\label{sec:open}
 
 Assembling \S\ref{sec:localization}--\S\ref{sec:boundary}, a $\sigma$-essential
 contextual state exists iff Question~\ref{q:bare} has a positive answer on a carrier
@@ -365,19 +361,14 @@ What a resolution would require:
     two-valued, non-distributive case is the open edge.
 \end{description}
 
-
-\section{A forcing target}\label{sec:forcing}
-
-The boundary map places a resolution of Question~\ref{q:main} not in ZFC and not in a
-single named combinatorial principle, but in an independence proof. We record the
-target sentence and its quantifier structure, which determines the applicable methods.
-
-Write $\mathrm{St}(B)$ for the two-valued states on a sub-orthoposet $B$,
-$\mathrm{St}_\sigma(\Lo)$ for the global $\sigma$-additive two-valued states on $\Lo$,
-$\mathrm{Fin}_\perp(\Lo)$ for the finite $\perp$-closed sub-orthoposets, and
-$\mathrm{Adm}$ for the admissible carriers (concrete, $\sigma$-complete, non-Boolean,
-irreducible). A pattern $s\in\mathrm{St}(B)$ is realised by $\mu$ when $\mu\restr B=s$.
-The \emph{$\sigma$-additive lifting} property and its negation are
+The independence route is the natural one, and it calls for a precisely stated target
+whose quantifier structure determines the applicable methods. Write $\mathrm{St}(B)$
+for the two-valued states on a sub-orthoposet $B$, $\mathrm{St}_\sigma(\Lo)$ for the
+global $\sigma$-additive two-valued states on $\Lo$, $\mathrm{Fin}_\perp(\Lo)$ for the
+finite $\perp$-closed sub-orthoposets, and $\mathrm{Adm}$ for the admissible carriers
+(concrete, $\sigma$-complete, non-Boolean, irreducible). A pattern
+$s\in\mathrm{St}(B)$ is realised by $\mu$ when $\mu\restr B=s$. The
+\emph{$\sigma$-additive lifting} property and its negation are
 \begin{align*}
   \Phi(\Lo)
     &:\equiv\;

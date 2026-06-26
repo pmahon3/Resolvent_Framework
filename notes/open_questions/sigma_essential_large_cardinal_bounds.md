@@ -190,7 +190,51 @@ costume to avoid. Honest next step = keep learning the deep regime (inner model 
 as EDUCATION past the matrix; let a genuinely new object arrive on its own, not be
 manufactured at the point of non-progress.
 
+## 3c. Class-sized Boolean algebras (Takeuti–Zaring Ch. 23) — READ, does NOT unblock (2026-06-26)
+
+Read Takeuti–Zaring, *Axiomatic Set Theory* (GTM 8, 1973), Ch. 23 "Boolean Algebras That
+Are Not Sets" (pp. 201–225; library: `takeuti_zaring_axiomatic_set_theory.pdf`).
+**Motivation for the read (user's instinct):** Ch. 23 handles unboundedly-growing
+cardinality by taking the limit `B` of a tower `B_β` (with `|B_β|` increasing) to be a
+**proper class** (or class-of-classes); our problem is set-theoretic and
+cardinality-sensitive, so a technique that transcends set-cardinality looked relevant.
+
+**What the chapter actually does:** for a class-sized complete BA `B`, gives conditions
+(the **uniform convergence law**, Def 23.10) under which `V^B` still satisfies Replacement
+and Powers (without UCL, `V^B` satisfies Separation but may fail Replacement/Powers —
+Thm 23.9 remark). The payoff theorems: `V^B ⊨ AC/ACH` (23.23–24, PRESERVES choice);
+Easton's main lemma + `(ℵ_α,ℵ_β)`-splittability (23.43–46, controls **cardinal
+arithmetic** — which powers `2^{ℵ_α}` you set — under `ℵ_α` assumed regular). The limit
+`B` is built as a direct-and-inverse limit of partial-order structures / topological
+spaces (23.39–42).
+
+**Why it does NOT unblock wall A (advisor-checked + verified against the text):**
+- **Cardinality ≠ consistency strength.** Ch. 23's proper-class limit conquers
+  *unbounded set-cardinality* (set powers across all regular cardinals at once). Ψ needs
+  *consistency strength* (a measurable cardinal). These are orthogonal axes. **Proof = the
+  next chapter:** Ch. 24 (Easton's model) is class forcing, **equiconsistent with ZFC**,
+  creating no large cardinals (can even kill measurables). Every Ch. 23 theorem PRESERVES
+  ZF/AC and rearranges arithmetic; NONE creates strength (verified: 23.23-46 all
+  preserve-and-rearrange).
+- **Still forcing ⟹ still the wrong engine** (Lévy–Solovay, §3b / rem:technology): class
+  forcing is strength-preserving exactly as set forcing is.
+- **`B` is Boolean either way (the pincer).** As the *ambient* forcing algebra: different
+  object, but the witness inside `V^B` is still a non-Boolean OML ⟹ disjointification wall
+  reappears in the extension. As the *carrier* itself: impossible — Ch. 23 builds complete
+  **Boolean** algebras; an OML-as-limit-of-posets is the band-family route, charted-dead.
+- **Ψ's witness `L` is a SET** (a σ-OML on a set Ω). `∃L` ranges over a proper class of
+  set-candidates, but each witness is a set; class-size is a property of a *forcing notion*,
+  not of the witness — so a proper-class `B` has no concrete role to play in `L`'s existence.
+
+**Status: legitimate class-forcing BACKGROUND (the set-theory register the hand-off needs),
+NOT the new abstract input. Recorded as education.** The instinct (transcend set-cardinality)
+was reasonable; it conflates cardinality (how big) with strength (how strong an axiom) —
+Ch. 23 buys the first, Ψ needs the second. ⟦read + advisor-checked + text-verified⟧.
+
 ## 4. Sources
+- Takeuti & Zaring, *Axiomatic Set Theory* (GTM 8, Springer 1973), Ch. 23 — class-sized
+  complete Boolean algebras; UCL; Easton splittability. (1st ed.; the Boolean-valued
+  forcing volume. NOT the 2nd ed., which is Cohen-style.) Library (gitignored).
 - Ulam's theorem: standard; see Jech, *Set Theory*, or Kanamori, *The Higher Infinite*.
 - Blecher & Weaver, *Quantum measurable cardinals*, arXiv:1607.08505 (JFA 272, 2017) —
   abstract verified 2026-06-25.

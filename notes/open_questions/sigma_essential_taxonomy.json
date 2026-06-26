@@ -1,0 +1,109 @@
+{
+  "$meta": {
+    "title": "σ-essential contextual state — solution-attempt taxonomy",
+    "purpose": "Zoom-out index of every recorded approach to the OML-descent / σ-essential / σ-point-selection problem. Load this first for the 50,000-ft shape; follow `detail` pointers to drill into individual attempts.",
+    "updated": "2026-06-26",
+    "problem_one_line": "Does a concrete σ-complete non-Boolean irreducible OML carry a 2-valued state on a finite ⊥-closed subposet that extends to NO global σ-additive 2-valued state? (≡ σ-point-selection, the localized core.)",
+    "status": "OPEN. Located + reduced; bounds unproven; witness neither built nor refuted in ZFC.",
+    "the_shape": "Almost every construction route bottoms out at ONE wall: the disjointification identity (a∨b)∧a⊥=b∧a⊥ (distributive, false on OMLs). Carriers die because they are segregated/finite/Boolean-enough; abstract routes recur as 'costumes' of disjointification. Genuine non-costume content: the localization reduction, the Polish upper boundary (DW), the Blecher–Weaver Hilbert precedent (does not transfer), and the two unproven large-cardinal bounds.",
+    "categories": {
+      "candidate_carrier": "a concrete σ-OML tried as the witness-carrier",
+      "strategy": "a route/reduction seeking (or bounding) a witness",
+      "costume": "a framing that reduces to the disjointification wall — a re-dress, not new",
+      "wall": "a load-bearing structural obstruction (a bound, not an attempt)",
+      "fenced_reversal": "a tempting wrong inference, caught and explicitly forbidden to re-derive",
+      "settled_fact": "a reusable established result",
+      "open_frontier": "a genuinely open sub-question or unbuilt target"
+    },
+    "status_values": ["dead", "route_death", "killed", "parked", "superseded", "open", "settled", "forbidden"],
+    "key_links": {
+      "costume_of": "id of the wall/death this is a re-dress of",
+      "kills_or_bounds": "ids this wall/fact rules out or constrains",
+      "detail": "file#anchor for the explicit record"
+    },
+    "headline_counts": {
+      "candidate_carriers_killed": 13,
+      "disjointification_costumes": 9,
+      "fenced_reversals": 10,
+      "named_walls": 7,
+      "open_targets": 3
+    }
+  },
+
+  "walls": [
+    {"id": "wall.disjointification", "name": "Disjointification identity", "status": "open", "one_line": "(a∨b)∧a⊥=b∧a⊥ is distributive, FALSE on OMLs; blocks transfer of state-agreement from joins to meets. The recurring bottleneck.", "detail": "CHARTED_sigma_essential.md#the-pole; sigma_essential_reduction_writeup.md#7"},
+    {"id": "wall.A", "name": "σ-point-selection (Wall A)", "status": "open", "one_line": "THE core. Does a finitely-coherent local 2-valued pattern extend to a global NON-Dirac σ-additive 2-valued state on a concrete non-Boolean σ-OML?", "detail": "sigma_essential_reduction_writeup.md#2"},
+    {"id": "wall.floor", "name": "Floor / faithful σ-tribe", "status": "open", "one_line": "A faithful tribe-of-sets representation forces distributivity ⟹ Boolean. Faithfulness ⊥ non-distributivity at root.", "detail": "CHARTED_sigma_essential.md#the-pole"},
+    {"id": "wall.tribe_vs_points", "name": "Tribe-vs-points gap", "status": "open", "one_line": "Every non-Boolean σ-LS image is σ-epimorphic, NOT separating 2-valued points; needs RDP, OMLs lack it (MO₂ witness).", "detail": "sigma_essential_reduction_writeup.md#3 (Dvurečenskij 2000)"},
+    {"id": "wall.dw_polish", "name": "Derr–Williamson Polish cut", "status": "settled", "one_line": "σ-essential cell EMPTY for Polish-representable carriers (DW Thm D.6 via Maharam 8.1). Upper boundary: a witness must be non-Polish-representable.", "kills_or_bounds": ["carrier.*"], "detail": "sigma_essential_prior_art_verdict.md; survey rem:dw"},
+    {"id": "wall.hw2", "name": "Harding–Wang Problem 2", "status": "open", "one_line": "Does every OMP embed into SOME σ-complete OMP? Open in literature; resolved ORTHOGONAL to Wall A (type mismatch — A's carrier already σ-complete), dropped as red herring.", "detail": "sigma_essential_reduction_writeup.md#3 (weld run)"},
+    {"id": "wall.no_sigma_ls", "name": "No σ-Loomis–Sikorski for OMLs", "status": "open", "one_line": "Where the Boolean resolution mechanism would have to live — absent for non-distributive OMLs. Suggested impossible, not proved.", "detail": "CHARTED_sigma_essential.md#the-pole"}
+  ],
+
+  "candidate_carriers": [
+    {"id": "carrier.prod_mo2", "name": "∏ₙMO₂", "status": "dead", "death_number": 1, "one_line": "Reducible + σ-additivity concentrates to points + segregated ⟹ Dirac-only. THE standing unit test; contextuality lives on central P(ℕ), not the lattice.", "same_as": "wall.disjointification", "detail": "CHARTED_sigma_essential.md#the-pole"},
+    {"id": "carrier.greechie", "name": "Greechie growing-girth tower", "status": "dead", "one_line": "Contextuality is parity-based (Svozil), only finitely-additive, no σ-threshold.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.z_chain", "name": "Linear ℤ-chain", "status": "dead", "one_line": "Loop-free ⟹ full 2-valued states (SvTk 3.10) ⟹ df-states span ⟹ non-contextual.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.omega1_PN", "name": "Horizontal sum ω₁·P(ℕ)", "status": "dead", "one_line": "Meet only at {0,1} ⟹ no binding ⟹ diagonal coupling ⟹ no forced leak. add(𝒩) was a red herring.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.mo_omega1", "name": "MO_{ω₁} (Chinese lantern)", "status": "dead", "one_line": "Uncountable blocks ✓ but finite (4-element) ✗ ⟹ S_df^σ = S_df, no fakes.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.navara_concrete", "name": "Navara-over-concrete-base", "status": "dead", "death_number": 5, "one_line": "Statelessness vs concreteness fight at the atom — structural incompatibility.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.mo_omega", "name": "MO_ω / finite-block families", "status": "dead", "one_line": "Finite blocks ⟹ S_df = S_df^σ. The 4 necessary conditions are necessary, not sufficient.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.tkadlec", "name": "Tkadlec covering route", "status": "dead", "one_line": "Boolean-forcing covering theorems never trigger; σ-completion preserves the gap.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.harding_2chain", "name": "Harding two-chain lever", "status": "dead", "one_line": "Config needs countable chains ⟹ block-local ⟹ countable blocks ⟹ caught by the countable-block theorem.", "detail": "CHARTED_sigma_essential.md#killed-routes"},
+    {"id": "carrier.l_mo2", "name": "L_MO₂ (Navara hsum, MO₂-swap)", "status": "dead", "death_number": 6, "killed": "2026-06-10", "one_line": "Real descent structure YES but trivial (= plain ∏ₙMO₂) + prior art (Pták–Pulmannová 1994: Boolean ⟺ subadditive). First escape attempt from ∏ₙMO₂.", "same_as": "carrier.prod_mo2", "detail": "mem:oml_descent_inhabitation"},
+    {"id": "carrier.band_family", "name": "Band family (AD-indexed, 𝔠 blocks)", "status": "dead", "killed": "2026-06-18", "one_line": "Sharp dichotomy: ∪-closed ⟹ Boolean / not-∪-closed ⟹ not-a-lattice. NO band index gives a concrete σ-complete non-Boolean lattice. Lean-certified (BandClosure.lean, 0-sorry).", "same_as": "wall.disjointification", "detail": "CHARTED_sigma_essential.md#band-family"},
+    {"id": "carrier.ce_charge_limit", "name": "CE-charge-limit carrier (S9)", "status": "dead", "one_line": "Limit-failure IS non-σ-additivity ⟹ ∏ₙMO₂ death in new clothes.", "same_as": "carrier.prod_mo2", "detail": "CHARTED_sigma_essential.md#session-9"},
+    {"id": "carrier.dst_analytic", "name": "DST analytic-not-Borel S_df^σ (S10)", "status": "dead", "one_line": "Reduces to σ-lifting-failure (the wall, not a witness). DST bypass fails: the restriction-gap is structural, not topological.", "same_as": "wall.disjointification", "detail": "CHARTED_sigma_essential.md#session-10"}
+  ],
+
+  "strategies": [
+    {"id": "strat.localization", "name": "Localization reduction", "status": "settled", "one_line": "Witness ⟺ (i) no Dirac extends s₀ ∧ (ii) no non-Dirac σ-state does; (i) freely arrangeable (Navara–Pták), so all weight on (ii) = Wall A. The one genuine reduction.", "detail": "sigma_essential_reduction_writeup.md#2; thm:localization"},
+    {"id": "strat.navara_ptak", "name": "Navara–Pták template (ℚ², B∩C∩D=∅)", "status": "dead", "examined": "2026-06-25", "one_line": "Defeats Diracs but N–P BUILD their own non-Dirac σ-state rescuer ⟹ not a witness; supplies clause (i) only. Carrier Boolean-enough (two compatible observables).", "detail": "../archive/sigma_construction_log_archive.md; survey ex:navara-ptak"},
+    {"id": "strat.bw_transfer", "name": "Blecher–Weaver Hilbert transfer", "status": "dead", "one_line": "Tried to import B–W (pure σ-state on B(ℓ²κ) ⟺ κ Ulam-measurable) to concrete sector. Fails: wrong carrier (Kochen–Specker, non-concrete), masa transfer fails (Akemann–Weaver), the consumed ultrafilter is structurally absent.", "same_as": "wall.disjointification", "detail": "sigma_essential_large_cardinal_bounds.md#3a; survey sec:boundary"},
+    {"id": "strat.lower_bound", "name": "Lower bound: Ψ ⟹ ∃ measurable", "status": "open", "one_line": "Plausible, NOT proven. Stalled at σ-class-vs-σ-algebra gap (Ulam's matrix needs a σ-algebra; carrier is only a σ-class). Sharpened: masa-free route from a 2-valued σ-state's quantum filter to a measurable?", "detail": "sigma_essential_large_cardinal_bounds.md#2"},
+    {"id": "strat.upper_bound", "name": "Upper bound: ∃X ⟹ Ψ", "status": "open", "one_line": "X unidentified, implication unestablished. Forcing CANNOT supply it (Lévy–Solovay, strength-preserving); a direct large-cardinal construction. 'Measurable suffices' was inherited from B–W and STRUCK.", "detail": "sigma_essential_large_cardinal_bounds.md#2"},
+    {"id": "strat.strategy_d", "name": "Strategy D / Clop(Y,𝔗)", "status": "killed", "killed": "2026-06-18", "one_line": "Clop(Y,𝔗) not σ-complete (gap family) is TRUE but clears no contribution bar — Gaifman 1964 inhabits the ZFC cell stronger. Private name, never field-open. RHYME with the descent residue, not transfer.", "detail": "../archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md"},
+    {"id": "strat.boolean_factoring", "name": "Boolean-factoring (Type-5 impossibility)", "status": "parked", "killed": "2026-06-23", "one_line": "Thesis 'σ-state strength always factors through a Boolean sub-object' FALSE for pure/2-valued (Akemann–Weaver: pure state on no masa). Tautology + evidence inverts.", "detail": "../covered_leads/boolean_factoring_sigma_essential_PARKED.md"},
+    {"id": "strat.forcing_programme", "name": "Forcing programme (prove Ψ independent)", "status": "parked", "one_line": "PARKED AS PREMATURE, not failed. Reduces upstream to Wall A, an open OBJECT-level math question; forcing settles independence of a sentence, can't force past unsolved math. No forcing-ready fixed carrier exists.", "detail": "forcing_programme_status.md"}
+  ],
+
+  "costumes_of_disjointification": [
+    {"id": "costume.pi_lambda", "name": "π–λ / state-agreement transfer to meets", "costume_of": "wall.disjointification", "one_line": "OMLs can't propagate state-agreement from joins to meets; the identity fails. The mechanism, stated directly.", "detail": "../archive/sigma_duality_targets_superseded.md#6"},
+    {"id": "costume.floor", "name": "Floor / faithful-σ-tribe", "costume_of": "wall.disjointification", "one_line": "Faithful Loomis–Sikorski tribe forces distributivity ⟹ Boolean. (Also wall.floor.)", "detail": "CHARTED_sigma_essential.md#the-pole"},
+    {"id": "costume.catuskoti", "name": "Catuṣkoṭi dissolution", "costume_of": "wall.disjointification", "killed": "2026-06-25", "one_line": "Tried to dissolve as metatheory-vs-object-logic confusion; FALSE — B–W IS forcing on a non-distributive OML.", "detail": "CHARTED_sigma_essential.md#L99"},
+    {"id": "costume.seven_route", "name": "7-route convergence", "costume_of": "wall.disjointification", "killed": "2026-06-25", "one_line": "STRUCK. Honest count = 1 reduction + 3 angles on the same clause-(ii) object + failed dissolutions. A bottleneck, not a convergence.", "detail": "sigma_essential_reduction_writeup.md#5"},
+    {"id": "costume.no_routing_port", "name": "No-routing-port THEOREM", "costume_of": "wall.disjointification", "killed": "2026-06-25", "one_line": "DEMOTED to a remark — no theorem-shaped meaning without a fixed reduction calculus. Content = 'clause (ii) is open' (literature-established).", "detail": "sigma_essential_reduction_writeup.md#5"},
+    {"id": "costume.h1", "name": "H¹ / cohomological obstruction", "costume_of": "wall.disjointification", "number": 5, "killed": "2026-06-25", "one_line": "5th costume. Re-derives Abramsky–Brandenburger σ-additive sheaf-contextuality (2022), a decade-old fact; generated at non-progress.", "detail": "sigma_essential_reduction_writeup.md#1a"},
+    {"id": "costume.countable_collapse", "name": "Countable-carrier collapse", "costume_of": "wall.disjointification", "number": 4, "killed": "2026-06-25", "one_line": "4th costume. ¬Ψ via 'countable ⟹ no rescuer' shows 'orthogonally-refinable ⟹ no rescuer' = the distributivity axis, NOT cardinality.", "detail": "sigma_essential_reduction_writeup.md#7"},
+    {"id": "costume.selection_first", "name": "Selection-first reframe", "costume_of": "wall.disjointification", "number": 6, "killed": "2026-06-25", "one_line": "6th costume. 'Build the selection first, check lattice-admissibility after' — coherence conditions ARE closure conditions (BandClosure.lean); selection dies the same collapse.", "detail": "CHARTED_sigma_essential.md#L146"},
+    {"id": "costume.embedding_transport", "name": "Embedding-transport of a measurable", "costume_of": "wall.disjointification", "number": 8, "status": "forbidden", "one_line": "8th costume, FLAGGED-AVOIDED (not made). 'Use the inner-model embedding j to transport a κ-complete ultrafilter onto orthogonal-only closure' — both walls bottom out at the same identity.", "detail": "sigma_essential_large_cardinal_bounds.md#3b"}
+  ],
+
+  "fenced_reversals": [
+    {"id": "fence.gdelta", "one_line": "'G_δ ⟹ no leak' as causal — conullity is per-block-null + countable, not topological.", "detail": "CHARTED_sigma_essential.md#fenced-reversals"},
+    {"id": "fence.measurable_iff", "one_line": "'RESOLVED ⟺ measurable cardinal' — fakes (non-σ free ultrafilters) ≠ Ulam/B–W σ-additive-off-atom states; on ℕ a clean ZFC contradiction.", "detail": "CHARTED_sigma_essential.md#fenced"},
+    {"id": "fence.strategy_d_same", "one_line": "'Strategy D = same object' — it's Boolean-distributive; OML leak needs non-distributivity. RHYME not transfer.", "detail": "../covered_leads/mixing_barycenter_transfer_rhyme.md"},
+    {"id": "fence.countable_omega", "one_line": "'ℕ-countable ⟹ Exit B / lines converge' — |Ω| countable ⇏ |L| countable (Müller).", "detail": "CHARTED_sigma_essential.md#fenced"},
+    {"id": "fence.add_null", "one_line": "'add(𝒩) ⟹ ZFC-independence' — not earned; add(𝒩) is a fixed-measure invariant.", "detail": "CHARTED_sigma_essential.md#fenced"},
+    {"id": "fence.tower_lp", "one_line": "'tower-LP feasible ⟹ Exit B' — circular; LP operates on S_df, never S_df^σ.", "detail": "CHARTED_sigma_essential.md#fenced"},
+    {"id": "fence.single_nonatomic", "one_line": "'single non-atomic block suffices' — a non-atomic block is Boolean ⟹ reducible + distributive.", "detail": "CHARTED_sigma_essential.md#fenced"},
+    {"id": "fence.band_reversals", "one_line": "Band-family reversals (#21 round-0-vs-σ-closure circularity; 'collapse finite-specific'; 'band dead ⟹ Exit B').", "detail": "CHARTED_sigma_essential.md#fenced-band"},
+    {"id": "fence.couldnt_build", "one_line": "'couldn't-build ⟹ needs-choice ⟹ independent' — have step 1, suspect 2, have NOT shown 3.", "killed": "2026-06-22", "detail": "../archive/MAP_sigma_essential_superseded.md#guardrails"},
+    {"id": "fence.boolean_factoring", "one_line": "'set-theoretic strength always factors through a Boolean/abelian sub-object' — FALSE for pure/2-valued (Akemann–Weaver).", "killed": "2026-06-23", "detail": "../covered_leads/boolean_factoring_sigma_essential_PARKED.md"}
+  ],
+
+  "settled_facts": [
+    {"id": "fact.sdf_compact", "one_line": "S_df (all 2-valued states) is weak-* compact (closed in {0,1}^L); a σ-additive μ on S_df always exists. Question = is μ supported on non-compact S_df^σ.", "detail": "survey lem:relational"},
+    {"id": "fact.offhull_finite", "one_line": "Off-hull is finitely witnessed (Hahn–Banach in ℝ^L). Deliverable = the restriction-gap, NOT non-Borel S_df^σ (a topological shadow).", "detail": "CHARTED_sigma_essential.md"},
+    {"id": "fact.countable_block", "one_line": "≤ℵ₀ atomic blocks ⟹ μ(fakes)=0 ⟹ no leak. A witness needs uncountably many INFINITE atomic blocks.", "detail": "CHARTED_sigma_essential.md"},
+    {"id": "fact.dichotomy", "one_line": "Incompatibility mechanisms fail oppositely: share-one-atom⟹finite blocks; share-{0,1}⟹trivial joins; share-nothing-infinite⟹finite blocks. Witness needs cross-block incompatible-not-orthogonal between INFINITE blocks.", "detail": "CHARTED_sigma_essential.md"},
+    {"id": "fact.bw", "one_line": "Blecher–Weaver: singular ctbly-add PURE state on B(ℓ²κ) ⟺ κ Ulam-measurable (arXiv:1607.08505). Cardinal extracted from the diagonal masa ℓ∞(κ); pure≠2-valued; does NOT transfer to concrete (Kochen–Specker, Akemann–Weaver).", "detail": "sigma_essential_large_cardinal_bounds.md#1; bw primary source"},
+    {"id": "fact.ulam", "one_line": "Ulam: a 2-valued σ-additive non-principal measure forces a measurable carrier. Matrix breaks at CONSTRUCTION on a σ-class (non-orthogonal unions), not at the contradiction.", "detail": "sigma_essential_large_cardinal_bounds.md#3b"}
+  ],
+
+  "open_frontier": [
+    {"id": "open.wall_A", "name": "σ-point-selection core", "one_line": "Does a finitely-coherent local 2-valued pattern extend to a global NON-Dirac σ-additive 2-valued state on a concrete non-Boolean σ-OML? No prior art on the concrete sector.", "detail": "sigma_essential_reduction_writeup.md#2"},
+    {"id": "open.bounds", "name": "Large-cardinal bounds", "one_line": "LB (Ψ⟹∃measurable, stalled at σ-class/σ-algebra gap) and UB (∃X⟹Ψ, X unidentified, not forceable). Equiconsistency with a measurable is the prize if both pin the same cardinal.", "detail": "sigma_essential_large_cardinal_bounds.md#2"},
+    {"id": "open.intrinsic_K", "name": "Intrinsic class 𝒦 (frontier object)", "one_line": "UNBUILT target carrier: generators ∈ 𝒦, closed under complement + countable disjoint union, forbidden finite intersections (S∩S′)×{0} ∉ 𝒦. Exists ⟺ witness exists. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional.", "detail": "CHARTED_sigma_essential.md#session-7-equivalence"}
+  ]
+}

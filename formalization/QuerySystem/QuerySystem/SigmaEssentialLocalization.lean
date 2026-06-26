@@ -147,4 +147,138 @@ theorem no_dirac_extends_iff_kernel_empty :
     rw [h] at this
     exact notMem_empty ω this
 
+/-! ### The Localization Theorem -/
+
+/-- `s₀` is a **σ-essential contextual state** if it extends to *no* global state
+(Dirac or non-Dirac). -/
+def IsSigmaEssential (s₀ : TwoValuedState d) (B : Block d) : Prop :=
+  ¬ ∃ s : TwoValuedState d, Extends s s₀ B
+
+/-- Clause **(ii)**: no *non-Dirac* state extends `s₀`. -/
+def NoNonDiracExtends (s₀ : TwoValuedState d) (B : Block d) : Prop :=
+  ¬ ∃ s : TwoValuedState d, ¬ s.IsDirac ∧ Extends s s₀ B
+
+include d in
+/-- **Localization Theorem.** `s₀` is σ-essential iff
+**(i)** `K(s₀) = ∅` (no Dirac extends) *and* **(ii)** no non-Dirac state extends.
+
+The content is the exhaustive Dirac/non-Dirac partition: "no global state extends"
+is equivalent to "no Dirac extends ∧ no non-Dirac extends", and the first conjunct
+is `K(s₀) = ∅` by `dirac-iff`. -/
+theorem localization :
+    IsSigmaEssential s₀ B ↔ (kernel s₀ B = ∅ ∧ NoNonDiracExtends s₀ B) := by
+  rw [IsSigmaEssential, NoNonDiracExtends, ← no_dirac_extends_iff_kernel_empty]
+  constructor
+  · -- no state extends ⟹ (no Dirac) ∧ (no non-Dirac)
+    intro h
+    refine ⟨?_, ?_⟩
+    · rintro ⟨ω, hω⟩; exact h ⟨dirac ω, hω⟩
+    · rintro ⟨s, _, hs⟩; exact h ⟨s, hs⟩
+  · -- (no Dirac) ∧ (no non-Dirac) ⟹ no state extends
+    rintro ⟨hDir, hNon⟩ ⟨s, hs⟩
+    by_cases hd : s.IsDirac
+    · obtain ⟨ω, rfl⟩ := hd
+      exact hDir ⟨ω, hs⟩
+    · exact hNon ⟨s, hd, hs⟩
+
+/-! ### The Boolean baseline (prop:boolean)
+
+On a Boolean σ-algebra there is no σ-essential contextual state. The proof shows the
+`s₀`-true sets have the finite intersection property — which holds *because* the
+carrier is intersection-closed and the state is finitely multiplicative there
+(exactly what Booleanness supplies; on a non-distributive OML both fail). With the
+true family finite, FIP gives `K(s₀) ≠ ∅`, so a Dirac extends and clause (i) fails.
+
+We isolate the two Boolean-supplied facts as hypotheses, making the distributivity
+dependence explicit (this is obstruction (a) of the paper). -/
+
+/-- `B` is **multiplicative for `s₀`**: the carrier is closed under the binary
+intersections of `s₀`-true members, and `s₀` is multiplicative there
+(`s₀(A∩A')=1` when both are true). Both hold on a Boolean σ-algebra; both fail on a
+non-distributive OML (lattice meet ≠ set intersection). -/
+def BooleanLocal (s₀ : TwoValuedState d) (B : Block d) : Prop :=
+  ∀ A A', A ∈ B.sets → A' ∈ B.sets → s₀.Val A → s₀.Val A' →
+    (A ∩ A') ∈ B.sets ∧ s₀.Val (A ∩ A')
+
+/-- **FIP core.** A finite family of `s₀`-true sets, closed under binary intersection
+with the intersection staying `s₀`-true, "folds" to a single `s₀`-true set contained
+in every member. (The Boolean multiplicative closure, applied finitely.)
+
+We do not assert the fold lies in `B` — the empty fold is `univ`, possibly outside
+`B` — but it is `s₀`-true and `⊆` every member, which is all the caller needs.
+The fold *of a nonempty family* does lie in `B`; we carry the `B`-membership only as
+an auxiliary so the inductive `s₀`-multiplicativity step has something to apply. -/
+theorem fold_meet (s₀ : TwoValuedState d) (B : Block d) (hBool : BooleanLocal s₀ B)
+    (s : Finset (Set Ω)) (hs : ∀ A ∈ s, A ∈ B.sets ∧ s₀.Val A) :
+    ∃ M, s₀.Val M ∧ (∀ A ∈ s, M ⊆ A) ∧ (s.Nonempty → M ∈ B.sets) := by
+  classical
+  induction s using Finset.induction with
+  | empty =>
+    exact ⟨univ, by simp [TwoValuedState.val_univ], by simp, by simp⟩
+  | @insert A t hA ih =>
+    obtain ⟨hAB, hA1⟩ := hs A (Finset.mem_insert_self A t)
+    obtain ⟨M, hM1, hMsub, hMB⟩ := ih (fun C hC => hs C (Finset.mem_insert_of_mem hC))
+    rcases t.eq_empty_or_nonempty with rfl | htne
+    · -- fold over {A}: just A
+      refine ⟨A, hA1, ?_, fun _ => hAB⟩
+      intro C hC
+      rcases Finset.mem_insert.1 hC with rfl | hCt
+      · exact subset_rfl
+      · exact absurd hCt (Finset.notMem_empty C)
+    · -- fold over insert A t (t nonempty): M ∈ B, apply multiplicativity to M ∩ A
+      obtain ⟨hInterB, hInter1⟩ := hBool M A (hMB htne) hAB hM1 hA1
+      refine ⟨M ∩ A, hInter1, ?_, fun _ => hInterB⟩
+      intro C hC
+      rcases Finset.mem_insert.1 hC with rfl | hCt
+      · exact inter_subset_right
+      · exact inter_subset_left.trans (hMsub C hCt)
+
+include d in
+/-- **Proposition (Boolean baseline).** If `B` is multiplicative for `s₀` (the
+Boolean case) then the `s₀`-true family has the finite intersection property, so
+`K(s₀) ≠ ∅`, so a Dirac extends `s₀` — `s₀` is **not** σ-essential. -/
+theorem boolean_not_sigma_essential (hBool : BooleanLocal s₀ B) :
+    ¬ IsSigmaEssential s₀ B := by
+  classical
+  -- the s₀-true subfamily of B
+  set T : Finset (Set Ω) := B.sets.filter (fun A => s₀.Val A) with hT
+  have hTmem : ∀ A ∈ T, A ∈ B.sets ∧ s₀.Val A := by
+    intro A hA; rw [hT, Finset.mem_filter] at hA; exact hA
+  -- fold the true family to a single s₀-true M ⊆ every true set
+  obtain ⟨M, hM1, hMsub, _⟩ := fold_meet s₀ B hBool T hTmem
+  -- M is s₀-true ⟹ M ≠ ∅ (since s₀ ∅ = False) ⟹ pick x ∈ M ⊆ K(s₀)
+  have hMne : M.Nonempty := by
+    rw [nonempty_iff_ne_empty]; rintro rfl; exact s₀.not_val_empty hM1
+  obtain ⟨x, hxM⟩ := hMne
+  have hxK : x ∈ kernel s₀ B := by
+    rw [kernel, mem_sInter]
+    rintro A ⟨hAB, hA1⟩
+    exact hMsub A (by rw [hT, Finset.mem_filter]; exact ⟨hAB, hA1⟩) hxM
+  intro hess
+  exact hess ⟨dirac x, (dirac_iff s₀ B x).mpr hxK⟩
+
+/-! ### Clause (i) is freely arrangeable (Navara–Pták)
+
+The Localization Theorem isolates that clause (i) `K(s₀) = ∅` carries no
+difficulty: it is *freely arrangeable*. The witness is the **Navara–Pták 1983**
+example — a concrete σ-class on `ℚ₀ × ℚ₀` with a local pattern whose true sets have
+empty intersection (`C_f ∩ C_g ∩ C_{f+g} = ∅`). This is a *cited published example*,
+not a result of ours, so we axiomatize its existence (per the programme's "don't
+formalize known results; `axiom` with citation" rule). Formalizing the ℚ²
+construction is possible but adds rigor where it is not needed.
+
+Reference: Navara & Pták, *Two-valued measures on σ-classes*, Čas. Pěst. Mat. 108
+(1983) 225–229. -/
+axiom navara_ptak_kernel_empty :
+    ∃ (Ω : Type) (d : DynkinSystem Ω) (s₀ : TwoValuedState d) (B : Block d),
+      kernel s₀ B = ∅
+
+/-- **Clause (i) is freely arrangeable** (immediate from the Navara–Pták axiom):
+there is a carrier and a local pattern with no Dirac extension. -/
+theorem kernel_empty_arrangeable :
+    ∃ (Ω : Type) (d : DynkinSystem Ω) (s₀ : TwoValuedState d) (B : Block d),
+      ¬ ∃ ω : Ω, Extends (dirac ω) s₀ B := by
+  obtain ⟨Ω, d, s₀, B, hK⟩ := navara_ptak_kernel_empty
+  exact ⟨Ω, d, s₀, B, (no_dirac_extends_iff_kernel_empty s₀ B).mpr hK⟩
+
 end SigmaEssential

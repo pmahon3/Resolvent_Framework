@@ -36,7 +36,8 @@
       "fenced_reversals": 10,
       "named_walls": 7,
       "open_targets": 3
-    }
+    },
+    "lean_certificates": "Entries with a `lean` field have a Lean certificate (file+name+status). Statuses: proved-edge (a proved logical relationship), open-prop (named open conjecture, not assumed), detector (the costume-detector obstruction), detector-rekill (a covered item re-killed by the detector), conjecture-survives-triage (passed the stress-test, gap=wall A), cited-axiom. Receipts via `#print axioms`."
   },
   "walls": [
     {
@@ -44,14 +45,24 @@
       "name": "Disjointification identity",
       "status": "open",
       "one_line": "(a∨b)∧a⊥=b∧a⊥ is distributive, FALSE on OMLs; blocks transfer of state-agreement from joins to meets. The recurring bottleneck.",
-      "detail": "sigma_essential_reduction_writeup.md#7"
+      "detail": "sigma_essential_reduction_writeup.md#7",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
+        "name": "IntersectionClosed / costume_kills_witness",
+        "status": "detector"
+      }
     },
     {
       "id": "wall.A",
       "name": "σ-point-selection (Wall A)",
       "status": "open",
       "one_line": "THE core. Does a finitely-coherent local 2-valued pattern extend to a global NON-Dirac σ-additive 2-valued state on a concrete non-Boolean σ-OML?",
-      "detail": "sigma_essential_reduction_writeup.md#2"
+      "detail": "sigma_essential_reduction_writeup.md#2",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
+        "name": "WallA / wallA_is_bottleneck",
+        "status": "proved-edge"
+      }
     },
     {
       "id": "wall.floor",
@@ -176,7 +187,12 @@
       "killed": "2026-06-18",
       "one_line": "Sharp dichotomy: ∪-closed ⟹ Boolean / not-∪-closed ⟹ not-a-lattice. NO band index gives a concrete σ-complete non-Boolean lattice. Lean-certified (BandClosure.lean, 0-sorry).",
       "same_as": "wall.disjointification",
-      "detail": "../archive/sigma_construction_log_archive.md"
+      "detail": "../archive/sigma_construction_log_archive.md",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
+        "name": "band_family_dead",
+        "status": "detector-rekill"
+      }
     },
     {
       "id": "carrier.ce_charge_limit",
@@ -321,7 +337,12 @@
       "number": 6,
       "killed": "2026-06-25",
       "one_line": "6th costume. 'Build the selection first, check lattice-admissibility after' — coherence conditions ARE closure conditions (BandClosure.lean); selection dies the same collapse.",
-      "detail": "../archive/sigma_construction_log_archive.md"
+      "detail": "../archive/sigma_construction_log_archive.md",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
+        "name": "selection_first_dead",
+        "status": "detector-rekill"
+      }
     },
     {
       "id": "costume.embedding_transport",
@@ -330,7 +351,12 @@
       "number": 8,
       "status": "forbidden",
       "one_line": "8th costume, FLAGGED-AVOIDED (not made). 'Use the inner-model embedding j to transport a κ-complete ultrafilter onto orthogonal-only closure' — both walls bottom out at the same identity.",
-      "detail": "sigma_essential_large_cardinal_bounds.md#3b"
+      "detail": "sigma_essential_large_cardinal_bounds.md#3b",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
+        "name": "embedding_transport_dead",
+        "status": "detector-rekill"
+      }
     }
   ],
   "fenced_reversals": [
@@ -424,19 +450,34 @@
       "id": "open.wall_A",
       "name": "σ-point-selection core",
       "one_line": "Does a finitely-coherent local 2-valued pattern extend to a global NON-Dirac σ-additive 2-valued state on a concrete non-Boolean σ-OML? No prior art on the concrete sector.",
-      "detail": "sigma_essential_reduction_writeup.md#2"
+      "detail": "sigma_essential_reduction_writeup.md#2",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
+        "name": "WallA",
+        "status": "open-prop"
+      }
     },
     {
       "id": "open.bounds",
       "name": "Large-cardinal bounds",
       "one_line": "LB (Ψ⟹∃measurable, stalled at σ-class/σ-algebra gap) and UB (∃X⟹Ψ, X unidentified, not forceable). Equiconsistency with a measurable is the prize if both pin the same cardinal.",
-      "detail": "sigma_essential_large_cardinal_bounds.md#2"
+      "detail": "sigma_essential_large_cardinal_bounds.md#2",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
+        "name": "LowerBound / UpperBound / prize_equiconsistency",
+        "status": "open-prop"
+      }
     },
     {
       "id": "open.intrinsic_K",
       "name": "Intrinsic class 𝒦 (frontier object)",
       "one_line": "UNBUILT target carrier: generators ∈ 𝒦, closed under complement + countable disjoint union, forbidden finite intersections (S∩S′)×{0} ∉ 𝒦. Exists ⟺ witness exists. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional. SHARPENED 2026-06-26 (hybrid analysis, large_cardinal_bounds §3d): the obstruction is irreducibly NON-CENTRAL — neither central (segregated/excluded) nor absent (Gleason/no-obstruction); the strength axis factors out, leaving this as the sole target. See ce.concept.oml_center (the assessed-and-failed center pairing).",
-      "detail": "../archive/sigma_construction_log_archive.md"
+      "detail": "../archive/sigma_construction_log_archive.md",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
+        "name": "IntrinsicK / intrinsicK_suffices / intrinsicK_gap_is_wallA",
+        "status": "conjecture-survives-triage"
+      }
     }
   ]
 }

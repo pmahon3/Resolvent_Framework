@@ -109,6 +109,27 @@ missing = [f for f in files if not os.path.exists(f)]  # run from taxonomy's dir
 assert not missing, missing
 ```
 
+## Optional `lean` field — formal certificates
+
+An entry that has a Lean counterpart carries an optional `lean` object:
+
+```json
+"lean": {"file": "formalization/.../X.lean", "name": "thm_or_def_name", "status": "proved-edge"}
+```
+
+`status` values (the certificate's honesty level — readable off `#print axioms`):
+- `proved-edge` — a proved logical relationship (depends on only standard Lean axioms)
+- `open-prop` — a named open conjecture, declared as a `Prop`, **never assumed**
+- `detector` — the costume-detector obstruction (`IntersectionClosed`/`costume_kills_witness`)
+- `detector-rekill` — a covered (dead) item the detector formally re-kills
+- `conjecture-survives-triage` — a candidate stress-tested: ingredients suffice, gap isolated
+- `cited-axiom` — an external known result, `axiom` with citation
+
+The point is triangulation: a hand-claim with a `lean` field is machine-checked to the
+status shown; `proved-edge` holds regardless of whether the open Props are true. The
+three σ-essential Lean files (`SigmaEssentialLocalization`/`OpenCore`/`Conjectures`)
+are the worked instance. Adding a certificate is additive — no other field changes.
+
 ## What does NOT get a taxonomy
 
 Programme-meta that isn't a problem-collection: the authoritative state doc

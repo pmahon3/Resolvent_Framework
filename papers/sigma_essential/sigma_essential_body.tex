@@ -1,0 +1,384 @@
+\section{Introduction}
+
+Let $\Omega$ be a set and let $\Lo \subseteq \PO(\Omega)$ be a collection of
+subsets containing $\varnothing$ and $\Omega$, closed under complementation
+$A \mapsto A\orth := \Omega \setminus A$, and closed under \emph{orthogonal}
+(pairwise-disjoint) countable unions: if $\{A_n\} \subseteq \Lo$ are pairwise
+disjoint then $\bigcup_n A_n \in \Lo$. Ordered by inclusion, such an $\Lo$ is a
+\emph{concrete $\sigma$-complete orthomodular lattice} (concrete $\sigma$-OML), in
+the sense of Gudder's concrete quantum logics~\cite{Gudder1969,
+PtakPulmannova1991}; it is exactly a \emph{$\sigma$-class} in the terminology of
+Navara and Pt\'ak~\cite{NavaraPtak1983}. Such structures model the event
+algebras of physical systems whose measurement contexts are mutually
+incompatible: the maximal Boolean subalgebras (``blocks'') overlap, but their
+union need not be Boolean.
+
+A \emph{two-valued state} on $\Lo$ is a map $s\colon \Lo \to \{0,1\}$ with
+$s(\Omega) = 1$ that is finitely additive on orthogonal pairs
+($s(A) + s(A\orth) = 1$). It is \emph{$\sigma$-additive} if, for every pairwise
+disjoint $\{A_n\} \subseteq \Lo$, one has $s\!\left(\bigcup_n A_n\right) =
+\sum_n s(A_n)$. For each point $\omega \in \Omega$ the \emph{point evaluation}
+$\delta_\omega(A) := \mathbbm{1}[\omega \in A]$ is a $\sigma$-additive two-valued
+state; we call these \emph{Dirac} states and all others \emph{non-Dirac}.
+
+The objects of interest are local patterns that cannot be globalised. Fix a
+\emph{finite, $\perp$-closed sub-orthoposet} $B \subseteq \Lo$ (a finite
+subfamily closed under complementation) and a two-valued state $s_0$ on $B$. We
+say $s_0$ \emph{extends} to a global state $s$ on $\Lo$ if $s\restr B = s_0$.
+
+\begin{definition}[$\sigma$-essential contextual state]\label{def:sigma-essential}
+A \emph{$\sigma$-essential contextual state} on $\Lo$ is a two-valued state $s_0$
+on a finite $\perp$-closed sub-orthoposet $B \subseteq \Lo$ that extends to
+\emph{no} global $\sigma$-additive two-valued state on $\Lo$. A concrete
+$\sigma$-OML $\Lo$ \emph{carries a $\sigma$-essential contextual state} (is a
+\emph{witness}) if such an $s_0$ exists. We require $\Lo$ to be non-Boolean and
+\emph{irreducible} (centre $\{\varnothing, \Omega\}$); see
+Remark~\ref{rem:offcenter}.
+\end{definition}
+
+The motivating phenomenon is a failure of compactness at the $\sigma$-level. By a
+theorem of Wright~\cite{Wright1978}, every two-valued state on a \emph{finite}
+OML is itself realised by finitely additive data, so no obstruction can be
+witnessed finitely; the question is whether a coherent \emph{finite} pattern can
+fail to globalise once countable additivity is imposed. On a Boolean algebra the
+answer is no, for two independent reasons recalled in \S\ref{sec:boolean}. The
+present paper isolates exactly what would have to differ in the non-distributive
+case, reduces the question to its irreducible core, and locates that core against
+the literature.
+
+\paragraph{Results.}
+\S\ref{sec:boolean} records the Boolean baseline. \S\ref{sec:localization}
+proves the \emph{Localization Theorem} (Theorem~\ref{thm:localization}): a witness
+exists iff (i) no Dirac extends $s_0$ and (ii) no non-Dirac $\sigma$-additive
+two-valued state does, and clause (i) is freely arrangeable, so the entire
+difficulty localises to clause (ii). \S\ref{sec:bare} strips clause (ii) to a
+bare set-theoretic existence statement (a coherent $\sigma$-additive selection
+across overlapping countable partitions). \S\ref{sec:boundary} assembles the
+boundary map: the question is empty in the Polish-representable case, does not
+reduce to the Hilbert-space dichotomy of Blecher--Weaver, and does not reduce to a
+measurable cardinal as its Boolean shadow would. \S\ref{sec:open} states the open
+problem.
+
+\begin{remark}[Irreducibility is not vacuous]\label{rem:offcenter}
+The irreducibility requirement in Definition~\ref{def:sigma-essential} is
+compatible with concreteness and is genuinely restrictive rather than
+contradictory. The horizontal sum $MO_\kappa$ (the OML with $\kappa$ orthogonal
+atom-pairs, $0$, and $1$) is concrete, non-Boolean, and has centre
+$\{\varnothing,\Omega\}$ for $\kappa \geq 2$~\cite{Kalmbach1983}; for
+$\kappa = \omega$ it is $\sigma$-complete. So the carrier class of
+Definition~\ref{def:sigma-essential} is inhabited. Concreteness does \emph{not}
+force a non-trivial centre: by the Zierler--Schlessinger/Gudder criterion a
+concrete OML is precisely one with an order-determining family of two-valued
+states~\cite{Gudder1969,Harding2004}, a state-separation condition unrelated to
+reducibility. We exclude $MO_\kappa$ and other \emph{segregated} carriers as
+witnesses for an independent reason (Remark~\ref{rem:segregated}).
+\end{remark}
+
+
+\section{The Boolean baseline}\label{sec:boolean}
+
+When $\Lo$ is a Boolean $\sigma$-algebra of subsets of $\Omega$,
+Definition~\ref{def:sigma-essential} is never satisfied, for two reasons that we
+isolate because the non-distributive case must defeat both.
+
+\begin{proposition}[No witness in the Boolean case]\label{prop:boolean}
+Let $\Lo \subseteq \PO(\Omega)$ be a Boolean $\sigma$-algebra and $B \subseteq
+\Lo$ a finite $\perp$-closed sub-orthoposet with a two-valued state $s_0$. Then
+$s_0$ extends to a global $\sigma$-additive two-valued state on $\Lo$.
+\end{proposition}
+
+\begin{proof}
+Since $B$ is finite, the family $\{A \in B : s_0(A) = 1\}$ is finite; because
+$s_0$ is a state on $B$ and $B$ is $\perp$-closed, this family has the finite
+intersection property and its intersection $K := \bigcap\{A \in B : s_0(A)=1\}$
+lies in the Boolean algebra. If $K \neq \varnothing$, any $\omega \in K$ gives
+$\delta_\omega \restr B = s_0$ (see Lemma~\ref{lem:dirac-iff} below), and
+$\delta_\omega$ is $\sigma$-additive. If $K = \varnothing$, then $B$ exhibits a
+finite cover by complements and the assumption that $s_0$ is a coherent state
+forces an atom of the finite Boolean subalgebra generated by $B$ on which $s_0$
+concentrates; extend by the corresponding point or, in the atomless case, by the
+fact that a two-valued $\sigma$-additive measure on a Boolean $\sigma$-algebra
+exists on the generated $\sigma$-subalgebra and, absent a measurable cardinal, is
+a point mass~\cite{Sikorski1964,Jech2003}. Either way $s_0$ globalises.
+\end{proof}
+
+The two reasons are visible in the proof: (a) the local pattern is determined by
+\emph{finitely many compatible} events, which on a Boolean algebra always admit a
+common point or atom; and (b) the only global $\sigma$-additive two-valued states
+on a Boolean $\sigma$-algebra are, away from a measurable cardinal, Dirac. A
+non-distributive witness must break (a) --- the events of $B$ live in
+\emph{incompatible} blocks with no common point --- while \emph{also} ensuring
+(b) cannot be repaired by a non-Dirac global state. The tension between these is
+the subject of the paper.
+
+
+\section{The Localization Theorem}\label{sec:localization}
+
+We first record the elementary characterisation of when a Dirac extends $s_0$.
+
+\begin{lemma}\label{lem:dirac-iff}
+Let $B \subseteq \Lo$ be a finite $\perp$-closed sub-orthoposet with two-valued
+state $s_0$. A point evaluation $\delta_\omega$ satisfies $\delta_\omega\restr B
+= s_0$ iff $\omega \in K(s_0) := \bigcap\{A \in B : s_0(A) = 1\}$. Consequently no
+Dirac extends $s_0$ iff $K(s_0) = \varnothing$.
+\end{lemma}
+
+\begin{proof}
+$\delta_\omega\restr B = s_0$ means $\omega \in A \iff s_0(A)=1$ for every
+$A \in B$. The forward constraints place $\omega \in \bigcap\{A : s_0(A)=1\}$. For
+a false $A$ (i.e.\ $s_0(A)=0$), $\perp$-closure gives $A\orth \in B$, and
+additivity gives $s_0(A\orth) = 1 - s_0(A) = 1$; so $A\orth$ is one of the true
+elements and the constraint $\omega \notin A$ is already $\omega \in A\orth$,
+subsumed in $K(s_0)$. Thus the false constraints add nothing, and
+$\delta_\omega \restr B = s_0 \iff \omega \in K(s_0)$. Conversely any
+$\omega \in K(s_0)$ works: true $A$ give $\omega\in A$, false $A$ give
+$\omega \in A\orth$ hence $\omega\notin A$.
+\end{proof}
+
+\begin{theorem}[Localization]\label{thm:localization}
+Let $\Lo$ be a concrete $\sigma$-OML, $B \subseteq \Lo$ a finite $\perp$-closed
+sub-orthoposet, and $s_0$ a two-valued state on $B$. Then $s_0$ is a
+$\sigma$-essential contextual state iff
+\begin{enumerate}[label=\textup{(\roman*)}]
+  \item $K(s_0) = \varnothing$ \textup{(}no point evaluation extends
+    $s_0$\textup{)}, and
+  \item no \emph{non-Dirac} $\sigma$-additive two-valued state on $\Lo$ extends
+    $s_0$.
+\end{enumerate}
+Moreover clause \textup{(i)} is freely arrangeable: there is a concrete
+$\sigma$-OML and an $s_0$ with $K(s_0)=\varnothing$.
+\end{theorem}
+
+\begin{proof}
+Every global $\sigma$-additive two-valued state on $\Lo$ is either a Dirac
+$\delta_\omega$ or non-Dirac, and this dichotomy is exhaustive. Hence ``no global
+$\sigma$-additive two-valued state extends $s_0$'' is equivalent to the
+conjunction ``no Dirac extends $s_0$'' and ``no non-Dirac extends $s_0$.'' By
+Lemma~\ref{lem:dirac-iff} the first conjunct is (i); the second is (ii). For
+arrangeability of (i), the Navara--Pt\'ak construction
+(Example~\ref{ex:navara-ptak}) realises $K(s_0)=\varnothing$ explicitly.
+\end{proof}
+
+\begin{remark}[What Theorem~\ref{thm:localization} is, and is not]\label{rem:localization-scope}
+Theorem~\ref{thm:localization} is a decomposition, not a reduction to a separate,
+harder named problem. Because the Dirac/non-Dirac split is exhaustive, the
+equivalence ``$s_0$ extends to no $\sigma$-additive two-valued state iff (i) and
+(ii)'' merely unfolds the definition of witness. Its content is the second clause
+of the statement: clause (i) --- the obstruction visible to point evaluations ---
+is \emph{freely arrangeable}, so the entire mathematical and set-theoretic weight
+of Definition~\ref{def:sigma-essential} sits in clause (ii). We therefore call
+clause (ii) the \emph{$\sigma$-point-selection core} and devote the remainder of
+the paper to it.
+\end{remark}
+
+The role of the Navara--Pt\'ak construction is twofold, and it is worth being
+precise, because the same example both supplies clause (i) and shows clause (ii)
+is the binding one.
+
+\begin{example}[Navara--Pt\'ak~\cite{NavaraPtak1983}]\label{ex:navara-ptak}
+Let $\Omega = \bbQ_0 \times \bbQ_0$ with $\bbQ_0 = \bbQ \cap (0,1)$, and let
+$f,g\colon \Omega \to \bbR$ be the coordinate projections. Let $\Lo =
+\Lo_{f,g}$ be the least $\sigma$-class containing the inverse images of Borel
+sets under $f$ and $g$. Set $C_f = f^{-1}(\{1/3\})$, $C_g = g^{-1}(\{1/2\})$,
+$C_{f+g} = (f+g)^{-1}(\{1/2\})$. Define $m(A) = 1$ iff $A$ contains one of
+$C_f, C_g, C_{f+g}$. Navara and Pt\'ak show $m$ is a (two-valued, $\sigma$-additive)
+state on $\Lo$, and that since $C_f \cap C_g \cap C_{f+g} = \varnothing$ the state
+$m$ is \emph{not} concentrated at any point.
+\end{example}
+
+\begin{remark}[The example is not itself a witness]\label{rem:np-builds-rescuer}
+In the notation of Theorem~\ref{thm:localization}, take $B$ to be the
+$\perp$-closure of $\{C_f, C_g, C_{f+g}\}$ and $s_0$ the pattern sending each to
+$1$. Because $C_f \cap C_g \cap C_{f+g} = \varnothing$, no point evaluation
+extends $s_0$: clause (i) holds. But Navara and Pt\'ak's $m$ is a non-Dirac
+$\sigma$-additive two-valued state with $m\restr B = s_0$; clause (ii)
+\emph{fails}, so $s_0$ is not $\sigma$-essential. The construction \emph{builds
+the rescuer}. This is exactly why clause (i) alone never suffices and the whole
+question is clause (ii): one must produce a carrier on which the point-level
+obstruction \emph{cannot} be repaired by any non-Dirac state. Their carrier
+$\Lo_{f,g}$, being generated by two compatible (commuting) observables, is
+Boolean enough to admit the repair.
+\end{remark}
+
+
+\section{The bare statement}\label{sec:bare}
+
+We now remove all lattice scaffolding from the $\sigma$-point-selection core and
+state it as a self-contained set-theoretic existence problem. A two-valued state
+on $\Lo$ selects, within each block (maximal compatible context, a countable
+partition of $\Omega$ into elements of $\Lo$), exactly one ``true'' cell; the
+selections across overlapping blocks must agree on shared events; $\sigma$-additivity
+constrains the selection over countable joins; non-Dirac means the selection is
+realised by no single point.
+
+\begin{question}[$\sigma$-point-selection, bare form]\label{q:bare}
+Given a set $\Omega$ and a family $\{\Pi_\alpha\}$ of countable partitions of
+$\Omega$ (the blocks of a concrete $\sigma$-OML, pairwise overlapping in their
+common refinements), does there exist a selection assigning to each $\Pi_\alpha$
+one cell $c_\alpha \in \Pi_\alpha$ such that
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item \textup{(coherence)} the selections agree on events common to several
+    blocks;
+  \item \textup{($\sigma$-additivity)} the induced $\{0,1\}$-valuation commutes
+    with countable disjoint unions;
+  \item \textup{(non-principality)} there is no $\omega_0 \in \Omega$ with
+    $c_\alpha = $ the cell of $\Pi_\alpha$ containing $\omega_0$ for all $\alpha$;
+  \item \textup{(prescription)} the selection realises a prescribed finite
+    pattern that no single point realises?
+\end{enumerate}
+\end{question}
+
+This is the object the Localization Theorem isolates: a witness for
+Definition~\ref{def:sigma-essential} exists iff Question~\ref{q:bare} has a
+positive answer for some admissible carrier. The bare form makes two features
+legible that the lattice language obscures.
+
+\begin{remark}[Why this is not simply a measurable cardinal]\label{rem:not-measurable}
+If the blocks $\{\Pi_\alpha\}$ were \emph{compatible} --- a single Boolean base ---
+a coherent non-principal $\sigma$-additive $\{0,1\}$-selection would be exactly a
+non-principal countably-complete ultrafilter, hence a measurable cardinal
+\cite{Jech2003}. The defining feature of Question~\ref{q:bare} is that the blocks
+are \emph{incompatible}: the coherence condition (a) is imposed across
+\emph{overlapping, mutually non-distributive} contexts, and is strictly stronger
+than an ultrafilter condition on any single block. Consequently
+Question~\ref{q:bare} does not reduce to the existence of a measurable cardinal;
+its Boolean shadow does, but the non-distributive coherence requirement is
+precisely what the reduction cannot cross. We make this non-reduction precise
+against the operator-algebra literature in \S\ref{sec:boundary}.
+\end{remark}
+
+\begin{remark}[Relation to sheaf-theoretic contextuality]\label{rem:sheaf}
+Question~\ref{q:bare} is the assertion that a system of locally coherent
+$\{0,1\}$-valuations admits no \emph{global section} of the corresponding
+presheaf --- the sheaf-theoretic signature of contextuality in the sense of
+Abramsky and Brandenburger~\cite{AbramskyBrandenburger2011}, in its
+$\sigma$-additive form~\cite{AbramskyBarbosaEtAl2022}. The novelty here is not the
+sheaf framing, which is standard, but the conjunction of three features that the
+existing contextuality literature does not treat together: countable additivity,
+a non-Hilbert (abstractly concrete) carrier, and a $\{0,1\}$-valued
+(non-probabilistic) selection. It is exactly this conjunction that is open.
+\end{remark}
+
+
+\section{The boundary map}\label{sec:boundary}
+
+We locate Question~\ref{q:bare} by recording where its answer is known and where
+the obvious bridges fail.
+
+\paragraph{The Polish boundary: empty above it.}
+Derr and Williamson~\cite{DerrWilliamson2023} prove a $\sigma$-extension
+criterion for coherent probabilities on pre-Dynkin systems: when the carrier is
+\emph{Polish-representable} --- $\Omega$ Polish, the generated $\sigma$-class
+equal to the Borel $\sigma$-algebra, with inner-regular blocks --- finite
+coherence implies $\sigma$-extendability (their Theorem~D.6, via
+Maharam~\cite{Maharam1972}). Specialised to two-valued states, this says that on a
+Polish-representable carrier every finitely coherent $s_0$ globalises: \emph{no
+$\sigma$-essential contextual state exists}. Hence a witness, if one exists, must
+live on a carrier that is \emph{not} Polish-representable. This is the upper
+boundary of the problem.
+
+\paragraph{The Hilbert boundary: the analogue exists, but does not transfer.}
+Blecher and Weaver~\cite{BlecherWeaver2017} prove that a singular countably
+additive \emph{pure} state on the projection lattice of $B(\ell^2(\kappa))$
+exists iff $\kappa$ is Ulam measurable --- a genuine large-cardinal-sensitive
+state-existence dichotomy on a non-distributive $\sigma$-complete OML. This is the
+nearest positive precedent: it shows that countable additivity of states on
+non-distributive structures \emph{can} be set-theoretically sensitive. But it does
+not settle Question~\ref{q:bare}, for two reasons, neither of which is a reduction
+we can complete and both of which point the same way.
+
+First, the carrier is of the wrong kind. The projection lattice of $B(H)$ for
+$\dim H \geq 3$ admits \emph{no} two-valued state at all
+(Kochen--Specker~\cite{KochenSpecker1967}), so it is not concrete: it is not a
+sub-orthoposet of any powerset. A concrete $\sigma$-OML, by definition, has an
+order-determining family of two-valued states. The Blecher--Weaver object and ours
+are therefore not the same kind of structure, and their dichotomy concerns
+\emph{pure} states (the relevant notion on $B(H)$), not two-valued ones, which are
+generically absent there by Gleason's theorem~\cite{Gleason1957}.
+
+Second, the obvious transfer mechanism fails. The natural way to carry a
+state-existence result between a non-commutative algebra and an abelian (Boolean)
+subalgebra is to factor through a maximal abelian subalgebra. For the
+\emph{pure}, two-valued case this factorisation does not hold: Akemann and
+Weaver~\cite{AkemannWeaver2008} exhibit a pure state on $B(H)$ multiplicative on no
+masa, and Blecher--Weaver themselves rely on Marcus--Spielman--Srivastava paving
+precisely because the pure state does not reduce to a masa. So one cannot obtain a
+positive answer to Question~\ref{q:bare} by importing Blecher--Weaver through a
+Boolean subobject.
+
+\begin{remark}\label{rem:no-bridge}
+Remarks~\ref{rem:not-measurable} and the two paragraphs above are deliberately
+stated at the strength of \emph{cited facts assembled}, not of a non-reducibility
+theorem. We do not claim a formal separation in any fixed reduction calculus; we
+claim, and the cited results establish, that the two obvious bridges --- ``it is a
+measurable cardinal'' and ``it transfers from Blecher--Weaver through a masa'' ---
+do not close Question~\ref{q:bare}, and that the obstruction in both cases is the
+same non-distributivity. This is what leaves the question open rather than a
+corollary of known work.
+\end{remark}
+
+\paragraph{Below: faithful representation forces distributivity.}
+One might hope to route Question~\ref{q:bare} through a faithful $\sigma$-tribe
+representation --- embedding $\Lo$ into a $\sigma$-algebra of honest sets so that
+two-valued states become point evaluations. This is unavailable: a faithful
+tribe-of-sets representation forces distributivity, hence Booleanness (the
+``Floor''; cf.~\cite{PtakPulmannova1991}). The $\sigma$-Loomis--Sikorski theorem
+holds for structures with the Riesz Decomposition Property --- $\sigma$-complete
+MV-algebras and RDP effect algebras~\cite{Dvurecenskij2000} --- but OMLs lack RDP
+($MO_2$ is the standard witness), and the available representation is only a
+$\sigma$-epimorphic image that does not separate two-valued points. So the
+realization route that would trivialise Question~\ref{q:bare} is blocked, for the
+same non-distributive reason.
+
+\begin{remark}[Segregated carriers do not witness]\label{rem:segregated}
+A carrier is \emph{segregated} when its contextuality is carried by a central
+Boolean factor --- e.g.\ $MO_\omega$ or the product $\prod_n MO_2$, whose
+$\sigma$-additive two-valued states all concentrate at points. On such carriers
+every finitely coherent $s_0$ is the restriction of a Dirac, so clause (ii) of
+Theorem~\ref{thm:localization} fails and there is no witness. A witness must be
+\emph{non-segregated}: the incompatibility must be irreducible, not routed through
+a central partition. This is why Definition~\ref{def:sigma-essential} requires
+irreducibility, and it sharpens the search for a carrier to the non-segregated,
+non-Boolean, non-Polish-representable regime.
+\end{remark}
+
+
+\section{The open problem}\label{sec:open}
+
+Assembling \S\ref{sec:localization}--\S\ref{sec:boundary}: the existence of a
+$\sigma$-essential contextual state is equivalent to a positive answer to
+Question~\ref{q:bare}, on a carrier that is concrete, $\sigma$-complete,
+non-Boolean, irreducible, non-segregated, and non-Polish-representable. The answer
+is not settled in either direction. It is not a corollary of the Blecher--Weaver
+dichotomy (the carrier is the wrong kind and the masa bridge fails), it does not
+reduce to a measurable cardinal (the non-distributive coherence condition is
+strictly stronger than its Boolean shadow), and it is not trivialised by a
+faithful representation (which would force distributivity).
+
+\begin{question}[Main]\label{q:main}
+Does there exist, in ZFC or under a large-cardinal hypothesis, a concrete
+$\sigma$-complete non-Boolean irreducible OML carrying a $\sigma$-essential
+contextual state? Equivalently, is the existence of a non-principal coherent
+$\sigma$-additive $\{0,1\}$-selection across overlapping countable partitions
+(Question~\ref{q:bare}, non-segregated case) provable, refutable, or independent?
+\end{question}
+
+We record what a resolution would require. A positive ZFC answer would be a
+concrete construction crossing the non-Polish, non-segregated regime --- which the
+present obstructions (Remarks~\ref{rem:not-measurable},~\ref{rem:no-bridge}) show
+cannot be assembled from countably many compatible pieces, so it must be globally
+non-compositional. A negative answer would extend the Polish-representable
+emptiness of Derr--Williamson past its topological hypotheses to all concrete
+$\sigma$-OMLs, against the Blecher--Weaver evidence that the analogous Hilbert cell
+is inhabited under a large cardinal. An independence result would supply a model
+in which the selection exists and one in which it does not; the precedents for
+such results in the set theory of measure-theoretic structures (the von
+Neumann--Maharam problem~\cite{BalcarJechPazak2005}, real-valued measurable
+cardinals~\cite{Fremlin}) are all real-valued and strictly positive, leaving the
+two-valued, non-distributive case --- Question~\ref{q:main} --- as the open edge.
+
+\paragraph{Acknowledgements.}
+The author thanks the anonymous referees (forthcoming) and acknowledges the use of
+large language model assistance (Anthropic Claude, OpenAI ChatGPT) for literature
+search, verification of cited statements against primary sources, and exposition;
+all mathematical claims were independently verified by the author.

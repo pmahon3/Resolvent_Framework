@@ -1,0 +1,79 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{bbm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbQ}{\mathbb{Q}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\PO}{\mathcal{P}}
+\newcommand{\Lo}{\mathcal{L}}
+\newcommand{\orth}{{}^{\perp}}
+\newcommand{\restr}{\!\restriction\!}
+
+% ---------- Standalone flag ----------
+\newif\ifstandalone
+\standalonetrue
+
+% ---------- Title ----------
+\title{A $\sigma$-Essential Contextual State:\\
+Localizing an Open Problem on Concrete Orthomodular Lattices}
+\author{Patrick S.\ Mahon\thanks{%
+  Research Computing Group, Simon Fraser University, Burnaby, BC, Canada.
+  \texttt{pmahon@sfu.ca}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A two-valued state on a concrete orthomodular lattice (OML) of subsets of a set
+$\Omega$ assigns a definite truth value to each measurable event, coherently
+across overlapping measurement contexts. On a Boolean algebra every finitely
+coherent local pattern of such assignments extends to a global $\sigma$-additive
+two-valued state, and (away from a measurable cardinal) every global one is a
+point evaluation. We ask whether the non-distributive case can differ: does there
+exist a concrete $\sigma$-complete non-Boolean OML carrying a finitely coherent
+local pattern that extends to \emph{no} global $\sigma$-additive two-valued state
+--- a \emph{$\sigma$-essential contextual state}? We show this question
+\emph{localizes}: a witness exists iff (i) no point evaluation extends the pattern
+and (ii) no non-principal $\sigma$-additive two-valued state does either, and that
+clause (i) is freely arrangeable (after Navara--Pt\'ak), so the entire content
+sits in clause (ii). We then strip clause (ii) of all lattice scaffolding to a
+bare set-theoretic existence statement --- a non-principal, $\sigma$-additive,
+coherent selection across a system of overlapping countable partitions --- and
+locate it precisely against the surrounding literature: it is empty in the
+Polish-representable case (Derr--Williamson), it does \emph{not} reduce to the
+Hilbert-space pure-state dichotomy of Blecher--Weaver (Kochen--Specker;
+Akemann--Weaver), and it does not reduce to a measurable cardinal in the way its
+Boolean shadow would. The result is a sharply posed, currently open problem at the
+interface of quantum logic and the set theory of measure-theoretic structures,
+together with a map of where its answer must live.
+\end{abstract}
+
+\ifstandalone
+\input{sigma_essential_body}
+\bibliographystyle{plain}
+\bibliography{references}
+\fi
+
+\end{document}

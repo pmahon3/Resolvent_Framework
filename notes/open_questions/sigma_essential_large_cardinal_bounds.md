@@ -367,3 +367,27 @@ measurability enter the construction?" DISSOLVES: it had no answer because measu
 never established as required. Con-side reframes to: the strength is unknown, so the
 construction target's required hypothesis is itself open. ⚠ ADVISOR-CONFIRM when available
 (this is a "X is false" claim inverting a banked result — stronger than "unproven").
+
+## 3g. THE LOCATED FRONTIER — non-Polish, no entering tool (2026-06-26)
+
+Synthesis after the construction attack + LB-refutation. Every tool stops at the Polish
+boundary:
+- Boolean carriers → FIP → clause (i) fails (prop:boolean). Closed.
+- Polish-representable → DW D.6, no witness. Closed.
+- Forcing → strength-preserving (Lévy–Solovay). Wrong engine.
+- U-as-state → rescuer (polarity gate). Dead.
+- U-as-carrier → contributes only κ's SIZE, not strength (Ch.23/Easton). No lever.
+
+By elimination, a witness MUST live in the **non-Polish-representable** regime
+(= non-standard-Borel) — confirmed from two independent directions (DW boundary +
+construction attack). But that is exactly the regime that resists explicit
+hand-construction, AND forcing (the usual non-constructive tool there) is barred, AND
+the strength that would justify a large-cardinal construction is now UNKNOWN (§3f).
+
+**∴ The frontier is LOCATED but has NO ENTERING TOOL.** The witness cell is non-Polish;
+no current method reaches into it. This is not "a path with a next step" — it is a
+precisely-bounded open cell with no tool that enters. The real open question is no
+longer "construct in non-Polish" but: **what kind of object or combinatorial principle
+could produce a non-Polish, non-standard-Borel concrete σ-OML with an un-threadable
+gluing (no global σ-state)?** No candidate principle on the table. STOP-condition:
+needs genuinely new abstract input, not another build.

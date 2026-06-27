@@ -158,6 +158,8 @@ line each session — paid on every startup, forever.
 ## Communication preferences
 
 - Direct, concise. No preamble, no trailing summaries.
+- **Concision is prioritized:** Be extremely brief. Sacrifice conversational formatting for the sake of brevity.
+- **Direct Output:** Do not open responses with compliments, pleasantries, or validations of the idea.
 - Stop and reassess at natural checkpoints.
 - Honest sorry tracking: precise proof sketches, not "TODO."
 - One conceptual layer at a time.

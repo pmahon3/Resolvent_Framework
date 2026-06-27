@@ -83,9 +83,12 @@ it is an OPAQUE proposition the bounds refer to. Declaring it `axiom ... : Prop`
 `UpperBound`/`prize` below are non-vacuous. Cite: Kanamori, *The Higher Infinite*. -/
 axiom MeasurableExists : Prop
 
-/-- **Lower bound (OPEN conjecture).** `Psi → MeasurableExists`. Stalled at the
-σ-class-vs-σ-algebra gap (Ulam's matrix needs a σ-algebra; the carrier is only a
-σ-class). NOT proved, NOT assumed — a named Prop. -/
+/-- **Lower bound (OPEN conjecture).** `Psi → MeasurableExists`. NOT proved, NOT
+assumed — a named Prop. ⚠ Its previously-conjectured *mechanism* ("no measurable ⟹
+every σ-state Dirac ⟹ ¬Ψ") was REFUTED 2026-06-26 (Navara–Pták builds a ZFC non-Dirac
+σ-state; bounds §3f). The Prop itself stays open — no surviving argument either way;
+Ψ's strength is now genuinely unknown, not conjecturally-measurable. (The scaffold was
+correct to keep this a hypothesis, never asserted.) -/
 def LowerBound : Prop := Psi → MeasurableExists
 
 /-- **Upper bound (OPEN conjecture).** `MeasurableExists → Psi`. The cardinal `X` is

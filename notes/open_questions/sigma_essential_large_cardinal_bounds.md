@@ -48,9 +48,10 @@ Three things this pins:
 > **(LB)** Ψ ⟹ ∃ a measurable cardinal.
 > Equivalently: "no measurable cardinal ⟹ every σ-additive 2-valued state on a concrete
 > σ-OML is Dirac ⟹ ¬Ψ."
-> STATUS: plausible, **NOT proven** — stalled at the **σ-class-vs-σ-algebra gap** (Ulam's
-> matrix needs a σ-*algebra*; the concrete σ-OML carrier is only a σ-*class*, joins of
-> orthogonal elements only). This is the genuine technical obstacle on the tractable leg.
+> STATUS: ⚠ **MECHANISM REFUTED 2026-06-26 (see §3f)** — the "no measurable ⟹ every
+> σ-state Dirac ⟹ ¬Ψ" mechanism is BROKEN (premise false by Navara–Pták ZFC non-Dirac
+> state; last step a non-sequitur). Strength reopened as UNKNOWN. (Old "plausible, not
+> proven" withdrawn.)
 
 **LB SHARPENED via primary-source read of B–W's extraction (2026-06-25, `/tmp/bw.txt`
 = arXiv:1607.08505 full text).** B–W's whole large-cardinal content is **Prop 2.3**:
@@ -324,3 +325,45 @@ positive route and isolate its single open step:
 **STATUS: NOT a hand-off. We are attempting the masa-free transport.** The harness
 (`SigmaEssentialConjectures`) triages any proposed transport instantly (forces
 `IntersectionClosed`? → costume). Attempt log continues below / in the Lean file.
+
+## 3f. ⚠ LB MECHANISM REFUTED — strength reopened as UNKNOWN (2026-06-26, advisor-confirmed pending)
+
+While attempting the Con-side, the advisor flagged the LB's direction. A cold four-case
+check (no-measurable world, witness?) BROKE it. **This inverts the banked "Ψ ≥ measurable
+(conjectured)" status — recorded carefully.**
+
+**The LB as stated (§2):** "no measurable ⟹ every σ-additive 2-valued state on a concrete
+σ-OML is Dirac ⟹ ¬Ψ." Both legs fail:
+
+1. **Premise is FALSE (not just unproven).** "no measurable ⟹ every σ-state on a concrete
+   σ-OML is Dirac" is refuted by **Navara–Pták 1983 (ZFC)**: their `m` is a NON-Dirac
+   σ-additive 2-valued state on the concrete non-Boolean σ-class ℚ² (verified,
+   [[navara_ptak_1983_byhand_read]]). No measurable cardinal anywhere. The "Dirac-only"
+   premise is an Ulam *σ-algebra* theorem illegitimately applied to σ-*classes* — the
+   σ-class-vs-σ-algebra gap is FALSITY here, not a stall.
+2. **Last step is a non-sequitur anyway.** Even granting "every σ-state Dirac": that makes
+   clause (ii) (no NON-Dirac extension) VACUOUSLY TRUE, and clause (i) (K(s₀)=∅) is
+   carrier-dependent and freely arrangeable (N–P device) — so "Dirac-only" pushes toward
+   Ψ (witness exists), NOT ¬Ψ. The four-case table: on a non-Boolean carrier with K=∅
+   arranged + every σ-state Dirac, BOTH clauses hold ⟹ witness. (On a Boolean carrier
+   prop:boolean gives K≠∅ ⟹ clause (i) fails ⟹ no witness — but Boolean carriers were
+   never witness candidates.)
+
+**∴ The LB has NO surviving mechanism.** Combined with the UB ("unearned", §2), **measurable-
+cardinal strength for Ψ is unsupported in BOTH directions.** Honest status of Ψ's strength:
+downgraded from "conjecturally ≥ measurable" to **GENUINELY UNKNOWN**. The "measurable"
+candidate rode (a) the struck Blecher–Weaver weld and (b) this now-refuted LB; neither
+survives.
+
+**GUARD (do not overclaim):** N–P refutes the *premise*, but N–P is NOT a witness (its
+carrier is Polish-representable ⟹ DW rescues; `m` is the rescuer). So this establishes
+"the LB mechanism is broken + strength reopened", NOT "Ψ provably needs no large cardinal".
+Ψ's strength is unknown, full stop — could be ZFC-decidable, could need some cardinal, no
+current evidence either way.
+
+**Consequence for the Con-side (§3e):** "direct construction from a measurable" was built on
+the conjecture that measurable is the right strength — now unsupported. The bind "where does
+measurability enter the construction?" DISSOLVES: it had no answer because measurability was
+never established as required. Con-side reframes to: the strength is unknown, so the
+construction target's required hypothesis is itself open. ⚠ ADVISOR-CONFIRM when available
+(this is a "X is false" claim inverting a banked result — stronger than "unproven").

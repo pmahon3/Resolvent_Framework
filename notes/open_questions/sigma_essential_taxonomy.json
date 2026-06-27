@@ -253,8 +253,8 @@
     {
       "id": "strat.lower_bound",
       "name": "Lower bound: Ψ ⟹ ∃ measurable",
-      "status": "open",
-      "one_line": "Plausible, NOT proven. Stalled at σ-class-vs-σ-algebra gap (Ulam's matrix needs a σ-algebra; carrier is only a σ-class). Sharpened: masa-free route from a 2-valued σ-state's quantum filter to a measurable?",
+      "status": "refuted-mechanism",
+      "one_line": "MECHANISM REFUTED 2026-06-26 (bounds 3f): 'no measurable => every sigma-state Dirac => not-Psi' is BROKEN -- premise false (Navara-Ptak ZFC builds a non-Dirac sigma-state on a concrete non-Boolean sigma-class), and the last step is a non-sequitur (Dirac-only makes clause (ii) vacuous, pushing toward Psi). With UB already unearned, measurable-strength is unsupported in BOTH directions: Psi's strength is GENUINELY UNKNOWN, not conjecturally-measurable. GUARD: N-P is not a witness (Polish, DW-rescued), so this is 'mechanism broken + strength reopened', NOT 'Psi needs no large cardinal'.",
       "detail": "sigma_essential_large_cardinal_bounds.md#2",
       "lean": {
         "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",

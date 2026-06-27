@@ -266,7 +266,7 @@
       "id": "strat.upper_bound",
       "name": "Upper bound: ∃X ⟹ Ψ",
       "status": "open",
-      "one_line": "X unidentified, implication unestablished. Forcing CANNOT supply it (Lévy–Solovay, strength-preserving); a direct large-cardinal construction. 'Measurable suffices' was inherited from B–W and STRUCK.",
+      "one_line": "SHARPENED 2026-06-26 to ONE open step: direct large-cardinal construction (Blecher-Weaver model) reduces to the masa-free U->non-Boolean transport -- is there a masa-free construction of a non-distributive concrete sigma-OML from a measurable cardinal's ultrafilter U, or a proof none exists? Forcing barred (Levy-Solovay); hand-construction barred where Polish (DW). ATTEMPTING (not hand-off). See rem:consharp + bounds 3e.",
       "detail": "sigma_essential_large_cardinal_bounds.md#2",
       "lean": {
         "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",

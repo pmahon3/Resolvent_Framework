@@ -299,3 +299,28 @@ and (b) `rem:segregated` excluding ALL non-trivial-center carriers. Both are in-
   abstract verified 2026-06-25.
 - Lévy–Solovay (forcing preserves measurability / does not create it): standard.
 - σ-class-vs-σ-algebra gap: [[sigma_essential_reduction_writeup]] §7 (the ¬Ψ stall).
+
+## 3e. Con-side sharpened to ONE step (2026-06-26) — and we are attempting it
+
+Two independent analyses (the §3d hybrid / strength axis + the construction attack via
+the atomless-blocks candidate, Lean `SigmaEssentialConjectures` §1b) CONVERGE on the
+positive route and isolate its single open step:
+
+- **Construction barred where constructible.** Atomless measure-algebra blocks +
+  countable gluing stay Polish-representable ⟹ DW D.6 kills them. A witness must be
+  uncountably generated + NON-Polish-representable = the regime that resists explicit
+  hand-construction.
+- **Forcing barred** (Lévy–Solovay, §3b/rem:technology).
+- **Remaining route = DIRECT large-cardinal construction** (Blecher–Weaver model):
+  assume measurable κ, take its κ-complete ultrafilter `U` on `P(κ)`, build carrier +
+  pattern from `U`.
+- **THE SINGLE OPEN STEP (named exactly):** `U` lives on **Boolean** `P(κ)`; powering a
+  witness on a non-distributive concrete σ-OML needs transporting `U`'s completeness
+  onto orthogonal-join-only closure — the masa route can't supply it (Akemann–Weaver;
+  costume #8 in its obvious form). So: **is there a masa-free construction of a
+  non-distributive concrete σ-OML from a measurable's ultrafilter `U`, or a proof none
+  exists?** Paper: `rem:consharp`.
+
+**STATUS: NOT a hand-off. We are attempting the masa-free transport.** The harness
+(`SigmaEssentialConjectures`) triages any proposed transport instantly (forces
+`IntersectionClosed`? → costume). Attempt log continues below / in the Lean file.

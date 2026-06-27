@@ -467,6 +467,18 @@ make the σ-LS wall an impossibility = a ¬Ψ result), FALSE, or OPEN?
   specifically (named in the query, not located) — the most likely place an OML-specific
   σ-LS statement (either direction) would live. Worth a targeted follow-up if pursued.
 
+**Harding/Hamhalter targeted check (2026-06-27) — confirms (c), structurally.** Neither
+settles the RDP-free σ-complete OML σ-additive 2-valued representation question. Harding's
+OML work is order-theoretic / categorical / FINITELY-additive (completions, decompositions,
+Gudder concrete-logic) — no σ-additive representation. Hamhalter (*Quantum Measure Theory*
+2003) studies measures ON a fixed L(H) (the σ-complete-but-NON-concrete cell, Kochen–Specker)
+— no Loomis–Sikorski / concrete-logic chapter. **Structural clincher: a lattice effect
+algebra has RDP iff it is MV (Bennett–Foulis; Riečanová) — so RDP is exactly the Boolean/MV
+dividing line, and the non-Boolean σ-complete OML is the COMPLEMENT of what the σ-LS-with-RDP
+machinery can reach.** The gap is structurally excluded, not merely unreached. Independent
+confirmation it is open: Harding–Wang (arXiv:2108.09819, 2021) explicitly poses σ-OML
+embeddability as an OPEN PROBLEM. ∴ the construction route is NOT closed by any published work.
+
 **CONSEQUENCE FOR THE THREADS:**
 - The "turn the wall into a ¬Ψ theorem by citing RDP" hope is DEAD — there is no such
   theorem, and the broad RDP-obstruction is false (E(H)). The wall is an unproven GAP.

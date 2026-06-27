@@ -60,7 +60,7 @@ non-Dirac $\sigma$-additive two-valued state extends $s_0$, with (i) freely
 arrangeable, localising all weight to (ii), which strips to a bare set-theoretic
 selection problem (Q.~\ref{q:bare}). \S\ref{sec:boundary}: the boundary map --- empty
 above the Polish case, irreducible to Blecher--Weaver, irreducible to a measurable
-cardinal. \S\ref{sec:open}: the open problem and its forcing target.
+cardinal. \S\ref{sec:open}: the open problem, its target sentence, and the located frontier.
 
 \begin{remark}[Irreducibility is not vacuous]\label{rem:offcenter}
 The carrier class is inhabited: the horizontal sum $MO_\kappa$ ($\kappa$ orthogonal
@@ -327,7 +327,7 @@ non-Boolean, non-Polish-representable regime.
 \end{remark}
 
 
-\section{The open problem and its forcing target}\label{sec:open}
+\section{The open problem and the located frontier}\label{sec:open}
 
 Assembling \S\ref{sec:localization}--\S\ref{sec:boundary}, a $\sigma$-essential
 contextual state exists iff Question~\ref{q:bare} has a positive answer on a carrier
@@ -345,28 +345,25 @@ $\sigma$-additive $\{0,1\}$-selection across overlapping countable partitions
 \end{question}
 
 A resolution could take one of three forms, and the obstructions assembled above
-constrain each. A \emph{positive} answer in ZFC would exhibit a concrete carrier in
-the non-Polish, non-segregated regime; by Remarks~\ref{rem:not-measurable}
-and~\ref{rem:no-bridge} no admissible carrier assembles from countably many
-compatible pieces, so any such construction must be globally non-compositional. A
+constrain each. A \emph{positive} answer would exhibit a concrete carrier in the
+non-Polish, non-segregated regime; by Remarks~\ref{rem:not-measurable}
+and~\ref{rem:no-bridge} no admissible carrier assembles from countably many compatible
+pieces, so any witness must be uncountably generated and globally non-compositional. A
 \emph{negative} answer would extend the Polish-representable emptiness of
-Derr--Williamson beyond its topological hypotheses to all concrete $\sigma$-OMLs,
-cutting against the Blecher--Weaver evidence that the analogous Hilbert cell is
-inhabited under a large cardinal. An \emph{independence} result would supply two
-models, one with the selection and one without; the known precedents for such results
-in the set theory of measure-theoretic structures---the von Neumann--Maharam
-problem~\cite{BalcarJechPazak2005} and real-valued measurable
-cardinals~\cite{Fremlin}---are all real-valued and strictly positive, leaving the
-two-valued, non-distributive case as the open edge.
+Derr--Williamson beyond its topological hypotheses to all concrete $\sigma$-OMLs. An
+\emph{independence} result would supply two models, one with the selection and one
+without; the known precedents in the set theory of measure-theoretic
+structures---the von Neumann--Maharam problem~\cite{BalcarJechPazak2005} and
+real-valued measurable cardinals~\cite{Fremlin}---are all real-valued and strictly
+positive, leaving the two-valued, non-distributive case as the open edge.
 
-The independence route is the natural one, and it calls for a precisely stated target
-whose quantifier structure determines the applicable methods. Write $\mathrm{St}(B)$
-for the two-valued states on a sub-orthoposet $B$, $\mathrm{St}_\sigma(\Lo)$ for the
-global $\sigma$-additive two-valued states on $\Lo$, $\mathrm{Fin}_\perp(\Lo)$ for the
-finite $\perp$-closed sub-orthoposets, and $\mathrm{Adm}$ for the admissible carriers
-(concrete, $\sigma$-complete, non-Boolean, irreducible). A pattern
-$s\in\mathrm{St}(B)$ is realised by $\mu$ when $\mu\restr B=s$. The
-\emph{$\sigma$-additive lifting} property and its negation are
+To state the target precisely, write $\mathrm{St}(B)$ for the two-valued states on a
+sub-orthoposet $B$, $\mathrm{St}_\sigma(\Lo)$ for the global $\sigma$-additive
+two-valued states on $\Lo$, $\mathrm{Fin}_\perp(\Lo)$ for the finite $\perp$-closed
+sub-orthoposets, and $\mathrm{Adm}$ for the admissible carriers (concrete,
+$\sigma$-complete, non-Boolean, irreducible). A pattern $s\in\mathrm{St}(B)$ is
+realised by $\mu$ when $\mu\restr B=s$. The \emph{$\sigma$-additive lifting} property
+and its negation are
 \begin{align*}
   \Phi(\Lo)
     &:\equiv\;
@@ -387,63 +384,67 @@ the latter asserting a $\sigma$-essential contextual state
 \]
 Its leading quantifier ranges over carriers $\Lo$ --- families of subsets of $\Omega$,
 not natural numbers. By Proposition~\ref{prop:boolean} every Boolean $\Lo$ satisfies
-$\Phi$, so the witness is non-distributive; and it is this second-order existential
-over an unbounded carrier, not the inner arithmetic, that places $\Psi$ beyond a single
-combinatorial principle.
+$\Phi$, so the witness is necessarily non-distributive; it is this second-order
+existential over an unbounded carrier, not the inner arithmetic, that places $\Psi$
+beyond any single combinatorial principle.
 
-Two features make $\Psi$ a forcing target, not a construction target:
-\begin{enumerate}[label=\textup{(\arabic*)},leftmargin=*]
-  \item \emph{No compositional carrier.} Any countable, refinable approximation
-    collapses to the Boolean case (Prop.~\ref{prop:boolean}, Rem.~\ref{rem:segregated}),
-    so a witness must be uncountably generated and globally non-compositional.
-  \item \emph{No fixed carrier needed.} An independence proof need only produce models
-    where $\Psi$ holds and fails, the carrier supplied by the model --- as for the von
-    Neumann measure-algebra problem, settled by models, not a fixed
-    algebra~\cite{BalcarJechPazak2005, Maharam1972}.
-\end{enumerate}
-
-\begin{remark}[Candidate technology and conjectured strength]\label{rem:technology}
-The setting is the set theory of measure-theoretic and operator-algebraic structures;
-the nearest cardinal-explicit precedent, Blecher--Weaver~\cite{BlecherWeaver2017},
-does not transfer (\S\ref{sec:boundary}), so the strength of $\Psi$ is
-\emph{conjectural, not inherited}. Two caveats fix the technique:
-\begin{itemize}[leftmargin=*]
-  \item \emph{Cardinal type.} If any, the relevant cardinal is Ulam-measurable, not
-    real-valued measurable: $\Psi$ is two-valued, where the $[0,1]$-valued machinery
-    does not apply.
-  \item \emph{Forcing frames, does not construct.} The bare object has, on a Boolean
-    base, the strength of a measurable cardinal; set-forcing is consistency-strength
-    preserving (does not create measurables, L\'evy--Solovay~\cite{LevySolovay1967}).
-    So forcing can frame the \emph{independence} but cannot force a witness into
-    existence --- the positive direction is a \emph{direct} large-cardinal question,
-    as Blecher--Weaver's threshold (an equivalence, not a construction) indicates.
-\end{itemize}
-All known precedents~\cite{BalcarJechPazak2005, Fremlin} are real-valued and strictly
-positive; the two-valued non-distributive case is, as far as we are aware, untreated.
-We state the strength as a question, not a theorem:
-\[
-  \text{Is } \Psi \text{ independent of ZFC, and if so, of what consistency strength?}
-\]
+\begin{remark}[Where a witness must live, and what is closed]\label{rem:technology}
+The obstructions of \S\ref{sec:boundary} confine a witness to a sharply delimited
+regime and close the standard routes into it. Three boundaries combine. A Boolean
+carrier satisfies $\Phi$ (Prop.~\ref{prop:boolean}); a Polish-representable carrier
+satisfies $\Phi$ (Derr--Williamson); and a carrier whose contextuality is carried by a
+central Boolean factor is segregated, hence again satisfies $\Phi$
+(Rem.~\ref{rem:segregated}). A witness must therefore be simultaneously non-Boolean,
+non-Polish-representable, and irreducibly non-central: an uncountably generated,
+non-standard-Borel object whose obstruction is genuinely non-distributive. Two further
+boundaries bound the \emph{methods}. Forcing cannot supply a witness in the existence
+direction: any constructible (in particular, Polish-representable) approximation falls
+under Derr--Williamson, so the object lies outside the reach of an explicitly described
+carrier, while set-forcing is consistency-strength preserving
+(L\'evy--Solovay~\cite{LevySolovay1967}) and so can frame independence but not
+manufacture the object. And the off-the-shelf representation machinery does not reach
+the carrier: the $\sigma$-Loomis--Sikorski theorem is established only under the Riesz
+decomposition property (RDP)~\cite{Dvurecenskij2000}, which a lattice effect algebra
+possesses if and only if it is an MV-algebra; an all-sharp non-Boolean OML lies exactly
+in the complement, where no $\sigma$-additive representation theorem is known to hold or
+to fail.
 \end{remark}
 
-\begin{remark}[The positive direction, sharpened to one step]\label{rem:consharp}
-Two independent analyses converge on the same positive route and isolate its single
-open step. \emph{Construction is barred where the carrier is constructible.} A carrier
-assembled from measure-algebra (atomless, Polish-representable) blocks by countable
-gluing remains Polish-representable, hence is empty of witnesses by
-\S\ref{sec:boundary} (Derr--Williamson); a witness must therefore be uncountably
-generated and \emph{not} Polish-representable --- precisely the regime that resists
-explicit construction. \emph{Forcing is barred} (Remark~\ref{rem:technology}). What
-remains is a \emph{direct} construction from a large cardinal, on the model of
-Blecher--Weaver: assume a measurable $\kappa$, take its $\kappa$-complete ultrafilter
-$U$ on $\PO(\kappa)$, and build the carrier and pattern out of $U$. The obstruction is
-exact and named: $U$ lives on the \emph{Boolean} $\PO(\kappa)$, and powering a witness
-on a non-distributive concrete $\sigma$-OML requires transporting the completeness of
-$U$ onto an orthogonal-join-only structure --- a transport the masa route cannot
-supply (Akemann--Weaver~\cite{AkemannWeaver2008}; cf.\ \S\ref{sec:boundary}). The
-positive direction thus reduces to a single question: \emph{is there a masa-free
-construction of a non-distributive concrete $\sigma$-OML from a measurable cardinal's
-ultrafilter, or a proof that none exists?}
+\begin{remark}[On the consistency strength of $\Psi$]\label{rem:strength}
+On a \emph{Boolean} base the bare object of Question~\ref{q:bare} is a non-principal
+countably-complete ultrafilter, hence a measurable cardinal; the non-distributive case
+is conjecturally at least as strong, and the analogue on $B(\ell^2(\kappa))$ has exactly
+Ulam-measurable strength~\cite{BlecherWeaver2017}. It is tempting to read off that
+$\Psi$ carries measurable-cardinal strength, but this is \emph{not} established in
+either direction. The lower-bound argument---``no measurable cardinal, hence every
+$\sigma$-additive two-valued state is Dirac, hence no witness''---fails: its premise is
+an extension theorem for $\sigma$-algebras, not $\sigma$-classes, and is contradicted in
+ZFC by the Navara--Pt\'ak state (Example~\ref{ex:navara-ptak}), which is non-Dirac;
+moreover, were the premise granted, it would render the non-Dirac clause vacuous and so
+point toward $\Psi$ rather than against it. The upper bound is equally unearned: the
+relevant cardinal would govern two-valued ($\{0,1\}$) selections, where the
+real-valued-measurable machinery does not apply, and the Blecher--Weaver mechanism does
+not transfer (\S\ref{sec:boundary}). The consistency strength of $\Psi$ is therefore
+genuinely open---unsettled in both directions---rather than conjecturally measurable.
+\end{remark}
+
+\begin{remark}[The frontier, located]\label{rem:frontier}
+Taken together, the boundaries locate the problem precisely while leaving no standard
+tool that enters it. A witness, if one exists, is an uncountably generated,
+non-Polish-representable, irreducibly non-central concrete $\sigma$-OML---and a survey
+of the natural candidate fields supplies no construction principle for such an object:
+non-separable and Maharam measure algebras are Boolean and real-valued; the descriptive
+set-theoretic no-section phenomena (non-smooth equivalence relations, co-analytic
+uniformization failure, turbulence) live over standard-Borel carriers with real-valued
+obstructions; the Dynkin-system and concrete-logic lineage either remains finitary or,
+in the Polish case, globalises. The closest structural rhyme is the Glimm--Effros
+dichotomy, under which non-smoothness of a countable Borel equivalence relation
+corresponds to the failure of a two-valued section; transporting that phenomenon onto a
+Gudder concrete logic would furnish exactly the missing principle, but no such transport
+appears in the literature, and constructing it would be original work. The honest
+status is thus a sharply located open cell: the witness question is neither closed by an
+impossibility theorem nor reachable by a borrowed construction, and its resolution
+awaits a genuinely new object inhabiting the non-Polish, non-distributive regime.
 \end{remark}
 
 \paragraph{Acknowledgements.}

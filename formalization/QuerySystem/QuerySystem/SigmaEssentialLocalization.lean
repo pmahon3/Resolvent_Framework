@@ -66,6 +66,96 @@ noncomputable def dirac (ω : Ω) : TwoValuedState d where
 /-- A state is **Dirac** if it is a point evaluation. -/
 def TwoValuedState.IsDirac (s : TwoValuedState d) : Prop := ∃ ω : Ω, s = dirac ω
 
+/-! ### Fidelity lemmas: the `∃i`-form σ-additivity is the paper's `=Σ` form
+
+The paper's σ-additivity is `s(⊔Aₙ)=Σ s(Aₙ)` for disjoint families. For a 2-valued
+state this means "union true ⟺ *exactly* one member true". Our `val_iUnion` gives
+"⟺ *some* member true"; the "at most one" half is **derived** here (not assumed), via
+monotonicity, which is itself derived from `val_iUnion` + Dynkin `has_diff`. So the
+formal definition is certified faithful — no monotonicity axiom is added. -/
+
+/-- **Binary additivity (derived).** For disjoint `A, A'` in `d`,
+`Val (A ∪ A') ↔ Val A ∨ Val A'`. Obtained by feeding `val_iUnion` the family
+`(A, A', ∅, ∅, …)` (a `Bool`-indexed disjoint family, padded). -/
+theorem TwoValuedState.val_union (s : TwoValuedState d) {A A' : Set Ω}
+    (hA : d.Has A) (hA' : d.Has A') (hdisj : Disjoint A A') :
+    s.Val (A ∪ A') ↔ (s.Val A ∨ s.Val A') := by
+  classical
+  set f : ℕ → Set Ω := fun n => if n = 0 then A else if n = 1 then A' else ∅ with hf
+  -- disjointness: f sends 0↦A, 1↦A', else ↦∅; any pair with distinct indices is
+  -- disjoint because the only nonempty values are A (only at 0) and A' (only at 1).
+  have hdisjf : Pairwise (Disjoint on f) := by
+    intro i j hij
+    apply Set.disjoint_left.mpr
+    intro x hxi hxj
+    -- determine which sets f i, f j are by case on i,j ∈ {0,1}
+    have hxi' : x ∈ A ∧ i = 0 ∨ x ∈ A' ∧ i = 1 := by
+      simp only [hf] at hxi
+      split_ifs at hxi with h0 h1
+      · exact Or.inl ⟨hxi, h0⟩
+      · exact Or.inr ⟨hxi, h1⟩
+      · exact absurd hxi (Set.notMem_empty x)
+    have hxj' : x ∈ A ∧ j = 0 ∨ x ∈ A' ∧ j = 1 := by
+      simp only [hf] at hxj
+      split_ifs at hxj with h0 h1
+      · exact Or.inl ⟨hxj, h0⟩
+      · exact Or.inr ⟨hxj, h1⟩
+      · exact absurd hxj (Set.notMem_empty x)
+    rcases hxi' with ⟨hxiA, hi0⟩ | ⟨hxiA', hi1⟩ <;>
+    rcases hxj' with ⟨hxjA, hj0⟩ | ⟨hxjA', hj1⟩
+    · exact hij (hi0.trans hj0.symm)
+    · exact (Set.disjoint_left.mp hdisj) hxiA hxjA'
+    · exact (Set.disjoint_left.mp hdisj) hxjA hxiA'
+    · exact hij (hi1.trans hj1.symm)
+  have hHas : ∀ i, d.Has (f i) := by
+    intro i; simp only [hf]; split_ifs
+    · exact hA
+    · exact hA'
+    · exact d.has_empty
+  have hU : (⋃ i, f i) = A ∪ A' := by
+    apply Set.Subset.antisymm
+    · refine Set.iUnion_subset fun i => ?_
+      simp only [hf]; split_ifs
+      · exact Set.subset_union_left
+      · exact Set.subset_union_right
+      · exact Set.empty_subset _
+    · rintro x (hx | hx)
+      · exact Set.mem_iUnion.2 ⟨0, by simp [hf, hx]⟩
+      · exact Set.mem_iUnion.2 ⟨1, by simp [hf, hx]⟩
+  have := s.val_iUnion hdisjf hHas
+  rw [hU] at this
+  rw [this]
+  constructor
+  · rintro ⟨i, hi⟩
+    simp only [hf] at hi
+    split_ifs at hi with h0 h1
+    · exact Or.inl hi
+    · exact Or.inr hi
+    · exact absurd hi s.not_val_empty
+  · rintro (h | h)
+    · exact ⟨0, by simpa [hf] using h⟩
+    · exact ⟨1, by simpa [hf] using h⟩
+
+/-- **Monotonicity (derived).** `A ⊆ B` (both in `d`) ⟹ `Val A → Val B`. From
+binary additivity on `B = A ∪ (B\A)`. -/
+theorem TwoValuedState.val_mono (s : TwoValuedState d) {A B : Set Ω}
+    (hA : d.Has A) (hB : d.Has B) (hAB : A ⊆ B) (h : s.Val A) : s.Val B := by
+  have hdiff : d.Has (B \ A) := d.has_diff hB hA hAB
+  have hunion : A ∪ (B \ A) = B := by
+    rw [Set.union_diff_cancel hAB]
+  have := (s.val_union hA hdiff disjoint_sdiff_right).mpr (Or.inl h)
+  rwa [hunion] at this
+
+/-- **At-most-one (derived).** Disjoint `A, A'` in `d` cannot both be `Val`-true.
+(Monotonicity through the complement: `A' ⊆ Aᶜ`, and `Val Aᶜ ↔ ¬Val A`.) -/
+theorem TwoValuedState.val_at_most_one (s : TwoValuedState d) {A A' : Set Ω}
+    (hA : d.Has A) (hA' : d.Has A') (hdisj : Disjoint A A')
+    (h : s.Val A) : ¬ s.Val A' := by
+  intro h'
+  have hsub : A' ⊆ Aᶜ := Set.subset_compl_iff_disjoint_left.mpr hdisj
+  have : s.Val Aᶜ := s.val_mono hA' (d.has_compl hA) hsub h'
+  exact ((s.val_compl hA).mp this) h
+
 /-! ### Finite ⊥-closed local patterns -/
 
 /-- A **finite ⊥-closed sub-orthoposet** `B`: a finite subfamily of `d`, closed under

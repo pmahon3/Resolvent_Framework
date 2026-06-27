@@ -127,6 +127,40 @@ Same wall, reached constructively. NEXT (if pursued): a non-Polish gluing — bu
 the unbuildable regime; honest status is "candidate sharpened + bounded, no buildable
 instantiation". -/
 
+/-! ## §1c. The POLARITY check — "builds a state ⟹ rescuer, not witness" (2026-06-26)
+
+The harness's costume-detector (§3) checks the *disjointification* axis but has a
+BLIND SPOT: it does not catch the **polarity** failure mode — a candidate that
+"constructs a witness" by exhibiting a global STATE. A witness is the NON-existence of
+an extension (`IsSigmaEssential = ¬∃ s, Extends s s₀ B`); any constructed global state
+extending `s₀` is therefore a *rescuer* that REFUTES the witness. This fired three
+times this session (Navara–Pták's `m`; the bare-form mis-encoding; the `U↾L`
+large-cardinal channel). It is a clean impossibility — record it as the polarity gate. -/
+
+/-- **Polarity gate (PROVED).** If a candidate produces ANY global state `s` extending
+`s₀` on `B`, then `s₀` is NOT σ-essential. So "build a state to witness it" is
+self-defeating: a state is an extension, and a witness forbids all extensions.
+Use as the polarity check — a construction that yields a global state has produced a
+rescuer, not a witness. -/
+theorem builds_state_implies_not_witness
+    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
+    (s : TwoValuedState d) (hext : Extends s s₀ B) :
+    ¬ IsSigmaEssential s₀ B :=
+  fun hess => hess ⟨s, hext⟩
+
+/-- **Corollary — the large-cardinal-ultrafilter trap, abstractly.** Reading a state
+off any global object (e.g. `U↾L` for an ultrafilter `U`) gives an extension, hence
+no witness. The lemma is `builds_state_implies_not_witness` applied to that state;
+stated separately to name the trap: a large-cardinal ultrafilter is inherently
+GLOBAL, so "U supplies the witness's state" always rescues. "Direct construction from
+U" must instead mean **U builds the CARRIER** (Ω uncountable/non-Polish), with
+non-extendability emerging structurally from `L`, `U` never read as a state. -/
+theorem ultrafilter_as_state_is_rescuer
+    {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
+    (uState : TwoValuedState d) (huext : Extends uState s₀ B) :
+    ¬ IsSigmaEssential s₀ B :=
+  builds_state_implies_not_witness s₀ B uState huext
+
 /-! ## §2. Detector validation — re-run COVERED (killed) items, expect death
 
 A trustworthy detector must re-kill what is already dead. We replay two covered

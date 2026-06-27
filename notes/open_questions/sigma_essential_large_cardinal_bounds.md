@@ -426,6 +426,25 @@ results — E0, free-pmp-action orbit ERs — live on STANDARD-Borel 2^ℕ/ℕ^�
 obstructions, so the obvious DST hits are already excluded; the lead is the un-swept
 co-analytic/non-hyperfinite corner.)
 
-**∴ The located-frontier verdict (§3g) STANDS, now externally corroborated:** non-Polish,
-no entering tool, structurally (RDP) walled. One un-swept corner (DST co-analytic) before
-the negative is maximally confident.
+**DST CORNER SWEPT (targeted scout, 2026-06-27) — NEGATIVE across all 4, negative now
+COMPLETE.** (1) Co-analytic Π¹₁ uniformization-failure (Novikov–Kondô, Mauldin–Larson):
+standard-Borel/Polish base + real-valued/measurable — EXCLUDED. (2) Non-hyperfinite/
+non-treeable CBERs (E∞, Adams–Kechris): the no-section is over the standard-Borel
+QUOTIENT X/E, no λ-system, obstruction not irreducibly-non-central — EXCLUDED. (3)
+Turbulence (Hjorth): obstruction to classification by countable structures, Polish G-space,
+real/structure-valued, never 2-valued — EXCLUDED. (4) Analytic-not-Borel ideals / σ-classes
+(Solecki; the Pták school): right object type but base is countable/Polish (P(ℕ),ℚ²) =
+DW-killed, and where non-Polish the obstruction is submeasure/real-valued — EXCLUDED.
+
+**⚠ ONE SHAPE-MATCH FLAGGED FOR FOLLOW-UP (not a hit — a bridge to BUILD):** the
+Glimm–Effros dichotomy phrasing "**a CBER is non-smooth ⟺ [no/yes] 2-valued [non-atomic
+Borel] section on the quotient**" is the SAME LOGICAL SHAPE as our σ-point-selection
+failure (non-smooth ⟺ no 2-valued global section). It is NOT a witness (standard-Borel
+quotient, no OML structure). But: **if a non-hyperfinite CBER's non-smoothness were
+transported onto a Gudder-style concrete logic, that would be the borrowable principle.**
+No such transport is published — constructing it would be ORIGINAL work. This is the one
+DST item with a possible bridge, distinct from a citable result.
+
+**∴ The located-frontier verdict (§3g) STANDS, externally corroborated, negative now
+COMPLETE across DST too:** non-Polish, no entering tool, RDP-walled. The single live
+constructive lead is the non-hyperfinite-CBER → concrete-logic bridge (unpublished, build-it).

@@ -445,6 +445,37 @@ transported onto a Gudder-style concrete logic, that would be the borrowable pri
 No such transport is published — constructing it would be ORIGINAL work. This is the one
 DST item with a possible bridge, distinct from a citable result.
 
+## 3i. RDP-impossibility deep research — VERDICT (c) OPEN, the wall is NOT a theorem (2026-06-27)
+
+98-agent workflow (full-text greps on the key papers, conservative). Question: is
+"RDP-failure ⟹ no faithful σ-additive 2-valued representation" a PROVED theorem (would
+make the σ-LS wall an impossibility = a ¬Ψ result), FALSE, or OPEN?
+
+**VERDICT: (c) genuinely OPEN/unaddressed — and the wall is NOT an impossibility theorem.**
+- RDP appears throughout the σ-LS / effect-tribe literature ONLY as a SUFFICIENT
+  hypothesis (Buhagiar–Chetcuti–Dvurečenskij 2006; Dvurečenskij 2000, 2005, 1204.6486
+  Thm 3.1; 1006.1958 Thm 4.4/Cor 4.5). NO paper proves RDP necessary; NO paper proves a
+  non-representability theorem for RDP-free OMLs. The inference "no RDP ⟹ no
+  representation" is simply not in the literature.
+- ⚠ DIRECT COUNTER-EVIDENCE the broad obstruction is FALSE: Dvurečenskij 1204.6486
+  (verbatim): "E(H) can be represented as an effect-tribe, but RDP fails for it." So
+  RDP-failure is not even a universal obstruction to tribe representation.
+- CAVEAT (held): E(H)-as-tribe is the WRONG representation notion (isomorphism-to-a-tribe,
+  not our σ-epimorphic-image / faithful 2-valued-point-separation). So (b)-FALSE is NOT
+  established for our target either; the OML 2-valued σ-LS question is simply UNTREATED.
+- Gaps the survey did NOT reach: **Harding / Hamhalter** on σ-complete OML representation
+  specifically (named in the query, not located) — the most likely place an OML-specific
+  σ-LS statement (either direction) would live. Worth a targeted follow-up if pursued.
+
+**CONSEQUENCE FOR THE THREADS:**
+- The "turn the wall into a ¬Ψ theorem by citing RDP" hope is DEAD — there is no such
+  theorem, and the broad RDP-obstruction is false (E(H)). The wall is an unproven GAP.
+- ∴ the CBER bridge is NOT moot: since RDP-failure is not a proved obstruction, NO theorem
+  forbids the witness; the construction route stays open. The sequential gate resolves to
+  (c) → the CBER bridge remains the live constructive lead.
+- ⚠ wording: "RDP-walled" (§3h) means "the off-the-shelf RDP-gated machinery does not reach
+  it", NOT "RDP proves it impossible." The wall is a GAP, not a theorem.
+
 **∴ The located-frontier verdict (§3g) STANDS, externally corroborated, negative now
-COMPLETE across DST too:** non-Polish, no entering tool, RDP-walled. The single live
+COMPLETE across DST too:** non-Polish, no entering tool, RDP-GAP-walled (the RDP-gated machinery does not reach it — an unproven gap, NOT an impossibility theorem; §3i). The single live
 constructive lead is the non-hyperfinite-CBER → concrete-logic bridge (unpublished, build-it).

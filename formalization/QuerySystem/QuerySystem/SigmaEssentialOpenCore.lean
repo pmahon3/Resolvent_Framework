@@ -103,6 +103,39 @@ theorem prize_equiconsistency (hL : LowerBound) (hU : UpperBound) :
     Psi ↔ MeasurableExists :=
   ⟨hL, hU⟩
 
+/-! ### The LB mechanism is refuted (2026-06-26) — the non-sequitur leg, certified
+
+The lower bound's *stated mechanism* was "no measurable ⟹ every σ-additive 2-valued
+state is Dirac ⟹ ¬Ψ". The premise is also false in ZFC (Navara–Pták builds a non-Dirac
+σ-state on a concrete non-Boolean σ-class), but THAT half is about a cited construction.
+The part formalizable here is the **non-sequitur** in the last step: "Dirac-only"
+makes clause (ii) hold *vacuously*, which pushes TOWARD a witness, not away. So the
+mechanism's own premise, far from giving ¬Ψ, helps Ψ. -/
+
+/-- **Dirac-only** carrier: every σ-additive two-valued state is a point evaluation.
+This is the LB mechanism's premise ("no measurable ⟹ Dirac-only"). -/
+def DiracOnly {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
+  ∀ s : TwoValuedState d, s.IsDirac
+
+/-- **Dirac-only ⟹ clause (ii) holds (vacuously).** If every state is Dirac there is no
+non-Dirac state to extend `s₀`, so `WallA` is satisfied for free. -/
+theorem diracOnly_gives_wallA {Ω : Type*} {d : DynkinSystem Ω}
+    (hDO : DiracOnly d) (s₀ : TwoValuedState d) (B : Block d) :
+    WallA s₀ B := by
+  rintro ⟨s, hnd, _⟩
+  exact hnd (hDO s)
+
+/-- **The non-sequitur, certified.** The LB mechanism's premise (`DiracOnly`) together
+with clause (i) (`K(s₀)=∅`, freely arrangeable) yields a WITNESS — the opposite of the
+`¬Ψ` the mechanism claimed. So "no measurable ⟹ Dirac-only ⟹ ¬Ψ" is broken at the last
+arrow: Dirac-only pushes toward Ψ. (The premise itself is also false by Navara–Pták;
+this certifies the inference is invalid even granting it.) -/
+theorem diracOnly_with_clause_i_gives_witness {Ω : Type*} {d : DynkinSystem Ω}
+    (hDO : DiracOnly d) (s₀ : TwoValuedState d) (B : Block d)
+    (hi : kernel s₀ B = ∅) :
+    WitnessAt s₀ B :=
+  (witness_iff_kernel_empty_and_wallA s₀ B).mpr ⟨hi, diracOnly_gives_wallA hDO s₀ B⟩
+
 /-! ## §4. The disjointification wall, as a checkable obstruction (the costume-detector)
 
 The recurring failure: a "new route" is secretly the disjointification identity

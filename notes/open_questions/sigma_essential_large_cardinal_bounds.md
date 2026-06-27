@@ -391,3 +391,41 @@ longer "construct in non-Polish" but: **what kind of object or combinatorial pri
 could produce a non-Polish, non-standard-Borel concrete σ-OML with an un-threadable
 gluing (no global σ-state)?** No candidate principle on the table. STOP-condition:
 needs genuinely new abstract input, not another build.
+
+## 3h. Deep-research borrowable-principle hunt — NEGATIVE + one open lead (2026-06-27)
+
+100-agent deep-research workflow (18 primary sources read verbatim, 24/25 claims
+survived 3-vote adversarial verification). Question: does any field (DST, non-separable/
+Maharam measure theory, Dynkin/σ-class/SOMP lineage, sheaf-theoretic contextuality)
+supply a borrowable principle to build the non-Polish concrete σ-OML witness without a
+large cardinal?
+
+**VERDICT: NEGATIVE — and informative.** No source supplies it. Every candidate fails
+on one of THREE recurring axes = exactly our gates, independently rediscovered:
+(1) Boolean not irreducibly-non-central (Maharam, Measure-Recognition, Talagrand);
+(2) real-valued not 2-valued (all submeasure / contextual-fraction / barycentric
+machinery); (3) finite/Polish/standard-Borel not non-Polish (finite concrete logics,
+SOMPs, CV-contextuality over Borel ℝⁿ, Burešová–Pták's POSITIVE Stone-globalization).
+External corroboration the gates are real boundaries, not framing artifacts.
+
+**Re-confirms (not new) our σ-LS/RDP wall:** the report independently pinpoints the
+structural reason — Loomis–Sikorski σ-additive gluing is gated by the **Riesz
+Decomposition Property (RDP)**, which non-Boolean OMLs (MO₂) lack (Dvurečenskij
+arXiv:1006.1958: Thm 4.4/4.8 need RDP; the RDP-free Thm 6.1/6.3 is a real-valued
+BARYCENTRIC integral, not a {0,1} carrier measure). = our `wall.tribe_vs_points` /
+reduction_writeup §3, verbatim. Also independently flagged Gunji "left adjoint"
+non-distributivity↔no-global-section as REFUTED 1-2 = our `kill.gunji_dropped`.
+
+**THE ONE OPEN LEAD (not exhausted):** the **descriptive-set-theory sector** rests on a
+single survey (Kanovei) — a dedicated sweep of **co-analytic uniformization failure /
+non-hyperfinite orbit equivalence / the E0-turbulence zoo, specifically reframed as
+2-valued λ-system sections**, was NOT done. The report's own #1 open question. A DST
+witness cannot be excluded with the confidence of the Boolean/real-valued/Polish
+exclusions. This is the live next probe if pursued. (Note: known DST no-Borel-transversal
+results — E0, free-pmp-action orbit ERs — live on STANDARD-Borel 2^ℕ/ℕ^ℕ with REAL-valued
+obstructions, so the obvious DST hits are already excluded; the lead is the un-swept
+co-analytic/non-hyperfinite corner.)
+
+**∴ The located-frontier verdict (§3g) STANDS, now externally corroborated:** non-Polish,
+no entering tool, structurally (RDP) walled. One un-swept corner (DST co-analytic) before
+the negative is maximally confident.

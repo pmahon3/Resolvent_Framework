@@ -71,6 +71,62 @@ The conjecture reduces the construction to *exactly* the open core — no more, 
 This is the investigative payoff: intrinsic-𝒦 is well-posed and gap = wall A. -/
 theorem intrinsicK_gap_is_wallA (h : IntrinsicK s₀ B) : WallA s₀ B := h.wallA
 
+/-! ## §1b. CANDIDATE SHAPE — atomless blocks on an uncountable carrier (2026-06-26)
+
+First specified candidate for intrinsic-𝒦 (disciplined "attack #1"). Motivation: the
+band family died via `BandClosure.forces_boolean`, which requires BOTH `[Countable Ω]`
+AND "every singleton ∈ closure" — σ-additivity over the countable disjoint union of
+singletons then determines the state by points. A candidate dodges this iff it negates
+BOTH hypotheses.
+
+**Definite closure rule:** blocks = copies of a fixed **atomless** Boolean σ-algebra
+(e.g. a measure algebra), glued along incompatible (non-orthogonal, non-trivial)
+overlaps; carrier `Ω` uncountable; the cells are atomless, so **no singletons lie in
+`L`**. Distinguishing claims (what makes it not-the-band):
+- `uncountableCarrier`: `Ω` is uncountable (negates `forces_boolean`'s `[Countable Ω]`)
+- `noSingletons`: no singleton `{ω}` is in `d` (negates the singleton hypothesis)
+
+These are the ONLY new content vs the band; they target exactly the two hooks of the
+certified band death. This section records the candidate + the provable fact that it
+avoids the band mechanism. It does NOT discharge wall A (the open core). -/
+
+/-- The atomless-block candidate's distinguishing properties (what differentiates it
+from the dead band family). Claimed of the carrier, not yet constructed. -/
+structure AtomlessBlockCandidate {Ω : Type*} (d : DynkinSystem Ω) : Prop where
+  /-- the carrier is uncountable (negates `forces_boolean`'s `[Countable Ω]`) -/
+  uncountableCarrier : ¬ Countable Ω
+  /-- no singleton lies in the carrier (negates the singleton hypothesis of the band
+      death; the blocks are atomless) -/
+  noSingletons : ∀ ω : Ω, ¬ d.Has {ω}
+
+/-- **Triage fact (PROVED).** The atomless-block candidate avoids the band-death
+mechanism by construction: it has neither hook (`[Countable Ω]`, singletons-in-`L`)
+that `BandClosure.forces_boolean` needs. So the band dichotomy does NOT kill it — the
+first candidate to clear that gate with a *specific structural reason*, not a hope. -/
+theorem atomlessBlock_evades_band_death {Ω : Type*} {d : DynkinSystem Ω}
+    (h : AtomlessBlockCandidate d) :
+    (¬ Countable Ω) ∧ (∀ ω : Ω, ¬ d.Has {ω}) :=
+  ⟨h.uncountableCarrier, h.noSingletons⟩
+
+/-! The candidate clears band-death triage. It does NOT clear wall A (open core).
+
+**⚠ ADVERSARIAL CHECK (2026-06-26) — the DW boundary kills the TRACTABLE instantiation
+and sharpens the escape.** If the blocks are measure algebras of Polish spaces (e.g.
+Borel[0,1] mod null), the block IS Polish-representable (Ω Polish, σ-class = Borel,
+inner-regular = Derr–Williamson D.6 hypotheses). A *countable* gluing of Polish-
+representable blocks stays Polish-representable (countable ops preserve standard-Borel)
+⟹ **DW D.6 kills it (no σ-essential witness).** So atomlessness alone does NOT escape:
+the escape is FORCED to be an **uncountable** gluing producing a **non-Polish-
+representable** carrier. (This was a listed profile requirement; the check shows it is
+*forced by DW*, not optional.)
+
+The brutal core surfaced from the construction side: the candidate is **buildable
+exactly where it is DW-dead** (Polish blocks, countable gluing) and **alive only where
+it is non-Polish-representable** = non-standard-Borel = resists explicit construction.
+Same wall, reached constructively. NEXT (if pursued): a non-Polish gluing — but that is
+the unbuildable regime; honest status is "candidate sharpened + bounded, no buildable
+instantiation". -/
+
 /-! ## §2. Detector validation — re-run COVERED (killed) items, expect death
 
 A trustworthy detector must re-kill what is already dead. We replay two covered

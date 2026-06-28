@@ -130,15 +130,24 @@ Dirac extends $s_0$ iff $K(s_0) = \varnothing$.
 \end{lemma}
 
 \begin{proof}
-$\delta_\omega\restr B = s_0$ means $\omega \in A \iff s_0(A)=1$ for every
-$A \in B$. The forward constraints place $\omega \in \bigcap\{A : s_0(A)=1\}$. For
-a false $A$ (i.e.\ $s_0(A)=0$), $\perp$-closure gives $A\orth \in B$, and
-additivity gives $s_0(A\orth) = 1 - s_0(A) = 1$; so $A\orth$ is one of the true
-elements and the constraint $\omega \notin A$ is already $\omega \in A\orth$,
-subsumed in $K(s_0)$. Thus the false constraints add nothing, and
-$\delta_\omega \restr B = s_0 \iff \omega \in K(s_0)$. Conversely any
-$\omega \in K(s_0)$ works: true $A$ give $\omega\in A$, false $A$ give
-$\omega \in A\orth$ hence $\omega\notin A$.
+By definition,
+\[
+  \delta_\omega\restr B = s_0
+  \;\iff\;
+  \bigl(\,\omega \in A \iff s_0(A)=1\,\bigr) \text{ for all } A \in B .
+\]
+Split $B$ by the value of $s_0$. The true constraints give $\omega \in A$ for every
+$A$ with $s_0(A)=1$, i.e.\ $\omega \in K(s_0)$. A false $A$ ($s_0(A)=0$) is handled by
+its complement: $\perp$-closure gives $A\orth \in B$, and additivity gives
+\[
+  s_0(A\orth) = 1 - s_0(A) = 1,
+\]
+so $A\orth$ is true and the false constraint reduces to a true one,
+\[
+  \omega \notin A \;\iff\; \omega \in A\orth, \qquad A\orth \in \{A' : s_0(A')=1\},
+\]
+already subsumed in $K(s_0)$. Hence the false constraints add nothing and
+$\delta_\omega\restr B = s_0 \iff \omega \in K(s_0)$.
 \end{proof}
 
 \begin{theorem}[Localization]\label{thm:localization}

@@ -156,11 +156,14 @@ $\sigma$-OML and an $s_0$ with $K(s_0)=\varnothing$.
 \end{theorem}
 
 \begin{proof}
-Every global $\sigma$-additive two-valued state on $\Lo$ is either a Dirac
-$\delta_\omega$ or non-Dirac, and this dichotomy is exhaustive. Hence ``no global
-$\sigma$-additive two-valued state extends $s_0$'' is equivalent to the
-conjunction ``no Dirac extends $s_0$'' and ``no non-Dirac extends $s_0$.'' By
-Lemma~\ref{lem:dirac-iff} the first conjunct is (i); the second is (ii). For
+The Dirac/non-Dirac dichotomy on global $\sigma$-additive two-valued states is
+exhaustive, so
+\[
+  (\text{no extension of } s_0)
+  \;\iff\;
+  (\text{no Dirac extends } s_0) \;\wedge\; (\text{no non-Dirac extends } s_0).
+\]
+By Lemma~\ref{lem:dirac-iff} the first conjunct is (i); the second is (ii). For
 arrangeability of (i), the Navara--Pt\'ak construction
 (Example~\ref{ex:navara-ptak}) realises $K(s_0)=\varnothing$ explicitly.
 \end{proof}
@@ -200,12 +203,11 @@ which no non-Dirac state repairs the gap.
 \end{remark}
 
 
-Stripped of lattice scaffolding, this core --- clause (ii) --- is a problem about
-selections. A two-valued state selects one ``true'' cell within each
-block, a maximal compatible context, equivalently a countable partition of $\Omega$
-into elements of $\Lo$. Three conditions encode the structure: overlapping blocks agree
-on shared events (coherence); $\sigma$-additivity constrains countable joins; and
-non-Diracness means no single point realises the selection.
+Stripped of lattice scaffolding, this core --- clause (ii) --- is a selection problem.
+Each block is a maximal compatible context, equivalently a countable partition
+$\Pi_\alpha$ of $\Omega$ into elements of $\Lo$; a two-valued state selects one cell
+$c_\alpha\in\Pi_\alpha$ per block, subject to coherence, $\sigma$-additivity, and
+non-principality.
 
 \begin{question}[$\sigma$-point-selection, bare form]\label{q:bare}
 Given a set $\Omega$ and a family $\{\Pi_\alpha\}$ of countable partitions of
@@ -229,13 +231,19 @@ carrier. Two features of the bare form, obscured in lattice language, fix its po
 its distance from a measurable cardinal, and its place within contextuality.
 
 \begin{remark}[The Boolean shadow is a measurable cardinal; the question is not]\label{rem:not-measurable}
-For a \emph{compatible} block family (single Boolean base), a coherent non-principal
-$\sigma$-additive $\{0,1\}$-selection $=$ a non-principal countably-complete
-ultrafilter $=$ a measurable cardinal~\cite{Jech2003}. Question~\ref{q:bare} imposes
-coherence (a) across \emph{incompatible, mutually non-distributive} blocks --- strictly
-stronger than an ultrafilter on any single block. So the \emph{Boolean shadow} reduces
-to a measurable cardinal, but the non-distributive coherence is exactly what the
-reduction cannot cross (\S\ref{sec:boundary}).
+For a \emph{compatible} block family (single Boolean base),
+\[
+  \begin{aligned}
+    &\text{coherent non-principal } \sigma\text{-additive } \{0,1\}\text{-selection}\\
+    {}={}&\text{non-principal countably-complete ultrafilter}
+    \;=\; \text{measurable cardinal}
+  \end{aligned}
+\]
+\cite{Jech2003}. Question~\ref{q:bare} imposes coherence (a) across
+\emph{incompatible, mutually non-distributive} blocks, strictly stronger than an
+ultrafilter on any single block. The Boolean shadow reduces to a measurable cardinal;
+the non-distributive coherence is exactly what the reduction cannot cross
+(\S\ref{sec:boundary}).
 \end{remark}
 
 \begin{remark}[Relation to sheaf-theoretic contextuality]\label{rem:sheaf}

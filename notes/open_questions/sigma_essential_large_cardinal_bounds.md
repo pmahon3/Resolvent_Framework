@@ -281,17 +281,23 @@ logics": σ-orthocomplete OMLs with f.a. but no σ-add states, obstruction in `C
 no σ-add probability. This is structurally different from costume #8 (acts on the Boolean
 center, not the whole non-Boolean lattice).
 
-**Center hybrid FAILS on a dichotomy ⟦HAND, advisor-pending — load-bearing, confirm when
-advisor is back⟧:**
-- *Trivial center* (`{∅,Ω}`): the witness is REQUIRED irreducible (`rem:offcenter`,
-  Def). But trivial center ⟹ Gleason exceptionality ⟹ geometry forces σ-additivity ⟹ NO
-  obstruction to route. (This is why L(H), a factor, is σ-additively "easy".)
-- *Non-trivial center*: hosts the obstruction, BUT the carrier is then **segregated**
+**Center hybrid FAILS on a dichotomy ⟦HAND, advisor-RESOLVED 2026-06-28⟧:**
+- *Trivial center* (`{∅,Ω}`): the witness is REQUIRED irreducible (`rem:offcenter`, Def),
+  and the center is then `{∅,Ω}` — **no HOST for `U`** (nowhere Boolean to seed the
+  measurable's ultrafilter). The hybrid has nothing to act on.
+- *Non-trivial center*: hosts `U`, BUT the carrier is then **segregated**
   (`rem:segregated`) — contextuality routed through a central Boolean factor, σ-states
   concentrate at points ⟹ NO witness, EXCLUDED.
-- **Both horns kill it.** The place the hybrid would put the strength (the center) is exactly
-  the place the witness requirement forces to be either trivial (no obstruction) or
-  disqualifying (segregated). No inhabited middle.
+- **Both horns kill it** on no-host / segregated. No inhabited middle: the place the hybrid
+  would seed strength (the center) is forced either empty-of-host (trivial) or disqualifying
+  (segregated).
+- ⚠ **CORRECTION (advisor 2026-06-28): the earlier trivial-center horn — "trivial center ⟹
+  Gleason ⟹ σ-additivity forced ⟹ no obstruction" — is WRONG and was SUPERFLUOUS.** It is
+  false on the standing unit test: `MO₂` is irreducible (trivial center) yet is the *source*
+  of every disjointification failure here — it does NOT force σ-additivity. Had the Gleason
+  horn held it would prove ¬Ψ, contradicting the open status established everywhere else. The
+  kill stands on no-host/segregated alone; the Gleason step is retired (the prior
+  ⟦advisor-pending⟧ flag is hereby resolved: the flagged step was both wrong and unnecessary).
 
 **RESIDUE (the genuine gain, not consolation).** The center analysis SHARPENS the target: the
 witness's non-distributivity can be neither central (segregated, excluded) nor absent
@@ -301,11 +307,12 @@ by failing, CONFIRMS the obstruction is irreducibly non-central — narrowing th
 than hitting it. Standing stop-condition unchanged: needs a genuinely NEW object, not a
 strength supplier (which the hybrid shows is correctly factored out).
 
-**⚠ TO CONFIRM WITH ADVISOR (overloaded this turn):** the center dichotomy rests on (a)
-Gleason-exceptionality applying to ALL trivial-center OMLs (not just L(H)/Hilbert factors —
-if it's L(H)-specific, a trivial-center NON-Hilbert OML might escape and reopen the hybrid),
-and (b) `rem:segregated` excluding ALL non-trivial-center carriers. Both are in-paper but the
-"Gleason generalizes to all factors" step is the one to pressure-test.
+**✅ RESOLVED (advisor 2026-06-28):** the worry was whether Gleason-exceptionality
+generalizes to all trivial-center OMLs. It does NOT — and the kill never needed it. The
+trivial-center horn is "no host for `U`" (the center is `{∅,Ω}`, nothing Boolean to seed),
+not a Gleason argument; `MO₂` refutes the Gleason version outright. The dichotomy stands on
+no-host (trivial) / segregated (non-trivial, `rem:segregated`), both in-paper, neither
+relying on a Gleason-generalization step. Taxonomy: `strat.center_hybrid` (corrected kill).
 
 ## 4. Sources
 - Takeuti & Zaring, *Axiomatic Set Theory* (GTM 8, Springer 1973), Ch. 23 — class-sized

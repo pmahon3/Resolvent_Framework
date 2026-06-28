@@ -30,6 +30,27 @@ things a witness-construction OR an independence proof would demand, in dependen
 cluster (CLAUDE.md). The gaps are descriptive set theory and large cardinals. The plan
 front-loads those and treats the OML sources as practitioner-level re-reads.
 
+### Coverage / prerequisites (honest)
+
+Every *field* below is covered by a **self-contained source** — no coverage hole. The
+caveats are *intra-book* ("read the early chapters, don't skip in"), not missing fields:
+- **Kechris** is cold-startable from undergraduate real analysis + point-set topology +
+  naive ordinals/cardinals; the plan jumps to Ch. 11, so if a Polish-space / tree
+  construction feels unfamiliar, fall back to its *own* early chapters — not another book.
+- **Jech** is the encyclopedic *reference*; its measurable-cardinal material leans on its
+  *own* earlier chapters (ordinals, cardinals, cofinality, clubs / stationary sets,
+  filters). Read those first — that is the real entry cost of Phase 2, not a separate text.
+- **Operator algebra is deliberately scoped OUT.** Blecher–Weaver / Akemann–Weaver (masas,
+  conditional expectations, pure states on von Neumann algebras) are a field not in any
+  listed text — but the masa route is *proved dead* (`§3a`), and Phase 3 reads B–W only to
+  *understand the boundary*, not build on it. So **light functional analysis ("what is a
+  masa") suffices; deep operator-algebra study is NOT on the critical path.** Only a
+  construction that needed to *enter* the masa route would reopen this — and §3a says it
+  won't.
+
+(Chapter numbers throughout are convenience pointers, not verified against current TOCs —
+the **topic-based target-questions** are the robust part; navigate to the chapter by topic.)
+
 ---
 
 ## Phase 0 — the bridge you almost crossed (free, ~1–2 weeks)

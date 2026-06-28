@@ -13,7 +13,8 @@
       "wall": "a load-bearing structural obstruction (a bound, not an attempt)",
       "fenced_reversal": "a tempting wrong inference, caught and explicitly forbidden to re-derive",
       "settled_fact": "a reusable established result",
-      "open_frontier": "a genuinely open sub-question or unbuilt target"
+      "open_frontier": "a genuinely open sub-question or unbuilt target",
+      "gate": "a PRE-REGISTERED conditional consequence: an investigation × enumerated outcomes → claimed effect on another id. Committed BEFORE the result (pending), then a branch fires (dated). RECORD-ONLY — the consequent's status is still set by its own verified entry, never auto-derived from the gate. Distinct from kills_or_bounds (unconditional, post-hoc)."
     },
     "status_values": [
       "dead",
@@ -23,19 +24,26 @@
       "superseded",
       "open",
       "settled",
-      "forbidden"
+      "forbidden",
+      "pending",
+      "fired"
     ],
     "key_links": {
       "costume_of": "id of the wall/death this is a re-dress of",
       "kills_or_bounds": "ids this wall/fact rules out or constrains",
-      "detail": "file#anchor for the explicit record"
+      "detail": "file#anchor for the explicit record",
+      "investigation": "the probe/result whose outcome the gate is keyed on",
+      "outcomes": "enumerated possible outcomes, each {branch, then} — pre-registered",
+      "fired": "'pending' or {branch, date} — which outcome occurred",
+      "affects": "{id, effect} — the consequent node + the claimed consequence (record, not auto-applied)"
     },
     "headline_counts": {
       "candidate_carriers_killed": 13,
       "disjointification_costumes": 10,
       "fenced_reversals": 10,
       "named_walls": 7,
-      "open_targets": 3
+      "open_targets": 3,
+      "gates": 3
     },
     "lean_certificates": "Entries with a `lean` field have a Lean certificate (file+name+status). Statuses: proved-edge (a proved logical relationship), open-prop (named open conjecture, not assumed), detector (the costume-detector obstruction), detector-rekill (a covered item re-killed by the detector), conjecture-survives-triage (passed the stress-test, gap=wall A), cited-axiom. Receipts via `#print axioms`."
   },
@@ -514,6 +522,84 @@
         "name": "IntrinsicK / intrinsicK_suffices / intrinsicK_gap_is_wallA",
         "status": "conjecture-survives-triage"
       }
+    }
+  ],
+  "gates": [
+    {
+      "id": "gate.rdp_verdict",
+      "category": "gate",
+      "investigation": "RDP-impossibility deep research (is 'RDP-failure ⟹ no σ-additive 2-valued representation' a theorem?)",
+      "outcomes": [
+        {
+          "branch": "(a) proved-impossible",
+          "then": "the σ-LS wall is a ¬Ψ theorem; CBER bridge moot"
+        },
+        {
+          "branch": "(b) RDP-free representable in our sense",
+          "then": "construction reopens; CBER bridge worth building"
+        },
+        {
+          "branch": "(c) open/untreated",
+          "then": "genuine gap, no theorem forbids the witness; CBER bridge is the live constructive lead"
+        }
+      ],
+      "fired": {
+        "branch": "(c)",
+        "date": "2026-06-27"
+      },
+      "affects": {
+        "id": "costume.cber_bridge",
+        "effect": "activated as the live lead (later killed by gate.cber_outcome)"
+      },
+      "detail": "sigma_essential_large_cardinal_bounds.md#3i"
+    },
+    {
+      "id": "gate.cber_outcome",
+      "category": "gate",
+      "investigation": "CBER → concrete-logic bridge attempt (does non-hyperfinite-CBER non-smoothness force clause (ii)?)",
+      "outcomes": [
+        {
+          "branch": "survives the E₀/E∞ check",
+          "then": "escalate to from-scratch construction"
+        },
+        {
+          "branch": "killed",
+          "then": "last flagged lead gone; literature frontier closed, no entering tool"
+        }
+      ],
+      "fired": {
+        "branch": "killed",
+        "date": "2026-06-27"
+      },
+      "affects": {
+        "id": "open.bounds",
+        "effect": "frontier closed — negative now complete across all surveyed fields"
+      },
+      "detail": "sigma_essential_large_cardinal_bounds.md#3j"
+    },
+    {
+      "id": "gate.lb_mechanism",
+      "category": "gate",
+      "investigation": "§3f trace of the LB mechanism ('no measurable ⟹ every σ-state Dirac ⟹ ¬Ψ')",
+      "outcomes": [
+        {
+          "branch": "mechanism holds",
+          "then": "Ψ ≥ measurable; LB earned, strength conjecturally-measurable"
+        },
+        {
+          "branch": "refuted",
+          "then": "strength reopens GENUINELY UNKNOWN both directions"
+        }
+      ],
+      "fired": {
+        "branch": "refuted",
+        "date": "2026-06-26"
+      },
+      "affects": {
+        "id": "strat.lower_bound",
+        "effect": "set to strength-unknown (Navara–Pták ZFC non-Dirac state breaks premise + non-sequitur)"
+      },
+      "detail": "sigma_essential_large_cardinal_bounds.md#3f"
     }
   ]
 }

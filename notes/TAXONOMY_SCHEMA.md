@@ -76,6 +76,41 @@ the collection's actual shape. List them in `$meta.categories`.
   abstraction level or between collections, move its entry to the new taxonomy keeping
   its `id`, update cross-links, and add/adjust the registry row. No prose rewrite.
 
+## Conditional consequence gates (optional `gates` array)
+
+Cross-links (`kills_or_bounds`, `costume_of`) record *unconditional, already-true*
+dependencies ("DW kills all carriers"). They cannot express the **pre-registered
+conditional gate** — the inferential move an investigation actually runs:
+
+> *investigation × enumerated outcomes → claimed effect on another id*, committed
+> **before** the result, then one branch **fires** (dated).
+
+A gate written *after* the outcome is just `kills_or_bounds` with extra words; the value
+is entirely in pre-registration (it blocks post-hoc rationalization and preserves the
+reversal trail). Add a `gates` array as a sibling to the other entry-buckets when a
+collection has such gates. Each gate:
+
+```json
+{
+  "id": "gate.<slug>",
+  "category": "gate",
+  "investigation": "<the probe/result the gate is keyed on>",
+  "outcomes": [ {"branch": "(a) ...", "then": "<effect>"}, {"branch": "(c) ...", "then": "<effect>"} ],
+  "fired": "pending"  | {"branch": "(c)", "date": "YYYY-MM-DD"},
+  "affects": {"id": "<consequent id>", "effect": "<claimed consequence>"},
+  "detail": "file#anchor"
+}
+```
+
+**Two non-negotiable disciplines:**
+- **Record, not propagate.** A gate is a HAND claim logged for audit. NEVER auto-derive
+  the consequent's `status` from a fired gate — the consequent is set by its own verified
+  entry, like everything else. (An inference engine would have shipped this session's
+  *false* CBER kill, which an adversarial check caught.)
+- **Reversal = a new gate, not a mutation.** When a fired consequent later flips (e.g.
+  CBER fired *live*, then was *killed*), add a *second* gate on the new node. Don't edit
+  the old gate's `fired`. This keeps lineage and shows the trail.
+
 ## The hard rules (verify-before-ship)
 
 1. **Valid JSON.** `python3 -c "import json; json.load(open(f))"`.

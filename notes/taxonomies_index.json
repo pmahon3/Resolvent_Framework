@@ -8,14 +8,13 @@
     "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
     "modularity": "Collections are independent registry entries. To add one: author a *_taxonomy.json (per TAXONOMY_SCHEMA.md) and add a row here. To re-parent material across collections as abstraction levels shift, move entries between taxonomies by `id` and update cross-links — no prose rewrite. Entries reference each other across collections via [[file-stem]] wiki-links and shared `id`s, so the tree mutates without breaking references."
   },
-
   "collections": [
     {
       "id": "sigma_essential",
       "name": "σ-essential contextual state / OML descent",
       "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
-      "status": "OPEN (the lone active research thread)",
-      "one_line": "Does a concrete σ-complete non-Boolean OML carry a 2-valued state extending to no global σ-additive 2-valued state? Located + reduced to wall A (σ-point-selection); bounds unproven; almost every route bottoms out at the disjointification identity.",
+      "status": "OPEN + well-posed, but LITERATURE FRONTIER CLOSED (2026-06-27 — no entering tool in any surveyed field; CBER bridge killed §3j; strength unknown). The lone active research thread.",
+      "one_line": "Does a concrete σ-complete non-Boolean OML carry a 2-valued state extending to no global σ-additive 2-valued state? Located + reduced to wall A (σ-point-selection). Every candidate field swept NEGATIVE (RDP (c)-open, DST corner, CBER bridge killed); strength UNKNOWN (LB refuted, UB unearned); almost every route bottoms out at the disjointification identity. Resolution needs a genuinely new object — the convergence is the finding.",
       "entries": 56,
       "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"
     },
@@ -65,7 +64,6 @@
       "pruned": "none (excludes stale programme_reception/ meta — kept as standalone historical docs)"
     }
   ],
-
   "not_yet_taxonomized": {
     "note": "Programme-meta material that is NOT a problem-collection and is intentionally NOT given a taxonomy. Kept as standalone docs.",
     "items": [
@@ -74,5 +72,6 @@
       "notes/programme/contribution_evaluation.md — the 7-type audit framework",
       "notes/programme/programme_reception/* — reception of a withdrawn programme arc (historical)"
     ]
-  }
+  },
+  "updated": "2026-06-27"
 }

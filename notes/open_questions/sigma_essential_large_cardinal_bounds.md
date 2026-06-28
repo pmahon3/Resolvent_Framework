@@ -486,7 +486,8 @@ embeddability as an OPEN PROBLEM. ∴ the construction route is NOT closed by an
   theorem, and the broad RDP-obstruction is false (E(H)). The wall is an unproven GAP.
 - ∴ the CBER bridge is NOT moot: since RDP-failure is not a proved obstruction, NO theorem
   forbids the witness; the construction route stays open. The sequential gate resolves to
-  (c) → the CBER bridge remains the live constructive lead.
+  (c) → the CBER bridge was then the live constructive lead **[but was itself KILLED §3j —
+  type/strength non-sequitur; see below. Frontier now closed, no entering tool.]**
 - ⚠ wording: "RDP-walled" (§3h) means "the off-the-shelf RDP-gated machinery does not reach
   it", NOT "RDP proves it impossible." The wall is a GAP, not a theorem.
 

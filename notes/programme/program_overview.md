@@ -220,7 +220,24 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**⚑ CURRENT STATUS 2026-06-25 — σ-essential thread RESOLVED into a reduction; canonical
+**⚑ CURRENT STATUS 2026-06-27 — σ-essential: question OPEN + well-posed, but the
+LITERATURE FRONTIER IS CLOSED.** After the reduction (below), the full candidate-field
+sweep is complete and NEGATIVE: borrowable-principle hunt (negative), RDP-impossibility
+(verdict (c) open — the σ-LS wall is a *gap*, not an impossibility theorem; E(H) shows
+the broad RDP-obstruction false; Harding/Hamhalter confirm untreated), DST corner (all
+four classes excluded), and the **CBER → concrete-logic bridge — the last flagged
+constructive lead — KILLED** (bounds §3j) as a type/strength non-sequitur (non-smoothness
+= ZFC + *definability*; clause (ii) = *absolute* existence ≥ measurable; E∞ falls
+identically). Consistency strength is **genuinely UNKNOWN** (LB mechanism refuted §3f, UB
+unearned — not conjecturally measurable). **No entering tool remains in any surveyed
+field; resolution requires a genuinely new object built from scratch in the non-Polish,
+non-distributive regime — the convergence IS the finding.** The paper
+(`papers/sigma_essential/`) reflects this terminus (rem:strength, rem:frontier); 5 Lean
+files 0-sorry; zoom-out nav = `sigma_essential_taxonomy.json`, full bounds =
+`sigma_essential_large_cardinal_bounds.md`. The 2026-06-25 block below records the
+reduction step that preceded the sweep.
+
+**⚑ STATUS 2026-06-25 — σ-essential thread RESOLVED into a reduction; canonical
 files updated.** The σ-essential contextual witness question **reduces to
 σ-point-selection** (a state-realization wall, cardinal-sensitive), strictly above
 faithful-tribe-representability, with HW Problem 2 shown **orthogonal** (dropped out);

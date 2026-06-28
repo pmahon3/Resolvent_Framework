@@ -108,6 +108,22 @@ large cardinal — a Blecher–Weaver-style equivalence for the **concrete** sec
 B–W do NOT cover; theirs is B(H)/pure). That is the unclaimed result. Both bounds are
 **set-theorist hand-off targets** (per §8), not solo in-field work.
 
+**Answer-type calibration (2026-06-28, belief-check — NOT a result).** Tempting to bet the
+answer is *independence* (the famous neighbours — von Neumann–Maharam, real-valued
+measurable — are independence results). **That lean does not survive; the ranking is FLAT.**
+Three corrections: (1) those neighbours are two *incompatible* kinds — vN–Maharam is
+**forcing-independence** (both directions consistent with ZFC alone), real-valued-measurable
+is **consistency-strength** (asymmetric, forcing can't reach it, Lévy–Solovay); bundling them
+hides that Ψ has evidence for *neither*. (2) The ONE structural hook for independence was the
+Boolean-shadow ⟹ ≥measurable inheritance ⟹ not-ZFC-provable — **§3f refuted exactly that**, so
+the basis for the lean is the thing already proved (currently) broken. (3) "Resisted
+construction ⟹ probably independent" is the definability-vs-existence error on the MODAL axis:
+convergence-on-a-wall is evidence about *methods tried*, not the truth-value's modal status,
+and it's symmetric (Ψ was equally not *refuted*). So **answer-type is genuinely unknown** —
+construction / impossibility / independence all live, nothing structural favours the third.
+**Discriminator:** the independence lean revives *iff* a lower bound (some large cardinal ⟸ Ψ)
+is re-proved by a route surviving §3f — a Phase-2 target, not decidable from here.
+
 ## 3a. Masa-free direct route — ATTEMPTED + DEAD (2026-06-25, ⟦HAND, advisor-checked⟧)
 
 Tried the sharpened LB directly: is `ℱ_s = {A ∈ L : s(A)=1}` a countably-complete

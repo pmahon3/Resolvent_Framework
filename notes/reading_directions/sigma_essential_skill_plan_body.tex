@@ -1,0 +1,168 @@
+\begin{abstract}
+\noindent A sequenced, audit-structured study plan for the $\sigma$-essential
+contextual-state problem, written for the \emph{foundations-first / path-agnostic}
+choice: build the common substrate---descriptive set theory, large cardinals, and the
+orthomodular-lattice $\sigma$-state corner---until the primary sources read fluently and
+the tractable edge reveals itself. Each phase carries \textbf{target-questions} tied to a
+specific section of the investigation, so the study has the same
+verify-against-a-question structure as the research. The driver is ``learn and try'';
+the only real constraints are the theorems already proved
+(forcing-is-the-wrong-engine, masa-free-dead), not background.
+\end{abstract}
+
+\section{The object, stripped to what a solver must touch}
+
+\begin{quote}
+A concrete $\sigma$-complete non-Boolean irreducible OML carrying a finite two-valued
+state on a $\perp$-closed subposet that extends to \emph{no} global $\sigma$-additive
+two-valued state.
+\end{quote}
+
+\noindent Localized: this is \textbf{$\sigma$-point-selection failure} (wall~A)---a
+locally coherent two-valued pattern across overlapping incompatible blocks with no global
+$\sigma$-additive two-valued state. The frontier is
+\textbf{non-Polish / non-standard-Borel / irreducibly non-central}, the consistency
+strength is \textbf{genuinely unknown}, and \textbf{no borrowable principle exists in any
+surveyed field}. Resolution needs a genuinely new object---built, not transported.
+
+The skill list is therefore \emph{not} generic ``learn set theory.'' It is targeted at the
+three things a witness-construction \textbf{or} an independence proof would demand, in
+dependency order.
+
+\paragraph{The asymmetry (the reason for the ordering).} The OML / quantum-logic cluster
+is already owned. The gaps are descriptive set theory and large cardinals. The plan
+front-loads those and treats the OML sources as practitioner-level re-reads.
+
+\section{Phase 0 --- the bridge you almost crossed (free, \texorpdfstring{$\sim$}{~}1--2 weeks)}
+
+Before any new book, nail the \textbf{definability-vs-existence} distinction cold. It is
+the error \emph{type} that killed the CBER bridge and it will recur at every DST contact.
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Read:} the LB-mechanism refutation and the CBER kill with one lens---
+    ``no \emph{Borel} selector'' (a definability fact) vs.\ ``no state \emph{at all}'' (an
+    existence fact).
+  \item \textbf{Target-question} (answer without notes): \emph{why can a ZFC theorem
+    ($E_0$, $E_\infty$ non-smooth) neither force nor refute clause~(ii)?} The answer---
+    clause~(ii)-failure is $\geq$ measurable strength; a ZFC fact is silent on
+    measurable-strength statements; a definability obstruction cannot yield an existence
+    obstruction---is the load-bearing intuition. The Lean polarity gate
+    (\texttt{builds\_state\_implies\_not\_witness}) certifies this shape; read it too.
+\end{itemize}
+
+\section{Phase 1 --- Descriptive set theory (the witness's home regime, \texorpdfstring{$\sim$}{~}2--3 months)}
+
+The frontier \emph{is} the non-standard-Borel regime; Glimm--Effros is \emph{your}
+dichotomy one abstraction level over; the whole DST sweep lives here.
+
+\subsection{Kechris, \emph{Classical Descriptive Set Theory} (GTM 156)}
+Read by dependency, not linearly.
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Ch.\ 11--14} --- Borel / analytic / co-analytic hierarchy $\to$
+    \textbf{Borel equivalence relations} $\to$ the \textbf{Glimm--Effros dichotomy}.
+    \begin{itemize}
+      \item \emph{Target-Q:} state Glimm--Effros precisely (``a CBER is non-smooth $\iff$
+        $E_0$ embeds $\iff$ no Borel two-valued transversal''). Then: \emph{which word in
+        it does \textbf{not} transport to clause~(ii)?} (Answer: ``Borel.'') This closes
+        the CBER lead with understanding, not on say-so.
+    \end{itemize}
+  \item \textbf{Ch.\ 16--18} --- uniformization, the projective hierarchy.
+    \begin{itemize}
+      \item \emph{Target-Q:} co-analytic uniformization-failure was DST-corner~\#1.
+        \emph{Why is its obstruction real-valued / over a standard-Borel base---i.e.\ why
+        is it Derr--Williamson-killed?}
+    \end{itemize}
+\end{itemize}
+
+\subsection{Gao, \emph{Invariant Descriptive Set Theory}}
+Read \textbf{after} Kechris supplies the language. The $E_0$ / $E_\infty$ / hyperfinite /
+turbulence book in one place.
+\begin{itemize}[leftmargin=*]
+  \item \emph{Target-Q:} define hyperfinite; state Adams--Kechris (uncountably many
+    non-Borel-bireducible CBERs). Then the one that matters: \emph{why is $E_\infty$ being
+    non-hyperfinite \textbf{orthogonal} to clause~(ii)?} (Non-hyperfiniteness buys more
+    non-smoothness; non-smoothness is exactly what is orthogonal to an existence
+    obstruction.) When this is obvious, the DST corner is genuinely closed for you.
+\end{itemize}
+
+\section{Phase 2 --- Large cardinals and forcing (the strength axis, \texorpdfstring{$\sim$}{~}2--3 months)}
+
+The bare object on the Boolean shadow \emph{is} a measurable cardinal; the open strength
+question is whether non-distributivity pushes above or below it.
+
+\subsection{Jech, \emph{Set Theory} (3rd millennium ed.)}
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Ch.\ 8} --- filters, ideals, ultrafilters. The substrate for everything
+    below.
+    \begin{itemize}
+      \item \emph{Target-Q:} why is $\mathcal{F}_s = \{A : s(A)=1\}$ \textbf{not} a filter
+        on a non-Boolean concrete OML, even for a Dirac state? (The $MO_2$ unit test:
+        $a\cap b\neq\varnothing$ as sets yet $a\wedge b = 0$ lattice-wise.) This is your
+        carrier's defect stated in filter language.
+    \end{itemize}
+  \item \textbf{Ch.\ 10} --- measurable cardinals; \textbf{Ulam matrices}.
+    \begin{itemize}
+      \item \emph{Target-Q:} re-derive the Ulam matrix argument by hand. Locate the exact
+        line where the construction needs \textbf{non-orthogonal unions / comprehension}---
+        that line is why the matrix argument does not transplant to an orthogonal-join-only
+        OML.
+    \end{itemize}
+  \item \textbf{Ch.\ 14--15} --- forcing, specifically to \emph{feel} \textbf{L\'evy--Solovay}.
+    \begin{itemize}
+      \item \emph{Target-Q:} why does set-forcing preserve measurability (small forcing can
+        neither create nor destroy it)? This is \emph{why forcing is the wrong engine} for
+        the existence direction---you need the mechanism, not the citation.
+    \end{itemize}
+\end{itemize}
+
+\subsection{Kanamori, \emph{The Higher Infinite} (second pass, only if the strength path calls)}
+Ch.\ 1--2 (measurable $\to$ ultrapower $\to$ elementary embedding $j\colon V\to M$,
+critical point $\kappa$). Only after Jech.
+\emph{Target-Q:} the UB route would ``transport $U$ along $j$''---but the measurable gives
+$U$ on \textbf{Boolean} $\mathcal{P}(\kappa)$; transport to orthogonal-only is the
+disjointification wall from the construction side. Understand why that is a costume.
+
+\section{Phase 3 --- your own primary sources, read as a practitioner (\texorpdfstring{$\sim$}{~}1--2 months, interleaved)}
+
+By now you read these for \textbf{technique}, not verdict.
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Navara--Pt\'ak 1983} --- re-derive their ZFC non-Dirac $\sigma$-state
+    construction. This is your \textbf{existence-proof template} and the object that
+    refuted the LB mechanism. \emph{Target-Q:} what makes their carrier $L_{f,g}$ support a
+    non-Dirac global $\sigma$-state---and why is it \textbf{not} a witness (the two
+    compatible observables / ``Boolean enough'' point)?
+  \item \textbf{Derr--Williamson 2023 \texorpdfstring{$+$}{+} Maharam 1972 \S8} --- the
+    Polish upper boundary. \emph{Target-Q:} exactly where is inner-regularity load-bearing
+    in Thm~D.6 / Maharam~\S8.2? (This is the boundary a witness must escape.)
+  \item \textbf{Blecher--Weaver 2017} --- the Hilbert analogue that does \textbf{not}
+    transfer. \emph{Target-Q:} identify the ultrafilter-extraction-from-a-masa step
+    (Prop.~2.3); state the \textbf{masa-free question} it leaves open for the concrete
+    two-valued case.
+\end{itemize}
+
+\section{Where to start today}
+
+\textbf{Kechris Ch.\ 12--14 (Borel equivalence relations $\to$ Glimm--Effros), paired with
+the Phase-0 re-read.} It is the single chapter that makes the frontier-map legible
+\textbf{and} is the most reusable across all three resolution paths. After $\sim$a month
+you will feel whether to lean DST-construction or strength-axis---the path-agnostic plan
+working as intended.
+
+\section{Honest constraints (the only real ones)}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Theorems, not background.} Forcing-wrong-engine (L\'evy--Solovay) and
+    masa-free-dead are \emph{proved} dead ends---respect those. Everything else is
+    learn-and-try; there is no ceiling.
+  \item \textbf{The convergence is the finding so far.} This plan is for \emph{attempting}
+    the open object, not re-litigating the closed literature frontier. If a phase surfaces
+    a borrowable principle the sweep missed, that is a real result---but expect to
+    \emph{build}, not find.
+\end{itemize}
+
+\bigskip
+\noindent\footnotesize Companion: \texttt{oml\_lead\_philosophical\_reading.md} (the
+question's phenomenological framing); \texttt{sigma\_essential\_taxonomy.json} (zoom-out
+attempt index); \texttt{sigma\_essential\_large\_cardinal\_bounds.md} (the bounds and every
+section-reference above). Markdown source: \texttt{sigma\_essential\_skill\_plan.md}.

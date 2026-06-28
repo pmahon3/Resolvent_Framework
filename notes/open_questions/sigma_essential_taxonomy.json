@@ -4,7 +4,7 @@
     "purpose": "Zoom-out index of every recorded approach to the OML-descent / σ-essential / σ-point-selection problem. Load this first for the 50,000-ft shape; follow `detail` pointers to drill into individual attempts.",
     "updated": "2026-06-27",
     "problem_one_line": "Does a concrete σ-complete non-Boolean irreducible OML carry a 2-valued state on a finite ⊥-closed subposet that extends to NO global σ-additive 2-valued state? (≡ σ-point-selection, the localized core.)",
-    "status": "OPEN. Located + reduced; witness neither built nor refuted in ZFC. STRENGTH REOPENED AS UNKNOWN 2026-06-26 (LB mechanism refuted, UB unearned) -- no longer conjecturally-measurable. Frontier LOCATED 2026-06-27 (non-Polish/non-standard-Borel/irreducibly-non-central) + literature EXHAUSTED (borrowable-principle hunt negative; RDP-impossibility (c)-open, gap not theorem; Harding/Hamhalter confirm open). No entering tool; the live constructive lead is the non-hyperfinite-CBER -> concrete-logic bridge.",
+    "status": "OPEN, but the LITERATURE FRONTIER IS NOW CLOSED (2026-06-27): every candidate field swept NEGATIVE (borrowable-principle hunt; RDP-impossibility (c)-open, gap not theorem; Harding/Hamhalter confirm open; DST corner + the CBER→concrete-logic bridge — the last flagged lead — KILLED §3j as a type/strength non-sequitur). Strength UNKNOWN (LB mechanism refuted §3f, UB unearned). Frontier: non-Polish / non-standard-Borel / irreducibly-non-central. NO ENTERING TOOL in any surveyed field — the convergence IS the finding. Resolution needs a genuinely NEW object built from scratch, not transported.",
     "the_shape": "Almost every construction route bottoms out at ONE wall: the disjointification identity (a∨b)∧a⊥=b∧a⊥ (distributive, false on OMLs). Carriers die because they are segregated/finite/Boolean-enough; abstract routes recur as 'costumes' of disjointification. Genuine non-costume content: the localization reduction, the Polish upper boundary (DW), the Blecher–Weaver Hilbert precedent (does not transfer), and the two unproven large-cardinal bounds. UPDATE 2026-06-27: the literature frontier is now mapped CLOSED -- no field supplies a borrowable principle (every candidate is Boolean / real-valued / Polish), the RDP-failure obstruction is NOT a theorem (gap, not impossibility), and Ψ's consistency strength is genuinely UNKNOWN (the measurable conjecture was refuted, not just unproven). The witness, if it exists, is a genuinely new non-Polish object; the one structural rhyme is the Glimm-Effros 'non-smooth <=> no 2-valued section' dichotomy (a bridge to BUILD, unpublished).",
     "categories": {
       "candidate_carrier": "a concrete σ-OML tried as the witness-carrier",
@@ -32,7 +32,7 @@
     },
     "headline_counts": {
       "candidate_carriers_killed": 13,
-      "disjointification_costumes": 9,
+      "disjointification_costumes": 10,
       "fenced_reversals": 10,
       "named_walls": 7,
       "open_targets": 3
@@ -382,6 +382,16 @@
         "name": "embedding_transport_dead",
         "status": "detector-rekill"
       }
+    },
+    {
+      "id": "costume.cber_bridge",
+      "name": "CBER non-smoothness → concrete-logic (Glimm–Effros transport)",
+      "status": "killed",
+      "killed": "2026-06-27",
+      "costume_of": "strat.lower_bound",
+      "one_line": "Non-hyperfinite-CBER non-smoothness transported onto a Gudder concrete logic = the last flagged constructive lead. KILLED: type/strength non-sequitur (=§3f mirror) — non-smoothness is a ZFC theorem + 'no Borel selector' (DEFINABILITY, AC-transversals exist), while clause (ii) is ABSOLUTE non-existence ≥ measurable. Definability obstruction can't deliver an existence obstruction. E∞ falls identically (kill is type/strength, not hyperfiniteness). Negative now COMPLETE; no entering tool.",
+      "same_as": "strat.lower_bound",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3j"
     }
   ],
   "fenced_reversals": [
@@ -485,7 +495,7 @@
     {
       "id": "open.bounds",
       "name": "Large-cardinal bounds",
-      "one_line": "STRENGTH GENUINELY UNKNOWN (bounds 3f/3i, 2026-06-26/27): LB mechanism REFUTED (Navara-Ptak ZFC non-Dirac state breaks 'no measurable => every state Dirac'; + that premise pushes toward Psi anyway). UB unearned (Levy-Solovay bars forcing; B-W doesn't transfer). RDP-failure is NOT a proved obstruction ((c)-open; E(H) shows broad version false; Harding/Hamhalter confirm untreated). So Psi could be ZFC-decidable or need some cardinal -- no evidence either way. 'measurable' conjecture withdrawn.",
+      "one_line": "STRENGTH GENUINELY UNKNOWN (bounds 3f/3i, 2026-06-26/27): LB mechanism REFUTED (Navara-Ptak ZFC non-Dirac state breaks 'no measurable => every state Dirac'; + that premise pushes toward Psi anyway). UB unearned (Levy-Solovay bars forcing; B-W doesn't transfer). RDP-failure is NOT a proved obstruction ((c)-open; E(H) shows broad version false; Harding/Hamhalter confirm untreated). So Psi could be ZFC-decidable or need some cardinal -- no evidence either way. 'measurable' conjecture withdrawn. CBER bridge (last constructive lead) KILLED §3j — same type/strength non-sequitur; no entering tool remains.",
       "detail": "sigma_essential_large_cardinal_bounds.md#2",
       "lean": {
         "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",

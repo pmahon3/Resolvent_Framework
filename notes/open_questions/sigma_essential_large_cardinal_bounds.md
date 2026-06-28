@@ -443,7 +443,9 @@ failure (non-smooth ⟺ no 2-valued global section). It is NOT a witness (standa
 quotient, no OML structure). But: **if a non-hyperfinite CBER's non-smoothness were
 transported onto a Gudder-style concrete logic, that would be the borrowable principle.**
 No such transport is published — constructing it would be ORIGINAL work. This is the one
-DST item with a possible bridge, distinct from a citable result.
+DST item with a possible bridge, distinct from a citable result. **[RESOLVED §3j 2026-06-27:
+the bridge is KILLED — a type/strength non-sequitur (non-smoothness = ZFC + definability;
+clause (ii) = absolute existence ≥ measurable). Not a borrowable principle. Negative complete.]**
 
 ## 3i. RDP-impossibility deep research — VERDICT (c) OPEN, the wall is NOT a theorem (2026-06-27)
 
@@ -489,5 +491,49 @@ embeddability as an OPEN PROBLEM. ∴ the construction route is NOT closed by an
   it", NOT "RDP proves it impossible." The wall is a GAP, not a theorem.
 
 **∴ The located-frontier verdict (§3g) STANDS, externally corroborated, negative now
-COMPLETE across DST too:** non-Polish, no entering tool, RDP-GAP-walled (the RDP-gated machinery does not reach it — an unproven gap, NOT an impossibility theorem; §3i). The single live
-constructive lead is the non-hyperfinite-CBER → concrete-logic bridge (unpublished, build-it).
+COMPLETE across DST too:** non-Polish, no entering tool, RDP-GAP-walled (the RDP-gated machinery does not reach it — an unproven gap, NOT an impossibility theorem; §3i).
+
+## 3j. CBER → concrete-logic bridge — KILLED by hand (2026-06-27, advisor-checked ×2)
+
+The last flagged constructive lead. The bridge claimed: a non-hyperfinite CBER `E`
+non-smooth ⟹ σ-point-selection failure (clause (ii)), transporting Glimm–Effros
+non-smoothness onto a Gudder concrete logic. **KILLED — a type/strength non-sequitur,
+the same shape as the §3f LB-refutation.**
+
+**The kill (strength mirror of §3f):**
+1. Non-smoothness of `E` (E₀, E∞, …) is a **ZFC theorem** — no large cardinal.
+2. Clause (ii) *failing* (∃ non-Dirac σ-additive 2-valued state) is **≥ measurable** on
+   the Boolean shadow (`rem:not-measurable`).
+3. A ZFC fact can neither force nor refute a measurable-strength statement ⟹ non-smoothness
+   is **SILENT** on clause (ii). Same non-sequitur certified in §3f (Lean polarity gate).
+
+**The type gap underneath:** Glimm–Effros gives "**no _Borel_ selector**" (transversals
+exist by AC — the content is *definability*, not existence). Clause (ii) is "**no
+σ-additive 2-valued state, AT ALL**" (absolute non-existence in ZFC+AC). Transport delivers
+at most "no _Borel_ σ-state," **never "no σ-state."** A definability obstruction cannot
+deliver an existence obstruction. ~10th costume of the same wall, one level out.
+
+**Both sub-outcomes dead:** (a) point at the AC-transversal as rescuer → it need not be
+σ-additive; where it is, it is the **Navara–Pták `rem:np` rescuer shape** (kills clause (ii)).
+(b) cannot exhibit a state → **silent in ZFC** = §3f shape.
+
+**Two false-kill traps avoided (advisor):** (1) the E₀ *class-partition* is a SINGLE
+partition = Boolean = segregated ⟹ clause (ii) fails *vacuously* by `rem:segregated`, a
+reason unrelated to the bridge; the discriminating content lives only in **overlapping
+non-distributive blocks**, so the bare class-logic test is meaningless — must not rest the
+kill on it. (2) "transversal exists by AC" is not yet a clause-(ii) failure — a 2-valued
+state must be σ-additive; an AC selector need not commute with countable disjoint unions.
+The clean kill rests on NEITHER trap — it is the type/strength non-sequitur, needs no state
+exhibited.
+
+**E∞ does not reopen it:** the kill is type/strength, NOT hyperfiniteness. Non-hyperfiniteness
+buys *more* non-smoothness, and non-smoothness is precisely what is **orthogonal** to clause
+(ii). E∞ (Adams–Kechris) falls identically — non-hyperfiniteness is the wrong axis. ⟦HAND,
+advisor-checked ×2; mirrors the §3f Lean-certified non-sequitur.⟧
+
+**∴ NEGATIVE NOW COMPLETE.** Every DST no-section swept (§3h) is definability- or
+real-valued; none is absolute 2-valued non-existence. The last flagged lead is the same
+costume one level out. **No entering tool remains in any surveyed field; the convergence
+IS the finding** (as the ledger predicted). The witness question is open and well-posed
+but has no borrowable principle — resolution requires a genuinely new object, built from
+scratch in the non-Polish non-distributive regime, not transported from any existing field.

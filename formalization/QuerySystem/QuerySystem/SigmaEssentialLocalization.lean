@@ -323,10 +323,62 @@ theorem fold_meet (s₀ : TwoValuedState d) (B : Block d) (hBool : BooleanLocal 
       · exact inter_subset_right
       · exact inter_subset_left.trans (hMsub C hCt)
 
+/-- The carrier `d` is **Boolean** (a σ-algebra, not merely a σ-class): it is closed
+under binary intersection. A Dynkin system with this property is exactly a σ-algebra
+(π–λ). This is the paper's hypothesis "`Λ` is a Boolean σ-algebra". -/
+def InterClosed (d : DynkinSystem Ω) : Prop :=
+  ∀ {A A'}, d.Has A → d.Has A' → d.Has (A ∩ A')
+
+/-- **Multiplicativity on a Boolean carrier (derived, not assumed).** On an
+intersection-closed carrier a two-valued state is multiplicative: if `A, A'` are
+`s₀`-true then so is `A ∩ A'`. Proof: `A = (A∩A') ⊔ (A∩A'ᶜ)` is a disjoint union in
+`d`; `A∩A'ᶜ ⊆ A'ᶜ` and `s₀(A'ᶜ)=0` (since `s₀ A'`), so by monotonicity `A∩A'ᶜ` is
+false; additivity on the disjoint pair then forces `A∩A'` true. This is the only place
+distributivity (lattice-meet = set-intersection, i.e.\ `InterClosed`) is used — exactly
+the step that fails on a non-Boolean OML. -/
+theorem TwoValuedState.val_inter (s₀ : TwoValuedState d) (hInter : InterClosed d)
+    {A A' : Set Ω} (hA : d.Has A) (hA' : d.Has A') (h1 : s₀.Val A) (h1' : s₀.Val A') :
+    s₀.Val (A ∩ A') := by
+  classical
+  have hAc' : d.Has A'ᶜ := d.has_compl hA'
+  have hII : d.Has (A ∩ A') := hInter hA hA'
+  have hID : d.Has (A ∩ A'ᶜ) := hInter hA hAc'
+  -- A'ᶜ is false (since A' is true), so A ∩ A'ᶜ ⊆ A'ᶜ is false by monotonicity
+  have hAc'_false : ¬ s₀.Val A'ᶜ := fun h => (s₀.val_compl hA').mp h h1'
+  have hID_false : ¬ s₀.Val (A ∩ A'ᶜ) := fun hbad =>
+    hAc'_false (s₀.val_mono hID hAc' inter_subset_right hbad)
+  -- A = (A∩A') ⊔ (A∩A'ᶜ), disjoint
+  have hsplit : A = (A ∩ A') ∪ (A ∩ A'ᶜ) := by
+    rw [← inter_union_distrib_left, union_compl_self, inter_univ]
+  have hdisj : Disjoint (A ∩ A') (A ∩ A'ᶜ) := by
+    apply Disjoint.mono inter_subset_right inter_subset_right
+    exact disjoint_compl_right
+  have : s₀.Val ((A ∩ A') ∪ (A ∩ A'ᶜ)) := hsplit ▸ h1
+  rcases (s₀.val_union hII hID hdisj).mp this with h | h
+  · exact h
+  · exact absurd h hID_false
+
+/-- **A Boolean carrier with an intersection-closed block is `BooleanLocal`.** This is
+the missing link between the paper's hypothesis ("`Λ` is a Boolean σ-algebra") and the
+abstract local property `BooleanLocal` that `boolean_not_sigma_essential` consumes: on a
+Boolean carrier the only extra demand is that the block `B` itself be closed under the
+intersections of its `s₀`-true members (the paper's "generated finite Boolean
+subalgebra" step). -/
+theorem booleanLocal_of_interClosed (s₀ : TwoValuedState d) (B : Block d)
+    (hInter : InterClosed d)
+    (hBinter : ∀ A A', A ∈ B.sets → A' ∈ B.sets → (A ∩ A') ∈ B.sets) :
+    BooleanLocal s₀ B := by
+  intro A A' hAB hA'B h1 h1'
+  exact ⟨hBinter A A' hAB hA'B,
+    s₀.val_inter hInter (B.mem_has A hAB) (B.mem_has A' hA'B) h1 h1'⟩
+
 include d in
 /-- **Proposition (Boolean baseline).** If `B` is multiplicative for `s₀` (the
 Boolean case) then the `s₀`-true family has the finite intersection property, so
-`K(s₀) ≠ ∅`, so a Dirac extends `s₀` — `s₀` is **not** σ-essential. -/
+`K(s₀) ≠ ∅`, so a Dirac extends `s₀` — `s₀` is **not** σ-essential.
+
+The hypothesis `BooleanLocal` is discharged from the paper's actual hypothesis
+("`Λ` Boolean") by `booleanLocal_of_interClosed`. -/
 theorem boolean_not_sigma_essential (hBool : BooleanLocal s₀ B) :
     ¬ IsSigmaEssential s₀ B := by
   classical

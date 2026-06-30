@@ -854,6 +854,42 @@ on the underlying \emph{point set} $\Omega$, and obtaining such an $\Omega$ for 
 abstract concrete $\sigma$-complete OML is itself the missing engine, not a free input.
 \end{remark}
 
+\begin{remark}[The two sides that must be married]\label{rem:marriage}
+A witness is one object discharging two requirements that repel; each failed
+construction secured one side and collapsed the other.
+\begin{description}[noitemsep,topsep=2pt]
+  \item[Set-theoretic side.] A two-valued $\sigma$-additive non-principal $w$ with
+    \emph{no} global hidden joint. On a Boolean base such an object is a countably
+    complete non-principal ultrafilter, hence a measurable cardinal (Ulam); the
+    witness is its non-distributive analogue. Boundary: Derr--Williamson
+    (Remark~\ref{rem:dw}); the resolving mechanism would be a Loomis--Sikorski
+    $\sigma$-representation, which \emph{fails} for non-distributive $L$.
+  \item[Order-theoretic side.] $L$ genuinely non-Boolean: not intersection-closed,
+    \[
+      (a\vee b)\wedge a^{\perp}\neq b\wedge a^{\perp}\quad\text{(some $a,b$),}
+    \]
+    irreducibly non-central, and lacking the Riesz decomposition property every
+    Boolean $\sigma$-representation needs. Wright~\cite{Wright1978} places the target
+    strictly above the finite floor; RDP-failure on $\mathrm{MO}_2$ is why the
+    set-theoretic side's gluing cannot be imported.
+\end{description}
+\noindent\emph{Why they repel.} The strength-carrying object of the first side is an
+ultrafilter, which is intersection-closed; the second side forbids exactly that. The
+ultrafilter Blecher--Weaver~\cite{BlecherWeaver2017} consume lives on the diagonal masa
+$\ell^{\infty}(\kappa)$ (projections $=$ subsets), whereas on a concrete non-Boolean
+$\sigma$-OML $\mathcal{F}_s=\{A:s(A)=1\}$ is a filter for \emph{no} two-valued $s$:
+meet-closure fails already for $\delta_\omega$, since in any concrete $\mathrm{MO}_2$
+the atoms $a,b$ have $a\cap b\neq\varnothing$ yet $a\wedge b=0$, so
+\[
+  \delta_\omega(a)=\delta_\omega(b)=1,\qquad \delta_\omega(a\wedge b)=0 .
+\]
+So every object carrying the requisite strength is masa-bound, while every
+$\mathsf{ZFC}$-constructed non-Boolean two-valued $\sigma$-additive state
+(Navara--Pt\'{a}k~\cite{NavaraPtak1983}) carries none; no known object is both. This is
+structural absence, not an impossibility theorem. The problem is set-theoretic in
+difficulty, order-theoretic in content.
+\end{remark}
+
 \noindent Here ``relational'' means \emph{no hidden realisation}: the measure is not
 recoverable from an auxiliary space of definite states behind the propositions. Three
 point-spaces must be kept distinct: the

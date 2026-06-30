@@ -561,3 +561,166 @@ costume one level out. **No entering tool remains in any surveyed field; the con
 IS the finding** (as the ledger predicted). The witness question is open and well-posed
 but has no borrowable principle — resolution requires a genuinely new object, built from
 scratch in the non-Polish non-distributive regime, not transported from any existing field.
+
+## 3k. GTW non-spatial / whirly Polish-group actions — KILLED (2026-06-30, /audit pure, primary-source verified)
+
+New lead probed: Mackey–Ramsay point-realization (locally compact group ⟹ Boolean action
+has a spatial point-model) FAILS for non-locally-compact Polish groups — Glasner–Tsirelson–Weiss
+/ Glasner–Weiss ("Spatial and non-spatial actions of Polish groups", ETDS 25.5 (2005) 1521–1538)
+build Boolean actions with NO spatial model; Lévy groups give **whirly** actions (ergodic at
+the identity) ⟹ no nontrivial spatial factors (Pestov, arXiv:0903.0191). The HOPE: a studied
+literature where "no point realization" is a *positive structural* phenomenon, non-Polish by
+nature ⟹ maybe the non-Polish witness Ψ needs.
+
+**KILLED — same definability-vs-existence fault line as §3j (CBER), one level earlier.**
+
+1. A Boolean action is a homomorphism `G → Aut(X,μ)`; the σ-additive measure **μ is given as
+   data and never threatened**. Whirly precludes a *spatial (Borel point) realization of the
+   action* — "whirly ⟺ no nontrivial spatial **factors**" (Glasner–Weiss §1, primary source) —
+   NOT the existence of any invariant state. A **representation/definability** obstruction, not
+   an **existence** one. Clause (ii) needs ABSOLUTE non-existence (≥ measurable); GTW gives "no
+   point model while μ persists." The §3j/§3f non-sequitur, verbatim.
+
+2. **Group mismatch.** The OML carrier is static — no native acting group. Manufacturing one
+   relocates "build a new object by hand" into dynamical clothing (rhyme, not transfer —
+   cf. [[mixing_barycenter_transfer_rhyme]]).
+
+3. **Wrong witness-type entirely (the decisive corollary).** GTW's carrier is a Boolean
+   **atomless** measure algebra, which by atomlessness has **NO σ-additive 2-valued states at
+   all**. GTW's world is devoid of the object Ψ is about, independent of the points question;
+   non-distributivity is never even reached. On ∏ₙMO₂ the mechanism isn't defined without
+   manufacturing structure.
+
+**Flag:** Mackey–Ramsay locally-compact point-realization relied on via GTW's own citation,
+not the 1962/66 originals — fine per secondary source, noted. All other statements
+(whirly def, "whirly ⟺ no spatial factors," Boolean action = hom into Aut(X,μ), LC = sharp
+line, Lévy ⟹ whirly) primary-source verified (Glasner–Weiss + Pestov). File as the **CBER
+pattern (§3j), not a disjointification costume** — dies before reaching non-distributivity.
+**Negative stays complete; no entering tool.** ⟦HAND/audit — verdict COSTUME, decline to invest.⟧
+
+## 3l. Measured-groupoid native seam (Feldman–Moore / CFW / Gaboriau) — KILLED (2026-06-30, /audit pure, ×4 discriminators)
+
+Probed the seam the §3k group-mismatch left untested: NOT a manufactured Polish group, but
+whether a concrete non-Boolean OML's 2-valued-state problem is NATIVELY a measured groupoid —
+objects = contexts (Boolean blocks), morphisms = compatibility overlaps, non-distributivity =
+a non-trivial groupoid-cohomology class obstructing a global section. Distinct from the dead
+X/E-quotient orbit-equivalence item (§3h): a genuinely new seam, NOT a re-derivation.
+
+**KILLED on the two deepest standing walls — disjointification + definability-vs-existence.**
+
+**Sharpest reason — the masa gate (CH-free).** Feldman–Moore (verified: equiv of categories,
+countable measured equiv relations ⟺ **Cartan pairs**) is gated on a **Cartan masa = Boolean
+`L∞(X,μ)`**. A non-Boolean OML's maximal abelian subalgebras ARE its blocks — many, none a
+masa for the whole. To enter the framework you must produce one Boolean masa ⟹ either can't, or
+force one and **flatten non-distributivity back to Boolean = ~12th disjointification costume**.
+The masa-failure is STRUCTURAL + CH-free (non-distributivity *means* no single Boolean
+subalgebra carries the whole). Akemann–Weaver is CH-dependent corroboration only, NOT
+load-bearing.
+
+**Four discriminators:** (1) MANUFACTURED at the measured level — combinatorial groupoid real,
+but the measured structure (quasi-inv measure, Haar system) + Cartan masa not native; endowing
+it smuggles in the σ-additive 2-valued data sought (circular). (2) DEFINABILITY-vs-EXISTENCE,
+DECISIVE — measured-groupoid cohomology (Feldman–Moore/Series) is a.e. cocycles up to
+*measurable* coboundary ⟹ obstructs a Borel/measurable section, NEVER absolute existence. Same
+kill-weapon as §3j/§3k. (3) Unit space + Cartan masa IS Boolean ⟹ translation flattens the OML.
+(4) Non-Polish witness needs uncountably many infinite blocks ⟹ outside Feldman–Moore's
+countable-fiber regime ⟹ Hahn/Renault uncountable theory, structure theory *weaker* not
+stronger, no 2-valued absolute obstruction. No escape hatch.
+
+**⭐ NEW REUSABLE FINDING (the payload, not just a kill):** on ∏ₙMO₂ the "context-groupoid
+cohomology" IS the **Abramsky–Mansfield–Barbosa sheaf/Čech cohomology of contextuality** —
+finite-cover, **sufficient-not-necessary**, sitting AT the **Wright-1978 finite-contextuality
+floor the problem lives strictly ABOVE.** ⟹ a clean general reason the ENTIRE cohomological-
+groupoid corner (this + the H¹ costume, reduction_writeup §1a) is **SUB-THRESHOLD**: it can
+only ever see finite-witness contextuality, and Ψ is by definition the no-finite-witness part.
+Reusable as a one-line dismissal of any future cohomological framing.
+
+**Flag (could not confirm — and that absence IS the point):** no specific *measured*-groupoid-
+cohomology theorem delivers absolute (non-measurable) non-existence; the literature uniformly
+defines these a.e./measurably. Sources: Feldman–Moore/Cartan survey arXiv:1009.0132; Marks
+CFW notes; Akemann–Weaver PNAS 2008; measured bounded cohomology arXiv:2304.07765; Series
+arXiv:math/0404257. **Negative stays complete; no entering tool.** ⟦HAND/audit — COSTUME.⟧
+
+## 3m. THE MARRIAGE SYNTHESIS + masa-free-ultrafilter seam — SEAM-CLOSED-ABSENT (2026-06-30, /audit pure)
+
+Synthesis of §3a–§3l into a two-ledger frame, plus an audit of the one seam §3l left
+unverified ("masa structurally absent, NOT proven impossible").
+
+### The two sides that must be married
+
+The problem is ONE bridge: a single σ-class `𝒦` must satisfy BOTH halves at once, and
+they REPEL at the join — every kill so far = forcing one side collapsed the other.
+
+**SIDE A (set-theoretic / measure-theoretic — "no σ-state threads the gluing"):**
+- Objects: a σ-class `𝒦` (closed under complement + countable disjoint union — Dynkin, NOT
+  a σ-algebra); a **2-valued σ-additive non-principal selection** = the global section that
+  must FAIL to exist. On a Boolean base that object = a countably-complete non-principal
+  ultrafilter = **a measurable cardinal** (Ulam). Base must be **non-standard-Borel** (DW).
+- Theorems: **Ulam** (2-valued σ-add non-principal ⟹ measurable carrier); **DW D.6 / Maharam
+  §8.1** (Polish-representable ⟹ extension succeeds = upper boundary); **Loomis–Sikorski**
+  (Boolean σ-rep) AND its **failure for OMLs** (where the mechanism would live, and doesn't).
+- Difficulty flavour: consistency-strength (Ulam/large cardinals) + DST (non-standard-Borel).
+
+**SIDE B (order-theoretic / quantum-logic — "carrier is genuinely non-Boolean"):**
+- Objects: a concrete σ-complete OML; the **forbidden-intersection spec** `(S∩S′)×{0}∉𝒦`
+  (= NOT intersection-closed = the non-distributivity, Lean `IntrinsicK.notIntersectionClosed`,
+  forced on any witness by `witness_not_intersection_closed`); **irreducible non-centrality**
+  (center-hybrid kill §3d: not central=segregated, not absent=Gleason).
+- Theorems: **disjointification identity** `(a∨b)∧a⊥=b∧a⊥` distributive, FALSE on OMLs (faithful
+  set-rep forces it ⟹ Boolean = the Floor); **Wright 1978** (finite witnesses always exist ⟹
+  problem lives strictly ABOVE the finite floor); **RDP failure** (Dvurečenskij σ-rep needs
+  Riesz Decomposition; MO₂ lacks it — the order-theoretic reason Side A's gluing can't import).
+- Difficulty flavour: non-distributivity / no faithful Boolean rep. STRUCTURAL + CH-free.
+
+**The marriage = `open.intrinsic_K`:** one `𝒦` carrying both. Lean pins the burden exactly —
+`intrinsicK_suffices` (ingredients ⟹ witness, target correctly specified); `intrinsicK_gap_is_wallA`
+(strip free clause (i) + structural (c), entire open content = **Wall A**, nothing more).
+The missing theorem that WOULD be the marriage: **a non-distributive analogue of Ulam/Loomis–
+Sikorski** — a principle producing measurable-strength 2-valued σ-additive NON-existence on a
+carrier lacking the Boolean masa/RDP every known such principle requires.
+
+### Is the problem "entirely set-theoretic"? NO — and that's a FENCE (cf. fence.independence_lean,
+fence.cardinality_vs_strength). Set-theoretic in DIFFICULTY (non-Polish, possibly LC-flavoured),
+order-theoretic in CONTENT (non-distributive gluing). "Non-Polish" is a NECESSARY condition on the
+witness, NOT a reduction to pure set theory: the lattice structure is doing the killing (it hasn't
+factored out), and the strength-bridge to a cardinal was REFUTED (§3f), so set-theoretic content
+is unearned in both directions.
+
+### The seam audit (the one genuinely-unverified piece): SEAM-CLOSED-ABSENT
+
+Probed: can ANY non-Boolean object play the **ultrafilter role** (Side-A engine) WITHOUT a Boolean
+masa/RDP — a Farah–Weaver quantum filter, a maximal quantum filter, a vN-side object? Or is the
+absence PROVABLE (a "2-valued σ-state ⟹ block-supported" collapse theorem)?
+
+**VERDICT: ABSENT, not PROVABLE.** No masa-free candidate survives, but the absence is *demonstrated
+across the surveyed objects, not proven* — the not-impossibility half stays UNEARNED (refuting one
+collapse statement kills one route to an impossibility proof, not impossibility). ⚠ EARLIER OVERCLAIM
+CORRECTED (advisor, 2026-06-30): do NOT write "impossibility is foreclosed because a collapse would
+trivialize Kochen–Specker" — (i) the collapse "2-valued σ-state ⟹ block-supported" is *directly*
+false (δ_ω spans all blocks by ω∈A, no KS detour needed) and the KS link is shaky (KS lattice isn't
+concrete); (ii) refuting one collapse ≠ foreclosing impossibility. Calibrated claim = rem:frontier's
+"neither closed by an impossibility theorem nor reachable by a borrowed construction."
+
+**⚠ THE "ROOT" SHARPENING WAS MIS-STATED — CORRECTED (advisor, 2026-06-30).** The displayed
+biconditional "φ two-valued ⟺ φ|masa two-valued on a Boolean masa" is NOT B–W Prop 2.3 and is FALSE
+read as a biconditional: Prop 2.3 is about states *on* the abelian algebra ℓ∞(κ) (pure ⟺ {0,1}-valued
+THERE), not a masa-restriction characterization of an ambient state's two-valuedness (a pure state on
+B(H) restricts to the non-2-valued |ξᵢ|² on the diagonal); and "masa" has no referent in an abstract
+concrete OML. **The correct, paper-grade statement of the repulsion was ALREADY in the primary paper
+(`sec:boundary` (1)+(3) + rem:no-bridge), stated more elementarily and without importing pure/masa
+machinery:** the strength-carrier is an ultrafilter (intersection-closed), which non-distributivity
+forbids; B–W's ultrafilter lives on the diagonal masa ℓ∞(κ), while on a concrete non-Boolean σ-OML
+`ℱ_s={A:s(A)=1}` is a filter for NO 2-valued state — meet-closure fails already for δ_ω (in MO₂
+a∩b≠∅ as sets yet a∧b=0 lattice-wise). That δ_ω computation IS the root, one level down from B–W's
+masa. **Genuine session payload (survives): the seam audit confirmed the obvious masa-free surrogate
+(Farah–Weaver quantum filters) is PURE-side, not 2-valued — beyond "structurally absent," the specific
+surrogate is on the wrong side of the pure/2-valued line.** Strength-carriers masa-bound; non-Boolean
+2-valued states built (Navara–Pták) ZFC-cheap; no known object is both.
+
+**Could not confirm (absence corroborates):** no quantum-logic "ultrafilter" theory delivering a
+σ-additive 2-valued NON-existence; literature gives only finite/algebraic facts (two-valued-state
+logics) or pure-state machinery. No "2-valued σ-state ⟹ one block" theorem exists. Sources: B–W
+arXiv:1607.08505 (primary, Prop 2.3 / Thm 2.4 / Lemma 4.3 verified); Farah–Weaver quantum filters;
+Akemann–Weaver PNAS 2008. **Strength stays GENUINELY UNKNOWN; resolution still needs a NEW object
+built from scratch, not a borrowed engine. The marriage thesis is now sharpened, not a new lead.**
+⟦HAND/audit — SEAM-CLOSED-ABSENT, impossibility-upgrade foreclosed.⟧

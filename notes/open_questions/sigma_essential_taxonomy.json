@@ -2,7 +2,7 @@
   "$meta": {
     "title": "σ-essential contextual state — solution-attempt taxonomy",
     "purpose": "Zoom-out index of every recorded approach to the OML-descent / σ-essential / σ-point-selection problem. Load this first for the 50,000-ft shape; follow `detail` pointers to drill into individual attempts.",
-    "updated": "2026-06-28",
+    "updated": "2026-06-30",
     "problem_one_line": "Does a concrete σ-complete non-Boolean irreducible OML carry a 2-valued state on a finite ⊥-closed subposet that extends to NO global σ-additive 2-valued state? (≡ σ-point-selection, the localized core.)",
     "status": "OPEN, but the LITERATURE FRONTIER IS NOW CLOSED (2026-06-27): every candidate field swept NEGATIVE (borrowable-principle hunt; RDP-impossibility (c)-open, gap not theorem; Harding/Hamhalter confirm open; DST corner + the CBER→concrete-logic bridge — the last flagged lead — KILLED §3j as a type/strength non-sequitur). Strength UNKNOWN (LB mechanism refuted §3f, UB unearned). Frontier: non-Polish / non-standard-Borel / irreducibly-non-central. NO ENTERING TOOL in any surveyed field — the convergence IS the finding. Resolution needs a genuinely NEW object built from scratch, not transported.",
     "the_shape": "Almost every construction route bottoms out at ONE wall: the disjointification identity (a∨b)∧a⊥=b∧a⊥ (distributive, false on OMLs). Carriers die because they are segregated/finite/Boolean-enough; abstract routes recur as 'costumes' of disjointification. Genuine non-costume content: the localization reduction, the Polish upper boundary (DW), the Blecher–Weaver Hilbert precedent (does not transfer), and the two unproven large-cardinal bounds. UPDATE 2026-06-27: the literature frontier is now mapped CLOSED -- no field supplies a borrowable principle (every candidate is Boolean / real-valued / Polish), the RDP-failure obstruction is NOT a theorem (gap, not impossibility), and Ψ's consistency strength is genuinely UNKNOWN (the measurable conjecture was refuted, not just unproven). The witness, if it exists, is a genuinely new non-Polish object; the one structural rhyme is the Glimm-Effros 'non-smooth <=> no 2-valued section' dichotomy (a bridge to BUILD, unpublished).",
@@ -39,7 +39,8 @@
     },
     "headline_counts": {
       "candidate_carriers_killed": 13,
-      "disjointification_costumes": 10,
+      "disjointification_costumes": 12,
+      "marriage_synthesis": "bounds §3m (two-ledger Side-A/Side-B frame + seam-closed-absent)",
       "fenced_reversals": 12,
       "named_walls": 7,
       "open_targets": 3,
@@ -322,6 +323,15 @@
       "one_line": "Route the σ-state obstruction through the OML's Boolean CENTER C(L), where a measurable/U applies natively (center is ∩-closed, no disjointification wall) — partner ce.concept.oml_center / Pták 1987 exotic logics. KILLED on TWO horns (NOT the Gleason horn, which is FALSE — MO₂ is irreducible/trivial-center yet the SOURCE of disjointification, does not force σ-additivity; that horn was advisor-pending and is now retired as wrong+ superfluous): trivial center = no HOST for U; non-trivial center = SEGREGATED (rem:segregated), σ-states concentrate at points, no witness. No inhabited middle.",
       "same_as": "rem:segregated",
       "detail": "sigma_essential_large_cardinal_bounds.md#3d"
+    },
+    {
+      "id": "strat.masa_free_ultrafilter",
+      "category": "strategy",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "one_line": "The one seam §3l left as 'masa structurally absent, NOT proven impossible': can a NON-Boolean object (Farah–Weaver quantum filter / maximal quantum filter / vN-side object) play the ultrafilter role = Side-A engine WITHOUT a Boolean masa/RDP? VERDICT SEAM-CLOSED-ABSENT: no masa-free candidate survives — quantum filters = PURE states (wrong side of the pure/2-valued line); not meet-closed except via purity; every LC-extraction routes through an abelian intermediary. ABSENT, not PROVABLE: the not-impossibility half stays UNEARNED (refuting one collapse ≠ foreclosing impossibility). ⚠ do NOT write 'collapse trivializes Kochen–Specker ⟹ impossibility foreclosed' (collapse is directly false via δ_ω; KS link shaky) — overclaim corrected 2026-06-30. Calibrated = rem:frontier.",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3m"
     }
   ],
   "costumes_of_disjointification": [
@@ -418,6 +428,27 @@
       "one_line": "Non-hyperfinite-CBER non-smoothness transported onto a Gudder concrete logic = the last flagged constructive lead. KILLED: type/strength non-sequitur (=§3f mirror) — non-smoothness is a ZFC theorem + 'no Borel selector' (DEFINABILITY, AC-transversals exist), while clause (ii) is ABSOLUTE non-existence ≥ measurable. Definability obstruction can't deliver an existence obstruction. E∞ falls identically (kill is type/strength, not hyperfiniteness). Negative now COMPLETE; no entering tool.",
       "same_as": "strat.lower_bound",
       "detail": "sigma_essential_large_cardinal_bounds.md#3j"
+    },
+    {
+      "id": "costume.gtw_nonspatial",
+      "name": "GTW non-spatial / whirly Polish-group actions",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "costume_of": "strat.lower_bound",
+      "one_line": "Mackey–Ramsay point-realization fails for non-loc-cpt Polish groups (Glasner–Tsirelson–Weiss; Lévy ⟹ whirly) — hoped 'no point model' = the non-Polish witness. KILLED: same definability-vs-existence non-sequitur as §3j (CBER), one level earlier — Boolean action's μ is GIVEN data, whirly kills only the spatial REALIZATION not the state; + group mismatch (static carrier, no native group); + decisive: GTW carrier is Boolean ATOMLESS ⟹ NO σ-additive 2-valued states at all, devoid of the witness type, non-distributivity never reached.",
+      "same_as": "strat.lower_bound",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3k"
+    },
+    {
+      "id": "costume.measured_groupoid",
+      "name": "Measured-groupoid native seam (Feldman–Moore / CFW / Gaboriau)",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "costume_of": "wall.disjointification",
+      "number": 12,
+      "one_line": "Is a non-Boolean OML's 2-valued-state problem NATIVELY a measured groupoid (contexts=objects, overlaps=morphisms, non-distributivity=cohomology class)? Genuinely new seam (NOT the dead X/E item) but KILLED on TWO walls: (masa gate, CH-free) Feldman–Moore needs a Cartan masa=Boolean L∞, OML has none ⟹ force one = flatten to Boolean = disjointification; (definability) measured-groupoid cohomology is a.e. up to MEASURABLE coboundary ⟹ obstructs Borel section never absolute existence = §3j/§3k kill-weapon. + non-Polish needs uncountable fibers (outside FM, Hahn/Renault weaker).",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3l"
     }
   ],
   "fenced_reversals": [
@@ -518,6 +549,21 @@
       "id": "fact.ulam",
       "one_line": "Ulam: a 2-valued σ-additive non-principal measure forces a measurable carrier. Matrix breaks at CONSTRUCTION on a σ-class (non-orthogonal unions), not at the contradiction.",
       "detail": "sigma_essential_large_cardinal_bounds.md#3b"
+    },
+    {
+      "id": "fact.pure_2valued_line",
+      "one_line": "THE marriage-repulsion root, paper-grade form (already in primary `sec:boundary` (3) + rem:no-bridge): the strength-carrier is an ULTRAFILTER (intersection-closed); non-distributivity forbids it. B–W's ultrafilter lives on the diagonal masa ℓ∞(κ); on a concrete non-Boolean σ-OML ℱ_s={A:s(A)=1} is a filter for NO 2-valued s — meet-closure fails already for δ_ω (MO₂: a∩b≠∅ as sets, a∧b=0 lattice-wise). ⟹ strength-carriers masa-bound, non-Boolean 2-valued states (Navara–Pták) ZFC-cheap, no known object is both. Session add: Farah–Weaver quantum filters = PURE-side, confirming the obvious surrogate fails. ⚠ DO NOT state as 'φ two-valued ⟺ φ|masa two-valued' (NOT Prop 2.3, false; Prop 2.3 = pure⟺{0,1}-valued ON ℓ∞(κ)) — corrected 2026-06-30.",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3m"
+    },
+    {
+      "id": "fact.conjecture_isolated",
+      "one_line": "The conjecture is ALREADY isolated as `Psi` (a named Prop, never axiom'd, #print-axioms-clean). 2026-06-30 added §7 BOOKKEEPING vocabulary to SigmaEssentialOpenCore.lean: TargetA:=Psi (Exit A), TargetB:=¬Psi (Exit B), proved targetB↔¬targetA + targetA∨targetB (one bivalent conjecture, two attack directions — NOT two independent theorems). TargetA_sharp = witness on an Admissible carrier (all 6 constraints); targetA_sharp_gives_targetA proved. ⚠ NO TargetA↔Psi (only 2 of 6 forcing lemmas Lean-proved: non-Boolean §4, non-Polish §5; concrete/σ-complete/irreducible/non-segregated are OPAQUE axioms = paper-level gap, machine-visible in the axiom receipt). NO 'strength axis' claim (strength unknown both directions, rem:strength). Receipt: structural thms depend only on propext/Classical.choice/Quot.sound; targetA_sharp additionally lists the 4 carrier predicates + PolishRepresentable, NOT Psi/WallA/MeasurableExists.",
+      "detail": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean#7"
+    },
+    {
+      "id": "fact.cohomology_subthreshold",
+      "one_line": "ANY cohomological framing of the obstruction (groupoid/context cohomology, H¹) reduces on ∏ₙMO₂ to Abramsky–Mansfield–Barbosa sheaf-contextuality cohomology = finite-cover, SUFFICIENT-not-necessary, sitting AT the Wright-1978 finite-contextuality floor Ψ lives strictly ABOVE. ⟹ the whole cohomological corner is SUB-THRESHOLD (sees only finite-witness contextuality; Ψ is the no-finite-witness part). One-line dismissal of future cohomological costumes.",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3l"
     }
   ],
   "open_frontier": [
@@ -547,7 +593,7 @@
     {
       "id": "open.intrinsic_K",
       "name": "Intrinsic class 𝒦 (frontier object)",
-      "one_line": "UNBUILT target carrier: generators ∈ 𝒦, closed under complement + countable disjoint union, forbidden finite intersections (S∩S′)×{0} ∉ 𝒦. Exists ⟺ witness exists. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional. SHARPENED 2026-06-26 (hybrid analysis, large_cardinal_bounds §3d): the obstruction is irreducibly NON-CENTRAL — neither central (segregated/excluded) nor absent (Gleason/no-obstruction); the strength axis factors out, leaving this as the sole target. See ce.concept.oml_center (the assessed-and-failed center pairing). FRONTIER LOCATED 2026-06-26 (bounds 3g): witness MUST be non-Polish (DW + construction attack, two directions) = the only remaining arena, but it has NO ENTERING TOOL -- hand-construction resists non-standard-Borel, forcing barred, strength unknown. Open question reframed: what object/principle could produce a non-Polish non-standard-Borel concrete sigma-OML with un-threadable gluing? No candidate principle on the table. CONFIRMED irreducibly-non-central by strat.center_hybrid's failure (obstruction can be neither central=segregated nor absent — must live in the irreducible non-central part).",
+      "one_line": "UNBUILT target carrier = THE MARRIAGE of two repelling sides (bounds §3m). SIDE A (set-theoretic): σ-class closed under complement + countable disjoint union, base non-standard-Borel, carrying a 2-valued σ-additive non-principal selection that FAILS globally (= measurable-strength object, Ulam) — theorems: Ulam, DW D.6/Maharam, Loomis–Sikorski + its OML-failure. SIDE B (order-theoretic): forbidden intersections (S∩S′)×{0}∉𝒦 (= NOT intersection-closed = non-distributivity, Lean notIntersectionClosed), irreducibly non-central — theorems: disjointification identity (FALSE on OMLs), Wright 1978 (above finite floor), RDP-failure (Dvurečenskij). Exists ⟺ witness. The missing theorem that WOULD be the marriage = a non-distributive analogue of Ulam/Loomis–Sikorski. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional, non-Polish. NO ENTERING TOOL (bounds 3g): hand-construction resists non-standard-Borel, forcing barred, strength unknown. CONFIRMED irreducibly-non-central (strat.center_hybrid). SEAM-CLOSED-ABSENT (bounds §3m): the two sides repel because the DISTINCTNESS of pure & 2-valued REQUIRES non-distributivity (B–W Prop 2.3 root) — strength-carriers all pure-side/Boolean, non-Boolean 2-valued states (Navara–Pták) ZFC-cheap, no known object is both; impossibility-upgrade FORECLOSED (a collapse theorem would trivialize Kochen–Specker).",
       "detail": "../archive/sigma_construction_log_archive.md",
       "lean": {
         "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",

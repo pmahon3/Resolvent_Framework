@@ -211,4 +211,82 @@ theorem center_route_fails
     (hw : WitnessAt s₀ B) (hcenter : IntersectionClosed s₀ B) : False :=
   witness_not_intersection_closed s₀ B hw hcenter
 
+/-! ## §7. The two exit-targets, isolated (BOOKKEEPING — no new mathematics)
+
+The witness conjecture is ALREADY isolated as `Psi` (§1): a named `Prop`, never
+`axiom`'d, `#print axioms`-clean. This section adds only *vocabulary* — the two
+research exits as named Props — and the *proved structure* relating them. It introduces
+NO new mathematical content: `TargetA`/`TargetB` are `Psi`/`¬Psi` in exit-shaped dress,
+and the one substantive edge below (`Psi → TargetA`) is left CONDITIONAL on the four
+carrier-forcing facts that are still paper-level, so the gap stays machine-visible.
+
+⚠ Two errors deliberately avoided here (advisor, 2026-06-30): (1) NO `TargetA ↔ Psi` —
+only two of the six carrier constraints are Lean-proved (non-Boolean `§4`, non-Polish
+`§5`); σ-complete/concrete/irreducible/non-segregated are paper-level, so the reverse
+direction is GATED on explicit hypotheses, never axiomatized. (2) NO "strength axis"
+claim for `TargetB` — Ψ's strength is unknown in BOTH directions (`rem:strength`); an
+axis is not a `Prop` and stays out of the formal record entirely. -/
+
+/-- **Exit A (prove Ψ).** A σ-essential witness exists. Definitionally `Psi`; named
+separately only to pair with `TargetB`. -/
+def TargetA : Prop := Psi
+
+/-- **Exit B (prove ¬Ψ).** No σ-essential witness exists — on every carrier and pattern,
+`s₀` always extends to some σ-additive 2-valued state. Definitionally `¬Psi`. -/
+def TargetB : Prop := ¬ Psi
+
+/-- **The duality (proved).** The two exits are exact negations: one bivalent conjecture
+`Psi`, two directions of attack — NOT two independent target theorems. -/
+theorem targetB_iff_not_targetA : TargetB ↔ ¬ TargetA := Iff.rfl
+
+/-- **Exactly one holds (proved, classically).** `Psi ∨ ¬Psi` — the exits are jointly
+exhaustive and mutually exclusive. Settling the problem = proving one of `TargetA`,
+`TargetB`. -/
+theorem targetA_or_targetB : TargetA ∨ TargetB := em Psi
+
+/-- **Trivial direction (proved).** A localized witness at any `(s₀,B)` yields `TargetA`.
+The whole burden of Exit A is producing such a witness on an admissible carrier. -/
+theorem witnessAt_gives_targetA
+    {Ω : Type} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d)
+    (hw : WitnessAt s₀ B) : TargetA :=
+  ⟨Ω, d, s₀, B, hw⟩
+
+/-! ### The carrier-forcing gap, made explicit (the four paper-level hypotheses)
+
+`Psi → TargetA` is *definitionally trivial* (they are the same Prop). The content the
+question really turns on is the SHARP form: a witness, if it exists, lives on a carrier
+satisfying all six admissibility constraints. Two are proved (`witness_not_intersection_closed`,
+`witness_not_polish`); the other four are paper-level. We record the SHARP statement as a
+conditional whose hypotheses are exactly those four facts, passed explicitly — so the
+machine shows precisely what is still owed. Nothing is assumed: the hypotheses are `→`. -/
+
+/-- Abstract carrier predicates for the four not-yet-Lean-proved admissibility
+constraints (concrete, σ-complete, irreducible, non-segregated). Opaque Props — we do
+NOT unfold them and do NOT give them truth values; they stand for the paper-level
+forcing lemmas. -/
+axiom IsConcrete {Ω : Type*} (d : DynkinSystem Ω) : Prop
+axiom IsSigmaComplete {Ω : Type*} (d : DynkinSystem Ω) : Prop
+axiom IsIrreducible {Ω : Type*} (d : DynkinSystem Ω) : Prop
+axiom IsNonSegregated {Ω : Type*} (d : DynkinSystem Ω) : Prop
+
+/-- **The admissible carrier class 𝒜 (definition).** All six boundary-map constraints.
+Two conjuncts (`¬IntersectionClosed`, `¬PolishRepresentable`) are forced by proved
+theorems on any witness; the other four are the opaque paper-level predicates above. -/
+def Admissible {Ω : Type*} {d : DynkinSystem Ω} (s₀ : TwoValuedState d) (B : Block d) : Prop :=
+  IsConcrete d ∧ IsSigmaComplete d ∧ IsIrreducible d ∧ IsNonSegregated d ∧
+    ¬ IntersectionClosed s₀ B ∧ ¬ PolishRepresentable d
+
+/-- **The sharp Exit-A target (named conjecture).** A witness on an ADMISSIBLE carrier.
+This is the precise object Exit A must construct. Open; never assumed. -/
+def TargetA_sharp : Prop :=
+  ∃ (Ω : Type) (d : DynkinSystem Ω) (s₀ : TwoValuedState d) (B : Block d),
+    Admissible s₀ B ∧ WitnessAt s₀ B
+
+/-- **Sharp ⟹ Exit A (proved).** The sharp target entails `TargetA`: dropping the
+admissibility data leaves a witness. (The CONVERSE — every witness is admissible — needs
+the four paper-level forcing lemmas and is NOT proved here; that is the visible gap.) -/
+theorem targetA_sharp_gives_targetA (h : TargetA_sharp) : TargetA := by
+  obtain ⟨Ω, d, s₀, B, _, hw⟩ := h
+  exact ⟨Ω, d, s₀, B, hw⟩
+
 end SigmaEssential.OpenCore

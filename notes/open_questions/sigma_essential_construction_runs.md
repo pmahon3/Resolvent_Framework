@@ -421,3 +421,52 @@ contradiction. Resolution (two independent facts AGREE on atomic):
 NATIVE gluing = intrinsic_K); the invention SWING still pending. Every step reduced to the known wall.
 Records cleanup + Nth convergence, NOT a new located obstruction. ⟦HAND — advisor-checked ×4; the
 construct-vs-assume fork + atomic-blocks correction are the keepers.⟧
+
+---
+
+## Import sweep COMPLETE — angle 1 (quantum relations) closes on C1, not the razor (2026-07-01, advisor ×2)
+
+User chose (a): find/invent the non-Boolean-ambient uncountable combinatorics the construct horn
+demands. Advisor discriminator: READ (scout an existing object, razor-test) is legitimate; WRITE
+(axioms from scratch) is the ASSUME horn already refuted this turn ⟹ do NOT write axioms. So (a) has
+one honest form: is there an EXISTING non-Boolean-ambient theory matching the razor spec? One
+unscouted candidate — handoff angle 1, quantum AD/gap = **Weaver quantum relations / quantum graphs**.
+
+**LEDGER-CHECK:** quantum FILTERS (Farah–Weaver) as the Side-A ultrafilter engine = already
+seam-closed-absent (§3l, seam.masa_free: pure-side, wrong side of pure/2-valued line). Quantum
+RELATIONS as the SKELETON (the gluing combinatorics itself) = genuinely UNSCOUTED (no hit on quantum
+relation/graph/operator system/noncommutative graph in records). So the probe is real.
+
+**CONCRETENESS-FIRST GATE (advisor: this kills it, not the razor) — resolved FROM RECORDS, no dig.**
+A quantum relation/graph lives on a vN algebra M⊆B(H). Dichotomy, no middle:
+- M abelian/atomic ⟹ quantum relation = ordinary relation on a set = ℓ∞(set) = BOOLEAN-AMBIENT ⟹
+  rescued (fact.catalog_barren). [reason R1]
+- M genuinely non-commutative (where the non-distributivity lives) ⟹ B(H)-side ⟹ FAILS C1
+  (concreteness: L(H) dim≥3 admits no 2-valued hom, Kochen–Specker; B–W = "precedent not instance"
+  exactly here). [reason R2]
+The non-Boolean-ambient-ness is SUPPLIED BY non-commutativity of M = exactly what fails C1. Same
+C1/KS wall every Hilbert-side object hits.
+
+**The II₁/tracial corner (the one "genuinely-concrete" escape) closes too:** a trace is a
+[0,1]-VALUED state, not 2-valued; C1 = 2-valued-hom / point-separation (L⊆P(Ω)). II₁/tracial buys
+MEASURE-theoretic concreteness, NOT set-concreteness. The projection lattice of any non-abelian vN
+algebra fails C1 by KS. That's exactly where B–W/Akemann–Weaver operate — no escape. Confirmed by
+one sentence, no literature dig needed.
+
+**RESULT — THE IMPORT SWEEP IS COMPLETE (fact.import_sweep_complete).** Every existing object-class
+proposed as the skeleton — catalog [R1], manuals/F–W, pBAs+A–B duality [R2], quantum relations [R2] —
+bottoms at Wall A via the LEGIBLE TWO-REASON PARTITION: Boolean-ambient (R1, rescued) XOR
+non-concrete-where-non-distributive (R2, C1/KS). Upgrades "every WALKED road → Wall A" to "every
+IMPORTABLE object → Wall A, for one of two structural reasons."
+
+**⚠ GUARDS (both overclaims the records caught before):** (1) import-complete ≠ impossibility — says
+no EXISTING object imports, nothing against a genuinely-new object or a ¬Ψ theorem (rem:frontier
+wording holds). (2) the R1-XOR-R2 partition is an EMPIRICAL ⟦HAND⟧ pattern over 4 classes, NOT a
+proven metatheorem.
+
+**HANDBACK (earned, not failure — the correct terminus of the import route):** remaining routes are
+both NEW-MATHEMATICS, neither manufacturable at the schematic this turn — (a′) human learn-then-try
+on a genuinely-new object (skill-plan: DST + large cardinals as EDUCATION, not schematic reasoning;
+`reading_directions/sigma_essential_skill_plan.md`); (b) a non-RDP (i)→(iii) impossibility theorem
+(strat.impossibility_i_to_iii). ⟦HAND — advisor-checked ×2; dichotomy from records + one II₁ sentence,
+no dig; import-sweep-complete is the keeper, guarded against the impossibility overclaim.⟧

@@ -1,0 +1,152 @@
+\documentclass[11pt]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathrsfs}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\setcounter{secnumdepth}{1}
+
+\title{Reading Plan --- The Realization-Theorem Technique\\
+\large (the $\sigma$-essential fourth-cell route)}
+\author{Patrick S.\ Mahon \\ \small Personal reference}
+\date{July 2026}
+
+\begin{document}
+\maketitle
+
+\section*{Why this plan exists}
+
+\noindent This is a \emph{technique-acquisition} plan, companion to the broader
+\texttt{sigma\_essential\_skill\_plan} (which sequences descriptive set theory and
+large cardinals). It is narrower and pointed at one route.
+
+The $\sigma$-essential import sweep closed every \emph{existing} object one could
+borrow as the carrier's skeleton: each dies either Boolean-ambient (rescued by a
+non-Dirac $\sigma$-state) or operator-algebraic (non-concrete by Kochen--Specker).
+The one surviving \emph{lead} --- not a solution, a place to learn --- is the family
+of \textbf{realization theorems}. Per the prior-art note
+(\texttt{czech\_school\_prior\_art\_sigma\_essential.md}, \S POSITIVE), these build
+\emph{non-simplex} (hence contextual, non-segregated) state spaces on orthomodular
+lattices by \emph{pasting Boolean blocks} --- a combinatorial, non-operator-algebraic
+construction, so the orthocomplement is block-inherited and the route dodges the
+polarity/form horn that kills matroids and geometric lattices.
+
+\medskip
+\noindent\textbf{The one crux --- read every source against it.} The realization
+theorems in the literature are \emph{finite-pasting} constructions and realize the
+\emph{full (finitely additive)} state space. They fail the $\sigma$-essential target
+on a single \textbf{conjunction gap}:
+\begin{quote}
+\emph{Why must the pasting be finite, and can an infinite pasting realize a
+non-simplex state space on an OML that is \textbf{simultaneously} concrete and
+$\sigma$-complete?}
+\end{quote}
+No located paper does this (prior-art note, \S POSITIVE). That conjunction --- concrete
+$+$ $\sigma$-complete $+$ non-simplex-surviving-restriction-to-$\sigma$-states --- is
+exactly the open cell. Do not read these sources for ``realization theory'' in
+general; read each only for how it bears on the conjunction gap.
+
+\medskip
+\noindent\emph{Citation caveat.} The realization papers below are \textbf{not yet in
+the repo bib}; venue/year/page are reconstructed from the prior-art note and are marked
+\textup{[cite unverified]}. Verify against the primary source before relying on any
+detail. Claims about paper \emph{content} here are the prior-art note's summary, not a
+reading of the papers themselves.
+
+\section{Foundations: how block-pasting builds an OML}
+
+\noindent\textbf{Kalmbach, \emph{Orthomodular Lattices}} (or Pt\'ak--Pulmannov\'a,
+\emph{Orthomodular Structures as Quantum Logics}~\cite{PtakPulmannova1991} for the
+concrete-logic side). The pasting construction and horizontal sums.
+\begin{itemize}[leftmargin=*]
+  \item State the pasting of a family of Boolean blocks precisely: how blocks overlap,
+    what the resulting order and orthocomplement are. \emph{Confirm} the orthocomplement
+    is inherited block-wise, not derived from any form --- this is why the route dodges
+    the scout's polarity horn.
+  \item Where does the loop / commutativity condition force the paste to be an OMP
+    rather than a lattice? (This is one place ``infinite non-segregated pasting'' can
+    silently fail before $\sigma$ even enters.)
+  \item Contrast a \emph{segregated} paste (horizontal sum, contextuality on a central
+    factor --- $\prod_n MO_2$, $MO_\kappa$) with a non-segregated one. What structural
+    feature makes the incompatibility non-central? The target needs the latter.
+\end{itemize}
+
+\section{The realization theorems (read for: where finiteness enters)}
+
+\noindent\textbf{Navara--Rogalewicz, ``The pasting constructions for orthomodular
+posets,'' Demonstratio Math.\ (1988)} \textup{[cite unverified]}. The base realization:
+every (compact convex) set arises as a state space of a pasted OMP.
+\begin{itemize}[leftmargin=*]
+  \item Read for the \emph{exact step} where finiteness of the pasting is used to realize
+    a non-simplex state space. Which part of the argument breaks if the family of blocks
+    --- or an individual block --- is infinite?
+  \item The realized object is the \emph{full, finitely additive} state space. Is there
+    any control on $\sigma$-additive states? (Prior-art note: no --- this is the
+    unaddressed point.)
+\end{itemize}
+
+\noindent\textbf{Harding--Navara, ``Subalgebras of orthomodular lattices,'' Order 17
+(2000)} \textup{[cite unverified]}. The strengthened realization: prescribed center and
+automorphism group.
+\begin{itemize}[leftmargin=*]
+  \item ``Prescribed center'' is the lever for \emph{non-segregation}: a trivial (or
+    small) center forces contextuality off any central Boolean factor. Read for how the
+    center is controlled, and whether that control survives an infinite paste.
+  \item Same finiteness question as above: locate the finite-pasting dependency.
+\end{itemize}
+
+\section{The concreteness half (read for: what buys set-representability)}
+
+\noindent\textbf{Mayet--Navara (1995)} \textup{[cite unverified]}. Concreteness for
+pasted OMLs holds only for special forms (prior-art note names $K(L)$).
+\begin{itemize}[leftmargin=*]
+  \item What is the special form that yields a set-representable (concrete) paste, and is
+    it compatible with the \emph{infinite} pasting the $\sigma$-side needs? Concrete
+    $+$ $\sigma$ together is the whole gap; this is the paper on the concreteness half.
+  \item Concreteness $=$ enough two-valued states to separate points ($a \mapsto \{s :
+    s(a)=1\}$ is an embedding). Does the $K(L)$ form preserve a separating supply of
+    \emph{two-valued} states, or only states in general?
+\end{itemize}
+
+\section{The $\sigma$-boundary (read for: what survives restriction to $\sigma$-states)}
+
+\noindent\textbf{Navara--R\"uttimann, ``A characterization of $\sigma$-state spaces of
+orthomodular lattices,'' Expo.\ Math.\ 9 (1991) 275--284} \textup{[cite unverified; NOT
+in repo bib --- the existing \texttt{Ruttimann1994} key is a different R\"uttimann paper
+(``Weakly purely finitely additive measures,'' Canad.\ J.\ Math.\ 46), do not conflate]}.
+\begin{itemize}[leftmargin=*]
+  \item The theorem places $S_\sigma(P)$ as a \emph{semi-exposed face} of the full state
+    space $S(P)$ (per Pt\'ak's zbMATH review). Read for: does a \emph{non-simplex} full
+    state space, restricted to this face, stay non-simplex? A face of a non-simplex set
+    need not be a simplex --- so this is the gate the realized non-simplex must pass to
+    remain contextual for \emph{$\sigma$}-additive states.
+  \item This is the precise juncture where the finite-pasting realization would have to be
+    shown to survive $\sigma$-restriction. It is the mathematical heart of the push.
+\end{itemize}
+
+\section{The impossibility twin (one entry --- do not over-invest)}
+
+\noindent The same $\sigma$-state-space characterization
+(Navara--R\"uttimann 1991) is also the tool for the \emph{negative}
+attempt: if the semi-exposed face is forced to be a simplex with dispersion-free
+vertices on every concrete $\sigma$-complete OML, the cell is empty. The prior-art note
+records that the verbatim theorem does \emph{not} force this --- so the emptiness proof,
+if it exists, needs more. Read the characterization once for both directions; the
+new-world and impossibility branches stay indistinguishable until one is worked.
+
+\section*{The order}
+
+\noindent Kalmbach/Pt\'ak--Pulmannov\'a (pasting mechanics) $\to$
+Navara--Rogalewicz then Harding--Navara (locate the finiteness dependency) $\to$
+Mayet--Navara (concreteness form) $\to$ Navara--R\"uttimann (the $\sigma$-restriction
+gate). The push, if it works, is a single new theorem: an \emph{infinite}, concrete,
+$\sigma$-complete paste whose non-simplex state space survives restriction to
+$\sigma$-additive states. Everything above is read to find where that theorem must do
+its work, and where the finite-pasting literature stops.
+
+\bibliographystyle{plain}
+\bibliography{../open_questions/references_oml}
+
+\end{document}

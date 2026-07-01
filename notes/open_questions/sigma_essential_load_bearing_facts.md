@@ -19,6 +19,14 @@ named.⟧*
 - **Sharp characterization:** `S_df^σ = ⋂_{chains aₙ↓0} U_chain = S_df ∩ ⋂_block O_B`.
 - **Countable-block theorem:** ≤ ℵ₀ atomic blocks ⟹ μ(fakes) = 0 ⟹ no leak. A witness
   needs **uncountably many INFINITE atomic blocks.**
+- **Blocks must be ATOMIC — reinforced by the bisection kill (2026-07-01):** an atomless
+  *measure-algebra* block admits NO 2-valued σ-additive state (halve/iterate/measure→0),
+  so a global σ-2-valued state can't restrict to it ⟹ "extends to none" goes VACUOUS, not
+  contextual. Atomic blocks carry Diracs ⟹ non-vacuous state space. ⚠ REGIME: the bisection
+  kill is measure-algebra-specific; a general atomless σ-BA can carry a 2-valued σ-state = a
+  σ-complete ultrafilter = measurable-cardinal territory (no-LC regime only). ⟹ any "atomless
+  blocks" cell is incoherent; the open frontier is atomic infinite blocks + non-Polish NATIVE
+  gluing (`open.intrinsic_K`). Do NOT re-introduce atomless-blocks.
 
 ## Mechanism facts
 

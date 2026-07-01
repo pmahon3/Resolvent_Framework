@@ -365,3 +365,59 @@ atoms-as-vertices — WOULD be a genuine native-non-distributive skeleton. But t
 launder invention into import because the talk gestures nearby; §6 self-deception warnings apply.
 ⟦HAND/primary — verdict from the paper's own atom-founded duality + frame-26 Stone-rejection;
 atomic-kill advisor-decisive.⟧
+
+---
+
+## Angle 4 (invent the native skeleton) — re-aimed Ω-first; records fault fixed; swing PENDING (2026-07-01, advisor ×4)
+
+User chose angle 4 (invent the atomless "exclusivity space" from the A–B residue). No object
+built — the turn resolved a framing error, a construct-vs-assume fork, and a records-integrity
+fault. Honest status: angle 4 correctly RE-AIMED, invention swing itself still pending.
+
+**FRAME CORRECTION 1 (advisor) — Ω-FIRST, not object-first.** The sheaf-of-atomless-Boolean-
+σ-algebras framing pulls toward the two deaths characterized THIS session: "global sections of a
+sheaf" = abstract completion (F–W concreteness trap, non-concrete points), and "sections fail to
+glue" = set-shaped / H¹ obstruction (razor trap → rescued; σ-cohomology already dead). CORRECT:
+build Ω FIRST (uncountable non-Polish), concreteness free by construction; the invented skeleton =
+a DISJOINT-UNION-CLOSURE RULE on P(Ω), state-shaped obstruction only.
+
+**FRAME CORRECTION 2 (advisor) — the binary gap is NOT the target.** `a∧_L b ⊊ a∩b` is the part
+that was never hard: ∏ₙMO₂ has it concretely, σ-completely, non-Boolean (POLE: "representation and
+join are NOT the problem"). Generalizing MO₂'s ∩≠∅/∧=0 to atomless fibers just rebuilds ∏ₙMO₂ and
+dies at segregation. The content = the GLOBAL overlap pattern across uncountably many NON-SEGREGATED
+contexts blocking a σ-2-valued global state.
+
+**THE CONSTRUCT-vs-ASSUME FORK (the operational 'hides-the-wall' test, advisor).** Any closure rule:
+- ASSUME horn: bakes in "no σ-state extends s₀" via an abstract largeness/selection axiom = AXIOMATIZES
+  Wall A (the programme already proved witness ⟺ σ-point-selection failure ⟹ this is smuggling the
+  open problem in as a definition).
+- CONSTRUCT horn: derives state-blocking from explicit Ω-combinatorics = a set-family in P(Ω), which
+  `fact.catalog_barren` rescues UNLESS genuinely new.
+No third bucket (catalog_barren is exhaustive). ∴ the construct horn IS the uninvented native-non-
+distributive skeleton, restated. The Ω-first invention act provably reduces to Wall A — the sharpest
+form of the convergence yet ("not every road hits it, but the invention act itself reduces to it").
+
+**RECORDS-INTEGRITY FAULT found + fixed.** `open.atomless_uncountable_AD` said "atomless BLOCKS";
+`load_bearing_facts` line 21 says a witness needs "uncountably many infinite ATOMIC blocks." Direct
+contradiction. Resolution (two independent facts AGREE on atomic):
+- (1) countable-block theorem needs infinite ATOMIC blocks;
+- (2) BISECTION KILL — an atomless MEASURE-ALGEBRA block admits NO 2-valued σ-additive state (halve/
+  iterate/measure→0/σ-add ⟹ s(inf)=1 but inf=0) ⟹ global σ-2-valued state can't restrict there ⟹
+  "extends to none" VACUOUS, not contextual (degenerate separation).
+- ⚠ REGIME CAVEAT: (2) is a MEASURE-ALGEBRA fact; a general atomless σ-BA CAN carry a 2-valued σ-state
+  = σ-complete ultrafilter = MEASURABLE territory. So "atomless ⟹ no state" is no-LC-regime, NOT
+  ZFC-absolute (same measurable escape / forcing-wrong-engine).
+- NO VISE (advisor blocked the overclaim): "atomless→vacuous / atomic→dies-to-Check-4" is a two-horn
+  route-death on the AD/BAND mechanism = `fact.catalog_barren` re-proved on the atomic/atomless axis.
+  Check-4 is BAND-ONLY not general-atomic — ∏ₙMO₂ (atomic+concrete+σ+NON-Boolean) disproves any
+  "atomic⟹Boolean". Luzin-Check-4's collapse-to-Boolean routes through the Session-7 point-separation
+  equivalence, which needs atomicity AND the relCompl/band closure; native atomic gluing is untouched.
+- FIX: the atomless cell is incoherent (distinguishing feature dead); nothing separates it from
+  `open.intrinsic_K` (atomic infinite blocks + uncountable non-Polish NATIVE gluing) ⟹ COLLAPSED into
+  it (marked superseded, same_as intrinsic_K). The angle-4 seed corrected: ATOMIC blocks, non-Polish
+  in the GLUING not the fibers.
+
+**NET:** angle 4 re-aimed at the correct object (atomic infinite blocks + uncountable non-Polish
+NATIVE gluing = intrinsic_K); the invention SWING still pending. Every step reduced to the known wall.
+Records cleanup + Nth convergence, NOT a new located obstruction. ⟦HAND — advisor-checked ×4; the
+construct-vs-assume fork + atomic-blocks correction are the keepers.⟧

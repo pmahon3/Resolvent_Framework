@@ -957,3 +957,62 @@ still needs a genuinely new object, not a computed invariant. Flag: (D)'s "latti
 carried from §3i, not re-verified this pass; the "Σ²₁" complexity pin was corrected to the vaguer-but-defensible
 "unbounded set-theoretic existential ⟹ DST absoluteness doesn't apply". ⟦HAND/audit — no survivor; the two-family
 schema + the unbounded-existential reason are the keepers.⟧
+
+## 3s. Language-building foothold — mine context-first grammars for a non-distributive foundation (2026-06-30, survey + advisor)
+
+DIFFERENT from the frame-shift kills: a CONSTRUCTIVE move. Every horizontal bridge fails because the target
+continent is Boolean/distributive at its ground; can we BUILD a non-distributive foundation subsuming the
+Boolean one and expressive enough to SEPARATE currently-indistinguishable notions? Survey of 5 context-first
+grammars (effect algebras/test spaces, Chu spaces, quantale/OML-valued models, quantum measure theory, partial
+Boolean algebras) against 5 needed primitives (#1 primitive context+incompatibility, #2 point-free 2-valued
+coherent selection, #3 native σ-completion NOT via a Boolean σ-algebra, #4 the P1/P2 separation
+[Boolean-shadow-strength vs genuine], #5 Boolean subsumption).
+
+**INVENTORY RESULT:** #1/#2/#5 SOLVED (native in **partial Boolean algebras**, the recommended BASE GRAMMAR —
+Abramsky–Barbosa "Logic of Contextuality" CSL 2021, states = per-block families gluing on overlaps, no global
+point set; NOT the Bohrification/frame variant, whose completion is distributive-by-fiat = evades the wall).
+#3 GENUINELY UNPROVIDED BY ALL FIVE (unanimous: every σ-theory routes through a Boolean carrier — effect-tribes
+of fuzzy sets, Sorkin Boolean history-algebras, frames, or RDP = the disjointification wall in disguise). #4
+unprovided at the STATE altitude but definable independently (the in-repo `w∉conv̄(S_df^σ)` predicate; may be a
+STRICTLY STRONGER sibling of Ψ = the closure-gap, a genuine two-notion separation).
+
+**⭐ CANDIDATE for native #3 — Feldman–Wilce 1993 (`Order` 10, 383–392, BF01108832):** defines σ-additivity
+INTRINSICALLY (countable ORTHOGONAL-sum on the orthoalgebra itself, not via a point set); every OMP embeds in a
+σ-OMP; the countable-orthogonal-sum extension is UNIQUE. This IS a non-Booleanizing σ-primitive at the
+ORTHOGONAL-SUM level — the right grammar for the carrier's actual σ-structure.
+
+**⚠ ERROR CAUGHT + CORRECTED (advisor) — do NOT re-derive:** I nearly committed "Ψ lives in the GAP between
+orthosum-σ (Feldman–Wilce) and join-σ (Harding–Wang)" as the language foundation. FALSE, and it re-derives a
+THIS-SESSION red herring. Verified against the paper: the carrier is closed under PAIRWISE-DISJOINT countable
+unions and states are σ-additive over ORTHOGONAL joins ONLY (body.tex L19,25–26,32); the witness def NEVER
+tests a non-orthogonal countable join. So **Ψ lives AT the orthosum-σ floor; join-σ-completeness (= wall.hw2,
+Harding–Wang) is NOT a hypothesis and is ORTHOGONAL to Wall A** (already dropped as red herring, §3q weld-run).
+The disjointification identity is FINITARY (visible in finite MO₂: a∩b≠∅ yet a∧b=0), NOT the finitary-vs-
+countable-join gap. Also: orthosum-vs-join is CARRIER altitude; #4 belongs at STATE altitude (survey warned
+lattice-level candidates = wrong altitude) — I drifted within one turn.
+
+**THE CORRECTED, DEFENSIBLE FOOTHOLD:** base grammar = pBA (#1/#2/#5). σ-primitive = Feldman–Wilce intrinsic
+countable-ORTHOGONAL-sum (#3's grammar, at the correct orthogonal altitude, non-Booleanizing as an OMP claim).
+
+**⭐ HINGE ANSWERED — NO (primary source read 2026-06-30, `feldman_wilce_1993.pdf` = Order 10:383–392):** the
+concreteness-preservation question is DECISIVELY NEGATIVE. Feldman–Wilce Thm 4.7 ("every OMP embeds in a σ-OMP")
+is proved by **ITERATED ULTRAPOWER** (p.391: free ultrafilter u on an ordinal, *X=X^α/u, iterate to ω₁; the
+σ-OMP is Π(^{ω₁}𝔄), the logic of an iterated-ultrapower manual). This is the OPPOSITE of concrete: elements are
+ultrafilter-equivalence-classes of sequences, NOT points of any actual set Ω. So the free σ-embedding DESTROYS
+concreteness. Confirmed pathology-tell (p.391, verbatim): "we do not know whether every block in an arbitrary
+σ-OA is closed" — the abstractly-completed object is not reconciled with a point set. Even the SAFE orthogonal
+σ-primitive, demanded FREELY on an arbitrary OMP, is bought with an ultrapower.
+
+**∴ THE FOOTHOLD BOTTOMS OUT AT THE FLOOR, ONE LEVEL IN (as flagged).** Feldman–Wilce gives a native, intrinsic,
+UNIQUE (Thm 4.2) σ-orthosum operation AS AN ABSTRACT ALGEBRA — real, and the correct grammar for #3. But
+INHABITING it with a CONCRETE carrier is exactly what the construction cannot do; its only general existence proof
+is an ultrapower, leaving the set-representable world. Re-concretizing the abstract σ-OMP IS wall.tribe_vs_points /
+σ-Loomis–Sikorski = the wall, verbatim. The language can EXPRESS Ψ cleanly; it cannot DISSOLVE it.
+
+**SALVAGED (non-zero):** (1) uniqueness of the σ-structure when it exists (Thm 4.2) ⟹ "the intrinsic
+countable-orthogonal-sum" is a WELL-DEFINED primitive, a clean building block for STATING things. (2) The abstract
+grammar (pBA #1/#2/#5 + Feldman–Wilce σ-orthosum #3-abstract) is the right one for STATING the P1/P2 separation —
+the actual language goal. (3) The wall is now located with MAXIMAL precision: exactly the gap between "L has an
+ABSTRACT σ-orthostructure" (free, ultrapower) and "L has a CONCRETE one" (= Wall A); the ultrapower is the
+fingerprint of that gap. PDF filed `notes/literature_review/literature/feldman_wilce_1993.pdf`. ⟦HAND/primary —
+hinge NO; foothold real for expression, bottoms at the Floor for inhabitation.⟧

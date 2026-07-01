@@ -220,7 +220,56 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**⚑ CURRENT STATUS 2026-06-27 — σ-essential: question OPEN + well-posed, but the
+**⚑ CURRENT STATUS 2026-07-01 — σ-essential: ALL ARTICULABLE ATTACK-SHAPES SWEPT; the
+wall is now CHARACTERIZED, not just located; every road (express/search/build) bottoms
+at ONE need — a genuinely new NON-DISTRIBUTIVE COMBINATORIAL PRIMITIVE.** This session
+extended the 2026-06-27 literature-closure past *the literature* to *the space of moves*:
+
+- **Dynamical axis SWEPT** (bounds §3k–§3m): GTW/whirly Polish-group actions, native
+  measured-groupoid (Feldman–Moore masa gate), masa-free ultrafilter seam — all COSTUME;
+  seam-closed-ABSENT (not proven-impossible). Marriage synthesis §3m: Ψ = the bridge
+  between a set-theoretic side (measurable-strength 2-valued σ-selection) and an
+  order-theoretic side (non-distributive), which repel because pure=2-valued only on a
+  Boolean masa (B–W Prop 2.3 root, corrected from a mis-stated biconditional).
+- **Filter-shaped primitive space EXHAUSTED** (§3n–§3o): keep-all / drop-meet / localize /
+  swap-to-embedding (commutator gate, Ozawa V^(Q)) / weaken-ultra (block cover) — all
+  bottom at the disjointification wall, now seen at 4 LEVELS (axiom / identity / commutator
+  gate / two-family invariant factorization).
+- **All three FRAME-SHIFTS COSTUME** (§3p–§3r): reconceive carrier (carrier is not the
+  locus; Floor is σ-tribe-specific), reconceive extends (polarity-pinned; MacNeille doesn't
+  re-Booleanize), reconceive-toward-¬Ψ (NO attackable invariant — two-family factorization:
+  finitary sub-threshold vs σ-definability, conjunction IS Wall A).
+- **Constructive-language foothold** (§3s, Lean §8–§9): base grammar = partial Boolean
+  algebras + Feldman–Wilce intrinsic σ-orthosum (unique). HINGE ANSWERED NO — F–W's free
+  embedding is an ULTRAPOWER ⟹ destroys concreteness. The language EXPRESSES Ψ (Lean
+  `psi_iff_concreteSigma`, #print-axioms-clean) but cannot DISSOLVE it; concrete inhabitation
+  = Wall A.
+- **Hand-attack on Wall A** (construction_runs, gap/AD swing): NOT a witness. KEEPER — the
+  wall EXCEEDS the definability gap: even an ABSOLUTE combinatorial obstruction (a gap's
+  non-interpolability) fails to transfer, because it blocks a *set* and the witness needs
+  no *state* (§3a: state-values don't assemble into a set off-Boolean). One cell left OPEN:
+  atomless + uncountable-AD, non-Polish (`open.atomless_uncountable_AD`).
+- **Combinatorial-catalog scout** (construction_runs, 2026-07-01): the WHOLE set-theory
+  catalog (MAD, ladders, Suslin/Aronszajn, walks, gaps, towers) is BARREN as a skeleton
+  source, for ONE reason — every object is BOOLEAN-AMBIENT ⟹ its obstruction is meet-closed
+  set-shaped ⟹ rescued by a non-Dirac σ-state. `fact.catalog_barren`. NOT ¬Ψ evidence
+  (B–W measurable analogue ⟹ not a ZFC theorem). ⭐ THE SHARPENING: the non-distributivity
+  must be NATIVE TO THE SKELETON — you cannot glue a non-distributive object along a Boolean
+  skeleton; that is WHY every gluing attempt died.
+
+**NET: the frontier is one target — invent an intrinsically non-distributive combinatorial
+primitive (a "skeleton" that is non-Boolean at its core), which no existing field supplies.**
+ML is downstream of a construction we don't have; borrowed combinatorics is barren; the
+language expresses but doesn't dissolve. The three roads converge on the same new-primitive
+act. Consistency strength still genuinely UNKNOWN both directions; ¬Ψ NOT earned. Handoff for
+the new-primitive swing: `notes/reading_directions/nondistributive_primitive_handoff.md`
+(2026-07-01). Zoom-out nav = `sigma_essential_taxonomy.json` (81 entries); full detail =
+`sigma_essential_large_cardinal_bounds.md` §3k–§3s + `sigma_essential_construction_runs.md`;
+Lean scaffold 0-sorry (`SigmaEssentialOpenCore.lean` §8–§9 added `psi_iff_concreteSigma` +
+the abstract/concrete-σ gap). The 2026-06-27 block below records
+the literature-closure that preceded this move-space closure.
+
+**⚑ STATUS 2026-06-27 — σ-essential: question OPEN + well-posed, but the
 LITERATURE FRONTIER IS CLOSED.** After the reduction (below), the full candidate-field
 sweep is complete and NEGATIVE: borrowable-principle hunt (negative), RDP-impossibility
 (verdict (c) open — the σ-LS wall is a *gap*, not an impossibility theorem; E(H) shows

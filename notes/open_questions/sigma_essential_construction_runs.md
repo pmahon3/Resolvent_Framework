@@ -251,3 +251,117 @@ the §3a meet-closure argument, taken as given, not re-proved against a paper; t
 Boolean-ambient⟹meet-closed⟹rescued spine is a definitional deduction. Sources: Devlin–Shelah
 (arXiv:1806.03867), Schrittesser–Törnquist (arXiv:1810.03016), Todorcevic walks (2410.00607).
 ⟦HAND/structural — catalog barren, one reason; NOT ¬Ψ evidence; witness needs native-non-distributive skeleton.⟧
+
+---
+
+## Feldman–Wilce / Younce block-closure — the concreteness fork RESOLVED (2026-07-01, primary source re-read + advisor ×3)
+
+Handoff `reading_directions/nondistributive_primitive_handoff.md` §5 angle 2 asked: can a
+MANUAL be a concrete σ-OML without its σ-completion going abstract (ultrapower)? Advisor
+sharpened this to the discriminating **fork**: is the ultrapower in F–W Thm 4.7 a *general
+non-concreteness theorem* (⟹ adjacent to impossibility, outcome b) or an *artifact of F–W's
+particular construction* (⟹ the concrete-σ gap is located, outcome c)? Full re-read of
+`feldman_wilce_1993.pdf` (text `scratchpad/fw.txt`).
+
+**FORK RESOLVED — the ultrapower is a FREE-CASE ARTIFACT, not a general theorem.** The three
+F–W σ-representation results split cleanly:
+- **Thm 4.1 / 4.2 / 4.5** (L ALREADY carries a σ-structure δ ⟹ L ≅ Π(P₂), P₂ = countable
+  j.o. sets D with δD=1): CANONICAL, NO ultrapower. The manual is built from L's OWN elements
+  (the σ-analogue of the tautological self-representation Thm 2.1). If L is concrete, its points
+  are perspectivity-classes of subsets of the actual set 𝔄(L), not ultrafilter classes.
+- **Thm 4.7** (ARBITRARY OA embeds in a σ-OA, via iterated ultrapower `*X=X^α/u` to ω₁):
+  ultrapower is load-bearing — but ONLY because it must FREELY manufacture σ-joins the arbitrary
+  input lacks. Freeness ⟹ ultrapower; it is the fingerprint of the free completion, not a proof
+  that concrete σ-completions can't exist.
+
+**∴ NOT a reversal of the §3s "concreteness-preservation DECISIVELY NEGATIVE" verdict** (advisor
+caught this): §3s answered the NARROW hinge "does F–W's *construction* preserve concreteness?"
+(no, ultrapower) — compatible with the OPEN question "can a concrete σ-OA with native incompat.
+EXIST?" Two different questions, both answered correctly. §3s never claimed impossibility. Do NOT
+relabel this re-derivation as a discovery (sharpen guardrail).
+
+**THE THREE-RUNG LADDER (the located-wall content, outcome c):**
+> σ-OA (Def 3.2: incr. seqs have sups)  ⊇  block-closed (Younce, Thm 4.4)  ⊇?  concrete (L⊆P(Ω))
+>
+> ⚠ CONTAINMENTS, NOT proven-strict (do not read ⊋). block-closed ⊆ σ-OA holds (a chain lives in
+> one block ⟹ its sup exists there); rung1/rung2 STRICTNESS = Younce's OPEN problem verbatim ("we
+> do not know whether every block in an arbitrary σ-OA is closed"). rung2/rung3: concrete ⊆
+> block-closed is not even obviously clean (is a maximal Boolean subalgebra of L⊆P(Ω) closed under
+> countable disjoint unions? not free), and the strict gap (a block-closed NON-concrete OML) is
+> CONJECTURAL — argued structurally (fiber vs glue), NO witness exhibited. The ladder pins the
+> QUESTION, not a chain of strict inclusions.
+
+- **Younce block-closure** (Thm 4.4, F–W leave it OPEN: "we do not know whether every block in
+  an arbitrary σ-OA is closed"): (i) each block B has ∨_B D for countable j.o. D⊆B; (ii) blocks
+  B,C sharing D agree: ∨_B D = ∨_C D. ⟺ L admits δ under which every block is closed.
+- **Block-closure is NECESSARY but strictly WEAKER than concreteness.** Once closed, each block
+  IS a Boolean σ-algebra ⟹ σ-LS-representable INDIVIDUALLY (`B≅Σ_B/N_B`) — the "Boolean σ-rep"
+  leg of Side A holds FIBER-WISE FOR FREE. Concreteness additionally demands these per-block
+  Stone reps GLUE on one common Ω. Block-closure = fiber condition; concreteness = glue condition.
+
+**⚠ RAZOR CHECK — block-closure is on the WRONG SIDE (advisor, decisive):** clause (ii)
+constrains D contained in BOTH blocks = the COMPATIBLE overlap B∩C (itself Boolean). It says
+NOTHING about incompatible a∈B, b∈C with a∧b=0 yet a∩b≠∅ as sets. The razor's obstruction —
+non-meet-closed {0,1}-coherence across INCOMPATIBLE contexts — lives exactly on the pairs (ii)
+does not touch. So "block-closure ≠ σ-LS" is TRUE but INERT: distinct because it's a different
+(compatible-overlap) axis, NOT a new grip on the glue. The glue side is σ-LS / Wall A, unchanged.
+
+**NET (outcome c, located wall — a WIN, not strained further):** (1) fork resolved — F–W
+ultrapower load-bearing ONLY for free completion of an arbitrary OA; canonical & non-ultrapower
+when the σ-structure pre-exists. (2) three-rung ladder places block-closure BETWEEN σ-OA and
+concrete (containments only — strictness UNEARNED: rung1/rung2 = Younce's open problem, rung2/rung3
+conjectural with no witness), and the gap between them = the non-distributive cross-incompatible-
+block glue = Wall A. F–W leaving block-closure open ≠ a construction handle (advisor own-corrected
+the earlier "gap where a skeleton could live" optimism). Younce's open "every block closed?" bears
+only on whether σ-OA⊋block-closed is STRICT; it does NOT flip Ψ — a failing per-fiber condition
+still doesn't
+cross the razor. Angle 2 (manuals-as-skeleton) bottoms at the SAME Wall A as every other road.
+The convergence held again. Sources: Feldman–Wilce, Order 10:383–392 (1993); Younce diss. [7].
+⟦HAND/primary — fork resolved from the paper's own theorem split; razor-check advisor-decisive.⟧
+
+---
+
+## Abramsky–Barbosa pBA duality — angle-3 import read, OFF-CELL via ATOMIC (2026-07-01, talk + advisor)
+
+User supplied the A–B talk "Duality for Partial Boolean Algebras" (Topos Institute Colloquium
+15/05/2025; filed `literature/abramsky_barbosa_2025_duality_pBA_talk.pdf`) — directly on handoff
+angle 3 (large pBAs = closest existing home for "non-distributive at the skeleton"). Read for the
+duality's carrier: is the dual object a native-non-distributive skeleton usable for a witness?
+
+**THE DUALITY (frames 27–42):** transitive partial CABA ≅ complete exclusivity graph, via the
+**GRAPH OF ATOMS** `At(A)` — vertices = atoms, edge iff `x⊙x' ∧ x∧x'=0` (compatible + orthogonal);
+elements of A ≅ ≡-classes of cliques of At(A); functorially `epCABA ≅ XGph^op`. The dual is
+genuinely non-Boolean (a graph with primitive irreflexive-symmetric exclusivity `#`) — at first
+glance a native-non-distributive skeleton. KS-property ⟺ no global point (hom A→2 = morphism
+K₁→At(A)), frames 13/40.
+
+**KILL = ATOMIC (advisor-corrected — NOT "no σ"):** complete ⟹ σ-complete, so σ is subsumed
+trivially; the text's zero σ/countable is because complete-atomic swallows it, NOT the reason.
+The real block: CABA = complete **ATOMIC** BA (frame 27, explicit); the ENTIRE duality is built on
+**atoms as points** ("state descriptions / possible worlds"). Frame 26 is decisive and self-aware:
+they ABANDON the point-based **Stone** route — "classical Stone duality builds the Stone space from
+points (homs B→2); by Kochen–Specker, for interesting pBAs there are NO such points" — and go to
+the atom-based **Tarski** side BY NECESSITY. (Verified all 5 "Stone" hits: one Stone–Čech *analogy*
+for LEP-isation, the rest = the frame-26 rejection. NO atomless/Stone-side pBA duality in the talk.)
+
+**∴ STRUCTURALLY EMPTY ON THE Ψ CELL.** The σ-essential open cell `open.atomless_uncountable_AD` is
+ATOMLESS (Luzin collapse kills atomic-only). Atomless ⟹ At(A) empty ⟹ the duality DEGENERATES to
+nothing. Same shape as RDP⟺MV (strat.impossibility_i_to_iii): the machinery lives on the COMPLEMENT
+of the Ψ config — not unreached, structurally absent there. And At(A) for an atomic-orthogonal OML
+= the MO_κ / segregated orthogonality graph = the already-DEAD cell (`carrier.mo_kappa`). This is
+KS in categorical-dual dress — razor-pass GUARANTEED (KS passes the razor) yet Ψ-excluded, so the
+razor tells us nothing here (advisor: skip it, wrong test).
+
+**SURVIVES — do NOT over-kill:** the pBA **grammar** (states = per-block gluing on overlaps, no
+global point set — Abramsky–Barbosa CSL 2021) is UNTOUCHED; still the base language for STATING the
+target (P1/P2 separation). Only the duality/REPRESENTATION theorem is atom-blocked. This closes the
+"import the pBA duality as representation machinery" sub-route of angle 3; it does NOT close angle-3
+grammar. Recorded `strat.abramsky_barbosa_pba_duality` (dead, same_as carrier.mo_kappa).
+
+**CONSTRUCTIVE RESIDUE (angle-4 seed, `open.exclusivity_space_atomless`):** an ATOMLESS / pointfree
+analogue of the complete-exclusivity-graph — an "exclusivity space" with `#` primitive but NO
+atoms-as-vertices — WOULD be a genuine native-non-distributive skeleton. But that is INVENT (angle
+4), not import (angle 3): the A–B object is atom-founded by necessity, nothing transfers. ⚠ Do NOT
+launder invention into import because the talk gestures nearby; §6 self-deception warnings apply.
+⟦HAND/primary — verdict from the paper's own atom-founded duality + frame-26 Stone-rejection;
+atomic-kill advisor-decisive.⟧

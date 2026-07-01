@@ -655,6 +655,11 @@
     {
       "id": "open.language_foothold",
       "name": "Non-distributive foundational language (constructive; grammar real, inhabitation = the wall)",
+      "lean": {
+        "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
+        "name": "§8 AbstractSigmaOrtho / ConcreteSigmaOrtho / sigma_ortho_gap_is_wallA; §9 Psi_concreteSigma / psi_iff_concreteSigma",
+        "status": "proved-edge (gap=WallA, on cited Feldman–Wilce axiom fw_abstract_sigma_free); #print axioms shows deps = {propext,Classical.choice,Quot.sound,AbstractSigmaOrtho,fw_abstract_sigma_free}, NOT WallA/Psi (open content not smuggled)"
+      },
       "one_line": "First CONSTRUCTIVE direction (2026-06-30, §3s). Build a language non-distributive at the ground, subsuming Boolean, expressive enough to separate P1 (Boolean-shadow strength) from P2 (genuine). BASE GRAMMAR = partial Boolean algebras (Abramsky–Barbosa; #1 context/incompat, #2 point-free 2-valued selection, #5 Boolean subsumption native). σ-PRIMITIVE = Feldman–Wilce 1993 intrinsic countable-ORTHOGONAL-sum (native + UNIQUE, Thm 4.2). #4 (P1/P2) at STATE altitude = in-repo w∉conv̄(S_df^σ), possibly a STRICTLY STRONGER sibling of Ψ. ⭐ HINGE ANSWERED NO (primary source read, feldman_wilce_1993.pdf): the free OMP→σ-OMP embedding is an ITERATED ULTRAPOWER (Thm 4.7) ⟹ DESTROYS concreteness (elements = ultrafilter-classes, not points; 'block closure unknown' tell). So the language can EXPRESS Ψ but not DISSOLVE it — inhabiting the abstract σ-structure CONCRETELY IS wall.tribe_vs_points/σ-LS = the wall, one level in. SALVAGED: the abstract grammar is the right one for STATING P1/P2; the wall is now located maximally precisely (abstract-σ [free, ultrapower] vs concrete-σ [=Wall A], the ultrapower = the fingerprint). Guard: fence.orthosum_join_gap.",
       "detail": "sigma_essential_large_cardinal_bounds.md#3s"
     },

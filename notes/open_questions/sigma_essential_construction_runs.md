@@ -200,3 +200,54 @@ gap's *comparability* structurally cannot host non-central non-distributivity. �
 advisor-checked ×2; load-bearing facts verified: Hausdorff pairwise ⊆*-comparability (gap def);
 relCompl index-independence + its atomic/point-separation dependence (archive L44–66); Check 2
 type-mismatch (§3a `ℱ_s` meet-closure failure).⟧
+
+---
+
+## Combinatorial-catalog scout — the whole catalog is BARREN, one structural reason (2026-07-01, /scout, ⟦HAND/structural⟧)
+
+After the gap/AD kill (above), scouted the FULL set-theory catalog of uncountable
+combinatorial objects against the razor: does the object's non-uniformizability block a
+SET/function (⟹ a non-Dirac σ-state routes around it = rescuer = fails) or a NON-meet-closed
+{0,1}-coherent assignment (= state-shaped = a construction lead)? Six classes assessed.
+
+**VERDICT: UNIFORMLY SET-LEVEL. No object passes the razor. No construction lead.**
+
+| Object | blocks a uniformizing… | verdict |
+|---|---|---|
+| MAD families (Törnquist; Schrittesser–Törnquist) | SET (no set almost-refines all; "no analytic MAD" = definability of a set-family) | FAILS |
+| Ladder + non-uniformizable colorings (Devlin–Shelah, weak ◇) | FUNCTION (no g:ω₁→2 uniformizes) | FAILS |
+| Suslin / Aronszajn trees | SET (no branch / no antichain) | FAILS |
+| Coherent sequences / walks (Todorcevic, ρ, oscillation) | FUNCTIONS (coherence among fiber maps) | FAILS |
+| Gaps beyond Hausdorff/Luzin (analytic, tight, (κ,λ), spectrum) | SET (no interpolating set) — type invariant across the spectrum | FAILS |
+| Non-meet-closed maximal filter/tower on P(ω)/fin | — DOES NOT EXIST | VACUOUS |
+
+**THE ONE STRUCTURAL REASON (not six coincidences):** every catalog object lives in a
+BOOLEAN AMBIENT (P(ω)/fin, 2^ω₁, tree orders). In a Boolean ambient a maximal coherent
+{0,1}-assignment is an ULTRAFILTER = MEET-CLOSED BY DEFINITION. The razor demands the
+opposite (non-meet-closed = non-distributivity), which NO Boolean-ambient object exhibits.
+Object #6 — the only place a state-obstruction could hide — is a contradiction in terms (a
+filter on a Boolean algebra is meet-closed by def). Independent re-derivation of the gap-kill
+Check-2 (§3a `ℱ_s` meet-closure failure), generalized from gaps to the whole catalog.
+
+**POSITIVE CONTROL (makes it airtight, not failure-to-find):** Kochen–Specker PASSES the razor
+(genuine state-obstruction) — but is exactly what Ψ excludes (non-concrete, on L(H), finite/
+Wright-covered). So a real state-obstruction is intrinsically non-distributive and provably
+does NOT come from the P(ω)/fin catalog.
+
+**⚠ CALIBRATION (do NOT overstate — scout-flagged):** this is NOT evidence toward ¬Ψ (B–W's
+Hilbert analogue exists under a measurable ⟹ ¬Ψ is not a ZFC theorem). Correct statement:
+**the witness cannot be IMPORTED from set-theoretic combinatorics — borrowed uncountable
+combinatorics is a BARREN skeleton source.**
+
+**⭐ THE SHARPENING of "needs a genuinely new object" (the keeper):** the non-distributivity
+must be NATIVE TO THE SKELETON, not added to a borrowed one. You cannot glue a non-distributive
+object along a DISTRIBUTIVE (Boolean, meet-closed, hence rescued) skeleton and get the
+obstruction. The skeleton and the non-distributivity are INSEPARABLE — which is precisely why
+every "glue atomless blocks along [combinatorial object]" attempt died: the object was always
+Boolean. `intrinsic_K` tightened: the gluing itself must be non-Boolean.
+
+**Flag:** the transfer claim (each set-obstruction routed-around by a non-Dirac σ-state) rests on
+the §3a meet-closure argument, taken as given, not re-proved against a paper; the
+Boolean-ambient⟹meet-closed⟹rescued spine is a definitional deduction. Sources: Devlin–Shelah
+(arXiv:1806.03867), Schrittesser–Törnquist (arXiv:1810.03016), Todorcevic walks (2410.00607).
+⟦HAND/structural — catalog barren, one reason; NOT ¬Ψ evidence; witness needs native-non-distributive skeleton.⟧

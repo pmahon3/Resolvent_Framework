@@ -640,6 +640,11 @@
       "detail": "sigma_essential_large_cardinal_bounds.md#3r"
     },
     {
+      "id": "fact.catalog_barren",
+      "one_line": "The set-theory combinatorial catalog is BARREN as a witness-skeleton source (2026-07-01 scout, 6 classes: MAD, ladder/colorings, Suslin/Aronszajn, walks/coherent-seqs, gap-spectrum, towers). ALL fail the razor for ONE structural reason: every catalog object lives in a BOOLEAN ambient (P(ω)/fin, 2^ω₁, trees), where a maximal coherent {0,1}-assignment is an ultrafilter = MEET-CLOSED BY DEFINITION; the witness needs a NON-meet-closed (non-distributive) assignment, which no Boolean-ambient object exhibits. So every set/function-obstruction is routed-around by a non-Dirac σ-state (§3a rescuer). Positive control: Kochen–Specker PASSES the razor but is Ψ-excluded (non-concrete/L(H)/finite). ⚠ NOT ¬Ψ evidence (B–W measurable analogue ⟹ not a ZFC theorem). ⭐ KEEPER: the non-distributivity must be NATIVE TO THE SKELETON — you can't glue a non-distributive object along a Boolean (rescued) skeleton; skeleton and non-distributivity are inseparable. This is WHY every 'glue blocks along [combinatorial object]' attempt died.",
+      "detail": "sigma_essential_construction_runs.md (2026-07-01 catalog scout)"
+    },
+    {
       "id": "fact.wall_exceeds_definability",
       "one_line": "THE WALL EXCEEDS THE DEFINABILITY GAP (2026-07-01, gap-construction swing). §3j/§3r diagnosed the definability-vs-existence non-sequitur ('no Borel section' ≠ 'no section') as why definability routes fail. But the gap route tested an ABSOLUTE (ZFC, not definability-flavoured) combinatorial obstruction — a Luzin/Hausdorff gap's non-interpolability — and it ALSO fails to transfer. Reason: the gap blocks a separating SET; the witness needs no σ-additive 2-valued STATE, and state-values don't assemble into a set off-Boolean (§3a meet-closure fails even for δ_ω). ⟹ the obstruction is TYPE-LEVEL (set-vs-state) + disjointification, DEEPER than 'definability can't reach existence'. So the definability gap was NOT the whole story; the wall is the state-values-don't-form-a-set / disjointification obstruction, which even absolute set-combinatorics can't cross.",
       "detail": "sigma_essential_construction_runs.md (2026-07-01 section)"
@@ -717,7 +722,7 @@
     {
       "id": "open.atomless_uncountable_AD",
       "name": "Atomless blocks + uncountable-AD gluing (the un-closed cell)",
-      "one_line": "The one carrier cell the 2026-07-01 gap swing NARROWED but did NOT close. Atomless (no singletons ⟹ dodges the band singleton-hook) blocks glued along an UNCOUNTABLE AD family (dodges the DW/Polish kill which only bites COUNTABLE gluing of Polish blocks). Killed by NEITHER the DEAD-list NOR the Luzin-Check-4 collapse (which routes through atomicity=point-separation, archive Session-7, so atomic-ONLY). What IS killed: the gap-INTERPOLATION mechanism into this cell (strat.gap_gluing Check 2 — absolute set-obstruction ≠ state-obstruction). So no ENTERING TOOL for this cell, but the cell itself is open. Honest status: mechanism-into-cell dead, cell open. Sub-region of open.intrinsic_K, non-Polish + non-segregated + atomless.",
+      "one_line": "The one carrier cell the 2026-07-01 gap swing NARROWED but did NOT close. Atomless (no singletons ⟹ dodges the band singleton-hook) blocks glued along an UNCOUNTABLE AD family (dodges the DW/Polish kill which only bites COUNTABLE gluing of Polish blocks). Killed by NEITHER the DEAD-list NOR the Luzin-Check-4 collapse (atomic-ONLY). Cell itself OPEN — but the ROUTE IN via borrowed combinatorics is now CLOSED (fact.catalog_barren): every set-theory skeleton is Boolean-ambient hence rescued, so you cannot BUILD an inhabitant of this cell by gluing along any catalog object. The non-distributivity must be NATIVE to the skeleton, which no P(ω)/fin- or tree-based object supplies. Honest status: cell open, but no combinatorial construction reaches it; a witness here needs an intrinsically-non-distributive skeleton (unbuilt). Sub-region of open.intrinsic_K.",
       "detail": "sigma_essential_construction_runs.md (2026-07-01 section)"
     }
   ],

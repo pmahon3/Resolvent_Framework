@@ -470,3 +470,43 @@ on a genuinely-new object (skill-plan: DST + large cardinals as EDUCATION, not s
 `reading_directions/sigma_essential_skill_plan.md`); (b) a non-RDP (i)→(iii) impossibility theorem
 (strat.impossibility_i_to_iii). ⟦HAND — advisor-checked ×2; dichotomy from records + one II₁ sentence,
 no dig; import-sweep-complete is the keeper, guarded against the impossibility overclaim.⟧
+
+---
+
+## "How to come up with the new idea" — spec sharpened + bounded un-swept scout (2026-07-01, advisor ×3 + Explore)
+
+Question: HOW does the genuinely-new idea get generated (not "generate a candidate" = assume-horn trap).
+Answer = a METHOD map, and the sweep already produced the generative instrument: a SHARP SPEC.
+
+**THE SPEC (fact.fourth_cell_spec).** Known outcomes for a non-distributive carrier = 3 cells: R1
+Boolean-ambient (rescued); R2 operator-algebraic ⟹ fails C1/KS; R3 set-concrete non-distributive but
+SEGREGATED (∏ₙMO₂). Witness needs a 4th: set-concrete + non-distributive + NON-SEGREGATED + σ +
+uncountable = "a COMBINATORIAL (non-operator-algebraic) source of NON-SEGREGATED non-distributivity."
+Two generative routes, neither schematic: (1) recognition/transfer from an un-swept field ("read not
+write"); (2) reconception of the ambient from a WORKED theory (human learn-then-try, aimed at (1)).
+
+**LOCALIZED TARGET (from czech_school_prior_art §POSITIVE).** The spec has a precise home already in
+the OML literature: the REALIZATION THEOREMS (Navara–Rogalewicz 1988; Harding–Navara Order 17, 2000,
+prescribed center) DO realize NON-SIMPLEX (contextual, non-segregated) state spaces on OMLs via
+combinatorial pasting of BOOLEAN blocks (orthocomplement block-inherited, non-operator-algebraic ✓).
+They die ONLY at the CONJUNCTION GAP: pasting ⟹ generically not σ-complete + not-guaranteed concrete.
+"No located paper realizes a non-simplex state space on an OML simultaneously concrete AND σ-complete"
+— THAT triple = the fourth cell / intrinsic_K, in realization-theorem vocabulary. Negative twin:
+Navara–Rüttimann 1991 (S_σ = semi-exposed FACE of S, NOT forced simplex) does NOT close it empty.
+
+**BOUNDED UN-SWEPT SCOUT (Explore, 5 candidate fields).** NO un-swept existing combinatorial field
+survives the spec. NEW REASON-WHY (reason, not a new cell — advisor-calibrated): geometric/incidence
+combinatorics (matroids, geometric lattices, oriented matroids, designs, finite geometries, partial
+linear spaces) is NOT natively orthocomplemented — orthocomplement needs a POLARITY (a form) = the
+operator structure ⟹ either not an OML (out of scope) or form-defined = R2. Dies BEFORE the razor, at
+OML-hood. Greechie pasting = finite-block/OMP-not-lattice/Pták-vacuous. Gudder concrete logics = IS
+the open cell, uninhabited. Realization route UNTOUCHED by this horn (Boolean-block pasting, not form).
+
+**NET — THE HONEST TERMINUS (answer to "how do we come up with it").** The idea is NOT manufacturable
+at the schematic (that's the assume-horn). The most the LLM side buys: (a) the sharp spec (4th cell),
+(b) the localized target (push realization-theorem machinery to concrete+σ simultaneously — names WHERE
+to learn-then-try, not "learn everything"), (c) scout confirming no OTHER existing field imports. The
+idea now requires either (route 2) human learn-then-try on the Navara–Rogalewicz/Harding–Navara
+technique, or an impossibility technique proving the conjunction empty — new-world vs impossibility
+STILL indistinguishable until one is worked. Both are new-mathematics; neither is an LLM turn.
+⟦HAND — spec + localization are the keepers; scout-confirmed no shortcut; the map is the deliverable.⟧

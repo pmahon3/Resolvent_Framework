@@ -338,6 +338,15 @@
       "detail": "sigma_essential_large_cardinal_bounds.md#3m"
     },
     {
+      "id": "strat.gap_gluing",
+      "category": "strategy",
+      "status": "killed",
+      "killed": "2026-07-01",
+      "one_line": "GENUINE hand-construction swing at Wall A: use a Luzin/Hausdorff gap or uncountable-AD family as the gluing skeleton for the forced uncountable/non-Polish carrier — the hope being the gap's ZFC-ABSOLUTE non-interpolability blocks the global σ-thread non-segregatedly. NOT A WITNESS, splits by gap-type: HAUSDORFF → Check 1, a comparability structure ⟹ Boolean sub-object ⟹ central/segregated (NEW: a gap can never BE the non-central non-distributivity — needs incompatible generators); LUZIN-atomic → Check 4, = dead band substrate. ⭐ KEEPER (Check 2, load-bearing): the gap blocks a separating SET, but the witness needs no σ-additive 2-valued STATE — state-values don't assemble into a set off-Boolean (§3a meet-closure), so an N–P non-Dirac σ-state rescues regardless. ⟹ even an ABSOLUTE obstruction fails to transfer, for the disjointification reason: THE WALL EXCEEDS THE DEFINABILITY GAP (§3j/§3r not the whole story). SCOPING: kills the gap-MECHANISM into the atomless+uncountable-AD cell, NOT the cell itself (open.atomless_uncountable_AD stays open).",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_construction_runs.md (2026-07-01 section)"
+    },
+    {
       "id": "strat.embedding_frame_change",
       "category": "strategy",
       "status": "killed",
@@ -631,6 +640,11 @@
       "detail": "sigma_essential_large_cardinal_bounds.md#3r"
     },
     {
+      "id": "fact.wall_exceeds_definability",
+      "one_line": "THE WALL EXCEEDS THE DEFINABILITY GAP (2026-07-01, gap-construction swing). §3j/§3r diagnosed the definability-vs-existence non-sequitur ('no Borel section' ≠ 'no section') as why definability routes fail. But the gap route tested an ABSOLUTE (ZFC, not definability-flavoured) combinatorial obstruction — a Luzin/Hausdorff gap's non-interpolability — and it ALSO fails to transfer. Reason: the gap blocks a separating SET; the witness needs no σ-additive 2-valued STATE, and state-values don't assemble into a set off-Boolean (§3a meet-closure fails even for δ_ω). ⟹ the obstruction is TYPE-LEVEL (set-vs-state) + disjointification, DEEPER than 'definability can't reach existence'. So the definability gap was NOT the whole story; the wall is the state-values-don't-form-a-set / disjointification obstruction, which even absolute set-combinatorics can't cross.",
+      "detail": "sigma_essential_construction_runs.md (2026-07-01 section)"
+    },
+    {
       "id": "fact.filter_space_exhausted",
       "one_line": "THE filter-shaped primitive space is CLOSED (2026-06-30). 'Is there a non-Boolean primitive playing the countably-complete ultrafilter's role (= Side-A engine)?' — answered NO for every filter-shaped bend: keep-all (axiom collapse §3m), drop-meet (quantum filter, pure-side §3m), localize-meet (segregated), swap-to-embedding (commutator gate §3n), weaken-ultra (block cover §3o). Each reduces to wall.disjointification or to a strength-free object (Navara–Pták / Heyting-topos / ∏ₙMO₂). The SOLE remaining move is the carrier-construction open.intrinsic_K (abandon filter-shape, build the carrier), = the open problem, no entering tool. Leans carefully toward ¬Ψ.",
       "detail": "sigma_essential_large_cardinal_bounds.md#3o"
@@ -689,7 +703,7 @@
     {
       "id": "open.intrinsic_K",
       "name": "Intrinsic class 𝒦 (frontier object)",
-      "one_line": "UNBUILT target carrier = THE MARRIAGE of two repelling sides (bounds §3m). SIDE A (set-theoretic): σ-class closed under complement + countable disjoint union, base non-standard-Borel, carrying a 2-valued σ-additive non-principal selection that FAILS globally (= measurable-strength object, Ulam) — theorems: Ulam, DW D.6/Maharam, Loomis–Sikorski + its OML-failure. SIDE B (order-theoretic): forbidden intersections (S∩S′)×{0}∉𝒦 (= NOT intersection-closed = non-distributivity, Lean notIntersectionClosed), irreducibly non-central — theorems: disjointification identity (FALSE on OMLs), Wright 1978 (above finite floor), RDP-failure (Dvurečenskij). Exists ⟺ witness. The missing theorem that WOULD be the marriage = a non-distributive analogue of Ulam/Loomis–Sikorski. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional, non-Polish. NO ENTERING TOOL (bounds 3g): hand-construction resists non-standard-Borel, forcing barred, strength unknown. CONFIRMED irreducibly-non-central (strat.center_hybrid). SEAM-CLOSED-ABSENT (bounds §3m): the two sides repel because the DISTINCTNESS of pure & 2-valued REQUIRES non-distributivity (B–W Prop 2.3 root) — strength-carriers all pure-side/Boolean, non-Boolean 2-valued states (Navara–Pták) ZFC-cheap, no known object is both; impossibility-upgrade FORECLOSED (a collapse theorem would trivialize Kochen–Specker).",
+      "one_line": "UNBUILT target carrier = THE MARRIAGE of two repelling sides (bounds §3m). SIDE A (set-theoretic): σ-class closed under complement + countable disjoint union, base non-standard-Borel, carrying a 2-valued σ-additive non-principal selection that FAILS globally (= measurable-strength object, Ulam) — theorems: Ulam, DW D.6/Maharam, Loomis–Sikorski + its OML-failure. SIDE B (order-theoretic): forbidden intersections (S∩S′)×{0}∉𝒦 (= NOT intersection-closed = non-distributivity, Lean notIntersectionClosed), irreducibly non-central — theorems: disjointification identity (FALSE on OMLs), Wright 1978 (above finite floor), RDP-failure (Dvurečenskij). Exists ⟺ witness. The missing theorem that WOULD be the marriage = a non-distributive analogue of Ulam/Loomis–Sikorski. Required profile: non-segregated, off-center, non-Boolean, non-loop, non-band, uncountably generated, globally non-compositional, non-Polish. NO ENTERING TOOL (bounds 3g): hand-construction resists non-standard-Borel, forcing barred, strength unknown. CONFIRMED irreducibly-non-central (strat.center_hybrid). SEAM-CLOSED-ABSENT (bounds §3m): the two sides repel because the DISTINCTNESS of pure & 2-valued REQUIRES non-distributivity (B–W Prop 2.3 root) — strength-carriers all pure-side/Boolean, non-Boolean 2-valued states (Navara–Pták) ZFC-cheap, no known object is both. (⚠ impossibility NOT foreclosed — earlier 'collapse trivializes KS' overclaim corrected §3m; absent-not-proven-impossible.)",
       "detail": "../archive/sigma_construction_log_archive.md",
       "lean": {
         "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
@@ -699,6 +713,12 @@
       "confirmed_by": [
         "strat.center_hybrid"
       ]
+    },
+    {
+      "id": "open.atomless_uncountable_AD",
+      "name": "Atomless blocks + uncountable-AD gluing (the un-closed cell)",
+      "one_line": "The one carrier cell the 2026-07-01 gap swing NARROWED but did NOT close. Atomless (no singletons ⟹ dodges the band singleton-hook) blocks glued along an UNCOUNTABLE AD family (dodges the DW/Polish kill which only bites COUNTABLE gluing of Polish blocks). Killed by NEITHER the DEAD-list NOR the Luzin-Check-4 collapse (which routes through atomicity=point-separation, archive Session-7, so atomic-ONLY). What IS killed: the gap-INTERPOLATION mechanism into this cell (strat.gap_gluing Check 2 — absolute set-obstruction ≠ state-obstruction). So no ENTERING TOOL for this cell, but the cell itself is open. Honest status: mechanism-into-cell dead, cell open. Sub-region of open.intrinsic_K, non-Polish + non-segregated + atomless.",
+      "detail": "sigma_essential_construction_runs.md (2026-07-01 section)"
     }
   ],
   "gates": [

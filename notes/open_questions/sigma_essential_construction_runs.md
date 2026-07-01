@@ -96,3 +96,107 @@ on ℓ²(κ)) and 2605.24923 (quantum channels on vN-algebras) are BOTH confined
 Hilbert/operator-algebra case — every Ulam-measurable result in the live literature lives
 on the C1-failing Hilbert side; not one reaches a concrete OML. The relocation question is
 open in the LIVE 2026 literature, not just in-notes — nobody works the concreteness axis.
+
+## Gap / uncountable-AD gluing skeleton — KILLED, split by gap-type (2026-07-01, advisor-checked ×2, ⟦HAND⟧)
+
+**Attempted (the untried seed):** use a **Luzin/Hausdorff gap** or an **uncountable
+almost-disjoint (AD) family on ω₁** as the gluing skeleton for the non-Polish carrier, so
+that finite ⊥-closed patterns extend locally (Wright) but the global σ-additive 2-valued
+thread is blocked by the gap's provable non-interpolability / the AD family's lack of a
+common refinement. Hope: the obstruction lives in the *uncountable cross-block gluing*,
+not a central factor ⟹ non-segregated + a genuine non-existence (not a rescuer).
+
+**RESULT: NOT A WITNESS. The seed splits into two gap-types, each dead at a different
+check; neither survives.** The death is visible at the *skeleton + state* level — no full
+Ω/L/s₀ construction is needed to kill it.
+
+**HAUSDORFF form → Check 1 (segregation), NEW reason.** A Hausdorff `(ω₁,ω₁)`-gap is two
+⊆*-monotone towers ⟨a_α⟩↑, ⟨b_α⟩↓ with `a_α ⊆* b_β` for all α,β. **Every pair of gap
+elements is ⊆*-comparable** (a-side is a ⊆*-chain, b-side is a ⊆*-chain, cross-pairs
+⊆*-ordered). A comparability structure is the *most distributive* thing possible ⟹ the gap
+generates a **Boolean (distributive) sub-object**. So the gap can be, at best, a *central*
+Boolean factor (⟹ **segregated**: σ-states concentrate there ⟹ Dirac ⟹ dead) or a single
+**block** (⟹ "no interpolant" is a statement inside one Boolean σ-algebra on ω, where every
+σ-additive 2-valued state is Dirac since ω is not measurable ⟹ a δ_ω **rescues** ⟹ dead).
+**NEW structural finding (worth logging distinct from Wall A): a gap is a
+*compatibility/comparability* structure, and non-central non-distributivity requires
+*incompatible* generators — so a gap can NEVER *be* the non-central non-distributivity.**
+It is always central or single-block. The seed's hope ("gap entangled with the
+non-distributive overlaps, not central") is unrealizable *for type reasons*.
+
+**LUZIN form (ATOMIC blocks) → Check 4 (band dichotomy), index-size-independent.** A Luzin
+gap is a pairwise almost-disjoint family `{A_α}` = *exactly* the band-family substrate
+(archive `sigma_construction_log_archive.md` L24: "{S_α:α<𝔠} an ALMOST-DISJOINT family").
+For **atomic (point-separating) blocks** its death is the archived **relCompl forcing
+chain**: for any binding pair with `S_α∪S_β ∈ ℐ` (finite-∪-closure), the forbidden finite
+cell `(S_α∩S_β)×{j}` is FORCED into `L̄` at the finite pre-σ level ⟹ **Boolean**; else
+`cl(a∪b)` escapes ⟹ **not-a-lattice**. The archive **certifies this index-size-independent**
+("difference size IRRELEVANT," "Step 1 does not need ℕ — only `S_α∪S_β∈ℐ`"), so moving `κ`
+from 𝔠 to ω₁ **re-triggers the identical dichotomy**. This is the "AD-indexed with a
+specific closure" entry already on the DEAD list — nothing new to run.
+
+**⚠ SCOPE (advisor-caught over-claim, corrected): Check 4 is ATOMIC-ONLY.** The relCompl
+step is set-algebraic and transfers, BUT the *collapse-to-Boolean conclusion* routes through
+the **Session-7 equivalence** (archive L57–66): "point-separating generators ⟹ full σ-algebra
+`P(Ω)` ⟹ `L̄` Boolean ⟺ `L̄⊊P(Ω)`." That inference **needs point-separation = atomicity** —
+precisely what **atomless measure-algebra blocks lack**. And the DEAD list only kills atomless
+gluing when it is *countable* (DW/Polish). So the cell **atomless + uncountable-AD** is killed
+by NEITHER — Check 4 does not reach it. That cell is the seed's likely actual target (it
+proposed "atomless … contexts"). See the mechanism-kill below, which DOES reach it.
+
+**THE GENERAL KILL — Check 2, atomicity-agnostic (reaches even atomless+uncountable-AD).**
+The gap's whole hoped-for power is its **non-interpolability / unseparability**: (Luzin) no
+`B` with `A_α ⊆* B` on one part, `A_α ∩ B =* ∅` on the other; (Hausdorff) no `c` with
+`a_α ⊆* c ⊆* b_β`. This is a **ZFC-absolute** non-existence — so, unlike the CBER/DST kills
+(§3j–§3l, definability obstructions), the gap route genuinely tests whether
+**definability-vs-existence was the ONLY obstruction.** ANSWER: NO — **the obstruction is the
+WRONG TYPE and does not transfer, on ANY carrier (atomic or atomless).** Non-interpolability
+blocks a separating/interpolating **SET**; the witness needs "no non-Dirac σ-additive 2-valued
+**STATE**." These are different objects: an N–P-style non-Dirac σ-state extends `s₀`
+regardless of unseparability and is the **rescuer**, because a σ-state on a σ-*class* need
+NOT produce a separating set (the `ℱ_s`-not-a-filter / meet-closure failure, §3a) — the
+{0,1}-values of a state do not assemble into a set `B` unless the state's filter is meet-
+closed, which fails off Boolean. Transfer would need intersection-closure = disjointification
+= Boolean. **This kill never touches atomicity**, so it covers the atomless+uncountable-AD
+cell that Check 4 misses: the *gap-interpolation MECHANISM* is shown not to reach a witness on
+any carrier. (It does NOT kill the atomless+uncountable-AD *carrier* as such — only this
+mechanism for exploiting it; cf. the standing "mechanism fails ≠ carrier dead" calibration,
+§3f/§3m.) **This confirms the wall exceeds the definability gap** — the
+definability-vs-existence diagnosis (§3j/§3r) was correct but not the *whole* story; the
+disjointification wall blocks even an absolute combinatorial obstruction.
+
+**Check 3 note (why ω₁-carrier evasion buys nothing):** a gap on ω lives on standard-Borel
+`P(ω)` + countable `Ω` ⟹ DW/band-theorem kill directly. The only Check-3 survivor is a gap
+whose *elements* live on an uncountable ω₁-carrier — but Hausdorff-ω₁ still dies Check 1
+(segregation) and Luzin-ω₁ still dies Check 4 (band, index-independent). Non-Polishness of
+the carrier does not rescue either horn.
+
+**VERDICT (three-layer, honestly scoped):**
+- **Check 2 (GENERAL, atomicity-agnostic) is the load-bearing kill:** the gap's
+  non-interpolability is an *absolute obstruction of the WRONG TYPE* — it blocks separating
+  SETS, not σ-additive 2-valued STATES; no transfer without intersection-closure = Boolean.
+  This kills the *gap-interpolation MECHANISM* on any carrier, atomic or atomless.
+- **Check 1 (Hausdorff only):** comparable ⟹ Boolean ⟹ central (segregated) or single-block
+  (δ_ω rescues). Extra, form-specific.
+- **Check 4 (Luzin, ATOMIC blocks only):** mod-finite→exact = band dichotomy,
+  index-size-independent; but the Boolean conclusion routes through point-separation, so it
+  does NOT reach atomless blocks.
+
+Two NEW findings worth keeping: (i) *a Hausdorff gap is a **comparability** structure ⟹
+structurally incapable of being the non-central non-distributivity* (SCOPED TO HAUSDORFF —
+Luzin/AD families DO produce incompatibility, the band "binding pair"; Luzin dies not for
+lacking incompatibility but because, atomically, the incompatibility is forced closed, and
+atomlessly because the interpolation MECHANISM is the wrong type — Check 2). (ii) *the wall is
+confirmed to exceed the definability-vs-existence gap — even an ABSOLUTE combinatorial
+non-existence (unseparability) fails to transfer, for the disjointification reason.*
+
+**Honest boundary (not over-claimed):** this run kills the **gap/interpolation mechanism** for
+building the witness, on every carrier. It does NOT close the **atomless+uncountable-AD
+CARRIER** — that cell is killed by neither the DEAD-list (which only kills atomless gluing when
+*countable*, DW/Polish) nor Check 4 (atomic-only); only the specific gap-interpolation route
+into it is shown not to reach a witness. Not a witness. Stop-condition unchanged: needs a
+genuinely new object; a gap's *interpolation-failure* is provably not the tool, and a Hausdorff
+gap's *comparability* structurally cannot host non-central non-distributivity. ⟦HAND,
+advisor-checked ×2; load-bearing facts verified: Hausdorff pairwise ⊆*-comparability (gap def);
+relCompl index-independence + its atomic/point-separation dependence (archive L44–66); Check 2
+type-mismatch (§3a `ℱ_s` meet-closure failure).⟧

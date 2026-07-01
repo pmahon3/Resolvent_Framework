@@ -723,4 +723,237 @@ logics) or pure-state machinery. No "2-valued σ-state ⟹ one block" theorem ex
 arXiv:1607.08505 (primary, Prop 2.3 / Thm 2.4 / Lemma 4.3 verified); Farah–Weaver quantum filters;
 Akemann–Weaver PNAS 2008. **Strength stays GENUINELY UNKNOWN; resolution still needs a NEW object
 built from scratch, not a borrowed engine. The marriage thesis is now sharpened, not a new lead.**
-⟦HAND/audit — SEAM-CLOSED-ABSENT, impossibility-upgrade foreclosed.⟧
+⟦HAND/audit — SEAM-CLOSED-ABSENT; impossibility not earned, not foreclosed.⟧
+
+## 3n. The embedding-frame-change (large-cardinal via j:V→M, quantum set theory V^(Q)) — COSTUME (2026-06-30, /audit coherence)
+
+The strongest lead of the "why can't this be stated" thread: since the ULTRAFILTER face of a
+measurable cardinal collapses on an OML (meet-closure vs. incompatibility, §3m/axiom-level), maybe
+the EMBEDDING face — `j:V→M`, crit pt κ, equivalent to the ultrafilter ON BOOLEAN MODELS — has a
+NON-Boolean incarnation that carries the strength without a Boolean ultrapower. This is the one move
+that SWAPS THE PRIMITIVE rather than re-dressing it. Pressure-tested for COHERENCE first (is the
+question even well-formed?).
+
+**VERDICT: COSTUME — well-formed, but reduces to the disjointification wall via the COMMUTATOR GATE.**
+
+NOT malformed: the steelman object EXISTS — **Takeuti/Ozawa quantum set theory `V^(Q)`**, a genuine
+orthomodular-valued universe of set theory WITH a transfer principle (Ozawa, arXiv:0908.0367,
+math/0604349). So "non-Boolean model theory with a transfer principle" is real, not a category error.
+(My earlier "nobody has built this" was WRONG — Takeuti–Ozawa built it decades ago.)
+
+**The kill (the third costume of the same wall):** Ozawa's transfer principle has the form
+**`com(u₁,…,uₙ) ≤ ⟦φ(u₁,…,uₙ)⟧`** for Δ₀ formulas φ provable in ZFC, where `com` = the **commutator
+projection** (degree of mutual commutativity). And **`com=1` (top) ⟺ the elements commute ⟺ they
+generate a BOOLEAN subalgebra** (Marsden 1970; Pták–Pulmannová). Measurability — ultrafilter OR
+embedding form — is an UNBOUNDED, high-complexity assertion far above Δ₀. Any orthomodular-valued
+transfer strong enough to certify it FORCES `com=1` on the relevant constants = lands on the
+abelian/Boolean core. **The commutator IS the disjointification obstruction in model-theory clothes.**
+The E-face gives nothing the U-face didn't.
+
+**⭐ THE WALL NOW SEEN AT THREE LEVELS (the reusable finding):** (1) axiom-level — ultrafilter
+meet-closure collapses on incompatible elements (§3m); (2) the disjointification identity
+`(a∨b)∧a⊥=b∧a⊥`; (3) NOW the **commutator gate on model-theoretic transfer** (Ozawa Δ₀ / com≤⟦φ⟧).
+Same obstruction, three costumes. Łoś's theorem (elementarity of the ultrapower) uses the ultrafilter's
+2-valued Boolean maximality per formula = the "ultra" axiom that collapses; there is NO non-distributive
+Łoś theorem recovering full elementarity — only the com-gated Δ₀ fragment.
+
+**Discriminators:** (1) type-error at ground SUPPORTS costume (j:V→M always has domain V, distributive
+at ∈; L is just an element inside V) but V^(Q) defeats the PURE category-error reading. (2) distributivity
+enters (U)⟺(E) at Łoś = the ultra-axiom. (3) NOT circular (V^(Q) transfer specified independently of any
+collapsed ultrafilter — distinct from the Option-C quantum-filter revival). (4) STEELMAN = the decider:
+V^(Q) is exactly non-Boolean model theory with a transfer principle, and it comes with a PUBLISHED SHARP
+LIMIT (com-gated Δ₀); searches for any measurable/embedding notion INSIDE V^(Q) return nothing —
+consistent with the commutator blocking exactly the unbounded assertions large cardinals need.
+
+**Flags:** the "V^(Q) admits no measurable" reduction is UNPUBLISHED — composed here from cited
+ingredients (Ozawa transfer + Marsden/PP commutator characterization), decisive as a costume but not a
+lifted theorem. The Δ₀ `com≤⟦φ⟧` form is firsthand-verified; "unbounded quantifiers stay com-restricted"
+is from search summaries (two arXiv PDFs failed extraction) — monotonicity of transfer makes the costume
+hold in the weakest reading regardless. Sources: Ozawa arXiv:0908.0367 + math/0604349 + 2002.06692;
+Marsden (Order, commutators); nLab measurable cardinal. **Leans (carefully) toward ¬Ψ: the reason
+non-Boolean largeness can't be STATED is the same commutator obstruction — a sharper shape for the
+eventual concentration theorem, NOT a proof. Does not escape the wall; file as the model-theory costume.**
+⟦HAND/audit — COSTUME, the swap-the-primitive move reduces to the wall at the commutator.⟧
+
+## 3o. Weaken-ultra / per-block-2-valued primitive — COSTUME (block-cover collapse) (2026-06-30, /audit pure)
+
+The LAST untested filter-shaped bend. Every dead candidate kept "2-valued" and weakened
+MEET-CLOSURE. This inverts: KEEP countable-meet-closure, WEAKEN ultra/maximality — a functional
+2-valued+coherent on each block but not required globally 2-valued across incompatible blocks.
+Hope: dodge the meet×ultra collapse while keeping σ-additive non-principal 2-valued-per-block strength.
+
+**VERDICT: COSTUME — dies EARLIER than the predicted real-valued death, on the block cover.**
+
+**The kill (elementary, decisive):** in any OML EVERY element lies in some block (`{0,a,a⊥,1}` → Zorn →
+maximal Boolean subalgebra). So for incompatible a,b, both a∨b and a∧b still live in SOME block —
+there is NO element "across incompatible blocks" escaping per-block evaluation. Hence any TOTAL
+per-block-2-valued functional is 2-valued on ALL of L. The candidate forks with NO middle:
+- **total branch** ⟹ globally 2-valued + σ-additive (orthogonal pairs share a block ⟹ per-block
+  additivity IS global) + non-principal = **Ψ's original Side-A engine verbatim.** Wall un-dodged.
+- **non-total branch** ⟹ (i) Isham–Butterfield topos/presheaf valuation = **Heyting-valued, ZFC-cheap**
+  (quant-ph/9803055), or (ii) independent per-block choice = **segregated ∏ₙMO₂**, no strength. Both
+  already-logged strength-free deaths.
+
+**⚠ MY PREDICTED KILL WAS WRONG (correction).** I predicted COSTUME-REAL-VALUED ("across-block value
+lands in [0,1]"). MIS-SPECIFIED: an ordinary [0,1]-state restricts to a GENERIC probability measure on
+each block ⟹ 2-valued on essentially NO block. Per-block-2-valuedness and real-valued are INCOMPATIBLE;
+imposing the former makes the real-valued branch UNREACHABLE. The candidate never reaches the real-valued
+death — the block cover kills it first.
+
+**⚠ NOT a 4th wall level (declined inflation).** There IS a "per-block-2-valued ⟹ Boolean-or-degenerate"
+dichotomy, but via the TRIVIAL total/non-total block-cover split (Kalmbach/Greechie), NOT a deep
+Bunce–Wright "must-be-real-valued" theorem. The middle is empty for a mundane covering reason. Do NOT
+file as a sharpening of the wall (unlike §3n's commutator gate, which was a genuine 3rd level).
+
+**⭐ THE STANDING RESULT (the real finding):** the FILTER-SHAPED primitive space is now EXHAUSTED. Every
+bend — keep-all (§3m axiom), drop-meet (quantum filter §3m), localize-meet (segregated), swap-to-embedding
+(§3n commutator), weaken-ultra (§3o block-cover) — reduces to the wall or to a strength-free object. **There
+is NO non-Boolean FILTER-SHAPED primitive playing the ultrafilter's role.** The sole remaining move is the
+CARRIER-CONSTRUCTION `open.intrinsic_K` (give up filter-shape, build the carrier directly) = the open
+problem itself, no entering tool. "Is there a non-Boolean primitive?" is now answered for the filter-shaped
+half: no. Facts (block cover, presheaf-is-Heyting) standard/textbook (Kalmbach; Isham–Butterfield
+quant-ph/9803055), load-bearing only for a triviality. ⟦HAND/audit — COSTUME, filter-shaped space closed.⟧
+
+## 3p. Frame-shift — reconceive the CARRIER (not the primitive) — COSTUME (2026-06-30, /audit pure)
+
+FRAME-SHIFT SERIES (three untried moves after the filter-space exhaustion, §3o). Move 1:
+since the largeness-PRIMITIVE hunt is closed, RECONCEIVE what "concrete OML carrier" MEANS
+so the witness is native (the schemes/forcing analogue). Candidates: (A) sheaf/presheaf of
+lattices, (B) topos-internal / Bohrification, (C) concreteness-without-faithfulness, (D)
+Boolean/Heyting-valued carrier.
+
+**VERDICT: COSTUME — no survivor.** (A/B) = redescription — the spectral presheaf re-presents
+the SAME L; global-sections functor drags any witness back to the set-of-subsets, re-triggers
+the Floor. (A/B/D) = ZFC-cheap HEYTING zone — KS-as-no-global-section (Isham–Butterfield) and
+Bohrification (Heunen–Landsman–Spitters) are ZFC theorems, Heyting/real-valued; the
+measurable-strength that makes Ψ interesting is GONE = the logged sub-threshold cohomology death.
+(C) = redescription (proof below).
+
+**⚠ MY PRIOR WAS WRONG (correction): (C) concreteness-without-faithfulness has NO teeth.**
+I bet the Floor needs FAITHFULNESS while Gudder concreteness is only ORDER-DETERMINATION (weaker).
+FALSE — they are IDENTICAL. ⟦HAND, 3-line, textbook-standard, not Lean-verified⟧: given an
+order-determining set S of 2-valued STATES, `a ↦ {s∈S : s(a)=1}` IS a set representation (preserves
+⊥ via s(a⊥)=1−s(a); preserves orthogonal joins since 2-valued states are additive on orthogonal
+pairs ⟹ disjoint images; injective since S order-determining). So "state-concrete but not
+set-representable" is EMPTY.
+
+**⭐ THE REUSABLE CLARIFICATION (three notions, kept distinct — primary-source: SEP qt-quantlog +
+arXiv:2401.13798 Def 1.1):**
+- (i) **set-representable / concrete** = full set of 2-valued **STATES** — WEAK, non-Boolean is FINE
+  (MO₂ is concrete). Closure under complement + DISJOINT union, NOT arbitrary union ⟹ imposes NO
+  distributivity. = the programme's carrier.
+- (ii) **Boolean embedding** = full set of 2-valued **HOMOMORPHISMS** (Zierler–Schlessinger 1965 / KS)
+  — forces distributive, fails for QM.
+- (iii) **σ-tribe** = concrete + σ-additive / countable unions — the Floor's σ-version.
+**The Floor is (iii)-under-σ-additivity ⟹ Boolean, NEVER (i)-forces-Boolean.** The carrier was NEVER
+the locus of the wall — ∏ₙMO₂'s existence already proves "concrete" never forced Boolean. There is NO
+carrier-Floor for a reconception to liberate; the "faithful forces Boolean" fact is about (ii)/(iii),
+not the state-carrier (i). *(Guards against the recurring conflation of state-concreteness with
+homomorphism-Boolean-embeddability.)*
+
+**What (C) leaves standing = the pre-existing residue, verbatim:** is there a non-distributive L,
+order-determined by 2-valued states (finitely concrete), whose countable orthogonal joins fail to
+realize as countable disjoint unions of a set (NOT σ-tribe-representable)? = **Wall A / σ-LS residue.**
+So the wall lives NOT at concreteness but at the **finitary→σ gap in the tribe representation** — a
+sharpening of location, not a new escape. Flag: the 3-line proof is HAND (textbook Gudder construction),
+not Lean-verified; Z–S numbering from secondary sources. ⟦HAND/audit — COSTUME, carrier is not the locus.⟧
+
+## 3q. Frame-shift — reconceive the EXTENSION RELATION (not the state/carrier) — COSTUME (2026-06-30, /audit pure)
+
+Frame-shift 2/3. Ψ is a NON-EXTENSION ("s₀ extends to no global σ-additive 2-valued state"); no
+prior move targeted the extension RELATION itself. Reconceive "extends": (A) partial/approximate,
+(B) into an enlarged/completed carrier L'⊇L, (C) different morphism category, (D) dualize.
+
+**VERDICT: COSTUME — swept, no survivor.** Pinned by POLARITY: any weakening of "extends" that makes
+extensions EASIER supplies a RESCUER (refutes the witness); any restatement preserving the unit-test
+verdict is a REDESCRIPTION. No slack between.
+- **(A)** COSTUME-RESCUER: finitely-additive/barycentric extensions ALWAYS exist (S_df compact,
+  fact.sdf_compact); an always-existing approximate extension = S_df-hull triviality.
+- **(B)** REDESCRIPTION: any faithful L'⊇L has its states restrict ⟹ L-non-extension ⟹ L'-non-extension
+  trivially; the "forcing-style enlargement to host the state" reading = rescuer / Lévy–Solovay wrong-engine.
+- **(C)** REDESCRIPTION: a 2-valued state IS a σ-hom to {0,1}; keep target=2 ⟹ same verdict, change
+  target ([0,1]/effect algebra) ⟹ states always exist = rescuer.
+- **(D)** REDESCRIPTION of wall.tribe_vs_points: dual of "no global 2-valued state" = "no point of the
+  dual space"; non-distributivity blocks the clean duality ⟹ the duality IS the obstruction, not a route.
+
+**⚠ MY PRIOR WAS WRONG AGAIN (correction, primary-source): completions do NOT re-Booleanize.** I predicted
+B/D die by the Floor forcing distributivity on the completion. FALSE — the **MacNeille completion of an OML
+does NOT force distributivity** (Harding 1991, "OMLs whose MacNeille completions are not OML"; it can fail
+to even be an OML). **The Floor bites ONLY for tribe-of-SETS (concrete) representations, NOT for lattice
+completions.** (Second time this series over-attributed the Floor — cf. §3p. Floor = concrete-rep-specific.)
+
+**(4) σ-completion-staying-non-distributive — the one branch with teeth — dies on a FORK:** (Horn 1,
+vacuous) Wall A's carrier is ALREADY σ-complete ⟹ no completion question inside it = the struck "weld run"
+(reduction_writeup #159–181, welded two orthogonal walls, subtracted). (Horn 2, the wall) start from
+non-σ-complete L₀ ⟹ "does L₀ embed into a σ-complete non-Boolean CONCRETE OML" IS Harding–Wang Problem 2 /
+σ-Loomis–Sikorski (wall.hw2, wall.no_sigma_ls), open, no new tractability; and MacNeille buys σ-completeness
+at the cost of possibly LOSING OML-ness + concreteness (both Ψ requires) = extra nails. Does NOT differ from
+Wall A / HW2.
+
+**Net:** the extension-relation axis is a GENUINE new direction to have looked, now swept — no witness, no
+new tractable statement. Joins the closed frontier. Flags: MacNeille-non-Booleanization from Harding
+abstracts/notes (nmsu, ESSLLI5) not full papers — but it only REMOVES a kill, verdict robust; HW "cannot be
+regularly embedded into σ-complete OMP" from arXiv:2108.09819 search summary, check if ever load-bearing.
+⟦HAND/audit — COSTUME, extension relation swept.⟧
+
+## 3r. Frame-shift — reconceive toward ¬Ψ (the INVARIANT hunt) — NO ATTACKABLE INVARIANT (2026-06-30, /audit)
+
+Frame-shift 3/3, and the DIFFERENT-shaped one: not "is X a costume" but "is there a genuine INVARIANT
+Inv(L,s₀) whose computation FORCES extendability uniformly — a ¬Ψ proof as a computation, not a search?"
+A survivor would convert 'the programme leans toward ¬Ψ' into 'here is the smaller theorem to prove.'
+Candidates: (A) commutator-degree, (B) σ-additive cohomology, (C) definability rank, (D) graded RDP-failure.
+Both fences enforced: NOT the refuted LB mechanism (§3f), NOT the independence-lean.
+
+**VERDICT: NO ATTACKABLE INVARIANT — COSTUME across all four. Both fences respected (this is 'no invariant
+here', NOT an answer-type ranking).**
+- **(A) commutator-degree** — WALL-RENAMED + CIRCULAR (decisive). Marsden commutator is a LATTICE ELEMENT,
+  not a scalar; theory gives a BINARY Boolean/non-Boolean decomposition, not a grade (primary: Springer
+  BF02034335; Bruns–Greechie; Greechie–Herman). A's formulation requires proving "low-commutator region
+  empty of coherent σ-additive 2-valued patterns" = ¬Ψ ITSELF ⟹ circular. Non-Boolean everywhere on ∏ₙMO₂
+  yet extends ⟹ no predictive value.
+- **(B) σ-additive cohomology** — provably SUFFICIENT-NOT-NECESSARY (primary: arXiv:1111.3620; Oxford diss.
+  cs.ox.ac.uk/files/7608 — "not a complete invariant for strong contextuality"). No σ/countable-cover
+  refinement exists; vanishing ≠ extension-exists ⟹ can't certify ¬Ψ. Sub-threshold (=fact.cohomology_subthreshold).
+- **(C) definability rank** — §3j non-sequitur, now with a COMPLEXITY argument (the reusable addition,
+  ⚠ VOCABULARY CORRECTED per advisor): Ψ is a **set-theoretic existential over carriers of UNBOUNDED
+  cardinality** (the witness is uncountably generated, ≥2^ℵ₀, non-Polish by construction) — NOT a projective
+  statement about a fixed real, so the "Σ²₁/third-order" pin is the WRONG vocabulary (the analytical hierarchy
+  + Shoenfield's Σ¹₂ ceiling classify statements over a FIXED real parameter). Honest defensible version: Ψ is
+  an unbounded set-theoretic existential, so DST absoluteness theorems simply DO NOT APPLY — a rank bound gives
+  "no BOREL/definable section," and nothing promotes it to "no section." Definability-not-existence, because the
+  object isn't a fixed-real statement at all.
+- **(D) graded RDP-failure** — WALL-RENAMED. RDP is BINARY in the literature (RDP₁/RDP₂ are STRENGTHENINGS,
+  not gradations; primary: Dvurečenskij σ-LS). Every admissible non-segregated carrier has FULL RDP failure
+  (the disjointification identity IS the failing refinement) ⟹ "degree" constant-maximal everywhere, no
+  predictive value.
+
+**⭐ THE ABSOLUTENESS ARGUMENT (reusable, more than a costume; ⚠ vocabulary corrected per advisor):** Ψ is an
+existential over carriers of **UNBOUNDED cardinality** (the witness is uncountably generated, ≥2^ℵ₀, non-Polish
+by construction) — NOT a projective statement over a fixed real. So it is NOT correctly pinned as "Σ²₁/third-order"
+(the analytical hierarchy + Shoenfield's Σ¹₂ ceiling classify FIXED-real statements). The defensible claim: DST
+absoluteness theorems simply DO NOT APPLY to an unbounded set-theoretic existential, so the definability route
+(C, and §3j CBER) structurally cannot deliver ¬Ψ — "no Borel/definable section" never promotes to "no section."
+Not a costume — a structural reason the no-Borel-section approaches can never reach existence non-existence.
+
+**⭐⭐ THE TWO-FAMILY FACTORIZATION (the closing schema — two independent audit runs converged on it):**
+EVERY candidate invariant factors into two families, and ¬Ψ lives in the gap between them:
+- **Family (I) — finitary non-distributivity measures** (commutator-degree A, RDP-failure D, finite-cover
+  Čech H¹ B-finite): ZFC-absolute, local, AT/BELOW the Wright-1978 finite floor. Ψ is DEFINED as the
+  no-finite-witness part (strictly above the floor) ⟹ these are SUB-THRESHOLD BY CONSTRUCTION, taking the
+  SAME value on ∏ₙMO₂ and on any witness. (Generalizes fact.cohomology_subthreshold from cohomology to all.)
+- **Family (II) — σ-level definability ranks** (Borel/projective rank C, measurable-cover cohomology B-measurable):
+  reach the σ-level but measure DEFINABILITY ⟹ "no Borel/measurable section," never "no section" (§3j).
+A ¬Ψ proof must compute a quantity that is **σ-level AND existence-absolute AND non-distributivity-sensitive**
+at once. Family (I) misses σ-level; Family (II) misses existence-absolute; that exact conjunction IS Wall A /
+open.intrinsic_K = Ψ renamed. So the INVARIANT-SHAPED space is now CLOSED the same way the filter-shaped space
+is (fact.filter_space_exhausted) — a reusable one-line dismissal of future invariant-shaped proposals. The
+deep reason Family (II) can't reach existence-absolute: Ψ is an existential over UNBOUNDED-cardinality carriers,
+not a fixed-real projective statement, so DST absoluteness theorems do not apply at all (see (C) above).
+
+**Net:** no invariant is a theorem SMALLER than Ψ; each equals ¬Ψ (A circular), certifies the wrong direction
+(B), certifies definability-not-existence (C), or is the wall renamed (A/D). The convergence holds: every
+invariant route bottoms out at the disjointification identity or the definability/existence gap. Resolving Ψ
+still needs a genuinely new object, not a computed invariant. Flag: (D)'s "lattice effect algebra has RDP ⟺ MV"
+carried from §3i, not re-verified this pass; the "Σ²₁" complexity pin was corrected to the vaguer-but-defensible
+"unbounded set-theoretic existential ⟹ DST absoluteness doesn't apply". ⟦HAND/audit — no survivor; the two-family
+schema + the unbounded-existential reason are the keepers.⟧

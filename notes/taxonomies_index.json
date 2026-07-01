@@ -13,9 +13,9 @@
       "id": "sigma_essential",
       "name": "σ-essential contextual state / OML descent",
       "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
-      "status": "OPEN + well-posed, but LITERATURE FRONTIER CLOSED (2026-06-27 — no entering tool in any surveyed field; CBER bridge killed §3j; strength unknown). The lone active research thread.",
-      "one_line": "Does a concrete σ-complete non-Boolean OML carry a 2-valued state extending to no global σ-additive 2-valued state? Located + reduced to wall A (σ-point-selection). Every candidate field swept NEGATIVE (RDP (c)-open, DST corner, CBER bridge killed); strength UNKNOWN (LB refuted, UB unearned); almost every route bottoms out at the disjointification identity. Resolution needs a genuinely new object — the convergence is the finding.",
-      "entries": 56,
+      "status": "OPEN + well-posed, but LITERATURE FRONTIER CLOSED and ALL ARTICULABLE ATTACK-SHAPES SWEPT (2026-06-30). No entering tool in any surveyed field; strength unknown. The lone active research thread.",
+      "one_line": "Does a concrete σ-complete non-Boolean OML carry a 2-valued state extending to no global σ-additive 2-valued state? Reduced to wall A (σ-point-selection). Strength UNKNOWN (LB refuted, UB unearned). 2026-06-30: dynamical axis swept (GTW/groupoid/masa-free, §3k–3m); filter-shaped primitive space EXHAUSTED (§3o); frame-shifts carrier/extends/¬Ψ all COSTUME (§3p–3r); invariant-shaped ¬Ψ space CLOSED (two-family factorization, §3r). The wall (disjointification identity) now seen at 4 levels incl. the commutator gate (§3n) and the Σ²₁ third-order complexity bound. Resolution needs a genuinely NEW object — the convergence is the finding.",
+      "entries": 81,
       "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"
     },
     {

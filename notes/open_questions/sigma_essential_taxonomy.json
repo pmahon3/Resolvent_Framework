@@ -38,13 +38,17 @@
       "affects": "{id, effect} — the consequent node + the claimed consequence (record, not auto-applied)"
     },
     "headline_counts": {
+      "total_entries": 81,
       "candidate_carriers_killed": 13,
+      "strategies": 16,
       "disjointification_costumes": 12,
-      "marriage_synthesis": "bounds §3m (two-ledger Side-A/Side-B frame + seam-closed-absent)",
       "fenced_reversals": 12,
       "named_walls": 7,
+      "settled_facts": 15,
       "open_targets": 3,
-      "gates": 3
+      "gates": 3,
+      "marriage_synthesis": "bounds §3m (two-ledger Side-A/Side-B frame + seam-closed-absent)",
+      "spaces_closed": "filter-shaped primitive space (fact.filter_space_exhausted, §3o) + invariant-shaped ¬Ψ space (fact.invariant_space_exhausted, §3r); frame-shifts carrier/extends/¬Ψ all COSTUME (§3p–§3r). Wall seen at 4 levels: axiom / disjointification identity / commutator gate (§3n) / two-family invariant factorization (§3r)."
     },
     "lean_certificates": "Entries with a `lean` field have a Lean certificate (file+name+status). Statuses: proved-edge (a proved logical relationship), open-prop (named open conjecture, not assumed), detector (the costume-detector obstruction), detector-rekill (a covered item re-killed by the detector), conjecture-survives-triage (passed the stress-test, gap=wall A), cited-axiom. Receipts via `#print axioms`."
   },
@@ -332,6 +336,51 @@
       "one_line": "The one seam §3l left as 'masa structurally absent, NOT proven impossible': can a NON-Boolean object (Farah–Weaver quantum filter / maximal quantum filter / vN-side object) play the ultrafilter role = Side-A engine WITHOUT a Boolean masa/RDP? VERDICT SEAM-CLOSED-ABSENT: no masa-free candidate survives — quantum filters = PURE states (wrong side of the pure/2-valued line); not meet-closed except via purity; every LC-extraction routes through an abelian intermediary. ABSENT, not PROVABLE: the not-impossibility half stays UNEARNED (refuting one collapse ≠ foreclosing impossibility). ⚠ do NOT write 'collapse trivializes Kochen–Specker ⟹ impossibility foreclosed' (collapse is directly false via δ_ω; KS link shaky) — overclaim corrected 2026-06-30. Calibrated = rem:frontier.",
       "same_as": "wall.disjointification",
       "detail": "sigma_essential_large_cardinal_bounds.md#3m"
+    },
+    {
+      "id": "strat.embedding_frame_change",
+      "category": "strategy",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "one_line": "The 'swap the primitive' frame-change: since the ULTRAFILTER face of a measurable collapses on an OML, try the EMBEDDING face (j:V→M) — maybe it carries the strength non-Booleanly. Pressure-tested for COHERENCE; VERDICT COSTUME. NOT malformed — steelman EXISTS (Takeuti/Ozawa quantum set theory V^(Q), orthomodular-valued universe WITH a transfer principle). Kills via the COMMUTATOR GATE: Ozawa transfer is com(ū)≤⟦φ⟧ for Δ₀ φ, and com=1⟺Boolean subalgebra (Marsden/PP); measurability is unbounded ⟹ forces com=1 ⟹ Boolean core. No non-distributive Łoś theorem. The disjointification wall in model-theory clothes; the one move that swaps (not re-dresses) the primitive, and it still bottoms out at the wall. Leans carefully toward ¬Ψ, NOT a proof.",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3n"
+    },
+    {
+      "id": "strat.weaken_ultra",
+      "category": "strategy",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "one_line": "The LAST untested filter-shaped bend: keep meet-closure, WEAKEN ultra — a functional 2-valued per-block but not globally. VERDICT COSTUME via BLOCK COVER: every OML element lies in some block, so total per-block-2-valued ⟹ globally 2-valued = Ψ's Side-A engine verbatim (wall un-dodged); non-total ⟹ Heyting-valued topos object (ZFC-cheap) or segregated ∏ₙMO₂ (no strength). Dies EARLIER than the predicted real-valued death (per-block-2-valued is INCOMPATIBLE with real-valued — a generic [0,1]-state is 2-valued on no block). The dichotomy is trivial (block cover), NOT a 4th wall level. ⭐ Exhausts the filter-shaped primitive space.",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3o"
+    },
+    {
+      "id": "strat.reconceive_carrier",
+      "category": "strategy",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "one_line": "Frame-shift 1/3: reconceive what 'concrete OML carrier' MEANS (sheaf/topos/Bohrification/Heyting-valued/concreteness-without-faithfulness) so the witness is native — the schemes analogue. VERDICT COSTUME: sheaf/topos = redescription (same L via global-sections) OR ZFC-cheap Heyting zone (KS-no-global-section is real-valued, sub-threshold, strength gone). Concreteness-without-faithfulness has NO teeth: order-determination by 2-valued STATES = set-representability (3-line proof). ⭐ Reusable: the CARRIER was never the locus of the wall (∏ₙMO₂ proves concrete≠Boolean); the Floor is the σ-TRIBE version (iii), not state-concreteness (i). Wall lives at the finitary→σ gap = Wall A.",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3p"
+    },
+    {
+      "id": "strat.reconceive_extends",
+      "category": "strategy",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "one_line": "Frame-shift 2/3: reconceive the EXTENSION RELATION (Ψ is a non-extension; no prior move targeted the relation). Partial/approximate (A), into-enlargement (B), morphism-category (C), dualize (D). VERDICT COSTUME, pinned by POLARITY: weaken 'extends' ⟹ rescuer (refutes witness); restate ⟹ redescription (same ∏ₙMO₂ verdict). A=S_df-hull triviality; B/C=redescription; D=wall.tribe_vs_points. ⚠ correction: completions do NOT re-Booleanize (MacNeille of an OML need not be Boolean/OML, Harding 1991) — Floor is tribe-of-SETS-specific, not lattice-completions. (4) σ-completion branch dies on fork: vacuous (carrier already σ-complete = struck weld run) OR = Harding–Wang P2 / σ-LS (wall.hw2). No new tractable statement.",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3q"
+    },
+    {
+      "id": "strat.anti_psi_invariant",
+      "category": "strategy",
+      "status": "killed",
+      "killed": "2026-06-30",
+      "one_line": "Frame-shift 3/3, the ¬Ψ direction: is there an INVARIANT Inv(L,s₀) whose computation forces extendability = a ¬Ψ proof as computation not search? Candidates: (A) commutator-degree, (B) σ-additive cohomology, (C) definability rank, (D) graded RDP. VERDICT no attackable invariant, both fences respected. A=WALL-RENAMED+CIRCULAR (com is a lattice element/binary, and A's premise IS ¬Ψ); B=sufficient-not-necessary (can't certify ¬Ψ); C=§3j definability non-sequitur; D=RDP binary, full failure everywhere. ⭐ KEEPERS: (i) two-family factorization (finitary sub-threshold vs σ-definability) — every invariant misses σ-level or existence-absolute, the conjunction IS Wall A; (ii) Ψ is an existential over UNBOUNDED-cardinality carriers (non-Polish, ≥2^ℵ₀), NOT a fixed-real projective statement ⟹ DST absoluteness does not apply ⟹ definability routes cannot promote 'no Borel section' to 'no section'. ⚠ do NOT pin as 'Σ²₁/third-order' (corrected 2026-06-30).",
+      "same_as": "wall.disjointification",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3r"
     }
   ],
   "costumes_of_disjointification": [
@@ -559,6 +608,36 @@
       "id": "fact.conjecture_isolated",
       "one_line": "The conjecture is ALREADY isolated as `Psi` (a named Prop, never axiom'd, #print-axioms-clean). 2026-06-30 added §7 BOOKKEEPING vocabulary to SigmaEssentialOpenCore.lean: TargetA:=Psi (Exit A), TargetB:=¬Psi (Exit B), proved targetB↔¬targetA + targetA∨targetB (one bivalent conjecture, two attack directions — NOT two independent theorems). TargetA_sharp = witness on an Admissible carrier (all 6 constraints); targetA_sharp_gives_targetA proved. ⚠ NO TargetA↔Psi (only 2 of 6 forcing lemmas Lean-proved: non-Boolean §4, non-Polish §5; concrete/σ-complete/irreducible/non-segregated are OPAQUE axioms = paper-level gap, machine-visible in the axiom receipt). NO 'strength axis' claim (strength unknown both directions, rem:strength). Receipt: structural thms depend only on propext/Classical.choice/Quot.sound; targetA_sharp additionally lists the 4 carrier predicates + PolishRepresentable, NOT Psi/WallA/MeasurableExists.",
       "detail": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean#7"
+    },
+    {
+      "id": "fact.floor_scope",
+      "one_line": "SCOPE of the Floor (over-attributed TWICE in the frame-shift series, §3p/§3q — pin it): 'faithful representation forces distributivity ⟹ Boolean' applies ONLY to a faithful tribe-of-SETS (concrete) representation. It does NOT apply to (a) state-concreteness = order-determination by 2-valued states (that IS the concrete carrier, non-Boolean fine), nor to (b) lattice COMPLETIONS — the MacNeille completion of an OML need not be distributive, need not even be an OML (Harding 1991). So neither reconceiving the carrier nor completing it triggers the Floor; the Floor is a statement about faithful set-representations specifically = the σ-tribe/finitary→σ gap = Wall A.",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3q"
+    },
+    {
+      "id": "fact.three_concreteness_notions",
+      "one_line": "Keep DISTINCT (recurring conflation; primary-source SEP qt-quantlog + arXiv:2401.13798): (i) set-representable/concrete = full set of 2-valued STATES — weak, non-Boolean fine (MO₂ concrete), = the programme's carrier, closure under complement+DISJOINT-union imposes no distributivity; (ii) Boolean embedding = full set of 2-valued HOMOMORPHISMS (Zierler–Schlessinger/KS) — forces Boolean, fails for QM; (iii) σ-tribe = concrete+σ-additive. The Floor is (iii)⟹Boolean, NEVER (i). ⟹ the CARRIER is not the wall's locus (∏ₙMO₂ proves it); state-concreteness = set-representability (a↦{s:s(a)=1} is a rep). Do NOT read 'faithful forces Boolean' as (i).",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3p"
+    },
+    {
+      "id": "fact.invariant_space_exhausted",
+      "one_line": "THE invariant-shaped ¬Ψ space is CLOSED (2026-06-30, two independent audit runs converged). Every candidate Inv(L,s₀) factors into: Family (I) finitary non-distributivity measures (commutator, RDP-failure, finite Čech H¹) = ZFC-absolute but SUB-THRESHOLD (at/below Wright floor, same value on ∏ₙMO₂ and any witness, since Ψ IS the no-finite-witness part); Family (II) σ-level definability ranks (Borel rank, measurable cohomology) = reach σ but measure DEFINABILITY ⟹ 'no Borel section' never 'no section' (§3j). A ¬Ψ proof needs σ-level AND existence-absolute AND non-distributivity-sensitive at once — (I) misses σ, (II) misses existence-absolute — and that conjunction IS Wall A = Ψ renamed. Companion to fact.filter_space_exhausted. Reusable dismissal of invariant-shaped proposals. Plus (why definability can't promote): Ψ is an existential over UNBOUNDED-cardinality carriers (non-Polish, ≥2^ℵ₀), NOT a fixed-real projective statement, so DST absoluteness theorems do not apply. ⚠ do NOT pin as 'Σ²₁/third-order' (wrong vocabulary — the analytical hierarchy classifies fixed-real statements; corrected 2026-06-30).",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3r"
+    },
+    {
+      "id": "fact.filter_space_exhausted",
+      "one_line": "THE filter-shaped primitive space is CLOSED (2026-06-30). 'Is there a non-Boolean primitive playing the countably-complete ultrafilter's role (= Side-A engine)?' — answered NO for every filter-shaped bend: keep-all (axiom collapse §3m), drop-meet (quantum filter, pure-side §3m), localize-meet (segregated), swap-to-embedding (commutator gate §3n), weaken-ultra (block cover §3o). Each reduces to wall.disjointification or to a strength-free object (Navara–Pták / Heyting-topos / ∏ₙMO₂). The SOLE remaining move is the carrier-construction open.intrinsic_K (abandon filter-shape, build the carrier), = the open problem, no entering tool. Leans carefully toward ¬Ψ.",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3o"
+    },
+    {
+      "id": "fact.wall_three_levels",
+      "one_line": "The disjointification wall now confirmed at THREE independent levels, same obstruction each time: (1) axiom-level — a countably-complete ultrafilter's meet-closure collapses on incompatible OML elements (a,b∈U ⟹ a∧b=0∈U ⟹ U=L); (2) the disjointification identity (a∨b)∧a⊥=b∧a⊥; (3) the COMMUTATOR GATE on model-theoretic transfer — Ozawa's quantum-set-theory transfer com(ū)≤⟦φ⟧ is Boolean exactly where com=1 (Marsden/PP), so unbounded (large-cardinal) assertions force the Boolean core. Reusable: ANY route that would 'state non-Boolean largeness' (ultrafilter, embedding j:V→M, or quantum-set-theory transfer) hits the wall at one of these three. There is NO non-distributive Łoś theorem.",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3n"
+    },
+    {
+      "id": "ref.quantum_set_theory",
+      "one_line": "REFERENCE (arena, not a lead): Takeuti/Ozawa quantum set theory V^(Q) = an orthomodular-valued universe of set theory WITH a transfer principle (Ozawa arXiv:0908.0367, math/0604349, 2002.06692). The nearest existing 'non-Boolean model theory with transfer'. Its PUBLISHED SHARP LIMIT (com-gated Δ₀ transfer) is exactly why the embedding-frame-change is a costume (strat.embedding_frame_change). No large-cardinal/embedding notion has ever been hosted inside V^(Q).",
+      "detail": "sigma_essential_large_cardinal_bounds.md#3n"
     },
     {
       "id": "fact.cohomology_subthreshold",

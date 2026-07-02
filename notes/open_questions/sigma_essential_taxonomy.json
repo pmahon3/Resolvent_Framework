@@ -2,7 +2,7 @@
  "$meta": {
   "title": "σ-essential contextual state — solution-attempt taxonomy",
   "purpose": "Zoom-out index of every recorded approach to the OML-descent / σ-essential / σ-point-selection problem. Load this first for the 50,000-ft shape; follow `detail` pointers to drill into individual attempts.",
-  "updated": "2026-07-01",
+  "updated": "2026-07-02",
   "problem_one_line": "Does a concrete σ-complete non-Boolean irreducible OML carry a 2-valued state on a finite ⊥-closed subposet that extends to NO global σ-additive 2-valued state? (≡ σ-point-selection, the localized core.)",
   "status": "OPEN, but the LITERATURE FRONTIER IS NOW CLOSED (2026-06-27): every candidate field swept NEGATIVE (borrowable-principle hunt; RDP-impossibility (c)-open, gap not theorem; Harding/Hamhalter confirm open; DST corner + the CBER→concrete-logic bridge — the last flagged lead — KILLED §3j as a type/strength non-sequitur). Strength UNKNOWN (LB mechanism refuted §3f, UB unearned). Frontier: non-Polish / non-standard-Borel / irreducibly-non-central. NO ENTERING TOOL in any surveyed field — the convergence IS the finding. Resolution needs a genuinely NEW object built from scratch, not transported.",
   "the_shape": "Almost every construction route bottoms out at ONE wall: the disjointification identity (a∨b)∧a⊥=b∧a⊥ (distributive, false on OMLs). Carriers die because they are segregated/finite/Boolean-enough; abstract routes recur as 'costumes' of disjointification. Genuine non-costume content: the localization reduction, the Polish upper boundary (DW), the Blecher–Weaver Hilbert precedent (does not transfer), and the two unproven large-cardinal bounds. UPDATE 2026-06-27: the literature frontier is now mapped CLOSED -- no field supplies a borrowable principle (every candidate is Boolean / real-valued / Polish), the RDP-failure obstruction is NOT a theorem (gap, not impossibility), and Ψ's consistency strength is genuinely UNKNOWN (the measurable conjecture was refuted, not just unproven). The witness, if it exists, is a genuinely new non-Polish object; the one structural rhyme is the Glimm-Effros 'non-smooth <=> no 2-valued section' dichotomy (a bridge to BUILD, unpublished).",
@@ -222,6 +222,15 @@
    "one_line": "Reduces to σ-lifting-failure (the wall, not a witness). DST bypass fails: the restriction-gap is structural, not topological.",
    "same_as": "wall.disjointification",
    "detail": "../archive/sigma_construction_log_archive.md"
+  },
+  {
+   "id": "carrier.recursive_mo2_substitution",
+   "name": "Recursive MO₂ substitution (Sierpinski / iterated atom-blowup)",
+   "status": "dead",
+   "one_line": "Recursive MO₂ substitution / Sierpinski (2026-07-02, user-proposed, DEAD by hand-computation — NOT literature, NOT a new wall). Replace each atom of MO₂ by a sub-MO₂, recurse ω-deep. ⭐GENUINELY DODGED the easy deaths (first this session to): NOT block-size (recursion grows block SIZE — accumulated complement-pieces down a branch generate an infinite block, unlike MO_n) + NOT obviously segregated (branches overlap in NESTED Boolean initial segments, tree-branching, neither horizontal-sum nor central-factor). ⭐REFRAME (keeper): = KALMBACH K(L) with L having INFINITE CHAINS — blocks ↔ free Boolean algebras on maximal chains of L (Harding 2004: K(L)={finite even-length chains}, blocks↔chains), so infinite chain ⟹ infinite block. Sharpest instance yet of the fourth-cell problem. ⛔ STILL DEAD, caught in the atomic-vs-atomless PINCER (fact.fourth_cell_spec, BOTH jaws): (B) refine every atom ⟹ ATOMLESS limit blocks (free Boolean alg on a chain = atomless interval algebra) ⟹ bisection kill (no 2-valued σ-state) ⟹ vacuous. (A) refine along one branch ⟹ ATOMIC blocks, but each branch = a countable atomic σ-PARTITION of 1 ⟹ any σ-additive 2-valued state puts mass 1 on exactly ONE atom = a branch-POINT = DIRAC ⟹ every finite s₀ extends ⟹ Φ ⟹ no witness (tree-rescue = fact.catalog_barren, reached by substitution). ⭐THE FINDING (why tree refinement CANNOT escape, log so not re-proposed): INFINITE-BLOCKS-VIA-TREE and DIRAC-DOMINATION ARE THE SAME MECHANISM — the chain that BUILDS the infinite block IS the branch a σ-state WALKS to a point. Can't have the first without the second. The 'diagonal' hope (a finite s₀ no branch-point realizes) has nowhere to live: atomic tree ⟹ every coherent σ-pattern IS a branch-point; atomless tree ⟹ no σ-states to diagnose. Polarity gate met: no witness, the rescue is structural. ⚠ do NOT weld 'K(L) simple' to 'non-segregated' (distinct notions; MO₂ is simple AND the segregated unit test).",
+   "detail": "(conversational 2026-07-02; hand-computed, advisor-confirmed both readings)",
+   "death_number": null,
+   "same_as": "fact.fourth_cell_spec"
   }
  ],
  "strategies": [

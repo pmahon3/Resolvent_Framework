@@ -220,6 +220,57 @@ inequivalent.
 
 Ordered by downstream leverage:
 
+**⚑ CURRENT STATUS 2026-07-02 — σ-essential: the frontier is now LOCALIZED to a named
+technique, not "invent from scratch." The sharpening phase is DONE; what remains is human
+mathematics.** This session took the 2026-07-01 "invent a non-distributive primitive"
+frontier and localized it three notches. To be caught up on WHERE TO FOCUS, read THIS block.
+
+- **IMPORT SWEEP COMPLETE** (`fact.import_sweep_complete`), stronger than "literature
+  closed": every EXISTING object-class proposed as the skeleton bottoms at Wall A via a
+  two-reason partition — **R1** Boolean-ambient ⟹ meet-closed ⟹ rescued, or **R2**
+  non-concrete-where-non-distributive ⟹ fails C1 by Kochen–Specker. Swept: set-theory catalog
+  [R1], manuals/Feldman–Wilce, pBAs + Abramsky–Barbosa duality [R2, atom-founded], **quantum
+  relations/graphs** [R2, non-commutativity of M⊆B(H) = exactly what fails C1; II₁/tracial buys
+  measure- not set-concreteness]. Geometric/topological variants foreclosed as a FAMILY
+  (`fact.geometry_forecloses_family`): inside a block, Cantor uniqueness makes all refinement
+  orders isomorphic; between blocks, topological gluing (Möbius = ℤ/2 twist = cohomology class)
+  is razor-rescued. ⚠ import-complete ≠ impossibility.
+- **THE FRONTIER HAS A NAME + A TECHNIQUE.** The missing object = a **combinatorial
+  (non-operator-algebraic) source of NON-SEGREGATED non-distributivity** — the "fourth cell"
+  past R1 / R2 / R3-segregated-∏ₙMO₂ (`fact.fourth_cell_spec`). The order-combinatorial gluing
+  space is a **5-axis map** (`fact.gluing_axis_map`): 4 axes pinned by deaths (overlap
+  richness, closure type, block size = **infinite ATOMIC**, centrality = non-central); the
+  ONE open axis is **incidence shape**, and all that is known is **NOT a tree**. The positive
+  route is the **realization-theorem push** (Navara–Rogalewicz / Harding–Navara build
+  non-simplex/non-segregated state spaces by Boolean-block pasting → carry to concrete + σ
+  SIMULTANEOUSLY). **Reading plan WRITTEN:** `notes/reading_directions/realization_technique_reading.tex`
+  (dependency-ordered, anchored to the conjunction gap; Harding 2004 in hand confirms the
+  concreteness half + locates the finiteness dependency).
+- **WHY IT'S HARD, at max sharpness — the 3↔5 tension:** you need infinite ATOMIC blocks
+  whose overlap-incidence is NOT a tree, but the only known way to BUILD infinite atomic
+  blocks is iterated refinement, which IS a tree → Dirac-domination (the recursive-MO₂ death,
+  `carrier.recursive_mo2_substitution`, now a Lean detector `TreeIncidence`, 0-sorry, axiom-clean).
+  The tree that makes blocks infinite is the tree that makes σ-states Dirac.
+- **IMPOSSIBILITY side: BLOCKED, not near.** The only live ¬Ψ lane = force state-concrete
+  (i) → σ-tribe (iii); NO importable route (RDP⟺MV confines the machinery to the Boolean
+  complement of the Ψ config; `strat.impossibility_i_to_iii`). The false universal "(A)
+  infinite-atomic+non-central+concrete ⟹ tree" is strictly STRONGER than ¬Ψ (probably false —
+  tree is a property of the construction, not the object), NOT a stepping-stone.
+- **NARROWING IS DONE.** New-world and impossibility stay indistinguishable because ONE object
+  gates both (a non-tree infinite-atomic gluing: build it → witness; prove none exists → ¬Ψ).
+  "Keep tightening the lasso" now returns sampled points, not the theorem. The next move is the
+  **investment decision**: learn the realization/pasting technique (plan written) or attempt the
+  non-RDP (i)→(iii) theorem. Neither is manufacturable at the schematic.
+
+**NET: the frontier is one named object — a concrete σ-complete OML built by INFINITE
+NON-TREE pasting of infinite atomic Boolean blocks (= the realization-theorem push), OR a
+non-RDP (i)→(iii) impossibility theorem.** Both are human learn-then-try; the paper
+(`papers/sigma_essential/`) is the stable boundary map (unchanged — this session's directional
+findings are correctly NOT in it, being search-navigation not Ψ-boundary). Zoom-out nav =
+`sigma_essential_taxonomy.json`; trails = `sigma_essential_construction_runs.md` (2026-07-02
+blocks); Lean scaffold 0-sorry incl. the tree-detector. The 2026-07-01 block below records the
+"invent from scratch" framing this localizes.
+
 **⚑ CURRENT STATUS 2026-07-01 — σ-essential: ALL ARTICULABLE ATTACK-SHAPES SWEPT; the
 wall is now CHARACTERIZED, not just located; every road (express/search/build) bottoms
 at ONE need — a genuinely new NON-DISTRIBUTIVE COMBINATORIAL PRIMITIVE.** This session

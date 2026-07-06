@@ -24,6 +24,15 @@ theorem product_ulam_witness_ZFC : IsSigmaEssentialL s₀ :=
 theorem psiAmended_ZFC : PsiAmended :=
   ⟨M₁ × Fin 4, L₁, coreBlock U₁, s₀, product_ulam_witness_ZFC⟩
 
+/-- **Non-distributivity, machine-checked as a corollary.** The carrier cannot
+be intersection-closed (Boolean): the amended Boolean baseline
+(`boolean_no_witness_amended` = Prop 1.6/2.1) forbids witnesses on Boolean
+carriers, and the pattern IS a witness. So the witness itself certifies the
+carrier's non-Booleanness — no separate structural proof needed. -/
+theorem carrier_not_interClosed : ¬ InterClosed L₁ :=
+  fun h => boolean_no_witness_amended h s₀ product_ulam_witness_ZFC
+
 #print axioms psiAmended_ZFC
+#print axioms carrier_not_interClosed
 
 end SigmaEssential.Ulam

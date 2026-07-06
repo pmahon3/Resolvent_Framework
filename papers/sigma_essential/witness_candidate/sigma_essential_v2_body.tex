@@ -142,14 +142,24 @@ is computed exactly (Corollary~\ref{cor:centre}).
 
 \paragraph{Verification status.}
 The construction of \S\ref{sec:witness} was developed jointly with a large
-language model (see Acknowledgements) and has been hand-checked; its finite
-combinatorial components (the disjointness table, Lemma~\ref{lem:table}) are
-machine-checkable and a Lean~4 formalization is in progress in the author's
-repository. Until that formalization is complete the main theorem should be
-read as carrying the corresponding caveat. The load-bearing steps, in
-descending order of delicacy, are Lemma~\ref{lem:trichotomy} (the countable-family
-induction), Lemma~\ref{lem:table} case (IV), and the well-definedness bookkeeping
-of Lemma~\ref{lem:state-well-defined}.
+language model (see Acknowledgements), hand-checked by two independent
+adversarial passes, and subsequently \emph{formalized in Lean~4 in full}: the
+main theorem is machine-checked end-to-end in the author's repository
+(\texttt{formalization/QuerySystem/}, modules \texttt{SigmaEssentialAmended}
+and \texttt{UlamWitness*}; final statement \texttt{psiAmended\_ZFC}), with zero
+\texttt{sorry}s and axioms exactly \texttt{propext},
+\texttt{Classical.choice}, \texttt{Quot.sound} --- i.e.\ ZFC, no additional
+axioms and no large cardinals. The formalization covers the Ulam matrix
+(Lemma~\ref{lem:ulam}), the normal form and the full disjointness table
+(Theorem~\ref{thm:normal-form}, Lemma~\ref{lem:table} including case (IV)),
+rigidity (Theorem~\ref{thm:rigidity}), the vote state and its additivity
+(Theorem~\ref{thm:state}), and the assembly at $\omega_1$
+(Theorem~\ref{thm:main}); the $\Omega_7$ example of
+Remark~\ref{rem:amendment} is also machine-checked, so the necessity of the
+coherence clause is itself certified. The remaining trust surface is
+definitional fidelity (that the formal definitions transcribe
+Definitions~\ref{def:coherence}--\ref{def:sigma-essential}), a finite reading
+exercise.
 
 
 \section{The Boolean baseline}\label{sec:boolean}
@@ -719,11 +729,14 @@ the core complements. If $E\subseteq A_1\cap A_2$ exactly, $E$ is countable.
 \end{corollary}
 
 \begin{proof}
-Take the normalised $(\xi,\kappa)$. If $\kappa=0000$: coordinates $3,4$ give
-$\xi\approx\varnothing$, so $E$ is countable. If $\kappa=1100$: coordinates
-$3,4$ are $\approx\xi\orth$, so $\xi\approx M$ and $E\approx A_1$. If
-$\kappa=1010$ or $0110$: one of coordinates $3,4$ forces $\xi\approx\varnothing$
-and the other $\xi\orth\approx\varnothing$ --- impossible. For the last claim,
+Take the normalised $(\xi,\kappa)$; throughout, coordinate $f$ carries
+$\xi^{(\kappa_f)}$ (Definition~\ref{def:invariant}). If $\kappa=0000$:
+coordinates $3,4$ carry $\xi$, so $\xi\approx\varnothing$ and $E$ is countable.
+If $\kappa=1100$: coordinates $3,4$ carry $\xi$ ($\kappa_3=\kappa_4=0$), so
+$\xi\approx\varnothing$; coordinates $1,2$ then carry $\xi\orth\approx M$, so
+$E\approx A_1$. If $\kappa=1010$ or $0110$: one of coordinates $3,4$ carries
+$\xi$ and the other $\xi\orth$, forcing $\xi\approx\varnothing$ and
+$\xi\approx M$ simultaneously --- impossible. For the last claim,
 $E\subseteq M\times\{1\}$ makes coordinates $2,3,4$ countable, and the same
 analysis kills all three weight-2 cosets, leaving $\xi\approx\varnothing$.
 \end{proof}
@@ -764,6 +777,18 @@ constant $t$. Membership of $E$ itself in $\widetilde P$ forces the fourth class
 to equal $t$: with three coordinates constant $t$, the pairwise-difference and
 parity conditions of Definition~\ref{def:invariant} require the fourth
 difference to vanish. Thus $E$ is countable ($t=0$) or co-countable ($t=1$).
+
+For the quotient claim, let $[E]$ be central in $\Lo/\mathrm{ctble}$.
+Compatibility of $[E]$ with $[A_1]$ in the quotient supplies $D\in\Lo$ with
+$D\approx E\cap A_1$ (the quotient decomposition, as in
+Corollary~\ref{cor:incompat}, computed mod countable). Then $D\in\widetilde P$
+has coordinates $3,4$ countable, and the analysis of
+Corollary~\ref{cor:stripping} --- which only ever uses trace \emph{classes} ---
+runs unchanged mod countable, giving $[E_1]=[E_2]\in\{0,1\}$. Compatibility
+with $[A_2]$, $[A_3]$ give $[E_1]=[E_3]$ and $[E_2]=[E_3]$, and membership of
+$E$ in $\widetilde P$ forces the fourth class exactly as above. Hence $E$ is
+countable or co-countable, i.e.\ $[E]\in\{0,1\}$: the quotient centre is
+trivial.
 \end{proof}
 
 \subsection{Rigidity}

@@ -4,7 +4,7 @@
   "purpose": "Zoom-out index of every recorded approach to the OML-descent / σ-essential / σ-point-selection problem. Load this first for the 50,000-ft shape; follow `detail` pointers to drill into individual attempts.",
   "updated": "2026-07-06",
   "problem_one_line": "Does a concrete σ-complete non-Boolean irreducible OML carry a 2-valued state on a finite ⊥-closed subposet that extends to NO global σ-additive 2-valued state? (≡ σ-point-selection, the localized core.)",
-  "status": "CANDIDATE ZFC WITNESS UNDER VERIFICATION (2026-07-06). A construction (Product Ulam Carrier, papers/sigma_essential/witness_candidate/) claims to resolve an AMENDED Ψ (OMP-not-lattice, finite-coherence-read-globally, irreducibility-mod-countable) in ZFC via Ulam-rigidity + empty-kernel Specker triple + a f.a. state from an ultrafilter on P(ω₁)/ctble. UNVERIFIED; contradicts the prior 'not close' terminus. Two cruxes: does the amendment preserve the problem, and is Dirac-only+empty-kernel a genuine or degenerate witness. Verification checklist in candidate.product_ulam_witness + README. Prior frontier (fact.gluing_axis_map etc.) remains the record for the LITERAL/lattice form, which the candidate leaves open (conjectured to fail).",
+  "status": "AMENDED Ψ = MACHINE-CHECKED ZFC THEOREM (2026-07-06). Product Ulam Carrier verification cleared (2 adversarial passes, no error) AND the construction was fully formalized END-TO-END in Lean the same day: `psiAmended_ZFC` (UlamWitnessMain.lean), 0-sorry, axioms = [propext, Classical.choice, Quot.sound] ONLY — no cited axioms, no large cardinals. Chain: SigmaEssentialAmended (encoding fix: LocalState/FinAddState/IsSigmaEssentialL) → UlamWitnessCore (Ulam matrix, rigidity 5.1, kernel-empty, witness⟺coherence) → UlamWitnessOmega1 (ω₁ instantiation) → UlamWitnessInvariant (§3: 3.2/3.3-all-cases/3.5 normal form) → UlamWitnessState (§6: vote state, coherence) → Main + Receipts. Ω₇ amendment-forcing counterexample ALSO machine-checked (Omega7Counterexample.lean). Gate α (hand-pass) superseded by Lean; REMAINING: definitional-fidelity read (~15 min: the defs vs paper v2 Defs 1.2–1.4) + gate β prior-art book check (Pták–Pulmannová 1991, Navara Handbook) + Phase-2 /audit full for novelty. STILL OPEN: OML/lattice form (conjectured opposite: latticehood⟹Φ) + literal-irreducibility form — the prior wall-map remains their record. Old Lean spine's witness predicate remains defective/superseded (fact.lean_witness_encoding_defect); new development replaces it.",
   "the_shape": "Almost every construction route bottoms out at ONE wall: the disjointification identity (a∨b)∧a⊥=b∧a⊥ (distributive, false on OMLs). Carriers die because they are segregated/finite/Boolean-enough; abstract routes recur as 'costumes' of disjointification. Genuine non-costume content: the localization reduction, the Polish upper boundary (DW), the Blecher–Weaver Hilbert precedent (does not transfer), and the two unproven large-cardinal bounds. UPDATE 2026-06-27: the literature frontier is now mapped CLOSED -- no field supplies a borrowable principle (every candidate is Boolean / real-valued / Polish), the RDP-failure obstruction is NOT a theorem (gap, not impossibility), and Ψ's consistency strength is genuinely UNKNOWN (the measurable conjecture was refuted, not just unproven). The witness, if it exists, is a genuinely new non-Polish object; the one structural rhyme is the Glimm-Effros 'non-smooth <=> no 2-valued section' dichotomy (a bridge to BUILD, unpublished).",
   "categories": {
    "candidate_carrier": "a concrete σ-OML tried as the witness-carrier",
@@ -38,13 +38,13 @@
    "affects": "{id, effect} — the consequent node + the claimed consequence (record, not auto-applied)"
   },
   "headline_counts": {
-   "total_entries": 81,
+   "total_entries": 82,
    "candidate_carriers_killed": 13,
    "strategies": 16,
    "disjointification_costumes": 12,
    "fenced_reversals": 12,
    "named_walls": 7,
-   "settled_facts": 15,
+   "settled_facts": 23,
    "open_targets": 3,
    "gates": 3,
    "marriage_synthesis": "bounds §3m (two-ledger Side-A/Side-B frame + seam-closed-absent)",
@@ -239,10 +239,15 @@
   },
   {
    "id": "candidate.product_ulam_witness",
-   "name": "Product Ulam Carrier — candidate ZFC witness (amended Ψ), UNVERIFIED",
-   "status": "pending",
-   "one_line": "⭐ CANDIDATE ZFC WITNESS produced 2026-07-06 (session claude.ai/share/059e292f...), UNVERIFIED — files in `papers/sigma_essential/witness_candidate/`. Claims: a concrete σ-complete non-Boolean orthomodular POSET (not lattice) L on Ω=ω₁×{1,2,3,4} with a Specker-triple pattern s₀ (A∩B∩C=∅) that is finitely coherent (global f.a. state m via an ultrafilter on P(ω₁)/ctble through a parity 'vote') but extends to NO σ-additive 2-valued state (Ulam-matrix generators ⟹ every σ-state Dirac (rigidity, Thm 5.1); empty kernel kills every Dirac) ⟹ Ψ(amended) in ZFC, no large-cardinal strength. Literal OML/lattice form stays OPEN, conjectured to FAIL (latticehood ⟹ σ-liftability). ⚠ CONTRADICTS the recorded terminus ('not close; every importable object → Wall A') — so EITHER a genuine breakthrough the amendment unlocks OR the amendment relocates Ψ past the wall. TWO verification cruxes: (1) do the 3 amendments (finite-coherence-read-globally / OMP-not-lattice / irreducibility-mod-countable) PRESERVE the problem or dodge it? author argues each is FORCED (Rem 1.5, Cor 4.4, Prop 7.2). (2) is 'Dirac-only + K(s₀)=∅' a GENUINE witness or the DEGENERATE case? — our Lean diracOnly_with_clause_i_gives_witness ALREADY proves this path is a valid witness of the FORMALIZED def, but prior sessions called Dirac-domination degenerate + Rem 7.3 says the quotient has NO σ-2-valued state at all (vacuous/bisection shape). Author's §8 ranks load-bearing joints by suspicion: #1 Lem 3.4→Thm 3.5 (trichotomy + countable-union induction), #2 Lem 3.3(IV) (the parity-triangle-can't-form 'theorem in miniature'), #3 Lem 6.2/6.3 well-def. Chunked verification checklist + handoff written 2026-07-06. Do NOT mark Ψ SOLVED or update program_overview frontier until cleared.",
-   "detail": "papers/sigma_essential/witness_candidate/README.md + sigma_essential_witness.md §8"
+   "name": "Product Ulam Carrier — amended-Ψ ZFC witness, LEAN-CERTIFIED end-to-end",
+   "status": "settled",
+   "one_line": "⭐⭐ MACHINE-CHECKED 2026-07-06 (same day as capture+verification): `psiAmended_ZFC` = the amended Ψ holds in ZFC, formalized END-TO-END with ZERO sorries, axioms exactly [propext, Classical.choice, Quot.sound] (receipts: UlamWitnessReceipts.lean). The FULL chain is Lean: Ulam matrix w/ exact columns (Lem 2.1), carrier σ-class, rigidity every-σ-state-Dirac-on-carrier (Thm 5.1), Specker coreBlock + majority-of-3 pattern (self-dual ⟹ val_compl free), kernel empty (i), §3 trace invariant complete (rep-rigidity 3.2 — normalization makes coord 3 the anchor; disjointness table 3.3 ALL FOUR cases incl. the parity-triangle impossibility IV; normal form 3.5 by GenerateHas induction with the trichotomy inline), §6 vote state (ultrafilter of cocountable, mVal well-defined via 3.2, FinAddState additivity via the table, extends the pattern = Cor 6.4 ⟹ clause (0)), assembled at ω₁ (UlamWitnessOmega1: uncountable + countable-segments discharged from Mathlib ordinal API). PLUS Rem 1.5 machine-checked (Omega7Counterexample.lean: the literal definition admits a Boolean 'witness'; the amended definition excludes it — the amendment is FORCED, certified). Verification history: 2 independent adversarial passes + mechanical finite-core enumeration first (VERIFICATION_VERDICT.md), then formalization. Verdict outcome (i) qualified: OMP+coherence+irred-mod-ctble form SETTLED; OML/lattice + literal-irreducibility forms OPEN (conjectured opposite). REMAINING: definitional-fidelity read of the Lean defs vs paper v2 (~15 min, the only trust surface left) + prior-art book check (Pták–Pulmannová 1991, Navara Handbook) + Phase-2 /audit full for the novelty/write-up question. Reversal trigger: prior-art hit or a located definitional-fidelity flaw only.",
+   "detail": "papers/sigma_essential/witness_candidate/VERIFICATION_VERDICT.md + formalization/QuerySystem/QuerySystem/UlamWitnessMain.lean",
+   "lean": {
+    "file": "QuerySystem/UlamWitnessMain.lean",
+    "name": "SigmaEssential.Ulam.psiAmended_ZFC",
+    "status": "proved-edge"
+   }
   }
  ],
  "strategies": [
@@ -738,6 +743,22 @@
    "id": "fact.cohomology_subthreshold",
    "one_line": "ANY cohomological framing of the obstruction (groupoid/context cohomology, H¹) reduces on ∏ₙMO₂ to Abramsky–Mansfield–Barbosa sheaf-contextuality cohomology = finite-cover, SUFFICIENT-not-necessary, sitting AT the Wright-1978 finite-contextuality floor Ψ lives strictly ABOVE. ⟹ the whole cohomological corner is SUB-THRESHOLD (sees only finite-witness contextuality; Ψ is the no-finite-witness part). One-line dismissal of future cohomological costumes.",
    "detail": "sigma_essential_large_cardinal_bounds.md#3l"
+  },
+  {
+   "id": "fact.lean_witness_encoding_defect",
+   "category": "settled_fact",
+   "status": "settled",
+   "name": "Lean witness-encoding defect: IsSigmaEssential unsatisfiable as typed (machine-checked)",
+   "one_line": "Found + machine-checked 2026-07-06 during Product-Ulam verification: SigmaEssentialLocalization.lean types the pattern s₀ as a GLOBAL TwoValuedState d (σ-additive by definition), so Extends s₀ s₀ B holds trivially ⟹ IsSigmaEssential is UNSATISFIABLE, the formalized Psi is PROVABLY FALSE as encoded, and diracOnly_with_clause_i_gives_witness has jointly contradictory hypotheses (Dirac-only forces the global s₀ = δ_ω ⟹ ω ∈ K(s₀) ≠ ∅). Certificate: QuerySystem/EncodingDefectCheck.lean (compiles clean; extends_refl / isSigmaEssential_unsatisfiable / psi_false / diracOnly_certificate_vacuous). CONSEQUENCE: all witness-predicate certificates (incl. TreeIncidence degeneracy theorems + qbare_iff_witness) are VACUOUS in both directions — neither side of crux B may cite them; lean fields on entries routing through IsSigmaEssential/WitnessAt need downgrading. UNAFFECTED: dirac_iff, derived monotonicity/at-most-one, FIP content of boolean_not_sigma_essential. FIX: re-encode the pattern as a LOCAL state on B (values on B.sets, complement-additivity inside B), re-prove localization; compatible with witness §8 Lean plan.",
+   "detail": "formalization/QuerySystem/QuerySystem/EncodingDefectCheck.lean + papers/sigma_essential/witness_candidate/VERIFICATION_VERDICT.md#4-independent-finding-the-lean-witness-encoding-is-broken",
+   "lean": {
+    "file": "QuerySystem/EncodingDefectCheck.lean",
+    "name": "SigmaEssential.EncodingDefect.psi_false",
+    "status": "proved-edge"
+   },
+   "kills_or_bounds": [
+    "candidate.product_ulam_witness"
+   ]
   }
  ],
  "open_frontier": [

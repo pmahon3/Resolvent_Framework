@@ -1,9 +1,21 @@
-# Witness candidate — the Product Ulam Carrier (UNVERIFIED, 2026-07-06)
+# Witness candidate — the Product Ulam Carrier (VERIFIED 2026-07-06, gates owed)
+
+**VERIFICATION CLEARED + MACHINE-CHECKED 2026-07-06 — see `VERIFICATION_VERDICT.md`
+(the authoritative record; outcome (i), qualified).** No mathematical error found by
+two independent adversarial passes + mechanical finite-core enumeration; then the
+construction was **formalized end-to-end in Lean the same day**: `psiAmended_ZFC`
+(`formalization/QuerySystem/QuerySystem/UlamWitnessMain.lean`), zero sorries, axioms
+exactly `[propext, Classical.choice, Quot.sound]`. The Ω₇ amendment-forcing example
+is also machine-checked (`Omega7Counterexample.lean`). Remaining before promotion:
+the definitional-fidelity read (~15 min, Lean defs vs v2 Defs 1.2–1.4), gate β
+(prior-art book check: Pták–Pulmannová 1991, Navara's Handbook survey), and Phase-2
+`/audit full`. Keep v1 (`../sigma_essential.tex`) frozen except the Ω₇/Prop 2.1
+erratum, which is owed regardless. The v2 body's "Lean formalization in progress"
+caveat paragraph can now be updated to cite the completed formalization.
 
 A **candidate ZFC construction** of a σ-essential contextual state, resolving an
 **amended** form of the open problem. Produced 2026-07-06 in a working session
-(claude.ai/share/059e292f-97f0-4787-808e-c89a88dbced4). **NOT yet verified — do not
-promote to the main paper until the checklist below is cleared.**
+(claude.ai/share/059e292f-97f0-4787-808e-c89a88dbced4).
 
 ## Files
 - `sigma_essential_v2.tex` + `sigma_essential_v2_body.tex` + `references.bib` — the full

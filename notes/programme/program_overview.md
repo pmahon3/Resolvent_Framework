@@ -220,21 +220,40 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**⚑⚑ CANDIDATE ZFC WITNESS UNDER VERIFICATION (2026-07-06).** A construction — the
-**Product Ulam Carrier** (`papers/sigma_essential/witness_candidate/`) — claims to resolve
-an **amended** Ψ (concrete σ-complete non-Boolean orthomodular **poset**, finite coherence
-read globally, irreducibility mod the countable ideal) **in ZFC**, via Ulam-matrix rigidity
-(every σ-additive 2-valued state is Dirac) + an empty-kernel Specker triple (kills every
-Dirac) + a finitely-additive coherence state built from an ultrafilter on
-`P(ω₁)/ctble` through a parity code. If correct, Ψ(amended) has **no** large-cardinal
-strength, and the quotient by the countable ideal is a σ-complete non-Boolean OMP with
-**no σ-additive 2-valued state at all**. **UNVERIFIED** — it contradicts the "not close"
-terminus below, so either it is a genuine breakthrough the amendment unlocks *or* the
-amendment relocates Ψ past the wall (the literal OML/**lattice** form it leaves open,
-conjectured to fail). Two verification cruxes + a chunked checklist:
-`witness_candidate/README.md` + taxonomy `candidate.product_ulam_witness`. **Do NOT treat
-Ψ as solved until cleared.** The 2026-07-02 frontier below remains the record for the
-literal (lattice) form.
+**⚑⚑ AMENDED Ψ = MACHINE-CHECKED ZFC THEOREM (2026-07-06)
+⟦LEAN — 0-sorry end-to-end; axioms = [propext, Classical.choice, Quot.sound] only⟧.**
+The **Product Ulam Carrier** (`papers/sigma_essential/witness_candidate/`) cleared
+adversarial verification (two independent proof passes, no mathematical error; verdict —
+outcome (i), qualified — in `witness_candidate/VERIFICATION_VERDICT.md`) and was then
+**formalized end-to-end in Lean the same day**: `psiAmended_ZFC`
+(`formalization/QuerySystem/QuerySystem/UlamWitnessMain.lean`) proves Ψ on
+**σ-classes/OMPs, coherence-amended, irreducible mod the countable ideal, in ZFC** — the
+full chain (encoding fix `SigmaEssentialAmended`; Ulam matrix + rigidity Thm 5.1 + empty
+kernel `UlamWitnessCore`; ω₁ instantiation `UlamWitnessOmega1`; §3 trace invariant with
+the complete disjointness table `UlamWitnessInvariant`; §6 vote state + coherence
+`UlamWitnessState`), receipts in `UlamWitnessReceipts.lean`. The Ω₇ example — the
+amendment-forcing counterexample refuting [M] Prop 2.1 as literally stated — is also
+machine-checked (`Omega7Counterexample.lean`), so the coherence amendment's
+**repair-not-retreat** status is itself certified. Per-statement:
+Ψ (OMP + coherence + irred-mod-ctble) — **ZFC theorem, Lean-certified**;
+Ψ on **lattices (OML)** — OPEN, conjectured *opposite* (latticehood ⟹ Φ);
+Ψ with **literal irreducibility** (no-singletons regime) — OPEN.
+**Remaining before "SOLVED" in full**: (1) definitional-fidelity read (~15 min: the Lean
+definitions vs paper v2 Defs 1.2–1.4 — the only remaining trust surface; note
+`LocalState`'s weaker constraint is harmless, coherence forces full statehood); (2) gate
+β — hand-check Pták–Pulmannová 1991 + Navara's Handbook survey (novelty, not
+correctness; scout verdict was ADJACENT/apparently-empty — "new assembly of classical
+parts closing the beyond-Polish Derr–Williamson cell"); (3) Phase-2 `/audit full` for
+the write-up question. Reversal trigger (binding): downgrade only on a prior-art hit or
+a located definitional-fidelity flaw.
+
+**[SUPERSEDED-IN-PART 2026-07-06]** The block below stands as the record for the
+**literal (lattice / literal-irreducibility) forms only**. Its mathematical content
+(walls, import-sweep kills) is unrefuted; its strategic judgment ("not close") is
+falsified for the amended/OMP form — the 13-carrier sample contained no two-layer design
+(Boolean rigidity layer ⊗ native parity incompatibility, coupled only through the
+countable ideal). Not a verdict swing: the prior swings re-read one proposition; this
+update splits it on new evidence (a verified object).
 
 **⚑ CURRENT STATUS 2026-07-02 — σ-essential: the frontier is now LOCALIZED to a named
 technique, not "invent from scratch." The sharpening phase is DONE; what remains is human

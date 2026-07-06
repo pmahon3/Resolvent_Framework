@@ -13,6 +13,7 @@ amendment-forcing counterexample (`Omega7Counterexample`).
 import QuerySystem.UlamWitnessMain
 import QuerySystem.Omega7Counterexample
 import QuerySystem.EncodingDefectCheck
+import QuerySystem.UlamWitnessFidelity
 
 namespace SigmaEssential
 
@@ -31,5 +32,9 @@ namespace SigmaEssential
 #print axioms Omega7.omega7_not_coherent
 -- The encoding defect in the OLD spine (psi_false is about the old encoding).
 #print axioms EncodingDefect.psi_false
+-- Fidelity closures: coherence upgrades LocalState to a full Def-1.2 state on B;
+-- the witness block's only disjoint pairs are complement pairs.
+#print axioms Amended.coherent_pattern_fully_additive
+#print axioms Ulam.coreBlock_disjoint_eq_compl
 
 end SigmaEssential

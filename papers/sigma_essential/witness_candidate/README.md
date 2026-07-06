@@ -18,13 +18,15 @@ A **candidate ZFC construction** of a σ-essential contextual state, resolving a
 (claude.ai/share/059e292f-97f0-4787-808e-c89a88dbced4).
 
 ## Files
-- `sigma_essential_v2.tex` + `sigma_essential_v2_body.tex` + `references.bib` — the full
-  integrated paper (localization + boundary map + the new witness), builds clean
-  (`latexmk -pdf sigma_essential_v2.tex`, 0 unresolved refs). This is a proposed
-  **replacement** for `../sigma_essential.tex`, not a companion.
+- The integrated paper (localization + boundary map + the witness) was **PROMOTED
+  2026-07-06 to `../sigma_essential.tex` + `../sigma_essential_body.tex`** — that is
+  now the paper of record (the pre-witness version survives in git history only;
+  nothing was ever published, so no erratum apparatus). This directory remains the
+  verification record.
 - `sigma_essential_witness.md` / `.pdf` — the standalone technical writeup of the witness
   construction only (§0–§9), with the author's own §8 "verification map" ranking the
-  load-bearing joints by residual suspicion.
+  load-bearing joints by residual suspicion (historical capture; prose fixes applied
+  post-verification).
 
 ## What is claimed
 A concrete σ-complete non-Boolean orthomodular **poset** (NOT lattice) `L` on

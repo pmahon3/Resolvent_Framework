@@ -220,6 +220,22 @@ inequivalent.
 
 Ordered by downstream leverage:
 
+**⚑⚑ CANDIDATE ZFC WITNESS UNDER VERIFICATION (2026-07-06).** A construction — the
+**Product Ulam Carrier** (`papers/sigma_essential/witness_candidate/`) — claims to resolve
+an **amended** Ψ (concrete σ-complete non-Boolean orthomodular **poset**, finite coherence
+read globally, irreducibility mod the countable ideal) **in ZFC**, via Ulam-matrix rigidity
+(every σ-additive 2-valued state is Dirac) + an empty-kernel Specker triple (kills every
+Dirac) + a finitely-additive coherence state built from an ultrafilter on
+`P(ω₁)/ctble` through a parity code. If correct, Ψ(amended) has **no** large-cardinal
+strength, and the quotient by the countable ideal is a σ-complete non-Boolean OMP with
+**no σ-additive 2-valued state at all**. **UNVERIFIED** — it contradicts the "not close"
+terminus below, so either it is a genuine breakthrough the amendment unlocks *or* the
+amendment relocates Ψ past the wall (the literal OML/**lattice** form it leaves open,
+conjectured to fail). Two verification cruxes + a chunked checklist:
+`witness_candidate/README.md` + taxonomy `candidate.product_ulam_witness`. **Do NOT treat
+Ψ as solved until cleared.** The 2026-07-02 frontier below remains the record for the
+literal (lattice) form.
+
 **⚑ CURRENT STATUS 2026-07-02 — σ-essential: the frontier is now LOCALIZED to a named
 technique, not "invent from scratch." The sharpening phase is DONE; what remains is human
 mathematics.** This session took the 2026-07-01 "invent a non-distributive primitive"

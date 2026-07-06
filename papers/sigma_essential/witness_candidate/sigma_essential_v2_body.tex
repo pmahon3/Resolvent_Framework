@@ -1,0 +1,1025 @@
+\section{Introduction}
+
+A finite system of measurement contexts may admit a consistent assignment of
+truth values to events that no single underlying state realises, the
+algebraic signature of quantum contextuality. When the contexts are countable
+and one demands countable additivity, a sharper question arises: can a
+\emph{finitely} coherent pattern fail to extend to any global $\sigma$-additive
+state, with the failure visible only at the $\sigma$-level? This paper isolates
+that phenomenon for concrete quantum logics, reduces it to an irreducible
+set-theoretic core, locates that core against the measure-theoretic and
+operator-algebraic literature --- and then resolves it affirmatively, in ZFC,
+by an explicit construction: the \emph{product Ulam carrier}. We work throughout
+with two-valued states, the non-distributive analogue of a $\{0,1\}$-valued measure.
+
+A \emph{concrete $\sigma$-complete orthomodular poset} (concrete $\sigma$-orthoposet,
+$\sigma$-class)
+is a family $\Lo \subseteq \PO(\Omega)$ with
+\[
+  \varnothing, \Omega \in \Lo; \qquad
+  A \in \Lo \implies A\orth := \Omega\setminus A \in \Lo; \qquad
+  \{A_n\}\subseteq\Lo \text{ pairwise disjoint} \implies \textstyle\bigcup_n A_n \in \Lo,
+\]
+ordered by inclusion. This is the $\sigma$-class of Navara--Pt\'ak~\cite{NavaraPtak1983},
+a Gudder concrete quantum logic~\cite{Gudder1969,PtakPulmannova1991}: the maximal
+Boolean subalgebras (``blocks'') overlap but their union need not be Boolean.
+(An earlier version of this paper wrote ``lattice'' where ``poset'' is meant; the
+$\sigma$-class axioms above, which are what every argument uses, do not provide
+lattice meets, and the witness constructed in \S\ref{sec:witness} is provably
+\emph{not} a lattice. The lattice form of the problem remains open;
+see \S\ref{sec:discussion}.) A
+\emph{two-valued state} is $s\colon\Lo\to\{0,1\}$ with $s(\Omega)=1$ that is
+additive over orthogonal joins lying in its domain: whenever $\{A_n\}\subseteq\Lo$
+is a \emph{finite} pairwise disjoint family with $\bigcup_n A_n\in\Lo$,
+\[
+  s\!\left(\textstyle\bigcup_n A_n\right)=\textstyle\sum_n s(A_n)
+\]
+(in particular $s(A)+s(A\orth)=1$ on complement pairs); it is \emph{$\sigma$-additive}
+when this holds for countable such families. The same additivity is required of states
+on a sub-orthoposet $B\subseteq\Lo$, over orthogonal joins that exist \emph{in $B$}.
+The \emph{point evaluations} $\delta_\omega(A):=\ind[\omega\in A]$ are
+$\sigma$-additive two-valued states; call these \emph{Dirac} and all others
+\emph{non-Dirac}. For a finite $\perp$-closed sub-orthoposet $B\subseteq\Lo$ and a
+two-valued state $s_0$ on $B$, $s_0$ \emph{extends} to $s$ on $\Lo$ if $s\restr B=s_0$.
+
+\begin{definition}[finite coherence]\label{def:coherence}
+Let $B\subseteq\Lo$ be a finite $\perp$-closed sub-orthoposet and $s_0$ a two-valued
+state on $B$. Say $s_0$ is \emph{finitely coherent on $\Lo$} if $s_0$ extends to a
+(finitely additive) two-valued state on all of $\Lo$.
+\end{definition}
+
+\begin{definition}[$\sigma$-essential contextual state]\label{def:sigma-essential}
+A \emph{$\sigma$-essential contextual state} on $\Lo$ is a two-valued state $s_0$
+on a finite $\perp$-closed sub-orthoposet $B \subseteq \Lo$ that is finitely
+coherent on $\Lo$ but extends to \emph{no} global $\sigma$-additive two-valued
+state on $\Lo$. A concrete $\sigma$-orthoposet $\Lo$ \emph{carries a
+$\sigma$-essential contextual state} (is a \emph{witness}) if such an $s_0$
+exists. We require $\Lo$ to be non-Boolean and \emph{essentially irreducible}:
+the quotient of $\Lo$ by the $\sigma$-ideal of countable sets has centre
+$\{0,1\}$; see Remarks~\ref{rem:offcenter} and~\ref{rem:irreducibility-amended}.
+\end{definition}
+
+\begin{remark}[Why the coherence clause is necessary]\label{rem:amendment}
+Without Definition~\ref{def:coherence} the definition of a witness is satisfiable
+on a Boolean carrier, trivially and against its intent. Let
+$\Omega_7 = \{\pm\}^3\setminus\{(+,+,+)\}$, let $\Lo=\PO(\Omega_7)$, and let $B$ be
+the $\perp$-closure of the three coordinate events $A_i=\{x : x_i = +\}$. All twelve
+pairwise intersections among $\{A_i, A_i\orth\}$ ($i\neq j$) are nonempty, so the only
+additivity constraints inside $B$ are the complement pairs, and $s_0(A_1)=s_0(A_2)=s_0(A_3)=1$
+is a two-valued state on $B$. But $A_1\cap A_2\cap A_3=\varnothing$, and on a finite
+power set every two-valued state is Dirac, so $s_0$ extends to no $\sigma$-additive
+state --- on a Boolean $\sigma$-algebra. The pattern is Specker's parable
+(pairwise but not jointly) embedded as a sub-orthoposet, and locality of
+coherence cannot distinguish distributive from non-distributive carriers.
+The phenomenon of interest is a failure \emph{at $\sigma$}: finite additivity
+achievable globally, countable additivity not. Definition~\ref{def:coherence}
+makes this the definition, and Proposition~\ref{prop:boolean} shows the Boolean
+baseline is then restored.
+\end{remark}
+
+The phenomenon is a failure of $\sigma$-level compactness. Wright's
+theorem~\cite{Wright1978}, that every two-valued state on a \emph{finite} OML is
+finitely realised, forbids any \emph{finite} witness, so the question is whether
+a coherent finite pattern can fail to globalise once $\sigma$-additivity is imposed.
+On a Boolean carrier it cannot (\S\ref{sec:boolean}). The main result of this
+paper is that on a non-distributive carrier it can, without hypotheses:
+
+\begin{theorem}[Main; proved as Theorem~\ref{thm:main}]\label{thm:main-intro}
+In ZFC there exist a set $\Omega$ with $|\Omega|=\aleph_1$, a concrete
+$\sigma$-complete orthomodular poset $\Lo\subseteq\PO(\Omega)$, a finite
+$\perp$-closed $B\subseteq\Lo$, and a two-valued state $s_0$ on $B$ such that
+$s_0$ extends to a finitely additive two-valued state on $\Lo$ but to no
+$\sigma$-additive one. Moreover every $\sigma$-additive two-valued state on
+$\Lo$ is Dirac, and $\Lo$ is non-Boolean, essentially irreducible,
+non-segregated, and not Polish-representable.
+\end{theorem}
+
+\paragraph{Results.}
+\S\ref{sec:boolean}: the Boolean baseline (Prop.~\ref{prop:boolean}, now three
+obstructions). \S\ref{sec:localization}: the \emph{Localization Theorem}
+(Thm.~\ref{thm:localization}): a witness exists iff (0)~$s_0$ is finitely coherent
+while (i)~no Dirac and (ii)~no non-Dirac $\sigma$-additive two-valued state extends
+it, with (i) freely arrangeable, localising all weight to the interaction of (0)
+with (ii); stripped of lattice scaffolding this is a selection problem
+(Q.~\ref{q:bare}). \S\ref{sec:boundary}: the boundary map --- empty above the
+Polish case, irreducible to Blecher--Weaver, irreducible to a measurable cardinal,
+with the segregation obstruction repaired and proved
+(Lemma~\ref{lem:horizontal}). \S\ref{sec:witness}: the witness. The carrier is a
+product $\omega_1\times\{1,2,3,4\}$; an Ulam matrix imported as generators makes
+every $\sigma$-additive two-valued state Dirac (Theorem~\ref{thm:rigidity}); a
+Specker triple of fibre events has empty kernel, so no Dirac extends it; and a
+trace-invariant normal form (Theorem~\ref{thm:normal-form}) shows the two
+mechanisms cannot interact, so that a finitely additive extension can be built
+from an arbitrary ultrafilter on $\PO(\omega_1)/\mathrm{ctble}$ through a parity
+code (Theorem~\ref{thm:state}). \S\ref{sec:discussion}: consequences --- $\Psi$
+is a ZFC theorem carrying no large-cardinal strength, the boundary map read as an
+explanation of the witness's shape, a quotient carrier with \emph{no}
+$\sigma$-additive two-valued states at all, and the problems that remain open,
+foremost the lattice (OML) form.
+
+\begin{remark}[Irreducibility is not vacuous]\label{rem:offcenter}
+The carrier class is inhabited: the horizontal sum $MO_\kappa$ ($\kappa$ orthogonal
+atom-pairs with $0,1$) is concrete, non-Boolean, and irreducible
+(centre $\{\varnothing,\Omega\}$) for $\kappa\geq 2$~\cite{Kalmbach1983}, and
+$\sigma$-complete for $\kappa=\omega$. Concreteness does not force a non-trivial
+centre: by the Zierler--Schlessinger/Gudder criterion it is exactly order-determination
+by two-valued states~\cite{Gudder1969,Harding2004}, unrelated to reducibility. ($MO_\kappa$
+itself is excluded as a witness by Lemma~\ref{lem:horizontal}.)
+\end{remark}
+
+\begin{remark}[Why irreducibility is required modulo the countable ideal]\label{rem:irreducibility-amended}
+Literal irreducibility (centre $\{\varnothing,\Omega\}$) is unavailable to any
+carrier containing all singletons: a countable set is compatible with every
+element of a $\sigma$-class containing singletons
+(Lemma~\ref{lem:sigma-class-basics}), so the countable and co-countable sets are
+always central. The only rigidity mechanism known to us --- and the one the
+witness uses --- requires singletons (Theorem~\ref{thm:rigidity}), so the
+amendment is forced by the method, not chosen for convenience. Essential
+irreducibility retains the intent: the contextuality may not be carried by a
+central factor surviving in the quotient, and for the witness the quotient centre
+is computed exactly (Corollary~\ref{cor:centre}).
+\end{remark}
+
+\paragraph{Verification status.}
+The construction of \S\ref{sec:witness} was developed jointly with a large
+language model (see Acknowledgements) and has been hand-checked; its finite
+combinatorial components (the disjointness table, Lemma~\ref{lem:table}) are
+machine-checkable and a Lean~4 formalization is in progress in the author's
+repository. Until that formalization is complete the main theorem should be
+read as carrying the corresponding caveat. The load-bearing steps, in
+descending order of delicacy, are Lemma~\ref{lem:trichotomy} (the countable-family
+induction), Lemma~\ref{lem:table} case (IV), and the well-definedness bookkeeping
+of Lemma~\ref{lem:state-well-defined}.
+
+
+\section{The Boolean baseline}\label{sec:boolean}
+
+On a Boolean $\sigma$-algebra, Definition~\ref{def:sigma-essential} is never
+satisfied. The proof isolates the obstructions a witness must overcome at
+once; this is the baseline the non-distributive case must escape.
+
+\begin{proposition}[No witness in the Boolean case]\label{prop:boolean}
+Let $\Lo \subseteq \PO(\Omega)$ be a Boolean $\sigma$-algebra and $B \subseteq
+\Lo$ a finite $\perp$-closed sub-orthoposet with a two-valued state $s_0$ that is
+finitely coherent on $\Lo$. Then $s_0$ extends to a Dirac, hence to a global
+$\sigma$-additive two-valued state on $\Lo$.
+\end{proposition}
+
+\begin{proof}
+Let $\mu\supseteq s_0$ be a global finitely additive two-valued state on $\Lo$
+(Definition~\ref{def:coherence}) and $B_0 \subseteq \Lo$ the finite Boolean
+subalgebra generated by $B$. The atoms of $B_0$ partition $\Omega$; finite
+additivity of $\mu$ over this finite partition yields a unique atom $a\in B_0$
+with $\mu(a)=1$, and $a$, being a nonzero element of the concrete algebra $B_0$,
+is a nonempty subset of $\Omega$. Every element of $B_0$ either contains $a$ or
+is disjoint from it, so for any $\omega\in a$,
+$\delta_\omega\restr B_0 = \mu\restr B_0$, whence
+\[
+  K(s_0) := \bigcap\{A \in B : s_0(A) = 1\} \;\supseteq\; a \;\neq\; \varnothing
+\]
+(we call $K(s_0)$ the \emph{kernel} of $s_0$), $\delta_\omega\restr B = s_0$ by
+Lemma~\ref{lem:dirac-iff}, and $\delta_\omega$ is $\sigma$-additive.
+\end{proof}
+
+Note the division of labour: coherence supplies the global finitely additive
+$\mu$, and \emph{distributivity converts it into a point} --- on a Boolean carrier
+the atom carrying $\mu$ is a common point of the $s_0$-true events. Three
+obstructions combine, all of which a witness must defeat:
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item \emph{(coherence)} the pattern must extend finitely at all
+    (Remark~\ref{rem:amendment}: empty-kernel patterns exist even on Boolean
+    carriers, but there they are incoherent);
+  \item \emph{(used above)} on a Boolean carrier any finitely additive global
+    extension concentrates on a nonempty atom, a common point. A witness breaks
+    this: the events lie in incompatible blocks with empty meet, so no Dirac
+    extends $s_0$, and the finitely additive extension must be genuinely
+    non-Dirac;
+  \item \emph{(complementary)} away from a measurable cardinal, every global
+    $\sigma$-additive two-valued state on a Boolean $\sigma$-algebra is
+    Dirac~\cite{Sikorski1964,Jech2003}; so even where (b) fails, no \emph{non}-Dirac
+    $\sigma$-additive state repairs the gap on a Boolean carrier.
+\end{enumerate}
+These pull against one another: breaking (b) requires non-distributivity, which is
+precisely what makes (c) escapable by admitting non-Dirac global states. A witness
+must break (b) while leaving no such repair available --- and, by (a), must do so
+without breaking finite coherence. The construction of \S\ref{sec:witness} is
+engineered around exactly this triple bind.
+
+
+\section{The Localization Theorem}\label{sec:localization}
+
+When a Dirac extends $s_0$ is elementary.
+
+\begin{lemma}\label{lem:dirac-iff}
+Let $B \subseteq \Lo$ be a finite $\perp$-closed sub-orthoposet with two-valued
+state $s_0$. A point evaluation $\delta_\omega$ satisfies $\delta_\omega\restr B
+= s_0$ iff $\omega \in K(s_0) = \bigcap\{A \in B : s_0(A) = 1\}$. Consequently no
+Dirac extends $s_0$ iff $K(s_0) = \varnothing$.
+\end{lemma}
+
+\begin{proof}
+By definition,
+\[
+  \delta_\omega\restr B = s_0
+  \;\iff\;
+  \bigl(\,\omega \in A \iff s_0(A)=1\,\bigr) \text{ for all } A \in B .
+\]
+Split $B$ by the value of $s_0$. The true constraints give $\omega \in A$ for every
+$A$ with $s_0(A)=1$, i.e.\ $\omega \in K(s_0)$. A false $A$ ($s_0(A)=0$) is handled by
+its complement: $\perp$-closure gives $A\orth \in B$, and additivity gives
+$s_0(A\orth) = 1 - s_0(A) = 1$, so $A\orth$ is true and the false constraint reduces
+to a true one, already subsumed in $K(s_0)$. Hence the false constraints add nothing
+and $\delta_\omega\restr B = s_0 \iff \omega \in K(s_0)$.
+\end{proof}
+
+\begin{theorem}[Localization]\label{thm:localization}
+Let $\Lo$ be a concrete $\sigma$-orthoposet, $B \subseteq \Lo$ a finite
+$\perp$-closed sub-orthoposet, and $s_0$ a two-valued state on $B$. Then $s_0$ is
+a $\sigma$-essential contextual state iff
+\begin{enumerate}[label=\textup{(\roman*)}, start=0]
+  \setcounter{enumi}{-1}
+  \item[\textup{(0)}] $s_0$ is finitely coherent on $\Lo$;
+  \item $K(s_0) = \varnothing$ (no point evaluation extends $s_0$); and
+  \item no non-Dirac $\sigma$-additive two-valued state on $\Lo$ extends $s_0$.
+\end{enumerate}
+Moreover clauses \textup{(0)} and \textup{(i)} are jointly freely arrangeable:
+there is a concrete $\sigma$-orthoposet and a finitely coherent $s_0$ with
+$K(s_0) = \varnothing$.
+\end{theorem}
+
+\begin{proof}
+The Dirac/non-Dirac dichotomy on global $\sigma$-additive two-valued states is
+exhaustive, so $s_0$ has no $\sigma$-additive extension iff it has no Dirac
+extension and no non-Dirac extension. By Lemma~\ref{lem:dirac-iff} the first
+conjunct is (i); the second is (ii); clause (0) is Definition~\ref{def:sigma-essential}'s
+coherence requirement. For joint arrangeability of (0) and (i), the Navara--Pt\'ak
+construction (Example~\ref{ex:navara-ptak}) realises $K(s_0)=\varnothing$ with a
+global extension that is even $\sigma$-additive.
+\end{proof}
+
+\begin{remark}[Scope: a decomposition, not a reduction]\label{rem:localization-scope}
+The equivalence is a decomposition, not a reduction to a separate named problem:
+the Dirac/non-Dirac split being exhaustive, it merely unfolds the definition of
+witness. Its content is that (0)+(i) is freely arrangeable, so all weight of
+Definition~\ref{def:sigma-essential} sits in the conjunction of (0) with (ii):
+coherence must survive while every non-Dirac $\sigma$-additive repair is
+destroyed. The two clauses pull in opposite directions --- the structure rich
+enough to kill all non-Dirac $\sigma$-states threatens to kill the finitely
+additive extension too --- and the witness of \S\ref{sec:witness} succeeds by
+provably decoupling them (Theorem~\ref{thm:normal-form}).
+\end{remark}
+
+The Navara--Pt\'ak construction supplies clauses (0)+(i) and shows (ii) is binding.
+
+\begin{example}[Navara--Pt\'ak~\cite{NavaraPtak1983}]\label{ex:navara-ptak}
+Let $\Omega = Q_0\times Q_0$ with $Q_0 = \bbQ\cap(0,1)$, and let
+$f,g\colon\Omega\to\bbR$ be the coordinate projections. Let $\Lo = \Lo_{f,g}$ be
+the least $\sigma$-class containing the inverse images of Borel sets under $f$
+and $g$. Set $C_f = f^{-1}(\{1/3\})$, $C_g = g^{-1}(\{1/2\})$,
+$C_{f+g} = (f+g)^{-1}(\{1/2\})$. Define $m(A)=1$ iff $A$ contains one of $C_f,
+C_g, C_{f+g}$. Navara and Pt\'ak show $m$ is a (two-valued, $\sigma$-additive)
+state on $\Lo$, and that since $C_f\cap C_g\cap C_{f+g}=\varnothing$ the state
+$m$ is not concentrated at any point.
+\end{example}
+
+\begin{remark}[The example is not itself a witness]\label{rem:np-builds-rescuer}
+Let $B$ be the $\perp$-closure of $\{C_f, C_g, C_{f+g}\}$ and let $s_0$ be the
+pattern assigning each of the three the value $1$. Since
+$C_f\cap C_g\cap C_{f+g}=\varnothing$, we have $K(s_0)=\varnothing$, so clause (i)
+holds: no point evaluation extends $s_0$. Yet the Navara--Pt\'ak state satisfies
+$m\restr B = s_0$ and is non-Dirac and $\sigma$-additive, so clause (ii) fails and
+$s_0$ is not $\sigma$-essential: the construction supplies its own rescuer, so
+clauses (0)+(i) cannot suffice alone. The repair is available because
+$\Lo_{f,g}$ is generated by two compatible (commuting) observables, Boolean
+enough to support a non-Dirac global state through the point-level gap. A witness
+requires the opposite: a carrier on which no non-Dirac state repairs the gap ---
+while, per clause (0), a finitely additive one still must.
+\end{remark}
+
+Stripped of lattice scaffolding, the core is a selection problem. Each block is
+a maximal compatible context, equivalently a countable partition $\Pi_\alpha$ of
+$\Omega$ into elements of $\Lo$; a two-valued state selects one cell
+$c_\alpha\in\Pi_\alpha$ per block, subject to coherence, $\sigma$-additivity, and
+non-principality.
+
+\begin{question}[$\sigma$-point-selection, bare form]\label{q:bare}
+Given a set $\Omega$ and a family $\{\Pi_\alpha\}$ of countable partitions of
+$\Omega$ (the blocks of a concrete $\sigma$-orthoposet, pairwise overlapping in
+their common refinements), does there exist a selection assigning to each
+$\Pi_\alpha$ one cell $c_\alpha\in\Pi_\alpha$ such that
+\begin{enumerate}[label=\textup{(\alph*)}]
+  \item (coherence) the selections agree on events common to several blocks;
+  \item ($\sigma$-additivity) the induced $\{0,1\}$-valuation commutes with
+    countable disjoint unions;
+  \item (non-principality) there is no $\omega_0\in\Omega$ with $c_\alpha=$ the
+    cell of $\Pi_\alpha$ containing $\omega_0$ for all $\alpha$;
+  \item (prescription) the selection realises a prescribed finite pattern that no
+    single point realises?
+\end{enumerate}
+A witness exists iff, on some admissible carrier, some prescribed pattern that is
+realisable by a merely finitely additive selection admits \emph{no} selection
+satisfying \textup{(a)}--\textup{(d)} and no principal one either: the witness
+question is the localised \emph{negative} instance of the selection problem, with
+finite-additive realisability retained. Two features of the bare form, obscured
+in lattice language, fix its position: its distance from a measurable cardinal,
+and its place within contextuality.
+\end{question}
+
+\begin{remark}[The Boolean shadow is a measurable cardinal; the question is not]\label{rem:not-measurable}
+For a compatible block family (a single Boolean base $\mathcal B$ on $\Omega$), a
+coherent non-principal $\sigma$-additive selection $s\colon\mathcal B\to\{0,1\}$
+has $U_s := s^{-1}(1)$ a non-principal $\sigma$-complete ultrafilter on
+$\mathcal B$, so $\exists\, s \implies |\Omega|$ measurable~\cite{Jech2003}.
+Question~\ref{q:bare} imposes coherence (a) across incompatible, mutually
+non-distributive blocks: strictly stronger than an ultrafilter on any single
+block. The Boolean shadow reduces to a measurable cardinal; the non-distributive
+coherence is exactly what the reduction cannot cross (\S\ref{sec:boundary}).
+The witness of \S\ref{sec:witness} shows how far the shadow misleads: there the
+carrier's rigidity is supplied by an Ulam matrix on $\omega_1$ --- the classical
+device for proving $\omega_1$ \emph{non}-measurable --- and the coherence is
+carried by a mere ultrafilter on $\PO(\omega_1)/\mathrm{ctble}$, never asked to be
+$\sigma$-complete.
+\end{remark}
+
+\begin{remark}[Relation to sheaf-theoretic contextuality]\label{rem:sheaf}
+Question~\ref{q:bare} concerns locally coherent $\{0,1\}$-valuations with no
+global section, contextuality in the sense of
+Abramsky--Brandenburger~\cite{AbramskyBrandenburger2011}, $\sigma$-additive
+form~\cite{AbramskyBarbosaEtAl2022}. The framing is standard; what was open is the
+conjunction the literature does not treat together: countable additivity $+$ a
+non-Hilbert (abstractly concrete) carrier $+$ a $\{0,1\}$-valued selection.
+Theorem~\ref{thm:main} settles that conjunction affirmatively.
+\end{remark}
+
+
+\section{The boundary map}\label{sec:boundary}
+
+We locate the core between an upper boundary where it is known empty and the
+lower routes that fail to settle it. With the witness in hand
+(\S\ref{sec:witness}), this section reads as an explanation of the witness's
+shape: each boundary is a constraint the construction is forced to obey, and
+does.
+
+The upper boundary is the Polish-representable case. Derr and
+Williamson~\cite{DerrWilliamson2023} prove a $\sigma$-extension criterion for
+coherent probabilities on pre-Dynkin systems: when the carrier is
+Polish-representable (that is, $\Omega$ Polish, the generated $\sigma$-class
+equal to the Borel $\sigma$-algebra, with inner-regular blocks), finite coherence
+implies $\sigma$-extendability (their Theorem D.6, via
+Maharam~\cite{Maharam1972}). Specialised to two-valued states, this says that on
+a Polish-representable carrier every finitely coherent $s_0$ globalises: no
+$\sigma$-essential contextual state exists. A witness must therefore live on a
+carrier that is not Polish-representable --- as the one below, with
+$|\Omega|=\aleph_1$ and rigidity incompatible with inner regularity, does
+(Proposition~\ref{prop:adm}).
+
+A Hilbert-space analogue exists, but does not transfer down to the concrete case.
+On the projection lattice of $B(\ell^2(\kappa))$, Blecher--Weaver~\cite{BlecherWeaver2017}
+show a singular countably additive pure state exists iff $\kappa$ is Ulam
+measurable, the nearest positive precedent that countable additivity on a
+non-distributive $\sigma$-complete OML can carry set-theoretic strength. It does
+not settle the question here; three obstructions point the same way.
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item \emph{Wrong carrier.} For $\dim H\geq 3$ the projection lattice of $B(H)$
+    admits no two-valued state (Kochen--Specker~\cite{KochenSpecker1967}), so it
+    is not concrete; the Blecher--Weaver dichotomy concerns pure states, not
+    two-valued ones, which are absent there by Gleason~\cite{Gleason1957}.
+  \item \emph{Masa transfer fails.} Carrying a state-existence result to an
+    abelian subalgebra means factoring through a masa; for the pure two-valued
+    case this fails: Akemann--Weaver~\cite{AkemannWeaver2008} give a pure state
+    on $B(H)$ multiplicative on no masa, and Blecher--Weaver use
+    Marcus--Spielman--Srivastava paving for exactly this reason.
+  \item \emph{The consumed object is structurally absent.} Blecher--Weaver
+    extract their cardinal from a genuine ultrafilter on the diagonal masa
+    $\ell^\infty(\kappa)$ (projections $=$ subsets, intersection-closed). On a
+    concrete non-Boolean $\sigma$-orthoposet,
+    $\mathcal F_s := \{A\in\Lo : s(A)=1\}$ is an ultrafilter for \emph{no}
+    two-valued state $s$, not even a filter: meet-closure fails already for
+    $\delta_\omega$, since in any concrete $MO_2$ the atoms $a,b$ have
+    $a\cap b\neq\varnothing$ (else orthogonal) yet $a\wedge b = 0$, so
+    $\delta_\omega(a)=\delta_\omega(b)=1$, $\delta_\omega(a\wedge b)=0$.
+    The countably-complete ultrafilter an Ulam-style argument would consume is
+    absent from the carrier: the same non-distributivity (lattice meet $\neq$
+    set intersection), one level down.
+\end{enumerate}
+
+\begin{remark}[Strength of the claim]\label{rem:no-bridge}
+Remark~\ref{rem:not-measurable} and (1)--(3) are cited facts assembled, not a
+non-reducibility theorem in a fixed reduction calculus. The claim is only that
+the two obvious bridges, ``measurable cardinal'' and ``transfer from
+Blecher--Weaver via a masa'', do not close the question, the obstruction in each
+being the same non-distributivity. The witness of \S\ref{sec:witness} confirms
+the diagnosis from the other side: it consumes neither object. Item (3) in
+particular becomes load-bearing there: the \emph{absence} of meet-closure is what
+permits three pairwise-incompatible assignments to cohere finitely
+(Remark~\ref{rem:coherence-location}).
+\end{remark}
+
+The remaining route from below, faithful representation, is barred by the same
+obstruction. Routing the core through a faithful $\sigma$-tribe
+representation (embedding $\Lo$ into a $\sigma$-algebra of sets, so two-valued states
+become point evaluations) is unavailable: a faithful tribe-of-sets representation forces
+distributivity, hence Booleanness (the ``Floor''~\cite{PtakPulmannova1991}).
+$\sigma$-Loomis--Sikorski holds under the Riesz Decomposition Property
+($\sigma$-complete MV-algebras, RDP effect algebras~\cite{Dvurecenskij2000}), but
+OMLs lack RDP ($MO_2$ witnesses), and the available image is only $\sigma$-epimorphic,
+not point-separating. The trivialising route is blocked, again non-distributively.
+
+An earlier version of this paper asserted, without proof and with a mis-scoped
+definition, that ``segregated'' carriers admit no witness. The correct statement
+and its proof follow; the repaired notion is gluing-theoretic, not
+centre-theoretic (the exemplar $MO_\omega$ has trivial centre by
+Remark~\ref{rem:offcenter}, so the old definition excluded nothing).
+
+\begin{definition}[horizontal $\sigma$-sum]\label{def:horizontal}
+A concrete $\sigma$-orthoposet $\Lo$ is a \emph{horizontal $\sigma$-sum} if its
+blocks pairwise intersect in $\{\varnothing,\Omega\}$ and no two nonzero proper
+elements of distinct blocks are disjoint.
+\end{definition}
+
+\begin{lemma}[Horizontal $\sigma$-sums do not witness]\label{lem:horizontal}
+If $\Lo$ is a horizontal $\sigma$-sum then $\Phi(\Lo)$ holds
+(notation of \S\ref{sec:discussion}): every finitely coherent two-valued state on
+a finite $\perp$-closed $B\subseteq\Lo$ extends to a $\sigma$-additive two-valued
+state on $\Lo$. In particular $MO_\kappa$, in any concrete realisation of this
+shape, admits no $\sigma$-essential contextual state.
+\end{lemma}
+
+\begin{proof}
+By hypothesis every pairwise-disjoint family in $\Lo$, in particular every
+countable orthogonal family, lies in a single block, so a function on $\Lo$ is a
+$\sigma$-additive state iff its restriction to each block is one: any tuple of
+blockwise $\sigma$-additive two-valued states glues to a global one, no
+cross-block constraint existing. Let $s_0$ on $B$ be finitely coherent with
+global finitely additive extension $\mu$. Each block $\mathcal B_\gamma$ is a
+Boolean $\sigma$-algebra of sets; $\mu\restr(\mathcal B_\gamma\cap\langle
+B\rangle)$ concentrates, as in Proposition~\ref{prop:boolean}, on a nonempty atom
+of the finite Boolean algebra generated by $B\cap\mathcal B_\gamma$ inside
+$\mathcal B_\gamma$, and any Dirac of that block at a point of that atom is a
+blockwise $\sigma$-additive state agreeing with $s_0$ on $B\cap\mathcal B_\gamma$.
+Gluing the blockwise choices yields $\mu'\in\mathrm{St}_\sigma(\Lo)$ with
+$\mu'\restr B=s_0$ (elements of $B$ lie in blocks, and on shared elements
+--- only $\varnothing,\Omega$ --- all choices agree).
+\end{proof}
+
+\begin{remark}[Segregated carriers, repaired]\label{rem:segregated}
+Call a carrier \emph{segregated} when it is a horizontal $\sigma$-sum, or more
+generally when every countable orthogonal family is confined to a single block
+whose $\sigma$-additive two-valued states rescue every finite trace as above.
+Lemma~\ref{lem:horizontal} shows segregated carriers satisfy $\Phi$: loose
+gluing lets blockwise rescuers assemble unimpeded. A witness must be
+non-segregated --- but the moral is sharper than ``the blocks must be tightly
+glued.'' In the witness below the blocks \emph{are} loosely glued at the level of
+the contextual pattern (no cross-core orthogonality exists at all,
+Lemma~\ref{lem:table}(IV)); what fails is the \emph{input} to the gluing: one
+block is a Boolean $\sigma$-algebra on $\omega_1$ containing an Ulam matrix,
+which admits no non-Dirac $\sigma$-additive two-valued state to contribute
+(Theorem~\ref{thm:rigidity}). Segregation kills a witness only when blockwise
+rescuers exist; destroying them blockwise is precisely the remaining freedom.
+\end{remark}
+
+
+\section{The witness: the product Ulam carrier}\label{sec:witness}
+
+Throughout, $M$ denotes $\omega_1$ (a set of cardinality $\aleph_1$ with a fixed
+well-order of type $\omega_1$), $F=\{1,2,3,4\}$ is a four-element \emph{fibre}
+set, and $\Omega = M\times F$. For $E\subseteq\Omega$ and $f\in F$ the
+\emph{fibre trace} is $E_f = \{x\in M : (x,f)\in E\}$. For $X,Y\subseteq M$ write
+$X\approx Y$ when $X\,\Delta\,Y$ is countable, and $X^{(0)}=X$,
+$X^{(1)}=M\setminus X$. Let
+\[
+  E_4 \;=\; \{0000,\,1111\}\cup\{\text{the six weight-2 vectors}\}
+  \;\subseteq\;\mathbb F_2^4
+\]
+be the even-weight code, and $N=\{\kappa\in E_4 : \kappa_4=0\}
+= \{0000, 1100, 1010, 0110\}$ the \emph{normalised} patterns, one from each
+complement pair $\{\kappa,\kappa\,\Delta\,1111\}$. The \emph{cores} are
+\[
+  A_1 = M\times\{1,2\},\qquad A_2 = M\times\{1,3\},\qquad A_3 = M\times\{2,3\},
+\]
+with trace patterns $1100$, $1010$, $0110$ in the coordinate order $(1,2,3,4)$.
+Then $A_1\cap A_2 = M\times\{1\}$, $A_1\cap A_3 = M\times\{2\}$,
+$A_2\cap A_3 = M\times\{3\}$, $A_1\cap A_2\cap A_3 = \varnothing$, and
+$(A_1\cup A_2\cup A_3)\orth = M\times\{4\}$: the four fibres are exactly the four
+inhabited Boolean regions of the triple, the three ``solo'' regions being empty.
+This is the incidence geometry of Specker's parable and of
+Example~\ref{ex:navara-ptak}, realised with every inhabited region uncountable.
+
+\subsection{The carrier}
+
+\begin{lemma}[Ulam matrix]\label{lem:ulam}
+There is a family $\{C_{\alpha,n} : \alpha<\omega_1,\ n<\omega\}$ of subsets of
+$M$ such that:
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item (row disjointness) $C_{\alpha,n}\cap C_{\alpha,m}=\varnothing$ for $n\neq m$;
+  \item (row covering) $M\setminus\bigcup_{n<\omega}C_{\alpha,n}
+    = \{\beta:\beta\le\alpha\}$, a countable set;
+  \item (column disjointness, exact) $C_{\alpha,n}\cap C_{\beta,n}=\varnothing$
+    for $\alpha\neq\beta$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+For each $\beta<\omega_1$ fix an injection $g_\beta\colon\{\gamma:\gamma<\beta\}\to\omega$
+(initial segments are countable; simultaneous choice by AC), and put
+$C_{\alpha,n}=\{\beta : \alpha<\beta<\omega_1,\ g_\beta(\alpha)=n\}$~\cite{Ulam1930}.
+(1): $g_\beta(\alpha)$ is a single value. (2): every $\beta>\alpha$ lies in
+$C_{\alpha,g_\beta(\alpha)}$. (3): $\beta\in C_{\alpha,n}\cap C_{\alpha',n}$ with
+$\alpha\neq\alpha'$ would give $g_\beta(\alpha)=n=g_\beta(\alpha')$, contradicting
+injectivity.
+\end{proof}
+
+\begin{definition}[the carrier]\label{def:carrier}
+Let the \emph{cells} be $D_{\alpha,n} := C_{\alpha,n}\times F\subseteq\Omega$, and
+let $\Lo$ be the least $\sigma$-class on $\Omega$ containing every singleton
+$\{\omega\}$, every cell $D_{\alpha,n}$, and the cores $A_1,A_2,A_3$.
+\end{definition}
+
+Rows ignore the fibre coordinate entirely; cores ignore the $M$ coordinate
+entirely. This separation is the design principle: the Ulam machinery and the
+contextual geometry are prevented from interacting except through countable
+sets, and Theorem~\ref{thm:normal-form} is the proof that the $\sigma$-class
+operations cannot manufacture an interaction.
+
+\begin{lemma}[$\sigma$-class basics]\label{lem:sigma-class-basics}
+In any $\sigma$-class $\Lo$ containing all singletons:
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item (relative complement) $X\subseteq Y$, $X,Y\in\Lo$ $\implies$
+    $Y\setminus X\in\Lo$;
+  \item every countable $N\subseteq\Omega$ is in $\Lo$;
+  \item (countable perturbation) $X\in\Lo$, $N$ countable $\implies$
+    $X\cup N,\ X\setminus N\in\Lo$;
+  \item every two-valued state on $\Lo$ is monotone;
+  \item every countable set is compatible with every element of $\Lo$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+(1) $X$ and $Y\orth$ are disjoint, so $X\cup Y\orth\in\Lo$; its complement is
+$Y\setminus X$. (2) A countable disjoint union of singletons. (3)
+$X\cup N = X\sqcup(N\setminus X)$; and $X\setminus N = (X\orth\cup N)\orth$ with
+$X\orth\cup N\in\Lo$ by the previous sentence. (4) By (1),
+$s(Y)=s(X)+s(Y\setminus X)\ge s(X)$ for $X\subseteq Y$. (5) For countable $N$ and
+$X\in\Lo$: $X=(X\setminus N)\sqcup(X\cap N)$ and $N=(N\setminus X)\sqcup(X\cap N)$
+with all parts in $\Lo$ by (2)--(3), a joint orthogonal decomposition.
+\end{proof}
+
+\subsection{The trace invariant}
+
+\begin{definition}[the invariant]\label{def:invariant}
+Say $E\subseteq\Omega$ \emph{satisfies the invariant}, written
+$E\in\widetilde P$, if there exist $\xi\subseteq M$ and $\kappa\in E_4$ with
+\[
+  E_f \;\approx\; \xi^{(\kappa_f)} \qquad (f=1,2,3,4);
+\]
+call $(\xi,\kappa)$ a \emph{representation} of $E$. Intrinsically:
+$E\in\widetilde P$ iff all pairwise symmetric differences $E_f\,\Delta\,E_g$ are
+countable or co-countable and the induced parity vector is even.
+\end{definition}
+
+\begin{lemma}[representation rigidity]\label{lem:rep-rigidity}
+If $(\xi,\kappa)$ and $(\eta,\lambda)$ both represent $E$ with
+$\kappa,\lambda\in E_4$, then either $\lambda=\kappa$ and $\eta\approx\xi$, or
+$\lambda=\kappa\,\Delta\,1111$ and $\eta\approx\xi\orth$. Consequently:
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item each $E\in\widetilde P$ has a unique representation with $\kappa\in N$,
+    up to $\approx$-change of $\xi$;
+  \item $E$ is countable iff its normalised representation is $(\xi,0000)$ with
+    $\xi\approx\varnothing$;
+  \item if $\kappa\in N\setminus\{0000\}$ (a \emph{weight-2} element) then $E$ is
+    uncountable: some trace is $\approx\xi$ and some $\approx\xi\orth$, and these
+    cannot both be countable.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+If $\kappa_f=\lambda_f$ for some $f$, then $\xi^{(\kappa_f)}\approx\eta^{(\kappa_f)}$
+gives $\xi\approx\eta$; substituting into the remaining coordinates forces
+$\kappa_g=\lambda_g$ for all $g$, since $\xi\approx\xi\orth$ is impossible, $M$
+being uncountable. Otherwise $\kappa_f\neq\lambda_f$ for all $f$, i.e.\
+$\lambda=\kappa\,\Delta\,1111$, and any coordinate gives $\eta\approx\xi\orth$.
+Exactly one of $\kappa,\kappa\,\Delta\,1111$ has fourth coordinate $0$, giving
+(1); (2), (3) are immediate.
+\end{proof}
+
+\begin{lemma}[disjointness table]\label{lem:table}
+Let $E,G\in\widetilde P$ have normalised representations $(\xi,\kappa)$,
+$(\eta,\lambda)$, $\kappa,\lambda\in N$, and suppose $E\cap G=\varnothing$
+(only $E_f\cap G_f$ countable, for each $f$, is used). Coordinatewise,
+disjointness mod countable of $\xi^{(\kappa_f)}$ and $\eta^{(\lambda_f)}$ reads
+\[
+  (\kappa_f,\lambda_f)=(0,0)\!: \xi\cap\eta\approx\varnothing;\quad
+  (0,1)\!: \xi\subseteq\eta \text{ mod ctble};\quad
+  (1,0)\!: \eta\subseteq\xi \text{ mod ctble};\quad
+  (1,1)\!: \xi\cup\eta\approx M.
+\]
+The ten unordered pairs $(\kappa,\lambda)$ resolve as:
+\begin{center}
+\begin{tabular}{@{}llll@{}}
+\toprule
+Case & $(\kappa,\lambda)$ & Forced relations & Conclusion \\
+\midrule
+(I) & $(0000,0000)$ & $\xi\cap\eta\approx\varnothing$ &
+  $E\sqcup G\in\widetilde P$, rep.\ $(\xi\cup\eta,\,0000)$ \\
+(II) & $(\kappa,\kappa)$, $\kappa$ weight-2 &
+  $\xi\cap\eta\approx\varnothing$ \emph{and} $\xi\cup\eta\approx M$ &
+  $\eta\approx\xi\orth$; $E\sqcup G$ co-ctble, rep.\ $(M,0000)$ \\
+(III) & $(0000,\lambda)$, $\lambda$ weight-2 &
+  $\xi\subseteq\eta$, $\xi\cap\eta\approx\varnothing$ mod ctble &
+  $\xi\approx\varnothing$: $E$ \emph{countable}; rep.\ of $E\sqcup G$ is $(\eta,\lambda)$ \\
+(IV) & $\kappa\neq\lambda$, both weight-2 &
+  $\xi\approx\eta$, $\xi\cap\eta\approx\varnothing$, $\xi\cup\eta\approx M$ &
+  \emph{impossible} ($\varnothing\approx M$) \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{lemma}
+
+\begin{proof}
+The coordinate translations are immediate; (I)--(III) are read off. For (IV):
+any two distinct elements of $N\setminus\{0000\}$ agree in exactly one of the
+first three coordinates and both vanish in the fourth, so the multiset of
+coordinate pairs $(\kappa_f,\lambda_f)$ is exactly
+$\{(1,1),(1,0),(0,1),(0,0)\}$. Then $(1,0)$ and $(0,1)$ give $\xi\approx\eta$;
+$(0,0)$ gives $\xi\cap\eta\approx\varnothing$, hence $\xi\approx\varnothing$;
+$(1,1)$ gives $\xi\cup\eta\approx M$, hence $\varnothing\approx M$ --- false,
+$M$ being uncountable.
+\end{proof}
+
+Row (IV) is the theorem in miniature: no element of $\Lo$ carrying one core
+pattern is ever exactly disjoint from an element carrying a different core
+pattern, beyond countable degeneracy. This is what makes the three simultaneous
+assignments $s_0(A_i)=1$ immune to additivity constraints; the parity-triangle
+certificate that dooms tighter designs (three exact events with
+$a+b=a+c=b+c=1$ over $\{0,1\}$, summing to the odd total $3$) cannot form.
+
+\begin{lemma}[family trichotomy]\label{lem:trichotomy}
+Let $\{E_i\}_{i<\omega}\subseteq\widetilde P$ be pairwise exactly disjoint. Then
+exactly one of:
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item every $E_i$ of uncountable class is diagonal ($\kappa_i=0000$,
+    $\xi_i\not\approx\varnothing$), pairwise $\xi_i\cap\xi_j\approx\varnothing$;
+  \item exactly one $E_{i_0}$ is weight-2; all other $E_i$ are countable;
+  \item exactly two $E_{i_0},E_{i_1}$ are weight-2, in the same coset with
+    $\xi_{i_1}\approx\xi_{i_0}\orth$; all other $E_i$ are countable.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:table}(IV) all weight-2 members share one coset. By (II) two
+same-coset weight-2 members are complementary mod countable; a third in that
+coset would be $\approx$-complementary to both, giving $\xi\approx\xi\orth$ ---
+impossible. So there are at most two weight-2 members. If at least one exists,
+any diagonal member is disjoint from it, hence countable by (III); if two
+(complementary) weight-2 members exist, any further member has each trace class
+below the complement of their join, which is $\approx\varnothing$, hence is
+countable.
+\end{proof}
+
+\begin{theorem}[normal form]\label{thm:normal-form}
+$\Lo\subseteq\widetilde P$: every element of the carrier satisfies the invariant.
+\end{theorem}
+
+\begin{proof}
+$\widetilde P$ contains the generators: singletons and $\varnothing$ are
+$(\varnothing,0000)$; $\Omega$ is $(M,0000)$; cells are $(C_{\alpha,n},0000)$;
+the cores are $(\varnothing,1100)$, $(\varnothing,1010)$, $(\varnothing,0110)$.
+It is complement-closed: $(E\orth)_f=(E_f)\orth$, so $(\xi,\kappa\,\Delta\,1111)$
+represents $E\orth$. It is closed under countable pairwise exactly-disjoint
+unions, by Lemma~\ref{lem:trichotomy}: in case (1) the union is represented by
+$(\bigcup_i\xi_i^\ast,\,0000)$, where
+$\xi_i^\ast := \xi_i\setminus\bigcup_{j<i}(\xi_i\cap\xi_j)$ trims the
+pairwise-countable overlaps --- each $\bigcup_{j<i}(\xi_i\cap\xi_j)$ is countable,
+so $\xi_i^\ast\approx\xi_i$, the $\xi_i^\ast$ are exactly disjoint, and
+coordinatewise the union's trace differs from $\bigcup_i\xi_i^\ast$ by a
+countable union of countable sets; in case (2) by $(\xi_{i_0},\kappa_{i_0})$,
+the countable members perturbing each trace countably; in case (3) by
+$(M,0000)$. Hence $\{E : E\in\widetilde P\}$ is a $\sigma$-class containing the
+generators, so it contains $\Lo$.
+\end{proof}
+
+\begin{corollary}[the missing meet region]\label{cor:meet-region}
+No element of $\Lo$ is $\approx$-equal (fibrewise) to $A_1\cap A_2=M\times\{1\}$;
+in particular $A_1\cap A_2\notin\Lo$.
+\end{corollary}
+
+\begin{proof}
+The trace classes of $M\times\{1\}$ are $(M,\varnothing,\varnothing,\varnothing)$
+mod countable. In any representation, the coordinates take at most the two
+values $\xi,\xi\orth$ mod countable; here they take the classes of $M$ and
+$\varnothing$, so $\xi\approx\varnothing$ or $\xi\approx M$, and the pattern is
+$\kappa$ or $\kappa\,\Delta\,1111$ for some $\kappa\in E_4$. But $1000$ and
+$0111$ have odd weight.
+\end{proof}
+
+\begin{corollary}[stripping bar]\label{cor:stripping}
+If $E\in\Lo$ has $E_3,E_4$ countable (i.e.\ $E\subseteq A_1$ mod countable),
+then $E$ is countable or $E\approx A_1$ fibrewise. Likewise for $A_2,A_3$ and
+the core complements. If $E\subseteq A_1\cap A_2$ exactly, $E$ is countable.
+\end{corollary}
+
+\begin{proof}
+Take the normalised $(\xi,\kappa)$. If $\kappa=0000$: coordinates $3,4$ give
+$\xi\approx\varnothing$, so $E$ is countable. If $\kappa=1100$: coordinates
+$3,4$ are $\approx\xi\orth$, so $\xi\approx M$ and $E\approx A_1$. If
+$\kappa=1010$ or $0110$: one of coordinates $3,4$ forces $\xi\approx\varnothing$
+and the other $\xi\orth\approx\varnothing$ --- impossible. For the last claim,
+$E\subseteq M\times\{1\}$ makes coordinates $2,3,4$ countable, and the same
+analysis kills all three weight-2 cosets, leaving $\xi\approx\varnothing$.
+\end{proof}
+
+\begin{corollary}[incompatibility; not a lattice]\label{cor:incompat}
+$A_1$ and $A_2$ are incompatible in $\Lo$; hence $\Lo$ is non-Boolean. Moreover
+$A_1\wedge A_2$ does not exist: the lower bounds of $\{A_1,A_2\}$ in $\Lo$ are
+exactly the countable subsets of $M\times\{1\}$, among which there is no
+maximum. Thus $\Lo$ is a $\sigma$-complete orthomodular poset and provably not a
+lattice.
+\end{corollary}
+
+\begin{proof}
+Compatibility in a concrete orthomodular poset means $A_1=A'\sqcup D$,
+$A_2=A''\sqcup D$ with $A',A'',D\in\Lo$ pairwise disjoint; then
+$D=A_1\cap A_2$ (expand $A_1\cap A_2$ using $A'\cap A''=\varnothing$),
+contradicting Corollary~\ref{cor:meet-region}. The lower-bound computation is
+the last clause of Corollary~\ref{cor:stripping}.
+\end{proof}
+
+\begin{corollary}[centre]\label{cor:centre}
+$Z(\Lo)=\{E\in\Lo : E \text{ countable or co-countable}\}$: the quotient of
+$\Lo$ by the countable ideal has trivial centre, so $\Lo$ is essentially
+irreducible.
+\end{corollary}
+
+\begin{proof}
+($\supseteq$) Lemma~\ref{lem:sigma-class-basics}(5) and complement-closure of the
+centre. ($\subseteq$) Let $E$ be central. Compatibility with $A_1$ puts
+$E\cap A_1\in\Lo$ (as in Corollary~\ref{cor:incompat}, the common part of a
+compatible decomposition is the intersection), whose trace quadruple is
+$(E_1,E_2,\varnothing,\varnothing)$ with the last two coordinates exactly empty.
+Membership in $\widetilde P$ (Theorem~\ref{thm:normal-form}) then forces, by the
+analysis of Corollary~\ref{cor:stripping}, $[E_1]=[E_2]\in\{0,1\}$ as classes
+mod countable. Compatibility with $A_2$ gives $[E_1]=[E_3]$, with $A_3$ gives
+$[E_2]=[E_3]$, all in $\{0,1\}$; so the first three trace classes are a common
+constant $t$. Membership of $E$ itself in $\widetilde P$ forces the fourth class
+to equal $t$: with three coordinates constant $t$, the pairwise-difference and
+parity conditions of Definition~\ref{def:invariant} require the fourth
+difference to vanish. Thus $E$ is countable ($t=0$) or co-countable ($t=1$).
+\end{proof}
+
+\subsection{Rigidity}
+
+\begin{theorem}[rigidity]\label{thm:rigidity}
+Every $\sigma$-additive two-valued state on $\Lo$ is Dirac.
+\end{theorem}
+
+\begin{proof}
+Let $s$ be $\sigma$-additive and two-valued. If $s(\{\omega\})=1$ for some
+$\omega$, monotonicity (Lemma~\ref{lem:sigma-class-basics}(4)) gives $s(E)=1$
+whenever $\omega\in E$, and $\omega\notin E$ gives $s(E\orth)=1$, so $s(E)=0$:
+$s=\delta_\omega$. Otherwise $s$ vanishes on all singletons, hence, by
+$\sigma$-additivity, on all countable sets. Fix a row $\alpha$: the cells
+$\{D_{\alpha,n}\}_{n<\omega}$ are pairwise exactly disjoint
+(Lemma~\ref{lem:ulam}(1)), their union $U_\alpha$ lies in $\Lo$ ($\sigma$-class
+closure), and $\Omega\setminus U_\alpha$ is countable (Lemma~\ref{lem:ulam}(2)),
+so $s(U_\alpha)=1$ and $\sigma$-additivity over the row yields exactly one
+$n(\alpha)<\omega$ with $s(D_{\alpha,n(\alpha)})=1$. The map
+$\alpha\mapsto n(\alpha)$ sends $\omega_1$ into $\omega$, so some value $n^\ast$
+has uncountable fibre; fix $\alpha\neq\beta$ with $n(\alpha)=n(\beta)=n^\ast$.
+By column disjointness (Lemma~\ref{lem:ulam}(3)),
+$D_{\alpha,n^\ast}\cap D_{\beta,n^\ast}=\varnothing$ exactly; their union is in
+$\Lo$, and additivity gives $s$ the value $2$ there --- contradiction. So the
+second case is void.
+\end{proof}
+
+The proof consumes only singletons, cells, rows, columns, and $\sigma$-class
+closure --- nothing about cores or the invariant. Rigidity is therefore robust to
+any enlargement of the generator set preserving these items. Note the inversion
+of Remark~\ref{rem:not-measurable}: the Ulam matrix, classically the device by
+which $\omega_1$ fails to be measurable, here works \emph{for} the witness ---
+clause (ii) of Theorem~\ref{thm:localization} is achieved outright, in ZFC, by
+importing the matrix into the carrier as generators.
+
+\subsection{The state}\label{subsec:state}
+
+\begin{definition}\label{def:state}
+Fix an ultrafilter $\mathcal U$ on $M$ extending the co-countable filter (the
+filter is proper, $M$ being uncountable), and write $u(\xi)\in\{0,1\}$ for its
+characteristic function. Then $u$ vanishes on countable sets, is constant on
+$\approx$-classes, satisfies $u(\xi\orth)=1-u(\xi)$, and is additive on pairs
+with $\xi\cap\eta\approx\varnothing$. For $E\in\Lo$ with normalised
+representation $(\xi,\kappa)$ define the \emph{vote}
+\[
+  v(E) \;:=\; \kappa\,\Delta\,\bigl(u(\xi)\cdot 1111\bigr)\;\in\;E_4,
+\]
+and, with $\hat S := \{1111,\,1100,\,1010,\,0110\}$ (one member from each
+complement pair of $E_4$),
+\[
+  m(E) \;:=\; \ind\bigl[\,v(E)\in\hat S\,\bigr].
+\]
+\end{definition}
+
+\begin{lemma}[well-definedness]\label{lem:state-well-defined}
+$v$, hence $m$, is independent of the representation. Moreover
+$v(E\orth)=v(E)\,\Delta\,1111$, so $m(E\orth)=1-m(E)$; $m(\Omega)=1$; $m$
+vanishes on countable sets; and $m(A_1)=m(A_2)=m(A_3)=1$.
+\end{lemma}
+
+\begin{proof}
+By Lemma~\ref{lem:rep-rigidity} the normalised representation is unique up to
+$\approx$-change of $\xi$, on which $u$ is constant; computing from the
+non-normalised partner $(\xi\orth,\kappa\,\Delta\,1111)$ gives
+$\kappa\,\Delta\,1111\,\Delta\,(u(\xi\orth)\cdot 1111)
+= \kappa\,\Delta\,((1+u(\xi\orth))\cdot 1111)
+= \kappa\,\Delta\,(u(\xi)\cdot 1111)$. Complement: representation
+$(\xi,\kappa\,\Delta\,1111)$, vote $v(E)\,\Delta\,1111$; since $\hat S$ selects
+one member per complement pair, $m$ flips. $\Omega$: $(M,0000)$, $u(M)=1$, vote
+$1111\in\hat S$. Countable $E$: $(\varnothing,0000)$, vote $0000\notin\hat S$.
+Cores: $\xi=\varnothing$, $u=0$, votes $1100,1010,0110\in\hat S$.
+\end{proof}
+
+\begin{theorem}[$m$ is a two-valued state]\label{thm:state}
+For every finite pairwise-disjoint family $\{E_i\}\subseteq\Lo$ (whose union is
+automatically in $\Lo$), $m(\bigsqcup_i E_i)=\sum_i m(E_i)$. Hence $m$ is a
+finitely additive two-valued state on $\Lo$ extending the pattern
+$s_0(A_i)=1$, which is therefore finitely coherent on $\Lo$.
+\end{theorem}
+
+\begin{proof}
+Pairs suffice (finite families follow by induction, partial unions lying in
+$\Lo$). Let $E\cap G=\varnothing$, $H=E\sqcup G$, and run Lemma~\ref{lem:table}
+on normalised representations. (I): $m(E)=u(\xi)$ and $m(G)=u(\eta)$ (votes
+$u\cdot 1111$; $0000\notin\hat S$, $1111\in\hat S$), and $H$ is represented by
+$(\xi\cup\eta,0000)$ up to countable trimming, so
+$m(H)=u(\xi\cup\eta)=u(\xi)+u(\eta)$ by additivity of $u$ on
+$\approx$-disjoint pairs. (II): $\eta\approx\xi\orth$ gives
+$v(G)=v(E)\,\Delta\,1111$, so exactly one of $m(E),m(G)$ is $1$; and
+$H\approx\Omega$ has vote $1111$, $m(H)=1$. (III): the countable member has
+$m=0$ and $H$ shares the uncountable member's normalised representation
+(countable perturbation), so $m(H)=m(G)+0$. (IV) cannot occur. Finally, $s_0$ is
+a two-valued state on the $\perp$-closure
+$B=\{\varnothing,\Omega,A_i,A_i\orth\}$ independently of $m$: each pairwise
+intersection among $\{A_i,A_i\orth\}_{i\le 3}$ ($i\neq j$) is a full fibre
+$M\times\{f\}$, nonempty, so the only additivity constraints inside $B$ are the
+complement pairs; and $m\restr B=s_0$ by Lemma~\ref{lem:state-well-defined}.
+\end{proof}
+
+\begin{remark}[the $\sigma$-failure of $m$ is self-witnessing]\label{rem:self-witnessing}
+Suppose $u$ selected a cell in every row: $\forall\alpha\,\exists n(\alpha)$
+with $u(C_{\alpha,n(\alpha)})=1$. Pigeonholing $\alpha\mapsto n(\alpha)$ as in
+Theorem~\ref{thm:rigidity} produces two disjoint sets of $u$-value $1$ ---
+impossible for an ultrafilter. So some row $\alpha_0$ has
+$u(C_{\alpha_0,n})=0$ for all $n$: there $m(D_{\alpha_0,n})=0$ for every $n$
+while $m$ of the (co-countable) row union is $1$. Every ultrafilter fails
+$\sigma$-additivity on some row, by the same pigeonhole that drives rigidity; no
+genericity demands on the matrix are needed anywhere in the construction.
+\end{remark}
+
+\subsection{The main theorem}
+
+\begin{theorem}[ZFC witness]\label{thm:main}
+Let $\Lo$, $B$, $s_0$ be as above. Then:
+\begin{enumerate}[label=\textup{(\arabic*)}]
+  \item $s_0$ is finitely coherent on $\Lo$: $m$ extends it
+    (Theorem~\ref{thm:state});
+  \item no $\sigma$-additive two-valued state on $\Lo$ extends $s_0$: by
+    Theorem~\ref{thm:rigidity} any such extension is some $\delta_\omega$, and by
+    Lemma~\ref{lem:dirac-iff} this requires
+    $\omega\in K(s_0)=A_1\cap A_2\cap A_3=\varnothing$;
+  \item hence $s_0$ is a $\sigma$-essential contextual state on $\Lo$
+    \textup{(Definition~\ref{def:sigma-essential})}, and the target sentence
+    $\Psi$ of \S\ref{sec:discussion} is a theorem of ZFC.
+\end{enumerate}
+\end{theorem}
+
+\begin{proposition}[admissibility]\label{prop:adm}
+The carrier $\Lo$ is concrete and $\sigma$-complete (by construction);
+non-Boolean, with the incompatibility of $A_1,A_2$ robust under countable
+perturbation (Corollaries~\ref{cor:meet-region}, \ref{cor:incompat});
+essentially irreducible, with centre exactly the countable/co-countable sets
+(Corollary~\ref{cor:centre}), which $m$ annihilates; non-segregated in the sense
+of Remark~\ref{rem:segregated}, since the diagonal block --- the Boolean
+$\sigma$-algebra on $\omega_1$ generated by singletons and cells --- admits no
+non-Dirac $\sigma$-additive two-valued state to contribute to any gluing; and
+not Polish-representable, as a corollary of the witness property via
+Derr--Williamson (\S\ref{sec:boundary}). It is not a lattice
+(Corollary~\ref{cor:incompat}).
+\end{proposition}
+
+
+\section{Discussion}\label{sec:discussion}
+
+To state what has been proved in the notation of the earlier version: write
+$\mathrm{St}(B)$ for the two-valued states on a sub-orthoposet $B$,
+$\mathrm{St}_\sigma(\Lo)$ for the global $\sigma$-additive two-valued states on
+$\Lo$, $\mathrm{St}_{fa}(\Lo)$ for the global finitely additive ones,
+$\mathrm{Fin}_\perp(\Lo)$ for the finite $\perp$-closed sub-orthoposets, and
+$\mathrm{Adm}$ for the admissible carriers: concrete, $\sigma$-complete,
+non-Boolean, essentially irreducible, non-segregated, non-Polish-representable
+(the last two being consequences of witnesshood, by Lemma~\ref{lem:horizontal}
+and Derr--Williamson, not extra demands). The \emph{$\sigma$-additive lifting}
+property and its negation are
+\begin{align*}
+  \Phi(\Lo)
+    &:\equiv\;
+    \forall\, B \in \mathrm{Fin}_\perp(\Lo)\
+    \forall\, s \in \mathrm{St}(B)\ \Bigl[\,
+    \exists\,\mu\in\mathrm{St}_{fa}(\Lo)\ \mu\restr B=s
+    \;\Longrightarrow\;
+    \exists\, \nu \in \mathrm{St}_\sigma(\Lo)\ \nu \restr B = s \,\Bigr],\\
+  \Psi \;&:\equiv\; \exists\, \Lo \in \mathrm{Adm}\ \neg\Phi(\Lo).
+\end{align*}
+Theorem~\ref{thm:main} proves $\Psi$ in ZFC. Proposition~\ref{prop:boolean} is
+the statement that Boolean carriers satisfy $\Phi$; Lemma~\ref{lem:horizontal}
+that horizontal $\sigma$-sums do; Derr--Williamson that Polish-representable
+carriers do. The witness therefore inhabits precisely the cell the boundary map
+of \S\ref{sec:boundary} isolated, and each constraint of that map is visible in
+its anatomy.
+
+\begin{remark}[consistency strength, resolved]\label{rem:strength}
+An earlier version of this paper argued that the strength of $\Psi$ was open in
+both directions --- the measurable-cardinal lower bound failing because the
+reduce-to-Dirac argument is a $\sigma$-\emph{algebra} theorem unavailable on
+$\sigma$-classes, the Blecher--Weaver upper bound failing to transfer for want of
+a masa. Theorem~\ref{thm:main} settles this in the most deflationary way: $\Psi$
+is a theorem of ZFC and carries no large-cardinal strength whatsoever. The
+earlier analysis survives as the explanation. On the lower-bound side, the
+reduce-to-Dirac argument is not escaped but \emph{embraced}: the carrier imports
+exactly the fragment of the $\sigma$-algebra needed to run Ulam (rows, columns,
+singletons), and Theorem~\ref{thm:normal-form} certifies the fragment does not
+Booleanise the carrier. On the upper-bound side, the object Blecher--Weaver
+consume --- a $\sigma$-complete ultrafilter --- is never needed: coherence is
+carried by an arbitrary ultrafilter on $\PO(\omega_1)/\mathrm{ctble}$, a
+BPI-level object, of which $\sigma$-additivity is never demanded
+(Remark~\ref{rem:self-witnessing} shows it necessarily fails).
+\end{remark}
+
+\begin{remark}[where the coherence lives]\label{rem:coherence-location}
+Section~\ref{sec:boundary}(3) observed that on a concrete non-Boolean carrier
+$\mathcal F_s$ is never a filter --- the countably-complete ultrafilter an
+Ulam-style transfer would consume is structurally absent. The witness shows the
+carrier does not need to \emph{host} that object: it borrows only the finite
+trace of an ultrafilter one Boolean level down, through the vote map of
+Definition~\ref{def:state}. The same non-distributivity that blocks the upper
+bound (no meet-closure) is what lets the three core assignments coexist:
+Lemma~\ref{lem:table}(IV) says the additivity constraints that would link them
+do not exist in $\Lo$. Relatedly, the constraint of the earlier version's
+Remark on witness technology stands but must be scoped: the
+\emph{incompatibility} of a witness cannot be imported from a Boolean-ambient
+combinatorial skeleton (in such an ambient a maximal coherent
+$\{0,1\}$-assignment is an ultrafilter, hence meet-closed, and the pattern
+globalises); the witness's incompatibility is native, carried by the fibre
+parity code. What \emph{can} be imported from the Boolean ambient is rigidity
+--- the destruction of non-Dirac $\sigma$-states --- and the construction is
+exactly this division of labour, with Theorem~\ref{thm:normal-form} as the proof
+that the imported engine and the native geometry cannot interact.
+\end{remark}
+
+\begin{remark}[a quotient with no $\sigma$-additive states at all]\label{rem:quotient}
+In the quotient of $\Lo$ by the countable ideal, Dirac states die (they
+concentrate on singletons) and non-Dirac $\sigma$-additive states are barred by
+Theorem~\ref{thm:rigidity}. The quotient is thus a $\sigma$-complete non-Boolean
+orthomodular poset carrying finitely additive two-valued states (the induced
+$\bar m$) but \emph{no} $\sigma$-additive two-valued state whatsoever --- a
+starker artifact than the witness itself, and a natural object of separate
+study.
+\end{remark}
+
+\subsection*{What remains open}
+
+\begin{question}[the lattice form]\label{q:oml}
+Does there exist a concrete $\sigma$-complete orthomodular \emph{lattice}
+carrying a $\sigma$-essential contextual state? Equivalently: does latticehood
+imply $\Phi$? We conjecture it does. Three independent mechanisms destroy meets
+exactly where contextual structure enters --- pasted-loop concrete closures, the
+even-cardinality logic, and the singletons-below-fibres mechanism of
+Corollary~\ref{cor:incompat} --- and the rigidity method of
+Theorem~\ref{thm:rigidity} appears to require singletons, which on this carrier
+are what break the meet. If the conjecture holds, the OMP/OML distinction,
+usually bookkeeping, is precisely the boundary of $\sigma$-essential
+contextuality.
+\end{question}
+
+\begin{question}[cardinality]\label{q:cardinality}
+The witness has $|\Omega|=\aleph_1$. Wright's theorem bars finite witnesses;
+can a countable $\Omega$ carry one (necessarily without all singletons, or with
+a different rigidity mechanism)? Is there a ZFC lower bound beyond
+``uncountable''?
+\end{question}
+
+\begin{question}[characterising $\Phi$]\label{q:phi}
+Boolean carriers, Polish-representable carriers, and horizontal $\sigma$-sums
+satisfy $\Phi$; the product Ulam carrier does not. Is there a structural
+characterisation of $\Phi$ for concrete $\sigma$-orthoposets --- a
+gluing-theoretic or exhaustion-theoretic condition separating the two classes,
+with Theorem~\ref{thm:main} as the canonical failure?
+\end{question}
+
+\paragraph{Acknowledgements.}
+The author thanks the anonymous referees (forthcoming). The construction of
+\S\ref{sec:witness} was developed jointly with a large language model
+(Anthropic Claude) in interactive sessions, which also assisted with literature
+search, verification of cited statements against primary sources, and
+exposition; OpenAI ChatGPT assisted with earlier literature work. All
+mathematical claims are being independently verified by the author, including a
+Lean~4 formalization in progress; see the Verification status paragraph in
+\S1.

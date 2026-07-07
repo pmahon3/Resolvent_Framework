@@ -239,6 +239,36 @@ tame theorem) vs DLO punctures = universal; first open case: golden-mean SFT.**
   are load-bearing. (Caveat: LP relaxation = lower bound only; integrality of
   minimizers not yet certified — v2.1 item.)
 
+### 2.2d P4–P6 (polymorphism transfer) — DELTA AUTOPSY, 2026-07-07
+Pre-registered predictions run exactly (`golden_mean_tests.py`):
+- **P4 MISS**: golden-mean length-3 variety + coordinate contexts is
+  INcommensurable (FAMILY_I_COMPLETE). Autopsy: {x₁=1} and {x₂=1} are disjoint
+  ON THE VARIETY, so the concentrated model q(x₁=1)=q(x₂=1)=1 is EA-coherent
+  (bipartitions → trivial common subalgebras → single block) yet unrealisable.
+- **P6 MISS, uniformly** (all 20 monotone AND/OR triples on the full cube):
+  same mechanism — derived-variable bipartitions freely produce disjoint
+  cross-context cells; pairwise EA has no channel.
+- **P5 "PASS" downgraded to VACUOUS**: incommensurable as predicted, but by
+  the same trivial exclusivity mechanism as the misses, not by the XOR/
+  polymorphism mechanism. Not evidence for the conjecture; retest under the
+  corrected formulation.
+**The autopsy is decisive and uniform: partition-vs-scope is THE breaking
+delta** (the other declared delta, realisability-vs-optimization, was never
+reached — the structure side collapsed first). The transfer conjecture as
+formulated is dead; the reformulation target is precise: the protocol must
+include the SCOPE contexts (full joint partitions over supports, plausibly
+including Γ's constraint scopes), so that EA aligns with BLP local
+consistency — with scope/interval contexts included, the golden-mean case is
+the tame theorem's regime (running intersection) and commensurability should
+return. Corrective rule adopted alongside (design side, P3 diagnosis): every
+prediction gets a **scale-sanity pass** (does the mechanism have combinatorial
+room at this n?); shape is the primary taxonomy key, weight the secondary
+curve; weight certification = pair (exhibited integer representative, exact
+rational dual LB) — never certify LP-minimizer integrality.
+Shelf additions (derive-then-compare): Feder–Vardi width-1, Dalmau–Pearson set
+polymorphisms, Barto–Kozik bounded width (nearest prior statement of the
+question), Thapper–Živný + Kolmogorov–Krokhin–Rolínek, Grohe.
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

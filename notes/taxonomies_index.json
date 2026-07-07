@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — active successor programme. K4 round 2026-07-08: P25-P27 all HIT (20-hit ledger). Gate holds at a K4 minor; NAND tames the minor obstruction structurally (evenize ⟺ bipartitize) so P25′ (ρ₂₀ on length-6-subdivided K4) is the decisive composition test. Lifting lemma controlled both directions (P26/P27). Circuit Localization unrefuted. WJ/Padberg novelty ledger recorded. NEXT: user's Lean pass + P25′ registration.",
+   "status": "OPEN — active successor programme. P25' round 2026-07-08: 22-hit ledger. rho20 = permutation ⟹ holonomy theorem-let (covering frame literal); fork unreached #3; NE3 ruled out (unsafe all L). THE question: does a fork-capable language exist, or are the tamings Circuit Localization's mechanism? Lifting lemma proof + interface clause on file. NEXT: design side — fork-language existence / decomposition theorem; user's Lean pass in parallel.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 68
+   "entries": 72
   },
   {
    "id": "kappa_q",

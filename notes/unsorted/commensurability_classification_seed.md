@@ -506,6 +506,46 @@ half-model witness and P16's alphabet-3 need).
 inheritance direction controlled both ways; the decisive composition-side
 test is P25′.
 
+### 2.2k P25′/P28 + the third taming — the fork remains unreached; NE3 ruled out (2026-07-08)
+Run: `p25prime_tests.py`. Lifting-lemma proof (with the interface clause) and
+fork-preparation recorded from the design side; results:
+- **P25′ HIT — but the fork is unreached for a THIRD structural reason.**
+  Machine-checked pre-run finding: **ρ₂₀ is the permutation (01)(234)** —
+  deterministic, every state exactly one continuation. For permutation beads,
+  LOCAL(G) collapses to the **holonomy-invariant simplex** {u : π^c u = u ∀
+  cycle classes} and MARG = conv(fixed states) — so aggregation-level Safe ⟺
+  holonomy group H = {id}, and the K₄ minor NEVER VOTES. At all-lengths-6:
+  cycle sums (6,6,6) ⟹ H = id ⟹ SAFE (aggregation); closure level: |V| = 5
+  and every edge context separates all 5 ⟹ EA = full agreement ⟹ C = Δ(V)
+  = R ⟹ SAFE. The covering-space frame is LITERAL for permutation
+  languages: safety = trivial holonomy.
+- **P28 HIT, mode-corrected**: one path at length 5 ⟹ cycle sums {0,5} ⟹
+  H = ⟨π⁵⟩ = ⟨π⟩, orbits {0,1},{2,3,4}, NO fixed states ⟹ MARG = ∅,
+  LOCAL = a 1-dim invariant segment ⟹ UNSAFE — but in the DEGENERATE mode:
+  the inherited circuits (ρ₂₀-rings L=17, 23) are variety-empty, so the
+  certificate is section-emptiness/CF=1, not the registered ½-type facet
+  gap (which cannot arise: ρ₂₀'s unsafe rings have no sections to gap
+  against). Inheritance direction confirmed; digit inapplicable.
+- **Round-3 scout: NE3 (proper 3-coloring, nondeterministic, dense) RULED
+  OUT** — aggregation-UNSAFE at every L = 3..7, with EVERY winding-≥2 vertex
+  outside conv(sections) (27/34/175/342/1307 bad). Bonus gate datum: at L=3
+  the gate fails in the OPPOSITE direction from ρ₂₀'s (EA ⊋ circulation —
+  the triangle variety is RIGID: every edge pair determines the third
+  vertex, so contexts are discrete partitions); passes at L=4,5.
+- **The taming synthesis (hand back):** three candidate fork experiments,
+  three structural tamings — NAND (evenize ⟺ bipartitize ⟹ FSTAB
+  integral), ρ₂₀ (determinism ⟹ holonomy simplex), NE3 (no safe lengths at
+  all). The fork needs a language that is simultaneously (i)
+  nondeterministic, (ii) nonempty aggregation-safe set, (iii) safe-condition
+  not integrality-forcing. **Design question with theorem potential: does
+  such a language exist — or does branching force the safe set thin (ρ₁₃:
+  {3}) / empty (NE3), while rich safe sets force determinism-or-parity, so
+  that Circuit Localization is TRUE because its hypotheses can never put a
+  minor in play?** The repeated "structural taming" may BE the
+  decomposition theorem's mechanism, discovered experiment-first.
+**Ledger: 22 hits (P25′, P28 mode-corrected) / 7 informative misses / 1
+vacuous / 2 dead conjectures / 1 pre-emptive kill.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

@@ -140,11 +140,62 @@ the honest deliverable there may be Type 6 placement rather than Type 1.
   is NP-complete, so no finite certificate normal form exists at the MODEL
   level; the classification target stays at the protocol level (the ∀∃
   question), where structure like perfection can still give clean criteria.
-- **Open design question (next turn)**: is Family I ∪ Family II complete for
-  single-window protocols, or is there a third mechanism? No third-mechanism
-  candidate known — evidence or blind spot; both known gadgets were found by
-  construction. Honest next move: small exhaustive search over protocols on
-  ≤ 6 outcomes for coherent-unrealisable models immune to both families.
+- ~~**Open design question**: is Family I ∪ Family II complete...~~
+  **ANSWERED BY THE HARNESS (2026-07-06 evening): NO — twice over. See §2.2b.**
+
+### 2.2b Harness results (exhaustive, exact-rational; `commensurability_harness.py`)
+
+**Prediction-ledger outcomes** (all predictions logged pre-run):
+- **P1 (ELSE empty at ≤6): REFUTED TWICE.**
+  (a) n=4, k=3: three protocols whose witnesses evade all inequalities of both
+  families but violate **affine incidence syzygies** — pointwise integer
+  IDENTITIES among overlapping cells (e.g. −1₍₀₎+1₍₁₎+1₍₀₂₎+1₍₀₃₎ ≡ 1 on N) =
+  R's hull equations. Named **Family 0**; pure linear algebra; with it, n ≤ 4
+  is fully complete.
+  (b) n=5, k=3: two protocols beyond even Family 0+I+II. Hand-verified record
+  (`else_n5_verification.py`, all four parts pass): protocol
+  {0|1|234}, {0|12|34}, {0|13|24}, witness q = (½,0,½|½,½,0|½,½,0) —
+  EA-coherent, unrealisable, immune to ALL chains, cliques, odd-holes AND
+  syzygies; detected by the **weighted pointwise inequality**
+  q(B₁₂)+q(C₁₃) ≤ 2·q(A₁)+q(A₂₃₄) (coefficient 2, mixed signs — the
+  I3322-flavor weighted class predicted at 7–8 outcomes arrives at n=5).
+  **Fourth mechanism.**
+- **P2 (minimal Family-II at 5–6 outcomes): REFUTED** — cliques bite at
+  n=3, k=3 already (cross-context triangle of singletons: Σ ≤ 1 vs chains'
+  best Σ ≤ 2; witness = ½-spread, majority-commitment lemma in action). The
+  5–6 estimate conflated "Family II needed" with "odd-hole needed."
+- **k=2 certificate-completeness correction**: "Family I complete at k=2"
+  FAILS as a certificate claim — n=5, k=2 protocols need cliques with TWO
+  cells from one context (chains take one cell per context and cannot see
+  them). The protocol-level k=2 iff-theorem (blocks complete-bipartite) is
+  untouched.
+- **P3**: the weighted class arrived at n=5, not 7–8.
+- **Odd-holes: NOT yet needed anywhere** (all of k=2 incl. n=6; n≤4 k=3;
+  n=5 k=3 partial). The C₅-gap may still need larger n — or cliques may
+  dominate at all small scales.
+
+**Atlas so far** (exact; JSONL files): n=3: 4 protocols (1 clique-needing);
+n=4: 46 (6 cliques, 3 syzygies); n=5 k=2: 41 (2 cliques); n=6 k=2: 146
+(17 cliques, 72 Family-I, 57 R=C); n=5 k=3 partial at interruption of record:
+82 Family-I / 29 syzygy / 27 cliques / 2 ELSE-weighted. n=5 k=3 and n=6 k=3
+runs continuing (tracked watcher).
+
+**The emerging reframe (hand to design side):** over V = N every certificate
+seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
+pointwise-valid on N, because over V = N *every* valid inequality is (valid on
+R's vertices = valid on R). So the classification is really a **facet-shape
+taxonomy of R = conv(cell-incidence vectors)** — the correlation-polytope
+facet theory (Pitowsky) specialized to partition protocols — and the
+stratification measures which integer shapes suffice at which scale. Candidate
+unifying shape for everything seen so far: **pointwise multiset-domination**
+inequalities Σ_{c∈M₁} 1_c ≤ Σ_{c∈M₂} 1_c (integer multiplicities both sides;
+chains = (m−1)·Ω-side special case via context-normalization, cliques/holes =
+1·Ω and 2·Ω targets, syzygies = both directions, the n=5 certificate =
+{B₁₂,C₁₃} ⪯ {A₁,A₁,A₂₃₄}). Design questions: (i) is every facet of these
+polytopes multiset-domination (integer coefficients), and does the needed
+multiplicity grow with n (Pitowsky's floor says SOME complexity must grow)?
+(ii) should the harness gain a Family-III screen (all pointwise integer
+inequalities with |coeff| ≤ w) to measure the weight-growth curve?
 
 ### 2.3 Layer-1 licensing results (roadmap; to be proved before pipeline work)
 - **C1**: full-window coherence always extends to a trajectory measure

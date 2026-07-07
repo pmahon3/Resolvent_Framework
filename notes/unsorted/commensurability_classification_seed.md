@@ -269,6 +269,53 @@ Shelf additions (derive-then-compare): Feder–Vardi width-1, Dalmau–Pearson s
 polymorphisms, Barto–Kozik bounded width (nearest prior statement of the
 question), Thapper–Živný + Kolmogorov–Krokhin–Rolínek, Grohe.
 
+### 2.2e Scope-context reformulation round (2026-07-07, second design pass)
+- **Free theorem (acyclic ⟹ commensurable for EVERY language)**: with scope
+  contexts included, each p_S is supported on its relation; RIP conditional-
+  product glue lands inside V with no condition on Γ. The tame theorem's true
+  generality; the language is silent on trees. P4′ (golden-mean path, pair
+  windows) = instance, machine-PASS (`ring_parity_tests.py`). Lean: existing
+  gluing lemma + one line of support tracking. Derive-then-compare vs
+  Wainwright–Jordan tree-exactness (expect folklore-adjacent for the full
+  language; the all-Γ variety-supported form is the claim).
+- **Pre-emptive kill (the ledger's first)**: transfer-v2-as-KOTYZ killed BY
+  HAND BEFORE registration. Separating object: golden-mean NAND on C₅ — the
+  ½-(01)/½-(10) edge model is scope-coherent, unrealisable (2-coloring of an
+  odd cycle), yet golden-mean has min ⟹ symmetric polymorphisms of every
+  arity ⟹ BLP decides satisfiability (KOTYZ). **The commensurability line
+  sits strictly above the satisfiability-width line**; deciding emptiness ≠
+  projecting polytopes. KOTYZ + Barto–Kozik reclassified: satisfiability-
+  level, provably below our line. Wainwright–Jordan enters as vocabulary
+  (local/marginal polytope).
+- **Ring-parity verdicts, exact (`ring_commensurability.py`; tooling note —
+  at k ≥ 4 use the separation-only test: the family ladder's LPs carry the
+  whole chain family as rows and blow up):** C₃ INCOMMENSURABLE (facet gap ½;
+  correct counting certificate: legal configs carry ≤ α(C₃)=1 one vs model
+  E[#1s]=3/2 — the design paste's "≥2 on triangle-legal" had the inequality
+  inverted, conclusion unchanged), C₅ INCOMMENSURABLE (gap ¼), **P7: C₄
+  COMMENSURABLE** (C=R, 8 facets + 8 hull eqs exact), **P8: C₆ COMMENSURABLE**
+  (C=R, 12 facets + 12 hull eqs exact). **Parity clean at L=3..6; the P8 gate
+  FIRES — parity-theorem proof attempt warranted next design turn**
+  (transfer-matrix gluing around even rings the likely mechanism).
+- **Safe-topology map** (the reformulated classification): acyclicity settles
+  everything language-independently, so Γ enters only through cyclic
+  structures; the object is Γ ↦ {cycle structures where local = marginal}.
+  Candidate theorem: golden-mean's safe topologies are exactly the bipartite
+  ones. Dynamical reading (closing the oldest loop): cyclic scope structure =
+  recurrence — sliding pair-windows on a period-L orbit identify time mod L —
+  so **golden-mean dynamics produces contextual scope data precisely on
+  odd-period orbits**; frustration needs cyclic time; on ℤ-intervals every
+  world is tame.
+- **Q-comp split (permanent)**: scope-inclusion trivializes single-window
+  compression wildness (a full joint realises its own coarsenings — RCD
+  becomes commensurable once the 2×2 joint is reported). Compressions matter
+  exactly when full joints are NOT reportable (bandwidth-limited,
+  aggregation-native observation) — that programme keeps the ≤6 atlas as its
+  evidence base; first-order target: **witnessed exclusivity** (commensurable
+  ⟹ every cross-context exclusive cell-pair separated by a common-subalgebra
+  event; concentrated model = the universal violator). Two questions, two
+  programmes, one atlas each; conflating them was v1's error.
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

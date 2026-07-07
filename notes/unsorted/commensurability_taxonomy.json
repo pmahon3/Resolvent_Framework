@@ -5,7 +5,7 @@
   "updated": "2026-07-07",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta.",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6.",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,10 +18,12 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 1,
+   "predictions_hit": 3,
    "predictions_missed_informatively": 5,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
-   "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted"
+   "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
+   "preemptive_kills": 1,
+   "ring_parity": "odd L=3,5 incommensurable / even L=4,6 commensurable (exact)"
   }
  },
  "definitions": [
@@ -119,6 +121,20 @@
    "status": "planned",
    "one_line": "C1: full-window interval protocols always commensurable (running intersection + gluing + compactness) — the tame anchor of the dichotomy; to be proved as Layer-1 licensing with C1' quarantine (finite-alphabet: the sigma-essential pathology cannot occur — [[sigma_essential_taxonomy]] witness SECURES reconstruction).",
    "detail": "commensurability_classification_seed.md#23-layer-1-licensing-results-roadmap-to-be-proved-before-pipeline-work"
+  },
+  {
+   "id": "thm.acyclic_all_gamma",
+   "name": "Free theorem: acyclic => commensurable for every language",
+   "status": "proved-hand",
+   "one_line": "Scope contexts + RIP conditional-product glue: support lands in V with no condition on Gamma; language silent on trees; P4' machine-PASS instance; Lean = gluing lemma + support-tracking line; compare vs Wainwright-Jordan tree-exactness.",
+   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "anchor.c5_nand_separator",
+   "name": "C5-NAND: commensurability strictly above satisfiability-width",
+   "status": "settled",
+   "one_line": "Golden-mean on C5: half-model scope-coherent + unrealisable (odd 2-coloring) while min-polymorphism makes BLP decide satisfiability (KOTYZ) — polytope projection is a strictly stronger power; machine-confirmed facet gap 1/4.",
+   "detail": "ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
   }
  ],
  "structure": [
@@ -135,6 +151,13 @@
    "status": "settled",
    "one_line": "Over V=N every valid inequality is pointwise-valid, so the classification = facet-shape taxonomy of conv(cell-incidence vectors) — Pitowsky's correlation-polytope theory specialized to partition protocols; shape primary key, weight secondary curve (small-scale polytopes near-integral).",
    "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "struct.safe_topology_map",
+   "name": "Safe-topology map",
+   "status": "open-candidate",
+   "one_line": "Gamma -> {cycle structures with local = marginal}; candidate: golden-mean's safe topologies = exactly the bipartite ones. Dynamical reading: recurrence closes time into rings; golden-mean dynamics is contextual precisely on odd-period orbits.",
+   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
   }
  ],
  "predictions_ledger": [
@@ -193,9 +216,44 @@
    "status": "dead",
    "one_line": "'Acyclically-reported over Gamma commensurable iff Gamma has symmetric fractional polymorphisms of all arities' — dead at the partition-vs-scope delta before realisability-vs-optimization was reached. Reformulation target: include scope contexts so EA aligns with BLP local consistency (Barto-Kozik analogy).",
    "detail": "commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+  },
+  {
+   "id": "pred.p7_c4",
+   "name": "P7: C4 commensurable",
+   "status": "hit",
+   "one_line": "C=R exact (8 facets + 8 hull eqs); the frustrated point realisable via the even 2-coloring.",
+   "detail": "ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "pred.p8_c6",
+   "name": "P8: C6 commensurable",
+   "status": "hit",
+   "one_line": "C=R exact (12 facets + 12 hull eqs, 16s); gate FIRES: parity-theorem proof attempt warranted.",
+   "detail": "ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "pred.transfer_v2_kotyz",
+   "name": "Transfer v2 as KOTYZ",
+   "status": "killed-preemptively",
+   "one_line": "The ledger's first pre-emptive kill: refuted by hand (C5-NAND) BEFORE registration; symmetric polymorphisms give satisfiability-exactness, not polytope-exactness.",
+   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
   }
  ],
  "open_frontier": [
+  {
+   "id": "open.parity_theorem",
+   "name": "Golden-mean parity theorem (NEXT design turn)",
+   "status": "open",
+   "one_line": "Prove: safe topologies of golden-mean = bipartite ring structures; evidence exact at L=3..6; likely mechanism = transfer-matrix gluing around even rings.",
+   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "open.qcomp_witnessed_exclusivity",
+   "name": "Q-comp: witnessed exclusivity",
+   "status": "open",
+   "one_line": "The compression programme's first-order target (bandwidth-limited observation, full joints not reportable): commensurable => every cross-context exclusive cell-pair separated by a common-subalgebra event; <=6 atlas is its evidence base.",
+   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
   {
    "id": "open.dichotomy_hunt",
    "name": "THE successor question: the dichotomy",
@@ -206,8 +264,8 @@
   {
    "id": "open.transfer_reformulation",
    "name": "Transfer conjecture v2 (scope contexts)",
-   "status": "open",
-   "one_line": "Reformulate with protocols required to contain constraint-scope contexts (EA ~ BLP local consistency); then retest P4/P5/P6 analogues; deltas remaining: realisability-vs-optimization.",
+   "status": "superseded",
+   "one_line": "SUPERSEDED same-day: scope-context reformulation done; v2-as-KOTYZ pre-emptively killed (C5-NAND); live successor = safe-topology map + parity theorem.",
    "detail": "commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
   },
   {
@@ -253,6 +311,13 @@
    "status": "live",
    "one_line": "Product-measure anchor PASS (2x2x2); punctured cubes all Family-I weight-LB 1; weight certification to move to representative+dual-LB pairs (v2.1).",
    "detail": "harness_v2_calibrations.py"
+  },
+  {
+   "id": "tool.separation_only",
+   "name": "Separation-only commensurability test (k>=4)",
+   "status": "live",
+   "one_line": "ring_commensurability.py: C-vs-R by hull eqs + exact facet LPs WITHOUT the family ladder (whose LPs blow up carrying the whole chain family at k>=4); C6 in 16s.",
+   "detail": "ring_commensurability.py"
   }
  ]
 }

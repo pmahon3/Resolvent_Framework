@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — the active successor programme (2026-07-06/07). Five mechanisms sighted and object-backed at n<=5; trichotomy settled (k=2 tame / full-support-coordinate tame / variety UNIVERSAL); transfer conjecture v1 dead at the partition-vs-scope delta; successor question = the dichotomy hunt under the scope-context reformulation.",
+   "status": "OPEN — active successor programme. Scope-context round (2026-07-07): FREE THEOREM (acyclic commensurable for every language); commensurability strictly above satisfiability-width (C5-NAND separator, first pre-emptive kill); ring parity exact at L=3..6 (P7+P8 hits) — parity-theorem proof attempt is the next design turn; Q-comp split off with witnessed-exclusivity target.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 31
+   "entries": 40
   },
   {
    "id": "kappa_q",

@@ -546,6 +546,47 @@ fork-preparation recorded from the design side; results:
 **Ledger: 22 hits (P25′, P28 mode-corrected) / 7 informative misses / 1
 vacuous / 2 dead conjectures / 1 pre-emptive kill.**
 
+### 2.2l P29/P30 — criterion validated; the hunt executed; the fork narrows to ONE candidate (2026-07-08/09)
+Run: `swap_spectrum_scan.py` + triage (`commensurability_fork_candidates.json`,
+`commensurability_fork_survivors.json`).
+- **P29 HIT**: the swap/tuple shift-reachability criterion (theorem-let A,
+  polytope-free) reproduces ALL seven recorded profiles exactly (NAND evens,
+  ρ₁₃ {3}, ρ₂₀ 6ℤ, FULL2 none, implication/equality all, NE3 none).
+  Theorem-let B corroborated within the L ≤ 40 window (every unsafe set
+  eventually periodic; note: my period detector has a window-edge artifact —
+  ρ₂₀ reported "period 1 from 37" where the true period 6 is visible in the
+  set; detector, not criterion).
+- **P30 executed — the impossibility scenario is dead, and the cascade is
+  the finding.** Exhaustive ≤4 states (canonical, total, branching, q ≤ 6)
+  + minimally-branching 5-state slice: 333 genuine pre-candidates at ≤4.
+  Filter cascade:
+  (1) "3q,4q-safe" is NECESSARY NOT SUFFICIENT — NAND itself passes at q=2;
+  (2) **taming #5 discovered: TRANSIENT BRANCHING** — 149/333 have all
+  branching off the recurrent core (deterministic recurrent part ⟹ holonomy
+  taming with decoration; closed walks never see the branch);
+  (3) 184 survivors with RECURRENT branching, and their q-parity is stark:
+  **181 even-q only (2,4,6) + 2 even-q sparse (4) + exactly ONE odd-q — and
+  that one is the design side's own taming-#4 exemplar** (0→1, 1→{2,3},
+  2→0, 3→0: two 3-cycles sharing a path, graded over ℤ₃, singleton fibers
+  {0},{1} — forced-cut factorization predicted).
+- **The fork narrows to one registrable object**: ρ* = {(0,0),(0,2),(1,1),
+  (2,0)} — loops at 0,1 + 2-cycle 0↔2; recurrent branching at 0; Safe =
+  evens BUT the parity comes from the swap dynamics, NOT base bipartiteness
+  (the base has odd cycles — loops); not deterministic, not graded (gcd 1),
+  not transient. **No known taming obviously applies.** The experiment:
+  ρ* on K₄ all-edges-subdivided-to-2 (10 vertices, 12 edges, alphabet 3;
+  circuits 6, 8 ∈ Safe). Circuit Localization predicts safe; whether the K₄
+  minor finally bites is genuinely open — awaiting design-side registration
+  (P31), with the theta-digraph at q=3 as the taming-#4 machine-confirmation
+  control (P32 suggestion).
+- Candidate theorem-let C (from the parity starkness, design side to
+  formalize or refute): recurrent branching forces unsafety at odd lengths
+  (all odd-q survivors at ≤4 states are graded); if true, the fork lives
+  only in even-q parity-family languages, and the decomposition theorem's
+  remaining case is exactly "even-q safety without bipartite base."
+**Ledger: 23 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
+1 pre-emptive kill; P30 fulfilled-as-registered (ranked list, non-empty).**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

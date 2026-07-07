@@ -88,10 +88,63 @@ the honest deliverable there may be Type 6 placement rather than Type 1.
   contextuality relative to the constraint variety, the same mechanism as
   X-support. If proved: taxonomy compresses to reporting acyclicity + an
   incidence axis (constraints, whether dynamical or compressive).
-- **Bonferroni normal-form conjecture (the deep one)**: commensurability fails
-  exactly when the cell-incidence lattice generates a Bonferroni-type valid
-  inequality not implied by coherence; general-k criterion = a combinatorial
-  normal form for such certificates.
+- ~~**Bonferroni normal-form conjecture**~~ **REFUTED as stated, 2026-07-06 —
+  by our own pentagon; stratified replacement below.** Refutation re-verified
+  in this environment (`pentagon_chain_immunity_check.py`, all four parts):
+  the pentagon half-model (contexts = edge-pairs (x_j, x_{j+1}) of C₅ on
+  {0,1}⁵; s(1,0)=s(0,1)=½, s(1,1)=s(0,0)=0) is EA, unrealisable, and satisfies
+  EVERY pointwise-valid elementary chain certificate (11,272 in this
+  environment's parameterization; 8,527 in the design session's — counts are
+  parameterization-dependent, immunity is the invariant), while the stable-set
+  bound Σ μ(a_j) ≤ α(C₅) = 2 detects it at 5/2.
+
+### 2.2a The corrected structure (design session, 2026-07-06, second pass)
+- **Empty-intersection lemma (unification)**: cells c₁…c_m from distinct
+  contexts with ⋂ c_t = ∅ give the pointwise-valid Σ 1_{c_t} ≤ m−1, violated
+  by the model concentrating on each c_t. The 3-outcome example, the k=2
+  necessity gadget, the wrap-C₄ parity certificate, and the triangle/
+  conformality gadget are all instances (m = 2, 4). Four atlas entries, ONE
+  Lean lemma.
+- **Stratified conjecture**:
+  - **Family I (chains)** — Σ 1_{c_t} ≤ (m−1) + 1_E through incidence
+    ⋂ c_t ⊆ E; subsumes exclusivity (E = ∅) and inclusion (m = 1). Complete
+    for conformality/reporting-type obstructions; **provably complete at k=2**
+    (the k=2 theorem = the base case of the stratification).
+  - **Family II (stable-set facets)** — exclusivity-graph coverage bounds.
+    Edge certificates suffice iff the cross-context exclusivity graph is
+    bipartite (König); edges + cliques iff perfect (Lovász–Fulkerson–Chvátal);
+    odd holes (pentagon minimal) demand odd-cycle inequalities and beyond —
+    the Cabello–Severini–Winter hierarchy, Lovász perfect-graph theory behind
+    it. Perfection is poly-time decidable (Chudnovsky–Cornuéjols–Liu–Seymour–
+    Vušković), so this branch of the criterion is algorithmically real.
+- **Two sharpenings from this side's re-verification (hand back to design):**
+  (1) The pentagon half-model is *empty-support* unrealisable — its zero-set
+  forces exactly-one-per-edge, impossible on the odd cycle — the same brute
+  fact as the wrap-C₄ gadget; it evades chains not by realisability-type but
+  because its mass is spread: every cell value ≤ ½, so no bound of the form
+  m−1 can ever be violated. The chain/coverage split is a split in the
+  BOUND'S ARITHMETIC (m−1 vs α < m−1), not in the unrealisability mechanism.
+  (2) Family II certificates are not pointwise-valid on Ω (all-ones violates
+  the odd-cycle inequality on {0,1}⁵); they are valid MODULO THE ZERO-SET
+  (support restriction). So the stratification is also a stratification of
+  validity modes — Family I pointwise on Ω, Family II conditional on the
+  constraint variety — which is the same mechanism the axis-reduction theorem
+  identifies (frustration migrating into the variety).
+- **Axis-reduction, sharpened by the RCD case**: reduced to derived variables
+  (u = x₁, v = x₂, w = u⊕v) the reporting hypergraph is three disjoint
+  singletons — acyclic — so with constraint varieties, acyclicity no longer
+  suffices; after reduction the classification is a marginal problem over a
+  constraint language — CSP-dichotomy shape (Bulatov–Zhuk flavor; DIRECTION,
+  not claim).
+- **Complexity floor (honesty)**: Pitowsky — correlation-polytope membership
+  is NP-complete, so no finite certificate normal form exists at the MODEL
+  level; the classification target stays at the protocol level (the ∀∃
+  question), where structure like perfection can still give clean criteria.
+- **Open design question (next turn)**: is Family I ∪ Family II complete for
+  single-window protocols, or is there a third mechanism? No third-mechanism
+  candidate known — evidence or blind spot; both known gadgets were found by
+  construction. Honest next move: small exhaustive search over protocols on
+  ≤ 6 outcomes for coherent-unrealisable models immune to both families.
 
 ### 2.3 Layer-1 licensing results (roadmap; to be proved before pipeline work)
 - **C1**: full-window coherence always extends to a trajectory measure
@@ -111,16 +164,29 @@ intersection (Beeri–Fagin–Maier–Yannakakis, GYO); Abramsky–Brandenburger
 EA-without-PR, logical/strong = VDR blocked); KCBS / exclusivity-graph theory
 (C₅, fractional packing); Leggett–Garg (temporal contextuality — MUST be
 placed by us before a scout places it for us); Dzhafarov–Kujala CbD (already
-in the library).
+in the library). **Added 2026-07-06 (second pass):** Cabello–Severini–Winter
+(graph-theoretic hierarchy — expect substantial overlap with Family II; the
+dynamical-realisation layer expected to remain ours); Grötschel–Lovász–
+Schrijver; Strong Perfect Graph Theorem + recognition algorithm (CCLSV);
+Pitowsky (correlation-polytope NP-completeness = the complexity floor);
+Bulatov–Zhuk CSP dichotomy (for the axis-reduction direction only).
 
-## 4. Verification ladder (user's code/Lean side, in the design session's order)
-1. The 3-point and RCD examples (trivial encodings; pin EA and PR
-   definitionally).
-2. The k=2 theorem (both directions finite).
-3. The wrap-cycle gadget with its max-cut certificate.
-4. GYO/α-acyclicity infrastructure for T1.
+## 4. Verification ladder (user's code/Lean side, UPDATED after the second pass)
+1. **The empty-intersection lemma** — one parameterized lemma; the 3-point
+   example, k=2 necessity gadget, wrap-C₄ certificate, and conformality gadget
+   are its m = 2 and m = 4 instances (formerly ladder steps 1–3, collapsed).
+2. The pentagon chain-immunity check — the refutation record; finite,
+   re-runnable (`pentagon_chain_immunity_check.py` — DONE in this environment,
+   all four parts pass).
+3. Bipartite ⟺ edge-completeness on small exclusivity graphs (König side of
+   Family II).
+4. The k=2 completeness proof — now also the statement "Family I is complete
+   at k=2," the base case of the stratification.
+5. GYO/α-acyclicity infrastructure for T1.
 Open mathematical work, by leverage: axis-reduction theorem; T1 necessity in
-full (gadget on every GYO core); Bonferroni normal form.
+full (gadget on every GYO core); Family I ∪ II completeness for single-window
+protocols (or the third mechanism — exhaustive search over ≤ 6-outcome
+protocols first).
 
 ## 5. Honest boundaries (recorded at capture)
 - Reconstruction deliverable = "statistical Takens" (process = measure +

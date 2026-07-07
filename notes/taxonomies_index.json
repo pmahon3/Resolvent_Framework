@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — active successor programme. WINDING CHARACTERIZATION PREDICTIVE 2026-07-08 (P17-P20 all hit; Safe(2cyc⊕3cyc)=6Z predicted fresh and computed exact). Safe-topology question CLOSED under the gate; semantics bifurcation characterized (closure vs aggregation level — gate = the boundary). Parity + free theorems stand. Ledger: 13 hits / 7 informative misses / 1 vacuous / 2 dead conjectures / 1 pre-emptive kill. NEXT: Lean ladder (Lemma 2 first) + voltage-graph paper framing.",
+   "status": "OPEN — active successor programme. Junctions round 2026-07-08: P21-P24 ALL HIT (gate-analogue passes beyond rings; wedge-innocence supported; theta(2,2,2) safe — no holonomy mechanism at tested scale; bifurcation = reduction identity, machine-confirmed). Winding characterization PREDICTIVE; parity + free theorems stand. Ledger: 17 hits / 7 informative misses / 1 vacuous / 2 dead / 1 pre-emptive kill. NEXT: user's Lean pass (pack pinned, Lemma 2 first).",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 59
+   "entries": 64
   },
   {
    "id": "kappa_q",

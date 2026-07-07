@@ -445,6 +445,36 @@ the Lean ladder — gate lemma, Lemma 1 (flow decomposition), Lemma 2
 (functional-digraph two-liner, the load-bearing novelty), mixture-support
 step, assembly.
 
+### 2.2i Junctions round — P21/P22/P23/P24 all HIT; junctions innocent; reduction identity machine-confirmed (2026-07-08)
+Run: `junction_tests.py`. The Lean pack (gate lemma / Lemma 1 / Lemma 2 /
+mixture-support / assembly + the decidable-orbit-criterion suggestion) is
+recorded for the user's Lean side; verification results:
+- **The junction gate-analogue PASSES at all three structures** (rank exactly
+  #cells − #vertices, NAND edge-affine lift identical) — declared failure
+  mode (b) did not occur; C = FSTAB(G) beyond rings at these instances. The
+  figure-eight diagonal-cycle death (hand analysis: junction coherence kills
+  the winding-(1,1) object) is implicit in the geometry: no such vertex
+  exists in FSTAB.
+- **P21 HIT**: fig8(4,4) — zero fractional FSTAB vertices → SAFE.
+- **P22 HIT**: fig8(3,4) — 8 fractional vertices, ALL outside STAB → UNSAFE;
+  inherited triangle-facet gap exactly ½; full-harness protocol-level
+  cross-check agrees (INCOMMENSURABLE, gap ½, n=17).
+- **P24 HIT (the least-confident call)**: theta(2,2,2) = K₂,₃ — zero
+  fractional vertices → SAFE; harness cross-check agrees (n=11).
+  **Path-sharing junctions created no new frustration at this scale**: the
+  world is "interlocking recurrences compose their safety" — wedge-innocence
+  supported, holonomy interaction NOT a third mechanism here, the
+  classification stays spectral/intersection on unicyclic-glued structure
+  (as far as tested; theta at larger even girth and ring-plus-chord remain
+  the design side's stress continuations).
+- **P23 HIT — the bifurcation is a reduction, machine-confirmed**:
+  Safe_closure(ρ₂₀, L) = Safe(ρ₂₀|_{V(L)}, L) HOLDS at every L = 2..12
+  (restriction deletes the invisible component off 6ℤ; degenerate L
+  trivially equal). One theorem, two semantics, an L-dependent language
+  restriction between them.
+**Ledger: 17 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
+1 pre-emptive kill.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

@@ -5,7 +5,7 @@
   "updated": "2026-07-08",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model.",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12).",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,7 +18,7 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 13,
+   "predictions_hit": 17,
    "predictions_missed_informatively": 7,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
    "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
@@ -164,6 +164,13 @@
    "status": "proved-hand-PREDICTIVE",
    "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty.",
    "detail": "winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+  },
+  {
+   "id": "thm.bifurcation_reduction",
+   "name": "Bifurcation reduction identity",
+   "status": "machine-confirmed",
+   "one_line": "Safe_closure(ρ,L) = Safe(ρ|_{V(L)}, L): closure semantics = winding theorem on the L-dependent restriction to section-realized arcs; verified at every L=2..12 on ρ₂₀. One theorem, two observation models.",
+   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   }
  ],
  "structure": [
@@ -357,6 +364,34 @@
    "status": "hit-predictive",
    "one_line": "Computed {6,12} on L=2..12, exact; theorem graduates to predictive. P20b: gate fails at L=2,3,4 (disconnected language) — first exhibit of the semantics bifurcation; EA-on-V commensurable everywhere tested there.",
    "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+  },
+  {
+   "id": "pred.p21_fig8_44",
+   "name": "P21: fig8(4,4) safe",
+   "status": "hit",
+   "one_line": "Junction gate PASSES (rank 17, lift identical); zero fractional FSTAB vertices.",
+   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+  },
+  {
+   "id": "pred.p22_fig8_34",
+   "name": "P22: fig8(3,4) unsafe, inherited, gap ½",
+   "status": "hit",
+   "one_line": "8 fractional vertices all outside STAB; triangle facet gap exactly ½; harness protocol-level agrees (n=17).",
+   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+  },
+  {
+   "id": "pred.p23_reduction_identity",
+   "name": "P23: closure = restricted-language theorem",
+   "status": "hit",
+   "one_line": "Identity HOLDS at all L=2..12 on ρ₂₀ (incl. degenerate L).",
+   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+  },
+  {
+   "id": "pred.p24_theta",
+   "name": "P24: theta(2,2,2) safe (least-confident call)",
+   "status": "hit",
+   "one_line": "Gate passes; zero fractional vertices; harness agrees. Path-sharing created no new frustration — junctions innocent at tested scale.",
+   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   }
  ],
  "open_frontier": [
@@ -364,8 +399,8 @@
    "id": "open.lean_winding_ladder",
    "name": "Lean ladder for the winding theorem (NEXT)",
    "status": "open",
-   "one_line": "Order: gate lemma, Lemma 1 (flow decomposition, special case), Lemma 2 (functional-digraph two-liner — the novelty, so ALSO the place an error would hide), mixture-support step, assembly. Then the Gross–Tucker voltage statement for the paper.",
-   "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+   "one_line": "Lean pack PINNED by design side (gate lemma as executable rank identity / Lemma 1 / Lemma 2 functional-digraph / mixture-support / assembly with injectivity clause; edge cases declared; orbit criterion as DECIDABLE function proved = unsafety ⟹ kernel-checked Safe profiles). USER'S LANE next. Then: wedge-innocence general proof + theta/ring-plus-chord stress at larger scale.",
+   "detail": "commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   },
   {
    "id": "open.safe_topology_invariant",

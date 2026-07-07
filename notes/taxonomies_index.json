@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — active successor programme. PARITY THEOREM PROVED 2026-07-07 (golden-mean ring commensurable iff even; odd gap = one point, CF=1; machine-corroborated on all joints, P9-P12 all HIT). Free theorem (acyclic ∀Γ) stands; commensurability strictly above satisfiability-width (C5-NAND). NEXT design turn: the safe-topology invariant. Q-comp split off (witnessed exclusivity).",
+   "status": "OPEN — active successor programme. Winding round 2026-07-07/08: circulation reduction certified (rank gate); P13 MISSED informatively (aperiodicity ≠ tameness; safe(3-cycle+loop) = {3}; non-constant necklaces bite); NECKLACE CRITERION consistent on 100% of data — backward theorem stands, forward proof attempt licensed. Parity theorem + free theorem stand. Ledger: 9 hits / 7 informative misses / 1 vacuous / 2 dead conjectures / 1 pre-emptive kill.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 46
+   "entries": 52
   },
   {
    "id": "kappa_q",

@@ -2,10 +2,10 @@
  "$meta": {
   "title": "Reconstruction / commensurability classification",
   "purpose": "Zoom-out index of the reconstruction thread's design state, mechanisms, prediction ledger, and open frontier. Load this first; follow detail pointers for full reasoning.",
-  "updated": "2026-07-07",
+  "updated": "2026-07-08",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none.",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target.",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,8 +18,8 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 7,
-   "predictions_missed_informatively": 5,
+   "predictions_hit": 9,
+   "predictions_missed_informatively": 7,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
    "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
    "preemptive_kills": 1,
@@ -143,6 +143,20 @@
    "status": "proved-hand-machine-corroborated",
    "one_line": "C_L commensurable iff L even; C=FSTAB/R=STAB (reduction lemma, P11 exact), parity by forest-TU + det(incidence)=1-(-1)^L; odd gap = unique fractional vertex u=1/2 with CF=1 (the golden-mean PR-box); facet fingerprint 1/(L-1) matches measured gaps 1/2, 1/4.",
    "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+  },
+  {
+   "id": "thm.circulation_reduction",
+   "name": "Circulation reduction + rank gate",
+   "status": "settled",
+   "one_line": "For edge-scope ring protocols passing the rank gate (EA rowspace ≡ conservation rowspace — PASS every language/L run), C = normalized circulation polytope; vertices = (1/k)·simple layered cycles (flow decomposition); R = conv(winding-1 sections).",
+   "detail": "winding_invariant_tests.py; zoom: commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+  },
+  {
+   "id": "thm.necklace_backward",
+   "name": "Backward theorem: necklace ⟹ unsafe (strongly contextual)",
+   "status": "proved-hand-machine-corroborated",
+   "one_line": "Per-edge sub-relations with a cycle but no winding-1 cycle force EA-coherent unrealisable uniform circulation; consistent with 100% of computed data (ρ₁₃ L=3..9, NAND all L, 974 P16 instances).",
+   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
   }
  ],
  "structure": [
@@ -273,6 +287,34 @@
    "status": "hit",
    "one_line": "Exact vertex census: 12 vertices, unique fractional = u==1/2; also 4+1 at L=3, all-integral 7/18 at L=4/6.",
    "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+  },
+  {
+   "id": "pred.p13_mod3",
+   "name": "P13: ternary 3-cycle+loop Safe = 3Z",
+   "status": "refuted",
+   "one_line": "Observed Safe = {3}: L=6,9 unsafe via the period-4 orbit 0120 (non-constant necklace, 4∤6) — aperiodic dynamics still frustrates; invariant ≠ sub-digraph gcd; obstruction generators = primitive orbit periods. Harness-confirmed at L=6 (gap ½).",
+   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+  },
+  {
+   "id": "pred.p14_nand_8_10",
+   "name": "P14: NAND safe at L=8,10",
+   "status": "hit",
+   "one_line": "Zero winding-≥2 simple cycles at all; rank gates pass.",
+   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+  },
+  {
+   "id": "pred.p15_no_even_necklace",
+   "name": "P15: no NAND necklace at even L",
+   "status": "hit",
+   "one_line": "Exhaustive 7^L search at L=4,6,8: zero; odd-L positive controls fire; rank gate = standing per-language check.",
+   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+  },
+  {
+   "id": "pred.p16_separation",
+   "name": "P16: separation hunt (|A|=3, L=3,4)",
+   "status": "miss-licensing",
+   "one_line": "974 uniform instances: no bad vertex with section-carrying support; every incommensurable instance strongly contextual; forward proof attempt LICENSED.",
+   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
   }
  ],
  "open_frontier": [
@@ -280,8 +322,8 @@
    "id": "open.safe_topology_invariant",
    "name": "Safe-topology invariant (NEXT design turn)",
    "status": "open",
-   "one_line": "What algebraic invariant of a binary language rho reads off its safe ring-length profile? Spectrum observed: {<=}: all / NAND: even / XOR: even-degenerate / full: none — circular-chromatic or cohomological flavor; more constraint can mean MORE tame.",
-   "detail": "commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+   "one_line": "CORRECTED by P13: invariant ≠ spectral aperiodicity/sub-digraph period — profile governed by the PRIMITIVE-ORBIT period spectrum via simple-winding (≤|A|) + the hull condition; observed: {≤} all / equality all / NAND even / XOR even-degen / ρ₁₃ aperiodic {3} / full none. NEXT: forward proof attempt (unsafe ⟹ necklace) in the circulation/covering frame.",
+   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
   },
   {
    "id": "open.parity_theorem",

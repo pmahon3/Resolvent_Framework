@@ -356,6 +356,49 @@ cycles). C₃ counting-certificate correction acknowledged design-side.
 **Lean ladder, proof's load-bearing joints in order**: (1) common-subalgebra/
 reduction lemma, (2) forest-TU, (3) unique-fractional-vertex.
 
+### 2.2g Winding/circulation round — P13 MISSES informatively, necklace criterion survives everything (2026-07-07/08)
+Run: `winding_invariant_tests.py` (circulation-level, certified per-language by
+the RANK GATE = EA rowspace ≡ conservation rowspace, PASS everywhere run;
+harness cross-checks at small L all agree).
+- **P13 MISS ×2 (the decisive one, and the miss is the finding)**: ternary
+  3-cycle+loop-at-0; predicted Safe = 3ℤ; observed **Safe = {3}** (L=4..9 all
+  unsafe; L=6,9 contradict the prediction; L=6 confirmed at protocol level by
+  the full harness, gap ½). Autopsy: the L=6 frustrating object is the
+  uniform circulation on the **primitive period-4 orbit `0120`** (3-cycle
+  once + loop once), closing only after 2 wraps since 4 ∤ 6 — a
+  **NON-CONSTANT necklace**, already covered by the design side's own
+  backward theorem. The prediction considered only constant necklaces
+  (sub-digraph gcd/Perron–Frobenius period); but ρ is APERIODIC (cycle
+  lengths {1,3}, gcd 1) and still frustrates almost everywhere. **Spectral
+  aperiodicity of sub-dynamics ≠ tameness**; the obstruction generators are
+  the PRIMITIVE PERIODIC ORBITS (the numerical semigroup of orbit periods
+  interacting with L through winding of simple layered cycles, capped at
+  |A|). L=3 is safe because no winding-≥2 SIMPLE layered cycle exists at all
+  there (a period-p orbit needs winding p/gcd(p,L) ≤ |A| and no state
+  collisions).
+- **Necklace criterion: 100% consistent on ALL data.** Completeness check at
+  L=3..9: necklace-exists ⟺ unsafe at every L; moreover every winding-≥2
+  simple cycle in the ρ₁₃ data is section-free-supported. Together with NAND
+  (P14: L=8,10 safe with ZERO winding-≥2 cycles; P15: exhaustive — 0
+  necklaces among 7^L assignments at even L=4,6,8, positive controls at odd
+  L fire) and P16 (974 uniform ternary instances, 0 hits: no bad vertex with
+  section-carrying support anywhere), the standing of the two conjecture
+  halves: **backward (necklace ⟹ unsafe) = theorem; forward (unsafe ⟹
+  necklace) = unrefuted by everything computed, proof attempt LICENSED** —
+  and every incommensurable instance so far is STRONGLY contextual
+  (section-free support), so the P16 separation phenomenon remains unseen.
+- **P14 HIT** (NAND safe L=8,10, rank gates pass), **P15 HIT** (with
+  controls), **P16 MISS-as-registered** (licensing).
+- **Corrected invariant target for the next design turn**: not sub-digraph
+  period — the safe-length profile is governed by the primitive-orbit period
+  spectrum through the simple-winding mechanism, with the polyhedral hull
+  condition still the exact statement. Observed profiles: {≤}: all; equality:
+  all; NAND: even; XOR: even (odd degenerate); ρ₁₃ (aperiodic!): {3}; full:
+  none. The dynamical sentence stands and sharpens: contextual data from a
+  recurrent world = observations living on a hidden k-fold cover of the
+  observed clock, and the covers that bite are those of primitive orbits
+  whose period does not divide the clock.
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

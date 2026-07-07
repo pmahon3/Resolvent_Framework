@@ -5,7 +5,7 @@
   "updated": "2026-07-07",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6.",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none.",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,12 +18,13 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 3,
+   "predictions_hit": 7,
    "predictions_missed_informatively": 5,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
    "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
    "preemptive_kills": 1,
-   "ring_parity": "odd L=3,5 incommensurable / even L=4,6 commensurable (exact)"
+   "ring_parity": "odd L=3,5 incommensurable / even L=4,6 commensurable (exact)",
+   "theorems_proved": 2
   }
  },
  "definitions": [
@@ -135,6 +136,13 @@
    "status": "settled",
    "one_line": "Golden-mean on C5: half-model scope-coherent + unrealisable (odd 2-coloring) while min-polymorphism makes BLP decide satisfiability (KOTYZ) — polytope projection is a strictly stronger power; machine-confirmed facet gap 1/4.",
    "detail": "ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "thm.parity_golden_mean",
+   "name": "Parity theorem (golden-mean rings)",
+   "status": "proved-hand-machine-corroborated",
+   "one_line": "C_L commensurable iff L even; C=FSTAB/R=STAB (reduction lemma, P11 exact), parity by forest-TU + det(incidence)=1-(-1)^L; odd gap = unique fractional vertex u=1/2 with CF=1 (the golden-mean PR-box); facet fingerprint 1/(L-1) matches measured gaps 1/2, 1/4.",
+   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
   }
  ],
  "structure": [
@@ -237,14 +245,49 @@
    "status": "killed-preemptively",
    "one_line": "The ledger's first pre-emptive kill: refuted by hand (C5-NAND) BEFORE registration; symmetric polymorphisms give satisfiability-exactness, not polytope-exactness.",
    "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "pred.p9_xor",
+   "name": "P9: XOR even rings safe",
+   "status": "hit",
+   "one_line": "L=4,6 commensurable exact (V = the two colorings); odd rings degenerate (empty variety) — reported, not scored.",
+   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+  },
+  {
+   "id": "pred.p10_implication",
+   "name": "P10: implication all rings safe",
+   "status": "hit",
+   "one_line": "L=3..6 commensurable exact (V = two constants); graded on V-induced cells (empty (0,1) not reportable) — derivation agrees.",
+   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+  },
+  {
+   "id": "pred.p11_ea_fidelity",
+   "name": "P11: harness EA = FSTAB at L=5",
+   "status": "hit",
+   "one_line": "rank(EA)=10 exactly + affine lift q(u) satisfies EA identically — the reduction lemma's common-subalgebra computation is EXACTLY what the harness computes.",
+   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+  },
+  {
+   "id": "pred.p12_fstab_c5",
+   "name": "P12: FSTAB(C5) = 11 integral + 1 fractional",
+   "status": "hit",
+   "one_line": "Exact vertex census: 12 vertices, unique fractional = u==1/2; also 4+1 at L=3, all-integral 7/18 at L=4/6.",
+   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
   }
  ],
  "open_frontier": [
   {
+   "id": "open.safe_topology_invariant",
+   "name": "Safe-topology invariant (NEXT design turn)",
+   "status": "open",
+   "one_line": "What algebraic invariant of a binary language rho reads off its safe ring-length profile? Spectrum observed: {<=}: all / NAND: even / XOR: even-degenerate / full: none — circular-chromatic or cohomological flavor; more constraint can mean MORE tame.",
+   "detail": "commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+  },
+  {
    "id": "open.parity_theorem",
    "name": "Golden-mean parity theorem (NEXT design turn)",
-   "status": "open",
-   "one_line": "Prove: safe topologies of golden-mean = bipartite ring structures; evidence exact at L=3..6; likely mechanism = transfer-matrix gluing around even rings.",
+   "status": "resolved",
+   "one_line": "RESOLVED 2026-07-07: proved (hand) + machine-corroborated on all joints; see thm.parity_golden_mean. Lean ladder: reduction lemma, forest-TU, unique-fractional-vertex.",
    "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
   },
   {

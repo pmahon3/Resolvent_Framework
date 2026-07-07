@@ -316,6 +316,46 @@ question), Thapper–Živný + Kolmogorov–Krokhin–Rolínek, Grohe.
   event; concentrated model = the universal violator). Two questions, two
   programmes, one atlas each; conflating them was v1's error.
 
+### 2.2f Parity theorem PROVED + P9–P12 all HIT (2026-07-07, third design pass)
+**Theorem (golden-mean ring parity)**: C_L commensurable ⟺ L even. ⟦HAND —
+machine-corroborated on every checkable joint (`parity_theorem_checks.py`)⟧:
+- **Reduction lemma** (C ≅ FSTAB(C_L), R ≅ STAB(C_L) in vertex-marginal
+  coordinates): **P11 EXACT** — the harness's own EA system has rank exactly
+  15−5=10 at L=5 and the affine lift q(u) satisfies it identically; EA sees
+  precisely the shared events the lemma claims, no more.
+- **Parity mechanism**: det(incidence C_L) = 1−(−1)^L verified L=3..8; every
+  proper square submatrix forest-TU (det ∈ {−1,0,1}) verified L=3..7. Even ⟹
+  TU ⟹ integral vertices ⟹ commensurable (transfer-matrix glue survives as
+  the sampling remark). Odd ⟹ unique fractional vertex u ≡ ½: **P12 PASS**
+  (FSTAB(C₅) = 11 integral + 1 fractional, exactly; likewise 4+1 at L=3;
+  all-integral at L=4 (7) and L=6 (18)). The EA/PR gap on an odd golden-mean
+  ring is A SINGLE POINT.
+- **Corollaries matching measured data**: separating facet = odd-cycle
+  Σu ≤ (L−1)/2 with relative violation 1/(L−1) — the measured gaps ½ (C₃) and
+  ¼ (C₅) are its fingerprint. Half-model has **CF = 1** (support argument
+  machine-checked: no legal config dominates exactly-one-per-edge) — the
+  golden-mean ring's PR-box. Obstruction-zoo unification: same STAB odd-cycle
+  shape as the pentagon's coverage bound — compression (Q-comp) and
+  recurrence reach the SAME polyhedral obstruction by different observational
+  routes; the classification tracks which protocols reach which exhibits.
+- **Dynamical reading, now a theorem**: golden-mean dynamics yields contextual
+  scope data exactly on odd-period recurrence — alternation cannot close an
+  odd ring, observed.
+**v3 landscape (safe-topology spectrum over binary languages)**: {≤}: ALL
+rings safe (**P10 PASS**, L=3..6 exact; graded on the V-induced cell
+structure — the empty (0,1) cell is not reportable; relation-level derivation
+agrees here); NAND: even only (the theorem); XOR: even safe (**P9 PASS**,
+L=4,6; odd = degenerate, empty variety — reported not scored); full: none
+(wrap-C₄/AQBCC). More constraint can mean MORE tame. **Next design turn: the
+safe-topology invariant** (circular-chromatic / cohomological flavor — what
+algebraic invariant of ρ reads off the safe-length profile).
+Shelf: Hoffman–Kruskal/König (TU step — expect full overlap, ours is the
+3-line special case), Chvátal t-perfection (carries the complete odd-ring
+facet description; we need only the single facet), AQBCC (full-language
+cycles). C₃ counting-certificate correction acknowledged design-side.
+**Lean ladder, proof's load-bearing joints in order**: (1) common-subalgebra/
+reduction lemma, (2) forest-TU, (3) unique-fractional-vertex.
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

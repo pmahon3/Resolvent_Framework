@@ -180,6 +180,65 @@ n=4: 46 (6 cliques, 3 syzygies); n=5 k=2: 41 (2 cliques); n=6 k=2: 146
 82 Family-I / 29 syzygy / 27 cliques / 2 ELSE-weighted. n=5 k=3 and n=6 k=3
 runs continuing (tracked watcher).
 
+### 2.2c Final ≤6 atlas + reclassifications + v2 calibrations (2026-07-07)
+
+**Final sweep results** (n=6 k=3 DESCOPED — projected 40–160 h, not "cheap";
+rerun later optimized if the trichotomy needs the datum):
+- n=5 k=3 COMPLETE: 339 canonical protocols — 92 R=C / 135 Family-I /
+  54 cliques / **2 NEED_ODDHOLES (first sightings — the pentagon in
+  coarse-partition costume: {0|12|34},{01|2|34},{03|1|24}; minimal
+  odd-hole-needing protocol = n=5, k=3, vindicating the design session's
+  quantitative instinct for the odd-hole reading of P2)** / 48 syzygies /
+  8 ELSE-weighted (ALL witnesses ½-spread — majority-commitment corroborated
+  at every instance).
+- Totals ≤6 (k=2 complete everywhere; k=3 complete to n=5): all five
+  mechanisms sighted, none beyond.
+
+**Structural reclassifications (design session, endorsed after verification):**
+1. **Multiset-domination is universally true, hence contentless** — these are
+   0/1 polytopes; every facet has an integer normal, splits by sign, constants
+   absorb via context sums (each context sums to 1 pointwise). Two lines. The
+   content relocates to the QUANTITATIVE half.
+2. **Family 0 reclassified: syzygies are the gauge group**, not a certificate
+   family — the lattice of pointwise identities (hull equations + context
+   sums) to quotient by before weight is defined. Invariants: w(facet) =
+   min ‖λ‖∞ over integer representatives mod gauge; w(protocol) = max over
+   facets. Taxonomy = weight spectrum + shape labels per weight.
+3. **Protocol-level vs model-level completeness must be tagged everywhere.**
+   Reconciliation of the k=2 "contradiction": edges are protocol-complete at
+   k=2 (the k=2 theorem — incommensurable ⟹ some edge violated by SOME
+   model) but model-incomplete (the ½-spread clique witness). Harness
+   verdicts are MODEL-level. Classification needs protocol-level; the CF
+   diagnostic needs model-level.
+
+**The trichotomy (the corrected big picture):** k=2 — weight-1,
+protocol-complete (the theorem). k=3, full product support, coordinate
+contexts — always commensurable (product measure; two lines). k=3 with a
+variety — UNIVERSAL: De Loera–Onn (every rational polytope is a face of a
+3-way transportation polytope; faces = punctures), so no weight bound, model
+membership NP-complete (Pitowsky floor hit at three contexts), no finite facet
+taxonomy. All hardness lives in the variety, where the axis-reduction said.
+Shelf additions: Avis–Imai–Ito–Sasaki covariance map (bipartite Bell ≅ cut
+polytopes — mixed-weight facets are EXPECTED early arrivals), De Loera–Onn
+universality. **Successor question (next design turn): the dichotomy hunt —
+which constraint languages (dynamics, compressions) generate tame protocol
+families vs universality; anchors: interval cylinder varieties = tame (the
+tame theorem) vs DLO punctures = universal; first open case: golden-mean SFT.**
+
+**v2 calibrations (`harness_v2_calibrations.py`):**
+- (c) 2×2×2 coordinate protocol → R_EQUALS_C ✓ (product-measure anchor PASS).
+- (d) cube-minus-2 punctures (all 3 Hamming classes, n=6): ALL
+  FAMILY_I_COMPLETE, gauge-weight LB = 1 — **prediction "weight ≥ 3 at
+  reachable scale" NOT confirmed at this scale** (logged as a miss; minimal
+  weight-3 lives beyond 6-point punctured cubes — larger grids presumably
+  needed for the DLO mechanism to bite).
+- The n=5 fourth-mechanism facet **gauge-reduces to weight-LB 1**: the
+  "weighted" mechanism is not high-weight mod gauge — it is a weight-1 facet
+  whose SHAPE (multiple negatives across contexts) escapes chains ∪ cliques ∪
+  holes. Weight alone does not separate the fourth mechanism; shape labels
+  are load-bearing. (Caveat: LP relaxation = lower bound only; integrality of
+  minimizers not yet certified — v2.1 item.)
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

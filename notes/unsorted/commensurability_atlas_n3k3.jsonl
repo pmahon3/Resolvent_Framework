@@ -1,0 +1,1 @@
+{"verdict": "NEED_CLIQUES_COMPLETE", "n": 3, "k": 3, "contexts": [[[0], [1, 2]], [[0, 1], [2]], [[0, 2], [1]]], "n_family_I": 29, "n_family_II": 4, "sep_facet_cone": null, "else_witness": null}

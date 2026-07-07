@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — active successor programme. P29/P30 2026-07-09: swap-spectrum criterion validated (23-hit ledger); exhaustive ≤4-state fork hunt: 5 tamings catalogued (incl. #5 transient branching, discovered); fork narrows to ONE candidate ρ* (loops+2-cycle, swap-parity) on q=2-subdivided K4 — P31 awaiting design registration. Theorem-lets A (shift-reachability) + B (eventual periodicity) machine-validated. NEXT: design side registers P31/P32; user's Lean pass continues.",
+   "status": "OPEN — active successor programme. P31/P32/P33 2026-07-09: 25-hit ledger; SIX tamings catalogued (#6 direct-sum, via corrected ρ* mis-triage); taming #4 machine-confirmed on K4 (rank-drop observable); 13 true candidates with NAND minimal — digraph filters cannot decide fork-capability; ρ₅ = first no-known-reduction candidate, awaiting design-side analysis/registration. NEXT: design side on ρ₅; user's Lean pass (Lemma-2-first) unchanged.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 77
+   "entries": 80
   },
   {
    "id": "kappa_q",

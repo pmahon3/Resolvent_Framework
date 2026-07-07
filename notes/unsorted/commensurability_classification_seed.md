@@ -587,6 +587,42 @@ Run: `swap_spectrum_scan.py` + triage (`commensurability_fork_candidates.json`,
 **Ledger: 23 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
 1 pre-emptive kill; P30 fulfilled-as-registered (ranked list, non-empty).**
 
+### 2.2m P31/P32/P33 — taming #6, the control confirmed, and the filter-limit theorem-shaped lesson (2026-07-09)
+Run: `p31_p32_round.py`.
+- **Mis-triage caught pre-run (mine, on the record): ρ* is DISCONNECTED as a
+  relation digraph** ({0,2} ⊔ {1}); on connected G the 1-sector mass is
+  globally constant, so ρ* = NAND(0,2) ⊕ point — its "novel" swap-parity is
+  NAND's own. **Taming #6: direct-sum decomposition** (machine-checked:
+  sector separation on path-3): Safe(ρ₁⊕ρ₂) reduces componentwise; the
+  earlier "connected" triage field existed but the survivor pass never
+  applied it.
+- **P31 HIT as registered** (prediction safe — correct), decided by the
+  decomposition lemma + the STORED P25 verdict (NAND on even-subdivided K₄:
+  gate PASS, zero fractional vertices). Not the fork; the exchange-graded
+  reading of ρ* dissolves — its pair-cycle IS NAND's, relabeled.
+  (Theorem-let D unaffected as arithmetic; its "level-one autonomy" witness
+  needs a CONNECTED example or it stays unwitnessed.)
+- **P32 HIT — taming #4 machine-confirmed on K₄, with the mechanism as an
+  observable**: theta-digraph at q=3: |V| = 144 = 64+64+16 exactly as the
+  three phase sectors predict; **dim C = dim R = 18 = 2 (sector mixing) +
+  6+6+4 (free binary choices)** — the rank drop is visible in the harness
+  output, not just the verdict; 20/20 exact random-direction LPs give
+  max_C = max_R (full facet pass infeasible at n=144 — scope declared; the
+  hand factorization argument covers it).
+- **P33 corrected**: with connectivity + decomposition + recurrent-
+  connectivity filters, **13 TRUE candidates** remain
+  (`commensurability_fork_final.json`) — and the list is its own lesson:
+  **NAND itself is the minimal entry.** Structural digraph filters CANNOT
+  decide fork-capability: the tamings are polytope-level facts about the
+  DERIVED constraint structure, not digraph-level facts about ρ. The
+  genuinely open object is the first candidate with no known reduction:
+  **ρ₅ = {(0,1),(0,2),(1,0),(1,1),(2,0)}** (3 states, connected, recurrent
+  branching at 0 AND 1, loop ⟹ aperiodic base, Safe = evens, qs = 2,4,6) —
+  awaiting design-side hand-analysis (NAND-reduction hunt) or cold
+  registration of its q=2-subdivided-K₄ test.
+**Ledger: 25 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
+1 pre-emptive kill / 1 recorded mis-triage (corrected same-day).**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

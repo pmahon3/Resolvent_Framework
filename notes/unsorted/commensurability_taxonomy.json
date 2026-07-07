@@ -5,7 +5,7 @@
   "updated": "2026-07-09",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12). K4 round: gate holds at a K4 minor; NAND tames the minor obstruction (evenize ⟺ bipartitize — NAND cannot separate Circuit Localization from minor theory; P25' = ρ₂₀-beads on length-6-subdivided K4 is the decisive test); lifting lemma controlled both ways (P26 path-sharing inheritance gap ½; P27 totality necessary via matched lollipop pair). P25' round: rho20 is a PERMUTATION — LOCAL = holonomy-invariant simplex, Safe ⟺ H=id (covering frame LITERAL); third taming. NE3 ruled out (unsafe all L, gate fails rigid-direction at L=3). Fork needs: nondeterministic + nonempty safe set + non-integrality-forcing — existence now the design question; the tamings may BE Circuit Localization's mechanism. P29/P30: swap-spectrum criterion VALIDATED polytope-free; exhaustive ≤4-state hunt: 333 pre-candidates → taming #5 (transient branching, 149) → 184 recurrent-branching survivors, 181 even-q parity-family + 1 graded exemplar. Fork narrows to ρ* = loops+2-cycle (parity from swap dynamics, not bipartite base) on q=2-subdivided K4 — P31 awaiting registration.",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12). K4 round: gate holds at a K4 minor; NAND tames the minor obstruction (evenize ⟺ bipartitize — NAND cannot separate Circuit Localization from minor theory; P25' = ρ₂₀-beads on length-6-subdivided K4 is the decisive test); lifting lemma controlled both ways (P26 path-sharing inheritance gap ½; P27 totality necessary via matched lollipop pair). P25' round: rho20 is a PERMUTATION — LOCAL = holonomy-invariant simplex, Safe ⟺ H=id (covering frame LITERAL); third taming. NE3 ruled out (unsafe all L, gate fails rigid-direction at L=3). Fork needs: nondeterministic + nonempty safe set + non-integrality-forcing — existence now the design question; the tamings may BE Circuit Localization's mechanism. P29/P30: swap-spectrum criterion VALIDATED polytope-free; exhaustive ≤4-state hunt: 333 pre-candidates → taming #5 (transient branching, 149) → 184 recurrent-branching survivors, 181 even-q parity-family + 1 graded exemplar. Fork narrows to ρ* = loops+2-cycle (parity from swap dynamics, not bipartite base) on q=2-subdivided K4 — P31 awaiting registration. P31/P32/P33: taming #6 = direct-sum decomposition (ρ* mis-triage caught: = NAND ⊕ point); taming #4 machine-confirmed on K4 with the rank drop as observable (dim C = dim R = 18 = factorization formula); 13 true candidates remain with NAND minimal — structural filters cannot decide fork-capability (tamings are polytope-level); ρ₅ = {01,02,10,11,20} is the first no-known-reduction candidate.",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,14 +18,14 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 23,
+   "predictions_hit": 25,
    "predictions_missed_informatively": 7,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
    "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
    "preemptive_kills": 1,
    "ring_parity": "odd L=3,5 incommensurable / even L=4,6 commensurable (exact)",
    "theorems_proved": 3,
-   "tamings_catalogued": 5
+   "tamings_catalogued": 6
   }
  },
  "definitions": [
@@ -470,15 +470,36 @@
    "status": "fulfilled",
    "one_line": "Non-empty: 333 pre-candidates; cascade → taming #5 (transient branching, 149) → 184 recurrent survivors (181 even-q parity, 1 = design side's taming-#4 exemplar found independently); fork narrows to ρ*.",
    "detail": "commensurability_fork_survivors.json; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
+  },
+  {
+   "id": "pred.p31_rho_star",
+   "name": "P31: ρ* on q=2-subdivided K4 safe",
+   "status": "hit",
+   "one_line": "Correct via taming #6 (ρ* = NAND ⊕ point, decomposition machine-checked) + stored P25; NOT the fork; mis-triage recorded and corrected.",
+   "detail": "p31_p32_round.py; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
+  },
+  {
+   "id": "pred.p32_theta_control",
+   "name": "P32: theta-digraph q=3 control — safe with rank drop visible",
+   "status": "hit",
+   "one_line": "|V|=144=64+64+16 exact; dim C = dim R = 18 = 2+6+6+4 (the factorization observable); 20/20 exact LP directions agree; taming #4 confirmed on K4.",
+   "detail": "p31_p32_round.py; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
+  },
+  {
+   "id": "pred.p33_minimality",
+   "name": "P33: minimality (corrected)",
+   "status": "corrected",
+   "one_line": "ρ* disqualified (taming #6); corrected filter set → 13 true candidates, NAND minimal — proving digraph-level filters cannot decide fork-capability; ρ₅ = first no-known-reduction candidate.",
+   "detail": "commensurability_fork_final.json; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
   }
  ],
  "open_frontier": [
   {
    "id": "open.p31_rho_star",
    "name": "P31 (awaiting design registration): ρ* on q=2-subdivided K4",
-   "status": "open",
-   "one_line": "ρ* = {(0,0),(0,2),(1,1),(2,0)}: recurrent branching, Safe = evens via SWAP parity not base bipartiteness — no known taming applies; the K4 test (10 vertices, alphabet 3) is the first genuine fork engagement. Control: theta-digraph at q=3 (taming-#4 confirmation).",
-   "detail": "commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
+   "status": "resolved",
+   "one_line": "RESOLVED: hit via taming #6 + P25; fork unreached #4. Successor object: ρ₅ = {(0,1),(0,2),(1,0),(1,1),(2,0)} (connected, recurrent branching, aperiodic base, Safe = evens) — design-side NAND-reduction hunt or cold K4 registration.",
+   "detail": "commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
   },
   {
    "id": "open.p25_prime",

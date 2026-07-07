@@ -247,6 +247,27 @@ parts closing the beyond-Polish Derr–Williamson cell"); (3) Phase-2 `/audit fu
 the write-up question. Reversal trigger (binding): downgrade only on a prior-art hit or
 a located definitional-fidelity flaw.
 
+**⚑ NEW ACTIVE THREAD (2026-07-06): reconstruction / commensurability classification.**
+With the amended Ψ machine-checked, the programme reorients toward **practical
+reconstruction, foundations-first** (user decision, design session = the witness
+capture session continued). Division of labour: design session does mathematical
+planning/design via discussion; this repo verifies (Lean + audit tools); writing
+after verification. Vocabulary locked: **EA/PR(𝓡)** — coherent window data = EA;
+realisability relative to a *declared* realisation class 𝓡 = PR(𝓡) (the observer's
+commitment lattice); **commensurability** of a protocol = EA ⟹ PR(𝓡) universally.
+Seed with declared types, claims + status, prior-art shelf, and the Lean ladder:
+`notes/unsorted/commensurability_classification_seed.md`. Four finite claims from
+the design session **re-verified in this environment** (`notes/unsorted/
+commensurability_checks.py`: minimal 3-outcome EA/PR separation; k=3 Fréchet gap
+2-vs-1 on x₁/x₂/x₁⊕x₂; wrap-C₄ parity model unrealisable; C₄ packing = 2 inert vs
+C₅ = 5/2). Open queue by leverage: axis-reduction theorem (compression ⟶ reporting
+over constrained alphabet), T1 necessity (gadgets on every GYO core), Bonferroni
+normal-form conjecture. Layer-1 licensing targets: C1 (full-window coherence ⟹
+trajectory measure), C1′ (finite-alphabet quarantine: the σ-essential pathology
+cannot occur in the data regime — the witness *secures* reconstruction).
+σ-essential frontier triple (OML conjecture / no-singletons regime /
+positive-selection strength) stands separately in the taxonomy.
+
 **[SUPERSEDED-IN-PART 2026-07-06]** The block below stands as the record for the
 **literal (lattice / literal-irreducibility) forms only**. Its mathematical content
 (walls, import-sweep kills) is unrefuted; its strategic judgment ("not close") is

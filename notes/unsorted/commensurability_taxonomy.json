@@ -5,7 +5,7 @@
   "updated": "2026-07-08",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target.",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model.",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,13 +18,13 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 9,
+   "predictions_hit": 13,
    "predictions_missed_informatively": 7,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
    "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
    "preemptive_kills": 1,
    "ring_parity": "odd L=3,5 incommensurable / even L=4,6 commensurable (exact)",
-   "theorems_proved": 2
+   "theorems_proved": 3
   }
  },
  "definitions": [
@@ -157,6 +157,13 @@
    "status": "proved-hand-machine-corroborated",
    "one_line": "Per-edge sub-relations with a cycle but no winding-1 cycle force EA-coherent unrealisable uniform circulation; consistent with 100% of computed data (ρ₁₃ L=3..9, NAND all L, 974 P16 instances).",
    "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+  },
+  {
+   "id": "thm.winding_characterization",
+   "name": "Winding characterization (safe-topology theorem)",
+   "status": "proved-hand-PREDICTIVE",
+   "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty.",
+   "detail": "winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
   }
  ],
  "structure": [
@@ -180,6 +187,13 @@
    "status": "open-candidate",
    "one_line": "Gamma -> {cycle structures with local = marginal}; candidate: golden-mean's safe topologies = exactly the bipartite ones. Dynamical reading: recurrence closes time into rings; golden-mean dynamics is contextual precisely on odd-period orbits.",
    "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "struct.semantics_bifurcation",
+   "name": "Closure-level vs aggregation-level coherence",
+   "status": "settled",
+   "one_line": "Gate-pass ⟺ EA-on-V = circulation object and the theorem is unconditional; gate-fail (arcs only on winding-≥2 cycles: disconnected/period-forcing languages, exhibit ρ₂₀ L=2,3,4) ⟹ the two diverge — EA-on-V commensurable everywhere tested while circulation unsafe off 6Z — and each application must declare its observation model (single-trajectory = closure; aggregated multi-run = aggregation/covering).",
+   "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
   }
  ],
  "predictions_ledger": [
@@ -315,14 +329,49 @@
    "status": "miss-licensing",
    "one_line": "974 uniform instances: no bad vertex with section-carrying support; every incommensurable instance strongly contextual; forward proof attempt LICENSED.",
    "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+  },
+  {
+   "id": "pred.p17_vertices",
+   "name": "P17: C-vertices = normalized simple cycles",
+   "status": "hit",
+   "one_line": "Set identity at NAND L=5 / ρ₁₃ L=4 / full L=3 / XOR L=4 (12/6/12/2).",
+   "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+  },
+  {
+   "id": "pred.p18_orbit_criterion",
+   "name": "P18: orbit criterion reproduces Safe(ρ₁₃)={3}",
+   "status": "hit",
+   "one_line": "Pure combinatorics (no polytopes) matches; L=9 witness = an 18-period composite orbit.",
+   "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+  },
+  {
+   "id": "pred.p19_antiperiodic",
+   "name": "P19: full-language L=4 winding-2 = anti-periodic",
+   "status": "hit",
+   "one_line": "All 8 cycles anti-periodic; binary corollary corroborated.",
+   "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+  },
+  {
+   "id": "pred.p20_rho20",
+   "name": "P20: Safe(2-cycle⊕3-cycle) = 6Z (fresh forward test)",
+   "status": "hit-predictive",
+   "one_line": "Computed {6,12} on L=2..12, exact; theorem graduates to predictive. P20b: gate fails at L=2,3,4 (disconnected language) — first exhibit of the semantics bifurcation; EA-on-V commensurable everywhere tested there.",
+   "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
   }
  ],
  "open_frontier": [
   {
+   "id": "open.lean_winding_ladder",
+   "name": "Lean ladder for the winding theorem (NEXT)",
+   "status": "open",
+   "one_line": "Order: gate lemma, Lemma 1 (flow decomposition, special case), Lemma 2 (functional-digraph two-liner — the novelty, so ALSO the place an error would hide), mixture-support step, assembly. Then the Gross–Tucker voltage statement for the paper.",
+   "detail": "commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+  },
+  {
    "id": "open.safe_topology_invariant",
    "name": "Safe-topology invariant (NEXT design turn)",
-   "status": "open",
-   "one_line": "CORRECTED by P13: invariant ≠ spectral aperiodicity/sub-digraph period — profile governed by the PRIMITIVE-ORBIT period spectrum via simple-winding (≤|A|) + the hull condition; observed: {≤} all / equality all / NAND even / XOR even-degen / ρ₁₃ aperiodic {3} / full none. NEXT: forward proof attempt (unsafe ⟹ necklace) in the circulation/covering frame.",
+   "status": "resolved",
+   "one_line": "RESOLVED 2026-07-08: the winding characterization theorem (thm.winding_characterization), predictive as of P20. Residue: covering-space (voltage) statement of the proof; the semantics bifurcation is the new structural fact.",
    "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
   },
   {

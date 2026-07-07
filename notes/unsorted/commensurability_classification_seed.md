@@ -399,6 +399,52 @@ harness cross-checks at small L all agree).
   observed clock, and the covers that bite are those of primitive orbits
   whose period does not divide the clock.
 
+### 2.2h Winding characterization — PREDICTIVE; P17–P20 all HIT; the semantics bifurcation (2026-07-08)
+Run: `winding_theorem_checks.py`. The theorem's corroborations and its first
+fresh-prediction validation:
+- **P17 HIT (Lemma 1 + gate)**: exact vertex enumeration of the EA polytope C
+  (cell coordinates, zero-set method) equals the set of normalized simple
+  layered cycles EXACTLY — NAND L=5 (12=12), ρ₁₃ L=4 (6=6), full-binary L=3
+  (12=12), XOR L=4 (2=2). Set identity, not just counts.
+- **P18 HIT**: Safe(ρ₁₃) recomputed purely from the primitive-orbit criterion
+  (winding k = q/gcd(q,L) ≥ 2 + injective wrap) = {3} across L=3..9,
+  matching the polytopes. The L=9 witness is an 18-period primitive orbit
+  (001200120120012012) — composite necklaces get intricate, the criterion
+  tracks them.
+- **P19 HIT**: all 8 winding-2 simple cycles of the full language at L=4 are
+  anti-periodic (w_{i+4} = 1−w_i) — the binary corollary corroborated.
+- **P20 HIT — THE THEOREM IS NOW PREDICTIVE**: ρ₂₀ = disjoint 2-cycle ⊕
+  3-cycle; predicted Safe = 6ℤ before harness contact; computed
+  Safe_circ(ρ₂₀) = {6, 12} on L=2..12 (odd-coprime L degenerate-unsafe, as
+  the criterion says). First non-parity, non-postdicted profile.
+- **P20b — the honesty-ledger caveat, exhibited and CHARACTERIZED (the
+  substantive hand-back):** ρ₂₀'s transfer digraph is disconnected, and at
+  L=2,3,4 the rank gate FAILS (a component whose period ∤ L has ALL its arcs
+  V-unrealized — they lie on no section, so they are not EA cells). There
+  the two objects genuinely diverge: **EA-on-V is COMMENSURABLE at every
+  tested L (2,3,4,6)** while the circulation object is unsafe off 6ℤ. Both
+  semantics are meaningful and answer different observational questions:
+  **closure-level** (the world closes on the clock; only V-realized events
+  are reportable; invisible strands cannot frustrate data) vs
+  **aggregation-level** (data = pair frequencies aggregated from a possibly
+  hidden cover; relation-level cells are observable even when no single
+  mod-L configuration exists — the covering story taken seriously). The gate
+  is exactly the boundary: gate-pass ⟹ the semantics coincide and the
+  theorem speaks unconditionally; gate-fail ⟹ the application must DECLARE
+  which observation model it means. For the reconstruction programme this is
+  a design decision, not a nuisance: aggregated multi-run data lives at the
+  aggregation level; single-trajectory windowed data at the closure level.
+- Gate-failure mode now characterized: EA cells = arcs on winding-1 cycles;
+  circulation arcs = arcs on ANY cycle; they differ iff some arc lies only
+  on winding-≥2 cycles — possible only when sections are locally absent
+  (disconnected/period-forcing languages), the caveat's precise content.
+Ledger after this round: **13 hits / 7 informative misses / 1 vacuous / 2
+dead conjectures / 1 pre-emptive kill.** Next design turn (per the paste):
+the covering-space statement of the proof (Gross–Tucker voltage framing) and
+the Lean ladder — gate lemma, Lemma 1 (flow decomposition), Lemma 2
+(functional-digraph two-liner, the load-bearing novelty), mixture-support
+step, assembly.
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

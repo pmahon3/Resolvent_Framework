@@ -13,10 +13,18 @@
    "id": "sigma_essential",
    "name": "σ-essential contextual state / OML descent",
    "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
-   "status": "AMENDED Ψ = MACHINE-CHECKED ZFC THEOREM (2026-07-06): psiAmended_ZFC, 0-sorry, standard axioms only — Product Ulam Carrier formalized end-to-end (encoding fix + Lem 2.1 + Thm 5.1 + §3 invariant + §6 vote state + ω₁ instantiation + Ω₇ amendment-forcing counterexample). Remaining: definitional-fidelity read (~15 min) + prior-art book check (PP1991, Navara Handbook) + /audit full. OML/lattice + literal-irreducibility forms OPEN (conjectured opposite). Verdict: papers/sigma_essential/witness_candidate/VERIFICATION_VERDICT.md.",
+   "status": "RESOLVED-AMENDED, GATED, PROMOTED (2026-07-06): psiAmended_ZFC machine-checked (0-sorry, standard axioms); Phase-2 audit Type-1 PASS; gate β prior-art CLOSED (Binder–Navara 1987 = lineage anchor, cited); witness paper PROMOTED to papers/sigma_essential/sigma_essential.tex + 16-rule editorial pass done. Remaining: user fidelity sign-off (FIDELITY_REVIEW.md), leisure skims (PP1991, B–N 2016), dissemination decisions (arXiv timing, Navara contact). OML/lattice + literal-irreducibility forms OPEN.",
    "one_line": "Does a concrete σ-complete non-Boolean carrier host a finitely coherent 2-valued pattern with NO global σ-additive extension? AMENDED (OMP/coherent/irred-mod-ctble) form: ZFC THEOREM, Lean-certified 2026-07-06 (psiAmended_ZFC; Ulam rigidity ⟹ Dirac-only σ-states; parity-code Specker triple ⟹ coherent + empty kernel; no LC strength). LITERAL forms still open: OML/lattice (conjectured opposite: latticehood⟹Φ) and literal irreducibility (no-singletons regime) — the 2026-06-30/07-02 wall-map stands as their record. Coherence amendment = REPAIR, now itself machine-checked (Ω₇ refutes [M] Prop 2.1 as written).",
    "entries": 82,
    "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"
+  },
+  {
+   "id": "reconstruction_commensurability",
+   "name": "Reconstruction / commensurability classification",
+   "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
+   "status": "OPEN — the active successor programme (2026-07-06/07). Five mechanisms sighted and object-backed at n<=5; trichotomy settled (k=2 tame / full-support-coordinate tame / variety UNIVERSAL); transfer conjecture v1 dead at the partition-vs-scope delta; successor question = the dichotomy hunt under the scope-context reformulation.",
+   "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
+   "entries": 31
   },
   {
    "id": "kappa_q",

@@ -1,0 +1,258 @@
+{
+ "$meta": {
+  "title": "Reconstruction / commensurability classification",
+  "purpose": "Zoom-out index of the reconstruction thread's design state, mechanisms, prediction ledger, and open frontier. Load this first; follow detail pointers for full reasoning.",
+  "updated": "2026-07-07",
+  "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
+  "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta.",
+  "categories": {
+   "definitions": "locked vocabulary and invariants",
+   "mechanisms": "certificate mechanisms with minimal object-backed sightings",
+   "theorems_and_anchors": "proved or two-line results anchoring the classification",
+   "structure": "the structural picture (trichotomy, reframe)",
+   "predictions_ledger": "pre-registered predictions with outcomes (the gates record)",
+   "open_frontier": "genuinely open targets, by leverage",
+   "tooling": "harness, calibrations, atlas artifacts"
+  },
+  "headline": {
+   "mechanisms": 5,
+   "predictions_logged": 8,
+   "predictions_hit": 1,
+   "predictions_missed_informatively": 5,
+   "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
+   "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted"
+  }
+ },
+ "definitions": [
+  {
+   "id": "def.ea_pr_commensurability",
+   "name": "EA / PR(R) / commensurability",
+   "status": "locked",
+   "one_line": "Protocol = family of clopen contexts (partitions of A^F); EA = pairwise coherence on common subalgebras; PR(R) = realisation by a declared class (the observer's commitment lattice); commensurability = EA implies PR(R) universally.",
+   "detail": "commensurability_classification_seed.md#1-locked-definitions"
+  },
+  {
+   "id": "def.gauge_weight",
+   "name": "Gauge group + weight invariant",
+   "status": "locked",
+   "one_line": "Syzygies (pointwise integer identities = hull equations + context sums) are the GAUGE to quotient by; w(facet) = min ||lambda||_inf over integer representatives mod gauge; taxonomy = weight spectrum + shape labels; certification = (integer representative, exact dual LB) pair.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "def.protocol_vs_model_completeness",
+   "name": "Protocol-level vs model-level completeness",
+   "status": "locked",
+   "one_line": "Protocol-complete: incommensurable implies SOME family member violated by SOME coherent model; model-complete: EVERY coherent-unrealisable model violates the family. Edges: protocol-complete at k=2 (the theorem) but model-incomplete. Classification needs the former; the CF diagnostic the latter. Tag every claim.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  }
+ ],
+ "mechanisms": [
+  {
+   "id": "mech.chains",
+   "name": "Family I: elementary chains",
+   "status": "settled",
+   "one_line": "Sum of one-cell-per-context indicators <= (m-1) + target, pointwise-valid; empty-intersection lemma unifies the 3-outcome example, k=2 gadget, wrap-C4, conformality gadget into ONE parameterized Lean target. Minimal sighting n=3 k=2.",
+   "detail": "commensurability_classification_seed.md#22a-the-corrected-structure-design-session-2026-07-06-second-pass"
+  },
+  {
+   "id": "mech.cliques",
+   "name": "Family II: cross-context cliques",
+   "status": "settled",
+   "one_line": "Clique bound Sum <= 1; bites at n=3 k=3 (cross-context triangle of singletons, half-spread witness) and at k=2 via multi-cell-per-context cliques (n=5) — chains cannot see multiple cells from one context.",
+   "detail": "commensurability_classification_seed.md#22b-harness-results-exhaustive-exact-rational-commensurability_harnesspy"
+  },
+  {
+   "id": "mech.odd_holes",
+   "name": "Family II: odd holes",
+   "status": "settled",
+   "one_line": "First NEEDED at n=5 k=3 — the pentagon in coarse-partition costume ({0|12|34},{01|2|34},{03|1|24}); nowhere at k=2 or n<=4. Design session's 5-point instinct vindicated for the odd-hole reading.",
+   "detail": "commensurability_atlas_n5k3.jsonl; zoom: commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "mech.syzygies",
+   "name": "Family 0 (reclassified): affine syzygies = the gauge",
+   "status": "settled",
+   "one_line": "Pointwise integer identities among overlapping cells (n=4 first sighting; 48 protocols at n=5 k=3); NOT a certificate family — the lattice to quotient by before weight is defined; linear algebra closes them.",
+   "detail": "commensurability_classification_seed.md#22b-harness-results-exhaustive-exact-rational-commensurability_harnesspy"
+  },
+  {
+   "id": "mech.weight1_exotic_shapes",
+   "name": "Fourth mechanism: weight-1 exotic shapes",
+   "status": "settled",
+   "one_line": "n=5 k=3, 8 instances, all half-spread: facets that gauge-reduce to weight-LB 1 but whose SHAPE (multiple negatives across contexts, e.g. B12+C13 <= 2*A1+A234) escapes chains, cliques, holes; hand-verified else_n5_verification.py. Shape, not weight, separates it.",
+   "detail": "else_n5_verification.py; zoom: commensurability_classification_seed.md#22b-harness-results-exhaustive-exact-rational-commensurability_harnesspy"
+  }
+ ],
+ "theorems_and_anchors": [
+  {
+   "id": "thm.k2_protocol",
+   "name": "k=2 theorem (protocol-level)",
+   "status": "proved-hand",
+   "one_line": "Two coarse contexts commensurable iff every coherence block has complete bipartite cell-intersection; protocol-complete via edge certificates; MODEL-incomplete (cliques needed). HAND status — Lean ladder item.",
+   "detail": "commensurability_classification_seed.md#2-claims-with-verification-status"
+  },
+  {
+   "id": "thm.product_measure",
+   "name": "Full-support coordinate protocols tame",
+   "status": "proved-hand",
+   "one_line": "k=3 coordinate contexts with full product support: product measure realises any coherent margins (two lines); calibration PASS at 2x2x2 (harness_v2_calibrations.py).",
+   "detail": "harness_v2_calibrations.py"
+  },
+  {
+   "id": "thm.multiset_domination_trivial",
+   "name": "Multiset-domination universal (contentless)",
+   "status": "proved-hand",
+   "one_line": "0/1 polytopes: every facet has integer normal, sign-splits, constants absorb via context sums — so multiset-domination is universally true and the taxonomy's content is quantitative (weight/shape), two lines.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "thm.majority_commitment",
+   "name": "Majority-commitment lemma",
+   "status": "proved-hand",
+   "one_line": "A model violating an order->=2 chain has some cell above (m-1)/m >= 1/2, so chains detect only majority-committed data; spread models are Family-II-and-beyond territory. Corroborated by every ELSE witness being half-spread.",
+   "detail": "commensurability_classification_seed.md#22a-the-corrected-structure-design-session-2026-07-06-second-pass"
+  },
+  {
+   "id": "anchor.tame_theorem",
+   "name": "Tame theorem (interval cylinder varieties)",
+   "status": "planned",
+   "one_line": "C1: full-window interval protocols always commensurable (running intersection + gluing + compactness) — the tame anchor of the dichotomy; to be proved as Layer-1 licensing with C1' quarantine (finite-alphabet: the sigma-essential pathology cannot occur — [[sigma_essential_taxonomy]] witness SECURES reconstruction).",
+   "detail": "commensurability_classification_seed.md#23-layer-1-licensing-results-roadmap-to-be-proved-before-pipeline-work"
+  }
+ ],
+ "structure": [
+  {
+   "id": "struct.trichotomy",
+   "name": "The trichotomy",
+   "status": "settled",
+   "one_line": "k=2: weight-1 protocol-complete. k=3 full-support coordinate: tame (product measure). k=3 with variety: UNIVERSAL — De Loera-Onn (every rational polytope is a face of a 3-way transportation polytope; faces = punctures), Pitowsky floor at three contexts, no finite facet taxonomy. All hardness in the variety.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "struct.facet_shape_reframe",
+   "name": "Facet-shape reframe",
+   "status": "settled",
+   "one_line": "Over V=N every valid inequality is pointwise-valid, so the classification = facet-shape taxonomy of conv(cell-incidence vectors) — Pitowsky's correlation-polytope theory specialized to partition protocols; shape primary key, weight secondary curve (small-scale polytopes near-integral).",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  }
+ ],
+ "predictions_ledger": [
+  {
+   "id": "pred.p1_else_empty",
+   "name": "P1: ELSE empty at n<=6",
+   "status": "refuted",
+   "one_line": "Refuted TWICE: n=4 syzygies (benign — became the gauge), n=5 weight-1 exotic shapes (genuine). Both witnesses half-spread.",
+   "detail": "commensurability_classification_seed.md#22b-harness-results-exhaustive-exact-rational-commensurability_harnesspy"
+  },
+  {
+   "id": "pred.p2_minimal_family_ii",
+   "name": "P2: minimal Family-II at 5-6 outcomes",
+   "status": "refuted",
+   "one_line": "Cliques bite at n=3 k=3; the 5-6 estimate conflated Family-II-needed with odd-hole-needed — odd-hole reading vindicated at exactly n=5 k=3.",
+   "detail": "commensurability_classification_seed.md#22b-harness-results-exhaustive-exact-rational-commensurability_harnesspy"
+  },
+  {
+   "id": "pred.p3_weighted_at_7_8",
+   "name": "P3: weighted certificates at 7-8 outcomes",
+   "status": "refuted",
+   "one_line": "Arrived at n=5 — and gauge-reduces to weight 1; with punctured-cube weight>=3 NOT confirmed at n=6, the joint diagnosis: asymptotic expectations imported below the mechanism's combinatorial room. Corrective: scale-sanity pass on every prediction.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "pred.k2_family_i_complete",
+   "name": "'Family I complete at k=2'",
+   "status": "refuted",
+   "one_line": "Model-level claim fails (multi-cell cliques at n=5 k=2); survives as protocol-level — the fork that forced the completeness tag.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "pred.p4_golden_mean_tame",
+   "name": "P4: golden-mean + coordinate contexts commensurable",
+   "status": "refuted",
+   "one_line": "MISS — variety makes {x1=1},{x2=1} disjoint; concentrated model coherent (trivial bipartition subalgebras) and unrealisable. THE delta: partition-vs-scope; EA on bare bipartitions has no channel for the language.",
+   "detail": "golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+  },
+  {
+   "id": "pred.p5_xor_wild",
+   "name": "P5: golden-mean + XOR context incommensurable",
+   "status": "vacuous-pass",
+   "one_line": "Incommensurable as predicted but via the SAME trivial exclusivity mechanism as the misses — not the polymorphism mechanism; not evidence; retest under corrected formulation.",
+   "detail": "golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+  },
+  {
+   "id": "pred.p6_monotone_tame",
+   "name": "P6: monotone-derived contexts commensurable",
+   "status": "refuted",
+   "one_line": "MISS uniformly (all 20 AND/OR triples): derived bipartitions freely produce disjoint cross-context cells. Same autopsy as P4.",
+   "detail": "golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+  },
+  {
+   "id": "pred.transfer_conjecture_v1",
+   "name": "Polymorphism transfer conjecture v1",
+   "status": "dead",
+   "one_line": "'Acyclically-reported over Gamma commensurable iff Gamma has symmetric fractional polymorphisms of all arities' — dead at the partition-vs-scope delta before realisability-vs-optimization was reached. Reformulation target: include scope contexts so EA aligns with BLP local consistency (Barto-Kozik analogy).",
+   "detail": "commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+  }
+ ],
+ "open_frontier": [
+  {
+   "id": "open.dichotomy_hunt",
+   "name": "THE successor question: the dichotomy",
+   "status": "open",
+   "one_line": "Which constraint languages (dynamics, compressions) generate tame protocol families vs universality — 'which worlds make observation tame.' Anchors: interval cylinders tame / DLO punctures universal; first open case: golden-mean SFT under the CORRECTED (scope-context) formulation.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "open.transfer_reformulation",
+   "name": "Transfer conjecture v2 (scope contexts)",
+   "status": "open",
+   "one_line": "Reformulate with protocols required to contain constraint-scope contexts (EA ~ BLP local consistency); then retest P4/P5/P6 analogues; deltas remaining: realisability-vs-optimization.",
+   "detail": "commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+  },
+  {
+   "id": "open.min_weight3",
+   "name": "Minimal weight-3 protocol",
+   "status": "open",
+   "one_line": "Not among 6-point punctured cubes (all Family-I, LB=1); needs larger grids for the DLO mechanism to have room; capped-weight screen at larger n is the instrument.",
+   "detail": "harness_v2_calibrations.py"
+  },
+  {
+   "id": "open.n6k3_rerun",
+   "name": "n=6 k=3 sweep (descoped)",
+   "status": "parked",
+   "one_line": "Projected 40-160h with the exact-everything harness; rerun only if the trichotomy needs the datum, after float-prefilter optimization.",
+   "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "open.c1_licensing",
+   "name": "C1/C1' licensing theorems + Lean ladder",
+   "status": "open",
+   "one_line": "Prove C1 (tame theorem), C1' (quarantine), Vorob'ev-transfer check; Lean ladder: empty-intersection lemma, pentagon chain-immunity, bipartite<->edge-completeness, k=2 completeness, GYO infrastructure.",
+   "detail": "commensurability_classification_seed.md#4-verification-ladder-users-codelean-side-updated-after-the-second-pass"
+  }
+ ],
+ "tooling": [
+  {
+   "id": "tool.harness",
+   "name": "Exhaustive exact-rational harness",
+   "status": "live",
+   "one_line": "Own Fraction simplex (Bland), S_N-canonical protocol enumeration, C-vs-R separation via hull equations + exact facet enumeration, family ladder verdicts, cone-membership; calibrated on 3-outcome/RCD/nested-sanity.",
+   "detail": "commensurability_harness.py"
+  },
+  {
+   "id": "tool.atlas",
+   "name": "Atlas JSONL files",
+   "status": "live",
+   "one_line": "commensurability_atlas_n{3,4,5}k{2,3}.jsonl + n6k2; n=5 k=3: 339 protocols, tally 92 R=C / 135 FI / 54 cliques / 2 odd-holes / 48 syzygies / 8 exotic.",
+   "detail": "commensurability_atlas_n5k3.jsonl; zoom: commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+  },
+  {
+   "id": "tool.v2_calibrations",
+   "name": "v2 calibrations + weight-LB LP",
+   "status": "live",
+   "one_line": "Product-measure anchor PASS (2x2x2); punctured cubes all Family-I weight-LB 1; weight certification to move to representative+dual-LB pairs (v2.1).",
+   "detail": "harness_v2_calibrations.py"
+  }
+ ]
+}

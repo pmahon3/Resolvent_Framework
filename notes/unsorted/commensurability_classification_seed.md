@@ -475,6 +475,37 @@ recorded for the user's Lean side; verification results:
 **Ledger: 17 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
 1 pre-emptive kill.**
 
+### 2.2j K₄-minor experiment + lifting controls — P25/P26/P27 all HIT (2026-07-08)
+Run: `k4_and_lifting_tests.py`. Wainwright–Jordan/Padberg reveal recorded
+(novelty ledger for the graph theory: language/variety refinement + orbit
+criterion + dynamical reading = OURS; full-support polyhedral frame =
+Padberg–Barahona–Seymour; binary half-integrality retro-explains every
+half-model witness and P16's alphabet-3 need).
+- **P25 HIT — SAFE branch, and the gate holds at a K₄ minor**: even-subdivided
+  K₄ (NAND): gate PASSES (rank 26 exact, lift identical), zero fractional
+  FSTAB vertices. **The language refinement tames the minor obstruction.**
+  Mechanism identified (this side, pre-stated before the run): for NAND,
+  evenizing every circuit ⟺ bipartitizing the graph, and bipartite FSTAB is
+  integral REGARDLESS of minors — so NAND cannot distinguish Circuit
+  Localization from minor theory. **Sharpened follow-up (P25′, design-side
+  choice): a language whose safe-circuit condition ≠ bipartiteness — e.g.
+  ρ₂₀-beads on K₄ with every edge subdivided to length 6 (all circuits 18,
+  24 ∈ 6ℤ = Safe(ρ₂₀), every circuit safe, K₄ minor retained, alphabet 5
+  breaks half-integrality). That is where the two theories genuinely part
+  ways; NAND could not take us there.**
+- **P26 HIT**: theta(3,3,2): gate passes; 7 fractional vertices, all outside
+  STAB; 5-circuit odd-cycle gap exactly ½. The lifting lemma works in the
+  path-sharing regime.
+- **P27 HIT — totality necessity, matched pair**: standalone C₃-NAND unsafe
+  (gap ½); dead-end tail {(1,1)} → the half-model cannot lift, G safe (V
+  collapses to one config) — intersection formula FAILS without totality;
+  equality (total) tail → inheritance restored (gap ½). The lemma's
+  hypothesis is necessary and sufficient at the control.
+**Ledger: 20 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
+1 pre-emptive kill.** Circuit Localization stands unrefuted with its
+inheritance direction controlled both ways; the decisive composition-side
+test is P25′.
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

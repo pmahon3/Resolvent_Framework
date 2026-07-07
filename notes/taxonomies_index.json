@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — active successor programme. Junctions round 2026-07-08: P21-P24 ALL HIT (gate-analogue passes beyond rings; wedge-innocence supported; theta(2,2,2) safe — no holonomy mechanism at tested scale; bifurcation = reduction identity, machine-confirmed). Winding characterization PREDICTIVE; parity + free theorems stand. Ledger: 17 hits / 7 informative misses / 1 vacuous / 2 dead / 1 pre-emptive kill. NEXT: user's Lean pass (pack pinned, Lemma 2 first).",
+   "status": "OPEN — active successor programme. K4 round 2026-07-08: P25-P27 all HIT (20-hit ledger). Gate holds at a K4 minor; NAND tames the minor obstruction structurally (evenize ⟺ bipartitize) so P25′ (ρ₂₀ on length-6-subdivided K4) is the decisive composition test. Lifting lemma controlled both directions (P26/P27). Circuit Localization unrefuted. WJ/Padberg novelty ledger recorded. NEXT: user's Lean pass + P25′ registration.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 64
+   "entries": 68
   },
   {
    "id": "kappa_q",

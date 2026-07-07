@@ -5,7 +5,7 @@
   "updated": "2026-07-08",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12).",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12). K4 round: gate holds at a K4 minor; NAND tames the minor obstruction (evenize ⟺ bipartitize — NAND cannot separate Circuit Localization from minor theory; P25' = ρ₂₀-beads on length-6-subdivided K4 is the decisive test); lifting lemma controlled both ways (P26 path-sharing inheritance gap ½; P27 totality necessary via matched lollipop pair).",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,7 +18,7 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 17,
+   "predictions_hit": 20,
    "predictions_missed_informatively": 7,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
    "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
@@ -392,9 +392,37 @@
    "status": "hit",
    "one_line": "Gate passes; zero fractional vertices; harness agrees. Path-sharing created no new frustration — junctions innocent at tested scale.",
    "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+  },
+  {
+   "id": "pred.p25_subdiv_k4",
+   "name": "P25: even-subdivided K4 NAND safe",
+   "status": "hit",
+   "one_line": "Gate passes at a K4 minor (rank 26); zero fractional vertices; taming mechanism = NAND parity coincidence (evenize ⟺ bipartitize) ⟹ decisive minor test needs P25′ (ρ₂₀ on length-6-subdivided K4).",
+   "detail": "k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
+  },
+  {
+   "id": "pred.p26_theta332",
+   "name": "P26: theta(3,3,2) unsafe, inherited, gap ½",
+   "status": "hit",
+   "one_line": "7 fractional vertices all outside STAB; 5-circuit gap exactly ½; lifting works through shared paths.",
+   "detail": "k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
+  },
+  {
+   "id": "pred.p27_totality",
+   "name": "P27: totality necessary for lifting",
+   "status": "hit",
+   "one_line": "Matched lollipop pair: dead-end tail blocks the lift (G safe, formula fails); total tail restores inheritance (gap ½).",
+   "detail": "k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
   }
  ],
  "open_frontier": [
+  {
+   "id": "open.p25_prime",
+   "name": "P25′: the decisive minor test (design-side registration pending)",
+   "status": "open",
+   "one_line": "ρ₂₀-beads on K4 with every edge subdivided to length 6: all circuits ∈ 6ℤ (safe), K4 minor retained, alphabet 5 breaks half-integrality — Circuit Localization predicts SAFE, minor theory has room to bite; NAND structurally cannot run this experiment.",
+   "detail": "commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
+  },
   {
    "id": "open.lean_winding_ladder",
    "name": "Lean ladder for the winding theorem (NEXT)",

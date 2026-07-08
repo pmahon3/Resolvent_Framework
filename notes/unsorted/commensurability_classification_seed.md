@@ -905,6 +905,64 @@ vacuous / 2 dead conjectures / 1 pre-emptive kill / 1 corrected mis-triage /
 SCC-reduction meta-lemma. Symmetric world fully fork-free; universal
 conjecture unrefuted at small scale.**
 
+### 2.2u CORRECTION + P50-P52: third tooling defect (dim-test), verdict-grade ladder, expulsion witness-certified (2026-07-08)
+This round is primarily a CORRECTION of 2.2t, with defects on both lanes.
+- **THIRD TOOLING DEFECT (this side's, decisive): `_p47check.py`'s
+  dim-equality test is NECESSARY-NOT-SUFFICIENT.** dim C = dim R does NOT
+  prove C = R. Machine-confirmed: C4-target L=4 has dim C = dim R = 17, YET
+  the design side exhibited an EXACT rational witness in C\R (all-halves
+  backtracker orbit, EA-coherent, unrealisable). **=> My 2.2t verdicts
+  "C4-target safe on even rings" and "C6-target safe at {6}" are WRONG and are
+  RETRACTED.** The corrected picture: cyclic symmetric targets are unsafe at
+  essentially all usable lengths; C5-target's {5,7} "safe" is CLOSURE-LEVEL
+  RIGIDITY (at L=5 the variety = 10 rotations, every context is the discrete
+  partition, EA collapses to the simplex - the gate-failure semantics, NOT a
+  circulation-safe fact).
+- **The symmetric expulsion theorem STANDS, with STRENGTHENED (witness-grade)
+  evidence:** the backtracker orbits at C4-L4/L6 and C6-L6 are genuine
+  Lemma-1/2 objects (EA-coherent, layer-injective, outside R). Cyclic
+  symmetric targets are unsafe almost everywhere => cannot make a K4-frame's
+  circuits safe => fork-incapable. The fork remains expelled from the entire
+  symmetric world (MD = forests, 2.2s; non-MD = exchange richness, now
+  certificate-grade).
+- **Design-side instrument failures, logged (theirs, owned):** (1) their
+  first L=4 "witness" was the doubled rotation - NOT layer-injective
+  (s0=s4), realizable by mixing two rotation sections; the injectivity clause
+  (the one that saved rho13's L=3) caught it - the fine print earning its
+  keep, belongs in the Lean statement verbatim. (2) the C6-L6 first attempt
+  had an illegal arc, corrected by difference-flip-then-hold (orbit
+  [0,5,0,1,2,1,2,3,4,5,0,5], collision-free, layer-injective).
+- **P52 - VERDICT-GRADE LADDER (policy amendment, on the record):**
+  witness-certified-unsafe > exact-enumeration/theorem-certified-safe >
+  everything else; **random-direction LPs DEMOTED to screening - never again
+  the basis of a "safe" entry** (my 150-direction sweep returned a FALSE SAFE
+  0/150 at C4-L6 where a witness sits in C\R). Retroactive audit: this
+  touches exactly P32 (20/20 - already covered by hand factorization) and P35
+  (200/200 - superseded by taming #7's proof); both survive because THEOREMS
+  stood behind the samples. That was luck; now it's discipline.
+- **P50/P51 (owed to the design side)**: run the two exhibited witnesses
+  (C4-L4, C6-L6) through the EXACT membership pipeline; if C excludes them,
+  diff EA constraint systems component-by-component to localize; a fast exact
+  in-R membership test replaces the dim-check as the safe-certifier.
+- **Swap-criterion fix spec (semantics-aware)**: the C5-L2 disagreement is
+  TWO things - the multi-outcome bug (real, fix) AND the bifurcation (the
+  swap criterion is aggregation/circulation-level, so at rigidity points like
+  C5-L5 it SHOULD disagree with the EA polytope, both right about different
+  objects). Corrected validation suite: reproduce C4-unsafe-at-evens and
+  C6-unsafe-at-6 (circulation facts, witness-backed); FLAG rather than fail at
+  C5-L5. A criterion that agrees with EA everywhere would be WRONG.
+- **Semantics discipline for the impossibility proof (design lane)**: state
+  it at DECLARED semantics throughout (circulation-level, gate-conditional) -
+  today showed the two levels genuinely diverge on natural examples, and any
+  theorem without its semantics tag will be "refuted" by a true fact about
+  the other level.
+**Ledger: 38 hits (P47 REGRADED to witness-certified, not retracted - the
+expulsion holds; 2 sub-verdicts C4/C6-"safe" retracted) / 10 informative
+misses / ... / 3 corrected tooling defects (detector, swap-on-targets,
+dim-sufficiency). The frontier is UNCHANGED IN CONTENT, UPGRADED IN EVIDENCE:
+symmetric world fork-free at certificate grade; universal impossibility
+conjecture stands, final case = SCC non-symmetric.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

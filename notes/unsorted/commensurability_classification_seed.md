@@ -737,6 +737,39 @@ predictions missed, both load-bearing; corrections recorded.
 dead conjectures / 1 pre-emptive kill / 1 corrected mis-triage. Endgame
 reduced to P38b (the 13 non-TU forks) + non-MD safety mechanism.**
 
+### 2.2q Taming #8 (twin expansion) PROVED; P41 hit; but P40 REFUTES the dissolution prediction — 11 twin-free forks remain (2026-07-10)
+Run: `twin_taming_tests.py` + corrected re-run + non-TU spot-checks.
+- **Taming #8 verified**: states 1,2 of rho_min are non-reflexive twins
+  (identical in/out neighborhoods, no self-loops - machine-confirmed);
+  collapse -> strict alternation (deterministic). The phase-mixture
+  constructive proof runs: rho_min SAFE on subdivided-K5 (|V|=1056,
+  dim C = dim R = 16, 80/80 exact LPs, NO TU) - "decomposition conditioned on
+  forced phase," a genuine below-TU integrality mechanism (resolves the P38b
+  "new proof idea" question for the twin sub-case).
+- **P41 HIT**: reflexive twin-expansion of equality's fixed point produces a
+  full-2-language block {0,2}; ring-safe set EMPTY 3..9 - reflexive twinning
+  is an UNSAFETY generator, confirming taming #8's scope condition is
+  load-bearing.
+- **P40 REFUTES the registered "rho_min's class dissolves" prediction.**
+  Twin-collapse (detector fixed after I flagged + hand-verified a doubted
+  case) of the 13: only **2 dissolve to strict alternation; 11 reduce to
+  SMALLER twin-free quotients that remain MD, pair-bipartite, non-signable,
+  and NON-TU** (quotients spot-checked: 8 and 16 bad subdeterminants). So
+  twin-expansion is a real taming but NOT the mechanism behind the 13 -
+  eleven genuine twin-free fork candidates survive, the smallest now
+  |A|=3 {(0,1),(0,2),(1,1),(2,0)} and {(0,2),(1,0),(1,1),(2,0)}. The
+  twin-tower classification conjecture (as a route to closing the fork by
+  structure) is REFUTED at this scale; the fork does not reduce to signable/
+  deterministic cores via twinning.
+**Consequence: P38b is back as the genuinely decisive experiment, now on the
+minimal twin-free quotient** {(0,1),(0,2),(1,1),(2,0)} (|A|=3, subdivided-K5),
+prediction withheld - safe => a below-TU integrality mechanism BEYOND the
+phase-mixture (which only covers twins); unsafe => THE FORK. The catalogue did
+NOT close the case; the decisive run is required.
+**Ledger: 31 hits (taming #8, P41) / 10 informative misses (P40 dissolution)
+/ 1 vacuous / 2 dead conjectures / 1 pre-emptive kill / 1 corrected
+mis-triage / 1 corrected detector-bug (same-round, hand-verified).**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

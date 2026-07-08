@@ -1,16 +1,15 @@
 \section{Introduction}
 
 A finite system of measurement contexts may admit a consistent assignment of
-truth values to events that no single underlying state realises, the
-algebraic signature of quantum contextuality. When the contexts are countable
-and one demands countable additivity, a sharper question arises: can a
-\emph{finitely} coherent pattern fail to extend to any global $\sigma$-additive
-state, with the failure visible only at the $\sigma$-level? This paper isolates
-that phenomenon for concrete quantum logics, reduces it to an irreducible
-set-theoretic core, locates that core against the measure-theoretic and
-operator-algebraic literature --- and then resolves it affirmatively, in ZFC,
-by an explicit construction: the \emph{product Ulam carrier}. We work throughout
-with two-valued states, the non-distributive analogue of a $\{0,1\}$-valued measure.
+truth values to events that no single underlying state realises --- the
+algebraic signature of quantum contextuality. Demanding countable additivity
+sharpens the question: can a \emph{finitely} coherent pattern extend to no
+global $\sigma$-additive state, the failure visible only at the $\sigma$-level?
+We isolate this phenomenon for concrete quantum logics, reduce it to a
+set-theoretic core, locate that core against the measure-theoretic and
+operator-algebraic literature, and resolve it affirmatively in ZFC by an
+explicit construction, the \emph{product Ulam carrier}. Throughout we work with
+two-valued states, the non-distributive analogue of a $\{0,1\}$-valued measure.
 
 A \emph{concrete $\sigma$-complete orthomodular poset} (concrete $\sigma$-orthoposet,
 $\sigma$-class)
@@ -94,27 +93,20 @@ $\Lo$ is Dirac, and $\Lo$ is non-Boolean, essentially irreducible,
 non-segregated, and not Polish-representable.
 \end{theorem}
 
-\begin{remark}[Irreducibility is not vacuous]\label{rem:offcenter}
-The carrier class is inhabited: the horizontal sum $MO_\kappa$ ($\kappa$ orthogonal
-atom-pairs with $0,1$) is concrete, non-Boolean, and irreducible
-(centre $\{\varnothing,\Omega\}$) for $\kappa\geq 2$~\cite{Kalmbach1983}, and
-$\sigma$-complete for $\kappa=\omega$. Concreteness does not force a non-trivial
-centre: by the Zierler--Schlessinger/Gudder criterion it is exactly order-determination
-by two-valued states~\cite{Gudder1969,Harding2004}, unrelated to reducibility. ($MO_\kappa$
-itself is excluded as a witness by Lemma~\ref{lem:horizontal}.)
-\end{remark}
-
-\begin{remark}[Why irreducibility is required modulo the countable ideal]\label{rem:irreducibility-amended}
-Literal irreducibility (centre $\{\varnothing,\Omega\}$) is unavailable to any
-carrier containing all singletons: a countable set is compatible with every
-element of a $\sigma$-class containing singletons
-(Lemma~\ref{lem:sigma-class-basics}), so the countable and co-countable sets are
-always central. The only rigidity mechanism known to us --- and the one the
-witness uses --- requires singletons (Theorem~\ref{thm:rigidity}), so the
-amendment is forced by the method, not chosen for convenience. Essential
-irreducibility retains the intent: the contextuality may not be carried by a
-central factor surviving in the quotient, and for the witness the quotient centre
-is computed exactly (Corollary~\ref{cor:centre}).
+\begin{remark}[Irreducibility: not vacuous, and modulo the countable ideal]\label{rem:offcenter}\label{rem:irreducibility-amended}
+The carrier class is inhabited and irreducibility is non-trivial: the horizontal
+sum $MO_\kappa$ is concrete, non-Boolean, and irreducible (centre
+$\{\varnothing,\Omega\}$) for $\kappa\geq 2$~\cite{Kalmbach1983},
+$\sigma$-complete for $\kappa=\omega$, and concreteness --- exactly
+order-determination by two-valued states~\cite{Gudder1969,Harding2004} --- does
+not force a non-trivial centre. \emph{Literal} irreducibility is nonetheless
+unavailable to any carrier with all singletons, since countable sets are then
+central (Lemma~\ref{lem:sigma-class-basics}); and the witness's rigidity
+mechanism requires singletons (Theorem~\ref{thm:rigidity}), so the amendment to
+\emph{essential} irreducibility --- trivial centre in the quotient by the
+countable ideal, computed exactly in Corollary~\ref{cor:centre} --- is forced by
+the method. ($MO_\kappa$ itself is excluded as a witness by
+Lemma~\ref{lem:horizontal}.)
 \end{remark}
 
 \paragraph{Verification status.}
@@ -168,29 +160,26 @@ $\delta_\omega\restr B_0 = \mu\restr B_0$, whence
 Lemma~\ref{lem:dirac-iff}, and $\delta_\omega$ is $\sigma$-additive.
 \end{proof}
 
-Note the division of labour: coherence supplies the global finitely additive
-$\mu$, and \emph{distributivity converts it into a point} --- on a Boolean carrier
-the atom carrying $\mu$ is a common point of the $s_0$-true events. Three
-obstructions combine, all of which a witness must defeat:
+The division of labour is that coherence supplies the global finitely additive
+$\mu$ and distributivity converts it into a point. A witness must defeat three
+obstructions at once:
 \begin{enumerate}[label=\textup{(\alph*)}]
   \item \emph{(coherence)} the pattern must extend finitely at all
     (Remark~\ref{rem:amendment}: empty-kernel patterns exist even on Boolean
     carriers, but there they are incoherent);
-  \item \emph{(used above)} on a Boolean carrier any finitely additive global
-    extension concentrates on a nonempty atom, a common point. A witness breaks
-    this: the events lie in incompatible blocks with empty meet, so no Dirac
-    extends $s_0$, and the finitely additive extension must be genuinely
-    non-Dirac;
-  \item \emph{(complementary)} away from a measurable cardinal, every global
-    $\sigma$-additive two-valued state on a Boolean $\sigma$-algebra is
-    Dirac~\cite{Sikorski1964,Jech2003}; so even where (b) fails, no \emph{non}-Dirac
-    $\sigma$-additive state repairs the gap on a Boolean carrier.
+  \item on a Boolean carrier any finitely additive global extension concentrates
+    on a nonempty atom, a common point. A witness breaks this: the events lie in
+    incompatible blocks with empty meet, so no Dirac extends $s_0$ and the
+    finitely additive extension is genuinely non-Dirac;
+  \item away from a measurable cardinal, every $\sigma$-additive two-valued state
+    on a Boolean $\sigma$-algebra is Dirac~\cite{Sikorski1964,Jech2003}, so even
+    where (b) fails no non-Dirac $\sigma$-additive state repairs the gap.
 \end{enumerate}
-These pull against one another: breaking (b) requires non-distributivity, which is
-precisely what makes (c) escapable by admitting non-Dirac global states. A witness
-must break (b) while leaving no such repair available --- and, by (a), must do so
-without breaking finite coherence. The construction of \S\ref{sec:witness} is
-engineered around exactly this triple bind.
+These pull against one another: breaking (b) requires non-distributivity, which
+is what makes (c) escapable by admitting non-Dirac global states. A witness must
+break (b) while leaving no such repair available and, by (a), without breaking
+finite coherence. The construction of \S\ref{sec:witness} is engineered around
+this triple bind.
 
 
 \section{The Localization Theorem}\label{sec:localization}
@@ -244,16 +233,13 @@ construction (Example~\ref{ex:navara-ptak}) realises $K(s_0)=\varnothing$ with a
 global extension that is even $\sigma$-additive.
 \end{proof}
 
-\begin{remark}[Scope: a decomposition, not a reduction]\label{rem:localization-scope}
-The equivalence is a decomposition, not a reduction to a separate named problem:
-the Dirac/non-Dirac split being exhaustive, it merely unfolds the definition of
-witness. Its content is that (0)+(i) is freely arrangeable, so all weight of
-Definition~\ref{def:sigma-essential} sits in the conjunction of (0) with (ii):
-coherence must survive while every non-Dirac $\sigma$-additive repair is
-destroyed. The two clauses pull in opposite directions --- the structure rich
-enough to kill all non-Dirac $\sigma$-states threatens to kill the finitely
-additive extension too --- and the witness of \S\ref{sec:witness} succeeds by
-provably decoupling them (Theorem~\ref{thm:normal-form}).
+\begin{remark}[Scope]\label{rem:localization-scope}
+The Dirac/non-Dirac split being exhaustive, the equivalence unfolds the
+definition rather than reducing it to a separate problem. Its content is that
+(0)+(i) is freely arrangeable, so all weight sits in (0)$\wedge$(ii): coherence
+must survive while every non-Dirac $\sigma$-additive repair is destroyed. The
+witness of \S\ref{sec:witness} decouples the two provably
+(Theorem~\ref{thm:normal-form}).
 \end{remark}
 
 The Navara--Pt\'ak construction supplies clauses (0)+(i) and shows (ii) is binding.
@@ -270,17 +256,15 @@ $m$ is not concentrated at any point.
 \end{example}
 
 \begin{remark}[The example is not itself a witness]\label{rem:np-builds-rescuer}
-Let $B$ be the $\perp$-closure of $\{C_f, C_g, C_{f+g}\}$ and let $s_0$ be the
-pattern assigning each of the three the value $1$. Since
-$C_f\cap C_g\cap C_{f+g}=\varnothing$, we have $K(s_0)=\varnothing$, so clause (i)
-holds: no point evaluation extends $s_0$. Yet the Navara--Pt\'ak state satisfies
-$m\restr B = s_0$ and is non-Dirac and $\sigma$-additive, so clause (ii) fails and
-$s_0$ is not $\sigma$-essential: the construction supplies its own rescuer, so
-clauses (0)+(i) cannot suffice alone. The repair is available because
-$\Lo_{f,g}$ is generated by two compatible (commuting) observables, Boolean
+Let $B$ be the $\perp$-closure of $\{C_f, C_g, C_{f+g}\}$ and $s_0$ the pattern
+giving each value $1$. Then $C_f\cap C_g\cap C_{f+g}=\varnothing$ gives
+$K(s_0)=\varnothing$, so clause (i) holds; but the Navara--Pt\'ak state has
+$m\restr B=s_0$ and is non-Dirac $\sigma$-additive, so clause (ii) fails and
+$s_0$ is not $\sigma$-essential. Clauses (0)+(i) do not suffice: the repair
+exists because $\Lo_{f,g}$ is generated by two compatible observables, Boolean
 enough to support a non-Dirac global state through the point-level gap. A witness
-requires the opposite: a carrier on which no non-Dirac state repairs the gap ---
-while, per clause (0), a finitely additive one still must.
+requires a carrier on which no non-Dirac state repairs the gap while, per clause
+(0), a finitely additive one still must.
 \end{remark}
 
 Stripped of lattice scaffolding, the core is a selection problem. Each block is
@@ -341,11 +325,9 @@ Theorem~\ref{thm:main} settles that conjunction affirmatively.
 
 \section{The boundary map}\label{sec:boundary}
 
-We locate the core between an upper boundary where it is known empty and the
-lower routes that fail to settle it. With the witness in hand
-(\S\ref{sec:witness}), this section reads as an explanation of the witness's
-shape: each boundary is a constraint the construction is forced to obey, and
-does.
+We locate the core between an upper boundary where it is empty and lower routes
+that fail to settle it. Each boundary is a constraint the witness of
+\S\ref{sec:witness} is forced to obey.
 
 The upper boundary is the Polish-representable case. Derr and
 Williamson~\cite{DerrWilliamson2023} prove a $\sigma$-extension criterion for
@@ -391,14 +373,13 @@ not settle the question here; three obstructions point the same way.
 \end{enumerate}
 
 \begin{remark}[Strength of the claim]\label{rem:no-bridge}
-Remark~\ref{rem:not-measurable} and (1)--(3) are cited facts assembled, not a
+Remark~\ref{rem:not-measurable} and (1)--(3) assemble cited facts; they are not a
 non-reducibility theorem in a fixed reduction calculus. The claim is only that
-the two obvious bridges, ``measurable cardinal'' and ``transfer from
-Blecher--Weaver via a masa'', do not close the question, the obstruction in each
-being the same non-distributivity. The witness of \S\ref{sec:witness} confirms
-the diagnosis from the other side: it consumes neither object. Item (3) in
-particular becomes load-bearing there: the \emph{absence} of meet-closure is what
-permits three pairwise-incompatible assignments to cohere finitely
+the two obvious bridges --- ``measurable cardinal'' and ``masa transfer from
+Blecher--Weaver'' --- do not close the question, the obstruction in each being
+the same non-distributivity, and the witness consumes neither object. Item (3) is
+load-bearing there: the absence of meet-closure is what lets three
+pairwise-incompatible assignments cohere finitely
 (Remark~\ref{rem:coherence-location}).
 \end{remark}
 
@@ -448,39 +429,36 @@ $\mu'\restr B=s_0$ (elements of $B$ lie in blocks, and on shared elements
 --- only $\varnothing,\Omega$ --- all choices agree).
 \end{proof}
 
-\begin{remark}[Segregated carriers, repaired]\label{rem:segregated}
-Call a carrier \emph{segregated} when it is a horizontal $\sigma$-sum, or more
-generally when every countable orthogonal family is confined to a single block
-whose $\sigma$-additive two-valued states rescue every finite trace as above.
-Lemma~\ref{lem:horizontal} shows segregated carriers satisfy $\Phi$: loose
-gluing lets blockwise rescuers assemble unimpeded. A witness must be
-non-segregated --- but the moral is sharper than ``the blocks must be tightly
-glued.'' In the witness below the blocks \emph{are} loosely glued at the level of
-the contextual pattern (no cross-core orthogonality exists at all,
-Lemma~\ref{lem:table}(IV)); what fails is the \emph{input} to the gluing: one
-block is a Boolean $\sigma$-algebra on $\omega_1$ containing an Ulam matrix,
-which admits no non-Dirac $\sigma$-additive two-valued state to contribute
-(Theorem~\ref{thm:rigidity}). Segregation kills a witness only when blockwise
-rescuers exist; destroying them blockwise is precisely the remaining freedom.
+\begin{remark}[Segregated carriers]\label{rem:segregated}
+Call a carrier \emph{segregated} when every countable orthogonal family lies in a
+single block whose $\sigma$-additive two-valued states rescue every finite trace.
+Lemma~\ref{lem:horizontal} shows segregated carriers satisfy $\Phi$, so a witness
+must be non-segregated --- but the moral is sharper than ``glue the blocks
+tightly.'' In the witness below the blocks \emph{are} loosely glued at the level
+of the pattern (no cross-core orthogonality exists,
+Lemma~\ref{lem:table}(IV)); what fails is the gluing's \emph{input}: one block is
+a Boolean $\sigma$-algebra on $\omega_1$ containing an Ulam matrix, admitting no
+non-Dirac $\sigma$-additive state to contribute (Theorem~\ref{thm:rigidity}).
+Segregation kills a witness only where blockwise rescuers exist; destroying them
+blockwise is the remaining freedom.
 \end{remark}
 
 
 \section{The witness: the product Ulam carrier}\label{sec:witness}
 
-\emph{Lineage.} The carrier shape --- $\omega_1$ times a countable fibre,
-coupled through the countable ideal, with Ulam--Solovay rigidity making every
+\emph{Lineage.} The carrier shape --- $\omega_1$ times a countable fibre, coupled
+through the countable ideal, with Ulam--Solovay rigidity making every
 $\sigma$-additive state countably carried --- goes back to Binder and
-Navara~\cite{BinderNavara1987} (Theorem~4; restated as \cite[Thm.~17.4]{Navara2000}),
-who drew from it the opposite moral: such enlargements are ``almost Boolean''
+Navara~\cite{BinderNavara1987} (Thm.~4; restated as \cite[Thm.~17.4]{Navara2000}),
+who drew the \emph{opposite} moral: such enlargements are ``almost Boolean''
 (lattice state space, Jauch--Piron). Their framework is $\sigma$-additive
-throughout; the finitely additive two-valued layer --- the coherent Specker
-pattern of \S\ref{subsec:state}, built from an ultrafilter through the parity
-code --- does not appear there, and it is exactly this layer that turns the
-carrier shape into a witness. The empty-kernel triple itself descends from the
-Navara--Pt\'ak example~\cite{NavaraPtak1983} (in the lineage of
-Draveck\'y--\v{S}ipo\v{s}~\cite{DraveckySipos1980}), where it is used in the
-opposite direction: there a $\sigma$-additive non-concentrated rescuer exists;
-here rigidity provably destroys every one.
+throughout; the finitely additive two-valued layer of \S\ref{subsec:state} --- the
+coherent Specker pattern built from an ultrafilter through the parity code --- is
+absent there, and it is exactly that layer which turns the carrier shape into a
+witness. The empty-kernel triple descends from Navara--Pt\'ak~\cite{NavaraPtak1983}
+(after Draveck\'y--\v{S}ipo\v{s}~\cite{DraveckySipos1980}), used there in the
+opposite direction: a $\sigma$-additive non-concentrated rescuer exists, whereas
+here rigidity destroys every one.
 
 Throughout, $M$ denotes $\omega_1$ (a set of cardinality $\aleph_1$ with a fixed
 well-order of type $\omega_1$), $F=\{1,2,3,4\}$ is a four-element \emph{fibre}
@@ -952,42 +930,31 @@ of \S\ref{sec:boundary} isolated, and each constraint of that map is visible in
 its anatomy.
 
 \begin{remark}[consistency strength, resolved]\label{rem:strength}
-Two prima facie routes would assign $\Psi$ large-cardinal strength: a
-measurable-cardinal lower bound, which fails because the reduce-to-Dirac
-argument is a $\sigma$-\emph{algebra} theorem unavailable on $\sigma$-classes;
-and a Blecher--Weaver upper bound, which fails to transfer for want of a masa.
-Theorem~\ref{thm:main} settles the question in the most deflationary way: $\Psi$
-is a theorem of ZFC and carries no large-cardinal strength whatsoever. The two
-failures survive as the explanation. On the lower-bound side, the
-reduce-to-Dirac argument is not escaped but \emph{embraced}: the carrier imports
-exactly the fragment of the $\sigma$-algebra needed to run Ulam (rows, columns,
-singletons), and Theorem~\ref{thm:normal-form} certifies the fragment does not
-Booleanise the carrier. On the upper-bound side, the object Blecher--Weaver
-consume --- a $\sigma$-complete ultrafilter --- is never needed: coherence is
-carried by an arbitrary ultrafilter on $\PO(\omega_1)/\mathrm{ctble}$, a
-BPI-level object, of which $\sigma$-additivity is never demanded
-(Remark~\ref{rem:self-witnessing} shows it necessarily fails).
+Two routes would assign $\Psi$ large-cardinal strength, and both fail
+(\S\ref{sec:boundary}): a measurable-cardinal lower bound, because reduce-to-Dirac
+is a $\sigma$-\emph{algebra} theorem unavailable on $\sigma$-classes; and a
+Blecher--Weaver upper bound, for want of a masa. Theorem~\ref{thm:main} settles
+$\Psi$ deflationarily: a theorem of ZFC, no large-cardinal strength. The two
+failures survive as the explanation. Reduce-to-Dirac is embraced, not escaped:
+the carrier imports exactly the $\sigma$-algebra fragment Ulam needs (rows,
+columns, singletons), and Theorem~\ref{thm:normal-form} certifies it does not
+Booleanise the carrier. The $\sigma$-complete ultrafilter Blecher--Weaver consume
+is never needed: coherence rides on an arbitrary ultrafilter on
+$\PO(\omega_1)/\mathrm{ctble}$, a BPI-level object of which $\sigma$-additivity
+is never asked (Remark~\ref{rem:self-witnessing} shows it necessarily fails).
 \end{remark}
 
-\begin{remark}[where the coherence lives]\label{rem:coherence-location}
-Section~\ref{sec:boundary}(3) observed that on a concrete non-Boolean carrier
-$\mathcal F_s$ is never a filter --- the countably-complete ultrafilter an
-Ulam-style transfer would consume is structurally absent. The witness shows the
-carrier does not need to \emph{host} that object: it borrows only the finite
-trace of an ultrafilter one Boolean level down, through the vote map of
-Definition~\ref{def:state}. The same non-distributivity that blocks the upper
-bound (no meet-closure) is what lets the three core assignments coexist:
-Lemma~\ref{lem:table}(IV) says the additivity constraints that would link them
-do not exist in $\Lo$. Relatedly, the natural constraint on witness technology
-must be scoped: the
-\emph{incompatibility} of a witness cannot be imported from a Boolean-ambient
-combinatorial skeleton (in such an ambient a maximal coherent
-$\{0,1\}$-assignment is an ultrafilter, hence meet-closed, and the pattern
-globalises); the witness's incompatibility is native, carried by the fibre
-parity code. What \emph{can} be imported from the Boolean ambient is rigidity
---- the destruction of non-Dirac $\sigma$-states --- and the construction is
-exactly this division of labour, with Theorem~\ref{thm:normal-form} as the proof
-that the imported engine and the native geometry cannot interact.
+\begin{remark}[what witness technology can and cannot import]\label{rem:coherence-location}
+The construction divides labour between two sources, and the division is forced.
+\emph{Incompatibility} cannot be imported from a Boolean-ambient combinatorial
+skeleton: in such an ambient a maximal coherent $\{0,1\}$-assignment is an
+ultrafilter, hence meet-closed, and the pattern globalises. The witness's
+incompatibility is instead native, carried by the fibre parity code, and the
+same absent meet-closure (\S\ref{sec:boundary}(3)) is what lets the three core
+assignments cohere --- Lemma~\ref{lem:table}(IV) says the linking additivity
+constraints do not exist in $\Lo$. What \emph{can} be imported is rigidity, the
+destruction of non-Dirac $\sigma$-states; Theorem~\ref{thm:normal-form} is the
+proof that the imported engine and the native geometry never interact.
 \end{remark}
 
 \begin{remark}[a quotient with no $\sigma$-additive states at all]\label{rem:quotient}
@@ -996,19 +963,16 @@ concentrate on singletons) and non-Dirac $\sigma$-additive states are barred by
 Theorem~\ref{thm:rigidity}. The quotient is thus a $\sigma$-complete non-Boolean
 orthomodular poset carrying finitely additive two-valued states (the induced
 $\bar m$) but \emph{no} $\sigma$-additive two-valued state whatsoever. This
-artifact should be graded modestly: \emph{abstract} logics with finitely
-additive states that are not countably additive are established art ---
-Navara~\cite{Navara1992} builds a $\sigma$-orthocomplete lattice logic on which
-regular finitely additive states fail $\sigma$-additivity (via stateless
-Greechie components, hence nothing set-representable), and
+artifact is graded modestly: abstract logics with finitely additive but not
+countably additive states are established art ---
+Navara~\cite{Navara1992} (a $\sigma$-orthocomplete lattice logic, via stateless
+Greechie components, not set-representable) and
 Dvure\v{c}enskij--Neubrunn--Pulmannov\'a~\cite{DvurecenskijNeubrunnPulmannova1992}
-exhibit the phenomenon on the splitting-subspace logic of an incomplete
-inner-product space (not set-representable, not $\sigma$-orthocomplete). The
+(the splitting-subspace logic of an incomplete inner-product space). The
 quotient's residual interest is the conjunction it inherits from the witness:
-\emph{two-valued} states, $\sigma$-completeness, and provenance as a quotient
-of a \emph{concrete} carrier. It is not itself concrete
-($\mathrm{St}_\sigma = \varnothing$, while concrete logics always carry
-Diracs).
+\emph{two-valued} states, $\sigma$-completeness, and provenance as a quotient of
+a \emph{concrete} carrier. It is not itself concrete
+($\mathrm{St}_\sigma=\varnothing$, while concrete logics always carry Diracs).
 \end{remark}
 
 \subsection*{What remains open}

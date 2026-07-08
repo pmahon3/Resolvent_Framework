@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. 2.2v amendment 2026-07-08: C5-target {5,7} STRUCK (L=7 witnessed-unsafe here residual 36/5; L=5 gate-degenerate) --- cyclic symmetric targets unsafe at EVERY gate-holding length, no exceptions. Symmetric expulsion now ENTIRELY certificate-grade (forests + witness-unsafe cyclic targets; no dim/sampling shortcut anywhere). c5_calibration.py = swap-criterion fix's two-mode acceptance test. Frontier UNCHANGED: strongly connected non-symmetric class, universal impossibility conjecture unrefuted. Lean: Lemma 2 (injectivity clause verbatim, reaffirmed) + 5 constructive proofs.",
+   "status": "OPEN - active successor programme. P54 hunt 2026-07-08: FORK-FREE through 9 edges at 5 states (relaxed rich-even demand; edge-stratified exact, all cheap-tamed, 0 candidates), full-density 5-state scan in progress. Conjecture's most-likely hiding place clear; proof attempt earned through 9 edges. Symmetric world fully expelled (certificate-grade, 2.2v). Frontier: SCC non-symmetric class, universal impossibility conjecture unrefuted. STANDING FLAG: theorem-let B (tuple eventual periodicity) unproven, prove before it carries weight. Lean: Lemma 2 (injectivity clause) + 5 constructive proofs.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 120
+   "entries": 121
   },
   {
    "id": "kappa_q",

@@ -1003,6 +1003,42 @@ foregrounded: every "safe" that mattered re-derived from a theorem or exact
 enumeration; every "unsafe" from an exhibited witness; instruments trusted only
 where they agree with one of those.**
 
+### 2.2w P54 counterexample hunt: fork-free through 9 edges at 5 states (2026-07-08)
+Run: `p54_hunt_sparse.py` (edge-stratified, canonical-deduped, exact). The
+conjecture opened as a counterexample hunt per the design-side call --- try
+hardest to build the strongly-connected non-symmetric survivor P49 missed,
+5 states, safe-set demand RELAXED to any rich even set (>=2 of {6,8,10,12}
+safe, nondegenerate).
+- **Result (certificate-grade, bounded honestly): FORK-FREE through m=9 edges.**
+  Edge-stratified exhaustive search, sparse first (where a minimal fork lives ---
+  rho5 was 5 edges): m=5: 0 reps; m=6: 8; m=7: 92; m=8: 583; m=9: 2331 canonical
+  SCC-non-symmetric-branching representatives. Every one is tamed by the CHEAP
+  catalogue (determinism / grading / twin / MD+PB) before the safe-set test is
+  even reached --- ZERO fork candidates at any stratum. The region where a
+  minimal fork would hide is clear.
+- **Full-density scan (all edge counts): IN PROGRESS.** The unstratified
+  5-state scan (`_p54c`, 18M SCC-non-sym-branching arc-sets) is grinding in the
+  background; it flushes any fork candidate the instant one appears and none has
+  in 3+ minutes. NOT recorded as "empty" until it completes --- the honest grade
+  today is fork-free-through-9-edges, not fork-free-at-5-states.
+- **Method discipline (the night's lesson applied):** safe verdicts here are the
+  integer-exact shift-reachability criterion (theorem-let A), NOT dim-equality
+  or random sampling; any surviving candidate was to be forced to
+  exact-witness grade before recording. None survived, so the discipline was not
+  tested against a positive --- but it was in place.
+- **What this earns the proof attempt:** the sparse strata are exactly where the
+  exchange-blocking classification's base cases live, and they came back empty
+  the way the symmetric candidates did under witness pressure. The design-lane
+  proof attempt (exchange-blocking => grading/potential/phase-code via
+  Wielandt-bounded residue classes) is earned on evidence through 9 edges ---
+  with the standing flag that **theorem-let B (eventual periodicity at the
+  tuple level) is itself unproven** and is the load-bearing lemma to establish
+  separately, not assume (the exact analogue of the dim-equality shortcut).
+**Frontier: unchanged --- strongly connected non-symmetric class, universal
+impossibility conjecture unrefuted, now fork-free through 9 edges at 5 states on
+top of the empty P49 (<=4 states, {6,8}). Full-density 5-state confirmation
+pending.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

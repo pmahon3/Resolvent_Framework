@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. 2026-07-10: taming #10 (phase decoupling, A4-path = twisted double of NAND, P44 dim 31=1+2*15 exact) + COUNTING THEOREM (bijection: symmetric-loopless-MD <=> forest) + P46 empty => CIRCUIT LOCALIZATION CLOSES for symmetric MD (forest-target UNION signable); fork EXPELLED by structure (7 dissolutions). 36-hit ledger, 10 tamings. Remaining fork habitats, both beyond marginals: non-MD symmetric (= CSP-hard targets, extended formulations, NOW center of mass) + non-symmetric (collapse/holonomy). Lean queue: Lemma 2, thetasweep, phase-mixture, collapse, decoupling.",
+   "status": "OPEN - active successor programme. P47/P48/P49 2026-07-08: symmetric world FULLY FORK-FREE (P47 cyclic-target safe sets girth-locked+sparse, polytope-exact; CSP-hard = opposite of fork habitat) + SCC-REDUCTION lemma (taming #9 true form, rho39 membrane sealed) + P49 EMPTY (no SCC non-sym rich-safe survivor <=4 states). UNIVERSAL IMPOSSIBILITY CONJECTURE on record, unrefuted at small scale (fork residence = SCC non-sym recurrent-branching rich-safe; attack = exchange-blocking classification, Wielandt-bounded). 38-hit ledger, 10 tamings + SCC meta-lemma, 2 corrected tooling defects. Lean queue: Lemma 2 + 5 constructive proofs.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 111
+   "entries": 117
   },
   {
    "id": "kappa_q",

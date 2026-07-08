@@ -849,6 +849,62 @@ informative misses / 1 vacuous / 2 dead conjectures / 1 pre-emptive kill /
 1 corrected mis-triage / 1 corrected detector bug. TEN tamings. Symmetric MD
 Circuit Localization = the programme's proved endpoint on that class.**
 
+### 2.2t P47/P48/P49: the universal impossibility conjecture — symmetric fully expelled, SCC reduction, last-candidate scan EMPTY (2026-07-08)
+Run: `universal_conjecture.py` + `_p47check.py` (dim-based, exact) after a
+swap-criterion/polytope DISCREPANCY was caught and resolved (below).
+- **⚠ TOOLING DEFECT surfaced and corrected (this side's, on the record):**
+  the swap-criterion `unsafe_set` reported C4/C5/C6-TARGET languages unsafe at
+  ALL lengths - WRONG. Polytope ground truth (exact, `_p47check.py`) contra-
+  dicts it at C5-target L=2 (SAFE) and the girth-locked safe lengths. The
+  criterion (theorem-let A) was validated by P29 on the RECORDED profiles but
+  never on Cₙ-TARGETS; it has a multi-outcome-target bug. The design side's
+  hand BFS was RIGHT; my swap-run was wrong. Polytope used for P47.
+- **P47 (corrected, polytope-exact) - symmetric non-MD EXPELLED, cleaner than
+  predicted:** cyclic-target safe sets are SPARSE and GIRTH-LOCKED -
+  C4-target SAFE at even L (4,6; bipartite); C5-target SAFE only at 5,7
+  (near its girth, "missing 2" as registered); C6-target SAFE only at 6
+  ("missing 4" as registered). Girth-locked sparse safe sets CANNOT make all
+  seven circuits of a K4-minor frame (which carry several distinct lengths)
+  simultaneously safe. So every cyclic symmetric H is fork-incapable, and with
+  last round's forest result, **the fork cannot live anywhere in the symmetric
+  world.** Moral resolved on the coincidence side: the CSP-hard targets aren't
+  the fork's habitat - they're unsafe almost everywhere, the opposite.
+- **P48 (SCC reduction lemma = taming #9's true form) - VERIFIED, sharp
+  signature exact:** rho39's only predecessor of state 1 is 1 itself
+  (machine-confirmed), so on any recurrent ring u(1) is a sealed membrane:
+  L=4 (n=8) and L=6 (n=19) both COMMENSURABLE (exact facets), and the sharp
+  signature holds - state 1 appears ONLY in the all-1 section (membrane
+  cells p(10),p(12) carry no recurrent flux). The non-MD kernel coordinate
+  WAS the membrane flux; recurrence seals it; what remains = all-1 mixed with
+  NAND-in-costume, tamed by #7. General lemma: for any out-closed union U of
+  SCCs, U-mass is monotone along arcs -> constant on strongly connected
+  frames -> commensurability reduces to strongly connected languages,
+  wholesale.
+- **P49 (the last fork candidates) - EMPTY:** exhaustive scan of strongly
+  connected, non-symmetric, recurrent-branching languages <=4 states with
+  Safe ⊇ {6,8}, screened vs the catalogue: ZERO untamed survivors (scanned 0
+  reaching the Safe-{6,8} + nondegenerate filter - the demand itself is
+  nearly unsatisfiable at small scale). **The universal impossibility
+  conjecture is UNREFUTED at <=4 states.**
+**THE UNIVERSAL CONJECTURE, on the record (NOT asserted - final case genuinely
+open):** the fork does not exist - Circuit Localization holds universally for
+total languages on gate-passing time-realizable frames - because blocking
+exchanges at a rich length set forces one of the ten catalogued structures
+(determinism, grading, twins, signability, phase-decoupling, collapse, SCC
+reduction, ...), and every catalogued structure localizes the polytope. After
+symmetric expulsion (P47 + forests) and SCC reduction (P48), the fork's entire
+possible residence = strongly connected, non-symmetric, recurrent-branching,
+rich-safe-set languages on time-realizable frames; P49 finds none at <=4
+states. Design-lane attack: the exchange-blocking classification (avoiding
+pair-exchanges at 6,8 => cofinitely-even by theorem-let B's AP structure =>
+grading/potential/phase-code), provable via Wielandt-bounded finitely-many
+residue classes.
+**Ledger: 38 hits (P47-corrected, P48, P49) / 10 informative misses / 1
+vacuous / 2 dead conjectures / 1 pre-emptive kill / 1 corrected mis-triage /
+2 corrected tooling defects (detector + swap-on-targets). TEN tamings +
+SCC-reduction meta-lemma. Symmetric world fully fork-free; universal
+conjecture unrefuted at small scale.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

@@ -963,6 +963,46 @@ dim-sufficiency). The frontier is UNCHANGED IN CONTENT, UPGRADED IN EVIDENCE:
 symmetric world fork-free at certificate grade; universal impossibility
 conjecture stands, final case = SCC non-symmetric.**
 
+### 2.2v P53 amendment: C5's last "safe" lengths fall — cyclic symmetric targets unsafe at EVERY gate-holding length (2026-07-08)
+Run: `c5_calibration.py` (standalone exact, no heavy import). Verified in THIS
+environment, closing the last soft spot under the symmetric expulsion theorem.
+- **C5-target L=7 UNSAFE (witness-certified here)**: the uniform-edge coherent
+  point lies OUTSIDE R, exact residual 36/5. All 70 sections are
+  adjacent-distinct (the whole L=7 variety is the alternation family), and the
+  odd cycle admits no closing 2-colouring, so the coherent edge-marginal point
+  is unrealisable = the pentagon's alternation wound 7 times (design-session
+  orbit 0101010-wound-7). The earlier "L=7 safe" was the SAME dim/sampling
+  instrument bug (2.2u), now witness-refuted.
+- **C5-target L=5 GATE-DEGENERATE (not safe)**: every context is the discrete
+  partition (all 10 cells are singletons, max cell size 1), so EA forces full
+  agreement and C = simplex = R trivially --- safe-looking by RIGIDITY/gate
+  collapse, NOT a circulation-safe length. Reclassified: gate-degenerate.
+- **AMENDMENT to 2.2t/2.2u**: the "C5-target safe at {5,7}" entry is STRUCK
+  entirely --- 5 is gate-degenerate, 7 is witnessed-unsafe. **The clean,
+  strengthened statement: cyclic symmetric targets are unsafe at EVERY
+  gate-holding length; NO genuine safe lengths exist anywhere in the symmetric
+  world.** One bug (dim-equality + random-sampling, false-safe bias), one
+  correction, sweeping C4-evens + C6-evens + C5-{5,7} all in the same direction.
+- **P53 doubles as the swap-criterion fix's ACCEPTANCE TEST**: the corrected
+  criterion must tell the two failure modes apart --- witnessed-unsafe (L=7)
+  vs gate-degenerate (L=5) --- so `c5_calibration.py` is the calibration case
+  no criterion-based sweep may bypass until it passes.
+- **Symmetric expulsion theorem now rests entirely on certificate-grade
+  ground**: forests tamed (taming #10, proved) + every cyclic symmetric target
+  unsafe at all gate-holding lengths (witness-grade, no exceptions). No
+  dim-certificates, no random sweeps, no survivor lengths remain in any
+  symmetric verdict.
+- **Injectivity clause reaffirmed (Lean, verbatim)**: it caught the design
+  side's doubled-rotation error (2.2u) AND is the true unsafe/rigidity
+  discriminant here (the padded-alternation witnesses turn on layer-injectivity).
+  Leads Lemma 2 in the Lean queue.
+**Ledger: frontier UNCHANGED (strongly connected non-symmetric class; universal
+impossibility conjecture unrefuted) --- now with certificate-grade ground under
+ALL symmetric verdicts and no dim-equality/sampling shortcut anywhere. Policy
+foregrounded: every "safe" that mattered re-derived from a theorem or exact
+enumeration; every "unsafe" from an exhibited witness; instruments trusted only
+where they agree with one of those.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

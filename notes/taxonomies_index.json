@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. 2.2u CORRECTION 2026-07-08: 3rd tooling defect (dim-equality = necessary-not-sufficient; C4-L4 dim-equal yet C!=R by exhibited witness) => 'C4/C6-safe' sub-verdicts RETRACTED, but SYMMETRIC EXPULSION STANDS at WITNESS grade (backtracker orbits = real Lemma-1/2 objects). Verdict-grade ladder adopted (witness-unsafe > exact/theorem-safe > screening; random-LP DEMOTED, retro-audit clean). Swap-criterion fix = semantics-aware. Frontier UNCHANGED IN CONTENT, upgraded in evidence: symmetric fork-free (certificate grade), universal impossibility conjecture stands (final case SCC non-symmetric). 38-hit ledger, 3 corrected tooling defects. Lean: Lemma 2 (+ injectivity clause verbatim) + 5 constructive proofs.",
+   "status": "OPEN - active successor programme. 2.2v amendment 2026-07-08: C5-target {5,7} STRUCK (L=7 witnessed-unsafe here residual 36/5; L=5 gate-degenerate) --- cyclic symmetric targets unsafe at EVERY gate-holding length, no exceptions. Symmetric expulsion now ENTIRELY certificate-grade (forests + witness-unsafe cyclic targets; no dim/sampling shortcut anywhere). c5_calibration.py = swap-criterion fix's two-mode acceptance test. Frontier UNCHANGED: strongly connected non-symmetric class, universal impossibility conjecture unrefuted. Lean: Lemma 2 (injectivity clause verbatim, reaffirmed) + 5 constructive proofs.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 119
+   "entries": 120
   },
   {
    "id": "kappa_q",

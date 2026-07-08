@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — active successor programme. P31/P32/P33 2026-07-09: 25-hit ledger; SIX tamings catalogued (#6 direct-sum, via corrected ρ* mis-triage); taming #4 machine-confirmed on K4 (rank-drop observable); 13 true candidates with NAND minimal — digraph filters cannot decide fork-capability; ρ₅ = first no-known-reduction candidate, awaiting design-side analysis/registration. NEXT: design side on ρ₅; user's Lean pass (Lemma-2-first) unchanged.",
+   "status": "OPEN — active successor programme. P34/P35 2026-07-09: ρ₅ SAFE at the K5/Barahona-Mahjoub boundary (first genuine minor engagement; gate passes; dims 30=30; 200/200 exact LPs) — 27-hit ledger; FORK HUNT CLOSED (mode-switch policy); live lane = taming-#7 proof (pair-bipartite ⟹ safe on bipartite), from which Circuit Localization follows for branching languages at small scale. Lean queue: Lemma 2, then taming #7.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 80
+   "entries": 84
   },
   {
    "id": "kappa_q",

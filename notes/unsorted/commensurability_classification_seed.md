@@ -623,6 +623,36 @@ Run: `p31_p32_round.py`.
 **Ledger: 25 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
 1 pre-emptive kill / 1 recorded mis-triage (corrected same-day).**
 
+### 2.2n P34/P35 — the decisive round: ρ₅ holds at the K₅ boundary; taming-#7 proof licensed; fork hunt CLOSED (2026-07-09)
+Run: `rho5_k4_k5_tests.py`. Mode-switch policy in force (fork registrations
+frozen after this round).
+- **ρ₅ hand-facts all machine-verified**: pair digraph = 6 off-diagonal
+  pairs / 12 arcs, BIPARTITE with swap-pairs in opposite classes; triple
+  dynamics = 3 two-cycles, no rotations (winding-3 empty); entropy
+  λ ≈ 1.801938 with λ³ = λ² + 2λ − 1 exactly (≠ φ: not NAND in costume).
+  **Level-one autonomy has its witness**: the bipartiteness lives natively
+  in the pair dynamics over an aperiodic, odd-cycled base.
+- **P34 HIT**: 2-subdivided K₄: |V| = 265, gate PASS, dim C = dim R = 20,
+  120/120 exact LP directions agree — safe at sampling grade.
+- **P35 HIT — THE decisive one**: 2-subdivided K₅ (15 vertices, 20 edges,
+  |V| = 3434): **gate PASSES at the K₅ minor**, dim C = dim R = 30, 200/200
+  exact rational LP directions (all 100 coordinates + 100 random) give
+  max_C = max_R. For the first time in five fork attempts the minor had
+  genuine room — bipartite target, Barahona–Mahjoub boundary, NO stable-set
+  integrality theorem behind ρ₅ — and safety held. Scope declared: sampling
+  grade (facet pass infeasible at n = 3434); certification path = the
+  taming-#7 proof.
+- **Consequences per the pre-declared policy**: fork-candidate registrations
+  FROZEN. The design lane pivots to proving **taming #7: pair-bipartite
+  languages are safe on all bipartite graphs** (attack: mod-2 potential on
+  the pair-lifted constraint matrix, TU-flavored, ring forest argument as
+  base case). If it closes, combined with the scan classification, **Circuit
+  Localization follows for every branching language at small scale — the
+  theorem assembled out of the six tamings**, which is what the pattern was
+  saying all week. Lean queue: Lemma 2, then taming #7.
+**Ledger: 27 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
+1 pre-emptive kill / 1 corrected mis-triage.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

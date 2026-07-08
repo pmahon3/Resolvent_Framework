@@ -653,6 +653,54 @@ frozen after this round).
 **Ledger: 27 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
 1 pre-emptive kill / 1 corrected mis-triage.**
 
+### 2.2o Taming #7 PROVED — every joint machine-verified; θ-sweep certifies P35; P36 splits the hypothesis (2026-07-10)
+Run: `taming7_verification.py`. Taming #7 is now a theorem (design side), with
+this side confirming each load-bearing joint exactly.
+- **The retroactive datum (this side's harness had been reporting it)**: P34
+  dim C = 20 = 2·10, P35 dim C = 30 = 2·15 — ρ₅ is MARGINAL-DETERMINED (five
+  cells affine in endpoint marginals, kernel zero), two free coords/vertex.
+  The ring proof's reduction was never golden-mean-specific; it's a language
+  property the dimension counts were certifying for two rounds.
+- **Proof joints, all machine-verified**: (J1) the five affine-lift formulas
+  exact on every cell-vertex; (J2) the (s,y)-collapse — cell-nonneg ⟺
+  {s_i+s_j≥1, s_j+y_i≤1, s_i+y_j≤1, 0≤y≤s≤1} — exact on the 5⁴ rational grid;
+  (J3) integral (s,y) points decode to EXACTLY ρ₅'s five legal pairs; (J4)
+  Heller–Tompkins signing by the bipartition of subdivided K₅ gives every row
+  ≤2 nonzeros of opposite sign, and 4000 random square submatrices all have
+  det ∈ {0,±1} (TU supporting evidence; HT theorem itself = shelf/classical).
+  **⟹ C = R on every bipartite G; P35 upgrades from sampling-grade to
+  theorem-certified, K₅ minor and all.**
+- **P37 HIT — the θ-sweep is a constructive realisation, certified**: on 8
+  exact C-vertices of the P35 (3434-section) instance, the anti-comonotone
+  θ-sweep (threshold θ on the + class, 1−θ on the −) yields a LEGAL section
+  on every θ-interval and the interval-length mixture reproduces q EXACTLY in
+  rational arithmetic, 8/8. The "mod-2 potential" is a literal algorithm; the
+  Lean-friendly proof route (finite case analysis + Lebesgue-on-an-interval,
+  no TU library). Ring even-half / NAND-on-bipartite / P25 / P34 / P35 are
+  now instances of one statement.
+- **P36 splits the hypothesis — one direction clean, one open (as the design
+  side predicted the posture should be)**: over 220 marginal-determined,
+  connected, recurrent-branching languages ≤4 states: pair-bipartite ⟺
+  cumulative-signable AGREE on 207; **CS-not-PB = 0 (the hard direction: no
+  signable language fails pair-bipartite — signability ⟹ pair-bipartite, a
+  clean implication)**; PB-not-CS = 13 candidate splitters (incl. ρ₁₃'s base
+  0→{1,2},1→0,2→0 pattern), meaning pair-bipartite may be STRICTLY WEAKER
+  than cumulative-signable — OR the cumulative-basis operationalization
+  misses signings the general HT condition would catch. **Actionable for the
+  design side**: the 13 PB-not-CS languages are the exact test set for
+  "is pair-bipartite sufficient for safety, or only signability?" — run one
+  on a bipartite-with-K₅-minor frame to decide. (This side flags: our
+  signability check is cumulative-basis-restricted; a PB-not-CS language that
+  is nonetheless SAFE on subdivided K₅ would show the restriction, not the
+  theorem, is what PB-not-CS caught.)
+- **Residual open class for Circuit Localization now precisely named**:
+  branching languages that are NOT marginal-determined (u-reduction fails;
+  extended formulations the plausible tool).
+**Ledger: 29 hits / 7 informative misses / 1 vacuous / 2 dead conjectures /
+1 pre-emptive kill / 1 corrected mis-triage. Taming #7 = the programme's
+second proved theorem after parity; Circuit Localization follows for
+marginal-determined branching languages on bipartite structure.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

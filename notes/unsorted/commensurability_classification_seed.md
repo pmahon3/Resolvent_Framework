@@ -701,6 +701,42 @@ this side confirming each load-bearing joint exactly.
 second proved theorem after parity; Circuit Localization follows for
 marginal-determined branching languages on bipartite structure.**
 
+### 2.2p Endgame triage — P38a/P39 miss informatively; the 13 are REAL non-TU forks; non-MD safety EXISTS (2026-07-10)
+Run: `endgame_triage.py` + direct polytope confirmations. Two of three
+predictions missed, both load-bearing; corrections recorded.
+- **P38a MISS (benign): ZERO of the 13 dissolved** under all alphabet
+  orderings (predicted >= half were basis artifacts). The good outcome — the
+  TU triage then showed all 13 are GENUINELY non-TU (7-30 non-{0,+-1}
+  subdeterminants each in 6000 samples), so they are real PB-non-TU objects,
+  not cumulative-basis artifacts. Pair-bipartite is strictly weaker than TU.
+- **P39 MISS (substantive - corrects the endgame plan): the non-MD safe set
+  is NOT empty.** A 3-state non-MD recurrent-branching language has a full
+  even-safe set, POLYTOPE-CONFIRMED at exact-facet level (not just the
+  swap-criterion): rho = {(0,0),(0,2),(1,0),(1,1),(1,2),(2,0)} is
+  COMMENSURABLE at L=4 (n=8) and L=6 (n=19), INCOMMENSURABLE at L=3 - kernel
+  dim 1, |rho|=6 > 2|A|-1=5, pair-bipartite FALSE. So the MD counting bound
+  is necessary for the affine-lift PROOF, not for the safety PHENOMENON - the
+  swap-criterion (safe = evens) agrees with the polytope even off MD and off
+  pair-bipartite. The "non-MD => vacuous" plan is dead; non-MD safety is a
+  real region needing its own mechanism (extended formulations, non-empty
+  target).
+- **The MD-bound pattern still holds as stated** (NAND/golden/rho5 sit AT the
+  bound 2|A|-1; FULL2, NE3 exceed it and are unsafe-everywhere) - but it is
+  now known to be a proof-machinery boundary, not a safety boundary.
+- **P38b is now the whole ballgame, sharpened**: all 13 PB-languages are
+  non-TU, so NONE is covered by taming #7 (theta-sweep provably won't exist -
+  non-TU kills the global alignment). The minimal one, rho =
+  {(0,1),(0,2),(1,0),(2,0)} (|A|=3, the graded-d2 exemplar - also taming-#4's
+  object, now revealed PB-non-TU), goes to subdivided-K5 with prediction
+  WITHHELD: safe => integrality-below-TU (RHS-specific, new proof idea,
+  theta-sweep absent); unsafe => THE FORK (circuit-innocent minor-type
+  contextuality; autopsy = restrict to circuits [all safe] then locate
+  witness support's cycle-space class). The genuinely open decisive
+  experiment - awaiting design-side registration of P38b.
+**Ledger: 30 hits / 9 informative misses (P38a, P39 added) / 1 vacuous / 2
+dead conjectures / 1 pre-emptive kill / 1 corrected mis-triage. Endgame
+reduced to P38b (the 13 non-TU forks) + non-MD safety mechanism.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

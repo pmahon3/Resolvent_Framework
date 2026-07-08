@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN — active successor programme. TAMING #7 PROVED 2026-07-10 (signable ⟹ safe on bipartite; every joint machine-verified; θ-sweep constructive, P37-certified on the 3434-section K5 instance) — the programme's 2nd theorem after parity; Circuit Localization follows for marginal-determined branching languages on bipartite structure. 29-hit ledger. P36: signable ⟹ pair-bipartite clean (0 hard splitters), 13 candidate splitters = sufficiency test set. Open residue: pair-bipartite⟹signable? + non-marginal-determined class. Lean queue: Lemma 2, then taming #7 (θ-sweep route).",
+   "status": "OPEN - active successor programme. Endgame triage 2026-07-10 (30-hit ledger, 9 informative misses): the 13 PB-languages are REAL non-TU forks (0 dissolved; taming #7 cannot cover) = last fork candidates, P38b decides; P39 REFUTED (non-MD safety exists, polytope-confirmed - MD bound is a proof boundary not a safety boundary). Taming #7 (signable=>safe on bipartite) + parity + free theorems stand. Decisive open: P38b (minimal non-TU PB-language on subdivided-K5, prediction withheld) + non-MD safety mechanism. Lean queue: Lemma 2, then taming #7 theta-sweep.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 89
+   "entries": 94
   },
   {
    "id": "kappa_q",

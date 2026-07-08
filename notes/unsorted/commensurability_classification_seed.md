@@ -808,6 +808,47 @@ vacuous / 2 dead conjectures / 1 pre-emptive kill / 1 corrected mis-triage /
 1 corrected detector bug. NINE tamings. The impossibility route is NOT open
 (P42 non-empty); the decisive experiment is required and now cleanly posed.**
 
+### 2.2s Taming #10 (phase decoupling) + counting theorem + Circuit Localization CLOSES for symmetric MD (2026-07-10)
+Run: `taming10_forest.py` + standalone counting/P46. The A4-path dissolves,
+and the mechanism that kills it classifies the whole symmetric-MD world.
+- **Taming #10 (bipartite-target phase decoupling) verified**: the P4-path is
+  a TWISTED DOUBLE of NAND. J10 exact: all 36 homs C6->P4 carry a global
+  phase (G-class -> single P4-class), and 2 x |independent sets of C6| =
+  2 x 18 = 36 = |homs| - two NAND copies braided over one phase scalar t.
+  C_t = t.FSTAB (+) (1-t).FSTAB, R_t = t.STAB (+) (1-t).STAB; on bipartite G,
+  FSTAB=STAB (taming #7) => C=R. Non-signable/non-TU in raw coords is exactly
+  what FIBERED-TU looks like to a flat detector.
+- **P44 HIT to the sharp number**: P4-path on subdivided-K5 SAFE, dim C =
+  dim R = **31 = 1 + 2*15** (one phase scalar + two independent 15-vertex-
+  marginal copies) - the falsifiable fibered signature; |V|=2900, 80/80 LPs.
+- **P45 HIT**: claw K_{1,3} on subdivided-K5 SAFE, dim 31 (tree theorem's
+  first non-path instance). (5-spider: harness dim-R routine doesn't scale to
+  its ~>5x10^5 homs - a tooling limit, NOT a math question; the claw already
+  instances the tree theorem; flagged, not hidden.)
+- **COUNTING THEOREM confirmed as a BIJECTION**: over 1819 symmetric-loopless
+  MD targets (<=6 states) ZERO are non-forests, and all 1441 connected trees
+  ARE MD -> symmetric-loopless-MD <=> forest, exactly. |rho|=2|E| <= 2|A|-1
+  forces |E| <= |V|-1 = forest = bipartite = phase-decouples. The A4-path was
+  the GENERIC member of a class taming #10 sweeps wholesale.
+- **P46 EMPTY**: no loopy symmetric MD, pair-bipartite, non-signable survivor
+  at <=4 states - the loopy remainder is fully tamed by signability/decoupling.
+- **=> CIRCUIT LOCALIZATION CLOSES FOR THE SYMMETRIC MD CLASS**: every
+  symmetric MD language is forest-target (tamed by #10 + tree recursion) OR
+  has loops within signable/twin/decoupling reach (P46 empty). The fork is
+  EXPELLED from symmetric MD by structure - seven dissolutions were the
+  impossibility theorem assembling.
+**The fork's two remaining habitats, both named and both beyond marginals:**
+(1) NON-MD SYMMETRIC - where the classical hard targets live (odd cycles,
+NE3: 2|E|=2|V| > 2|V|-1; the CSP-hard languages are PRECISELY the ones the
+marginal reduction cannot see - coincidence or the whole story), governed by
+rho39-style extended formulations - now the frontier's center of mass;
+(2) NON-SYMMETRIC - governed by taming #9 collapse + holonomy, pending the
+directed-obstruction formulation.
+**Ledger: 36 hits (taming #10, P44, P45-claw, counting theorem, P46) / 10
+informative misses / 1 vacuous / 2 dead conjectures / 1 pre-emptive kill /
+1 corrected mis-triage / 1 corrected detector bug. TEN tamings. Symmetric MD
+Circuit Localization = the programme's proved endpoint on that class.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

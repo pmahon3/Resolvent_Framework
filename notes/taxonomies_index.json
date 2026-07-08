@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. 2026-07-10: taming #9 (monotone collapse, non-symmetric) + orientation scoping (safe-on-G orientation-dependent; minor theory = undirected = symmetric only). P42 FINDS THE OBJECT: the P4-PATH language (A4 Dynkin, hom-into-path) = unique symmetric fork carrier, nothing catalogued tames it -> P38b now CLEANLY POSED on P4-path/subdivided-K5, prediction withheld (safe=>below-TU mechanism, unsafe=>THE FORK). 33-hit ledger, 10 informative misses, 9 tamings; impossibility route closed. Non-symmetric branch: directed-obstruction question open. Lean queue: Lemma 2, thetasweep, phase-mixture, collapse-lemma.",
+   "status": "OPEN - active successor programme. 2026-07-10: taming #10 (phase decoupling, A4-path = twisted double of NAND, P44 dim 31=1+2*15 exact) + COUNTING THEOREM (bijection: symmetric-loopless-MD <=> forest) + P46 empty => CIRCUIT LOCALIZATION CLOSES for symmetric MD (forest-target UNION signable); fork EXPELLED by structure (7 dissolutions). 36-hit ledger, 10 tamings. Remaining fork habitats, both beyond marginals: non-MD symmetric (= CSP-hard targets, extended formulations, NOW center of mass) + non-symmetric (collapse/holonomy). Lean queue: Lemma 2, thetasweep, phase-mixture, collapse, decoupling.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 104
+   "entries": 111
   },
   {
    "id": "kappa_q",

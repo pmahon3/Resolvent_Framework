@@ -5,7 +5,7 @@
   "updated": "2026-07-10",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
-  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12). K4 round: gate holds at a K4 minor; NAND tames the minor obstruction (evenize ⟺ bipartitize — NAND cannot separate Circuit Localization from minor theory; P25' = ρ₂₀-beads on length-6-subdivided K4 is the decisive test); lifting lemma controlled both ways (P26 path-sharing inheritance gap ½; P27 totality necessary via matched lollipop pair). P25' round: rho20 is a PERMUTATION — LOCAL = holonomy-invariant simplex, Safe ⟺ H=id (covering frame LITERAL); third taming. NE3 ruled out (unsafe all L, gate fails rigid-direction at L=3). Fork needs: nondeterministic + nonempty safe set + non-integrality-forcing — existence now the design question; the tamings may BE Circuit Localization's mechanism. P29/P30: swap-spectrum criterion VALIDATED polytope-free; exhaustive ≤4-state hunt: 333 pre-candidates → taming #5 (transient branching, 149) → 184 recurrent-branching survivors, 181 even-q parity-family + 1 graded exemplar. Fork narrows to ρ* = loops+2-cycle (parity from swap dynamics, not bipartite base) on q=2-subdivided K4 — P31 awaiting registration. P31/P32/P33: taming #6 = direct-sum decomposition (ρ* mis-triage caught: = NAND ⊕ point); taming #4 machine-confirmed on K4 with the rank drop as observable (dim C = dim R = 18 = factorization formula); 13 true candidates remain with NAND minimal — structural filters cannot decide fork-capability (tamings are polytope-level); ρ₅ = {01,02,10,11,20} is the first no-known-reduction candidate. P34/P35: ρ₅ SAFE at the K5 boundary (gate passes at the minor; dims 30=30; 200/200 exact LPs) — the first experiment where the minor had room, and safety held. Fork hunt CLOSED; taming #7 (pair-bipartite ⟹ safe on bipartite graphs) is the proof lane; if it closes, Circuit Localization follows for branching languages at small scale — the theorem assembled from the tamings. TAMING #7 PROVED: signable (marginal-determined + HT-signable-by-bipartition) languages are safe on all bipartite graphs — mod-2 potential = anti-comonotone θ-sweep (constructive, P37-certified on the 3434-section K5 instance). P35 upgraded to theorem-certified. P36: signable ⟹ pair-bipartite clean (0 hard splitters); 13 PB-not-CS candidates = the sufficiency test set. Circuit Localization follows for marginal-determined branching languages on bipartite structure. Endgame triage: the 13 PB-languages are REAL non-TU objects (0 dissolved under all orderings; taming #7 provably cannot cover them) = the last fork candidates, P38b decides. P39 MISS: non-MD safety EXISTS (polytope-confirmed even-safe non-MD non-pair-bipartite language) - the MD bound is a PROOF boundary (affine lift) not a safety boundary; the swap-criterion holds off MD. Taming #8 (twin expansion) PROVED (rho_min = twins over alternation; phase-mixture safe on K5, no TU = below-TU mechanism); P41 hit (reflexive twinning generates unsafety). BUT P40 REFUTES dissolution: only 2/13 dissolve, 11 reduce to smaller twin-free MD-PB-non-signable-non-TU forks - the twin-tower classification is refuted at scale; P38b on the minimal quotient is the still-required decisive run. Taming #9 (monotone collapse) + orientation scoping (safe-on-G is orientation-dependent for non-symmetric langs; minor theory = undirected = symmetric only). P42 FINDS THE OBJECT: the P4-PATH language (A4 Dynkin, hom-into-a-path) - symmetric, twin-free, MD, PB, non-signable, non-TU, safe=evens; nothing catalogued tames it. P38b on the P4-path/subdivided-K5 is the cleanly-posed decisive fork experiment. 9 tamings; impossibility route closed (P42 non-empty).",
+  "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12). K4 round: gate holds at a K4 minor; NAND tames the minor obstruction (evenize ⟺ bipartitize — NAND cannot separate Circuit Localization from minor theory; P25' = ρ₂₀-beads on length-6-subdivided K4 is the decisive test); lifting lemma controlled both ways (P26 path-sharing inheritance gap ½; P27 totality necessary via matched lollipop pair). P25' round: rho20 is a PERMUTATION — LOCAL = holonomy-invariant simplex, Safe ⟺ H=id (covering frame LITERAL); third taming. NE3 ruled out (unsafe all L, gate fails rigid-direction at L=3). Fork needs: nondeterministic + nonempty safe set + non-integrality-forcing — existence now the design question; the tamings may BE Circuit Localization's mechanism. P29/P30: swap-spectrum criterion VALIDATED polytope-free; exhaustive ≤4-state hunt: 333 pre-candidates → taming #5 (transient branching, 149) → 184 recurrent-branching survivors, 181 even-q parity-family + 1 graded exemplar. Fork narrows to ρ* = loops+2-cycle (parity from swap dynamics, not bipartite base) on q=2-subdivided K4 — P31 awaiting registration. P31/P32/P33: taming #6 = direct-sum decomposition (ρ* mis-triage caught: = NAND ⊕ point); taming #4 machine-confirmed on K4 with the rank drop as observable (dim C = dim R = 18 = factorization formula); 13 true candidates remain with NAND minimal — structural filters cannot decide fork-capability (tamings are polytope-level); ρ₅ = {01,02,10,11,20} is the first no-known-reduction candidate. P34/P35: ρ₅ SAFE at the K5 boundary (gate passes at the minor; dims 30=30; 200/200 exact LPs) — the first experiment where the minor had room, and safety held. Fork hunt CLOSED; taming #7 (pair-bipartite ⟹ safe on bipartite graphs) is the proof lane; if it closes, Circuit Localization follows for branching languages at small scale — the theorem assembled from the tamings. TAMING #7 PROVED: signable (marginal-determined + HT-signable-by-bipartition) languages are safe on all bipartite graphs — mod-2 potential = anti-comonotone θ-sweep (constructive, P37-certified on the 3434-section K5 instance). P35 upgraded to theorem-certified. P36: signable ⟹ pair-bipartite clean (0 hard splitters); 13 PB-not-CS candidates = the sufficiency test set. Circuit Localization follows for marginal-determined branching languages on bipartite structure. Endgame triage: the 13 PB-languages are REAL non-TU objects (0 dissolved under all orderings; taming #7 provably cannot cover them) = the last fork candidates, P38b decides. P39 MISS: non-MD safety EXISTS (polytope-confirmed even-safe non-MD non-pair-bipartite language) - the MD bound is a PROOF boundary (affine lift) not a safety boundary; the swap-criterion holds off MD. Taming #8 (twin expansion) PROVED (rho_min = twins over alternation; phase-mixture safe on K5, no TU = below-TU mechanism); P41 hit (reflexive twinning generates unsafety). BUT P40 REFUTES dissolution: only 2/13 dissolve, 11 reduce to smaller twin-free MD-PB-non-signable-non-TU forks - the twin-tower classification is refuted at scale; P38b on the minimal quotient is the still-required decisive run. Taming #9 (monotone collapse) + orientation scoping (safe-on-G is orientation-dependent for non-symmetric langs; minor theory = undirected = symmetric only). P42 FINDS THE OBJECT: the P4-PATH language (A4 Dynkin, hom-into-a-path) - symmetric, twin-free, MD, PB, non-signable, non-TU, safe=evens; nothing catalogued tames it. P38b on the P4-path/subdivided-K5 is the cleanly-posed decisive fork experiment. 9 tamings; impossibility route closed (P42 non-empty). Taming #10 (bipartite-target phase decoupling): the A4-path = twisted double of NAND (P44 safe, dim 31=1+2*15 exact). COUNTING THEOREM (bijection, 1819 targets): symmetric-loopless-MD <=> forest => whole class phase-decouples. P46 empty. => CIRCUIT LOCALIZATION CLOSES for symmetric MD (forest-target ∪ signable); fork expelled by structure. Remaining habitats: non-MD symmetric (odd cycles/NE3 = the CSP-hard targets marginals can't see = extended formulations) + non-symmetric (collapse/holonomy).",
   "categories": {
    "definitions": "locked vocabulary and invariants",
    "mechanisms": "certificate mechanisms with minimal object-backed sightings",
@@ -18,17 +18,18 @@
   "headline": {
    "mechanisms": 5,
    "predictions_logged": 8,
-   "predictions_hit": 33,
+   "predictions_hit": 36,
    "predictions_missed_informatively": 9,
    "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
    "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
    "preemptive_kills": 1,
    "ring_parity": "odd L=3,5 incommensurable / even L=4,6 commensurable (exact)",
    "theorems_proved": 4,
-   "tamings_catalogued": 9,
+   "tamings_catalogued": 10,
    "fork_hunt": "CLOSED (mode-switch policy); taming-#7 proof = the live lane",
    "taming7": "PROVED (signable ⟹ safe on bipartite); joints machine-verified; θ-sweep constructive",
-   "the_object": "P4-path (A4 Dynkin) = the clean symmetric fork carrier; P38b well-posed"
+   "the_object": "P4-path (A4 Dynkin) = the clean symmetric fork carrier; P38b well-posed",
+   "symmetric_MD": "Circuit Localization CLOSED (forest-target UNION signable); fork expelled by structure"
   }
  },
  "definitions": [
@@ -238,6 +239,27 @@
    "status": "machine-identified",
    "one_line": "{(0,1),(0,3),(1,0),(1,2),(2,1),(3,0)} = hom-into-P4 (A4 Dynkin); symmetric, twin-free, MD, pair-bipartite, non-signable, non-TU, safe=evens. The unique <=4-state symmetric fork survivor; nothing catalogued tames it; the honest P38b carrier.",
    "detail": "symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+  },
+  {
+   "id": "thm.taming10_decoupling",
+   "name": "Taming #10: bipartite-target phase decoupling",
+   "status": "proved-hand-machine-verified",
+   "one_line": "Bipartite-target symmetric MD language = t-fibered join of two target-edge polytopes over a global phase scalar; on bipartite G, FSTAB=STAB => C=R. A4-path = twisted double of NAND (J10 exact, 2*18=36; P44 dim 31=1+2*15).",
+   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+  },
+  {
+   "id": "thm.forest_counting",
+   "name": "Counting theorem: symmetric-loopless-MD = forest",
+   "status": "proved-hand-machine-bijection",
+   "one_line": "|rho|=2|E|<=2|A|-1 forces forest; verified as a bijection (1819 MD targets all forests, 1441 trees all MD, <=6 states). So the loopless symmetric MD class is forest-only at every scale and phase-decouples wholesale.",
+   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+  },
+  {
+   "id": "thm.symmetric_md_circuit_localization",
+   "name": "Circuit Localization CLOSED for symmetric MD",
+   "status": "proved-hand",
+   "one_line": "Every symmetric MD language: forest-target (taming #10 + tree recursion) OR loopy-within-signable/twin/decoupling (P46 empty). Fork expelled from symmetric MD by structure. Seven dissolutions = the impossibility theorem.",
+   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   }
  ],
  "structure": [
@@ -627,6 +649,34 @@
    "status": "hit",
    "one_line": "rho† safe on directed frame by collapse (dim C=dim R), NOT below-TU integrality - the confound that would have mis-filed P38b, caught before the run.",
    "detail": "symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+  },
+  {
+   "id": "pred.p44_p4path",
+   "name": "P44: P4-path safe, dim 31=1+2*15",
+   "status": "hit-sharp",
+   "one_line": "dim C=dim R=31 exact on subdivided-K5 (fibered signature); |V|=2900, 80/80 LPs. Decoupling certified, not coincidence.",
+   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+  },
+  {
+   "id": "pred.p45_tree",
+   "name": "P45: claw safe (tree theorem)",
+   "status": "hit",
+   "one_line": "Claw K_{1,3} dim 31 safe; first non-path tree instance. 5-spider = harness scaling limit (tooling, not math), flagged.",
+   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+  },
+  {
+   "id": "pred.counting_bijection",
+   "name": "Counting theorem: MD-loopless-symmetric <=> forest",
+   "status": "hit-bijection",
+   "one_line": "1819 MD targets all forests; 1441 trees all MD (<=6 states). Sharp bijection closing the loopless class.",
+   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+  },
+  {
+   "id": "pred.p46_loopy",
+   "name": "P46: loopy symmetric MD survivors",
+   "status": "hit-empty",
+   "one_line": "EMPTY - loopy remainder fully tamed; symmetric MD Circuit Localization closes forest-target UNION signable.",
+   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   }
  ],
  "open_frontier": [
@@ -640,16 +690,16 @@
   {
    "id": "open.p38b_decisive",
    "name": "P38b: minimal non-TU PB-language on subdivided-K5 (THE decisive experiment)",
-   "status": "open",
-   "one_line": "NOW CLEANLY POSED (7th candidate does not dissolve): the P4-PATH language {(0,1),(0,3),(1,0),(1,2),(2,1),(3,0)} (A4 Dynkin, hom-into-path; symmetric so no orientation confound) on UNDIRECTED subdivided-K5, prediction withheld: safe => below-TU mechanism for hom-into-path (new math); unsafe => THE FORK (minor-type contextuality from a Dynkin diagram). Awaiting design registration.",
-   "detail": "commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+   "status": "resolved-by-structure",
+   "one_line": "RESOLVED: the P4-path (last symmetric fork candidate) dissolves by taming #10 (twisted double of NAND); counting theorem makes the whole symmetric MD class forest-or-signable. Circuit Localization CLOSED for symmetric MD; fork expelled by structure. Successors = the two non-marginal habitats.",
+   "detail": "commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "open.nonmd_safety",
    "name": "Non-MD safety mechanism (P39 refutation residue)",
-   "status": "open",
-   "one_line": "Non-MD languages CAN be even-safe (polytope-confirmed); the affine-lift proof doesn't reach them. Needs extended-formulation mechanism; swap-criterion still predicts correctly off MD - safety has a proof beyond the marginal reduction.",
-   "detail": "commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
+   "status": "open-center-of-mass",
+   "one_line": "THE FRONTIER'S CENTER OF MASS: non-MD symmetric languages (odd cycles, NE3: 2|E|>2|V|-1) = exactly the CSP-hard targets the marginal reduction cannot see. Extended-formulation attack (rho39 kernel coordinate as the internalized phase). Where the fork, if it exists, must live.",
+   "detail": "commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "open.pb_vs_signable",

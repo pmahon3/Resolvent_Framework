@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. 2026-07-10: taming #8 (twin expansion) PROVED (phase-mixture, below-TU); P41 hit (reflexive twinning -> unsafety). BUT P40 REFUTES dissolution - only 2/13 collapse, 11 twin-free MD-PB-non-TU forks remain; twin-tower classification refuted at scale. 31-hit ledger, 10 informative misses. P38b on the minimal twin-free quotient {(0,1),(0,2),(1,1),(2,0)} remains THE decisive run (catalogue did not close the fork). EIGHT tamings; taming #7 + parity + free theorems stand. Lean queue: Lemma 2, taming #7 theta-sweep, taming #8 phase-mixture.",
+   "status": "OPEN - active successor programme. 2026-07-10: taming #9 (monotone collapse, non-symmetric) + orientation scoping (safe-on-G orientation-dependent; minor theory = undirected = symmetric only). P42 FINDS THE OBJECT: the P4-PATH language (A4 Dynkin, hom-into-path) = unique symmetric fork carrier, nothing catalogued tames it -> P38b now CLEANLY POSED on P4-path/subdivided-K5, prediction withheld (safe=>below-TU mechanism, unsafe=>THE FORK). 33-hit ledger, 10 informative misses, 9 tamings; impossibility route closed. Non-symmetric branch: directed-obstruction question open. Lean queue: Lemma 2, thetasweep, phase-mixture, collapse-lemma.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 98
+   "entries": 104
   },
   {
    "id": "kappa_q",

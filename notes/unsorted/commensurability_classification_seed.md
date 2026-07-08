@@ -770,6 +770,44 @@ NOT close the case; the decisive run is required.
 / 1 vacuous / 2 dead conjectures / 1 pre-emptive kill / 1 corrected
 mis-triage / 1 corrected detector-bug (same-round, hand-verified).**
 
+### 2.2r Taming #9 (monotone collapse) + the orientation scoping + P42 FINDS THE OBJECT: the P4-path language (2026-07-10)
+Run: `symmetry_split_p42_p43.py` + structural interrogation.
+- **Scope correction logged as a DEFINITION (design side)**: "Safe on G" is
+  ORIENTATION-DEPENDENT for non-symmetric languages; the dynamically
+  meaningful frame = every arc forward-in-time, every vertex recurrent
+  (tournament-oriented, strongly connected). Mixed-orientation frames model
+  no dynamical observation. The minor-theoretic side (Barahona-Mahjoub, cut
+  polytopes) is UNDIRECTED theory -> transfers to SYMMETRIC languages only.
+- **Taming #9 (monotone collapse) verified**: non-symmetric relations induce
+  monotone potentials on uniformly-directed subdivision paths; strong
+  connectivity forces them constant, collapsing C to conv(sections). rho† =
+  {(0,1),(0,2),(1,1),(2,0)} on directed theta(2,2,2): dim C = dim R = 4 (C=R,
+  sections only) - the confound that would have poisoned P38b-as-specified
+  (verdict "safe" = rigidity, not below-TU integrality). ALL 10 non-symmetric
+  quotients of the 11 collapse on the directed frame (2 arc-transient =
+  taming #5 at arc level; 8 by potential-collapse, dims matching exactly at
+  |V| up to 21).
+- **P42 IS NOT EMPTY - it finds the object.** Exactly ONE symmetric fork
+  survivor at <=4 states, identical to the lone symmetric member of the 11:
+  **{(0,1),(0,3),(1,0),(1,2),(2,1),(3,0)} = the P4-PATH language** (undirected
+  graph = path 3-0-1-2 = the A4 Dynkin diagram; hom-into-a-path). Symmetric,
+  twin-free, MD, pair-bipartite, NON-signable (all orderings), NON-TU, Safe =
+  evens (unsafe at odd L=3..11, exact). **This is the honest P38b carrier the
+  endgame was reaching for**: a natural, NAMED, symmetric language; undirected
+  frame so no orientation confound; minor theory fully engaged; nothing
+  catalogued tames it (not signable, not twin, not graded, not deterministic,
+  not collapse - symmetric so #9 inapplicable).
+**P38b, finally well-posed: the P4-path language on subdivided-K5 (undirected),
+prediction genuinely withheld.** Safe => a below-TU integrality mechanism for
+hom-into-a-path (new mathematics, the θ-sweep/phase-mixture don't reach it);
+unsafe => THE FORK - circuit-innocent, minor-type contextuality from a Dynkin
+diagram, and the covering-space/cut-polytope frame becomes the proof language.
+Six candidates dissolved by taming; the seventh is a path graph and does not.
+**Ledger: 33 hits (taming #9, P43-via-lemma) / 10 informative misses / 1
+vacuous / 2 dead conjectures / 1 pre-emptive kill / 1 corrected mis-triage /
+1 corrected detector bug. NINE tamings. The impossibility route is NOT open
+(P42 non-empty); the decisive experiment is required and now cleanly posed.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

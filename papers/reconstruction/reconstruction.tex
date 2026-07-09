@@ -1,0 +1,89 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\EA}{\mathrm{EA}}
+\newcommand{\PR}{\mathrm{PR}}
+\newcommand{\STAB}{\mathrm{STAB}}
+\newcommand{\FSTAB}{\mathrm{FSTAB}}
+\newcommand{\TR}{\mathrm{TR}}
+\newcommand{\LISC}{\mathrm{LISC}}
+\newcommand{\ind}{\mathbf{1}}
+
+% ---------- Standalone flag ----------
+\newif\ifstandalone
+\standalonetrue
+
+% ---------- Title ----------
+\title{Commensurability of Observation Protocols:\\
+When Coherent Windows Determine a Process}
+\author{Patrick S.\ Mahon\thanks{%
+  Research Computing Group, Simon Fraser University, Burnaby, BC, Canada.
+  \texttt{pmahon@sfu.ca}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Observing a process through overlapping finite windows yields a family of local
+statistics. When are locally coherent window-statistics guaranteed to arise from
+a single global process? We call an observation protocol \emph{commensurable}
+when empirical adequacy (pairwise coherence of the windows, $\EA$) forces
+probabilistic realisability by a declared class ($\PR(\Rc)$); the failure ---
+coherent-but-unrealisable data --- is contextuality in the sense of
+Abramsky--Brandenburger, arrived at from the observational side. We recast the
+question geometrically: a protocol is commensurable iff its coherence polytope
+$C$ equals its realisability polytope $R$, so contextuality is an exactly
+computable separation and every failure carries a rational witness. Within this
+frame we prove a structure theory for protocols whose contexts are windows on a
+symbolic dynamical system. The main results are: a \emph{trichotomy} (acyclic
+reporting is commensurable for every language; full-support coordinate protocols
+are commensurable by the product measure; protocols carrying a constraint
+variety realise every rational polytope, hence admit no finite classification,
+by De~Loera--Onn); a \emph{parity theorem} (the golden-mean shift observed
+around a ring of length $L$ is commensurable iff $L$ is even, the odd-ring gap
+being a single extreme point, its own PR-box); a catalogue of ten
+\emph{taming} mechanisms, each a structural obstruction to contextuality; and,
+assembled from these, \emph{Circuit Localization} for the marginal-determined
+symmetric class --- commensurability there is decided entirely by acyclicity
+and the tamings, with contextuality excluded by structure rather than by
+search. The load-bearing combinatorial discriminant (a layered-ring walk is a
+simple cycle iff layer-injective) is machine-verified in Lean~4. We state the
+remaining open case --- a universal impossibility conjecture for the
+strongly-connected non-symmetric class --- together with its reduction to a
+combinatorial pruning lemma and the precise gap that reduction currently
+carries.
+\end{abstract}
+
+\ifstandalone
+\input{reconstruction_body}
+\bibliographystyle{plain}
+\bibliography{references}
+\fi
+
+\end{document}

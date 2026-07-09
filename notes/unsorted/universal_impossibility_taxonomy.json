@@ -106,10 +106,11 @@
   "subtargets": [
     {
       "id": "sub.girth_locking",
-      "name": "Make symmetric expulsion theorem-grade (girth-locking)",
+      "name": "Girth-locking / sources-of-safety — first attack exposed a DETECTOR bug",
       "status": "open",
-      "one_line": "symmetric non-MD is expelled only WITNESS-grade (P47: cyclic-target safe sets sparse+girth-locked, C3–C6 witnessed). Promote to a rigorous COVERING argument: a sparse girth-locked safe set cannot cover all circuit-lengths of a K4-minor frame simultaneously. Not a search — a covering lemma. Likely tractable.",
-      "detail": "../unsorted/commensurability_classification_seed.md#22t"
+      "examined": "2026-07-09",
+      "one_line": "Attacked via 'safe-on-d·ℤ ⟹ tamed'. First run: 6 (A=3) + 14 (A=4) apparent UNTAMED survivors safe on 2ℤ ⟹ looked like near-forks. BUT the taming-DETECTOR was incomplete: `tamed(golden_mean)=[]` even though golden mean IS signability-tamed (proved this session). Root cause: detector tested TARGET-graph 2-colouring, but signability is a FRAME/layered-ring property (even cycle C_L bipartite ⟹ TU). Every survivor is safe⟺L-even = the odd-cycle/parity certificate = frame-signability = TAMED. NOT near-forks, NOT a missing taming. LESSON: the under-detection is plausibly WHY the catalogue felt like stamp-collecting (can't feel complete while mis-testing signability). NEXT: rebuild the detector with frame-level signability + TU, then re-run — the surviving count is the real signal.",
+      "detail": "joint2_wielandt_finding.md#girth-locking-first-attack"
     },
     {
       "id": "sub.mechanism_independence",

@@ -150,3 +150,38 @@ positives earlier). **ZERO survived.** Every untamed 5-state candidate goes unsa
 on every residue class past the artifact window. Real evidence for UI (not a window
 artifact); the hunt should widen (|A|=6, denser branching, more d) — a hit at any
 scale kills UI.
+
+## Girth-locking, first attack — a DETECTOR BUG, not near-forks (2026-07-09)
+
+Attacked the sources-of-safety crux via its contrapositive: "safe on a full residue
+class d·ℤ ⟹ tamed by a catalogued mechanism." Enumerated strongly-connected total
+languages safe on 2ℤ deep (A=3 to L=20, A=4 to L=16) and ran a taming detector
+(signability/grading/twins/determinism).
+
+**Apparent result:** 6 (A=3) + 14 (A=4) UNTAMED survivors — looked like near-forks
+(genuinely contextual, safe on 2ℤ, no taming firing). Per the pre-registered gate
+this would mean a MISSING taming or a real fork.
+
+**Actual result: the detector was BROKEN.** Decisive check (advisor):
+`tamed(golden_mean) = []` — but golden mean IS signability-tamed (safe⟺even, PROVED
+this session). A provable inconsistency between the detector and my own theorem.
+**Root cause:** signability is "a column signing driven by the FRAME's bipartition
+giving TU" (paper) — a property of the layered ring / observation frame, NOT the
+target state-graph's 2-colourability. `bipartite_target(rel)` tested the wrong
+object, false-negativing exactly the odd-cycle/parity languages (whose signature is
+safe⟺L-even). Verified: the first survivor is safe⟺L-even for all L=3..15 = the
+odd-cycle facet = frame-signability = TAMED. Every survivor is golden-mean-shaped.
+
+**⟹ NOT near-forks, NOT a threat to UI, NOT a missing taming.** The girth-locking
+run tells us nothing about UI until the detector is rebuilt with FRAME-LEVEL
+signability (layered-ring bipartition + TU), not target 2-colouring.
+
+**The deeper lesson (why this matters for the paper):** silently under-detecting one
+of the catalogued tamings is plausibly part of WHY the catalogue reads as
+stamp-collecting — you cannot feel a classification is complete while your own
+instrument mis-tests one of its members. Getting the detector right IS part of
+making the tamings feel principled.
+
+**NEXT:** rebuild the taming detector at the frame/layered-ring level (signability =
+even-cycle-TU / odd-cycle-facet; the parity certificate), re-run girth-locking. The
+count that survives THAT detector is the real signal about UI.

@@ -125,11 +125,35 @@ rests on the matched definition. Remaining trust = the constructive proof is
 ⟦HAND⟧ (not Lean); Lean is the natural durability step (finite, same structure as
 the k=2 slated module). Standing counterexample-guard: raw-DFS LISC oracle.
 
+## LEAN DURABILITY STEP (teed up 2026-07-09 — clean pickup, NOT started)
+
+Formalizing the pruning lemma is WORTH it (durability) but is a fresh
+WindingDichotomy-sized build (TR_k reachability = new infrastructure, not in the
+existing files). NOTHING is owed — Joint 1 is ⟦HAND⟧-closed + 73k-scan-verified;
+this is durability, not debt. Four design constraints (non-negotiable):
+
+1. **Define TR_k as INDEPENDENT tensor-power reachability** — a walk where each
+   coordinate follows rel, tuples stay pairwise-distinct, reaching the rot-1 image
+   in L steps (the seed's `tr2_set` object generalized). NOT "the tuple trace read
+   off a LISC witness" — that makes the equivalence `rfl` and certifies nothing
+   (the gate-lemma vacuity trap; [[feedback_lean_triangulation]] "build the
+   candidate object independently or the equivalence is vacuous"). tr2_set is
+   already the independent definition.
+2. **Prove:** the two extraction maps LISC_k ⟺ TR_k(rot-1), REUSING the certified
+   `simple_iff_layerInjective` (WindingInjectivity.lean) — do not redo it.
+3. **Axiomatize (cited):** eventual periodicity of finite-digraph reachability
+   (theorem-let B engine, "Wielandt-bounded" standard fact). Lean-ing this hits an
+   infrastructure wall; it's the classical bridge, not our content.
+4. **Pin in the statement: rotation-by-GENERATOR (gcd(r,k)=1).** This is where the
+   one real defect lived (any-rotation overcounts LISC_{k/d}); locking it is the
+   single highest-value thing Lean adds, since it's where a hand proof could still
+   be wrong.
+
 ## What remains open (do not overclaim)
 
-1. **Pruning lemma at k≥3** — permutation-threading; TR_k vs LISC_k with the
-   pairing freedom explicit. Evidence toward agreement (this probe + seed's L=35),
-   no proof.
+1. **Joint 2 non-symmetry crux** (the SOLE conceptual open core) — see
+   `joint2_wielandt_finding.md`. Needs an idea, not a formalization; do NOT
+   scaffold in Lean yet (one clean crux, no thicket of competing reductions).
 2. **Eventual-periodicity ⟹ a taming is forced** — the SECOND joint of universal
    impossibility, only "assumed" in the record (seed 2.2t design-lane attack via
    grading/potential/phase-code + Wielandt residue classes). Even a full pruning

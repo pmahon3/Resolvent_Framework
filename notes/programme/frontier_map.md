@@ -22,16 +22,26 @@ Nav: `papers/spine/` (single open bridging conjecture, §4).
 ## 2. Programme layer (reconstruction lane) — universal impossibility
 **Claim:** the fork doesn't exist; Circuit Localization holds for the
 strongly-connected non-symmetric class.
-**Status:** unrefuted, fork-free through 9 edges, on a two-layer OPEN prerequisite
-stack: phase-parametrized **pruning lemma** (head of design lane, best-specified
-it's been, incubating) ⟶ **theorem-let B** (eventual periodicity, unproven) ⟶
-exchange-blocking classification.
-**The rhyme (open, unposed sharply):** latticehood is the **carrier-side**
-tameness-forcing claim; universal impossibility is the **protocol-side** one. If
-both close, the theory is complete from both ends. *Whether they are secretly one
-claim is itself an open question nobody has posed sharply.*
-Nav: `notes/unsorted/commensurability_taxonomy.json` (open_frontier);
-seed §2.2x–2.2z (pruning lemma + phase gap).
+**Status (2026-07-09 attack — decomposed into 2 joints):**
+- **JOINT 1 = pruning lemma (TR_k(rot-1)=LISC_k) ⟶ theorem-let B (eventual
+  periodicity) ⟶ exchange-blocking: NOW CLOSED for all k** (⟦HAND⟧, 73728-check
+  adversarial scan 0-fail). The seed's k=2 "phase gap" AND the anticipated k≥3
+  "permutation gap" were both wrong-proxy artifacts, dissolved by labelling strands
+  by traversal order (threading is forced cyclic). ⚠ proxy = rotation-by-GENERATOR
+  (gcd(r,k)=1); any-rotation overcounts LISC_{k/d}. k≤|A| ⟹ unsafe set = finite
+  union ∪_k LISC_k, each eventually periodic ⟹ theorem-let B.
+- **JOINT 2 = exchange-blocking classification: the OPEN frontier.** grading⟺
+  imprimitivity is a classical dictionary, but "residue-unsafe ⟹ grading" is FALSE
+  without non-symmetry (golden-mean = primitive + parity-residue-unsafe). CENTRAL
+  CRUX — **why NON-SYMMETRY forces primitive ⟹ cofinitely-unsafe** (Wielandt-shaped;
+  4 candidates L≤30, 110 primitives L≤9) — needs an idea. PLUS 2 unexamined
+  branches: (a) cofinitely-unsafe ⟹ not-rich-safe (girth-locking, separate from
+  Wielandt finiteness); (b) potential/phase-code (seed names 3 mechanisms, only
+  grading checked). Fork-free through 9 edges still holds.
+**The rhyme (open):** latticehood = carrier-side; universal impossibility =
+protocol-side. Joint-2 crux may connect to it. *Whether secretly one claim: open.*
+Nav: `notes/unsorted/pruning_k2_theorem.md` (Joint 1 CLOSED) +
+`joint2_wielandt_finding.md` (Joint 2 crux); taxonomy open_frontier.
 
 ## 3. σ-essential's named descendants — three, all genuinely open
 - **No-singletons regime** (literal irreducibility): needs a rigidity mechanism

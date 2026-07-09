@@ -46,17 +46,20 @@ enforces: a ``commensurable'' verdict is admitted only from a theorem or an
 exact enumeration, a ``contextual'' verdict only from an exhibited rational
 witness (\S\ref{sec:method}).
 
-\paragraph{Results.} \S\ref{sec:trichotomy} proves the trichotomy locating all
-hardness in the constraint variety. \S\ref{sec:parity} proves the parity
-theorem. \S\ref{sec:tamings} develops the taming catalogue and proves Circuit
-Localization for the symmetric marginal-determined class.
-\S\ref{sec:winding} gives the winding characterisation and records its
-Lean-certified discriminant. \S\ref{sec:open} states the universal impossibility
-conjecture, its reduction to the pruning lemma, and the gap the reduction
-carries. \S\ref{sec:consequences} draws the reconstruction consequences.
+\paragraph{Results.} Section~\ref{sec:structure} proves the structure theory:
+the trichotomy locating all hardness in the constraint variety
+(\S\ref{sub:trichotomy}), the parity theorem (\S\ref{sub:parity}), the taming
+catalogue with Circuit Localization for the symmetric marginal-determined class
+(\S\ref{sub:tamings}), and the winding characterisation with its Lean-certified
+discriminant (\S\ref{sub:winding}). Section~\ref{sec:open} states the open
+universal impossibility conjecture --- its reduction to a combinatorial pruning
+lemma and the gap that reduction carries --- and draws the reconstruction
+consequences.
 
 
-\section{The trichotomy}\label{sec:trichotomy}
+\section{The structure theory}\label{sec:structure}
+
+\subsection{The trichotomy}\label{sub:trichotomy}
 
 We first place the hardness of the general problem. Write a symbolic language as
 a relation $\rho$ (the legal adjacent pairs of a shift of finite type); a
@@ -108,7 +111,7 @@ remainder of the paper classifies protocol families where structure defeats the
 universality.
 
 
-\section{The parity theorem}\label{sec:parity}
+\subsection{The parity theorem}\label{sub:parity}
 
 The cleanest cyclic case is the golden-mean shift: $\rho_{\mathrm{gm}}$ forbids
 adjacent $1$s. Observe it around a ring of length $L$ (scope contexts = the $L$
@@ -160,7 +163,7 @@ full (unconstrained) language is tame on none. More constraint can mean more
 tame --- the variety's rigidity can rescue commensurability the free world lacks.
 
 
-\section{Tamings and Circuit Localization}\label{sec:tamings}
+\subsection{Tamings and Circuit Localization}\label{sub:tamings}
 
 Each structured language that resists contextuality does so by a nameable
 mechanism. We isolate ten; the running discipline was to catalogue the
@@ -170,7 +173,7 @@ mechanism against a fresh prediction before testing it.
 \begin{definition}[the taming mechanisms]\label{def:tamings}
 A protocol/language is tamed by one of:
 \begin{enumerate}[label=\textup{(\arabic*)}, itemsep=1pt]
-  \item \emph{chains / empty-intersection} (\S\ref{sec:parity} base case);
+  \item \emph{chains / empty-intersection} (\S\ref{sub:parity} base case);
   \item \emph{cross-context cliques};
   \item \emph{determinism}: a functional transfer relation;
   \item \emph{grading}: the transfer digraph is fibered over $\bbZ_d$;
@@ -241,7 +244,7 @@ signability/twin/decoupling with no residue.
 \end{proof}
 
 
-\section{The winding characterisation and its certified discriminant}\label{sec:winding}
+\subsection{The winding characterisation and its certified discriminant}\label{sub:winding}
 
 Underlying the cyclic analysis is a structural characterisation. Lift a
 length-$L$ ring protocol to its \emph{layered graph}: vertices $(i,a)$ for layer
@@ -279,9 +282,9 @@ of the reconstruction structure theory, and deliberately independent of the
 open material of \S\ref{sec:open}: pure vertex-trace combinatorics.
 
 
-\section{The open case}\label{sec:open}
+\section{The open case and consequences}\label{sec:open}
 
-The symmetric world is settled (\S\ref{sec:tamings}). The residence of any
+The symmetric world is settled (\S\ref{sub:tamings}). The residence of any
 remaining contextual protocol is the strongly-connected non-symmetric class. An
 SCC-reduction lemma (taming (9), monotone collapse) reduces commensurability
 wholesale to strongly connected languages; exhaustive search finds no contextual
@@ -320,7 +323,7 @@ open; its proof is not to be assembled until the pruning lemma is settled
 structurally.
 
 
-\section{Consequences for reconstruction}\label{sec:consequences}
+\subsection{Consequences for reconstruction}\label{sub:consequences}
 
 The classification licenses a reconstruction guarantee, scoped honestly.
 
@@ -356,7 +359,7 @@ shadow of an unresolved covering of time.}
 
 \section*{Note on method and verification}\label{sec:method}
 
-Every commensurability verdict in \S\S\ref{sec:trichotomy}--\ref{sec:winding} is
+Every commensurability verdict in \S\S\ref{sub:trichotomy}--\ref{sec:winding} is
 derived from a theorem or an exact rational enumeration; every contextuality
 verdict from an exhibited rational witness in $C\setminus R$; sampling-based
 checks are used only as screening and never as the basis of a ``commensurable''

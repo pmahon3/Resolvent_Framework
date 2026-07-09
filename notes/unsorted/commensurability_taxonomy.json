@@ -26,7 +26,8 @@
    "symmetric_world": "fully fork-free at certificate grade (forests via taming #10 + cyclic targets witness-unsafe at every gate-holding length)",
    "universal_conjecture": "unrefuted; fork-free <=4 states (P49) + through 9 edges at 5 states (P54); residence = SCC non-symmetric",
    "pruning_lemma": "OPEN — theorem-let B prerequisite; reduction found (flow-decomposition) with a PHASE GAP in the k=2 residual; raw-DFS LISC only trusted oracle",
-   "theorems_proved_note": "substantial hand+machine theorems; EXCLUDES theorem-lets A/B (rest on the OPEN pruning lemma) and two-line observations"
+   "theorems_proved_note": "substantial hand+machine theorems; EXCLUDES theorem-lets A/B (rest on the OPEN pruning lemma) and two-line observations",
+   "lean_certified": "Lemma 2 (layer-injectivity discriminant) = WindingInjectivity.simple_iff_layerInjective, 0-sorry, [propext,Quot.sound] — first reconstruction-structure result at certificate grade"
   }
  },
  "definitions": [
@@ -164,8 +165,13 @@
    "id": "thm.winding_characterization",
    "name": "Winding characterization (safe-topology theorem)",
    "status": "proved-hand-PREDICTIVE",
-   "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty. (NOTE: the characterization itself is structural and independent of the pruning lemma; only its EVENTUAL-PERIODICITY refinement = theorem-let B rests on the open pruning lemma.)",
-   "detail": "winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
+   "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty. (NOTE: the characterization itself is structural and independent of the pruning lemma; only its EVENTUAL-PERIODICITY refinement = theorem-let B rests on the open pruning lemma.). [LEMMA 2 = the layer-injectivity discriminant now CERTIFICATE-GRADE in Lean: WindingInjectivity.simple_iff_layerInjective, 0-sorry, [propext,Quot.sound], the clause that caught the doubled-rotation + lockstep-phase errors.]",
+   "detail": "winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08",
+   "lean": {
+    "file": "formalization/QuerySystem/QuerySystem/WindingInjectivity.lean",
+    "name": "WindingInjectivity.simple_iff_layerInjective (+ simple_of_layerInjective, not_simple_of_collision)",
+    "status": "0-sorry, axioms [propext, Quot.sound]; non-vacuity examples pass"
+   }
   },
   {
    "id": "thm.bifurcation_reduction",
@@ -916,6 +922,13 @@
    "status": "live",
    "one_line": "ring_commensurability.py: C-vs-R by hull eqs + exact facet LPs WITHOUT the family ladder (whose LPs blow up carrying the whole chain family at k>=4); C6 in 16s.",
    "detail": "ring_commensurability.py"
+  },
+  {
+   "id": "lean.winding_injectivity",
+   "name": "Lean: Lemma 2 (layer-injectivity discriminant)",
+   "status": "CERTIFICATE-GRADE (0-sorry, standard axioms)",
+   "one_line": "WindingInjectivity.lean: simple_iff_layerInjective — a layered-ring closed walk is a simple cycle iff layer-injective. The discriminant that caught the doubled-rotation non-witness and the lockstep-phase gap, now machine-certified [propext,Quot.sound], with non-vacuity examples (a winding-2 collision proven not-simple, a layer-injective trace proven simple). Independent of the OPEN pruning lemma — pure vertex-trace combinatorics.",
+   "detail": "formalization/QuerySystem/QuerySystem/WindingInjectivity.lean"
   }
  ]
 }

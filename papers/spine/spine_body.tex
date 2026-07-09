@@ -1,0 +1,183 @@
+\section{The observer-first reading}\label{sec:moral}
+
+An observer running a protocol obtains, natively, a family of finite relative
+frequencies that cohere across overlapping views. That is all observation
+supplies. Two further properties are routinely assumed of the state such data
+``comes from'' --- that it is countably additive, and that it assigns definite
+truth values --- but neither is given by the data. They are \emph{representation
+properties}: signatures of the world being observed and of the protocol used to
+observe it, not of empirical adequacy itself. The programme these three papers
+form is the price list for those signatures: what structure a world's language
+and an observer's protocol must have before countable additivity and
+value-definiteness come for free, and --- in two cases settled by explicit
+construction --- proofs that outside that structure the signatures can be
+genuinely absent while coherence remains.
+
+This note is an umbrella. It states the shared object, tabulates how the three
+papers divide the labour, records the corpus-level commonalities and the
+genuinely corpus-level open questions, and points to each paper for the
+mathematics. It deliberately does not merge them: each paper travels to its own
+audience, and the spine carries only what no single paper can say alone.
+
+
+\section{The filtration and its three transitions}\label{sec:filtration}
+
+The companion paper on distributivity and realism introduces the organising
+object: on the state space of an observation algebra there is a natural
+filtration
+\[
+  \Sf \;\supseteq\; \Ssig \;\supseteq\; \Sdf,
+\]
+from all coherent states, to the $\sigma$-additive ones, to the dispersion-free
+(value-definite) ones. Its three inclusions are transitions of different
+mathematical character, named there:
+\begin{enumerate}[label=\textup{(\arabic*)}, itemsep=2pt]
+  \item \emph{pasting} --- from locally coherent window-data up to a single
+    globally realising state ($\EA \to \PR$);
+  \item \emph{regularity} --- from a finitely additive global state up to a
+    countably additive one ($\PR_{\mathrm{f.a.}} \to \PR_\sigma$);
+  \item \emph{sharpness} --- from a $\sigma$-additive state up to a
+    value-definite one ($\PR \to \VDR$).
+\end{enumerate}
+Distributivity collapses the filtration --- on a Boolean algebra all three
+transitions are free --- and non-distributivity can open any of them. The
+corpus-level observation this note records is that \textbf{each companion paper
+is the deep study of exactly one transition}, and that the three locate the
+boundary of their transition in three different coordinate systems.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Transition & Paper & Boundary (tame side) & Separating object (wild side) \\
+\midrule
+pasting
+  & commensurability
+  & acyclic reporting; the tamings
+  & odd-ring half-model (a golden-mean PR-box) \\
+regularity
+  & $\sigma$-essential
+  & Boolean; Polish-representable
+  & the product Ulam carrier, in ZFC \\
+sharpness
+  & distributivity \& realism
+  & distributivity
+  & Kochen--Specker (imported, reframed) \\
+\bottomrule
+\end{tabular}
+\caption{The three transitions of the filtration, the paper that studies each,
+the structural boundary separating its tame from its wild side, and the object
+witnessing the wild side. Two of the three witnesses --- the odd-ring half-model
+and the product Ulam carrier --- are constructed in the companion papers rather
+than imported.}
+\label{tab:map}
+\end{table}
+
+The table is the weave. One question --- \emph{when does empirical adequacy
+purchase realism?} --- is answered as a classification, with the boundary located
+algebraically (distributivity), set-theoretically (beyond Polish, at $\omega_1$),
+and dynamically (odd recurrence). Two of the separating witnesses are new
+constructions; the third (Kochen--Specker) is classical, reframed as the
+sharpness-transition obstruction.
+
+
+\section{What is genuinely common}\label{sec:common}
+
+Three things hold across all three papers and belong to none of them alone.
+
+\paragraph{Non-distributivity as the discriminator.} In each transition the tame
+side is, at root, a distributive (or distributively-representable) regime, and
+the wild side is entered through non-distributivity: Kochen--Specker needs
+$\dim H \ge 3$; the $\sigma$-essential witness is provably not a lattice; the
+pasting failures are carried by non-distributive constraint geometry. That
+non-distributivity is the tame/wild discriminator in \emph{every} transition is a
+corpus-level pattern no single paper isolates.
+
+\paragraph{The observer-first price list.} Section~\ref{sec:moral}: the three
+papers are, together, the statement that $\sigma$-additivity and
+value-definiteness are representation properties with a computable price, and two
+proofs that the price is real (the two constructed witnesses).
+
+\paragraph{Method.} The corpus shares a working method, stated once here without
+ceremony: predictions are pre-registered before testing; a verdict of
+``realisable/tame'' is admitted only from a theorem or an exact enumeration, of
+``contextual/wild'' only from an exhibited witness; and load-bearing
+combinatorial lemmas are machine-checked (the $\sigma$-essential main theorem and
+the commensurability paper's layer-injectivity discriminant are certified in
+Lean~4).
+
+\paragraph{The novelty ledger, honestly.} The classical mathematics each paper
+uses is credited there as classical (Gleason and Kochen--Specker for sharpness;
+Derr--Williamson, Ulam, and the Boolean baseline for regularity;
+Wainwright--Jordan, Vorob'ev, De~Loera--Onn and stable-set theory for pasting).
+The corpus's own contribution is the observer-first framing, the filtration as
+its organising object, and two constructed witnesses where the literature had
+only imported or absent ones. This is a bridge over known mathematics with two
+new construction points; the umbrella claims no more.
+
+
+\section{The corpus-level open questions}\label{sec:open}
+
+Two bridging claims would strengthen the weave from a tabulation into a single
+theorem. Neither is established; we state them as the corpus's open problems, and
+flag that asserting either prematurely would misrepresent the corpus.
+
+\begin{conjecture}[one coherence notion across rungs]\label{conj:onenotion}
+The local coherence notions of the three papers --- the commensurability paper's
+$\EA$ (pairwise agreement on common subalgebras), the $\sigma$-essential paper's
+\emph{finite coherence} (extendability to a global finitely additive two-valued
+state), and the top rung $\Sf$ of the filtration --- are one notion evaluated at
+different rungs.
+\end{conjecture}
+
+\begin{remark}[status of Conjecture~\ref{conj:onenotion}]\label{rem:onenotion}
+As \emph{stated in the three papers} these notions are not literally identical:
+$\EA$ is a pairwise-local condition, finite coherence is a global finite-additive
+extendability condition, and they are known to coincide only under further
+hypotheses. The papers exhibit the same \emph{phenomenon} --- coherence that
+fails to globalise --- at adjacent rungs, which is a genuine rhyme; whether it is
+a single notion (transfer) rather than three instances of a family (rhyme) is
+open, and the corpus should claim the rhyme, not the identity, until the
+coincidence is proved.
+\end{remark}
+
+\begin{conjecture}[the quarantine hinge]\label{conj:quarantine}
+The two constructed witnesses inhabit provably disjoint regimes: a compactness
+argument (finite-alphabet delay logics are compact/clopen, so clopen charges are
+measures and finite certificates suffice by Farkas) shows the $\sigma$-essential
+pathology cannot occur in the dynamical (finite-alphabet) regime where the pasting
+witness lives. If so, the corpus does not merely exhibit two failures --- it
+proves they are sorted, upgrading the tabulation to a classification.
+\end{conjecture}
+
+\begin{remark}[status of Conjecture~\ref{conj:quarantine}]\label{rem:quarantine}
+The compactness/Farkas argument is currently a sketch (a roadmap ``Layer-1
+licensing'' result in the commensurability programme), not an audited proof.
+Until it is settled, the spine's central architectural claim --- that the two
+witnesses live in provably disjoint worlds, so the failures are classified rather
+than merely collected --- is a conjectural hinge. We state it as the corpus's
+most valuable next lemma precisely because it is what would make the weave a
+theorem.
+\end{remark}
+
+A third open thread is shared and worth stating uniformly: in each transition,
+\emph{latticehood} appears to force liftability (and hence tameness) --- the
+orthomodular-lattice form of each paper's boundary question is conjectured to
+collapse to the tame side. Whether these are three phrasings of one conjecture
+(latticehood $\Rightarrow$ liftability $\Rightarrow$ tameness) is itself part of
+Conjecture~\ref{conj:onenotion}.
+
+
+\section{Reading and dissemination order}\label{sec:order}
+
+For a reader: distributivity \& realism first (it introduces the filtration),
+then $\sigma$-essential (the deepest single result), then commensurability (the
+broadest). For dissemination the crown result travels first and alone: the
+$\sigma$-essential paper is self-contained and Lean-certified, and its
+Derr--Williamson cell-closure framing does not depend on the other two. The
+commensurability paper follows; the distributivity paper may belong to a
+different venue class (foundations of physics) than the two mathematics papers.
+The spine lets each paper travel light while carrying, itself, only the
+corpus-level content: the filtration as shared object, the observer-first moral,
+and the two open bridging questions of \S\ref{sec:open}.

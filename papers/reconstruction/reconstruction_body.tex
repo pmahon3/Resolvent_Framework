@@ -49,9 +49,11 @@ witness (\S\ref{sec:method}).
 \paragraph{Results.} Section~\ref{sec:structure} proves the structure theory:
 the trichotomy locating all hardness in the constraint variety
 (\S\ref{sub:trichotomy}), the parity theorem (\S\ref{sub:parity}), the taming
-catalogue with Circuit Localization for the symmetric marginal-determined class
-(\S\ref{sub:tamings}), and the winding characterisation with its Lean-certified
-discriminant (\S\ref{sub:winding}). Section~\ref{sec:open} states the open
+catalogue with Circuit Localization for the symmetric loopless
+marginal-determined languages (\S\ref{sub:tamings}, with the loopy and
+general-cyclic extensions verified to finite scale and marked as such), and the
+winding characterisation with its Lean-certified discriminant
+(\S\ref{sub:winding}). Section~\ref{sec:open} states the open
 universal impossibility conjecture --- its reduction to a combinatorial pruning
 lemma and the gap that reduction carries --- and draws the reconstruction
 consequences.
@@ -225,23 +227,36 @@ relation has $|\rho|=2|E(H)|$, forcing $|E(H)|\le|V(H)|-1$, i.e.\ $H$ a forest,
 hence bipartite; Theorem~\ref{thm:taming7} and taming~(10) apply.
 \end{proof}
 
-\begin{theorem}[Circuit Localization, symmetric marginal-determined case]\label{thm:cl}
-Every symmetric marginal-determined language is commensurable on every
-gate-passing frame, decided by acyclicity together with the tamings: it is
-either a forest target (Theorem~\ref{thm:forest}) or has loops within
-signable/twin/decoupling reach. In particular no contextual protocol exists in
-this class: the fork is excluded by structure, not by exhaustion.
+\begin{theorem}[Circuit Localization, symmetric loopless case]\label{thm:cl}
+Every symmetric loopless marginal-determined language is commensurable on every
+gate-passing frame. Contextuality is excluded by structure: such a language is a
+forest target (Theorem~\ref{thm:forest}), tamed by phase-decoupling on bipartite
+frames and by acyclicity (Theorem~\ref{thm:acyclic}) otherwise.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-Acyclic frames are tame (Theorem~\ref{thm:acyclic}); cyclic symmetric targets
-are unsafe at every gate-holding length (cyclic $H$ carries a witness-certified
-frustration at essentially all usable lengths, so it cannot make every circuit
-of a $K_4$-minor frame simultaneously safe --- the classically hard targets are
-the opposite of a fork's habitat); the loopless case is forest-only
-(Theorem~\ref{thm:forest}); the loopy case is exhausted by
-signability/twin/decoupling with no residue.
+\begin{proof}
+By Theorem~\ref{thm:forest} a symmetric loopless marginal-determined language is,
+as a homomorphism target, a forest, hence bipartite. On a bipartite frame it is
+commensurable by phase-decoupling (taming~(10), Definition~\ref{def:tamings}),
+which reduces $C=R$ to the signable case (Theorem~\ref{thm:taming7}); on any
+frame, acyclic reporting is commensurable for every language
+(Theorem~\ref{thm:acyclic}). The two cover the gate-passing frames.
 \end{proof}
+
+\begin{remark}[the loopy and general cases: proved boundary]\label{rem:cl-boundary}
+The loopless restriction is where the theorem is \emph{proved}. Two extensions
+were verified only to finite scale and are stated as such, not as theorems.
+First, the \emph{loopy} symmetric marginal-determined languages: an exhaustive
+search finds no pair-bipartite non-signable survivor at $\le 4$ states (so the
+loopy remainder is tamed by signability, twin expansion, or phase-decoupling
+there), but no general argument yet rules out a survivor at larger alphabets.
+Second, the exclusion of \emph{cyclic} symmetric targets rests on
+witness-certified frustration for the cycles $C_3,\dots,C_6$ to bounded layered
+depth; the all-target, all-length statement is established only for golden-mean
+odd rings (Theorem~\ref{thm:parity}). The full symmetric class is therefore
+commensurable through the verified scale, with the loopy and general-cyclic
+steps owed; the honest headline is the loopless theorem above.
+\end{remark}
 
 
 \subsection{The winding characterisation and its certified discriminant}\label{sub:winding}

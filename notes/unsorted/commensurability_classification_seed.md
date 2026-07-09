@@ -1130,6 +1130,58 @@ fork-free through 9 edges. The pruning lemma's likely status has shifted toward
 unconditional (evidence, depth 35, validated-imprimitive), but it is OPEN and
 the proof is owed.**
 
+### 2.2z Pruning-lemma reduction: the k=2 residual has a PHASE gap — reduction to lockstep exchange is incomplete (2026-07-08)
+Design-side turn produced a REDUCTION (worth more than a plausible proof): the
+pruning lemma is a flow-decomposition statement (winding-$k$ circulation on the
+diagonal-avoiding layered ring = single winding-$k$ cycle vs sum of lower-winding
+cycles), and at $k=2$ reduces to ``exchange-linking $\Rightarrow$ simple.'' The
+design side flagged the exact residual: *not yet checked that exchange-linking
+gives a SIMPLE cycle rather than a merely connected winding-2 closed walk.*
+- **This side built the residual probe with a CORRECTNESS ANCHOR** (must
+  reproduce raw-DFS LISC before any verdict is trusted). **The anchor FAILED**
+  (exchange-model LISC = False where raw = True, 16 cases across 5 languages) ---
+  caught PRE-RECORD (5th would-be instrument error; nothing recorded).
+- **The failure is DIAGNOSED and it is the residual itself, not a code slip.**
+  Worked example (rho5, $L=3$): the raw winding-2 simple cycle is
+  $(0,0)(1,1)(2,0)(0,1)(1,0)(2,1)$ --- all six $(layer,state)$ vertices distinct,
+  a genuine LISC witness. Read as a synchronised (lockstep) pair-exchange it
+  requires a step $0\to0 \notin \rho$: **the two strands of the simple cycle
+  are interleaved at a relative PHASE, not advanced in lockstep.** A winding-2
+  simple cycle weaves its two wraps with a phase shift between strands; the
+  lockstep-exchange model (both tokens advance the same layer each step) cannot
+  express that phase, so it MISSES real simple cycles.
+- **Hand-back to the reduction (the turn's substantive finding):** the $k=2$
+  residual is NOT ``does a lockstep exchange exist.'' The reduction from
+  pruning-at-$k{=}2$ to pair-exchange dynamics **loses a relative-phase degree of
+  freedom** between the two winding-1 strands. The correct residual object is a
+  pair of strands WITH a relative phase $\phi \in \mathbb Z_L$ (strand 2 offset
+  $\phi$ layers from strand 1), vertex-disjoint, closing to winding 2 --- and
+  ``exchange-linking $\Rightarrow$ simple'' must quantify over $\phi$. The
+  flow-decomposition picture still holds (two winding-1 strands linked = one
+  winding-2 cycle) but the LINKING is phase-parametrised, and that is exactly the
+  degree of freedom the tuple-reachability proxy TR$_2$ (which is phase-agnostic,
+  rotation-endpoint only) both has and needs. So: **TR$_2$ may be RIGHT and the
+  lockstep-exchange probe WRONG** --- the proxy quietly carries the phase the
+  hand-model dropped. This re-opens whether TR$_2$=LISC$_2$ cleanly at $k=2$, now
+  with the phase as the named variable.
+- **Status:** the reduction is real and valuable (asymptotic $\to$ finite +
+  structural) but its $k=2$ residual is phase-parametrised, not the bare
+  lockstep question; the clean-feeling collapse the design side flagged to
+  distrust DID hide a gap, at exactly the joint flagged. The pruning lemma
+  remains OPEN; the corrected residual (phase-parametrised strand-disjointness)
+  is the next finite object to probe, with the raw-DFS LISC as the standing
+  ground truth (the ONLY LISC computation trusted until a faster one passes the
+  anchor).
+- **Instrument-discipline note:** two consecutive turns, two different attempts
+  to model LISC faster than raw DFS, both WRONG, both caught by the raw-DFS
+  cross-check before recording. The catch-latency is now pre-record on both; the
+  lesson stands that raw-DFS LISC is the only trusted oracle and any surrogate
+  must pass the anchor first. The exponential wall on raw-DFS (~$L{=}35$) is real
+  and not yet beaten by a correct fast method.
+**Frontier: unchanged. Pruning lemma OPEN, its $k=2$ residual re-specified
+(phase-parametrised); the reduction stands but with the phase gap named rather
+than papered.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

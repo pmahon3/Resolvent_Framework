@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. Pruning lemma (theorem-let B's prerequisite) OPEN: adversarial imprimitive probe 2026-07-08 --- 'false-imprimitively' prediction NOT confirmed (validated-imprimitive adv1/adv5 clean to L=35/33, correct raw-DFS, honest depth wall); evidence shifts toward UNCONDITIONAL, categorically not proof; walk-surgery core still owed. 4th instrument bug (LISC reformulation) caught PRE-RECORD by cross-check, discarded unrecorded. Do not draft the impossibility proof until the lemma is settled structurally. Fork-free <=4 states + through 9 edges 5 states; symmetric world expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted. Lean: Lemma 2 + 5 constructive proofs.",
+   "status": "OPEN - active successor programme. Pruning lemma OPEN: design side produced a REDUCTION (flow-decomposition; k=2 => exchange-linking=>simple), but its residual has a PHASE GAP — winding-2 simple cycles interleave their two strands at a relative phase the lockstep-exchange model can't express (probe anchor failed vs raw-DFS, caught PRE-RECORD, 5th instrument error, nothing recorded). Corrected k=2 residual = phase-parametrised strand-disjointness; TR_2 (phase-agnostic) may quietly carry the phase. Raw-DFS LISC = only trusted oracle (exp. wall ~L=35). Do not draft impossibility proof until lemma settled. Fork-free <=4 states + through 9 edges; symmetric world expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 124
+   "entries": 125
   },
   {
    "id": "kappa_q",

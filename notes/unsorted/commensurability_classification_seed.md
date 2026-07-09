@@ -1039,6 +1039,52 @@ impossibility conjecture unrefuted, now fork-free through 9 edges at 5 states on
 top of the empty P49 (<=4 states, {6,8}). Full-density 5-state confirmation
 pending.**
 
+### 2.2x The PRUNING LEMMA registered — theorem-let B's real prerequisite, prediction withheld (2026-07-08)
+Design-side decomposition (accepted): theorem-let B (unsafe set eventually
+periodic, Wielandt-bounded) is NOT the standard primitivity/AP fact --- it is
+that fact lifted to the off-diagonal tensor tower, and the lift has two gaps.
+(1) The diagonal-avoiding subgraph of $D\otimes D$ need not be strongly
+connected even when $D$ is; eventual periodicity of the component-union survives
+by lcm but needs the components enumerated. (2) **The load-bearing gap:**
+``layer-injective'' is a GLOBAL constraint along the whole closed walk (a
+winding-$k$ simple cycle visits each layer in $k$ distinct states), and it is
+NOT obviously expressible as reachability in any fixed tensor power. So B's
+object is the **layer-injective simple-cycle set (LISC)**, while the clean-proof
+object is the **tuple-reachability set (TR)**, and B's convenient proof exists
+**iff TR and LISC agree cofinitely**.
+- **PRUNING LEMMA (registered, prediction WITHHELD):** every tuple-rotation walk
+  of length $L$ prunes to a layer-injective simple cycle of the same length,
+  cofinitely --- equivalently TR $=$ LISC up to finitely many $L$. This is the
+  joint the whole exchange-blocking classification rests on; naming it is the
+  first useful step, and it may go either way.
+- **Disagreement hunt (`pruning_lemma_hunt.py`, `pruning_lemma_fine.py`), NOT a
+  pattern-confirm:** I hunted the DISAGREEMENT --- a length where TR and LISC
+  differ --- rather than confirming eventual periodicity. Coarse (unsafe/safe
+  emptiness) and FINE (winding-set equality) discriminators, across a stress set
+  including cases built to break it (`revisit`: a digraph engineered so a
+  higher-winding tuple walk revisits a layer-state combination; `bigcycle`:
+  chord-induced mixed winding), all $L$ up to 8--9. **Result: winding-sets AGREE
+  EXACTLY on every stress language, coarse and fine.**
+- **EPISTEMIC GRADE, stated exactly:** this is EVIDENCE, strictly stronger than
+  ``eventually periodic through $L=N$ so confirmed'' (I hunted disagreement, and
+  compared the exact object B claims, not a proxy) --- but it is NOT PROOF, and
+  it is exactly as much not-a-proof as the dim-equality certificate was: a finite
+  $L$-window cannot certify a cofinite claim. The structural reason TR and LISC
+  coincide is what's needed and is NOT in hand. **The pruning lemma is OPEN.**
+- **Consequence for the classification:** the residue-class / exchange-blocking
+  proof does NOT yet have its prerequisite. If the pruning lemma is proved
+  (structurally), theorem-let B follows via component-lcm bookkeeping and the
+  classification proceeds. If it is broken, B-as-needed is open and the
+  classification loses its foundation in current form --- itself a finding worth
+  having before any proof is drafted on top of it. **Do not draft the
+  impossibility proof until the pruning lemma is settled structurally.**
+- **The pruning lemma is now the head of the design lane**, ahead of the
+  residue-class argument; the disagreement hunt is a standing acceptance probe
+  (re-run on any new stress language) but never a proof.
+**Frontier: unchanged in content (SCC non-symmetric class, conjecture unrefuted,
+fork-free through 9 edges) --- but the proof PATH now correctly shows its first
+open joint, the pruning lemma, rather than assuming it.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

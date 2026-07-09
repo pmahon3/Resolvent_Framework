@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. P54 hunt 2026-07-08: FORK-FREE through 9 edges at 5 states (relaxed rich-even demand; edge-stratified exact, all cheap-tamed, 0 candidates), full-density 5-state scan in progress. Conjecture's most-likely hiding place clear; proof attempt earned through 9 edges. Symmetric world fully expelled (certificate-grade, 2.2v). Frontier: SCC non-symmetric class, universal impossibility conjecture unrefuted. STANDING FLAG: theorem-let B (tuple eventual periodicity) unproven, prove before it carries weight. Lean: Lemma 2 (injectivity clause) + 5 constructive proofs.",
+   "status": "OPEN - active successor programme. Theorem-let B decomposed 2026-07-08: its real prerequisite is the PRUNING LEMMA (tuple-reachability set = layer-injective simple-cycle set cofinitely), registered prediction-withheld. Disagreement hunt (coarse+fine, stress set incl. break-it cases): agree exactly to L=8-9 = EVIDENCE not proof (finite window can't certify cofinite; structural reason not in hand). Lemma OPEN; do NOT draft the impossibility proof until it's settled structurally. Fork-free <=4 states (P49) + through 9 edges 5 states (P54); symmetric world fully expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted. Lean: Lemma 2 (injectivity clause) + 5 constructive proofs.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 121
+   "entries": 123
   },
   {
    "id": "kappa_q",

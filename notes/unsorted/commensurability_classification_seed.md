@@ -1085,6 +1085,51 @@ object is the **tuple-reachability set (TR)**, and B's convenient proof exists
 fork-free through 9 edges) --- but the proof PATH now correctly shows its first
 open joint, the pruning lemma, rather than assuming it.**
 
+### 2.2y Pruning lemma: adversarial imprimitive probe — prediction NOT confirmed to L=35; a 4th instrument bug caught pre-record (2026-07-08)
+Design-side structural read (registered): pruning lemma TRUE for primitive $D$,
+FALSE for imprimitive $D$ with a diagonal-stranded state, at the offending
+residue, past a threshold a small scan can't see. Probe built to hunt that
+falsity, NOT confirm truth.
+- **Targets validated to actually have the predicted structure** (checked
+  before trusting the verdict --- the missing-check that sank prior instruments):
+  adv1 has diagonal-avoiding $D^{\otimes2}$ with TWO recurrent pair-SCCs of
+  periods {2,4}; adv5 has two period-3 components with transient-stranded
+  singleton pairs. Genuinely imprimitive, as the prediction requires.
+- **Result (raw-DFS LISC = the correct object, exact, honest depth):** NO
+  TR$_2$/LISC$_2$ disagreement on adv1 through **L=35**, adv5 through **L=33**
+  (depths are the computational wall, per-L 20s timeout, not a chosen stop);
+  five imprimitive/mixed targets clean through L=28 in the first pass. **The
+  predicted imprimitive falsity did NOT appear where the structural argument
+  aimed it.**
+- **Honest reading:** this is a real update AGAINST the ``conditional on
+  primitivity'' form --- the imprimitive counterexample is not at the residues
+  and depths the quick argument predicted. It does NOT prove the lemma (L=35 is
+  finite; the threshold could be higher), but it shifts the next move: attempt
+  the lemma as POSSIBLY-UNCONDITIONAL, not assume it needs the primitivity
+  hypothesis. Prediction-not-confirmed; **lemma still OPEN**; the disagreement
+  hunt is now stronger evidence (validated-imprimitive, disagreement-sought,
+  correct LISC object, depth 35) but categorically still not proof.
+- **⚠ FOURTH instrument bug, caught PRE-RECORD (the discipline's strongest
+  form):** I tried to make LISC scalable via a ``disjoint swap-walk''
+  reformulation, ran a correctness cross-check against the raw DFS on small L
+  BEFORE trusting it, and it FAILED (the reformulation missed winding-2 cycles
+  that don't factor into a synchronised token pair --- new=False where raw=True
+  on adv1/rho5/rho13). The run built on it was killed and EVERY line of its
+  output discarded, unrecorded. Caught earlier than the prior three (before a
+  single number entered the ledger). The correct object is the raw layered-ring
+  simple-cycle DFS; it is exponential, hence the honest depth wall at ~L=35, not
+  a faster-but-wrong substitute.
+- **The structural proof is still owed and still the head of the design lane.**
+  The evidence now points at unconditional-or-higher-threshold rather than
+  conditional-on-primitivity, but ``points at'' is not ``proves,'' and the
+  walk-surgery question (resolve a self-intersecting winding-$k$ closed walk into
+  a same-winding simple cycle at bounded length cost) remains the open
+  combinatorial core. Do not draft the impossibility proof on top of it.
+**Frontier: unchanged --- SCC non-symmetric class, conjecture unrefuted,
+fork-free through 9 edges. The pruning lemma's likely status has shifted toward
+unconditional (evidence, depth 35, validated-imprimitive), but it is OPEN and
+the proof is owed.**
+
 **The emerging reframe (hand to design side):** over V = N every certificate
 seen — chains, cliques, odd-holes, syzygies, the new weighted one — is
 pointwise-valid on N, because over V = N *every* valid inequality is (valid on

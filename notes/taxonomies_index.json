@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. Theorem-let B decomposed 2026-07-08: its real prerequisite is the PRUNING LEMMA (tuple-reachability set = layer-injective simple-cycle set cofinitely), registered prediction-withheld. Disagreement hunt (coarse+fine, stress set incl. break-it cases): agree exactly to L=8-9 = EVIDENCE not proof (finite window can't certify cofinite; structural reason not in hand). Lemma OPEN; do NOT draft the impossibility proof until it's settled structurally. Fork-free <=4 states (P49) + through 9 edges 5 states (P54); symmetric world fully expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted. Lean: Lemma 2 (injectivity clause) + 5 constructive proofs.",
+   "status": "OPEN - active successor programme. Pruning lemma (theorem-let B's prerequisite) OPEN: adversarial imprimitive probe 2026-07-08 --- 'false-imprimitively' prediction NOT confirmed (validated-imprimitive adv1/adv5 clean to L=35/33, correct raw-DFS, honest depth wall); evidence shifts toward UNCONDITIONAL, categorically not proof; walk-surgery core still owed. 4th instrument bug (LISC reformulation) caught PRE-RECORD by cross-check, discarded unrecorded. Do not draft the impossibility proof until the lemma is settled structurally. Fork-free <=4 states + through 9 edges 5 states; symmetric world expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted. Lean: Lemma 2 + 5 constructive proofs.",
    "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
-   "entries": 123
+   "entries": 124
   },
   {
    "id": "kappa_q",

@@ -75,9 +75,10 @@ than imported.}
 \end{table}
 
 The table is the weave. One question --- \emph{when does empirical adequacy
-purchase realism?} --- is answered as a classification, with the boundary located
-algebraically (distributivity), set-theoretically (beyond Polish, at $\omega_1$),
-and dynamically (odd recurrence). Two of the separating witnesses are new
+purchase realism?} --- is answered as a classification (made precise by the tame
+tower of Corollary~\ref{cor:tower}), with the boundary located algebraically
+(distributivity), set-theoretically (beyond Polish, at $\omega_1$), and
+dynamically (odd recurrence). Two of the separating witnesses are new
 constructions; the third (Kochen--Specker) is classical, reframed as the
 sharpness-transition obstruction.
 
@@ -117,56 +118,114 @@ only imported or absent ones. This is a bridge over known mathematics with two
 new construction points; the umbrella claims no more.
 
 
-\section{The corpus-level open questions}\label{sec:open}
+\section{Two bridging results and the remaining conjecture}\label{sec:open}
 
-Two bridging claims would strengthen the weave from a tabulation into a single
-theorem. Neither is established; we state them as the corpus's open problems, and
-flag that asserting either prematurely would misrepresent the corpus.
+The two bridging claims that turn the tabulation of \S\ref{sec:filtration} into a
+single classification are settled here --- one negatively (the coherence notions
+are a strictly separated ladder, not one notion), one positively (a compactness
+quarantine sorts the two constructed witnesses into disjoint regimes) --- leaving
+a single open conjecture (the latticehood family).
 
-\begin{conjecture}[one coherence notion across rungs]\label{conj:onenotion}
-The local coherence notions of the three papers --- the commensurability paper's
-$\EA$ (pairwise agreement on common subalgebras), the $\sigma$-essential paper's
-\emph{finite coherence} (extendability to a global finitely additive two-valued
-state), and the top rung $\Sf$ of the filtration --- are one notion evaluated at
-different rungs.
-\end{conjecture}
+\begin{proposition}[the two-gap ladder]\label{prop:ladder}
+The coherence notions of the three papers form a strictly separated ladder,
+\[
+  \text{pairwise-}\EA \;\supsetneq\; \text{finite coherence}
+  \;\supsetneq\; \sigma\text{-realizability},
+\]
+and both strict inclusions are inhabited by the corpus's own witnesses. The first
+gap: the golden-mean odd-ring half-model (commensurability programme,
+machine-verified) --- the pentagon protocol $C_5$ over $\{0,1\}^5$ with the
+half-model $s(a,b)=\tfrac12$ for $a\neq b$ and $0$ for $a=b$ --- is pairwise-$\EA$
+yet admits \emph{no} finitely additive state on its generated closure: its
+support would have to be a proper $2$-colouring of an odd cycle, of which there
+are none (equivalently, the stable-set bound $\sum_j \mu(a_j)\le\alpha(C_5)=2$ is
+exceeded by the half-model's value $5/2$). The second gap: the product Ulam
+carrier's pattern is finitely coherent with no $\sigma$-additive extension. Hence
+the three papers' notions are not one notion evaluated at different rungs; they
+are the three rungs, provably distinct.
+\end{proposition}
 
-\begin{remark}[status of Conjecture~\ref{conj:onenotion}]\label{rem:onenotion}
-As \emph{stated in the three papers} these notions are not literally identical:
-$\EA$ is a pairwise-local condition, finite coherence is a global finite-additive
-extendability condition, and they are known to coincide only under further
-hypotheses. The papers exhibit the same \emph{phenomenon} --- coherence that
-fails to globalise --- at adjacent rungs, which is a genuine rhyme; whether it is
-a single notion (transfer) rather than three instances of a family (rhyme) is
-open, and the corpus should claim the rhyme, not the identity, until the
-coincidence is proved.
+\begin{remark}
+The correct corpus-level claim is therefore the rhyme, now made exact: each paper
+studies coherence-at-a-rung, the rungs are strictly ordered, and each strict
+inclusion is witnessed inside the corpus. What survives of the ``one notion''
+intuition is structural, not extensional: every rung is a finite-additive gluing
+condition over a widening class of admissible families.
 \end{remark}
 
-\begin{conjecture}[the quarantine hinge]\label{conj:quarantine}
-The two constructed witnesses inhabit provably disjoint regimes: a compactness
-argument (finite-alphabet delay logics are compact/clopen, so clopen charges are
-measures and finite certificates suffice by Farkas) shows the $\sigma$-essential
-pathology cannot occur in the dynamical (finite-alphabet) regime where the pasting
-witness lives. If so, the corpus does not merely exhibit two failures --- it
-proves they are sorted, upgrading the tabulation to a classification.
-\end{conjecture}
+\begin{theorem}[quarantine]\label{thm:quarantine}
+Let $X$ be a compact zero-dimensional metrizable space and $\mathrm{Clo}(X)$ its
+clopen algebra.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Every finitely additive two-valued state $s$ on any subalgebra
+  $B \subseteq \mathrm{Clo}(X)$ is the restriction of a point evaluation.
+  Consequently a finitely coherent two-valued pattern over clopen events always
+  has a realizing point: clauses \textup{(0)} and \textup{(i)} of the
+  $\sigma$-essential recipe cannot coexist, and the $\sigma$-essential phenomenon
+  is impossible over compact clopen carriers.
+\item Every finitely additive probability charge on $\mathrm{Clo}(X)$ is a
+  premeasure and extends uniquely to a Borel probability measure on $X$.
+\item Every charge on a subalgebra of $\mathrm{Clo}(X)$ --- in particular on the
+  algebra generated by any protocol's contexts --- extends to $\mathrm{Clo}(X)$,
+  hence realizes as a Borel measure. The only obstruction to realization in the
+  dynamical regime is finite-additive.
+\end{enumerate}
+\end{theorem}
 
-\begin{remark}[status of Conjecture~\ref{conj:quarantine}]\label{rem:quarantine}
-The compactness/Farkas argument is currently a sketch (a roadmap ``Layer-1
-licensing'' result in the commensurability programme), not an audited proof.
-Until it is settled, the spine's central architectural claim --- that the two
-witnesses live in provably disjoint worlds, so the failures are classified rather
-than merely collected --- is a conjectural hinge. We state it as the corpus's
-most valuable next lemma precisely because it is what would make the weave a
-theorem.
+\begin{proof}
+(i) $F=\{C \in B : s(C)=1\}$ is a filter of $B$ (if $s(C)=s(D)=1$ then
+$s(C\cap D) + s(C\cup D) = s(C)+s(D) = 2$ forces $s(C\cap D)=1$, and $s$ is
+monotone with $s(\varnothing)=0$); extend $F$ to an ultrafilter $U$ of
+$\mathrm{Clo}(X)$. $U$ is a family of nonempty closed subsets of a compact space
+with the finite intersection property, so some $x \in \bigcap U$; then
+$s(C)=1 \Rightarrow x \in C$ and
+$s(C)=0 \Rightarrow s(C^{\perp})=1 \Rightarrow x \notin C$, i.e.\
+$s=\delta_x\!\restriction\!B$. (ii) If clopen $C = \bigsqcup_n C_n$ with all
+$C_n$ clopen, compactness of $C$ and disjointness of the open cover force all but
+finitely many $C_n$ empty, so $\sigma$-additivity on $\mathrm{Clo}(X)$ reduces to
+finite additivity; the Carath\'eodory--Hahn extension then gives a Borel measure
+on $\sigma(\mathrm{Clo}(X))$, which is the Borel $\sigma$-algebra since the clopen
+sets form a basis, uniquely (the measure is finite, hence $\sigma$-finite; $\pi$--$\lambda$).
+(iii) Charge extension from a subalgebra
+(Horn--Tarski~\cite{HornTarski1948}, in the finitely additive category; their
+countably additive analogue can fail, which is why part (ii) supplies
+$\sigma$-additivity separately), then (ii); see Rao--Rao~\cite{RaoRao1983} for the
+charge/Stone-space correspondence.
+\end{proof}
+
+\begin{corollary}[the tame tower; the witnesses are sorted]\label{cor:tower}
+The tame results of the corpus form a tower:
+finite carriers \textup{(Wright; the Boolean baseline)} $\subseteq$
+compact clopen carriers \textup{(Theorem~\ref{thm:quarantine})} $\subseteq$
+Polish-representable carriers \textup{(Derr--Williamson)}. In particular the two
+constructed witnesses inhabit provably disjoint regimes --- the pasting witness
+lives on a compact carrier where the regularity transition is free, and the
+regularity witness lives at $\omega_1$, past the tower --- so the corpus's table
+is a classification, not a collection.
+\end{corollary}
+
+\begin{remark}[why the witness escapes; scope; credit]\label{rem:quarantine-scope}
+Theorem~\ref{thm:quarantine}(i) is the Boolean baseline's atom argument with
+``finite'' upgraded to ``compact'': the same proof at two scales, and the
+compactness hypothesis is exactly what the $\sigma$-essential witness escapes by
+living at $\omega_1$, where the clopen family loses the finite intersection
+property. The quarantine and the regularity witness are therefore consistent, not
+in tension: the theorem proves the witness \emph{cannot} descend to the compact
+dynamical regime. The theorem quarantines realization by \emph{measures}; whether
+exotic $\sigma$-classes generated inside a Borel structure satisfy the lifting
+property $\Phi$ is the $\sigma$-essential paper's open characterization question,
+untouched here. Parts (ii)--(iii) are Stone duality for
+charges~\cite{HornTarski1948,RaoRao1983}, classical; the corpus's contribution is
+part (i)'s pointed form, the tower, and the sorting.
 \end{remark}
 
-A third open thread is shared and worth stating uniformly: in each transition,
-\emph{latticehood} appears to force liftability (and hence tameness) --- the
-orthomodular-lattice form of each paper's boundary question is conjectured to
-collapse to the tame side. Whether these are three phrasings of one conjecture
-(latticehood $\Rightarrow$ liftability $\Rightarrow$ tameness) is itself part of
-Conjecture~\ref{conj:onenotion}.
+The one surviving bridging conjecture, now decoupled from the resolved ladder
+question, is the \emph{latticehood family}: in each transition,
+\emph{latticehood} appears to force liftability, hence tameness. Whether the
+orthomodular-lattice form of each paper's boundary question collapses to the tame
+side, and whether the three are one conjecture
+(latticehood $\Rightarrow$ liftability $\Rightarrow$ tameness), is the corpus's
+single open bridging frontier.
 
 
 \section{Reading and dissemination order}\label{sec:order}

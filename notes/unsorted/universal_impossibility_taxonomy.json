@@ -1,0 +1,165 @@
+{
+  "$meta": {
+    "title": "Universal Impossibility — the completeness theorem for the tamings",
+    "purpose": "zoom-out index of the attack on universal impossibility; load first, follow detail pointers to leaf files. Sibling branch of the reconstruction/commensurability collection, spun off 2026-07-09 when the paper's 'ten stamps' problem was diagnosed as the missing completeness theorem.",
+    "updated": "2026-07-09",
+    "what_is_it": "Conjecture: the ten catalogued tamings are EXHAUSTIVE — no 'fork' (a language contextual on some gate-passing time-realisable frame yet escaping all ten mechanisms) exists. Equivalently: the winding criterion is a COMPLETE decision procedure and the reconstruction guarantee is unconditional.",
+    "status": "OPEN — active attack (no half measures, user directive 2026-07-09). The paper needs this to complete: it converts 'ten sufficient conditions (a collection)' into 'one necessary-and-sufficient classification (a theorem)'. Until proved, the tamings honestly read as stamp-collecting BECAUSE their organizing theorem is unproved.",
+    "the_shape": "The conjecture reduces along a chain: universal-impossibility ⟸ [Joint 1: pruning lemma, CLOSED all k this session] ∧ [Joint 2: exchange-blocking classification, OPEN]. Joint 2's crux, CORRECTED 2026-07-09, is NOT 'the non-symmetric case' (golden mean refuted that — its safety is signability/TU firing on the bipartite residue). The real crux: THE TAMINGS ARE THE ONLY SOURCES OF RESIDUE-SAFETY IN A PRIMITIVE LANGUAGE — i.e. classify sources of residue-safety, show each is a catalogued taming. That IS 'the tamings are complete'.",
+    "categories": {
+      "reduction_chain": "the logical skeleton — what implies what; closed nodes shown so the live edge is visible",
+      "closed": "sub-results proved/settled this session or earlier (Joint 1, forests, golden-mean-as-taming)",
+      "open_crux": "the live conceptual gap(s) — where a real idea is owed",
+      "subtargets": "tractable pieces promoted by 'no half measures' (girth-locking rigour, mechanism-independence)",
+      "counterexample_track": "the co-equal hunt: universal impossibility could be FALSE; fork-hunting scales in parallel with the proof",
+      "win_conditions": "how the attack terminates honestly (full theorem OR reduction to one named lemma = the paper's stated open problem)"
+    },
+    "headline": {
+      "joints": 2,
+      "joint1_status": "CLOSED (pruning lemma, all k, HAND + 73728-check scan)",
+      "joint2_status": "OPEN (crux corrected)",
+      "fork_free_through": "≤4 states, 9 edges at 5 states (witness-grade)",
+      "symmetric_case": "expelled but WITNESS-grade (girth-locking not yet rigorous)"
+    },
+    "scope_note": "Spun off from `commensurability_taxonomy.json` (the parent). The winding criterion, tamings catalogue, parity, forests live there; THIS branch is only the completeness/impossibility question over them. Do not double-list the tamings themselves here."
+  },
+
+  "reduction_chain": [
+    {
+      "id": "chain.universal",
+      "name": "Universal impossibility (the goal)",
+      "status": "open",
+      "one_line": "no fork exists ⟸ (Joint 1 ∧ Joint 2). Joint 1 closed ⟹ the whole conjecture now rests on Joint 2.",
+      "detail": "../unsorted/joint2_wielandt_finding.md; papers/reconstruction/reconstruction_body.tex conj:universal"
+    },
+    {
+      "id": "chain.joint1",
+      "name": "Joint 1 — pruning lemma ⟹ eventual periodicity",
+      "status": "closed",
+      "one_line": "TR_k(rot-1)=LISC_k for all k ⟹ unsafe set = finite ∪_{k≤|A|} LISC_k, each eventually periodic ⟹ theorem-let B (eventual periodicity of the unsafe set).",
+      "detail": "pruning_k2_theorem.md",
+      "same_as": "closed.pruning"
+    },
+    {
+      "id": "chain.joint2",
+      "name": "Joint 2 — exchange-blocking classification",
+      "status": "open",
+      "one_line": "residue-structured unsafe set ⟹ a catalogued taming fires. CORRECTED crux: the tamings are the ONLY sources of residue-safety in a primitive language.",
+      "detail": "joint2_wielandt_finding.md",
+      "kills_or_bounds": "chain.universal"
+    }
+  ],
+
+  "closed": [
+    {
+      "id": "closed.pruning",
+      "name": "Pruning lemma TR_k(rot-1) = LISC_k, all k",
+      "status": "closed",
+      "examined": "2026-07-09",
+      "one_line": "the seed's k=2 'phase gap' AND anticipated k≥3 'permutation gap' were both wrong-proxy artifacts; dissolved by labelling strands by traversal order (threading forced cyclic). Proxy = rotation-by-GENERATOR (gcd(r,k)=1); any-rotation overcounts LISC_{k/d}. HAND + 73728-check adversarial scan, 0 fail.",
+      "detail": "pruning_k2_theorem.md",
+      "lean": {"file": "formalization/QuerySystem/QuerySystem/WindingDichotomy.lean", "name": "(pruning lemma port TEED UP, not built — 4 design constraints in pruning_k2_theorem.md)", "status": "open-prop"}
+    },
+    {
+      "id": "closed.forests",
+      "name": "Symmetric-loopless = forests, phase-decouple",
+      "status": "closed",
+      "one_line": "counting theorem (bijection, 1819 targets): symmetric-loopless-MD ⟺ forest ⟹ whole class phase-decouples ⟹ Circuit Localization closes for symmetric MD. The symmetric world's TAME half is theorem-grade.",
+      "detail": "../unsorted/commensurability_classification_seed.md#22s"
+    },
+    {
+      "id": "closed.gm_is_taming",
+      "name": "Golden-mean safety IS signability firing (crux-corrector)",
+      "status": "closed",
+      "examined": "2026-07-09",
+      "one_line": "golden mean primitive+symmetric, safe ⟺ layered ring bipartite (even L) ⟺ signability/TU (taming 3) fires. Verified by building (safe⟺bipartite exactly, L=3..10). REFUTES 'non-symmetry is the axis' — golden-mean safety is a taming, not a non-symmetry effect.",
+      "detail": "joint2_wielandt_finding.md#the-crux-corrected-2026-07-09",
+      "kills_or_bounds": "open_crux.was_nonsymmetry"
+    },
+    {
+      "id": "closed.grading_imprimitive",
+      "name": "grading ⟺ Perron–Frobenius imprimitivity",
+      "status": "closed",
+      "one_line": "taming 4 (fibered over Z_d) = digraph period d, verified. A classical DICTIONARY — but does NOT make Joint 2's 'residue-unsafe⟹grading' classical (that's the open crux).",
+      "detail": "joint2_wielandt_finding.md#finding-1-grading"
+    }
+  ],
+
+  "open_crux": [
+    {
+      "id": "open_crux.sources_of_safety",
+      "name": "THE CRUX — tamings are the only sources of residue-safety",
+      "status": "open",
+      "one_line": "classify the sources of residue-safety in a primitive language; show each is a catalogued taming. This IS 'the tamings are complete'. Golden-mean (signability on bipartite residue) is one confirmed source; non-symmetric primitives have NONE past Wielandt (no taming fires = cofinitely unsafe). Needs a real idea.",
+      "detail": "joint2_wielandt_finding.md#the-crux-corrected-2026-07-09"
+    },
+    {
+      "id": "open_crux.was_nonsymmetry",
+      "name": "[SUPERSEDED] 'why non-symmetry forces cofinitely-unsafe'",
+      "status": "superseded",
+      "one_line": "the earlier framing; REFUTED by golden-mean (closed.gm_is_taming). Kept to show the reversal trail — do NOT re-adopt.",
+      "detail": "joint2_wielandt_finding.md#the-crux-corrected-2026-07-09",
+      "same_as": "closed.gm_is_taming"
+    }
+  ],
+
+  "subtargets": [
+    {
+      "id": "sub.girth_locking",
+      "name": "Make symmetric expulsion theorem-grade (girth-locking)",
+      "status": "open",
+      "one_line": "symmetric non-MD is expelled only WITNESS-grade (P47: cyclic-target safe sets sparse+girth-locked, C3–C6 witnessed). Promote to a rigorous COVERING argument: a sparse girth-locked safe set cannot cover all circuit-lengths of a K4-minor frame simultaneously. Not a search — a covering lemma. Likely tractable.",
+      "detail": "../unsorted/commensurability_classification_seed.md#22t"
+    },
+    {
+      "id": "sub.mechanism_independence",
+      "name": "Are potential/phase-code independent of grading? — RESOLVED: NO",
+      "status": "closed",
+      "examined": "2026-07-09",
+      "one_line": "RESOLVED (verified by building): the triple COLLAPSES. phase-code = a Z_d labelling advanced by arcs = grading = imprimitivity, by definition. A monotone Z-potential on a strongly-connected digraph is CONSTANT (0/347 admit non-constant) ⟹ 'potential' is either grading (mod-d) or the already-catalogued monotone-collapse (taming 8). NO new third mechanism. Joint 2 has ONE crux, not three. PROBLEM SIZED.",
+      "detail": "joint2_wielandt_finding.md#mechanism-independence"
+    },
+    {
+      "id": "sub.notrichsafe",
+      "name": "cofinitely-unsafe ⟹ not-rich-safe",
+      "status": "open",
+      "one_line": "a finite safe set (e.g. {3,4,7}) is not OBVIOUSLY frame-non-covering; Wielandt finiteness ≠ girth-locking. Bridge: show finite/sparse safe set ⟹ cannot cover a frame's diverse circuit lengths. May merge with sub.girth_locking.",
+      "detail": "joint2_wielandt_finding.md#what-is-proved-vs-open-do-not-overclaim"
+    }
+  ],
+
+  "counterexample_track": [
+    {
+      "id": "cex.scale_up",
+      "name": "Fork hunt at scale (CO-EQUAL to the proof) — first deep sweep CLEAN",
+      "status": "live",
+      "examined": "2026-07-09",
+      "one_line": "'rich-safe' PINNED: a fork must be safe on a full residue class d·ℤ (subdivided-K4 circuits land in d·ℤ, cf. ρ₂₀'s 6ℤ), NOT just finitely many lengths. First deep sweep: 1500 primitive/strongly-conn/non-symmetric/NON-bipartite (signability+grading excluded = untamed) 5-state languages, probed on residue classes to L=30 (PAST Wielandt index 17, past the L=9 artifact window that fooled the earlier screen): ZERO fork candidates survived. Real evidence (not window-artifact), consistent with UI. Keep hunting wider (|A|=6, denser, other d).",
+      "detail": "joint2_wielandt_finding.md; scratchpad/fork_hunt_scale.py"
+    },
+    {
+      "id": "cex.imprimitive_probe",
+      "name": "Imprimitive/primitive boundary probes (standing)",
+      "status": "live",
+      "one_line": "prior probes (adv1/adv5 imprimitive to L=35, 110 primitives to L=9) found NO fork. Standing acceptance probe: re-run on any new candidate class. Raw-DFS LISC = only trusted oracle (exp wall ~L=35).",
+      "detail": "../unsorted/commensurability_classification_seed.md#22y"
+    }
+  ],
+
+  "win_conditions": [
+    {
+      "id": "win.full",
+      "name": "Full theorem",
+      "status": "open",
+      "one_line": "close open_crux.sources_of_safety ⟹ universal impossibility proved ⟹ winding criterion is a complete decision procedure ⟹ tamings become a proved classification (not stamps). Paper's frontier closes.",
+      "detail": "self-contained"
+    },
+    {
+      "id": "win.named_lemma",
+      "name": "Reduction to one named lemma (the honest fallback)",
+      "status": "open",
+      "one_line": "if the full theorem doesn't land: reduce Joint 2 to a SINGLE named lemma, make it the paper's stated open problem. Converts 'ten stamps + vague conjecture' into 'one clean open conjecture' — ALSO completes the paper's arc (sharpens rather than closes). Set this as the floor so 'no half measures' stays bounded.",
+      "detail": "self-contained"
+    }
+  ]
+}

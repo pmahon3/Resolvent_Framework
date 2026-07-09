@@ -98,6 +98,28 @@ Queued Lean targets (method note), STILL OPEN: θ-sweep, phase-mixture, monotone
 collapse, empty-intersection. Gate lemma is definitional (not a Lean target —
 item 1 above). Prove on paper (done), then formalize.
 
+## CONSOLIDATION PASS (2026-07-09) — tamings regrouped, winding foregrounded
+
+Addressed "feels dispersed (trichotomy + ten lemmas)". Verdict (advisor-checked):
+the universal-impossibility capstone would NOT clean this up — completeness
+enshrines a catalogue, doesn't shrink it, and adds proof machinery. The real fix
+was presentational + a structural regrouping, done now:
+- **Winding criterion is the spine** — the ten tamings reframed as "routes by which
+  the winding obstruction fails to form," not independent phenomena.
+- **Two-axis dichotomy** (by C=R engine, NOT by realisation): 4 TERMINAL integrality
+  certificates (chains, cliques, signability/TU, twin-expansion=below-TU) + 5
+  REDUCTIONS to a terminal one (transient-branching, direct-sum, grading, monotone-
+  collapse, phase-decoupling) + determinism as degenerate remainder.
+- Two groupings are PROVEN (flagged as such): grading ⟺ Perron–Frobenius
+  imprimitivity (this session's Joint-2 finding); phase-decoupling ⟹ signable
+  (Lemma taming). Rest honestly "grouped by mechanism."
+- ⚠ AVOIDED a trap the advisor caught: #8 twin-expansion is BELOW-TU (own record),
+  NOT TU-adjacent — the θ-sweep is a shared REALISATION of (3),(4),(9), not a shared
+  invariant. Grouped by C=R engine, said so explicitly in the text.
+- Tamings renumbered (determinism moved to end); downstream refs fixed
+  (phase-decoupling now taming (9), SCC/monotone-collapse taming (8)). Builds clean
+  10pp, no undefined refs.
+
 ## EDITORIAL PASS (2026-07-09) — 12pp → 10pp
 
 Structural polish applied inline (16 editorial rules + advisor keep/cut list).

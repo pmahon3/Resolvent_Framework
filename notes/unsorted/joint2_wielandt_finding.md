@@ -62,19 +62,27 @@ the disjointness refinement is the genuine open combinatorial step.
 NOT the naive "unsafe for all L ≥ index" — the disjointness refinement shifts the
 threshold. The skeleton is real but incomplete; do not claim step (1) proved.
 
-## THE CRUX (named): what does non-symmetry do?
+## THE CRUX (CORRECTED 2026-07-09): "non-symmetry" was a MIS-STATEMENT
 
-Golden mean (symmetric, primitive) gets a residue-structured unsafe set from
-PARITY. The 4 non-symmetric primitives go cofinitely UNSAFE (finite safe set).
-So the load-bearing open question of Joint 2 is:
+Earlier framing: "why does non-symmetry force primitive ⟹ cofinitely-unsafe."
+**This is WRONG — refuted by golden mean.** Golden mean is PRIMITIVE and (up to the
+loop) SYMMETRIC, yet residue-safe at even L. Its safety is NOT a non-symmetry
+effect: **safe ⟺ layered ring bipartite (even L) ⟺ signability/TU (taming 3)
+fires.** Verified by building (`scratchpad`, safe⟺bipartite exactly, L=3..10). So
+golden-mean's residue-safety IS a taming firing, not evidence for a non-symmetry
+axis. Non-symmetry was never the discriminator.
 
-  **Why does NON-SYMMETRY force [primitive ⟹ cofinitely unsafe], when symmetric
-  primitives (golden mean) instead get a residue-structured unsafe set from the
-  parity/winding mechanism?**
+**THE CORRECTED CRUX (the real Joint 2):**
 
-This is currently the invisible crux. The 4 finite-safe non-symmetric candidates
-are evidence FOR it, but what non-symmetry is doing structurally is not isolated.
-Needs a real idea; not closed this session.
+  **The tamings are the only sources of residue-safety in a primitive language.**
+  I.e. classify the sources of residue-safety; show each is a catalogued taming.
+
+This is exactly "the tamings are complete" — the same theorem that would de-mess
+the paper (ten sufficient conditions → one necessary-and-sufficient classification).
+The 4 finite-safe non-symmetric candidates and golden-mean are now UNIFIED: each
+safe residue is a taming firing (signability on the bipartite residue for gm; the
+non-symmetric ones simply have NO safe residue past Wielandt = no taming fires).
+Not "the non-symmetric case" — the SOURCES-OF-SAFETY classification. Needs an idea.
 
 ## Finding 3 (DOWNGRADED to a question): do Joints 1 and 2 share an engine?
 
@@ -98,3 +106,47 @@ too simple. Keep as an open question, not a leaning.
   still needs girth-locking.
 - **OPEN:** the disjointness refinement; exact threshold; past |A|=3; the crux
   above; Joint 1's k≥3 pruning (separate open piece).
+
+## Mechanism independence — RESOLVED 2026-07-09: the triple collapses
+
+The seed's Joint-2 attack names three forcing mechanisms: grading/potential/phase-code.
+Do potential and phase-code carry content independent of grading? **No — verified by
+building.**
+- **phase-code = grading.** A phase-code is a labelling c: states → ℤ_d advanced by
+  every arc (c(b)=c(a)+1). That is exactly `is_graded` = fibered over ℤ_d =
+  imprimitivity. Identical by definition.
+- **potential collapses.** A monotone ℤ-valued potential (p(b)≥p(a) along arcs,
+  non-constant) does not exist on a strongly-connected digraph — it must be constant
+  (0 of 347 strongly-connected languages admit a non-constant one; structurally,
+  increments sum to 0 around any cycle ⟹ all equal). So "potential" is either
+  constant (no information) on the irreducible core, or mod-d valued = grading, or —
+  for the reducible part — the already-catalogued monotone-collapse (taming 8).
+
+**⟹ no new third mechanism. Joint 2 has ONE crux (sources-of-residue-safety), not
+three.** This sizes the problem: the whole exchange-blocking classification reduces to
+the single question "the tamings are the only sources of residue-safety," with grading
+(imprimitivity) and signability (TU on bipartite residues, per golden-mean) as the two
+confirmed sources so far.
+
+## "Rich-safe" PINNED (2026-07-09) — the frame-covering / residue condition
+
+The girth-locking subtarget's key object, made precise. A FORK = a language L + a
+K4-minor frame F such that every circuit length of F lies in Safe(L), yet L is
+genuinely contextual (escapes all tamings). A subdivided-K4 has 3 independent
+cycles; to make all its circuits safe one subdivides edges so circuits land in an
+arithmetic progression d·ℤ (the ρ₂₀ pattern: circuits 18, 24 ∈ 6ℤ = Safe(ρ₂₀)).
+
+**So the sharp necessary condition for a fork: safe on a FULL residue class d·ℤ
+(d≥2), not merely finitely many lengths.** This is the filter the fork-hunt needs —
+and it is exactly the girth-locking claim's contrapositive: if no untamed language
+is safe on a full residue class, no fork exists.
+
+**First deep adversarial sweep (`scratchpad/fork_hunt_scale.py`):** 1500 primitive,
+strongly-connected, non-symmetric, NON-bipartite (⟹ signability excluded), |A|=5
+languages — i.e. candidates NOT tamed by grading (primitive) or signability
+(non-bipartite) — probed for safety on residue classes d·ℤ up to L=30 (past the
+Wielandt index 17, and past the L=9 window that produced 6 false "rich-safe"
+positives earlier). **ZERO survived.** Every untamed 5-state candidate goes unsafe
+on every residue class past the artifact window. Real evidence for UI (not a window
+artifact); the hunt should widen (|A|=6, denser branching, more d) — a hit at any
+scale kills UI.

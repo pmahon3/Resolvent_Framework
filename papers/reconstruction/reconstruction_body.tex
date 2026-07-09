@@ -232,34 +232,50 @@ can mean more tame.
 
 \subsection{Tamings and Circuit Localization}\label{sub:tamings}
 
-Each structured language that resists contextuality does so by a nameable
-mechanism; ten suffice for the classes below.
+A commensurable language keeps the winding obstruction of \S\ref{sub:winding} from
+forming --- $\FSTAB=\STAB$ with no fractional vertex. It can do so in one of two
+ways: by \emph{exhibiting} integrality directly (a terminal certificate), or by
+\emph{stripping} structure until a terminal certificate applies (a reduction). The
+mechanisms we catalogue fall under this dichotomy; each is a route to the same
+one-point criterion, not an independent phenomenon.
 
 \begin{definition}[the taming mechanisms]\label{def:tamings}
-A protocol/language is tamed by one of:
+A protocol/language is tamed by one of the following. \emph{Terminal integrality
+certificates:}
 \begin{enumerate}[label=\textup{(\arabic*)}, itemsep=1pt]
-  \item \emph{chains / empty-intersection} (\S\ref{sub:parity} base case);
-  \item \emph{cross-context cliques};
-  \item \emph{determinism}: a functional transfer relation;
-  \item \emph{grading}: the transfer digraph is fibered over $\bbZ_d$;
-  \item \emph{transient branching}: all branching lies off the recurrent core;
+  \item \emph{chains / empty-intersection}: the pointwise bound
+    $\sum_t \mathbf 1_{c_t}\le m-1$ (\S\ref{sub:parity} base case);
+  \item \emph{cross-context cliques}: perfect-graph coverage integrality;
+  \item \emph{signability}: total unimodularity from a $\{\pm1\}$ column signing
+    along the frame's bipartition, by Hoffman--Gale (appendix
+    to~\cite{HellerTompkins1956}; cf.\ Ghouila-Houri~\cite{GhouilaHouri1962}),
+    with K\"onig as the edge case;
+  \item \emph{twin expansion}: a below-total-unimodularity integrality mechanism
+    (a phase-forced decomposition), realised by a constructive $\theta$-sweep.
+\end{enumerate}
+\emph{Reductions to a terminal certificate:}
+\begin{enumerate}[label=\textup{(\arabic*)}, itemsep=1pt, start=5]
+  \item \emph{transient branching}: branching off the recurrent core is deleted;
   \item \emph{direct-sum decomposition}: a disconnected relation splits
     componentwise;
-  \item \emph{signability}: a column signing driven by the frame's bipartition
-    giving total unimodularity, by the sufficient condition of Hoffman and Gale
-    (appendix to~\cite{HellerTompkins1956}; cf.\ Ghouila-Houri~\cite{GhouilaHouri1962});
-    K\"onig's theorem is the edge case;
-  \item \emph{twin expansion}: expanding a non-reflexive state into label-twins,
-    realised by a constructive $\theta$-sweep coupling;
+  \item \emph{grading}: the transfer digraph fibered over $\bbZ_d$ ---
+    equivalently, Perron--Frobenius imprimitivity of period $d$;
   \item \emph{monotone collapse}: a non-symmetric relation induces monotone
     potentials that strong connectivity flattens (the SCC-reduction lemma);
-  \item \emph{bipartite-target phase decoupling}: a bipartite-target language is
-    a fibered join of two copies of its edge polytope over a global phase.
+  \item \emph{bipartite-target phase decoupling}: a bipartite target is a fibered
+    join of two copies of its edge polytope over a global phase, reducing $C=R$ to
+    the signable certificate~(3).
 \end{enumerate}
+The remaining case, \emph{determinism} (a functional transfer relation), is
+degenerate: the polytope collapses to a point.
 \end{definition}
 
-Tamings (7)--(10) are proved theorems, (3)--(6) structural reductions. The
-signable case is representative.
+The dichotomy is not merely presentational for two of the entries: grading is
+\emph{provably} imprimitivity, and phase decoupling \emph{provably} reduces to
+signability (Lemma~\ref{lem:taming10}). The others are grouped by the $C=R$
+mechanism they exhibit or invoke, not by their realisation --- three of them share
+the $\theta$-sweep as a construction while resting on different integrality
+grounds. The signable certificate is representative.
 
 \begin{theorem}[signable languages are tame on bipartite frames]\label{thm:taming7}
 Let a language be \emph{marginal-determined} (its cell simplex is affine in the
@@ -342,12 +358,12 @@ bipartite. On a tree the endpoint-marginal map is injective: orienting from a ro
 each edge distribution is recovered as the coupling of its two endpoint marginals,
 one edge at a time, with no cycle to obstruct. Bipartiteness makes the target
 phase-decoupling --- a $2$-colouring of $H$ puts one endpoint of each edge in each
-class --- so Theorem~\ref{thm:taming7} and taming~(10) apply. \qed
+class --- so Theorem~\ref{thm:taming7} and phase decoupling (taming~(9)) apply. \qed
 \end{proof}
 
-The assembly turns on taming (10).
+The assembly turns on phase decoupling, taming~(9).
 
-\begin{lemma}[bipartite-target phase decoupling; taming (10)]\label{lem:taming10}
+\begin{lemma}[bipartite-target phase decoupling; taming (9)]\label{lem:taming10}
 Let $\rho$ be a marginal-determined language whose target graph $H$ is bipartite,
 with $2$-colouring $A=A_0\sqcup A_1$. Then on every bipartite frame the coherence
 polytope fibers over a single \emph{phase} scalar as
@@ -489,8 +505,8 @@ is exactly a layer-injective one. \qed
 \section{The open case and consequences}\label{sec:open}
 
 The symmetric case is settled (\S\ref{sub:tamings}); any remaining contextual
-protocol is strongly connected and non-symmetric, the SCC-reduction lemma (taming
-(9)) reducing commensurability to that class. Exhaustive search finds no contextual
+protocol is strongly connected and non-symmetric, the SCC-reduction lemma
+(monotone collapse, taming~(8)) reducing commensurability to that class. Exhaustive search finds no contextual
 protocol there at small scale (none at $\le4$ states, none through $9$ edges at
 $5$).
 

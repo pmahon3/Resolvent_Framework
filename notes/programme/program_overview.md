@@ -255,17 +255,28 @@ planning/design via discussion; this repo verifies (Lean + audit tools); writing
 after verification. Vocabulary locked: **EA/PR(𝓡)** — coherent window data = EA;
 realisability relative to a *declared* realisation class 𝓡 = PR(𝓡) (the observer's
 commitment lattice); **commensurability** of a protocol = EA ⟹ PR(𝓡) universally.
-Seed with declared types, claims + status, prior-art shelf, and the Lean ladder:
-`notes/unsorted/commensurability_classification_seed.md`. Four finite claims from
-the design session **re-verified in this environment** (`notes/unsorted/
-commensurability_checks.py`: minimal 3-outcome EA/PR separation; k=3 Fréchet gap
-2-vs-1 on x₁/x₂/x₁⊕x₂; wrap-C₄ parity model unrealisable; C₄ packing = 2 inert vs
-C₅ = 5/2). Open queue by leverage: axis-reduction theorem (compression ⟶ reporting
-over constrained alphabet), T1 necessity (gadgets on every GYO core), Bonferroni
-normal-form conjecture. Layer-1 licensing targets: C1 (full-window coherence ⟹
-trajectory measure), C1′ (finite-alphabet quarantine: the σ-essential pathology
-cannot occur in the data regime — the witness *secures* reconstruction).
-σ-essential frontier triple (OML conjecture / no-singletons regime /
+Seed (full round-log) + declared types: `notes/unsorted/
+commensurability_classification_seed.md`. **NAV: load
+`notes/unsorted/commensurability_taxonomy.json` FIRST** (the load-first index —
+26 anchors, 65-entry ledger, all detail pointers).
+
+**STATE 2026-07-08 (the early "open queue" below is superseded — axis-reduction /
+T1 / Bonferroni were all resolved or refuted in the atlas rounds; see taxonomy).**
+A proved structure theory now exists: the **parity theorem** (golden-mean ring
+commensurable ⟺ L even), the **free/acyclic theorem** (= Vorob'ev), the
+**trichotomy** (variety-typed protocols are De Loera–Onn universal), **ten taming
+mechanisms**, and **symmetric-loopless Circuit Localization** (the fork excluded by
+structure). **Lemma 2** (the layer-injectivity discriminant) is **certificate-grade
+in Lean** (`formalization/QuerySystem/QuerySystem/WindingInjectivity.lean`,
+0-sorry). OPEN: the **universal impossibility conjecture** (fork never exists) ⟶
+pruning lemma ⟶ a k=2 residual with a named **phase gap**, resting/incubating.
+FORMAL WRITE-UP: **`papers/reconstruction/`** (8pp; hostile prior-art pass done ⟹
+contribution is **Type 6** bridge, the novel core = the observational/dynamical
+EA/PR framing + winding criterion + CL assembly, the polyhedral facts classical;
+owed proof-writing + verdict in `papers/reconstruction/notes/STATUS.md`). Method
+signature: five instrument near-misses all caught pre-record by ground-truth
+cross-check ⟹ a verdict-grade ladder (witness-unsafe > exact/theorem-safe >
+screening). σ-essential frontier triple (OML conjecture / no-singletons /
 positive-selection strength) stands separately in the taxonomy.
 
 **[SUPERSEDED-IN-PART 2026-07-06]** The block below stands as the record for the

@@ -22,9 +22,9 @@
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
-   "status": "OPEN - active successor programme. Pruning lemma OPEN: design side produced a REDUCTION (flow-decomposition; k=2 => exchange-linking=>simple), but its residual has a PHASE GAP — winding-2 simple cycles interleave their two strands at a relative phase the lockstep-exchange model can't express (probe anchor failed vs raw-DFS, caught PRE-RECORD, 5th instrument error, nothing recorded). Corrected k=2 residual = phase-parametrised strand-disjointness; TR_2 (phase-agnostic) may quietly carry the phase. Raw-DFS LISC = only trusted oracle (exp. wall ~L=35). Do not draft impossibility proof until lemma settled. Fork-free <=4 states + through 9 edges; symmetric world expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted.",
+   "status": "OPEN - active successor programme. Pruning lemma OPEN: design side produced a REDUCTION (flow-decomposition; k=2 => exchange-linking=>simple), but its residual has a PHASE GAP — winding-2 simple cycles interleave their two strands at a relative phase the lockstep-exchange model can't express (probe anchor failed vs raw-DFS, caught PRE-RECORD, 5th instrument error, nothing recorded). Corrected k=2 residual = phase-parametrised strand-disjointness; TR_2 (phase-agnostic) may quietly carry the phase. Raw-DFS LISC = only trusted oracle (exp. wall ~L=35). Do not draft impossibility proof until lemma settled. Fork-free <=4 states + through 9 edges; symmetric world expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted. PAPER: papers/reconstruction/ (8pp, prior-art integrated ⟹ Type-6 bridge; novelty = observational/dynamical framing + winding criterion + CL assembly). Lemma 2 CERTIFICATE-GRADE in Lean (WindingInjectivity.lean).",
    "one_line": "When does pairwise coherence force realisability (EA=>PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety. 15 substantial theorems (parity, free/acyclic, tamings #7-#10, forest-counting, symmetric-MD Circuit Localization, symmetric expulsion, SCC reduction); ledger 45 hits / 12 misses-or-refuted; 5 instrument errors all caught by ground-truth cross-check. Symmetric world fully fork-free (certificate-grade). Universal impossibility conjecture unrefuted (fork-free <=4 states + through 9 edges at 5 states); its proof gated on the OPEN pruning lemma (reduction found, k=2 residual has a phase gap).",
-   "entries": 125
+   "entries": 126
   },
   {
    "id": "kappa_q",
@@ -81,5 +81,5 @@
    "notes/programme/programme_reception/* — reception of a withdrawn programme arc (historical)"
   ]
  },
- "updated": "2026-06-27"
+ "updated": "2026-07-08"
 }

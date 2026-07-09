@@ -28,7 +28,8 @@
    "pruning_lemma": "OPEN — theorem-let B prerequisite; reduction found (flow-decomposition) with a PHASE GAP in the k=2 residual; raw-DFS LISC only trusted oracle",
    "theorems_proved_note": "substantial hand+machine theorems; EXCLUDES theorem-lets A/B (rest on the OPEN pruning lemma) and two-line observations",
    "lean_certified": "Lemma 2 (layer-injectivity discriminant) = WindingInjectivity.simple_iff_layerInjective, 0-sorry, [propext,Quot.sound] — first reconstruction-structure result at certificate grade"
-  }
+  },
+  "paper": "papers/reconstruction/ (reconstruction.tex, 8pp; proved core drafted, prior-art integrated, CL loopless-honest; Lemma 2 = WindingInjectivity.lean certificate-grade). Status + owed-fixes: papers/reconstruction/notes/STATUS.md; prior-art verdict: notes/PRIOR_ART_VERDICT.md."
  },
  "definitions": [
   {

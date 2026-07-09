@@ -27,9 +27,9 @@
    "universal_conjecture": "unrefuted; fork-free <=4 states (P49) + through 9 edges at 5 states (P54); residence = SCC non-symmetric",
    "pruning_lemma": "OPEN — theorem-let B prerequisite; reduction found (flow-decomposition) with a PHASE GAP in the k=2 residual; raw-DFS LISC only trusted oracle",
    "theorems_proved_note": "substantial hand+machine theorems; EXCLUDES theorem-lets A/B (rest on the OPEN pruning lemma) and two-line observations",
-   "lean_certified": "Lemma 2 (layer-injectivity discriminant) = WindingInjectivity.simple_iff_layerInjective, 0-sorry, [propext,Quot.sound] — first reconstruction-structure result at certificate grade"
+   "lean_certified": "TWO modules, both 0-sorry: (1) WindingInjectivity.simple_iff_layerInjective [propext,Quot.sound] = Lemma 2 discriminant; (2) WindingDichotomy (winding_one_isConfig + winding_ge_two_fractional) [propext,Classical.choice,Quot.sound] = flow-decomp KERNEL. ⚑ Module 2 certifies 'winding-1/config + fractional dichotomy GIVEN classical flow-decomposition (AXIOMATIZED, AMO Thm 3.5)' — NOT the winding characterisation (gate lemma = definitional rfl-remark; polytope-vertex = Mathlib-absent). Do NOT recall as 'winding Lean-certified.'"
   },
-  "paper": "papers/reconstruction/ (reconstruction.tex, 8pp; proved core drafted, prior-art integrated, CL loopless-honest; Lemma 2 = WindingInjectivity.lean certificate-grade). Status + owed-fixes: papers/reconstruction/notes/STATUS.md; prior-art verdict: notes/PRIOR_ART_VERDICT.md."
+  "paper": "papers/reconstruction/ (reconstruction.tex, 10pp; ALL 6 PROVE-ORIGINALLY proofs WRITTEN 2026-07-09 ⟦HAND — unverified⟧ + editorial pass 12→10pp; prior-art integrated, CL loopless-honest; 2 Lean modules per lean_certified). Status + owed (verify HAND proofs, #1=gate-def hand-check; Phase-7 audit): papers/reconstruction/notes/STATUS.md; prior-art: notes/PRIOR_ART_VERDICT.md."
  },
  "definitions": [
   {
@@ -169,9 +169,9 @@
    "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty. (NOTE: the characterization itself is structural and independent of the pruning lemma; only its EVENTUAL-PERIODICITY refinement = theorem-let B rests on the open pruning lemma.). [LEMMA 2 = the layer-injectivity discriminant now CERTIFICATE-GRADE in Lean: WindingInjectivity.simple_iff_layerInjective, 0-sorry, [propext,Quot.sound], the clause that caught the doubled-rotation + lockstep-phase errors.]",
    "detail": "winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08",
    "lean": {
-    "file": "formalization/QuerySystem/QuerySystem/WindingInjectivity.lean",
-    "name": "WindingInjectivity.simple_iff_layerInjective (+ simple_of_layerInjective, not_simple_of_collision)",
-    "status": "0-sorry, axioms [propext, Quot.sound]; non-vacuity examples pass"
+    "file": "formalization/QuerySystem/QuerySystem/{WindingInjectivity,WindingDichotomy}.lean",
+    "name": "WindingInjectivity.simple_iff_layerInjective (discriminant) + WindingDichotomy.winding_one_isConfig / winding_ge_two_fractional (flow-decomp kernel)",
+    "status": "both 0-sorry; module 1 [propext,Quot.sound], module 2 [propext,Classical.choice,Quot.sound]. ⚑ Kernel certifies 'winding-1/config + fractional dichotomy GIVEN classical flow-decomposition (axiom, AMO Thm 3.5)' — NOT the winding characterisation (gate=definitional rfl-remark; polytope-vertex=Mathlib-absent). Forward direction of the paper thm = HAND-written 2026-07-09, unverified."
    }
   },
   {

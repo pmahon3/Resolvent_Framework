@@ -50,35 +50,28 @@ When Coherent Windows Determine a Process}
 \maketitle
 
 \begin{abstract}
-Observing a process through overlapping finite windows yields a family of local
-statistics. When are locally coherent window-statistics guaranteed to arise from
-a single global process? We call an observation protocol \emph{commensurable}
-when empirical adequacy (pairwise coherence of the windows, $\EA$) forces
-probabilistic realisability by a declared class ($\PR(\Rc)$); the failure ---
-coherent-but-unrealisable data --- is contextuality in the sense of
-Abramsky--Brandenburger, arrived at from the observational side. We recast the
-question geometrically: a protocol is commensurable iff its coherence polytope
-$C$ equals its realisability polytope $R$, so contextuality is an exactly
-computable separation and every failure carries a rational witness. Within this
-frame we prove a structure theory for protocols whose contexts are windows on a
-symbolic dynamical system. The main results are: a \emph{trichotomy} (acyclic
-reporting is commensurable for every language; full-support coordinate protocols
-are commensurable by the product measure; protocols carrying a constraint
-variety realise every rational polytope, hence admit no finite classification,
-by De~Loera--Onn); a \emph{parity theorem} (the golden-mean shift observed
-around a ring of length $L$ is commensurable iff $L$ is even, the odd-ring gap
-being a single extreme point, its own PR-box); a catalogue of ten
-\emph{taming} mechanisms, each a structural obstruction to contextuality; and,
-assembled from these, \emph{Circuit Localization} for the symmetric loopless
-marginal-determined languages --- there commensurability is decided entirely by
-acyclicity and the tamings, contextuality excluded by structure rather than by
-search (the loopy and general-cyclic extensions are verified to finite scale and
-stated as such). The load-bearing combinatorial discriminant (a layered-ring
-walk is a simple cycle iff layer-injective) is machine-verified in Lean~4. We state the
-remaining open case --- a universal impossibility conjecture for the
-strongly-connected non-symmetric class --- together with its reduction to a
-combinatorial pruning lemma and the precise gap that reduction currently
-carries.
+Observing a process through overlapping finite windows yields local statistics;
+we ask when locally coherent window-statistics must arise from a single global
+process. An observation protocol is \emph{commensurable} when empirical adequacy
+(pairwise coherence, $\EA$) forces realisability by a declared class ($\PR(\Rc)$);
+the failure is contextuality in the sense of Abramsky--Brandenburger, taken from
+the observational side. Geometrically, a protocol is commensurable iff its
+coherence polytope $C$ equals its realisability polytope $R$, so contextuality is
+an exactly computable separation with a rational witness. For protocols whose
+contexts are windows on a symbolic dynamical system we prove: a \emph{trichotomy}
+(acyclic reporting always commensurable; full-support coordinate protocols
+commensurable; variety-typed protocols realise every rational polytope, hence
+admit no finite classification, by De~Loera--Onn); a \emph{parity theorem} (the
+golden-mean shift on a ring of length $L$ is commensurable iff $L$ is even, the
+odd-ring gap a single extreme point, its own PR-box); ten \emph{taming}
+mechanisms; and, assembled from these, \emph{Circuit Localization} for the
+symmetric loopless marginal-determined languages, where contextuality is excluded
+by structure rather than search (the loopy and general-cyclic extensions verified
+only to finite scale). A winding criterion characterises the unsafe lengths as
+those carrying a layer-injective winding-$\ge2$ cycle; its combinatorial kernel is
+machine-verified in Lean~4. The open case --- a universal impossibility conjecture
+for the strongly-connected non-symmetric class --- is stated with its reduction to
+a pruning lemma and the gap that reduction carries.
 \end{abstract}
 
 \ifstandalone

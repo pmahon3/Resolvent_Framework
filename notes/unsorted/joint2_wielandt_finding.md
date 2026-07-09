@@ -185,3 +185,35 @@ making the tamings feel principled.
 **NEXT:** rebuild the taming detector at the frame/layered-ring level (signability =
 even-cycle-TU / odd-cycle-facet; the parity certificate), re-run girth-locking. The
 count that survives THAT detector is the real signal about UI.
+
+## Corrected detector + the two-carrier structure (2026-07-09, second attack)
+
+Rebuilt the taming detector at the mechanism level (v1 tested target-graph
+2-colouring = wrong object). v2 tests residue-safety against TWO confirmed sources:
+- **grading** = safe-status depends only on L mod (digraph period p≥2);
+- **parity** = safe exactly on even L (the odd-cycle/independent-set certificate).
+
+v2 **catches golden mean** (`parity`), fixing the v1 inconsistency. Re-run:
+- A=3 FULL enumeration: 14 safe-on-2ℤ languages, **0 survive** v2 (all grading or
+  parity). Girth-locking holds at A=3 under the corrected detector.
+- A=4: full enumeration too slow inline; sampled runs consistent (primitive+safe-2ℤ
+  are parity-explained) BUT the sample is near-empty (1 hit) AND the check is
+  partly CIRCULAR (`parity_explained` = safe-on-evens ≈ the safe-on-2ℤ filter). So
+  A=4 is NOT real evidence. Recorded as such.
+
+**Settled by hand (structural, not scan): grading ≠ parity — two DISTINCT carriers.**
+Golden mean is primitive (loop ⟹ period 1) yet parity-safe, and admits NO grading
+labelling (the loop 0→0 would need 0=1 mod 2). So:
+- **grading** = the TRANSFER DIGRAPH factors onto ℤ_d (a directed cycle, loop-free);
+- **parity** = the LAYERED RING is bipartite at even L ⟹ König/TU on the
+  independent-set polytope (FSTAB=STAB).
+Two different objects (transfer digraph vs layered ring), two different integrality
+routes. The honest unifying frame: "a small quotient makes the relevant polytope
+integral," but on DIFFERENT carriers — not one cyclic principle at p=2.
+
+**HYPOTHESIS (thin data, NOT a theorem — do not round up):** on a PRIMITIVE language,
+the only source of residue-safety is parity. Golden mean is the one confirmed
+primitive-parity witness; the A=4 sample is too thin and too circular to support it.
+NEXT (by thinking, not scanning): prove or break "primitive + residue-safe ⟹
+parity-carrier (bipartite layered ring)", with LISC as the falsifier — that is the
+theorem-or-missing-taming, and it settles on a hand example, not a scan.

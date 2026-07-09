@@ -64,6 +64,35 @@ this one is a programme to execute.
 Nav: seed §2.3 (Layer-1 licensing, roadmap); Paper III δ̂ depth rule
 (`paper_iii` taxonomy).
 
+**2026-07-09 — activated as a scoped lead (ChatGPT orientation, `C=R` made
+statistical).** The layer reframed sharply: a finite-sample *inferential* theory
+over the reconstruction paper's population `C=R`, best-framed as a
+**pre-reconstruction licensing diagnostic** (test whether delay-window statistics
+are globally realizable in the target class BEFORE claiming a state space is
+reconstructed): decide p∈C (coherent) / p∈R (realizable) / p∈C\R (obstructed) /
+underpowered, under DEPENDENT single-trajectory sampling, with separation
+certificates + decision taxonomy. Declared types for the eventual seed: **6+7**.
+STATUS: prior-art deep-research OUT (prompt = `scratchpad/deep_research_prompt.md`,
+run in ChatGPT w/ the 4 PDFs; quarantines the already-settled population geometry,
+forces the relabeling test). NEXT (gated on that verdict): Phase-1 seed → `/audit
+full`. No seed/draft yet. Verdict-decider = is the finite-sample layer a
+non-trivial synthesis or a relabeling of {polytope GOF/chi-bar-square, Elkouss–
+Wehner finite-sample Bell testing, Paulin/Marton dependent concentration + block
+bootstrap, PSR/OOM/HMM realization}? Landmine: 𝓡 is NOT a polytope universally
+(semialgebraic for HMM/OOM/fixed-order-Markov). Expect "publishable but only with
+narrow framing" (the first Downloads report self-graded exactly that).
+
+**Separable philosophy thesis carried by the same orientation — SETTLED, OWNED
+(2026-07-09).** The conversation also carried a *foundational* "probability
+before realism" thesis (sample space = earned representation theorem, not
+primitive; σ-additivity not observationally free). Hostile scout on the
+operational-probability surface: **OWNED — cite, don't claim** (Foulis–Randall
+test spaces own sub-claims 1–2; de Finetti owns σ-additivity-not-free; Gelfand/
+algebraic-probability owns Ω-as-representation). Type-6 positioning only; the one
+non-relabeling residue is the σ-essential witness the corpus already owns
+(`prop:ladder`). Recurring rock, 4th confirmation. Detail:
+`notes/covered_leads/probability_before_realism_owned.md`.
+
 ---
 
 ## The choice, framed

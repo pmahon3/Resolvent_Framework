@@ -58,6 +58,31 @@ universal impossibility conjecture --- its reduction to a combinatorial pruning
 lemma and the gap that reduction carries --- and draws the reconstruction
 consequences.
 
+\paragraph{What is new, and what is borrowed.} The polyhedral facts this paper
+uses are classical and cited as such: the coherence/realisability polytopes are
+the local and marginal polytopes of graphical
+models~\cite{WainwrightJordan2008}, in the presheaf language of
+Abramsky--Brandenburger~\cite{AbramskyBrandenburger2011}; acyclic extendability
+is Vorob'ev's theorem~\cite{Vorobev1962}; the universality of the constrained
+case is De~Loera--Onn~\cite{DeLoeraOnn2004} and, for the marginal polytope
+itself, Pr\r{u}\v{s}a--Werner~\cite{PrusaWerner2015}; the parity mechanism is
+stable-set integrality (Nemhauser--Trotter~\cite{NemhauserTrotter1974},
+Chv\'atal~\cite{Chvatal1975}, Hoffman--Kruskal~\cite{HoffmanKruskal1956},
+K\"onig); the taming mechanisms specialise total-unimodularity and perfect-graph
+theory. Our contribution is the \emph{observational and dynamical} layer over
+this mathematics: the $\EA/\PR$ framing of symbolic-dynamical protocols, the
+reading of a cyclic protocol as recurrence (so that contextuality of scope data
+occurs exactly on odd-period orbits), the winding / primitive-orbit criterion
+with its covering-space proof, and the assembly of the tamings into a
+localisation structure theory. This is a bridge over known polyhedral
+combinatorics; where it rises above translation is the winding criterion and the
+localisation assembly, which we have not found in the marginal-problem,
+contextuality, or constraint-satisfaction literatures --- in particular the
+localisation line sits strictly above the satisfiability-width line
+(Barto--Kozik~\cite{BartoKozik2014}) and must be read against the tightness
+criterion of Thapper--\v{Z}ivn\'y~\cite{ThapperZivny2016}, from which the
+recurrence/covering content distinguishes it.
+
 
 \section{The structure theory}\label{sec:structure}
 
@@ -67,19 +92,21 @@ We first place the hardness of the general problem. Write a symbolic language as
 a relation $\rho$ (the legal adjacent pairs of a shift of finite type); a
 protocol reports windows on the configurations legal for $\rho$.
 
-\begin{theorem}[free theorem: acyclic reporting is tame]\label{thm:acyclic}
+\begin{theorem}[acyclic reporting is tame; Vorob'ev]\label{thm:acyclic}
 If the reporting hypergraph of a protocol is acyclic, the protocol is
 commensurable for every language $\rho$.
 \end{theorem}
 
-\begin{proof}[Proof sketch]
-Acyclicity gives the running-intersection property; the conditional-product
-(junction-tree) glue assembles the window-marginals into a global distribution
-whose support lies in the variety of $\rho$ automatically, so realisation costs
-no hypothesis on $\rho$. This is the all-$\rho$, variety-supported form of
-tree-exactness for the local polytope~\cite{WainwrightJordan2008}; frustration
-requires a cycle.
-\end{proof}
+This is Vorob'ev's theorem in the present language: Vorob'ev~\cite{Vorobev1962}
+proves that a family of consistent marginals extends iff the underlying complex
+is \emph{regular} (equivalently, acyclic), and acyclicity is the
+running-intersection / GYO condition of database
+theory~\cite{BeeriFaginMaierYannakakis1983}; the identification of the two is
+due to Barbosa (in Abramsky~\cite{Abramsky2013}). We include the statement for
+completeness and claim no novelty for it: the conditional-product glue over a
+junction tree assembles the window-marginals into a global distribution supported
+in the variety of $\rho$, so realisation costs no hypothesis on $\rho$.
+Frustration requires a cycle --- which is where the rest of the paper lives.
 
 \begin{theorem}[full-support coordinate protocols are tame]\label{thm:product}
 A $k$-context protocol of coordinate contexts with full product support is
@@ -182,8 +209,10 @@ A protocol/language is tamed by one of:
   \item \emph{transient branching}: all branching lies off the recurrent core;
   \item \emph{direct-sum decomposition}: a disconnected relation splits
     componentwise;
-  \item \emph{signability}: a Heller--Tompkins signing driven by the frame's
-    bipartition, giving total unimodularity (König's theorem is the edge case);
+  \item \emph{signability}: a column signing driven by the frame's bipartition
+    giving total unimodularity, by the sufficient condition of Hoffman and Gale
+    (appendix to~\cite{HellerTompkins1956}; cf.\ Ghouila-Houri~\cite{GhouilaHouri1962});
+    K\"onig's theorem is the edge case;
   \item \emph{twin expansion}: expanding a non-reflexive state into label-twins,
     realised by a constructive $\theta$-sweep coupling;
   \item \emph{monotone collapse}: a non-symmetric relation induces monotone
@@ -207,9 +236,10 @@ coherent point.
 \end{theorem}
 
 \begin{proof}[Proof sketch]
-In marginal coordinates the edge-nonnegativity rows admit a Heller--Tompkins
+In marginal coordinates the edge-nonnegativity rows admit a Hoffman--Gale column
 signing exactly when the frame is $2$-colourable, making the matrix totally
-unimodular; integral right-hand sides then give integral vertices, so $C=R$. The
+unimodular (Hoffman--Gale appendix to~\cite{HellerTompkins1956}); integral
+right-hand sides then give integral vertices, so $C=R$. The
 $\theta$-sweep is the explicit decomposition, a one-parameter alignment of the
 two bipartition classes.
 \end{proof}

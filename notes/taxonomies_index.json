@@ -15,7 +15,7 @@
    "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
    "status": "RESOLVED-AMENDED, GATED, PROMOTED (2026-07-06): psiAmended_ZFC machine-checked (0-sorry, standard axioms); Phase-2 audit Type-1 PASS; gate β prior-art CLOSED (Binder–Navara 1987 = lineage anchor, cited); witness paper PROMOTED to papers/sigma_essential/sigma_essential.tex + 16-rule editorial pass done. Remaining: user fidelity sign-off (FIDELITY_REVIEW.md), leisure skims (PP1991, B–N 2016), dissemination decisions (arXiv timing, Navara contact). OML/lattice + literal-irreducibility forms OPEN.",
    "one_line": "Does a concrete σ-complete non-Boolean carrier host a finitely coherent 2-valued pattern with NO global σ-additive extension? AMENDED (OMP/coherent/irred-mod-ctble) form: ZFC THEOREM, Lean-certified 2026-07-06 (psiAmended_ZFC; Ulam rigidity ⟹ Dirac-only σ-states; parity-code Specker triple ⟹ coherent + empty kernel; no LC strength). LITERAL forms still open: OML/lattice (conjectured opposite: latticehood⟹Φ) and literal irreducibility (no-singletons regime) — the 2026-06-30/07-02 wall-map stands as their record. Coherence amendment = REPAIR, now itself machine-checked (Ω₇ refutes [M] Prop 2.1 as written).",
-   "entries": 82,
+   "entries": 98,
    "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"
   },
   {
@@ -23,7 +23,7 @@
    "name": "Reconstruction / commensurability classification",
    "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
    "status": "OPEN - active successor programme. Pruning lemma OPEN: design side produced a REDUCTION (flow-decomposition; k=2 => exchange-linking=>simple), but its residual has a PHASE GAP — winding-2 simple cycles interleave their two strands at a relative phase the lockstep-exchange model can't express (probe anchor failed vs raw-DFS, caught PRE-RECORD, 5th instrument error, nothing recorded). Corrected k=2 residual = phase-parametrised strand-disjointness; TR_2 (phase-agnostic) may quietly carry the phase. Raw-DFS LISC = only trusted oracle (exp. wall ~L=35). Do not draft impossibility proof until lemma settled. Fork-free <=4 states + through 9 edges; symmetric world expelled (certificate-grade). Frontier: SCC non-symmetric class, conjecture unrefuted.",
-   "one_line": "When does pairwise coherence force realisability (EA => PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety; exhaustive exact atlas at n<=5 (k<=3) + n=6 k=2; prediction ledger 1 hit / 5 informative misses / 1 vacuous / 1 dead conjecture.",
+   "one_line": "When does pairwise coherence force realisability (EA=>PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety. 15 substantial theorems (parity, free/acyclic, tamings #7-#10, forest-counting, symmetric-MD Circuit Localization, symmetric expulsion, SCC reduction); ledger 45 hits / 12 misses-or-refuted; 5 instrument errors all caught by ground-truth cross-check. Symmetric world fully fork-free (certificate-grade). Universal impossibility conjecture unrefuted (fork-free <=4 states + through 9 edges at 5 states); its proof gated on the OPEN pruning lemma (reduction found, k=2 residual has a phase gap).",
    "entries": 125
   },
   {

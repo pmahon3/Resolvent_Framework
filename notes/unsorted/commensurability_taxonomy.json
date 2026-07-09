@@ -16,23 +16,17 @@
    "tooling": "harness, calibrations, atlas artifacts"
   },
   "headline": {
-   "mechanisms": 5,
-   "predictions_logged": 8,
-   "predictions_hit": 38,
-   "predictions_missed_informatively": 9,
-   "atlas_protocols_classified": "n<=5 complete (k<=3) + n=6 k=2",
-   "transfer_conjecture": "v1 dead (partition-vs-scope); reformulation targeted",
-   "preemptive_kills": 1,
-   "ring_parity": "odd L=3,5 incommensurable / even L=4,6 commensurable (exact)",
-   "theorems_proved": 4,
+   "predictions_logged": 65,
+   "predictions_hit": 45,
+   "predictions_missed_or_refuted": 12,
+   "theorems_proved": 15,
    "tamings_catalogued": 10,
-   "fork_hunt": "CLOSED (mode-switch policy); taming-#7 proof = the live lane",
-   "taming7": "PROVED (signable ⟹ safe on bipartite); joints machine-verified; θ-sweep constructive",
-   "the_object": "P4-path (A4 Dynkin) = the clean symmetric fork carrier; P38b well-posed",
-   "symmetric_MD": "Circuit Localization CLOSED (forest-target UNION signable); fork expelled by structure",
-   "universal_conjecture": "on record, unrefuted at <=4 states; symmetric fully expelled; residence = SCC non-sym rich-safe",
-   "verdict_grade_ladder": "witness-unsafe > exact/theorem-safe > screening; random-LP demoted",
-   "tooling_defects_corrected": 3
+   "instrument_errors_caught": "5 (3 recorded-then-corrected: detector bug, swap-on-targets, dim-equality; 2 caught pre-record: two fast-LISC surrogates vs raw-DFS anchor)",
+   "verdict_grade_ladder": "witness-unsafe > exact/theorem-safe > screening (random-LP demoted)",
+   "symmetric_world": "fully fork-free at certificate grade (forests via taming #10 + cyclic targets witness-unsafe at every gate-holding length)",
+   "universal_conjecture": "unrefuted; fork-free <=4 states (P49) + through 9 edges at 5 states (P54); residence = SCC non-symmetric",
+   "pruning_lemma": "OPEN — theorem-let B prerequisite; reduction found (flow-decomposition) with a PHASE GAP in the k=2 residual; raw-DFS LISC only trusted oracle",
+   "theorems_proved_note": "substantial hand+machine theorems; EXCLUDES theorem-lets A/B (rest on the OPEN pruning lemma) and two-line observations"
   }
  },
  "definitions": [
@@ -113,14 +107,14 @@
   {
    "id": "thm.multiset_domination_trivial",
    "name": "Multiset-domination universal (contentless)",
-   "status": "proved-hand",
+   "status": "observation-two-line",
    "one_line": "0/1 polytopes: every facet has integer normal, sign-splits, constants absorb via context sums — so multiset-domination is universally true and the taxonomy's content is quantitative (weight/shape), two lines.",
    "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
   },
   {
    "id": "thm.majority_commitment",
    "name": "Majority-commitment lemma",
-   "status": "proved-hand",
+   "status": "observation-two-line",
    "one_line": "A model violating an order->=2 chain has some cell above (m-1)/m >= 1/2, so chains detect only majority-committed data; spread models are Family-II-and-beyond territory. Corroborated by every ELSE witness being half-spread.",
    "detail": "commensurability_classification_seed.md#22a-the-corrected-structure-design-session-2026-07-06-second-pass"
   },
@@ -170,7 +164,7 @@
    "id": "thm.winding_characterization",
    "name": "Winding characterization (safe-topology theorem)",
    "status": "proved-hand-PREDICTIVE",
-   "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty.",
+   "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty. (NOTE: the characterization itself is structural and independent of the pruning lemma; only its EVENTUAL-PERIODICITY refinement = theorem-let B rests on the open pruning lemma.)",
    "detail": "winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08"
   },
   {
@@ -190,15 +184,15 @@
   {
    "id": "thm.swap_criterion",
    "name": "Theorem-let A: unsafety = shift-reachability in off-diagonal tuple dynamics",
-   "status": "proved-hand-machine-validated",
-   "one_line": "L unsafe ⟺ ∃k∈[2,|A|]: some all-distinct k-tuple reaches its shift in L steps (off-diagonal throughout). P29: reproduces all 7 recorded profiles with no polytopes. Two-point motion returns as the classification instrument.",
+   "status": "machine-validated-as-proxy-faithfulness-OPEN",
+   "one_line": "Theorem-let A: L unsafe <=> shift-reachability in off-diagonal tuple dynamics. Reproduces all recorded profiles (machine-validated as a computational criterion), BUT its faithfulness to the layer-injective simple-cycle object IS the pruning lemma, which is OPEN ([[open.pruning_lemma]]). Trusted as a fast criterion where it agrees with raw-DFS; not proved to coincide with LISC in general. Known bug on multi-outcome cyclic TARGETS (2.2v).",
    "detail": "swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
   },
   {
    "id": "thm.eventual_periodicity",
    "name": "Theorem-let B: Safe eventually periodic",
-   "status": "proved-hand-corroborated",
-   "one_line": "Unsafe = finite union of eventual APs (PF/Wielandt on tuple digraphs); corroborated on all profiles within L≤40. P13's arc closes: the invariant IS spectral, one tensor level up.",
+   "status": "corroborated-CONDITIONAL-on-open-pruning-lemma",
+   "one_line": "Theorem-let B: unsafe set = finite union of eventual APs, IF the pruning lemma holds (TR=LISC cofinitely). Corroborated on profiles within window, but its PROOF depends on the OPEN pruning lemma ([[open.pruning_lemma]]); NOT independently proved. Do not treat as established.",
    "detail": "swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
   },
   {
@@ -277,13 +271,6 @@
    "status": "proved-hand-machine-verified",
    "one_line": "Out-closed SCC-union mass is monotone along arcs => constant on strongly connected frames => commensurability reduces wholesale to strongly connected languages. rho39 membrane: only 1->1, u(1) sealed, cross-cells zero, safe on recurrent rings (L=4,6 exact).",
    "detail": "universal_conjecture.py; zoom: commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
-  },
-  {
-   "id": "open.pruning_lemma",
-   "name": "Pruning lemma (theorem-let B's prerequisite)",
-   "status": "OPEN-registered-prediction-withheld",
-   "one_line": "OPEN. REDUCTION found (flow-decomposition; k=2 => exchange-linking=>simple) but its residual has a PHASE GAP: winding-2 simple cycles interleave strands at a relative phase the lockstep-exchange model misses (probe anchor failed, caught pre-record). Corrected k=2 residual = phase-parametrised strand-disjointness; TR_2 may carry the phase quietly. Raw-DFS LISC = only trusted oracle (exp. wall ~L=35). Walk-surgery core still owed. Do not draft the proof on top.",
-   "detail": "commensurability_classification_seed.md#22z-pruning-lemma-reduction-the-k2-residual-has-a-phase-gap--reduction-to-lockstep-exchange-is-incomplete-2026-07-08"
   }
  ],
  "structure": [
@@ -726,8 +713,8 @@
   {
    "id": "pred.p50_p51_witnesses",
    "name": "P50/P51: exhibited witnesses through exact pipeline",
-   "status": "owed",
-   "one_line": "Run C4-L4 + C6-L6 backtracker witnesses through exact membership; replace dim-check with fast exact in-R test. C4-L4 already confirmed dim-equal-yet-C!=R.",
+   "status": "discharged",
+   "one_line": "Exhibited witnesses verified at exact-facet grade: C5-L7 (residual 36/5, 2.2v), C4-L4 (dim-equal yet C\\R, 2.2u), C6-L6 (design-side, genuine). The dim-equality safe-certifier retired; witnesses are the safe/unsafe ground truth.",
    "detail": "commensurability_classification_seed.md#22u-correction--p50-p52-third-tooling-defect-dim-test-verdict-grade-ladder-expulsion-witness-certified-2026-07-08"
   },
   {
@@ -775,88 +762,11 @@
  ],
  "open_frontier": [
   {
-   "id": "open.universal_impossibility",
-   "name": "THE UNIVERSAL IMPOSSIBILITY CONJECTURE (final open case)",
-   "status": "open-conjectured",
-   "one_line": "Fork does not exist; CL universal for total languages on gate-passing time-realizable frames. Fork-free <=4 states (P49) + through 9 edges at 5 states (P54). PROOF PATH: exchange-blocking => structure, via theorem-let B (eventual periodicity) => whose PREREQUISITE is the PRUNING LEMMA (TR=LISC cofinitely, [[open.pruning_lemma]]), OPEN, must be settled structurally FIRST. Do not draft the proof until then.",
-   "detail": "commensurability_classification_seed.md#22x-the-pruning-lemma-registered--theorem-let-bs-real-prerequisite-prediction-withheld-2026-07-08"
-  },
-  {
-   "id": "open.directed_obstruction",
-   "name": "Directed-obstruction question (non-symmetric branch)",
+   "id": "open.c1_licensing",
+   "name": "C1/C1' licensing theorems + Lean ladder",
    "status": "open",
-   "one_line": "Do non-symmetric languages admit minor-type frustration at all, or do monotone-collapse + holonomy exhaust them? Directed cut polytopes = thinner literature. Design-lane lean (held loosely): the non-symmetric world is tamer (one-way arcs manufacture potentials, potentials die on recurrence).",
-   "detail": "commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
-  },
-  {
-   "id": "open.p38b_decisive",
-   "name": "P38b: minimal non-TU PB-language on subdivided-K5 (THE decisive experiment)",
-   "status": "resolved-by-structure",
-   "one_line": "RESOLVED: the P4-path (last symmetric fork candidate) dissolves by taming #10 (twisted double of NAND); counting theorem makes the whole symmetric MD class forest-or-signable. Circuit Localization CLOSED for symmetric MD; fork expelled by structure. Successors = the two non-marginal habitats.",
-   "detail": "commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
-  },
-  {
-   "id": "open.nonmd_safety",
-   "name": "Non-MD safety mechanism (P39 refutation residue)",
-   "status": "resolved-symmetric-expelled",
-   "one_line": "RESOLVED for the symmetric case: cyclic targets girth-locked-sparse, fork-incapable (P47); SCC reduction handles rho39. The fork's residence is now the SCC non-symmetric class (see open.universal_impossibility).",
-   "detail": "commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
-  },
-  {
-   "id": "open.pb_vs_signable",
-   "name": "Pair-bipartite vs signable + non-marginal-determined class",
-   "status": "resolved-into-p38b",
-   "one_line": "RESOLVED: the 13 PB-languages are all non-TU (real forks, taming #7 cannot cover). Pair-bipartite is strictly weaker than TU. Successors: P38b (decisive) + non-MD safety mechanism.",
-   "detail": "commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
-  },
-  {
-   "id": "open.taming7_proof",
-   "name": "Taming #7 proof (THE live lane; fork hunt closed)",
-   "status": "resolved",
-   "one_line": "PROVED (thm.taming7_signable): signable ⟹ safe on bipartite; joints machine-verified, θ-sweep constructive. Residue: (a) does pair-bipartite ⟹ signable? — 13 PB-not-CS test languages; (b) non-marginal-determined branching = the last open Circuit-Localization class (extended formulations).",
-   "detail": "commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
-  },
-  {
-   "id": "open.p31_rho_star",
-   "name": "P31 (awaiting design registration): ρ* on q=2-subdivided K4",
-   "status": "resolved",
-   "one_line": "RESOLVED: hit via taming #6 + P25; fork unreached #4. Successor object: ρ₅ = {(0,1),(0,2),(1,0),(1,1),(2,0)} (connected, recurrent branching, aperiodic base, Safe = evens) — design-side NAND-reduction hunt or cold K4 registration.",
-   "detail": "commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
-  },
-  {
-   "id": "open.p25_prime",
-   "name": "P25′: the decisive minor test (design-side registration pending)",
-   "status": "resolved",
-   "one_line": "RESOLVED (hit, fork unreached #3 — determinism). Successor question: does a fork-capable language exist (nondeterministic + nonempty safe set + non-integrality-forcing), or do the three tamings generalize into the decomposition theorem = Circuit Localization proved via 'hypotheses never admit a minor'?",
-   "detail": "commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
-  },
-  {
-   "id": "open.lean_winding_ladder",
-   "name": "Lean ladder for the winding theorem (NEXT)",
-   "status": "open",
-   "one_line": "Lean pack PINNED by design side (gate lemma as executable rank identity / Lemma 1 / Lemma 2 functional-digraph / mixture-support / assembly with injectivity clause; edge cases declared; orbit criterion as DECIDABLE function proved = unsafety ⟹ kernel-checked Safe profiles). USER'S LANE next. Then: wedge-innocence general proof + theta/ring-plus-chord stress at larger scale.",
-   "detail": "commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
-  },
-  {
-   "id": "open.safe_topology_invariant",
-   "name": "Safe-topology invariant (NEXT design turn)",
-   "status": "resolved",
-   "one_line": "RESOLVED 2026-07-08: the winding characterization theorem (thm.winding_characterization), predictive as of P20. Residue: covering-space (voltage) statement of the proof; the semantics bifurcation is the new structural fact.",
-   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
-  },
-  {
-   "id": "open.parity_theorem",
-   "name": "Golden-mean parity theorem (NEXT design turn)",
-   "status": "resolved",
-   "one_line": "RESOLVED 2026-07-07: proved (hand) + machine-corroborated on all joints; see thm.parity_golden_mean. Lean ladder: reduction lemma, forest-TU, unique-fractional-vertex.",
-   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
-  },
-  {
-   "id": "open.qcomp_witnessed_exclusivity",
-   "name": "Q-comp: witnessed exclusivity",
-   "status": "open",
-   "one_line": "The compression programme's first-order target (bandwidth-limited observation, full joints not reportable): commensurable => every cross-context exclusive cell-pair separated by a common-subalgebra event; <=6 atlas is its evidence base.",
-   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+   "one_line": "Prove C1 (tame theorem), C1' (quarantine), Vorob'ev-transfer check; Lean ladder: empty-intersection lemma, pentagon chain-immunity, bipartite<->edge-completeness, k=2 completeness, GYO infrastructure.",
+   "detail": "commensurability_classification_seed.md#4-verification-ladder-users-codelean-side-updated-after-the-second-pass"
   },
   {
    "id": "open.dichotomy_hunt",
@@ -866,11 +776,18 @@
    "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
   },
   {
-   "id": "open.transfer_reformulation",
-   "name": "Transfer conjecture v2 (scope contexts)",
-   "status": "superseded",
-   "one_line": "SUPERSEDED same-day: scope-context reformulation done; v2-as-KOTYZ pre-emptively killed (C5-NAND); live successor = safe-topology map + parity theorem.",
-   "detail": "commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+   "id": "open.directed_obstruction",
+   "name": "Directed-obstruction question (non-symmetric branch)",
+   "status": "open",
+   "one_line": "Do non-symmetric languages admit minor-type frustration at all, or do monotone-collapse + holonomy exhaust them? Directed cut polytopes = thinner literature. Design-lane lean (held loosely): the non-symmetric world is tamer (one-way arcs manufacture potentials, potentials die on recurrence).",
+   "detail": "commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+  },
+  {
+   "id": "open.lean_winding_ladder",
+   "name": "Lean ladder for the winding theorem (NEXT)",
+   "status": "open",
+   "one_line": "Lean pack PINNED by design side (gate lemma as executable rank identity / Lemma 1 / Lemma 2 functional-digraph / mixture-support / assembly with injectivity clause; edge cases declared; orbit criterion as DECIDABLE function proved = unsafety ⟹ kernel-checked Safe profiles). USER'S LANE next. Then: wedge-innocence general proof + theta/ring-plus-chord stress at larger scale.",
+   "detail": "commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   },
   {
    "id": "open.min_weight3",
@@ -880,6 +797,27 @@
    "detail": "harness_v2_calibrations.py"
   },
   {
+   "id": "open.pruning_lemma",
+   "name": "Pruning lemma (theorem-let B's prerequisite)",
+   "status": "OPEN-registered-prediction-withheld",
+   "one_line": "OPEN. REDUCTION found (flow-decomposition; k=2 => exchange-linking=>simple) but its residual has a PHASE GAP: winding-2 simple cycles interleave strands at a relative phase the lockstep-exchange model misses (probe anchor failed, caught pre-record). Corrected k=2 residual = phase-parametrised strand-disjointness; TR_2 may carry the phase quietly. Raw-DFS LISC = only trusted oracle (exp. wall ~L=35). Walk-surgery core still owed. Do not draft the proof on top.",
+   "detail": "commensurability_classification_seed.md#22z-pruning-lemma-reduction-the-k2-residual-has-a-phase-gap--reduction-to-lockstep-exchange-is-incomplete-2026-07-08"
+  },
+  {
+   "id": "open.qcomp_witnessed_exclusivity",
+   "name": "Q-comp: witnessed exclusivity",
+   "status": "open",
+   "one_line": "The compression programme's first-order target (bandwidth-limited observation, full joints not reportable): commensurable => every cross-context exclusive cell-pair separated by a common-subalgebra event; <=6 atlas is its evidence base.",
+   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "open.universal_impossibility",
+   "name": "THE UNIVERSAL IMPOSSIBILITY CONJECTURE (final open case)",
+   "status": "open-conjectured",
+   "one_line": "Fork does not exist; CL universal for total languages on gate-passing time-realizable frames. Fork-free <=4 states (P49) + through 9 edges at 5 states (P54). PROOF PATH: exchange-blocking => structure, via theorem-let B (eventual periodicity) => whose PREREQUISITE is the PRUNING LEMMA (TR=LISC cofinitely, [[open.pruning_lemma]]), OPEN, must be settled structurally FIRST. Do not draft the proof until then.",
+   "detail": "commensurability_classification_seed.md#22x-the-pruning-lemma-registered--theorem-let-bs-real-prerequisite-prediction-withheld-2026-07-08"
+  },
+  {
    "id": "open.n6k3_rerun",
    "name": "n=6 k=3 sweep (descoped)",
    "status": "parked",
@@ -887,11 +825,67 @@
    "detail": "commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
   },
   {
-   "id": "open.c1_licensing",
-   "name": "C1/C1' licensing theorems + Lean ladder",
-   "status": "open",
-   "one_line": "Prove C1 (tame theorem), C1' (quarantine), Vorob'ev-transfer check; Lean ladder: empty-intersection lemma, pentagon chain-immunity, bipartite<->edge-completeness, k=2 completeness, GYO infrastructure.",
-   "detail": "commensurability_classification_seed.md#4-verification-ladder-users-codelean-side-updated-after-the-second-pass"
+   "id": "open.nonmd_safety",
+   "name": "Non-MD safety mechanism (P39 refutation residue)",
+   "status": "resolved-symmetric-expelled",
+   "one_line": "RESOLVED for the symmetric case: cyclic targets girth-locked-sparse, fork-incapable (P47); SCC reduction handles rho39. The fork's residence is now the SCC non-symmetric class (see open.universal_impossibility).",
+   "detail": "commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
+  },
+  {
+   "id": "open.p25_prime",
+   "name": "P25′: the decisive minor test (design-side registration pending)",
+   "status": "resolved",
+   "one_line": "RESOLVED (hit, fork unreached #3 — determinism). Successor question: does a fork-capable language exist (nondeterministic + nonempty safe set + non-integrality-forcing), or do the three tamings generalize into the decomposition theorem = Circuit Localization proved via 'hypotheses never admit a minor'?",
+   "detail": "commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
+  },
+  {
+   "id": "open.p31_rho_star",
+   "name": "P31 (awaiting design registration): ρ* on q=2-subdivided K4",
+   "status": "resolved",
+   "one_line": "RESOLVED: hit via taming #6 + P25; fork unreached #4. Successor object: ρ₅ = {(0,1),(0,2),(1,0),(1,1),(2,0)} (connected, recurrent branching, aperiodic base, Safe = evens) — design-side NAND-reduction hunt or cold K4 registration.",
+   "detail": "commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
+  },
+  {
+   "id": "open.p38b_decisive",
+   "name": "P38b: minimal non-TU PB-language on subdivided-K5 (THE decisive experiment)",
+   "status": "resolved-by-structure",
+   "one_line": "RESOLVED: the P4-path (last symmetric fork candidate) dissolves by taming #10 (twisted double of NAND); counting theorem makes the whole symmetric MD class forest-or-signable. Circuit Localization CLOSED for symmetric MD; fork expelled by structure. Successors = the two non-marginal habitats.",
+   "detail": "commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+  },
+  {
+   "id": "open.parity_theorem",
+   "name": "Golden-mean parity theorem (NEXT design turn)",
+   "status": "resolved",
+   "one_line": "RESOLVED 2026-07-07: proved (hand) + machine-corroborated on all joints; see thm.parity_golden_mean. Lean ladder: reduction lemma, forest-TU, unique-fractional-vertex.",
+   "detail": "commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+  },
+  {
+   "id": "open.pb_vs_signable",
+   "name": "Pair-bipartite vs signable + non-marginal-determined class",
+   "status": "resolved-into-p38b",
+   "one_line": "RESOLVED: the 13 PB-languages are all non-TU (real forks, taming #7 cannot cover). Pair-bipartite is strictly weaker than TU. Successors: P38b (decisive) + non-MD safety mechanism.",
+   "detail": "commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
+  },
+  {
+   "id": "open.safe_topology_invariant",
+   "name": "Safe-topology invariant (NEXT design turn)",
+   "status": "resolved",
+   "one_line": "RESOLVED 2026-07-08: the winding characterization theorem (thm.winding_characterization), predictive as of P20. Residue: covering-space (voltage) statement of the proof; the semantics bifurcation is the new structural fact.",
+   "detail": "commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+  },
+  {
+   "id": "open.taming7_proof",
+   "name": "Taming #7 proof (THE live lane; fork hunt closed)",
+   "status": "resolved",
+   "one_line": "PROVED (thm.taming7_signable): signable ⟹ safe on bipartite; joints machine-verified, θ-sweep constructive. Residue: (a) does pair-bipartite ⟹ signable? — 13 PB-not-CS test languages; (b) non-marginal-determined branching = the last open Circuit-Localization class (extended formulations).",
+   "detail": "commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
+  },
+  {
+   "id": "open.transfer_reformulation",
+   "name": "Transfer conjecture v2 (scope contexts)",
+   "status": "superseded",
+   "one_line": "SUPERSEDED same-day: scope-context reformulation done; v2-as-KOTYZ pre-emptively killed (C5-NAND); live successor = safe-topology map + parity theorem.",
+   "detail": "commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
   }
  ],
  "tooling": [

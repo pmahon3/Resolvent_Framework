@@ -77,3 +77,55 @@ Nav: seed §2.3 (Layer-1 licensing, roadmap); Paper III δ̂ depth rule
 Sequencing (dissemination) is a separate decision, orthogonal to which vein opens
 next: σ-essential ships first + alone (standing recommendation; spine §5).
 Nothing decays while any of this waits.
+
+---
+
+## The two-front programme (2026-07-09)
+
+For a fullsome programme, theory and application each have one *completing*
+target — and they are **decoupled** (a rhyme, not a bridge; the transfer was
+already parked, see below).
+
+**Theory front → latticehood family.** The right target because it *closes*
+rather than extends: it ties the three transitions into one statement
+(latticehood ⟹ liftability ⟹ tameness, uniformly, in all three coordinate
+systems). Proving it makes the corpus's central theorem "the boundary is
+latticehood, everywhere" — a completed theory, not three papers + a spine.
+CAVEAT: also the *hardest* thing the corpus owns; needs a genuinely new idea,
+not a refinement. "Address it" = OPEN THE ATTACK (collect the three
+meet-destruction mechanisms into one frame; ask what a unified
+liftability-from-latticehood argument needs; find where it first breaks) —
+a design/reasoning session likely yielding a sharpened conjecture + a named
+obstruction rather than a proof this session.
+
+**Applied front → the statistics layer.** Two things at different maturity:
+- *Concrete instance (MITACS, `~/Research/Dynamics/MITACS`):* variable selection
+  after single-variable delay optimization is CONCEPTUALLY SOLVED — a four-level
+  ladder (L1 existence: not κ_Q-discriminable, provably; L2 localization:
+  ATTAINABLE, executed — S11 α̂_L landslide says the missing structure lives in
+  **hour_of_week**, hot zone Fri 10:00–Sun 23:00; L3 within-data refinement:
+  EXHAUSTED, S12–S14 show it can't close the gap; L4 auxiliary info: routes to
+  **T1, the temperature arm**). Status: down to ONE next-action — acquire ECCC
+  hourly weather data, run the pre-registered within-cell lag-1 ACF-drop test
+  (predicted +0.67 → 0 if temperature is the admissible 2nd variable). Blocked
+  on ECCC acquisition (deferred 2 sessions). The κ_Q *framing* was PARKED
+  framework-side (audit: Type-7 CONDITIONAL, revival trigger = T1 execution;
+  no framework novelty claimed — canonical Diggle/Heckman-Singer/Manski-Pearl);
+  MITACS uses it operationally, UNAFFECTED by the park.
+- *General theory (this map's item 4):* concentration for window frequencies,
+  depth-selection rule, calibrated contextual fraction — the general layer MITACS
+  is one instance of. "Completes the programme": turns the certified deterministic
+  floor into an instrument with error bars. Tractable with standard tools.
+
+**Decoupling (a feature, keep it):** the two fronts do not depend on each other —
+MITACS runs on published machinery unaffected by any theory result; a latticehood
+proof doesn't change ECCC acquisition. They RHYME (both = "when does local/finite
+information determine the global object") but the transfer is NOT established —
+the κ_Q framework-side seed was parked precisely because it was a rhyme, not a
+bridge (the mixing/barycenter scar, again). Pursue both, keep decoupled, let
+"are they secretly one programme?" stay an honest open question, not a premise.
+
+**Front-opening actions (separate sessions, different character):**
+- Theory: open the latticehood attack (design/reasoning).
+- Applied: ECCC acquisition + T1 execution (small, concrete, unblocks the parked
+  revival trigger), and/or scope the general statistics layer as its own seed.

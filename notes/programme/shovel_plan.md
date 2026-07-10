@@ -82,8 +82,11 @@ graded open problems attract *inhabitants*.
       prior-art scout run (equivalence & primitive⟹crossed NOT FOUND;
       Thomassen citation corrected). See
       `papers/reconstruction/notes/HANDOFF_2026-07-10_session5.md`.
-   b. Paper II §4 reposition + 2 missing cites (Stairs 1983 Phil Sci 50:578;
-      arXiv:2603.22353).
+   b. ✅ ALREADY DONE — discovered 2026-07-10 (session 6) that this debt was
+      paid 2026-06-13 in commit `931a565` ("Paper II §4: reposition
+      philosophical upshot as honest synthesis"): §4 repositioned as
+      positioning-not-novelty, Stairs 1983 + arXiv:2603.22353 (Gunji2026)
+      cited in text and bib. The "owed" record was stale.
 2. **Theorem 1** — pruning lemma phase-parametrized + theorem-let B.
 3. **Theorem 2** — OML-lattice case at regularity (open the attack via the
    sigma_essential skill-plan reading; expect sharpened-conjecture outcomes).

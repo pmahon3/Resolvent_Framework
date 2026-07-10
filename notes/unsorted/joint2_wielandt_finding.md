@@ -494,3 +494,41 @@ balance/G-type detector + safe-on-evens oracle), `parity_only_swap_monodromy.py`
 (= crossing_parity_v2: validated winding-2 = swap-monodromy, 1600 langs
 0-mismatch), `parity_only_witness_channel.py` (= witness_channel: non-circular R1
 enumeration).
+
+## CROSSED-CYCLE EXCLUSION — attack opened (2026-07-09, next session start)
+
+Attacking L-B's EASIER half (user-selected): the {(0,0),(1,0)} exclusion.
+
+**TARGET (verified well-posed):** primitive + s.c. ρ ⟹ ∃ a crossed cycle in bar-D
+= an odd-monodromy closed walk = a walk in the ordered-pair digraph D from some
+(a,b) to (b,a). This excludes G={(0,0),(1,0)} ⟹ proves **primitive ⟹
+NOT-safe-at-all-L**, and turns "no safe-on-odds language exists" into a theorem.
+A clean win here = HALF of L-B + that corollary (the aperiodicity exclusion + the
+winding-2→full bridge stay open).
+
+**VERIFY-FIRST (advisor-mandated, done):**
+- crossed-cycle (D-reachability (a,b)⇝(b,a)) ⟺ NOT-safe-at-all-L: **0 mismatches,
+  A=3 FULL** (144 s.c. langs). Reframe is EXACT, not just necessary.
+- **Kronecker lever HOLDS:** D = ρ⊗ρ restricted to off-diagonal vertices; primitive
+  ρ ⟹ ρ⊗ρ strongly connected on ALL ordered pairs. Verified 0 failures / 139 A=3
+  primitives via matrix-power reachability.
+  ⚠ LESSON: my FIRST combined script reported "5 failures" — a BUG in inline
+  reverse-reachability code, NOT a real crack. The confirmation-bias guard cuts BOTH
+  ways: a sloppy check manufactured a phantom OBSTRUCTION just as it can manufacture
+  phantom confirmation. Independent matrix-power re-impl settled it (0). Same
+  discipline (re-verify independently) that caught the earlier phantom confirmations.
+
+**RETARGET (advisor lever, confirmed):** since ρ⊗ρ is s.c. on all pairs, (a,b)
+ALREADY reaches (b,a) in the full product. The ONLY content of the crossed-cycle
+claim = some such path can AVOID THE DIAGONAL (stay in D = off-diagonal). So:
+  **primitive + s.c. ⟹ some off-diagonal (a,b) reaches (b,a) by a ρ⊗ρ-path that
+  never touches a diagonal vertex.**
+
+**MECHANISM to find (hand, next):** "no crossed cycle" = every swap-route is FORCED
+through the diagonal (the two threads must COLLIDE to swap). That is a rigidity;
+pure permutations (threads can't pass without meeting) are IMPRIMITIVE (period =
+cycle length), so primitivity with ≥2 states already excludes the determinism case.
+Proof idea: primitivity = arcs beyond a single cycle = a ROUTING GADGET (fork/branch)
+letting one thread detour while the other passes. Find the gadget on the simplest
+witness; that is likely the whole proof. Oracle: `has_crossed_cycle` in this session's
+scratchpad; the reframe + Kronecker facts verified above.

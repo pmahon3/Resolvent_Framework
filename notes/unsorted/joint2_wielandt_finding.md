@@ -532,3 +532,66 @@ Proof idea: primitivity = arcs beyond a single cycle = a ROUTING GADGET (fork/br
 letting one thread detour while the other passes. Find the gadget on the simplest
 witness; that is likely the whole proof. Oracle: `has_crossed_cycle` in this session's
 scratchpad; the reframe + Kronecker facts verified above.
+
+### CROSSED-CYCLE — mechanism pinned; the "fork" proof-idea REFUTED (2026-07-10)
+
+Persisted the oracle (`crossed_cycle_exclusion.py` + 4 probe scripts, all in
+notes/unsorted/). Re-confirmed the theorem holds at scale, then found the CORRECT
+discriminator — which is NOT the one the attack-open note guessed.
+
+**Foundation re-verified (independent re-impl of last session's scratchpad oracle):**
+- primitive ⟹ crossed cycle: **0 counterexamples, A=3 FULL (144) + A=4 FULL
+  (25,696 s.c. langs).** Theorem solid at scale.
+- `crossed_cycle_exclusion.py::has_crossed_cycle` = D-reachability (a,b)⇝(b,a) on
+  the off-diagonal ordered-pair digraph. This IS the ground-truth oracle now.
+
+**THE KEY STRUCTURAL LAW (census of the NO-CROSS languages — the complement):**
+- no-cross ⟹ **IMPRIMITIVE with ODD period ≥3** (A=3: 2 langs, both period 3;
+  A=4: 12 langs, all period 3; A=5 sample: periods 3 and 5 only). **NEVER period 2,
+  NEVER even, NEVER period 1.** (`crossed_cycle_potential.py` asserts no-cross ⟹
+  period≥2, held for all.)
+- no-cross is STRICTLY STRONGER than imprimitive: there ARE imprimitive langs WITH a
+  crossed cycle (A=3: 3; A=4: 109). So the theorem is one-directional **primitive ⟹
+  crossed**; "crossed ⟺ primitive" is FALSE. Contrapositive = no-cross ⟹ imprimitive
+  (period≥2), and that's all we need.
+- Every no-cross lang admits a consistent Z₂ sign on off-diag pairs
+  (`sign_consistent=True`, `crossed_cycle_mechanism.py`) AND its ℤ_d grading (d=odd
+  period) distributes states so cross-grade swaps are killed by grading
+  (`crossed_cycle_grading.py`).
+
+**⚠ THE ATTACK-OPEN PROOF-IDEA IS REFUTED (confirmation-bias guard, this session).**
+The note above proposed: "primitivity = a fork/branch beyond a permutation lets one
+thread detour; pure permutations are the only rigid (no-cross) case." **FALSE.** The
+12 no-cross A=4 langs ALL have fork=True AND merge=True (out-deg≥2 and in-deg≥2) —
+they are NOT permutations, they have routing gadgets, yet still no crossed cycle
+(`crossed_cycle_direct.py`). So fork-existence is NOT the discriminator. The real
+discriminator is the **ODD GRADING**, not the presence of a branch.
+
+**THE CORRECT MECHANISM (the grading/potential argument — proof route, NOT yet a
+proof):** Along any D-arc (a,b)→(c,d) both coordinates advance the ℤ_d grading by
+the SAME +1, so **g(a)−g(b) mod d is INVARIANT along every D-walk.** A swap
+(a,b)⇝(b,a) needs g(a)−g(b) ≡ g(b)−g(a), i.e. **2·(g(a)−g(b)) ≡ 0 mod d.** For d
+ODD this forces g(a)=g(b): cross-grade swaps are impossible; only same-grade pairs
+could swap. In the no-cross langs the (few) same-grade off-diag pairs also fail to
+swap. **Primitive = d=1 = grading trivial = every pair "same grade" = the invariant
+is VACUOUS**, which is exactly why primitivity should force a crossed cycle. The
+remaining gap: prove "no-cross ⟹ a nontrivial ODD grading exists" (construct the
+grading FROM the no-cross hypothesis), then primitive (d=1) ⟹ crossed by
+contradiction. The odd-ness and the same-grade residual case are the two things to
+nail. NEXT: construct the grading directly from no-cross (the Z₂-sign consistency +
+odd period census both say it exists), OR prove the same-grade swap directly via
+Kronecker s.c. on the same-grade sub-block.
+
+**⚠ Advisor UNAVAILABLE this session (repeated timeouts).** Load-bearing checks were
+re-verified by independent re-implementation instead (foundation 0-cex at A=4 FULL).
+The grading argument above is a ROUTE, verified in its necessary direction (grading
+kills cross-grade swaps) but NOT yet closed (no-cross ⟹ odd-grading-exists is the
+open construction). Do NOT round it up to a proof.
+
+**Oracles (persisted, notes/unsorted/):**
+- `crossed_cycle_exclusion.py` — `has_crossed_cycle` ground truth + primitive⟹crossed
+  verifier (0-cex A=3+A=4 FULL).
+- `crossed_cycle_mechanism.py` — no-cross census + Z₂-sign consistency.
+- `crossed_cycle_grading.py` — ℤ_d grading of no-cross langs, same-grade pair readout.
+- `crossed_cycle_direct.py` — fork/merge census (REFUTES the fork proof-idea).
+- `crossed_cycle_potential.py` — asserts no-cross ⟹ period≥2 (odd) across the census.

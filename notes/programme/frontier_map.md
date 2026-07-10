@@ -22,7 +22,11 @@ idea, not a refinement.
 "what would complete the *theory*."
 **2026-07-10:** attack OPENED on the load-bearing case (regularity/OML =
 shovel thm 2) — mechanisms collected, conjecture split, skeletons named:
-`notes/open_questions/oml_lattice_regularity_attack.md`.
+`notes/open_questions/oml_lattice_regularity_attack.md`. **s9:** first
+banked piece — theorem-let (no non-Boolean concrete σ-class OML has all
+σ-additive states JP; attack note §7c): the "every wild object a
+non-lattice" pattern now has a *forced* instance class, not just a walked
+one.
 Nav: `papers/spine/` (single open bridging conjecture, §4).
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility

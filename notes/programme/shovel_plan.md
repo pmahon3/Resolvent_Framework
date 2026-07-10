@@ -37,6 +37,12 @@ the latticehood family; the full family stays a vacant lot.
 **Attack opened 2026-07-10 s8** — statement of record, mechanisms, skeletons
 A/B/C, scout results: `notes/open_questions/oml_lattice_regularity_attack.md`
 (see §Execution-order item 3 for current next-step).
+**s9 (audited):** first banked result — theorem-let: *no non-Boolean concrete
+σ-class OML has all its σ-additive states JP* (MPT 1992 Props 3.2 + 4.4
+primary-verified, ⟦HAND⟧ glue only; note §7c) ⟹ BNPW 1985 excluded from
+Adm ∩ OML under every reading (BNPW pull demoted to confirmation-only);
+Skeleton C's first half REFUTED as stated (MO₂, machine-checked); Prop 4.4
+= new lever for Skeleton B.
 Nav: `papers/spine/` §4; frontier item 1.
 
 ### 3. Positive-selection, at least to a consistency bound  *(the recruiting hook)*
@@ -108,9 +114,17 @@ graded open problems attract *inhabitants*.
    forcing); scout run (Q3 negative: NO infinite concrete σ-complete
    non-Boolean irreducible OML located anywhere — 2a plausibly
    open-but-unasked). Named obstruction = the engine gap (RDP too strong /
-   Polish not known to apply). **Next: pull BNPW 1985 (QJM Oxford 36,
-   261–271; decisive for Skeleton C) + Bunce–Hamhalter 2000; then the
-   skill-plan reading (Kechris Ch. 12–14 + DW inner-regularity line).**
+   Polish not known to apply). **Session 9 (audited): theorem-let banked —
+   no non-Boolean concrete σ-class OML has all σ-additive states JP
+   (MPT 1992 Props 3.2 + 4.4 primary-verified; ⟦HAND⟧ glue; attack note
+   §7c) ⟹ BNPW 1985 not in Adm ∩ OML under any reading; Skeleton C first
+   half REFUTED by MO₂ (σ-JP-forcing = Booleanness-forcing on concrete
+   σ-class OMLs); Prop 4.4 = new lever for Skeleton B (any lattice in 𝒞
+   has an intersection-poor pair + non-JP Dirac state). Next: Skeleton B
+   cold attack and/or skill-plan reading (Kechris Ch. 12–14 + DW
+   inner-regularity line, Skeleton A). ILL owed (user's hands):
+   Bunce–Hamhalter 2000 RMP 12(6) first in queue; BNPW 1985 demoted to
+   confirmation-only.**
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.
 5. **Parallel, user-gated:** σ-essential dissemination (FIDELITY_REVIEW
    sign-off + abstract length = user's) and the statistics-layer prior-art

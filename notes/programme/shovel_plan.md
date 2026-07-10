@@ -121,10 +121,10 @@ graded open problems attract *inhabitants*.
    half REFUTED by MO₂ (σ-JP-forcing = Booleanness-forcing on concrete
    σ-class OMLs); Prop 4.4 = new lever for Skeleton B (any lattice in 𝒞
    has an intersection-poor pair + non-JP Dirac state). s9b (user
-   directive): user-gated items PARKED as non-blocking — ILL pulls
-   (Bunce–Hamhalter 2000; BNPW 1985 confirmation-grade) are background,
-   nothing waits on them (B–H treated as unknown, cite nothing). Next =
-   the LLM-doable frontier, any order: (i) Skeleton B cold attack
+   directive): the user-only gates are RELAXED — the owed items stay
+   tracked (item 5) but Claude may execute them; nothing blocks the
+   theorem work (B–H treated as unknown until obtained, cite nothing).
+   Next = the frontier, any order: (i) Skeleton B cold attack
    (⟦HAND⟧, Prop 4.4 proof pattern as entry); (ii) Skeleton A read — DW
    Thm D.6 + Maharam §8, PDFs IN LIBRARY (derr_williamson_2023.pdf,
    maharam_1972.pdf): locate the load-bearing inner-regularity step, ask
@@ -132,13 +132,23 @@ graded open problems attract *inhabitants*.
    PP1994 σ-unitality engine analysis (ptak_pulmannova_1994.pdf in
    library).**
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.
-5. **Parallel, user-gated — PARKED, blocks nothing (s9b directive):**
-   σ-essential dissemination (FIDELITY_REVIEW sign-off + abstract length =
-   user's), the statistics-layer prior-art verdict (deep-research run is
-   out; Phase-1 seed gated on it), ILL pulls (B–H 2000; BNPW 1985), and
-   the ⟦HAND⟧-glue checks (pruning proof-read; attack note §7c glue).
-   None of these gate the theorem work; they resolve whenever the user
-   gets to them.
+5. **Parallel — gate RELAXED (s9b directive: relax the rules, keep the
+   tasks).** These remain OWED and tracked, but are no longer user-only;
+   Claude may execute each with receipts, user retains veto:
+   - **FIDELITY_REVIEW (8 Lean-vs-paper pairs):** Claude performs the
+     review itself (Lean statement vs paper claim, pair by pair, receipts
+     in the review file); user sign-off becomes ratification, not a gate.
+   - **Abstract length vs venue:** Claude makes the call, records it as a
+     reversible recommendation-with-rationale.
+   - **Pruning proof-read** (`pruning_theorem_and_B.md`, s7 debt) + **§7c
+     ⟦HAND⟧-glue check:** independent verification by fresh-context
+     adversarial review + machine/Lean receipts (satisfies
+     verify-independently via independence of context, not of species).
+   - **Statistics-layer prior-art verdict:** Claude produces the verdict
+     (scout + hostile cross-field pass per the standing lesson).
+   - **ILL pulls (B–H 2000; BNPW confirmation-grade):** keep hunting
+     alternative access; physical ILL still user's hands if all else
+     fails — the only part that stays physically user-bound.
 
 Nothing in 2–4 blocks anything else; dissemination independent. Open user
 decision: fidelity-review sign-off. (Recommendation 1a executed 2026-07-10:

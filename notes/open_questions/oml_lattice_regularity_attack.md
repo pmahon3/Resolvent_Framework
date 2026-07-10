@@ -343,11 +343,13 @@ constructions) — no JP or σ-additivity content; irrelevant to this attack
 scout could not access full text or any substantive secondary description
 (Springer/WorldSci/zbMATH/ResearchGate all blocked); scope unknown —
 **cite nothing from it; ILL pull stands**, now first in the queue.
-*(s9b, user directive: all ILL pulls PARKED as non-blocking background —
-the attack proceeds treating B–H as unknown. LLM-doable frontier, any
-order: Skeleton B cold (⟦HAND⟧, Prop 4.4 pattern); Skeleton A read via
-`derr_williamson_2023.pdf` + `maharam_1972.pdf`, both in library;
-Skeleton C surviving branch via `ptak_pulmannova_1994.pdf`, in library.)*
+*(s9b, user directive — relax the rules, keep the tasks: the pulls stay
+owed but are no longer user-only; Claude keeps hunting alternative access,
+physical ILL remains the fallback. The attack proceeds treating B–H as
+unknown. Frontier, any order: Skeleton B cold (⟦HAND⟧, Prop 4.4 pattern);
+Skeleton A read via `derr_williamson_2023.pdf` + `maharam_1972.pdf`, both
+in library; Skeleton C surviving branch via `ptak_pulmannova_1994.pdf`,
+in library.)*
 
 ## 8. Exit criteria for the attack
 

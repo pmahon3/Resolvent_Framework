@@ -16,7 +16,7 @@
   },
   "headline": {
    "joints": 2,
-   "joint1_status": "CLOSED (pruning lemma, all k, HAND + 73728-check scan)",
+   "joint1_status": "PROVED (written proof + effective Safe(rho) certificate/instrument, 2026-07-10 session 7 = shovel-plan Theorem 1 DONE; pruning_theorem_and_B.md)",
    "joint2_status": "OPEN but REDUCED 2026-07-09 to a single named lemma L-B (win.named_lemma floor reached). See open_crux.forcing_lemma_LB.",
    "joint2_reduction": "parity-only ⟸ [L-A balance⟺safe-on-evens VALIDATED+provable] ∧ [L-B forcing = primitive ⟹ bar-D signed-balance-or-finite-safe = 2 PF exclusions, VALIDATED ~3100 primitives 0-mixed, OPEN] ∧ [Joint-1 winding-2→full bridge]. SCOPE: validated on winding-2 oracle only; full-safety needs the Joint-1 bridge verified.",
    "fork_free_through": "R1 backbone ~25,700 primitives (A=3 full + A=4 full) 0 cex to primitive+infinite-safe⟹evens",
@@ -37,7 +37,7 @@
    "name": "Joint 1 — pruning lemma ⟹ eventual periodicity",
    "status": "closed",
    "one_line": "TR_k(rot-1)=LISC_k for all k ⟹ unsafe set = finite ∪_{k≤|A|} LISC_k, each eventually periodic ⟹ theorem-let B (eventual periodicity of the unsafe set).",
-   "detail": "pruning_k2_theorem.md",
+   "detail": "pruning_theorem_and_B.md",
    "same_as": "closed.pruning"
   },
   {
@@ -56,12 +56,13 @@
    "status": "closed",
    "examined": "2026-07-09",
    "one_line": "the seed's k=2 'phase gap' AND anticipated k≥3 'permutation gap' were both wrong-proxy artifacts; dissolved by labelling strands by traversal order (threading forced cyclic). Proxy = rotation-by-GENERATOR (gcd(r,k)=1); any-rotation overcounts LISC_{k/d}. HAND + 73728-check adversarial scan, 0 fail.",
-   "detail": "pruning_k2_theorem.md",
+   "detail": "pruning_theorem_and_B.md (statement of record, full proof + theorem-let B + instrument safe_rho_instrument.py); pruning_k2_theorem.md (discovery log + Lean tee-up)",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/WindingDichotomy.lean",
     "name": "(pruning lemma port TEED UP, not built — 4 design constraints in pruning_k2_theorem.md)",
     "status": "open-prop"
-   }
+   },
+   "status_note": "2026-07-10 s7: upgraded scan-backed sketch -> written proof (Theorem P exact all L/all k/no-SC + Lemma NG generator pin) + Theorem B effective certificate; instrument anchored per-k vs raw DFS, 15 targets, all windows cross S+P, 0 fail"
   },
   {
    "id": "closed.forests",

@@ -43,7 +43,11 @@ strongly-connected non-symmetric class.
   grading checked). Fork-free through 9 edges still holds.
 **The rhyme (open):** latticehood = carrier-side; universal impossibility =
 protocol-side. Joint-2 crux may connect to it. *Whether secretly one claim: open.*
-Nav: `papers/reconstruction/notes/pruning_k2_theorem.md` (Joint 1 CLOSED) +
+  2026-07-10 UPGRADE: Joint 1 now a WRITTEN PROOF + effective Safe(ρ)
+  certificate/instrument (shovel-plan Theorem 1 DONE) — statement of record
+  `pruning_theorem_and_B.md`; instrument `oracles/safe_rho_instrument.py`.
+Nav: `papers/reconstruction/notes/pruning_theorem_and_B.md` (statement of
+record) + `pruning_k2_theorem.md` (discovery log + Lean tee-up) +
 `joint2_wielandt_finding.md` (Joint 2 crux); taxonomy open_frontier.
 
 ## 3. σ-essential's named descendants — three, all genuinely open

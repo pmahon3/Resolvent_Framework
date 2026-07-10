@@ -87,7 +87,15 @@ graded open problems attract *inhabitants*.
       philosophical upshot as honest synthesis"): §4 repositioned as
       positioning-not-novelty, Stairs 1983 + arXiv:2603.22353 (Gunji2026)
       cited in text and bib. The "owed" record was stale.
-2. **Theorem 1** — pruning lemma phase-parametrized + theorem-let B.
+2. ✅ **Theorem 1 DONE 2026-07-10 (session 7)** — pruning lemma
+   phase-parametrized + theorem-let B: full written proof (Theorem P all k +
+   generator lemma + Lemma NG overcount; Theorem B effective certificate) in
+   `papers/reconstruction/notes/pruning_theorem_and_B.md`; instrument
+   `papers/reconstruction/oracles/safe_rho_instrument.py` (Safe(ρ)
+   certificate, raw-DFS-anchored per-k, 15 targets, all windows crossing
+   S+P, 0 failures; reproduces Safe(ρ₂₀)=6ℤ and Safe(ρ₁₃)={3} with the
+   cofinite tail certified). ⟦HAND⟧ + instrument; Lean durability optional,
+   still not owed.
 3. **Theorem 2** — OML-lattice case at regularity (open the attack via the
    sigma_essential skill-plan reading; expect sharpened-conjecture outcomes).
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.

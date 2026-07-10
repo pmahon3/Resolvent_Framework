@@ -1,5 +1,11 @@
 # Pruning lemma at k=2: TR₂ = LISC₂ is a theorem (unconditional)
 
+**⟶ SUPERSEDED FOR THE STATEMENT OF RECORD (2026-07-10): the full written
+proof — phase-parametrized, all k, generator caveat as a lemma, + theorem-let B
+with the effective Safe(ρ) certificate — is `pruning_theorem_and_B.md`
+(= Theorem 1 of the shovel plan, DONE). This note remains the k=2 discovery
+log + the Lean durability tee-up (§below), both still current.**
+
 **Date:** 2026-07-09. **Status:** proved (⟦HAND⟧, round-trip verified by building
 against raw-DFS oracle; layer-order step is a graph property, not instance-luck).
 **Scope:** closes the k=2 case of the pruning lemma. Does NOT close the pruning

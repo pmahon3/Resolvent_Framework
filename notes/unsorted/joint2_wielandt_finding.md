@@ -19,7 +19,7 @@ Step (2) was the load-bearing unexamined converse.
 ## Finding 1: grading = Perron–Frobenius imprimitivity (step 2 is classical)
 
 Taming 4 "grading" = transfer digraph fibered over ℤ_d. **Verified computationally**
-(`scratchpad/joint2_wielandt.py` part I): a language is graded-at-some-d ⟺ its
+(`notes/unsorted/joint2_wielandt.py` part I): a language is graded-at-some-d ⟺ its
 digraph period (gcd of cycle lengths) ≥ 2. Exact match on all examples
 (graded-d2, 3-cycle, 2-cycle graded; golden-mean, full2 primitive⟹not graded).
 
@@ -42,7 +42,7 @@ The real difficulty is the contrapositive of step (1):
   **primitive (period 1) strongly-connected transfer digraph ⟹ cofinitely unsafe
   ⟹ not rich-safe.**
 
-**Empirical confirmation** (`scratchpad/joint2_wielandt.py` II + `joint2_deep.py`):
+**Empirical confirmation** (`notes/unsorted/joint2_wielandt.py` II + `notes/unsorted/joint2_deep.py`):
 scanned 110 primitive strongly-connected non-symmetric total languages (|A|≤3).
 Six appeared "rich-safe" in the small window L≤9 (safe at {3,4,7}) — an ARTIFACT
 of the small window. Pushed to L=30: **all are unsafe at every L in [8,30]; safe
@@ -141,7 +141,7 @@ arithmetic progression d·ℤ (the ρ₂₀ pattern: circuits 18, 24 ∈ 6ℤ = 
 and it is exactly the girth-locking claim's contrapositive: if no untamed language
 is safe on a full residue class, no fork exists.
 
-**First deep adversarial sweep (`scratchpad/fork_hunt_scale.py`):** 1500 primitive,
+**First deep adversarial sweep (`notes/unsorted/joint2_fork_hunt_scale.py`):** 1500 primitive,
 strongly-connected, non-symmetric, NON-bipartite (⟹ signability excluded), |A|=5
 languages — i.e. candidates NOT tamed by grading (primitive) or signability
 (non-bipartite) — probed for safety on residue classes d·ℤ up to L=30 (past the
@@ -223,7 +223,7 @@ theorem-or-missing-taming, and it settles on a hand example, not a scan.
 **⚠ A LOAD-BEARING CORRECTION — the "bipartite layered ring" carrier was WRONG
 (confirmation-bias-guard catch #3, advisor+oracle-verified).**
 
-Ran the NON-CIRCULAR witness channel (`scratchpad/witness_channel.py`): enumerate
+Ran the NON-CIRCULAR witness channel (`notes/unsorted/parity_only_witness_channel.py`): enumerate
 primitive strongly-conn total langs, compute the ACTUAL safe set via raw LISC with
 NO d-pre-filter, then read off residue structure. Surfaces (not filters) two
 refuters: R1 = safe on d·ℤ, d≠2; R2 = safe on evens but layered ring not bipartite.

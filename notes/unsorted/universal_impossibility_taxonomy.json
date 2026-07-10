@@ -146,7 +146,7 @@
       "status": "live",
       "examined": "2026-07-09",
       "one_line": "'rich-safe' PINNED: a fork must be safe on a full residue class d·ℤ (subdivided-K4 circuits land in d·ℤ, cf. ρ₂₀'s 6ℤ), NOT just finitely many lengths. First deep sweep: 1500 primitive/strongly-conn/non-symmetric/NON-bipartite (signability+grading excluded = untamed) 5-state languages, probed on residue classes to L=30 (PAST Wielandt index 17, past the L=9 artifact window that fooled the earlier screen): ZERO fork candidates survived. Real evidence (not window-artifact), consistent with UI. Keep hunting wider (|A|=6, denser, other d).",
-      "detail": "joint2_wielandt_finding.md; scratchpad/fork_hunt_scale.py"
+      "detail": "joint2_wielandt_finding.md; notes/unsorted/joint2_fork_hunt_scale.py"
     },
     {
       "id": "cex.imprimitive_probe",

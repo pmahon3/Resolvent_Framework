@@ -1,5 +1,8 @@
 # The frontier map (2026-07-08)
 
+> **2026-07-10:** which veins get dug, and in what order, is now fixed —
+> see `shovel_plan.md` (four theorems to prove + vacant lots as invitations).
+
 The corpus's open problems are *layered*, not a single vein. Recorded here so the
 next session opens from structure, not re-derivation. Two kinds of completion are
 on offer — **completing the theory** vs **completing the programme** — and which

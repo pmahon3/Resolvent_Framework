@@ -281,10 +281,10 @@ grounds. The signable certificate is representative.
 Let a language be \emph{marginal-determined} (its cell simplex is affine in the
 endpoint marginals) and \emph{signable} (the edge-constraint matrix admits a
 $\{\pm1\}$ column signing along the frame's bipartition). Then on every bipartite
-frame it is commensurable. The realisation is constructive: an anti-comonotone
-$\theta$-sweep (threshold $\theta$ on one bipartition class, $1-\theta$ on the
-other) produces an exact mixture of global configurations reproducing any
-coherent point.
+frame it is commensurable ($C=R$). In the binary case the realisation is
+moreover constructive: an anti-comonotone $\theta$-sweep (threshold $\theta$ on
+one bipartition class, $1-\theta$ on the other) reproduces any coherent point as
+an explicit mixture of global configurations.
 \end{theorem}
 
 \begin{proof}
@@ -309,9 +309,14 @@ has only integral vertices. Each integral vertex of $C$ is a $\{0,1\}$
 vertex-marginal profile, i.e.\ a global configuration, so it lies in
 $R=\operatorname{conv}\{v(x)\}$; hence $C=R$.
 
-\emph{The $\theta$-sweep realisation.} Integrality gives $C=R$ non-constructively;
-the sweep exhibits, for any coherent point $q\in C$, an explicit probability
-mixture of global configurations inducing it. Parametrise by a threshold
+\emph{The $\theta$-sweep realisation (binary case).} Integrality gives $C=R$
+non-constructively; when the alphabet is binary the sweep exhibits, for any
+coherent point $q\in C$, an explicit probability mixture of global configurations
+inducing it. (For a binary marginal-determined language the edge law $q_e$ is the
+countermonotone Fréchet coupling of its endpoint marginals --- e.g.\ $p_{11}=0$
+with $u_i+u_{i+1}\le1$ on the golden mean --- which is exactly what the
+anti-comonotone sweep produces; for larger alphabets $q_e$ need not be a monotone
+coupling and the sweep is only illustrative.) Parametrise by a threshold
 $\theta\in[0,1]$. On the class $V_+$ read a state off $q$'s marginals by the
 \emph{comonotone} rule --- accumulate the marginal mass in a fixed state order
 and select the state whose cumulative interval contains $\theta$; on $V_-$ read
@@ -349,9 +354,14 @@ $\rho=\{(a,b):\{a,b\}\in E(H)\}$, so $|\rho|=2|E(H)|$.
 
 \emph{Marginal-determination $\Rightarrow$ forest.} Marginal-determination asks
 that the endpoint-marginal map --- edge distribution $\mapsto$ pair of endpoint
-vertex-marginals --- be injective. A cycle in $H$ obstructs this: the alternating
-$\pm1$ edge-flow around it has zero vertex-marginal image, a kernel vector, so a
-cyclic component makes the map non-injective. Hence $H$ is acyclic, a forest.
+vertex-marginals --- be injective. Cells are \emph{ordered} pairs, so the map is
+the directed incidence structure. A cycle in $H$ obstructs injectivity: the
+directed circulation around it ($+\varepsilon$ on the forward cell, $-\varepsilon$
+on the reverse cell of each cyclic edge) has zero endpoint-marginal image --- at
+every vertex the forward and reverse contributions cancel in both the tail and the
+head marginal --- so it is a kernel vector and a cyclic component makes the map
+non-injective. (This uses looplessness and symmetry: the reverse cell of each edge
+is legal.) Hence $H$ is acyclic, a forest.
 
 \emph{Forest $\Rightarrow$ marginal-determined and bipartite.} A forest is
 bipartite. On a tree the endpoint-marginal map is injective: orienting from a root,

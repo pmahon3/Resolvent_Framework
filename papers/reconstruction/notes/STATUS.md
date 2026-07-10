@@ -23,26 +23,49 @@ All statements extracted faithfully from
 `notes/unsorted/commensurability_taxonomy.json`. Lemma 2 =
 `formalization/QuerySystem/QuerySystem/WindingInjectivity.lean`.
 
-## PHASE-4 PROOFS WRITTEN (2026-07-09) — ⟦HAND — unverified⟧, USER MUST VERIFY
+## PHASE-4 PROOFS — ✅ ALL 8 HAND-VERIFIED 2026-07-09 (2 editorial fixes owed)
 
-The six PROVE-ORIGINALLY items (per `notes/PROOF_PROMPT.md`) are now written out
-as full proofs in `reconstruction_body.tex` (builds clean, 12pp). All are
-LLM-generated and NONE is independently verified. Verify before any of them
-counts as proved. Ranked by verification priority:
+The six PROVE-ORIGINALLY items (per `notes/PROOF_PROMPT.md`) are written out as
+full proofs in `reconstruction_body.tex`. **ALL 8 items now independently
+hand-verified this session (advisor-cross-checked on the subtle ones: forest
+directed-circulation, θ-sweep load-bearing split).** Every proof HOLDS. Two
+EDITORIAL fixes owed (neither is a gap; both flagged in items 6–7 below):
+  - #6 θ-sweep: DEMOTE "reproduces q exactly" to "illustrative on binary case"
+    (soft for general alphabets, NOT load-bearing).
+  - #7 forest: "alternating ±1 edge-flow" → "directed circulation (fwd +1/rev −1)".
+Also worth noting (item 1): the genericity gate is VACUOUS for the size-2-window
+ring the paper actually uses — candidate for de-hedging "under the genericity
+gate" phrasing on thm:winding/lem:gate, or at least a footnote naming the vacuity.
+Per-item verdicts, ranked by original verification priority:
 
-1. **GATE LEMMA (`lem:gate`) — REASSESSED 2026-07-09: DEFINITIONAL, not a
-   theorem-with-a-gap; hand/citation check, NOT Lean.** Advisor reassessment
-   (corrected the prior "entire burden" framing): with arc-value = context
-   cell-probability q_i(a,b), "inflow=outflow at (i,a)" IS the coherence identity
-   ∑_b q_{i-1}(b,a)=∑_b q_i(a,b) term-for-term, and "adjacent-coherence = full
-   EA-coherence" is exactly what the genericity gate SAYS. So (1a) is a
-   definitional identity. In Lean it goes `rfl` — certifying it is theater (you'd
-   build the conclusion into the definition). Recorded honestly as
-   `coherence_is_conservation` (rfl-grade REMARK, docstring says so), NOT dressed
-   as a theorem. **Remaining check is a HAND one: does the paper's stated
-   genericity gate actually force "non-adjacent contexts share only trivial
-   events"?** The phase gap (2.2z) does NOT bite here (it lives only in the §open
-   pruning lemma, a surrogate for LISC, not this fixed-L statement).
+1. **GATE LEMMA (`lem:gate`) — ✅ HAND-VERIFIED 2026-07-09 (verdict below).**
+   REASSESSED earlier: DEFINITIONAL, not a theorem-with-a-gap; hand check, NOT Lean.
+   With arc-value = context cell-probability q_i(a,b), "inflow=outflow at (i,a)" IS
+   the coherence identity ∑_b q_{i-1}(b,a)=∑_b q_i(a,b) term-for-term. Recorded
+   honestly as `coherence_is_conservation` (rfl-grade REMARK), NOT dressed as a
+   theorem.
+   **VERDICT (⟦HAND✓⟧, advisor-confirmed): lemma VALID. Both directions check.**
+   - Dir 1 (coherent⟹circulation): the coherence eqn IS Kirchhoff conservation
+     at (i,a), term-for-term. Definitional.
+   - Dir 2 (circulation⟹coherent): valid — set q_i(a,b)=f(arc); nonneg✓,
+     unit-mass-per-context✓ (conservation), adjacent agreement=conservation✓,
+     non-adjacent=vacuous✓.
+   - **KEY FINDING — the genericity gate is VACUOUS for the size-2-window ring.**
+     Contexts = the L edge-windows W_i={i,i+1} (paper line 115-116). Then
+     W_i∩W_j≠∅ ⟺ j∈{i-1,i,i+1}, i.e. OVERLAPPING⟺ADJACENT. Non-adjacent windows
+     are DISJOINT ⟹ trivial common subalgebra ⟹ agreement vacuous, at EVERY L
+     (incl. L=3, where ALL pairs are adjacent — nothing non-adjacent exists). So
+     the gate "non-adjacent contexts share only trivial events" is automatically
+     true, not a restriction. It is load-bearing ONLY for protocols with
+     larger/overlapping contexts where two non-adjacent contexts can share a site.
+   - **RESIDUAL CLOSED:** `thm:winding` + its layered-ring construction live
+     ENTIRELY on the length-L ring (size-2 windows); the gate is never invoked on
+     a larger-context frame. So its vacuity covers everything the paper uses.
+   - ⚠ Do NOT round up to "gate lemma proven in full generality." It is
+     proven-and-vacuous for size-2 rings — a stronger, narrower statement than the
+     paper's "under the gate."
+   The phase gap (2.2z) does NOT bite here (it lives only in the §open pruning
+   lemma, a surrogate for LISC, not this fixed-L statement).
 2. **Flow decomposition (`lem:flowdecomp`)** — where the content sits (extreme
    circulation = SINGLE simple cycle; R = conv(winding-1); C≠R ⟺ ∃ winding-≥2
    vertex). General decomposition is classical (Ahuja–Magnanti–Orlin Thm 3.5),
@@ -51,19 +74,47 @@ counts as proved. Ranked by verification priority:
    of the axiom, 0-sorry, standard axioms only.**
 3. **Layer-injectivity (`lem:injectivity`)** — ALREADY Lean-certified
    (WindingInjectivity.lean, 0-sorry). No action.
-4. **Parity theorem (`thm:parity`)** — det(I+P)=1−(−1)^L via roots of unity;
-   odd-case unique fractional vertex u≡½ (zero-coord⟹forest-face⟹integral, so
-   all-positive⟹all edges tight⟹Mu=1). Machine-corroborated joints (2.2f).
-5. **PR-box (`cor:prbox`)** — separating facet + contextual-fraction-1 (no
-   exactly-one-per-edge cover on odd ring; 2∑v=L impossible). Check the CF=1
-   sub-model support argument.
-6. **θ-sweep / signable (`thm:taming7`)** — TU via Hoffman–Gale signing + the
-   explicit anti-comonotone θ-sweep construction. Construction certified on 8
-   ρ₅ vertices (2.2o); verify the general reproduce-q-exactly claim.
-7. **Forest counting (`thm:forest`)** — cycle⟹kernel-vector⟹not-MD; the
-   |ρ|≤2|A|−1 count. Bijection machine-checked over 1819 targets (2.2s).
-8. **Taming (10) / phase decoupling (`lem:taming10`)** — fibered C=t·FSTAB⊕
-   (1−t)·FSTAB; signature dim=1+2·15 confirmed on subdivided-K₅ (2.2s).
+4. **Parity theorem (`thm:parity`) — ✅ HAND-VERIFIED 2026-07-09.** All 4 steps
+   check: (a) marginal-determination reduction p_10=u_i,p_01=u_{i+1},
+   p_00=1−u_i−u_{i+1}, nonneg⟺edge constraint — arithmetic✓; (b) det(I+P)=
+   ∏(1+ω^k)=1−(−1)^L via z^L−1 at z=−1, factor-out-(−1)^L step correct✓;
+   (c) even⟹bipartite⟹TU⟹FSTAB=STAB✓ (König/H–K); (d) odd: zero-coord⟹path-
+   face⟹TU⟹integral contra, so u*>0 all coords⟹all L edges tight⟹Mu=1
+   (det=2≠0 unique)⟹cyclic flip u↦1−u applied L(odd) times⟹u_i=1−u_i⟹u≡½✓.
+5. **PR-box (`cor:prbox`) — ✅ HAND-VERIFIED 2026-07-09.** Separating facet:
+   α(odd C_L)=(L−1)/2, at u≡½ ∑u=L/2, rel. violation ½/((L−1)/2)=1/(L−1)✓.
+   CF=1: admissible ν under u avoids (0,0) on every edge⟹v_i+v_{i+1}=1⟹2∑v=L
+   impossible for odd-L integer⟹λ*=0✓.
+6. **θ-sweep / signable (`thm:taming7`) — ✅ HAND-VERIFIED 2026-07-09 (with a
+   demotion owed).** The LOAD-BEARING content = C=R via the integrality chain:
+   sign V_− columns by −1 ⟹ each edge row's two nonzeros opposite-sign (edge
+   joins V_+ to V_−) ⟹ Hoffman–Gale/Ghouila-Houri TU ⟹ integral vertices ⟹
+   each a {0,1} config (edge-nonnegativity encodes legality: a {0,1} profile
+   with all cells≥0 is legal, tight)✓. Attribution matches the landmine note
+   (Hoffman–Gale APPENDIX to Heller–Tompkins). **The θ-sweep "reproduces q
+   EXACTLY" is soft for general alphabets** — the sweep produces the
+   (anti-)comonotone Fréchet coupling; marginal-determination only says q_e is
+   SOME fixed function of the marginals, not the monotone one. EXACT for
+   binary/golden-mean (p₁₁=0 IS the countermonotone Bernoulli coupling).
+   ⟦OWED — editorial⟧: DEMOTE the sweep to "illustrative on the binary case"
+   (NOT load-bearing — no downstream consumer uses the mixture; lines 361/376/
+   386/403 all consume only C=R/FSTAB=STAB. Verified by grep.). Do NOT
+   over-invest proving it tight in general.
+7. **Forest counting (`thm:forest`) — ✅ HAND-VERIFIED 2026-07-09 (with a wording
+   fix owed).** MD⟹forest: cells are ORDERED pairs (golden-mean pins it:
+   p₀₁=u_{i+1}≠u_i=p₁₀), so the map is the DIRECTED incidence structure; a cycle
+   carries a directed circulation (fwd +1/rev −1) with zero endpoint marginals
+   ⟹ non-injective. Triangle test C₃: +ε fwd/−ε rev cells ⟹ tail & head
+   marginals all 0 at each vertex ⟹ correctly excluded✓ (uses symmetric hyp:
+   reverse cells legal). Forest⟹MD: tree recovers joint edge-by-edge, no cycle✓.
+   ⟦OWED — editorial⟧: fix "alternating ±1 edge-flow" → "directed circulation
+   (forward +1/reverse −1)" (the current phrasing reads as vertex-parity
+   alternation, which FAILS on odd cycles; the directed circulation is right).
+8. **Taming (10) / phase decoupling (`lem:taming10`) — ✅ HAND-VERIFIED
+   2026-07-09.** Connected bipartite frame ⟹ exactly two global colourings by
+   H's classes (masses t,1−t), phase t = single global DOF✓; conditioned on
+   either, residual = FSTAB point, independent given t = fibered ⊕✓; FSTAB=STAB
+   by taming7 (the load-bearing half, inherited cleanly) ⟹ C=R termwise in t✓.
 
 ## PHASE-5 LEAN (2026-07-09) — WindingDichotomy.lean, 0-sorry
 
@@ -138,8 +189,11 @@ Weller, Barto–Kozik, Thapper–Živný). Emphasis shift did NOT upgrade episte
 status (forward direction still hand-written; gate lemma still definitional).
 
 ## STILL NOT DONE (owed before any submission)
-- **Independent verification of items 1–8 above** (Lean for formalizable, manual
-  otherwise). Item 1 (gate lemma) is the priority.
+- ~~Independent verification of items 1–8~~ ✅ DONE 2026-07-09 (all hold; 2
+  editorial fixes owed — see items 6/7). Item 1 gate lemma VERIFIED + found
+  vacuous for the size-2 ring.
+- **Two editorial fixes** (from verification): θ-sweep demotion (#6), forest
+  "directed circulation" wording (#7); optional: de-hedge the vacuous gate.
 - **The k=2 pruning residual** stays open; §6 (`conj:universal`,
   `conj:pruning`) must not harden into a proof until settled structurally. The
   named phase gap is intact in the draft (labelled EVIDENCE not proof).

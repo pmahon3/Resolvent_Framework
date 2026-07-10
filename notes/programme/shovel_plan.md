@@ -34,6 +34,9 @@ needs an idea, not a refinement. Also quietly discharges the σ-scale
 non-distributivity scoping caveat (spine needs only necessity, proved; the
 sufficiency-side precision IS this question). This is the load-bearing CASE of
 the latticehood family; the full family stays a vacant lot.
+**Attack opened 2026-07-10 s8** — statement of record, mechanisms, skeletons
+A/B/C, scout results: `notes/open_questions/oml_lattice_regularity_attack.md`
+(see §Execution-order item 3 for current next-step).
 Nav: `papers/spine/` §4; frontier item 1.
 
 ### 3. Positive-selection, at least to a consistency bound  *(the recruiting hook)*

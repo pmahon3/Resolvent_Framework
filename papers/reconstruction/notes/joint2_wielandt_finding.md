@@ -672,3 +672,185 @@ HOSTILE cross-field prior-art scout BEFORE writing this into the paper.
 during development (walk-generator lap concatenation; converse construction
 off-by-one) — the certificate-checking layer (`verify_swap_path`,
 `check_equivalence` asserts) is what caught both. Keep it.
+
+### CROSSED-CYCLE — LOCK-AVOIDANCE LEMMA PROVED: primitive ⟹ crossed (2026-07-10, session 5)
+
+The gap flagged above is CLOSED. ⟦HAND + machine-verified stepwise⟧ — every
+load-bearing computation below carries an oracle assert that ran green on the
+exhaustive universes listed at the end; not Lean-formalized.
+
+**LOCK-AVOIDANCE LEMMA.** Let U be a digraph in which every simple directed
+cycle has odd length, containing two simple cycles of distinct lengths with a
+common vertex. Then some pair (A, B) of simple cycles of distinct odd lengths
+p' < q' with a common vertex x has the laps-(1,1) walk W = A·B based at x
+antipodal-free. In particular U has an antipodal-free even closed walk, hence
+(Master Lemma) a crossed cycle.
+
+**THEOREM (crossed-cycle exclusion, the {(0,0),(1,0)} branch of L-B).** For
+strongly connected G on ≥ 2 vertices: no crossed cycle ⟹ no loops, every
+simple cycle odd, and ALL simple cycles have the SAME length d = period(G),
+an odd number ≥ 3. Contrapositives: **primitive ⟹ crossed**, and the census
+law "no-cross ⟹ odd period ≥ 3" is now a THEOREM (not merely reduced to the
+primitive case). The remaining open half of L-B is unchanged: exclude
+{(0,0),(0,1)} (bar-D aperiodic — the hard half).
+
+**Derivation of the theorem from the lemma.** No-cross ⟹ no even simple
+cycles (Cor 1) + no loops (Cor L). If two distinct simple-cycle lengths
+existed: (chain-connectivity, below) some two cycles of DISTINCT lengths
+share a vertex; the lemma then gives an antipodal-free even closed walk ⟹
+crossed (Master Lemma): contradiction. So all simple cycles have one odd
+length d; period = gcd of simple-cycle lengths = d; d ≠ 1 (no loops), d ≠ 2
+(even), so d ≥ 3 odd. ∎
+
+**Chain-connectivity (kills the disjoint case).** In a strongly connected
+digraph the simple cycles form a connected "sharing chain": for cycles C, C'
+take x ∈ C, y ∈ C', paths x→y→x; the closed walk's support is a connected
+arc-balanced digraph, so its cycle decomposition chains by shared vertices
+from x to y. Walking a chain from a p-cycle to a q-cycle (p ≠ q), some
+adjacent pair has distinct lengths and shares a vertex. So "two distinct
+lengths exist" ⟹ "a SHARED distinct-length pair exists" — the two-path
+disjoint construction of session 4's oracle is never needed.
+
+**Proof of the lemma** (by contradiction; suppose a TOTAL STALL: every
+shared distinct-length odd pair fails at every base at laps (1,1)).
+
+Setup, for a pair (D, D') with |D| = p < q = |D'|, both odd, shared set S,
+coordinates i (position on D) and j (position on D'), δ := (q−p)/2,
+m := (p+q)/2, and base u ∈ S:
+
+1. *(1,1) lock analysis (exact iff).* W = D·D' at u fails the antipodal test
+   ⟺ ∃ v ∈ S∖{u} with J = I + δ, where I = (i_v − i_u) mod p ∈ [1, p−1] and
+   J = (j_v − j_u) mod q. ("v kills u.") The only clash channel is the
+   straddle window [0, p]; the two same-segment channels are empty/impossible
+   at (1,1), and self-clash is impossible. [Oracle assert H1, validated as an
+   iff against the semantic walk test on every pair/base swept.]
+2. *Kill symmetry.* v kills u ⟺ u kills v (the difference vectors are exact
+   negatives: (p−I) + δ = q − J). Failure at all bases = every vertex of S
+   covered by a "kill edge". [Assert H2.]
+3. Choose the failing pair (D, D') minimizing p + q, and among its ordered
+   kills (u → v) choose one minimizing the directed D-distance I =: dmin.
+4. *Hybrid.* The kill forces both hybrid closed walks D[u→v]·D'[v→u] and
+   D[v→u]·D'[u→v] to have length exactly m (arithmetic identity from
+   J = I + δ). [69k machine checks.]
+5. If the hybrid H = D[u→v]·D'[v→u] is a SIMPLE cycle: it is odd (all-odd U),
+   length m ≠ p, shares u with D: the pair (D, H) has sum p + m < p + q and
+   also fails (total stall) — contradicting sum-minimality. So H is
+   non-simple.
+6. *Decomposition.* H peels into k ≥ 2 simple cycles covering its arc
+   multiset; each piece contains at least one D-provenance arc (a pure-D'
+   piece would be a closed subwalk of the simple q-cycle D', forcing length
+   q > m — impossible). [Assert: decomposition validity; piece provenance.]
+7. If some piece E has length e ≠ p: e ≤ m − 1 < q, E shares a vertex with
+   D, so (E, D) is a shared distinct-length odd pair of sum e + p < p + q —
+   contradiction as in 5. So ALL pieces have length exactly p ("2c"), giving
+   k = m/p ≥ 2 and q = (2k−1)p (so this last case only exists when p | q).
+8. *Peeling chain.* The peel of H has the form: shared vertices
+   u = x_k, x_{k−1}, …, x_1, x_0 = v with pieces
+   P_t = D[x_t → x_{t−1}] · D'[x_{t−1} → x_t], each a simple p-cycle;
+   a_t := D-length of P_t's segment, Σ a_t = I = dmin, a_t ≥ 1. [Asserted via
+   provenance-aware peeling; note D ∩ D' may share arcs, so provenance is by
+   position, not arc identity.]
+9. *Endgame.* Fix any piece P_t and consider the pair (P_t, D') — distinct
+   odd lengths (p, q), shared. By the total stall it fails at every base; in
+   particular its base x_t is killed within this pair. But inside
+   S(P_t, D') = {D'-run vertices} ∪ {endpoints} ∪ {original shared vertices
+   strictly interior to the D-segment}: run vertices never kill run vertices,
+   and the endpoints never kill each other (both by direct computation — the
+   kill equation degenerates to δ = 0 or q = m or q = p + δ, all false). So
+   the killer w of x_t is strictly interior to the D-segment and satisfies
+   the exact equation τ(w) = τ(x_t) + δ (mod q), where τ(y) := (j_y − i_y)
+   mod q. That equation says precisely that (x_t → w) is an ordered kill of
+   the ORIGINAL pair (D, D'), of directed distance ≤ a_t − 1 < dmin —
+   contradicting the minimality of dmin. And if a_t = 1 the segment has no
+   interior at all, so x_t is unkilled and (P_t, D') did not fail — also a
+   contradiction. ∎ [Assert suite: probe_endgame — killer interiority,
+   τ-equation, shorter ordered kill, clean-piece freeness, Σ a_t = I.]
+
+**Refuted intermediates (kept for honesty; both machine-refuted).** (i) The
+first descent attempt "(M): some kill edge of a failing pair has a SIMPLE
+hybrid" is FALSE — 80 counterexamples at (7,13), where all kill hybrids
+decompose 5+5. (ii) "δ-odd pairs never fail at all bases" (P(a)) is FALSE at
+the same instances. The failing pair's rescue is a smaller-SUM pair (5,7),
+not a smaller gap — hence the sum measure in step 3. (iii) Genuine 2c stalls
+EXIST (all kill hybrids all-length-p): first at (5,15), s = 4, e.g. shared
+coordinates (ĩ,j̃) = (0,0),(1,11),(2,7),(3,3) — an all-odd union
+{5,5,5,5,5,15} whose glueing pair fails at all bases with every hybrid
+peeling 5+5. These are exactly why step 9 exists. A hand-built all-dirty
+(9,27) candidate that would defeat the weaker "clean-piece" repair forces
+EVEN hybrid cycles (18-cycles) and is not all-odd — consistent with the
+theorem.
+
+**Consequences for the walk family.** Session 4's empirical family
+(laps ≤ 3, disjoint path-joined variants) collapses: SOME pair of odd cycles
+of distinct lengths (hybrids allowed) always works at laps (1,1) from a
+shared base — laps and path-joining are never needed. (For a FIXED pair,
+laps genuinely cannot rescue a failure: order is a rotation, odd laps leave
+the offset unchanged mod q, even laps self-clash when p | q.) The n = 6
+period-3 hunt's "grading-legal but Master-Lemma-forbidden" discriminator is
+subsumed: all-same-length is now proved necessary for no-cross.
+
+**Oracles (persisted, papers/reconstruction/oracles/), all asserts green:**
+- `lock_avoidance_lemma.py` — glued two-cycle universe (the lemma's EXACT
+  universe: every candidate walk lives in the union of the pair, so glueings
+  are exhaustive, not a census sample); sweeps p ∈ {3,5,7}, q ≤ 13(19),
+  s ≤ 4 (~hundreds of thousands of glueings, ~5.8k–38k failing pairs);
+  asserts H1 (iff), H2, H3 (consecutive hybrids simple), certificate-checks
+  every positive with `verify_swap_path`. Result: every all-odd glueing with
+  distinct lengths is explained by a MIN-GAP pair at (1,1); 0 exceptions.
+- `lock_avoidance_probe_M.py` — refutes intermediates (M) and P(a); verifies
+  the hybrid-length-m identity 69,064×.
+- `lock_avoidance_probe_descent.py` — sum-descent case analysis on all 5,775
+  failing pairs (q ≤ 13): case counts 68,744 simple / 224 mixed / 96
+  equal-e≠p / 0 stalls; 0 descent failures.
+- `lock_avoidance_probe_endgame.py` — step-9 dichotomy on every failing
+  pair's minimal ordered kill; the four genuine (5,15) stalls verify.
+- `lock_avoidance_rho0_927.py` — exhaustive class-ρ₀ search at (9,27), the
+  smallest all-dirty-stall territory: 72,171 configs, 2,358 all-odd with
+  failing pairs, 0 L1 violations; 7,458 failing pairs, ALL 2c minimal-kill
+  endgames verified, 0 assertion failures.
+
+**HOSTILE PRIOR-ART SCOUT (run this session, before the paper touches any of
+this — verdicts + citations):**
+- *The equivalence (crossed ⟺ antipodal-free even closed walk):* NOT FOUND
+  as a named theorem; judged elementary/folkloreable. Closest named objects
+  are genuinely different: Gao–Shao, "Double vertex digraphs of digraphs,"
+  Discrete Math. 309(8):2432–2444 (2009) (ordered pairs, but ASYNCHRONOUS —
+  one token moves per step); Fernandes–Lintzmayer–Peña–Santos–
+  Trujillo-Negrete–Zamora, "A study on token digraphs," arXiv:2410.20189
+  (unordered pairs, asynchronous — swap not even expressible). No source
+  found with synchronous dynamics on ordered pairs minus diagonal, nor the
+  term "antipodal-free".
+- *Primitive ⟹ crossed:* classical layer known — primitivity of the FULL
+  tensor square A⊗A (McAndrew, PAMS 14:322–328, 1963; undirected ancestor
+  Weichsel, PAMS 1962) — but the diagonal-AVOIDANCE content was not located
+  anywhere (swept: Wielandt/exponent, scrambling index, synchronizing
+  automata / road coloring — Trahtman's stable pairs are collision-SEEKING,
+  the opposite). Treat as plausibly new, pending the two paywalled follow-ups
+  below.
+- *⚠ THOMASSEN CITATION CORRECTED (the session-4 from-memory flag was
+  WRONG).* "Strongly 2-connected ⟹ even dicycle" is FALSE — Seymour has a
+  7-vertex strongly-2-connected counterexample. The true statements:
+  Thomassen, "The even cycle problem for directed graphs," JAMS 5(2):217–229
+  (1992): strong digraphs with min in-/out-degree ≥ 3 (corollary forms:
+  every 3-regular-or-more digraph; every strongly 3-connected digraph)
+  contain an even dicycle. McCuaig, "Even dicycles," JGT 35(1):46–68 (2000):
+  there is a UNIQUE strongly 2-connected digraph with no even dicycle, plus
+  a structure theory. Also: Thomassen, EJC 6(1):85–89 (1985) (min out-degree
+  alone never suffices); Seymour–Thomassen, JCTB 42(1):36–45 (1987)
+  (characterization of even digraphs — the foundational structure result for
+  our "no loops + all cycles odd" hypothesis class); Robertson–Seymour–
+  Thomas, Ann. Math. 150(3):929–975 (1999) + McCuaig, EJC 11 #R79 (2004)
+  (recognition/Pfaffian side); Gorsky et al., arXiv:2311.16816 (STOC 2024)
+  (modern odd-digraph structure theory). The session-4 leverage note
+  "no-cross ⟹ not strongly 2-connected" is therefore WRONG as stated; the
+  correct forms: no-cross ⟹ not strongly 3-connected, and if strongly
+  2-connected then G is McCuaig's unique exception.
+- *OWED (scout follow-ups):* full-text verification of Gao–Shao 2009 and of
+  "Multi-agent pathfinding on strongly connected digraphs" (ScienceDirect,
+  2025) — both paywalled this session; definitions recovered from abstracts,
+  theorem statements unverified.
+
+**Status flags.** Everything in this section: ⟦HAND + machine-verified
+stepwise⟧, zero-sorry-equivalent at the oracle level, NOT Lean-formalized.
+SCOPE fence unchanged: winding-2; the full-safety bridge remains
+spot-checked, not proved. The bar-D aperiodic half of L-B remains OPEN.

@@ -77,9 +77,11 @@ graded open problems attract *inhabitants*.
 ## Execution order (recorded 2026-07-10, post-consolidation)
 
 1. **Clear the small owed debts** (each ≤ a session):
-   a. Bank the crossed-cycle **lock-avoidance lemma** + run the HOSTILE
-      prior-art scout on the antipodal-walk equivalence (both flagged in
-      `papers/reconstruction/notes/HANDOFF_2026-07-10_session4.md`).
+   a. ✅ DONE 2026-07-10 (session 5): lock-avoidance lemma PROVED (crossed-
+      cycle branch of L-B closed; census law now a theorem) + hostile
+      prior-art scout run (equivalence & primitive⟹crossed NOT FOUND;
+      Thomassen citation corrected). See
+      `papers/reconstruction/notes/HANDOFF_2026-07-10_session5.md`.
    b. Paper II §4 reposition + 2 missing cites (Stairs 1983 Phil Sci 50:578;
       arXiv:2603.22353).
 2. **Theorem 1** — pruning lemma phase-parametrized + theorem-let B.
@@ -90,19 +92,19 @@ graded open problems attract *inhabitants*.
    sign-off + abstract length = user's) and the statistics-layer prior-art
    verdict (deep-research run is out; Phase-1 seed gated on it).
 
-Nothing in 2–4 blocks anything else; dissemination independent. Two open
-user decisions: fidelity-review sign-off; confirm recommendation 1a (bank
-the lemma before parking the fork).
+Nothing in 2–4 blocks anything else; dissemination independent. Open user
+decision: fidelity-review sign-off. (Recommendation 1a executed 2026-07-10:
+the lemma is banked; the fork's crossed-cycle basement is finished. The
+remaining open half of L-B — bar-D aperiodicity — parks with the vacant lot
+as planned.)
 
 ## Interactions
 - **None of the four gate dissemination.** 1 and 3 would strengthen the
   σ-essential paper's reception, but it stands without them; 2 completes
   reconstruction internally; 4 is spine-level. Sequencing stays independent —
   ship when ready (σ-essential first + alone, standing recommendation).
-- **Crossed-cycle sub-attack vs vacant-lot status** (flagged 2026-07-10, user's
-  call): universal impossibility is a vacant lot, but its crossed-cycle half sits
-  ONE finite lemma from closed (lock-avoidance, see
-  `HANDOFF_2026-07-10_session4.md`). Recommendation on record: bank that lemma
-  (cheap; certifies "no safe-on-odds" and upgrades the invitation), then park the
-  rest of the fork as the open lot. A lot is better-posed with its basement
-  finished.
+- **Crossed-cycle sub-attack vs vacant-lot status** — RESOLVED 2026-07-10
+  (session 5): the lock-avoidance lemma is PROVED and banked
+  (`HANDOFF_2026-07-10_session5.md`); "no safe-on-odds" is certified and the
+  census law is a theorem. The rest of the fork (bar-D aperiodic half of L-B
+  + the winding-2→full bridge) parks as the open lot, basement finished.

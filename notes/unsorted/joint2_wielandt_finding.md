@@ -595,3 +595,80 @@ open construction). Do NOT round it up to a proof.
 - `crossed_cycle_grading.py` — ℤ_d grading of no-cross langs, same-grade pair readout.
 - `crossed_cycle_direct.py` — fork/merge census (REFUTES the fork proof-idea).
 - `crossed_cycle_potential.py` — asserts no-cross ⟹ period≥2 (odd) across the census.
+
+### CROSSED-CYCLE — MASTER LEMMA: crossed ⟺ antipodal-free even closed walk (2026-07-10, session 4)
+
+Supersedes routes (A) grading-construction and (B) same-grade-Kronecker from the
+section above — a third, direct route closed most of the distance in one step.
+
+**⟦HAND⟧ MASTER LEMMA (token-riding).** If G has a closed walk W of even length 2m
+with W(t) ≠ W(t+m) for all t ∈ [0,m], then (W(0),W(m)) ⇝ (W(m),W(0)) in D.
+*Proof.* Ride W with two tokens offset by m: token1 = W(t), token2 = W(t+m),
+t = 0..m. Consecutive positions are G-arcs (consecutive W-steps), so each step is a
+D-arc; the antipodal condition W(t)≠W(t+m) is exactly off-diagonality; at t=m the
+pair is (W(m), W(2m)) = (W(m), W(0)). ∎
+
+**⟦HAND⟧ CONVERSE.** If (a,b) ⇝ (b,a) in D via pair walk (x_t,y_t), t=0..m, then
+W = x_0..x_m y_1..y_m is a closed walk (x_m = b = y_0, y_m = a = x_0) of even
+length 2m, and W(t+m) = y_t ≠ x_t = W(t). ∎
+
+**So: crossed cycle exists ⟺ G has an antipodal-free even closed walk.** The whole
+exclusion problem is now INTRINSIC to G (no pair digraph needed). Machine-checked
+both directions (`crossed_cycle_master_lemma.py`): every certificate walk is
+re-verified as an explicit D-path (`verify_swap_path`), and the converse
+construction is asserted on every crossed lang (A=3 FULL 144, A=4 4000 langs,
+`sweep_equivalence`).
+
+**⟦HAND⟧ COROLLARIES (necessary conditions for no-cross).**
+- **Cor 1: no-cross ⟹ no even simple cycle.** Antipodal tokens on an even simple
+  cycle never coincide (offset m ≢ 0 mod 2m).
+- **Cor L: no-cross ⟹ no loops** (n≥2, s.c.). Loop vertex v lies on a simple cycle
+  C of length ℓ≥2; ℓ even → Cor 1; ℓ odd → W = loop·C works (Cor 2 with p=1).
+- **Cor 2: two odd simple cycles of DISTINCT lengths p≠q sharing EXACTLY ONE
+  vertex x ⟹ crossed.** W = C₁·C₂ based at x: the only possible antipodal clash
+  is an "index-locked" shared vertex C₁(i) = C₂(i + (q−p)/2) with i ∈ [0,p); the
+  lone shared vertex x has indices (0,0) and (q−p)/2 ≢ 0 mod q, so no clash.
+- **Consequence: no-cross ⟹ ALL simple cycle lengths odd ⟹ period = gcd is odd.
+  The census law "no-cross ⟹ odd period ≥3" REDUCES to the primitive case**
+  (primitive ⟹ crossed gives period ≥2; odd ∧ ≥2 ⟹ ≥3).
+
+**Oracle results (`crossed_cycle_master_lemma.py`, all assertions green):**
+- Predictions P1 (no loops) + P2 (all simple cycles odd) HOLD on every no-cross
+  lang found: A=3 (2), A=4 FULL (12), A=5 sample (4), n=6 period-3 hunt (124).
+  Counts cross-validate session 3 exactly (25,696 = 25,575 prim + 12 + 109).
+- Discriminating direction at n=6 (first size where a 6-cycle fits in a period-3
+  graph, grading-legal but Master-Lemma-forbidden): 235/235 period-3 graphs WITH
+  an even simple cycle are crossed.
+- **Candidate-walk family explains 100% of primitives** at A=3 (139/139),
+  A=4 FULL (25,575/25,575), A=5 sample (12,623/12,623). Breakdown: single even
+  simple cycle ≈99.3%; shared-base two-odd-cycle walk (laps ≤3) covers ALL the
+  rest; **the disjoint-cycles case was NEVER needed at A≤5.**
+- Canonical minimal hard case (C5 + chord: cycles {3,5} sharing 3 vertices,
+  even-cycle-free, primitive): W = C₃·C₅ works at EVERY base with laps (1,1).
+
+**THE REMAINING GAP (sharply narrowed).** Prove: primitive + no loops + all simple
+cycles odd ⟹ some shared-base walk C_p^a·C_q^b (p≠q odd) is antipodal-free.
+Lock analysis for a=b=1, q>p, base x: fails iff some shared vertex v has
+C₂-index = C₁-index + (q−p)/2 exactly. Freedom to burn: choice of base point
+(shifts all index pairs), order (C₂·C₁), lap counts (a,b). Same-length pairs
+(p=q) provably NEVER work (m ≡ 0 mod p forces a clash) — distinct lengths are
+essential, and primitivity (gcd 1, all odd) guarantees they exist. NOTE the
+imprimitive no-cross langs must and do defeat every family member (oracle
+soundness assertion: a working walk in a no-cross lang would be a contradiction —
+never fired).
+
+**⚠ PRIOR-ART FLAG (owed before any novelty claim).** (1) The equivalence
+"swap-reachability in the deleted tensor square ⟺ antipodal-free even closed
+walk" is elementary — plausibly known (automata theory / symbolic dynamics /
+even-cycle literature). (2) Thomassen's even-dicycle theorem (every strongly
+2-connected digraph has an even directed cycle, JAMS ~1992 ⟦from memory —
+VERIFY⟧) + Cor 1 would give: no-cross ⟹ not strongly 2-connected — structural
+leverage for the remaining gap, and a sign this area is well-ploughed. Run the
+HOSTILE cross-field prior-art scout BEFORE writing this into the paper.
+
+**Discipline.** Advisor not consulted this session (was down session 3); every
+⟦HAND⟧ claim above is machine-verified by an independent fresh implementation
+(new oracle does not import the old one). One bug caught by the assertions
+during development (walk-generator lap concatenation; converse construction
+off-by-one) — the certificate-checking layer (`verify_swap_path`,
+`check_equivalence` asserts) is what caught both. Keep it.

@@ -277,18 +277,30 @@ from Tkadlec's page). Verified verbatim:
   have to be a Boolean algebra? … in the σ-additive case the answer to
   this question is no [2 = BNPW 1985]."
 
-**(i) BNPW is provably NOT a lattice ⟦HAND — derivation over verified
-text, elementary⟧.** Dirac states on any concrete logic are 2-valued,
-σ-additive (automatic: point-evaluation respects any disjoint countable
-union that exists in L), and full. On BNPW's object every σ-additive state
-is JP (Q5.4 note), so all Dirac states are JP; a JP Dirac state at
-x ∈ A∩B produces nonempty C ∈ L, C ⊂ A∩B, i.e. the logic is
-downward-directed; Prop 4.4 then forces any lattice to be Boolean; BNPW's
-object is non-Boolean, hence **not a lattice**. Skeleton C's second half is
-untouched; BNPW joins the every-wild-object-is-a-non-lattice pattern (now
-forced, not inferred). *Residual risk: the derivation trusts MPT 1992's
-one-line report of BNPW's content; the ILL pull remains worthwhile as
-confirmation, no longer as a gate.*
+**(i) Theorem-let ⟦HAND — elementary glue over primary-verified
+propositions⟧: no non-Boolean concrete σ-class OML has all its σ-additive
+states JP.** (Irreducibility not needed.) Chain: on a σ-class, disjoint
+countable sups are set unions, so every point-carried (Dirac) state is
+2-valued and σ-additive; all-Dirac-states-JP ⟺ Ccard (MPT Prop 3.2,
+proof verified — this step is *theirs*, not hand-work) ⟹
+downward-directed (MPT p.10 parenthetical, trivial); downward-directed +
+lattice ⟹ Boolean (Prop 4.4, proof verified). Note Adm's σ-completeness
+IS the σ-class sense (`sigma_essential_body.tex` q:bare clause (b) +
+lem:sigma-class-basics — disjoint countable *unions*), so the theorem-let
+applies verbatim to Adm ∩ OML.
+
+**Consequence for BNPW (audited form — the session-9 first draft
+overstated this as an unconditional "not a lattice").** MPT 1992's default
+"concrete logic" is only *finitely* closed (Def 1.1, verified), and
+whether BNPW's object is σ-closed — and whether its σ-additivity is
+union- or sup-based — is not determined by the Q5.4 note. The honest
+statement is a disjunction, and both horns protect Skeleton C: either
+BNPW's object is a concrete σ-class (what "the σ-additive case" naturally
+suggests) — then by the theorem-let it is **not a lattice**; or it is not
+σ-closed — then it is not an Adm-style carrier at all. **Under every
+reading, BNPW's object is not a member of Adm ∩ OML and cannot gut
+Skeleton C's second half.** The ILL pull resolves which horn (and remains
+confirmation-grade, not a gate).
 
 **(ii) Skeleton C's first half is REFUTED as stated (the ⚠-unswept
 question is now swept — negative).** The hoped-for theorem "on a concrete
@@ -311,6 +323,18 @@ it has a pair A, B with A∩B ≠ ∅ set-wise containing no nonzero element of
 L ("intersection-poor pair"), and (by (i)'s chain) a non-JP Dirac state.
 Any lattice member of 𝒞 carries this anatomy. Skeleton B hand-work should
 start from Prop 4.4's proof pattern.
+
+**(iii-b) Audit record (same session, on request).** Every step re-checked
+against the MPT 1992 text: Def 1.1 (finite closure — the gap source),
+Def 3.1 (state, JP, point-carried, full — all match usage here), Prop 3.2
++ proof, Prop 4.4 + proof (line-by-line: A\M, B\M ∈ L by the Def 1.1
+remark; C∪M a strictly larger lower bound — sound), Ccard ⟹
+downward-directed. MO₂ counterexample machine-checked (scratchpad script:
+concrete-logic axioms, lattice/meets, non-Boolean, trivial centre, Dirac@1
+non-JP — all pass). Corroboration: MPT Prop 3.3 second half + Prop 3.4
+independently exhibit non-JP (two-valued) states on concrete logics.
+Result of the audit: (ii) and (iii) stand as written; (i) weakened to the
+theorem-let + disjunction above.
 
 **(iv) Closed leads.** arXiv:2308.08508 = Harding–Kornell, "Completely
 hereditarily atomic OMLs" (algebraicity/covering property/Kalmbach+Keller

@@ -140,9 +140,10 @@ the two *proved* engines bracket the conjecture without touching it.
   Literature to pull: Bunce–Wright (JP automatic on vN projection
   lattices), Navara–Pták JP papers, Müller 1993 (non-Boolean concrete
   logic with all states JP — *finite-flavored*, so not a counterexample to
-  the σ-form; `czech_school_prior_art_sigma_essential.md` §4). ⚠ unswept:
-  whether a σ-JP-forcing theorem on concrete σ-complete OMLs exists or is
-  refuted. This is the sharpest un-walked question the attack surfaces.
+  the σ-form; `czech_school_prior_art_sigma_essential.md` §4).
+  **SWEPT session 9 — REFUTED as stated (MO₂ counterexample; §7c(ii)).**
+  Survives only via PP1994 σ-unitality (§7b) or with MO₂-excluding
+  wildness hypotheses.
 
 - **Reduce-to-Dirac probe (feeds A and C).** rem:strength: reduce-to-Dirac
   is a σ-*algebra* theorem unavailable on σ-classes. Is it available on
@@ -252,6 +253,72 @@ of Tkadlec 1997, Müller–Pták–Tkadlec 1992, Navara 1996 unless flagged):
 
 **Paywalled pulls now owed (join the standing two):** BNPW 1985 (decisive,
 first priority); Bunce–Hamhalter 2000; PP1991/DP2000 chapter scans.
+*(Session 9 update: BNPW pull DEMOTED to confirmation-only — resolved by
+derivation, §7c. B–H 2000 still owed. Skeleton C's first half REFUTED as
+stated — see §7c.)*
+
+## 7c. Session 9 (2026-07-10): MPT 1992 primary text pulled — BNPW resolved by derivation; Skeleton C's first half refuted
+
+The scout's decisive source, Müller–Pták–Tkadlec 1992 (IJTP 31, 843–854),
+was pulled and read directly (PDF now in-hand:
+`notes/literature_review/literature/muller_ptak_tkadlec_1992_covering_properties.pdf`,
+from Tkadlec's page). Verified verbatim:
+
+- **Definition (p. 10).** A concrete logic (X, L) is **downward-directed**
+  if for every A, B ∈ L with A∩B ≠ ∅ there is C ∈ L\{∅} with C ⊂ A∩B.
+- **Prop 4.4 (with elementary proof, checked).** Every downward-directed
+  concrete logic which is a lattice is a Boolean algebra. (Proof: if
+  A∧B ⊊ A∩B, the sets A\(A∧B), B\(A∧B) ∈ L meet, so some nonempty
+  C ∈ L sits inside; C ∪ (A∧B) ∈ L is a strictly larger lower bound —
+  contradiction.)
+- **Q5.2 parenthetical.** A concrete logic with a full set of 2-valued JP
+  states is downward-directed.
+- **Q5.4 + note.** "Does every concrete logic each state of which is JP
+  have to be a Boolean algebra? … in the σ-additive case the answer to
+  this question is no [2 = BNPW 1985]."
+
+**(i) BNPW is provably NOT a lattice ⟦HAND — derivation over verified
+text, elementary⟧.** Dirac states on any concrete logic are 2-valued,
+σ-additive (automatic: point-evaluation respects any disjoint countable
+union that exists in L), and full. On BNPW's object every σ-additive state
+is JP (Q5.4 note), so all Dirac states are JP; a JP Dirac state at
+x ∈ A∩B produces nonempty C ∈ L, C ⊂ A∩B, i.e. the logic is
+downward-directed; Prop 4.4 then forces any lattice to be Boolean; BNPW's
+object is non-Boolean, hence **not a lattice**. Skeleton C's second half is
+untouched; BNPW joins the every-wild-object-is-a-non-lattice pattern (now
+forced, not inferred). *Residual risk: the derivation trusts MPT 1992's
+one-line report of BNPW's content; the ILL pull remains worthwhile as
+confirmation, no longer as a gate.*
+
+**(ii) Skeleton C's first half is REFUTED as stated (the ⚠-unswept
+question is now swept — negative).** The hoped-for theorem "on a concrete
+σ-complete OML, σ-additive 2-valued states are JP" is false: **MO₂** (4-point
+representation X = {1,2,3,4}, L = {∅, X, {1,2}, {3,4}, {1,3}, {2,4}}) is a
+concrete σ-complete irreducible non-Boolean OML whose Dirac state at 1 has
+s({1,2}) = s({1,3}) = 1 but s({1,2}∧{1,3}) = s(∅) = 0 — not JP. More
+generally, the Dirac chain of (i) shows all-Dirac-states-JP ⟹
+downward-directed ⟹ (lattice) Boolean: **on concrete OMLs, σ-JP-forcing IS
+Booleanness-forcing — there is no middle theorem.** MO₂ kills the naive JP
+route exactly as it killed the identity route (§1 guard). What survives of
+Skeleton C: the PP1994 unital-subadditive engine (σ-unitality locus,
+§7b) and restatements with wildness hypotheses that exclude MO₂-type
+members (e.g. no finite blocks) — unexplored.
+
+**(iii) New verified lever for Skeleton B.** Prop 4.4 is a finitary,
+σ-free cousin of the meet-closed-overlap dichotomy: contrapositively,
+**every concrete non-Boolean OM lattice fails downward-directedness** —
+it has a pair A, B with A∩B ≠ ∅ set-wise containing no nonzero element of
+L ("intersection-poor pair"), and (by (i)'s chain) a non-JP Dirac state.
+Any lattice member of 𝒞 carries this anatomy. Skeleton B hand-work should
+start from Prop 4.4's proof pattern.
+
+**(iv) Closed leads.** arXiv:2308.08508 = Harding–Kornell, "Completely
+hereditarily atomic OMLs" (algebraicity/covering property/Kalmbach+Keller
+constructions) — no JP or σ-additivity content; irrelevant to this attack
+(background only for 2a construction techniques). Bunce–Hamhalter 2000:
+scout could not access full text or any substantive secondary description
+(Springer/WorldSci/zbMATH/ResearchGate all blocked); scope unknown —
+**cite nothing from it; ILL pull stands**, now first in the queue.
 
 ## 8. Exit criteria for the attack
 

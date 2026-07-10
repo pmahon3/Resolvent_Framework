@@ -256,7 +256,7 @@ Boolean-ambient⟹meet-closed⟹rescued spine is a definitional deduction. Sourc
 
 ## Feldman–Wilce / Younce block-closure — the concreteness fork RESOLVED (2026-07-01, primary source re-read + advisor ×3)
 
-Handoff `reading_directions/nondistributive_primitive_handoff.md` §5 angle 2 asked: can a
+Handoff `reading_directions/oml_leads/nondistributive_primitive_handoff.md` §5 angle 2 asked: can a
 MANUAL be a concrete σ-OML without its σ-completion going abstract (ultrapower)? Advisor
 sharpened this to the discriminating **fork**: is the ultrapower in F–W Thm 4.7 a *general
 non-concreteness theorem* (⟹ adjacent to impossibility, outcome b) or an *artifact of F–W's
@@ -467,7 +467,7 @@ proven metatheorem.
 **HANDBACK (earned, not failure — the correct terminus of the import route):** remaining routes are
 both NEW-MATHEMATICS, neither manufacturable at the schematic this turn — (a′) human learn-then-try
 on a genuinely-new object (skill-plan: DST + large cardinals as EDUCATION, not schematic reasoning;
-`reading_directions/sigma_essential_skill_plan.md`); (b) a non-RDP (i)→(iii) impossibility theorem
+`reading_directions/sigma_essential/sigma_essential_skill_plan.md`); (b) a non-RDP (i)→(iii) impossibility theorem
 (strat.impossibility_i_to_iii). ⟦HAND — advisor-checked ×2; dichotomy from records + one II₁ sentence,
 no dig; import-sweep-complete is the keeper, guarded against the impossibility overclaim.⟧
 

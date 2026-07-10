@@ -1,0 +1,179 @@
+\noindent\textbf{The object.} An observation protocol (windows on a symbolic
+dynamical system) is \emph{commensurable} when pairwise-coherent window-statistics
+($\mathrm{EA}$) force realisability by a declared class ($\mathrm{PR}(\mathcal R)$);
+geometrically iff the coherence polytope $C$ equals the realisability polytope $R$.
+The paper is a \emph{bridge across four fields}; the open capstone (universal
+impossibility) reduces to one lemma, \textbf{L-B}, living in the
+Perron--Frobenius\,$+$\,signed-graph corner. Paper skeleton:
+\texttt{papers/reconstruction/reconstruction\_skeleton.tex}; proved body archived
+at \texttt{papers/reconstruction/notes/reconstruction\_body\_PROVED\_ARCHIVE.tex};
+the L-B detail\,$+$\,oracles in \texttt{notes/unsorted/joint2\_wielandt\_finding.md}
+and \texttt{notes/unsorted/parity\_only\_*.py}.
+
+\paragraph{Diagnostic first (do this before reading anything).}
+Skim two intros in one sitting: Abramsky--Brandenburger \S\S1--4~\cite{AB2011}
+(field~1) and Wainwright--Jordan \S3--4~\cite{WainwrightJordan2008} (field~2).
+Whichever frame feels \emph{alien} is the primary gap. Most readers missing ``a
+whole field'' here are missing polyhedral combinatorics (field~2) or
+Perron--Frobenius (field~4) --- the contextuality and dynamics sides are more widely
+discussed. The two fields already owned, skip; go straight to the one that felt
+foreign.
+
+\medskip
+Sources in dependency order, each with the question to read it for.
+
+\section{Contextuality / the sheaf picture (the FRAMING)}
+
+Supplies ``coherent windows that come from no global process.'' $C=R$ \emph{is}
+their marginal polytope; $\mathrm{EA}=$ compatible marginals / no-signalling;
+$\mathrm{PR}(\mathcal R)=$ a global section in class $\mathcal R$; contextual $=$
+obstruction to a global section.
+
+\textbf{Abramsky--Brandenburger 2011}~\cite{AB2011}, \emph{The Sheaf-Theoretic
+Structure of Non-Locality and Contextuality}. THE anchor. Read \S\S1--4.
+\begin{itemize}[itemsep=1pt]
+  \item State ``contextual $=$ no global section of the presheaf of local
+    sections.'' Match it term-for-term to the paper's $C\setminus R\neq\emptyset$.
+    Which of their objects is the paper's \emph{context}, which its \emph{protocol}?
+  \item Where does \emph{no-signalling / compatible marginals} enter? Confirm it is
+    exactly $\mathrm{EA}$ (pairwise agreement on shared events).
+\end{itemize}
+
+\textbf{Fine 1982}~\cite{Fine1982}, \emph{Hidden variables, joint probability, and
+the Bell inequalities}. The classical fact under everything.
+\begin{itemize}[itemsep=1pt]
+  \item State ``compatible marginals $\Leftrightarrow$ a global joint exists'' for
+    the cyclic case. This is $C=R$ specialised; read it as the sanity floor.
+\end{itemize}
+
+\textbf{Abramsky 2013}~\cite{Abramsky2013}, \emph{Relational databases and Bell's
+theorem}. The bridge tying field~1 to fields~2--3; unusually readable.
+\begin{itemize}[itemsep=1pt]
+  \item Why is ``acyclic reporting $\Rightarrow$ commensurable'' \emph{literally}
+    the database running-intersection / Vorob'ev theorem? Identify the junction-tree
+    glue. This is the paper's trichotomy (acyclic arm).
+\end{itemize}
+
+\section{Polyhedral combinatorics / marginal polytopes (the MACHINERY)}
+
+Makes ``coherence forces a process'' COMPUTABLE. If $\mathrm{STAB}/\mathrm{FSTAB}$,
+total unimodularity, fractional vertex, marginal polytope feel foreign, THIS is the
+gap.
+
+\textbf{Wainwright--Jordan 2008}~\cite{WainwrightJordan2008}, \emph{Graphical
+Models, Exponential Families, and Variational Inference}, \S3--4. The single best
+entry point. Their \emph{marginal polytope} $=$ the paper's $C$.
+\begin{itemize}[itemsep=1pt]
+  \item Define the marginal polytope as the convex hull of realisable margins. Map
+    it to $R=\mathrm{conv}\{$cell-incidence vectors of global configs$\}$. Which
+    inequalities cut out $C$?
+\end{itemize}
+
+\textbf{Schrijver 2003}~\cite{Schrijver2003}, \emph{Combinatorial Optimization} (or
+\emph{Theory of Linear and Integer Programming}). TU, K\"onig, integral polytopes.
+Read the TU\,$+$\,stable-set chapters.
+\begin{itemize}[itemsep=1pt]
+  \item State the sufficient condition: a $\{0,\pm1\}$ matrix with each column
+    signable so every row's two nonzeros are opposite-sign is TU. This \emph{is}
+    taming~(3), signability. Where does the frame's bipartition supply the signing?
+  \item Integral-polytope $\Leftrightarrow$ TU-with-integral-RHS: confirm this is
+    the whole content of ``$C=R$ via integrality.''
+\end{itemize}
+
+\textbf{Nemhauser--Trotter 1974}~\cite{NemhauserTrotter1974} $+$ \textbf{Chv\'atal
+1975}~\cite{Chvatal1975}, the STABLE-SET polytope. $\mathrm{STAB}$ vs its fractional
+relaxation $\mathrm{FSTAB}$, and when they coincide.
+\begin{itemize}[itemsep=1pt]
+  \item State: $\mathrm{FSTAB}(G)=\mathrm{STAB}(G)\Leftrightarrow G$ bipartite
+    (K\"onig). This is exactly the parity theorem's even-case engine. Why does the
+    odd cycle give a unique half-integral vertex $u\equiv\tfrac12$? (That vertex is
+    the PR-box.)
+\end{itemize}
+
+\textbf{(context, not required) De~Loera--Onn 2004}~\cite{DeLoeraOnn2004} $+$
+\textbf{Pr\r{u}\v{s}a--Werner 2015}~\cite{PrusaWerner2015}, universality. Why every
+rational polytope is a coherence polytope $\Rightarrow$ no finite model-level
+taxonomy $\Rightarrow$ the classification must be posed at the PROTOCOL level.
+
+\section{Symbolic dynamics (the OBJECTS observed)}
+
+The language $\rho$, the shift of finite type, the transfer digraph, recurrence
+around a ring. If ``golden-mean shift'' / ``SFT'' is unfamiliar, this is the other
+likely gap.
+
+\textbf{Lind--Marcus 1995}~\cite{LindMarcus1995}, \emph{An Introduction to Symbolic
+Dynamics and Coding}. THE textbook; only three chapters needed.
+\begin{itemize}[itemsep=1pt]
+  \item Ch.~2 (shifts of finite type): define $\rho=$ legal adjacent pairs; the
+    golden-mean shift $=$ ``no $11$.'' The paper's \emph{language} is an edge-SFT.
+  \item Ch.~4 (the transfer/adjacency matrix): the digraph on states with arc
+    $a\to b$ iff $(a,b)\in\rho$. The paper's \emph{transfer digraph}; the
+    \emph{layered ring} is this SFT observed cyclically over $\mathbb Z_L$.
+  \item The Perron--Frobenius chapter: primitivity/irreducibility of the transfer
+    matrix --- hands you straight into field~4.
+\end{itemize}
+
+\section{Perron--Frobenius $+$ signed graphs (the ENGINE of the open lemma L-B)}
+
+Where the FORCING LEMMA actually lives. ``Primitive,''
+``period/imprimitivity,'' ``Wielandt index,'' ``cyclic classes'' are all
+Perron--Frobenius; ``balanced signed graph'' is Zaslavsky. L-B's two exclusions are
+PF statements about the DERIVED pair-graph. \textbf{This $+$ the last source are the
+narrow path to L-B --- not the whole stack.}
+
+\textbf{Brualdi--Ryser 1991}~\cite{BrualdiRyser1991}, \emph{Combinatorial Matrix
+Theory}, Ch.~3. Primitivity, the Wielandt bound, imprimitivity/period, cyclic
+structure. The exact toolkit L-B needs.
+\begin{itemize}[itemsep=1pt]
+  \item State: a primitive $n\times n$ 0-1 matrix has $M^k>0$ for all
+    $k\ge(n-1)^2+1$ (Wielandt). The length-availability half of ``primitive
+    $\Rightarrow$ cofinitely unsafe.''
+  \item State the period/imprimitivity dictionary: strongly-connected digraph has
+    period $d$ $\Leftrightarrow$ vertices $d$-partition into cyclic classes arcs
+    advance through $\Leftrightarrow$ fibered over $\mathbb Z_d$. This is
+    taming~(8)$=$grading. Primitive $=$ period $1$ $=$ NO grading.
+  \item \textbf{The two L-B exclusions, in PF language:} (i)~primitive $\Rightarrow$
+    the \emph{pair-graph} $\bar D$ is APERIODIC (has an odd-length closed walk);
+    (ii)~primitive$+$s.c.\ $\Rightarrow$ $\bar D$ carries a CROSSED cycle (its
+    $\sigma$-cover is connected). Read Ch.~3 asking: what forces
+    aperiodicity/connectivity of a DERIVED graph from primitivity of the base? That
+    is the open content.
+\end{itemize}
+
+\textbf{Horn--Johnson}~\cite{HornJohnson}, \emph{Matrix Analysis}, Ch.~8
+(alternative register). Cleaner analytic Perron--Frobenius if preferred to the
+combinatorial treatment. Same targets as Brualdi--Ryser Ch.~3; pick one, not both.
+
+\textbf{Zaslavsky 1982}~\cite{Zaslavsky1982}, \emph{Signed graphs} $+$ his
+\emph{matrices in the theory of signed graphs} survey. Balance theory.
+\begin{itemize}[itemsep=1pt]
+  \item State: a signed graph is BALANCED $\Leftrightarrow$ 2-colourable
+    $\Leftrightarrow$ no negative (odd-sign) cycle $\Leftrightarrow$ the sign is a
+    coboundary. The paper's ``monodromy$+1$ balanced'' IS this. Confirm L-A:
+    safe-on-evens $\Leftrightarrow$ the pair-graph signed by (monodromy$+1$) is
+    balanced. (The cycle-space $\mathbb Z_2\times\mathbb Z_2$ argument is
+    Zaslavsky's balance read through two invariants at once.)
+\end{itemize}
+
+\section{Notes}
+
+\begin{itemize}[itemsep=2pt]
+  \item \textbf{Start (if contextuality $+$ dynamics already known):}
+    Wainwright--Jordan \S3--4 (marginal polytope $=C$) $\to$
+    Nemhauser--Trotter/Chv\'atal ($\mathrm{STAB}/\mathrm{FSTAB}$, K\"onig $=$ the
+    parity engine) $\to$ Brualdi--Ryser Ch.~3 $+$ Zaslavsky (L-B's home). That trio
+    is the paper's spine and the open lemma; the rest is framing pickable from
+    Abramsky--Brandenburger \S\S1--4 on demand.
+  \item \textbf{Start (if the whole thing is foreign):} Abramsky 2013 (relational
+    databases / Bell) first --- it ties contextuality to combinatorics in the most
+    readable single paper here --- then diagnose which of fields~2/4 is missing and
+    go there.
+  \item \textbf{The narrow path to the one open lemma:} Brualdi--Ryser Ch.~3
+    (primitivity / Wielandt / imprimitivity) $+$ Zaslavsky (signed-graph balance).
+    L-B is written entirely in those two vocabularies; the other three fields are
+    not needed to attack it.
+  \item Asymmetry vs the $\sigma$-essential thread: there the DST $+$ set-theory
+    were the gaps and the OML cluster was owned. Here the likely gaps are polyhedral
+    combinatorics and/or Perron--Frobenius; contextuality/dynamics are more often
+    already-held.
+\end{itemize}

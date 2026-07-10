@@ -9,7 +9,7 @@ deep-research sequence, 2026-06-21).
 
 **Status: orientation companion, not a claim-bearing document.**
 - It is a clean *re-synthesis* of material already in `oml_onboarding.tex` (the survey),
-  `../reading_directions/oml_lead_philosophical_reading.md`, and
+  `../reading_directions/oml_leads/oml_lead_philosophical_reading.md`, and
   `verification/residue_attack_leads.md` — nothing fundamentally new. Kept because it
   reads well as a single-sitting orientation piece.
 - **Two unverified citations** (acceptable in an expository companion, NOT to be lifted

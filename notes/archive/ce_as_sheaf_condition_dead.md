@@ -8,7 +8,7 @@ sheaf-theoretic reformulation of CE is a dictionary translation, not
 a theorem. The finite/countable boundary where CE lives is invisible
 to every finitary Grothendieck topology; the countable-partition
 topology that does see it restates the definition of σ-additivity.
-See `notes/reading_directions/reading_directions.tex` §§1, 7, 12, 13.
+See `notes/reading_directions/general_reading/reading_directions.tex` §§1, 7, 12, 13.
 
 ## The claim
 

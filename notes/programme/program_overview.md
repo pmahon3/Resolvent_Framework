@@ -310,7 +310,7 @@ frontier and localized it three notches. To be caught up on WHERE TO FOCUS, read
   ONE open axis is **incidence shape**, and all that is known is **NOT a tree**. The positive
   route is the **realization-theorem push** (Navara–Rogalewicz / Harding–Navara build
   non-simplex/non-segregated state spaces by Boolean-block pasting → carry to concrete + σ
-  SIMULTANEOUSLY). **Reading plan WRITTEN:** `notes/reading_directions/realization_technique_reading.tex`
+  SIMULTANEOUSLY). **Reading plan WRITTEN:** `notes/reading_directions/realization_technique/realization_technique_reading.tex`
   (dependency-ordered, anchored to the conjunction gap; Harding 2004 in hand confirms the
   concreteness half + locates the finiteness dependency).
 - **WHY IT'S HARD, at max sharpness — the 3↔5 tension:** you need infinite ATOMIC blocks

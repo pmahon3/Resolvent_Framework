@@ -1,8 +1,8 @@
 # Taxonomy schema & conventions
 
 *How the per-collection JSON taxonomies are structured, so they stay consistent and
-the format is reproducible. Validated against the 6 taxonomies registered in
-`taxonomies_index.json` (2026-06-26). A taxonomy is a **zoom-out index** of a problem
+the format is reproducible. Validated against the taxonomies registered in
+`taxonomies_index.json` (7 as of 2026-07-10; originally 6, 2026-06-26). A taxonomy is a **zoom-out index** of a problem
 collection's attempts — cheap to load, linking down to detailed leaf files.*
 
 ---

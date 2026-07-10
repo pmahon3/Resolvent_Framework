@@ -43,7 +43,7 @@ strongly-connected non-symmetric class.
   grading checked). Fork-free through 9 edges still holds.
 **The rhyme (open):** latticehood = carrier-side; universal impossibility =
 protocol-side. Joint-2 crux may connect to it. *Whether secretly one claim: open.*
-Nav: `notes/unsorted/pruning_k2_theorem.md` (Joint 1 CLOSED) +
+Nav: `papers/reconstruction/notes/pruning_k2_theorem.md` (Joint 1 CLOSED) +
 `joint2_wielandt_finding.md` (Joint 2 crux); taxonomy open_frontier.
 
 ## 3. σ-essential's named descendants — three, all genuinely open

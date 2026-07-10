@@ -10,18 +10,24 @@ partially fill that gap.
 
 ## Current state of the programme
 
-**No active standalone leads as of 2026-05-18.**
-Dynamics/reconstruction remains a source of examples and
-contrasts, but not a current research direction.
+**Authoritative state doc: `notes/programme/program_overview.md`.**
+Frontier structure: `notes/programme/frontier_map.md`. Work plan:
+`notes/programme/shovel_plan.md` (adopted 2026-07-10 — four theorems
+to prove + vacant lots shipped as invitations).
 
-Papers I and II are synthesis/positioning. Paper II (EA/PR/VDR,
-van Fraassen-to-duality) is the strongest novelty zone.
+Active flagship: **reconstruction/commensurability**
+(`papers/reconstruction/` — paper skeleton + notes/ hubs + oracles/).
+σ-essential: amended form is a machine-checked ZFC theorem; paper
+dissemination-ready (`papers/sigma_essential/`); OML/lattice +
+positive-selection + Φ-slice forms open (shovel plan). Paper I parked;
+Paper II is the survivor (Type-6); `papers/spine/` reads the corpus
+as one classification.
+
 Publication is not a goal of this repo — the work is
 research-oriented. Papers may be shared eventually but the
 driver is understanding, not shipping.
 
-See `notes/covered_leads/` and `notes/knowledge_map/` for full state.
-No active standalone leads as of 2026-05-18.
+Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
 
 ## The research workflow (FOLLOW THIS)
 
@@ -36,7 +42,9 @@ No active standalone leads as of 2026-05-18.
 2. **Skeptical audit** → GATE: evaluate against each claimed type's bar.
    Default: `/audit full` for Phase 2. Use `pure`/`applied` for
    targeted re-audits only.
-3. **Problem statement** (md) → `notes/active_leads/`
+3. **Problem statement** (md) → the lane's home
+   (`papers/<lane>/notes/` for paper-bound work, else
+   `notes/open_questions/`)
 4. **Mathematical work** (user does this, not LLM)
 5. **Formalization** (Lean, novel results ONLY)
 6. **Draft** (LaTeX, editorial principles)
@@ -83,8 +91,6 @@ Broader lens, not broader standard. Each type has a concrete bar.
 - **Sharpen honestly.** Refining an open question is not a way to keep
   a dead one alive. Both guardrail conditions must hold (see lifecycle).
 - **Verify LLM proofs independently.** Lean or manual check only.
-
-## Custom agents (`.claude/agents/`)
 
 ## Skill: `/audit` (`.claude/skills/audit/`)
 
@@ -188,21 +194,25 @@ infrastructure sorrys can remain honestly documented.
   skills/             ← /audit (pure, applied, or both)
 
 papers/
-  paper_i/            ← Synthesis (expository, not novel)
-  paper_ii/           ← EA/PR/VDR vocabulary (strongest contribution)
+  reconstruction/     ← ACTIVE flagship (skeleton + notes/ hubs + oracles/)
+  sigma_essential/    ← Ψ witness paper (machine-checked; dissemination-ready)
+  spine/              ← Corpus-level umbrella (reference-only)
+  paper_i/            ← Synthesis (audited, parked)
+  paper_ii/           ← EA/PR/VDR vocabulary (the survivor, Type-6)
   archive/            ← Withdrawn/canned/dead papers
 
 formalization/
-  QuerySystem/        ← Lean 4 / Mathlib (1 sorry total)
+  QuerySystem/        ← Lean 4 / Mathlib
 
 notes/
+  taxonomies_index.json ← Zoom-out registry (load FIRST)
   open_questions/     ← Precise, open, dormant (re-audit on new input)
   covered_leads/      ← Known results + dead leads (reference)
-  unsorted/           ← Needs individual assessment
+  unsorted/           ← Needs individual assessment (Tier 3)
   knowledge_map/      ← Research control panel
   reading_directions/ ← Guided reading with questions
   literature_review/  ← LaTeX lit review + PDF library
   conceptual_sketches/← Informal exploratory sketches
-  programme/          ← Orientation, synthesis, reception
+  programme/          ← program_overview + frontier_map + shovel_plan
   archive/            ← Dead ends and superseded
 ```

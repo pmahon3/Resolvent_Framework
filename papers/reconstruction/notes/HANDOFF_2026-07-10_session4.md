@@ -70,12 +70,12 @@ even dicycle ⟦from memory — VERIFY⟧) + Cor 1 ⟹ no-cross ⟹ not strongly
 
 ## NAV
 
-- Attack hub: `notes/unsorted/joint2_wielandt_finding.md` — "MASTER LEMMA"
+- Attack hub: `papers/reconstruction/notes/joint2_wielandt_finding.md` — "MASTER LEMMA"
   section at the end (proofs + oracle results + gap statement).
-- New oracle: `notes/unsorted/crossed_cycle_master_lemma.py` (run: `python3
+- New oracle: `papers/reconstruction/oracles/crossed_cycle_master_lemma.py` (run: `python3
   crossed_cycle_master_lemma.py all` — sweeps 3,4,5,6 + equivalence).
-- Prior oracles: `notes/unsorted/crossed_cycle_*.py` (ground truth unchanged).
-- Taxonomy: `notes/unsorted/universal_impossibility_taxonomy.json`
+- Prior oracles: `papers/reconstruction/oracles/crossed_cycle_*.py` (ground truth unchanged).
+- Taxonomy: `papers/reconstruction/notes/universal_impossibility_taxonomy.json`
   (`open_crux.forcing_lemma_LB`).
 - Paper: `papers/reconstruction/reconstruction_skeleton.tex` + `notes/STATUS.md`.
 - Lean env: `export PATH=$HOME/.elan/bin:$PATH; cd formalization/QuerySystem; lake env lean QuerySystem/<file>.lean`

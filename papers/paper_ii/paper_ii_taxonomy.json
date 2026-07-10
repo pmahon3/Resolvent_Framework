@@ -57,7 +57,7 @@
       "category": "result",
       "status": "accepted",
       "one_line": "Structural theorem: Boolean ⟹ EA/PR/VDR all commensurable; OML (dim≥3) ⟹ VDR blocked (Kochen–Specker). The distributivity axis as organizing principle — the structural payload, independent of the clustering argument. Survives audit cleanly.",
-      "detail": "../../notes/unsorted/commensurability.md"
+      "detail": "../../notes/conceptual_sketches/commensurability_realism_vocabulary.md"
     },
     {
       "id": "res.pr_split",
@@ -101,7 +101,7 @@
       "category": "owned",
       "status": "owned",
       "one_line": "Given a state + preferred observable, a unique maximal Boolean subalgebra admits value-definite descent (contextual, not global) = the OML partial VDR. Correctly cited.",
-      "detail": "../../notes/unsorted/commensurability.md"
+      "detail": "../../notes/conceptual_sketches/commensurability_realism_vocabulary.md"
     },
     {
       "id": "owned.putnam_dummett",

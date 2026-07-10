@@ -18,9 +18,9 @@ structure theory (successor programme to the σ-essential witness).
 
 ## Provenance
 All statements extracted faithfully from
-`notes/unsorted/commensurability_classification_seed.md` (§§1, 2.2f, 2.2s,
+`papers/reconstruction/notes/commensurability_classification_seed.md` (§§1, 2.2f, 2.2s,
 2.2t, 2.2x–2.2z, 3) and the taxonomy
-`notes/unsorted/commensurability_taxonomy.json`. Lemma 2 =
+`papers/reconstruction/notes/commensurability_taxonomy.json`. Lemma 2 =
 `formalization/QuerySystem/QuerySystem/WindingInjectivity.lean`.
 
 ## PHASE-4 PROOFS — ✅ ALL 8 HAND-VERIFIED 2026-07-09 (2 editorial fixes owed)
@@ -237,3 +237,17 @@ polymorphism — the tamings are plausibly its shadows), not just Barto–Kozik.
 - CONTRIBUTION-TYPE SELF-TEST to run: are parity + winding re-derivable directly
   in stable-set / graphical-models language? If yes → Type 6; if no → Type 3.
   Answer decides the paper's positioning.
+
+## 2026-07-10 ADDENDUM (session 4 + repo consolidation)
+
+- **Crossed-cycle attack advanced past this ledger's frontier:** EQUIVALENCE
+  proved ⟦HAND+machine⟧ (crossed ⟺ antipodal-free even closed walk); no-cross ⟹
+  no loops + all simple cycles odd; walk family explains 100% of primitives A≤5.
+  Open gap = ONE lock-avoidance lemma. Current state of record =
+  `HANDOFF_2026-07-10_session4.md` + `joint2_wielandt_finding.md` (MASTER LEMMA
+  section). This ledger's Phase-4 per-item verdicts above remain valid.
+- **Consolidation (2026-07-10):** the working files moved out of
+  `notes/unsorted/` — hubs/taxonomies now in `papers/reconstruction/notes/`,
+  all oracles + atlas data in `papers/reconstruction/oracles/` (flat, imports
+  preserved). Superseded handoffs (07-09, 07-09_session2, 07-10 session 3) and
+  the pre-reskeleton body are in `notes/archive/` here.

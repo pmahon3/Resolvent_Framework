@@ -2,7 +2,7 @@
 
 **Date:** 2026-05-28  
 **Auditor:** Phase 2 formal audit (opus, with web search)  
-**Target:** `notes/unsorted/kappa_q_characterisation_ladder.md`  
+**Target:** `notes/covered_leads/kappa_q_characterisation_ladder.md`  
 **Input documents:** Seed note; `contribution_evaluation.md`; MITACS-side type-declaration input (2026-05-30)
 
 ---

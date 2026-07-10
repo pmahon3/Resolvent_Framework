@@ -1,65 +1,60 @@
 # Structure from Observation
 
-## Status (2026-05-14)
+## Status (2026-07-10)
 
-**No active standalone leads.** All previous leads closed by audit.
-Papers I and II are synthesis/positioning, not novel research.
-Paper II (EA/PR/VDR, van Fraassen-to-duality) is the strongest
-novelty zone.
+**Active flagship: reconstruction/commensurability** (`papers/reconstruction/`)
+— EA/PR(𝓡) structure theory proved; universal-impossibility attack live.
+**σ-essential** (`papers/sigma_essential/`) — the amended form is a
+machine-checked ZFC theorem (0-sorry Lean witness); paper dissemination-ready.
+
+Authoritative state: `notes/programme/program_overview.md`.
+Open-problem map: `notes/programme/frontier_map.md`.
+Work plan: `notes/programme/shovel_plan.md` (four theorems + vacant lots).
+Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
 
 ### Papers
 
-- **Paper I** — known theorems with useful synthesis (not novel).
-  Expositiones target.
-- **Paper II** — EA/PR/VDR vocabulary novel; math classical.
-  Synthese target. Core thesis: "the realism/empiricism boundary
-  is algebraic."
-- **Paper III** — withdrawn (rediscovery)
-- **Fibre mixing paper** — dead (bridge theorem false, disintegration
-  error). Archived.
-
-### Closed leads
-
-- **Entropy characterization** — depended on bridge theorem (false).
-  See `notes/covered_leads/entropy_characterization.md`
-- **Fibre mixing** — bridge theorem false; replacement observation
-  (geometric ≠ algebraic reconstruction) is known/obvious.
-  See `notes/covered_leads/fibre_mixing.md`
-
-### Seeds (unaudited, in notes/unsorted/)
-
-- Excess Fisher curvature — likely known, needs Phase 2 audit
-- CE as sheaf condition — stalled, needs fresh approach
+- **reconstruction** — ACTIVE flagship; skeleton public face, Type-6 bridge.
+- **sigma_essential** — Ψ amended form machine-checked; dissemination-ready.
+- **spine** — corpus-level umbrella (reference-only, reads the three
+  transitions as one classification).
+- **Paper I** — audited, fixed honest, PARKED (no submission).
+- **Paper II** — audited, revised: the survivor (Type-6 clears).
+- **Paper III / fibre mixing** — withdrawn/dead, in `papers/archive/`.
 
 ## Repository structure
 
 ```
 Resolvent_Framework/
 ├── .claude/
-│   └── agents/           ← 7 custom agents (auditor, advisor, etc.)
+│   ├── agents/           ← 6 custom agents
+│   └── skills/           ← /audit skill
 ├── papers/
-│   ├── paper_i/          ← Paper I (synthesis, expository)
-│   ├── paper_ii/         ← Paper II (EA/PR/VDR, strongest contribution)
-│   └── archive/          ← all withdrawn/canned/dead papers
+│   ├── reconstruction/   ← ACTIVE flagship (+ notes/ hubs, oracles/)
+│   ├── sigma_essential/  ← Ψ witness paper (+ witness_candidate/ records)
+│   ├── spine/            ← corpus umbrella (reference-only)
+│   ├── paper_i/          ← synthesis (parked)
+│   ├── paper_ii/         ← EA/PR/VDR (survivor)
+│   └── archive/          ← withdrawn/canned/dead papers
 ├── formalization/
-│   └── QuerySystem/      ← Lean 4 / Mathlib (1 sorry total)
+│   └── QuerySystem/      ← Lean 4 / Mathlib
 └── notes/
-    ├── active_leads/     ← currently empty
+    ├── taxonomies_index.json ← zoom-out registry (load FIRST)
+    ├── open_questions/   ← precise, open, dormant
     ├── covered_leads/    ← known results + dead leads (reference)
-    ├── unsorted/         ← seeds + unassessed material
+    ├── unsorted/         ← Tier-3 pile (needs assessment)
     ├── knowledge_map/    ← research control panel
     ├── reading_directions/ ← guided reading with questions
-    ├── programme/        ← programme-level docs
-    ├── archive/          ← dead ends and superseded
-    └── literature/       ← literature reviews by topic
+    ├── literature_review/ ← lit review + PDF library
+    ├── conceptual_sketches/ ← informal sketches
+    ├── programme/        ← program_overview + frontier_map + shovel_plan
+    └── archive/          ← dead ends and superseded
 ```
 
 ## Lean formalization
 
-| File | Status |
-|------|--------|
-| QuerySystem.lean | 0 sorry |
-| DiscriminabilityFoundations.lean | 0 sorry |
-| StoneDualityExtension.lean | 1 sorry (Yosida-Hewitt) |
-| UltrafilterCharge.lean | 0 sorry |
-| Commensurability.lean | 0 sorry (1 axiom: KS) |
+`formalization/QuerySystem/` — source of truth is `#print axioms` on each
+certificate. Key certified results: `psiAmended_ZFC` (σ-essential amended
+form, 0-sorry), `WindingInjectivity` + `WindingDichotomy` (reconstruction,
+0-sorry, classical flow-decomposition axiomatized). Paper-I
+`StoneDualityExtension` carries 1 sorry (Yosida–Hewitt).

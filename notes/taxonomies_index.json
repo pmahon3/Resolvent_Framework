@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Taxonomies registry — the tree of problem-collection taxonomies",
   "purpose": "The single entry point to every collection taxonomy. Each collection has a JSON taxonomy = a zoom-out index of its attempts; this file registers them so the tree itself is navigable as collections come and go. Load THIS first, then the collection taxonomy, then its `detail` leaves — three zoom levels.",
-  "updated": "2026-06-26",
+  "updated": "2026-07-10",
   "schema_doc": "notes/TAXONOMY_SCHEMA.md",
   "paths_relative_to": "repository root",
   "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
@@ -22,7 +22,7 @@
   {
    "id": "reconstruction_commensurability",
    "name": "Reconstruction / commensurability classification",
-   "taxonomy": "notes/unsorted/commensurability_taxonomy.json",
+   "taxonomy": "papers/reconstruction/notes/commensurability_taxonomy.json",
    "status": "OPEN - active successor programme. Pruning lemma CLOSED all k. Universal impossibility (tamings complete) = ACTIVE ATTACK, own branch — Joint 2 REDUCED 2026-07-09 to a single named lemma L-B (primitive => balanced-or-finite-safe = 2 Perron-Frobenius exclusions; VALIDATED ~3100 primitives 0-cex, OPEN). Validated object: unsafe at L <=> swap-monodromy 2-fold cover closes = bar-D unbalanced. R1 backbone: ~25,700 primitives (A=3+A=4 FULL) 0-cex to primitive+infinite-safe=>evens. SCOPE: winding-2 (bridge to full-safety checked not proved). PAPER: papers/reconstruction/ (10pp, Type-6 bridge; winding criterion + CL assembly; all 8 owed Phase-4 proofs HAND-VERIFIED 2026-07-09 + 2 editorial fixes applied). Winding kernel + Lemma 2 CERTIFICATE-GRADE in Lean.",
    "one_line": "When does pairwise coherence force realisability (EA=>PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety. ~16 substantial theorems (parity, free/acyclic, tamings #7-#10, forest-counting, symmetric-MD Circuit Localization, symmetric expulsion, SCC reduction, PRUNING LEMMA all-k). Winding criterion = the spine (iff, closed). Universal impossibility = the completeness theorem that would de-taxonomize the tamings; ACTIVE (see universal_impossibility_taxonomy.json).",
    "entries": 126
@@ -30,7 +30,7 @@
   {
    "id": "universal_impossibility",
    "name": "Universal impossibility — completeness theorem for the tamings",
-   "taxonomy": "notes/unsorted/universal_impossibility_taxonomy.json",
+   "taxonomy": "papers/reconstruction/notes/universal_impossibility_taxonomy.json",
    "status": "OPEN - ACTIVE ATTACK (no half measures, 2026-07-09). The paper needs this to complete: converts 'ten sufficient tamings (a collection, reads as stamp-collecting)' into 'one N&S classification (a theorem)'. Reduces via Joint 1 (pruning lemma, CLOSED all k this session) + Joint 2 (OPEN). Joint-2 crux CORRECTED: NOT 'the non-symmetric case' (golden-mean refuted — its safety is signability/TU firing on the bipartite residue); the real crux = the tamings are the ONLY sources of residue-safety in a primitive language (= 'tamings complete'). Counterexample hunt is CO-EQUAL (fork could exist >=5 states; evidence thin). Win = full theorem OR reduction to one named lemma (the paper's stated open problem).",
    "one_line": "Are the ten tamings EXHAUSTIVE (no fork)? Spun off the reconstruction collection 2026-07-09 when the 'ten stamps' feel was diagnosed as the missing completeness theorem. Joint 1 closed (pruning, all k, 73728-check scan); Joint 2 open (sources-of-residue-safety = tamings). Subtargets: girth-locking rigour, potential/phase-code independence. Parallel fork-hunt at scale.",
    "entries": 15
@@ -85,10 +85,10 @@
   "note": "Programme-meta material that is NOT a problem-collection and is intentionally NOT given a taxonomy. Kept as standalone docs.",
   "items": [
    "notes/programme/program_overview.md — authoritative state doc (per CLAUDE.md)",
-   "notes/programme/genealogy.md + genealogy_vision.md — programme narrative",
+   "notes/programme/genealogy.md + genealogy_vision.md — programme narrative (historical pair)",
    "notes/programme/contribution_evaluation.md — the 7-type audit framework",
-   "notes/programme/programme_reception/* — reception of a withdrawn programme arc (historical)"
+   "notes/archive/programme_reception_2026-05/* — reception of a withdrawn programme arc (archived 2026-07-10)"
   ]
  },
- "updated": "2026-07-08"
+ "updated": "2026-07-10"
 }

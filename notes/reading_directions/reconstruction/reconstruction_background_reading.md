@@ -8,8 +8,8 @@ capstone (universal impossibility) reduces to one lemma L-B living in the
 Perron–Frobenius + signed-graph corner. Paper skeleton:
 `papers/reconstruction/reconstruction_skeleton.tex`; proved body archived at
 `papers/reconstruction/notes/reconstruction_body_PROVED_ARCHIVE.tex`; the L-B
-detail + oracles in `notes/unsorted/joint2_wielandt_finding.md`,
-`notes/unsorted/parity_only_*.py`.
+detail + oracles in `papers/reconstruction/notes/joint2_wielandt_finding.md`,
+`papers/reconstruction/oracles/parity_only_*.py`.
 
 **Diagnostic first (do this before reading anything).** Skim two intros in one
 sitting: Abramsky–Brandenburger §§1–4 (field 1) and Wainwright–Jordan §3–4 (field

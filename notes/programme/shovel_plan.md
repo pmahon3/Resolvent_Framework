@@ -19,7 +19,7 @@ builders when there's a certificate-backed decision procedure. Most tractable
 item: finite, at its best-ever specification, incubating at the head of the
 design lane. Joint-1 ⟦HAND⟧ closure exists (73728-check adversarial scan 0-fail);
 the work = the proved, phase-parametrized statement.
-Nav: `notes/unsorted/pruning_k2_theorem.md`; frontier item 2 (Joint 1).
+Nav: `papers/reconstruction/notes/pruning_k2_theorem.md`; frontier item 2 (Joint 1).
 
 ### 2. The OML case at the regularity transition  *(the defining boundary)*
 Does a concrete σ-complete orthomodular **lattice** carry a σ-essential state?

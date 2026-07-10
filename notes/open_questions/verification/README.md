@@ -10,9 +10,14 @@ worksheets specific to the now-dead **L_MO₂ inhabitation lead** were moved to
 
 **Live-relevant** (bear on the open Q1/structural or point-free classification
 questions — see the survey §6):
-- `bell_synthesis.md`, `bell_deepresearch_partial.json`, `RESUME_bell_research.md`
-  — Bell ↔ σ-additive-OML; confirm the finitary extension axis does NOT touch the
-  σ-additive descent axis (Q1 gap is real).
+- `bell_synthesis.md`, `bell_deepresearch_partial.json` — Bell ↔ σ-additive-OML;
+  confirm the finitary extension axis does NOT touch the σ-additive descent axis
+  (Q1 gap is real). (The self-closed `RESUME_bell_research.md` → archived
+  `notes/archive/RESUME_bell_research_closed.md`, 2026-07-10; content absorbed
+  into `bell_synthesis.md`.)
+- `gunji_pushout_check.py` — Gunji et al. Prop 8 FALSE as stated (verdict used as
+  `kill.gunji_dropped` in `paper_ii_taxonomy.json` and the large-cardinal bounds
+  note). Added to inventory 2026-07-10.
 - `mb_primeness_check.md` — McDonald–Bimbó duality / σ-primeness; PR_dual vs
   PR_lattice nesting is not free.
 - `meagre_vs_measure_check.md` — meagre vs measure route on the OML dual; ends on

@@ -255,9 +255,9 @@ planning/design via discussion; this repo verifies (Lean + audit tools); writing
 after verification. Vocabulary locked: **EA/PR(𝓡)** — coherent window data = EA;
 realisability relative to a *declared* realisation class 𝓡 = PR(𝓡) (the observer's
 commitment lattice); **commensurability** of a protocol = EA ⟹ PR(𝓡) universally.
-Seed (full round-log) + declared types: `notes/unsorted/
-commensurability_classification_seed.md`. **NAV: load
-`notes/unsorted/commensurability_taxonomy.json` FIRST** (the load-first index —
+Seed (full round-log) + declared types:
+`papers/reconstruction/notes/commensurability_classification_seed.md`. **NAV: load
+`papers/reconstruction/notes/commensurability_taxonomy.json` FIRST** (the load-first index —
 26 anchors, 65-entry ledger, all detail pointers).
 
 **STATE 2026-07-08 (the early "open queue" below is superseded — axis-reduction /

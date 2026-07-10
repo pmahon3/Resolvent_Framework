@@ -32,7 +32,7 @@ Directory conventions:
   `notes/literature_review/`;
 - guided reading questions live in `notes/reading_directions/`;
 - programme-wide reception reports live under
-  `notes/programme/programme_reception/`;
+  `notes/archive/programme_reception_2026-05/`;
 - superseded material stays under `notes/archive/`.
 
 Architectural layers:
@@ -42,7 +42,7 @@ Architectural layers:
 | Foundations | `foundations/` | logic, coherence, CE, Stone/Boolean support, rational-object probes |
 | Dynamics and reconstruction | `dynamics_reconstruction/` | Paper II/Paper III bridge, fibre mixing, Lyapunov directions |
 | Finite sample | `finite_sample/` | empirical witnesses, rates, observational resolution, interaction/certification |
-| Programme reception | `programme_reception/` | field placement, novelty, audience-specific rhetoric |
+| Programme reception (archived) | `notes/archive/programme_reception_2026-05/` | field placement, novelty, audience-specific rhetoric |
 
 This is intentionally not a perfect taxonomy.  Some directions are genuinely
 cross-layer.  Place a note where its current mathematical work happens, and use
@@ -71,7 +71,7 @@ Path examples:
 - `notes/archive/coherence_completion_parked/mathematical_language.md`;
 - `notes/unsorted/finite_sample/observational_resolution/theorem_spec.md`;
 - `notes/archive/coherence_completion_parked/logic_lit_review.md`;
-- `notes/programme/programme_reception/novelty_audit.md`.
+- `notes/archive/programme_reception_2026-05/novelty_audit.md`.
 
 ## Recurring Motifs
 
@@ -105,6 +105,14 @@ the candidate but the bridge theorem it supported is false --- 2026-05-14);
 valuation of refinement is the quantitative analogue for dimension/rates.
 
 ## Active Clusters
+
+> **2026-07-10 status banner:** live research state is NOT tracked in this file.
+> Zoom-out navigation = `notes/taxonomies_index.json` (load FIRST); state =
+> `notes/programme/program_overview.md`; plan = `notes/programme/shovel_plan.md`.
+> The ACTIVE flagship (reconstruction/commensurability) lives in
+> `papers/reconstruction/` (notes/ hubs + oracles/). The clusters below are the
+> DORMANT / Tier-3 pile (mostly `notes/unsorted/` subdirs); each file carries its
+> own status marker, which wins over anything written here.
 
 The clusters below are organized by programme architecture first, then by
 operational role inside each topic.
@@ -294,12 +302,11 @@ Role:
 
 ### Programme Reception: General Literature and Reception Reports
 
-Primary notes:
+**ARCHIVED 2026-07-10** (reception of the pre-July programme arc) →
+`notes/archive/programme_reception_2026-05/`:
 
-- `notes/programme/programme_reception/historical_placement.md`
-- `notes/programme/programme_reception/field_by_field.md`
-- `notes/programme/programme_reception/novelty_audit.md`
-- `notes/programme/programme_reception/novelty_summary.md`
+- `historical_placement.md`, `field_by_field.md`, `novelty_audit.md`,
+  `novelty_summary.md`
 
 Role:
 
@@ -312,12 +319,20 @@ Role:
 
 ## Programme-Level Notes
 
-- `notes/programme/program_overview.md` — public-facing repository overview and
-  submission status.
-- `notes/programme/program_synthesis.md` — internal architecture and dependency
-  structure.
-- `notes/programme/arxiv_prep.md` — submission logistics.
-- `notes/programme/lean_flight_log.md` — Lean-specific work log.
+The current trio (state → veins → dig-order):
+
+- `notes/programme/program_overview.md` — THE authoritative state doc.
+- `notes/programme/frontier_map.md` — the layered open-problem map.
+- `notes/programme/shovel_plan.md` — adopted work plan (2026-07-10): four
+  theorems to prove + vacant lots as invitations.
+- `notes/programme/contribution_evaluation.md` — the 7 contribution types
+  (methodology reference used by /audit).
+
+Archived 2026-07-10 → `notes/archive/`: `program_synthesis.md` (self-declared
+stale snapshot), `tetralemma_plan.md` + `arxiv_prep.md` (mooted by Paper I park
++ no-publication-pressure stance), `lean_flight_log.md` (abandoned log).
+The genealogy pair (`genealogy.md`, `genealogy_vision.md`) stays — historical
+narrative, self-disclaiming currency.
 
 These should stay high-level.  They should link to active future notes rather
 than absorb their content.

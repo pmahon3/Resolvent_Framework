@@ -17,8 +17,9 @@
     "headline": {
       "joints": 2,
       "joint1_status": "CLOSED (pruning lemma, all k, HAND + 73728-check scan)",
-      "joint2_status": "OPEN (crux corrected)",
-      "fork_free_through": "≤4 states, 9 edges at 5 states (witness-grade)",
+      "joint2_status": "OPEN but REDUCED 2026-07-09 to a single named lemma L-B (win.named_lemma floor reached). See open_crux.forcing_lemma_LB.",
+      "joint2_reduction": "parity-only ⟸ [L-A balance⟺safe-on-evens VALIDATED+provable] ∧ [L-B forcing = primitive ⟹ bar-D signed-balance-or-finite-safe = 2 PF exclusions, VALIDATED ~3100 primitives 0-mixed, OPEN] ∧ [Joint-1 winding-2→full bridge]. SCOPE: validated on winding-2 oracle only; full-safety needs the Joint-1 bridge verified.",
+      "fork_free_through": "R1 backbone ~25,700 primitives (A=3 full + A=4 full) 0 cex to primitive+infinite-safe⟹evens",
       "symmetric_case": "expelled but WITNESS-grade (girth-locking not yet rigorous)"
     },
     "scope_note": "Spun off from `commensurability_taxonomy.json` (the parent). The winding criterion, tamings catalogue, parity, forests live there; THIS branch is only the completeness/impossibility question over them. Do not double-list the tamings themselves here."
@@ -89,9 +90,18 @@
     {
       "id": "open_crux.sources_of_safety",
       "name": "THE CRUX — tamings are the only sources of residue-safety",
+      "status": "open-REDUCED",
+      "one_line": "REDUCED 2026-07-09 to a single named lemma (win.named_lemma floor REACHED). parity-only ⟸ [L-A balance⟺safe-on-evens: VALIDATED, provable via cycle-space ℤ₂×ℤ₂ homomorphism G] ∧ [L-B FORCING = primitive ⟹ G diagonal-or-full-never-mixed = 2 Perron–Frobenius exclusions: VALIDATED ~3100 primitives 0-cex, OPEN] ∧ [Joint-1 winding-2→full-safety bridge: closed, verify applies]. L-B is THE open lemma.",
+      "detail": "joint2_wielandt_finding.md#the-clean-reduction-2026-07-09-landing"
+    },
+    {
+      "id": "open_crux.forcing_lemma_LB",
+      "name": "L-B — the forcing lemma (the single open content)",
       "status": "open",
-      "one_line": "classify the sources of residue-safety in a primitive language; show each is a catalogued taming. This IS 'the tamings are complete'. Golden-mean (signability on bipartite residue) is one confirmed source; non-symmetric primitives have NONE past Wielandt (no taming fires = cofinitely unsafe). Needs a real idea.",
-      "detail": "joint2_wielandt_finding.md#the-crux-corrected-2026-07-09"
+      "examined": "2026-07-09",
+      "one_line": "PRIMITIVE ⟹ G (image of (length mod2, monodromy mod2) on bar-D cycle group) is diagonal or full, never mixed. = two PF exclusions: (i) primitive ⟹ bar-D aperiodic [excl {(0,0),(0,1)}]; (ii) primitive+s.c. ⟹ crossed cycle exists = σ-cover connected [excl {(0,0),(1,0)}, also explains why NO safe-on-odds lang exists]. VALIDATED (A=3 full 139=9diag+130full 0-mixed; A=4/5 samples 0-mixed) NOT proved. Padding/Wielandt-on-bar-D shape; 3/139 bar-D-disconnected cases owed.",
+      "detail": "joint2_wielandt_finding.md#the-clean-reduction-2026-07-09-landing",
+      "kills_or_bounds": "open_crux.sources_of_safety"
     },
     {
       "id": "open_crux.was_nonsymmetry",
@@ -106,11 +116,11 @@
   "subtargets": [
     {
       "id": "sub.girth_locking",
-      "name": "Girth-locking / sources-of-safety — first attack exposed a DETECTOR bug",
-      "status": "open",
+      "name": "Girth-locking / sources-of-safety — REDUCED to L-B (2026-07-09)",
+      "status": "open-REDUCED",
       "examined": "2026-07-09",
-      "one_line": "Attacked via 'safe-on-d·ℤ ⟹ tamed'. v1 detector was BUGGED (tested target-graph 2-colouring; `tamed(golden_mean)=[]` despite gm being signability-tamed) ⟹ 6+14 false near-forks, all golden-mean-shaped. v2 detector rebuilt at mechanism level (grading=period | parity=safe-on-evens), CATCHES gm. A=3 FULL enum: 0 survive v2 (girth-locking holds A=3). A=4: too slow full, samples circular+near-empty (NOT evidence). SETTLED BY HAND: grading ≠ parity = TWO DISTINCT CARRIERS (gm primitive+parity-safe, admits no grading labelling): grading = transfer-DIGRAPH factors onto ℤ_d; parity = LAYERED-RING bipartite at even L ⟹ König/TU. Unifying frame: 'small quotient ⟹ polytope integral' on DIFFERENT carriers. HYPOTHESIS (thin, not theorem): primitive ⟹ parity is the only residue-safety source. NEXT: prove/break 'primitive + residue-safe ⟹ parity-carrier' by thinking, LISC as falsifier = theorem-or-missing-taming.",
-      "detail": "joint2_wielandt_finding.md#corrected-detector-two-carrier"
+      "one_line": "The parity-only attack, carried to a clean reduction. ⚠ TWO wrong carriers dissolved along the way (confirmation-bias catches): (1) 'bipartite LAYERED ring' was a TAUTOLOGY (layered ring bipartite at every even L for every ρ via homomorphism onto C_L; 'bipartite⟹safe' FALSE — full relation cex). (2) crossing-parity mechanism had 2 CODING bugs on the closure line (frozenset dedup; off-by-one L+1 arc). CORRECT object (VALIDATED, 1600 langs 0-mismatch): unsafe at L ⟺ a 2-fold cover of the layer cycle closes with SWAP MONODROMY after L steps ⟺ bar-D (unordered-pair graph) signed by monodromy+1 is UNBALANCED at length L. safe-on-evens ⟺ signed bar-D BALANCED (A=3 FULL 0-mismatch, not tautology). Reduced to L-B forcing lemma (see open_crux.forcing_lemma_LB). R1 backbone: ~25,700 primitives, 0 cex to safe⟹evens.",
+      "detail": "joint2_wielandt_finding.md#balance-characterization-validated-2026-07-09--the-forcing-lemma-is-now-clean"
     },
     {
       "id": "sub.mechanism_independence",

@@ -217,3 +217,280 @@ primitive-parity witness; the A=4 sample is too thin and too circular to support
 NEXT (by thinking, not scanning): prove or break "primitive + residue-safe ⟹
 parity-carrier (bipartite layered ring)", with LISC as the falsifier — that is the
 theorem-or-missing-taming, and it settles on a hand example, not a scan.
+
+## PARITY-ONLY, corrected framing + evidence (2026-07-09, next session)
+
+**⚠ A LOAD-BEARING CORRECTION — the "bipartite layered ring" carrier was WRONG
+(confirmation-bias-guard catch #3, advisor+oracle-verified).**
+
+Ran the NON-CIRCULAR witness channel (`scratchpad/witness_channel.py`): enumerate
+primitive strongly-conn total langs, compute the ACTUAL safe set via raw LISC with
+NO d-pre-filter, then read off residue structure. Surfaces (not filters) two
+refuters: R1 = safe on d·ℤ, d≠2; R2 = safe on evens but layered ring not bipartite.
+
+- **A=3 FULL (139 primitives, Lmax=16): 9 infinite-safe, EVERY one safe exactly on
+  evens (d=2), R1=0, R2=0.** The 9 witnesses are DISTINCT langs (not just golden
+  mean) — kills the "fit to one example" worry for d=2.
+
+**But R2 is a TAUTOLOGY — dead channel (do NOT count R2=0 as evidence):**
+- The layered graph maps homomorphically onto C_L via (i,s)↦i; C_L is bipartite at
+  even L; a proper 2-colouring pulls back along any homomorphism. So **the layered
+  ring is bipartite at EVERY even L for EVERY ρ.** `layered_ring_bipartite` can't
+  return False at even L ⟹ R2 structurally cannot fire. Same shape as the v1
+  detector bug.
+- **"bipartite layered ring ⟹ safe" is FALSE.** Verified on the oracle: the FULL
+  relation (all A² arcs) has layered_ring_bipartite=True at L=4,6,8,10,12 yet
+  lisc2_raw=UNSAFE at all of them. Direct counterexample.
+
+**The inherited "parity carrier = bipartite layered ring ⟹ König/TU" conflated TWO
+graphs:**
+- **layered graph** (L×A verts): bipartite auto at even L — IRRELEVANT to safety.
+- **ring C_L** (L site-verts): bipartite ⟺ L even — THIS is what the parity thm's
+  TU/König uses, but ONLY via the golden-mean reduction (configs = indep sets of
+  C_L; target = one edge). GOLDEN-MEAN-SPECIFIC, not a general carrier.
+
+**What SURVIVES (real, non-tautological):** R1=0 — "primitive + infinite-safe ⟹
+d=2" stands as genuine evidence (a 6ℤ-safe lang would be caught at d=6; none was).
+
+**Redirect (the false integrality line is BLOCKED):** node-arc incidence of ANY
+digraph is TU ⟹ circulation polytope ALWAYS integral ⟹ fractionality comes ONLY
+from per-layer normalization (winding-w vertex → mass 1/w), NOT bipartiteness. So
+"safe = no winding-≥2 LISC" is a pure WALK-EXISTENCE/COLLISION question =
+exactly the "off-diagonal + vertex-disjoint refinement" already named as the open
+step. Sharpened on the 9 witnesses: **why do vertex-disjoint winding-2 threads
+exist at ODD L but COLLIDE at EVEN L?** That L-parity collision IS the content of
+"safe on evens" — TU never enters. NEXT: work this collision question by hand.
+A=4 full enum running (`wc_A4.out`) as the wider R1 channel.
+
+### R1 evidence backbone (non-circular, STRONG) + crossing-parity falsifier (FIRED)
+
+**A=4 FULL enum (25575 primitives, Lmax=14): 64 infinite-safe, EVERY one safe
+exactly on evens (d=2). R1=0.** Combined with A=3 (139 primitives, 9 infinite-safe,
+all d=2): **primitive + infinite-safe ⟹ safe exactly on evens, 0 counterexamples
+across ~25,700 primitives.** This R1 backbone is REAL (safe set computed by raw
+LISC, residue read off after — no d pre-filter). (R2=0 stays a tautology — ignore.)
+
+**The winding-2 LISC structure (`collision_all9.py`): per-layer state-pairs
+ALTERNATE.** 7/9 A=3 witnesses: two-state support, pair {a,b} at every layer
+(golden-mean/odd-cycle half-point). 2/9 (w2,w3): three-state support but pairs
+alternate between two fixed pairs, period 2 in layer index. Unifying object = a
+2-fold cover of the layer cycle: unordered pair {s_i,t_i} per layer, consecutive
+pairs joined PARALLEL or CROSSED; single winding-2 cycle ⟺ ODD # crossings.
+
+**Crossing-parity MECHANISM (`crossing_parity.py`) — advisor-mandated falsifier
+FIRED (this is a GOOD outcome, caught before proof-writing):**
+- Candidate: unsafe at L ⟺ pair-graph closed walk of length L with ODD crossing
+  parity; safe-on-evens ⟺ crossing-label cohomologous to constant-1 (Z₂ potential
+  φ on pairs, edge-label = 1+Δφ ⟹ total = L mod 2 ⟹ odd ⟺ L odd).
+- **RESULT: my pair-graph oracle MATCHES all NEGATIVES (full relation + 8 random
+  unsafe-at-even) but MISPREDICTS all 9 WITNESSES at even L** (says unsafe, oracle
+  says safe). So crossing-parity as I coded it is NECESSARY-not-SUFFICIENT.
+- **Diagnosis:** my dedup key (layer, frozenset-pair) let the 2-fold cover REUSE an
+  unordered pair ⟹ found a swap-closing walk that is NOT a simple 2L-cycle. The
+  missing constraint = SIMPLICITY / global vertex-disjointness of the two threads =
+  EXACTLY the "vertex-disjoint refinement" already flagged as the open step. Odd
+  crossings is required; the simple/covering structure is what forbids even L.
+- ⚠ Do NOT round the Z₂-cohomology story up to a theorem — the falsifier shows it's
+  incomplete. The real content lives in simplicity, not in the parity label alone.
+- Likely the combinatorial shadow of the parity thm's det(I+P)=1−(−1)^L; if it
+  cleanly characterizes safe-on-evens it is an INTRINSIC re-derivation of the
+  parity mechanism, not a new taming. NEXT: fix the oracle to enforce simplicity,
+  re-test at both parities incl. negatives; if "odd-crossing + simple ⟺ unsafe"
+  matches, THEN attempt "primitive ⟹ even-L forces even-crossing-or-non-simple".
+
+### MECHANISM VALIDATED (2026-07-09) — the 2-fold-cover / swap-monodromy characterization
+
+Both prior mismatches were CODING bugs on the closure line (advisor-located), NOT a
+real incompleteness — and my "simplicity is the missing constraint" diagnosis was
+WRONG (dropped): a 2-fold cover with two DISTINCT states per layer is automatically
+simple (each thread is a section over the layer cycle ⟹ all 2L layered vertices
+distinct). v1 bug = frozenset dedup over-accepted; v2 bug = an extra (L+1)-th
+closure arc inverted the length-parity. Fixed (`crossing_parity_v2.py`, closure =
+`a==b0 and b==a0` at layer L).
+
+**VALIDATED CHARACTERIZATION (matches raw LISC on ALL 1600 random A=3/A=4 langs ×
+L=3..10, 0 mismatch; + 9 witnesses + 9 negatives at both parities):**
+
+  **unsafe at L ⟺ ∃ a 2-fold cover of the layer cycle by legal arcs (an ordered
+  thread-pair (a_i,b_i), a_i≠b_i per layer, each arc (a_i,a_{i+1}),(b_i,b_{i+1})∈ρ)
+  that closes with SWAP MONODROMY after exactly L steps (returns to (b_0,a_0)).**
+
+Swap monodromy = ODD # of crossed transitions = the single-winding-2-cycle
+condition. This is the INTRINSIC re-derivation of the parity mechanism (combinatorial
+shadow of det(I+P)=1−(−1)^L). **NOT a new taming; do NOT round up.**
+
+**What it does NOT yet give:** "primitive ⟹ safe-set = evens." That still needs:
+**primitivity forces the swap-closure to be achievable at ODD L and obstructed at
+EVEN L.** The validated predicate makes this a clean stateable question. If
+"primitive ⟹ swap-closes only at odd L" is where it gets hard, THAT is the
+`win.named_lemma` floor (a single clean open lemma = completes the paper's arc).
+Do NOT let the green harness round up to the theorem. NEXT: attempt the forcing.
+Oracle: `crossing_parity_v2.py`.
+
+### Forcing attempt — cohomology reformulation FAILED as coded (2026-07-09)
+
+Reformulated the validated predicate as a Z₂-cover: swap-monodromy walk = closed
+walk in the UNORDERED-pair graph bar-D with odd Z₂-monodromy (D→bar-D the
+sigma-cover, sigma:(a,b)↦(b,a)). Candidate forcing claim: **safe-on-evens ⟺ the
+signed graph (bar-D, sign=monodromy+1) is BALANCED** (⟺ monodromy cohomologous to
+const-1 ⟺ total monodromy = L mod 2 ⟺ odd only at odd L).
+
+**RESULT (`z2_potential.py`): FALSE as coded. A=3: 19/800 mismatches, ALL
+balanced=True but safe_on_evens=False (over-accepts). Not a tautology (counts
+non-trivial: 33 balanced, 14 safe-on-evens of 800) — so the predicate has real
+content but is WRONG/incomplete.** Likely my balance check misses long odd signed
+cycles (only caught 2-cycles + BFS-2-colour) OR the ascending-frame sign
+convention (spi^sqi) is miscounting monodromy. Example miss:
+[(0,1),(1,0),(1,1),(1,2),(2,1),(2,2)] period 1, balanced=True but unsafe-on-evens.
+
+⚠ CONFIRMATION-BIAS GUARD: do NOT patch the cohomology encoding a 3rd time solo.
+The VALIDATED object is `crossing_parity_v2` (swap-monodromy, 1600 langs 0-mismatch).
+The balance reformulation is a DERIVED claim and is empirically false as written —
+either the sign convention is wrong or safe-on-evens is NOT simply "balanced" and
+needs the primitivity hypothesis to enter differently. STATE THIS HONESTLY, get
+advisor eyes before the next encoding. Session's net gain = the validated
+swap-monodromy characterization + strong R1 backbone (~25,700 primitives, 0 cex);
+the clean forcing lemma is NOT yet in hand.
+
+### BALANCE CHARACTERIZATION VALIDATED (2026-07-09) — the forcing lemma is now clean
+
+The cohomology reformulation FAILED only because my balance check DROPPED bar-D
+SELF-LOOPS (advisor-located, trace-verified: node {1,2} in
+[(0,1),(1,0),(1,1),(1,2),(2,1),(2,2)] has a parallel self-loop (2,1)→(2,1) via
+(2,2),(1,1)∈ρ = sign m+1=1 = frustration, giving unsafe at L=4; my check skipped
+len-1 edges). All 19 mismatches were ONE-DIRECTIONAL (balanced=True/safe=False =
+under-detecting frustration) = the signature of dropped frustration edges, NOT a
+wrong sign convention (that mismatches both ways). Fixed: a parallel self-loop
+(m=0) on bar-D ⟹ imbalance.
+
+**VALIDATED EQUIVALENCE (A=3 FULL enum 144 langs 0-mismatch; A=4 800-sample
+0-mismatch; NOT a tautology — bal=soe=12 of 144, both non-trivial):**
+
+  **safe-on-evens ⟺ swap-monodromy walk exists only at odd L ⟺ the signed graph
+  (bar-D, sign = monodromy+1) is BALANCED**
+
+where bar-D = unordered-pair graph (vertices {a,b}, a≠b); an arc from an ordered
+(a,b)→(c,d) [(a,c),(b,d)∈ρ] carries monodromy m=0 (parallel, order-preserving in
+the ascending frame) or 1 (crossed); sign = m+1. Balanced ⟺ every closed walk has
+monodromy ≡ length (mod 2) ⟺ ∃ Z₂-potential φ on pairs with m = 1+Δφ. This IS the
+intrinsic re-derivation of the parity mechanism (shadow of det(I+P)=1−(−1)^L).
+Oracle+detector: `z2_potential.py`.
+
+**⟹ THE FORCING LEMMA (the parity-only content, `win.named_lemma` floor), now
+clean and stateable:**
+
+  **PRIMITIVE ⟹ [ (m+1)-signed bar-D is BALANCED  OR  the safe set is finite ].**
+
+Equivalently: a PRIMITIVE language with an INFINITE safe set has balanced signed
+bar-D (⟹ safe-set = evens). This is exactly "primitive ⟹ parity is the only
+source of residue-safety." Data: A=3 all 9 primitive-infinite-safe are balanced;
+~25,700 primitives 0 counterexample to safe⟹evens. ⚠ HOLD THE LINE: balance⟺
+safe-on-evens is a re-CHARACTERIZATION, NOT the forcing. The forcing (primitive ⟹
+balanced-or-finite-safe) is the OPEN content and is NOT touched by the harness.
+Balance does not obviously interact with primitivity — that gap IS the lemma.
+NEXT: attempt to prove the forcing, or fence it as the paper's stated open lemma.
+
+### THE CLEAN REDUCTION (2026-07-09 landing) — cycle-space / ℤ₂×ℤ₂ reframe
+
+Advisor-directed. Map two functionals on closed walks of bar-D (through a
+basepoint): **length mod 2** and **monodromy mod 2**. This is a homomorphism from
+bar-D's cycle group to ℤ₂×ℤ₂; let **G** = its image. Then (bar-D strongly
+connected; the 3/139 disconnected cases handled separately):
+
+| G | meaning | safety |
+|---|---------|--------|
+| diagonal {(0,0),(1,1)} | mono ≡ length | safe-on-EVENS |
+| full ℤ₂×ℤ₂ | odd-mono at both length-parities | FINITE safe (cofinitely unsafe) |
+| {(0,0),(0,1)} mixed | odd-mono only at even length; no odd closed walk | (would be safe-on-odds-ish) |
+| {(0,0),(1,0)} mixed | no odd-mono ever = σ-cover D→bar-D disconnected | safe at ALL L |
+
+**TWO LEMMAS:**
+- **L-A (re-characterization, ✅ PROVED below for s.c. bar-D, COFINITELY, via the
+  G-homomorphism, no empirics; disconnected bar-D = per-component obligation, not
+  automatic — see caveat):** balanced ⟺ G ⊆ diagonal ⟺ safe-on-evens.
+- **L-B (THE FORCING, the open content):** **PRIMITIVE ⟹ G is diagonal or full,
+  never mixed.** = two Perron–Frobenius exclusions:
+  - exclude {(0,0),(0,1)}: primitive ⟹ bar-D has an odd-length closed walk
+    (bar-D aperiodic). [tested via barD_period]
+  - exclude {(0,0),(1,0)}: primitive+s.c. ⟹ a crossed cycle exists (σ-cover
+    connected). **This also EXPLAINS why NO safe-on-odds language was ever found
+    (safe_res=[1]) — that would need this excluded G; a hole not previously named.**
+
+**EMPIRICS (G-type census): A=3 FULL 139 primitives = 9 diagonal + 130 full, 0
+MIXED. A=4 sample 1500 = 2 diagonal + 1498 full, 0 mixed. A=5 sample 1500 = all
+full, 0 mixed.** ~3100 primitives, 0 mixed. Also: primitive-unbalanced ⟹ finite
+safe holds 130/130 at A=3 (0 forcing violations).
+
+**PROOF of L-A (⟦HAND⟧, structural, no empirics; bar-D strongly connected).**
+Fix a basepoint P₀ in bar-D. Every closed walk W at P₀ has two ℤ₂ invariants:
+its length λ(W)=|W| mod 2 and its monodromy μ(W)=Σ(edge signs) mod 2, where the
+edge sign is 0 (parallel) / 1 (crossed) in the σ-cover D→bar-D. Both λ and μ are
+homomorphisms (closed-walk concatenation adds lengths and adds monodromies mod 2),
+so (λ,μ): {closed walks at P₀} → ℤ₂×ℤ₂ is a homomorphism; let G be its image (a
+subgroup, independent of P₀ up to conjugation since bar-D is s.c.).
+  By the VALIDATED characterization, unsafe at L ⟺ ∃ a swap-monodromy closure of
+  length L ⟺ ∃ a closed walk W with λ(W)≡L (mod 2) and μ(W)=1 (odd monodromy =
+  swap). So: **L is unsafe ⟺ (L mod 2, 1) ∈ G.**
+  Now safe-on-evens = [every even L safe] ∧ [some odd L unsafe]
+    = [(0,1)∉G] ∧ [(1,1)∈G].
+  (i) balanced ⟺ every closed walk has μ≡λ ⟺ G ⊆ diagonal {(0,0),(1,1)}.
+  (ii) balanced ⟹ (0,1)∉G [not on diagonal] and, since bar-D is s.c. and carries
+  a crossed edge in the s.c. non-trivial case, (1,1)∈G ⟹ safe-on-evens.
+  (iii) safe-on-evens ⟹ (0,1)∉G; and (1,0)∈G would force (by adding to (1,1)∈G)
+  the element (0,1)∈G, contradiction, so (1,0)∉G; hence G∩({0,1}×{0,1}) avoids
+  both (0,1),(1,0) ⟹ G ⊆ diagonal ⟹ balanced. ∎
+  [The (1,1)∈G existence in (ii) is exactly the crossed-cycle fact that L-B's 2nd
+  exclusion supplies for primitive languages; for GENERAL s.c. bar-D it is the
+  hypothesis distinguishing safe-on-evens from safe-at-ALL-L (G={(0,0),(1,0)}).]
+
+So L-A is PROVED for STRONGLY-CONNECTED bar-D modulo standard basepoint
+independence; the ONLY open content is L-B (primitive ⟹ G diagonal-or-full).
+
+**⚠ VERIFY-BY-BUILDING CAVEAT (the identity's s.c. hypothesis BITES).** Checked the
+key identity "unsafe at L ⟺ (L mod 2,1)∈G" against the oracle (A=3 FULL). For L
+large it holds EXCEPT on exactly the bar-D-NON-s.c. languages (e.g.
+[(0,2),(1,2),(2,0),(2,1)]: language s.c. but bar-D NOT s.c.; naive single-basepoint
+G={(0,0)} misses the crossed odd cycle living in another component, mispredicting
+unsafe at L=11,13). So for disconnected bar-D the NAIVE global G is WRONG — the
+"handled per component" clause is NOT automatic and must be spelled out (take the
+image over the component carrying the relevant closure). The COMPONENT-AGNOSTIC
+oracle that is correct throughout = `signed_balance` (checks ALL edges/self-loops
+for frustration), which matched safe-on-evens with 0 mismatch on A=3 FULL incl.
+these cases. Net: L-A holds; its clean G-image statement is s.c.-bar-D-scoped, and
+the disconnected case is a spelled-out-per-component obligation, not a freebie.
+(Small-L artifacts also present: the identity is a COFINITE statement — at small L
+a parity class in G may not yet be realizable at that exact length.)
+
+**⚠ SCOPE CAVEAT (blind spot, advisor-flagged):** EVERYTHING runs on `lisc2_raw` =
+winding-EXACTLY-2. Full safety = no LISC winding ≥2 for ANY k. This instrument is
+STRUCTURALLY BLIND to a winding-≥3 gap (same shape as the R2 tautology). So the
+result as validated is about **winding-2 safety**. Joint 1 (pruning lemma,
+TR_k=LISC_k all k, CLOSED) is the intended bridge from winding-2 to full safety —
+if it bridges cleanly, parity-only lifts to full safety in one line; if not, the
+result is SCOPED to winding-2 and the UI connection is not yet made. RESOLVE
+before claiming full-safety parity-only.
+
+⚠ Joint 1 gives unsafe = ∪_{k≤|A|} LISC_k (a UNION, NOT a containment
+LISC_k⊆LISC_2). So a winding-≥3 LISC could in principle add an even unsafe length
+the winding-2 oracle never sees. **DISCRIMINATOR RUN (advisor-directed,
+`pruning_lemma_fine.py::LISC_windings`, kmax=3): all 9 A=3 witnesses SAFE at even
+L=4,6,8,10 for windings 2 AND 3; golden-mean CALIBRATION anchor (theorem-grade
+safe-at-even via thm:parity) returns empty winding-set at those L = oracle
+trustworthy.** ⟹ the winding-2→full-safety bridge HOLDS EMPIRICALLY for these
+witnesses (parity-only survives as a FULL-safety statement, not winding-2-only).
+NOT proof: kmax=3 at A=3 only; the general containment is unproven — the honest
+lift is Joint-1 applied per-length, still owed.
+
+**NET (honest landing = win.named_lemma floor REACHED):** parity-only ⟸ [L-A:
+validated, provable via G-homomorphism] ∧ [L-B forcing = 2 PF exclusions:
+validated ~3100 primitives 0-cex, OPEN] ∧ [Joint-1 winding-2→full bridge: closed,
+verify it applies]. L-B is the single clean open lemma = completes the paper's arc
+(sharpens 'ten stamps + vague conjecture' → 'one clean PF-exclusion lemma'). Do
+NOT push a 3rd self-designed padding proof this session (that pattern produced 2
+closure bugs). Fence L-B honestly: the padding argument does NOT yet cover the
+3/139 bar-D-disconnected cases + the 2 PF exclusions are unproven. Oracles
+(persisted in notes/unsorted/): `parity_only_z2_balance.py` (= z2_potential:
+balance/G-type detector + safe-on-evens oracle), `parity_only_swap_monodromy.py`
+(= crossing_parity_v2: validated winding-2 = swap-monodromy, 1600 langs
+0-mismatch), `parity_only_witness_channel.py` (= witness_channel: non-circular R1
+enumeration).

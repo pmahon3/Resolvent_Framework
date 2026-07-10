@@ -96,8 +96,18 @@ graded open problems attract *inhabitants*.
    S+P, 0 failures; reproduces Safe(ρ₂₀)=6ℤ and Safe(ρ₁₃)={3} with the
    cofinite tail certified). ⟦HAND⟧ + instrument; Lean durability optional,
    still not owed.
-3. **Theorem 2** — OML-lattice case at regularity (open the attack via the
-   sigma_essential skill-plan reading; expect sharpened-conjecture outcomes).
+3. **Theorem 2** — OML-lattice case at regularity. **ATTACK OPENED
+   2026-07-10 (session 8):** `notes/open_questions/oml_lattice_regularity_attack.md`
+   — three meet-destruction mechanisms collected; conjecture split into 2a
+   (representability: concrete σ-complete irreducible non-Boolean OML ⟹
+   Polish-representable ⟹ tame via DW) + 2b (direct); three proof skeletons
+   (A representability, B meet-closed-overlap dichotomy, C Jauch–Piron
+   forcing); scout run (Q3 negative: NO infinite concrete σ-complete
+   non-Boolean irreducible OML located anywhere — 2a plausibly
+   open-but-unasked). Named obstruction = the engine gap (RDP too strong /
+   Polish not known to apply). **Next: pull BNPW 1985 (QJM Oxford 36,
+   261–271; decisive for Skeleton C) + Bunce–Hamhalter 2000; then the
+   skill-plan reading (Kechris Ch. 12–14 + DW inner-regularity line).**
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.
 5. **Parallel, user-gated:** σ-essential dissemination (FIDELITY_REVIEW
    sign-off + abstract length = user's) and the statistics-layer prior-art

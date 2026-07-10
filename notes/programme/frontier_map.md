@@ -20,6 +20,9 @@ lattice met provably tame.
 idea, not a refinement.
 **Role:** the one claim that ties the three transitions together further. This is
 "what would complete the *theory*."
+**2026-07-10:** attack OPENED on the load-bearing case (regularity/OML =
+shovel thm 2) — mechanisms collected, conjecture split, skeletons named:
+`notes/open_questions/oml_lattice_regularity_attack.md`.
 Nav: `papers/spine/` (single open bridging conjecture, §4).
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility

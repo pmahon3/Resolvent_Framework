@@ -74,6 +74,26 @@ Nav: frontier item 3 (second descendant); `papers/spine/notes/VERIFICATION_PASS.
 A field with everything closed attracts citations; certified foundations +
 graded open problems attract *inhabitants*.
 
+## Execution order (recorded 2026-07-10, post-consolidation)
+
+1. **Clear the small owed debts** (each ≤ a session):
+   a. Bank the crossed-cycle **lock-avoidance lemma** + run the HOSTILE
+      prior-art scout on the antipodal-walk equivalence (both flagged in
+      `papers/reconstruction/notes/HANDOFF_2026-07-10_session4.md`).
+   b. Paper II §4 reposition + 2 missing cites (Stairs 1983 Phil Sci 50:578;
+      arXiv:2603.22353).
+2. **Theorem 1** — pruning lemma phase-parametrized + theorem-let B.
+3. **Theorem 2** — OML-lattice case at regularity (open the attack via the
+   sigma_essential skill-plan reading; expect sharpened-conjecture outcomes).
+4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.
+5. **Parallel, user-gated:** σ-essential dissemination (FIDELITY_REVIEW
+   sign-off + abstract length = user's) and the statistics-layer prior-art
+   verdict (deep-research run is out; Phase-1 seed gated on it).
+
+Nothing in 2–4 blocks anything else; dissemination independent. Two open
+user decisions: fidelity-review sign-off; confirm recommendation 1a (bank
+the lemma before parking the fork).
+
 ## Interactions
 - **None of the four gate dissemination.** 1 and 3 would strengthen the
   σ-essential paper's reception, but it stands without them; 2 completes

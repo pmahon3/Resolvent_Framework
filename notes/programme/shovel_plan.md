@@ -172,12 +172,27 @@ graded open problems attract *inhabitants*.
    CLEARED s14 (two fresh-context reviewers, 11,686/11,686 from-scratch
    checks, one scope fix applied; receipt
    `notes/open_questions/PROOF_READ_2026-07-10_attack_s10.md`).
-   Next = the frontier, any order: (i) B′(i) direct attempt — now with
-   the kernel-FIP / compact-class proof shape (attack note §10e; pulls:
-   Marczewski 1951, Marczewski–Ryll-Nardzewski 1953); (iii) coarse-block
+   ✅ (iii) B′(i) direct attempt RUN s15 (2026-07-11, attack note §11;
+   ⟦HAND⟧, oracle `verification/b_prime_i_s15_oracle.py` 10/10;
+   **proof-read OWED**): no proof, no refutation — B′(i) reduced to a
+   FINITARY selection principle. Banked: 2BR two-block rescue (any
+   concrete σ-class OML; open locus = ≥3-block patterns; witness |V|=3
+   optimal), cluster normal form, P⁼ (pointed ⟺ σ on ctbly generated
+   blocks ⟹ B′(i) = pure selection problem — compact classes NOT needed
+   on its σ-side, reassigned to the coarse factor), Φ ⟺ St_σ dense in
+   St_fa, K(s)=∅ representation-relative, kernel-FIP strictly stronger
+   than coherence (✎s15 in §10e); Marczewski pulls read (M 1951, M 1953
+   "On compact measures", M–RN 1953, all in library): compact-transport
+   criterion OML form, independence-gluing 5(iii), co-ctble filter IS
+   Marczewski-compact ⟹ coarse killer kills only the topological leg —
+   intrinsic wall statement for the coarse factor banked.
+   Next = the frontier, any order: (i) **T4 via Maharam (8.2)** — the
+   finitary shadow of B′(i) (one-block repointing crux, attack note
+   §11f), now the sharpest step; (iii) coarse-block
    toy hunt — concrete σ-class OM lattice with one ctbl/co-ctbl-type
    block + one incompatibility — **promoted s13: it decides Theorem 2's
-   second factor** (even a failed construction names the next wall);
+   second factor** (even a failed construction names the next wall; s15
+   adds its target: defeat the intrinsic compact-class wall statement);
    (iv) Skeleton C surviving branch — PP1994 σ-unitality engine analysis
    (ptak_pulmannova_1994.pdf in library).**
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.

@@ -8,6 +8,12 @@ the candidate cardinal pinned against primary sources. Companion to
 two facts below are primary-source verified, the bounds themselves are
 unproven targets.⟧*
 
+*⟦s13 2026-07-10 scope note: DW-kill statements in this file assume D.6's
+THREE-legged hypothesis; the blockwise inner-regularity leg is BINDING
+(verdict note Addendum s13; attack note §10). Wherever this file says "a
+witness must be non-Polish-representable", read: non-Polish-representable
+OR coarse-riding (some blockwise restriction non-principal).⟧*
+
 ---
 
 ## 0. Why a large cardinal enters (the anchor)
@@ -403,7 +409,9 @@ boundary:
 
 By elimination, a witness MUST live in the **non-Polish-representable** regime
 (= non-standard-Borel) — confirmed from two independent directions (DW boundary +
-construction attack). But that is exactly the regime that resists explicit
+construction attack). *(s13: OR the coarse-riding escape — non-principal blockwise
+restriction defeats D.6's inner-regularity leg even on Polish reps; the located
+regime widens accordingly.)* But that is exactly the regime that resists explicit
 hand-construction, AND forcing (the usual non-constructive tool there) is barred, AND
 the strength that would justify a large-cardinal construction is now UNKNOWN (§3f).
 

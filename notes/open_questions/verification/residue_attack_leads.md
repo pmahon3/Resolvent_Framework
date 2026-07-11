@@ -34,7 +34,7 @@ points**, not the topological KIND of representability — is correct and is exa
 the programme already holds (boundary is `cl(S_df^σ)`, not "the fakes"; regularity-type
 hypotheses are not the frontier). So Lead 1 RE-DERIVES the known framing via a flawed
 argument; it does not sharpen it. Do NOT use the reduction; the "non-Polish-representable"
-survey framing stands.
+survey framing stands (s13: now two-condition — OR coarse-riding; verdict Addendum s13).
 
 ## LEAD 2 — descriptive-tameness lever for the impossibility direction (UNVERIFIED CITES)
 

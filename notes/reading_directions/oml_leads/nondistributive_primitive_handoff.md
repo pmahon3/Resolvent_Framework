@@ -84,7 +84,9 @@ must be KS-flavored (non-distributive) but concrete, σ, and infinite-witness.
 - **Band families** (AD-indexed with the specific closure): dichotomy ∪-closed⟹Boolean /
   not⟹not-a-lattice. Lean-certified (`band_family_dead`).
 - **Atomless blocks + COUNTABLE gluing of Polish measure algebras**: stays
-  Polish-representable ⟹ DW D.6 kills it.
+  Polish-representable ⟹ DW D.6 kills it. *(s13: kill needs D.6's binding
+  inner-regularity leg too — holds here per-instance only if blockwise
+  restrictions are compactly witnessed; verdict Addendum s13.)*
 - **Any construction that EXHIBITS a global σ-additive 2-valued state extending `s₀`**:
   that state is a RESCUER (polarity gate, Lean `builds_state_implies_not_witness`). The
   witness is a NON-existence — you must show no extension EXISTS, not build one.

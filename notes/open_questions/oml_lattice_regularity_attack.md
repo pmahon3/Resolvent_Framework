@@ -42,7 +42,9 @@ The conjecture splits:
 
 - **(2a) Inhabitation / representability.** Is every `L ∈ 𝒞`
   Polish-representable? If YES, Theorem 2 follows outright via
-  Derr–Williamson (Polish ⟹ Φ). Call this the **representability form**:
+  Derr–Williamson (Polish ⟹ Φ). *(s13: FALSE as stated — D.6 carries a
+  binding third leg, blockwise inner regularity; see §10d(i).)* Call this
+  the **representability form**:
 
   > **Conjecture 2a.** Every concrete σ-complete essentially irreducible
   > non-Boolean orthomodular *lattice* is Polish-representable.
@@ -114,6 +116,8 @@ Named engine slots, in decreasing directness. The obstruction (§6) is that
 the two *proved* engines bracket the conjecture without touching it.
 
 - **Skeleton A (representability → DW).** Prove Conjecture 2a; DW finishes.
+  *(s13: DEMOTED — DW finishes only with the blockwise inner-regularity
+  leg, which fails on coarse-riding states; §10d.)*
   Needs: a representation theorem for concrete σ-complete irreducible
   non-Boolean OMLs. Known inputs: concrete = full 2-valued state set
   (Godowski 1981); concrete OMLs a variety, finite basis OPEN (Harding
@@ -172,7 +176,8 @@ should attack the three legs jointly, not sequentially.
 **The engine gap.** The two proved lifting engines bracket the conjecture:
 RDP is *too strong* (forces Boolean — Jenča; nothing non-Boolean left to
 lift on) and Polish/inner-regularity is *not known to apply* (needs
-representability, which is exactly 2a). No theorem occupies the gap, and
+representability, which is exactly 2a — *s13: and more; even given 2a the
+inner-regularity leg fails on coarse-riding states, §10*). No theorem occupies the gap, and
 the identity-based route is closed by MO₂ (§1 guard). Every corpus death
 is consistent with the conjecture but none proves it; the axis-2 death is
 empirical. The missing mathematics is one of: a representability theorem
@@ -189,6 +194,8 @@ re-read), with the thm-2-specific "read it for" question attached:
 - **Kechris Ch. 12–14** (standard Borel spaces): what Polish-representability
   actually buys — on Polish Ω, Borel probability measures are Radon, so
   DW's inner-regularity is near-automatic (`sigma_essential_prior_art_verdict.md`).
+  *(s13 correction: NOT near-automatic — Radon compacts live in Borel, not
+  in the block; the leg is binding, §10d(ii).)*
   Read for: which step could *latticehood* conceivably re-supply.
 - **DW 2023 Thm D.6 + Maharam 1972 §8**: locate the load-bearing
   inner-regularity line (skill-plan primary-source question, verbatim);

@@ -259,7 +259,8 @@ located, open object — reached by one reduction, not seven.
 - Harding & Wang, *On some problems concerning… completions*, arXiv:2108.09819,
   Problem 2 (the embedding wall C; in the library).
 - Derr & Williamson, arXiv:2302.03522, Thm D.6 (Polish-representable ⟹ no gap; the
-  upper bound — any witness must be non-Polish).
+  upper bound — any witness must be non-Polish. s13: three-legged — blockwise
+  inner regularity BINDING; witness non-Polish OR coarse-riding; verdict Addendum s13).
 - Akemann & Weaver, PNAS 105(14) (2008) (pure state on no masa — no routing port).
 
 ## 6. THE SWING — the boldest *true* target (2026-06-25)

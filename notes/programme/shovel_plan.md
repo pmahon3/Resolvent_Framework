@@ -53,7 +53,9 @@ Banked theorem-lets ⟦HAND⟧: blocks of concrete σ-class OMLs are σ-fields
 rescued (witness needs incompatibility); T1 singleton quarantine (the
 product-Ulam kill mechanism provably unavailable on lattices — q:oml's
 hedge upgraded); T3 Dirac realization on countably generated blocks
-(latticehood re-supplies DW's inner regularity, no topology). Sharpened:
+(latticehood re-supplies DW's inner regularity, no topology — s13
+refinement: the Dirac half only; the compact-witness half is the
+cross-block glue, attack note §10c). Sharpened:
 **Conjecture B′(i)** (all blocks countably generated ⟹ Φ — next
 theorem-shaped target) + **B′(ii)** (coarse-block resources can't both
 cohere and kill); named obstruction = *rigidity without fine structure*,

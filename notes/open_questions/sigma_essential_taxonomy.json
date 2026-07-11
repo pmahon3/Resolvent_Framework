@@ -95,11 +95,11 @@
    "id": "wall.dw_polish",
    "name": "Derr–Williamson Polish cut",
    "status": "settled",
-   "one_line": "σ-essential cell EMPTY for Polish-representable carriers (DW Thm D.6 via Maharam 8.1). Upper boundary: a witness must be non-Polish-representable.",
+   "one_line": "σ-essential cell EMPTY inside DW's THREE-legged kill zone: Polish + Borel-generation + blockwise inner-regular (DW Thm D.6 via Maharam 8.1). s13 (2026-07-10): inner-regularity leg BINDING, not near-automatic — an (8.1)-regular two-valued f.a. state is a compactly witnessed Dirac restriction (theorem-let R), so coarse-riding states (non-principal blockwise restriction) escape D.6 on every Polish rep. Residue = TWO conditions: witness non-Polish-representable OR coarse-riding. NO verdict swing.",
    "kills_or_bounds": [
     "carrier.*"
    ],
-   "detail": "sigma_essential_prior_art_verdict.md; survey rem:dw"
+   "detail": "sigma_essential_prior_art_verdict.md (Addendum s13); oml_lattice_regularity_attack.md §10; survey rem:dw"
   },
   {
    "id": "wall.hw2",

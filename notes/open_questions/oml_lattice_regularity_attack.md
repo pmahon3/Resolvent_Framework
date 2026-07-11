@@ -762,8 +762,11 @@ second factor is vacuous.
 
 - The one reusable engine is **compact-class gluing**. B′(i)'s missing
   lemma now has a name and a shape: a countably compact class 𝒦,
-  intersection-stable across blocks, refining the value-1 filters of
-  blockwise states (T3 kernels D_ν are the canonical candidates;
+  intersection-stable across blocks, Marczewski-approximating the
+  blockwise states in-block (✎s16: "refining the value-1 filters" was
+  too weak — singleton classes refine every ultrafilter; the value-1
+  inner witness D ⊆ K is load-bearing, see §11e) (T3 kernels D_ν are
+  the canonical candidates;
   cross-block kernel FIP = cross-block coherence restated *(✎s15: the
   parenthetical is wrong in both halves — kernel FIP is strictly
   stronger than coherence (reduced-pentagon machine witness), and on
@@ -801,7 +804,8 @@ session (`marczewski_1951_almost_independent.pdf`,
 compact-class machinery actually lives; the cited "Remarks" is a 6-page
 follow-up). No proof of B′(i) claimed; yield = a reduction ladder ending
 in a FINITARY selection principle, plus a corrected picture of where the
-compact-class engine belongs. **s12-standard proof-read OWED.***
+compact-class engine belongs. Proof-read CLEARED 2026-07-11 s16, edits
+✎s16 in place (receipt `PROOF_READ_2026-07-11_attack_s11.md`).*
 
 ### 11a. Two-block rescue (any concrete σ-class OML — no countable generation)
 
@@ -833,7 +837,10 @@ are intersections.
 **Monotonicity lemma ⟦HAND⟧.** Two-valued f.a. states on an OML are
 monotone: E ≤ A ⟹ μ(E) ≤ μ(A), via orthomodularity (A = E ∨ (A∧Eᶜ), an
 orthogonal join, and A∧Eᶜ = A∩Eᶜ by compatibility of comparable
-elements). *(Machine: D2.)*
+elements). *(Machine: D2.)* *(✎s16: the OML hypothesis is superfluous —
+on any concrete σ-class, E ⊆ A with μ(E) = 1, μ(A) = 0 gives μ(Aᶜ) = 1
+and E ⊍ Aᶜ ∈ L, so μ(E ⊍ Aᶜ) = 2; two lines, no orthomodularity. The
+OM route stands; the general route is banked.)*
 
 **Cluster normal form.** Given any f.a.-coherent pattern (B, s, μ),
 group V by blocks and take in-block meets: the pattern reduces to a
@@ -865,7 +872,9 @@ B′(ii)), not to B′(i).
 **Correction to §10e's slogan (✎s15 there).** Cross-block kernel FIP is
 NOT "cross-block coherence restated" — it is strictly stronger. Machine
 witness: on the pentagon represented on a proper order-determining subset
-Ω′ ⊊ St(L) (10 of 11 states), some σ-additive state has three
+Ω′ ⊊ St(L) (10 of 11 states — ✎s16: the *unique* valid reduced rep,
+drop the all-odd state; exhaustive over all 2046 proper subsets), some
+σ-additive state has three
 block-kernels pairwise intersecting with EMPTY triple intersection
 *(D3-reduced)*. Coherence constrains kernels only through shared
 elements, not through set intersections.
@@ -878,8 +887,8 @@ impossible, verified)*; on Ω′ the dropped state becomes a non-Dirac
 non-Dirac-ly *(D4-reduced)*. **K(s) = ∅ is a property of the
 representation — it measures the gap between the point set Ω and
 St_σ(L)**, not a property of the abstract logic. (Concrete-σ-class reps
-have Ω ↪ St_σ(L) via ω ↦ δ_ω; σ-classhood is what ties points to
-σ-states.) The ≥3-block frontier is thus inhabited already at finite
+have Ω → St_σ(L) via ω ↦ δ_ω — injective only when L separates points,
+✎s16; σ-classhood is what ties points to σ-states.) The ≥3-block frontier is thus inhabited already at finite
 scale — B′(i) cannot be proved by Dirac density, and any proof must
 produce non-Dirac selections.
 
@@ -902,22 +911,37 @@ not an extension property per se.
 
 Definitions (M 1953, §§2–4): a class 𝒦 is *compact* if every countable
 subfamily with the finite-intersection property has nonempty total
-intersection; 𝒦 *approximates* a field M w.r.t. μ if value-1 elements
-are sandwiched D ⊆ K ⊆ A with D ∈ M value-1, K ∈ 𝒦; μ is a *compact
-measure* if some compact class approximates it. Then:
+intersection; 𝒦 *approximates* a field M w.r.t. μ if every E ∈ M is
+η-sandwiched D ⊆ K ⊆ E with D ∈ M, K ∈ 𝒦, μ(E∖D) < η (✎s16 source
+fix: the quantifier runs over ALL of M — null sets included, so 𝒦 must
+contain small sets, ∅ suffices; for two-valued μ this reduces to the
+value-1 sandwich D ⊆ K ⊆ A with μ(D) = 1, plus ∅ ∈ 𝒦); μ is a
+*compact measure* if some compact class approximates it. Then:
 
 - **4(i) compact ⟹ countably additive.** Two-valued in-block form
   (inline, for our use): if E = ⊍ₙEₙ in Bl with μ(E) = 1, μ(Eₙ) ≡ 0, the
   tails Fₙ = E∖(E₁⊍…⊍Eₙ) are value-1, their sandwich compacts have the
   FIP (finite in-block value-1 intersections are value-1, hence
   nonempty), so ∅ ≠ ∩Kₙ ⊆ ∩Fₙ = ∅ — absurd. **Compact-transport
-  criterion, OML form: ONE countably compact class refining every
-  block's value-1 filter in-block makes a two-valued f.a. state
-  σ-additive** (per-block 4(i) + A1c). This is the intrinsic engine for
+  criterion, OML form: ONE countably compact class
+  Marczewski-approximating every block in-block makes a two-valued
+  f.a. state σ-additive** (per-block 4(i) + A1c). (✎s16: was "refining
+  every block's value-1 filter" — too weak, and inequivalent: the class
+  of ALL SINGLETONS of Ω is countably compact and refines every
+  ultrafilter, which would make every two-valued f.a. state σ-additive;
+  the value-1 *inner* witness D ∈ Bl, μ(D) = 1, D ⊆ K is what powers
+  the FIP step above.) This is the intrinsic engine for
   the coarse factor; B′(i) doesn't need it (11c).
-- **5(iii)/(iv) independence gluing.** If the generating subfields are
-  countably (pseudo-)independent and each partial measure is compact,
-  the glued measure is compact. Independence is what substitutes for
+- **5(iii)/(iv) independence gluing (✎s16 scope fix).** The clean
+  statement is 5(iv): if the generating subfields are countably
+  independent *σ-fields* and each partial measure is compact, the
+  measure on the generated field is compact. 5(iii) puts its
+  hypotheses on the *approximating classes* (compact + countably
+  multiplicative + countably pseudo-independent) — compactness of the
+  partial measures alone is explicitly insufficient there ("and, what
+  is more"). Both are compactness-*transfer* theorems for a measure
+  already given on the generated field, not extension-existence (that
+  is M 1951 Thm I). Independence is what substitutes for
   cross-block intersection-stability; OML blocks are precisely NOT
   independent (σ-field overlaps, A2), so no direct transfer — the
   theorem marks what overlap-coherence must replace.
@@ -926,21 +950,30 @@ measure* if some compact class approximates it. Then:
   product is not (Bernstein-type decomposition, m_e(Z) = m_e(Z′) = 1) —
   compactness is essential already for TWO factors; §3(ii): purely
   atomic σ-measures are compact (the abstract home of s14's "atomic
-  states satisfy (8.1) via finite atom-truncations"); §4: minimal
-  σ-extensions of compact measures are compact, converse false.
-- **Scoping bank (new).** The co-countable filter on ω₁ IS a countably
-  compact class (countably complete filter), so the coarse killer state
-  is a **compact measure in Marczewski's sense** — consistently with its
-  being σ-additive. Marczewski compactness ≠ (8.1): the coarse state
+  states satisfy (8.1) via finite atom-truncations"); §4: the
+  converse-false example (a non-compact measure whose minimal
+  σ-extension is purely atomic, hence compact) — the positive half,
+  minimal σ-extensions of compact measures are compact, is M 1953
+  4(ii), quoted there as "C 4 (ii)" (✎s16 credit fix).
+- **Scoping bank (new).** The co-countable filter on ω₁, with ∅
+  adjoined (✎s16 — approximation must cover null sets too; the sandwich
+  for co-countable E is E ⊆ E ⊆ E), IS a countably compact class, so
+  the coarse killer state is a **compact measure in Marczewski's
+  sense** — consistently with its being σ-additive (corroboration: the
+  state is purely atomic, ω₁ a single atom, hence compact by M–RN
+  §3(ii) directly). Marczewski compactness ≠ (8.1): the coarse state
   kills the TOPOLOGICAL in-block leg (DW, on every Polish rep — §10) and
   cross-block intersection-stability, not abstract compactness per se.
   (A union of per-block compact classes need not be compact — exactly
   what 5(iii)'s independence hypothesis buys back.) So even a
   "Marczewski-2a⁺" (abstract compact classes replacing Polish) bottoms
   at the same cross-block wall; three-front convergence unchanged, but
-  the coarse factor's wall now has an intrinsic statement: *no countably
-  compact class simultaneously refines the value-1 filters of
-  interlocking coarse blocks.*
+  the coarse factor's wall now has an intrinsic statement: *no
+  countably compact class simultaneously Marczewski-approximates
+  interlocking coarse blocks in-block* (✎s16: "approximates" — with the
+  value-1 inner witness — not mere filter refinement; the two are
+  inequivalent as conjecture targets, singleton-class counterexample
+  above, and only approximation is the true criterion's hypothesis).
 
 ### 11f. The reduction ladder, the crux, and exit
 
@@ -949,7 +982,12 @@ blockwise-pointed f.a. extension (11b + 11c) ⟺ pointed states are dense
 (11d). Zorn frame: partial pointings (finitely many blocks pointed at
 chosen atoms, f.a.-coherently with the cluster) give closed nonempty
 subsets of the compact St_fa(L); chains are fine by FIP. Everything
-reduces to the successor step:
+reduces to the successor step (✎s16 scope: at *finite* support as
+boxed; the Zorn run needs the step at arbitrary 𝒮 — a block may have
+infinitely many atoms, so "point Bl₀ somehow" is an infinite union of
+closed conditions, not closed, and compactness alone does not close
+the limit stage; the parenthetical after the box already concedes
+this. T4, the 𝒮 = ∅ instance, is unaffected):
 
 > **Crux (one-block repointing).** Given a f.a.-coherent configuration
 > (cluster + finitely many pointed blocks) and a further block Bl₀, is
@@ -989,8 +1027,19 @@ factor, T4 + crux ladder. Menu next (any order): (1) **T4 via Maharam
 (8.2)** — now the sharpest B′(i) step; (2) coarse-block toy hunt
 (unchanged, decides the second factor — with 11e's intrinsic wall
 statement as its target); (3) B′(ii) precise restatement; (4) Skeleton C
-surviving branch (PP1994). Owed: s12-standard proof-read of THIS section
-(§11).
+surviving branch (PP1994). ~~Owed: s12-standard proof-read of THIS
+section (§11)~~ CLEARED 2026-07-11 s16: two fresh-context reviewers —
+(1) all twelve claim-statements re-derived/refutation-attempted from
+statements only, then line-checked; 424,509/424,509 from-scratch
+machine checks (`verification/proof_read_2026-07-11_s15/`, 6 scripts,
+orchestrator re-run exit 0); (2) verbatim source re-check of every
+§11e attribution against all three Marczewski PDFs. VERDICT: SOUND, no
+wrong step; three substantive wording fixes applied in place (✎s16:
+compact-transport criterion + intrinsic wall "refines" →
+"Marczewski-approximates in-block"; 5(iii)/(iv) hypothesis scope; M–RN
+§4 credit), plus ∅-adjunction, crux-box finite-𝒮 scope, ↪ → →, and the
+banked monotonicity strengthening. Receipt
+`PROOF_READ_2026-07-11_attack_s11.md`.
 
 ---
 

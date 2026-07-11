@@ -367,7 +367,7 @@ trails (2026-06-25 → 07-02) live in `sigma_essential_construction_runs.md`.*
      (heavy measure wiring; already Exit B on countable substrates). Full record:
      `[[formalization_status]]`, `[[sigma_essential_construction_attempt]]` (Sessions 8b/8c).
 
-   The survey `notes/open_questions/oml_onboarding.tex`
+   The survey `notes/open_questions/kits/oml_onboarding.tex`
    is committed to this Reading-1 framing; working layer:
    `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,
    `direction2_gate_finding.md`, `subsession_sigma_essential_via_CE.md`.

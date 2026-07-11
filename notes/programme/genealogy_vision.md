@@ -148,7 +148,7 @@ trying to rank them as one fork feels cold:
   > open — prior-art (Derr–Williamson 2023, via Maharam 1972 §8) settles it negatively
   > in the Polish-representable case; open only for non-(topologically-)representable
   > witnesses = the σ-Loomis–Sikorski wall. See `program_overview.md` (item 4),
-  > `open_questions/sigma_essential_prior_art_verdict.md`, and
+  > `open_questions/sigma_essential/sigma_essential_prior_art_verdict.md`, and
   > `covered_leads/descent_axis_residue_post_kill.md`. This document is motivation,
   > not operational status.)*
 

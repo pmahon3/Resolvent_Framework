@@ -73,6 +73,6 @@ non-SC graphs, L=1..8, exact match), `check_lemma_NG.py`,
 
 The §7c ⟦HAND⟧-glue check (attack note, theorem-let chain vs MPT 1992
 primary) also returned **SOUND** — recorded at
-`notes/open_questions/oml_lattice_regularity_attack.md` §7c(iii-c), with
+`notes/open_questions/oml_attack/oml_lattice_regularity_attack.md` §7c(iii-c), with
 the seven-property MO₂ check committed as
 `notes/open_questions/verification/mo2_jp_check.py`.

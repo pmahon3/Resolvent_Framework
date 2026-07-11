@@ -35,7 +35,7 @@ non-distributivity scoping caveat (spine needs only necessity, proved; the
 sufficiency-side precision IS this question). This is the load-bearing CASE of
 the latticehood family; the full family stays a vacant lot.
 **Attack opened 2026-07-10 s8** — statement of record, mechanisms, skeletons
-A/B/C, scout results: `notes/open_questions/oml_lattice_regularity_attack.md`
+A/B/C, scout results: `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`
 (see §Execution-order item 3 for current next-step).
 **s9 (audited):** first banked result — theorem-let: *no non-Boolean concrete
 σ-class OML has all its σ-additive states JP* (MPT 1992 Props 3.2 + 4.4
@@ -66,7 +66,7 @@ in place); A2's two standard citations pinned primary-grade
 (Bruns–Harding 2000 Props 2.2–2.4/2.8/3.1, incl. the infinite case;
 Kalmbach 1983 Thm 5 p. 25; Foulis 1962 / Holland **1964**; OMP contrast
 Ramsay 1966 / Pool 1963 via Pulmannová 1981). Receipt:
-`notes/open_questions/PROOF_READ_2026-07-10_attack_s9.md` +
+`notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md` +
 from-scratch scripts (118/118) in
 `notes/open_questions/verification/proof_read_2026-07-10_s11/`.
 Awaits user ratification.
@@ -133,7 +133,7 @@ graded open problems attract *inhabitants*.
    cofinite tail certified). ⟦HAND⟧ + instrument; Lean durability optional,
    still not owed.
 3. **Theorem 2** — OML-lattice case at regularity. **ATTACK OPENED
-   2026-07-10 (session 8):** `notes/open_questions/oml_lattice_regularity_attack.md`
+   2026-07-10 (session 8):** `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`
    — three meet-destruction mechanisms collected; conjecture split into 2a
    (representability: concrete σ-complete irreducible non-Boolean OML ⟹
    Polish-representable ⟹ tame via DW) + 2b (direct); three proof skeletons
@@ -171,12 +171,12 @@ graded open problems attract *inhabitants*.
    rem:dw residue now two conditions. ✅ s12-standard proof-read of §10
    CLEARED s14 (two fresh-context reviewers, 11,686/11,686 from-scratch
    checks, one scope fix applied; receipt
-   `notes/open_questions/PROOF_READ_2026-07-10_attack_s10.md`).
+   `notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s10.md`).
    ✅ (iii) B′(i) direct attempt RUN s15 (2026-07-11, attack note §11;
    ⟦HAND⟧, oracle `verification/b_prime_i_s15_oracle.py` 10/10;
    proof-read CLEARED s16 at s12 standard — SOUND, no wrong steps,
    424,509/424,509 from-scratch checks, 3 wording fixes ✎s16; receipt
-   `notes/open_questions/PROOF_READ_2026-07-11_attack_s11.md`): no
+   `notes/open_questions/oml_attack/PROOF_READ_2026-07-11_attack_s11.md`): no
    proof, no refutation — B′(i) reduced to a
    FINITARY selection principle. Banked: 2BR two-block rescue (any
    concrete σ-class OML; open locus = ≥3-block patterns; witness |V|=3

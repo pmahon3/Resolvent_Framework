@@ -3,7 +3,7 @@
 > **SUPERSEDED (2026-06-04) — fully archived, not a live record.**
 > Its two functions have been split out:
 > - **Problem statement / context** → the standalone survey
->   `notes/open_questions/oml_onboarding.{tex,md}`.
+>   `notes/open_questions/kits/oml_onboarding.{tex,md}`.
 > - **PR_lattice/PR_dual "two grades" overlay + the pending Paper II
 >   decision** → `papers/paper_ii/two_grades_of_pr.md`.
 >

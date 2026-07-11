@@ -109,7 +109,7 @@ PR_lattice / PR_dual — that the Boolean case fuses; see below.)
   was the L(H) PR error, corrected in Paper II and the open-questions note.
   See `papers/paper_ii/two_grades_of_pr.md` (the two-grades vocabulary and
   the pending Paper II decision; the problem statement itself is the survey
-  `notes/open_questions/oml_onboarding.tex`).
+  `notes/open_questions/kits/oml_onboarding.tex`).
 
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
@@ -242,7 +242,7 @@ attack ACTIVE 2026-07-10 s8–s12 (shovel thm 2): banked ⟦HAND⟧ theorem-lets
 (blocks are σ-fields; singleton/product-Ulam mechanism unavailable on
 lattices; Dirac realization on ctbly generated blocks), conjecture
 sharpened to B′(i)/(ii), s12 proof-read SOUND —
-`notes/open_questions/oml_lattice_regularity_attack.md` §9;
+`notes/open_questions/oml_attack/oml_lattice_regularity_attack.md` §9;
 Ψ with **literal irreducibility** (no-singletons regime) — OPEN
 (s11: now waits on the same missing coarse-rigidity engine as the
 lattice case; attack note §9d).
@@ -358,7 +358,7 @@ results + session-history pointers below.)
   exists iff **(i)** no point-evaluation (Dirac) extends the finite pattern *and* **(ii)**
   no non-Dirac σ-additive two-valued state does — and (i) is freely arrangeable
   (Navara–Pták), so the entire content is clause (ii) = Wall A. Machine-checked (Lean
-  `localization`, 0-sorry). Full statement: `notes/open_questions/sigma_essential_reduction_writeup.md`.
+  `localization`, 0-sorry). Full statement: `notes/open_questions/sigma_essential/sigma_essential_reduction_writeup.md`.
 - **Derr–Williamson Polish boundary (`rem:dw`) — amended s13.** On a Polish-representable
   carrier with **blockwise inner-regular** restrictions every finitely-coherent pattern
   globalises — no witness (DW 2023 Thm D.6, via Maharam §8; topological hypothesis
@@ -366,7 +366,7 @@ results + session-history pointers below.)
   (an (8.1)-regular two-valued state is a compactly witnessed Dirac restriction), so a
   witness must be **non-Polish / non-standard-Borel OR coarse-riding** (some blockwise
   restriction non-principal — escapes D.6 on every Polish rep). Backing:
-  `notes/open_questions/sigma_essential_prior_art_verdict.md` (Addendum s13);
+  `notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md` (Addendum s13);
   `oml_lattice_regularity_attack.md` §10; survey `oml_onboarding.tex` (`rem:dw`).
 - **Import sweep complete + the fourth-cell spec + the 5-axis gluing map** — the current
   frontier's structural results; see the 2026-07-02 block above and the taxonomy facts
@@ -460,7 +460,7 @@ Open directions — the extension boundary:
    governed by σ-additivity; σ-additivity governs only the *descent
    axis* (concentration on physical points). Boolean fuses them
    (extension free); OML separates them (extension is the open
-   problem). See the survey `notes/open_questions/oml_onboarding.tex`
+   problem). See the survey `notes/open_questions/kits/oml_onboarding.tex`
    (archived predecessor: `notes/archive/oml_extension_problem_superseded.md`).
 
    **Descent-axis history (Sessions 1–8b, 2026-06-10 → 06-17) — ARCHIVED.** The full

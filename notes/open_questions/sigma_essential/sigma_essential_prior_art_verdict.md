@@ -296,8 +296,8 @@ Do **not** present this as a clean open problem. The defensible statement is:
 ## ⟦ADDENDUM 2026-07-10 (s13) — banner sub-question (b) SETTLED: inner regularity is BINDING, not near-automatic⟧
 
 Skeleton A read (Maharam 1972 Thm 6.1 + §8 proof anatomy; DW App. D
-verbatim; full record `oml_lattice_regularity_attack.md` §10; receipt
-`SKELETON_A_READ_2026-07-10_receipt.md` — fresh-context adversarial check,
+verbatim; full record `../oml_attack/oml_lattice_regularity_attack.md` §10; receipt
+`../oml_attack/SKELETON_A_READ_2026-07-10_receipt.md` — fresh-context adversarial check,
 all claims SOUND). This is NOT a verdict swing — the boxed kill zone
 (Polish + Borel-generation + inner-regular blocks) was always three-legged;
 what changes is the accounting of the third leg. Two corrections to this

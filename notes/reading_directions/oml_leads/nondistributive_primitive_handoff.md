@@ -164,8 +164,8 @@ adversarially with the razor at every step.
 ## 7. Pointers (load on demand, not upfront)
 
 - Zoom-out: `notes/open_questions/sigma_essential_taxonomy.json` (81 entries; `$meta.the_shape`).
-- Full attack record: `notes/open_questions/sigma_essential_large_cardinal_bounds.md`
-  §3k–§3s; construction swings: `notes/open_questions/sigma_essential_construction_runs.md`.
+- Full attack record: `notes/open_questions/sigma_essential/sigma_essential_large_cardinal_bounds.md`
+  §3k–§3s; construction swings: `notes/open_questions/sigma_essential/sigma_essential_construction_runs.md`.
 - The razor + catalog scout: construction_runs.md (2026-07-01 sections).
 - Language inventory (pBA base grammar, Feldman–Wilce, the 5 primitives): bounds §3s.
 - Lean scaffold (Wall A open-prop, detectors, Ψ pinned): `SigmaEssentialOpenCore.lean`

@@ -58,7 +58,7 @@
    "name": "Disjointification identity",
    "status": "open",
    "one_line": "(a∨b)∧a⊥=b∧a⊥ is distributive, FALSE on OMLs; blocks transfer of state-agreement from joins to meets. The recurring bottleneck.",
-   "detail": "sigma_essential_reduction_writeup.md#7",
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#7",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
     "name": "IntersectionClosed / costume_kills_witness",
@@ -70,7 +70,7 @@
    "name": "σ-point-selection (Wall A)",
    "status": "open",
    "one_line": "THE core. Does a finitely-coherent local 2-valued pattern extend to a global NON-Dirac σ-additive 2-valued state on a concrete non-Boolean σ-OML?",
-   "detail": "sigma_essential_reduction_writeup.md#2",
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#2",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
     "name": "WallA / wallA_is_bottleneck",
@@ -89,7 +89,7 @@
    "name": "Tribe-vs-points gap",
    "status": "open",
    "one_line": "Every non-Boolean σ-LS image is σ-epimorphic, NOT separating 2-valued points; needs RDP, OMLs lack it (MO₂ witness).",
-   "detail": "sigma_essential_reduction_writeup.md#3 (Dvurečenskij 2000)"
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#3 (Dvurečenskij 2000)"
   },
   {
    "id": "wall.dw_polish",
@@ -99,14 +99,14 @@
    "kills_or_bounds": [
     "carrier.*"
    ],
-   "detail": "sigma_essential_prior_art_verdict.md (Addendum s13); oml_lattice_regularity_attack.md §10; survey rem:dw"
+   "detail": "sigma_essential/sigma_essential_prior_art_verdict.md (Addendum s13); oml_attack/oml_lattice_regularity_attack.md §10; survey rem:dw"
   },
   {
    "id": "wall.hw2",
    "name": "Harding–Wang Problem 2",
    "status": "open",
    "one_line": "Does every OMP embed into SOME σ-complete OMP? Open in literature; resolved ORTHOGONAL to Wall A (type mismatch — A's carrier already σ-complete), dropped as red herring.",
-   "detail": "sigma_essential_reduction_writeup.md#3 (weld run)"
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#3 (weld run)"
   },
   {
    "id": "wall.no_sigma_ls",
@@ -256,7 +256,7 @@
    "name": "Localization reduction",
    "status": "settled",
    "one_line": "Witness ⟺ (i) no Dirac extends s₀ ∧ (ii) no non-Dirac σ-state does; (i) freely arrangeable (Navara–Pták), so all weight on (ii) = Wall A. The one genuine reduction.",
-   "detail": "sigma_essential_reduction_writeup.md#2; thm:localization",
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#2; thm:localization",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialLocalization.lean",
     "name": "localization",
@@ -269,7 +269,7 @@
    "status": "dead",
    "examined": "2026-06-25",
    "one_line": "Defeats Diracs but N–P BUILD their own non-Dirac σ-state rescuer ⟹ not a witness; supplies clause (i) only. Carrier Boolean-enough (two compatible observables).",
-   "detail": "navara_ptak_1983_byhand_read.md; survey ex:navara-ptak",
+   "detail": "sigma_essential/navara_ptak_1983_byhand_read.md; survey ex:navara-ptak",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialLocalization.lean",
     "name": "navara_ptak_kernel_empty / kernel_empty_arrangeable",
@@ -282,7 +282,7 @@
    "status": "dead",
    "one_line": "Tried to import B–W (pure σ-state on B(ℓ²κ) ⟺ κ Ulam-measurable) to concrete sector. Fails: wrong carrier (Kochen–Specker, non-concrete), masa transfer fails (Akemann–Weaver), the consumed ultrafilter is structurally absent.",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3a; survey sec:boundary",
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3a; survey sec:boundary",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
     "name": "embedding_transport_dead (same masa/intersection mechanism)",
@@ -294,7 +294,7 @@
    "name": "Lower bound: Ψ ⟹ ∃ measurable",
    "status": "refuted-mechanism",
    "one_line": "MECHANISM REFUTED 2026-06-26 (bounds 3f): 'no measurable => every sigma-state Dirac => not-Psi' is BROKEN -- premise false (Navara-Ptak ZFC builds a non-Dirac sigma-state on a concrete non-Boolean sigma-class), and the last step is a non-sequitur (Dirac-only makes clause (ii) vacuous, pushing toward Psi). With UB already unearned, measurable-strength is unsupported in BOTH directions: Psi's strength is GENUINELY UNKNOWN, not conjecturally-measurable. GUARD: N-P is not a witness (Polish, DW-rescued), so this is 'mechanism broken + strength reopened', NOT 'Psi needs no large cardinal'.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#2",
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#2",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
     "name": "LowerBound",
@@ -306,7 +306,7 @@
    "name": "Upper bound: ∃X ⟹ Ψ",
    "status": "open",
    "one_line": "SHARPENED 2026-06-26 to ONE open step: direct large-cardinal construction (Blecher-Weaver model) reduces to the masa-free U->non-Boolean transport -- is there a masa-free construction of a non-distributive concrete sigma-OML from a measurable cardinal's ultrafilter U, or a proof none exists? Forcing barred (Levy-Solovay); hand-construction barred where Polish (DW). ATTEMPTING (not hand-off). See rem:consharp + bounds 3e.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#2",
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#2",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
     "name": "UpperBound",
@@ -343,7 +343,7 @@
    "killed": "2026-06-26",
    "one_line": "Takeuti–Zaring Ch.23 (class-sized Boolean algebras / Easton) read to beat unbounded cardinality. Does NOT unblock: every Ch.23 theorem PRESERVES strength (Ch.24 Easton = equiconsistent with ZFC, kills no measurables) — cardinality ≠ consistency strength (orthogonal axes); still forcing ⟹ still wrong engine (Lévy–Solovay); B is Boolean either way. Legitimate class-forcing BACKGROUND, not new input.",
    "kills_or_bounds": [],
-   "detail": "sigma_essential_large_cardinal_bounds.md#3c"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3c"
   },
   {
    "id": "strat.center_hybrid",
@@ -352,7 +352,7 @@
    "killed": "2026-06-26",
    "one_line": "Route the σ-state obstruction through the OML's Boolean CENTER C(L), where a measurable/U applies natively (center is ∩-closed, no disjointification wall) — partner ce.concept.oml_center / Pták 1987 exotic logics. KILLED on TWO horns (NOT the Gleason horn, which is FALSE — MO₂ is irreducible/trivial-center yet the SOURCE of disjointification, does not force σ-additivity; that horn was advisor-pending and is now retired as wrong+ superfluous): trivial center = no HOST for U; non-trivial center = SEGREGATED (rem:segregated), σ-states concentrate at points, no witness. No inhabited middle.",
    "same_as": "rem:segregated",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3d"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3d"
   },
   {
    "id": "strat.masa_free_ultrafilter",
@@ -361,7 +361,7 @@
    "killed": "2026-06-30",
    "one_line": "The one seam §3l left as 'masa structurally absent, NOT proven impossible': can a NON-Boolean object (Farah–Weaver quantum filter / maximal quantum filter / vN-side object) play the ultrafilter role = Side-A engine WITHOUT a Boolean masa/RDP? VERDICT SEAM-CLOSED-ABSENT: no masa-free candidate survives — quantum filters = PURE states (wrong side of the pure/2-valued line); not meet-closed except via purity; every LC-extraction routes through an abelian intermediary. ABSENT, not PROVABLE: the not-impossibility half stays UNEARNED (refuting one collapse ≠ foreclosing impossibility). ⚠ do NOT write 'collapse trivializes Kochen–Specker ⟹ impossibility foreclosed' (collapse is directly false via δ_ω; KS link shaky) — overclaim corrected 2026-06-30. Calibrated = rem:frontier.",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3m"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3m"
   },
   {
    "id": "strat.gap_gluing",
@@ -370,7 +370,7 @@
    "killed": "2026-07-01",
    "one_line": "GENUINE hand-construction swing at Wall A: use a Luzin/Hausdorff gap or uncountable-AD family as the gluing skeleton for the forced uncountable/non-Polish carrier — the hope being the gap's ZFC-ABSOLUTE non-interpolability blocks the global σ-thread non-segregatedly. NOT A WITNESS, splits by gap-type: HAUSDORFF → Check 1, a comparability structure ⟹ Boolean sub-object ⟹ central/segregated (NEW: a gap can never BE the non-central non-distributivity — needs incompatible generators); LUZIN-atomic → Check 4, = dead band substrate. ⭐ KEEPER (Check 2, load-bearing): the gap blocks a separating SET, but the witness needs no σ-additive 2-valued STATE — state-values don't assemble into a set off-Boolean (§3a meet-closure), so an N–P non-Dirac σ-state rescues regardless. ⟹ even an ABSOLUTE obstruction fails to transfer, for the disjointification reason: THE WALL EXCEEDS THE DEFINABILITY GAP (§3j/§3r not the whole story). SCOPING: kills the gap-MECHANISM into the atomless+uncountable-AD cell, NOT the cell itself (open.atomless_uncountable_AD stays open).",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 section)"
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 section)"
   },
   {
    "id": "strat.embedding_frame_change",
@@ -379,7 +379,7 @@
    "killed": "2026-06-30",
    "one_line": "The 'swap the primitive' frame-change: since the ULTRAFILTER face of a measurable collapses on an OML, try the EMBEDDING face (j:V→M) — maybe it carries the strength non-Booleanly. Pressure-tested for COHERENCE; VERDICT COSTUME. NOT malformed — steelman EXISTS (Takeuti/Ozawa quantum set theory V^(Q), orthomodular-valued universe WITH a transfer principle). Kills via the COMMUTATOR GATE: Ozawa transfer is com(ū)≤⟦φ⟧ for Δ₀ φ, and com=1⟺Boolean subalgebra (Marsden/PP); measurability is unbounded ⟹ forces com=1 ⟹ Boolean core. No non-distributive Łoś theorem. The disjointification wall in model-theory clothes; the one move that swaps (not re-dresses) the primitive, and it still bottoms out at the wall. Leans carefully toward ¬Ψ, NOT a proof.",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3n"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3n"
   },
   {
    "id": "strat.weaken_ultra",
@@ -388,7 +388,7 @@
    "killed": "2026-06-30",
    "one_line": "The LAST untested filter-shaped bend: keep meet-closure, WEAKEN ultra — a functional 2-valued per-block but not globally. VERDICT COSTUME via BLOCK COVER: every OML element lies in some block, so total per-block-2-valued ⟹ globally 2-valued = Ψ's Side-A engine verbatim (wall un-dodged); non-total ⟹ Heyting-valued topos object (ZFC-cheap) or segregated ∏ₙMO₂ (no strength). Dies EARLIER than the predicted real-valued death (per-block-2-valued is INCOMPATIBLE with real-valued — a generic [0,1]-state is 2-valued on no block). The dichotomy is trivial (block cover), NOT a 4th wall level. ⭐ Exhausts the filter-shaped primitive space.",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3o"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3o"
   },
   {
    "id": "strat.reconceive_carrier",
@@ -397,7 +397,7 @@
    "killed": "2026-06-30",
    "one_line": "Frame-shift 1/3: reconceive what 'concrete OML carrier' MEANS (sheaf/topos/Bohrification/Heyting-valued/concreteness-without-faithfulness) so the witness is native — the schemes analogue. VERDICT COSTUME: sheaf/topos = redescription (same L via global-sections) OR ZFC-cheap Heyting zone (KS-no-global-section is real-valued, sub-threshold, strength gone). Concreteness-without-faithfulness has NO teeth: order-determination by 2-valued STATES = set-representability (3-line proof). ⭐ Reusable: the CARRIER was never the locus of the wall (∏ₙMO₂ proves concrete≠Boolean); the Floor is the σ-TRIBE version (iii), not state-concreteness (i). Wall lives at the finitary→σ gap = Wall A.",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3p"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3p"
   },
   {
    "id": "strat.reconceive_extends",
@@ -406,7 +406,7 @@
    "killed": "2026-06-30",
    "one_line": "Frame-shift 2/3: reconceive the EXTENSION RELATION (Ψ is a non-extension; no prior move targeted the relation). Partial/approximate (A), into-enlargement (B), morphism-category (C), dualize (D). VERDICT COSTUME, pinned by POLARITY: weaken 'extends' ⟹ rescuer (refutes witness); restate ⟹ redescription (same ∏ₙMO₂ verdict). A=S_df-hull triviality; B/C=redescription; D=wall.tribe_vs_points. ⚠ correction: completions do NOT re-Booleanize (MacNeille of an OML need not be Boolean/OML, Harding 1991) — Floor is tribe-of-SETS-specific, not lattice-completions. (4) σ-completion branch dies on fork: vacuous (carrier already σ-complete = struck weld run) OR = Harding–Wang P2 / σ-LS (wall.hw2). No new tractable statement.",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3q"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3q"
   },
   {
    "id": "strat.anti_psi_invariant",
@@ -415,14 +415,14 @@
    "killed": "2026-06-30",
    "one_line": "Frame-shift 3/3, the ¬Ψ direction: is there an INVARIANT Inv(L,s₀) whose computation forces extendability = a ¬Ψ proof as computation not search? Candidates: (A) commutator-degree, (B) σ-additive cohomology, (C) definability rank, (D) graded RDP. VERDICT no attackable invariant, both fences respected. A=WALL-RENAMED+CIRCULAR (com is a lattice element/binary, and A's premise IS ¬Ψ); B=sufficient-not-necessary (can't certify ¬Ψ); C=§3j definability non-sequitur; D=RDP binary, full failure everywhere. ⭐ KEEPERS: (i) two-family factorization (finitary sub-threshold vs σ-definability) — every invariant misses σ-level or existence-absolute, the conjunction IS Wall A; (ii) Ψ is an existential over UNBOUNDED-cardinality carriers (non-Polish, ≥2^ℵ₀), NOT a fixed-real projective statement ⟹ DST absoluteness does not apply ⟹ definability routes cannot promote 'no Borel section' to 'no section'. ⚠ do NOT pin as 'Σ²₁/third-order' (corrected 2026-06-30).",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3r"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3r"
   },
   {
    "id": "strat.impossibility_i_to_iii",
    "name": "¬Ψ via forcing state-concreteness → σ-tribe-representability [(i)→(iii)]",
    "status": "open",
    "one_line": "The ONLY live ¬Ψ lane (advisor 2026-07-01). Ψ assumes only (i) state-concrete (MO₂ lives here, non-Boolean/fine); every Booleanizing tool we own (Floor, disjointification) bites at (iii) σ-tribe/faithful-rep. A real ¬Ψ proof must FORCE (i)→(iii) FOR THE Ψ CONFIG, or produce a FRESH obstruction at (i). Deliverable = a POSITIVE upgrade theorem, not a re-observation of the wall. ⚠ CIRCULARITY TRAP (write into any attempt): invoking disjointification/the Floor to 'prove' impossibility is circular — that identity being false on OMLs IS Wall A; the convergence (every road→Wall A) is NOT evidence for impossibility, equally consistent with an unconceived witness. Other ¬Ψ forms already closed: ZFC-¬Ψ open (no witness in any model, B–W non-concrete); Ψ⟹measurable route DEAD (§3a, carrier lacks the ultrafilter/masa Ulam consumes); independence BLOCKED (forcing wrong engine, Lévy–Solovay). Realistic outcome = another (c) located obstruction (= same convergence, NOT a resolution); worth doing ONLY if the (i)→(iii) upgrade is proved OR shown unprovable. ⭐SCOPED (2026-07-01, re-synthesis of gate.rdp_verdict[fired (c) 2026-06-27] repointed at the impossibility frame — NOT a fresh consult): (i)→(iii) disjunct — NO importable upgrade theorem; the only machinery forcing (iii) [Dvurečenskij σ-LS] is RDP-gated, RDP⟺MV⟺the Boolean/MV line (Bennett–Foulis/Riečanová), so the non-Boolean Ψ config is the COMPLEMENT of what σ-LS-with-RDP reaches (structurally EXCLUDED); Harding–Wang 2021 poses σ-OML embeddability OPEN. The 'fresh obstruction at (i)' disjunct — a direct obstruction at (i) IS bare ¬Ψ (a witness-nonexistence theorem stated directly), no machinery; with the RDP handle gone there is no handle on it either — covered by 'no importable route', not a new lane. ⚑ THE KEY FACT (one, not two): disjointification-false = non-MV = RDP-absent = Ψ config essentially non-Boolean — the witness side (bottoms at disjointification) and the impossibility side (bottoms at RDP⟺MV) are the SAME non-distributivity viewed from opposite directions, NOT independent confirmations. ∴ neither breaks the other's tie: the identical wall stands between us and BOTH a witness and an impossibility proof. Impossibility is OPEN but has NO importable route and does NOT resolve the new-world-vs-impossibility ambiguity. Resolving Ψ needs NEW mathematics on one side or the other.",
-   "detail": "sigma_essential_large_cardinal_bounds.md (2026-07-01 impossibility programme)",
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md (2026-07-01 impossibility programme)",
    "kills_or_bounds": [
     "open.wall_A",
     "open.intrinsic_K",
@@ -437,7 +437,7 @@
    "name": "Abramsky–Barbosa pCABA↔complete-exclusivity-graph duality (angle-3 import) — OFF-CELL (atomic)",
    "status": "dead",
    "one_line": "Read A–B 'Duality for Partial Boolean Algebras' (Topos Colloq 15/05/2025, `abramsky_barbosa_2025_duality_pBA_talk.pdf`) as angle-3 representation machinery. The duality: transitive partial CABA ≅ complete exclusivity graph via the GRAPH OF ATOMS At(A) (vertices=atoms, edges = x⊙x' ∧ x∧x'=0); elements = ≡-classes of cliques; epCABA≅XGph^op. Genuinely non-Boolean in the DUAL (exclusivity graph, # primitive) — looks like a native-non-distributive skeleton. ⚠ KILL = ATOMIC, not 'no σ' (advisor-corrected: complete⟹σ-complete, so σ is subsumed trivially; the text's zero-σ is NOT the reason). CABA = complete ATOMIC BA; the whole duality is built on ATOMS AS POINTS ('state descriptions/possible worlds'). Frame 26 makes it explicit: they ABANDON the point-based Stone route ('by KS, for interesting pBAs there are NO points') and go to the atom-based Tarski side BY NECESSITY. ∴ atomless ⟹ At(A) empty ⟹ duality DEGENERATES — STRUCTURALLY EMPTY on the σ-essential open cell (`open.atomless_uncountable_AD` is atomless; Luzin collapse kills atomic-only). Same shape as RDP⟺MV: the machinery lives on the COMPLEMENT of the Ψ config. Also: At(A) for atomic-orthogonal = the MO_κ/segregated orthogonality graph = already-DEAD cell. This is KS in categorical-dual dress (KS-property ⟺ no global point, frame 13/40) — razor-pass GUARANTEED, tells us nothing (KS is Ψ-excluded). SURVIVES (do NOT over-kill): the pBA GRAMMAR (states=per-block gluing, no global points) is untouched — still the base language for STATING the target; only the duality/REPRESENTATION theorem is atom-blocked. Closes the 'import pBA duality as representation machinery' sub-route of angle 3; does NOT close angle-3 grammar.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 A–B duality read)",
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 A–B duality read)",
    "same_as": "carrier.mo_kappa",
    "kills_or_bounds": []
   }
@@ -471,7 +471,7 @@
    "costume_of": "wall.disjointification",
    "killed": "2026-06-25",
    "one_line": "STRUCK. Honest count = 1 reduction + 3 angles on the same clause-(ii) object + failed dissolutions. A bottleneck, not a convergence.",
-   "detail": "sigma_essential_reduction_writeup.md#5"
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#5"
   },
   {
    "id": "costume.no_routing_port",
@@ -479,7 +479,7 @@
    "costume_of": "wall.disjointification",
    "killed": "2026-06-25",
    "one_line": "DEMOTED to a remark — no theorem-shaped meaning without a fixed reduction calculus. Content = 'clause (ii) is open' (literature-established).",
-   "detail": "sigma_essential_reduction_writeup.md#5"
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#5"
   },
   {
    "id": "costume.h1",
@@ -488,7 +488,7 @@
    "number": 5,
    "killed": "2026-06-25",
    "one_line": "5th costume. Re-derives Abramsky–Brandenburger σ-additive sheaf-contextuality (2022), a decade-old fact; generated at non-progress.",
-   "detail": "sigma_essential_reduction_writeup.md#1a"
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#1a"
   },
   {
    "id": "costume.countable_collapse",
@@ -497,7 +497,7 @@
    "number": 4,
    "killed": "2026-06-25",
    "one_line": "4th costume. ¬Ψ via 'countable ⟹ no rescuer' shows 'orthogonally-refinable ⟹ no rescuer' = the distributivity axis, NOT cardinality.",
-   "detail": "sigma_essential_reduction_writeup.md#7"
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#7"
   },
   {
    "id": "costume.selection_first",
@@ -520,7 +520,7 @@
    "number": 8,
    "status": "forbidden",
    "one_line": "8th costume, FLAGGED-AVOIDED (not made). 'Use the inner-model embedding j to transport a κ-complete ultrafilter onto orthogonal-only closure' — both walls bottom out at the same identity.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3b",
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3b",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialConjectures.lean",
     "name": "embedding_transport_dead",
@@ -535,7 +535,7 @@
    "costume_of": "strat.lower_bound",
    "one_line": "Non-hyperfinite-CBER non-smoothness transported onto a Gudder concrete logic = the last flagged constructive lead. KILLED: type/strength non-sequitur (=§3f mirror) — non-smoothness is a ZFC theorem + 'no Borel selector' (DEFINABILITY, AC-transversals exist), while clause (ii) is ABSOLUTE non-existence ≥ measurable. Definability obstruction can't deliver an existence obstruction. E∞ falls identically (kill is type/strength, not hyperfiniteness). Negative now COMPLETE; no entering tool.",
    "same_as": "strat.lower_bound",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3j"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3j"
   },
   {
    "id": "costume.gtw_nonspatial",
@@ -545,7 +545,7 @@
    "costume_of": "strat.lower_bound",
    "one_line": "Mackey–Ramsay point-realization fails for non-loc-cpt Polish groups (Glasner–Tsirelson–Weiss; Lévy ⟹ whirly) — hoped 'no point model' = the non-Polish witness. KILLED: same definability-vs-existence non-sequitur as §3j (CBER), one level earlier — Boolean action's μ is GIVEN data, whirly kills only the spatial REALIZATION not the state; + group mismatch (static carrier, no native group); + decisive: GTW carrier is Boolean ATOMLESS ⟹ NO σ-additive 2-valued states at all, devoid of the witness type, non-distributivity never reached.",
    "same_as": "strat.lower_bound",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3k"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3k"
   },
   {
    "id": "costume.measured_groupoid",
@@ -556,7 +556,7 @@
    "number": 12,
    "one_line": "Is a non-Boolean OML's 2-valued-state problem NATIVELY a measured groupoid (contexts=objects, overlaps=morphisms, non-distributivity=cohomology class)? Genuinely new seam (NOT the dead X/E item) but KILLED on TWO walls: (masa gate, CH-free) Feldman–Moore needs a Cartan masa=Boolean L∞, OML has none ⟹ force one = flatten to Boolean = disjointification; (definability) measured-groupoid cohomology is a.e. up to MEASURABLE coboundary ⟹ obstructs Borel section never absolute existence = §3j/§3k kill-weapon. + non-Polish needs uncountable fibers (outside FM, Hahn/Renault weaker).",
    "same_as": "wall.disjointification",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3l"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3l"
   }
  ],
  "fenced_reversals": [
@@ -569,7 +569,7 @@
    "id": "fence.orthosum_join_gap",
    "status": "forbidden",
    "one_line": "'Ψ lives in the GAP between orthosum-σ (Feldman–Wilce) and join-σ (Harding–Wang)' — FORBIDDEN (advisor-caught 2026-06-30, §3s). Verified against the paper: the carrier is closed under PAIRWISE-DISJOINT unions, states σ-additive over ORTHOGONAL joins ONLY, witness def never tests a non-orthogonal countable join ⟹ Ψ lives AT the orthosum floor; join-σ (=wall.hw2) is ORTHOGONAL to Wall A, already a dropped red herring. The disjointification identity is FINITARY (MO₂: a∩b≠∅, a∧b=0), NOT the finitary-vs-countable-join gap. Also orthosum-vs-join = carrier altitude; #4 belongs at STATE altitude.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3s"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3s"
   },
   {
    "id": "fence.measurable_iff",
@@ -610,7 +610,7 @@
    "id": "fence.couldnt_build",
    "one_line": "'couldn't-build ⟹ needs-choice ⟹ independent' — have step 1, suspect 2, have NOT shown 3.",
    "killed": "2026-06-22",
-   "detail": "self-contained; cf. sigma_essential_reduction_writeup.md#5"
+   "detail": "self-contained; cf. sigma_essential/sigma_essential_reduction_writeup.md#5"
   },
   {
    "id": "fence.boolean_factoring",
@@ -623,14 +623,14 @@
    "category": "fenced_reversal",
    "status": "forbidden",
    "one_line": "'Class forcing transcends set-cardinality, so it can supply what Ψ needs.' FORBIDDEN: Ψ's two obstacles are (I) consistency strength + (II) non-distributivity; cardinality was NEVER one. Ch.23 buys cardinality, Ψ needs strength — orthogonal. Easton (Ch.24) is the proof: equiconsistent, creates no large cardinals.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3c"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3c"
   },
   {
    "id": "fence.independence_lean",
    "category": "fenced_reversal",
    "status": "forbidden",
    "one_line": "'Answer-type is most likely INDEPENDENCE' (precedent-match on vN–Maharam / real-valued-measurable). FORBIDDEN: ranking is FLAT. (1) those precedents are two incompatible kinds (forcing-independence vs consistency-strength); (2) the one structural hook (Boolean-shadow ⟹ ≥measurable ⟹ not-ZFC-provable) is what §3f REFUTED; (3) 'resisted construction ⟹ independent' is definability-vs-existence on the modal axis — evidence about methods, symmetric (Ψ equally not refuted). Revives iff a §3f-surviving lower bound (large cardinal ⟸ Ψ) is re-proved.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3"
   }
  ],
  "settled_facts": [
@@ -657,17 +657,17 @@
   {
    "id": "fact.bw",
    "one_line": "Blecher–Weaver: singular ctbly-add PURE state on B(ℓ²κ) ⟺ κ Ulam-measurable (arXiv:1607.08505). Cardinal extracted from the diagonal masa ℓ∞(κ); pure≠2-valued; does NOT transfer to concrete (Kochen–Specker, Akemann–Weaver).",
-   "detail": "sigma_essential_large_cardinal_bounds.md#1; bw primary source"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#1; bw primary source"
   },
   {
    "id": "fact.ulam",
    "one_line": "Ulam: a 2-valued σ-additive non-principal measure forces a measurable carrier. Matrix breaks at CONSTRUCTION on a σ-class (non-orthogonal unions), not at the contradiction.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3b"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3b"
   },
   {
    "id": "fact.pure_2valued_line",
    "one_line": "THE marriage-repulsion root, paper-grade form (already in primary `sec:boundary` (3) + rem:no-bridge): the strength-carrier is an ULTRAFILTER (intersection-closed); non-distributivity forbids it. B–W's ultrafilter lives on the diagonal masa ℓ∞(κ); on a concrete non-Boolean σ-OML ℱ_s={A:s(A)=1} is a filter for NO 2-valued s — meet-closure fails already for δ_ω (MO₂: a∩b≠∅ as sets, a∧b=0 lattice-wise). ⟹ strength-carriers masa-bound, non-Boolean 2-valued states (Navara–Pták) ZFC-cheap, no known object is both. Session add: Farah–Weaver quantum filters = PURE-side, confirming the obvious surrogate fails. ⚠ DO NOT state as 'φ two-valued ⟺ φ|masa two-valued' (NOT Prop 2.3, false; Prop 2.3 = pure⟺{0,1}-valued ON ℓ∞(κ)) — corrected 2026-06-30.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3m"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3m"
   },
   {
    "id": "fact.conjecture_isolated",
@@ -677,37 +677,37 @@
   {
    "id": "fact.floor_scope",
    "one_line": "SCOPE of the Floor (over-attributed TWICE in the frame-shift series, §3p/§3q — pin it): 'faithful representation forces distributivity ⟹ Boolean' applies ONLY to a faithful tribe-of-SETS (concrete) representation. It does NOT apply to (a) state-concreteness = order-determination by 2-valued states (that IS the concrete carrier, non-Boolean fine), nor to (b) lattice COMPLETIONS — the MacNeille completion of an OML need not be distributive, need not even be an OML (Harding 1991). So neither reconceiving the carrier nor completing it triggers the Floor; the Floor is a statement about faithful set-representations specifically = the σ-tribe/finitary→σ gap = Wall A.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3q"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3q"
   },
   {
    "id": "fact.three_concreteness_notions",
    "one_line": "Keep DISTINCT (recurring conflation; primary-source SEP qt-quantlog + arXiv:2401.13798): (i) set-representable/concrete = full set of 2-valued STATES — weak, non-Boolean fine (MO₂ concrete), = the programme's carrier, closure under complement+DISJOINT-union imposes no distributivity; (ii) Boolean embedding = full set of 2-valued HOMOMORPHISMS (Zierler–Schlessinger/KS) — forces Boolean, fails for QM; (iii) σ-tribe = concrete+σ-additive. The Floor is (iii)⟹Boolean, NEVER (i). ⟹ the CARRIER is not the wall's locus (∏ₙMO₂ proves it); state-concreteness = set-representability (a↦{s:s(a)=1} is a rep). Do NOT read 'faithful forces Boolean' as (i).",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3p"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3p"
   },
   {
    "id": "fact.fw_younce_ladder",
    "one_line": "Feldman–Wilce concreteness FORK RESOLVED (2026-07-01, primary re-read): the ultrapower in F–W Thm 4.7 is a FREE-CASE ARTIFACT, not a general non-concreteness theorem — Thm 4.1/4.2/4.5 give a CANONICAL non-ultrapower σ-representation when L ALREADY carries a σ-structure (points = subsets of L's own 𝔄(L), not ultrafilter classes); Thm 4.7's ultrapower only appears because it FREELY manufactures σ-joins an arbitrary OA lacks. NOT a reversal of §3s (that answered the narrow 'does F–W's construction preserve concreteness?'=no, compatible with 'can a concrete one EXIST?'=open). THREE-RUNG LADDER (CONTAINMENTS, strictness UNEARNED — do not read ⊋): σ-OA (Def 3.2) ⊇ block-closed (Younce/Thm 4.4) ⊇? concrete (L⊆P(Ω)); rung1/rung2 strictness = Younce's OPEN 'is every block closed?', rung2/rung3 CONJECTURAL (no block-closed non-concrete witness exhibited; concrete⊆block-closed not even obviously clean). Block-closure = per-fiber (each closed block IS a Boolean σ-algebra, σ-LS-representable individually FOR FREE); concreteness = GLUE (per-block Stone reps cohere on one Ω). ⚠ RAZOR: Younce clause (ii) constrains D in the COMPATIBLE overlap B∩C only — says nothing about incompatible a∧b=0 yet a∩b≠∅; so block-closure ≠ σ-LS is TRUE but INERT (different compatible-overlap axis, no new grip on the glue). Glue side = Wall A, unchanged. Angle-2 (manuals-as-skeleton) bottoms at the SAME Wall A. Outcome (c): located wall.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 F–W/Younce block-closure)"
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 F–W/Younce block-closure)"
   },
   {
    "id": "fact.invariant_space_exhausted",
    "one_line": "THE invariant-shaped ¬Ψ space is CLOSED (2026-06-30, two independent audit runs converged). Every candidate Inv(L,s₀) factors into: Family (I) finitary non-distributivity measures (commutator, RDP-failure, finite Čech H¹) = ZFC-absolute but SUB-THRESHOLD (at/below Wright floor, same value on ∏ₙMO₂ and any witness, since Ψ IS the no-finite-witness part); Family (II) σ-level definability ranks (Borel rank, measurable cohomology) = reach σ but measure DEFINABILITY ⟹ 'no Borel section' never 'no section' (§3j). A ¬Ψ proof needs σ-level AND existence-absolute AND non-distributivity-sensitive at once — (I) misses σ, (II) misses existence-absolute — and that conjunction IS Wall A = Ψ renamed. Companion to fact.filter_space_exhausted. Reusable dismissal of invariant-shaped proposals. Plus (why definability can't promote): Ψ is an existential over UNBOUNDED-cardinality carriers (non-Polish, ≥2^ℵ₀), NOT a fixed-real projective statement, so DST absoluteness theorems do not apply. ⚠ do NOT pin as 'Σ²₁/third-order' (wrong vocabulary — the analytical hierarchy classifies fixed-real statements; corrected 2026-06-30).",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3r"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3r"
   },
   {
    "id": "fact.catalog_barren",
    "one_line": "The set-theory combinatorial catalog is BARREN as a witness-skeleton source (2026-07-01 scout, 6 classes: MAD, ladder/colorings, Suslin/Aronszajn, walks/coherent-seqs, gap-spectrum, towers). ALL fail the razor for ONE structural reason: every catalog object lives in a BOOLEAN ambient (P(ω)/fin, 2^ω₁, trees), where a maximal coherent {0,1}-assignment is an ultrafilter = MEET-CLOSED BY DEFINITION; the witness needs a NON-meet-closed (non-distributive) assignment, which no Boolean-ambient object exhibits. So every set/function-obstruction is routed-around by a non-Dirac σ-state (§3a rescuer). Positive control: Kochen–Specker PASSES the razor but is Ψ-excluded (non-concrete/L(H)/finite). ⚠ NOT ¬Ψ evidence (B–W measurable analogue ⟹ not a ZFC theorem). ⭐ KEEPER: the non-distributivity must be NATIVE TO THE SKELETON — you can't glue a non-distributive object along a Boolean (rescued) skeleton; skeleton and non-distributivity are inseparable. This is WHY every 'glue blocks along [combinatorial object]' attempt died.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 catalog scout)"
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 catalog scout)"
   },
   {
    "id": "fact.import_sweep_complete",
    "one_line": "THE IMPORT SWEEP IS COMPLETE (2026-07-01, advisor-confirmed): every EXISTING object-class proposed as the σ-essential skeleton bottoms at Wall A, via a LEGIBLE TWO-REASON PARTITION — each is EITHER (R1) Boolean-ambient ⟹ meet-closed ⟹ rescued by a non-Dirac σ-state (fact.catalog_barren), OR (R2) non-concrete-where-non-distributive ⟹ fails C1 (point-separation/2-valued-hom, L⊆P(Ω)) by Kochen–Specker. Swept classes: set-theory catalog [R1] (MAD/ladder/Suslin/walks/gaps/towers, fact.catalog_barren); manuals/Feldman–Wilce [R1-flavour, free σ-completion = ultrapower, strat.abramsky... sibling]; pBAs + Abramsky–Barbosa duality [R2, At(A) atom-founded, strat.abramsky_barbosa_pba_duality]; quantum relations/graphs = handoff angle 1 [R2, non-Boolean-ambient-ness supplied BY non-commutativity of M⊆B(H) = exactly what fails C1; abelian M→ℓ∞(set)→R1; II₁/tracial buys MEASURE-concreteness (trace=[0,1]-valued) NOT SET-concreteness (2-valued), projection lattice of any non-abelian vN fails C1 by KS — same B–W 'precedent not instance' wall]. Quantum FILTERS as the Side-A engine were already seam-closed-absent (seam.masa_free); this adds quantum RELATIONS as the skeleton. ⚠ GUARD 1: import-complete is NOT impossibility — says no EXISTING object imports, says NOTHING against a genuinely-new object or a ¬Ψ theorem (keep rem:frontier: 'neither closed by an impossibility theorem nor reachable by a borrowed construction'; the 'collapse⟹KS-trivial⟹impossibility' overclaim was corrected twice, do not repeat). ⚠ GUARD 2: the R1-XOR-R2 partition is an EMPIRICAL ⟦HAND⟧ pattern verified across 4 object-classes, NOT a proven metatheorem that every non-Boolean-ambient concrete object is impossible. NET: upgrades 'every WALKED road → Wall A' to 'every IMPORTABLE object → Wall A, for one of two structural reasons'. Remaining routes are both NEW-MATHEMATICS: (a′) human learn-then-try on a genuinely-new object (skill-plan: DST/large-cardinals as education, NOT schematic reasoning); (b) a non-RDP (i)→(iii) impossibility theorem (strat.impossibility_i_to_iii). Neither manufacturable at the schematic. ⭐SCOUT EXTENDED (2026-07-01, bounded un-swept-field scout): checked matroids/geometric lattices/oriented matroids, designs/finite geometries, Greechie infinite pasting, Gudder concrete logics — NO un-swept existing combinatorial field survives. NEW REASON-WHY (not a trichotomy — advisor-calibrated): geometric/incidence combinatorics (matroids, designs, partial linear spaces) is NOT NATIVELY ORTHOCOMPLEMENTED — you get an orthocomplement only from a POLARITY (non-degenerate bilinear/sesquilinear FORM), which IS the operator structure ⟹ either no form (not an OML, out of scope) or form-defined = R2 (polar/projective space = L(H)/vN, KS-non-concrete). So these die BEFORE the razor, at OML-hood; they don't add a witness-relevant cell, they show a would-be-combinatorial route never reaches OML without collapsing to R2. Greechie pasting = finite-block (no phantoms) / OMP-not-lattice / Pták-type no-σ-states (vacuous). ⚠ REALIZATION-THEOREM route (Navara–Rogalewicz/Harding–Navara, fact.fourth_cell_spec) is UNTOUCHED by the orthocomplementation horn — it pastes BOOLEAN blocks (orthocomplement block-INHERITED, NOT form-derived); it still dies only at the conjunction gap (finite-pasting ⟹ not σ-complete + not concrete). R1/R2 partition STANDS.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 import-sweep-complete)"
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 import-sweep-complete)"
   },
   {
    "id": "fact.fourth_cell_spec",
    "one_line": "THE MISSING IDEA, SPECIFIED (2026-07-01, advisor): the sweep produced not just a wall but a SHARP SPEC. Known outcomes for a non-distributive carrier = THREE cells: R1 Boolean-ambient (rescued — catalog/gaps/MAD); R2 operator-algebraic non-commutativity ⟹ fails C1/concreteness (quantum relations, L(H)); R3 set-concrete + non-distributive but SEGREGATED (∏ₙMO₂ lives here, dodges R1+R2). The witness needs a FOURTH CELL: set-concrete + non-distributive + NON-SEGREGATED + σ + uncountable. Tightest statement of the entire missing idea = 'a COMBINATORIAL (set-level, non-operator-algebraic) source of NON-SEGREGATED non-distributivity.' Every known non-segregated-non-distributive source is operator-algebraic (fails C1); every combinatorial one is R1 (Boolean-ambient) or R3 (segregates when scaled). TWO generative routes, neither schematic: (1) RECOGNITION/TRANSFER — an un-swept field already meets the spec ('read not write', forward); (2) RECONCEPTION of the ambient from a WORKED theory (human learn-then-try, aimed at what (1) surfaces — NOT 'learn everything'). ⚠ GUARD: do NOT try to prove R1/R2 partition is a metatheorem — ∏ₙMO₂ (R3) is a live counterexample to exhaustiveness ⟹ that attempt just re-derives non-segregation = Wall A. TWIN: the idea may instead live on the impossibility side (non-RDP (i)→(iii) technique proving the 4th cell empty); new-world vs impossibility stay indistinguishable until one is worked. Naming the spec this crisply IS the progress the sweep buys. ⭐LOCALIZED (2026-07-01, from czech_school_prior_art §POSITIVE): the fourth-cell spec has a PRECISE recognition target already in the OML literature — the REALIZATION THEOREMS (Navara–Rogalewicz 1988; Harding–Navara Order 17 2000, w/ prescribed center) DO realize NON-SIMPLEX (= contextual, non-segregated) state spaces on OMLs via combinatorial PASTING (non-operator-algebraic ✓). They die ONLY on the CONJUNCTION GAP: pasting ⟹ generically NOT σ-complete + NOT guaranteed concrete (Mayet–Navara 1995 give concreteness only for special K(L)). 'No located paper realizes a non-simplex state space on an OML that is simultaneously concrete AND σ-complete' — THAT conjunction is the cell. So route-1 recognition target sharpens from 'some un-swept field' to 'push the realization-theorem machinery to concrete+σ simultaneously'. ⚠ still not manufacturable at the schematic (the push is the hard part — finite-pasting is exactly what breaks σ-completeness), but it names WHERE to learn-then-try (Navara–Rogalewicz/Harding–Navara realization technique), not 'learn everything'. Negative twin also sharpened: Navara–Rüttimann 1991 (S_σ = semi-exposed FACE of S, NOT forced simplex) does NOT close the cell empty. READING PLAN: `notes/reading_directions/realization_technique/realization_technique_reading.tex` (dependency-ordered, anchored to the conjunction gap; companion to sigma_essential_skill_plan which covers the impossibility/independence side). ⭐HARDING 2004 READ (primary, in-hand `harding_2004_concrete_oml.pdf`): concrete≡full set of 2-valued states (Godowski 1981 = C1 exactly); Kalmbach K(L) glues Boolean algebras of L's chains, EVERY K(L) is concrete (Mayet–Navara 1995), orthocomplement=set-complement BLOCK-INHERITED not form-derived ⟹ polarity-horn DODGED, confirmed from primary source. BUT K(L) is FINITARY (finite orthogonal joins, no σ) — the finiteness dependency LOCATED. Two reframes: (1) K(L) ⊊ variety of concrete OMLs ⟹ a concrete σ-witness NEED NOT be a paste (raises the ¬Ψ bar: impossibility can't be won by 'no paste is σ-essential'; still inside construct-vs-assume — a non-paste concrete OML is cut by SOME closure rule on P(Ω)); (2) §5 atomic-embedding DEFLATED (advisor: embedding L↪L' ADDS states ⟹ destroys non-extension; 'atomic' there is finitary; proof buys atomicity with an ULTRAFILTER+infinite cardinal = same 'ultrafilter buys structure ⟹ non-concrete' enemy pattern, NOT a bridge). Library also has navara_1992 (σ-additivity+regularity, step-4-adjacent), muller_1993 (concrete non-Boolean JP example). Kalmbach 1983 textbook still to fetch.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 fourth-cell spec + un-swept scout)"
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 fourth-cell spec + un-swept scout)"
   },
   {
    "id": "fact.geometry_forecloses_family",
@@ -722,27 +722,27 @@
   {
    "id": "fact.wall_exceeds_definability",
    "one_line": "THE WALL EXCEEDS THE DEFINABILITY GAP (2026-07-01, gap-construction swing). §3j/§3r diagnosed the definability-vs-existence non-sequitur ('no Borel section' ≠ 'no section') as why definability routes fail. But the gap route tested an ABSOLUTE (ZFC, not definability-flavoured) combinatorial obstruction — a Luzin/Hausdorff gap's non-interpolability — and it ALSO fails to transfer. Reason: the gap blocks a separating SET; the witness needs no σ-additive 2-valued STATE, and state-values don't assemble into a set off-Boolean (§3a meet-closure fails even for δ_ω). ⟹ the obstruction is TYPE-LEVEL (set-vs-state) + disjointification, DEEPER than 'definability can't reach existence'. So the definability gap was NOT the whole story; the wall is the state-values-don't-form-a-set / disjointification obstruction, which even absolute set-combinatorics can't cross.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 section)"
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 section)"
   },
   {
    "id": "fact.filter_space_exhausted",
    "one_line": "THE filter-shaped primitive space is CLOSED (2026-06-30). 'Is there a non-Boolean primitive playing the countably-complete ultrafilter's role (= Side-A engine)?' — answered NO for every filter-shaped bend: keep-all (axiom collapse §3m), drop-meet (quantum filter, pure-side §3m), localize-meet (segregated), swap-to-embedding (commutator gate §3n), weaken-ultra (block cover §3o). Each reduces to wall.disjointification or to a strength-free object (Navara–Pták / Heyting-topos / ∏ₙMO₂). The SOLE remaining move is the carrier-construction open.intrinsic_K (abandon filter-shape, build the carrier), = the open problem, no entering tool. Leans carefully toward ¬Ψ.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3o"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3o"
   },
   {
    "id": "fact.wall_three_levels",
    "one_line": "The disjointification wall now confirmed at THREE independent levels, same obstruction each time: (1) axiom-level — a countably-complete ultrafilter's meet-closure collapses on incompatible OML elements (a,b∈U ⟹ a∧b=0∈U ⟹ U=L); (2) the disjointification identity (a∨b)∧a⊥=b∧a⊥; (3) the COMMUTATOR GATE on model-theoretic transfer — Ozawa's quantum-set-theory transfer com(ū)≤⟦φ⟧ is Boolean exactly where com=1 (Marsden/PP), so unbounded (large-cardinal) assertions force the Boolean core. Reusable: ANY route that would 'state non-Boolean largeness' (ultrafilter, embedding j:V→M, or quantum-set-theory transfer) hits the wall at one of these three. There is NO non-distributive Łoś theorem.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3n"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3n"
   },
   {
    "id": "ref.quantum_set_theory",
    "one_line": "REFERENCE (arena, not a lead): Takeuti/Ozawa quantum set theory V^(Q) = an orthomodular-valued universe of set theory WITH a transfer principle (Ozawa arXiv:0908.0367, math/0604349, 2002.06692). The nearest existing 'non-Boolean model theory with transfer'. Its PUBLISHED SHARP LIMIT (com-gated Δ₀ transfer) is exactly why the embedding-frame-change is a costume (strat.embedding_frame_change). No large-cardinal/embedding notion has ever been hosted inside V^(Q).",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3n"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3n"
   },
   {
    "id": "fact.cohomology_subthreshold",
    "one_line": "ANY cohomological framing of the obstruction (groupoid/context cohomology, H¹) reduces on ∏ₙMO₂ to Abramsky–Mansfield–Barbosa sheaf-contextuality cohomology = finite-cover, SUFFICIENT-not-necessary, sitting AT the Wright-1978 finite-contextuality floor Ψ lives strictly ABOVE. ⟹ the whole cohomological corner is SUB-THRESHOLD (sees only finite-witness contextuality; Ψ is the no-finite-witness part). One-line dismissal of future cohomological costumes.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3l"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3l"
   },
   {
    "id": "fact.lean_witness_encoding_defect",
@@ -771,13 +771,13 @@
     "status": "proved-edge (gap=WallA, on cited Feldman–Wilce axiom fw_abstract_sigma_free); #print axioms shows deps = {propext,Classical.choice,Quot.sound,AbstractSigmaOrtho,fw_abstract_sigma_free}, NOT WallA/Psi (open content not smuggled)"
    },
    "one_line": "First CONSTRUCTIVE direction (2026-06-30, §3s). Build a language non-distributive at the ground, subsuming Boolean, expressive enough to separate P1 (Boolean-shadow strength) from P2 (genuine). BASE GRAMMAR = partial Boolean algebras (Abramsky–Barbosa; #1 context/incompat, #2 point-free 2-valued selection, #5 Boolean subsumption native). σ-PRIMITIVE = Feldman–Wilce 1993 intrinsic countable-ORTHOGONAL-sum (native + UNIQUE, Thm 4.2). #4 (P1/P2) at STATE altitude = in-repo w∉conv̄(S_df^σ), possibly a STRICTLY STRONGER sibling of Ψ. ⭐ HINGE ANSWERED NO (primary source read, feldman_wilce_1993.pdf): the free OMP→σ-OMP embedding is an ITERATED ULTRAPOWER (Thm 4.7) ⟹ DESTROYS concreteness (elements = ultrafilter-classes, not points; 'block closure unknown' tell). So the language can EXPRESS Ψ but not DISSOLVE it — inhabiting the abstract σ-structure CONCRETELY IS wall.tribe_vs_points/σ-LS = the wall, one level in. SALVAGED: the abstract grammar is the right one for STATING P1/P2; the wall is now located maximally precisely (abstract-σ [free, ultrapower] vs concrete-σ [=Wall A], the ultrapower = the fingerprint). Guard: fence.orthosum_join_gap.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#3s"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3s"
   },
   {
    "id": "open.wall_A",
    "name": "σ-point-selection core",
    "one_line": "Does a finitely-coherent local 2-valued pattern extend to a global NON-Dirac σ-additive 2-valued state on a concrete non-Boolean σ-OML? No prior art on the concrete sector.",
-   "detail": "sigma_essential_reduction_writeup.md#2",
+   "detail": "sigma_essential/sigma_essential_reduction_writeup.md#2",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
     "name": "WallA",
@@ -788,7 +788,7 @@
    "id": "open.bounds",
    "name": "Large-cardinal bounds",
    "one_line": "STRENGTH GENUINELY UNKNOWN (bounds 3f/3i, 2026-06-26/27): LB mechanism REFUTED (Navara-Ptak ZFC non-Dirac state breaks 'no measurable => every state Dirac'; + that premise pushes toward Psi anyway). UB unearned (Levy-Solovay bars forcing; B-W doesn't transfer). RDP-failure is NOT a proved obstruction ((c)-open; E(H) shows broad version false; Harding/Hamhalter confirm untreated). So Psi could be ZFC-decidable or need some cardinal -- no evidence either way. 'measurable' conjecture withdrawn. CBER bridge (last constructive lead) KILLED §3j — same type/strength non-sequitur; no entering tool remains.",
-   "detail": "sigma_essential_large_cardinal_bounds.md#2",
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#2",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/SigmaEssentialOpenCore.lean",
     "name": "LowerBound / UpperBound / prize_equiconsistency",
@@ -814,7 +814,7 @@
    "id": "open.atomless_uncountable_AD",
    "name": "[SUPERSEDED → merged into open.intrinsic_K] Atomless-blocks cell was incoherent",
    "one_line": "SUPERSEDED 2026-07-01 (angle-4 records cleanup, advisor ×3): the cell's DISTINGUISHING FEATURE — atomless BLOCKS — is DEAD. Two independent facts agree blocks must be ATOMIC: (1) countable-block theorem needs uncountably many infinite ATOMIC blocks (load_bearing_facts); (2) BISECTION KILL — an atomless MEASURE-ALGEBRA block admits NO 2-valued σ-additive state (halve, iterate, measure→0, σ-add ⟹ s(inf)=1 but inf=0), so a global σ-2-valued state can't restrict to it ⟹ 'no global state' becomes VACUOUS, not contextual (degenerate separation, ∏ₙMO₂-style). ⚠ REGIME CAVEAT: bisection→0 is a MEASURE-ALGEBRA fact; a general atomless σ-complete BA CAN carry a 2-valued σ-state = a σ-complete ultrafilter = MEASURABLE-cardinal territory. So 'atomless ⟹ no state' holds in the no-LC/measure-algebra regime, NOT ZFC-absolutely (same measurable escape / forcing-wrong-engine as everything). NO VISE: 'atomless→vacuous / atomic→dies-to-band-Check-4' is a two-horn route-death on the AD/BAND mechanism = fact.catalog_barren re-proved on the atomic/atomless axis (Check-4 is band-only, NOT general-atomic — ∏ₙMO₂ is atomic+concrete+σ+NON-Boolean, disproves any 'atomic⟹Boolean'). Once atomless dies, NOTHING distinguishes this cell from open.intrinsic_K (atomic infinite blocks + uncountable non-Polish NATIVE gluing) ⟹ COLLAPSES INTO IT. Correct open frontier = intrinsic_K, stated with atomic blocks.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 section)",
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 section)",
    "status": "superseded",
    "same_as": "open.intrinsic_K"
   },
@@ -823,13 +823,13 @@
    "name": "Native uncountable non-Polish gluing of ATOMIC atomless-free blocks (angle-4 target; invention PENDING)",
    "status": "open",
    "one_line": "CONSTRUCTIVE RESIDUE of the A–B duality read (2026-07-01): an ATOMLESS / pointfree analogue of the complete-exclusivity-graph — an 'exclusivity space' with NO atoms-as-vertices, carrying # (incompatibility) primitively — WOULD be a genuine native-non-distributive skeleton. But this is ANGLE 4 (INVENT), not angle 3 (import): the A–B object is atom-founded by necessity, so nothing is imported. ⚠ Do NOT launder invention into import because 'the talk gestures at it'; carries all §6 self-deception warnings. Seed only — inhabitation, concreteness, σ all unaddressed. ⭐REFRAMED Ω-FIRST (2026-07-01, advisor): the sheaf-of-atomless-Boolean-σ-algebras framing PULLS TOWARD DEAD — 'global sections of a sheaf' = abstract completion (F–W concreteness trap, non-concrete points) AND 'sections fail to glue' = set-shaped/H¹ obstruction (razor trap → rescued, σ-cohomology already a dead invariant). CORRECT FRAME: build Ω FIRST (uncountable non-Polish set) + a DISJOINT-UNION-CLOSURE RULE on its subsets engineered natively non-∩-closed (a∧_L b ⊊ a∩b) ⟹ concreteness FREE by construction, difficulty relocates to the honest core (no global σ-2-valued state extends the finite pattern). The invented skeleton = THAT CLOSURE RULE, not a fiber glued on a Boolean index. 4 GATES (tightest first): (1) uncountable+non-Polish or born-dead (DW D.6 rescues countable/Polish; atomless blocks are individually Polish ⟹ break Polishness via the INDEX/closure, not fibers); (2) obstruction must be STATE-shaped ('no σ-2-valued state') not SET-shaped ('no global section'); (3) non-segregated (overlap in genuine shared elements, not a central factor); (4) concreteness at σ-level (Ω-first gives it). ⚠ NO verify-by-building-small: Wright+block-theorems force the minimal witness UNCOUNTABLE ⟹ any countable toy that 'resists' is a FALSE POSITIVE (rescuer provably exists by DW/Polish, just unfound). Must reason at the uncountable schematic. Deliverable = the Ω-first object passing all 4 gates OR the exact gate it dies at (located obstruction = win). ⭐CORRECTED 2026-07-01 (advisor): the gate-1 phrasing 'atomless blocks, break Polishness via index' was WRONG — blocks must be ATOMIC (carry Diracs ⟹ non-vacuous state space; atomless blocks go vacuous by bisection, no-LC regime). Non-Polishness lives in the GLUING, not the fibers. Also: the binary a∧_L b⊊a∩b gap is NOT the target (∏ₙMO₂ has it concretely — 'representation/join not the problem', POLE); the content is the GLOBAL overlap pattern across uncountably many NON-SEGREGATED atomic contexts blocking a σ-2-valued global state. CONSTRUCT-vs-ASSUME fork (advisor, the operational 'hides-the-wall' test): any closure rule either ASSUMES no-σ-state via an abstract selection axiom (= axiomatizes Wall A, smuggles the open problem as a definition) OR CONSTRUCTS it from explicit Ω-combinatorics (= a set-family, rescued by fact.catalog_barren UNLESS genuinely new). No third bucket ⟹ the construct horn IS the uninvented native-non-distributive skeleton, restated. ⚠ HONEST STATUS: angle 4 is correctly RE-AIMED (atomic blocks + native uncountable non-Polish gluing); the invention SWING ITSELF IS STILL PENDING — every step so far REDUCED TO the known wall, did not push through. This is records-cleanup + Nth convergence, NOT a new located obstruction.",
-   "detail": "sigma_essential_construction_runs.md (2026-07-01 A–B duality read, residue)"
+   "detail": "sigma_essential/sigma_essential_construction_runs.md (2026-07-01 A–B duality read, residue)"
   },
   {
    "id": "open.oml_lattice_form",
    "name": "OML-lattice form at regularity (shovel thm 2) — attack opened",
-   "one_line": "Does a concrete σ-complete non-Boolean irreducible orthomodular LATTICE carry a σ-essential state? Conjectured NO (latticehood ⟹ Φ). ATTACK OPENED 2026-07-10 s8: three meet-destruction mechanisms collected (σ-class trace-rigidity / pasting-loop / RDP-center-collapse); conjecture SPLIT — 2a representability (concrete σ-complete irreducible non-Boolean OML ⟹ Polish-representable ⟹ tame via DW) + 2b direct; THREE proof skeletons: A representability, B meet-closed-overlap dichotomy (⟦HAND⟧: OML block-overlaps are automatically meet-closed = axis-2 pinned-dead value of fact.gluing_axis_map — upgrading that empirical death to a theorem IS skeleton B), C Jauch–Piron forcing (lattice makes JP statable exactly where the OMP witness dodges it; Pták–Pulmannová 1994 'unital subadditive ⟹ Boolean' is lattice-level; Tkadlec 1997 Prop 3.3(A) maximality free on lattices). Scout 2026-07-10: Q3 NEGATIVE — no infinite concrete σ-complete non-Boolean irreducible OML located anywhere; 2a plausibly open-but-unasked. Named obstruction = THE ENGINE GAP (RDP too strong, forces Boolean; Polish/inner-regularity not known to apply; identity route closed by MO₂). S9 AUDITED: theorem-let banked — NO non-Boolean concrete σ-class OML has all σ-additive states JP (Dirac σ-additive on σ-classes → MPT 1992 Prop 3.2 → Prop 4.4; primary-verified + ⟦HAND⟧ glue; attack note §7c; MPT 1992 PDF in library) ⇒ BNPW 1985 NOT in Adm∩OML under any reading (σ-class horn: not a lattice; pull demoted to confirmation-only). Skeleton C FIRST HALF REFUTED as stated: MO₂ machine-checked counterexample (σ-JP-forcing = Booleanness-forcing, no middle theorem); survives via PP1994 σ-unitality or MO₂-excluding hypotheses only. Prop 4.4 = new lever for Skeleton B (any lattice in the class has an intersection-poor pair + non-JP Dirac state). STILL OWED: Bunce–Hamhalter 2000 RMP 12(6) 767–777 (ILL, first in queue; scout blocked everywhere; cite nothing). S11 (2026-07-10): Skeleton B COLD ATTACK RUN (note §9) — structural dichotomy (Boolean-vs-horizontal-sum) REFUTED at finite scale (Greechie pentagon ∈ 𝒞: concrete, trivial centre, NOT a horizontal sum); MO_ω ∈ 𝒞 infinite (Q3 negative RESCOPED to non-segregated members); banked ⟦HAND⟧ theorem-lets: A1 gluing reduction (σ-states = coherent blockwise selections, any concrete σ-class), L0 compatible=commuting, A2 blocks are σ-FIELDS (axis-2 observation now a theorem — witness's ⊍-only overlap type unavailable on lattices), pattern dichotomy (pairwise-compatible patterns always rescued ⇒ witness needs an incompatible 1–1 pair), T1 singleton quarantine (product-Ulam kill mechanism provably unavailable on lattices), T3 Dirac realization on ctbly generated blocks (latticehood re-supplies DW inner regularity, no topology; ctbl/co-ctbl field on ω₁ = coarse counterexample), P1 poor-region σ-anatomy; conjecture SHARPENED to B′(i) (all blocks ctbly generated ⟹ Φ — next theorem-shaped target; open gap = cross-block coherence) + B′(ii) (coarse blocks can't both cohere & kill; needs precise restatement before attack); obstruction sharpened = RIGIDITY WITHOUT FINE STRUCTURE, converges w/ q:cardinality (one coarse-rigidity engine feeds both). S12: §9 fresh-context adversarial proof-read SOUND, all cosmetic (applied in place); A2 citations pinned primary-grade (Bruns–Harding 2000 Props 2.2–2.4/2.8/3.1 incl. infinite case; Kalmbach 1983 Thm 5 p.25; Foulis 1962/Holland 1964; OMP contrast Ramsay 1966/Pool 1963 via Pulmannová 1981 p.393); receipt notes/open_questions/PROOF_READ_2026-07-10_attack_s9.md + from-scratch scripts 118/118 (verification/proof_read_2026-07-10_s11/). Awaits user ratification. S13 (2026-07-10): SKELETON A READ DONE (note §10; Maharam Thm 6.1 + §8 anatomy, DW App. D verbatim) — T3 question ANSWERED two-part: blockwise, DW inner regularity ⟹ Dirac realization (theorem-let R: (8.1)-regular two-valued f.a. state on Hausdorff = Dirac restriction, compact-witnessed), so T3 reproduces that half intrinsically; cross-block NO — Maharam consumes the compact WITNESS (intersection-stable class = the whole σ-upgrade; f.a. glue is topology-free Hahn–Banach), Polish NOT tradeable for countable generation, intrinsic surrogate = Marczewski countably compact class. SKELETON A DEMOTED: 2a alone does NOT finish thm 2 — the inner-regularity leg fails on coarse-riding states (exactly there among coarse-block σ-states, s14 scope fix; R contrapositive + theorem-let P: diffuse ctble/co-ctble components fail (8.1) on uncountable Polish via perfect kernel), every Polish rep; 2a⁺ re-imports the coarse-block problem. Thm 2 FACTORS = B′(i) + (coarse-block question or B′(ii)); convergence now THREE-front (q:cardinality, B′, DW leg); coarse-block toy hunt PROMOTED (decides second factor); DW footnote-29 vs Maharam (8.1) in-block definitional gap confirmed in DW text (cite (8.1) sense). Prior-art verdict gloss corrected (Addendum s13, NO swing); rem:dw residue = two conditions. Receipt SKELETON_A_READ_2026-07-10_receipt.md (fresh-context adversarial check, all SOUND). S14 (2026-07-10): §10 proof-read CLEARED at s12 standard — two fresh-context reviewers (statements-only math re-derivation then line-check + verbatim source re-check on both PDFs), R/P0/P/localization/consequence ALL SOUND, NO wrong steps, 11,686/11,686 from-scratch checks (verification/proof_read_2026-07-10_s13/); one scope fix applied ✎s14 ('fails exactly' earned only among coarse-block σ-states — atomic states satisfy (8.1) there via finite in-field atom-truncations; compact-poor blocks fail (8.1) even at Diracs, δ_ω↾{∅,irr,ℚ,ℝ}), propagated to verdict-note banner + planning docs; DW fn-29 gap confirmed verbatim, no repair in App. D; load-bearing hypotheses counterexampled (Hausdorff: cofinite-ℕ; x∈kernel: isolated point); banked free strengthening: diffuse c>0 kills (8.1) on every HAUSDORFF topology (reduction to R). Receipt PROOF_READ_2026-07-10_attack_s10.md. Awaits user ratification (s13 math + s14 edits). S15 (2026-07-11): B′(i) DIRECT ATTEMPT RUN (note §11; ⟦HAND⟧, oracle b_prime_i_s15_oracle.py 10/10 on pentagon canonical+reduced reps; s12-standard proof-read CLEARED s16) — no proof, no refutation; B′(i) REDUCED TO A FINITARY SELECTION PRINCIPLE. Banked: 2BR two-block rescue (any concrete σ-class OML: value-1 part in ≤2 blocks ⟹ Dirac-rescued; open locus = ≥3-block patterns; OMP-witness |V|=3 optimal; latticehood enters ONLY via A2 in-block meets), cluster normal form (WLOG pairwise-incompatible block-meets, m≥3, pairwise intersecting, empty kernel), theorem-let P⁼ (pointed ⟺ σ on ctbly-generated blocks via T3+A1c ⟹ St_σ = coherent ATOMIC SELECTIONS; B′(i) = pure selection problem, NO compact class needed on its σ-side — compact-class engine reassigned to the coarse factor), Φ-density reframe (Φ ⟺ St_σ dense in St_fa ⊆ {0,1}^L; feeds q:phi), K(s)=∅ is REPRESENTATION-relative (canonical rep: every state Dirac-at-itself, empty-kernel patterns impossible; reduced order-determining Ω′: non-Dirac σ-state + empty-kernel coherent pattern appear — machine witness), kernel-FIP strictly STRONGER than coherence (✎s15 correction in §10e; reduced-pentagon witness: three block-kernels pairwise intersecting, empty triple); Marczewski pulls READ (M 1951 + M 1953 On-compact-measures + M–RN 1953, in library, untracked): compact-transport criterion OML form (one ctbly compact class Marczewski-APPROXIMATING every block in-block ⟹ σ, per-block 4(i)+A1c — ✎s16: 'refining the value-1 filter' too weak, singleton-class cex), independence-gluing 5(iv) (✎s16 — 5(iii) is the approximating-class form; independence = what overlap-coherence must replace), co-ctble filter on ω₁ IS a Marczewski compact class ⟹ the coarse killer state is a COMPACT MEASURE — kills only the topological (8.1) leg + cross-block intersection-stability; intrinsic wall statement for the coarse factor: no ctbly compact class simultaneously Marczewski-approximates interlocking coarse blocks in-block (✎s16 wording — inequivalent to filter refinement). Reduction ladder: B′(i) ⟺ pointed states dense; Zorn frame ⟹ crux = ONE-BLOCK REPOINTING; T4 finitary shadow (necessary for B′(i), no σ in its statement) = sharpest falsification target. NEXT: T4 via Maharam (8.2). S16 (2026-07-11): §11 proof-read CLEARED at s12 standard — two fresh-context reviewers (C1–C12 re-derived from statements only then line-checked; verbatim source-check on all 3 Marczewski PDFs), 424,509/424,509 from-scratch checks (verification/proof_read_2026-07-11_s15/), SOUND, no wrong steps; ✎s16 fixes applied in place: compact-transport + intrinsic wall 'refines' → 'Marczewski-approximates in-block', 5(iii)↔5(iv) scope, M–RN §4 positive half = M 1953 4(ii), ∅ adjoined to ω₁ class (null sets must be approximated), crux box scoped finite-𝒮 (Zorn run needs arbitrary-𝒮 successor; T4 unaffected), reduced pentagon rep UNIQUE (2046 exhaustive), monotonicity holds on any concrete σ-class (2 lines, no OM). Receipt PROOF_READ_2026-07-11_attack_s11.md. Awaits user ratification (s15 math + s16 edits).",
-   "detail": "oml_lattice_regularity_attack.md",
+   "one_line": "Does a concrete σ-complete non-Boolean irreducible orthomodular LATTICE carry a σ-essential state? Conjectured NO (latticehood ⟹ Φ). ATTACK OPENED 2026-07-10 s8: three meet-destruction mechanisms collected (σ-class trace-rigidity / pasting-loop / RDP-center-collapse); conjecture SPLIT — 2a representability (concrete σ-complete irreducible non-Boolean OML ⟹ Polish-representable ⟹ tame via DW) + 2b direct; THREE proof skeletons: A representability, B meet-closed-overlap dichotomy (⟦HAND⟧: OML block-overlaps are automatically meet-closed = axis-2 pinned-dead value of fact.gluing_axis_map — upgrading that empirical death to a theorem IS skeleton B), C Jauch–Piron forcing (lattice makes JP statable exactly where the OMP witness dodges it; Pták–Pulmannová 1994 'unital subadditive ⟹ Boolean' is lattice-level; Tkadlec 1997 Prop 3.3(A) maximality free on lattices). Scout 2026-07-10: Q3 NEGATIVE — no infinite concrete σ-complete non-Boolean irreducible OML located anywhere; 2a plausibly open-but-unasked. Named obstruction = THE ENGINE GAP (RDP too strong, forces Boolean; Polish/inner-regularity not known to apply; identity route closed by MO₂). S9 AUDITED: theorem-let banked — NO non-Boolean concrete σ-class OML has all σ-additive states JP (Dirac σ-additive on σ-classes → MPT 1992 Prop 3.2 → Prop 4.4; primary-verified + ⟦HAND⟧ glue; attack note §7c; MPT 1992 PDF in library) ⇒ BNPW 1985 NOT in Adm∩OML under any reading (σ-class horn: not a lattice; pull demoted to confirmation-only). Skeleton C FIRST HALF REFUTED as stated: MO₂ machine-checked counterexample (σ-JP-forcing = Booleanness-forcing, no middle theorem); survives via PP1994 σ-unitality or MO₂-excluding hypotheses only. Prop 4.4 = new lever for Skeleton B (any lattice in the class has an intersection-poor pair + non-JP Dirac state). STILL OWED: Bunce–Hamhalter 2000 RMP 12(6) 767–777 (ILL, first in queue; scout blocked everywhere; cite nothing). S11 (2026-07-10): Skeleton B COLD ATTACK RUN (note §9) — structural dichotomy (Boolean-vs-horizontal-sum) REFUTED at finite scale (Greechie pentagon ∈ 𝒞: concrete, trivial centre, NOT a horizontal sum); MO_ω ∈ 𝒞 infinite (Q3 negative RESCOPED to non-segregated members); banked ⟦HAND⟧ theorem-lets: A1 gluing reduction (σ-states = coherent blockwise selections, any concrete σ-class), L0 compatible=commuting, A2 blocks are σ-FIELDS (axis-2 observation now a theorem — witness's ⊍-only overlap type unavailable on lattices), pattern dichotomy (pairwise-compatible patterns always rescued ⇒ witness needs an incompatible 1–1 pair), T1 singleton quarantine (product-Ulam kill mechanism provably unavailable on lattices), T3 Dirac realization on ctbly generated blocks (latticehood re-supplies DW inner regularity, no topology; ctbl/co-ctbl field on ω₁ = coarse counterexample), P1 poor-region σ-anatomy; conjecture SHARPENED to B′(i) (all blocks ctbly generated ⟹ Φ — next theorem-shaped target; open gap = cross-block coherence) + B′(ii) (coarse blocks can't both cohere & kill; needs precise restatement before attack); obstruction sharpened = RIGIDITY WITHOUT FINE STRUCTURE, converges w/ q:cardinality (one coarse-rigidity engine feeds both). S12: §9 fresh-context adversarial proof-read SOUND, all cosmetic (applied in place); A2 citations pinned primary-grade (Bruns–Harding 2000 Props 2.2–2.4/2.8/3.1 incl. infinite case; Kalmbach 1983 Thm 5 p.25; Foulis 1962/Holland 1964; OMP contrast Ramsay 1966/Pool 1963 via Pulmannová 1981 p.393); receipt notes/open_questions/oml_attack/PROOF_READ_2026-07-10_attack_s9.md + from-scratch scripts 118/118 (verification/proof_read_2026-07-10_s11/). Awaits user ratification. S13 (2026-07-10): SKELETON A READ DONE (note §10; Maharam Thm 6.1 + §8 anatomy, DW App. D verbatim) — T3 question ANSWERED two-part: blockwise, DW inner regularity ⟹ Dirac realization (theorem-let R: (8.1)-regular two-valued f.a. state on Hausdorff = Dirac restriction, compact-witnessed), so T3 reproduces that half intrinsically; cross-block NO — Maharam consumes the compact WITNESS (intersection-stable class = the whole σ-upgrade; f.a. glue is topology-free Hahn–Banach), Polish NOT tradeable for countable generation, intrinsic surrogate = Marczewski countably compact class. SKELETON A DEMOTED: 2a alone does NOT finish thm 2 — the inner-regularity leg fails on coarse-riding states (exactly there among coarse-block σ-states, s14 scope fix; R contrapositive + theorem-let P: diffuse ctble/co-ctble components fail (8.1) on uncountable Polish via perfect kernel), every Polish rep; 2a⁺ re-imports the coarse-block problem. Thm 2 FACTORS = B′(i) + (coarse-block question or B′(ii)); convergence now THREE-front (q:cardinality, B′, DW leg); coarse-block toy hunt PROMOTED (decides second factor); DW footnote-29 vs Maharam (8.1) in-block definitional gap confirmed in DW text (cite (8.1) sense). Prior-art verdict gloss corrected (Addendum s13, NO swing); rem:dw residue = two conditions. Receipt oml_attack/SKELETON_A_READ_2026-07-10_receipt.md (fresh-context adversarial check, all SOUND). S14 (2026-07-10): §10 proof-read CLEARED at s12 standard — two fresh-context reviewers (statements-only math re-derivation then line-check + verbatim source re-check on both PDFs), R/P0/P/localization/consequence ALL SOUND, NO wrong steps, 11,686/11,686 from-scratch checks (verification/proof_read_2026-07-10_s13/); one scope fix applied ✎s14 ('fails exactly' earned only among coarse-block σ-states — atomic states satisfy (8.1) there via finite in-field atom-truncations; compact-poor blocks fail (8.1) even at Diracs, δ_ω↾{∅,irr,ℚ,ℝ}), propagated to verdict-note banner + planning docs; DW fn-29 gap confirmed verbatim, no repair in App. D; load-bearing hypotheses counterexampled (Hausdorff: cofinite-ℕ; x∈kernel: isolated point); banked free strengthening: diffuse c>0 kills (8.1) on every HAUSDORFF topology (reduction to R). Receipt oml_attack/PROOF_READ_2026-07-10_attack_s10.md. Awaits user ratification (s13 math + s14 edits). S15 (2026-07-11): B′(i) DIRECT ATTEMPT RUN (note §11; ⟦HAND⟧, oracle b_prime_i_s15_oracle.py 10/10 on pentagon canonical+reduced reps; s12-standard proof-read CLEARED s16) — no proof, no refutation; B′(i) REDUCED TO A FINITARY SELECTION PRINCIPLE. Banked: 2BR two-block rescue (any concrete σ-class OML: value-1 part in ≤2 blocks ⟹ Dirac-rescued; open locus = ≥3-block patterns; OMP-witness |V|=3 optimal; latticehood enters ONLY via A2 in-block meets), cluster normal form (WLOG pairwise-incompatible block-meets, m≥3, pairwise intersecting, empty kernel), theorem-let P⁼ (pointed ⟺ σ on ctbly-generated blocks via T3+A1c ⟹ St_σ = coherent ATOMIC SELECTIONS; B′(i) = pure selection problem, NO compact class needed on its σ-side — compact-class engine reassigned to the coarse factor), Φ-density reframe (Φ ⟺ St_σ dense in St_fa ⊆ {0,1}^L; feeds q:phi), K(s)=∅ is REPRESENTATION-relative (canonical rep: every state Dirac-at-itself, empty-kernel patterns impossible; reduced order-determining Ω′: non-Dirac σ-state + empty-kernel coherent pattern appear — machine witness), kernel-FIP strictly STRONGER than coherence (✎s15 correction in §10e; reduced-pentagon witness: three block-kernels pairwise intersecting, empty triple); Marczewski pulls READ (M 1951 + M 1953 On-compact-measures + M–RN 1953, in library, untracked): compact-transport criterion OML form (one ctbly compact class Marczewski-APPROXIMATING every block in-block ⟹ σ, per-block 4(i)+A1c — ✎s16: 'refining the value-1 filter' too weak, singleton-class cex), independence-gluing 5(iv) (✎s16 — 5(iii) is the approximating-class form; independence = what overlap-coherence must replace), co-ctble filter on ω₁ IS a Marczewski compact class ⟹ the coarse killer state is a COMPACT MEASURE — kills only the topological (8.1) leg + cross-block intersection-stability; intrinsic wall statement for the coarse factor: no ctbly compact class simultaneously Marczewski-approximates interlocking coarse blocks in-block (✎s16 wording — inequivalent to filter refinement). Reduction ladder: B′(i) ⟺ pointed states dense; Zorn frame ⟹ crux = ONE-BLOCK REPOINTING; T4 finitary shadow (necessary for B′(i), no σ in its statement) = sharpest falsification target. NEXT: T4 via Maharam (8.2). S16 (2026-07-11): §11 proof-read CLEARED at s12 standard — two fresh-context reviewers (C1–C12 re-derived from statements only then line-checked; verbatim source-check on all 3 Marczewski PDFs), 424,509/424,509 from-scratch checks (verification/proof_read_2026-07-11_s15/), SOUND, no wrong steps; ✎s16 fixes applied in place: compact-transport + intrinsic wall 'refines' → 'Marczewski-approximates in-block', 5(iii)↔5(iv) scope, M–RN §4 positive half = M 1953 4(ii), ∅ adjoined to ω₁ class (null sets must be approximated), crux box scoped finite-𝒮 (Zorn run needs arbitrary-𝒮 successor; T4 unaffected), reduced pentagon rep UNIQUE (2046 exhaustive), monotonicity holds on any concrete σ-class (2 lines, no OM). Receipt oml_attack/PROOF_READ_2026-07-11_attack_s11.md. Awaits user ratification (s15 math + s16 edits).",
+   "detail": "oml_attack/oml_lattice_regularity_attack.md",
    "status": "attack-active (sharpened-conjecture exit s11; proof-read SOUND s12; Skeleton A read + demotion s13; §10 proof-read SOUND s14; B′(i) reduced to finitary selection principle s15; §11 proof-read SOUND s16, 3 wording fixes ✎s16)"
   }
  ],
@@ -860,7 +860,7 @@
     "id": "costume.cber_bridge",
     "effect": "activated as the live lead (later killed by gate.cber_outcome)"
    },
-   "detail": "sigma_essential_large_cardinal_bounds.md#3i"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3i"
   },
   {
    "id": "gate.cber_outcome",
@@ -884,7 +884,7 @@
     "id": "open.bounds",
     "effect": "frontier closed — negative now complete across all surveyed fields"
    },
-   "detail": "sigma_essential_large_cardinal_bounds.md#3j"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3j"
   },
   {
    "id": "gate.lb_mechanism",
@@ -908,7 +908,7 @@
     "id": "strat.lower_bound",
     "effect": "set to strength-unknown (Navara–Pták ZFC non-Dirac state breaks premise + non-sequitur)"
    },
-   "detail": "sigma_essential_large_cardinal_bounds.md#3f"
+   "detail": "sigma_essential/sigma_essential_large_cardinal_bounds.md#3f"
   }
  ]
 }

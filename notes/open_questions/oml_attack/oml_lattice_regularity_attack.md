@@ -59,7 +59,7 @@ The conjecture splits:
 2a is the right first target: it is a structure-theory question about
 concrete OMLs (variety by Godowski 1981; finite-basis OPEN, Harding 2004),
 not a state-extension question, and its literature is the Czech-school
-corpus already mapped (`czech_school_prior_art_sigma_essential.md`).
+corpus already mapped (`../sigma_essential/czech_school_prior_art_sigma_essential.md`).
 
 ## 3. The three meet-destruction mechanisms, collected
 
@@ -79,12 +79,12 @@ one per transition:
 2. **Pasting/loop mechanism** *(pasting).* Greechie/finite pastings of
    Boolean blocks generically produce OMPs that are not lattices (loop
    lemma; Jenča 2001 Ex. 5.7: the Wright-triangle sharp skeleton is a
-   non-lattice OMP — `sharp_skeleton_RDP_subroute_verdict.md`). Where
+   non-lattice OMP — `../sigma_essential/sharp_skeleton_RDP_subroute_verdict.md`). Where
    pasting does give concrete lattices the results are confined to
    finitary Kalmbach-type K(L) (Mayet–Navara 1995) — no σ. The located
    literature gap: *no paper realizes a non-simplex state space on an OML
    simultaneously concrete AND σ-complete*
-   (`czech_school_prior_art_sigma_essential.md` §POSITIVE).
+   (`../sigma_essential/czech_school_prior_art_sigma_essential.md` §POSITIVE).
 
 3. **RDP/center collapse** *(sharpness).* Any lifting engine bought via
    Riesz decomposition forces sharp = central = Boolean (Jenča 2001
@@ -150,7 +150,7 @@ the two *proved* engines bracket the conjecture without touching it.
   Literature to pull: Bunce–Wright (JP automatic on vN projection
   lattices), Navara–Pták JP papers, Müller 1993 (non-Boolean concrete
   logic with all states JP — *finite-flavored*, so not a counterexample to
-  the σ-form; `czech_school_prior_art_sigma_essential.md` §4).
+  the σ-form; `../sigma_essential/czech_school_prior_art_sigma_essential.md` §4).
   **SWEPT session 9 — REFUTED as stated (MO₂ counterexample; §7c(ii)).**
   Survives only via PP1994 σ-unitality (§7b) or with MO₂-excluding
   wildness hypotheses.
@@ -193,7 +193,7 @@ re-read), with the thm-2-specific "read it for" question attached:
   straight before touching DW.
 - **Kechris Ch. 12–14** (standard Borel spaces): what Polish-representability
   actually buys — on Polish Ω, Borel probability measures are Radon, so
-  DW's inner-regularity is near-automatic (`sigma_essential_prior_art_verdict.md`).
+  DW's inner-regularity is near-automatic (`../sigma_essential/sigma_essential_prior_art_verdict.md`).
   *(s13 correction: NOT near-automatic — Radon compacts live in Borel, not
   in the block; the leg is binding, §10d(ii).)*
   Read for: which step could *latticehood* conceivably re-supply.
@@ -396,7 +396,7 @@ in library.)*
 - **Proof exit (unexpected this session per frontier map):** one of
   Skeletons A–C closes.
 
-*Tooling note: `rigor_guard_scope.md` (parked 2026-07-06) names this
+*Tooling note: `../sigma_essential/rigor_guard_scope.md` (parked 2026-07-06) names this
 problem as its surviving use case — a Lean-detector screen for proposed
 mechanisms; would need lattice-aware definitions before any build.*
 
@@ -410,7 +410,7 @@ Fresh-context adversarial proof-read 2026-07-10 s12: **SOUND**, all
 findings cosmetic (applied in place, marked ✎ in the receipt); both
 standard citations pinned to primary-grade sources. Receipt:
 `PROOF_READ_2026-07-10_attack_s9.md`; independent from-scratch scripts
-(118/118) in `verification/proof_read_2026-07-10_s11/`. Awaits user
+(118/118) in `../verification/proof_read_2026-07-10_s11/`. Awaits user
 ratification.
 Setting throughout: L a concrete σ-class on Ω (∅ ∈ L, complement-closed,
 closed under countable disjoint unions; order = ⊆, ⊥ = disjointness);
@@ -619,7 +619,7 @@ refutation found, all SOUND** (receipt:
 CLEARED 2026-07-10 s14** — two independent fresh-context reviewers
 (math re-derivation from statements alone + verbatim source re-check,
 primary PDFs), from-scratch scripts for every finitely instantiable
-component, 11,686/11,686 (`verification/proof_read_2026-07-10_s13/`);
+component, 11,686/11,686 (`../verification/proof_read_2026-07-10_s13/`);
 ALL SOUND, edits marked ✎s14 applied in place (one scope fix, §10d(i));
 receipt `PROOF_READ_2026-07-10_attack_s10.md`. Awaits user
 ratification.*
@@ -731,7 +731,7 @@ coarse-block problem in topological dress, not a bypass of it.
 
 **(ii) The prior-art verdict's "inner-regularity is secondary /
 near-automatic (Radon)" gloss is corrected** (dated addendum in
-`sigma_essential_prior_art_verdict.md`; settles that note's banner
+`../sigma_essential/sigma_essential_prior_art_verdict.md`; settles that note's banner
 sub-question (b): inner regularity IS binding). Radon-ness of Borel
 measures on Polish Ω supplies compact approximants *in Borel*, not in
 the block; Maharam's (8.1) is in-block — and D.6's footnote-29
@@ -794,7 +794,7 @@ branch (PP1994). Owed: ~~s12-standard proof-read of §10~~ CLEARED
 ## 11. B′(i) direct attempt (2026-07-11, session 15): the cluster reduction, the Stone-density reframe, and the Marczewski read
 
 *⟦HAND⟧ theorem-lets, machine-corroborated at finite scale
-(`verification/b_prime_i_s15_oracle.py`, 10 checks PASS — pentagon in
+(`../verification/b_prime_i_s15_oracle.py`, 10 checks PASS — pentagon in
 canonical AND reduced representations; the reduced rep is the load-bearing
 one for 11c/11d, see below). Marczewski 1951 + Marczewski–Ryll-Nardzewski
 1953 + Marczewski "On compact measures" 1953 pulled into the library this
@@ -1031,7 +1031,7 @@ surviving branch (PP1994). ~~Owed: s12-standard proof-read of THIS
 section (§11)~~ CLEARED 2026-07-11 s16: two fresh-context reviewers —
 (1) all twelve claim-statements re-derived/refutation-attempted from
 statements only, then line-checked; 424,509/424,509 from-scratch
-machine checks (`verification/proof_read_2026-07-11_s15/`, 6 scripts,
+machine checks (`../verification/proof_read_2026-07-11_s15/`, 6 scripts,
 orchestrator re-run exit 0); (2) verbatim source re-check of every
 §11e attribution against all three Marczewski PDFs. VERDICT: SOUND, no
 wrong step; three substantive wording fixes applied in place (✎s16:
@@ -1045,6 +1045,6 @@ banked monotonicity strengthening. Receipt
 
 *Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);
 spine §4 scoping caveat (sufficiency side). Companions:
-`sigma_essential_taxonomy.json` (walls, gluing map),
-`czech_school_prior_art_sigma_essential.md`,
-`sharp_skeleton_RDP_subroute_verdict.md`.*
+`../sigma_essential_taxonomy.json` (walls, gluing map),
+`../sigma_essential/czech_school_prior_art_sigma_essential.md`,
+`../sigma_essential/sharp_skeleton_RDP_subroute_verdict.md`.*

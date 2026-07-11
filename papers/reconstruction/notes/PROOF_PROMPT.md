@@ -1,7 +1,7 @@
 # Proof-writing prompt — reconstruction paper (Phase 4 → 5)
 
 You are writing the complete proofs for the reconstruction structure theory.
-The Phase-2 hostile prior-art audit (`notes/reconstruction_audit_full.md`,
+The Phase-2 hostile prior-art audit (`reconstruction_audit_full.md`, this directory,
 verdict: Type 6 secure, Type 3 conditional-on-winding, Type 5 not-novel) has
 fixed what is borrowed and what is ours. Honour that split exactly. The paper's
 credibility rests on NOT writing original proofs for classical facts and NOT

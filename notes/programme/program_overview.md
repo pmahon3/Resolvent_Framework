@@ -68,8 +68,9 @@ note's own cited ref; proved via Loeb 1975 saturation). Clears no contribution
 bar. See memory `countable_additivity_note_proof_broken.md`.
 
 **Lean:** `DiscriminabilityFoundations.lean`, `QuerySystem.lean`,
-`StoneDualityExtension.lean`, `TopologicalQuerySystem.lean`,
-`ProkhorovExtension.lean`, `DelayEmbedding.lean`
+`StoneDualityExtension.lean`, `DelayEmbedding.lean`
+(+ `TopologicalQuerySystem.lean`, `ProkhorovExtension.lean` — archived,
+`formalization/QuerySystem/archive/`)
 
 **LaTeX:** `papers/paper_i/probability_from_observation.tex` (complete, 8 pages;
 revised 2026-05-09 — four-way main equivalence theorem added in §6)
@@ -237,7 +238,14 @@ machine-checked (`Omega7Counterexample.lean`), so the coherence amendment's
 **repair-not-retreat** status is itself certified. Per-statement:
 Ψ (OMP + coherence + irred-mod-ctble) — **ZFC theorem, Lean-certified**;
 Ψ on **lattices (OML)** — OPEN, conjectured *opposite* (latticehood ⟹ Φ);
-Ψ with **literal irreducibility** (no-singletons regime) — OPEN.
+attack ACTIVE 2026-07-10 s8–s12 (shovel thm 2): banked ⟦HAND⟧ theorem-lets
+(blocks are σ-fields; singleton/product-Ulam mechanism unavailable on
+lattices; Dirac realization on ctbly generated blocks), conjecture
+sharpened to B′(i)/(ii), s12 proof-read SOUND —
+`notes/open_questions/oml_lattice_regularity_attack.md` §9;
+Ψ with **literal irreducibility** (no-singletons regime) — OPEN
+(s11: now waits on the same missing coarse-rigidity engine as the
+lattice case; attack note §9d).
 **Remaining before "SOLVED" in full**: (1) definitional-fidelity read (~15 min: the Lean
 definitions vs paper v2 Defs 1.2–1.4 — the only remaining trust surface; note
 `LocalState`'s weaker constraint is harmless, coherence forces full statehood); (2) gate
@@ -270,6 +278,11 @@ structure). **Lemma 2** (the layer-injectivity discriminant) is **certificate-gr
 in Lean** (`formalization/QuerySystem/QuerySystem/WindingInjectivity.lean`,
 0-sorry). OPEN: the **universal impossibility conjecture** (fork never exists) ⟶
 pruning lemma ⟶ a k=2 residual with a named **phase gap**, resting/incubating.
+*[UPDATE 2026-07-10: the phase gap was a wrong-proxy artifact, dissolved —
+pruning is now **Theorem P**, proved for all k with the effective Safe(ρ)
+instrument (shovel thm 1 DONE, s7, fresh-context proof-read SOUND s10);
+lock-avoidance lemma proved s5 (L-B half-closed, bar-D aperiodic half open).
+Current joint-2 state: frontier map §2 + `pruning_theorem_and_B.md`.]*
 FORMAL WRITE-UP: **`papers/reconstruction/`** (8pp; hostile prior-art pass done ⟹
 contribution is **Type 6** bridge, the novel core = the observational/dynamical
 EA/PR framing + winding criterion + CL assembly, the polyhedral facts classical;

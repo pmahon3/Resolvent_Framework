@@ -149,11 +149,19 @@ graded open problems attract *inhabitants*.
    directive): the user-only gates are RELAXED — the owed items stay
    tracked (item 5) but Claude may execute them; nothing blocks the
    theorem work (B–H treated as unknown until obtained, cite nothing).
-   Next = the frontier, any order: (i) Skeleton B cold attack
-   (⟦HAND⟧, Prop 4.4 proof pattern as entry); (ii) Skeleton A read — DW
-   Thm D.6 + Maharam §8, PDFs IN LIBRARY (derr_williamson_2023.pdf,
-   maharam_1972.pdf): locate the load-bearing inner-regularity step, ask
-   what latticehood could re-supply; (iii) Skeleton C surviving branch —
+   ✅ (i) Skeleton B cold attack RUN s11 (sharpened-conjecture exit:
+   B′(i)/(ii) + theorem-lets; see §2's s11 block + attack note §9) and
+   proof-read SOUND s12 (§2's s12 block).
+   Next = the frontier, any order: (i) B′(i) direct attempt — glue T3
+   field-atoms across σ-field overlaps à la lem:horizontal; cross-block
+   coherence is the whole difficulty; (ii) Skeleton A read — DW Thm D.6 +
+   Maharam §8, PDFs IN LIBRARY (derr_williamson_2023.pdf,
+   maharam_1972.pdf), now with the sharp T3 question: does DW's
+   inner-regularity step factor through blockwise Dirac realization —
+   can 2a's Polish hypothesis be traded for countable generation?;
+   (iii) coarse-block toy hunt — concrete σ-class OM lattice with one
+   ctbl/co-ctbl-type block + one incompatibility (even a failed
+   construction names the next wall); (iv) Skeleton C surviving branch —
    PP1994 σ-unitality engine analysis (ptak_pulmannova_1994.pdf in
    library).**
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.

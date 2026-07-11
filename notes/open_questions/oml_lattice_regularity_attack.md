@@ -6,8 +6,10 @@ meet-destruction mechanisms into one frame; say what a unified
 liftability-from-latticehood argument needs; find where it first breaks.
 Yield = sharpened conjectures + named obstruction, not a proof.*
 
-*Status of everything below: ⟦HAND⟧ framing over verified corpus pointers;
-no new theorem claimed.*
+*Status of §§1–8: ⟦HAND⟧ framing over verified corpus pointers; no new
+theorem claimed there. §7c (s9) and §9 (s11) DO bank theorem-lets —
+⟦HAND⟧, machine-corroborated, fresh-context proof-read (s10/s12), not
+Lean; see each section's own status line.*
 
 ---
 
@@ -385,6 +387,10 @@ in library.)*
   way (scout the JP line before investing hand-work).
 - **Proof exit (unexpected this session per frontier map):** one of
   Skeletons A–C closes.
+
+*Tooling note: `rigor_guard_scope.md` (parked 2026-07-06) names this
+problem as its surviving use case — a Lean-detector screen for proposed
+mechanisms; would need lattice-aware definitions before any build.*
 
 ## 9. Skeleton B cold attack (2026-07-10, session 11)
 

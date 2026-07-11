@@ -26,7 +26,18 @@ shovel thm 2) — mechanisms collected, conjecture split, skeletons named:
 banked piece — theorem-let (no non-Boolean concrete σ-class OML has all
 σ-additive states JP; attack note §7c): the "every wild object a
 non-lattice" pattern now has a *forced* instance class, not just a walked
-one.
+one. **s11 (Skeleton B cold attack, note §9):** structural dichotomy
+REFUTED at finite scale (Greechie pentagon ∈ 𝒞, not a horizontal sum;
+MO_ω inhabits 𝒞's infinite locus — Q3 negative rescoped to
+*non-segregated*); banked ⟦HAND⟧: blocks of concrete σ-class OMLs are
+σ-fields, pairwise-compatible patterns always rescued, T1 singleton
+quarantine (product-Ulam kill mechanism unavailable on lattices), T3
+Dirac realization on countably generated blocks; conjecture sharpened to
+**B′(i)** (all blocks ctbly generated ⟹ Φ) + **B′(ii)** (coarse blocks
+can't both cohere and kill); named obstruction = *rigidity without fine
+structure* (converges with the no-singletons descendant — one new
+rigidity mechanism feeds both). **s12:** §9 proof-read SOUND (all
+cosmetic; receipt `notes/open_questions/PROOF_READ_2026-07-10_attack_s9.md`).
 Nav: `papers/spine/` (single open bridging conjecture, §4).
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility
@@ -60,7 +71,10 @@ record) + `pruning_k2_theorem.md` (discovery log + Lean tee-up) +
 ## 3. σ-essential's named descendants — three, all genuinely open
 - **No-singletons regime** (literal irreducibility): needs a rigidity mechanism
   we don't have (the witness's rigidity requires singletons; literal
-  irreducibility forbids them).
+  irreducibility forbids them). *2026-07-10 s11: converges with the lattice
+  attack — T1 makes the singleton mechanism provably unavailable on lattices,
+  so both questions now wait on the same missing "coarse rigidity" engine
+  (attack note §9d).*
 - **Φ-characterization for exotic σ-classes:** the quarantine theorem
   (`thm:quarantine`) explicitly does NOT touch this — realization by exotic
   σ-classes generated inside a Borel structure is the σ-essential paper's open
@@ -96,7 +110,8 @@ are globally realizable in the target class BEFORE claiming a state space is
 reconstructed): decide p∈C (coherent) / p∈R (realizable) / p∈C\R (obstructed) /
 underpowered, under DEPENDENT single-trajectory sampling, with separation
 certificates + decision taxonomy. Declared types for the eventual seed: **6+7**.
-STATUS: prior-art deep-research OUT (prompt = `scratchpad/deep_research_prompt.md`,
+STATUS: prior-art deep-research OUT (prompt = `scratchpad/deep_research_prompt.md`
+— external session artifact, not repo-tracked;
 run in ChatGPT w/ the 4 PDFs; quarantines the already-settled population geometry,
 forces the relabeling test). NEXT (gated on that verdict): Phase-1 seed → `/audit
 full`. No seed/draft yet. Verdict-decider = is the finite-sample layer a

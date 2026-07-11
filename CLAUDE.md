@@ -215,4 +215,7 @@ notes/
   conceptual_sketches/← Informal exploratory sketches
   programme/          ← program_overview + frontier_map + shovel_plan
   archive/            ← Dead ends and superseded
+
+archive/              ← Pre-programme material (articles, thesis,
+                        superseded drafts, phase 1–3 artifacts)
 ```

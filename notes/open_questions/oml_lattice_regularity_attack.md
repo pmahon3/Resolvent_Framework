@@ -7,10 +7,10 @@ liftability-from-latticehood argument needs; find where it first breaks.
 Yield = sharpened conjectures + named obstruction, not a proof.*
 
 *Status of §§1–8: ⟦HAND⟧ framing over verified corpus pointers; no new
-theorem claimed there. §7c (s9), §9 (s11), and §10 (s13) DO bank
-theorem-lets — ⟦HAND⟧, machine- or adversarially corroborated,
-fresh-context proof-read (s10/s12; §10 same-session check, s12-standard
-proof-read owed), not Lean; see each section's own status line.*
+theorem claimed there. §7c (s9), §9 (s11), §10 (s13), and §11 (s15) DO
+bank theorem-lets — ⟦HAND⟧, machine- or adversarially corroborated,
+fresh-context proof-read (s10/s12/s14; §11's s12-standard proof-read
+OWED), not Lean; see each section's own status line.*
 
 ---
 
@@ -764,7 +764,12 @@ second factor is vacuous.
   lemma now has a name and a shape: a countably compact class 𝒦,
   intersection-stable across blocks, refining the value-1 filters of
   blockwise states (T3 kernels D_ν are the canonical candidates;
-  cross-block kernel FIP = cross-block coherence restated). Pulls:
+  cross-block kernel FIP = cross-block coherence restated *(✎s15: the
+  parenthetical is wrong in both halves — kernel FIP is strictly
+  stronger than coherence (reduced-pentagon machine witness), and on
+  ctbly generated blocks the σ-side needs no compact class at all;
+  see §11c. The compact-class engine's real target is the coarse
+  factor.)*). Pulls:
   Marczewski 1951 (Fund. Math. 38, measures in almost independent
   fields — Maharam's ref [7]); Marczewski–Ryll-Nardzewski 1953 (Fund.
   Math. 40, compactness and direct products — her ref [8]); Kellerer
@@ -782,6 +787,210 @@ kernel-FIP shape + Marczewski pulls; (2) coarse-block toy hunt
 (promoted — decides Theorem 2's second factor); (3) Skeleton C surviving
 branch (PP1994). Owed: ~~s12-standard proof-read of §10~~ CLEARED
 2026-07-10 s14 (receipt `PROOF_READ_2026-07-10_attack_s10.md`).
+
+## 11. B′(i) direct attempt (2026-07-11, session 15): the cluster reduction, the Stone-density reframe, and the Marczewski read
+
+*⟦HAND⟧ theorem-lets, machine-corroborated at finite scale
+(`verification/b_prime_i_s15_oracle.py`, 10 checks PASS — pentagon in
+canonical AND reduced representations; the reduced rep is the load-bearing
+one for 11c/11d, see below). Marczewski 1951 + Marczewski–Ryll-Nardzewski
+1953 + Marczewski "On compact measures" 1953 pulled into the library this
+session (`marczewski_1951_almost_independent.pdf`,
+`marczewski_ryll_nardzewski_1953_compactness_products.pdf`,
+`marczewski_1953_on_compact_measures.pdf` — the third is where the
+compact-class machinery actually lives; the cited "Remarks" is a 6-page
+follow-up). No proof of B′(i) claimed; yield = a reduction ladder ending
+in a FINITARY selection principle, plus a corrected picture of where the
+compact-class engine belongs. **s12-standard proof-read OWED.***
+
+### 11a. Two-block rescue (any concrete σ-class OML — no countable generation)
+
+**Theorem-let 2BR ⟦HAND⟧.** Let L be a concrete σ-class OML on Ω, B a
+finite ⊥-closed pattern, s ∈ St(B) with a f.a. extension μ ∈ St_fa(L),
+and suppose V := {A ∈ B : s(A) = 1} is covered by two blocks, V ⊆ Bl₁ ∪
+Bl₂. Then s is Dirac-rescued. *Proof.* E := ∩(V∩Bl₁) and F := ∩(V∩Bl₂)
+are elements of Bl₁, Bl₂ (A2: blocks are ∩-closed — this is the ONLY use
+of latticehood) with μ(E) = μ(F) = 1 (in-block multiplicativity: μ↾Blᵢ is
+a two-valued f.a. state on a field, hence an ultrafilter). If E∩F = ∅
+then E ⊥ F, E⊍F ∈ L (σ-class), and μ(E⊍F) = 2 — absurd. Take ω ∈ E∩F:
+δ_ω is σ-additive on any concrete σ-class (exactly one summand of a
+disjoint union contains ω), δ_ω = 1 on V (each A ∈ V contains E or F as
+sets), and value-0 elements of B are handled by ⊥-closure (Aᶜ ∈ V). ∎
+*(Machine: D1, 110 cases × 2 reps.)*
+
+Consequences. (i) **B′(i)'s open locus is patterns whose value-1 part
+needs ≥ 3 blocks.** (ii) On σ-class OMPs the rescue dies exactly at A2
+(blocks not ∩-closed) — and the product-Ulam witness's pattern indeed has
+THREE value-1 sets in three pairwise-incompatible blocks; for |V| ≤ 2 no
+meets are even needed (E, F are the pattern sets themselves), so **every
+concrete σ-class — OMP included — Dirac-rescues patterns with ≤ 2 value-1
+elements**, and the witness's |V| = 3 is optimal. (iii) Latticehood's
+contribution to Φ is, so far, exactly: in-block finite meets exist and
+are intersections.
+
+### 11b. Cluster reduction (normal form for the frontier)
+
+**Monotonicity lemma ⟦HAND⟧.** Two-valued f.a. states on an OML are
+monotone: E ≤ A ⟹ μ(E) ≤ μ(A), via orthomodularity (A = E ∨ (A∧Eᶜ), an
+orthogonal join, and A∧Eᶜ = A∩Eᶜ by compatibility of comparable
+elements). *(Machine: D2.)*
+
+**Cluster normal form.** Given any f.a.-coherent pattern (B, s, μ),
+group V by blocks and take in-block meets: the pattern reduces to a
+**cluster** E₁,…,Eₘ ∈ L with μ ≡ 1, WLOG pairwise incompatible (a
+compatible pair lies in a common block — Bruns–Harding, as in A2 — and
+merges to its intersection, decreasing m; μ-value 1 by in-block
+multiplicativity), pairwise intersecting (2BR argument), with m ≥ 3 and
+∩ᵢEᵢ = ∅ in the open case (else Dirac). Any σ-state ν ≡ 1 on the cluster
+extends s on B (monotonicity + ⊥-closure). So **Φ(L) ⟺ every
+f.a.-coherent cluster admits a σ-state ≡ 1 on it.**
+
+### 11c. On countably generated blocks the σ-side is FREE: pointed ⟺ σ
+
+Countably generated blocks are **atomic** σ-fields: the signature cells
+A(ω) = ∩{Gₙ or Gₙᶜ, whichever contains ω} are countable intersections,
+hence in the block, and partition Ω. **Theorem-let P⁼ ⟦HAND⟧.** For L
+with all blocks ctbly generated, a two-valued f.a. state ν is σ-additive
+**iff** for every block Bl its kernel D_Bl := ∩{A ∈ Bl : ν(A) = 1} is
+nonempty (equivalently: ν charges an atom of every block). *Proof.* (⟹)
+T3's argument, run on a countable generating family. (⟸)
+Atom-concentrated states are σ-additive per block (of a disjoint union
+covering the atom, exactly one member absorbs it), and blockwise σ ⟹
+global σ by A1c. ∎ *(Machine: D5, both reps.)* Hence St_σ(L) = coherent
+atomic selections, and **B′(i) is a pure selection problem: no compact
+class is needed on the σ-side at all.** The Maharam/Marczewski σ-upgrade
+machinery belongs to the coarse factor (Theorem 2's second factor /
+B′(ii)), not to B′(i).
+
+**Correction to §10e's slogan (✎s15 there).** Cross-block kernel FIP is
+NOT "cross-block coherence restated" — it is strictly stronger. Machine
+witness: on the pentagon represented on a proper order-determining subset
+Ω′ ⊊ St(L) (10 of 11 states), some σ-additive state has three
+block-kernels pairwise intersecting with EMPTY triple intersection
+*(D3-reduced)*. Coherence constrains kernels only through shared
+elements, not through set intersections.
+
+**Representation-dependence bank (new, cheap, load-bearing).** On the
+canonical representation Ω = St(L) every state is Dirac-at-itself, so
+coherent patterns NEVER have empty kernel there *(D3/D4-canon:
+impossible, verified)*; on Ω′ the dropped state becomes a non-Dirac
+σ-state and an empty-kernel f.a.-coherent 3-set pattern appears, rescued
+non-Dirac-ly *(D4-reduced)*. **K(s) = ∅ is a property of the
+representation — it measures the gap between the point set Ω and
+St_σ(L)**, not a property of the abstract logic. (Concrete-σ-class reps
+have Ω ↪ St_σ(L) via ω ↦ δ_ω; σ-classhood is what ties points to
+σ-states.) The ≥3-block frontier is thus inhabited already at finite
+scale — B′(i) cannot be proved by Dirac density, and any proof must
+produce non-Dirac selections.
+
+### 11d. Stone-density reframe of Φ
+
+St_fa(L) ⊆ {0,1}^L is closed in the product topology, hence compact; its
+nonempty basic clopens are exactly the f.a.-coherent finite patterns (a
+finite value assignment with an f.a. witness ⊥⊍-closes to a finite
+⊥-closed sub-orthoposet without leaving the clopen). **Theorem-let
+Φ-density ⟦HAND⟧: Φ(L) ⟺ St_σ(L) is dense in St_fa(L).** For
+B′(i)-hypothesis carriers, by P⁼: **B′(i) says the blockwise-pointed
+states are dense among the two-valued f.a. states** — the exact OML
+analogue of "Diracs are dense in the Stone space" for fields of sets
+(there, value-1 finite intersections are nonempty field elements; on
+OMLs 2BR is the fragment that survives, and it stops at two blocks).
+Feeds q:phi: Φ is a topological (density) property of the state space,
+not an extension property per se.
+
+### 11e. The Marczewski read (what the pulls actually say)
+
+Definitions (M 1953, §§2–4): a class 𝒦 is *compact* if every countable
+subfamily with the finite-intersection property has nonempty total
+intersection; 𝒦 *approximates* a field M w.r.t. μ if value-1 elements
+are sandwiched D ⊆ K ⊆ A with D ∈ M value-1, K ∈ 𝒦; μ is a *compact
+measure* if some compact class approximates it. Then:
+
+- **4(i) compact ⟹ countably additive.** Two-valued in-block form
+  (inline, for our use): if E = ⊍ₙEₙ in Bl with μ(E) = 1, μ(Eₙ) ≡ 0, the
+  tails Fₙ = E∖(E₁⊍…⊍Eₙ) are value-1, their sandwich compacts have the
+  FIP (finite in-block value-1 intersections are value-1, hence
+  nonempty), so ∅ ≠ ∩Kₙ ⊆ ∩Fₙ = ∅ — absurd. **Compact-transport
+  criterion, OML form: ONE countably compact class refining every
+  block's value-1 filter in-block makes a two-valued f.a. state
+  σ-additive** (per-block 4(i) + A1c). This is the intrinsic engine for
+  the coarse factor; B′(i) doesn't need it (11c).
+- **5(iii)/(iv) independence gluing.** If the generating subfields are
+  countably (pseudo-)independent and each partial measure is compact,
+  the glued measure is compact. Independence is what substitutes for
+  cross-block intersection-stability; OML blocks are precisely NOT
+  independent (σ-field overlaps, A2), so no direct transfer — the
+  theorem marks what overlap-coherence must replace.
+- **M–RN 1953.** §1(i): a (non-direct) product of a σ-additive and a
+  COMPACT measure is σ-additive; §1(ii): two σ-additive measures whose
+  product is not (Bernstein-type decomposition, m_e(Z) = m_e(Z′) = 1) —
+  compactness is essential already for TWO factors; §3(ii): purely
+  atomic σ-measures are compact (the abstract home of s14's "atomic
+  states satisfy (8.1) via finite atom-truncations"); §4: minimal
+  σ-extensions of compact measures are compact, converse false.
+- **Scoping bank (new).** The co-countable filter on ω₁ IS a countably
+  compact class (countably complete filter), so the coarse killer state
+  is a **compact measure in Marczewski's sense** — consistently with its
+  being σ-additive. Marczewski compactness ≠ (8.1): the coarse state
+  kills the TOPOLOGICAL in-block leg (DW, on every Polish rep — §10) and
+  cross-block intersection-stability, not abstract compactness per se.
+  (A union of per-block compact classes need not be compact — exactly
+  what 5(iii)'s independence hypothesis buys back.) So even a
+  "Marczewski-2a⁺" (abstract compact classes replacing Polish) bottoms
+  at the same cross-block wall; three-front convergence unchanged, but
+  the coarse factor's wall now has an intrinsic statement: *no countably
+  compact class simultaneously refines the value-1 filters of
+  interlocking coarse blocks.*
+
+### 11f. The reduction ladder, the crux, and exit
+
+**Ladder.** B′(i) ⟺ every f.a.-coherent cluster (m ≥ 3) admits a
+blockwise-pointed f.a. extension (11b + 11c) ⟺ pointed states are dense
+(11d). Zorn frame: partial pointings (finitely many blocks pointed at
+chosen atoms, f.a.-coherently with the cluster) give closed nonempty
+subsets of the compact St_fa(L); chains are fine by FIP. Everything
+reduces to the successor step:
+
+> **Crux (one-block repointing).** Given a f.a.-coherent configuration
+> (cluster + finitely many pointed blocks) and a further block Bl₀, is
+> there an atom D of Bl₀ such that the enlarged configuration is still
+> f.a.-coherent?
+
+(Failure of a GREEDY run does not refute B′(i) — bad early atom choices
+are possible — but the 𝒮 = ∅ instance is a NECESSARY consequence of
+B′(i), since a σ-extension points every block. It is purely finitary, no
+σ anywhere in its statement:)
+
+> **T4 (finitary shadow of B′(i)).** For every f.a.-coherent cluster
+> E₁,…,Eₘ and every block Bl₀ of L, some atom D of Bl₀ makes
+> {E₁,…,Eₘ, D} f.a.-coherent (some two-valued f.a. state is 1 on all of
+> them).
+
+T4 holds automatically on finite carriers (every state is σ there, and
+a σ-extension is pointed everywhere) and is the sharpest cheap
+falsification target for B′(i): a T4-violating configuration kills
+B′(i) outright. Conversely T4 + a completion principle (the crux for
+general 𝒮, or a compactness argument replacing it) proves B′(i). **Next
+concrete step:** run the crux through Maharam's topology-free f.a. glue
+(Thm 6.1 / condition (8.2), anatomized §10a layer 1): "point Bl₀ at D
+keeping the cluster" is a blockwise family whose (8.2)-consistency is a
+computation in the cluster's finite geometry. Either it always passes —
+crux resolved, B′(i) follows — or the failing inequality names the wall
+intrinsically.
+
+### 11g. Exit status
+
+No proof, no refutation. Banked: 2BR (open locus = ≥ 3 blocks; witness's
+|V| = 3 optimal), cluster normal form, P⁼ (pointed ⟺ σ; B′(i) = pure
+selection problem; compact classes reassigned to the coarse factor),
+kernel-FIP correction to §10e, representation-dependence of K(s) = ∅,
+Φ-as-density, Marczewski read + intrinsic wall statement for the coarse
+factor, T4 + crux ladder. Menu next (any order): (1) **T4 via Maharam
+(8.2)** — now the sharpest B′(i) step; (2) coarse-block toy hunt
+(unchanged, decides the second factor — with 11e's intrinsic wall
+statement as its target); (3) B′(ii) precise restatement; (4) Skeleton C
+surviving branch (PP1994). Owed: s12-standard proof-read of THIS section
+(§11).
 
 ---
 

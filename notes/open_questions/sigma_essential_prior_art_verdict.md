@@ -44,7 +44,9 @@
 > across both; Kellerer/embedding-ref are diminishing-returns regress.
 > **⟦(b) SETTLED 2026-07-10 s13 — inner regularity IS binding, not near-automatic;
 > see ADDENDUM s13 at end. Verdict unchanged (no swing); the kill zone's third leg
-> is load-bearing and fails exactly on coarse-riding states.⟧**
+> is load-bearing and fails on the coarse-riding states (among σ-states on coarse
+> blocks, exactly there — s14 proof-read scoping; on compact-poor blocks it can
+> also fail at principal states).⟧**
 
 *Hostile prior-art search, 2026-06-19. Supersedes the "GENUINELY-OPEN" framing of
 `notes/archive/reading1_prize_reduction_superseded.md` / `notes/archive/sigma_essential_nonemptiness_finding_dead.md` to the

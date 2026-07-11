@@ -615,8 +615,14 @@ oracle — the claims are topological/measure-theoretic, not finitely
 instantiable. Fresh-context adversarial check run same-session on R, P,
 and every reading claim, primary PDFs read by the checker: **no
 refutation found, all SOUND** (receipt:
-`SKELETON_A_READ_2026-07-10_receipt.md`). A from-scratch proof-read at
-the s12 standard remains owed. Awaits user ratification.*
+`SKELETON_A_READ_2026-07-10_receipt.md`). **S12-standard proof-read
+CLEARED 2026-07-10 s14** — two independent fresh-context reviewers
+(math re-derivation from statements alone + verbatim source re-check,
+primary PDFs), from-scratch scripts for every finitely instantiable
+component, 11,686/11,686 (`verification/proof_read_2026-07-10_s13/`);
+ALL SOUND, edits marked ✎s14 applied in place (one scope fix, §10d(i));
+receipt `PROOF_READ_2026-07-10_attack_s10.md`. Awaits user
+ratification.*
 
 ### 10a. Anatomy of the DW engine (reading result)
 
@@ -653,20 +659,23 @@ state σ-additive. (iii) Her §8.3: Kellerer 1964 — finitely many
 
 ### 10b. Two theorem-lets: what inner regularity IS
 
-**Theorem-let R (Dirac forcing) ⟦HAND — adversarially checked⟧.** Let 𝒜
-be a field of subsets of a Hausdorff space X and ν a two-valued *finitely
-additive* state on 𝒜 satisfying (8.1). Then ν is a Dirac restriction:
-ν = δ_ω↾𝒜 for every ω in the (nonempty) intersection of the value-1
-compact members of 𝒜. *Proof.* 𝒦₁ = {K ∈ 𝒜 : K compact, ν(K) = 1} is
+**Theorem-let R (Dirac forcing) ⟦HAND — adversarially checked s13+s14⟧.**
+Let 𝒜 be a field of subsets of a Hausdorff space X and ν a two-valued
+*finitely additive* state on 𝒜 satisfying (8.1). Then
+𝒦₁ := {K ∈ 𝒜 : K compact, ν(K) = 1} is nonempty, D := ∩𝒦₁ ≠ ∅, and ν is
+a Dirac restriction: ν = δ_ω↾𝒜 for every ω ∈ D. (✎s14: both nonemptiness
+claims stated as conclusions — the old "(nonempty) intersection"
+parenthetical misparses under the ∩∅ = X convention.) *Proof.* 𝒦₁ is
 nonempty ((8.1) at X; ν two-valued, so the sup over {0,1}-values is
 attained), and K∩K′ ∈ 𝒦₁ for K, K′ ∈ 𝒦₁ (compact ⟹ closed in Hausdorff;
 closed subset of a compact is compact; ν(K∩K′) = 1 by finite additivity).
-So 𝒦₁ is a filter base of compacts: D = ∩𝒦₁ ≠ ∅ (FIP). For ω ∈ D and any
+So 𝒦₁ is a filter base of compacts: D ≠ ∅ (FIP — fix K₀ ∈ 𝒦₁; the
+K∩K₀ are closed in the compact K₀ ✎s14). For ω ∈ D and any
 F with ν(F) = 1, (8.1) gives K_F ∈ 𝒦₁, K_F ⊆ F, so ω ∈ F; two-valuedness
 finishes. ∎ (No σ-additivity used anywhere.)
 
 **Theorem-let P (coarse diffuse components fail (8.1) on Polish) ⟦HAND —
-adversarially checked⟧.** Let X be an uncountable Polish space, 𝒜 the
+adversarially checked s13+s14⟧.** Let X be an uncountable Polish space, 𝒜 the
 ctble/co-ctble σ-field, μ a σ-additive probability on 𝒜 with diffuse mass
 c > 0 (every σ-additive probability on 𝒜 is Σᵢ aᵢδ_{xᵢ} + c·ν with ν the
 co-countable state: the non-atomic remainder is 0 on countable sets,
@@ -676,7 +685,9 @@ countable — a *closed* co-countable set contains P, since (X∖K)∩P is a
 countable relatively open subset of the perfect Polish space P, hence
 empty — so μ(K) ≤ μ(F) − c. Inner regularity fails at F. ∎ (Localizes to
 a coarse block living on an uncountable Borel B ⊆ Ω via a Cantor subset
-of B. The c = 1 case also follows from R: ν is no Dirac restriction.)
+of B — perfect set property for Borel sets ✎s14. The c = 1 case also
+follows from R — ν is no Dirac restriction — though the R route gives
+failure of (8.1) *somewhere*, not at the specific F ✎s14.)
 
 ### 10c. The T3 question answered — a two-part verdict
 
@@ -703,9 +714,15 @@ Corrections to the record (pattern of §9a):
 
 **(i) §2/§4's "2a ⟹ Theorem 2 outright via DW (Polish ⟹ Φ)" is FALSE as
 stated.** D.6 carries a third leg — blockwise inner regularity — and by
-R + P that leg fails *exactly* on the locus the intrinsic theory already
+R + P that leg fails on the locus the intrinsic theory already
 isolated (§9d): coarse blocks carrying non-principal blockwise σ-states
-(two-valued case by R's contrapositive; diffuse-component case by P). A
+(two-valued case by R's contrapositive; diffuse-component case by P).
+(✎s14 scope: *among σ-states on coarse blocks* the failure is exact —
+purely atomic states satisfy (8.1) there, finite in-field
+atom-truncations being compact witnesses on any Hausdorff topology; on
+general blocks the containment is one-way, since a compact-poor block
+fails (8.1) even at a Dirac restriction: δ_ω↾{∅, irrationals, ℚ, ℝ},
+ω irrational — the only in-field compact is ∅.) A
 candidate state with any non-principal blockwise restriction escapes
 D.6 — D.6 is *silent*, its hypothesis unmet — **on every Polish
 representation** (R uses only Hausdorff). The sufficient form is
@@ -763,7 +780,8 @@ Skeleton A demoted (10d(i)); prior-art accounting corrected, no swing
 (10d(ii)–(iii)). Menu now, in order of leverage: (1) B′(i) with the
 kernel-FIP shape + Marczewski pulls; (2) coarse-block toy hunt
 (promoted — decides Theorem 2's second factor); (3) Skeleton C surviving
-branch (PP1994). Owed: s12-standard proof-read of §10.
+branch (PP1994). Owed: ~~s12-standard proof-read of §10~~ CLEARED
+2026-07-10 s14 (receipt `PROOF_READ_2026-07-10_attack_s10.md`).
 
 ---
 

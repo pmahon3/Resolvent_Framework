@@ -44,5 +44,8 @@ accurately reported in §10d(ii).
 
 **Standing.** Same-session check (weaker than the s12 standard: no
 from-scratch scripts — the claims are topological, not finitely
-instantiable). A from-scratch fresh-context proof-read of §10 at the s12
-standard remains owed. Awaits user ratification.
+instantiable). ~~A from-scratch fresh-context proof-read of §10 at the
+s12 standard remains owed.~~ CLEARED 2026-07-10 s14 — see
+`PROOF_READ_2026-07-10_attack_s10.md` (all sound; one scope fix to
+§10d(i)'s "exactly", edits ✎s14 applied in place). Awaits user
+ratification.

@@ -329,12 +329,35 @@ against the MPT 1992 text: Def 1.1 (finite closure — the gap source),
 Def 3.1 (state, JP, point-carried, full — all match usage here), Prop 3.2
 + proof, Prop 4.4 + proof (line-by-line: A\M, B\M ∈ L by the Def 1.1
 remark; C∪M a strictly larger lower bound — sound), Ccard ⟹
-downward-directed. MO₂ counterexample machine-checked (scratchpad script:
+downward-directed. MO₂ counterexample machine-checked
+(`notes/open_questions/verification/mo2_jp_check.py`, committed s10:
 concrete-logic axioms, lattice/meets, non-Boolean, trivial centre, Dirac@1
-non-JP — all pass). Corroboration: MPT Prop 3.3 second half + Prop 3.4
+non-JP with witness A={1,2}, B={1,3} — all seven pass; the s9 audit line
+originally credited a "scratchpad script" that as committed only covered
+additivity + non-homomorphism — the full seven-property check is now the
+committed script above). Corroboration: MPT Prop 3.3 second half + Prop 3.4
 independently exhibit non-JP (two-valued) states on concrete logics.
 Result of the audit: (ii) and (iii) stand as written; (i) weakened to the
 theorem-let + disjunction above.
+
+**(iii-c) Fresh-context adversarial review (s10, 2026-07-10 — clears the
+§7c ⟦HAND⟧-glue check owed under shovel plan item 5).** Independent
+reviewer, no prior context, MPT 1992 PDF read in full
+(`muller_ptak_tkadlec_1992_covering_properties.pdf`). **VERDICT: SOUND.**
+Every link verified against the primary text: the glue (σ-class disjoint-
+union axiom ⟹ ∪ is the join ⟹ Dirac states σ-additive, unconditional);
+Prop 3.2 quoted verbatim p.6, no side conditions (no unitality/
+separability/irreducibility — confirmed by full-text grep); Prop 4.4
+quoted + proof-checked p.10, hypotheses exactly downward-directed +
+lattice; MPT's own σ-logic notion (Prop 4.6, p.11) matches the corpus's
+union-based sense — no definitional mismatch. One caution for paraphrasers:
+Prop 3.2's characterization of C_card is per-point ("∀x∈A∩B ∃C∋x"), which
+implies downward-directedness strictly (not an iff); §7c's inline "⟹,
+trivial" already uses only the correct direction. Sole finding (cosmetic,
+fixed in (iii-b) above): the s9 provenance line overcredited a scratchpad
+script; the seven-property MO₂ check is now committed. Corroborating
+receipt: MPT Q5.4 note (p.12) states the σ-additive answer is "no" citing
+BNPW 1985 — consistent with §7c(i)'s horn analysis.
 
 **(iv) Closed leads.** arXiv:2308.08508 = Harding–Kornell, "Completely
 hereditarily atomic OMLs" (algebraicity/covering property/Kalmbach+Keller

@@ -140,10 +140,15 @@ graded open problems attract *inhabitants*.
      in the review file); user sign-off becomes ratification, not a gate.
    - **Abstract length vs venue:** Claude makes the call, records it as a
      reversible recommendation-with-rationale.
-   - **Pruning proof-read** (`pruning_theorem_and_B.md`, s7 debt) + **§7c
-     ⟦HAND⟧-glue check:** independent verification by fresh-context
-     adversarial review + machine/Lean receipts (satisfies
-     verify-independently via independence of context, not of species).
+   - ✅ **DONE 2026-07-10 (s10): Pruning proof-read** (`pruning_theorem_and_B.md`,
+     s7 debt) + **§7c ⟦HAND⟧-glue check** — both executed as fresh-context
+     adversarial reviews, both **SOUND**, nothing above cosmetic. Receipts:
+     `papers/reconstruction/notes/PROOF_READ_2026-07-10_pruning.md` +
+     8 scripts in `papers/reconstruction/oracles/proof_read_2026-07-10/`;
+     attack note §7c(iii-c) + committed seven-property MO₂ check
+     `notes/open_questions/verification/mo2_jp_check.py` (fixes the s9
+     scratchpad-provenance looseness at §7c(iii-b)). Awaits user
+     ratification (veto stands); no repair owed.
    - **Statistics-layer prior-art verdict:** Claude produces the verdict
      (scout + hostile cross-field pass per the standing lesson).
    - **ILL pulls (B–H 2000; BNPW confirmation-grade):** keep hunting

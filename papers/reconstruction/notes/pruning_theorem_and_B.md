@@ -266,3 +266,8 @@ union). Any mismatch = FAIL and no certificate is emitted.
   — note the genuinely long pre-periodic prefixes on the adversarial
   imprimitive-ish targets: the threshold is REAL, small scans cannot see past
   it, the certificate can.
+- **2026-07-10 (s10): fresh-context adversarial proof-read — VERDICT SOUND,
+  no finding above cosmetic (adv2≅adv3 isomorphic twins; k=1 remark inert).**
+  Every step verified or independently re-derived; 8 receipt scripts
+  committed. Full record: `PROOF_READ_2026-07-10_pruning.md`; scripts:
+  `../oracles/proof_read_2026-07-10/`. Clears the s7 proof-read debt.

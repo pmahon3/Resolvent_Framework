@@ -152,18 +152,29 @@ graded open problems attract *inhabitants*.
    ✅ (i) Skeleton B cold attack RUN s11 (sharpened-conjecture exit:
    B′(i)/(ii) + theorem-lets; see §2's s11 block + attack note §9) and
    proof-read SOUND s12 (§2's s12 block).
-   Next = the frontier, any order: (i) B′(i) direct attempt — glue T3
-   field-atoms across σ-field overlaps à la lem:horizontal; cross-block
-   coherence is the whole difficulty; (ii) Skeleton A read — DW Thm D.6 +
-   Maharam §8, PDFs IN LIBRARY (derr_williamson_2023.pdf,
-   maharam_1972.pdf), now with the sharp T3 question: does DW's
-   inner-regularity step factor through blockwise Dirac realization —
-   can 2a's Polish hypothesis be traded for countable generation?;
-   (iii) coarse-block toy hunt — concrete σ-class OM lattice with one
-   ctbl/co-ctbl-type block + one incompatibility (even a failed
-   construction names the next wall); (iv) Skeleton C surviving branch —
-   PP1994 σ-unitality engine analysis (ptak_pulmannova_1994.pdf in
-   library).**
+   ✅ (ii) Skeleton A read DONE s13 (attack note §10 + receipt
+   `SKELETON_A_READ_2026-07-10_receipt.md`): T3 question answered
+   two-part — blockwise, DW's inner regularity ⟹ Dirac realization
+   (theorem-let R, Dirac forcing) so T3 reproduces that half
+   intrinsically; cross-block, NO — Maharam consumes the compact
+   *witness* (intersection-stable class), so Polish canNOT be traded for
+   countable generation (intrinsic surrogate = Marczewski countably
+   compact class). **Skeleton A DEMOTED: 2a alone does not finish
+   Theorem 2** — D.6's third leg (blockwise inner regularity, in-block
+   sense) fails exactly on coarse-riding states (R + theorem-let P), on
+   every Polish representation; sufficient form 2a⁺ re-imports the
+   coarse-block problem. Theorem 2 factors as B′(i) + (coarse-block
+   question or B′(ii)); prior-art verdict gloss corrected (no swing),
+   rem:dw residue now two conditions. Owed: s12-standard proof-read of
+   §10.
+   Next = the frontier, any order: (i) B′(i) direct attempt — now with
+   the kernel-FIP / compact-class proof shape (attack note §10e; pulls:
+   Marczewski 1951, Marczewski–Ryll-Nardzewski 1953); (iii) coarse-block
+   toy hunt — concrete σ-class OM lattice with one ctbl/co-ctbl-type
+   block + one incompatibility — **promoted s13: it decides Theorem 2's
+   second factor** (even a failed construction names the next wall);
+   (iv) Skeleton C surviving branch — PP1994 σ-unitality engine analysis
+   (ptak_pulmannova_1994.pdf in library).**
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.
 5. **Parallel — gate RELAXED (s9b directive: relax the rules, keep the
    tasks).** These remain OWED and tracked, but are no longer user-only;

@@ -42,6 +42,9 @@
 > non-Polish-representable" to "fails regularity/Borel-σ-gen on its own df-representation."
 > STOP-CHASE noted: both load-bearing sources (D–W, Maharam) now read; verdict held
 > across both; Kellerer/embedding-ref are diminishing-returns regress.
+> **⟦(b) SETTLED 2026-07-10 s13 — inner regularity IS binding, not near-automatic;
+> see ADDENDUM s13 at end. Verdict unchanged (no swing); the kill zone's third leg
+> is load-bearing and fails exactly on coarse-riding states.⟧**
 
 *Hostile prior-art search, 2026-06-19. Supersedes the "GENUINELY-OPEN" framing of
 `notes/archive/reading1_prize_reduction_superseded.md` / `notes/archive/sigma_essential_nonemptiness_finding_dead.md` to the
@@ -285,3 +288,50 @@ Do **not** present this as a clean open problem. The defensible statement is:
 > Whether that can occur — and whether Maharam's Polish hypothesis is removable — is the
 > precise open residue, to be settled by reading Maharam 1972 Thm 8.1 and the
 > countably-additive marginal-gluing literature (Kellerer 1964, Strassen 1965).
+> **⟦s13 amendment: add the third leg — "with Borel-generating, inner-regular blocks" —
+> and a second residue clause; see ADDENDUM s13 below.⟧**
+
+## ⟦ADDENDUM 2026-07-10 (s13) — banner sub-question (b) SETTLED: inner regularity is BINDING, not near-automatic⟧
+
+Skeleton A read (Maharam 1972 Thm 6.1 + §8 proof anatomy; DW App. D
+verbatim; full record `oml_lattice_regularity_attack.md` §10; receipt
+`SKELETON_A_READ_2026-07-10_receipt.md` — fresh-context adversarial check,
+all claims SOUND). This is NOT a verdict swing — the boxed kill zone
+(Polish + Borel-generation + inner-regular blocks) was always three-legged;
+what changes is the accounting of the third leg. Two corrections to this
+note's glosses:
+
+1. **"Inner-regularity is secondary… near-automatic (Radon)" (crack
+   section above) is WRONG.** Maharam's (8.1) requires the compact
+   approximants IN-BLOCK (K ∈ 𝔉_α, verbatim in her statement, p. 145; and
+   μ_i(K) is undefined otherwise — DW's footnote-29 definition omits this
+   and must be read in the (8.1) sense). Radon-ness of Borel measures on
+   Polish Ω gives compact approximants in Borel, NOT in the σ-block.
+   Concretely (⟦HAND⟧, adversarially checked):
+   - **R (Dirac forcing):** an (8.1)-inner-regular TWO-VALUED f.a. state
+     on a field over a Hausdorff space is necessarily a Dirac restriction
+     (value-1 compacts form a compact filter base; FIP). Contrapositive:
+     any candidate with a non-principal blockwise restriction — a state
+     riding a coarse block — leaves D.6's hypothesis unmet on EVERY Polish
+     representation (D.6 goes *silent*; no assertion either way).
+   - **P (diffuse case):** on uncountable Polish Ω, a blockwise
+     restriction of ctble/co-ctble type with diffuse mass c > 0 fails
+     (8.1) at F = Ω∖{x}, x in the perfect kernel (a closed co-countable
+     set contains the perfect kernel).
+2. **The residue is TWO conditions, not one.** "Witness must be
+   non-Polish-representable" (rem:dw's single-condition framing) widens
+   to: non-Polish-representable OR carrying a non-principal
+   (coarse-riding) blockwise restriction — the second escape is available
+   even on Polish-representable carriers. This converges exactly with the
+   lattice attack's §9d obstruction (*rigidity without fine structure*):
+   the DW engine's hypothesis failure and the intrinsic T3 failure occur
+   on the SAME locus (coarse blocks).
+
+Mechanism, for the record: in Maharam 8.1's proof the f.a. glue is
+topology-free Hahn–Banach (her Thm 6.1); (8.1) is consumed ONLY to make
+compactness transport σ-additivity ACROSS blocks (K = ∩Kᵢ,
+intersection-stable). So for two-valued states inner regularity =
+blockwise Dirac realization PLUS a compact witness (theorem-let R); the
+witness, not the pointedness, powers the cross-block step. The intrinsic
+surrogate for "Polish" is a Marczewski-type countably compact class, not
+countable generation (attack note §10c).

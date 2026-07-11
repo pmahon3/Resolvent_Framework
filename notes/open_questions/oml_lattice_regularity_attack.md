@@ -7,9 +7,10 @@ liftability-from-latticehood argument needs; find where it first breaks.
 Yield = sharpened conjectures + named obstruction, not a proof.*
 
 *Status of §§1–8: ⟦HAND⟧ framing over verified corpus pointers; no new
-theorem claimed there. §7c (s9) and §9 (s11) DO bank theorem-lets —
-⟦HAND⟧, machine-corroborated, fresh-context proof-read (s10/s12), not
-Lean; see each section's own status line.*
+theorem claimed there. §7c (s9), §9 (s11), and §10 (s13) DO bank
+theorem-lets — ⟦HAND⟧, machine- or adversarially corroborated,
+fresh-context proof-read (s10/s12; §10 same-session check, s12-standard
+proof-read owed), not Lean; see each section's own status line.*
 
 ---
 
@@ -599,6 +600,163 @@ read (`derr_williamson_2023.pdf` Thm D.6 + `maharam_1972.pdf` §8) with
 the T3-specific question; (3) hunt a coarse-block toy: a concrete
 σ-class OM lattice with one countable/co-countable-type block and one
 incompatibility — even a failed construction will name the next wall.
+
+## 10. Skeleton A read (2026-07-10, session 13): DW Thm D.6 + Maharam §8 — the T3 question answered
+
+*⟦HAND⟧ reading results + two elementary theorem-lets (R, P). No machine
+oracle — the claims are topological/measure-theoretic, not finitely
+instantiable. Fresh-context adversarial check run same-session on R, P,
+and every reading claim, primary PDFs read by the checker: **no
+refutation found, all SOUND** (receipt:
+`SKELETON_A_READ_2026-07-10_receipt.md`). A from-scratch proof-read at
+the s12 standard remains owed. Awaits user ratification.*
+
+### 10a. Anatomy of the DW engine (reading result)
+
+Thm D.6 = Prop D.4 (blockwise split — their Thm D.1 is literally A1 in
+Dynkin dress: Dynkin systems are unions of maximal σ-algebras) +
+**Maharam 1972 Thm 8.1** + Carathéodory. Maharam 8.1 has exactly two
+layers:
+
+1. **F.a. glue — topology-free.** Her Thm 6.1 (Hahn–Banach on partially
+   ordered linear spaces): a consistent family of blockwise states has a
+   common *finitely additive* extension to the generated field iff the
+   gamble-positivity condition (her (8.2) = D.6's RHS). No topology, no
+   regularity, no σ. This layer is the corpus's f.a. layer (A1c /
+   q:bare's selection framing) — nothing the intrinsic theory lacks.
+
+2. **σ-upgrade — the ONLY place regularity enters.** Inner regularity
+   (8.1) — with *in-block* compact approximants, K ∈ 𝔉_α, verbatim in her
+   statement — is consumed at the cross-block step: for F = A₁∩…∩Aₙ with
+   the Aᵢ from different blocks, per-block compacts give K = ∩Kᵢ, again
+   compact (and the open approximants are (8.1)-compacts of the
+   *complements* turned open via compact ⟹ closed — Hausdorff is
+   load-bearing twice); the compact-class sandwich forces σ-additivity of
+   the glued μ on the generated field. The load-bearing property is that
+   **compactness is intersection-stable across blocks**: (8.1) is a
+   cross-block σ-coherence-transport device, not a per-block one. No
+   point-realization statement appears anywhere in the proof.
+
+Also on the record from the read: (i) Maharam §8.1's preamble — a
+topology-free σ-extension always exists on the *enlarged* Stone space
+(phantom points); consistent with the prior-art verdict's 2026-06-20
+block. (ii) Her Remark to 8.1: (8.1) alone already forces each blockwise
+state σ-additive. (iii) Her §8.3: Kellerer 1964 — finitely many
+σ-additive marginals always glue (signed case).
+
+### 10b. Two theorem-lets: what inner regularity IS
+
+**Theorem-let R (Dirac forcing) ⟦HAND — adversarially checked⟧.** Let 𝒜
+be a field of subsets of a Hausdorff space X and ν a two-valued *finitely
+additive* state on 𝒜 satisfying (8.1). Then ν is a Dirac restriction:
+ν = δ_ω↾𝒜 for every ω in the (nonempty) intersection of the value-1
+compact members of 𝒜. *Proof.* 𝒦₁ = {K ∈ 𝒜 : K compact, ν(K) = 1} is
+nonempty ((8.1) at X; ν two-valued, so the sup over {0,1}-values is
+attained), and K∩K′ ∈ 𝒦₁ for K, K′ ∈ 𝒦₁ (compact ⟹ closed in Hausdorff;
+closed subset of a compact is compact; ν(K∩K′) = 1 by finite additivity).
+So 𝒦₁ is a filter base of compacts: D = ∩𝒦₁ ≠ ∅ (FIP). For ω ∈ D and any
+F with ν(F) = 1, (8.1) gives K_F ∈ 𝒦₁, K_F ⊆ F, so ω ∈ F; two-valuedness
+finishes. ∎ (No σ-additivity used anywhere.)
+
+**Theorem-let P (coarse diffuse components fail (8.1) on Polish) ⟦HAND —
+adversarially checked⟧.** Let X be an uncountable Polish space, 𝒜 the
+ctble/co-ctble σ-field, μ a σ-additive probability on 𝒜 with diffuse mass
+c > 0 (every σ-additive probability on 𝒜 is Σᵢ aᵢδ_{xᵢ} + c·ν with ν the
+co-countable state: the non-atomic remainder is 0 on countable sets,
+constant on co-countable ones). Take x in the perfect kernel P of X
+(Cantor–Bendixson) and F = X∖{x}. Any compact K ∈ 𝒜 with K ⊆ F is
+countable — a *closed* co-countable set contains P, since (X∖K)∩P is a
+countable relatively open subset of the perfect Polish space P, hence
+empty — so μ(K) ≤ μ(F) − c. Inner regularity fails at F. ∎ (Localizes to
+a coarse block living on an uncountable Borel B ⊆ Ω via a Cantor subset
+of B. The c = 1 case also follows from R: ν is no Dirac restriction.)
+
+### 10c. The T3 question answered — a two-part verdict
+
+§9c/T3 closed with: *does DW's inner-regularity step factor through
+blockwise Dirac realization — can 2a's Polish hypothesis be traded for
+countable generation?* The read splits this cleanly:
+
+- **Blockwise: YES, and more.** By R, for two-valued states D.6's
+  hypothesis *is* blockwise Dirac realization — **with a compact
+  witness** (a value-1 compact filter base). The blockwise half of DW's
+  hypothesis is exactly T3's conclusion, which T3 re-derives
+  intrinsically (countable generation, no topology).
+- **Cross-block: NO.** Maharam's proof consumes the compact *witness*,
+  not the pointedness: intersection-stability of compacts across blocks
+  IS the σ-upgrade. T3 supplies no intersection-stable class. **Polish
+  cannot be traded for countable generation**; the honest intrinsic
+  surrogate for "Polish" is a countably compact class in the Marczewski
+  sense (measure-theoretic compact classes), not a
+  cardinality-of-generation hypothesis.
+
+### 10d. Consequence: Skeleton A demoted — 2a does not finish Theorem 2
+
+Corrections to the record (pattern of §9a):
+
+**(i) §2/§4's "2a ⟹ Theorem 2 outright via DW (Polish ⟹ Φ)" is FALSE as
+stated.** D.6 carries a third leg — blockwise inner regularity — and by
+R + P that leg fails *exactly* on the locus the intrinsic theory already
+isolated (§9d): coarse blocks carrying non-principal blockwise σ-states
+(two-valued case by R's contrapositive; diffuse-component case by P). A
+candidate state with any non-principal blockwise restriction escapes
+D.6 — D.6 is *silent*, its hypothesis unmet — **on every Polish
+representation** (R uses only Hausdorff). The sufficient form is
+2a⁺ = Polish + Borel-generation + blockwise-(8.1); the added leg is the
+coarse-block problem in topological dress, not a bypass of it.
+
+**(ii) The prior-art verdict's "inner-regularity is secondary /
+near-automatic (Radon)" gloss is corrected** (dated addendum in
+`sigma_essential_prior_art_verdict.md`; settles that note's banner
+sub-question (b): inner regularity IS binding). Radon-ness of Borel
+measures on Polish Ω supplies compact approximants *in Borel*, not in
+the block; Maharam's (8.1) is in-block — and D.6's footnote-29
+definition, which omits K ∈ 𝒜ᵢ, does not typecheck for μᵢ (μᵢ(K)
+undefined off-block); cite D.6's hypothesis in the (8.1) sense. The
+kill-zone box (Polish + Borel-gen + inner-regular blocks) was always
+three-legged; what changes is the accounting: the third leg is
+load-bearing and fails generically on the coarse locus. NOT a verdict
+swing.
+
+**(iii) rem:dw's residue is two conditions, not one.** A witness escapes
+DW iff (non-Polish-representable) OR (some blockwise restriction
+non-principal / coarse-riding — an escape available even on
+Polish-representable carriers). Caveat added to `oml_onboarding.tex`
+rem:dw.
+
+**Three-front convergence, sharpened.** q:cardinality, B′(i)/(ii), and
+now the DW inner-regularity leg all bottom out at the same object:
+non-principal two-valued σ-states on coarse σ-fields with no internal
+approximating structure. *Rigidity without fine structure* (§9d) is also
+the exact content of D.6-hypothesis failure. Theorem 2 factors as
+**B′(i) + (coarse-block question: no coarse blocks in 𝒞 ∩ OML, or
+B′(ii))**, and no representability route avoids the second factor. The
+coarse-block toy hunt (§9e item 3) is promoted: it decides whether the
+second factor is vacuous.
+
+### 10e. What Skeleton A still buys; B′(i) proof shape; pulls
+
+- The one reusable engine is **compact-class gluing**. B′(i)'s missing
+  lemma now has a name and a shape: a countably compact class 𝒦,
+  intersection-stable across blocks, refining the value-1 filters of
+  blockwise states (T3 kernels D_ν are the canonical candidates;
+  cross-block kernel FIP = cross-block coherence restated). Pulls:
+  Marczewski 1951 (Fund. Math. 38, measures in almost independent
+  fields — Maharam's ref [7]); Marczewski–Ryll-Nardzewski 1953 (Fund.
+  Math. 40, compactness and direct products — her ref [8]); Kellerer
+  1964 (already listed).
+- Skeleton A's residual value: 2a stays a good structure-theory question
+  (MO_ω-type evidence stands), but it is now a *conditional* route (2a⁺),
+  not an independent one.
+
+### 10f. Exit status
+
+Skeleton A read DONE (§9e menu item 2). T3 question answered (10c);
+Skeleton A demoted (10d(i)); prior-art accounting corrected, no swing
+(10d(ii)–(iii)). Menu now, in order of leverage: (1) B′(i) with the
+kernel-FIP shape + Marczewski pulls; (2) coarse-block toy hunt
+(promoted — decides Theorem 2's second factor); (3) Skeleton C surviving
+branch (PP1994). Owed: s12-standard proof-read of §10.
 
 ---
 

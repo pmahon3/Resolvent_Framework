@@ -38,6 +38,18 @@ can't both cohere and kill); named obstruction = *rigidity without fine
 structure* (converges with the no-singletons descendant — one new
 rigidity mechanism feeds both). **s12:** §9 proof-read SOUND (all
 cosmetic; receipt `notes/open_questions/PROOF_READ_2026-07-10_attack_s9.md`).
+**s13 (Skeleton A read, note §10):** T3 question answered — DW's inner
+regularity, on two-valued states, = blockwise Dirac realization PLUS a
+compact witness (theorem-let R); the witness (intersection-stable
+compactness), not the pointedness, powers Maharam's cross-block σ-upgrade,
+so Polish ≠ tradeable for countable generation (intrinsic surrogate =
+Marczewski compact class). **Skeleton A demoted:** 2a alone doesn't finish
+Theorem 2 — the inner-regularity leg fails exactly on coarse-riding states
+(R + P), every Polish rep; Theorem 2 factors as B′(i) + coarse-block
+question; convergence now THREE-front (q:cardinality, B′, DW leg).
+Coarse-block toy hunt promoted. Receipt
+`notes/open_questions/SKELETON_A_READ_2026-07-10_receipt.md`; §10
+s12-standard proof-read owed.
 Nav: `papers/spine/` (single open bridging conjecture, §4).
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility
@@ -74,7 +86,8 @@ record) + `pruning_k2_theorem.md` (discovery log + Lean tee-up) +
   irreducibility forbids them). *2026-07-10 s11: converges with the lattice
   attack — T1 makes the singleton mechanism provably unavailable on lattices,
   so both questions now wait on the same missing "coarse rigidity" engine
-  (attack note §9d).*
+  (attack note §9d). s13: the DW inner-regularity leg lands on the same
+  locus (attack note §10d) — the convergence is now three-front.*
 - **Φ-characterization for exotic σ-classes:** the quarantine theorem
   (`thm:quarantine`) explicitly does NOT touch this — realization by exotic
   σ-classes generated inside a Borel structure is the σ-essential paper's open

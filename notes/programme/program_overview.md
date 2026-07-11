@@ -359,11 +359,15 @@ results + session-history pointers below.)
   no non-Dirac σ-additive two-valued state does — and (i) is freely arrangeable
   (Navara–Pták), so the entire content is clause (ii) = Wall A. Machine-checked (Lean
   `localization`, 0-sorry). Full statement: `notes/open_questions/sigma_essential_reduction_writeup.md`.
-- **Derr–Williamson Polish boundary (`rem:dw`).** On a Polish-representable carrier every
-  finitely-coherent pattern globalises — no witness (DW 2023 Thm D.6, via Maharam §8, the
-  topological hypothesis load-bearing). A witness must therefore be **non-Polish /
-  non-standard-Borel**. Backing: `notes/open_questions/sigma_essential_prior_art_verdict.md`;
-  stated in the survey `oml_onboarding.tex` (`rem:dw`).
+- **Derr–Williamson Polish boundary (`rem:dw`) — amended s13.** On a Polish-representable
+  carrier with **blockwise inner-regular** restrictions every finitely-coherent pattern
+  globalises — no witness (DW 2023 Thm D.6, via Maharam §8; topological hypothesis
+  load-bearing). *s13 (2026-07-10):* the inner-regularity leg is independently binding
+  (an (8.1)-regular two-valued state is a compactly witnessed Dirac restriction), so a
+  witness must be **non-Polish / non-standard-Borel OR coarse-riding** (some blockwise
+  restriction non-principal — escapes D.6 on every Polish rep). Backing:
+  `notes/open_questions/sigma_essential_prior_art_verdict.md` (Addendum s13);
+  `oml_lattice_regularity_attack.md` §10; survey `oml_onboarding.tex` (`rem:dw`).
 - **Import sweep complete + the fourth-cell spec + the 5-axis gluing map** — the current
   frontier's structural results; see the 2026-07-02 block above and the taxonomy facts
   `fact.import_sweep_complete`, `fact.fourth_cell_spec`, `fact.gluing_axis_map`.

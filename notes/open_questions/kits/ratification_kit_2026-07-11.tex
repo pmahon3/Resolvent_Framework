@@ -111,6 +111,49 @@ everywhere.
 (118/118 checks, three flagged high-risk steps cleared);
 scripts \file{../verification/proof\_read\_2026-07-10\_s11/}.
 
+\smallskip\noindent\textbf{Lean bolster (2026-07-11, s17 --- added after
+this kit was issued).}
+\file{formalization/QuerySystem/QuerySystem/ConcreteOMLBlocks.lean}
+(builds; \texttt{\#print axioms} receipts at file end) converts most of
+this item from hand-check to machine receipt:
+\begin{itemize}[leftmargin=2em]
+\item \textbf{Gap 2.4 DISCHARGED} --- A1(a) Zorn extension
+  (\texttt{exists\_isMaxBlock\_superset}), A1(b) closure including
+  countable disjoint unions (\texttt{IsMaxBlock.iUnion\_mem}), and
+  A1(c) blockwise $\sigma$-reduction
+  (\texttt{isSigmaOn\_carrier\_iff\_maxBlocks}); axiom-free
+  (classical base only).
+\item \textbf{Gap 2.5 DISCHARGED} --- L0, both directions
+  (\texttt{Compat.isGreatest\_inter},
+  \texttt{compat\_of\_commuting\_decomp}); axiom-free.
+\item \textbf{Gap 2.2 DISCHARGED} --- T3 in full, including the
+  $\sigma$-continuity-from-above step and the dichotomy
+  $\sigma$-subfield step
+  (\texttt{dirac\_realization\_of\_countablyGenerated}); axiom-free.
+  Both hidden joints are settled by construction: the Lean T3 is stated
+  on an abstract countably generated $\sigma$-field --- independent of
+  A2, so no circularity --- and the dichotomy family's closure under
+  countable unions is proved (\texttt{dichotomy\_of\_generateMeasurable}).
+\item \textbf{Gap 2.1 REDUCED} --- A2 (blocks are $\sigma$-fields:
+  \texttt{IsMaxBlock.inter\_mem}, \texttt{IsMaxBlock.toMeasurableSpace})
+  is machine-checked \emph{modulo one flagged axiom}
+  \texttt{foulis\_holland\_commute}: the Foulis--Holland/commutant step,
+  stated as the commuting decomposition of $A \cap B$ along $C$; the
+  concrete upgrade through L0 is \emph{proved}, not assumed. The
+  remaining hand-check is exactly this item's original \emph{look-for}:
+  read Bruns--Harding Props 2.2--2.8 / Kalmbach Thm 5 once and confirm
+  the statement matches the axiom. Nothing else in 2.1 remains.
+\item \textbf{Gap 2.3 remains} (the two counterexample checks are not
+  formalized), but note the positive T3 statement no longer rests on
+  hand re-derivation, so (a)/(b) are corroboration of hypotheses being
+  load-bearing, no longer proof-carrying.
+\end{itemize}
+The composite --- $\sigma$-additive states are Dirac on countably
+generated blocks (\texttt{IsMaxBlock.dirac\_realization}) --- lists
+exactly \texttt{[propext, Classical.choice, Quot.sound,
+foulis\_holland\_commute]}. Ratifying item 2 now means: read the one
+axiom against its citation, and accept the build.
+
 \gap{2.1} \emph{A2's infinite commutant case.} The step ``every
 pairwise-compatible subset --- of any cardinality --- generates a
 Boolean subalgebra'' rests on Bruns--Harding Prop 2.8, checked by the

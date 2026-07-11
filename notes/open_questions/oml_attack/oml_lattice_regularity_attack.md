@@ -405,13 +405,23 @@ mechanisms; would need lattice-aware definitions before any build.*
 *Everything here is ⟦HAND⟧ — elementary arguments over the σ-class
 axioms, plus two standard OML citations. Finite-scale instances
 machine-checked: `notes/open_questions/verification/loop5_greechie_oracle.py`
-(Greechie 5- and 6-cycles, 13 checks each, all pass). Not Lean-verified.
+(Greechie 5- and 6-cycles, 13 checks each, all pass).
 Fresh-context adversarial proof-read 2026-07-10 s12: **SOUND**, all
 findings cosmetic (applied in place, marked ✎ in the receipt); both
 standard citations pinned to primary-grade sources. Receipt:
 `PROOF_READ_2026-07-10_attack_s9.md`; independent from-scratch scripts
-(118/118) in `../verification/proof_read_2026-07-10_s11/`. Awaits user
-ratification.
+(118/118) in `../verification/proof_read_2026-07-10_s11/`.
+✎s17 (2026-07-11): the foundation layer is now LEAN-VERIFIED —
+`formalization/QuerySystem/QuerySystem/ConcreteOMLBlocks.lean`:
+A1(a)–(c), L0 (both directions), C1′, and T3 (in full, on abstract
+countably generated σ-fields) are axiom-free; A2 and the composite
+"σ-states are Dirac on countably generated blocks" are machine-checked
+modulo the ONE flagged cited axiom `foulis_holland_commute`
+(= Foulis–Holland/commutant closure, Kalmbach Thm 5 / Bruns–Harding
+2.2–2.8; the concrete upgrade through L0 is proved). `#print axioms`
+receipts at file end. T1/P1 and the block-OVERLAP clause of A2 remain
+hand-only. Awaits user ratification (now = read the one axiom against
+its citation + accept the build).
 Setting throughout: L a concrete σ-class on Ω (∅ ∈ L, complement-closed,
 closed under countable disjoint unions; order = ⊆, ⊥ = disjointness);
 "lattice" = the poset (L, ⊆) has all binary meets. "Block" = maximal

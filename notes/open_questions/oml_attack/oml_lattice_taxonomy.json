@@ -44,7 +44,8 @@
    "name": "Blockwise gluing reduction",
    "status": "proved-hand",
    "one_line": "σ-additivity is blockwise, so global σ-states are exactly coherent choices of σ-states across Boolean blocks.",
-   "detail": "oml_lattice_regularity_attack.md#9b-the-gluing-reduction-any-concrete-σ-class--no-latticehood"
+   "detail": "oml_lattice_regularity_attack.md#9b-the-gluing-reduction-any-concrete-σ-class--no-latticehood",
+   "lean": "ConcreteOMLBlocks.lean (2026-07-11 s17): A1a exists_isMaxBlock_superset, A1b IsMaxBlock.{empty,univ,compl,iUnion}_mem, A1c isSigmaOn_carrier_iff_maxBlocks -- axiom-free (classical base only), #print axioms receipts in file"
   },
   {
    "id": "oml.reduction.two_block_rescue",
@@ -81,7 +82,8 @@
    "name": "Pointed iff σ on fine blocks",
    "status": "proved-hand",
    "one_line": "For countably generated blocks, global σ-states are exactly coherent blockwise atomic selections.",
-   "detail": "oml_lattice_regularity_attack.md#11c-on-countably-generated-blocks-the-σ-side-is-free-pointed-σ"
+   "detail": "oml_lattice_regularity_attack.md#11c-on-countably-generated-blocks-the-σ-side-is-free-pointed-σ",
+   "lean": "ConcreteOMLBlocks.lean (2026-07-11 s17): the T3 engine only -- dirac_realization_of_countablyGenerated (two-valued sigma-state on countably generated sigma-field is pointed, with kernel D and full dichotomy) AXIOM-FREE; block form IsMaxBlock.dirac_realization modulo foulis_holland_commute. The s15 whole-carrier coherent-selection statement (11c) itself not formalized"
   },
   {
    "id": "oml.fine.pointed_density",
@@ -194,7 +196,8 @@
    "name": "Disjoint-union-only overlaps",
    "status": "proved-unavailable",
    "one_line": "Blocks and their overlaps in the concrete σ-class OML setting are σ-fields, so the OMP witness's overlap geometry cannot persist.",
-   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series"
+   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series",
+   "lean": "ConcreteOMLBlocks.lean (2026-07-11 s17): A2 for single blocks -- IsMaxBlock.inter_mem + toMeasurableSpace (blocks are sigma-fields), machine-checked MODULO the one flagged axiom foulis_holland_commute (Kalmbach 1983 Thm 5 / Bruns-Harding 2000 Props 2.2-2.8; concrete upgrade via L0 proved). Pairwise block OVERLAPS not formalized"
   },
   {
    "id": "oml.exclusion.polish_alone",

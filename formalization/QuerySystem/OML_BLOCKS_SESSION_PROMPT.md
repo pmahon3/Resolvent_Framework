@@ -1,5 +1,14 @@
 # Session prompt: Lean formalization of the concrete-OML block layer
 
+**STATUS 2026-07-11 (s17): Phases A and B EXECUTED, plus T3 —
+`QuerySystem/ConcreteOMLBlocks.lean` (builds, no sorry, receipts at file
+end). A1a–c/L0/C1′/T3 axiom-free; A2 + block-Dirac composite modulo the
+one flagged axiom `foulis_holland_commute` (direct FH proof attempted,
+deferred — see the file header's attempt record). REMAINING: Phase C
+(local-state pattern re-encoding, P⁼/2BR/cluster normal form/Φ-density,
+B′(i)/T4 as named Props) and Phase D (theorem-lets R and P). Kit item 2
+updated accordingly.**
+
 **Paste-able starter for a fresh session. Written 2026-07-11 end of s16;
 audit of existing Lean infrastructure already done — reuse it, do not
 re-audit.**

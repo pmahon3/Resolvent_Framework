@@ -174,7 +174,10 @@ graded open problems attract *inhabitants*.
    `notes/open_questions/PROOF_READ_2026-07-10_attack_s10.md`).
    ✅ (iii) B′(i) direct attempt RUN s15 (2026-07-11, attack note §11;
    ⟦HAND⟧, oracle `verification/b_prime_i_s15_oracle.py` 10/10;
-   **proof-read OWED**): no proof, no refutation — B′(i) reduced to a
+   proof-read CLEARED s16 at s12 standard — SOUND, no wrong steps,
+   424,509/424,509 from-scratch checks, 3 wording fixes ✎s16; receipt
+   `notes/open_questions/PROOF_READ_2026-07-11_attack_s11.md`): no
+   proof, no refutation — B′(i) reduced to a
    FINITARY selection principle. Banked: 2BR two-block rescue (any
    concrete σ-class OML; open locus = ≥3-block patterns; witness |V|=3
    optimal), cluster normal form, P⁼ (pointed ⟺ σ on ctbly generated
@@ -183,9 +186,13 @@ graded open problems attract *inhabitants*.
    St_fa, K(s)=∅ representation-relative, kernel-FIP strictly stronger
    than coherence (✎s15 in §10e); Marczewski pulls read (M 1951, M 1953
    "On compact measures", M–RN 1953, all in library): compact-transport
-   criterion OML form, independence-gluing 5(iii), co-ctble filter IS
+   criterion OML form (Marczewski-approximation in-block, ✎s16 — not
+   mere filter refinement), independence-gluing 5(iv) (✎s16; 5(iii) is
+   the approximating-class form), co-ctble filter IS
    Marczewski-compact ⟹ coarse killer kills only the topological leg —
-   intrinsic wall statement for the coarse factor banked.
+   intrinsic wall statement for the coarse factor banked (✎s16
+   wording: "Marczewski-approximates interlocking coarse blocks
+   in-block").
    Next = the frontier, any order: (i) **T4 via Maharam (8.2)** — the
    finitary shadow of B′(i) (one-block repointing crux, attack note
    §11f), now the sharpest step; (iii) coarse-block

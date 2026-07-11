@@ -53,14 +53,18 @@ Coarse-block toy hunt promoted. Receipt
 s12-standard proof-read CLEARED — SOUND, one scope fix; receipt
 `notes/open_questions/PROOF_READ_2026-07-10_attack_s10.md`.
 **s15 (B′(i) direct attempt, note §11):** reduction ladder banked ⟦HAND,
-oracle 10/10, proof-read OWED⟧ — 2BR two-block rescue (open locus = ≥3-block
+oracle 10/10; proof-read CLEARED s16 — SOUND, no wrong steps,
+424,509/424,509 from-scratch checks, receipt
+`notes/open_questions/PROOF_READ_2026-07-11_attack_s11.md`⟧ — 2BR two-block rescue (open locus = ≥3-block
 patterns; witness |V|=3 optimal), cluster normal form, P⁼ (pointed ⟺ σ on
 ctbly generated blocks ⟹ B′(i) = pure selection problem; compact classes
 reassigned to the coarse factor), Φ ⟺ St_σ dense in St_fa, K(s)=∅ is
 representation-relative, kernel-FIP strictly stronger than coherence
 (§10e slogan corrected ✎s15); Marczewski pulls read (co-ctble filter IS
 Marczewski-compact — coarse killer kills only the topological leg;
-intrinsic wall statement for the coarse factor). Sharpest next step:
+intrinsic wall statement for the coarse factor — ✎s16 wording:
+"Marczewski-approximates in-block", not mere filter refinement).
+Sharpest next step:
 **T4 finitary shadow via Maharam (8.2)** (one-block repointing crux).
 Nav: `papers/spine/` (single open bridging conjecture, §4).
 

@@ -43,6 +43,21 @@ primary-verified, ⟦HAND⟧ glue only; note §7c) ⟹ BNPW 1985 excluded from
 Adm ∩ OML under every reading (BNPW pull demoted to confirmation-only);
 Skeleton C's first half REFUTED as stated (MO₂, machine-checked); Prop 4.4
 = new lever for Skeleton B.
+**s11 (2026-07-10): Skeleton B cold attack run** — note §9. Structural
+dichotomy REFUTED at finite scale (Greechie pentagon ∈ 𝒞, concrete +
+irreducible + not a horizontal sum; oracle
+`notes/open_questions/verification/loop5_greechie_oracle.py`, 26 checks);
+𝒞-infinite inhabited (MO_ω — Q3 scout claim corrected to *non-segregated*).
+Banked theorem-lets ⟦HAND⟧: blocks of concrete σ-class OMLs are σ-fields
+(axis-2 observation now a theorem); pairwise-compatible patterns always
+rescued (witness needs incompatibility); T1 singleton quarantine (the
+product-Ulam kill mechanism provably unavailable on lattices — q:oml's
+hedge upgraded); T3 Dirac realization on countably generated blocks
+(latticehood re-supplies DW's inner regularity, no topology). Sharpened:
+**Conjecture B′(i)** (all blocks countably generated ⟹ Φ — next
+theorem-shaped target) + **B′(ii)** (coarse-block resources can't both
+cohere and kill); named obstruction = *rigidity without fine structure*,
+converging with q:cardinality.
 Nav: `papers/spine/` §4; frontier item 1.
 
 ### 3. Positive-selection, at least to a consistency bound  *(the recruiting hook)*

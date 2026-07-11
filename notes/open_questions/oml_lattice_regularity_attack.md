@@ -127,7 +127,10 @@ the two *proved* engines bracket the conjecture without touching it.
   horizontal-sum-like → lem:horizontal lifts; overlap full → Boolean →
   Prop-boolean lifts). MO₂ is the toy confirmation: it *is* the horizontal
   sum of two 4-element blocks. The work: exclude the middle at σ-scale
-  when overlaps are meet-closed.
+  when overlaps are meet-closed. *(Session 11: structural form REFUTED
+  at finite scale — the Greechie pentagon is in 𝒞 and is neither Boolean
+  nor a horizontal sum; the surviving form is Φ-level. Cold-attack record,
+  partial theorem-lets, and sharpened Conjecture B′: §9.)*
 
 - **Skeleton C (Jauch–Piron forcing) — the candidate "idea".** A 2-valued
   state s is JP (lattice form) iff s(a)=s(b)=1 ⟹ s(a∧b)=1. On the OMP
@@ -382,6 +385,199 @@ in library.)*
   way (scout the JP line before investing hand-work).
 - **Proof exit (unexpected this session per frontier map):** one of
   Skeletons A–C closes.
+
+## 9. Skeleton B cold attack (2026-07-10, session 11)
+
+*Everything here is ⟦HAND⟧ — elementary arguments over the σ-class
+axioms, plus two standard OML citations. Finite-scale instances
+machine-checked: `notes/open_questions/verification/loop5_greechie_oracle.py`
+(Greechie 5- and 6-cycles, 13 checks each, all pass). Not Lean-verified.
+Setting throughout: L a concrete σ-class on Ω (∅ ∈ L, complement-closed,
+closed under countable disjoint unions; order = ⊆, ⊥ = disjointness);
+"lattice" = the poset (L, ⊆) has all binary meets. "Block" = maximal
+pairwise-compatible subset of L (Zorn); compatibility is the concrete
+test A∩B ∈ L (which suffices: A\(A∩B) ∈ L by orthomodular difference).*
+
+### 9a. Two corrections to the record
+
+**(i) 𝒞's infinite locus is inhabited — §4's first probe was miscast.**
+MO_ω is an infinite member of 𝒞: on Ω = 2^ω take
+L = {∅, Ω, A_i, A_iᶜ : i ∈ ω}, A_i = {x : x_i = 0}. Any two distinct
+non-complementary members intersect, so the only disjoint families are
+{A_i, A_iᶜ}: L is a σ-class (vacuously), a lattice (all off-block meets
+are 0), σ-complete even in the lattice sense, non-Boolean, centre {∅,Ω}.
+It is a horizontal σ-sum (def:horizontal holds: trivial pairwise block
+overlaps, no cross-block disjointness), hence Φ by lem:horizontal, and it
+is Polish-representable (clopen sets in Cantor space) — consistent with
+Conjecture 2a. So the Q3 scout negative and §4's probe must be read as:
+**no infinite *non-segregated* member of 𝒞 is known.** §4's parenthetical
+"products/horizontal sums are reducible/segregated" conflates the two
+disqualifications: horizontal sums are irreducible members of 𝒞 — they
+are merely tame.
+
+**(ii) The structural dichotomy is false at finite scale.** The Greechie
+pentagon (5 three-atom blocks pasted in a 5-cycle, adjacent blocks
+sharing one atom; an OML by the loop lemma) is **concrete** — its 11
+two-valued states are order-determining (machine-checked) — and its
+canonical representation on X = St(L) is a 22-element concrete σ-class
+lattice, non-Boolean (100 intersection-poor pairs), centre trivial, and
+**not a horizontal sum** (adjacent blocks share a nonzero proper
+element). So a finite member of 𝒞 sits squarely in "the middle". Since
+Φ is trivially true on finite carriers (St_fa = St_σ), the pentagon does
+not threaten Theorem 2; it shows the Skeleton B dichotomy **cannot be
+structural** (Boolean-vs-horizontal-sum) — the surviving claim is
+Φ-level, and σ-scale must carry the whole proof.
+
+### 9b. The gluing reduction (any concrete σ-class — no latticehood)
+
+**Lemma A1 (confinement + blockwise reduction).** (a) Disjoint elements
+are compatible, so every pairwise-orthogonal family extends to a block.
+(b) Every block Bl is ⊥-closed, contains ∅ and Ω, and is closed under
+countable disjoint unions (for u = ⊍cₙ with cₙ ∈ Bl and any b ∈ Bl:
+u∩b = ⊍(cₙ∩b) ∈ L, and u\b, b\u ∈ L likewise, so u is compatible with
+all of Bl, hence in Bl by maximality). (c) Consequently a two-valued
+function μ on L is a σ-additive state **iff** μ↾Bl is one for every
+block Bl: every countable orthogonal family, with its union, lives
+inside a single block. So St_σ(L) = coherent families of blockwise
+σ-states, verbatim — q:bare's selection framing is exact for *every*
+concrete σ-class, and ¬Φ is always an overlap-coherence failure.
+*(Machine: C8.)*
+
+### 9c. What latticehood buys (the T-series)
+
+**L0 (compatible = commuting; compatible meets are intersections).** If
+A∩B ∈ L then A∩B is the meet (any lower bound is ⊆ A∩B) and A,B commute.
+Conversely if A = (A∧B)∨(A∧Bᶜ) then, the two parts being disjoint and
+their ⊍ being an upper bound below the join, A = (A∧B) ⊍ (A∧Bᶜ), whence
+A∩B = A∧B ∈ L. (Uses ⊍-closure. So on σ-class OMLs the concrete and
+lattice compatibility notions coincide.)
+
+**A2 (blocks are σ-fields; the axis-2 upgrade).** In an OML the
+commutant of any element is closed under ∧ (Foulis–Holland; Kalmbach
+1983), so for A,B in a block Bl, A∧B is compatible with all of Bl, hence
+A∧B ∈ Bl; by L0, A∧B = A∩B. With complement- and ⊍-closure (A1b) and
+countable decreasing intersections (∩ₙFₙ = F₁ \ ⊍ₙ(Fₙ\Fₙ₊₁), all pieces
+in Bl), **every block of a concrete σ-class OML is a σ-field of sets on
+Ω, and every pairwise block overlap is a σ-field**. Likewise every
+pairwise-compatible subset generates a Boolean subalgebra (Foulis–Holland
+induction; Kalmbach 1983) and so lies in a block. **The §3 block-overlap
+observation is now a theorem**: on a lattice, every block presentation
+has meet-closed (indeed σ-field) overlaps — the witness's
+disjoint-union-only overlap type (taxonomy axis 2, the live value) is
+structurally unavailable. On σ-class OMPs, by contrast, maximal
+compatible sets need not be ∩-closed (the regularity-failure locus).
+*(Machine: C6, C7.)*
+
+**Corollary (pattern dichotomy — witnesses need incompatibility).** Let
+(B, s₀) be a pattern with global f.a. extension μ. If B is pairwise
+compatible it lies in a single block Bl (A2); μ restricted to the finite
+subfield of Bl generated by B concentrates on a nonempty atom a of that
+subfield, and δ_ω for any ω ∈ a is a global σ-additive extension of s₀.
+**So on a concrete σ-class OML every pairwise-compatible pattern is
+rescued**, and a lattice witness pattern must contain an incompatible
+pair — after complement normalisation (B is ⊥-closed; compatibility is
+complement-invariant), an incompatible pair A,B with s₀ = 1 on both,
+hence A∩B ≠ ∅ (disjointness would give μ(A⊍B) = 2).
+
+**T1 (singleton quarantine).** If {ω} ∈ L for every ω ∈ A∩B, then every
+such {ω} is a lower bound of {A,B}, so A∩B ⊆ A∧B ⊆ A∩B: A∧B = A∩B ∈ L
+and A ↔ B. Same conclusion if merely every point of A∩B lies in *some*
+member of L inside A∩B closed enough to exhaust it — in particular if
+all countable subsets of A∩B are in L and A∩B is countable, or (the
+witness's contrapositive) if all countable subsets are present and the
+meet exists. Contrapositives: **on a lattice, every incompatible
+overlap contains a point resolved by no member of L inside the
+overlap**; a concrete σ-class OM lattice containing all singletons of Ω
+is a Boolean σ-field. **Consequence: the product-Ulam kill mechanism —
+a rigid block whose fine (singleton) structure sits below the pattern's
+incompatible overlap, collapsing all global σ-states to Diracs, plus a
+pattern with K(s₀) = ∅ — is provably unavailable on lattices.** This
+upgrades q:oml's hedge ("the rigidity method appears to require
+singletons, which … break the meet") to a theorem *for that mechanism*;
+other rigidity mechanisms are not excluded (see 9d). It is exactly
+cor:incompat run in reverse. *(Machine: C9, trivially — the pentagon's
+L contains no singletons.)*
+
+**T3 (Dirac realization on countably generated blocks — latticehood
+re-supplies inner regularity).** Let Bl be a block of a concrete σ-class
+OML that is countably generated as a σ-field, by {Gₙ}. Let ν be any
+two-valued σ-additive state on Bl. Put Fₙ = the intersection of the
+first n generators' ν-value-1 sides (∈ Bl by A2; ν(Fₙ) = 1 by the
+Boolean argument), and D = ∩ₙFₙ ∈ Bl. Then ν(D) = 1 by σ-continuity
+from above (F₁ = D ⊍ ⊍ₙ(Fₙ\Fₙ₊₁), each difference ν-null), so
+**D ≠ ∅**; and {A ∈ Bl : D ⊆ A or D∩A = ∅} is a σ-subfield containing
+the generators, hence all of Bl. So ν = δ_ω↾Bl for **every** ω ∈ D.
+Both hypotheses are load-bearing: without latticehood the Fₙ need not
+lie in L (σ-classes lack countable non-disjoint intersections — this is
+where the proof dies on the product Ulam carrier); without countable
+generation the countable/co-countable σ-field on ω₁ carries its
+non-principal co-countable state. **This answers §7's DW entry question
+("which step could latticehood conceivably re-supply") affirmatively for
+countably generated blocks: the only output of inner regularity the
+blockwise theory needs — two-valued σ-measures are point-realized — is
+re-supplied intrinsically, with no topology.** The Skeleton A read now
+has a sharp target: check whether DW Thm D.6's inner-regularity step
+factors through exactly this blockwise statement, i.e. whether
+Polish-representability in Conjecture 2a can be traded for a
+countable-generation or coarse-block hypothesis. *(Machine: C10.)*
+
+**P1 (poor-region σ-anatomy, for later use).** Poorness is hereditary
+(any nonempty subregion of a poor region is poor where nonempty); meets
+are σ-superadditive over disjoint decompositions (⊍ₙ(Cₙ∧B) ≤ (⊍Cₙ)∧B,
+the left side being in L by ⊍-closure), so if A∧B = 0 and A = ⊍Aₙ then
+Aₙ∧B = 0 for all n while some Aₙ∩B ≠ ∅: poor pairs propagate down every
+σ-decomposition. Poor pairs are incompatible and lie in no common block;
+poor regions are singleton-free (immediately from poorness).
+
+### 9d. The reduced picture, and Conjecture B′
+
+Post-9b/9c a lattice witness must: (1) carry a pattern with an
+incompatible 1–1 pair whose overlap is singleton-gapped (T1) — with
+somewhere in L a fully poor pair (Prop 4.4); (2) kill every coherent
+blockwise-σ selection extending s₀ (A1c). On countably generated blocks
+every blockwise σ-state is pointed (T3), so the *only* non-pointed
+blockwise resources are **coarse blocks** — σ-fields that are not
+countably generated, carrying non-principal two-valued σ-measures of
+countable/co-countable type (precisely the pattern of the witness's
+centre). The named residual obstruction, sharpening §6's engine gap:
+
+> **Rigidity without fine structure.** A lattice witness must destroy
+> non-Dirac σ-states without singletons (or any L-structure) below its
+> incompatible overlaps, and must dodge Diracs (K(s₀) = ∅) using only
+> coarse blocks. The Ulam engine is the fine-structure engine par
+> excellence; no coarse-block rigidity engine is on the corpus's books.
+
+This converges with q:cardinality (the countable-witness question
+already demands a rigidity mechanism "necessarily without all
+singletons"): **one new rigidity mechanism would feed both open
+questions; conversely, a proof that no coarse-block mechanism exists
+closes the lattice case.** Sharpened conjecture, replacing the
+structural dichotomy:
+
+- **Conjecture B′(i) (countably generated case — the next
+  theorem-shaped target).** Every concrete σ-class OML all of whose
+  blocks are countably generated satisfies Φ. *(Plausible route:
+  lem:horizontal's glue with σ-field overlaps + T3 atoms; the open
+  work is cross-block coherence — T3 points the fibers but does not
+  glue them.)*
+- **Conjecture B′(ii) (general).** Coarse blocks cannot simultaneously
+  support the finitely additive coherence of a K(s₀) = ∅ pattern and
+  kill every coherent blockwise selection. (= Theorem 2 modulo B′(i),
+  by the reduction above.)
+
+### 9e. Exit status (per §8)
+
+Sharpened-conjecture exit achieved: B′(i)/(ii) + the named obstruction,
+with the axis-2 observation and the singleton-mechanism exclusion
+upgraded to theorem-lets (⟦HAND⟧, machine-corroborated at finite scale,
+not Lean). Proof exit not claimed: cross-block coherence untouched.
+NEXT, in order of leverage: (1) attempt B′(i) directly; (2) Skeleton A
+read (`derr_williamson_2023.pdf` Thm D.6 + `maharam_1972.pdf` §8) with
+the T3-specific question; (3) hunt a coarse-block toy: a concrete
+σ-class OM lattice with one countable/co-countable-type block and one
+incompatibility — even a failed construction will name the next wall.
+
+---
 
 *Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);
 spine §4 scoping caveat (sufficiency side). Companions:

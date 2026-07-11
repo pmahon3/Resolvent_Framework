@@ -44,12 +44,14 @@ compact witness (theorem-let R); the witness (intersection-stable
 compactness), not the pointedness, powers Maharam's cross-block σ-upgrade,
 so Polish ≠ tradeable for countable generation (intrinsic surrogate =
 Marczewski compact class). **Skeleton A demoted:** 2a alone doesn't finish
-Theorem 2 — the inner-regularity leg fails exactly on coarse-riding states
-(R + P), every Polish rep; Theorem 2 factors as B′(i) + coarse-block
+Theorem 2 — the inner-regularity leg fails on coarse-riding states
+(R + P; exactly there among coarse-block σ-states, s14 scope fix), every
+Polish rep; Theorem 2 factors as B′(i) + coarse-block
 question; convergence now THREE-front (q:cardinality, B′, DW leg).
 Coarse-block toy hunt promoted. Receipt
-`notes/open_questions/SKELETON_A_READ_2026-07-10_receipt.md`; §10
-s12-standard proof-read owed.
+`notes/open_questions/SKELETON_A_READ_2026-07-10_receipt.md`. **s14:** §10
+s12-standard proof-read CLEARED — SOUND, one scope fix; receipt
+`notes/open_questions/PROOF_READ_2026-07-10_attack_s10.md`.
 Nav: `papers/spine/` (single open bridging conjecture, §4).
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility

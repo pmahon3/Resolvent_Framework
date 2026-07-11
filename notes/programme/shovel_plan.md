@@ -163,12 +163,15 @@ graded open problems attract *inhabitants*.
    countable generation (intrinsic surrogate = Marczewski countably
    compact class). **Skeleton A DEMOTED: 2a alone does not finish
    Theorem 2** — D.6's third leg (blockwise inner regularity, in-block
-   sense) fails exactly on coarse-riding states (R + theorem-let P), on
+   sense) fails on coarse-riding states (R + theorem-let P; exactly
+   there among coarse-block σ-states, s14 scope fix), on
    every Polish representation; sufficient form 2a⁺ re-imports the
    coarse-block problem. Theorem 2 factors as B′(i) + (coarse-block
    question or B′(ii)); prior-art verdict gloss corrected (no swing),
-   rem:dw residue now two conditions. Owed: s12-standard proof-read of
-   §10.
+   rem:dw residue now two conditions. ✅ s12-standard proof-read of §10
+   CLEARED s14 (two fresh-context reviewers, 11,686/11,686 from-scratch
+   checks, one scope fix applied; receipt
+   `notes/open_questions/PROOF_READ_2026-07-10_attack_s10.md`).
    Next = the frontier, any order: (i) B′(i) direct attempt — now with
    the kernel-FIP / compact-class proof shape (attack note §10e; pulls:
    Marczewski 1951, Marczewski–Ryll-Nardzewski 1953); (iii) coarse-block

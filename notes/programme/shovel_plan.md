@@ -58,6 +58,16 @@ hedge upgraded); T3 Dirac realization on countably generated blocks
 theorem-shaped target) + **B′(ii)** (coarse-block resources can't both
 cohere and kill); named obstruction = *rigidity without fine structure*,
 converging with q:cardinality.
+**s12 (2026-07-10): §9 proof-read debt CLEARED** — fresh-context
+adversarial review, verdict **SOUND**, all findings cosmetic (applied
+in place); A2's two standard citations pinned primary-grade
+(Bruns–Harding 2000 Props 2.2–2.4/2.8/3.1, incl. the infinite case;
+Kalmbach 1983 Thm 5 p. 25; Foulis 1962 / Holland **1964**; OMP contrast
+Ramsay 1966 / Pool 1963 via Pulmannová 1981). Receipt:
+`notes/open_questions/PROOF_READ_2026-07-10_attack_s9.md` +
+from-scratch scripts (118/118) in
+`notes/open_questions/verification/proof_read_2026-07-10_s11/`.
+Awaits user ratification.
 Nav: `papers/spine/` §4; frontier item 1.
 
 ### 3. Positive-selection, at least to a consistency bound  *(the recruiting hook)*

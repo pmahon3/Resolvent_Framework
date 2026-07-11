@@ -392,6 +392,12 @@ in library.)*
 axioms, plus two standard OML citations. Finite-scale instances
 machine-checked: `notes/open_questions/verification/loop5_greechie_oracle.py`
 (Greechie 5- and 6-cycles, 13 checks each, all pass). Not Lean-verified.
+Fresh-context adversarial proof-read 2026-07-10 s12: **SOUND**, all
+findings cosmetic (applied in place, marked ✎ in the receipt); both
+standard citations pinned to primary-grade sources. Receipt:
+`PROOF_READ_2026-07-10_attack_s9.md`; independent from-scratch scripts
+(118/118) in `verification/proof_read_2026-07-10_s11/`. Awaits user
+ratification.
 Setting throughout: L a concrete σ-class on Ω (∅ ∈ L, complement-closed,
 closed under countable disjoint unions; order = ⊆, ⊥ = disjointness);
 "lattice" = the poset (L, ⊆) has all binary meets. "Block" = maximal
@@ -422,7 +428,9 @@ two-valued states are order-determining (machine-checked) — and its
 canonical representation on X = St(L) is a 22-element concrete σ-class
 lattice, non-Boolean (100 intersection-poor pairs), centre trivial, and
 **not a horizontal sum** (adjacent blocks share a nonzero proper
-element). So a finite member of 𝒞 sits squarely in "the middle". Since
+element). So a finite member of 𝒞 sits squarely in "the middle"
+(irreducibility read as trivial centre — the essential-irreducibility
+quotient by the σ-ideal of countable sets degenerates at finite scale). Since
 Φ is trivially true on finite carriers (St_fa = St_σ), the pentagon does
 not threaten Theorem 2; it shows the Skeleton B dichotomy **cannot be
 structural** (Boolean-vs-horizontal-sum) — the surviving claim is
@@ -453,14 +461,18 @@ A∩B = A∧B ∈ L. (Uses ⊍-closure. So on σ-class OMLs the concrete and
 lattice compatibility notions coincide.)
 
 **A2 (blocks are σ-fields; the axis-2 upgrade).** In an OML the
-commutant of any element is closed under ∧ (Foulis–Holland; Kalmbach
-1983), so for A,B in a block Bl, A∧B is compatible with all of Bl, hence
+commutant of any element is closed under ∧ — indeed under all existing
+joins/meets (Bruns–Harding 2000 Props 2.2–2.4; Foulis–Holland =
+Kalmbach 1983 Thm 5 p. 25; originals Foulis 1962 / Holland 1964) — so
+for A,B in a block Bl, A∧B is compatible with all of Bl, hence
 A∧B ∈ Bl; by L0, A∧B = A∩B. With complement- and ⊍-closure (A1b) and
 countable decreasing intersections (∩ₙFₙ = F₁ \ ⊍ₙ(Fₙ\Fₙ₊₁), all pieces
 in Bl), **every block of a concrete σ-class OML is a σ-field of sets on
 Ω, and every pairwise block overlap is a σ-field**. Likewise every
-pairwise-compatible subset generates a Boolean subalgebra (Foulis–Holland
-induction; Kalmbach 1983) and so lies in a block. **The §3 block-overlap
+pairwise-compatible subset — of any cardinality — generates a Boolean
+subalgebra (Bruns–Harding 2000 Prop 2.8, stated for arbitrary subsets
+via the commutant argument; blocks Prop 3.1; OMP contrast = Ramsay 1966
+/ Pool 1963 via Pulmannová 1981 p. 393) and so lies in a block. **The §3 block-overlap
 observation is now a theorem**: on a lattice, every block presentation
 has meet-closed (indeed σ-field) overlaps — the witness's
 disjoint-union-only overlap type (taxonomy axis 2, the live value) is
@@ -477,15 +489,16 @@ subfield, and δ_ω for any ω ∈ a is a global σ-additive extension of s₀.
 rescued**, and a lattice witness pattern must contain an incompatible
 pair — after complement normalisation (B is ⊥-closed; compatibility is
 complement-invariant), an incompatible pair A,B with s₀ = 1 on both,
-hence A∩B ≠ ∅ (disjointness would give μ(A⊍B) = 2).
+hence A∩B ≠ ∅ (incompatibility alone forces this: A∩B = ∅ ∈ L would
+make the pair compatible).
 
 **T1 (singleton quarantine).** If {ω} ∈ L for every ω ∈ A∩B, then every
 such {ω} is a lower bound of {A,B}, so A∩B ⊆ A∧B ⊆ A∩B: A∧B = A∩B ∈ L
 and A ↔ B. Same conclusion if merely every point of A∩B lies in *some*
-member of L inside A∩B closed enough to exhaust it — in particular if
-all countable subsets of A∩B are in L and A∩B is countable, or (the
-witness's contrapositive) if all countable subsets are present and the
-meet exists. Contrapositives: **on a lattice, every incompatible
+member of L contained in A∩B (each such member is a lower bound, hence
+⊆ A∧B; the union over points gives A∩B ⊆ A∧B — no exhaustion
+hypothesis needed) — in particular if all countable subsets of A∩B are
+in L. Contrapositives: **on a lattice, every incompatible
 overlap contains a point resolved by no member of L inside the
 overlap**; a concrete σ-class OM lattice containing all singletons of Ω
 is a Boolean σ-field. **Consequence: the product-Ulam kill mechanism —
@@ -526,8 +539,9 @@ countable-generation or coarse-block hypothesis. *(Machine: C10.)*
 are σ-superadditive over disjoint decompositions (⊍ₙ(Cₙ∧B) ≤ (⊍Cₙ)∧B,
 the left side being in L by ⊍-closure), so if A∧B = 0 and A = ⊍Aₙ then
 Aₙ∧B = 0 for all n while some Aₙ∩B ≠ ∅: poor pairs propagate down every
-σ-decomposition. Poor pairs are incompatible and lie in no common block;
-poor regions are singleton-free (immediately from poorness).
+σ-decomposition (the "some Aₙ∩B ≠ ∅" clause uses poorness — A∩B ≠ ∅ —
+not just A∧B = 0). Poor pairs are incompatible and lie in no common
+block; poor regions are singleton-free (immediately from poorness).
 
 ### 9d. The reduced picture, and Conjecture B′
 
@@ -563,7 +577,10 @@ structural dichotomy:
 - **Conjecture B′(ii) (general).** Coarse blocks cannot simultaneously
   support the finitely additive coherence of a K(s₀) = ∅ pattern and
   kill every coherent blockwise selection. (= Theorem 2 modulo B′(i),
-  by the reduction above.)
+  by the reduction above. Precision caveat, proof-read s12: killing
+  every selection is a whole-carrier property, phrased here as a
+  coarse-block property — fine as a slogan, must be sharpened into a
+  precise statement before an attack.)
 
 ### 9e. Exit status (per §8)
 

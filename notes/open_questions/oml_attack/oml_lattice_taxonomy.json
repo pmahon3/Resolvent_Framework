@@ -1,0 +1,237 @@
+{
+ "$meta": {
+  "title": "OML lattice form — finite-trace σ-liftability",
+  "purpose": "Zoom-out index of the OML/lattice attack. Load this first; follow detail pointers into the working note for proofs, scope, and session receipts.",
+  "updated": "2026-07-11",
+  "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
+  "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. Older mechanisms now survive only as sufficient conditions, narrow routes, or explicit exclusions.",
+  "categories": {
+   "reductions": "equivalent formulations and proved reductions defining the current normal form",
+   "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
+   "coarse_block_route": "non-principal block states and cross-block compact transport",
+   "unitality_route": "the surviving state-separation branch of the former JP skeleton",
+   "counterexample_construction": "increasingly strong probes toward a concrete OML witness",
+   "mechanism_exclusions": "failed lemmas or mechanisms with their exact scope",
+   "external_sufficient_conditions": "known tame regions where Φ holds"
+  },
+  "headline": {
+   "entries": 28,
+   "primary_routes": 2,
+   "secondary_routes": 1,
+   "open_cruxes": 4,
+   "current_next_step": "T4 via Maharam (8.2), in parallel with the coarse-block toy hunt"
+  },
+  "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
+ },
+ "reductions": [
+  {
+   "id": "oml.problem.phi",
+   "name": "Finite-trace σ-liftability Φ",
+   "status": "open",
+   "one_line": "Φ(L): every finite trace realized by a global finitely additive two-valued state is realized by some global σ-additive two-valued state.",
+   "detail": "oml_lattice_regularity_attack.md#1-statement-of-record"
+  },
+  {
+   "id": "oml.reduction.phi_density",
+   "name": "Φ as Stone density",
+   "status": "proved-hand",
+   "one_line": "Φ(L) iff St_σ(L) is dense in St_fa(L) inside {0,1}^L; equality of the two state spaces is not required.",
+   "detail": "oml_lattice_regularity_attack.md#11d-stone-density-reframe-of-φ"
+  },
+  {
+   "id": "oml.reduction.blockwise",
+   "name": "Blockwise gluing reduction",
+   "status": "proved-hand",
+   "one_line": "σ-additivity is blockwise, so global σ-states are exactly coherent choices of σ-states across Boolean blocks.",
+   "detail": "oml_lattice_regularity_attack.md#9b-the-gluing-reduction-any-concrete-σ-class--no-latticehood"
+  },
+  {
+   "id": "oml.reduction.two_block_rescue",
+   "name": "Two-block rescue",
+   "status": "proved-hand",
+   "one_line": "A coherent value-1 pattern supported in at most two blocks is Dirac-rescued; any witness needs at least three blocks.",
+   "detail": "oml_lattice_regularity_attack.md#11a-two-block-rescue-any-concrete-σ-class-oml--no-countable-generation"
+  },
+  {
+   "id": "oml.reduction.cluster_normal_form",
+   "name": "Cluster normal form",
+   "status": "proved-hand",
+   "one_line": "The open frontier reduces to coherent clusters of at least three pairwise-incompatible block-meets with pairwise intersections but empty global kernel.",
+   "detail": "oml_lattice_regularity_attack.md#11b-cluster-reduction-normal-form-for-the-frontier"
+  },
+  {
+   "id": "oml.reduction.fine_coarse",
+   "name": "Fine/coarse factorization",
+   "status": "settled-reduction",
+   "one_line": "The lattice question factors into B′(i) for countably generated blocks and a separate coarse-block coherence question.",
+   "detail": "oml_lattice_regularity_attack.md#10d-consequence-skeleton-a-demoted--2a-does-not-finish-theorem-2"
+  }
+ ],
+ "fine_block_route": [
+  {
+   "id": "oml.fine.bprime_i",
+   "name": "B′(i): countably generated blocks imply Φ",
+   "status": "primary-open",
+   "one_line": "On carriers whose blocks are countably generated, prove that every finitely coherent finite trace has a coherent pointed global realization.",
+   "detail": "oml_lattice_regularity_attack.md#9d-the-reduced-picture-and-conjecture-b"
+  },
+  {
+   "id": "oml.fine.pointed_iff_sigma",
+   "name": "Pointed iff σ on fine blocks",
+   "status": "proved-hand",
+   "one_line": "For countably generated blocks, global σ-states are exactly coherent blockwise atomic selections.",
+   "detail": "oml_lattice_regularity_attack.md#11c-on-countably-generated-blocks-the-σ-side-is-free-pointed-σ"
+  },
+  {
+   "id": "oml.fine.pointed_density",
+   "name": "Pointed-state density",
+   "status": "equivalent-open",
+   "one_line": "B′(i) is equivalent to density of blockwise-pointed states among finitely additive two-valued states.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.fine.one_block_repointing",
+   "name": "One-block repointing crux",
+   "status": "open",
+   "one_line": "Given a coherent cluster plus existing block pointings, can one point one further block while preserving finite-additive coherence?",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.fine.t4",
+   "name": "T4 finitary shadow",
+   "status": "necessary-open",
+   "one_line": "Every coherent cluster must admit a coherent atom from each further block; necessary for B′(i), but insufficient without a completion principle.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  }
+ ],
+ "coarse_block_route": [
+  {
+   "id": "oml.coarse.bprime_ii",
+   "name": "B′(ii): coarse-block coherence",
+   "status": "primary-open-needs-restatement",
+   "one_line": "Determine whether interlocking coarse blocks can coherently support finite-additive patterns while excluding every global σ-selection.",
+   "detail": "oml_lattice_regularity_attack.md#9d-the-reduced-picture-and-conjecture-b"
+  },
+  {
+   "id": "oml.coarse.nonprincipal_states",
+   "name": "Non-principal block σ-states",
+   "status": "inhabited-blockwise",
+   "one_line": "Coarse σ-fields can carry non-principal two-valued σ-states, so point-selection does not describe the entire σ-side.",
+   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series"
+  },
+  {
+   "id": "oml.coarse.compact_transport",
+   "name": "Cross-block compact transport",
+   "status": "open-engine",
+   "one_line": "The required regularity is one countably compact class that Marczewski-approximates every interlocking block in-block, not merely a Polish representation.",
+   "detail": "oml_lattice_regularity_attack.md#11e-the-marczewski-read-what-the-pulls-actually-say"
+  },
+  {
+   "id": "oml.coarse.dw_regularization",
+   "name": "DW/Maharam regularization",
+   "status": "sufficient-condition-demoted",
+   "one_line": "Inner regularity plus a common intersection-stable compact witness can upgrade finite additivity, but representability alone does not supply that witness.",
+   "detail": "oml_lattice_regularity_attack.md#10a-anatomy-of-the-dw-engine-reading-result"
+  }
+ ],
+ "unitality_route": [
+  {
+   "id": "oml.unitality.pp1994",
+   "name": "PP1994 unitality/subadditivity engine",
+   "status": "secondary-open",
+   "one_line": "A sufficiently separating unital subadditive family of σ-states could force Booleanity and thereby constrain a counterexample.",
+   "detail": "oml_lattice_regularity_attack.md#7c-session-9-2026-07-10-mpt-1992-primary-text-pulled--bnpw-resolved-by-derivation-skeleton-cs-first-half-refuted"
+  },
+  {
+   "id": "oml.unitality.jp",
+   "name": "Universal JP forcing",
+   "status": "refuted-as-stated",
+   "one_line": "Latticehood does not force every σ-state to be Jauch–Piron; MO₂ refutes the first formulation, leaving only narrower hypotheses.",
+   "detail": "oml_lattice_regularity_attack.md#7c-session-9-2026-07-10-mpt-1992-primary-text-pulled--bnpw-resolved-by-derivation-skeleton-cs-first-half-refuted"
+  }
+ ],
+ "counterexample_construction": [
+  {
+   "id": "oml.construct.coarse_toy",
+   "name": "Coarse-block toy",
+   "status": "open-probe",
+   "one_line": "First build a concrete σ-class OML with a genuinely coarse block, incompatible overlap, and a non-principal blockwise σ-state.",
+   "detail": "oml_lattice_regularity_attack.md#9e-exit-status-per-8"
+  },
+  {
+   "id": "oml.construct.t4_counterexample",
+   "name": "T4 counterexample hunt",
+   "status": "open-falsification",
+   "one_line": "A coherent cluster and further block violating T4 would refute B′(i) outright.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.construct.full_witness",
+   "name": "Full concrete OML witness",
+   "status": "open-ultimate",
+   "one_line": "Construct L in the admissible concrete σ-complete OML class with a finite trace in im St_fa but outside im St_σ.",
+   "detail": "oml_lattice_regularity_attack.md#5-falsification-side-kept-honest"
+  }
+ ],
+ "mechanism_exclusions": [
+  {
+   "id": "oml.exclusion.singleton_quarantine",
+   "name": "Singleton quarantine",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "Fine singleton rigidity of the product-Ulam type destroys latticehood; this excludes that mechanism, not every possible OML witness.",
+   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series"
+  },
+  {
+   "id": "oml.exclusion.overlap_dichotomy",
+   "name": "Boolean-or-horizontal overlap dichotomy",
+   "status": "refuted-lemma",
+   "one_line": "The finite Greechie pentagon refutes the proposed structural dichotomy while satisfying Φ automatically.",
+   "detail": "oml_lattice_regularity_attack.md#9a-two-corrections-to-the-record"
+  },
+  {
+   "id": "oml.exclusion.disjoint_union_overlap",
+   "name": "Disjoint-union-only overlaps",
+   "status": "proved-unavailable",
+   "one_line": "Blocks and their overlaps in the concrete σ-class OML setting are σ-fields, so the OMP witness's overlap geometry cannot persist.",
+   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series"
+  },
+  {
+   "id": "oml.exclusion.polish_alone",
+   "name": "Polish representation alone",
+   "status": "demoted-strategy",
+   "one_line": "Polish representability without in-block regularity and a shared compact witness does not prove Φ.",
+   "detail": "oml_lattice_regularity_attack.md#10d-consequence-skeleton-a-demoted--2a-does-not-finish-theorem-2"
+  },
+  {
+   "id": "oml.exclusion.kernel_intrinsic",
+   "name": "Empty kernel as intrinsic obstruction",
+   "status": "refuted-framing",
+   "one_line": "K(s)=∅ depends on the chosen concrete representation and cannot classify the abstract OML state by itself.",
+   "detail": "oml_lattice_regularity_attack.md#11c-on-countably-generated-blocks-the-σ-side-is-free-pointed-σ"
+  }
+ ],
+ "external_sufficient_conditions": [
+  {
+   "id": "oml.tame.boolean",
+   "name": "Boolean carriers",
+   "status": "settled-tame",
+   "one_line": "Boolean σ-algebras satisfy finite-trace σ-liftability.",
+   "detail": "oml_lattice_regularity_attack.md#1-statement-of-record"
+  },
+  {
+   "id": "oml.tame.finite",
+   "name": "Finite carriers",
+   "status": "settled-tame",
+   "one_line": "Finite carriers satisfy Φ because finite and countable additivity coincide.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.tame.horizontal",
+   "name": "Horizontal sums",
+   "status": "settled-tame",
+   "one_line": "Horizontal-sum-like carriers lie in the known tame region, though they do not exhaust concrete irreducible OMLs.",
+   "detail": "oml_lattice_regularity_attack.md#9a-two-corrections-to-the-record"
+  }
+ ]
+}

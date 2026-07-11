@@ -6,7 +6,7 @@ attack thread and the σ-essential hub documents it leans on.
 
 | Path | What lives here |
 |---|---|
-| `oml_attack/` | The ACTIVE shovel-thm-2 thread: `oml_lattice_regularity_attack.md` (working note, §§1–11) + its proof-read receipts (`PROOF_READ_*`, `SKELETON_A_READ_*`). |
+| `oml_attack/` | OML taxonomy, active working note, and proof-read receipts. |
 | `sigma_essential/` | σ-essential hub/verdict documents: taxonomy leaves (`sigma_essential_*`), prior-art verdicts (`czech_school_*`, `sharp_skeleton_*`), reduction writeups, reading notes (`navara_ptak_*`), `rigor_guard_scope.md`. |
 | `kits/` | Pen-and-paper artifacts (tex+pdf): `oml_onboarding`, `problemset_oml_descent` (+ `references_oml.bib`, `figures/`), `ratification_kit_2026-07-11`, `companion_probability_without_a_joint_world`. |
 | `verification/` | Machine oracles and from-scratch proof-read scripts (`proof_read_*/` subdirs are per-review, written blind to repo scripts). |

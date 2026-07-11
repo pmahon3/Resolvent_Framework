@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Reconstruction / commensurability classification",
   "purpose": "Zoom-out index of the reconstruction thread's design state, mechanisms, prediction ledger, and open frontier. Load this first; follow detail pointers for full reasoning.",
-  "updated": "2026-07-08",
+  "updated": "2026-07-11",
   "what_is_it": "For dynamical/coarse observation protocols: when does pairwise coherence (EA) force realisability by a declared class (PR(R))? Commensurability = EA implies PR universally; the classification is a facet-shape taxonomy of R = conv(cell-incidence vectors), with all hardness in the constraint variety.",
   "status": "OPEN — the active successor programme (2026-07-06). Design in the capture session, verification here (Lean/audit side), writing after.",
   "the_shape": "Five certificate mechanisms, all sighted and object-backed at n<=5; syzygies are the GAUGE GROUP, not a family; multiset-domination is universally true hence contentless; the real structure is the trichotomy — k=2 tame, k=3 full-support-coordinate tame, k=3-with-variety UNIVERSAL (De Loera-Onn). All hardness lives in the variety; the successor question is a CSP-shaped dichotomy hunt, whose first transfer formulation died on the partition-vs-scope delta. Under scope contexts the picture cleaned up: acyclic structures are commensurable for EVERY language (free theorem); the language enters only through cyclic structures (recurrence); commensurability sits STRICTLY ABOVE the satisfiability-width line (C5-NAND separating object); ring parity verified clean at L=3..6. PARITY THEOREM PROVED (hand + machine-corroborated): golden-mean ring commensurable iff even; odd gap = ONE point (u=1/2, CF=1); mechanism = forest-TU + det = 1-(-1)^L; safe-topology spectrum over binary languages: {<=}: all / NAND: even / XOR: even (odd degenerate) / full: none. Winding round: coherence on a ring = circulation; vertices = simple layered cycles (winding k = k-fold cover of the observed clock). P13 MISSED informatively: aperiodicity ≠ tameness (safe(3-cycle+loop) = {3}, not 3Z; the period-4 orbit 0120 is a NON-CONSTANT necklace at L=6). NECKLACE CRITERION 100% consistent on all data: backward = theorem, forward = licensed proof target. WINDING CHARACTERIZATION now PREDICTIVE (P20: Safe(2cyc⊕3cyc)=6Z predicted fresh, computed exact); C-vertices = normalized simple cycles verified as SET IDENTITY (P17); semantics bifurcation characterized: gate-pass ⟺ closure-level (EA-on-V) and aggregation-level (circulation) coincide; gate-fail (disconnected/period-forcing languages) ⟹ they diverge and the application must declare its observation model. Junctions round: gate-analogue PASSES beyond rings (fig8, theta); wedge-innocence supported (Safe = intersection); theta(2,2,2) SAFE — no holonomy third mechanism at tested scale; bifurcation = REDUCTION (Safe_closure(ρ,L) = Safe(ρ|V(L),L), machine-confirmed L=2..12). K4 round: gate holds at a K4 minor; NAND tames the minor obstruction (evenize ⟺ bipartitize — NAND cannot separate Circuit Localization from minor theory; P25' = ρ₂₀-beads on length-6-subdivided K4 is the decisive test); lifting lemma controlled both ways (P26 path-sharing inheritance gap ½; P27 totality necessary via matched lollipop pair). P25' round: rho20 is a PERMUTATION — LOCAL = holonomy-invariant simplex, Safe ⟺ H=id (covering frame LITERAL); third taming. NE3 ruled out (unsafe all L, gate fails rigid-direction at L=3). Fork needs: nondeterministic + nonempty safe set + non-integrality-forcing — existence now the design question; the tamings may BE Circuit Localization's mechanism. P29/P30: swap-spectrum criterion VALIDATED polytope-free; exhaustive ≤4-state hunt: 333 pre-candidates → taming #5 (transient branching, 149) → 184 recurrent-branching survivors, 181 even-q parity-family + 1 graded exemplar. Fork narrows to ρ* = loops+2-cycle (parity from swap dynamics, not bipartite base) on q=2-subdivided K4 — P31 awaiting registration. P31/P32/P33: taming #6 = direct-sum decomposition (ρ* mis-triage caught: = NAND ⊕ point); taming #4 machine-confirmed on K4 with the rank drop as observable (dim C = dim R = 18 = factorization formula); 13 true candidates remain with NAND minimal — structural filters cannot decide fork-capability (tamings are polytope-level); ρ₅ = {01,02,10,11,20} is the first no-known-reduction candidate. P34/P35: ρ₅ SAFE at the K5 boundary (gate passes at the minor; dims 30=30; 200/200 exact LPs) — the first experiment where the minor had room, and safety held. Fork hunt CLOSED; taming #7 (pair-bipartite ⟹ safe on bipartite graphs) is the proof lane; if it closes, Circuit Localization follows for branching languages at small scale — the theorem assembled from the tamings. TAMING #7 PROVED: signable (marginal-determined + HT-signable-by-bipartition) languages are safe on all bipartite graphs — mod-2 potential = anti-comonotone θ-sweep (constructive, P37-certified on the 3434-section K5 instance). P35 upgraded to theorem-certified. P36: signable ⟹ pair-bipartite clean (0 hard splitters); 13 PB-not-CS candidates = the sufficiency test set. Circuit Localization follows for marginal-determined branching languages on bipartite structure. Endgame triage: the 13 PB-languages are REAL non-TU objects (0 dissolved under all orderings; taming #7 provably cannot cover them) = the last fork candidates, P38b decides. P39 MISS: non-MD safety EXISTS (polytope-confirmed even-safe non-MD non-pair-bipartite language) - the MD bound is a PROOF boundary (affine lift) not a safety boundary; the swap-criterion holds off MD. Taming #8 (twin expansion) PROVED (rho_min = twins over alternation; phase-mixture safe on K5, no TU = below-TU mechanism); P41 hit (reflexive twinning generates unsafety). BUT P40 REFUTES dissolution: only 2/13 dissolve, 11 reduce to smaller twin-free MD-PB-non-signable-non-TU forks - the twin-tower classification is refuted at scale; P38b on the minimal quotient is the still-required decisive run. Taming #9 (monotone collapse) + orientation scoping (safe-on-G is orientation-dependent for non-symmetric langs; minor theory = undirected = symmetric only). P42 FINDS THE OBJECT: the P4-PATH language (A4 Dynkin, hom-into-a-path) - symmetric, twin-free, MD, PB, non-signable, non-TU, safe=evens; nothing catalogued tames it. P38b on the P4-path/subdivided-K5 is the cleanly-posed decisive fork experiment. 9 tamings; impossibility route closed (P42 non-empty). Taming #10 (bipartite-target phase decoupling): the A4-path = twisted double of NAND (P44 safe, dim 31=1+2*15 exact). COUNTING THEOREM (bijection, 1819 targets): symmetric-loopless-MD <=> forest => whole class phase-decouples. P46 empty. => CIRCUIT LOCALIZATION CLOSES for symmetric MD (forest-target ∪ signable); fork expelled by structure. Remaining habitats: non-MD symmetric (odd cycles/NE3 = the CSP-hard targets marginals can't see = extended formulations) + non-symmetric (collapse/holonomy). P47/P48/P49: symmetric non-MD EXPELLED (cyclic-target safe sets girth-locked+sparse, can't cover a K4-frame's circuits; CSP-hard targets are the OPPOSITE of the fork's habitat). SCC-reduction lemma = taming #9's true form (rho39 membrane sealed, u(1) const on recurrent frames). P49 EMPTY (no SCC non-sym rich-safe survivor <=4 states). UNIVERSAL IMPOSSIBILITY CONJECTURE on record, unrefuted. Tooling defect caught+corrected: swap-criterion buggy on multi-outcome targets (polytope = ground truth). CORRECTION round: dim-equality test = necessary-not-sufficient (3rd tooling defect; C4-L4 dim-equal but C!=R by exhibited witness) => 'C4/C6-safe' sub-verdicts RETRACTED, but symmetric expulsion STANDS at witness-grade (backtracker orbits are real Lemma-1/2 objects). Verdict-grade ladder: witness-unsafe > exact/theorem-safe > screening; random-LP demoted (caught a false-safe). Swap-criterion fix = semantics-aware (flag at rigidity points, don't fail). P53 amendment: C5-target {5,7} STRUCK (L=7 witnessed-unsafe here, residual 36/5; L=5 gate-degenerate). Cyclic symmetric targets unsafe at EVERY gate-holding length, NO exceptions --- symmetric expulsion now entirely certificate-grade (forests + witness-unsafe cyclic targets). c5_calibration.py = the swap-criterion fix's two-mode acceptance test. P54 counterexample hunt (5 states, relaxed rich-even demand): FORK-FREE through 9 edges (0 candidates across m=5..9, all tamed by the cheap catalogue); full-density scan in progress. Conjecture's most-likely hiding place clear; proof attempt earned on evidence through 9 edges. Standing flag: theorem-let B (tuple-level eventual periodicity) unproven, prove separately. Theorem-let B decomposed: its real prerequisite is the PRUNING LEMMA (tuple-reachability set = layer-injective simple-cycle set, cofinitely), registered prediction-withheld. Disagreement hunt (coarse + fine winding-set, stress set incl. break-it cases): AGREE exactly up to L=8-9 = EVIDENCE not proof (finite window can't certify cofinite; structural reason not in hand). Lemma OPEN; impossibility proof must NOT be drafted until it's settled structurally. Pruning lemma adversarial probe: prediction 'false imprimitively' NOT confirmed --- validated-imprimitive targets (adv1 pair-periods{2,4}, adv5{3,3}) show NO TR/LISC disagreement to L=35/33 (correct raw-DFS, honest depth wall). Evidence shifts toward UNCONDITIONAL (not proof). 4th instrument bug (LISC reformulation) caught PRE-RECORD by cross-check vs raw DFS, output discarded. Lemma OPEN. Pruning-lemma REDUCTION (flow-decomposition; k=2 -> exchange-linking=>simple) has a PHASE GAP: winding-2 simple cycles interleave their two strands at a relative phase, which the lockstep-exchange model can't express (anchor failed, caught pre-record, 5th instrument error). Corrected k=2 residual = phase-parametrised strand-disjointness; TR_2 (phase-agnostic) may quietly carry the phase. Raw-DFS LISC = only trusted oracle (exponential wall ~L=35). Lemma OPEN.",
@@ -74,7 +74,7 @@
    "name": "Family II: odd holes",
    "status": "settled",
    "one_line": "First NEEDED at n=5 k=3 — the pentagon in coarse-partition costume ({0|12|34},{01|2|34},{03|1|24}); nowhere at k=2 or n<=4. Design session's 5-point instinct vindicated for the odd-hole reading.",
-   "detail": "commensurability_atlas_n5k3.jsonl; zoom: commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+   "detail": "../oracles/commensurability_atlas_n5k3.jsonl; zoom: commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
   },
   {
    "id": "mech.syzygies",
@@ -88,7 +88,7 @@
    "name": "Fourth mechanism: weight-1 exotic shapes",
    "status": "settled",
    "one_line": "n=5 k=3, 8 instances, all half-spread: facets that gauge-reduce to weight-LB 1 but whose SHAPE (multiple negatives across contexts, e.g. B12+C13 <= 2*A1+A234) escapes chains, cliques, holes; hand-verified else_n5_verification.py. Shape, not weight, separates it.",
-   "detail": "else_n5_verification.py; zoom: commensurability_classification_seed.md#22b-harness-results-exhaustive-exact-rational-commensurability_harnesspy"
+   "detail": "../oracles/else_n5_verification.py; zoom: commensurability_classification_seed.md#22b-harness-results-exhaustive-exact-rational-commensurability_harnesspy"
   }
  ],
  "theorems_and_anchors": [
@@ -104,7 +104,7 @@
    "name": "Full-support coordinate protocols tame",
    "status": "proved-hand",
    "one_line": "k=3 coordinate contexts with full product support: product measure realises any coherent margins (two lines); calibration PASS at 2x2x2 (harness_v2_calibrations.py).",
-   "detail": "harness_v2_calibrations.py"
+   "detail": "../oracles/harness_v2_calibrations.py"
   },
   {
    "id": "thm.multiset_domination_trivial",
@@ -139,21 +139,21 @@
    "name": "C5-NAND: commensurability strictly above satisfiability-width",
    "status": "settled",
    "one_line": "Golden-mean on C5: half-model scope-coherent + unrealisable (odd 2-coloring) while min-polymorphism makes BLP decide satisfiability (KOTYZ) — polytope projection is a strictly stronger power; machine-confirmed facet gap 1/4.",
-   "detail": "ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+   "detail": "../oracles/ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
   },
   {
    "id": "thm.parity_golden_mean",
    "name": "Parity theorem (golden-mean rings)",
    "status": "proved-hand-machine-corroborated",
    "one_line": "C_L commensurable iff L even; C=FSTAB/R=STAB (reduction lemma, P11 exact), parity by forest-TU + det(incidence)=1-(-1)^L; odd gap = unique fractional vertex u=1/2 with CF=1 (the golden-mean PR-box); facet fingerprint 1/(L-1) matches measured gaps 1/2, 1/4.",
-   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+   "detail": "../oracles/parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
   },
   {
    "id": "thm.circulation_reduction",
    "name": "Circulation reduction + rank gate",
    "status": "settled",
    "one_line": "For edge-scope ring protocols passing the rank gate (EA rowspace ≡ conservation rowspace — PASS every language/L run), C = normalized circulation polytope; vertices = (1/k)·simple layered cycles (flow decomposition); R = conv(winding-1 sections).",
-   "detail": "winding_invariant_tests.py; zoom: commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
+   "detail": "../oracles/winding_invariant_tests.py; zoom: commensurability_classification_seed.md#22g-windingcirculation-round--p13-misses-informatively-necklace-criterion-survives-everything-2026-07-0708"
   },
   {
    "id": "thm.necklace_backward",
@@ -167,7 +167,7 @@
    "name": "Winding characterization (safe-topology theorem)",
    "status": "proved-hand-PREDICTIVE",
    "one_line": "Under the rank gate: L unsafe ⟺ some simple layered cycle of winding ≥ 2 ⟺ some primitive orbit wraps injectively with k=q/gcd(q,L) ≥ 2; every C∖R vertex strongly contextual (CF=1). Corroborated P17-P19; PREDICTIVE via P20 (Safe(ρ₂₀)=6Z fresh). Lemma 2 (functional digraph) = the load-bearing novelty. (NOTE: the characterization itself is structural and independent of the pruning lemma; only its EVENTUAL-PERIODICITY refinement = theorem-let B rests on the open pruning lemma.). [LEMMA 2 = the layer-injectivity discriminant now CERTIFICATE-GRADE in Lean: WindingInjectivity.simple_iff_layerInjective, 0-sorry, [propext,Quot.sound], the clause that caught the doubled-rotation + lockstep-phase errors.]",
-   "detail": "winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08",
+   "detail": "../oracles/winding_theorem_checks.py; zoom: commensurability_classification_seed.md#22h-winding-characterization--predictive-p17p20-all-hit-the-semantics-bifurcation-2026-07-08",
    "lean": {
     "file": "formalization/QuerySystem/QuerySystem/{WindingInjectivity,WindingDichotomy}.lean",
     "name": "WindingInjectivity.simple_iff_layerInjective (discriminant) + WindingDichotomy.winding_one_isConfig / winding_ge_two_fractional (flow-decomp kernel)",
@@ -179,91 +179,91 @@
    "name": "Bifurcation reduction identity",
    "status": "machine-confirmed",
    "one_line": "Safe_closure(ρ,L) = Safe(ρ|_{V(L)}, L): closure semantics = winding theorem on the L-dependent restriction to section-realized arcs; verified at every L=2..12 on ρ₂₀. One theorem, two observation models.",
-   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+   "detail": "../oracles/junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   },
   {
    "id": "thm.permutation_holonomy",
    "name": "Permutation-language holonomy theorem-let",
    "status": "proved-hand-machine-corroborated",
    "one_line": "For permutation beads, LOCAL(G) = holonomy-invariant simplex, MARG = conv(fixed states): aggregation-Safe ⟺ holonomy trivial. Covering-space frame literal. Verified at P25' (H=id ⟹ safe) and P28 (H=⟨π⟩, no fixed states ⟹ MARG=∅, CF=1).",
-   "detail": "p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
+   "detail": "../oracles/p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
   },
   {
    "id": "thm.swap_criterion",
    "name": "Theorem-let A: unsafety = shift-reachability in off-diagonal tuple dynamics",
    "status": "machine-validated-as-proxy-faithfulness-OPEN",
    "one_line": "Theorem-let A: L unsafe <=> shift-reachability in off-diagonal tuple dynamics. Reproduces all recorded profiles (machine-validated as a computational criterion), BUT its faithfulness to the layer-injective simple-cycle object IS the pruning lemma, which is OPEN ([[open.pruning_lemma]]). Trusted as a fast criterion where it agrees with raw-DFS; not proved to coincide with LISC in general. Known bug on multi-outcome cyclic TARGETS (2.2v).",
-   "detail": "swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
+   "detail": "../oracles/swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
   },
   {
    "id": "thm.eventual_periodicity",
    "name": "Theorem-let B: Safe eventually periodic",
    "status": "corroborated-CONDITIONAL-on-open-pruning-lemma",
    "one_line": "Theorem-let B: unsafe set = finite union of eventual APs, IF the pruning lemma holds (TR=LISC cofinitely). Corroborated on profiles within window, but its PROOF depends on the OPEN pruning lemma ([[open.pruning_lemma]]); NOT independently proved. Do not treat as established.",
-   "detail": "swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
+   "detail": "../oracles/swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
   },
   {
    "id": "anchor.rho5_level_one_autonomy",
    "name": "ρ₅: level-one autonomy witness",
    "status": "machine-verified",
    "one_line": "Pair digraph natively bipartite (6 pairs/12 arcs, swaps in opposite classes) over an aperiodic odd-cycled base; entropy root of x³=x²+2x−1 ≠ φ; triple dynamics rotation-free. The periodicity theory of tensor level one is autonomous from level zero.",
-   "detail": "rho5_k4_k5_tests.py; zoom: commensurability_classification_seed.md#22n-p34p35--the-decisive-round-5-holds-at-the-k5-boundary-taming-7-proof-licensed-fork-hunt-closed-2026-07-09"
+   "detail": "../oracles/rho5_k4_k5_tests.py; zoom: commensurability_classification_seed.md#22n-p34p35--the-decisive-round-5-holds-at-the-k5-boundary-taming-7-proof-licensed-fork-hunt-closed-2026-07-09"
   },
   {
    "id": "thm.taming7_signable",
    "name": "Taming #7: signable languages safe on bipartite graphs",
    "status": "proved-hand-joints-machine-verified",
    "one_line": "Marginal-determined + Heller-Tompkins-signable-by-bipartition ⟹ C=R on every bipartite G (TU ⟺ 2-colorability). Constructive θ-sweep (anti-comonotone coupling) realises any coherent point; P37-certified on the P35 K5 instance. ρ₅/NAND/golden-mean/ring-even-half all instances.",
-   "detail": "taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
+   "detail": "../oracles/taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
   },
   {
    "id": "anchor.md_proof_boundary",
    "name": "MD bound = proof boundary, not safety boundary",
    "status": "machine-established",
    "one_line": "|rho| <= 2|A|-1 (MD) is where the affine-lift/theta-sweep proof reaches; safety exists beyond it (non-MD non-pair-bipartite language even-safe, exact-facet confirmed at L=4,6). The swap-criterion predicts safety off MD; the reduction is proof machinery, the phenomenon is broader.",
-   "detail": "endgame_triage.py; zoom: commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
+   "detail": "../oracles/endgame_triage.py; zoom: commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
   },
   {
    "id": "thm.taming8_twin",
    "name": "Taming #8: twin expansion preserves safety",
    "status": "proved-hand-machine-verified",
    "one_line": "Non-reflexive twin expansion preserves Safe + graph-safety (polytope factors as quotient x per-vertex label conditionals); phase-mixture constructive, no TU (below-TU integrality). Scope: REFLEXIVE twins generate unsafety (P41). rho_min = twins over strict alternation.",
-   "detail": "twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
+   "detail": "../oracles/twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
   },
   {
    "id": "thm.taming9_collapse",
    "name": "Taming #9: monotone collapse (non-symmetric)",
    "status": "proved-hand-machine-verified",
    "one_line": "Non-symmetric relations induce monotone potentials on directed subdivision paths; strong connectivity flattens them -> C = conv(sections). rho† collapses on directed theta (dim 4=4); all 10 non-sym quotients collapse. Scope: symmetric languages only for the minor question.",
-   "detail": "symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+   "detail": "../oracles/symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
   },
   {
    "id": "anchor.p4_path_object",
    "name": "The P4-path language: the clean symmetric fork carrier",
    "status": "machine-identified",
    "one_line": "{(0,1),(0,3),(1,0),(1,2),(2,1),(3,0)} = hom-into-P4 (A4 Dynkin); symmetric, twin-free, MD, pair-bipartite, non-signable, non-TU, safe=evens. The unique <=4-state symmetric fork survivor; nothing catalogued tames it; the honest P38b carrier.",
-   "detail": "symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+   "detail": "../oracles/symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
   },
   {
    "id": "thm.taming10_decoupling",
    "name": "Taming #10: bipartite-target phase decoupling",
    "status": "proved-hand-machine-verified",
    "one_line": "Bipartite-target symmetric MD language = t-fibered join of two target-edge polytopes over a global phase scalar; on bipartite G, FSTAB=STAB => C=R. A4-path = twisted double of NAND (J10 exact, 2*18=36; P44 dim 31=1+2*15).",
-   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+   "detail": "../oracles/taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "thm.forest_counting",
    "name": "Counting theorem: symmetric-loopless-MD = forest",
    "status": "proved-hand-machine-bijection",
    "one_line": "|rho|=2|E|<=2|A|-1 forces forest; verified as a bijection (1819 MD targets all forests, 1441 trees all MD, <=6 states). So the loopless symmetric MD class is forest-only at every scale and phase-decouples wholesale.",
-   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+   "detail": "../oracles/taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "thm.symmetric_md_circuit_localization",
    "name": "Circuit Localization CLOSED for symmetric MD",
    "status": "proved-hand",
    "one_line": "Every symmetric MD language: forest-target (taming #10 + tree recursion) OR loopy-within-signable/twin/decoupling (P46 empty). Fork expelled from symmetric MD by structure. Seven dissolutions = the impossibility theorem.",
-   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+   "detail": "../oracles/taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "thm.symmetric_expulsion",
@@ -277,7 +277,7 @@
    "name": "SCC reduction lemma (taming #9 true form)",
    "status": "proved-hand-machine-verified",
    "one_line": "Out-closed SCC-union mass is monotone along arcs => constant on strongly connected frames => commensurability reduces wholesale to strongly connected languages. rho39 membrane: only 1->1, u(1) sealed, cross-cells zero, safe on recurrent rings (L=4,6 exact).",
-   "detail": "universal_conjecture.py; zoom: commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
+   "detail": "../oracles/universal_conjecture.py; zoom: commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
   }
  ],
  "structure": [
@@ -344,21 +344,21 @@
    "name": "P4: golden-mean + coordinate contexts commensurable",
    "status": "refuted",
    "one_line": "MISS — variety makes {x1=1},{x2=1} disjoint; concentrated model coherent (trivial bipartition subalgebras) and unrealisable. THE delta: partition-vs-scope; EA on bare bipartitions has no channel for the language.",
-   "detail": "golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+   "detail": "../oracles/golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
   },
   {
    "id": "pred.p5_xor_wild",
    "name": "P5: golden-mean + XOR context incommensurable",
    "status": "vacuous-pass",
    "one_line": "Incommensurable as predicted but via the SAME trivial exclusivity mechanism as the misses — not the polymorphism mechanism; not evidence; retest under corrected formulation.",
-   "detail": "golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+   "detail": "../oracles/golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
   },
   {
    "id": "pred.p6_monotone_tame",
    "name": "P6: monotone-derived contexts commensurable",
    "status": "refuted",
    "one_line": "MISS uniformly (all 20 AND/OR triples): derived bipartitions freely produce disjoint cross-context cells. Same autopsy as P4.",
-   "detail": "golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
+   "detail": "../oracles/golden_mean_tests.py; zoom: commensurability_classification_seed.md#22d-p4p6-polymorphism-transfer--delta-autopsy-2026-07-07"
   },
   {
    "id": "pred.transfer_conjecture_v1",
@@ -372,14 +372,14 @@
    "name": "P7: C4 commensurable",
    "status": "hit",
    "one_line": "C=R exact (8 facets + 8 hull eqs); the frustrated point realisable via the even 2-coloring.",
-   "detail": "ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+   "detail": "../oracles/ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
   },
   {
    "id": "pred.p8_c6",
    "name": "P8: C6 commensurable",
    "status": "hit",
    "one_line": "C=R exact (12 facets + 12 hull eqs, 16s); gate FIRES: parity-theorem proof attempt warranted.",
-   "detail": "ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
+   "detail": "../oracles/ring_commensurability.py; zoom: commensurability_classification_seed.md#22e-scope-context-reformulation-round-2026-07-07-second-design-pass"
   },
   {
    "id": "pred.transfer_v2_kotyz",
@@ -393,28 +393,28 @@
    "name": "P9: XOR even rings safe",
    "status": "hit",
    "one_line": "L=4,6 commensurable exact (V = the two colorings); odd rings degenerate (empty variety) — reported, not scored.",
-   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+   "detail": "../oracles/parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
   },
   {
    "id": "pred.p10_implication",
    "name": "P10: implication all rings safe",
    "status": "hit",
    "one_line": "L=3..6 commensurable exact (V = two constants); graded on V-induced cells (empty (0,1) not reportable) — derivation agrees.",
-   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+   "detail": "../oracles/parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
   },
   {
    "id": "pred.p11_ea_fidelity",
    "name": "P11: harness EA = FSTAB at L=5",
    "status": "hit",
    "one_line": "rank(EA)=10 exactly + affine lift q(u) satisfies EA identically — the reduction lemma's common-subalgebra computation is EXACTLY what the harness computes.",
-   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+   "detail": "../oracles/parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
   },
   {
    "id": "pred.p12_fstab_c5",
    "name": "P12: FSTAB(C5) = 11 integral + 1 fractional",
    "status": "hit",
    "one_line": "Exact vertex census: 12 vertices, unique fractional = u==1/2; also 4+1 at L=3, all-integral 7/18 at L=4/6.",
-   "detail": "parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
+   "detail": "../oracles/parity_theorem_checks.py; zoom: commensurability_classification_seed.md#22f-parity-theorem-proved--p9p12-all-hit-2026-07-07-third-design-pass"
   },
   {
    "id": "pred.p13_mod3",
@@ -477,224 +477,224 @@
    "name": "P21: fig8(4,4) safe",
    "status": "hit",
    "one_line": "Junction gate PASSES (rank 17, lift identical); zero fractional FSTAB vertices.",
-   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+   "detail": "../oracles/junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   },
   {
    "id": "pred.p22_fig8_34",
    "name": "P22: fig8(3,4) unsafe, inherited, gap ½",
    "status": "hit",
    "one_line": "8 fractional vertices all outside STAB; triangle facet gap exactly ½; harness protocol-level agrees (n=17).",
-   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+   "detail": "../oracles/junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   },
   {
    "id": "pred.p23_reduction_identity",
    "name": "P23: closure = restricted-language theorem",
    "status": "hit",
    "one_line": "Identity HOLDS at all L=2..12 on ρ₂₀ (incl. degenerate L).",
-   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+   "detail": "../oracles/junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   },
   {
    "id": "pred.p24_theta",
    "name": "P24: theta(2,2,2) safe (least-confident call)",
    "status": "hit",
    "one_line": "Gate passes; zero fractional vertices; harness agrees. Path-sharing created no new frustration — junctions innocent at tested scale.",
-   "detail": "junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
+   "detail": "../oracles/junction_tests.py; zoom: commensurability_classification_seed.md#22i-junctions-round--p21p22p23p24-all-hit-junctions-innocent-reduction-identity-machine-confirmed-2026-07-08"
   },
   {
    "id": "pred.p25_subdiv_k4",
    "name": "P25: even-subdivided K4 NAND safe",
    "status": "hit",
    "one_line": "Gate passes at a K4 minor (rank 26); zero fractional vertices; taming mechanism = NAND parity coincidence (evenize ⟺ bipartitize) ⟹ decisive minor test needs P25′ (ρ₂₀ on length-6-subdivided K4).",
-   "detail": "k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
+   "detail": "../oracles/k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
   },
   {
    "id": "pred.p26_theta332",
    "name": "P26: theta(3,3,2) unsafe, inherited, gap ½",
    "status": "hit",
    "one_line": "7 fractional vertices all outside STAB; 5-circuit gap exactly ½; lifting works through shared paths.",
-   "detail": "k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
+   "detail": "../oracles/k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
   },
   {
    "id": "pred.p27_totality",
    "name": "P27: totality necessary for lifting",
    "status": "hit",
    "one_line": "Matched lollipop pair: dead-end tail blocks the lift (G safe, formula fails); total tail restores inheritance (gap ½).",
-   "detail": "k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
+   "detail": "../oracles/k4_and_lifting_tests.py; zoom: commensurability_classification_seed.md#22j-k4-minor-experiment--lifting-controls--p25p26p27-all-hit-2026-07-08"
   },
   {
    "id": "pred.p25prime",
    "name": "P25′: rho20 on length-6-subdivided K4 safe",
    "status": "hit",
    "one_line": "SAFE both semantics — fork unreached #3: determinism/holonomy; K4 minor never votes.",
-   "detail": "p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
+   "detail": "../oracles/p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
   },
   {
    "id": "pred.p28_length5",
    "name": "P28: one length-5 path ⟹ unsafe by inheritance",
    "status": "hit-mode-corrected",
    "one_line": "UNSAFE via holonomy ⟨π⟩ (MARG=∅, LOCAL=segment, CF=1 degenerate); registered ½-gap inapplicable (rho20's unsafe rings are variety-empty).",
-   "detail": "p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
+   "detail": "../oracles/p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
   },
   {
    "id": "pred.ne3_scout",
    "name": "Round-3 scout: NE3 profile",
    "status": "datum",
    "one_line": "Proper-3-coloring rings aggregation-UNSAFE at ALL L=3..7 (every winding vertex bad); gate fails rigid-direction at L=3; RULED OUT for the fork.",
-   "detail": "p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
+   "detail": "../oracles/p25prime_tests.py; zoom: commensurability_classification_seed.md#22k-p25p28--the-third-taming--the-fork-remains-unreached-ne3-ruled-out-2026-07-08"
   },
   {
    "id": "pred.p29_criterion",
    "name": "P29: swap criterion reproduces all profiles",
    "status": "hit",
    "one_line": "7/7 exact, polytope-free; period-detector window artifact noted (not a criterion defect).",
-   "detail": "swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
+   "detail": "../oracles/swap_spectrum_scan.py; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
   },
   {
    "id": "pred.p30_hunt",
    "name": "P30: exhaustive fork hunt ≤4 states + 5-slice",
    "status": "fulfilled",
    "one_line": "Non-empty: 333 pre-candidates; cascade → taming #5 (transient branching, 149) → 184 recurrent survivors (181 even-q parity, 1 = design side's taming-#4 exemplar found independently); fork narrows to ρ*.",
-   "detail": "commensurability_fork_survivors.json; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
+   "detail": "../oracles/commensurability_fork_survivors.json; zoom: commensurability_classification_seed.md#22l-p29p30--criterion-validated-the-hunt-executed-the-fork-narrows-to-one-candidate-2026-07-0809"
   },
   {
    "id": "pred.p31_rho_star",
    "name": "P31: ρ* on q=2-subdivided K4 safe",
    "status": "hit",
    "one_line": "Correct via taming #6 (ρ* = NAND ⊕ point, decomposition machine-checked) + stored P25; NOT the fork; mis-triage recorded and corrected.",
-   "detail": "p31_p32_round.py; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
+   "detail": "../oracles/p31_p32_round.py; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
   },
   {
    "id": "pred.p32_theta_control",
    "name": "P32: theta-digraph q=3 control — safe with rank drop visible",
    "status": "hit",
    "one_line": "|V|=144=64+64+16 exact; dim C = dim R = 18 = 2+6+6+4 (the factorization observable); 20/20 exact LP directions agree; taming #4 confirmed on K4.",
-   "detail": "p31_p32_round.py; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
+   "detail": "../oracles/p31_p32_round.py; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
   },
   {
    "id": "pred.p33_minimality",
    "name": "P33: minimality (corrected)",
    "status": "corrected",
    "one_line": "ρ* disqualified (taming #6); corrected filter set → 13 true candidates, NAND minimal — proving digraph-level filters cannot decide fork-capability; ρ₅ = first no-known-reduction candidate.",
-   "detail": "commensurability_fork_final.json; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
+   "detail": "../oracles/commensurability_fork_final.json; zoom: commensurability_classification_seed.md#22m-p31p32p33--taming-6-the-control-confirmed-and-the-filter-limit-theorem-shaped-lesson-2026-07-09"
   },
   {
    "id": "pred.p34_rho5_k4",
    "name": "P34: ρ₅ on 2-subdivided K4 safe",
    "status": "hit",
    "one_line": "Gate PASS, dim C = dim R = 20, 120/120 exact LP directions; taming-#7 test passed.",
-   "detail": "rho5_k4_k5_tests.py; zoom: commensurability_classification_seed.md#22n-p34p35--the-decisive-round-5-holds-at-the-k5-boundary-taming-7-proof-licensed-fork-hunt-closed-2026-07-09"
+   "detail": "../oracles/rho5_k4_k5_tests.py; zoom: commensurability_classification_seed.md#22n-p34p35--the-decisive-round-5-holds-at-the-k5-boundary-taming-7-proof-licensed-fork-hunt-closed-2026-07-09"
   },
   {
    "id": "pred.p35_rho5_k5",
    "name": "P35: ρ₅ on 2-subdivided K5 safe (THE decisive)",
    "status": "hit",
    "one_line": "Gate PASSES at the K5 minor; dim C = dim R = 30; 200/200 exact LPs over 3434 sections. First genuine minor engagement in five attempts — safety held. Sampling grade; certification = taming-#7 proof.",
-   "detail": "rho5_k4_k5_tests.py; zoom: commensurability_classification_seed.md#22n-p34p35--the-decisive-round-5-holds-at-the-k5-boundary-taming-7-proof-licensed-fork-hunt-closed-2026-07-09"
+   "detail": "../oracles/rho5_k4_k5_tests.py; zoom: commensurability_classification_seed.md#22n-p34p35--the-decisive-round-5-holds-at-the-k5-boundary-taming-7-proof-licensed-fork-hunt-closed-2026-07-09"
   },
   {
    "id": "pred.taming7_joints",
    "name": "Taming #7 proof joints J1-J4",
    "status": "hit",
    "one_line": "Affine lift, (s,y)-collapse (5^4 grid), integral decode = ρ₅, HT signing + 4000-submatrix TU sampling all exact.",
-   "detail": "taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
+   "detail": "../oracles/taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
   },
   {
    "id": "pred.p37_theta_sweep",
    "name": "P37: θ-sweep constructive realisation",
    "status": "hit",
    "one_line": "8/8 exact C-vertices of the 3434-section K5 instance: legal section on every θ-interval, mixture == q exactly (rational). The mod-2 potential is a literal algorithm.",
-   "detail": "taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
+   "detail": "../oracles/taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
   },
   {
    "id": "pred.p36_split",
    "name": "P36: pair-bipartite vs signable",
    "status": "hit-informative",
    "one_line": "220 languages: agree 207; CS-not-PB = 0 (signable ⟹ pair-bipartite, clean); PB-not-CS = 13 candidate splitters = the sufficiency test set (cumulative-basis-restricted signability caveat flagged).",
-   "detail": "taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
+   "detail": "../oracles/taming7_verification.py; zoom: commensurability_classification_seed.md#22o-taming-7-proved--every-joint-machine-verified-sweep-certifies-p35-p36-splits-the-hypothesis-2026-07-10"
   },
   {
    "id": "pred.p38a_orderings",
    "name": "P38a: >=half the 13 dissolve under orderings",
    "status": "miss-benign",
    "one_line": "0/13 dissolved; TU triage shows all 13 GENUINELY non-TU (7-30 bad subdeterminants each) - real PB-non-TU forks, not basis artifacts; pair-bipartite strictly weaker than TU.",
-   "detail": "endgame_triage.py; zoom: commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
+   "detail": "../oracles/endgame_triage.py; zoom: commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
   },
   {
    "id": "pred.p39_nonmd_vacuous",
    "name": "P39: non-MD ring-safe sets empty",
    "status": "refuted",
    "one_line": "Non-MD safety EXISTS: {(0,0),(0,2),(1,0),(1,1),(1,2),(2,0)} commensurable at L=4,6 (exact-facet confirmed), incommensurable L=3; kernel dim 1, pair-bipartite false. MD bound = proof boundary.",
-   "detail": "endgame_triage.py; zoom: commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
+   "detail": "../oracles/endgame_triage.py; zoom: commensurability_classification_seed.md#22p-endgame-triage--p38ap39-miss-informatively-the-13-are-real-non-tu-forks-non-md-safety-exists-2026-07-10"
   },
   {
    "id": "pred.taming8_twin",
    "name": "Taming #8 + phase-mixture on K5",
    "status": "hit",
    "one_line": "rho_min twins confirmed; safe on subdivided-K5 (dim C=dim R=16, 80/80 LPs, no TU) - the below-TU mechanism exists for twins.",
-   "detail": "twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
+   "detail": "../oracles/twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
   },
   {
    "id": "pred.p41_reflexive",
    "name": "P41: reflexive twin-expansion generates unsafety",
    "status": "hit",
    "one_line": "Full-2-block appears, ring-safe set empty 3..9 - taming #8's non-reflexive scope condition load-bearing.",
-   "detail": "twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
+   "detail": "../oracles/twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
   },
   {
    "id": "pred.p40_dissolution",
    "name": "P40: rho_min's class dissolves under twin-collapse",
    "status": "refuted",
    "one_line": "Only 2/13 dissolve; 11 reduce to smaller twin-free MD-PB-non-signable-NON-TU quotients (spot-checked). Twin-tower classification refuted at scale; the fork does not reduce via twinning.",
-   "detail": "twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
+   "detail": "../oracles/twin_taming_tests.py; zoom: commensurability_classification_seed.md#22q-taming-8-twin-expansion-proved-p41-hit-but-p40-refutes-the-dissolution-prediction--11-twin-free-forks-remain-2026-07-10"
   },
   {
    "id": "pred.taming9",
    "name": "Taming #9 collapse on directed frames",
    "status": "hit",
    "one_line": "rho† and all 10 non-sym quotients collapse (C=R) on directed theta/frame; potential-collapse mechanism confirmed at |V| up to 21.",
-   "detail": "symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+   "detail": "../oracles/symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
   },
   {
    "id": "pred.p42_symmetric_scan",
    "name": "P42: symmetric fork scan",
    "status": "hit-finds-object",
    "one_line": "NOT empty: exactly one survivor = the P4-path (A4) language; impossibility route closed, decisive experiment required and now cleanly posed.",
-   "detail": "symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+   "detail": "../oracles/symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
   },
   {
    "id": "pred.p43_collapse_cert",
    "name": "P43: taming #9 certifies the ex-P38b confound",
    "status": "hit",
    "one_line": "rho† safe on directed frame by collapse (dim C=dim R), NOT below-TU integrality - the confound that would have mis-filed P38b, caught before the run.",
-   "detail": "symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
+   "detail": "../oracles/symmetry_split_p42_p43.py; zoom: commensurability_classification_seed.md#22r-taming-9-monotone-collapse--the-orientation-scoping--p42-finds-the-object-the-p4-path-language-2026-07-10"
   },
   {
    "id": "pred.p44_p4path",
    "name": "P44: P4-path safe, dim 31=1+2*15",
    "status": "hit-sharp",
    "one_line": "dim C=dim R=31 exact on subdivided-K5 (fibered signature); |V|=2900, 80/80 LPs. Decoupling certified, not coincidence.",
-   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+   "detail": "../oracles/taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "pred.p45_tree",
    "name": "P45: claw safe (tree theorem)",
    "status": "hit",
    "one_line": "Claw K_{1,3} dim 31 safe; first non-path tree instance. 5-spider = harness scaling limit (tooling, not math), flagged.",
-   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+   "detail": "../oracles/taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "pred.counting_bijection",
    "name": "Counting theorem: MD-loopless-symmetric <=> forest",
    "status": "hit-bijection",
    "one_line": "1819 MD targets all forests; 1441 trees all MD (<=6 states). Sharp bijection closing the loopless class.",
-   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+   "detail": "../oracles/taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "pred.p46_loopy",
    "name": "P46: loopy symmetric MD survivors",
    "status": "hit-empty",
    "one_line": "EMPTY - loopy remainder fully tamed; symmetric MD Circuit Localization closes forest-target UNION signable.",
-   "detail": "taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
+   "detail": "../oracles/taming10_forest.py; zoom: commensurability_classification_seed.md#22s-taming-10-phase-decoupling--counting-theorem--circuit-localization-closes-for-symmetric-md-2026-07-10"
   },
   {
    "id": "pred.p47_expulsion",
@@ -708,14 +708,14 @@
    "name": "P48: rho39 membrane sealing",
    "status": "hit-sharp",
    "one_line": "Only 1->1; u(1) sealed on recurrent rings; state 1 only in all-1 section; safe L=4,6 exact. SCC reduction = taming #9's true form.",
-   "detail": "universal_conjecture.py; zoom: commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
+   "detail": "../oracles/universal_conjecture.py; zoom: commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
   },
   {
    "id": "pred.p49_last_candidates",
    "name": "P49: last fork candidates scan",
    "status": "hit-empty",
    "one_line": "Zero SCC non-sym recurrent-branching survivors with Safe⊇{6,8} <=4 states; universal impossibility conjecture unrefuted at small scale.",
-   "detail": "universal_conjecture.py; zoom: commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
+   "detail": "../oracles/universal_conjecture.py; zoom: commensurability_classification_seed.md#22t-p47p48p49-the-universal-impossibility-conjecture--symmetric-fully-expelled-scc-reduction-last-candidate-scan-empty-2026-07-08"
   },
   {
    "id": "pred.p50_p51_witnesses",
@@ -736,35 +736,35 @@
    "name": "P53: C5-target two-mode calibration",
    "status": "hit-verified-here",
    "one_line": "L=7 UNSAFE witnessed in this env (uniform-edge point outside R, residual 36/5); L=5 gate-degenerate (discrete contexts, C=simplex=R). Doubles as the swap-criterion fix acceptance test.",
-   "detail": "c5_calibration.py; zoom: commensurability_classification_seed.md#22v-p53-amendment-c5s-last-safe-lengths-fall--cyclic-symmetric-targets-unsafe-at-every-gate-holding-length-2026-07-08"
+   "detail": "../oracles/c5_calibration.py; zoom: commensurability_classification_seed.md#22v-p53-amendment-c5s-last-safe-lengths-fall--cyclic-symmetric-targets-unsafe-at-every-gate-holding-length-2026-07-08"
   },
   {
    "id": "pred.p54_hunt",
    "name": "P54: 5-state counterexample hunt (relaxed)",
    "status": "hit-bounded",
    "one_line": "Fork-free through m=9 edges (edge-stratified exact: 0/8/92/583/2331 reps, all cheap-tamed, 0 candidates). Full-density 5-state scan in progress. Honest grade: fork-free-through-9-edges, not yet fork-free-at-5-states.",
-   "detail": "p54_hunt_sparse.py; zoom: commensurability_classification_seed.md#22w-p54-counterexample-hunt-fork-free-through-9-edges-at-5-states-2026-07-08"
+   "detail": "../oracles/p54_hunt_sparse.py; zoom: commensurability_classification_seed.md#22w-p54-counterexample-hunt-fork-free-through-9-edges-at-5-states-2026-07-08"
   },
   {
    "id": "pred.pruning_hunt",
    "name": "Pruning-lemma disagreement hunt",
    "status": "no-disagreement-bounded",
    "one_line": "No TR/LISC winding-set disagreement across stress set (incl. revisit/bigcycle break-it cases), L=3..9. Evidence (disagreement-hunt, exact object), NOT proof; lemma remains open.",
-   "detail": "pruning_lemma_fine.py; zoom: commensurability_classification_seed.md#22x-the-pruning-lemma-registered--theorem-let-bs-real-prerequisite-prediction-withheld-2026-07-08"
+   "detail": "../oracles/pruning_lemma_fine.py; zoom: commensurability_classification_seed.md#22x-the-pruning-lemma-registered--theorem-let-bs-real-prerequisite-prediction-withheld-2026-07-08"
   },
   {
    "id": "pred.pruning_adversarial",
    "name": "Pruning lemma: adversarial imprimitive probe",
    "status": "prediction-not-confirmed",
    "one_line": "'False imprimitively' NOT confirmed: validated-imprimitive adv1/adv5 clean to L=35/33 (correct raw-DFS, depth wall). Evidence toward unconditional, not proof. 4th instrument bug (LISC reformulation) caught pre-record via raw-DFS cross-check, discarded.",
-   "detail": "pruning_deep_honest.py; zoom: commensurability_classification_seed.md#22y-pruning-lemma-adversarial-imprimitive-probe--prediction-not-confirmed-to-l35-a-4th-instrument-bug-caught-pre-record-2026-07-08"
+   "detail": "../oracles/pruning_deep_honest.py; zoom: commensurability_classification_seed.md#22y-pruning-lemma-adversarial-imprimitive-probe--prediction-not-confirmed-to-l35-a-4th-instrument-bug-caught-pre-record-2026-07-08"
   },
   {
    "id": "pred.residual_phase_gap",
    "name": "k=2 residual probe: phase gap found",
    "status": "reduction-gap-diagnosed",
    "one_line": "Lockstep-exchange model of LISC failed the raw-DFS anchor (16 cases, caught pre-record, 5th instrument error). Diagnosed: winding-2 simple cycles interleave strands at a relative phase the lockstep model can't express. k=2 residual re-specified as phase-parametrised; TR_2 may quietly carry the phase.",
-   "detail": "pruning_residual_probe_ANCHOR_FAILS.py; zoom: commensurability_classification_seed.md#22z-pruning-lemma-reduction-the-k2-residual-has-a-phase-gap--reduction-to-lockstep-exchange-is-incomplete-2026-07-08"
+   "detail": "../oracles/pruning_residual_probe_ANCHOR_FAILS.py; zoom: commensurability_classification_seed.md#22z-pruning-lemma-reduction-the-k2-residual-has-a-phase-gap--reduction-to-lockstep-exchange-is-incomplete-2026-07-08"
   }
  ],
  "open_frontier": [
@@ -801,7 +801,7 @@
    "name": "Minimal weight-3 protocol",
    "status": "open",
    "one_line": "Not among 6-point punctured cubes (all Family-I, LB=1); needs larger grids for the DLO mechanism to have room; capped-weight screen at larger n is the instrument.",
-   "detail": "harness_v2_calibrations.py"
+   "detail": "../oracles/harness_v2_calibrations.py"
   },
   {
    "id": "open.pruning_lemma",
@@ -901,35 +901,35 @@
    "name": "Exhaustive exact-rational harness",
    "status": "live",
    "one_line": "Own Fraction simplex (Bland), S_N-canonical protocol enumeration, C-vs-R separation via hull equations + exact facet enumeration, family ladder verdicts, cone-membership; calibrated on 3-outcome/RCD/nested-sanity.",
-   "detail": "commensurability_harness.py"
+   "detail": "../oracles/commensurability_harness.py"
   },
   {
    "id": "tool.atlas",
    "name": "Atlas JSONL files",
    "status": "live",
    "one_line": "commensurability_atlas_n{3,4,5}k{2,3}.jsonl + n6k2; n=5 k=3: 339 protocols, tally 92 R=C / 135 FI / 54 cliques / 2 odd-holes / 48 syzygies / 8 exotic.",
-   "detail": "commensurability_atlas_n5k3.jsonl; zoom: commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
+   "detail": "../oracles/commensurability_atlas_n5k3.jsonl; zoom: commensurability_classification_seed.md#22c-final-6-atlas--reclassifications--v2-calibrations-2026-07-07"
   },
   {
    "id": "tool.v2_calibrations",
    "name": "v2 calibrations + weight-LB LP",
    "status": "live",
    "one_line": "Product-measure anchor PASS (2x2x2); punctured cubes all Family-I weight-LB 1; weight certification to move to representative+dual-LB pairs (v2.1).",
-   "detail": "harness_v2_calibrations.py"
+   "detail": "../oracles/harness_v2_calibrations.py"
   },
   {
    "id": "tool.separation_only",
    "name": "Separation-only commensurability test (k>=4)",
    "status": "live",
    "one_line": "ring_commensurability.py: C-vs-R by hull eqs + exact facet LPs WITHOUT the family ladder (whose LPs blow up carrying the whole chain family at k>=4); C6 in 16s.",
-   "detail": "ring_commensurability.py"
+   "detail": "../oracles/ring_commensurability.py"
   },
   {
    "id": "lean.winding_injectivity",
    "name": "Lean: Lemma 2 (layer-injectivity discriminant)",
    "status": "CERTIFICATE-GRADE (0-sorry, standard axioms)",
    "one_line": "WindingInjectivity.lean: simple_iff_layerInjective — a layered-ring closed walk is a simple cycle iff layer-injective. The discriminant that caught the doubled-rotation non-witness and the lockstep-phase gap, now machine-certified [propext,Quot.sound], with non-vacuity examples (a winding-2 collision proven not-simple, a layer-injective trace proven simple). Independent of the OPEN pruning lemma — pure vertex-trace combinatorics.",
-   "detail": "formalization/QuerySystem/QuerySystem/WindingInjectivity.lean"
+   "detail": "../../../formalization/QuerySystem/QuerySystem/WindingInjectivity.lean"
   }
  ]
 }

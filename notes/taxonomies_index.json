@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Taxonomies registry — the tree of problem-collection taxonomies",
   "purpose": "The single entry point to every collection taxonomy. Each collection has a JSON taxonomy = a zoom-out index of its attempts; this file registers them so the tree itself is navigable as collections come and go. Load THIS first, then the collection taxonomy, then its `detail` leaves — three zoom levels.",
-  "updated": "2026-07-10",
+  "updated": "2026-07-11",
   "schema_doc": "notes/TAXONOMY_SCHEMA.md",
   "paths_relative_to": "repository root",
   "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
@@ -14,10 +14,18 @@
    "id": "sigma_essential",
    "name": "σ-essential contextual state / OML descent",
    "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
-   "status": "RESOLVED-AMENDED, GATED, PROMOTED (2026-07-06): psiAmended_ZFC machine-checked (0-sorry, standard axioms); Phase-2 audit Type-1 PASS; gate β prior-art CLOSED (Binder–Navara 1987 = lineage anchor, cited); witness paper PROMOTED to papers/sigma_essential/sigma_essential.tex + 16-rule editorial pass done. Remaining: user fidelity sign-off (FIDELITY_REVIEW.md), leisure skims (PP1991, B–N 2016), dissemination decisions (arXiv timing, Navara contact). OML/lattice form: ATTACK ACTIVE 2026-07-10/11 s8–s16 (shovel thm 2; open.oml_lattice_form → notes/open_questions/oml_attack/oml_lattice_regularity_attack.md; s9 theorem-let: no non-Boolean concrete σ-class OML has all σ-additive states JP ⇒ BNPW 1985 excluded from Adm∩OML; Skeleton C first half refuted by MO₂; s11 Skeleton B cold attack: structural dichotomy refuted at finite scale, blocks-are-σ-fields + T1 quarantine + T3 Dirac realization banked ⟦HAND⟧, conjecture sharpened to B′(i)/(ii), obstruction = rigidity without fine structure; s12 proof-read SOUND all-cosmetic, citations pinned; s13 Skeleton A read DONE + DEMOTED — DW inner regularity = Dirac realization + compact witness (theorem-let R), Polish NOT tradeable for ctble generation (surrogate = Marczewski compact class), 2a alone doesn't finish thm 2 (coarse-riding states escape D.6 on every Polish rep), thm 2 factors = B′(i) + coarse-block question, prior-art gloss corrected NO-swing, coarse-block toy hunt promoted; s14 §10 proof-read CLEARED at s12 standard — SOUND, one scope fix ('exactly' only among coarse-block σ-states), receipt PROOF_READ_2026-07-10_attack_s10.md; s15 B′(i) direct attempt: reduced to FINITARY selection principle — 2BR two-block rescue (open locus = ≥3-block patterns), P⁼ pointed⟺σ (B′(i) = pure selection problem, compact classes → coarse factor), Φ ⟺ St_σ dense in St_fa, K(s)=∅ representation-relative, Marczewski pulls read (co-ctble filter IS M-compact; intrinsic coarse wall statement), T4 finitary shadow + one-block-repointing crux, next = T4 via Maharam (8.2), oracle 10/10; s16 §11 proof-read CLEARED at s12 standard — SOUND, no wrong steps, 424,509/424,509 from-scratch checks, 3 wording fixes ✎s16 (wall statement + compact-transport read 'Marczewski-approximates in-block' NOT 'refines value-1 filters'; 5(iii)↔5(iv); M–RN §4 credit), receipt PROOF_READ_2026-07-11_attack_s11.md; owed pull = Bunce–Hamhalter 2000 ILL). Literal-irreducibility form OPEN.",
-   "one_line": "Does a concrete σ-complete non-Boolean carrier host a finitely coherent 2-valued pattern with NO global σ-additive extension? AMENDED (OMP/coherent/irred-mod-ctble) form: ZFC THEOREM, Lean-certified 2026-07-06 (psiAmended_ZFC; Ulam rigidity ⟹ Dirac-only σ-states; parity-code Specker triple ⟹ coherent + empty kernel; no LC strength). LITERAL forms still open: OML/lattice (conjectured opposite: latticehood⟹Φ) and literal irreducibility (no-singletons regime) — the 2026-06-30/07-02 wall-map stands as their record. Coherence amendment = REPAIR, now itself machine-checked (Ω₇ refutes [M] Prop 2.1 as written).",
-   "entries": 98,
+   "status": "RESOLVED-AMENDED: the OMP witness is Lean-certified and promoted. The OML/lattice form and literal irreducibility remain open; the lattice attack now has its own taxonomy.",
+   "one_line": "The amended OMP form is a ZFC theorem; the OML finite-trace liftability problem is tracked separately in oml_lattice_taxonomy.json.",
+   "entries": 99,
    "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"
+  },
+  {
+   "id": "oml_lattice",
+   "name": "OML finite-trace σ-liftability",
+   "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
+   "status": "OPEN — fine-block selection and coarse-block compact transport are the two primary routes; unitality is secondary.",
+   "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
+   "entries": 28
   },
   {
    "id": "reconstruction_commensurability",
@@ -33,7 +41,7 @@
    "taxonomy": "papers/reconstruction/notes/universal_impossibility_taxonomy.json",
    "status": "OPEN - ACTIVE ATTACK (no half measures, 2026-07-09). The paper needs this to complete: converts 'ten sufficient tamings (a collection, reads as stamp-collecting)' into 'one N&S classification (a theorem)'. Reduces via Joint 1 (pruning lemma, CLOSED all k this session) + Joint 2 (OPEN). Joint-2 crux CORRECTED: NOT 'the non-symmetric case' (golden-mean refuted — its safety is signability/TU firing on the bipartite residue); the real crux = the tamings are the ONLY sources of residue-safety in a primitive language (= 'tamings complete'). Counterexample hunt is CO-EQUAL (fork could exist >=5 states; evidence thin). Win = full theorem OR reduction to one named lemma (the paper's stated open problem).",
    "one_line": "Are the ten tamings EXHAUSTIVE (no fork)? Spun off the reconstruction collection 2026-07-09 when the 'ten stamps' feel was diagnosed as the missing completeness theorem. Joint 1 closed (pruning, all k, 73728-check scan); Joint 2 open (sources-of-residue-safety = tamings). Subtargets: girth-locking rigour, potential/phase-code independence. Parallel fork-hunt at scale.",
-   "entries": 15
+   "entries": 18
   },
   {
    "id": "kappa_q",
@@ -90,5 +98,5 @@
    "notes/archive/programme_reception_2026-05/* — reception of a withdrawn programme arc (archived 2026-07-10)"
   ]
  },
- "updated": "2026-07-10"
+ "updated": "2026-07-11"
 }

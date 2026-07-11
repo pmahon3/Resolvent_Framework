@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Universal Impossibility — the completeness theorem for the tamings",
   "purpose": "zoom-out index of the attack on universal impossibility; load first, follow detail pointers to leaf files. Sibling branch of the reconstruction/commensurability collection, spun off 2026-07-09 when the paper's 'ten stamps' problem was diagnosed as the missing completeness theorem.",
-  "updated": "2026-07-10",
+  "updated": "2026-07-11",
   "what_is_it": "Conjecture: the ten catalogued tamings are EXHAUSTIVE — no 'fork' (a language contextual on some gate-passing time-realisable frame yet escaping all ten mechanisms) exists. Equivalently: the winding criterion is a COMPLETE decision procedure and the reconstruction guarantee is unconditional.",
   "status": "OPEN — active attack (no half measures, user directive 2026-07-09). The paper needs this to complete: it converts 'ten sufficient conditions (a collection)' into 'one necessary-and-sufficient classification (a theorem)'. Until proved, the tamings honestly read as stamp-collecting BECAUSE their organizing theorem is unproved.",
   "the_shape": "The conjecture reduces along a chain: universal-impossibility ⟸ [Joint 1: pruning lemma, CLOSED all k this session] ∧ [Joint 2: exchange-blocking classification, OPEN]. Joint 2's crux, CORRECTED 2026-07-09, is NOT 'the non-symmetric case' (golden mean refuted that — its safety is signability/TU firing on the bipartite residue). The real crux: THE TAMINGS ARE THE ONLY SOURCES OF RESIDUE-SAFETY IN A PRIMITIVE LANGUAGE — i.e. classify sources of residue-safety, show each is a catalogued taming. That IS 'the tamings are complete'.",
@@ -30,7 +30,7 @@
    "name": "Universal impossibility (the goal)",
    "status": "open",
    "one_line": "no fork exists ⟸ (Joint 1 ∧ Joint 2). Joint 1 closed ⟹ the whole conjecture now rests on Joint 2.",
-   "detail": "papers/reconstruction/notes/joint2_wielandt_finding.md; papers/reconstruction/reconstruction_skeleton.tex conj:universal"
+   "detail": "joint2_wielandt_finding.md; ../reconstruction_skeleton.tex conj:universal"
   },
   {
    "id": "chain.joint1",
@@ -69,7 +69,7 @@
    "name": "Symmetric-loopless = forests, phase-decouple",
    "status": "closed",
    "one_line": "counting theorem (bijection, 1819 targets): symmetric-loopless-MD ⟺ forest ⟹ whole class phase-decouples ⟹ Circuit Localization closes for symmetric MD. The symmetric world's TAME half is theorem-grade.",
-   "detail": "papers/reconstruction/notes/commensurability_classification_seed.md#22s"
+   "detail": "commensurability_classification_seed.md#22s"
   },
   {
    "id": "closed.gm_is_taming",
@@ -157,14 +157,14 @@
    "status": "live",
    "examined": "2026-07-09",
    "one_line": "'rich-safe' PINNED: a fork must be safe on a full residue class d·ℤ (subdivided-K4 circuits land in d·ℤ, cf. ρ₂₀'s 6ℤ), NOT just finitely many lengths. First deep sweep: 1500 primitive/strongly-conn/non-symmetric/NON-bipartite (signability+grading excluded = untamed) 5-state languages, probed on residue classes to L=30 (PAST Wielandt index 17, past the L=9 artifact window that fooled the earlier screen): ZERO fork candidates survived. Real evidence (not window-artifact), consistent with UI. Keep hunting wider (|A|=6, denser, other d).",
-   "detail": "joint2_wielandt_finding.md; papers/reconstruction/oracles/joint2_fork_hunt_scale.py"
+   "detail": "joint2_wielandt_finding.md; ../oracles/joint2_fork_hunt_scale.py"
   },
   {
    "id": "cex.imprimitive_probe",
    "name": "Imprimitive/primitive boundary probes (standing)",
    "status": "live",
    "one_line": "prior probes (adv1/adv5 imprimitive to L=35, 110 primitives to L=9) found NO fork. Standing acceptance probe: re-run on any new candidate class. Raw-DFS LISC = only trusted oracle (exp wall ~L=35).",
-   "detail": "papers/reconstruction/notes/commensurability_classification_seed.md#22y"
+   "detail": "commensurability_classification_seed.md#22y"
   }
  ],
  "win_conditions": [

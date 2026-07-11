@@ -66,7 +66,7 @@ intrinsic wall statement for the coarse factor — ✎s16 wording:
 "Marczewski-approximates in-block", not mere filter refinement).
 Sharpest next step:
 **T4 finitary shadow via Maharam (8.2)** (one-block repointing crux).
-Nav: `papers/spine/` (single open bridging conjecture, §4).
+Nav: `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`; `papers/spine/` §4.
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility
 **Claim:** the fork doesn't exist; Circuit Localization holds for the

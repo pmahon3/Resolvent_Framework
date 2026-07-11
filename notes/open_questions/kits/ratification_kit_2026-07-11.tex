@@ -60,6 +60,14 @@ excluded from $\mathrm{Adm}\cap\mathrm{OML}$ under every reading
 \file{../verification/mo2\_jp\_check.py} (seven properties). Reviewer
 read the MPT PDF in full.
 
+\smallskip\noindent\textbf{Lean note (s17--s18):} gap 1.1's glue has
+been in Lean since the spine: \texttt{SigmaEssentialLocalization.dirac}
+proves $\delta_\omega$ is a \texttt{TwoValuedState} (two-valued,
+$\sigma$-additive) on ANY concrete $\sigma$-class --- the
+\texttt{val\_iUnion} field is exactly ``$x$ lies in exactly one
+$E_n$.'' Only the scope-line reading (Adm's completeness sense) and
+gaps 1.2--1.3 (source-reading) remain for the eye.
+
 \gap{1.1} \emph{The glue: Dirac states are $\sigma$-additive on
 $\sigma$-classes.} Three lines: if $E = \biguplus_n E_n \in L$
 (disjoint union), then $x$ lies in exactly one $E_n$, so
@@ -111,48 +119,51 @@ everywhere.
 (118/118 checks, three flagged high-risk steps cleared);
 scripts \file{../verification/proof\_read\_2026-07-10\_s11/}.
 
-\smallskip\noindent\textbf{Lean bolster (2026-07-11, s17 --- added after
-this kit was issued).}
-\file{formalization/QuerySystem/QuerySystem/ConcreteOMLBlocks.lean}
-(builds; \texttt{\#print axioms} receipts at file end) converts most of
-this item from hand-check to machine receipt:
+\smallskip\noindent\textbf{Lean bolster (2026-07-11, s17--s18 --- added
+after this kit was issued).}
+\file{formalization/QuerySystem/QuerySystem/ConcreteOMLBlocks.lean} and
+\file{.../MarczewskiTransport.lean} (build; \texttt{\#print axioms}
+receipts at file end) convert this item to machine receipts, with
+\textbf{NO axioms anywhere} --- classical base only:
 \begin{itemize}[leftmargin=2em]
-\item \textbf{Gap 2.4 DISCHARGED} --- A1(a) Zorn extension
-  (\texttt{exists\_isMaxBlock\_superset}), A1(b) closure including
-  countable disjoint unions (\texttt{IsMaxBlock.iUnion\_mem}), and
-  A1(c) blockwise $\sigma$-reduction
-  (\texttt{isSigmaOn\_carrier\_iff\_maxBlocks}); axiom-free
-  (classical base only).
-\item \textbf{Gap 2.5 DISCHARGED} --- L0, both directions
+\item \textbf{Gap 2.1 DISCHARGED} --- A2 in full
+  (\texttt{IsMaxBlock.inter\_mem}, $\sigma$-field packaging
+  \texttt{IsMaxBlock.toMeasurableSpace}, block overlaps
+  \texttt{overlapMeasurableSpace}). The anticipated Foulis--Holland
+  citation axiom proved UNNECESSARY: the needed instance follows from a
+  three-line \emph{meet squeeze} (\texttt{compat\_of\_locally\_resolved}
+  --- the meet of $X, S$ contains every carrier subset of $X \cap S$, so
+  a pointwise carrier cover forces meet $= X \cap S \in L$), applied
+  with the cover $\{A \cap B, A \cap C\}$ of $A \cap (B \cup C)$; set
+  distributivity supplies what orthomodular calculus supplies
+  abstractly. Commutant closure = \texttt{compat\_inter\_left}, proved.
+  Bruns--Harding remains the citation for the ABSTRACT theorem only;
+  nothing in the corpus's chain now rests on it.
+\item \textbf{Gap 2.2 DISCHARGED} --- T3 in full
+  (\texttt{dirac\_realization\_of\_countablyGenerated}), including
+  $\sigma$-continuity from above and the dichotomy $\sigma$-subfield;
+  stated on abstract countably generated $\sigma$-fields, so no
+  circularity with A2.
+\item \textbf{Gap 2.3(b) DISCHARGED} --- the $\omega_1$ counterexample
+  is machine-checked (\texttt{MarczewskiTransport.lean}): the
+  co-countable state is a $\sigma$-additive \texttt{TwoValuedState}
+  (\texttt{cocountableState}), non-Dirac
+  (\texttt{cocountableState\_not\_isDirac}), and the field is NOT
+  countably generated (\texttt{cocountable\_not\_countably\_generated}
+  --- itself a corollary of T3). Gap 2.3(a) (product-Ulam pattern
+  intersections escape $L$) stays with the oracle scripts ---
+  corroboration only.
+\item \textbf{Gaps 2.4, 2.5 DISCHARGED} --- A1(a)--(c)
+  (\texttt{exists\_isMaxBlock\_superset}, \texttt{IsMaxBlock.iUnion\_mem},
+  \texttt{isSigmaOn\_carrier\_iff\_maxBlocks}); L0 both directions
   (\texttt{Compat.isGreatest\_inter},
-  \texttt{compat\_of\_commuting\_decomp}); axiom-free.
-\item \textbf{Gap 2.2 DISCHARGED} --- T3 in full, including the
-  $\sigma$-continuity-from-above step and the dichotomy
-  $\sigma$-subfield step
-  (\texttt{dirac\_realization\_of\_countablyGenerated}); axiom-free.
-  Both hidden joints are settled by construction: the Lean T3 is stated
-  on an abstract countably generated $\sigma$-field --- independent of
-  A2, so no circularity --- and the dichotomy family's closure under
-  countable unions is proved (\texttt{dichotomy\_of\_generateMeasurable}).
-\item \textbf{Gap 2.1 REDUCED} --- A2 (blocks are $\sigma$-fields:
-  \texttt{IsMaxBlock.inter\_mem}, \texttt{IsMaxBlock.toMeasurableSpace})
-  is machine-checked \emph{modulo one flagged axiom}
-  \texttt{foulis\_holland\_commute}: the Foulis--Holland/commutant step,
-  stated as the commuting decomposition of $A \cap B$ along $C$; the
-  concrete upgrade through L0 is \emph{proved}, not assumed. The
-  remaining hand-check is exactly this item's original \emph{look-for}:
-  read Bruns--Harding Props 2.2--2.8 / Kalmbach Thm 5 once and confirm
-  the statement matches the axiom. Nothing else in 2.1 remains.
-\item \textbf{Gap 2.3 remains} (the two counterexample checks are not
-  formalized), but note the positive T3 statement no longer rests on
-  hand re-derivation, so (a)/(b) are corroboration of hypotheses being
-  load-bearing, no longer proof-carrying.
+  \texttt{compat\_of\_commuting\_decomp}). Bonus: T1 in both forms
+  (\texttt{compat\_of\_singletons}, \texttt{interClosed\_of\_singletons})
+  and P1's poor-pair anatomy (\texttt{PoorPair.*}) are also machine
+  receipts now.
 \end{itemize}
-The composite --- $\sigma$-additive states are Dirac on countably
-generated blocks (\texttt{IsMaxBlock.dirac\_realization}) --- lists
-exactly \texttt{[propext, Classical.choice, Quot.sound,
-foulis\_holland\_commute]}. Ratifying item 2 now means: read the one
-axiom against its citation, and accept the build.
+Every receipt in the chain lists exactly \texttt{[propext,
+Classical.choice, Quot.sound]}. Ratifying item 2 = accepting the build.
 
 \gap{2.1} \emph{A2's infinite commutant case.} The step ``every
 pairwise-compatible subset --- of any cardinality --- generates a
@@ -248,6 +259,37 @@ Theorem 2 factors as $B'$(i) $+$ coarse-block question.
 (11{,}686/11{,}686 checks; sources re-checked verbatim);
 scripts \file{../verification/proof\_read\_2026-07-10\_s13/}.
 
+\smallskip\noindent\textbf{Lean bolster (s18):}
+\file{formalization/QuerySystem/QuerySystem/InnerRegularity.lean}
+(builds; receipts axiom-free):
+\begin{itemize}[leftmargin=2em]
+\item \textbf{Gap 3.1 DISCHARGED} --- theorem-let R in full
+  (\texttt{dirac\_forcing}): honest field-of-sets hypotheses
+  (\texttt{SetField}/\texttt{FieldState}, finite closure only, no
+  $\sigma$ anywhere), $\mathcal K_1 \neq \emptyset$ and $D \neq
+  \emptyset$ as CONCLUSIONS (the ✎s14 rewrite), the FIP/finite-subcover
+  step machine-checked, Hausdorff consumed exactly at
+  compact-$\Rightarrow$-closed. The red-flag counterexample is ALSO
+  machine-checked: on \texttt{CofiniteTopology} every set is compact
+  (\texttt{isCompact\_cofiniteTopology}), (8.1) holds
+  (\texttt{cofinite\_81\_holds}), the cofinite state is non-Dirac ---
+  and R itself then yields \texttt{not\_t2Space\_cofiniteTopology}.
+\item \textbf{Gap 3.2 DISCHARGED (two-valued instance, strengthened)}
+  --- \texttt{cocountable\_fails\_81\_at}: on any uncountable
+  SECOND-COUNTABLE Hausdorff space (subsuming Polish), the co-countable
+  state fails (8.1) at the specific $F = X \setminus \{x\}$. The
+  topological content is machine-checked via condensation points
+  (\texttt{exists\_condensation\_point}), replacing the
+  Cantor--Bendixson route entirely; ``closed co-countable $\supseteq$
+  perfect kernel'' is consumed only at the chosen point. The
+  real-valued diffuse-mass decomposition stays hand.
+\item \textbf{Gap 3.6 DISCHARGED (two-valued instance)} ---
+  \texttt{cocountable\_fails\_81\_hausdorff}: on ANY uncountable
+  Hausdorff space, failure somewhere by reduction to R.
+\item Gaps 3.3 (witnessed moot), 3.4 (DW fn-29), 3.5 (Maharam anatomy)
+  are source-reading --- unchanged, yours.
+\end{itemize}
+
 \gap{3.1} \emph{R's FIP step for infinite $\mathcal K_1$.} The
 value-1 in-field compacts have the FIP \emph{inside one fixed compact
 member}; nonempty intersection needs the members closed in that
@@ -342,6 +384,46 @@ T4 ladder.
 (424{,}509/424{,}509 checks); scripts
 \file{../verification/proof\_read\_2026-07-11\_s15/}; Marczewski
 source-check inside the receipt.
+
+\smallskip\noindent\textbf{Lean bolster (s18):}
+\file{formalization/QuerySystem/QuerySystem/ConcreteOMLPatterns.lean} +
+\file{.../MarczewskiTransport.lean} (build; receipts axiom-free):
+\begin{itemize}[leftmargin=2em]
+\item \textbf{Gap 4.1 DISCHARGED} --- $P^=$ in full, split honestly:
+  ($\Leftarrow$) \texttt{isSigmaOn\_of\_blockwisePointed} needs NO
+  countable generation and NO latticehood (the banked sharpening);
+  ($\Rightarrow$) \texttt{blockwisePointed\_of\_isSigmaOn} via T3;
+  iff = \texttt{pointed\_iff\_sigma}; the selection reading =
+  \texttt{phiCluster\_iff\_pointedSelection}. Also 2BR
+  (\texttt{two\_block\_rescue}) and the cluster machinery
+  (\texttt{phi\_iff\_phiCluster}, \texttt{cluster\_extension}) --- the
+  general-$\Omega$ halves of gap 4.6.
+\item \textbf{Gap 4.2 DISCHARGED} --- $\Phi$-density
+  (\texttt{phi\_iff\_dense}) on the Cantor cube over the carrier;
+  (a) \texttt{isClosed\_stFA} (the f.a.\ states = the closed constraint
+  set, the onto/nonempty-traces reading built into the proof);
+  (b) \texttt{isCompact\_stFA} (Tychonoff, ZFC).
+\item \textbf{Gap 4.3 DISCHARGED} --- the $\omega_1$ scoping bank:
+  \texttt{cocountableClass\_countablyCompact} (with $\emptyset$
+  adjoined, the ✎s16 fix visible in the FIP-vacuous branch) and
+  \texttt{cocountableClass\_approximates}.
+\item \textbf{Gap 4.4(a) DISCHARGED} --- the CORRECTED
+  compact-transport criterion is a theorem:
+  \texttt{IsMaxBlock.isSigmaOn\_of\_compact\_class} (in-block) and
+  \texttt{compact\_transport} (OML form, via A1c), with Marczewski
+  approximation --- the value-1 inner witness $D \subseteq K \subseteq
+  E$ --- as the hypothesis, exactly the ✎s16 form. The
+  singleton-class inequivalence can no longer regress silently: the
+  criterion's Lean hypothesis IS approximation. 4.4(b)/(c)
+  (Marczewski attribution) stay source-reading.
+\item \textbf{Gap 4.5, clean half DISCHARGED} --- \texttt{t4At\_of\_phi}
+  / \texttt{bPrimeI\_implies\_T4}: B$'$(i) $\Rightarrow$ T4, with the
+  T3 kernel proved to be an ATOM of the block. \texttt{BPrimeI} and
+  \texttt{T4} are named open \texttt{Prop}s; the crux is NOT stated as
+  a theorem anywhere --- the red flag is structurally respected.
+\item Gap 4.6's remainders are covered en passant (monotonicity is
+  \texttt{FinAddState.val\_mono}, lattice-free by construction).
+\end{itemize}
 
 \gap{4.1} \emph{$P^=$'s infinite legs} (scripts cover only the finite
 pentagon). Three joints: (a) the ($\Rightarrow$) leg is T3 run on a
@@ -474,6 +556,29 @@ scripts \file{papers/reconstruction/oracles/proof\_read\_2026-07-10/}.
 Machine coverage is unusually strong here ($k \le 8$ exhaustive on
 adversarial targets, including non-strongly-connected and
 multi-component); the hand gaps are the general-$k$ arguments.
+
+\smallskip\noindent\textbf{Lean bolster (s18):}
+\file{formalization/QuerySystem/QuerySystem/PruningTheorem.lean}
+(builds; receipts \texttt{[propext, Quot.sound]} --- not even choice):
+\begin{itemize}[leftmargin=2em]
+\item \textbf{Gap 5.1 DISCHARGED} --- Step 3 at general $k$
+  (\texttt{isLISC\_of\_isTR\_one}): simplicity from layer-injectivity +
+  tuple injectivity, strand boundaries and the closing step included;
+  $\rho$ is an ARBITRARY relation on an ARBITRARY (not even finite)
+  alphabet --- no strong connectivity can hide anywhere. Step 2
+  (\texttt{isTR\_one\_of\_isLISC}) likewise; phase normalization is
+  absorbed by the encoding (layers don't constrain $\rho$-arcs).
+\item \textbf{Gap 5.2 DISCHARGED} --- Step 4
+  (\texttt{isTR\_rot\_iff\_isTR\_one}): slots are `ZMod k`, the
+  relabelling is $j \mapsto j \cdot \bar r$, and $(j + r)\bar r = j\bar
+  r + 1$ is ring algebra --- the index bookkeeping has no off-by-one
+  LEFT to hide. Composite: \texttt{pruning} = Theorem P, exact for
+  every $L$, every $\rho$, every generator rotation.
+\item \textbf{Gap 5.3 remains} (Theorem B's pigeonhole/first-repeat and
+  the union bookkeeping --- rides on P; the instrument covers the
+  computational content), as does Lemma NG's orbit decomposition
+  (refutation half machine-checked by the oracle).
+\end{itemize}
 
 \gap{5.1} \emph{Step 3 (assembly $\Leftarrow$) at general $k$.} The
 walks re-assembled from $\mathrm{TR}^{(1)}$ witnesses are simple, of

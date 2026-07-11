@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — fine-block selection and coarse-block compact transport are the two primary routes; unitality is secondary. Foundation layer (A1/L0/T3) machine-checked 2026-07-11 (ConcreteOMLBlocks.lean, axiom-free); A2 machine-checked modulo one cited Foulis–Holland axiom.",
+   "status": "OPEN — fine-block selection and coarse-block compact transport are the two primary routes; unitality is secondary. Machine-checked 2026-07-11 s17–s18, ALL AXIOM-FREE: foundation layer A1/L0/A2/T1/P1/T3 (ConcreteOMLBlocks.lean — the anticipated Foulis–Holland axiom proved unnecessary via the meet squeeze), P⁼/2BR/cluster form/Φ-density + B′(i)/T4 as named open Props with B′(i)⟹T4 (ConcreteOMLPatterns.lean), corrected compact-transport criterion + ω₁ coarse-killer certificates (MarczewskiTransport.lean), theorem-lets R and P (InnerRegularity.lean).",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 28
   },

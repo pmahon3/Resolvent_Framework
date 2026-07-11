@@ -17,6 +17,14 @@ into an effective certificate with a runnable, raw-DFS-anchored instrument
 
 ---
 
+**✎s18 (2026-07-11): Theorem P is LEAN-VERIFIED —
+`formalization/QuerySystem/QuerySystem/PruningTheorem.lean` (receipts
+`[propext, Quot.sound]`, not even choice): Steps 2–4 at general k
+(`isTR_one_of_isLISC`, `isLISC_of_isTR_one`, `isTR_rot_iff_isTR_one`,
+composite `pruning`), for an ARBITRARY relation on an ARBITRARY alphabet
+— kit gaps 5.1 and 5.2 discharged. Lemma NG's orbit decomposition and
+Theorem B (gap 5.3) are not formalized (instrument-covered).**
+
 ## 1. Setting
 
 Finite alphabet A, n = |A| ≥ 1. A relation ρ ⊆ A × A; D = the digraph (A, ρ).

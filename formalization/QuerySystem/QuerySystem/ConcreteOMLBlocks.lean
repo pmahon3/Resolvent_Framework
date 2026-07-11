@@ -40,29 +40,28 @@ Setting: a concrete σ-class `L` on `Ω` = Mathlib's `DynkinSystem Ω` (as in
 * Monotonicity of f.a. states needs no latticehood: already
   `FinAddState.val_mono` (`SigmaEssentialAmended`), reused as-is.
 
-## CITED — the ONE axiom in this file (Phase B, flagged)
-* `foulis_holland_commute`: the Foulis–Holland / commutant-closure step —
-  for pairwise-compatible `A, B, C` in an OML (here: `MeetsExist d`), `A ∧ B`
-  commutes with `C`; stated as the commuting decomposition of `A ∩ B` along
-  `C`. Citation: Kalmbach 1983, *Orthomodular Lattices*, Thm 5 p. 25
-  (Foulis–Holland; originals Foulis 1962, Holland 1964); Bruns–Harding 2000,
-  *Algebraic aspects of orthomodular lattices*, Props 2.2–2.8 (commutant of a
-  set is a subalgebra; pairwise-commuting subsets generate Boolean
-  subalgebras). Direct-proof attempt record: the σ-class operations
-  (complement, nested difference, disjoint union) conserve the parity of
-  sign-patterns over `{A,B,C}`, so no composition of them isolates the
-  triple-intersection atom from the pairwise data; every reduction tried
-  bottoms at excluding a poor pair (meet 0, intersection ≠ ∅) — exactly the
-  content FH extracts from orthomodularity. A from-scratch proof = formalize
-  FH for the concrete lattice; deferred, honestly cited instead.
-* Everything downstream of the axiom is confined to Phase B: `inter_mem`,
-  σ-field closure of maximal blocks, `toMeasurableSpace`. `#print axioms`
-  receipts at file end make the dependency explicit.
+## Phase B — ALSO PROVED (the anticipated Foulis–Holland axiom was
+## unnecessary)
+* The session design expected the FH/commutant-closure step to enter as a
+  cited axiom (Kalmbach 1983 Thm 5 p. 25; Bruns–Harding 2000 Props 2.2–2.8),
+  because the σ-class operations alone (complement, nested difference,
+  disjoint union) conserve sign-pattern parity over `{A,B,C}` and cannot
+  isolate the triple-intersection atom. What they CANNOT do, the meet CAN,
+  in one squeeze (`compat_of_locally_resolved`): the meet of `X, S` contains
+  every carrier subset of `X ∩ S`, so a pointwise carrier cover of `X ∩ S`
+  forces meet `= X ∩ S ∈ L`. With the cover `{A∩B, A∩C}` of `A ∩ (B∪C)`
+  (set distributivity — the concreteness that abstract OMLs lack) this gives
+  `compat_union_right`, then complements give `compat_inter_right/left`:
+  the full commutant-closure instance, axiom-free.
+* Downstream, therefore also axiom-free: A2 (`inter_mem`, σ-field closure,
+  `toMeasurableSpace`), block overlaps (`overlapMeasurableSpace`), T1
+  (`compat_of_singletons`, `interClosed_of_singletons`), P1 (`PoorPair`
+  anatomy), and the composite `IsMaxBlock.dirac_realization`.
 
 ## Receipts
-`#print axioms` for every theorem above, at file end. Phase-A results and T3
-depend on classical choice only; Phase-B structural results additionally list
-`foulis_holland_commute`.
+`#print axioms` for every theorem above, at file end. EVERYTHING in this
+file depends on `[propext, Classical.choice, Quot.sound]` only — plain ZFC,
+no cited axioms, no sorry.
 -/
 import QuerySystem.SigmaEssentialAmended
 import Mathlib.Order.Zorn
@@ -295,10 +294,27 @@ theorem compat_of_commuting_decomp {X Y m mc : Set Ω} (hm : d.Has m)
   rw [hXY]
   exact hm
 
-/-! ## §7. Phase B: latticehood and the Foulis–Holland step
+/-! ## §7. Phase B: latticehood and the Foulis–Holland step — PROVED
 
 Latticehood enters ONLY as `MeetsExist` (design decision 3): binary meets
-exist in the carrier poset. No abstract OML class is built. -/
+exist in the carrier poset. No abstract OML class is built.
+
+The session design anticipated citing the Foulis–Holland/commutant-closure
+step as an axiom. It turned out to be UNNECESSARY on a concrete carrier:
+the needed instance follows from a three-line **meet squeeze**
+(`compat_of_locally_resolved`): the meet of `X` and `S` contains every
+carrier subset of `X ∩ S`, so if `X ∩ S` is pointwise covered by carrier
+subsets the meet is squeezed into equality with `X ∩ S`, which is therefore
+itself in the carrier. Applied with the cover `{A∩B, A∩C}` of
+`A ∩ (B∪C)` — set distributivity, unavailable abstractly — this yields
+commutant closure with no orthomodular calculus at all. Concreteness
+supplies what Foulis–Holland supplies abstractly. (The abstract theorem is
+of course still Kalmbach 1983 Thm 5 / Bruns–Harding 2000 Props 2.2–2.8;
+nothing here re-proves it beyond the concrete instance the corpus needs.)
+
+The same squeeze IS the note's T1 (singleton quarantine) in its s12
+sharpened form: "every point of the overlap lies in some member of `L`
+inside the overlap" forces compatibility. -/
 
 /-- **Latticehood, concrete form**: any two carrier elements have a
 `⊆`-greatest carrier element below their intersection (a lattice meet). -/
@@ -306,36 +322,80 @@ def MeetsExist (d : DynkinSystem Ω) : Prop :=
   ∀ ⦃A B : Set Ω⦄, d.Has A → d.Has B →
     ∃ m, IsGreatest {C | d.Has C ∧ C ⊆ A ∧ C ⊆ B} m
 
-/-- ⚠ **CITED AXIOM — the Foulis–Holland / commutant-closure step.** For
-pairwise-compatible `A, B, C` in a concrete σ-class OML, `A ∧ B (= A ∩ B` by
-L0`)` commutes with `C`; stated as the commuting decomposition of `A ∩ B`
-along `C` (the lattice output `A∧B = ((A∧B)∧C) ∨ ((A∧B)∧Cᶜ)`, orthogonal
-joins being unions). The concrete upgrade to `A ∩ B ∩ C ∈ L` is PROVED below
-(`compat_inter_left` via `compat_of_commuting_decomp`) — the axiom carries
-exactly the classical lattice theorem, nothing more.
+/-- **The meet squeeze (= T1, sharpened form).** If every point of `X ∩ S`
+lies in some carrier member inside `X ∩ S`, then the meet of `X` and `S` is
+squeezed into equality with `X ∩ S`, so `X ↔ S` concretely. No exhaustion
+hypothesis: the covering members need not exhaust anything — each is below
+the meet, and their union already covers `X ∩ S`. -/
+theorem compat_of_locally_resolved (hMeets : MeetsExist d) {X S : Set Ω}
+    (hX : d.Has X) (hS : d.Has S)
+    (h : ∀ ω ∈ X ∩ S, ∃ E, d.Has E ∧ E ⊆ X ∩ S ∧ ω ∈ E) :
+    Compat d X S := by
+  obtain ⟨m, ⟨hm, hmX, hmS⟩, hub⟩ := hMeets hX hS
+  have hsub : X ∩ S ⊆ m := fun ω hω => by
+    obtain ⟨E, hE, hEsub, hωE⟩ := h ω hω
+    exact hub ⟨hE, hEsub.trans Set.inter_subset_left,
+      hEsub.trans Set.inter_subset_right⟩ hωE
+  have heq : m = X ∩ S := subset_antisymm (Set.subset_inter hmX hmS) hsub
+  change d.Has (X ∩ S)
+  rw [← heq]
+  exact hm
 
-Citation: Kalmbach 1983, *Orthomodular Lattices*, Thm 5 p. 25 (Foulis–Holland;
-originals Foulis 1962, Holland 1964); Bruns–Harding 2000, Props 2.2–2.8
-(commutants are subalgebras; pairwise-commuting subsets generate Boolean
-subalgebras). See file header for the direct-proof attempt record. -/
-axiom foulis_holland_commute {Ω : Type*} (d : DynkinSystem Ω)
-    (hMeets : MeetsExist d) {A B C : Set Ω}
+/-- Compatibility is complement-invariant in the second slot
+(`A ∩ Bᶜ = A \ B`, a nested difference — no latticehood). -/
+theorem Compat.compl_right (h : Compat d A B) (hA : d.Has A) :
+    Compat d A Bᶜ := by
+  have hd : d.Has (A \ B) := h.has_diff_left hA
+  change d.Has (A ∩ Bᶜ)
+  rwa [← Set.diff_eq]
+
+/-- Pairwise-compatible unions stay in the carrier (no latticehood:
+`B ∪ C = B ⊍ (C \ B)`, both pieces in `L` by compatibility). -/
+theorem has_union_of_compat (hB : d.Has B) (hC : d.Has C)
+    (hBC : Compat d B C) : d.Has (B ∪ C) := by
+  have hCB : d.Has (C \ B) := hBC.symm.has_diff_left hC
+  rw [← Set.union_diff_self]
+  exact d.has_union hB hCB disjoint_sdiff_right
+
+/-- **Commutant closure with the join, concrete Foulis–Holland instance.**
+For pairwise-compatible `A, B, C`: `A ↔ B ∪ C`. Proof = the meet squeeze
+with the two-element cover `{A∩B, A∩C}` of `A ∩ (B∪C)`. -/
+theorem compat_union_right (hMeets : MeetsExist d)
     (hA : d.Has A) (hB : d.Has B) (hC : d.Has C)
     (hAB : Compat d A B) (hAC : Compat d A C) (hBC : Compat d B C) :
-    ∃ m mc : Set Ω, d.Has m ∧ d.Has mc ∧
-      m ⊆ (A ∩ B) ∩ C ∧ mc ⊆ (A ∩ B) ∩ Cᶜ ∧ A ∩ B = m ∪ mc
+    Compat d A (B ∪ C) := by
+  refine compat_of_locally_resolved hMeets hA
+    (has_union_of_compat hB hC hBC) fun ω hω => ?_
+  rcases hω.2 with hωB | hωC
+  · exact ⟨A ∩ B, hAB,
+      Set.inter_subset_inter_right A Set.subset_union_left, ⟨hω.1, hωB⟩⟩
+  · exact ⟨A ∩ C, hAC,
+      Set.inter_subset_inter_right A Set.subset_union_right, ⟨hω.1, hωC⟩⟩
 
-/-- **Commutant closure, concrete** (axiom + proved L0 glue): pairwise
+/-- **Commutant closure with the meet** (the Foulis–Holland instance the
+blocks need): pairwise-compatible `A, B, C` give `A ↔ B ∩ C`, via
+`compat_union_right` on complements and De Morgan. -/
+theorem compat_inter_right (hMeets : MeetsExist d)
+    (hA : d.Has A) (hB : d.Has B) (hC : d.Has C)
+    (hAB : Compat d A B) (hAC : Compat d A C) (hBC : Compat d B C) :
+    Compat d A (B ∩ C) := by
+  have h4 : Compat d A (Bᶜ ∪ Cᶜ) :=
+    compat_union_right hMeets hA (d.has_compl hB) (d.has_compl hC)
+      (hAB.compl_right hA) (hAC.compl_right hA)
+      ((hBC.compl_left hC).compl_right (d.has_compl hB))
+  have h5 : Compat d A (Bᶜ ∪ Cᶜ)ᶜ := h4.compl_right hA
+  rwa [Set.compl_union, compl_compl, compl_compl] at h5
+
+/-- **Commutant closure, concrete** (fully proved — no axiom): pairwise
 compatibility of `A, B, C` upgrades to `A ∩ B ∩ C ∈ L` when meets exist. -/
 theorem compat_inter_left (hMeets : MeetsExist d)
     (hA : d.Has A) (hB : d.Has B) (hC : d.Has C)
     (hAB : Compat d A B) (hAC : Compat d A C) (hBC : Compat d B C) :
     Compat d (A ∩ B) C := by
-  obtain ⟨m, mc, hm, _, hmsub, hmcsub, hdecomp⟩ :=
-    foulis_holland_commute d hMeets hA hB hC hAB hAC hBC
-  exact compat_of_commuting_decomp hm
-    (hmsub.trans Set.inter_subset_right)
-    (hmcsub.trans Set.inter_subset_right) hdecomp
+  have h := compat_inter_right hMeets hA hB hC hAB hAC hBC
+  change d.Has (A ∩ B ∩ C)
+  rw [Set.inter_assoc]
+  exact h
 
 /-! ## §8. A2: maximal blocks of a σ-class OML are σ-fields -/
 
@@ -403,6 +463,88 @@ theorem measurableSet_toMeasurableSpace (hM : IsMaxBlock d M)
     @MeasurableSet Ω (hM.toMeasurableSpace hMeets) A ↔ A ∈ M := Iff.rfl
 
 end IsMaxBlock
+
+/-! ## §8b. T1 corollaries, P1 poor-pair anatomy, block overlaps -/
+
+/-- **T1, singleton form**: if every point of `A ∩ B` has its singleton in
+`L`, the pair is compatible. Contrapositive = the singleton quarantine: on a
+lattice, an incompatible overlap contains a point whose singleton (indeed,
+every `L`-member inside the overlap through it) is missing from `L`. -/
+theorem compat_of_singletons (hMeets : MeetsExist d)
+    (hA : d.Has A) (hB : d.Has B) (h : ∀ ω ∈ A ∩ B, d.Has {ω}) :
+    Compat d A B :=
+  compat_of_locally_resolved hMeets hA hB fun ω hω =>
+    ⟨{ω}, h ω hω, Set.singleton_subset_iff.mpr hω, rfl⟩
+
+/-- **T1, global form**: a concrete σ-class OM lattice containing all
+singletons is a Boolean σ-field (`InterClosed` is the spine's Boolean
+predicate; with π–λ it is a σ-algebra). -/
+theorem interClosed_of_singletons (hMeets : MeetsExist d)
+    (h : ∀ ω : Ω, d.Has {ω}) : InterClosed d :=
+  fun hA hB => compat_of_singletons hMeets hA hB fun ω _ => h ω
+
+/-- **P1's poor pair**: nonempty set-intersection but no nonempty carrier
+member inside it (lattice meet `0` while the intersection is inhabited). -/
+def PoorPair (d : DynkinSystem Ω) (A B : Set Ω) : Prop :=
+  (A ∩ B).Nonempty ∧ ∀ E, d.Has E → E ⊆ A ∩ B → E = ∅
+
+/-- Poor pairs are incompatible … -/
+theorem PoorPair.not_compat (h : PoorPair d A B) : ¬ Compat d A B :=
+  fun hc => h.1.ne_empty (h.2 _ hc subset_rfl)
+
+/-- … hence lie in no common maximal block. -/
+theorem PoorPair.not_mem_common_block {M : Set (Set Ω)}
+    (hM : IsMaxBlock d M) (h : PoorPair d A B)
+    (hA : A ∈ M) (hB : B ∈ M) : False :=
+  h.not_compat (hM.compat_mem hA hB)
+
+/-- Poor regions are singleton-free. -/
+theorem PoorPair.singleton_notMem (h : PoorPair d A B) {ω : Ω}
+    (hω : ω ∈ A ∩ B) : ¬ d.Has {ω} := fun hs =>
+  Set.singleton_ne_empty ω (h.2 {ω} hs (Set.singleton_subset_iff.mpr hω))
+
+/-- **P1, propagation down σ-decompositions**: if `(A, B)` is poor and
+`A = ⊍ₙ fₙ` then every `(fₙ, B)` has meet `0` while some `fₙ ∩ B ≠ ∅` —
+poor pairs propagate down every σ-decomposition. -/
+theorem PoorPair.propagate {f : ℕ → Set Ω} (h : PoorPair d A B)
+    (hA : A = ⋃ n, f n) :
+    (∀ n E, d.Has E → E ⊆ f n ∩ B → E = ∅) ∧ ∃ n, (f n ∩ B).Nonempty := by
+  constructor
+  · intro n E hE hsub
+    exact h.2 E hE (hsub.trans (Set.inter_subset_inter_left B
+      (hA ▸ Set.subset_iUnion f n)))
+  · obtain ⟨ω, hωA, hωB⟩ := h.1
+    rw [hA] at hωA
+    obtain ⟨n, hn⟩ := Set.mem_iUnion.mp hωA
+    exact ⟨n, ω, hn, hωB⟩
+
+/-- **P1, σ-superadditivity of meets** (light form): a disjoint union of
+carrier lower bounds of the `(fₙ ∩ B)` is a carrier lower bound of
+`(⋃ fₙ) ∩ B` — so `⊍ₙ (fₙ ∧ B) ≤ (⊍ₙ fₙ) ∧ B` at every meet. -/
+theorem sigma_superadditive_lower_bound {f g : ℕ → Set Ω}
+    (hdisj : Pairwise (Disjoint on f)) (hg : ∀ n, d.Has (g n))
+    (hsub : ∀ n, g n ⊆ f n ∩ B) :
+    d.Has (⋃ n, g n) ∧ (⋃ n, g n) ⊆ (⋃ n, f n) ∩ B := by
+  constructor
+  · exact d.has_iUnion_nat
+      (hdisj.mono fun i j hij => hij.mono
+        ((hsub i).trans Set.inter_subset_left)
+        ((hsub j).trans Set.inter_subset_left)) hg
+  · exact Set.iUnion_subset fun n => (hsub n).trans
+      (Set.inter_subset_inter_left B (Set.subset_iUnion f n))
+
+/-- **Block overlaps are σ-fields** (the second clause of A2): the overlap
+of two maximal blocks, packaged as a σ-field of sets. -/
+@[reducible]
+def IsMaxBlock.overlapMeasurableSpace {M₁ M₂ : Set (Set Ω)}
+    (hM₁ : IsMaxBlock d M₁) (hM₂ : IsMaxBlock d M₂) (hMeets : MeetsExist d) :
+    MeasurableSpace Ω where
+  MeasurableSet' A := A ∈ M₁ ∩ M₂
+  measurableSet_empty := ⟨hM₁.empty_mem, hM₂.empty_mem⟩
+  measurableSet_compl _ hA := ⟨hM₁.compl_mem hA.1, hM₂.compl_mem hA.2⟩
+  measurableSet_iUnion _ hf :=
+    ⟨hM₁.iUnion_mem' hMeets fun n => (hf n).1,
+      hM₂.iUnion_mem' hMeets fun n => (hf n).2⟩
 
 /-! ## §9. T3: Dirac realization on countably generated σ-fields
 
@@ -660,7 +802,15 @@ theorem IsMaxBlock.dirac_realization {M : Set (Set Ω)} (hM : IsMaxBlock d M)
 #print axioms pattern_pair_dirac_rescue
 #print axioms Compat.isGreatest_inter
 #print axioms compat_of_commuting_decomp
+#print axioms compat_of_locally_resolved
+#print axioms compat_union_right
+#print axioms compat_inter_right
 #print axioms compat_inter_left
+#print axioms compat_of_singletons
+#print axioms interClosed_of_singletons
+#print axioms PoorPair.propagate
+#print axioms sigma_superadditive_lower_bound
+#print axioms IsMaxBlock.overlapMeasurableSpace
 #print axioms IsMaxBlock.inter_mem
 #print axioms IsMaxBlock.iUnion_mem'
 #print axioms IsMaxBlock.toMeasurableSpace

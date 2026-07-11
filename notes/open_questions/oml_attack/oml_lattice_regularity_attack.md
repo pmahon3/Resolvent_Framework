@@ -411,17 +411,22 @@ findings cosmetic (applied in place, marked ✎ in the receipt); both
 standard citations pinned to primary-grade sources. Receipt:
 `PROOF_READ_2026-07-10_attack_s9.md`; independent from-scratch scripts
 (118/118) in `../verification/proof_read_2026-07-10_s11/`.
-✎s17 (2026-07-11): the foundation layer is now LEAN-VERIFIED —
-`formalization/QuerySystem/QuerySystem/ConcreteOMLBlocks.lean`:
-A1(a)–(c), L0 (both directions), C1′, and T3 (in full, on abstract
-countably generated σ-fields) are axiom-free; A2 and the composite
-"σ-states are Dirac on countably generated blocks" are machine-checked
-modulo the ONE flagged cited axiom `foulis_holland_commute`
-(= Foulis–Holland/commutant closure, Kalmbach Thm 5 / Bruns–Harding
-2.2–2.8; the concrete upgrade through L0 is proved). `#print axioms`
-receipts at file end. T1/P1 and the block-OVERLAP clause of A2 remain
-hand-only. Awaits user ratification (now = read the one axiom against
-its citation + accept the build).
+✎s17–s18 (2026-07-11): the ENTIRE §9 layer is now LEAN-VERIFIED,
+AXIOM-FREE — `formalization/QuerySystem/QuerySystem/ConcreteOMLBlocks.lean`:
+A1(a)–(c), L0 (both directions), C1′, T1 (both forms), P1, A2 in full
+(blocks AND overlaps are σ-fields), the composite "σ-states are Dirac
+on countably generated blocks", and T3 (on abstract countably generated
+σ-fields — no circularity). The Foulis–Holland step needed NO citation
+axiom: on a concrete carrier the required commutant-closure instance
+follows from a three-line **meet squeeze** (the meet of X, S contains
+every carrier subset of X∩S, so a pointwise carrier cover of X∩S
+forces meet = X∩S ∈ L; apply with the cover {A∩B, A∩C} of A∩(B∪C) —
+set distributivity supplies what orthomodular calculus supplies
+abstractly, and complements descend to all four cells). The
+Bruns–Harding/Kalmbach citations now support only the ABSTRACT theorem;
+nothing in this note's chain rests on them. All `#print axioms`
+receipts = [propext, Classical.choice, Quot.sound]. Awaits user
+ratification (= accept the build).
 Setting throughout: L a concrete σ-class on Ω (∅ ∈ L, complement-closed,
 closed under countable disjoint unions; order = ⊆, ⊥ = disjointness);
 "lattice" = the poset (L, ⊆) has all binary meets. "Block" = maximal
@@ -620,6 +625,17 @@ incompatibility — even a failed construction will name the next wall.
 
 ## 10. Skeleton A read (2026-07-10, session 13): DW Thm D.6 + Maharam §8 — the T3 question answered
 
+*✎s18 (2026-07-11): §10b's theorem-lets are LEAN-VERIFIED, axiom-free —
+`formalization/QuerySystem/QuerySystem/InnerRegularity.lean`: R in full
+(`dirac_forcing`, honest field-of-sets hypotheses, FIP step
+machine-checked, plus the cofinite-topology red-flag counterexample AND
+`not_t2Space_cofiniteTopology` derived from R itself); P's two-valued
+instance at the specific F = X∖{x} on uncountable SECOND-COUNTABLE
+Hausdorff spaces (strengthened from Polish — condensation-point route
+replaces Cantor–Bendixson), and the s14 all-Hausdorff strengthening
+(two-valued instance) by reduction to R. The real-valued diffuse-mass
+decomposition and the DW/Maharam source-readings stay hand.*
+
 *⟦HAND⟧ reading results + two elementary theorem-lets (R, P). No machine
 oracle — the claims are topological/measure-theoretic, not finitely
 instantiable. Fresh-context adversarial check run same-session on R, P,
@@ -802,6 +818,19 @@ branch (PP1994). Owed: ~~s12-standard proof-read of §10~~ CLEARED
 2026-07-10 s14 (receipt `PROOF_READ_2026-07-10_attack_s10.md`).
 
 ## 11. B′(i) direct attempt (2026-07-11, session 15): the cluster reduction, the Stone-density reframe, and the Marczewski read
+
+*✎s18 (2026-07-11): §11's banked layer is LEAN-VERIFIED, axiom-free —
+`ConcreteOMLPatterns.lean`: 2BR, cluster machinery (Φ ⟺ cluster form,
+cluster extension), P⁼ in full (backward leg formally needs NO
+countable generation and NO latticehood), Φ-density on the Cantor cube
+(+ St_fa closed and compact — gap 4.2(a)/(b)), B′(i) and T4 as named
+open Props with the necessity direction B′(i) ⟹ T4 PROVED (the T3
+kernel is an atom); the crux is deliberately NOT stated as a theorem.
+`MarczewskiTransport.lean`: the corrected (✎s16) compact-transport
+criterion is a THEOREM (approximation hypothesis structural), and the
+ω₁ scoping bank is certified end-to-end (σ-additive, non-Dirac,
+non-countably-generated, countably compact class + approximation).
+Marczewski attribution reads (11e bullets 2–3) stay source-reading.*
 
 *⟦HAND⟧ theorem-lets, machine-corroborated at finite scale
 (`../verification/b_prime_i_s15_oracle.py`, 10 checks PASS — pentagon in

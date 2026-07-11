@@ -1,13 +1,17 @@
 # Session prompt: Lean formalization of the concrete-OML block layer
 
-**STATUS 2026-07-11 (s17): Phases A and B EXECUTED, plus T3 —
-`QuerySystem/ConcreteOMLBlocks.lean` (builds, no sorry, receipts at file
-end). A1a–c/L0/C1′/T3 axiom-free; A2 + block-Dirac composite modulo the
-one flagged axiom `foulis_holland_commute` (direct FH proof attempted,
-deferred — see the file header's attempt record). REMAINING: Phase C
-(local-state pattern re-encoding, P⁼/2BR/cluster normal form/Φ-density,
-B′(i)/T4 as named Props) and Phase D (theorem-lets R and P). Kit item 2
-updated accordingly.**
+**STATUS 2026-07-11 (s17–s18): ALL PHASES EXECUTED, ALL AXIOM-FREE.
+Phase A+B: `ConcreteOMLBlocks.lean` (A1a–c/L0/C1′/T1/P1/T3/A2 incl.
+overlaps; the FH axiom proved UNNECESSARY — meet squeeze). Phase C:
+`ConcreteOMLPatterns.lean` (P⁼, 2BR, cluster form, Φ-density + St_fa
+closed/compact, B′(i)/T4 named open Props, B′(i)⟹T4 proved) +
+`MarczewskiTransport.lean` (corrected compact-transport criterion, ω₁
+bank). Phase D: `InnerRegularity.lean` (theorem-lets R and P
+two-valued, all-Hausdorff strengthening, cofinite red-flag). Bonus:
+`PruningTheorem.lean` (reconstruction Theorem P, kit gaps 5.1/5.2).
+61 receipts, zero custom axioms. Kit items 1–5 updated. Remaining Lean
+frontier: Lemma NG + Theorem B (kit 5.3), product-Ulam escape (2.3(a)),
+real-valued P, FH as an abstract OML theorem (optional).**
 
 **Paste-able starter for a fresh session. Written 2026-07-11 end of s16;
 audit of existing Lean infrastructure already done — reuse it, do not

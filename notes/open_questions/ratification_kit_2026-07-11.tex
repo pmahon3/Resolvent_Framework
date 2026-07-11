@@ -1,0 +1,484 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1.1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
+
+\newcommand{\Stfa}{\mathrm{St}_{\mathrm{fa}}}
+\newcommand{\Stsig}{\mathrm{St}_{\sigma}}
+\newcommand{\HAND}{\ensuremath{[\![\text{HAND}]\!]}}
+\newcommand{\file}[1]{\texttt{\small #1}}
+\newcommand{\gap}[1]{\medskip\noindent\textbf{Gap #1.}}
+\newcommand{\lookfor}{\par\smallskip\noindent\emph{What to look for:} }
+\newcommand{\redflag}{\par\smallskip\noindent\emph{Red flag:} }
+
+\title{Ratification kit: the hand-verification gaps\\
+\large What the scripts could not check, item by item, with references}
+\author{Prepared end of session 16}
+\date{2026-07-11}
+
+\begin{document}
+\maketitle
+
+\noindent\textbf{How to use this document.} Every item below was
+verified by a fresh-context adversarial review with from-scratch
+machine receipts; each receipt honestly lists the steps that are
+\emph{hand-proof-only} --- infinite objects, topology, choice
+principles, and source-reading judgment calls that no finite script
+reaches. Those steps are where your eye is the only remaining
+verification layer. For each item: the claim chain, the receipt, then
+each gap with (a) exactly what to check, (b) where the written proof
+lives, (c) the primary reference with page, (d) what a failure would
+look like and what it would take down. Ratifying an item = you accept
+its gaps after inspection (or spot-check the ones you choose and
+accept the receipt for the rest); tell me and I mark the records.
+
+\smallskip
+\noindent\textbf{Suggested order.} Items 2--3--4 are serial (each uses
+the previous); item 1 is quick and independent; item 5 is a separate
+lane entirely. Item 2's gaps are the highest-leverage in the corpus:
+A2 and T3 carry everything after them.
+
+\tableofcontents
+
+%=====================================================================
+\section{Item 1 (s9): the MPT theorem-let --- no non-Boolean concrete
+$\sigma$-class OML has all $\sigma$-additive states Jauch--Piron}
+
+\noindent\textbf{Claim chain} (attack note \S7c(i)):
+on a concrete $\sigma$-class, every Dirac state is two-valued and
+$\sigma$-additive [glue, \HAND]; all-Dirac-states-JP
+$\Leftrightarrow$ $C_{\mathrm{card}}$ [MPT Prop 3.2, \emph{their}
+proof]; $C_{\mathrm{card}} \Rightarrow$ downward-directed [MPT p.~10,
+one direction only]; downward-directed $+$ lattice $\Rightarrow$
+Boolean [MPT Prop 4.4, \emph{their} proof]. Consequences: BNPW 1985
+excluded from $\mathrm{Adm}\cap\mathrm{OML}$ under every reading
+(disjunction); Skeleton C first half refuted by MO$_2$.
+
+\noindent\textbf{Receipt:} \S7c(iii-b)/(iii-c) of
+\file{oml\_lattice\_regularity\_attack.md};
+\file{verification/mo2\_jp\_check.py} (seven properties). Reviewer
+read the MPT PDF in full.
+
+\gap{1.1} \emph{The glue: Dirac states are $\sigma$-additive on
+$\sigma$-classes.} Three lines: if $E = \biguplus_n E_n \in L$
+(disjoint union), then $x$ lies in exactly one $E_n$, so
+$\delta_x(E) = \sum_n \delta_x(E_n)$.
+\lookfor the only subtlety is that $\sigma$-class
+$\sigma$-completeness is the \emph{union} sense (disjoint countable
+unions are set unions and lie in $L$), matching
+\file{sigma\_essential\_body.tex} q:bare clause (b). Confirm the
+theorem-let's scope line: ``Adm's $\sigma$-completeness IS the
+$\sigma$-class sense.''
+\redflag if Adm's completeness were \emph{sup}-based (suprema exist
+but are not set unions), the glue fails --- that is exactly the
+distinction MPT Prop 4.6 (p.~11) navigates, and the reviewer checked
+the senses match. Reference: M\"uller--Pt\'ak--Tkadlec, \emph{Int.\ J.
+Theor.\ Phys.} 31 (1992) 843--854, PDF
+\file{muller\_ptak\_tkadlec\_1992\_covering\_properties.pdf}: Def
+1.1 (p.~2, \emph{finite} closure only --- their default logic is
+weaker than a $\sigma$-class), Prop 3.2 (p.~6, no side conditions),
+Prop 4.4 (p.~10).
+
+\gap{1.2} \emph{Direction of the Prop 3.2 bridge.} Prop 3.2's
+$C_{\mathrm{card}}$ is per-point ($\forall x \in A\cap B\ \exists C
+\ni x$, $C \subseteq A \cap B$), which implies downward-directedness
+strictly --- it is NOT an iff.
+\lookfor \S7c(i) uses only the correct direction
+($\Rightarrow$); check no later use silently upgrades it.
+
+\gap{1.3} \emph{The BNPW disjunction} (\S7c, ``Consequence for
+BNPW''). Pure logic over an underdetermined source: either BNPW's
+object is a $\sigma$-class (then not a lattice, by the theorem-let)
+or it is not $\sigma$-closed (then not an Adm-style carrier).
+\lookfor the disjunction exhausts the readings of MPT's Q5.4 note
+(p.~12); the Bunce--Hamhalter 2000 ILL pull remains
+confirmation-grade only --- nothing is cited from it.
+\redflag any future text citing BNPW as a lattice witness or
+non-witness \emph{simpliciter}.
+
+%=====================================================================
+\section{Item 2 (s11 math + s12 edits): attack note \S9 --- the
+foundation layer (A1, L0, A2, T1, T3, P1, Conjecture $B'$)}
+
+\noindent\textbf{Why this item matters most:} A2 (blocks are
+$\sigma$-fields) and T3 (Dirac realization on countably generated
+blocks) are load-bearing for every subsequent session (\S10's
+factoring, \S11's $P^=$ and ladder). A defect here propagates
+everywhere.
+
+\noindent\textbf{Receipt:} \file{PROOF\_READ\_2026-07-10\_attack\_s9.md}
+(118/118 checks, three flagged high-risk steps cleared);
+scripts \file{verification/proof\_read\_2026-07-10\_s11/}.
+
+\gap{2.1} \emph{A2's infinite commutant case.} The step ``every
+pairwise-compatible subset --- of any cardinality --- generates a
+Boolean subalgebra'' rests on Bruns--Harding Prop 2.8, checked by the
+scout to be stated for \emph{arbitrary} subsets (via commutant
+closure, not a directed-union limit).
+\lookfor read Bruns--Harding 2000, ``Algebraic Aspects of Orthomodular
+Lattices'' (in \emph{Current Research in Operational Quantum Logic},
+Kluwer), Props 2.2--2.4 (commutant $C(a)$ closed under $'$ and all
+existing joins/meets), Prop 2.8 (arbitrary pairwise-commuting subsets),
+Prop 3.1 (blocks). Verify Prop 2.8's statement covers infinite sets
+with no separability hypothesis. Nuance already pinned in the receipt:
+Foulis--Holland (Kalmbach 1983, Thm 5 p.~25; Holland 1964 \emph{TAMS}
+112, \textbf{not} 1963) gives only distributivity of the generated
+sub\emph{lattice}; the Boolean sub\emph{algebra} conclusion for
+infinite families is exactly what Prop 2.8 adds.
+\redflag if Prop 2.8 needed a finiteness or completeness hypothesis,
+A2's ``blocks are $\sigma$-fields'' would lose the infinite case, and
+with it T3, $P^=$, and the \S10/\S11 superstructure.
+
+\gap{2.2} \emph{T3's $\sigma$-continuity derivation} (infinite; the
+scripts only exercised finite $\sigma$-fields and the pentagon).
+Re-derive: $F_n = $ intersection of the first $n$ generators'
+value-1 sides ($\in Bl$ by A2); $\nu(F_n) = 1$ by two-valued f.a.\
+induction; $D = \bigcap_n F_n \in Bl$;
+$F_1 = D \uplus \biguplus_n (F_n \setminus F_{n+1})$ with each
+difference $\nu$-null, so $\sigma$-additivity \emph{on} $Bl$
+(supplied by A1c) gives $\nu(D) = 1$, hence $D \neq \emptyset$;
+finally $\{A \in Bl : D \subseteq A \text{ or } D \cap A =
+\emptyset\}$ is a $\sigma$-subfield containing the generators.
+\lookfor two hidden joints: (a) ``countable unions in $Bl$ ARE set
+unions'' --- that is A2, so check there is no circularity (A2's proof
+uses only Bruns--Harding + L0 + A1b, never T3 --- confirm by reading
+\S9c's A2 paragraph); (b) the $\sigma$-subfield step needs closure
+under countable unions of the dichotomy family, one line but write it.
+\redflag a use of $\sigma$-continuity \emph{from above} on $L$ itself
+(not available in a $\sigma$-class); the proof must route through the
+block, where A2 makes it a genuine $\sigma$-field.
+
+\gap{2.3} \emph{T3's load-bearing counterexamples.} (a) Without
+latticehood the $F_n$ need not lie in $L$: this is the corpus's own
+Cor.\ ``incompatibility; not a lattice''
+(\file{sigma\_essential\_body.tex:713}) --- the reviewer marked it
+consistent-but-not-re-derived (receipt finding 6).
+\lookfor open that Corollary once and confirm it states what T3 needs:
+on the product Ulam carrier the finite intersections of pattern sets
+escape $L$. (b) Without countable generation: the
+countable/co-countable field on $\omega_1$ with the co-countable
+state --- re-derive that the state is $\sigma$-additive (a countable
+disjoint union of countable sets is countable, so the co-countable
+member is unique) and that the field is genuinely not countably
+generated (any countable family of countable/co-countable sets
+generates a field whose atoms include an uncountable set that splits
+further).
+
+\gap{2.4} \emph{A1(b): blocks closed under countable disjoint unions.}
+The orthomodular-difference step: for $u = \biguplus c_n$, $c_n \in
+Bl$, and $b \in Bl$: $u \cap b = \biguplus (c_n \cap b) \in L$, and
+$u \setminus b,\ b \setminus u \in L$ likewise, so $u$ is compatible
+with all of $Bl$, hence in $Bl$ by maximality.
+\lookfor each $c_n \cap b \in L$ needs $c_n \leftrightarrow b$ (both
+in $Bl$) $+$ L0; the disjointness of $(c_n \cap b)_n$ is inherited;
+maximality is the Zorn-supplied property from A1(a).
+
+\gap{2.5} \emph{L0's converse (join vs.\ $\uplus$).} $P \uplus Q \in
+L$ is an upper bound so $P \vee Q \subseteq P \uplus Q$; the join
+contains $P \cup Q$ as a set since it bounds each part; equality
+follows, then $A \cap B = A \wedge B$.
+\lookfor this is the step the s12 reviewer singled out and closed;
+re-run it once --- it is four lines and everything concrete-vs-lattice
+downstream leans on it.
+
+\smallskip\noindent\textbf{s12 edits to sign off} (all cosmetic, listed
+in the receipt): pentagon irreducibility parenthetical; T1 hypothesis
+cleaned (every point of $A \cap B$ lies in some member of $L$ inside
+it --- \emph{no exhaustion needed}); corollary remark replaced;
+P1's use of poorness made explicit; $B'$(ii) precision caveat
+(whole-carrier property phrased as coarse-block --- must be sharpened
+before attack).
+
+%=====================================================================
+\section{Item 3 (s13 math + s14 edits): attack note \S10 --- Skeleton
+A read, theorem-lets R and P, the demotion and factoring}
+
+\noindent\textbf{Claim chain:} R ((8.1)-inner-regular two-valued f.a.\
+state on Hausdorff $=$ Dirac restriction with compact witness); P
+(diffuse countable/co-countable components fail (8.1) on uncountable
+Polish); consequence C (coarse-riding states escape DW Thm D.6 on
+\emph{every} Polish representation) $\Rightarrow$ Skeleton A demoted,
+Theorem 2 factors as $B'$(i) $+$ coarse-block question.
+
+\noindent\textbf{Receipt:} \file{PROOF\_READ\_2026-07-10\_attack\_s10.md}
+(11{,}686/11{,}686 checks; sources re-checked verbatim);
+scripts \file{verification/proof\_read\_2026-07-10\_s13/}.
+
+\gap{3.1} \emph{R's FIP step for infinite $\mathcal K_1$.} The
+value-1 in-field compacts have the FIP \emph{inside one fixed compact
+member}; nonempty intersection needs the members closed in that
+compact (Hausdorff: compact $\Rightarrow$ closed).
+\lookfor the s14 rewrite of R's statement (asserting $\mathcal K_1
+\neq \emptyset$ and $D \neq \emptyset$ as conclusions, avoiding the
+$\bigcap \emptyset = X$ misparse); then check Hausdorff is genuinely
+load-bearing via the receipt's counterexample: $\mathbb N$ with the
+cofinite topology, finite/cofinite field, cofinite state ---
+everything is compact, (8.1) trivially holds, no Dirac.
+\redflag any restatement of R that drops Hausdorff or quantifies
+(8.1) over topological compacts not sandwiched by in-field sets
+(that is exactly the DW fn-29 gap; see 3.4).
+
+\gap{3.2} \emph{P's topological content} (not scriptable):
+Cantor--Bendixson on an uncountable Polish space; the perfect kernel
+is uncountable; compact $\Rightarrow$ closed; and the sub-claim
+``closed co-countable $\supseteq$ perfect kernel.''
+\lookfor re-derive the sub-claim: if $F$ is closed and co-countable,
+$X \setminus F$ is open and countable, hence contains no point of the
+perfect kernel (a nonempty open subset of a perfect Polish subspace is
+uncountable); the receipt's second counterexample shows ``$x \in$
+perfect kernel'' is load-bearing ($X = [0,1] \uplus \{p\}$ isolated,
+$x = p$ breaks the argument). Reference for background: any DST text
+(Kechris \S6 for Cantor--Bendixson) --- also on the skill plan.
+
+\gap{3.3} \emph{P0's choice flag.} Atom-set countability uses
+$\mathrm{AC}_\omega(\mathrm{fin})$ on abstract $X$; eliminable on
+Polish $X$ (definable order).
+\lookfor confirm P0 is only ever \emph{applied} on Polish carriers in
+\S10 (it is), so the flag is moot in context; nothing to fix, just
+witness it.
+
+\gap{3.4} \emph{The DW footnote-29 reading.} The claim ``DW's
+blockwise inner-regularity leg omits $K \in \mathcal A_i$, gap
+confirmed in the text, no repair in Appendix D'' is a
+\emph{source-reading} judgment.
+\lookfor Derr--Williamson 2023, arXiv:2302.03522
+(\file{derr\_williamson\_2023.pdf}): Thm D.6 p.~48 (five legs;
+blockwise inner regularity is a distinct leg), footnote 29 (verbatim,
+membership-free), proof p.~49 (``all restrictions $\mu_i$ are inner
+regular'' --- no repair). Then check the corpus convention: we cite
+D.6 only in the (8.1) sense (Maharam-style in-field sandwich), which
+is the reading that makes their proof work.
+\redflag citing D.6 with fn-29's literal (membership-free) reading
+anywhere --- the s13 Addendum exists precisely to pin this.
+
+\gap{3.5} \emph{Maharam anatomy M1--M3} (source-reading; verbatim
+anchors already in the receipt).
+\lookfor Maharam 1972 (\file{maharam\_1972.pdf}): (8.1) display
+p.~145 (with $K \in \mathcal F_\alpha$ --- the in-field membership DW's
+footnote drops); the Hahn--Banach engine is her \emph{Lemma} 6.1 (Thm
+6.1 is the criterion invoking it); her Remark p.~146 (the $m_\alpha$
+``have countably additive extensions''). Her proof of 8.1 (p.~146)
+uses (8.1) only for the compact/open sandwich and the $K \subseteq
+G_1 \cup \dots \cup G_n$ step --- this is what licenses \S10's
+``(8.1) consumed ONLY as intersection-stable compact class.''
+
+\gap{3.6} \emph{The all-Hausdorff strengthening} (banked s14): diffuse
+mass $c > 0$ kills (8.1) on \emph{every} Hausdorff topology, by
+reduction to R.
+\lookfor the reduction: an in-field compact $K \subseteq F$ with
+$\mu(K) > \mu(F) - c$ must be co-countable, so the co-countable
+component $\nu$ would itself satisfy (8.1), contradicting R ($\nu$
+non-principal). The threshold arithmetic is machine-checked; the
+topological conclusion is the hand part.
+
+\smallskip\noindent\textbf{s14 edit to sign off:} the scope fix on
+``fails \emph{exactly} on the coarse locus'' --- earned only among
+\emph{coarse-block $\sigma$-states} (atomic states satisfy (8.1) there
+via finite in-field atom-truncations; compact-poor blocks fail (8.1)
+even at Diracs: $\delta_\omega\!\restriction\!\{\emptyset,
+\mathrm{irr}, \mathbb Q, \mathbb R\}$, $\omega$ irrational).
+Propagated to \S10d(i) and the prior-art verdict banner. The s13
+conclusions use only the failure direction and are unaffected ---
+verify that one sentence in the receipt and you have verified the
+propagation's safety.
+
+%=====================================================================
+\section{Item 4 (s15 math + s16 edits): attack note \S11 --- the
+$B'$(i) reduction ladder and the Marczewski read}
+
+\noindent\textbf{Claim chain} (as reviewed, C1--C12): 2BR two-block
+rescue; cluster normal form; $P^=$ (pointed $\Leftrightarrow$
+$\sigma$ on countably generated blocks); kernel-FIP strictly stronger
+than coherence; representation-dependence of $K(s) = \emptyset$;
+$\Phi \Leftrightarrow \Stsig$ dense in $\Stfa$; in-block 4(i) $+$
+compact-transport criterion; $\omega_1$ scoping; no-cheap-union;
+T4 ladder.
+
+\noindent\textbf{Receipt:} \file{PROOF\_READ\_2026-07-11\_attack\_s11.md}
+(424{,}509/424{,}509 checks); scripts
+\file{verification/proof\_read\_2026-07-11\_s15/}; Marczewski
+source-check inside the receipt.
+
+\gap{4.1} \emph{$P^=$'s infinite legs} (scripts cover only the finite
+pentagon). Three joints: (a) the ($\Rightarrow$) leg is T3 run on a
+countable generating family --- inherits item 2's gap 2.2; (b) the
+kernel-nonempty $\Rightarrow$ charges-an-atom bridge: for $\omega \in
+D_{Bl}$, if $\nu(A(\omega)) = 0$ then $\nu(A(\omega)^c) = 1$ forces
+$\omega \in A(\omega)^c$, absurd --- needs C4's atomicity; (c) the
+($\Leftarrow$) leg: $\omega \in D_{Bl}$ makes
+$\nu\!\restriction\!Bl = \delta_\omega\!\restriction\!Bl$ (two-valued
+$+$ field), which is $\sigma$-additive per block, then A1c globalizes.
+\lookfor C4's ``every member of $Bl$ is a union of signature cells'':
+the family of cell-saturated sets is a $\sigma$-field containing the
+generators --- write the countable-union line once. Note the banked
+sharpening: ($\Leftarrow$) needs \emph{no} countable generation.
+\redflag any later use of $P^=$ on a block \emph{not} countably
+generated in the ($\Rightarrow$) direction --- that direction is
+exactly what coarse blocks refuse ($\omega_1$ counterexample).
+
+\gap{4.2} \emph{$\Phi$-density's topology} (C8). Three hand steps:
+(a) $\Stfa \subseteq \{0,1\}^L$ is closed --- each finite-additivity
+constraint involves finitely many coordinates, so violations are
+witnessed on basic clopens; (b) compactness of $\{0,1\}^L$ is
+Tychonoff (BPI-strength --- fine in ZFC, flagged for the record);
+(c) the pattern-vs-clopen correspondence: a finite value assignment
+with an f.a.\ witness $\perp\uplus$-closes to a finite
+$\perp$-closed pattern \emph{without leaving the clopen} (the closure
+only adds forced values). The map pattern $\mapsto$ trace is onto,
+not injective --- harmless, but the ``correspond exactly'' phrasing
+should be read as ``nonempty traces.''
+\lookfor then the equivalence itself: $\Phi$ says every nonempty
+basic clopen of $\Stfa$ meets $\Stsig$ --- literally density. Check
+$\Phi$'s quantifier in \file{sigma\_essential\_body.tex}
+(\S Discussion) is over \emph{finite} patterns, which it is.
+
+\gap{4.3} \emph{The $\omega_1$ scoping bank} (C10). (a) The
+co-countable family (with $\emptyset$ adjoined --- s16 fix) is a
+countably compact class: a countable intersection of co-countables is
+co-countable, nonempty since $\omega_1$ is uncountable (uses
+$\mathrm{AC}_\omega$: countable unions of countable sets); any
+sequence containing $\emptyset$ vacuously fails the FIP hypothesis.
+(b) It Marczewski-approximates the countable/co-countable field
+w.r.t.\ the coarse state: co-countable $E$ takes $D = K = E$;
+countable $E$ takes $K = \emptyset$. (c) Independent corroboration:
+the state is purely atomic ($\omega_1$ one atom), hence compact by
+M--RN \S3(ii) directly.
+\lookfor Marczewski, ``On compact measures,'' \emph{Fund.\ Math.} 40
+(1953) 113--124 (\file{marczewski\_1953\_on\_compact\_measures.pdf}):
+compact class \S2 p.~115 (sequence form; purely set-theoretic --- his
+stated aim p.~113 is ``eliminating non-essential topological
+concepts''); approximation \S3 p.~116 ($\eta$-form over \emph{all}
+$E \in \mathbf M$ --- this is why $\emptyset$ is needed); compact
+measure \S4 p.~118; 4(i) p.~118.
+\redflag treating Marczewski compactness as if it implied topological
+(8.1)-regularity --- the whole point of the bank is that the coarse
+state is Marczewski-compact yet kills the topological leg.
+
+\gap{4.4} \emph{The s16 wording fixes --- these change standing
+conjecture targets; sign off explicitly.} (a) Compact-transport
+criterion and the coarse-factor wall statement now read
+``Marczewski-approximates in-block'' instead of ``refines the value-1
+filter.'' The two are \emph{inequivalent}: the class of all singletons
+of $\Omega$ is countably compact and refines every ultrafilter, which
+would make every two-valued f.a.\ state $\sigma$-additive ---
+absurd (any nonprincipal ultrafilter state on $\mathcal P(\mathbb N)$).
+The value-1 \emph{inner} witness $D \in Bl$, $\mu(D) = 1$,
+$D \subseteq K$ is what powers the FIP step.
+\lookfor re-run the criterion's proof once with the corrected
+hypothesis: tails $F_n$ value-1, sandwiches $D_n \subseteq K_n
+\subseteq F_n$, $\mu(D_n) = 1$; finite intersections of the $D_n$
+are value-1 (in-block ultrafilter), hence nonempty, giving the $K_n$
+the FIP; countable compactness yields $\emptyset \neq \bigcap K_n
+\subseteq \bigcap F_n = \emptyset$. The coarse-block toy hunt will
+aim at the wall statement in this corrected form --- this is the one
+edit with forward-pointing consequences.
+(b) 5(iii)/5(iv): the clean ``independent $\sigma$-fields $+$ compact
+partials $\Rightarrow$ compact'' is 5(iv) (p.~120); 5(iii) puts its
+hypotheses on the \emph{approximating classes} and partial
+compactness alone is explicitly insufficient there (``and, what is
+more''). Both are compactness-\emph{transfer} theorems, not
+extension-existence (that is Marczewski 1951, \emph{Fund.\ Math.} 38,
+Thm I). (c) M--RN \S4 credit: the positive half (minimal
+$\sigma$-extensions of compact measures are compact) is M 1953 4(ii),
+quoted in M--RN as ``C 4 (ii)''; M--RN \S4's own theorem is the
+converse-false example. Reference:
+\file{marczewski\_ryll\_nardzewski\_1953\_compactness\_products.pdf},
+pp.~165--170.
+
+\gap{4.5} \emph{The Zorn frame and the crux scope} (C12(iii) $+$ s16
+scope note). T4's \emph{necessity} for $B'$(i) is clean ($B'$(i)
+$\Rightarrow$ $\sigma$-extension of the cluster-pattern
+$\Rightarrow$ pointed at every block by $P^=$ $\Rightarrow$ the
+charged atom of $Bl_0$ witnesses coherence). But the boxed crux is at
+\emph{finite} support, and the Zorn run needs the successor at
+arbitrary $\mathcal S$: a block may have infinitely many atoms, so
+``point $Bl_0$ somehow'' is an infinite union of closed conditions,
+not closed --- compactness alone does not close the limit stage.
+\lookfor the s16 annotation at the ``everything reduces'' sentence;
+confirm you are happy with the honest status: T4 is a genuine
+\emph{falsification} target (a T4-violating configuration kills
+$B'$(i) outright), while the \emph{proof} direction needs T4 $+$ a
+completion principle still to be found.
+\redflag any future note claiming ``T4 $\Rightarrow$ $B'$(i)''
+unconditionally.
+
+\gap{4.6} \emph{Small remainders} (from the receipt's gap list):
+C11's empty \emph{total} intersection is a limit statement (script
+checks the finite shadow --- the two-class witness on $\mathbb N$ is
+three lines by hand); the general-$\Omega$ halves of C1/C1$'$/C2/C3
+are the written proofs in \S11a--b (each under ten lines; the machine
+corroborated all finite instances); the monotonicity strengthening
+(any concrete $\sigma$-class, two lines: $E \subseteq A$, $\mu(E) =
+1$, $\mu(A) = 0$ gives $\mu(E \uplus A^c) = 2$).
+
+%=====================================================================
+\section{Item 5 (s7 + s10, reconstruction lane): Theorem P, Lemma NG,
+Theorem B (the pruning stack)}
+
+\noindent\textbf{Claim chain:} Theorem P (exact characterization,
+all $k$, all $L$, no strong-connectivity hypothesis:
+$\mathrm{TR}_k(\text{rot-1}) = \mathrm{LISC}_k$); Lemma NG
+(non-generator rotations overcount: orbit decomposition to
+$\mathrm{LISC}_{k/d}$); Theorem B (effective certificate: $k$-cap,
+first-repeat minimality, union bookkeeping) $+$ the
+$\mathrm{Safe}(\rho)$ instrument.
+
+\noindent\textbf{Receipt:}
+\file{papers/reconstruction/notes/PROOF\_READ\_2026-07-10\_pruning.md};
+proof \file{papers/reconstruction/notes/pruning\_theorem\_and\_B.md};
+scripts \file{papers/reconstruction/oracles/proof\_read\_2026-07-10/}.
+Machine coverage is unusually strong here ($k \le 8$ exhaustive on
+adversarial targets, including non-strongly-connected and
+multi-component); the hand gaps are the general-$k$ arguments.
+
+\gap{5.1} \emph{Step 3 (assembly $\Leftarrow$) at general $k$.} The
+walks re-assembled from $\mathrm{TR}^{(1)}$ witnesses are simple, of
+length $kL$, ring-consistent --- verified computationally on five
+targets chosen to tempt collisions, but the general argument is the
+written proof's.
+\lookfor the simplicity argument: layer-injectivity (Lemma 0's layer
+clock) is what forbids revisits; check the proof never assumes strong
+connectivity (the receipt confirms the oracle cross-check included
+non-SC and multi-component graphs, so the \emph{statement} is right;
+your check is that the \emph{written argument} also avoids it).
+
+\gap{5.2} \emph{Step 4 (generator conjugation) at general $k$.} The
+identity $P(\sigma_1(u))[j] = \sigma_r(P(u))[j]$ reduces to $r \bar r
+\equiv 1 \pmod k$; machine-checked for all 21 pairs with $k \le 8$.
+\lookfor the general congruence argument is three lines of modular
+arithmetic in the written proof --- verify the index bookkeeping once
+(this is where an off-by-one would hide; the machine found none up to
+8).
+
+\gap{5.3} \emph{Theorem B(1)'s pigeonhole and the $k \ge 2$ scoping.}
+Unsafe is a union over $2 \le k \le |A|$; the $k$-cap is pigeonhole
+$+$ Theorem P.
+\lookfor the union bounds match the instrument's
+\texttt{range(2, A+1)} (receipt confirms); the $k = 1$ remark in the
+proof is inert reader-reassurance (receipt finding 2) --- nothing to
+verify beyond noticing it claims nothing.
+
+\gap{5.4} \emph{Citations flagged non-load-bearing.} Wielandt /
+Schwarz / Dulmage--Mendelsohn are bridge references only; the brute
+repeat-search is what is certified.
+\lookfor confirm the proof text flags them as such (it does per the
+receipt); no action unless you want the classical anchors verified for
+the eventual write-up. Cosmetic: instrument targets adv2 $\cong$ adv3
+(relabeling), so ``15 targets'' is 14 distinct --- worth a one-word
+edit only if the instrument log is ever quoted.
+
+%=====================================================================
+\section*{After ratification}
+
+Tell me the outcome per item (ratify / ratify-with-notes / veto), and
+I will: mark the taxonomy rows and MEMORY hooks RATIFIED with date;
+strike the ``awaits user ratification'' banners in the attack note,
+frontier map, and shovel plan; and (for any veto) open the repair as
+the next session's first item. The forward queue after that is
+unchanged: T4 via Maharam (8.2), coarse-block toy hunt (target: the
+corrected wall statement), $B'$(ii) restatement, PP1994; parallel
+relaxed-gate items FIDELITY\_REVIEW, abstract call, statistics
+verdict, ILL hunt.
+
+\end{document}

@@ -88,11 +88,14 @@ the underlying Boolean algebra is countable.
    all 1,165 near misses.  Every target loses the same root-phase nonorder
    `a3 ≰ a1`; `a3` is already a face premise, so the bounded Sasaki audit
    hits at depth zero.
-3. **Distributed-trap search — DONE at the relational/fine-atlas scope:** an
+3. **Distributed-trap search — partial, boundary problem remains open:** an
    executable three-state relational atlas proves that the cover equation
-   alone need not localize.  For a finite fine-block atlas, however, Baire
-   plus the clopen cylinder base localizes a trap after a coherent finite
-   face refinement.  Concrete coarse-block realization remains open.
+   alone need not localize.  For a finite fine-block atlas, Baire localizes
+   **full-block non-σ failure** after finite face refinement, not boundary
+   non-liftability.  Boundary localization additionally needs relative
+   openness of the σ-liftable trace/point-shadow locus.  Establishing that
+   interface regularity, or finding a concrete failure, is the next
+   structural question.
 4. Return to larger relay classes only after the rooted-separation data have
    produced a theorem or counterexample.
 
@@ -105,5 +108,7 @@ the underlying Boolean algebra is countable.
 - `taxonomies_index.json`: advanced through s38 and boundary descent.
 - `frontier_map.md`: advanced through s38 and records the cross-cutting
   arbitrary-atlas issue.
-- Lean: existing block/σ certificates build; new boundary theorem remains
-  explicitly owed.
+- Lean: existing block/σ certificates build; the new boundary theorem is
+  certified for finite raw overlap families.  The equivalence with the
+  finite generated Boolean-boundary formulation remains an elementary hand
+  step.

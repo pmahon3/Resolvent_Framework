@@ -243,21 +243,22 @@ theorem finite_interface_quarantine (hMeets : MeetsExist d)
   rw [show ν.Val A ↔ (u M hM).Val A from glueBlockStates_agrees u hu hM hAM]
   exact quarantinePoint_agrees hMeets μ B hfin hM hAt
 
-/-- An abstract finite-boundary certificate. The paper's finite Boolean
-algebra `∂M` supplies such a certificate by taking `F = ∂M`. -/
-def HasFiniteBoundary (d : DynkinSystem Ω) : Prop :=
+/-- An abstract finite-container certificate for the raw overlap events.
+The paper's finite Boolean algebra `∂M` supplies such a container, but that
+elementary generated-algebra equivalence is not formalized here. -/
+def HasFiniteOverlapContainer (d : DynkinSystem Ω) : Prop :=
   ∀ M, IsMaxBlock d M → ∃ F : Set (Set Ω), F.Finite ∧ overlapEvents d M ⊆ F
 
-/-- The theorem in the boundary-algebra formulation: any finite family
-containing every overlap event is enough for quarantine. -/
-theorem finite_boundary_quarantine (hMeets : MeetsExist d)
-    (hboundary : HasFiniteBoundary d) : Phi d := by
+/-- Any finite family containing every raw overlap event is enough for
+quarantine. -/
+theorem finite_overlap_container_quarantine (hMeets : MeetsExist d)
+    (hboundary : HasFiniteOverlapContainer d) : Phi d := by
   apply finite_interface_quarantine hMeets
   intro M hM
   obtain ⟨F, hF, hsub⟩ := hboundary M hM
   exact hF.subset hsub
 
-#print axioms finite_boundary_quarantine
+#print axioms finite_overlap_container_quarantine
 #print axioms finite_interface_quarantine
 #print axioms quarantinePoints_compatible
 #print axioms finite_trace_dirac

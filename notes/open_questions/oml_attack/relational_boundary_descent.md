@@ -193,7 +193,7 @@ It determines which boundary traces can coexist with $E_B(p)$ and which
 
 ## 6. Finite-interface quarantine
 
-### Theorem 6.1 (finite-interface quarantine) ⟦LEAN, `BoundaryDescent.lean`; independent review cleared⟧
+### Theorem 6.1 (finite-interface quarantine) ⟦LEAN for finite raw overlaps; finite generated-boundary equivalence HAND⟧
 
 If $\partial B$ is finite for every maximal block $B$, then $L$ satisfies
 $\Phi$. No irreducibility, non-Booleanness, countability of blocks, or
@@ -218,6 +218,13 @@ point for an arbitrary set of blocks uses the ordinary Axiom of Choice;
 the repository works in ZFC, and Lean's analogous nonconstructive choices
 report `Classical.choice`. For a fixed finite or countable block family,
 finite or countable choice respectively suffices.
+
+Receipt precision: `BoundaryDescent.lean` directly proves the result when
+the raw overlap-event family is finite (or is contained in a finite family).
+The displayed formulation uses the Boolean algebra generated under finite
+operations by that family.  Raw-overlap finiteness is equivalent to
+finiteness of this generated Boolean algebra, but that elementary equivalence
+is presently a hand step rather than a Lean theorem.
 
 Finiteness is not necessary. The exact weaker local hypothesis is:
 
@@ -347,30 +354,50 @@ Failure of GSD gives only $C_p\subseteq\bigcup_BD_B(p)$.
 
 No implication from distributed to local trapping is banked.
 
-### Proposition 9.0 (finite fine-atlas localization after face refinement) ⟦HAND, proved⟧
+### Proposition 9.0 (finite fine-atlas full-block localization after face refinement) ⟦HAND, proved⟧
 
-Suppose the atlas has finitely many fine blocks and $C_p$ is nonempty.  If
-their defect loci cover $C_p$, then some defect locus contains a nonempty
-relatively clopen finite-cylinder subface.  Equivalently, after adjoining
-finitely many coordinates to $p$, one obtains a nonempty locally trapped
-face.
+Suppose the atlas has finitely many fine blocks, $C_p$ is nonempty, and
+$C_p$ contains no global σ-state.  Put
 
-*Proof.*  In the fine-block slice the good locus is the union of the clopen
-cylinders charging a block atom (equivalently, realized by a point), so each
-defect locus is relatively closed.  The compact Hausdorff face $C_p$ is
-Baire.  A finite closed cover cannot consist entirely of sets with empty
-interior, hence one defect locus has nonempty relative interior.  The Cantor
-cube topology has a clopen finite-cylinder base, and intersecting such a
-cylinder with $C_p$ is exactly a coherent finite pattern refinement. ∎
+\[
+ N_B(p)=\{\mu\in C_p:\mu|_B\text{ is not σ-additive}\}.
+\]
+
+Then some $N_B(p)$ contains a nonempty relatively clopen finite-cylinder
+subface.  Equivalently, after adjoining finitely many coordinates to $p$,
+every remaining state is non-σ on one fixed full block.
+
+*Proof.*  In the fine-block slice the full-block σ-locus is the union of the
+clopen cylinders charging a block atom, so each $N_B(p)$ is relatively
+closed.  Since global σ-additivity is equivalent to blockwise σ-additivity,
+the $N_B(p)$ cover $C_p$.  The compact Hausdorff face is Baire.  A finite
+closed cover cannot consist entirely of sets with empty interior, hence one
+$N_B(p)$ has nonempty relative interior.  The Cantor cube topology has a
+clopen finite-cylinder base, and intersecting such a cylinder with $C_p$ is
+exactly a coherent finite pattern refinement. ∎
+
+This does **not** localize the boundary defect loci $D_B(p)$.  Boundary-good
+means only that $\mu|_{\partial B}$ admits some σ-additive local replacement
+charging $E_B(p)$; the given $\mu|_B$ may itself be non-σ.  In the fine case
+the boundary-good trace set is the point shadow $\operatorname{Sh}_B(E_B(p))$,
+which need be neither open nor closed.  Thus $D_B(p)$ has not been shown
+closed, and distributed boundary trapping remains live even for a finite
+fine atlas.
+
+The intended boundary-localization conclusion becomes valid under the extra
+hypothesis that each $T_B^\sigma(E_B(p))$ is relatively open in
+$T_B^{\mathrm{fa}}(E_B(p))$ (equivalently in the fine case, that the point
+shadow is relatively open in its closure): then each $D_B(p)$ is closed and
+the same finite-cover argument applies.
 
 The original face need not itself be locally trapped.  The finite relational
 trace table $C_p=\{0,1,2\}$ with $D_{B_i}=\{i\}$ is an irredundant distributed
-cover; `verification/distributed_trap_audit.py` is an executable receipt.
+cover; `../verification/distributed_trap_audit.py` is an executable receipt.
 That table is **not** claimed realizable by a concrete σ-class OML.  It shows
-that the cover equation alone cannot prove localization.  The proposition
-shows, conversely, that a finite fine-block counterexample minimal also under
-finite face refinement must be locally trapped.  Coarse blocks and arbitrary
-uncountable atlases remain outside this reduction.
+that the cover equation alone cannot prove localization.  Proposition 9.0
+localizes only full-block non-σ failure; it does not convert this abstract
+distributed cover into a boundary-local trap.  Interface regularity, coarse
+blocks, and arbitrary uncountable atlases remain outside the reduction.
 
 ### Lemma 9.1 (uniform tail under a countable-base hypothesis) ⟦HAND, proved⟧
 

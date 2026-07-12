@@ -407,8 +407,8 @@
   {
    "id": "oml.tame.finite_interface",
    "name": "Finite-interface quarantine",
-   "status": "hand-independent-review-cleared-lean-owed",
-   "one_line": "If every maximal block has finite overlap-generated boundary algebra, every finitely coherent pattern has a global sigma-additive two-valued extension; blocks and the block set may be infinite.",
+   "status": "lean-raw-overlaps-generated-boundary-equivalence-hand",
+   "one_line": "Lean proves that finite raw overlap families at every maximal block force every finitely coherent pattern to have a global sigma-additive two-valued extension; the equivalent finite generated-boundary formulation remains an elementary hand step.",
    "detail": "relational_boundary_descent.md#6-finite-interface-quarantine"
   }
  ]

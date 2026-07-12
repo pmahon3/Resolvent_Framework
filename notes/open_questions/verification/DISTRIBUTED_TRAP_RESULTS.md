@@ -22,22 +22,23 @@ the Lean-certified finite-interface quarantine theorem.  The countermodel
 proves only that overlap compatibility plus the cover equation cannot by
 itself yield a local trap.
 
-## Finite-atlas localization theorem
+## Finite-atlas full-block localization theorem
 
 There is nevertheless a rigorous finite-atlas reduction in the fine-block
-slice.  Let `C_p` be a nonempty Baire face and let `B_1,...,B_n` be all the
-blocks.  For a fine block, its good locus is a union of atom/point cylinders,
-hence relatively open; its defect locus `D_i` is relatively closed.  If the
-finitely many `D_i` cover `C_p`, the Baire theorem (indeed the elementary
-finite closed-cover argument) says some `D_i` has nonempty relative interior.
-Because the state space is zero-dimensional, that interior contains a basic
-clopen cylinder.  Adding its finitely many coordinates to the pattern gives
-a nonempty refined face locally trapped at `B_i`.
+slice.  Let `C_p` be a nonempty Baire face with no global σ-state and let
+`B_1,...,B_n` be all the blocks.  Define `N_i` by requiring the given state's
+restriction to `B_i` to be non-σ.  For a fine block, the complementary
+full-block σ-locus is a union of atom/point cylinders, hence `N_i` is closed.
+Blockwise σ-globalization says the finitely many `N_i` cover `C_p`.  Baire
+therefore gives some `N_i` with nonempty relative interior.  A basic clopen
+cylinder inside that interior gives a finite refinement on which every state
+is non-σ on the same full block.
 
-Consequently a finite fine-block atlas can be distributed on the original
-face, but it cannot remain purely distributed under all coherent finite
-pattern refinements.  Any minimal counterexample chosen also minimal under
-finite face refinement is locally trapped.  This does not cover coarse
-blocks, where σ-liftable trace loci need not be open, nor an uncountable
-atlas, where the Baire finite/countable-category reduction needs additional
-density hypotheses.
+This is weaker than boundary-defect localization.  A non-σ full-block state
+may share its boundary trace with a point/σ-state, so it can be boundary-good.
+The fine-block boundary-good locus is the point shadow, which need be neither
+open nor closed.  Therefore the distributed boundary-trap problem remains
+open even for a finite fine atlas.  The original localization argument is
+restored by the additional hypothesis that every relevant σ-liftable trace
+locus (point shadow in the fine case) is relatively open; its complement is
+then closed and the same Baire proof applies.

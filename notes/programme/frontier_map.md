@@ -111,10 +111,13 @@ slice **finite overlap-generated boundary at every block $\Rightarrow\Phi$**.
 It also separates the fine-block closure defect, countable-block Baire
 slice, metrizable uniform-tail extraction, and Sasaki consequence filter
 from the still-open distributed-trap/rooting and coarse-block problems.
-The finite-interface result is ⟦LEAN, `BoundaryDescent.lean`; independent
-review cleared⟧. For finite fine-block atlases, a finite closed defect cover
-localizes after a coherent finite face refinement; an abstract relational
-three-state audit shows the unrefined cover equation alone does not localize.
+The finite-interface result is Lean-certified for finite raw overlap
+families; passage to the finite generated Boolean-boundary formulation is an
+elementary hand equivalence. For finite fine-block atlases, Baire localizes
+full-block non-σ failure after a coherent finite face refinement, but does
+not localize boundary non-liftability: the point-shadow/σ-liftable trace locus
+has not been shown relatively open. An abstract relational three-state audit
+shows the unrefined cover equation alone does not localize.
 The framework does not
 prove B′(i) or B′(ii): arbitrary-atlas simultaneous selection cuts across
 both, while B′(ii) additionally carries coarse local σ-lifting. Nav:

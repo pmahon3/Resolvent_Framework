@@ -1,0 +1,59 @@
+{
+  "schema": 1,
+  "cell": "30-element OML pasted from seven 3-atom blocks in a 7-loop",
+  "right_sasaki": "x & y = y meet (x join y^perp)",
+  "premises": [
+    "a0",
+    "a3",
+    "a11"
+  ],
+  "depth_new_elements": [
+    [
+      "a0",
+      "a3",
+      "a11"
+    ],
+    [],
+    [],
+    [],
+    []
+  ],
+  "first_hit_depth": 0,
+  "common_root_hits_at_first_depth": [
+    {
+      "depth": 0,
+      "root": "a0",
+      "nonorder": "a0 !<= a4"
+    },
+    {
+      "depth": 0,
+      "root": "a0",
+      "nonorder": "a0 !<= a3^perp"
+    },
+    {
+      "depth": 0,
+      "root": "a0",
+      "nonorder": "a0 !<= a5^perp"
+    },
+    {
+      "depth": 0,
+      "root": "a0",
+      "nonorder": "a0 !<= a6^perp"
+    },
+    {
+      "depth": 0,
+      "root": "a3",
+      "nonorder": "a3 !<= a1"
+    },
+    {
+      "depth": 0,
+      "root": "a3",
+      "nonorder": "a3 !<= a0^perp"
+    }
+  ],
+  "anchors": {
+    "elements": 30,
+    "orthocomplement_checked": true,
+    "orthomodular_law_checked_all_comparable_pairs": true
+  }
+}

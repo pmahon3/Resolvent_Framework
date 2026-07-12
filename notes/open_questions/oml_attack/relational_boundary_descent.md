@@ -193,7 +193,7 @@ It determines which boundary traces can coexist with $E_B(p)$ and which
 
 ## 6. Finite-interface quarantine
 
-### Theorem 6.1 (finite-interface quarantine) ⟦HAND, independent review cleared; Lean formalization owed⟧
+### Theorem 6.1 (finite-interface quarantine) ⟦LEAN, `BoundaryDescent.lean`; independent review cleared⟧
 
 If $\partial B$ is finite for every maximal block $B$, then $L$ satisfies
 $\Phi$. No irreducibility, non-Booleanness, countability of blocks, or
@@ -346,6 +346,31 @@ Failure of GSD gives only $C_p\subseteq\bigcup_BD_B(p)$.
   specified restriction image.
 
 No implication from distributed to local trapping is banked.
+
+### Proposition 9.0 (finite fine-atlas localization after face refinement) ⟦HAND, proved⟧
+
+Suppose the atlas has finitely many fine blocks and $C_p$ is nonempty.  If
+their defect loci cover $C_p$, then some defect locus contains a nonempty
+relatively clopen finite-cylinder subface.  Equivalently, after adjoining
+finitely many coordinates to $p$, one obtains a nonempty locally trapped
+face.
+
+*Proof.*  In the fine-block slice the good locus is the union of the clopen
+cylinders charging a block atom (equivalently, realized by a point), so each
+defect locus is relatively closed.  The compact Hausdorff face $C_p$ is
+Baire.  A finite closed cover cannot consist entirely of sets with empty
+interior, hence one defect locus has nonempty relative interior.  The Cantor
+cube topology has a clopen finite-cylinder base, and intersecting such a
+cylinder with $C_p$ is exactly a coherent finite pattern refinement. ∎
+
+The original face need not itself be locally trapped.  The finite relational
+trace table $C_p=\{0,1,2\}$ with $D_{B_i}=\{i\}$ is an irredundant distributed
+cover; `verification/distributed_trap_audit.py` is an executable receipt.
+That table is **not** claimed realizable by a concrete σ-class OML.  It shows
+that the cover equation alone cannot prove localization.  The proposition
+shows, conversely, that a finite fine-block counterexample minimal also under
+finite face refinement must be locally trapped.  Coarse blocks and arbitrary
+uncountable atlases remain outside this reduction.
 
 ### Lemma 9.1 (uniform tail under a countable-base hypothesis) ⟦HAND, proved⟧
 
@@ -548,7 +573,7 @@ minimal trap ---> essential boundary gate -?-> rooted nonorder
 |---|---|---|---|
 | Boundary-compatible σ-local replacements glue globally | Full generality for concrete σ-class OMLs | **proved ⟦HAND⟧** | certified block coverage and blockwise σ theorem |
 | GSD is equivalent to $\Phi$ | Full generality | **exact reformulation ⟦HAND⟧** | gluing theorem |
-| Finite-interface quarantine | Arbitrary maximal blocks, every $\partial B$ finite | **⟦HAND, independent review cleared; Lean owed⟧** | boundary surgery + choice |
+| Finite-interface quarantine | Arbitrary maximal blocks, every $\partial B$ finite | **⟦LEAN, `BoundaryDescent.lean`; independent review cleared⟧** | boundary surgery + choice |
 | Boundary closure-defect characterization | closure equality: any concrete block; σ=shadow: countably generated block | **proved ⟦HAND⟧ + certified point realization** | Stone compactness, concreteness, T3 |
 | Baire simultaneous escape | Countably many countably generated blocks | **proved conditionally** | hereditary local density on every finite refinement |
 | Uniform countable tail extraction | compact trapped image in compact metrizable boundary Stone space | **proved conditionally** | countable clopen base; not distributed trapping |

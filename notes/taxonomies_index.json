@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — s38 closes the 7-loop face C={a0,a3,a11} for period-three width one after exhausting 7,529,536 triples; period one k<=4 and period two k<=2 were already closed. Boundary descent now gives an exact GSD reformulation and the independently reviewed finite-interface quarantine theorem-let (Lean owed). Next: classify the 375–405 near-misses by missing rooted nonorders, while wider ports, distributed traps, arbitrary-atlas selection, and coarse blocks remain open.",
+   "status": "OPEN — s38 closes the 7-loop face C={a0,a3,a11} for period-three width one after exhausting 7,529,536 triples; its 1,165 near-misses all lose the same depth-zero rooted nonorder a3 not<= a1. Boundary descent gives exact GSD and a Lean-certified finite-interface quarantine theorem. Wider ports, concrete coarse/distributed traps, arbitrary-atlas selection, and coarse blocks remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 52
   },

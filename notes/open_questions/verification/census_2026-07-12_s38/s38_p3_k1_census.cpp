@@ -13,6 +13,7 @@ struct Rel { std::array<U,32> succ{}; };
 
 static std::vector<U> states;
 static U ALL, FACE, COMP, IMG[28], W[28*28+1];
+static std::vector<std::pair<int,int>> WP;
 
 static void enumerate_states() {
   bool seen[1<<14]{};
@@ -33,7 +34,9 @@ static void enumerate_states() {
   for (size_t s=0;s<states.size();s++) if ((states[s]&cluster)==cluster) FACE|=U(1)<<s;
   COMP=ALL^FACE;
   int n=0;
-  for (int a=0;a<28;a++) for (int b=0;b<28;b++) if (IMG[a]&~IMG[b]&ALL) W[n++]=IMG[a]&~IMG[b]&ALL;
+  for (int a=0;a<28;a++) for (int b=0;b<28;b++) if (IMG[a]&~IMG[b]&ALL) {
+    W[n++]=IMG[a]&~IMG[b]&ALL; WP.push_back({a,b});
+  }
   W[n]=0;
 }
 
@@ -48,7 +51,7 @@ static bool orders(U m) { for(int i=0;W[i];i++) if(!(W[i]&m)) return false; retu
 
 // stage: 1=face-free failure, 2=face-nonlive failure,
 // 3=live-complement order failure, 4=operative.
-struct Result { bool operative=false, root=false; int stage=0; };
+struct Result { bool operative=false, root=false; int stage=0; U live[3]={0,0,0}; };
 static Result screen(const std::array<Rel,3>&r,int target) {
   U l1=IMG[target],l0=ALL^l1;
   U e0[3]={l0,l0,l0};
@@ -64,7 +67,7 @@ static Result screen(const std::array<Rel,3>&r,int target) {
     if(n[0]==zr[0]&&n[1]==zr[1]&&n[2]==zr[2]) break;
     for(int p=0;p<3;p++) zr[p]=n[p];
   }
-  for(int p=0;p<3;p++) if(((zr[p]&e0[p]&FACE)!=FACE)) return {false,false,1};
+  for(int p=0;p<3;p++) if(((zr[p]&e0[p]&FACE)!=FACE)) return {false,false,1,{0,0,0}};
   U e1[3]={0,0,0};
   for (;;) {
     U n[3];
@@ -83,15 +86,28 @@ static Result screen(const std::array<Rel,3>&r,int target) {
     if(same) break;
     for(int p=0;p<3;p++) for(int k=0;k<2;k++) q[p][k]=n[p][k];
   }
+  U live[3];
+  for(int p=0;p<3;p++)
+    live[p]=(q[p][0]&pre(r[p],e1[(p+1)%3]))|(q[p][1]&pre(r[p],e0[(p+1)%3]));
   for(int p=0;p<3;p++) {
-    U live=(q[p][0]&pre(r[p],e1[(p+1)%3]))|(q[p][1]&pre(r[p],e0[(p+1)%3]));
-    if(live&FACE) return {false,false,2};
-    if(!orders(live&COMP)) return {false,false,3};
+    if(live[p]&FACE) return {false,false,2,{0,0,0}};
+    if(!orders(live[p]&COMP)) {
+      Result z; z.stage=3;
+      for(int j=0;j<3;j++) z.live[j]=live[j]&COMP;
+      return z;
+    }
   }
-  return {true,orders(e1[0]),4};
+  return {true,orders(e1[0]),4,{0,0,0}};
 }
 
 static std::string portstr(Port p) { std::ostringstream s; s<<"["<<p[0]<<","<<p[1]<<"]"; return s.str(); }
+static std::string missing(U m) {
+  std::ostringstream s; s<<"["; bool first=true;
+  for(size_t i=0;i<WP.size();i++) if(!(W[i]&m)) {
+    if(!first)s<<","; first=false; s<<"["<<WP[i].first<<","<<WP[i].second<<"]";
+  }
+  s<<"]"; return s.str();
+}
 int main(int argc,char**argv) {
   enumerate_states();
   if(states.size()!=29) { std::cerr<<"state anchor failure\n"; return 2; }
@@ -99,13 +115,13 @@ int main(int argc,char**argv) {
   for(int a=0;a<14;a++) for(int b=0;b<14;b++) { ps.push_back({a,b}); rs.push_back(relation({a,b})); }
   long start=0,end=196; std::string path="s38_p3_k1_checkpoint.json";
   for(int i=1;i<argc;i++){std::string a=argv[i];if(a=="--start")start=std::stol(argv[++i]);else if(a=="--end")end=std::stol(argv[++i]);else if(a=="--checkpoint")path=argv[++i];}
-  long long triples=0,op[3]={0},root[3]={0},fail[3][3]{}; int targets[3]={1,2,4}; std::vector<std::string> surv;
-  auto save=[&](long done){std::string tmp=path+".tmp";std::ofstream f(tmp);f<<"{\n  \"schema\": 1,\n  \"scope\": \"7-loop C={a0,a3,a11}, period 3, k=1\",\n  \"ports\": 196,\n  \"start\": "<<start<<",\n  \"end\": "<<end<<",\n  \"completed_first_ports\": "<<done<<",\n  \"screened_triples\": "<<triples<<",\n  \"targets\": {\n";for(int k=0;k<3;k++)f<<"    \""<<targets[k]<<"\": {\"face_free_fail\": "<<fail[k][0]<<", \"face_nonlive_fail\": "<<fail[k][1]<<", \"complement_order_fail\": "<<fail[k][2]<<", \"operative\": "<<op[k]<<", \"root_order\": "<<root[k]<<"}"<<(k<2?",":"")<<"\n";f<<"  },\n  \"survivors\": [";for(size_t i=0;i<surv.size();i++)f<<(i?",\n    ":"\n    ")<<surv[i];f<<(surv.empty()?"":"\n  ")<<"]\n}\n";f.close();std::rename(tmp.c_str(),path.c_str());};
+  long long triples=0,op[3]={0},root[3]={0},fail[3][3]{}; int targets[3]={1,2,4}; std::vector<std::string> surv,near;
+  auto save=[&](long done){std::string tmp=path+".tmp";std::ofstream f(tmp);f<<"{\n  \"schema\": 2,\n  \"scope\": \"7-loop C={a0,a3,a11}, period 3, k=1\",\n  \"ports\": 196,\n  \"start\": "<<start<<",\n  \"end\": "<<end<<",\n  \"completed_first_ports\": "<<done<<",\n  \"screened_triples\": "<<triples<<",\n  \"targets\": {\n";for(int k=0;k<3;k++)f<<"    \""<<targets[k]<<"\": {\"face_free_fail\": "<<fail[k][0]<<", \"face_nonlive_fail\": "<<fail[k][1]<<", \"complement_order_fail\": "<<fail[k][2]<<", \"operative\": "<<op[k]<<", \"root_order\": "<<root[k]<<"}"<<(k<2?",":"")<<"\n";f<<"  },\n  \"survivors\": [";for(size_t i=0;i<surv.size();i++)f<<(i?",\n    ":"\n    ")<<surv[i];f<<(surv.empty()?"":"\n  ")<<"],\n  \"near_misses\": [";for(size_t i=0;i<near.size();i++)f<<(i?",\n    ":"\n    ")<<near[i];f<<(near.empty()?"":"\n  ")<<"]\n}\n";f.close();std::rename(tmp.c_str(),path.c_str());};
   for(long i=start;i<end;i++) {
     for(int j=0;j<196;j++) for(int h=0;h<196;h++) {
       triples++;
       std::array<Rel,3> rr{rs[i],rs[j],rs[h]};
-      for(int k=0;k<3;k++){auto x=screen(rr,targets[k]);if(!x.operative)fail[k][x.stage-1]++;else{op[k]++;if(x.root){root[k]++;std::ostringstream z;z<<"{\"target\":"<<targets[k]<<",\"p0\":"<<portstr(ps[i])<<",\"p1\":"<<portstr(ps[j])<<",\"p2\":"<<portstr(ps[h])<<"}";surv.push_back(z.str());}}}
+      for(int k=0;k<3;k++){auto x=screen(rr,targets[k]);if(!x.operative){fail[k][x.stage-1]++;if(x.stage==3){std::ostringstream z;z<<"{\"target\":"<<targets[k]<<",\"p0\":"<<portstr(ps[i])<<",\"p1\":"<<portstr(ps[j])<<",\"p2\":"<<portstr(ps[h])<<",\"missing\":["<<missing(x.live[0])<<","<<missing(x.live[1])<<","<<missing(x.live[2])<<"]}";near.push_back(z.str());}}else{op[k]++;if(x.root){root[k]++;std::ostringstream z;z<<"{\"target\":"<<targets[k]<<",\"p0\":"<<portstr(ps[i])<<",\"p1\":"<<portstr(ps[j])<<",\"p2\":"<<portstr(ps[h])<<"}";surv.push_back(z.str());}}}
     }
     if((i-start+1)%4==0){save(i+1);std::cerr<<"first="<<i+1<<"/"<<end<<" op="<<op[0]<<","<<op[1]<<","<<op[2]<<" root="<<root[0]<<","<<root[1]<<","<<root[2]<<"\n";}
   }

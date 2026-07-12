@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "scope": "abstract relational trace atlas; not a concrete sigma-class OML realization",
+  "face": [
+    0,
+    1,
+    2
+  ],
+  "defect_loci": {
+    "B0": [
+      0
+    ],
+    "B1": [
+      1
+    ],
+    "B2": [
+      2
+    ]
+  },
+  "good_loci": {
+    "B0": [
+      1,
+      2
+    ],
+    "B1": [
+      0,
+      2
+    ],
+    "B2": [
+      0,
+      1
+    ]
+  },
+  "union_covers_face": true,
+  "no_individual_covers_face": true,
+  "cover_irredundant": true,
+  "simultaneously_good_state_exists": false
+}

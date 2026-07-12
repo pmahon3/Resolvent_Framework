@@ -1,0 +1,451 @@
+{
+  "schema": 1,
+  "semantics": "missing[x,y] means no complement-live state has x=1,y=0",
+  "element_encoding": "0..13=a_i; 14..27=a_(i-14)^perp",
+  "all_targets": {
+    "count": 1165,
+    "first_bad_phase_counts": {
+      "0": 1165
+    },
+    "first_bad_missing_count_range": [
+      57,
+      714
+    ],
+    "common_first_bad_witnesses": [
+      "a0 !<= a4",
+      "a0 !<= a3^perp",
+      "a0 !<= a5^perp",
+      "a0 !<= a6^perp",
+      "a3 !<= a1",
+      "a3 !<= a0^perp",
+      "a5 !<= a0^perp",
+      "a6 !<= a0^perp",
+      "a1^perp !<= a3^perp",
+      "a4^perp !<= a0^perp"
+    ],
+    "top_first_bad_witnesses": [
+      {
+        "witness": "a3 !<= a1",
+        "cases": 1165
+      },
+      {
+        "witness": "a0 !<= a3^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a4^perp !<= a0^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a0 !<= a6^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a1^perp !<= a3^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a6 !<= a0^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a0 !<= a4",
+        "cases": 1165
+      },
+      {
+        "witness": "a0 !<= a5^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a3 !<= a0^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a5 !<= a0^perp",
+        "cases": 1165
+      },
+      {
+        "witness": "a7 !<= a3^perp",
+        "cases": 1144
+      },
+      {
+        "witness": "a4^perp !<= a3^perp",
+        "cases": 1144
+      }
+    ],
+    "greedy_pair_cover": [
+      {
+        "witness": "a3 !<= a1",
+        "new_cases": 1165
+      }
+    ],
+    "greedy_phase_pair_cover": [
+      {
+        "phase": 0,
+        "witness": "a3 !<= a1",
+        "new_cases": 1165
+      }
+    ]
+  },
+  "targets": {
+    "1": {
+      "count": 375,
+      "first_bad_phase_counts": {
+        "0": 375
+      },
+      "first_bad_missing_count_range": [
+        57,
+        714
+      ],
+      "common_first_bad_witnesses": [
+        "a0 !<= a1",
+        "a0 !<= a2",
+        "a0 !<= a3",
+        "a0 !<= a4",
+        "a0 !<= a5",
+        "a0 !<= a6",
+        "a0 !<= a7",
+        "a0 !<= a8",
+        "a0 !<= a9",
+        "a0 !<= a10",
+        "a0 !<= a11",
+        "a0 !<= a12",
+        "a0 !<= a13",
+        "a0 !<= a0^perp",
+        "a0 !<= a3^perp",
+        "a0 !<= a4^perp",
+        "a0 !<= a5^perp",
+        "a0 !<= a6^perp",
+        "a0 !<= a7^perp",
+        "a0 !<= a8^perp",
+        "a0 !<= a9^perp",
+        "a0 !<= a10^perp",
+        "a0 !<= a11^perp",
+        "a3 !<= a1",
+        "a3 !<= a0^perp",
+        "a4 !<= a1",
+        "a4 !<= a0^perp",
+        "a5 !<= a0^perp",
+        "a6 !<= a0^perp",
+        "a7 !<= a0^perp",
+        "a8 !<= a0^perp",
+        "a9 !<= a0^perp",
+        "a10 !<= a13",
+        "a10 !<= a0^perp",
+        "a11 !<= a13",
+        "a11 !<= a0^perp",
+        "a1^perp !<= a2",
+        "a1^perp !<= a0^perp",
+        "a1^perp !<= a3^perp",
+        "a1^perp !<= a4^perp",
+        "a2^perp !<= a1",
+        "a2^perp !<= a0^perp",
+        "a3^perp !<= a0^perp",
+        "a4^perp !<= a0^perp",
+        "a5^perp !<= a0^perp",
+        "a6^perp !<= a0^perp",
+        "a7^perp !<= a0^perp",
+        "a8^perp !<= a0^perp",
+        "a9^perp !<= a0^perp",
+        "a10^perp !<= a0^perp",
+        "a11^perp !<= a0^perp",
+        "a12^perp !<= a13",
+        "a12^perp !<= a0^perp",
+        "a13^perp !<= a12",
+        "a13^perp !<= a0^perp",
+        "a13^perp !<= a10^perp",
+        "a13^perp !<= a11^perp"
+      ],
+      "top_first_bad_witnesses": [
+        {
+          "witness": "a6^perp !<= a0^perp",
+          "cases": 375
+        },
+        {
+          "witness": "a3 !<= a1",
+          "cases": 375
+        },
+        {
+          "witness": "a8^perp !<= a0^perp",
+          "cases": 375
+        },
+        {
+          "witness": "a0 !<= a2",
+          "cases": 375
+        },
+        {
+          "witness": "a0 !<= a5",
+          "cases": 375
+        },
+        {
+          "witness": "a9 !<= a0^perp",
+          "cases": 375
+        },
+        {
+          "witness": "a13^perp !<= a11^perp",
+          "cases": 375
+        },
+        {
+          "witness": "a0 !<= a8",
+          "cases": 375
+        },
+        {
+          "witness": "a0 !<= a0^perp",
+          "cases": 375
+        },
+        {
+          "witness": "a11 !<= a0^perp",
+          "cases": 375
+        },
+        {
+          "witness": "a1^perp !<= a2",
+          "cases": 375
+        },
+        {
+          "witness": "a0 !<= a11",
+          "cases": 375
+        }
+      ],
+      "greedy_pair_cover": [
+        {
+          "witness": "a6^perp !<= a0^perp",
+          "new_cases": 375
+        }
+      ],
+      "greedy_phase_pair_cover": [
+        {
+          "phase": 0,
+          "witness": "a6^perp !<= a0^perp",
+          "new_cases": 375
+        }
+      ]
+    },
+    "2": {
+      "count": 405,
+      "first_bad_phase_counts": {
+        "0": 405
+      },
+      "first_bad_missing_count_range": [
+        57,
+        714
+      ],
+      "common_first_bad_witnesses": [
+        "a0 !<= a4",
+        "a0 !<= a3^perp",
+        "a0 !<= a5^perp",
+        "a0 !<= a6^perp",
+        "a3 !<= a1",
+        "a3 !<= a0^perp",
+        "a5 !<= a0^perp",
+        "a6 !<= a0^perp",
+        "a1^perp !<= a3^perp",
+        "a4^perp !<= a0^perp"
+      ],
+      "top_first_bad_witnesses": [
+        {
+          "witness": "a3 !<= a1",
+          "cases": 405
+        },
+        {
+          "witness": "a0 !<= a3^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a4^perp !<= a0^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a0 !<= a6^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a1^perp !<= a3^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a6 !<= a0^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a0 !<= a4",
+          "cases": 405
+        },
+        {
+          "witness": "a0 !<= a5^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a3 !<= a0^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a5 !<= a0^perp",
+          "cases": 405
+        },
+        {
+          "witness": "a6^perp !<= a0^perp",
+          "cases": 389
+        },
+        {
+          "witness": "a8^perp !<= a0^perp",
+          "cases": 389
+        }
+      ],
+      "greedy_pair_cover": [
+        {
+          "witness": "a3 !<= a1",
+          "new_cases": 405
+        }
+      ],
+      "greedy_phase_pair_cover": [
+        {
+          "phase": 0,
+          "witness": "a3 !<= a1",
+          "new_cases": 405
+        }
+      ]
+    },
+    "4": {
+      "count": 385,
+      "first_bad_phase_counts": {
+        "0": 385
+      },
+      "first_bad_missing_count_range": [
+        67,
+        714
+      ],
+      "common_first_bad_witnesses": [
+        "a0 !<= a4",
+        "a0 !<= a3^perp",
+        "a0 !<= a5^perp",
+        "a0 !<= a6^perp",
+        "a1 !<= a4",
+        "a1 !<= a3^perp",
+        "a1 !<= a5^perp",
+        "a1 !<= a6^perp",
+        "a3 !<= a0",
+        "a3 !<= a1",
+        "a3 !<= a2",
+        "a3 !<= a4",
+        "a3 !<= a5",
+        "a3 !<= a6",
+        "a3 !<= a7",
+        "a3 !<= a8",
+        "a3 !<= a9",
+        "a3 !<= a10",
+        "a3 !<= a11",
+        "a3 !<= a12",
+        "a3 !<= a13",
+        "a3 !<= a0^perp",
+        "a3 !<= a1^perp",
+        "a3 !<= a3^perp",
+        "a3 !<= a5^perp",
+        "a3 !<= a6^perp",
+        "a3 !<= a7^perp",
+        "a3 !<= a8^perp",
+        "a3 !<= a9^perp",
+        "a3 !<= a10^perp",
+        "a3 !<= a11^perp",
+        "a3 !<= a12^perp",
+        "a3 !<= a13^perp",
+        "a5 !<= a2",
+        "a5 !<= a0^perp",
+        "a5 !<= a1^perp",
+        "a5 !<= a3^perp",
+        "a6 !<= a2",
+        "a6 !<= a0^perp",
+        "a6 !<= a1^perp",
+        "a6 !<= a3^perp",
+        "a7 !<= a3^perp",
+        "a8 !<= a3^perp",
+        "a9 !<= a3^perp",
+        "a10 !<= a3^perp",
+        "a11 !<= a3^perp",
+        "a12 !<= a3^perp",
+        "a13 !<= a3^perp",
+        "a0^perp !<= a3^perp",
+        "a1^perp !<= a3^perp",
+        "a2^perp !<= a4",
+        "a2^perp !<= a3^perp",
+        "a2^perp !<= a5^perp",
+        "a2^perp !<= a6^perp",
+        "a4^perp !<= a2",
+        "a4^perp !<= a0^perp",
+        "a4^perp !<= a1^perp",
+        "a4^perp !<= a3^perp",
+        "a5^perp !<= a3^perp",
+        "a6^perp !<= a3^perp",
+        "a7^perp !<= a3^perp",
+        "a8^perp !<= a3^perp",
+        "a9^perp !<= a3^perp",
+        "a10^perp !<= a3^perp",
+        "a11^perp !<= a3^perp",
+        "a12^perp !<= a3^perp",
+        "a13^perp !<= a3^perp"
+      ],
+      "top_first_bad_witnesses": [
+        {
+          "witness": "a2^perp !<= a6^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a7 !<= a3^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a4^perp !<= a3^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a8^perp !<= a3^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a3 !<= a13",
+          "cases": 385
+        },
+        {
+          "witness": "a3 !<= a8^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a9 !<= a3^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a6 !<= a2",
+          "cases": 385
+        },
+        {
+          "witness": "a13 !<= a3^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a10^perp !<= a3^perp",
+          "cases": 385
+        },
+        {
+          "witness": "a3 !<= a6",
+          "cases": 385
+        },
+        {
+          "witness": "a3 !<= a1^perp",
+          "cases": 385
+        }
+      ],
+      "greedy_pair_cover": [
+        {
+          "witness": "a2^perp !<= a6^perp",
+          "new_cases": 385
+        }
+      ],
+      "greedy_phase_pair_cover": [
+        {
+          "phase": 0,
+          "witness": "a2^perp !<= a6^perp",
+          "new_cases": 385
+        }
+      ]
+    }
+  }
+}

@@ -99,8 +99,11 @@ triples), paired with extraction of a rooted-separation obstruction.
 **s38:** all 7,529,536 period-three width-one triples were exhausted; zero
 operative survivors. Only 375–405 per representative target clear both
 local face conditions, and every one loses complement order determination.
-The next census task is classification of these near-misses by their missing
-rooted nonorders, not a jump to a larger raw class.
+The follow-up schema-2 classification retains all 1,165 near misses: every
+one first fails at root phase zero and loses the same nonorder `a3 ≰ a1`.
+Because `a3` is a face premise, the bounded Sasaki audit roots the obstruction
+at depth zero. This is architecture-specific evidence, not a general rooting
+theorem.
 **s39 boundary-descent audit:**
 `notes/open_questions/oml_attack/relational_boundary_descent.md` proves at
 hand level the exact common-trace gluing/GSD equivalence and the new tame
@@ -108,8 +111,11 @@ slice **finite overlap-generated boundary at every block $\Rightarrow\Phi$**.
 It also separates the fine-block closure defect, countable-block Baire
 slice, metrizable uniform-tail extraction, and Sasaki consequence filter
 from the still-open distributed-trap/rooting and coarse-block problems.
-The finite-interface result is ⟦HAND, independent review cleared; Lean
-formalization owed⟧. The framework localizes the obstruction but does not
+The finite-interface result is ⟦LEAN, `BoundaryDescent.lean`; independent
+review cleared⟧. For finite fine-block atlases, a finite closed defect cover
+localizes after a coherent finite face refinement; an abstract relational
+three-state audit shows the unrefined cover equation alone does not localize.
+The framework does not
 prove B′(i) or B′(ii): arbitrary-atlas simultaneous selection cuts across
 both, while B′(ii) additionally carries coarse local σ-lifting. Nav:
 `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`;

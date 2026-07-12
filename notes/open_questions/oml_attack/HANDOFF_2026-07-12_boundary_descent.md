@@ -14,8 +14,8 @@ Sasaki closure of state-one sets.
 
 The receipt for the new tame theorem is now:
 
-> **Finite-interface quarantine:** ⟦HAND, independent review cleared;
-> Lean formalization owed⟧.
+> **Finite-interface quarantine:** ⟦LEAN, `BoundaryDescent.lean`;
+> independent review cleared⟧.
 
 No proof of $\Psi_{\mathrm{OML}}$, B′(i), B′(ii), a rooting theorem, or a
 relay/master normal form is claimed.
@@ -80,16 +80,19 @@ the underlying Boolean algebra is countable.
 
 ## Next sequence
 
-1. **Lean formalization:** introduce the minimum local-state infrastructure
-   needed for overlap-compatible block families, boundary-preserving
-   replacement, finite augmented boundary Dirac lifts, and finite-interface
-   quarantine. Do not formalize Stone spaces or rooting yet.
-2. **Rooting falsification:** classify the s38 375–405 near-misses per target
-   by missing nonorder witnesses; test bounded-depth Sasaki roots on the
-   existing cells.
-3. **Distributed-trap search in parallel:** construct or exclude finite
-   atlases whose face is covered by varying defect loci but is not locally
-   trapped at any one block.
+1. **Lean formalization — DONE:** `BoundaryDescent.lean` introduces local
+   block σ-states, overlap-compatible gluing, finite augmented-trace Dirac
+   lifts, boundary-preserving replacement, and finite-interface quarantine.
+   The receipt is `[propext, Classical.choice, Quot.sound]`, with no `sorryAx`.
+2. **Rooting falsification — DONE for s38:** the schema-2 census classifies
+   all 1,165 near misses.  Every target loses the same root-phase nonorder
+   `a3 ≰ a1`; `a3` is already a face premise, so the bounded Sasaki audit
+   hits at depth zero.
+3. **Distributed-trap search — DONE at the relational/fine-atlas scope:** an
+   executable three-state relational atlas proves that the cover equation
+   alone need not localize.  For a finite fine-block atlas, however, Baire
+   plus the clopen cylinder base localizes a trap after a coherent finite
+   face refinement.  Concrete coarse-block realization remains open.
 4. Return to larger relay classes only after the rooted-separation data have
    produced a theorem or counterexample.
 

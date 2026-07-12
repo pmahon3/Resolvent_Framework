@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Classify the 375-405 period-three width-one near-misses per representative target by their missing nonorder witnesses, seeking a target-independent obstruction. Session 38 exhausts all 7,529,536 triples with zero operative survivors; width one is closed through period three."
+   "current_next_step": "The s38 follow-up classifies all 1,165 period-three width-one near-misses: every target loses the same root-phase nonorder a3 not<= a1, a depth-zero root. Next test the higher-slack two-pentagons-sharing-one-atom architecture; no general rooting theorem is claimed."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

@@ -8,6 +8,10 @@ The checkpoint reports the established phasewise operative count and, inside
 that count, `root_order`: cases where the actual boundary-cell suffix mask
 `E1[0]` order-separates the finite cell.  Only `root_order` cases are retained
 as survivors.  This implements the root-cell gate required by session 36.
+Schema 2 additionally records every stage-three near miss and its exact
+phasewise missing nonorder witnesses.  Run `classify_near_misses.py` and
+`sasaki_root_audit.py` to regenerate the classification and bounded-depth
+right-Sasaki audit JSON receipts.
 
 Build and run:
 

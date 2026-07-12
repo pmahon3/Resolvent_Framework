@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary now realizes dense nonopen sigma-liftable traces, so unrestricted localization has yielded priority to direct simultaneous selection.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary realizes dense nonopen sigma-liftable traces. Two-block centre removal is impossible, while the smallest crossed three-block interface fails latticehood; the irreducible fork is now an explicit finite completion problem.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 57,
+   "entries": 58,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Attack the exact center-removal problem for the countable-coordinate-sigma-field times MO2 boundary example, while developing direct simultaneous selection. Local rooting remains downstream outside regular-interface slices."
+   "current_next_step": "Solve the finite completion problem for the executable crossed-interface three-block family: either obtain a centre-free concrete OML skeleton or prove that completion forces missing meets/new central structure. Local rooting remains downstream."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -68,6 +68,13 @@
    "status": "proved-hand-conditional",
    "one_line": "If every eligible local sigma-state space is compact, compatible solutions on every finite subatlas globalize by Tychonoff and closed overlap equations; sigma-state spaces are not compact in general.",
    "detail": "oml_boundary_regularity.md#7-direct-simultaneous-selection"
+  },
+  {
+   "id": "oml.obstruction.irreducible_boundary_realization",
+   "name": "Irreducible boundary realization gate",
+   "status": "open-minimal-completion-problem",
+   "one_line": "Every two-block interface is central in the generated OML; the smallest crossed three-block interface has trivial displayed common intersection but fails disjoint-union closure and latticehood by exhaustive computation.",
+   "detail": "oml_irreducible_boundary_test.md"
   },
   {
    "id": "oml.reduction.two_block_rescue",

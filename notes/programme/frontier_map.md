@@ -20,6 +20,13 @@ lattice met provably tame.
 idea, not a refinement.
 **Role:** the one claim that ties the three transitions together further. This is
 "what would complete the *theory*."
+**2026-07-12 boundary centre-removal audit:** the dense-nonopen boundary
+example cannot be made irreducible with only its two blocks: every common
+interface element is central in the OML they generate. The smallest crossed
+three-block interface fails disjoint-union closure and latticehood
+exhaustively. The residual fork is now the finite completion problem in
+`notes/open_questions/oml_attack/oml_irreducible_boundary_test.md`; direct
+simultaneous selection remains primary until that gate closes.
 **2026-07-10:** attack OPENED on the load-bearing case (regularity/OML =
 shovel thm 2) — mechanisms collected, conjecture split, skeletons named:
 `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`. **s9:** first

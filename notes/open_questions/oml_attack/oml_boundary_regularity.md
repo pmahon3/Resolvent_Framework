@@ -7,6 +7,13 @@ blocks, the boundary, and the two relevant topologies can be checked
 directly. It is a boundary-regularity counterexample, not a counterexample
 to `Phi`.*
 
+**Essential-irreducibility follow-up.**
+[`oml_irreducible_boundary_test.md`](oml_irreducible_boundary_test.md)
+proves the two-block centrality obstruction, audits distributed
+centre-killing architectures, refutes the smallest crossed-interface paste
+by an executable missing-meet receipt, and isolates the remaining finite
+completion problem. The irreducible topology question remains open.
+
 ## 1. Exact question
 
 For a maximal Boolean block `B` of a concrete σ-complete OML `L`, put

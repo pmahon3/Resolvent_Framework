@@ -116,8 +116,13 @@ families; passage to the finite generated Boolean-boundary formulation is an
 elementary hand equivalence. For finite fine-block atlases, Baire localizes
 full-block non-σ failure after a coherent finite face refinement, but does
 not localize boundary non-liftability: the point-shadow/σ-liftable trace locus
-has not been shown relatively open. An abstract relational three-state audit
-shows the unrefined cover equation alone does not localize.
+need not be relatively open. Boundary localization is proved conditionally
+when that locus is open on the actual compact face restriction image.
+Finite/discrete, clopen-shadow, and compact/proper-image interfaces satisfy
+this; a countably generated power-set block with dense nonopen carrier image
+shows countable generation and finite fibres do not suffice. An abstract
+relational three-state audit shows only that the unrefined cover need not be
+local: its clopen loci localize on singleton refinements.
 The framework does not
 prove B′(i) or B′(ii): arbitrary-atlas simultaneous selection cuts across
 both, while B′(ii) additionally carries coarse local σ-lifting. Nav:

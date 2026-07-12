@@ -2128,8 +2128,9 @@ spine §4 scoping caveat (sufficiency side). Companions:
 `HANDOFF_2026-07-12_boundary_descent.md` (current theorem-status and
 execution handoff),
 `relational_boundary_descent.md` (exact GSD/gluing formulation,
-finite-interface quarantine, fine-block closure defect, conditional Baire
-and uniform-tail slices, and the open rooting audit),
+finite-interface quarantine, finite-atlas full-block localization, conditional
+boundary-defect localization under face-image openness, a compact failure of
+automatic shadow openness, and the distributed-selection/rooting audit),
 `HANDOFF_2026-07-12_s38.md` (current execution order),
 `HANDOFF_2026-07-12_s37.md` (prior),
 `HANDOFF_2026-07-12_s36.md` (prior),

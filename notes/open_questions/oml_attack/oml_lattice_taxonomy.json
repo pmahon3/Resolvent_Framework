@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 52,
+   "entries": 55,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The s38 follow-up classifies all 1,165 period-three width-one near-misses: every target loses the same root-phase nonorder a3 not<= a1, a depth-zero root. Next test the higher-slack two-pentagons-sharing-one-atom architecture; no general rooting theorem is claimed."
+   "current_next_step": "Preserve the s38 closure, but address the upstream quantifier gap: prove topological regularity of actual OML boundary images or a direct simultaneous-selection theorem. Local rooting becomes globally relevant only after boundary defects are localized."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -90,6 +90,27 @@
    "status": "failed-reduction-sharpened",
    "one_line": "Finite feasible branches determine only generator-algebra traces, not f.a. ultrafilters on the generated σ-field; their compact fibres expose the missing atom-charge step rather than proving T4.",
    "detail": "oml_lattice_regularity_attack.md#15-finite-generator-tree-test-the-σ-completion-gap-reappears-2026-07-11-session-21"
+  },
+  {
+   "id": "oml.reduction.full_block_localization_finite_atlas",
+   "name": "Finite-atlas full-block localization",
+   "status": "proved-hand",
+   "one_line": "For finitely many countably generated blocks, absence of a global sigma-state localizes after a finite face refinement to one block whose full restriction is non-sigma; this is not boundary-defect localization.",
+   "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
+  },
+  {
+   "id": "oml.open.boundary_defect_topological_regularity",
+   "name": "Boundary-defect topological regularity",
+   "status": "open-with-conditional-theorem",
+   "one_line": "A finite distributed boundary-defect cover localizes if each sigma-liftable locus is open on the relevant face restriction image; finite/discrete and compact/proper-image cases work, but countable generation alone does not.",
+   "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
+  },
+  {
+   "id": "oml.obstruction.distributed_boundary_defect",
+   "name": "Distributed boundary defect",
+   "status": "live-quantifier-obstruction",
+   "one_line": "Failure of Phi gives forall-state exists-block boundary failure, not one block bad for all states; the executable three-point model refutes only unrefined local trapping and localizes on singleton refinements.",
+   "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
   }
  ],
  "fine_block_route": [

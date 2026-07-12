@@ -367,14 +367,27 @@ Then some $N_B(p)$ contains a nonempty relatively clopen finite-cylinder
 subface.  Equivalently, after adjoining finitely many coordinates to $p$,
 every remaining state is non-σ on one fixed full block.
 
-*Proof.*  In the fine-block slice the full-block σ-locus is the union of the
-clopen cylinders charging a block atom, so each $N_B(p)$ is relatively
-closed.  Since global σ-additivity is equivalent to blockwise σ-additivity,
-the $N_B(p)$ cover $C_p$.  The compact Hausdorff face is Baire.  A finite
-closed cover cannot consist entirely of sets with empty interior, hence one
-$N_B(p)$ has nonempty relative interior.  The Cantor cube topology has a
-clopen finite-cylinder base, and intersecting such a cylinder with $C_p$ is
-exactly a coherent finite pattern refinement. ∎
+*Proof.*  The state space is the intersection in $\{0,1\}^L$ of the closed
+finite state-law constraints, hence is closed and compact.  A finite face is
+its intersection with finitely many coordinate cylinders, hence clopen,
+compact Hausdorff, and Baire.  On a countably generated Boolean σ-field every
+two-valued σ-state is principal at a signature atom (the repository's Dirac
+realization theorem), so the full-block σ-locus is
+
+\[
+ G_B(p)=\bigcup_{D\in\operatorname{At}(B)}
+        \{\mu\in C_p:\mu(D)=1\}.
+\]
+
+This is relatively open, regardless of the cardinality of the atom family;
+therefore $N_B(p)$ is relatively closed.  The certified blockwise criterion
+and the absence of a global σ-state give $C_p=\bigcup_BN_B(p)$.  A finite
+closed cover of a Baire space has a member with nonempty relative interior.
+The product topology has a finite-coordinate clopen base, so that interior
+contains $C_p$ intersected with one finite cylinder.  Removing inconsistent
+or redundant coordinates and complement-closing them gives a nonempty
+coherent finite refinement $C_q\subseteq C_p$ contained in $N_B(p)$.
+Since $N_B(q)=N_B(p)\cap C_q$, $C_q\subseteq N_B(q)$. ∎
 
 This does **not** localize the boundary defect loci $D_B(p)$.  Boundary-good
 means only that $\mu|_{\partial B}$ admits some σ-additive local replacement
@@ -384,22 +397,93 @@ which need be neither open nor closed.  Thus $D_B(p)$ has not been shown
 closed, and distributed boundary trapping remains live even for a finite
 fine atlas.
 
-The intended boundary-localization conclusion becomes valid under the extra
-hypothesis that each $T_B^\sigma(E_B(p))$ is relatively open in
-$T_B^{\mathrm{fa}}(E_B(p))$ (equivalently in the fine case, that the point
-shadow is relatively open in its closure): then each $D_B(p)$ is closed and
-the same finite-cover argument applies.
+Precisely, $D_B(p)\subseteq N_B(p)$: if $\mu|_B$ were σ-additive, it would
+itself be a boundary-matching σ-representative charging $E_B(p)$.  Inclusion
+can be strict.  For $B=\mathcal P(\mathbb N)$, trivial boundary
+$\{\varnothing,\mathbb N\}$, $E=\mathbb N$, and a nonprincipal ultrafilter
+$\mu$, the full restriction is non-σ while its boundary trace is replaced by
+every point state.  This block example establishes the logical distinction;
+it is not asserted to be a maximal-block boundary in an irreducible OML.
+
+### Theorem 9.1 (conditional finite-atlas boundary localization) ⟦HAND, proved⟧
+
+Let the atlas be finite and suppose $C_p=\bigcup_BD_B(p)$.  Write
+$R_{B,p}:C_p\to T_B^{\mathrm{fa}}(E_B(p))$ for boundary restriction and
+$K_{B,p}=R_{B,p}(C_p)$.  If
+
+\[
+ K_{B,p}\cap T_B^\sigma(E_B(p))
+ \quad\hbox{is relatively open in }K_{B,p}
+ \tag{RO$_{p,B}$}
+\]
+
+for every block in the cover, then some nonempty coherent finite refinement
+$C_q\subseteq C_p$ satisfies $C_q\subseteq D_B(q)$ for one fixed $B$.
+
+*Proof.*  Under (RO$_{p,B}$), the boundary-good locus in $C_p$ is the
+continuous preimage of a relatively open subset of $K_{B,p}$, so $D_B(p)$
+is relatively closed.  Apply the finite closed-cover/Baire argument above
+and choose $C_q\subseteq D_B(p)$.  Since $E_B(q)\subseteq E_B(p)$, a σ-lift
+charging $E_B(q)$ would charge $E_B(p)$, so $D_B(p)\cap C_q\subseteq D_B(q)$.
+∎
+
+This face-image condition is the weakest convenient topological version: it
+is needed only for the pattern event $E_B(p)$, only on $K_{B,p}$, and only
+for blocks retained in a finite subcover.  Global relative openness in all of
+$T_B^{\mathrm{fa}}(E)$ for every $E$ is a stronger uniform hypothesis.  More
+generally the proof needs only that each participating defect locus is closed
+(or has the weaker property “empty interior implies nowhere dense”); the
+Baire property alone is insufficient, since two sets with the Baire property
+and empty interior can cover a Baire space.
+
+In the fine case (RO$_{p,B}$) says precisely that
+$K_{B,p}\cap\operatorname{Sh}_B(E_B(p))$ is open in $K_{B,p}$.  Requiring
+$\operatorname{Sh}_B(E)$ open in its full closure is sufficient but not
+necessary.
+
+### Proposition 9.2 (interface classes and limits of relative openness) ⟦HAND⟧
+
+The relative-openness condition holds in the following useful cases:
+
+1. finite boundary algebra (indeed the finite-interface theorem gives no
+   defect at all);
+2. finite/discrete boundary Stone space;
+3. the relevant carrier shadow is clopen or open in its closure;
+4. the relevant carrier image is compact in the Hausdorff boundary Stone
+   space (hence closed and equal to its closure), for example when the
+   carrier event is compact and its evaluation map is continuous;
+5. the restricted evaluation map has closed image (in particular, is
+   proper).  An open image also suffices directly.
+
+None of the following alone implies (RO): finite-to-one evaluation;
+compact fibres; a closed or open image for the *whole* evaluation map rather
+than the relevant event; extremal disconnectedness/Stoneanness of the
+codomain; or merely locally compact/Polish domain and continuous evaluation.
+Countable generation of either Boolean algebra gives metrizability/Dirac
+realization where appropriate, not openness.
+
+For a compact counterexample, let $Y=2^{\mathbb N}$, choose a countable dense
+subset $Q\subseteq Y$, take carrier $\Omega=Q$, full block
+$B=\mathcal P(Q)$ (countably σ-generated by its singletons), and let
+$\partial B$ be the Boolean algebra of traces on $Q$ of clopens of $Y$.
+Then $\operatorname{Ult}(\partial B)\cong Y$ and for $E=\Omega$ the evaluation
+map is the inclusion $Q\hookrightarrow Y$.  Its fibres are singletons and
+its image is dense but not open, so the shadow is not relatively open in its
+closure.  This is a concrete Boolean block/interface counterexample to
+automatic openness, not by itself an overlap boundary of a concrete OML.
+Replacing $Q$ by a dense nonopen Polish subspace gives the analogous warning
+against Polish-domain hypotheses.
 
 The original face need not itself be locally trapped.  The finite relational
 trace table $C_p=\{0,1,2\}$ with $D_{B_i}=\{i\}$ is an irredundant distributed
-cover; `../verification/distributed_trap_audit.py` is an executable receipt.
+cover; `../verification/distributed_trap_audit.py` is its executable receipt.
 That table is **not** claimed realizable by a concrete σ-class OML.  It shows
-that the cover equation alone cannot prove localization.  Proposition 9.0
-localizes only full-block non-σ failure; it does not convert this abstract
-distributed cover into a boundary-local trap.  Interface regularity, coarse
-blocks, and arbitrary uncountable atlases remain outside the reduction.
+only that one block need not trap the *unrefined* face.  All its defect loci
+are clopen, and every singleton refinement localizes, so it is not a
+counterexample to Theorem 9.1 or to finite-refinement localization.  It models
+abstract boundary-defect loci, not full-block bad loci and not an OML.
 
-### Lemma 9.1 (uniform tail under a countable-base hypothesis) ⟦HAND, proved⟧
+### Lemma 9.3 (uniform tail under a countable-base hypothesis) ⟦HAND, proved⟧
 
 Let $Y=\operatorname{Ult}(\partial B)$ be compact metrizable (for example,
 $\partial B$ is countable), and let
@@ -554,7 +638,7 @@ following claims.
 | Independently σ-liftable boundary traces glue | **false without common compatibility** | witnesses chosen independently can disagree on $B\cap C$; GSD is exact because all match one $\mu$ |
 | Every local σ-state is a carrier point | **false outside the fine-block slice** | coarse blocks are precisely B′(ii); the repository records non-point σ-states on non-countably-generated fields |
 | Point shadows are closed | **false in general** | Proposition 7.1 identifies their closure with all finitely additive extendible traces; a nonempty defect is exactly nonclosedness |
-| Compact trapped image always gives a countable tail | **insufficiently justified** | compact nonmetrizable Stone spaces need not have countable neighbourhood bases; Lemma 9.1 adds metrizability |
+| Compact trapped image always gives a countable tail | **insufficiently justified** | compact nonmetrizable Stone spaces need not have countable neighbourhood bases; Lemma 9.3 adds metrizability |
 | Individual local escape gives simultaneous escape over arbitrary blocks | **false as an inference** | Baire uses countably many dense open loci; an uncountable intersection need not be nonempty |
 | Failure traps the whole face at one block | **false as an inference** | GSD failure gives only a possibly uncountable defect cover; distributed trapping remains possible |
 | Minimal local escape after deleting a premise is a global σ-extension | **false as an inference** | the continuation may be defective at another block |
@@ -573,8 +657,24 @@ Lean: blocks/overlaps are σ-fields
                          |
                          v
 common-μ boundary compatibility ---> exact GSD <=> Φ
-             |                         |
-             v                         v
+                                       |
+                                       v
+                              not-Φ => distributed
+                              boundary-defect cover
+                                 /             \
+                                v               v
+                    boundary regularity      direct simultaneous
+                                |             selection theorem
+                                v               |
+                    finite-refinement           v
+                    localization               GSD
+                                |
+                                v
+                    local rooting/contradiction
+
+common-μ boundary compatibility
+             |
+             v
 finite boundaries ------------> finite-interface quarantine
              |
              v
@@ -598,15 +698,13 @@ minimal trap ---> essential boundary gate -?-> rooted nonorder
 
 | Claim | Scope | Status | Dependency |
 |---|---|---|---|
-| Boundary-compatible σ-local replacements glue globally | Full generality for concrete σ-class OMLs | **proved ⟦HAND⟧** | certified block coverage and blockwise σ theorem |
-| GSD is equivalent to $\Phi$ | Full generality | **exact reformulation ⟦HAND⟧** | gluing theorem |
-| Finite-interface quarantine | Arbitrary maximal blocks, every $\partial B$ finite | **⟦LEAN, `BoundaryDescent.lean`; independent review cleared⟧** | boundary surgery + choice |
-| Boundary closure-defect characterization | closure equality: any concrete block; σ=shadow: countably generated block | **proved ⟦HAND⟧ + certified point realization** | Stone compactness, concreteness, T3 |
-| Baire simultaneous escape | Countably many countably generated blocks | **proved conditionally** | hereditary local density on every finite refinement |
-| Uniform countable tail extraction | compact trapped image in compact metrizable boundary Stone space | **proved conditionally** | countable clopen base; not distributed trapping |
-| Sasaki-filter formulation | Any OML two-valued f.a. state; master equivalence only in countably atomic slice | **proved at stated scope** | orthomodularity + finite additivity |
-| Rooted-tail dichotomy | Full conjectural architecture | **open** | missing rooting theorem |
-| Relay/master normal form | Periodic/bounded-width one-master searches | **architecture-specific; not a full reduction** | extra relay/master hypotheses |
+| Finite-interface quarantine | arbitrary atlas, finite raw/generated interfaces | **Lean for finite raw overlap families; generated-boundary form hand** | boundary point realization |
+| Full-block non-σ localization | finite fine atlas | **proved ⟦HAND⟧** | closed non-σ loci |
+| Boundary-defect localization | finite atlas | **proved conditionally ⟦HAND⟧** | relative openness on each face restriction image |
+| Boundary shadow relatively open | finite/discrete, clopen, compact-image, or proper-image classes | **proved in those classes; refuted in general** | interface topology |
+| Distributed-trap countermodel | three-point discrete abstract trace atlas | **executable; unrefined only** | clopen loci; singleton refinements localize |
+| GSD equivalence | full generality | **exact reformulation ⟦HAND⟧** | compatible σ-local gluing |
+| Rooting local traps settles $\Phi$ | full generality | **false without localization** | quantifier reversal |
 
 ## 16. What would settle what
 
@@ -617,17 +715,16 @@ minimal trap ---> essential boundary gate -?-> rooted nonorder
 | Extend simultaneous descent to uncountably many block-good loci | attacks the principal selection gap left by Baire |
 | Characterize $T_B^\sigma(E)$ intrinsically for coarse blocks | attacks B′(ii) without falsely using points |
 | Produce a local compact boundary trap | gives a uniform tail only with a countable-base hypothesis |
-| Prove every minimal trap admits a rooted nonorder | concreteness/order separation kills every trap, proving $\Phi$ |
+| Prove every *localized* minimal trap admits a rooted nonorder | kills localized traps; proving $\Phi$ still needs localization or direct simultaneous selection |
 | Find a minimal OML trap with no possible binary root | refutes the proposed rooting programme, not necessarily $\Phi$ |
 | Find one strong-state equation violated by every census survivor | gives an architecture-level symbolic kill; requires a reduction to affect full $\Phi$ |
 
 ## 17. Next computational and formal tasks
 
-1. **Best next falsification task:** on the existing s35--s38 finite
-   survivors and killed candidates, enumerate candidate roots generated by
-   bounded-depth Sasaki terms and test whether the full separating face is
-   contained in the computed all-remainder defect. A counterexample to
-   rootability is as valuable as a common root.
+1. **Primary theoretical task:** prove useful face-image openness/closed-defect
+   criteria for actual OML overlaps, or replace localization by a direct
+   simultaneous-selection theorem.  Local rooting is downstream of this
+   quantifier step, not presently the global priority.
 2. Compute boundary algebras and trace maps explicitly for the named
    pentagon and 7-loop cells. Separate local trace non-realizability from
    later master geometry and order-separation failures.
@@ -658,9 +755,10 @@ and simultaneous selection over possibly uncountably many fine blocks.
 cuts across both factors; it does not belong exclusively to B′(ii).
 
 The framework supplies one genuinely new lever—the finite-interface
-quarantine theorem—and a clean localization of the obstruction. Beyond
-that tame slice it is primarily a better description of T4 and the
-selection problem. The single best next task is to **prove or falsify
-rootability of minimal boundary defects on the existing finite cells**;
-without such a theorem, larger relay censuses do not bridge to the full
-conjecture.
+quarantine theorem—and an unconditional localization theorem only for
+full-block non-σ failure.  The audit criticism is correct: boundary
+non-liftability is strictly weaker, and its distributed cover localizes only
+under additional face-image regularity.  The next priority is therefore
+**topological boundary regularity or direct simultaneous selection**.
+Rootability remains valuable only after a genuine boundary trap has been
+localized; larger relay censuses do not bridge this quantifier gap.

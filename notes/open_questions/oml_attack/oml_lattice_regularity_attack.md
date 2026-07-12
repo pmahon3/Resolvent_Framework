@@ -2129,8 +2129,11 @@ spine §4 scoping caveat (sufficiency side). Companions:
 execution handoff),
 `relational_boundary_descent.md` (exact GSD/gluing formulation,
 finite-interface quarantine, finite-atlas full-block localization, conditional
-boundary-defect localization under face-image openness, a compact failure of
+boundary-defect localization under face-image openness, a counterexample with
+compact boundary Stone space to
 automatic shadow openness, and the distributed-selection/rooting audit),
+`oml_boundary_regularity.md` (genuine coarse reducible OML realization of a
+dense nonopen shadow and σ-liftable locus; mixed-hierarchy decision),
 `HANDOFF_2026-07-12_s38.md` (current execution order),
 `HANDOFF_2026-07-12_s37.md` (prior),
 `HANDOFF_2026-07-12_s36.md` (prior),

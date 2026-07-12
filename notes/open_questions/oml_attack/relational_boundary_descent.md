@@ -8,6 +8,16 @@ theorem-lets with every extra hypothesis displayed. The rooting and relay
 steps remain open or architecture-specific. Nothing here proves
 $\Psi_{\mathrm{OML}}$.*
 
+**2026-07-12 boundary-regularity update.** The follow-up
+[`oml_boundary_regularity.md`](oml_boundary_regularity.md) constructs a
+genuine concrete σ-complete OML boundary whose carrier shadow and actual
+σ-liftable trace locus are dense nonopen on a one-event face. It also
+refutes finite Boolean extension over the boundary as a sufficient
+condition, and banks finite-subatlas-to-global selection under compact
+eligible local σ-state spaces. The unrestricted strategic outcome is a
+mixed hierarchy with direct simultaneous selection primary; the remaining
+sharp realization problem is removal of the example's center.
+
 ## 1. Statement of scope and statement of record
 
 The unchanged question is:

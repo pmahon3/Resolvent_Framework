@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Taxonomies registry — the tree of problem-collection taxonomies",
   "purpose": "The single entry point to every collection taxonomy. Each collection has a JSON taxonomy = a zoom-out index of its attempts; this file registers them so the tree itself is navigable as collections come and go. Load THIS first, then the collection taxonomy, then its `detail` leaves — three zoom levels.",
-  "updated": "2026-07-11",
+  "updated": "2026-07-12",
   "schema_doc": "notes/TAXONOMY_SCHEMA.md",
   "paths_relative_to": "repository root",
   "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — s38 closure is preserved. Boundary descent gives exact GSD, Lean-certified quarantine for finite raw overlaps (generated-boundary form hand), and hand-proved finite-atlas full-block localization. Genuine boundary-defect localization is conditional on openness over the face restriction image; automatic openness fails even for a countably generated Boolean block. Topological regularity or direct simultaneous selection now precedes global rooting.",
+   "status": "OPEN — mixed boundary hierarchy. A genuine coarse reducible concrete sigma-complete OML boundary realizes dense nonopen point and sigma-liftable trace loci on a one-event face, refuting general localization and finite Boolean extension over the boundary. Regular-interface localization survives conditionally; direct simultaneous selection is now primary. The exact residual realization problem is removal of the example's center.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 55
+   "entries": 57
   },
   {
    "id": "reconstruction_commensurability",

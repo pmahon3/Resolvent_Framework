@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. Older mechanisms now survive only as sufficient conditions, narrow routes, or explicit exclusions.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary now realizes dense nonopen sigma-liftable traces, so unrestricted localization has yielded priority to direct simultaneous selection.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 55,
+   "entries": 57,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Preserve the s38 closure, but address the upstream quantifier gap: prove topological regularity of actual OML boundary images or a direct simultaneous-selection theorem. Local rooting becomes globally relevant only after boundary defects are localized."
+   "current_next_step": "Attack the exact center-removal problem for the countable-coordinate-sigma-field times MO2 boundary example, while developing direct simultaneous selection. Local rooting remains downstream outside regular-interface slices."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -54,6 +54,20 @@
    "status": "exact-reformulation-hand-reviewed",
    "one_line": "Phi is equivalent to choosing one finitely additive extension whose trace on every overlap-generated boundary admits a pattern-preserving local sigma lift; matching all lifts to that common trace makes them glue.",
    "detail": "relational_boundary_descent.md#4-exact-full-general-formulation-and-proved-boundary-lemmas"
+  },
+  {
+   "id": "oml.reduction.boundary_regularity_counterexample",
+   "name": "Genuine OML dense-nonopen boundary",
+   "status": "constructed-hand-coarse-reducible",
+   "one_line": "A countable-coordinate sigma-field times MO2 is a concrete sigma-complete OML with two maximal blocks whose actual sigma-field boundary has dense nonopen point and sigma-liftable loci, already on a one-event face; one private Boolean generator suffices.",
+   "detail": "oml_boundary_regularity.md#3-a-genuine-oml-boundary-with-dense-nonopen-σ-liftable-locus"
+  },
+  {
+   "id": "oml.reduction.compact_finite_subatlas_selection",
+   "name": "Compact finite-subatlas selection",
+   "status": "proved-hand-conditional",
+   "one_line": "If every eligible local sigma-state space is compact, compatible solutions on every finite subatlas globalize by Tychonoff and closed overlap equations; sigma-state spaces are not compact in general.",
+   "detail": "oml_boundary_regularity.md#7-direct-simultaneous-selection"
   },
   {
    "id": "oml.reduction.two_block_rescue",

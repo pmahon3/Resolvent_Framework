@@ -123,6 +123,18 @@ this; a countably generated power-set block with dense nonopen carrier image
 shows countable generation and finite fibres do not suffice. An abstract
 relational three-state audit shows only that the unrefined cover need not be
 local: its clopen loci localize on singleton refinements.
+**s40 boundary-regularity decision:**
+`notes/open_questions/oml_attack/oml_boundary_regularity.md` gives a genuine
+concrete σ-complete OML realization. For the countable-coordinate σ-field
+`A` on `2^I`, the product `A × MO2` has exactly two maximal blocks, actual
+boundary `A × 2`, and a one-event face on which both the carrier shadow and
+the σ-liftable trace locus are dense nonopen. The block is generated over
+its boundary by one Boolean event, so finite private Boolean complexity and
+finite coherence do not restore openness. This is a coarse reducible
+boundary-regularity counterexample, not a failure of Φ. Outcome: mixed
+hierarchy; general work pivots to direct simultaneous selection, while
+localization remains for explicit (RO-face) classes. Exact residual task:
+remove the center or prove essential irreducibility forbids the topology.
 The framework does not
 prove B′(i) or B′(ii): arbitrary-atlas simultaneous selection cuts across
 both, while B′(ii) additionally carries coarse local σ-lifting. Nav:

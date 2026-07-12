@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "scope": "7-loop C={a0,a3,a11}, period 3, k=1",
+  "ports": 196,
+  "start": 0,
+  "end": 196,
+  "completed_first_ports": 132,
+  "screened_triples": 5070912,
+  "targets": {
+    "1": {"face_free_fail": 1150283, "face_nonlive_fail": 3920254, "complement_order_fail": 375, "operative": 0, "root_order": 0},
+    "2": {"face_free_fail": 1156876, "face_nonlive_fail": 3913631, "complement_order_fail": 405, "operative": 0, "root_order": 0},
+    "4": {"face_free_fail": 1139735, "face_nonlive_fail": 3930792, "complement_order_fail": 385, "operative": 0, "root_order": 0}
+  },
+  "survivors": []
+}

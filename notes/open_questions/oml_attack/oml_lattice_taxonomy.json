@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 47,
+   "entries": 50,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Execute HANDOFF_2026-07-11_s32.md: corrected liveness kills all 4,050 two-port pentagon maps. Screen three-or-more-overlap/two-cell and three-cell relays, or move to a larger finite OML with a richer removable face."
+   "current_next_step": "Exhaust period-three width-one relays for the 7-loop face (196^3=7,529,536 triples) with the mandatory root-cell gate, while extracting a rooted-separation obstruction from the s36/s37 failure data. Session 37 exhausts all 88,510,464 period-two width-two pairs with zero operative survivors; period-two k<=2 is closed."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -250,6 +250,27 @@
    "status": "open-ultimate",
    "one_line": "Construct L in the admissible concrete σ-complete OML class with a finite trace in im St_fa but outside im St_σ.",
    "detail": "oml_lattice_regularity_attack.md#5-falsification-side-kept-honest"
+  },
+  {
+   "id": "oml.construct.k3plus_two_cell",
+   "name": "Two-cell k>=3 identifications",
+   "status": "exit-b-complete",
+   "one_line": "Two-cell route complete. k>=6 has no girth-valid map; k=4,5 die at the screen; k=3 gives four screen-survivors with the ideal ten-state live set but all four die downstream, two at global girth and two at master-cycle girth. Liveness is independently validated by a rooted product-graph oracle; the late s33 alarm confused the one-sided model with a two-sided convention.",
+   "detail": "oml_lattice_regularity_attack.md#27-next-finite-classes-k3-two-cell-exit-b-one-port-three-cell-unconditional-no-go-and-a-richer-removable-face-found-2026-07-11-session-33"
+  },
+  {
+   "id": "oml.construct.three_cell_relay",
+   "name": "Three-pentagon period-3 relays",
+   "status": "exit-b-one-port-two-port-design-class",
+   "one_line": "One-port period-3 relays: unconditional no-go (full 10^6 product, zero survivors at every phase). Two-port: no-go within the s_*-preserving design class (275^3 = 2.08e7 triples, zero survivors at every phase); outside that design class remains open. Liveness is independently validated under the stated one-sided convention.",
+   "detail": "oml_lattice_regularity_attack.md#27-next-finite-classes-k3-two-cell-exit-b-one-port-three-cell-unconditional-no-go-and-a-richer-removable-face-found-2026-07-11-session-33"
+  },
+  {
+   "id": "oml.construct.removable_face",
+   "name": "Richer removable-face relays",
+   "status": "period1-k1to4-and-period2-k1to2-bounded-exit-b",
+   "one_line": "For the 7-loop face C={a0,a3,a11}, period-one injective ports k<=4 and period-two ports k<=2 are closed. Session 37 exhausts 88,510,464 ordered width-two pairs with zero operative survivors. Period three, wider ports, other faces, and the shared-pentagon cell remain open.",
+   "detail": "oml_lattice_regularity_attack.md#30-period-two-width-two-exhaustive-no-go-2026-07-12-session-37"
   }
  ],
  "mechanism_exclusions": [

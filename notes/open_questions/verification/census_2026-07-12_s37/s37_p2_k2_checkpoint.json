@@ -1,0 +1,15 @@
+{
+  "schema": 1,
+  "scope": "7-loop C={a0,a3,a11}, period 2, k=2",
+  "ports": 9408,
+  "start": 0,
+  "end": 9408,
+  "completed_first_ports": 9408,
+  "screened_pairs": 88510464,
+  "targets": {
+    "1": {"operative": 0, "root_order": 0},
+    "2": {"operative": 0, "root_order": 0},
+    "4": {"operative": 0, "root_order": 0}
+  },
+  "survivors": []
+}

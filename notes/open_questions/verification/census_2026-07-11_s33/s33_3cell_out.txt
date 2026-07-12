@@ -1,0 +1,5 @@
+--- one-port: k=1 ports=100 s_*-self=50 s_*-basin=95 ---
+  self-map product size 125000; s_*-free&non-live: 111
+  live-size dist: {0: 103, 6: 8}
+  false-nonorder dist: {55: 8, 350: 103}
+  order-determining survivors: 0

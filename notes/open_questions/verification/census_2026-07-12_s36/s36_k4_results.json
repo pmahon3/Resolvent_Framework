@@ -1,0 +1,1210 @@
+{
+  "complete": true,
+  "completed_old_sets": 1001,
+  "pair_prefilter": 477848,
+  "raw": 24048024,
+  "schema": 1,
+  "scope": "7-loop C={a0,a3,a11}, period 1, oriented injective k=4",
+  "targets": {
+    "1": {
+      "exact_complement": 1,
+      "operative": 8,
+      "screened": 477652,
+      "survivors": [
+        {
+          "exact_complement": false,
+          "free_mask": 138282999,
+          "live_mask": 287241471,
+          "port": [
+            [
+              0,
+              11
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              5,
+              5
+            ],
+            [
+              11,
+              7
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 137234359,
+          "live_mask": 501210367,
+          "port": [
+            [
+              0,
+              11
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              13,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 138282999,
+          "live_mask": 421065983,
+          "port": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              11,
+              5
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 138282999,
+          "live_mask": 181980415,
+          "port": [
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              11,
+              5
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": true,
+          "free_mask": 137889671,
+          "live_mask": 534772991,
+          "port": [
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              13
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": false
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 138151911,
+          "live_mask": 421459199,
+          "port": [
+            [
+              1,
+              7
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              12,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 138151927,
+          "live_mask": 471743743,
+          "port": [
+            [
+              1,
+              7
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              12,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 137889671,
+          "live_mask": 534766839,
+          "port": [
+            [
+              2,
+              13
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": false
+        }
+      ]
+    },
+    "2": {
+      "exact_complement": 1,
+      "operative": 40,
+      "screened": 477652,
+      "survivors": [
+        {
+          "exact_complement": false,
+          "free_mask": 388102031,
+          "live_mask": 253752575,
+          "port": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 391642367,
+          "port": [
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              11
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              11,
+              13
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 265944303,
+          "port": [
+            [
+              0,
+              3
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400666503,
+          "live_mask": 534740191,
+          "port": [
+            [
+              0,
+              11
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              13,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 396474247,
+          "live_mask": 534609135,
+          "port": [
+            [
+              0,
+              11
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              13,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400680839,
+          "live_mask": 534740175,
+          "port": [
+            [
+              0,
+              11
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              13,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400670607,
+          "live_mask": 467500255,
+          "port": [
+            [
+              0,
+              11
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              13,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400684935,
+          "live_mask": 467631343,
+          "port": [
+            [
+              0,
+              11
+            ],
+            [
+              3,
+              1
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              13,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 388052871,
+          "live_mask": 265944303,
+          "port": [
+            [
+              0,
+              3
+            ],
+            [
+              4,
+              13
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 392296335,
+          "live_mask": 526120175,
+          "port": [
+            [
+              0,
+              3
+            ],
+            [
+              5,
+              0
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400654223,
+          "live_mask": 534723839,
+          "port": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              10,
+              13
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400654223,
+          "live_mask": 534723839,
+          "port": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              13
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 534740223,
+          "port": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              10,
+              13
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400654223,
+          "live_mask": 534740223,
+          "port": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              10,
+              13
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400654223,
+          "live_mask": 526351615,
+          "port": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              10,
+              13
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400654223,
+          "live_mask": 534740223,
+          "port": [
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              10,
+              13
+            ],
+            [
+              11,
+              7
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": true,
+          "free_mask": 396486543,
+          "live_mask": 534772991,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400666503,
+          "live_mask": 526384351,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 388102031,
+          "live_mask": 522188031,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 388102031,
+          "live_mask": 522188031,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              12,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 396474247,
+          "live_mask": 534641903,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400674703,
+          "live_mask": 534760703,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400674703,
+          "live_mask": 534760703,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400674703,
+          "live_mask": 534760703,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              12,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400674703,
+          "live_mask": 534760703,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              12,
+              3
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400680839,
+          "live_mask": 534764751,
+          "port": [
+            [
+              1,
+              13
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              10,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 232291567,
+          "port": [
+            [
+              2,
+              13
+            ],
+            [
+              5,
+              9
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400666503,
+          "live_mask": 249560287,
+          "port": [
+            [
+              2,
+              13
+            ],
+            [
+              5,
+              3
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              12,
+              5
+            ]
+          ],
+          "three_cell_girth": false
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 232389887,
+          "port": [
+            [
+              2,
+              13
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 484179183,
+          "port": [
+            [
+              2,
+              13
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              11,
+              11
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 484244719,
+          "port": [
+            [
+              2,
+              13
+            ],
+            [
+              6,
+              3
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              13,
+              7
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400686991,
+          "live_mask": 534756607,
+          "port": [
+            [
+              3,
+              1
+            ],
+            [
+              4,
+              7
+            ],
+            [
+              12,
+              3
+            ],
+            [
+              13,
+              11
+            ]
+          ],
+          "three_cell_girth": false
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400678799,
+          "live_mask": 534764799,
+          "port": [
+            [
+              3,
+              0
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              13,
+              4
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 392298383,
+          "live_mask": 526384383,
+          "port": [
+            [
+              3,
+              0
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              13,
+              4
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 90300303,
+          "live_mask": 224386303,
+          "port": [
+            [
+              3,
+              0
+            ],
+            [
+              7,
+              3
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              13,
+              8
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400678799,
+          "live_mask": 534764799,
+          "port": [
+            [
+              3,
+              0
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              13,
+              4
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 392290191,
+          "live_mask": 526376191,
+          "port": [
+            [
+              3,
+              0
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              13,
+              4
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 392290191,
+          "live_mask": 526376191,
+          "port": [
+            [
+              3,
+              0
+            ],
+            [
+              9,
+              7
+            ],
+            [
+              11,
+              11
+            ],
+            [
+              13,
+              4
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 392265615,
+          "live_mask": 467352831,
+          "port": [
+            [
+              4,
+              1
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              11,
+              3
+            ],
+            [
+              13,
+              10
+            ]
+          ],
+          "three_cell_girth": true
+        },
+        {
+          "exact_complement": false,
+          "free_mask": 400613263,
+          "live_mask": 534666423,
+          "port": [
+            [
+              4,
+              1
+            ],
+            [
+              7,
+              7
+            ],
+            [
+              11,
+              3
+            ],
+            [
+              13,
+              10
+            ]
+          ],
+          "three_cell_girth": true
+        }
+      ]
+    },
+    "4": {
+      "exact_complement": 0,
+      "operative": 1,
+      "screened": 477652,
+      "survivors": [
+        {
+          "exact_complement": false,
+          "free_mask": 469646305,
+          "live_mask": 530578663,
+          "port": [
+            [
+              0,
+              3
+            ],
+            [
+              3,
+              9
+            ],
+            [
+              8,
+              7
+            ],
+            [
+              12,
+              11
+            ]
+          ],
+          "three_cell_girth": false
+        }
+      ]
+    }
+  },
+  "three_cell_valid": 334054,
+  "total_raw_expected": 24048024,
+  "two_cell_valid": 477652
+}

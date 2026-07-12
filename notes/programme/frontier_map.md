@@ -69,6 +69,33 @@ projection reduction (§13) is sharpened in §14: on a countably generated
 block, nonempty restriction-image interior/interpolation is exactly T4,
 not an independent route. The live fine-block target is principal-atom
 reachability, alongside the coarse-block toy hunt.
+**s19–s33 (T4 relay hunt, notes §§12–27):** the finite-counterexample
+programme against the one-block repointing crux. Ternary-trigger and
+two-port pentagon-relay classes killed (s28–s32). **s33–s34:** the late
+σ-liveness alarm was a convention mismatch: period-collapse and cyclic
+rotation assume a two-sided chain, while the stated relay is one-sided
+and boundary-rooted with an any-position query. An independent rooted
+product-graph oracle agrees with `relay_core.analyze.live` on all 4,150
+period-1 one/two-port maps and 600 sampled period-1/2/3 relays. Thus the
+s32/s33 verdicts stand: k≥6 two-cell empty; k=4/5 die at the screen; all
+four k=3 screen-survivors die at global girth/master geometry; one-port
+period-3 is an unconditional no-go and two-port is killed within the
+s_*-preserving design class. Richer removable faces exist in the 7-loop
+and two-pentagons-sharing-one-atom. **s35:** the first operative 7-loop
+screen is complete for period one, widths 1–3. Widths 1/2 have no local
+survivor; width 3 has 22 target/map survivors, proving the richer face
+does evade the pentagon's local liveness tradeoff, but four fail at
+three-cell girth and 18 at adjacent-target master geometry. Bounded Exit
+B only. **s36:** period-one width 4 is now exhausted (24,048,024 maps;
+477,652 exact two-cell valid; 98 local target/map survivors). Two reach
+girth and master geometry but both fail rooted/cross-cell σ-order
+separation. Hence period-one k≤4 is closed. Period-two k=1 is also empty
+over all 38,416 ordered pairs. Next: signature/bitset period-two k=2
+(88.5M individually valid pairs) or the higher-slack two-pentagon cell.
+**s37:** all 88,510,464 period-two width-two pairs were then exhausted;
+zero pass the operative screen for any target orbit. Period-two k≤2 is
+closed. Next: the feasible period-three width-one class (7,529,536
+triples), paired with extraction of a rooted-separation obstruction.
 Nav: `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`; `papers/spine/` §4.
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility

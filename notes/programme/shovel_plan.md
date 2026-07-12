@@ -267,10 +267,35 @@ graded open problems attract *inhabitants*.
    11 states are σ-live, the cluster itself has a σ-extension. Exhaustive
    corrected census of all 4,050 two-port maps leaves 45 with a free but
    non-σ-live cluster state and ZERO with local order determination.
-   The whole two-port pentagon relay class is killed. Next: higher-overlap
-   or three-cell relays, co-equally a larger OML removable face.
+   The whole two-port pentagon relay class is killed.
+   Sessions 33–34 (§27): the late σ-liveness alarm was resolved as a
+   convention mismatch. Period-collapse and rotation invariance test a
+   two-sided chain, not the stated one-sided boundary-rooted any-position
+   semantics. An independent rooted product-graph oracle agrees with
+   `relay_core.analyze.live` on all 4,150 period-1 maps and 600 sampled
+   period-1/2/3 relays, so the s32/s33 verdicts stand. k≥6 has no
+   girth-valid map; k=4/5 die at the screen; the four k=3 survivors die
+   downstream; one-port period-3 is unconditionally killed and two-port
+   is killed within the s_*-preserving design class. Co-equal Exit C
+   ADVANCED: a richer removable FACE (|F|≥2,
+   order-determining complement, each state individually dispensable) EXISTS
+   in the 7-loop and two-pentagons-sharing-one-atom — the pentagon is the
+   degenerate zero-slack case. Session 35 runs the operative 7-loop test
+   exhaustively for period one and widths 1–3: widths 1/2 have zero local
+   survivors; width 3 has 22, so the richer face DOES escape the local
+   liveness tradeoff, but four die at three-cell girth and 18 at adjacent-
+   target master geometry. This is a bounded Exit B, not closure of the
+   richer-face route. Session 36 exhausts width 4: 98 local target/map
+   survivors, two passing girth/master geometry, but both fail rooted and
+   adjacent-cell σ-order separation. Thus period-one k≤4 is a bounded no-go.
+   Period-two k=1 is also empty (38,416 ordered pairs). Next: a signature/
+   bitset census of period-two k=2 (88.5M individually valid pairs) or the
+   higher-slack shared-pentagon cell. Session 37 completes that census:
+   all 88,510,464 ordered pairs give zero operative survivors, so period-two
+   k≤2 is closed. Next: period-three k=1 (7,529,536 triples), while turning
+   the rooted-separation failures into a structural obstruction.
    Execution order and exits:
-   `notes/open_questions/oml_attack/HANDOFF_2026-07-11_s32.md`. In
+   `notes/open_questions/oml_attack/HANDOFF_2026-07-12_s37.md`. In
    parallel, the coarse-block
    toy hunt — concrete σ-class OM lattice with one ctbl/co-ctbl-type
    block + one incompatibility — **promoted s13: it decides Theorem 2's

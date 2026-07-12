@@ -1908,11 +1908,203 @@ before any master or infinite construction work. A larger finite OML
 with a removable face richer than the pentagon's single state is the
 co-equal alternative.
 
+## 27. Next finite classes: k≥3 two-cell EXIT B, one-port three-cell unconditional no-go, and a richer removable face found (2026-07-11, session 33)
+
+> **s34 resolution of the late s33 alarm.** The alleged σ-liveness bug
+> was a convention mismatch.  The relay is a one-sided chain rooted at
+> cell 0 and asks whether a state occurs at any position of a rooted
+> path.  Period-collapse across phases and cyclic-rotation invariance
+> instead assume a two-sided/translation-invariant chain, so they are not
+> valid tests here.  An independent product-graph oracle agrees with
+> `relay_core.analyze.live` on all 4,150 period-1 one/two-port maps and
+> 600 sampled period-1/2/3 relays.  Hence the liveness-dependent s32/s33
+> census results below stand.  The alternative 47-map computation uses
+> the different two-sided convention.
+
+The corrected screen of §26 was first reproduced exactly (4,050 → 1,000 →
+275 → 45 → 0, both distributions, root-only 0; the M* gap sequence
+4,5,8,9,12,13). One correction: the §26 "seven of 45 meet the master
+girth requirement" line has no clean definition giving seven. Gap
+distances are non-monotonic, so the shortest master Berge cycle is
+$\min_g d_g + 1$, and **zero** of the 45 meet $\min_g d_g \ge 4$; the
+"seven" was a loose diagnostic and was never load-bearing (all 45 fail
+condition 3 locally regardless).
+
+**Two-cell route (a): complete, EXIT B.** Coverage is total. For $k\ge6$
+identifications there is no girth-valid map at all (six pentagon atoms
+force a co-block pair whose two images would need block distance $\ge4$,
+above the pentagon diameter; verified vacuous for $k=6,\dots,10$). For
+$k=4,5$ every girth-valid $s_*$-preserving map has empty σ-live set
+(condition 3 fails maximally, 350 false non-orders), so they die AT the
+screen. For $k=3$ the screen is, for the first time, **not** the killer:
+of 500 girth-valid maps, four pass all three local conditions with the
+ideal ten-state σ-live set (all states but $s_*$), 0 false non-orders.
+Their liveness was independently confirmed by explicit lasso construction
+(automaton and lasso live-sets agree on all four). But all four die
+downstream: two grow a Berge 3/4-cycle in the periodic chain by the third
+cell (the 2-cell window girth is too local — the §24 global-girth
+lesson), and two have $\min_g d_g = 2$, so the target-collecting master
+block closes a Berge triangle; escaping that needs a spaced/multi-master,
+the §20 route killed in §21/§27-prior. So $k=3$ is an honest **Exit B**:
+screen-survivors exist but none reaches a witness.
+
+**Three-cell route (b): one-port unconditional no-go, two-port design-
+scoped.** Period-3 relays $(m_0,m_1,m_2)$. The full product of all 100
+girth-valid one-port interfaces — $10^6$ triples, **no** $s_*$-preserving
+pre-cut — yields zero screen-survivors at every phase: an unconditional
+one-port no-go. The two-port product ($1000^3=10^9$) is infeasible whole;
+within the s32 removable-state design class ($s_*$-preserving interfaces,
+$275^3=2.08\times10^7$ triples) the result is **zero survivors at every
+phase** — a no-go within the design class. Two-port outside the design
+class is not covered and is not claimed closed.
+
+**Co-equal route, Exit C: a richer removable face EXISTS.** The pentagon
+is the degenerate zero-slack case — its only removable object is the
+single state $s_*$; it has **no** face $F(C)$ with $|F|\ge2$ and
+order-determining complement. Larger girth-≥5 Greechie OMLs have such
+faces abundantly: the 6-loop has 18, the 7-loop 154, and two pentagons
+sharing one atom have 4,825 (faces up to $|F|=10$), all with
+full-state order-determination intact. A clean exemplar (7-loop, cluster
+$\{a_0,a_3,a_{11}\}$, $|F|=3$) is *jointly* removable and each face state
+is *individually* dispensable — the slack the pentagon lacks. **This
+establishes only the local precondition.** The operative question the
+co-equal route exists for — does the richer face avoid the pentagon's
+dynamic liveness/separation tradeoff? — is untouched, because the tradeoff
+lives in the σ-liveness of an infinite relay that is unbuilt for these
+OMLs. Individual dispensability is a static property, suggestive not
+probative. Next: generalize the relay automaton to the chosen OML, put
+the whole face $F$ in $s_*$'s role, and run the three-condition screen;
+the tradeoff is avoided iff some port makes *every* face state non-σ-live
+while the complement stays σ-live and order-determining.
+
+Machinery and full tables: `../verification/census_2026-07-11_s33/`
+(`relay_core.py`, `s33_reproduce_s32.py`, `s33_census_k3plus.py`,
+`s33_verify_survivors.py`, `s33_census_3cell.py`, `s33_face_census.py`,
+`RESULTS.md`).
+
+## 28. Operative richer-face screen: 7-loop period-one widths 1–3 are a bounded no-go (2026-07-12, session 35)
+
+The §27 local precondition has now been tested dynamically on its clean
+7-loop exemplar.  The cell has blocks
+$B_i=\{a_{2i},a_{2i+1},a_{2i+2\bmod14}\}$, 29 two-valued states, and the
+cluster $C=\{a_0,a_3,a_{11}\}$ selects a three-state removable face
+$F$.  Its 26-state complement order-determines all 714 canonical
+nonorders.  A necessary target correction is that every state in $F$
+charges $a_0$; the common-zero target atoms are instead
+$a_1,a_2,a_4,a_{10},a_{12},a_{13}$.  The cluster stabilizer pairs these
+into three orbits $(1,13),(2,12),(4,10)$.
+
+Exhaust every period-one oriented injective atom port of widths one through
+three.  Per target, width one has 196 maps (all two-cell-girth-valid) and
+width two has 16,562 maps (9,408 valid); neither has an operative
+survivor.  Width three has 794,976 maps, 122,500 valid.  The operative
+counts for targets $1,2,4,10,12,13$ are respectively
+$2,9,0,0,9,2$.  Here operative means simultaneously: every face state
+has a free all-zero path, no face state is σ-live, and the live complement
+order-determines the cell.  Sixteen of the 22 pairs have live set exactly
+$\Omega\setminus F$; the other six retain an order-determining 25-state
+subset.
+
+All 22 die downstream.  The four target-$1/13$ pairs fail relay girth in
+the three-cell window.  The remaining 18 (nine reflection orbits) pass
+quotient girth through six cells, but every one fails the complete-master
+geometry already at adjacent targets: $d_1=2$ or $3<4$, producing a
+master Berge cycle of length at most four.  None reaches cross-cell
+separation.
+
+Thus the richer face does avoid the pentagon's local liveness tradeoff—
+genuine screen-survivors exist—but not the downstream geometry in this
+class.  This is a rigorous bounded Exit B for the named face, period one,
+and widths $k\le3$ only.  Widths $k\ge4$, periods $p\ge2$, other 7-loop
+faces, and the higher-slack two-pentagon cell remain open.
+
+Machinery and tables: `../verification/census_2026-07-12_s35/`,
+`../verification/audit_s35_7loop_census.py`, and
+`../verification/verify_s35_survivor_girth.py`.
+
+## 29. Width four reaches geometry but fails rooted σ-separation; period-two width one empty (2026-07-12, session 36)
+
+Continue with the same 7-loop face and exhaust all period-one width-four
+ports.  Of $\binom{14}{4}^2 4!=24{,}048{,}024$ labeled maps, 477,848 pass
+the pair-distance prefilter and **477,652** pass the exact two-cell
+quotient girth test.  The 196-map difference matters: a short Berge cycle
+may alternate across three or four identifications, so the pair rule is
+necessary but not sufficient.  The operative survivor counts for target
+representatives $a_1,a_2,a_4$ are $8,40,1$ (98 pairs after the cluster-
+stabilizing reflection).
+
+Only two representatives survive relay girth and the complete-master
+distance gate, both at target $a_1$:
+
+\[
+((0,11),(3,5),(6,9),(13,3)),\qquad
+((1,7),(5,9),(11,11),(12,3)).
+\]
+
+Both have $d_1=4$, pass target gaps through 60, and retain relay girth five
+through 120 cells.  Both fail σ-state order separation.  The exact rooted
+path oracle kills them already in cell zero: the first misses the genuine
+nonorder $a_0\not\le a_4$, the second $a_0\not\le a_{10}$.  An independent
+adjacent-cell computation also finds unwitnessed cross-cell nonorders.
+
+The lesson is semantic but not a liveness correction: the phase `live`
+mask is the union of restrictions occurring at *any* position, whereas
+the boundary cell has only the root-live restrictions $E_1[0]$.  A phase
+mask may order-determine the repeated local type while the actual root
+cell does not.  Root-cell order determination and fixed-offset separation
+are therefore mandatory downstream gates.
+
+Combining §§28–29 gives a rigorous bounded Exit B for the named face,
+period one, every injective width $k\le4$.  Separately, the complete
+period-two width-one census has zero operative pairs among all
+$196^2=38{,}416$ ordered pairs.  Period-two width two remains open:
+274,299,844 raw pairs, 88,510,464 after individual interface validity,
+with three-cell girth providing little further pruning.  A signature/
+bitset census is the next bounded computation.
+
+Artifacts: `../verification/census_2026-07-12_s36/`,
+`../verification/audit_s36_k4_reduction.py`,
+`../verification/audit_s36_candidate_*`, and
+`../verification/audit_s36_p2_*`.
+
+## 30. Period-two width-two exhaustive no-go (2026-07-12, session 37)
+
+The complete period-two width-two census is empty.  There are 9,408
+individually valid labeled interfaces and therefore
+$9{,}408^2=88{,}510{,}464$ ordered interface pairs.  Exact rooted
+two-phase fixpoints were evaluated for target representatives
+$a_1,a_2,a_4$; the operative counts are $0,0,0$.  Reflection gives zero
+for $a_{13},a_{12},a_{10}$.  Since no pair passes the local face-free,
+face-nonlive, live-complement order screen, no downstream gate can restore
+a candidate.
+
+The optimized engine was triangulated against an independent Python
+implementation on all 230,496 period-two width-one map/target cases and
+6,000 deterministic width-two cases, with exact agreement for every
+fixed-point and screen mask.  The audit again finds examples with
+$E_1[0]\ne\operatorname{live}[0]$, preserving §29's mandatory root-cell
+gate.  All 9,408 complete successor signatures are distinct, so exact
+signature bucketing offers no hidden quotient.
+
+Thus the named 7-loop face is closed for period two and widths $k\le2$.
+The next inexpensive exhaustive class is period three, width one
+($196^3=7{,}529{,}536$ triples).  Larger brute-force jumps should wait for
+a structural rooted-separation or master-distance reduction.
+
+Artifacts: `../verification/census_2026-07-12_s37/`,
+`../verification/audit_s37_p2_optimizer*`, and
+`../verification/audit_s37_downstream_*`.
+
 ---
 
 *Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);
 spine §4 scoping caveat (sufficiency side). Companions:
-`HANDOFF_2026-07-11_s32.md` (current execution order),
+`HANDOFF_2026-07-12_s37.md` (current execution order),
+`HANDOFF_2026-07-12_s36.md` (prior),
+`HANDOFF_2026-07-12_s35.md` (prior),
+`HANDOFF_2026-07-12_s34.md` (prior),
+`HANDOFF_2026-07-11_s33.md` (prior; late alarm resolved in s34),
+`HANDOFF_2026-07-11_s32.md` (prior),
 `../sigma_essential_taxonomy.json` (walls, gluing map),
 `../sigma_essential/czech_school_prior_art_sigma_essential.md`,
 `../sigma_essential/sharp_skeleton_RDP_subroute_verdict.md`.*

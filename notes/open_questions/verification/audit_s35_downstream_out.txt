@@ -1,0 +1,24 @@
+Independent s35 downstream audit (2026-07-12)
+
+Semantics: period-1, one-sided rooted / any-position; FACE C={0,3,11};
+targets are the common-zero atoms {1,2,4,10,12,13}.  Every operative map
+also has all three FACE states in the rooted all-zero infinite basin.
+
+k=1: 196 labeled maps/target, 196 two-cell-girth valid, 0 operative.
+k=2: 16,562 labeled maps/target, 9,408 valid, 0 operative.
+k=3: 794,976 labeled maps/target, 122,500 valid.
+Operative counts (exact Omega\F count):
+  a1  2 (2); a2  9 (6); a4  0; a10  0; a12  9 (6); a13  2 (2).
+
+The a1/a13 maps fail three-cell girth, leaving 18 target-map pairs.
+Reflection x -> -x mod 14, the nontrivial stabilizer of C, pairs these into
+9 a2/a12 orbits.  All 18 pass finite quotient girth through six cells.
+
+All 18 then fail master geometry at the first gap g=1: their target-to-next-
+target block-chain distances are 2 or 3, whereas the required distance is
+at least 4.  Distances were computed in a 40-cell quotient with base cell 10
+and gaps 1..15.  Consequently no candidate reaches cross-cell separation.
+
+Scripts:
+  audit_s35_7loop_census.py
+  verify_s35_survivor_girth.py

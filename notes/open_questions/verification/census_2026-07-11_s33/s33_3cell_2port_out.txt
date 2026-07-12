@@ -1,0 +1,4 @@
+2-port valid: 1000 design-class: 275
+--- two-port DESIGN-CLASS (s_*-preserving): 275 ports, product 20796875 triples ---
+  triples screened: 20796875; phase-0 survivors: 0
+  all-phase-confirmed survivors: 0

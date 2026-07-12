@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 28,
+   "entries": 47,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "T4 via Maharam (8.2), in parallel with the coarse-block toy hunt"
+   "current_next_step": "Execute HANDOFF_2026-07-11_s32.md: corrected liveness kills all 4,050 two-port pentagon maps. Screen three-or-more-overlap/two-cell and three-cell relays, or move to a larger finite OML with a richer removable face."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -69,6 +69,20 @@
    "status": "settled-reduction",
    "one_line": "The lattice question factors into B′(i) for countably generated blocks and a separate coarse-block coherence question.",
    "detail": "oml_lattice_regularity_attack.md#10d-consequence-skeleton-a-demoted--2a-does-not-finish-theorem-2"
+  },
+  {
+   "id": "oml.reduction.t4_stone_projection",
+   "name": "T4 as Stone projection",
+   "status": "proved-hand-reduction",
+   "one_line": "T4 holds exactly when each cluster face reaches a principal block atom; for countably generated blocks this is equivalent to nonempty restriction-image interior and to the proposed basic-open interpolation form.",
+   "detail": "oml_lattice_regularity_attack.md#14-local-interior-collapses-to-t4-on-a-fine-block-2026-07-11-session-20"
+  },
+  {
+   "id": "oml.reduction.t4_feasible_tree",
+   "name": "Finite-generator tree and σ-completion gap",
+   "status": "failed-reduction-sharpened",
+   "one_line": "Finite feasible branches determine only generator-algebra traces, not f.a. ultrafilters on the generated σ-field; their compact fibres expose the missing atom-charge step rather than proving T4.",
+   "detail": "oml_lattice_regularity_attack.md#15-finite-generator-tree-test-the-σ-completion-gap-reappears-2026-07-11-session-21"
   }
  ],
  "fine_block_route": [
@@ -109,6 +123,13 @@
    "one_line": "Every coherent cluster must admit a coherent atom from each further block; necessary for B′(i), but insufficient without a completion principle.",
    "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit",
    "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): T4At/T4 stated as named open Props (never sorry); NECESSITY direction machine-checked axiom-free: t4At_of_phi / bPrimeI_implies_T4 (B'(i) => T4; the T3 kernel is proved to be an atom of the block). Converse NOT stated -- crux red flag respected"
+  },
+  {
+   "id": "oml.fine.fibre_saturation",
+   "name": "Finite-stage fibre saturation",
+   "status": "proved-sufficient-condition-demoted",
+   "one_line": "FS plus a branch carrier proves T4, but FS is exactly universal principality of the whole branch fibre and fails even in a complete Boolean algebra containing a principal state on that branch.",
+   "detail": "oml_lattice_regularity_attack.md#17-fs-demoted-countable-certificates-and-affine-cancellation-2026-07-11-session-23"
   }
  ],
  "coarse_block_route": [
@@ -175,6 +196,55 @@
    "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
   },
   {
+   "id": "oml.construct.pentagon_kill_cell",
+   "name": "Pentagon contextual atom-kill cell",
+   "status": "inhabited-finite-cell",
+   "one_line": "A three-input pattern in the finite Greechie pentagon uniquely and contextually forces a fourth incompatible atom to zero; the obstacle is countable high-girth assembly, not a single OML cell.",
+   "detail": "oml_lattice_regularity_attack.md#18-cyclic-gadget-census-four-loop-kill-five-loop-cell-2026-07-11-session-24"
+  },
+  {
+   "id": "oml.construct.pentagon_serial_relay",
+   "name": "Pentagon serial relay",
+   "status": "failed-architecture",
+   "one_line": "The pentagon propagates a 1/0 signal, but its outputs are co-contextual; direct serial identification creates a three-loop, as does using master-block targets as the zero rail.",
+   "detail": "oml_lattice_regularity_attack.md#19-pentagon-gluing-geometry-direct-fan-out-and-serial-relay-2026-07-11-session-25"
+  },
+  {
+   "id": "oml.construct.spaced_master_relay",
+   "name": "Spaced-master pentagon relay",
+   "status": "killed-sigma-state-nonseparation",
+   "one_line": "The relay/free state extends blockwise, but its absorbing regime is forced by a two-element trace that no σ-state realizes, so σ-states create a false order and cannot give a concrete representation.",
+   "detail": "oml_lattice_regularity_attack.md#21-spaced-master-candidate-killed-σ-state-separation-forces-an-essential-ternary-trigger-2026-07-11-session-27"
+  },
+  {
+   "id": "oml.construct.essential_ternary_trigger",
+   "name": "Essential ternary trigger",
+   "status": "inhabited-exhaustive-pentagon",
+   "one_line": "The pentagon has 45 essential ternary triggers; a master-ready variant forces atom a9 to zero while every proper input subset permits both target values.",
+   "detail": "oml_lattice_regularity_attack.md#22-essential-ternary-trigger-exists-in-the-pentagon-2026-07-11-session-28"
+  },
+  {
+   "id": "oml.construct.indirect_ternary_relay",
+   "name": "Indirect two-overlap ternary relay",
+   "status": "killed-omega-nonseparation",
+   "one_line": "The relay is finitely essential and structurally complete, but one required order witness enters the absorbing free basin and has no principal-master continuation, so σ-states impose a false order.",
+   "detail": "oml_lattice_regularity_attack.md#24-indirect-relay-killed-finite-escape-is-not-ω-live-2026-07-11-session-30"
+  },
+  {
+   "id": "oml.construct.all_odd_relay",
+   "name": "All-odd removable-state relay",
+   "status": "killed-corrected-liveness",
+   "one_line": "The all-odd state is uniquely removable, but every two-port relay either makes it σ-live (so T4 holds) or loses other indispensable order witnesses; no map passes the corrected local screen.",
+   "detail": "oml_lattice_regularity_attack.md#26-corrected-removable-state-census-kills-all-two-port-pentagon-relays-2026-07-11-session-32"
+  },
+  {
+   "id": "oml.reduction.omega_live_separation",
+   "name": "ω-live σ-state separation screen",
+   "status": "necessary-computational-screen",
+   "one_line": "A relay candidate must have σ-live automaton states order-determine every cell and compatible σ-live paths separate cross-cell non-orders; finite proper-trace escape is insufficient.",
+   "detail": "oml_lattice_regularity_attack.md#24-indirect-relay-killed-finite-escape-is-not-ω-live-2026-07-11-session-30"
+  },
+  {
    "id": "oml.construct.full_witness",
    "name": "Full concrete OML witness",
    "status": "open-ultimate",
@@ -219,6 +289,69 @@
    "status": "refuted-framing",
    "one_line": "K(s)=∅ depends on the chosen concrete representation and cannot classify the abstract OML state by itself.",
    "detail": "oml_lattice_regularity_attack.md#11c-on-countably-generated-blocks-the-σ-side-is-free-pointed-σ"
+  },
+  {
+   "id": "oml.exclusion.maharam_82_repointing",
+   "name": "Maharam (8.2) for one-block repointing",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "Every empty-kernel cluster violates (8.2) before a new atom is chosen, so classical positive set-field gluing is too strong to decide T4.",
+   "detail": "oml_lattice_regularity_attack.md#12-maharam-82-test-of-the-repointing-crux-2026-07-11-session-19"
+  },
+  {
+   "id": "oml.exclusion.finite_carrier_atom_killing",
+   "name": "Finite compatible carrier atom-killing",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "An all-remainder construction cannot kill every atom of a countably atomic block using one reused value-one carrier or finitely many jointly compatible carrier certificates.",
+   "detail": "oml_lattice_regularity_attack.md#16-fibre-saturation-and-the-finite-certificate-obstruction-2026-07-11-session-22"
+  },
+  {
+   "id": "oml.exclusion.affine_shared_tail",
+   "name": "Affine shared-tail atom killing",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "Paired exact-one equations with a shared partition tail force literal equality of their distinguished carrier sets, so chains of such cancellations reduce to the reused-carrier obstruction.",
+   "detail": "oml_lattice_regularity_attack.md#17-fs-demoted-countable-certificates-and-affine-cancellation-2026-07-11-session-23"
+  },
+  {
+   "id": "oml.exclusion.four_loop_gadget",
+   "name": "Four-loop contextual propagation",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "The smallest separated cyclic exact-one implication gadget is a concrete σ-class OMP but not a lattice; opposite atoms have two incomparable minimal upper bounds.",
+   "detail": "oml_lattice_regularity_attack.md#18-cyclic-gadget-census-four-loop-kill-five-loop-cell-2026-07-11-session-24"
+  },
+  {
+   "id": "oml.exclusion.direct_pentagon_fanout",
+   "name": "Direct pentagon fan-out",
+   "status": "proved-architecture-exclusion",
+   "one_line": "Two private pentagon cells sharing a distance-two input pair create an induced four-loop; the obstruction is sharp and does not cover one-port serial cactus assemblies.",
+   "detail": "oml_lattice_regularity_attack.md#19-pentagon-gluing-geometry-direct-fan-out-and-serial-relay-2026-07-11-session-25"
+  },
+  {
+   "id": "oml.exclusion.exact_one_forest_cloning",
+   "name": "Exact-one cloning on incidence forests",
+   "status": "proved-architecture-exclusion",
+   "one_line": "With one 1/0 seed pair, unit propagation on a finite linear incidence forest can create at most one fresh value-one vertex; repeatable propagation requires a cycle.",
+   "detail": "oml_lattice_regularity_attack.md#20-a-composable-pentagon-repeater-and-the-spaced-master-candidate-2026-07-11-session-26"
+  },
+  {
+   "id": "oml.exclusion.fresh_three_port_two_cell",
+   "name": "Fresh explicit three-port two-cell relay",
+   "status": "exhausted-no-go",
+   "one_line": "Among all 24 fresh value-compatible three-port pentagon maps, none is both essential and girth five; indirect two-overlap conversion remains possible.",
+   "detail": "oml_lattice_regularity_attack.md#23-essential-composition-and-an-indirect-two-overlap-relay-2026-07-11-session-29"
+  },
+  {
+   "id": "oml.exclusion.pentagon_ternary_absorbing",
+   "name": "Pentagon essential ternary absorbing faces",
+   "status": "proved-architecture-exclusion",
+   "one_line": "All 45 essential ternary trigger fibres exclude the uniquely removable state and contain an indispensable order witness, so making them nonprincipal destroys σ-state order separation.",
+   "detail": "oml_lattice_regularity_attack.md#25-ω-live-census-ternary-route-killed-removable-state-relay-found-2026-07-11-session-31"
+  },
+  {
+   "id": "oml.exclusion.pentagon_two_port_removable",
+   "name": "Pentagon two-port removable-state relays",
+   "status": "exhausted-no-go",
+   "one_line": "Of 4,050 maps, 45 are girth-five with a free but non-σ-live all-odd state; none retain local order determination, so the whole two-port class is eliminated.",
+   "detail": "oml_lattice_regularity_attack.md#26-corrected-removable-state-census-kills-all-two-port-pentagon-relays-2026-07-11-session-32"
   }
  ],
  "external_sufficient_conditions": [

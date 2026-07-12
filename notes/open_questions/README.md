@@ -6,9 +6,9 @@ attack thread and the σ-essential hub documents it leans on.
 
 | Path | What lives here |
 |---|---|
-| `oml_attack/` | OML taxonomy, active working note, and proof-read receipts. |
+| `oml_attack/` | OML taxonomy, active note, current `HANDOFF_2026-07-11_s32.md`, prior handoffs, and receipts. |
 | `sigma_essential/` | σ-essential hub/verdict documents: taxonomy leaves (`sigma_essential_*`), prior-art verdicts (`czech_school_*`, `sharp_skeleton_*`), reduction writeups, reading notes (`navara_ptak_*`), `rigor_guard_scope.md`. |
-| `kits/` | Pen-and-paper artifacts (tex+pdf): `oml_onboarding`, `problemset_oml_descent` (+ `references_oml.bib`, `figures/`), `ratification_kit_2026-07-11`, `companion_probability_without_a_joint_world`. |
+| `kits/` | Pen-and-paper artifacts; `ratification_kit_2026-07-11` is retired presentation material. |
 | `verification/` | Machine oracles and from-scratch proof-read scripts (`proof_read_*/` subdirs are per-review, written blind to repo scripts). |
 | `sigma_essential_taxonomy.json` | Stays at top level: registered in `notes/taxonomies_index.json`; its `detail` pointers are relative to THIS directory. |
 

@@ -193,14 +193,90 @@ graded open problems attract *inhabitants*.
    intrinsic wall statement for the coarse factor banked (✎s16
    wording: "Marczewski-approximates interlocking coarse blocks
    in-block").
-   Next = the frontier, any order: (i) **T4 via Maharam (8.2)** — the
-   finitary shadow of B′(i) (one-block repointing crux, attack note
-   §11f), now the sharpest step; (iii) coarse-block
+   Maharam (8.2) is excluded on every empty-kernel cluster (attack note
+   §12): its classical positive-extension test fails before repointing.
+   T4 has Stone projection form (§13), sharpened s20 (§14): on a
+   countably generated block, nonempty restriction-image interior and
+   the proposed basic-open interpolation statement are EQUIVALENT to
+   T4 because point ultrafilters are isolated by signature atoms. Thus
+   the fine-block target is principal-atom reachability, not an
+   independently stronger local-interior lemma. Session 21 (§15) tests
+   and rejects the naive finite-generator tree equivalence: a branch
+   fixes only the finite generator algebra, not a f.a. ultrafilter on
+   the generated σ-field. Its compact state fibre need not charge the
+   branch's signature atom. The live gap is precisely fibre-to-atom
+   charge; the canonical atomwise-disjointness counterconstruction is
+   blocked because it makes the cluster pairs compatible. Session 22
+   (§16) banks a sufficient condition, branch carrier + finite-stage
+   fibre saturation, and a broader falsification obstruction: no
+   all-remainder construction can kill all atoms through one reused
+   value-one carrier or finitely many compatible carrier certificates.
+   Session 23 (§17) demotes fibre saturation: it is universal
+   principality of a whole branch fibre and fails even in a complete
+   Boolean algebra whose fibre contains a Dirac. Countably many
+   compatible certificates can sustain a free ultrafilter, but affine
+   shared-tail gadgets collapse to literal carrier equality. The live
+   falsification/proof boundary is genuinely contextual cyclic
+   exact-one propagation versus a lattice obstruction to it. Session 24
+   (§18) closes the smallest cyclic class: the four-loop implication is
+   a concrete σ-class OMP but not a lattice. The five-loop Greechie
+   pentagon is a genuine OML atom-killing cell; direct countable
+   repetition creates inter-copy four-loops. The target is now a
+   globally high-girth propagation network or a proof that completing
+   its short loops restores a principal state. Session 25 (§19)
+   classifies direct gluing: distance-two input reuse creates a
+   four-loop, while the natural serial 1/0 relay creates a three-loop
+   because its outputs are co-contextual. The next architecture is a
+   multi-cell repeater with separated output ports, or an exact-one
+   no-cloning theorem showing such separation forces a short loop.
+   Session 26 (§20) finds the repeater: one pentagon maps a separated
+   1/0 input to a separated 1/0 output and composes at girth five. Taking
+   every third forced-zero atom into one master block avoids short
+   master cycles, producing the first concrete T4-counterexample
+   architecture. Four load-bearing checks remain: infinite latticehood,
+   σ-completeness, global state extension, and σ-state order separation.
+   Session 27 (§21) kills this candidate at the fourth check: the
+   absorbing relay regime is already forced by a two-element root trace,
+   which no σ-state realizes, so σ-states impose a false order and cannot
+   represent the OML concretely. The next finite target is an essential
+   ternary trigger: all three inputs force the output, while every proper
+   subinput permits both output values and preserves separation.
+   Session 28 (§22) finds 45 such triggers already in the pentagon. A
+   master-ready variant forces atom a9 to zero while every proper input
+   subset permits both target values. The finite separation screen is
+   cleared; the live problem is high-girth/separated-port composition
+   preserving ternary essentiality and σ-state escape paths.
+   Session 29 (§23) exhausts fresh explicit three-port two-cell maps
+   negatively but finds an indirect two-overlap winner:
+   a3(n)=a7(n+1), a8(n)=a4(n+1). It regenerates a fresh canonical
+   ternary trigger, preserves proper-trace target escape, remains girth
+   five through tested chains, and admits master cycles of length at
+   least five. Infinite OML/σ-completeness and full σ-state order
+   separation are again the certification frontier.
+   Session 30 (§24) passes the structural/free-state half but kills the
+   first indirect relay at σ-state separation: the finite witness to
+   a2≰a9 enters the absorbing free basin and has no principal-master
+   continuation, so σ-states impose a false order. New necessary screen:
+   σ-live automaton states must order-determine every cell and compatible
+   σ-live paths must separate cross-cell non-orders. Apply it before any
+   further completion work.
+   Session 31 (§25) kills the whole pentagon three-input absorbing route:
+   all 45 trigger fibres contain indispensable order witnesses. The
+   five-block all-odd cluster isolates the uniquely removable state, but
+   session 32 (§26) corrects the first liveness interpretation: if all
+   11 states are σ-live, the cluster itself has a σ-extension. Exhaustive
+   corrected census of all 4,050 two-port maps leaves 45 with a free but
+   non-σ-live cluster state and ZERO with local order determination.
+   The whole two-port pentagon relay class is killed. Next: higher-overlap
+   or three-cell relays, co-equally a larger OML removable face.
+   Execution order and exits:
+   `notes/open_questions/oml_attack/HANDOFF_2026-07-11_s32.md`. In
+   parallel, the coarse-block
    toy hunt — concrete σ-class OM lattice with one ctbl/co-ctbl-type
    block + one incompatibility — **promoted s13: it decides Theorem 2's
    second factor** (even a failed construction names the next wall; s15
    adds its target: defeat the intrinsic compact-class wall statement);
-   (iv) Skeleton C surviving branch — PP1994 σ-unitality engine analysis
+   Also live: Skeleton C's surviving PP1994 σ-unitality branch
    (ptak_pulmannova_1994.pdf in library).**
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.
 5. **Parallel — gate RELAXED (s9b directive: relax the rules, keep the

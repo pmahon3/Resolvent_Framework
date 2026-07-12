@@ -3,7 +3,45 @@
 Lean 4 / Mathlib formalization of Paper I: "When Does Observational
 Coherence Determine Probability?"
 
-## Active files (Paper I + companion note)
+## Active OML/lattice files
+
+| File | Content | Status |
+|------|---------|--------|
+| `ConcreteOMLBlocks.lean` | Blocks, overlaps, compatibility, T1/P1/T3/A2 | ✅ axiom-free |
+| `ConcreteOMLPatterns.lean` | Clusters, 2BR, Φ-density, B′(i) ⇒ T4 | ✅ axiom-free |
+| `MarczewskiTransport.lean` | Compact transport and the ω₁ coarse bank | ✅ axiom-free |
+| `InnerRegularity.lean` | Theorem-lets R and two-valued P | ✅ axiom-free |
+| `PruningTheorem.lean` | Reconstruction pruning theorem, Steps 2–4 | ✅ axiom-free |
+
+Current mathematical frontier: principal-atom reachability for T4
+(`notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`
+§§13–26). On countably generated blocks this is equivalent to nonempty
+restriction-image interior, so local openness/interpolation is not an
+independent intermediate target. T4 is already a named open Lean
+proposition; Maharam (8.2) is excluded as its proof engine (§12).
+Section 15 records why the tempting finite-generator tree reduction
+does not close the f.a.-to-σ-field completion gap.
+Section 16 gives the current BC + finite-stage fibre-saturation
+sufficient condition; §17 demotes it and isolates contextual cyclic
+propagation as the live boundary. No new Lean phase has started.
+Section 18 supplies a finite pentagon atom-killing cell and moves the
+frontier to countable high-girth assembly.
+Section 19 classifies direct/serial pentagon gluing and leaves a
+separated-port multi-cell repeater as the current bounded search.
+Section 20 supplies a composable repeater and spaced-master candidate;
+§21 kills it by σ-state non-separation and moves the finite target to an
+essential ternary trigger.
+Section 22 finds 45 essential pentagon triggers and moves the frontier
+to high-girth ternary composition.
+Section 23 finds an indirect essential two-overlap relay and returns the
+frontier to infinite structural/state-separation certification.
+Section 24 kills that relay by a non-ω-live order witness and makes
+σ-live automaton separation the mandatory pre-completion screen.
+Section 25 pivots to the all-odd removable pentagon state and finds a
+relay with all states live; §26 corrects this as T4 satisfaction and
+exhaustively kills the entire two-port pentagon relay class.
+
+## Paper I + companion files
 
 | File | Content | Status |
 |------|---------|--------|

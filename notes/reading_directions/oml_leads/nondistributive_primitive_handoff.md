@@ -1,5 +1,8 @@
 # Handoff — invent an intrinsically non-distributive combinatorial primitive
 
+> Historical construction-lane handoff, not the current OML/lattice plan.
+> Current navigation: `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`.
+
 *2026-07-01. The one target the whole σ-essential programme now converges on. This is a
 HANDOFF PROMPT for a fresh session (or a human working session) to attempt the hardest,
 most open-ended move: not evaluating an existing tool, but INVENTING a new object. Read

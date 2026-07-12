@@ -64,8 +64,11 @@ representation-relative, kernel-FIP strictly stronger than coherence
 Marczewski-compact — coarse killer kills only the topological leg;
 intrinsic wall statement for the coarse factor — ✎s16 wording:
 "Marczewski-approximates in-block", not mere filter refinement).
-Sharpest next step:
-**T4 finitary shadow via Maharam (8.2)** (one-block repointing crux).
+Maharam (8.2) is excluded on every empty-kernel cluster (§12). The Stone
+projection reduction (§13) is sharpened in §14: on a countably generated
+block, nonempty restriction-image interior/interpolation is exactly T4,
+not an independent route. The live fine-block target is principal-atom
+reachability, alongside the coarse-block toy hunt.
 Nav: `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`; `papers/spine/` §4.
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility

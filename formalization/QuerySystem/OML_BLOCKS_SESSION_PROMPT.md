@@ -1,5 +1,15 @@
 # Session prompt: Lean formalization of the concrete-OML block layer
 
+**ARCHIVED EXECUTION PROMPT.** Phases A–D are complete; do not reuse the
+starter below as the current plan. The live OML target is now
+principal-atom reachability in `oml_lattice_regularity_attack.md`
+§§13–26. Maharam (8.2) was excluded for T4 in §12; §14 proves that local
+interior/interpolation is exactly T4 on a fine block. No new Lean phase
+is warranted: §15's finite-generator tree test exposes the same
+fibre-to-atom gap and still targets the already-named open `T4`.
+Current execution handoff:
+`notes/open_questions/oml_attack/HANDOFF_2026-07-11_s32.md`.
+
 **STATUS 2026-07-11 (s17–s18): ALL PHASES EXECUTED, ALL AXIOM-FREE.
 Phase A+B: `ConcreteOMLBlocks.lean` (A1a–c/L0/C1′/T1/P1/T3/A2 incl.
 overlaps; the FH axiom proved UNNECESSARY — meet squeeze). Phase C:
@@ -13,7 +23,7 @@ two-valued, all-Hausdorff strengthening, cofinite red-flag). Bonus:
 frontier: Lemma NG + Theorem B (kit 5.3), product-Ulam escape (2.3(a)),
 real-valued P, FH as an abstract OML theorem (optional).**
 
-**Paste-able starter for a fresh session. Written 2026-07-11 end of s16;
+**Historical starter, retained for provenance. Written 2026-07-11 end of s16;
 audit of existing Lean infrastructure already done — reuse it, do not
 re-audit.**
 

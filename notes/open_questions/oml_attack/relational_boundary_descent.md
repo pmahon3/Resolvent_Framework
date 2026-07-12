@@ -193,7 +193,7 @@ It determines which boundary traces can coexist with $E_B(p)$ and which
 
 ## 6. Finite-interface quarantine
 
-### Theorem 6.1 (finite-interface quarantine) ⟦HAND, proved in ZFC⟧
+### Theorem 6.1 (finite-interface quarantine) ⟦HAND, independent review cleared; Lean formalization owed⟧
 
 If $\partial B$ is finite for every maximal block $B$, then $L$ satisfies
 $\Phi$. No irreducibility, non-Booleanness, countability of blocks, or
@@ -286,7 +286,7 @@ The following hypotheses are distinct:
 |---|---|---|
 | every block countably generated | local σ-state = atom/point state | countably many blocks |
 | countably many blocks | number of simultaneous good loci | fine blocks |
-| every boundary countably generated | metrizability of boundary Stone spaces | point realization on the whole block |
+| every boundary countably generated **as a Boolean algebra under finite operations** | countability, hence metrizability, of boundary Stone spaces | point realization on the whole block |
 | one countably atomic master | one architecture's tail coordinates | a normal form for $L$ |
 | common countable tail for a face | uniform obstruction for all states in that face | follows from individual bad tails |
 
@@ -548,7 +548,7 @@ minimal trap ---> essential boundary gate -?-> rooted nonorder
 |---|---|---|---|
 | Boundary-compatible σ-local replacements glue globally | Full generality for concrete σ-class OMLs | **proved ⟦HAND⟧** | certified block coverage and blockwise σ theorem |
 | GSD is equivalent to $\Phi$ | Full generality | **exact reformulation ⟦HAND⟧** | gluing theorem |
-| Finite-interface quarantine | Arbitrary maximal blocks, every $\partial B$ finite | **proved ⟦HAND⟧ in ZFC** | boundary surgery + choice |
+| Finite-interface quarantine | Arbitrary maximal blocks, every $\partial B$ finite | **⟦HAND, independent review cleared; Lean owed⟧** | boundary surgery + choice |
 | Boundary closure-defect characterization | closure equality: any concrete block; σ=shadow: countably generated block | **proved ⟦HAND⟧ + certified point realization** | Stone compactness, concreteness, T3 |
 | Baire simultaneous escape | Countably many countably generated blocks | **proved conditionally** | hereditary local density on every finite refinement |
 | Uniform countable tail extraction | compact trapped image in compact metrizable boundary Stone space | **proved conditionally** | countable clopen base; not distributed trapping |
@@ -599,9 +599,11 @@ GSD is an exact reformulation, not progress on its universal truth.
 
 Fine/countable only: σ-trace = carrier shadow, the closure-defect reading,
 Baire simultaneous escape, the countable-tail lemma, and the atomic-master
-semantic-filter equation. B′(ii) remains the unrestricted problem of
-σ-lifting boundary traces on coarse blocks together with simultaneous
-selection across an arbitrary block atlas.
+semantic-filter equation. **B′(i)** retains both local point-liftability
+and simultaneous selection over possibly uncountably many fine blocks.
+**B′(ii)** adds the problem of characterizing and selecting non-point
+σ-lifts on coarse boundaries. The global arbitrary-atlas selection issue
+cuts across both factors; it does not belong exclusively to B′(ii).
 
 The framework supplies one genuinely new lever—the finite-interface
 quarantine theorem—and a clean localization of the obstruction. Beyond

@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 51,
+   "entries": 52,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -47,6 +47,13 @@
    "one_line": "σ-additivity is blockwise, so global σ-states are exactly coherent choices of σ-states across Boolean blocks.",
    "detail": "oml_lattice_regularity_attack.md#9b-the-gluing-reduction-any-concrete-σ-class--no-latticehood",
    "lean": "ConcreteOMLBlocks.lean (2026-07-11 s17): A1a exists_isMaxBlock_superset, A1b IsMaxBlock.{empty,univ,compl,iUnion}_mem, A1c isSigmaOn_carrier_iff_maxBlocks -- axiom-free (classical base only), #print axioms receipts in file"
+  },
+  {
+   "id": "oml.reduction.general_boundary_descent",
+   "name": "General relational boundary descent",
+   "status": "exact-reformulation-hand-reviewed",
+   "one_line": "Phi is equivalent to choosing one finitely additive extension whose trace on every overlap-generated boundary admits a pattern-preserving local sigma lift; matching all lifts to that common trace makes them glue.",
+   "detail": "relational_boundary_descent.md#4-exact-full-general-formulation-and-proved-boundary-lemmas"
   },
   {
    "id": "oml.reduction.two_block_rescue",
@@ -137,7 +144,7 @@
    "id": "oml.coarse.bprime_ii",
    "name": "B′(ii): coarse-block coherence",
    "status": "primary-open-needs-restatement",
-   "one_line": "Determine whether interlocking coarse blocks can coherently support finite-additive patterns while excluding every global σ-selection.",
+   "one_line": "Adds the local problem of characterizing and selecting non-point sigma lifts on coarse boundaries; arbitrary-atlas simultaneous selection is a separate cross-cutting issue shared with B′(i).",
    "detail": "oml_lattice_regularity_attack.md#9d-the-reduced-picture-and-conjecture-b"
   },
   {
@@ -398,9 +405,9 @@
    "detail": "oml_lattice_regularity_attack.md#9a-two-corrections-to-the-record"
   },
   {
-   "id": "oml.tame.finite_boundary",
+   "id": "oml.tame.finite_interface",
    "name": "Finite-interface quarantine",
-   "status": "proved-hand-theorem-let",
+   "status": "hand-independent-review-cleared-lean-owed",
    "one_line": "If every maximal block has finite overlap-generated boundary algebra, every finitely coherent pattern has a global sigma-additive two-valued extension; blocks and the block set may be infinite.",
    "detail": "relational_boundary_descent.md#6-finite-interface-quarantine"
   }

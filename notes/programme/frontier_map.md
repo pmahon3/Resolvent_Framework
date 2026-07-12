@@ -96,6 +96,11 @@ over all 38,416 ordered pairs. Next: signature/bitset period-two k=2
 zero pass the operative screen for any target orbit. Period-two k≤2 is
 closed. Next: the feasible period-three width-one class (7,529,536
 triples), paired with extraction of a rooted-separation obstruction.
+**s38:** all 7,529,536 period-three width-one triples were exhausted; zero
+operative survivors. Only 375–405 per representative target clear both
+local face conditions, and every one loses complement order determination.
+The next census task is classification of these near-misses by their missing
+rooted nonorders, not a jump to a larger raw class.
 **s39 boundary-descent audit:**
 `notes/open_questions/oml_attack/relational_boundary_descent.md` proves at
 hand level the exact common-trace gluing/GSD equivalence and the new tame
@@ -103,8 +108,11 @@ slice **finite overlap-generated boundary at every block $\Rightarrow\Phi$**.
 It also separates the fine-block closure defect, countable-block Baire
 slice, metrizable uniform-tail extraction, and Sasaki consequence filter
 from the still-open distributed-trap/rooting and coarse-block problems.
-The framework localizes the obstruction but does not prove B′(i) or
-B′(ii). Nav: `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`;
+The finite-interface result is ⟦HAND, independent review cleared; Lean
+formalization owed⟧. The framework localizes the obstruction but does not
+prove B′(i) or B′(ii): arbitrary-atlas simultaneous selection cuts across
+both, while B′(ii) additionally carries coarse local σ-lifting. Nav:
+`notes/open_questions/oml_attack/oml_lattice_taxonomy.json`;
 `papers/spine/` §4.
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility

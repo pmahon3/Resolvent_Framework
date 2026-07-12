@@ -2125,6 +2125,8 @@ Artifacts: `../verification/census_2026-07-12_s38/` and
 
 *Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);
 spine §4 scoping caveat (sufficiency side). Companions:
+`HANDOFF_2026-07-12_boundary_descent.md` (current theorem-status and
+execution handoff),
 `relational_boundary_descent.md` (exact GSD/gluing formulation,
 finite-interface quarantine, fine-block closure defect, conditional Baire
 and uniform-tail slices, and the open rooting audit),

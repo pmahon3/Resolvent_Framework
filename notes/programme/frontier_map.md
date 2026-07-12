@@ -23,10 +23,11 @@ idea, not a refinement.
 **2026-07-12 boundary centre-removal audit:** the dense-nonopen boundary
 example cannot be made irreducible with only its two blocks: every common
 interface element is central in the OML they generate. The smallest crossed
-three-block interface fails disjoint-union closure and latticehood
-exhaustively. The residual fork is now the finite completion problem in
-`notes/open_questions/oml_attack/oml_irreducible_boundary_test.md`; direct
-simultaneous selection remains primary until that gate closes.
+three-block interface fails raw closure, but its forced 56-event completion
+is a centre-free concrete σ-complete OML with seven maximal blocks. Every
+overlap-generated boundary saturates its block. The residual fork is coarse
+infinite inflation and finite-face exposure; direct simultaneous selection
+remains primary.
 **2026-07-10:** attack OPENED on the load-bearing case (regularity/OML =
 shovel thm 2) — mechanisms collected, conjecture split, skeletons named:
 `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`. **s9:** first
@@ -141,7 +142,9 @@ finite coherence do not restore openness. This is a coarse reducible
 boundary-regularity counterexample, not a failure of Φ. Outcome: mixed
 hierarchy; general work pivots to direct simultaneous selection, while
 localization remains for explicit (RO-face) classes. Exact residual task:
-remove the center or prove essential irreducibility forbids the topology.
+inflate the verified 56-event centre-free skeleton to coarse infinite
+blocks with face-exposed nonopen topology, or prove its boundary-saturation
+mechanism forces σ-tameness.
 The framework does not
 prove B′(i) or B′(ii): arbitrary-atlas simultaneous selection cuts across
 both, while B′(ii) additionally carries coarse local σ-lifting. Nav:

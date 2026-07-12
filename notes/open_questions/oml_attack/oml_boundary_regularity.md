@@ -10,9 +10,10 @@ to `Phi`.*
 **Essential-irreducibility follow-up.**
 [`oml_irreducible_boundary_test.md`](oml_irreducible_boundary_test.md)
 proves the two-block centrality obstruction, audits distributed
-centre-killing architectures, refutes the smallest crossed-interface paste
-by an executable missing-meet receipt, and isolates the remaining finite
-completion problem. The irreducible topology question remains open.
+centre-killing architectures, and completes the failed raw crossed paste to
+a 56-event centre-free concrete σ-complete OML. All seven maximal-block
+boundaries saturate their blocks; infinite topological inflation remains
+open.
 
 ## 1. Exact question
 
@@ -303,6 +304,7 @@ the finite-interface, saturated/clopen, eventwise-section, or explicitly
 
 Existing executable receipts rerun this session:
 
+- `python3 notes/open_questions/verification/three_block_completion_audit.py`;
 - `python3 notes/open_questions/verification/distributed_trap_audit.py`;
 - `python3 notes/open_questions/verification/census_2026-07-12_s38/classify_near_misses.py`;
 - `python3 notes/open_questions/verification/census_2026-07-12_s38/sasaki_root_audit.py`;
@@ -312,14 +314,14 @@ No Lean file was changed: formalizing the uncountable countable-coordinate
 σ-field and its Stone ultrafilters would require substantial topology and
 choice infrastructure without strengthening the construction proof.
 
-The single best next task is the **central-killing realization problem**:
+The single best next task is the **coarse inflation problem**:
 
-> Construct, or rule out, a concrete σ-complete OML with trivial center
-> having a maximal block whose actual overlap boundary contains the
-> countable-coordinate σ-field site above and whose finite face restriction
-> image meets the same dense nonopen σ-liftable locus.
+> Inflate the centre-free 56-event seven-block skeleton to a concrete
+> σ-complete OML with a coarse maximal block whose full or proper boundary
+> has a dense nonopen σ-liftable locus exposed by a finite face; or prove
+> that the observed boundary saturation forces σ-tameness.
 
 A negative theorem here would identify essential irreducibility as the exact
 missing regularity. A positive construction would make direct simultaneous
 selection decisively primary for the full programme. Do not start another
-large relay census unless it implements this exact center-removal test.
+large relay census unless it implements this exact coarse-inflation test.

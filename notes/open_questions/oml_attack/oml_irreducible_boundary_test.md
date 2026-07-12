@@ -1,10 +1,11 @@
 # Essential irreducibility and the dense-nonopen boundary
 
-*Opened 2026-07-12. Status: Outcome D — unresolved minimal realization
-problem. The two-block obstruction and the compact-selection sharpening are
-proved by standard OML/compactness arguments. The smallest crossed-interface
-candidate is refuted by an executable exhaustive check. No counterexample to
-`Phi` is claimed.*
+*Opened 2026-07-12. Status: finite centre-removal solved; infinite
+topological inflation open. The two-block obstruction and compact-selection
+sharpening are proved by standard OML/compactness arguments. The raw
+crossed-interface family fails, but its 56-event completion is a concrete
+σ-complete centre-free OML. Every maximal-block boundary in the completion
+saturates its whole block. No counterexample to `Phi` is claimed.*
 
 ## 1. Target and definitions
 
@@ -144,11 +145,62 @@ questions arise. Receipt:
 `python3 notes/open_questions/verification/three_block_interface_audit.py`.
 
 Closing this family under the missing operations is not harmless: it adds
-events and potentially new maximal blocks, changes every overlap, and may
-make the generated boundary central. That completion is the smallest
-remaining finite realization problem.
+events and new maximal blocks and changes the generated boundaries. In this
+case, however, the forced completion can be computed exactly and succeeds.
 
-### 4.2 Coordinate splitting
+### 4.2 The 56-event centre-free completion
+
+Complete `B∪C_a` first. The shared event `a` is central in the OML it
+generates, so the completion decomposes into the intervals below `a` and
+`aᶜ`. In either interval the `B` decomposition and the `C_a` decomposition
+form `MO₂`. Hence
+
+\[
+ L_a\cong MO_2\times MO_2,\qquad |L_a|=36.
+\]
+
+The same construction across `b` gives
+
+\[
+ L_b\cong MO_2\times MO_2,\qquad |L_b|=36.
+\]
+
+On the original 16-point valuation carrier put `L*=L_a∪L_b`. Exhaustive
+set-level calculation gives `L_a∩L_b=B`, and therefore
+
+\[
+ |L^*|=36+36-16=56.
+\]
+
+The calculation verifies:
+
+- closure under complements and every binary disjoint union;
+- unique meet and join for all `56²` ordered pairs;
+- the orthomodular law for every comparable pair;
+- exactly seven maximal Boolean blocks, all of size 16;
+- `B,C_a,C_b` are among those maximal blocks;
+- the original overlap sizes remain `4,4,2`;
+- `Z(L*)={0,1}`.
+
+Since the carrier and event family are finite, binary disjoint-union
+closure implies countable disjoint-union closure. Thus `L*` is a finite
+concrete σ-complete essentially irreducible OML. Receipt:
+`python3 notes/open_questions/verification/three_block_completion_audit.py`.
+
+The four new maximal blocks create a decisive tradeoff. For every maximal
+block `M` of `L*`, exhaustive Boolean generation gives
+
+\[
+ \partial M=\operatorname{BA}_M\!\left(
+   \bigcup_{N\ne M}M\cap N\right)=M.
+\tag{Saturation}
+\]
+
+In particular `∂B=B`: centre removal succeeds by distributing enough
+overlap information to eliminate the earlier proper-boundary/private-
+generator architecture.
+
+### 4.3 Coordinate splitting
 
 Let `I=I₁⊔I₂`. The sub-σ-fields of events depending only on `I₁` and only
 on `I₂` have trivial intersection, but their finite Boolean join generally
@@ -169,7 +221,7 @@ alter this first issue. Chains large enough to be cofinal among all
 countable supports cannot be countable when `I` is uncountable, and cyclic
 finite covers still miss arbitrary cross-coordinate subsets.
 
-### 4.3 Twists, carrier splitting, and iterated pastes
+### 4.4 Twists, carrier splitting, and iterated pastes
 
 A concrete overlap is literal equality of subsets of one carrier. A
 “twisted embedding” must therefore be implemented by a carrier
@@ -180,8 +232,9 @@ missing orthogonal joins and meets.
 
 Carrier duplication can preserve each interface separately, but the
 duplicated summand is then selected by a common event and recreates a
-central direct factor unless another block crosses that selector. Adding
-such a crossing returns to the same missing-meet completion problem.
+central direct factor unless another block crosses that selector. The
+finite completion shows that adding such crossings can restore all meets,
+but it may also saturate the overlap-generated boundaries.
 
 Iterated/tree pastes avoid a short cycle, but no argument currently shows
 that their σ-completion remains a lattice or that their maximal blocks are
@@ -197,8 +250,10 @@ The reducible product establishes:
 - **not descent failure:** it does not show `C_p⊆⋃_B D_B(p)` and is not a
   failure of `Phi`.
 
-For trivial centre, none of the three levels is presently established or
-ruled out. In particular, (C) alone supplies no topology: noncentral
+Trivial centre is now realized, but the finite example has discrete state
+and boundary spaces and hence cannot exhibit dense nonopen topology. Thus
+none of the three pathological levels is established or ruled out in an
+infinite essentially irreducible example. In particular, (C) alone supplies no topology: noncentral
 pairwise interface elements may still generate a boundary with a bad Stone
 image. Conversely, no valid argument shows that finite global faces must
 avoid such elements. The proposed boundary-centrality, face-exposure,
@@ -209,6 +264,12 @@ The finite cluster normal form does not regularize the image: it controls
 only finitely many event values, while `K_{B,p}` may be an arbitrary compact
 continuous image in an infinite boundary Stone space. Essential
 irreducibility has not yet supplied the missing closedness or openness.
+
+Boundary saturation is not itself a regularity theorem. When `∂B=B`, the
+trace locus is the eligible σ-state locus of the whole coarse block, which
+can still be dense and nonopen. The unresolved issue is whether the
+seven-block incidence pattern admits an infinite σ-complete inflation that
+preserves latticehood and exposes that locus on a finite global face.
 
 ## 6. Compact simultaneous selection, sharpened
 
@@ -289,36 +350,43 @@ interface” yields it only when the finite traces can be extended by local
 | Claim | Scope | Status | Consequence |
 |---|---|---|---|
 | Two-block overlaps are central | OML generated by two Boolean blocks | **proved** | at least three blocks are necessary |
+| Centre-free crossed completion exists | finite concrete σ-complete OML | **constructed: 56 events, seven blocks** | finite realization gate passed |
 | Dense-nonopen boundary realizable with trivial center | concrete σ-complete OML | **open** | localization viability undecided |
 | Face-exposed pathology with trivial center | concrete σ-complete OML | **open** | relevance to `Ψ_OML` undecided |
 | Nonopen exposed locus implies nontrivial center | essentially irreducible concrete σ-complete OML | **open** | no irreducible regularity theorem |
 | Finite coherence regularizes irreducible face images | same | **open**; no mechanism found | localization not revived |
 | Compact eligible local σ-state globalization | arbitrary atlas under stated compactness/FIP hypotheses | **proved; fixed-trace form corrected** | direct selection theorem |
 | Natural compact local-state classes | classes listed in §6 | **proved conditionally; Polish/standard Borel alone refuted** | tame hierarchy only |
-| Direct selection is primary | unrestricted problem | **conditional yes** | remains primary until centre-removal fork closes |
+| Every boundary saturates in the completion | the 56-event OML | **exhaustively proved** | proper-boundary architecture is lost |
+| Direct selection is primary | unrestricted problem | **yes** | infinite inflation/GSD remain open |
 
 ## 8. Strategic decision and next handoff
 
-This is **Outcome D**, with a banked hierarchy rather than a solution of the
-irreducible fork. The reducible construction cannot simply be centre-killed:
-two-block overlap is central, while the first three-block crossing loses
-orthogonal joins and lattice operations. Algebraic coordinate distribution
-does not by itself preserve the full boundary algebra or the face image.
+The result is **Outcome A at the finite skeleton level and Outcome D at the
+infinite/topological level**. Two-block centre removal is impossible, but
+the completed three-block crossing is a centre-free concrete σ-complete
+OML. What remains unresolved is not finite realization but coarse
+inflation and face exposure.
 
-The single best next problem is the following finite completion problem:
+The single best next problem is:
 
-> Starting from the 40-event three-block concrete family in the executable
-> receipt, add the least events required for disjoint-union closure and all
-> meets/joins. Determine whether a finite concrete OML completion exists
-> whose exhaustive maximal blocks still have centre `{0,1}` and whose two
-> distinguished interfaces remain nontrivial.
+> Inflate the 56-event centre-free completion while preserving
+> σ-completeness and producing a dense-nonopen σ-state or boundary-trace
+> locus; alternatively prove that boundary saturation in every such
+> irreducible completion forces σ-tameness.
 
-A negative finite completion theorem would explain why crossed distributed
-interfaces force either missing meets or new central structure. A positive
-completion would provide the finite skeleton on which to replace the two
-interfaces by increasing countable-coordinate σ-fields, after which the
-Stone topology and the actual face image must be recomputed. Do not resume
-rooting or broad relay searches before this realization gate is passed.
+This splits into two exact tests:
+
+1. replace the finite `MO₂×MO₂` interval components by
+   countable-coordinate σ-field components while retaining the seven-block
+   incidence pattern and all lattice operations;
+2. if `∂B=B` persists, determine whether a finite coherent global face can
+   expose the dense nonopen σ-state locus and, separately, whether the
+   resulting distributed defects can obstruct GSD.
+
+Direct simultaneous selection remains primary. Do not infer failure of
+`Phi` from full-boundary nonopenness, and do not resume broad rooting or
+relay searches before the infinite realization/face-image gate is passed.
 
 ## 9. Validation receipts
 
@@ -326,6 +394,7 @@ The session validation commands are:
 
 ```sh
 python3 notes/open_questions/verification/three_block_interface_audit.py
+python3 notes/open_questions/verification/three_block_completion_audit.py
 python3 notes/open_questions/verification/distributed_trap_audit.py
 python3 notes/open_questions/verification/census_2026-07-12_s38/classify_near_misses.py
 python3 notes/open_questions/verification/census_2026-07-12_s38/sasaki_root_audit.py

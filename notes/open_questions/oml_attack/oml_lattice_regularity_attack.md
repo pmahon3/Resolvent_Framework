@@ -15,9 +15,10 @@ OWED), not Lean; see each section's own status line.*
 *2026-07-12 centre-removal follow-up:* see
 [`oml_irreducible_boundary_test.md`](oml_irreducible_boundary_test.md).
 Two blocks cannot carry a noncentral common interface; the smallest
-three-block crossed-interface paste fails closure and latticehood. The
-irreducible boundary-regularity fork remains open as an explicit finite
-completion problem.
+three-block crossed-interface paste fails raw closure but has a 56-event
+centre-free concrete OML completion. Its seven maximal-block boundaries all
+saturate. The remaining fork is infinite coarse inflation and finite-face
+exposure, not finite completion.
 
 ---
 

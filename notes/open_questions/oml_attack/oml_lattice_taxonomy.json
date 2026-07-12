@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary realizes dense nonopen sigma-liftable traces. Two-block centre removal is impossible, while the smallest crossed three-block interface fails latticehood; the irreducible fork is now an explicit finite completion problem.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary realizes dense nonopen sigma-liftable traces. Two-block centre removal is impossible, but a crossed three-block architecture has a 56-event centre-free concrete OML completion; all seven maximal-block boundaries saturate, leaving infinite coarse inflation and face exposure open.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Solve the finite completion problem for the executable crossed-interface three-block family: either obtain a centre-free concrete OML skeleton or prove that completion forces missing meets/new central structure. Local rooting remains downstream."
+   "current_next_step": "Inflate the executable 56-event centre-free seven-block skeleton with countable-coordinate coarse components while preserving sigma-completeness and face-exposed dense-nonopen topology; alternatively prove boundary saturation forces sigma-tameness."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -71,9 +71,9 @@
   },
   {
    "id": "oml.obstruction.irreducible_boundary_realization",
-   "name": "Irreducible boundary realization gate",
-   "status": "open-minimal-completion-problem",
-   "one_line": "Every two-block interface is central in the generated OML; the smallest crossed three-block interface has trivial displayed common intersection but fails disjoint-union closure and latticehood by exhaustive computation.",
+   "name": "Irreducible boundary realization skeleton",
+   "status": "finite-skeleton-constructed-topological-inflation-open",
+   "one_line": "Every two-block interface is central, but completing two crossed interfaces intervalwise produces a 56-event centre-free concrete sigma-complete OML with seven maximal blocks; every generated boundary equals its full block.",
    "detail": "oml_irreducible_boundary_test.md"
   },
   {

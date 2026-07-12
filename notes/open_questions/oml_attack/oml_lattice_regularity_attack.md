@@ -2095,11 +2095,41 @@ Artifacts: `../verification/census_2026-07-12_s37/`,
 `../verification/audit_s37_p2_optimizer*`, and
 `../verification/audit_s37_downstream_*`.
 
+## 31. Period-three width-one exhaustive no-go and failure concentration (2026-07-12, session 38)
+
+The complete period-three width-one census is also empty.  All
+$196^3=7{,}529{,}536$ ordered labeled interface triples were evaluated with
+the exact rooted three-phase fixed points and the mandatory boundary-cell
+$E_1[0]$ order gate.  For target representatives $a_1,a_2,a_4$, the operative
+counts are $0,0,0$; reflection supplies the other three common-zero targets.
+
+The sequential failures sharpen the earlier no-go.  For $a_1,a_2,a_4$,
+respectively, face freedom first removes $1{,}488{,}811$,
+$1{,}496{,}688$, and $1{,}476{,}353$ triples.  Face nonliveness then removes
+$6{,}040{,}350$, $6{,}032{,}443$, and $6{,}052{,}798$.  Only $375,405,385$
+cases satisfy both local face conditions, and every one fails live-complement
+order determination.  Thus the local free/nonlive tension is overwhelmingly
+dominant, while its rare exceptions lose indispensable order witnesses; no
+triple reaches the root-cell gate.
+
+An independent Python monotone-bitset implementation agrees on every fixed
+point and screen mask for 1,000 deterministic triples across all six targets
+(6,000 comparisons).  The named face is now closed at width one for periods
+one through three, alongside the previous period-one $k\le4$ and period-two
+$k\le2$ bounds.
+
+Artifacts: `../verification/census_2026-07-12_s38/` and
+`../verification/audit_s38_p3_optimizer*`.
+
 ---
 
 *Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);
 spine §4 scoping caveat (sufficiency side). Companions:
-`HANDOFF_2026-07-12_s37.md` (current execution order),
+`relational_boundary_descent.md` (exact GSD/gluing formulation,
+finite-interface quarantine, fine-block closure defect, conditional Baire
+and uniform-tail slices, and the open rooting audit),
+`HANDOFF_2026-07-12_s38.md` (current execution order),
+`HANDOFF_2026-07-12_s37.md` (prior),
 `HANDOFF_2026-07-12_s36.md` (prior),
 `HANDOFF_2026-07-12_s35.md` (prior),
 `HANDOFF_2026-07-12_s34.md` (prior),

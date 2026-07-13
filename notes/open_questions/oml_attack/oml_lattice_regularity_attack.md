@@ -1,11 +1,13 @@
 # Theorem 2 attack — the OML-lattice case at the regularity transition
 
-**Transverse-overlap follow-up:** [`oml_transverse_overlap_collapse.md`](oml_transverse_overlap_collapse.md)
-closes the minimal four-point distinct-family square: its two proper overlap
-families jointly generate each endpoint, so the proposed maximal Boolean
-blocks coincide. This is a hand-proof and finite-executable exclusion only;
-the next gate requires transverse overlaps with proper joint closure in at
-least one endpoint.
+**Transverse-overlap follow-up:** [`oml_proper_joint_closure_candidate.md`](oml_proper_joint_closure_candidate.md)
+constructs the first five-atom proper-joint-closure continuation of the
+four-point square. Its 48-event mixed completion is the concrete finite OML
+`MO2 x P(3)`, with two maximal blocks and full state extension, but its
+16-element joint closure is exactly the centre. This is a scoped hand proof
+plus finite executable evidence, not a Lean certificate or an infinite
+classification. The next gate must distribute the overlap data across at
+least three blocks without restoring a central factor.
 
 *Opened 2026-07-10 (session 8), per `shovel_plan.md` §2 + §Execution-order.
 This is the attack-opening note the frontier map prescribes: collect the three

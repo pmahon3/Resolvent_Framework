@@ -2,10 +2,10 @@
  "$meta": {
   "title": "OML lattice form — finite-trace σ-liftability",
   "purpose": "Zoom-out index of the OML/lattice attack. Load this first; follow detail pointers into the working note for proofs, scope, and session receipts.",
-  "updated": "2026-07-12",
+  "updated": "2026-07-13",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The (5,11) inflation is a tame single pullback; O2/O3 repeat one embedded datum; and the minimal four-point transverse square collapses because its two overlap families jointly generate each endpoint. The next obstruction gate needs transverse overlaps with proper joint closure or a one-edge system lacking compatible sigma extensions.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The first five-atom proper-joint-closure transverse square completes as the reducible finite OML MO2 x P(3): its joint closure is exactly its centre. The next obstruction gate must distribute transverse data across at least three blocks without a central factor, or find a one-edge system lacking compatible sigma extensions.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 65,
+   "entries": 66,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The minimal distinct-family transverse square is closed: joint generation forces its endpoint blocks to coincide. Seek inequivalent overlap families whose joint Boolean closure remains proper in at least one endpoint, then audit the full mixed completion."
+   "current_next_step": "The scoped-minimal five-atom proper-joint-closure square is reducible and Phi-tame because its whole joint closure is central. Seek a three-or-more-block transverse completion that distributes the joint cells without a central factor."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -251,6 +251,13 @@
   }
  ],
  "counterexample_construction": [
+  {
+   "id": "oml.construct.proper_joint_closure_two_block",
+   "name": "Five-atom proper-joint-closure transverse square",
+   "status": "constructed-hand-executable-finite-centre-killed",
+   "one_line": "The scoped-minimal five-atom P/Q versus P/R pattern completes as the 48-event concrete OML MO2 x P(3), with two maximal blocks and full state extension, but its 16-event joint closure is exactly its centre, so it is reducible and Phi-tame.",
+   "detail": "oml_proper_joint_closure_candidate.md"
+  },
   {
    "id": "oml.construct.coarse_toy",
    "name": "Coarse-block toy",

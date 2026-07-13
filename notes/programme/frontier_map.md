@@ -211,6 +211,18 @@ candidate. This closes only jointly-generating transverse squares. The next
 gate requires proper joint closure in at least one endpoint, followed by a
 fresh mixed-completion and structural-gate audit.
 
+**s48 proper-joint-closure candidate:**
+`notes/open_questions/oml_attack/oml_proper_joint_closure_candidate.md`
+duplicates one joint cell of the four-point square, giving the scoped-minimal
+five-atom endpoints. The canonical mixed completion is the 48-event concrete
+OML `MO2 x P(3)`: it has exactly two 32-event maximal Boolean blocks, is
+finite sigma-complete, extends all seven compatible endpoint-state pairs,
+and is order-separated. Its 16-event joint closure is exactly its centre, so
+the candidate is reducible and Phi-tame. This is a hand product calculation
+with an independent exhaustive finite receipt, not a Lean certificate or an
+infinite classification. The next gate needs at least three blocks to
+distribute the joint cells without making their closure central.
+
 **s44 two-fibre atom-monodromy no-go:**
 `notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all
 twelve lattice atoms into two automorphism orbits. Relative to `q0`, exactly

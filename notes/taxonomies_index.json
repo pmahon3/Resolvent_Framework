@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the (5,11) non-atomic single-pullback class is Phi-tame, and the O2/O3 two-common-block candidates collapse to duplicate copies of one embedded datum. The next gate is transverse embedded subalgebras from distinct event families or failure of the common sigma-extension property.",
+   "status": "OPEN — the (5,11) single pullback is Phi-tame, O2/O3 duplicate one datum, and the minimal four-point transverse square collapses by joint generation. The next gate is transverse overlap with proper joint closure or failure of common sigma-extension.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 64
+   "entries": 65
   },
   {
    "id": "reconstruction_commensurability",

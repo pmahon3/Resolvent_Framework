@@ -199,6 +199,18 @@ repeat the same intrinsic four-region subalgebra. O3 is the smaller control
 claimed. The next gate must use distinct event families inducing transverse
 embedded subalgebras, not repeated containment of one pair.
 
+**s47 minimal transverse-overlap audit:**
+`notes/open_questions/oml_attack/oml_transverse_overlap_collapse.md` tests the
+first distinct-family square on four endpoint atoms. The two proper overlap
+equations are inequivalent, but together generate each full endpoint Boolean
+algebra. The hand-proof joint-generation lemma therefore forces the proposed
+two maximal blocks to coincide; the finite relation is merely a permutation
+graph. The collapsed realization is a 16-element Boolean algebra (finite,
+σ-complete, state-separated, and wholly central), not an irreducible OML
+candidate. This closes only jointly-generating transverse squares. The next
+gate requires proper joint closure in at least one endpoint, followed by a
+fresh mixed-completion and structural-gate audit.
+
 **s44 two-fibre atom-monodromy no-go:**
 `notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all
 twelve lattice atoms into two automorphism orbits. Relative to `q0`, exactly

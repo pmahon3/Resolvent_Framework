@@ -1,8 +1,11 @@
 # Theorem 2 attack — the OML-lattice case at the regularity transition
 
-**Non-atomic pullback outcome:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
-completes `(5,11)` as a centre-free nonrectangular but `Phi`-tame one-edge
-inflation; the next gate is two inequivalent quotient edges.
+**Transverse-overlap follow-up:** [`oml_transverse_overlap_collapse.md`](oml_transverse_overlap_collapse.md)
+closes the minimal four-point distinct-family square: its two proper overlap
+families jointly generate each endpoint, so the proposed maximal Boolean
+blocks coincide. This is a hand-proof and finite-executable exclusion only;
+the next gate requires transverse overlaps with proper joint closure in at
+least one endpoint.
 
 *Opened 2026-07-10 (session 8), per `shovel_plan.md` §2 + §Execution-order.
 This is the attack-opening note the frontier map prescribes: collect the three

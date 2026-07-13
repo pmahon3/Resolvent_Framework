@@ -19,11 +19,25 @@ Run, validate, and review with:
 
 ```bash
 python3.11 .agent-relay/scripts/relay.py candidate-run
+python3.11 .agent-relay/scripts/relay.py candidate-report --watch
 python3.11 .agent-relay/scripts/relay.py validate
 python3.11 .agent-relay/scripts/relay.py review
+python3.11 .agent-relay/scripts/relay.py candidate-report
 ```
 
-The run command records only `git rev-parse HEAD` as the executor commit. Validation and review compare the current configured accepted branch `HEAD` to the candidate branch `HEAD`. Every executor and reviewer invocation is fresh.
+Successful run, validation, review, and correction phases print the same compact candidate report automatically. The report reads local candidate state and optional run artifacts, but takes branch tips, commit lists, changed files, diffs, and cleanliness directly from Git. It degrades gracefully while result, validation, or review artifacts are not yet available.
+
+For deeper inspection or scripting:
+
+```bash
+python3.11 .agent-relay/scripts/relay.py candidate-report --full
+python3.11 .agent-relay/scripts/relay.py candidate-report --diff
+python3.11 .agent-relay/scripts/relay.py candidate-report --json
+```
+
+`--full` expands claims, uncertainties, validation command summaries, review corrections, and the next handoff without reading event streams or full logs. `--diff` is guarded by `review_diff_limit_bytes`; use `--allow-large-diff` only after the size warning. `--json` emits one JSON object and no prose. `--watch --interval 5` refreshes an active executor/reviewer phase and exits when it finishes. `candidate-next` may advance only the next mechanical validation, review, or correction-handoff phase; it never accepts or abandons a candidate.
+
+The run command records only `git rev-parse HEAD` as the executor commit and leaves the candidate in `executed`. Validation and review compare the current configured accepted branch `HEAD` to the candidate branch `HEAD`. Every executor and reviewer invocation is fresh.
 
 For corrections, use `candidate-correct`. It commits the reviewer's correction handoff on the candidate branch and keeps every candidate file, commit, and the existing worktree. The next `candidate-run` uses that same worktree.
 

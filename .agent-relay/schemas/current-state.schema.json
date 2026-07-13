@@ -28,7 +28,7 @@
             "worktree": {"type": "string"},
             "initial_base": {"type": "string"},
             "current_tip": {"type": "string"},
-            "status": {"enum": ["ready", "executing", "validated", "awaiting_human", "needs_correction"]},
+            "status": {"enum": ["ready", "executing", "executed", "validated", "awaiting_human", "needs_correction"]},
             "latest_run_id": {"type": ["string", "null"]}
           }
         }

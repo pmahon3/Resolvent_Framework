@@ -11,6 +11,7 @@ import shutil
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 try:
     import tomllib
@@ -21,9 +22,9 @@ HERE = Path(__file__).resolve().parent
 RELAY = HERE.parent
 REPO = RELAY.parent
 sys.path.insert(0, str(HERE))
-import backends, git_ops, packet_builder, validation
+import backends, candidate_reporting, git_ops, packet_builder, validation
 
-CANDIDATE_STATUSES = {"ready", "executing", "validated", "awaiting_human", "needs_correction"}
+CANDIDATE_STATUSES = {"ready", "executing", "executed", "validated", "awaiting_human", "needs_correction"}
 
 
 def now(): return dt.datetime.now(dt.timezone.utc).isoformat()
@@ -99,6 +100,18 @@ def require_accepted_branch(state):
         raise RuntimeError(f"accepted worktree must be on configured branch {state['branch']}; current branch is {branch}")
 
 
+def report_snapshot(args=None):
+    state=current(); cfg=config(); run_id=getattr(args,"run_id",None)
+    return candidate_reporting.collect(REPO,state,cfg,git_ops,run_id=run_id)
+
+
+def automatic_report():
+    try:
+        data,_=report_snapshot(); candidate_reporting.print_report(data)
+    except Exception as exc:
+        print(f"WARNING: candidate report unavailable: {exc}",file=sys.stderr)
+
+
 def candidate_start(args):
     state = current()
     if state.get("candidate") is not None:
@@ -169,21 +182,21 @@ def candidate_run(args):
     meta["executor_commit"] = tip  # Always rev-parse HEAD; never RESULT.json[commits].
     write_json(directory / "META.json", meta)
     result = load_json(output) if output.exists() else {}
-    value.update(status="ready", current_tip=tip)
+    value.update(status="executed", current_tip=tip)
     state["last_run_id"] = run_id; state["last_outcome"] = result.get("outcome")
-    save_current(state); print(tip)
+    save_current(state); automatic_report()
 
 
 def validate_candidate(_):
     state = current(); value = candidate(state)
-    require_candidate_status(value, "ready", "validated", "awaiting_human")
+    require_candidate_status(value, "executed", "validated", "awaiting_human")
     directory = run_dir(state)
     if value["status"] in {"validated", "awaiting_human"} and (directory / "VALIDATION.json").exists():
-        print(load_json(directory / "VALIDATION.json")["status"]); return
+        automatic_report(); return
     worktree = candidate_worktree(value); git_ops.ensure_clean(worktree)
     accepted = canonical_tip(REPO); tip = canonical_tip(worktree)
     data = validation.run_all(worktree, accepted, tip, directory, config())
-    value.update(status="validated", current_tip=tip); save_current(state); print(data["status"])
+    value.update(status="validated", current_tip=tip); save_current(state); automatic_report()
 
 
 def review_candidate(args):
@@ -197,12 +210,15 @@ def review_candidate(args):
     metrics = packet_builder.packet_metrics(packet, [worktree / ".agent-relay" / p for p in ("prompts/reviewer-codex.md", "RUNBOOK.md", "STATE.md", "HANDOFF.md")])
     packet_builder.enforce_packet_limit(metrics, warning_tokens=cfg.get("packet_warning_tokens",100000), hard_tokens=cfg.get("packet_hard_limit_tokens",150000), allow_large=args.allow_large_packet, label="review")
     (directory / "REVIEW_PACKET.md").write_text(packet)
-    if cfg["review_backend"] == "codex":
-        command = backends.codex_command(cwd=None, schema=RELAY / "schemas/review.schema.json", output=directory / "REVIEW.json", sandbox=cfg["reviewer_sandbox"], model=cfg["reviewer_model"])
-        backends.run_codex(packet, command, directory / "reviewer-events.jsonl")
-    else:
-        backends.run_openai_review(packet, load_json(RELAY / "schemas/review.schema.json"), directory / "REVIEW.json", cfg["reviewer_model"], cfg["api_retry_count"])
-    value["status"] = "awaiting_human"; save_current(state)
+    marker=directory/"REVIEW_ACTIVE"; marker.write_text(str(os.getpid()))
+    try:
+        if cfg["review_backend"] == "codex":
+            command = backends.codex_command(cwd=None, schema=RELAY / "schemas/review.schema.json", output=directory / "REVIEW.json", sandbox=cfg["reviewer_sandbox"], model=cfg["reviewer_model"])
+            backends.run_codex(packet, command, directory / "reviewer-events.jsonl")
+        else:
+            backends.run_openai_review(packet, load_json(RELAY / "schemas/review.schema.json"), directory / "REVIEW.json", cfg["reviewer_model"], cfg["api_retry_count"])
+    finally: marker.unlink(missing_ok=True)
+    value["status"] = "awaiting_human"; save_current(state); automatic_report()
 
 
 def install_correction_handoff(state, review_path):
@@ -229,7 +245,7 @@ def candidate_correct(_):
         require_candidate_status(value, "awaiting_human")
         review_path = run_dir(state) / "REVIEW.json"
     text = install_correction_handoff(state, review_path)
-    print(text)
+    automatic_report()
 
 
 def review_override(review, override, reason):
@@ -277,7 +293,14 @@ def candidate_accept(args):
     git_ops.remove_worktree(REPO, worktree); git_ops.run(["git", "branch", "-d", value["branch"]], REPO)
     save_current(state); git_ops.ensure_clean(REPO)
     if override: write_json(directory / "ACCEPT_OVERRIDE.json", override)
-    print(tip)
+    print("Candidate accepted")
+    print(f"  Mathematical tip: {tip}")
+    print(f"  Control-plane HEAD: {canonical_tip(REPO)}")
+    print("  Validations after rebase: PASS")
+    branch_removed=git_ops.run(["git","show-ref","--verify","--quiet",f"refs/heads/{value['branch']}"],REPO,check=False).returncode != 0
+    print(f"  Candidate branch removed: {'yes' if branch_removed else 'no'}")
+    print(f"  Candidate worktree removed: {'yes' if not worktree.exists() else 'no'}")
+    print(f"  Next handoff: {' '.join(review.get('next_handoff','-').splitlines())}")
 
 
 def candidate_abandon(args):
@@ -285,9 +308,49 @@ def candidate_abandon(args):
     if not args.yes:
         if not sys.stdin.isatty(): raise RuntimeError("candidate-abandon requires --yes or interactive confirmation")
         if input(f"Abandon candidate {value['name']}? [y/N] ").strip().lower() not in {"y","yes"}: raise RuntimeError("abandon cancelled")
-    worktree = candidate_worktree(value); git_ops.ensure_clean(worktree)
+    evidence=run_root()/value["latest_run_id"] if value.get("latest_run_id") else run_root()
+    accepted_before=canonical_tip(REPO); worktree = candidate_worktree(value); git_ops.ensure_clean(worktree)
     git_ops.remove_worktree(REPO, worktree); git_ops.run(["git", "branch", "-D", value["branch"]], REPO)
-    state["candidate"] = None; save_current(state); print("candidate abandoned; run evidence preserved")
+    state["candidate"] = None; save_current(state)
+    print("Candidate abandoned")
+    print(f"  Accepted branch unchanged: {'yes' if canonical_tip(REPO)==accepted_before else 'no'}")
+    print(f"  Local evidence preserved at: {evidence}")
+
+
+def candidate_report(args):
+    collector=lambda: report_snapshot(args)
+    if args.watch:
+        if args.json or args.diff: raise RuntimeError("--watch cannot be combined with --json or --diff")
+        if args.interval <= 0: raise RuntimeError("--interval must be greater than zero")
+        return candidate_reporting.watch(collector,interval=args.interval,full=args.full,no_color=args.no_color)
+    data,structural=collector()
+    if args.diff and not structural:
+        branch=data["candidate"]["branch"]; accepted=current()["branch"]
+        diff=git_ops.run(["git","diff",f"{accepted}..{branch}"],REPO).stdout
+        limit=config()["review_diff_limit_bytes"]
+        if len(diff.encode())>limit and not args.allow_large_diff:
+            data["errors"].append(f"diff is {len(diff.encode())} bytes, above review limit {limit}; rerun with candidate-report --diff --allow-large-diff")
+            structural=True; diff=None
+        if diff is not None: data["git"]["diff"]=diff
+    candidate_reporting.print_report(data,as_json=args.json,full=args.full)
+    if args.diff and data.get("git",{}).get("diff") is not None and not args.json:
+        print("\nCandidate diff\n"+data["git"]["diff"],end="" if data["git"]["diff"].endswith("\n") else "\n")
+    return 1 if structural else 0
+
+
+def candidate_next(args):
+    state=current(); value=candidate(state); status=value["status"]
+    if status=="executed": return validate_candidate(args)
+    if status=="validated": return review_candidate(SimpleNamespace(allow_large_packet=args.allow_large_packet))
+    if status=="awaiting_human":
+        directory=run_dir(state); review=_optional_report_json(directory/"REVIEW.json")
+        if review and review.get("verdict")=="accept_with_corrections": return candidate_correct(SimpleNamespace(from_run=None))
+    automatic_report()
+
+
+def _optional_report_json(path):
+    try: return load_json(path) if path.exists() else None
+    except (OSError,json.JSONDecodeError): return None
 
 
 def archive_run(args):
@@ -342,6 +405,8 @@ def main():
     item=sub.add_parser("candidate-start"); item.add_argument("--name",required=True); item.add_argument("--cherry-pick",action="append",default=[]); item.set_defaults(fn=candidate_start)
     item=sub.add_parser("candidate-accept"); item.add_argument("--override-review",action="store_true"); item.add_argument("--reason"); item.set_defaults(fn=candidate_accept)
     item=sub.add_parser("candidate-abandon"); item.add_argument("--yes",action="store_true"); item.set_defaults(fn=candidate_abandon)
+    item=sub.add_parser("candidate-report"); item.add_argument("--full",action="store_true"); item.add_argument("--diff",action="store_true"); item.add_argument("--json",action="store_true"); item.add_argument("--watch",action="store_true"); item.add_argument("--run-id"); item.add_argument("--no-color",action="store_true"); item.add_argument("--interval",type=float,default=2.0); item.add_argument("--allow-large-diff",action="store_true"); item.set_defaults(fn=candidate_report)
+    item=sub.add_parser("candidate-next"); item.add_argument("--allow-large-packet",action="store_true"); item.set_defaults(fn=candidate_next)
     item=sub.add_parser("archive-run"); item.add_argument("run_id"); item.set_defaults(fn=archive_run)
     for name in ("prepare","execute","accept","reject","cycle","run","carry-forward"):
         sub.add_parser(name).set_defaults(fn=deprecated)

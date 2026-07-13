@@ -8,7 +8,7 @@ class SchemaTests(unittest.TestCase):
         data=json.loads((Path(__file__).resolve().parents[1]/"schemas/current-state.schema.json").read_text())
         self.assertEqual(["uninitialized","initialized"],data["properties"]["status"]["enum"])
         candidate=data["properties"]["candidate"]["oneOf"][1]
-        self.assertEqual(["ready","executing","validated","awaiting_human","needs_correction"],candidate["properties"]["status"]["enum"])
+        self.assertEqual(["ready","executing","executed","validated","awaiting_human","needs_correction"],candidate["properties"]["status"]["enum"])
     def test_finalized_ledger_decision_is_closed_enum(self):
         data=json.loads((Path(__file__).resolve().parents[1]/"schemas/ledger-entry.schema.json").read_text())
         self.assertEqual(["accept","reject"],data["properties"]["human_decision"]["enum"])

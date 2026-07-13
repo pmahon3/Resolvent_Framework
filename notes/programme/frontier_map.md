@@ -227,12 +227,25 @@ infinite classification.
 finds a labelled triangle inside the known 56-event centre-free completion.
 All three pairwise interfaces have four elements; the two incident families
 at each vertex are distinct and jointly generate only 8 of 16 block events.
-All 12 coherent triangle states extend, and the 16 global states are exactly
+All 12 coherent two-valued triangle states extend, and the 16 global states are exactly
 the separating point evaluations. Thus local proper joint closure can be
 noncentral. The exhaustive seven-block completion nevertheless saturates
 every full maximal-block boundary, and the finite OML is Phi-tame. This is
 finite executable evidence, not a general classification. The next gate is
 proper joint closure that survives exhaustive maximal completion.
+
+**s50 exhaustive-boundary survivor:**
+`notes/open_questions/oml_attack/oml_exhaustive_boundary_survivor.md`
+enumerates all 127 nonempty subfamilies of the certified seven-block carrier.
+Exactly four are centre-free OMLs with both a proper-closure transverse
+triangle and a proper full maximal-block boundary; the smallest scoped
+survivors have 44 events and five maximal blocks. In the labelled control
+`A00,A01,C01,A10,A11`, only `C01` retains a proper eight-element boundary.
+All 12 coherent two-valued states on the transverse triangle extend to the
+12 global point-evaluation states. This passes the finite exhaustive-boundary
+gate but remains Phi-tame by finiteness. The next gate is an infinite
+inflation preserving these structural facts and producing a noncompact
+eligible sigma-state slice.
 
 **s44 two-fibre atom-monodromy no-go:**
 `notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all

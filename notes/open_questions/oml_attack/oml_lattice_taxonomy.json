@@ -5,7 +5,7 @@
   "updated": "2026-07-13",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. A proper-joint-closure triangle exists inside the centre-free 56-event completion, but the exhaustive seven-block completion saturates every full maximal-block boundary and remains Phi-tame. The next obstruction gate must preserve proper closure after exhaustive maximal completion, or find a one-edge system lacking compatible sigma extensions.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. A 44-event centre-free five-block subcompletion preserves one proper maximal-block boundary after exhaustive classification and extends every two-valued state on its transverse triangle, but remains Phi-tame by finiteness. The next gate is an infinite inflation preserving the finite structural gates while producing a noncompact eligible sigma-state slice.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 67,
+   "entries": 68,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The centre-free 56-event completion contains a proper-closure transverse triangle, but its full seven-block boundaries saturate. Seek a completion whose proper joint closure survives exhaustive maximal-block completion."
+   "current_next_step": "Inflate the 44-event exhaustive-boundary survivor and re-audit maximal blocks, latticehood, sigma-completeness, centre, state extension, order separation, and noncompact eligible sigma-state slices."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -252,10 +252,17 @@
  ],
  "counterexample_construction": [
   {
+   "id": "oml.construct.exhaustive_boundary_survivor",
+   "name": "Five-block proper-boundary survivor",
+   "status": "constructed-executable-finite-exhaustive-subfamily-census",
+   "one_line": "Among all 127 subfamilies of the fixed seven labelled blocks, exactly four centre-free OMLs retain a proper full boundary and transverse proper-closure triangle; the 44-event controls extend all 12 coherent two-valued triangle states and are Phi-tame.",
+   "detail": "oml_exhaustive_boundary_survivor.md"
+  },
+  {
    "id": "oml.construct.three_block_noncentral_transverse",
    "name": "Three-block noncentral proper-closure triangle",
    "status": "constructed-executable-finite-full-boundary-saturated",
-   "one_line": "The centre-free 56-event completion contains a three-block triangle with distinct four-element interfaces and eight-element proper joint closure at every vertex; all 12 coherent triangle states extend, but all seven full maximal-block boundaries saturate and the finite OML is Phi-tame.",
+   "one_line": "The centre-free 56-event completion contains a three-block triangle with distinct four-element interfaces and eight-element proper joint closure at every vertex; all 12 coherent two-valued triangle states extend, but all seven full maximal-block boundaries saturate and the finite OML is Phi-tame.",
    "detail": "oml_three_block_noncentral_transverse_candidate.md"
   },
   {

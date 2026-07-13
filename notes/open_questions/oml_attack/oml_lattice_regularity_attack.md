@@ -10,7 +10,13 @@ classification. The three-block follow-up
 [`oml_three_block_noncentral_transverse_candidate.md`](oml_three_block_noncentral_transverse_candidate.md)
 finds a proper-closure triangle inside the centre-free 56-event completion,
 but the four additional maximal blocks saturate every full boundary. The
-next gate must preserve proper closure after exhaustive maximal completion.
+bounded follow-up
+[`oml_exhaustive_boundary_survivor.md`](oml_exhaustive_boundary_survivor.md)
+enumerates all subfamilies of those seven labelled blocks and finds four
+44-event centre-free OMLs whose exhaustive maximal-block boundary remains
+proper. These finite controls are Phi-tame; the next gate is an infinite
+inflation preserving the proper boundary and all structural gates while
+creating a noncompact eligible sigma-state slice.
 
 *Opened 2026-07-10 (session 8), per `shovel_plan.md` §2 + §Execution-order.
 This is the attack-opening note the frontier map prescribes: collect the three

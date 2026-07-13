@@ -1,0 +1,106 @@
+{
+  "census": {
+    "labelled_blocks": [
+      "A00",
+      "A01",
+      "C01",
+      "A10",
+      "C10",
+      "A11",
+      "C11"
+    ],
+    "minimum_survivor_event_count": 44,
+    "nonempty_subfamilies": 127,
+    "status_counts": {
+      "not_concrete_logic": 100,
+      "oml": 27
+    },
+    "survivor_count": 4,
+    "survivor_families": [
+      [
+        "A00",
+        "A01",
+        "C01",
+        "A10",
+        "A11"
+      ],
+      [
+        "A00",
+        "A01",
+        "A10",
+        "C10",
+        "A11"
+      ],
+      [
+        "A00",
+        "A01",
+        "C01",
+        "C10",
+        "C11"
+      ],
+      [
+        "A00",
+        "C01",
+        "A10",
+        "C10",
+        "C11"
+      ]
+    ]
+  },
+  "schema": "seven-block-subfamily-boundary-census-v1",
+  "scope": "all 127 nonempty subfamilies of the seven labelled maximal blocks of one fixed 56-event OML; no arbitrary-completion classification",
+  "selected_survivor": {
+    "blocks": [
+      "A00",
+      "A01",
+      "C01",
+      "A10",
+      "A11"
+    ],
+    "boundary_sizes": {
+      "A00": 16,
+      "A01": 16,
+      "A10": 16,
+      "A11": 16,
+      "C01": 8
+    },
+    "centre_size": 2,
+    "events": 44,
+    "exact_named_maximal_block_classification": true,
+    "maximal_block_count": 5,
+    "maximal_block_sizes": [
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "proper_boundary_blocks": [
+      "C01"
+    ],
+    "proper_transverse_triangles": [
+      [
+        "A01",
+        "C01",
+        "A10"
+      ]
+    ],
+    "state_gates": {
+      "all_global_states_are_point_evaluations": true,
+      "distinct_point_evaluation_states": 12,
+      "global_two_valued_states": 12,
+      "phi_tame_by_finiteness": true,
+      "point_evaluations_order_separate": true,
+      "sigma_essential_state": false,
+      "transverse_triangle_extensions": {
+        "A01/C01/A10": {
+          "every_local_state_extends": true,
+          "globally_extendable_restrictions": 12,
+          "locally_coherent_two_valued_states": 12
+        }
+      }
+    },
+    "status": "oml",
+    "trivial_centre": true
+  }
+}

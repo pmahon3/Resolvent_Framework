@@ -50,7 +50,7 @@ completion.
 | Sigma-completeness | yes, by finiteness |
 | Maximal blocks | exactly seven, each of size 16 |
 | Centre | `{0,1}` |
-| Triangle state extension | all 12 coherent block-ultrafilter triples extend |
+| Triangle state extension | all 12 coherent two-valued block-ultrafilter triples extend |
 | Global two-valued states | 16, exactly the point evaluations |
 | Order separation | yes, by point evaluations |
 | Phi / sigma-essentiality | Phi-tame; no sigma-essential state, by finiteness |
@@ -65,6 +65,9 @@ the seven-block completion.
 
 The local three-block gate is therefore passed: neither a central-factor
 obstruction nor state-extension failure follows from proper joint closure.
+The positive existence statement is finite executable evidence; what this
+refutes is only the proposed local obstruction that proper joint closure
+must become central.
 But the completion creates four additional maximal blocks. Once interfaces
 with *all* maximal blocks are included, the overlap-generated boundary of
 each block is its full 16-element Boolean algebra.

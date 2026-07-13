@@ -2,14 +2,14 @@
   "schema_version": 2,
   "project": "Resolvent_Framework",
   "branch": "oml-descent-sigma-essential-reduction",
-  "accepted_commit": "fe55102b7a9e626d05b95802fc3cdb527ba01f02",
-  "iteration": 3,
+  "accepted_commit": "dd083e7c2b57166a25379f4f531aa72171a5bcdb",
+  "iteration": 4,
   "status": "initialized",
   "current_handoff_path": ".agent-relay/HANDOFF.md",
-  "last_run_id": "run-0004",
+  "last_run_id": "run-0005",
   "last_outcome": "C",
   "consecutive_rejections": 1,
   "review_backend": "codex",
   "candidate": null,
-  "updated_at": "2026-07-13T06:40:54.465258+00:00"
+  "updated_at": "2026-07-13T06:59:17.707434+00:00"
 }

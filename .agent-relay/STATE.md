@@ -77,3 +77,20 @@ Unchanged: the O2/O3 result is a reviewable hand proof with finite executable ev
 ## Single best next strategic problem
 
 Seek and audit the first distinct-event-family overlap inducing transverse embedded subalgebras; do not infer an infinite construction from the finite controls.
+
+## Accepted iteration additions
+- Hand-proof lemma: if common embedded Boolean subalgebras jointly generate each of two Boolean blocks in an OML, then the blocks coincide.
+- Finite executable result: the four-point P/Q versus P/R control has two inequivalent edge relations whose intersection is the permutation [0,1,3,2], while both overlap families jointly generate their endpoints.
+- The minimal four-point jointly-generating distinct-event-family transverse square cannot realize two distinct maximal Boolean blocks; its canonical collapse is a wholly central 16-element Boolean algebra.
+
+## Current open gate
+
+Resolve a transverse-overlap architecture whose inequivalent overlap families have proper joint Boolean closure in at least one endpoint, with mixed completion, latticehood, σ-completeness, maximal blocks, centre, state extension, and order separation checked independently.
+
+## Formalization boundary
+
+The joint-generation collapse lemma is a hand proof and the four-point controls are finite executable evidence. Existing Lean files still do not certify the open OML conjecture or a general transverse-overlap classification.
+
+## Single best next strategic problem
+
+Construct the smallest proper-joint-closure transverse candidate and audit its full mixed completion and structural gates.

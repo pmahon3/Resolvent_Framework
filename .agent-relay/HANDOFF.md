@@ -1,1 +1,1 @@
-Investigate a distinct-event-family transverse-overlap candidate and report each structural gate separately, preserving the hand-proof/executable/Lean evidence distinctions.
+Investigate the smallest transverse candidate with proper joint closure in at least one endpoint; distinguish hand proof, executable finite evidence, and any Lean certificate, and report every structural gate separately.

@@ -1,1 +1,0 @@
-Investigate the smallest transverse candidate with proper joint closure in at least one endpoint; distinguish hand proof, executable finite evidence, and any Lean certificate, and report every structural gate separately.

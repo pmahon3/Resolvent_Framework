@@ -294,9 +294,8 @@ graded open problems attract *inhabitants*.
    all 88,510,464 ordered pairs give zero operative survivors, so period-two
    k≤2 is closed. Next: period-three k=1 (7,529,536 triples), while turning
    the rooted-separation failures into a structural obstruction.
-   Execution order and exits:
-   `notes/open_questions/oml_attack/HANDOFF_2026-07-12_s37.md`. In
-   parallel, the coarse-block
+   The current execution order and exits are recorded in the OML lattice
+   taxonomy. In parallel, the coarse-block
    toy hunt — concrete σ-class OM lattice with one ctbl/co-ctbl-type
    block + one incompatibility — **promoted s13: it decides Theorem 2's
    second factor** (even a failed construction names the next wall; s15

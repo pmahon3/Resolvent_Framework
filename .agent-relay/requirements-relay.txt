@@ -1,3 +1,0 @@
-# Standard-library only for the default Codex reviewer.
-# Optional API reviewer:
-openai>=1.0

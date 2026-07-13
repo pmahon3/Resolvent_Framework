@@ -6,7 +6,7 @@ attack thread and the σ-essential hub documents it leans on.
 
 | Path | What lives here |
 |---|---|
-| `oml_attack/` | OML taxonomy, active note, current `HANDOFF_2026-07-11_s32.md`, prior handoffs, and receipts. |
+| `oml_attack/` | OML taxonomy, consolidated attack notes, proof audits, and mathematical receipts. |
 | `sigma_essential/` | σ-essential hub/verdict documents: taxonomy leaves (`sigma_essential_*`), prior-art verdicts (`czech_school_*`, `sharp_skeleton_*`), reduction writeups, reading notes (`navara_ptak_*`), `rigor_guard_scope.md`. |
 | `kits/` | Pen-and-paper artifacts; `ratification_kit_2026-07-11` is retired presentation material. |
 | `verification/` | Machine oracles and from-scratch proof-read scripts (`proof_read_*/` subdirs are per-review, written blind to repo scripts). |

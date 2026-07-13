@@ -48,6 +48,3 @@ dist/
 # Jupyter notebook checkpoints
 .ipynb_checkpoints/
 **/.ipynb_checkpoints/
-
-# Stateless research relay transient worktrees, runs, locks, and model events
-.agent-relay-local/

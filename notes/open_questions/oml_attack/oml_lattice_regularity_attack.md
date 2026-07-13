@@ -1,11 +1,31 @@
 # Theorem 2 attack — the OML-lattice case at the regularity transition
 
-**Transverse-overlap follow-up:** [`oml_transverse_overlap_collapse.md`](oml_transverse_overlap_collapse.md)
-closes the minimal four-point distinct-family square: its two proper overlap
-families jointly generate each endpoint, so the proposed maximal Boolean
-blocks coincide. This is a hand-proof and finite-executable exclusion only;
-the next gate requires transverse overlaps with proper joint closure in at
-least one endpoint.
+**Transverse-overlap follow-up:** [`oml_proper_joint_closure_candidate.md`](oml_proper_joint_closure_candidate.md)
+constructs the first five-atom proper-joint-closure continuation of the
+four-point square. Its 48-event mixed completion is the concrete finite OML
+`MO2 x P(3)`, with two maximal blocks and full state extension, but its
+16-element joint closure is exactly the centre. This is a scoped hand proof
+plus finite executable evidence, not a Lean certificate or an infinite
+classification. The three-block follow-up
+[`oml_three_block_noncentral_transverse_candidate.md`](oml_three_block_noncentral_transverse_candidate.md)
+finds a proper-closure triangle inside the centre-free 56-event completion,
+but the four additional maximal blocks saturate every full boundary. The
+bounded follow-up
+[`oml_exhaustive_boundary_survivor.md`](oml_exhaustive_boundary_survivor.md)
+enumerates all subfamilies of those seven labelled blocks and finds four
+44-event centre-free OMLs whose exhaustive maximal-block boundary remains
+proper. The restricted finite result is banked. Its one-interval `q_0`
+inflation now passes maximal-block classification, sigma-completeness, the
+remaining structural gates, and noncompact-slice exposure at hand-proof
+level, but is Phi-tame by common-fibre point replacement. A global
+60-event-form truth-vector audit confirms that every arbitrary-base
+compatible family lies in one of the five displayed blocks; this closes the
+gap between block centralizers and all compatibility cliques. Sigma-
+completeness follows separately from the disjoint-sequence normal form. The
+smallest `P(2)` whole-interface
+triangle twist is either nonfaithful (odd holonomy) or gauge-trivial (even
+holonomy). The next gate is a proper-interface twist or a second inequivalent
+coordinate.
 
 *Opened 2026-07-10 (session 8), per `shovel_plan.md` §2 + §Execution-order.
 This is the attack-opening note the frontier map prescribes: collect the three
@@ -2164,8 +2184,6 @@ Artifacts: `../verification/census_2026-07-12_s38/` and
 
 *Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);
 spine §4 scoping caveat (sufficiency side). Companions:
-`HANDOFF_2026-07-12_boundary_descent.md` (current theorem-status and
-execution handoff),
 `relational_boundary_descent.md` (exact GSD/gluing formulation,
 finite-interface quarantine, finite-atlas full-block localization, conditional
 boundary-defect localization under face-image openness, a counterexample with
@@ -2173,13 +2191,8 @@ compact boundary Stone space to
 automatic shadow openness, and the distributed-selection/rooting audit),
 `oml_boundary_regularity.md` (genuine coarse reducible OML realization of a
 dense nonopen shadow and σ-liftable locus; mixed-hierarchy decision),
-`HANDOFF_2026-07-12_s38.md` (current execution order),
-`HANDOFF_2026-07-12_s37.md` (prior),
-`HANDOFF_2026-07-12_s36.md` (prior),
-`HANDOFF_2026-07-12_s35.md` (prior),
-`HANDOFF_2026-07-12_s34.md` (prior),
-`HANDOFF_2026-07-11_s33.md` (prior; late alarm resolved in s34),
-`HANDOFF_2026-07-11_s32.md` (prior),
+the dated execution handoffs having been consolidated into this note and
+the lattice taxonomy,
 `../sigma_essential_taxonomy.json` (walls, gluing map),
 `../sigma_essential/czech_school_prior_art_sigma_essential.md`,
 `../sigma_essential/sharp_skeleton_RDP_subroute_verdict.md`.*

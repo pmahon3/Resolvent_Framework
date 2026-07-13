@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Taxonomies registry — the tree of problem-collection taxonomies",
   "purpose": "The single entry point to every collection taxonomy. Each collection has a JSON taxonomy = a zoom-out index of its attempts; this file registers them so the tree itself is navigable as collections come and go. Load THIS first, then the collection taxonomy, then its `detail` leaves — three zoom levels.",
-  "updated": "2026-07-12",
+  "updated": "2026-07-13",
   "schema_doc": "notes/TAXONOMY_SCHEMA.md",
   "paths_relative_to": "repository root",
   "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the (5,11) single pullback is Phi-tame, O2/O3 duplicate one datum, and the minimal four-point transverse square collapses by joint generation. The next gate is transverse overlap with proper joint closure or failure of common sigma-extension.",
+   "status": "OPEN — a global finite-pattern audit confirms the banked survivor's arbitrary-base five-block classification; sigma-completeness is hand-proved, but the inflation is Phi-tame and the smallest P(2) triangle twist is nonfaithful or gauge-trivial.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 65
+   "entries": 68
   },
   {
    "id": "reconstruction_commensurability",
@@ -98,5 +98,5 @@
    "notes/archive/programme_reception_2026-05/* — reception of a withdrawn programme arc (archived 2026-07-10)"
   ]
  },
- "updated": "2026-07-12"
+ "updated": "2026-07-13"
 }

@@ -1,0 +1,134 @@
+{
+  "approximants": [
+    {
+      "checks": {
+        "boundary_sizes": {
+          "A00": 32,
+          "A01": 32,
+          "A10": 16,
+          "A11": 16,
+          "C01": 16
+        },
+        "complement_closed": true,
+        "disjoint_union_closed": true,
+        "exact_five_maximal_blocks": true,
+        "inflated_blocks": [
+          "A00",
+          "A01",
+          "C01"
+        ],
+        "lattice": true,
+        "orthomodular": true,
+        "proper_boundary_blocks": [
+          "C01"
+        ],
+        "trivial_centre": true
+      },
+      "counts": {
+        "carrier_points": 20,
+        "centre": 2,
+        "closure_round_sizes": [
+          76
+        ],
+        "events": 76,
+        "maximal_block_sizes": [
+          16,
+          16,
+          32,
+          32,
+          32
+        ],
+        "maximal_blocks": 5
+      },
+      "fibre_atoms": 2,
+      "scope": "finite Boolean-fibre approximant only"
+    },
+    {
+      "checks": {
+        "boundary_sizes": {
+          "A00": 64,
+          "A01": 64,
+          "A10": 16,
+          "A11": 16,
+          "C01": 32
+        },
+        "complement_closed": true,
+        "disjoint_union_closed": true,
+        "exact_five_maximal_blocks": true,
+        "inflated_blocks": [
+          "A00",
+          "A01",
+          "C01"
+        ],
+        "lattice": true,
+        "orthomodular": true,
+        "proper_boundary_blocks": [
+          "C01"
+        ],
+        "trivial_centre": true
+      },
+      "counts": {
+        "carrier_points": 24,
+        "centre": 2,
+        "closure_round_sizes": [
+          140
+        ],
+        "events": 140,
+        "maximal_block_sizes": [
+          16,
+          16,
+          64,
+          64,
+          64
+        ],
+        "maximal_blocks": 5
+      },
+      "fibre_atoms": 3,
+      "scope": "finite Boolean-fibre approximant only"
+    },
+    {
+      "checks": {
+        "boundary_sizes": {
+          "A00": 128,
+          "A01": 128,
+          "A10": 16,
+          "A11": 16,
+          "C01": 64
+        },
+        "complement_closed": true,
+        "disjoint_union_closed": true,
+        "exact_five_maximal_blocks": true,
+        "inflated_blocks": [
+          "A00",
+          "A01",
+          "C01"
+        ],
+        "lattice": true,
+        "orthomodular": true,
+        "proper_boundary_blocks": [
+          "C01"
+        ],
+        "trivial_centre": true
+      },
+      "counts": {
+        "carrier_points": 28,
+        "centre": 2,
+        "closure_round_sizes": [
+          268
+        ],
+        "events": 268,
+        "maximal_block_sizes": [
+          16,
+          16,
+          128,
+          128,
+          128
+        ],
+        "maximal_blocks": 5
+      },
+      "fibre_atoms": 4,
+      "scope": "finite Boolean-fibre approximant only"
+    }
+  ],
+  "schema": "exhaustive-boundary-one-interval-inflation-v1"
+}

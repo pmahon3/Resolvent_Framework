@@ -1,0 +1,36 @@
+{
+  "checks": {
+    "compatible_family_without_common_named_block": null,
+    "four_region_crosscheck": {
+      "coefficient_truth_assignments": 16,
+      "form_instance_pair_comparisons": 47070,
+      "pointwise_equals_concrete_compatibility": true
+    },
+    "global_five_block_cover": true,
+    "minimal_obstruction_search_bound": 5,
+    "skeleton_maximal_compatible_families": 5
+  },
+  "counts": {
+    "block_signature_counts": {
+      "A00": 4,
+      "A00/A01": 4,
+      "A00/A01/A10/A11": 2,
+      "A00/A01/C01": 4,
+      "A00/A01/C01/A10/A11": 2,
+      "A00/A10": 2,
+      "A00/C01": 4,
+      "A00/C01/A10": 2,
+      "A01": 8,
+      "A01/A11": 4,
+      "A10": 4,
+      "A10/A11": 4,
+      "A11": 4,
+      "C01": 12
+    },
+    "constant_forms": 44,
+    "parameter_forms": 16,
+    "skeleton_events": 44
+  },
+  "schema": "five-block-global-compatibility-v1",
+  "scope": "all finite pairwise-compatible families of arbitrary-base q0 normal forms; sigma-completeness and the main conjecture excluded"
+}

@@ -3,8 +3,8 @@
 
 Formalizes attack note §11a–§11d and §11f (proof-read SOUND at s12 standard,
 receipt `PROOF_READ_2026-07-11_attack_s11.md`); ratification kit item 4,
-gaps 4.1, 4.2, and the clean half of 4.5. Phase C of
-`OML_BLOCKS_SESSION_PROMPT.md`: patterns enter as finite ⊥-closed `Block`s
+gaps 4.1, 4.2, and the clean half of 4.5. Patterns enter as finite
+⊥-closed `Block`s
 with values read off a global state — never as global states in disguise
 (the encoding-defect discipline).
 

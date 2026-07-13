@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """s33 relay-census core (2026-07-11).
 
-Machinery for the corrected three-condition screen of attack-note S26 /
-HANDOFF_2026-07-11_s32.md, written from scratch against the stated
+Machinery for the corrected three-condition screen of attack-note S26,
+written from scratch against the stated
 semantics.  Conventions (pinned by exact reproduction of the s32 numbers
 in s33_reproduce_s32.py before any new census ran):
 

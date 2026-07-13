@@ -2,10 +2,10 @@
  "$meta": {
   "title": "OML lattice form — finite-trace σ-liftability",
   "purpose": "Zoom-out index of the OML/lattice attack. Load this first; follow detail pointers into the working note for proofs, scope, and session receipts.",
-  "updated": "2026-07-12",
+  "updated": "2026-07-13",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The (5,11) inflation is a tame single pullback; O2/O3 repeat one embedded datum; and the minimal four-point transverse square collapses because its two overlap families jointly generate each endpoint. The next obstruction gate needs transverse overlaps with proper joint closure or a one-edge system lacking compatible sigma extensions.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The 44-event centre-free five-block survivor is banked as a finite result. Its one-interval q0 inflation preserves exactly five maximal blocks, sigma-completeness, trivial centre, the proper C01 boundary, and a noncompact local slice at hand-proof level, but remains Phi-tame because its single fibre coordinate separates. A global 60-form truth-vector audit closes the compatibility-clique gap left by centralizer checks; the smallest P(2) triangle twist is either nonfaithful or gauge-trivial.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 65,
+   "entries": 68,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The minimal distinct-family transverse square is closed: joint generation forces its endpoint blocks to coincide. Seek inequivalent overlap families whose joint Boolean closure remains proper in at least one endpoint, then audit the full mixed completion."
+   "current_next_step": "Test the next twist class beyond P(2) whole-interface automorphisms: proper shared subalgebras or a second inequivalent coarse coordinate, with maximal blocks and sigma-completeness first."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -251,6 +251,27 @@
   }
  ],
  "counterexample_construction": [
+  {
+   "id": "oml.construct.exhaustive_boundary_survivor",
+   "name": "Five-block proper-boundary survivor",
+   "status": "banked-finite-with-globally-audited-hand-proved-one-interval-inflation-tame",
+   "one_line": "The approved 44-event finite result retains a proper C01 boundary; a global 60-form truth-vector audit confirms that its arbitrary-base q0 inflation has exactly five maximal blocks, while sigma-completeness remains hand-proved. It is Phi-tame, and the eight smallest P(2) triangle edge twists are either nonfaithful or gauge-trivial.",
+   "detail": "oml_exhaustive_boundary_survivor.md"
+  },
+  {
+   "id": "oml.construct.three_block_noncentral_transverse",
+   "name": "Three-block noncentral proper-closure triangle",
+   "status": "constructed-executable-finite-full-boundary-saturated",
+   "one_line": "The centre-free 56-event completion contains a three-block triangle with distinct four-element interfaces and eight-element proper joint closure at every vertex; all 12 coherent two-valued triangle states extend, but all seven full maximal-block boundaries saturate and the finite OML is Phi-tame.",
+   "detail": "oml_three_block_noncentral_transverse_candidate.md"
+  },
+  {
+   "id": "oml.construct.proper_joint_closure_two_block",
+   "name": "Five-atom proper-joint-closure transverse square",
+   "status": "constructed-hand-executable-finite-centre-killed",
+   "one_line": "The scoped-minimal five-atom P/Q versus P/R pattern completes as the 48-event concrete OML MO2 x P(3), with two maximal blocks and full state extension, but its 16-event joint closure is exactly its centre, so it is reducible and Phi-tame.",
+   "detail": "oml_proper_joint_closure_candidate.md"
+  },
   {
    "id": "oml.construct.coarse_toy",
    "name": "Coarse-block toy",

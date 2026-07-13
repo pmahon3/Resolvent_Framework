@@ -24,7 +24,10 @@ events or distinct embedded subalgebras.
 The executable certificate is
 [`../verification/seven_block_two_edge_pair_schema.json`](../verification/seven_block_two_edge_pair_schema.json),
 produced by `seven_block_two_edge_pair_audit.py` and independently checked by
-`verify_seven_block_two_edge_pair_schema.py`.
+`verify_seven_block_two_edge_pair_schema.py`. The independent verifier
+recomputes the duplicate-edge conclusion and every finite relation summary
+from the skeleton and recorded edge relations; stabilizer and support-cycle
+metadata remain producer-derived receipt data.
 
 ## Intrinsic comparison
 

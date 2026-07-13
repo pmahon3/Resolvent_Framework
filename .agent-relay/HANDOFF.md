@@ -1,1 +1,1 @@
-Await human approval to bank the finite counterexample to the proposed local centrality obstruction. After approval, begin the infinite-inflation audit with maximal blocks and sigma-completeness as stop gates; whether such an inflation exists remains open.
+Await human approval to bank the finite counterexample. If approved, begin the infinite-inflation audit, stopping first on failure of maximal-block classification or sigma-completeness and rechecking every remaining structural and state-topology gate.

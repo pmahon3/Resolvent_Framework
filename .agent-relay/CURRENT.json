@@ -4,11 +4,11 @@
   "branch": "oml-descent-sigma-essential-reduction",
   "accepted_commit": "5dd7d0267342f3fdbc07914c3ae021e6358dc5b3",
   "iteration": 0,
-  "status": "initialized",
+  "status": "awaiting_human",
   "current_handoff_path": ".agent-relay/HANDOFF.md",
-  "last_run_id": null,
-  "last_outcome": null,
+  "last_run_id": "run-0001",
+  "last_outcome": "FAILED",
   "consecutive_rejections": 0,
   "review_backend": "codex",
-  "updated_at": "2026-07-13T03:31:53.307755+00:00"
+  "updated_at": "2026-07-13T03:53:57.455938+00:00"
 }

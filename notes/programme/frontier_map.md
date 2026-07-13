@@ -242,10 +242,21 @@ triangle and a proper full maximal-block boundary; the smallest scoped
 survivors have 44 events and five maximal blocks. In the labelled control
 `A00,A01,C01,A10,A11`, only `C01` retains a proper eight-element boundary.
 All 12 coherent two-valued states on the transverse triangle extend to the
-12 global point-evaluation states. This passes the finite exhaustive-boundary
-gate but remains Phi-tame by finiteness. The next gate is an infinite
-inflation preserving these structural facts and producing a noncompact
-eligible sigma-state slice.
+12 global point-evaluation states. This restricted finite result was approved
+for banking on 2026-07-13 and remains Phi-tame by finiteness.
+
+**s51 five-block one-interval inflation:**
+Human review approved banking s50 as a restricted finite result. Inflating
+`q0` by an arbitrary concrete Boolean sigma-algebra propagates the single
+fibre through exactly `A00,A01,C01`. At hand-proof level the union is a
+concrete sigma-complete OML with exactly the original five maximal blocks,
+trivial centre, the proper `C01` boundary, state extension, order separation,
+and a face-exposed noncompact eligible slice. Finite fibres with 2, 3, and 4
+atoms give exhaustive 76-, 140-, and 268-event controls. The construction is
+still Phi-tame by common-fibre point replacement. This is not a
+sigma-essential counterexample; the next gate requires two inequivalent
+coarse coordinates or a cycle twist, with maximal blocks and
+sigma-completeness tested first.
 
 **s44 two-fibre atom-monodromy no-go:**
 `notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all

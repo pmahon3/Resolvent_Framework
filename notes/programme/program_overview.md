@@ -243,6 +243,11 @@ attack ACTIVE 2026-07-10 s8–s12 (shovel thm 2): banked ⟦HAND⟧ theorem-lets
 lattices; Dirac realization on ctbly generated blocks), conjecture
 sharpened to B′(i)/(ii), s12 proof-read SOUND —
 `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md` §9;
+current construction frontier (2026-07-13): the approved 44-event finite
+proper-boundary survivor has a hand-proved centre-free sigma-complete
+one-interval inflation with a noncompact eligible slice, but common-fibre
+point replacement proves it Phi-tame; the next gate is a two-coordinate or
+cycle-twisted inflation;
 Ψ with **literal irreducibility** (no-singletons regime) — OPEN
 (s11: now waits on the same missing coarse-rigidity engine as the
 lattice case; attack note §9d).

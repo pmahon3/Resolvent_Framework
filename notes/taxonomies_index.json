@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — a 44-event centre-free subcompletion retains one proper maximal-block boundary after exhaustive classification, but remains Phi-tame by finiteness.",
+   "status": "OPEN — the banked 44-event survivor has a centre-free sigma-complete one-interval inflation retaining its proper boundary, but the inflation is Phi-tame.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 68
   },

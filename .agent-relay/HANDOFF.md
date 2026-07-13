@@ -1,4 +1,4 @@
-Await human approval to bank the finite counterexample. If approved, begin the infinite-inflation audit, stopping first on failure of maximal-block classification or sigma-completeness and rechecking every remaining structural and state-topology gate.
+Independently review the hand proof that the q0 inflation of the banked 44-event survivor has exactly five maximal blocks and is sigma-complete. If it survives, test a two-coordinate or cycle-twisted inflation, stopping first on maximal-block classification or sigma-completeness failure.
 
 ## Human decision — 2026-07-13
 

@@ -1,1 +1,1 @@
-Apply the two minor ledger/metadata corrections, then continue with the proposed three-or-more-block noncentral candidate search.
+Resolve the validation-count discrepancy and two minor claim-metadata corrections, then continue the exhaustive-boundary properness search.

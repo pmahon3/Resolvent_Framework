@@ -11,9 +11,12 @@ class PacketTests(unittest.TestCase):
     def test_state_soft_limit_warning(self):
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/"STATE.md";p.write_text("x"*20);self.assertIsNotNone(packet_builder.state_size_warning(p,10))
-    def test_fresh_command(self):
+    def test_fresh_command_includes_ephemeral(self):
         cmd=backends.codex_command(cwd=Path("/tmp/w"),schema=Path("s"),output=Path("o"),sandbox="workspace-write")
-        self.assertIn("--ephemeral",cmd);self.assertNotIn("resume",cmd)
+        self.assertIn("--ephemeral",cmd)
+    def test_fresh_command_never_includes_resume(self):
+        cmd=backends.codex_command(cwd=Path("/tmp/w"),schema=Path("s"),output=Path("o"),sandbox="workspace-write")
+        self.assertNotIn("resume",cmd)
     def test_secret_environment_value_rejected(self):
         old=os.environ.get("OPENAI_API_KEY"); os.environ["OPENAI_API_KEY"]="sk-test-do-not-copy"
         try:self.assertRaises(ValueError,packet_builder.reject_secrets,"prefix sk-test-do-not-copy suffix")

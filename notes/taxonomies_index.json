@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the scoped-minimal five-atom proper-joint-closure square completes as the reducible Phi-tame OML MO2 x P(3). The next gate must distribute transverse data across at least three blocks without a central factor.",
+   "status": "OPEN — a proper-joint-closure triangle exists inside the centre-free 56-event completion, but exhaustive maximal completion saturates every full block boundary and remains Phi-tame.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 66
+   "entries": 67
   },
   {
    "id": "reconstruction_commensurability",
@@ -98,5 +98,5 @@
    "notes/archive/programme_reception_2026-05/* — reception of a withdrawn programme arc (archived 2026-07-10)"
   ]
  },
- "updated": "2026-07-12"
+ "updated": "2026-07-13"
 }

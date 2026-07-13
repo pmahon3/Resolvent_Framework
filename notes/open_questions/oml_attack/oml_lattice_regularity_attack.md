@@ -6,8 +6,11 @@ four-point square. Its 48-event mixed completion is the concrete finite OML
 `MO2 x P(3)`, with two maximal blocks and full state extension, but its
 16-element joint closure is exactly the centre. This is a scoped hand proof
 plus finite executable evidence, not a Lean certificate or an infinite
-classification. The next gate must distribute the overlap data across at
-least three blocks without restoring a central factor.
+classification. The three-block follow-up
+[`oml_three_block_noncentral_transverse_candidate.md`](oml_three_block_noncentral_transverse_candidate.md)
+finds a proper-closure triangle inside the centre-free 56-event completion,
+but the four additional maximal blocks saturate every full boundary. The
+next gate must preserve proper closure after exhaustive maximal completion.
 
 *Opened 2026-07-10 (session 8), per `shovel_plan.md` §2 + §Execution-order.
 This is the attack-opening note the frontier map prescribes: collect the three

@@ -139,15 +139,6 @@
     ],
     "underlying_points": 7
   },
-  "checks": {
-    "centrality_kills_irreducibility": true,
-    "completion_is_mo2_times_p3": true,
-    "cross_block_noncentral_pairs_incompatible": true,
-    "edges_are_distinct": true,
-    "five_atoms_are_minimal_in_scope": true,
-    "mixed_completion_is_48_events": true,
-    "neither_edge_implies_other": true
-  },
   "completion_gates": {
     "centre_size": 16,
     "latticehood": true,
@@ -161,8 +152,20 @@
     "trivial_centre": false,
     "two_valued_state_additivity": true
   },
+  "executable_checks": {
+    "block_and_overlap_sizes_match_hand_product_decomposition": true,
+    "centrality_kills_irreducibility": true,
+    "cross_block_noncentral_pairs_incompatible": true,
+    "edges_are_distinct": true,
+    "mixed_completion_is_48_events": true,
+    "neither_edge_implies_other": true
+  },
   "minimality_scope": "binary P/Q versus P/R pattern with four nonempty joint cells",
-  "schema": "five-atom-proper-joint-closure-v1",
+  "recorded_hand_conclusions": {
+    "completion_is_mo2_times_p3": true,
+    "five_atoms_are_minimal_in_scope": true
+  },
+  "schema": "five-atom-proper-joint-closure-v2",
   "scope": "finite five-atom-endpoint binary transverse candidate; no infinite OML or general transverse classification",
   "state_relation": {
     "combined_relation": [

@@ -220,8 +220,19 @@ finite sigma-complete, extends all seven compatible endpoint-state pairs,
 and is order-separated. Its 16-event joint closure is exactly its centre, so
 the candidate is reducible and Phi-tame. This is a hand product calculation
 with an independent exhaustive finite receipt, not a Lean certificate or an
-infinite classification. The next gate needs at least three blocks to
-distribute the joint cells without making their closure central.
+infinite classification.
+
+**s49 three-block noncentral triangle:**
+`notes/open_questions/oml_attack/oml_three_block_noncentral_transverse_candidate.md`
+finds a labelled triangle inside the known 56-event centre-free completion.
+All three pairwise interfaces have four elements; the two incident families
+at each vertex are distinct and jointly generate only 8 of 16 block events.
+All 12 coherent triangle states extend, and the 16 global states are exactly
+the separating point evaluations. Thus local proper joint closure can be
+noncentral. The exhaustive seven-block completion nevertheless saturates
+every full maximal-block boundary, and the finite OML is Phi-tame. This is
+finite executable evidence, not a general classification. The next gate is
+proper joint closure that survives exhaustive maximal completion.
 
 **s44 two-fibre atom-monodromy no-go:**
 `notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all

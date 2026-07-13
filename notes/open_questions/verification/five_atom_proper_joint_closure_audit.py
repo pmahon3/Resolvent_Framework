@@ -11,7 +11,7 @@ import json
 from pathlib import Path
 
 
-SCHEMA = "five-atom-proper-joint-closure-v1"
+SCHEMA = "five-atom-proper-joint-closure-v2"
 UNIVERSE = frozenset(range(7))
 TAIL = frozenset({4, 5, 6})
 MO2_BLOCKS = (
@@ -126,13 +126,17 @@ def build():
             "phi_tame_by_finiteness": True,
             "sigma_essential_state": False,
         },
-        "checks": {
+        "recorded_hand_conclusions": {
             "five_atoms_are_minimal_in_scope": True,
+            "completion_is_mo2_times_p3": True,
+        },
+        "executable_checks": {
             "edges_are_distinct": edge_relations[0] != edge_relations[1],
             "neither_edge_implies_other": not (set(map(tuple, edge_relations[0])) <= set(map(tuple, edge_relations[1])))
                                           and not (set(map(tuple, edge_relations[1])) <= set(map(tuple, edge_relations[0]))),
             "mixed_completion_is_48_events": len(carrier) == 48,
-            "completion_is_mo2_times_p3": len(blocks[0]) == len(blocks[1]) == 32 and len(overlap) == 16,
+            "block_and_overlap_sizes_match_hand_product_decomposition":
+                len(blocks[0]) == len(blocks[1]) == 32 and len(overlap) == 16,
             "cross_block_noncentral_pairs_incompatible": cross_noncentral_incompatible,
             "centrality_kills_irreducibility": len(centre) == 16,
         },

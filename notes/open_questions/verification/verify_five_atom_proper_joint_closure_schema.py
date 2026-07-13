@@ -8,7 +8,7 @@ from pathlib import Path
 
 here = Path(__file__).parent
 receipt = json.loads((here / "five_atom_proper_joint_closure_schema.json").read_text())
-assert receipt["schema"] == "five-atom-proper-joint-closure-v1"
+assert receipt["schema"] == "five-atom-proper-joint-closure-v2"
 
 universe = frozenset(range(7))
 tail = [{4}, {5}, {6}]
@@ -92,5 +92,9 @@ assert gates == {
     "trivial_centre": False,
     "two_valued_state_additivity": True,
 }
-assert all(receipt["checks"].values())
+assert receipt["recorded_hand_conclusions"] == {
+    "completion_is_mo2_times_p3": True,
+    "five_atoms_are_minimal_in_scope": True,
+}
+assert all(receipt["executable_checks"].values())
 print("PASS: independently reconstructed the 48-event completion and every finite structural gate")

@@ -7,6 +7,13 @@ crossed-interface family fails, but its 56-event completion is a concrete
 σ-complete centre-free OML. Every maximal-block boundary in the completion
 saturates its whole block. No counterexample to `Phi` is claimed.*
 
+**Inflation follow-up.**
+[`oml_seven_block_inflation.md`](oml_seven_block_inflation.md) gives an
+intrinsic `MO2 × MO2` chart description and machine-readable certificate.
+It completely audits the common coarse-base product: all seven blocks,
+boundary saturation, and dense-nonopen face topology survive, but the common
+base necessarily becomes central. Distributed-base inflation remains open.
+
 ## 1. Target and definitions
 
 Let `L ⊆ P(Ω)` be closed under complements and countable disjoint unions,

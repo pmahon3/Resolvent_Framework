@@ -151,6 +151,19 @@ both, while B′(ii) additionally carries coarse local σ-lifting. Nav:
 `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`;
 `papers/spine/` §4.
 
+**s41 seven-block inflation audit:**
+`notes/open_questions/oml_attack/oml_seven_block_inflation.md` gives an
+intrinsic two-chart `MO2 × MO2` description, a stable machine-readable
+56-event certificate, and the exact common-base dichotomy. For every Boolean
+σ-algebra `A`, `A × L*` remains concrete and σ-complete, has exactly the
+seven inflated maximal blocks, retains full boundary saturation, and (for
+the countable-coordinate `A`) has a one-event face exposing dense-nonopen
+local σ-state topology. But its centre is `A × {0,1}`, so the whole direct
+common-base class is necessarily reducible and does not threaten Φ. Outcome
+D remains: the smallest gate is a genuinely distributed one-interval base
+substitution whose mixed lattice and σ-union closure preserves the seven
+blocks and trivial centre.
+
 ## 2. Programme layer (reconstruction lane) — universal impossibility
 **Claim:** the fork doesn't exist; Circuit Localization holds for the
 strongly-connected non-symmetric class.

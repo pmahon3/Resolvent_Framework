@@ -27,6 +27,12 @@ blocks and every overlap-generated boundary equal to its full block. It
 also sharpens compact finite-subatlas globalization and separates it from
 the easier common-trace fibre form.
 
+**2026-07-12 inflation audit.**
+[`oml_seven_block_inflation.md`](oml_seven_block_inflation.md) certifies the
+intrinsic seven-block incidence and the exact common-base dichotomy: coarse
+topology and saturated boundaries survive the product inflation, while the
+common base necessarily restores a centre. No GSD failure follows.
+
 ## 1. Statement of scope and statement of record
 
 The unchanged question is:

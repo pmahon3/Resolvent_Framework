@@ -15,6 +15,13 @@ a 56-event centre-free concrete σ-complete OML. All seven maximal-block
 boundaries saturate their blocks; infinite topological inflation remains
 open.
 
+**Seven-block inflation follow-up.**
+[`oml_seven_block_inflation.md`](oml_seven_block_inflation.md) proves that
+the direct common-base inflation preserves the seven-block incidence and
+the face-exposed dense-nonopen locus, but necessarily has centre equal to
+the common Boolean base. It isolates distributed-base OML admissibility as
+the remaining gate.
+
 ## 1. Exact question
 
 For a maximal Boolean block `B` of a concrete σ-complete OML `L`, put

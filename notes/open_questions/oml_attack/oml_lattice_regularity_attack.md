@@ -20,6 +20,12 @@ centre-free concrete OML completion. Its seven maximal-block boundaries all
 saturate. The remaining fork is infinite coarse inflation and finite-face
 exposure, not finite completion.
 
+*2026-07-12 seven-block inflation update:* see
+[`oml_seven_block_inflation.md`](oml_seven_block_inflation.md). The direct
+common-base class preserves the seven blocks, saturated boundaries, and
+coarse dense-nonopen topology but restores the base as a central factor.
+The next gate is a genuinely distributed-base substitution.
+
 ---
 
 ## 1. Statement of record

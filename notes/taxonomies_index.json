@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — finite centre-removal solved, infinite topology open. The reducible boundary has a face-exposed dense nonopen sigma-liftable locus; two-block removal is impossible, but a crossed architecture has a 56-event centre-free concrete sigma-complete OML completion with seven maximal blocks. Every boundary saturates its block. Coarse inflation and finite-face exposure remain open; direct simultaneous selection stays primary.",
+   "status": "OPEN — finite centre-removal solved; direct common-base inflation audited and ruled out as irreducible. The 56-event completion has seven saturated maximal blocks. A common coarse base preserves incidence and face-exposed dense-nonopen topology but becomes central. Distributed-base inflation and simultaneous selection remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 58
   },

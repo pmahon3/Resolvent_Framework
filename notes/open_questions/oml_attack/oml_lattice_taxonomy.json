@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary realizes dense nonopen sigma-liftable traces. Two-block centre removal is impossible, but a crossed three-block architecture has a 56-event centre-free concrete OML completion; all seven maximal-block boundaries saturate, leaving infinite coarse inflation and face exposure open.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary realizes dense nonopen sigma-liftable traces. Two-block centre removal is impossible, but a crossed three-block architecture has a 56-event centre-free concrete OML completion. Direct common-base inflation preserves its seven blocks, saturation, and coarse topology but necessarily restores the base as centre; distributed-base OML admissibility is open.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Inflate the executable 56-event centre-free seven-block skeleton with countable-coordinate coarse components while preserving sigma-completeness and face-exposed dense-nonopen topology; alternatively prove boundary saturation forces sigma-tameness."
+   "current_next_step": "Test the one-interval distributed-base substitution: determine whether mixed meet/join and countable-disjoint-union closure stabilizes with exactly seven maximal blocks and trivial centre. Direct common-base inflation is ruled out as irreducible."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -75,6 +75,13 @@
    "status": "finite-skeleton-constructed-topological-inflation-open",
    "one_line": "Every two-block interface is central, but completing two crossed interfaces intervalwise produces a 56-event centre-free concrete sigma-complete OML with seven maximal blocks; every generated boundary equals its full block.",
    "detail": "oml_irreducible_boundary_test.md"
+  },
+  {
+   "id": "oml.obstruction.common_base_inflation",
+   "name": "Seven-block common-base inflation dichotomy",
+   "status": "proved-hand-executable-finite-certificate",
+   "one_line": "A times L* is a concrete sigma-complete OML with exactly the seven inflated blocks, saturated boundaries, and face-exposed dense-nonopen local sigma topology, but its centre is A times {0,1}; every nontrivial common-base inflation is therefore reducible.",
+   "detail": "oml_seven_block_inflation.md"
   },
   {
    "id": "oml.reduction.two_block_rescue",

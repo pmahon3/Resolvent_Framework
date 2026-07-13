@@ -12,15 +12,18 @@ to `Phi`.*
 proves the two-block centrality obstruction, audits distributed
 centre-killing architectures, and completes the failed raw crossed paste to
 a 56-event centre-free concrete σ-complete OML. All seven maximal-block
-boundaries saturate their blocks; infinite topological inflation remains
-open.
+boundaries saturate their blocks. The later distributed one-interval note
+constructs an infinite centre-free topological inflation and proves it tame.
 
 **Seven-block inflation follow-up.**
 [`oml_seven_block_inflation.md`](oml_seven_block_inflation.md) proves that
 the direct common-base inflation preserves the seven-block incidence and
 the face-exposed dense-nonopen locus, but necessarily has centre equal to
 the common Boolean base. It isolates distributed-base OML admissibility as
-the remaining gate.
+the remaining gate. That gate is passed for one orbit-local interval in
+[`oml_distributed_sigma_selection.md`](oml_distributed_sigma_selection.md):
+the closure is centre-free and retains noncompact face topology, but admits
+fibrewise compatible σ-selection for every finite face.
 
 ## 1. Exact question
 

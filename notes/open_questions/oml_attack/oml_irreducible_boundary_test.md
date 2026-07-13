@@ -1,7 +1,7 @@
 # Essential irreducibility and the dense-nonopen boundary
 
-*Opened 2026-07-12. Status: finite centre-removal solved; infinite
-topological inflation open. The two-block obstruction and compact-selection
+*Opened 2026-07-12. Status: superseded by the orbit-local coarse inflation
+in `oml_distributed_sigma_selection.md`. The two-block obstruction and compact-selection
 sharpening are proved by standard OML/compactness arguments. The raw
 crossed-interface family fails, but its 56-event completion is a concrete
 σ-complete centre-free OML. Every maximal-block boundary in the completion
@@ -12,7 +12,11 @@ saturates its whole block. No counterexample to `Phi` is claimed.*
 intrinsic `MO2 × MO2` chart description and machine-readable certificate.
 It completely audits the common coarse-base product: all seven blocks,
 boundary saturation, and dense-nonopen face topology survive, but the common
-base necessarily becomes central. Distributed-base inflation remains open.
+base necessarily becomes central. The next audit,
+[`oml_distributed_sigma_selection.md`](oml_distributed_sigma_selection.md),
+constructs the first centre-free coarse inflation: one fibre below `q_0`
+propagates through exactly three blocks, exposes a noncompact eligible slice,
+and is nevertheless `Phi`-tame. Multi-fibre cycle coupling remains open.
 
 ## 1. Target and definitions
 
@@ -371,8 +375,9 @@ has compatible local Dirac solutions.
 
 ## 8. Strategic decision and next handoff
 
-The result is **Outcome A at the finite skeleton level and Outcome D at the
-infinite/topological level**. Two-block centre removal is impossible, but
+At this session's endpoint the result was **Outcome A at the finite skeleton
+level and Outcome D at the infinite/topological level**. The later
+one-interval audit advances that endpoint to Outcome B. Two-block centre removal is impossible, but
 the completed three-block crossing is a centre-free concrete σ-complete
 OML. What remains unresolved is not finite realization but coarse
 inflation and face exposure.

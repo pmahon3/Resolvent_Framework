@@ -15,8 +15,9 @@ genuine concrete σ-complete OML boundary whose carrier shadow and actual
 refutes finite Boolean extension over the boundary as a sufficient
 condition, and banks eventwise global selection under compact eligible local
 σ-state spaces, with no finite-subatlas hypothesis. The unrestricted strategic outcome is a
-mixed hierarchy with direct simultaneous selection primary; the remaining
-sharp realization problem is infinite centre-free topological inflation.
+mixed hierarchy with direct simultaneous selection primary. The later
+one-interval audit realizes centre-free noncompact topology but finds a
+separable, σ-tame compatibility system.
 
 **2026-07-12 centre-removal audit.**
 [`oml_irreducible_boundary_test.md`](oml_irreducible_boundary_test.md)
@@ -32,6 +33,14 @@ the easier common-trace fibre form.
 intrinsic seven-block incidence and the exact common-base dichotomy: coarse
 topology and saturated boundaries survive the product inflation, while the
 common base necessarily restores a centre. No GSD failure follows.
+
+**2026-07-12 distributed-selection audit.**
+[`oml_distributed_sigma_selection.md`](oml_distributed_sigma_selection.md)
+inflates the single interval below `q_0`. Mixed closure propagates the fibre
+through exactly three of the seven blocks, preserves trivial centre, and
+exposes a noncompact eligible local slice. The full constraint system still
+separates into one Boolean-fibre coordinate and a finite skeleton state, so
+every coherent finite face σ-lifts.
 
 ## 1. Statement of scope and statement of record
 

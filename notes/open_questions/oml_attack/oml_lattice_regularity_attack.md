@@ -24,7 +24,16 @@ exposure, not finite completion.
 [`oml_seven_block_inflation.md`](oml_seven_block_inflation.md). The direct
 common-base class preserves the seven blocks, saturated boundaries, and
 coarse dense-nonopen topology but restores the base as a central factor.
-The next gate is a genuinely distributed-base substitution.
+The then-next gate was a genuinely distributed-base substitution; the
+following update records its one-interval resolution.
+
+*2026-07-12 one-interval outcome:* see
+[`oml_distributed_sigma_selection.md`](oml_distributed_sigma_selection.md).
+The fibre below `q_0` propagates through `B,D0,D1`; the completed arbitrary-
+base family has seven blocks, trivial centre, saturated boundaries, and a
+face-exposed noncompact eligible slice. It is `Phi`-tame because the inverse
+system has only one coarse coordinate. The next construction must couple at
+least two inequivalent fibres around a skeleton cycle.
 
 ---
 

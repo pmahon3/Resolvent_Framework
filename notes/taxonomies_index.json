@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — compact eligible local sigma-state slices now imply global eventwise selection, so every bad face needs a noncompact local slice. Direct common-base inflation preserves the seven-block incidence and coarse topology but becomes central. Distributed mixed closure may add blocks; all must be classified while retaining trivial centre, noncompact face topology, and failure of simultaneous selection.",
+   "status": "OPEN — the q0 one-interval substitution now gives a centre-free coarse OML with seven classified blocks and a face-exposed noncompact eligible slice, but it is Phi-tame because the compatibility system has only one separable Boolean fibre. The next gate requires two inequivalent fibres or a cycle twist surviving mixed closure.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 58
+   "entries": 59
   },
   {
    "id": "reconstruction_commensurability",

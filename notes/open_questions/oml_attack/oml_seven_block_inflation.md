@@ -1,10 +1,20 @@
 # Inflation of the centre-free seven-block OML
 
-*Opened 2026-07-12. Status: Outcome D. The finite skeleton now has a
+*Opened 2026-07-12. Status: superseded at the one-interval gate by
+[`oml_distributed_sigma_selection.md`](oml_distributed_sigma_selection.md).
+The finite skeleton now has a
 substitution-ready certificate. The common-base inflation is completely
 audited: it preserves the seven blocks and their saturated boundaries and
 realizes the coarse topology, but necessarily restores a large centre. No
 centre-free infinite inflation or failure of `Phi` is claimed.*
+
+**2026-07-12 follow-up.** Substituting one Boolean fibre below `q_0` and
+closing mixed disjoint unions propagates it through exactly `B,D0,D1`.
+The resulting arbitrary-base construction is centre-free with seven
+classified blocks and a face-exposed noncompact eligible slice, but it
+satisfies `Phi` by fibrewise finite-trace replacement (Outcome B). The next
+gate requires at least two inequivalent coarse fibres or a genuine cycle
+twist.
 
 ## 1. Statement of record
 
@@ -399,7 +409,7 @@ meet/join and σ-union closure is open.
 | Claim | Scope | Status | Consequence |
 |---|---|---|---|
 | Intrinsic substitution description of `L*` | finite skeleton | **proved; executable** | inflation framework |
-| Infinite centre-free inflation exists | distributed-base class | **open** | irreducible topology |
+| Infinite centre-free inflation exists | orbit-local one-interval class | **constructed in follow-up; σ-tame** | irreducible topology realized |
 | Maximal-block incidence preserved | common-base product | **proved** | valid but reducible |
 | `partial B=B` after inflation | common-base product blocks | **proved** | local defect is full-block σ-defect |
 | Dense-nonopen σ-state locus exists | common-base coarse block | **proved** | topology survives |
@@ -428,9 +438,10 @@ No Lean file was changed. The new result uses elementary product-OML and
 centre calculations; formalizing it before a distributed inflation exists
 would not advance the admissibility gate.
 
-The strategic classification is **Outcome D**, with a substantial ruled-out
-subclass: common-base inflation realizes every requested feature except
-essential irreducibility, and fails it necessarily.
+The strategic classification at this note's endpoint was **Outcome D**, with
+a substantial ruled-out subclass: common-base inflation realizes every requested feature except
+essential irreducibility, and fails it necessarily. The distributed
+one-interval follow-up advances the classification to Outcome B.
 
 The single best next task is to bank the eventwise compact-selection theorem
 and then implement the one-interval distributed-base specialization on

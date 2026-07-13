@@ -1,0 +1,227 @@
+{
+  "approximants": [
+    {
+      "checks": {
+        "all_boundaries_saturate": true,
+        "centre_computed": true,
+        "centre_is_trivial": true,
+        "dynkin_complement_closed": true,
+        "dynkin_disjoint_union_closed": true,
+        "dynkin_is_lattice": true,
+        "maximal_blocks_classified": true,
+        "maximal_blocks_equal_expected_seven": true,
+        "orthomodular": true,
+        "raw_complement_closed": true,
+        "raw_disjoint_union_closed": false
+      },
+      "completed_candidate": {
+        "boundary_sizes": [
+          16,
+          16,
+          16,
+          16,
+          32,
+          32,
+          32
+        ],
+        "centre_size": 2,
+        "inflated_block_names": [
+          "B",
+          "D0",
+          "D1"
+        ],
+        "maximal_block_count": 7,
+        "maximal_block_names": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "maximal_block_sizes": [
+          16,
+          16,
+          16,
+          16,
+          32,
+          32,
+          32
+        ]
+      },
+      "counts": {
+        "closure_round_sizes": [
+          88,
+          88
+        ],
+        "dynkin_closed_events": 88,
+        "ordered_pairs_without_unique_join": 0,
+        "ordered_pairs_without_unique_meet": 0,
+        "raw_events": 72,
+        "substituted_B_events": 32
+      },
+      "datum": {
+        "base_event_count": 56,
+        "distribution_rule": "only B sees the fibre; the other six blocks are projection lifts",
+        "expanded_carrier_points": 20,
+        "fibre_boolean_algebra": "P(2 atoms)",
+        "skeleton_block": "B",
+        "skeleton_interval": "[0,q0]"
+      },
+      "first_failure": null,
+      "lattice_failure_witness": null,
+      "schema": "seven-block-one-interval-inflation-v1",
+      "scope": "finite approximant; no inference to infinite sigma-completeness or topology"
+    },
+    {
+      "checks": {
+        "all_boundaries_saturate": true,
+        "centre_computed": true,
+        "centre_is_trivial": true,
+        "dynkin_complement_closed": true,
+        "dynkin_disjoint_union_closed": true,
+        "dynkin_is_lattice": true,
+        "maximal_blocks_classified": true,
+        "maximal_blocks_equal_expected_seven": true,
+        "orthomodular": true,
+        "raw_complement_closed": true,
+        "raw_disjoint_union_closed": false
+      },
+      "completed_candidate": {
+        "boundary_sizes": [
+          16,
+          16,
+          16,
+          16,
+          64,
+          64,
+          64
+        ],
+        "centre_size": 2,
+        "inflated_block_names": [
+          "B",
+          "D0",
+          "D1"
+        ],
+        "maximal_block_count": 7,
+        "maximal_block_names": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "maximal_block_sizes": [
+          16,
+          16,
+          16,
+          16,
+          64,
+          64,
+          64
+        ]
+      },
+      "counts": {
+        "closure_round_sizes": [
+          152,
+          152
+        ],
+        "dynkin_closed_events": 152,
+        "ordered_pairs_without_unique_join": 0,
+        "ordered_pairs_without_unique_meet": 0,
+        "raw_events": 104,
+        "substituted_B_events": 64
+      },
+      "datum": {
+        "base_event_count": 56,
+        "distribution_rule": "only B sees the fibre; the other six blocks are projection lifts",
+        "expanded_carrier_points": 24,
+        "fibre_boolean_algebra": "P(3 atoms)",
+        "skeleton_block": "B",
+        "skeleton_interval": "[0,q0]"
+      },
+      "first_failure": null,
+      "lattice_failure_witness": null,
+      "schema": "seven-block-one-interval-inflation-v1",
+      "scope": "finite approximant; no inference to infinite sigma-completeness or topology"
+    },
+    {
+      "checks": {
+        "all_boundaries_saturate": true,
+        "centre_computed": true,
+        "centre_is_trivial": true,
+        "dynkin_complement_closed": true,
+        "dynkin_disjoint_union_closed": true,
+        "dynkin_is_lattice": true,
+        "maximal_blocks_classified": true,
+        "maximal_blocks_equal_expected_seven": true,
+        "orthomodular": true,
+        "raw_complement_closed": true,
+        "raw_disjoint_union_closed": false
+      },
+      "completed_candidate": {
+        "boundary_sizes": [
+          16,
+          16,
+          16,
+          16,
+          128,
+          128,
+          128
+        ],
+        "centre_size": 2,
+        "inflated_block_names": [
+          "B",
+          "D0",
+          "D1"
+        ],
+        "maximal_block_count": 7,
+        "maximal_block_names": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "maximal_block_sizes": [
+          16,
+          16,
+          16,
+          16,
+          128,
+          128,
+          128
+        ]
+      },
+      "counts": {
+        "closure_round_sizes": [
+          280,
+          280
+        ],
+        "dynkin_closed_events": 280,
+        "ordered_pairs_without_unique_join": 0,
+        "ordered_pairs_without_unique_meet": 0,
+        "raw_events": 168,
+        "substituted_B_events": 128
+      },
+      "datum": {
+        "base_event_count": 56,
+        "distribution_rule": "only B sees the fibre; the other six blocks are projection lifts",
+        "expanded_carrier_points": 28,
+        "fibre_boolean_algebra": "P(4 atoms)",
+        "skeleton_block": "B",
+        "skeleton_interval": "[0,q0]"
+      },
+      "first_failure": null,
+      "lattice_failure_witness": null,
+      "schema": "seven-block-one-interval-inflation-v1",
+      "scope": "finite approximant; no inference to infinite sigma-completeness or topology"
+    }
+  ],
+  "schema": "seven-block-one-interval-inflation-v1"
+}

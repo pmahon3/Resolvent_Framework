@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Eventwise compact selection proves that if every eligible local sigma-state slice is compact then a coherent finite face sigma-lifts; any counterexample therefore needs a noncompact eligible slice. A genuine coarse reducible OML boundary realizes this topology. Two-block centre removal is impossible, while a crossed architecture has a 56-event centre-free completion. Direct common-base inflation preserves incidence, saturation, and coarse topology but restores the base as centre; distributed-base OML closure and failure of simultaneous selection remain open.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The q0 one-interval inflation gives a centre-free coarse OML with seven classified blocks and a face-exposed noncompact slice, but it is Phi-tame because its inverse system has one separable Boolean fibre. A genuine obstruction now needs at least two inequivalent coarse fibres or a cycle twist surviving mixed closure.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 58,
+   "entries": 59,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Test the one-interval distributed-base substitution under complete mixed closure. Classify all resulting maximal blocks (extra blocks are allowed), compute the centre, preserve a noncompact eligible local sigma-state slice on a finite face, and then test failure of eventwise simultaneous sigma-selection."
+   "current_next_step": "Inflate two crossed skeleton atom orbits by inequivalent coarse Boolean algebras. Compute full mixed closure and decide whether it forces a common factor or leaves a nonseparable compatibility cycle with empty inverse limit."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -82,6 +82,13 @@
    "status": "proved-hand-executable-finite-certificate",
    "one_line": "A times L* is a concrete sigma-complete OML with exactly the seven inflated blocks, saturated boundaries, and face-exposed dense-nonopen local sigma topology, but its centre is A times {0,1}; every nontrivial common-base inflation is therefore reducible.",
    "detail": "oml_seven_block_inflation.md"
+  },
+  {
+   "id": "oml.construct.distributed_one_interval",
+   "name": "Distributed one-interval inflation",
+   "status": "constructed-hand-finite-exhaustive-phi-tame",
+   "one_line": "Replacing q0 by one Boolean fibre propagates through exactly B,D0,D1; the closure has seven maximal blocks, trivial centre, saturated boundaries, and a face-exposed noncompact sigma slice, but every finite face sigma-lifts by fibrewise replacement.",
+   "detail": "oml_distributed_sigma_selection.md"
   },
   {
    "id": "oml.reduction.two_block_rescue",

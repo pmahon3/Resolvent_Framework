@@ -178,6 +178,19 @@ closure may create further maximal blocks, provided all are classified, the
 centre stays trivial, a finite face retains noncompact local topology, and
 the complete eventwise system has no σ-selection.
 
+**s43 distributed one-interval outcome:**
+`notes/open_questions/oml_attack/oml_distributed_sigma_selection.md`
+completes the smallest interval substitution. Replacing `q0` by an arbitrary
+Boolean σ-algebra propagates under mixed closure through exactly `B,D0,D1`.
+The resulting concrete σ-complete OML has exactly seven maximal blocks,
+trivial centre, saturated boundaries, and (for the countable-coordinate
+base) a one-event face exposing a noncompact eligible local σ-state slice.
+Nevertheless it satisfies Φ: the compatibility inverse system separates
+into one Boolean-fibre ultrafilter and a finite skeleton state, and every
+finite fibre trace is replaced by a point state. Exhaustive approximants
+have 88, 152, and 280 events for fibre atom counts 2, 3, and 4. Outcome B;
+the next gate needs two inequivalent coarse fibres or a genuine cycle twist.
+
 ## 2. Programme layer (reconstruction lane) — universal impossibility
 **Claim:** the fork doesn't exist; Circuit Localization holds for the
 strongly-connected non-symmetric class.

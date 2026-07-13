@@ -191,6 +191,21 @@ finite fibre trace is replaced by a point state. Exhaustive approximants
 have 88, 152, and 280 events for fibre atom counts 2, 3, and 4. Outcome B;
 the next gate needs two inequivalent coarse fibres or a genuine cycle twist.
 
+**s44 two-fibre atom-monodromy no-go:**
+`notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all
+twelve lattice atoms into two automorphism orbits. Relative to `q0`, exactly
+four distinct atoms are jointly coherent, and every one has propagation
+support disjoint from `B,D0,D1`. The smallest pair `(q0,2)` occupies a
+five-cycle in the weighted block graph, but no block sees both fibres.
+Finite approximants through three atoms per fibre close as centre-free
+seven-block OMLs with saturated boundaries; exhaustive global-state
+enumeration gives the full Cartesian fibre relation. The monodromy is
+identity and independent finite-trace point replacement proves Φ-tameness;
+the two-coordinate replacement step is Lean-certified. Outcome C for the
+literal atom-interval class. The residual class is non-atomic selector
+intervals or proper shared subalgebras whose completion creates a maximal
+block carrying both coordinates.
+
 ## 2. Programme layer (reconstruction lane) — universal impossibility
 **Claim:** the fork doesn't exist; Circuit Localization holds for the
 strongly-connected non-symmetric class.

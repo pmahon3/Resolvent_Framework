@@ -16,6 +16,13 @@ satisfies `Phi` by fibrewise finite-trace replacement (Outcome B). The next
 gate requires at least two inequivalent coarse fibres or a genuine cycle
 twist.
 
+**Two-fibre atom-selector follow-up.**
+[`oml_two_fibre_monodromy.md`](oml_two_fibre_monodromy.md) proves that every
+distinct atom jointly chargeable with `q_0` has disjoint propagation
+support. The smallest two-fibre completion keeps seven blocks and trivial
+centre, but its fibre relation is a full product and its monodromy is
+identity.
+
 ## 1. Statement of record
 
 The conjecture remains unchanged:

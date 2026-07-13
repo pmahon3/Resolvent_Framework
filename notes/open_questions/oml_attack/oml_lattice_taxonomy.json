@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The q0 one-interval inflation gives a centre-free coarse OML with seven classified blocks and a face-exposed noncompact slice, but it is Phi-tame because its inverse system has one separable Boolean fibre. A genuine obstruction now needs at least two inequivalent coarse fibres or a cycle twist surviving mixed closure.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. One- and two-atom interval inflations of the centre-free seven-block skeleton remain Phi-tame: every jointly coherent distinct atom pair has disjoint propagation supports, so even a five-cycle carries a rectangular relation. A genuine obstruction must use non-atomic intervals or proper shared subalgebras that make one completed block see both coordinates.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 59,
+   "entries": 61,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Inflate two crossed skeleton atom orbits by inequivalent coarse Boolean algebras. Compute full mixed closure and decide whether it forces a common factor or leaves a nonseparable compatibility cycle with empty inverse limit."
+   "current_next_step": "Classify non-atomic selector intervals and proper shared-subalgebra embeddings in the seven-block skeleton; test the smallest coherent pair whose completion creates a block seeing both fibre coordinates."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -89,6 +89,13 @@
    "status": "constructed-hand-finite-exhaustive-phi-tame",
    "one_line": "Replacing q0 by one Boolean fibre propagates through exactly B,D0,D1; the closure has seven maximal blocks, trivial centre, saturated boundaries, and a face-exposed noncompact sigma slice, but every finite face sigma-lifts by fibrewise replacement.",
    "detail": "oml_distributed_sigma_selection.md"
+  },
+  {
+   "id": "oml.exclusion.two_atom_monodromy",
+   "name": "Two-fibre atom-substitution no-go",
+   "status": "proved-hand-lean-trace-step-finite-exhaustive",
+   "one_line": "Every atom jointly chargeable with q0 has disjoint propagation support. The smallest pair occupies a five-cycle and closes as a centre-free seven-block OML, but its fibre relation is the full product, monodromy is identity, and independent point replacement proves Phi-tameness.",
+   "detail": "oml_two_fibre_monodromy.md"
   },
   {
    "id": "oml.reduction.two_block_rescue",

@@ -18,6 +18,12 @@ constructs the first centre-free coarse inflation: one fibre below `q_0`
 propagates through exactly three blocks, exposes a noncompact eligible slice,
 and is nevertheless `Phi`-tame. Multi-fibre cycle coupling remains open.
 
+**Atom-cycle follow-up.**
+[`oml_two_fibre_monodromy.md`](oml_two_fibre_monodromy.md) closes the literal
+two-atom interval class: coherent selector supports can occupy a block-graph
+five-cycle, but are disjoint, so no overlap transports one fibre into the
+other. Non-atomic or proper-subalgebra coupling is the residual class.
+
 ## 1. Target and definitions
 
 Let `L ⊆ P(Ω)` be closed under complements and countable disjoint unions,

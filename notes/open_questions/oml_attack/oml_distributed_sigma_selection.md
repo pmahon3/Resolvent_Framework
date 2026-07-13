@@ -4,6 +4,12 @@
 state selection`). Status: Outcome B at hand-proof level, with exhaustive
 finite approximants. No counterexample to `Phi` is claimed.*
 
+**Two-fibre follow-up.**
+[`oml_two_fibre_monodromy.md`](oml_two_fibre_monodromy.md) classifies all
+lattice-atom selectors. The smallest jointly coherent pair lies on a
+five-cycle but has disjoint propagation supports, so its completed
+two-fibre relation is rectangular and remains `Phi`-tame.
+
 ## 1. Statement of record
 
 The conjecture is unchanged:

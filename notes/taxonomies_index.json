@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the q0 one-interval substitution now gives a centre-free coarse OML with seven classified blocks and a face-exposed noncompact eligible slice, but it is Phi-tame because the compatibility system has only one separable Boolean fibre. The next gate requires two inequivalent fibres or a cycle twist surviving mixed closure.",
+   "status": "OPEN — the two-fibre atom-selector class is now closed: every jointly coherent pair has disjoint propagation support, so the centre-free seven-block completion has rectangular compatibility and identity monodromy. The next gate requires non-atomic intervals or proper shared subalgebras creating an actual cross-coordinate overlap.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 59
+   "entries": 61
   },
   {
    "id": "reconstruction_commensurability",

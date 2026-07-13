@@ -35,6 +35,15 @@ face-exposed noncompact eligible slice. It is `Phi`-tame because the inverse
 system has only one coarse coordinate. The next construction must couple at
 least two inequivalent fibres around a skeleton cycle.
 
+*2026-07-12 two-fibre atom-selector outcome:* see
+[`oml_two_fibre_monodromy.md`](oml_two_fibre_monodromy.md). The smallest
+jointly coherent pair `(q0,2)` occupies a five-cycle, and its finite
+approximants close as centre-free seven-block OMLs. However the propagation
+supports are disjoint, the induced relation is the full product, and
+monodromy is identity. This closes independent lattice-atom interval
+substitutions; the residual class must use non-atomic intervals or proper
+shared subalgebras that create a block seeing both coordinates.
+
 ---
 
 ## 1. Statement of record

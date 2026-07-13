@@ -10,6 +10,11 @@ HERE=Path(__file__).resolve().parent; RELAY=HERE.parent; REPO=RELAY.parent
 sys.path.insert(0,str(HERE))
 import backends, git_ops, packet_builder, validation
 
+STATUSES = {
+    "uninitialized", "initialized", "prepared", "executed",
+    "executor_uncommitted", "validated", "awaiting_human", "finalized",
+}
+
 def now(): return dt.datetime.now(dt.timezone.utc).isoformat()
 def load_json(p): return json.loads(Path(p).read_text())
 def write_json(p,d): Path(p).write_text(json.dumps(d,indent=2)+"\n")
@@ -31,20 +36,66 @@ def config():
     return values
 def current(): return load_json(RELAY/"CURRENT.json")
 def save_current(c): c["updated_at"]=now(); write_json(RELAY/"CURRENT.json",c)
+def require_status(current_state, *allowed):
+    status=current_state.get("status")
+    if status not in STATUSES: raise RuntimeError(f"invalid relay status: {status}")
+    if status not in allowed:
+        raise RuntimeError(f"command requires status {', '.join(allowed)}; current status is {status}")
+
+def ledger_entries():
+    entries=[]; seen=set()
+    for line_number, raw in enumerate((RELAY/"LEDGER.jsonl").read_text().splitlines(),1):
+        if not raw.strip(): continue
+        try: entry=json.loads(raw)
+        except json.JSONDecodeError as exc: raise RuntimeError(f"ledger corruption at line {line_number}: {exc}") from exc
+        run_id=entry.get("run_id")
+        if not run_id: raise RuntimeError(f"ledger corruption at line {line_number}: missing run_id")
+        if run_id in seen: raise RuntimeError(f"ledger corruption: duplicate rows for {run_id}")
+        seen.add(run_id); entries.append(entry)
+    return entries
+
+def ledger_entry(run_id):
+    return next((entry for entry in ledger_entries() if entry["run_id"]==run_id),None)
+
+def finalized_entry(run_id):
+    entry=ledger_entry(run_id)
+    return entry if entry and entry.get("human_decision") in {"accept","reject"} else None
+
+def require_not_finalized(run_id):
+    entry=finalized_entry(run_id)
+    if entry:
+        raise RuntimeError(f"{run_id} is already finalized as {entry['human_decision']}; finalized runs are immutable")
+
+def active_run_id(c):
+    run_id=c.get("last_run_id")
+    if not run_id: raise RuntimeError("no active run")
+    return run_id
+
 def run_dir(c):
-    if not c.get("last_run_id"): raise RuntimeError("no active run")
-    return REPO/config()["run_root"]/c["last_run_id"]
+    return REPO/config()["run_root"]/active_run_id(c)
 def ensure_initialized(c):
     if c["status"]=="uninitialized": raise RuntimeError("run init first")
+
+def ensure_only_control_state_dirty():
+    allowed={".agent-relay/CURRENT.json"}
+    dirty=git_ops.porcelain(REPO)
+    unexpected=[]
+    for line in dirty:
+        path=line[3:].split(" -> ")[-1]
+        if path not in allowed: unexpected.append(line)
+    if unexpected: raise RuntimeError("accepted worktree has non-phase-state changes:\n"+"\n".join(unexpected))
 def unique_run_id(c):
     rid=f"run-{c['iteration']+1:04d}"
-    if any(json.loads(x)["run_id"]==rid for x in (RELAY/"LEDGER.jsonl").read_text().splitlines() if x.strip()): raise RuntimeError("repeated run ID")
+    if ledger_entry(rid): raise RuntimeError("repeated run ID")
     if (REPO/config()["run_root"]/rid).exists(): raise RuntimeError("run directory already exists")
     return rid
 
+def base_commit(meta):
+    return meta.get("base_commit") or meta.get("accepted_parent_commit")
+
 def require_executor_commit(c, meta):
     commit=meta.get("executor_commit")
-    if not commit or commit==meta["accepted_parent_commit"] or not git_ops.commit_exists(Path(meta["worktree"]),commit):
+    if not commit or commit==base_commit(meta) or not git_ops.commit_exists(Path(meta["worktree"]),commit):
         raise RuntimeError("executor commit missing; review cannot begin (use recover-commit for an executor_uncommitted run)")
     return commit
 
@@ -111,7 +162,7 @@ def init(args):
     if c["status"]!="uninitialized" and not args.force: raise RuntimeError("relay already initialized; use --force")
     dirty=git_ops.porcelain(REPO,ignore_relay_setup=True)
     if dirty: raise RuntimeError("refusing initialization: non-relay worktree changes exist")
-    c.update(branch=git_ops.branch(REPO),accepted_commit=git_ops.head(REPO),iteration=0,status="initialized",review_backend=config()["review_backend"])
+    c.update(schema_version=2,branch=git_ops.branch(REPO),accepted_commit=git_ops.head(REPO),iteration=0,status="initialized",review_backend=config()["review_backend"])
     save_current(c)
     text=(RELAY/"STATE.md").read_text().replace("Populated by `relay.py init`.",c["accepted_commit"])
     (RELAY/"STATE.md").write_text(text)
@@ -123,22 +174,26 @@ def status(_):
       "pending_handoff":(RELAY/"HANDOFF.md").exists(),"human_action_required":c["status"]=="awaiting_human"},indent=2))
 
 def import_handoff(args):
+    c=current()
+    if c.get("last_run_id") and not finalized_entry(c["last_run_id"]):
+        raise RuntimeError(f"cannot import a handoff while {c['last_run_id']} is active and unfinalized")
+    require_status(c,"initialized")
     text=sys.stdin.read() if args.file=="-" else Path(args.file).read_text()
     if not text.strip(): raise RuntimeError("handoff is empty")
     packet_builder.reject_secrets(text); (RELAY/"HANDOFF.md").write_text(text.rstrip()+"\n"); print("handoff imported")
 
 def prepare(args):
-    c=current(); ensure_initialized(c); git_ops.ensure_clean(REPO); rid=unique_run_id(c); cfg=config(); rd=REPO/cfg["run_root"]/rid; wt=REPO/cfg["worktree_root"]/rid
-    rd.mkdir(parents=True); git_ops.create_worktree(REPO,wt,f"relay/{rid}",c["accepted_commit"])
+    c=current(); ensure_initialized(c); require_status(c,"initialized"); git_ops.ensure_clean(REPO); rid=unique_run_id(c); cfg=config(); rd=REPO/cfg["run_root"]/rid; wt=REPO/cfg["worktree_root"]/rid
+    base=git_ops.head(REPO); rd.mkdir(parents=True); git_ops.create_worktree(REPO,wt,f"relay/{rid}",base)
     # Relay files may be initialized but not yet committed during setup; real runs require them in the accepted commit.
     if not (wt/".agent-relay").exists(): raise RuntimeError("relay files must be committed before a real run")
-    meta={"run_id":rid,"iteration":c["iteration"]+1,"started_at":now(),"accepted_parent_commit":c["accepted_commit"],"worktree":str(wt),"branch":f"relay/{rid}","handoff_sha256":sha(RELAY/"HANDOFF.md"),"state_sha256_before":sha(RELAY/"STATE.md")}
+    meta={"run_id":rid,"iteration":c["iteration"]+1,"started_at":now(),"base_commit":base,"worktree":str(wt),"branch":f"relay/{rid}","handoff_sha256":sha(RELAY/"HANDOFF.md"),"state_sha256_before":sha(RELAY/"STATE.md")}
     packet=packet_builder.executor_packet(RELAY,rid); metrics=packet_builder.packet_metrics(packet,[RELAY/"prompts/executor.md",RELAY/"RUNBOOK.md",RELAY/"STATE.md",RELAY/"HANDOFF.md"])
     packet_builder.enforce_packet_limit(metrics,warning_tokens=cfg.get("packet_warning_tokens",100000),hard_tokens=cfg.get("packet_hard_limit_tokens",150000),allow_large=bool(getattr(args,"allow_large_packet",False)),label="executor")
     meta["executor_packet_metrics"]=metrics; write_json(rd/"META.json",meta); (rd/"EXECUTOR_PACKET.md").write_text(packet); c.update(last_run_id=rid,status="prepared"); save_current(c); print(rid)
 
 def execute(_):
-    c=current(); rd=run_dir(c); meta=load_json(rd/"META.json"); cfg=config(); out=rd/"RESULT.json"
+    c=current(); require_status(c,"prepared"); require_not_finalized(active_run_id(c)); rd=run_dir(c); meta=load_json(rd/"META.json"); cfg=config(); out=rd/"RESULT.json"
     wt=Path(meta["worktree"]); common=git_ops.resolve_git_common_dir(REPO)
     git_ops.preflight_commit_permissions(wt,common)
     cmd=backends.codex_command(cwd=wt,schema=RELAY/"schemas/executor-result.schema.json",output=out,sandbox=cfg["executor_sandbox"],model=cfg["executor_model"],add_dirs=[common])
@@ -148,26 +203,37 @@ def execute(_):
     except Exception as exc: error=exc
     changed=git_ops.changed_paths(wt); head=git_ops.head(wt)
     result=load_json(out) if out.exists() else {}
-    if changed and head==meta["accepted_parent_commit"]:
+    if changed and head==base_commit(meta):
         meta["reported_changed_files"]=changed; meta["executor_error"]=str(error) if error else "executor returned without a commit"
         write_json(rd/"META.json",meta); c.update(status="executor_uncommitted",last_outcome=result.get("outcome","FAILED")); save_current(c)
         print("Changed files:\n  "+"\n  ".join(changed)); print(executor_recovery_instructions(meta))
         raise RuntimeError("executor changed files but did not create a commit")
     if error: raise error
     commit=(result.get("commits") or [head])[-1]
-    if commit==meta["accepted_parent_commit"]: raise RuntimeError("executor did not create a commit")
+    if commit==base_commit(meta): raise RuntimeError("executor did not create a commit")
     meta["executor_commit"]=commit; write_json(rd/"META.json",meta); c.update(status="executed",last_outcome=result["outcome"]); save_current(c)
 
 def validate(_):
-    c=current(); rd=run_dir(c); meta=load_json(rd/"META.json"); commit=require_executor_commit(c,meta)
-    data=validation.run_all(Path(meta["worktree"]),meta["accepted_parent_commit"],commit,rd,config()); c["status"]="validated"; save_current(c); print(data["status"])
+    c=current(); run_id=active_run_id(c); require_not_finalized(run_id)
+    if c.get("status") in {"validated","awaiting_human"}:
+        data=load_json(run_dir(c)/"VALIDATION.json"); print(data["status"]); return
+    require_status(c,"executed"); rd=run_dir(c); meta=load_json(rd/"META.json"); commit=require_executor_commit(c,meta)
+    data=validation.run_all(Path(meta["worktree"]),base_commit(meta),commit,rd,config()); c["status"]="validated"; save_current(c); print(data["status"])
 
 def review(args):
-    c=current(); rd=run_dir(c); meta=load_json(rd/"META.json"); cfg=config(); wt=Path(meta["worktree"]); result=load_json(rd/"RESULT.json"); val=load_json(rd/"VALIDATION.json")
+    c=current(); run_id=active_run_id(c); require_not_finalized(run_id)
+    rd=run_dir(c)
+    force=bool(getattr(args,"force",False))
+    if c.get("status")=="awaiting_human" and (rd/"REVIEW.json").exists() and not force:
+        summary(c); return
+    require_status(c,"validated",*( ("awaiting_human",) if force else () ))
+    if (rd/"REVIEW.json").exists() and not force:
+        raise RuntimeError("REVIEW.json already exists; use review --force before finalization to replace it")
+    meta=load_json(rd/"META.json"); cfg=config(); wt=Path(meta["worktree"]); result=load_json(rd/"RESULT.json"); val=load_json(rd/"VALIDATION.json")
     require_executor_commit(c,meta)
-    stat=git_ops.run(["git","diff","--stat",f"{meta['accepted_parent_commit']}..{meta['executor_commit']}"],wt).stdout
-    diff=git_ops.run(["git","diff",f"{meta['accepted_parent_commit']}..{meta['executor_commit']}"],wt).stdout
-    packet=packet_builder.review_packet(RELAY,result,meta["accepted_parent_commit"],meta["executor_commit"],stat,diff,val,cfg["review_diff_limit_bytes"]); metrics=packet_builder.packet_metrics(packet,[RELAY/"prompts/reviewer-codex.md",RELAY/"RUNBOOK.md",RELAY/"STATE.md",RELAY/"HANDOFF.md",rd/"RESULT.json",rd/"VALIDATION.json"])
+    base=base_commit(meta); stat=git_ops.run(["git","diff","--stat",f"{base}..{meta['executor_commit']}"],wt).stdout
+    diff=git_ops.run(["git","diff",f"{base}..{meta['executor_commit']}"],wt).stdout
+    packet=packet_builder.review_packet(RELAY,result,base,meta["executor_commit"],stat,diff,val,cfg["review_diff_limit_bytes"]); metrics=packet_builder.packet_metrics(packet,[RELAY/"prompts/reviewer-codex.md",RELAY/"RUNBOOK.md",RELAY/"STATE.md",RELAY/"HANDOFF.md",rd/"RESULT.json",rd/"VALIDATION.json"])
     packet_builder.enforce_packet_limit(metrics,warning_tokens=cfg.get("packet_warning_tokens",100000),hard_tokens=cfg.get("packet_hard_limit_tokens",150000),allow_large=bool(getattr(args,"allow_large_packet",False)),label="review")
     meta["review_packet_metrics"]=metrics; write_json(rd/"META.json",meta); (rd/"REVIEW_PACKET.md").write_text(packet)
     if cfg["review_backend"]=="codex":
@@ -178,10 +244,10 @@ def review(args):
 
 def recover_commit(args):
     c=current()
-    if c.get("status")!="executor_uncommitted": raise RuntimeError("active run is not executor_uncommitted")
+    require_status(c,"executor_uncommitted"); require_not_finalized(active_run_id(c))
     rd=run_dir(c); meta=load_json(rd/"META.json"); wt=Path(meta["worktree"])
     if meta.get("executor_commit") or meta.get("recovered_commit"): raise RuntimeError("executor commit is already recorded")
-    if git_ops.head(wt)!=meta["accepted_parent_commit"]: raise RuntimeError("worktree HEAD moved since executor failure")
+    if git_ops.head(wt)!=base_commit(meta): raise RuntimeError("worktree HEAD moved since executor failure")
     reported=sorted(meta.get("reported_changed_files",[])); actual=git_ops.changed_paths(wt)
     unexpected=sorted(set(actual)-set(reported)); missing=sorted(set(reported)-set(actual))
     if unexpected or missing: raise RuntimeError(f"change set differs from recorded executor changes; unexpected={unexpected}, missing={missing}")
@@ -204,36 +270,136 @@ def summary(c):
     print(f"Run: {c['last_run_id']}\nExecutor outcome: {r['outcome']}\nIndependent validations: {v['status']}\nReviewer verdict: {q['verdict']}\nMaterial scope corrections: {len([x for x in q['scope_corrections'] if x['severity']!='minor'])}\nProposed next task: {q['state_patch']['next_task']}\nCommands:\n  relay.py accept\n  relay.py reject")
 
 def append_ledger(entry):
-    existing=[json.loads(x) for x in (RELAY/"LEDGER.jsonl").read_text().splitlines() if x.strip()]
-    if any(x["run_id"]==entry["run_id"] for x in existing): raise RuntimeError("ledger already contains run ID")
+    if ledger_entry(entry["run_id"]): raise RuntimeError(f"ledger already contains {entry['run_id']}")
     with (RELAY/"LEDGER.jsonl").open("a") as f:f.write(json.dumps(entry,separators=(",",":"))+"\n")
 
-def finish(decision):
-    c=current(); rd=run_dir(c); meta=load_json(rd/"META.json"); res=load_json(rd/"RESULT.json"); rev=load_json(rd/"REVIEW.json"); val=load_json(rd/"VALIDATION.json"); wt=Path(meta["worktree"])
-    git_ops.ensure_clean(wt); commit=meta["executor_commit"]
-    if not git_ops.commit_exists(REPO,commit): raise RuntimeError("executor commit missing")
+def review_override(decision, rev, override, reason):
+    if decision=="reject": return None
+    verdict=rev.get("verdict")
+    if verdict=="accept": return None
+    if verdict not in {"accept_with_corrections","reject","human_review"}:
+        raise RuntimeError(f"unknown reviewer verdict: {verdict}")
+    if not override:
+        if verdict=="accept_with_corrections":
+            raise RuntimeError("reviewer requires corrections; acceptance requires re-review or --override-review --reason TEXT")
+        raise RuntimeError(f"reviewer verdict is {verdict}; acceptance requires --override-review --reason TEXT")
+    if not reason or not reason.strip(): raise RuntimeError("--override-review requires a non-empty --reason")
+    return {"reason":reason.strip(),"recorded_at":now()}
+
+def preflight_finish(decision, override=False, reason=None):
+    c=current(); run_id=active_run_id(c)
+    existing=finalized_entry(run_id)
+    if existing:
+        prior=existing["human_decision"]
+        if prior==decision:
+            print(f"{run_id} already finalized as {decision}"); return None
+        raise RuntimeError(f"{run_id} was finalized as {prior} and cannot be changed to {decision}")
+    require_status(c,"awaiting_human")
+    rd=run_dir(c)
+    artifacts={}
+    for name in ("RESULT.json","VALIDATION.json","REVIEW.json"):
+        path=rd/name
+        if not path.exists(): raise RuntimeError(f"finalization preflight failed: missing {name}")
+        try: artifacts[name]=load_json(path)
+        except (OSError,json.JSONDecodeError) as exc: raise RuntimeError(f"finalization preflight failed: invalid {name}: {exc}") from exc
+    meta_path=rd/"META.json"
+    if not meta_path.exists(): raise RuntimeError("finalization preflight failed: missing META.json")
+    try: meta=load_json(meta_path)
+    except (OSError,json.JSONDecodeError) as exc: raise RuntimeError(f"finalization preflight failed: invalid META.json: {exc}") from exc
+    wt=Path(meta["worktree"]); commit=meta.get("executor_commit"); base=base_commit(meta)
+    if not commit or not git_ops.commit_exists(wt,commit): raise RuntimeError("finalization preflight failed: executor commit missing")
+    git_ops.ensure_clean(wt)
+    # Any row, even an old non-final row, blocks mutation. Final rows were handled
+    # above so same-decision retries remain idempotent.
+    if ledger_entry(run_id): raise RuntimeError(f"finalization preflight failed: ledger already contains {run_id}")
+    val=artifacts["VALIDATION.json"]; rev=artifacts["REVIEW.json"]
+    if decision=="accept" and val.get("status")!="pass": raise RuntimeError("cannot accept failed validations")
+    override_record=review_override(decision,rev,override,reason)
+    ensure_only_control_state_dirty()
+    if not base or not git_ops.commit_exists(REPO,base): raise RuntimeError("finalization preflight failed: base commit missing")
+    if git_ops.head(REPO)!=base: raise RuntimeError("finalization preflight failed: branch HEAD moved since prepare")
+    if not git_ops.is_ancestor(REPO,base,commit): raise RuntimeError("finalization preflight failed: executor commit does not descend from base_commit")
+    return c,rd,meta,artifacts["RESULT.json"],val,rev,wt,commit,base,override_record
+
+def commit_control_plane(run_id, decision):
+    paths=[str(p.relative_to(REPO)) for p in (RELAY/"STATE.md",RELAY/"HANDOFF.md",RELAY/"CURRENT.json",RELAY/"LEDGER.jsonl")]
+    git_ops.run(["git","add","--",*paths],REPO)
+    git_ops.run(["git","commit","-m",f"Finalize relay run {run_id}: {decision}"],REPO)
+
+def finish(decision, override=False, reason=None):
+    checked=preflight_finish(decision,override,reason)
+    if checked is None: return
+    c,rd,meta,res,val,rev,wt,commit,base,override_record=checked; run_id=meta["run_id"]
     if decision=="accept":
-        if val["status"]!="pass": raise RuntimeError("cannot accept failed validations")
-        git_ops.ensure_clean(REPO); git_ops.run(["git","merge","--ff-only",commit],REPO)
-        patch=rev["state_patch"]; state=(RELAY/"STATE.md").read_text()+"\n## Accepted iteration additions\n"+"\n".join(f"- {x}" for x in patch["banked_results_add"]+patch["closed_architectures_add"])+f"\n\n## Current open gate\n\n{patch['open_gate']}\n\n## Formalization boundary\n\n{patch['formalization_boundary']}\n\n## Single best next strategic problem\n\n{patch['next_task']}\n"
-        (RELAY/"STATE.md").write_text(state); (RELAY/"HANDOFF.md").write_text(rev["next_handoff"].rstrip()+"\n"); final=git_ops.head(REPO); c.update(accepted_commit=final,iteration=meta["iteration"],status="initialized",consecutive_rejections=0)
-    else: final=None; c.update(iteration=meta["iteration"],status="initialized",consecutive_rejections=c["consecutive_rejections"]+1)
-    entry={"run_id":meta["run_id"],"iteration":meta["iteration"],"started_at":meta["started_at"],"completed_at":now(),"accepted_parent_commit":meta["accepted_parent_commit"],"executor_commit":commit,"final_accepted_commit":final,"handoff_sha256":meta["handoff_sha256"],"state_sha256_before":meta["state_sha256_before"],"state_sha256_after":sha(RELAY/"STATE.md") if decision=="accept" else None,"executor_outcome":res["outcome"],"review_verdict":rev["verdict"],"validation_status":val["status"],"changed_files":val["changed_files"],"claims_accepted":rev["verified_claims"] if decision=="accept" else [],"claims_rejected":rev["unsupported_claims"],"next_task":rev["state_patch"]["next_task"],"executor_usage":{},"reviewer_usage":{},"human_decision":decision}
-    append_ledger(entry); c["last_outcome"]=res["outcome"]; save_current(c); print(decision+"ed")
-def accept(_): finish("accept")
+        git_ops.run(["git","merge","--ff-only",commit],REPO)
+        patch=rev["state_patch"]
+        additions=patch["banked_results_add"]+patch["closed_architectures_add"]
+        state=(RELAY/"STATE.md").read_text()+"\n## Accepted iteration additions\n"+"\n".join(f"- {x}" for x in additions)+f"\n\n## Current open gate\n\n{patch['open_gate']}\n\n## Formalization boundary\n\n{patch['formalization_boundary']}\n\n## Single best next strategic problem\n\n{patch['next_task']}\n"
+        (RELAY/"STATE.md").write_text(state)
+        c.update(accepted_commit=commit,iteration=meta["iteration"],status="finalized",consecutive_rejections=0)
+        final_math=commit
+    else:
+        c.update(iteration=meta["iteration"],status="finalized",consecutive_rejections=c["consecutive_rejections"]+1)
+        final_math=None
+    # Both decisions hand the next run the review's corrective/strategic task.
+    (RELAY/"HANDOFF.md").write_text(rev["next_handoff"].rstrip()+"\n")
+    entry={"schema_version":2,"run_id":run_id,"iteration":meta["iteration"],"started_at":meta["started_at"],"completed_at":now(),"base_commit":base,"accepted_parent_commit":base,"executor_commit":commit,"final_accepted_commit":final_math,"handoff_sha256":meta["handoff_sha256"],"state_sha256_before":meta["state_sha256_before"],"state_sha256_after":sha(RELAY/"STATE.md") if decision=="accept" else None,"executor_outcome":res["outcome"],"review_verdict":rev["verdict"],"validation_status":val["status"],"changed_files":val["changed_files"],"claims_accepted":rev["verified_claims"] if decision=="accept" else [],"claims_rejected":rev["unsupported_claims"],"next_task":rev["state_patch"]["next_task"],"executor_usage":{},"reviewer_usage":{},"human_decision":decision,"review_override":override_record}
+    append_ledger(entry); c.update(status="initialized",last_outcome=res["outcome"]); save_current(c)
+    commit_control_plane(run_id,decision)
+    if decision=="accept" and config().get("remove_worktree_on_accept",False): git_ops.remove_worktree(REPO,wt)
+    print(decision+"ed")
+
+def accept(args): finish("accept",args.override_review,args.reason)
 def reject(_): finish("reject")
+
+def reconcile(args):
+    c=current(); run_id=c.get("last_run_id")
+    report={"current_status":c.get("status"),"run_id":run_id,"branch_head":git_ops.head(REPO),"ledger_decision":None,"active_meta":None,"executor_worktree_head":None,"review_post_finalization":False,"changes_required":False}
+    if not run_id:
+        print(json.dumps(report,indent=2)); return
+    entry=finalized_entry(run_id); report["ledger_decision"]=entry.get("human_decision") if entry else None
+    rd=REPO/config()["run_root"]/run_id; meta_path=rd/"META.json"
+    if meta_path.exists():
+        meta=load_json(meta_path); report["active_meta"]={"base_commit":base_commit(meta),"executor_commit":meta.get("executor_commit"),"worktree":meta.get("worktree")}
+        wt=Path(meta.get("worktree",""))
+        if wt.exists(): report["executor_worktree_head"]=git_ops.head(wt)
+    if entry:
+        review_path=rd/"REVIEW.json"
+        completed=dt.datetime.fromisoformat(entry["completed_at"])
+        if review_path.exists():
+            modified=dt.datetime.fromtimestamp(review_path.stat().st_mtime,dt.timezone.utc)
+            report["review_post_finalization"]=modified>completed or c.get("status")=="awaiting_human"
+        accepted_mismatch=entry["human_decision"]=="accept" and entry.get("final_accepted_commit") and c.get("accepted_commit")!=entry.get("final_accepted_commit")
+        report["changes_required"]=c.get("schema_version")!=2 or c.get("status")!="initialized" or c.get("iteration")!=entry.get("iteration") or accepted_mismatch
+        if report["review_post_finalization"]:
+            report["note"]="REVIEW.json is post-finalization and non-authoritative; the ledger decision is preserved"
+        if args.apply and report["changes_required"]:
+            if report["review_post_finalization"] and review_path.exists():
+                shutil.copy2(review_path,rd/"REVIEW.post-finalization.json")
+            c.update(schema_version=2,status="initialized",iteration=entry["iteration"],last_outcome=entry.get("executor_outcome"))
+            if entry["human_decision"]=="accept":
+                c["accepted_commit"]=entry.get("final_accepted_commit") or c.get("accepted_commit")
+                c["consecutive_rejections"]=0
+            save_current(c); report["applied"]=True
+    elif c.get("status")=="finalized":
+        raise RuntimeError(f"{run_id} says finalized but has no authoritative ledger row")
+    print(json.dumps(report,indent=2))
 def cycle(args): prepare(args); execute(args); validate(args); review(args)
 def run_cmd(args):
     for _ in range(args.max_iterations): cycle(args); break
 
 def main():
     p=argparse.ArgumentParser(); sp=p.add_subparsers(dest="cmd",required=True)
-    for name,fn in [("doctor",doctor),("status",status),("execute",execute),("validate",validate),("accept",accept),("reject",reject)]: sp.add_parser(name).set_defaults(fn=fn)
+    for name,fn in [("doctor",doctor),("status",status),("execute",execute),("validate",validate),("reject",reject)]: sp.add_parser(name).set_defaults(fn=fn)
+    q=sp.add_parser("accept"); q.add_argument("--override-review",action="store_true"); q.add_argument("--reason"); q.set_defaults(fn=accept)
     for name,fn in [("prepare",prepare),("review",review),("cycle",cycle)]:
-        q=sp.add_parser(name); q.add_argument("--allow-large-packet",action="store_true"); q.set_defaults(fn=fn)
+        q=sp.add_parser(name); q.add_argument("--allow-large-packet",action="store_true")
+        if name=="review": q.add_argument("--force",action="store_true")
+        q.set_defaults(fn=fn)
     q=sp.add_parser("recover-commit"); q.add_argument("--yes",action="store_true"); q.add_argument("--message"); q.set_defaults(fn=recover_commit)
     q=sp.add_parser("init");q.add_argument("--force",action="store_true");q.set_defaults(fn=init)
     q=sp.add_parser("import-handoff");q.add_argument("file");q.set_defaults(fn=import_handoff)
+    q=sp.add_parser("reconcile");q.add_argument("--apply",action="store_true");q.set_defaults(fn=reconcile)
     q=sp.add_parser("run");q.add_argument("--max-iterations",type=int,default=1);q.add_argument("--allow-large-packet",action="store_true");q.set_defaults(fn=run_cmd)
     args=p.parse_args()
     try:return args.fn(args) or 0

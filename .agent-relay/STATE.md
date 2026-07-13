@@ -45,3 +45,18 @@ Finite approximants, Python receipts, hand proofs, executable evidence, and Lean
 ## Single best next strategic problem
 
 Resolve the first genuine cross-coordinate-overlap architecture beyond the closed two-fibre atom-selector class, with all four structural gates checked independently.
+
+## Accepted iteration additions
+
+
+## Current open gate
+
+Unchanged: resolve a genuine cross-coordinate-overlap architecture beyond the closed one-edge class, with latticehood, σ-completeness, maximal blocks, centre, state extension, and order separation checked independently.
+
+## Formalization boundary
+
+Unchanged: existing Lean files do not certify the open OML conjecture; the proposed O2/O3 result is not accepted without reviewable hand-proof and executable artifacts.
+
+## Single best next strategic problem
+
+Restore the missing O2/O3 edge-collapse artifacts, commit them, and submit a nonempty validated diff for independent review.

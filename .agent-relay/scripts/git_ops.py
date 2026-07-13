@@ -105,6 +105,9 @@ def ensure_clean(cwd: Path):
 def commit_exists(cwd: Path, commit: str) -> bool:
     return run(["git", "cat-file", "-e", f"{commit}^{{commit}}"], cwd, check=False).returncode == 0
 
+def is_ancestor(cwd: Path, ancestor: str, descendant: str) -> bool:
+    return run(["git", "merge-base", "--is-ancestor", ancestor, descendant], cwd, check=False).returncode == 0
+
 def create_worktree(repo: Path, path: Path, branch_name: str, commit: str):
     path.parent.mkdir(parents=True, exist_ok=True)
     run(["git", "worktree", "add", "-b", branch_name, str(path), commit], repo)

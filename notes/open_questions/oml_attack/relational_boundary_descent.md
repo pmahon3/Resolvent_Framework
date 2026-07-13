@@ -4,6 +4,11 @@
 separates state-space, carrier-point, and σ-state pullbacks and proves
 tameness under the common-point extension property.
 
+**Repeated-block no-go:** [`oml_two_edge_pullback_completion.md`](oml_two_edge_pullback_completion.md)
+shows that two blocks containing the same selector pair generate the same
+embedded four-region Boolean datum, so repeated containment is not a second
+boundary edge.
+
 *Opened 2026-07-12. Status: sharpen-in-place research note. The exact
 descent equivalence and finite-boundary theorem below are ⟦HAND⟧, assembled
 from the Lean-certified block facts cited in §2 and elementary Stone/Boolean

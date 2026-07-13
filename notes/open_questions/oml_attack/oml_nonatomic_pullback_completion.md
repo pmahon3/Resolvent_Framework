@@ -1,5 +1,9 @@
 # Completion of the `(5,11)` non-atomic pullback
 
+**Two-common-block follow-up:** [`oml_two_edge_pullback_completion.md`](oml_two_edge_pullback_completion.md)
+shows that O2 and O3 repeat the same intrinsic four-region datum in both
+common blocks, so neither supplies two quotient edges.
+
 *Opened and completed for the explicit pullback-carrier class 2026-07-12.
 Starting commit: `61d1aae743a4a7e159a3b8a37815c6c91031df43`.
 Outcome B: centre-free, nonrectangular, single-edge, and `Phi`-tame under

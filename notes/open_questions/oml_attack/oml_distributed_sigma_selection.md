@@ -14,6 +14,11 @@ lattice-atom selectors. The smallest jointly coherent pair lies on a
 five-cycle but has disjoint propagation supports, so its completed
 two-fibre relation is rectangular and remains `Phi`-tame.
 
+**Two-common-block follow-up.**
+[`oml_two_edge_pullback_completion.md`](oml_two_edge_pullback_completion.md)
+shows that O2/O3 repeat one intrinsic four-region datum in their two common
+blocks, so block multiplicity alone does not leave the one-edge class.
+
 ## 1. Statement of record
 
 The conjecture is unchanged:

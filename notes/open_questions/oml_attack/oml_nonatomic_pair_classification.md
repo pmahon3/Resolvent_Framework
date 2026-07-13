@@ -3,6 +3,9 @@
 **Completion follow-up:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
 classifies six pair orbits and completes the `(5,11)` pullback as a
 centre-free, single-edge, nonrectangular but tame inflation.
+The two-common-block audit
+[`oml_two_edge_pullback_completion.md`](oml_two_edge_pullback_completion.md)
+closes O2/O3 as duplicate-datum candidates.
 
 *Opened and exhaustively audited 2026-07-12. Scope: finite selector and
 block-incidence classification only. No coarse completed OML is asserted.*

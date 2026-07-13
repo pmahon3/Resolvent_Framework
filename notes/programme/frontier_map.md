@@ -191,6 +191,14 @@ finite fibre trace is replaced by a point state. Exhaustive approximants
 have 88, 152, and 280 events for fibre atom counts 2, 3, and 4. Outcome B;
 the next gate needs two inequivalent coarse fibres or a genuine cycle twist.
 
+**s46 two-common-block orbit audit:**
+`notes/open_questions/oml_attack/oml_two_edge_pullback_completion.md` closes
+O2 `(5,51)` and O3 `(15,45)` as a source of two edges: both common blocks
+repeat the same intrinsic four-region subalgebra. O3 is the smaller control
+(four-cycle, symmetric supports), but no new completion or infinite model is
+claimed. The next gate must use distinct event families inducing transverse
+embedded subalgebras, not repeated containment of one pair.
+
 **s44 two-fibre atom-monodromy no-go:**
 `notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all
 twelve lattice atoms into two automorphism orbits. Relative to `q0`, exactly

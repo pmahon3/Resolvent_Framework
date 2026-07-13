@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The (5,11) non-atomic proper-shared-subalgebra inflation survives completion as a centre-free nonrectangular single pullback, but the explicit coordinate class is Phi-tame by common-point extension. The next obstruction gate needs two inequivalent quotient edges or a one-edge system lacking compatible sigma extensions.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The (5,11) inflation is a tame single pullback, and the O2/O3 two-common-block orbits repeat one embedded datum rather than creating two edges. The next obstruction gate needs distinct event families inducing transverse embedded subalgebras or a one-edge system lacking compatible sigma extensions.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 63,
+   "entries": 64,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The (5,11) 4-2-4 pullback completion is banked: six pair orbits, 147592-event centre-free seven-block OML, one nonrectangular edge, and a tame countable-coordinate model. Next seek a different orbit or datum producing two inequivalent quotient edges; redundant copies of the same D restriction do not count."
+   "current_next_step": "O2 and O3 are closed as two-edge candidates: their two common blocks repeat the same intrinsic four-region datum. Seek distinct event families whose overlaps induce transverse embedded subalgebras; repeated containment of one selector pair is exhausted."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -351,6 +351,13 @@
   }
  ],
  "mechanism_exclusions": [
+  {
+   "id": "oml.exclusion.two_common_block_duplicate",
+   "name": "Two-common-block duplicate-edge no-go",
+   "status": "proved-hand-executable-fixed-skeleton",
+   "one_line": "For O2 (5,51) and O3 (15,45), both common blocks contain the same four lattice regions, so the apparent two equations are identical embedded restrictions and reduce to one pullback; no new completion or infinite model is asserted.",
+   "detail": "oml_two_edge_pullback_completion.md"
+  },
   {
    "id": "oml.exclusion.singleton_quarantine",
    "name": "Singleton quarantine",

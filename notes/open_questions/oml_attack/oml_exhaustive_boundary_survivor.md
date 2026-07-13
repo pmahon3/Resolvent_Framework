@@ -6,7 +6,16 @@ nonempty subfamilies of the seven labelled maximal blocks of the certified
 boundary and a proper-closure transverse triangle. The smallest have 44
 events. This is exhaustive finite evidence for that fixed block-subfamily
 class, not a classification of arbitrary completions, an infinite theorem,
-or a Lean certificate.*
+or a Lean certificate. Banking is pending the required human review of the
+new finite counterexample to the proposed local centrality obstruction.*
+
+**Epistemic correction.** The positive statement is executable finite
+evidence: the 56-event control contains a locally noncentral proper joint
+closure. Separately, that construction refutes only the proposed local
+obstruction that every proper transverse joint closure must become central.
+Whether an infinite inflation preserves the required structural gates and
+produces a noncompact eligible sigma-state slice remains open; no such
+inflation is claimed to exist here.
 
 ## 1. The 44-event survivor
 

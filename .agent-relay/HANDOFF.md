@@ -1,1 +1,1 @@
-Correct the two executor claim records, obtain human approval for banking the new finite counterexample to the local centrality obstruction, then begin the infinite-inflation audit with maximal blocks and sigma-completeness as stop gates.
+Await human approval to bank the finite counterexample to the proposed local centrality obstruction. After approval, begin the infinite-inflation audit with maximal blocks and sigma-completeness as stop gates; whether such an inflation exists remains open.

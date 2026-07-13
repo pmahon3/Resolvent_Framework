@@ -1,173 +1,110 @@
-import contextlib
-import io
 import json
 import subprocess
 import sys
 import tempfile
-import time
 import unittest
 from pathlib import Path
 from types import SimpleNamespace
 from unittest import mock
 
-SCRIPTS=Path(__file__).resolve().parents[1]/"scripts"
-sys.path.insert(0,str(SCRIPTS))
+SCRIPTS = Path(__file__).resolve().parents[1] / "scripts"
+sys.path.insert(0, str(SCRIPTS))
 import git_ops, relay
 
 
-def git(repo,*args):
-    return subprocess.run(["git",*args],cwd=repo,text=True,capture_output=True,check=True).stdout.strip()
+def git(repo, *args, check=True):
+    return subprocess.run(["git", *args], cwd=repo, text=True, capture_output=True, check=check).stdout.strip()
 
 
 def review_data(verdict="accept"):
-    return {
-        "run_id":"run-0001-review","verdict":verdict,"headline":"fake review",
-        "verified_claims":["verified"],"scope_corrections":[],"unsupported_claims":["unsupported"],
-        "validation_assessment":"pass","formalization_assessment":"none","strategic_assessment":"useful",
-        "required_corrections":[],
-        "state_patch":{"banked_results_add":["banked"],"closed_architectures_add":[],"open_gate":"gate","formalization_boundary":"boundary","next_task":"next"},
-        "next_handoff":"repair or continue","safe_for_automatic_acceptance":verdict=="accept",
-        "requires_human_review_reason":"test",
-    }
+    return {"run_id":"run-0001","verdict":verdict,"headline":"review","verified_claims":[],"scope_corrections":[],"unsupported_claims":[],"validation_assessment":"pass","formalization_assessment":"none","strategic_assessment":"useful","required_corrections":[],"state_patch":{"banked_results_add":[],"closed_architectures_add":[],"open_gate":"gate","formalization_boundary":"boundary","next_task":"next"},"next_handoff":"correct the candidate","safe_for_automatic_acceptance":verdict=="accept","requires_human_review_reason":""}
 
 
-class RelayFixture:
+class Fixture:
     def __init__(self):
         self.temp=tempfile.TemporaryDirectory(); self.repo=Path(self.temp.name); self.relay=self.repo/".agent-relay"
         git(self.repo,"init"); git(self.repo,"config","user.email","test@example.invalid"); git(self.repo,"config","user.name","Test")
-        (self.repo/".gitignore").write_text(".agent-relay-local/\n")
-        (self.repo/"math.txt").write_text("base\n")
+        (self.repo/".gitignore").write_text(".agent-relay-local/\n"); (self.repo/"math.txt").write_text("base\n")
         (self.relay/"prompts").mkdir(parents=True); (self.relay/"schemas").mkdir()
-        (self.relay/"prompts/reviewer-codex.md").write_text("review")
-        (self.relay/"prompts/executor.md").write_text("execute")
+        for path,text in (("prompts/executor.md","execute"),("prompts/reviewer-codex.md","review"),("RUNBOOK.md","rules"),("STATE.md","state"),("HANDOFF.md","handoff")):
+            (self.relay/path).write_text(text+"\n")
+        (self.relay/"schemas/executor-result.schema.json").write_text("{}")
         (self.relay/"schemas/review.schema.json").write_text("{}")
-        (self.relay/"RUNBOOK.md").write_text("rules\n"); (self.relay/"STATE.md").write_text("state\n"); (self.relay/"HANDOFF.md").write_text("handoff\n")
-        (self.relay/"LEDGER.jsonl").write_text("")
-        self.current={"schema_version":2,"project":"Resolvent_Framework","branch":"master","accepted_commit":"accepted-math-before-control", "iteration":0,"status":"initialized","current_handoff_path":".agent-relay/HANDOFF.md","last_run_id":None,"last_outcome":None,"consecutive_rejections":0,"review_backend":"codex","updated_at":"2026-01-01T00:00:00+00:00"}
-        (self.relay/"CURRENT.json").write_text(json.dumps(self.current,indent=2)+"\n")
-        git(self.repo,"add","."); git(self.repo,"commit","-m","base")
+        self.accepted_branch=git_ops.branch(self.repo)
+        state={"schema_version":2,"project":"Resolvent_Framework","branch":self.accepted_branch,"accepted_commit":"","iteration":0,"status":"initialized","current_handoff_path":".agent-relay/HANDOFF.md","last_run_id":None,"last_outcome":None,"consecutive_rejections":0,"review_backend":"codex","candidate":None,"updated_at":"2026-01-01T00:00:00+00:00"}
+        (self.relay/"CURRENT.json").write_text(json.dumps(state,indent=2)+"\n")
+        git(self.repo,"add","."); git(self.repo,"commit","-m","base"); self.base=git_ops.head(self.repo)
+        state["accepted_commit"]=self.base; (self.relay/"CURRENT.json").write_text(json.dumps(state,indent=2)+"\n"); git(self.repo,"add","."); git(self.repo,"commit","-m","state")
         self.base=git_ops.head(self.repo)
-        self.cfg={"run_root":Path(".agent-relay-local/runs"),"worktree_root":Path(".agent-relay-local/worktrees"),"review_backend":"codex","reviewer_sandbox":"read-only","reviewer_model":"","review_diff_limit_bytes":100000,"packet_warning_tokens":100000,"packet_hard_limit_tokens":150000,"api_retry_count":1,"remove_worktree_on_accept":False}
-        self.old_repo,self.old_relay,self.old_config=relay.REPO,relay.RELAY,relay.config
-        relay.REPO,relay.RELAY,relay.config=self.repo,self.relay,lambda:self.cfg
-        self.make_run()
+        self.cfg={"run_root":Path(".agent-relay-local/runs"),"worktree_root":Path(".agent-relay-local/worktrees"),"review_backend":"codex","executor_sandbox":"workspace-write","executor_model":"","reviewer_sandbox":"read-only","reviewer_model":"","review_diff_limit_bytes":100000,"packet_warning_tokens":100000,"packet_hard_limit_tokens":150000,"api_retry_count":1,"run_diff_check":True,"run_json_validations":False,"run_python_validations":False,"run_no_sorry_scan":False,"run_lake_build":False}
+        self.old=(relay.REPO,relay.RELAY,relay.config); relay.REPO,relay.RELAY,relay.config=self.repo,self.relay,lambda:self.cfg
 
-    def write_current(self): (self.relay/"CURRENT.json").write_text(json.dumps(self.current,indent=2)+"\n")
-    def read_current(self): return json.loads((self.relay/"CURRENT.json").read_text())
-    def make_run(self):
-        self.run=self.repo/self.cfg["run_root"]/"run-0001"; self.run.mkdir(parents=True)
-        self.wt=self.repo/self.cfg["worktree_root"]/"run-0001"
-        git_ops.create_worktree(self.repo,self.wt,"relay/run-0001",self.base)
-        (self.wt/"math.txt").write_text("executor\n"); git(self.wt,"add","math.txt"); git(self.wt,"commit","-m","executor")
-        self.executor=git_ops.head(self.wt)
-        meta={"run_id":"run-0001","iteration":1,"started_at":"2026-01-01T00:00:00+00:00","base_commit":self.base,"worktree":str(self.wt),"branch":"relay/run-0001","handoff_sha256":relay.sha(self.relay/"HANDOFF.md"),"state_sha256_before":relay.sha(self.relay/"STATE.md"),"executor_commit":self.executor}
-        relay.write_json(self.run/"META.json",meta)
-        relay.write_json(self.run/"RESULT.json",{"outcome":"SUCCESS"})
-        relay.write_json(self.run/"VALIDATION.json",{"status":"pass","changed_files":["math.txt"]})
-        self.current.update(last_run_id="run-0001",status="validated"); self.write_current()
-
-    def install_review(self,verdict="accept"):
-        relay.write_json(self.run/"REVIEW.json",review_data(verdict)); self.current=self.read_current(); self.current["status"]="awaiting_human"; self.write_current()
-
-    def fake_review(self,verdict="accept"):
-        calls=[]
-        def command(**kwargs): return ["fake",str(kwargs["output"])]
-        def run(packet,cmd,events): calls.append(packet); relay.write_json(Path(cmd[1]),review_data(verdict))
-        return calls,command,run
-
-    def close(self):
-        relay.REPO,relay.RELAY,relay.config=self.old_repo,self.old_relay,self.old_config
-        self.temp.cleanup()
+    def close(self): relay.REPO,relay.RELAY,relay.config=self.old; self.temp.cleanup()
+    def start(self, picks=None): relay.candidate_start(SimpleNamespace(name="outcome-c",cherry_pick=picks or [])); return relay.current()["candidate"]
+    def candidate_path(self): return self.repo/relay.current()["candidate"]["worktree"]
+    def commit_candidate(self,text,message):
+        wt=self.candidate_path(); (wt/"math.txt").write_text(text+"\n"); git(wt,"add","math.txt"); git(wt,"commit","-m",message); state=relay.current(); state["candidate"]["current_tip"]=git_ops.head(wt); relay.save_current(state); return git_ops.head(wt)
+    def awaiting(self, verdict="accept"):
+        state=relay.current(); run_id="run-0001"; directory=self.repo/self.cfg["run_root"]/run_id; directory.mkdir(parents=True,exist_ok=True)
+        relay.write_json(directory/"RESULT.json",{"outcome":"SUCCESS","commits":["bogus"]}); relay.write_json(directory/"VALIDATION.json",{"status":"pass","changed_files":["math.txt"]}); relay.write_json(directory/"REVIEW.json",review_data(verdict))
+        state["candidate"].update(status="awaiting_human",latest_run_id=run_id,current_tip=git_ops.head(self.candidate_path())); relay.save_current(state)
 
 
-class LifecycleTests(unittest.TestCase):
-    def setUp(self): self.f=RelayFixture()
+class CandidateLifecycleTests(unittest.TestCase):
+    def setUp(self): self.f=Fixture()
     def tearDown(self): self.f.close()
 
-    def run_review(self,verdict="accept"):
-        calls,command,runner=self.f.fake_review(verdict)
-        with mock.patch.object(relay.backends,"codex_command",side_effect=command), mock.patch.object(relay.backends,"run_codex",side_effect=runner):
-            relay.review(SimpleNamespace(force=False,allow_large_packet=False))
-        return calls
+    def test_candidate_created_from_current_accepted_head(self):
+        accepted=git_ops.head(self.f.repo); value=self.f.start()
+        self.assertEqual(accepted,value["initial_base"]); self.assertEqual(accepted,git_ops.head(self.f.candidate_path()))
 
-    def test_review_accept_review_is_immutable_and_does_not_invoke_backend(self):
-        self.assertEqual(1,len(self.run_review()))
-        original=(self.f.run/"REVIEW.json").read_bytes(); relay.finish("accept")
-        with mock.patch.object(relay.backends,"run_codex") as backend:
-            with self.assertRaisesRegex(RuntimeError,"already finalized as accept"):
-                relay.review(SimpleNamespace(force=True,allow_large_packet=False))
-            backend.assert_not_called()
-        self.assertEqual(original,(self.f.run/"REVIEW.json").read_bytes())
+    def test_rejected_commit_cherry_picked_exactly_once(self):
+        branch="seed"; git(self.f.repo,"checkout","-b",branch); (self.f.repo/"seed.txt").write_text("seed\n"); git(self.f.repo,"add","seed.txt"); git(self.f.repo,"commit","-m","seed"); seed=git_ops.head(self.f.repo); git(self.f.repo,"checkout",self.f.accepted_branch)
+        self.f.start([seed]); wt=self.f.candidate_path()
+        self.assertEqual(1,int(git(wt,"rev-list","--count",f"{self.f.base}..HEAD"))); self.assertEqual("seed",git(wt,"log","-1","--format=%s"))
 
-    def test_accept_then_reject_is_immutable(self):
-        self.run_review(); relay.finish("accept")
-        with self.assertRaisesRegex(RuntimeError,"finalized as accept and cannot be changed to reject"): relay.finish("reject")
+    def test_correction_uses_same_worktree_and_accumulates_linearly(self):
+        accepted=git_ops.head(self.f.repo); self.f.start(); wt=self.f.candidate_path(); first=self.f.commit_candidate("one","one"); self.f.awaiting("accept_with_corrections")
+        relay.candidate_correct(SimpleNamespace(from_run=None)); self.assertEqual(wt,self.f.candidate_path()); correction=git_ops.head(wt)
+        second=self.f.commit_candidate("two","two")
+        self.assertTrue(git_ops.is_ancestor(wt,first,correction)); self.assertTrue(git_ops.is_ancestor(wt,correction,second)); self.assertEqual(accepted,git_ops.head(self.f.repo))
 
-    def test_reject_then_accept_is_immutable(self):
-        self.run_review("reject"); relay.finish("reject")
-        with self.assertRaisesRegex(RuntimeError,"finalized as reject and cannot be changed to accept"): relay.finish("accept")
+    def test_correction_handoff_preserves_candidate_files(self):
+        self.f.start(); wt=self.f.candidate_path(); (wt/"candidate.txt").write_text("keep\n"); git(wt,"add","candidate.txt"); git(wt,"commit","-m","candidate"); self.f.awaiting("accept_with_corrections")
+        relay.candidate_correct(SimpleNamespace(from_run=None)); self.assertEqual("keep\n",(wt/"candidate.txt").read_text()); self.assertEqual("correct the candidate\n",(wt/".agent-relay/HANDOFF.md").read_text())
 
-    def test_repeated_accept_is_idempotent_and_single_row(self):
-        self.f.install_review(); relay.finish("accept"); relay.finish("accept")
-        self.assertEqual(1,len(relay.ledger_entries()))
+    def test_candidate_run_uses_rev_parse_not_reported_commits(self):
+        self.f.start(); wt=self.f.candidate_path()
+        def fake_run(prompt,cmd,events):
+            (wt/"math.txt").write_text("executor\n"); git(wt,"add","math.txt"); git(wt,"commit","-m","executor"); relay.write_json(Path(cmd[cmd.index("--output-last-message")+1]),{"outcome":"SUCCESS","commits":["not-a-commit"]})
+        with mock.patch.object(relay.backends,"run_codex",side_effect=fake_run): relay.candidate_run(SimpleNamespace(allow_large_packet=False))
+        state=relay.current(); meta=relay.load_json(self.f.repo/self.f.cfg["run_root"]/state["candidate"]["latest_run_id"]/"META.json")
+        self.assertEqual(git_ops.head(wt),meta["executor_commit"]); self.assertNotEqual("not-a-commit",meta["executor_commit"])
 
-    def test_repeated_reject_is_idempotent_and_single_row(self):
-        self.f.install_review("reject"); relay.finish("reject"); relay.finish("reject")
-        self.assertEqual(1,len(relay.ledger_entries()))
+    def test_accept_rebases_updated_accepted_and_ff_only_and_cleans(self):
+        self.f.start(); wt=self.f.candidate_path(); self.f.commit_candidate("candidate","candidate"); self.f.awaiting()
+        (self.f.repo/"accepted.txt").write_text("new accepted\n"); git(self.f.repo,"add","accepted.txt"); git(self.f.repo,"commit","-m","accepted moved"); updated=git_ops.head(self.f.repo)
+        calls=[]; original=git_ops.run
+        def recording(args,cwd,**kwargs):
+            if args[:2]==["git","merge"]: calls.append(args)
+            return original(args,cwd,**kwargs)
+        with mock.patch.object(relay.validation,"run_all",return_value={"status":"pass","changed_files":[],"commands":[]}), mock.patch.object(relay.git_ops,"run",side_effect=recording): relay.candidate_accept(SimpleNamespace(override_review=False,reason=None))
+        self.assertTrue(git_ops.is_ancestor(self.f.repo,updated,git_ops.head(self.f.repo))); self.assertIn(["git","merge","--ff-only","relay/candidate-outcome-c"],calls); self.assertIsNone(relay.current()["candidate"]); self.assertFalse(wt.exists()); self.assertEqual([],git_ops.porcelain(self.f.repo))
 
-    def test_duplicate_ledger_preflight_does_not_mutate(self):
-        self.f.install_review(); row={"run_id":"run-0001","human_decision":"accept"}
-        (self.f.relay/"LEDGER.jsonl").write_text(json.dumps(row)+"\n")
-        before={p:p.read_bytes() for p in (self.f.relay/"CURRENT.json",self.f.relay/"STATE.md",self.f.relay/"HANDOFF.md",self.f.relay/"LEDGER.jsonl")}; head=git_ops.head(self.f.repo)
-        with self.assertRaisesRegex(RuntimeError,"cannot be changed"): relay.finish("reject")
-        self.assertEqual(head,git_ops.head(self.f.repo)); self.assertEqual(before,{p:p.read_bytes() for p in before})
+    def test_rebase_conflict_preserves_both_histories(self):
+        self.f.start(); wt=self.f.candidate_path(); self.f.commit_candidate("candidate","candidate"); candidate_tip=git_ops.head(wt); self.f.awaiting()
+        (self.f.repo/"math.txt").write_text("accepted\n"); git(self.f.repo,"add","math.txt"); git(self.f.repo,"commit","-m","accepted conflict"); accepted_tip=git_ops.head(self.f.repo)
+        with self.assertRaisesRegex(RuntimeError,"rebase conflicted"): relay.candidate_accept(SimpleNamespace(override_review=False,reason=None))
+        self.assertEqual(accepted_tip,git_ops.head(self.f.repo)); self.assertTrue(wt.exists()); self.assertTrue(git_ops.commit_exists(wt,candidate_tip)); self.assertIsNotNone(relay.current()["candidate"])
 
-    def test_reviewer_reject_requires_override_and_records_reason(self):
-        self.f.install_review("reject")
-        with self.assertRaisesRegex(RuntimeError,"override-review"): relay.finish("accept")
-        relay.finish("accept",True,"independent human verification")
-        self.assertEqual("independent human verification",relay.ledger_entry("run-0001")["review_override"]["reason"])
+    def test_abandon_deletes_candidate_not_accepted_history(self):
+        accepted=git_ops.head(self.f.repo); self.f.start(); wt=self.f.candidate_path(); self.f.commit_candidate("candidate","candidate")
+        relay.candidate_abandon(SimpleNamespace(yes=True)); self.assertEqual(accepted,git_ops.head(self.f.repo)); self.assertFalse(wt.exists()); self.assertIsNone(relay.current()["candidate"])
 
-    def test_review_requires_validated(self):
-        c=self.f.read_current(); c["status"]="executed"; relay.write_json(self.f.relay/"CURRENT.json",c)
-        with mock.patch.object(relay.backends,"run_codex") as backend:
-            with self.assertRaisesRegex(RuntimeError,"requires status validated"): relay.review(SimpleNamespace(force=False,allow_large_packet=False))
-            backend.assert_not_called()
-
-    def test_finalization_requires_awaiting_human(self):
-        with self.assertRaisesRegex(RuntimeError,"requires status awaiting_human"): relay.finish("reject")
-        with self.assertRaisesRegex(RuntimeError,"requires status awaiting_human"): relay.finish("accept")
-
-    def test_accept_control_files_committed_and_worktree_clean(self):
-        self.f.install_review(); relay.finish("accept")
-        self.assertEqual("",git(self.f.repo,"status","--porcelain")); self.assertEqual("Finalize relay run run-0001: accept",git(self.f.repo,"log","-1","--format=%s"))
-        self.assertEqual(self.f.executor,self.f.read_current()["accepted_commit"])
-
-    def test_reject_control_files_committed_and_worktree_clean(self):
-        before=self.f.base; self.f.install_review("reject"); relay.finish("reject")
-        self.assertEqual("",git(self.f.repo,"status","--porcelain")); self.assertEqual("Finalize relay run run-0001: reject",git(self.f.repo,"log","-1","--format=%s")); self.assertFalse(git_ops.is_ancestor(self.f.repo,self.f.executor,git_ops.head(self.f.repo))); self.assertTrue(git_ops.is_ancestor(self.f.repo,before,git_ops.head(self.f.repo)))
-
-    def test_next_worktree_starts_at_control_head(self):
-        self.f.install_review("reject"); relay.finish("reject"); control_head=git_ops.head(self.f.repo)
-        relay.prepare(SimpleNamespace(allow_large_packet=False))
-        meta=relay.load_json(self.f.repo/self.f.cfg["run_root"]/"run-0002"/"META.json")
-        self.assertEqual(control_head,meta["base_commit"]); self.assertEqual(control_head,git_ops.head(Path(meta["worktree"])))
-
-    def test_reconcile_repairs_stale_finalized_state_and_archives_review(self):
-        self.f.install_review(); relay.finish("accept"); later=review_data("reject"); relay.write_json(self.f.run/"REVIEW.json",later)
-        c=self.f.read_current(); c["status"]="awaiting_human"; relay.write_json(self.f.relay/"CURRENT.json",c)
-        with contextlib.redirect_stdout(io.StringIO()) as output: relay.reconcile(SimpleNamespace(apply=True))
-        self.assertEqual("initialized",self.f.read_current()["status"]); self.assertTrue((self.f.run/"REVIEW.post-finalization.json").exists()); self.assertIn("non-authoritative",output.getvalue()); self.assertEqual("accept",relay.finalized_entry("run-0001")["human_decision"])
-
-    def test_finalized_review_cannot_be_overwritten_even_with_force(self):
-        self.f.install_review(); relay.finish("reject"); original=(self.f.run/"REVIEW.json").read_bytes()
-        with self.assertRaisesRegex(RuntimeError,"finalized runs are immutable"): relay.review(SimpleNamespace(force=True,allow_large_packet=False))
-        self.assertEqual(original,(self.f.run/"REVIEW.json").read_bytes())
-
-    def test_conflicting_duplicate_ledger_rows_are_corruption(self):
-        rows=[{"run_id":"run-0001","human_decision":"accept"},{"run_id":"run-0001","human_decision":"reject"}]
-        (self.f.relay/"LEDGER.jsonl").write_text("".join(json.dumps(x)+"\n" for x in rows))
-        with self.assertRaisesRegex(RuntimeError,"ledger corruption: duplicate rows"): relay.ledger_entries()
+    def test_fresh_ephemeral_backend_never_resumes(self):
+        source=(Path(relay.backends.__file__)).read_text(); self.assertNotIn("codex exec resume",source)
+        command=relay.backends.codex_command(cwd=self.f.repo,schema=Path("s"),output=Path("o"),sandbox="workspace-write")
+        self.assertIn("--ephemeral",command); self.assertNotIn("resume",command)
 
 
-if __name__=="__main__": unittest.main()
+if __name__ == "__main__": unittest.main()

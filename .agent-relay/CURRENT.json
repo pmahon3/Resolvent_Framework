@@ -10,5 +10,6 @@
   "last_outcome": "C",
   "consecutive_rejections": 1,
   "review_backend": "codex",
+  "candidate": null,
   "updated_at": "2026-07-13T05:05:43.717138+00:00"
 }

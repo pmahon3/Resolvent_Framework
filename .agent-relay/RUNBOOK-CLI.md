@@ -1,5 +1,5 @@
-# CLI quick reference
+# Relay CLI
 
-Commands: `doctor`, `init [--force]`, `status`, `import-handoff FILE|-`, `prepare`, `execute`, `validate`, `review`, `accept`, `reject`, `cycle`, and `run --max-iterations N`.
+Commands: `doctor`, `status`, `candidate-start`, `candidate-run`, `validate`, `review`, `candidate-correct`, `candidate-accept`, `candidate-abandon`, and `archive-run`.
 
-The ordinary safe path is `import-handoff`, `run --max-iterations 1`, inspect, then `accept` or `reject`.
+One candidate owns one branch and worktree for its full correction lineage. Model processes are always fresh and ephemeral. Run history is audit evidence, not lineage state.

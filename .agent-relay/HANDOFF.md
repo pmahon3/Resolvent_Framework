@@ -1,1 +1,1 @@
-Submit a small corrective commit updating notes/taxonomies_index.json and either strengthening or precisely scoping the independent verifier; preserve the narrow O2/O3 closure and unchanged main conjecture.
+Investigate a distinct-event-family transverse-overlap candidate and report each structural gate separately, preserving the hand-proof/executable/Lean evidence distinctions.

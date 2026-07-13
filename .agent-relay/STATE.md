@@ -60,3 +60,20 @@ Unchanged: existing Lean files do not certify the open OML conjecture; the propo
 ## Single best next strategic problem
 
 Restore the missing O2/O3 edge-collapse artifacts, commit them, and submit a nonempty validated diff for independent review.
+
+## Accepted iteration additions
+- Hand-proof lemma: in an OML, Boolean blocks containing the same compatible pair e,f generate the same embedded Boolean subalgebra from e,f.
+- Executable finite result: in the fixed seven-block skeleton, O2 and O3 repeat one intrinsic four-region datum across their two common blocks; the associated duplicate-edge constraints reduce to one pullback.
+- O2/O3 repeated-common-block candidates do not produce two inequivalent quotient edges merely from multiple blocks containing the same selector pair.
+
+## Current open gate
+
+Resolve a genuine cross-coordinate-overlap architecture using distinct event families and transverse embedded subalgebras, with latticehood, σ-completeness, maximal blocks, centre, state extension, and order separation checked independently.
+
+## Formalization boundary
+
+Unchanged: the O2/O3 result is a reviewable hand proof with finite executable evidence, not a Lean certificate or an infinite OML theorem.
+
+## Single best next strategic problem
+
+Seek and audit the first distinct-event-family overlap inducing transverse embedded subalgebras; do not infer an infinite construction from the finite controls.

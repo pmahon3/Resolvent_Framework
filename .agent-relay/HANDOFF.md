@@ -1,1 +1,1 @@
-Test a proper-shared-subalgebra twist or a second inequivalent coarse coordinate in the globally audited five-block survivor. Classify maximal blocks first and stop on failure; then prove sigma-completeness or stop on failure.
+Human review should authorize the scoped counterexample banking and arbitrary-base hand theorem before acceptance; then proceed to the stated proper-interface or second-coordinate test.

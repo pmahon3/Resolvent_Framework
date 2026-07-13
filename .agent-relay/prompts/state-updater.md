@@ -1,0 +1,1 @@
+Produce a compact replacement theorem ledger from accepted claims and the reviewed state patch. Preserve exact scope, open/closed status, counterexamples, and formalization boundaries. Remove duplicate narrative and conversational detail. Never silently change a mathematical claim.

@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 68,
+   "entries": 71,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -206,9 +206,16 @@
   {
    "id": "oml.coarse.bprime_ii",
    "name": "B′(ii): coarse-block coherence",
-   "status": "primary-open-needs-restatement",
-   "one_line": "Adds the local problem of characterizing and selecting non-point sigma lifts on coarse boundaries; arbitrary-atlas simultaneous selection is a separate cross-cutting issue shared with B′(i).",
-   "detail": "oml_lattice_regularity_attack.md#9d-the-reduced-picture-and-conjecture-b"
+   "status": "primary-open-restatement-split",
+   "one_line": "Adds the local problem of characterizing and selecting non-point sigma lifts on coarse boundaries; the locus is inhabited (coarse toy). Split 2026-07-13: countable-type coarse blocks have defect exactly free-on-countable and reduce to countable atom-killing (the relay engine); the genuinely open residue is non-countable-type state-coarse sigma-fields.",
+   "detail": "oml_coarse_inhabitation_and_defect.md"
+  },
+  {
+   "id": "oml.coarse.countable_type_anatomy",
+   "name": "Countable-type defect anatomy",
+   "status": "proved-hand",
+   "one_line": "On sigma-fields of countable type over an atom partition, sigma-states are exactly atom-principal states plus (uncountable index) the co-atom-countable state; the sigma-defect is exactly free-on-countable concentration, so trapping there needs one cheap co-atom-countable exclusion plus the countable atom-killing problem.",
+   "detail": "oml_coarse_inhabitation_and_defect.md#2-countable-type-σ-fields-state-classification-and-defect-anatomy"
   },
   {
    "id": "oml.coarse.nonprincipal_states",
@@ -274,10 +281,10 @@
   },
   {
    "id": "oml.construct.coarse_toy",
+   "status": "inhabited-conditional-hand",
    "name": "Coarse-block toy",
-   "status": "open-probe",
-   "one_line": "First build a concrete σ-class OML with a genuinely coarse block, incompatible overlap, and a non-principal blockwise σ-state.",
-   "detail": "oml_lattice_regularity_attack.md#9e-exit-status-per-8"
+   "one_line": "SETTLED (2026-07-13, conditional on the banked arbitrary-base inflation): the q0 inflation with the aleph1-piece fibre A* is in the admissible class, essentially irreducible, with three state-coarse blocks and a global non-principal sigma-state; Theorem 2's coarse factor is NOT vacuous. The toy is Phi-tame.",
+   "detail": "oml_coarse_inhabitation_and_defect.md"
   },
   {
    "id": "oml.construct.t4_counterexample",
@@ -372,6 +379,13 @@
   }
  ],
  "mechanism_exclusions": [
+  {
+   "id": "oml.exclusion.countable_cocountable_fibre",
+   "name": "Countable/co-countable fibre fence",
+   "status": "proved-hand",
+   "one_line": "A one-interval inflation is essentially irreducible iff its fibre algebra survives the countable quotient; ctble/coctble(omega1) fibres die there (quotient = Boolean P(4), centre everything), so purely countable/co-countable coarse structure leaves the admissible class.",
+   "detail": "oml_coarse_inhabitation_and_defect.md#3-the-essential-irreducibility-fence"
+  },
   {
    "id": "oml.exclusion.jointly_generating_transverse",
    "name": "Jointly-generating transverse-overlap collapse",

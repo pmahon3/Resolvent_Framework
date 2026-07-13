@@ -139,3 +139,42 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 ---
 
 ## Iterations
+
+### Iteration 1 (2026-07-13) — coarse inhabitation, countable-type defect anatomy, irreducibility fence
+
+- **Question tested:** §10d's vacuity exit — does 𝒞 ∩ OML contain
+  state-coarse blocks at all? — plus the exact σ-defect of the tractable
+  coarse class.
+- **Results** (note: `oml_coarse_inhabitation_and_defect.md`):
+  (a) classification of two-valued σ- and f.a. states on σ-fields of
+  countable type over an atom partition: σ = atom-principal ∪
+  {co-atom-countable}; defect = exactly free-on-countable concentration —
+  unifies the P(ℕ) relay master and the ω₁ coarse bank in one lemma;
+  (b) corollary: trapping at countable-type boundaries reduces to one
+  cheap co-atom-countable exclusion + the countable atom-killing (relay)
+  problem, so countable-type coarseness buys a witness nothing new;
+  (c) **fence:** a one-interval inflation is essentially irreducible iff
+  its fibre survives the countable quotient; the natural instantiation
+  A = ctble/coctble(ω₁) FAILS admissibility (quotient = Boolean P(4)) —
+  caught before it could contaminate later work;
+  (d) **inhabitation:** the ℵ₁-piece fibre A* passes all gates; L* ∈
+  𝒞 ∩ OML has three state-coarse blocks and a global non-principal
+  σ-state, so B′(ii) is a real inhabited factor (vacuity exit closed,
+  negatively). L* is Φ-tame.
+- **Evidence class:** hand (a–c self-contained; d conditional on the
+  audited arbitrary-base inflation theorem). No executable content
+  (uncountable claims).
+- **Gates:** L* passes concreteness, σ-completeness, five-block
+  classification, trivial centre, essential irreducibility,
+  state-extension, order-separation; fails (as expected) at Φ-hardness —
+  tame by the banked point replacement.
+- **Strategic update:** B′(ii) splits: countable-type coarse locus
+  re-fine-ifies to the relay engine; the genuinely open coarse residue is
+  non-countable-type state-coarse σ-fields. Taxonomy updated
+  (coarse_toy settled-inhabited; new anatomy + fence entries; B′(ii)
+  restated).
+- **Next lemma-sized task:** either exhibit a concrete non-countable-type
+  state-coarse σ-field of sets with a defect class beyond
+  free-on-countable, or prove countable-type anatomy is universal for
+  state-coarse σ-fields of sets. Deferred behind the Lane A cyclic
+  candidate (iteration 2).

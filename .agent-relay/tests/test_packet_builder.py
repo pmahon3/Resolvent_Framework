@@ -25,6 +25,9 @@ class PacketTests(unittest.TestCase):
     def test_reviewer_command_has_no_git_write_root(self):
         cmd=backends.codex_command(cwd=None,schema=Path("s"),output=Path("o"),sandbox="read-only")
         self.assertNotIn("--add-dir",cmd)
+    def test_reviewer_can_receive_read_only_checkout(self):
+        cmd=backends.codex_command(cwd=Path("/tmp/candidate"),schema=Path("s"),output=Path("o"),sandbox="read-only")
+        self.assertEqual("read-only",cmd[cmd.index("--sandbox")+1]); self.assertIn("--cd",cmd); self.assertNotIn("--add-dir",cmd)
     def test_secret_environment_value_rejected(self):
         old=os.environ.get("OPENAI_API_KEY"); os.environ["OPENAI_API_KEY"]="sk-test-do-not-copy"
         try:self.assertRaises(ValueError,packet_builder.reject_secrets,"prefix sk-test-do-not-copy suffix")

@@ -16,6 +16,10 @@ def discover_python(changed: list[str], handoff: str):
         if token.endswith(".py") and token not in paths: paths.append(token)
     return paths
 
+def relay_control_changed(changed: list[str]):
+    control_artifacts={".agent-relay/CURRENT.json", ".agent-relay/CLAIMS.json"}
+    return any(p in control_artifacts or p.startswith(".agent-relay/scripts/") or p.startswith(".agent-relay/tests/") or p.startswith(".agent-relay/schemas/") for p in changed)
+
 def run_all(worktree: Path, parent: str, commit: str, run_dir: Path, config: dict):
     changed=subprocess.run(["git","diff","--name-only",f"{parent}..{commit}"],cwd=worktree,text=True,capture_output=True,check=True).stdout.splitlines()
     results=[]
@@ -27,6 +31,8 @@ def run_all(worktree: Path, parent: str, commit: str, run_dir: Path, config: dic
         handoff=(worktree/".agent-relay/HANDOFF.md").read_text(errors="replace")
         for i,p in enumerate(discover_python(changed,handoff)):
             if (worktree/p).is_file(): results.append(command(["python3",p],worktree,run_dir/f"logs/python-{i}.log"))
+        if relay_control_changed(changed):
+            results.append(command(["python3","-m","unittest","discover","-s",".agent-relay/tests","-v"],worktree,run_dir/"logs/relay-tests.log"))
     if config.get("run_no_sorry_scan",True) and any(x.endswith(".lean") for x in changed):
         results.append(command(["rg","-n",r"\b(sorry|sorryAx)\b"]+changed,worktree,run_dir/"logs/no-sorry.log"))
         results[-1]["exit_code"] = 0 if results[-1]["exit_code"] == 1 else 1
@@ -50,6 +56,8 @@ def run_uncommitted(worktree: Path, changed: list[str], run_dir: Path, config: d
         handoff=(worktree/".agent-relay/HANDOFF.md").read_text(errors="replace")
         for i,p in enumerate(discover_python(changed,handoff)):
             if (worktree/p).is_file(): results.append(command(["python3",p],worktree,run_dir/f"logs/recovery-python-{i}.log"))
+        if relay_control_changed(changed):
+            results.append(command(["python3","-m","unittest","discover","-s",".agent-relay/tests","-v"],worktree,run_dir/"logs/recovery-relay-tests.log"))
     if config.get("run_no_sorry_scan",True) and any(x.endswith(".lean") for x in changed):
         existing=[x for x in changed if (worktree/x).is_file()]
         if existing:

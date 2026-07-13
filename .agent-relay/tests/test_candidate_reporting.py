@@ -125,7 +125,8 @@ class CandidateReportTests(unittest.TestCase):
             self.assertIn("automatic_report()",body)
 
     def test_action_recommendations_match_statuses(self):
-        expected={"ready":"candidate-run","needs_correction":"candidate-run","executed":"validate","validated":"review"}
+        expected={"ready":"candidate-run","needs_correction":"candidate-run","executed":"validate","validation_passed":"review",
+                  "validation_failed":"review-failed-validation","validation_error":"review-failed-validation"}
         for status,first in expected.items(): self.assertEqual(first,candidate_reporting.available_actions(status,None)[0])
 
     def test_report_performs_no_writes(self):

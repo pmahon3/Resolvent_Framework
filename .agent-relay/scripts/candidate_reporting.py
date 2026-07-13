@@ -1,6 +1,8 @@
 from __future__ import annotations
 
 import json
+import os
+import socket
 import sys
 import time
 from collections import Counter
@@ -18,19 +20,29 @@ def _optional_json(path: Path, label: str, errors: list[str]):
         errors.append(f"malformed {label}: {exc}"); return None
 
 
+def _phase_alive(phase: dict | None):
+    if not phase or phase.get("hostname") != socket.gethostname(): return False
+    try: os.kill(int(phase["pid"]), 0); return True
+    except (OSError, KeyError, TypeError, ValueError): return False
+
+
 def available_actions(status: str, review: dict | None) -> list[str]:
-    if status == "needs_correction": return ["candidate-run", "candidate-abandon"]
+    if status in {"needs_correction", "execution_error"}: return ["candidate-run", "candidate-abandon"]
+    if status == "review_error": return ["review", "candidate-abandon"]
+    if status == "recovery_required": return ["candidate-snapshot-dirty", "candidate-recover", "candidate-abandon"]
     if status == "executed": return ["validate", "candidate-abandon"]
-    if status == "validated": return ["review", "candidate-abandon"]
+    if status == "validation_passed": return ["review", "candidate-abandon"]
+    if status in {"validation_failed", "validation_error"}: return ["review-failed-validation", "candidate-abandon"]
     if status == "awaiting_human":
         verdict = (review or {}).get("verdict")
         if verdict == "accept": return ["candidate-accept", "candidate-abandon"]
         if verdict == "accept_with_corrections":
             return ["candidate-correct", "candidate-accept --override-review --reason ...", "candidate-abandon"]
         if verdict == "reject": return ["candidate-correct", "candidate-abandon"]
+        if verdict == "human_review": return ["candidate-correct", "candidate-accept --override-review --reason ...", "candidate-abandon"]
         return ["candidate-abandon"]
     if status == "ready": return ["candidate-run", "candidate-abandon"]
-    if status == "executing": return ["candidate-report --watch"]
+    if status in {"executing", "reviewing"}: return ["candidate-report --watch", "candidate-recover"]
     return []
 
 
@@ -71,12 +83,19 @@ def collect(repo: Path, state: dict, cfg: dict, git_ops, run_id: str | None = No
             result=_optional_json(directory/"RESULT.json","RESULT.json",errors)
             validations=_optional_json(directory/"VALIDATION.json","VALIDATION.json",errors)
             review=_optional_json(directory/"REVIEW.json","REVIEW.json",errors)
-            candidate_data["executor_active"] = value.get("status")=="executing"
-            candidate_data["reviewer_active"] = (directory/"REVIEW_ACTIVE").exists()
+            lease_active = _phase_alive(value.get("phase"))
+            candidate_data["executor_active"] = value.get("status")=="executing" and lease_active
+            candidate_data["reviewer_active"] = value.get("status")=="reviewing" and lease_active
+            if value.get("status") in {"executing", "reviewing"} and not lease_active:
+                candidate_data["stale_phase"] = True
+                errors.append("active phase lease is stale; run candidate-recover")
     else:
         candidate_data.update(executor_active=False,reviewer_active=False)
+    actions=available_actions(value.get("status",""),review)
+    if value.get("status")=="awaiting_human" and validations and validations.get("status") != "pass":
+        actions=["candidate-correct","candidate-abandon"]
     data={"candidate":candidate_data,"executor":result,"validation":validations,"review":review,
-          "git":git_data,"available_actions":available_actions(value.get("status",""),review),"errors":errors}
+          "git":git_data,"available_actions":actions,"errors":errors}
     return data, structural
 
 

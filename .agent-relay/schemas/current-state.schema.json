@@ -28,8 +28,21 @@
             "worktree": {"type": "string"},
             "initial_base": {"type": "string"},
             "current_tip": {"type": "string"},
-            "status": {"enum": ["ready", "executing", "executed", "validated", "awaiting_human", "needs_correction"]},
-            "latest_run_id": {"type": ["string", "null"]}
+            "status": {"enum": ["ready", "executing", "execution_error", "executed", "validation_passed", "validation_failed", "validation_error", "reviewing", "review_error", "awaiting_human", "needs_correction", "recovery_required", "integrating_prepared", "control_committed"]},
+            "latest_run_id": {"type": ["string", "null"]},
+            "phase": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["name", "pid", "hostname", "started_at", "candidate_head", "packet_sha256"],
+              "properties": {
+                "name": {"type": "string"},
+                "pid": {"type": "integer"},
+                "hostname": {"type": "string"},
+                "started_at": {"type": "string"},
+                "candidate_head": {"type": "string"},
+                "packet_sha256": {"type": ["string", "null"]}
+              }
+            }
           }
         }
       ]

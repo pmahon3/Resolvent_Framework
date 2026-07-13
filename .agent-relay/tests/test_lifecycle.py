@@ -30,6 +30,9 @@ class Fixture:
             (self.relay/path).write_text(text+"\n")
         (self.relay/"schemas/executor-result.schema.json").write_text("{}")
         (self.relay/"schemas/review.schema.json").write_text("{}")
+        production_schemas=Path(__file__).resolve().parents[1]/"schemas"
+        for name in ("current-state.schema.json","claim-ledger.schema.json"):
+            (self.relay/"schemas"/name).write_text((production_schemas/name).read_text())
         self.accepted_branch=git_ops.branch(self.repo)
         state={"schema_version":2,"project":"Resolvent_Framework","branch":self.accepted_branch,"accepted_commit":"","iteration":0,"status":"initialized","current_handoff_path":".agent-relay/HANDOFF.md","last_run_id":None,"last_outcome":None,"consecutive_rejections":0,"review_backend":"codex","candidate":None,"updated_at":"2026-01-01T00:00:00+00:00"}
         (self.relay/"CURRENT.json").write_text(json.dumps(state,indent=2)+"\n")

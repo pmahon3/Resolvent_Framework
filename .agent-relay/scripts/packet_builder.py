@@ -1,5 +1,5 @@
 from __future__ import annotations
-import json, os
+import json, os, re, subprocess
 from pathlib import Path
 
 SECRET_NAMES = ("OPENAI_API_KEY", "CODEX_API_KEY", "ANTHROPIC_API_KEY", "AWS_SECRET_ACCESS_KEY")
@@ -20,18 +20,41 @@ def executor_packet(relay: Path, run_id: str) -> str:
     packet = "".join(parts); reject_secrets(packet); return packet
 
 def bounded_diff(diff: str, limit: int):
-    raw = diff.encode();
-    if len(raw) <= limit: return diff, []
-    kept = raw[:limit].decode("utf-8", "ignore")
-    omitted = [line[6:] for line in diff.splitlines() if line.startswith("diff --git a/") and line[6:].split(" b/")[0] not in kept]
-    return kept + "\n\n[DIFF TRUNCATED]\n", omitted
+    raw = diff.encode()
+    headers = list(re.finditer(r"(?m)^diff --git a/(.*?) b/(.*?)$", diff))
+    if len(raw) <= limit:
+        return diff, [match.group(2) for match in headers], []
+    selected=[]; included=[]; omitted=[]; used=0
+    for index, match in enumerate(headers):
+        end = headers[index + 1].start() if index + 1 < len(headers) else len(diff)
+        section = diff[match.start():end]; size = len(section.encode())
+        if used + size <= limit:
+            selected.append(section); included.append(match.group(2)); used += size
+        else: omitted.append(match.group(2))
+    suffix = "\n[DIFF TRUNCATED AT FILE BOUNDARIES]\n" if omitted else ""
+    return "".join(selected) + suffix, included, omitted
 
-def review_packet(relay: Path, result: dict, parent: str, commit: str, stat: str, diff: str, validations: dict, limit: int) -> str:
-    selected, omitted = bounded_diff(diff, limit)
+
+def change_manifest(worktree: Path, commit: str, changed_files: list[str], included: list[str]) -> list[dict]:
+    included_set=set(included); manifest=[]
+    for path in changed_files:
+        oid = subprocess.run(["git", "rev-parse", f"{commit}:{path}"], cwd=worktree, text=True, capture_output=True)
+        size = subprocess.run(["git", "cat-file", "-s", f"{commit}:{path}"], cwd=worktree, text=True, capture_output=True)
+        manifest.append({
+            "path": path, "git_object": oid.stdout.strip() if oid.returncode == 0 else None,
+            "size_bytes": int(size.stdout.strip()) if size.returncode == 0 else None,
+            "diff_inclusion": "complete" if path in included_set else "omitted",
+        })
+    return manifest
+
+def review_packet(relay: Path, result: dict, parent: str, commit: str, stat: str, diff: str, validations: dict, limit: int, *, manifest: list[dict] | None = None) -> str:
+    selected, included, omitted = bounded_diff(diff, limit)
+    manifest = manifest or [{"path": path, "diff_inclusion": "complete" if path in included else "omitted"} for path in included + omitted]
     ordered = [(_read(relay/"prompts/reviewer-codex.md"), None), (_read(relay/"RUNBOOK.md"), "RUNBOOK"),
       (_read(relay/"STATE.md"), "STATE"), (_read(relay/"HANDOFF.md"), "HANDOFF"),
       (json.dumps(result, indent=2), "EXECUTOR RESULT"), (f"accepted_parent={parent}\nexecutor_commit={commit}", "COMMITS"),
       (stat, "DIFF STAT"), (selected, "RELEVANT DIFF"), (json.dumps(validations, indent=2), "VALIDATIONS"),
+      (json.dumps(manifest, indent=2), "CRYPTOGRAPHIC CHANGE MANIFEST"),
       ("\n".join(omitted) or "none", "OMITTED FILES"),
       (json.dumps({"uncertainties":result.get("uncertainties",[]),"possible_overstatements":result.get("possible_overstatements",[])}, indent=2), "UNCERTAINTY")]
     packet = ordered[0][0] + "".join(section(title, body) for body,title in ordered[1:])

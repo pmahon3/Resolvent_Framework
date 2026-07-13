@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the two-fibre atom-selector class is now closed: every jointly coherent pair has disjoint propagation support, so the centre-free seven-block completion has rectangular compatibility and identity monodromy. The next gate requires non-atomic intervals or proper shared subalgebras creating an actual cross-coordinate overlap.",
+   "status": "OPEN — the (5,11) non-atomic proper-shared-subalgebra class now closes as a centre-free seven-block OML with one genuine nonrectangular edge, but the explicit coordinate model is Phi-tame. The next gate is two inequivalent quotient edges or failure of the common sigma-extension property.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 61
+   "entries": 63
   },
   {
    "id": "reconstruction_commensurability",

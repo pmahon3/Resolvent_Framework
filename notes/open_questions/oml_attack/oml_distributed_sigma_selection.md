@@ -1,5 +1,9 @@
 # Distributed one-interval inflation and simultaneous σ-selection
 
+**Non-atomic follow-up:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
+banks the first nonrectangular one-edge inflation and its common-point
+tameness theorem.
+
 *Opened 2026-07-12. Baseline commit: `8f627f5` (`Strengthen compact OML
 state selection`). Status: Outcome B at hand-proof level, with exhaustive
 finite approximants. No counterexample to `Phi` is claimed.*

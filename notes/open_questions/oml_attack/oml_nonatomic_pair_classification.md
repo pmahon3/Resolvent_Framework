@@ -1,5 +1,9 @@
 # Non-atomic pair classification in the seven-block skeleton
 
+**Completion follow-up:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
+classifies six pair orbits and completes the `(5,11)` pullback as a
+centre-free, single-edge, nonrectangular but tame inflation.
+
 *Opened and exhaustively audited 2026-07-12. Scope: finite selector and
 block-incidence classification only. No coarse completed OML is asserted.*
 

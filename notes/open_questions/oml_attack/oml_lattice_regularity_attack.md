@@ -1,5 +1,9 @@
 # Theorem 2 attack — the OML-lattice case at the regularity transition
 
+**Non-atomic pullback outcome:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
+completes `(5,11)` as a centre-free nonrectangular but `Phi`-tame one-edge
+inflation; the next gate is two inequivalent quotient edges.
+
 *Opened 2026-07-10 (session 8), per `shovel_plan.md` §2 + §Execution-order.
 This is the attack-opening note the frontier map prescribes: collect the three
 meet-destruction mechanisms into one frame; say what a unified

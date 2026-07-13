@@ -1,5 +1,9 @@
 # Two-fibre monodromy in the centre-free seven-block OML
 
+**Non-atomic follow-up:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
+constructs the `(5,11)` pullback completion; it retains one quotient edge
+and has no monodromy.
+
 *Opened 2026-07-12. Starting commit:
 `422478fbf2a377bc6552329ce7bc9fd8ef120adf` (`Construct tame distributed
 OML interval inflation`). Status: Outcome C for distinct lattice-atom

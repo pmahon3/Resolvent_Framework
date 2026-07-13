@@ -1,5 +1,9 @@
 # Inflation of the centre-free seven-block OML
 
+**Non-atomic pullback completion:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
+gives a centre-free seven-block completion with a genuine but tame single
+pullback edge.
+
 *Opened 2026-07-12. Status: superseded at the one-interval gate by
 [`oml_distributed_sigma_selection.md`](oml_distributed_sigma_selection.md).
 The finite skeleton now has a

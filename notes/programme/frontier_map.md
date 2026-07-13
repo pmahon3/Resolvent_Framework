@@ -206,6 +206,20 @@ literal atom-interval class. The residual class is non-atomic selector
 intervals or proper shared subalgebras whose completion creates a maximal
 block carrying both coordinates.
 
+**s45 non-atomic `(5,11)` pullback completion:**
+`notes/open_questions/oml_attack/oml_nonatomic_pullback_completion.md`
+classifies the 42 qualifying pairs into six automorphism orbits and completes
+the primary orbit's `4-2-4` carrier. The canonical mixed closure has 147,592
+events, exactly seven maximal blocks, saturated boundaries, and trivial
+centre. Its completed state relation remains the eight-pair single pullback
+`Ult(A) ×_{Ult(D)} Ult(C)`; no second quotient edge or monodromy appears.
+The countable-coordinate arbitrary-base shape is concrete, σ-complete, and
+has a face-exposed noncompact eligible slice, but common-point extension
+repairs every coherent finite face. Outcome B. A single edge is tame only
+under the stated compatible σ-extension hypothesis; graph acyclicity alone
+does not supply it. Next gate: a second inequivalent quotient edge, preferably
+from another one of the six pair orbits.
+
 ## 2. Programme layer (reconstruction lane) — universal impossibility
 **Claim:** the fork doesn't exist; Circuit Localization holds for the
 strongly-connected non-symmetric class.

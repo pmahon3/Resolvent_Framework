@@ -213,6 +213,13 @@ state**. It does not resolve the standing conjecture. The next construction
 must introduce two inequivalent coarse coordinates or a genuine cycle twist
 while retaining the five-block classification and proper boundary.
 
+The independent run-0016 executor audit records the proof dependencies and
+evidence boundary in
+[`oml_arbitrary_base_inflation_review.md`](oml_arbitrary_base_inflation_review.md).
+It found no structural failure, but it does not satisfy the required human
+authorization gate; the arbitrary-base hand theorem remains pending that
+review rather than accepted in the ledger.
+
 ## 5. Smallest cycle-twist test
 
 The smallest possible twist uses the two-atom algebra `P(2)` on the triangle

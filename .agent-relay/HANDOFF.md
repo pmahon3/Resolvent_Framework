@@ -1,4 +1,8 @@
-Human review should authorize the scoped counterexample banking and arbitrary-base hand theorem before acceptance; then proceed to the stated proper-interface or second-coordinate test.
+Human review should authorize the arbitrary-base hand theorem summarized in
+`notes/open_questions/oml_attack/oml_arbitrary_base_inflation_review.md`
+before acceptance. The scoped finite counterexample is already recorded as
+human-approved in `CLAIMS.json`. After authorization, proceed to the stated
+proper-interface or second-coordinate test.
 
 ## Execution requirements
 

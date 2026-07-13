@@ -272,6 +272,19 @@ not classify larger or proper-interface twists.  Next gate: a proper shared
 subalgebra or a second inequivalent coordinate, again testing maximal blocks
 and sigma-completeness first.
 
+**s53 global compatibility-graph correction:**
+Centralizers of the five displayed inflated blocks do not alone classify all
+compatibility cliques.  The corrected proof uses 44 constant and 16
+coefficient-parametrized event forms.  Pair compatibility is determined on
+the four truth regions of two coefficients.  Any obstruction has an
+inclusion-minimal subfamily of at most five events, one excluding each named
+block; exhaustive truth-vector consistency finds none.  A finite-label
+compactness step then puts every arbitrary compatible family inside one
+named block.  The exact receipt checks all minimal form patterns and 47,070
+four-region form-instance pairs.  Thus no sixth maximal compatible family
+exists for an arbitrary nondegenerate base.  This remains a hand proof plus
+executable finite-pattern certificate, not Lean.
+
 **s44 two-fibre atom-monodromy no-go:**
 `notes/open_questions/oml_attack/oml_two_fibre_monodromy.md` classifies all
 twelve lattice atoms into two automorphism orbits. Relative to `q0`, exactly

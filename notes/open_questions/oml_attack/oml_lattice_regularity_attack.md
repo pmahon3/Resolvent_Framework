@@ -17,9 +17,12 @@ enumerates all subfamilies of those seven labelled blocks and finds four
 proper. The restricted finite result is banked. Its one-interval `q_0`
 inflation now passes maximal-block classification, sigma-completeness, the
 remaining structural gates, and noncompact-slice exposure at hand-proof
-level, but is Phi-tame by common-fibre point replacement. Independent review
-confirms the arbitrary-base proof by a two-coefficient finite reduction and
-a disjoint-sequence normal form.  The smallest `P(2)` whole-interface
+level, but is Phi-tame by common-fibre point replacement. A global
+60-event-form truth-vector audit confirms that every arbitrary-base
+compatible family lies in one of the five displayed blocks; this closes the
+gap between block centralizers and all compatibility cliques. Sigma-
+completeness follows separately from the disjoint-sequence normal form. The
+smallest `P(2)` whole-interface
 triangle twist is either nonfaithful (odd holonomy) or gauge-trivial (even
 holonomy). The next gate is a proper-interface twist or a second inequivalent
 coordinate.

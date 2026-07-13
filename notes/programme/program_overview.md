@@ -246,8 +246,9 @@ sharpened to B′(i)/(ii), s12 proof-read SOUND —
 current construction frontier (2026-07-13): the approved 44-event finite
 proper-boundary survivor has a hand-proved centre-free sigma-complete
 one-interval inflation with a noncompact eligible slice, but common-fibre
-point replacement proves it Phi-tame; independent review confirms the
-arbitrary-base five-block and sigma-completeness proof, and the smallest
+point replacement proves it Phi-tame; a global 60-form finite-pattern audit
+confirms the arbitrary-base five-block classification beyond the earlier
+centralizer checks, sigma-completeness remains hand-proved, and the smallest
 `P(2)` whole-interface triangle twist is either nonfaithful or gauge-trivial;
 the next gate is a proper-interface twist or a second inequivalent
 coordinate;

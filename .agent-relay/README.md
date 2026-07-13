@@ -4,6 +4,8 @@ This directory implements a fresh-session executor/reviewer relay. Git commits a
 
 Every executor and reviewer is a new `codex exec --ephemeral` process. The workflow never calls `resume`. The optional API reviewer sends `store=False` and no conversation or previous-response identifier. Token savings come from packets containing only the stable runbook, compact accepted state, current handoff, current diff/result, validations, and relevant controlling-file excerpts—not accumulated chats or old rollouts.
 
+Executors run in linked Git worktrees. Such a worktree keeps its index under the main repository's `.git/worktrees/...` area and shares the common object database, refs, and logs. The relay therefore resolves the repository's common Git directory with `git rev-parse` and passes that exact absolute directory to the executor as `--add-dir`; it never assumes that the metadata is at `<worktree>/.git`. A disposable preflight confirms that both the linked-worktree Git directory and a probe directory under the common Git directory are writable before Codex starts.
+
 ## Setup and authentication
 
 Requires Python 3.11+, Git, and Codex CLI authentication:
@@ -38,12 +40,22 @@ python3.11 .agent-relay/scripts/relay.py reject
 
 Automatic acceptance is disabled by default. `accept` requires clean worktrees, an existing commit, and passing validation. It fast-forwards only; it does not push. `reject` leaves the accepted branch unchanged.
 
+The relay reports executor/review packet bytes, estimated tokens, included-file count, and largest included files. It warns above the configured `packet_warning_tokens` and refuses packets above `packet_hard_limit_tokens` unless the phase is explicitly rerun with `--allow-large-packet`.
+
 ## Recovery and operations
 
 `status` reports the last durable phase. Resume with the next idempotent phase (`execute`, `validate`, `review`, `accept`, or `reject`) rather than resuming a model thread. Use `git worktree list` to inspect interrupted worktrees. After preserving needed commits and run records, remove an abandoned tree with `git worktree remove PATH`; never delete a worktree containing uncommitted research.
 
+If an executor modifies files but cannot commit, the relay records `executor_uncommitted`, preserves the worktree and exact changed-file list, and stops before validation or review. Inspect the worktree, then run:
+
+```bash
+python3.11 .agent-relay/scripts/relay.py recover-commit
+```
+
+Recovery refuses any change-set drift, displays the diff summary, runs configured validations, and requires interactive confirmation (or explicit `--yes`) before staging only the recorded files and committing. It records the recovered hash once, after which `validate` and `review` may continue.
+
 Local run logs may be archived outside the repository or deleted after their compact ledger record and commits are verified. They are ignored and must never be committed. To disable automation safely, stop invoking `relay.py`; optionally rename/remove the untracked local config. No daemon or scheduled process is installed.
 
-Security: use least-privilege sandboxes, review prompts for sensitive content, keep credentials only in the environment, do not track model JSONL streams, and never enable danger-full-access or bypass approvals. Large diffs are bounded; omitted files are recorded for human inspection.
+Security boundary: the executor may modify only its isolated worktree plus the resolved common Git directory needed for worktree metadata, objects, refs, and logs. It cannot write arbitrary directories outside those roots. The reviewer remains read-only and receives no Git write root. The relay never enables danger-full-access, never bypasses approvals or the sandbox, and never pushes a remote automatically. Review prompts for sensitive content, keep credentials only in the environment, and do not track model JSONL streams. Large diffs are bounded; omitted files are recorded for human inspection.
 
 See `RUNBOOK.md` for mathematical rules and `RUNBOOK.md`/`CURRENT.json` for recovery state.

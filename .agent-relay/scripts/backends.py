@@ -2,14 +2,17 @@ from __future__ import annotations
 import json, os, subprocess, time
 from pathlib import Path
 
-def codex_command(*, cwd: Path | None, schema: Path, output: Path, sandbox: str, model: str = "", jsonl=True):
+def codex_command(*, cwd: Path | None, schema: Path, output: Path, sandbox: str, model: str = "", jsonl=True, add_dirs: list[Path] | None = None):
     cmd = ["codex", "exec", "--ephemeral", "--sandbox", sandbox]
+    for directory in add_dirs or []:
+        cmd += ["--add-dir", str(directory.resolve())]
     if cwd: cmd += ["--cd", str(cwd)]
     if model: cmd += ["--model", model]
     cmd += ["--output-schema", str(schema), "--output-last-message", str(output)]
     if jsonl: cmd += ["--json"]
     cmd += ["-"]
     assert "resume" not in cmd
+    assert "danger-full-access" not in cmd and "--dangerously-bypass-approvals-and-sandbox" not in cmd
     return cmd
 
 def run_codex(prompt: str, cmd: list[str], events: Path):

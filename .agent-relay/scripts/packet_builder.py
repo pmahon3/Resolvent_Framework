@@ -40,3 +40,28 @@ def review_packet(relay: Path, result: dict, parent: str, commit: str, stat: str
 def state_size_warning(path: Path, limit: int):
     size = path.stat().st_size
     return f"STATE.md is {size} bytes (soft limit {limit})" if size > limit else None
+
+def packet_metrics(packet: str, included: list[Path]) -> dict:
+    sizes = sorted(
+        ((str(path), path.stat().st_size) for path in included if path.is_file()),
+        key=lambda item: item[1], reverse=True,
+    )
+    byte_count = len(packet.encode("utf-8"))
+    return {
+        "bytes": byte_count,
+        "estimated_tokens": (byte_count + 3) // 4,
+        "included_files": len(sizes),
+        "largest_included_files": sizes[:5],
+    }
+
+def enforce_packet_limit(metrics: dict, *, warning_tokens: int, hard_tokens: int, allow_large: bool, label: str):
+    print(f"{label} packet bytes: {metrics['bytes']}")
+    print(f"{label} packet estimated tokens: {metrics['estimated_tokens']}")
+    print(f"number of included files: {metrics['included_files']}")
+    print(f"largest included files: {metrics['largest_included_files']}")
+    if metrics["estimated_tokens"] > hard_tokens and not allow_large:
+        raise RuntimeError(
+            f"{label} packet exceeds hard ceiling of {hard_tokens} estimated tokens; rerun with --allow-large-packet"
+        )
+    if metrics["estimated_tokens"] > warning_tokens:
+        print(f"WARNING: {label} packet exceeds {warning_tokens} estimated tokens", flush=True)

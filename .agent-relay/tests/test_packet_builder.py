@@ -17,6 +17,14 @@ class PacketTests(unittest.TestCase):
     def test_fresh_command_never_includes_resume(self):
         cmd=backends.codex_command(cwd=Path("/tmp/w"),schema=Path("s"),output=Path("o"),sandbox="workspace-write")
         self.assertNotIn("resume",cmd)
+    def test_executor_command_adds_absolute_git_common_dir(self):
+        cmd=backends.codex_command(cwd=Path("/tmp/w"),schema=Path("s"),output=Path("o"),sandbox="workspace-write",add_dirs=[Path("/tmp/repo.git")])
+        self.assertEqual(str(Path("/tmp/repo.git").resolve()),cmd[cmd.index("--add-dir")+1])
+        self.assertNotIn("danger-full-access",cmd)
+        self.assertNotIn("--dangerously-bypass-approvals-and-sandbox",cmd)
+    def test_reviewer_command_has_no_git_write_root(self):
+        cmd=backends.codex_command(cwd=None,schema=Path("s"),output=Path("o"),sandbox="read-only")
+        self.assertNotIn("--add-dir",cmd)
     def test_secret_environment_value_rejected(self):
         old=os.environ.get("OPENAI_API_KEY"); os.environ["OPENAI_API_KEY"]="sk-test-do-not-copy"
         try:self.assertRaises(ValueError,packet_builder.reject_secrets,"prefix sk-test-do-not-copy suffix")

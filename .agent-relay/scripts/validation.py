@@ -36,3 +36,29 @@ def run_all(worktree: Path, parent: str, commit: str, run_dir: Path, config: dic
         results.append(command([lake,"build"],lean,run_dir/"logs/lake-build.log"))
     data={"status":"pass" if all(x["exit_code"]==0 for x in results) else "fail","changed_files":changed,"commands":results,"commit":commit}
     (run_dir/"VALIDATION.json").write_text(json.dumps(data,indent=2),encoding="utf-8"); return data
+
+def run_uncommitted(worktree: Path, changed: list[str], run_dir: Path, config: dict):
+    """Run recovery validations against the working tree without making a commit."""
+    results=[]
+    if config.get("run_diff_check",True):
+        results.append(command(["git","diff","--check","HEAD"],worktree,run_dir/"logs/recovery-diff-check.log"))
+    if config.get("run_json_validations",True):
+        for i,p in enumerate(x for x in changed if x.endswith(".json")):
+            if (worktree/p).is_file():
+                results.append(command(["python3","-m","json.tool",p],worktree,run_dir/f"logs/recovery-json-{i}.log"))
+    if config.get("run_python_validations",True):
+        handoff=(worktree/".agent-relay/HANDOFF.md").read_text(errors="replace")
+        for i,p in enumerate(discover_python(changed,handoff)):
+            if (worktree/p).is_file(): results.append(command(["python3",p],worktree,run_dir/f"logs/recovery-python-{i}.log"))
+    if config.get("run_no_sorry_scan",True) and any(x.endswith(".lean") for x in changed):
+        existing=[x for x in changed if (worktree/x).is_file()]
+        if existing:
+            results.append(command(["rg","-n",r"\b(sorry|sorryAx)\b"]+existing,worktree,run_dir/"logs/recovery-no-sorry.log"))
+            results[-1]["exit_code"] = 0 if results[-1]["exit_code"] == 1 else 1
+    lean=worktree/"formalization/QuerySystem"
+    if config.get("run_lake_build",True) and lean.joinpath("lakefile.toml").exists() and any(x.endswith(".lean") for x in changed):
+        lake=shutil.which("lake") or str(Path.home()/".elan/bin/lake")
+        results.append(command([lake,"build"],lean,run_dir/"logs/recovery-lake-build.log"))
+    data={"status":"pass" if all(x["exit_code"]==0 for x in results) else "fail","changed_files":changed,"commands":results,"commit":None}
+    (run_dir/"RECOVERY_VALIDATION.json").write_text(json.dumps(data,indent=2),encoding="utf-8")
+    return data

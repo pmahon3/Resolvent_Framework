@@ -1,1 +1,1 @@
-Resubmit Outcome C only after the claimed files and computations are present in an authoritative commit with reproducible validations; otherwise retain O2/O3 as unresolved.
+Submit a small corrective commit updating notes/taxonomies_index.json and either strengthening or precisely scoping the independent verifier; preserve the narrow O2/O3 closure and unchanged main conjecture.

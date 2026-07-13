@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Classify non-atomic selector intervals and proper shared-subalgebra embeddings in the seven-block skeleton; test the smallest coherent pair whose completion creates a block seeing both fibre coordinates."
+   "current_next_step": "Finite non-atomic selector classification complete: 42 of 861 pairs pass, with stable minimum (5,11)=(q0∨q1,q0∨q2). Next construct and audit the smallest proper shared-subalgebra completion targeting Ult(A) ×_{Ult(D)} Ult(C); do not assume the fibre-product relation survives OML closure."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

@@ -359,6 +359,15 @@ a completion-created block that sees both fibres. The target relation should
 first be a partial Boolean isomorphism; graph-of-an-isomorphism is retained
 only as a control because it reduces to one coordinate.
 
+**2026-07-12 residual-pair update.** The finite classification is now
+complete in `oml_nonatomic_pair_classification.md`. Of 861 unordered
+non-atomic pairs, 42 pass the stated coherence, support, common-block,
+cycle, and noncentral-shared-fibre gates. The stable smallest pair is
+`(5,11)=(q0∨q1,q0∨q2)`, with common block `B` and shared meet `q0`. Proper
+shared-subalgebra substitutions target the genuinely partial relation
+`Ult(A) ×_{Ult(D)} Ult(C)`. Completed coarse substitution remains open and
+must be audited from scratch.
+
 ## 16. Validation receipt
 
 Passed on 2026-07-12:

@@ -1,1 +1,1 @@
-Test the smallest proper-shared-subalgebra twist or second inequivalent coarse coordinate on the five-block survivor. Classify maximal blocks first and stop on failure; then prove sigma-completeness or stop on failure.
+Audit the arbitrary-base compatibility graph globally: classify all pairwise compatible families, not only centralizers of the five displayed blocks. Stop if a sixth maximal compatible family exists or if no finite-pattern consistency proof is obtained.

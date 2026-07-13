@@ -160,9 +160,23 @@ seven inflated maximal blocks, retains full boundary saturation, and (for
 the countable-coordinate `A`) has a one-event face exposing dense-nonopen
 local σ-state topology. But its centre is `A × {0,1}`, so the whole direct
 common-base class is necessarily reducible and does not threaten Φ. Outcome
-D remains: the smallest gate is a genuinely distributed one-interval base
-substitution whose mixed lattice and σ-union closure preserves the seven
-blocks and trivial centre.
+D remains: the smallest incidence-preserving gate is a genuinely distributed
+one-interval base substitution whose mixed lattice and σ-union closure
+preserves the seven blocks and trivial centre; the broader inflation problem
+also permits classified additional maximal blocks.
+
+**s42 compact-selection strengthening and scope correction:**
+Overlap compatibility can be imposed event by event. For a coherent finite
+face `p`, if every eligible local σ-state slice `X_B(p)` is compact, a global
+finitely additive witness supplies the finite-intersection property for all
+eventwise overlap equations: every finite subsystem is matched by local
+Dirac states. Tychonoff and block-state gluing then give a global σ-state.
+No finite-subatlas hypothesis is required, and every counterexample face
+must have a noncompact eligible slice at some block. The exact-seven-block
+substitution is only the smallest incidence-preserving gate; a valid mixed
+closure may create further maximal blocks, provided all are classified, the
+centre stays trivial, a finite face retains noncompact local topology, and
+the complete eventwise system has no σ-selection.
 
 ## 2. Programme layer (reconstruction lane) — universal impossibility
 **Claim:** the fork doesn't exist; Circuit Localization holds for the

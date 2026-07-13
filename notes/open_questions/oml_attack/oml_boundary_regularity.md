@@ -260,23 +260,35 @@ conditions: all chosen local states agree with `mu` on every pairwise
 overlap, so `BoundaryDescent.glueBlockStates` glues them. The remaining
 problem is existence, not a triple-overlap cocycle.
 
-There is one useful compactness theorem.
+There is one useful compactness theorem, strengthened by resolving overlap
+agreement event by event.
 
-**Compact finite-subatlas theorem.** Fix `p`. For every maximal block `B`,
-let
+**Compact local σ-selection theorem.** Fix a finitely coherent `p`. For every
+maximal block `B`, let
 
 \[
  X_B=\{v\in St_\sigma(B):v(E_B(p))=1\}.
 \]
 
-If every `X_B` is compact in the product topology and every finite set of
-blocks admits a family in `product X_B` agreeing on all its overlaps, then
-the whole atlas admits such a family, hence a global σ-state extending `p`.
+If every `X_B` is compact in the pointwise topology, then `p` has a global
+σ-state extension. No finite-subatlas hypothesis is required.
 
-*Proof.* In the compact product `product_B X_B`, each overlap equality is a
-closed coordinate condition. Finite-subatlas solvability is exactly the
-finite-intersection property for these closed conditions. Compactness gives
-a global compatible family; compatible block-state gluing finishes. ∎
+*Proof.* Choose a global finitely additive `mu in C_p`. Each `X_B` is
+nonempty: the finite conjunction of the requirements of `p` lying in `B` is
+valued one by `mu`, hence is a nonempty concrete event, and any carrier point
+in it gives an eligible local Dirac state. In the compact product
+`product_B X_B`, impose one closed equation `v_B(A)=v_C(A)` for each shared
+event `A in B intersect C`. A finite family of these equations mentions only
+finitely many events in each block. For every block, the finite conjunction
+which also requires agreement with `mu` on those events is valued one by
+`mu`; choose a carrier point in it. These local Dirac states satisfy the
+selected equations because both sides equal `mu(A)`. The closed equations
+therefore have the finite-intersection property. Compactness supplies a
+fully compatible family, and compatible block-state gluing finishes. ∎
+
+In particular, compactness of `St_sigma(B)` for every maximal block implies
+`Phi`. Conversely, every face witnessing failure of `Phi` has a block for
+which its eligible local σ-state slice is noncompact.
 
 The compactness hypothesis is binding. Sets of σ-additive two-valued states
 need not be closed in the full ultrafilter space: principal states of
@@ -303,7 +315,7 @@ the finite-interface, saturated/clopen, eventwise-section, or explicitly
 | Finite extension over boundary implies openness | arbitrary coarse blocks, even one generator | **refuted** | no new tame class without σ-saturation |
 | Face-relative openness from finite coherence | one-event face in the example | **refuted** | finite observation does not localize |
 | Boundary localization | finite atlas plus (R) | **proved conditionally** | rooting becomes relevant only in that slice |
-| Finite-subatlas σ-lifts imply global lift | compact eligible local σ-state spaces | **proved**; unrestricted open | conditional simultaneous selection |
+| Compact eligible local slices imply global lift | arbitrary block atlas | **proved; no finite-subatlas hypothesis** | every bad face has a noncompact local slice |
 | Direct GSD selection theorem | full class | **open** | primary general route |
 | Rooting is next priority | only if localization obtained | **no in general** | retain only for regular slices |
 

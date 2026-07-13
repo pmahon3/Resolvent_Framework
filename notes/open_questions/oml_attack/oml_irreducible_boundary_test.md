@@ -278,7 +278,7 @@ can still be dense and nonopen. The unresolved issue is whether the
 seven-block incidence pattern admits an infinite σ-complete inflation that
 preserves latticehood and exposes that locus on a finite global face.
 
-## 6. Compact simultaneous selection, sharpened
+## 6. Compact simultaneous selection, eventwise form
 
 Fix a finite pattern `p`. For each maximal block `B`, let
 
@@ -288,21 +288,22 @@ Fix a finite pattern `p`. For each maximal block `B`, let
 
 with the subspace topology inherited from `{0,1}^B`.
 
-**Compact finite-subatlas globalization.** Suppose every `X_B` is nonempty
-compact and every finite set `F` of maximal blocks admits
-`(v_B)_{B∈F}∈∏_{B∈F}X_B` agreeing on every overlap. Then a compatible
-family exists on the whole atlas. It glues to a global σ-additive
-two-valued state extending `p`.
+**Compact local σ-selection.** If every `X_B` is compact, a compatible family
+exists on the whole atlas and glues to a global σ-additive two-valued state
+extending `p`. No finite-subatlas solvability hypothesis is needed.
 
-Proof: `X=∏_B X_B` is compact by Tychonoff (hence uses Choice in this
-generality). For every pair `B,C` and `A∈B∩C`, the equation
-`v_B(A)=v_C(A)` is clopen in `X`. A finite collection of equations mentions
-only finitely many blocks, so finite-subatlas solvability is exactly the
-finite-intersection property. Compactness gives a point satisfying all
-equations. `BoundaryDescent.glueBlockStates` glues it, and its Lean proof
-shows that blockwise σ-additivity implies global σ-additivity. Eligibility
-on every block gives the prescribed finite pattern (after complement
-closure).
+Proof: choose `mu in C_p`. Each `X_B` is nonempty because the finite local
+pattern conjunction is valued one by `mu`, hence contains a carrier point.
+In the compact product `X=product_B X_B`, impose separately the clopen
+equations `v_B(A)=v_C(A)` for every shared event. Any finite collection of
+these equations mentions only finitely many events in each block. Choose in
+each block a carrier point matching `mu` on those events and satisfying the
+local pattern; the required finite Boolean conjunction is again valued one
+by `mu`. This family satisfies the selected equations, so the eventwise
+constraints have the finite-intersection property. Tychonoff gives a point
+satisfying all equations. `BoundaryDescent.glueBlockStates` glues it, and
+its Lean proof shows that blockwise σ-additivity implies global
+σ-additivity.
 
 There is a useful fixed-trace specialization. Given one global finitely
 additive `μ`, put
@@ -347,10 +348,11 @@ persists to the closure. This is a genuine sufficient condition, but it is
 stronger than pointwise σ-additivity and is not supplied by OML
 latticehood.
 
-Finite-subatlas solvability is also not automatic. A finite atlas can have
-infinite interfaces and noncompact σ-state fibres; “finite effective
-interface” yields it only when the finite traces can be extended by local
-σ-states that agree on the entire actual overlaps.
+The binding hypothesis is compactness, not finite-subatlas solvability. A
+counterexample face must have a noncompact eligible local σ-state slice at
+some block. Infinite interfaces matter because they allow the σ-state slice
+to be nonclosed and noncompact even though every finite eventwise subsystem
+has compatible local Dirac solutions.
 
 ## 7. Status table
 
@@ -362,7 +364,7 @@ interface” yields it only when the finite traces can be extended by local
 | Face-exposed pathology with trivial center | concrete σ-complete OML | **open** | relevance to `Ψ_OML` undecided |
 | Nonopen exposed locus implies nontrivial center | essentially irreducible concrete σ-complete OML | **open** | no irreducible regularity theorem |
 | Finite coherence regularizes irreducible face images | same | **open**; no mechanism found | localization not revived |
-| Compact eligible local σ-state globalization | arbitrary atlas under stated compactness/FIP hypotheses | **proved; fixed-trace form corrected** | direct selection theorem |
+| Compact eligible local σ-state globalization | arbitrary atlas | **proved; eventwise FIP automatic** | every bad face has a noncompact local slice |
 | Natural compact local-state classes | classes listed in §6 | **proved conditionally; Polish/standard Borel alone refuted** | tame hierarchy only |
 | Every boundary saturates in the completion | the 56-event OML | **exhaustively proved** | proper-boundary architecture is lost |
 | Direct selection is primary | unrestricted problem | **yes** | infinite inflation/GSD remain open |

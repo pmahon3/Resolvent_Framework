@@ -270,21 +270,59 @@ closing it can force additional maximal blocks.
 
 ## 6. Seven-block selection geometry
 
-For a finite pattern `p`, simultaneous σ-selection is the finite constraint
-set
+For a finite pattern `p`, simultaneous σ-selection is the constraint set
 
 \[
  \{(v_M)_M:v_M\in S_M(p),\quad
  v_M|_{M\cap N}=v_N|_{M\cap N}\}.
 \]
 
-Every equality constraint is closed in the full product of finitely additive
-state spaces. It need not be closed relative to a nonclosed σ-state locus.
-If all seven eligible `S_M(p)` are compact, ordinary finite compactness gives
-a solution whenever the full finite family of overlap constraints has the
-finite-intersection property. Since the atlas itself is finite, “every finite
-subatlas” must include the full seven-block atlas; without a proper-subatlas
-Helly theorem this formulation is tautological at the last stage.
+Every eventwise equality constraint is closed in the pointwise topology.
+Decomposing overlap agreement into these individual constraints removes the
+earlier finite-subatlas hypothesis entirely.
+
+**Compact local σ-selection theorem.** Let `p` be finitely coherent and put
+
+\[
+ X_M(p)=\{v\in\operatorname{St}_\sigma(M):v
+ \text{ satisfies every requirement of }p\text{ lying in }M\}.
+\]
+
+If every `X_M(p)` is compact in the pointwise topology, then `p` has a
+global σ-additive extension. This holds for an arbitrary maximal-block atlas,
+not only the seven-block atlas.
+
+To prove it, choose a global finitely additive extension `mu in C_p`.
+Every `X_M(p)` is nonempty: the finitely many oriented pattern events in
+`M` have a conjunction valued one by `mu`; concreteness supplies a carrier
+point in that conjunction, whose Dirac state lies in `X_M(p)`.
+
+The product `X=product_M X_M(p)` is compact. For every `M,N` and every
+`A in M intersect N`, let
+
+\[
+ F_{M,N,A}=\{(v_Q)_Q:v_M(A)=v_N(A)\}.
+\]
+
+These sets are closed and have the finite-intersection property. Indeed, a
+finite collection mentions only finitely many overlap events in each block.
+For each block choose a carrier point whose local Dirac state matches `mu`
+on those events and on the local requirements of `p`; the same finite
+conjunction argument supplies it. Both endpoints of every selected equation
+then equal `mu(A)`. Compactness gives a family satisfying every eventwise
+equation, and compatible block-state gluing gives the global σ-state.
+
+Consequently,
+
+\[
+ \bigl(\forall M,\ \operatorname{St}_\sigma(M)\text{ compact}\bigr)
+ \quad\Longrightarrow\quad \Phi(L).
+\]
+
+Thus any face witnessing failure of `Phi` must have at least one block with
+a **noncompact eligible local σ-state slice** `X_M(p)`. Dense nonopenness of
+an ambient σ-state locus is relevant only insofar as such noncompactness
+survives the chosen finite face.
 
 The certified incidence has no join tree, so pairwise consistency is not a
 complete local-consistency algorithm. No Helly number below seven has been
@@ -316,11 +354,12 @@ The strongest positive result obtained is therefore conditional and exact:
 This uses the whole maximal-block calculation. It is not a claim that
 boundary saturation forces tameness.
 
-## 8. Smallest unresolved inflation datum
+## 8. Smallest incidence-preserving inflation datum
 
-The remaining problem can be reduced to one explicit diagram-realization
-gate. Choose seven Boolean σ-algebras `M_i` with four-atom finite quotients
-and lift the 21 certified pairwise intersection algebras so that:
+The smallest incidence-preserving problem is one explicit
+diagram-realization gate. Choose seven Boolean σ-algebras `M_i` with
+four-atom finite quotients and lift the 21 certified pairwise intersection
+algebras so that:
 
 1. their common literal intersection is `{0,1}`;
 2. at least one `M_i` contains a countable-coordinate σ-field component
@@ -330,10 +369,23 @@ and lift the 21 certified pairwise intersection algebras so that:
    disjoint unions and binary extrema, form a concrete OML with no new
    maximal blocks.
 
-Conditions 1--3 are Boolean-diagram conditions. Condition 4 is the single
-unresolved OML admissibility gate. If it holds, the next question is whether
-a finite face has full projection onto the coarse component; only after that
-does simultaneous σ-selection need testing.
+Conditions 1--3 are Boolean-diagram conditions. Condition 4 is the unresolved
+**incidence-preserving** OML admissibility gate. It is not an exhaustive
+normal form: mixed closure may necessarily create additional maximal blocks,
+just as completion of the original raw three-block family created four new
+ones. Such a candidate remains valid if all resulting maximal blocks are
+classified, its centre is trivial, and a finite face exposes the coarse
+topology.
+
+The broader inflation gate is therefore:
+
+> Mixed closure is a concrete σ-complete OML; every resulting maximal block
+> is classified; the centre is trivial; and some finite face exposes a
+> noncompact eligible local σ-state slice.
+
+Even these conditions do not obstruct `Phi`. A counterexample must further
+make the complete family of eventwise compatibility constraints have no
+global σ-selection.
 
 The smallest promising specialization assigns coarse structure to one
 `MO2` interval in `La` and transports only the overlap-required proper
@@ -353,8 +405,8 @@ meet/join and σ-union closure is open.
 | Dense-nonopen σ-state locus exists | common-base coarse block | **proved** | topology survives |
 | Finite face exposes locus | central one-event face | **proved** | topology is globally visible |
 | GSD fails | common-base product | **refuted** | no threat to `Phi` |
-| Seven-block incidence forces compact selection | arbitrary admissible inflation | **open** | no σ-tameness theorem |
-| Finite-subatlas compatibility globalizes | compact local spaces + FIP | **proved; corrected** | full finite atlas still must be checked |
+| Compact eligible local slices imply σ-selection | arbitrary block atlas | **proved** | any bad face has a noncompact local slice |
+| Finite-subatlas compatibility needed | compact eligible local slices | **refuted as unnecessary** | eventwise FIP is automatic from a global `mu` |
 | Inflation or saturation theorem is next | strategic decision | **yes: distributed inflation gate** | next session |
 
 ## 10. Receipts and outcome
@@ -380,8 +432,9 @@ The strategic classification is **Outcome D**, with a substantial ruled-out
 subclass: common-base inflation realizes every requested feature except
 essential irreducibility, and fails it necessarily.
 
-The single best next task is to implement the one-interval distributed-base
-specialization above on finite/countable approximants and determine whether
-mixed closure stabilizes with exactly seven maximal blocks. This decides
-whether twisting is an OML construction or only a Boolean incidence diagram.
-
+The single best next task is to bank the eventwise compact-selection theorem
+and then implement the one-interval distributed-base specialization on
+finite/countable approximants. Extra maximal blocks are permitted, but must
+be exhaustively classified. The target is a trivial-centre mixed closure with
+a finite face retaining a noncompact eligible slice; only then test whether
+the full eventwise compatibility system nevertheless has no σ-selection.

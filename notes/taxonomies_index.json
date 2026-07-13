@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — finite centre-removal solved; direct common-base inflation audited and ruled out as irreducible. The 56-event completion has seven saturated maximal blocks. A common coarse base preserves incidence and face-exposed dense-nonopen topology but becomes central. Distributed-base inflation and simultaneous selection remain open.",
+   "status": "OPEN — compact eligible local sigma-state slices now imply global eventwise selection, so every bad face needs a noncompact local slice. Direct common-base inflation preserves the seven-block incidence and coarse topology but becomes central. Distributed mixed closure may add blocks; all must be classified while retaining trivial centre, noncompact face topology, and failure of simultaneous selection.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 58
   },

@@ -5,7 +5,7 @@
   "updated": "2026-07-12",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. The attack splits into fine blocks, where σ-states are coherent atomic selections, and coarse blocks, where the missing engine is cross-block compact transport. A genuine coarse reducible OML boundary realizes dense nonopen sigma-liftable traces. Two-block centre removal is impossible, but a crossed three-block architecture has a 56-event centre-free concrete OML completion. Direct common-base inflation preserves its seven blocks, saturation, and coarse topology but necessarily restores the base as centre; distributed-base OML admissibility is open.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Eventwise compact selection proves that if every eligible local sigma-state slice is compact then a coherent finite face sigma-lifts; any counterexample therefore needs a noncompact eligible slice. A genuine coarse reducible OML boundary realizes this topology. Two-block centre removal is impossible, while a crossed architecture has a 56-event centre-free completion. Direct common-base inflation preserves incidence, saturation, and coarse topology but restores the base as centre; distributed-base OML closure and failure of simultaneous selection remain open.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Test the one-interval distributed-base substitution: determine whether mixed meet/join and countable-disjoint-union closure stabilizes with exactly seven maximal blocks and trivial centre. Direct common-base inflation is ruled out as irreducible."
+   "current_next_step": "Test the one-interval distributed-base substitution under complete mixed closure. Classify all resulting maximal blocks (extra blocks are allowed), compute the centre, preserve a noncompact eligible local sigma-state slice on a finite face, and then test failure of eventwise simultaneous sigma-selection."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -63,10 +63,10 @@
    "detail": "oml_boundary_regularity.md#3-a-genuine-oml-boundary-with-dense-nonopen-σ-liftable-locus"
   },
   {
-   "id": "oml.reduction.compact_finite_subatlas_selection",
-   "name": "Compact finite-subatlas selection",
-   "status": "proved-hand-conditional",
-   "one_line": "If every eligible local sigma-state space is compact, compatible solutions on every finite subatlas globalize by Tychonoff and closed overlap equations; sigma-state spaces are not compact in general.",
+   "id": "oml.reduction.compact_local_selection",
+   "name": "Compact local sigma-selection",
+   "status": "proved-hand",
+   "one_line": "If every eligible local sigma-state slice for a coherent finite face is compact, the face sigma-lifts: a global finitely additive witness makes every finite family of eventwise overlap equations solvable by local Dirac states. Thus every bad face has a noncompact eligible slice.",
    "detail": "oml_boundary_regularity.md#7-direct-simultaneous-selection"
   },
   {

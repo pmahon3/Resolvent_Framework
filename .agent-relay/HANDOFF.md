@@ -1,1 +1,1 @@
-Investigate the smallest transverse candidate with proper joint closure in at least one endpoint; distinguish hand proof, executable finite evidence, and any Lean certificate, and report every structural gate separately.
+Apply the two minor ledger/metadata corrections, then continue with the proposed three-or-more-block noncentral candidate search.

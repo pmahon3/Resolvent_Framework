@@ -1,1 +1,1 @@
-Independently prove or refute the arbitrary-base five-maximal-block classification and sigma-completeness. Stop on either failure; otherwise reconcile the controlling note and begin the smallest twisted inflation test.
+Test the smallest proper-shared-subalgebra twist or second inequivalent coarse coordinate on the five-block survivor. Classify maximal blocks first and stop on failure; then prove sigma-completeness or stop on failure.

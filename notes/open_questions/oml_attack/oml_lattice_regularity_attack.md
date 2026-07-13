@@ -17,8 +17,12 @@ enumerates all subfamilies of those seven labelled blocks and finds four
 proper. The restricted finite result is banked. Its one-interval `q_0`
 inflation now passes maximal-block classification, sigma-completeness, the
 remaining structural gates, and noncompact-slice exposure at hand-proof
-level, but is Phi-tame by common-fibre point replacement. The next gate is a
-two-coordinate or cycle-twisted inflation.
+level, but is Phi-tame by common-fibre point replacement. Independent review
+confirms the arbitrary-base proof by a two-coefficient finite reduction and
+a disjoint-sequence normal form.  The smallest `P(2)` whole-interface
+triangle twist is either nonfaithful (odd holonomy) or gauge-trivial (even
+holonomy). The next gate is a proper-interface twist or a second inequivalent
+coordinate.
 
 *Opened 2026-07-10 (session 8), per `shovel_plan.md` §2 + §Execution-order.
 This is the attack-opening note the frontier map prescribes: collect the three

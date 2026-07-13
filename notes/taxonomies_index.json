@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the banked 44-event survivor has a centre-free sigma-complete one-interval inflation retaining its proper boundary, but the inflation is Phi-tame.",
+   "status": "OPEN — independent hand review confirms the banked 44-event survivor's arbitrary-base five-block sigma-complete one-interval inflation, but it is Phi-tame; the smallest P(2) triangle twist is nonfaithful or gauge-trivial.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 68
   },

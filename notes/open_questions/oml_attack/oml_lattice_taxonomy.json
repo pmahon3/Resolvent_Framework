@@ -5,7 +5,7 @@
   "updated": "2026-07-13",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
-  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The 44-event centre-free five-block survivor is banked as a finite result. Its one-interval q0 inflation preserves exactly five maximal blocks, sigma-completeness, trivial centre, the proper C01 boundary, and a noncompact local slice at hand-proof level, but remains Phi-tame because its single fibre coordinate separates.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The 44-event centre-free five-block survivor is banked as a finite result. Its one-interval q0 inflation preserves exactly five maximal blocks, sigma-completeness, trivial centre, the proper C01 boundary, and a noncompact local slice at hand-proof level, but remains Phi-tame because its single fibre coordinate separates. Independent review supplies the finite-reduction proof; the smallest P(2) triangle twist is either nonfaithful or gauge-trivial.",
   "categories": {
    "reductions": "equivalent formulations and proved reductions defining the current normal form",
    "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Inflate the 44-event survivor by two inequivalent coarse coordinates or a cycle twist, testing maximal blocks and sigma-completeness before the remaining gates."
+   "current_next_step": "Test the next twist class beyond P(2) whole-interface automorphisms: proper shared subalgebras or a second inequivalent coarse coordinate, with maximal blocks and sigma-completeness first."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -254,8 +254,8 @@
   {
    "id": "oml.construct.exhaustive_boundary_survivor",
    "name": "Five-block proper-boundary survivor",
-   "status": "banked-finite-with-hand-proved-one-interval-inflation-tame",
-   "one_line": "The approved 44-event finite result retains a proper C01 boundary; its q0 one-interval inflation passes all structural and topology gates at hand-proof level but is Phi-tame, with finite approximants independently executable.",
+   "status": "banked-finite-with-independently-hand-proved-one-interval-inflation-tame",
+   "one_line": "The approved 44-event finite result retains a proper C01 boundary; independent finite-reduction review confirms that its arbitrary-base q0 inflation has exactly five maximal blocks and is sigma-complete at hand-proof level. It is Phi-tame, and the eight smallest P(2) triangle edge twists are either nonfaithful or gauge-trivial.",
    "detail": "oml_exhaustive_boundary_survivor.md"
   },
   {

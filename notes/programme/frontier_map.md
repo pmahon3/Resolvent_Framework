@@ -58,6 +58,10 @@
 > The explicit two-selector 44-survivor inflation passes exhaustive finite
 > OML gates in three approximants and is Phi-tame; arbitrary-base
 > latticehood is now the construction frontier.
+> Campaign 9 isolates the exact outsider-extremality gap: four-region input
+> controls do not dominate a third-coefficient bound, which may require
+> eight regions. The orthogonal pair is conditionally Phi-tame because its
+> fibres are alternative. The next construction test is non-atomic.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

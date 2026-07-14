@@ -89,10 +89,12 @@ receipt = json.loads(Path(__file__).with_name(
     "five_block_two_selector_inflation_schema.json").read_text())
 assert receipt["schema"] == "five-block-distinct-two-selector-inflation-v1"
 assert receipt["selector_masks"] == ["0x000f", "0x3300"]
-for pair, claim in zip(((2, 2), (2, 3), (3, 2)), receipt["approximants"]):
+pairs = ((2, 2), (2, 3), (3, 2), (2, 4), (3, 3), (4, 2))
+assert [x["fibre_atoms"] for x in receipt["approximants"]] == [list(x) for x in pairs]
+for pair, claim in zip(pairs, receipt["approximants"]):
     fresh = reconstruct(*pair)
     for key, value in fresh.items():
         assert claim[key] == value, (pair, key, claim[key], value)
     assert all(claim["checks"].values())
-assert [x["events"] for x in receipt["approximants"]] == [116, 196, 212]
+assert [x["events"] for x in receipt["approximants"]] == [116, 196, 212, 356, 356, 404]
 print("PASS: independent bit-mask reconstruction matches all certificates")

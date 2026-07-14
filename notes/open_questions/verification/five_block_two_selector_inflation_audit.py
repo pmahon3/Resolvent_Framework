@@ -148,7 +148,8 @@ def main():
     parser.add_argument("--output", type=Path)
     args = parser.parse_args()
     receipt = {"schema": SCHEMA, "selector_masks": ["0x000f", "0x3300"],
-               "approximants": [audit(2, 2), audit(2, 3), audit(3, 2)]}
+               "approximants": [audit(2, 2), audit(2, 3), audit(3, 2),
+                                 audit(2, 4), audit(3, 3), audit(4, 2)]}
     assert all(all(item["checks"].values()) for item in receipt["approximants"])
     text = json.dumps(receipt, indent=2, sort_keys=True) + "\n"
     args.output.write_text(text) if args.output else print(text, end="")

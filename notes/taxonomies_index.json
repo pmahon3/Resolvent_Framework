@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — finite-degree N-G is refuted; genuine CSS/no-GS needs an uncountable hub/coarse coordinate. Explicit two-selector finite OML approximants pass and are Phi-tame; arbitrary-base latticehood is open.",
+   "status": "OPEN — orthogonal two-atom inflation reduces arbitrary latticehood to outsider extremality and is conditionally Phi-tame; the next concrete test is a non-atomic simultaneous pair.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

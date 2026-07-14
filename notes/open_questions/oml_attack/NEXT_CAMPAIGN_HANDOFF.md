@@ -1,21 +1,23 @@
-# Next campaign handoff — Campaign 9
+# Next campaign handoff — Campaign 10
 
-1. **Attempted:** BOC normalization and explicit two-selector inflation.
-2. **Proved:** locally countable finite-arity CSS globalizes; finite-degree
-   failures are countably witnessed; explicit two-selector finite
-   approximants are centre-free five-block OMLs and Phi-tame.
-3. **Refuted:** finite-degree N-G; support nonnesting alone as a selector
-   criterion; any claim that finite approximants prove arbitrary-base gates.
-4. **Evidence classes:** normalization theorems are hand proved; proxy and
-   inflation counts are exhaustive finite evidence and executable verified;
-   finite state gates are hand proved; arbitrary-base theorem is open.
-5. **Load-bearing files/commits:**
-   `oml_boc_normalization_and_two_coordinate.md` and the two new verification
-   certificate families; Campaign-8 commit is the immediate parent.
-6. **Unresolved theorem:** arbitrary-base two-coordinate form closure,
-   latticehood, maximal blocks, centre, and state relation, plus an explicit
-   uncountable hub for any N-G obstruction.
-7. **First action:** prove formwise complement and countable disjoint-union
-   closure for E/F/G forms, then enumerate truth-region compatibility.
-8. **Do not repeat:** suppress the common witness from incidence degree;
-   extrapolate finite certificates; call finite Phi-tame models candidates.
+1. **Attempted:** arbitrary-base simultaneous inflation at the orthogonal
+   atoms `q=0x000f`, `r=0x3300`.
+2. **Proved:** exact five-block subset family and complement closure;
+   conditional sigma-closure; conditional three-branch state classification
+   and Phi-tameness. Six finite models pass exact OML gates.
+3. **Refuted:** the claim that four truth regions alone prove arbitrary-base
+   extrema; an outsider bound can introduce up to eight regions. Orthogonal
+   fibres are never simultaneously charged.
+4. **Evidence classes:** exact family/complement are hand proved; OE and
+   maximal blocks are open; finite grids are exhaustive finite evidence and
+   executable verified; state theorem is conditional hand proof.
+5. **Load-bearing files/commits:** `oml_arbitrary_two_atom_inflation.md`,
+   updated two-selector certificates; Campaign-9 commit is the parent.
+6. **Unresolved theorem:** OE plus the at-most-five-form signature theorem;
+   for construction, whether a non-atomic pair realizes a noncentral
+   simultaneous relation or collapses under mixed cuts.
+7. **First action:** choose the lexicographically first of the 24 non-atomic
+   proxy pairs and build its smallest literal region substitution.
+8. **Do not repeat:** promote `P(k)xP(l)` evidence to OE; use orthogonal
+   atom pairs for simultaneous transport; conflate lattice commutation with
+   named-block co-membership before proving the signature theorem.

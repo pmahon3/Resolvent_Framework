@@ -6,12 +6,13 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 9 — arbitrary-base two-coordinate theorem.
+- **Active campaign:** Campaign 10 — non-atomic simultaneous-coordinate test.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
   specializations; Campaign 6 — global integration; Campaign 7 — hostile
-  audit; Campaign 8 — BOC normalization and finite two-coordinate test.
+  audit; Campaign 8 — BOC normalization and finite two-coordinate test;
+  Campaign 9 — arbitrary-base orthogonal-atom reduction.
   Campaign 5 finite audit was entered for the two-coordinate approximants;
   they passed structural gates and were Phi-tame.
 - **Global stopping status:** not reached.
@@ -41,6 +42,10 @@
 | locally countable finite-arity CSS implies GS | hand proved | proved |
 | finite-degree N-G normalization | refuted | refuted |
 | two-coordinate 44-survivor finite approximants | exhaustive finite evidence | structurally passed, Phi-tame |
+| arbitrary two-atom complement closure | hand proved | proved |
+| outsider-extremality lemma OE | open | open |
+| binary closure implies countable disjoint closure | conditional hand proof | proved conditionally |
+| orthogonal two-atom state trichotomy and Phi | conditional hand proof | proved conditionally |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
 
@@ -55,6 +60,7 @@
 | Cantor singleton CSS-without-GS model | complete compact-ambient abstract relational countermodel; eligible spaces noncompact |
 | standard-Borel local realization | complete locally; OML transport gates fail |
 | two-selector P2xP2/P2xP3/P3xP2 | concrete finite OMLs, exact five blocks, trivial centre, order-separated, Phi-tame |
+| orthogonal two-atom arbitrary-base family | complement closed; OML/maximal-block gates open; conditionally Phi-tame |
 
 ## Unresolved assumptions
 
@@ -79,10 +85,12 @@
 - N-G requires an explicit uncountable-incidence hub, infinite-arity
   constraint, or coarse inverse-limit coordinate.
 - Arbitrary-base two-selector latticehood/maximal blocks remain open.
+- `FC_bin` is incomplete and requires OE against outsider coefficients;
+  maximal blocks require the separate at-most-five-form signature theorem.
 
 ## Next automatic pivot
 
-Prove or refute the arbitrary-base two-selector normal form. First derive
-complement and countable-disjoint-union closure, then the multi-coefficient
-truth-region lattice/maximal-block theorem. Preserve the uncountable hub in
-any N-G state obstruction.
+Test the first non-atomic proxy pair with all three common-block regions
+nonzero. Determine whether mixed closure creates simultaneous nonrectangular
+transport or forces a common/central joint algebra. Preserve OE as the exact
+unfinished structural theorem for the orthogonal-atom control.

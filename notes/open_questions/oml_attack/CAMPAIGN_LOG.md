@@ -1377,3 +1377,67 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   every structural/state gate but is Phi-tame. Arbitrary-base latticehood,
   maximal blocks, and state relation remain open.
 - Automatic pivot: Campaign 9 arbitrary-base two-coordinate theorem.
+
+## Linked Campaign 9 — arbitrary-base orthogonal-atom reduction (2026-07-14)
+
+### Iteration 102 — exact substituted-block family
+
+- **Result:** `L(A,D)` is defined exactly as the union of five substituted
+  Boolean sigma-blocks on the literal two-fibre carrier. **Evidence class:
+  hand proved.**
+
+### Iteration 103 — complement closure
+
+- **Theorem:** every complement remains in its substituted block.
+  **Evidence class: hand proved.**
+
+### Iteration 104 — outsider-extremality objection
+
+- **Refutation:** two-input four-region controls do not by themselves prove
+  arbitrary-base extrema: a competing bound adds a third coefficient and
+  can refine to eight regions. **Evidence class: refuted by hand proof.**
+
+### Iteration 105 — conditional sigma-closure theorem
+
+- **Theorem:** binary disjoint-union closure implies countable disjoint-union
+  closure; after a finite rigid head, the tail lies in joint block `A01`.
+  **Evidence class: hand proved, conditional.**
+
+### Iteration 106 — enlarged finite grid
+
+- **Result:** `P2xP4`, `P3xP3`, and `P4xP2` have respectively 356, 356,
+  and 404 events and pass exact finite OML, five-block, and centre gates.
+  **Evidence class: exhaustive finite evidence.**
+
+### Iteration 107 — independent enlarged-grid reconstruction
+
+- **Result:** the independent bit-mask verifier reproduces the three new
+  hashes and every scoped structural invariant. **Evidence class:
+  executable verified.**
+
+### Iteration 108 — orthogonal state trichotomy
+
+- **Theorem:** conditional on the exhaustive block/form theorem, global
+  states charge `q`, charge `r`, or charge neither; they never activate both
+  fibres, and finite-trace point replacement proves Phi. **Evidence class:
+  hand proved, conditional.**
+
+### Iteration 109 — maximal-block Helly residue
+
+- **Reduction:** after proving compatibility equals named-block
+  co-membership, failure of block classification has a witness of at most
+  five forms. Its coefficient feasibility is separate from binary controls.
+  **Evidence class: conditional.**
+
+### Iteration 110 — hostile repair and pivot
+
+- **Review:** OE was separated from `FC_bin`; sigma branch three and verifier
+  scope were repaired. No finite evidence was promoted. **Evidence class:
+  hand-audited.**
+
+### Campaign-9 verdict
+
+- Exact family/complement closure proved; arbitrary-base OML and maximal
+  blocks remain open at OE and the five-form signature theorem. The atomic
+  class is conditionally Phi-tame. Automatic pivot: Campaign 10 non-atomic
+  simultaneous-coordinate test.

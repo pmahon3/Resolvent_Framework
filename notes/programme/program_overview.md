@@ -186,6 +186,12 @@ finite-degree N-G is impossible by countable components, while selectors
 two-coordinate centre-free five-block OMLs. They are Phi-tame; the
 arbitrary-base multi-coefficient lattice/maximal-block theorem is open.
 
+Campaign 9 sharpens that theorem to outsider extremality (OE) plus a
+five-form signature census. Complement closure is proved and sigma closure
+is conditional on binary closure. Six finite grids pass, but the orthogonal
+coordinates are alternative under every two-valued state and hence
+conditionally Phi-tame. A non-atomic three-region pair is next.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

@@ -146,6 +146,17 @@ five-block OMLs. The smallest has 24 points and 116 events. All finite state
 gates pass and the models are Phi-tame. Arbitrary-base two-coordinate
 latticehood and maximal-block classification remain open.
 
+Campaign 9 defines the arbitrary-base orthogonal-atom family exactly and
+proves complement closure. Binary closure would imply countable disjoint
+closure, but arbitrary-base latticehood is not proved: two input
+coefficients have four truth regions while an outsider bound can refine to
+eight. The exact missing statement is outsider extremality (OE), followed by
+an at-most-five-form maximal-block signature theorem. Six finite grids
+through `P(4)xP(2)` pass exact OML gates. Conditional on the displayed block
+theorem, global states have three alternative branches (`q`, `r`, neither),
+so the class is Phi-tame. The construction frontier moves to a non-atomic
+pair with three nonzero common-block regions.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

@@ -8,8 +8,14 @@ independently audited in
 [`oml_arbitrary_base_inflation_review.md`](oml_arbitrary_base_inflation_review.md)).
 The inhabitation theorem is conditional on that audited hand theorem and
 inherits its evidence class. No Lean certificate is added here; no finite
-oracle applies (every claim is about uncountable carriers). Awaits
-fresh-context adversarial review.*
+oracle applies (every claim is about uncountable carriers). Fresh-context
+adversarial review CLEARED 2026-07-13 (campaign iteration 3): no
+load-bearing claim refuted; three repairs applied in place — the trivial-
+fibre quotient corrected from P(4) to the four-element algebra over the
+realized crossed traces {∅, h, h^c, q0} (machine-checked by the reviewer
+against the labelled block tables), the A* partition example replaced,
+and Corollary 3's trace sets given their intended local definition with
+the f.a.-coherence hypothesis made explicit.*
 
 ## 1. Question addressed
 
@@ -83,11 +89,17 @@ value 1. Lemma 1 covers the rest. ∎
 
 **Corollary 3 (defect anatomy at countable-type boundaries).** Let B be a
 maximal block, and suppose a boundary or overlap algebra through B is of
-countable type over uncountably many atoms. Then at that interface
+countable type over uncountably many atoms. Write T^fa (resp. T^σ) for
+the set of traces on that interface algebra of the pattern-eligible
+finitely additive states such that the trace is finitely additive (resp.
+σ-additive) **as a state on the interface algebra** — the local reading;
+traces of global σ-states form a possibly smaller set, not used here.
+Assume the pattern is f.a.-coherent through the interface (the eligible
+set is nonempty). Then
 
 \[
- T^{\mathrm{fa}} \setminus T^{\sigma}\ \subseteq\
- \{\text{free-on-countable traces}\},
+ T^{\mathrm{fa}} \setminus T^{\sigma}\ =\
+ \{\text{free-on-countable traces among the eligible ones}\},
 \]
 
 and a pattern traps at that interface (forces every eligible trace into
@@ -102,11 +114,14 @@ the defect) only if it simultaneously
   (`oml_lattice_regularity_attack.md` §§16–26) attacks on the master block
   P(ℕ), transported one level up from points to uncountable atoms.
 
-*Proof.* The displayed inclusion is Lemma 2 applied to the interface
-algebra. If no eligible trace charges a countable atom-union, ν_∞ itself
-remains eligible and is σ-additive, so no trap; given the forced K, the
-remaining σ-lifts through the interface are the atom-principal states at
-atoms inside K by Lemma 1, and trapping requires excluding each. ∎
+*Proof.* The displayed identity is Lemma 2 applied to the interface
+algebra (a restriction of an f.a. state to a σ-subfield is f.a.). If no
+eligible trace charges a countable atom-union, then by Lemma 2 every
+eligible trace is ν_∞ (atom-principal and free-on-countable traces each
+charge one); by the nonemptiness hypothesis ν_∞ is eligible, and it is
+σ-additive — no trap. Given the forced K, the remaining σ-additive
+traces are the atom-principal states at atoms inside K by Lemma 1, and
+trapping requires excluding each. ∎
 
 **Reading.** Countable-type coarseness buys a witness hunt *nothing new*:
 its defect sits over a countable atom family, where the problem
@@ -135,26 +150,38 @@ the form (T × D) ∪ (finite outside part) with T a subset of the four
 q0-points. The outside skeleton is finite (12 carrier points outside the
 fibre region), hence countable, hence annihilated by the ideal.
 
+*(Reading of the ideal: for L_A the "σ-ideal of countable sets" is the
+set-theoretic ideal — classes of L-events modulo countable set
+difference, order = inclusion mod countable. The countable events of L_A
+do form a σ-ideal of L_A (any countable family of countable events is
+bounded by a countable E(∪aₙ, full-outside) ∈ A00), so the event-ideal
+and set-ideal readings agree here; this transports the paper's
+definition, whose witness carrier had all singletons as events.)*
+
 **Proposition 4 (fence).** Let L_A be the arbitrary-base q0 inflation with
 fibre algebra A on D. Then in the quotient L_A/[countable]:
 
-1. every class is [T × D] (T ⊆ q0's four points) or [4 × a] (a ∈ A), where
-   4 × a abbreviates the diagonal event with coefficient a over all four
-   points;
+1. every class is [T × D] for one of the four realized crossed traces
+   T ∈ {∅, h, h^c, q0} — where h is the half of q0 that the crossed
+   blocks A10, A11 both cut out (they realize the same four traces on
+   q0, verified against the labelled block tables) — or [4 × a] (a ∈ A),
+   where 4 × a abbreviates the diagonal event with coefficient a over
+   all four points;
 2. [4 × a] is trivial iff a is countable or co-countable in D;
 3. hence L_A is essentially irreducible **iff** A contains an element with
    both sides uncountable, i.e. iff A/[countable(D)] is nontrivial.
 
 In particular **A = ctble/coctble(ω₁) fails**: its entire coarse structure
-lies inside the annihilated ideal, the quotient is the Boolean P(4), and
-its centre is everything.
+lies inside the annihilated ideal, the quotient is the four-element
+Boolean algebra {0, [h×D], [h^c×D], 1}, and its centre is everything.
 
-*Proof.* (1) Every event lies in one of the five maximal blocks (banked
-classification); the two normal forms above reduce mod countable to the
-displayed classes (a countable coefficient contributes a countable set,
-4 × a with a co-countable is ≡ 4 × D = [T×D] with T full). (2) 4 × a is
-countable iff a is countable; (4 × a)Δ(4 × D) = 4 × a^c. (3, ⟸) Suppose
-a₀ ∈ A has both sides uncountable and let T be proper nonempty. The
+*Proof.* (1) Every event lies in one of the five maximal blocks (the
+completion is defined as their union); the two normal forms above reduce
+mod countable to the displayed classes (a countable coefficient
+contributes a countable set, 4 × a with a co-countable is ≡ 4 × D; the
+crossed traces on q0 realized by A10, A11 are exactly ∅, h, h^c, q0).
+(2) 4 × a is countable iff a is countable; (4 × a)Δ(4 × D) = 4 × a^c.
+(3, ⟸) Suppose a₀ ∈ A has both sides uncountable and take T = h. The
 carrier intersection (T × D) ∩ (4 × a₀) = T × a₀ has uncountable symmetric
 difference with every event of L_A (inflated events are 4-diagonal;
 crossed events are full-fibre; everything else differs by an uncountable
@@ -165,7 +192,8 @@ so [4×a₀] ≠ ([4×a₀]∧[T×D]) ∨ ([4×a₀]∧[T×D]^⊥) and the two c
 incompatible. Thus no proper class of either family is central, and the
 centre is {0,1}. (⟸ of 2 and ⟹ of 3) If every a ∈ A is countable or
 co-countable, every [4 × a] ∈ {0,1} and the quotient is exactly
-{[T × D] : T ⊆ 4} ≅ P(4), which is Boolean; its centre is all of it. ∎
+{0, [h×D], [h^c×D], 1}, a four-element Boolean algebra; its centre is
+all of it. ∎
 
 **Fence, stated for reuse.** *A load-bearing coarse fibre must survive the
 countable quotient: any inflation whose coarse structure is built entirely
@@ -178,8 +206,9 @@ and explains it structurally.
 
 **Definition.** Let A* be the σ-field of countable type over a partition
 of D = ω₁ into ℵ₁ pairwise disjoint uncountable pieces {P_γ}_{γ<ω₁}
-(e.g. the classes of the map ω₁ → ω₁ collapsing to the ω-th predecessor;
-any such partition works). A* is nondegenerate and concrete.
+(e.g. the fibres P_γ = f⁻¹({γ}) of the first component of a bijection
+f: ω₁ → ω₁ × ω₁ composed with the projection; any such partition works).
+A* is nondegenerate and concrete.
 
 **Theorem 5 (inhabitation; conditional on the banked arbitrary-base
 inflation).** L* := the q0 inflation with fibre A* satisfies:

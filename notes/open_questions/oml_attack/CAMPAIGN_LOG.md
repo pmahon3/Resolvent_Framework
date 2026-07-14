@@ -155,8 +155,10 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   problem, so countable-type coarseness buys a witness nothing new;
   (c) **fence:** a one-interval inflation is essentially irreducible iff
   its fibre survives the countable quotient; the natural instantiation
-  A = ctble/coctble(ω₁) FAILS admissibility (quotient = Boolean P(4)) —
-  caught before it could contaminate later work;
+  A = ctble/coctble(ω₁) FAILS admissibility (quotient = the four-element
+  Boolean algebra over the realized crossed traces; ✎ corrected from
+  P(4) by the iteration-3 review) — caught before it could contaminate
+  later work;
   (d) **inhabitation:** the ℵ₁-piece fibre A* passes all gates; L* ∈
   𝒞 ∩ OML has three state-coarse blocks and a global non-principal
   σ-state, so B′(ii) is a real inhabited factor (vacuity exit closed,
@@ -214,3 +216,35 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Next lemma-sized task:** adversarial review of iterations 1–2 (the
   campaign's review checkpoint), then the partial-visibility residue or
   the countable-type-universality question from iteration 1.
+
+### Iteration 3 (2026-07-13) — adversarial review checkpoint: both notes CLEARED with repairs
+
+- **Question tested:** refutability of every claim in iterations 1–2
+  (two independent fresh-context hostile reviewers, instructed to
+  refute, with the banked dependencies and primary definitions in
+  hand; one reviewer machine-checked the crossed-block traces against
+  the labelled block tables).
+- **Verdicts:** NO load-bearing claim refuted in either note. Repairs
+  demanded and applied in place:
+  - coarse note: the trivial-fibre quotient is the four-element Boolean
+    algebra over the realized crossed traces {∅, h, h^c, q0}, NOT P(4)
+    (A10 and A11 cut q0 the same way — machine-checked); the A*
+    partition example was wrong (ω-th-predecessor classes are
+    countable) and replaced by bijection fibres; Corollary 3's T^fa/T^σ
+    now defined locally with the f.a.-coherence hypothesis explicit;
+    σ-ideal reading caveat added.
+  - cyclic note: Lemma A's ν⁺-agreement step reconstructed (was
+    garbled); the self-contradicted "all-three σ-consistent" clause
+    struck from Corollary A1 (freeness is exactly pairwise); Theorem
+    B's visibility hypothesis restated as X_α ∈ L with κ = ω₁ pinned
+    for the P₃-internal reading; §4 gained the previously missing
+    countable-refinement lemma (false for general σ-fields, true here
+    by the countable-atom structure) and the corrected fibre
+    degeneration (two of three families per fibre, not all three),
+    with the Z = Y ∪ X membership argument rerun accordingly.
+- **Evidence class:** review receipts = the two reports (verdicts
+  quoted in the notes' status lines); all conclusions of iterations 1–2
+  stand at their stated evidence classes after repair.
+- **Strategic update:** none forced by review. The failed chunked-column
+  design explorations between iterations already yielded a general
+  obstruction statement; writing and proving it is iteration 4.

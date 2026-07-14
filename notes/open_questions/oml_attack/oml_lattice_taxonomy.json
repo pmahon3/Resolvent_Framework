@@ -404,7 +404,7 @@
    "id": "oml.exclusion.countable_cocountable_fibre",
    "name": "Countable/co-countable fibre fence",
    "status": "proved-hand",
-   "one_line": "A one-interval inflation is essentially irreducible iff its fibre algebra survives the countable quotient; ctble/coctble(omega1) fibres die there (quotient = Boolean P(4), centre everything), so purely countable/co-countable coarse structure leaves the admissible class.",
+   "one_line": "A one-interval inflation is essentially irreducible iff its fibre algebra survives the countable quotient; ctble/coctble(omega1) fibres die there (quotient = the four-element Boolean algebra over the realized crossed half-traces, centre everything), so purely countable/co-countable coarse structure leaves the admissible class.",
    "detail": "oml_coarse_inhabitation_and_defect.md#3-the-essential-irreducibility-fence"
   },
   {

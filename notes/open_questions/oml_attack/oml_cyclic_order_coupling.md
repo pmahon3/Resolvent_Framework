@@ -2,10 +2,16 @@
 
 *Opened 2026-07-13 (campaign iteration 2). Status: ⟦HAND⟧ throughout;
 no finite instantiation exists (every claim concerns uncountable
-structure), so no oracle accompanies this note. Awaits fresh-context
-adversarial review. Nothing here proves Ψ_OML or Φ; the yield is one
-reusable freeness lemma, one closed architecture class, one explicit
-non-lattice exemplar, and a named residue.*
+structure), so no oracle accompanies this note. Fresh-context
+adversarial review CLEARED 2026-07-13 (campaign iteration 3): no
+load-bearing claim refuted; repairs applied in place, marked
+✎ review s-it3 (Lemma A agreement step reconstructed; a
+self-contradicted all-three-consistency clause struck from Corollary
+A1; Theorem B's visibility hypothesis restated as X_α ∈ L with the
+κ = ω₁ scope pinned for the P₃-internal reading; §4's refinement lemma
+and corrected fibre-degeneration supplied). Nothing here proves Ψ_OML
+or Φ; the yield is one reusable freeness lemma, one closed architecture
+class, one explicit non-lattice exemplar, and a named residue.*
 
 ## 1. The candidate
 
@@ -66,11 +72,14 @@ in (E₁,E₂)). Put ν⁺(E) = 1 iff E ⊇ B∩S for some B ∈ ℬ. The family
 σ-additive and consistent by the same computation. Ultrafilter property:
 for E = (E₁∩S) ⊍ (E₂∖S), apply the dichotomy to E₁: if E₁ ⊇ B then
 E ⊇ B∩S; if E₁∩B′ = ∅ then E^c = (E₁^c∩S) ⊍ (E₂^c∖S) ⊇ B′∩S. Values on
-𝒜 agree with ν_ℬ (E ∈ 𝒜 contains B∩S iff it contains a member of ℬ:
-one direction is monotone after intersecting the dichotomy witnesses;
-for the other, if E ⊇ B∩S and E avoided some B′ we would get
-∅ = E∩(B∩B′∩S)... wait B∩B′∩S ⊆ E∩B′ = ∅ contradicts persistent
-splitting of B″ ⊆ B∩B′). ν⁻ is symmetric with base {B∖S}. ∎
+𝒜 agree with ν_ℬ: let E ∈ 𝒜 with E ⊇ B∩S. By the ℬ-dichotomy either
+E ⊇ B′ for some B′ ∈ ℬ — then ν_ℬ(E) = 1 — or E∩B′ = ∅ for some
+B′ ∈ ℬ; in the latter case pick B″ ∈ ℬ with B″ ⊆ B∩B′, and
+B″∩S ⊆ B∩B′∩S ⊆ E∩B′ = ∅ contradicts persistent splitting of B″. So
+ν⁺ = 1 on E ∈ 𝒜 implies ν_ℬ(E) = 1; the converse is monotonicity
+(E ⊇ B′ ⊇ B′∩S). ν⁻ is symmetric with base {B∖S}. ∎ *(✎ review s-it3:
+this step was garbled in the first draft; reconstruction as above,
+checked by the fresh-context referee.)*
 
 **Corollary A1 (order events are σ-free over the box filter).** On P₃
 the boxes form a countably closed filter base (countable intersections
@@ -82,17 +91,18 @@ box-containing events) is the unique σ-state on P₃ with all three
 marginals co-countable. Each order event Sᵢⱼ splits every box
 persistently (a box has cofinal sides: pick x < y or x ≥ y inside it at
 will). Therefore **on σ(P₃ ∪ {Sᵢⱼ}) both truth values of Sᵢⱼ are
-σ-consistent over ν_box**; iterating Lemma A (each further order event
-still splits every base member: {x<y<z}∩box ≠ ∅ etc., and the
-complementary cells likewise), even all-three-values-1 is σ-consistent
-over the box marginal on σ(P₃ ∪ 𝒞*) — despite S₁₂∩S₂₃∩S₃₁ = ∅. The
-value-1 base {B∩S₁₂∩S₂₃ : B box} consists of nonempty sets ({x<y<z}
-meets every box) and is countably closed, and S₃₁... does **not** split
-it — S₃₁∩(B∩S₁₂∩S₂₃) = ∅. So on the **Boolean** σ-field
-σ(P₃ ∪ 𝒞*) the three events cannot all be charged (an ultrafilter is
-finitely multiplicative). The freeness is exactly pairwise: any TWO of
-the cyclic events can be jointly σ-charged over the box marginal, never
-all three inside one σ-field.
+σ-consistent over ν_box**, and Lemma A iterates once more: any TWO of
+the cyclic order events can be jointly σ-charged over the box marginal
+(the value-1 base {B∩S₁₂∩S₂₃ : B box} consists of nonempty sets —
+{x<y<z} meets every box — and is countably closed). The iteration
+provably stops there: S₃₁ does **not** split that base
+(S₃₁∩(B∩S₁₂∩S₂₃) = ∅), so Lemma A's hypothesis fails at the third
+step, and indeed on the **Boolean** σ-field σ(P₃ ∪ 𝒞*) the three
+events cannot all be charged even finitely additively (an ultrafilter
+is finitely multiplicative and the triple intersection is empty). The
+freeness is exactly pairwise: any two, never all three inside one
+σ-field. *(✎ review s-it3: the first draft asserted all-three
+σ-consistency here, contradicting its own next sentence; struck.)*
 
 **Reading.** Lemma A kills the Fubini-transfer intuition in general: a
 witness cannot force coupling-event values through countable/co-countable
@@ -112,15 +122,20 @@ Write R_α := {α}×(α,κ)×κ = ({α}) × (α,κ) × κ, a P₃ rectangle (bot
 defined mutatis mutandis.
 
 **Theorem B (cyclic order-coupling trichotomy).** Let L be a concrete
-σ-class on Ω = κ³ containing F₁, F₂, F₃ pairwise compatibly (so, by
-Bruns–Harding as banked in §9c/A2 of the attack note, P₃ lies inside one
-maximal block of L) and containing the three order events. Suppose L is a
-lattice (hence an OML: σ-class + lattice gives the orthomodular law by
+σ-class on Ω = κ³ containing F₁, F₂, F₃ pairwise compatibly and the
+three order events. Call the pair (S₁₂, S₂₃) **fully transversely
+visible** if X_α := S₂₃ ∩ R_α ∈ L for every α < κ (for κ = ω₁ each
+R_α ∈ P₃, and pairwise compatibility of the coordinate fields plus
+Bruns–Harding/A2 — which applies once L is assumed a lattice, since A2
+needs blocks to be σ-fields — places P₃ inside one maximal block, so
+visibility then reads: S₂₃ is compatible with each fibre rectangle;
+for general κ take X_α ∈ L as the definition). Suppose L is a lattice
+(hence an OML: σ-class + lattice gives the orthomodular law by
 disjoint-difference). Then at least one of:
 
-1. **(invisibility)** some cyclic pair fails transverse visibility:
-   S₂₃ is incompatible with R_α for some α (or cyclically); the coupling
-   is then not fully realized by event overlaps at that fibre; **or**
+1. **(invisibility)** every cyclically labelled pair fails full
+   transverse visibility at some fibre; the coupling is then not fully
+   realized by event overlaps at that fibre; **or**
 2. **(degeneracy)** two of the order events are compatible, and then no
    finitely additive two-valued state charges 𝒞* — the cluster is not a
    candidate pattern at all; **or**
@@ -153,21 +168,26 @@ S₁₂, S₂₃ (a Boolean σ-field), μ(S₁₂∩S₂₃) = 1. The pattern
 2 — absurd. So no such μ exists. ∎
 
 **Scope notes.** (i) The theorem does not touch couplings with *partial*
-visibility (S₂₃ compatible with some but not all transverse fibre
-rectangles): that residue is named in §5. (ii) It uses only banked
-theorem-lets (T1 second form, L0, 2BR/A2); the new content is the
+visibility (X_α ∈ L for some but not all α): that residue is named in
+§5. (ii) It uses only banked theorem-lets (T1 second form, L0, the
+E∩F = ∅ branch of the 2BR proof, A2); the new content is the
 identification of transverse visibility as a pointwise-resolution
-supplier and the resulting closure of the class. (iii) Nothing requires
-κ = ω₁ or the order to be a well-order: any relation whose cyclic triple
-intersection is empty while {(x,y): x<y}-type fibres are
-transversely-visible behaves identically.
+supplier and the resulting closure of the class. (iii) With visibility
+stated as X_α ∈ L, nothing requires κ = ω₁ or a well-order: any
+relation triple with empty cyclic intersection and L-visible fibre
+slices behaves identically. The P₃-internal reading of visibility
+(compatibility with fibre rectangles) does need κ = ω₁, since for
+α ≥ ω₁ the interval (α,κ) is neither countable nor co-countable and
+R_α ∉ P₃. Only one fully visible pair is needed for the proof; the
+cyclic labels are otherwise symmetric.
 
 ## 4. The non-lattice horn is genuinely inhabited: the piecewise closure
 
 Horn (3) is not vacuous bookkeeping; the natural completion that makes
 everything visible really does destroy the meet, with exactly the
 ω₁-chain anatomy of the product-Ulam witness (mechanism 1 of §3 of the
-attack note).
+attack note). **This whole section is pinned to κ = ω₁** (the fibre
+degenerations below must land in P₃).
 
 **Definition (piecewise closure L_rich).** E ⊆ Ω belongs to L_rich iff
 there is a countable P₃-partition {R_k} of Ω and germs E_k with
@@ -175,20 +195,44 @@ E ∩ R_k = E_k ∩ R_k, where each E_k belongs to one of the four-element
 algebras ⟨S₁₂⟩, ⟨S₂₃⟩, ⟨S₃₁⟩ (= {∅, S, S^c, Ω}; the trivial germs are
 shared).
 
+**Refinement lemma (✎ review s-it3: previously asserted without proof,
+and false for general σ-fields).** Any countable family of P₃ sets
+admits a countable P₃-partition refining all of them. *Proof.* Each
+member lies in the σ-field generated by countably many coordinate
+cylinders; collect all generators. Per coordinate i, let D_i ⊆ κ be the
+(countable) union of the countable sides of the generators (taking the
+complement's side when a generator's set is co-countable). Every
+generator is a union of the coordinate-i atoms {δ} (δ ∈ D_i) and
+κ∖D_i, so the generated σ-field on coordinate i has countably many
+ctble/coctble atoms, and the product atoms — countably many P₃
+rectangles — partition Ω and refine every member (the class of unions
+of product atoms is a σ-field containing the generating cylinders). ∎
+
+**Fibre degeneration (✎ review s-it3: corrected — only TWO of the three
+order families degenerate per fibre orientation).** On an x-fibre
+{α}×κ², S₁₂ degenerates to the P₃ set {α}×(α,κ)×κ and S₃₁ to
+{α}×κ×[0,α), but S₂₃ ∩ ({α}×κ²) = {α}×{y<z} is NOT P₃ (its section
+neither contains nor avoids a 2-D box). Cyclically for y- and z-fibres.
+So on single-fibre pieces germ bookkeeping reduces to P₃ **for two of
+the three families**, and one family's germs persist.
+
 **Claim 1: L_rich is a concrete σ-class containing P₃ ∪ 𝒞*.**
-Complements are germwise. For a countable disjoint family, pass to a
-common refinement (still a countable P₃-partition); on each piece the
-germs of distinct members are disjoint within their families or trivial;
-a nontrivial S-germ and a nontrivial S′-germ from different families
-cannot be disjoint on a box-containing piece (their intersection meets
-every box), and on box-free pieces — which are covered by three countable
-strips, since a P₃-set avoiding a box B = A×B′×C is contained in the
-union of the complementary countable strips — one refines to single-fibre
-pieces, where every order event **degenerates to a P₃ set**
-(S₁₂ ∩ ({α}×κ×κ) = {α}×(α,κ)×κ and cyclically), so germ bookkeeping
-reduces to P₃ there. Unions of germs on a piece are handled by refining
-the piece by the P₃ parts (split R into R∩E and R∖E). P₃ ⊆ L_rich with
-trivial germs; each order event is a one-piece member.
+Complements are germwise. For a countable disjoint family {Xₙ}, use the
+refinement lemma to pass to a common countable P₃-partition of all the
+pieces involved. On a box-containing piece, nontrivial germs of distinct
+members from different families cannot coexist (disjointness fails:
+distinct-family nontrivial germs intersect on every box), so all
+nontrivial germs on such a piece lie in one family and their union stays
+in that family's four-element algebra (S ⊍ S^c = Ω). Box-free pieces are
+covered by three countable strips (a P₃ set avoiding a box A×B′×C is
+contained in the union of the complementary countable strips), so refine
+them to single-fibre pieces; there, by fibre degeneration, all germs
+from two of the families become P₃ sets, and at most the germs of the
+one surviving family are non-P₃: the union on such a piece is
+(surviving-family germ part) ∪ (a P₃ set P), and splitting the piece by
+P (germ Ω on piece∩P; the surviving family's germ off it) exhibits
+membership. P₃ ⊆ L_rich with trivial germs; each order event is a
+one-piece member.
 
 **Claim 2: in L_rich, S₁₂ ∧ S₂₃ does not exist.** Lower bounds: X_α ∈
 L_rich for every α (one rectangle piece with germ S₂₃), and countable
@@ -200,12 +244,17 @@ S₁₂∩R_k ⊄ S₂₃: pick x < y with z ≤ y inside the box), so E_k = ∅
 Hence Y is supported on the box-free pieces, i.e. inside countably many
 countable strips: there are countable Ã, B̃, C̃ with
 Y ⊆ (Ã×κ²) ∪ (κ×B̃×κ) ∪ (κ²×C̃). Choose α* ∉ Ã, and consider
-Z := Y ∪ X_{α*}. Z ∈ L_rich (common refinement; on the α*-fibre pieces
-the union of Y's fibre-degenerate P₃ germs with the S₂₃ germ is
-expressible after splitting the piece by the P₃ part). Z is a lower
-bound. Z ⊋ Y: a point (α*, y, z) with α* < y < z, y ∉ B̃, z ∉ C̃ lies in
-X_{α*}∖Y (such y, z exist: the constraints exclude countably many
-values). So no lower bound is maximal, while nonzero lower bounds exist
+Z := Y ∪ X_{α*} (an overlapping union, so σ-class closure does not apply
+directly; membership is checked piecewise ✎ review s-it3). Refine Y's
+partition by {α*}×κ² and by R_{α*}. Off the α*-fibre, Z = Y. On a piece
+inside R_{α*}: if Y's germ there lies in ⟨S₂₃⟩, the union with X's S₂₃
+germ stays in ⟨S₂₃⟩ (S₂₃ ∪ S₂₃ = S₂₃, S₂₃^c ∪ S₂₃ = Ω); if it lies in
+⟨S₁₂⟩ or ⟨S₃₁⟩, it degenerates on the fibre to a P₃ set P, and
+splitting the piece by P gives germs Ω on piece∩P and S₂₃ off it. So
+Z ∈ L_rich. Z is a lower bound (both parts lie in S₁₂∩S₂₃). Z ⊋ Y: a
+point (α*, y, z) with α* < y < z, y ∉ B̃, z ∉ C̃ lies in X_{α*}∖Y (each
+constraint excludes countably many values, and (α*,κ) is co-countable —
+κ = ω₁). So no lower bound is maximal, while nonzero lower bounds exist
 (X_α ≠ ∅): the meet fails. ∎
 
 L_rich is therefore a concrete σ-class realizing full visibility whose
@@ -246,11 +295,11 @@ direction for coupled coarse coordinates.
 
 | Claim | Class |
 |---|---|
-| Lemma A, Corollary A1 | hand proved (self-contained) |
-| Theorem B | hand proved over banked T1/L0/2BR/A2 |
-| L_rich Claims 1–2 | hand proved (piecewise normal form) |
+| Lemma A, Corollary A1 | hand proved (self-contained), adversarially reviewed SOUND |
+| Theorem B | hand proved over banked T1/L0/2BR-branch/A2, adversarially reviewed SOUND |
+| L_rich Claims 1–2 (κ = ω₁) | hand proved; two review-found gaps patched in place (refinement lemma, fibre degeneration) |
 | "residue open" | open, not a claim |
 
 No executable receipts (uncountable content; finite models trivialize:
-on finite carriers St_fa = St_σ). Adversarial review owed and scheduled
-as the next campaign checkpoint.
+on finite carriers St_fa = St_σ). Fresh-context adversarial review
+cleared 2026-07-13; see status line.

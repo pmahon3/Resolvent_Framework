@@ -19,6 +19,11 @@
 > determined only by a coherent inverse system; the club field refutes the
 > naive form. The remaining theorem is OML distributed-boundary compactness
 > (ODBC), or an OML realization of a transported singleton/club trap.
+> Campaign 1 has now made this exact: ODBC is the conjunction of ODBC-S
+> (one common-f.a.-witness section on every countable block subsystem) and
+> CODBC (globalization). The compactness clause alone does not imply Phi,
+> because finite event equations do not supply whole-block subsystem
+> sections. See `oml_attack/oml_distributed_boundary_compactness.md`.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

@@ -132,8 +132,13 @@ countably generated Boolean sigma-block while every countable subatlas
 escapes. Its common-interface paste is central and has no separating
 sigma-states. Coarse restrictions characterize liftability only as a
 coherent inverse system; the club field refutes naive local satisfiability.
-Both halves reduce to OML distributed-boundary compactness (ODBC), recorded
-in `oml_endgame_selection_residue.md`.
+Both halves reduce to OML distributed-boundary compactness. Campaign 1 now
+records the exact theorem in `oml_distributed_boundary_compactness.md`:
+ODBC-S supplies a common-global-f.a.-witness section on every countable block
+subsystem, while CODBC globalizes these objectwise sections. Their
+conjunction is GSD/Phi. CODBC alone is not sufficient, a quantifier gap
+found by hostile review. The abstract section implication is Lean verified
+in `ODBCSections.lean`.
 
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),

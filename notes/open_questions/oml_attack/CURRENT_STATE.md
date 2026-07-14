@@ -77,8 +77,15 @@ sigma-states.
 For coarse blocks, sigma-liftability is exactly a coherent inverse system of
 lifts on all countably generated block subalgebras. Local nonemptiness
 without coherence fails in ZFC on the club field over `omega_1`. The exact
-remaining theorem is OML distributed-boundary compactness (ODBC), stated in
-`oml_endgame_selection_residue.md`.
+remaining theorem package is now formalized exactly in
+`oml_distributed_boundary_compactness.md`. For a coherent finite pattern
+`p`, `X_p(J)` retains one full global finitely additive witness and eligible
+sigma-lifts on every block in `J`. ODBC has two load-bearing clauses:
+ODBC-S (every countable subsystem has a section) and CODBC (those sections
+globalize). Their conjunction implies GSD and `Phi`. CODBC alone does not:
+finite eventwise satisfiability does not even give a section over two whole
+blocks. The abstract implication layer is Lean verified in
+`ODBCSections.lean`.
 
 ## Primary sources
 

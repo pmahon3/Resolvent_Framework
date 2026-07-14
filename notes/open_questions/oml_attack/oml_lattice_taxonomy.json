@@ -148,6 +148,14 @@
    "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
   },
   {
+   "id": "oml.reduction.odbc_exact",
+   "name": "Exact ODBC factorization",
+   "status": "hand-proved-lean-abstract-core",
+   "one_line": "For each finite face, common-witness section spaces X_p(J) split the missing theorem into ODBC-S (countable subsystem sections) and CODBC (globalization); together they are GSD/Phi, while CODBC alone is insufficient.",
+   "detail": "oml_distributed_boundary_compactness.md",
+   "lean": "ODBCSections.lean: abstract finite/countable/global section hierarchy and phi_of_odbc_sections; no OML realization claim"
+  },
+  {
    "id": "oml.obstruction.distributed_boundary_defect",
    "name": "Distributed boundary defect",
    "status": "abstract-fine-boundary-realized-oml-gates-open",

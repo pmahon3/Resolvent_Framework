@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — reduced to OML distributed-boundary compactness (ODBC). T4At gives hereditary local escape, but fine Cantor singleton relations and the coarse club inverse system refute topology-only or naively countable selection; neither passes the OML realization gates.",
+   "status": "OPEN — exact ODBC factorization complete: ODBC-S (countable common-witness subsystem sections) plus CODBC (globalization) is GSD/Phi. T4At gives only hereditary local escape; Cantor singleton and club controls refute weaker selection principles.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

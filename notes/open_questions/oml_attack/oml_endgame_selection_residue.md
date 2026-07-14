@@ -136,12 +136,16 @@ determination, not the coherent inverse-limit theorem.
 
 The fine and coarse findings isolate the same missing statement.
 
-> **OML distributed-boundary compactness (ODBC).** In a concrete
-> sigma-complete OML whose sigma-additive two-valued states separate order,
-> for every coherent finite face, the family of block boundary-liftable
-> loci cannot form a cover by defects if every finite/countable block
-> subsystem is escapable; equivalently, the compatible inverse system of
-> eligible local sigma-lifts has a global section.
+> **OML distributed-boundary compactness (ODBC), conceptual form.** In a
+> concrete sigma-complete OML whose sigma-additive two-valued states separate
+> order, every coherent finite face has common-witness sections on all
+> countable block subsystems (ODBC-S), and such objectwise subsystem sections
+> globalize (CODBC).
+
+The exact definitions and quantifiers are now in
+`oml_distributed_boundary_compactness.md`. In particular, CODBC alone does
+not imply Phi, and objectwise nonempty subsystem section spaces are not a
+compatible inverse-limit family.
 
 For fine blocks, failure of ODBC would have to realize a transported version
 of the Cantor singleton atlas while passing latticehood, centre, and state

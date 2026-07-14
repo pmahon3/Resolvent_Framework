@@ -916,3 +916,74 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Consequence:** Question E is negative in its naive form and positive only
   with a load-bearing coherence clause. Fine and coarse lanes now meet at
   OML-specific compactness of the compatible inverse system.
+
+## Linked Campaign 1 — formalize ODBC exactly (2026-07-13)
+
+### Iteration 41 — common-witness section spaces
+
+- **Result:** for every coherent finite pattern and block subsystem `J`,
+  defined `X_p(J)` to retain one full global f.a. witness `mu` and one
+  boundary-matching eligible local sigma-lift per block. Restriction forgets
+  lifts but retains `mu`. **Evidence: hand proved definition audit.**
+
+### Iteration 42 — inverse-limit identification
+
+- **Theorem:** `X_p(I)` is canonically the inverse limit over all finite, or
+  all countable, block subsystems. A compatible family across subsystems is
+  therefore already a global section. **Evidence: hand proved.**
+
+### Iteration 43 — three quantifiers separated
+
+- **Refutation:** pointwise local nonemptiness, objectwise finite/countable
+  subsystem sections, and a compatible family of subsystem sections are
+  distinct. In particular witnesses for different subsystems may use
+  different global f.a. states. **Evidence: hand quantifier audit.**
+
+### Iteration 44 — suppressed antecedent found and repaired
+
+- **Hostile objection:** conditional globalization (CODBC) cannot imply
+  `Phi` without proving whole-subsystem section existence. Finite event-face
+  satisfiability does not solve infinitely many overlap equations in even
+  two blocks. **Verdict: objection sustained.** ODBC was repaired to the
+  conjunction ODBC-S plus CODBC.
+
+### Iteration 45 — ODBC consequence of GSD
+
+- **Theorem:** ODBC-S plus CODBC gives `X_p(I)`, exactly GSD, hence `Phi` by
+  reviewed boundary sigma-surgery. Conversely GSD supplies both clauses, so
+  the package is extensionally equivalent to `Phi` while exposing two
+  separate proof obligations. **Evidence: hand proved over banked GSD.**
+
+### Iteration 46 — fine and coarse specializations
+
+- **Result:** fine eligible lifts are equivalently charged block atoms;
+  coarse eligible lifts are coherent families over every countably generated
+  block subalgebra. Mere local coarse nonemptiness is excluded by the club
+  control. **Evidence: hand proved using banked block-Dirac and coarse-union
+  theorems.**
+
+### Iteration 47 — failure skeleton gates
+
+- **Result:** failure inside an actual admissible OML is already a `Phi`
+  counterexample. Only an abstract atlas failure remains a skeleton and must
+  pass concreteness, lattice, maximal-block, sigma-completeness, centre,
+  essential-irreducibility, state-separation, and lift-identification gates.
+  **Evidence: hand proved classification.**
+
+### Iteration 48 — Lean abstract section core
+
+- **Result:** `ODBCSections.lean` verifies finite/countable/global compatible
+  section definitions, countable-to-finite implication, the compactness
+  wrapper, and `phi_of_odbc_sections` with the GSD extraction explicit.
+  **Evidence: Lean verified.** Axiom receipts are
+  `[Quot.sound]`, none, and `[propext, Classical.choice, Quot.sound]`.
+
+### Campaign-1 hostile review and verdict
+
+- The reviewer found the ODBC-S omission, prohibited calling objectwise
+  nonempty subsystem spaces a compatible family, corrected the variance of
+  restriction maps, and separated actual OML failure from abstract skeleton.
+  All material objections were repaired in the focused note.
+- **Campaign result:** exact ODBC is complete; ODBC itself remains open.
+  Automatic pivot: Campaign 2, beginning with cut-saturation and the
+  two-block full-boundary upgrade.

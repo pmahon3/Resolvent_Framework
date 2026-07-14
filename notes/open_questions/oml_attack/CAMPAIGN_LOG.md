@@ -288,3 +288,37 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   forces a stationary constant witness that contradicts... (i.e., decide
   whether the mechanism kills σ-lifts without a measurable type
   partition), or refute it with a splitting-freeness argument.
+
+### Iteration 5 (2026-07-13) — the rotating small-piece candidate specified
+
+- **Question tested:** is there ANY architecture that simultaneously
+  threads every banked obstruction (type-partition, T1 pointwise
+  resolution, no-Fubini, 2BR, ω₁-chain meet failure)? The iterative
+  design search (probing Ulam-base kills against each banked theorem in
+  turn; five intermediate designs died against the banked mechanisms
+  during iteration 4's exploration and this one) converged on ONE
+  surviving shape.
+- **Result** (note: `oml_rotating_small_piece_candidate.md`): the
+  **rotating small-piece graph triple over an Ulam base** — carrier
+  ω₁×ω₁; B = full first-coordinate cylinder field; three graph events
+  with per-column-type rotating two-point small pieces; resolution
+  singletons; meet-collector graphs G_mn deliberately incompatible with
+  uncountable cylinder restrictions. σ-kill: Ulam column-localization +
+  finite small-piece splitting (proved modulo the closure normal form);
+  f.a. escape: column-freeness, with every banked death threaded BY
+  DESIGN (no disjoint pattern pair anywhere → Theorem 1 silent; W-regions
+  unresolved → T1 blocked; resolved parts collected into designed meets
+  → ω₁-chain blocked; m = 3 cluster normal form exact).
+- **Evidence class:** design specification; per-column kill logic hand,
+  conditional on Gate N; NOTHING banked as a theorem about the candidate.
+- **Gates:** staged as N (closure normal form — critical), L, M, C, Z
+  (quotient audit per iteration 1's fence), F (f.a. coherence — the
+  crux), Φ. None passed; the spec is frozen so Gate N can be attacked
+  against a fixed target.
+- **Strategic update:** this replaces the generic "proper-interface
+  twist" as the priority construction target (taxonomy headline
+  updated); Fodor rigidity demoted to backup. If Gate N or F fails, the
+  failure is to be converted into the next obstruction theorem — the
+  campaign's Lane B pattern.
+- **Next lemma-sized task:** Gate N — exhibit the ⊍/c-closure normal
+  form and verify the §2 exclusions survive closure.

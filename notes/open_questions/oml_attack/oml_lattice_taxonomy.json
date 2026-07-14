@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 76,
+   "entries": 77,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Test the next twist class beyond P(2) whole-interface automorphisms: proper shared subalgebras or a second inequivalent coarse coordinate, with maximal blocks and sigma-completeness first."
+   "current_next_step": "Attack Gate N (closure normal form) of the rotating small-piece candidate against its fixed specification; convert any failure into the next obstruction theorem. Fodor/regressive rigidity is the backup coarse-side direction."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -383,6 +383,13 @@
    "status": "closed-fully-visible-hand",
    "one_line": "The three cyclic order events over three coarse coordinates on kappa^3 admit no fully transversely visible concrete sigma-complete OML realization with a finitely coherent cluster: visibility supplies pointwise resolution, so T1 forces compatibility (then 2BR kills the f.a. witness) or the meet fails by an omega1-chain (piecewise closure exemplar). Partial-visibility residue open.",
    "detail": "oml_cyclic_order_coupling.md"
+  },
+  {
+   "id": "oml.construct.rotating_small_piece",
+   "name": "Rotating small-piece graph triple",
+   "status": "design-spec-open-gates",
+   "one_line": "Three graph events over an Ulam base P(omega1)-cylinders with rotating two-point small pieces: sigma-states column-localize (Ulam) and die by finite splitting of the small piece; f.a. states are column-free; threads every banked obstruction (type-partition, T1, no-Fubini, 2BR, omega1-chain) by design. Open gates: closure normal form N (critical), latticehood, blocks, sigma-completeness, quotient audit, f.a. coherence F (the crux).",
+   "detail": "oml_rotating_small_piece_candidate.md"
   },
   {
    "id": "oml.construct.nonatomic_pullback_completion",

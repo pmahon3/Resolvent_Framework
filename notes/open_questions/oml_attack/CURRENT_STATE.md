@@ -8,8 +8,9 @@ The open question is whether a concrete σ-complete orthomodular lattice can car
 
 ## Accepted baseline
 
-The current direct campaign begins at `609a8da16d0ef031a9e97a231cb17bf175bf7f8c`;
-the continuation baseline and evidence ledger are in `CAMPAIGN_LOG.md`.
+The present continuation began at
+`baac957507303a04ea20f36cd3ea75cb6ed181f8`; earlier baselines and the full
+evidence ledger are retained in `CAMPAIGN_LOG.md`.
 Lean verifies Stone density, blockwise σ-additivity, two-block rescue, and
 the fine-block Dirac/pointed results. The newer coarse, cyclic-coupling, and
 type-partition results are hand proofs at the scopes stated in their notes.
@@ -35,23 +36,30 @@ type-partition results are hand proofs at the scopes stated in their notes.
 
 Nearby constructions governed by one of these mechanisms should not be repeated without an explicit structural distinction.
 
-## Current open gate
+## Resolved rotating route and current frontier
 
-Gate N for `oml_rotating_small_piece_candidate.md` is the sole active
-construction gate. The fixed-column six-cell trace has 24 events and passes
+Gate N for `oml_rotating_small_piece_candidate.md` **passed**. The
+fixed-column six-cell trace has 24 events and passes
 its independently verified finite census. New arbitrary-base upper invariants
 now prove that no nonzero generated event is supported in the unresolved `W`
 regions, no set intersection `Σ_i∩Σ_j` is generated, and no collector can be
 restricted with uncountable variation modulo countable column support. The
 three-type transversal algebra has 88 profiles; balanced finite-core closures
 of lengths 3, 6, 9, 12 have 88, 180, 700, 4428 events and pass a separate
-recomputation. The exact remaining Gate-N lemma is finite-core splicing:
-prove or refute that every generated event is a countable-column modification
-of a finite global core form. See `oml_typed_graph_closure_calculus.md`.
+recomputation. The finite relation has mode counts 44/36/0/8 by number of
+binary coordinates. Universal transversal membership supplies an anchor
+profile, one disjoint cylinder supplies all varying binary supports, and the
+certified local trace events patch the countable exceptional columns. Thus
+every generated event is a countable-column modification of an explicit
+parameterized core. See `oml_typed_graph_closure_calculus.md` §8.
 
-Gates L, M, C, Z, F, and Φ remain open and must not be entered until Gate N
-passes. If decorated-form closure forces a forbidden event, record the
-shortest derivation and extract a graph-restriction obstruction theorem.
+Gate L then **failed**. The generated events `cyl(T₁)` and `G₁₂` have two
+explicit upper bounds, but the universal transversal relation has no profile
+in the interval required of their join. This is an arbitrary-base proof, not
+a finite-quotient extrapolation. The rotating σ-class is not a lattice; Gates
+M, C, Z, F, and Φ were not entered. The reusable output is the finite-profile
+interval obstruction theorem. The active frontier returns to B′(i)/T4 and
+boundary selection, informed by this graph-network closure result.
 
 ## Primary sources
 

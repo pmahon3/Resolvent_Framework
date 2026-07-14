@@ -1,0 +1,363 @@
+{
+  "infinite_consequence": "The n=3 missing-join witness lifts to arbitrary base via the transversal Q invariant; finite quotients alone would not suffice.",
+  "runs": [
+    {
+      "core_count": 88,
+      "core_sha256": "30b7853e8b952c08c4c1a2c63dbeba0998b70ef9140f6da3a3cd7c570d10f46b",
+      "first_failure": {
+        "extrema": [
+          [
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            []
+          ],
+          [
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ]
+          ]
+        ],
+        "kind": "join",
+        "left": [
+          [
+            "g",
+            "h",
+            "W",
+            "Vi",
+            "Vj",
+            "R"
+          ],
+          [],
+          []
+        ],
+        "right": [
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          []
+        ]
+      },
+      "join_failures": 18,
+      "meet_failures": 18,
+      "n_columns": 3,
+      "type_word": "123",
+      "unordered_pairs": 3916
+    },
+    {
+      "core_count": 180,
+      "core_sha256": "32f29dd4f8df45534c9e2c83fdf37ac6bce89e855b54ede5489845db6fbc4899",
+      "first_failure": {
+        "extrema": [
+          [
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            []
+          ],
+          [
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ]
+          ]
+        ],
+        "kind": "join",
+        "left": [
+          [
+            "g",
+            "h",
+            "W",
+            "Vi",
+            "Vj",
+            "R"
+          ],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "right": [
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          []
+        ]
+      },
+      "join_failures": 54,
+      "meet_failures": 54,
+      "n_columns": 6,
+      "type_word": "123123",
+      "unordered_pairs": 16290
+    },
+    {
+      "core_count": 700,
+      "core_sha256": "557c1ae647d2a9a411aba0f0ce1c3ddb9672fefd35fa6f90aa54e15d663bc60e",
+      "first_failure": {
+        "extrema": [
+          [
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            []
+          ],
+          [
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "h",
+              "W",
+              "Vi",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ],
+            [
+              "g",
+              "Vj",
+              "R"
+            ]
+          ]
+        ],
+        "kind": "join",
+        "left": [
+          [
+            "g",
+            "h",
+            "W",
+            "Vi",
+            "Vj",
+            "R"
+          ],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          [],
+          []
+        ],
+        "right": [
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          []
+        ]
+      },
+      "join_failures": 126,
+      "meet_failures": 126,
+      "n_columns": 9,
+      "type_word": "123123123",
+      "unordered_pairs": 245350
+    }
+  ],
+  "scope": "Exhaustive finite global-core quotients; no local modifications."
+}

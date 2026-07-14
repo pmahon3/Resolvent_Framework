@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — Gate N is reduced to the finite-core splicing lemma. Arbitrary-base typed trace invariants exclude the main W/intersection/restriction threats, but the exact lower normal form remains open.",
+   "status": "OPEN — rotating candidate resolved: Gate N passed, Gate L failed by an arbitrary-base missing-profile-interval witness. The finite-profile obstruction theorem is banked; theorem-side selection is again the frontier.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 76
   },

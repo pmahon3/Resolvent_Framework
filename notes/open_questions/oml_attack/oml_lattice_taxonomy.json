@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Gate N is reduced to the finite-core splicing lemma: decide whether every event is a countable-column modification of a finite global core form. Arbitrary-base local, same-type, and 88-profile transversal invariants already exclude W events, graph intersections, and collector restrictions with uncountable variation modulo countable support."
+   "current_next_step": "Rotating route resolved: Gate N PASSED, Gate L FAILED because cyl(T1) and G12 have no join, certified by an empty Q-profile interval. Bank the finite-profile interval obstruction and pivot to B'(i)/T4 boundary selection."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -388,7 +388,7 @@
    "id": "oml.construct.rotating_small_piece",
    "name": "Rotating small-piece graph triple",
    "status": "design-spec-open-gates",
-   "one_line": "Three graph events over an Ulam cylinder base. Gate N remains open but is reduced to finite-core splicing: proved upper invariants exclude W events, graph intersections, unintended singleton collectors, and collector restrictions with uncountable variation modulo countable support; the intended collectors are genuine graph-pair meets. Later gates remain closed.",
+   "one_line": "Three graph events over an Ulam cylinder base. Gate N PASSED by exact anchor synthesis/countable patching; Gate L FAILED: cyl(T1) and G12 have no join by an empty interval in the 88-profile invariant. M, C, Z, F, and Phi were not entered.",
    "detail": "oml_rotating_small_piece_candidate.md"
   },
   {

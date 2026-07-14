@@ -5,6 +5,58 @@ appended below the baseline; each records question, construction/lemma,
 evidence class, gates passed, first failure, obstruction, strategic update,
 and next task.
 
+## Continuation baseline (2026-07-13, finite-core resolution campaign)
+
+- **Actual start:** branch `oml-descent-sigma-essential-reduction`, commit
+  `baac957507303a04ea20f36cd3ea75cb6ed181f8`, clean worktree, tracking
+  `origin/oml-descent-sigma-essential-reduction`. The nine commits after
+  baseline `a49a44a` were inspected in order; they are exactly the coarse
+  anatomy, cyclic no-go, review repair, type-partition theorem, rotating
+  specification, local certificate, splicing reduction, metadata sync, and
+  typed decorated-form invariant recorded below. No hidden Gate-N pass occurs.
+- **Problem:** decide whether every concrete σ-complete OML satisfies Φ,
+  equivalently whether `St_σ(L)` is product-topology dense in `St_fa(L)`;
+  pursue both a fully gated counterexample and a structural positive theorem.
+- **Evidence ledger at entry:** Lean verifies the blockwise/Stone-density,
+  pointed/fine-block, two-block-rescue, T4-necessity, and compact-transport
+  infrastructure named in `CURRENT_STATE.md`; hand proofs establish the
+  coarse defect anatomy, fully visible cyclic no-go, finite type-partition
+  obstruction, one-graph lemma, countable dependence, fibre morphism,
+  same-type polarity, transversal invariant, intended collector meet, and
+  scoped graph-network restriction theorem; executable certificates give 24
+  local traces and balanced core sizes 88, 180, 700, 4428. The balanced-core
+  verifier separately recomputes closure but shares the producer's cell
+  encoding, so it is not an encoding-independent proof.
+- **Strategy A established:** every event uses countably many local generators;
+  outside their columns each fibre lies in the certified 24-trace class; on
+  any same-type pair the traces are either equal proper traces or the two
+  binary corners; every three-type transversal belongs to the finite relation
+  `Q`. Consequently nonzero W-supported events, `Σ_i∩Σ_j`, unintended
+  singleton collectors, and collector restrictions with uncountable
+  variation modulo countable support are excluded. The intended `G_ij` is the
+  greatest generated lower bound of `Σ_i,Σ_j`.
+- **Exact splicing gap:** these are upper invariants. Given a countable
+  disjoint family of countable-column core modifications, fibrewise collapse
+  leaves finitely many proper modes plus a binary tail, but it is unproved
+  that the coupled three-type result is one globally parameterized finite core
+  (or that every locally `Q`-admissible support assignment has such a core).
+  Transversal membership in `Q` is not simultaneous realizability.
+- **Gate status:** N **open**, reduced to finite-core splicing; L **not
+  opened** (only the collector-meet sublemma); M, C, Z, F, and Φ **open and
+  unavailable**. No candidate counterexample is claimed.
+- **Strongest construction route:** the rotating small-piece graph triple,
+  conditional first on N and ultimately on coherent column-free f.a. gluing.
+  **Strongest theorem route:** the scoped finite-typed graph restriction
+  theorem, then a rectangularity/splicing dichotomy; beyond it B′(i)/T4 and
+  non-countable-type coarse coherence remain the principal residues.
+- **Stale metadata corrected before entry:** the registry now reports 76 OML
+  entries and the finite-core frontier; `CURRENT_STATE.md`, `frontier_map.md`,
+  and `program_overview.md` agree. No further stale summary was found in the
+  nine-commit diff. The older embedded baselines remain historical records.
+- **First task:** reconstruct `Q` independently, classify every fixed-proper
+  mode stratum on its binary coordinates, and use the resulting exact
+  rectangularity or missing-corner data to decide the splicing lemma.
+
 ## Continuation baseline (2026-07-13, decorated-form campaign)
 
 - **Actual start:** branch `oml-descent-sigma-essential-reduction`, commit
@@ -598,3 +650,118 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   `Q`-admissible fibrewise collapse is a finite core profile; a counterexample
   refutes the exact grammar, while a proof closes the only identified equality
   gap.
+
+### Iteration 19 — exact reconstruction and classification of Q
+
+- **Question:** what are the mode strata and projections of the transversal
+  relation? **Result:** `|Q|=88`; coordinate projections have size 24 and
+  pair projections size 78. The binary-coordinate distribution is
+  `44,36,0,8` for zero through three binary coordinates. **Evidence:
+  executable verified**, stable explicit-profile certificate and separate
+  declarative verifier. Runtime: producer 0.3824s, verifier 0.3835s.
+- **Consequence:** there are 18 one-binary strata, all full unary relations;
+  the all-binary stratum is the full cube; no two-binary/one-proper stratum
+  exists. Every nonempty fixed-proper stratum is rectangular.
+
+### Iteration 20 — automorphisms and minimal named generators
+
+- **Result:** the incidence automorphism group has exactly six elements and
+  is `S₃`. There are exactly three inclusion-minimal named generating sets,
+  each of size eight: all six global forms plus any two type cylinders.
+  Deleting a type cylinder preserves size 88; deleting a `Σ_i` leaves 68;
+  deleting a collector leaves 44. **Evidence: exhaustive finite evidence,
+  executable verified.** This classifies the finite relation but alone says
+  nothing about arbitrary-base synthesis.
+
+### Iteration 21 — semantic core parameterization
+
+- **Question:** what is the previously ambiguous `K`? **Result:** `K` is a
+  parameterized family: lift finite `Q` expressions uniformly across types,
+  then decorate their zero types by arbitrary cylinder supports. A profile
+  expression lifts because every profile-disjoint union is fibrewise
+  disjoint on every column. **Evidence: hand proved.** `K` is not a finite
+  set; the earlier wording was materially ambiguous and is repaired.
+
+### Iteration 22 — anchor synthesis closes finite-core splicing
+
+- **Result:** outside one countable exception, same-type polarity gives a
+  fixed proper or binary mode. Choose a zero-valued representative from each
+  genuinely varying binary type and arbitrary representatives otherwise.
+  Universal transversal membership supplies one `q∈Q`; lift its expression,
+  then add one cylinder carrying all varying binary supports. This core
+  agrees with the event off the exception. **Evidence: hand proved.** The
+  proof uses universal transversal admissibility, not pairwise projections or
+  an inference from rectangularity.
+
+### Iteration 23 — exact countable patching lemma
+
+- **Result:** old and desired sections on the exceptional columns lie in the
+  local `D_k`. Countably union the old supported sections `S`, subtract by
+  `(K^c⊍S)^c`, and disjointly add the desired supported union `T`. Thus every
+  upper-admissible description is generated, and conversely every
+  countable-column core modification is generated. **Evidence: hand proved.**
+  Arbitrary cylinder parameters and local generators are fully covered.
+
+### Iteration 24 — exhaustive finite saturation census
+
+- **Universe:** every ordered almost-disjoint core pair and every exceptional
+  column subset in the exact 3-, 6-, and 9-column closures; success asks for a
+  core with the prescribed union off the exception. **Result:** 735,
+  103,565, and 26,770,371 type-surviving cases, respectively, with zero
+  failures. Type-erasing exceptions have explicit failures (first masks
+  1, 9, 73). **Evidence: exhaustive finite evidence with producer, JSON, and
+  independently reconstructing verifier.** The census corroborates but does
+  not prove the arbitrary-base theorem.
+
+### Iteration 25 — Gate-N hostile reviews and verdict
+
+- **Reviews:** two fresh-context audits independently reconstructed the
+  candidate incidence, expression lifting, anchor quantifiers, and countable
+  patch. One first identified the undefined-`K` defect; after repair neither
+  found a remaining material gap. The uncountability-minus-countability
+  hypothesis is essential and explicit.
+- **Verdict:** **Gate N passes** by Theorem 8 of
+  `oml_typed_graph_closure_calculus.md`. This is an exact upper membership
+  theorem, not canonical uniqueness. Gates L, M, C, Z, F, and Φ remain open.
+- **Strategic consequence:** proceed immediately to arbitrary-core
+  latticehood while finite quotients search for the smallest mixed-core meet
+  obstruction.
+
+### Iteration 26 — exhaustive finite Gate-L census
+
+- **Universe/result:** exact core quotients on 3, 6, and 9 balanced columns
+  have 3,916, 16,290, and 245,350 unordered pairs. Exactly 18, 54, and 126
+  pairs lack a meet, and the same counts lack a join. **Evidence: exhaustive
+  finite evidence**, stable certificate and independently rebuilding verifier.
+  This decisively selects a witness but is not the infinite proof.
+
+### Iteration 27 — minimal missing-join witness
+
+- **Result:** `A=cyl(T₁)` and `B=G₁₂` have upper bounds
+  `U=cyl(T₁∪T₂)` and
+  `V=(G₂₃⊍Σ₁)^c⊍(G₁₃⊍G₁₂)`. Both unions are legally disjoint. Any join
+  profile lies between `(U,{g},0)` and `(U,{g,V_j,R},0)`, but `Q` contains
+  no such profile. **Evidence: executable verified finite interval plus hand
+  arbitrary-base proof.**
+
+### Iteration 28 — profile-interval obstruction theorem
+
+- **Theorem:** in any finite-typed concrete σ-class with a universal
+  transversal invariant `Q`, generated `A,B` with upper bounds `U,V` have no
+  join whenever `Q` misses the coordinatewise interval from `A∪B` to
+  `U∩V`. A putative join's profile on representatives outside its countable
+  exception gives the contradiction. **Evidence: hand proved.** This is a
+  scoped graph-network closure/lattice dichotomy, not a sufficiency theorem.
+
+### Iteration 29 — Gate L fails; rotating route closed
+
+- **Verdict:** **Gate L fails** by Iteration 27. The rotating generated
+  σ-class is not a lattice and hence not an OML. Gates M, C, Z, F, and Φ are
+  not entered; no state-gluing claim is needed. The intended collector-meet
+  result remains true but does not control mixed cores.
+- **Auxiliary theorem:** every concrete complement/disjoint-union logic that
+  is a lattice is automatically orthomodular: for `A⊆B`,
+  `B\A=(A⊍B^c)^c=A^c∧B`. **Evidence: hand proved.** σ-closure is unnecessary.
+- **Strategic pivot:** apply the finite-profile interval theorem to the
+  broader typed graph architecture, then move to the highest-information
+  theorem residue rather than modifying the failed rotating construction.

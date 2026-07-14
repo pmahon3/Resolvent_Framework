@@ -4,10 +4,13 @@
 > see `shovel_plan.md` (four theorems to prove + vacant lots as invitations).
 
 > **2026-07-13 campaign continuation:** the active OML construction frontier
-> is Gate N for the rotating small-piece graph triple, not the earlier
-> proper-interface-twist prompt. Arbitrary-base typed trace invariants now
+> is the B′(i)/T4 boundary-selection residue. The rotating small-piece route
+> is closed, superseding the earlier proper-interface-twist prompt.
+> Arbitrary-base typed trace invariants
 > exclude W events, graph intersections, and genuinely uncountable collector
-> restrictions; the exact remaining normal-form step is finite-core splicing.
+> restrictions: Gate N passes by anchor synthesis and countable local
+> patching, but Gate L fails by an empty finite-profile interval, so the
+> generated σ-class is not a lattice.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

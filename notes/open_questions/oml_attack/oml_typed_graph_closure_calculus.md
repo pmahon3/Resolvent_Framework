@@ -1,8 +1,8 @@
 # Finite Typed Graph σ-Class Normal Form and OML Dichotomy
 
 *Campaign continuation, 2026-07-13. All theorems below are hand proved unless
-an executable evidence class is explicitly stated. The exact lower normal
-form remains open at the point identified in §6.*
+an executable evidence class is explicitly stated. Section 8 closes the exact
+upper normal form and passes Gate N; latticehood remains a separate open gate.*
 
 ## 1. Countable-generation support
 
@@ -137,7 +137,7 @@ and in every quotient omits proper collector restrictions and nonzero
 W-supported events. These computations support, but do not replace, the
 arbitrary-base pair invariant.
 
-## 6. Exact-normal-form gap
+## 6. Former exact-normal-form gap
 
 Let `K` be the finite complement/disjoint-union closure of the global forms
 and cylinder profiles. The natural exact candidate is:
@@ -158,11 +158,8 @@ countably supported overlaps is legitimate in the generated class, but does
 not by itself produce a finite-core identity. This is the exact
 **finite-core splicing lemma** still owed.
 
-Consequently Gate N is not yet passed. The arbitrary-base W and graph-
-intersection exclusions and the split-support collector exclusion are
-proved, as are constant-by-type collector restrictions and unintended
-singleton collectors. The finite-core splicing lemma must still be proved or
-refuted before the upper invariant becomes an exact membership calculus.
+This gap is closed in §8. The paragraph is retained to identify exactly what
+the anchor argument had to repair.
 
 One Gate-L sublemma is already available: `G_ij` is the greatest generated
 lower bound of `Σ_i,Σ_j`. Indeed any lower bound is set-theoretically inside
@@ -188,3 +185,138 @@ splits a type into two uncountable parts.
 
 This is a closure theorem, not a state-selection theorem and not the broad
 graph-network dichotomy target.
+
+## 8. Exact parameterized cores and finite-core splicing
+
+Let `K` mean the following parameterized family, not a finite set. Start with
+the six type-uniform global forms and the eight unions of whole type
+cylinders; apply a finite expression using complement and disjoint union; and
+finally, wherever the resulting type-uniform profile is empty on a type,
+disjointly add an arbitrary cylinder supported on that type. Its semantic
+interpretation is the corresponding subset of the full carrier. A finite
+profile expression in `Q` lifts verbatim to a type-uniform global expression:
+profile-disjointness says that the lifted events are disjoint on every
+column, so every union in the expression remains a legal σ-class operation.
+
+The exact census of `Q` gives 88 profiles. Each coordinate projection has 24
+traces and each two-coordinate projection has 78 pairs. With `0,U` called
+binary and all other traces proper, the mode distribution is:
+
+| number of binary coordinates | profiles |
+|---:|---:|
+| 0 | 44 |
+| 1 | 36 |
+| 2 | 0 |
+| 3 | 8 |
+
+There are 18 nonempty one-binary fixed-proper strata, each with both binary
+values, and the all-binary stratum is the full cube `{0,U}³`. Hence every
+nonempty fixed-proper stratum is rectangular. The incidence automorphism
+group has six elements (`S₃`). Among the nine named generators there are
+exactly three inclusion-minimal generating sets, all of size eight: the six
+global forms and any two of the three type cylinders. These are exhaustive
+finite computations with a stable JSON certificate and a separately
+recomputing verifier in
+`../verification/census_2026-07-13_gate_n_q/`.
+
+**Theorem 8 (anchor synthesis / exact upper normal form).** Every generated
+event is a countable-column modification of an element of `K`. Conversely,
+every such modification is generated. More generally, the conclusion holds
+for every event-description satisfying Theorems 3 and 5 and whose exceptional
+sections belong to their local trace classes.
+
+*Proof.* Give an event `E` one common countable exceptional set `C` for
+Theorems 3 and 5. On each `T_k\C`, Theorem 3 says either that all sections are
+one fixed proper trace, or that they are binary. In a genuinely varying
+binary type choose a column on which the section is `0`; in a constant binary
+type choose any column; and in a proper type choose any column. The three
+chosen columns exist because every `T_k` is uncountable and `C` is countable.
+Theorem 5 puts their profile `q` in `Q`.
+
+Lift a finite `Q`-expression for `q` to a type-uniform core `K_q`. On every
+genuinely varying binary type its trace is zero. Let `A` be the union, over
+those types, of the columns where `E` has full trace. Then `cyl(A)` is
+disjoint from `K_q`, and
+`K'=K_q ⊍ cyl(A)` agrees with `E` outside `C`. Constant-empty, constant-full,
+and proper types already agree with their anchor values.
+
+For each `α∈C`, both the old section `K'∩col_α` and desired section
+`E∩col_α` lie in the certified local class `D_{type(α)}`, hence have supported
+local realizations. Their countable disjoint unions `S` and `T` are generated.
+Since `S⊆K'`, subtraction is the legal identity
+`K'\S=(K'^c⊍S)^c`; then `E=(K'\S)⊍T`. This proves synthesis. Conversely the
+same displayed operations generate any countable modification. ∎
+
+**Corollary 8.1 (countable disjoint-family theorem).** A countable disjoint
+union of core modifications is again a core modification. Fibrewise, at most
+six nonempty proper traces occur on any type, while all remaining terms are
+binary; Theorem 8 synthesizes their union and supplies the required
+cross-type synchronization. Pairwise or projected admissibility is not used:
+the universal transversal quantifier in Theorem 5 supplies the anchor.
+
+**Gate-N verdict.** Gate N passes. The theorem handles arbitrary cylinder
+parameters, complement, countable disjoint union, and all local generators;
+the earlier arbitrary-base invariants exclude the indispensable forbidden
+forms. Two fresh hostile audits checked expression lifting, the nonempty-type
+quantifier, and countable patching without finding a material gap.
+
+As finite corroboration, exhaustive saturation tests for exact core closures
+with 3, 6, and 9 columns checked respectively 735, 103,565, and 26,770,371
+type-surviving almost-disjoint splices with zero failures. Type-erasing
+exceptional sets do fail, confirming that retention of every uncountable type
+is essential. Certificate and verifier:
+`../verification/census_2026-07-13_gate_n_splicing/`. This finite census is
+not the arbitrary-base proof.
+
+## 9. Finite-profile interval obstruction and Gate L
+
+**Theorem 9 (profile-interval obstruction).** Let a concrete σ-class have a
+finite type set and a relation `Q` such that every event, off a countable
+exception, has every type-transversal profile in `Q`. Suppose generated
+events `A,B` have generated upper bounds `U,V`. If no `q∈Q` lies
+coordinatewise between the sectionwise set union profile of `A,B` and the
+sectionwise intersection profile of `U,V`, then `A,B` have no join. The latter
+intersection is used only as a set-theoretic order bound; it is not asserted
+to be a generated event or a meet.
+
+*Proof.* A join `J`, if present, satisfies `A∪B⊆J⊆U∩V` as subsets of the
+concrete carrier. Remove the countable exceptional columns for `J` and choose
+one remaining representative of every uncountable type. Its transversal
+profile lies in `Q` and in the forbidden coordinatewise interval. ∎
+
+This theorem is an arbitrary-base closure/lattice dichotomy: a missing finite
+profile interval is a certificate that completion of the displayed generated
+σ-class is not a lattice. It does not claim that interval saturation is
+sufficient for latticehood.
+
+**Theorem 10 (rotating candidate has no join).** Put
+
+`A=cyl(T₁)`, `B=G₁₂`, and `U=cyl(T₁∪T₂)`. A second generated upper bound is
+
+`V=(G₂₃⊍Σ₁)^c ⊍ (G₁₃⊍G₁₂)`.
+
+Both displayed unions are disjoint. On representative types their profiles
+are
+
+`A=(U,0,0)`, `B=({g},{g},0)`,
+`U=(U,U,0)`, and `V=(U,{g,V_j,R},{g,V_j,R})`.
+
+Thus a join profile would have to lie between
+`(U,{g},0)` and `(U,{g,V_j,R},0)`. The exact 88-profile certificate contains
+no profile in this interval. Theorem 9 proves that `A,B` have no join.
+Therefore **Gate L fails** and the rotating σ-class is not an OML. Gates M,
+C, Z, F, and Φ are not entered.
+
+Exhaustive finite core quotients find, respectively, 18, 54, and 126 join
+failures (and the same numbers of meet failures) among 3,916, 16,290, and
+245,350 unordered pairs for 3, 6, and 9 columns. The independently rebuilding
+verifier in `../verification/census_2026-07-13_gate_l/` confirms the minimal
+three-type interval witness. The aggregate longer-word counts are producer
+results rather than independently re-enumerated by that verifier. These
+counts are discovery/corroboration; the
+arbitrary-base proof is Theorem 9.
+
+Finally, if any concrete complement/disjoint-union logic is a lattice, it is
+automatically orthomodular. For `A⊆B`, the event
+`B\A=(A⊍B^c)^c` equals `A^c∧B`, and its disjoint union with `A` is `B`.
+No σ-closure hypothesis is needed for this auxiliary fact.

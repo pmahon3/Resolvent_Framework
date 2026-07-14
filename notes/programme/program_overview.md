@@ -112,11 +112,13 @@ PR_lattice / PR_dual — that the Boolean case fuses; see below.)
   `notes/open_questions/kits/oml_onboarding.tex`).
 
 **OML campaign update (2026-07-13).** The active construction frontier is
-Gate N for the rotating small-piece graph triple. Arbitrary-base local,
+the B′(i)/T4 boundary-selection residue. For the rotating graph triple,
 same-type, and transversal trace invariants now exclude W events, graph
 intersections, unintended singleton collectors, and collector restrictions
-with uncountable variation modulo countable support. The exact global normal
-form remains open only at the finite-core splicing lemma. The earlier
+with uncountable variation modulo countable support. The global normal
+form is exact: universal transversal anchors plus one cylinder and countable
+local patching prove Gate N, but Gate L fails by a certified missing-profile
+join obstruction. The earlier
 proper-interface-twist language below is historical. Current index:
 `notes/open_questions/oml_attack/CURRENT_STATE.md`.
 

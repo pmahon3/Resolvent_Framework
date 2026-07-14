@@ -248,3 +248,43 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Strategic update:** none forced by review. The failed chunked-column
   design explorations between iterations already yielded a general
   obstruction statement; writing and proving it is iteration 4.
+
+### Iteration 4 (2026-07-13) — type-partition obstruction; club-field anatomy; Fodor residue named
+
+- **Question tested:** can the σ/f.a. asymmetry a witness needs be
+  produced by per-atom pairwise disjointness over a coarse localizer
+  (the natural Ulam/coarse trap design, attempted in three variants)?
+- **Results** (note: `oml_type_partition_obstruction.md`):
+  (a) **Theorem 1 (type-partition obstruction), block-free on any
+  concrete σ-class:** if finitely many disjoint cells T_t ∈ L cover a
+  forced K and each cell has a pattern pair disjoint on it, no
+  two-valued f.a. state charges {K, Σ_1..Σ_k} — the trap kills its own
+  witness. Corollary 2: uniform per-atom disjointness kills are void
+  whenever the atom family is countable or the base is locally full
+  (type cells become events).
+  (b) **Club-field classification:** 𝒜_club is state-coarse but NOT
+  countable-type — σ-states = Diracs + club state (via Ulam 1930);
+  defect = free-on-nonstationary with no uniform countable witness.
+  This answers iteration 1's universality question NEGATIVELY. Fence:
+  𝒜_club is locally full below nonstationary sets, so Corollary 2 still
+  applies; club blocks must be cylinderized (T1).
+  (c) Three failed trap designs recorded as instances (full power set;
+  countable localizer; ω₁-chunk tower — the last dies by recursion:
+  each diffuse-exclusion event is a countable localizer one level up).
+- **Evidence class:** hand (Theorem 1/Corollary 2 self-contained;
+  Proposition 3 uses Ulam, ZFC); design deaths = instances; the tower
+  recursion and Fodor direction ledgered as strategic readings only.
+- **Gates:** the three construction attempts each died at the
+  f.a.-coherence gate (gate 9/12 territory) — by the new theorem, not
+  by accident; failure is architecture-wide.
+- **Strategic update:** witness asymmetry can only come from countable
+  disjoint-union geometry (relay engine) or Ulam-type completeness
+  failure; the first genuinely untouched mechanism is
+  **regressive/Fodor rigidity over stationary localizers** (no finite
+  type partition to become measurable) — named as the coarse-side Lane
+  A residue. Taxonomy +2 entries.
+- **Next lemma-sized task:** probe Fodor rigidity: design the minimal
+  regressive-kill architecture and test whether Fodor's pressing-down
+  forces a stationary constant witness that contradicts... (i.e., decide
+  whether the mechanism kills σ-lifts without a measurable type
+  partition), or refute it with a splitting-freeness argument.

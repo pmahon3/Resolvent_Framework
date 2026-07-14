@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 74,
+   "entries": 76,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -211,6 +211,13 @@
    "detail": "oml_coarse_inhabitation_and_defect.md"
   },
   {
+   "id": "oml.coarse.club_field_anatomy",
+   "name": "Club-field defect anatomy",
+   "status": "proved-hand",
+   "one_line": "The stationary/nonstationary field on omega1 is state-coarse but NOT countable-type: sigma-states are Diracs plus the club state (Ulam), and the defect is free-on-nonstationary with no uniform countable witness; yet the field is locally full below nonstationary sets, so disjointness traps stay void, and club blocks must be cylinderized (T1). Residual open engine: regressive/Fodor rigidity over stationary localizers.",
+   "detail": "oml_type_partition_obstruction.md#3-the-club-field-state-coarse-not-countable-type--and-still-fenced"
+  },
+  {
    "id": "oml.coarse.countable_type_anatomy",
    "name": "Countable-type defect anatomy",
    "status": "proved-hand",
@@ -386,6 +393,13 @@
   }
  ],
  "mechanism_exclusions": [
+  {
+   "id": "oml.exclusion.type_partition",
+   "name": "Type-partition obstruction",
+   "status": "proved-hand",
+   "one_line": "Per-atom pairwise-disjointness sigma-kills over a localizer whose kill-type cells are events (automatic for countable atom families or locally full bases) contradict the finitely additive witness itself, block-free on any concrete sigma-class; disjointness is a finitely additive killer, so witness asymmetry must come from countable disjoint-union geometry or Ulam-type completeness failure.",
+   "detail": "oml_type_partition_obstruction.md#2-the-obstruction-theorem"
+  },
   {
    "id": "oml.exclusion.no_fubini_forcing",
    "name": "No-Fubini value forcing",

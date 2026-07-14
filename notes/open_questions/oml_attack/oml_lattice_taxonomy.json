@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 77,
+   "entries": 78,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Rotating route resolved: Gate N PASSED, Gate L FAILED because cyl(T1) and G12 have no join, certified by an empty Q-profile interval. Bank the finite-profile interval obstruction and pivot to B'(i)/T4 boundary selection."
+   "current_next_step": "Prove or refute OML distributed-boundary compactness (ODBC): hereditary T4At escape is proved but Cantor singleton defects refute topology-only selection; coherent inverse limits are exact and naive coarse countable determination fails on the club field."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -150,9 +150,9 @@
   {
    "id": "oml.obstruction.distributed_boundary_defect",
    "name": "Distributed boundary defect",
-   "status": "live-quantifier-obstruction",
-   "one_line": "Failure of Phi gives forall-state exists-block boundary failure, not one block bad for all states; the executable three-point model refutes only unrefined local trapping and localizes on singleton refinements.",
-   "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
+   "status": "abstract-fine-boundary-realized-oml-gates-open",
+   "one_line": "Cantor singleton defects cover a compact finite face while every countable subfamily and every one-block finite refinement escapes; each local relation is realized by Clop(2^N) inside Borel(2^N minus {x}). The common-interface paste is central and lacks separating sigma-states, so OML realization remains open.",
+   "detail": "oml_endgame_selection_residue.md#2-the-cantor-singleton-cover-refutes-topology-only-selection"
   }
  ],
  "fine_block_route": [
@@ -189,8 +189,8 @@
   {
    "id": "oml.fine.t4",
    "name": "T4 finitary shadow",
-   "status": "necessary-open",
-   "one_line": "Every coherent cluster must admit a coherent atom from each further block; necessary for B′(i), but insufficient without a completion principle.",
+   "status": "necessary-hereditary-local-sufficiency-proved-global-open",
+   "one_line": "Every coherent cluster admits a coherent atom from each further block; this implies hereditary one-block full and boundary escape on every finite refinement, but Cantor singleton defects show that a simultaneous completion principle is still necessary.",
    "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit",
    "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): T4At/T4 stated as named open Props (never sorry); NECESSITY direction machine-checked axiom-free: t4At_of_phi / bPrimeI_implies_T4 (B'(i) => T4; the T3 kernel is proved to be an atom of the block). Converse NOT stated -- crux red flag respected"
   },
@@ -231,6 +231,13 @@
    "status": "proved-hand",
    "one_line": "On sigma-fields of countable type over an atom partition, sigma-states are exactly atom-principal states plus (uncountable index) the co-atom-countable state; the sigma-defect is exactly free-on-countable concentration, so trapping there needs one cheap co-atom-countable exclusion plus the countable atom-killing problem.",
    "detail": "oml_coarse_inhabitation_and_defect.md#2-countable-type-σ-fields-state-classification-and-defect-anatomy"
+  },
+  {
+   "id": "oml.coarse.inverse_limit_characterization",
+   "name": "Coherent countable inverse-limit characterization",
+   "status": "proved-hand-with-zfc-counterexample-to-naive-form",
+   "one_line": "A coarse boundary trace sigma-lifts iff its lifts on all countably generated block subalgebras can be chosen coherently. The club state on the NS/co-NS field over omega1 lifts on every countably generated restriction but has no full power-set sigma-lift.",
+   "detail": "oml_endgame_selection_residue.md#4-exact-coarse-inverse-limit-characterization"
   },
   {
    "id": "oml.coarse.nonprincipal_states",

@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — rotating candidate resolved: Gate N passed, Gate L failed by an arbitrary-base missing-profile-interval witness. The finite-profile obstruction theorem is banked; theorem-side selection is again the frontier.",
+   "status": "OPEN — reduced to OML distributed-boundary compactness (ODBC). T4At gives hereditary local escape, but fine Cantor singleton relations and the coarse club inverse system refute topology-only or naively countable selection; neither passes the OML realization gates.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 77
+   "entries": 78
   },
   {
    "id": "reconstruction_commensurability",

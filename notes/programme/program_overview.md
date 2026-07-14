@@ -126,6 +126,14 @@ The theorem-side continuation proves `Φ iff T4At` for at most countable
 maximal-block atlases whose blocks are countably generated. Thus any surviving
 fine-block counterexample is necessarily an uncountable distributed-atlas
 phenomenon; finite relational interval saturation alone does not imply T4.
+The endgame audit proves that T4At gives hereditary one-block boundary
+escape, but a Cantor singleton cover realizes every local defect using a
+countably generated Boolean sigma-block while every countable subatlas
+escapes. Its common-interface paste is central and has no separating
+sigma-states. Coarse restrictions characterize liftability only as a
+coherent inverse system; the club field refutes naive local satisfiability.
+Both halves reduce to OML distributed-boundary compactness (ODBC), recorded
+in `oml_endgame_selection_residue.md`.
 
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),

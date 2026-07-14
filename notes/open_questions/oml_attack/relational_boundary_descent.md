@@ -1,5 +1,16 @@
 # Relational boundary descent for the OML σ-lifting problem
 
+> **2026-07-13 endgame update.** T4At implies hereditary one-block boundary
+> escape on every coherent finite face refinement, but Cantor singleton
+> defects give an uncountable cover with every countable subfamily escapable;
+> each local relation is realized by a countably generated Boolean sigma-block
+> over its overlap-generated Boolean boundary. The naive paste is central and
+> has no separating sigma-states. For coarse blocks, liftability is equivalent
+> to a coherent inverse system on countably generated subalgebras; the club
+> field on `omega_1` refutes the incoherent local-nonempty version. See
+> `oml_endgame_selection_residue.md`. GSD is therefore reduced to OML
+> distributed-boundary compactness (ODBC), not generic Baire selection.
+
 **Single-edge realization:** [`oml_nonatomic_pullback_completion.md`](oml_nonatomic_pullback_completion.md)
 separates state-space, carrier-point, and σ-state pullbacks and proves
 tameness under the common-point extension property.

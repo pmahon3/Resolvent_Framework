@@ -818,3 +818,101 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   uncountable atlas by a coherent arbitrary-support patching/compactness
   principle. Countable block generation alone does not reduce the atlas
   cardinality.
+
+## Endgame continuation baseline (2026-07-13)
+
+- **Starting branch/commit/worktree:** `oml-descent-sigma-essential-reduction`,
+  `5a412563f7c1c348c3fbf0e261650a54cb7f452b`, clean.
+- **Admissible class:** concrete sigma-complete non-Boolean OMLs, essentially
+  irreducible in the programme's countable-ideal quotient sense, with
+  sigma-additive two-valued states separating order.
+- **Property:** `Phi(L)` says every finite trace of a global finitely additive
+  two-valued state is reproduced by a global sigma-additive two-valued state;
+  equivalently `St_sigma(L)` is finite-coordinate dense in `St_fa(L)`.
+- **Evidence lock:** GSD and boundary surgery are hand-reviewed; finite raw
+  interface quarantine is Lean verified; the countable-atlas converse is hand
+  proved and its `Phi=>T4At` direction is Lean verified; Gate N is hand proved
+  over executable local/Q/splicing certificates; Gate L is hand proved over
+  an executable empty-interval certificate.
+- **Closed classes:** finite boundaries; compact eligible local slices;
+  common-base, one-interval, independent-fibre, trivial-monodromy and audited
+  small-twist inflations; fully visible cyclic order coupling; the rotating
+  typed-graph class (not a lattice).
+- **Fine/coarse split:** fine defects are closure defects of point shadows;
+  coarse countable-type defects are free-on-countable and the residual
+  non-countable-type field is live. The full-block loci `N_B` and boundary
+  defects `D_B` remain distinct, with `D_B subseteq N_B` only.
+- **T4/T4At:** necessary in general fine OMLs; sufficient exactly for the
+  proved countable fine-atlas theorem. Arbitrary-atlas sufficiency open.
+- **Positive route:** hereditary boundary escape plus an OML-specific
+  simultaneous-section theorem. **Negative route:** a distributed boundary
+  trap with transported interfaces that passes latticehood, centre and
+  sigma-state separation.
+- **First task:** decide whether hereditary T4At escape implies countable
+  support or whether a genuine Boolean boundary relation already refutes it.
+
+### Iteration 35 — repository and certificate lock
+
+- **Question:** do the post-baseline claims and receipts reproduce?
+- **Result:** clean start recorded above. Verifiers reproduce local trace 24,
+  core sizes 88/180/700/4428, `|Q|=88`, 19 strata, six automorphisms, all
+  splicing saturation counts, and the Gate-L missing interval. `lake build`
+  completes 2480 jobs. **Evidence: executable verified / Lean verified.**
+- **Repair:** the local-trace verifier is CWD-sensitive; it passes from its
+  certificate directory. This is a tooling defect, not a mathematical one.
+
+### Iteration 36 — hereditary boundary escape from T4At
+
+- **Theorem:** T4At implies one-block full and boundary escape on every
+  coherent finite refinement: insert a block atom, take the witnessing global
+  f.a. state, and restrict its atom-principal ultrafilter to the block.
+- **Evidence:** hand proved; independent proof-first review cleared.
+- **Consequence:** Question B is positive, but only locally; witnesses depend
+  on the block/refinement and do not give GSD.
+
+### Iteration 37 — topology-only countable support refuted
+
+- **Counterexample:** on Cantor space, defects `{x}` indexed by all points
+  cover the face; every countable subfamily is escapable; every defect is
+  closed nowhere dense; every nonempty clopen refinement escapes each one.
+- **Evidence:** hand proved, independently found by two agents.
+- **Consequence:** compactness, Baire, point-countability and hereditary escape
+  cannot prove Question A or arbitrary-atlas T4 sufficiency.
+
+### Iteration 38 — singleton defects realized by fine Boolean blocks
+
+- **Construction:** `A=Clop(2^N)` embeds in
+  `B_x=Borel(2^N\{x})`. Sigma traces are exactly points other than `x`, while
+  Boolean ultrafilter extension gives an f.a. lift of `x`; the defect is the
+  singleton `{x}`. Each `B_x` is countably generated.
+- **Evidence:** hand proved; a competing finite-cofinite formulation was
+  hostile-reviewed and corrected because it is not a sigma-field overlap.
+- **First OML failure:** the naive common-interface paste makes every
+  nontrivial boundary event central and has no global sigma-state.
+
+### Iteration 39 — abstract distributed trap classified at its first OML gate
+
+- **Result:** the requested uncountable fine defect cover exists already at
+  genuine local Boolean-boundary level. Its least possible closed-defect
+  cardinal is `cov(M)`; the continuum singleton construction is ZFC.
+- **Gate:** it is not an OML counterexample. Distributed transported copies
+  must remove the common centre, after which binary cuts/latticehood are the
+  first indispensable realization test; order separation is also absent in
+  the naive paste. **Evidence: hand proved / construction rejected at gates.**
+
+### Iteration 40 — coarse inverse limit and failure of naive countable determination
+
+- **Theorem:** a boundary trace sigma-lifts iff its sigma-lifts over all
+  countably generated block subalgebras can be chosen coherently under
+  restriction. The union proof checks nonnested choices in a common generated
+  subalgebra and countable additivity in one countably generated envelope.
+- **Counterexample:** for the nonstationary/co-nonstationary field
+  `A_club subset P(omega_1)`, every countably generated restriction of the
+  club state has a point sigma-lift, but the full state has none: an extension
+  would be a nonprincipal countably complete ultrafilter on `omega_1`, ruled
+  out by Ulam's ZFC theorem.
+- **Evidence:** hand proved; hostile definition check distinguishes the club
+  filter on the power set from the ultrafilter on `A_club`.
+- **Consequence:** Question E is negative in its naive form and positive only
+  with a load-bearing coherence clause. Fine and coarse lanes now meet at
+  OML-specific compactness of the compatible inverse system.

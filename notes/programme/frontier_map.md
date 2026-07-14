@@ -13,6 +13,12 @@
 > generated σ-class is not a lattice.
 > On the positive side, Φ is now equivalent to T4At for countable fine
 > atlases; the residual fine problem requires uncountably many maximal blocks.
+> T4At implies hereditary one-block boundary escape, but a Cantor singleton
+> cover realizes these local relations with genuine fine Boolean blocks and
+> refutes topology-only countable support. Coarse liftability is countably
+> determined only by a coherent inverse system; the club field refutes the
+> naive form. The remaining theorem is OML distributed-boundary compactness
+> (ODBC), or an OML realization of a transported singleton/club trap.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

@@ -8,8 +8,8 @@ The open question is whether a concrete σ-complete orthomodular lattice can car
 
 ## Accepted baseline
 
-The present continuation began at
-`baac957507303a04ea20f36cd3ea75cb6ed181f8`; earlier baselines and the full
+The endgame continuation began at
+`5a412563f7c1c348c3fbf0e261650a54cb7f452b`; earlier baselines and the full
 evidence ledger are retained in `CAMPAIGN_LOG.md`.
 Lean verifies Stone density, blockwise σ-additivity, two-block rescue, and
 the fine-block Dirac/pointed results. The newer coarse, cyclic-coupling, and
@@ -64,6 +64,22 @@ theorem now proves `Φ⇔T4At` whenever the maximal-block atlas is countable and
 every block is countably generated. Hence the surviving fine-block residue
 requires an uncountable, genuinely distributed atlas.
 
+## Endgame selection reduction
+
+T4At hand-proves hereditary one-block boundary escape on every finite face
+refinement, but this does not yield simultaneous selection. Cantor space
+admits a point-indexed singleton defect cover in which every countable
+subfamily is escapable; each local defect is realized by
+`Clop(2^N) -> Borel(2^N\{x})` for a countably generated fine block. The
+naive common-interface paste is central and has no separating global
+sigma-states.
+
+For coarse blocks, sigma-liftability is exactly a coherent inverse system of
+lifts on all countably generated block subalgebras. Local nonemptiness
+without coherence fails in ZFC on the club field over `omega_1`. The exact
+remaining theorem is OML distributed-boundary compactness (ODBC), stated in
+`oml_endgame_selection_residue.md`.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`
@@ -74,5 +90,6 @@ requires an uncountable, genuinely distributed atlas.
 - `notes/open_questions/oml_attack/CAMPAIGN_LOG.md`
 - `notes/open_questions/oml_attack/oml_rotating_small_piece_candidate.md`
 - `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`
+- `notes/open_questions/oml_attack/oml_endgame_selection_residue.md`
 - `notes/open_questions/verification/`
 - `formalization/QuerySystem/`

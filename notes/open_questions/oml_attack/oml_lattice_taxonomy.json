@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 71,
+   "entries": 74,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -371,6 +371,13 @@
    "detail": "oml_lattice_regularity_attack.md#31-period-three-width-one-exhaustive-no-go-and-failure-concentration-2026-07-12-session-38"
   },
   {
+   "id": "oml.construct.cyclic_order_coupling",
+   "name": "Cyclic order-coupled coarse triple",
+   "status": "closed-fully-visible-hand",
+   "one_line": "The three cyclic order events over three coarse coordinates on kappa^3 admit no fully transversely visible concrete sigma-complete OML realization with a finitely coherent cluster: visibility supplies pointwise resolution, so T1 forces compatibility (then 2BR kills the f.a. witness) or the meet fails by an omega1-chain (piecewise closure exemplar). Partial-visibility residue open.",
+   "detail": "oml_cyclic_order_coupling.md"
+  },
+  {
    "id": "oml.construct.nonatomic_pullback_completion",
    "name": "Non-atomic (5,11) pullback completion",
    "status": "proved-finite-exhaustive-infinite-shape-hand",
@@ -379,6 +386,20 @@
   }
  ],
  "mechanism_exclusions": [
+  {
+   "id": "oml.exclusion.no_fubini_forcing",
+   "name": "No-Fubini value forcing",
+   "status": "proved-hand",
+   "one_line": "Two-valued sigma-additivity has no Fubini: any event persistently splitting a countably closed dichotomy base (e.g. any order event over the coarse box filter) is sigma-value-free over that marginal, so no witness can force coupling values through countable/co-countable marginal structure; forcing must use in-block countable disjoint-union geometry.",
+   "detail": "oml_cyclic_order_coupling.md#2-the-no-fubini-lemma-coupling-values-cannot-be-forced-through-coarse-marginals"
+  },
+  {
+   "id": "oml.exclusion.pointwise_resolved_overlap",
+   "name": "Pointwise-resolved overlap mechanism",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "If the set intersection of an intended incompatible pair is exhausted by L-events below it, latticehood forces compatibility (T1 second form), after which 2BR kills the pattern; realizations keeping the exhaustion visible lose latticehood by an omega1-chain of lower bounds.",
+   "detail": "oml_cyclic_order_coupling.md#5-exact-conclusion-mechanism-entry-and-residue"
+  },
   {
    "id": "oml.exclusion.countable_cocountable_fibre",
    "name": "Countable/co-countable fibre fence",

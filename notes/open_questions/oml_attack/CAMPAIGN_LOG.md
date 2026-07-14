@@ -178,3 +178,39 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   free-on-countable, or prove countable-type anatomy is universal for
   state-coarse σ-fields of sets. Deferred behind the Lane A cyclic
   candidate (iteration 2).
+
+### Iteration 2 (2026-07-13) — cyclic order-coupled coarse triple: closed (fully visible form)
+
+- **Question tested:** can three coarse coordinates on κ³, coupled by the
+  cyclically unsatisfiable order events S₁₂ = {x<y}, S₂₃ = {y<z},
+  S₃₁ = {z<x}, carry a σ-essential cluster? (The first genuinely cyclic
+  Lane A candidate beyond the closed one-coordinate and P(2) classes.)
+- **Construction/lemma** (note: `oml_cyclic_order_coupling.md`):
+  (a) **Lemma A (no-Fubini/splitting freeness):** an event persistently
+  splitting a countably closed dichotomy base is σ-value-free over that
+  marginal; corollary: order events over the coarse box filter cannot be
+  value-forced — the Sierpiński/Fubini intuition does not transfer to
+  two-valued σ-states;
+  (b) **Theorem B (trichotomy):** full transverse visibility (all fibre
+  rectangles compatible with the transverse order event) + latticehood
+  forces the pair compatible via banked T1 second form, and then 2BR
+  kills the f.a. witness; so any realization is invisible, degenerate,
+  or a non-lattice — the fully visible class is CLOSED;
+  (c) **exemplar:** the piecewise (germ) closure L_rich is a concrete
+  σ-class realizing full visibility in which S₁₂ ∧ S₂₃ fails by an
+  ω₁-chain of countable-support lower bounds — the product-Ulam
+  meet-destruction anatomy, now derived rather than assumed.
+- **Evidence class:** hand (Lemma A self-contained; Theorem B over banked
+  T1/L0/2BR/A2; L_rich normal-form proofs). No executables possible
+  (uncountable content).
+- **Gates:** the candidate dies at gate 4/interaction of gates 3–4
+  (latticehood vs. realized coupling) before any state-selection gate is
+  reached; the failure is architecture-wide (any box-splitting coupling
+  with pointwise-resolved intersections), not example-specific.
+- **Strategic update:** two reusable exclusions banked (no-Fubini
+  forcing; pointwise-resolved overlaps). A witness must force values by
+  in-block countable disjoint-union geometry (relay engine) — coarse
+  marginal structure alone provably cannot trap. Taxonomy +3 entries.
+- **Next lemma-sized task:** adversarial review of iterations 1–2 (the
+  campaign's review checkpoint), then the partial-visibility residue or
+  the countable-type-universality question from iteration 1.

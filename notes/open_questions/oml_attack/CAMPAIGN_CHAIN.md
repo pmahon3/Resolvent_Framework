@@ -85,6 +85,7 @@
 | omega-one cylinder common hub | exact Boolean CSS/no-GS with fa section; raw/finite algebraic closure central; sigma-completion open |
 | unconditional state-normal omega-one completion | impossible: no sigma states, hence no order separation |
 | incompatible conditional omega-one transport | exact semantic blueprint; direct finite cell and completion open |
+| incompatible pentagon conditional cell | executable verified 22-event centre-free OML; exact `111 => q=r`; every nonzero event has off-pattern escape |
 
 ## Unresolved assumptions
 
@@ -123,11 +124,11 @@
   escape states.
 - A forbidden finite pattern has meet zero and every nonzero event admits an
   off-pattern sigma-state; consequently no event can activate it.
-- The direct incompatible cell with state implication `111 => q=r` is open.
+- Preservation of the incompatible pentagon cell under two-cell and
+  uncountable completion is open.
 
 ## Next automatic pivot
 
-Construct or refute the finite order-separated incompatible cell whose state
-table contains `11100,11111`, excludes `11101,11110`, and has off-pattern
-escape states. If it exists, paste two copies and exhaustively complete and
-audit them before returning to the omega-one assembly.
+Paste two incompatible pentagon cells around shared output coordinates and
+exhaustively complete and audit them. Test activated mismatch creation,
+activation-supported events, centre, maximal blocks, and off-pattern escape.

@@ -639,6 +639,15 @@
    "detail": "oml_puncture_normality_and_incompatible_transport.md"
   }
  ],
+ "campaign_14_cells": [
+  {
+   "id": "oml.cell.incompatible_pentagon",
+   "name": "Incompatible pentagon conditional cell",
+   "status": "executable-verified-finite-gate",
+   "one_line": "The centre-free 22-event pentagon realizes direct 111-implies-q-equals-r, has no activation event, and gives every nonzero event an off-activation charging state.",
+   "detail": "oml_incompatible_pentagon_cell.md"
+  }
+ ],
  "external_sufficient_conditions": [
   {
    "id": "oml.tame.boolean",

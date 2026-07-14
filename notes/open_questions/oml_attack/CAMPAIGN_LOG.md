@@ -1747,3 +1747,36 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 ### Campaign-13 verdict
 - Unconditional literal hub semantics is closed; face-local nonnormal escape
   remains possible. Pivot: direct incompatible-cell construction or no-go.
+
+## Linked Campaign 14 — incompatible conditional cell (2026-07-14)
+
+### Iteration 157 — pentagon truth-table discovery
+- **Construction:** the five odd atoms of the concrete 5-loop pentagon have
+  activated projection exactly `11100,11111`. **Evidence class: executable
+  verified plus exhaustive finite evidence.**
+
+### Iteration 158 — finite structural audit
+- **Result:** 22 events, 11 states, unique extrema, orthomodularity, five
+  maximal blocks, trivial centre, and point-state order separation all pass.
+  **Evidence class: exhaustive finite evidence.**
+
+### Iteration 159 — activation nonrepresentability
+- **Result:** the two-point `111` support is not a lattice event; all five
+  designated events are pairwise incompatible. **Evidence class: executable
+  verified.**
+
+### Iteration 160 — exact escape audit
+- **Result:** every nonzero event contains an off-activation point, precisely
+  the escape property required by order separation. **Evidence class:
+  exhaustive finite evidence.**
+
+### Iteration 161 — atom/coatom designation census
+- **Result:** 780 designations satisfy the truth table and aggregate off-face
+  output freedom; zero have off-face states order-determine every nonorder.
+  The latter is stronger than required. **Evidence class: exhaustive finite
+  evidence.**
+
+### Iteration 162 — hostile finite-cell review
+- **Review:** construction and exact escape pass. Scope restricted to one
+  finite Phi-tame cell; assembly and completion remain open. **Evidence class:
+  hostile audit.**

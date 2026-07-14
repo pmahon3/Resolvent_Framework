@@ -200,6 +200,14 @@ nonnormal escape states may lie off the cylinder. The exact next gate is a
 finite order-separated OML cell directly enforcing the incompatible state
 implication `111 => q=r` without an activation event.
 
+Campaign 14 closes that finite semantic gate: the five odd atoms of the
+centre-free concrete 5-loop pentagon give exactly the activated rows
+`11100,11111`, all aggregate off-activation output profiles, no activation
+event, and an off-activation point charging every nonzero event. The model has
+22 events, 11 states, and five maximal blocks. It is finite and Phi-tame. The
+new frontier is preservation under two-cell mixed-cut completion and then
+uncountable assembly; a literal embedded-H4 presentation is not claimed.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

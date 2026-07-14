@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — Cantor CSS-without-GS and Borel local relations are exact; OML realization is narrowed to nondeterministic nonclosed correspondences with proper coordinate subalgebras after puncture, invertible-transport, and repeated-selector no-gos.",
+   "status": "OPEN — fine countable-subcover reflection and coarse CIR are exact conditional routes; coarse ODBC is the full conjecture. Cantor and club controls show both reflection properties require specifically OML input.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

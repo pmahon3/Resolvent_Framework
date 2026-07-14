@@ -111,6 +111,16 @@ refutes a universal completion-saturation theorem. The live realization
 theorem therefore requires nondeterministic nonclosed correspondences with
 proper coordinate subalgebras, or a proof that OML mixed cuts collapse them.
 
+Campaign 4 adds two conditional positive theorems. In the fine regime,
+T4At plus local countability—or merely countable-subcover reflection—of the
+closed nowhere-dense block-bad loci implies Phi by compactness and Baire.
+Point-countability and transfinite finite-face repair fail. In the coarse
+regime, countable-intersection reflection (CIR) upgrades separately solvable
+countably generated envelopes to one coherent Dirac lift; the club field
+violates CIR exactly. Coarse ODBC itself is canonically ordinary ODBC/Phi,
+not an easier independent factor. The unconditional fine incidence and
+coarse CIR consequences of OML hypotheses remain open.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

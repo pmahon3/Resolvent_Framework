@@ -1,23 +1,20 @@
-# Next campaign handoff — Campaign 4
+# Next campaign handoff — Campaign 6
 
-1. **Attempted:** compact relational construction, Boolean realization,
-   noncentral transport, and lattice completion.
-2. **Proved:** Cantor singleton gives CSS without GS and hereditary escape;
-   `Borel(R)` realizes sigma relation `R` and f.a. relation `closure(R)`;
-   countably generated separating sigma-boundaries expose omitted points;
-   repeated selectors and invertible transports cannot create monodromy.
-3. **Refuted:** common-boundary, invertible cocycle-copy, and raw crossed
-   three-block realizations; general completion-forces-saturation is also
-   refuted by the 44-event OML.
-4. **Evidence classes:** relational and realization lemmas are hand proved;
-   44/56 finite gates are exhaustive finite evidence; arbitrary-base
-   one-coordinate tameness is hand proved; OML counterexample is open.
-5. **Load-bearing files/commits:** `oml_minimal_distributed_countermodel.md`,
-   `oml_cut_saturation_and_odbc.md`; Campaign-3 commit is the parent.
-6. **Unresolved theorem:** nondeterministic transported-boundary realization
-   with nonclosed correspondences and proper coordinate subalgebras.
-7. **First action:** fine lane—apply singleton exposure to maximal-block
-   boundaries; coarse lane—analyze coherent countably generated envelopes.
-8. **Do not repeat:** common full boundaries; invertible deterministic
-   transport; repeated selector pairs; one common fibre coordinate; raw
-   crossed union without closure.
+1. **Attempted:** unconditional fine ODBC and coherent coarse ODBC.
+2. **Proved:** fine local-countability/countable-subcover of block-bad loci
+   implies Phi; coarse CIR plus separate envelope lifts yields one coherent
+   Dirac lift.
+3. **Refuted:** point-countable incidence, topological countable support,
+   finite-face transfinite repair, and coarse objectwise envelope
+   nonemptiness. Coarse ODBC itself is equivalent to ordinary ODBC/Phi.
+4. **Evidence classes:** the two conditional theorems and equivalence are
+   hand proved; the unconditional fine/coarse claims are open.
+5. **Load-bearing files/commits:** `oml_fine_coarse_odbc_specializations.md`,
+   `oml_minimal_distributed_countermodel.md`; Campaign-4 commit is parent.
+6. **Unresolved theorems:** fine defect countable-subcover reflection and
+   coarse same-`mu` envelope solvability plus boundary CIR.
+7. **First action:** integrate GSD, ODBC-S/CODBC, T4/T4At, fine incidence,
+   coarse CIR, and realization gates into one exact dependency graph.
+8. **Do not repeat:** point-countability; fixing one mu across subsystems;
+   local block state separation promoted to global; club field called a
+   coherent lift; coarse ODBC called an easier theorem.

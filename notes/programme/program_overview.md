@@ -159,6 +159,14 @@ The live architecture is narrowed to nondeterministic nonclosed
 correspondences with proper coordinate subalgebras; the 44-event survivor is
 the lattice-completion control.
 
+Campaign 4 banks the fine locally-countable/countable-subcover defect
+theorem and the coarse countable-intersection-reflection theorem. The former
+uses T4At plus Baire; the latter turns separately solvable countably
+generated envelopes into one coherent Dirac lift. Point-countability and
+the club field are exact controls. Coarse ODBC is canonically the full
+ODBC/Phi statement, so only added CIR-like OML structure makes it a genuine
+specialization.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

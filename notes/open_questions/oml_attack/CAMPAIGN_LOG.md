@@ -1144,3 +1144,65 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   fail exact gates. No admissible OML counterexample exists yet.
 - Automatic pivot: Campaign 4 fine/coarse specializations, using the
   nondeterministic realization theorem as the persistent adversary.
+
+## Linked Campaign 4 — fine and coarse ODBC (2026-07-13)
+
+### Iteration 69 — fine bad-locus topology
+
+- **Result:** under fine blocks and T4At, every full-block non-sigma locus
+  `N_B(p)` is closed nowhere dense on each coherent finite face.
+  **Evidence class: hand proved.**
+
+### Iteration 70 — fine locally-countable-defect theorem
+
+- **Theorem:** local countability of the nonempty `N_B(p)` reduces them to a
+  countable family by compactness; Baire gives a global sigma-state.
+  **Evidence class: hand proved.**
+
+### Iteration 71 — fine countable-subcover theorem
+
+- **Theorem:** it suffices that any covering family of block-bad loci admit a
+  countable subcover. **Evidence class: hand proved.**
+
+### Iteration 72 — point-countability refuted
+
+- **Countermodel:** Cantor singleton defects are point-one yet cover the
+  face. Point-countability, atomic fibres, and topology alone do not imply
+  fine ODBC. **Evidence class: refuted.**
+
+### Iteration 73 — finite-face transfinite repair scheme fails
+
+- **Failure:** this scheme preserves finitely many atoms at successors, but
+  limit stages accumulate an infinite face outside T4At's finite-face scope.
+  It does not exclude every transfinite method. **Evidence class: refuted.**
+
+### Iteration 74 — coarse CIR theorem
+
+- **Theorem:** countable-intersection reflection turns separately solvable
+  countably generated envelopes into one common point and coherent Dirac
+  coarse lift. **Evidence class: hand proved.**
+
+### Iteration 75 — club control identifies CIR failure
+
+- **Result:** intersections of countable chosen subfamilies contain a club, while the
+  total chosen family does not. The club field violates CIR and refutes
+  objectwise coarse lifting. **Evidence class: hand proved.**
+
+### Iteration 76 — coarse equivalence correction
+
+- **Theorem:** coherent envelope families are exactly full block sigma-states,
+  so coarse ODBC is ordinary ODBC/Phi rather than a logically weaker
+  specialization. **Evidence class: hand proved.**
+
+### Iteration 77 — joint state-separation audit
+
+- **Result:** local point-state separation does not imply global OML
+  sigma-state order separation; maximal-block enlargement can also move a
+  Borel component out of the fine regime. **Evidence class: hand proved.**
+
+### Campaign-4 verdict
+
+- Unconditional fine and coarse ODBC remain open. The strongest exact
+  specializations are fine countable-subcover reflection and coarse CIR.
+  Campaign 5 is not entered because no candidate survived OML realization.
+- Automatic pivot: Campaign 6 global integration.

@@ -37,6 +37,12 @@
 > transports, and repeated-selector invariance. The 44-event survivor
 > prevents promoting boundary saturation to a universal completion theorem.
 > See `oml_attack/oml_minimal_distributed_countermodel.md`.
+> Campaign 4 proves two conditional specializations: fine
+> countable-subcover reflection of block-bad loci plus T4At implies Phi;
+> coarse countable-intersection reflection upgrades separate envelopes to a
+> coherent Dirac lift. The club field violates CIR exactly. Coarse ODBC is
+> ordinary ODBC/Phi, not an easier factor. See
+> `oml_attack/oml_fine_coarse_odbc_specializations.md`.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

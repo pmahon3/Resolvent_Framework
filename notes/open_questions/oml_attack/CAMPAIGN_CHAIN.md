@@ -6,10 +6,11 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 4 — fine and coarse ODBC specializations.
+- **Active campaign:** Campaign 6 — global integration.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
-  countermodel and realization gates.
+  countermodel and realization gates; Campaign 4 — fine/coarse
+  specializations. Campaign 5 not entered: no OML candidate survived.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -28,6 +29,9 @@
 | standard-Borel relation traces are `R` for sigma states and `closure(R)` for f.a. states | hand proved | proved |
 | countably generated separating sigma-boundaries support puncture embeddings | refuted | refuted |
 | invertible deterministic transport removes common boundary | refuted | refuted |
+| fine T4At plus locally-countable-defect criterion implies Phi | hand proved | proved |
+| coarse CIR plus envelope solvability gives a coherent Dirac lift | hand proved | proved |
+| coarse ODBC is a weaker independent specialization | refuted | refuted |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
 
@@ -56,11 +60,14 @@
   attainable traces of centre-free OMLs.
 - Genuine transport must use nondeterministic nonclosed correspondences with
   proper coordinate subalgebras.
+- Fine defect countable-subcover reflection and coarse same-`mu` envelope
+  solvability plus boundary CIR are open as consequences of the admissible
+  OML hypotheses.
 
 ## Next automatic pivot
 
-Run fine and coarse specializations against the exact realization theorem.
-Fine: use singleton exposure to test whether OML boundaries force countable
-support. Coarse: test coherent envelopes and nonclosed nondeterministic
-correspondences. In parallel, use the 44-event two-coordinate inflation as
-the sharp realization adversary.
+Integrate the exact implication graph: fine countable-subcover and coarse
+CIR-plus-same-`mu`-envelope-solvability are merely sufficient conditions,
+not an exhaustive bifurcation. State the narrowest theorem
+whose two truth values have proved consequences, then begin final hostile
+audit if the global stopping condition is met.

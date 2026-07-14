@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 85,
+   "entries": 86,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -167,6 +167,13 @@
    "status": "finite-relation-cell-passed-distributed-assembly-open",
    "one_line": "Canonical completion repairs the raw non-atomic atlas into a centre-free nine-block OML, and a conditional diagonal relation survives; one edge is Phi-tame, so an uncountable distributed assembly is required.",
    "detail": "oml_nonatomic_pair_cut_completion.md"
+  },
+  {
+   "id": "oml.construct.distributed_relation_assembly",
+   "name": "Distributed relation-cell assembly",
+   "status": "shared-countable-hub-refuted-distributed-quotients-open",
+   "one_line": "The punctured-Cantor star has exact local Boolean cells, but two punctures give incompatible countable meets on a shared countably generated boundary; MBRC distributed quotient assembly remains open.",
+   "detail": "oml_distributed_relation_cell_assembly.md"
   },
   {
    "id": "oml.reduction.global_odbc_integration",

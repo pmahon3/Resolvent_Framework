@@ -205,6 +205,13 @@ conditional diagonal relation after completion. Both are finite and
 Phi-tame. The single-edge density theorem forces the next construction to
 be a genuinely distributed uncountable-incidence network.
 
+Campaign 11 realizes the punctured-Cantor star locally but proves a two-cell
+countable-meet obstruction to every shared faithful countably generated hub,
+without using centrality. Maximal-block state gluing must use L-relative
+sigma-additivity because maximal blocks need not be sigma-complete. The live
+assembly routes are distributed nonseparating quotient copies or a genuinely
+uncountably generated separating boundary.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

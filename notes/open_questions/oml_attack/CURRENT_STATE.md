@@ -167,6 +167,17 @@ nor rectangularize conditional relations. A single edge with
 `R_fa=closure(R_sigma)` is nevertheless Phi-tame by density. The frontier is
 distributed assembly over an explicit uncountable-incidence hub.
 
+Campaign 11 writes the minimal hub exactly as the punctured-Cantor star:
+every countable subnetwork has a sigma-section, the full network has none,
+and each local sigma relation is dense in its finitely additive relation.
+Local diagonal Borel edge cells realize these traces. A shared faithful
+countably generated hub cannot enter a concrete sigma-complete OML: two
+puncture cells give different intrinsic countable meets for one shrinking
+clopen basis. The exact assembly gate is MBRC over all maximal blocks using
+L-relative sigma-states; its failure need not be finitely witnessed. Live
+escapes are distributed nonseparating quotients or an uncountably generated
+separating boundary without a countable puncture basis.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

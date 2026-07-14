@@ -68,6 +68,11 @@
 > diagonal conditional relation survives centre-free nine-block completion.
 > One edge remains Phi-tame by density; the frontier is an uncountable-hub
 > assembly whose global sigma-section locus misses a finite cylinder.
+> Campaign 11 closes the shared countably generated Cantor hub: two puncture
+> cells assign incompatible intrinsic meets to one shrinking clopen basis.
+> MBRC is now stated over L-relative states on the full maximal-block atlas.
+> The next finite control is a three-cell star on distinct nonseparating
+> quotient supports.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

@@ -1556,3 +1556,70 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - OE, arbitrary-base latticehood, and sigma-completeness are proved. Exact
   maximal blocks, centre, state classification/order separation, and
   unconditional Phi remain open.
+
+## Linked Campaign 11 — distributed relation-cell assembly (2026-07-14)
+
+### Iteration 127 — punctured-Cantor star
+
+- **Construction:** one continuum-degree hub with constraints
+  `G_i=C\{i}` has sections on every countable subnetwork and none globally;
+  all finitely additive edge loci are `C`. **Evidence class: hand proved.**
+
+### Iteration 128 — incidence minimality
+
+- **Theorem:** a locally countable finite-arity CSS system globalizes
+  componentwise, so N-G requires uncountable incidence, infinite arity, or a
+  coarse coordinate. **Evidence class: hand proved.**
+
+### Iteration 129 — local Boolean puncture cells
+
+- **Construction:** `Borel({(x,x):x!=i})` has sigma hub trace `C\{i}` and
+  finitely additive trace `C`. **Evidence class: hand proved.**
+
+### Iteration 130 — two-puncture meet contradiction
+
+- **Theorem:** two cells sharing a full clopen hub basis assign respectively
+  `0` and `{i}` to the same decreasing-basis meet, so no faithful
+  sigma-preserving concrete OML paste exists. **Evidence class: hand proved.**
+
+### Iteration 131 — centrality-independent envelope no-go
+
+- **Theorem:** every shared countably generated separating sigma-envelope
+  exposes the puncture singleton and loses injectivity. **Evidence class:
+  hand proved.**
+
+### Iteration 132 — transported-cell completion gates
+
+- **Result:** faithfulness, mixed cuts, sigma cuts, complete maximal blocks,
+  MBRC, centre, and order-separating states are independent required gates.
+  **Evidence class: exact definition.**
+
+### Iteration 133 — L-relative block-state theorem
+
+- **Theorem:** global sigma-states are compatible L-relative sigma-states on
+  all maximal blocks; maximal blocks themselves need not be sigma-complete.
+  **Evidence class: hand proved.**
+
+### Iteration 134 — MBRC transfer
+
+- **Theorem:** an actual finite L-event cylinder with an fa solution, no
+  intended sigma solution, and exact full-atlas MBRC yields failure of Phi.
+  **Evidence class: hand proved.**
+
+### Iteration 135 — activation scope theorem
+
+- **Result:** a universal-block activation event is central; Boolean-face
+  domination holds under order separation but does not apply to incompatible
+  finite patterns. **Evidence class: hand proved.**
+
+### Iteration 136 — hostile repair and escape classification
+
+- **Review:** removed sigma-complete-block, pasted-atlas, finite-MBRC-witness,
+  and face-pattern conflations. Preserved uncountably generated separating
+  boundaries as a logical escape. **Evidence class: hand-audited.**
+
+### Campaign-11 verdict
+
+- The exact dense-edge star and local cells exist, but the shared faithful
+  countably generated hub is impossible already at two cells. Automatic
+  pivot: Campaign 12 three-cell distributed-quotient completion test.

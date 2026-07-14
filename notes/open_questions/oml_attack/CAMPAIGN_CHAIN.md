@@ -6,14 +6,15 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 11 — distributed relation-cell assembly.
+- **Active campaign:** Campaign 12 — three-cell quotient-star test.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
   specializations; Campaign 6 — global integration; Campaign 7 — hostile
   audit; Campaign 8 — BOC normalization and finite two-coordinate test;
   Campaign 9 — arbitrary-base orthogonal-atom reduction; Campaign 10 —
-  non-atomic pair, mixed-cut completion, and diagonal control.
+  non-atomic pair, mixed-cut completion, and diagonal control; Campaign 11 —
+  punctured-Cantor hub and shared-boundary obstruction.
   Campaign 5 finite audit was entered for the two-coordinate approximants;
   they passed structural gates and were Phi-tame.
 - **Global stopping status:** not reached.
@@ -53,6 +54,10 @@
 | canonical 1128-event completion | executable verified | centre-free OML, Phi-tame |
 | diagonal relation survives 392-event completion | executable verified | centre-free OML, Phi-tame |
 | single-edge density theorem | hand proved | proved |
+| punctured-Cantor dense-edge star | hand proved | exact abstract/edge-cell realization |
+| shared countably generated puncture hub | hand proved | impossible in concrete sigma-complete OML |
+| L-relative full-block inverse-limit theorem | hand proved | proved |
+| MBRC transfer to Phi failure | hand proved | proved conditionally |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
 
@@ -70,6 +75,7 @@
 | orthogonal two-atom arbitrary-base family | concrete sigma-complete OML; maximal blocks/centre/state gates open; conditionally Phi-tame |
 | non-atomic independent completion | finite centre-free nine-block OML; unrestricted relation rectangular; Phi-tame |
 | non-atomic diagonal completion | finite centre-free nine-block OML; conditional diagonal survives; Phi-tame |
+| punctured-Cantor shared hub | exact local Boolean cells; two-cell countable-meet contradiction blocks OML paste |
 
 ## Unresolved assumptions
 
@@ -99,11 +105,13 @@
 - Finite relation cells have not been assembled over an uncountable hub;
   arbitrary-base sigma-completion and preservation of distributed relations
   remain open.
+- Distributed nonseparating quotient copies and uncountably generated
+  separating boundaries without a countable puncture basis remain open.
 
 ## Next automatic pivot
 
-Use the verified diagonal completion as a local relation cell. Attempt a
-noncentral distributed assembly implementing the Cantor-singleton or club
-CSS/no-GS control. The assembly must expose its uncountable-incidence hub and
-pass arbitrary-base sigma-completion, lattice, centre, and order-separation
-gates. One nonclosed edge is ruled out by the single-edge density theorem.
+Construct the smallest three-cell star using conditional diagonal cells on
+distinct nonseparating quotient supports. Canonically complete it and audit
+new cuts, maximal blocks, centre, and the charged three-coordinate relation.
+If pairwise coherence reconstructs a shared countable shrinking basis,
+extract the corresponding class theorem.

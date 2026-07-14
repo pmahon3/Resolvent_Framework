@@ -180,6 +180,12 @@ construction passes the OML/state gates; BOC is incomplete without both
 failure modes and an effective branch criterion; and the linked chain had
 only 44 meaningful pre-audit iterations.
 
+Campaign 8 reaches the iteration threshold and advances the construction:
+finite-degree N-G is impossible by countable components, while selectors
+`0x000f` and `0x3300` give three independently verified finite
+two-coordinate centre-free five-block OMLs. They are Phi-tame; the
+arbitrary-base multi-coefficient lattice/maximal-block theorem is open.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

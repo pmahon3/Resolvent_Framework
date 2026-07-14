@@ -53,6 +53,11 @@
 > stopping condition. Lean section packaging is abstract fixed-witness
 > logic, no negative construction passes OML/state gates, and BOC must cover
 > both countable-subsystem failure and CSS/no-GS.
+> Campaign 8 corrects BOC normalization: locally countable finite-arity CSS
+> globalizes, so N-G requires an explicit uncountable hub/coarse coordinate.
+> The explicit two-selector 44-survivor inflation passes exhaustive finite
+> OML gates in three approximants and is Phi-tame; arbitrary-base
+> latticehood is now the construction frontier.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

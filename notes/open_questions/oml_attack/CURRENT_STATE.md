@@ -137,6 +137,15 @@ not yet a decisive theorem. The linked chain had 44 meaningful iterations
 before the audit, so the mandatory 60-iteration threshold requires
 continuation.
 
+Campaign 8 proves that locally countable finite-arity CSS always globalizes;
+genuine N-G needs an uncountable-incidence hub, infinite-arity constraint, or
+coarse coordinate. An exhaustive 44-event selector proxy leaves 24 of 496
+pairs. The explicit selectors `0x000f` and `0x3300` yield independently
+verified `P(2)xP(2)`, `P(2)xP(3)`, and `P(3)xP(2)` centre-free
+five-block OMLs. The smallest has 24 points and 116 events. All finite state
+gates pass and the models are Phi-tame. Arbitrary-base two-coordinate
+latticehood and maximal-block classification remain open.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

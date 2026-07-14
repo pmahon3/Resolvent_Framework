@@ -6,12 +6,14 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 8 — BOC normalization and two-coordinate test.
+- **Active campaign:** Campaign 9 — arbitrary-base two-coordinate theorem.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
   specializations; Campaign 6 — global integration; Campaign 7 — hostile
-  audit. Campaign 5 not entered: no OML candidate survived.
+  audit; Campaign 8 — BOC normalization and finite two-coordinate test.
+  Campaign 5 finite audit was entered for the two-coordinate approximants;
+  they passed structural gates and were Phi-tame.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -36,6 +38,9 @@
 | exact implication graph and non-tautology audit | hand proved | proved |
 | conditional fine/coarse regime packaging | Lean verified | proved |
 | boundary-obstruction completeness | open | open |
+| locally countable finite-arity CSS implies GS | hand proved | proved |
+| finite-degree N-G normalization | refuted | refuted |
+| two-coordinate 44-survivor finite approximants | exhaustive finite evidence | structurally passed, Phi-tame |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
 
@@ -49,6 +54,7 @@
 | abstract two-fibre cut-saturated Helly-2 failure | abstract only; not an OML |
 | Cantor singleton CSS-without-GS model | complete compact-ambient abstract relational countermodel; eligible spaces noncompact |
 | standard-Borel local realization | complete locally; OML transport gates fail |
+| two-selector P2xP2/P2xP3/P3xP2 | concrete finite OMLs, exact five blocks, trivial centre, order-separated, Phi-tame |
 
 ## Unresolved assumptions
 
@@ -70,9 +76,13 @@
 - Normalization and realization-or-collapse completeness are both open.
 - Lean section packaging fixes the witness externally and is not a
   formalization of concrete `X_p(J)`.
+- N-G requires an explicit uncountable-incidence hub, infinite-arity
+  constraint, or coarse inverse-limit coordinate.
+- Arbitrary-base two-selector latticehood/maximal blocks remain open.
 
 ## Next automatic pivot
 
-Continue BOC normalization and the two-coordinate 44-event test. At least
-nine further meaningful iterations are required to reach the mandatory 60;
-no stopping condition is currently met.
+Prove or refute the arbitrary-base two-selector normal form. First derive
+complement and countable-disjoint-union closure, then the multi-coefficient
+truth-region lattice/maximal-block theorem. Preserve the uncountable hub in
+any N-G state obstruction.

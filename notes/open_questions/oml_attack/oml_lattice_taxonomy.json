@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 82,
+   "entries": 83,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -146,6 +146,13 @@
    "status": "open-with-conditional-theorem",
    "one_line": "A finite distributed boundary-defect cover localizes if each sigma-liftable locus is open on the relevant face restriction image; finite/discrete and compact/proper-image cases work, but countable generation alone does not.",
    "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
+  },
+  {
+   "id": "oml.construct.boc_two_coordinate",
+   "name": "BOC normalization and two-coordinate inflation",
+   "status": "finite-structural-pass-arbitrary-base-open",
+   "one_line": "Locally countable finite-arity CSS globalizes, forcing N-G hubs; an explicit two-selector inflation passes exact finite OML gates in three approximants but remains arbitrary-base open.",
+   "detail": "oml_boc_normalization_and_two_coordinate.md"
   },
   {
    "id": "oml.reduction.global_odbc_integration",

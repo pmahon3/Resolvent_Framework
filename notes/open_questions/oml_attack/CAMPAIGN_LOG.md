@@ -1304,3 +1304,76 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - No mathematical retraction is required, but scope and Lean-quantifier
   repairs were applied. Automatic pivot: Campaign 8 BOC normalization and
   two-coordinate testing.
+
+## Linked Campaign 8 — BOC normalization and two-coordinate tests (2026-07-13)
+
+### Iteration 92 — locally countable component theorem
+
+- **Theorem:** finite-arity, countable-incidence constraint components are
+  countable; CSS sections assemble componentwise to GS. **Evidence class:
+  hand proved.**
+
+### Iteration 93 — countable-witness corollary
+
+- **Theorem:** every failure in that class has a sectionless countable
+  component and is N-S, never N-G. **Evidence class: hand proved.**
+
+### Iteration 94 — N-G cardinal lower bound
+
+- **Theorem:** finite-arity N-G requires an uncountable-incidence variable,
+  or else an infinite-arity/global constraint. **Evidence class: hand
+  proved.**
+
+### Iteration 95 — hidden-hub control audit
+
+- **Result:** Cantor singleton uses an uncountably incident witness; any
+  faithful finite-arity encoding of the club defect must expose a highly
+  incident coherence coordinate. Ignoring such hidden coordinates gives a
+  false finite-degree classification. **Evidence class: hand proved.**
+
+### Iteration 96 — finite-degree N-S inhabitant
+
+- **Construction:** the nonclosed standard-Borel descending-ray relation on
+  `N times R` is finitely satisfiable and countably unsatisfiable at degree
+  two. **Evidence class: hand proved.**
+
+### Iteration 97 — exhaustive selector-pair proxy
+
+- **Result:** among 496 pairs of 32 non-atomic selectors, 28 have distinct
+  overlapping nonnested supports and exactly 24 also pass joint-state and
+  three-region gates. **Evidence class: exhaustive finite evidence.**
+
+### Iteration 98 — independent proxy verification
+
+- **Result:** a direct-subset verifier reproduces 44 events, 10 atoms, 496
+  pairs, 485 joint-state pairs, 135 three-region pairs, 28 support pairs, and
+  24 qualifiers. **Evidence class: executable verified.**
+
+### Iteration 99 — explicit independent selector normal form
+
+- **Result:** selectors `0x000f` and `0x3300` are disjoint, have distinct
+  supports meeting only in `A01`, give injective two-coefficient E/F/G
+  forms, and avoid repeated-selector invariance. **Evidence class: hand
+  proved.**
+
+### Iteration 100 — finite simultaneous-inflation lattice gates
+
+- **Result:** `P2xP2` has 24 points/116 events; `P2xP3` has 28/196;
+  `P3xP2` has 28/212. All pass exhaustive closure, unique extrema,
+  orthomodularity, exact five blocks, and centre two. **Evidence class:
+  exhaustive finite evidence.**
+
+### Iteration 101 — independent inflation and state audit
+
+- **Result:** independent bit-mask reconstruction matches all counts and
+  hashes. Finite concreteness, sigma-completeness, essential irreducibility,
+  and global point-state order separation follow; all models are Phi-tame.
+  **Evidence classes:** certificate is executable verified; state audit is
+  hand proved.
+
+### Campaign-8 verdict
+
+- The chain has 61 meaningful linked iterations. The finite candidate passes
+  every structural/state gate but is Phi-tame. Arbitrary-base latticehood,
+  maximal blocks, and state relation remain open.
+- Automatic pivot: Campaign 9 arbitrary-base two-coordinate theorem.

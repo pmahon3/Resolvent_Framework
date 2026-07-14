@@ -1,0 +1,117 @@
+{
+  "approximants": [
+    {
+      "block_sizes": {
+        "A00": 32,
+        "A01": 64,
+        "A10": 16,
+        "A11": 32,
+        "C01": 32
+      },
+      "centre_size": 2,
+      "checks": {
+        "complement_closed": true,
+        "disjoint_union_closed": true,
+        "exact_five_maximal_blocks": true,
+        "orthomodular": true,
+        "trivial_centre": true,
+        "unique_binary_extrema": true
+      },
+      "comparable_ordered_pairs": 1251,
+      "event_sha256": "3bd494b6516ed7e42ebfc2a05994c9c121dbbde87488ca22285d82c97fde9e5b",
+      "events": 116,
+      "fibre_atoms": [
+        2,
+        2
+      ],
+      "maximal_compatibility_clique_sizes": [
+        16,
+        32,
+        32,
+        32,
+        64
+      ],
+      "ordered_compatible_pairs": 6544,
+      "ordered_disjoint_pairs": 1251,
+      "ordered_pairs": 13456,
+      "points": 24
+    },
+    {
+      "block_sizes": {
+        "A00": 32,
+        "A01": 128,
+        "A10": 16,
+        "A11": 64,
+        "C01": 32
+      },
+      "centre_size": 2,
+      "checks": {
+        "complement_closed": true,
+        "disjoint_union_closed": true,
+        "exact_five_maximal_blocks": true,
+        "orthomodular": true,
+        "trivial_centre": true,
+        "unique_binary_extrema": true
+      },
+      "comparable_ordered_pairs": 3033,
+      "event_sha256": "718d472f87acd04b268747630ae70f952f0aec7e7b3d4cc23906de4698861123",
+      "events": 196,
+      "fibre_atoms": [
+        2,
+        3
+      ],
+      "maximal_compatibility_clique_sizes": [
+        16,
+        32,
+        32,
+        64,
+        128
+      ],
+      "ordered_compatible_pairs": 21136,
+      "ordered_disjoint_pairs": 3033,
+      "ordered_pairs": 38416,
+      "points": 28
+    },
+    {
+      "block_sizes": {
+        "A00": 64,
+        "A01": 128,
+        "A10": 16,
+        "A11": 32,
+        "C01": 64
+      },
+      "centre_size": 2,
+      "checks": {
+        "complement_closed": true,
+        "disjoint_union_closed": true,
+        "exact_five_maximal_blocks": true,
+        "orthomodular": true,
+        "trivial_centre": true,
+        "unique_binary_extrema": true
+      },
+      "comparable_ordered_pairs": 3357,
+      "event_sha256": "89da8988eeee0351c7e31830a473c7523eee67e103a3dfcd3aa54e03a4661958",
+      "events": 212,
+      "fibre_atoms": [
+        3,
+        2
+      ],
+      "maximal_compatibility_clique_sizes": [
+        16,
+        32,
+        64,
+        64,
+        128
+      ],
+      "ordered_compatible_pairs": 23440,
+      "ordered_disjoint_pairs": 3357,
+      "ordered_pairs": 44944,
+      "points": 28
+    }
+  ],
+  "schema": "five-block-distinct-two-selector-inflation-v1",
+  "selector_masks": [
+    "0x000f",
+    "0x3300"
+  ]
+}

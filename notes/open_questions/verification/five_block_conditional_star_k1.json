@@ -1,0 +1,319 @@
+{
+  "centre": [
+    "0x0",
+    "0xfffffff"
+  ],
+  "clique_records": [
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A00_0"
+      ],
+      "id": 0,
+      "sha256": "3ead55dc7fe8856a",
+      "size": 128
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 1,
+      "sha256": "70f8b1318ebb6aa9",
+      "size": 128
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 2,
+      "sha256": "98ea1a0b27b404f1",
+      "size": 128
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A10"
+      ],
+      "id": 3,
+      "sha256": "7a3f61bc2c963cd4",
+      "size": 128
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)",
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A01"
+      ],
+      "id": 4,
+      "sha256": "5f3b71a14eeba4fe",
+      "size": 64
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "C01_0"
+      ],
+      "id": 5,
+      "sha256": "89538db408b00124",
+      "size": 64
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)",
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 6,
+      "sha256": "fde9d4fa714a5cf2",
+      "size": 64
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)",
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 7,
+      "sha256": "175d0d030eaa3c1f",
+      "size": 64
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0,)"
+        ],
+        [
+          "(1,)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0,)",
+          "(1,)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A11"
+      ],
+      "id": 8,
+      "sha256": "228f30601d681275",
+      "size": 64
+    }
+  ],
+  "closure_rounds": [
+    264,
+    392,
+    392
+  ],
+  "distinct_cuts": 4216,
+  "elapsed_construction_s": 0.2,
+  "elapsed_total_s": 0.2,
+  "events": 392,
+  "events_inside_b2": 3,
+  "first_disjoint_union_failure": {
+    "cardinalities": [
+      4,
+      4
+    ],
+    "left_mask": "0x55",
+    "left_signature": [
+      "A00_0",
+      "A01",
+      "C01_0"
+    ],
+    "right_mask": "0xa0a",
+    "right_signature": [
+      "A10",
+      "A11"
+    ],
+    "union_mask": "0xa5f"
+  },
+  "joint_hub": false,
+  "joint_split_count": 0,
+  "joint_split_events_in_b2": [],
+  "k": 1,
+  "maximal_block_sizes": [
+    128,
+    128,
+    128,
+    128,
+    64,
+    64,
+    64,
+    64,
+    64
+  ],
+  "maximal_blocks": 9,
+  "named_block_containers": {
+    "A00_0": [
+      0
+    ],
+    "A01": [
+      4
+    ],
+    "A10": [
+      3
+    ],
+    "A11": [
+      8
+    ],
+    "C01_0": [
+      5
+    ]
+  },
+  "orthomodular": true,
+  "points": 28,
+  "raw_events": 264,
+  "schema": "five-block-conditional-diagonal-star-v1",
+  "states": {
+    "all_states_are_point_states": true,
+    "count": 20,
+    "distinct_point_profiles": 20,
+    "full_relation_x_y1_yk": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "joint_charged_relation_x_y1_yk": [
+      [
+        0,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "pairwise_joint_charged": {
+      "x_y0_joint": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "trivial_centre": true
+}

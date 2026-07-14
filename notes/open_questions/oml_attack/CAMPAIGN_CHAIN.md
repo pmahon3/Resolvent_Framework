@@ -6,7 +6,7 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 13 — omega-one hub transport and sigma-completion.
+- **Active campaign:** Campaign 14 — incompatible conditional-cell search.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -17,7 +17,8 @@
   punctured-Cantor hub and shared-boundary obstruction; Campaign 12 —
   countable-boundary extension and omega-one cylinder escape.
   Campaign 5 finite audit was entered for the two-coordinate approximants;
-  they passed structural gates and were Phi-tame.
+  they passed structural gates and were Phi-tame. Campaign 13 — puncture
+  normality, state-separation escape, and incompatible transport reduction.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -82,6 +83,8 @@
 | non-atomic diagonal completion | finite centre-free nine-block OML; conditional diagonal survives; Phi-tame |
 | punctured-Cantor shared hub | exact local Boolean cells; two-cell countable-meet contradiction blocks OML paste |
 | omega-one cylinder common hub | exact Boolean CSS/no-GS with fa section; raw/finite algebraic closure central; sigma-completion open |
+| unconditional state-normal omega-one completion | impossible: no sigma states, hence no order separation |
+| incompatible conditional omega-one transport | exact semantic blueprint; direct finite cell and completion open |
 
 ## Unresolved assumptions
 
@@ -115,10 +118,16 @@
   separating boundaries without a countable puncture basis remain open.
 - Sigma-completion may de-centralize a common omega-one boundary; no
   lattice, maximal-block, MBRC, or order-separation theorem is known.
+- Unconditional common-hub semantics is closed by the state-normality
+  trichotomy, but face-local MBRC may survive through off-pattern nonnormal
+  escape states.
+- A forbidden finite pattern has meet zero and every nonzero event admits an
+  off-pattern sigma-state; consequently no event can activate it.
+- The direct incompatible cell with state implication `111 => q=r` is open.
 
 ## Next automatic pivot
 
-Transport the omega-one coordinate boundary through incompatible conditional
-cells, or construct an explicit sigma-completion of its common-boundary
-algebraic paste. Prove whether new countable joins de-centralize the hub while
-preserving CSS/no-GS, MBRC, sigma-completeness, and order separation.
+Construct or refute the finite order-separated incompatible cell whose state
+table contains `11100,11111`, excludes `11101,11110`, and has off-pattern
+escape states. If it exists, paste two copies and exhaustively complete and
+audit them before returning to the omega-one assembly.

@@ -190,6 +190,16 @@ may introduce de-centralizing joins and remains unaudited. Compatible-face
 state equality identifies literal cuts; incompatible activation patterns
 remain the viable transport mechanism.
 
+Campaign 13 closes only the unconditional omega-one completion route. If the
+hub and puncture blocks are state-normal there are no sigma-states; partial
+normality creates charged ambient join defects; loss of hub normality destroys
+global point classification. A forbidden finite cylinder necessarily has
+meet zero, and every nonzero event must admit an off-cylinder sigma escape
+state, so no event can activate it. Face-local MBRC remains open because all
+nonnormal escape states may lie off the cylinder. The exact next gate is a
+finite order-separated OML cell directly enforcing the incompatible state
+implication `111 => q=r` without an activation event.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

@@ -1703,3 +1703,47 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - The countably generated quotient route is closed. The omega-one cylinder
   gives an exact central Boolean CSS/no-GS skeleton in ZFC. Automatic pivot:
   Campaign 13 sigma-completion or incompatible conditional transport.
+
+## Linked Campaign 13 — puncture normality and incompatible transport (2026-07-14)
+
+### Iteration 149 — state-normal puncture no-go
+- **Theorem:** if the cylinder boundary and every puncture block are
+  state-normal in a sigma-complete completion, it has no sigma-state.
+  **Evidence class: hand proved.**
+
+### Iteration 150 — charged join defect
+- **Theorem:** a global state with normal hub trace `eval_x` and nonnormal
+  puncture restriction creates `V<U` with state values `0,1`, where `V` is
+  the ambient countable join. **Evidence class: hand proved.**
+
+### Iteration 151 — state-normality trichotomy
+- **Result:** the three normality cases close unconditional hub semantics,
+  not face-local MBRC. **Evidence class: hand proved.**
+
+### Iteration 152 — state-separation escape theorem
+- **Theorem:** a finite fa-realizable pattern with no sigma witness has meet
+  zero; every nonzero event is charged by an off-pattern sigma-state.
+  **Evidence class: hand proved.**
+
+### Iteration 153 — AND-event obstruction
+- **Theorem:** an incompatible activation valuation cannot be represented by
+  a nonzero event under order separation. **Evidence class: hand proved.**
+
+### Iteration 154 — conditional puncture blueprint
+- **Reduction:** direct cells enforcing `111 => h_alpha=y_i_alpha` give the
+  desired section semantics conditional on completion and MBRC. **Evidence
+  class: conditional.**
+
+### Iteration 155 — exact finite cell gate
+- **Problem:** find a finite order-separated OML whose projection contains
+  `11100,11111`, excludes `11101,11110`, and supplies off-pattern escape.
+  **Evidence class: open.**
+
+### Iteration 156 — hostile scope repair
+- **Review:** rejected maximal-block countable-meet absoluteness and repaired
+  the normality overclaim. Compatible-event finite stars do not establish an
+  infinite forbidden-pattern construction. **Evidence class: hostile audit.**
+
+### Campaign-13 verdict
+- Unconditional literal hub semantics is closed; face-local nonnormal escape
+  remains possible. Pivot: direct incompatible-cell construction or no-go.

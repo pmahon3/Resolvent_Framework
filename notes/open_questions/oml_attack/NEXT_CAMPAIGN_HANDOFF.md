@@ -1,25 +1,22 @@
-# Next campaign handoff — Campaign 13
+# Next campaign handoff — Campaign 14
 
-1. **Attempted:** construct a three-cell distinct-support star and classify
-   countably versus uncountably generated hub boundaries.
-2. **Proved:** every sigma-state on a faithfully sigma-embedded countably
-   generated boundary extends under order separation; conditional equality
-   on a compatible face identifies literal cuts; incompatible activation
-   need not be event-definable. The `2^{omega1}` cylinder atlas has exact
-   CSS/no-GS and compatible fa sections in ZFC.
-3. **Refuted:** countably generated quotient deletion; a state relation alone
-   as sufficient carrier/embedding data; automatic centrality after arbitrary
-   sigma-completion.
-4. **Evidence classes:** all theorems are hand proved and hostile reviewed;
-   Ulam's no-free-countably-complete-ultrafilter theorem is the recorded ZFC
-   import. No OML structural gate is claimed for the omega-one atlas.
-5. **Load-bearing files/commits:** `oml_omega1_cylinder_hub.md`; Campaign-12
-   commit is parent.
-6. **Unresolved theorem:** a sigma-complete OML completion that transports or
-   de-centralizes the omega-one hub while preserving MBRC and order separation.
-7. **First action:** specify the algebraic OML paste of omega-one puncture
-   blocks and classify the first countable joins leaving the central raw
-   boundary; alternatively give literal incompatible conditional embeddings.
-8. **Do not repeat:** invoke countably generated punctures; call atlas fa
-   tuples global OML states; assume commutants or maximal blocks are
-   sigma-closed; infer an executable completion from state tables alone.
+1. **Attempted:** sigma-complete common-boundary puncture paste and transported
+   conditional omega-one coordinates.
+2. **Proved:** full state-normality gives no sigma-states; partial normality
+   creates charged ambient join defects; a forbidden finite pattern has meet
+   zero and every nonzero event has an off-pattern sigma escape; no activation
+   event exists.
+3. **Refuted:** unconditional literal hub semantics as an admissible route;
+   countable-meet absoluteness for arbitrary maximal blocks.
+4. **Evidence:** hand proved and hostile reviewed; incompatible transport is
+   conditional; no new executable or Lean certificate.
+5. **Load-bearing:** `oml_puncture_normality_and_incompatible_transport.md`,
+   `oml_omega1_cylinder_hub.md`; Campaign-13 commit is the parent.
+6. **Unresolved theorem:** existence of a finite order-separated OML cell with
+   state table containing `11100,11111`, excluding `11101,11110`, and enough
+   off-pattern states to separate every nonzero event.
+7. **First action:** search finite OML/state hypergraphs for that exact table;
+   if found, paste two cells and audit the full completion.
+8. **Do not repeat:** use an AND event; assume maximal blocks sigma-complete;
+   infer face-local failure from unconditional normality; promote Claude's
+   compatible-event finite star without importing and verifying artifacts.

@@ -630,6 +630,15 @@
    "detail": "oml_lattice_regularity_attack.md#26-corrected-removable-state-census-kills-all-two-port-pentagon-relays-2026-07-11-session-32"
   }
  ],
+ "campaign_13_frontier": [
+  {
+   "id": "oml.frontier.puncture_normality",
+   "name": "Puncture normality and incompatible transport",
+   "status": "proved-reduction-open-finite-gate",
+   "one_line": "Unconditional state-normal omega-one completion has no sigma-states; an admissible failure must use face-local nonnormal escape and a direct incompatible 111-implies-equality cell.",
+   "detail": "oml_puncture_normality_and_incompatible_transport.md"
+  }
+ ],
  "external_sufficient_conditions": [
   {
    "id": "oml.tame.boolean",

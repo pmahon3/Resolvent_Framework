@@ -550,3 +550,10 @@ bridge (the mixing/barycenter scar, again). Pursue both, keep decoupled, let
 - Theory: open the latticehood attack (design/reasoning).
 - Applied: ECCC acquisition + T1 execution (small, concrete, unblocks the parked
   revival trigger), and/or scope the general statistics layer as its own seed.
+
+**OML sigma-essential frontier (2026-07-14):** unconditional state-normal
+completion of the omega-one puncture atlas has no sigma-states. Order
+separation forces an off-pattern sigma escape above every nonzero event, so
+activation cannot be an event. The finite gate is a direct incompatible OML
+cell with state implication `111 => q=r`; see
+`notes/open_questions/oml_attack/oml_puncture_normality_and_incompatible_transport.md`.

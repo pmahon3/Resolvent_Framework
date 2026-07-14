@@ -592,6 +592,14 @@ Open directions — the extension boundary:
 
 ---
 
+## Current OML frontier (2026-07-14)
+
+Unconditional state-normal completion of the omega-one puncture atlas is
+excluded, while face-local nonnormal completion remains open. The decisive
+finite gate is direct incompatible conditional transport (`111 => q=r`) with
+order-separating off-pattern escape states. See
+`notes/open_questions/oml_attack/oml_puncture_normality_and_incompatible_transport.md`.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

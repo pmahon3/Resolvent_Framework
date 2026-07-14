@@ -289,6 +289,27 @@ profile interval is a certificate that completion of the displayed generated
 σ-class is not a lattice. It does not claim that interval saturation is
 sufficient for latticehood.
 
+**Corollary 9.1 (finite cut saturation is necessary).** In the scoped
+finite-typed architecture, assume every `q∈Q` has a type-uniform event
+realization and each type survives the exceptional ideal. If the event poset
+is a lattice, then for every finite nonempty `A,B⊆Q` with `a≤b` for all
+`a∈A,b∈B`,
+
+`Q ∩ [⋁A, ⋀B] ≠ ∅`,
+
+where the displayed bounds are ambient coordinatewise union and
+intersection. Since `Q` is finite and has bottom and top, this Dedekind--
+MacNeille cut saturation is equivalent to `Q` being a lattice under its
+inherited coordinatewise order: use all common upper bounds (respectively
+lower bounds) to obtain the inherited join (respectively meet). This is a
+necessary finite CSP condition, not a sufficient arbitrary-base lattice
+theorem.
+
+Cut saturation implies neither rectangularity nor T4. The diagonal relation
+`{(0,0),(1,1)}` is a cut-saturated complemented two-element lattice but is
+nonrectangular; and `Q` contains event-profile data but no state-space or
+principal-atom data from which T4 could follow.
+
 **Theorem 10 (rotating candidate has no join).** Put
 
 `A=cyl(T₁)`, `B=G₁₂`, and `U=cyl(T₁∪T₂)`. A second generated upper bound is

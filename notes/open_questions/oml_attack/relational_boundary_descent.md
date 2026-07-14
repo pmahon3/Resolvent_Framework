@@ -439,6 +439,47 @@ or redundant coordinates and complement-closing them gives a nonempty
 coherent finite refinement $C_q\subseteq C_p$ contained in $N_B(p)$.
 Since $N_B(q)=N_B(p)\cap C_q$, $C_q\subseteq N_B(q)$. ∎
 
+### Theorem 9.0a (countable fine atlas: T4 is equivalent to Φ) ⟦HAND, proved and twice reviewed⟧
+
+Suppose every maximal block is countably generated and the set of maximal
+blocks is at most countable. Then
+
+\[
+   \Phi(L) \quad\Longleftrightarrow\quad \mathrm{T4At}(L).
+\]
+
+*Proof.* The forward implication is the axiom-free Lean theorem
+`t4At_of_phi`. For the converse, fix a nonempty finitely coherent finite face
+$C_p$. It is a clopen subspace of the compact finitely additive state space,
+hence is Baire. For a maximal block $B$, put
+
+\[
+ G_B=\{\mu\in C_p:\mu|_B\text{ is σ-additive}\},\qquad
+ N_B=C_p\setminus G_B.
+\]
+
+On a countably generated Boolean σ-field a two-valued σ-state charges an
+atom, while any ultrafilter charging an atom is principal there and is
+σ-additive. Therefore $G_B$ is the union, over the atoms $D$ of $B$, of the
+relative clopens $\{\mu:\mu(D)=1\}$; it is open and $N_B$ is closed.
+
+If $C_p$ contained no global σ-state, blockwise σ-additivity would give the
+countable closed cover $C_p=\bigcup_BN_B$. Baire yields a block $B$ for which
+$N_B$ has nonempty relative interior. Choose a nonempty finite-coordinate
+clopen subface $C_q\subseteq N_B$; translate every prescribed zero on $A$
+into the positive prescription $A^c$, so $q$ is again a finite coherent
+cluster. T4At applied to $q,B$ supplies an atom $D\in B$ and a global
+finitely additive state in $C_q$ charging $D$. Its restriction to $B$ is the
+principal atom ultrafilter and hence σ-additive, contradicting
+$C_q\subseteq N_B$. Thus every coherent finite face contains a global
+σ-state, which is Φ by `phi_iff_phiCluster`. ∎
+
+The countability of the *atlas* is load-bearing, not merely the countable
+generation of each block. Consequently any fine-block counterexample to Φ
+must have uncountably many maximal blocks and a genuinely distributed cover
+by nowhere-dense block-bad loci. No essential-irreducibility hypothesis is
+used.
+
 This does **not** localize the boundary defect loci $D_B(p)$.  Boundary-good
 means only that $\mu|_{\partial B}$ admits some σ-additive local replacement
 charging $E_B(p)$; the given $\mu|_B$ may itself be non-σ.  In the fine case

@@ -765,3 +765,56 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Strategic pivot:** apply the finite-profile interval theorem to the
   broader typed graph architecture, then move to the highest-information
   theorem residue rather than modifying the failed rotating construction.
+
+### Iteration 30 — finite cut-saturation theorem
+
+- **Result:** for a universally realized finite profile relation `Q`,
+  latticehood forces every finite cut `[⋁A,⋀B]` between uniform lower and
+  upper profile families to meet `Q`. For finite `Q` with top and bottom this
+  is equivalent to `Q` being a lattice under inherited coordinatewise order.
+  **Evidence: hand proved.** It is necessary, not sufficient, for the
+  arbitrary-base event poset to be a lattice.
+
+### Iteration 31 — rectangularity/T4 inference refuted
+
+- **Counterexample:** `{(0,0),(1,1)}` is a complemented two-element inherited
+  lattice and cut-saturated, but nonrectangular. Thus latticehood's finite CSP
+  condition does not force the rectangularity used in support splicing.
+  Moreover event profiles contain no principal-state data, so no T4 inference
+  follows without a state-side hypothesis. **Evidence: hand refutation.**
+
+### Iteration 32 — state-side anchor analogy refuted
+
+- **Counterexample:** in the compact space
+  `C={0}∪{e_m:m∈ℕ}⊂2^ℕ`, let `G_n={e_m:m≥n}`. Every finite subfamily of the
+  `G_n` intersects and all finite projections have the neutral anchor zero,
+  but `⋂_nG_n=∅`; each good locus is nonclosed and accumulates at the bad
+  anchor. **Evidence: hand proved/refuted.** Event-side cylinder decoration
+  therefore has no automatic state-side analogue.
+- **Reduction:** a positive boundary theorem needs either closed/compact good
+  loci or an arbitrary-support coherent patching polymorphism, not finite
+  projection consistency alone.
+
+### Iteration 33 — countable fine-atlas T4 sufficiency
+
+- **Theorem:** if the set of maximal blocks is at most countable and every
+  maximal block is countably generated, then T4At implies Φ. On a nonempty
+  finite face the non-σ restriction locus of each block is closed. A
+  hypothetical absence of global σ-states gives a countable closed cover;
+  Baire traps a finite-cylinder refinement at one block. T4At inserts a block
+  atom, whose charged ultrafilter is principal and σ-additive, contradiction.
+  **Evidence: hand proved, two independent hostile audits.** Zero-valued
+  cylinder constraints are explicitly translated to complements.
+
+### Iteration 34 — exact countable-atlas equivalence and residue
+
+- **Result:** combining Iteration 33 with Lean theorem `t4At_of_phi` gives
+  `Φ ⇔ T4At` for countable fine atlases. **Evidence:** reverse implication
+  hand proved; forward implication Lean verified (axiom-free apart from
+  standard classical/propext receipts already recorded). Any B′(i)
+  counterexample must therefore have uncountably many maximal blocks and a
+  genuinely distributed nowhere-dense cover of every bad finite face.
+- **Narrow residue:** prove T4At for arbitrary fine OMLs, or control the
+  uncountable atlas by a coherent arbitrary-support patching/compactness
+  principle. Countable block generation alone does not reduce the atlas
+  cardinality.

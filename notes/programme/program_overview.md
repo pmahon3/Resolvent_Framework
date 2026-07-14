@@ -122,6 +122,11 @@ join obstruction. The earlier
 proper-interface-twist language below is historical. Current index:
 `notes/open_questions/oml_attack/CURRENT_STATE.md`.
 
+The theorem-side continuation proves `Φ iff T4At` for at most countable
+maximal-block atlases whose blocks are countably generated. Thus any surviving
+fine-block counterexample is necessarily an uncountable distributed-atlas
+phenomenon; finite relational interval saturation alone does not imply T4.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

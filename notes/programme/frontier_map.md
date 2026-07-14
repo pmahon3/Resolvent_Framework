@@ -11,6 +11,8 @@
 > restrictions: Gate N passes by anchor synthesis and countable local
 > patching, but Gate L fails by an empty finite-profile interval, so the
 > generated σ-class is not a lattice.
+> On the positive side, Φ is now equivalent to T4At for countable fine
+> atlases; the residual fine problem requires uncountably many maximal blocks.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

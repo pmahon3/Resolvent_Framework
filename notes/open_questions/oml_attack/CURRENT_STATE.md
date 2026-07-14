@@ -59,7 +59,10 @@ in the interval required of their join. This is an arbitrary-base proof, not
 a finite-quotient extrapolation. The rotating σ-class is not a lattice; Gates
 M, C, Z, F, and Φ were not entered. The reusable output is the finite-profile
 interval obstruction theorem. The active frontier returns to B′(i)/T4 and
-boundary selection, informed by this graph-network closure result.
+boundary selection, informed by this graph-network closure result. A new
+theorem now proves `Φ⇔T4At` whenever the maximal-block atlas is countable and
+every block is countably generated. Hence the surviving fine-block residue
+requires an uncountable, genuinely distributed atlas.
 
 ## Primary sources
 

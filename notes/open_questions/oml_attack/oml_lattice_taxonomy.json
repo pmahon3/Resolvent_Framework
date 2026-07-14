@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 76,
+   "entries": 77,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -193,6 +193,14 @@
    "one_line": "Every coherent cluster must admit a coherent atom from each further block; necessary for B′(i), but insufficient without a completion principle.",
    "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit",
    "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): T4At/T4 stated as named open Props (never sorry); NECESSITY direction machine-checked axiom-free: t4At_of_phi / bPrimeI_implies_T4 (B'(i) => T4; the T3 kernel is proved to be an atom of the block). Converse NOT stated -- crux red flag respected"
+  },
+  {
+   "id": "oml.fine.countable_atlas_t4_equivalence",
+   "name": "Countable fine-atlas T4 equivalence",
+   "status": "proved-hand-twice-reviewed-with-lean-forward-direction",
+   "one_line": "If there are at most countably many maximal blocks and each is countably generated, then Phi iff T4At. Baire localizes any no-sigma finite face at one block; T4 inserts an atom and contradicts the trap. Thus any fine counterexample needs an uncountable genuinely distributed atlas.",
+   "detail": "relational_boundary_descent.md#theorem-90a-countable-fine-atlas-t4-is-equivalent-to-φ-hand-proved-and-twice-reviewed",
+   "lean": "Forward direction Phi=>T4At is existing axiom-free theorem t4At_of_phi; Baire converse is hand proved and not yet formalized."
   },
   {
    "id": "oml.fine.fibre_saturation",

@@ -22,14 +22,13 @@ old points rigid. For each named skeleton block substitute `A` for its atom
 other block atoms rigidly. Denote the union of the five resulting Boolean
 sigma-blocks by `L(A,D)`.
 
-This defines a concrete family of subsets. It is not called an event algebra
-or OML until the cross-block closure and lattice gates are proved.
-**Evidence class: hand proved.**
+This defines a concrete family of subsets. The theorem below now proves that
+it is a sigma-complete OML. **Evidence class: hand proved.**
 
 Every complement is taken in the same substituted block as its event, so
 `L(A,D)` is complement closed. **Evidence class: hand proved.**
 
-## 2. Binary finite-control reduction and hostile repair
+## 2. Outsider extremality and arbitrary-base latticehood
 
 Two input events mention at most two `A` coefficients and two `D`
 coefficients. Their generated Boolean algebras have at most four nonempty
@@ -38,10 +37,6 @@ meet or join can be found and checked against bounds whose coefficients lie
 in those input-generated subalgebras by a finite `P(k) x P(l)` control with
 `k,l <= 4`. **Evidence class: hand proved.**
 
-This does **not** yet prove extremality in the full family. An arbitrary
-competing bound can introduce a third coefficient, refining one coordinate
-to as many as eight truth regions. The missing statement is:
-
 ### Outsider-extremality lemma (OE)
 
 For every two forms `u,v` in `L(A,D)`, the candidate lower and upper forms
@@ -49,43 +44,67 @@ obtained in their input-generated coefficient subalgebras remain respectively
 greatest and least against every bound in `L(A,D)`, including forms with
 coefficients outside those subalgebras.
 
-**Evidence class: open.** A proof may be a direct regionwise inequality
-argument. A brute-force alternative must audit the exact third-coefficient
-templates, potentially through eight truth regions; the current `<=4`
-controls are insufficient.
+*Proof.* Put `C=u intersect v`. For each named substituted block `B`, form
+its block floor `F_B(C)`: include every rigid `B`-atom wholly contained in
+`C`; on a flexible `q` slot use the intersection of all `q`-fibre sections
+of `C`, and analogously on `r`. Those sections are Boolean expressions in
+the coefficients of `u,v`, so the resulting coefficient remains in `A` or
+`D`. This is the greatest `B`-event below `C`. Dually, the block ceiling over
+`u union v` includes a rigid atom exactly when it meets the span and uses
+the union of the flexible fibre sections.
 
-Let `FC_bin` assert that, for every `1 <= k,l <= 4`, the substituted finite
-model `L(P(k),P(l))` has binary disjoint-union closure, unique binary
-extrema, and the orthomodular law. Retain OE separately: `FC_bin` finds and
-checks finite-region candidates, while OE promotes their extremality against
-arbitrary-base outsider coefficients. Then
+Every outsider bound belongs to at least one of the five named blocks. A
+lower bound in `B` is below `F_B(C)`, regardless of its own coefficient;
+dually every upper bound is above its block ceiling. Thus a greatest one of
+the five floors is the global lattice meet, and a least ceiling is the join.
+No third-coefficient truth regions enter this domination argument.
 
-> `FC_bin + OE` implies that `L(A,D)` is a concrete OML for every concrete
-> Boolean sigma-algebra pair `A,D`.
+Partition `X` and `Y` by membership in the at-most-two input coefficients.
+There are `k,l<=4` nonempty truth regions, and all five floor/ceiling
+comparisons transport exactly to `L(P(k),P(l))`. The finite kernel verifies
+that a winning floor and ceiling exist in every case. Complement,
+disjoint-union closure, and the orthomodular identity transport through the
+same generated finite coefficient algebras. The winning floor need not be
+the concrete set intersection. **Evidence class: hand proved**, with the
+finite kernel **executable verified**.
 
-**Evidence class: conditional.** Neither hypothesis is currently closed at
-arbitrary base.
+The durable kernel checks all 16 models `L(P(k),P(l))`, `1<=k,l<=4`.
+The binding `P(4)xP(4)` case has 40 points, 1220 events, 16,964 distinct
+intersection cuts, and 744,810 unordered input pairs. Every pair has a
+winning block floor and ceiling, and complement, binary disjoint-union
+closure, unique extrema, and the OML law pass. **Evidence class: exhaustive
+finite evidence.** A separate reconstruction verifies all 16 receipts.
+**Evidence class: executable verified.**
 
-## 3. Conditional sigma closure
+### Arbitrary-base two-atom theorem
 
-Assume binary disjoint-union closure. Discard zero events from a countable
+> For every nondegenerate pair of concrete Boolean sigma-algebras `A,D`,
+> `L(A,D)` is a concrete orthomodular lattice closed under binary disjoint
+> union.
+
+**Evidence class: hand proved**, using the independently executable-verified
+finite kernel.
+
+## 3. Sigma closure
+
+Discard zero events from a countable
 pairwise-disjoint family. Only finitely many members can have nonempty
 support on the fixed finite set of rigid points outside `q union r`. Set
-those aside in the finite head. The unchanged finite block `A10` contributes
-only finitely many further nonzero rigid forms supported inside `q union r`;
-set those aside as well. Inspection of the other four substituted block templates
-then leaves only
+those aside in the finite head. Inspection of the five exact block templates
+shows that `A10` contributes only zero to the remaining tail, which consists
+exactly of
 
 \[
  q\mathbin{\times}a,\qquad r\mathbin{\times}d,\qquad
  (q\mathbin{\times}a)\cup(r\mathbin{\times}d),
 \]
 
-all of which lie in the joint sigma-block `A01`. Their tail union exists in
-that block. Binary closure combines it with the finite head.
-
-Thus binary disjoint-union closure implies countable disjoint-union closure.
-**Evidence class: hand proved, conditional.**
+all of which lie in the joint sigma-block `A01`. The coefficient unions
+exist in `A,D`, so the tail union lies in `A01`.
+Binary closure combines it with the finite head. Therefore `L(A,D)` is
+closed under countable disjoint unions. Standard successive disjointization
+in an OML then gives every countable join, so it is sigma-complete.
+**Evidence class: hand proved.**
 
 ## 4. Maximal-block residue
 
@@ -99,7 +118,9 @@ families of size at most five with empty total signature intersection.
 
 The signature characterization and its coefficient-feasibility census are
 both open. Five coefficients may create 32 truth atoms, so the binary
-controls do not settle this gate. **Evidence class: conditional.**
+controls do not settle this gate. **Evidence class: conditional.** These
+gates are no longer needed for latticehood or sigma-completeness, but remain
+needed for the stated maximal-block and conditional state theorem.
 
 ## 5. State classification conditional on the displayed block family
 
@@ -162,18 +183,14 @@ The observed event-count formula is
  |L_{n,m}|=2^{n+m+2}+2^{m+2}+2^{n+3}+4.
 \]
 
-It is a finite-evidence conjecture, not an arbitrary-base theorem.
+The normal forms give the same formula by inclusion-exclusion, but that
+derivation is not used in the arbitrary-base lattice proof.
 
 ## 7. Verdict and next test
 
-The atomic two-coordinate construction is structurally promising in finite
-models but conditionally `Phi`-tame for a stronger reason than independent
-point replacement: a state can charge at most one fibre. The next adversarial
-construction test is therefore one of the 24 non-atomic proxy pairs with all
-three common-block Boolean regions nonzero. This is a research priority, not
-a logical consequence until the remaining arbitrary-base hypotheses above
-are closed.
-
-The first exact structural action is to prove or refute OE. The next bounded
-action is a symbolic outsider-bound census followed by the at-most-five-form
+OE, arbitrary-base latticehood, and sigma-completeness are proved. Exact
+maximal blocks, centre, state classification/order separation, and the
+unconditional Phi consequence remain open. Conditional on those block/state
+gates, the construction is Phi-tame because a state charges at most one
+fibre. The next bounded action in this class is the at-most-five-form
 signature census.

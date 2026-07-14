@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — a finite noncentral diagonal relation cell survives centre-free OML completion, but every single dense edge is Phi-tame; distributed uncountable-hub assembly is the active gate.",
+   "status": "OPEN — OE now proves the arbitrary two-atom family is a sigma-complete OML; a finite diagonal relation cell survives completion, but distributed uncountable-hub assembly remains the active gate.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

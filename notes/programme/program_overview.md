@@ -192,6 +192,12 @@ is conditional on binary closure. Six finite grids pass, but the orthogonal
 coordinates are alternative under every two-valued state and hence
 conditionally Phi-tame. A non-atomic three-region pair is next.
 
+OE has since been proved: the greatest per-block floor dominates every
+outsider coefficient, and all 16 finite truth-region kernels, including the
+1220-event `P(4)xP(4)` case, are independently verified. The arbitrary-base
+two-atom family is therefore a concrete sigma-complete OML. Maximal blocks,
+centre, and the unconditional state theorem remain open.
+
 Campaign 10 completes that finite test. Raw non-atomic substitution fails
 latticehood, while canonical mixed-cut completion produces a centre-free
 nine-block OML. An independently verified diagonal variant preserves its

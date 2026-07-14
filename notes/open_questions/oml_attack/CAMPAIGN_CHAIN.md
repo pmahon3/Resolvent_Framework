@@ -44,8 +44,9 @@
 | finite-degree N-G normalization | refuted | refuted |
 | two-coordinate 44-survivor finite approximants | exhaustive finite evidence | structurally passed, Phi-tame |
 | arbitrary two-atom complement closure | hand proved | proved |
-| outsider-extremality lemma OE | open | open |
-| binary closure implies countable disjoint closure | conditional hand proof | proved conditionally |
+| outsider-extremality lemma OE | hand proved plus executable kernel | proved |
+| arbitrary two-atom sigma-complete OML theorem | hand proved plus executable kernel | proved |
+| binary closure implies countable disjoint closure | hand proved | proved |
 | orthogonal two-atom state trichotomy and Phi | conditional hand proof | proved conditionally |
 | horizontal-chart enlargement lemma | hand proved | proved |
 | raw non-atomic pair is not an event algebra/lattice | executable verified | refuted construction |
@@ -66,7 +67,7 @@
 | Cantor singleton CSS-without-GS model | complete compact-ambient abstract relational countermodel; eligible spaces noncompact |
 | standard-Borel local realization | complete locally; OML transport gates fail |
 | two-selector P2xP2/P2xP3/P3xP2 | concrete finite OMLs, exact five blocks, trivial centre, order-separated, Phi-tame |
-| orthogonal two-atom arbitrary-base family | complement closed; OML/maximal-block gates open; conditionally Phi-tame |
+| orthogonal two-atom arbitrary-base family | concrete sigma-complete OML; maximal blocks/centre/state gates open; conditionally Phi-tame |
 | non-atomic independent completion | finite centre-free nine-block OML; unrestricted relation rectangular; Phi-tame |
 | non-atomic diagonal completion | finite centre-free nine-block OML; conditional diagonal survives; Phi-tame |
 
@@ -92,9 +93,9 @@
   formalization of concrete `X_p(J)`.
 - N-G requires an explicit uncountable-incidence hub, infinite-arity
   constraint, or coarse inverse-limit coordinate.
-- Arbitrary-base two-selector latticehood/maximal blocks remain open.
-- `FC_bin` is incomplete and requires OE against outsider coefficients;
-  maximal blocks require the separate at-most-five-form signature theorem.
+- Arbitrary-base two-selector maximal blocks, centre, and state gates remain
+  open; latticehood and sigma-completeness are proved by OE.
+- The separate at-most-five-form signature theorem remains open.
 - Finite relation cells have not been assembled over an uncountable hub;
   arbitrary-base sigma-completion and preservation of distributed relations
   remain open.

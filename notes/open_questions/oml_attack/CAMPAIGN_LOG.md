@@ -1516,3 +1516,43 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - A realizable noncentral relation cell now passes finite OML completion,
   but both finite controls are Phi-tame and one dense edge is class-level
   tame. Automatic pivot: Campaign 11 distributed uncountable-hub assembly.
+
+## Cross-campaign closure — Campaign-9 outsider extremality (2026-07-14)
+
+### Iteration 122 — exact block-floor lemma
+
+- **Theorem:** every named block has a greatest event below a two-input
+  concrete intersection and a least event above the union; flexible
+  coefficients are Boolean expressions in the two inputs. **Evidence class:
+  hand proved.**
+
+### Iteration 123 — outsider domination
+
+- **Theorem:** every arbitrary-coefficient bound lies below or above its own
+  block floor/ceiling, so third coefficients require no extra truth regions.
+  **Evidence class: hand proved.**
+
+### Iteration 124 — complete truth-region kernel
+
+- **Result:** all 16 `P(k)xP(l)` models for `1<=k,l<=4` pass the five-floor
+  winner, complement, disjoint-union, extrema, and OML checks. `P4xP4` has
+  1220 events, 16,964 cuts, and 744,810 unordered input pairs. **Evidence
+  class: exhaustive finite evidence.**
+
+### Iteration 125 — independent OE verification
+
+- **Result:** a separate bit-mask reconstruction reproduces all 16 receipts
+  without importing the producer. **Evidence class: executable verified.**
+
+### Iteration 126 — arbitrary-base sigma-complete OML theorem
+
+- **Theorem:** pattern transport proves `L(A,D)` is a concrete OML for every
+  concrete Boolean sigma-algebra pair; after a finite rigid head, every
+  countable disjoint tail lies in joint block `A01`, proving sigma-completeness.
+  **Evidence class: hand proved**, with executable finite kernel.
+
+### Superseding Campaign-9 status
+
+- OE, arbitrary-base latticehood, and sigma-completeness are proved. Exact
+  maximal blocks, centre, state classification/order separation, and
+  unconditional Phi remain open.

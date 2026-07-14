@@ -157,8 +157,8 @@
   {
    "id": "oml.construct.arbitrary_two_atom",
    "name": "Arbitrary-base orthogonal two-atom inflation",
-   "status": "exact-family-oe-open-conditionally-tame",
-   "one_line": "Complement closure is proved, binary latticehood requires outsider extremality beyond four-region controls, and the orthogonal state branches make the class conditionally Phi-tame.",
+   "status": "sigma-complete-oml-state-gates-open",
+   "one_line": "Outsider extremality and all 16 truth-region kernels prove a concrete sigma-complete OML at arbitrary base; maximal blocks, centre, and unconditional state gates remain open.",
    "detail": "oml_arbitrary_two_atom_inflation.md"
   },
   {

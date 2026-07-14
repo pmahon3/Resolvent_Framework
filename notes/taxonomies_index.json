@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — Gate N for the rotating small-piece graph triple is the active frontier. The fixed-column trace is certified, but the global decorated-form closure normal form remains open.",
+   "status": "OPEN — Gate N is reduced to the finite-core splicing lemma. Arbitrary-base typed trace invariants exclude the main W/intersection/restriction threats, but the exact lower normal form remains open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 76
   },

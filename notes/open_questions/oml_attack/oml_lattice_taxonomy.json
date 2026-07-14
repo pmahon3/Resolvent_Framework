@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Attack the global part of Gate N for the rotating small-piece candidate: derive a support/trace normal form across columns and test countable disjoint unions, cylinders, and graph collectors. The fixed-column six-cell trace passed an exhaustive bounded census, but Gate N remains open. Convert any global failure into the next obstruction theorem; Fodor/regressive rigidity is the backup coarse-side direction."
+   "current_next_step": "Gate N is reduced to the finite-core splicing lemma: decide whether every event is a countable-column modification of a finite global core form. Arbitrary-base local, same-type, and 88-profile transversal invariants already exclude W events, graph intersections, and collector restrictions with uncountable variation modulo countable support."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -388,7 +388,7 @@
    "id": "oml.construct.rotating_small_piece",
    "name": "Rotating small-piece graph triple",
    "status": "design-spec-open-gates",
-   "one_line": "Three graph events over an Ulam base P(omega1)-cylinders with rotating two-point small pieces: sigma-states column-localize (Ulam) and die by finite splitting of the small piece; f.a. states are column-free; threads every banked obstruction (type-partition, T1, no-Fubini, 2BR, omega1-chain) by design. Open gates: closure normal form N (critical), latticehood, blocks, sigma-completeness, quotient audit, f.a. coherence F (the crux).",
+   "one_line": "Three graph events over an Ulam cylinder base. Gate N remains open but is reduced to finite-core splicing: proved upper invariants exclude W events, graph intersections, unintended singleton collectors, and collector restrictions with uncountable variation modulo countable support; the intended collectors are genuine graph-pair meets. Later gates remain closed.",
    "detail": "oml_rotating_small_piece_candidate.md"
   },
   {

@@ -5,8 +5,10 @@
 
 > **2026-07-13 campaign continuation:** the active OML construction frontier
 > is Gate N for the rotating small-piece graph triple, not the earlier
-> proper-interface-twist prompt. Its fixed-column trace is certified; the
-> global decorated-form Dynkin closure is open. See
+> proper-interface-twist prompt. Arbitrary-base typed trace invariants now
+> exclude W events, graph intersections, and genuinely uncountable collector
+> restrictions; the exact remaining normal-form step is finite-core splicing.
+> See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 
 The corpus's open problems are *layered*, not a single vein. Recorded here so the

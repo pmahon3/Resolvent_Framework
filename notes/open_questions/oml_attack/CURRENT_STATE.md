@@ -39,13 +39,15 @@ Nearby constructions governed by one of these mechanisms should not be repeated 
 
 Gate N for `oml_rotating_small_piece_candidate.md` is the sole active
 construction gate. The fixed-column six-cell trace has 24 events and passes
-its independently verified finite census, but this says nothing global.
-The first global lemma now shows that full cylinders alone do not restrict a
-persistently splitting graph. Multiple collectors force residual events and
-arbitrary cylinder decorations on their zero-fibre types. The exact missing
-lemma is to classify this decorated finite typed-form algebra under
-complement and countable disjoint union, and decide whether it manufactures
-an uncountable collector restriction or a nonzero unresolved `W` event.
+its independently verified finite census. New arbitrary-base upper invariants
+now prove that no nonzero generated event is supported in the unresolved `W`
+regions, no set intersection `Σ_i∩Σ_j` is generated, and no collector can be
+restricted with uncountable variation modulo countable column support. The
+three-type transversal algebra has 88 profiles; balanced finite-core closures
+of lengths 3, 6, 9, 12 have 88, 180, 700, 4428 events and pass a separate
+recomputation. The exact remaining Gate-N lemma is finite-core splicing:
+prove or refute that every generated event is a countable-column modification
+of a finite global core form. See `oml_typed_graph_closure_calculus.md`.
 
 Gates L, M, C, Z, F, and Φ remain open and must not be entered until Gate N
 passes. If decorated-form closure forces a forbidden event, record the

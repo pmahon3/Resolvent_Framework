@@ -1,0 +1,97 @@
+{
+  "runs": [
+    {
+      "closure_sha256": "30b7853e8b952c08c4c1a2c63dbeba0998b70ef9140f6da3a3cd7c570d10f46b",
+      "closure_size": 88,
+      "n_columns": 3,
+      "targets": {
+        "nonzero_below_W": 0,
+        "proper_collector_restrictions_present": 0,
+        "residual_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "residuals_present": true,
+        "sigma_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "singleton_profile_count": 4,
+        "singleton_profiles_are_zero_and_collectors": true
+      },
+      "type_word": "123"
+    },
+    {
+      "closure_sha256": "32f29dd4f8df45534c9e2c83fdf37ac6bce89e855b54ede5489845db6fbc4899",
+      "closure_size": 180,
+      "n_columns": 6,
+      "targets": {
+        "nonzero_below_W": 0,
+        "proper_collector_restrictions_present": 0,
+        "residual_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "residuals_present": true,
+        "sigma_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "singleton_profile_count": 4,
+        "singleton_profiles_are_zero_and_collectors": true
+      },
+      "type_word": "123123"
+    },
+    {
+      "closure_sha256": "557c1ae647d2a9a411aba0f0ce1c3ddb9672fefd35fa6f90aa54e15d663bc60e",
+      "closure_size": 700,
+      "n_columns": 9,
+      "targets": {
+        "nonzero_below_W": 0,
+        "proper_collector_restrictions_present": 0,
+        "residual_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "residuals_present": true,
+        "sigma_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "singleton_profile_count": 4,
+        "singleton_profiles_are_zero_and_collectors": true
+      },
+      "type_word": "123123123"
+    },
+    {
+      "closure_sha256": "9db469ca0f06f5b0baaeb8d0051c2f950d36067df9d68d920f67ca0957bc566d",
+      "closure_size": 4428,
+      "n_columns": 12,
+      "targets": {
+        "nonzero_below_W": 0,
+        "proper_collector_restrictions_present": 0,
+        "residual_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "residuals_present": true,
+        "sigma_intersections_present": [
+          false,
+          false,
+          false
+        ],
+        "singleton_profile_count": 4,
+        "singleton_profiles_are_zero_and_collectors": true
+      },
+      "type_word": "123123123123"
+    }
+  ],
+  "scope": "exhaustive finite global core; local column generators omitted"
+}

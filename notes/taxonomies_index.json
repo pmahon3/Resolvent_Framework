@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — a global finite-pattern audit confirms the banked survivor's arbitrary-base five-block classification; sigma-completeness is hand-proved, but the inflation is Phi-tame and the smallest P(2) triangle twist is nonfaithful or gauge-trivial.",
+   "status": "OPEN — Gate N for the rotating small-piece graph triple is the active frontier. The fixed-column trace is certified, but the global decorated-form closure normal form remains open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 68
+   "entries": 76
   },
   {
    "id": "reconstruction_commensurability",

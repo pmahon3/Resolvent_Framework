@@ -111,6 +111,13 @@ PR_lattice / PR_dual — that the Boolean case fuses; see below.)
   the pending Paper II decision; the problem statement itself is the survey
   `notes/open_questions/kits/oml_onboarding.tex`).
 
+**OML campaign update (2026-07-13).** The active construction frontier is
+Gate N for the rotating small-piece graph triple. The fixed-column trace is
+exhaustively certified, but the global σ-class normal form remains open; in
+particular the current missing lemma classifies cylinder-decorated graph and
+collector forms. The earlier proper-interface-twist language below is
+historical. Current index: `notes/open_questions/oml_attack/CURRENT_STATE.md`.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

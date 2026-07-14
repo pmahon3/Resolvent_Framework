@@ -3,6 +3,12 @@
 > **2026-07-10:** which veins get dug, and in what order, is now fixed —
 > see `shovel_plan.md` (four theorems to prove + vacant lots as invitations).
 
+> **2026-07-13 campaign continuation:** the active OML construction frontier
+> is Gate N for the rotating small-piece graph triple, not the earlier
+> proper-interface-twist prompt. Its fixed-column trace is certified; the
+> global decorated-form Dynkin closure is open. See
+> `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
+
 The corpus's open problems are *layered*, not a single vein. Recorded here so the
 next session opens from structure, not re-derivation. Two kinds of completion are
 on offer — **completing the theory** vs **completing the programme** — and which

@@ -8,13 +8,11 @@ The open question is whether a concrete σ-complete orthomodular lattice can car
 
 ## Accepted baseline
 
-The accepted mathematical baseline is commit `dd083e7c2b57166a25379f4f531aa72171a5bcdb`, contained in the former branch tip `0bb63be3a534783923c7c996ac20158c3a77119e`. It includes:
-
-- the zero-sorry Lean certificate for the amended OMP statement;
-- the hand lemma that common embedded Boolean subalgebras jointly generating two Boolean blocks force the blocks to coincide;
-- the fixed-skeleton O2/O3 duplicate-edge reduction to one pullback;
-- the finite four-point transverse controls and central-collapse obstruction for jointly generating endpoint overlaps;
-- explicit separation of hand, Lean, executable, and bounded finite evidence.
+The current direct campaign begins at `609a8da16d0ef031a9e97a231cb17bf175bf7f8c`;
+the continuation baseline and evidence ledger are in `CAMPAIGN_LOG.md`.
+Lean verifies Stone density, blockwise σ-additivity, two-block rescue, and
+the fine-block Dirac/pointed results. The newer coarse, cyclic-coupling, and
+type-partition results are hand proofs at the scopes stated in their notes.
 
 ## Integrated candidate results
 
@@ -39,12 +37,19 @@ Nearby constructions governed by one of these mechanisms should not be repeated 
 
 ## Current open gate
 
-Start from the globally audited five-block `q0` inflation of the 44-event survivor and pursue both lanes:
+Gate N for `oml_rotating_small_piece_candidate.md` is the sole active
+construction gate. The fixed-column six-cell trace has 24 events and passes
+its independently verified finite census, but this says nothing global.
+The first global lemma now shows that full cylinders alone do not restrict a
+persistently splitting graph. Multiple collectors force residual events and
+arbitrary cylinder decorations on their zero-fibre types. The exact missing
+lemma is to classify this decorated finite typed-form algebra under
+complement and countable disjoint union, and decide whether it manufactures
+an uncountable collector restriction or a nonzero unresolved `W` event.
 
-1. Construction: test a proper shared-subalgebra twist, a second inequivalent coarse coordinate, a genuinely cyclic quotient system, or another coupled architecture. Test maximal-block classification and σ-completeness first, then centre, proper-boundary survival, local-state extension, order separation, eligible-slice topology, and finite-trace σ-liftability Φ independently.
-2. Obstruction: isolate the strongest general lemma behind any recurrence of point replacement, common-point extension, compact simultaneous selection, trivial monodromy, or gauge triviality.
-
-Stop each construction at its first indispensable failed gate, but turn the failure into a class-level obstruction whenever possible. Keep all scopes and evidence classes explicit.
+Gates L, M, C, Z, F, and Φ remain open and must not be entered until Gate N
+passes. If decorated-form closure forces a forbidden event, record the
+shortest derivation and extract a graph-restriction obstruction theorem.
 
 ## Primary sources
 
@@ -53,6 +58,8 @@ Stop each construction at its first indispensable failed gate, but turn the fail
 - `notes/open_questions/oml_attack/oml_lattice_taxonomy.json`
 - `notes/open_questions/oml_attack/oml_exhaustive_boundary_survivor.md`
 - `notes/open_questions/oml_attack/oml_arbitrary_base_inflation_review.md`
+- `notes/open_questions/oml_attack/CAMPAIGN_LOG.md`
+- `notes/open_questions/oml_attack/oml_rotating_small_piece_candidate.md`
 - `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`
 - `notes/open_questions/verification/`
 - `formalization/QuerySystem/`

@@ -87,6 +87,18 @@ finite eventwise satisfiability does not even give a section over two whole
 blocks. The abstract implication layer is Lean verified in
 `ODBCSections.lean`.
 
+Campaign 2 defines finite profile cut-saturation and proves it necessary in
+the scoped typed calculus, but refutes its implication to ODBC-S even
+abstractly. Complete Boolean lattice cuts and sigma-state order separation
+do not upgrade finite equations to a whole-boundary lift (`P(N)` control).
+Positive scopes are finite generated boundaries, exact two-block atlases
+with literal trivial centre, and finite fine atlases under T4At. Relative
+closed eligibility plus finite subsystem sections gives a compact-FIP proof
+of a global section, but sigma-state loci are generically nonclosed. Bare
+tree/cycle incidence, surjectivity, Mittag--Leffler, compact fibres, and
+softness yield no further theorem. The next class is a centre-free coarse
+three-block atlas, with singleton, pair, and triple section gates all open.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

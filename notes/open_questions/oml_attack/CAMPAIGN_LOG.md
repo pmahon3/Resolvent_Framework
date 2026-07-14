@@ -987,3 +987,89 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Campaign result:** exact ODBC is complete; ODBC itself remains open.
   Automatic pivot: Campaign 2, beginning with cut-saturation and the
   two-block full-boundary upgrade.
+
+## Linked Campaign 2 — lattice cut-saturation (2026-07-13)
+
+### Iteration 49 — finite profile cut-saturation
+
+- **Definition/result:** PCS and DM-PCS formalize inherited profile intervals;
+  finite DM-PCS is inherited latticehood. Scoped typed concrete latticehood
+  implies DM-PCS by the banked interval theorem. **Evidence class: hand
+  proved.**
+
+### Iteration 50 — bare abstract cut-saturation implication refuted
+
+- **Countermodel:** two eligible fibres demand opposite values of one common
+  witness while the independent event relation is the cut-saturated diagonal
+  two-element lattice. Singleton sections exist; the pair does not.
+  **Evidence class: refuted.** Abstract only; the OML-coupled implication
+  remains open.
+
+### Iteration 51 — complete Boolean cut control
+
+- **Result:** in `P(N)` a nonprincipal ultrafilter is finitely matched by
+  point states but has no whole-boundary sigma lift, despite complete cuts and
+  sigma-state order separation. **Evidence class: hand proved.** Its
+  non-Boolean product control is centrally reducible.
+
+### Iteration 52 — exact two-block positive theorem
+
+- **Theorem:** an OML with exactly two maximal blocks and literal trivial
+  centre has trivial boundaries, hence satisfies finite-interface quarantine,
+  Phi, and ODBC. **Evidence class: hand proved.**
+
+### Iteration 53 — finite-interface graph classes closed
+
+- **Theorem:** finite generated boundaries imply ODBC for arbitrary incidence
+  graphs, including trees, acyclic atlases, cycles and typed overlaps.
+  **Evidence class: hand proved.** The raw-overlap core is Lean verified.
+
+### Iteration 54 — finite-atlas quantifier correction
+
+- **Result:** for a countable full atlas CODBC is tautological because its
+  antecedent includes the full atlas; ODBC-S is already Phi. A proper finite
+  subatlas must retain overlaps with outside blocks. **Evidence class: hand
+  proved.**
+
+### Iteration 55 — tree and cycle induction refuted
+
+- **Result:** graph acyclicity glues independently selected traces, not one
+  global f.a. witness matching whole boundaries. No unconditional coarse
+  tree, acyclic, cycle or finite-typed theorem follows. **Evidence class:
+  refuted.**
+
+### Iteration 56 — relative closed-eligibility compactness
+
+- **Theorem:** closed eligible relations in the compact product of the global
+  f.a. face and block ultrafilter spaces, plus finite subsystem solvability,
+  imply a global section by FIP. Surjectivity is unnecessary. **Evidence
+  class: hand proved.**
+
+### Iteration 57 — generic closedness route refuted
+
+- **Counterexample:** `St_sigma(P(N))=N` is dense nonclosed in `beta N`.
+  Eligible sigma loci therefore need not be compact or closed. **Evidence
+  class: hand proved.**
+
+### Iteration 58 — ML, fibre compactness, and softness audit
+
+- **Result:** Cantor singleton sections `X(J)=C\J` have CSS without GS,
+  nonsurjective restrictions, no Mittag--Leffler stabilization, and only
+  empty/singleton fibres. Flabbiness or softness assumes the missing
+  extension theorem. **Evidence class: hand proved.**
+
+### Iteration 59 — three-block section-gate residue
+
+- **Reduction:** the next full-atlas cardinal after the exact centre-free
+  two-block theorem is a coarse three-block atlas. Singleton, pair, and
+  triple intersection of its eligible common-state loci are separate gates;
+  none is generically proved. **Evidence class: open.**
+
+### Campaign-2 hostile review and verdict
+
+- Hostile review corrected the countable-atlas quantifier, rejected
+  centrality plus order separation for a fixed trace, and found no valid bare
+  tree/cycle induction. These objections are incorporated.
+- **Campaign result:** cut-saturation compactness is refuted abstractly;
+  finite-interface, exact two-block and relative-closedness theorems are
+  banked. Automatic pivot: Campaign 3 minimal countermodel.

@@ -140,6 +140,16 @@ conjunction is GSD/Phi. CODBC alone is not sufficient, a quantifier gap
 found by hostile review. The abstract section implication is Lean verified
 in `ODBCSections.lean`.
 
+Campaign 2 proves that finite profile cut-saturation, though necessary in
+the typed closure calculus, does not imply any common-state Helly property.
+Finite generated boundaries and exact two-block trivial-centre atlases
+satisfy ODBC. A closed-relative-eligibility hypothesis yields global
+compactness by FIP, but `P(N)` refutes that hypothesis generically. Tree and
+cycle incidence, bonding-map surjectivity, Mittag--Leffler stabilization and
+compact fibres provide no unconditional route. The next construction target
+is the centre-free coarse three-block section hierarchy, whose singleton,
+pair, and triple gates are separately open.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — exact ODBC factorization complete: ODBC-S (countable common-witness subsystem sections) plus CODBC (globalization) is GSD/Phi. T4At gives only hereditary local escape; Cantor singleton and club controls refute weaker selection principles.",
+   "status": "OPEN — exact ODBC factorization complete; bare event cut-saturation is refuted as a route to ODBC-S. Positive finite-interface/two-block and closed-eligibility scopes leave the coarse centre-free three-block singleton/pair/triple section hierarchy.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

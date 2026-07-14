@@ -60,9 +60,9 @@ bonding map
 \]
 
 keeps (mu) and forgets the (v_B) with (B\notin J). Hence
-(ho^J_H\rho^K_J=\rho^K_H). A compatible family over a collection
-(mathcal D) of subsystems is a tuple (s_J\in X_p(J)) with
-(ho^K_J(s_K)=s_J) whenever (J\subseteq K) lie in (mathcal D).
+(\rho^J_H\rho^K_J=\rho^K_H). A compatible family over a collection
+\(\mathcal D) of subsystems is a tuple (s_J\in X_p(J)) with
+(\rho^K_J(s_K)=s_J) whenever (J\subseteq K) lie in \(\mathcal D).
 Because restriction keeps (mu), every compatible family uses one common
 global finitely additive state.
 
@@ -174,7 +174,7 @@ for a two-block or countable subsystem.
 
 ## 6. Coarse ODBC
 
-For arbitrary (B), let (mathcal C(B)) be the directed poset of
+For arbitrary (B), let \(\mathcal C(B)) be the directed poset of
 countably generated Boolean sigma-subalgebras (C\subseteq B). For fixed
 (mu), define (Z_{B,C}(p,\mu)) to be the sigma-additive two-valued states
 on (C) agreeing with (mu) on (C\cap\partial B), and charging

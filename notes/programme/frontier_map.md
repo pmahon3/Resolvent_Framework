@@ -24,6 +24,13 @@
 > CODBC (globalization). The compactness clause alone does not imply Phi,
 > because finite event equations do not supply whole-block subsystem
 > sections. See `oml_attack/oml_distributed_boundary_compactness.md`.
+> Campaign 2 refutes bare cut-saturation as the missing bridge:
+> event-profile latticehood has no Helly consequence for eligible state
+> loci. Finite interfaces and exact two-block trivial-centre atlases are
+> positive; closed relative eligibility gives compact FIP but fails
+> generically. The next residue is a coarse centre-free three-block section
+> hierarchy: singleton, pair, then triple. See
+> `oml_attack/oml_cut_saturation_and_odbc.md`.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

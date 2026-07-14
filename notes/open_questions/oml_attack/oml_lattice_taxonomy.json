@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 78,
+   "entries": 79,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -146,6 +146,13 @@
    "status": "open-with-conditional-theorem",
    "one_line": "A finite distributed boundary-defect cover localizes if each sigma-liftable locus is open on the relevant face restriction image; finite/discrete and compact/proper-image cases work, but countable generation alone does not.",
    "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
+  },
+  {
+   "id": "oml.reduction.cut_saturation_odbc",
+   "name": "Cut-saturation and relative-eligibility audit",
+   "status": "mixed-positive-and-refuted",
+   "one_line": "Finite profile cut-saturation is necessary in typed event calculi but does not imply ODBC-S; finite boundaries and exact two-block trivial-centre atlases are tame, while relative closed eligibility gives the strongest generic compactness theorem.",
+   "detail": "oml_cut_saturation_and_odbc.md"
   },
   {
    "id": "oml.reduction.odbc_exact",

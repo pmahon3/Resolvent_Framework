@@ -1,21 +1,26 @@
-# Next campaign handoff — Campaign 2
+# Next campaign handoff — Campaign 3
 
-1. **Attempted:** made ODBC an exact common-witness subsystem-section
-   statement.
-2. **Proved:** `X_p(I)` is exactly GSD; ODBC implies `Phi`; fine atomic and
-   coarse coherent-subalgebra formulations are equivalent to the full one.
-3. **Refuted:** CODBC alone does not imply `Phi`; finite eventwise
-   satisfiability is not a whole-block subsystem section; objectwise
-   nonemptiness is not an inverse-limit family.
-4. **Evidence classes:** theorem-note claims are hand proved;
-   `phi_of_odbc_sections` is Lean verified; ODBC-S and CODBC are open.
-5. **Load-bearing files/commit:**
-   `oml_distributed_boundary_compactness.md`, `ODBCSections.lean`; Campaign-1
-   commit is the immediate parent of Campaign 2.
-6. **Unresolved theorem:** prove both ODBC-S and CODBC for every admissible
-   OML, or realize a failure.
-7. **First action:** define cut-saturation and test the two-block full-boundary
-   upgrade before finite trees/cycles.
-8. **Do not repeat:** local-nonempty-to-global inference; compactness of
-   nonclosed sigma loci; independently chosen subsystem witnesses called
-   compatible; abstract atlas called an OML.
+1. **Attempted:** derive ODBC-S/CODBC from profile cut-saturation, finite
+   incidence shape, inverse-limit surjectivity/ML, and compactness.
+2. **Proved:** finite boundaries imply ODBC; exact two-block trivial-centre
+   atlases imply ODBC; closed relative eligibility plus finite sections
+   globalizes.
+3. **Refuted:** cut-saturation implies state-locus Helly; finite equations
+   imply a whole-boundary lift; bare tree/cycle incidence helps; compact
+   fibres or CSS imply surjectivity/ML.
+4. **Evidence classes:** positive theorem-note claims are hand proved; the
+   abstract cut implication is refuted; the unrestricted relative-closedness
+   route is refuted; the three-block theorem is open.
+5. **Load-bearing files/commits:** `oml_cut_saturation_and_odbc.md` and
+   `oml_distributed_boundary_compactness.md`; Campaign-2 commit is the
+   immediate parent.
+6. **Unresolved theorem:** prove or refute
+   `intersection_B G_B(p) != empty` for every coherent pattern in a
+   centre-free coarse three-block OML; singleton, pair and triple are
+   separate gates.
+7. **First action:** test the hierarchy singleton, pair, triple; realize the
+   first failing relation by Boolean sigma-fields, then transport boundaries
+   noncentrally.
+8. **Do not repeat:** fixed-`mu` finite compactness; tree junction gluing;
+   profile latticehood as state rectangularity; induced subatlases that omit
+   outside-boundary equations; compact-fibre or ML claims without extension.

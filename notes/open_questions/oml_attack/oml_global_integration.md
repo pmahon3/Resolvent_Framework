@@ -47,8 +47,8 @@ Phi is proved under each of:
 5. for every coherent finite pattern, relative closed eligibility plus finite
    subsystem sections.
 
-All five entries are **evidence class: hand proved**, with the raw finite
-overlap core additionally Lean verified.
+All five listed theorem claims are **evidence class: hand proved**. The
+distinct raw finite-overlap sublemma is **evidence class: Lean verified**.
 
 ## 3. Closed construction classes
 
@@ -132,3 +132,8 @@ component, not the full mathematical conjunction ODBC-S plus CODBC:
 applicable ODBC, finite/countable compatible subsystem sections, and GSD.
 They do not assert that fine/coarse regimes exhaust traces or that either
 satisfies ODBC. **Evidence class: Lean verified.**
+
+These Lean theorems fix the input finitely additive state externally. They
+do not formalize the note-level `X_p(J)` quantifier in which a common
+`mu_J` is chosen existentially and may vary with `J`. **Evidence class:
+hand proved** as a declaration-scope audit.

@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — globally integrated: Phi=GSD=ODBC=coarse ODBC. Fine CSR and coarse CIR are nonexhaustive; decisive completion requires failure normalization plus realization-or-mixed-cut-collapse completeness.",
+   "status": "OPEN — hostile audit confirms the scoped chain but no stopping condition. BOC must normalize both countable-subsystem failure and CSS/no-GS; no OML/state-complete candidate exists.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

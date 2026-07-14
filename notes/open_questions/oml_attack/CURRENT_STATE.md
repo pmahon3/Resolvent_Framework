@@ -123,13 +123,19 @@ coarse CIR consequences of OML hypotheses remain open.
 
 Campaign 6 integrates the stable chain:
 `Phi iff GSD iff ODBC iff coarse ODBC`. Fine CSR and coarse
-CIR-plus-same-`mu` envelope solvability are sufficient, nonexhaustive
+CIR-plus-same-`mu` envelope solvability are sufficient and not proved exhaustive
 conditions. No current statement satisfies stopping condition 3:
 normalization of every Phi failure to the nondeterministic transported
 architecture and realization-or-mixed-cut-collapse completeness are both
 open. The combined boundary-obstruction completeness programme is recorded
 in `oml_global_integration.md`. `ODBCRegimes.lean` verifies only the
 conditional regime-packaging implications.
+
+Campaign 7 finds no mathematical retraction but confirms that no
+counterexample gate has passed beyond finite tame controls and that BOC is
+not yet a decisive theorem. The linked chain had 44 meaningful iterations
+before the audit, so the mandatory 60-iteration threshold requires
+continuation.
 
 ## Primary sources
 

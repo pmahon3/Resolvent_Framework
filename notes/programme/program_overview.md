@@ -174,6 +174,12 @@ failure to a transported-boundary presentation and a complete
 realization-or-mixed-cut-collapse theorem. These BOC clauses are open;
 conditional regime packaging is Lean verified in `ODBCRegimes.lean`.
 
+Campaign 7 hostile audit finds no retraction but blocks completion:
+the Lean section system is only abstract fixed-witness packaging; no
+construction passes the OML/state gates; BOC is incomplete without both
+failure modes and an effective branch criterion; and the linked chain had
+only 44 meaningful pre-audit iterations.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

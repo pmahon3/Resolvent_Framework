@@ -1257,3 +1257,50 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - Phi remains open; no complete counterexample or legitimate final decisive
   theorem exists. BOC is the next programme, not a claimed solution.
 - Automatic pivot: Campaign 7 final hostile audit.
+
+## Linked Campaign 7 — hostile audit (2026-07-13)
+
+### Iteration 85 — positive implication audit
+
+- **Verdict:** the hand chain, fine CSR, coarse CIR, and compactness/Baire
+  uses survive at their exact hypotheses. **Evidence class: hand proved.**
+
+### Iteration 86 — Lean quantifier mismatch isolated
+
+- **Result:** the Lean atlas fixes the outer f.a. state, while note-level
+  subsystem sections existentially choose a common `mu_J` that may vary with
+  `J`. Lean verifies only abstract sufficient packaging. **Evidence class:
+  hand proved.**
+
+### Iteration 87 — negative realization audit
+
+- **Verdict:** no abstract, Boolean, finite, or inflated construction passes
+  the admissible OML and state gates. **Evidence class: hand proved.**
+
+### Iteration 88 — two-coordinate status correction
+
+- **Result:** the proposed two-coordinate inflation is unconstructed and has
+  passed zero structural or state gates. **Evidence class: open.**
+
+### Iteration 89 — BOC completeness gap
+
+- **Result:** BOC must cover both a sectionless countable subsystem and
+  CSS-without-GS; its finite-degree standard-Borel normalization may omit
+  coarse/nonstandard failures. **Evidence class: open.**
+
+### Iteration 90 — formal receipt audit
+
+- **Result:** both Lean files compile without sorry/admit; all five axiom
+  receipts reproduce exactly. **Evidence class: Lean verified.**
+
+### Iteration 91 — iteration and stopping audit
+
+- **Result:** Campaigns 1/2/3/4/6 contain 44 meaningful iterations. No
+  stopping condition is met and the 60-iteration requirement prohibits
+  completion. **Evidence class: executable verified.**
+
+### Campaign-7 verdict
+
+- No mathematical retraction is required, but scope and Lean-quantifier
+  repairs were applied. Automatic pivot: Campaign 8 BOC normalization and
+  two-coordinate testing.

@@ -6,12 +6,12 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 7 — final hostile audit.
+- **Active campaign:** Campaign 8 — BOC normalization and two-coordinate test.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
-  specializations; Campaign 6 — global integration. Campaign 5 not entered:
-  no OML candidate survived.
+  specializations; Campaign 6 — global integration; Campaign 7 — hostile
+  audit. Campaign 5 not entered: no OML candidate survived.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -68,9 +68,11 @@
   solvability plus boundary CIR are open as consequences of the admissible
   OML hypotheses.
 - Normalization and realization-or-collapse completeness are both open.
+- Lean section packaging fixes the witness externally and is not a
+  formalization of concrete `X_p(J)`.
 
 ## Next automatic pivot
 
-Run Campaign 7 hostile audit. If it confirms that no stopping condition is
-met, continue the chain on BOC normalization, beginning with the
-two-coordinate 44-event inflation rather than declaring completion.
+Continue BOC normalization and the two-coordinate 44-event test. At least
+nine further meaningful iterations are required to reach the mandatory 60;
+no stopping condition is currently met.

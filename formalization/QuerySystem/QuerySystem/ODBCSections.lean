@@ -13,8 +13,9 @@ universe u v
 namespace SigmaEssential.Blocks
 
 /-- Local eligible-lift spaces together with their pairwise boundary
-compatibility relation.  In an OML application `I` indexes block subsystems
-and `X i` is the eligible local sigma-lift space at `i`. -/
+compatibility relation. In an OML application `I` indexes local coordinates;
+a set `J : Set I` indexes a subsystem. This abstract type does not encode the
+note-level existentially varying common witness `mu_J`. -/
 structure SectionSystem where
   I : Type u
   X : I → Type v

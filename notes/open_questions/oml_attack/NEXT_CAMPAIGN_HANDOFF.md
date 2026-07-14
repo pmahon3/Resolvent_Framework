@@ -1,19 +1,20 @@
-# Next campaign handoff — Campaign 7
+# Next campaign handoff — Campaign 8
 
-1. **Attempted:** global integration and final bifurcation theorem.
-2. **Proved:** exact implication graph and stable positive regions; Lean
-   conditional regime packaging.
-3. **Refuted:** ODBC/coarse ODBC as non-tautological final residues. Fine CSR,
-   coarse CIR, and current realization are not established as exhaustive.
-4. **Evidence classes:** implication graph is hand proved; regime packaging
-   is Lean verified; BOC normalization and realization/collapse are open.
-5. **Load-bearing files/commits:** `oml_global_integration.md`,
-   `ODBCRegimes.lean`; Campaign-6 commit is parent.
-6. **Unresolved theorem:** BOC = normalization of both countable-subsystem
-   failure and CSS/no-GS, plus realization-or-collapse completeness and an
-   effective exclusive branch criterion.
-7. **First action:** hostile audit every arrow, countability use, state
-   separation claim, realization gate, and stopping-condition assertion.
-8. **Do not repeat:** call ODBC a reduction strictly weaker than Phi; call
-   fine/coarse sufficient conditions exhaustive; infer counterexample from
-   abstract CSR/CIR failure; stop under condition 3 without normalization.
+1. **Attempted:** final hostile audit of positive, negative, Lean, repository,
+   evidence, and stopping claims.
+2. **Proved:** scoped implication chain survives; Lean receipts reproduce.
+3. **Refuted:** concrete ODBC formalization in current Lean packaging; any
+   claim that a negative candidate has passed OML/state gates.
+4. **Evidence classes:** positive/negative scope audits are hand proved;
+   Lean receipts are Lean verified; BOC and two-coordinate candidate are open.
+5. **Load-bearing files/commits:** `FINAL_HOSTILE_AUDIT.md`,
+   `oml_global_integration.md`, Campaign-6 commit `0b1b385`; Campaign-7
+   boundary commit is the immediate parent.
+6. **Unresolved theorem:** BOC normalization for N-S and N-G plus exact
+   realization/collapse branch criterion.
+7. **First action:** specify two distinct selector intervals in the 44-event
+   survivor and determine whether their arbitrary-base simultaneous
+   inflation is even faithfully defined.
+8. **Do not repeat:** claim 60 iterations before nine more genuine results;
+   call the two-coordinate inflation constructed; promote abstract Lean
+   packaging to concrete ODBC.

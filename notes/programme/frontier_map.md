@@ -49,6 +49,10 @@
 > boundary-obstruction completeness: normalize every failure, then prove
 > faithful realization or a class-level mixed-cut collapse. See
 > `oml_attack/oml_global_integration.md`.
+> Campaign 7 hostile audit confirms the chain at stated scopes but finds no
+> stopping condition. Lean section packaging is abstract fixed-witness
+> logic, no negative construction passes OML/state gates, and BOC must cover
+> both countable-subsystem failure and CSS/no-GS.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

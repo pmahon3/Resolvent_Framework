@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — exact ODBC factorization complete; bare event cut-saturation is refuted as a route to ODBC-S. Positive finite-interface/two-block and closed-eligibility scopes leave the coarse centre-free three-block singleton/pair/triple section hierarchy.",
+   "status": "OPEN — Cantor CSS-without-GS and Borel local relations are exact; OML realization is narrowed to nondeterministic nonclosed correspondences with proper coordinate subalgebras after puncture, invertible-transport, and repeated-selector no-gos.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

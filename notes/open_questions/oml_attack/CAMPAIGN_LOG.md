@@ -1073,3 +1073,74 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Campaign result:** cut-saturation compactness is refuted abstractly;
   finite-interface, exact two-block and relative-closedness theorems are
   banked. Automatic pivot: Campaign 3 minimal countermodel.
+
+## Linked Campaign 3 — minimal ODBC countermodel (2026-07-13)
+
+### Iteration 60 — compact CSS-without-GS system
+
+- **Construction:** `C=2^N`, `I=C`, and `X(J)=C\J`. Every countable
+  subsystem has continuum many sections and the global system has none.
+  **Evidence class: hand proved.**
+
+### Iteration 61 — hereditary finite-coordinate escape
+
+- **Theorem:** every nonempty finite-coordinate Cantor cylinder retains
+  continuum many witnesses after deletion of any countable constraint set.
+  **Evidence class: hand proved.**
+
+### Iteration 62 — cardinal and finite-gate controls
+
+- **Result:** singleton-cover CSS failure requires uncountably many indices;
+  `aleph_1` is abstractly sufficient, while the Cantor version supplies the
+  compact homogeneous refinement property. Singleton, pair, and conditional
+  Helly-3 controls are explicit. **Evidence class: hand proved.**
+
+### Iteration 63 — standard-Borel relation realization
+
+- **Theorem:** for `B_R=Borel(R)` with coordinate clopen boundaries, the
+  sigma-state trace relation is `R` and the f.a. trace relation is
+  `closure(R)`. **Evidence class: hand proved.**
+
+### Iteration 64 — singleton-exposure obstruction
+
+- **Theorem:** a countably generated point-separating sigma-field contains
+  every singleton, so restriction after deleting one point is noninjective.
+  The singleton trap cannot be an overlap of that kind. **Evidence class:
+  hand proved.**
+
+### Iteration 65 — invertible transport identifies boundary ranges
+
+- **Theorem:** a homeomorphic deterministic transport embeds its two clopen
+  boundaries with the same range; a coherent connected cocycle network
+  recreates one common boundary. **Evidence class: hand proved.**
+
+### Iteration 66 — repeated-selector obstruction
+
+- **Theorem:** blocks containing the same `e,f` contain the same intrinsic
+  four-region Boolean subalgebra, so repeated selector containment cannot
+  create inequivalent quotient edges or monodromy. **Evidence class: hand
+  proved.**
+
+### Iteration 67 — lattice completion comparison
+
+- **Result:** raw crossed three-block unions fail closure; the 56-event
+  completion saturates boundaries, but the 44-event centre-free OML retains
+  a proper boundary and refutes universal completion-saturation. Its
+  one-coordinate inflation is Phi-tame. **Evidence classes:** finite gates
+  are exhaustive finite evidence; arbitrary-base tameness is hand proved.
+
+### Iteration 68 — nondeterministic realization residue
+
+- **Reduction:** a viable trap must use nonclosed nondeterministic
+  correspondences with proper coordinate subalgebras and survive mixed OML
+  completion. The first concrete test is a two-coordinate inflation in the
+  44-event survivor. **Evidence class: open.**
+
+### Campaign-3 verdict
+
+- The compact-ambient abstract countermodel and local Boolean relations are
+  complete; the eligible subsystem spaces are noncompact.
+  Common-boundary, invertible-copy, repeated-selector, and raw-union routes
+  fail exact gates. No admissible OML counterexample exists yet.
+- Automatic pivot: Campaign 4 fine/coarse specializations, using the
+  nondeterministic realization theorem as the persistent adversary.

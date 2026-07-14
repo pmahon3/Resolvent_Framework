@@ -31,6 +31,12 @@
 > generically. The next residue is a coarse centre-free three-block section
 > hierarchy: singleton, pair, then triple. See
 > `oml_attack/oml_cut_saturation_and_odbc.md`.
+> Campaign 3 completes the abstract countermodel and its local Boolean
+> realization. The new exact gates are singleton exposure for countably
+> generated sigma-boundaries, common-range collapse for invertible
+> transports, and repeated-selector invariance. The 44-event survivor
+> prevents promoting boundary saturation to a universal completion theorem.
+> See `oml_attack/oml_minimal_distributed_countermodel.md`.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

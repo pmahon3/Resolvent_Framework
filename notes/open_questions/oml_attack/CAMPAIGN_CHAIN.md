@@ -6,9 +6,10 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 3 — minimal ODBC countermodel.
+- **Active campaign:** Campaign 4 — fine and coarse ODBC specializations.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
-  — cut-saturation and inverse-limit audit.
+  — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
+  countermodel and realization gates.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -24,6 +25,9 @@
 | relative closed eligibility plus finite sections implies a global section | hand proved | proved |
 | bare abstract profile cut-saturation implies ODBC-S | refuted | refuted |
 | OML-coupled cut-saturation implies ODBC-S | open | open |
+| standard-Borel relation traces are `R` for sigma states and `closure(R)` for f.a. states | hand proved | proved |
+| countably generated separating sigma-boundaries support puncture embeddings | refuted | refuted |
+| invertible deterministic transport removes common boundary | refuted | refuted |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
 
@@ -35,6 +39,8 @@
 | club-field local lifts | coarse incoherent control; no compatible coarse lift |
 | actual admissible OML failure of ODBC | none |
 | abstract two-fibre cut-saturated Helly-2 failure | abstract only; not an OML |
+| Cantor singleton CSS-without-GS model | complete compact-ambient abstract relational countermodel; eligible spaces noncompact |
+| standard-Borel local realization | complete locally; OML transport gates fail |
 
 ## Unresolved assumptions
 
@@ -48,10 +54,13 @@
   common-state loci.
 - Relative closedness of eligibility fails for `P(N)` and is open on the
   attainable traces of centre-free OMLs.
+- Genuine transport must use nondeterministic nonclosed correspondences with
+  proper coordinate subalgebras.
 
 ## Next automatic pivot
 
-Test the three-block section hierarchy in order: singleton, pair, then
-triple. At the first abstract failure, realize the fibres by Boolean
-sigma-fields, transport boundaries noncentrally, and audit mixed lattice
-cuts. Preserve `P(N)` as the finite-equation control.
+Run fine and coarse specializations against the exact realization theorem.
+Fine: use singleton exposure to test whether OML boundaries force countable
+support. Coarse: test coherent envelopes and nonclosed nondeterministic
+correspondences. In parallel, use the 44-event two-coordinate inflation as
+the sharp realization adversary.

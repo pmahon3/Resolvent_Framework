@@ -99,6 +99,18 @@ tree/cycle incidence, surjectivity, Mittag--Leffler, compact fibres, and
 softness yield no further theorem. The next class is a centre-free coarse
 three-block atlas, with singleton, pair, and triple section gates all open.
 
+Campaign 3 completes the compact-ambient abstract countermodel: on Cantor space,
+`X(J)=C\J` has sections on every countable subsystem and none globally,
+hereditarily on finite-coordinate refinements. Standard-Borel relations
+`R` have exact Boolean realization with sigma trace `R` and f.a. trace
+`closure(R)`; the eligible spaces are noncompact. Realization fails at three precise mechanisms: an injective
+countably generated separating sigma-boundary cannot omit one point;
+invertible deterministic transport identifies the boundary ranges; repeated
+selector pairs define the same intrinsic subalgebra. The 44-event OML
+refutes a universal completion-saturation theorem. The live realization
+theorem therefore requires nondeterministic nonclosed correspondences with
+proper coordinate subalgebras, or a proof that OML mixed cuts collapse them.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

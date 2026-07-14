@@ -150,6 +150,15 @@ compact fibres provide no unconditional route. The next construction target
 is the centre-free coarse three-block section hierarchy, whose singleton,
 pair, and triple gates are separately open.
 
+Campaign 3 constructs the exact Cantor CSS-without-GS system and proves the
+standard-Borel relation realization formula `T_sigma=R`,
+`T_fa=closure(R)`. Countably generated separating sigma-boundaries expose
+the omitted singleton, invertible transports identify boundary ranges, and
+repeated selector pairs cannot generate inequivalent embedded interfaces.
+The live architecture is narrowed to nondeterministic nonclosed
+correspondences with proper coordinate subalgebras; the 44-event survivor is
+the lattice-completion control.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

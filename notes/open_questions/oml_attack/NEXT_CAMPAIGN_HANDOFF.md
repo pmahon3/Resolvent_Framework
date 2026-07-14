@@ -1,26 +1,23 @@
-# Next campaign handoff — Campaign 3
+# Next campaign handoff — Campaign 4
 
-1. **Attempted:** derive ODBC-S/CODBC from profile cut-saturation, finite
-   incidence shape, inverse-limit surjectivity/ML, and compactness.
-2. **Proved:** finite boundaries imply ODBC; exact two-block trivial-centre
-   atlases imply ODBC; closed relative eligibility plus finite sections
-   globalizes.
-3. **Refuted:** cut-saturation implies state-locus Helly; finite equations
-   imply a whole-boundary lift; bare tree/cycle incidence helps; compact
-   fibres or CSS imply surjectivity/ML.
-4. **Evidence classes:** positive theorem-note claims are hand proved; the
-   abstract cut implication is refuted; the unrestricted relative-closedness
-   route is refuted; the three-block theorem is open.
-5. **Load-bearing files/commits:** `oml_cut_saturation_and_odbc.md` and
-   `oml_distributed_boundary_compactness.md`; Campaign-2 commit is the
-   immediate parent.
-6. **Unresolved theorem:** prove or refute
-   `intersection_B G_B(p) != empty` for every coherent pattern in a
-   centre-free coarse three-block OML; singleton, pair and triple are
-   separate gates.
-7. **First action:** test the hierarchy singleton, pair, triple; realize the
-   first failing relation by Boolean sigma-fields, then transport boundaries
-   noncentrally.
-8. **Do not repeat:** fixed-`mu` finite compactness; tree junction gluing;
-   profile latticehood as state rectangularity; induced subatlases that omit
-   outside-boundary equations; compact-fibre or ML claims without extension.
+1. **Attempted:** compact relational construction, Boolean realization,
+   noncentral transport, and lattice completion.
+2. **Proved:** Cantor singleton gives CSS without GS and hereditary escape;
+   `Borel(R)` realizes sigma relation `R` and f.a. relation `closure(R)`;
+   countably generated separating sigma-boundaries expose omitted points;
+   repeated selectors and invertible transports cannot create monodromy.
+3. **Refuted:** common-boundary, invertible cocycle-copy, and raw crossed
+   three-block realizations; general completion-forces-saturation is also
+   refuted by the 44-event OML.
+4. **Evidence classes:** relational and realization lemmas are hand proved;
+   44/56 finite gates are exhaustive finite evidence; arbitrary-base
+   one-coordinate tameness is hand proved; OML counterexample is open.
+5. **Load-bearing files/commits:** `oml_minimal_distributed_countermodel.md`,
+   `oml_cut_saturation_and_odbc.md`; Campaign-3 commit is the parent.
+6. **Unresolved theorem:** nondeterministic transported-boundary realization
+   with nonclosed correspondences and proper coordinate subalgebras.
+7. **First action:** fine lane—apply singleton exposure to maximal-block
+   boundaries; coarse lane—analyze coherent countably generated envelopes.
+8. **Do not repeat:** common full boundaries; invertible deterministic
+   transport; repeated selector pairs; one common fibre coordinate; raw
+   crossed union without closure.

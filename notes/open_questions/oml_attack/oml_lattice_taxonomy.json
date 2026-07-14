@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Attack Gate N (closure normal form) of the rotating small-piece candidate against its fixed specification; convert any failure into the next obstruction theorem. Fodor/regressive rigidity is the backup coarse-side direction."
+   "current_next_step": "Attack the global part of Gate N for the rotating small-piece candidate: derive a support/trace normal form across columns and test countable disjoint unions, cylinders, and graph collectors. The fixed-column six-cell trace passed an exhaustive bounded census, but Gate N remains open. Convert any global failure into the next obstruction theorem; Fodor/regressive rigidity is the backup coarse-side direction."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

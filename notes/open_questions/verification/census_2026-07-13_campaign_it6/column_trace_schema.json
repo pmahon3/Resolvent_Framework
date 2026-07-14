@@ -1,0 +1,53 @@
+{
+ "closure": [
+  "Vi,R",
+  "Vj,R",
+  "W,Vi",
+  "W,Vi,Vj,R",
+  "W,Vj",
+  "empty",
+  "g",
+  "g,Vi,R",
+  "g,Vj,R",
+  "g,W,Vi",
+  "g,W,Vi,Vj,R",
+  "g,W,Vj",
+  "g,h",
+  "g,h,Vi,R",
+  "g,h,Vj,R",
+  "g,h,W,Vi",
+  "g,h,W,Vi,Vj,R",
+  "g,h,W,Vj",
+  "h",
+  "h,Vi,R",
+  "h,Vj,R",
+  "h,W,Vi",
+  "h,W,Vi,Vj,R",
+  "h,W,Vj"
+ ],
+ "closure_size": 24,
+ "generators": [
+  "g",
+  "g,W,Vi",
+  "g,h",
+  "h",
+  "h,W,Vj"
+ ],
+ "isolated_cells": [
+  "g",
+  "h"
+ ],
+ "nonempty_below_W": [],
+ "nonempty_below_rij": [],
+ "rij_equals_W": true,
+ "rij_in_closure": false,
+ "rk_splits": true,
+ "universe_cells": [
+  "g",
+  "h",
+  "W",
+  "Vi",
+  "Vj",
+  "R"
+ ]
+}

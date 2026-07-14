@@ -4,9 +4,13 @@
 and corollary are elementary and self-contained over the σ-class axioms;
 the club-field classification uses Ulam's theorem (ZFC; no σ-complete
 free ultrafilter on a set of size ℵ₁ — Ulam 1930, via the Ulam matrix).
-No finite oracle applies. Adversarial review owed at the next
-checkpoint. Provenance: mined from three failed coarse-trap designs
-(§4), per the campaign's failure-mining mandate.*
+No finite oracle applies to the theorems. Fresh-context adversarial
+review CLEARED 2026-07-13 (campaign iteration 6): Theorem 1 SOUND (no
+countermodel within the hypotheses), Corollary 2 sound after the
+atom-covering repair (✎ review s-it6 in the proof), Proposition 3 sound
+with the successor-ordinal example inserted; design 3's death DOWNGRADED
+to plausibility-grade (see §4). Provenance: mined from three failed
+coarse-trap designs (§4), per the campaign's failure-mining mandate.*
 
 ## 1. What this closes
 
@@ -52,7 +56,8 @@ orthogonal, their disjoint union is in L, and additivity yields value
 
 **Corollary 2 (uniform pairwise-disjointness σ-kills are self-defeating).**
 Let B ⊆ L be a Boolean σ-subfield lying in a block, K ∈ B, and let the
-trace of B on K be atomic with atom family {A_m}_{m∈M}. Let
+trace of B on K be atomic, with {A_m}_{m∈M} the family of **all** its
+atoms. Let
 Σ_1, …, Σ_k ∈ L each be compatible with every element of B, and suppose
 the intended σ-kill holds: for every m ∈ M some pair i ≠ j has
 Σ_i ∩ Σ_j ∩ A_m = ∅. If the type cells
@@ -69,10 +74,18 @@ with the cells {T_{ij}}, and no two-valued f.a. state charges
 {K, Σ_1, …, Σ_k}: **the pattern that was to exhibit ¬Φ is not even
 finitely coherent.**
 
-*Proof.* The finitely many T_{ij} are pairwise disjoint B-events with
-union K, each compatible with each Σ (compatibility with all of B is
-hypothesized), and Σ_i ∩ Σ_j ∩ T_{ij} = ⋃_m (Σ_i ∩ Σ_j ∩ A_m) = ∅ over
-the type's atoms. Theorem 1 finishes. ∎
+*Proof.* The finitely many T_{ij} are pairwise disjoint B-events, each
+compatible with each Σ (compatibility with all of B is hypothesized),
+and Σ_i ∩ Σ_j ∩ T_{ij} = ⋃_m (Σ_i ∩ Σ_j ∩ A_m) = ∅ over the type's
+atoms. Their union covers K: under either hypothesis ⋃_m A_m ∈ B
+(countable union in a σ-field, resp. local fullness), so the residual
+K ∖ ⋃_m A_m ∈ B; it dominates no atom (the family lists all of them),
+hence is 0 by atomicity — ✎ review s-it6: atomicity alone does NOT give
+covering (on ω₁+1 the countable/co-countable-with-∞ field is atomic
+with the singletons below ω₁ as atoms, whose union omits ∞); the
+covering is exactly what the countability/local-fullness hypotheses
+buy. Adjoin the residual cell to any T_{ij} if nonzero — it is zero, so
+K = ⊍ T_{ij}. Theorem 1 finishes. ∎
 
 **Reading.** The asymmetry a witness needs — σ-additive states die,
 some finitely additive state survives — can never be produced by
@@ -105,7 +118,11 @@ complement is neither a countable nor a co-countable union of atoms).
 
 *Proof.* ν_club is a state by the dichotomy defining 𝒜_club, and
 σ-additive since the club filter is countably closed (value-1 class
-closed under countable intersections). Conversely let ν be σ-additive,
+closed under countable intersections). A witness to the
+not-countable-type claim exists in ZFC: the set of successor ordinals
+is uncountable, nonstationary (misses the club of limits), and has
+uncountable complement (✎ review s-it6: example inserted). Conversely
+let ν be σ-additive,
 two-valued, non-Dirac. If ν charged a countable set, σ-additivity over
 its singletons would make ν Dirac; so ν kills countable sets. If ν
 charged an uncountable nonstationary E₀: every subset of E₀ is
@@ -156,13 +173,22 @@ pairwise disjointness at eligible columns.
    contains every sub-union, hence the type cells. Dead by Corollary 2.
 3. **ω₁-many coarse chunks** (B of countable type over uncountably many
    chunk-atoms, type cells invisible in B): the diffuse state ν_∞ of the
-   chunk field remains an eligible σ-lift — by the splitting-freeness
-   Lemma A of
-   [`oml_cyclic_order_coupling.md`](oml_cyclic_order_coupling.md) each
-   Σ_i is σ-value-free over the co-chunk-countable base — so there is no
-   σ-kill at all without a ν_∞-exclusion event, and any such exclusion
-   is a countable chunk-union, i.e. design 2 one level up. Dead by
-   recursion into Corollary 2.
+   chunk field plausibly remains an eligible σ-lift — per-event, each
+   Σ_i is σ-value-free over the co-chunk-countable base by the
+   splitting-freeness Lemma A of
+   [`oml_cyclic_order_coupling.md`](oml_cyclic_order_coupling.md) — so
+   a σ-kill would need a ν_∞-exclusion event, and any such exclusion is
+   a countable chunk-union, i.e. design 2 one level up. ✎ review s-it6:
+   this death is **plausibility-grade, not hand-proved** — three
+   design-specific checks are unrecorded (persistent splitting of every
+   co-countable chunk union by each Σ_i on the actual carrier; JOINT
+   σ-consistency of all pattern values over ν_∞, which per-event
+   freeness does not supply — Corollary A1's own iteration stops at
+   two events; and the bridge from a σ-state on the generated Boolean
+   field to a global σ-state on L). If one of these fails, design 3 is
+   not dead but a live trap shape — which is precisely the design
+   family the rotating small-piece candidate
+   (`oml_rotating_small_piece_candidate.md`) grew out of.
 
 The recursion in design 3 is general: over hereditarily countable-type
 bases a finite pattern can force only finitely many diffuse-state
@@ -190,5 +216,6 @@ patterns cannot bottom out coarse towers by disjointness.
 |---|---|
 | Theorem 1, Corollary 2 | hand proved (self-contained, σ-class axioms + banked monotonicity) |
 | Proposition 3 + defect anatomy | hand proved (uses Ulam 1930, ZFC) |
-| §4 design deaths | hand, instances of Corollary 2 (design 3 via Lemma A of the cyclic note) |
+| §4 designs 1–2 deaths | hand, instances of Corollary 2 |
+| §4 design 3 death | plausibility-grade (three unrecorded checks; ✎ review s-it6 downgrade) |
 | §4 "recursion" reading; §5(2) Fodor direction | strategic readings, not theorems |

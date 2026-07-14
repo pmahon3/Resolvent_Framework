@@ -6,8 +6,10 @@ passed. ⟦HAND — design-level; the kill and escape arguments below are
 proved conditional on the closure normal form (Gate N), which is open.⟧
 This is the first architecture in the campaign that survives, by
 construction, every banked obstruction currently on the books; it is
-therefore the priority construction target. Adversarial design review
-owed before any gate work.*
+therefore the priority construction target. Iteration 6's bounded
+column-trace census passes the local six-cell closure check, but does
+not address global closure coincidences; adversarial review of the
+global design remains owed.*
 
 ## 1. Why this candidate exists
 
@@ -122,6 +124,12 @@ other meets to be audited in the normal form.
   graph restrictions). THE critical gate; everything above is
   conditional on it. Failure mode to watch: closure coincidences
   manufacturing forbidden events from complements of countable ⊍'s.
+  **Bounded subcheck passed (iteration 6):** the exhaustive six-cell
+  trace at one fixed type-k column has 24 events, contains no nonzero
+  event below W, omits r_i ∩ r_j = W, isolates exactly g and h, and
+  splits r_k. Producer, certificate, and independent verifier are in
+  `../verification/census_2026-07-13_campaign_it6/`. This is finite
+  column-local evidence only; it does not establish Gate N.
 - **Gate L (latticehood/OML):** meets exist for every pair in the
   normal form; expected: designed meets G_mn, poor pairs elsewhere,
   orthomodularity automatic (σ-class + lattice).
@@ -164,6 +172,7 @@ session can attack Gate N directly against a fixed specification.
 | Item | Class |
 |---|---|
 | σ-kill argument | hand, conditional on Gate N (events + compatibilities as specified) |
+| fixed-column six-cell closure | exhaustive executable certificate + independent verifier; column-local only |
 | threat-model threading | design analysis over banked theorems, not a proof of viability |
 | Gates N, L, M, C, Z, F | open |
 | Ulam's theorem usage | cited (ZFC, Ulam 1930) |

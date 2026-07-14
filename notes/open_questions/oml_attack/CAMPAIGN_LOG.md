@@ -322,3 +322,34 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   campaign's Lane B pattern.
 - **Next lemma-sized task:** Gate N — exhibit the ⊍/c-closure normal
   form and verify the §2 exclusions survive closure.
+
+### Iteration 6 (2026-07-13) — obstruction review repaired; local column trace certified
+
+- **Questions tested:** does the type-partition obstruction survive a
+  fresh hostile reading, and does the rotating candidate's fixed
+  six-cell column trace already manufacture its forbidden W-event?
+- **Review result:** Theorem 1 remains sound. Corollary 2 now states
+  that its listed atoms are all atoms and proves their cover using its
+  countability/local-fullness hypotheses; atomicity alone would not
+  suffice. Proposition 3 now includes the successor ordinals as an
+  explicit ZFC witness. The claimed death of coarse design 3 was
+  downgraded to plausibility-grade because persistent splitting, joint
+  σ-consistency, and global extension were not established.
+- **Executable result:** the producer
+  `verification/census_2026-07-13_campaign_it6/column_trace_audit.py`
+  exhausts the 64 subsets of the six fibre cells. Its generated
+  24-event certificate is independently recomputed by
+  `verify_column_trace.py`. No nonzero trace event lies below W,
+  r_i ∩ r_j = W is absent, exactly g and h are isolated, and
+  r_k = {g} ⊍ {h} is present.
+- **Evidence boundary:** this passes only the fixed-column finite
+  subcheck. It does not control coincidences involving multiple
+  columns, uncountable cylinders, graph collectors, or countable
+  disjoint unions, and therefore does not pass Gate N.
+- **Strategic update:** retain the rotating candidate, but attack the
+  global normal form next. Design 3 remains live unless one of its
+  three missing extension checks is settled.
+- **Next lemma-sized task:** derive a global support/trace normal form
+  for generated events and decide whether countable disjoint unions or
+  complements force W-regions, pairwise intersections, or uncountable
+  restrictions of a meet collector.

@@ -6,7 +6,7 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 12 — three-cell quotient-star test.
+- **Active campaign:** Campaign 13 — omega-one hub transport and sigma-completion.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -14,7 +14,8 @@
   audit; Campaign 8 — BOC normalization and finite two-coordinate test;
   Campaign 9 — arbitrary-base orthogonal-atom reduction; Campaign 10 —
   non-atomic pair, mixed-cut completion, and diagonal control; Campaign 11 —
-  punctured-Cantor hub and shared-boundary obstruction.
+  punctured-Cantor hub and shared-boundary obstruction; Campaign 12 —
+  countable-boundary extension and omega-one cylinder escape.
   Campaign 5 finite audit was entered for the two-coordinate approximants;
   they passed structural gates and were Phi-tame.
 - **Global stopping status:** not reached.
@@ -58,6 +59,10 @@
 | shared countably generated puncture hub | hand proved | impossible in concrete sigma-complete OML |
 | L-relative full-block inverse-limit theorem | hand proved | proved |
 | MBRC transfer to Phi failure | hand proved | proved conditionally |
+| countably generated boundary sigma-state extension | hand proved | proved |
+| omega-one cylinder CSS/no-GS Boolean atlas | hand proved in ZFC | exact central atlas realization |
+| state-coordinate rigidity on compatible faces | hand proved | proved |
+| incompatible finite activation need not be an event | hand proved | proved |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
 
@@ -76,6 +81,7 @@
 | non-atomic independent completion | finite centre-free nine-block OML; unrestricted relation rectangular; Phi-tame |
 | non-atomic diagonal completion | finite centre-free nine-block OML; conditional diagonal survives; Phi-tame |
 | punctured-Cantor shared hub | exact local Boolean cells; two-cell countable-meet contradiction blocks OML paste |
+| omega-one cylinder common hub | exact Boolean CSS/no-GS with fa section; raw/finite algebraic closure central; sigma-completion open |
 
 ## Unresolved assumptions
 
@@ -107,11 +113,12 @@
   remain open.
 - Distributed nonseparating quotient copies and uncountably generated
   separating boundaries without a countable puncture basis remain open.
+- Sigma-completion may de-centralize a common omega-one boundary; no
+  lattice, maximal-block, MBRC, or order-separation theorem is known.
 
 ## Next automatic pivot
 
-Construct the smallest three-cell star using conditional diagonal cells on
-distinct nonseparating quotient supports. Canonically complete it and audit
-new cuts, maximal blocks, centre, and the charged three-coordinate relation.
-If pairwise coherence reconstructs a shared countable shrinking basis,
-extract the corresponding class theorem.
+Transport the omega-one coordinate boundary through incompatible conditional
+cells, or construct an explicit sigma-completion of its common-boundary
+algebraic paste. Prove whether new countable joins de-centralize the hub while
+preserving CSS/no-GS, MBRC, sigma-completeness, and order separation.

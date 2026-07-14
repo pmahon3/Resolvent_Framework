@@ -73,6 +73,11 @@
 > MBRC is now stated over L-relative states on the full maximal-block atlas.
 > The next finite control is a three-cell star on distinct nonseparating
 > quotient supports.
+> Campaign 12 proves countably generated boundaries cannot delete hub
+> sigma-states, but constructs an exact ZFC Boolean CSS/no-GS atlas on the
+> uncountably generated `2^{omega1}` cylinder boundary. Its raw algebraic
+> closure centralizes; sigma-completion/conditional transport is the active
+> admissibility gate.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

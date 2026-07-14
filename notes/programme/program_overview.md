@@ -212,6 +212,14 @@ sigma-additivity because maximal blocks need not be sigma-complete. The live
 assembly routes are distributed nonseparating quotient copies or a genuinely
 uncountably generated separating boundary.
 
+Campaign 12 realizes that second escape at Boolean-atlas level. The
+`2^{omega1}` countable-support cylinder sigma-algebra embeds faithfully into
+every puncture powerset; the missing evaluation has an fa but no sigma
+extension by Ulam's theorem. Countably generated faithful boundaries cannot
+do this at all. The common boundary is central under finite algebraic closure;
+whether sigma-completion or incompatible conditional transport can
+de-centralize it while preserving MBRC is open.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

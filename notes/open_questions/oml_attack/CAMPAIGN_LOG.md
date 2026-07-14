@@ -1623,3 +1623,83 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - The exact dense-edge star and local cells exist, but the shared faithful
   countably generated hub is impossible already at two cells. Automatic
   pivot: Campaign 12 three-cell distributed-quotient completion test.
+
+## Linked Campaign 12 — quotient rigidity and omega-one escape (2026-07-14)
+
+### Iteration 137 — state-coordinate rigidity
+
+- **Theorem:** order-separating sigma-states identify events with identical
+  state values; conditional equality on a compatible face identifies the
+  corresponding lattice cuts. **Evidence class: hand proved.**
+
+### Iteration 138 — three-cell compatible-face collapse
+
+- **Theorem:** faithful conditionally equal hub embeddings reconstruct one
+  common cut on any compatible activation face. **Evidence class: hand
+  proved.**
+
+### Iteration 139 — incompatible activation control
+
+- **Construction:** the centre-free horizontal sum `H4` has an incompatible
+  three-event activation cylinder with two states and no representing event.
+  **Evidence class: hand proved.**
+
+### Iteration 140 — triple diagonal theorem
+
+- **Theorem:** on already-global simultaneously activated states, pairwise
+  diagonal constraints force relation `{000,111}`; this does not imply
+  gluing or MBRC. **Evidence class: hand proved.**
+
+### Iteration 141 — countably generated extension theorem
+
+- **Theorem:** every sigma-state of a faithfully sigma-embedded countably
+  generated Boolean boundary extends to an order-separated sigma-complete
+  OML. **Evidence class: hand proved.**
+
+### Iteration 142 — countable quotient-cover obstruction
+
+- **Theorem:** countably many countably generated Borel quotients that jointly
+  separate a standard Borel hub generate its full Borel algebra and expose
+  singletons. **Evidence class: hand proved.**
+
+### Iteration 143 — omega-one cylinder boundary
+
+- **Construction:** the product sigma-algebra on `2^{omega1}` consists of
+  countable-support events and has only point-evaluation sigma-states.
+  **Evidence class: hand proved.**
+
+### Iteration 144 — faithful puncture embeddings
+
+- **Theorem:** restriction to `P(H\{i})` is an injective sigma-homomorphism,
+  since no nonempty countable-support event is a singleton. **Evidence class:
+  hand proved.**
+
+### Iteration 145 — fa extension at the missing point
+
+- **Theorem:** the trace filter of evaluation at `i` is proper and extends to
+  a finitely additive ultrafilter on the puncture powerset. **Evidence class:
+  hand proved using the Boolean ultrafilter lemma.**
+
+### Iteration 146 — Ulam sigma-extension obstruction
+
+- **Theorem:** a sigma extension pushes forward under least difference to a
+  nonprincipal countably complete ultrafilter on `omega1`, impossible in ZFC.
+  **Evidence class: hand proved using recorded Ulam theorem.**
+
+### Iteration 147 — exact Boolean CSS/no-GS atlas
+
+- **Result:** every countable puncture subatlas has a common point section,
+  the full atlas has none, and compatible fa tuples exist. **Evidence class:
+  hand proved.** This is not an OML state construction.
+
+### Iteration 148 — centrality scope repair
+
+- **Review:** common boundary is central only in the raw and finite algebraic
+  closures; arbitrary sigma-completion may de-centralize it and remains open.
+  **Evidence class: hand-audited.**
+
+### Campaign-12 verdict
+
+- The countably generated quotient route is closed. The omega-one cylinder
+  gives an exact central Boolean CSS/no-GS skeleton in ZFC. Automatic pivot:
+  Campaign 13 sigma-completion or incompatible conditional transport.

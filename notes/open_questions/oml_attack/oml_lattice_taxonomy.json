@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 86,
+   "entries": 87,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -174,6 +174,13 @@
    "status": "shared-countable-hub-refuted-distributed-quotients-open",
    "one_line": "The punctured-Cantor star has exact local Boolean cells, but two punctures give incompatible countable meets on a shared countably generated boundary; MBRC distributed quotient assembly remains open.",
    "detail": "oml_distributed_relation_cell_assembly.md"
+  },
+  {
+   "id": "oml.construct.omega1_cylinder_hub",
+   "name": "Omega-one cylinder hub",
+   "status": "exact-boolean-css-no-gs-oml-completion-open",
+   "one_line": "The uncountably generated countable-support cylinder boundary has faithful puncture embeddings, compatible fa tuples, countable sigma sections and no global sigma section; raw algebraic closure is central and sigma-completion is open.",
+   "detail": "oml_omega1_cylinder_hub.md"
   },
   {
    "id": "oml.reduction.global_odbc_integration",

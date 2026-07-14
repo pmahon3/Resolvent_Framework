@@ -178,6 +178,18 @@ L-relative sigma-states; its failure need not be finitely witnessed. Live
 escapes are distributed nonseparating quotients or an uncountably generated
 separating boundary without a countable puncture basis.
 
+Campaign 12 closes the countably generated quotient escape: every sigma-state
+on a faithfully sigma-embedded countably generated boundary extends to an
+order-separated sigma-complete OML. In contrast, the product sigma-algebra
+on `2^{omega1}` has only countable-support events and admits faithful
+puncture embeddings into `P(H\{i})`; evaluation at `i` extends finitely but
+not sigma-additively by Ulam's ZFC theorem. This gives an exact Boolean
+CSS/no-GS atlas with compatible fa tuples. Its common boundary is central in
+the raw and finite algebraic OML closure, but an arbitrary sigma-completion
+may introduce de-centralizing joins and remains unaudited. Compatible-face
+state equality identifies literal cuts; incompatible activation patterns
+remain the viable transport mechanism.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

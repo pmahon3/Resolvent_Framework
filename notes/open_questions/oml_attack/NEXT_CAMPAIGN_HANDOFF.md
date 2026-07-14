@@ -1,20 +1,19 @@
-# Next campaign handoff — Campaign 6
+# Next campaign handoff — Campaign 7
 
-1. **Attempted:** unconditional fine ODBC and coherent coarse ODBC.
-2. **Proved:** fine local-countability/countable-subcover of block-bad loci
-   implies Phi; coarse CIR plus separate envelope lifts yields one coherent
-   Dirac lift.
-3. **Refuted:** point-countable incidence, topological countable support,
-   finite-face transfinite repair, and coarse objectwise envelope
-   nonemptiness. Coarse ODBC itself is equivalent to ordinary ODBC/Phi.
-4. **Evidence classes:** the two conditional theorems and equivalence are
-   hand proved; the unconditional fine/coarse claims are open.
-5. **Load-bearing files/commits:** `oml_fine_coarse_odbc_specializations.md`,
-   `oml_minimal_distributed_countermodel.md`; Campaign-4 commit is parent.
-6. **Unresolved theorems:** fine defect countable-subcover reflection and
-   coarse same-`mu` envelope solvability plus boundary CIR.
-7. **First action:** integrate GSD, ODBC-S/CODBC, T4/T4At, fine incidence,
-   coarse CIR, and realization gates into one exact dependency graph.
-8. **Do not repeat:** point-countability; fixing one mu across subsystems;
-   local block state separation promoted to global; club field called a
-   coherent lift; coarse ODBC called an easier theorem.
+1. **Attempted:** global integration and final bifurcation theorem.
+2. **Proved:** exact implication graph and stable positive regions; Lean
+   conditional regime packaging.
+3. **Refuted:** ODBC/coarse ODBC as non-tautological final residues. Fine CSR,
+   coarse CIR, and current realization are not established as exhaustive.
+4. **Evidence classes:** implication graph is hand proved; regime packaging
+   is Lean verified; BOC normalization and realization/collapse are open.
+5. **Load-bearing files/commits:** `oml_global_integration.md`,
+   `ODBCRegimes.lean`; Campaign-6 commit is parent.
+6. **Unresolved theorem:** BOC = normalization of both countable-subsystem
+   failure and CSS/no-GS, plus realization-or-collapse completeness and an
+   effective exclusive branch criterion.
+7. **First action:** hostile audit every arrow, countability use, state
+   separation claim, realization gate, and stopping-condition assertion.
+8. **Do not repeat:** call ODBC a reduction strictly weaker than Phi; call
+   fine/coarse sufficient conditions exhaustive; infer counterexample from
+   abstract CSR/CIR failure; stop under condition 3 without normalization.

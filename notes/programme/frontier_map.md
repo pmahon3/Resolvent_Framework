@@ -43,6 +43,12 @@
 > coherent Dirac lift. The club field violates CIR exactly. Coarse ODBC is
 > ordinary ODBC/Phi, not an easier factor. See
 > `oml_attack/oml_fine_coarse_odbc_specializations.md`.
+> Campaign 6 integration shows `Phi iff GSD iff ODBC iff coarse ODBC`;
+> this is an exact factorization, not a weaker final theorem. Fine CSR and
+> coarse CIR are nonexhaustive. The missing decisive architecture is
+> boundary-obstruction completeness: normalize every failure, then prove
+> faithful realization or a class-level mixed-cut collapse. See
+> `oml_attack/oml_global_integration.md`.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

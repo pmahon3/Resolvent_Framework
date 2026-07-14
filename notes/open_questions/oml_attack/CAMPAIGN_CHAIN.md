@@ -6,11 +6,12 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 6 — global integration.
+- **Active campaign:** Campaign 7 — final hostile audit.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
-  specializations. Campaign 5 not entered: no OML candidate survived.
+  specializations; Campaign 6 — global integration. Campaign 5 not entered:
+  no OML candidate survived.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -32,6 +33,9 @@
 | fine T4At plus locally-countable-defect criterion implies Phi | hand proved | proved |
 | coarse CIR plus envelope solvability gives a coherent Dirac lift | hand proved | proved |
 | coarse ODBC is a weaker independent specialization | refuted | refuted |
+| exact implication graph and non-tautology audit | hand proved | proved |
+| conditional fine/coarse regime packaging | Lean verified | proved |
+| boundary-obstruction completeness | open | open |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
 
@@ -63,11 +67,10 @@
 - Fine defect countable-subcover reflection and coarse same-`mu` envelope
   solvability plus boundary CIR are open as consequences of the admissible
   OML hypotheses.
+- Normalization and realization-or-collapse completeness are both open.
 
 ## Next automatic pivot
 
-Integrate the exact implication graph: fine countable-subcover and coarse
-CIR-plus-same-`mu`-envelope-solvability are merely sufficient conditions,
-not an exhaustive bifurcation. State the narrowest theorem
-whose two truth values have proved consequences, then begin final hostile
-audit if the global stopping condition is met.
+Run Campaign 7 hostile audit. If it confirms that no stopping condition is
+met, continue the chain on BOC normalization, beginning with the
+two-coordinate 44-event inflation rather than declaring completion.

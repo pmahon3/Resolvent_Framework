@@ -1206,3 +1206,54 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   specializations are fine countable-subcover reflection and coarse CIR.
   Campaign 5 is not entered because no candidate survived OML realization.
 - Automatic pivot: Campaign 6 global integration.
+
+## Linked Campaign 6 — global integration (2026-07-13)
+
+### Iteration 78 — exact equivalence chain
+
+- **Theorem:** `Phi iff GSD iff [ODBC-S and CODBC] iff coarse ODBC`.
+  **Evidence class: hand proved.**
+
+### Iteration 79 — stable positive-region ledger
+
+- **Result:** finite boundaries, exact trivial-centre two-block atlases,
+  countable fine atlases with T4At, fine CSR with T4At, and closed relative
+  eligibility are the proved positive regions. **Evidence class: hand
+  proved.**
+
+### Iteration 80 — fine/coarse exhaustiveness not established
+
+- **Result:** fine CSR and coarse CIR are sufficient conditions but no
+  admissible-class theorem proves they are exhaustive; coarse ODBC is already
+  the full conjecture. **Evidence class: open.**
+
+### Iteration 81 — realization asymmetry
+
+- **Result:** successful nondeterministic realization may give a
+  counterexample after every gate, but failure closes only that class and
+  does not prove Phi. **Evidence class: hand proved.**
+
+### Iteration 82 — stopping-condition audit
+
+- **Verdict:** stopping condition 3 is not met. ODBC is tautologically
+  equivalent to Phi, and the current construction theorem lacks a
+  completeness/normalization direction. **Evidence class: hand proved.**
+
+### Iteration 83 — BOC normal form
+
+- **Definition:** boundary-obstruction completeness consists of failure
+  normalization plus realization-or-class-level-mixed-cut-collapse
+  completeness. Both clauses are explicit. **Evidence class: open.**
+
+### Iteration 84 — conditional Lean regime integration
+
+- **Result:** `ODBCRegimes.lean` proves two conditional implication packages
+  with explicit regime cover, ODBC, subsystem sections, and GSD hypotheses.
+  **Evidence class: Lean verified.** Both report
+  `[propext, Classical.choice, Quot.sound]`.
+
+### Campaign-6 verdict
+
+- Phi remains open; no complete counterexample or legitimate final decisive
+  theorem exists. BOC is the next programme, not a claimed solution.
+- Automatic pivot: Campaign 7 final hostile audit.

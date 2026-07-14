@@ -167,6 +167,13 @@ the club field are exact controls. Coarse ODBC is canonically the full
 ODBC/Phi statement, so only added CIR-like OML structure makes it a genuine
 specialization.
 
+Campaign 6 integrates the full implication graph and rejects ODBC itself as
+a non-tautological final residue: `Phi`, GSD, ODBC, and coarse ODBC are
+equivalent. The remaining decision programme requires normalization of every
+failure to a transported-boundary presentation and a complete
+realization-or-mixed-cut-collapse theorem. These BOC clauses are open;
+conditional regime packaging is Lean verified in `ODBCRegimes.lean`.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

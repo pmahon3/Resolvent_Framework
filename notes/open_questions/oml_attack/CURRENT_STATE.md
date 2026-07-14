@@ -121,6 +121,16 @@ violates CIR exactly. Coarse ODBC itself is canonically ordinary ODBC/Phi,
 not an easier independent factor. The unconditional fine incidence and
 coarse CIR consequences of OML hypotheses remain open.
 
+Campaign 6 integrates the stable chain:
+`Phi iff GSD iff ODBC iff coarse ODBC`. Fine CSR and coarse
+CIR-plus-same-`mu` envelope solvability are sufficient, nonexhaustive
+conditions. No current statement satisfies stopping condition 3:
+normalization of every Phi failure to the nondeterministic transported
+architecture and realization-or-mixed-cut-collapse completeness are both
+open. The combined boundary-obstruction completeness programme is recorded
+in `oml_global_integration.md`. `ODBCRegimes.lean` verifies only the
+conditional regime-packaging implications.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

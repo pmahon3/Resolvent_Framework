@@ -36,7 +36,16 @@ naive meet structure. What remains for a σ/f.a. asymmetry:
 Carrier Ω = ω₁ × ω₁ (columns col_α = {α} × ω₁; fibre = second factor).
 Fix a partition ω₁ = T_1 ⊍ T_2 ⊍ T_3 into three uncountable **column
 types**. For each α, with k = the type of α and {i,j} = {1,2,3}∖{k}
-(i < j say), choose fibre sets:
+(i < j), choose a labelled six-cell partition of the fibre
+
+\[
+ \{g_k(\alpha)\}\mathbin{\dot\cup}\{h_k(\alpha)\}
+ \mathbin{\dot\cup}W(\alpha)\mathbin{\dot\cup}V_i(\alpha)
+ \mathbin{\dot\cup}V_j(\alpha)\mathbin{\dot\cup}R(\alpha)=\omega_1,
+\]
+
+with every displayed cell nonempty (and the nonsingleton cells chosen
+infinite/cofinal if a later gate needs that extra property). Define:
 
 - r_k(α) = {g_k(α), h_k(α)} — the **small piece**, two points;
 - r_i(α) = {g_k(α)} ∪ W(α) ∪ V_i(α);
@@ -59,10 +68,14 @@ union — Gate N determines the normal form):
 4. the resolution singletons {(α, g_k(α))}, {(α, h_k(α))} for every α
    (k = type of α);
 5. the meet collectors
-   G_ik := {(α, g_k(α)) : α ∈ T_k} ∪ {(α, resolution point of pair ik) :
-   α ∈ T_i} (and cyclically): the graph of all pair-ik resolution
-   points. Deliberately **not** closed under restriction to uncountable
-   cylinders.
+   defined without an orientation ambiguity as follows. At a type-k
+   column (with the other indices i<j), put
+   `q_ik(α)=g_k(α)`, `q_jk(α)=h_k(α)`, and leave `q_ij(α)` undefined.
+   For each unordered pair `{a,b}`, set
+   `G_ab := {(α,q_ab(α)) : α∈T_a∪T_b}`. Thus `G_ab` is empty on the
+   unresolved third type, lies in `Σ_a∩Σ_b`, and the three collectors
+   are pairwise disjoint. They are deliberately **not** declared closed
+   under restriction to uncountable cylinders.
 
 Exclusions (design constraints on the closure, part of Gate N): no
 nonzero event below any {α} × W(α); no event equal to Σ_m ∩ Σ_n or to
@@ -176,3 +189,70 @@ session can attack Gate N directly against a fixed specification.
 | threat-model threading | design analysis over banked theorems, not a proof of viability |
 | Gates N, L, M, C, Z, F | open |
 | Ulam's theorem usage | cited (ZFC, Ulam 1930) |
+
+## 7. Gate N partial algebra (campaign continuation)
+
+The closure operation here is Dynkin/σ-class closure, not Boolean
+σ-algebra generation. In particular, the full cylinder algebra does **not**
+by itself restrict an added graph.
+
+**Lemma 7.1 (one persistently splitting graph).** Let
+`cyl(A)=A×F` for every `A⊆I`, and let `S⊆I×F` have both `S_α` and
+`F\S_α` nonempty for every column `α`. The smallest concrete σ-class
+containing all cylinders and `S` is exactly
+
+\[
+ \{\operatorname{cyl}(A):A\subseteq I\}\cup\{S,S^c\}.
+\]
+
+*Proof.* The displayed family contains the generators and is closed under
+complement. Two cylinders have a disjoint union which is a cylinder. No
+nonempty cylinder is disjoint from `S` or from `S^c`, by the two fibre
+nonemptiness hypotheses. The only remaining nontrivial disjoint pair is
+`S,S^c`, whose union is the full cylinder. Thus it is a σ-class (indeed
+there are no new countably infinite disjoint families), and minimality is
+immediate. ∎
+
+This is a useful negative control: an argument that “all cylinders are
+present, therefore every graph restriction is present” is invalid. Any
+forced restriction in the rotating candidate must use interactions among
+several graph/collector forms, or a form with empty fibres.
+
+For the intended collector incidence, the three `G_ij` are pairwise
+disjoint and each is empty precisely on the unresolved third type. Hence
+Gate N immediately forces
+
+\[
+ R_G=G_{12}\mathbin{\dot\cup}G_{13}\mathbin{\dot\cup}G_{23}
+\]
+
+ and, for each `i`, the residual event/form
+
+\[
+ H_i=\Sigma_i\setminus(G_{ij}\mathbin{\dot\cup}G_{ik}).
+\]
+
+These are genuine σ-class operations: the collector union is disjoint and
+is contained in `Σ_i`, so the difference is obtained from complements and
+disjoint union of comparable events. Fibrewise, `H_i` is empty on `T_i`,
+and `H_i∩H_j` is exactly the unresolved `W`-region on the third column
+type, while the triple intersection is empty. Thus the `H_i` themselves,
+not only the collectors, admit arbitrary full-cylinder decorations on their
+zero-fibre types. The fixed-column 24-event calculation already
+shows that this subtraction does not expose that pairwise intersection
+locally. Globally, collectors with an empty type also force decorated forms
+`G_ij ⊍ cyl(A)` for arbitrary `A` contained in that empty type. Whether
+complements and further disjoint unions of these decorated forms splice a
+different collector on `A` is the current missing closure lemma.
+
+**Evidence boundary.** Lemma 7.1 and the displayed forced-event derivations
+are hand proved. They neither pass nor fail Gate N. A complete theorem must
+classify the decorated multi-graph forms; no claim about an uncountable
+collector restriction or a `W`-event is made here.
+
+**Hostile review.** A fresh-context review cleared Lemma 7.1 and every
+forced-event derivation after requiring the explicit `q_ab` incidence table
+in §2 and the zero-fibre clause for `H_i`. It found no short forbidden-event
+derivation. It also emphasized that compatibility with cylinders is not
+generator data: Gate N classifies event membership, while compatibility and
+meet claims belong to Gate L after the event class is known.

@@ -1441,3 +1441,78 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   blocks remain open at OE and the five-form signature theorem. The atomic
   class is conditionally Phi-tame. Automatic pivot: Campaign 10 non-atomic
   simultaneous-coordinate test.
+
+## Linked Campaign 10 — non-atomic relation cell (2026-07-14)
+
+### Iteration 111 — transverse interval chart
+
+- **Theorem:** below selector `e`, charts `{p,a}` and `{u,v}` form a
+  horizontal sum; refining the first chart need not propagate lattice meets
+  into the second. **Evidence class: hand proved.**
+
+### Iteration 112 — literal non-atomic raw atlas
+
+- **Construction:** the first proxy pair gives a 36-point, 648-event,
+  complement-closed five-block union. **Evidence class: exhaustive finite
+  evidence.**
+
+### Iteration 113 — explicit mixed-cut failure
+
+- **Refutation:** disjoint events `0x1111` and `0xa00cc` have missing union
+  `0xa11dd` and exactly two incomparable minimal upper bounds. **Evidence
+  class: executable verified.**
+
+### Iteration 114 — canonical orthogonal completion
+
+- **Result:** closure stabilizes `648 -> 1128 -> 1128`; all binary extrema
+  and the OML law pass, and the centre is trivial. **Evidence class:
+  exhaustive finite evidence.**
+
+### Iteration 115 — nine-block completion census
+
+- **Result:** exact Bron--Kerbosch enumeration finds nine maximal blocks,
+  including four new mixed-cut blocks. **Evidence class: executable
+  verified by independent reconstruction.**
+
+### Iteration 116 — rectangular completion state audit
+
+- **Result:** exactly 24 global states equal the 24 point profiles and the
+  binary coordinate relation is full. The finite OML is Phi-tame.
+  **Evidence class:** state census executable verified; Phi consequence hand
+  proved.
+
+### Iteration 117 — diagonal seed completion
+
+- **Construction:** diagonal overlap closure stabilizes
+  `264 -> 392 -> 392` and yields another centre-free nine-block OML.
+  **Evidence class: exhaustive finite evidence.**
+
+### Iteration 118 — conditional relation preservation
+
+- **Result:** all 20 global states are point profiles; globally the relation
+  is full, but conditioned on the joint region it is exactly diagonal.
+  **Evidence class: executable verified independently.**
+
+### Iteration 119 — centralization and rectangularization claims refuted
+
+- **Refutation:** mixed-cut completion can preserve trivial centre and a
+  nonrectangular conditional relation. **Evidence class: refuted by
+  exhaustive finite countermodel.**
+
+### Iteration 120 — single-edge density theorem
+
+- **Theorem:** if a charged face has
+  `R_fa=closure(R_sigma)`, every finite trace cylinder meets `R_sigma`; one
+  edge is Phi-tame. **Evidence class: hand proved.**
+
+### Iteration 121 — hostile strategic repair
+
+- **Review:** retracted the proposed single-nonclosed-edge pivot and required
+  a distributed network with a global sigma-section locus missing a finite
+  cylinder. **Evidence class: hand-audited.**
+
+### Campaign-10 verdict
+
+- A realizable noncentral relation cell now passes finite OML completion,
+  but both finite controls are Phi-tame and one dense edge is class-level
+  tame. Automatic pivot: Campaign 11 distributed uncountable-hub assembly.

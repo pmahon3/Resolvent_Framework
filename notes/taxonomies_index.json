@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — orthogonal two-atom inflation reduces arbitrary latticehood to outsider extremality and is conditionally Phi-tame; the next concrete test is a non-atomic simultaneous pair.",
+   "status": "OPEN — a finite noncentral diagonal relation cell survives centre-free OML completion, but every single dense edge is Phi-tame; distributed uncountable-hub assembly is the active gate.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

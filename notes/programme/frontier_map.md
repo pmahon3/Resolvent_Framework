@@ -62,6 +62,10 @@
 > controls do not dominate a third-coefficient bound, which may require
 > eight regions. The orthogonal pair is conditionally Phi-tame because its
 > fibres are alternative. The next construction test is non-atomic.
+> Campaign 10 supplies the first verified noncentral relation cell: a
+> diagonal conditional relation survives centre-free nine-block completion.
+> One edge remains Phi-tame by density; the frontier is an uncountable-hub
+> assembly whose global sigma-section locus misses a finite cylinder.
 > See
 > `oml_attack/CAMPAIGN_LOG.md` and `oml_attack/CURRENT_STATE.md`.
 

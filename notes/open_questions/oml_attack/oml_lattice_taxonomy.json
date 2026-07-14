@@ -16,7 +16,7 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 84,
+   "entries": 85,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
@@ -160,6 +160,13 @@
    "status": "exact-family-oe-open-conditionally-tame",
    "one_line": "Complement closure is proved, binary latticehood requires outsider extremality beyond four-region controls, and the orthogonal state branches make the class conditionally Phi-tame.",
    "detail": "oml_arbitrary_two_atom_inflation.md"
+  },
+  {
+   "id": "oml.construct.nonatomic_relation_cell",
+   "name": "Non-atomic mixed-cut relation cell",
+   "status": "finite-relation-cell-passed-distributed-assembly-open",
+   "one_line": "Canonical completion repairs the raw non-atomic atlas into a centre-free nine-block OML, and a conditional diagonal relation survives; one edge is Phi-tame, so an uncountable distributed assembly is required.",
+   "detail": "oml_nonatomic_pair_cut_completion.md"
   },
   {
    "id": "oml.reduction.global_odbc_integration",

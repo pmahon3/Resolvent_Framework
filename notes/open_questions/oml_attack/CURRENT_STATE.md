@@ -157,6 +157,17 @@ theorem, global states have three alternative branches (`q`, `r`, neither),
 so the class is Phi-tame. The construction frontier moves to a non-atomic
 pair with three nonzero common-block regions.
 
+Campaign 10 tests that pair. The literal binary substitution has 648 events
+but misses an explicit disjoint union and has two incomparable upper bounds.
+Canonical closure gives an independently verified 1128-event centre-free
+nine-block OML; four new mixed blocks fill its coordinate relation, so it is
+Phi-tame. A diagonal-overlap variant closes from 264 to 392 events and also
+gives a centre-free nine-block OML, but its jointly charged conditional
+relation remains exactly diagonal. Thus mixed cuts need neither centralize
+nor rectangularize conditional relations. A single edge with
+`R_fa=closure(R_sigma)` is nevertheless Phi-tame by density. The frontier is
+distributed assembly over an explicit uncountable-incidence hub.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

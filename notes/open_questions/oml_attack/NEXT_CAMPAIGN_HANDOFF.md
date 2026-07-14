@@ -1,23 +1,22 @@
-# Next campaign handoff — Campaign 10
+# Next campaign handoff — Campaign 11
 
-1. **Attempted:** arbitrary-base simultaneous inflation at the orthogonal
-   atoms `q=0x000f`, `r=0x3300`.
-2. **Proved:** exact five-block subset family and complement closure;
-   conditional sigma-closure; conditional three-branch state classification
-   and Phi-tameness. Six finite models pass exact OML gates.
-3. **Refuted:** the claim that four truth regions alone prove arbitrary-base
-   extrema; an outsider bound can introduce up to eight regions. Orthogonal
-   fibres are never simultaneously charged.
-4. **Evidence classes:** exact family/complement are hand proved; OE and
-   maximal blocks are open; finite grids are exhaustive finite evidence and
-   executable verified; state theorem is conditional hand proof.
-5. **Load-bearing files/commits:** `oml_arbitrary_two_atom_inflation.md`,
-   updated two-selector certificates; Campaign-9 commit is the parent.
-6. **Unresolved theorem:** OE plus the at-most-five-form signature theorem;
-   for construction, whether a non-atomic pair realizes a noncentral
-   simultaneous relation or collapses under mixed cuts.
-7. **First action:** choose the lexicographically first of the 24 non-atomic
-   proxy pairs and build its smallest literal region substitution.
-8. **Do not repeat:** promote `P(k)xP(l)` evidence to OE; use orthogonal
-   atom pairs for simultaneous transport; conflate lattice commutation with
-   named-block co-membership before proving the signature theorem.
+1. **Attempted:** literal and diagonal substitutions at non-atomic pair
+   `(11,14)`, followed by canonical mixed-cut completion.
+2. **Proved:** raw literal atlas fails at one explicit join; canonical
+   completion is a centre-free nine-block finite OML; a conditional diagonal
+   relation survives the analogous completion; both models are Phi-tame.
+3. **Refuted:** automatic centralization; automatic conditional
+   rectangularization; a single nonclosed edge as a Phi counterexample.
+4. **Evidence classes:** all finite structures, maximal blocks, and states
+   are exhaustive finite evidence and independently executable verified;
+   horizontal-chart and single-edge density theorems are hand proved.
+5. **Load-bearing files/commits:** `oml_nonatomic_pair_cut_completion.md` and
+   three producer/certificate/verifier families; Campaign-10 commit is parent.
+6. **Unresolved theorem:** arbitrary-base distributed assembly of
+   relation-preserving cells over an uncountable hub, with sigma-completeness,
+   trivial centre, and sigma-state order separation.
+7. **First action:** encode the Cantor singleton CSS/no-GS system as a network
+   of conditional relation cells and identify the first forced mixed cut.
+8. **Do not repeat:** treat one dense nonclosed edge as nonliftable; infer
+   infinite sigma-closure from finite rounds; equate concrete intersection
+   with OML meet across horizontal charts.

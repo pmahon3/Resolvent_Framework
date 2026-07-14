@@ -192,6 +192,13 @@ is conditional on binary closure. Six finite grids pass, but the orthogonal
 coordinates are alternative under every two-valued state and hence
 conditionally Phi-tame. A non-atomic three-region pair is next.
 
+Campaign 10 completes that finite test. Raw non-atomic substitution fails
+latticehood, while canonical mixed-cut completion produces a centre-free
+nine-block OML. An independently verified diagonal variant preserves its
+conditional diagonal relation after completion. Both are finite and
+Phi-tame. The single-edge density theorem forces the next construction to
+be a genuinely distributed uncountable-incidence network.
+
 **Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
 of different character: pasting (topological), regularity (analytic),
 sharpness (algebraic).

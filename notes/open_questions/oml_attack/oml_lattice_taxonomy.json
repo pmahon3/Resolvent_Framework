@@ -646,6 +646,13 @@
    "status": "executable-verified-finite-gate",
    "one_line": "The centre-free 22-event pentagon realizes direct 111-implies-q-equals-r, has no activation event, and gives every nonzero event an off-activation charging state.",
    "detail": "oml_incompatible_pentagon_cell.md"
+  },
+  {
+   "id": "oml.cell.literal_mo3_conditional",
+   "name": "Literal MO3 conditional cell",
+   "status": "executable-verified-fixed-interface-k3",
+   "one_line": "A 56-event centre-free OML realizes the full off-face relation; its fixed-interface concrete closure preserves the diagonal through three cells with pair-local repairs.",
+   "detail": "oml_h4_conditional_cell_and_finite_pastes.md"
   }
  ],
  "external_sufficient_conditions": [

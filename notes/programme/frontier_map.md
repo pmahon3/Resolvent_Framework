@@ -557,3 +557,9 @@ separation forces an off-pattern sigma escape above every nonzero event, so
 activation cannot be an event. The finite gate is a direct incompatible OML
 cell with state implication `111 => q=r`; see
 `notes/open_questions/oml_attack/oml_puncture_normality_and_incompatible_transport.md`.
+
+Campaign 14 passes that finite gate with a literal `MO3` cell and verifies
+fixed-pattern concrete closure through three cells. The frontier is now the
+arbitrary-finite pair-local repair theorem and countable sigma-closure of the
+finite-support union; see
+`notes/open_questions/oml_attack/oml_h4_conditional_cell_and_finite_pastes.md`.

@@ -600,6 +600,11 @@ finite gate is direct incompatible conditional transport (`111 => q=r`) with
 order-separating off-pattern escape states. See
 `notes/open_questions/oml_attack/oml_puncture_normality_and_incompatible_transport.md`.
 
+The finite gate now passes: a literal `MO3` conditional cell and its shared
+fixed-pattern closure are verified through three cells. The exact residue is
+arbitrary-finite repair followed by countable-disjoint-union closure; finite
+formulas have not been promoted to that theorem.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

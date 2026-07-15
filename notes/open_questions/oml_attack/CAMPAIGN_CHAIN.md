@@ -6,7 +6,7 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 14 — incompatible conditional-cell search.
+- **Active campaign:** Campaign 15 — arbitrary-index fixed-interface closure.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -18,7 +18,9 @@
   countable-boundary extension and omega-one cylinder escape.
   Campaign 5 finite audit was entered for the two-coordinate approximants;
   they passed structural gates and were Phi-tame. Campaign 13 — puncture
-  normality, state-separation escape, and incompatible transport reduction.
+  normality, state-separation escape, and incompatible transport reduction;
+  Campaign 14 — literal `MO3` conditional cell and fixed-pattern assembly
+  through three cells.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -86,6 +88,9 @@
 | unconditional state-normal omega-one completion | impossible: no sigma states, hence no order separation |
 | incompatible conditional omega-one transport | exact semantic blueprint; direct finite cell and completion open |
 | incompatible pentagon conditional cell | executable verified 22-event centre-free OML; exact `111 => q=r`; every nonzero event has off-pattern escape |
+| literal `MO3` conditional cell | executable verified 56-event centre-free OML; exact 30-profile relation and full off-face freedom |
+| fixed-interface two-cell closure | executable verified 102-to-110 concrete orthogonal closure; private outputs and diagonal survive |
+| fixed-pattern k-cell scaling | exhaustive finite evidence for k=1,2,3; arbitrary-k formulas open |
 
 ## Unresolved assumptions
 
@@ -126,9 +131,14 @@
   off-pattern sigma-state; consequently no event can activate it.
 - Preservation of the incompatible pentagon cell under two-cell and
   uncountable completion is open.
+- The fixed `MO3` interface is preserved through three cells, but the
+  quadratic pair-local repair formulas lack an arbitrary-finite proof.
+- Countable disjoint unions across infinitely many repair pairs may create
+  new events, reconstruct private boundaries, or destroy order separation.
 
 ## Next automatic pivot
 
-Paste two incompatible pentagon cells around shared output coordinates and
-exhaustively complete and audit them. Test activated mismatch creation,
-activation-supported events, centre, maximal blocks, and off-pattern escape.
+Prove the arbitrary-finite pair-local repair calculus for the fixed ten-event
+interface, then classify the countable-disjoint-union closure of its
+finite-support direct limit. Prove preservation or extract the first explicit
+countable reconstruction event and use it as the next counterexample skeleton.

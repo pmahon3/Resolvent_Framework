@@ -1780,3 +1780,71 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Review:** construction and exact escape pass. Scope restricted to one
   finite Phi-tame cell; assembly and completion remain open. **Evidence class:
   hostile audit.**
+
+### Iteration 163 — literal horizontal-control cell
+- **Construction:** a 24-atom, 12-block pasted order gives a 56-event
+  centre-free concrete OML containing literal `MO3`. **Evidence class:
+  executable verified and independently reproduced.**
+
+### Iteration 164 — exact 30-profile relation
+- **Result:** only `11101,11110` are absent; every other five-bit profile
+  occurs among 224 states. **Evidence class: exhaustive finite evidence.**
+
+### Iteration 165 — mediator design refutations
+- **Result:** one mediator fails at `join(e00,t)` and reused `n1` at
+  `join(m1,m2)`. **Evidence class: executable refuted for those designs.**
+
+### Iteration 166 — maximal-coordinate pastes
+- **Result:** sharing the whole coordinate block, with private or shared
+  activators, gives centre-free finite OMLs preserving the relation.
+  **Evidence class: executable verified.**
+
+### Iteration 167 — raw nonmaximal-q obstruction
+- **Result:** the bare rank-two shared-q paste has two incomparable mixed
+  bounds already in an extracted eight-atom core. **Evidence class:
+  executable refuted plus hand witness.**
+
+### Iteration 168 — fixed-interface raw audit
+- **Result:** the full ten-event fixed-pattern interface fibre amalgam has
+  102 raw events and sixteen unordered bad cuts. **Evidence class:
+  exhaustive finite evidence.**
+
+### Iteration 169 — two-cell concrete orthogonal closure
+- **Result:** eight pair-local joins repair all cuts in one round, producing
+  a 110-event centre-free OML with 26 maximal blocks. **Evidence class:
+  executable verified.**
+
+### Iteration 170 — fixed-pattern relation preservation
+- **Result:** private outputs remain distinct; activated profiles are exactly
+  `111000,111111`; no nonzero event lies inside activation. **Evidence class:
+  executable verified.**
+
+### Iteration 171 — state restriction theorem
+- **Theorem:** every abstract state of the two-cell closure restricts to a
+  fibre pair and the eight forced orthogonal joins determine its values.
+  **Evidence class: hand proved.**
+
+### Iteration 172 — three-cell scaling census
+- **Result:** 148 raw events, 48 bad cuts, 24 repairs, 172 completed events,
+  42 maximal blocks, and 136,556 fibre points. **Evidence class: exhaustive
+  finite evidence plus exact receipt verification.**
+
+### Iteration 173 — distributed-boundary nonreconstruction
+- **Result:** at k=2,3 every private-output pair represents only its six
+  marginal Boolean cylinders; no joint cylinder or common block appears.
+  **Evidence class: exhaustive finite evidence.**
+
+### Iteration 174 — scaling hostile repair
+- **Review:** corrected a malformed repeated-fibre check, regenerated all
+  receipts, and separated k<=3 formulas from an arbitrary-k theorem.
+  **Evidence class: hostile executable audit.**
+
+### Iteration 175 — reconstructed-boundary control
+- **Result:** the k=3 joint-hub control has 20,552 events and nine blocks;
+  reconstruction absorbs cells but remains centre-free and diagonal.
+  **Evidence class: producer-exhaustive finite evidence.**
+
+### Campaign-14 verdict
+- The finite conditional-cell and fixed-pattern assembly gates pass through
+  three cells. The exact residue is arbitrary-finite repair calculus followed
+  by countable sigma-closure. Automatic pivot: Campaign 15.

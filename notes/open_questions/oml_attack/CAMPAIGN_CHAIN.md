@@ -6,7 +6,7 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 18 — fine-fibre rectangle repair.
+- **Active campaign:** Campaign 19 — fine-repair recurrence and invariant.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -24,7 +24,8 @@
   bipartite coordinate-core obstruction; Campaign 16 — full conditional
   rectangle failure, four first repairs, and two terminating stripped-core
   controls; Campaign 17 — exhaustive stripped macro-completion reconstruction
-  theorem.
+  theorem; Campaign 18 — two-depth fine-fibre repair and activation-escape
+  controls.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -100,6 +101,7 @@
 | full conditional `2x2` grid | executable refuted: 198-to-230 orthogonal closure preserves semantics but remains nonlattice at a crossed rectangle |
 | stripped rectangle terminal repairs | two executable-verified OML branches of 1296 and 3456 events; both reconstruct `Bool(q0,q1)`; exhaustive all-branch status open |
 | stripped K22 macro completions | exhaustive finite theorem: every OML completion in `P(2^4)` reconstructs `Bool(q0,q1)` or `Bool(r0,r1)` |
+| full-grid fine-fibre repairs | one-sided 64, symmetric 128, and secondary 4-point selections preserve distributed boundaries and escape but remain nonlattices |
 
 ## Unresolved assumptions
 
@@ -150,11 +152,13 @@
 - Exhaustive interval branching proves every stripped macro OML completion
   reconstructs one same-side Boolean boundary. Fine-fibre repairs over the
   full conditional carrier remain open.
+- Two successive fine-fibre repairs avoid reconstruction and activation
+  support; their next admissible interval widens to 1,666,232 points.
 
 ## Next automatic pivot
 
-Search fine-fibre repairs of the full conditional `2x2` carrier which have
-one of the four necessary macro traces but vary inside its ambiguous
-macrofibres. Test the smallest symmetry-invariant fibre cuts first. A
-centre-free OML preserving both distributed macro boundaries pivots to higher
-rectangles; repeated forced reconstruction yields a fibre-saturation theorem.
+Extract a recurrence or monotone invariant from the 230-to-256-to-492
+symmetric fine-repair chain. Determine whether successive factor-type repairs
+form a finite grammar, force a side atom/activation event at a bounded depth,
+or generate an infinite strictly widening nonlattice process. A terminal OML
+pivots immediately to higher rectangles and uncountable assembly.

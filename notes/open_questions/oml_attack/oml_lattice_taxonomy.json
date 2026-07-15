@@ -696,6 +696,15 @@
    "detail": "oml_distributed_rectangle_completion_search.md"
   }
  ],
+ "campaign_18_fine_fibre": [
+  {
+   "id": "oml.control.full_grid_fine_fibre_repairs",
+   "name": "Two-depth fine-fibre rectangle repairs",
+   "status": "executable-nonterminal-controls",
+   "one_line": "Whole classes of 64/128 points and a secondary four-point class repair successive joins without side reconstruction or activation collapse, but all closures remain nonlattices.",
+   "detail": "oml_fine_fibre_rectangle_repair.md"
+  }
+ ],
  "external_sufficient_conditions": [
   {
    "id": "oml.tame.boolean",

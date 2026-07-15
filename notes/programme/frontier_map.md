@@ -581,3 +581,11 @@ with no unresolved frontier. The only remaining rectangle escape is a
 fine-fibre event on the full conditional carrier whose macro trace is one of
 the four required joins but whose auxiliary-fibre variation prevents the
 literal side atom from appearing.
+
+Campaign 18 constructs that escape twice. Whole activation-pair classes of
+64/128 points repair the first join without reconstruction or activation
+collapse, and a four-point activated class repairs the next join with the
+same controls. The families have 310, 256, and 492 events respectively and
+remain nonlattices; the next gap grows to 1,666,232 points. The frontier is no
+longer subset enumeration but a recurrence or monotone invariant for these
+factor-type fine repairs.

@@ -622,6 +622,13 @@ but not repairs varying inside the conditional cells' auxiliary fibres. The
 next construction gate is the smallest fine-fibre rectangle repair on the
 full `2x2` carrier.
 
+Campaign 18 passes that gate at two nonterminal depths: 64/128-point first
+repairs and a four-point second repair preserve both distributed boundaries
+and off-activation order-separation witnesses. They do not yield a lattice,
+and the next interval widens. The active problem is to identify a finite
+repair grammar or a monotone obstruction, not to enumerate arbitrary subsets
+of million-point intervals.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

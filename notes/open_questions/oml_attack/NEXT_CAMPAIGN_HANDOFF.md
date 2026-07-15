@@ -1,22 +1,24 @@
-# Next campaign handoff — Campaign 18
+# Next campaign handoff — Campaign 19
 
-1. **Attempted:** every stripped macro-saturated rectangle completion inside
-   `P(2^4)`.
-2. **Proved:** interval-complete search has 9 symmetry classes, 20 branches,
-   and forces `Bool(q0,q1)` or `Bool(r0,r1)` before latticehood.
-3. **Refuted:** a distributed-preserving literal macro OML completion of the
-   K22 edge core.
-4. **Evidence:** hand interval/symmetry/forcing lemmas; executable exhaustive
-   receipt; independent hostile rerun; scope is exactly the fixed 16 profiles.
-5. **Load-bearing:** commits `26bb203`, `425dbc5`, `aa6f69b`; focused
-   `oml_distributed_rectangle_completion_search.md`; producer and receipt
-   `rectangle_no_reconstruction_search.*`.
-6. **Unresolved theorem:** can a fine-fibre join with one required macro trace
-   vary inside ambiguous conditional macrofibres and yield a centre-free full
-   OML without reconstructing either macro same-side boundary?
-7. **First action:** quotient the two ambiguous full-grid macrofibres by cell
-   auxiliary-state type, enumerate invariant intermediate joins, and close the
-   smallest candidates on the 6,186,568-point carrier.
-8. **Do not repeat:** search literal macro masks; prune on centre; infer a
-   full-carrier theorem from `P(16)`; or insert a nonprincipal fa witness as a
-   concrete carrier point.
+1. **Attempted:** smallest whole-class fine-fibre repairs for the first two
+   crossed cuts of the full conditional `2x2` grid.
+2. **Proved:** first interval has two 336,400-point fibres; repairs of 64/128
+   points give 310/256 events, and a secondary four-point repair gives 492.
+3. **Refuted:** macro splitting immediately saturates to a side atom; two fine
+   repairs force an activation-supported event; either shallow repair suffices
+   for latticehood.
+4. **Evidence:** exact executable receipts, explicit predicates/extrema,
+   activation and boundary gates, two hostile reruns; all results are finite
+   controls, not exhaustive over arbitrary fine subsets.
+5. **Load-bearing:** commits `6eee3da`, `a5d1478`, `2015c05`;
+   `oml_fine_fibre_rectangle_repair.md`; the two `full_grid_*fibre*` audit
+   scripts and receipts.
+6. **Unresolved theorem:** do factor-type fine repairs obey a finite recurrence
+   that terminates in boundary reconstruction/activation collapse, or can they
+   reach a centre-free OML while preserving both distributed boundaries?
+7. **First action:** classify the 1,666,232-point third interval by local-state
+   factor type and compare its incidence with the preceding 672,800 and
+   677,840 intervals before adding another event.
+8. **Do not repeat:** blind arbitrary-subset branching; macro-saturated masks;
+   infer saturation from two depths; prune on centre; or confuse preservation
+   of point relations with preservation of activation escape.

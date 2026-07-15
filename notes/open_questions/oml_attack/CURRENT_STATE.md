@@ -254,6 +254,17 @@ splitting auxiliary points inside an ambiguous profile. The frontier is the
 smallest such fine-fibre repair and whether mixed cuts saturate it back to a
 macro boundary.
 
+Campaign 18 refutes immediate saturation through two depths. The first
+ambiguous interval has 672,800 free points. A one-sided 64-point whole-class
+repair closes to 310 events, while the symmetric 128-point repair closes to
+256; both preserve the distributed boundaries and activation escape but stay
+nonlattices. The symmetric branch's smallest secondary whole class has four
+points. Adding it closes to 492 events with the same controls still intact,
+but the next interval widens to 1,666,232 points. Blind branching is therefore
+replaced by the exact Campaign-19 question: find a recurrence/monotone
+invariant for factor-type repairs, or a finite grammar leading to a terminal
+OML.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

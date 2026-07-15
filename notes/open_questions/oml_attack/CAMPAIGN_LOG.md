@@ -2024,3 +2024,66 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   same-side boundary and is closed as a distributed counterexample route.
   Fine-fibre repairs on the full conditional carrier remain outside the
   theorem. Automatic pivot: Campaign 18 fine-fibre rectangle repair.
+
+## Linked Campaign 18 — fine-fibre rectangle repair (2026-07-14)
+
+### Iteration 205 — fine-splitting necessity
+- **Theorem:** every distributed-preserving full-grid completion must split
+  at least one coordinate macrofibre; macro-saturated repairs are closed by
+  Campaign 17. **Evidence class: hand proved.**
+
+### Iteration 206 — exact first fine interval
+- **Result:** the crossed join has 672,800 free points, two ambiguous fibres
+  of 336,400 points, and 49 activation-pair classes in each. **Evidence class:
+  executable verified plus hand derivation.**
+
+### Iteration 207 — one-sided minimum class
+- **Construction:** the unique minimum whole activation-pair class has 64
+  points at `(110,110)`; its one-sided repair closes 230 to 310 events without
+  side reconstruction. **Evidence class: executable verified.**
+
+### Iteration 208 — symmetric minimum class
+- **Construction:** the fibre-symmetric 128-point repair closes 230 to 256
+  events without side reconstruction. **Evidence class: executable verified.**
+
+### Iteration 209 — activation-escape hostile repair
+- **Audit:** both inserted events are certified as the original join; both
+  activation cylinders remain absent and every nonzero event retains an
+  off-cylinder point. **Evidence class: hostile executable audit.**
+
+### Iteration 210 — secondary interval decomposition
+- **Result:** the symmetric branch's next gap has 677,840 points in 105 whole
+  Cartesian macrofibres; exactly three minima have four points. **Evidence
+  class: executable verified.**
+
+### Iteration 211 — activated four-point repair
+- **Construction:** selecting the `(111,110)` four-point minimum closes 256
+  to 492 events without side reconstruction or activation-supported events.
+  **Evidence class: executable verified.**
+
+### Iteration 212 — depth-two saturation refutation
+- **Refutation:** neither two successive fine repairs nor a second selection
+  wholly inside an activated gap forces immediate macro reconstruction or an
+  activation event. **Evidence class: refuted by explicit finite control.**
+
+### Iteration 213 — next-gap widening
+- **Result:** the next failed interval after the four-point repair has
+  1,666,232 free points, so blind subset branching expands rather than
+  contracts. **Evidence class: executable verified.**
+
+### Iteration 214 — independent full failure census
+- **Result:** the 230-event grid has 32 join failures and complementary 32
+  meet failures in ten row/column symmetry orbits. **Evidence class:
+  executable verified and independently replayed.**
+
+### Iteration 215 — terminal macro refinement
+- **Theorem:** an independent 48-family cascade has 17 lattice leaves and two
+  inclusion-minimal hub families; every macro completion contains one of the
+  two. **Evidence class: executable structural refinement with deterministic
+  covering and hostile scope audit.**
+
+### Campaign-18 verdict
+- Fine-fibre repairs evade both macro reconstruction and activation collapse
+  through two explicit depths, but remain nonlattices and their intervals
+  widen. Automatic pivot: Campaign 19 seeks a recurrence/monotone invariant
+  or a constructive infinite repair grammar rather than blind branching.

@@ -107,3 +107,36 @@ selection, close again, and test:
 Repeated forced reconstruction across structurally distinct fine branches
 would support a fibre-saturation theorem.  A terminal centre-free OML pivots
 immediately to overlapping rectangles and then the uncountable assembly.
+
+## 5. A second fine repair
+
+For the symmetric 256-event branch, its next 677,840-point interval lies in
+exactly two coordinate macrofibres: `0100` with 341,440 points and `1101`
+with 336,400 points.  Partitioning by the four local-state factor types gives
+105 whole Cartesian macrofibres.  Exactly three have the minimum size four;
+all lie over `0100`, have row-0 activation `111`, and have row-1 activation
+`011`, `101`, or `110`.
+
+Choose the `110` minimum.  Adjoining its four points to the forced lower
+bound, together with the complement, and closing gives 492 events with
+increments
+
+\[
+8,8,109,59,16,16,12,6,0.
+\]
+
+The chosen event is the unique join of the selected secondary pair.  Neither
+same-side macro boundary is reconstructed; both activation cylinders remain
+absent; and every nonzero event has a point outside each cylinder.  The family
+is still a nonlattice.  Its next failed cut has two minimal upper bounds, one
+maximal lower bound, and an interval with 1,666,232 free points.  **Evidence
+class: executable verified for this one fixed four-point whole-macrofibre
+choice.**
+
+This refutes two proposed shallow obstruction mechanisms: neither a second
+fine repair nor choosing it wholly inside the activated part of its interval
+forces immediate side reconstruction or an activation-supported event.
+Nothing is inferred about the other two four-point choices, their unions, or
+arbitrary subsets.  The widening next interval suggests that blind branching
+is the wrong continuation; the next useful target is a recurrence theorem for
+the factor-type repairs or a monotone invariant accumulated along them.

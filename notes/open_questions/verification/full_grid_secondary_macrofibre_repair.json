@@ -1,0 +1,674 @@
+{
+  "carrier_points": 6186568,
+  "command": "python3 notes/open_questions/verification/full_grid_secondary_macrofibre_repair_audit.py --verify",
+  "dependency_sha256": "1b72ff14226576e6e53d2800bf2135d962ceda915d0a1a5bb658f8a0790ad7ac",
+  "factor_type_histogram": [
+    {
+      "classes": 3,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "points": 4
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        1,
+        1,
+        4,
+        4
+      ],
+      "points": 16
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        1,
+        1,
+        8,
+        8
+      ],
+      "points": 64
+    },
+    {
+      "classes": 3,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        4,
+        4,
+        2,
+        2
+      ],
+      "points": 64
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        4,
+        2,
+        4
+      ],
+      "points": 64
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        4,
+        2,
+        5
+      ],
+      "points": 80
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        5,
+        2,
+        4
+      ],
+      "points": 80
+    },
+    {
+      "classes": 6,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        5,
+        5,
+        2,
+        2
+      ],
+      "points": 100
+    },
+    {
+      "classes": 4,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        5,
+        2,
+        5
+      ],
+      "points": 100
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        1,
+        1,
+        14,
+        14
+      ],
+      "points": 196
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "points": 256
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        4,
+        4,
+        9
+      ],
+      "points": 288
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        4,
+        9,
+        2,
+        4
+      ],
+      "points": 288
+    },
+    {
+      "classes": 3,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        9,
+        9,
+        2,
+        2
+      ],
+      "points": 324
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        5,
+        4,
+        9
+      ],
+      "points": 360
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        4,
+        9,
+        2,
+        5
+      ],
+      "points": 360
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        5,
+        5,
+        4,
+        4
+      ],
+      "points": 400
+    },
+    {
+      "classes": 6,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        13,
+        13,
+        2,
+        2
+      ],
+      "points": 676
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        4,
+        8,
+        13
+      ],
+      "points": 832
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        8,
+        13,
+        2,
+        4
+      ],
+      "points": 832
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        4,
+        4,
+        8,
+        8
+      ],
+      "points": 1024
+    },
+    {
+      "classes": 4,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        5,
+        8,
+        13
+      ],
+      "points": 1040
+    },
+    {
+      "classes": 4,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        8,
+        13,
+        2,
+        5
+      ],
+      "points": 1040
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        9,
+        9,
+        4,
+        4
+      ],
+      "points": 1296
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        4,
+        9,
+        4,
+        9
+      ],
+      "points": 1296
+    },
+    {
+      "classes": 4,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        5,
+        5,
+        8,
+        8
+      ],
+      "points": 1600
+    },
+    {
+      "classes": 3,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        22,
+        22,
+        2,
+        2
+      ],
+      "points": 1936
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        4,
+        14,
+        22
+      ],
+      "points": 2464
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        14,
+        22,
+        2,
+        4
+      ],
+      "points": 2464
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        13,
+        13,
+        4,
+        4
+      ],
+      "points": 2704
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        2,
+        5,
+        14,
+        22
+      ],
+      "points": 3080
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        14,
+        22,
+        2,
+        5
+      ],
+      "points": 3080
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        4,
+        4,
+        14,
+        14
+      ],
+      "points": 3136
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        4,
+        9,
+        8,
+        13
+      ],
+      "points": 3744
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        8,
+        13,
+        4,
+        9
+      ],
+      "points": 3744
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        5,
+        5,
+        14,
+        14
+      ],
+      "points": 4900
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        9,
+        9,
+        8,
+        8
+      ],
+      "points": 5184
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        22,
+        22,
+        4,
+        4
+      ],
+      "points": 7744
+    },
+    {
+      "classes": 4,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        13,
+        13,
+        8,
+        8
+      ],
+      "points": 10816
+    },
+    {
+      "classes": 4,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        8,
+        13,
+        8,
+        13
+      ],
+      "points": 10816
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        4,
+        9,
+        14,
+        22
+      ],
+      "points": 11088
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        14,
+        22,
+        4,
+        9
+      ],
+      "points": 11088
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        9,
+        9,
+        14,
+        14
+      ],
+      "points": 15876
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        22,
+        22,
+        8,
+        8
+      ],
+      "points": 30976
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        8,
+        13,
+        14,
+        22
+      ],
+      "points": 32032
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        14,
+        22,
+        8,
+        13
+      ],
+      "points": 32032
+    },
+    {
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        13,
+        13,
+        14,
+        14
+      ],
+      "points": 33124
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "factor_sizes": [
+        22,
+        22,
+        14,
+        14
+      ],
+      "points": 94864
+    },
+    {
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "factor_sizes": [
+        14,
+        22,
+        14,
+        22
+      ],
+      "points": 94864
+    }
+  ],
+  "minimum_macrofibres": [
+    {
+      "coordinate_profile": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "factor_sizes": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "points": 4,
+      "row0_activation": [
+        1,
+        1,
+        1
+      ],
+      "row1_activation": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "coordinate_profile": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "factor_sizes": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "points": 4,
+      "row0_activation": [
+        1,
+        1,
+        1
+      ],
+      "row1_activation": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "coordinate_profile": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "factor_sizes": [
+        1,
+        1,
+        2,
+        2
+      ],
+      "points": 4,
+      "row0_activation": [
+        1,
+        1,
+        1
+      ],
+      "row1_activation": [
+        1,
+        1,
+        0
+      ]
+    }
+  ],
+  "payload_sha256": "68c358ac7d330c1f318d7de9dbd58dfcad471407ebf26a8f95b07cf116a770a2",
+  "schema": "full-grid-secondary-fixed-four-macrofibre-repair-v1",
+  "schema_version": "1.0",
+  "scope": "one fixed four-point whole macrofibre; no other-minimum, union, corner, or arbitrary-subset exhaustion",
+  "secondary_gap_points": 677840,
+  "secondary_gap_whole_cartesian_macrofibres": 105,
+  "symmetric_base_events": 256,
+  "variants": [
+    {
+      "activation_cylinders_absent": [
+        true,
+        true
+      ],
+      "closure_rounds": [
+        8,
+        8,
+        109,
+        59,
+        16,
+        16,
+        12,
+        6,
+        0
+      ],
+      "events": 492,
+      "every_nonzero_event_has_off_cylinder_point": [
+        true,
+        true
+      ],
+      "join_sha256": "fd31c35b494c72f9a0261b03cd57a740f340c900aa147256ff79db0f276ceac6",
+      "lattice": false,
+      "name": "fixed-110-four",
+      "next_cut": {
+        "admissible_gap_points": 1666232,
+        "maximal_lower_bounds_sha256": [
+          "890def197cee308b96160e1ae02979ff41f9d072b88064d6b61b36e70c303f8d"
+        ],
+        "minimal_upper_bounds_sha256": [
+          "5777826a19400e0abe016b826cebebcb8cf069ed783fb8f68a10e5812671a265",
+          "f4810971db4d3701eb12fd3ec08f139372fb3ec09d1cc5cb6272390f88e21c5b"
+        ],
+        "x_sha256": "a219c636c2dbc69b51d25631d9f29804f93e93bd7a74ff1c1c79fb0f882de3bb",
+        "y_sha256": "607c0a6ec7ae84152cfbcac90feac526258807461ec920d2c4cd5affb4be7675"
+      },
+      "q0_q1_boundary_reconstructed": false,
+      "r0_r1_boundary_reconstructed": false,
+      "secondary_pair_unique_join_equals_selection": true,
+      "selected_gap_points": 4
+    }
+  ],
+  "verifier_sha256": "478d7d391491db2a6be487d9c6ad7e9f4d265f22dd559fbd416650d2d71d62c8"
+}

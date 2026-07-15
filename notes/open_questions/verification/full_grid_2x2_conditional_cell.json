@@ -1,0 +1,76 @@
+{
+  "activation_checks": {
+    "activation_cylinders_are_not_events": [
+      true,
+      true
+    ],
+    "both_rows_activated_joint_q0_q1_r0_r1": [
+      [
+        0,
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1,
+        1
+      ]
+    ],
+    "every_nonzero_event_has_off_cylinder_point": [
+      true,
+      true
+    ],
+    "macro_relation_exactly_intended_four_edges": true
+  },
+  "carrier_points": 6186568,
+  "closure_rounds": [
+    32,
+    0
+  ],
+  "completed_events": 230,
+  "each_cell_relation_is_exact_30_profile_relation": true,
+  "first_lattice_failure": {
+    "maximal_lower_bound_count": 1,
+    "maximal_lower_bound_labels": [
+      "0"
+    ],
+    "maximal_lower_bounds": [
+      "890def197cee308b96160e1ae02979ff41f9d072b88064d6b61b36e70c303f8d"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+      "e10@00+e01@00+e00@00",
+      "e11@11+e10@11+e01@11"
+    ],
+    "minimal_upper_bounds": [
+      "e50ff64c8323fb8548f5dec73aed4a1344475bf192d92fd84bdb26ceabc35e00",
+      "f898342cf1514ff83e3d2fbc2cb00dccc40f21785afb4ffb5985c42594b9a16a"
+    ],
+    "x_label": "e01@01",
+    "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+    "y_label": "e10@10",
+    "y_sha256": "2240309662fff76e5333d2abf55e391f02589aab1a4938d24c65dbacb652650d"
+  },
+  "interfaces_identified": {
+    "col0:r": true,
+    "col1:r": true,
+    "row0:a1": true,
+    "row0:a2": true,
+    "row0:a3": true,
+    "row0:q": true,
+    "row1:a1": true,
+    "row1:a2": true,
+    "row1:a3": true,
+    "row1:q": true
+  },
+  "lattice": false,
+  "macro_blocks": 842,
+  "orthomodular": false,
+  "payload_sha256": "eb796ebc1b899e246aeedd576c5efd7650f6c10c7f5f3655108c9bad603f21e5",
+  "raw_events": 198,
+  "schema": "full-grid-2x2-conditional-cell-v1",
+  "scope": "one exhaustive finite 2x2 compatible-state fibre; no arbitrary-grid or infinite promotion",
+  "single_cell_states": 224
+}

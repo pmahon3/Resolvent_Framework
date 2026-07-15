@@ -1,23 +1,22 @@
-# Next campaign handoff — Campaign 17
+# Next campaign handoff — Campaign 18
 
-1. **Attempted:** full conditional `2x2` closure and explicit stripped-core
-   rectangle repairs.
-2. **Proved:** four possible first traces; every one-step closure remains a
-   nonlattice; two iterated branches terminate as 1296- and 3456-event OMLs.
-3. **Refuted:** conditional gadgets do not remove the crossed cut; the two
-   known terminal branches do not preserve distributed same-side boundaries.
-4. **Evidence:** full grid and four trace closures executable verified; branch
-   extrema/provenance, OML law, centres, and reconstructions executable
-   verified and hostile reproduced; universal reconstruction is open.
-5. **Load-bearing:** commits `26bb203` and `425dbc5`;
-   `oml_full_grid_2x2_failure.md`,
-   `oml_rectangle_repair_and_full_atlas_criteria.md`, and
-   `rectangle_repair_branch_receipt.json`.
-6. **Unresolved theorem:** does a complement/disjoint-union-closed OML
-   `E subseteq P(2^4)` contain all four edge algebras and all profiles while
-   omitting both `Bool(q0,q1)` and `Bool(r0,r1)` and retaining trivial centre?
-7. **First action:** exhaust the symmetry-reduced active-cut repair tree,
-   pruning only after a same-side boundary is irreversibly reconstructed.
-8. **Do not repeat:** infer an all-branch theorem from two greedy branches;
-   promote stripped-centre counts to the full gadget; assume one repair is
-   enough; or treat a macro-cylinder no-go as excluding fine-fibre repairs.
+1. **Attempted:** every stripped macro-saturated rectangle completion inside
+   `P(2^4)`.
+2. **Proved:** interval-complete search has 9 symmetry classes, 20 branches,
+   and forces `Bool(q0,q1)` or `Bool(r0,r1)` before latticehood.
+3. **Refuted:** a distributed-preserving literal macro OML completion of the
+   K22 edge core.
+4. **Evidence:** hand interval/symmetry/forcing lemmas; executable exhaustive
+   receipt; independent hostile rerun; scope is exactly the fixed 16 profiles.
+5. **Load-bearing:** commits `26bb203`, `425dbc5`, `aa6f69b`; focused
+   `oml_distributed_rectangle_completion_search.md`; producer and receipt
+   `rectangle_no_reconstruction_search.*`.
+6. **Unresolved theorem:** can a fine-fibre join with one required macro trace
+   vary inside ambiguous conditional macrofibres and yield a centre-free full
+   OML without reconstructing either macro same-side boundary?
+7. **First action:** quotient the two ambiguous full-grid macrofibres by cell
+   auxiliary-state type, enumerate invariant intermediate joins, and close the
+   smallest candidates on the 6,186,568-point carrier.
+8. **Do not repeat:** search literal macro masks; prune on centre; infer a
+   full-carrier theorem from `P(16)`; or insert a nonprincipal fa witness as a
+   concrete carrier point.

@@ -573,3 +573,11 @@ literal repairs also remains nonlattice.  Two iterated stripped-core branches
 reach concrete OMLs but reconstruct `Bool(q0,q1)`, so the live finite gate is
 an exhaustive distributed-preserving rectangle-completion search, followed
 by a full-carrier lift if a terminal branch survives.
+
+Campaign 17 completes that search negatively: every stripped `P(16)` OML
+completion of the four edge algebras reconstructs one same-side Boolean
+boundary. The search has nine symmetry classes and twenty exhaustive edges,
+with no unresolved frontier. The only remaining rectangle escape is a
+fine-fibre event on the full conditional carrier whose macro trace is one of
+the four required joins but whose auxiliary-fibre variation prevents the
+literal side atom from appearing.

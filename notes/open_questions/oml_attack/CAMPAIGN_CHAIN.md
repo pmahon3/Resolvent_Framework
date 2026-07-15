@@ -6,8 +6,7 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 17 — distributed-preserving rectangle
-  completion search.
+- **Active campaign:** Campaign 18 — fine-fibre rectangle repair.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -24,7 +23,8 @@
   through three cells; Campaign 15 — arbitrary-index one-hub tameness and
   bipartite coordinate-core obstruction; Campaign 16 — full conditional
   rectangle failure, four first repairs, and two terminating stripped-core
-  controls.
+  controls; Campaign 17 — exhaustive stripped macro-completion reconstruction
+  theorem.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -99,6 +99,7 @@
 | bipartite grouped coordinate core | executable refuted: complement/disjoint closure remains nonlattice at K22,K23,K32 |
 | full conditional `2x2` grid | executable refuted: 198-to-230 orthogonal closure preserves semantics but remains nonlattice at a crossed rectangle |
 | stripped rectangle terminal repairs | two executable-verified OML branches of 1296 and 3456 events; both reconstruct `Bool(q0,q1)`; exhaustive all-branch status open |
+| stripped K22 macro completions | exhaustive finite theorem: every OML completion in `P(2^4)` reconstructs `Bool(q0,q1)` or `Bool(r0,r1)` |
 
 ## Unresolved assumptions
 
@@ -145,14 +146,15 @@
 - Grouped puncture blocks leave support-two normal forms: the full conditional
   `2x2` grid retains the stripped crossed-rectangle lattice cut after closure.
 - A single one-of-four literal repair never suffices. Two iterated stripped
-  repairs reach OMLs but reconstruct the same-side `q0,q1` Boolean boundary;
-  whether every iterated distributed-preserving repair does so is open.
+  repairs reach OMLs but reconstruct the same-side `q0,q1` Boolean boundary.
+- Exhaustive interval branching proves every stripped macro OML completion
+  reconstructs one same-side Boolean boundary. Fine-fibre repairs over the
+  full conditional carrier remain open.
 
 ## Next automatic pivot
 
-Exhaust the symmetry-reduced repair tree of the stripped sixteen-profile
-`K22` core subject to preserving the absence of both same-side Boolean
-boundaries.  A terminal distributed OML branch pivots immediately to a lift
-over the full conditional carrier; exhaustive failure yields the literal
-macro-completion reconstruction theorem.  Do not infer either outcome from
-the two presently known reconstructing branches.
+Search fine-fibre repairs of the full conditional `2x2` carrier which have
+one of the four necessary macro traces but vary inside its ambiguous
+macrofibres. Test the smallest symmetry-invariant fibre cuts first. A
+centre-free OML preserving both distributed macro boundaries pivots to higher
+rectangles; repeated forced reconstruction yields a fibre-saturation theorem.

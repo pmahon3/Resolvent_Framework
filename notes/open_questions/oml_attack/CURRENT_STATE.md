@@ -244,6 +244,16 @@ symmetry-reduced completion search subject to keeping both same-side Boolean
 boundaries absent; a surviving branch must then be lifted to the full cell
 carrier.
 
+Campaign 17 exhausts that stripped problem. Interval-complete branching over
+nine symmetry classes and twenty candidate edges reaches no lattice before a
+literal same-side atom is forced. Hence every OML subfamily of `P(2^4)`
+containing all four K22 edge algebras reconstructs `Bool(q0,q1)` or
+`Bool(r0,r1)`. This is an exhaustive finite theorem, not a theorem about the
+full conditional carrier: an event may have the required macro trace while
+splitting auxiliary points inside an ambiguous profile. The frontier is the
+smallest such fine-fibre repair and whether mixed cuts saturate it back to a
+macro boundary.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

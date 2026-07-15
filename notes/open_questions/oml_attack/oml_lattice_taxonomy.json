@@ -687,6 +687,15 @@
    "detail": "oml_rectangle_repair_and_full_atlas_criteria.md#11-single-repair-insufficiency-and-two-terminal-controls"
   }
  ],
+ "campaign_17_macro_completion": [
+  {
+   "id": "oml.no_go.k22_macro_completion_reconstruction",
+   "name": "K22 macro-completion reconstruction",
+   "status": "exhaustive-finite-theorem",
+   "one_line": "Every concrete OML subfamily of P(2^4) containing the four K22 edge algebras reconstructs Bool(q0,q1) or Bool(r0,r1).",
+   "detail": "oml_distributed_rectangle_completion_search.md"
+  }
+ ],
  "external_sufficient_conditions": [
   {
    "id": "oml.tame.boolean",

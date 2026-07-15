@@ -1972,3 +1972,55 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   boundary and therefore fail the distributed-construction gate. Universal
   reconstruction remains open. Automatic pivot: Campaign 17 exhaustive
   distributed-preserving completion search.
+
+## Linked Campaign 17 — distributed-preserving macro completion (2026-07-14)
+
+### Iteration 197 — interval branching completeness
+- **Theorem:** one deterministic missing join suffices when every event in
+  its full set interval is branched over and orthogonal closure is retaken.
+  **Evidence class: hand proved.**
+
+### Iteration 198 — exact symmetry group
+- **Theorem:** coordinate flips, within-side swaps, and side interchange give
+  an order-128 automorphism group preserving the seed and unordered
+  reconstruction predicate. **Evidence class: hand proved and executable
+  verified.**
+
+### Iteration 199 — sound-pruning audit
+- **Result:** full same-side reconstruction is monotone; centre and current
+  lattice/OM failures are not. Whole-node canonicalization is safe, while
+  raw sibling quotienting requires the node stabilizer. **Evidence class:
+  hostile hand audit.**
+
+### Iteration 200 — literal-atom forcing
+- **Theorem:** one same-side truth atom plus complements and orthogonal
+  differences forces the full same-side Boolean algebra. **Evidence class:
+  hand proved and executable checked.**
+
+### Iteration 201 — closure-class orthomodularity
+- **Theorem:** every complement/disjoint-union-closed concrete subset family
+  which is a lattice is automatically orthomodular. **Evidence class: hand
+  proved.**
+
+### Iteration 202 — exhaustive repair-tree census
+- **Result:** 9 symmetry classes, 20 candidate branches, maximum depth 5,
+  maximum 9216 events, 3 q-side and 2 r-side forcing prunes, and no terminal
+  lattice or unresolved frontier. **Evidence class: exhaustive finite
+  evidence plus executable verified.**
+
+### Iteration 203 — macro-completion reconstruction theorem
+- **Theorem:** every concrete OML subfamily of `P(2^4)` containing the full
+  K22 edge core reconstructs `Bool(q0,q1)` or `Bool(r0,r1)`. **Evidence
+  class: exhaustive finite theorem.**
+
+### Iteration 204 — hostile certificate audit
+- **Review:** independently reproduced the census and validated interval
+  completeness, incremental closure, symmetry, memoization, and forcing
+  prune. Scope restricted to macro-saturated `P(16)` completions. **Evidence
+  class: hostile executable audit.**
+
+### Campaign-17 verdict
+- Literal macro-cylinder rectangle completion necessarily reconstructs a
+  same-side boundary and is closed as a distributed counterexample route.
+  Fine-fibre repairs on the full conditional carrier remain outside the
+  theorem. Automatic pivot: Campaign 18 fine-fibre rectangle repair.

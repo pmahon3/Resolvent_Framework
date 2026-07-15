@@ -615,6 +615,13 @@ the same-side `q0,q1` Boolean boundary.  Whether all distributed-preserving
 repair branches fail is now one exact finite search problem; no universal
 reconstruction theorem is yet claimed.
 
+Campaign 17 supplies that theorem for literal macro completions: exhaustive
+interval branching proves that every `P(16)` OML completion reconstructs the
+`q`-side or `r`-side Boolean algebra. This closes the stripped architecture,
+but not repairs varying inside the conditional cells' auxiliary fibres. The
+next construction gate is the smallest fine-fibre rectangle repair on the
+full `2x2` carrier.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the full conditional K22 grid retains the rectangle cut; two iterated stripped repairs reach OMLs but reconstruct the same-side boundary, and exhaustive distributed-preserving completion is open.",
+   "status": "OPEN — exhaustive finite search proves every stripped K22 macro OML completion reconstructs a same-side boundary; fine-fibre repairs on the full conditional carrier remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 80
+   "entries": 81
   },
   {
    "id": "reconstruction_commensurability",

@@ -37,6 +37,57 @@ Adjoining the literal set union in the stripped core does not by itself yield
 a lattice; scratch evidence shows a repair cascade. No sufficiency or
 minimality theorem is claimed.
 
+### 1.1 Single-repair insufficiency and two terminal controls
+
+For the first crossed cut, put `M=x union y`.  The interval between `M` and
+the intersection of the two incomparable edge-local upper bounds differs on
+exactly the coordinate profiles `0011` and `1100`.  Consequently every
+macro-saturated candidate for the missing join has one of the four traces
+
+\[
+ M\mathbin\cup T,\qquad T\subseteq\{0011,1100\}.
+\]
+
+In the stripped sixteen-profile `K22` core, adjoining any one of these four
+traces and taking complement/disjoint-union closure gives respectively 204,
+198, 198, and 204 events.  Every resulting family is still a nonlattice, and
+none yet contains the four atoms of `Bool(q0,q1)`.  Thus a single literal
+rectangle repair is insufficient, but the first repair does **not** force
+same-side boundary reconstruction.  **Evidence class: four-trace statement
+hand proved; four closures executable verified.**
+
+Two explicit iterated branches do terminate in concrete OMLs inside the
+sixteen-point powerset.  Their closure sizes are
+
+\[
+82\to198\to486\to1296
+\]
+
+and
+
+\[
+82\to204\to504\to1296\to3456.
+\]
+
+The orthomodular law is exhaustive in both terminal families.  Their centres
+have respectively 16 and 128 events.  Each reconstructs `Bool(q0,q1)` and
+all four original edge coordinate-pair algebras, but not `Bool(r0,r1)`.
+These are controls, not an all-branch theorem.  In particular the centre
+counts belong only to the stripped coordinate OML; auxiliary cell events can
+destroy commutation after a lift.  Literal reconstruction of
+`Bool(q0,q1)`, on the other hand, remains a negative gate for lifting either
+displayed macro-cylinder branch.  **Evidence class: executable verified and
+hostile reproduced for the two displayed branches.**
+
+The exact unresolved finite problem is whether there exists a
+complement/disjoint-union-closed OML `E subseteq P(2^4)` containing all four
+edge algebras and all sixteen profiles, with neither `Bool(q0,q1)` nor
+`Bool(r0,r1)` reconstructed and with trivial centre.  This is a finite,
+exhaustive-search-decidable question.  A positive terminal branch must then
+be lifted to the full conditional-cell carrier; exhaustion without one would
+prove a literal macro-completion reconstruction theorem.  Finer repairs that
+split auxiliary cell fibres are outside this stripped problem.
+
 ## 2. Spatial-carrier prohibition
 
 In a concrete sigma-complete OML of subsets, every carrier point defines a

@@ -1,0 +1,420 @@
+{
+  "all_four_initial_trace_closures": [
+    {
+      "closure_events": 204,
+      "reconstructs_Bool_q0_q1": false,
+      "trace_mask_hex": "0x537"
+    },
+    {
+      "closure_events": 198,
+      "reconstructs_Bool_q0_q1": false,
+      "trace_mask_hex": "0x53f"
+    },
+    {
+      "closure_events": 198,
+      "reconstructs_Bool_q0_q1": false,
+      "trace_mask_hex": "0x1537"
+    },
+    {
+      "closure_events": 204,
+      "reconstructs_Bool_q0_q1": false,
+      "trace_mask_hex": "0x153f"
+    }
+  ],
+  "branches": [
+    {
+      "centre_masks_hex": [
+        "0x0",
+        "0xf",
+        "0xf0",
+        "0xff",
+        "0xf00",
+        "0xf0f",
+        "0xff0",
+        "0xfff",
+        "0xf000",
+        "0xf00f",
+        "0xf0f0",
+        "0xf0ff",
+        "0xff00",
+        "0xff0f",
+        "0xfff0",
+        "0xffff"
+      ],
+      "centre_size": 16,
+      "closure_sizes": [
+        82,
+        198,
+        486,
+        1296
+      ],
+      "coordinate_pair_boolean_reconstruction": {
+        "q0-q1": true,
+        "q0-r0": true,
+        "q0-r1": true,
+        "q1-r0": true,
+        "q1-r1": true,
+        "r0-r1": false
+      },
+      "events": 1296,
+      "lattice": true,
+      "name": "middle-maximal",
+      "orthomodular": true,
+      "repair_masks_hex": [
+        "0x53f",
+        "0x3f",
+        "0xf"
+      ],
+      "repair_provenance": [
+        {
+          "admissible_interval_hex": [
+            "0x537",
+            "0x153f"
+          ],
+          "chosen_lies_in_interval": true,
+          "chosen_mask_hex": "0x53f",
+          "events_after": 198,
+          "events_before": 82,
+          "failed_pair_hex": [
+            "0x33",
+            "0x505"
+          ],
+          "maximal_lower_bounds_hex": [
+            "0x0"
+          ],
+          "minimal_upper_bounds_hex": [
+            "0x3f3f",
+            "0x55ff"
+          ],
+          "post_closure_join_equals_chosen": true,
+          "post_closure_join_hex": "0x53f"
+        },
+        {
+          "admissible_interval_hex": [
+            "0x3b",
+            "0x3f"
+          ],
+          "chosen_lies_in_interval": true,
+          "chosen_mask_hex": "0x3f",
+          "events_after": 486,
+          "events_before": 198,
+          "failed_pair_hex": [
+            "0x33",
+            "0x3a"
+          ],
+          "maximal_lower_bounds_hex": [
+            "0x0"
+          ],
+          "minimal_upper_bounds_hex": [
+            "0xff",
+            "0x53f",
+            "0xc3f"
+          ],
+          "post_closure_join_equals_chosen": true,
+          "post_closure_join_hex": "0x3f"
+        },
+        {
+          "admissible_interval_hex": [
+            "0xd",
+            "0xf"
+          ],
+          "chosen_lies_in_interval": true,
+          "chosen_mask_hex": "0xf",
+          "events_after": 1296,
+          "events_before": 486,
+          "failed_pair_hex": [
+            "0x5",
+            "0xc"
+          ],
+          "maximal_lower_bounds_hex": [
+            "0x0"
+          ],
+          "minimal_upper_bounds_hex": [
+            "0x3f",
+            "0xaf",
+            "0x30f",
+            "0xa0f"
+          ],
+          "post_closure_join_equals_chosen": true,
+          "post_closure_join_hex": "0xf"
+        }
+      ]
+    },
+    {
+      "centre_masks_hex": [
+        "0x0",
+        "0xf",
+        "0xf0",
+        "0xff",
+        "0xf00",
+        "0xf0f",
+        "0xff0",
+        "0xfff",
+        "0x1000",
+        "0x100f",
+        "0x10f0",
+        "0x10ff",
+        "0x1f00",
+        "0x1f0f",
+        "0x1ff0",
+        "0x1fff",
+        "0x2000",
+        "0x200f",
+        "0x20f0",
+        "0x20ff",
+        "0x2f00",
+        "0x2f0f",
+        "0x2ff0",
+        "0x2fff",
+        "0x3000",
+        "0x300f",
+        "0x30f0",
+        "0x30ff",
+        "0x3f00",
+        "0x3f0f",
+        "0x3ff0",
+        "0x3fff",
+        "0x4000",
+        "0x400f",
+        "0x40f0",
+        "0x40ff",
+        "0x4f00",
+        "0x4f0f",
+        "0x4ff0",
+        "0x4fff",
+        "0x5000",
+        "0x500f",
+        "0x50f0",
+        "0x50ff",
+        "0x5f00",
+        "0x5f0f",
+        "0x5ff0",
+        "0x5fff",
+        "0x6000",
+        "0x600f",
+        "0x60f0",
+        "0x60ff",
+        "0x6f00",
+        "0x6f0f",
+        "0x6ff0",
+        "0x6fff",
+        "0x7000",
+        "0x700f",
+        "0x70f0",
+        "0x70ff",
+        "0x7f00",
+        "0x7f0f",
+        "0x7ff0",
+        "0x7fff",
+        "0x8000",
+        "0x800f",
+        "0x80f0",
+        "0x80ff",
+        "0x8f00",
+        "0x8f0f",
+        "0x8ff0",
+        "0x8fff",
+        "0x9000",
+        "0x900f",
+        "0x90f0",
+        "0x90ff",
+        "0x9f00",
+        "0x9f0f",
+        "0x9ff0",
+        "0x9fff",
+        "0xa000",
+        "0xa00f",
+        "0xa0f0",
+        "0xa0ff",
+        "0xaf00",
+        "0xaf0f",
+        "0xaff0",
+        "0xafff",
+        "0xb000",
+        "0xb00f",
+        "0xb0f0",
+        "0xb0ff",
+        "0xbf00",
+        "0xbf0f",
+        "0xbff0",
+        "0xbfff",
+        "0xc000",
+        "0xc00f",
+        "0xc0f0",
+        "0xc0ff",
+        "0xcf00",
+        "0xcf0f",
+        "0xcff0",
+        "0xcfff",
+        "0xd000",
+        "0xd00f",
+        "0xd0f0",
+        "0xd0ff",
+        "0xdf00",
+        "0xdf0f",
+        "0xdff0",
+        "0xdfff",
+        "0xe000",
+        "0xe00f",
+        "0xe0f0",
+        "0xe0ff",
+        "0xef00",
+        "0xef0f",
+        "0xeff0",
+        "0xefff",
+        "0xf000",
+        "0xf00f",
+        "0xf0f0",
+        "0xf0ff",
+        "0xff00",
+        "0xff0f",
+        "0xfff0",
+        "0xffff"
+      ],
+      "centre_size": 128,
+      "closure_sizes": [
+        82,
+        204,
+        504,
+        1296,
+        3456
+      ],
+      "coordinate_pair_boolean_reconstruction": {
+        "q0-q1": true,
+        "q0-r0": true,
+        "q0-r1": true,
+        "q1-r0": true,
+        "q1-r1": true,
+        "r0-r1": false
+      },
+      "events": 3456,
+      "lattice": true,
+      "name": "maximal-maximal",
+      "orthomodular": true,
+      "repair_masks_hex": [
+        "0x153f",
+        "0x2a3f",
+        "0x5f",
+        "0xf"
+      ],
+      "repair_provenance": [
+        {
+          "admissible_interval_hex": [
+            "0x537",
+            "0x153f"
+          ],
+          "chosen_lies_in_interval": true,
+          "chosen_mask_hex": "0x153f",
+          "events_after": 204,
+          "events_before": 82,
+          "failed_pair_hex": [
+            "0x33",
+            "0x505"
+          ],
+          "maximal_lower_bounds_hex": [
+            "0x0"
+          ],
+          "minimal_upper_bounds_hex": [
+            "0x3f3f",
+            "0x55ff"
+          ],
+          "post_closure_join_equals_chosen": true,
+          "post_closure_join_hex": "0x153f"
+        },
+        {
+          "admissible_interval_hex": [
+            "0xa3b",
+            "0x2a3f"
+          ],
+          "chosen_lies_in_interval": true,
+          "chosen_mask_hex": "0x2a3f",
+          "events_after": 504,
+          "events_before": 204,
+          "failed_pair_hex": [
+            "0x33",
+            "0xa0a"
+          ],
+          "maximal_lower_bounds_hex": [
+            "0x0"
+          ],
+          "minimal_upper_bounds_hex": [
+            "0x2aff",
+            "0x3f3f"
+          ],
+          "post_closure_join_equals_chosen": true,
+          "post_closure_join_hex": "0x2a3f"
+        },
+        {
+          "admissible_interval_hex": [
+            "0x5d",
+            "0x5f"
+          ],
+          "chosen_lies_in_interval": true,
+          "chosen_mask_hex": "0x5f",
+          "events_after": 1296,
+          "events_before": 504,
+          "failed_pair_hex": [
+            "0xc",
+            "0x55"
+          ],
+          "maximal_lower_bounds_hex": [
+            "0x0"
+          ],
+          "minimal_upper_bounds_hex": [
+            "0xff",
+            "0xa5f",
+            "0x135f"
+          ],
+          "post_closure_join_equals_chosen": true,
+          "post_closure_join_hex": "0x5f"
+        },
+        {
+          "admissible_interval_hex": [
+            "0xe",
+            "0xf"
+          ],
+          "chosen_lies_in_interval": true,
+          "chosen_mask_hex": "0xf",
+          "events_after": 3456,
+          "events_before": 1296,
+          "failed_pair_hex": [
+            "0xa",
+            "0xc"
+          ],
+          "maximal_lower_bounds_hex": [
+            "0x0"
+          ],
+          "minimal_upper_bounds_hex": [
+            "0x3f",
+            "0x5f",
+            "0x30f",
+            "0x50f"
+          ],
+          "post_closure_join_equals_chosen": true,
+          "post_closure_join_hex": "0xf"
+        }
+      ]
+    }
+  ],
+  "command": "python3 notes/open_questions/verification/rectangle_repair_branch_audit.py --verify",
+  "dependency": {
+    "file": "bipartite_coordinate_core_audit.py",
+    "sha256": "ed9bcd137c077294bad60aa6ab24ae379cfebe8830bac34df1234d2fe1e58ddf"
+  },
+  "initial_admissible_interval_hex": [
+    "0x537",
+    "0x153f"
+  ],
+  "initial_failed_pair_hex": [
+    "0x33",
+    "0x505"
+  ],
+  "initial_orthogonal_closure_events": 82,
+  "payload_sha256": "e658f01974243710b9f25383d4f2d73df79aab6951f7d081d4ed304f64d1a5ed",
+  "points": 16,
+  "raw_events": 50,
+  "schema": "stripped-rectangle-repair-branches-v2",
+  "schema_version": "2.0",
+  "scope": "two explicit iterated branches only; no all-branch no-go or arbitrary-grid claim",
+  "verifier_sha256": "1a4798df6e426c12d7c5aac3ef754deba300cda043fa4f9fd887c1185a5dce33"
+}

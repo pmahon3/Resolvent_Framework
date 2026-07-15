@@ -659,3 +659,8 @@ Cell 01 passes as well. The faithful same-row pair closes to a centre-free
 18554-event OML on 9928 quotient points, with the splitter, both boundary
 gaps, and row-0 activation escape intact. The next discriminating gate is
 transverse cell 10 and the second activation pattern.
+
+The parallel T-FIN ledger records the constructive marginals as exact
+countermodels to weaker impossibility lemmas. Profile-only, centre-only,
+same-row PJH-repair, and point-separation routes are closed. Fixed-carrier
+T-FIN remains open because transverse/full-grid coupling is absent.

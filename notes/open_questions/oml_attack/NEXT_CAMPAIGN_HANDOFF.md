@@ -27,6 +27,11 @@
    the `2^160` saturated subclass as though exhaustive; or promote a
    same-carrier theorem to larger representations or uncountable assembly.
 
+**Parallel proof track:** load and update `T_FIN_IMPOSSIBILITY_LEDGER.md`.
+Test every coupling/PJH/meet/block/state implication against the one-cell and
+same-row OMLs before attempting proof. A failed implication must return an
+exact countermodel and missing transverse/full-grid hypothesis.
+
 The already available fourth-gap minimum is not the requested test: its
 entire gap has `q0=1` and is disjoint from the `(q0,q1)=(0,1)` fattened-meet
 interval. Do not add it merely to increase repair depth.

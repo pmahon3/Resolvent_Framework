@@ -689,6 +689,11 @@ defect, both distributed boundary gaps, and row-0 activation escape. It is
 finite and therefore `Phi`-tame; the second same-row cell is now the live
 coupling test.
 
+Campaign 19 now has a parallel impossibility track. Every proposed T-FIN
+implication is tested against the formal, one-cell, and same-row marginal
+OMLs. The first hypothesis not already refuted must involve transverse or
+full-grid coupling; the exact cells-00/10 quotient is the next test.
+
 The full same-row pair also survives: its exact 9928-point marginal is a
 centre-free 18554-event OML with two faithful cell embeddings. Consequently
 the remaining finite pressure is transverse, beginning with cell 10 and the

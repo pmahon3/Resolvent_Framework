@@ -375,6 +375,13 @@ OML. The PJH defect, both boundary gaps, and row-0 activation escape persist.
 Same-row coupling is therefore not the collapse mechanism. Transverse cell
 10, which introduces row-1 activation through shared `r0`, is next.
 
+A parallel T-FIN impossibility ledger is now active. Existing controls refute
+profile-only collapse, one-cell/centre forcing, same-row coupled collapse,
+automatic PJH repair, and point-separation obstructions. T-FIN itself is not
+refuted because no control contains the full four-cell root. Any live proof
+must use transverse/full-grid coupling, maximal-block incidence, or genuinely
+global state data.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

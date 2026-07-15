@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Construct the transverse cells-00/10 quotient and audit both activation cylinders, defect persistence, boundaries, latticehood, and centre."
+   "current_next_step": "Construct the transverse cells-00/10 quotient while maintaining the T-FIN impossibility ledger; audit both activations, defect, boundaries, latticehood, centre, and the same-row fattened meet."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

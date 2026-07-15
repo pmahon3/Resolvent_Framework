@@ -6,8 +6,9 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 19 continuation — T-FIN theorem extraction
-  and non-profile splitter calculus; blind depth extension stopped.
+- **Active campaign:** Campaign 19 continuation — constructive transverse
+  quotient scaling plus the parallel T-FIN impossibility ledger; blind depth
+  extension stopped.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -230,5 +231,12 @@ extend the same-row pair by cell 10 if resources permit. This introduces row
 passing same-row pair. Test both activation cylinders, residue extraction,
 cross-cut extremality, centre, and boundaries before adding cell 11. Do not
 promote either finite marginal to a `Phi` counterexample.
+
+In parallel maintain `T_FIN_IMPOSSIBILITY_LEDGER.md`. Every proposed T-FIN
+implication must be tested against the formal, one-cell, and same-row controls.
+Failed implications must record their smallest countermodel and a strengthened
+hypothesis. The first live impossibility hypothesis must use transverse or
+full-grid coupling; same-row, centre-only, profile-only, and point-separation
+routes are refuted.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

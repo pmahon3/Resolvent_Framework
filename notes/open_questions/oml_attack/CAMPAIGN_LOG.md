@@ -2417,3 +2417,17 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   coexist with a centre-free terminal splitter OML. Same-row coupling is not
   the missing collapse mechanism. The transverse cell-10 coupling is the
   smallest next discriminating gate.
+
+### Iteration 255 — parallel T-FIN impossibility ledger
+- **Reformulation:** T-FIN remains the fixed-carrier Gate-A/Gate-B dichotomy,
+  while quotient-specific implications are separated into Levels 1–5. A
+  dedicated failure ledger now couples constructive countermodels to revised
+  hypotheses.
+- **Refutations extracted:** profile-only, one-cell irreducibility, same-row
+  two-cell coupling, same-row PJH repair, centre destruction, and point-state
+  failure are all insufficient to force Gate A/B. Evidence is the 17-, 892-,
+  and 9928-point controls; claims retain their **Hand proved** or
+  **Executable verified** classes.
+- **Open theorem:** the first non-refuted coupling type is transverse cell 10,
+  which introduces row-1 activation through shared `r0`. The same-row
+  fattened meet must also be serialized before any growth lemma is stated.

@@ -220,3 +220,32 @@ truth is equivalent to Phi and either clause's failure *inside an admissible
 OML* supplies a counterexample. This equivalence is an integration check,
 not a new solution or a legitimate stopping condition. **Evidence class:
 hand proved.**
+
+## 9. Finite conditional-star controls
+
+The exported conditional-diagonal star has been exhaustively run at
+`k=1,2,3`. Its distributed completions have respectively 392, 552, and 712
+events, with 9, 14, and 19 maximal blocks. They retain trivial centre, have
+only point states, introduce no joint private split, and preserve the exact
+joint-charged diagonal. An independent set-based verifier reproduces the
+declared construction, closure counts, point profiles, and selected centre
+probes; the producer alone performs the full maximal-block and all-state
+censuses. **Evidence class: exhaustive finite evidence plus executable
+verification, with that division of coverage explicit.**
+
+The reconstructed joint-boundary control is much larger. At `k=2` it has
+1,352 events. The regenerated `k=3` producer receipt has 20,552 events and
+nine maximal blocks (four of size 8192, one of size 4096, four of size 64),
+255 nontrivial interior events in the full `b2` product algebra, twenty joint
+splits, trivial centre, and 32 point states. The charged relation is still
+diagonal. Thus finite reconstruction absorbs cells and mass-generates cuts;
+it neither centralizes nor rectangularizes. **Evidence class for `k=3`:
+producer-exhaustive finite evidence calibrated against the independently
+verified smaller cases; the independent verifier did not rerun the 20,552-
+event clique census.** Receipt:
+`../verification/five_block_conditional_star_k3joint.json`.
+
+These compatible-event stars remain controls, not the live incompatible-
+pattern construction. In particular, no claim here uses countable-meet
+absoluteness for maximal blocks: maximal blocks of a sigma-complete OML need
+not themselves be sigma-complete.

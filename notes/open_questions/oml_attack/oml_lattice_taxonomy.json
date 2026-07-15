@@ -655,6 +655,22 @@
    "detail": "oml_h4_conditional_cell_and_finite_pastes.md"
   }
  ],
+ "campaign_15_closure": [
+  {
+   "id": "oml.tame.arbitrary_index_one_hub",
+   "name": "Arbitrary-index one-hub tameness",
+   "status": "proved-hand-executable-kernel",
+   "one_line": "The fixed-interface support-two family is sigma-complete with Stfa=Stsigma for every nonempty index set, hence satisfies Phi.",
+   "detail": "oml_arbitrary_index_one_hub_tameness.md"
+  },
+  {
+   "id": "oml.obstruction.bipartite_rectangle",
+   "name": "Bipartite crossed-rectangle cut",
+   "status": "executable-refuted-core",
+   "one_line": "The stripped K22/K23/K32 grouped coordinate closures remain nonlattices; opposite edges have incomparable rectangle bounds.",
+   "detail": "oml_bipartite_coordinate_core.md"
+  }
+ ],
  "external_sufficient_conditions": [
   {
    "id": "oml.tame.boolean",

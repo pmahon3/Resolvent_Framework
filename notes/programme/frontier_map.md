@@ -563,3 +563,8 @@ fixed-pattern concrete closure through three cells. The frontier is now the
 arbitrary-finite pair-local repair theorem and countable sigma-closure of the
 finite-support union; see
 `notes/open_questions/oml_attack/oml_h4_conditional_cell_and_finite_pastes.md`.
+
+Campaign 15 proves the arbitrary-index one-hub family Phi-tame: bounded
+support forces sigma-completeness and all fa states are sigma states. Grouping
+outputs into puncture columns creates a crossed-rectangle nonlattice already
+at K22. The frontier is the full conditional 2x2 rectangle repair.

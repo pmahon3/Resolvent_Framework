@@ -51,6 +51,7 @@
   "completed_events_formula": 172,
   "completed_orthomodular": true,
   "completed_unique_binary_extrema": true,
+  "events_with_proper_slice_trace": 162,
   "every_nonzero_event_has_off_cylinder_point": true,
   "joint_activated_relation_q_r1_to_rk": [
    "0000",
@@ -226,12 +227,13 @@
   "repair_pair_local_qside_x_qprimeside": true,
   "schema": "sharedq-kcell-completion-v1",
   "shared_structure": "H4 activation atoms a1,a2,a3 and the four-element subalgebra {0,q,q',1}; private coordinate blocks E_i and outputs r_i = e11@i v e01@i",
+  "slice_trace_single_cell_invariant": true,
   "state_completeness_reduction_premises": {
    "every_added_event_disjoint_union_of_two_raw_events": true,
    "every_cell_state_has_repeated_fibre_extension": true,
    "every_raw_event_is_single_cell_or_shared": true
   }
  },
- "payload_sha256": "993934b3e99555142c73d21f5856edf2c9eaa50cbc295d5775ebcc0273f27810",
+ "payload_sha256": "116bd07d757cb26014abf2ff427bdf462e0ee24eb618c96252113d7591a75b3d",
  "schema": "sharedq-kcell-completion-v1"
 }

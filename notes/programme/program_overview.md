@@ -605,6 +605,11 @@ fixed-pattern closure are verified through three cells. The exact residue is
 arbitrary-finite repair followed by countable-disjoint-union closure; finite
 formulas have not been promoted to that theorem.
 
+Campaign 15 now proves the one-hub arbitrary-index family sigma-complete and
+Phi-tame. The live construction is two-dimensional: the stripped grouped
+coordinate K22 core has an explicit crossed-rectangle lattice failure, so the
+next test is the full four-cell conditional grid and rectangle repair.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

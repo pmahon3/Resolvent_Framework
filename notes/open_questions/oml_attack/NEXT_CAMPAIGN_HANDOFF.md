@@ -1,24 +1,23 @@
-# Next campaign handoff — Campaign 15
+# Next campaign handoff — Campaign 16
 
-1. **Attempted:** direct incompatible cell, shared hub pastes, and fixed common
-   activation interface.
-2. **Proved:** the 56-event literal-`MO3` cell; two-cell 102-to-110 concrete
-   closure; abstract-state restriction theorem; pentagon all-finite-k q-only
-   control.
-3. **Refuted:** raw rank-two shared-q pasting; one-mediator and reused-mediator
-   designs; shared-q-and-r pentagon paste.
-4. **Evidence:** H4 cell/pastes executable verified and hostile reviewed;
-   fixed-pattern scaling is exhaustive finite evidence only for k=1,2,3;
-   state restriction is hand proved.
-5. **Load-bearing:** `oml_h4_conditional_cell_and_finite_pastes.md`,
-   `sharedq_kcell_completion_audit.py`, receipts k1-k3; Campaign-14 result
-   commits are the parents.
-6. **Unresolved theorem:** for every finite k the concrete closure consists
-   exactly of raw cell events plus the ordered-pair repair events, and the
-   countable-disjoint-union closure over infinitely many cells preserves the
-   diagonal, escape, order separation, and absence of joint private boundary.
-7. **First action:** prove arbitrary-k normal forms and all extrema/block/state
-   formulas; then classify countable unions by support.
-8. **Do not repeat:** call concrete closure canonical; infer arbitrary k from
-   k<=3; identify only raw q and stop at its first missing join; assume maximal
-   blocks sigma-complete; import compatible-star halo lemmas.
+1. **Attempted:** arbitrary-index one-hub closure and first grouped-output
+   coordinate grids.
+2. **Proved:** exact arbitrary-index normal forms, conservative extrema,
+   sigma-completeness, `St_fa=St_sigma`, and Phi for the one-hub family.
+3. **Refuted:** naive grouped K22/K23/K32 complement/disjoint-union closure;
+   crossed rectangle leaves two incomparable bounds.
+4. **Evidence:** one-hub theorem hand proved with executable 46-by-110 outsider
+   kernel and hostile review; bipartite cores executable verified/refuted.
+5. **Load-bearing:** `oml_arbitrary_index_one_hub_tameness.md`,
+   `oml_bipartite_coordinate_core.md`, `verify_h4_interface_hulls.py`;
+   Campaign-15 commits are parents.
+6. **Unresolved theorem:** the full four-cell 2x2 conditional grid either has
+   a concrete OML closure preserving all four edge relations or yields a
+   gadget-independent rectangle obstruction and exact repair architecture.
+7. **First action:** construct the compatible-state fibre carrier for four
+   literal-MO3 cells with row interfaces and column outputs, close under
+   orthogonal unions, and enumerate every crossed extrema failure.
+8. **Do not repeat:** apply the one-hub support-two theorem to commuting
+   puncture columns; call nonlattice compatibility cliques OML blocks; assume
+   event locality implies maximal-block locality; ignore nonprincipal fa-state
+   extension over repair events.

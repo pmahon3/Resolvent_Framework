@@ -1848,3 +1848,65 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - The finite conditional-cell and fixed-pattern assembly gates pass through
   three cells. The exact residue is arbitrary-finite repair calculus followed
   by countable sigma-closure. Automatic pivot: Campaign 15.
+
+## Linked Campaign 15 — arbitrary-index closure and grouped-output pivot (2026-07-14)
+
+### Iteration 176 — arbitrary finite normal form
+- **Theorem:** finite closures consist exactly of shared events, 46 private
+  forms per cell, and four repairs per ordered distinct pair. **Evidence
+  class: hand proved using finite kernels.**
+
+### Iteration 177 — conservative-support kernel
+- **Certificate:** all 46 outsider hulls are checked against all 110 retained
+  two-cell forms, including repairs and duals. **Evidence class: executable
+  verified.**
+
+### Iteration 178 — arbitrary-index lattice theorem
+- **Theorem:** outsider elimination makes finite-support extrema conservative;
+  the directed union is a concrete OML for every nonempty index set.
+  **Evidence class: hand proved plus executable kernel.**
+
+### Iteration 179 — exact blocks and state restriction
+- **Theorem:** maximal blocks are the private blocks and `M_ij`; centre is
+  trivial; states are compatible cell-state tuples. **Evidence class: hand
+  proved, executable finite verification.**
+
+### Iteration 180 — disjoint-cylinder theorem
+- **Theorem:** finite fibres plus support at most two force every pairwise-
+  disjoint nonzero family to be finite. **Evidence class: hand proved.**
+
+### Iteration 181 — one-hub sigma tameness
+- **Theorem:** the arbitrary-index family is sigma-complete and
+  `St_fa=St_sigma`, hence Phi. **Evidence class: hand proved and hostile
+  reviewed.**
+
+### Iteration 182 — outsider-certificate hostile repair
+- **Review:** repaired omission of eight pair repairs and the repeated-fibre
+  tuple check; exact receipts and independent verifier pass. **Evidence class:
+  hostile executable audit.**
+
+### Iteration 183 — bipartite support growth
+- **Result:** stripped K22 closure grows 50 to 82 events and creates 32
+  three-coordinate forms; K23/K32 grow 72 to 144. **Evidence class:
+  exhaustive finite evidence.**
+
+### Iteration 184 — crossed-rectangle obstruction
+- **Refutation:** all three bipartite cores remain nonlattices; K22 has two
+  explicit incomparable minimal upper bounds on opposite edges. **Evidence
+  class: executable refuted and hostile reviewed.**
+
+### Iteration 185 — off-cylinder cover gate
+- **Theorem extraction:** with genuine puncture blocks, order separation
+  requires exclusion of countable orthogonal covers of the whole off-pattern
+  locus. **Evidence class: conditional hand theorem.**
+
+### Iteration 186 — full-atlas locality gate
+- **Correction:** event-local repair does not imply MBRC; every
+  completion-created maximal block needs bounded/countable incidence support,
+  and the nonprincipal fa witness must extend to all new events. **Evidence
+  class: hostile hand audit.**
+
+### Campaign-15 verdict
+- Arbitrary-index one-hub scaling is completely Phi-tame. The first live
+  grouped-output core fails latticehood by a rectangle cut. Automatic pivot:
+  Campaign 16 full conditional 2x2 completion and rectangle repair.

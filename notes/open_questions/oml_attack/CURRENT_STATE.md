@@ -220,6 +220,17 @@ reconstructed. The polynomial formulas are verified only for k<=3. The live
 frontier is their arbitrary-k proof and the countable-disjoint-union closure,
 where new infinite-support events may reconstruct the boundary.
 
+Campaign 15 proves the stronger one-hub conclusion: for every nonempty index
+set, the normal-form union is already a concrete sigma-complete OML, every
+orthogonal family has finitely many nonzero terms, and every finitely additive
+two-valued state is sigma-additive. Thus `St_fa=St_sigma` and Phi holds for the
+entire support-two architecture. The puncture construction necessarily needs
+the two-dimensional family `r_{i,alpha}` with fixed-i commuting columns. Its
+stripped K22 coordinate core closes from 50 to 82 events but remains a
+nonlattice at an explicit crossed rectangle; K23 and K32 fail likewise. The
+next exact gate is the full four-cell 2x2 conditional grid and an explicit
+rectangle-repair calculus.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

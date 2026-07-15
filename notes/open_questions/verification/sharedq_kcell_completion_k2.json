@@ -2,8 +2,8 @@
  "emitted": "2026-07-14",
  "generator": "sharedq_kcell_completion_audit.py",
  "payload": {
-  "abstract_states_equal_points": null,
-  "abstract_two_valued_state_count": null,
+  "abstract_states_equal_points": true,
+  "abstract_two_valued_state_count": 4964,
   "activation_cylinder_points": 2,
   "activation_is_event": false,
   "added_events": [
@@ -35,6 +35,7 @@
   "completed_events_formula": 110,
   "completed_orthomodular": true,
   "completed_unique_binary_extrema": true,
+  "events_with_proper_slice_trace": 100,
   "every_nonzero_event_has_off_cylinder_point": true,
   "joint_activated_relation_q_r1_to_rk": [
    "000",
@@ -171,12 +172,13 @@
   "repair_pair_local_qside_x_qprimeside": true,
   "schema": "sharedq-kcell-completion-v1",
   "shared_structure": "H4 activation atoms a1,a2,a3 and the four-element subalgebra {0,q,q',1}; private coordinate blocks E_i and outputs r_i = e11@i v e01@i",
+  "slice_trace_single_cell_invariant": true,
   "state_completeness_reduction_premises": {
    "every_added_event_disjoint_union_of_two_raw_events": true,
    "every_cell_state_has_repeated_fibre_extension": true,
    "every_raw_event_is_single_cell_or_shared": true
   }
  },
- "payload_sha256": "5bd53996ac70728c224631e4ae7de3d80e4e75f276cad4527840289f5010b71d",
+ "payload_sha256": "cf9c4e064dc6e8688e4f1b7fb24a4fb203a83238c7b3053bc050775f4bed7afb",
  "schema": "sharedq-kcell-completion-v1"
 }

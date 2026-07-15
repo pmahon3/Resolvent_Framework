@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — a literal MO3 conditional cell and fixed-pattern concrete closures through three cells pass; arbitrary-index repair and sigma-closure remain open.",
+   "status": "OPEN — arbitrary-index one-hub scaling is proved Phi-tame; grouped puncture geometry first fails at an explicit K22 rectangle cut.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 78
   },

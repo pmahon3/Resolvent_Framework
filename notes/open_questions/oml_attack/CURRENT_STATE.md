@@ -382,6 +382,12 @@ refuted because no control contains the full four-cell root. Any live proof
 must use transverse/full-grid coupling, maximal-block incidence, or genuinely
 global state data.
 
+The transverse pair also survives. The exact cells-00/10 marginal has 49730
+points and closes to a centre-free 18560-event OML with both activation
+escapes, both boundary gaps, and the unchanged PJH defect. Thus neither
+same-row nor transverse two-cell coupling supports a T-FIN proof. The first
+unresolved coupling is the three-cell corner `{00,01,10}`.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

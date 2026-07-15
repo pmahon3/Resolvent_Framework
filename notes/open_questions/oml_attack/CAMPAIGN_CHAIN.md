@@ -222,21 +222,25 @@
   exact 9928-point marginal is a centre-free 18554-event OML preserving the
   defect, both boundary gaps, and shared row-0 activation escape. Same-row
   coupling is therefore closed as a collapse route.
+- The transverse pair (cells 00 and 10) succeeds too: the 49730-point
+  marginal is a centre-free 18560-event OML with both activation escapes,
+  both boundary gaps, and the unchanged defect. Every two-cell coupling type
+  is now closed as an impossibility route.
 
 ## Next automatic pivot
 
-Restore transverse cell 10 over the node-6/cell-00 control, or equivalently
-extend the same-row pair by cell 10 if resources permit. This introduces row
-1's activation and `q1` while sharing `r0`. Compare it explicitly with the
-passing same-row pair. Test both activation cylinders, residue extraction,
-cross-cut extremality, centre, and boundaries before adding cell 11. Do not
-promote either finite marginal to a `Phi` counterexample.
+Construct the exact three-cell corner `{00,01,10}` or an equivalent symbolic
+normal form. It is the first marginal containing both a complete row and a
+complete column. Test both activations, residue extraction, cross-cut
+extremality, centre, boundaries, and defect type before adding cell 11. In
+parallel serialize the same-row fattened meet for the impossibility ledger.
+Do not promote finite marginals to `Phi` counterexamples.
 
 In parallel maintain `T_FIN_IMPOSSIBILITY_LEDGER.md`. Every proposed T-FIN
 implication must be tested against the formal, one-cell, and same-row controls.
 Failed implications must record their smallest countermodel and a strengthened
-hypothesis. The first live impossibility hypothesis must use transverse or
-full-grid coupling; same-row, centre-only, profile-only, and point-separation
-routes are refuted.
+hypothesis. The first live impossibility hypothesis must use a three-cell
+corner or full-grid coupling; all two-cell, centre-only, profile-only, and
+point-separation routes are refuted.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

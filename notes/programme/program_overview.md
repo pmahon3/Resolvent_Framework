@@ -699,6 +699,11 @@ centre-free 18554-event OML with two faithful cell embeddings. Consequently
 the remaining finite pressure is transverse, beginning with cell 10 and the
 second activation pattern, rather than repeated sharing along one row.
 
+That transverse quotient passes as well. All two-cell coupling orientations
+therefore admit centre-free gate-avoiding PJH controls. The first untested
+finite architecture is the three-cell corner containing a complete row and
+column.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

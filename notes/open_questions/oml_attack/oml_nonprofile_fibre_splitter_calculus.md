@@ -759,3 +759,31 @@ cell images while retaining distributed nonreconstruction. The finite OML is
 still `Phi`-tame and existentially quotients row 1. The first genuinely
 transverse gate is cell 10, which shares `r0` with cell 00 and introduces the
 second activation pattern and `q1`. **Open.**
+
+### 8.10 Transverse two-cell inflation
+
+Restore cells 00 and 10 instead. The exact marginal retains their two local
+states with shared `r0`, together with `r1` exactly when forgotten cells 01
+and 11 exist. It has `49730` points. Both projections contain all 224 local
+states and reflect the complete 56-event order tables, so both cell embeddings
+are faithful. **Executable verified.**
+
+The same cell-00-definable node-6 split closes to `18560` events. An exact
+17-atom-support algorithm computes the old-event part of every principal
+upset; explicit containment supplies the 128 new-event part. The old terminal
+remains a sublattice and all `2375680` pairs involving a new event have joins.
+The result is a centre-free concrete OML. **Executable verified**; centre
+reduction again uses the **Hand proved** generator-commutant lemma.
+
+Both row activation cylinders remain absent and contain no nonzero event,
+neither same-side boundary reconstructs, and the designated first PJH defect
+is unchanged: join least, hull absent, residue absent. **Executable verified**
+by `full_grid_terminal_split_transverse_quotient.py`.
+Payload
+`58cb80ed3ff5c3ece5d36b5df4bc182effd15d9482f61496570e91bfee29e27c`.
+
+Thus a transverse pair introducing both activation patterns also fails to
+force T-FIN's gates. This refutes the first transverse two-cell impossibility
+hypothesis. The finite OML is `Phi`-tame and still existentially removes cells
+01 and 11. The smallest remaining coupled rectangle is the three-cell corner
+`{00,01,10}`. **Open.**

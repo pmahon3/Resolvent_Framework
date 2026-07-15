@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Construct the transverse cells-00/10 quotient while maintaining the T-FIN impossibility ledger; audit both activations, defect, boundaries, latticehood, centre, and the same-row fattened meet."
+   "current_next_step": "Construct the three-cell corner {00,01,10} and serialize the same-row fattened meet while maintaining the T-FIN impossibility ledger."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "centre-free-same-row-pjh-control",
-   "one_line": "An exact 9928-point same-row two-cell inflation is a centre-free OML preserving the PJH defect and activation escape; transverse coupling is the next finite gate.",
+   "status": "centre-free-all-two-cell-pjh-controls",
+   "one_line": "Both same-row and transverse two-cell inflations are centre-free OMLs preserving the PJH defect and activation escape; the three-cell corner is the next finite gate.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

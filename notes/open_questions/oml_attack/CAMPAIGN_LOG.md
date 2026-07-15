@@ -2431,3 +2431,17 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Open theorem:** the first non-refuted coupling type is transverse cell 10,
   which introduces row-1 activation through shared `r0`. The same-row
   fattened meet must also be serialized before any growth lemma is stated.
+
+### Iteration 256 — centre-free transverse pair
+- **Construction:** the exact cells-00/10 marginal has `49730` points,
+  faithfully embeds both cells, and closes to `18560` events. **Executable
+  verified.** It represents both activation patterns and shared `r0`.
+- **Structural gates:** exact 17-atom-support principal-upset audit checks
+  `2375680` new-event pairs; the result is a centre-free concrete OML. Both
+  Gate-B cylinders have zero supported nonzero events, Gate A is absent, and
+  the node-6 join/hull/residue defect is unchanged. **Executable verified**;
+  centre sufficiency uses the **Hand proved** commutant lemma. Payload
+  `58cb80ed3ff5c3ece5d36b5df4bc182effd15d9482f61496570e91bfee29e27c`.
+- **Impossibility refutation:** transverse two-cell coupling is insufficient
+  for T-FIN. The next non-refuted finite coupling is the three-cell corner,
+  not another two-cell orientation.

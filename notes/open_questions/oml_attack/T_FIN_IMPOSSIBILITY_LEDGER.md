@@ -22,6 +22,7 @@ weaker implications that omit transverse/full-grid coupling.
 | node-6 formal split | 17 points, 18432 events, `B_9 x MO2^2`, defect and both boundary gaps persist | **Executable verified**; product **Hand proved** | all physical cells, activation, trivial centre |
 | node-6 + cell 00 | 892 points, 18496 events, centre-free OML, defect persists, row-0 Gate B absent, Gate A absent | **Executable verified**, payload `e65582f3...` | cells 01/10/11, row-1 activation, full carrier |
 | node-6 + same-row cells 00/01 | 9928 points, 18554 events, centre-free OML, defect persists, row-0 Gate B absent, Gate A absent | **Executable verified**, payload `2764d647...` | transverse cells 10/11, row-1 activation, full carrier |
+| node-6 + transverse cells 00/10 | 49730 points, 18560 events, centre-free OML, defect persists, both Gate-B cylinders absent, Gate A absent | **Executable verified**, payload `58cb80ed...` | cells 01/11, three-cell corner, full carrier |
 
 Both finite OMLs are `Phi`-tame: on a finite OML every orthogonal family has
 only finitely many nonzero members, so finite additivity equals sigma
@@ -40,7 +41,8 @@ additivity. **Hand proved.** Their role is architectural, not negative.
 | two bare four-residue squares with event rows/columns/total force a residue event | **Refuted** | **Hand proved** | four-point six-event `MO2` control | require explicit shared edge/PJH/provenance incidence |
 | same-row coupling forces monotone growth of the fattened same-side meet | **Open** | no transported meet certificate yet | current quotient receipts do not serialize the meet | compute the exact meet and residue in the same-row OML; then state the missing transverse growth hypothesis |
 | every centre-free gate-avoiding binary defect violates cross-cut extremality | **Refuted** at one- and same-row levels | **Executable verified** all new-event pairs | 892- and 9928-point OMLs | restrict to transverse/full `K_{2,2}` coupling |
-| transverse cell 10 forces hull repair, Gate B, centrality, or nonlatticehood | **Open** | none | next exact quotient | construct cells-00/10 quotient and audit both activations |
+| transverse cell 10 forces hull repair, Gate B, centrality, or nonlatticehood | **Refuted** | **Executable verified** | 49730-point centre-free transverse OML | require a three-cell corner or full four-cycle |
+| three-cell corner `{00,01,10}` forces Gate A/B or nonlatticehood | **Open** | none | next exact marginal | construct exact three-state quotient or prove symbolic coupling theorem |
 | full four-cell terminal fires Gate A or B | **Open** | T-FIN | no full terminal or proof | retain as fixed-carrier target |
 
 ## Route I — coupled residue squares
@@ -56,9 +58,9 @@ two-square obstruction must mention at least one datum absent here:
 4. two provenance-fattened meets coupled through one column; or
 5. a state-compatibility condition involving both rows.
 
-**Level-1 theorem (proved).** Same-row two-cell coupling does not force Gate A
-or Gate B. **Executable verified.** A Level-2 transverse-coupling theorem is
-**Open**.
+**Level-1 theorems (proved).** Neither same-row nor transverse two-cell
+coupling forces Gate A or Gate B. **Executable verified.** A Level-2 theorem
+must now require at least a three-cell corner or the full four-cycle.
 
 ## Route II — first-PJH-defect propagation
 
@@ -73,9 +75,11 @@ The smallest live rank must detect transverse information. Candidate state:
 restored column set, activation rows represented, hull/residue eventhood,
 cross-cut status)`.
 
-The next transition `cells {00,01} -> add 10` is discriminating: it introduces
-both a new row activation and a shared-column constraint. Coverage beyond this
-transition is **Open**.
+The two-cell transverse state `{00,10}` also preserves the identical defect,
+so “number of represented activation rows” is not a strict rank either. The
+next discriminating transition is the three-cell corner `{00,01,10}`, which
+simultaneously contains a complete row and a complete column. Coverage is
+**Open**.
 
 ## Route III — fattened-meet incompatibility
 
@@ -116,7 +120,7 @@ All are **Open**.
 | Level | Status |
 |---|---|
 | 1 — exact same-row quotient | **Proved/executable verified:** gate-avoiding centre-free OML exists |
-| 2 — transverse coupling type | **Open** |
+| 2 — two-cell coupling type | **Refuted as an impossibility route; three-cell coupling open** |
 | 3 — fixed-carrier T-FIN | **Open** |
 | 4 — representation-independent rectangle impossibility | **Open** |
 | 5 — normalization of arbitrary `Phi` failure | **Open** |
@@ -125,8 +129,7 @@ All are **Open**.
 
 The evidence now favours a gate-avoiding *finite marginal architecture*, not
 yet a full gate-avoiding terminal. T-FIN remains genuinely uncertain. The
-single most discriminating next computation is the exact cells-00/10
-transverse quotient using the same node-6 split, with both activation
-cylinders and full lattice/centre gates audited. In parallel, serialize the
-same-row fattened meet so that Route III has a precise stable or growing
-witness.
+single most discriminating next computation is the exact three-cell corner
+`{00,01,10}` using the same node-6 split, with both activation cylinders and
+full lattice/centre gates audited. In parallel, serialize the same-row
+fattened meet so that Route III has a precise stable or growing witness.

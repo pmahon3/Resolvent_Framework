@@ -17,11 +17,11 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** construct the transverse two-cell quotient for cells 00
-   and 10: retain `(s00,s10,r1)` with shared `r0` and exact existence of cells
-   01/11. Use the same generating cell-00 split. Audit both row activation
-   cylinders, defect, boundaries, lattice, and centre, then compare with the
-   passing same-row pair before deciding whether to build the three-cell rung.
+7. **First action:** construct the three-cell corner quotient `{00,01,10}`:
+   retain compatible `(s00,s01,s10)` and exact existence of cell 11. Use the
+   same generating cell-00 split. Audit both activations, defect, boundaries,
+   lattice, and centre. In parallel serialize the exact same-row fattened meet
+   and update the T-FIN failure ledger.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a
@@ -58,6 +58,10 @@ bitset closure; use quotient state variables and incremental closure.
 The same-row pair survives too: 9928 points, 18554 events, centre-free OML,
 two faithful cell embeddings, persistent defect and activation escape. Do not
 repeat same-row variants; transverse cell 10 is the discriminating test.
+
+The transverse pair also survives: 49730 points, 18560 events, centre-free
+OML, both activation escapes and boundary gaps intact. Do not repeat any
+two-cell orientation. The three-cell corner is the next coupling threshold.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

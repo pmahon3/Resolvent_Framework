@@ -664,3 +664,8 @@ The parallel T-FIN ledger records the constructive marginals as exact
 countermodels to weaker impossibility lemmas. Profile-only, centre-only,
 same-row PJH-repair, and point-separation routes are closed. Fixed-carrier
 T-FIN remains open because transverse/full-grid coupling is absent.
+
+Transverse two-cell coupling is now present and still does not collapse: the
+cells-00/10 marginal is a centre-free 18560-event OML with both activation
+escapes and the persistent defect. The impossibility frontier moves to a
+three-cell corner or the full four-cycle.

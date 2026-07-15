@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — a centre-free same-row two-cell inflation preserves a first PJH defect; the parallel T-FIN ledger isolates transverse/full-grid coupling as the first non-refuted impossibility route.",
+   "status": "OPEN — centre-free same-row and transverse two-cell inflations preserve a first PJH defect; the T-FIN ledger now isolates a three-cell corner/full-grid coupling as the first non-refuted route.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 101
   },

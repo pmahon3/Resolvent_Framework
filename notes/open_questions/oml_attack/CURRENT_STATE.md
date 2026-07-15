@@ -305,6 +305,12 @@ unrestricted interval has `2^1019276` subsets. The next discriminating gate
 is therefore saturation preservation versus an explicit partial-macrofibre
 splitter.
 
+The existing fourth-gap control cannot decide that gate: all of its profiles
+have `q0=1`, so its unique minimum selector and the entire gap are disjoint
+from the `(q0,q1)=(0,1)` fattened-meet interval. A fourth selected repair is
+therefore suspended unless its closure is tied to a stated cross-interval
+provenance theorem.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

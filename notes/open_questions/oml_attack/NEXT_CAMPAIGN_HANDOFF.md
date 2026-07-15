@@ -28,6 +28,10 @@
    the `2^160` saturated subclass as though exhaustive; or promote a
    same-carrier theorem to larger representations or uncountable assembly.
 
+The already available fourth-gap minimum is not the requested test: its
+entire gap has `q0=1` and is disjoint from the `(q0,q1)=(0,1)` fattened-meet
+interval. Do not add it merely to increase repair depth.
+
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap
 descriptor make blind branching mathematically uninformative. Continue only

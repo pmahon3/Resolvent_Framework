@@ -295,3 +295,16 @@ current provenance calculus has been proved to exclude that possibility.
 Accordingly arbitrary branching over `2^160` subsets is also suspended: a
 next computation is discriminating only if it classifies partial splitters
 or quotients the 160 bits by a proved gate-preserving provenance action.
+
+The already banked fourth-gap control does not supply that test. Every one
+of its 116 nonempty macrofibre intersections has `q0=1` (profiles `1000`,
+`1010`, `1100`, or `1110`), whereas every one of the 160 pieces above `e_*`
+has `(q0,q1)=(0,1)`. Hence the whole 205,248-point fourth gap—and in
+particular its unique four-point minimum selector—is disjoint from the
+fattened-meet enlargement interval. **Hand proved** by the coordinate-profile
+partition; the two profile classifications are separately **Executable
+verified** by `full_grid_third_repair_fourth_gap_audit.py` and
+`full_grid_stage558_fattened_meet_gap.py`. Adding that fourth selector might
+create later closure interactions, but the selector itself cannot distinguish
+macrofibre saturation from partial splitting. Routine extension along it is
+therefore stopped.

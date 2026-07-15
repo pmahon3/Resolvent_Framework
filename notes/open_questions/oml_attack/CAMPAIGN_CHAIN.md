@@ -182,6 +182,9 @@
   activation/local-state macrofibres at stage 558, but saturation of future
   repairs or terminal meets for that partition is open; the unrestricted
   interval still has `2^1019276` set candidates.
+- The banked fourth-gap selector is disjoint from that interval (`q0=1`
+  versus `(q0,q1)=(0,1)`), so routine fourth-depth extension does not test
+  the live saturation/partial-splitter dichotomy.
 
 ## Next automatic pivot
 

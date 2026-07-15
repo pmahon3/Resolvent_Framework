@@ -2251,3 +2251,11 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   are unsupported and remain **Open**. The producer was hardened to derive
   the meet from `q0,q1` via its unique proper upper bound instead of trusting
   only a stored hash. Blind `2^160` branching is therefore rejected.
+
+### Iteration 240 — fourth-repair discrimination refutation
+- **Refutation:** the banked 205,248-point fourth gap lies wholly in
+  `q0=1`, while the 160-piece fattened-meet interval lies wholly in
+  `(q0,q1)=(0,1)`. Its unique four-point minimum selector is therefore
+  disjoint from the live interval and does not test saturation preservation.
+  **Hand proved** from two separately **Executable verified** profile
+  classifications. Blind fourth-depth extension is stopped.

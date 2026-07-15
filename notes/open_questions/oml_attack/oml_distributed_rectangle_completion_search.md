@@ -180,3 +180,39 @@ replay.  The terminal receipt is not a standalone proof DAG because memoized
 child targets are not serialized; exhaustive coverage also relies on rerunning
 the deterministic producer.  **Evidence class: executable verified structural
 refinement, independently replayed locally and hostile scoped.**
+
+## 9. Coordinate-closed full-carrier corollary
+
+Call a full-carrier completion coordinate-closed when the join of every two
+profile-measurable events is again profile-measurable. Its profile-cylinder
+events descend injectively to a complement/disjoint-union-closed family in
+`P(16)` containing the 82-event edge core. The hypothesis supplies all joins
+there, and complements supply meets. It is therefore a concrete OML
+completion of the stripped core, so Section 8 forces it to contain the
+`q`-hub or `r`-hub minimal family. Hence it reconstructs
+`Bool(q0,q1)` or `Bool(r0,r1)`.
+
+Thus a distributed-preserving full-carrier completion must repair at least
+one profile-measurable failed pair with a non-profile-measurable join. No
+automorphism invariance or fibre saturation of the completion is assumed.
+**Hand proved.** The finite core covering premise is separately
+**Executable verified** and the implication received hostile review.
+
+An expanded class-K cascade is only a capped partial control. It reaches 27
+nodes: ten branches acquire word-closure same-side certificates and twenty
+branches stop at the explicit family-size prediction cap. It has no terminal
+or no-K conclusion, and proves no class-K no-go. Class K consists
+profile-measurable candidates, so this search does not probe the surviving
+non-profile-measurable escape. The receipts record every disposition at the
+reached uncapped nodes. **Executable verified** for those reached nodes and
+branch certificates. The capped leaves and any class-K no-go are **Open**.
+
+Producer:
+`notes/open_questions/verification/full_grid_2x2_rectangle_repair_search.py`.
+Independent verifier:
+`notes/open_questions/verification/full_grid_2x2_rectangle_repair_verify.py`.
+Tested range: the one full conditional `2x2` carrier, 27 reached nodes and 30
+branch dispositions under the recorded caps. The verifier reconstructs the
+carrier and branch families independently, while the coordinate-closed
+corollary additionally depends on the separately exhaustive 16-point core
+receipt. No non-profile candidate is tested by this cascade.

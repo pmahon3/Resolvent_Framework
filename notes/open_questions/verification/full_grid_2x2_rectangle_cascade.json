@@ -1,0 +1,968 @@
+{
+ "emitted": "2026-07-14",
+ "generator": "full_grid_2x2_rectangle_repair_search.py",
+ "payload": {
+  "branch_outcomes": {
+   "cap": 20,
+   "monotone_certificate": 10
+  },
+  "candidate_class_K": "unions of full (q0,q1,r0,r1) coordinate-profile cylinders z with x|y <= z <= AND of all current upper bounds; branching is over ALL such candidates for the failing pair with the fewest free profiles (deterministic tie-break)",
+  "capped": true,
+  "caps": {
+   "depth": 30,
+   "family": 3000,
+   "nodes": 200
+  },
+  "corollary_coordinate_closed_completions": "THEOREM (from the core16 receipt + Lemma L2/L3).  Call a concrete-logic OML completion F of the 230-event grid family coordinate-closed when the join in F of any two profile-measurable events is again profile-measurable.  The words of the profile-measurable events of F then form a complement/disjoint-union-closed, lattice-complete word family in P(16) containing the 82-word base, hence by the exhaustive core16 covering theorem it contains one of the 17 terminal families, each of which reconstructs Bool(q0,q1) or Bool(r0,r1) in full.  Therefore EVERY coordinate-closed completion of the full 2x2 grid reconstructs a same-side boundary.  The only escape left open by this corollary is a completion that repairs some profile-measurable pair with a non-profile-measurable join.  The finite tree recorded here instead probes coordinate-saturated repair branches within class K and the stated caps (see branch_outcomes and the per-node word_failures_tried_before_event_verified counters).",
+  "monotone_certificates": [
+   "nontrivial same-side ((q0,q1)- or (r0,r1)-) measurable event",
+   "nonzero event inside a row activation cylinder",
+   "failing pair with no K-candidate"
+  ],
+  "nodes": 27,
+  "scope": "partial deterministic class-K exploration under explicit caps; all class-K candidates are enumerated only at reached uncapped nodes; candidates outside K (partial macro-block unions) are not enumerated; capped branches prove no negative conclusion; no canonicality, arbitrary-grid, or infinite promotion is claimed",
+  "tree": [
+   {
+    "K_events": 82,
+    "added_traces": [],
+    "children": [
+     "0537",
+     "053f",
+     "1537",
+     "153f"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "e00@11"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "9960cf0a3d3f271cf68d5340602dd19671461ada4c4d93b58eb3f378221acc49"
+    ],
+    "depth": 0,
+    "events": 230,
+    "failing_word_pairs": 32,
+    "free_profiles": [
+     "0011",
+     "1100"
+    ],
+    "id": 1,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0010",
+     "0100",
+     "0101",
+     "1000",
+     "1010"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 204,
+    "added_traces": [
+     "0537"
+    ],
+    "children": [
+     "0076",
+     "00f6"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0010,0100,0110]"
+    ],
+    "chosen_pair_sha256": [
+     "7cfdae710951e1fcca1c831eb884c104e77016ba75d3246c6886cd9b90e13d8e",
+     "09e5b8a24a787879fb5afd900084bf1d3be843dbaf6a79dc71ec6a96efb193cf"
+    ],
+    "depth": 1,
+    "events": 352,
+    "failing_word_pairs": 576,
+    "free_profiles": [
+     "0111"
+    ],
+    "id": 2,
+    "must_profiles": [
+     "0001",
+     "0010",
+     "0100",
+     "0101",
+     "0110"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 504,
+    "added_traces": [
+     "0076",
+     "0537"
+    ],
+    "children": [
+     "0322",
+     "2322"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0101]",
+     "cyl[0001,1000,1001]"
+    ],
+    "chosen_pair_sha256": [
+     "104515e51b09f8ec99934b888105043052344e6de5f54e2f7a4d85408f127341",
+     "881aef5ca2db66b654260126689c1c114f7bae5e245bde0754253516c5a3d2f7"
+    ],
+    "depth": 2,
+    "events": 668,
+    "failing_word_pairs": 4768,
+    "free_profiles": [
+     "1101"
+    ],
+    "id": 3,
+    "must_profiles": [
+     "0001",
+     "0101",
+     "1000",
+     "1001"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1312,
+    "added_traces": [
+     "0076",
+     "0322",
+     "0537"
+    ],
+    "children": [
+     "0544",
+     "4544"
+    ],
+    "chosen_pair": [
+     "cyl[0010,0110]",
+     "cyl[0010,1000,1010]"
+    ],
+    "chosen_pair_sha256": [
+     "d58761832e60e2ec4f98e25e0af82b9ade242e69b6e6b2255b173ea94cccb40c",
+     "96fa82cec4f1d978946dc4e9288e814ad47ee2fcfae0a57c9ebe7cbfbac7aa0b"
+    ],
+    "depth": 3,
+    "events": 1500,
+    "failing_word_pairs": 29696,
+    "free_profiles": [
+     "1110"
+    ],
+    "id": 4,
+    "must_profiles": [
+     "0010",
+     "0110",
+     "1000",
+     "1010"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "0076",
+     "0537",
+     "2322"
+    ],
+    "children": [
+     "2022",
+     "2222"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0101]",
+     "cyl[0101,1101]"
+    ],
+    "chosen_pair_sha256": [
+     "104515e51b09f8ec99934b888105043052344e6de5f54e2f7a4d85408f127341",
+     "c3dff62459cc25f623840e09a3dab2b9a183b37b3a730281bfd7a325ccf82111"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "1001"
+    ],
+    "id": 5,
+    "must_profiles": [
+     "0001",
+     "0101",
+     "1101"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 504,
+    "added_traces": [
+     "00f6",
+     "0537"
+    ],
+    "children": [
+     "00b2",
+     "00f2"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,0101,0111]"
+    ],
+    "chosen_pair_sha256": [
+     "7cfdae710951e1fcca1c831eb884c104e77016ba75d3246c6886cd9b90e13d8e",
+     "9049d5933ca1286bbca58761b292ee37e51433104ca2e24bf4afa49a7c7c863a"
+    ],
+    "depth": 2,
+    "events": 668,
+    "failing_word_pairs": 6144,
+    "free_profiles": [
+     "0110"
+    ],
+    "id": 6,
+    "must_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "0111"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1312,
+    "added_traces": [
+     "00b2",
+     "00f6",
+     "0537"
+    ],
+    "children": [
+     "0322",
+     "2322"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0101]",
+     "cyl[0001,1000,1001]"
+    ],
+    "chosen_pair_sha256": [
+     "104515e51b09f8ec99934b888105043052344e6de5f54e2f7a4d85408f127341",
+     "881aef5ca2db66b654260126689c1c114f7bae5e245bde0754253516c5a3d2f7"
+    ],
+    "depth": 3,
+    "events": 1500,
+    "failing_word_pairs": 35840,
+    "free_profiles": [
+     "1101"
+    ],
+    "id": 7,
+    "must_profiles": [
+     "0001",
+     "0101",
+     "1000",
+     "1001"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "00f2",
+     "00f6",
+     "0537"
+    ],
+    "children": [
+     "0332",
+     "2332"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,1000,1001]"
+    ],
+    "chosen_pair_sha256": [
+     "7cfdae710951e1fcca1c831eb884c104e77016ba75d3246c6886cd9b90e13d8e",
+     "881aef5ca2db66b654260126689c1c114f7bae5e245bde0754253516c5a3d2f7"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "1101"
+    ],
+    "id": 8,
+    "must_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "1000",
+     "1001"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 198,
+    "added_traces": [
+     "053f"
+    ],
+    "children": [
+     "003b",
+     "003f"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "cyl[0001,0011,0100,0101]"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "465f95bc4989b77a9459773b88f55ddf36219edc5363b66a1b3e34efbc526011"
+    ],
+    "depth": 1,
+    "events": 346,
+    "failing_word_pairs": 1024,
+    "free_profiles": [
+     "0010"
+    ],
+    "id": 9,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0011",
+     "0100",
+     "0101"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 504,
+    "added_traces": [
+     "003b",
+     "053f"
+    ],
+    "children": [
+     "00b2",
+     "00f2"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,0101,0111]"
+    ],
+    "chosen_pair_sha256": [
+     "7cfdae710951e1fcca1c831eb884c104e77016ba75d3246c6886cd9b90e13d8e",
+     "9049d5933ca1286bbca58761b292ee37e51433104ca2e24bf4afa49a7c7c863a"
+    ],
+    "depth": 2,
+    "events": 668,
+    "failing_word_pairs": 6144,
+    "free_profiles": [
+     "0110"
+    ],
+    "id": 10,
+    "must_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "0111"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1312,
+    "added_traces": [
+     "003b",
+     "00b2",
+     "053f"
+    ],
+    "children": [
+     "0322",
+     "2322"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0101]",
+     "cyl[0001,1000,1001]"
+    ],
+    "chosen_pair_sha256": [
+     "104515e51b09f8ec99934b888105043052344e6de5f54e2f7a4d85408f127341",
+     "881aef5ca2db66b654260126689c1c114f7bae5e245bde0754253516c5a3d2f7"
+    ],
+    "depth": 3,
+    "events": 1500,
+    "failing_word_pairs": 35840,
+    "free_profiles": [
+     "1101"
+    ],
+    "id": 11,
+    "must_profiles": [
+     "0001",
+     "0101",
+     "1000",
+     "1001"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "003b",
+     "00f2",
+     "053f"
+    ],
+    "children": [
+     "0332",
+     "2332"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,1000,1001]"
+    ],
+    "chosen_pair_sha256": [
+     "7cfdae710951e1fcca1c831eb884c104e77016ba75d3246c6886cd9b90e13d8e",
+     "881aef5ca2db66b654260126689c1c114f7bae5e245bde0754253516c5a3d2f7"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "1101"
+    ],
+    "id": 12,
+    "must_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "1000",
+     "1001"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 486,
+    "added_traces": [
+     "003f",
+     "053f"
+    ],
+    "children": [
+     "000d",
+     "000f"
+    ],
+    "chosen_pair": [
+     "cyl[0000,0010]",
+     "cyl[0010,0011]"
+    ],
+    "chosen_pair_sha256": [
+     "9a8477c60ad34ea23a804698e6bbc3d7f56592d7f3d30213d401a74de2e29ec3",
+     "6b12baa84af197ffbc8669b4e5126cfc0a7f0314de084e1311a0b7cc39567ace"
+    ],
+    "depth": 2,
+    "events": 650,
+    "failing_word_pairs": 6300,
+    "free_profiles": [
+     "0001"
+    ],
+    "id": 13,
+    "must_profiles": [
+     "0000",
+     "0010",
+     "0011"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "000d",
+     "003f",
+     "053f"
+    ],
+    "children": [
+     "0332",
+     "2332"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,1000,1001]"
+    ],
+    "chosen_pair_sha256": [
+     "7cfdae710951e1fcca1c831eb884c104e77016ba75d3246c6886cd9b90e13d8e",
+     "881aef5ca2db66b654260126689c1c114f7bae5e245bde0754253516c5a3d2f7"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "1101"
+    ],
+    "id": 14,
+    "must_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "1000",
+     "1001"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 198,
+    "added_traces": [
+     "1537"
+    ],
+    "children": [
+     "0077",
+     "00f7"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "e00@01"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "8f86ec0a1087fa13482ce53e39ceca59bcc094181b8407d103be178a6474240f"
+    ],
+    "depth": 1,
+    "events": 346,
+    "failing_word_pairs": 1024,
+    "free_profiles": [
+     "0111"
+    ],
+    "id": 15,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0010",
+     "0100",
+     "0101",
+     "0110"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 486,
+    "added_traces": [
+     "0077",
+     "1537"
+    ],
+    "children": [
+     "1011",
+     "1111"
+    ],
+    "chosen_pair": [
+     "cyl[0000,0100]",
+     "cyl[0100,1100]"
+    ],
+    "chosen_pair_sha256": [
+     "455dcab36c83e16bc1ce332e0b5ef4be031469bb356da7c9c84ae87db9080c93",
+     "1b29590b4ae5943b6c7b1fa27fea424fe919388e55d15d451b9eb64dec3bad5e"
+    ],
+    "depth": 2,
+    "events": 650,
+    "failing_word_pairs": 6300,
+    "free_profiles": [
+     "1000"
+    ],
+    "id": 16,
+    "must_profiles": [
+     "0000",
+     "0100",
+     "1100"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "0077",
+     "1011",
+     "1537"
+    ],
+    "children": [
+     "2022",
+     "2222"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0101]",
+     "cyl[0101,1101]"
+    ],
+    "chosen_pair_sha256": [
+     "104515e51b09f8ec99934b888105043052344e6de5f54e2f7a4d85408f127341",
+     "c3dff62459cc25f623840e09a3dab2b9a183b37b3a730281bfd7a325ccf82111"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "1001"
+    ],
+    "id": 17,
+    "must_profiles": [
+     "0001",
+     "0101",
+     "1101"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 504,
+    "added_traces": [
+     "00f7",
+     "1537"
+    ],
+    "children": [
+     "00b3",
+     "00f3"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "cyl[0001,0101,0111]"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "9049d5933ca1286bbca58761b292ee37e51433104ca2e24bf4afa49a7c7c863a"
+    ],
+    "depth": 2,
+    "events": 668,
+    "failing_word_pairs": 6144,
+    "free_profiles": [
+     "0110"
+    ],
+    "id": 18,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0100",
+     "0101",
+     "0111"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "00b3",
+     "00f7",
+     "1537"
+    ],
+    "children": [
+     "1011",
+     "1111"
+    ],
+    "chosen_pair": [
+     "cyl[0000,0100]",
+     "cyl[0100,1100]"
+    ],
+    "chosen_pair_sha256": [
+     "455dcab36c83e16bc1ce332e0b5ef4be031469bb356da7c9c84ae87db9080c93",
+     "1b29590b4ae5943b6c7b1fa27fea424fe919388e55d15d451b9eb64dec3bad5e"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "1000"
+    ],
+    "id": 19,
+    "must_profiles": [
+     "0000",
+     "0100",
+     "1100"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1312,
+    "added_traces": [
+     "00f3",
+     "00f7",
+     "1537"
+    ],
+    "children": [
+     "1033",
+     "1133"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "cyl[0001,0100,0101,1100]"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "01469305048f76d94e5875ccf60027a78334bf03d7542901d4988f5e2d6cedbf"
+    ],
+    "depth": 3,
+    "events": 1500,
+    "failing_word_pairs": 35840,
+    "free_profiles": [
+     "1000"
+    ],
+    "id": 20,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0100",
+     "0101",
+     "1100"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 204,
+    "added_traces": [
+     "153f"
+    ],
+    "children": [
+     "0cae",
+     "0caf"
+    ],
+    "chosen_pair": [
+     "e01@01",
+     "e01@10"
+    ],
+    "chosen_pair_sha256": [
+     "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+     "8b9b9916d105193879e2ccc899c39c3055d6fe23834686c7bb2a2b63f435993d"
+    ],
+    "depth": 1,
+    "events": 352,
+    "failing_word_pairs": 576,
+    "free_profiles": [
+     "0000"
+    ],
+    "id": 21,
+    "must_profiles": [
+     "0001",
+     "0010",
+     "0011",
+     "0101",
+     "0111",
+     "1010",
+     "1011"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 504,
+    "added_traces": [
+     "0cae",
+     "153f"
+    ],
+    "children": [
+     "00b3",
+     "00f3"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "cyl[0001,0101,0111]"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "9049d5933ca1286bbca58761b292ee37e51433104ca2e24bf4afa49a7c7c863a"
+    ],
+    "depth": 2,
+    "events": 668,
+    "failing_word_pairs": 6144,
+    "free_profiles": [
+     "0110"
+    ],
+    "id": 22,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0100",
+     "0101",
+     "0111"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "00b3",
+     "0cae",
+     "153f"
+    ],
+    "children": [
+     "1011",
+     "1111"
+    ],
+    "chosen_pair": [
+     "cyl[0000,0100]",
+     "cyl[0100,1100]"
+    ],
+    "chosen_pair_sha256": [
+     "455dcab36c83e16bc1ce332e0b5ef4be031469bb356da7c9c84ae87db9080c93",
+     "1b29590b4ae5943b6c7b1fa27fea424fe919388e55d15d451b9eb64dec3bad5e"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "1000"
+    ],
+    "id": 23,
+    "must_profiles": [
+     "0000",
+     "0100",
+     "1100"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1312,
+    "added_traces": [
+     "00f3",
+     "0cae",
+     "153f"
+    ],
+    "children": [
+     "1033",
+     "1133"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "cyl[0001,0100,0101,1100]"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "01469305048f76d94e5875ccf60027a78334bf03d7542901d4988f5e2d6cedbf"
+    ],
+    "depth": 3,
+    "events": 1500,
+    "failing_word_pairs": 35840,
+    "free_profiles": [
+     "1000"
+    ],
+    "id": 24,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0100",
+     "0101",
+     "1100"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 504,
+    "added_traces": [
+     "0caf",
+     "153f"
+    ],
+    "children": [
+     "003b",
+     "003f"
+    ],
+    "chosen_pair": [
+     "e00@00",
+     "cyl[0001,0011,0100,0101]"
+    ],
+    "chosen_pair_sha256": [
+     "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+     "465f95bc4989b77a9459773b88f55ddf36219edc5363b66a1b3e34efbc526011"
+    ],
+    "depth": 2,
+    "events": 668,
+    "failing_word_pairs": 6144,
+    "free_profiles": [
+     "0010"
+    ],
+    "id": 25,
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0011",
+     "0100",
+     "0101"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1312,
+    "added_traces": [
+     "003b",
+     "0caf",
+     "153f"
+    ],
+    "children": [
+     "00b2",
+     "00f2"
+    ],
+    "chosen_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,0101,0111]"
+    ],
+    "chosen_pair_sha256": [
+     "7cfdae710951e1fcca1c831eb884c104e77016ba75d3246c6886cd9b90e13d8e",
+     "9049d5933ca1286bbca58761b292ee37e51433104ca2e24bf4afa49a7c7c863a"
+    ],
+    "depth": 3,
+    "events": 1492,
+    "failing_word_pairs": 26624,
+    "free_profiles": [
+     "0110"
+    ],
+    "id": 26,
+    "must_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "0111"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   },
+   {
+    "K_events": 1296,
+    "added_traces": [
+     "003f",
+     "0caf",
+     "153f"
+    ],
+    "children": [
+     "000d",
+     "000f"
+    ],
+    "chosen_pair": [
+     "cyl[0000,0010]",
+     "cyl[0010,0011]"
+    ],
+    "chosen_pair_sha256": [
+     "9a8477c60ad34ea23a804698e6bbc3d7f56592d7f3d30213d401a74de2e29ec3",
+     "6b12baa84af197ffbc8669b4e5126cfc0a7f0314de084e1311a0b7cc39567ace"
+    ],
+    "depth": 3,
+    "events": 1484,
+    "failing_word_pairs": 32000,
+    "free_profiles": [
+     "0001"
+    ],
+    "id": 27,
+    "must_profiles": [
+     "0000",
+     "0010",
+     "0011"
+    ],
+    "scan_scope": "word_level",
+    "word_failures_tried_before_event_verified": 1
+   }
+  ]
+ },
+ "payload_sha256": "21f4df6bc441d56a654fd888b506170493c5899c585d792571de670f0166ca5a",
+ "schema": "full-grid-2x2-rectangle-repair-v1"
+}

@@ -568,6 +568,24 @@ def verify_cascade(states, blocks, npts, masks, raw, full, ev0):
                 tie = True
         return best_k >= 0 and not tie and up[best_k] & cu == cu
 
+    def wclose(ws, until=None):
+        """Word closure (numpy-chunked); stops early if `until` appears."""
+        import numpy as np
+        ev = set(ws)
+        while True:
+            if until is not None and until in ev:
+                return ev
+            arr = np.fromiter(ev, dtype=np.uint32, count=len(ev))
+            cand = set(np.bitwise_xor(np.uint32(0xFFFF), arr).tolist())
+            for lo in range(0, len(arr), 4096):
+                blk = arr[lo:lo + 4096]
+                dis = (blk[:, None] & arr[None, :]) == 0
+                cand |= set((blk[:, None] | arr[None, :])[dis].tolist())
+            new = cand - ev
+            if not new:
+                return ev
+            ev |= new
+
     def word_scan(evs, up, pc):
         """K-events, word-level failing pairs, and the producer's selected
         event pair (first event-verified word failure by gap order)."""
@@ -677,6 +695,7 @@ def verify_cascade(states, blocks, npts, masks, raw, full, ev0):
     # branch receipts
     i = 0
     br_ok = True
+    branch_keys = set()
     while True:
         path = os.path.join(HERE,
                             "full_grid_2x2_rectangle_branch_%03d.json" % i)
@@ -685,6 +704,52 @@ def verify_cascade(states, blocks, npts, masks, raw, full, ev0):
         with open(path) as f:
             b = json.load(f)["payload"]
         words = [int(s["trace_word"], 16) for s in b.get("path", [])]
+        branch_keys.add(frozenset(words))
+        if b["outcome"] in ("cap", "cap_branch_width"):
+            if b.get("method") == "word_predicted":
+                # verify the word-closure size claim from the PARENT family
+                # without building the (deliberately capped) child family
+                pkey = frozenset(words[:-1])
+                pfam = cache.get(pkey)
+                if pfam is None:
+                    pfam = family_of(words[:-1])
+                    cache[pkey] = pfam
+                pwords = {kword(e) for e in pfam} - {None}
+                wc = wclose(pwords | {words[-1]})
+                if len(wc) != b["word_closure_size"]:
+                    br_ok = False
+                    print("  branch", i, "word closure size mismatch",
+                          len(wc), b["word_closure_size"])
+            print("  branch %d (%s) replayed" % (i, b["outcome"]),
+                  flush=True)
+            i += 1
+            continue
+        if b["outcome"] == "monotone_certificate" and \
+                b["certificate"].get("method") == "word_closure_L3":
+            # verify at word level from the parent family; the certificate
+            # event's membership in the (possibly huge) child family is
+            # Lemma L3, not recomputed
+            ce = b["certificate"]
+            pkey = frozenset(words[:-1])
+            pfam = cache.get(pkey)
+            if pfam is None:
+                pfam = family_of(words[:-1])
+                cache[pkey] = pfam
+            pwords = {kword(e) for e in pfam} - {None}
+            v = int(ce["word"], 16)
+            wc = wclose(pwords | {words[-1]}, until=v)
+            zmask = 0
+            for t2, prof in enumerate(PROFILES):
+                if v >> t2 & 1:
+                    zmask |= cyl[prof]
+            if v not in wc or digest(zmask, npts) != ce["event_sha256"] \
+                    or sorted(flags_of(zmask)) != sorted(ce["flags"]):
+                br_ok = False
+                print("  branch", i, "L3 certificate mismatch")
+            print("  branch %d (%s/L3) replayed" % (i, b["outcome"]),
+                  flush=True)
+            i += 1
+            continue
         key = frozenset(words)
         fam = cache.get(key)
         if fam is None:
@@ -749,6 +814,38 @@ def verify_cascade(states, blocks, npts, masks, raw, full, ev0):
     check(br_ok, "cascade branch receipts (%d)" % i)
     ntot = sum(p["branch_outcomes"].values())
     check(ntot == i, "branch receipt count equals outcome total")
+    tree_keys = {frozenset(v) for v in tw.values()}
+    coverage_ok = True
+    for node in p["tree"]:
+        parent = frozenset(tw[node["id"]])
+        for hs in node.get("children", []):
+            child = parent | {int(hs, 16)}
+            dispositions = int(child in tree_keys) + int(child in branch_keys)
+            if dispositions != 1:
+                coverage_ok = False
+                print("  child disposition mismatch", node["id"], hs,
+                      dispositions)
+    check(coverage_ok, "every recorded cascade child has one disposition")
+
+
+def verify_master():
+    path = os.path.join(HERE, "full_grid_2x2_rectangle_master.json")
+    with open(path) as f:
+        p = json.load(f)["payload"]
+    files = sorted(fn for fn in os.listdir(HERE)
+                   if fn.startswith("full_grid_2x2_rectangle_")
+                   and fn.endswith(".json")
+                   and fn != "full_grid_2x2_rectangle_master.json")
+    got = {fn: hashlib.sha256(open(os.path.join(HERE, fn), "rb").read()).hexdigest()
+           for fn in files}
+    check(got == p["files_sha256"], "master binds every rectangle receipt")
+    sources = {
+        "full_grid_2x2_rectangle_repair_search.py": hashlib.sha256(
+            open(os.path.join(HERE,
+                 "full_grid_2x2_rectangle_repair_search.py"), "rb").read()).hexdigest(),
+        "full_grid_2x2_rectangle_repair_verify.py": hashlib.sha256(
+            open(__file__, "rb").read()).hexdigest()}
+    check(sources == p["source_sha256"], "master binds producer and verifier")
 
 
 def main():
@@ -775,6 +872,7 @@ def main():
     if args.stage in ("cascade", "all"):
         print("[verify] cascade ...", flush=True)
         verify_cascade(states, blocks, npts, masks, raw, full, ev0)
+        verify_master()
     print("VERIFY:", "PASS" if not FAILURES else
           "FAIL (%d)" % len(FAILURES))
     raise SystemExit(0 if not FAILURES else 1)

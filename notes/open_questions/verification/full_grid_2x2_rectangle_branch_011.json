@@ -1,0 +1,78 @@
+{
+ "emitted": "2026-07-14",
+ "generator": "full_grid_2x2_rectangle_repair_search.py",
+ "payload": {
+  "depth": 4,
+  "method": "word_predicted",
+  "non_K_events_lower_bound": 188,
+  "outcome": "cap",
+  "path": [
+   {
+    "closure_added": 116,
+    "repaired_pair": [
+     "e00@00",
+     "e00@11"
+    ],
+    "trace_profiles": [
+     "0000",
+     "0001",
+     "0010",
+     "0011",
+     "0100",
+     "0101",
+     "1000",
+     "1010"
+    ],
+    "trace_word": "053f"
+   },
+   {
+    "closure_added": 322,
+    "repaired_pair": [
+     "e00@00",
+     "cyl[0001,0011,0100,0101]"
+    ],
+    "trace_profiles": [
+     "0000",
+     "0001",
+     "0011",
+     "0100",
+     "0101"
+    ],
+    "trace_word": "003b"
+   },
+   {
+    "closure_added": 816,
+    "repaired_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,0101,0111]"
+    ],
+    "trace_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "0110",
+     "0111"
+    ],
+    "trace_word": "00f2"
+   },
+   {
+    "repaired_pair": [
+     "cyl[0001,0100,0101]",
+     "cyl[0001,1000,1001]"
+    ],
+    "trace_profiles": [
+     "0001",
+     "0100",
+     "0101",
+     "1000",
+     "1001",
+     "1101"
+    ],
+    "trace_word": "2332"
+   }
+  ],
+  "word_closure_size": 3456
+ },
+ "payload_sha256": "91f610ce2dae6d304e62a38f70d17ca209a710c032ad704adb74fe47499931f4",
+ "schema": "full-grid-2x2-rectangle-repair-v1"
+}

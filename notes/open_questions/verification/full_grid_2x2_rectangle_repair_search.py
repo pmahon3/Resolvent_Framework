@@ -161,6 +161,58 @@ def word_closure(ws):
     return ws
 
 
+def word_closure_sameside(ws):
+    """Close ws under complement/disjoint union, stopping as soon as a
+    same-side-measurable word appears.  Returns (first same-side word or
+    None, number of words materialized).  Vectorized when numpy exists."""
+    for w in sorted(ws):
+        s = sameside_word(w)
+        if s:
+            return w, len(ws)
+    try:
+        import numpy as np
+    except ImportError:
+        cl = word_closure(ws)
+        hits = sorted(v for v in cl if sameside_word(v))
+        return (hits[0] if hits else None), len(cl)
+
+    def hit(arr):
+        n0 = arr & 0xF
+        n1 = (arr >> 4) & 0xF
+        n2 = (arr >> 8) & 0xF
+        n3 = (arr >> 12) & 0xF
+        qm = (((n0 == 0) | (n0 == 0xF)) & ((n1 == 0) | (n1 == 0xF))
+              & ((n2 == 0) | (n2 == 0xF)) & ((n3 == 0) | (n3 == 0xF)))
+        rm = (n0 == n1) & (n1 == n2) & (n2 == n3)
+        triv = np.isin(arr, np.array(SAMESIDE_TRIVIAL, dtype=np.uint32))
+        good = (qm | rm) & ~triv
+        vals = arr[good]
+        return int(vals.min()) if len(vals) else None
+
+    ev = set(ws)
+    while True:
+        arr = np.array(sorted(ev), dtype=np.uint32)
+        h = hit(arr)
+        if h is not None:
+            return h, len(ev)
+        comp = np.bitwise_xor(np.uint32(0xFFFF), arr)
+        cand = set(comp.tolist())
+        step = 4096
+        for lo in range(0, len(arr), step):
+            blk = arr[lo:lo + step]
+            dis = (blk[:, None] & arr[None, :]) == 0
+            cand |= set((blk[:, None] | arr[None, :])[dis].tolist())
+        new = cand - ev
+        if not new:
+            return None, len(ev)
+        # check the new words immediately (early exit before next round)
+        narr = np.array(sorted(new), dtype=np.uint32)
+        h = hit(narr)
+        if h is not None:
+            return h, len(ev) + len(new)
+        ev |= new
+
+
 # ----------------------------------------------------------------------
 # section 1: construction
 # ----------------------------------------------------------------------
@@ -751,11 +803,13 @@ class Cascade:
                     wfails.append((wa, wb))
         chosen = None
         scan_scope = "word_level"
+        tried = 0
         for (wa, wb) in sorted(
                 wfails, key=lambda p: (
                     (ceilw[p[0] | p[1]] & ~(p[0] | p[1]) & 0xFFFF)
                     .bit_count(), p)):
             i, j = kmap[wa], kmap[wb]
+            tried += 1
             if not self.join_exists(up, pc, i, j):
                 chosen = (i, j)
                 break
@@ -779,7 +833,8 @@ class Cascade:
                     "added_traces": sorted("%04x" % t for t in tracekey),
                     "events": n, "K_events": len(kidx),
                     "scan_scope": scan_scope,
-                    "failing_word_pairs": len(wfails)}
+                    "failing_word_pairs": len(wfails),
+                    "word_failures_tried_before_event_verified": tried}
         self.tree.append(node_rec)
         if chosen is None:
             # the all_pairs scan found no failing pair: genuine terminal
@@ -841,10 +896,21 @@ class Cascade:
                                "repaired_pair": [g.label(evs[i]),
                                                  g.label(evs[j])]}]
             # Lemma L3: word-closure pruning, no event-level work needed
-            wc = word_closure(words_present | {w})
-            ssw = sorted(v for v in wc if sameside_word(v))
-            if ssw:
-                v = ssw[0]
+            v, wcsize = word_closure_sameside(words_present | {w})
+            if v is None and wcsize + (len(evs) - len(kidx)) > CAP_FAMILY:
+                # the child family contains a K-event for every word of the
+                # closure (L3 realization), so it must exceed the family cap
+                self.capped = True
+                self.branch_count += 1
+                self.branches.append({
+                    "path": newpath, "outcome": "cap",
+                    "method": "word_predicted",
+                    "word_closure_size": wcsize,
+                    "non_K_events_lower_bound": len(evs) - len(kidx),
+                    "depth": depth + 1})
+                self.memo.add(child_key)
+                continue
+            if v is not None:
                 zmask = 0
                 for b in bits(v):
                     zmask |= g.cyl[PROFILES[b]]
@@ -860,8 +926,7 @@ class Cascade:
                         "event_sha256": digest(zmask, g.npts),
                         "flags": flags,
                         "word": "%04x" % v,
-                        "word_closure_size": len(wc),
-                        "same_side_words": ["%04x" % u for u in ssw]},
+                        "words_materialized_at_detection": wcsize},
                     "depth": depth + 1})
                 self.memo.add(child_key)
                 continue
@@ -1493,9 +1558,30 @@ def stage_cascade(g, do_emit):
         "capped": c.capped,
         "branch_outcomes": outcomes,
         "tree": c.tree,
-        "scope": ("exhaustive ONLY within class K; candidates outside K "
-                  "(partial macro-block unions) are not enumerated; no "
-                  "canonicality of the closure and no arbitrary-grid or "
+        "corollary_coordinate_closed_completions": (
+            "THEOREM (from the core16 receipt + Lemma L2/L3).  Call a "
+            "concrete-logic OML completion F of the 230-event grid family "
+            "coordinate-closed when the join in F of any two profile-"
+            "measurable events is again profile-measurable.  The words of "
+            "the profile-measurable events of F then form a complement/"
+            "disjoint-union-closed, lattice-complete word family in P(16) "
+            "containing the 82-word base, hence by the exhaustive core16 "
+            "covering theorem it contains one of the 17 terminal families, "
+            "each of which reconstructs Bool(q0,q1) or Bool(r0,r1) in "
+            "full.  Therefore EVERY coordinate-closed completion of the "
+            "full 2x2 grid reconstructs a same-side boundary.  The only "
+            "escape left open by this corollary is a completion that "
+            "repairs some profile-measurable pair with a non-profile-"
+            "measurable join.  The finite tree recorded here instead probes "
+            "coordinate-saturated repair branches within class K and the "
+            "stated caps (see "
+            "branch_outcomes and the per-node "
+            "word_failures_tried_before_event_verified counters)."),
+        "scope": ("partial deterministic class-K exploration under explicit "
+                  "caps; all class-K candidates are enumerated only at reached "
+                  "uncapped nodes; candidates outside K (partial macro-block "
+                  "unions) are not enumerated; capped branches prove no "
+                  "negative conclusion; no canonicality, arbitrary-grid, or "
                   "infinite promotion is claimed"),
     }
     emit(os.path.join(HERE, "full_grid_2x2_rectangle_cascade.json"),
@@ -1514,11 +1600,20 @@ def stage_master(do_emit):
             fn: hashlib.sha256(
                 open(os.path.join(HERE, fn), "rb").read()).hexdigest()
             for fn in files},
-        "scope": ("all finite searches are exhaustive only within their "
-                  "precisely stated candidate classes (all interval "
-                  "subsets on the 16-point core; class K on the full "
-                  "carrier); no closure is claimed canonical; no promotion "
-                  "of the 2x2 result to arbitrary grids"),
+        "source_sha256": {
+            "full_grid_2x2_rectangle_repair_search.py": hashlib.sha256(
+                open(__file__, "rb").read()).hexdigest(),
+            "full_grid_2x2_rectangle_repair_verify.py": hashlib.sha256(
+                open(os.path.join(HERE,
+                     "full_grid_2x2_rectangle_repair_verify.py"),
+                     "rb").read()).hexdigest()},
+        "commands": {
+            "produce": "python3 full_grid_2x2_rectangle_repair_search.py --emit",
+            "verify": "python3 full_grid_2x2_rectangle_repair_verify.py --stage all"},
+        "scope": ("the 16-point core search is exhaustive over every interval "
+                  "subset; the full-carrier class-K cascade is a capped partial "
+                  "exploration with unresolved leaves; no closure is claimed "
+                  "canonical and no 2x2 result is promoted to arbitrary grids"),
     }
     emit(os.path.join(HERE, "full_grid_2x2_rectangle_master.json"),
          payload, do_emit)

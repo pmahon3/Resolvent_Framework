@@ -155,3 +155,28 @@ gate is therefore a fine-fibre rectangle repair: choose one of the four macro
 traces while varying within the two ambiguous macrofibres, then test whether
 concrete orthogonal closure can become a centre-free OML without reconstructing
 either macro boundary.
+
+## 8. Independent terminal refinement
+
+An independently implemented, unpruned deterministic interval cascade gives
+a structural refinement.  It visits 48 exact families and reaches 17 distinct
+lattice leaves.  Every leaf reconstructs a same-side Boolean boundary.  Under
+inclusion there are exactly two minimal leaves: a 1296-event `q`-hub family
+and its `r`-hub dual, each a Boolean sum of four four-point `MO2` fibres.
+Every listed leaf contains one of these two.
+
+The interval covering lemma then gives the safe universal statement:
+
+> Every concrete OML completion inside `P(16)` containing the four edge
+> algebras contains at least one of the two minimal hub families.
+
+The 17 leaves are not asserted to be all OML completions; larger completions
+may contain them.  A separate full-grid stage exhaustively finds 32 join-failing
+pairs in the 230-event conditional family and the complementary 32 meet
+failures, organized into ten row/column-symmetry orbits.
+
+Both stages have deterministic receipts and pass stage-selective independent
+replay.  The terminal receipt is not a standalone proof DAG because memoized
+child targets are not serialized; exhaustive coverage also relies on rerunning
+the deterministic producer.  **Evidence class: executable verified structural
+refinement, independently replayed locally and hostile scoped.**

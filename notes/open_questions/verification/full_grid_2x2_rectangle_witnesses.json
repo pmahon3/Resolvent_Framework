@@ -1,0 +1,5484 @@
+{
+ "emitted": "2026-07-14",
+ "generator": "full_grid_2x2_rectangle_repair_search.py",
+ "payload": {
+  "all_pairs": [
+   {
+    "free_profiles": [
+     "0110",
+     "1001"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@00+e01@00+e00@00",
+      "not_in_bound": "e11@11+e10@11+e01@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "e11@11+e10@11+e01@11",
+      "not_in_bound": "e10@00+e01@00+e00@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        1,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "304c377c36f5c9171233d8e94c35f464d3593cd772634039d3aa77743fa277ea",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@00+e01@00+e00@00",
+     "e11@11+e10@11+e01@11"
+    ],
+    "minimal_upper_bound_sha256": [
+     "e50ff64c8323fb8548f5dec73aed4a1344475bf192d92fd84bdb26ceabc35e00",
+     "f898342cf1514ff83e3d2fbc2cb00dccc40f21785afb4ffb5985c42594b9a16a"
+    ],
+    "must_profiles": [
+     "0001",
+     "0011",
+     "0100",
+     "0101",
+     "0111",
+     "1100",
+     "1101"
+    ],
+    "upper_sha256": "ec0ccd74388ed3224c9071143a36af3baf6c53e1d84b8c49203b63f3467bcd53",
+    "x_label": "e01@01",
+    "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+    "y_label": "e10@10",
+    "y_sha256": "2240309662fff76e5333d2abf55e391f02589aab1a4938d24c65dbacb652650d"
+   },
+   {
+    "free_profiles": [
+     "0000",
+     "1111"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t1@11+s1@11",
+      "not_in_bound": "t1@00+s1@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@00+s1@00",
+      "not_in_bound": "t1@11+s1@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "ccecf4868b442125ca765d61e39b17f485558e7ffe4119b4a423eb42467da1fe",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t1@11+s1@11",
+     "t1@00+s1@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "86597a805945bb1dd6a7773dc417c942c83bf96f370df5fb5da9b4b75416627b",
+     "78fc745dc514784c049eb25e2ae2a31de020bc26ad4d39e4ab444c6993f827f5"
+    ],
+    "must_profiles": [
+     "0001",
+     "0010",
+     "0011",
+     "0101",
+     "0111",
+     "1010",
+     "1011"
+    ],
+    "upper_sha256": "1091df900de3ef641dd2e9bfcd7ef3407514a5fc1aea53382e30d15a00920468",
+    "x_label": "e01@01",
+    "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+    "y_label": "e01@10",
+    "y_sha256": "8b9b9916d105193879e2ccc899c39c3055d6fe23834686c7bb2a2b63f435993d"
+   },
+   {
+    "free_profiles": [
+     "0010",
+     "1101"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@00+e01@00+e00@00",
+      "not_in_bound": "t1@11+s1@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@11+s1@11",
+      "not_in_bound": "e10@00+e01@00+e00@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "e7db555f65379d4149add31b431f9429deaf0979107e64b7cd2283bdc853c1a1",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@00+e01@00+e00@00",
+     "t1@11+s1@11"
+    ],
+    "minimal_upper_bound_sha256": [
+     "e50ff64c8323fb8548f5dec73aed4a1344475bf192d92fd84bdb26ceabc35e00",
+     "86597a805945bb1dd6a7773dc417c942c83bf96f370df5fb5da9b4b75416627b"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0011",
+     "0101",
+     "0111",
+     "1000",
+     "1001"
+    ],
+    "upper_sha256": "990acdf5d8154799e5b1dda999b91dcc707a0116fc5e34f3dbcc6d0bfc6db516",
+    "x_label": "e01@01",
+    "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+    "y_label": "e00@10",
+    "y_sha256": "4aa2a36e2f6c470b1972c2b7c457c3cf8e088357d3309f90714d59f1ff94c402"
+   },
+   {
+    "free_profiles": [
+     "0100",
+     "1011"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@11+e10@11+e01@11",
+      "not_in_bound": "t1@00+s1@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@00+s1@00",
+      "not_in_bound": "e11@11+e10@11+e01@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "4ad86662771e88a6791ce51f1b08b10609735e64a5c16cee88935ec25aeba175",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@11+e10@11+e01@11",
+     "t1@00+s1@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "f898342cf1514ff83e3d2fbc2cb00dccc40f21785afb4ffb5985c42594b9a16a",
+     "78fc745dc514784c049eb25e2ae2a31de020bc26ad4d39e4ab444c6993f827f5"
+    ],
+    "must_profiles": [
+     "0001",
+     "0011",
+     "0101",
+     "0110",
+     "0111",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "c41bb732e5ce4ae35edba1ed5ad8406e303f17388e64a7485bf300ff27dd51b0",
+    "x_label": "e01@01",
+    "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+    "y_label": "e11@10",
+    "y_sha256": "446d9b7a26bf2ade8c23a75bef528bc224d82c331cbced898db2b7930d0baf74"
+   },
+   {
+    "free_profiles": [
+     "0101",
+     "1010"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@01+e01@01+e00@01",
+      "not_in_bound": "e11@10+e10@10+e01@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "e11@10+e10@10+e01@10",
+      "not_in_bound": "e10@01+e01@01+e00@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        1,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "9c163a515ca7cd77efe6d67bda0f5b7e99fe8edcddbeb05896df024c04783cc1",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@01+e01@01+e00@01",
+     "e11@10+e10@10+e01@10"
+    ],
+    "minimal_upper_bound_sha256": [
+     "c8212c3b45e72eec62dcd6f6608c3a346f075aa30306eae0ffaff98e482e31c1",
+     "b2702252be333c5dd6003eecdcbd3b71f28704b0ab02215c5e19f0acb87ad5e3"
+    ],
+    "must_profiles": [
+     "0010",
+     "0011",
+     "0100",
+     "0110",
+     "0111",
+     "1100",
+     "1110"
+    ],
+    "upper_sha256": "fa25bc33c4cbc0f36cde9735d1e959a0cfdd23aafc7a9a7774b3a2a86c7bb966",
+    "x_label": "e01@00",
+    "x_sha256": "3cfa3fd7a3d777ff5a10467aaf9ae807c5a9d83fe6965e43b9a18262e5a94be9",
+    "y_label": "e10@11",
+    "y_sha256": "329d207e53e961665eff7e908589b626d064dfabdaeca76d8001558626786ba1"
+   },
+   {
+    "free_profiles": [
+     "0000",
+     "1111"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t1@10+s1@10",
+      "not_in_bound": "t1@01+s1@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@01+s1@01",
+      "not_in_bound": "t1@10+s1@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "2b7e9479ff547a00f718bf623978a34027c93bbeac5f4486a978022cac57604a",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t1@10+s1@10",
+     "t1@01+s1@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "50d4e3e66b9d1b1b22d33c73bb69d35f4d016b80152fea193f9c96675559cd03",
+     "0a5ed81be70e65adbd7b2bad645e6615de774173ebf6656e5a2aef2d9bda359c"
+    ],
+    "must_profiles": [
+     "0001",
+     "0010",
+     "0011",
+     "0110",
+     "0111",
+     "1001",
+     "1011"
+    ],
+    "upper_sha256": "1ceb8126c533936c04e3634497472b379230c3390cf6e107b6dc258adbe31b7e",
+    "x_label": "e01@00",
+    "x_sha256": "3cfa3fd7a3d777ff5a10467aaf9ae807c5a9d83fe6965e43b9a18262e5a94be9",
+    "y_label": "e01@11",
+    "y_sha256": "9d5c33f5183a832dc435e50236867f9cec426fbab99e2be806e6b0d89805d78f"
+   },
+   {
+    "free_profiles": [
+     "0001",
+     "1110"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@01+e01@01+e00@01",
+      "not_in_bound": "t1@10+s1@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@10+s1@10",
+      "not_in_bound": "e10@01+e01@01+e00@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "8d1a2dc21c7b5233c193299155fd369a7b8746d57d0f053d670ce784c04b83d5",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@01+e01@01+e00@01",
+     "t1@10+s1@10"
+    ],
+    "minimal_upper_bound_sha256": [
+     "c8212c3b45e72eec62dcd6f6608c3a346f075aa30306eae0ffaff98e482e31c1",
+     "50d4e3e66b9d1b1b22d33c73bb69d35f4d016b80152fea193f9c96675559cd03"
+    ],
+    "must_profiles": [
+     "0000",
+     "0010",
+     "0011",
+     "0110",
+     "0111",
+     "1000",
+     "1010"
+    ],
+    "upper_sha256": "5e9161cafd63a01dfbf0435f10a8b471de256e2418ba777e0f80ab68555144d6",
+    "x_label": "e01@00",
+    "x_sha256": "3cfa3fd7a3d777ff5a10467aaf9ae807c5a9d83fe6965e43b9a18262e5a94be9",
+    "y_label": "e00@11",
+    "y_sha256": "9960cf0a3d3f271cf68d5340602dd19671461ada4c4d93b58eb3f378221acc49"
+   },
+   {
+    "free_profiles": [
+     "0100",
+     "1011"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@10+e10@10+e01@10",
+      "not_in_bound": "t1@01+s1@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@01+s1@01",
+      "not_in_bound": "e11@10+e10@10+e01@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "223a95ed62295cd48eb76e90433edea15759d497dd8369187d1b820a21fb620b",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@10+e10@10+e01@10",
+     "t1@01+s1@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b2702252be333c5dd6003eecdcbd3b71f28704b0ab02215c5e19f0acb87ad5e3",
+     "0a5ed81be70e65adbd7b2bad645e6615de774173ebf6656e5a2aef2d9bda359c"
+    ],
+    "must_profiles": [
+     "0010",
+     "0011",
+     "0101",
+     "0110",
+     "0111",
+     "1101",
+     "1111"
+    ],
+    "upper_sha256": "e9bda070f9d4a4c7e43381630f4c2936816abf2953f24bb906b2e3e7f98d212b",
+    "x_label": "e01@00",
+    "x_sha256": "3cfa3fd7a3d777ff5a10467aaf9ae807c5a9d83fe6965e43b9a18262e5a94be9",
+    "y_label": "e11@11",
+    "y_sha256": "9adf2703bcf0ba9b311102f32ff7e83b013b205c4738a228b4a102e7b78801bb"
+   },
+   {
+    "free_profiles": [
+     "0000",
+     "1111"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t2@10+s2@10",
+      "not_in_bound": "t2@01+s2@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@01+s2@01",
+      "not_in_bound": "t2@10+s2@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "e237c05dcf298352f725510d3ad3ae6b2c0ef2b2ebe96315546a2be1d14f4ec1",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t2@10+s2@10",
+     "t2@01+s2@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "8d9902d6059853e495650102832ae83191ae913baafa92524d5378e49e83aff0",
+     "faa7ba2f6f07573e9b6eaeddd9b4b2888c210660d16be5bdd9d38b3f861d6123"
+    ],
+    "must_profiles": [
+     "0100",
+     "0110",
+     "1000",
+     "1001",
+     "1100",
+     "1101",
+     "1110"
+    ],
+    "upper_sha256": "06ee28324bd3cdb5aa200ebb6ae93430b1d0c57248deca352bb0deb5acdd21c2",
+    "x_label": "e10@00",
+    "x_sha256": "da9f663205f6995b378a45b8bd35ab810bc898b53d316837e49b3c3a37fc01fd",
+    "y_label": "e10@11",
+    "y_sha256": "329d207e53e961665eff7e908589b626d064dfabdaeca76d8001558626786ba1"
+   },
+   {
+    "free_profiles": [
+     "0101",
+     "1010"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@10+e01@10+e00@10",
+      "not_in_bound": "e11@01+e10@01+e01@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "e11@01+e10@01+e01@01",
+      "not_in_bound": "e10@10+e01@10+e00@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        1,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "830ec9bde1fa38c19bd25e3e35d702bbf48c8484f963a579c0aebf6ed2af2a77",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@10+e01@10+e00@10",
+     "e11@01+e10@01+e01@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b855bdc4a72745c7f0a4c28b8eaafb7ffb862994160be26b24a3893f9e81dc1f",
+     "b34ded3fae018e3994ea46513ab18237be9c76f313a722215003ede3aa816300"
+    ],
+    "must_profiles": [
+     "0001",
+     "0011",
+     "1000",
+     "1001",
+     "1011",
+     "1100",
+     "1101"
+    ],
+    "upper_sha256": "cd7fd06f16af7f4a53f7f58f50672ba62d29f9fd06b1b503263b83ad186b18dd",
+    "x_label": "e10@00",
+    "x_sha256": "da9f663205f6995b378a45b8bd35ab810bc898b53d316837e49b3c3a37fc01fd",
+    "y_label": "e01@11",
+    "y_sha256": "9d5c33f5183a832dc435e50236867f9cec426fbab99e2be806e6b0d89805d78f"
+   },
+   {
+    "free_profiles": [
+     "0100",
+     "1011"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@10+e01@10+e00@10",
+      "not_in_bound": "t2@01+s2@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@01+s2@01",
+      "not_in_bound": "e10@10+e01@10+e00@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "e782cf31ad8733a84cc45b7cef3589b43a75317d30579e30b5cfa9ad338e6bd9",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@10+e01@10+e00@10",
+     "t2@01+s2@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b855bdc4a72745c7f0a4c28b8eaafb7ffb862994160be26b24a3893f9e81dc1f",
+     "faa7ba2f6f07573e9b6eaeddd9b4b2888c210660d16be5bdd9d38b3f861d6123"
+    ],
+    "must_profiles": [
+     "0000",
+     "0010",
+     "1000",
+     "1001",
+     "1010",
+     "1100",
+     "1101"
+    ],
+    "upper_sha256": "202a484428c651dbe2ec03351872c68c3b3955e4615254cd7d7def90b8b39bef",
+    "x_label": "e10@00",
+    "x_sha256": "da9f663205f6995b378a45b8bd35ab810bc898b53d316837e49b3c3a37fc01fd",
+    "y_label": "e00@11",
+    "y_sha256": "9960cf0a3d3f271cf68d5340602dd19671461ada4c4d93b58eb3f378221acc49"
+   },
+   {
+    "free_profiles": [
+     "0001",
+     "1110"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@01+e10@01+e01@01",
+      "not_in_bound": "t2@10+s2@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@10+s2@10",
+      "not_in_bound": "e11@01+e10@01+e01@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "c191587ba429f35ca38025df5d8d27cb6d7e37cbc86d6562356d86c373bcbd40",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@01+e10@01+e01@01",
+     "t2@10+s2@10"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b34ded3fae018e3994ea46513ab18237be9c76f313a722215003ede3aa816300",
+     "8d9902d6059853e495650102832ae83191ae913baafa92524d5378e49e83aff0"
+    ],
+    "must_profiles": [
+     "0101",
+     "0111",
+     "1000",
+     "1001",
+     "1100",
+     "1101",
+     "1111"
+    ],
+    "upper_sha256": "0469b5cbe862553273b6ab886fc0a0d480bf64436a2864875d587229d83c6754",
+    "x_label": "e10@00",
+    "x_sha256": "da9f663205f6995b378a45b8bd35ab810bc898b53d316837e49b3c3a37fc01fd",
+    "y_label": "e11@11",
+    "y_sha256": "9adf2703bcf0ba9b311102f32ff7e83b013b205c4738a228b4a102e7b78801bb"
+   },
+   {
+    "free_profiles": [
+     "0000",
+     "1111"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t2@11+s2@11",
+      "not_in_bound": "t2@00+s2@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@00+s2@00",
+      "not_in_bound": "t2@11+s2@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "0cfb98dc95dd4d4a9e78148d184acd5b0d1aec87bc0c1be09e39044565f59e48",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t2@11+s2@11",
+     "t2@00+s2@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "3916be5dcbf84d0a61492c6097c0113f0fa1d5384c60886b2e37ed56b5b6ee7d",
+     "208904cd8db831fdd260cb48e0119400072aacd5f7e4fa076a763e890830e0d1"
+    ],
+    "must_profiles": [
+     "0100",
+     "0101",
+     "1000",
+     "1010",
+     "1100",
+     "1101",
+     "1110"
+    ],
+    "upper_sha256": "f9b139fbcdde60a6adabaca412f9dbb9fef2052e7d4a1d6f289f98c988de7269",
+    "x_label": "e10@01",
+    "x_sha256": "607c0a6ec7ae84152cfbcac90feac526258807461ec920d2c4cd5affb4be7675",
+    "y_label": "e10@10",
+    "y_sha256": "2240309662fff76e5333d2abf55e391f02589aab1a4938d24c65dbacb652650d"
+   },
+   {
+    "free_profiles": [
+     "0110",
+     "1001"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@11+e01@11+e00@11",
+      "not_in_bound": "e11@00+e10@00+e01@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "e11@00+e10@00+e01@00",
+      "not_in_bound": "e10@11+e01@11+e00@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        1,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "3a1b9364adf369fe5aa5c6baff7df9c60827b4c5687391984a2c26a118c178e8",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@11+e01@11+e00@11",
+     "e11@00+e10@00+e01@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "6cf2fe6774a8093193e46d939137cc48906f49c60fcbea8ae4d6678df3590662",
+     "e81251ca4d90a25f4c6f3000989cd439278805335e6a0f9c2edb502f2301a6c8"
+    ],
+    "must_profiles": [
+     "0010",
+     "0011",
+     "1000",
+     "1010",
+     "1011",
+     "1100",
+     "1110"
+    ],
+    "upper_sha256": "8eb26faa3eef8dd2936cbe6891a5adda1bd6046f391dfced2da7e1112b83e211",
+    "x_label": "e10@01",
+    "x_sha256": "607c0a6ec7ae84152cfbcac90feac526258807461ec920d2c4cd5affb4be7675",
+    "y_label": "e01@10",
+    "y_sha256": "8b9b9916d105193879e2ccc899c39c3055d6fe23834686c7bb2a2b63f435993d"
+   },
+   {
+    "free_profiles": [
+     "0100",
+     "1011"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@11+e01@11+e00@11",
+      "not_in_bound": "t2@00+s2@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@00+s2@00",
+      "not_in_bound": "e10@11+e01@11+e00@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "5058e4a6552b5c816526bada750fd8fa398d28fb69e5205fdc54e0b07851564c",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@11+e01@11+e00@11",
+     "t2@00+s2@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "6cf2fe6774a8093193e46d939137cc48906f49c60fcbea8ae4d6678df3590662",
+     "208904cd8db831fdd260cb48e0119400072aacd5f7e4fa076a763e890830e0d1"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "1000",
+     "1001",
+     "1010",
+     "1100",
+     "1110"
+    ],
+    "upper_sha256": "abec72b227b740e2312e8737685772bb9c27e945fe5598578c263a694c51e018",
+    "x_label": "e10@01",
+    "x_sha256": "607c0a6ec7ae84152cfbcac90feac526258807461ec920d2c4cd5affb4be7675",
+    "y_label": "e00@10",
+    "y_sha256": "4aa2a36e2f6c470b1972c2b7c457c3cf8e088357d3309f90714d59f1ff94c402"
+   },
+   {
+    "free_profiles": [
+     "0010",
+     "1101"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@00+e10@00+e01@00",
+      "not_in_bound": "t2@11+s2@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@11+s2@11",
+      "not_in_bound": "e11@00+e10@00+e01@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "7dd7ec90d269305ea90a06507742eb99257db6916b5562b43cbe057ca1e2fb7f",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@00+e10@00+e01@00",
+     "t2@11+s2@11"
+    ],
+    "minimal_upper_bound_sha256": [
+     "e81251ca4d90a25f4c6f3000989cd439278805335e6a0f9c2edb502f2301a6c8",
+     "3916be5dcbf84d0a61492c6097c0113f0fa1d5384c60886b2e37ed56b5b6ee7d"
+    ],
+    "must_profiles": [
+     "0110",
+     "0111",
+     "1000",
+     "1010",
+     "1100",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "35644b0b94f7c7ca3a7fc4270c5fa48a157bf6f57b15869b6d7dea178b677b90",
+    "x_label": "e10@01",
+    "x_sha256": "607c0a6ec7ae84152cfbcac90feac526258807461ec920d2c4cd5affb4be7675",
+    "y_label": "e11@10",
+    "y_sha256": "446d9b7a26bf2ade8c23a75bef528bc224d82c331cbced898db2b7930d0baf74"
+   },
+   {
+    "free_profiles": [
+     "0111",
+     "1000"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@00+e01@00+e00@00",
+      "not_in_bound": "t2@11+s2@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@11+s2@11",
+      "not_in_bound": "e10@00+e01@00+e00@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "50be9df3a6b7918b95b9a839aff6516a163a542652e4ed78544141c3a42c2a04",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@00+e01@00+e00@00",
+     "t2@11+s2@11"
+    ],
+    "minimal_upper_bound_sha256": [
+     "e50ff64c8323fb8548f5dec73aed4a1344475bf192d92fd84bdb26ceabc35e00",
+     "3916be5dcbf84d0a61492c6097c0113f0fa1d5384c60886b2e37ed56b5b6ee7d"
+    ],
+    "must_profiles": [
+     "0000",
+     "0010",
+     "0100",
+     "0101",
+     "0110",
+     "1100",
+     "1101"
+    ],
+    "upper_sha256": "9b419b813a919e8be04c9121beeb8269254c73a9e750d5843088879782791a7e",
+    "x_label": "e10@10",
+    "x_sha256": "2240309662fff76e5333d2abf55e391f02589aab1a4938d24c65dbacb652650d",
+    "y_label": "e00@01",
+    "y_sha256": "8f86ec0a1087fa13482ce53e39ceca59bcc094181b8407d103be178a6474240f"
+   },
+   {
+    "free_profiles": [
+     "0001",
+     "1110"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@11+e10@11+e01@11",
+      "not_in_bound": "t2@00+s2@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@00+s2@00",
+      "not_in_bound": "e11@11+e10@11+e01@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "36ea5f72233b4a6fe08c284a6d574706892f33b23cec40e56d2b658c35d77ed4",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@11+e10@11+e01@11",
+     "t2@00+s2@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "f898342cf1514ff83e3d2fbc2cb00dccc40f21785afb4ffb5985c42594b9a16a",
+     "208904cd8db831fdd260cb48e0119400072aacd5f7e4fa076a763e890830e0d1"
+    ],
+    "must_profiles": [
+     "0100",
+     "0101",
+     "1001",
+     "1011",
+     "1100",
+     "1101",
+     "1111"
+    ],
+    "upper_sha256": "a5bf9be18f6b744dd7248fb23b676af75eeb99f1d4da7b51fb139fcc8b02e64d",
+    "x_label": "e10@10",
+    "x_sha256": "2240309662fff76e5333d2abf55e391f02589aab1a4938d24c65dbacb652650d",
+    "y_label": "e11@01",
+    "y_sha256": "fd89863088288b2a9ef9a93b20406c0a76cb138b37be30f232449818f1b62676"
+   },
+   {
+    "free_profiles": [
+     "0111",
+     "1000"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@01+e01@01+e00@01",
+      "not_in_bound": "t2@10+s2@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@10+s2@10",
+      "not_in_bound": "e10@01+e01@01+e00@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "1b76de08a0d0dd7877cd1f7b14efaa98cbcd9834d43c2e2d37f1cae367528085",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@01+e01@01+e00@01",
+     "t2@10+s2@10"
+    ],
+    "minimal_upper_bound_sha256": [
+     "c8212c3b45e72eec62dcd6f6608c3a346f075aa30306eae0ffaff98e482e31c1",
+     "8d9902d6059853e495650102832ae83191ae913baafa92524d5378e49e83aff0"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0100",
+     "0101",
+     "0110",
+     "1100",
+     "1110"
+    ],
+    "upper_sha256": "07709e0870f50cc782c11ec8175ed8f155a1c3a917024add198f4c80284a844e",
+    "x_label": "e10@11",
+    "x_sha256": "329d207e53e961665eff7e908589b626d064dfabdaeca76d8001558626786ba1",
+    "y_label": "e00@00",
+    "y_sha256": "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e"
+   },
+   {
+    "free_profiles": [
+     "0010",
+     "1101"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@10+e10@10+e01@10",
+      "not_in_bound": "t2@01+s2@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@01+s2@01",
+      "not_in_bound": "e11@10+e10@10+e01@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "dba4449b246517dde6362a7f522d10662ab0f448426fb29c446f42fd386bb011",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@10+e10@10+e01@10",
+     "t2@01+s2@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b2702252be333c5dd6003eecdcbd3b71f28704b0ab02215c5e19f0acb87ad5e3",
+     "faa7ba2f6f07573e9b6eaeddd9b4b2888c210660d16be5bdd9d38b3f861d6123"
+    ],
+    "must_profiles": [
+     "0100",
+     "0110",
+     "1010",
+     "1011",
+     "1100",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "71ddb8d7fb389e5f37491634693c470489145ede85242465399b3c6475c5f97f",
+    "x_label": "e10@11",
+    "x_sha256": "329d207e53e961665eff7e908589b626d064dfabdaeca76d8001558626786ba1",
+    "y_label": "e11@00",
+    "y_sha256": "f64ed8aa3d579092b6a68c740efdc46d24540c5be9cc002c20c2dbc7595ddddb"
+   },
+   {
+    "free_profiles": [
+     "0010",
+     "1101"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@10+e01@10+e00@10",
+      "not_in_bound": "t1@01+s1@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@01+s1@01",
+      "not_in_bound": "e10@10+e01@10+e00@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "2738710fae543e66d94a37343b51098bd5559b40acd22c52868767f156c09e1a",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@10+e01@10+e00@10",
+     "t1@01+s1@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b855bdc4a72745c7f0a4c28b8eaafb7ffb862994160be26b24a3893f9e81dc1f",
+     "0a5ed81be70e65adbd7b2bad645e6615de774173ebf6656e5a2aef2d9bda359c"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0011",
+     "0100",
+     "0101",
+     "1001",
+     "1011"
+    ],
+    "upper_sha256": "c19e3357dc256f3e5ac44afcc3290f4a271c384948ae29613b19c2051992ec1d",
+    "x_label": "e01@11",
+    "x_sha256": "9d5c33f5183a832dc435e50236867f9cec426fbab99e2be806e6b0d89805d78f",
+    "y_label": "e00@00",
+    "y_sha256": "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e"
+   },
+   {
+    "free_profiles": [
+     "0111",
+     "1000"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@01+e10@01+e01@01",
+      "not_in_bound": "t1@10+s1@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@10+s1@10",
+      "not_in_bound": "e11@01+e10@01+e01@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "63e06b1b91745fc0ebd4138e5df6363170ade68233a12386a3f3bc4d5622732a",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@01+e10@01+e01@01",
+     "t1@10+s1@10"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b34ded3fae018e3994ea46513ab18237be9c76f313a722215003ede3aa816300",
+     "50d4e3e66b9d1b1b22d33c73bb69d35f4d016b80152fea193f9c96675559cd03"
+    ],
+    "must_profiles": [
+     "0001",
+     "0011",
+     "1001",
+     "1010",
+     "1011",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "0e4f1ca4a5148601e8e7d1b925ebc2f3cf054f4f4ca0a2ec4f53749c6582afb6",
+    "x_label": "e01@11",
+    "x_sha256": "9d5c33f5183a832dc435e50236867f9cec426fbab99e2be806e6b0d89805d78f",
+    "y_label": "e11@00",
+    "y_sha256": "f64ed8aa3d579092b6a68c740efdc46d24540c5be9cc002c20c2dbc7595ddddb"
+   },
+   {
+    "free_profiles": [
+     "0001",
+     "1110"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@11+e01@11+e00@11",
+      "not_in_bound": "t1@00+s1@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@00+s1@00",
+      "not_in_bound": "e10@11+e01@11+e00@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "1a3dc52ade30ea597466fbcaa2f082e03805a73058c183cf6f2009aa1f791fa1",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@11+e01@11+e00@11",
+     "t1@00+s1@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "6cf2fe6774a8093193e46d939137cc48906f49c60fcbea8ae4d6678df3590662",
+     "78fc745dc514784c049eb25e2ae2a31de020bc26ad4d39e4ab444c6993f827f5"
+    ],
+    "must_profiles": [
+     "0000",
+     "0010",
+     "0011",
+     "0100",
+     "0110",
+     "1010",
+     "1011"
+    ],
+    "upper_sha256": "e35b8a9ee3ca8985ab8be90312129e035ad238489598f56629e69c0adce1828d",
+    "x_label": "e01@10",
+    "x_sha256": "8b9b9916d105193879e2ccc899c39c3055d6fe23834686c7bb2a2b63f435993d",
+    "y_label": "e00@01",
+    "y_sha256": "8f86ec0a1087fa13482ce53e39ceca59bcc094181b8407d103be178a6474240f"
+   },
+   {
+    "free_profiles": [
+     "0111",
+     "1000"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@00+e10@00+e01@00",
+      "not_in_bound": "t1@11+s1@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@11+s1@11",
+      "not_in_bound": "e11@00+e10@00+e01@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "5770bfd6c69da63db667346376740802911b93c4f2f027d9a379ca246141f46b",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@00+e10@00+e01@00",
+     "t1@11+s1@11"
+    ],
+    "minimal_upper_bound_sha256": [
+     "e81251ca4d90a25f4c6f3000989cd439278805335e6a0f9c2edb502f2301a6c8",
+     "86597a805945bb1dd6a7773dc417c942c83bf96f370df5fb5da9b4b75416627b"
+    ],
+    "must_profiles": [
+     "0010",
+     "0011",
+     "1001",
+     "1010",
+     "1011",
+     "1101",
+     "1111"
+    ],
+    "upper_sha256": "9af4f86802febe58aa870afb806ea99384146b562d6c65b8e100fbcc539c9350",
+    "x_label": "e01@10",
+    "x_sha256": "8b9b9916d105193879e2ccc899c39c3055d6fe23834686c7bb2a2b63f435993d",
+    "y_label": "e11@01",
+    "y_sha256": "fd89863088288b2a9ef9a93b20406c0a76cb138b37be30f232449818f1b62676"
+   },
+   {
+    "free_profiles": [
+     "0011",
+     "1100"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@00+e01@00+e00@00",
+      "not_in_bound": "e10@11+e01@11+e00@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "e10@11+e01@11+e00@11",
+      "not_in_bound": "e10@00+e01@00+e00@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "dc8aad701123488bd6324d3c1c8a942639a2f7f2b2004e17af2f9a856ac4cd92",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@00+e01@00+e00@00",
+     "e10@11+e01@11+e00@11"
+    ],
+    "minimal_upper_bound_sha256": [
+     "e50ff64c8323fb8548f5dec73aed4a1344475bf192d92fd84bdb26ceabc35e00",
+     "6cf2fe6774a8093193e46d939137cc48906f49c60fcbea8ae4d6678df3590662"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0010",
+     "0100",
+     "0110",
+     "1000",
+     "1001"
+    ],
+    "upper_sha256": "cc7b816c90ae36af1e01bc941cce04dfad61a08531be2f23eac1bf37e89a8fd4",
+    "x_label": "e00@10",
+    "x_sha256": "4aa2a36e2f6c470b1972c2b7c457c3cf8e088357d3309f90714d59f1ff94c402",
+    "y_label": "e00@01",
+    "y_sha256": "8f86ec0a1087fa13482ce53e39ceca59bcc094181b8407d103be178a6474240f"
+   },
+   {
+    "free_profiles": [
+     "0101",
+     "1010"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t1@11+s1@11",
+      "not_in_bound": "t2@00+s2@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@00+s2@00",
+      "not_in_bound": "t1@11+s1@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "6e4a5601195e2c19c2515a6acf14ebb3edcc61b735fbd9e456513c2159dedc3c",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t1@11+s1@11",
+     "t2@00+s2@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "86597a805945bb1dd6a7773dc417c942c83bf96f370df5fb5da9b4b75416627b",
+     "208904cd8db831fdd260cb48e0119400072aacd5f7e4fa076a763e890830e0d1"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "1000",
+     "1001",
+     "1011",
+     "1101",
+     "1111"
+    ],
+    "upper_sha256": "7713274bc36a43381ce9b57ca28499ea3481b9b9e9f7dea2e70e2876b51783a7",
+    "x_label": "e00@10",
+    "x_sha256": "4aa2a36e2f6c470b1972c2b7c457c3cf8e088357d3309f90714d59f1ff94c402",
+    "y_label": "e11@01",
+    "y_sha256": "fd89863088288b2a9ef9a93b20406c0a76cb138b37be30f232449818f1b62676"
+   },
+   {
+    "free_profiles": [
+     "0011",
+     "1100"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e10@01+e01@01+e00@01",
+      "not_in_bound": "e10@10+e01@10+e00@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "e10@10+e01@10+e00@10",
+      "not_in_bound": "e10@01+e01@01+e00@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e11",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "e5aea1714836c445cd20e8e94dd6446084953e0bcbb80dedf320e0ba00a3eb69",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e10@01+e01@01+e00@01",
+     "e10@10+e01@10+e00@10"
+    ],
+    "minimal_upper_bound_sha256": [
+     "c8212c3b45e72eec62dcd6f6608c3a346f075aa30306eae0ffaff98e482e31c1",
+     "b855bdc4a72745c7f0a4c28b8eaafb7ffb862994160be26b24a3893f9e81dc1f"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0010",
+     "0100",
+     "0101",
+     "1000",
+     "1010"
+    ],
+    "upper_sha256": "f4d7f3bd19d2edf11138ff5b504e44fd7f23e35a824cac10f80d1b36d97aa03a",
+    "x_label": "e00@11",
+    "x_sha256": "9960cf0a3d3f271cf68d5340602dd19671461ada4c4d93b58eb3f378221acc49",
+    "y_label": "e00@00",
+    "y_sha256": "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e"
+   },
+   {
+    "free_profiles": [
+     "0110",
+     "1001"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t1@10+s1@10",
+      "not_in_bound": "t2@01+s2@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "t2@01+s2@01",
+      "not_in_bound": "t1@10+s1@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        1,
+        0,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "685350eeb7381557e9ef9311f2f8acf79103425bc5130804017503b3cc322457",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t1@10+s1@10",
+     "t2@01+s2@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "50d4e3e66b9d1b1b22d33c73bb69d35f4d016b80152fea193f9c96675559cd03",
+     "faa7ba2f6f07573e9b6eaeddd9b4b2888c210660d16be5bdd9d38b3f861d6123"
+    ],
+    "must_profiles": [
+     "0000",
+     "0010",
+     "1000",
+     "1010",
+     "1011",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "90657e2b555b259d64a1be351d2217d4cd5ca5ac2cab5b073e35da9c897c4cb7",
+    "x_label": "e00@11",
+    "x_sha256": "9960cf0a3d3f271cf68d5340602dd19671461ada4c4d93b58eb3f378221acc49",
+    "y_label": "e11@00",
+    "y_sha256": "f64ed8aa3d579092b6a68c740efdc46d24540c5be9cc002c20c2dbc7595ddddb"
+   },
+   {
+    "free_profiles": [
+     "0110",
+     "1001"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t2@10+s2@10",
+      "not_in_bound": "t1@01+s1@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@01+s1@01",
+      "not_in_bound": "t2@10+s2@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "9f4c324a962acf57518845fad4b700f2f4ad4c389627559b463fb48f4db414b3",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t2@10+s2@10",
+     "t1@01+s1@01"
+    ],
+    "minimal_upper_bound_sha256": [
+     "8d9902d6059853e495650102832ae83191ae913baafa92524d5378e49e83aff0",
+     "0a5ed81be70e65adbd7b2bad645e6615de774173ebf6656e5a2aef2d9bda359c"
+    ],
+    "must_profiles": [
+     "0000",
+     "0001",
+     "0100",
+     "0101",
+     "0111",
+     "1101",
+     "1111"
+    ],
+    "upper_sha256": "488696f4667484458a7a2f21bbe368de039882686956ab4f052e6682e5deb6ff",
+    "x_label": "e00@00",
+    "x_sha256": "c1b6723d54dc096b8b67e5c712cbff3e1505dd0327ae61f0692613d691ffdd4e",
+    "y_label": "e11@11",
+    "y_sha256": "9adf2703bcf0ba9b311102f32ff7e83b013b205c4738a228b4a102e7b78801bb"
+   },
+   {
+    "free_profiles": [
+     "0101",
+     "1010"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "t2@11+s2@11",
+      "not_in_bound": "t1@00+s1@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e10",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        1,
+        0,
+        0,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "t1@00+s1@00",
+      "not_in_bound": "t2@11+s2@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "e632b4eacc41b1b3e1509bf0906c6cf382e87b4b00764e6c258090078cef3513",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "t2@11+s2@11",
+     "t1@00+s1@00"
+    ],
+    "minimal_upper_bound_sha256": [
+     "3916be5dcbf84d0a61492c6097c0113f0fa1d5384c60886b2e37ed56b5b6ee7d",
+     "78fc745dc514784c049eb25e2ae2a31de020bc26ad4d39e4ab444c6993f827f5"
+    ],
+    "must_profiles": [
+     "0000",
+     "0010",
+     "0100",
+     "0110",
+     "0111",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "9329c2dd03e81abf2c54b6fa630195ca5f232057dcd555aaf1ea929b9f4b3b8b",
+    "x_label": "e00@01",
+    "x_sha256": "8f86ec0a1087fa13482ce53e39ceca59bcc094181b8407d103be178a6474240f",
+    "y_label": "e11@10",
+    "y_sha256": "446d9b7a26bf2ade8c23a75bef528bc224d82c331cbced898db2b7930d0baf74"
+   },
+   {
+    "free_profiles": [
+     "0011",
+     "1100"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@01+e10@01+e01@01",
+      "not_in_bound": "e11@10+e10@10+e01@10",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     },
+     {
+      "in_bound": "e11@10+e10@10+e01@10",
+      "not_in_bound": "e11@01+e10@01+e01@01",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "54a029583b5bef1f11cbf1e67df33b2c68d07f71ea87eb34deab9bb481b1571b",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@01+e10@01+e01@01",
+     "e11@10+e10@10+e01@10"
+    ],
+    "minimal_upper_bound_sha256": [
+     "b34ded3fae018e3994ea46513ab18237be9c76f313a722215003ede3aa816300",
+     "b2702252be333c5dd6003eecdcbd3b71f28704b0ab02215c5e19f0acb87ad5e3"
+    ],
+    "must_profiles": [
+     "0101",
+     "0111",
+     "1010",
+     "1011",
+     "1101",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "50a4158705d7a1f2b62241b5a86b641447799f65f1367918c3be220fd21f8809",
+    "x_label": "e11@11",
+    "x_sha256": "9adf2703bcf0ba9b311102f32ff7e83b013b205c4738a228b4a102e7b78801bb",
+    "y_label": "e11@00",
+    "y_sha256": "f64ed8aa3d579092b6a68c740efdc46d24540c5be9cc002c20c2dbc7595ddddb"
+   },
+   {
+    "free_profiles": [
+     "0011",
+     "1100"
+    ],
+    "incomparability_witnesses": [
+     {
+      "in_bound": "e11@00+e10@00+e01@00",
+      "not_in_bound": "e11@11+e10@11+e01@11",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        1,
+        0
+       ]
+      }
+     },
+     {
+      "in_bound": "e11@11+e10@11+e01@11",
+      "not_in_bound": "e11@00+e10@00+e01@00",
+      "point": {
+       "cell_states_sorted_atoms": [
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ],
+        [
+         "e00",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "s2",
+         "v1"
+        ],
+        [
+         "e01",
+         "m1",
+         "m2",
+         "p11",
+         "p15",
+         "p25",
+         "s1",
+         "v1"
+        ]
+       ],
+       "profile_a0_a1_q0_q1_r0_r1": [
+        [
+         0,
+         0,
+         0
+        ],
+        [
+         0,
+         0,
+         0
+        ],
+        0,
+        0,
+        0,
+        1
+       ]
+      }
+     }
+    ],
+    "interval_is_profile_clean": true,
+    "lower_sha256": "1ecea2ba0c035a570136b20340df96ef9c694f979bcf3a03a2a1a03a553c459e",
+    "maximal_lower_bound_labels": [
+     "0"
+    ],
+    "minimal_upper_bound_count": 2,
+    "minimal_upper_bound_labels": [
+     "e11@00+e10@00+e01@00",
+     "e11@11+e10@11+e01@11"
+    ],
+    "minimal_upper_bound_sha256": [
+     "e81251ca4d90a25f4c6f3000989cd439278805335e6a0f9c2edb502f2301a6c8",
+     "f898342cf1514ff83e3d2fbc2cb00dccc40f21785afb4ffb5985c42594b9a16a"
+    ],
+    "must_profiles": [
+     "0110",
+     "0111",
+     "1001",
+     "1011",
+     "1101",
+     "1110",
+     "1111"
+    ],
+    "upper_sha256": "483e557e20461c3dc78a48fc8f8512a279bac723d310ccc14ade8b1cb8667aab",
+    "x_label": "e11@10",
+    "x_sha256": "446d9b7a26bf2ade8c23a75bef528bc224d82c331cbced898db2b7930d0baf74",
+    "y_label": "e11@01",
+    "y_sha256": "fd89863088288b2a9ef9a93b20406c0a76cb138b37be30f232449818f1b62676"
+   }
+  ],
+  "join_failing_pairs": 32,
+  "meet_failing_pairs": 32,
+  "meet_failures_are_complement_images_of_join_failures": true,
+  "orbits_under_row_and_column_swap": {
+   "e00@00|e00@11": [
+    "e00@00|e00@11",
+    "e00@01|e00@10"
+   ],
+   "e00@00|e01@11": [
+    "e00@00|e01@11",
+    "e00@01|e01@10",
+    "e00@10|e01@01",
+    "e00@11|e01@00"
+   ],
+   "e00@00|e10@11": [
+    "e00@00|e10@11",
+    "e00@01|e10@10",
+    "e00@10|e10@01",
+    "e00@11|e10@00"
+   ],
+   "e00@00|e11@11": [
+    "e00@00|e11@11",
+    "e00@01|e11@10",
+    "e00@10|e11@01",
+    "e00@11|e11@00"
+   ],
+   "e01@00|e01@11": [
+    "e01@00|e01@11",
+    "e01@01|e01@10"
+   ],
+   "e01@00|e10@11": [
+    "e01@00|e10@11",
+    "e01@01|e10@10",
+    "e01@10|e10@01",
+    "e01@11|e10@00"
+   ],
+   "e01@00|e11@11": [
+    "e01@00|e11@11",
+    "e01@01|e11@10",
+    "e01@10|e11@01",
+    "e01@11|e11@00"
+   ],
+   "e10@00|e10@11": [
+    "e10@00|e10@11",
+    "e10@01|e10@10"
+   ],
+   "e10@00|e11@11": [
+    "e10@00|e11@11",
+    "e10@01|e11@10",
+    "e10@10|e11@01",
+    "e10@11|e11@00"
+   ],
+   "e11@00|e11@11": [
+    "e11@00|e11@11",
+    "e11@01|e11@10"
+   ]
+  },
+  "reproduction": {
+   "banked_receipt_first_failure_reproduced": {
+    "u_sha256": "e50ff64c8323fb8548f5dec73aed4a1344475bf192d92fd84bdb26ceabc35e00",
+    "v_sha256": "f898342cf1514ff83e3d2fbc2cb00dccc40f21785afb4ffb5985c42594b9a16a",
+    "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+    "y_sha256": "2240309662fff76e5333d2abf55e391f02589aab1a4938d24c65dbacb652650d"
+   },
+   "carrier_points": 6186568,
+   "cell_states": 224,
+   "closure_rounds": [
+    32,
+    0
+   ],
+   "completed_events": 230,
+   "macro_blocks": 842,
+   "raw_events": 198
+  },
+  "scope": "exhaustive over all unordered pairs of the 230-event closed family; witnesses are structural point descriptions independent of bit order",
+  "symmetry_semantic_validation": {
+   "raw_family_invariant": {
+    "col_swap": true,
+    "row_swap": true
+   },
+   "validated": true
+  }
+ },
+ "payload_sha256": "5ec51b95eee8ffd0af15f0f357352d635a743774cd9bdd23a0ebd21f2dc160ae",
+ "schema": "full-grid-2x2-rectangle-repair-v1"
+}

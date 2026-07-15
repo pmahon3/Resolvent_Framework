@@ -164,7 +164,7 @@ This is a theorem-extraction boundary, not a claim that T-FIN is true.
 | New structural pattern? | Yes: a same-side lattice meet is a whole profile fibre plus a four-point repair escape, while hull signatures are strongly nonlaminar. | **Executable verified** on the selected 230→256→492→558 chain. |
 | Genuinely new or relabelled? | The 468/492 sibling closures are genuinely nonisomorphic, yet have the identical complete next gap. | **Executable verified** for the two siblings. |
 | Finite grammar rule? | No complete rule. “Fattened fibre plus repair escape” is a new candidate type, but no transition theorem controls its later interpolants. | Descriptor insufficiency **Hand proved**; finite grammar **Open**. |
-| Candidate well-founded invariant? | Full event-family inclusion terminates on the fixed carrier; no useful smaller provenance rank is known. | Termination **Hand proved**; smaller invariant **Open**. |
+| Candidate well-founded invariant? | Existing same-side meet cores can only grow in extensions; the 336,404-point fattened core is irreversible. Whether this growth forces the full cylinder is unknown. | Core monotonicity **Hand proved**; forcing conclusion **Open**. |
 | Collapse unavoidable? | Only for coordinate-closed completions. One-split-fibre hull extraction does not force a side boundary; nonlaminar hulls and a fattened same-side meet survive at stage 558. | Coordinate theorem **Hand proved**; singleton-profile noncollapse and stage control **Executable verified**; unconditional T-FIN **Open**. |
 | Evidence of infinite coherent grammar? | No: an infinite strict chain on this carrier is impossible. | **Hand proved**. |
 | Would arbitrary branching discriminate live hypotheses? | No: the root has `2^672800` candidates and the available descriptor is non-Markov. | Count **Executable verified**; strategic conclusion **Hand proved** from search scope. |
@@ -188,10 +188,10 @@ This is a theorem-extraction boundary, not a claim that T-FIN is true.
 
 The narrowest unresolved question is T-FIN, now sharpened to the
 fattened-fibre interval: can a terminal extension keep a nonzero same-side
-meet equal to a whole profile fibre plus finite repair escape without either
-assembling the four-fibre same-side macro cylinder or interpolating it down
-to zero or an activation-supported event? The smallest discriminating computation
-classifies admissible lower interpolants beneath the 336,404-point meet
-(dually upper repairs of the corresponding same-side join). This tests a
-specific escape/collapse trichotomy and is more informative than another arbitrary
+meet equal to a whole profile fibre plus finite repair escape without
+assembling the four-fibre same-side macro cylinder? The meet core cannot
+shrink in an extension. The smallest discriminating computation classifies
+admissible enlargements from the 336,404-point meet to its literal set
+intersection (dually smaller repairs below the corresponding same-side
+join). This tests a specific escape/collapse dichotomy and is more informative than another arbitrary
 minimum-depth repair.

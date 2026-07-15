@@ -206,11 +206,46 @@ row-0 points and many off-activation points, so neither reconstruction nor
 gate `B` follows. This refutes the stage-level implication “nonzero
 same-side literal meet implies its literal macro cylinder is an event.”
 **Executable verified** on the exact 558-event stage. Persistence of this
-meet in a terminal extension is **Open**, because later events may
-interpolate below it.
+exact equality in a terminal extension is **Open**, but its event core is
+irreversible: in every extension, any new meet of the same two coordinates
+must contain the old meet because the old event remains a lower bound.
+**Hand proved.**
 
 The next T-FIN object is therefore a *fattened-fibre meet*: a lattice meet
 consisting of a whole profile fibre plus a finite repair escape. The
-discriminating interval is below this meet (dually above the corresponding
-same-side join): classify whether every terminal repair isolates the whole
-fibre, drives the meet to zero, or produces another fattened-fibre meet.
+discriminating interval is above this meet and below the literal set
+intersection (dually below the corresponding same-side join): classify
+whether every terminal repair fills the four-fibre same-side cylinder or
+stabilizes at a larger fattened-fibre meet. Killing or shrinking the meet is
+impossible.
+
+For this witness the literal same-side intersection has 1,355,680 points,
+so the irreversible enlargement gap has 1,019,276 points. It consists of the
+remaining 341,436 points of profile `0100` after removing the four-point
+selector, together with the whole `0110` and `0111` fibres of 336,400 and
+341,440 points. Every meet in a terminal extension lies set-theoretically in
+
+\[
+ e_*\ \subseteq\ q_0^\perp\wedge_{L_{\rm terminal}}q_1
+ \ \subseteq\ \{q_0=0,q_1=1\}.
+\]
+
+This is a genuine provenance-sensitive monotone interval, but its raw
+`2^1019276` subset space is another computational stop signal. Any next
+computation must quotient candidate enlargements by a stated trace/provenance
+rule rather than enumerate them.
+
+**Theorem 6.1 (fattened-meet bifurcation).** In every same-carrier terminal
+OML extending the 558-event family, either this meet equals the full
+four-fibre cylinder `{q0=0,q1=1}`, in which case one same-side literal macro
+atom is an event and the same-side forcing lemma reconstructs
+`Bool(q0,q1)`; or the terminal contains a proper fattened-fibre meet `m`
+satisfying
+
+\[
+ e_*\subseteq m\subsetneq\{q_0=0,q_1=1\}.
+\]
+
+**Hand proved.** This is an exact terminal bifurcation, but its second branch
+is realizability architecture rather than a counterexample: latticehood,
+the other same-side meets, centre, and later assembly gates remain **Open**.

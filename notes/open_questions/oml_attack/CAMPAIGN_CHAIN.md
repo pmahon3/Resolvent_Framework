@@ -82,6 +82,8 @@
 | T-FIN terminal boundary/activation dichotomy | open | open |
 | necessary non-profile fibre-splitter theorem | Hand proved over executable core certificate | proved |
 | one-split-fibre hull extraction | Hand proved | proved conditionally; reconstruction consequence refuted |
+| existing meet cores grow monotonically in extensions | Hand proved | proved |
+| fattened-meet terminal bifurcation | Hand proved | proved; proper branch realizability open |
 
 ## Counterexample ledger
 
@@ -179,11 +181,11 @@
 
 ## Next automatic pivot
 
-Attack T-FIN through the admissible interval below the 336,404-point
+Attack T-FIN through the admissible interval above the 336,404-point
 fattened-fibre same-side meet and full event-family provenance, not gap-only
 recurrence or further arbitrary depth. Determine whether every terminal
-interpolation assembles a four-fibre same-side cylinder, kills the meet or
-creates activation support, or creates another fattened-fibre meet; an
+interpolation assembles a four-fibre same-side cylinder or stabilizes at a
+larger fattened-fibre meet; the existing meet core cannot shrink, and an
 isolated single profile fibre is not yet a collapse.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

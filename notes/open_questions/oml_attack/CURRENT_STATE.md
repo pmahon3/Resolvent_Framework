@@ -293,8 +293,8 @@ is no longer simple hull incidence: seventeen split signatures are
 nonlaminar, and the nine event-valued hull gaps never differ by one fibre.
 Instead the stage contains a 336,404-point same-side lattice meet equal to a
 whole `0101` profile fibre plus the four-point second repair escape. The next
-exact gate is the admissible interpolation interval below this
-fattened-fibre meet—not another selected repair depth.
+exact gate is the admissible interpolation interval above this irreversible
+fattened-fibre meet core—not another selected repair depth.
 
 ## Primary sources
 

@@ -2219,4 +2219,18 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   whole `0101` profile fibre plus the four-point second repair selector. It
   is not the literal set intersection and fires neither reconstruction nor
   activation gate B. **Executable verified** on the exact 558-event stage;
-  persistence to a terminal is **Open**.
+  containment of this meet core in every terminal extension is **Hand
+  proved**, while exact equality at the terminal is **Open**.
+
+### Iteration 236 — irreversible meet-core monotonicity
+- **Theorem:** if an embedded event family already has `m=a meet b`, then
+  any meet of `a,b` in a larger same-carrier family contains `m`, because
+  `m` remains a lower bound. The fattened-fibre meet can grow but cannot
+  shrink or vanish. **Hand proved.**
+
+### Iteration 237 — fattened-meet terminal bifurcation
+- **Theorem:** every same-carrier terminal extension either grows the
+  336,404-point core to the full four-fibre `q01` macro cylinder, forcing
+  `Bool(q0,q1)`, or retains a proper fattened-fibre meet strictly between
+  the core and that cylinder. **Hand proved.** Realizability of the proper
+  branch is **Open**.

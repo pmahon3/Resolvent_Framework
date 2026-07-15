@@ -606,4 +606,4 @@ The first provenance-sensitive checkpoint refutes simple hull isolation: the
 hull gaps, and no one-fibre hull difference. Its key event is instead the
 336,404-point meet `q0^perp meet_L q1`, a whole profile fibre plus the
 four-point repair escape. The next discriminating problem is the admissible
-interpolation interval below this fattened-fibre meet.
+interpolation interval above this irreversible fattened-fibre meet core.

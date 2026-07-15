@@ -643,7 +643,10 @@ At the 558-event checkpoint, simple hull-gap laminarity fails and no nested
 hull pair isolates one profile fibre. A same-side lattice meet nevertheless
 appears as a whole profile fibre plus a four-point escape block. This
 fattened-fibre meet, not further arbitrary repair depth, is the current exact
-T-FIN test object.
+T-FIN test object. Its remaining interval is executable-classified into 160
+whole macrofibres; terminal saturation for this partition is open, so the
+next discriminating question is partial-macrofibre splitting rather than
+enumeration of the saturated subclass.
 
 ## Repository Layout
 

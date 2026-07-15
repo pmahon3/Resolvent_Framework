@@ -249,3 +249,49 @@ satisfying
 **Hand proved.** This is an exact terminal bifurcation, but its second branch
 is realizability architecture rather than a counterexample: latticehood,
 the other same-side meets, centre, and later assembly gates remain **Open**.
+
+## 7. Exact macrofibre interval normal form
+
+The enlargement gap in Theorem 6.1 has a useful but sharply limited finite
+coordinate description. Relative to the activation/local-state macrofibres
+used by the full-grid producer, it is the disjoint union of exactly 160 whole
+macrofibres and contains no partial macrofibre. Their four-coordinate profile
+counts are
+
+\[
+ 55\text{ in }0100,\qquad 49\text{ in }0110,\qquad
+ 56\text{ in }0111.
+\]
+
+The gap has 1,019,276 points and the smallest constituent macrofibre has four
+points. **Executable verified** by
+`notes/open_questions/verification/full_grid_stage558_fattened_meet_gap.py`
+on the single exact stage-558 interval, payload
+`680414ee42c5494ebccbdba213d92f71d39d344c5567ad8f6533ce875952552b`.
+The verifier reconstructs the 558-event stage and recomputes the factor
+decomposition, but it reuses the banked carrier/stage and factor-projection
+modules and is therefore not an independent implementation.
+
+**Lemma 7.1 (stage-558 macro-saturated candidates).** Let
+`M_1,...,M_160` be those disjoint macrofibres. Every candidate enlargement
+of `e_*` inside its literal cylinder which is saturated for this particular
+macrofibre partition has the unique form
+
+\[
+ e_*\ \mathbin{\dot\cup}\!\bigcup_{i\in S}M_i,
+ \qquad S\subseteq\{1,\ldots,160\}.
+\]
+
+Conversely every such expression is a set lying in the literal interval.
+**Hand proved** from disjointness and exhaustion of the verified partition.
+Eventhood, admissibility as a lattice meet, and preservation of the two gates
+are not asserted.
+
+This supplies an exact 160-bit grammar for one *macrofibre-saturated
+interval*, not a repair grammar for future stages. Whether every terminal
+meet is saturated for this partition is **Open**. Later non-profile repairs
+may cut a macrofibre, and neither complement/disjoint-union closure nor the
+current provenance calculus has been proved to exclude that possibility.
+Accordingly arbitrary branching over `2^160` subsets is also suspended: a
+next computation is discriminating only if it classifies partial splitters
+or quotients the 160 bits by a proved gate-preserving provenance action.

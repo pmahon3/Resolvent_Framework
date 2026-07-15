@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Classify the admissible interpolation interval above the irreversible 336404-point fattened-fibre same-side meet; test full-cylinder assembly versus stable larger fattened meets without arbitrary depth."
+   "current_next_step": "Test whether a structurally forced interpolation above the irreversible 336404-point meet cuts one of its 160 certified macrofibres; prove only orbit-scoped transitions and avoid saturated-subclass enumeration."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "necessary-theorem-stage558-control-open-terminal",
-   "one_line": "Every preserving completion needs a proper fibre splitter; stage 558 shows that multi-fibre hull gaps can exist without immediate reconstruction, leaving overlapping-gap isolation open.",
+   "status": "necessary-theorem-stage558-160-macrofibre-control-open-terminal",
+   "one_line": "Every preserving completion needs a proper fibre splitter; the fattened-meet gap is 160 whole macrofibres at stage 558, but future partial-macrofibre splitting and terminal saturation remain open.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

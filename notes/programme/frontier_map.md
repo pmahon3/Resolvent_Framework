@@ -606,4 +606,7 @@ The first provenance-sensitive checkpoint refutes simple hull isolation: the
 hull gaps, and no one-fibre hull difference. Its key event is instead the
 336,404-point meet `q0^perp meet_L q1`, a whole profile fibre plus the
 four-point repair escape. The next discriminating problem is the admissible
-interpolation interval above this irreversible fattened-fibre meet core.
+interpolation interval above this irreversible fattened-fibre meet core. That
+gap is exactly 160 whole activation/local-state macrofibres at stage 558, but
+only saturated candidates have the resulting 160-bit normal form. Whether a
+forced future repair cuts one of those pieces is the next grammar test.

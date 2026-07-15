@@ -2234,3 +2234,20 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   `Bool(q0,q1)`, or retains a proper fattened-fibre meet strictly between
   the core and that cylinder. **Hand proved.** Realizability of the proper
   branch is **Open**.
+
+### Iteration 238 — exact fattened-meet macrofibre decomposition
+- **Result:** the 1,019,276-point enlargement gap above the stage-558 meet
+  is the disjoint union of 160 whole activation/local-state macrofibres:
+  55 over profile `0100`, 49 over `0110`, and 56 over `0111`; no partial
+  macrofibre occurs in this one interval. **Executable verified** by a full
+  stage reconstruction using shared carrier/stage/factor builders; not an
+  independent implementation.
+
+### Iteration 239 — macro-saturation overclaim audit
+- **Theorem:** candidates saturated for the displayed partition have a
+  unique 160-bit union normal form. **Hand proved.** The unrestricted
+  interval still has `2^1019276` set candidates.
+- **Hostile review:** terminal macro-saturation and future-repair saturation
+  are unsupported and remain **Open**. The producer was hardened to derive
+  the meet from `q0,q1` via its unique proper upper bound instead of trusting
+  only a stored hash. Blind `2^160` branching is therefore rejected.

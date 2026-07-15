@@ -178,14 +178,18 @@
 - Both fibre hulls may exist without reconstruction when their difference is
   a multi-profile union; overlapping hull-gap incidence, not individual hull
   existence, is the live T-FIN mechanism.
+- The irreversible fattened-meet enlargement gap is exactly 160 whole
+  activation/local-state macrofibres at stage 558, but saturation of future
+  repairs or terminal meets for that partition is open; the unrestricted
+  interval still has `2^1019276` set candidates.
 
 ## Next automatic pivot
 
-Attack T-FIN through the admissible interval above the 336,404-point
-fattened-fibre same-side meet and full event-family provenance, not gap-only
-recurrence or further arbitrary depth. Determine whether every terminal
-interpolation assembles a four-fibre same-side cylinder or stabilizes at a
-larger fattened-fibre meet; the existing meet core cannot shrink, and an
-isolated single profile fibre is not yet a collapse.
+Attack T-FIN by testing whether the first structurally forced interpolation
+above the 336,404-point fattened-fibre meet cuts one of the 160 certified
+macrofibres. A cut refutes the proposed saturated grammar and must be retained
+as a provenance-sensitive splitter type; no cut permits only an orbit-scoped
+transition lemma, not an arbitrary-terminal promotion. Do not enumerate the
+`2^160` saturated subclass or continue arbitrary selected depth.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

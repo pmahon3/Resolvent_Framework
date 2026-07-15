@@ -17,12 +17,15 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** classify the admissible upper interval from the
-   336,404-point fattened-fibre meet `q0^perp meet_L q1` to its literal set
-   intersection; test whether every terminal meet fills the four-fibre
-   same-side cylinder or stabilizes at a larger fattened-fibre meet.
+7. **First action:** test macro-saturation itself: classify whether the next
+   structurally forced partial splitter cuts one of the 160 whole
+   activation/local-state macrofibres in the certified enlargement gap.
+   If it does, extract the smallest provenance-sensitive splitter type; if
+   it does not, prove the transition for that orbit without promoting it to
+   an arbitrary-terminal invariant.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
-   capped search as a no-go; assume fibre automorphisms extend; or promote a
+   capped search as a no-go; assume fibre automorphisms extend; enumerate
+   the `2^160` saturated subclass as though exhaustive; or promote a
    same-carrier theorem to larger representations or uncountable assembly.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been

@@ -296,6 +296,15 @@ whole `0101` profile fibre plus the four-point second repair escape. The next
 exact gate is the admissible interpolation interval above this irreversible
 fattened-fibre meet core—not another selected repair depth.
 
+That enlargement interval is now executable-certified as the disjoint union
+of 160 whole activation/local-state macrofibres (55 in profile `0100`, 49 in
+`0110`, 56 in `0111`). This yields a unique 160-bit normal form only under an
+explicit macrofibre-saturation hypothesis. It is not a terminal repair
+grammar: future non-profile repairs may split those pieces, and the
+unrestricted interval has `2^1019276` subsets. The next discriminating gate
+is therefore saturation preservation versus an explicit partial-macrofibre
+splitter.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

@@ -163,17 +163,17 @@ This is a theorem-extraction boundary, not a claim that T-FIN is true.
 |---|---|---|
 | New structural pattern? | Yes: a same-side lattice meet is a whole profile fibre plus a four-point repair escape, while hull signatures are strongly nonlaminar. | **Executable verified** on the selected 230→256→492→558 chain. |
 | Genuinely new or relabelled? | The 468/492 sibling closures are genuinely nonisomorphic, yet have the identical complete next gap. | **Executable verified** for the two siblings. |
-| Finite grammar rule? | No complete rule. “Fattened fibre plus repair escape” is a new candidate type, but no transition theorem controls its later interpolants. | Descriptor insufficiency **Hand proved**; finite grammar **Open**. |
+| Finite grammar rule? | One exact interval has a 160-bit normal form for macrofibre-saturated candidates. No transition theorem shows later interpolants remain saturated. | Decomposition **Executable verified**; conditional normal form **Hand proved**; terminal grammar **Open**. |
 | Candidate well-founded invariant? | Existing same-side meet cores can only grow in extensions; the 336,404-point fattened core is irreversible. Whether this growth forces the full cylinder is unknown. | Core monotonicity **Hand proved**; forcing conclusion **Open**. |
 | Collapse unavoidable? | Only for coordinate-closed completions. One-split-fibre hull extraction does not force a side boundary; nonlaminar hulls and a fattened same-side meet survive at stage 558. | Coordinate theorem **Hand proved**; singleton-profile noncollapse and stage control **Executable verified**; unconditional T-FIN **Open**. |
 | Evidence of infinite coherent grammar? | No: an infinite strict chain on this carrier is impossible. | **Hand proved**. |
-| Would arbitrary branching discriminate live hypotheses? | No: the root has `2^672800` candidates and the available descriptor is non-Markov. | Count **Executable verified**; strategic conclusion **Hand proved** from search scope. |
+| Would arbitrary branching discriminate live hypotheses? | No: the root has `2^672800` candidates, the fattened interval has `2^1019276` unrestricted subsets, and the available descriptor is non-Markov. | Counts **Executable verified**; strategic conclusion **Hand proved** from search scope. |
 
 ### Gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 |---|---|---|---|
-| Repair grammar | No sufficient finite grammar; exact full-family repair DAG exists abstractly | **Hand proved**; finite controls **Executable verified** | Find a smaller provenance-sensitive invariant or prove none is needed for T-FIN |
+| Repair grammar | Exact 160-bit normal form for one saturated interval; no sufficient transition grammar | Normal form **Hand proved**; decomposition **Executable verified** | Prove saturation preservation or classify the first partial macrofibre splitter |
 | Latticehood | 558-event selected stage is a nonlattice; unrestricted terminals exist abstractly | Stage **Executable verified**; termination **Hand proved** | Exhibit and audit a gate-avoiding terminal or prove all terminals hit A/B |
 | Orthomodularity | Automatic for every complement/disjoint-union-closed terminal lattice | **Hand proved** | Applies only after latticehood |
 | Same-side boundary preservation | Preserved through three selected repairs | **Executable verified**, one chain only | Prove preservation at a terminal or prove reconstruction unavoidable |
@@ -190,8 +190,9 @@ The narrowest unresolved question is T-FIN, now sharpened to the
 fattened-fibre interval: can a terminal extension keep a nonzero same-side
 meet equal to a whole profile fibre plus finite repair escape without
 assembling the four-fibre same-side macro cylinder? The meet core cannot
-shrink in an extension. The smallest discriminating computation classifies
-admissible enlargements from the 336,404-point meet to its literal set
-intersection (dually smaller repairs below the corresponding same-side
-join). This tests a specific escape/collapse dichotomy and is more informative than another arbitrary
-minimum-depth repair.
+shrink in an extension. That interval is now certified as 160 whole
+macrofibres, but this partitions only its macrofibre-saturated subclass. The
+smallest discriminating question is whether a forced next repair cuts one of
+those pieces. This directly tests the proposed grammar, whereas enumerating
+either the `2^160` saturated class or another arbitrary minimum-depth repair
+would not distinguish T-FIN from the surviving partial-splitter architecture.

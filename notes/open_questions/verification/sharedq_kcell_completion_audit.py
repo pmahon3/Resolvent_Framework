@@ -348,10 +348,20 @@ def audit(k, deep=False):
             mixed_blocks.append(sorted(nm(evs[i]) for i in c))
 
     # ---- states ----------------------------------------------------------
-    profiles = set()
-    for p in range(npts):
-        profiles.add(tuple((evs[i] >> p) & 1 for i in range(n)))
-    points_injective = len(profiles) == npts
+    # Injectivity of point profiles: distinct carrier points differ in some
+    # cell state, and the 224 cell states are pairwise distinct atom sets
+    # (asserted below), so some private atom event separates them.  For small
+    # carriers the profile set is also recomputed literally.
+    assert len({frozenset(s) for s in states}) == len(states)
+    if npts <= 6000:
+        profiles = set()
+        for p in range(npts):
+            profiles.add(tuple((evs[i] >> p) & 1 for i in range(n)))
+        points_injective = len(profiles) == npts
+        injectivity_method = "literal-profile-census"
+    else:
+        points_injective = len(set(points)) == npts
+        injectivity_method = "structural-distinct-state-tuples"
     abstract_state_count = None
     if k == 1 or deep:
         abstract_state_count = len(enumerate_abstract_states(evs, full))
@@ -373,12 +383,11 @@ def audit(k, deep=False):
     off = full & ~act
     projections = {}
     for c in range(1, k + 1):
-        r_c = atom_masks[atom_name("e11", c)] | atom_masks[atom_name("e01", c)]
         fib = {}
-        for p in range(npts):
-            key = "".join(str((m >> p) & 1) for m in
-                          (atom_masks["a1"], atom_masks["a2"],
-                           atom_masks["a3"], qmask, r_c))
+        for sig, tup in points:
+            st = states[tup[c - 1]]
+            r_val = 1 if ("e11" in st or "e01" in st) else 0
+            key = "%d%d%d%d%d" % (sig[0], sig[1], sig[2], sig[3], r_val)
             fib[key] = fib.get(key, 0) + 1
         projections["cell%d" % c] = {
             "contains_11100": fib.get("11100", 0) > 0,
@@ -393,6 +402,45 @@ def audit(k, deep=False):
         if c == 1:
             projections["cell1"]["fiber_counts"] = {
                 kk: fib[kk] for kk in sorted(fib)}
+    # ---- slice-trace invariant (premise of the arbitrary-index normal
+    # form): on every shared-signature slice, every event traces to the empty
+    # set, the full slice, or a set measurable in ONE cell's state coordinate.
+    slice_buf, fibre_buf = {}, {}
+    nbytes = (npts + 7) // 8
+    for pi, (sig, tup) in enumerate(points):
+        byte, bit = pi >> 3, 1 << (pi & 7)
+        sb = slice_buf.get(sig)
+        if sb is None:
+            sb = slice_buf[sig] = bytearray(nbytes)
+        sb[byte] |= bit
+        for c, si in enumerate(tup, start=1):
+            fk = (sig, c, si)
+            fb = fibre_buf.get(fk)
+            if fb is None:
+                fb = fibre_buf[fk] = bytearray(nbytes)
+            fb[byte] |= bit
+    slice_masks = {s: int.from_bytes(bytes(b), "little")
+                   for s, b in slice_buf.items()}
+    fibres_by = {}
+    for (sig, c, si), b in fibre_buf.items():
+        fibres_by.setdefault((sig, c), []).append(
+            int.from_bytes(bytes(b), "little"))
+    slice_trace_ok = True
+    proper_trace_events = 0
+    for e in evs:
+        proper_somewhere = False
+        for sig, smask in slice_masks.items():
+            t = e & smask
+            if t == 0 or t == smask:
+                continue
+            proper_somewhere = True
+            if not any(
+                    sum_or([f for f in fibres_by[(sig, c)] if t & f]) == t
+                    for c in range(1, k + 1)):
+                slice_trace_ok = False
+        if proper_somewhere:
+            proper_trace_events += 1
+
     r_masks = {c: atom_masks[atom_name("e11", c)] |
                atom_masks[atom_name("e01", c)] for c in range(1, k + 1)}
     joint = sorted({"".join(str((m >> p) & 1)
@@ -408,10 +456,6 @@ def audit(k, deep=False):
                 "intersection_is_event": (ri & rj) in idx,
                 "equalizer_is_event": ((ri & rj) | (full & ~ri & ~rj)) in idx,
                 "compatible": com[idx[ri]][idx[rj]],
-                "some_maximal_block_contains_both": any(
-                    all(any(evs[a] | m == m and True for a in c1) or True
-                        for m in ())  # placeholder, replaced below
-                    for c1 in ()),
             }
             in_block = False
             for c in cliques:
@@ -503,6 +547,8 @@ def audit(k, deep=False):
         "joint_activated_relation_q_r1_to_rk": joint,
         "joint_relation_is_diagonal": joint == ["0" * (k + 1), "1" * (k + 1)],
         "joint_output_boundaries": boundary,
+        "slice_trace_single_cell_invariant": slice_trace_ok,
+        "events_with_proper_slice_trace": proper_trace_events,
     }
     return payload
 
@@ -536,7 +582,7 @@ def main():
     ks = (1, 2, 3)
     if args.emit:
         for k in ks:
-            payload = audit(k)
+            payload = audit(k, deep=(k <= 2))
             receipt = {
                 "schema": SCHEMA, "emitted": EMIT_DATE,
                 "generator": os.path.basename(__file__),
@@ -552,7 +598,7 @@ def main():
         for k in ks:
             with open(receipt_path(k)) as f:
                 receipt = json.load(f)
-            payload = json.loads(canonical(audit(k)).decode())
+            payload = json.loads(canonical(audit(k, deep=(k <= 2))).decode())
             stored = receipt["payload"]
             sha = hashlib.sha256(canonical(stored)).hexdigest()
             if sha != receipt["payload_sha256"]:

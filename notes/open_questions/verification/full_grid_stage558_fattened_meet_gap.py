@@ -39,10 +39,17 @@ def payload():
         offset+=size
     profiles=collections.Counter(tuple(r["profile"]) for r in rows)
     acts=collections.Counter((tuple(r["row0_activation"]),tuple(r["row1_activation"])) for r in rows)
+    act_classes=collections.Counter()
+    for r in rows:
+        a=tuple(r["row0_activation"])==(1,1,1)
+        b=tuple(r["row1_activation"])==(1,1,1)
+        act_classes["both" if a and b else "row0_only" if a else "row1_only" if b else "neither"]+=1
     assert meet.bit_count()==336404 and cylinder.bit_count()==1355680
     assert gap.bit_count()==1019276 and len(rows)==160
     assert all(r["cartesian"] and r["whole_macrofibre"] for r in rows)
     assert profiles=={(0,1,0,0):55,(0,1,1,0):49,(0,1,1,1):56}
+    assert act_classes["row0_only"]==6 and act_classes["row1_only"]==7
+    assert act_classes["neither"]==147 and act_classes["both"]==0
     decomp=hashlib.sha256(json.dumps(rows,sort_keys=True,separators=(",",":")).encode()).hexdigest()
     out={"schema":SCHEMA,"schema_version":"1.0","carrier_points":n,
         "stage_events":len(events),"meet_sha256":MEET_SHA,"meet_points":meet.bit_count(),
@@ -53,8 +60,13 @@ def payload():
         "minimum_macrofibre_points":min(r["points"] for r in rows),
         "profile_counts":[{"profile":list(k),"macrofibres":v} for k,v in sorted(profiles.items())],
         "activation_pair_counts":[{"row0":list(k[0]),"row1":list(k[1]),"macrofibres":v} for k,v in sorted(acts.items())],
+        "activation_class_macrofibres":{k:act_classes[k] for k in ("both","neither","row0_only","row1_only")},
         "decomposition_sha256":decomp,"rows":rows,
         "macro_saturated_candidate_count":"2^160",
+        "macro_saturated_gate_B_nonzero_remainders":(2**6-1)+(2**7-1),
+        "macro_saturated_gate_A_or_B_candidates":(2**6-1)+(2**7-1)+1,
+        "macro_saturated_avoiding_A_and_B_including_unchanged_meet":str(2**160-191),
+        "macro_saturated_proper_enlargements_avoiding_A_and_B":str(2**160-192),
         "unrestricted_set_candidate_count":"2^1019276",
         "meet_identity_verified":"q0^c meet q1 via complement of unique proper upper bound of q0 and q1^c",
         "scope":"one exact stage-558 meet enlargement interval; macrofibre decomposition only; no claim that terminal meets remain macrofibre-saturated",

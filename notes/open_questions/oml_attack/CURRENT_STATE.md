@@ -311,6 +311,20 @@ from the `(q0,q1)=(0,1)` fattened-meet interval. A fourth selected repair is
 therefore suspended unless its closure is tied to a stated cross-interval
 provenance theorem.
 
+The terminal theorem-extraction layer is now stronger. On each side the four
+literal-cylinder residues have event-valued row, column, and total unions;
+gate A is equivalent to any residue being an event, so an avoiding terminal
+has no event singleton or triple residue union. Both sides together give 32
+ternary meet-trace symbols, but no lifting theorem makes that shadow signature
+a complete terminal CSP. The live exact alternatives are residue-shadow
+lifting versus a coupled-residue-square collapse theorem using the edge cells
+and a necessary non-profile join.
+
+The named stage-558 provenance stabilizer has order four and 84 orbits on the
+160 pieces. Exact single-cell incidence exhaustion proves there are no hidden
+cell-level automorphisms under the relevant colours. Full-grid promotion still
+requires intrinsic recognition of the four embedded cell copies.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

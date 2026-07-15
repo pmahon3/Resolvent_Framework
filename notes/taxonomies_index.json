@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — fixed-carrier repairs terminate; the T-FIN fattened-meet gap is 160 whole macrofibres at stage 558, but saturation preservation, partial splitters, and larger-carrier non-profile joins remain open.",
+   "status": "OPEN — fixed-carrier repairs terminate; T-FIN has a terminal two-square residue architecture, but residue-shadow lifting versus coupled collapse and larger-carrier non-profile joins remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 101
   },

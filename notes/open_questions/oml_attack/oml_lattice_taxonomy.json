@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Test whether a structurally forced interpolation above the irreversible 336404-point meet cuts one of its 160 certified macrofibres; prove only orbit-scoped transitions and avoid saturated-subclass enumeration."
+   "current_next_step": "Prove residue-shadow lifting or coupled-residue-square collapse using both same-side squares, the four edge-cell algebras, and one necessary non-profile join; also test intrinsic recognition of the four cell copies."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "necessary-theorem-stage558-160-macrofibre-control-open-terminal",
-   "one_line": "Every preserving completion needs a proper fibre splitter; the fattened-meet gap is 160 whole macrofibres at stage 558, but future partial-macrofibre splitting and terminal saturation remain open.",
+   "status": "necessary-terminal-residue-architecture-lifting-open",
+   "one_line": "Every preserving terminal carries two four-residue squares and a non-profile join; their 32 ternary traces are necessary, while coherent shadow lifting versus coupled-square collapse is open.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

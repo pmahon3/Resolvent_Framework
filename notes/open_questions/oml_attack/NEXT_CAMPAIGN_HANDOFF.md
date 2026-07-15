@@ -17,12 +17,11 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** test macro-saturation itself: classify whether the next
-   structurally forced partial splitter cuts one of the 160 whole
-   activation/local-state macrofibres in the certified enlargement gap.
-   If it does, extract the smallest provenance-sensitive splitter type; if
-   it does not, prove the transition for that orbit without promoting it to
-   an arbitrary-terminal invariant.
+7. **First action:** formalize the coupled-residue-square constraints from
+   Theorem 8.1 with the four edge-cell algebras and one necessary non-profile
+   join. Prove either singleton/activation collapse or the exact additional
+   within-fibre data required for residue-shadow lifting. Separately test
+   intrinsic recognizability of the four cell copies in the 558-event family.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a
@@ -31,6 +30,9 @@
 The already available fourth-gap minimum is not the requested test: its
 entire gap has `q0=1` and is disjoint from the `(q0,q1)=(0,1)` fattened-meet
 interval. Do not add it merely to increase repair depth.
+
+The 32 ternary residue-shadow entries are necessary but not a complete CSP;
+do not enumerate them as if finite consistency implied an actual terminal.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

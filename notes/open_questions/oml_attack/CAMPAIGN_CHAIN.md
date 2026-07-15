@@ -185,14 +185,22 @@
 - The banked fourth-gap selector is disjoint from that interval (`q0=1`
   versus `(q0,q1)=(0,1)`), so routine fourth-depth extension does not test
   the live saturation/partial-splitter dichotomy.
+- The named stage stabilizer has order four and 84 macrofibre orbits; its
+  single-cell faithfulness premise is exact, while intrinsic recognition of
+  the four cell copies in the full stage remains open.
+- Every gate-A-avoiding terminal carries two four-residue squares whose row,
+  column, and total unions are events but whose singleton and triple unions
+  are not. Their 32 ternary meet traces are necessary data, not yet a
+  complete terminal grammar.
 
 ## Next automatic pivot
 
-Attack T-FIN by testing whether the first structurally forced interpolation
-above the 336,404-point fattened-fibre meet cuts one of the 160 certified
-macrofibres. A cut refutes the proposed saturated grammar and must be retained
-as a provenance-sensitive splitter type; no cut permits only an orbit-scoped
-transition lemma, not an arbitrary-terminal promotion. Do not enumerate the
-`2^160` saturated subclass or continue arbitrary selected depth.
+Attack the coupled-residue-square alternative: either prove that the two
+terminal residue squares, four edge-cell algebras, and one required
+non-profile join force a residue singleton event or activation event, or
+prove a residue-shadow lifting theorem producing coherent within-fibre
+subsets. In parallel, test intrinsic recognizability of the four cell copies
+to promote the named stabilizer. Do not enumerate the `2^160` saturated
+subclass or continue arbitrary selected depth.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

@@ -610,3 +610,10 @@ interpolation interval above this irreversible fattened-fibre meet core. That
 gap is exactly 160 whole activation/local-state macrofibres at stage 558, but
 only saturated candidates have the resulting 160-bit normal form. Whether a
 forced future repair cuts one of those pieces is the next grammar test.
+
+At terminal level, each side has a four-residue square: every row, column,
+and total residue union is an event, while gate-A avoidance excludes residue
+singletons and triples. The resulting 32 ternary meet traces are necessary
+but not known sufficient. The frontier is residue-shadow lifting versus a
+coupled-square collapse theorem using the four edge cells and a required
+non-profile join.

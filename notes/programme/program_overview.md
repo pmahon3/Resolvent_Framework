@@ -648,6 +648,13 @@ whole macrofibres; terminal saturation for this partition is open, so the
 next discriminating question is partial-macrofibre splitting rather than
 enumeration of the saturated subclass.
 
+The terminal residue calculus further packages both same-side boundaries as
+two four-residue squares with event-valued line and total unions but no event
+singletons or triples in a preserving terminal. This finite shadow is only a
+necessary descriptor: coherent lifting of within-fibre subsets, or a theorem
+forcing collapse when the two squares couple through the edge cells, remains
+open.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

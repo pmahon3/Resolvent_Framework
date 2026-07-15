@@ -1,4 +1,10 @@
 {
+  "activation_class_macrofibres": {
+    "both": 0,
+    "neither": 147,
+    "row0_only": 6,
+    "row1_only": 7
+  },
   "activation_pair_counts": [
     {
       "macrofibres": 3,
@@ -813,14 +819,18 @@
   "enlargement_gap_points": 1019276,
   "enlargement_gap_sha256": "1c5cbdb9571b5da26758e2e078e28193d3edd192173da1477d1290e8a4627bc8",
   "literal_cylinder_points": 1355680,
+  "macro_saturated_avoiding_A_and_B_including_unchanged_meet": "1461501637330902918203684832716283019655932542785",
   "macro_saturated_candidate_count": "2^160",
+  "macro_saturated_gate_A_or_B_candidates": 191,
+  "macro_saturated_gate_B_nonzero_remainders": 190,
+  "macro_saturated_proper_enlargements_avoiding_A_and_B": "1461501637330902918203684832716283019655932542784",
   "macrofibres": 160,
   "meet_identity_verified": "q0^c meet q1 via complement of unique proper upper bound of q0 and q1^c",
   "meet_points": 336404,
   "meet_sha256": "50ca1d1b7ed5e5d8cc5f04ec6772c8bdb8f3be6f9629a2a9da6a5edfc88cc83c",
   "minimum_macrofibre_points": 4,
-  "payload_sha256": "680414ee42c5494ebccbdba213d92f71d39d344c5567ad8f6533ce875952552b",
-  "producer_sha256": "dd52c1a3a771928992f927190205fe71fb6f77172f9b7569f4222dc309cb1995",
+  "payload_sha256": "a9fac75913dbd5d35cdfe6ff0f28357da41ecd84e56180fc32bdaf51f4f11264",
+  "producer_sha256": "2d0abc3dd9027e8cee6fb640ad8217268e51cdd9065823cce6db9ba6dc2ba8db",
   "profile_counts": [
     {
       "macrofibres": 55,

@@ -2259,3 +2259,37 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   disjoint from the live interval and does not test saturation preservation.
   **Hand proved** from two separately **Executable verified** profile
   classifications. Blind fourth-depth extension is stopped.
+
+### Iteration 241 — saturated gate-count refutation
+- **Result:** the 160 pieces split into 147 off both activation cylinders,
+  six row-0-only, seven row-1-only, and zero doubly activated pieces.
+  Consequently only 190 nonzero saturated remainders fire gate B, and only
+  one further saturated choice fires reconstruction gate A; `2^160-191`
+  choices still avoid both when the unchanged meet is included. The category
+  census is **Executable verified**; the count is **Hand proved**. Gate
+  pruning does not make saturated enumeration informative.
+
+### Iteration 242 — named provenance stabilizer
+- **Result:** the named semantic group has order 32; the stage-558 repair and
+  fattened-meet stabilizer has order four and 84 orbits on the 160 pieces
+  (32 singleton, 40 size two, 12 size four). **Executable verified.** This
+  is not a full-grid automorphism theorem, and orbit count does not restrict
+  arbitrary candidates to invariant unions.
+
+### Iteration 243 — single-cell faithfulness closure
+- **Result:** under the exact activation/q/r/provenance colours, the full
+  224-state/56-event cell incidence automorphism group has order two and is
+  exactly identity plus the named arm swap. **Executable verified** by an
+  intrinsic producer and independent declared-block verifier. Hidden local
+  fibre automorphisms are closed; intrinsic recognizability of the four cell
+  copies in the full 558-event family remains **Open**.
+
+### Iteration 244 — terminal residue architecture
+- **Theorem:** on each side, the four terminal meet residues have event-valued
+  row unions, column unions, and total union. Gate A is equivalent to any
+  residue being an event; avoiding A makes every singleton and triple residue
+  union a nonevent, while diagonal-pair eventhood remains undecided. **Hand
+  proved** and hostile reviewed.
+- **Boundary:** the 32 ternary meet-trace symbols are a necessary finite
+  descriptor, not a proved complete CSP. Residue-shadow lifting or a coupled
+  residue-square collapse theorem is **Open**.

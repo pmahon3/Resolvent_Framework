@@ -6,9 +6,9 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 19 continuation — fixed-carrier T-FIN is
-  refuted; counterexample-route scaling of the centre-free full-cycle MDD
-  grammar is active, and blind finite repair extension remains stopped.
+- **Active campaign:** Campaign 20 — controlled finite-support and
+  sigma-complete assembly of the centre-free full-cycle MDD grammar; fixed-
+  carrier T-FIN is refuted and blind finite repair extension remains stopped.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -29,7 +29,8 @@
   theorem; Campaign 18 — two-depth fine-fibre repair and activation-escape
   controls. Campaign 19 remains active after exact depth-three/four
   recurrence refutations, fixed-carrier repair termination, and
-  terminal-search cofinality reached computational stop signal E.
+  terminal-search cofinality reached computational stop signal E. Campaign 19
+  then closed with the exact centre-free full-cycle terminal refuting T-FIN.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -85,6 +86,7 @@
 | one-split-fibre hull extraction | Hand proved | proved conditionally; reconstruction consequence refuted |
 | existing meet cores grow monotonically in extensions | Hand proved | proved |
 | fattened-meet terminal bifurcation | Hand proved | proved; proper branch realizability open |
+| adjacent full-cycle completed-copy intersection | executable verified | exact 56-event shared cell; no extra saturated trace |
 
 ## Counterexample ledger
 
@@ -250,7 +252,11 @@
 ## Next automatic pivot
 
 Take the counterexample route. Preserve the exact full-cycle MDD grammar and
-construct coherent finite-support/direct-limit assemblies, then audit
+construct the exact closure of two adjacent copies now known to intersect
+only in their 56-event shared cell. The naive global-MDD representation is
+closed by a 7.17-GB pre-closure boundary, so prove or refute the bounded
+fibre-product rectangle normal form (FRNF), conservative extrema, and the
+two-copy critical-pair theorem before forming any direct limit. Audit
 countable sigma-closure, centre, order separation, maximal blocks/MBRC,
 omega-one CSS/no-global-section, the global finitely additive witness, and
 absence of a sigma-state realization. Do not promote the finite survivor to a

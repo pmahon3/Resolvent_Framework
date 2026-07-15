@@ -424,6 +424,21 @@ Therefore fixed-carrier T-FIN is **Refuted**. The finite OML remains
 `Phi`-tame, so the programme now takes the counterexample route: controlled
 finite-support and sigma-complete assembly, not further finite repair depth.
 
+Campaign 20's first assembly gate passes. Two adjacent full-cycle rectangles
+sharing the entire conditional cell have an exact 211897540016-point
+compatible carrier with onto projections. Exhaustive MDD saturation proves
+that each completed copy has exactly the 56 original shared-cell traces;
+hence their images intersect exactly in the declared cell and no extra event.
+**Executable verified**, payload `d51b57b8...`. Closure/latticehood of their
+union remains **Open** and is the next test.
+
+The exact union carrier has seven cells, 23998 nonempty macro fibres and
+211897540016 points. A naive global MDD lift costs about 7.17 GB before
+closure, so blind computation is stopped. The live theorem is FRNF: a bounded
+disjoint fibre-product-rectangle normal form with complement/orthogonal-union
+closure and old-side extremal shadows. **Open**; factor counts **Executable
+verified**, payload `2f402b77...`.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 101,
+   "entries": 102,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Scale the centre-free full-cycle MDD grammar through coherent finite-support embeddings, then audit countable sigma-closure and the omega-one CSS/no-global-section assembly."
+   "current_next_step": "Prove or refute the bounded fibre-product rectangle normal form (FRNF) for two adjacent full-cycle copies; naive global-MDD closure is stopped at a 7.17-GB pre-closure boundary."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -733,6 +733,13 @@
    "status": "fixed-carrier-tfin-refuted-full-cycle-survivor",
    "one_line": "A centre-free full four-cell concrete OML avoids both T-FIN gates, refuting the fixed-carrier dichotomy; the live route is controlled sigma-complete uncountable assembly.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
+  },
+  {
+   "id": "oml.open.full_cycle_controlled_assembly",
+   "name": "Full-cycle controlled assembly",
+   "status": "adjacent-intersection-proved-mixed-closure-open",
+   "one_line": "Adjacent full-cycle completions intersect exactly in their 56-event shared cell; the two-copy mixed closure and conservative-extrema theorem are the next gates.",
+   "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],
  "external_sufficient_conditions": [

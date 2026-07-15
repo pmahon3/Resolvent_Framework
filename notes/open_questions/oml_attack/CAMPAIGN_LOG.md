@@ -2545,3 +2545,61 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   `7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0`.
 - **Decision:** choose the counterexample route: stop finite repair branching
   and scale the surviving grammar through controlled sigma-complete assembly.
+
+## Linked Campaign 20 — controlled full-cycle assembly (2026-07-15)
+
+### Iteration 262 — assembly problem of record
+- **Input:** the exact centre-free 18676-event full-cycle OML, including its
+  842-macrofibre MDD grammar, both activation escapes, distributed boundaries,
+  and persistent PJH defect.
+- **First theorem gate:** define two-copy overlaps, prove unique normal forms
+  and conservative embeddings (`L_F cap L_G = L_{F cap G}` or an exact
+  substitute), and classify states/maximal-block effects before any direct
+  limit is formed.
+- **Evidence discipline:** fixed-carrier survival is **Executable verified**;
+  coherent assembly, sigma-closure, MBRC, CSS/no-GS and a `Phi` obstruction
+  are **Open**.
+
+### Iteration 263 — adjacent full-cell intersection theorem
+- **Factor checkpoint:** adjacent rectangles sharing exactly cell D11 have a
+  211897540016-point compatible carrier; both projections are onto and the
+  full 56-event shared cell embeds faithfully. **Executable verified**,
+  payload `0920a19b...`.
+- **Completed intersection:** each oriented 18676-event grammar has exactly
+  56 shared-coordinate-saturated traces, both equal to the original cell
+  family. Therefore the two completed-copy images intersect exactly in D11,
+  with no undeclared event. **Executable verified**, payload `d51b57b8...`.
+- **State theorem:** on the joint activation face every abstract two-valued
+  state is globally diagonal, and both values occur through compatible point
+  witnesses. **Hand proved** from executable cell-state premises.
+- **Remaining gate:** close the union of the two completed copies and test
+  old-extremum preservation, latticehood, centre, escape and finite MBRC. The
+  intersection theorem alone does not give a confluent repair grammar.
+
+### Iteration 264 — adjacent-union factor boundary
+- **Exact carrier:** seven distinct cells give 23998 nonempty macro fibres and
+  211897540016 compatible points; all seven projections contain all 224 local
+  states. **Executable verified**, payload `2f402b77...`.
+- **Computational stop:** naive pullback of both completed-copy MDD tuples
+  requires 896373296 roots, about 7.17 GB before mixed closure. No blind
+  closure was run and no mixed-cut claim is made.
+- **Theorem extraction:** the next exact lemma is FRNF, a bounded disjoint
+  fibre-product-rectangle normal form closed under complement/orthogonal union
+  and carrying old-side extremal shadows. Its proof yields the mixed engine;
+  its refutation yields an explicit rectangle-rank-growth or shadow-failure
+  witness. **Open.**
+
+### Iteration 265 — Boolean envelopes, shadows and block horns
+- **Rectangle theorem:** mixed closure lies in the tensor product of the two
+  local Boolean trace envelopes over each shared state and has disjoint
+  rectangle rank at most `sum_s min(p_s,q_s)` (crude bound 6186568). **Hand
+  proved.** Constant rank is refuted by Boolean diagonals.
+- **Narrow lemma:** actual OML extrema require shadow realizability of every
+  mixed universal core and existential hull envelope. This, rather than rank,
+  is the load-bearing conservative-embedding theorem. **Open.**
+- **Block refutation:** exact intersection and diagonal states alone do not
+  imply maximal-block factorization. **Hand refuted** by an added horizontal
+  block control.
+- **Smallest block test:** aligned-container coherence can first fail on a
+  `2x1` compatibility horn; a `K2,2` horn is the next cyclic obstruction.
+  Exact one-copy container data is required. **Open.**

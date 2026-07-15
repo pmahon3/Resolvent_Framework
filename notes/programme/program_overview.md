@@ -729,6 +729,11 @@ finite completion is automatically `Phi`-tame. The programme now scales the
 surviving grammar toward a sigma-complete uncountable CSS/no-global-section
 assembly.
 
+At the first assembly rung, adjacent completed rectangles share exactly their
+declared 56-event conditional cell. This proves interface intersection and
+carrier surjectivity, while leaving mixed closure and conservative extrema as
+the next finite-support normal-form gate.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

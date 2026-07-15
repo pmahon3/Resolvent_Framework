@@ -695,3 +695,8 @@ defect intact. This refutes fixed-carrier T-FIN. Because the object is finite
 and `Phi`-tame, the live frontier is controlled many-rectangle assembly,
 countable sigma-closure, and omega-one CSS/no-global-section—not another
 finite repair.
+
+The first scaling gate is positive: two adjacent full-cycle completions
+sharing one entire conditional cell intersect exactly in that 56-event cell,
+with no extra saturated trace. The live finite-support question is now the
+mixed closure/critical-pair theorem for their union, not interface fidelity.

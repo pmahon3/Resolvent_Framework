@@ -81,3 +81,14 @@ First next action: define coherent embeddings of the full-cycle MDD grammar
 across a finite-support family and prove intersection/normal-form uniqueness.
 Then treat sigma-closure, centre, order separation, maximal blocks/MBRC and
 the omega-one CSS/no-global-section obstruction as separate gates.
+
+First intersection result: adjacent rectangles sharing full cell D11 have
+onto compatible-carrier projections and their completed images intersect
+exactly in that 56-event cell (`d51b57b8...`). Next construct the exact MDD
+closure of their union and test old-extremum preservation/critical pairs.
+Do not infer closure or a direct limit from intersection alone.
+
+Naive adjacent-union MDD lifting would allocate 896373296 roots (~7.17 GB),
+so it was not run. Prove/refute FRNF, the bounded fibre-product rectangle
+normal form, before another closure attempt. A failure must return explicit
+rectangle-rank growth or the first mixed bound without old-side shadows.

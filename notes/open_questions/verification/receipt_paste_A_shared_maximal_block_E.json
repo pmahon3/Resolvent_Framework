@@ -1,0 +1,463 @@
+{
+ "command": "python3 incompatible_h4_conditional_cell_audit.py --verify",
+ "emitted": "2026-07-14",
+ "generator": "incompatible_h4_conditional_cell_audit.py",
+ "payload": {
+  "audit": {
+   "centre": [
+    "0",
+    "1"
+   ],
+   "escape_every_nonzero_event_charged_off_111": {
+    "a1,a2,a3": true,
+    "b1,b2,b3": true
+   },
+   "first_failed_lattice_pair": null,
+   "h4_controls": {
+    "a1,a2,a3": {
+     "generated_subOML_size": 8,
+     "is_H4_horizontal_sum": true,
+     "mo3_relations_ok": true
+    },
+    "b1,b2,b3": {
+     "generated_subOML_size": 8,
+     "is_H4_horizontal_sum": true,
+     "mo3_relations_ok": true
+    }
+   },
+   "lattice_ok": true,
+   "maximal_blocks": [
+    [
+     "a1",
+     "p11",
+     "u1"
+    ],
+    [
+     "a2",
+     "p12",
+     "v1"
+    ],
+    [
+     "a3",
+     "n1",
+     "p15"
+    ],
+    [
+     "a3",
+     "n2",
+     "p25"
+    ],
+    [
+     "b1",
+     "p11B",
+     "u1B"
+    ],
+    [
+     "b2",
+     "p12B",
+     "v1B"
+    ],
+    [
+     "b3",
+     "n1B",
+     "p15B"
+    ],
+    [
+     "b3",
+     "n2B",
+     "p25B"
+    ],
+    [
+     "e00",
+     "e01",
+     "e10",
+     "e11"
+    ],
+    [
+     "e01",
+     "s2",
+     "t2"
+    ],
+    [
+     "e01",
+     "s2B",
+     "t2B"
+    ],
+    [
+     "e10",
+     "s1",
+     "t1"
+    ],
+    [
+     "e10",
+     "s1B",
+     "t1B"
+    ],
+    [
+     "m1",
+     "n1",
+     "t1"
+    ],
+    [
+     "m1",
+     "p14",
+     "w1"
+    ],
+    [
+     "m1B",
+     "n1B",
+     "t1B"
+    ],
+    [
+     "m1B",
+     "p14B",
+     "w1B"
+    ],
+    [
+     "m2",
+     "n2",
+     "t2"
+    ],
+    [
+     "m2",
+     "p24",
+     "w1"
+    ],
+    [
+     "m2B",
+     "n2B",
+     "t2B"
+    ],
+    [
+     "m2B",
+     "p24B",
+     "w1B"
+    ],
+    [
+     "u1",
+     "v1",
+     "w1"
+    ],
+    [
+     "u1B",
+     "v1B",
+     "w1B"
+    ]
+   ],
+   "maximal_blocks_equal_declared": true,
+   "no_event_represents_111_cylinder": {
+    "a1,a2,a3": true,
+    "b1,b2,b3": true
+   },
+   "order_determination_ok": true,
+   "ortholattice_ok": true,
+   "orthomodular_ok": true,
+   "orthomodular_witness": null,
+   "state_additivity_ok": true,
+   "support_map_injective_ok": true
+  },
+  "construction": {
+   "atoms": [
+    "a1",
+    "a2",
+    "a3",
+    "b1",
+    "b2",
+    "b3",
+    "e00",
+    "e01",
+    "e10",
+    "e11",
+    "m1",
+    "m1B",
+    "m2",
+    "m2B",
+    "n1",
+    "n1B",
+    "n2",
+    "n2B",
+    "p11",
+    "p11B",
+    "p12",
+    "p12B",
+    "p14",
+    "p14B",
+    "p15",
+    "p15B",
+    "p24",
+    "p24B",
+    "p25",
+    "p25B",
+    "s1",
+    "s1B",
+    "s2",
+    "s2B",
+    "t1",
+    "t1B",
+    "t2",
+    "t2B",
+    "u1",
+    "u1B",
+    "v1",
+    "v1B",
+    "w1",
+    "w1B"
+   ],
+   "blocks": [
+    [
+     "a1",
+     "p11",
+     "u1"
+    ],
+    [
+     "a2",
+     "p12",
+     "v1"
+    ],
+    [
+     "u1",
+     "v1",
+     "w1"
+    ],
+    [
+     "a3",
+     "n1",
+     "p15"
+    ],
+    [
+     "m1",
+     "p14",
+     "w1"
+    ],
+    [
+     "m1",
+     "n1",
+     "t1"
+    ],
+    [
+     "a3",
+     "n2",
+     "p25"
+    ],
+    [
+     "m2",
+     "p24",
+     "w1"
+    ],
+    [
+     "m2",
+     "n2",
+     "t2"
+    ],
+    [
+     "e10",
+     "s1",
+     "t1"
+    ],
+    [
+     "e01",
+     "s2",
+     "t2"
+    ],
+    [
+     "e00",
+     "e01",
+     "e10",
+     "e11"
+    ],
+    [
+     "b1",
+     "p11B",
+     "u1B"
+    ],
+    [
+     "b2",
+     "p12B",
+     "v1B"
+    ],
+    [
+     "u1B",
+     "v1B",
+     "w1B"
+    ],
+    [
+     "b3",
+     "n1B",
+     "p15B"
+    ],
+    [
+     "m1B",
+     "p14B",
+     "w1B"
+    ],
+    [
+     "m1B",
+     "n1B",
+     "t1B"
+    ],
+    [
+     "b3",
+     "n2B",
+     "p25B"
+    ],
+    [
+     "m2B",
+     "p24B",
+     "w1B"
+    ],
+    [
+     "m2B",
+     "n2B",
+     "t2B"
+    ],
+    [
+     "e10",
+     "s1B",
+     "t1B"
+    ],
+    [
+     "e01",
+     "s2B",
+     "t2B"
+    ]
+   ],
+   "couplings": [],
+   "designated": {
+    "activation_triples": [
+     [
+      "a1",
+      "a2",
+      "a3"
+     ],
+     [
+      "b1",
+      "b2",
+      "b3"
+     ]
+    ],
+    "q": "m:e10+e11",
+    "r": "m:e01+e11"
+   },
+   "identifications": []
+  },
+  "counts": {
+   "atoms": 44,
+   "blocks": 23,
+   "elements": 96,
+   "two_valued_states": 13568
+  },
+  "design": "paste_A",
+  "projections": {
+   "a1,a2,a3|q,r": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "fiber_counts": {
+     "00000": 1584,
+     "00001": 560,
+     "00010": 560,
+     "00011": 1584,
+     "00100": 648,
+     "00101": 160,
+     "00110": 160,
+     "00111": 648,
+     "01000": 936,
+     "01001": 320,
+     "01010": 320,
+     "01011": 936,
+     "01100": 360,
+     "01101": 80,
+     "01110": 80,
+     "01111": 360,
+     "10000": 936,
+     "10001": 320,
+     "10010": 320,
+     "10011": 936,
+     "10100": 360,
+     "10101": 80,
+     "10110": 80,
+     "10111": 360,
+     "11000": 288,
+     "11001": 80,
+     "11010": 80,
+     "11011": 288,
+     "11100": 72,
+     "11111": 72
+    },
+    "off_111_all_four_qr_profiles": true
+   },
+   "b1,b2,b3|q,r": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "fiber_counts": {
+     "00000": 1584,
+     "00001": 560,
+     "00010": 560,
+     "00011": 1584,
+     "00100": 648,
+     "00101": 160,
+     "00110": 160,
+     "00111": 648,
+     "01000": 936,
+     "01001": 320,
+     "01010": 320,
+     "01011": 936,
+     "01100": 360,
+     "01101": 80,
+     "01110": 80,
+     "01111": 360,
+     "10000": 936,
+     "10001": 320,
+     "10010": 320,
+     "10011": 936,
+     "10100": 360,
+     "10101": 80,
+     "10110": 80,
+     "10111": 360,
+     "11000": 288,
+     "11001": 80,
+     "11010": 80,
+     "11011": 288,
+     "11100": 72,
+     "11111": 72
+    },
+    "off_111_all_four_qr_profiles": true
+   }
+  },
+  "relations": {
+   "joint_111_111": {
+    "fiber_size": 2,
+    "qr_values": [
+     [
+      0,
+      0
+     ],
+     [
+      1,
+      1
+     ]
+    ],
+    "triples": [
+     [
+      "a1",
+      "a2",
+      "a3"
+     ],
+     [
+      "b1",
+      "b2",
+      "b3"
+     ]
+    ]
+   }
+  },
+  "shared_structure": "shared MAXIMAL block E (4-atom coordinate block); disjoint activation triples",
+  "verifier_sha256": "f4d7d18a8da5ccc3b2409b93924a4202c3643147fe68bdfef17a2b89d60de96b"
+ },
+ "payload_sha256": "4d29a5cf83a01b8cede59ef561657d382afd1a57cb97dd8b6eed60d00e45ad07",
+ "schema": "oml-finite-cell-receipt",
+ "schema_version": "1.0"
+}

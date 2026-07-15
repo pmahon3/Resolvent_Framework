@@ -99,6 +99,26 @@ uncountable family, full-atlas MBRC, or sigma-completeness.
 
 ## 5. Exact remaining theorem
 
+The same fixed-pattern/shared-`q` construction has now been exhaustively
+audited for `k=1,2,3`. The observed exact formulas are
+
+\[
+ |L_k^{raw}|=10+46k,
+ \quad |L_k|=10+46k+4k(k-1),
+ \quad |\mathcal B(L_k)|=11k+k^2.
+\]
+
+The raw family has `8k(k-1)` bad unordered cuts; one concrete orthogonal-
+closure round adds `4k(k-1)` pair-local events. At `k=3` this is
+`148 -> 172` events on 136,556 fibre points, with 42 maximal blocks. The
+centre is trivial, `q` is noncentral, the joint activated relation is exactly
+`{0000,1111}`, and for each private-output pair the only represented Boolean
+cylinders are the two marginals, their complements, zero, and one. No joint
+private boundary is reconstructed. **Evidence class: exhaustive finite
+evidence plus executable verification for `k<=3`; the formulas for arbitrary
+`k` are open until separately proved.** See
+`../verification/sharedq_kcell_completion_audit.py`.
+
 The next theorem is finite-to-countable closure stability:
 
 > For the `k`-cell fibre-product amalgam over the fixed ten-event interface,
@@ -108,6 +128,6 @@ The next theorem is finite-to-countable closure stability:
 > finite `k` is closed under the countable joins required by the intended
 > sigma-completion without reconstructing a joint private-coordinate block.
 
-Its finite `k=2` instance is proved above. Arbitrary finite `k`, countable
+Its finite instances through `k=3` are verified above. Arbitrary finite `k`, countable
 closure, uncountable assembly, order separation after sigma-completion, and
 MBRC over completion-created maximal blocks remain **open**.

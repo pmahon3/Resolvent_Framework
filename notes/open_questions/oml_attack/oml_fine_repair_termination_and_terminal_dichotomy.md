@@ -51,7 +51,7 @@ nonlattice process on the fixed carrier. A transfinite presentation is only
 an eventually constant repetition of a finite chain. It says nothing about
 repairs on a growing or infinite carrier. A node maximal only inside a
 boundary-preserving or otherwise pruned subtree can still be a nonlattice.
-**Evidence class: hand proved and hostile reviewed.**
+**Hand proved.** A separate hostile review found no defect at this scope.
 
 ## 3. Completion-search completeness
 
@@ -68,8 +68,8 @@ The converse is the terminal part of Theorem 2.1. QED.
 
 Thus complete interval branching is logically exhaustive for same-carrier
 completions even though direct enumeration is infeasible: the root alone has
-`2^672800` syntactic candidates before symmetry. **Evidence class: hand
-proved and hostile reviewed.** This cofinality transfers only
+`2^672800` syntactic candidates before symmetry. **Hand proved.** A separate
+hostile review found no defect at this scope. This cofinality transfers only
 upward-monotone properties; it does not transfer trivial centre, an exact
 block atlas, or `Phi` from a terminal subfamily to every containing
 completion.
@@ -130,7 +130,7 @@ Consequently, if countably many events decrease exactly to a nonempty subset
 of an activation cylinder, sigma-closure creates a `B` event. Equivalently,
 a distributed-preserving infinite assembly must prevent a countable disjoint
 event cover of the entire off-cylinder locus. Unbounded local-literal width
-alone does not imply such isolation. **Evidence class: hand proved.**
+alone does not imply such isolation. **Hand proved.**
 
 On an infinite carrier this interpolation lemma supplies no termination
 theorem. Least closure under countable orthogonal unions may require
@@ -148,6 +148,50 @@ same-carrier proof of T-FIN would close only this representation class.
 
 The best next finite action is to compute the exact automorphism group of
 the 230-event full family and use it to seek a structural T-FIN invariant.
-The cheapest branch test is the four-point fourth repair, simultaneously
-monitoring all earlier selected joins for loss of leastness. Do not search
-for an infinite or periodic repair chain on this carrier.
+The cheapest discriminating computation is a splitter-incidence audit across
+structurally distinct crossed cuts, simultaneously monitoring all earlier
+selected joins for loss of leastness. A fourth selected-depth repair is not
+justified unless it tests a stated provenance invariant. Do not search for an
+infinite or periodic repair chain on this carrier.
+
+## 7. Strategic decision checkpoint
+
+The campaign has reached **stop signal E: computational exhaustion**.
+This is a theorem-extraction boundary, not a claim that T-FIN is true.
+
+| Monitoring question | Answer | Evidence |
+|---|---|---|
+| New structural pattern? | Yes: width oscillates, and by stage 558 both hulls of one inherited multi-fibre join are events without isolating a literal fibre. | **Executable verified** on the selected 230→256→492→558 chain. |
+| Genuinely new or relabelled? | The 468/492 sibling closures are genuinely nonisomorphic, yet have the identical complete next gap. | **Executable verified** for the two siblings. |
+| Finite grammar rule? | No complete rule: the gap and its full Cartesian decomposition omit necessary event-family provenance. | **Hand proved** from the executable nonisomorphic-sibling certificate. |
+| Candidate well-founded invariant? | Full event-family inclusion terminates on the fixed carrier; no useful smaller provenance rank is known. | Termination **Hand proved**; smaller invariant **Open**. |
+| Collapse unavoidable? | Only for coordinate-closed completions or the one-split-fibre hull lemma; multi-fibre hull availability does not immediately collapse the 558 stage. | Conditional theorem **Hand proved**; stage control **Executable verified**; unconditional T-FIN **Open**. |
+| Evidence of infinite coherent grammar? | No: an infinite strict chain on this carrier is impossible. | **Hand proved**. |
+| Would arbitrary branching discriminate live hypotheses? | No: the root has `2^672800` candidates and the available descriptor is non-Markov. | Count **Executable verified**; strategic conclusion **Hand proved** from search scope. |
+
+### Gate table
+
+| Gate | Current status | Evidence | Remaining obligation |
+|---|---|---|---|
+| Repair grammar | No sufficient finite grammar; exact full-family repair DAG exists abstractly | **Hand proved**; finite controls **Executable verified** | Find a smaller provenance-sensitive invariant or prove none is needed for T-FIN |
+| Latticehood | 558-event selected stage is a nonlattice; unrestricted terminals exist abstractly | Stage **Executable verified**; termination **Hand proved** | Exhibit and audit a gate-avoiding terminal or prove all terminals hit A/B |
+| Orthomodularity | Automatic for every complement/disjoint-union-closed terminal lattice | **Hand proved** | Applies only after latticehood |
+| Same-side boundary preservation | Preserved through three selected repairs | **Executable verified**, one chain only | Prove preservation at a terminal or prove reconstruction unavoidable |
+| Activation-event avoidance | Preserved through three selected repairs | **Executable verified**, one chain only | Prove preservation at a terminal or prove gate B unavoidable |
+| Trivial centre | Not meaningful as a monotone nonterminal invariant | **Hand proved** | Compute only for a terminal candidate |
+| State order separation | Point states separate the fixed concrete set family at every stage | **Hand proved** for concreteness; finite checks **Executable verified** | Classify all states only if a terminal candidate survives |
+| `Phi` tameness or obstruction | Undecided; every finite terminal is itself `Phi`-tame | **Hand proved** (finite additivity equals sigma-additivity on finite OMLs) | Use a surviving terminal only as an assembly cell; it cannot itself refute `Phi` |
+| Infinite-limit viability | Impossible on the fixed carrier; larger-carrier assembly remains open | Fixed carrier **Hand proved**; larger carrier **Open** | Prove coherent embeddings and sigma gates only after a scalable terminal architecture exists |
+| Universal normalization | None from arbitrary `Phi` failure to this rectangle architecture | **Open** | Required before local collapse could prove the full conjecture |
+
+### Selected route: inconclusive theorem extraction
+
+The narrowest unresolved question is T-FIN, sharpened by the necessary
+splitter theorem: can overlapping non-profile fibre partitions complete all
+cuts without their globally available differences isolating a whole macro
+fibre or activation subset? The smallest discriminating computation is the
+splitter-incidence graph for the 558-event family, not another arbitrary
+minimum repair. It would either expose an isolation mechanism suitable for a
+T-FIN proof or produce a concrete provenance state absent from all current
+descriptors. That result, unlike another depth count, would change the
+strategic assessment.

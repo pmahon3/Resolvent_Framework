@@ -1,0 +1,359 @@
+{
+  "all_selected_joins_remain_least": true,
+  "carrier_points": 6186568,
+  "command": "python3 notes/open_questions/verification/full_grid_stage558_splitter_incidence.py --verify",
+  "dependency_sha256": {
+    "full_grid_2x2_conditional_cell_audit.py": "1b72ff14226576e6e53d2800bf2135d962ceda915d0a1a5bb658f8a0790ad7ac",
+    "full_grid_third_gap_classification.py": "f9d85275e34ceec76dd1741973f942e90030fa693f2415f948447cd30f7cb210"
+  },
+  "failure_histogram": [
+    {
+      "pairs": 23,
+      "properly_split_profiles": 0,
+      "touched_profiles": 1
+    },
+    {
+      "pairs": 4,
+      "properly_split_profiles": 1,
+      "touched_profiles": 1
+    },
+    {
+      "pairs": 26,
+      "properly_split_profiles": 0,
+      "touched_profiles": 2
+    },
+    {
+      "pairs": 59,
+      "properly_split_profiles": 1,
+      "touched_profiles": 2
+    },
+    {
+      "pairs": 7,
+      "properly_split_profiles": 2,
+      "touched_profiles": 2
+    },
+    {
+      "pairs": 8,
+      "properly_split_profiles": 1,
+      "touched_profiles": 3
+    }
+  ],
+  "failures_sha256": "fd9515df29620efcb34cc6c939f8645200c02531e840e9a0b5d1cf8174dcc532",
+  "first_failure": {
+    "current_upper_bounds": 3,
+    "gap_points": 123904,
+    "gap_sha256": "3516c892d1f46f075f68d6a994f986c097401f17a8397e77809b6ee457b74b9b",
+    "lower_sha256": "9132b2acc693fdea8de664bdcf9613f1fcb12990694ae2f0bf88ff33ed5a32fd",
+    "touched_profiles": [
+      {
+        "fibre_points": 123904,
+        "points": 123904,
+        "profile": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "whole": true
+      }
+    ],
+    "upper_sha256": "32434b828c3ed4e7cfb7f32a4dc293545eb2fa67328e8d707f959d0be53c66d3",
+    "x_sha256": "914db7efdbdda4d1564e700417e24cf7f47b1112f88046873a8db494ac4515dc",
+    "y_sha256": "5205a6fc1b7d9d022d8097979301cf303e8e53b25118c63a0c85722fd3e04efb"
+  },
+  "payload_sha256": "6b12e4a9ea7bafd4abc67e08dbc9a53ec6cd01487056f548d17e8f65a8aa39f5",
+  "producer_sha256": "fd797c60bcabcdca8f1bf6f988a829cbaf1973036bde64b5d97d8df6564f704b",
+  "profile_measurable_events": 90,
+  "profile_pair_failures": 127,
+  "schema": "full-grid-stage558-splitter-incidence-v1",
+  "schema_version": "1.0",
+  "scope": "one exact 558-event branch; every pair of final profile-measurable events; no fourth repair, no orbit quotient, no arbitrary terminal theorem",
+  "selected_join_hulls": [
+    {
+      "depth": 1,
+      "fibre_interior_is_event": false,
+      "fibre_saturation_is_event": false,
+      "forced_lower_sha256": "304c377c36f5c9171233d8e94c35f464d3593cd772634039d3aa77743fa277ea",
+      "hull_gap_is_event": false,
+      "interior_sha256": "304c377c36f5c9171233d8e94c35f464d3593cd772634039d3aa77743fa277ea",
+      "join_sha256": "2841e5966be11b73b42f2b099a500cc290b208ee3f9b2e5934a120b5ae955472",
+      "join_still_least_at_stage558": true,
+      "operands_profile_measurable": true,
+      "repair_increment_points": 128,
+      "repair_increment_sha256": "a8f492f9d7e4c7020be6bc532aefa4316f5884f029af8c4ddef456b96318a5e3",
+      "repair_increment_split_fibres": [
+        {
+          "fibre": 336400,
+          "profile": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "selected": 64,
+          "trace_sha256": "6856d7793cba978801a755b41c47a4bf80739f82c16ab3a9d91ff09aca4328c4"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "selected": 64,
+          "trace_sha256": "1a9b06cef0611bd378ddb97b7f9ca4d5ff669b8e071397c6e3373b465b3fe38a"
+        }
+      ],
+      "saturation_sha256": "ec0ccd74388ed3224c9071143a36af3baf6c53e1d84b8c49203b63f3467bcd53",
+      "split_fibres": [
+        {
+          "fibre": 336400,
+          "profile": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "selected": 64,
+          "trace_sha256": "6856d7793cba978801a755b41c47a4bf80739f82c16ab3a9d91ff09aca4328c4"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "selected": 64,
+          "trace_sha256": "1a9b06cef0611bd378ddb97b7f9ca4d5ff669b8e071397c6e3373b465b3fe38a"
+        }
+      ]
+    },
+    {
+      "depth": 2,
+      "fibre_interior_is_event": true,
+      "fibre_saturation_is_event": false,
+      "forced_lower_sha256": "0835372bc069b8fa5ed2f9f1b113176a33e3c8890c549d4d788a066ea3cfa9d9",
+      "hull_gap_is_event": false,
+      "interior_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+      "join_sha256": "fd31c35b494c72f9a0261b03cd57a740f340c900aa147256ff79db0f276ceac6",
+      "join_still_least_at_stage558": true,
+      "operands_profile_measurable": false,
+      "repair_increment_points": 4,
+      "repair_increment_sha256": "29f8230b7bc3afeb11210edeb9167b29552eb63fff01aafe75d1ebbf15f24cd3",
+      "repair_increment_split_fibres": [
+        {
+          "fibre": 341440,
+          "profile": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "selected": 4,
+          "trace_sha256": "29f8230b7bc3afeb11210edeb9167b29552eb63fff01aafe75d1ebbf15f24cd3"
+        }
+      ],
+      "saturation_sha256": "a314638d0e0601724782de5e681ad9caac6ee1b3096dd6f046364f7a9612ea2d",
+      "split_fibres": [
+        {
+          "fibre": 341440,
+          "profile": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "selected": 4,
+          "trace_sha256": "29f8230b7bc3afeb11210edeb9167b29552eb63fff01aafe75d1ebbf15f24cd3"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "selected": 64,
+          "trace_sha256": "6856d7793cba978801a755b41c47a4bf80739f82c16ab3a9d91ff09aca4328c4"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "selected": 64,
+          "trace_sha256": "1a9b06cef0611bd378ddb97b7f9ca4d5ff669b8e071397c6e3373b465b3fe38a"
+        }
+      ]
+    },
+    {
+      "depth": 3,
+      "fibre_interior_is_event": true,
+      "fibre_saturation_is_event": true,
+      "forced_lower_sha256": "7dbdda0fa012f3c6ac79c219218ad390ec097c2dfda92b4e0fb427aef8a7c343",
+      "hull_gap_is_event": true,
+      "interior_sha256": "607c0a6ec7ae84152cfbcac90feac526258807461ec920d2c4cd5affb4be7675",
+      "join_sha256": "b917565fe8993cd92d3958cfeb38a3615df468396466ed725615a5ef53598407",
+      "join_still_least_at_stage558": true,
+      "operands_profile_measurable": false,
+      "repair_increment_points": 2,
+      "repair_increment_sha256": "3debfae3e74de4ac650db9e6ee21695b0af952c13ec25f013c08dc09a5e96be7",
+      "repair_increment_split_fibres": [
+        {
+          "fibre": 341440,
+          "profile": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "selected": 2,
+          "trace_sha256": "3debfae3e74de4ac650db9e6ee21695b0af952c13ec25f013c08dc09a5e96be7"
+        }
+      ],
+      "saturation_sha256": "1d9b5f91943e4ae66f6cf209ca9278d41f31c1bb5d82662522360189a546aa92",
+      "split_fibres": [
+        {
+          "fibre": 940900,
+          "profile": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "selected": 258020,
+          "trace_sha256": "d35da66ca324bdc21211ea0495de415d56aa99927eb8725fa9707f75aca4ab58"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "selected": 97440,
+          "trace_sha256": "f459bd604e69a53816ef99254a667104a30f887c892cd7080174b998280c2ee9"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "selected": 90480,
+          "trace_sha256": "ee6dbd0b3c30a34eb2c48ecda90cf378572e2391274b6d0ab704737d619d2603"
+        },
+        {
+          "fibre": 123904,
+          "profile": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "selected": 35200,
+          "trace_sha256": "70e9092f018b9f01112da87089796182b4aba459e1c49a42d37b0601428be30c"
+        },
+        {
+          "fibre": 341440,
+          "profile": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "selected": 93632,
+          "trace_sha256": "5b63519d3053dfa49fb35d5b00ee466bb778ccfa7fabf988a9dc902f3b6f1fcc"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "selected": 97440,
+          "trace_sha256": "65422970d7849935db23ca9a2a2a54077a4990c06178667b6db6dd8c8569611e"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "selected": 90480,
+          "trace_sha256": "bbc9faa4768c6cdc414acfc94ef1619515fcf7af388549310dbf1d73a55acdbf"
+        },
+        {
+          "fibre": 341440,
+          "profile": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "selected": 97002,
+          "trace_sha256": "45be749ce106ae5c01884b5db2cf88e5619aceb1e9189653467bff0853deb3fe"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "selected": 90480,
+          "trace_sha256": "24f8e518c129b5c91d329db8cea38808ef072c7fe94f5aff927d5192b1b1fcdf"
+        },
+        {
+          "fibre": 341440,
+          "profile": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "selected": 93632,
+          "trace_sha256": "82babaeee117102607b7d8a1e3a063b1d05baeaf03b21ee79a5f34804ee5a165"
+        },
+        {
+          "fibre": 336400,
+          "profile": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "selected": 90480,
+          "trace_sha256": "ffa28a5315106699a462baa888e02cee5755ae9928721f68f82a0cd342bbfd00"
+        },
+        {
+          "fibre": 940900,
+          "profile": [
+            1,
+            1,
+            1,
+            1
+          ],
+          "selected": 258020,
+          "trace_sha256": "0cb27934105b3b83711728755779660ffe4f7bbed8418c5737c2d83d2b289f1d"
+        }
+      ]
+    }
+  ],
+  "stage_events": 558
+}

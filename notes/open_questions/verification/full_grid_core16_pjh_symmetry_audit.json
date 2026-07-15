@@ -1,0 +1,158 @@
+{
+  "ambient_coordinate_group_order": 128,
+  "bare_group_sha256": "edfb7d8565987f3a40cbdf3bc0ba4e9e975ef86fed31636c39f704789aac6b55",
+  "command": "python3 notes/open_questions/verification/full_grid_core16_pjh_symmetry_audit.py --verify",
+  "defect_group_sha256": "edfb7d8565987f3a40cbdf3bc0ba4e9e975ef86fed31636c39f704789aac6b55",
+  "dependency_payload_sha256": "12eefe07a077a8ec64d497d6616e165ffa36de33c987d98e428191093ae0fe6e",
+  "entered_profile_pattern_histogram": [
+    {
+      "edges": 1,
+      "profile_bits": [
+        0
+      ]
+    },
+    {
+      "edges": 2,
+      "profile_bits": [
+        1
+      ]
+    },
+    {
+      "edges": 2,
+      "profile_bits": [
+        2
+      ]
+    },
+    {
+      "edges": 1,
+      "profile_bits": [
+        3
+      ]
+    },
+    {
+      "edges": 1,
+      "profile_bits": [
+        4
+      ]
+    },
+    {
+      "edges": 3,
+      "profile_bits": [
+        5
+      ]
+    },
+    {
+      "edges": 3,
+      "profile_bits": [
+        6
+      ]
+    },
+    {
+      "edges": 2,
+      "profile_bits": [
+        7
+      ]
+    },
+    {
+      "edges": 1,
+      "profile_bits": [
+        8
+      ]
+    },
+    {
+      "edges": 2,
+      "profile_bits": [
+        9
+      ]
+    },
+    {
+      "edges": 3,
+      "profile_bits": [
+        10
+      ]
+    },
+    {
+      "edges": 4,
+      "profile_bits": [
+        11
+      ]
+    },
+    {
+      "edges": 1,
+      "profile_bits": [
+        12
+      ]
+    },
+    {
+      "edges": 3,
+      "profile_bits": [
+        13
+      ]
+    },
+    {
+      "edges": 2,
+      "profile_bits": [
+        14
+      ]
+    },
+    {
+      "edges": 1,
+      "profile_bits": [
+        15
+      ]
+    },
+    {
+      "edges": 1,
+      "profile_bits": [
+        3,
+        12
+      ]
+    }
+  ],
+  "every_single_profile_bit_occurs_as_an_entered_fibre": true,
+  "joint_group_sha256": "edfb7d8565987f3a40cbdf3bc0ba4e9e975ef86fed31636c39f704789aac6b55",
+  "joint_witness_edge_orbits": {
+    "burnside_fixed_count_histogram": {
+      "64": 1
+    },
+    "orbit_size_histogram": {
+      "1": 64
+    },
+    "orbits": 64
+  },
+  "joint_witness_edge_set_stabilizer_order": 1,
+  "node_family_set_stabilizer_order": 1,
+  "node_group_sha256": "edfb7d8565987f3a40cbdf3bc0ba4e9e975ef86fed31636c39f704789aac6b55",
+  "path_provenance_transport": "not claimed; lexicographic selector equivariance is not assumed",
+  "payload_sha256": "1025c13fa037a3509a74f637e29f12e74958d67758b18bdac452022e03ba61a1",
+  "possible_first_defect_edges": 33,
+  "possible_first_defect_orbits": {
+    "burnside_fixed_count_histogram": {
+      "33": 1
+    },
+    "orbit_size_histogram": {
+      "1": 33
+    },
+    "orbits": 33
+  },
+  "possible_first_defect_set_stabilizer_order": 1,
+  "producer_sha256": "11d486412a9638fa6a88ce903cf5d7ea0e0ff96ed0391b791e5cfa32f74592ad",
+  "quotient_is_post_hoc": true,
+  "raw_atlas_never_pruned": true,
+  "raw_edges": 64,
+  "raw_nodes": 48,
+  "schema": "full-grid-core16-pjh-symmetry-audit-v1",
+  "schema_version": "1.0",
+  "scope": "exact post-hoc action on the completed core16 node/edge atlas; no full-grid terminal realization claim",
+  "selector_free_edge_orbits": {
+    "burnside_fixed_count_histogram": {
+      "64": 1
+    },
+    "orbit_size_histogram": {
+      "1": 64
+    },
+    "orbits": 64
+  },
+  "selector_free_edge_set_stabilizer_order": 1,
+  "stage558_provenance_projection": "not applied; stage-decorated quotient requires a separately certified action"
+}

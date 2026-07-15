@@ -17,11 +17,12 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** classify the 31-state/64-edge first-PJH-defect atlas
-   under certified provenance symmetries while retaining witness pairs and
-   within-fibre trace types. For each orbit, seek either a gate-B/cut
-   contradiction or a realizable terminal extension. Separately test
-   intrinsic recognizability of the four cell copies in the 558-event family.
+7. **First action:** build the exact seventeen-atom split-profile core for
+   each of the thirty binary first defects: split its unique entered profile
+   into two nonempty formal atoms, adjoin the defect join, close under the
+   allowed operations, and classify the next cuts. The first join itself is
+   proved to avoid gate B. Seek a common later-cut collapse theorem, then
+   treat the three root multi-fibre occurrences separately.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a
@@ -35,6 +36,10 @@ The 32 ternary residue-shadow entries are necessary but not a complete CSP;
 do not enumerate them as if finite consistency implied an actual terminal.
 The six-event `MO2` control closes all arguments from bare residue-square
 identities. Any collapse proof must use edge coupling or PJH-type hull data.
+
+The first-defect join itself is never activation-supported for either row;
+do not retest this. Gate B can still arise from later derived events and need
+not isolate only the newly entered splitter piece.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

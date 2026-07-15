@@ -2327,3 +2327,38 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   resolves all 64 closures including memo edges, and binds all 17 terminals
   to reconstruction receipts. **Executable verified**; path-list
   exhaustiveness still comes from the banked core search.
+
+### Iteration 249 — lower-endpoint exclusion
+- **Theorem:** a first nonevent hull cannot have the lower interval word,
+  because inverse image preserves profile-word union and the actual join then
+  equals its saturated hull. Only 33 atlas-edge occurrences remain: three
+  nonlower root choices and one upper choice at each binary node. Every binary
+  defect properly splits its unique entered profile fibre. **Hand proved**,
+  hostile reviewed, with count **Executable verified**.
+
+### Iteration 250 — atlas-symmetry exhaustion
+- **Refutation:** the full 128-element coordinate group has trivial setwise
+  stabilizer on the 48 lex-atlas node families, on selector-free and
+  witness-decorated 64-edge sets, and on the 33 possible defect occurrences.
+  All 33 are singleton orbits; all sixteen profile fibres occur. **Executable
+  verified** by two full replays. No lossless symmetry compression of this
+  selector-dependent atlas exists.
+
+### Iteration 251 — first-defect activation escape
+- **Theorem:** every possible first-defect join has the normal form consisting
+  of the full pullback of its lower word plus nonempty pieces in the entered
+  profile fibres, with at least one proper piece; binary defects have exactly
+  one proper entered-fibre piece. The join itself is contained in neither row
+  activation cylinder, because its lower word contains at least three full
+  profile fibres and every profile fibre has an off-activation point for each
+  row. **Hand proved** over exact profile counts.
+- **Verification:** all sixteen profile fibres and all 33 possible defect
+  occurrences were recomputed by
+  `full_grid_pjh_defect_activation_escape.py`; payload
+  `ce11def275441aff7de5609404adefa4678ef0645d807d8ab95044c3b38932c6`.
+  **Executable verified.** The producer shares the banked 224-state cell
+  construction and trusts the atlas defect flags, so it is not independent.
+- **Hostile repair:** this excludes gate B only for the first defect join.
+  Later complements, cuts, lower-fibre traces, or combinations of splitter
+  pieces may still create activation-supported events. That later-closure
+  question remains **Open**.

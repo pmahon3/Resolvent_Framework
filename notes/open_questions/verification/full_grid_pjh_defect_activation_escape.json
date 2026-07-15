@@ -1,0 +1,832 @@
+{
+  "all_16_profiles_have_off_row0_and_off_row1_points": true,
+  "atlas_payload_sha256": "12eefe07a077a8ec64d497d6616e165ffa36de33c987d98e428191093ae0fe6e",
+  "both_activated_profiles": [
+    [
+      0,
+      0,
+      0,
+      0
+    ],
+    [
+      1,
+      1,
+      1,
+      1
+    ]
+  ],
+  "carrier_points": 6186568,
+  "command": "python3 notes/open_questions/verification/full_grid_pjh_defect_activation_escape.py --verify",
+  "defects": [
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 0,
+      "entered_profiles": [
+        3
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        9
+      ],
+      "hull_hex": "0x35f",
+      "lower_hex": "0x357",
+      "node_id": 1
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 0,
+      "entered_profiles": [
+        12
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        9
+      ],
+      "hull_hex": "0x1357",
+      "lower_hex": "0x357",
+      "node_id": 1
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 0,
+      "entered_profiles": [
+        3,
+        12
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        2,
+        4,
+        6,
+        8,
+        9
+      ],
+      "hull_hex": "0x135f",
+      "lower_hex": "0x357",
+      "node_id": 1
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 1,
+      "entered_profiles": [
+        7
+      ],
+      "full_lower_profiles": [
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "hull_hex": "0xf6",
+      "lower_hex": "0x76",
+      "node_id": 2
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 2,
+      "entered_profiles": [
+        13
+      ],
+      "full_lower_profiles": [
+        1,
+        5,
+        8,
+        9
+      ],
+      "hull_hex": "0x2322",
+      "lower_hex": "0x322",
+      "node_id": 3
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        14
+      ],
+      "full_lower_profiles": [
+        2,
+        6,
+        8,
+        10
+      ],
+      "hull_hex": "0x4544",
+      "lower_hex": "0x544",
+      "node_id": 4
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        11
+      ],
+      "full_lower_profiles": [
+        8,
+        9,
+        10
+      ],
+      "hull_hex": "0xf00",
+      "lower_hex": "0x700",
+      "node_id": 5
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 5,
+      "entered_profiles": [
+        15
+      ],
+      "full_lower_profiles": [
+        3,
+        7,
+        11
+      ],
+      "hull_hex": "0x8888",
+      "lower_hex": "0x888",
+      "node_id": 6
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        11
+      ],
+      "full_lower_profiles": [
+        2,
+        8,
+        9,
+        10
+      ],
+      "hull_hex": "0xf04",
+      "lower_hex": "0x704",
+      "node_id": 10
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 5,
+      "entered_profiles": [
+        10
+      ],
+      "full_lower_profiles": [
+        8,
+        9,
+        11
+      ],
+      "hull_hex": "0xf00",
+      "lower_hex": "0xb00",
+      "node_id": 12
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        11
+      ],
+      "full_lower_profiles": [
+        1,
+        2,
+        8,
+        9,
+        10
+      ],
+      "hull_hex": "0xf06",
+      "lower_hex": "0x706",
+      "node_id": 15
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        10
+      ],
+      "full_lower_profiles": [
+        1,
+        8,
+        9,
+        11
+      ],
+      "hull_hex": "0xf02",
+      "lower_hex": "0xb02",
+      "node_id": 17
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 5,
+      "entered_profiles": [
+        9
+      ],
+      "full_lower_profiles": [
+        8,
+        10,
+        11
+      ],
+      "hull_hex": "0xf00",
+      "lower_hex": "0xd00",
+      "node_id": 19
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 2,
+      "entered_profiles": [
+        6
+      ],
+      "full_lower_profiles": [
+        1,
+        4,
+        5,
+        7
+      ],
+      "hull_hex": "0xf2",
+      "lower_hex": "0xb2",
+      "node_id": 21
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        13
+      ],
+      "full_lower_profiles": [
+        1,
+        5,
+        8,
+        9
+      ],
+      "hull_hex": "0x2322",
+      "lower_hex": "0x322",
+      "node_id": 22
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        14
+      ],
+      "full_lower_profiles": [
+        2,
+        6,
+        8,
+        10
+      ],
+      "hull_hex": "0x4544",
+      "lower_hex": "0x544",
+      "node_id": 23
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        5
+      ],
+      "full_lower_profiles": [
+        4,
+        6,
+        7
+      ],
+      "hull_hex": "0xf0",
+      "lower_hex": "0xd0",
+      "node_id": 24
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        13
+      ],
+      "full_lower_profiles": [
+        1,
+        5,
+        8,
+        9
+      ],
+      "hull_hex": "0x2322",
+      "lower_hex": "0x322",
+      "node_id": 25
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 1,
+      "entered_profiles": [
+        2
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        3,
+        4,
+        5
+      ],
+      "hull_hex": "0x3f",
+      "lower_hex": "0x3b",
+      "node_id": 27
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 2,
+      "entered_profiles": [
+        1
+      ],
+      "full_lower_profiles": [
+        0,
+        2,
+        3
+      ],
+      "hull_hex": "0xf",
+      "lower_hex": "0xd",
+      "node_id": 28
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 1,
+      "entered_profiles": [
+        7
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        2,
+        4,
+        5,
+        6
+      ],
+      "hull_hex": "0xf7",
+      "lower_hex": "0x77",
+      "node_id": 30
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 2,
+      "entered_profiles": [
+        11
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        2,
+        8,
+        9,
+        10
+      ],
+      "hull_hex": "0xf07",
+      "lower_hex": "0x707",
+      "node_id": 31
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        10
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        8,
+        9,
+        11
+      ],
+      "hull_hex": "0xf03",
+      "lower_hex": "0xb03",
+      "node_id": 33
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        9
+      ],
+      "full_lower_profiles": [
+        0,
+        8,
+        10,
+        11
+      ],
+      "hull_hex": "0xf01",
+      "lower_hex": "0xd01",
+      "node_id": 35
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 5,
+      "entered_profiles": [
+        8
+      ],
+      "full_lower_profiles": [
+        9,
+        10,
+        11
+      ],
+      "hull_hex": "0xf00",
+      "lower_hex": "0xe00",
+      "node_id": 37
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 2,
+      "entered_profiles": [
+        6
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        4,
+        5,
+        7
+      ],
+      "hull_hex": "0xf3",
+      "lower_hex": "0xb3",
+      "node_id": 39
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        5
+      ],
+      "full_lower_profiles": [
+        0,
+        4,
+        6,
+        7
+      ],
+      "hull_hex": "0xf1",
+      "lower_hex": "0xd1",
+      "node_id": 40
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        4
+      ],
+      "full_lower_profiles": [
+        5,
+        6,
+        7
+      ],
+      "hull_hex": "0xf0",
+      "lower_hex": "0xe0",
+      "node_id": 41
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 1,
+      "entered_profiles": [
+        0
+      ],
+      "full_lower_profiles": [
+        1,
+        2,
+        3,
+        6,
+        7,
+        9,
+        11
+      ],
+      "hull_hex": "0xacf",
+      "lower_hex": "0xace",
+      "node_id": 43
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 2,
+      "entered_profiles": [
+        2
+      ],
+      "full_lower_profiles": [
+        0,
+        1,
+        3,
+        4,
+        5
+      ],
+      "hull_hex": "0x3f",
+      "lower_hex": "0x3b",
+      "node_id": 44
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        6
+      ],
+      "full_lower_profiles": [
+        1,
+        4,
+        5,
+        7
+      ],
+      "hull_hex": "0xf2",
+      "lower_hex": "0xb2",
+      "node_id": 45
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 4,
+      "entered_profiles": [
+        5
+      ],
+      "full_lower_profiles": [
+        4,
+        6,
+        7
+      ],
+      "hull_hex": "0xf0",
+      "lower_hex": "0xd0",
+      "node_id": 46
+    },
+    {
+      "defect_join_contains_off_row0_point": true,
+      "defect_join_contains_off_row1_point": true,
+      "depth": 3,
+      "entered_profiles": [
+        1
+      ],
+      "full_lower_profiles": [
+        0,
+        2,
+        3
+      ],
+      "hull_hex": "0xf",
+      "lower_hex": "0xd",
+      "node_id": 47
+    }
+  ],
+  "every_defect_join_itself_avoids_gate_B_for_both_rows": true,
+  "macrofibres": 842,
+  "minimum_full_lower_profiles": 3,
+  "payload_sha256": "ce11def275441aff7de5609404adefa4678ef0645d807d8ab95044c3b38932c6",
+  "possible_first_defect_occurrences": 33,
+  "producer_sha256": "8b07d7a147848840ce6e404c643b75e75232ef1a627317fe70da7a2ebd8e1222",
+  "profile_rows": [
+    {
+      "both_activated": 1,
+      "off_row0_activation": 939930,
+      "off_row1_activation": 939930,
+      "profile": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "row0_activated": 970,
+      "row1_activated": 970,
+      "total": 940900
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 123904,
+      "off_row1_activation": 123904,
+      "profile": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 123904
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 341088,
+      "off_row1_activation": 341440,
+      "profile": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "row0_activated": 352,
+      "row1_activated": 0,
+      "total": 341440
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 341440,
+      "off_row1_activation": 341088,
+      "profile": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "row0_activated": 0,
+      "row1_activated": 352,
+      "total": 341440
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 341440,
+      "off_row1_activation": 341088,
+      "profile": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "row0_activated": 0,
+      "row1_activated": 352,
+      "total": 341440
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 341088,
+      "off_row1_activation": 341440,
+      "profile": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "row0_activated": 352,
+      "row1_activated": 0,
+      "total": 341440
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 123904,
+      "off_row1_activation": 123904,
+      "profile": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 123904
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 0,
+      "off_row0_activation": 336400,
+      "off_row1_activation": 336400,
+      "profile": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "row0_activated": 0,
+      "row1_activated": 0,
+      "total": 336400
+    },
+    {
+      "both_activated": 1,
+      "off_row0_activation": 939930,
+      "off_row1_activation": 939930,
+      "profile": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "row0_activated": 970,
+      "row1_activated": 970,
+      "total": 940900
+    }
+  ],
+  "schema": "full-grid-pjh-defect-activation-escape-v1",
+  "schema_version": "1.0",
+  "scope": "33 lex-atlas first-defect normal forms; join itself only, not derived cuts or terminal realizability",
+  "single_cell_states": 224
+}

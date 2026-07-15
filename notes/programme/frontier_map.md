@@ -630,3 +630,15 @@ interval types, 64 candidate hull edges, and 17 reconstructing terminals.
 Every preserving same-carrier terminal must realize a first nonevent hull in
 this atlas. The next task is symmetry/provenance classification of those
 defects, not repair-depth extension.
+
+Lower hull endpoints are impossible defects, reducing the atlas to 33
+occurrences. The complete 128-element coordinate action has trivial
+stabilizer on this lex atlas, and every profile fibre occurs among its
+one-fibre defects. Hence neither symmetry nor profile location gives further
+compression; the next theorem must use full node provenance and fibre traces.
+
+Every possible first-defect join contains complete lower-word fibres, and
+each such fibre has points outside both row activation cylinders. Thus the
+first join cannot itself fire gate B. The next discriminating finite model is
+the provenance-sensitive seventeen-atom core obtained by splitting the one
+entered fibre; later-cut activation or reconstruction is the live test.

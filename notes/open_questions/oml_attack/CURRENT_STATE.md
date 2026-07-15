@@ -341,6 +341,19 @@ edge. Hence any preserving same-carrier terminal must sustain a first
 nonevent hull of one recorded type. Realizability or collapse of those defect
 types in a gate-B-avoiding terminal is open.
 
+The lower endpoint of an interval cannot be a first defect, leaving 33
+candidate occurrences: three at the root and thirty one-fibre upper choices.
+An exact post-hoc action audit finds the lex atlas has trivial stabilizer in
+the full 128-element coordinate group, even after forgetting witness pairs.
+All sixteen profile fibres occur among the one-fibre candidates. Thus neither
+coordinate symmetry nor profile location compresses the remaining atlas.
+
+Every possible first-defect join contains the full pullback of a lower word
+with at least three profiles. Exact state counts show that every profile fibre
+has points outside each row activation cylinder. Hence the first defect join
+itself cannot fire gate B. This does not control later events derived from the
+split fibre, so terminal gate-B avoidance remains open.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

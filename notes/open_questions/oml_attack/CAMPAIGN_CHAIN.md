@@ -200,14 +200,22 @@
   internal states, 24 interval types, 64 candidate hull edges, and 17
   reconstructing terminals. Any preserving terminal has a first nonevent
   hull in this atlas.
+- Lower endpoints cannot be defects, leaving 33 possible edge occurrences.
+  The completed lex atlas has trivial stabilizer inside the full 128-element
+  coordinate group, so all 33 are singleton types in this certificate.
+- Each first-defect join contains at least three complete profile fibres and
+  therefore avoids both row activation cylinders. Gate B, if forced, must be
+  created only by later derived events or cuts; first-defect activation is
+  closed.
 
 ## Next automatic pivot
 
-Attack the 31-state/64-edge first-defect atlas: prove that no recorded
-nonevent hull can persist in a gate-B-avoiding terminal, or realize and audit
-one exact edge type. Quotient the atlas only by certified provenance
-symmetries and retain actual within-fibre trace data. In parallel, test
-intrinsic recognizability of the four cell copies. Do not enumerate saturated
-subsets or continue arbitrary selected depth.
+Replace each of the thirty binary first defects by its exact one-fibre split
+core and classify the cuts created by adjoining the splitter; treat the three
+root multi-fibre defects separately. The existing lex atlas admits no
+symmetry quotient, and the first join itself never fires gate B. Prove that
+later closure forces reconstruction or activation, or exhibit a terminal
+split core avoiding both. Do not build the full intrinsic closure graph
+unless a stated exchange/coverage theorem requires it.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

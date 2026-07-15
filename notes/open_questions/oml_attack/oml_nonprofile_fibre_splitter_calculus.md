@@ -527,7 +527,7 @@ thirty binary nodes), with maximum depth six. Every terminal reconstructs a
 same-side boundary. **Executable verified** by the receipt extractor
 `notes/open_questions/verification/full_grid_core16_pjh_defect_atlas.py`,
 payload
-`50c93746d957d863604f9aaf7c55b860f9b5f0c760951f65d38ddd2f56f44d21`.
+`12eefe07a077a8ec64d497d6616e165ffa36de33c987d98e428191093ae0fe6e`.
 The verifier independently replays every node family from its first-seen
 path, serializes an actual failed witness pair and complete-family hash,
 recomputes every upper interval, resolves all 64 child closures including
@@ -572,3 +572,82 @@ actual hull word may equal `low` or `upper`. It also requires binary joins in
 reflecting the lower word. These hypotheses and endpoint assertions are
 explicit in the replay receipt. Symmetry pruning of the DAG is not part of
 the theorem.
+
+**Lemma 8.4 (lower-endpoint exclusion).** The lower child at every internal
+node cannot be a first PJH defect. Consequently only 33 of the 64 atlas edges
+are possible first defects: three nonlower root choices and the upper choice
+at each of thirty binary nodes. **Hand proved**, with the 33-edge count
+separately **Executable verified** by the replay receipt.
+
+If `low=a union b` and `z=a join_T b`, then `z` contains the entire saturated
+pullback of `low`. If `H(z)` also has profile word `low`, it is contained in
+that pullback, hence `z` equals the pullback of `low`; since `z` is an event,
+its hull is an event. Thus a nonevent hull must strictly enlarge `low`. At a
+binary node it must have word `upper` and properly split the unique gap
+profile fibre. At the root it must use one of the three nonlower words and
+properly split at least one newly entered fibre.
+
+Here a profile word is a subset of the sixteen-point set `{0,1}^4`, and word
+union is ordinary set union of those profile points. It is not bitwise OR of
+two four-bit profile tuples and not an intersection of coordinate-letter
+cylinders. Under the certified semantics,
+`pi^{-1}(A union B)=pi^{-1}(A) union pi^{-1}(B)` exactly. The lemma proves no
+candidate defect realizable or persistent in a terminal.
+
+### 8.5 Symmetry-route exhaustion
+
+The completed lexicographic atlas has no nontrivial post-hoc coordinate
+symmetry. Inside the full 128-element unlabelled `K22` coordinate group, the
+setwise stabilizer of the 48 node families is trivial. The stabilizers of the
+64 selector-free family/interval/candidate edges, the 64 witness-decorated
+edges, and the 33 possible first-defect occurrences are also all trivial.
+Thus the 33 possible occurrences form 33 singleton orbits. **Executable
+verified** by
+`notes/open_questions/verification/full_grid_core16_pjh_symmetry_audit.py`,
+payload
+`1025c13fa037a3509a74f637e29f12e74958d67758b18bdac452022e03ba61a1`.
+The verifier reconstructs the atlas families and checks the complete
+128-element action twice; it shares the atlas replay constructor and is not
+an independent core search.
+
+All sixteen individual profile fibres occur as the newly entered fibre of at
+least one candidate defect occurrence; the remaining root occurrence enters
+the pair of profiles `3,12`. Coordinate profile alone therefore excludes no
+defect. The symmetry result is about this completed selector-dependent atlas,
+not the full intrinsic closure graph. A symmetry-reduced intrinsic defect
+enumeration would require a new canonical-selector or full-closure search;
+the present atlas must not be pruned or quotient-identified.
+
+### 8.6 Defect-join normal form and activation escape
+
+For a possible first defect with lower word `low`, hull word `h`, and terminal
+join `z`, there are subsets `S_p` of the entered profile fibres such that
+
+\[
+ z=\pi^{-1}(\operatorname{low})\mathbin{\dot\cup}
+   \bigcup_{p\in h\setminus\operatorname{low}}S_p,
+ \qquad \varnothing\ne S_p\subseteq\pi^{-1}(p),
+\]
+
+and at least one `S_p` is proper. At a binary node there is exactly one
+entered fibre and its `S_p` is proper. **Hand proved** from the hull definition,
+lower-endpoint exclusion, and the receipt-certified interval sizes.
+
+The join `z` itself never fires activation gate B. Each of the sixteen full
+profile fibres contains points off row 0's activation cylinder and points off
+row 1's. Every atlas lower word contains at least three full profile fibres,
+and `z` contains their complete pullbacks. Hence `z` is contained in neither
+activation cylinder. **Hand proved** over the exact profile count, which is
+**Executable verified** for all sixteen profiles and all 33 occurrences by
+`notes/open_questions/verification/full_grid_pjh_defect_activation_escape.py`,
+payload
+`ce11def275441aff7de5609404adefa4678ef0645d807d8ab95044c3b38932c6`.
+The producer recomputes fibre cardinalities directly from the 224 cell-state
+table without constructing the full carrier bitsets; it is not an independent
+cell-state producer.
+
+Thus any gate-B contradiction must arise from some later derived event or
+cut; it is not witnessed by the first defect join itself. Isolation of an
+activation-supported part of an `S_p` is one possible mechanism, not a proved
+exhaustive one. Terminal realizability of the normal forms and gate-B
+avoidance under later closure remain **Open**.

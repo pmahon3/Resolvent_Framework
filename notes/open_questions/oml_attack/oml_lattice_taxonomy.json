@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Classify the 31-state/64-edge first-PJH-defect atlas under certified provenance symmetries and prove collapse or realizability for each orbit; also test intrinsic recognition of the four cell copies."
+   "current_next_step": "Classify the thirty provenance-sensitive one-fibre split cores and their later cuts; the first defect join itself is proved activation-escaping, and three root multi-fibre cases remain separate."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "finite-first-pjh-defect-atlas-open",
-   "one_line": "Every preserving same-carrier terminal has a first nonevent profile hull in a 31-state/64-edge atlas; collapse or realizability of those certified defect types is open.",
+   "status": "finite-33-first-pjh-defects-first-join-escape",
+   "one_line": "Every preserving same-carrier terminal has one of 33 nonlower nonevent-hull occurrences; symmetry is exhausted and the first join avoids activation, leaving later split-core collapse or realizability open.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

@@ -666,6 +666,17 @@ states and 64 candidate hull edges; all 17 no-defect terminals reconstruct a
 side. The remaining fixed-carrier problem is whether any recorded nonevent
 hull type survives terminal latticehood and activation escape.
 
+Only 33 nonlower hull edges can actually be first defects. A full coordinate
+symmetry audit finds the lex atlas stabilizer trivial, and all sixteen profile
+fibres occur. The residue is therefore provenance-sensitive rather than a
+coordinate-orbit classification.
+
+The first nonevent-hull join is nevertheless activation-escaping: it contains
+at least three complete profile fibres, each with off-activation points for
+both rows. Any activation collapse must be generated later in the repair
+closure. This focuses the finite route on one-fibre split cores and their
+derived cuts rather than on the first join itself.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

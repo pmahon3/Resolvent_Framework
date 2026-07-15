@@ -111,6 +111,7 @@ def payload():
             target_node = next(x for x in tree if x["id"] == target)
             outcome = "terminal" if target_node.get("outcome") == "terminal" else "internal"
             edge_records.append({"candidate_hull_hex":hex(z),
+                "can_be_first_pjh_defect":z!=lo,
                 "child_family_sha256":family_sha(child),
                 "target_node_id":target,"target_outcome":outcome})
         records.append({
@@ -128,6 +129,8 @@ def payload():
         })
     interval_hist = collections.Counter(
         (r["failed_lower_hex"], r["failed_upper_hex"]) for r in records)
+    possible_defects=sum(e["can_be_first_pjh_defect"] for r in records for e in r["edges"])
+    assert possible_defects==33
     atlas_digest = hashlib.sha256(json.dumps(
         records, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
     terminal_checks=[]
@@ -159,6 +162,9 @@ def payload():
         "reconstructing_terminal_nodes": len(terminal),
         "distinct_failed_intervals": len(interval_hist),
         "candidate_hull_edges": sum(len(n["children"]) for n in internal),
+        "possible_first_defect_edges_after_lower_endpoint_exclusion":possible_defects,
+        "possible_first_defect_shape":{"root_nonlower_choices":3,
+            "binary_upper_choices":30},
         "all_interval_endpoints_included":True,
         "branching_histogram": {str(k):v for k,v in sorted(
             collections.Counter(len(n["children"]) for n in internal).items())},

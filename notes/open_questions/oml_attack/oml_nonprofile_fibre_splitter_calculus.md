@@ -157,3 +157,47 @@ itself an event.
 
 **Open:** whether overlapping hull gaps in any terminal necessarily isolate
 a same-side macro fibre or activation subset.
+
+An independent implementation sharpens this checkpoint. Across all 558
+events it finds seventeen distinct split-fibre signatures with 81
+nonlaminar pairs. Exactly nine distinct nonempty hull gaps are themselves
+events; one is the whole carrier. Among their 36 unordered pairs, exactly
+eight are nested, every resulting event difference contains four whole
+profile fibres, and no pair has one-fibre symmetric difference. No whole
+profile fibre is an event, and no nonzero event is contained in a single
+profile fibre. Thus laminar refinement and one-fibre hull isolation are both
+refuted as stage invariants. **Executable verified** on this one nonlattice
+stage by the partially independent audit
+`notes/open_questions/verification/full_grid_stage558_hull_gap_isolation_audit.py`,
+payload
+`eeb79b8531ab80e44d8a8a091f8d2683d319b0526d944c4840af1acf3e644d62`.
+The audit independently implements closure, order tables, failure and hull
+censuses, but shares the defining carrier constructor and the three selected
+repair descriptions.
+
+The companion audit
+`notes/open_questions/verification/full_grid_stage558_meet_witness_audit.py`
+(payload
+`4cd553be1d4cd5187c4afb36fc340a9bd573b147651bd5507897611a1446a55d`)
+exposes a more informative provenance object. The sole
+nonzero same-side literal-pair lattice meet at this stage is
+
+\[
+ q_0^\perp\wedge_L q_1,
+\]
+
+an event of 336,404 points equal to the entire 336,400-point `0101` profile
+fibre disjoint-unioned with the four-point second repair selector. It is not
+the literal set intersection of the two coordinates. It has four activated
+row-0 points and many off-activation points, so neither reconstruction nor
+gate `B` follows. This refutes the stage-level implication “nonzero
+same-side literal meet implies its literal macro cylinder is an event.”
+**Executable verified** on the exact 558-event stage. Persistence of this
+meet in a terminal extension is **Open**, because later events may
+interpolate below it.
+
+The next T-FIN object is therefore a *fattened-fibre meet*: a lattice meet
+consisting of a whole profile fibre plus a finite repair escape. The
+discriminating interval is below this meet (dually above the corresponding
+same-side join): classify whether every terminal repair isolates the whole
+fibre, drives the meet to zero, or produces another fattened-fibre meet.

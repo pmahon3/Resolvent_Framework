@@ -71,8 +71,13 @@ OML, both activation escapes/boundary gaps, persistent defect, and unchanged
 `0x70` meet. Payload `0957dde3...`. Cell 11 is only existentially completable;
 restore its actual 56-event algebra next. Do not repeat marginal couplings.
 
-**Decision route:** inconclusive theorem extraction. Stop signal E has been
-reached because `2^672800` root candidates and a provably non-Markov gap
-descriptor make blind branching mathematically uninformative. Continue only
-with computations or lemmas that discriminate T-FIN from a gate-avoiding
-terminal.
+The actual full four-cell closure passes: 6186568 points, 18676 events,
+centre `{0,1}`, concrete sigma-complete OML, both Gate A/B absent, persistent
+PJH defect and `0x70/0x80` residue. Payload `7dc91cd1...`. This definitively
+refutes fixed-carrier T-FIN but is finite and `Phi`-tame.
+
+**Decision route:** counterexample route. Stop all finite repair branching.
+First next action: define coherent embeddings of the full-cycle MDD grammar
+across a finite-support family and prove intersection/normal-form uniqueness.
+Then treat sigma-closure, centre, order separation, maximal blocks/MBRC and
+the omega-one CSS/no-global-section obstruction as separate gates.

@@ -2500,3 +2500,48 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   deterministic replay passed.
 - **Pivot:** restore the actual cell-11 event algebra. It is the first
   remaining finite coupling gate.
+
+### Iteration 260 — exact full-cycle factor checkpoint
+- **Factorization:** the 6186568-point four-cell carrier is the disjoint union
+  of 842 macro fibres, each an exact four-factor product of interface-state
+  groups. All four cell projections contain all 224 states and faithfully
+  embed the 56-event cell. **Executable verified**, payload `7db99d64...`.
+- **Computational boundary:** one literal event mask costs 773321 bytes; blind
+  bitset closure is suspended. Exact continuation uses interned reduced
+  multi-valued decision diagrams per macro fibre. No closure or lattice claim
+  is promoted from the checkpoint.
+- **Residue theorem:** in any extension of the pulled corner OML, q-side Gate
+  A holds iff the pulled old `0x80` residue is an event. **Hand proved** by
+  event difference and literal-atom forcing.
+- **Trace alphabet:** cell 11 has 38 distinct direct traces on its 72
+  `q=r=1` local states, but this alphabet is not globally sufficient because
+  outside-residue traces affect derived closure. **Executable verified**
+  locally; conditional-trace sufficiency **Open**.
+- **Pivot:** implement exact MDD closure; first test whole/partial residue
+  appearance and activation before the lattice/centre audit.
+
+### Iteration 261 — full-cycle terminal and T-FIN refutation
+- **Exact closure:** the full four-cell root on 6186568 points closes via 842
+  macro-fibre MDDs to `18676` events (`244` beyond the formal terminal), using
+  795720 interned nodes. Independent E0 closure has exactly 230 roots, all
+  present. **Executable verified**; MDD recursion exactness **Hand proved**.
+- **Lattice/OML:** the old terminal remains a sublattice, all physical roots
+  are unique/canonical, principal upsets are injective, and `4556944`
+  new-versus-all cuts pass. The family is a finite concrete sigma-complete
+  OML. **Executable verified** plus the **Hand proved** set-lattice lemma.
+- **T-FIN gates:** neither q nor r boundary reconstructs; both activation
+  cylinders are absent and contain no nonzero event. The PJH join remains
+  least, its hull is absent, and the `1014240`-point q-meet has zero increment;
+  the whole 341440-point `0111` residue remains a nonevent. **Executable
+  verified**.
+- **Theorem extraction:** fixed-carrier T-FIN is **Refuted**. This is a **Hand
+  proved** consequence of the executable gate-avoiding OML completion and
+  repair-search cofinality. The object is finite and `Phi`-tame, not a `Phi`
+  counterexample.
+- **Hostile repair:** an initial centre shortcut discarded old formal
+  candidates incorrectly. The repaired unrestricted filter checks all 18676
+  events and gives `18676 -> 8 -> 2`, so centre `{0,1}` is **Executable
+  verified** using the **Hand proved** generator lemma. Final payload
+  `7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0`.
+- **Decision:** choose the counterexample route: stop finite repair branching
+  and scale the surviving grammar through controlled sigma-complete assembly.

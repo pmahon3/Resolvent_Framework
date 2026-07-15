@@ -721,6 +721,14 @@ same-side meet. The finite programme has therefore narrowed to one remaining
 step: adjoining the actual fourth-cell event algebra and auditing the full
 cycle.
 
+That full-cycle step succeeds. An exact macro-fibre MDD completion produces a
+centre-free 18676-event concrete OML on the full compatible four-cell carrier,
+while neither T-FIN gate fires. Fixed-carrier T-FIN is therefore false. This
+settles the finite architectural question negatively but not `Phi`, since the
+finite completion is automatically `Phi`-tame. The programme now scales the
+surviving grammar toward a sigma-complete uncountable CSS/no-global-section
+assembly.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

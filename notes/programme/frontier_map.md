@@ -687,3 +687,11 @@ a complete row and complete column is a centre-free 18618-event OML on
 PJH defect, and the `0x70/0x80` meet-residue pattern intact. The actual fourth
 cell, rather than its existential completability, is the sole remaining
 finite-cycle gate.
+
+The fourth-cell gate passes. Exact MDD closure of the 6186568-point full
+carrier gives a centre-free 18676-event concrete OML containing the 230-event
+four-cell root, with both activation escapes, both boundary gaps, and the PJH
+defect intact. This refutes fixed-carrier T-FIN. Because the object is finite
+and `Phi`-tame, the live frontier is controlled many-rectangle assembly,
+countable sigma-closure, and omega-one CSS/no-global-section—not another
+finite repair.

@@ -856,3 +856,115 @@ This finite OML is `Phi`-tame and is not a counterexample. Its decisive
 omission is the actual cell-11 event algebra: existential completion does not
 control joins involving those events. Restoring cell 11 is the first remaining
 finite T-FIN gate. **Open.**
+
+### 8.12 Full-cycle factor checkpoint and residue gate
+
+The full compatible four-cell carrier has exactly `6186568` points and `842`
+nonempty macro fibres indexed by `(a0,a1,q0,q1,r0,r1)`. Each fibre factors as
+`G(a0,q0,r0) x G(a0,q0,r1) x G(a1,q1,r0) x G(a1,q1,r1)`, with the four cell
+event algebras acting as coordinate cylinders. All four projections contain
+all 224 states and faithfully reflect the 56-event order table. Fibre sizes
+range from 1 to 234256. **Executable verified** by
+`full_grid_four_cell_factor_checkpoint.py`, payload `7db99d647f20692a74228aff23f0d925fe780292eeb3984d14d43f8fe8ad49cd`.
+
+A literal physical event mask would occupy `773321` bytes, so repeating blind
+big-integer closure is not mathematically informative. The exact next engine
+is an interned reduced multi-valued decision diagram on each macro fibre,
+with operations computed componentwise. This is a representation pivot, not
+evidence for closure or latticehood. Those gates remain **Open**.
+
+There is an exact gate theorem. Let `rho` forget cell 11 and let
+`R = rho^{-1}(pi^{-1}(0111))` be the pulled old residue. In every event
+extension of the pulled three-cell OML, `q`-side Gate A holds iff `R` is an
+event. The old `0x70` meet and `R` partition the literal `q01` cylinder; event
+difference proves both directions, followed by literal-atom forcing. **Hand
+proved.** Whole-residue eventhood is therefore the smallest exact Gate-A
+test, although partial traces in `R` may first enlarge the meet.
+
+Cell 11 has 38 distinct traces on its 72 local states with `q=r=1`, in 19
+complement pairs. This is the smallest direct-residue alphabet but is not a
+complete closure alphabet because events agreeing on `R` can differ outside
+it. The full conditional signature remains necessary absent a
+conditional-trace sufficiency theorem. **Executable verified** local census;
+global sufficiency **Open**.
+
+The exact node-6 trace census sharpens this: the 56 cell-11 events have 21
+ternary `(empty,full,proper)` words across the seventeen atoms, with
+multiplicities `16x1`, `4x2`, and `1x32`; the corresponding proper-atom counts
+are 0, 13, and 17. On residue `0x80`, 8 events are empty, 8 full, and 40
+proper, inducing 36 distinct proper traces. Under only the proved row-1 arm
+involution there are 50 event orbits, 32 residue-trace orbits, and 30 proper
+residue-trace orbits. **Executable verified** by
+`full_grid_cell11_node6_trace_census.py`, payload `c88ed02d...`. The source
+event is exactly hash `ae31...`: its full pullback has 672304 points and its
+profile-15 splitter trace has 128040 points.
+
+### 8.13 Full-cycle terminal OML and refutation of T-FIN
+
+The exact MDD closure of the full four-cell root completes at `18676` events:
+the `18432`-event formal terminal plus `244` new canonical descriptors. It
+uses `795720` interned MDD nodes over the 842 macro fibres, below the one
+million-node cap. The MDD engine was checked by `22038` exhaustive point
+evaluations on every small fibre and `1408` deterministic evaluations on
+large fibres; exactness of the reduced-MDD recursion is **Hand proved**.
+
+The independently constructed raw four-cell root closes to exactly 230 MDD
+roots, all contained in the completed family. All 18676 physical root tuples
+are unique; every new descriptor is canonical. The old formal terminal is a
+sublattice, principal upsets are injective, and all `4556944` pairs involving
+a new event have principal common upsets. Hence the completion is a concrete
+lattice. Complement/disjoint-union closure gives orthomodularity by the
+**Hand proved** set-lattice lemma, and finiteness gives sigma-completeness.
+**Executable verified** for the finite censuses.
+
+The completion avoids both T-FIN gates:
+
+- neither `Bool(q0,q1)` nor `Bool(r0,r1)` is reconstructed;
+- neither row activation cylinder is an event, and no nonzero event lies in
+  either cylinder.
+
+The node-6 PJH witness join remains least, its hull remains absent, and the
+proposed join is explicitly checked to be an event above both witnesses.
+The meet `q0^c meet q1` remains the `1014240`-point `0x70` core; its literal
+cylinder has `1355680` points and its entire `341440`-point `0111` residue is
+a nonevent. The meet increment is zero. Point evaluations separate order.
+All these claims are **Executable verified**.
+
+The centre is exactly `{0,1}`. Hostile review retracted an initial invalid
+shortcut which discarded nontrivial old formal candidates. The repaired
+audit initializes all 18676 events and filters them against actual generators
+using direct physical-root intersection membership, with counts
+`18676 -> 8 -> 2`. Generator sufficiency uses the **Hand proved**
+commutant-sub-OML lemma; the unrestricted census is **Executable verified**.
+
+Therefore fixed-carrier T-FIN is **Refuted**: this terminal concrete OML
+extends the exact full four-cell root and fires neither Gate A nor Gate B.
+This is a **Hand proved** consequence of the executable terminal and the
+definitions (also of repair-search cofinality). It is not a counterexample to
+`Phi`: the OML is finite, so every finitely additive two-valued state is
+automatically sigma-additive and the object is `Phi`-tame.
+
+Producer:
+`notes/open_questions/verification/full_grid_four_cell_mdd_closure.py`.
+Payload:
+`7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0`.
+Final script SHA-256 `9175bfa839397703258ad2dded986f194442871172b02f43243241df730ec070`;
+deterministic replay passed.
+
+| Gate | Current status | Evidence | Remaining obligation |
+|---|---|---|---|
+| Repair grammar | exact finite MDD closure, 18676 events | **Executable verified** + MDD semantics **Hand proved** | scale grammar across many rectangles |
+| Latticehood | passed | **Executable verified** | none for this object |
+| Orthomodularity | passed | **Hand proved** consequence | none for this object |
+| Same-side boundary preservation | both preserved | **Executable verified** | preserve under assembly |
+| Activation-event avoidance | both rows pass | **Executable verified** | preserve under sigma-closure |
+| Trivial centre | `{0,1}` | **Executable verified** unrestricted census + generator lemma **Hand proved** | preserve under assembly |
+| State order separation | point states separate | **Hand proved** from concreteness | preserve after infinite completion |
+| `Phi` tameness or obstruction | finite and `Phi`-tame | **Hand proved** | add uncountable CSS/no-GS obstruction |
+| Infinite-limit viability | not tested by this finite object | **Open** | coherent embeddings and sigma-closure |
+| Universal normalization | no reduction of arbitrary `Phi` failure | **Open** | not needed for constructive route unless assembly fails |
+
+The mandated decision is the **counterexample route**: preserve this terminal
+full-cycle grammar and attempt controlled countable and uncountable assembly,
+treating centre, sigma-completion, state separation, MBRC and ODBC-S as
+independent gates. No deeper finite repair branching is indicated.

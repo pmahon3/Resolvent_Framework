@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Restore the actual fourth-cell event algebra on the full compatible carrier and audit whether full-cycle closure forces T-FIN Gate A/B or preserves the node-6 defect."
+   "current_next_step": "Scale the centre-free full-cycle MDD grammar through coherent finite-support embeddings, then audit countable sigma-closure and the omega-one CSS/no-global-section assembly."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -716,8 +716,8 @@
   {
    "id": "oml.open.tfin_terminal_dichotomy",
    "name": "T-FIN terminal dichotomy",
-   "status": "open-exact-same-carrier",
-   "one_line": "Does every full-grid repair terminal reconstruct one same-side Boolean boundary or create a nonzero activation-supported event?",
+   "status": "refuted-executable-full-cycle",
+   "one_line": "Refuted: an exact centre-free full-grid OML completion reconstructs neither boundary and creates no nonzero activation-supported event.",
    "detail": "oml_fine_repair_termination_and_terminal_dichotomy.md#4-exact-finite-theorem-of-record"
   },
   {
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "centre-free-all-two-cell-pjh-controls",
-   "one_line": "The centre-free three-cell corner preserves the PJH defect, both activation escapes and boundaries, and the node-6 0x70 meet; the actual fourth cell is the sole remaining finite-cycle gate.",
+   "status": "fixed-carrier-tfin-refuted-full-cycle-survivor",
+   "one_line": "A centre-free full four-cell concrete OML avoids both T-FIN gates, refuting the fixed-carrier dichotomy; the live route is controlled sigma-complete uncountable assembly.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

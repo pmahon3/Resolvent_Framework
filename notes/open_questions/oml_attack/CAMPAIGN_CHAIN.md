@@ -6,10 +6,9 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 19 continuation — constructive full-cycle
-  quotient scaling plus the parallel T-FIN impossibility ledger; one-, two-,
-  and three-cell marginal collapse routes are closed and blind depth extension
-  remains stopped.
+- **Active campaign:** Campaign 19 continuation — fixed-carrier T-FIN is
+  refuted; counterexample-route scaling of the centre-free full-cycle MDD
+  grammar is active, and blind finite repair extension remains stopped.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -81,7 +80,7 @@
 | fixed-carrier unrestricted fine-repair termination | hand proved and hostile reviewed | proved |
 | same-carrier completion-search cofinality | hand proved and hostile reviewed | proved |
 | coordinate-closed full-grid completions reconstruct a side | hand theorem plus executable core covering | proved |
-| T-FIN terminal boundary/activation dichotomy | open | open |
+| T-FIN terminal boundary/activation dichotomy | executable terminal plus hand implication | refuted on fixed carrier |
 | necessary non-profile fibre-splitter theorem | Hand proved over executable core certificate | proved |
 | one-split-fibre hull extraction | Hand proved | proved conditionally; reconstruction consequence refuted |
 | existing meet cores grow monotonically in extensions | Hand proved | proved |
@@ -115,7 +114,8 @@
 | stripped rectangle terminal repairs | two executable-verified OML branches of 1296 and 3456 events; both reconstruct `Bool(q0,q1)`; exhaustive all-branch status open |
 | stripped K22 macro completions | exhaustive finite theorem: every OML completion in `P(2^4)` reconstructs `Bool(q0,q1)` or `Bool(r0,r1)` |
 | full-grid fine-fibre repairs | 128, 4, and 2-point selected repairs reach 558 events, preserve distributed boundaries and escape, but remain nonlattices |
-| same-carrier distributed terminal OML | equivalent to refuting T-FIN; none known |
+| same-carrier distributed terminal OML | exact 6186568-point, 18676-event centre-free OML; T-FIN gates absent; Phi-tame |
+| full-cycle MDD grammar | exact closure with 795720 nodes over 842 macro fibres; executable verified |
 | stage-558 splitter family | 90 profile events, 127 profile-pair join failures; multi-fibre hull gap survives at a nonlattice stage |
 
 ## Unresolved assumptions
@@ -165,14 +165,15 @@
 - A single one-of-four literal repair never suffices. Two iterated stripped
   repairs reach OMLs but reconstruct the same-side `q0,q1` Boolean boundary.
 - Exhaustive interval branching proves every stripped macro OML completion
-  reconstructs one same-side Boolean boundary. Fine-fibre repairs over the
-  full conditional carrier remain open.
+  reconstructs one side, but fine-fibre MDD closure on the full conditional
+  carrier yields a centre-free gate-avoiding OML and refutes T-FIN.
 - Three successive fine-fibre repairs avoid reconstruction and activation
   support; exact gap and literal-width statistics are nonmonotone.
 - The complete next-gap subset is not a Markov repair state: nonisomorphic
   468/492-event children have the same gap and Cartesian decomposition.
-- Every unrestricted repair chain on the fixed finite carrier terminates,
-  but T-FIN is open and the root syntactic interval has `2^672800` choices.
+- Every unrestricted repair chain on the fixed finite carrier terminates;
+  T-FIN is refuted by an exact full-cycle completion. The remaining problem is
+  preservation under many-rectangle and sigma-complete assembly.
 - A fixed-carrier T-FIN proof does not exclude a completion on a larger
   carrier; saturated shadows of a lattice need not form a lattice.
 - Non-profile-measurable joins are the sole escape from the proved
@@ -240,21 +241,24 @@
   activation escapes, both boundary gaps, the unchanged PJH defect, and the
   unchanged `0x70` meet. Thus even a complete row plus complete column is not
   a collapse mechanism; only the actual fourth-cell event algebra remains.
+- The actual full four-cell closure also survives. Exact macro-fibre MDD
+  closure gives a centre-free 18676-event concrete OML on 6186568 points,
+  containing the independent 230-event root and firing neither Gate A nor
+  Gate B. The PJH defect and `0x70/0x80` meet-residue pattern persist. Hence
+  fixed-carrier T-FIN is refuted. The finite OML is `Phi`-tame.
 
 ## Next automatic pivot
 
-Restore the actual cell-11 event algebra on the full compatible carrier using
-the successful canonical normal-form calculus. Test full-cycle closure, both
-activations, residue extraction, cross-cut extremality, centre, boundaries,
-defect type, and the node-6 meet. Do not infer these from existential cell-11
-completability in the corner quotient.
-Do not promote finite marginals to `Phi` counterexamples.
+Take the counterexample route. Preserve the exact full-cycle MDD grammar and
+construct coherent finite-support/direct-limit assemblies, then audit
+countable sigma-closure, centre, order separation, maximal blocks/MBRC,
+omega-one CSS/no-global-section, the global finitely additive witness, and
+absence of a sigma-state realization. Do not promote the finite survivor to a
+`Phi` counterexample; it is `Phi`-tame.
 
 In parallel maintain `T_FIN_IMPOSSIBILITY_LEDGER.md`. Every proposed T-FIN
 implication must be tested against the formal, one-cell, and same-row controls.
 Failed implications must record their smallest countermodel and a strengthened
-hypothesis. The first live impossibility hypothesis must use the actual
-full-grid coupling; all one-, two-, and three-cell, centre-only, profile-only,
-strict-meet-growth, and point-separation routes are refuted.
-A terminal avoiding both gates pivots immediately to
-overlapping rectangles and uncountable assembly.
+hypothesis. T-FIN is now refuted by the full-grid survivor; do not continue
+the impossibility track or finite repair depth. Use its failure architecture
+as the input to overlapping rectangles and uncountable assembly.

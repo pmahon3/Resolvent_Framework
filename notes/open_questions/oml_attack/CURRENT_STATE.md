@@ -411,6 +411,19 @@ activation escapes and boundary gaps persist, as do the PJH defect and the
 Cell 11 is only existentially completable, not embedded. Its actual event
 algebra is the next and final finite coupling gate.
 
+That final finite gate passes. On the exact 6186568-point full four-cell
+carrier, interned macro-fibre MDD closure completes at 18676 events and is a
+centre-free concrete sigma-complete OML. It contains the independently
+constructed 230-event root; all 4556944 new-versus-all cuts pass. Neither
+boundary reconstructs, no nonzero event lies in either activation cylinder,
+and the PJH defect plus the `0x70/0x80` meet-residue pattern persist. Point
+states order-separate. **Executable verified** plus MDD/OML/centre bridges
+**Hand proved**, payload `7dc91cd1...`.
+
+Therefore fixed-carrier T-FIN is **Refuted**. The finite OML remains
+`Phi`-tame, so the programme now takes the counterexample route: controlled
+finite-support and sigma-complete assembly, not further finite repair depth.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

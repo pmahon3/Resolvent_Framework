@@ -388,6 +388,19 @@ escapes, both boundary gaps, and the unchanged PJH defect. Thus neither
 same-row nor transverse two-cell coupling supports a T-FIN proof. The first
 unresolved coupling is the three-cell corner `{00,01,10}`.
 
+The exact same-row node-6 meet is now serialized. On the 9928-point quotient,
+`q0^c meet q1` is the pullback of `{0100,0101,0110}` and has 2130 points;
+the remaining whole `0111` fibre has 352 points and is not an event. Restoring
+cell 01 leaves the meet unchanged. This refutes forced strict same-row
+advance, not weak monotonicity and not a transverse/three-cell growth theorem.
+**Executable verified**, payload `2367e72c...`.
+
+The transverse meet is equally stable: on the 49730-point quotient it is the
+`8560`-point `0x70` pullback, while the entire `2880`-point `0111` fibre is a
+nonevent. Cell 10 adds no increment. Therefore neither second-cell incidence
+orientation forces strict advance; the three-cell corner is the first live
+growth configuration. **Executable verified**, payload `75f69aab...`.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

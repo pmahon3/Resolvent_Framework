@@ -18,13 +18,36 @@
   "lattice_audit_uses_17_atom_support": true,
   "new_event_pairs_tested": 2375680,
   "new_events_beyond_formal_terminal": 128,
+  "node6_macro_saturated_q_meet_points": 8560,
+  "node6_macro_saturated_q_meet_profile_atom_mask_hex": "0x70",
+  "node6_macro_saturated_q_meet_profile_words": [
+    "0100",
+    "0101",
+    "0110"
+  ],
   "nonzero_row0_activation_supported_events": 0,
   "nonzero_row1_activation_supported_events": 0,
   "old_terminal_sublattice_preserved": true,
-  "payload_sha256": "58cb80ed3ff5c3ece5d36b5df4bc182effd15d9482f61496570e91bfee29e27c",
+  "payload_sha256": "75f69aab4daf3776772185fa17bf12b9d1b2d10bb488c15971ff921ffce69a83",
   "point_evaluations_order_separate_by_concreteness": true,
-  "producer_sha256": "3fcba0a88ffb99c94672d5f4fa80c97f29353c065bfa17efa226ab2c863ea7d6",
+  "producer_sha256": "a956d878b397a0179313f17a69ca84280294f09c4e2d254f98d6a3904819141d",
+  "q0_complement_meet_q1_points": 8560,
+  "q0_complement_meet_q1_sha256": "e784457fb2932742f8e830783124a79f62b2016c46d373377267b8a4a181707e",
   "q_boundary_reconstructed": false,
+  "q_meet_increment_is_activation_supported": false,
+  "q_meet_increment_partial_profile_words": [],
+  "q_meet_increment_points": 0,
+  "q_meet_increment_whole_profile_words": [],
+  "q_meet_is_proper_below_literal_intersection": true,
+  "q_meet_residue_equals_whole_profile_fibre_0111": true,
+  "q_meet_residue_is_event": false,
+  "q_meet_residue_partial_profile_words": [],
+  "q_meet_residue_points": 2880,
+  "q_meet_residue_profile_atom_mask_hex": "0x80",
+  "q_meet_residue_profile_word": "0111",
+  "q_meet_residue_whole_profile_words": [
+    "0111"
+  ],
   "quotient_points": 49730,
   "r_boundary_reconstructed": false,
   "residue_extracted": false,
@@ -39,5 +62,8 @@
   "selected_split_points": 1440,
   "selected_split_source_state_event_sha256": [
     "ae31a846410eff44a1133601bbc9bdab774ffea3e4aa10a4a5e8009752b7799c"
-  ]
+  ],
+  "stage558_fine_fibre_meet_is_not_this_object": true,
+  "stage558_fine_fibre_meet_reference": "336404 points on the full 6186568-point carrier: whole 0101 profile fibre plus the four-point second selector",
+  "transverse_cell10_strictly_enlarges_q_meet": false
 }

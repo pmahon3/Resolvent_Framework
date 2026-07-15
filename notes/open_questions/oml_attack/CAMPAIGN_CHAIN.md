@@ -226,6 +226,14 @@
   marginal is a centre-free 18560-event OML with both activation escapes,
   both boundary gaps, and the unchanged defect. Every two-cell coupling type
   is now closed as an impossibility route.
+- In the same-row quotient the node-6 meet `q0^c meet q1` remains exactly the
+  saturated `0x70` event over `{0100,0101,0110}`. The missing whole `0111`
+  fibre has 352 points and remains a nonevent. Same-row restoration therefore
+  need not strictly advance this meet; weak monotonicity is unaffected.
+- The transverse quotient has the same profile structure: its node-6 meet is
+  again `0x70` and the whole `0111` residue remains absent. Thus neither
+  second-cell incidence orientation forces strict meet advance. The first
+  possible growth point is the three-cell corner.
 
 ## Next automatic pivot
 
@@ -233,7 +241,7 @@ Construct the exact three-cell corner `{00,01,10}` or an equivalent symbolic
 normal form. It is the first marginal containing both a complete row and a
 complete column. Test both activations, residue extraction, cross-cut
 extremality, centre, boundaries, and defect type before adding cell 11. In
-parallel serialize the same-row fattened meet for the impossibility ledger.
+parallel test the same node-6 meet under transverse and three-cell coupling.
 Do not promote finite marginals to `Phi` counterexamples.
 
 In parallel maintain `T_FIN_IMPOSSIBILITY_LEDGER.md`. Every proposed T-FIN

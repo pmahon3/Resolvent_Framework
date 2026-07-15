@@ -751,7 +751,25 @@ supported inside the shared row-0 activation cylinder. **Executable
 verified** by
 `notes/open_questions/verification/full_grid_terminal_split_two_cell_quotient.py`,
 payload
-`2764d6479dabd33c5eca555f80fbbca1233ce641961437b20ab512507a86d06c`.
+`2367e72c9dbd5ce7835e6a5ab94f58981bb77c225e3f8e1e77f8d679b85b5c4f`.
+
+The exact same-side meet certificate is stronger. In this OML,
+`q0^c meet q1` has `2130` points and is exactly the transported node-6 formal
+terminal meet on this same quotient carrier. Its profile-atom mask is `0x70`,
+the full pullback of words `{0100,0101,0110}`. Its literal set intersection
+has `2482` points, leaving exactly the whole `0111` profile fibre: a proper
+`352`-point residue which is not an event. The second same-row cell contributes
+no meet increment. **Executable verified** by the same producer and receipt;
+meet mask SHA-256
+`e93f6776b8ab3937e63c0265eac3357fc5d2917366513638504ae46f2808f4d2`.
+
+Thus this same-row restoration need not strictly advance the meet toward its
+literal cylinder. This does not refute weak monotonicity: an old meet remains
+a lower bound in an inclusion extension, so a new meet can only enlarge or
+stay equal. Nor is this the earlier `336404`-point stage-558 fine-fibre
+fattened meet, which lives on a different carrier. A transverse cell or a
+three-cell corner may still force strict growth. **Refuted** only for forced
+strict same-row advance; the transverse/three-cell statement is **Open**.
 
 Thus the complete same-row conditional pair does not collapse the splitter.
 It enforces both activated implications `q0=r0` and `q0=r1` in the restored
@@ -780,7 +798,15 @@ neither same-side boundary reconstructs, and the designated first PJH defect
 is unchanged: join least, hull absent, residue absent. **Executable verified**
 by `full_grid_terminal_split_transverse_quotient.py`.
 Payload
-`58cb80ed3ff5c3ece5d36b5df4bc182effd15d9482f61496570e91bfee29e27c`.
+`75f69aab4daf3776772185fa17bf12b9d1b2d10bb488c15971ff921ffce69a83`.
+
+The transverse meet test has the same structural outcome. On this quotient,
+`q0^c meet q1` is the `8560`-point full pullback of profile words
+`{0100,0101,0110}` (`0x70`), exactly the transported node-6 meet. Cell 10
+adds no increment. The remaining `2880` points are precisely the whole
+`0111` profile fibre (`0x80`), which is not an event. **Executable verified**
+by the same producer and receipt. This is again the node-6 macro-saturated
+meet, not the stage-558 fine-fibre meet on the full carrier.
 
 Thus a transverse pair introducing both activation patterns also fails to
 force T-FIN's gates. This refutes the first transverse two-cell impossibility

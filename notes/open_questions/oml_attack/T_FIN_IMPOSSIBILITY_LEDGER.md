@@ -21,8 +21,8 @@ weaker implications that omit transverse/full-grid coupling.
 |---|---|---|---|
 | node-6 formal split | 17 points, 18432 events, `B_9 x MO2^2`, defect and both boundary gaps persist | **Executable verified**; product **Hand proved** | all physical cells, activation, trivial centre |
 | node-6 + cell 00 | 892 points, 18496 events, centre-free OML, defect persists, row-0 Gate B absent, Gate A absent | **Executable verified**, payload `e65582f3...` | cells 01/10/11, row-1 activation, full carrier |
-| node-6 + same-row cells 00/01 | 9928 points, 18554 events, centre-free OML, defect persists, row-0 Gate B absent, Gate A absent | **Executable verified**, payload `2764d647...` | transverse cells 10/11, row-1 activation, full carrier |
-| node-6 + transverse cells 00/10 | 49730 points, 18560 events, centre-free OML, defect persists, both Gate-B cylinders absent, Gate A absent | **Executable verified**, payload `58cb80ed...` | cells 01/11, three-cell corner, full carrier |
+| node-6 + same-row cells 00/01 | 9928 points, 18554 events, centre-free OML, defect persists, row-0 Gate B absent, Gate A absent; `q0^c meet q1` stays at 2130 points with 352-point nonevent residue | **Executable verified**, payload `2367e72c...` | transverse cells 10/11, row-1 activation, full carrier |
+| node-6 + transverse cells 00/10 | 49730 points, 18560 events, centre-free OML, defect persists, both Gate-B cylinders absent, Gate A absent; `q0^c meet q1` stays `0x70` with whole `0111` residue absent | **Executable verified**, payload `75f69aab...` | cells 01/11, three-cell corner, full carrier |
 
 Both finite OMLs are `Phi`-tame: on a finite OML every orthogonal family has
 only finitely many nonzero members, so finite additivity equals sigma
@@ -39,9 +39,10 @@ additivity. **Hand proved.** Their role is architectural, not negative.
 | coupling that destroys the formal product centre must repair the defect | **Refuted** | **Executable verified** | one-cell OML has centre `{0,1}` and persistent defect | centre destruction and PJH repair are independent; add block-incidence or transverse hypotheses |
 | a proper non-profile splitter makes point states fail order separation | **Refuted** | **Hand proved** from concreteness; **Executable verified** construction | one-cell OML (already point reduced) | state route must concern all fa states, sigma interpolation, or an infinite-limit event invisible to sigma states |
 | two bare four-residue squares with event rows/columns/total force a residue event | **Refuted** | **Hand proved** | four-point six-event `MO2` control | require explicit shared edge/PJH/provenance incidence |
-| same-row coupling forces monotone growth of the fattened same-side meet | **Open** | no transported meet certificate yet | current quotient receipts do not serialize the meet | compute the exact meet and residue in the same-row OML; then state the missing transverse growth hypothesis |
+| same-row coupling forces strict advance of the node-6 same-side meet toward its literal cylinder | **Refuted** | **Executable verified** exact meet certificate | 9928-point same-row OML: 2130-point `0x70` meet persists, whole `0111` 352-point residue remains a nonevent, increment zero | require transverse coupling or the three-cell corner; weak nondecreasing monotonicity remains true |
 | every centre-free gate-avoiding binary defect violates cross-cut extremality | **Refuted** at one- and same-row levels | **Executable verified** all new-event pairs | 892- and 9928-point OMLs | restrict to transverse/full `K_{2,2}` coupling |
 | transverse cell 10 forces hull repair, Gate B, centrality, or nonlatticehood | **Refuted** | **Executable verified** | 49730-point centre-free transverse OML | require a three-cell corner or full four-cycle |
+| transverse cell 10 forces strict advance of the node-6 same-side meet | **Refuted** | **Executable verified** exact meet certificate | transverse OML: `0x70` meet has 8560 points, increment zero; whole `0111` residue has 2880 points and remains a nonevent | require simultaneous complete-row/complete-column incidence in the three-cell corner |
 | three-cell corner `{00,01,10}` forces Gate A/B or nonlatticehood | **Open** | none | next exact marginal | construct exact three-state quotient or prove symbolic coupling theorem |
 | full four-cell terminal fires Gate A or B | **Open** | T-FIN | no full terminal or proof | retain as fixed-carrier target |
 
@@ -83,13 +84,29 @@ simultaneously contains a complete row and a complete column. Coverage is
 
 ## Route III — fattened-meet incompatibility
 
-No growth theorem is currently proved. The same-row receipt does not yet
-serialize the lattice meet `q0^c meet q1`, its provenance core, or its proper
-residue. Therefore no claim is made that the meet persists unchanged. The
-first required test is an exact meet certificate inside the 18554-event OML.
-If it is proper and stable, it is the requested explicit locally stable meet
-type refuting same-row growth. If it grows, the increment must be classified
-before proposing a transverse induction. **Open.**
+The exact same-row certificate refutes *forced strict advance* from a second
+cell sharing activation and `q`. The lattice meet `q0^c meet q1` has `2130`
+points and equals the transported node-6 formal-terminal meet on this carrier:
+profile mask `0x70`, words `{0100,0101,0110}`. Its literal intersection has
+`2482` points and the missing `352` points are exactly the whole `0111`
+profile fibre, still a nonevent. The meet increment is empty. **Executable
+verified**, payload `2367e72c...`, meet hash `e93f6776...`.
+
+This is an explicit locally stable proper-meet type for this selected split.
+It is not the stage-558 `336404`-point fine-fibre fattened meet on the full
+carrier. It does not refute weak monotonicity and does not prove stability
+under transverse or three-cell restoration. A valid strict-growth
+lemma must use an incidence absent from the same-row control: shared `r0`, the
+second activation premise, or simultaneous completion of a row and a column.
+The three-cell corner is the smallest configuration containing all three.
+**Open.**
+
+The transverse control supplies the same negative test: cell 10 leaves the
+`0x70` meet unchanged and its whole `0111` residue absent. Thus neither merely
+sharing the activation/`q` direction nor merely adding the second activation
+through `r0` forces strict advance. The live hypothesis must use their joint
+presence, first realized by `{00,01,10}`. **Executable verified** for the two
+controls; corner coverage **Open**.
 
 ## Route IV — maximal blocks and centre
 

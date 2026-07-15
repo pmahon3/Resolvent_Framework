@@ -2412,7 +2412,8 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   point evaluations separate. The PJH hull/residue remain absent, neither
   boundary reconstructs, and row-0 activation escape holds. **Executable
   verified**, payload
-  `2764d6479dabd33c5eca555f80fbbca1233ce641961437b20ab512507a86d06c`.
+  Original structural receipt `2764d647...`; superseded by the meet-extended
+  receipt `2367e72c...` in Iteration 257.
 - **Theorem extraction:** an entire same-row pair of conditional cells can
   coexist with a centre-free terminal splitter OML. Same-row coupling is not
   the missing collapse mechanism. The transverse cell-10 coupling is the
@@ -2445,3 +2446,31 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Impossibility refutation:** transverse two-cell coupling is insufficient
   for T-FIN. The next non-refuted finite coupling is the three-cell corner,
   not another two-cell orientation.
+
+### Iteration 257 — same-row node-6 meet stability
+- **Exact meet:** in the 9928-point same-row OML, `q0^c meet q1` has `2130`
+  points and equals its transported node-6 formal-terminal meet on the same
+  quotient carrier. It is the pullback of profile words
+  `{0100,0101,0110}` (`0x70`). The literal set intersection has `2482`
+  points, leaving exactly the whole `0111` profile fibre: a proper
+  `352`-point nonevent residue. The second cell adds no meet increment.
+  **Executable verified**;
+  payload `2367e72c9dbd5ce7835e6a5ab94f58981bb77c225e3f8e1e77f8d679b85b5c4f`,
+  meet SHA-256 `e93f6776b8ab3937e63c0265eac3357fc5d2917366513638504ae46f2808f4d2`.
+- **Route-III refutation:** same-row coupling does not force strict advance of
+  this meet toward its literal cylinder. Weak monotonicity is not refuted;
+  the stage-558 fine-fibre meet is a distinct architecture on another carrier.
+  Any strict-growth theorem must use transverse or three-cell incidence.
+- **Pivot:** construct the exact three-cell corner `{00,01,10}`; it is the
+  first marginal containing a complete row and a complete column.
+
+### Iteration 258 — transverse node-6 meet stability
+- **Exact meet:** in the 49730-point cells-00/10 quotient, `q0^c meet q1`
+  remains exactly the `0x70` pullback of `{0100,0101,0110}`, with `8560`
+  points and zero increment. The proper `2880`-point residue is the entire
+  `0111` profile fibre and remains a nonevent. **Executable verified**;
+  payload `75f69aab4daf3776772185fa17bf12b9d1b2d10bb488c15971ff921ffce69a83`.
+- **Route-III refutation:** adding the transverse second activation alone
+  also need not strictly advance the node-6 meet. A valid forcing lemma must
+  use simultaneous complete-row and complete-column incidence, or stronger
+  full-cycle data.

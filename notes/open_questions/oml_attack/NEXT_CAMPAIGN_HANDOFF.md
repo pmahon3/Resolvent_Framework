@@ -56,12 +56,15 @@ escape intact. It is finite and `Phi`-tame. Do not rerun the 6.2-million-point
 bitset closure; use quotient state variables and incremental closure.
 
 The same-row pair survives too: 9928 points, 18554 events, centre-free OML,
-two faithful cell embeddings, persistent defect and activation escape. Do not
-repeat same-row variants; transverse cell 10 is the discriminating test.
+two faithful cell embeddings, persistent defect and activation escape. Its
+node-6 meet `q0^c meet q1` stays at the saturated `0x70` core; the missing
+352-point `0111` fibre remains a nonevent. Do not repeat same-row variants.
 
 The transverse pair also survives: 49730 points, 18560 events, centre-free
 OML, both activation escapes and boundary gaps intact. Do not repeat any
-two-cell orientation. The three-cell corner is the next coupling threshold.
+two-cell orientation. Its node-6 `0x70` meet also remains unchanged, with the
+whole `0111` fibre absent. The three-cell corner is the next coupling and
+strict-growth threshold.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

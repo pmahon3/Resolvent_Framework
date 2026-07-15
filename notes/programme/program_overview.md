@@ -704,6 +704,16 @@ therefore admit centre-free gate-avoiding PJH controls. The first untested
 finite architecture is the three-cell corner containing a complete row and
 column.
 
+At the same-row rung, the exact node-6 same-side meet is stable: its three
+whole profile fibres persist and the fourth remains a nonevent. This closes
+forced strict same-row meet growth as an impossibility route without claiming
+stability under the three-cell corner.
+
+The transverse rung has the same outcome. Its meet is again the saturated
+`0x70` event and the full `0111` residue remains absent. Strict advance is
+therefore not forced by either kind of second cell; the corner is the first
+configuration capable of coupling both mechanisms.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

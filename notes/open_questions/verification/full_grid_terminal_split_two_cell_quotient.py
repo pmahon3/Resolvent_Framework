@@ -164,6 +164,21 @@ def payload():
     generators = formal_generators | cell00_events | cell01_events
     centre = [] if not lattice else [x for x in closed if all(
         split_mod.concrete_compatibility(x, g, closed_set) for g in generators)]
+    # Exact same-row persistence certificate for q0^c meet q1.  This is the
+    # macro-saturated node-6 meet, not the stage-558 fine-fibre meet.
+    q_literal_intersection = full & ~q0_mask & q1_mask
+    q_meet = 0
+    for e in closed:
+        if not e & ~q_literal_intersection: q_meet |= e
+    assert q_meet in closed_set
+    old_q_meet = 0
+    for e in terminal_events:
+        if not e & ~q_literal_intersection: old_q_meet |= e
+    assert old_q_meet in old_set
+    q_meet_increment = q_meet & ~old_q_meet
+    q_meet_residue = q_literal_intersection & ~q_meet
+    assert q_meet == sum(profile_masks[p] for p in (4, 5, 6))
+    assert q_meet_residue == profile_masks[7]
     out = {
         "schema": SCHEMA, "schema_version": "1.0",
         "quotient_points": len(points), "local_cell_states": len(states),
@@ -199,6 +214,24 @@ def payload():
         "centre_is_trivial": lattice and set(centre) == {0, full},
         "centre_sha256": None if not lattice else hashlib.sha256(
             ",".join(map(str, sorted(centre))).encode()).hexdigest(),
+        "q0_complement_meet_q1_points": q_meet.bit_count(),
+        "q0_complement_meet_q1_sha256": hashlib.sha256(q_meet.to_bytes(
+            (len(points)+7)//8,"little")).hexdigest(),
+        "old_profile_core_q_meet_points": old_q_meet.bit_count(),
+        "q_meet_formal_profile_atom_mask_hex": "0x70",
+        "q_meet_profile_words": ["0100", "0101", "0110"],
+        "same_row_second_cell_enlarges_q_meet": q_meet != old_q_meet,
+        "q_meet_increment_points": q_meet_increment.bit_count(),
+        "q_literal_intersection_points": q_literal_intersection.bit_count(),
+        "q_meet_is_proper_below_literal_intersection": q_meet != q_literal_intersection,
+        "q_meet_residue_points": q_meet_residue.bit_count(),
+        "q_meet_residue_profile_atom_mask_hex": "0x80",
+        "q_meet_residue_profile_word": "0111",
+        "q_meet_residue_equals_whole_profile_fibre_0111":
+            q_meet_residue == profile_masks[7],
+        "q_meet_residue_is_event": q_meet_residue in closed_set,
+        "q_meet_increment_is_activation_supported": bool(q_meet_increment) and
+            not q_meet_increment & ~activation0,
         "scope": (
             "Exact same-row cells 00/01 quotient for node 6 and one selected "
             "cell00-definable split. Closure is exact only if the cap passes. "

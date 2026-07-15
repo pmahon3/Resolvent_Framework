@@ -669,3 +669,14 @@ Transverse two-cell coupling is now present and still does not collapse: the
 cells-00/10 marginal is a centre-free 18560-event OML with both activation
 escapes and the persistent defect. The impossibility frontier moves to a
 three-cell corner or the full four-cycle.
+
+The same-row meet audit also closes a tempting strict-growth argument. The
+node-6 meet remains the complete pullback of profiles `0100,0101,0110`, while
+the whole `0111` residue remains a nonevent. Thus a second same-row cell need
+not advance the meet; any forcing theorem must use transverse or corner
+incidence.
+
+The transverse meet audit gives the identical `0x70/0x80` profile pattern:
+cell 10 leaves the meet unchanged and the whole `0111` residue unavailable.
+Consequently every second-cell strict-growth lemma is refuted; simultaneous
+row-and-column completion is the first remaining finite forcing mechanism.

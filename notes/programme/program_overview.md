@@ -677,6 +677,12 @@ both rows. Any activation collapse must be generated later in the repair
 closure. This focuses the finite route on one-fibre split cores and their
 derived cuts rather than on the first join itself.
 
+The minimal one-fibre census found four terminal profile OMLs among thirty
+binary defects. All four are the same reducible product
+`B_9 x MO2 x MO2`: they show that a nonevent hull can persist through
+latticehood, but not yet through essential irreducibility or the original
+conditional-cell couplings. Those couplings are now the decisive finite gate.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

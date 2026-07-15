@@ -173,12 +173,12 @@ This is a theorem-extraction boundary, not a claim that T-FIN is true.
 
 | Gate | Current status | Evidence | Remaining obligation |
 |---|---|---|---|
-| Repair grammar | Finite lex grammar of 33 possible first nonevent-hull occurrences; no symmetry compression | Bifurcation **Hand proved**; replay/symmetry **Executable verified** | Collapse or realize the provenance-sensitive occurrences |
-| Latticehood | 558-event selected stage is a nonlattice; unrestricted terminals exist abstractly | Stage **Executable verified**; termination **Hand proved** | Exhibit and audit a gate-avoiding terminal or prove all terminals hit A/B |
+| Repair grammar | Finite lex grammar of 33 first defects; 4/30 binary minimal split cores terminate as one reducible isomorphism type | Bifurcation **Hand proved**; split census **Executable verified** | Add omitted cell couplings to the terminal split type; treat root cases later |
+| Latticehood | Four 17-point profile split cores are exact OMLs; full coupled fine stages remain nonlattices | Split cores **Executable verified**; termination **Hand proved** | Test latticehood after restoring conditional-cell couplings |
 | Orthomodularity | Automatic for every complement/disjoint-union-closed terminal lattice | **Hand proved** | Applies only after latticehood |
 | Same-side boundary preservation | Preserved through three selected repairs | **Executable verified**, one chain only | Prove preservation at a terminal or prove reconstruction unavoidable |
 | Activation-event avoidance | Preserved through three selected repairs | **Executable verified**, one chain only | Prove preservation at a terminal or prove gate B unavoidable |
-| Trivial centre | Not meaningful as a monotone nonterminal invariant | **Hand proved** | Compute only for a terminal candidate |
+| Trivial centre | Four profile terminals fail: centre has 2048 events | **Executable verified** | Determine whether cell couplings force collapse or destroy the centre |
 | State order separation | Point states separate the fixed concrete set family at every stage | **Hand proved** for concreteness; finite checks **Executable verified** | Classify all states only if a terminal candidate survives |
 | `Phi` tameness or obstruction | Undecided; every finite terminal is itself `Phi`-tame | **Hand proved** (finite additivity equals sigma-additivity on finite OMLs) | Use a surviving terminal only as an assembly cell; it cannot itself refute `Phi` |
 | Infinite-limit viability | Impossible on the fixed carrier; larger-carrier assembly remains open | Fixed carrier **Hand proved**; larger carrier **Open** | Prove coherent embeddings and sigma gates only after a scalable terminal architecture exists |

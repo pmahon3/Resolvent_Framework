@@ -651,3 +651,43 @@ cut; it is not witnessed by the first defect join itself. Isolation of an
 activation-supported part of an `S_p` is one possible mechanism, not a proved
 exhaustive one. Terminal realizability of the normal forms and gate-B
 avoidance under later closure remain **Open**.
+
+### 8.7 Minimal one-fibre split cores
+
+Replace the unique entered profile of each binary defect by two nonempty
+formal atoms, pull back the complete profile family at that atlas node, and
+adjoin the designated join containing exactly one of the two atoms. This is
+the carrier-minimal set model of a single-profile nonevent hull: a surjective
+sixteen-profile map needs at least seventeen points before any profile fibre
+can be split. **Hand proved.** It is a profile-level control, not a realization
+of the four conditional cells or their activation structure.
+
+The exact census of all thirty binary occurrences has seven closure-size
+classes: `378` (2 cases), `388` (2), `972` (2), `984` (4), `2592` (8),
+`6912` (8), and `18432` (4). In every case the designated join remains the
+true join of its witness pair, its saturated hull remains absent, neither
+same-side boundary is reconstructed, and neither formal split atom is an
+event. Twenty-six closures remain nonlattices. The four `18432`-event
+closures are finite concrete OMLs. **Executable verified** by
+`notes/open_questions/verification/full_grid_binary_pjh_split_core_audit.py`.
+Payload
+`da2df4a79596c428c32e2dd50d20882201e02e001f28946627910399e3af20f8`.
+The all-pairs lattice decision uses an exact subset zeta/Mobius transform,
+not sampling.
+
+The four terminal controls occur at atlas nodes `6,12,19,37`, splitting
+profiles `15,10,9,8`. Point evaluations order-separate by concreteness, and
+all seventeen points have distinct evaluation signatures. None is essentially
+irreducible: its centre has `2048` events and eleven centre atoms; nine
+central intervals have two events and two have six. Thus each is isomorphic
+to `B_9 x MO2 x MO2`, where `B_9` is the Boolean algebra on nine atoms.
+The interval census is **Executable verified**; the product identification is
+**Hand proved** from central decomposition and the unique six-element OML.
+
+This refutes profile-only splitter collapse. A proper fibre split can
+terminate as a concrete OML without repairing its hull or reconstructing
+either side. The survivor is excluded from the admissible target by its huge
+centre and lacks the conditional-cell events. Any useful collapse theorem
+must use essential irreducibility or the omitted non-profile cell couplings.
+Whether adjoining those couplings destroys, repairs, or decentralizes a
+survivor remains **Open**.

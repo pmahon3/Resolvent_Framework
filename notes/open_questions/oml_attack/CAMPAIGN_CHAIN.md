@@ -207,15 +207,21 @@
   therefore avoids both row activation cylinders. Gate B, if forced, must be
   created only by later derived events or cuts; first-defect activation is
   closed.
+- The thirty binary defects have exact seventeen-point split-profile cores.
+  Four are terminal concrete OMLs preserving both boundaries and the
+  nonevent hull, refuting profile-only collapse. All four are the reducible
+  control `B_9 x MO2 x MO2` with centre size `2048`; they are not admissible
+  counterexamples and contain no conditional-cell activation structure.
 
 ## Next automatic pivot
 
-Replace each of the thirty binary first defects by its exact one-fibre split
-core and classify the cuts created by adjoining the splitter; treat the three
-root multi-fibre defects separately. The existing lex atlas admits no
-symmetry quotient, and the first join itself never fires gate B. Prove that
-later closure forces reconstruction or activation, or exhibit a terminal
-split core avoiding both. Do not build the full intrinsic closure graph
-unless a stated exchange/coverage theorem requires it.
+Lift one of the four isomorphic terminal split-profile controls back through
+the full conditional-cell incidence data and test the first omitted cell
+couplings. Determine whether those couplings force boundary reconstruction or
+activation, or break the large centre while preserving the defect. This is
+more discriminating than completing the twenty-six remaining profile-only
+nonlattices. Treat the three root multi-fibre defects only if the coupled
+one-fibre test closes. Do not promote the reducible profile control to an
+admissible counterexample.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

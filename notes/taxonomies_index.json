@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — fixed-carrier T-FIN is reduced to 33 provenance-sensitive first-PJH defects whose first joins avoid activation; later split-core collapse, realizability, and larger-carrier joins remain open.",
+   "status": "OPEN — four terminal reducible split-profile OML controls preserve a first PJH defect; restoring cell couplings, essential irreducibility, and larger-carrier joins remains open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 101
   },

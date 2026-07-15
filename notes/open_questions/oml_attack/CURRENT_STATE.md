@@ -354,6 +354,14 @@ has points outside each row activation cylinder. Hence the first defect join
 itself cannot fire gate B. This does not control later events derived from the
 split fibre, so terminal gate-B avoidance remains open.
 
+The minimal split-profile census changes the frontier. Of the thirty binary
+defects, four yield terminal seventeen-point concrete OMLs without repairing
+the nonevent hull or reconstructing either boundary. Each is
+`B_9 x MO2 x MO2`, with `18432` events and centre size `2048`; the other
+twenty-six initial closures remain nonlattices. Profile-only collapse is
+false, but the surviving controls are not admissible and omit the original
+conditional-cell couplings. Restoring those couplings is the next gate.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

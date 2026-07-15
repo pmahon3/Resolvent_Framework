@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Classify the thirty provenance-sensitive one-fibre split cores and their later cuts; the first defect join itself is proved activation-escaping, and three root multi-fibre cases remain separate."
+   "current_next_step": "Restore conditional-cell couplings over one of four isomorphic terminal split-profile controls and test reconstruction, activation, latticehood, and centre reduction."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "finite-33-first-pjh-defects-first-join-escape",
-   "one_line": "Every preserving same-carrier terminal has one of 33 nonlower nonevent-hull occurrences; symmetry is exhausted and the first join avoids activation, leaving later split-core collapse or realizability open.",
+   "status": "terminal-reducible-one-fibre-controls-found",
+   "one_line": "Four minimal one-fibre split cores are terminal B9 x MO2^2 OMLs preserving the hull defect; their large centre and missing cell couplings are the decisive remaining finite gates.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

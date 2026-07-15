@@ -17,12 +17,12 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** build the exact seventeen-atom split-profile core for
-   each of the thirty binary first defects: split its unique entered profile
-   into two nonempty formal atoms, adjoin the defect join, close under the
-   allowed operations, and classify the next cuts. The first join itself is
-   proved to avoid gate B. Seek a common later-cut collapse theorem, then
-   treat the three root multi-fibre occurrences separately.
+7. **First action:** use one of the four isomorphic terminal split controls
+   (nodes `6,12,19,37`) as a profile skeleton and restore the omitted
+   conditional-cell events in provenance order. Test the first coupling that
+   destroys the `B_9 x MO2^2` product: does it reconstruct a side, create an
+   activation event, lose latticehood, or preserve the defect with smaller
+   centre? Do not complete the other twenty-six profile-only cores first.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a
@@ -40,6 +40,11 @@ identities. Any collapse proof must use edge coupling or PJH-type hull data.
 The first-defect join itself is never activation-supported for either row;
 do not retest this. Gate B can still arise from later derived events and need
 not isolate only the newly entered splitter piece.
+
+Profile-only splitter collapse is refuted: four seventeen-point terminal OML
+controls preserve the defect and both boundaries. They are highly reducible
+(`centre=2048`) and lack cell/activation structure, so they are controls, not
+admissible counterexamples.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

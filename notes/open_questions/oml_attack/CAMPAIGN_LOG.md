@@ -2362,3 +2362,22 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   Later complements, cuts, lower-fibre traces, or combinations of splitter
   pieces may still create activation-supported events. That later-closure
   question remains **Open**.
+
+### Iteration 252 — terminal one-fibre split controls
+- **Countermodels:** all thirty binary first-defect occurrences were lifted to
+  carrier-minimal seventeen-point split-profile cores. All preserve the
+  designated nonevent hull and both distributed boundaries after orthogonal
+  closure. Four cores are already finite concrete OMLs; the other twenty-six
+  remain nonlattices. **Executable verified** by an exact all-pairs
+  zeta/Mobius lattice census, payload
+  `da2df4a79596c428c32e2dd50d20882201e02e001f28946627910399e3af20f8`.
+- **Structural audit:** the four terminals have `18432` events, separating
+  point evaluations, and centre size `2048`. Their eleven central factors
+  have interval sizes `2` nine times and `6` twice, giving
+  `B_9 x MO2 x MO2`. Factor data are **Executable verified**; the product
+  identification is **Hand proved**.
+- **Theorem extraction:** profile-only one-fibre splitter collapse is
+  **Refuted**. The survivors are not admissible counterexamples because they
+  are highly reducible and omit the conditional-cell/activation events. The
+  next gate is whether restoring those couplings forces reconstruction or
+  activation, or destroys the centre while preserving the defect.

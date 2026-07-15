@@ -642,3 +642,9 @@ each such fibre has points outside both row activation cylinders. Thus the
 first join cannot itself fire gate B. The next discriminating finite model is
 the provenance-sensitive seventeen-atom core obtained by splitting the one
 entered fibre; later-cut activation or reconstruction is the live test.
+
+That split-core test produced four terminal profile OMLs, all isomorphic to
+`B_9 x MO2 x MO2`. They preserve the nonevent hull and both boundaries, so
+profile-only collapse is false; their 2048-event centre and absence of
+conditional-cell events exclude them from the admissible class. The live
+test is restoration of the omitted cell couplings.

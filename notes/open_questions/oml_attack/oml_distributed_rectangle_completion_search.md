@@ -79,7 +79,34 @@ why the two known terminal branches reconstruct a side once the literal mask
 `0xf` appears.  It does not prove that every completion must introduce such
 an atom.  **Evidence class: hand proved.**
 
-## 5. Required negative certificate
+Consequently a live no-reconstruction branch contains none of the eight
+literal same-side atoms, and executable closure may prune immediately when
+the first such atom is generated; it need not wait until the remaining three
+forced atoms have been materialized.
+
+## 5. Lattice implies orthomodular in the closure class
+
+Every complement/disjoint-union-closed family of sets which is a lattice is
+automatically an orthomodular lattice.  If `x subseteq y`, then `x` and
+`y^c` are disjoint, so `x union y^c` is an event and
+
+\[
+ y\setminus x=(x\cup y^c)^c
+\]
+
+is an event.  Hence the lattice meet `y meet x^c` is the literal difference
+and
+
+\[
+ y=x\mathbin{\dot\cup}(y\setminus x)
+  =x\vee(y\wedge x^c).
+\]
+
+Thus a terminal lattice in this search is already a concrete OML; a
+non-orthomodular terminal lattice cannot occur.  **Evidence class: hand
+proved.**
+
+## 6. Required negative certificate
 
 An exhaustive no-go receipt must serialize every complete closed node, record
 the chosen failed pair and all extrema, enumerate the full admissible interval
@@ -95,10 +122,36 @@ At shallow depth, symmetry-off and symmetry-on child expansions must agree
 after canonicalization.  No negative result in this finite class excludes a
 fine-fibre full-cell repair.
 
-## 6. Status
+## 7. Exhaustive result
 
-The complete search is in progress.  A terminal distributed branch refutes
-literal macro-completion reconstruction and must be lifted immediately to the
-6,186,568-point full conditional carrier.  Exhaustion without such a branch
-proves that every stripped macro completion reconstructs at least one
-same-side Boolean boundary.
+Every complement/disjoint-union-closed family
+
+\[
+ E_0\subseteq E\subseteq\mathcal P(2^4)
+\]
+
+which is a lattice reconstructs `Bool(q0,q1)` or `Bool(r0,r1)`.  Equivalently,
+there is no stripped macro-saturated concrete OML completion retaining both
+distributed same-side boundaries.
+
+The complete interval search has nine symmetry classes and twenty candidate
+edges.  It enters twelve nodes, with three global memoizations and four
+sibling-symmetry duplicates.  Three branches force a `q`-side atom and two
+force an `r`-side atom.  Maximum depth is five, maximum closed-family size is
+9216, and every admissible interval encountered has at most two free bits.
+There is no unresolved frontier and no terminal lattice.  The producer
+machine-checks the 128-element group, the single-atom forcing prune,
+incremental closure against the baseline through depth two, candidate-edge
+coverage, and all proof-DAG references.  A fresh hostile run reproduced the
+complete census.  The JSON is a recomputable exhaustive receipt rather than
+a standalone proof object: the theorem depends on rerunning the hashed
+producer.  **Evidence class: exhaustive finite evidence plus executable
+verified and hostile reproduced.**
+
+This closes literal macro-cylinder repair as a distributed counterexample
+route.  It does not cover events with nonconstant traces inside a coordinate
+profile of the 6,186,568-point conditional carrier.  The next falsifiable
+gate is therefore a fine-fibre rectangle repair: choose one of the four macro
+traces while varying within the two ambiguous macrofibres, then test whether
+concrete orthogonal closure can become a centre-free OML without reconstructing
+either macro boundary.

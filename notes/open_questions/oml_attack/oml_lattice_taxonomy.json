@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Construct the three-cell corner {00,01,10} and test whether transverse/corner incidence strictly advances the stable node-6 same-side meet while maintaining the T-FIN impossibility ledger."
+   "current_next_step": "Restore the actual fourth-cell event algebra on the full compatible carrier and audit whether full-cycle closure forces T-FIN Gate A/B or preserves the node-6 defect."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -731,7 +731,7 @@
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
    "status": "centre-free-all-two-cell-pjh-controls",
-   "one_line": "Both two-cell coupling types preserve the PJH defect and activation escape; same-row restoration also leaves the node-6 0x70 meet unchanged, so the three-cell corner is the next finite gate.",
+   "one_line": "The centre-free three-cell corner preserves the PJH defect, both activation escapes and boundaries, and the node-6 0x70 meet; the actual fourth cell is the sole remaining finite-cycle gate.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

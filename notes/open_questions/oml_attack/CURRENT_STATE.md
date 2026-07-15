@@ -401,6 +401,16 @@ nonevent. Cell 10 adds no increment. Therefore neither second-cell incidence
 orientation forces strict advance; the three-cell corner is the first live
 growth configuration. **Executable verified**, payload `75f69aab...`.
 
+The three-cell corner survives every audited finite gate. The exact
+cells-00/01/10 quotient has 553648 points and closes through a canonical
+17-atom normal form to a centre-free 18618-event concrete OML. Both
+activation escapes and boundary gaps persist, as do the PJH defect and the
+`0x70` meet; its whole 25344-point `0111` residue remains a nonevent. All
+3462948 new-versus-all cuts pass. **Executable verified**, payload
+`0957dde3...`; OML and centre reductions use recorded **Hand proved** lemmas.
+Cell 11 is only existentially completable, not embedded. Its actual event
+algebra is the next and final finite coupling gate.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

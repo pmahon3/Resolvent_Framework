@@ -6,9 +6,10 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 19 continuation — constructive transverse
-  quotient scaling plus the parallel T-FIN impossibility ledger; blind depth
-  extension stopped.
+- **Active campaign:** Campaign 19 continuation — constructive full-cycle
+  quotient scaling plus the parallel T-FIN impossibility ledger; one-, two-,
+  and three-cell marginal collapse routes are closed and blind depth extension
+  remains stopped.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -234,21 +235,26 @@
   again `0x70` and the whole `0111` residue remains absent. Thus neither
   second-cell incidence orientation forces strict meet advance. The first
   possible growth point is the three-cell corner.
+- The three-cell corner (00, 01, 10) also survives. Its exact 553648-point
+  quotient closes to a centre-free 18618-event concrete OML with both
+  activation escapes, both boundary gaps, the unchanged PJH defect, and the
+  unchanged `0x70` meet. Thus even a complete row plus complete column is not
+  a collapse mechanism; only the actual fourth-cell event algebra remains.
 
 ## Next automatic pivot
 
-Construct the exact three-cell corner `{00,01,10}` or an equivalent symbolic
-normal form. It is the first marginal containing both a complete row and a
-complete column. Test both activations, residue extraction, cross-cut
-extremality, centre, boundaries, and defect type before adding cell 11. In
-parallel test the same node-6 meet under transverse and three-cell coupling.
+Restore the actual cell-11 event algebra on the full compatible carrier using
+the successful canonical normal-form calculus. Test full-cycle closure, both
+activations, residue extraction, cross-cut extremality, centre, boundaries,
+defect type, and the node-6 meet. Do not infer these from existential cell-11
+completability in the corner quotient.
 Do not promote finite marginals to `Phi` counterexamples.
 
 In parallel maintain `T_FIN_IMPOSSIBILITY_LEDGER.md`. Every proposed T-FIN
 implication must be tested against the formal, one-cell, and same-row controls.
 Failed implications must record their smallest countermodel and a strengthened
-hypothesis. The first live impossibility hypothesis must use a three-cell
-corner or full-grid coupling; all two-cell, centre-only, profile-only, and
-point-separation routes are refuted.
+hypothesis. The first live impossibility hypothesis must use the actual
+full-grid coupling; all one-, two-, and three-cell, centre-only, profile-only,
+strict-meet-growth, and point-separation routes are refuted.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

@@ -680,3 +680,10 @@ The transverse meet audit gives the identical `0x70/0x80` profile pattern:
 cell 10 leaves the meet unchanged and the whole `0111` residue unavailable.
 Consequently every second-cell strict-growth lemma is refuted; simultaneous
 row-and-column completion is the first remaining finite forcing mechanism.
+
+That mechanism is now refuted as well. The exact three-cell corner containing
+a complete row and complete column is a centre-free 18618-event OML on
+553648 quotient points, with both activation escapes, both boundary gaps, the
+PJH defect, and the `0x70/0x80` meet-residue pattern intact. The actual fourth
+cell, rather than its existential completability, is the sole remaining
+finite-cycle gate.

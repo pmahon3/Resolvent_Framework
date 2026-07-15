@@ -66,6 +66,11 @@ two-cell orientation. Its node-6 `0x70` meet also remains unchanged, with the
 whole `0111` fibre absent. The three-cell corner is the next coupling and
 strict-growth threshold.
 
+The three-cell corner passes too: 553648 points, 18618 events, centre-free
+OML, both activation escapes/boundary gaps, persistent defect, and unchanged
+`0x70` meet. Payload `0957dde3...`. Cell 11 is only existentially completable;
+restore its actual 56-event algebra next. Do not repeat marginal couplings.
+
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap
 descriptor make blind branching mathematically uninformative. Continue only

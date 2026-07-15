@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — both two-cell inflations preserve the first PJH defect, and same-row restoration leaves its node-6 same-side meet unchanged; the three-cell corner/full grid is the first non-refuted T-FIN route.",
+   "status": "OPEN — the centre-free three-cell corner preserves the PJH defect, both activation escapes and boundaries, and the stable node-6 meet; actual fourth-cell/full-cycle closure is the remaining finite T-FIN route.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 101
   },

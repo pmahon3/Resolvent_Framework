@@ -714,6 +714,13 @@ The transverse rung has the same outcome. Its meet is again the saturated
 therefore not forced by either kind of second cell; the corner is the first
 configuration capable of coupling both mechanisms.
 
+The three-cell corner couples both mechanisms and still survives. Its exact
+canonical-normal-form completion is a centre-free finite OML preserving the
+defect, both activation escapes, both distributed boundaries, and the stable
+same-side meet. The finite programme has therefore narrowed to one remaining
+step: adjoining the actual fourth-cell event algebra and auditing the full
+cycle.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

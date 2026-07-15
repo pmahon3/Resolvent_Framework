@@ -813,3 +813,46 @@ force T-FIN's gates. This refutes the first transverse two-cell impossibility
 hypothesis. The finite OML is `Phi`-tame and still existentially removes cells
 01 and 11. The smallest remaining coupled rectangle is the three-cell corner
 `{00,01,10}`. **Open.**
+
+### 8.11 Three-cell corner inflation
+
+Restore cells 00, 01, and 10 simultaneously, retaining exactly the compatible
+triples which admit at least one missing-cell-11 completion. The exact quotient
+has `553648` points; all 224 local states occur in each coordinate and all
+three 56-event cell order tables are reflected. Cell 11's event algebra is
+not restored. **Executable verified.**
+
+An exact canonical `(partial, full)` normal form relative to the seventeen
+node-6 atoms closes the root at `18618` events, `186` beyond the formal
+terminal. The atoms are machine-checked pairwise disjoint and exhaustive and
+every final form is canonical. The old terminal remains a sublattice,
+principal-upset codes are injective, and all `3462948` new-versus-all cuts
+have extrema. Thus the family is a concrete lattice; orthomodularity follows
+from the **Hand proved** set-lattice lemma. **Executable verified** for closure
+and latticehood.
+
+The centre is `{0,1}` by an exhaustive generator-commutant census, using the
+**Hand proved** commutant-sub-OML lemma. Neither boundary reconstructs;
+neither activation cylinder is an event or contains a nonzero event; the
+node-6 join remains least while its PJH hull and residue remain absent. Point
+evaluations order-separate by concreteness. **Executable verified.**
+
+Even the corner does not strictly advance `q0^c meet q1`: it remains the
+`103180`-point `0x70` pullback of `{0100,0101,0110}`. Its literal intersection
+has `128524` points and the entire `25344`-point `0111` residue remains a
+nonevent; the increment is zero. **Executable verified.** This refutes strict
+growth based only on a complete row plus a complete column for this node and
+split.
+
+Producer:
+`notes/open_questions/verification/full_grid_terminal_split_three_cell_corner_quotient.py`.
+Payload:
+`0957dde36d6fe9e35e0d790d24a42ecdf3df05e2eaca6c1bd306865a109ea3c9`.
+Deterministic replay passed with `PYTHONHASHSEED=12345`. The selected split has
+`9504` points and SHA-256
+`adc2008b1ea63c66c3facb0e03cc879bf68f2ccc71cdbc5930aaa18a8764d29d`.
+
+This finite OML is `Phi`-tame and is not a counterexample. Its decisive
+omission is the actual cell-11 event algebra: existential completion does not
+control joins involving those events. Restoring cell 11 is the first remaining
+finite T-FIN gate. **Open.**

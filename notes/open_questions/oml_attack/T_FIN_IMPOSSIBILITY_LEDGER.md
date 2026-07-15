@@ -23,8 +23,9 @@ weaker implications that omit transverse/full-grid coupling.
 | node-6 + cell 00 | 892 points, 18496 events, centre-free OML, defect persists, row-0 Gate B absent, Gate A absent | **Executable verified**, payload `e65582f3...` | cells 01/10/11, row-1 activation, full carrier |
 | node-6 + same-row cells 00/01 | 9928 points, 18554 events, centre-free OML, defect persists, row-0 Gate B absent, Gate A absent; `q0^c meet q1` stays at 2130 points with 352-point nonevent residue | **Executable verified**, payload `2367e72c...` | transverse cells 10/11, row-1 activation, full carrier |
 | node-6 + transverse cells 00/10 | 49730 points, 18560 events, centre-free OML, defect persists, both Gate-B cylinders absent, Gate A absent; `q0^c meet q1` stays `0x70` with whole `0111` residue absent | **Executable verified**, payload `75f69aab...` | cells 01/11, three-cell corner, full carrier |
+| node-6 + corner cells 00/01/10 | 553648 points, 18618 events, centre-free OML; defect, both boundary gaps, both activation escapes, and unchanged `0x70` meet persist | **Executable verified**, payload `0957dde3...` | actual cell-11 event algebra and full-grid terminal |
 
-Both finite OMLs are `Phi`-tame: on a finite OML every orthogonal family has
+All finite controls are `Phi`-tame: on a finite OML every orthogonal family has
 only finitely many nonzero members, so finite additivity equals sigma
 additivity. **Hand proved.** Their role is architectural, not negative.
 
@@ -43,7 +44,8 @@ additivity. **Hand proved.** Their role is architectural, not negative.
 | every centre-free gate-avoiding binary defect violates cross-cut extremality | **Refuted** at one- and same-row levels | **Executable verified** all new-event pairs | 892- and 9928-point OMLs | restrict to transverse/full `K_{2,2}` coupling |
 | transverse cell 10 forces hull repair, Gate B, centrality, or nonlatticehood | **Refuted** | **Executable verified** | 49730-point centre-free transverse OML | require a three-cell corner or full four-cycle |
 | transverse cell 10 forces strict advance of the node-6 same-side meet | **Refuted** | **Executable verified** exact meet certificate | transverse OML: `0x70` meet has 8560 points, increment zero; whole `0111` residue has 2880 points and remains a nonevent | require simultaneous complete-row/complete-column incidence in the three-cell corner |
-| three-cell corner `{00,01,10}` forces Gate A/B or nonlatticehood | **Open** | none | next exact marginal | construct exact three-state quotient or prove symbolic coupling theorem |
+| three-cell corner `{00,01,10}` forces Gate A/B or nonlatticehood | **Refuted** | **Executable verified** exact normal-form audit | 553648-point centre-free 18618-event corner OML | require actual cell-11 events/full four-cycle |
+| complete row plus complete column forces strict advance of the node-6 meet | **Refuted** | **Executable verified** | corner OML: 103180-point `0x70` meet, zero increment, whole 25344-point `0111` nonevent residue | require cell 11/full-cycle closure or another node/split |
 | full four-cell terminal fires Gate A or B | **Open** | T-FIN | no full terminal or proof | retain as fixed-carrier target |
 
 ## Route I — coupled residue squares
@@ -76,11 +78,12 @@ The smallest live rank must detect transverse information. Candidate state:
 restored column set, activation rows represented, hull/residue eventhood,
 cross-cut status)`.
 
-The two-cell transverse state `{00,10}` also preserves the identical defect,
-so “number of represented activation rows” is not a strict rank either. The
-next discriminating transition is the three-cell corner `{00,01,10}`, which
-simultaneously contains a complete row and a complete column. Coverage is
-**Open**.
+The two-cell transverse state `{00,10}` preserves the identical defect, and
+the three-cell corner `{00,01,10}` does too despite containing a complete row
+and a complete column. Thus neither restored-cell count, represented
+activation rows, nor row/column completion is a strict defect rank. The first
+untested transition is the actual fourth cell completing the cycle.
+**Executable verified** through the corner; full cycle **Open**.
 
 ## Route III — fattened-meet incompatibility
 
@@ -95,18 +98,20 @@ verified**, payload `2367e72c...`, meet hash `e93f6776...`.
 This is an explicit locally stable proper-meet type for this selected split.
 It is not the stage-558 `336404`-point fine-fibre fattened meet on the full
 carrier. It does not refute weak monotonicity and does not prove stability
-under transverse or three-cell restoration. A valid strict-growth
-lemma must use an incidence absent from the same-row control: shared `r0`, the
-second activation premise, or simultaneous completion of a row and a column.
-The three-cell corner is the smallest configuration containing all three.
-**Open.**
+under transverse or three-cell restoration. The corner test now shows that
+even shared `r0`, the second activation premise, and simultaneous completion
+of a row and column do not suffice: its meet remains `0x70` with zero
+increment. A valid strict-growth lemma must use cell 11/full-cycle incidence,
+an alternative split, or another defect node. **Executable verified** for
+this corner; general coverage **Open**.
 
 The transverse control supplies the same negative test: cell 10 leaves the
 `0x70` meet unchanged and its whole `0111` residue absent. Thus neither merely
 sharing the activation/`q` direction nor merely adding the second activation
 through `r0` forces strict advance. The live hypothesis must use their joint
-presence, first realized by `{00,01,10}`. **Executable verified** for the two
-controls; corner coverage **Open**.
+presence, first realized by `{00,01,10}`. That joint presence also fails: the
+corner leaves the meet unchanged. **Executable verified**. The full cycle is
+the remaining finite hypothesis.
 
 ## Route IV — maximal blocks and centre
 
@@ -137,7 +142,7 @@ All are **Open**.
 | Level | Status |
 |---|---|
 | 1 — exact same-row quotient | **Proved/executable verified:** gate-avoiding centre-free OML exists |
-| 2 — two-cell coupling type | **Refuted as an impossibility route; three-cell coupling open** |
+| 2 — coupling type through three cells | **Refuted as an impossibility route; full four-cycle open** |
 | 3 — fixed-carrier T-FIN | **Open** |
 | 4 — representation-independent rectangle impossibility | **Open** |
 | 5 — normalization of arbitrary `Phi` failure | **Open** |
@@ -146,7 +151,7 @@ All are **Open**.
 
 The evidence now favours a gate-avoiding *finite marginal architecture*, not
 yet a full gate-avoiding terminal. T-FIN remains genuinely uncertain. The
-single most discriminating next computation is the exact three-cell corner
-`{00,01,10}` using the same node-6 split, with both activation cylinders and
-full lattice/centre gates audited. In parallel, serialize the same-row
-fattened meet so that Route III has a precise stable or growing witness.
+single most discriminating next computation is restoration of the actual
+cell-11 event algebra on the full compatible carrier using the same node-6
+split. Audit full-cycle closure, both gates, PJH defect, meet residue,
+latticehood, centre, and state separation before any arbitrary-base claim.

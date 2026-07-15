@@ -2474,3 +2474,29 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   also need not strictly advance the node-6 meet. A valid forcing lemma must
   use simultaneous complete-row and complete-column incidence, or stronger
   full-cycle data.
+
+### Iteration 259 — centre-free three-cell corner
+- **Construction:** the exact completable cells-00/01/10 quotient has
+  `553648` points. Every retained triple admits cell 11, and every local-cell
+  projection has all 224 states and a faithful 56-event order table.
+  **Executable verified.** Cell 11 events are not included.
+- **Closure and lattice:** an exact canonical 17-atom normal form closes to
+  `18618` events (`186` new). The old terminal is a sublattice; injective
+  principal-upset codes certify all `3462948` new-versus-all cuts. The family
+  is a concrete OML. **Executable verified** plus the **Hand proved** concrete
+  set-lattice orthomodularity lemma.
+- **Gates:** centre `{0,1}`; neither boundary reconstructed; both activation
+  cylinders absent with no supported nonzero event; PJH join unchanged and
+  hull/residue absent; point evaluations separate. **Executable verified**
+  plus the **Hand proved** commutant-generator lemma.
+- **Meet:** `q0^c meet q1` remains the `103180`-point `0x70` pullback; the
+  entire `25344`-point `0111` residue is a nonevent and the increment is zero.
+  Complete-row plus complete-column incidence therefore does not force strict
+  growth. **Executable verified.** Payload
+  `0957dde36d6fe9e35e0d790d24a42ecdf3df05e2eaca6c1bd306865a109ea3c9`.
+- **Hostile repair:** canonical union on overlapping lower bounds, explicit
+  atom partition/canonical-form checks, principal-upset injectivity,
+  witness-upper-bound assertions, and completion counts were added before a
+  deterministic replay passed.
+- **Pivot:** restore the actual cell-11 event algebra. It is the first
+  remaining finite coupling gate.

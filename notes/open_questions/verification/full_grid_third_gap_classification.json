@@ -1,0 +1,3748 @@
+{
+  "activation_intersections": {
+    "both_111": 0,
+    "row0_111": 0,
+    "row1_111": 748
+  },
+  "all_intersections_cartesian": true,
+  "carrier_points": 6186568,
+  "command": "python3 notes/open_questions/verification/full_grid_third_gap_classification.py --verify",
+  "coordinate_profile_totals": [
+    {
+      "points": 304580,
+      "profile": [
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 111360,
+      "profile": [
+        0,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 113680,
+      "profile": [
+        0,
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 42240,
+      "profile": [
+        0,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 110528,
+      "profile": [
+        0,
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 111360,
+      "profile": [
+        0,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 113648,
+      "profile": [
+        0,
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 116400,
+      "profile": [
+        0,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 113648,
+      "profile": [
+        1,
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 110528,
+      "profile": [
+        1,
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 113680,
+      "profile": [
+        1,
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 304580,
+      "profile": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "dependency_sha256": "1b72ff14226576e6e53d2800bf2135d962ceda915d0a1a5bb658f8a0790ad7ac",
+  "factor_type_histogram": [
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        1,
+        1
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 2,
+      "selected_factor_sizes": [
+        2,
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 8,
+      "selected_factor_sizes": [
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "classes": 3,
+      "coordinate_profile": "0011",
+      "points": 8,
+      "selected_factor_sizes": [
+        2,
+        1,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        1,
+        1
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 8,
+      "selected_factor_sizes": [
+        4,
+        2,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        1,
+        1
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 24,
+      "selected_factor_sizes": [
+        8,
+        3,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        4,
+        2
+      ],
+      "classes": 1,
+      "coordinate_profile": "0001",
+      "points": 32,
+      "selected_factor_sizes": [
+        4,
+        1,
+        4,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        2,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0010",
+      "points": 32,
+      "selected_factor_sizes": [
+        2,
+        2,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0011",
+      "points": 32,
+      "selected_factor_sizes": [
+        2,
+        1,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        2,
+        2
+      ],
+      "classes": 3,
+      "coordinate_profile": "0100",
+      "points": 32,
+      "selected_factor_sizes": [
+        4,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        2,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0101",
+      "points": 32,
+      "selected_factor_sizes": [
+        4,
+        1,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 32,
+      "selected_factor_sizes": [
+        2,
+        1,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        2,
+        2
+      ],
+      "classes": 3,
+      "coordinate_profile": "1011",
+      "points": 32,
+      "selected_factor_sizes": [
+        4,
+        2,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        2,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "points": 32,
+      "selected_factor_sizes": [
+        2,
+        2,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        5,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "0001",
+      "points": 40,
+      "selected_factor_sizes": [
+        4,
+        1,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        2,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0010",
+      "points": 40,
+      "selected_factor_sizes": [
+        2,
+        2,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        2,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0101",
+      "points": 40,
+      "selected_factor_sizes": [
+        4,
+        1,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        5,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "0110",
+      "points": 40,
+      "selected_factor_sizes": [
+        2,
+        2,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        5,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "1001",
+      "points": 40,
+      "selected_factor_sizes": [
+        2,
+        2,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        2,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "points": 40,
+      "selected_factor_sizes": [
+        2,
+        2,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        5,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 50,
+      "selected_factor_sizes": [
+        2,
+        1,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        1,
+        1
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 65,
+      "selected_factor_sizes": [
+        13,
+        5,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        1,
+        1
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 65,
+      "selected_factor_sizes": [
+        13,
+        5,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        1,
+        1
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 70,
+      "selected_factor_sizes": [
+        14,
+        5,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        2,
+        2
+      ],
+      "classes": 6,
+      "coordinate_profile": "0011",
+      "points": 96,
+      "selected_factor_sizes": [
+        8,
+        3,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 128,
+      "selected_factor_sizes": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        8,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0011",
+      "points": 128,
+      "selected_factor_sizes": [
+        2,
+        1,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "points": 128,
+      "selected_factor_sizes": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1011",
+      "points": 128,
+      "selected_factor_sizes": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 128,
+      "selected_factor_sizes": [
+        4,
+        2,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        9,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0001",
+      "points": 144,
+      "selected_factor_sizes": [
+        4,
+        1,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        4,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0010",
+      "points": 144,
+      "selected_factor_sizes": [
+        2,
+        2,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        4,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0101",
+      "points": 144,
+      "selected_factor_sizes": [
+        4,
+        1,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        9,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0110",
+      "points": 144,
+      "selected_factor_sizes": [
+        2,
+        2,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        9,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1001",
+      "points": 144,
+      "selected_factor_sizes": [
+        2,
+        2,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        4,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "points": 144,
+      "selected_factor_sizes": [
+        2,
+        2,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        9,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 162,
+      "selected_factor_sizes": [
+        2,
+        1,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        1,
+        1
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 176,
+      "selected_factor_sizes": [
+        22,
+        8,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        1,
+        1
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 176,
+      "selected_factor_sizes": [
+        22,
+        8,
+        1,
+        1
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        5,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 200,
+      "selected_factor_sizes": [
+        4,
+        2,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        5,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 200,
+      "selected_factor_sizes": [
+        4,
+        2,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        2,
+        2
+      ],
+      "classes": 6,
+      "coordinate_profile": "0100",
+      "points": 260,
+      "selected_factor_sizes": [
+        13,
+        5,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        2,
+        2
+      ],
+      "classes": 6,
+      "coordinate_profile": "1011",
+      "points": 260,
+      "selected_factor_sizes": [
+        13,
+        5,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        2,
+        2
+      ],
+      "classes": 3,
+      "coordinate_profile": "0011",
+      "points": 280,
+      "selected_factor_sizes": [
+        14,
+        5,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        4,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "0001",
+      "points": 312,
+      "selected_factor_sizes": [
+        13,
+        3,
+        4,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        2,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0101",
+      "points": 312,
+      "selected_factor_sizes": [
+        13,
+        3,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        2,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0010",
+      "points": 320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        4,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "0110",
+      "points": 320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        4,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        4,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "1001",
+      "points": 320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        4,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        2,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "points": 320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        13,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 338,
+      "selected_factor_sizes": [
+        2,
+        1,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        4,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0011",
+      "points": 384,
+      "selected_factor_sizes": [
+        8,
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        4,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 384,
+      "selected_factor_sizes": [
+        8,
+        3,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        5,
+        2
+      ],
+      "classes": 4,
+      "coordinate_profile": "0001",
+      "points": 390,
+      "selected_factor_sizes": [
+        13,
+        3,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        2,
+        5
+      ],
+      "classes": 4,
+      "coordinate_profile": "0101",
+      "points": 390,
+      "selected_factor_sizes": [
+        13,
+        3,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        14,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0011",
+      "points": 392,
+      "selected_factor_sizes": [
+        2,
+        1,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        2,
+        5
+      ],
+      "classes": 4,
+      "coordinate_profile": "0010",
+      "points": 400,
+      "selected_factor_sizes": [
+        8,
+        5,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        5,
+        2
+      ],
+      "classes": 4,
+      "coordinate_profile": "0110",
+      "points": 400,
+      "selected_factor_sizes": [
+        8,
+        5,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        5,
+        2
+      ],
+      "classes": 4,
+      "coordinate_profile": "1001",
+      "points": 400,
+      "selected_factor_sizes": [
+        8,
+        5,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        2,
+        5
+      ],
+      "classes": 4,
+      "coordinate_profile": "1101",
+      "points": 400,
+      "selected_factor_sizes": [
+        8,
+        5,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        13,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0001",
+      "points": 416,
+      "selected_factor_sizes": [
+        4,
+        1,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        8,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0010",
+      "points": 416,
+      "selected_factor_sizes": [
+        2,
+        2,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        8,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0101",
+      "points": 416,
+      "selected_factor_sizes": [
+        4,
+        1,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        13,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0110",
+      "points": 416,
+      "selected_factor_sizes": [
+        2,
+        2,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        13,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "1001",
+      "points": 416,
+      "selected_factor_sizes": [
+        2,
+        2,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        8,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "points": 416,
+      "selected_factor_sizes": [
+        2,
+        2,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        8,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "points": 512,
+      "selected_factor_sizes": [
+        4,
+        2,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        8,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "1011",
+      "points": 512,
+      "selected_factor_sizes": [
+        4,
+        2,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        5,
+        5
+      ],
+      "classes": 4,
+      "coordinate_profile": "0111",
+      "points": 600,
+      "selected_factor_sizes": [
+        8,
+        3,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        9,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 648,
+      "selected_factor_sizes": [
+        4,
+        2,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        9,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 648,
+      "selected_factor_sizes": [
+        4,
+        2,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        2,
+        2
+      ],
+      "classes": 3,
+      "coordinate_profile": "0100",
+      "points": 704,
+      "selected_factor_sizes": [
+        22,
+        8,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        2,
+        2
+      ],
+      "classes": 3,
+      "coordinate_profile": "1011",
+      "points": 704,
+      "selected_factor_sizes": [
+        22,
+        8,
+        2,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        4,
+        2
+      ],
+      "classes": 1,
+      "coordinate_profile": "0001",
+      "points": 880,
+      "selected_factor_sizes": [
+        22,
+        5,
+        4,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        2,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0101",
+      "points": 880,
+      "selected_factor_sizes": [
+        22,
+        5,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        2,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0010",
+      "points": 896,
+      "selected_factor_sizes": [
+        14,
+        8,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        4,
+        2
+      ],
+      "classes": 1,
+      "coordinate_profile": "0110",
+      "points": 896,
+      "selected_factor_sizes": [
+        14,
+        8,
+        4,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        4,
+        2
+      ],
+      "classes": 1,
+      "coordinate_profile": "1001",
+      "points": 896,
+      "selected_factor_sizes": [
+        14,
+        8,
+        4,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        2,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "points": 896,
+      "selected_factor_sizes": [
+        14,
+        8,
+        2,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        2,
+        22,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 968,
+      "selected_factor_sizes": [
+        2,
+        1,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        4,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 1040,
+      "selected_factor_sizes": [
+        13,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        4,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "points": 1040,
+      "selected_factor_sizes": [
+        13,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        4,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "1011",
+      "points": 1040,
+      "selected_factor_sizes": [
+        13,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        4,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 1040,
+      "selected_factor_sizes": [
+        13,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        5,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "0001",
+      "points": 1100,
+      "selected_factor_sizes": [
+        22,
+        5,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        2,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0101",
+      "points": 1100,
+      "selected_factor_sizes": [
+        22,
+        5,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        2,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0010",
+      "points": 1120,
+      "selected_factor_sizes": [
+        14,
+        8,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0011",
+      "points": 1120,
+      "selected_factor_sizes": [
+        14,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        5,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "0110",
+      "points": 1120,
+      "selected_factor_sizes": [
+        14,
+        8,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 1120,
+      "selected_factor_sizes": [
+        14,
+        5,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        5,
+        2
+      ],
+      "classes": 2,
+      "coordinate_profile": "1001",
+      "points": 1120,
+      "selected_factor_sizes": [
+        14,
+        8,
+        5,
+        2
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        2,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "points": 1120,
+      "selected_factor_sizes": [
+        14,
+        8,
+        2,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        22,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0001",
+      "points": 1232,
+      "selected_factor_sizes": [
+        4,
+        1,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        14,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0010",
+      "points": 1232,
+      "selected_factor_sizes": [
+        2,
+        2,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        2,
+        14,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0101",
+      "points": 1232,
+      "selected_factor_sizes": [
+        4,
+        1,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        22,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0110",
+      "points": 1232,
+      "selected_factor_sizes": [
+        2,
+        2,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        22,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "1001",
+      "points": 1232,
+      "selected_factor_sizes": [
+        2,
+        2,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        2,
+        4,
+        14,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "points": 1232,
+      "selected_factor_sizes": [
+        2,
+        2,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        13,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 1352,
+      "selected_factor_sizes": [
+        4,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        13,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 1352,
+      "selected_factor_sizes": [
+        4,
+        2,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        9,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0001",
+      "points": 1404,
+      "selected_factor_sizes": [
+        13,
+        3,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        4,
+        9
+      ],
+      "classes": 2,
+      "coordinate_profile": "0101",
+      "points": 1404,
+      "selected_factor_sizes": [
+        13,
+        3,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        4,
+        9
+      ],
+      "classes": 2,
+      "coordinate_profile": "0010",
+      "points": 1440,
+      "selected_factor_sizes": [
+        8,
+        5,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        9,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "0110",
+      "points": 1440,
+      "selected_factor_sizes": [
+        8,
+        5,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        9,
+        4
+      ],
+      "classes": 2,
+      "coordinate_profile": "1001",
+      "points": 1440,
+      "selected_factor_sizes": [
+        8,
+        5,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        4,
+        9
+      ],
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "points": 1440,
+      "selected_factor_sizes": [
+        8,
+        5,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "classes": 4,
+      "coordinate_profile": "0011",
+      "points": 1536,
+      "selected_factor_sizes": [
+        8,
+        3,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        14,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "points": 1568,
+      "selected_factor_sizes": [
+        4,
+        2,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        14,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "1011",
+      "points": 1568,
+      "selected_factor_sizes": [
+        4,
+        2,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        5,
+        5
+      ],
+      "classes": 4,
+      "coordinate_profile": "0000",
+      "points": 1625,
+      "selected_factor_sizes": [
+        13,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        5,
+        5
+      ],
+      "classes": 4,
+      "coordinate_profile": "1111",
+      "points": 1625,
+      "selected_factor_sizes": [
+        13,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        5,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 1750,
+      "selected_factor_sizes": [
+        14,
+        5,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        9,
+        9
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 1944,
+      "selected_factor_sizes": [
+        8,
+        3,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 2816,
+      "selected_factor_sizes": [
+        22,
+        8,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "points": 2816,
+      "selected_factor_sizes": [
+        22,
+        8,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1011",
+      "points": 2816,
+      "selected_factor_sizes": [
+        22,
+        8,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        4,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 2816,
+      "selected_factor_sizes": [
+        22,
+        8,
+        4,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        22,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 3872,
+      "selected_factor_sizes": [
+        4,
+        2,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        4,
+        4,
+        22,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 3872,
+      "selected_factor_sizes": [
+        4,
+        2,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        9,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0001",
+      "points": 3960,
+      "selected_factor_sizes": [
+        22,
+        5,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        4,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0101",
+      "points": 3960,
+      "selected_factor_sizes": [
+        22,
+        5,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        4,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0010",
+      "points": 4032,
+      "selected_factor_sizes": [
+        14,
+        8,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        9,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "0110",
+      "points": 4032,
+      "selected_factor_sizes": [
+        14,
+        8,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        9,
+        4
+      ],
+      "classes": 1,
+      "coordinate_profile": "1001",
+      "points": 4032,
+      "selected_factor_sizes": [
+        14,
+        8,
+        9,
+        4
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        4,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "points": 4032,
+      "selected_factor_sizes": [
+        14,
+        8,
+        4,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        13,
+        8
+      ],
+      "classes": 4,
+      "coordinate_profile": "0001",
+      "points": 4056,
+      "selected_factor_sizes": [
+        13,
+        3,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        8,
+        13
+      ],
+      "classes": 4,
+      "coordinate_profile": "0101",
+      "points": 4056,
+      "selected_factor_sizes": [
+        13,
+        3,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        13,
+        13
+      ],
+      "classes": 4,
+      "coordinate_profile": "0111",
+      "points": 4056,
+      "selected_factor_sizes": [
+        8,
+        3,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        8,
+        13
+      ],
+      "classes": 4,
+      "coordinate_profile": "0010",
+      "points": 4160,
+      "selected_factor_sizes": [
+        8,
+        5,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        8,
+        8
+      ],
+      "classes": 4,
+      "coordinate_profile": "0100",
+      "points": 4160,
+      "selected_factor_sizes": [
+        13,
+        5,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        13,
+        8
+      ],
+      "classes": 4,
+      "coordinate_profile": "0110",
+      "points": 4160,
+      "selected_factor_sizes": [
+        8,
+        5,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        13,
+        8
+      ],
+      "classes": 4,
+      "coordinate_profile": "1001",
+      "points": 4160,
+      "selected_factor_sizes": [
+        8,
+        5,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        8,
+        8
+      ],
+      "classes": 4,
+      "coordinate_profile": "1011",
+      "points": 4160,
+      "selected_factor_sizes": [
+        13,
+        5,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        8,
+        13
+      ],
+      "classes": 4,
+      "coordinate_profile": "1101",
+      "points": 4160,
+      "selected_factor_sizes": [
+        8,
+        5,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        5,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 4400,
+      "selected_factor_sizes": [
+        22,
+        8,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        5,
+        5
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 4400,
+      "selected_factor_sizes": [
+        22,
+        8,
+        5,
+        5
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        8,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0011",
+      "points": 4480,
+      "selected_factor_sizes": [
+        14,
+        5,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        14,
+        14
+      ],
+      "classes": 2,
+      "coordinate_profile": "0011",
+      "points": 4704,
+      "selected_factor_sizes": [
+        8,
+        3,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        9,
+        9
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 5265,
+      "selected_factor_sizes": [
+        13,
+        5,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        9,
+        9
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 5265,
+      "selected_factor_sizes": [
+        13,
+        5,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        9,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 5670,
+      "selected_factor_sizes": [
+        14,
+        5,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "classes": 4,
+      "coordinate_profile": "0000",
+      "points": 10985,
+      "selected_factor_sizes": [
+        13,
+        5,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        13,
+        13
+      ],
+      "classes": 4,
+      "coordinate_profile": "1111",
+      "points": 10985,
+      "selected_factor_sizes": [
+        13,
+        5,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        8,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "points": 11264,
+      "selected_factor_sizes": [
+        22,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        8,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "1011",
+      "points": 11264,
+      "selected_factor_sizes": [
+        22,
+        8,
+        8,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        13,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0001",
+      "points": 11440,
+      "selected_factor_sizes": [
+        22,
+        5,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        8,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0101",
+      "points": 11440,
+      "selected_factor_sizes": [
+        22,
+        5,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        8,
+        22,
+        22
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 11616,
+      "selected_factor_sizes": [
+        8,
+        3,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        8,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0010",
+      "points": 11648,
+      "selected_factor_sizes": [
+        14,
+        8,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        13,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "0110",
+      "points": 11648,
+      "selected_factor_sizes": [
+        14,
+        8,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        13,
+        8
+      ],
+      "classes": 2,
+      "coordinate_profile": "1001",
+      "points": 11648,
+      "selected_factor_sizes": [
+        14,
+        8,
+        13,
+        8
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        8,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "points": 11648,
+      "selected_factor_sizes": [
+        14,
+        8,
+        8,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        13,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0111",
+      "points": 11830,
+      "selected_factor_sizes": [
+        14,
+        5,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        22,
+        14
+      ],
+      "classes": 2,
+      "coordinate_profile": "0001",
+      "points": 12012,
+      "selected_factor_sizes": [
+        13,
+        3,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        8,
+        14,
+        22
+      ],
+      "classes": 2,
+      "coordinate_profile": "0101",
+      "points": 12012,
+      "selected_factor_sizes": [
+        13,
+        3,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        14,
+        22
+      ],
+      "classes": 2,
+      "coordinate_profile": "0010",
+      "points": 12320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        22,
+        14
+      ],
+      "classes": 2,
+      "coordinate_profile": "0110",
+      "points": 12320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        22,
+        14
+      ],
+      "classes": 2,
+      "coordinate_profile": "1001",
+      "points": 12320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        8,
+        13,
+        14,
+        22
+      ],
+      "classes": 2,
+      "coordinate_profile": "1101",
+      "points": 12320,
+      "selected_factor_sizes": [
+        8,
+        5,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        14,
+        14
+      ],
+      "classes": 2,
+      "coordinate_profile": "0100",
+      "points": 12740,
+      "selected_factor_sizes": [
+        13,
+        5,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        14,
+        14
+      ],
+      "classes": 2,
+      "coordinate_profile": "1011",
+      "points": 12740,
+      "selected_factor_sizes": [
+        13,
+        5,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        14,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0011",
+      "points": 13720,
+      "selected_factor_sizes": [
+        14,
+        5,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        9,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 14256,
+      "selected_factor_sizes": [
+        22,
+        8,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        9,
+        9
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 14256,
+      "selected_factor_sizes": [
+        22,
+        8,
+        9,
+        9
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        13,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 29744,
+      "selected_factor_sizes": [
+        22,
+        8,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        13,
+        13
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 29744,
+      "selected_factor_sizes": [
+        22,
+        8,
+        13,
+        13
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        22,
+        22
+      ],
+      "classes": 2,
+      "coordinate_profile": "0000",
+      "points": 31460,
+      "selected_factor_sizes": [
+        13,
+        5,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        13,
+        13,
+        22,
+        22
+      ],
+      "classes": 2,
+      "coordinate_profile": "1111",
+      "points": 31460,
+      "selected_factor_sizes": [
+        13,
+        5,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        22,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0001",
+      "points": 33880,
+      "selected_factor_sizes": [
+        22,
+        5,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        14,
+        14,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0101",
+      "points": 33880,
+      "selected_factor_sizes": [
+        22,
+        5,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        14,
+        22,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0111",
+      "points": 33880,
+      "selected_factor_sizes": [
+        14,
+        5,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        14,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0010",
+      "points": 34496,
+      "selected_factor_sizes": [
+        14,
+        8,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        14,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0100",
+      "points": 34496,
+      "selected_factor_sizes": [
+        22,
+        8,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        22,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "0110",
+      "points": 34496,
+      "selected_factor_sizes": [
+        14,
+        8,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        22,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "1001",
+      "points": 34496,
+      "selected_factor_sizes": [
+        14,
+        8,
+        22,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        14,
+        14
+      ],
+      "classes": 1,
+      "coordinate_profile": "1011",
+      "points": 34496,
+      "selected_factor_sizes": [
+        22,
+        8,
+        14,
+        14
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        14,
+        22,
+        14,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "1101",
+      "points": 34496,
+      "selected_factor_sizes": [
+        14,
+        8,
+        14,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "0000",
+      "points": 85184,
+      "selected_factor_sizes": [
+        22,
+        8,
+        22,
+        22
+      ]
+    },
+    {
+      "ambient_factor_sizes": [
+        22,
+        22,
+        22,
+        22
+      ],
+      "classes": 1,
+      "coordinate_profile": "1111",
+      "points": 85184,
+      "selected_factor_sizes": [
+        22,
+        8,
+        22,
+        22
+      ]
+    }
+  ],
+  "minimum_subrectangle": {
+    "ambient_factor_sizes": [
+      2,
+      2,
+      1,
+      1
+    ],
+    "coordinate_profile": [
+      0,
+      1,
+      1,
+      1
+    ],
+    "points": 2,
+    "row0_activation": [
+      1,
+      1,
+      0
+    ],
+    "row1_activation": [
+      1,
+      1,
+      1
+    ],
+    "selected_factor_sizes": [
+      2,
+      1,
+      1,
+      1
+    ],
+    "selected_local_state_atoms": [
+      [
+        [
+          "a1",
+          "a2",
+          "e01",
+          "n1",
+          "n2",
+          "s1",
+          "w1"
+        ],
+        [
+          "a1",
+          "a2",
+          "e01",
+          "n2",
+          "p15",
+          "t1",
+          "w1"
+        ]
+      ],
+      [
+        [
+          "a1",
+          "a2",
+          "e01",
+          "n1",
+          "n2",
+          "s1",
+          "w1"
+        ]
+      ],
+      [
+        [
+          "a1",
+          "a2",
+          "a3",
+          "e11",
+          "t1",
+          "t2",
+          "w1"
+        ]
+      ],
+      [
+        [
+          "a1",
+          "a2",
+          "a3",
+          "e11",
+          "t1",
+          "t2",
+          "w1"
+        ]
+      ]
+    ],
+    "selected_local_state_indices": [
+      [
+        6,
+        7
+      ],
+      [
+        6
+      ],
+      [
+        1
+      ],
+      [
+        1
+      ]
+    ],
+    "selected_state_index_sha256": [
+      "946ec11a25d8ec678f5b4ed3ceb77c3f2ff2fbabe01e03070c3cc2f60dc619cb",
+      "fe94b827f0455bee6f4a6a265286f827f18748ede569565ee827058085bad146",
+      "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+      "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22"
+    ]
+  },
+  "payload_sha256": "d38547d5938b135d4c0bb93c6bfaa617bae08a904fa931462b1dad9f526c8e56",
+  "recurrence": {
+    "primary_gap_points": 672800,
+    "primary_structure": "two whole coordinate fibres",
+    "secondary_gap_points": 677840,
+    "secondary_structure": "105 whole Cartesian macrofibres",
+    "third_gap_points": 1666232,
+    "third_structure": "346 proper Cartesian subrectangles; no whole macrofibre"
+  },
+  "row_activation_pair_totals": [
+    {
+      "points": 492704,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 64982,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 167798,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 18918,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 167798,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 18918,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 13784,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 422,
+      "row0": [
+        0,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 178024,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 23506,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 60634,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 6846,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 60634,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 6846,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 4984,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 154,
+      "row0": [
+        0,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 178024,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 23506,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 60634,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 6846,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 60634,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 6846,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 4984,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 154,
+      "row0": [
+        1,
+        0,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 19632,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 2610,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 6690,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 762,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        0,
+        1,
+        1
+      ]
+    },
+    {
+      "points": 6690,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        0
+      ]
+    },
+    {
+      "points": 762,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        0,
+        1
+      ]
+    },
+    {
+      "points": 488,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        0
+      ]
+    },
+    {
+      "points": 18,
+      "row0": [
+        1,
+        1,
+        0
+      ],
+      "row1": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "same_side_boolean_atom_intersections": {
+    "q0_q1_atoms": [
+      418260,
+      224176,
+      451936,
+      571860
+    ],
+    "r0_r1_atoms": [
+      573748,
+      227328,
+      450048,
+      415108
+    ]
+  },
+  "schema": "full-grid-third-gap-cartesian-classification-v2",
+  "schema_version": "2.0",
+  "scope": "exact third-gap census after two fixed repairs; structural factor descriptors are not claimed automorphism orbits",
+  "stage2_closure_rounds": [
+    8,
+    8,
+    109,
+    59,
+    16,
+    16,
+    12,
+    6,
+    0
+  ],
+  "stage2_events": 492,
+  "structural_factor_descriptor_multiplicity_histogram": {
+    "1": 346
+  },
+  "structural_factor_descriptors": 346,
+  "third_failed_cut": {
+    "admissible_lower_cardinality": 2530448,
+    "admissible_lower_sha256": "7dbdda0fa012f3c6ac79c219218ad390ec097c2dfda92b4e0fb427aef8a7c343",
+    "admissible_upper_cardinality": 4196680,
+    "admissible_upper_sha256": "6781f544cbb6307ac1c1a77468b1a69226f6d79f042c1543aa5f2920c6fd558a",
+    "gap_cardinality": 1666232,
+    "gap_sha256": "a25134896b918538c9be7d447f81e7662a1a733213ed30561f716d8cb77fba15",
+    "maximal_lower_bounds": [
+      {
+        "cardinality": 0,
+        "sha256": "890def197cee308b96160e1ae02979ff41f9d072b88064d6b61b36e70c303f8d"
+      }
+    ],
+    "minimal_upper_bounds": [
+      {
+        "cardinality": 4196744,
+        "sha256": "5777826a19400e0abe016b826cebebcb8cf069ed783fb8f68a10e5812671a265"
+      },
+      {
+        "cardinality": 6186436,
+        "sha256": "f4810971db4d3701eb12fd3ec08f139372fb3ec09d1cc5cb6272390f88e21c5b"
+      }
+    ],
+    "x_cardinality": 1907096,
+    "x_sha256": "a219c636c2dbc69b51d25631d9f29804f93e93bd7a74ff1c1c79fb0f882de3bb",
+    "y_cardinality": 1138144,
+    "y_sha256": "607c0a6ec7ae84152cfbcac90feac526258807461ec920d2c4cd5affb4be7675"
+  },
+  "third_gap_macrofibres": 346,
+  "third_repair_added": false,
+  "verifier_sha256": "f9d85275e34ceec76dd1741973f942e90030fa693f2415f948447cd30f7cb210",
+  "whole_macrofibres": 0
+}

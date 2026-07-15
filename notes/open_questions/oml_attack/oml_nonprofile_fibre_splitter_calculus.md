@@ -731,3 +731,31 @@ cells, does not encode the two-row distributed obstruction, and is not a
 counterexample. Maximal blocks and all abstract two-valued states have not
 been classified because no state obstruction is claimed. The next exact gate
 is restoration of the second incident cell sharing row 0. **Open.**
+
+### 8.9 Same-row two-cell inflation
+
+Restore cell 01 as well as cell 00. The exact marginal carrier consists of
+compatible pairs of actual local states `(s00,s01)` sharing `(a0,q0)`, plus
+`q1`, retained precisely when forgotten row-1 cells exist for both column
+values. It has `9928` points. All 224 local states occur in each coordinate,
+and the complete inclusion tables of both 56-event cells are reflected, so
+both cell embeddings are faithful. **Executable verified.**
+
+For the same cell-00-definable node-6 split, complement/orthogonal-union
+closure has `18554` events. The old terminal remains a sublattice and every
+pair involving one of 122 new events has a principal common upset generated
+by an event: `2263588` pairs checked. The result is a centre-free concrete
+OML. The defect join remains least, its hull and residue remain absent,
+neither same-side boundary is reconstructed, and no nonzero event is
+supported inside the shared row-0 activation cylinder. **Executable
+verified** by
+`notes/open_questions/verification/full_grid_terminal_split_two_cell_quotient.py`,
+payload
+`2764d6479dabd33c5eca555f80fbbca1233ce641961437b20ab512507a86d06c`.
+
+Thus the complete same-row conditional pair does not collapse the splitter.
+It enforces both activated implications `q0=r0` and `q0=r1` in the restored
+cell images while retaining distributed nonreconstruction. The finite OML is
+still `Phi`-tame and existentially quotients row 1. The first genuinely
+transverse gate is cell 10, which shares `r0` with cell 00 and introduces the
+second activation pattern and `q1`. **Open.**

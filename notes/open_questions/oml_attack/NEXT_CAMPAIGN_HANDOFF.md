@@ -17,11 +17,11 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** extend the exact node-6/cell-00 quotient by cell 01,
-   retaining local states `(s00,s01)` with their shared row activation and
-   `q`, plus exact existence of compatible row-1 states. Close incrementally
-   and repeat residue, activation, boundary, sublattice, cross-cut, and centre
-   audits. The one-cell rung already passes as a centre-free OML.
+7. **First action:** construct the transverse two-cell quotient for cells 00
+   and 10: retain `(s00,s10,r1)` with shared `r0` and exact existence of cells
+   01/11. Use the same generating cell-00 split. Audit both row activation
+   cylinders, defect, boundaries, lattice, and centre, then compare with the
+   passing same-row pair before deciding whether to build the three-cell rung.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a
@@ -49,6 +49,10 @@ The first genuine coupling also survives: the exact 892-point one-cell
 quotient is a centre-free 18496-event OML with the defect and activation
 escape intact. It is finite and `Phi`-tame. Do not rerun the 6.2-million-point
 bitset closure; use quotient state variables and incremental closure.
+
+The same-row pair survives too: 9928 points, 18554 events, centre-free OML,
+two faithful cell embeddings, persistent defect and activation escape. Do not
+repeat same-row variants; transverse cell 10 is the discriminating test.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

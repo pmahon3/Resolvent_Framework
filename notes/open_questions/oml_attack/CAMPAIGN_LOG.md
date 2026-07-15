@@ -2401,3 +2401,19 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** restore cell 01, which shares row-0 activation and `q` but carries
   the other column coordinate, and repeat residue/lattice/centre gates before
   attempting row 1.
+
+### Iteration 254 — centre-free same-row pair
+- **Construction:** the exact node-6 marginal with faithful cell-00 and
+  cell-01 embeddings has `9928` points and closes to `18554` events. Every
+  one of the 224 local states occurs in both coordinates and both cell order
+  tables are reflected. **Executable verified.**
+- **Structural gates:** all `2263588` pairs involving the 122 new events pass
+  the principal-upset join audit; old joins persist; centre is `{0,1}`;
+  point evaluations separate. The PJH hull/residue remain absent, neither
+  boundary reconstructs, and row-0 activation escape holds. **Executable
+  verified**, payload
+  `2764d6479dabd33c5eca555f80fbbca1233ce641961437b20ab512507a86d06c`.
+- **Theorem extraction:** an entire same-row pair of conditional cells can
+  coexist with a centre-free terminal splitter OML. Same-row coupling is not
+  the missing collapse mechanism. The transverse cell-10 coupling is the
+  smallest next discriminating gate.

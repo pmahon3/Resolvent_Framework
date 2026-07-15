@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Restore cell 01 over the centre-free node-6/cell-00 quotient and repeat exact residue, activation, boundary, lattice, and centre audits."
+   "current_next_step": "Construct the transverse cells-00/10 quotient and audit both activation cylinders, defect persistence, boundaries, latticehood, and centre."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "centre-free-one-cell-pjh-control",
-   "one_line": "An exact 892-point one-cell inflation is a centre-free OML preserving the PJH defect and activation escape; the second same-row cell is the next finite gate.",
+   "status": "centre-free-same-row-pjh-control",
+   "one_line": "An exact 9928-point same-row two-cell inflation is a centre-free OML preserving the PJH defect and activation escape; transverse coupling is the next finite gate.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

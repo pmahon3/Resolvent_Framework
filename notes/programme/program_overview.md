@@ -689,6 +689,11 @@ defect, both distributed boundary gaps, and row-0 activation escape. It is
 finite and therefore `Phi`-tame; the second same-row cell is now the live
 coupling test.
 
+The full same-row pair also survives: its exact 9928-point marginal is a
+centre-free 18554-event OML with two faithful cell embeddings. Consequently
+the remaining finite pressure is transverse, beginning with cell 10 and the
+second activation pattern, rather than repeated sharing along one row.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

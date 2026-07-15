@@ -217,14 +217,18 @@
   nonreconstruction conditions, and row-0 activation escape all persist.
   Thus essential irreducibility plus one cell is not a collapse theorem; the
   finite control remains `Phi`-tame.
+- Restoring the complete same-row pair (cells 00 and 01) also succeeds: the
+  exact 9928-point marginal is a centre-free 18554-event OML preserving the
+  defect, both boundary gaps, and shared row-0 activation escape. Same-row
+  coupling is therefore closed as a collapse route.
 
 ## Next automatic pivot
 
-Restore the second incident cell (cell 01) over the node-6 one-cell quotient.
-It shares row-0 activation and `q` while introducing the other `r` incidence.
-Test residue extraction, activation, exact cross-cut extremality, centre, and
-boundary reconstruction. Only after this two-cell rung should row 1 or the
-three root multi-fibre defects be attacked. Do not promote the finite
-one-cell OML to a `Phi` counterexample.
+Restore transverse cell 10 over the node-6/cell-00 control, or equivalently
+extend the same-row pair by cell 10 if resources permit. This introduces row
+1's activation and `q1` while sharing `r0`. Compare it explicitly with the
+passing same-row pair. Test both activation cylinders, residue extraction,
+cross-cut extremality, centre, and boundaries before adding cell 11. Do not
+promote either finite marginal to a `Phi` counterexample.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

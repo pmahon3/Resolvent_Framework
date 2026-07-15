@@ -369,6 +369,12 @@ same-side boundaries unreconstructed, and the node-6 PJH defect intact. Thus
 essential irreducibility plus one conditional cell is insufficient. The
 finite OML is `Phi`-tame and omits three cells; cell 01 is the next gate.
 
+Cell 01 also passes. The exact same-row marginal has 9928 points, faithfully
+embeds both 56-event cells, and closes to a centre-free 18554-event concrete
+OML. The PJH defect, both boundary gaps, and row-0 activation escape persist.
+Same-row coupling is therefore not the collapse mechanism. Transverse cell
+10, which introduces row-1 activation through shared `r0`, is next.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

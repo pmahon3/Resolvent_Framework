@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — a centre-free one-cell conditional inflation preserves a first PJH defect and activation escape; the second-cell, full-grid, and larger-carrier gates remain open.",
+   "status": "OPEN — a centre-free same-row two-cell inflation preserves a first PJH defect and activation escape; transverse, full-grid, and larger-carrier gates remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 101
   },

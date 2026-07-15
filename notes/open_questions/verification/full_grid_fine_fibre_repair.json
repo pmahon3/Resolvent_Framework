@@ -1,0 +1,213 @@
+{
+  "ambiguous_coordinate_fibres": {
+    "0110": {
+      "activation_pair_classes": 49,
+      "points": 336400,
+      "smallest_class": 64,
+      "unique_smallest_class_activation_pair": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "unique_smallest_class_points": 64
+    },
+    "1001": {
+      "activation_pair_classes": 49,
+      "points": 336400,
+      "smallest_class": 64,
+      "unique_smallest_class_activation_pair": [
+        [
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          0
+        ]
+      ],
+      "unique_smallest_class_points": 64
+    }
+  },
+  "ambiguous_gap_points": 672800,
+  "base_closure_rounds": [
+    32,
+    0
+  ],
+  "base_events": 230,
+  "carrier_points": 6186568,
+  "command": "python3 notes/open_questions/verification/full_grid_fine_fibre_repair_audit.py --verify",
+  "dependency_sha256": "1b72ff14226576e6e53d2800bf2135d962ceda915d0a1a5bb658f8a0790ad7ac",
+  "payload_sha256": "47e6e56c5db547938663a533331cd0a249edc20987fa3b54378dcd1469ea3770",
+  "raw_events": 198,
+  "schema": "full-grid-whole-activation-pair-macrofibre-repair-v2",
+  "schema_version": "2.0",
+  "scope": "two smallest whole activation-pair-macrofibre repair choices; not exhaustive over unions or subsets of macrofibres",
+  "variants": [
+    {
+      "activation_cylinders_are_not_events": [
+        true,
+        true
+      ],
+      "both_rows_activated_coordinate_relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "closure_rounds": [
+        4,
+        4,
+        20,
+        12,
+        10,
+        10,
+        5,
+        5,
+        4,
+        4,
+        0
+      ],
+      "events": 310,
+      "every_nonzero_event_has_off_cylinder_point": [
+        true,
+        true
+      ],
+      "first_next_cut": {
+        "admissible_gap_points": 940900,
+        "admissible_lower_cardinality": 1810880,
+        "admissible_lower_sha256": "d91be74b0fe131e0b14b8dabc70cf38d1b7a578a1de1798a0df0822dd58d88b8",
+        "admissible_upper_cardinality": 2751780,
+        "admissible_upper_sha256": "1815588c1d0d1d9544eded6e3821b1dc3c6c894b545181747b232bea8e97d34e",
+        "maximal_lower_bound_cardinalities": [
+          0
+        ],
+        "maximal_lower_bounds_sha256": [
+          "890def197cee308b96160e1ae02979ff41f9d072b88064d6b61b36e70c303f8d"
+        ],
+        "minimal_upper_bound_cardinalities": [
+          3429620,
+          3093284
+        ],
+        "minimal_upper_bound_original_labels": [
+          null,
+          "e01@00+e00@00"
+        ],
+        "minimal_upper_bounds_sha256": [
+          "13c87e872a8cf979c095b90ec16bedd9a2f289b1a64b9476636ebbf7a5319697",
+          "6a183d1c8483662b7512f0c5becfbb192a37af6750ff8d046c880c429637dfd2"
+        ],
+        "x_cardinality": 1138144,
+        "x_original_label": "e01@01",
+        "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+        "y_cardinality": 1474480,
+        "y_original_label": null,
+        "y_sha256": "91d763362229d18a9c47a815cb40965d2edf8b3c9f56d583fd8c6a5d3b9faf76"
+      },
+      "lattice": false,
+      "name": "one-sided-0110-64",
+      "no_nonzero_event_is_subset_of_activation_cylinder": [
+        true,
+        true
+      ],
+      "original_crossed_pair_join_sha256": "83ab026e994dd4dacc9ef956b11e223a339a69391b98562c947dad9e50f108d1",
+      "original_crossed_pair_post_closure_unique_join": true,
+      "q0_q1_boundary_reconstructed": false,
+      "r0_r1_boundary_reconstructed": false,
+      "repair_sha256": "83ab026e994dd4dacc9ef956b11e223a339a69391b98562c947dad9e50f108d1",
+      "selected_optional_points": 64
+    },
+    {
+      "activation_cylinders_are_not_events": [
+        true,
+        true
+      ],
+      "both_rows_activated_coordinate_relation": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ],
+      "closure_rounds": [
+        4,
+        4,
+        12,
+        4,
+        0
+      ],
+      "events": 256,
+      "every_nonzero_event_has_off_cylinder_point": [
+        true,
+        true
+      ],
+      "first_next_cut": {
+        "admissible_gap_points": 677840,
+        "admissible_lower_cardinality": 1138272,
+        "admissible_lower_sha256": "0835372bc069b8fa5ed2f9f1b113176a33e3c8890c549d4d788a066ea3cfa9d9",
+        "admissible_upper_cardinality": 1816112,
+        "admissible_upper_sha256": "e7e2fcdfa315dd791435cbc5c0405b1dd96c2c89dab0d8736c830d8f8a708a7e",
+        "maximal_lower_bound_cardinalities": [
+          0
+        ],
+        "maximal_lower_bounds_sha256": [
+          "890def197cee308b96160e1ae02979ff41f9d072b88064d6b61b36e70c303f8d"
+        ],
+        "minimal_upper_bound_cardinalities": [
+          1940016,
+          5048424
+        ],
+        "minimal_upper_bound_original_labels": [
+          null,
+          "t1@01+s1@01"
+        ],
+        "minimal_upper_bounds_sha256": [
+          "2841e5966be11b73b42f2b099a500cc290b208ee3f9b2e5934a120b5ae955472",
+          "0a5ed81be70e65adbd7b2bad645e6615de774173ebf6656e5a2aef2d9bda359c"
+        ],
+        "x_cardinality": 1138144,
+        "x_original_label": "e01@01",
+        "x_sha256": "735e7280c0da4e782e678d213fce1330fc8590e46a7817778c12bfc3b30e91fc",
+        "y_cardinality": 801872,
+        "y_original_label": null,
+        "y_sha256": "ba8a5518761b1c16124ec4ca803c3678ecf4071fe6d756433fa6313902acb4f0"
+      },
+      "lattice": false,
+      "name": "symmetric-128",
+      "no_nonzero_event_is_subset_of_activation_cylinder": [
+        true,
+        true
+      ],
+      "original_crossed_pair_join_sha256": "2841e5966be11b73b42f2b099a500cc290b208ee3f9b2e5934a120b5ae955472",
+      "original_crossed_pair_post_closure_unique_join": true,
+      "q0_q1_boundary_reconstructed": false,
+      "r0_r1_boundary_reconstructed": false,
+      "repair_sha256": "2841e5966be11b73b42f2b099a500cc290b208ee3f9b2e5934a120b5ae955472",
+      "selected_optional_points": 128
+    }
+  ],
+  "verifier_sha256": "024c8cadd77e0005661d0453405742a5326d99c284cff19b3cc66ae026ece1c4"
+}

@@ -17,11 +17,12 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** formalize the coupled-residue-square constraints from
-   Theorem 8.1 with the four edge-cell algebras and one necessary non-profile
-   join. Prove either singleton/activation collapse or the exact additional
-   within-fibre data required for residue-shadow lifting. Separately test
-   intrinsic recognizability of the four cell copies in the 558-event family.
+7. **First action:** replay the finite `P(16)` forcing DAG and list its
+   saturated failed-pair orbits. For each, test the exact conditional theorem
+   that every terminal full-grid join has an event-valued existential profile
+   hull. Proving all instances yields PJH/reconstruction; the first failure
+   specifies the coupled hull-defect architecture. Separately test intrinsic
+   recognizability of the four cell copies in the 558-event family.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a
@@ -33,6 +34,8 @@ interval. Do not add it merely to increase repair depth.
 
 The 32 ternary residue-shadow entries are necessary but not a complete CSP;
 do not enumerate them as if finite consistency implied an actual terminal.
+The six-event `MO2` control closes all arguments from bare residue-square
+identities. Any collapse proof must use edge coupling or PJH-type hull data.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

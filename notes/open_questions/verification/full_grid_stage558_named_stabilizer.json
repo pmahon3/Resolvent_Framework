@@ -17,6 +17,28 @@
   "macrofibre_action": {
     "all_pieces_fixed_setwise": false,
     "distinct_permutations": 4,
+    "element_cycle_counts": [
+      {
+        "cycles": 160,
+        "element": "R0C0K0A00",
+        "fixed_subsets": "1461501637330902918203684832716283019655932542976"
+      },
+      {
+        "cycles": 116,
+        "element": "R0C0K0A01",
+        "fixed_subsets": "83076749736557242056487941267521536"
+      },
+      {
+        "cycles": 116,
+        "element": "R0C0K0A10",
+        "fixed_subsets": "83076749736557242056487941267521536"
+      },
+      {
+        "cycles": 96,
+        "element": "R0C0K0A11",
+        "fixed_subsets": "79228162514264337593543950336"
+      }
+    ],
     "orbit_size_histogram": {
       "1": 32,
       "2": 40,
@@ -24,7 +46,8 @@
     },
     "orbits": 84,
     "permutation_sha256": "8921962254cc81afc560dc4d6e92f85de8831e7a101d8954328a7b8424152578",
-    "pieces": 160
+    "pieces": 160,
+    "saturated_subset_orbits_burnside": "365375409332767267945596527428665083283002884096"
   },
   "missing_faithfulness_theorem": "every gate/provenance-preserving concrete automorphism of the 558-event set system induces one of the 32 named semantic descriptor transformations",
   "named_equals_full_gate_preserving_stabilizer": "open",
@@ -46,8 +69,8 @@
   },
   "named_root_descriptor_action_is_faithful": true,
   "named_root_group_order": 32,
-  "payload_sha256": "60105465ceb7efdbecab37d3e89e3c50ffcc4ab46e5067c7008fcbaaa218411a",
-  "producer_sha256": "5a09e4ab2b6cce94dc41904e013b104d63ceea76816ac8bea525a0b05c5c48a7",
+  "payload_sha256": "90034307105591ccb92801b57d2d922e97bcd59d0701b1abbd93d000e18a2c72",
+  "producer_sha256": "4695de7db7167afa1f1b86b11ba90fcf2a74e67903f3666bebee566688eeaaec",
   "schema": "full-grid-stage558-named-stabilizer-v1",
   "schema_version": "1.0",
   "scope": "exact action of the stated named 32-element semantic group on macro descriptors and its exact stabilizer; not the full 6M-point concrete automorphism group",

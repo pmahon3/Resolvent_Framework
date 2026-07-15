@@ -173,7 +173,7 @@ This is a theorem-extraction boundary, not a claim that T-FIN is true.
 
 | Gate | Current status | Evidence | Remaining obligation |
 |---|---|---|---|
-| Repair grammar | Exact one-interval normal form plus necessary 32-entry terminal residue signature; no sufficient lifting grammar | Identities **Hand proved**; decompositions **Executable verified** | Prove residue-shadow lifting or coupled-square collapse |
+| Repair grammar | Necessary residue signature; bare-square collapse refuted; PJH is a sufficient hull grammar | Identities/PJH **Hand proved**; controls **Executable verified** | Prove certificate-local PJH or classify its first nonevent hull |
 | Latticehood | 558-event selected stage is a nonlattice; unrestricted terminals exist abstractly | Stage **Executable verified**; termination **Hand proved** | Exhibit and audit a gate-avoiding terminal or prove all terminals hit A/B |
 | Orthomodularity | Automatic for every complement/disjoint-union-closed terminal lattice | **Hand proved** | Applies only after latticehood |
 | Same-side boundary preservation | Preserved through three selected repairs | **Executable verified**, one chain only | Prove preservation at a terminal or prove reconstruction unavoidable |

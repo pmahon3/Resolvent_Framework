@@ -655,6 +655,12 @@ necessary descriptor: coherent lifting of within-fibre subsets, or a theorem
 forcing collapse when the two squares couple through the edge cells, remains
 open.
 
+The minimal bare square is the six-event `MO2` set OML, so its identities
+alone cannot collapse. Profile-join-hull closure (PJH) is sufficient: it makes
+the saturated events a concrete `P(16)` completion and forces reconstruction.
+The current exact computation is therefore certificate-local PJH along the
+finite stripped-core forcing DAG.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

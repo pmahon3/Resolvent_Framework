@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Prove residue-shadow lifting or coupled-residue-square collapse using both same-side squares, the four edge-cell algebras, and one necessary non-profile join; also test intrinsic recognition of the four cell copies."
+   "current_next_step": "Test certificate-local profile-join-hull closure along the finite P(16) forcing DAG; prove all hulls forced or retain the first nonevent-hull architecture, while testing intrinsic recognition of the four cell copies."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -730,8 +730,8 @@
   {
    "id": "oml.open.nonprofile_splitter_incidence",
    "name": "Non-profile fibre-splitter incidence",
-   "status": "necessary-terminal-residue-architecture-lifting-open",
-   "one_line": "Every preserving terminal carries two four-residue squares and a non-profile join; their 32 ternary traces are necessary, while coherent shadow lifting versus coupled-square collapse is open.",
+   "status": "terminal-residue-architecture-pjh-open",
+   "one_line": "Bare residue squares do not collapse, but profile-join-hull closure forces a P(16) completion and reconstruction; a preserving terminal must sustain a certificate-relevant nonevent hull.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],

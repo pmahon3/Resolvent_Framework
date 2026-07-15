@@ -325,6 +325,14 @@ The named stage-558 provenance stabilizer has order four and 84 orbits on the
 cell-level automorphisms under the relevant colours. Full-grid promotion still
 requires intrinsic recognition of the four embedded cell copies.
 
+Bare residue-square collapse is refuted by the carrier-minimal six-event
+`MO2` control. A sharper sufficient condition survives: if joins of saturated
+events have event-valued existential profile hulls (PJH), saturated events
+form an OML quotient on the sixteen profiles, so the exhaustive core theorem
+forces a same-side boundary. Any preserving terminal must fail PJH. The next
+exact test is certificate-local hull eventhood along the finite `P(16)`
+forcing DAG, not another selected repair.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

@@ -106,6 +106,16 @@ def payload():
     ordered = sorted(gap_desc)
     index = {d:i for i,d in enumerate(ordered)}
     perms = [tuple(index[transform_desc(d,g)] for d in ordered) for g in live]
+    def cycle_count(p):
+        unseen=set(range(len(p)));count=0
+        while unseen:
+            count+=1;i=next(iter(unseen))
+            while i in unseen:
+                unseen.remove(i);i=p[i]
+        return count
+    subset_fixed=[2**cycle_count(p) for p in perms]
+    subset_orbits=sum(subset_fixed)//len(perms)
+    assert sum(subset_fixed)%len(perms)==0
     unseen=set(range(160)); orbits=[]
     while unseen:
         i=min(unseen); orb={p[i] for p in perms}; unseen-=orb; orbits.append(sorted(orb))
@@ -143,6 +153,9 @@ def payload():
         "orbits":len(orbits),"orbit_size_histogram":{
           str(s):sum(len(o)==s for o in orbits) for s in sorted({len(o) for o in orbits})},
         "all_pieces_fixed_setwise":all(len(o)==1 for o in orbits),
+        "element_cycle_counts":[{"element":name(g),"cycles":cycle_count(p),
+          "fixed_subsets":str(2**cycle_count(p))} for g,p in zip(live,perms)],
+        "saturated_subset_orbits_burnside":str(subset_orbits),
         "permutation_sha256":hashlib.sha256(json.dumps(perms,separators=(",",":")).encode()).hexdigest()},
       "named_equals_full_gate_preserving_stabilizer":"open",
       "missing_faithfulness_theorem":"every gate/provenance-preserving concrete automorphism of the 558-event set system induces one of the 32 named semantic descriptor transformations",

@@ -617,3 +617,10 @@ singletons and triples. The resulting 32 ternary meet traces are necessary
 but not known sufficient. The frontier is residue-shadow lifting versus a
 coupled-square collapse theorem using the four edge cells and a required
 non-profile join.
+
+Bare residue identities are insufficient, witnessed minimally by the
+six-event `MO2` set OML. The sharp current sufficient condition is
+profile-join-hull closure: if the existential profile hull of every saturated
+pair's join is an event, the saturated subfamily is a `P(16)` OML and the
+finite reconstruction theorem applies. A preserving terminal must sustain a
+nonevent hull on a certificate-relevant saturated pair.

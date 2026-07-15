@@ -2293,3 +2293,25 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Boundary:** the 32 ternary meet-trace symbols are a necessary finite
   descriptor, not a proved complete CSP. Residue-shadow lifting or a coupled
   residue-square collapse theorem is **Open**.
+
+### Iteration 245 — exact symmetry-exhaustion count
+- **Result:** Burnside's lemma applied to the order-four named stabilizer gives
+  `365375409332767267945596527428665083283002884096` orbits of saturated
+  subsets. Element cycle counts are 160, 116, 116, and 96. **Executable
+  verified** with **Hand proved** Burnside reduction. Symmetry leaves a
+  48-digit search and does not rescue enumeration.
+
+### Iteration 246 — minimal residue-square control
+- **Countermodel:** the six-event `MO2` set OML on four points realizes one
+  full residue square with event rows, columns, and total but no event
+  singleton, triple, or diagonal. It is carrier-minimal when all four residues
+  are required nonempty. **Hand proved** and hostile reviewed. Bare residue
+  identities cannot force collapse.
+
+### Iteration 247 — profile-join-hull closure
+- **Theorem:** if every join of saturated events has an event-valued
+  existential profile hull (PJH), then saturated events form a concrete OML;
+  the exhaustive `P(16)` theorem forces same-side reconstruction. **Hand
+  proved** over the **Executable verified** finite core and hostile reviewed.
+  Any preserving terminal must therefore exhibit a saturated pair whose
+  join hull is a nonevent. PJH for arbitrary terminals is **Open**.

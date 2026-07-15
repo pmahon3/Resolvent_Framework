@@ -192,15 +192,19 @@
   column, and total unions are events but whose singleton and triple unions
   are not. Their 32 ternary meet traces are necessary data, not yet a
   complete terminal grammar.
+- Bare residue identities do not collapse: the carrier-minimal six-event
+  `MO2` square is an exact control. By contrast PJH—eventhood of existential
+  profile hulls of joins of saturated events—forces a profile OML and hence
+  same-side reconstruction.
 
 ## Next automatic pivot
 
-Attack the coupled-residue-square alternative: either prove that the two
-terminal residue squares, four edge-cell algebras, and one required
-non-profile join force a residue singleton event or activation event, or
-prove a residue-shadow lifting theorem producing coherent within-fibre
-subsets. In parallel, test intrinsic recognizability of the four cell copies
-to promote the named stabilizer. Do not enumerate the `2^160` saturated
-subclass or continue arbitrary selected depth.
+Attack terminal PJH at the finite certificate-local level: for every
+saturated failed pair used by the exhaustive `P(16)` forcing DAG, determine
+whether a terminal full-grid join must have an event-valued existential hull.
+PJH gives reconstruction; its first forced failure gives the exact coupled
+hull-defect architecture. In parallel, test intrinsic recognizability of the
+four cell copies. Do not enumerate saturated subsets or continue arbitrary
+selected depth.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

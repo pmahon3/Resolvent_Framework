@@ -327,7 +327,7 @@ the 160 pieces: 32 singleton, 40 size-two, and 12 size-four orbits.
 **Executable verified** by
 `notes/open_questions/verification/full_grid_stage558_named_stabilizer.py`,
 payload
-`60105465ceb7efdbecab37d3e89e3c50ffcc4ab46e5067c7008fcbaaa218411a`.
+`90034307105591ccb92801b57d2d922e97bcd59d0701b1abbd93d000e18a2c72`.
 The script verifies the named atom permutations on all 224 cell states and
 the stated descriptor action; it is not an independent construction of the
 carrier.
@@ -357,6 +357,18 @@ must every gate/provenance-preserving automorphism of the 558-event family
 preserve or named-permute its four embedded 56-event cell subfamilies? This is
 **Open**; an emergent global automorphism could still violate the named-group
 model.
+
+Burnside's lemma makes the computational conclusion exact. The four named
+stabilizer elements have 160, 116, 116, and 96 cycles on the pieces, so their
+action on all saturated subsets has
+
+\[
+365375409332767267945596527428665083283002884096
+\]
+
+orbits. **Executable verified** by the same receipt; the Burnside division is
+**Hand proved**. Named symmetry therefore leaves a 48-digit quotient and does
+not rescue saturated-subclass enumeration.
 
 The already banked fourth-gap control does not supply that test. Every one
 of its 116 nonempty macrofibre intersections has `q0=1` (profiles `1000`,
@@ -442,3 +454,66 @@ alternative is a coupled-residue-square theorem: the two residue squares,
 the four edge-cell algebras, and one required non-profile join force either a
 residue singleton event (gate A) or an activation-supported event (gate B).
 Both statements are **Open**; bare line-union identities do not imply either.
+
+### 8.1 Minimal bare residue-square countermodel
+
+The failure of bare residue identities to collapse is exact and minimal. Let
+`Omega={00,01,10,11}` and take
+
+\[
+ E=\{\varnothing,\Omega,R_0,R_1,C_0,C_1\},
+\]
+
+where `R_i` and `C_j` are the two rows and two columns. Ordered by inclusion
+with set complement, this is the six-element horizontal sum `MO2`: distinct
+noncomplementary line events have lattice meet zero and join one. It is a
+concrete complement/disjoint-union-closed orthomodular lattice. Its four
+residues are the singleton intersections `R_i cap C_j`, none of which is an
+event; all row and column pairs and the total are events, while singleton,
+triple, and diagonal residue unions are not.
+
+**Hand proved.** Closure and all extrema follow from the displayed six-set
+inclusion order. Minimality is cardinal: four nonempty disjoint residues
+require at least four carrier points, and on four points the required line
+events give this model up to relabelling. Thus no theorem using only one
+residue square's identities can force gate A or B. The next theorem must use
+the coupling of both squares through the four edge Boolean algebras and a
+non-profile join; profile-measurable coupling alone is already closed by the
+exhaustive `P(16)` reconstruction theorem.
+
+### 8.2 Profile-join-hull closure theorem
+
+There is a clean coupling axiom strictly weaker than requiring non-profile
+joins themselves to be profile-measurable. For the profile map `pi`, define
+the existential fibre hull
+
+\[
+ H(z)=\pi^{-1}\{p:z\cap\pi^{-1}(p)\ne\varnothing\}.
+\]
+
+**PJH:** for every two `pi`-saturated events `a,b`, the hull
+`H(a join_T b)` is an event.
+
+**Theorem 8.2.** Every same-carrier terminal satisfying PJH reconstructs
+`Bool(q0,q1)` or `Bool(r0,r1)` and therefore fires gate A. **Hand proved**
+over the separately **Executable verified** exhaustive `P(16)` completion
+theorem.
+
+Indeed, saturated events are closed under complement and orthogonal union.
+For saturated `a,b`, put `z=a join_T b`. The PJH event `H(z)` is saturated,
+contains `a,b`, and is contained in every saturated upper bound `u`: leastness
+gives `z subseteq u`, and saturation of `u` gives `H(z) subseteq u`. Thus the
+saturated events form a complement/disjoint-union-closed lattice, hence a
+concrete OML. Quotienting its fibres by `pi` gives an OML subfamily of
+`P(16)` containing the four edge Boolean algebras. The exhaustive core theorem
+reconstructs one same-side Boolean algebra, whose pulled-back cylinders are
+events of `T`.
+
+PJH is **Open** for arbitrary terminals and is false as an automatic
+nonterminal closure property: the stage-558 hull audit already contains
+joins for which the relevant hull is absent. A gate-A/B-avoiding terminal
+must fail PJH on at least one saturated pair. The certificate-local next test
+is not another repair depth: replay the finite `P(16)` forcing DAG and, for
+each saturated failed pair it uses, determine whether every corresponding
+full-grid join has an event-valued existential hull. The first failure is the
+exact hull-defect architecture a preserving terminal must sustain.

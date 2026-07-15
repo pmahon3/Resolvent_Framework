@@ -2381,3 +2381,23 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   are highly reducible and omit the conditional-cell/activation events. The
   next gate is whether restoring those couplings forces reconstruction or
   activation, or destroys the centre while preserving the defect.
+
+### Iteration 253 — centre-free one-cell inflation
+- **Construction:** node 6's terminal split core was inflated by all 56 events
+  of actual conditional cell 00 on an exact 892-point quotient. Closure has
+  `18496` events. **Executable verified.** The quotient retains exactly the
+  predicates used at this coupling rung; it is not the full four-cell grid.
+  Payload `e65582f3540cea22df3c4c0fed4e9400a044f7b54b32a591031dc16ce2bd2abb`.
+- **Structural gates:** exact principal-upset audit proves latticehood for all
+  pairs; orthomodularity follows by the set-lattice lemma. Centre is `{0,1}`;
+  point evaluations order-separate; neither boundary is reconstructed; no
+  nonzero event lies in row 0's activation cylinder. The PJH residue and hull
+  remain absent and the designated join persists. **Executable verified**;
+  the generator-commutant centre reduction is **Hand proved**.
+- **Refutation:** essential irreducibility plus one genuine conditional cell
+  does not collapse a one-fibre PJH defect. This finite OML is nevertheless
+  `Phi`-tame and lacks three grid cells, so it is a construction control, not
+  an admissible counterexample to `Phi`.
+- **Pivot:** restore cell 01, which shares row-0 activation and `q` but carries
+  the other column coordinate, and repeat residue/lattice/centre gates before
+  attempting row 1.

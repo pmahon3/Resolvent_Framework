@@ -17,12 +17,11 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** use one of the four isomorphic terminal split controls
-   (nodes `6,12,19,37`) as a profile skeleton and restore the omitted
-   conditional-cell events in provenance order. Test the first coupling that
-   destroys the `B_9 x MO2^2` product: does it reconstruct a side, create an
-   activation event, lose latticehood, or preserve the defect with smaller
-   centre? Do not complete the other twenty-six profile-only cores first.
+7. **First action:** extend the exact node-6/cell-00 quotient by cell 01,
+   retaining local states `(s00,s01)` with their shared row activation and
+   `q`, plus exact existence of compatible row-1 states. Close incrementally
+   and repeat residue, activation, boundary, sublattice, cross-cut, and centre
+   audits. The one-cell rung already passes as a centre-free OML.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a
@@ -45,6 +44,11 @@ Profile-only splitter collapse is refuted: four seventeen-point terminal OML
 controls preserve the defect and both boundaries. They are highly reducible
 (`centre=2048`) and lack cell/activation structure, so they are controls, not
 admissible counterexamples.
+
+The first genuine coupling also survives: the exact 892-point one-cell
+quotient is a centre-free 18496-event OML with the defect and activation
+escape intact. It is finite and `Phi`-tame. Do not rerun the 6.2-million-point
+bitset closure; use quotient state variables and incremental closure.
 
 **Decision route:** inconclusive theorem extraction. Stop signal E has been
 reached because `2^672800` root candidates and a provably non-Markov gap

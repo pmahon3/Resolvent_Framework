@@ -683,6 +683,12 @@ binary defects. All four are the same reducible product
 latticehood, but not yet through essential irreducibility or the original
 conditional-cell couplings. Those couplings are now the decisive finite gate.
 
+One full conditional cell can in fact be restored without collapse. The exact
+892-point quotient closes to a centre-free 18496-event OML retaining the PJH
+defect, both distributed boundary gaps, and row-0 activation escape. It is
+finite and therefore `Phi`-tame; the second same-row cell is now the live
+coupling test.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

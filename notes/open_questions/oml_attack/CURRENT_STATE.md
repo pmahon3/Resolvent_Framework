@@ -362,6 +362,13 @@ twenty-six initial closures remain nonlattices. Profile-only collapse is
 false, but the surviving controls are not admissible and omit the original
 conditional-cell couplings. Restoring those couplings is the next gate.
 
+The first physical coupling rung also survives. Restoring every event of cell
+00 on an exact 892-point quotient gives an 18496-event concrete OML with
+trivial centre, separating point evaluations, row-0 activation escape, both
+same-side boundaries unreconstructed, and the node-6 PJH defect intact. Thus
+essential irreducibility plus one conditional cell is insufficient. The
+finite OML is `Phi`-tame and omits three cells; cell 01 is the next gate.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

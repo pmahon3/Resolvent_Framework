@@ -212,16 +212,19 @@
   nonevent hull, refuting profile-only collapse. All four are the reducible
   control `B_9 x MO2 x MO2` with centre size `2048`; they are not admissible
   counterexamples and contain no conditional-cell activation structure.
+- Restoring all events of one actual conditional cell yields an exact
+  892-point, 18496-event centre-free concrete OML. The defect, both boundary
+  nonreconstruction conditions, and row-0 activation escape all persist.
+  Thus essential irreducibility plus one cell is not a collapse theorem; the
+  finite control remains `Phi`-tame.
 
 ## Next automatic pivot
 
-Lift one of the four isomorphic terminal split-profile controls back through
-the full conditional-cell incidence data and test the first omitted cell
-couplings. Determine whether those couplings force boundary reconstruction or
-activation, or break the large centre while preserving the defect. This is
-more discriminating than completing the twenty-six remaining profile-only
-nonlattices. Treat the three root multi-fibre defects only if the coupled
-one-fibre test closes. Do not promote the reducible profile control to an
-admissible counterexample.
+Restore the second incident cell (cell 01) over the node-6 one-cell quotient.
+It shares row-0 activation and `q` while introducing the other `r` incidence.
+Test residue extraction, activation, exact cross-cut extremality, centre, and
+boundary reconstruction. Only after this two-cell rung should row 1 or the
+three root multi-fibre defects be attacked. Do not promote the finite
+one-cell OML to a `Phi` counterexample.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

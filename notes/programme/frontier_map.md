@@ -648,3 +648,9 @@ That split-core test produced four terminal profile OMLs, all isomorphic to
 profile-only collapse is false; their 2048-event centre and absence of
 conditional-cell events exclude them from the admissible class. The live
 test is restoration of the omitted cell couplings.
+
+The first coupling rung succeeds: adjoining all 56 events of cell 00 on an
+exact quotient produces a centre-free 18496-event concrete OML without
+repairing the PJH hull, reconstructing either boundary, or creating a row-0
+activation event. The finite control is `Phi`-tame. The decisive next finite
+gate is cell 01, the second cell sharing row 0.

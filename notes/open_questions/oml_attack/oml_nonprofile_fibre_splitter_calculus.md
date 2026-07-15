@@ -691,3 +691,43 @@ centre and lacks the conditional-cell events. Any useful collapse theorem
 must use essential irreducibility or the omitted non-profile cell couplings.
 Whether adjoining those couplings destroys, repairs, or decentralizes a
 survivor remains **Open**.
+
+### 8.8 Exact one-cell inflation
+
+For node `6`, split profile `1111` by the smallest nontrivial trace of an
+actual cell-00 event that contains an off-row-0-activation point. Quotient the
+physical carrier only by information invisible to the node-6 profile core and
+cell 00. The resulting exact carrier has `892` points: one of the 224 local
+cell states together with the remaining shared `q1,r1` bits, subject to exact
+existence of compatible states in the other cells. This quotient preserves
+all profile-core events, all 56 cell-00 events, inclusions, disjointness, and
+the chosen split trace. **Hand proved** from the compatible fibre-product
+definition and **Executable verified** by explicit enumeration.
+
+The complement/orthogonal-union closure has exactly `18496` events, only 64
+more than the formal terminal. It remains a lattice: every new event has a
+greatest old event below it, so all old joins persist; all `64 x 18496 =
+1183744` pairs involving a new event have principal upper sets equal to the
+principal upper set of an event. Complement duality supplies meets, and the
+set-lattice orthomodularity lemma supplies the OML law. **Executable
+verified** by
+`notes/open_questions/verification/full_grid_terminal_split_one_cell_quotient.py`.
+Payload
+`e65582f3540cea22df3c4c0fed4e9400a044f7b54b32a591031dc16ce2bd2abb`.
+
+The resulting finite concrete OML has trivial centre, separating point
+evaluations, no nonzero event supported inside row 0's activation cylinder,
+and neither same-side boundary reconstructed. The designated node-6 join
+remains the true join, while its profile hull and missing residue remain
+nonevents. All eleven central atoms of the formal `B_9 x MO2^2` control cease
+to commute with the restored cell events. **Executable verified.** Exact
+centre computation uses the generator-commutant theorem; the theorem is
+**Hand proved** for OML commutants.
+
+This refutes the stronger proposed collapse principle “essential
+irreducibility plus one conditional cell repairs every one-fibre PJH defect.”
+The OML is finite and hence `Phi`-tame; it contains only one of the four grid
+cells, does not encode the two-row distributed obstruction, and is not a
+counterexample. Maximal blocks and all abstract two-valued states have not
+been classified because no state obstruction is claimed. The next exact gate
+is restoration of the second incident cell sharing row 0. **Open.**

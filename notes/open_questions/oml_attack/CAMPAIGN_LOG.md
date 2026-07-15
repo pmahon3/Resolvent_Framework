@@ -2087,3 +2087,113 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   through two explicit depths, but remain nonlattices and their intervals
   widen. Automatic pivot: Campaign 19 seeks a recurrence/monotone invariant
   or a constructive infinite repair grammar rather than blind branching.
+
+## Linked Campaign 19 — fine-repair recurrence and termination (2026-07-15)
+
+### Iteration 216 — exact third-gap census
+- **Result:** after the 128-point and four-point repairs, the next admissible
+  gap has 1,666,232 points in 346 proper Cartesian macrofibre
+  intersections. **Evidence class: executable verified.**
+
+### Iteration 217 — whole-class recurrence refutation
+- **Refutation:** none of the 346 third-gap pieces is a whole macrofibre;
+  the unique minimum is a two-point, one-local-literal subrectangle.
+  **Evidence class: executable refuted.**
+
+### Iteration 218 — nonmonotone gap geometry
+- **Refutation:** the first three gaps are neither nested nor pairwise
+  disjoint, activated mass migrates between rows, and gap sizes are not
+  monotone. **Evidence class: executable verified.**
+
+### Iteration 219 — third fine repair
+- **Construction:** adjoining the exact two-point minimum closes 492 to 558
+  events in rounds `4,4,34,22,0`, preserves both distributed boundaries and
+  activation escape, but remains a nonlattice. **Evidence class: executable
+  verified.**
+
+### Iteration 220 — exact fourth-gap census
+- **Result:** the next interval has 205,248 points in 116 Cartesian pieces,
+  including 29 whole classes and a unique four-point minimum. **Evidence
+  class: executable verified.**
+
+### Iteration 221 — width-growth refutation
+- **Refutation:** repair units move whole class to one-literal subrectangle
+  and back to whole class; neither gap growth nor permanent literal-width
+  growth is a valid invariant. **Evidence class: executable refuted.**
+
+### Iteration 222 — descriptor-Markov refutation
+- **Refutation:** the secondary `011` and `110` children have 468 and 492
+  events but identical complete next-gap masks and identical full 346-piece
+  decompositions. Even the exact gap subset is not a complete recurrence
+  state. **Evidence class: executable verified.**
+
+### Iteration 223 — hardened recurrence replay
+- **Review:** independent recomputation bound both global secondary minima,
+  child closures, complete gap hashes, decomposition digests, and
+  activation/escape controls. All three Campaign-19 receipts replayed.
+  **Evidence class: hostile executable audit.**
+
+### Iteration 224 — fixed-carrier termination
+- **Theorem:** every unrestricted fine-repair chain on the fixed finite
+  carrier terminates; every repair-terminal family is a finite concrete OML,
+  and countable orthogonal closure adds nothing. **Evidence class: hand
+  proved and hostile reviewed.**
+
+### Iteration 225 — completion-search cofinality
+- **Theorem:** every same-carrier concrete OML completion contains a terminal
+  reached by choosing its actual joins. Hence the upward-monotone terminal
+  dichotomy T-FIN is exact for this carrier. **Evidence class: hand proved
+  and hostile reviewed.**
+
+### Iteration 226 — sigma-isolation extraction
+- **Theorem:** complement/countable-disjoint-union closure gives countable
+  interpolation; a decreasing sequence isolating a nonempty activation
+  subset creates a forbidden event. **Evidence class: hand proved and
+  hostile scoped.**
+
+### Iteration 227 — coordinate-closed completion theorem
+- **Theorem:** any full-grid completion whose joins of profile-measurable
+  pairs remain profile-measurable reconstructs one same-side Boolean
+  boundary, by descent to the exhaustive `P(16)` theorem. **Evidence class:
+  hand theorem over executable finite covering certificate; hostile
+  reviewed.**
+
+### Campaign-19 strategic checkpoint
+- Infinite or periodic fine-repair chains on the fixed carrier are
+  impossible. The exact finite residue is T-FIN: every unrestricted terminal
+  reconstructs a same-side macro boundary or creates a nonzero
+  activation-supported event. A same-carrier proof would not close
+  larger-carrier sigma-completions. Computational stop signal E is reached:
+  arbitrary depth/branch extension is suspended. Campaign 19 continues in
+  theorem-extraction mode, attacking T-FIN by exact symmetry/provenance
+  invariants and treating non-profile-measurable joins as the only escape
+  from the coordinate-closed theorem.
+
+### Iteration 228 — necessary fibre-splitter theorem
+- **Theorem:** every same-carrier completion preserving both distributed
+  boundaries has a profile-measurable failed pair with a join that properly
+  splits a profile fibre. **Hand proved.** The `P(16)` covering premise is
+  separately **Executable verified.**
+
+### Iteration 229 — conditional hull squeeze
+- **Theorem:** if both fibre hulls of a crossed join are events and exactly
+  one ambiguous fibre is properly split, their event difference isolates the
+  whole fibre and forces same-side reconstruction. **Hand proved** under the
+  displayed hull hypotheses.
+
+### Iteration 230 — stage-558 profile-pair census
+- **Result:** the selected branch has 90 profile-measurable events and 127
+  unordered join-failing pairs among them; all three selected joins remain
+  least. **Executable verified** on one branch; the replay shares the carrier
+  producer and is not independent.
+
+### Iteration 231 — multi-fibre hull control
+- **Refutation:** both hulls and their difference can be events without
+  immediate reconstruction when the join inherits proper splits across
+  twelve fibres. Individual hull availability is not the required invariant.
+  **Executable verified** at a nonterminal nonlattice stage.
+
+### Iteration 232 — full-provenance symmetry quotient
+- **Theorem:** the gate-preserving automorphism group acts on the unrestricted
+  repair tree, and canonical full event-family incidence is a complete finite
+  quotient state. **Hand proved.** Computational usefulness is **Open**.

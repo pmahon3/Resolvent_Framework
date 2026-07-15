@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — macro completions reconstruct a side boundary, while explicit fine-fibre repairs evade reconstruction through two depths but remain nonlattices; recurrence/invariant is active.",
+   "status": "OPEN — fixed-carrier repairs terminate, but T-FIN asks whether every terminal reconstructs a side boundary or creates an activation event; larger-carrier non-profile joins remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 82
+   "entries": 101
   },
   {
    "id": "reconstruction_commensurability",

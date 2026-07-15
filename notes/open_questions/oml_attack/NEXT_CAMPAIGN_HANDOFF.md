@@ -1,24 +1,31 @@
-# Next campaign handoff — Campaign 19
+# Campaign 19 theorem-extraction checkpoint
 
-1. **Attempted:** smallest whole-class fine-fibre repairs for the first two
-   crossed cuts of the full conditional `2x2` grid.
-2. **Proved:** first interval has two 336,400-point fibres; repairs of 64/128
-   points give 310/256 events, and a secondary four-point repair gives 492.
-3. **Refuted:** macro splitting immediately saturates to a side atom; two fine
-   repairs force an activation-supported event; either shallow repair suffices
-   for latticehood.
-4. **Evidence:** exact executable receipts, explicit predicates/extrema,
-   activation and boundary gates, two hostile reruns; all results are finite
-   controls, not exhaustive over arbitrary fine subsets.
-5. **Load-bearing:** commits `6eee3da`, `a5d1478`, `2015c05`;
-   `oml_fine_fibre_rectangle_repair.md`; the two `full_grid_*fibre*` audit
-   scripts and receipts.
-6. **Unresolved theorem:** do factor-type fine repairs obey a finite recurrence
-   that terminates in boundary reconstruction/activation collapse, or can they
-   reach a centre-free OML while preserving both distributed boundaries?
-7. **First action:** classify the 1,666,232-point third interval by local-state
-   factor type and compare its incidence with the preceding 672,800 and
-   677,840 intervals before adding another event.
-8. **Do not repeat:** blind arbitrary-subset branching; macro-saturated masks;
-   infer saturation from two depths; prune on centre; or confuse preservation
-   of point relations with preservation of activation escape.
+1. **Attempted:** recurrence and monotone invariants for successive
+   fine-fibre repairs of the full conditional `K22` grid.
+2. **Proved:** unrestricted repairs on the fixed carrier terminate at finite
+   concrete OMLs; every same-carrier completion contains a terminal;
+   coordinate-closed completions reconstruct a same-side boundary.
+3. **Refuted:** whole-class recurrence, monotone gap/width, infinite or
+   periodic fixed-carrier chains, and the complete next gap as a Markov state.
+4. **Evidence:** hardened executable receipts with independent replay;
+   termination/cofinality and sigma-interpolation hand proofs with hostile
+   audit; exhaustive `P(16)` covering certificate.
+5. **Load-bearing:** commits `8d8af25`, `747daa5`;
+   `oml_fine_repair_recurrence.md`;
+   `oml_fine_repair_termination_and_terminal_dichotomy.md`;
+   `oml_nonprofile_fibre_splitter_calculus.md`.
+6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
+   reconstructs a same-side boundary or contains a nonzero event in a row
+   activation cylinder. Larger-carrier non-profile joins are a separate gate.
+7. **First action:** compute the splitter-incidence graph of structurally
+   distinct crossed cuts in the 558-event family and test whether global
+   differences isolate a whole ambiguous fibre.
+8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
+   capped search as a no-go; assume fibre automorphisms extend; or promote a
+   same-carrier theorem to larger representations or uncountable assembly.
+
+**Decision route:** inconclusive theorem extraction. Stop signal E has been
+reached because `2^672800` root candidates and a provably non-Markov gap
+descriptor make blind branching mathematically uninformative. Continue only
+with computations or lemmas that discriminate T-FIN from a gate-avoiding
+terminal.

@@ -2,7 +2,7 @@
  "$meta": {
   "title": "OML lattice form — finite-trace σ-liftability",
   "purpose": "Zoom-out index of the OML/lattice attack. Load this first; follow detail pointers into the working note for proofs, scope, and session receipts.",
-  "updated": "2026-07-13",
+  "updated": "2026-07-15",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
   "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The 44-event centre-free five-block survivor is banked as a finite result. Its one-interval q0 inflation preserves exactly five maximal blocks, sigma-completeness, trivial centre, the proper C01 boundary, and a noncompact local slice at hand-proof level, but remains Phi-tame because its single fibre coordinate separates. A global 60-form truth-vector audit closes the compatibility-clique gap left by centralizer checks; the smallest P(2) triangle twist is either nonfaithful or gauge-trivial.",
@@ -16,11 +16,11 @@
    "external_sufficient_conditions": "known tame regions where Φ holds"
   },
   "headline": {
-   "entries": 87,
+   "entries": 101,
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Attack BOC normalization and realization-or-collapse on the unconstructed two-coordinate inflation of distinct non-atomic selector families in the 44-event survivor."
+   "current_next_step": "Attack T-FIN with exact full-grid symmetries and provenance-sensitive invariants; independently close or realize non-profile-measurable joins on larger carriers."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -703,6 +703,36 @@
    "status": "executable-nonterminal-controls",
    "one_line": "Whole classes of 64/128 points and a secondary four-point class repair successive joins without side reconstruction or activation collapse, but all closures remain nonlattices.",
    "detail": "oml_fine_fibre_rectangle_repair.md"
+  }
+ ],
+ "campaign_19_terminal_reduction": [
+  {
+   "id": "oml.theorem.fixed_carrier_repair_termination",
+   "name": "Fixed-carrier fine-repair termination",
+   "status": "hand-proved-hostile-reviewed",
+   "one_line": "Every unrestricted repair chain on the finite full-grid carrier terminates at a finite concrete OML, and every same-carrier completion contains such a terminal.",
+   "detail": "oml_fine_repair_termination_and_terminal_dichotomy.md"
+  },
+  {
+   "id": "oml.open.tfin_terminal_dichotomy",
+   "name": "T-FIN terminal dichotomy",
+   "status": "open-exact-same-carrier",
+   "one_line": "Does every full-grid repair terminal reconstruct one same-side Boolean boundary or create a nonzero activation-supported event?",
+   "detail": "oml_fine_repair_termination_and_terminal_dichotomy.md#4-exact-finite-theorem-of-record"
+  },
+  {
+   "id": "oml.theorem.coordinate_closed_reconstruction",
+   "name": "Coordinate-closed completion reconstruction",
+   "status": "hand-theorem-executable-core",
+   "one_line": "Every full-grid completion whose profile-measurable pairs have profile-measurable joins reconstructs Bool(q0,q1) or Bool(r0,r1).",
+   "detail": "oml_distributed_rectangle_completion_search.md"
+  },
+  {
+   "id": "oml.open.nonprofile_splitter_incidence",
+   "name": "Non-profile fibre-splitter incidence",
+   "status": "necessary-theorem-stage558-control-open-terminal",
+   "one_line": "Every preserving completion needs a proper fibre splitter; stage 558 shows that multi-fibre hull gaps can exist without immediate reconstruction, leaving overlapping-gap isolation open.",
+   "detail": "oml_nonprofile_fibre_splitter_calculus.md"
   }
  ],
  "external_sufficient_conditions": [

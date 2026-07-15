@@ -629,6 +629,16 @@ and the next interval widens. The active problem is to identify a finite
 repair grammar or a monotone obstruction, not to enumerate arbitrary subsets
 of million-point intervals.
 
+Campaign 19 replaces the putative infinite repair grammar by an exact finite
+terminal problem. A third repair reaches 558 events and refutes monotone gap,
+width, and gap-descriptor recurrence models. Since the full-grid carrier is
+finite, unrestricted repair chains necessarily terminate, and every
+same-carrier completion contains a terminal repair family. T-FIN asks whether
+all such terminals reconstruct a same-side Boolean boundary or create an
+activation-supported event. Coordinate-closed completions already reconstruct
+a side; non-profile-measurable joins and larger-carrier sigma-completions are
+the remaining escapes.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

@@ -6,7 +6,8 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 19 — fine-repair recurrence and invariant.
+- **Active campaign:** Campaign 19 continuation — T-FIN theorem extraction
+  and non-profile splitter calculus; blind depth extension stopped.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -25,7 +26,9 @@
   rectangle failure, four first repairs, and two terminating stripped-core
   controls; Campaign 17 — exhaustive stripped macro-completion reconstruction
   theorem; Campaign 18 — two-depth fine-fibre repair and activation-escape
-  controls.
+  controls. Campaign 19 remains active after exact depth-three/four
+  recurrence refutations, fixed-carrier repair termination, and
+  terminal-search cofinality reached computational stop signal E.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -73,6 +76,12 @@
 | incompatible finite activation need not be an event | hand proved | proved |
 | ODBC-S for every admissible OML | open | open |
 | CODBC for every admissible OML | open | open |
+| fixed-carrier unrestricted fine-repair termination | hand proved and hostile reviewed | proved |
+| same-carrier completion-search cofinality | hand proved and hostile reviewed | proved |
+| coordinate-closed full-grid completions reconstruct a side | hand theorem plus executable core covering | proved |
+| T-FIN terminal boundary/activation dichotomy | open | open |
+| necessary non-profile fibre-splitter theorem | Hand proved over executable core certificate | proved |
+| one-split-fibre hull isolation | Hand proved | proved conditionally |
 
 ## Counterexample ledger
 
@@ -101,7 +110,9 @@
 | full conditional `2x2` grid | executable refuted: 198-to-230 orthogonal closure preserves semantics but remains nonlattice at a crossed rectangle |
 | stripped rectangle terminal repairs | two executable-verified OML branches of 1296 and 3456 events; both reconstruct `Bool(q0,q1)`; exhaustive all-branch status open |
 | stripped K22 macro completions | exhaustive finite theorem: every OML completion in `P(2^4)` reconstructs `Bool(q0,q1)` or `Bool(r0,r1)` |
-| full-grid fine-fibre repairs | one-sided 64, symmetric 128, and secondary 4-point selections preserve distributed boundaries and escape but remain nonlattices |
+| full-grid fine-fibre repairs | 128, 4, and 2-point selected repairs reach 558 events, preserve distributed boundaries and escape, but remain nonlattices |
+| same-carrier distributed terminal OML | equivalent to refuting T-FIN; none known |
+| stage-558 splitter family | 90 profile events, 127 profile-pair join failures; multi-fibre hull gap survives at a nonlattice stage |
 
 ## Unresolved assumptions
 
@@ -152,13 +163,24 @@
 - Exhaustive interval branching proves every stripped macro OML completion
   reconstructs one same-side Boolean boundary. Fine-fibre repairs over the
   full conditional carrier remain open.
-- Two successive fine-fibre repairs avoid reconstruction and activation
-  support; their next admissible interval widens to 1,666,232 points.
+- Three successive fine-fibre repairs avoid reconstruction and activation
+  support; exact gap and literal-width statistics are nonmonotone.
+- The complete next-gap subset is not a Markov repair state: nonisomorphic
+  468/492-event children have the same gap and Cartesian decomposition.
+- Every unrestricted repair chain on the fixed finite carrier terminates,
+  but T-FIN is open and the root syntactic interval has `2^672800` choices.
+- A fixed-carrier T-FIN proof does not exclude a completion on a larger
+  carrier; saturated shadows of a lattice need not form a lattice.
+- Non-profile-measurable joins are the sole escape from the proved
+  coordinate-closed full-grid reconstruction theorem.
+- Both fibre hulls may exist without reconstruction when their difference is
+  a multi-profile union; overlapping hull-gap incidence, not individual hull
+  existence, is the live T-FIN mechanism.
 
 ## Next automatic pivot
 
-Extract a recurrence or monotone invariant from the 230-to-256-to-492
-symmetric fine-repair chain. Determine whether successive factor-type repairs
-form a finite grammar, force a side atom/activation event at a bounded depth,
-or generate an infinite strictly widening nonlattice process. A terminal OML
-pivots immediately to higher rectangles and uncountable assembly.
+Attack T-FIN through incidence among overlapping multi-fibre hull gaps and
+full event-family provenance, not gap-only recurrence or further arbitrary
+depth. Determine whether nested/compatible hull differences isolate a
+same-side macro fibre or activation subset. A terminal avoiding both gates
+pivots immediately to overlapping rectangles and uncountable assembly.

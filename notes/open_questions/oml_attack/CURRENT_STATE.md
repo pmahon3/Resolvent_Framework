@@ -265,6 +265,34 @@ replaced by the exact Campaign-19 question: find a recurrence/monotone
 invariant for factor-type repairs, or a finite grammar leading to a terminal
 OML.
 
+Campaign 19 refutes the proposed recurrence state. The third gap has
+1,666,232 points in 346 proper Cartesian pieces; a two-point repair closes
+492 to 558 events, after which the fourth gap shrinks to 205,248 points and
+again has whole-class minima. The nonisomorphic 468- and 492-event sibling
+families have identical complete next-gap masks, so even the exact gap is not
+a Markov state. All selected closures remain nonlattices while preserving
+both distributed boundaries and activation escape.
+
+Because the full-grid carrier is finite, every unrestricted fine-repair
+chain terminates and countable orthogonal closure is already finite closure.
+Every same-carrier concrete OML completion contains a terminal repair family.
+The exact finite question is therefore T-FIN: must every terminal reconstruct
+one same-side Boolean boundary or create a nonzero activation-supported
+event? Separately, every coordinate-closed completion reconstructs a side by
+the exhaustive `P(16)` theorem; its only larger-carrier escape uses a
+non-profile-measurable join. Neither result closes larger representations or
+the uncountable sigma-assembly gate.
+
+The first theorem-extraction census at 558 events finds 90
+profile-measurable events and 127 unordered join-failing pairs among them;
+all three selected joins remain least. One inherited join has both fibre
+hulls and their difference as events while splitting twelve profiles, so
+hull availability alone does not force reconstruction. Every preserving
+completion nevertheless needs some proper fibre splitter. The live invariant
+is incidence among several hull gaps—whether their nested or compatible
+differences isolate one macro fibre or activation subset—not another selected
+repair depth.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

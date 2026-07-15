@@ -589,3 +589,14 @@ same controls. The families have 310, 256, and 492 events respectively and
 remain nonlattices; the next gap grows to 1,666,232 points. The frontier is no
 longer subset enumeration but a recurrence or monotone invariant for these
 factor-type fine repairs.
+
+Campaign 19 shows that this recurrence framing is not stable. A third
+two-point repair reaches 558 events, with gap sizes and literal widths
+oscillating, and two nonisomorphic children have the identical complete next
+gap. More fundamentally, the 6,186,568-point carrier is finite: every
+unrestricted repair chain terminates at a finite OML and every same-carrier
+completion contains a terminal chain. The finite frontier is T-FIN, the
+terminal boundary-or-activation dichotomy. The exhaustive macro theorem also
+extends to every coordinate-closed full-grid completion; the remaining
+completion escape must use a non-profile-measurable join. Larger-carrier and
+uncountable sigma-assembly questions are not closed by this reduction.

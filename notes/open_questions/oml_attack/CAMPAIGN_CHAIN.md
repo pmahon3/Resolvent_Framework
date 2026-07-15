@@ -196,15 +196,18 @@
   `MO2` square is an exact control. By contrast PJH—eventhood of existential
   profile hulls of joins of saturated events—forces a profile OML and hence
   same-side reconstruction.
+- The certificate-local PJH bifurcation has a finite explicit atlas: 31
+  internal states, 24 interval types, 64 candidate hull edges, and 17
+  reconstructing terminals. Any preserving terminal has a first nonevent
+  hull in this atlas.
 
 ## Next automatic pivot
 
-Attack terminal PJH at the finite certificate-local level: for every
-saturated failed pair used by the exhaustive `P(16)` forcing DAG, determine
-whether a terminal full-grid join must have an event-valued existential hull.
-PJH gives reconstruction; its first forced failure gives the exact coupled
-hull-defect architecture. In parallel, test intrinsic recognizability of the
-four cell copies. Do not enumerate saturated subsets or continue arbitrary
-selected depth.
+Attack the 31-state/64-edge first-defect atlas: prove that no recorded
+nonevent hull can persist in a gate-B-avoiding terminal, or realize and audit
+one exact edge type. Quotient the atlas only by certified provenance
+symmetries and retain actual within-fibre trace data. In parallel, test
+intrinsic recognizability of the four cell copies. Do not enumerate saturated
+subsets or continue arbitrary selected depth.
 A terminal avoiding both gates pivots immediately to
 overlapping rectangles and uncountable assembly.

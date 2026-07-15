@@ -2315,3 +2315,15 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   proved** over the **Executable verified** finite core and hostile reviewed.
   Any preserving terminal must therefore exhibit a saturated pair whose
   join hull is a nonevent. PJH for arbitrary terminals is **Open**.
+
+### Iteration 248 — finite first-PJH-defect atlas
+- **Theorem:** every same-carrier terminal either follows event-valued profile
+  hulls through the exhaustive core DAG to same-side reconstruction, or has a
+  first nonevent hull at one of 31 internal states and 64 node/candidate
+  edges (24 interval types, depth at most six). **Hand proved** over the core
+  covering certificate and hostile reviewed.
+- **Verification:** a repaired replay independently rebuilds all 48 node
+  families, certifies 31 actual failed witness pairs and upper intervals,
+  resolves all 64 closures including memo edges, and binds all 17 terminals
+  to reconstruction receipts. **Executable verified**; path-list
+  exhaustiveness still comes from the banked core search.

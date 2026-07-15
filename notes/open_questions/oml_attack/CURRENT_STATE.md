@@ -333,6 +333,14 @@ forces a same-side boundary. Any preserving terminal must fail PJH. The next
 exact test is certificate-local hull eventhood along the finite `P(16)`
 forcing DAG, not another selected repair.
 
+That certificate-local test is now an explicit first-defect atlas. The
+exhaustive DAG has 31 internal states, 24 interval types, 64 candidate hull
+edges, and 17 reconstructing terminals. A self-auditing replay certifies an
+actual failed pair and family hash at every internal node and resolves every
+edge. Hence any preserving same-carrier terminal must sustain a first
+nonevent hull of one recorded type. Realizability or collapse of those defect
+types in a gate-B-avoiding terminal is open.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

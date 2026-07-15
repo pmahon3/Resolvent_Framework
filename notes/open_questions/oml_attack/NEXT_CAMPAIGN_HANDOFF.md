@@ -17,12 +17,11 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** replay the finite `P(16)` forcing DAG and list its
-   saturated failed-pair orbits. For each, test the exact conditional theorem
-   that every terminal full-grid join has an event-valued existential profile
-   hull. Proving all instances yields PJH/reconstruction; the first failure
-   specifies the coupled hull-defect architecture. Separately test intrinsic
-   recognizability of the four cell copies in the 558-event family.
+7. **First action:** classify the 31-state/64-edge first-PJH-defect atlas
+   under certified provenance symmetries while retaining witness pairs and
+   within-fibre trace types. For each orbit, seek either a gate-B/cut
+   contradiction or a realizable terminal extension. Separately test
+   intrinsic recognizability of the four cell copies in the 558-event family.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; enumerate
    the `2^160` saturated subclass as though exhaustive; or promote a

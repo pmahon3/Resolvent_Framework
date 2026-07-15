@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — fixed-carrier terminals have a two-square residue architecture; PJH would force reconstruction, while certificate-local nonevent hulls and larger-carrier non-profile joins remain open.",
+   "status": "OPEN — fixed-carrier T-FIN is reduced to a self-audited 31-state/64-edge first-PJH-defect atlas; defect realizability and larger-carrier non-profile joins remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 101
   },

@@ -661,6 +661,11 @@ the saturated events a concrete `P(16)` completion and forces reconstruction.
 The current exact computation is therefore certificate-local PJH along the
 finite stripped-core forcing DAG.
 
+That DAG now yields a self-audited finite first-defect atlas with 31 internal
+states and 64 candidate hull edges; all 17 no-defect terminals reconstruct a
+side. The remaining fixed-carrier problem is whether any recorded nonevent
+hull type survives terminal latticehood and activation escape.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

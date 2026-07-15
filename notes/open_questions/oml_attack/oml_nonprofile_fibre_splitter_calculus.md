@@ -517,3 +517,58 @@ is not another repair depth: replay the finite `P(16)` forcing DAG and, for
 each saturated failed pair it uses, determine whether every corresponding
 full-grid join has an event-valued existential hull. The first failure is the
 exact hull-defect architecture a preserving terminal must sustain.
+
+### 8.3 Finite first-defect atlas
+
+The exhaustive stripped-core search has 48 distinct forcing states: 31
+internal nodes and 17 terminal nodes. The internal nodes use only 24 distinct
+failed intervals and have 64 candidate hull edges (one four-way root and
+thirty binary nodes), with maximum depth six. Every terminal reconstructs a
+same-side boundary. **Executable verified** by the receipt extractor
+`notes/open_questions/verification/full_grid_core16_pjh_defect_atlas.py`,
+payload
+`50c93746d957d863604f9aaf7c55b860f9b5f0c760951f65d38ddd2f56f44d21`.
+The verifier independently replays every node family from its first-seen
+path, serializes an actual failed witness pair and complete-family hash,
+recomputes every upper interval, resolves all 64 child closures including
+memo targets, and binds every terminal hash to its reconstruction receipt.
+It still takes the banked exhaustive path list as its search coverage input;
+it does not independently rediscover that the 48-node list is exhaustive.
+
+**Theorem 8.3 (first-PJH-defect bifurcation).** Let `pi` be the surjective
+sixteen-profile map and let `T` be any same-carrier concrete OML containing
+the four pulled-back edge algebras. Either `T` reconstructs a same-side
+Boolean boundary, or there is a first internal node *along the deterministic
+`T`-descent path* at which the join `z` of the node's saturated witness pair
+has a nonevent existential hull `H(z)`. All earlier path hulls are saturated
+events of `T`, and `H(z)=pi^{-1}(h)` for exactly one of the node's recorded
+64 node/candidate words `h`. **Hand proved** over the exhaustive search
+certificate.
+
+Induct along the finite DAG. At a current node its profile family is contained
+in `T` by the prior hull choices and complement/disjoint-union closure. The
+generator's chosen failed lower word is the union of a certified pair `a,b`
+in that family. For `z=a join_T b`, leastness puts `z` below every current
+saturated upper bound, hence
+
+\[
+ \operatorname{low}\subseteq H(z)\subseteq\operatorname{upper}.
+\]
+
+Thus the profile word of `H(z)` is one of the recorded candidates. If the
+hull is an event, it is the least saturated upper bound and the corresponding child profile family
+is contained in `T`; continue. If it is not an event, this is the first PJH
+defect. Finite continuation otherwise reaches a reconstructing terminal.
+
+This is a genuine finite grammar of *first hull defects*, not of arbitrary
+repairs or terminal events. It neither proves that any defect type is
+realizable in a terminal nor excludes gate B. The exact fixed-carrier T-FIN
+residue is now: prove that none of these certificate-relevant first defects
+can persist in a gate-B-avoiding terminal, or realize and audit one.
+
+The proof requires both interval endpoints among the recorded children: the
+actual hull word may equal `low` or `upper`. It also requires binary joins in
+`T`; an OMP is insufficient. Surjectivity of `pi` is load-bearing for
+reflecting the lower word. These hypotheses and endpoint assertions are
+explicit in the replay receipt. Symmetry pruning of the DAG is not part of
+the theorem.

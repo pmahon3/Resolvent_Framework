@@ -624,3 +624,9 @@ profile-join-hull closure: if the existential profile hull of every saturated
 pair's join is an event, the saturated subfamily is a `P(16)` OML and the
 finite reconstruction theorem applies. A preserving terminal must sustain a
 nonevent hull on a certificate-relevant saturated pair.
+
+The finite certificate is now explicit: 31 internal forcing states, 24
+interval types, 64 candidate hull edges, and 17 reconstructing terminals.
+Every preserving same-carrier terminal must realize a first nonevent hull in
+this atlas. The next task is symmetry/provenance classification of those
+defects, not repair-depth extension.

@@ -60,13 +60,11 @@ such splitters can survive complement/disjoint-union closure without
 immediate reconstruction or activation support. They do not demonstrate a
 terminal OML. **Executable verified** for exactly the stated stages.
 
-## 3. Conditional hull squeeze
+## 3. Conditional hull extraction and correction
 
 **Lemma 3.1.** Suppose both `int_pi(j)` and `sat_pi(j)` are events and exactly
 one of `A,B` is properly split by `j`. Then their nested event difference is
-that entire ambiguous profile fibre. It is a literal same-side macro
-cylinder, so the same-side forcing lemma reconstructs a forbidden Boolean
-boundary.
+that entire ambiguous profile fibre.
 
 Indeed, nested differences exist in every complement/disjoint-union-closed
 family:
@@ -79,11 +77,26 @@ If both ambiguous fibres are properly split, the hull difference is `A union
 B`; this argument does not separate the two. **Hand proved** under the
 displayed hull and one-split-fibre hypotheses.
 
+The formerly asserted next implication was false and is retracted: a whole
+four-coordinate profile fibre is not a same-side literal macro cylinder.
+The latter fixes only `q0,q1` and contains four profile fibres. On the
+stripped core, adjoining any one profile singleton to the 82-word edge core
+closes to 204 words and produces no nontrivial same-side-measurable word.
+Thus Lemma 3.1 is an extraction lemma, not a boundary-reconstruction lemma.
+**Executable verified** for all sixteen singleton profiles by the existing
+independent word-closure audit
+`notes/open_questions/verification/core16_single_profile_noncollapse.py`,
+payload
+`a85c5b89b0ceb5a1d0aa09cf6ca25ad1ac0e4fe3b7a060aa3eb1466ad0305415`.
+Whether further lattice cuts from an
+extracted profile fibre eventually force a side boundary is **Open**.
+
 The hull hypotheses are substantial. Fibre interiors and saturations need
 not be events; the trace family on a fibre need not inherit global lattice
 extrema; point-state order separation imposes no fibre invariance; and a
 fibre permutation need not preserve the completed lattice. No unconditional
-saturation theorem follows from concreteness or orthomodularity alone.
+saturation theorem follows from concreteness or orthomodularity alone, and
+even their availability may yield only a four-coordinate fibre event.
 
 ## 4. Surviving architecture and next test
 

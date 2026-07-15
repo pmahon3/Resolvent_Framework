@@ -17,9 +17,11 @@
 6. **Unresolved theorem:** T-FIN — every unrestricted same-carrier terminal
    reconstructs a same-side boundary or contains a nonzero event in a row
    activation cylinder. Larger-carrier non-profile joins are a separate gate.
-7. **First action:** compute the splitter-incidence graph of structurally
-   distinct crossed cuts in the 558-event family and test whether global
-   differences isolate a whole ambiguous fibre.
+7. **First action:** classify the admissible lower interval beneath the
+   336,404-point fattened-fibre meet `q0^perp meet_L q1`; test whether every
+   terminal interpolation assembles the four-fibre same-side cylinder, kills
+   the meet/creates activation support, or creates another stable
+   fattened-fibre meet.
 8. **Do not repeat:** arbitrary minimum-depth extension; gap-only recurrence;
    capped search as a no-go; assume fibre automorphisms extend; or promote a
    same-carrier theorem to larger representations or uncountable assembly.

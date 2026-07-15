@@ -1,0 +1,190 @@
+{
+  "all_same_side_words": 0,
+  "all_singleton_closures_words": 204,
+  "base_words": 82,
+  "command": "python3 notes/open_questions/verification/core16_single_profile_noncollapse.py --verify",
+  "payload_sha256": "a85c5b89b0ceb5a1d0aa09cf6ca25ad1ac0e4fe3b7a060aa3eb1466ad0305415",
+  "producer_sha256": "6b734885c16641b0de1004d280fecac5457d0c1424613799e1f2a3ed2558eba8",
+  "profiles_tested": 16,
+  "rows": [
+    {
+      "closure_sha256": "1d4a1ba1c07d6f849ef2231203fcf7fd3773774e226366ca4b99f69bd387c713",
+      "closure_words": 204,
+      "profile": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "c47c8ae76807600436d906e1daccc57f481931c2d29a6c252243c866b794d783",
+      "closure_words": 204,
+      "profile": [
+        0,
+        0,
+        0,
+        1
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "8e1ab70a5beeff263be64b738089a09298029bbc3065c63d67f7fada700e0522",
+      "closure_words": 204,
+      "profile": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "c5504637ef33b23045a951957de545c258bd87a743faf224b13d3b2a4a936cd1",
+      "closure_words": 204,
+      "profile": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "11fdfb7573fa17a05f5b36e7d5fbaea925d704e4e46b3532edd63156c756c8a0",
+      "closure_words": 204,
+      "profile": [
+        0,
+        1,
+        0,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "0c2a5223440024a2c254583a592c5d702a89f64e8b331217a58a4959df40a1bf",
+      "closure_words": 204,
+      "profile": [
+        0,
+        1,
+        0,
+        1
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "cdf9d2720700374871aae4afeb56291f220c50965e936c81fb418015bc3987c6",
+      "closure_words": 204,
+      "profile": [
+        0,
+        1,
+        1,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "2f743019afea362335298e7236c4e92efc0a55922854128bcdbfa09d54e88c85",
+      "closure_words": 204,
+      "profile": [
+        0,
+        1,
+        1,
+        1
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "813be85d5c78e5afacce933af1dabc48b4ebe0997f32444118a740d23211be86",
+      "closure_words": 204,
+      "profile": [
+        1,
+        0,
+        0,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "71bace11900805429c068bb88de0d3acdb61f2d6964e645f7cb4784eede7f80a",
+      "closure_words": 204,
+      "profile": [
+        1,
+        0,
+        0,
+        1
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "b587bc574fe301431c7c89d90de7dec051f5c786ca2639328223b494a8b79f08",
+      "closure_words": 204,
+      "profile": [
+        1,
+        0,
+        1,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "3e0f9ede2e4f35b48f1f5c3dfe9358f354e1c44e2f6d82517598ec03868215e1",
+      "closure_words": 204,
+      "profile": [
+        1,
+        0,
+        1,
+        1
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "d69e556c19c2cebb7b096eb0e70f687b8f3429ab536b8dc1420036306b70bd17",
+      "closure_words": 204,
+      "profile": [
+        1,
+        1,
+        0,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "4148d762bc4e7b5aa66f031c7253409aa5f747eedf600ca958efde5ef2488118",
+      "closure_words": 204,
+      "profile": [
+        1,
+        1,
+        0,
+        1
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "cdd1172d0c9d06e4caea6cf923f30fb5d13902c26562ce33a8a2599df380d645",
+      "closure_words": 204,
+      "profile": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "same_side_words": 0
+    },
+    {
+      "closure_sha256": "49a1fda9d3dbb9ed7af72cdab8b17269c0e0e9ab403fed35daba299c77351781",
+      "closure_words": 204,
+      "profile": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "same_side_words": 0
+    }
+  ],
+  "schema": "core16-single-profile-noncollapse-v1",
+  "schema_version": "1.0",
+  "scope": "all 16 singleton profile additions to the stripped K22 edge-word core; no full-carrier or multi-repair promotion"
+}

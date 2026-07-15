@@ -289,9 +289,12 @@ all three selected joins remain least. One inherited join has both fibre
 hulls and their difference as events while splitting twelve profiles, so
 hull availability alone does not force reconstruction. Every preserving
 completion nevertheless needs some proper fibre splitter. The live invariant
-is incidence among several hull gaps—whether their nested or compatible
-differences isolate one macro fibre or activation subset—not another selected
-repair depth.
+is no longer simple hull incidence: seventeen split signatures are
+nonlaminar, and the nine event-valued hull gaps never differ by one fibre.
+Instead the stage contains a 336,404-point same-side lattice meet equal to a
+whole `0101` profile fibre plus the four-point second repair escape. The next
+exact gate is the admissible interpolation interval below this
+fattened-fibre meet—not another selected repair depth.
 
 ## Primary sources
 

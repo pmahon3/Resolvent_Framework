@@ -81,7 +81,7 @@
 | coordinate-closed full-grid completions reconstruct a side | hand theorem plus executable core covering | proved |
 | T-FIN terminal boundary/activation dichotomy | open | open |
 | necessary non-profile fibre-splitter theorem | Hand proved over executable core certificate | proved |
-| one-split-fibre hull isolation | Hand proved | proved conditionally |
+| one-split-fibre hull extraction | Hand proved | proved conditionally; reconstruction consequence refuted |
 
 ## Counterexample ledger
 
@@ -179,8 +179,11 @@
 
 ## Next automatic pivot
 
-Attack T-FIN through incidence among overlapping multi-fibre hull gaps and
-full event-family provenance, not gap-only recurrence or further arbitrary
-depth. Determine whether nested/compatible hull differences isolate a
-same-side macro fibre or activation subset. A terminal avoiding both gates
-pivots immediately to overlapping rectangles and uncountable assembly.
+Attack T-FIN through the admissible interval below the 336,404-point
+fattened-fibre same-side meet and full event-family provenance, not gap-only
+recurrence or further arbitrary depth. Determine whether every terminal
+interpolation assembles a four-fibre same-side cylinder, kills the meet or
+creates activation support, or creates another fattened-fibre meet; an
+isolated single profile fibre is not yet a collapse.
+A terminal avoiding both gates pivots immediately to
+overlapping rectangles and uncountable assembly.

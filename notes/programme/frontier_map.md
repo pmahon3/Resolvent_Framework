@@ -600,3 +600,10 @@ terminal boundary-or-activation dichotomy. The exhaustive macro theorem also
 extends to every coordinate-closed full-grid completion; the remaining
 completion escape must use a non-profile-measurable join. Larger-carrier and
 uncountable sigma-assembly questions are not closed by this reduction.
+
+The first provenance-sensitive checkpoint refutes simple hull isolation: the
+558-event stage has seventeen nonlaminar split signatures, nine event-valued
+hull gaps, and no one-fibre hull difference. Its key event is instead the
+336,404-point meet `q0^perp meet_L q1`, a whole profile fibre plus the
+four-point repair escape. The next discriminating problem is the admissible
+interpolation interval below this fattened-fibre meet.

@@ -639,6 +639,12 @@ activation-supported event. Coordinate-closed completions already reconstruct
 a side; non-profile-measurable joins and larger-carrier sigma-completions are
 the remaining escapes.
 
+At the 558-event checkpoint, simple hull-gap laminarity fails and no nested
+hull pair isolates one profile fibre. A same-side lattice meet nevertheless
+appears as a whole profile fibre plus a four-point escape block. This
+fattened-fibre meet, not further arbitrary repair depth, is the current exact
+T-FIN test object.
+
 ## Repository Layout
 
 - `papers/paper_i/` — Paper I (synthesis, expository)

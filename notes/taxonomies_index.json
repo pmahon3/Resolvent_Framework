@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — fixed-carrier repairs terminate, but T-FIN asks whether every terminal reconstructs a side boundary or creates an activation event; larger-carrier non-profile joins remain open.",
+   "status": "OPEN — fixed-carrier repairs terminate; T-FIN is reduced to provenance-sensitive interpolation below a fattened-fibre same-side meet, while larger-carrier non-profile joins remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 101
   },

@@ -2175,11 +2175,15 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   splits a profile fibre. **Hand proved.** The `P(16)` covering premise is
   separately **Executable verified.**
 
-### Iteration 229 — conditional hull squeeze
+### Iteration 229 — conditional hull extraction and repair
 - **Theorem:** if both fibre hulls of a crossed join are events and exactly
   one ambiguous fibre is properly split, their event difference isolates the
-  whole fibre and forces same-side reconstruction. **Hand proved** under the
-  displayed hull hypotheses.
+  whole four-coordinate profile fibre. **Hand proved** under the displayed
+  hull hypotheses.
+- **Retraction:** a profile fibre is not a same-side literal macro cylinder
+  and does not force boundary reconstruction. All sixteen singleton-profile
+  core closures reach 204 words without a same-side word. **Executable
+  verified.**
 
 ### Iteration 230 — stage-558 profile-pair census
 - **Result:** the selected branch has 90 profile-measurable events and 127
@@ -2197,3 +2201,22 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Theorem:** the gate-preserving automorphism group acts on the unrestricted
   repair tree, and canonical full event-family incidence is a complete finite
   quotient state. **Hand proved.** Computational usefulness is **Open**.
+
+### Iteration 233 — independent all-event hull census
+- **Result:** the 558-event stage has seventeen split signatures and nine
+  distinct nonempty event-valued hull gaps; no nonzero event is contained in
+  one profile fibre. **Executable verified** by a partially independent
+  implementation sharing only the defining carrier and repair descriptions.
+
+### Iteration 234 — laminar/isolation refutation
+- **Refutation:** the split signatures have 81 nonlaminar pairs; the eight
+  nested event-valued hull-gap pairs all differ by four fibres, and no pair
+  isolates one fibre. **Executable verified** at the nonterminal 558-event
+  stage. A terminal theorem remains **Open**.
+
+### Iteration 235 — fattened-fibre meet witness
+- **Result:** `q0^perp meet_L q1` is a 336,404-point event consisting of the
+  whole `0101` profile fibre plus the four-point second repair selector. It
+  is not the literal set intersection and fires neither reconstruction nor
+  activation gate B. **Executable verified** on the exact 558-event stage;
+  persistence to a terminal is **Open**.

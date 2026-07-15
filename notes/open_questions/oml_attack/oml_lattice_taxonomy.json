@@ -671,6 +671,22 @@
    "detail": "oml_bipartite_coordinate_core.md"
   }
  ],
+ "campaign_16_rectangle": [
+  {
+   "id": "oml.obstruction.full_conditional_rectangle",
+   "name": "Full conditional two-by-two rectangle failure",
+   "status": "executable-refuted-lattice-gate",
+   "one_line": "The 198-event full conditional grid closes orthogonally to 230 events while preserving its exact relations, but retains two incomparable rectangle upper bounds.",
+   "detail": "oml_full_grid_2x2_failure.md"
+  },
+  {
+   "id": "oml.control.iterated_rectangle_repairs",
+   "name": "Iterated stripped rectangle repairs",
+   "status": "executable-two-branches-universal-open",
+   "one_line": "Two explicit repair branches give 1296- and 3456-event concrete OMLs, both reconstructing Bool(q0,q1); all-branch distributed-preserving completion remains open.",
+   "detail": "oml_rectangle_repair_and_full_atlas_criteria.md#11-single-repair-insufficiency-and-two-terminal-controls"
+  }
+ ],
  "external_sufficient_conditions": [
   {
    "id": "oml.tame.boolean",

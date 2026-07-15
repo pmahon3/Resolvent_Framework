@@ -231,6 +231,19 @@ nonlattice at an explicit crossed rectangle; K23 and K32 fail likewise. The
 next exact gate is the full four-cell 2x2 conditional grid and an explicit
 rectangle-repair calculus.
 
+Campaign 16 shows that the full conditional grid does not repair the cut:
+its 198 raw events close orthogonally to 230 events on 6,186,568 compatible
+points and still have the same two incomparable rectangle upper bounds.  The
+cell relations, activated diagonal, activation nonevents, and off-cylinder
+escape all survive.  On the stripped sixteen-profile core, all four possible
+first rectangle traces remain nonlattices.  Two explicit iterated branches do
+reach 1296- and 3456-event concrete OMLs, but both reconstruct
+`Bool(q0,q1)` and all four edge coordinate-pair algebras.  These branches do
+not prove reconstruction unavoidable.  The exact finite frontier is the
+symmetry-reduced completion search subject to keeping both same-side Boolean
+boundaries absent; a surviving branch must then be lifted to the full cell
+carrier.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

@@ -608,7 +608,12 @@ formulas have not been promoted to that theorem.
 Campaign 15 now proves the one-hub arbitrary-index family sigma-complete and
 Phi-tame. The live construction is two-dimensional: the stripped grouped
 coordinate K22 core has an explicit crossed-rectangle lattice failure, so the
-next test is the full four-cell conditional grid and rectangle repair.
+full four-cell conditional grid was tested in Campaign 16.  Its semantics
+survive but latticehood still fails.  A single literal repair never suffices;
+two known iterated coordinate-core completions are OMLs only after rebuilding
+the same-side `q0,q1` Boolean boundary.  Whether all distributed-preserving
+repair branches fail is now one exact finite search problem; no universal
+reconstruction theorem is yet claimed.
 
 ## Repository Layout
 

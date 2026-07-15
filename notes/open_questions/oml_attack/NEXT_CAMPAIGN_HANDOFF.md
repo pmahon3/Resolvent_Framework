@@ -1,23 +1,23 @@
-# Next campaign handoff — Campaign 16
+# Next campaign handoff — Campaign 17
 
-1. **Attempted:** arbitrary-index one-hub closure and first grouped-output
-   coordinate grids.
-2. **Proved:** exact arbitrary-index normal forms, conservative extrema,
-   sigma-completeness, `St_fa=St_sigma`, and Phi for the one-hub family.
-3. **Refuted:** naive grouped K22/K23/K32 complement/disjoint-union closure;
-   crossed rectangle leaves two incomparable bounds.
-4. **Evidence:** one-hub theorem hand proved with executable 46-by-110 outsider
-   kernel and hostile review; bipartite cores executable verified/refuted.
-5. **Load-bearing:** `oml_arbitrary_index_one_hub_tameness.md`,
-   `oml_bipartite_coordinate_core.md`, `verify_h4_interface_hulls.py`;
-   Campaign-15 commits are parents.
-6. **Unresolved theorem:** the full four-cell 2x2 conditional grid either has
-   a concrete OML closure preserving all four edge relations or yields a
-   gadget-independent rectangle obstruction and exact repair architecture.
-7. **First action:** construct the compatible-state fibre carrier for four
-   literal-MO3 cells with row interfaces and column outputs, close under
-   orthogonal unions, and enumerate every crossed extrema failure.
-8. **Do not repeat:** apply the one-hub support-two theorem to commuting
-   puncture columns; call nonlattice compatibility cliques OML blocks; assume
-   event locality implies maximal-block locality; ignore nonprincipal fa-state
-   extension over repair events.
+1. **Attempted:** full conditional `2x2` closure and explicit stripped-core
+   rectangle repairs.
+2. **Proved:** four possible first traces; every one-step closure remains a
+   nonlattice; two iterated branches terminate as 1296- and 3456-event OMLs.
+3. **Refuted:** conditional gadgets do not remove the crossed cut; the two
+   known terminal branches do not preserve distributed same-side boundaries.
+4. **Evidence:** full grid and four trace closures executable verified; branch
+   extrema/provenance, OML law, centres, and reconstructions executable
+   verified and hostile reproduced; universal reconstruction is open.
+5. **Load-bearing:** commits `26bb203` and `425dbc5`;
+   `oml_full_grid_2x2_failure.md`,
+   `oml_rectangle_repair_and_full_atlas_criteria.md`, and
+   `rectangle_repair_branch_receipt.json`.
+6. **Unresolved theorem:** does a complement/disjoint-union-closed OML
+   `E subseteq P(2^4)` contain all four edge algebras and all profiles while
+   omitting both `Bool(q0,q1)` and `Bool(r0,r1)` and retaining trivial centre?
+7. **First action:** exhaust the symmetry-reduced active-cut repair tree,
+   pruning only after a same-side boundary is irreversibly reconstructed.
+8. **Do not repeat:** infer an all-branch theorem from two greedy branches;
+   promote stripped-centre counts to the full gadget; assume one repair is
+   enough; or treat a macro-cylinder no-go as excluding fine-fibre repairs.

@@ -23,9 +23,9 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — arbitrary-index one-hub scaling is proved Phi-tame; grouped puncture geometry first fails at an explicit K22 rectangle cut.",
+   "status": "OPEN — the full conditional K22 grid retains the rectangle cut; two iterated stripped repairs reach OMLs but reconstruct the same-side boundary, and exhaustive distributed-preserving completion is open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
-   "entries": 78
+   "entries": 80
   },
   {
    "id": "reconstruction_commensurability",

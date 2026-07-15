@@ -6,7 +6,8 @@
 - **Starting commit:** `1547059a1d0b79873d807759a5a2f726b1331c4d`.
 - **Starting worktree:** clean; branch matched
   `origin/oml-descent-sigma-essential-reduction`.
-- **Active campaign:** Campaign 16 — grouped-output rectangle repair.
+- **Active campaign:** Campaign 17 — distributed-preserving rectangle
+  completion search.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -21,7 +22,9 @@
   normality, state-separation escape, and incompatible transport reduction;
   Campaign 14 — literal `MO3` conditional cell and fixed-pattern assembly
   through three cells; Campaign 15 — arbitrary-index one-hub tameness and
-  bipartite coordinate-core obstruction.
+  bipartite coordinate-core obstruction; Campaign 16 — full conditional
+  rectangle failure, four first repairs, and two terminating stripped-core
+  controls.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -94,6 +97,8 @@
 | fixed-pattern k-cell scaling | exhaustive finite evidence for k=1,2,3; arbitrary-k formulas open |
 | arbitrary-index one-hub family | hand proved plus executable outsider kernel; sigma-complete with Stfa=Stsigma, hence Phi |
 | bipartite grouped coordinate core | executable refuted: complement/disjoint closure remains nonlattice at K22,K23,K32 |
+| full conditional `2x2` grid | executable refuted: 198-to-230 orthogonal closure preserves semantics but remains nonlattice at a crossed rectangle |
+| stripped rectangle terminal repairs | two executable-verified OML branches of 1296 and 3456 events; both reconstruct `Bool(q0,q1)`; exhaustive all-branch status open |
 
 ## Unresolved assumptions
 
@@ -137,13 +142,17 @@
 - The fixed `MO3` interface is preserved through three cells, but the
   quadratic pair-local repair formulas now have an arbitrary-index proof.
 - The one-hub family is Phi-tame and cannot carry a non-sigma boundary trace.
-- Grouped puncture blocks leave support-two normal forms: the stripped K22
-  coordinate closure has an unresolved crossed-rectangle lattice cut.
+- Grouped puncture blocks leave support-two normal forms: the full conditional
+  `2x2` grid retains the stripped crossed-rectangle lattice cut after closure.
+- A single one-of-four literal repair never suffices. Two iterated stripped
+  repairs reach OMLs but reconstruct the same-side `q0,q1` Boolean boundary;
+  whether every iterated distributed-preserving repair does so is open.
 
 ## Next automatic pivot
 
-Build the full four-cell `2x2` conditional grid sharing row activation/input
-interfaces and column outputs. Compute concrete closure and determine whether
-cell gadgets select one crossed-rectangle bound or whether latticehood still
-fails. If it passes, audit K23; if it fails, extract the rectangle obstruction
-theorem and test explicit rectangle-repair blocks.
+Exhaust the symmetry-reduced repair tree of the stripped sixteen-profile
+`K22` core subject to preserving the absence of both same-side Boolean
+boundaries.  A terminal distributed OML branch pivots immediately to a lift
+over the full conditional carrier; exhaustive failure yields the literal
+macro-completion reconstruction theorem.  Do not infer either outcome from
+the two presently known reconstructing branches.

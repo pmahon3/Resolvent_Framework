@@ -567,4 +567,9 @@ finite-support union; see
 Campaign 15 proves the arbitrary-index one-hub family Phi-tame: bounded
 support forces sigma-completeness and all fa states are sigma states. Grouping
 outputs into puncture columns creates a crossed-rectangle nonlattice already
-at K22. The frontier is the full conditional 2x2 rectangle repair.
+at K22. Campaign 16 confirms that the full conditional `2x2` grid retains the
+failure after 198-to-230 concrete orthogonal closure.  Each of the four first
+literal repairs also remains nonlattice.  Two iterated stripped-core branches
+reach concrete OMLs but reconstruct `Bool(q0,q1)`, so the live finite gate is
+an exhaustive distributed-preserving rectangle-completion search, followed
+by a full-carrier lift if a terminal branch survives.

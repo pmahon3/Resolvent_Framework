@@ -1910,3 +1910,65 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - Arbitrary-index one-hub scaling is completely Phi-tame. The first live
   grouped-output core fails latticehood by a rectangle cut. Automatic pivot:
   Campaign 16 full conditional 2x2 completion and rectangle repair.
+
+## Linked Campaign 16 — full rectangle and repair calculus (2026-07-14)
+
+### Iteration 187 — full conditional grid closure
+- **Result:** the four-cell `2x2` grid has 6,186,568 compatible points, 198
+  raw events, and 230 events after concrete orthogonal closure, but remains a
+  nonlattice. **Evidence class: executable verified.**
+
+### Iteration 188 — full-grid crossed cut
+- **Refutation:** `e01@01` and `e10@10` have unique maximal lower bound zero
+  and exactly two incomparable minimal upper bounds, the complements of
+  `e11@00` and `e00@11`. **Evidence class: exhaustive finite evidence.**
+
+### Iteration 189 — semantic survival through failed closure
+- **Result:** all four 30-profile cell relations, the simultaneous activated
+  diagonal, activation nonevents, and off-cylinder escape survive the
+  230-event closure. **Evidence class: executable verified.**
+
+### Iteration 190 — four rectangle traces
+- **Theorem:** a macro-saturated candidate for the first missing join is
+  determined by independent choices on profiles `0011` and `1100`, hence has
+  exactly four possible traces. **Evidence class: hand proved.**
+
+### Iteration 191 — single-repair insufficiency
+- **Result:** the four one-step closures have 204, 198, 198, and 204 events;
+  all remain nonlattices and none reconstructs `Bool(q0,q1)`. **Evidence
+  class: exhaustive finite evidence.**
+
+### Iteration 192 — terminating middle branch
+- **Construction:** one explicit three-repair branch closes
+  `82 -> 198 -> 486 -> 1296` to a concrete OML. Its stripped centre has 16
+  events. **Evidence class: executable verified.**
+
+### Iteration 193 — terminating maximal branch
+- **Construction:** one explicit four-repair branch closes
+  `82 -> 204 -> 504 -> 1296 -> 3456` to a concrete OML. Its stripped centre
+  has 128 events. **Evidence class: executable verified.**
+
+### Iteration 194 — same-side reconstruction control
+- **Result:** both terminal branches reconstruct `Bool(q0,q1)` and every
+  `q-r` pair, but not `Bool(r0,r1)`. This is not an all-branch theorem.
+  **Evidence class: executable verified and hostile reproduced.**
+
+### Iteration 195 — hostile scope and provenance audit
+- **Review:** centre counts were quarantined to the stripped core; no claim
+  was promoted to the full gadget. Later hard-coded repair choices require
+  active-cut provenance certificates before the branch calculus is banked.
+  **Evidence class: hostile executable audit.**
+
+### Iteration 196 — active-cut provenance repair
+- **Repair:** every chosen mask now records the current failed pair, complete
+  extrema, admissible interval, and post-closure join; a fresh hostile rerun
+  reproduced every certificate. **Evidence class: executable verified plus
+  hostile audit.**
+
+### Campaign-16 verdict
+- The full conditional grid does not select a rectangle bound. One literal
+  repair never suffices. Rectangle OML completion is possible in the stripped
+  carrier, but both known terminal branches reconstruct a same-side Boolean
+  boundary and therefore fail the distributed-construction gate. Universal
+  reconstruction remains open. Automatic pivot: Campaign 17 exhaustive
+  distributed-preserving completion search.

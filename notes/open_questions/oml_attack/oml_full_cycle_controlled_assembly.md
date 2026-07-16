@@ -700,18 +700,32 @@ canonical physical-root provenance. All 21 `And` pairs per orientation have
 kernel exactly the old meet, as predicted by the Lean-certified intersection
 calculus.
 
-The other operators do not close automatically. Only 6/10 left and 9/14 right
-complement targets are kernel-good. Of the exact-disjoint kernel-good child
-pairs, 37/42 left and 66/73 right bridge folds remain inside their physical
-unions. The first strict failure starts with an eligible old base join and
-eight bridge atoms; the first bridge extension already forces the old fold
-outside the union. Three right-orientation coarse-shadow classes realize two
-different bridge signatures. **Executable verified** (bounded, single
+The other tested operators do not close automatically. Only 6/10 left and
+9/14 right complement targets are kernel-good. Of the exact-disjoint child
+pairs whose goodness is either checked here or inherited from the committed
+join-rich leaf receipt, 37/42 left and 66/73 right bridge folds remain inside
+their physical unions. The first strict failure in the canonical atom
+enumeration starts with an eligible old base join and eight bridge atoms; its
+first enumerated bridge extension forces the old fold outside the union. Three
+right-orientation coarse-shadow classes realize two different bridge
+signatures. **Executable verified** (bounded, single
 producer), payload `3fbf81c2...`, producer `b4894f4e...`; seed-0 and
 seed-12345 whole-payload replay pass.
 
-Therefore the finite operator alphabet `{Leaf, And, Neg, OrthoOr}` is valid,
-and `And` is theorem-closed, but neither automatic complement/union closure nor
-a coarse-shadow-only finite state grammar survives. Exact physical roots and
-bridge provenance are load-bearing. Full mixed closure and arbitrary-depth
-finiteness remain **Open**.
+The tested operator alphabet is `{Leaf, And, Neg, OrthoOr}`, and `And` is
+theorem-closed. Automatic complement/union closure fails, and coarse shadows
+do not determine bridge signatures. This refutes a shadow-only grammar that
+must carry bridge provenance, but does not by itself refute every shadow-level
+kernel-verdict grammar. Exact physical roots and bridge provenance are
+load-bearing for the present calculus. Alphabet completeness, full mixed
+closure, and arbitrary-depth finiteness remain **Open**.
+
+There is a sharper fixed-base consequence. Let `u` be any strict target whose
+old contained atoms have old join `j` with `j` not contained in `u`, and let
+`e0` be their set union. Every set `m` with `e0 subseteq m subseteq u` has the
+same contained old atoms, hence the same escaping old join, so `m` is not
+kernel-good over the old lattice. Any extension in which `u` acquires a new
+greatest lower must place that lower in this interval. Therefore no adjunction
+can repair the strict target while keeping the inclusion into the extension a
+kernel retraction over the same old base. **Hand proved.** Re-basing may still
+repair latticehood, but it abandons the conservative-embedding invariant.

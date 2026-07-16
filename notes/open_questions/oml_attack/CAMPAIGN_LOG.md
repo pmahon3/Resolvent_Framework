@@ -2864,10 +2864,16 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   producer), payload `3fbf81c2...`; seed-0 emit/verify and seed-12345 replay
   pass.
 - The first strict bridge failure has eight bridge atoms: the base old join is
-  inside the union, but its first canonical bridge extension escapes. Three
-  equal-coarse-shadow classes carry two distinct bridge signatures. Automatic
-  union closure and coarse-shadow-only bridge typing are **Refuted** at this
-  bounded coordinate scope.
+  inside the union, but its first canonically enumerated bridge extension
+  escapes. Three equal-coarse-shadow classes carry two distinct bridge
+  signatures. Automatic union closure and determination of bridge provenance
+  by coarse shadows are **Refuted** at this bounded coordinate scope; a
+  shadow-only kernel-verdict grammar is not yet refuted.
+- **Fixed-base repair theorem:** if the old atom join for a target escapes,
+  every intermediate set between the atom saturation and the target has the
+  same escaping atom join. Any new greatest lower in an extension lies in this
+  interval and is itself not kernel-good over the old base. Conservative
+  fixed-base repair is impossible; only re-basing remains. **Hand proved.**
 - **Scope:** full mixed closure, generated latticehood, OML, direct limit,
   ODBC, and `Phi` remain open. Exact physical-root/provenance bridge data are
   load-bearing in the next grammar.

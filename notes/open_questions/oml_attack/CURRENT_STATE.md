@@ -522,8 +522,11 @@ targets. Exact-disjoint bridge folds pass only 37/42 left and 66/73 right.
 **Executable verified** (bounded, single producer), payload `3fbf81c2...`;
 cross-seed replay passes. The first strict bridge escape has eight bridge
 atoms, and three equal coarse-shadow classes have different bridge signatures.
-This **Refutes** automatic union closure and shadow-only bridge typing, while
-leaving the full provenance-sensitive repair grammar open.
+This **Refutes** automatic union closure and coarse-shadow determination of
+bridge provenance, not every shadow-only verdict grammar. A strict escaping
+atom join also cannot be repaired while retaining a kernel retraction over the
+same old base: every forced intermediate lower has the same escaping atom
+join. **Hand proved.** Full re-based provenance-sensitive repair remains open.
 
 ## Primary sources
 

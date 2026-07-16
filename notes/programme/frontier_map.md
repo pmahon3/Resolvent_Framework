@@ -759,8 +759,8 @@ second/third-round `Neg/OrthoOr` failures occur in a coordinate-target calculus:
 universal shadows commute with intersection but not with complement or union.
 They therefore do not yet give actual generated-event obstructions. The live
 theorem is the exact restricted relation-section grammar.
-The first corrected bounded quotient is positive: all 156 actual relation
-occurrences have conservative old shadows, while coordinate Boolean targets
+The first corrected bounded quotient is retained-side positive: all 156
+retained projections have conservative old lower shadows, while coordinate Boolean targets
 misclassify 22 and differ on 55 `Neg/OrthoOr` shadows (payload
 `3d6f97c8...`). The next discriminator is exact opposite-witness diversity
 inside fixed `(E,U)` classes, not deeper coordinate closure.
@@ -772,5 +772,8 @@ and depth-one actual-transition exhaustion.
 Global exact-universal minimization then closes negatively: the canonical
 section algebras have 9 atoms/512 elements and top-preserving Boolean
 congruence is equality (payload `2ebe78a9...`). The next exact discriminator is
-kernel-observational congruence; failure pivots to parametric exact-root normal
-forms.
+kernel-observational congruence. That two-sided audit now finds seven genuine
+opposite-side lower-shadow escapes of actual terms and 13 typed observation
+conflicts. A fixed old retraction is therefore refuted on the physical-right
+side, and the frontier is the first ambient effective-base re-basing
+transition and its associativity/commutation diamond.

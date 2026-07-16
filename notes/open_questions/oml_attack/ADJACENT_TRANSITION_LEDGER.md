@@ -282,3 +282,48 @@ kernel-observational congruence:
 - the first conflicting transition is the negative certificate;
 - if the kernel quotient also collapses to equality, stop finite minimization
   and pivot to parametric exact-root normal forms.
+
+### First certified actual escape
+
+The two-sided audit corrects the earlier one-sided headline. The prior
+`actual_kernel_bad_terms = 0` counted only the retained universal projection.
+For the same 156 reachable actual-relation occurrences, the opposite
+projection has seven genuine lower-kernel escapes:
+
+- left-retained orientation, opposite physical-right side:
+  2 `Neg`, 5 exact-disjoint `OrthoOr`;
+- right-retained orientation, opposite physical-left side: 0.
+
+The first is `left_retained_position11-Neg-023`, generated from `And-010`.
+Its retained physical-left bracket is the singleton old event `14557`; its
+opposite physical-right shadow has no greatest old lower and has least old
+upper `18331`. This is an **actual_relation** transition, not a coordinate
+control.
+
+Evidence: **Executable verified — sampled finite scope** over the fixed
+six-generator reachable family,
+`adjacent_kernel_observational_congruence.py/.json`. The receipt serializes
+physical-side mappings, every endpoint failure and stable occurrence
+provenance. Hostile review and independent mapping audit pass. It does not
+cover the full 512-element algebra, alternative witnesses, arbitrary depth,
+successor closure, OML, sigma, ODBC, or `Phi`.
+
+### Forced re-basing theorem
+
+Let `z` be an actual generated target and `L` an old rectangle. If
+`{a in L : a subset z}` has no greatest member, then:
+
+1. no monotone deflationary retraction fixing `L` exists at `z`;
+2. every specified finite lattice extension containing `L` and `z` contains
+   a genuinely new join of all old events below `z`;
+3. therefore the effective side must be re-based before subsequent
+   transitions are classified.
+
+This is **Hand proved**. The cut and its literal union/intersection envelopes
+are canonical. A subset-valued repair is not canonical until an ambient
+completion is fixed.
+
+The next transition is `AR-REB-001`: re-base the physical-right side at
+`Neg-023`, recompute both endpoint tables, then test the join-association
+diamond through its parent `And-010` and the complement-dual meet diamond.
+All collapse gates remain `unevaluated_pending_rebase_closure`.

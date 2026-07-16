@@ -1,56 +1,46 @@
 # Campaign 20 kernel-grammar checkpoint
 
-1. **Attempted:** compress the mixed closure of two adjacent centre-free
-   full-cycle OMLs sharing their exact 56-event cell, without materializing
-   the 211897540016-point carrier.
-2. **Proved:** the copies intersect exactly in the shared cell (prior commit);
-   coarse disjoint shadow types close; conservative finite OML inclusion is
-   equivalent to a monotone deflationary kernel retraction, i.e. every new
-   event has a greatest old lower shadow. The aligned `2x1` block horn reduces
-   conditionally to a contextwise 2-Helly test.
-3. **Refuted:** OR-tags alone are complement-closed; literal coordinate hulls
-   are always old events; state-restriction bijectivity preserves extrema;
-   pairwise aligned block containers alone amalgamate horns.
-4. **Evidence:** symbolic executable MDD receipts for 277/307 coarse types,
-   172787 disjoint pairs, the missing 71-state `0x22` cylinder, and its sharp
-   old bracket `0x404 < C < 0x505`; the original pulled event has lower shadow
-   `0` and least upper `0x505`. Independent hostile derivation of the missing
-   cylinder; hand proofs for fibre-product formulas, kernel equivalence and
-   horn reduction; three Lean kernel theorems in
-   `FullCycleAssemblyKernel.lean`; bounded atom replay payload `7be059ff...`
-   (100 kernels, no failure, not exhaustive); bad-mask batch payload
-   `a85c5a3e...` (16 stratified kernels, no failure, deterministic
-   producer-only replay); trace-class payload `d8290f39...`; streaming
-   differential payload `c8587f5b...` (1233 kernels, no failure, bounded).
-   Scale payload `9b1277f7...` covers 1640 kernels with no failure but has an
-   unresolved whole-receipt cross-seed mismatch. Sparse containment payload
-   `b06e5ff0...` covers 355 kernels and 11951 bad-mask queries (bounded, not
-   exhaustive) with exact
-   compressed/direct-oracle agreement under seeds 0 and 12345. Empty masks
-   discharge algebraically, reducing the nontrivial target to 18370 kernels.
-   Exact admissibility leaves 55722 live kernels. The abstract fold/strict-
-   escape chain is Lean certified in `FiniteAtomFoldKernel.lean` with reported
-   Mathlib axioms and no `sorryAx`.
-5. **Load-bearing:** `oml_full_cycle_controlled_assembly.md`; commits
-   `3211ee1`, `ac5e8e9`, `694995c`, `a053b88`, `6a566f1`, `5818764`,
-   `61e75de`, `8093198`, `96e36c7`; verification files prefixed
-   `adjacent_full_cycle_{boolean_envelope_shadow,tagged_grid_prototype,
-   exact_old_shadow,missing_hull_envelope,exact_lower_kernel_scan,
-   badmask_atomic_batch,restricted_trace_classes,
-   streaming_atomic_differential,streaming_atomic_scale,
-   sparse_containment_pairs,join_rich_per_a}` including the bounded receipts;
-   Lean file
+1. **Attempted:** classify actual Boolean transitions in the adjacent
+   full-cycle assembly and determine whether the two original rectangles can
+   remain fixed retracts.
+2. **Proved:** all 55722 first-round kernels have greatest old lowers (18370
+   exhaustive executable nonempty cases plus 37352 algebraic empty cases).
+   A genuine actual target without a greatest old lower forbids every
+   monotone deflationary retraction fixing that old rectangle and forces a new
+   cut join in any specified finite ambient lattice extension containing the
+   old rectangle and that target. **Hand proved.**
+3. **Refuted:** coordinate-shadow complement/union failures alone instantiate
+   actual transitions; coarse `(E,U)` determines the exact grammar; global
+   exact-universal congruence compresses the 512-element section algebra; and
+   the two-sided old lower/upper observation is a typed transition
+   congruence. Most importantly, immutable fixed-old retraction is refuted by
+   seven actual opposite-side lower-shadow escapes.
+4. **Evidence:** first-round master payload `bf3f7d29...` (32 shards);
+   actual-event payload `3d6f97c8...`; witness-diversity `39bd3fe0...`;
+   exact-congruence `2ebe78a9...`; coordinate ledger `12c6f217...`; and
+   `adjacent_kernel_observational_congruence.py/.json`, which records 72/84
+   reachable occurrences, seven physical-right lower escapes, and 13 typed
+   transition conflicts. The first escape is `Neg-023` over `And-010`.
+   Hostile source/mapping review passes. Scope is bounded canonical exact-root
+   evidence, not arbitrary-depth closure.
+5. **Load-bearing:** commits `e523098`, `3e26da7`, `5c17ab1`, `9db437f`,
+   `4032666`; `ADJACENT_TRANSITION_LEDGER.md`;
+   `oml_nonprofile_fibre_splitter_calculus.md`;
+   verification files `adjacent_{full_cycle_actual_event_shadow,
+   full_cycle_witness_diversity,section_congruence_minimization,
+   coordinate_escape_ledger,kernel_observational_congruence}.*`; Lean
    `QuerySystem/{FiniteAtomFoldKernel,KernelClosureCalculus}.lean`.
-6. **Unresolved theorem:** every actual relation term in the adjacent mixed
-   closure has a greatest lower shadow in each old copy, coherently under
-   Boolean transitions. Universal shadows alone are not a closed grammar.
-7. **First action:** test the weaker kernel-observational congruence for
-   depth-one actual transitions. Exact universal-output minimization is closed
-   negatively: each canonical section algebra has 9 atoms/512 elements and
-   any top-preserving Boolean congruence is equality, payload `2ebe78a9...`.
-   Observations must include exact old lower and complement-dual upper indices;
-   test typed complement/intersection/disjoint-union compatibility and stop at
-   the first conflicting transition. Use `ADJACENT_TRANSITION_LEDGER.md`.
+6. **Unresolved theorem:** the first actual opposite-shadow escape admits a
+   finite, canonical and order-independent effective-base expansion whose
+   generated adjacent closure preserves the distributed gates.
+7. **First action:** instantiate `AR-REB-001` at
+   `left_retained_position11-Neg-023` (parent `And-010`). Construct or select
+   an ambient lattice extension containing the old rectangle and that target,
+   adjoin its forced physical-right cut join and complement, recompute
+   endpoint/section tables, then test the parent-sibling join-association
+   diamond and complement-dual meet diamond. The bounded
+   two-sided receipt finds 7 actual opposite-side lower escapes and 13 typed
+   observation conflicts.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

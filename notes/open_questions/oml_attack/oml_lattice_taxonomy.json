@@ -2,7 +2,7 @@
  "$meta": {
   "title": "OML lattice form — finite-trace σ-liftability",
   "purpose": "Zoom-out index of the OML/lattice attack. Load this first; follow detail pointers into the working note for proofs, scope, and session receipts.",
-  "updated": "2026-07-15",
+  "updated": "2026-07-16",
   "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
   "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
   "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The 44-event centre-free five-block survivor is banked as a finite result. Its one-interval q0 inflation preserves exactly five maximal blocks, sigma-completeness, trivial centre, the proper C01 boundary, and a noncompact local slice at hand-proof level, but remains Phi-tame because its single fibre coordinate separates. A global 60-form truth-vector audit closes the compatibility-clique gap left by centralizer checks; the smallest P(2) triangle twist is either nonfaithful or gauge-trivial.",
@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Intern only restricted-root containment pairs actually queried by bad_A(D), differentially reproduce bad masks on 64 spread retained events per orientation, and resume exhaustive kernels only if the sparse quotient compresses the 52.6M-call scale boundary."
+   "current_next_step": "Instantiate AR-REB-001 at actual occurrence Neg-023: in the specified ambient full-cycle lattice adjoin the forced physical-right cut join and complement, recompute exact section/endpoints, then test the parent-sibling associativity and complement-dual diamonds."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -739,8 +739,8 @@
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
-   "status": "adjacent-first-round-proved-exact-relation-section-grammar-open",
-   "one_line": "All 55722 first-round kernels and 156 bounded actual terms pass; coarse grammar and nontrivial exact-universal congruence compression are refuted, leaving kernel-observational or parametric exact-root grammar.",
+   "status": "adjacent-first-round-proved-actual-opposite-escape-rebase-open",
+   "one_line": "All 55722 first-round and 156 retained-side kernels pass, but seven actual opposite-side shadows escape; fixed retraction is refuted and the first ambient re-base is active.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

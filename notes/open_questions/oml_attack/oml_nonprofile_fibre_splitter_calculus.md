@@ -968,3 +968,38 @@ The mandated decision is the **counterexample route**: preserve this terminal
 full-cycle grammar and attempt controlled countable and uncountable assembly,
 treating centre, sigma-completion, state separation, MBRC and ODBC-S as
 independent gates. No deeper finite repair branching is indicated.
+
+### 8.14 Adjacent actual-shadow escape and re-based grammar trigger
+
+The first exact actual-event audit was one-sided: it proved only that the
+retained universal projection of each of 156 reachable occurrences had a
+greatest old lower. A two-sided instrumentation now finds seven genuine
+opposite-side failures, all on the physical-right rectangle in the
+left-retained orientation (2 `Neg`, 5 `OrthoOr`). The other orientation has
+none. **Executable verified — sampled finite scope.**
+
+The first failure is the complement occurrence
+`left_retained_position11-Neg-023`, whose parent is `And-010`. The
+physical-right universal shadow has no greatest old lower and least old upper
+`18331`. Thus the immutable-old-rectangle retraction target is genuinely
+refuted by an actual relation, not only by the coordinate control.
+
+The lower/upper bracket is also not a typed Boolean congruence on this
+reachable grammar: identical typed parent observations yield distinct child
+observations in 3 `Neg` and 10 exact-disjoint `OrthoOr` groups. **Executable
+verified — sampled finite scope.** Exact section/provenance information
+remains load-bearing.
+
+**Adjacent actual-escape theorem (Hand proved).** If an actual target has no
+greatest old lower, a monotone deflationary retraction fixing the old
+rectangle cannot exist. In any specified finite ambient lattice, the join of
+all old lowers is a new event below the target. Hence an effective base
+expansion is forced. Before an ambient completion is selected, the cut is
+canonical but the new concrete event is not.
+
+This result does not yet construct the re-based successor or decide
+latticehood, orthomodularity, same-side reconstruction, activation, centre,
+state separation, the conditional relation, or `Phi`. The smallest next
+test fixes the ambient full-cycle lattice, adjoins the forced cut join and
+complement, closes required orthogonal unions, and compares the two
+association paths through `And-010`.

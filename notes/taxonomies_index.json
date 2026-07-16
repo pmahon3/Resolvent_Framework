@@ -2,7 +2,7 @@
  "$meta": {
   "title": "Taxonomies registry — the tree of problem-collection taxonomies",
   "purpose": "The single entry point to every collection taxonomy. Each collection has a JSON taxonomy = a zoom-out index of its attempts; this file registers them so the tree itself is navigable as collections come and go. Load THIS first, then the collection taxonomy, then its `detail` leaves — three zoom levels.",
-  "updated": "2026-07-15",
+  "updated": "2026-07-16",
   "schema_doc": "notes/TAXONOMY_SCHEMA.md",
   "paths_relative_to": "repository root",
   "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — first-round and bounded actual kernels pass; coarse witness grammar and global exact-universal congruence compression are refuted; kernel-observational compression or a parametric exact-root normal form remains.",
+   "status": "OPEN — first-round and retained-side bounded kernels pass; seven actual opposite-side escapes force re-basing; successor closure and collapse gates remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

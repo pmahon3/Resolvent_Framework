@@ -794,7 +794,7 @@ actual generated relations. The active problem is therefore the exact
 restricted relation-section grammar: form actual terms fibrewise, then compute
 their universal old-lower shadows and kernels.
 The first such bounded quotient tests 156 actual relation occurrences and
-finds zero bad kernels. The old coordinate calculus reports 22 false failures
+finds zero bad retained-side lower kernels. The old coordinate calculus reports 22 false failures
 and differs on 55 complement/disjoint-union shadows (payload `3d6f97c8...`).
 This is positive finite-support evidence; witness diversity within a fixed
 coarse shadow class is the next exact grammar gate.
@@ -806,8 +806,10 @@ on a genuine actual-event escape.
 Exact universal-output minimization cannot reduce the state: each canonical
 algebra has 9 atoms/512 elements and any top-preserving Boolean congruence is
 equality (payload `2ebe78a9...`). The next workload tests only the weaker exact
-old-kernel observational quotient; if that is identity, the programme pivots
-to a parametric provenance normal form.
+old-kernel observational quotient. Its two-sided form finds seven genuine
+opposite-side lower-kernel escapes and refutes typed observation congruence
+in 13 groups. The next construction is the forced ambient re-base at the
+first actual escape; successor OML and collapse gates remain open.
 
 ## Repository Layout
 

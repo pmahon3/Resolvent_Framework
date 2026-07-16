@@ -2955,8 +2955,10 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   six canonical opposite events in each shared-state fibre. Boolean terms are
   evaluated on the actual relation quotient before universal shadows are
   composed back into old-copy MDDs.
-- 156 generated occurrences are tested: 72 left and 84 right. Every actual
-  shadow kernel is good. The coordinate-target control reports 22 bad
+- 156 generated occurrences are tested: 72 left and 84 right. The original
+  audit tested only the retained-side actual shadow and found every retained
+  lower kernel good. It did not test the opposite-side shadow. The
+  coordinate-target control reports 22 bad
   occurrences and differs on 55 shadows (20 `Neg`, 35 `OrthoOr`); `Leaf` and
   `And` agree exactly. **Executable verified** at bounded canonical-witness
   scope, payload `3d6f97c8...`.
@@ -3050,3 +3052,30 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - This completes the requested Level-1 coordinate-control census without
   rerunning the closed first-round theorem or promoting controls to actual
   generated events.
+
+### Iteration 285 — first actual opposite-shadow escape and forced re-base
+- The depth-one actual-relation instrument now audits both universal
+  projections of every reachable occurrence. The left-retained orientation
+  has seven genuine missing greatest-old-lower shadows on the opposite,
+  physical-right rectangle: two `Neg` and five exact-disjoint `OrthoOr`.
+  The right-retained orientation has none. **Executable verified — sampled
+  finite scope.**
+- The first actual escape is
+  `left_retained_position11-Neg-023`, parent `And-010`, semantic signature
+  `6b048d77...`, physical-right universal root `d5915700...`; its greatest
+  old lower is absent and its least old upper is old event `18331`.
+- The same receipt refutes the proposed two-sided lower/upper observation as
+  a typed Boolean congruence: 13 left-orientation conflicts (3 `Neg`, 10
+  `OrthoOr`) and none in the right orientation. Exact section provenance
+  cannot be discarded.
+- **Hand proved:** if an actual generated target has no greatest old lower,
+  no monotone deflationary retraction onto that old rectangle exists. In any
+  specified finite ambient lattice, the join of all old events below the
+  target is a genuinely new event, so re-basing is forced. Without a fixed
+  ambient completion, only the lower/upper cut is canonical.
+- Collapse gates remain unevaluated: this is a Level-1 projection-shadow
+  escape, not yet a successor OML, centre, activation, state, or `Phi`
+  theorem.
+- **Pivot:** construct the first ambient re-base at this exact occurrence,
+  close complements and forced orthogonal unions, then test the serialized
+  associativity/commutation diamond before widening the grammar.

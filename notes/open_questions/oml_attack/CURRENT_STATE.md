@@ -561,9 +561,10 @@ re-based child. **Hand proved / Refuted overclaim.** The next exact test must
 carry canonical restricted relation-section roots, form actual Boolean terms,
 then recompute universal shadows and old atom folds.
 
-That corrected bounded test now passes. Six canonical mixed leaves per
-orientation generate 156 actual relation occurrences; all 156 recomputed
-universal shadows have greatest old lowers. The coordinate-target calculus
+That corrected bounded test initially appeared to pass because it audited
+only the retained universal projection. Six canonical mixed leaves per
+orientation generate 156 actual relation occurrences; all retained-side
+lower kernels pass. The coordinate-target calculus
 misclassifies 22 as bad and differs on 55 shadows, exclusively under
 `Neg/OrthoOr`; `Leaf/And` agree exactly. **Executable verified** at bounded
 canonical-witness scope, payload `3d6f97c8...`; hostile source audit passes
@@ -596,6 +597,17 @@ have explicit separating contexts; variants enlarge the atom alphabet to 10
 or 11. **Hand proved + Executable verified**, payload `2ebe78a9...`; hostile
 review passes. The next discriminator is the weaker exact old-kernel
 observational congruence, not enumeration of the full Boolean algebra.
+
+The two-sided audit now supplies the first actual re-basing trigger. Seven
+opposite-side universal projections of actual generated occurrences lack a
+greatest old lower, all on the physical-right rectangle in the
+left-retained orientation (2 `Neg`, 5 `OrthoOr`). The first is
+`Neg-023` over `And-010`. The lower/upper observation also fails to be a
+typed Boolean congruence in 13 left-orientation groups. **Executable
+verified — sampled finite scope.** Therefore a fixed deflationary retraction
+onto the physical-right old copy is refuted and an effective-base expansion
+is forced in any ambient lattice completion. The re-based successor and all
+collapse/state/`Phi` gates remain **Open**.
 
 The bounded coordinate-control census is now row-complete: 12 stable rows
 (5 left, 7 right) with exact provenance, target `E/U`, bridge atoms, escape

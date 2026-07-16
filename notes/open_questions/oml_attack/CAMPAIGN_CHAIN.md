@@ -95,7 +95,7 @@
 | state-projection alone preserves old extrema | explicit four-point `MO2` control | refuted even for bijective point-state restriction |
 | first 100 adjacent mixed kernels have old lower shadows | Executable verified (bounded producer replay; nonexhaustive) | 91 atoms; 60 realized cores, 40 absent cores with unique greatest |
 | atomic fold kernel and strict escape | Lean certified | explicit atomistic-cover hypothesis; no `sorryAx` |
-| bounded adjacent streaming kernels | Executable verified | 1233 exact kernels pass; complete 55722 remains open |
+| bounded adjacent streaming kernels | Executable verified | 1233 exact kernels pass; after empty-mask discharge 18370 nontrivial kernels remain open |
 | kernel intersection and complement duality | Hand proved plus Lean certified | stable abstract calculus |
 | disjoint-union bridge-atom criterion | Hand proved; generic fold Lean certified | concrete bridge classification remains external |
 | automatic complement/disjoint-union kernel preservation | Hand proved four-point `MO2` control | refuted |

@@ -157,9 +157,10 @@ the previously proved shared-boundary rigidity. The likely final architecture
 uses full-cell overlaps only inside finite rectangle complexes and transported
 proper nonseparating quotient interfaces between uncountably many complexes.
 
-The first next action is the saturated-trace intersection census in Section
-4. Do not form a direct limit, invoke Zorn, or claim sigma-completeness before
-NF and the three-copy locality/diamond obligation are resolved.
+The saturated-trace intersection census specified here was completed in
+Section 4. Its positive result permits the adjacent-union analysis below, but
+does not authorize a direct limit, Zorn argument, or sigma-completeness claim
+before NF and the three-copy locality/diamond obligation are resolved.
 
 ## 7. Adjacent-union factor boundary
 
@@ -468,9 +469,10 @@ only horns with `Delta=Q minus R` nonempty. Deduplicate theorem verdicts by
 
 The first representation gate is computing `b_A(J)` for strict joins; it is
 not determined by the two input bad masks. A full event-pair containment table
-would cost about 9.8 GB and is rejected. The smallest next representation is
+would cost about 9.8 GB and is rejected. The representation selected here was
 per-shared-state interning of restricted MDD roots and their containment
-classes, followed by a 1000-retained-event grouped prototype. **Open.**
+classes, followed by the bounded grouped and scale prototypes reported in
+Sections 10.2--10.4. The complete nontrivial kernel quotient remains **Open**.
 
 The first eager batching prototype confirms this representation boundary. It
 attempted the complete descriptor

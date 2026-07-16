@@ -24,18 +24,21 @@
    differential payload `c8587f5b...` (1233 kernels, no failure, bounded).
    Scale payload `9b1277f7...` covers 1640 kernels with no failure but has an
    unresolved whole-receipt cross-seed mismatch. Sparse containment payload
-   `b06e5ff0...` covers 355 kernels and 11951 bad-mask queries with exact
+   `b06e5ff0...` covers 355 kernels and 11951 bad-mask queries (bounded, not
+   exhaustive) with exact
    compressed/direct-oracle agreement under seeds 0 and 12345. Empty masks
    discharge algebraically, reducing the nontrivial target to 18370 kernels.
    Exact admissibility leaves 55722 live kernels. The abstract fold/strict-
    escape chain is Lean certified in `FiniteAtomFoldKernel.lean` with reported
    Mathlib axioms and no `sorryAx`.
 5. **Load-bearing:** `oml_full_cycle_controlled_assembly.md`; commits
-   `3211ee1`, `ac5e8e9`, `694995c`, `a053b88`; verification files prefixed
+   `3211ee1`, `ac5e8e9`, `694995c`, `a053b88`, `6a566f1`, `5818764`,
+   `61e75de`, `8093198`, `96e36c7`; verification files prefixed
    `adjacent_full_cycle_{boolean_envelope_shadow,tagged_grid_prototype,
    exact_old_shadow,missing_hull_envelope,exact_lower_kernel_scan,
    badmask_atomic_batch,restricted_trace_classes,
-   streaming_atomic_differential}` including the bounded receipts; Lean file
+   streaming_atomic_differential,streaming_atomic_scale,
+   sparse_containment_pairs}` including the bounded receipts; Lean file
    `QuerySystem/{FiniteAtomFoldKernel,KernelClosureCalculus}.lean`.
 6. **Unresolved theorem:** every event in the adjacent mixed closure has a
    greatest lower shadow in each old copy, coherently under further OR/AND

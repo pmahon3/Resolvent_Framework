@@ -595,8 +595,9 @@ two-point repair reaches 558 events, with gap sizes and literal widths
 oscillating, and two nonisomorphic children have the identical complete next
 gap. More fundamentally, the 6,186,568-point carrier is finite: every
 unrestricted repair chain terminates at a finite OML and every same-carrier
-completion contains a terminal chain. The finite frontier is T-FIN, the
-terminal boundary-or-activation dichotomy. The exhaustive macro theorem also
+completion contains a terminal chain. The finite frontier at that checkpoint
+was T-FIN, the terminal boundary-or-activation dichotomy, later refuted by the
+full-cycle terminal. The exhaustive macro theorem also
 extends to every coordinate-closed full-grid completion; the remaining
 completion escape must use a non-profile-measurable join. Larger-carrier and
 uncountable sigma-assembly questions are not closed by this reduction.
@@ -660,10 +661,11 @@ Cell 01 passes as well. The faithful same-row pair closes to a centre-free
 gaps, and row-0 activation escape intact. The next discriminating gate is
 transverse cell 10 and the second activation pattern.
 
-The parallel T-FIN ledger records the constructive marginals as exact
+The now-closed T-FIN ledger records the constructive marginals as exact
 countermodels to weaker impossibility lemmas. Profile-only, centre-only,
 same-row PJH-repair, and point-separation routes are closed. Fixed-carrier
-T-FIN remains open because transverse/full-grid coupling is absent.
+At that intermediate checkpoint transverse/full-grid coupling was absent;
+the later full-grid terminal refuted T-FIN.
 
 Transverse two-cell coupling is now present and still does not collapse: the
 cells-00/10 marginal is a centre-free 18560-event OML with both activation

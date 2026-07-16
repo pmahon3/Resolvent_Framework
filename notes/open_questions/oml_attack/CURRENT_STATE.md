@@ -276,7 +276,7 @@ both distributed boundaries and activation escape.
 Because the full-grid carrier is finite, every unrestricted fine-repair
 chain terminates and countable orthogonal closure is already finite closure.
 Every same-carrier concrete OML completion contains a terminal repair family.
-The exact finite question is therefore T-FIN: must every terminal reconstruct
+The exact finite question at that stage was T-FIN (refuted below): must every terminal reconstruct
 one same-side Boolean boundary or create a nonzero activation-supported
 event? Separately, every coordinate-closed completion reconstructs a side by
 the exhaustive `P(16)` theorem; its only larger-carrier escape uses a
@@ -316,7 +316,7 @@ literal-cylinder residues have event-valued row, column, and total unions;
 gate A is equivalent to any residue being an event, so an avoiding terminal
 has no event singleton or triple residue union. Both sides together give 32
 ternary meet-trace symbols, but no lifting theorem makes that shadow signature
-a complete terminal CSP. The live exact alternatives are residue-shadow
+a complete terminal CSP. The then-live exact alternatives were residue-shadow
 lifting versus a coupled-residue-square collapse theorem using the edge cells
 and a necessary non-profile join.
 
@@ -338,8 +338,8 @@ exhaustive DAG has 31 internal states, 24 interval types, 64 candidate hull
 edges, and 17 reconstructing terminals. A self-auditing replay certifies an
 actual failed pair and family hash at every internal node and resolves every
 edge. Hence any preserving same-carrier terminal must sustain a first
-nonevent hull of one recorded type. Realizability or collapse of those defect
-types in a gate-B-avoiding terminal is open.
+nonevent hull of one recorded type. The later full-cycle terminal realizes
+such a defect while avoiding gate B.
 
 The lower endpoint of an interval cannot be a first defect, leaving 33
 candidate occurrences: three at the root and thirty one-fibre upper choices.
@@ -351,8 +351,8 @@ coordinate symmetry nor profile location compresses the remaining atlas.
 Every possible first-defect join contains the full pullback of a lower word
 with at least three profiles. Exact state counts show that every profile fibre
 has points outside each row activation cylinder. Hence the first defect join
-itself cannot fire gate B. This does not control later events derived from the
-split fibre, so terminal gate-B avoidance remains open.
+itself cannot fire gate B. This did not control later events derived from the
+split fibre; terminal gate-B avoidance was subsequently realized.
 
 The minimal split-profile census changes the frontier. Of the thirty binary
 defects, four yield terminal seventeen-point concrete OMLs without repairing
@@ -459,18 +459,17 @@ arbitrary-depth closure is also **Open**.
 An eager complete retained-event-by-91-atom bad-mask descriptor census was
 stopped at a 12-minute feasibility cap after reaching roughly 1 GiB RSS,
 without a receipt or mathematical verdict. **Executable verified** operational
-observation only. The next discriminating representation is per-shared-state
-interning of exact restricted-root trace classes for the strict atomic horns,
-first on 8--16 deterministically spread states; no complete atlas run is authorized until
-that compression is measured.
+observation only. The next representation tested was per-shared-state
+interning of exact restricted-root trace classes for the strict atomic horns
+on 12 deterministically spread states. That compression is reported below.
 
 That bounded class census now passes after hostile repair. Across 12
 deterministically spread shared states and both orientations, 448200 exact
 horn-role trace words intern to 2740 per-state classes (74--136 each). The
 fixed old OML has 1433764 strict atomic overshoot horns. **Executable
 verified** by a single producer under two hash seeds, payload `d8290f39...`.
-This is not a global-vector compression theorem. The next discriminating run
-is the grouped-versus-scalar streaming differential over every admissible `U`
+This is not a global-vector compression theorem. The subsequent discriminator
+was the grouped-versus-scalar streaming differential over every admissible `U`
 for 64 prefix plus 64 spread retained events per orientation.
 
 That differential passes on 1233 exact kernels (551 left, 682 right) with
@@ -479,8 +478,8 @@ single producer), payload `c8587f5b...`; canonical cross-seed payloads agree.
 The corrected read-only oracle passes 132 exact regressions and leaves MDD
 snapshots unchanged. The fold/greatest-lower and strict-escape implications
 are **Lean certified** in `FiniteAtomFoldKernel.lean` with no `sorryAx`.
-Next scale to 500 spread retained events per orientation in a separate
-artifact; stop for containment-class compression if runtime ceases to scale.
+The subsequent separate artifact scaled to 500 spread retained events per
+orientation, with its result reported below.
 
 The scale run covers 1640 kernels with no escape and unchanged cache peaks,
 but costs 52602242 assigned comparisons. **Executable verified** as a bounded
@@ -504,7 +503,7 @@ The nominal 55722 first-round kernels contain 37352 tautological empty-mask
 kernels whose core is exactly the retained event. **Hand proved.** The true
 nontrivial target is 18370 kernels. A deterministic sparse census on 355
 sampled kernels finds zero escapes and exact compressed/direct-oracle agreement
-for 11951 bad masks, but its orientation-global cache projects poorly.
+for 11951 bad-mask queries, but its orientation-global cache projects poorly.
 **Executable verified** (bounded), payload `b06e5ff0...`. The next design uses
 empty-mask discharge, per-`A` eviction, and join-rich sampling.
 

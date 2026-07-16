@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Enumerate all alternative derivations of the frozen 256 AR-REB-001 roots, retain the complete parent-incidence DAG, and test complement, disjoint-union, old/new collision and Neg-023/And-010 critical diamonds without raising the cap."
+   "current_next_step": "Define coherent finite-support embeddings and test bounded cut locality/reflection at the Neg-023 rebase: can a second adjacent rectangle create an essential outsider bound or interpolant?"
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -740,7 +740,7 @@
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
    "status": "adjacent-actual-rebase-provenance-grammar-open",
-   "one_line": "The first AR-REB-001 prefix has 240 coarse classes with 16 divergent doubletons; complete parent-incidence critical-pair grammar is the active finite gate.",
+   "one_line": "Context-100 exact-root refinement is semantic identity; the active gate is a support-indexed exact-root normal form with bounded cut locality and cylindrical reflection.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

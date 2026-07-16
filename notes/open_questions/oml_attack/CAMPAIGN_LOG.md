@@ -3128,3 +3128,27 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** retain the complete parent-incidence DAG and test all multiple-
   derivation critical pairs already present in the prefix. Do not raise the
   closure cap.
+
+### Iteration 288 — exact-context noncompression and growing-rank pivot
+- All 16 nonsingleton coarse-descriptor classes are separated by the same old
+  context `100`; no full 18676-event scan is needed. In every pair both roots
+  are disjoint from `100`, have the same containment flags, absent union
+  location and old cut, but their exact union roots differ. **Executable
+  verified — sampled finite scope**, producer `0955daf4...`, payload
+  `6fb0bda9...`; seed-12345 scratch replay is fieldwise identical.
+- Therefore `(coarse descriptor, exact root of x union e_100)` is injective
+  on the frozen 256-prefix and only vacuously behaviorally adequate.
+  **Refuted:** this context supplies a nontrivial finite compression.
+- **Hand proved:** on events disjoint from a fixed `e`, the map
+  `x -> x union e` is injective, since subtracting `e` recovers `x`. Exact
+  contextual-root refinement is semantic identity on this domain.
+- **Theorem extraction:** stop finite descriptor enrichment. Use a
+  support-indexed exact-root normal form `(finite support, expression DAG,
+  exact local root, provenance)`. The decisive non-tautological obligations
+  are bounded cut locality and cylindrical reflection/extremum persistence
+  under finite-stage embeddings.
+- **Fir gate:** official Fir status is `OUTAGE`; control master inactive.
+  Local harness tests 17/17 and dry-run preparation pass, but remote POC is
+  incomplete and no job was submitted. The local ten-context census removed
+  the prospective all-old scan, so no current production workload is
+  mathematically justified.

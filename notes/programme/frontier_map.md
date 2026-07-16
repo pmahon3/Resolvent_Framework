@@ -786,3 +786,8 @@ The first prefix descriptor is already refuted: 16 of 240 classes contain
 behaviorally distinct pairs. Fixed-seed fair schedules do have the same least
 closure by a finitary-closure theorem. The live finite question is therefore
 the complete parent-incidence critical-pair calculus, not procedural order.
+The old-context test closes even that compression direction: event `100`
+splits every nonsingleton class only through an injective exact union root.
+The frontier is now a growing-rank support-indexed exact-root normal form,
+with bounded cut locality and cylindrical reflection as the substantive
+finite-assembly theorem.

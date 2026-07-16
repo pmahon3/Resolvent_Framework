@@ -380,3 +380,36 @@ the finitary complement/disjoint-union operator is the unique least closed
 family, and every fair schedule reaches it. **Hand proved.** This does not
 settle finite termination, grammar finiteness, or associativity of assemblies
 with different seed sets.
+
+Ordinary exact-root complement/union diamonds are Boolean set identities and
+do not test order-theoretic rebase associativity. The completed old/new
+control compared all 16 doubletons against old events `15250`, `16786`,
+`10752`, `18322`, `18331` and complements; context `100` split every pair,
+so no all-18676 scan was needed.
+
+### Exact-context noncompression
+
+All 16 prior doubletons are split by old context `100`, with no survivor and
+no full-old scan. In each case both roots are disjoint from `100`, share all
+recorded Boolean incidence/location and old-cut data, and differ only in the
+exact root of their union with `100`. **Executable verified — sampled finite
+scope** by `adjacent_ar_reb_001_all_doubleton_old_context.py/.json`, producer
+`0955daf4...`, payload `6fb0bda9...`; seed-12345 scratch replay is identical.
+
+Thus adding the exact context-100 output makes the descriptor injective on
+the frozen 256 roots, hence behaviorally adequate only by singleton classes.
+For any fixed event `e`, union with `e` is injective on events disjoint from
+`e`, because set difference by `e` recovers the input. **Hand proved.**
+Contextual exact-root refinement is therefore a recoding of semantic identity,
+not a compact grammar.
+
+Finite descriptor minimization stops here. The replacement state is a
+support-indexed exact-root normal form:
+
+```text
+(finite rectangle support, expression DAG, exact local root, provenance).
+```
+
+The next substantive theorem is bounded cut locality plus cylindrical
+reflection: a repair extremum for data supported on `F` must have bounded
+support and remain extremal in larger assemblies.

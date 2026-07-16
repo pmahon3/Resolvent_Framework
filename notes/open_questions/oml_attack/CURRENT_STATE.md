@@ -627,9 +627,28 @@ different already-present complement/disjoint-union behavior. **Executable
 verified — sampled finite scope.** Complete parent-root incidence is the
 first sufficient refinement candidate, not proved minimal. Separately,
 fixed-seed generation is procedurally order-independent by the **Hand proved**
-least-finitary-closure theorem. The live task is multiple-derivation
-critical-pair classification with the full parent DAG, still without raising
-the cap.
+least-finitary-closure theorem. The completed old/new context classification
+separates all 16 doubletons only through exact-root identity. Exact-root
+Boolean reassociation is tautological, and no full-old table or cap extension
+is needed.
+
+On every fixed concrete carrier, point evaluations remain finitely additive
+and order-separating under event-family enlargement, and their designated
+old-coordinate profiles do not change. **Hand proved.** This preserves the
+point-state conditional relation, not the full abstract state space,
+sigma-additivity, or `Phi`.
+
+All 16 doubletons are now separated by one old context, event `100`, but only
+through the exact union-root identity. **Executable verified — sampled finite
+scope**, payload `6fb0bda9...`. Since union with a fixed disjoint event is
+injective (**Hand proved**), this refinement is semantic identity and closes
+the finite descriptor-compression route negatively. No full-old scan or Fir
+job is warranted.
+
+The active normal form is growing-rank and support-indexed: finite rectangle
+support, finite expression DAG, exact local root and provenance. The decisive
+remaining theorem is bounded cut locality together with cylindrical
+reflection and persistence of extrema under larger finite assemblies.
 
 The bounded coordinate-control census is now row-complete: 12 stable rows
 (5 left, 7 right) with exact provenance, target `E/U`, bridge atoms, escape

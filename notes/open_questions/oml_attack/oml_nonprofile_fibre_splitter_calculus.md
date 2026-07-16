@@ -1052,3 +1052,41 @@ family and every fair schedule reaches it, because every generated event has
 a finite expression tree. **Hand proved.** This is procedural schedule
 independence only; it proves neither finite stabilization nor associativity
 between assemblies with different seed sets.
+
+### 8.17 Exact-context noncompression and bounded-cut frontier
+
+All 16 nonsingleton descriptor classes are split by the exact root of union
+with old event `100`. Both members of every pair are disjoint from `100` and
+have the same recorded incidence, union location and old-cut data; only the
+exact union roots differ. No full-old scan runs. **Executable verified —
+sampled finite scope**, payload `6fb0bda9...`.
+
+For any fixed `e`, the map `x -> x union e` on events disjoint from `e` is
+injective, since `x` is recovered by subtracting `e`. **Hand proved.** Hence
+the context-100 refinement is semantic identity, not finite compression. The
+finite descriptor search has reached its natural decision boundary.
+
+The replacement is the conditional **support-indexed exact-root normal-form
+theorem**. Assume coherent surjective finite-stage carrier restrictions,
+cylindrical event embeddings, and support intersection/descent:
+the images of the `F`- and `G`-supported event families intersect in exactly
+the image of the `(F intersect G)`-supported family. Then every finitary
+generated event has a form
+
+```text
+(least finite support F, finite expression DAG, exact root over F,
+ typed provenance).
+```
+
+Complement preserves support and a disjoint union of events supported on
+`F`, `G` is supported on `F union G`; its least support may be smaller.
+Equality is decided after transport to a common finite support.
+**Hand proved under the displayed coherence hypotheses; instantiation for
+completion-created cut joins is Open.**
+
+The non-tautological remaining gate is **bounded cut locality**: extrema and
+forced cut joins for `F`-supported data must already be supported on a
+uniformly bounded incidence neighborhood of `F` and remain extremal after
+embedding into larger assemblies. Cylindrical reflection of generated
+families is also required. Their failure would be the first genuine nonlocal
+rectangle interaction.

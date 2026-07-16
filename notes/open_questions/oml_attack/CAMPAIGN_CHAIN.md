@@ -35,6 +35,9 @@
   cofinality after computational stop signal E; it then closed with the exact
   centre-free full-cycle terminal refuting T-FIN.
 - **Global stopping status:** not reached.
+- **Fir gate:** official status `OUTAGE` on 2026-07-16; control master
+  inactive; local harness tests 17/17 and dry-run preparation pass; remote POC
+  and all research submission remain blocked. See `FIR_COMPUTE_GATE.md`.
 
 ## Theorem ledger
 
@@ -110,6 +113,7 @@
 | `AR-REB-001` seeded lower-envelope pilot | Executable verified, sampled finite scope | 192 lowers, 2 maximal; proper seeded literal envelope; capped closure adds at least 256 events |
 | fixed-seed closure schedule independence | Hand proved | least finitary closure equals every fair schedule; no termination claim |
 | first rebase prefix descriptor | Executable verified, sampled finite scope | refuted: 16/240 classes have divergent behavior |
+| context-100 exact-root compression | Executable verified + Hand injectivity lemma | refuted: refinement is semantic identity on all 16 doubletons |
 | unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |
@@ -350,10 +354,11 @@ coordinate calculus falsely reports 22 bad occurrences (payload
 `3d6f97c8...`). The subsequent two-sided audit finds seven genuine
 opposite-side lower escapes of actual relation terms. The first ambient
 re-base pilot has a proper seeded literal envelope and creates at least 256 events in one
-capped closure round. The automatic pivot is classification of those events
-and their smallest transition diamonds, not a larger cap. The first coarse
-descriptor is refuted by 16 divergent doubletons; the next state retains the
-complete parent-incidence DAG.
+capped closure round. Its coarse descriptor is refuted by 16 divergent
+doubletons, and the completed old/new test separates all 16 only by an
+injective exact-root output at context `100`. Finite descriptor minimization
+is closed; the automatic pivot is support-indexed exact-root normal forms and
+bounded cut locality/cylindrical reflection.
 
 The first provenance discriminator is also closed at sampled single-slot
 scope: 14/17 same-`(E,U)` exact-root substitutions change the full pattern

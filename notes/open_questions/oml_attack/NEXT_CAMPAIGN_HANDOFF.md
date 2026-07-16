@@ -30,14 +30,15 @@
    full_cycle_witness_diversity,section_congruence_minimization,
    coordinate_escape_ledger,kernel_observational_congruence}.*`; Lean
    `QuerySystem/{FiniteAtomFoldKernel,KernelClosureCalculus}.lean`.
-6. **Unresolved theorem:** the frozen prefix admits a finite exact transition
-   type after full parent-incidence DAG data are retained, and every
-   multiple-derivation critical pair has identical exact root and cut data.
-7. **First action:** enumerate every alternative derivation of the 256 frozen
-   roots, construct the complete parent-incidence DAG, and test complement,
-   disjoint-union associativity, old/new collision and `Neg-023`/`And-010`
-   dual diamonds. Do not raise the cap. The first coarse descriptor is
-   refuted by 16 doubletons with distinct behavior.
+6. **Unresolved theorem:** bounded cut locality and cylindrical reflection:
+   extrema and rebase joins for data supported on finite `F` have support in
+   a bounded incidence neighborhood and remain extrema in every larger finite
+   assembly.
+7. **First action:** define the finite-support embeddings and exact support of
+   the `Neg-023` cut. Test the smallest outsider-extremality instance: whether
+   a second adjacent rectangle creates a bound/interpolant for this cut with
+   essential support outside the original adjacent pair. Do not extend the
+   256-prefix or resume descriptor minimization.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

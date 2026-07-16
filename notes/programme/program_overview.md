@@ -818,6 +818,10 @@ The first coarse prefix descriptor fails on 16 doubletons. Exact
 parent-incidence is the next nonminimal state. Fixed-seed closure is
 order-independent under every fair schedule by finitarity, but assembly
 associativity and finite grammar remain open.
+One fixed old context separates every remaining doubleton only by exact-root
+identity, so finite semantic compression stops. The programme now targets a
+support-indexed exact-root normal form plus bounded cut locality and
+cylindrical reflection across finite assemblies.
 
 ## Repository Layout
 

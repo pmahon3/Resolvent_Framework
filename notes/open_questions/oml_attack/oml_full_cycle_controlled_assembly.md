@@ -364,6 +364,131 @@ certificate of failure: every later join dominates it. **Hand proved.** This
 turns the kernel scan into a falsification-first join fold rather than a full
 maximal-bound census.
 
+More explicitly, for retained old event `A` and opposite universal mask `U`,
+let
+
+`I_U(A)={D in L : trace_s(D) subset trace_s(A) for every s notin U}`.
+
+These are exactly the old left events below the pulled mixed union, and its
+kernel is `kappa_U(A)=join_L I_U(A)` precisely when that join still satisfies
+the displayed trace inequalities. **Hand proved.** Coarse `(E,U)` data cannot
+decide this because the partial restricted roots of `A,D` enter pointwise.
+
+A useful sufficient class is also exact. If the cylinder on `U` has greatest
+old lower `h`, and every old `D subset A union cylinder(U)` commutes with `A`,
+then Boolean decomposition over `A` gives
+`kappa_U(A)=A orthogonal_join h`. **Hand proved.** Compatibility is load-
+bearing: in the concrete six-event `MO2 subset P(4)`, take
+`A={1,2}` and the nonevent `H={3}`. Although the greatest old event inside
+`H` is `0`, the old lower `{1,3}` lies in `A union H` and its old join with
+`A` is the universe, which escapes. Thus `A join h` is not a kernel and the
+core has no greatest old lower. **Hand refuted** by this explicit control.
+The scanner should therefore serialize the first skew lower incompatible
+with `A`, not merely cylinder-envelope data.
+
+### 10.1 Bounded kernel discriminator and scalar stop
+
+The first 100 symbolic kernels in deterministic scan order have now been
+checked. Sixty cores are already old events; the other forty all have a
+certified unique greatest old lower. There is no join-escape certificate in
+this prefix. The initial all-event fold required 743671 exact subset tests.
+The atomistic replay gives the identical verdict using the old OML's 91 atoms:
+3625 exact atom tests, 137 old-lattice folds, and maximum fold length ten, a
+205.15-fold test reduction. **Executable verified bounded evidence** from a
+deterministic producer receipt, payload `7be059ff...`; there is no independent
+implementation, and this is not exhaustive finite evidence for all first-
+round kernels.
+
+The safe same-`U` existential antichain quotient reduces the two orientations
+from 277/307 `(E,U)` classes to 77/89 universal masks and the symbolic ceiling
+from 10906784 to 3100216 kernels. But successful absent kernels still inspect
+an average 18591.8 of 18676 old events. At the observed 40 percent absent
+rate, an all-event exhaustive run projects to about 23.1 billion exact subset
+tests. This is computational stop signal E for that scalar algorithm. The
+atom reduction lowers the corresponding ceiling to 282.1 million atom tests
+(about 112.8 million at the observed absent rate); the remaining bottleneck is
+building each 842-component core, so a measured larger atom prefix or the
+horn atlas—not deeper all-event prefixes—is the live discriminator.
+
+The next theorem must batch or invert the condition
+`D subset A union cylinder(U)`. Define the bad-state mask
+`Bad_A(D)={s: trace_s(D) not_subset trace_s(A)}`. Then `D` is an eligible old
+lower exactly when `Bad_A(D) subset U`. Kernel failure is therefore a failure
+of join closure of this mask predicate for an admissible universal mask. The
+live target is a finite atlas of old non-set-union join defects and their bad-
+mask propagation, not another scalar prefix. **Open.**
+
+There are two exact non-scalar reductions. First, a finite OML is atomistic:
+if the join of atoms below a nonzero event were proper, orthomodularity would
+leave a nonzero difference containing another atom. Hence `J(c)` is the old
+join of just the old atoms contained in `c`; the scanner need not test all
+18676 events. **Hand proved.** Second, cumulative failure adds no witness
+class beyond binary join horns. With
+`b_A(D)=Bad_A(D)`, a failure exists exactly when some old `D1,D2`, their old
+join `J`, and admissible `U` satisfy
+
+`b_A(D1) union b_A(D2) subset U` but `b_A(J) not_subset U`.
+
+If `J` is literal set union this is impossible, so only strict old join-
+overshoot horns need enter the atlas. **Hand proved.** Atom-only scanning is
+the immediate executable discriminator; the horn atlas is the fallback batch
+proof if the remaining kernel count is still too large.
+
+The horn atlas can itself be reduced to **atomic extension horns**
+`(P,a,P join a)`, with `a` an old atom. If eligibility is preserved when one
+eligible atom is joined to an eligible `P`, atomistic decomposition of any
+second lower proves binary and hence finite join closure by induction.
+Conversely a failing atomic extension is already an exact kernel witness.
+Literal-union atomic horns can again be discarded. **Hand proved.** This is
+the smallest complete provenance atlas currently known.
+
+Admissible universal masks admit one further exact compression. For retained
+existential type `E`, let `K_E` be the realized opposite `U` masks compatible
+with `E`. For a horn put
+`R=b_A(P) union b_A(a)` and `Q=b_A(P join a)`. Among masks in `K_E` containing
+`R`, it suffices to check the inclusion-minimal ones. Equivalently define
+
+`cl_E(R)=intersection {U in K_E:R subset U}`
+
+on the live domain. The horn succeeds for every admissible `U` exactly when
+`Q subset cl_E(R)`. The operator is extensive, monotone, idempotent, and
+deduplicates verdicts by `(E,cl_E(R),Q)`. **Hand proved.** Checking only
+globally minimal or maximal `U` masks is **Refuted** by finite trace/`MO2`
+controls; conditional minima above `R` are load-bearing.
+
+### 10.2 Strategic decision-boundary audit
+
+- **New structural pattern?** Yes: conservative assembly is controlled by the
+  deflationary trace kernel, and its failures have strict atomic-extension
+  horn certificates.
+- **Genuinely new stage?** The first 100 scalar kernels introduce no failure
+  type; they are a bounded prefix. The atom/horn reduction is theorem-new and
+  changes the search space.
+- **Finite grammar rule?** Candidate rule: eligibility ideals must be closed
+  under every strict atomic extension. Coverage is **Hand proved**; closure
+  for the current grammar is **Open**.
+- **Well-founded invariant?** The incremental old join is monotone; its first
+  escape from the trace core is permanent and certifies failure.
+- **Collapse unavoidable?** No evidence yet. All 100 tested kernels pass.
+- **Infinite coherent grammar evidence?** None: only the two-copy first layer
+  is under test.
+- **Would deeper brute branching discriminate?** No for the scalar all-event
+  scan (23.1-billion-test projection). Atom-only replay or the complete horn
+  atlas is required.
+
+| Gate | Current status | Evidence | Remaining obligation |
+|---|---|---|---|
+| Repair grammar | OR/AND tags plus kernel horns | Hand + executable bounded-100 atom replay | close atomic-horn atlas |
+| Latticehood | Open for adjacent closure | none | construct/verify mixed extrema |
+| Orthomodularity | Conditional on set-lattice closure | Hand lemma | prove latticehood |
+| Same-side boundary preservation | Open in assembly | single-copy executable | audit mixed closure |
+| Activation-event avoidance | Open in assembly | single-copy executable | audit mixed closure |
+| Trivial centre | Open in assembly | single-copy executable | classify mixed commutation |
+| State order separation | Open in assembly | factor carrier points | prove completed order reflection |
+| `Phi` tameness or obstruction | Open | finite copies tame | build CSS/no-GS assembly |
+| Infinite-limit viability | Open | none | coherent kernels and sigma-closure |
+| Universal normalization | Open | ODBC reduction only | reduce arbitrary failure to architecture |
+
 The stable order-theoretic implication is **Lean certified** in
 `QuerySystem/FullCycleAssemblyKernel.lean`:
 `map_sup_of_deflationary_retraction`,

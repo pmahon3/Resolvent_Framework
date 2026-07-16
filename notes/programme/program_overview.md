@@ -738,6 +738,10 @@ envelopes. Conservative inclusion is now characterized exactly by a
 deflationary kernel retraction, so the next finite-support gate is uniqueness
 of greatest old lower shadows for every mixed transition, not literal hull
 realizability.
+The first 100 symbolic transitions pass. A scalar exhaustive scan is not
+informative at its projected all-event scale; the 91-atom replay agrees while
+reducing the test count 205.15-fold. Atomisticity reduces the complete
+obstruction to strict-overshoot joins with one old atom.
 
 ## Repository Layout
 

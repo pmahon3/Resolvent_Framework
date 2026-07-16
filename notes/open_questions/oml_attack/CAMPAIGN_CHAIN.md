@@ -93,6 +93,7 @@
 | finite conservative inclusion iff deflationary kernel retraction | hand proved | exact greatest-old-lower criterion |
 | deflationary/inflationary kernel preserves old extrema | Lean certified | three axiom-free theorems including complement conjugacy |
 | state-projection alone preserves old extrema | explicit four-point `MO2` control | refuted even for bijective point-state restriction |
+| first 100 adjacent mixed kernels have old lower shadows | Executable verified (bounded producer replay; nonexhaustive) | 91 atoms; 60 realized cores, 40 absent cores with unique greatest |
 
 ## Counterexample ledger
 
@@ -263,8 +264,10 @@ only in their 56-event shared cell. The naive global-MDD representation is
 closed by a 7.17-GB pre-closure boundary. The first mixed layer requires both
 OR and AND-rectangle tags, and literal coordinate-hull closure is refuted;
 the first missing hull nevertheless has unique old envelopes. Exhaust the
-exact deflationary kernel-retraction condition and its provenance-sensitive
-transition grammar, then prove or refute conservative extrema and the two-
+exact deflationary kernel-retraction condition through the batched
+atom-only scan or strict atomic-horn `Bad_A(D)` defect atlas (scalar all-event
+prefixes are stopped), then prove or
+refute conservative extrema and the two-
 copy critical-pair theorem before forming any direct limit. Audit
 countable sigma-closure, centre, order separation, maximal blocks/MBRC,
 omega-one CSS/no-global-section, the global finitely additive witness, and

@@ -2642,3 +2642,37 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   round mixed event on both sides; a first multiplicity is the conservative-
   embedding obstruction, while exhaustive success supplies the first exact
   transition layer of the finite-support grammar.
+
+### Iteration 267 — bounded kernel discriminator and scalar exhaustion
+- **Exact scanner:** the lower-shadow problem is a join fold over old events
+  satisfying `D subset A union cylinder(U)`. The first partial old join that
+  escapes is a two-lower certificate of nonexistence; a completed in-core fold
+  is the unique greatest lower. **Hand proved** and implemented without the
+  prior 36.7-GB root table.
+- **Bounded result:** the first 100 deterministic symbolic kernels contain 60
+  old-event cores and 40 absent cores, all with unique greatest old lower; no
+  escape occurs. An atomistic replay gives the same verdict with 91 old atoms,
+  3625 exact atom tests, 137 folds of maximum length ten, a 205.15-fold test
+  reduction. **Executable verified bounded evidence**, payload `7be059ff...`;
+  no arbitrary-prefix or exhaustive claim; no independent verifier.
+- **Safe quotient:** inclusion-minimal existential masks at fixed `U` reduce
+  277/307 classes to 77/89 universal masks and the pre-admissibility ceiling
+  to 3100216 kernels. **Hand proved** plus executable counts.
+- **Computational boundary:** successful absent kernels inspect 18591.8 of
+  18676 old events on average; scalar exhaustion projects to about 23.1
+  billion subset tests. Stop deeper all-event prefixes under signal E. The
+  atom-only ceiling is 282.1 million tests (112.8 million at the observed
+  absent rate); core construction is now the first executable bottleneck.
+- **Next theorem:** invert via `Bad_A(D)` masks and classify precisely the old
+  non-set-union joins for which eligibility is not join-closed. A finite
+  defect atlas proves/refutes the first-round kernel theorem. **Open.**
+- **Hostile reduction:** finite OML atomisticity reduces every kernel fold to
+  old atoms below the core; cumulative failure is equivalently a binary strict
+  old-join-overshoot horn satisfying the exact bad-mask inclusion/escape
+  criterion. **Hand proved.** Atom-only replay is the next discriminator; the
+  signature-quotiented horn atlas is the fallback exhaustive route.
+- **Admissibility closure:** for retained type `E`, conditional-minimum
+  admissible masks define `cl_E(R)`. An atomic horn with required mask `R` and
+  join mask `Q` succeeds for every admissible `U` iff `Q subset cl_E(R)`.
+  **Hand proved.** Global-minimum/global-maximum shortcuts are **Refuted**;
+  horns deduplicate exactly by `(E,cl_E(R),Q)`.

@@ -703,3 +703,7 @@ mixed-shaped disjoint pairs and needs both OR and AND-rectangle tags. A first
 missing literal coordinate hull is repaired by unique old envelopes. The live
 finite-support question is the exact kernel-retraction/critical-pair theorem
 for their union, not interface fidelity or literal hull closure.
+The first 100 symbolic kernels pass, but scalar exhaustion is stopped at a
+23.1-billion all-event-test projection. The 91-atom replay agrees and cuts the
+prefix test count 205.15-fold; the exact problem is equivalently the atlas of
+strict-overshoot atomic extension horns.

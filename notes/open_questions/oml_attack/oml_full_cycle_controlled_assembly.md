@@ -729,3 +729,10 @@ greatest lower must place that lower in this interval. Therefore no adjunction
 can repair the strict target while keeping the inclusion into the extension a
 kernel retraction over the same old base. **Hand proved.** Re-basing may still
 repair latticehood, but it abandons the conservative-embedding invariant.
+
+The abstract exhaustive-fold obstruction and its transfer across extensionally
+identical eligible-old predicates are **Lean certified** as
+`no_greatest_of_exhaustive_fold_not_good` and
+`no_greatest_of_same_eligible_old_set` in `KernelClosureCalculus.lean`.
+Both report `[propext]` and no `sorryAx`; the concrete atom-saturation interval
+identification remains the hand-proved instantiation.

@@ -2874,6 +2874,9 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   same escaping atom join. Any new greatest lower in an extension lies in this
   interval and is itself not kernel-good over the old base. Conservative
   fixed-base repair is impossible; only re-basing remains. **Hand proved.**
+  The abstract exhaustive-fold/no-greatest implication and predicate-
+  extensional transfer are **Lean certified** in `KernelClosureCalculus.lean`,
+  both with `[propext]` and no `sorryAx`.
 - **Scope:** full mixed closure, generated latticehood, OML, direct limit,
   ODBC, and `Phi` remain open. Exact physical-root/provenance bridge data are
   load-bearing in the next grammar.

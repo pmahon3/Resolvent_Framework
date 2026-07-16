@@ -155,6 +155,39 @@ theorem bridge_union_fold_eq_greatest
       exact hgreat.2 b (hbridges b hb)
   · exact hcover g hgreat.1
 
+/-- Fixed-base obstruction: if the exhaustive eligible-generator fold escapes
+the target predicate, then the eligible old elements have no greatest member.
+The exhaustive-generator content is exactly the explicit `hcover` hypothesis. -/
+theorem no_greatest_of_exhaustive_fold_not_good
+    {A : Type u} [SemilatticeSup A]
+    (good : A → Prop) (init : A) (xs : List A)
+    (good_down : ∀ {x y}, x ≤ y → good y → good x)
+    (hinit : good init) (hxs : ∀ x ∈ xs, good x)
+    (hcover : ∀ x, good x → x ≤ xs.foldl (· ⊔ ·) init)
+    (hescape : ¬ good (xs.foldl (· ⊔ ·) init)) :
+    ¬ ∃ g, good g ∧ ∀ x, good x → x ≤ g := by
+  intro hgreat
+  exact hescape ((FiniteAtomFoldKernel.fold_good_iff_exists_greatest
+    good init xs good_down hinit hxs hcover).2 hgreat)
+
+/-- Predicate-extensional transfer of the fixed-base obstruction.  Two target
+descriptions selecting exactly the same eligible old elements have the same
+failure, without asserting equality of their external concrete targets. -/
+theorem no_greatest_of_same_eligible_old_set
+    {A : Type u} [SemilatticeSup A]
+    (good₁ good₂ : A → Prop) (init : A) (xs : List A)
+    (hext : ∀ x, good₁ x ↔ good₂ x)
+    (good₁_down : ∀ {x y}, x ≤ y → good₁ y → good₁ x)
+    (hinit : good₁ init) (hxs : ∀ x ∈ xs, good₁ x)
+    (hcover : ∀ x, good₁ x → x ≤ xs.foldl (· ⊔ ·) init)
+    (hescape : ¬ good₁ (xs.foldl (· ⊔ ·) init)) :
+    ¬ ∃ g, good₂ g ∧ ∀ x, good₂ x → x ≤ g := by
+  intro hgreat₂
+  apply no_greatest_of_exhaustive_fold_not_good
+    good₁ init xs good₁_down hinit hxs hcover hescape
+  obtain ⟨g, hg, hgreat⟩ := hgreat₂
+  exact ⟨g, (hext g).2 hg, fun x hx => hgreat x ((hext x).1 hx)⟩
+
 #print axioms greatest_intersection
 #print axioms least_complement_of_greatest
 #print axioms exists_greatest_iff_exists_least_complement
@@ -162,6 +195,8 @@ theorem bridge_union_fold_eq_greatest
 #print axioms intersection_cover_fold_eq_inf
 #print axioms bridge_union_fold_good_iff_exists_greatest
 #print axioms bridge_union_fold_eq_greatest
+#print axioms no_greatest_of_exhaustive_fold_not_good
+#print axioms no_greatest_of_same_eligible_old_set
 
 end KernelClosureCalculus
 end QuerySystem

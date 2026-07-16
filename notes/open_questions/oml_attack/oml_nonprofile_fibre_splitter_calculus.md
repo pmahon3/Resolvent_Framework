@@ -1031,3 +1031,24 @@ only if `g` is represented. The next exact theorem is a
 normal-form and critical-pair classification of
 these 256 events. Latticehood, associativity, reconstruction, activation,
 centre, state separation, conditional geometry and `Phi` remain **Open**.
+
+### 8.16 Frozen-prefix descriptor and fair-schedule theorem
+
+The first proposed descriptor for the 256 new roots gives 240 classes:
+224 singletons and 16 doubletons. Every doubleton has distinct behavior under
+complement or an already-present new/new disjoint union. The first class
+`014c703b...` contains roots `4d4062cd...` and `2572f79e...`, whose behavior
+hashes differ. **Executable verified — sampled finite scope.**
+
+Hence scalar depth, parent-depth multiset, target/envelope incidence, old
+endpoints and changed-cut flags do not determine the transition. Exact
+parent-root/provenance incidence is the first sufficient refinement exposed
+by these witnesses, not a proved minimal one.
+
+There is nevertheless an exact order-independence result. For the fixed seed
+set, iterate the finitary operator adjoining complements and literal unions
+of represented disjoint pairs. Its omega-union is the unique least closed
+family and every fair schedule reaches it, because every generated event has
+a finite expression tree. **Hand proved.** This is procedural schedule
+independence only; it proves neither finite stabilization nor associativity
+between assemblies with different seed sets.

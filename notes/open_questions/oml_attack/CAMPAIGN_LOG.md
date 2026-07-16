@@ -3105,3 +3105,26 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   is not discriminating. The next theorem target is a provenance-sensitive
   normal form for the first-round 256 events and the smallest critical-pair
   diamond, not a larger cap.
+
+### Iteration 287 — prefix descriptor refutation and schedule theorem
+- The frozen 256-event prefix has 240 proposed descriptor classes: 224
+  singletons and 16 doubletons. Every doubleton has two distinct restricted
+  behaviors under complement or already-present new/new disjoint unions.
+  **Executable verified — sampled finite scope.** Producer `92a0a18a...`,
+  payload `7f98fcc1...`; seed-12345 scratch payload is fieldwise identical.
+- The first counterexample has descriptor `014c703b...`: roots
+  `4d4062cd...` and `2572f79e...` agree on operator, depth, parent-depth
+  multiset, target/envelope relations, old endpoints and changed-cut flags,
+  but have behavior hashes `00f08652...` and `f4c56b45...`.
+- **Refuted:** operator plus scalar depth/parent depths and coarse incidence
+  data form an adequate transition descriptor. Some refinement beyond the
+  parent-depth multiset is required. Exact parent-root/provenance incidence
+  is a sufficient next candidate, not proved minimal.
+- **Hand proved:** for fixed seeds, the omega-union of the finitary
+  complement/disjoint-union operator is the unique least closed family and
+  equals the result of every fair generation schedule. This proves procedural
+  order independence of fixed-seed closure without proving termination, a
+  finite grammar, or associativity of rectangle pasting.
+- **Pivot:** retain the complete parent-incidence DAG and test all multiple-
+  derivation critical pairs already present in the prefix. Do not raise the
+  closure cap.

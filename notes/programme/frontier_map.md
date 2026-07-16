@@ -782,3 +782,7 @@ old lower cut with two maxima, and its proper seeded literal envelope changes an
 old join. A capped closure creates at least 256 events in one round without
 stabilizing. The frontier is classification of this finite provenance batch
 and its critical pairs; raising the cap is not yet informative.
+The first prefix descriptor is already refuted: 16 of 240 classes contain
+behaviorally distinct pairs. Fixed-seed fair schedules do have the same least
+closure by a finitary-closure theorem. The live finite question is therefore
+the complete parent-incidence critical-pair calculus, not procedural order.

@@ -814,6 +814,10 @@ The first re-base pilot finds two maximal old lowers, a new proper seeded
 literal lower envelope, and at least 256 generated events in one capped round. This is a
 computational stop signal: extract the finite provenance transition types and
 critical-pair theorem before extending closure depth.
+The first coarse prefix descriptor fails on 16 doubletons. Exact
+parent-incidence is the next nonminimal state. Fixed-seed closure is
+order-independent under every fair schedule by finitarity, but assembly
+associativity and finite grammar remain open.
 
 ## Repository Layout
 

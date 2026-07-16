@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Classify the 256 capped AR-REB-001 events by provenance, exact section roots and cut incidence, then test the Neg-023/And-010 associativity and complement-dual diamonds before raising the closure cap."
+   "current_next_step": "Enumerate all alternative derivations of the frozen 256 AR-REB-001 roots, retain the complete parent-incidence DAG, and test complement, disjoint-union, old/new collision and Neg-023/And-010 critical diamonds without raising the cap."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -740,7 +740,7 @@
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
    "status": "adjacent-actual-rebase-provenance-grammar-open",
-   "one_line": "Seven actual opposite-side shadows escape; seeded AR-REB-001 has a proper literal envelope and generates at least 256 events, now awaiting provenance and critical-pair classification.",
+   "one_line": "The first AR-REB-001 prefix has 240 coarse classes with 16 divergent doubletons; complete parent-incidence critical-pair grammar is the active finite gate.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

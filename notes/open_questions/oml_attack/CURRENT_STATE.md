@@ -621,6 +621,16 @@ classify the 256-event provenance grammar and critical pairs rather than
 raising the cap. Generation of `g` without seeding, latticehood and every
 collapse/state gate remain **Open**.
 
+The frozen 256-prefix census refutes the first compact provenance descriptor.
+It yields 240 classes (224 singletons, 16 doubletons), and every doubleton has
+different already-present complement/disjoint-union behavior. **Executable
+verified — sampled finite scope.** Complete parent-root incidence is the
+first sufficient refinement candidate, not proved minimal. Separately,
+fixed-seed generation is procedurally order-independent by the **Hand proved**
+least-finitary-closure theorem. The live task is multiple-derivation
+critical-pair classification with the full parent DAG, still without raising
+the cap.
+
 The bounded coordinate-control census is now row-complete: 12 stable rows
 (5 left, 7 right) with exact provenance, target `E/U`, bridge atoms, escape
 folds, saturation types and complement-derived old uppers. All 12 have no

@@ -357,3 +357,26 @@ descriptor must include the exact target root, lower-cut maxima,
 eligible-atom incidence, literal cut union, changed old join provenance, and
 generation parentage. A larger undirected cap is prohibited until these 256
 events are classified into transition types.
+
+### Frozen-prefix descriptor boundary
+
+The first proposed prefix descriptor partitions the 256 new roots into 240
+classes: 224 singletons and 16 doubletons. All 16 doubletons have distinct
+restricted complement/disjoint-union behavior. The smallest is descriptor
+`014c703b...`, containing roots `4d4062cd...` and `2572f79e...`.
+**Executable verified — sampled finite scope** by
+`adjacent_ar_reb_001_prefix_classification.py/.json`, producer
+`92a0a18a...`, payload `7f98fcc1...`. A seed-12345 scratch replay is
+fieldwise identical; there is no independent producer.
+
+Thus scalar generation depth, parent-depth multiset, target/envelope
+incidence, old endpoints and the recorded changed-cut flags are insufficient.
+Some finer descriptor is required. Complete parent-root/provenance incidence
+is the first sufficient candidate exposed by the witnesses, not a proved
+minimal invariant.
+
+For fixed seeds, schedule independence itself is settled: the omega-union of
+the finitary complement/disjoint-union operator is the unique least closed
+family, and every fair schedule reaches it. **Hand proved.** This does not
+settle finite termination, grammar finiteness, or associativity of assemblies
+with different seed sets.

@@ -668,6 +668,14 @@ full old copy, so `ARR-CYL` remains **Open**. It proves that latticehood,
 orthomodularity, centre-freeness, and the two maximal lowers alone cannot
 force cylindricity.
 
+One-context extension coverage now has an exact **Hand proved** criterion:
+the canonical isomorphism type of the realized refined carrier with labelled
+base seeds, both new cylinders, and both fibre equivalence relations
+determines the generated closure and every cut/lattice/OM/centre/cylindricity
+verdict. The old 14-atom quotient need not survive an added context because
+the context can split its atoms. A 6–8-case critical/incidence pilot is the
+next local discriminator before any 9334-pair Fir workload.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

@@ -37,9 +37,11 @@
    old lower cut cylindrical? It satisfies `G ⊆ h ⊆ R`, but the seeded
    one-copy 256-prefix covers only the conditional branch `h = G`.
 7. **First action:** classify one-old-event extensions of the 16-event
-   restricted control. Find the first old cylinder whose addition changes the
-   cut join, forces cylindricity, or destroys latticehood. Do not close the
-   8852-event critical sublattice or begin third-copy enumeration blindly.
+   restricted control, beginning with the exact 6–8-case critical/incidence
+   pilot. Canonicalize the refined labelled carrier including fibre
+   equivalences; the old 14-atom quotient alone is not a coverage descriptor.
+   Find the first old cylinder whose addition changes the cut join, forces
+   cylindricity, or destroys latticehood.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

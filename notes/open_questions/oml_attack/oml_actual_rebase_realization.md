@@ -109,6 +109,32 @@ whether the cut join remains `R`, becomes cylindrical, or the family becomes
 nonlattice. This isolates the first genuinely load-bearing full-old-copy
 witness without closing the 8,852-event critical sublattice blindly.
 
+### Exact extension-type theorem
+
+For an old event `e`, let `Q_e` be its realized refined truth carrier with
+labelled base seeds, the two cylinders of `e`, and the left/right fibre
+equivalence relations. If a bijection `Q_e -> Q_f` preserves all labelled
+base seeds, sends the two `e` cylinders to the two `f` cylinders, and
+preserves both fibre equivalences, then it induces an isomorphism between the
+least complement/disjoint-union closures. Hence closure size, inclusion
+order, the distinguished cut join, latticehood, orthomodularity, centre, and
+cylindricity verdicts agree.
+
+Evidence: **Hand proved.** Induction on finite expression trees transports
+the generated closure; the remaining properties are invariants of the
+labelled orthocomplemented-poset isomorphism, with fibre equivalences
+load-bearing only for cylindricity.
+
+The 14-atom control quotient is not a universal cache: an added old event may
+split its atoms. The correct coverage descriptor is the canonical isomorphism
+type of
+
+`(realized refined carrier, labelled base predicates, L_e, R_e, eq_L, eq_R)`.
+
+Literal equality of masks on a common refined carrier is sufficient but,
+because cylinder embeddings are faithful, usually gives only the same old
+event. Coarse existential/universal incidence is not a coverage theorem.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |

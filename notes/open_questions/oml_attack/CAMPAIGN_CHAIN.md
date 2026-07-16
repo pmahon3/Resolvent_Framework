@@ -116,6 +116,7 @@
 | context-100 exact-root compression | Executable verified + Hand injectivity lemma | refuted: refinement is semantic identity on all 16 doubletons |
 | one-step pure-cylinder reflection | Lean certified + exact-overlap premise | proved; mixed complementary-cover induction remains open |
 | restricted actual mixed-join control | Executable verified, sampled finite scope | 16-event centre-free OML; noncylindrical `Neg-023` is cut join; full old copy absent |
+| one-context extension isomorphism theorem | Hand proved | exact refined labelled carriers determine closure and all gate verdicts |
 | unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |

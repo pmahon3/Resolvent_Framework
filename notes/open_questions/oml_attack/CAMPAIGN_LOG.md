@@ -3143,6 +3143,20 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   identify the first old context that changes the cut, rather than closing
   the 8852-event five-generator old sublattice blindly.
 
+### Iteration 292 — exact one-context extension type
+- **Hand proved:** a labelled bijection between two realized refined
+  one-context carriers, preserving base seeds, the two new cylinders, and
+  left/right fibre equivalences, transports the entire least
+  complement/disjoint-union closure and all cut/lattice/OM/centre/cylindricity
+  verdicts.
+- The existing 14-atom quotient is not automatically adequate: a new old
+  event can split its truth atoms. Exact extension coverage therefore
+  canonicalizes the refined relational carrier, not a 14-bit or `(E,U)`
+  shadow.
+- **Pivot:** run a 6–8-case exact local pilot containing the three critical
+  contexts and incidence controls, then use its measured refinement sizes to
+  decide whether the 9334 complement-pair classification needs Fir.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

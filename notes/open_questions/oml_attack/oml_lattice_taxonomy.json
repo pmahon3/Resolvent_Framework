@@ -733,7 +733,9 @@
    "status": "fixed-carrier-tfin-refuted-full-cycle-survivor",
    "one_line": "A centre-free full four-cell concrete OML avoids both T-FIN gates, refuting the fixed-carrier dichotomy; the live route is controlled sigma-complete uncountable assembly.",
    "detail": "oml_nonprofile_fibre_splitter_calculus.md"
-  },
+  }
+ ],
+ "campaign_20_controlled_assembly": [
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",

@@ -298,9 +298,7 @@ the live nontrivial quotient is 18370. The orientation-global Python cache is
 stopped; the next automatic pivot is a join-rich per-`A` eviction falsifier,
 followed by an exhaustive shard decision if its peak remains controlled.
 
-In parallel maintain `T_FIN_IMPOSSIBILITY_LEDGER.md`. Every proposed T-FIN
-implication must be tested against the formal, one-cell, and same-row controls.
-Failed implications must record their smallest countermodel and a strengthened
-hypothesis. T-FIN is now refuted by the full-grid survivor; do not continue
-the impossibility track or finite repair depth. Use its failure architecture
-as the input to overlapping rectangles and uncountable assembly.
+`T_FIN_IMPOSSIBILITY_LEDGER.md` is closed as a historical ledger. T-FIN is
+refuted by the full-grid survivor; do not resume the impossibility track or
+finite repair depth. Use its failure architecture as the input to overlapping
+rectangles and uncountable assembly.

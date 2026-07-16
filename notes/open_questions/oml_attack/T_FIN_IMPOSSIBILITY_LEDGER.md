@@ -1,7 +1,12 @@
 # T-FIN impossibility ledger
 
-*Campaign 19 parallel theorem track, opened 2026-07-15. This ledger does not
-assume T-FIN and does not replace the constructive quotient computation.*
+**Status: CLOSED / REFUTED on the fixed carrier.** The full four-cell terminal
+is a centre-free concrete OML firing neither Gate A nor Gate B. This ledger is
+retained as a historical failure-and-countermodel record; it is not an active
+proof programme. The surviving architecture feeds Campaign 20 controlled
+assembly.
+
+*Campaign 19 parallel theorem track, opened and closed 2026-07-15.*
 
 ## The theorem under attack
 
@@ -11,9 +16,8 @@ assume T-FIN and does not replace the constructive quotient computation.*
 - **Gate A:** `Bool(q0,q1)` or `Bool(r0,r1)` is reconstructed;
 - **Gate B:** there is a nonzero event contained in a row activation cylinder.
 
-The present one- and two-cell marginal OMLs are not terminals on the full
-carrier and therefore do not refute T-FIN. They are exact countermodels to
-weaker implications that omit transverse/full-grid coupling.
+The one-, two-, and three-cell marginal OMLs are exact countermodels to weaker
+implications. The final full-carrier row below refutes T-FIN itself.
 
 ## Current constructive controls
 

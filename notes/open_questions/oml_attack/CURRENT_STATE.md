@@ -360,33 +360,35 @@ the nonevent hull or reconstructing either boundary. Each is
 `B_9 x MO2 x MO2`, with `18432` events and centre size `2048`; the other
 twenty-six initial closures remain nonlattices. Profile-only collapse is
 false, but the surviving controls are not admissible and omit the original
-conditional-cell couplings. Restoring those couplings is the next gate.
+conditional-cell couplings. Those couplings were tested in the subsequent
+finite marginals and full-cycle closure.
 
 The first physical coupling rung also survives. Restoring every event of cell
 00 on an exact 892-point quotient gives an 18496-event concrete OML with
 trivial centre, separating point evaluations, row-0 activation escape, both
 same-side boundaries unreconstructed, and the node-6 PJH defect intact. Thus
 essential irreducibility plus one conditional cell is insufficient. The
-finite OML is `Phi`-tame and omits three cells; cell 01 is the next gate.
+finite OML is `Phi`-tame and omits three cells; it served as the first rung of
+the now-completed finite coupling ladder.
 
 Cell 01 also passes. The exact same-row marginal has 9928 points, faithfully
 embeds both 56-event cells, and closes to a centre-free 18554-event concrete
 OML. The PJH defect, both boundary gaps, and row-0 activation escape persist.
-Same-row coupling is therefore not the collapse mechanism. Transverse cell
-10, which introduces row-1 activation through shared `r0`, is next.
+Same-row coupling is therefore not the collapse mechanism. The subsequent
+transverse test introduced row-1 activation through shared `r0`.
 
-A parallel T-FIN impossibility ledger is now active. Existing controls refute
-profile-only collapse, one-cell/centre forcing, same-row coupled collapse,
-automatic PJH repair, and point-separation obstructions. T-FIN itself is not
-refuted because no control contains the full four-cell root. Any live proof
-must use transverse/full-grid coupling, maximal-block incidence, or genuinely
-global state data.
+The parallel T-FIN impossibility ledger is now closed and retained
+historically. Its controls refuted profile-only collapse, one-cell/centre
+forcing, same-row and transverse coupled collapse, automatic PJH repair, and
+point-separation obstructions. The eventual full four-cell terminal refuted
+T-FIN itself; these finite failures now serve only as architecture for the
+controlled-assembly campaign.
 
 The transverse pair also survives. The exact cells-00/10 marginal has 49730
 points and closes to a centre-free 18560-event OML with both activation
 escapes, both boundary gaps, and the unchanged PJH defect. Thus neither
-same-row nor transverse two-cell coupling supports a T-FIN proof. The first
-unresolved coupling is the three-cell corner `{00,01,10}`.
+same-row nor transverse two-cell coupling supports a T-FIN proof. The later
+three-cell corner and full four-cell closure also survived.
 
 The exact same-row node-6 meet is now serialized. On the 9928-point quotient,
 `q0^c meet q1` is the pullback of `{0100,0101,0110}` and has 2130 points;

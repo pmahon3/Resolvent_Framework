@@ -434,10 +434,17 @@ union remains **Open** and is the next test.
 
 The exact union carrier has seven cells, 23998 nonempty macro fibres and
 211897540016 points. A naive global MDD lift costs about 7.17 GB before
-closure, so blind computation is stopped. The live theorem is FRNF: a bounded
-disjoint fibre-product-rectangle normal form with complement/orthogonal-union
-closure and old-side extremal shadows. **Open**; factor counts **Executable
-verified**, payload `2f402b77...`.
+closure, so blind computation is stopped. First-round symbolic analysis finds
+172787 disjoint cross-copy pairs, including 123440 genuinely mixed shapes;
+OR-tags require AND-rectangle complements. The coarsest 2257 shadow types
+close, but literal coordinate-hull realizability fails on the 71-state trace
+of event `0x22`. The missing cylinder has the sharp unique old bracket
+`0x404 < C < 0x505`; for the original pulled event the left lower shadow is
+`0` and the least old upper is `0x505`. **Executable verified** with hostile
+review. The exact theorem is now the kernel-retraction criterion: a finite old
+OML embeds conservatively iff every new event has a greatest old lower shadow.
+**Hand proved.** Exhausting this kernel condition for one-step mixed events is
+the live finite-support gate; arbitrary-depth closure remains **Open**.
 
 ## Primary sources
 

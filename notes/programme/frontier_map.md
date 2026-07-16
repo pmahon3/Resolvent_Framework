@@ -698,5 +698,8 @@ finite repair.
 
 The first scaling gate is positive: two adjacent full-cycle completions
 sharing one entire conditional cell intersect exactly in that 56-event cell,
-with no extra saturated trace. The live finite-support question is now the
-mixed closure/critical-pair theorem for their union, not interface fidelity.
+with no extra saturated trace. The first mixed layer contains 123440 genuinely
+mixed-shaped disjoint pairs and needs both OR and AND-rectangle tags. A first
+missing literal coordinate hull is repaired by unique old envelopes. The live
+finite-support question is the exact kernel-retraction/critical-pair theorem
+for their union, not interface fidelity or literal hull closure.

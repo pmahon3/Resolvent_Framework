@@ -27,10 +27,10 @@
   rectangle failure, four first repairs, and two terminating stripped-core
   controls; Campaign 17 — exhaustive stripped macro-completion reconstruction
   theorem; Campaign 18 — two-depth fine-fibre repair and activation-escape
-  controls. Campaign 19 remains active after exact depth-three/four
-  recurrence refutations, fixed-carrier repair termination, and
-  terminal-search cofinality reached computational stop signal E. Campaign 19
-  then closed with the exact centre-free full-cycle terminal refuting T-FIN.
+  controls. Campaign 19 continued through exact depth-three/four recurrence
+  refutations, fixed-carrier repair termination, and terminal-search
+  cofinality after computational stop signal E; it then closed with the exact
+  centre-free full-cycle terminal refuting T-FIN.
 - **Global stopping status:** not reached.
 
 ## Theorem ledger
@@ -87,6 +87,12 @@
 | existing meet cores grow monotonically in extensions | Hand proved | proved |
 | fattened-meet terminal bifurcation | Hand proved | proved; proper branch realizability open |
 | adjacent full-cycle completed-copy intersection | executable verified | exact 56-event shared cell; no extra saturated trace |
+| coarse adjacent shadow-type closure | executable verified plus hostile hand audit | all 2257 disjoint type pairs close; partial fibres forgotten |
+| literal coordinate-hull realizability | executable witness plus independent derivation | refuted by the 71-state trace of `0x22` |
+| first missing cylinder's old bracket | exhaustive executable subset census | unique greatest contained event `0x404` and least containing event `0x505`; pulled-event lower shadow is `0` |
+| finite conservative inclusion iff deflationary kernel retraction | hand proved | exact greatest-old-lower criterion |
+| deflationary/inflationary kernel preserves old extrema | Lean certified | three axiom-free theorems including complement conjugacy |
+| state-projection alone preserves old extrema | explicit four-point `MO2` control | refuted even for bijective point-state restriction |
 
 ## Counterexample ledger
 
@@ -254,9 +260,12 @@
 Take the counterexample route. Preserve the exact full-cycle MDD grammar and
 construct the exact closure of two adjacent copies now known to intersect
 only in their 56-event shared cell. The naive global-MDD representation is
-closed by a 7.17-GB pre-closure boundary, so prove or refute the bounded
-fibre-product rectangle normal form (FRNF), conservative extrema, and the
-two-copy critical-pair theorem before forming any direct limit. Audit
+closed by a 7.17-GB pre-closure boundary. The first mixed layer requires both
+OR and AND-rectangle tags, and literal coordinate-hull closure is refuted;
+the first missing hull nevertheless has unique old envelopes. Exhaust the
+exact deflationary kernel-retraction condition and its provenance-sensitive
+transition grammar, then prove or refute conservative extrema and the two-
+copy critical-pair theorem before forming any direct limit. Audit
 countable sigma-closure, centre, order separation, maximal blocks/MBRC,
 omega-one CSS/no-global-section, the global finitely additive witness, and
 absence of a sigma-state realization. Do not promote the finite survivor to a

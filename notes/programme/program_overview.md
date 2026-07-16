@@ -731,8 +731,13 @@ assembly.
 
 At the first assembly rung, adjacent completed rectangles share exactly their
 declared 56-event conditional cell. This proves interface intersection and
-carrier surjectivity, while leaving mixed closure and conservative extrema as
-the next finite-support normal-form gate.
+carrier surjectivity. First-round tagged-grid analysis shows that mixed OR
+tags require product-rectangle complements. Literal local coordinate hulls
+already fail, but the first 71-state failure has unique old lower and upper
+envelopes. Conservative inclusion is now characterized exactly by a
+deflationary kernel retraction, so the next finite-support gate is uniqueness
+of greatest old lower shadows for every mixed transition, not literal hull
+realizability.
 
 ## Repository Layout
 

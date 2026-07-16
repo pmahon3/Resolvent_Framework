@@ -226,3 +226,150 @@ The smallest coherence obstruction is a `2x1` horn: compatible
 container but no single aligned pair contains all three. If every such horn
 amalgamates, the next obstruction is a `K2,2` container cycle. Exact one-copy
 block/container data is a prerequisite. **Open.**
+
+The horn gate admits a sharper context formulation. Let `Gamma` be the
+aligned-pair relation on old maximal blocks, indexed by Boolean contexts `K`
+of the shared cell, and let `C_R(X)` (respectively `C_S(Y)`) be the contexts
+admitting an aligned old block containing the finite set `X` (respectively
+`Y`). If aligned pairs factor completely inside each context, then a `2x1`
+horn `x1,x2;y` amalgamates exactly when
+
+`C_R({x1,x2}) intersect C_S({y})` is nonempty.
+
+Inside one OML, finite pairwise-compatible events together with `K` lie in a
+common Boolean block, so for compatible `x1,x2`,
+`C_R({x1,x2})=C_R(x1) intersect C_R(x2)`. Thus the horn question reduces to
+an exact finite 2-Helly test on context-availability sets. **Hand proved.**
+Pairwise aligned containers alone do not suffice: three old blocks can
+separately contain `(x1,y)` and `(x2,y)` while the only block containing
+`x1,x2` is not aligned with the `y` block. **Hand refuted** by this abstract
+block-incidence control; it is not asserted realizable in the current OML.
+The load-bearing open hypothesis is completeness of the cross-copy aligned
+relation within each shared context. This can be tested from context
+commutation signatures before a global maximal-block census.
+
+## 9. Coarse shared-state shadow checkpoint
+
+For a local event `A` in the left copy, write `E_A` for the shared-cell
+states on which its section is nonempty and `U_A` for those on which its
+section is the whole local fibre; define `E_B,U_B` on the right similarly.
+Because the adjacent carrier is the full fibre product over each of the 224
+shared states, two pulled cylinders are disjoint exactly when
+`E_A intersect E_B` is empty. For such a pair the coarse three-valued
+classification of their union is exactly
+
+`(E_A union E_B, U_A union U_B)`.
+
+The completed left and right copies realize respectively 277 and 307 such
+coarse types. All 2257 disjoint cross-copy type pairs have a union type
+realized by an actual local descriptor in at least one copy; complement
+types are also locally realized. **Executable verified** by
+`adjacent_full_cycle_boolean_envelope_shadow.py`; the calculation replays the
+exact MDD grammar but has no independent implementation. The fibre-product
+equivalence and the formulas above are **Hand proved** and were hostile
+reviewed.
+
+Deterministic payloads are `b893c79f...` for the coarse census and
+`4fb1d4c4...` for the tagged-grid census; both were reproduced field-for-field
+under `PYTHONHASHSEED=0` and `12345`.
+
+This closes only the coarsest obstruction. A partial section is forgotten
+entirely by `(E,U)`, so a local event with the same type need not equal the
+mixed union or supply its greatest-old-lower or least-old-upper shadow. For
+`z=A_L union B_R`, the exact left-cylinder lower core has section `X_s` when
+`B_s` is full and `A_s` otherwise; its least set-theoretic left-cylinder hull
+has section `X_s` when `B_s` is nonempty and `A_s` otherwise. The symmetric
+right formulas also hold. **Hand proved.**
+
+The discriminating computation was exact MDD realizability of these four
+piecewise cores/hulls over every actual local descriptor and relevant
+opposite coarse class. Its first failure and the repaired criterion follow.
+
+That exact-envelope criterion already fails in deterministic scan order. For
+retained left event `0` and right event `full17=0x22`, the latter is possible
+on 71 shared states and full on none. Its exact left-coordinate cylinder has
+root hash `14d35945...` and is absent from the left 18676-event family after
+only five descriptor/class pairs and ten core/hull tests. **Executable
+verified** by symbolic MDD equality and independently corroborated from the
+formal `0x22` state table plus the banked 56-trace intersection theorem. This
+refutes exact coordinate-cylinder-envelope realizability, not conservative
+embedding: absence of the set-theoretic hull does not exclude a strictly
+larger least actual old-event upper bound. Deterministic replay passed with
+payload `2cfca54f...`.
+
+The distinction is real. Among all 18676 old left events, that cylinder has
+1152 upper bounds and a unique least one, event `full17=0x505` (index 645,
+root hash `7c99f15e...`). It has four old lower bounds and a unique greatest
+one, `full17=0x404` (index 516, root hash `84444aa3...`). **Executable
+verified** by exhaustive reduced-MDD subset tests and the certified principal
+upsets. Thus the first missing exact hull is repaired by a nontrivial local
+envelope operator; it is not a conservative-embedding obstruction. Final
+emit/replay payload `49159f2b...` passed under `PYTHONHASHSEED=12345`.
+
+The first-round tagged-grid census contains 172787 disjoint event pairs:
+123440 are genuinely mixed-shaped, 24540 are left-cylinder-shaped only,
+24540 right-cylinder-shaped only, and 267 shared-state-saturated-shaped.
+These are shape classifications, not membership assertions. A disjoint union
+has an OR-tag `(A times all) union (all times B)`; its complement is the
+AND-rectangle `A^c times B^c`. Therefore OR-tags alone are not a closed
+grammar, and the next exact alphabet must contain both OR and AND tags with
+canonical restricted-root provenance. **Executable verified** for the
+first-round census; arbitrary-depth closure remains **Open**.
+
+## 10. Conservative embeddings are kernel retractions
+
+Let `A subset C` be finite concrete OMLs with the same `0,1` and complement.
+The inclusion preserves all old binary joins and meets exactly when there is
+a monotone deflationary order retraction
+
+`rho_A:C -> A`, with `rho_A(a)=a` and `rho_A(c) <= c`.
+
+For sufficiency, if `j=x join_C y`, then `rho_A(j)` is an old upper bound of
+`x,y` below `j`; comparison with `x join_A y` gives equality, and complements
+give meets. For necessity define
+`rho_A(c)=join_A {a in A:a<=c}`. Finiteness and preservation of old joins
+make this join remain below `c`; monotonicity and retraction are immediate.
+**Hand proved.** Thus greatest-old-lower shadows alone are the exact finite
+criterion; least-old-upper shadows follow by complement.
+
+Surjective or even bijective state restriction does not imply this kernel.
+On four points, embed the six-event concrete `MO2` generated by
+`p={1,2},q={1,3}` into the full powerset. All four point states restrict
+bijectively and order-separate, but `p join q` changes from the universe to
+`{1,2,3}`. **Hand refuted** by this explicit finite control.
+
+The state version uses, for a new event `c`, the old states all of whose
+extensions charge `c`. When the chosen new states and their restrictions
+order-determine `C` and `A`, old events below `c` are exactly those whose old
+supports lie in this safe-state set; the kernel exists exactly when those
+supports have a largest representing old event. **Hand proved.** For the
+pulled event producing the first missing hull, the true left lower core is
+`0` because the opposite universal mask is empty, while its least old upper
+is `0x505`. Thus this mixed event supports the weaker kernel criterion despite
+refuting literal hull realizability. The separate `0x404` result is the
+greatest old event inside the 71-state cylinder, not the lower shadow of the
+original pulled event.
+
+The decisive finite-support test is now exact: for every one-step mixed
+disjoint union, certify a unique greatest old lower shadow on both sides.
+Complement supplies upper shadows. A first multiplicity refutes conservative
+embedding at that step; exhaustive success gives the first transition layer
+of the kernel grammar. **Open.**
+
+For a candidate set `c`, let `L(c)` be the old events contained in it and let
+`J(c)` be their join in the finite old lattice. A greatest old lower exists
+exactly when `J(c) subset c`, in which case it is `J(c)`. During an incremental
+join fold, the first partial join escaping `c` is already a permanent
+certificate of failure: every later join dominates it. **Hand proved.** This
+turns the kernel scan into a falsification-first join fold rather than a full
+maximal-bound census.
+
+The stable order-theoretic implication is **Lean certified** in
+`QuerySystem/FullCycleAssemblyKernel.lean`:
+`map_sup_of_deflationary_retraction`,
+`map_inf_of_inflationary_retraction`, and
+`map_inf_of_complement_conjugate_deflationary_retraction`. The last theorem
+constructs the upper shadow by complement conjugacy from the lower kernel.
+All three `#print axioms` reports are empty. The formalization assumes the
+shadow retraction; constructing it for the adjacent mixed grammar remains the
+open mathematical gate.

@@ -1,0 +1,45 @@
+{
+  "base_shadow_payload_sha256": "b893c79f422daa549c57970f70212bfdf2593214a6e4267a33d045c809ae29f2",
+  "classification_exact_at_shadow_level": true,
+  "classification_proof": "Disjointness is EA intersect EB empty. The union is independent of the right atom iff no shared state has B partial while A is nonuniversal; dually for left. It is shared-saturated iff every nonempty state fibre is universal.",
+  "command": "python3 notes/open_questions/verification/adjacent_full_cycle_tagged_grid_prototype.py --verify",
+  "complement_operation": "Complement of a row/column union is the rectangle (A_s^c x B_s^c). Therefore union tags are not complement-closed; the exact next grammar must include both OR-tags and AND-rectangle tags.",
+  "disjoint_event_pairs": 172787,
+  "disjoint_shadow_type_pairs": 2257,
+  "event_pair_locality_counts": {
+    "both_cylinder_shaped_not_saturated": 0,
+    "genuinely_mixed_shape": 123440,
+    "left_cylinder_shaped_only": 24540,
+    "right_cylinder_shaped_only": 24540,
+    "shared_saturated_shape": 267
+  },
+  "evidence_class": "executable verified symbolic shadow-type census",
+  "exact_deduplication_status": "open: existential/universal shadows classify locality but do not identify partial atom subsets. Exact deduplication requires a canonical per-event vector of 224 restricted local-MDD root hashes.",
+  "first_genuinely_mixed_shadow_descriptor": {
+    "left_E_sha256": "be39c2212b9fb43b95254e71efa659b49258635c6ef9633b45e97f772838f1fc",
+    "left_U_sha256": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+    "left_type_multiplicity": 3,
+    "partial_left_states": 71,
+    "partial_right_states": 40,
+    "right_E_sha256": "3713da2f9f8789cbf3c61075c3df76e6b4ec58be515b6fe44bba7bb3e07e9b72",
+    "right_U_sha256": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+    "right_type_multiplicity": 6
+  },
+  "first_obstruction": "The first-round OR-tag class is not closed under complement; complements introduce genuine product rectangles. Shadow equality is too coarse to deduplicate those rectangles.",
+  "hostile_scope_correction": "Cylinder-shaped means independence from the opposite atom-grid coordinate. It does not assert membership in either old 18,676-event family. Shared-saturated shape likewise does not assert that the 224-state trace is one of the 56 shared-cell events.",
+  "pairwise_disjoint_union_operation": "Two tagged grid subsets can be tested by distributivity into four symbolic intersections of their local restricted MDD roots. This prototype does not serialize those per-state roots, so second-round exact closure is not claimed.",
+  "payload_sha256": "4fb1d4c4be24014c65a94907664f2bf53161629ff29f1f4436e091a209d0b4ea",
+  "producer_sha256": "0c8f0030d0023189ee1c6e2ceb89b862b77f4024c3b955081fc910d97ae1ffb4",
+  "schema": "adjacent-full-cycle-tagged-grid-prototype-v1",
+  "schema_version": "1.0",
+  "scope": "Exact census of event-pair disjointness and cylinder shape from exact shadows; old-local membership, shared-cell membership, exact event deduplication, and mixed closure are not tested.",
+  "shadow_type_pair_locality_counts": {
+    "both_cylinder_shaped_not_saturated": 0,
+    "genuinely_mixed_shape": 930,
+    "left_cylinder_shaped_only": 518,
+    "right_cylinder_shaped_only": 542,
+    "shared_saturated_shape": 267
+  },
+  "smallest_next_test": "Serialize canonical restricted-root vectors for the 18,676 events at positions 11 and 00; intern OR and AND tags modulo per-state MDD equality, then close only the distinct tags under complement and disjoint union.",
+  "tagged_descriptor": "A first-round union is tagged by its exact left event and right event; on shared state s its atom grid is (A_s x all q_s) union (all p_s x B_s). No grid cells are materialized."
+}

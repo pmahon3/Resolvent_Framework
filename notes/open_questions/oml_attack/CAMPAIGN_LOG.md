@@ -2603,3 +2603,42 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Smallest block test:** aligned-container coherence can first fail on a
   `2x1` compatibility horn; a `K2,2` horn is the next cyclic obstruction.
   Exact one-copy container data is required. **Open.**
+
+### Iteration 266 — coarse shadows, exact envelopes and kernel retractions
+- **Coarse census:** the left/right copies have 277/307 empty-partial-full
+  shared-state types. All 2257 disjoint cross-copy type pairs have a locally
+  attained union type. **Executable verified**; hostile review proved that
+  existential-mask disjointness is exact on the full fibre product and
+  restricted the conclusion to coarse types.
+- **Tagged first layer:** 172787 disjoint event pairs split into 123440
+  genuinely mixed shapes, 24540 left-cylinder shapes, 24540 right-cylinder
+  shapes and 267 saturated shapes. Complements of OR-tags are AND product
+  rectangles, so OR tags alone are not a grammar. **Executable verified**;
+  exact deduplication and later closure are **Open**.
+- **Exact-envelope refutation:** event `full17=0x22` has a 71-state
+  existential coordinate cylinder absent from the opposite completed copy.
+  **Executable verified** after five descriptor/class pairs and independently
+  derived from the cell-state table and the banked 56-trace theorem. This
+  refutes literal hull realizability only.
+- **Envelope repair:** exhaustive comparison with all 18676 old events gives
+  that cylinder 1152 upper bounds with unique least event `0x505`, and four
+  lower bounds with unique greatest event `0x404`. **Executable verified**.
+  This is the cylinder's sharp old bracket; the original pulled event has
+  left lower shadow `0` because its universal mask is empty. It is not a
+  conservative-embedding obstruction.
+- **Theorem extraction:** for finite concrete OMLs `A subset C`, the inclusion
+  is conservative exactly when every `c in C` has a greatest old lower,
+  equivalently a monotone deflationary retraction `rho:C->A`. **Hand proved**;
+  complements provide least old uppers. Bijective point-state restriction is
+  insufficient, **Refuted** by `MO2 subset P(4)`.
+- **Formalization:** the deflationary join kernel, inflationary meet kernel,
+  and complement-conjugate meet bridge are **Lean certified** in
+  `FullCycleAssemblyKernel.lean`; all three `#print axioms` outputs are empty.
+- **Block route:** under factorization by shared Boolean context, `2x1` horn
+  amalgamation is an exact 2-Helly condition on context-availability sets.
+  Pairwise aligned containers alone are **Refuted** by an abstract three-block
+  incidence control. Cross-copy factorization within context remains **Open**.
+- **Automatic pivot:** exhaust greatest-old-lower kernels for every first-
+  round mixed event on both sides; a first multiplicity is the conservative-
+  embedding obstruction, while exhaustive success supplies the first exact
+  transition layer of the finite-support grammar.

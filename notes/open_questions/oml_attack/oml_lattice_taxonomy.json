@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Prove or refute the bounded fibre-product rectangle normal form (FRNF) for two adjacent full-cycle copies; naive global-MDD closure is stopped at a 7.17-GB pre-closure boundary."
+   "current_next_step": "Exhaust the deflationary kernel-retraction condition for first-round mixed events of two adjacent full-cycle copies; literal coordinate-hull closure is refuted but the first 71-state hull has unique old envelopes."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -737,8 +737,8 @@
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
-   "status": "adjacent-intersection-proved-mixed-closure-open",
-   "one_line": "Adjacent full-cycle completions intersect exactly in their 56-event shared cell; the two-copy mixed closure and conservative-extrema theorem are the next gates.",
+   "status": "adjacent-kernel-grammar-open",
+   "one_line": "Adjacent completions intersect exactly in their shared cell; mixed OR/AND tags are required, and conservative embedding is reduced exactly to greatest-old-lower kernel shadows.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

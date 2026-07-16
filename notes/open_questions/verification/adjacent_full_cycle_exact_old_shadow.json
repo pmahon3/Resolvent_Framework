@@ -1,0 +1,56 @@
+{
+  "actual_descriptor_by_opposite_class_pairs_tested_before_stop": 5,
+  "all_first_round_exact_old_cylinder_cores_and_hulls_realized": false,
+  "base_full_cycle_payload_sha256": "7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0",
+  "command": "python3 notes/open_questions/verification/adjacent_full_cycle_exact_old_shadow.py --verify",
+  "completed_events_each": 18676,
+  "disjointness_justification": "On the full surjective fibre product, two pulled cylinders are disjoint iff their existential shared-state masks have empty intersection.",
+  "evidence_class": "executable verified symbolic reduced-MDD root equality",
+  "exact_piecewise_roots_tested_before_stop": 10,
+  "first_missing_exact_old_shadow": {
+    "candidate_root_tuple_sha256": "14d3594508a7ee0272dff5913840511ae77b2133933c89c6b4187b56655ab04f",
+    "direction": "left_old_copy",
+    "kind": "least_left_set_hull",
+    "opposite_E_sha256": "be39c2212b9fb43b95254e71efa659b49258635c6ef9633b45e97f772838f1fc",
+    "opposite_U_sha256": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+    "opposite_class_representative_event_index": 18,
+    "opposite_event_record": {
+      "event_index": 18,
+      "full17_hex": "0x22",
+      "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+      "physical_root_tuple_sha256": "0ab34e5e193c2c21841a56032ceada07c3981e474c736c3c3674e8f5476a8cd1"
+    },
+    "piecewise_full_state_count": 71,
+    "piecewise_full_state_mask_sha256": "be39c2212b9fb43b95254e71efa659b49258635c6ef9633b45e97f772838f1fc",
+    "retained_E_sha256": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+    "retained_U_sha256": "3addfb141cd7c9c4c6543a82191a3707ac29c7a041217782e61d4d91c691aee8",
+    "retained_event_index": 0,
+    "retained_event_record": {
+      "event_index": 0,
+      "full17_hex": "0x0",
+      "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+      "physical_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff"
+    }
+  },
+  "formula": {
+    "left_lower": "A union cylinder(U_B)",
+    "left_upper": "A union cylinder(E_B)",
+    "right_lower": "B union cylinder(U_A)",
+    "right_upper": "B union cylinder(E_A)"
+  },
+  "interpretation": "The serialized candidate is the first exact first-round old-cylinder core/hull absent from the corresponding completed copy; coarse (E,U) realization did not detect it.",
+  "left_actual_descriptors": 18676,
+  "left_classification_cache_entries": 340616,
+  "left_distinct_EU_classes": 277,
+  "payload_sha256": "2cfca54f21801dfd30622ed6467a30c4d31b0c065b79c48d2edac00e8e46232f",
+  "producer_sha256": "27686b33a514a32c96aaee23bfba13c7498324b3562825a4261e84c9d6b31157",
+  "quantifiers": "Left: every one of 18,676 actual local-position-11 descriptors A against every distinct local-position-00 (E_B,U_B) class with E_A intersection E_B empty. Right: every one of 18,676 actual local-position-00 descriptors B against every distinct local-position-11 (E_A,U_A) class with E_A intersection E_B empty. Only the opposite descriptor is quotiented by (E,U); the retained descriptor contributes its exact partial MDD roots.",
+  "right_actual_descriptors": 18676,
+  "right_classification_cache_entries": 340616,
+  "right_distinct_EU_classes": 307,
+  "runtime_reporting": "Wall-clock time is printed by the command but excluded from the deterministic payload; operation and cache counts above are deterministic runtime receipts.",
+  "schema": "adjacent-full-cycle-exact-old-shadow-v1",
+  "schema_version": "1.0",
+  "scope": "Exact first-round old-cylinder core/hull membership only. No assertion that a mixed union is local, no closure of the two-copy union, no preservation after later mixed repairs, and no lattice/OML/direct-limit claim.",
+  "shared_states": 224
+}

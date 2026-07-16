@@ -1,0 +1,63 @@
+{
+  "base_full_cycle_payload_sha256": "7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0",
+  "candidate_is_old_event": false,
+  "candidate_kind": "least left-coordinate cylinder hull C for retained empty event and opposite event 18",
+  "candidate_root_tuple_sha256": "14d3594508a7ee0272dff5913840511ae77b2133933c89c6b4187b56655ab04f",
+  "candidate_shared_state_count": 71,
+  "candidate_shared_state_mask_sha256": "be39c2212b9fb43b95254e71efa659b49258635c6ef9633b45e97f772838f1fc",
+  "command": "python3 notes/open_questions/verification/adjacent_full_cycle_missing_hull_envelope.py --verify",
+  "evidence_class": "executable verified symbolic reduced-MDD subset census",
+  "greatest_old_lower_envelopes": 1,
+  "inclusion_maximal_old_lower_bounds": 1,
+  "inclusion_minimal_old_upper_bounds": 1,
+  "interpretation": "The missing coordinate cylinder C has a unique least old local upper envelope; this is also z actual least left-old upper. The greatest old event inside C is not z lower shadow (which is 0 because U_B is empty).",
+  "least_old_upper_envelopes": 1,
+  "lower_greatestness_method": "All roots are tested for subset of candidate; maximal elements use the certified principal upsets, and a greatest element lies in every lower bound principal upset.",
+  "maximal_old_lower_records": [
+    {
+      "event_index": 516,
+      "full17_hex": "0x404",
+      "partial_component_is_zero": true,
+      "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+      "physical_root_tuple_sha256": "84444aa3d26ab2552a5a914b2a870b84666e227f7ee32196c5c92fec0365afe4"
+    }
+  ],
+  "minimal_old_upper_records": [
+    {
+      "event_index": 645,
+      "full17_hex": "0x505",
+      "partial_component_is_zero": true,
+      "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+      "physical_root_tuple_sha256": "7c99f15e23910cd53dd569e02474fb8df5c2e9c4aacbdd8ef8c97183294035d4"
+    }
+  ],
+  "old_events_tested": 18676,
+  "old_lower_bounds": 4,
+  "old_upper_bounds": 1152,
+  "opposite_event_record": {
+    "event_index": 18,
+    "full17_hex": "0x22",
+    "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+    "physical_root_tuple_sha256": "0ab34e5e193c2c21841a56032ceada07c3981e474c736c3c3674e8f5476a8cd1"
+  },
+  "opposite_universal_mask_is_empty": true,
+  "original_z_greatest_left_old_lower_is_zero": true,
+  "payload_sha256": "49159f2b0b70b1b5f9e2d06d062af1eaa0cbd8541d30b90df087d586b148e278",
+  "producer_sha256": "a5c7e0d51b85ec1dc6bff4a94b3a2268def16e0d3685fb44982fff33d37e429e",
+  "retained_event_record": {
+    "event_index": 0,
+    "full17_hex": "0x0",
+    "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+    "physical_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff"
+  },
+  "runtime_reporting": "Wall-clock time is printed by the command but excluded from the deterministic payload.",
+  "schema": "adjacent-full-cycle-missing-hull-envelope-v1",
+  "schema_version": "1.0",
+  "scope": "Exact old-copy envelope poset for one serialized 71-state cylinder only. No closure of the adjacent union, no assertion about other mixed pairs, and no lattice/OML/direct-limit claim.",
+  "sharp_coordinate_cylinder_bracket": {
+    "greatest_old_event_below_C_full17_hex": "0x404",
+    "least_old_event_above_C_full17_hex": "0x505"
+  },
+  "source_exact_shadow_payload_sha256": "2cfca54f21801dfd30622ed6467a30c4d31b0c065b79c48d2edac00e8e46232f",
+  "upper_leastness_method": "All 18,676 physical roots are tested for candidate subset. An upper u is least iff its certified principal upset contains the complete upper-bound bitset."
+}

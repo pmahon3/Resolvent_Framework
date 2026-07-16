@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — fixed-carrier T-FIN is refuted; sparse containment pairs are differentially validated and empty masks reduce the adjacent first-round target to 18370 nontrivial kernels; second-round bridge closure remains separate.",
+   "status": "OPEN — fixed-carrier T-FIN is refuted; the join-rich adjacent kernel differential passes and the exact 18370 nontrivial first-round kernels are entering checkpointed exhaustion; second-round bridge closure remains separate.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

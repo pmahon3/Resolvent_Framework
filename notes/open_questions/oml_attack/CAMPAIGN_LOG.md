@@ -2836,3 +2836,19 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   events, evict pair tables after each `A`, and sample join-rich rather than
   endpoint-spread events. A complete scan remains plausible only in that
   representation.
+
+### Iteration 275 — join-rich per-`A` containment falsifier
+- The deterministic top 128 retained events per orientation are ranked by
+  `(# nonempty admissible U) * (# distinct proper atomic join targets)`, then
+  by the two factors and event index. All 2509 nonempty kernels pass with zero
+  escape: 1326 left and 1183 right. **Executable verified** (bounded, single
+  producer), payload `b47a55f8...`, source `91de6c80...`; seeds 0 and 12345
+  reproduce the mathematical payload.
+- Every one of 27469 bad-event-pair queries agrees between the immutable
+  compressed DAG and direct original-MDD oracle. Per-`A` eviction limits the
+  peak to 13420 distinct class pairs left and 12943 right.
+- **Hostile review:** PASS. The roughly 101-minute serial extrapolation is only
+  conservative planning stress data, not an expected-runtime theorem. No
+  complete-kernel, second-round, latticehood, ODBC, or `Phi` conclusion follows.
+- **Pivot:** run a checkpointed exact scan of all 18370 nonempty kernels in
+  deterministic rank shards, stopping on the first escape.

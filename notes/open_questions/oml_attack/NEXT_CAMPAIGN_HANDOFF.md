@@ -38,16 +38,16 @@
    exact_old_shadow,missing_hull_envelope,exact_lower_kernel_scan,
    badmask_atomic_batch,restricted_trace_classes,
    streaming_atomic_differential,streaming_atomic_scale,
-   sparse_containment_pairs}` including the bounded receipts; Lean file
+   sparse_containment_pairs,join_rich_per_a}` including the bounded receipts;
+   Lean file
    `QuerySystem/{FiniteAtomFoldKernel,KernelClosureCalculus}.lean`.
 6. **Unresolved theorem:** every event in the adjacent mixed closure has a
    greatest lower shadow in each old copy, coherently under further OR/AND
    transitions. This is the exact two-copy conservative-embedding kernel.
-7. **First action:** run a join-rich 128-event-per-orientation falsifier with
-   empty-mask discharge and per-`A` containment-table eviction. Preserve exact
-   bad-mask agreement with the original-MDD oracle, peak per-`A` class-pair
-   counts, and seed-stable mathematical payloads. Only then decide whether the
-   remaining 18370 nontrivial kernels should be exhaustively sharded.
+7. **First action:** run the checkpointed deterministic shard scan of all
+   18370 nonempty kernels. The join-rich 128-event-per-orientation falsifier
+   passed 2509 kernels and 27469 differential queries with payload
+   `b47a55f8...`; preserve per-`A` eviction and stop on the first escape.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

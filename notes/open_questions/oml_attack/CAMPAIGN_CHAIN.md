@@ -298,6 +298,11 @@ the live nontrivial quotient is 18370. The orientation-global Python cache is
 stopped; the next automatic pivot is a join-rich per-`A` eviction falsifier,
 followed by an exhaustive shard decision if its peak remains controlled.
 
+The join-rich gate passes: 2509 nonempty kernels and 27469 differential
+bad-event-pair queries have zero escape (payload `b47a55f8...`), with bounded
+per-`A` peaks and cross-seed reproduction. The next automatic pivot is the
+exact checkpointed 18370-kernel shard scan.
+
 `T_FIN_IMPOSSIBILITY_LEDGER.md` is closed as a historical ledger. T-FIN is
 refuted by the full-grid survivor; do not resume the impossibility track or
 finite repair depth. Use its failure architecture as the input to overlapping

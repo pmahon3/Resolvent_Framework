@@ -739,8 +739,8 @@
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
-   "status": "adjacent-kernel-grammar-open-sparse-pair-validated",
-   "one_line": "Adjacent conservativity is reduced to greatest-old-lower kernels; 37352 empty-mask kernels discharge exactly, leaving 18370 nontrivial kernels for a join-rich per-A containment test.",
+   "status": "adjacent-kernel-grammar-open-exhaustive-first-round-running",
+   "one_line": "Empty masks discharge exactly and a join-rich per-A differential passes 2509 nontrivial kernels; the exact 18370-kernel checkpointed scan is now the live first-round gate.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

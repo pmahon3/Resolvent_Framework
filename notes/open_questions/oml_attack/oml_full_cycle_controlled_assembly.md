@@ -674,3 +674,20 @@ discharges empty masks before tracing, and evicts containment tables per `A`.
 - **Would more blind branching discriminate?** No. Join-rich per-`A` sampling
   is the smallest remaining representation test before an exhaustive shard
   decision.
+
+### 10.6 Join-rich per-`A` gate
+
+The deterministic top-128 retained events per orientation, ranked by the
+product of nonempty admissible-mask count and distinct proper atomic-join
+target count, test 2509 nonempty kernels. All pass with zero escape. Every one
+of 27469 bad-event-pair queries agrees between the immutable compressed DAG
+and direct original-MDD oracle. Peak per-`A` distinct class-pair counts are
+13420 left and 12943 right. **Executable verified** (bounded, single
+producer), payload `b47a55f8...`, producer SHA-256 `91de6c80...`; seeds 0 and
+12345 agree and hostile review passes.
+
+The representation gate supports a checkpointed exhaustive scan of all 18370
+nonempty kernels. The roughly 101-minute serial figure is only conservative
+stress planning from a deliberately join-rich sample, not a theorem or
+expected runtime. First-round success would still leave complement/bridge
+closure and generated latticehood open.

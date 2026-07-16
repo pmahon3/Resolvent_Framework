@@ -747,3 +747,7 @@ MDD oracle under two hash seeds (payload `b06e5ff0...`). Empty masks discharge
 algebraically, reducing the nontrivial first-round target from 55722 to 18370.
 The next discriminator is join-rich sampling with per-`A` eviction, not blind
 depth or an orientation-global Python cache.
+That discriminator passes 2509 nonempty kernels and 27469 differential queries
+with zero escape (payload `b47a55f8...`). **Executable verified** at bounded
+scope. The exact 18370-kernel checkpointed scan is now justified; its outcome
+still does not settle the second-round bridge grammar.

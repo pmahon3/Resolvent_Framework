@@ -781,6 +781,10 @@ direct MDD oracle under seeds 0 and 12345 (payload `b06e5ff0...`). The empty
 mask is tautological for every retained event, leaving 18370 nontrivial kernels.
 The next finite-support test is join-rich and per-`A`-evicted; exhaustive
 sharding is conditional on that bounded peak.
+The join-rich gate now passes 2509 nonempty kernels with exact differential
+agreement on 27469 queries (payload `b47a55f8...`). **Executable verified**
+bounded evidence. The live action is the checkpointed exact scan of all 18370
+nonempty kernels; complement/bridge closure remains later.
 
 ## Repository Layout
 

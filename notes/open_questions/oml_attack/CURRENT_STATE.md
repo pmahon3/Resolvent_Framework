@@ -507,6 +507,14 @@ for 11951 bad-mask queries, but its orientation-global cache projects poorly.
 **Executable verified** (bounded), payload `b06e5ff0...`. The next design uses
 empty-mask discharge, per-`A` eviction, and join-rich sampling.
 
+That join-rich falsifier now passes. The deterministic top 128 retained events
+per orientation cover 2509 nonempty kernels with zero escape, and all 27469
+bad-event-pair queries agree between the compressed DAG and direct MDD oracle.
+Peak per-`A` distinct class pairs are 13420 left and 12943 right. **Executable
+verified** (bounded, single producer), payload `b47a55f8...`; cross-seed replay
+and hostile review pass. The next exact action is a checkpointed shard scan of
+all 18370 nontrivial kernels.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

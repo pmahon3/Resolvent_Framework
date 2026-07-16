@@ -498,6 +498,14 @@ implications are **Lean certified** in `KernelClosureCalculus.lean` with the
 concrete atomistic-cover hypotheses explicit; only `greatest_intersection` is
 axiom-free, while the remaining six report `[propext]` and no `sorryAx`.
 
+The nominal 55722 first-round kernels contain 37352 tautological empty-mask
+kernels whose core is exactly the retained event. **Hand proved.** The true
+nontrivial target is 18370 kernels. A deterministic sparse census on 355
+sampled kernels finds zero escapes and exact compressed/direct-oracle agreement
+for 11951 bad masks, but its orientation-global cache projects poorly.
+**Executable verified** (bounded), payload `b06e5ff0...`. The next design uses
+empty-mask discharge, per-`A` eviction, and join-rich sampling.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

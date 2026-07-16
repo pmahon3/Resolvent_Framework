@@ -1,0 +1,3227 @@
+{
+  "bad_event_pair_queries": 11951,
+  "bad_mask_digest_sha256": "c047c36eed0a786be1ebb68c261a5fdce9f414da5677f3aa0ebd316add6c8997",
+  "base_full_cycle_payload_sha256": "7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0",
+  "class_pair_lookups": 1764641,
+  "command": "python3 notes/open_questions/verification/adjacent_full_cycle_sparse_containment_pairs.py --verify",
+  "comparison_unit_semantics": "A raw assigned occurrence comparison is one direct original-MDD containment test at one macrofibre occurrence, with short-circuit on the first failure. A class-pair lookup tests or reuses containment of one complete assigned-state trace word across all of that state's occurrences.",
+  "complete_scan_assessment": "Not supported by retaining sample-global Python class/pair caches: the sampled demand linearly projects to tens of millions of distinct pairs. The measurements support a per-retained-A eviction design, not this accumulating-cache design, for a complete 55,722-kernel scan.",
+  "completed_events_each": 18676,
+  "deterministic_memory_accounting": {
+    "canonical_trace_word_root_ids": 891516,
+    "distinct_class_pair_entries": 442834,
+    "immutable_restricted_dag_nodes": 42456,
+    "immutable_subset_cache_entries": 11288,
+    "uint32_payload_lower_bound_bytes": 7108736
+  },
+  "distinct_class_pair_queries": 442834,
+  "evidence_classes": [
+    "Executable verified"
+  ],
+  "linear_distinct_pair_projection_at_55722_kernels": 69508722,
+  "mdd_snapshot_after_sparse_queries": [
+    795720,
+    937618,
+    40604
+  ],
+  "mdd_snapshot_before_sparse_queries": [
+    795720,
+    937618,
+    40604
+  ],
+  "old_atom_count": 91,
+  "oracle_calls": 6865615,
+  "oracle_recursive_nodes": 3089424,
+  "orientation_records": [
+    {
+      "admissible_kernels": 183,
+      "bad_event_pair_queries": 5991,
+      "canonical_trace_word_root_ids": 461376,
+      "deterministic_uint32_payload_lower_bound_bytes": 3880648,
+      "failing_kernels": 0,
+      "group_join_transitions": 193,
+      "immutable_restricted_dag_nodes": 21228,
+      "immutable_subset_cache_entries": 6252,
+      "interned_event_state_assignments": 55568,
+      "orientation": "left_retained_position11",
+      "passing_kernels": 183,
+      "per_state": [
+        {
+          "assigned_oracle_occurrence_comparisons": 5342,
+          "class_pair_lookups": 2404,
+          "classes": 42,
+          "distinct_class_pair_queries": 160,
+          "state_index": 0
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 7792,
+          "class_pair_lookups": 2781,
+          "classes": 46,
+          "distinct_class_pair_queries": 336,
+          "state_index": 1
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15548,
+          "class_pair_lookups": 3717,
+          "classes": 59,
+          "distinct_class_pair_queries": 762,
+          "state_index": 2
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15548,
+          "class_pair_lookups": 3717,
+          "classes": 59,
+          "distinct_class_pair_queries": 762,
+          "state_index": 3
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15548,
+          "class_pair_lookups": 3717,
+          "classes": 59,
+          "distinct_class_pair_queries": 762,
+          "state_index": 4
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15548,
+          "class_pair_lookups": 3717,
+          "classes": 59,
+          "distinct_class_pair_queries": 762,
+          "state_index": 5
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13717,
+          "class_pair_lookups": 3485,
+          "classes": 59,
+          "distinct_class_pair_queries": 775,
+          "state_index": 6
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13717,
+          "class_pair_lookups": 3485,
+          "classes": 59,
+          "distinct_class_pair_queries": 775,
+          "state_index": 7
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14719,
+          "class_pair_lookups": 3488,
+          "classes": 59,
+          "distinct_class_pair_queries": 773,
+          "state_index": 8
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14719,
+          "class_pair_lookups": 3488,
+          "classes": 59,
+          "distinct_class_pair_queries": 773,
+          "state_index": 9
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17806,
+          "class_pair_lookups": 3783,
+          "classes": 71,
+          "distinct_class_pair_queries": 1409,
+          "state_index": 10
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17806,
+          "class_pair_lookups": 3783,
+          "classes": 71,
+          "distinct_class_pair_queries": 1409,
+          "state_index": 11
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17806,
+          "class_pair_lookups": 3783,
+          "classes": 71,
+          "distinct_class_pair_queries": 1409,
+          "state_index": 12
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17806,
+          "class_pair_lookups": 3783,
+          "classes": 71,
+          "distinct_class_pair_queries": 1409,
+          "state_index": 13
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 14
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 15
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 16
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16463,
+          "class_pair_lookups": 3781,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 17
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 18
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14255,
+          "class_pair_lookups": 3603,
+          "classes": 63,
+          "distinct_class_pair_queries": 839,
+          "state_index": 19
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14255,
+          "class_pair_lookups": 3603,
+          "classes": 63,
+          "distinct_class_pair_queries": 839,
+          "state_index": 20
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15563,
+          "class_pair_lookups": 3606,
+          "classes": 63,
+          "distinct_class_pair_queries": 837,
+          "state_index": 21
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15563,
+          "class_pair_lookups": 3606,
+          "classes": 63,
+          "distinct_class_pair_queries": 837,
+          "state_index": 22
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 23
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 24
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 25
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18484,
+          "class_pair_lookups": 3845,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 26
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 27
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 28
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 29
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 30
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 31
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 32
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 33
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 34
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 35
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 36
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 37
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 38
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 39
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 40
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 41
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 42
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 43
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 44
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14176,
+          "class_pair_lookups": 3839,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 45
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 46
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14176,
+          "class_pair_lookups": 3839,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 47
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 48
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 49
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 50
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 51
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 52
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15018,
+          "class_pair_lookups": 3842,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 53
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 54
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15018,
+          "class_pair_lookups": 3842,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 55
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 56
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 57
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 58
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 59
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 60
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 61
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 62
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 63
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 64
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 65
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 66
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 67
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 68
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 69
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 70
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 71
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 72
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16463,
+          "class_pair_lookups": 3781,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 73
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16578,
+          "class_pair_lookups": 3843,
+          "classes": 63,
+          "distinct_class_pair_queries": 826,
+          "state_index": 74
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14255,
+          "class_pair_lookups": 3603,
+          "classes": 63,
+          "distinct_class_pair_queries": 839,
+          "state_index": 75
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14255,
+          "class_pair_lookups": 3603,
+          "classes": 63,
+          "distinct_class_pair_queries": 839,
+          "state_index": 76
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15563,
+          "class_pair_lookups": 3606,
+          "classes": 63,
+          "distinct_class_pair_queries": 837,
+          "state_index": 77
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15563,
+          "class_pair_lookups": 3606,
+          "classes": 63,
+          "distinct_class_pair_queries": 837,
+          "state_index": 78
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 79
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 80
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 81
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18484,
+          "class_pair_lookups": 3845,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 82
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18602,
+          "class_pair_lookups": 3905,
+          "classes": 75,
+          "distinct_class_pair_queries": 1521,
+          "state_index": 83
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 84
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 85
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 86
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 87
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 88
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 89
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 90
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 91
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 92
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 93
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 94
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15845,
+          "class_pair_lookups": 4095,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 95
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15960,
+          "class_pair_lookups": 4157,
+          "classes": 68,
+          "distinct_class_pair_queries": 906,
+          "state_index": 96
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 97
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 98
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 99
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 100
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14176,
+          "class_pair_lookups": 3839,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 101
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 102
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14176,
+          "class_pair_lookups": 3839,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 103
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14279,
+          "class_pair_lookups": 3897,
+          "classes": 68,
+          "distinct_class_pair_queries": 919,
+          "state_index": 104
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 105
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 106
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 107
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 108
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15018,
+          "class_pair_lookups": 3842,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 109
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 110
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15018,
+          "class_pair_lookups": 3842,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 111
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15120,
+          "class_pair_lookups": 3900,
+          "classes": 68,
+          "distinct_class_pair_queries": 917,
+          "state_index": 112
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 113
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 114
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 115
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 116
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 117
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 118
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 119
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 120
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 121
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 122
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 123
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18241,
+          "class_pair_lookups": 4149,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 124
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18359,
+          "class_pair_lookups": 4209,
+          "classes": 80,
+          "distinct_class_pair_queries": 1661,
+          "state_index": 125
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 126
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 127
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 128
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 129
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 130
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 131
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16296,
+          "class_pair_lookups": 3907,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 132
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 133
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16411,
+          "class_pair_lookups": 3969,
+          "classes": 66,
+          "distinct_class_pair_queries": 874,
+          "state_index": 134
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14298,
+          "class_pair_lookups": 3721,
+          "classes": 66,
+          "distinct_class_pair_queries": 887,
+          "state_index": 135
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14298,
+          "class_pair_lookups": 3721,
+          "classes": 66,
+          "distinct_class_pair_queries": 887,
+          "state_index": 136
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14298,
+          "class_pair_lookups": 3721,
+          "classes": 66,
+          "distinct_class_pair_queries": 887,
+          "state_index": 137
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14298,
+          "class_pair_lookups": 3721,
+          "classes": 66,
+          "distinct_class_pair_queries": 887,
+          "state_index": 138
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15450,
+          "class_pair_lookups": 3724,
+          "classes": 66,
+          "distinct_class_pair_queries": 885,
+          "state_index": 139
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15450,
+          "class_pair_lookups": 3724,
+          "classes": 66,
+          "distinct_class_pair_queries": 885,
+          "state_index": 140
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15450,
+          "class_pair_lookups": 3724,
+          "classes": 66,
+          "distinct_class_pair_queries": 885,
+          "state_index": 141
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15450,
+          "class_pair_lookups": 3724,
+          "classes": 66,
+          "distinct_class_pair_queries": 885,
+          "state_index": 142
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 143
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 144
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 145
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 146
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 147
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 148
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18443,
+          "class_pair_lookups": 3967,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 149
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 150
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18561,
+          "class_pair_lookups": 4027,
+          "classes": 78,
+          "distinct_class_pair_queries": 1605,
+          "state_index": 151
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 152
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 153
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 154
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 155
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 156
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 157
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 158
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 159
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 160
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 161
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16077,
+          "class_pair_lookups": 4221,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 162
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 163
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 164
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16077,
+          "class_pair_lookups": 4221,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 165
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 166
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 167
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16077,
+          "class_pair_lookups": 4221,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 168
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 169
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 170
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16077,
+          "class_pair_lookups": 4221,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 171
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 172
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16192,
+          "class_pair_lookups": 4283,
+          "classes": 71,
+          "distinct_class_pair_queries": 954,
+          "state_index": 173
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 174
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 175
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 176
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 177
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 178
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 179
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 180
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 181
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14384,
+          "class_pair_lookups": 3957,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 182
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 183
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 184
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14384,
+          "class_pair_lookups": 3957,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 185
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 186
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14487,
+          "class_pair_lookups": 4015,
+          "classes": 71,
+          "distinct_class_pair_queries": 967,
+          "state_index": 187
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 188
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 189
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 190
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 191
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 192
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 193
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 194
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 195
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15224,
+          "class_pair_lookups": 3960,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 196
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 197
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 198
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15224,
+          "class_pair_lookups": 3960,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 199
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 200
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15326,
+          "class_pair_lookups": 4018,
+          "classes": 71,
+          "distinct_class_pair_queries": 965,
+          "state_index": 201
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 202
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 203
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 204
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 205
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 206
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 207
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 208
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 209
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 210
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 211
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18479,
+          "class_pair_lookups": 4271,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 212
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 213
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 214
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18479,
+          "class_pair_lookups": 4271,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 215
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 216
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 217
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18479,
+          "class_pair_lookups": 4271,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 218
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 219
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 220
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18479,
+          "class_pair_lookups": 4271,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 221
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 222
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 18597,
+          "class_pair_lookups": 4331,
+          "classes": 83,
+          "distinct_class_pair_queries": 1745,
+          "state_index": 223
+        }
+      ],
+      "position": 3,
+      "selected_event_indices_sha256": "6caf07b0ea2a563cc67f0f4115a2070b6ed114b88d82f4008d2e2d64fcdff454",
+      "selected_retained_events": 64,
+      "total_assigned_oracle_occurrence_comparisons": 3648927,
+      "total_class_pair_lookups": 898903,
+      "total_classes": 15952,
+      "total_distinct_class_pair_queries": 254393
+    },
+    {
+      "admissible_kernels": 172,
+      "bad_event_pair_queries": 5960,
+      "canonical_trace_word_root_ids": 430140,
+      "deterministic_uint32_payload_lower_bound_bytes": 3228088,
+      "failing_kernels": 0,
+      "group_join_transitions": 161,
+      "immutable_restricted_dag_nodes": 21228,
+      "immutable_subset_cache_entries": 5036,
+      "interned_event_state_assignments": 46197,
+      "orientation": "right_retained_position00",
+      "passing_kernels": 172,
+      "per_state": [
+        {
+          "assigned_oracle_occurrence_comparisons": 5097,
+          "class_pair_lookups": 2432,
+          "classes": 41,
+          "distinct_class_pair_queries": 120,
+          "state_index": 0
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 4596,
+          "class_pair_lookups": 2198,
+          "classes": 41,
+          "distinct_class_pair_queries": 120,
+          "state_index": 1
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 12920,
+          "class_pair_lookups": 3507,
+          "classes": 58,
+          "distinct_class_pair_queries": 708,
+          "state_index": 2
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 12920,
+          "class_pair_lookups": 3507,
+          "classes": 58,
+          "distinct_class_pair_queries": 708,
+          "state_index": 3
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 12920,
+          "class_pair_lookups": 3507,
+          "classes": 58,
+          "distinct_class_pair_queries": 708,
+          "state_index": 4
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 12920,
+          "class_pair_lookups": 3507,
+          "classes": 58,
+          "distinct_class_pair_queries": 708,
+          "state_index": 5
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 12815,
+          "class_pair_lookups": 3451,
+          "classes": 58,
+          "distinct_class_pair_queries": 723,
+          "state_index": 6
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 12815,
+          "class_pair_lookups": 3451,
+          "classes": 58,
+          "distinct_class_pair_queries": 723,
+          "state_index": 7
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13260,
+          "class_pair_lookups": 3504,
+          "classes": 58,
+          "distinct_class_pair_queries": 722,
+          "state_index": 8
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13260,
+          "class_pair_lookups": 3504,
+          "classes": 58,
+          "distinct_class_pair_queries": 722,
+          "state_index": 9
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15877,
+          "class_pair_lookups": 3529,
+          "classes": 58,
+          "distinct_class_pair_queries": 724,
+          "state_index": 10
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15877,
+          "class_pair_lookups": 3529,
+          "classes": 58,
+          "distinct_class_pair_queries": 724,
+          "state_index": 11
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15877,
+          "class_pair_lookups": 3529,
+          "classes": 58,
+          "distinct_class_pair_queries": 724,
+          "state_index": 12
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 15877,
+          "class_pair_lookups": 3529,
+          "classes": 58,
+          "distinct_class_pair_queries": 724,
+          "state_index": 13
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 14
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 15
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 16
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13764,
+          "class_pair_lookups": 3627,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 17
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 18
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13648,
+          "class_pair_lookups": 3629,
+          "classes": 62,
+          "distinct_class_pair_queries": 783,
+          "state_index": 19
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13648,
+          "class_pair_lookups": 3629,
+          "classes": 62,
+          "distinct_class_pair_queries": 783,
+          "state_index": 20
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14193,
+          "class_pair_lookups": 3684,
+          "classes": 62,
+          "distinct_class_pair_queries": 782,
+          "state_index": 21
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14193,
+          "class_pair_lookups": 3684,
+          "classes": 62,
+          "distinct_class_pair_queries": 782,
+          "state_index": 22
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 23
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 24
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 25
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17078,
+          "class_pair_lookups": 3649,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 26
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 27
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 28
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 29
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 30
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 31
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 32
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 33
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 34
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 35
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 36
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 37
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 38
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 39
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 40
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 41
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 42
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 43
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 44
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13099,
+          "class_pair_lookups": 3805,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 45
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 46
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13099,
+          "class_pair_lookups": 3805,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 47
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 48
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 49
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 50
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 51
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 52
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13530,
+          "class_pair_lookups": 3864,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 53
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 54
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13530,
+          "class_pair_lookups": 3864,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 55
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 56
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 57
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 58
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 59
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 60
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 61
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 62
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 63
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 64
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 65
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 66
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 67
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 68
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 69
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 70
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 71
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 72
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13764,
+          "class_pair_lookups": 3627,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 73
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13866,
+          "class_pair_lookups": 3687,
+          "classes": 62,
+          "distinct_class_pair_queries": 768,
+          "state_index": 74
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13648,
+          "class_pair_lookups": 3629,
+          "classes": 62,
+          "distinct_class_pair_queries": 783,
+          "state_index": 75
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13648,
+          "class_pair_lookups": 3629,
+          "classes": 62,
+          "distinct_class_pair_queries": 783,
+          "state_index": 76
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14193,
+          "class_pair_lookups": 3684,
+          "classes": 62,
+          "distinct_class_pair_queries": 782,
+          "state_index": 77
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14193,
+          "class_pair_lookups": 3684,
+          "classes": 62,
+          "distinct_class_pair_queries": 782,
+          "state_index": 78
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 79
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 80
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 81
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17078,
+          "class_pair_lookups": 3649,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 82
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 17175,
+          "class_pair_lookups": 3707,
+          "classes": 62,
+          "distinct_class_pair_queries": 785,
+          "state_index": 83
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 84
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 85
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 86
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 87
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 88
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 89
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 90
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 91
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 92
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 93
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 94
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13208,
+          "class_pair_lookups": 3867,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 95
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13309,
+          "class_pair_lookups": 3926,
+          "classes": 67,
+          "distinct_class_pair_queries": 843,
+          "state_index": 96
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 97
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 98
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 99
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 100
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13099,
+          "class_pair_lookups": 3805,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 101
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 102
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13099,
+          "class_pair_lookups": 3805,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 103
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13191,
+          "class_pair_lookups": 3863,
+          "classes": 67,
+          "distinct_class_pair_queries": 858,
+          "state_index": 104
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 105
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 106
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 107
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 108
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13530,
+          "class_pair_lookups": 3864,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 109
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 110
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13530,
+          "class_pair_lookups": 3864,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 111
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13627,
+          "class_pair_lookups": 3923,
+          "classes": 67,
+          "distinct_class_pair_queries": 857,
+          "state_index": 112
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 113
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 114
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 115
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 116
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 117
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 118
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 119
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 120
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 121
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 122
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 123
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16111,
+          "class_pair_lookups": 3877,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 124
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16207,
+          "class_pair_lookups": 3934,
+          "classes": 67,
+          "distinct_class_pair_queries": 859,
+          "state_index": 125
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 126
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 127
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 128
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 129
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 130
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 131
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13646,
+          "class_pair_lookups": 3749,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 132
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 133
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13748,
+          "class_pair_lookups": 3809,
+          "classes": 65,
+          "distinct_class_pair_queries": 813,
+          "state_index": 134
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13562,
+          "class_pair_lookups": 3749,
+          "classes": 65,
+          "distinct_class_pair_queries": 828,
+          "state_index": 135
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13562,
+          "class_pair_lookups": 3749,
+          "classes": 65,
+          "distinct_class_pair_queries": 828,
+          "state_index": 136
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13562,
+          "class_pair_lookups": 3749,
+          "classes": 65,
+          "distinct_class_pair_queries": 828,
+          "state_index": 137
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13562,
+          "class_pair_lookups": 3749,
+          "classes": 65,
+          "distinct_class_pair_queries": 828,
+          "state_index": 138
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14072,
+          "class_pair_lookups": 3806,
+          "classes": 65,
+          "distinct_class_pair_queries": 827,
+          "state_index": 139
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14072,
+          "class_pair_lookups": 3806,
+          "classes": 65,
+          "distinct_class_pair_queries": 827,
+          "state_index": 140
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14072,
+          "class_pair_lookups": 3806,
+          "classes": 65,
+          "distinct_class_pair_queries": 827,
+          "state_index": 141
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 14072,
+          "class_pair_lookups": 3806,
+          "classes": 65,
+          "distinct_class_pair_queries": 827,
+          "state_index": 142
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 143
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 144
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 145
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 146
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 147
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 148
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16825,
+          "class_pair_lookups": 3767,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 149
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 150
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16922,
+          "class_pair_lookups": 3825,
+          "classes": 65,
+          "distinct_class_pair_queries": 830,
+          "state_index": 151
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 152
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 153
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 154
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 155
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 156
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 157
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 158
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 159
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 160
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 161
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13412,
+          "class_pair_lookups": 3987,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 162
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 163
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 164
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13412,
+          "class_pair_lookups": 3987,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 165
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 166
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 167
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13412,
+          "class_pair_lookups": 3987,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 168
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 169
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 170
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13412,
+          "class_pair_lookups": 3987,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 171
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 172
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13513,
+          "class_pair_lookups": 4046,
+          "classes": 70,
+          "distinct_class_pair_queries": 888,
+          "state_index": 173
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 174
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 175
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 176
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 177
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 178
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 179
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 180
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 181
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13285,
+          "class_pair_lookups": 3923,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 182
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 183
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 184
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13285,
+          "class_pair_lookups": 3923,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 185
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 186
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13377,
+          "class_pair_lookups": 3981,
+          "classes": 70,
+          "distinct_class_pair_queries": 903,
+          "state_index": 187
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 188
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 189
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 190
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 191
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 192
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 193
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 194
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 195
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13726,
+          "class_pair_lookups": 3984,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 196
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 197
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 198
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13726,
+          "class_pair_lookups": 3984,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 199
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 200
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 13823,
+          "class_pair_lookups": 4043,
+          "classes": 70,
+          "distinct_class_pair_queries": 902,
+          "state_index": 201
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 202
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 203
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 204
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 205
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 206
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 207
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 208
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 209
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 210
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 211
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16305,
+          "class_pair_lookups": 3993,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 212
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 213
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 214
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16305,
+          "class_pair_lookups": 3993,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 215
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 216
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 217
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16305,
+          "class_pair_lookups": 3993,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 218
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 219
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 220
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16305,
+          "class_pair_lookups": 3993,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 221
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 222
+        },
+        {
+          "assigned_oracle_occurrence_comparisons": 16401,
+          "class_pair_lookups": 4050,
+          "classes": 70,
+          "distinct_class_pair_queries": 904,
+          "state_index": 223
+        }
+      ],
+      "position": 0,
+      "selected_event_indices_sha256": "6caf07b0ea2a563cc67f0f4115a2070b6ed114b88d82f4008d2e2d64fcdff454",
+      "selected_retained_events": 64,
+      "total_assigned_oracle_occurrence_comparisons": 3216688,
+      "total_class_pair_lookups": 865738,
+      "total_classes": 14872,
+      "total_distinct_class_pair_queries": 188441
+    }
+  ],
+  "payload_sha256": "b06e5ff03a82959e4b4f73037bf8404b8105aedbb37ce0c553a64d1393daa9db",
+  "producer_sha256": "76796ae4b55574fe46e1da5e8934e66a84f69d77d3525a8d8ff9221841b23971",
+  "quantifier_scope": "Every admissible U and every atomic transition reached for exactly 64 endpoint-spread retained A in each orientation.",
+  "raw_assigned_occurrence_comparisons": 6865615,
+  "sample": "64 endpoint-spread retained events with a live admissible U in each orientation",
+  "schema": "adjacent-full-cycle-sparse-containment-pairs-v1",
+  "schema_version": "1.0",
+  "scope_not_covered": "The other retained events, complete 55,722 kernels, later mixed closure, latticehood, OML, sigma closure, MBRC, ODBC, and Phi.",
+  "shared_states": 224,
+  "verification_independence": "Compressed immutable-DAG containment and the direct original-MDD oracle use separate recursion implementations but share capture_grammar and classification. No independent verifier."
+}

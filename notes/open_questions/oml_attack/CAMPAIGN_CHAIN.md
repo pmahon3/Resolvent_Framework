@@ -291,6 +291,13 @@ omega-one CSS/no-global-section, the global finitely additive witness, and
 absence of a sigma-state realization. Do not promote the finite survivor to a
 `Phi` counterexample; it is `Phi`-tame.
 
+The sparse quotient is now differentially validated on 355 sampled kernels:
+11951 compressed bad-mask queries agree with the direct MDD oracle under two
+hash seeds. Empty masks form an exact tautological family of 37352 kernels, so
+the live nontrivial quotient is 18370. The orientation-global Python cache is
+stopped; the next automatic pivot is a join-rich per-`A` eviction falsifier,
+followed by an exhaustive shard decision if its peak remains controlled.
+
 In parallel maintain `T_FIN_IMPOSSIBILITY_LEDGER.md`. Every proposed T-FIN
 implication must be tested against the formal, one-cell, and same-row controls.
 Failed implications must record their smallest countermodel and a strengthened

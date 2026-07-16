@@ -630,3 +630,45 @@ theorems each report `[propext]`, with no `sorryAx`. The union wrapper keeps
 base-join eligibility, bridge eligibility, and full atomistic coverage as
 explicit hypotheses. It does not formalize the concrete bridge classification
 or disjointness proof; those remain the hand-proved instantiation layer.
+
+### 10.4 Sparse containment-pair boundary
+
+The nominal 55722-kernel quotient contains a large exact tautological family.
+For every retained event `A`, the empty mask `U=empty` is admissible, witnessed
+by the opposite zero event, and its mixed core is exactly `A`. Its greatest old
+lower is therefore `A` without any trace query. Hence 18676 kernels in each
+orientation, 37352 total, discharge algebraically. The nontrivial first-round
+target is 9347 left plus 9023 right, or 18370 kernels. **Hand proved.**
+
+The deterministic sparse-pair census samples 64 endpoint-spread retained
+events per orientation. All 355 sampled kernels pass; for all 11951 queried
+bad masks the compressed immutable-DAG containment oracle agrees exactly with
+the direct original-MDD oracle. It performs 6865615 short-circuit macro-
+occurrence comparisons, 1764641 whole-state class-pair lookups, and 442834
+distinct class-pair queries. **Executable verified** (bounded, single
+producer), payload `b06e5ff0...`, producer SHA-256 `76796ae4...`; canonical
+seed-0 and seed-12345 verification both pass. The artifact is
+`adjacent_full_cycle_sparse_containment_pairs.py/.json`.
+
+The orientation-global Python pair cache projects to 69508722 pairs on an
+unpruned linear extrapolation. This is a negative result only for that
+implemented cache: the sample includes 128 empty-mask tautologies, and it does
+not rule out per-`A` eviction, algebraic discharge, or a different global
+representation. The next bounded falsifier selects join-rich retained events,
+discharges empty masks before tracing, and evicts containment tables per `A`.
+
+### 10.5 Decision-boundary check
+
+- **New structural pattern?** Yes: the empty-mask half of the quotient is
+  tautological; no new mathematical escape pattern appears in the sparse run.
+- **Genuinely new stage?** The oracle representation is new and differentially
+  exact on its queried domain; the kernel verdict remains a bounded repetition.
+- **Finite grammar rule?** Empty-mask discharge is an exact grammar rule.
+  Arbitrary nonempty masks remain open.
+- **Well-founded invariant?** Kernel count decreases from 55722 to 18370 after
+  algebraic normalization; no further rank is proved.
+- **Collapse unavoidable?** Not shown.
+- **Infinite coherent grammar evidence?** None beyond the two-copy first layer.
+- **Would more blind branching discriminate?** No. Join-rich per-`A` sampling
+  is the smallest remaining representation test before an exhaustive shard
+  decision.

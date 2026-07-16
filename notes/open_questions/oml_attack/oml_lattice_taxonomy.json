@@ -737,8 +737,8 @@
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
-   "status": "adjacent-kernel-grammar-open",
-   "one_line": "Adjacent completions intersect exactly in their shared cell; mixed OR/AND tags are required, and conservative embedding is reduced exactly to greatest-old-lower kernel shadows.",
+   "status": "adjacent-kernel-grammar-open-sparse-pair-validated",
+   "one_line": "Adjacent conservativity is reduced to greatest-old-lower kernels; 37352 empty-mask kernels discharge exactly, leaving 18370 nontrivial kernels for a join-rich per-A containment test.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

@@ -739,3 +739,9 @@ The abstract intersection, complement-duality, intersection-cover and generic
 bridge-union fold implications are **Lean certified** in
 `KernelClosureCalculus.lean`; concrete bridge classification remains an
 explicit hand-level instantiation obligation.
+The sparse containment quotient is now **Executable verified** on 355 sampled
+kernels and 11951 queried bad masks, with exact agreement against the direct
+MDD oracle under two hash seeds (payload `b06e5ff0...`). Empty masks discharge
+algebraically, reducing the nontrivial first-round target from 55722 to 18370.
+The next discriminator is join-rich sampling with per-`A` eviction, not blind
+depth or an orientation-global Python cache.

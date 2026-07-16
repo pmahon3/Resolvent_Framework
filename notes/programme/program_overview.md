@@ -774,6 +774,12 @@ criterion; concrete `MO2` controls **Refute** automatic closure.
 `KernelClosureCalculus.lean` **Lean certifies** the abstract intersection,
 complement-duality, cover-fold and bridge-union implications with base-join,
 bridge eligibility and cover hypotheses explicit.
+The sparse containment-pair implementation is **Executable verified** on 355
+sampled kernels: 11951 compressed bad-mask decisions agree exactly with the
+direct MDD oracle under seeds 0 and 12345 (payload `b06e5ff0...`). The empty
+mask is tautological for every retained event, leaving 18370 nontrivial kernels.
+The next finite-support test is join-rich and per-`A`-evicted; exhaustive
+sharding is conditional on that bounded peak.
 
 ## Repository Layout
 

@@ -23,7 +23,10 @@
    producer-only replay); trace-class payload `d8290f39...`; streaming
    differential payload `c8587f5b...` (1233 kernels, no failure, bounded).
    Scale payload `9b1277f7...` covers 1640 kernels with no failure but has an
-   unresolved whole-receipt cross-seed mismatch.
+   unresolved whole-receipt cross-seed mismatch. Sparse containment payload
+   `b06e5ff0...` covers 355 kernels and 11951 bad-mask queries with exact
+   compressed/direct-oracle agreement under seeds 0 and 12345. Empty masks
+   discharge algebraically, reducing the nontrivial target to 18370 kernels.
    Exact admissibility leaves 55722 live kernels. The abstract fold/strict-
    escape chain is Lean certified in `FiniteAtomFoldKernel.lean` with reported
    Mathlib axioms and no `sorryAx`.
@@ -37,13 +40,11 @@
 6. **Unresolved theorem:** every event in the adjacent mixed closure has a
    greatest lower shadow in each old copy, coherently under further OR/AND
    transitions. This is the exact two-copy conservative-embedding kernel.
-7. **First action:** intern restricted-root containment pairs only for
-   `bad_A(D)` queries on 64 spread retained events per orientation; reproduce
-   every bad mask against the committed read-only oracle and measure raw calls
-   versus distinct `(state,class_D,class_A)` queries. The scale payload
-   `9b1277f7...` covers 1640 kernels with no escape but 52602242 assigned
-   comparisons and failed whole-receipt cross-seed equality. Do not full-scan
-   until sparse-pair compression and canonical diagnostics are verified.
+7. **First action:** run a join-rich 128-event-per-orientation falsifier with
+   empty-mask discharge and per-`A` containment-table eviction. Preserve exact
+   bad-mask agreement with the original-MDD oracle, peak per-`A` class-pair
+   counts, and seed-stable mathematical payloads. Only then decide whether the
+   remaining 18370 nontrivial kernels should be exhaustively sharded.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

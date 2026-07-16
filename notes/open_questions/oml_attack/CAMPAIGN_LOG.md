@@ -2812,3 +2812,27 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   certified**; `greatest_intersection` uses no axioms, the other six report
   `[propext]`, and there is no `sorryAx`. Concrete disjointness and atom
   classification remain external instantiation obligations.
+
+### Iteration 274 — sparse containment-pair boundary and empty-mask discharge
+- **Exact trivial family:** `U=empty` is admissible for every retained event,
+  witnessed by the opposite zero event. Its mixed core is literally `A`, so
+  its greatest old lower is `A` without a trace query. Thus 18676 kernels per
+  orientation, 37352 total, are tautological; the discriminating quotient is
+  9347 left plus 9023 right, or 18370 kernels. **Hand proved** using the banked
+  18676-event count.
+- **Sparse differential:** on 64 endpoint-spread retained events per
+  orientation, all 355 kernels pass and every one of 11951 compressed bad masks
+  agrees with the direct original-MDD oracle. The run makes 6865615 short-
+  circuit macro-occurrence comparisons, 1764641 whole-state class-pair
+  lookups, and 442834 distinct class-pair queries. **Executable verified**
+  (bounded, single producer), payload `b06e5ff0...`, producer `76796ae4...`;
+  canonical seed-0/12345 replay passes.
+- **Negative implementation result:** retaining orientation-global Python
+  class/pair caches gives a 69508722-pair unpruned linear projection. This
+  implemented cache is unattractive, but the projection includes 128 sampled
+  empty-mask tautologies and is not a theorem against every optimized global
+  scheme.
+- **Pivot:** discharge empty masks algebraically, remove empty-only retained
+  events, evict pair tables after each `A`, and sample join-rich rather than
+  endpoint-spread events. A complete scan remains plausible only in that
+  representation.

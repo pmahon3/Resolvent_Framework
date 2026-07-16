@@ -371,6 +371,14 @@ prove this: a finite inclusion-lattice control admits a noncylindrical join of
 cylinders when their literal union is absent. The control is not an OML, so
 the OML-specific statement remains **Open**.
 
+The restricted-generator control gives the first stable actual mixed landing.
+Exact closure of the two maximal lower cylinders, their complements, and
+`Neg-023` has 12 events on the target side and 16 with both copies. Both are
+OMLs; the 16-event control is centre-free, and its cut join is the
+noncylindrical target rather than the absent literal `g` cylinder.
+**Executable verified — sampled finite scope.** This is a local control, not
+a completion containing the full old rectangle.
+
 ### Frozen-prefix descriptor boundary
 
 The first proposed prefix descriptor partitions the 256 new roots into 240

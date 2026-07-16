@@ -796,3 +796,7 @@ new cylinder cannot create a new old cylinder by orthogonal union. The first
 open layer is `ARR-CYL`: decide whether the forced actual ambient cut join is
 cylindrical. Mixed complementary covers follow only after that realization
 gate.
+The first restricted actual control is already a centre-free 16-event OML in
+which `Neg-023` itself is the noncylindrical cut join and the literal cylinder
+is absent. Thus local OML laws and centre-freeness do not prove `ARR-CYL`.
+The next finite discriminator is the exact one-old-event extension table.

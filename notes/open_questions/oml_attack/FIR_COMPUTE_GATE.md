@@ -42,10 +42,50 @@ No full-old scan is required, so the prospective parameter set
 
 has been cancelled as mathematically unnecessary. The exact-context result
 instead proves a noncompression boundary and pivots the mathematics to
-bounded cut locality/cylindrical reflection. There is currently no justified
-Fir research workload. A future job must wait for an exact finite parameter
-space arising from that theorem, then receive a full pre-submission
-specification and local resource pilot.
+bounded cut locality/cylindrical reflection.
+
+A new exact parameter space now exists, but it is only a prospective dry
+workload. It is not submission-ready before a local pilot and independent
+verifier:
+
+```text
+Mathematical proposition:
+  For every old complement-pair not already in the 16-event control, classify
+  exact closure after adjoining that cylinder pair on both copies; record
+  whether the Neg-023 cut join persists, becomes cylindrical, or latticehood
+  fails.
+Exact finite parameter set:
+  9,334 old complement-pairs (9,336 pairs in the 18,676-event old OML, minus
+  the two generator pairs already present).
+Why the workload is exhaustive:
+  Replacing an adjoined event by its complement gives the same extension.
+Shard definition:
+  Canonical complement-pair rank intervals; count awaits local pilot.
+Producer:
+  Open; must be frozen before submission.
+Independent verifier:
+  Open; must independently recompute closure and cut/lattice verdicts.
+Negative witness:
+  Old indices, generated-family hashes, first failed cut or changed
+  least-upper mask, and cylindricity sections.
+What a complete positive result proves:
+  Exact Level-1 classification of every single-old-context extension.
+Explicit nonclaims:
+  No multi-context/full-old closure, finite assembly, sigma-completion, ODBC,
+  MBRC, or Phi theorem.
+Estimated CPU per shard:
+  Open pending local pilot.
+Estimated memory per shard:
+  Open pending local pilot.
+Expected output size:
+  Open pending receipt prototype.
+Slurm array and concurrency:
+  Open pending pilot; no submission.
+Source commit:
+  Open; must be an immutable producer/verifier commit.
+Input-manifest hash:
+  Open.
+```
 
 ## Required next gate
 

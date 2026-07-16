@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Settle ARR-CYL for the actual Neg-023 lower-cut join: prove it is cylindrical in every admissible completion or preserve a mixed refutation as the first genuine rebase seed."
+   "current_next_step": "Classify exact one-old-event extensions of the 16-event restricted Neg-023 OML control and identify the first full-old context that changes its noncylindrical cut join."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -740,7 +740,7 @@
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
    "status": "adjacent-actual-rebase-provenance-grammar-open",
-   "one_line": "Pure one-step cylindrical reflection is Lean certified, but the seeded 256-prefix is only a shadow calculus; ARR-CYL is the active finite-assembly gate.",
+   "one_line": "A restricted 16-event centre-free OML keeps Neg-023 as a noncylindrical cut join; ARR-CYL now requires genuinely full-old-copy data.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

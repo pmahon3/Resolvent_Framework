@@ -658,6 +658,16 @@ cylindrical `h`. A refutation supplies the first genuine nonlocal mixed repair.
 The exact statement and order-theoretic control are in
 `oml_actual_rebase_realization.md`.
 
+The first exact actual-rebase control now stabilizes. With only the two
+maximal old lower cylinders, complements, and actual `Neg-023`, the
+target-side closure has 12 events and the two-copy closure has 16. Both are
+OMLs; the two-copy control is centre-free. In both, the cut join is exactly
+the noncylindrical relation, while its literal `g` cylinder is absent.
+**Executable verified — sampled finite scope.** This does not contain the
+full old copy, so `ARR-CYL` remains **Open**. It proves that latticehood,
+orthomodularity, centre-freeness, and the two maximal lowers alone cannot
+force cylindricity.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

@@ -827,6 +827,9 @@ Lean now closes pure one-step cylindrical reflection. `ARR-CYL`, or explicit
 construction of the actual mixed cut join, is the next gate. Mixed
 complementary-cover classification is suspended until an actual rebase seed
 exists.
+The minimal actual-generator control closes to a centre-free 16-event OML
+with noncylindrical `Neg-023` as the join. This makes full-old-copy coupling,
+not local OML structure, the active content of `ARR-CYL`.
 
 ## Repository Layout
 

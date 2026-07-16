@@ -2880,3 +2880,20 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Scope:** full mixed closure, generated latticehood, OML, direct limit,
   ODBC, and `Phi` remain open. Exact physical-root/provenance bridge data are
   load-bearing in the next grammar.
+
+### Iteration 277 — phantom-bridge and saturation audit
+- All 12 bounded strict `OrthoOr` failures are replayed order-independently at
+  the single-bridge level: 197 bridge atoms are tested and 182 individually
+  escape. **Executable verified** (bounded, single producer), payload
+  `174fe4c5...`; seed-0 emit/verify and seed-12345 replay pass.
+- The canonical eight-bridge failure is robust: every bridge atom individually
+  escapes, is `full17=0`, and lands at old top. But the universal
+  phantom-to-top law is **Refuted**: 181/182 escaping atoms are `full17=0`,
+  only 176/182 land top, one nonphantom atom lands subtop, and five phantom
+  atoms also land subtop.
+- Every physical old-atom saturation `e0` has an old fold escaping its target,
+  confirming fixed-base kernel-badness in all 12 failures. Universal strict
+  containment is **Refuted**: `e0<target` in 6/12 and `e0=target` in 6/12.
+- **Pivot:** do not build one uniform phantom-to-top repair. Classify the
+  bounded failures by saturation equality, phantom/nonphantom escape, and
+  top/subtop landing, then test which provenance data predict these types.

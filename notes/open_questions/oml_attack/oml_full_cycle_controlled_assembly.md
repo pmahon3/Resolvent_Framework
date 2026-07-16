@@ -736,3 +736,27 @@ identical eligible-old predicates are **Lean certified** as
 `no_greatest_of_same_eligible_old_set` in `KernelClosureCalculus.lean`.
 Both report `[propext]` and no `sorryAx`; the concrete atom-saturation interval
 identification remains the hand-proved instantiation.
+
+### 10.8 Order-independent phantom-bridge audit
+
+The 12 bounded strict `OrthoOr` failures contain 197 bridge atoms. Testing each
+atom singly against its fixed base join gives 182 escapes. The canonical
+eight-bridge failure is order-robust: all eight atoms individually escape,
+have old descriptor `full17=0`, and land at old top.
+
+That shape is not universal. Of the 182 escaping atoms, 181 have `full17=0`
+and 176 land at top. One nonphantom atom (`full17=0x3000`) lands at a subtop,
+and five further phantom atoms also land subtop. Thus a uniform
+phantom-to-top repair law is **Refuted**. Here “phantom” means only zero
+`full17` descriptor, not absence on every physical fibre.
+
+For every failed target, the literal physical union `e0` of all contained old
+atoms has an old-lattice fold escaping the target, verifying its fixed-base
+kernel obstruction. But `e0` is proper in only 6/12 failures and equals the
+target in the other 6/12. Universal strict saturation is therefore
+**Refuted**. **Executable verified** (bounded, single producer), payload
+`174fe4c5...`, producer `5861b75d...`; seed-0 and seed-12345 replay pass.
+
+The next grammar state must at least record saturation equality, phantom
+status, and top/subtop landing. These bounded types are not yet proved
+complete for the full mixed closure.

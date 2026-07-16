@@ -51,6 +51,9 @@
    Preserve separately the bounded second-round refutation, payload
    `3fbf81c2...`: `And` closes, but complement and bridge union do not, and
    equal coarse shadows can have different bridge signatures.
+   Its third-round audit, payload `174fe4c5...`, refutes a uniform
+   phantom-to-top law and splits atom saturations into six proper and six
+   target-equal failures.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

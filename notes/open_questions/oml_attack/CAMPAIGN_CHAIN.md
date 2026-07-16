@@ -312,6 +312,13 @@ unrepairable under the same fixed-base kernel retraction (**Hand proved**), so
 even a positive first-round census must pivot to exact-root/provenance re-based
 repair classification.
 
+The third-round single-bridge audit further **Refutes** a uniform
+phantom-to-top repair: 182/197 bridge atoms escape, but six land subtop and one
+of those is nonphantom. Atom saturation is kernel-bad in all 12 bounded
+failures, while saturation equality splits 6/12 versus 6/12 proper (payload
+`174fe4c5...`). The next repair grammar must distinguish these provenance
+types.
+
 `T_FIN_IMPOSSIBILITY_LEDGER.md` is closed as a historical ledger. T-FIN is
 refuted by the full-grid survivor; do not resume the impossibility track or
 finite repair depth. Use its failure architecture as the input to overlapping

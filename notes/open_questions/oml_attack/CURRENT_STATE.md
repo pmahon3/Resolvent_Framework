@@ -528,6 +528,16 @@ atom join also cannot be repaired while retaining a kernel retraction over the
 same old base: every forced intermediate lower has the same escaping atom
 join. **Hand proved.** Full re-based provenance-sensitive repair remains open.
 
+The order-independent third-round audit sharpens this failure class. Across 12
+bounded strict unions, 182 of 197 bridge atoms individually escape. The
+canonical eight-bridge failure is uniformly phantom-to-top, but that law is
+not general: 181/182 escaping atoms have `full17=0`, only 176/182 land top,
+one nonphantom escape and five phantom subtop escapes occur. Atom saturation
+is kernel-bad in all 12 cases, but equals the target in 6/12 and is proper in
+6/12. **Executable verified** (bounded, single producer), payload
+`174fe4c5...`; cross-seed replay passes. A finite repair grammar must therefore
+distinguish saturation equality and landing type, not only phantom incidence.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

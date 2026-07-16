@@ -739,8 +739,8 @@
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
-   "status": "adjacent-kernel-grammar-open-exhaustive-first-round-running",
-   "one_line": "Empty masks discharge exactly and a join-rich per-A differential passes 2509 nontrivial kernels; the exact 18370-kernel checkpointed scan is now the live first-round gate.",
+   "status": "adjacent-kernel-grammar-open-first-round-running-bridge-refuted",
+   "one_line": "The exact 18370-kernel first-round scan is running; bounded second-round evidence refutes automatic complement/union closure and coarse-shadow-only bridge typing.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

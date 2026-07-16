@@ -2852,3 +2852,22 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   complete-kernel, second-round, latticehood, ODBC, or `Phi` conclusion follows.
 - **Pivot:** run a checkpointed exact scan of all 18370 nonempty kernels in
   deterministic rank shards, stopping on the first escape.
+
+### Iteration 276 — bounded second-round bridge refutation
+- A deterministic coordinate-target census samples six exact first-round
+  leaves per orientation and bounded `And`, `Neg`, and exact-disjoint
+  `OrthoOr` children. All 21 `And` pairs per orientation have old-lower kernel
+  equal to the old meet, matching the Lean-certified intersection theorem.
+- Complement closure fails in the sample: only 6/10 left and 9/14 right
+  complement targets are kernel-good. Exact-disjoint bridge folds pass only
+  37/42 left and 66/73 right. **Executable verified** (bounded, single
+  producer), payload `3fbf81c2...`; seed-0 emit/verify and seed-12345 replay
+  pass.
+- The first strict bridge failure has eight bridge atoms: the base old join is
+  inside the union, but its first canonical bridge extension escapes. Three
+  equal-coarse-shadow classes carry two distinct bridge signatures. Automatic
+  union closure and coarse-shadow-only bridge typing are **Refuted** at this
+  bounded coordinate scope.
+- **Scope:** full mixed closure, generated latticehood, OML, direct limit,
+  ODBC, and `Phi` remain open. Exact physical-root/provenance bridge data are
+  load-bearing in the next grammar.

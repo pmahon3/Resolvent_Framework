@@ -1,0 +1,267 @@
+{
+  "base_full_cycle_payload_sha256": "7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0",
+  "child_cap_per_orientation": 96,
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/adjacent_full_cycle_second_round_coordinate_children.py --verify",
+  "determinism_scope": "On this final source, PYTHONHASHSEED=0 emit and verify and PYTHONHASHSEED=12345 whole-payload replay all pass. Earlier replay failures were source-version skew and in-memory tuple/integer-key versus JSON list/string-key type skew, not differing mathematical payloads.",
+  "equal_coarse_shadow_pairs_with_different_bridge_signatures": [
+    {
+      "distinct_bridge_signatures": 2,
+      "examples_by_signature": {
+        "00eb1c7698ece28e889295a301ecd71067f3e0bf96fe3505a0c6784ead679dda": {
+          "bridge_count": 30,
+          "left": "3a80a5899fe72276369e2cd1257c88fac93e4d4e1a09455f0bfb16c65e5b6cae",
+          "right": "74409157be94d797e0a95b12ea334db5d221c86f4b50da6f2803bc52ac1df716"
+        },
+        "5870bef1a0ab2d2276cb0a28a7cb490c9e10d66688bdd71bc3ad101e807c926d": {
+          "bridge_count": 3,
+          "left": "3a80a5899fe72276369e2cd1257c88fac93e4d4e1a09455f0bfb16c65e5b6cae",
+          "right": "d31e4f92589abe1fa0b274bb432a83086d74cc58575d113c4131a3f90215ab94"
+        }
+      },
+      "orientation": "right_retained_position00",
+      "shadow_sha256": "f562f053a1bdba596f3e41680e2e0990712ab0e01374d52960a48a9a5e7f33e4"
+    },
+    {
+      "distinct_bridge_signatures": 2,
+      "examples_by_signature": {
+        "00eb1c7698ece28e889295a301ecd71067f3e0bf96fe3505a0c6784ead679dda": {
+          "bridge_count": 30,
+          "left": "74409157be94d797e0a95b12ea334db5d221c86f4b50da6f2803bc52ac1df716",
+          "right": "9000f5ccd3c7465cf7b8deb428b243307b3c501ba765d67167c4315e40b51438"
+        },
+        "5870bef1a0ab2d2276cb0a28a7cb490c9e10d66688bdd71bc3ad101e807c926d": {
+          "bridge_count": 3,
+          "left": "9000f5ccd3c7465cf7b8deb428b243307b3c501ba765d67167c4315e40b51438",
+          "right": "d31e4f92589abe1fa0b274bb432a83086d74cc58575d113c4131a3f90215ab94"
+        }
+      },
+      "orientation": "right_retained_position00",
+      "shadow_sha256": "98853f9f0a3fc123da8717bc900b24c62d5761e124d00db9b4a39a09e09ddc62"
+    },
+    {
+      "distinct_bridge_signatures": 2,
+      "examples_by_signature": {
+        "b25e4c8ce3b7956f3fd25684d44b2e7a74e7b70dc72bf67012759ad146c5651f": {
+          "bridge_count": 6,
+          "left": "a35d34da634208afdc1157fc14e19f3ec63433ffc824194e94d955823975b233",
+          "right": "d31e4f92589abe1fa0b274bb432a83086d74cc58575d113c4131a3f90215ab94"
+        },
+        "f30939cb5a8c293cf71bb94e307520028fd5fe12d8ce6d73856b2278245e24a9": {
+          "bridge_count": 76,
+          "left": "74409157be94d797e0a95b12ea334db5d221c86f4b50da6f2803bc52ac1df716",
+          "right": "a35d34da634208afdc1157fc14e19f3ec63433ffc824194e94d955823975b233"
+        }
+      },
+      "orientation": "right_retained_position00",
+      "shadow_sha256": "086631e1bd19232807395e6d015ff90bff9b5de82836f41d09d3f72d331e8146"
+    }
+  ],
+  "evidence_classes": [
+    "Executable verified bounded evidence"
+  ],
+  "first_kernel_or_transition_failure": {
+    "base_kernel_join": {
+      "full17_hex": "0x5f5f",
+      "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+      "physical_root_tuple_sha256": "70cdb77857183f8ef7531a1a5e0304f895275a462c4d1fd0a86a6742b94929e7"
+    },
+    "bridge_atoms": [
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "03bd44387a611c2a0fa47967a786d8854cfd4cabc6986feba0933ebe235333c6",
+        "physical_root_tuple_sha256": "03bd44387a611c2a0fa47967a786d8854cfd4cabc6986feba0933ebe235333c6"
+      },
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "3c673e59d322b2d464c8a733896ba5eab5d9c8615435511bf5f84266e0881b09",
+        "physical_root_tuple_sha256": "3c673e59d322b2d464c8a733896ba5eab5d9c8615435511bf5f84266e0881b09"
+      },
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "87b3f9096af4f86939a314d31a2111a1433f9ec46315f2615e60421bc71dc125",
+        "physical_root_tuple_sha256": "87b3f9096af4f86939a314d31a2111a1433f9ec46315f2615e60421bc71dc125"
+      },
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "8eb6a196fb604066d309473a7b1fc5f40e2a432ea4827f674469b79faf1becf5",
+        "physical_root_tuple_sha256": "8eb6a196fb604066d309473a7b1fc5f40e2a432ea4827f674469b79faf1becf5"
+      },
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "c568e57a89b258450995212eb7ae542bfbc88c8bbc1fce57f0edbe62cc0b8ab7",
+        "physical_root_tuple_sha256": "c568e57a89b258450995212eb7ae542bfbc88c8bbc1fce57f0edbe62cc0b8ab7"
+      },
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "de7e9c5089aa86fdb544d670fa508a8e22f6f95dfd3a789db4e931d75f1381b9",
+        "physical_root_tuple_sha256": "de7e9c5089aa86fdb544d670fa508a8e22f6f95dfd3a789db4e931d75f1381b9"
+      },
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "e6ab3cd2e0e779a70b22ec82479454e167b0387ce502342c9cde3d87d05efea9",
+        "physical_root_tuple_sha256": "e6ab3cd2e0e779a70b22ec82479454e167b0387ce502342c9cde3d87d05efea9"
+      },
+      {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "ebe74507734e694e65f1027372af43a51db0cdfd5877a2b009d3a8b5eed6d9dc",
+        "physical_root_tuple_sha256": "ebe74507734e694e65f1027372af43a51db0cdfd5877a2b009d3a8b5eed6d9dc"
+      }
+    ],
+    "first_escaping_extension": {
+      "adjoined": {
+        "full17_hex": "0x0",
+        "partial_root_tuple_sha256": "03bd44387a611c2a0fa47967a786d8854cfd4cabc6986feba0933ebe235333c6",
+        "physical_root_tuple_sha256": "03bd44387a611c2a0fa47967a786d8854cfd4cabc6986feba0933ebe235333c6"
+      },
+      "escaping_join": {
+        "full17_hex": "0x1ffff",
+        "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+        "physical_root_tuple_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639"
+      },
+      "prior": {
+        "full17_hex": "0x5f5f",
+        "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+        "physical_root_tuple_sha256": "70cdb77857183f8ef7531a1a5e0304f895275a462c4d1fd0a86a6742b94929e7"
+      },
+      "stage": "bridge_atom"
+    },
+    "fold": {
+      "full17_hex": "0x1ffff",
+      "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+      "physical_root_tuple_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639"
+    },
+    "full_atom_fold": {
+      "full17_hex": "0x1ffff",
+      "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+      "physical_root_tuple_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639"
+    },
+    "full_atom_fold_inside_union": false,
+    "left_child": {
+      "A": null,
+      "U_hex": null,
+      "kernel": {
+        "full17_hex": "0x595d",
+        "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+        "physical_root_tuple_sha256": "6769d3aa3376fbcfe7f3a55558628d188b1a101a81370c63aedb0816ead62d41"
+      },
+      "kind": "Neg",
+      "parent": "4488b48ec7ad45a6329f70e29e429aa49a900fb5d719bf440d9262f583e10853",
+      "parents": null,
+      "root_sha256": "0f5dc0469c5260bcb72f411ae5fdf378ce1544fc47d492941d3b672bd7148a22"
+    },
+    "orientation": "left_retained_position11",
+    "phase": "ORTHO_OR",
+    "right_child": {
+      "A": 770,
+      "U_hex": "0x2",
+      "kernel": {
+        "full17_hex": "0x602",
+        "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+        "physical_root_tuple_sha256": "336207a74e10904549bd625b109e90c17c06df2650c6ea70d3c13282378f707a"
+      },
+      "kind": "Leaf",
+      "parent": null,
+      "parents": null,
+      "root_sha256": "667a41510d23be638b603f599d61846fb4c7de14a8dda2164669a5a6c4155b1d"
+    },
+    "union_root_sha256": "a12b00d26aaef01d944dbf4c36cca50f3ff3b8f2654148a937e74f837e6d0d4c"
+  },
+  "old_atom_count": 91,
+  "old_atom_target_subset_tests": 8008,
+  "orientation_records": [
+    {
+      "and_kernel_meet_passes": 21,
+      "and_pairs_tested": 21,
+      "bridge_count_histogram": {
+        "0": 28,
+        "1": 2,
+        "2": 2,
+        "4": 1,
+        "6": 1,
+        "8": 1,
+        "29": 1,
+        "30": 1,
+        "72": 1,
+        "76": 1,
+        "78": 1,
+        "80": 1,
+        "81": 1
+      },
+      "bridge_union_fold_passes": 37,
+      "distinct_leaf_and_child_roots": 10,
+      "exact_disjoint_child_pairs": 42,
+      "first_complement_without_greatest_old_lower": {
+        "complement_root_sha256": "0138e65b8fde171d12932487d11386f6fa5ab2289af379da0e1284c223d845bc",
+        "maximal_lower_fold": {
+          "full17_hex": "0x1797d",
+          "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+          "physical_root_tuple_sha256": "9a60e089c4739d9d81cd2678af5fffc6f4c59006f9dde1ff490893e5f6b99860"
+        },
+        "parent_kind": "Leaf",
+        "parent_root_sha256": "667a41510d23be638b603f599d61846fb4c7de14a8dda2164669a5a6c4155b1d"
+      },
+      "kernel_good_union_candidates_including_complements": 16,
+      "leaf_count": 6,
+      "neg_children_tested": 10,
+      "neg_children_with_greatest_old_lower": 6,
+      "new_and_roots": 4,
+      "orientation": "left_retained_position11",
+      "selected_A": [
+        0,
+        3362,
+        770
+      ]
+    },
+    {
+      "and_kernel_meet_passes": 21,
+      "and_pairs_tested": 21,
+      "bridge_count_histogram": {
+        "0": 45,
+        "1": 3,
+        "2": 4,
+        "3": 7,
+        "4": 1,
+        "6": 1,
+        "28": 1,
+        "30": 3,
+        "74": 1,
+        "76": 3,
+        "77": 2,
+        "78": 1,
+        "79": 1
+      },
+      "bridge_union_fold_passes": 66,
+      "distinct_leaf_and_child_roots": 14,
+      "exact_disjoint_child_pairs": 73,
+      "first_complement_without_greatest_old_lower": {
+        "complement_root_sha256": "7c57c4ad63bee220afb958a9aee6bf2a6dfd1b7b57b5addfd500a304351f8f7f",
+        "maximal_lower_fold": {
+          "full17_hex": "0x1ffbf",
+          "partial_root_tuple_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+          "physical_root_tuple_sha256": "6de3a52d1803062211afc8a449ae96e83a7c808bd155b47da2538f5ccf077ea7"
+        },
+        "parent_kind": "And",
+        "parent_root_sha256": "3576abee11e50b5a75b8bd4079f86a1c7f33156e3b201e986130db460fb57dc5"
+      },
+      "kernel_good_union_candidates_including_complements": 23,
+      "leaf_count": 6,
+      "neg_children_tested": 14,
+      "neg_children_with_greatest_old_lower": 9,
+      "new_and_roots": 8,
+      "orientation": "right_retained_position00",
+      "selected_A": [
+        0,
+        1700,
+        49
+      ]
+    }
+  ],
+  "payload_sha256": "3fbf81c28e099fe353266fa6f4592b86e4e151660f88202b8743ebf675c66363",
+  "producer_sha256": "b4894f4e1e17b4b399607a0d18555a36983828df1f9b6f1bc454eb1fdd286eff",
+  "sample_rule": "3 endpoint-spread retained A per orientation; 2 smallest nonempty admissible U per A",
+  "schema": "adjacent-full-cycle-second-round-coordinate-children-v1",
+  "schema_version": "1.0",
+  "scope": "Bounded exact reduced-MDD coordinate-target calculus only. Leaves are the exact one-coordinate cores A union cylinder(U) controlling old shadows of adjacent mixed events; they are not the full two-copy events. No exhaustive first-round, full mixed closure, lattice, OML, direct-limit, MBRC, ODBC, or Phi claim.",
+  "source_join_rich_payload_sha256": "b47a55f888da1bee144879dd6120184a9d4e15e4a7dd879a5574d16ed4db48ee",
+  "verification_independence": "Single producer using the certified full-cycle MDD grammar; sample indices only are imported from the committed join-rich receipt. No shard artifact is read."
+}

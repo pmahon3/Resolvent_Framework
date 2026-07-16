@@ -48,6 +48,9 @@
    18370 nonempty kernels. The join-rich 128-event-per-orientation falsifier
    passed 2509 kernels and 27469 differential queries with payload
    `b47a55f8...`; preserve per-`A` eviction and stop on the first escape.
+   Preserve separately the bounded second-round refutation, payload
+   `3fbf81c2...`: `And` closes, but complement and bridge union do not, and
+   equal coarse shadows can have different bridge signatures.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

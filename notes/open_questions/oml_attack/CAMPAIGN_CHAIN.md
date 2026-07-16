@@ -303,6 +303,13 @@ bad-event-pair queries have zero escape (payload `b47a55f8...`), with bounded
 per-`A` peaks and cross-seed reproduction. The next automatic pivot is the
 exact checkpointed 18370-kernel shard scan.
 
+The bounded second-round coordinate census separately **Refutes** automatic
+complement/union closure: complement targets are only partly kernel-good and
+12 of 115 exact-disjoint bridge folds escape. Equal coarse shadows can carry
+different bridge signatures (payload `3fbf81c2...`). Thus even a positive
+first-round census must pivot to exact-root/provenance repair classification,
+not a shadow-only closure argument.
+
 `T_FIN_IMPOSSIBILITY_LEDGER.md` is closed as a historical ledger. T-FIN is
 refuted by the full-grid survivor; do not resume the impossibility track or
 finite repair depth. Use its failure architecture as the input to overlapping

@@ -515,6 +515,16 @@ verified** (bounded, single producer), payload `b47a55f8...`; cross-seed replay
 and hostile review pass. The next exact action is a checkpointed shard scan of
 all 18370 nontrivial kernels.
 
+The first bounded second-round discriminator is stable. All 21 sampled
+intersection children per orientation have the certified old-meet kernel, but
+complements are kernel-good only in 6/10 left and 9/14 right coordinate
+targets. Exact-disjoint bridge folds pass only 37/42 left and 66/73 right.
+**Executable verified** (bounded, single producer), payload `3fbf81c2...`;
+cross-seed replay passes. The first strict bridge escape has eight bridge
+atoms, and three equal coarse-shadow classes have different bridge signatures.
+This **Refutes** automatic union closure and shadow-only bridge typing, while
+leaving the full provenance-sensitive repair grammar open.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

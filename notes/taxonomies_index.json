@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — first-round and retained-side bounded kernels pass; seven actual opposite-side escapes force re-basing; successor closure and collapse gates remain open.",
+   "status": "OPEN — seven actual opposite-side escapes force re-basing; the first seeded lower-envelope pilot generates at least 256 events, whose provenance grammar and successor gates remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

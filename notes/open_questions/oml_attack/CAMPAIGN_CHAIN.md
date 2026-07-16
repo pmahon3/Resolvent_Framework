@@ -107,6 +107,7 @@
 | escaping generated upper preserves old joins | Lean certified + Hand interpretation | refuted: an exact generated target with escaping old fold forbids conservative inclusion |
 | bounded actual-relation adjacent kernels | Executable verified + hostile source audit | retained-side 156/156 pass; two-sided audit finds 7 actual opposite-side lower escapes |
 | adjacent actual-escape re-basing theorem | Hand proved over executable escape | fixed old retraction refuted; ambient cut join forces effective-base expansion |
+| `AR-REB-001` seeded lower-envelope pilot | Executable verified, sampled finite scope | 192 lowers, 2 maximal; proper seeded literal envelope; capped closure adds at least 256 events |
 | unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |
@@ -345,8 +346,10 @@ The first exact bounded relation-section quotient was only retained-side
 positive: 156 retained universal shadows have lower kernels, while the old
 coordinate calculus falsely reports 22 bad occurrences (payload
 `3d6f97c8...`). The subsequent two-sided audit finds seven genuine
-opposite-side lower escapes of actual relation terms. The automatic pivot is
-now the first ambient re-base and its provenance-sensitive transition table.
+opposite-side lower escapes of actual relation terms. The first ambient
+re-base pilot has a proper seeded literal envelope and creates at least 256 events in one
+capped closure round. The automatic pivot is classification of those events
+and their smallest transition diamonds, not a larger cap.
 
 The first provenance discriminator is also closed at sampled single-slot
 scope: 14/17 same-`(E,U)` exact-root substitutions change the full pattern

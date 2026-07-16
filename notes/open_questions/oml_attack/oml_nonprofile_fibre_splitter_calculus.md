@@ -1000,6 +1000,34 @@ canonical but the new concrete event is not.
 This result does not yet construct the re-based successor or decide
 latticehood, orthomodularity, same-side reconstruction, activation, centre,
 state separation, the conditional relation, or `Phi`. The smallest next
-test fixes the ambient full-cycle lattice, adjoins the forced cut join and
-complement, closes required orthogonal unions, and compares the two
+test seeds the old full-cycle concrete family with the target, a candidate
+literal lower envelope and complements, closes required orthogonal unions,
+and compares the two
 association paths through `And-010`.
+
+### 8.15 First exact re-base and stop signal
+
+For `Neg-023`, the physical-right old lower cut has 192 members and two
+incomparable maxima, `15250` and `16786`; its upper cut has 8 members and
+least element `18331`. The explicitly seeded literal lower envelope of the
+eight eligible old atoms is a new root `g = 5f067021...`, proper below the
+target and above every old lower in the seeded family. The old join of
+`15250` with atom `10752` is `18322` and escapes the
+target, while their literal union is `g`. **Executable verified — sampled
+finite scope.**
+
+Explicitly seeding complement/disjoint-union closure with target, complement, `g`, and
+complement reaches the declared 256-new-event cap during its first round:
+four seeds and 252 further generated events. It has not stabilized.
+**Executable verified — sampled finite scope.** This is not evidence that
+the grammar is infinite, nor a terminal lattice/OML result. It is evidence
+that this seeded one-envelope repair is insufficient and another blind cap increase
+would not discriminate the live hypotheses.
+
+The computation does not show that `g` is generated without seeding or that
+an arbitrary ambient lattice contains it. Such a finite ambient lattice does
+contain a new cut join `h` with `g subseteq h subseteq target`, with equality
+only if `g` is represented. The next exact theorem is a
+normal-form and critical-pair classification of
+these 256 events. Latticehood, associativity, reconstruction, activation,
+centre, state separation, conditional geometry and `Phi` remain **Open**.

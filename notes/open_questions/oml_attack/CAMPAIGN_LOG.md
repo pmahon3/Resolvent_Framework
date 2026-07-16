@@ -3079,3 +3079,29 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** construct the first ambient re-base at this exact occurrence,
   close complements and forced orthogonal unions, then test the serialized
   associativity/commutation diamond before widening the grammar.
+
+### Iteration 286 — exact AR-REB-001 cut and computational boundary
+- The first actual target is materialized on the physical-right full-cycle
+  carrier without constructing the enormous adjacent carrier. It has 192 old
+  lower events, with incomparable maxima `15250` and `16786`, and 8 old
+  upper events with least member `18331`. **Executable verified — sampled
+  finite scope.**
+- The explicitly seeded literal lower envelope `g` of the eight eligible old atoms has root
+  `5f067021...`, lies properly below the target, and contains every one of
+  the 192 old lowers. It is the join of that cut in the seeded family. An
+  arbitrary finite ambient lattice contains a new order-theoretic join `h`
+  with `g subseteq h subseteq target`; it need not contain `g`, and equality
+  `h = g` holds only when it does.
+- The first changed old join is explicit: old event `15250` and atom `10752`
+  have old join `18322`, which escapes the target, whereas their literal
+  union is exactly `g`.
+- Complement/disjoint-union closure from the target, complement, `g`, and
+  complement generates 252 further events and hits the declared
+  256-new-event cap in its first round. **Executable verified — sampled
+  finite scope.** This is a computational boundary, not terminal closure,
+  latticehood or an unbounded-grammar theorem.
+- **Strategic answer:** a new transition type has appeared and the seeded
+  one-envelope repair does not stabilize within 256 events. Blind closure extension
+  is not discriminating. The next theorem target is a provenance-sensitive
+  normal form for the first-round 256 events and the smallest critical-pair
+  diamond, not a larger cap.

@@ -609,6 +609,18 @@ onto the physical-right old copy is refuted and an effective-base expansion
 is forced in any ambient lattice completion. The re-based successor and all
 collapse/state/`Phi` gates remain **Open**.
 
+The first re-base pilot is now exact. Its physical-right target has 192 old
+lowers with two incomparable maxima and a least old upper. The explicitly
+seeded literal lower envelope `g` of its eight eligible old atoms is a new
+proper event below the target and dominates every old lower in that seeded
+family; one serialized old join changes from the
+escaping old fold to `g`. A capped complement/disjoint-union closure creates
+256 new events in its first round without stabilizing. **Executable verified
+— sampled finite scope.** This is the natural computational stop signal:
+classify the 256-event provenance grammar and critical pairs rather than
+raising the cap. Generation of `g` without seeding, latticehood and every
+collapse/state gate remain **Open**.
+
 The bounded coordinate-control census is now row-complete: 12 stable rows
 (5 left, 7 right) with exact provenance, target `E/U`, bridge atoms, escape
 folds, saturation types and complement-derived old uppers. All 12 have no

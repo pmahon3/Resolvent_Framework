@@ -810,6 +810,10 @@ old-kernel observational quotient. Its two-sided form finds seven genuine
 opposite-side lower-kernel escapes and refutes typed observation congruence
 in 13 groups. The next construction is the forced ambient re-base at the
 first actual escape; successor OML and collapse gates remain open.
+The first re-base pilot finds two maximal old lowers, a new proper seeded
+literal lower envelope, and at least 256 generated events in one capped round. This is a
+computational stop signal: extract the finite provenance transition types and
+critical-pair theorem before extending closure depth.
 
 ## Repository Layout
 

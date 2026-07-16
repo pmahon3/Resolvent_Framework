@@ -327,3 +327,33 @@ The next transition is `AR-REB-001`: re-base the physical-right side at
 `Neg-023`, recompute both endpoint tables, then test the join-association
 diamond through its parent `And-010` and the complement-dual meet diamond.
 All collapse gates remain `unevaluated_pending_rebase_closure`.
+
+### AR-REB-001 bounded realization
+
+On the physical-right old carrier, the first target has:
+
+- 192 old lowers with incomparable maximal elements `15250`, `16786`;
+- 8 old uppers with least element `18331`;
+- 8 eligible old atoms;
+- explicitly seeded literal lower envelope `g = 5f067021...`, proper below the target and
+  dominating every old lower;
+- old atom fold `18322`, which is outside the target.
+
+The strict changed join is `(15250, 10752)`: its old join is `18322`, while
+its literal union is `g`. This is the first exact re-basing transition.
+
+The capped concrete-logic closure explicitly seeded by target, complement, `g`, and
+complement reaches 256 new events in its first round and does not stabilize.
+Evidence: **Executable verified — sampled finite scope**,
+`adjacent_ar_reb_001.py/.json`. This proves neither terminal closure nor a
+finite/unbounded grammar.
+
+The computation does not prove that `g` is generated without being seeded or
+that every ambient lattice contains `g`; its forced ambient cut join may
+strictly overshoot the literal envelope. Precisely, every finite ambient
+lattice extension containing the old copy and target has a new cut join `h`
+with `g subseteq h subseteq target`, and `h = g` if `g` is represented. The
+descriptor must include the exact target root, lower-cut maxima,
+eligible-atom incidence, literal cut union, changed old join provenance, and
+generation parentage. A larger undirected cap is prohibited until these 256
+events are classified into transition types.

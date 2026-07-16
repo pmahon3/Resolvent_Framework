@@ -777,3 +777,8 @@ opposite-side lower-shadow escapes of actual terms and 13 typed observation
 conflicts. A fixed old retraction is therefore refuted on the physical-right
 side, and the frontier is the first ambient effective-base re-basing
 transition and its associativity/commutation diamond.
+That first re-base has now been materialized: its target has a 192-element
+old lower cut with two maxima, and its proper seeded literal envelope changes an
+old join. A capped closure creates at least 256 events in one round without
+stabilizing. The frontier is classification of this finite provenance batch
+and its critical pairs; raising the cap is not yet informative.

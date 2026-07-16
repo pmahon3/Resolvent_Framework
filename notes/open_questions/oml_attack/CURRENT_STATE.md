@@ -547,8 +547,28 @@ proved**, master payload `bf3f7d29...`; hostile review passes, and shards 0/31
 replay under seed 12345. The semantic verifier independently reconstructs the
 manifest classification and coverage (payload `ff6cbeba...`) but shares the
 captured grammar. This proves first-round conservative shadows only; the live
-frontier is the re-based exact-root bridge grammar already forced by the
-second-round strict escapes.
+frontier is the exact relation-section grammar.
+
+A hostile fibre-product audit corrects the interpretation of the bounded
+second/third-round strict escapes. Universal old-lower shadows commute with
+intersection but not generally with complement or disjoint union:
+`forall(complement R)=complement(exists R)`, and a disjoint union gains the
+complementary-partial-cover bridge locus. The producer operated on
+one-coordinate shadows rather than recomputing shadows of actual generated
+relations. Hence its 12 failures refute the coordinate-target Boolean
+calculus, not conservative adjacent assembly or the existence of an actual
+re-based child. **Hand proved / Refuted overclaim.** The next exact test must
+carry canonical restricted relation-section roots, form actual Boolean terms,
+then recompute universal shadows and old atom folds.
+
+That corrected bounded test now passes. Six canonical mixed leaves per
+orientation generate 156 actual relation occurrences; all 156 recomputed
+universal shadows have greatest old lowers. The coordinate-target calculus
+misclassifies 22 as bad and differs on 55 shadows, exclusively under
+`Neg/OrthoOr`; `Leaf/And` agree exactly. **Executable verified** at bounded
+canonical-witness scope, payload `3d6f97c8...`; hostile source audit passes
+with no independent producer. The live discriminator is witness diversity
+inside fixed `(E,U)` classes, not more depth on this canonical quotient.
 
 ## Primary sources
 

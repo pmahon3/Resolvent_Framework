@@ -787,3 +787,88 @@ This closes only the first-round conservative-shadow problem. It does not
 prove complement/disjoint-union closure, generated latticehood, OML,
 sigma-closure, MBRC, ODBC, or `Phi`; Sections 10.7--10.8 already give exact
 bounded counterexamples to automatic fixed-base continuation.
+
+### 10.10 Universal-shadow correction for later rounds
+
+Let `Omega=X times_S Y` be a nonempty-fibre pullback and, for a relation
+`R subseteq Omega`, write
+
+`Forall_Y(R)={x : R_x=Y_s}` and `Exists_Y(R)={x : R_x nonempty}`.
+
+Pointwise fibre calculation gives
+
+- `Forall_Y(R intersection T)=Forall_Y(R) intersection Forall_Y(T)`;
+- `Forall_Y(complement R)=X \ Exists_Y(R)`;
+- for disjoint `R,T`,
+  `Forall_Y(R union T)=Forall_Y(R) union Forall_Y(T) union H(R,T)`,
+  where `H(R,T)` is the locus on which two proper disjoint sections jointly
+  fill the whole fibre.
+
+These identities are **Hand proved**. Universal shadows therefore commute
+with intersection, but not generally with complement or disjoint union.
+Complement transfers exactly when every section is empty or full. Disjoint
+union transfers exactly when there is no complementary-partial-cover fibre.
+
+For a first-round mixed leaf
+`Z=pi_X^{-1}(A) union pi_Y^{-1}(B)`, the prior target is exact:
+
+`Forall_Y(Z)=A union cylinder(U_B)`,
+
+where `U_B` is the shared-state set on which the `B`-section is full.
+Therefore the exhaustive first-round theorem remains unchanged.
+
+The bounded second/third-round producer deliberately applies `Neg` and
+`OrthoOr` to these one-coordinate targets. It does not recompute
+`Forall_Y` after applying those operations to the actual two-copy relations.
+Its 12 strict failures therefore refute automatic Boolean closure of the
+coordinate-target calculus only. They are fixed-target obstruction controls,
+but are not generated-event obstructions for the adjacent assembly. The
+earlier re-based-repair interpretation is **Refuted** at that stronger scope.
+
+The conditional obstruction remains exact: if an actual generated event `u`
+has the certified old-below predicate and its eligible old atom fold escapes,
+then the affected old copy cannot retain its old joins in any extension
+containing `u`. This is **Hand proved**; the binary and finite-fold
+escaping-upper-bound forms are **Lean certified** in
+`KernelClosureCalculus.lean`.
+
+The next exact grammar must retain canonical restricted relation-section roots
+in every shared-state fibre, apply Boolean operations there, and only then
+recompute universal shadows and old atom folds. The pair
+`(Forall_Y(R),Exists_Y(R))` is insufficient: distinct proper sections can have
+the same pair and different intersection or complementary-cover behaviour.
+
+### 10.11 Bounded actual-relation discriminator
+
+The corrected producer represents six canonical mixed leaves per orientation
+as actual Boolean relations on the shared-state fibre product. It enumerates
+the exact simultaneous truth patterns in each shared-state fibre, forms
+Boolean terms on their Cartesian pattern product, universally quantifies the
+opposite pattern, and composes the result back into an exact old-copy MDD.
+
+Across 156 generated occurrences (72 left, 84 right), every actual universal
+shadow has a greatest old lower. The coordinate-target calculus reports 22 bad
+occurrences on the same generation. There are 55 unequal shadows: 20 `Neg`
+and 35 `OrthoOr`; every `Leaf` and `And` shadow agrees exactly. Thus all 12
+earlier strict `OrthoOr` coordinate failures disappear after actual relation
+evaluation, as do the additional coordinate-complement failures.
+
+**Executable verified** at bounded canonical-witness scope, payload
+`3d6f97c8...`, producer `03601b2b...`. A seed-12345 recomputation returns the
+same mathematical payload. The receipt binds retained/opposite roots,
+existential/universal masks, fibre-product pattern vectors, semantic
+signatures, parent provenance, universal-shadow tables and eligible old-atom
+digests. Hostile source audit validates the quotient construction; there is no
+independent producer.
+
+The counts are separated deliberately: `Leaf/And` records are distinct
+relation-signature classes, while `Neg/OrthoOr` totals are generated
+occurrences (13/46 left and 14/56 right). The latter realize 13/34 and 14/41
+distinct semantic signatures respectively.
+
+This is positive evidence for coherent adjacent assembly, not an arbitrary-
+depth theorem. Each `(A,U)` uses one canonical minimum-index witness from an
+inclusion-minimal opposite existential class. Other witnesses with the same
+coarse `(E,U)` may have different proper sections. The next discriminating
+test varies exact opposite witnesses within fixed shadow classes; adding more
+Boolean depth to one canonical quotient is lower value.

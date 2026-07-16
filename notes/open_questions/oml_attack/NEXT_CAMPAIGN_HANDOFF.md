@@ -41,18 +41,16 @@
    sparse_containment_pairs,join_rich_per_a}` including the bounded receipts;
    Lean file
    `QuerySystem/{FiniteAtomFoldKernel,KernelClosureCalculus}.lean`.
-6. **Unresolved theorem:** every event in the adjacent mixed closure has a
-   greatest lower shadow in each old copy, coherently under further OR/AND
-   transitions. This is the exact two-copy conservative-embedding kernel.
-7. **First action:** classify the re-based exact-root repair of the bounded
-   strict bridge failures. The exhaustive first round is closed: 18370
-   nonempty plus 37352 empty-mask kernels all pass, master `bf3f7d29...`.
-   Preserve the bounded second-round refutation, payload
-   `3fbf81c2...`: `And` closes, but complement and bridge union do not, and
-   equal coarse shadows can have different bridge signatures.
-   Its third-round audit, payload `174fe4c5...`, refutes a uniform
-   phantom-to-top law and splits atom saturations into six proper and six
-   target-equal failures.
+6. **Unresolved theorem:** every actual relation term in the adjacent mixed
+   closure has a greatest lower shadow in each old copy, coherently under
+   Boolean transitions. Universal shadows alone are not a closed grammar.
+7. **First action:** vary exact opposite witnesses inside selected fixed
+   `(E,U)` shadow classes and rerun the relation-section quotient. The
+   canonical-witness test passes all 156 actual occurrences with zero bad
+   kernels, payload `3d6f97c8...`; the coordinate calculus falsely reports 22.
+   Preserve the exhaustive first-round master `bf3f7d29...` and coordinate
+   controls `3fbf81c2...`, `174fe4c5...`, but do not add Boolean depth to the
+   single canonical quotient before testing witness diversity.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

@@ -2921,7 +2921,54 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   the first-round mixed core. Complement duality gives the corresponding least
   old upper statement. **Hand proved + exhaustive executable verification**;
   the abstract fold and dual implications are **Lean certified**.
-- **Pivot:** first-round conservativity is closed. Generated closure is not:
-  bounded second/third-round receipts already refute automatic complement and
-  union closure over the fixed base. Continue with the re-based exact-root
-  repair grammar, not more first-round sampling.
+- **Pivot at the time:** first-round conservativity is closed. The initial
+  re-based-repair interpretation of the bounded later-round failures is
+  superseded by Iteration 279's universal-shadow correction.
+
+### Iteration 279 — universal-shadow scope correction
+- For a relation over a nonempty fibre product, the universal left shadow
+  commutes with intersection, but
+  `forall(complement R)=complement(exists R)`. For disjoint `R,T`, the
+  universal shadow of their union additionally contains the locus where two
+  proper disjoint sections jointly fill the fibre. **Hand proved.**
+- The first-round target `A union cylinder(U_B)` is exactly the universal
+  shadow of the mixed leaf `A_L union B_R`, so Iteration 278 is unaffected.
+  The bounded later-round producer, however, applies `Neg/OrthoOr` directly to
+  these coordinate targets; it does not apply the operations to actual
+  two-copy relations and then recompute their shadows.
+- **Refuted overclaim:** the 12 bounded strict coordinate failures do not yet
+  force re-basing or nonconservativity of the adjacent assembly. They remain
+  valid fixed-target controls and refute Boolean closure of the shadow
+  calculus only.
+- **Conditional theorem:** if an actual generated event has the certified
+  escaping old-below predicate, then the affected old inclusion cannot
+  preserve its old finite joins. **Hand proved**; binary and finite-list
+  escaping-upper-bound forms are **Lean certified** in
+  `KernelClosureCalculus.lean`.
+- **Pivot:** retain canonical restricted relation-section roots per shared
+  state, form actual Boolean terms, then recompute universal shadows and atom
+  folds. Neither universal shadows nor `(forall,exists)` pairs form a complete
+  later-round grammar.
+
+### Iteration 280 — actual-relation shadow discriminator
+- An exact quotient enumerates simultaneous truth patterns of six retained and
+  six canonical opposite events in each shared-state fibre. Boolean terms are
+  evaluated on the actual relation quotient before universal shadows are
+  composed back into old-copy MDDs.
+- 156 generated occurrences are tested: 72 left and 84 right. Every actual
+  shadow kernel is good. The coordinate-target control reports 22 bad
+  occurrences and differs on 55 shadows (20 `Neg`, 35 `OrthoOr`); `Leaf` and
+  `And` agree exactly. **Executable verified** at bounded canonical-witness
+  scope, payload `3d6f97c8...`.
+- The strengthened receipt binds the fibre-product pattern basis, physical
+  roots, witness masks, semantic signatures, parent provenance, shadow tables
+  and eligible-atom digests. A second hash-seed payload recomputation agrees.
+  Hostile source audit passes; no independent producer exists.
+- **Strategic answer:** a new structural pattern appears—the bridge locus in
+  actual relation sections repairs every sampled coordinate failure. This is
+  genuinely different, not a provenance relabelling. A finite grammar is not
+  yet proved because only one canonical opposite witness per `(A,U)` is used.
+  Further depth on that quotient does not discriminate the live hypothesis.
+- **Pivot:** compare multiple exact opposite witnesses with the same coarse
+  shadow data. Stability supports a finite section grammar; divergence exposes
+  the missing provenance variable.

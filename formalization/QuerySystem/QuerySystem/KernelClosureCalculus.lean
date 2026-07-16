@@ -188,6 +188,41 @@ theorem no_greatest_of_same_eligible_old_set
   obtain ⟨g, hg, hgreat⟩ := hgreat₂
   exact ⟨g, (hext g).2 hg, fun x hx => hgreat x ((hext x).1 hx)⟩
 
+/-- A new common upper bound below the image of an old join rules out
+preservation of that join.  No order-reflection hypothesis is needed. -/
+theorem no_sup_preservation_of_escaping_upper_bound
+    {A : Type u} {B : Type v}
+    [SemilatticeSup A] [SemilatticeSup B]
+    (f : A → B) (x y : A) (u : B)
+    (hxu : f x ≤ u) (hyu : f y ≤ u)
+    (hescape : ¬ f (x ⊔ y) ≤ u) :
+    f (x ⊔ y) ≠ f x ⊔ f y := by
+  intro hpres
+  apply hescape
+  rw [hpres]
+  exact sup_le hxu hyu
+
+/-- Finite-list form of the same obstruction.  If every mapped generator is
+below a new target but the mapped old fold is not, the fold cannot be
+preserved. -/
+theorem no_foldl_sup_preservation_of_escaping_upper_bound
+    {A : Type u} {B : Type v}
+    [SemilatticeSup A] [SemilatticeSup B]
+    (f : A → B) (init : A) (xs : List A) (u : B)
+    (hinit : f init ≤ u)
+    (hxs : ∀ x ∈ xs, f x ≤ u)
+    (hescape : ¬ f (xs.foldl (· ⊔ ·) init) ≤ u) :
+    f (xs.foldl (· ⊔ ·) init) ≠
+      (xs.map f).foldl (· ⊔ ·) (f init) := by
+  intro hpres
+  apply hescape
+  rw [hpres]
+  apply FiniteAtomFoldKernel.foldl_sup_le u (f init) (xs.map f) hinit
+  intro z hz
+  simp only [List.mem_map] at hz
+  obtain ⟨x, hx, rfl⟩ := hz
+  exact hxs x hx
+
 #print axioms greatest_intersection
 #print axioms least_complement_of_greatest
 #print axioms exists_greatest_iff_exists_least_complement
@@ -197,6 +232,8 @@ theorem no_greatest_of_same_eligible_old_set
 #print axioms bridge_union_fold_eq_greatest
 #print axioms no_greatest_of_exhaustive_fold_not_good
 #print axioms no_greatest_of_same_eligible_old_set
+#print axioms no_sup_preservation_of_escaping_upper_bound
+#print axioms no_foldl_sup_preservation_of_escaping_upper_bound
 
 end KernelClosureCalculus
 end QuerySystem

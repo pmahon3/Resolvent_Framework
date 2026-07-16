@@ -788,9 +788,16 @@ all 18370 nonempty kernels, while 37352 empty-mask kernels are discharged by
 hand, giving 55722/55722 first-round conservative shadows with zero failure
 (master payload `bf3f7d29...`). Hostile review and selected cross-seed replays
 pass. The finite-support frontier is no longer first-round exhaustion:
-fixed-base complement and bridge-union closure already fail in bounded exact
-children, and the active problem is whether a provenance-sensitive re-based
-exact-root repair grammar closes or collapses.
+a hostile audit shows that the bounded complement/bridge failures are Boolean
+operations on one-coordinate universal shadows, not shadows recomputed from
+actual generated relations. The active problem is therefore the exact
+restricted relation-section grammar: form actual terms fibrewise, then compute
+their universal old-lower shadows and kernels.
+The first such bounded quotient tests 156 actual relation occurrences and
+finds zero bad kernels. The old coordinate calculus reports 22 false failures
+and differs on 55 complement/disjoint-union shadows (payload `3d6f97c8...`).
+This is positive finite-support evidence; witness diversity within a fixed
+coarse shadow class is the next exact grammar gate.
 
 ## Repository Layout
 

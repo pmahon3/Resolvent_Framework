@@ -739,8 +739,8 @@
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
-   "status": "adjacent-first-round-proved-rebased-bridge-grammar-open",
-   "one_line": "All 55722 adjacent first-round kernels have conservative old shadows; bounded later rounds refute fixed-base complement/union closure, leaving the re-based exact-root repair grammar open.",
+   "status": "adjacent-first-round-proved-exact-relation-section-grammar-open",
+   "one_line": "All 55722 first-round kernels and 156 bounded actual relation terms have conservative old shadows; exact opposite-witness diversity remains open.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

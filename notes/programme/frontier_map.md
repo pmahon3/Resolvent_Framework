@@ -754,6 +754,13 @@ pass in 32 frozen shards, and the 37352 empty-mask kernels discharge
 algebraically, so all 55722 first-round kernels have conservative old shadows
 (master payload `bf3f7d29...`). **Executable verified + Hand proved**; hostile
 review and selected cross-seed replays pass. This closes first-round
-conservativity only. Bounded second/third-round results already refute automatic
-fixed-base complement and bridge-union closure, so the live theorem is the
-re-based exact-root repair grammar.
+conservativity only. A hostile fibre-product audit shows that the bounded
+second/third-round `Neg/OrthoOr` failures occur in a coordinate-target calculus:
+universal shadows commute with intersection but not with complement or union.
+They therefore do not yet give actual generated-event obstructions. The live
+theorem is the exact restricted relation-section grammar.
+The first corrected bounded quotient is positive: all 156 actual relation
+occurrences have conservative old shadows, while coordinate Boolean targets
+misclassify 22 and differ on 55 `Neg/OrthoOr` shadows (payload
+`3d6f97c8...`). The next discriminator is exact opposite-witness diversity
+inside fixed `(E,U)` classes, not deeper coordinate closure.

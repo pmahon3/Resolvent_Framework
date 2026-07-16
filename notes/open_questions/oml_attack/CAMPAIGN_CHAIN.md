@@ -99,9 +99,13 @@
 | first 100 adjacent mixed kernels have old lower shadows | Executable verified (bounded producer replay; nonexhaustive) | 91 atoms; 60 realized cores, 40 absent cores with unique greatest |
 | atomic fold kernel and strict escape | Lean certified | explicit atomistic-cover hypothesis; no `sorryAx` |
 | bounded adjacent streaming kernels | Executable verified | 1233 exact kernels pass; after empty-mask discharge 18370 nontrivial kernels remain open |
+| exhaustive adjacent first-round kernels | Executable verified + Hand proved | all 55722 pass; master `bf3f7d29...` |
 | kernel intersection and complement duality | Hand proved plus Lean certified | stable abstract calculus |
 | disjoint-union bridge-atom criterion | Hand proved; generic fold Lean certified | concrete bridge classification remains external |
 | automatic complement/disjoint-union kernel preservation | Hand proved four-point `MO2` control | refuted |
+| universal-shadow Boolean closure | Hand proved fibre laws + minimal controls | intersection exact; complement/union closure refuted without fibre-total/no-cover hypotheses |
+| escaping generated upper preserves old joins | Lean certified + Hand interpretation | refuted: an exact generated target with escaping old fold forbids conservative inclusion |
+| bounded actual-relation adjacent kernels | Executable verified + hostile source audit | 156/156 pass; 55 shadow mismatches expose 22 coordinate false failures |
 
 ## Counterexample ledger
 
@@ -326,7 +330,18 @@ The adjacent first-round kernel theorem is now closed: all 18370 nonempty
 kernels pass in an exact 32-shard census, and 37352 empty-mask kernels
 discharge by hand, totaling 55722 with zero escape (master `bf3f7d29...`).
 Hostile review and selected cross-seed replays pass. The automatic pivot is
-the re-based exact-root repair grammar; first-round sampling is finished.
+not the previously stated re-based target repair: a hostile fibre-product
+audit **Refuted** promotion of the bounded coordinate `Neg/OrthoOr` failures
+to actual generated-event failures because universal shadows do not commute
+with those operations. The live pivot is the exact relation-section grammar;
+first-round sampling and coordinate-shadow depth are finished.
+
+The first exact bounded relation-section quotient is positive: 156 actual
+relation occurrences have zero bad universal-shadow kernels, while the old
+coordinate calculus falsely reports 22 bad occurrences (payload
+`3d6f97c8...`). The next automatic pivot is exact opposite-witness diversity
+within fixed shadow classes, followed by provenance-sensitive grammar
+extraction.
 
 `T_FIN_IMPOSSIBILITY_LEDGER.md` is closed as a historical ledger. T-FIN is
 refuted by the full-grid survivor; do not resume the impossibility track or

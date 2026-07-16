@@ -783,8 +783,14 @@ The next finite-support test is join-rich and per-`A`-evicted; exhaustive
 sharding is conditional on that bounded peak.
 The join-rich gate now passes 2509 nonempty kernels with exact differential
 agreement on 27469 queries (payload `b47a55f8...`). **Executable verified**
-bounded evidence. The live action is the checkpointed exact scan of all 18370
-nonempty kernels; complement/bridge closure remains later.
+bounded evidence. The checkpointed scan is complete: 32 frozen shards verify
+all 18370 nonempty kernels, while 37352 empty-mask kernels are discharged by
+hand, giving 55722/55722 first-round conservative shadows with zero failure
+(master payload `bf3f7d29...`). Hostile review and selected cross-seed replays
+pass. The finite-support frontier is no longer first-round exhaustion:
+fixed-base complement and bridge-union closure already fail in bounded exact
+children, and the active problem is whether a provenance-sensitive re-based
+exact-root repair grammar closes or collapses.
 
 ## Repository Layout
 

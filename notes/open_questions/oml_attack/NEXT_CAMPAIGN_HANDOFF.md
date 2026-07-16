@@ -44,11 +44,10 @@
 6. **Unresolved theorem:** every event in the adjacent mixed closure has a
    greatest lower shadow in each old copy, coherently under further OR/AND
    transitions. This is the exact two-copy conservative-embedding kernel.
-7. **First action:** run the checkpointed deterministic shard scan of all
-   18370 nonempty kernels. The join-rich 128-event-per-orientation falsifier
-   passed 2509 kernels and 27469 differential queries with payload
-   `b47a55f8...`; preserve per-`A` eviction and stop on the first escape.
-   Preserve separately the bounded second-round refutation, payload
+7. **First action:** classify the re-based exact-root repair of the bounded
+   strict bridge failures. The exhaustive first round is closed: 18370
+   nonempty plus 37352 empty-mask kernels all pass, master `bf3f7d29...`.
+   Preserve the bounded second-round refutation, payload
    `3fbf81c2...`: `And` closes, but complement and bridge union do not, and
    equal coarse shadows can have different bridge signatures.
    Its third-round audit, payload `174fe4c5...`, refutes a uniform

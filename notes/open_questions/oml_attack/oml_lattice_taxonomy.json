@@ -739,8 +739,8 @@
   {
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
-   "status": "adjacent-kernel-grammar-open-first-round-running-bridge-refuted",
-   "one_line": "The exact 18370-kernel first-round scan is running; bounded second-round evidence refutes automatic complement/union closure and coarse-shadow-only bridge typing.",
+   "status": "adjacent-first-round-proved-rebased-bridge-grammar-open",
+   "one_line": "All 55722 adjacent first-round kernels have conservative old shadows; bounded later rounds refute fixed-base complement/union closure, leaving the re-based exact-root repair grammar open.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

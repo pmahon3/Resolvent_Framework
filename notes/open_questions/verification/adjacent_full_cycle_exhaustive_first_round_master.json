@@ -1,0 +1,74 @@
+{
+  "aggregate_counters": {
+    "bad_event_pair_queries": 899011,
+    "raw_short_circuit_occurrence_comparisons": 559233604,
+    "sum_per_a_distinct_class_pairs": 112630800,
+    "whole_state_class_pair_lookups": 133176917
+  },
+  "chained_bad_mask_digest_sha256": "0ccb1fafe2e68074dd16324e033799ddab59c40b4dc4a3fe15d9c5575e5cf214",
+  "command": "python3 notes/open_questions/verification/aggregate_adjacent_full_cycle_exhaustive_shards.py --verify",
+  "conclusion": "All exact first-round kernels possess greatest old lowers.",
+  "coverage_proof": "The canonical 4719-event ranking in each orientation is partitioned by rank modulo 32; receipts exactly equal each manifest list, are disjoint, and cover both complete rankings. Kernel totals equal 18370 nonempty plus 37352 empty-U.",
+  "evidence_classes": [
+    "Hand proved",
+    "Executable verified"
+  ],
+  "exhaustive_nonempty_kernels": 18370,
+  "failure_certificates": [],
+  "failures": 0,
+  "manifest_payload_sha256": "423d62245cd87ef395482cc7d4d3da512b65604dbe82446eb18628e7e22d18f4",
+  "orientation_coverage": {
+    "left_retained_position11": {
+      "coverage_event_set_sha256": "c86322e417652786797cb70279f8f149e7cd60dc7fc3fc80af193c04f0a14b34",
+      "nonempty_kernels": 9347,
+      "retained_events": 4719
+    },
+    "right_retained_position00": {
+      "coverage_event_set_sha256": "3c0a9ee8f41f4ec5e02d31c7f9d13ba1f70482e3456ed2e3d06f32b88fe44b39",
+      "nonempty_kernels": 9023,
+      "retained_events": 4719
+    }
+  },
+  "payload_sha256": "bf3f7d297e6fdbf273273af06ffbd99bd560a5e5e7203e41f3f39c8a7124749e",
+  "producer_sha256": "b3d7223e19ee371432ac5efc50812d27ce354a6f4014c994903b18e7b5bf171d",
+  "schema": "adjacent-full-cycle-exhaustive-first-round-master-v2",
+  "schema_version": "2.0",
+  "scope_not_covered": "Second-round mixed closure, latticehood, OML, sigma closure, MBRC, ODBC, Phi.",
+  "shard_count": 32,
+  "shard_mathematical_payload_sha256": [
+    "1a7dbecbabf60c2910f34deb90d58cf595f736e0cdcf46ff1b3ed9aa14e324d2",
+    "0db7f9c339e19f5c29a3d1acd32388f9b501a5ec0e61c6e5a3f339f46bcec0d7",
+    "f5ec47f46b2a2f7d2b7078e942655a528c53b598d84135fc54760a0c78e99a46",
+    "ee468d4291a6929668a2f3317ec5bfe905082f9bd8ce696db0ed2a776718e365",
+    "2a1090dad94e777e840e8d4078cd9bbc9fe54768766694a3b99b4311e9efcb16",
+    "6962f7447606add292bd201dfb4c8b92e73a6a8089ccbdae9ad9a4c52ea33be3",
+    "41765c788420455db13df9327c42d479523b4d81229eed011387d92017e6c968",
+    "c53307908e4f8311f72ea42f6559495fba963c5c9c8079d090d6d136d8c86cc1",
+    "27666bdb23eaad2e0d45a2acf14af011363a08e179787995e534c487f20b0738",
+    "9bb75c3cf332ea24e41c124e2ba6ba06eefcf6b2e58809787e375640abd15176",
+    "2eb7c375dc7087c79ff7eee23f0f98bcb74fb553ebbe74c30dcf7ad7ddec1969",
+    "0c3288d66236765e530bf98998eb75e8325305bcde20b0075f7d238faa3cb9f6",
+    "216f18cf7845ba1cfe55c97be1269f9b9a5295714e61128209267d70f71480f9",
+    "44fde37d7f352aec1f1cc76ab08f0a94b8608102759e6dd73be295948bce9c68",
+    "43c7acce9868f581a79041f11e5c3db36bb18ee4650a77d9f19511fb3ce9598b",
+    "91a8c0eb8c1b6b9fdfdd85be2426f39626838f091d8b2d8e6c907bb37469e2b7",
+    "e8df6b22ecdfd83031569f5f8c94fcc3bdf70093198545f7958b7ebf2f2f8c87",
+    "75ccfa900947adb00d54d92716e1336fbd7722c74fde8ef920f6ce78f221f94f",
+    "e7d4366e1ae9c1cc5ce9723cc3d7b0f8c5a271ef85157020b608aee9ad196c00",
+    "3960448533bf6938243ef22eb6ba876794d36a2767f89f25ad7c99d92034c9de",
+    "148cfc03419e6d23e9f438580219f764e66037f89d69bb26aa258785b175af35",
+    "e0b88d667a90a8d58177f457c44fc924a7982f35641bd1122b93c82df61137fd",
+    "2c0b50622caf20e30e0c026ca39a8b723d47a4430eb13be860751a397339f376",
+    "e69eaf0f041ffad2b69e2f7609a5b3f30556bd281d0395a8b6b600da298decb7",
+    "b67ac4fedca9e26997e9a04b193b0ddabeefc6770236cd0f50e434efab1d2490",
+    "07b1e0a69e477621f7b63b3c415cc014d99f607474c09a359d1822adbc2610eb",
+    "078ac8633041e54bb39948b7912754bbdce933a2ecccf8cf1c90e774ce0ffb8b",
+    "aa618bf38102448c171d626f9ec1b606d6d65b62cd485733d271dead00ea8e70",
+    "f8698ab15f5c1da38a56f52c540b586a9086124837ac8d696df105169f145aad",
+    "dd80b1d3ba5a28b13bca5a8f00efe3e16d1cf0458fbe48bdf7bd4135eb7def10",
+    "1c800abca82486720d99df3faea0d9afadb7e0add4acce654f975edd9a68ebb2",
+    "e8e5575439d4e9e3d0f803e1900d8521d8e43add42bb5a2a3a724a6402bdfab7"
+  ],
+  "total_first_round_kernels": 55722,
+  "u_empty_tautological_kernels": 37352
+}

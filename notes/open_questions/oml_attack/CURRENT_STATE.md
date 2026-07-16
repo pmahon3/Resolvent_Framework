@@ -538,6 +538,18 @@ is kernel-bad in all 12 cases, but equals the target in 6/12 and is proper in
 `174fe4c5...`; cross-seed replay passes. A finite repair grammar must therefore
 distinguish saturation equality and landing type, not only phantom incidence.
 
+The adjacent first round is now exhaustive. A frozen 32-shard manifest covers
+4719 retained events per orientation and all 18370 nonempty admissible kernels:
+9347 left and 9023 right. Every kernel has a greatest old lower, with zero
+failures and unchanged MDD snapshots. Adding the 37352 hand-discharged empty
+masks closes all 55722 first-round kernels. **Executable verified + Hand
+proved**, master payload `bf3f7d29...`; hostile review passes, and shards 0/31
+replay under seed 12345. The semantic verifier independently reconstructs the
+manifest classification and coverage (payload `ff6cbeba...`) but shares the
+captured grammar. This proves first-round conservative shadows only; the live
+frontier is the re-based exact-root bridge grammar already forced by the
+second-round strict escapes.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

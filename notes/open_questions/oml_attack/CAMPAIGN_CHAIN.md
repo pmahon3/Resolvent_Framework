@@ -9,6 +9,9 @@
 - **Active campaign:** Campaign 20 — controlled finite-support and
   sigma-complete assembly of the centre-free full-cycle MDD grammar; fixed-
   carrier T-FIN is refuted and blind finite repair extension remains stopped.
+  Campaign 19 is the completed fine-repair/theorem-extraction lineage; focused
+  notes labelled as Campaign 19 continuations are inputs to, not competing
+  numbering for, Campaign 20.
 - **Campaigns completed:** Campaign 1 — exact ODBC formalization; Campaign 2
   — cut-saturation and inverse-limit audit; Campaign 3 — minimal relational
   countermodel and realization gates; Campaign 4 — fine/coarse
@@ -318,6 +321,12 @@ of those is nonphantom. Atom saturation is kernel-bad in all 12 bounded
 failures, while saturation equality splits 6/12 versus 6/12 proper (payload
 `174fe4c5...`). The next repair grammar must distinguish these provenance
 types.
+
+The adjacent first-round kernel theorem is now closed: all 18370 nonempty
+kernels pass in an exact 32-shard census, and 37352 empty-mask kernels
+discharge by hand, totaling 55722 with zero escape (master `bf3f7d29...`).
+Hostile review and selected cross-seed replays pass. The automatic pivot is
+the re-based exact-root repair grammar; first-round sampling is finished.
 
 `T_FIN_IMPOSSIBILITY_LEDGER.md` is closed as a historical ledger. T-FIN is
 refuted by the full-grid survivor; do not resume the impossibility track or

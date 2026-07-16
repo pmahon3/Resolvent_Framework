@@ -2897,3 +2897,31 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** do not build one uniform phantom-to-top repair. Classify the
   bounded failures by saturation equality, phantom/nonphantom escape, and
   top/subtop landing, then test which provenance data predict these types.
+
+### Iteration 278 — exhaustive adjacent first-round kernel theorem
+- The frozen rank-mod-32 manifest partitions 4719 active retained events in
+  each orientation. All 32 receipts cover 9347 left plus 9023 right nonempty
+  admissible kernels, with zero failures and unchanged MDD snapshots.
+  Together with the 37352 algebraically discharged empty-mask kernels, all
+  55722 first-round kernels possess greatest old lower shadows.
+  **Executable verified** for the 18370 nonempty kernels plus **Hand proved**
+  for the empty masks.
+- The master receipt payload is `bf3f7d29...`; aggregate counters are 899011
+  bad-event-pair queries, 559233604 raw occurrence comparisons, 133176917
+  class-pair lookups, and 112630800 summed per-`A` distinct pairs. An
+  independent semantic verifier reconstructs the classification, rankings,
+  shard partition, and totals by exact assigned-model counts (payload
+  `ff6cbeba...`), while sharing the captured grammar and not rechecking folds.
+- **Hostile review:** PASS. Every shard mathematical hash, source/manifest
+  binding, coverage identity, chained digest, counter, and zero-failure claim
+  recomputes. Shards 0 and 31 also replay under seed 12345 with identical
+  payloads.
+- **Exact theorem:** for either adjacent orientation, every retained old event
+  `A` and admissible universal mask `U` have a greatest eligible old lower for
+  the first-round mixed core. Complement duality gives the corresponding least
+  old upper statement. **Hand proved + exhaustive executable verification**;
+  the abstract fold and dual implications are **Lean certified**.
+- **Pivot:** first-round conservativity is closed. Generated closure is not:
+  bounded second/third-round receipts already refute automatic complement and
+  union closure over the fixed base. Continue with the re-based exact-root
+  repair grammar, not more first-round sampling.

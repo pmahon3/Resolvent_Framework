@@ -760,3 +760,30 @@ target in the other 6/12. Universal strict saturation is therefore
 The next grammar state must at least record saturation equality, phantom
 status, and top/subtop landing. These bounded types are not yet proved
 complete for the full mixed closure.
+
+### 10.9 Exhaustive first-round theorem
+
+The canonical rank-mod-32 manifest contains exactly 4719 retained events in
+each orientation and partitions all nonempty admissible masks into 9347 left
+and 9023 right kernels. All 32 shards pass: 18370/18370 nonempty kernels have
+greatest old lower shadows, with zero failure certificates and unchanged MDD
+snapshots. The empty mask is admissible for every retained event and has
+kernel equal to that event, contributing 37352 further kernels. Hence all
+55722 first-round kernels pass.
+
+**Evidence:** the nonempty census is **Executable verified**, the empty-mask
+discharge is **Hand proved**, and the fold implication is **Lean certified**.
+Master payload `bf3f7d29...`; manifest `423d6224...`; independent semantic
+classification verifier `ff6cbeba...`. Hostile review recomputes every shard
+hash, exact coverage, aggregate counter and chained digest. Shards 0 and 31
+also reproduce under seed 12345.
+
+**Theorem of record.** For either adjacent orientation, every retained old
+event `A` and every admissible universal mask `U` have a greatest eligible old
+lower for the first-round mixed core. By complement duality the corresponding
+old-upper family has a least member.
+
+This closes only the first-round conservative-shadow problem. It does not
+prove complement/disjoint-union closure, generated latticehood, OML,
+sigma-closure, MBRC, ODBC, or `Phi`; Sections 10.7--10.8 already give exact
+bounded counterexamples to automatic fixed-base continuation.

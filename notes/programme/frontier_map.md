@@ -749,5 +749,11 @@ The next discriminator is join-rich sampling with per-`A` eviction, not blind
 depth or an orientation-global Python cache.
 That discriminator passes 2509 nonempty kernels and 27469 differential queries
 with zero escape (payload `b47a55f8...`). **Executable verified** at bounded
-scope. The exact 18370-kernel checkpointed scan is now justified; its outcome
-still does not settle the second-round bridge grammar.
+scope. The checkpointed exact scan is now complete: all 18370 nonempty kernels
+pass in 32 frozen shards, and the 37352 empty-mask kernels discharge
+algebraically, so all 55722 first-round kernels have conservative old shadows
+(master payload `bf3f7d29...`). **Executable verified + Hand proved**; hostile
+review and selected cross-seed replays pass. This closes first-round
+conservativity only. Bounded second/third-round results already refute automatic
+fixed-base complement and bridge-union closure, so the live theorem is the
+re-based exact-root repair grammar.

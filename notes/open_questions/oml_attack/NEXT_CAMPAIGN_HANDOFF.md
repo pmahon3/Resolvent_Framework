@@ -44,12 +44,13 @@
 6. **Unresolved theorem:** every actual relation term in the adjacent mixed
    closure has a greatest lower shadow in each old copy, coherently under
    Boolean transitions. Universal shadows alone are not a closed grammar.
-7. **First action:** build and minimize the exact joint section-context
-   congruence for depth-one actual transitions, with both orientations,
-   attainable retained profiles and all 91 old atoms. Witness diversity is
-   closed at the sampled single-slot scope: 14/17 same-`(E,U)` substitutions
-   change the pattern grammar but preserve zero bad actual kernels, payload
-   `39bd3fe0...`. Use `ADJACENT_TRANSITION_LEDGER.md` as the workload schema.
+7. **First action:** test the weaker kernel-observational congruence for
+   depth-one actual transitions. Exact universal-output minimization is closed
+   negatively: each canonical section algebra has 9 atoms/512 elements and
+   any top-preserving Boolean congruence is equality, payload `2ebe78a9...`.
+   Observations must include exact old lower and complement-dual upper indices;
+   test typed complement/intersection/disjoint-union compatibility and stop at
+   the first conflicting transition. Use `ADJACENT_TRANSITION_LEDGER.md`.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

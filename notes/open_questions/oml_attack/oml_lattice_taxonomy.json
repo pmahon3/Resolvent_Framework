@@ -740,7 +740,7 @@
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
    "status": "adjacent-first-round-proved-exact-relation-section-grammar-open",
-   "one_line": "All 55722 first-round kernels and 156 bounded actual terms pass; 14/17 same-(E,U) substitutions refute coarse grammar, so exact section-congruence minimization is active.",
+   "one_line": "All 55722 first-round kernels and 156 bounded actual terms pass; coarse grammar and nontrivial exact-universal congruence compression are refuted, leaving kernel-observational or parametric exact-root grammar.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

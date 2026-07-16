@@ -67,7 +67,7 @@ Evidence: **Executable verified — sampled finite scope**, payloads
 and
 `174fe4c5fae1a4b0fd140e33321fe2a5babe8ce0cde3311f8f9331bab20a1d84`.
 
-The exact four bounded classes are:
+The four aggregate bounded escape signatures are:
 
 | Type | Saturation | Bridge status | Landing | Count |
 |---|---|---|---|---:|
@@ -174,7 +174,7 @@ Coordinate-control escapes do not instantiate this operation.
 
 | Gate | Current adjacent exact-relation status |
 |---|---|
-| same-side boundary reconstruction | not observed in bounded actual quotient |
+| same-side boundary reconstruction | not detected by bounded shadow audit; not separately evaluated |
 | activation-supported event | not evaluated for a re-based successor |
 | nontrivial centre | not evaluated for a re-based successor |
 | loss of state order separation | not evaluated for a re-based successor |
@@ -204,3 +204,58 @@ classification:
 
 Require cross-seed replay and an independent Boolean-context verifier. Stop at
 the first actual escape; only then launch a capped re-basing closure.
+
+Before production, freeze:
+
+- the generator universe and hash;
+- the exact generation rule (which nodes admit `Neg`, and which disjoint pairs
+  admit `OrthoOr`);
+- the equivalence specification and canonical representative rule;
+- total transition coverage and collision-free root binding;
+- universal/existential and old lower/upper invariance within every class;
+- conflicting-transition and unreachable-class counts;
+- three-term critical-pair/path-independence tests.
+
+A minimized class count alone is not a grammar theorem. Outputs must return to
+the declared class domain and all construction paths to one semantic class
+must give the same transitions and shadows.
+
+### Congruence-minimization verdict
+
+The global exact-universal-output minimization route is now closed
+negatively. Each canonical six-leaf orientation has nine realized mixed-word
+atoms, so its generated section algebra is the 512-element powerset algebra.
+Any Boolean congruence preserving the exact predicate `section=top` is
+equality. **Hand proved** in arbitrary Boolean algebras; the bounded producer
+reconstructs the two 9-atom algebras and explicit distinguishing contexts.
+
+- left: 375 section occurrences, 10 distinct sections;
+- right: 416 section occurrences, 11 distinct sections;
+- full generated algebra: 512 elements in each orientation;
+- all 14 witness divergences change the section system and have an explicit
+  universal-output distinguishing context;
+- witness variants realize atom alphabets of size 9, 10 or 11.
+
+Evidence: **Executable verified — sampled finite scope**, producer/receipt
+`adjacent_section_congruence_minimization.py/.json`, payload `2ebe78a9...`;
+hostile review passed.
+
+This rules out nontrivial global Boolean-congruence compression preserving
+exact universal shadows. It does not rule out:
+
+1. a weaker congruence preserving only old lower/upper kernel outcomes;
+2. a typed partial-context quotient;
+3. symbolic DAG sharing without semantic identification;
+4. a parametric provenance normal form with witness-dependent atom alphabets.
+
+Do not send a Fir workload to enumerate the 512-element transition table:
+symbolic Boolean laws already decide it. The next smallest workload is the
+kernel-observational congruence:
+
+- observations include the exact old lower index and complement-dual old upper
+  index, not merely good/bad;
+- equivalent parents must have equivalent complement/intersection/disjoint-
+  union children under every declared typed transition;
+- the first conflicting transition is the negative certificate;
+- if the kernel quotient also collapses to equality, stop finite minimization
+  and pivot to parametric exact-root normal forms.

@@ -108,6 +108,7 @@
 | bounded actual-relation adjacent kernels | Executable verified + hostile source audit | 156/156 pass; 55 shadow mismatches expose 22 coordinate false failures |
 | unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
+| exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |
 
 ## Counterexample ledger
 

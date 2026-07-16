@@ -1,0 +1,509 @@
+{
+  "base_actual_event_payload_sha256": "3d6f97c80ff21de11da3d748acb1d7635fa926386bf376ae921c0b7c1cdab6e9",
+  "command": "python3 notes/open_questions/verification/adjacent_section_congruence_minimization.py --verify",
+  "divergence_replays": [
+    {
+      "alternate_opposite_event_index": 11,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 9,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          1,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 0,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 25,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 9,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          1,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 0,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 15872,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 5120,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          32,
+          58
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "ba53004001aef0699fa71c0f4f2f206356c6e17ee0b2aee5995a4d6b5ef48bf3",
+        "context_union_atoms": [
+          0,
+          32,
+          58
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 10,
+        "variant_section_atoms": [
+          2,
+          32,
+          34,
+          58
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 1,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 5632,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 5120,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          32,
+          58
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "ba53004001aef0699fa71c0f4f2f206356c6e17ee0b2aee5995a4d6b5ef48bf3",
+        "context_union_atoms": [
+          0,
+          32,
+          58
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 10,
+        "variant_section_atoms": [
+          0,
+          32,
+          34,
+          58
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 1,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 10
+    },
+    {
+      "alternate_opposite_event_index": 11,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 9,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          4,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 2,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 25,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 9,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          4,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 2,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 15872,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 5120,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          32,
+          58
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "ba53004001aef0699fa71c0f4f2f206356c6e17ee0b2aee5995a4d6b5ef48bf3",
+        "context_union_atoms": [
+          0,
+          32,
+          58
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 10,
+        "variant_section_atoms": [
+          8,
+          32,
+          40,
+          58
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 3,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 5632,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 5120,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          32,
+          58
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "ba53004001aef0699fa71c0f4f2f206356c6e17ee0b2aee5995a4d6b5ef48bf3",
+        "context_union_atoms": [
+          0,
+          32,
+          58
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 10,
+        "variant_section_atoms": [
+          0,
+          32,
+          40,
+          58
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 3,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 10
+    },
+    {
+      "alternate_opposite_event_index": 15872,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 5120,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          32,
+          58
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "ba53004001aef0699fa71c0f4f2f206356c6e17ee0b2aee5995a4d6b5ef48bf3",
+        "context_union_atoms": [
+          0,
+          32,
+          58
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 10,
+        "variant_section_atoms": [
+          16,
+          32,
+          48,
+          58
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 4,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 10
+    },
+    {
+      "alternate_opposite_event_index": 5632,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 5120,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          32,
+          58
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "ba53004001aef0699fa71c0f4f2f206356c6e17ee0b2aee5995a4d6b5ef48bf3",
+        "context_union_atoms": [
+          0,
+          32,
+          58
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 10,
+        "variant_section_atoms": [
+          0,
+          32,
+          48,
+          58
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 4,
+      "orientation": "left_retained_position11",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 9
+    },
+    {
+      "alternate_opposite_event_index": 641,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 129,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          1,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 0,
+      "orientation": "right_retained_position00",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 133,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 129,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          1,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 0,
+      "orientation": "right_retained_position00",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 641,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 129,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          4,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 2,
+      "orientation": "right_retained_position00",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    },
+    {
+      "alternate_opposite_event_index": 133,
+      "baseline_atom_count": 9,
+      "canonical_opposite_event_index": 129,
+      "distinguishing_context": {
+        "baseline_section_atoms": [
+          0,
+          5
+        ],
+        "baseline_universal_output": true,
+        "context_sha256": "f5750294f8a1785ce1f95f294d731e272e53b5c440fcfceb08f2dfa54be9a816",
+        "context_union_atoms": [
+          0,
+          5
+        ],
+        "retained_pattern": 0,
+        "shared_state_index": 2,
+        "variant_section_atoms": [
+          0,
+          4,
+          5
+        ],
+        "variant_universal_output": false
+      },
+      "leaf_slot": 2,
+      "orientation": "right_retained_position00",
+      "pattern_vector_diverged": true,
+      "section_system_diverged": true,
+      "variant_atom_count": 11
+    }
+  ],
+  "divergences_distinguished_by_universal_boolean_context": 14,
+  "divergent_substitution_count": 14,
+  "evidence_class": "Executable verified bounded evidence + hand proved congruence lemma",
+  "orientation_records": [
+    {
+      "atom_count": 9,
+      "boolean_algebra_element_count_decimal": "512",
+      "compression_ratio": "1",
+      "distinct_section_count": 10,
+      "final_congruence_class_count_decimal": "512",
+      "initial_observation_class_count": 2,
+      "orientation": "left_retained_position11",
+      "proof_rule": "x~y => x union complement(y)~top and y union complement(x)~top; top-observation preservation forces y subset x and x subset y",
+      "realized_mixed_word_atoms": [
+        0,
+        5,
+        12,
+        32,
+        44,
+        48,
+        53,
+        58,
+        60
+      ],
+      "refinement_rounds_to_equality": 1,
+      "section_count": 375,
+      "section_incidence_sha256": "efc21e01cb5b4950204f4373f0158b84078083d845f2cc749f8263e919fabb82",
+      "transition_law_sha256": "f20a488a41849c068eae46bd384bfd61ed374ff6aae67342cc2433fdfa6cbc0d"
+    },
+    {
+      "atom_count": 9,
+      "boolean_algebra_element_count_decimal": "512",
+      "compression_ratio": "1",
+      "distinct_section_count": 11,
+      "final_congruence_class_count_decimal": "512",
+      "initial_observation_class_count": 2,
+      "orientation": "right_retained_position00",
+      "proof_rule": "x~y => x union complement(y)~top and y union complement(x)~top; top-observation preservation forces y subset x and x subset y",
+      "realized_mixed_word_atoms": [
+        0,
+        5,
+        12,
+        26,
+        32,
+        44,
+        48,
+        53,
+        60
+      ],
+      "refinement_rounds_to_equality": 1,
+      "section_count": 416,
+      "section_incidence_sha256": "c6d5d9069b1325ac38242da0c69183b2b38137a0a6d51b8714a97e3855899de8",
+      "transition_law_sha256": "bbf7cd558ff7682e521afa26db6dace8ff24c5b2866629115534528425c98141"
+    }
+  ],
+  "pattern_cache_entries": 30691,
+  "payload_sha256": "2ebe78a97d969fdb8f05e98cfaa81ad4217656bc6344a0d1e9650df0b901eb53",
+  "producer_sha256": "7a4e94b5e906fba085a593a3c72be7a1c33c03fcff9b42e59f1967cdd19298b5",
+  "schema": "adjacent-section-congruence-minimization-v1",
+  "schema_version": "1.0",
+  "scope": "The two canonical fixed six-generator quotients and the 14 single-slot exact-root divergences. This does not cover other generators, simultaneous substitutions, arbitrary-depth mixed closure, associative transport, OML closure, sigma completion, MBRC, ODBC, or Phi.",
+  "stop_reason": "no compression at the fixed six-generator Boolean algebra",
+  "verdict": "no congruence compression: universal-top observation plus complement and union forces equality",
+  "verification_independence": "Fresh exact pattern and section reconstruction; shares the full-cycle grammar constructor and stored leaf selections with the prior audits. Transition tables are symbolic Boolean laws, not enumerated P(Z) tables.",
+  "witness_diversity_payload_sha256": "39bd3fe0682c0e2cc0ce12dfc61a3e3dd0493ed5ec7a3ee204fcbee24716866f"
+}

@@ -3014,3 +3014,22 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** minimize the joint section-context congruence and exhaust
   depth-one actual transitions. This, not the closed first-round census, is
   the first justified Fir workload.
+
+### Iteration 283 — exact universal-congruence no-compression theorem
+- Each canonical six-leaf orientation has nine realized mixed-word atoms and
+  therefore a 512-element generated Boolean section algebra. Left/right
+  section occurrence counts are 375/416, with 10/11 distinct realized
+  sections.
+- Any Boolean congruence preserving exact universal-top output is equality.
+  **Hand proved** for arbitrary Boolean algebras.
+- All 14 same-`(E,U)` witness divergences alter the section system and are
+  separated by explicit Boolean contexts. Variant atom alphabets reach 10 and
+  11, so the canonical 9-atom alphabet is not witness-stable.
+- **Executable verified — sampled finite scope**, payload `2ebe78a9...`;
+  hostile review passes.
+- **Refuted:** a nontrivial global Boolean-congruence minimization gives the
+  desired exact grammar.
+- **Pivot:** do not enumerate the 512-element tables on Fir. Test the weaker
+  kernel-observational congruence (exact lower/upper indices and typed
+  transition compatibility). If it collapses to equality, extract a
+  parametric exact-root normal form instead.

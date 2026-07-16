@@ -589,6 +589,14 @@ have zero bad actual kernels. **Executable verified**, payload
 refuted as an exact transition descriptor, while the exact-root grammar
 remains viable. `ADJACENT_TRANSITION_LEDGER.md` is the Level-1 controller.
 
+Global exact-universal congruence minimization is now also closed. The
+canonical section algebras have nine atoms and 512 elements, and any Boolean
+congruence whose top class is `{1}` is equality. All 14 witness divergences
+have explicit separating contexts; variants enlarge the atom alphabet to 10
+or 11. **Hand proved + Executable verified**, payload `2ebe78a9...`; hostile
+review passes. The next discriminator is the weaker exact old-kernel
+observational congruence, not enumeration of the full Boolean algebra.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

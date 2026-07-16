@@ -803,6 +803,11 @@ within fixed `(E,U)` change the simultaneous section pattern, but no bad actual
 kernel appears (payload `39bd3fe0...`). The next finite-support theorem is an
 exact minimized section-congruence transition table, with re-basing conditional
 on a genuine actual-event escape.
+Exact universal-output minimization cannot reduce the state: each canonical
+algebra has 9 atoms/512 elements and any top-preserving Boolean congruence is
+equality (payload `2ebe78a9...`). The next workload tests only the weaker exact
+old-kernel observational quotient; if that is identity, the programme pivots
+to a parametric provenance normal form.
 
 ## Repository Layout
 

@@ -769,3 +769,8 @@ distinct same-`(E,U)` single-slot substitutions change the complete pattern
 vector, although the first exact rerun still has zero bad actual kernels
 (payload `39bd3fe0...`). The frontier is finite section-congruence minimization
 and depth-one actual-transition exhaustion.
+Global exact-universal minimization then closes negatively: the canonical
+section algebras have 9 atoms/512 elements and top-preserving Boolean
+congruence is equality (payload `2ebe78a9...`). The next exact discriminator is
+kernel-observational congruence; failure pivots to parametric exact-root normal
+forms.

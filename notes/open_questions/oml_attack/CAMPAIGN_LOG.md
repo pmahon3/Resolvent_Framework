@@ -3033,3 +3033,20 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   kernel-observational congruence (exact lower/upper indices and typed
   transition compatibility). If it collapses to equality, extract a
   parametric exact-root normal form instead.
+
+### Iteration 284 — complete coordinate-control escape ledger
+- All 12 bounded coordinate escape controls are serialized as stable rows:
+  5 left and 7 right, with signatures `CC-PPT` 1, `CC-ENS` 1, `CC-EPT` 5,
+  and `CC-PPS` 5.
+- Each row binds parent provenance, target root and exact `E/U`, bridge atom
+  indices/hashes, base and first escaping joins, single-atom landings,
+  saturation, atom fold and complement-derived upper certificate.
+- **Correction:** the escaping eligible-atom fold is not an old lower.
+  Every row has `greatest_old_lower_exists=false` and
+  `least_old_upper_exists=true`. Actual successor and collapse/state/`Phi`
+  fields remain `not_evaluated`.
+- **Executable verified — sampled finite scope**, payload `12c6f217...`,
+  producer `5cc508ad...`, row-chain `00db935f...`; hostile review passes.
+- This completes the requested Level-1 coordinate-control census without
+  rerunning the closed first-round theorem or promoting controls to actual
+  generated events.

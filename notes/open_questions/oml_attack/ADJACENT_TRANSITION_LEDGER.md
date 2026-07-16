@@ -72,13 +72,36 @@ The four aggregate bounded escape signatures are:
 | Type | Saturation | Bridge status | Landing | Count |
 |---|---|---|---|---:|
 | `CC-PPT` | proper | all phantom | all top | 1 |
-| `CC-ENN` | equals target | includes nonphantom | includes subtop | 1 |
+| `CC-ENS` | equals target | includes nonphantom | includes subtop | 1 |
 | `CC-EPT` | equals target | all phantom | all top | 5 |
 | `CC-PPS` | proper | all phantom | includes subtop | 5 |
 
 For each row, the actual-relation transition is `not_evaluated`. These are
 fixed-target obstruction controls, not certified generated-event escapes.
 The earlier promotion of them to forced re-basing transitions is **Refuted**.
+
+The complete 12-row serialization is now banked in
+`notes/open_questions/verification/adjacent_coordinate_escape_ledger.json`.
+Every row includes stable ID, orientation, child provenance, exact target
+root and `E/U`, bridge atom indices and hashes, base and first escaping join,
+single-atom landing records, saturation status, aggregate signature, and the
+complement-derived old upper certificate.
+
+For all 12 rows:
+
+- `greatest_old_lower_exists=false`;
+- the serialized `old_atom_fold` lies outside the target and is the escape
+  certificate, not an old lower;
+- `least_old_upper_exists=true`, certified as the complement of the greatest
+  old lower of the target complement;
+- actual successor, centre, state, boundary, activation and `Phi` consequences
+  are `not_evaluated`.
+
+**Executable verified — sampled finite scope**, producer/receipt
+`adjacent_coordinate_escape_ledger.py/.json`, payload `12c6f217...`, producer
+`5cc508ad...`, row-chain `00db935f...`; hostile review passed after correcting
+the escaping-fold label and adding the receipt-local complement-kernel
+certificate.
 
 Conditional theorem: if an actual generated event has the same certified old-
 below predicate and its old atom fold escapes, then the affected old copy

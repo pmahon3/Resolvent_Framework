@@ -597,6 +597,14 @@ or 11. **Hand proved + Executable verified**, payload `2ebe78a9...`; hostile
 review passes. The next discriminator is the weaker exact old-kernel
 observational congruence, not enumeration of the full Boolean algebra.
 
+The bounded coordinate-control census is now row-complete: 12 stable rows
+(5 left, 7 right) with exact provenance, target `E/U`, bridge atoms, escape
+folds, saturation types and complement-derived old uppers. All 12 have no
+greatest old lower and do have a least old upper. **Executable verified**,
+payload `12c6f217...`; hostile review passes. These remain coordinate controls,
+with all actual successor and collapse/state/`Phi` fields explicitly
+unevaluated.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

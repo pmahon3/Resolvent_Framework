@@ -727,3 +727,15 @@ verified** (bounded, single producer), payload `c8587f5b...`. The abstract
 greatest-lower/strict-escape fold is **Lean certified** in
 `FiniteAtomFoldKernel.lean`. The next scale gate is a separate 500-spread-event
 run per orientation; runtime failure pivots to sparse containment classes.
+That scale run covers 1640 kernels without escape but requires 52602242
+assigned comparisons and fails whole-receipt cross-seed equality despite both
+runs passing mathematical assertions. **Executable verified** bounded
+observation; deterministic receipt reproduction is **Open**. Exhaustion is
+paused for sparse restricted-root containment-pair interning. Separately, the
+second-round calculus proves intersections kernel-safe while complements and
+disjoint unions require least-upper and bridge-atom tests; a four-point `MO2`
+control **Refutes** automatic preservation.
+The abstract intersection, complement-duality, intersection-cover and generic
+bridge-union fold implications are **Lean certified** in
+`KernelClosureCalculus.lean`; concrete bridge classification remains an
+explicit hand-level instantiation obligation.

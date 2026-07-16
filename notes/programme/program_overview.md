@@ -764,6 +764,16 @@ verified** (bounded, single producer), payload `c8587f5b...`. The abstract
 fold criterion and strict escaping extension are **Lean certified** in
 `FiniteAtomFoldKernel.lean`. A separate 500-spread-event-per-orientation run is
 the next scale discriminator; it is not yet the complete 55722-kernel theorem.
+The scale run covers 1640 kernels with no escape but grows to 52602242 assigned
+comparisons and fails whole-receipt cross-seed equality, so the next
+representation is sparse queried containment-pair interning. **Executable
+verified** bounded observation; deterministic receipt reproduction is
+**Open**. Independently, **Hand proved** second-round calculus shows
+intersection safety, complement/least-upper duality, and the bridge-atom union
+criterion; concrete `MO2` controls **Refute** automatic closure.
+`KernelClosureCalculus.lean` **Lean certifies** the abstract intersection,
+complement-duality, cover-fold and bridge-union implications with base-join,
+bridge eligibility and cover hypotheses explicit.
 
 ## Repository Layout
 

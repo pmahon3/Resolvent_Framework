@@ -2766,3 +2766,49 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   orientation (1000 total), preserving this receipt/source pair. If runtime
   ceases to scale or containment pairs explode, pivot to sparse restricted-root
   containment-class interning; do not launch the full 55722 scan blindly.
+
+### Iteration 272 — scale stop and sparse-containment pivot
+- **Scale run:** 500 endpoint-spread retained events per orientation cover 827
+  left plus 813 right live kernels; grouped/scalar assertions pass and no
+  atomic escape occurs. Peak groups/caches remain 56, 188/159, and 8;
+  before/after MDD snapshots remain equal. **Executable verified** (bounded
+  seed-0 producer observation), payload `9b1277f7...`.
+  Producer `adjacent_full_cycle_streaming_atomic_scale.py`, exact emission
+  environment `PYTHONHASHSEED=0`; wrapper `1f6dbc98...`, imported engine
+  `c6ff8065...`; no independent verifier.
+- **Reproducibility caveat:** the seed-12345 run passed all mathematical
+  assertions but failed whole-receipt equality, and its differing payload was
+  not retained. Therefore the scale receipt is not deterministic banked
+  evidence; its diagnostic fields remain unaudited across seeds. **Open**
+  reproducibility defect.
+- **Computational boundary:** assigned comparisons grow from 15277539 to
+  52602242 while the larger spread sample covers only 1640 kernels. No new
+  transition type, cache peak, collapse, or failure appears. A full scan would
+  still be mathematically decisive, but launching it in this representation is
+  stopped. Next intern only actually queried restricted-root containment pairs
+  and differentially reproduce bad masks; then revisit exhaustive coverage.
+
+### Iteration 273 — exact second-round kernel calculus
+- Let `kappa(c)` be the greatest old lower when it exists. Intersections are
+  safe: `kappa(c intersection d)=kappa(c) meet kappa(d)`. Complement safety is
+  equivalent to existence of a least old upper `lambda(c)`, with
+  `kappa(c-complement)=lambda(c)-complement`. **Hand proved.**
+- For disjoint kernel-good `c,d` in a finite atomistic old OML, add every old
+  bridge atom contained in `c union d` but in neither operand. Their old join
+  together with `kappa(c),kappa(d)` is the kernel exactly when it remains
+  inside the union. **Hand proved.** This is the exact second-round critical-
+  pair certificate.
+- Automatic complement/disjoint-union preservation is **Refuted** by the
+  hand-checked concrete `MO2` control in `P({0,1,2,3})`: `{2}` has kernel zero
+  but complement `{0,1,3}` has incomparable lowers `01,13`; `{2}` and `{0,3}`
+  have kernel zero while their union has incomparable lowers `02,23`.
+- Even exhaustive first-round success would not by itself prove closure or
+  generated latticehood. A finite provenance-sensitive OR/AND normalization
+  and bridge-pair audit remain required after the first-round theorem.
+- **Lean certification:** `KernelClosureCalculus.lean` proves
+  `greatest_intersection`, complement greatest/least duality, accurately named
+  intersection-cover folds, and generic bridge-union fold criteria with the
+  base-join, bridge-eligibility and cover hypotheses explicit. **Lean
+  certified**; `greatest_intersection` uses no axioms, the other six report
+  `[propext]`, and there is no `sorryAx`. Concrete disjointness and atom
+  classification remain external instantiation obligations.

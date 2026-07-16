@@ -480,6 +480,24 @@ are **Lean certified** in `FiniteAtomFoldKernel.lean` with no `sorryAx`.
 Next scale to 500 spread retained events per orientation in a separate
 artifact; stop for containment-class compression if runtime ceases to scale.
 
+The scale run covers 1640 kernels with no escape and unchanged cache peaks,
+but costs 52602242 assigned comparisons. **Executable verified** as a bounded
+seed-0 observation, payload `9b1277f7...`; a seed-12345 run passed mathematical
+assertions but failed receipt equality, so deterministic reproduction is
+**Open**. Full scanning in this representation is stopped pending sparse
+restricted-root containment-pair compression.
+
+First-round success would not close the grammar by itself. Kernel-good sets
+are intersection-closed; complement safety is exactly least-old-upper
+existence; disjoint-union safety is exactly the finite bridge-atom fold staying
+inside the union. **Hand proved.** Automatic complement and union preservation
+are **Refuted** by a four-point concrete `MO2` control. Generated latticehood
+is a separate obligation.
+The abstract intersection, complement-duality, cover-fold, and bridge-union
+implications are **Lean certified** in `KernelClosureCalculus.lean` with the
+concrete atomistic-cover hypotheses explicit; only `greatest_intersection` is
+axiom-free, while the remaining six report `[propext]` and no `sorryAx`.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

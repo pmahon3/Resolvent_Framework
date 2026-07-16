@@ -94,6 +94,11 @@
 | deflationary/inflationary kernel preserves old extrema | Lean certified | three axiom-free theorems including complement conjugacy |
 | state-projection alone preserves old extrema | explicit four-point `MO2` control | refuted even for bijective point-state restriction |
 | first 100 adjacent mixed kernels have old lower shadows | Executable verified (bounded producer replay; nonexhaustive) | 91 atoms; 60 realized cores, 40 absent cores with unique greatest |
+| atomic fold kernel and strict escape | Lean certified | explicit atomistic-cover hypothesis; no `sorryAx` |
+| bounded adjacent streaming kernels | Executable verified | 1233 exact kernels pass; complete 55722 remains open |
+| kernel intersection and complement duality | Hand proved plus Lean certified | stable abstract calculus |
+| disjoint-union bridge-atom criterion | Hand proved; generic fold Lean certified | concrete bridge classification remains external |
+| automatic complement/disjoint-union kernel preservation | Hand proved four-point `MO2` control | refuted |
 
 ## Counterexample ledger
 
@@ -274,7 +279,11 @@ live kernels (5070702 possible atom visits), rather than the former 3100216
 rectangular ceiling. Run a 64-prefix plus 64-spread grouped-versus-scalar
 streaming differential with per-`A` eviction. It passes 1233 exact kernels
 with no escape and flat MDD snapshots; the fold implication is Lean certified.
-Next run a separate 500-spread-event sample per orientation, then prove or
+The 500-spread-event scale covers 1640 kernels without a new pattern but costs
+52602242 assigned comparisons and fails whole-receipt cross-seed equality.
+Pivot to sparse restricted-root containment-pair interning before exhaustion.
+Independently, intersection kernels are automatic while complement and union
+require least-upper and bridge-atom tests. Then prove or
 refute conservative extrema and the two-
 copy critical-pair theorem before forming any direct limit. Audit
 countable sigma-closure, centre, order separation, maximal blocks/MBRC,

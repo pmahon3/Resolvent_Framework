@@ -541,24 +541,26 @@ bad-mask eligibility completeness in this file.
 - **New structural pattern?** Yes: conservative assembly is controlled by the
   deflationary trace kernel, and its failures have strict atomic-extension
   horn certificates.
-- **Genuinely new stage?** The first 100 scalar kernels introduce no failure
-  type; they are a bounded prefix. The atom/horn reduction is theorem-new and
-  changes the search space.
+- **Genuinely new stage?** The 1000-retained-event scale sample introduces no
+  new transition type, cache peak, or failure beyond the bounded checkpoint.
+  The atom/horn reduction is theorem-new and changes the search space.
 - **Finite grammar rule?** Candidate rule: eligibility ideals must be closed
   under every strict atomic extension. Coverage is **Hand proved**; closure
   for the current grammar is **Open**.
 - **Well-founded invariant?** The incremental old join is monotone; its first
   escape from the trace core is permanent and certifies failure.
-- **Collapse unavoidable?** No evidence yet. All 100 tested kernels pass.
+- **Collapse unavoidable?** No evidence yet. The bounded and scale samples
+  pass, but neither exhausts the 55722 live kernels.
 - **Infinite coherent grammar evidence?** None: only the two-copy first layer
   is under test.
-- **Would deeper brute branching discriminate?** No for the scalar all-event
-  scan (23.1-billion-test projection). Atom-only replay or the complete horn
-  atlas is required.
+- **Would deeper brute branching discriminate?** A complete scan would decide
+  the first round, but the current oracle grows to 52602242 assigned
+  comparisons for only 1640 scale kernels. Sparse containment-pair interning
+  is required before exhaustion.
 
 | Gate | Current status | Evidence | Remaining obligation |
 |---|---|---|---|
-| Repair grammar | OR/AND tags plus kernel horns | Hand + executable bounded-100 atom replay | close atomic-horn atlas |
+| Repair grammar | OR/AND tags plus kernel horns | Hand + bounded executable streaming | compress containment pairs, then close atomic-horn atlas |
 | Latticehood | Open for adjacent closure | none | construct/verify mixed extrema |
 | Orthomodularity | Conditional on set-lattice closure | Hand lemma | prove latticehood |
 | Same-side boundary preservation | Open in assembly | single-copy executable | audit mixed closure |
@@ -578,3 +580,53 @@ constructs the upper shadow by complement conjugacy from the lower kernel.
 All three `#print axioms` reports are empty. The formalization assumes the
 shadow retraction; constructing it for the adjacent mixed grammar remains the
 open mathematical gate.
+
+### 10.3 Scale boundary and second-round calculus
+
+A separate scale wrapper tests 500 endpoint-spread retained events per
+orientation and all their admissible masks: 827 left plus 813 right kernels,
+with grouped/scalar assertions passing and no escape. Peak group/cache sizes
+remain unchanged and the measured MDD snapshots remain equal. **Executable
+verified** as a bounded seed-0 producer observation, payload `9b1277f7...`.
+The producer is `adjacent_full_cycle_streaming_atomic_scale.py`, wrapper hash
+`1f6dbc98...`, importing engine `c6ff8065...`; the banked evidence command is
+explicitly pinned to `PYTHONHASHSEED=0`, with no independent verifier.
+The seed-12345 execution passed all mathematical assertions but failed whole-
+receipt equality; its differing payload was not retained, so deterministic
+receipt reproduction is **Open** and the scale artifact carries this caveat.
+
+The run makes 52602242 assigned comparisons for only 1640 kernels. It adds no
+new transition type, cache peak, collapse or failure. A full 55722-kernel scan
+remains mathematically decisive, but this representation has reached
+computational stop signal E. The next representation test interns only
+restricted-root class pairs actually queried by `bad_A(D)` and differentially
+reproduces the old oracle. Exhaustion resumes only if that sparse quotient
+materially compresses comparisons.
+
+For an old concrete lattice `A`, call a set `c` kernel-good when it has a
+greatest old lower `kappa(c)`.
+
+1. If `c,d` are kernel-good, then `c intersection d` is kernel-good with
+   kernel `kappa(c) meet_A kappa(d)`. **Hand proved.**
+2. The complement of arbitrary `c` is kernel-good exactly when `c` has a least
+   old upper `lambda(c)`; its kernel is `lambda(c)`-complement. **Hand proved.**
+3. In a finite atomistic old OML, for disjoint kernel-good `c,d`, join their
+   kernels with every old bridge atom contained in the union but in neither
+   operand. The union is kernel-good exactly when this old join remains inside
+   the union; then it is the kernel. **Hand proved.**
+
+Automatic complement and union preservation are **Refuted** by the concrete
+four-point `MO2={0,1,01,23,02,13}`: `{2}` has kernel zero but its complement
+has incomparable maximal lowers `01,13`; `{2}` and `{0,3}` have kernel zero
+while their union has incomparable maximal lowers `02,23`. Thus even an
+exhaustive first-round pass would not by itself prove closure. The second round
+must classify canonical OR/AND children and bridge atoms; generated latticehood
+remains a separate internal-intersection obligation.
+
+The abstract stable portion is **Lean certified** in
+`QuerySystem/KernelClosureCalculus.lean`. `greatest_intersection` has no axioms;
+the complement-duality, intersection-cover-fold, and generic bridge-union-fold
+theorems each report `[propext]`, with no `sorryAx`. The union wrapper keeps
+base-join eligibility, bridge eligibility, and full atomistic coverage as
+explicit hypotheses. It does not formalize the concrete bridge classification
+or disjointness proof; those remain the hand-proved instantiation layer.

@@ -264,9 +264,14 @@ only in their 56-event shared cell. The naive global-MDD representation is
 closed by a 7.17-GB pre-closure boundary. The first mixed layer requires both
 OR and AND-rectangle tags, and literal coordinate-hull closure is refuted;
 the first missing hull nevertheless has unique old envelopes. Exhaust the
-exact deflationary kernel-retraction condition through the batched
-atom-only scan or strict atomic-horn `Bad_A(D)` defect atlas (scalar all-event
-prefixes are stopped), then prove or
+exact deflationary kernel-retraction condition through the strict atomic-horn
+`Bad_A(D)` defect atlas. Scalar all-event prefixes and eager complete
+retained-event-by-atom descriptors are stopped; first intern exact
+restricted-root trace classes on 8--16 deterministically spread shared states and measure
+containment compression. Exact disjoint-existential filtering leaves 55722
+live kernels (5070702 possible atom visits), rather than the former 3100216
+rectangular ceiling; use a streaming per-`A` scan if the class census supports
+it, then prove or
 refute conservative extrema and the two-
 copy critical-pair theorem before forming any direct limit. Audit
 countable sigma-closure, centre, order separation, maximal blocks/MBRC,

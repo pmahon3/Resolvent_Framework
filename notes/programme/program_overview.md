@@ -742,6 +742,15 @@ The first 100 symbolic transitions pass. A scalar exhaustive scan is not
 informative at its projected all-event scale; the 91-atom replay agrees while
 reducing the test count 205.15-fold. Atomisticity reduces the complete
 obstruction to strict-overshoot joins with one old atom.
+The earlier 3.1-million-kernel and 282.1-million-atom figures were rectangular
+pre-admissibility ceilings. Exact disjoint-existential filtering leaves 55722
+live `(A,U)` kernels, 5070702 possible atom visits, and at most 10141404
+uncached bad-mask calls, reopening a streaming exhaustive scan.
+Eager complete retained-event-by-atom descriptor construction nevertheless
+crosses the present feasibility boundary (12 minutes and roughly 1 GiB RSS,
+no receipt or verdict). The next controlled test is per-state restricted-root
+class interning on 8--16 deterministically spread shared states, measuring containment-class
+compression before scaling to the complete horn atlas.
 
 ## Repository Layout
 

@@ -446,11 +446,21 @@ OML embeds conservatively iff every new event has a greatest old lower shadow.
 **Hand proved.** Exhausting this kernel condition for one-step mixed events is
 the live finite-support gate. The first 100 symbolic kernels pass (60 old
 cores, 40 absent cores with unique greatest lower). The 91-atom replay agrees
-and cuts exact tests 205.15-fold. All-event scalar exhaustion is stopped at a
-23.1-billion projection; atom-only exhaustion has a 282.1-million ceiling and
-core construction is now the bottleneck. Equivalently the complete inverted
-target is the strict atomic-extension `Bad_A(D)` join-defect atlas. **Open**;
+and cuts exact tests 205.15-fold. The former 23.1-billion and 282.1-million
+projections used the rectangular pre-admissibility ceiling. Exact
+disjoint-existential filtering leaves 55722 live `(A,U)` kernels, with 5070702
+possible atom visits and at most 10141404 uncached atom-plus-accumulator
+bad-mask calls. Equivalently the complete inverted target is the strict
+atomic-extension `Bad_A(D)` join-defect atlas. **Open**;
 arbitrary-depth closure is also **Open**.
+
+An eager complete retained-event-by-91-atom bad-mask descriptor census was
+stopped at a 12-minute feasibility cap after reaching roughly 1 GiB RSS,
+without a receipt or mathematical verdict. **Executable verified** operational
+observation only. The next discriminating representation is per-shared-state
+interning of exact restricted-root trace classes for the strict atomic horns,
+first on 8--16 deterministically spread states; no complete atlas run is authorized until
+that compression is measured.
 
 ## Primary sources
 

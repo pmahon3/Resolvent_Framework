@@ -703,7 +703,14 @@ mixed-shaped disjoint pairs and needs both OR and AND-rectangle tags. A first
 missing literal coordinate hull is repaired by unique old envelopes. The live
 finite-support question is the exact kernel-retraction/critical-pair theorem
 for their union, not interface fidelity or literal hull closure.
-The first 100 symbolic kernels pass, but scalar exhaustion is stopped at a
-23.1-billion all-event-test projection. The 91-atom replay agrees and cuts the
-prefix test count 205.15-fold; the exact problem is equivalently the atlas of
-strict-overshoot atomic extension horns.
+The first 100 symbolic kernels pass. The former 23.1-billion all-event and
+282.1-million atom projections used a rectangular pre-admissibility ceiling.
+Exact disjoint-existential filtering leaves 55722 live `(A,U)` kernels,
+5070702 possible atom visits, and at most 10141404 uncached bad-mask calls.
+The 91-atom replay agrees and cuts the prefix test count 205.15-fold; the exact
+problem is equivalently the atlas of strict-overshoot atomic extension horns.
+Eager materialization of every retained-event/atom bad-mask descriptor was
+stopped at the 12-minute/roughly-1-GiB feasibility boundary with no receipt or
+kernel verdict. The next exact representation test interns restricted-root
+trace classes per shared state on a stratified 8--16-state sample before any
+complete horn-atlas attempt.

@@ -2653,16 +2653,18 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   old-event cores and 40 absent cores, all with unique greatest old lower; no
   escape occurs. An atomistic replay gives the same verdict with 91 old atoms,
   3625 exact atom tests, 137 folds of maximum length ten, a 205.15-fold test
-  reduction. **Executable verified bounded evidence**, payload `7be059ff...`;
+  reduction. **Executable verified** (bounded), payload `7be059ff...`;
   no arbitrary-prefix or exhaustive claim; no independent verifier.
 - **Safe quotient:** inclusion-minimal existential masks at fixed `U` reduce
-  277/307 classes to 77/89 universal masks and the pre-admissibility ceiling
-  to 3100216 kernels. **Hand proved** plus executable counts.
+  277/307 classes to 77/89 universal masks and the rectangular
+  pre-admissibility ceiling to 3100216 cells. Exact disjoint-existential
+  filtering, recorded below, leaves 55722 kernels. **Hand proved** plus
+  **Executable verified** counts.
 - **Computational boundary:** successful absent kernels inspect 18591.8 of
   18676 old events on average; scalar exhaustion projects to about 23.1
-  billion subset tests. Stop deeper all-event prefixes under signal E. The
-  atom-only ceiling is 282.1 million tests (112.8 million at the observed
-  absent rate); core construction is now the first executable bottleneck.
+  billion subset tests only at the rectangular ceiling. The analogous
+  282.1-million atom count is also a conservative rectangular projection;
+  iteration 269 gives the corrected exact live bounds.
 - **Next theorem:** invert via `Bad_A(D)` masks and classify precisely the old
   non-set-union joins for which eligibility is not join-closed. A finite
   defect atlas proves/refutes the first-round kernel theorem. **Open.**
@@ -2676,3 +2678,41 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   join mask `Q` succeeds for every admissible `U` iff `Q subset cl_E(R)`.
   **Hand proved.** Global-minimum/global-maximum shortcuts are **Refuted**;
   horns deduplicate exactly by `(E,cl_E(R),Q)`.
+
+### Iteration 268 — atomic batching boundary and horn-atlas extraction
+- **Complete grammar:** every kernel failure has a first delta-positive atomic
+  extension horn `(P,a,P join a)`. Admissible masks compress by conditional
+  closure `cl_E`; verdicts deduplicate by
+  `(orientation,E_A,cl_E(R),Q minus cl_E(R))`. **Hand proved.**
+- **Rejected global atlas:** crossing all old `(P,a)` incidences with every
+  retained `A` has ceiling 63480321632 triples. A full event-pair containment
+  table would cost about 9.8 GB. Neither is a valid next computation.
+- **Eager descriptor test:** the complete 91-atom bad-vector census was
+  terminated at the 12-minute feasibility cap while still constructing
+  descriptors; peak observed RSS 1060368 KiB, no receipt and no mathematical
+  verdict. **Executable verified** feasibility observation, not theorem
+  evidence.
+- **Decision boundary:** stop eager/global enumeration. Intern restricted MDD
+  roots separately by shared state, measure containment-class matrices, then
+  run a 1000-retained-event simultaneous-`U` prototype. This is the smallest
+  computation that can distinguish a compact horn grammar from another
+  representation explosion.
+
+### Iteration 269 — exact admissible-kernel quotient correction
+- **Correction:** `3100216 = 18676*(77+89)` is a rectangular
+  pre-admissibility ceiling, not the number of live symbolic kernels. Applying
+  the disjoint-existential condition yields exactly 28023 left plus 27699
+  right, or 55722 distinct `(A,U)` kernels. **Executable verified** by the
+  deterministic bad-mask batch receipt; **Hand proved** quotient validity
+  because the physical core depends on the opposite witness only through `U`.
+- **Revised work bound:** 5070702 possible atom visits and at most 10141404
+  uncached atom-plus-accumulator bad-mask calls. The former 23.1-billion and
+  282.1-million figures remain only conservative rectangular-ceiling
+  projections.
+- **Bounded run:** eight stratified kernels in each orientation all pass, with
+  no folds and no escape. Payload `a85c5a3e...`; producer-only deterministic
+  replay under two hash seeds. **Executable verified** (bounded), not an
+  exhaustive kernel theorem.
+- **Pivot:** the exact quotient reopens a streaming per-retained-event
+  exhaustive horn scan with cache eviction. First measure safe restricted-root
+  trace classes; do not materialize the complete all-event descriptor table.

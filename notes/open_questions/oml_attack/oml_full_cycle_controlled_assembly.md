@@ -400,13 +400,14 @@ implementation, and this is not exhaustive finite evidence for all first-
 round kernels.
 
 The safe same-`U` existential antichain quotient reduces the two orientations
-from 277/307 `(E,U)` classes to 77/89 universal masks and the symbolic ceiling
-from 10906784 to 3100216 kernels. But successful absent kernels still inspect
-an average 18591.8 of 18676 old events. At the observed 40 percent absent
-rate, an all-event exhaustive run projects to about 23.1 billion exact subset
-tests. This is computational stop signal E for that scalar algorithm. The
-atom reduction lowers the corresponding ceiling to 282.1 million atom tests
-(about 112.8 million at the observed absent rate); the remaining bottleneck is
+from 277/307 `(E,U)` classes to 77/89 universal masks. The resulting 3100216
+figure is only the rectangular pre-admissibility ceiling. Applying the required
+disjoint-existential predicate leaves exactly 28023 left plus 27699 right, or
+55722 distinct admissible kernels. This corrects the earlier ceiling
+interpretation. The former 23.1-billion all-event and 282.1-million atom
+projections are conservative rectangular-ceiling projections, not exact live
+work estimates. The exact quotient has 5070702 possible atom visits and at
+most 10141404 uncached atom-plus-accumulator bad-mask calls; the bottleneck is
 building each 842-component core, so a measured larger atom prefix or the
 horn atlas—not deeper all-event prefixes—is the live discriminator.
 
@@ -455,6 +456,41 @@ on the live domain. The horn succeeds for every admissible `U` exactly when
 deduplicates verdicts by `(E,cl_E(R),Q)`. **Hand proved.** Checking only
 globally minimal or maximal `U` masks is **Refuted** by finite trace/`MO2`
 controls; conditional minima above `R` are load-bearing.
+
+A naive atlas over all `(A,P,a)` triples has ceiling 63480321632 and is
+rejected. The exact live quotient has 55722 kernels, hence 5070702 possible
+atom visits and at most 10141404 uncached atom-plus-accumulator bad-mask calls.
+The correct batching is
+per retained `A`: process all admissible `U` simultaneously, group masks by
+their current accumulator `P`, cache `b_A(a)` and `b_A(P join a)`, and retain
+only horns with `Delta=Q minus R` nonempty. Deduplicate theorem verdicts by
+`(orientation,E_A,cl_E(R),Q minus cl_E(R))`. **Hand proved** to be exhaustive.
+
+The first representation gate is computing `b_A(J)` for strict joins; it is
+not determined by the two input bad masks. A full event-pair containment table
+would cost about 9.8 GB and is rejected. The smallest next representation is
+per-shared-state interning of restricted MDD roots and their containment
+classes, followed by a 1000-retained-event grouped prototype. **Open.**
+
+The first eager batching prototype confirms this representation boundary. It
+attempted the complete descriptor
+`(E_A,(b_A(a))_{a in 91 atoms})` for every retained `A`, but was explicitly
+terminated at the 12-minute feasibility cap while still in that descriptor
+census; peak observed RSS was 1060368 KiB and no receipt was emitted.
+**Executable verified** feasibility observation (source
+`adjacent_full_cycle_badmask_atomic_batch.py`, hash `e43ba1ae...`; no
+mathematical verdict). This rules out eager complete
+descriptor materialization as the next computation. Per-state restricted-root
+class interning and sampled descriptor construction are required before any
+atlas run.
+
+After exact admissibility filtering, the live quotient is much smaller than
+the rectangular ceiling: 28023 left plus 27699 right kernels. A bounded run of
+`adjacent_full_cycle_badmask_atomic_batch.py` on eight stratified kernels per
+orientation passes with no escape (payload `a85c5a3e...`) and reproduces under
+`PYTHONHASHSEED=12345`. **Executable verified** (bounded) from one
+producer; it does not replay the banked legacy prefix because this receipt was
+run with `--legacy-prefix 0`, and it is not exhaustive.
 
 ### 10.2 Strategic decision-boundary audit
 

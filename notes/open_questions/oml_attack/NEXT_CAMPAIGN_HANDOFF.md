@@ -18,24 +18,29 @@
    cylinder; hand proofs for fibre-product formulas, kernel equivalence and
    horn reduction; three axiom-free Lean kernel theorems in
    `FullCycleAssemblyKernel.lean`; bounded atom replay payload `7be059ff...`
-   (100 kernels, no failure, not exhaustive).
+   (100 kernels, no failure, not exhaustive); bad-mask batch payload
+   `a85c5a3e...` (16 stratified kernels, no failure, deterministic
+   producer-only replay). Exact admissibility leaves 55722 live kernels.
 5. **Load-bearing:** `oml_full_cycle_controlled_assembly.md`; commits
-   `3211ee1`, `ac5e8e9`, `694995c`; new verification files prefixed
+   `3211ee1`, `ac5e8e9`, `694995c`, `a053b88`; verification files prefixed
    `adjacent_full_cycle_{boolean_envelope_shadow,tagged_grid_prototype,
-   exact_old_shadow,missing_hull_envelope,exact_lower_kernel_scan}` including
-   the bounded-100 kernel receipt.
+   exact_old_shadow,missing_hull_envelope,exact_lower_kernel_scan,
+   badmask_atomic_batch}` including the bounded receipts.
 6. **Unresolved theorem:** every event in the adjacent mixed closure has a
    greatest lower shadow in each old copy, coherently under further OR/AND
    transitions. This is the exact two-copy conservative-embedding kernel.
-7. **First action:** build the complete strict-overshoot atomic-horn atlas
-   `(P,a,P join a)` using `Bad_A` masks and the conditional-minimum closure
-   operator on admissible `U` masks. Use an exhaustive atom-only kernel scan
-   only if batching measurements make it genuinely preferable.
+7. **First action:** intern exact restricted-root trace classes separately for
+   8--16 deterministically spread shared states and both orientations, restricted to classes
+   occurring in strict atomic horns `(P,a,P join a)`. Measure class counts and
+   containment compression before extending to all 224 states. The eager
+   complete retained-event-by-91-atom descriptor census crossed the
+   12-minute/roughly-1-GiB feasibility boundary without a verdict or receipt.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection
-   alone; fixed-carrier T-FIN (refuted); deeper scalar kernel prefixes (23.1B
-   projected subset tests); or another finite repair-depth chain.
+   alone; fixed-carrier T-FIN (refuted); deeper scalar kernel prefixes; eager
+   complete bad-vector materialization; or
+   another finite repair-depth chain.
 
 Unresolved assumptions: arbitrary-depth kernel stability, mixed latticehood,
 contextwise cross-copy block factorization, centre/escape/state separation of

@@ -721,3 +721,9 @@ per-state restricted-root classes (payload `d8290f39...`). This is
 global trace-vector bound. The next discriminator is a grouped-versus-scalar
 streaming scan over all admissible masks for 64 prefix plus 64 spread retained
 events per orientation.
+That differential now passes all 1233 selected live kernels with exact
+grouped/scalar equality, no escape, and unchanged MDD snapshots. **Executable
+verified** (bounded, single producer), payload `c8587f5b...`. The abstract
+greatest-lower/strict-escape fold is **Lean certified** in
+`FiniteAtomFoldKernel.lean`. The next scale gate is a separate 500-spread-event
+run per orientation; runtime failure pivots to sparse containment classes.

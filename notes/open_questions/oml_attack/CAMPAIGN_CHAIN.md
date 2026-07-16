@@ -272,7 +272,9 @@ the corrected census yields 2740 per-state classes from 448200 trace words but
 does not bound global trace vectors. Exact disjoint-existential filtering leaves 55722
 live kernels (5070702 possible atom visits), rather than the former 3100216
 rectangular ceiling. Run a 64-prefix plus 64-spread grouped-versus-scalar
-streaming differential with per-`A` eviction, then prove or
+streaming differential with per-`A` eviction. It passes 1233 exact kernels
+with no escape and flat MDD snapshots; the fold implication is Lean certified.
+Next run a separate 500-spread-event sample per orientation, then prove or
 refute conservative extrema and the two-
 copy critical-pair theorem before forming any direct limit. Audit
 countable sigma-closure, centre, order separation, maximal blocks/MBRC,

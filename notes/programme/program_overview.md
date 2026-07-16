@@ -758,6 +758,12 @@ exact classes. **Executable verified** by one producer under two hash seeds,
 payload `d8290f39...`; this is not a global-vector theorem. The next run is a
 bounded grouped-versus-scalar streaming differential with per-retained-event
 cache eviction.
+The repaired differential passes 1233 exact live kernels with grouped/scalar
+agreement, zero escapes and identical before/after MDD snapshots. **Executable
+verified** (bounded, single producer), payload `c8587f5b...`. The abstract
+fold criterion and strict escaping extension are **Lean certified** in
+`FiniteAtomFoldKernel.lean`. A separate 500-spread-event-per-orientation run is
+the next scale discriminator; it is not yet the complete 55722-kernel theorem.
 
 ## Repository Layout
 

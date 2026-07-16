@@ -510,6 +510,32 @@ uses the correct `a <= P` principal-upset direction, and asserts this regression
 The invalid earlier receipt was overwritten. **Refuted** optimization;
 **Executable verified** corrected census.
 
+The first cache-evicted grouped streaming differential now covers every
+admissible `U` for 127 selected retained events in each orientation: 551 left
+plus 682 right kernels. Grouped simultaneous-mask folds agree exactly with a
+scalar replay on all 1233 kernels, and no atomic escape occurs. **Executable
+verified** (bounded, single producer), payload `c8587f5b...`; canonical JSON
+agrees under hash seeds 0 and 12345. This is 2.21 percent of the 55722 live
+kernel quotient, not an exhaustive theorem.
+
+The first read-only assigned-containment oracle was **Refuted** because it
+used terminal-false shortcuts before eliminating the assigned coordinate. The
+corrected oracle matches 128 deterministic exact residual tests and four
+targeted former-bug cases. The measured streaming phase leaves the aggregate
+MDD node/application/negation-cache snapshot exactly unchanged at
+`(795720,937618,40604)`. It makes 15277539 assigned comparisons and 6471560
+recursive-node visits; peak live groups are 56 and peak per-`A` bad caches are
+188/159. Thus memory is flat under eviction, while containment runtime is the
+current scaling risk.
+
+The abstract fold implication is now **Lean certified** in
+`QuerySystem/FiniteAtomFoldKernel.lean`. Theorems `foldl_sup_le`,
+`fold_good_iff_exists_greatest`, and `exists_strict_escaping_extension` compile
+without `sorryAx`. Their `#print axioms` outputs are `[propext]`, `[propext]`,
+and `[propext, Classical.choice, Quot.sound]`. The atomistic-cover hypothesis
+remains explicit: Lean does not prove finite-OML atomisticity or concrete
+bad-mask eligibility completeness in this file.
+
 ### 10.2 Strategic decision-boundary audit
 
 - **New structural pattern?** Yes: conservative assembly is controlled by the

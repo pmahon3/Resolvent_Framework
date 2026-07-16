@@ -16,25 +16,32 @@
    old bracket `0x404 < C < 0x505`; the original pulled event has lower shadow
    `0` and least upper `0x505`. Independent hostile derivation of the missing
    cylinder; hand proofs for fibre-product formulas, kernel equivalence and
-   horn reduction; three axiom-free Lean kernel theorems in
+   horn reduction; three Lean kernel theorems in
    `FullCycleAssemblyKernel.lean`; bounded atom replay payload `7be059ff...`
    (100 kernels, no failure, not exhaustive); bad-mask batch payload
    `a85c5a3e...` (16 stratified kernels, no failure, deterministic
-   producer-only replay). Exact admissibility leaves 55722 live kernels.
+   producer-only replay); trace-class payload `d8290f39...`; streaming
+   differential payload `c8587f5b...` (1233 kernels, no failure, bounded).
+   Exact admissibility leaves 55722 live kernels. The abstract fold/strict-
+   escape chain is Lean certified in `FiniteAtomFoldKernel.lean` with reported
+   Mathlib axioms and no `sorryAx`.
 5. **Load-bearing:** `oml_full_cycle_controlled_assembly.md`; commits
    `3211ee1`, `ac5e8e9`, `694995c`, `a053b88`; verification files prefixed
    `adjacent_full_cycle_{boolean_envelope_shadow,tagged_grid_prototype,
    exact_old_shadow,missing_hull_envelope,exact_lower_kernel_scan,
-   badmask_atomic_batch}` including the bounded receipts.
+   badmask_atomic_batch,restricted_trace_classes,
+   streaming_atomic_differential}` including the bounded receipts; Lean file
+   `QuerySystem/FiniteAtomFoldKernel.lean`.
 6. **Unresolved theorem:** every event in the adjacent mixed closure has a
    greatest lower shadow in each old copy, coherently under further OR/AND
    transitions. This is the exact two-copy conservative-embedding kernel.
-7. **First action:** run the grouped-versus-scalar streaming differential for
-   64 prefix plus 64 deterministically spread retained events per orientation,
-   processing every admissible `U` for each selected event. Use read-only MDD
-   subset recursion and per-`A` cache eviction; record exact failure witnesses,
-   group/cache peaks, and scalar equality. The 12-state class census payload
-   `d8290f39...` gives 2740 per-state classes but no global-vector bound.
+7. **First action:** create a separate scale artifact and run 500
+   deterministically spread retained events per orientation (1000 total), all
+   admissible `U`, retaining grouped/scalar differential checks and per-`A`
+   eviction. The bounded source/receipt pair `c6ff8065...`/`c8587f5b...`
+   already covers 1233 kernels with no escape and flat MDD snapshots. If the
+   larger run crosses the cooperative budget, pivot to sparse restricted-root
+   containment-class interning rather than reducing evidence discipline.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

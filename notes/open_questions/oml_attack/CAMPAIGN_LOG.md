@@ -2738,3 +2738,31 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   proves no kernel verdict. Next run the bounded grouped-versus-scalar
   streaming scan over all admissible `U` for 64 prefix plus 64 spread retained
   events per orientation with cache-eviction counters.
+
+### Iteration 271 — bounded streaming differential and Lean fold theorem
+- **Bounded scan:** all admissible masks for 127 selected retained events in
+  each orientation give 551 left plus 682 right kernels. Grouped simultaneous-
+  mask folds agree exactly with scalar replay on every kernel; all 1233 pass
+  with no atomic escape. Payload `c8587f5b...`, producer `c6ff8065...`;
+  canonical JSON agrees under hash seeds 0 and 12345. **Executable verified**
+  (bounded, single producer; shared bad-mask oracle).
+- **Hostile repair:** the first read-only subset oracle applied terminal-false
+  shortcuts before conditioning the shared coordinate and was **Refuted**.
+  The corrected oracle agrees with 128 deterministic exact residual tests plus
+  four targeted former-bug cases. MDD `(nodes,app-cache,neg-cache)` snapshots
+  are identical before/after the measured scan:
+  `(795720,937618,40604)`. **Executable verified**.
+- **Measured boundary:** 15277539 assigned-containment calls and 6471560
+  recursive nodes; peak live mask groups 56, per-`A` bad cache 188/159, and
+  per-atom join cache 8. Memory is flat; runtime, not retained MDD state, is
+  the first scaling risk.
+- **Lean certification:** `FiniteAtomFoldKernel.lean` proves
+  `foldl_sup_le`, `fold_good_iff_exists_greatest`, and
+  `exists_strict_escaping_extension`. The last conclusion includes genuine
+  strictness and does not claim earlier-prefix minimality. **Lean certified**;
+  axioms respectively `[propext]`, `[propext]`, and
+  `[propext, Classical.choice, Quot.sound]`; no `sorryAx`.
+- **Next test:** run a separate 500-spread-retained-event sample per
+  orientation (1000 total), preserving this receipt/source pair. If runtime
+  ceases to scale or containment pairs explode, pivot to sparse restricted-root
+  containment-class interning; do not launch the full 55722 scan blindly.

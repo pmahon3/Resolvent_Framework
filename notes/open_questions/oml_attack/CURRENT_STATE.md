@@ -471,6 +471,15 @@ This is not a global-vector compression theorem. The next discriminating run
 is the grouped-versus-scalar streaming differential over every admissible `U`
 for 64 prefix plus 64 spread retained events per orientation.
 
+That differential passes on 1233 exact kernels (551 left, 682 right) with
+grouped/scalar equality and no escape. **Executable verified** (bounded,
+single producer), payload `c8587f5b...`; canonical cross-seed payloads agree.
+The corrected read-only oracle passes 132 exact regressions and leaves MDD
+snapshots unchanged. The fold/greatest-lower and strict-escape implications
+are **Lean certified** in `FiniteAtomFoldKernel.lean` with no `sorryAx`.
+Next scale to 500 spread retained events per orientation in a separate
+artifact; stop for containment-class compression if runtime ceases to scale.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

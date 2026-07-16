@@ -267,11 +267,12 @@ the first missing hull nevertheless has unique old envelopes. Exhaust the
 exact deflationary kernel-retraction condition through the strict atomic-horn
 `Bad_A(D)` defect atlas. Scalar all-event prefixes and eager complete
 retained-event-by-atom descriptors are stopped; first intern exact
-restricted-root trace classes on 8--16 deterministically spread shared states and measure
-containment compression. Exact disjoint-existential filtering leaves 55722
+restricted-root trace classes on 12 deterministically spread shared states;
+the corrected census yields 2740 per-state classes from 448200 trace words but
+does not bound global trace vectors. Exact disjoint-existential filtering leaves 55722
 live kernels (5070702 possible atom visits), rather than the former 3100216
-rectangular ceiling; use a streaming per-`A` scan if the class census supports
-it, then prove or
+rectangular ceiling. Run a 64-prefix plus 64-spread grouped-versus-scalar
+streaming differential with per-`A` eviction, then prove or
 refute conservative extrema and the two-
 copy critical-pair theorem before forming any direct limit. Audit
 countable sigma-closure, centre, order separation, maximal blocks/MBRC,

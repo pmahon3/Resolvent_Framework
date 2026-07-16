@@ -492,6 +492,24 @@ orientation passes with no escape (payload `a85c5a3e...`) and reproduces under
 producer; it does not replay the banked legacy prefix because this receipt was
 run with `--legacy-prefix 0`, and it is not exhaustive.
 
+The safe per-state representation census is now complete on 12
+deterministically spread shared states in both orientations. Exhaustive
+old-lattice enumeration finds 1566640 genuine atomic extensions and 1433764
+strict non-set-union horns; their roles cover 18675 of 18676 old events. The
+448200 per-state/orientation trace words compress to 2740 exact restricted-root
+classes, 74--136 per sampled state/orientation (aggregate ratio 163.58).
+**Executable verified** by one producer under two hash seeds, payload
+`d8290f39...`; no independent verifier. This is not a bound on global
+224-state trace vectors. The theoretical packed-root tally is 309552 bytes,
+not measured process memory.
+
+Hostile review refuted the initial atom-support-only overshoot test: join
+`(P,a,J)=(1,18451,18431)` agrees on every atom-support macrofibre but differs
+on 432 off-support macrofibres. The corrected producer checks all 842 macros,
+uses the correct `a <= P` principal-upset direction, and asserts this regression.
+The invalid earlier receipt was overwritten. **Refuted** optimization;
+**Executable verified** corrected census.
+
 ### 10.2 Strategic decision-boundary audit
 
 - **New structural pattern?** Yes: conservative assembly is controlled by the

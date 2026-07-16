@@ -712,5 +712,12 @@ problem is equivalently the atlas of strict-overshoot atomic extension horns.
 Eager materialization of every retained-event/atom bad-mask descriptor was
 stopped at the 12-minute/roughly-1-GiB feasibility boundary with no receipt or
 kernel verdict. The next exact representation test interns restricted-root
-trace classes per shared state on a stratified 8--16-state sample before any
+trace classes per shared state on deterministically spread states before any
 complete horn-atlas attempt.
+The corrected 12-state, two-orientation census finds 1433764 strict atomic
+overshoot horns and compresses 448200 horn-role trace words to 2740 exact
+per-state restricted-root classes (payload `d8290f39...`). This is
+**Executable verified** by a single producer under two hash seeds and is not a
+global trace-vector bound. The next discriminator is a grouped-versus-scalar
+streaming scan over all admissible masks for 64 prefix plus 64 spread retained
+events per orientation.

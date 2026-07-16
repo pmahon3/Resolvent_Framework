@@ -2716,3 +2716,25 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** the exact quotient reopens a streaming per-retained-event
   exhaustive horn scan with cache eviction. First measure safe restricted-root
   trace classes; do not materialize the complete all-event descriptor table.
+
+### Iteration 270 — safe restricted-root trace-class census
+- **Exact horn roles:** exhaustive old-lattice enumeration gives 1566640
+  genuine atomic extensions and 1433764 strict non-set-union horns, involving
+  18674 prior accumulators, all 91 atoms, 5674 joins, and 18675 events in their
+  union. **Executable verified** on the fixed old OML.
+- **Hostile repair:** the first implementation wrongly inspected only the
+  atom-support macrofibres and reversed the principal-upset order test. The
+  corrected producer checks all 842 macrofibres and banks regression
+  `(P,a,J)=(1,18451,18431)`, whose overshoot occurs on zero atom-support and
+  432 off-support macrofibres. The invalid receipt was overwritten. **Refuted**
+  optimization; **Executable verified** repair.
+- **Representation result:** on 12 deterministically spread shared states and
+  both orientations, 448200 per-state horn-role trace words intern to 2740
+  exact classes (74--136 per state/orientation; aggregate ratio 163.58).
+  Payload `d8290f39...`; source `7d7c777d...`; two hash-seed replays agree.
+  The 309552-byte number is a theoretical four-byte-per-root tally, not a
+  measured memory footprint. **Executable verified** (single producer).
+- **Scope:** this does not bound global 224-state trace-vector classes and
+  proves no kernel verdict. Next run the bounded grouped-versus-scalar
+  streaming scan over all admissible `U` for 64 prefix plus 64 spread retained
+  events per orientation with cache-eviction counters.

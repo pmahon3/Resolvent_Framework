@@ -462,6 +462,15 @@ interning of exact restricted-root trace classes for the strict atomic horns,
 first on 8--16 deterministically spread states; no complete atlas run is authorized until
 that compression is measured.
 
+That bounded class census now passes after hostile repair. Across 12
+deterministically spread shared states and both orientations, 448200 exact
+horn-role trace words intern to 2740 per-state classes (74--136 each). The
+fixed old OML has 1433764 strict atomic overshoot horns. **Executable
+verified** by a single producer under two hash seeds, payload `d8290f39...`.
+This is not a global-vector compression theorem. The next discriminating run
+is the grouped-versus-scalar streaming differential over every admissible `U`
+for 64 prefix plus 64 spread retained events per orientation.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

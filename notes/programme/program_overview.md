@@ -751,6 +751,13 @@ crosses the present feasibility boundary (12 minutes and roughly 1 GiB RSS,
 no receipt or verdict). The next controlled test is per-state restricted-root
 class interning on 8--16 deterministically spread shared states, measuring containment-class
 compression before scaling to the complete horn atlas.
+The repaired census now checks every macrofibre and the correct atomic-order
+direction. It finds 1433764 strict horns; on 12 deterministically spread shared
+states and both orientations, 448200 per-state trace words intern to 2740
+exact classes. **Executable verified** by one producer under two hash seeds,
+payload `d8290f39...`; this is not a global-vector theorem. The next run is a
+bounded grouped-versus-scalar streaming differential with per-retained-event
+cache eviction.
 
 ## Repository Layout
 

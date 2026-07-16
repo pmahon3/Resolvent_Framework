@@ -29,12 +29,12 @@
 6. **Unresolved theorem:** every event in the adjacent mixed closure has a
    greatest lower shadow in each old copy, coherently under further OR/AND
    transitions. This is the exact two-copy conservative-embedding kernel.
-7. **First action:** intern exact restricted-root trace classes separately for
-   8--16 deterministically spread shared states and both orientations, restricted to classes
-   occurring in strict atomic horns `(P,a,P join a)`. Measure class counts and
-   containment compression before extending to all 224 states. The eager
-   complete retained-event-by-91-atom descriptor census crossed the
-   12-minute/roughly-1-GiB feasibility boundary without a verdict or receipt.
+7. **First action:** run the grouped-versus-scalar streaming differential for
+   64 prefix plus 64 deterministically spread retained events per orientation,
+   processing every admissible `U` for each selected event. Use read-only MDD
+   subset recursion and per-`A` cache eviction; record exact failure witnesses,
+   group/cache peaks, and scalar equality. The 12-state class census payload
+   `d8290f39...` gives 2740 per-state classes but no global-vector bound.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

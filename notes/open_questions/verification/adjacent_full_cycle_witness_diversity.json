@@ -1,0 +1,368 @@
+{
+  "actual_kernel_bad_count_divergence": false,
+  "all_leaf_witness_class_summaries": [
+    {
+      "U_hex": "0x1",
+      "candidate_count": 1896,
+      "canonical_event_index": 9,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 3,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 0,
+      "strata_digest_sha256": "00ed13c954f49d5191106f75cc4ce34969d0798eb9e6e810ed4beedd2202db8d"
+    },
+    {
+      "U_hex": "0x2",
+      "candidate_count": 2772,
+      "canonical_event_index": 5120,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 3,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 0,
+      "strata_digest_sha256": "c0f1f6868caea16b0d29f05e3a17c820e5df37b27c08e92f68c9ae42c56a3dfa"
+    },
+    {
+      "U_hex": "0x1",
+      "candidate_count": 12,
+      "canonical_event_index": 9,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 3,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 3362,
+      "strata_digest_sha256": "00ed13c954f49d5191106f75cc4ce34969d0798eb9e6e810ed4beedd2202db8d"
+    },
+    {
+      "U_hex": "0x2",
+      "candidate_count": 36,
+      "canonical_event_index": 5120,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 3,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 3362,
+      "strata_digest_sha256": "c0f1f6868caea16b0d29f05e3a17c820e5df37b27c08e92f68c9ae42c56a3dfa"
+    },
+    {
+      "U_hex": "0x2",
+      "candidate_count": 33,
+      "canonical_event_index": 5120,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 3,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 770,
+      "strata_digest_sha256": "c0f1f6868caea16b0d29f05e3a17c820e5df37b27c08e92f68c9ae42c56a3dfa"
+    },
+    {
+      "U_hex": "0xff800000000000000f8000000000000f800002",
+      "candidate_count": 4,
+      "canonical_event_index": 8704,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 4,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 770,
+      "strata_digest_sha256": "ce60cead9e5c93bf31f63c36c1c6dd6c2f8c4a94fe05491497adc34b9c03f5d5"
+    },
+    {
+      "U_hex": "0x1",
+      "candidate_count": 2442,
+      "canonical_event_index": 129,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 3,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 0,
+      "strata_digest_sha256": "19ee6de8c89fcad658312cd9df711e26e3d458c0593343b809a051cef50b8e7e"
+    },
+    {
+      "U_hex": "0x2",
+      "candidate_count": 1260,
+      "canonical_event_index": 13824,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 1,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 0,
+      "strata_digest_sha256": "8e0a8049e70b636e6616d805e6d63e3bfcd1e905f78bf343f69b8eb5c2bc4462"
+    },
+    {
+      "U_hex": "0x1",
+      "candidate_count": 18,
+      "canonical_event_index": 129,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 3,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 1700,
+      "strata_digest_sha256": "19ee6de8c89fcad658312cd9df711e26e3d458c0593343b809a051cef50b8e7e"
+    },
+    {
+      "U_hex": "0x2",
+      "candidate_count": 12,
+      "canonical_event_index": 13824,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 1,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 1700,
+      "strata_digest_sha256": "8e0a8049e70b636e6616d805e6d63e3bfcd1e905f78bf343f69b8eb5c2bc4462"
+    },
+    {
+      "U_hex": "0x2",
+      "candidate_count": 15,
+      "canonical_event_index": 13824,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 1,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 49,
+      "strata_digest_sha256": "8e0a8049e70b636e6616d805e6d63e3bfcd1e905f78bf343f69b8eb5c2bc4462"
+    },
+    {
+      "U_hex": "0x3fff0000000000078000001fe000000600001fe000000600300",
+      "candidate_count": 6,
+      "canonical_event_index": 3112,
+      "minimal_E_count": 1,
+      "minimal_exact_root_strata_count": 1,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 49,
+      "strata_digest_sha256": "48322735b4b6e6a0321df8a82f0854894359abfe7960ed1339dccc50837e5a81"
+    }
+  ],
+  "audited_term_outcome_digest_divergence": true,
+  "base_full_cycle_payload_sha256": "7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0",
+  "baseline_actual_event_payload_sha256": "3d6f97c80ff21de11da3d748acb1d7635fa926386bf376ae921c0b7c1cdab6e9",
+  "baseline_actual_event_source_sha256": "03601b2b45078179fa2b0112240ca8fe4ba6fe8147e1c3b5522f03c39a4ce9e7",
+  "command": "python3 notes/open_questions/verification/adjacent_full_cycle_witness_diversity.py --verify",
+  "evidence_classes": [
+    "Executable verified bounded evidence"
+  ],
+  "first_joint_pattern_divergence": {
+    "U_hex": "0x1",
+    "alternate_opposite_event_index": 11,
+    "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+    "canonical_opposite_event_index": 9,
+    "joint_pattern_divergence": true,
+    "leaf_slot": 0,
+    "orientation": "left_retained_position11",
+    "retained_event_index": 0,
+    "variant_pattern_vector_sha256": "f93f91755cc27890e92ef29bace4d242392f9a9b4c0e0f0c49b0f81bea0d6f08"
+  },
+  "payload_sha256": "39bd3fe0682c0e2cc0ce12dfc61a3e3dd0493ed5ec7a3ee204fcbee24716866f",
+  "producer_sha256": "90fb5ea412523ddd86c998493fde9bbdb17fb359a4b14c5b8cb5c4d251433538",
+  "schema": "adjacent-full-cycle-opposite-witness-diversity-v1",
+  "schema_version": "1.0",
+  "scope": "Every single-slot substitution by a structurally distinct inclusion-minimal exact-root witness across all 12 sampled leaf slots. Equality proves invariance for every Boolean term in each fixed six-generator quotient, but not simultaneous multi-slot substitutions, other leaves, or full mixed closure.",
+  "semantic_rerun": {
+    "actual_kernel_bad_count_divergence": false,
+    "audited_term_outcome_digest_divergence": true,
+    "baseline_outcomes": {
+      "actual_kernel_bad_terms": 0,
+      "actual_shadow_table_chained_digest_sha256": "df2c9693a0d759503565972d900cd002c0587eeb9f4d9da21a4742c5cccfbffb",
+      "coordinate_kernel_bad_terms": 10,
+      "full_mismatch_chained_digest_sha256": "0e1f04d23065a5b1bcda841cbd9c4be6ea9e4bd487a60e94d4fae9389129182f",
+      "provenance_chained_digest_sha256": "edd5d0a2867a3b187f23b74ddc953138541cc816ade3dd747b412e68389afaa3",
+      "universal_shadow_mismatches": 31
+    },
+    "universal_shadow_divergence": true,
+    "variant_has_bad_actual_kernel": false,
+    "variant_outcomes": {
+      "actual_kernel_bad_terms": 0,
+      "actual_shadow_table_chained_digest_sha256": "a3792186b25ac7fdd187f4d1d75c43aabe7a23846d6fccdcd89377eeb0c30b9a",
+      "coordinate_kernel_bad_terms": 11,
+      "full_mismatch_chained_digest_sha256": "f385e8da0a7f21c95eb95cbf396d1b30ae7ff1d65f949925e678075044e14e11",
+      "provenance_chained_digest_sha256": "5b457d575d50e39c86c66c8ed1a04b85aa58ddfa980f24bafd5c1af9e703ff3e",
+      "universal_shadow_mismatches": 30
+    }
+  },
+  "simultaneous_pattern_cache_entries": 21742,
+  "simultaneous_pattern_divergence_count": 14,
+  "simultaneous_pattern_test_count": 17,
+  "simultaneous_six_bit_pattern_tests": [
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 11,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 9,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 0,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 0,
+      "variant_pattern_vector_sha256": "f93f91755cc27890e92ef29bace4d242392f9a9b4c0e0f0c49b0f81bea0d6f08"
+    },
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 25,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 9,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 0,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 0,
+      "variant_pattern_vector_sha256": "f93f91755cc27890e92ef29bace4d242392f9a9b4c0e0f0c49b0f81bea0d6f08"
+    },
+    {
+      "U_hex": "0x2",
+      "alternate_opposite_event_index": 15872,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 5120,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 1,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 0,
+      "variant_pattern_vector_sha256": "9b79ff351e31e9a39ed6ee649c706f9ce7dffaaa0972549022ed3c512e7cfe3d"
+    },
+    {
+      "U_hex": "0x2",
+      "alternate_opposite_event_index": 5632,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 5120,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 1,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 0,
+      "variant_pattern_vector_sha256": "e83746a20e903ff1b896824cb447ba5c38ab704fe29f0ae4d05d0b0c84548f21"
+    },
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 11,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 9,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 2,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 3362,
+      "variant_pattern_vector_sha256": "9ba7ddaa6c4973a58e5e233eaa2ba674a392cd3ca9bc7d02e7c83c8125e5b896"
+    },
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 25,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 9,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 2,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 3362,
+      "variant_pattern_vector_sha256": "9ba7ddaa6c4973a58e5e233eaa2ba674a392cd3ca9bc7d02e7c83c8125e5b896"
+    },
+    {
+      "U_hex": "0x2",
+      "alternate_opposite_event_index": 15872,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 5120,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 3,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 3362,
+      "variant_pattern_vector_sha256": "292b9f0e4213da7fa19f04e039ad8a21884e49c54335c4223efc352a87d36ed4"
+    },
+    {
+      "U_hex": "0x2",
+      "alternate_opposite_event_index": 5632,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 5120,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 3,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 3362,
+      "variant_pattern_vector_sha256": "9e1e548b4919d557d88f8791c1391051dc5fa37c1bcbbabf9943982458156fb6"
+    },
+    {
+      "U_hex": "0x2",
+      "alternate_opposite_event_index": 15872,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 5120,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 4,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 770,
+      "variant_pattern_vector_sha256": "5730cb27c38cfb2da63bae5cc6ccf4716b80297187d260b2636a6a10e0a09f8a"
+    },
+    {
+      "U_hex": "0x2",
+      "alternate_opposite_event_index": 5632,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 5120,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 4,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 770,
+      "variant_pattern_vector_sha256": "6c9cf339f5c6a370ec6196f553353710d11be66afabf5c436b12034a7a6a1fd9"
+    },
+    {
+      "U_hex": "0xff800000000000000f8000000000000f800002",
+      "alternate_opposite_event_index": 8960,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 8704,
+      "joint_pattern_divergence": false,
+      "leaf_slot": 5,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 770,
+      "variant_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355"
+    },
+    {
+      "U_hex": "0xff800000000000000f8000000000000f800002",
+      "alternate_opposite_event_index": 8832,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 8704,
+      "joint_pattern_divergence": false,
+      "leaf_slot": 5,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 770,
+      "variant_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355"
+    },
+    {
+      "U_hex": "0xff800000000000000f8000000000000f800002",
+      "alternate_opposite_event_index": 9088,
+      "baseline_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355",
+      "canonical_opposite_event_index": 8704,
+      "joint_pattern_divergence": false,
+      "leaf_slot": 5,
+      "orientation": "left_retained_position11",
+      "retained_event_index": 770,
+      "variant_pattern_vector_sha256": "0533d495385718f6c81f048c0eb3b76aae37456eb1095a04d6ca1e8a52628355"
+    },
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 641,
+      "baseline_pattern_vector_sha256": "06da1a0bfd5cba95268db368316dd18a193c0c7c47e59f89335edf6450fe5493",
+      "canonical_opposite_event_index": 129,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 0,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 0,
+      "variant_pattern_vector_sha256": "38baae270523bdc2218a1e97c397a9b5a0507dc8f8c11d23fba20c6ed12105b1"
+    },
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 133,
+      "baseline_pattern_vector_sha256": "06da1a0bfd5cba95268db368316dd18a193c0c7c47e59f89335edf6450fe5493",
+      "canonical_opposite_event_index": 129,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 0,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 0,
+      "variant_pattern_vector_sha256": "38baae270523bdc2218a1e97c397a9b5a0507dc8f8c11d23fba20c6ed12105b1"
+    },
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 641,
+      "baseline_pattern_vector_sha256": "06da1a0bfd5cba95268db368316dd18a193c0c7c47e59f89335edf6450fe5493",
+      "canonical_opposite_event_index": 129,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 2,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 1700,
+      "variant_pattern_vector_sha256": "178e05e77be544afff23e41d6d8a792ae54cdcc100c862173c4bbaf85acf7271"
+    },
+    {
+      "U_hex": "0x1",
+      "alternate_opposite_event_index": 133,
+      "baseline_pattern_vector_sha256": "06da1a0bfd5cba95268db368316dd18a193c0c7c47e59f89335edf6450fe5493",
+      "canonical_opposite_event_index": 129,
+      "joint_pattern_divergence": true,
+      "leaf_slot": 2,
+      "orientation": "right_retained_position00",
+      "retained_event_index": 1700,
+      "variant_pattern_vector_sha256": "178e05e77be544afff23e41d6d8a792ae54cdcc100c862173c4bbaf85acf7271"
+    }
+  ],
+  "stop_reason": "same-(E,U) universal-shadow/audited-term divergence",
+  "transformed_source_sha256": "d36786ba06f2147abecd9ffadc13e5b088b652c379743f29f742fe777c1f1de2",
+  "universal_shadow_divergence": true,
+  "variant_has_bad_actual_kernel": false,
+  "verification_independence": "Single wrapper; enumeration independently reconstructs exact E/U classes, while variant semantics reuse a source-transformed audited actual-event producer."
+}

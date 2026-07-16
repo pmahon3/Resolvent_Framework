@@ -764,3 +764,8 @@ occurrences have conservative old shadows, while coordinate Boolean targets
 misclassify 22 and differ on 55 `Neg/OrthoOr` shadows (payload
 `3d6f97c8...`). The next discriminator is exact opposite-witness diversity
 inside fixed `(E,U)` classes, not deeper coordinate closure.
+That discriminator now refutes the coarse grammar: 14/17 structurally
+distinct same-`(E,U)` single-slot substitutions change the complete pattern
+vector, although the first exact rerun still has zero bad actual kernels
+(payload `39bd3fe0...`). The frontier is finite section-congruence minimization
+and depth-one actual-transition exhaustion.

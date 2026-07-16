@@ -2972,3 +2972,45 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** compare multiple exact opposite witnesses with the same coarse
   shadow data. Stability supports a finite section grammar; divergence exposes
   the missing provenance variable.
+
+### Iteration 281 — section-context congruence theorem
+- Every unary Boolean section context over a fixed finite Boolean algebra `K`
+  has normal form `(b∩c)∪(bᶜ∩d)` and is universal exactly when
+  `dᶜ⊆b⊆c`. Hence equality of lower/upper `K`-cuts is necessary and
+  sufficient for unary universal-context equivalence. **Hand proved.**
+- Same `(E,U)` witness data are **Refuted** as a continuation type by the
+  two-point control `D={1}`, `B={1}`, `B'={2}`.
+- Unary cut types are not a binary-operation congruence. The full finite
+  grammar state is the joint Boolean-context congruence, with the exact
+  generated section-algebra element as a valid nonminimal representative.
+- The smallest executable witness-diversity test needs two leaves: one leaf
+  and its complement depend only on exact `(E,U)`. `And` followed by
+  `Neg(And)` is the cheapest detector of changed joint section patterns;
+  `OrthoOr` comes after it.
+- **Pivot:** test two unique retained roots and alternative same-`(E,U)`
+  opposite witnesses, then minimize the resulting exact section transition
+  algebra if no kernel failure appears.
+
+### Iteration 282 — exhaustive sampled witness-diversity refutation
+- The 12 sampled leaf slots have exact-root witness-stratum counts:
+  seven slots with 3, four with 1, and one with 4. All 17 noncanonical
+  single-slot substitutions by structurally distinct inclusion-minimal
+  witnesses are exhausted.
+- 14/17 substitutions change the complete 224-state simultaneous six-bit
+  opposite-pattern vector. The first is left slot 0, `A=0`, `U=1`, witness
+  `9 -> 11`, vector `0533d495... -> f93f9175...`.
+- An exact semantic rerun changes the actual universal-shadow digest
+  `df2c9693... -> a3792186...` and audited-term digest
+  `0e1f04d2... -> f385e8da...`. Both baseline and variant retain zero bad
+  actual kernels. **Executable verified — exhaustive within the declared
+  sampled single-slot scope**, payload `39bd3fe0...`; seed-0 replay and hostile
+  review pass.
+- **Refuted:** coarse `(E,U)` determines the exact Boolean section grammar.
+  **Not refuted:** actual conservative shadows, finite exact-root grammar,
+  latticehood, OML, or `Phi`.
+- **Theorem extraction:** the Level-1 ledger now separates four coordinate
+  control classes from actual relation transitions and makes re-basing
+  conditional on the first certified actual escape.
+- **Pivot:** minimize the joint section-context congruence and exhaust
+  depth-one actual transitions. This, not the closed first-round census, is
+  the first justified Fir workload.

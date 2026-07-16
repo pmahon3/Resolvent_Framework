@@ -798,6 +798,11 @@ finds zero bad kernels. The old coordinate calculus reports 22 false failures
 and differs on 55 complement/disjoint-union shadows (payload `3d6f97c8...`).
 This is positive finite-support evidence; witness diversity within a fixed
 coarse shadow class is the next exact grammar gate.
+The gate refutes the coarse descriptor: 14/17 sampled exact-root substitutions
+within fixed `(E,U)` change the simultaneous section pattern, but no bad actual
+kernel appears (payload `39bd3fe0...`). The next finite-support theorem is an
+exact minimized section-congruence transition table, with re-basing conditional
+on a genuine actual-event escape.
 
 ## Repository Layout
 

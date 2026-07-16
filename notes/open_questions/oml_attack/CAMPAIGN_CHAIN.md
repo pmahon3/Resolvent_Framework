@@ -106,6 +106,8 @@
 | universal-shadow Boolean closure | Hand proved fibre laws + minimal controls | intersection exact; complement/union closure refuted without fibre-total/no-cover hypotheses |
 | escaping generated upper preserves old joins | Lean certified + Hand interpretation | refuted: an exact generated target with escaping old fold forbids conservative inclusion |
 | bounded actual-relation adjacent kernels | Executable verified + hostile source audit | 156/156 pass; 55 shadow mismatches expose 22 coordinate false failures |
+| unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
+| full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 
 ## Counterexample ledger
 
@@ -342,6 +344,13 @@ coordinate calculus falsely reports 22 bad occurrences (payload
 `3d6f97c8...`). The next automatic pivot is exact opposite-witness diversity
 within fixed shadow classes, followed by provenance-sensitive grammar
 extraction.
+
+The first provenance discriminator is also closed at sampled single-slot
+scope: 14/17 same-`(E,U)` exact-root substitutions change the full pattern
+vector, but the audited variant still has zero bad actual kernels (payload
+`39bd3fe0...`). Coarse-shadow grammar is refuted; exact section-congruence
+minimization is active. Conditional re-basing begins only after a certified
+actual generated-event escape.
 
 `T_FIN_IMPOSSIBILITY_LEDGER.md` is closed as a historical ledger. T-FIN is
 refuted by the full-grid survivor; do not resume the impossibility track or

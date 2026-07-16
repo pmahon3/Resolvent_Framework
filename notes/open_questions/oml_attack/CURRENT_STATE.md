@@ -570,6 +570,25 @@ canonical-witness scope, payload `3d6f97c8...`; hostile source audit passes
 with no independent producer. The live discriminator is witness diversity
 inside fixed `(E,U)` classes, not more depth on this canonical quotient.
 
+The exact provenance variable is now identified. For unary Boolean contexts
+against fixed section constants `K`, a section is classified exactly by its
+lower and upper `K`-cuts. Same `(E,U)` is insufficient, and unary cut types
+are not closed under binary operations between dynamic witnesses. A full
+finite grammar must use the joint Boolean-context congruence, with exact
+restricted-MDD section roots as a valid nonminimal state. **Hand proved.**
+The smallest live computation therefore uses two unique retained roots and
+same-`(E,U)` alternative opposite witnesses; one-leaf/Neg tests cannot
+distinguish them.
+
+That witness census now exhausts every noncanonical single-slot substitution
+available in the 12 sampled slots: 14/17 alter the complete six-bit
+shared-state pattern vector. The first exact semantic rerun changes true
+universal-shadow and audited-term digests, while both baseline and variant
+have zero bad actual kernels. **Executable verified**, payload
+`39bd3fe0...`; hostile review passes. Thus coarse `(E,U)` is decisively
+refuted as an exact transition descriptor, while the exact-root grammar
+remains viable. `ADJACENT_TRANSITION_LEDGER.md` is the Level-1 controller.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

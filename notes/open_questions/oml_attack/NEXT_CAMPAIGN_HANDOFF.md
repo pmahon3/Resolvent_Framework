@@ -44,13 +44,12 @@
 6. **Unresolved theorem:** every actual relation term in the adjacent mixed
    closure has a greatest lower shadow in each old copy, coherently under
    Boolean transitions. Universal shadows alone are not a closed grammar.
-7. **First action:** vary exact opposite witnesses inside selected fixed
-   `(E,U)` shadow classes and rerun the relation-section quotient. The
-   canonical-witness test passes all 156 actual occurrences with zero bad
-   kernels, payload `3d6f97c8...`; the coordinate calculus falsely reports 22.
-   Preserve the exhaustive first-round master `bf3f7d29...` and coordinate
-   controls `3fbf81c2...`, `174fe4c5...`, but do not add Boolean depth to the
-   single canonical quotient before testing witness diversity.
+7. **First action:** build and minimize the exact joint section-context
+   congruence for depth-one actual transitions, with both orientations,
+   attainable retained profiles and all 91 old atoms. Witness diversity is
+   closed at the sampled single-slot scope: 14/17 same-`(E,U)` substitutions
+   change the pattern grammar but preserve zero bad actual kernels, payload
+   `39bd3fe0...`. Use `ADJACENT_TRANSITION_LEDGER.md` as the workload schema.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

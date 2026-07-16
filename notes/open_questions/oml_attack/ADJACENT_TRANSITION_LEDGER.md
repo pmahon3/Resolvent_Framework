@@ -1,0 +1,206 @@
+# Adjacent exact-root transition ledger
+
+*Campaign 20, Level-1 controller. Coordinate controls and actual generated
+relations are deliberately separate.*
+
+## Closed first-round gate
+
+For either adjacent orientation, every first-round mixed leaf has a greatest
+old lower shadow.
+
+- Nonempty kernels: `18370/18370`, 32 frozen shards, zero failures.
+- Empty-mask kernels: `37352`, discharged algebraically.
+- Total: `55722/55722`.
+- Evidence: **Executable verified — exhaustive finite scope** for the nonempty
+  kernels; **Hand proved** for empty masks; hostile review passed.
+- Commit: `e523098` (`Establish exhaustive adjacent first-round kernels`).
+- Manifest producer:
+  `notes/open_questions/verification/adjacent_full_cycle_exhaustive_manifest.py`
+- Shard producer:
+  `notes/open_questions/verification/adjacent_full_cycle_exhaustive_shard.py`
+- Aggregator/verifier:
+  `notes/open_questions/verification/aggregate_adjacent_full_cycle_exhaustive_shards.py`
+- Independent semantic manifest verifier:
+  `notes/open_questions/verification/verify_adjacent_full_cycle_exhaustive_manifest_semantic.py`
+- Master:
+  `notes/open_questions/verification/adjacent_full_cycle_exhaustive_first_round_master.json`
+- Master payload: `bf3f7d297e6fdbf273273af06ffbd99bd560a5e5e7203e41f3f39c8a7124749e`.
+- Manifest payload: `423d62245cd87ef395482cc7d4d3da512b65604dbe82446eb18628e7e22d18f4`.
+- Semantic verifier payload:
+  `ff6cbeba828da3d191220e0edf5986cb5282c60c8a6bfce399312806e6f963e3`.
+
+This proves first-round conservative shadows only. It does not prove Boolean
+closure of later actual relations, latticehood, orthomodularity,
+sigma-completion, MBRC, ODBC, or `Phi`. Do not rerun this census as a new
+mathematical workload.
+
+## Transition record schema
+
+Every row uses:
+
+`id; layer; orientation; term; parents; exact_section_state; forall_shadow;
+exists_shadow; old_lower; old_upper; bridge_atoms; atom_saturation; escape;
+successor; evidence; scope`.
+
+For `layer=coordinate_control`, `exact_section_state` is only a one-copy target
+root and `successor` has no actual-event meaning. For
+`layer=actual_relation`, it is the canonical restricted-MDD section class in
+each shared-state fibre. Missing shadows or successors are recorded as
+`missing`, never inferred.
+
+## Coordinate-control escape classes
+
+The bounded coordinate-target producer applies `Neg/OrthoOr` to one-copy
+universal-shadow targets. It finds:
+
+- complement-good counts: left `6/10`, right `9/14`;
+- disjoint bridge-good counts: left `37/42`, right `66/73`;
+- strict disjoint-union failures: 12 total, left 5 and right 7;
+- 197 bridge-atom incidences, 182 single-atom escapes;
+- 181/182 escaping incidences phantom (`full17=0`);
+- 176/182 land at old top;
+- atom saturation is kernel-bad in 12/12, equals the target in 6/12 and is
+  proper in 6/12.
+
+Evidence: **Executable verified — sampled finite scope**, payloads
+`3fbf81c28e099fe353266fa6f4592b86e4e151660f88202b8743ebf675c66363`
+and
+`174fe4c5fae1a4b0fd140e33321fe2a5babe8ce0cde3311f8f9331bab20a1d84`.
+
+The exact four bounded classes are:
+
+| Type | Saturation | Bridge status | Landing | Count |
+|---|---|---|---|---:|
+| `CC-PPT` | proper | all phantom | all top | 1 |
+| `CC-ENN` | equals target | includes nonphantom | includes subtop | 1 |
+| `CC-EPT` | equals target | all phantom | all top | 5 |
+| `CC-PPS` | proper | all phantom | includes subtop | 5 |
+
+For each row, the actual-relation transition is `not_evaluated`. These are
+fixed-target obstruction controls, not certified generated-event escapes.
+The earlier promotion of them to forced re-basing transitions is **Refuted**.
+
+Conditional theorem: if an actual generated event has the same certified old-
+below predicate and its old atom fold escapes, then the affected old copy
+cannot preserve its old finite joins. **Hand proved + Lean certified** through
+`no_sup_preservation_of_escaping_upper_bound` and
+`no_foldl_sup_preservation_of_escaping_upper_bound` in
+`KernelClosureCalculus.lean`.
+
+## Actual-relation transitions
+
+The exact state is
+
+`AR(orientation, attainable retained truth profile,
+joint section-congruence class, old lower, old upper, provenance)`.
+
+Boolean transitions are computed on exact restricted sections before
+recomputing universal/existential shadows and old kernels.
+
+The canonical six-leaf quotient tests 156 actual relation occurrences:
+
+- left: 72; right: 84;
+- actual bad kernels: `0`;
+- coordinate-target bad occurrences: `22`;
+- universal-shadow mismatches: `55` (`20 Neg`, `35 OrthoOr`);
+- `Leaf/And` mismatches: `0`.
+
+Evidence: **Executable verified — sampled finite scope**, hostile source audit
+passed, commit `3e26da7`, producer/receipt
+`adjacent_full_cycle_actual_event_shadow.py/.json`, payload
+`3d6f97c80ff21de11da3d748acb1d7635fa926386bf376ae921c0b7c1cdab6e9`.
+
+## Descriptor refutations
+
+1. Universal shadow alone is not closed under complement or union.
+2. `(forall,exists)` is not a full Boolean transition state.
+3. Coarse `(E,U)` witness data do not determine the exact simultaneous
+   section grammar.
+
+For item 3, every structurally distinct inclusion-minimal exact-root
+single-slot substitution available in the 12 sampled leaf slots is tested.
+There are 17 substitutions; 14 change the full 224-state simultaneous six-bit
+opposite-pattern vector. The first divergent substitution is left slot 0,
+`A=0`, `U=1`, opposite witness `9 -> 11`. Its exact semantic rerun changes the
+true universal-shadow-table and audited-term digests. Baseline and variant
+both retain zero bad actual kernels.
+
+Evidence: **Executable verified — exhaustive within the declared sampled
+single-slot scope**, producer/receipt
+`adjacent_full_cycle_witness_diversity.py/.json`, payload `39bd3fe0...`;
+hostile review passed. This refutes an `(E,U)`-only exact grammar, not
+conservative-shadow existence or a richer finite grammar.
+
+## Smallest adequate descriptor
+
+For unary contexts over fixed section constants `K`, the exact type of a
+section `b` is its pair of lower and upper `K`-cuts. This is **Hand proved**.
+It is not a congruence for binary operations between dynamic witnesses.
+
+The smallest currently justified full descriptor is the joint Boolean-context
+congruence in each shared-state fibre. The exact restricted-MDD section root
+is a valid nonminimal representative. A finite grammar theorem must prove:
+
+1. finite classes per orientation, state and attainable retained profile;
+2. well-defined complement/intersection/union transition tables;
+3. a class-invariant universal-output predicate;
+4. exact generator interpretation and induction on terms;
+5. associative, order-independent transport of old lower/upper shadows.
+
+## Re-basing operation
+
+Status: **Open; conditional only**.
+
+If an actual generated event `u` first has no greatest old lower in an
+effective base `K`, define the minimal concrete-logic successor candidate
+
+`K[u]=closure_under_complement_and_disjoint_union(K union {u})`.
+
+Any actual certificate `P,a <= u` with `P join_K a` not below `u` forces that
+old join and its complement-dual meet to change in every lattice successor.
+What remains undefined until such an actual escape appears:
+
+- the replacement extrema;
+- closure size and rounds;
+- maximal blocks and centre;
+- state extensions and order separation;
+- boundary/activation gates;
+- conditional relation and `Phi` status;
+- canonicity, commutation and associativity.
+
+Coordinate-control escapes do not instantiate this operation.
+
+## Collapse-gate status
+
+| Gate | Current adjacent exact-relation status |
+|---|---|
+| same-side boundary reconstruction | not observed in bounded actual quotient |
+| activation-supported event | not evaluated for a re-based successor |
+| nontrivial centre | not evaluated for a re-based successor |
+| loss of state order separation | not evaluated for a re-based successor |
+| altered conditional relation | not evaluated for a re-based successor |
+| `Phi`-tameness | open |
+
+## First Fir workload
+
+Do not repeat the first-round kernel census. Submit an exact section-congruence
+classification:
+
+1. **Parameter set:** both orientations; exact restricted section roots by
+   shared state and attainable retained truth profile; depth-one actual
+   `Leaf/And/Neg/orthogonal-Or` transitions; all 91 old atoms.
+2. **Shard verdict:** stable congruence class and transition hashes, or the
+   first actual universal-shadow kernel escape.
+3. **Negative witness:** orientation, state/profile, parent classes, exact
+   roots, term, old eligible atoms, escaping fold and target.
+4. **Positive coverage proves:** the minimized transition table is exact for
+   the declared depth-one generator family and every audited class has old
+   lower/upper shadows.
+5. **It does not prove:** arbitrary depth, associativity across three
+   rectangles, OML closure, sigma-completion, MBRC, ODBC, or `Phi`.
+6. **Hand-theorem contribution:** provides the finite alphabet and transition
+   table needed for an induction/coverage theorem; if classes fail to compress,
+   record that boundary instead of extending depth.
+
+Require cross-seed replay and an independent Boolean-context verifier. Stop at
+the first actual escape; only then launch a capped re-basing closure.

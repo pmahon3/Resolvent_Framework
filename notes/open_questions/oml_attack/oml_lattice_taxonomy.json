@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Define coherent finite-support embeddings and test bounded cut locality/reflection at the Neg-023 rebase: can a second adjacent rectangle create an essential outsider bound or interpolant?"
+   "current_next_step": "Settle ARR-CYL for the actual Neg-023 lower-cut join: prove it is cylindrical in every admissible completion or preserve a mixed refutation as the first genuine rebase seed."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -740,7 +740,7 @@
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
    "status": "adjacent-actual-rebase-provenance-grammar-open",
-   "one_line": "Context-100 exact-root refinement is semantic identity; the active gate is a support-indexed exact-root normal form with bounded cut locality and cylindrical reflection.",
+   "one_line": "Pure one-step cylindrical reflection is Lean certified, but the seeded 256-prefix is only a shadow calculus; ARR-CYL is the active finite-assembly gate.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

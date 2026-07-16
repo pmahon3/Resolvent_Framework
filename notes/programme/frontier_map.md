@@ -777,11 +777,11 @@ opposite-side lower-shadow escapes of actual terms and 13 typed observation
 conflicts. A fixed old retraction is therefore refuted on the physical-right
 side, and the frontier is the first ambient effective-base re-basing
 transition and its associativity/commutation diamond.
-That first re-base has now been materialized: its target has a 192-element
-old lower cut with two maxima, and its proper seeded literal envelope changes an
-old join. A capped closure creates at least 256 events in one round without
-stabilizing. The frontier is classification of this finite provenance batch
-and its critical pairs; raising the cap is not yet informative.
+That first proposed re-base has been materialized only as a seeded one-copy
+shadow pilot: the universal shadow has a 192-element old lower cut with two
+maxima, and its proper literal envelope changes an old join. A capped shadow
+closure creates at least 256 candidates in one round without stabilizing.
+Neither seed cylinder is certified as an actual two-copy generated event.
 The first prefix descriptor is already refuted: 16 of 240 classes contain
 behaviorally distinct pairs. Fixed-seed fair schedules do have the same least
 closure by a finitary-closure theorem. The live finite question is therefore
@@ -791,3 +791,8 @@ splits every nonsingleton class only through an injective exact union root.
 The frontier is now a growing-rank support-indexed exact-root normal form,
 with bounded cut locality and cylindrical reflection as the substantive
 finite-assembly theorem.
+The pure one-step part is now Lean certified: one old cylinder plus one pure
+new cylinder cannot create a new old cylinder by orthogonal union. The first
+open layer is `ARR-CYL`: decide whether the forced actual ambient cut join is
+cylindrical. Mixed complementary covers follow only after that realization
+gate.

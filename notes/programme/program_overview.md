@@ -810,10 +810,11 @@ old-kernel observational quotient. Its two-sided form finds seven genuine
 opposite-side lower-kernel escapes and refutes typed observation congruence
 in 13 groups. The next construction is the forced ambient re-base at the
 first actual escape; successor OML and collapse gates remain open.
-The first re-base pilot finds two maximal old lowers, a new proper seeded
-literal lower envelope, and at least 256 generated events in one capped round. This is a
-computational stop signal: extract the finite provenance transition types and
-critical-pair theorem before extending closure depth.
+The first shadow pilot finds two maximal old lowers, a new proper seeded
+one-copy literal envelope, and at least 256 shadow candidates in one capped
+round. It does not establish that the seed cylinders are actual two-copy
+events. The next gate is actual rebase realization, not closure-depth
+extension.
 The first coarse prefix descriptor fails on 16 doubletons. Exact
 parent-incidence is the next nonminimal state. Fixed-seed closure is
 order-independent under every fair schedule by finitarity, but assembly
@@ -822,6 +823,10 @@ One fixed old context separates every remaining doubleton only by exact-root
 identity, so finite semantic compression stops. The programme now targets a
 support-indexed exact-root normal form plus bounded cut locality and
 cylindrical reflection across finite assemblies.
+Lean now closes pure one-step cylindrical reflection. `ARR-CYL`, or explicit
+construction of the actual mixed cut join, is the next gate. Mixed
+complementary-cover classification is suspended until an actual rebase seed
+exists.
 
 ## Repository Layout
 

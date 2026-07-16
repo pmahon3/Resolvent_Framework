@@ -3080,31 +3080,47 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   close complements and forced orthogonal unions, then test the serialized
   associativity/commutation diamond before widening the grammar.
 
-### Iteration 286 — exact AR-REB-001 cut and computational boundary
-- The first actual target is materialized on the physical-right full-cycle
-  carrier without constructing the enormous adjacent carrier. It has 192 old
+### Iteration 286 — exact AR-REB-001 shadow cut and computational boundary
+- The physical-right universal shadow of the first actual `Neg-023` relation
+  is materialized on the one-copy full-cycle carrier. It has 192 old
   lower events, with incomparable maxima `15250` and `16786`, and 8 old
   upper events with least member `18331`. **Executable verified — sampled
   finite scope.**
-- The explicitly seeded literal lower envelope `g` of the eight eligible old atoms has root
+- The explicitly seeded one-copy literal lower envelope `g` of the eight eligible old atoms has root
   `5f067021...`, lies properly below the target, and contains every one of
   the 192 old lowers. It is the join of that cut in the seeded family. An
-  arbitrary finite ambient lattice contains a new order-theoretic join `h`
-  with `g subseteq h subseteq target`; it need not contain `g`, and equality
-  `h = g` holds only when it does.
+  arbitrary finite ambient lattice containing the actual relation contains a
+  new order-theoretic join `h` with cylinder `G subseteq h subseteq R`; it
+  need not contain `G`, may be noncylindrical, and equality holds iff `G` is
+  represented.
 - The first changed old join is explicit: old event `15250` and atom `10752`
   have old join `18322`, which escapes the target, whereas their literal
   union is exactly `g`.
-- Complement/disjoint-union closure from the target, complement, `g`, and
-  complement generates 252 further events and hits the declared
+- One-copy complement/disjoint-union closure from the target shadow,
+  complement, `g`, and complement generates 252 further candidates and hits the declared
   256-new-event cap in its first round. **Executable verified — sampled
   finite scope.** This is a computational boundary, not terminal closure,
   latticehood or an unbounded-grammar theorem.
 - **Strategic answer:** a new transition type has appeared and the seeded
   one-envelope repair does not stabilize within 256 events. Blind closure extension
   is not discriminating. The next theorem target is a provenance-sensitive
-  normal form for the first-round 256 events and the smallest critical-pair
-  diamond, not a larger cap.
+  normal form for the first-round 256 shadow candidates and the smallest
+  critical-pair diamond, not a larger cap.
+
+### Iteration 290 — actual-rebase-realization correction
+- Hostile review **Refuted** the promotion of the seeded 256-prefix to an
+  actual two-copy assembly grammar. Only `R = Neg-023` is certified actual;
+  `z` is its universal shadow, while neither the `z`-cylinder nor the seeded
+  `g`-cylinder is known generated.
+- For the forced ambient join `h` of the embedded old lower cut,
+  `G ⊆ h ⊆ R` and `g ⊆ forall(h) ⊆ z`; `h` is new, and `h = G` iff `G` is
+  represented. **Hand proved.**
+- Pure lattice order does not force cylindricity; a finite inclusion-lattice
+  control has a noncylindrical join of cylinders, though it is not an OML.
+- **Pivot:** `ARR-CYL` is the exact gate. Prove cylindricity in admissible OML
+  completions or preserve a refuting mixed `h` as the first genuine grammar
+  seed. Third-copy complementary-cover work is suspended until then.
+- Focused theorem note: `oml_actual_rebase_realization.md`.
 
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
@@ -3152,3 +3168,34 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   incomplete and no job was submitted. The local ten-context census removed
   the prospective all-old scan, so no current production workload is
   mathematically justified.
+
+### Iteration 289 — one-step fibre reflection and exact induction obstruction
+- For a surjective fibre product `X -> D <- Y`, if an `X`-cylinder and a
+  `Y`-cylinder are disjoint and their literal union is `X`-cylindrical, the
+  `Y` event is the inverse image of a boundary subset. **Lean certified**:
+  `membership_constant_on_fibres` is axiom-free and
+  `exists_boundary_trace` reports `[propext, Quot.sound]` in
+  `FibreProductReflection.lean`. The same file certifies faithfulness of a
+  surjective cylinder embedding as `preimage_injective_of_surjective`
+  (`[propext, Quot.sound]`).
+- Combined with the certified exact 56-event overlap intersection, one pure
+  third-copy orthogonal union cannot create a new old cylindrical event.
+  **Hand proved from Lean-certified set theorem plus executable overlap
+  premise.**
+- The certified instance exhausts 785 left-cylindrical and 809
+  right-cylindrical disjoint shadow types, representing 24807 event pairs per
+  orientation. Every opposite trace is saturated and belongs to the common
+  56-event overlap; zero failures. **Executable verified — exhaustive finite
+  scope**, `adjacent_one_step_cylindrical_reflection.py/.json`, producer
+  `8cf10f5c...`, payload `cbf14dde...`. Verification recomputes the producer
+  payload; it is deterministic across hash seeds but is not an independent
+  implementation.
+- This does not prove `Neg-023` cut locality: its ambient cut join may
+  overshoot the literal envelope and need not be a two-cylinder union.
+- **Refuted as a general set theorem:** arbitrary mixed-term induction. Two
+  disjoint proper fibre sections can complement one another to fill an old
+  cylinder although neither operand descends to the boundary.
+- **Corrected pivot:** the seeded 256 roots are not certified actual two-copy
+  events. Settle `ARR-CYL` first by constructing the exact critical
+  two-copy sublogic around `Neg-023` without seeding `g`; only a realized
+  cylindrical rebase can enter a third-copy complementary-cover census.

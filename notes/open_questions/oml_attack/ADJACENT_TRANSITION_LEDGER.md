@@ -323,12 +323,12 @@ This is **Hand proved**. The cut and its literal union/intersection envelopes
 are canonical. A subset-valued repair is not canonical until an ambient
 completion is fixed.
 
-The next transition is `AR-REB-001`: re-base the physical-right side at
-`Neg-023`, recompute both endpoint tables, then test the join-association
-diamond through its parent `And-010` and the complement-dual meet diamond.
+The next proposed shadow transition is `AR-REB-001`: study the physical-right
+universal shadow of `Neg-023`. This is not yet an actual two-copy re-base.
+Actual-rebase realization must first determine the forced ambient cut join.
 All collapse gates remain `unevaluated_pending_rebase_closure`.
 
-### AR-REB-001 bounded realization
+### AR-REB-001 bounded shadow pilot
 
 On the physical-right old carrier, the first target has:
 
@@ -339,24 +339,37 @@ On the physical-right old carrier, the first target has:
   dominating every old lower;
 - old atom fold `18322`, which is outside the target.
 
-The strict changed join is `(15250, 10752)`: its old join is `18322`, while
-its literal union is `g`. This is the first exact re-basing transition.
+The strict changed one-copy join is `(15250, 10752)`: its old join is `18322`,
+while its literal union is `g`. This is an exact seeded shadow transition,
+not a certified event transition in the actual two-copy assembly.
 
-The capped concrete-logic closure explicitly seeded by target, complement, `g`, and
-complement reaches 256 new events in its first round and does not stabilize.
+The capped one-copy set closure explicitly seeded by target shadow,
+complement, `g`, and complement reaches 256 new shadow candidates in its first
+round and does not stabilize.
 Evidence: **Executable verified — sampled finite scope**,
 `adjacent_ar_reb_001.py/.json`. This proves neither terminal closure nor a
 finite/unbounded grammar.
 
 The computation does not prove that `g` is generated without being seeded or
-that every ambient lattice contains `g`; its forced ambient cut join may
-strictly overshoot the literal envelope. Precisely, every finite ambient
-lattice extension containing the old copy and target has a new cut join `h`
-with `g subseteq h subseteq target`, and `h = g` if `g` is represented. The
+that every ambient lattice contains its cylinder. Precisely, every finite
+ambient lattice extension containing the old copy and actual relation `R` has
+a new cut join `h` with `G subseteq h subseteq R`, and `h = G` iff the literal
+cylinder `G` is represented. The join may be mixed and noncylindrical. The
 descriptor must include the exact target root, lower-cut maxima,
 eligible-atom incidence, literal cut union, changed old join provenance, and
 generation parentage. A larger undirected cap is prohibited until these 256
 events are classified into transition types.
+
+### ARR-CYL gate
+
+Let `z` be the physical-right universal shadow of the actual `Neg-023`
+relation, `G` the cylinder over the literal union of its old lower cut, and
+`h` that cut's join in an admissible ambient completion. Then
+`G ⊆ h ⊆ R` and `g ⊆ forall(h) ⊆ z`; `h` is necessarily new. **Hand proved.**
+`ARR-CYL` asks whether `h` must be cylindrical. Pure lattice order cannot
+prove this: a finite inclusion-lattice control admits a noncylindrical join of
+cylinders when their literal union is absent. The control is not an OML, so
+the OML-specific statement remains **Open**.
 
 ### Frozen-prefix descriptor boundary
 
@@ -413,3 +426,27 @@ support-indexed exact-root normal form:
 The next substantive theorem is bounded cut locality plus cylindrical
 reflection: a repair extremum for data supported on `F` must have bounded
 support and remain extremal in larger assemblies.
+
+### One-step cylindrical reflection
+
+For a fibre product `X -> D <- Y`, a disjoint `X`-cylinder and `Y`-cylinder
+whose literal union is `X`-cylindrical force the `Y` operand to be
+`D`-saturated. This is **Lean certified** in
+`QuerySystem/FibreProductReflection.lean`:
+
+- `membership_constant_on_fibres`: no axioms;
+- `exists_boundary_trace`: `[propext, Quot.sound]`.
+
+With exact overlap intersection, the saturated operand is a declared
+boundary event, so the union was already represented on the old side.
+This proves one-step pure-cylinder reflection.
+
+The concrete shadow-type census exhausts 785 left and 809 right types,
+weighted to 24807 event pairs in each orientation. All reflected traces lie
+in the exact common 56-event vocabulary. **Executable verified — exhaustive
+finite scope** by `adjacent_one_step_cylindrical_reflection.py/.json`.
+
+The induction obstruction is exact: later mixed operands may have
+complementary proper sections whose disjoint union fills an old cylinder.
+Neither operand need be saturated. The live condition is therefore
+reachable-section no-cover, not another pure-cylinder census.

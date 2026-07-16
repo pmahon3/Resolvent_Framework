@@ -114,6 +114,7 @@
 | fixed-seed closure schedule independence | Hand proved | least finitary closure equals every fair schedule; no termination claim |
 | first rebase prefix descriptor | Executable verified, sampled finite scope | refuted: 16/240 classes have divergent behavior |
 | context-100 exact-root compression | Executable verified + Hand injectivity lemma | refuted: refinement is semantic identity on all 16 doubletons |
+| one-step pure-cylinder reflection | Lean certified + exact-overlap premise | proved; mixed complementary-cover induction remains open |
 | unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |
@@ -359,6 +360,12 @@ doubletons, and the completed old/new test separates all 16 only by an
 injective exact-root output at context `100`. Finite descriptor minimization
 is closed; the automatic pivot is support-indexed exact-root normal forms and
 bounded cut locality/cylindrical reflection.
+Pure one-step reflection is now Lean certified, but it presupposes that the
+relevant cylinders are actual events. The 256-prefix is only a seeded
+one-copy shadow calculus. The next automatic pivot is `ARR-CYL`: prove that
+the forced ambient join below the actual `Neg-023` relation is cylindrical,
+or preserve a refuting mixed join as the genuine grammar seed.
+Focused note: `oml_actual_rebase_realization.md`.
 
 The first provenance discriminator is also closed at sampled single-slot
 scope: 14/17 same-`(E,U)` exact-root substitutions change the full pattern

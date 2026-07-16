@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — exact-context refinement is noncompressive; support-indexed exact-root normal forms and bounded cut locality/reflection are the active finite-assembly gate.",
+   "status": "OPEN — pure one-step reflection is Lean certified; actual rebase realization ARR-CYL is the active gate before mixed complementary covers.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

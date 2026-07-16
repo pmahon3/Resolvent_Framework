@@ -609,16 +609,18 @@ onto the physical-right old copy is refuted and an effective-base expansion
 is forced in any ambient lattice completion. The re-based successor and all
 collapse/state/`Phi` gates remain **Open**.
 
-The first re-base pilot is now exact. Its physical-right target has 192 old
+The first shadow-level re-base pilot is now exact. The actual two-copy event
+is `Neg-023`; its physical-right universal shadow has 192 old
 lowers with two incomparable maxima and a least old upper. The explicitly
-seeded literal lower envelope `g` of its eight eligible old atoms is a new
-proper event below the target and dominates every old lower in that seeded
-family; one serialized old join changes from the
+seeded one-copy literal lower envelope `g` of its eight eligible old atoms is
+a new proper shadow candidate below the target shadow and dominates every old
+lower in that seeded family; one serialized old join changes from the
 escaping old fold to `g`. A capped complement/disjoint-union closure creates
-256 new events in its first round without stabilizing. **Executable verified
+256 new one-copy shadow candidates in its first round without stabilizing. **Executable verified
 — sampled finite scope.** This is the natural computational stop signal:
-classify the 256-event provenance grammar and critical pairs rather than
-raising the cap. Generation of `g` without seeding, latticehood and every
+classify the seeded shadow calculus rather than raising the cap. Neither the
+`g`-cylinder nor the universal-shadow cylinder is certified as an actual
+two-copy generated event. Actual realization, latticehood and every
 collapse/state gate remain **Open**.
 
 The frozen 256-prefix census refutes the first compact provenance descriptor.
@@ -646,9 +648,33 @@ the finite descriptor-compression route negatively. No full-old scan or Fir
 job is warranted.
 
 The active normal form is growing-rank and support-indexed: finite rectangle
-support, finite expression DAG, exact local root and provenance. The decisive
-remaining theorem is bounded cut locality together with cylindrical
-reflection and persistence of extrema under larger finite assemblies.
+support, finite expression DAG, exact local root and provenance. Before it can
+be applied to the 256-prefix, the actual-rebase-realization gate must be
+closed. In any ambient lattice completion the join `h` of the actual embedded
+old lower cut satisfies `G ⊆ h ⊆ Neg-023`, and is new; however lattice order
+alone does not make `h` cylindrical. **Hand proved.** The exact open theorem
+`ARR-CYL` asks whether every admissible completion of this occurrence has a
+cylindrical `h`. A refutation supplies the first genuine nonlocal mixed repair.
+The exact statement and order-theoretic control are in
+`oml_actual_rebase_realization.md`.
+
+One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
+pure third-copy cylinder with old-cylindrical union force the third-copy event
+to descend to the overlap. **Lean certified** by
+`FibreProductReflection.{membership_constant_on_fibres,
+exists_boundary_trace}` and combined by hand with the executable exact
+56-event intersection theorem. This does not reach order-theoretic rebase
+joins.
+
+The model-specific census passes all 785/809 shadow types and 24807 weighted
+event pairs per orientation, with every saturated trace represented in the
+56-event overlap. **Executable verified — exhaustive finite scope.**
+
+The first abstract induction obstruction is a complementary partial cover:
+two mixed proper sections may be disjoint and jointly fill an old cylinder
+without either descending. The active proposition must classify those
+bridge loci only after actual rebase realization; reachability from the
+seeded 256-prefix is not yet established.
 
 The bounded coordinate-control census is now row-complete: 12 stable rows
 (5 left, 7 right) with exact provenance, target `E/U`, bridge atoms, escape

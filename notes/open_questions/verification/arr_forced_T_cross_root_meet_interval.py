@@ -240,7 +240,24 @@ def payload():
         return skipped * sum(count_from(child, variable + 1)
                              for child in children)
 
-    current_root_set = set(root_by_class.values()) | set(bank["specials"].values())
+    nonold_root_set = set(root_by_class.values()) | set(bank["specials"].values())
+
+    @functools.lru_cache(None)
+    def old_representatives(target):
+        """Derive exact old-copy identities from the two cylindrical kernels."""
+        answer = []
+        for side in ("left", "right"):
+            row = kernel(target, side)
+            lower = row["maximal_old_lower_indices"]
+            upper = row["minimal_old_upper_indices"]
+            if len(lower) == len(upper) == 1 and lower[0] == upper[0]:
+                index = lower[0]
+                if physical_old(index, side) == target:
+                    answer.append((side, index))
+        return tuple(answer)
+
+    def actual_current(target):
+        return target in nonold_root_set or bool(old_representatives(target))
     relation = {
         "L_subset_H": le(L, H),
         "L_equals_H": L == H,
@@ -249,8 +266,8 @@ def payload():
         "H_subset_y": le(H, y),
         "x_equals_H": x == H,
         "y_equals_H": y == H,
-        "H_current": H in current_root_set,
-        "Hc_current": Hc in current_root_set,
+        "H_current": actual_current(H),
+        "Hc_current": actual_current(Hc),
         "lower_pieces_disjoint": engine.app(0, left_lower, right_lower) == 0,
         "lower_piece_overlap_points": count_from(
             engine.app(0, left_lower, right_lower), 0),
@@ -320,10 +337,20 @@ def payload():
                     "operation": operation,
                     "exact_mdd_sha256": structural_hash(root).hex(),
                     "physical_cardinality": count_from(root, 0),
-                    "already_current": root in current_root_set,
+                    "already_current": actual_current(root),
+                    "exact_old_representatives": [
+                        {"side": side, "index": index}
+                        for side, index in old_representatives(root)
+                    ],
                     "contained_in_H": le(root, H),
                     "contained_in_Hc": le(root, Hc),
                 })
+    assert len(immediate) == 10
+    assert all(row["already_current"] for row in immediate)
+    assert all(row["exact_old_representatives"] or
+               row["exact_mdd_sha256"] in {
+                   structural_hash(root).hex() for root in nonold_root_set}
+               for row in immediate)
 
     # Complement-dual calibration at the current-family level.
     h_lower_roots = {root for root, _, _ in current["H"]["lower"]}

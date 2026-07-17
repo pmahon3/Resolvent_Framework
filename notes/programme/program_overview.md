@@ -884,8 +884,9 @@ must supply total same-half join/difference rules and normal-form coverage;
 the next construction is the exact meet repair for this pair.
 The repair is forced: the set intersection of roots `[8,106]` is exactly the
 orthogonal union of the two old maximal lowers. Adding it and its complement
-resolves the cut but creates eight new immediate consequences, which are the
-next finite grammar boundary.
+resolves the cut and adds no further consequence roots: the earlier eight-new
+count omitted the full old copies. Targeted cross-copy cuts among the named
+old representatives are the next finite grammar boundary.
 
 ## Repository Layout
 

@@ -850,8 +850,9 @@ and `right(2)`. The frontier is their exact forced-meet/complement-dual-join
 cell and the conditional `NF+SS+SD+X` coverage calculus.
 That cell closes exactly: the missing meet equals the disjoint union of its
 two old maximal lowers, so it and its complement are forced in one closure
-step. Eight new immediate nested/dual roots remain. Their kernel and binary-
-cut behavior is now the frontier.
+step. Full-base correction shows every immediate nested/dual consequence was
+already represented (eight old-copy events, two nonold roots). Targeted
+cross-copy cuts among those named old events are now the frontier.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The [8,106] meet is forced as the disjoint union of old_left(1024) and old_right(2), with dual join and eight new immediate consequences. Classify those consequence kernels and binary cuts; do not recompute the resolved interval."
+   "current_next_step": "The [8,106] repair adds only H,Hc; all ten named consequences already exist after full-base correction. Test targeted cross-copy cuts among their old representatives using orthogonal-cover deficit."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

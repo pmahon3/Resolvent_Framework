@@ -3501,15 +3501,32 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   `old_left(17407)` and `old_right(18429)`. Old kernels of `H,H^c` are
   principal on both copies with no atom-fold escape.
 - Immediate `H,H^c` nested differences and dual disjoint unions give ten
-  provenance occurrences: two are already current and eight are new.
-  **Executable verified — exhaustive finite scope for this one transition.**
+  provenance occurrences. **Corrected:** all ten are already represented:
+  eight are exact old-copy events and two are existing nonold roots. The
+  predecessor membership test omitted both full old copies.
 - **Integrity repairs:** two pre-receipt assertions were rejected in sequence:
   first `L proper-subset H`, then the inferred overlap of the pieces. Exact
   computation instead proves `L=H` and disjointness. No failed-run receipt was
   banked.
-- **Pivot:** classify the eight new immediate consequence roots and test
-  whether they form old-principal orthogonal-repair cells or create a new
-  binary cut. Do not recompute the resolved `[8,106]` interval.
+- **Pivot:** use the eight named old-event occurrences only as provenance
+  handles for targeted cross-copy cuts; no new-event layer was created.
+
+### Iteration 311 — full-base membership integrity correction
+- **Retracted:** the claim that the forced `[8,106]` repair produces eight
+  genuinely new consequence events. The membership predicate compared only
+  against specials and 488 nonold roots, omitting the two full old copies.
+- The corrected producer derives old representatives from exact singleton
+  lower/upper kernels and then verifies physical equality by lifting the one
+  candidate. All ten consequences are current: eight old-copy events and two
+  pre-existing nonold roots. **Executable verified — exhaustive finite scope
+  for the ten occurrences**, corrected producer `afcb9dc3...`, payload
+  `304ed13b...`; seed-12345 replay passes.
+- The forced-meet theorem, `L=H`, disjointness, rank zero, old kernels, and
+  complement duality remain unchanged. Only consequence membership and the
+  claimed grammar growth were wrong.
+- **Integrity boundary:** a rejected 37,352-root materialization failed before
+  writing; no receipt was overwritten. The accepted derivation is bounded-
+  memory and exact.
 
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224

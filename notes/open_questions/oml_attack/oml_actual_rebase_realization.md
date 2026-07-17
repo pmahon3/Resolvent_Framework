@@ -518,15 +518,17 @@ disjoint-union-closed extension contains `H`, which is then the actual meet;
 `H^c` is the complement-dual join. The defect rank is zero. **Executable
 verified — exhaustive finite scope for this cut**,
 `arr_forced_T_cross_root_meet_interval.py/.json`, producer `535fc58f...`,
-payload `ea897f3b...`. The four old-side kernels of `H,H^c` are principal.
-The transition has ten immediate nested/dual occurrences, eight new; these
-are the next grammar boundary.
+corrected payload `304ed13b...`. The four old-side kernels of `H,H^c` are
+principal. The transition has ten immediate nested/dual occurrences, all
+already represented: eight old-copy events and two existing nonold roots.
+The predecessor's eight-new claim omitted the full old copies and is
+retracted.
 
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open; first binary cell forced | `[8,106]` meet is an old-old orthogonal union; eight new consequences | classify consequence kernels and cross-cuts |
+| Repair grammar | Open; first binary cell forced | `[8,106]` adds only `H,H^c`; all named consequences pre-exist | test targeted cross-copy cuts among named old events |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

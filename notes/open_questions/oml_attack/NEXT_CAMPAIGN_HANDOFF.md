@@ -86,9 +86,10 @@
    The forced repair is now classified (payload `ea897f3b...`):
    `H=root(8) intersection root(106)` equals the disjoint union of
    `old_left(1024)` and `old_right(2)`, so closure must adjoin it and `H^c`.
-   This resolves the source cut with rank zero. It generates eight genuinely
-   new immediate nested/dual consequence roots. First action is their exact
-   kernel/cross-cut classification; do not recompute the `[8,106]` interval.
+   This resolves the source cut with rank zero. Corrected payload
+   `304ed13b...` proves all ten immediate consequences were already current
+   (eight old-copy, two nonold); the earlier eight-new count is retracted.
+   Use the named old events only for targeted cross-copy cut tests.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

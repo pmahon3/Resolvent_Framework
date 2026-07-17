@@ -821,10 +821,11 @@ root(106)`, the union `old_left(1024) union old_right(2)` equals `H`, and the
 two old pieces are disjoint. Thus disjoint-union closure immediately adjoins
 the absent `H`; it is then the meet, and `H^c` is the dual join. **Executable
 verified — exhaustive finite scope for this cut**, producer `535fc58f...`,
-payload `ea897f3b...`. Both old kernels are principal. Ten immediate nested/
-dual consequences occur, two already current and eight new. The next exact
-question is whether those eight roots close as a finite orthogonal-repair
-cell or generate another binary source cut.
+corrected payload `304ed13b...`. Both old kernels are principal. Ten immediate
+nested/dual occurrences arise, but all were already represented: eight exact
+old-copy events and two existing nonold roots. The earlier `2 current / 8 new`
+count omitted the full old copies and is retracted. These named occurrences
+may still expose cross-copy cuts, but the repair itself adds only `H,H^c`.
 
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event

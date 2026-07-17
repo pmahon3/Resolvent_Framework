@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the first binary same-half repair cell is forced and resolves in one orthogonal step; eight consequence roots define the next grammar boundary.",
+   "status": "OPEN — the first binary repair adds only its forced meet/complement; targeted recurrent cross-copy cuts define the next grammar boundary.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

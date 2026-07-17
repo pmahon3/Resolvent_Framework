@@ -3332,6 +3332,27 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** build its compact MDD and adjoin it to both full old copies plus
   `R`; audit cut preservation before attempting broad closure.
 
+### Iteration 303 — deterministic selector raw-adjunction obstruction
+- A compact MDD represents the deterministic selector by three
+  product-singleton terms.
+- In the bounded family containing both old copies and `R,R^c,S,S^c`, the
+  `15250/16786` cut has no least upper: `R` and old join `18322` are
+  incomparable, 31/32 right-old uppers omit `R`, eight opposite-copy uppers
+  exist but none lies below `R`, and neither selector polarity is an upper.
+  **Executable verified — exhaustive finite scope**, producer
+  `8ce29969...`, payload `4ce40c3d...`.
+- `S^c` immediately forces two-sided re-basing: 2389 left old lowers with
+  23 maxima and 2402 right old lowers with 26 maxima, with explicit fold
+  escapes. **Executable verified — exhaustive finite scope.**
+- Final verification limitation: seed-0 emit passes; the final added
+  cross-upper scan was not replayed under a second hash seed.
+- **Theorem extraction:** this refutes literal embedding of the clean
+  16-event join table into the full-old bounded family, not existence of an
+  OML completion. Every completion must add a new upper below both `R` and
+  `18322` and repair both `S^c` lower kernels.
+- **Pivot:** stop broad selector closure. Classify this exact coupled
+  two-upper/two-kernel repair root.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

@@ -381,6 +381,30 @@ The next exact gate is its compact-MDD adjunction to both full old copies and
 `R`, followed first by old-cut and distinguished-join preservation, then
 lattice, centre, block, and state audits.
 
+That raw bounded adjunction fails latticehood at the distinguished cut.
+For the deterministic three-point selector `S`, the family consisting of
+both full old copies and `R,R^c,S,S^c` has:
+
+- `R` and the right-old join `18322` as incomparable uppers of
+  `15250,16786`;
+- 31 of 32 right-old uppers not containing `R`;
+- eight opposite-copy old uppers, none below `R`;
+- neither `S` nor `S^c` an upper;
+- no displayed-family interpolant below both `R` and `18322`.
+
+Thus this bounded family has no least upper for the cut. **Executable
+verified — exhaustive finite scope**, `arr_k8a_deterministic_selector_cut_audit.py/.json`,
+producer `8ce29969...`, payload `4ce40c3d...`; final seed-0 run, with an
+earlier pre-strengthening version but not the final cross-upper scan replayed
+under a second hash seed.
+
+Independently, `S^c` has no greatest old lower on either side: the left copy
+has 2389 old lowers with 23 maxima, and the right has 2402 with 26; explicit
+atom-fold escapes are serialized. This is not an impossibility theorem for
+completion. It identifies the exact repair: any completion must adjoin a new
+upper below `R` and old join `18322`, while simultaneously re-basing the
+`S^c` lower kernels. Broad unstructured selector closure is stopped.
+
 If every eligible fibre is singleton, the `K=0x8a` transplant is impossible
 on the actual carrier. If one is non-singleton, transplant the crossing event,
 close with both full old copies and `R`, and audit `CI_R`, every lattice cut,

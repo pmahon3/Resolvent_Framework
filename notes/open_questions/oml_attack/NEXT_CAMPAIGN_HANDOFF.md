@@ -53,6 +53,11 @@
    action is therefore compact-MDD adjunction of a deterministic selector
    and old-cut/distinguished-join preservation—not another multiplicity
    census.
+   The raw adjunction has now failed exactly: `R` and old join `18322` are
+   incomparable with no bounded-family interpolant, while `S^c` has 23/26
+   maximal old lower shadows (payload `4ce40c3d...`). First action is to
+   classify the required new upper below both and the simultaneous two-sided
+   kernel repair. Do not run broad closure.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

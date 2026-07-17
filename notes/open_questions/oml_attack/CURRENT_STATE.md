@@ -764,6 +764,15 @@ physical selector exists (**Executable verified — exhaustive finite scope**,
 payload `1e65c4c7...`). It is not yet a generated or admissibly adjoinable
 event; compact-MDD adjunction and old-cut preservation are next.
 
+The first raw adjunction is decisively nonlattice. In the bounded family with
+both full old copies and `R,R^c,S,S^c`, `R` and old join `18322` are
+incomparable uppers of the distinguished cut and there is no bounded-family
+interpolant. Also, `S^c` has 23 and 26 incomparable maximal old lower shadows
+on the two sides. **Executable verified — exhaustive finite scope**, payload
+`4ce40c3d...`. This closes literal clean-control transplantation but not OML
+completion; the next grammar root is the coupled upper interpolant below
+`R∩18322` plus two-sided `S^c` re-basing.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

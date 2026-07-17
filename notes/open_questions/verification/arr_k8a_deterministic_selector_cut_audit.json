@@ -1,0 +1,398 @@
+{
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_k8a_deterministic_selector_cut_audit.py --verify",
+  "distinguished_cut": {
+    "R_and_old_join_18322_incomparable": true,
+    "R_remains_distinguished_join_in_bounded_adjoined_family": false,
+    "UP_S_holds_in_bounded_adjoined_family": false,
+    "all_shared_states_touched": false,
+    "bounded_family_cut_has_no_least_upper": true,
+    "every_right_old_upper_contains_R": false,
+    "first_UP_S_failure_witness": {
+      "contains_both_old_lowers": true,
+      "does_not_contain_R": true,
+      "old_upper_index": 18322,
+      "old_upper_root_sha256": "bcff2b2e31c7dbfc18ed9cfa685e607255e0299a77b8bf97e965491ca6689b64"
+    },
+    "left_old_cross_upper_count": 8,
+    "left_old_cross_uppers_below_R_count": 0,
+    "left_old_cross_uppers_below_R_indices": [],
+    "new_target_upper_checks": {
+      "R_is_upper": true,
+      "Rc_is_upper": false,
+      "S_is_upper": false,
+      "Sc_is_upper": false
+    },
+    "no_bounded_interpolant_below_R_and_old_join_18322": true,
+    "right_old_lower_indices": [
+      15250,
+      16786
+    ],
+    "right_old_upper_count": 32,
+    "right_old_uppers_not_containing_R_count": 31,
+    "right_old_uppers_not_containing_R_indices": [
+      18322,
+      18323,
+      18326,
+      18327,
+      18330,
+      18331,
+      18334,
+      18335,
+      18354,
+      18355,
+      18358,
+      18359,
+      18362,
+      18363,
+      18366,
+      18367,
+      18386,
+      18387,
+      18390,
+      18391,
+      18394,
+      18395,
+      18398,
+      18399,
+      18418,
+      18419,
+      18422,
+      18423,
+      18426,
+      18427,
+      18430
+    ],
+    "shared_states_touched_by_a_or_b": 183
+  },
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope for the displayed bounded family",
+  "first_decisive_old_cut_obstruction": {
+    "atom_fold_covers_every_old_lower": true,
+    "atom_fold_index": 18431,
+    "atom_fold_inside_shadow": false,
+    "eligible_old_atom_count": 59,
+    "first_atom_fold_escape": {
+      "atom_index": 1024,
+      "escaping_old_join_index": 6140,
+      "prior_index": 1020
+    },
+    "greatest_old_lower_exists": false,
+    "maximal_old_lower_indices": [
+      13308,
+      13820,
+      18447,
+      18448,
+      18453,
+      18475,
+      18478,
+      18482,
+      18483,
+      18486,
+      18489,
+      18492,
+      18504,
+      18522,
+      18543,
+      18544,
+      18547,
+      18552,
+      18591,
+      18627,
+      18632,
+      18643,
+      18659
+    ],
+    "old_lower_count": 2389,
+    "orientation": "left",
+    "target": "Sc",
+    "universal_shadow_root_sha256": "a64ae56e09ba959b0353ef335ffef948baa326716075fc8e7e8fcb455b660ebf"
+  },
+  "hostile_self_review": [
+    "The three singleton products are compact relation terms, not one old-copy MDD; only their exact one-copy projections and universal shadows are MDD tuples.",
+    "Greatest-old-lower coverage certifies preservation against one displayed outsider at a time, not closure under unions of multiple outsiders.",
+    "UP-S is asserted only in the bounded adjoined family. Later generated mixed events can introduce a smaller upper.",
+    "The left-old upper reduction uses the audited all-shared-state coverage of a or b; without it cross-copy uppers would require a separate scan."
+  ],
+  "kernel_audits": {
+    "left": {
+      "R": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 14557,
+        "atom_fold_inside_shadow": true,
+        "eligible_old_atom_count": 10,
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "maximal_old_lower_indices": [
+          14557
+        ],
+        "old_lower_count": 384,
+        "universal_shadow_root_sha256": "00276a9c2924f4cf7374a4ddd1558d0632a28eb166361b7c7b1a1081df2fe6c2"
+      },
+      "Rc": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 258,
+        "atom_fold_inside_shadow": true,
+        "eligible_old_atom_count": 2,
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "maximal_old_lower_indices": [
+          258
+        ],
+        "old_lower_count": 4,
+        "universal_shadow_root_sha256": "8d994db76959ea063c4061f945273bb7549edb7d85b52efec0959e42031002ad"
+      },
+      "S": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 0,
+        "atom_fold_inside_shadow": true,
+        "eligible_old_atom_count": 0,
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "maximal_old_lower_indices": [
+          0
+        ],
+        "old_lower_count": 1,
+        "universal_shadow_root_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff"
+      },
+      "Sc": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 18431,
+        "atom_fold_inside_shadow": false,
+        "eligible_old_atom_count": 59,
+        "first_atom_fold_escape": {
+          "atom_index": 1024,
+          "escaping_old_join_index": 6140,
+          "prior_index": 1020
+        },
+        "greatest_old_lower_exists": false,
+        "maximal_old_lower_indices": [
+          13308,
+          13820,
+          18447,
+          18448,
+          18453,
+          18475,
+          18478,
+          18482,
+          18483,
+          18486,
+          18489,
+          18492,
+          18504,
+          18522,
+          18543,
+          18544,
+          18547,
+          18552,
+          18591,
+          18627,
+          18632,
+          18643,
+          18659
+        ],
+        "old_lower_count": 2389,
+        "universal_shadow_root_sha256": "a64ae56e09ba959b0353ef335ffef948baa326716075fc8e7e8fcb455b660ebf"
+      }
+    },
+    "right": {
+      "R": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 18322,
+        "atom_fold_inside_shadow": false,
+        "eligible_old_atom_count": 8,
+        "first_atom_fold_escape": {
+          "atom_index": 10752,
+          "escaping_old_join_index": 18322,
+          "prior_index": 15250
+        },
+        "greatest_old_lower_exists": false,
+        "maximal_old_lower_indices": [
+          15250,
+          16786
+        ],
+        "old_lower_count": 192,
+        "universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3"
+      },
+      "Rc": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 0,
+        "atom_fold_inside_shadow": true,
+        "eligible_old_atom_count": 0,
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "maximal_old_lower_indices": [
+          0
+        ],
+        "old_lower_count": 1,
+        "universal_shadow_root_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff"
+      },
+      "S": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 0,
+        "atom_fold_inside_shadow": true,
+        "eligible_old_atom_count": 0,
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "maximal_old_lower_indices": [
+          0
+        ],
+        "old_lower_count": 1,
+        "universal_shadow_root_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff"
+      },
+      "Sc": {
+        "atom_fold_covers_every_old_lower": true,
+        "atom_fold_index": 18431,
+        "atom_fold_inside_shadow": false,
+        "eligible_old_atom_count": 63,
+        "first_atom_fold_escape": {
+          "atom_index": 9216,
+          "escaping_old_join_index": 18425,
+          "prior_index": 7673
+        },
+        "greatest_old_lower_exists": false,
+        "maximal_old_lower_indices": [
+          7673,
+          15353,
+          18447,
+          18448,
+          18475,
+          18478,
+          18482,
+          18483,
+          18492,
+          18504,
+          18522,
+          18544,
+          18547,
+          18552,
+          18581,
+          18590,
+          18594,
+          18617,
+          18627,
+          18630,
+          18643,
+          18649,
+          18666,
+          18669,
+          18672,
+          18674
+        ],
+        "old_lower_count": 2402,
+        "universal_shadow_root_sha256": "2dbcb676864710fa7a0d670b6598af52da323958eb9303c54c8b64244e9ca59d"
+      }
+    }
+  },
+  "left_projection_root_sha256": "d7d6458aae6f272933868bafd7e3f5ffa2d690904a491e518571410431d39c3a",
+  "next_gate": "If no decisive old-cut obstruction appears, generate only first-round disjoint unions involving S or S^c and stop at the first new target whose old atom fold escapes; otherwise extract the displayed cut.",
+  "old_atoms": 91,
+  "old_events_per_copy": 18676,
+  "payload_sha256": "4ce40c3dbadc03800eafb3e9ba7f9f6e310335546adcb00b4191d75381c39bf9",
+  "producer_sha256": "8ce299691c4c8ffd6d0f7f5d050cef188f382ec2f34d692401585cf7ca8e2377",
+  "right_projection_root_sha256": "c62da34abde68df2b853ae39dc605648dabcd80c5a90d3d4c9808ae65aaaee02",
+  "schema": "arr-k8a-deterministic-selector-cut-audit-v1",
+  "schema_version": "1.0",
+  "scope": "Exact compact-MDD audit of S,S^c,R,R^c against every event and all 91 atoms of each 18,676-event old copy, plus the distinguished a,b upper cut in the bounded family consisting of both old copies and these four targets. No complement/disjoint-union closure beyond the displayed targets, no all mixed-pair lattice census, and no OML, centre, state, sigma, ODBC, or Phi conclusion.",
+  "selector_compact_representation": "three products of singleton one-copy MDD roots",
+  "selector_point_count": 3,
+  "selector_points": [
+    {
+      "adjacent_state_tuple": [
+        2,
+        6,
+        2,
+        6,
+        2,
+        6,
+        2
+      ],
+      "atom": 0,
+      "in_R": false,
+      "in_a": false,
+      "in_b": false,
+      "labelled_word": [
+        12,
+        3,
+        0
+      ],
+      "left_old_tuple": [
+        2,
+        6,
+        2,
+        6
+      ],
+      "right_old_tuple": [
+        6,
+        2,
+        6,
+        2
+      ]
+    },
+    {
+      "adjacent_state_tuple": [
+        1,
+        1,
+        10,
+        10,
+        8,
+        10,
+        8
+      ],
+      "atom": 3,
+      "in_R": true,
+      "in_a": false,
+      "in_b": true,
+      "labelled_word": [
+        12,
+        10,
+        1
+      ],
+      "left_old_tuple": [
+        1,
+        1,
+        10,
+        10
+      ],
+      "right_old_tuple": [
+        10,
+        8,
+        10,
+        8
+      ]
+    },
+    {
+      "adjacent_state_tuple": [
+        0,
+        0,
+        2,
+        2,
+        6,
+        2,
+        6
+      ],
+      "atom": 4,
+      "in_R": true,
+      "in_a": true,
+      "in_b": true,
+      "labelled_word": [
+        3,
+        12,
+        1
+      ],
+      "left_old_tuple": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "right_old_tuple": [
+        2,
+        6,
+        2,
+        6
+      ]
+    }
+  ],
+  "source_signature_payload_sha256": "1e65c4c76ee70e94079431e271e46ebf68f113c60976c69777f6c7c00651b9cd",
+  "strategic_verdict": "The deterministic three-singleton selector is physically definable, but its complement immediately re-bases both full old copies: each S^c universal shadow has many incomparable maximal old lowers. Moreover the full right old copy already contains an upper of the 15250/16786 cut which does not contain R, so the restricted-quotient Neg-023 join does not survive full-old adjunction. Broad selector closure is therefore not mathematically justified.",
+  "verification_independence": "One deterministic implementation reusing the authoritative ARR MDD producer."
+}

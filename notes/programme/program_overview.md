@@ -857,6 +857,10 @@ The physical gate passes: the full-old signature pair recovers the adjacent
 point, and all three required fibres have enormous multiplicity. The next
 gate is no longer cardinality but whether a compactly represented selector
 can be adjoined while preserving both old OML copies and the `Neg-023` cut.
+The first such raw adjunction is nonlattice: `R` conflicts with old join
+`18322`, and the selector complement simultaneously has nonprincipal lower
+kernels on both copies. This refutes literal transplantation, not completion;
+the next object is the exact coupled upper/kernel repair root.
 
 ## Repository Layout
 

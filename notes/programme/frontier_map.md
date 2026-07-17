@@ -822,6 +822,11 @@ That refinement now passes over all `211897540016` adjacent points: the
 three required complete-signature fibres admit one simultaneous physical
 selector. This is subset existence only. The frontier is compact-MDD
 adjunction and preservation of every old cut and the distinguished join.
+The deterministic adjunction fails at the first bounded cut: `R` and old
+join `18322` are incomparable with no displayed-family interpolant, and
+`S^c` has nonprincipal lower kernels on both old copies. Literal clean-control
+transplantation is closed. The live grammar root is the coupled new upper
+below both displayed uppers plus two-sided kernel re-basing.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

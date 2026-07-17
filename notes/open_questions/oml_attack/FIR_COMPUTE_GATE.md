@@ -103,6 +103,11 @@ The full-old physical-signature gate also completes locally (payload
 The next task is structural compact-MDD adjunction and cut preservation, not
 an exact shard space. It is therefore still not a Fir production workload.
 
+That bounded adjunction is now locally classified and fails at one exact cut
+(payload `4ce40c3d...`). The next task is theorem-level coupled repair-root
+classification, again without an exhaustive shard space. Fir remains
+unjustified even apart from the recorded outage.
+
 ## Required next gate
 
 When the official service is no longer `OUTAGE`, recheck it once. If usable,

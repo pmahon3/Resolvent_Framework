@@ -3251,6 +3251,22 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   test a transverse block; this is the smallest mechanism not covered by the
   central-singleton theorem.
 
+### Iteration 299 — centre-free inflated split-atom survivors
+- Exhausting all 512 subsets on the one-point-inflated 9-point carrier gives
+  252 crossing seeds and 128 distinct closed families.
+- Seventy distinct families are centre-free concrete OMLs preserving the
+  split selector join, literal-union absence, and point order separation.
+  **Executable verified — exhaustive finite scope**, producer `5c42fd94...`,
+  payload `16c70914...`.
+- The clean `K=0x8a` survivor has 16 events, three 8-event maximal blocks,
+  and exactly eight abstract two-valued states, all point states.
+- **Refuted:** centre-free concrete OML laws, even with exhaustive
+  two-valued-state classification and point order separation, force old
+  truth-atom selector saturation.
+- **Pivot:** only actual adjacent-assembly/full-old-copy coupling remains as
+  a possible saturation mechanism. Test whether the `K=0x8a` three-block
+  control can be transplanted into the actual `Neg-023` truth fibre.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

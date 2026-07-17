@@ -36,11 +36,11 @@
    every admissible ambient completion, is the forced join of its embedded
    old lower cut cylindrical? It satisfies `G ⊆ h ⊆ R`, but the seeded
    one-copy 256-prefix covers only the conditional branch `h = G`.
-7. **First action:** inflate/re-represent the central singleton of the
-   12-event split-atom control as a multi-point fibre and add the smallest
-   transverse block. Same-carrier centre killing is impossible by a hand
-   theorem and an exhaustive 256-adjunction census. Audit whether the split
-   join, latticehood, centre, and point order separation survive inflation.
+7. **First action:** transplant the clean `K=0x8a` 16-event, three-block
+   centre-free split-atom control into the actual `Neg-023` truth fibre while
+   retaining the full old cylinders. Carrier inflation already supplies 70
+   generic survivors; determine the first actual old context or mixed cut
+   that obstructs this transplant, or preserve a passing local assembly.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

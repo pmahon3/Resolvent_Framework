@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — same-carrier centre killing is impossible; carrier-inflated split-atom OMLs are the active selector-saturation gate.",
+   "status": "OPEN — centre-free selector saturation is refuted generically; actual adjacent/full-old-copy transplantation is the active gate.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

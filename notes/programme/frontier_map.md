@@ -811,6 +811,9 @@ frontier is therefore centre-free/assembly-specific saturation.
 Its central singleton is permanent under every same-carrier concrete-logic
 extension, and all 256 one-subset adjunctions confirm the no-go. The live
 frontier therefore requires carrier inflation/re-representation.
+That inflation succeeds in 70 centre-free OMLs among 128 distinct closed
+families. The clean 16-event control has three 8-event blocks and only point
+states. The frontier is now actual adjacent/full-old-copy transplantation.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

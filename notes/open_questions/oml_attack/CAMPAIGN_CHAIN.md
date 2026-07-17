@@ -121,6 +121,7 @@
 | selector upper-core fixed point and strictness | Lean certified + Hand corollary | fixed point and current-core cardinal drop certified; represented join descent only for same-carrier concrete lattice enlargements |
 | generic selector saturation | Refuted, executable verified exhaustive finite scope | 8-point/12-event split-atom OML; centre is nontrivial |
 | same-carrier centre killing | Refuted, Hand proved + exhaustive finite scope | central singleton persists; all 256 one-subset adjunctions fail |
+| centre-free selector saturation | Refuted, executable verified exhaustive finite scope | 70 inflated split-atom OML survivors; clean 16-event three-block/state-complete control |
 | unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |

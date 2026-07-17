@@ -276,6 +276,25 @@ Thus the next construction must inflate or re-represent the carrier so the
 old central singleton pulls back to a multi-point event that a transverse
 block can cross.
 
+That inflation succeeds. Duplicate the central point once, pull back all
+12 events, and adjoin one crossing event `K`. Exhausting all 512 subsets
+gives 252 crossing seeds and 128 distinct closed families. Seventy are
+centre-free concrete OMLs preserving `A join B = H`, literal-union absence,
+the split truth atom, and point order separation.
+
+The clean representative `K = 0x8a` has 16 events, three 8-event maximal
+blocks, and exactly eight abstract two-valued states, equal to its eight
+distinct point states.
+
+Evidence: **Executable verified — exhaustive finite scope**,
+`split_truth_atom_one_point_inflation_census.py/.json`, producer
+`5c42fd94...`, payload `16c70914...`; one implementation with deterministic
+two-seed replays.
+
+Therefore centre-free finite concrete OML laws plus exhaustive two-valued
+state classification still do not force selector saturation. Any positive
+`ARR` theorem must use the actual adjacent-assembly/full-old-copy coupling.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |

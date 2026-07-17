@@ -723,6 +723,14 @@ every complement/disjoint-union-closed extension (**Hand proved**), and all
 exhaustive finite scope**, payload `dd15096e...`). The next live mechanism is
 carrier inflation/re-representation followed by a transverse block.
 
+Carrier inflation succeeds: the complete 512-seed census yields 70
+centre-free concrete OML survivors. The clean 16-event `K=0x8a` example has
+three 8-event maximal blocks and exactly eight abstract states, all point
+states. **Executable verified — exhaustive finite scope**, payload
+`16c70914...`. Hence even centre-freeness and state order separation do not
+force selector saturation. The remaining live mechanism is specifically the
+actual adjacent/full-old-copy coupling.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

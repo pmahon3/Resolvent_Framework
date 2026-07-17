@@ -844,6 +844,9 @@ use centre-freeness or assembly-specific symmetry/block incidence.
 Same-carrier centre killing is impossible because the control contains a
 permanent central singleton. The next construction inflates that singleton
 to a fibre before adding transverse incidence.
+The inflation construction succeeds: a clean 16-event centre-free OML
+preserves the split join and has exactly its point states. Only
+assembly-specific full-old coupling remains as a possible saturation force.
 
 ## Repository Layout
 

@@ -3419,6 +3419,30 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   set of exact classes, then freeze an exhaustive 486-class manifest. Do not
   extend closure depth or treat the 27 coarse buckets as Markov states.
 
+### Iteration 307 — eight-root kernel pilot refutes obligation closure
+- Eight provenance-diverse exact roots `[15,105,14,42,106,43,8,486]` were
+  audited against both old copies. Five create a new old-kernel source-cut
+  obligation, all on the right copy. **Executable verified — sampled finite
+  scope**, `arr_forced_T_bridge_kernel_pilot.py/.json`, producer
+  `3f584956...`, payload `c1cdbb8b...`; deterministic cross-seed replay.
+- Classes `15,105,106` have no least right old upper, with minimal pairs
+  `[3081,1545]`, `[3072,1536]`, and `[3183,1647]`. Classes `14,8` have no
+  greatest right old lower, with maximal pairs `[15350,16886]` and
+  `[15250,16786]`, and atom-fold escapes to `18422` and `18322`.
+- Classes `42,43,486` are principal on both sides. Duplicate provenance,
+  coarse-bucket size, and union-versus-difference are **Refuted** as standalone
+  re-basing predictors.
+- **Hand coverage audit:** a 486-root audit can refute obligation closure but
+  cannot prove it, because pairs of two new roots remain invisible. A positive
+  theorem additionally needs a one-new-parent locality theorem, an exhaustive
+  cross-root audit, or a proved transition congruence.
+- Pilot resources: 443.14 s wall, 293.76 s fixed reconstruction, 18.32 s/root
+  mean kernel work, 1.36 GB peak RSS. The naive 486-root projection is about
+  2.56 h sequential or 31 shards of 16 roots; no Fir job was submitted.
+- **Decision:** the current finite obligation set is not closed. The next
+  theorem is a right-source kernel transition/locality classification; do not
+  run all 486 merely to repeat the negative verdict.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

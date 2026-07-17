@@ -72,6 +72,11 @@
    First action is a local two-sided old-kernel/source-cut pilot on a small
    discriminating set, followed by an immutable 486-class manifest. Fir is
    `OUTAGE`; prepare only, do not connect or submit.
+   The eight-root pilot found five right-copy obligations (payload
+   `c1cdbb8b...`), so the current obligation set is not closed. Do not run all
+   486 merely to repeat that verdict. First classify the three nonleast-upper
+   and two nonprincipal-lower transition types and prove/refute a one-new-
+   parent locality theorem. Cross-root pairs remain outside rootwise audits.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

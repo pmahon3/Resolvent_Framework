@@ -1,0 +1,595 @@
+{
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_forced_T_bridge_kernel_pilot.py --verify",
+  "evidence_class": "Executable verified \u2014 sampled finite scope",
+  "first_suspected_failure": "The eight-root sample may understate kernel-time variance, especially for projection roots with larger reduced MDDs; coarse-bucket size is not established as a cost or mathematical-behaviour predictor.",
+  "kernel_seconds_total": 146.58464225009084,
+  "payload_sha256": "c1cdbb8b2875a097d70d0a7d2245d0a53cffa2cc5161f0a0b293882231442ceb",
+  "peak_rss_bytes_darwin": 1362165760,
+  "producer_sha256": "3f584956f52a3366094c2439001bea8c09d613fcb06c2e0fb4163d63d4e3f692",
+  "projected_exhaustive_resource": {
+    "fixed_reconstruction_seconds_this_run": 293.75875991606154,
+    "mean_selected_root_kernel_seconds": 18.323080281261355,
+    "memory_basis": "pilot process ru_maxrss; dominated by exact ARR reconstruction",
+    "new_exact_root_count": 486,
+    "sequential_kernel_only_seconds": 8905.017016693018,
+    "sequential_total_seconds_estimate": 9198.77577660908,
+    "suggested_roots_per_shard": 16,
+    "suggested_shard_count": 31
+  },
+  "reconstruction_seconds": 293.75875991606154,
+  "records": [
+    {
+      "coarse_bucket_size": 30,
+      "creates_any_source_cut_obligation": true,
+      "exact_event_class": 15,
+      "exact_mdd_sha256": "4eaeaaff7081f0bb71f5ef01ed17ce68f2d57a6332dadcfee9d07e2f7dd5fa05",
+      "kernel_seconds": 18.325683875009418,
+      "new_relative_to_specials": true,
+      "occurrence_count": 2,
+      "provenance": [
+        {
+          "base": "Tc",
+          "is_one_of_five_forced_differences": true,
+          "operation": "complementary_difference",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_left(1154)",
+          "source_old_index": 1154,
+          "source_side": "left"
+        },
+        {
+          "base": "Tc",
+          "is_one_of_five_forced_differences": false,
+          "operation": "complementary_difference",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_right(100)",
+          "source_old_index": 100,
+          "source_side": "right"
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": false,
+      "selection_label": "forced_difference_left",
+      "sides": {
+        "left": {
+          "atom_fold_index": 0,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 0,
+          "existential_shadow_root_sha256": "145e95d2ec59052f9dc20600d62a216c02f176ff5f4cd7113cb88bbbd8c8954b",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            0
+          ],
+          "minimal_old_upper_indices": [
+            3749
+          ],
+          "old_lower_count": 1,
+          "old_upper_count": 192,
+          "universal_shadow_root_sha256": "796cc8b2d1401bb673582287479028497a546828ed8a96dab2db7ecc6bd0a976"
+        },
+        "right": {
+          "atom_fold_index": 9,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": true,
+          "eligible_old_atom_count": 2,
+          "existential_shadow_root_sha256": "fe9a6f458668240748d076f48702a51d1b2abec9f382af7ab844003dada0f8d3",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": false,
+          "maximal_old_lower_indices": [
+            9
+          ],
+          "minimal_old_upper_indices": [
+            3081,
+            1545
+          ],
+          "old_lower_count": 4,
+          "old_upper_count": 2304,
+          "universal_shadow_root_sha256": "2ee23ac1a88578831c35559336ae6412ec1afbb771238a97249bcc80059b4f47"
+        }
+      }
+    },
+    {
+      "coarse_bucket_size": 1,
+      "creates_any_source_cut_obligation": true,
+      "exact_event_class": 105,
+      "exact_mdd_sha256": "534e05c3ad747649137b3b77fe1ce6885ac507fcf6c0066d9f3360b79bd625fd",
+      "kernel_seconds": 18.22806504194159,
+      "new_relative_to_specials": true,
+      "occurrence_count": 1,
+      "provenance": [
+        {
+          "base": "Tc",
+          "is_one_of_five_forced_differences": true,
+          "operation": "complementary_difference",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_right(109)",
+          "source_old_index": 109,
+          "source_side": "right"
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": false,
+      "selection_label": "forced_difference_right",
+      "sides": {
+        "left": {
+          "atom_fold_index": 0,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 0,
+          "existential_shadow_root_sha256": "e79bc51495ef81618ff1b8b51857f6bb8ce83c6ab947578f256025c6de968742",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            0
+          ],
+          "minimal_old_upper_indices": [
+            3104
+          ],
+          "old_lower_count": 1,
+          "old_upper_count": 3076,
+          "universal_shadow_root_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff"
+        },
+        "right": {
+          "atom_fold_index": 0,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": true,
+          "eligible_old_atom_count": 0,
+          "existential_shadow_root_sha256": "3a36c8f3a3fad7ed7e8266c90f857d70ff94d33b08a4ec1d449957ba9e8e754b",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": false,
+          "maximal_old_lower_indices": [
+            0
+          ],
+          "minimal_old_upper_indices": [
+            3072,
+            1536
+          ],
+          "old_lower_count": 1,
+          "old_upper_count": 9248,
+          "universal_shadow_root_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff"
+        }
+      }
+    },
+    {
+      "coarse_bucket_size": 30,
+      "creates_any_source_cut_obligation": true,
+      "exact_event_class": 14,
+      "exact_mdd_sha256": "fd79d7b6cccea68aee688cc1c6ae09d3cfab680561b9647905e72670dabae58d",
+      "kernel_seconds": 18.339844417059794,
+      "new_relative_to_specials": true,
+      "occurrence_count": 2,
+      "provenance": [
+        {
+          "base": "T",
+          "is_one_of_five_forced_differences": false,
+          "operation": "disjoint_union",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_left(1154)",
+          "source_old_index": 1154,
+          "source_side": "left"
+        },
+        {
+          "base": "T",
+          "is_one_of_five_forced_differences": false,
+          "operation": "disjoint_union",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_right(100)",
+          "source_old_index": 100,
+          "source_side": "right"
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": false,
+      "selection_label": "duplicate_provenance_first",
+      "sides": {
+        "left": {
+          "atom_fold_index": 14682,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 9,
+          "existential_shadow_root_sha256": "1e35c0737a18c13ed17b2c26f1f7077b6fa10b0ba892fc5cff9287a835077898",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            14682
+          ],
+          "minimal_old_upper_indices": [
+            18431
+          ],
+          "old_lower_count": 192,
+          "old_upper_count": 1,
+          "universal_shadow_root_sha256": "69d859feefabef9f6e49f6cd55f7d12867b90af14b59f4e72956a0857b7df5f5"
+        },
+        "right": {
+          "atom_fold_index": 18422,
+          "atom_fold_inside_target": false,
+          "creates_source_cut_obligation": true,
+          "eligible_old_atom_count": 13,
+          "existential_shadow_root_sha256": "dceec4a5fc284c390941013b1ec74d4c1c4add3dab77e8e4e6ad79e131effd32",
+          "first_atom_fold_escape": {
+            "atom_index": 10752,
+            "escaping_join_index": 18422,
+            "prior_index": 15350
+          },
+          "greatest_old_lower_exists": false,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            15350,
+            16886
+          ],
+          "minimal_old_upper_indices": [
+            18422
+          ],
+          "old_lower_count": 2304,
+          "old_upper_count": 4,
+          "universal_shadow_root_sha256": "0d27a54e44010b3e07881cd55747e67676caf32de739f9b7cb44851e3b1f57c4"
+        }
+      }
+    },
+    {
+      "coarse_bucket_size": 189,
+      "creates_any_source_cut_obligation": false,
+      "exact_event_class": 42,
+      "exact_mdd_sha256": "d360e4c376749a79406403bb5090f68876aef987104b53c723b8ca9646f5930a",
+      "kernel_seconds": 18.29364525002893,
+      "new_relative_to_specials": true,
+      "occurrence_count": 2,
+      "provenance": [
+        {
+          "base": "Tc",
+          "is_one_of_five_forced_differences": false,
+          "operation": "disjoint_union",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_left(13840)",
+          "source_old_index": 13840,
+          "source_side": "left"
+        },
+        {
+          "base": "Tc",
+          "is_one_of_five_forced_differences": false,
+          "operation": "disjoint_union",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_right(16384)",
+          "source_old_index": 16384,
+          "source_side": "right"
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": true,
+      "selection_label": "duplicate_provenance_second",
+      "sides": {
+        "left": {
+          "atom_fold_index": 14674,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 8,
+          "existential_shadow_root_sha256": "a1aed2140224193928c18e1fab267e0c552f346ba628453f9a5cd8ef387efd37",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            14674
+          ],
+          "minimal_old_upper_indices": [
+            18423
+          ],
+          "old_lower_count": 96,
+          "old_upper_count": 2,
+          "universal_shadow_root_sha256": "471341073c9e7af50651bf72365eb9e00749ec29a61f2024a7c8f925ad3c5b98"
+        },
+        "right": {
+          "atom_fold_index": 16493,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 10,
+          "existential_shadow_root_sha256": "7f16a442f8284c12f5b6d52ae5ed191c09f21c35b2fef81240c4cf0c17769fa6",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            16493
+          ],
+          "minimal_old_upper_indices": [
+            18029
+          ],
+          "old_lower_count": 384,
+          "old_upper_count": 16,
+          "universal_shadow_root_sha256": "f8a982cf9dd861862ee10b606adb97087bd4e134d2c105d5a93d082190f7df7d"
+        }
+      }
+    },
+    {
+      "coarse_bucket_size": 189,
+      "creates_any_source_cut_obligation": true,
+      "exact_event_class": 106,
+      "exact_mdd_sha256": "a603cd6f9e119468fd749cf739b960283a8dddcc25d95b8f96c076512897e391",
+      "kernel_seconds": 18.337602041079663,
+      "new_relative_to_specials": true,
+      "occurrence_count": 1,
+      "provenance": [
+        {
+          "base": "Tc",
+          "is_one_of_five_forced_differences": false,
+          "operation": "disjoint_union",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_right(2)",
+          "source_old_index": 2,
+          "source_side": "right"
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": true,
+      "selection_label": "largest_bucket_union",
+      "sides": {
+        "left": {
+          "atom_fold_index": 1154,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 3,
+          "existential_shadow_root_sha256": "7148393057e766eb40c4e6791718733182fa25989bec04ae9ccd0122c4529afc",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            1154
+          ],
+          "minimal_old_upper_indices": [
+            4583
+          ],
+          "old_lower_count": 8,
+          "old_upper_count": 16,
+          "universal_shadow_root_sha256": "71141e82016c73d9dffbc2055bac4bc8c31c2544ae2e12ffc7e3ebdc8d3bcb81"
+        },
+        "right": {
+          "atom_fold_index": 111,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": true,
+          "eligible_old_atom_count": 6,
+          "existential_shadow_root_sha256": "ced71cfb226bbe327074c1a930d69c08addea2173f1dd7e1ea22b9a96ab0a9da",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": false,
+          "maximal_old_lower_indices": [
+            111
+          ],
+          "minimal_old_upper_indices": [
+            3183,
+            1647
+          ],
+          "old_lower_count": 64,
+          "old_upper_count": 96,
+          "universal_shadow_root_sha256": "298373f22c3cd8ee6a6c7ee7d6fdd5fa4a1061665a392a5a39b8c7e6f8503369"
+        }
+      }
+    },
+    {
+      "coarse_bucket_size": 189,
+      "creates_any_source_cut_obligation": false,
+      "exact_event_class": 43,
+      "exact_mdd_sha256": "f750adfb4ef00e8956d8a2f5b3208f055f8f9dddfa5c0f454bd3732e12851513",
+      "kernel_seconds": 18.316795250051655,
+      "new_relative_to_specials": true,
+      "occurrence_count": 2,
+      "provenance": [
+        {
+          "base": "T",
+          "is_one_of_five_forced_differences": false,
+          "operation": "complementary_difference",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_left(13840)",
+          "source_old_index": 13840,
+          "source_side": "left"
+        },
+        {
+          "base": "T",
+          "is_one_of_five_forced_differences": false,
+          "operation": "complementary_difference",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_right(16384)",
+          "source_old_index": 16384,
+          "source_side": "right"
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": true,
+      "selection_label": "largest_bucket_difference",
+      "sides": {
+        "left": {
+          "atom_fold_index": 8,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 1,
+          "existential_shadow_root_sha256": "2c33635221172ea23d37b50b1e6c6704eb3715b0befd673cd26fd6d55e4b9bc1",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            8
+          ],
+          "minimal_old_upper_indices": [
+            3757
+          ],
+          "old_lower_count": 2,
+          "old_upper_count": 96,
+          "universal_shadow_root_sha256": "ed9ea7ff743b73eb29039c1c593b5c93c3ebca0e8efbe796b76484065c1bb194"
+        },
+        "right": {
+          "atom_fold_index": 402,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 4,
+          "existential_shadow_root_sha256": "d15ea61419d95664035a8148c0a68fd6ca75e2d94bd52824f73ebb9ab410e251",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            402
+          ],
+          "minimal_old_upper_indices": [
+            1938
+          ],
+          "old_lower_count": 16,
+          "old_upper_count": 384,
+          "universal_shadow_root_sha256": "dab04b8d3eb4e9326f99a995cf7544c0936f5c15a538cd0b01c130e289900050"
+        }
+      }
+    },
+    {
+      "coarse_bucket_size": 1,
+      "creates_any_source_cut_obligation": true,
+      "exact_event_class": 8,
+      "exact_mdd_sha256": "e81bdea5b22af50d569976e710e6486cc7bb20ad208502d9f7e84e9cbfbc0e26",
+      "kernel_seconds": 18.391630832920782,
+      "new_relative_to_specials": true,
+      "occurrence_count": 1,
+      "provenance": [
+        {
+          "base": "T",
+          "is_one_of_five_forced_differences": false,
+          "operation": "disjoint_union",
+          "source_kind": "old_cylinder",
+          "source_name": "cyl_left(1024)",
+          "source_old_index": 1024,
+          "source_side": "left"
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": true,
+      "selection_label": "singleton_coarse_bucket_outside_parent",
+      "sides": {
+        "left": {
+          "atom_fold_index": 14424,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 7,
+          "existential_shadow_root_sha256": "a255345ee8da67c6eabaaa693b5d36f66e5f6e44933eb13f60229894907425ff",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            14424
+          ],
+          "minimal_old_upper_indices": [
+            18173
+          ],
+          "old_lower_count": 48,
+          "old_upper_count": 4,
+          "universal_shadow_root_sha256": "1c5712bfb7346d91933b77322bf899119c744764b643246f1254074fadec1c5f"
+        },
+        "right": {
+          "atom_fold_index": 18322,
+          "atom_fold_inside_target": false,
+          "creates_source_cut_obligation": true,
+          "eligible_old_atom_count": 8,
+          "existential_shadow_root_sha256": "dceec4a5fc284c390941013b1ec74d4c1c4add3dab77e8e4e6ad79e131effd32",
+          "first_atom_fold_escape": {
+            "atom_index": 10752,
+            "escaping_join_index": 18322,
+            "prior_index": 15250
+          },
+          "greatest_old_lower_exists": false,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            15250,
+            16786
+          ],
+          "minimal_old_upper_indices": [
+            18422
+          ],
+          "old_lower_count": 192,
+          "old_upper_count": 4,
+          "universal_shadow_root_sha256": "5f0670219d13f0229fc4e0bc0ae150beb4f21b8e4e74e715cc05e4f747651d4f"
+        }
+      }
+    },
+    {
+      "coarse_bucket_size": 1,
+      "creates_any_source_cut_obligation": false,
+      "exact_event_class": 486,
+      "exact_mdd_sha256": "ee2315dcdc0e2264e0f6bc4c3ddf9c8994f7410921e044342a318249398b12ab",
+      "kernel_seconds": 18.351375541999005,
+      "new_relative_to_specials": true,
+      "occurrence_count": 1,
+      "provenance": [
+        {
+          "base": "T",
+          "is_one_of_five_forced_differences": false,
+          "operation": "disjoint_union",
+          "source_kind": "special",
+          "source_name": "Rc",
+          "source_old_index": null,
+          "source_side": null
+        }
+      ],
+      "requires_outside_frozen_parent_among_literal_representations": false,
+      "selection_label": "special_Rc_bridge",
+      "sides": {
+        "left": {
+          "atom_fold_index": 17338,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 11,
+          "existential_shadow_root_sha256": "bba711b92a2c11c5d1a91b52585aaa54364793e932c8af42eea249ab48cf297b",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            17338
+          ],
+          "minimal_old_upper_indices": [
+            17407
+          ],
+          "old_lower_count": 768,
+          "old_upper_count": 2,
+          "universal_shadow_root_sha256": "75b402d0adae4ef3504bdd72e5d3a585eccb2c4dd5c50e6184d637334b8744d8"
+        },
+        "right": {
+          "atom_fold_index": 18322,
+          "atom_fold_inside_target": true,
+          "creates_source_cut_obligation": false,
+          "eligible_old_atom_count": 10,
+          "existential_shadow_root_sha256": "f8b72d2af10e446e59b81fe8636cb763a5df140b46a9dfe9bb256eb6bfb57ed1",
+          "first_atom_fold_escape": null,
+          "greatest_old_lower_exists": true,
+          "least_old_upper_exists": true,
+          "maximal_old_lower_indices": [
+            18322
+          ],
+          "minimal_old_upper_indices": [
+            18431
+          ],
+          "old_lower_count": 384,
+          "old_upper_count": 1,
+          "universal_shadow_root_sha256": "bcff2b2e31c7dbfc18ed9cfa685e607255e0299a77b8bf97e965491ca6689b64"
+        }
+      }
+    }
+  ],
+  "schema": "arr-forced-T-bridge-kernel-pilot-v1",
+  "schema_version": "1.0",
+  "scope": "Eight deterministically selected exact physical bridge roots only. For each, exact old lower/upper kernels on both 18,676-event copies and old-atom folds are computed. No mixed closure, bridge-to-bridge cuts, centre, state, sigma, ODBC, MBRC, or Phi claim is made; the 486-root estimate is a measured projection, not an execution.",
+  "selected_exact_event_classes": [
+    15,
+    105,
+    14,
+    42,
+    106,
+    43,
+    8,
+    486
+  ],
+  "selected_root_count": 8,
+  "selection_rule": [
+    "forced_difference_left",
+    "forced_difference_right",
+    "duplicate_provenance_first",
+    "duplicate_provenance_second",
+    "largest_bucket_union",
+    "largest_bucket_difference",
+    "singleton_coarse_bucket_outside_parent",
+    "special_Rc_bridge"
+  ],
+  "source_bridge_payload_sha256": "af993bf5978612f6ca9088feedc83b939af90bc022f716f4ceb8f269c960b372",
+  "source_cut_obligation_count": 5,
+  "verification_independence": "One deterministic implementation reusing the authoritative exact bridge MDD producer and old-event order tables.",
+  "wall_seconds": 442.6974905410316
+}

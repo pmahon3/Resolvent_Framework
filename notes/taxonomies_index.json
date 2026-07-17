@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the 488-root immediate literal bridge layer refutes a frozen-five grammar; exact old-kernel/source-cut obligation closure is the active finite question.",
+   "status": "OPEN — a sampled exact bridge-kernel pilot refutes the current finite obligation set; right-source transition locality is active.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

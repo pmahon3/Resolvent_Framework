@@ -117,8 +117,9 @@ workload, but the outage and incomplete POC still prohibit submission.
 ```text
 Mathematical proposition:
   For every new exact immediate literal-bridge root, compute the complete old
-  lower and upper kernels on both old copies and decide whether it creates a
-  new source-cut obligation beyond the current forced-top cut.
+  lower and upper kernels on both old copies and decide whether that root,
+  paired with any frozen event, creates a new source-cut obligation beyond
+  the current forced-top cut.
 Exact finite parameter set:
   The 486 canonical new-root IDs in payload af993bf5..., ordered by exact MDD
   root hash. The immutable manifest remains to be emitted after the pilot.
@@ -136,16 +137,18 @@ Negative witness:
   Root ID/hash and provenance; side; incomparable maximal old lowers or
   minimal old uppers; fold escape; and the exact newly forced source cut.
 What a complete positive result proves:
-  Exact Level-1 kernel/source-cut classification of the immediate literal
-  bridge layer and whether the current finite obligation set closes for one
-  transition.
+  Exact root-local Level-1 kernel/source-cut classification of the immediate
+  literal bridge layer. Any negative witness refutes obligation-set closure.
 Explicit nonclaims:
-  No later mixed closure, grammar coverage, latticehood, orthomodularity,
-  centre, states, sigma-completion, ODBC, MBRC or Phi result.
+  A wholly positive root-local census does not prove one-step obligation-set
+  closure: cross-root pairs remain unaudited unless a one-new-parent locality
+  theorem is proved. No later mixed closure, grammar coverage, latticehood,
+  orthomodularity, centre, states, sigma-completion, ODBC, MBRC or Phi result.
 Estimated CPU per shard:
-  Open pending a local 4-8-root pilot.
+  Pilot projects about 9.8 minutes for 16 roots after a 4.9-minute fixed
+  reconstruction; approximately 5.05 CPU-hours for all 486 roots.
 Estimated memory per shard:
-  Open pending pilot; bridge census peak was approximately 1.78 GB.
+  Pilot peak was 1.36 GB; request remains unset until POC and a Fir pilot.
 Expected output size:
   Open pending receipt prototype.
 Slurm array and concurrency:
@@ -155,6 +158,15 @@ Source commit:
 Input-manifest hash:
   Open until canonical 486-root manifest emission.
 ```
+
+The local eight-root pilot (payload `c1cdbb8b...`) found five new right-copy
+kernel obligations. Therefore the proposed 486-root job is no longer needed
+to decide whether the current obligation set closes: that proposition is
+already refuted. A production scan would now be justified only by an exact
+classification theorem for the resulting transition types. Moreover, a
+positive root-local census could not prove one-step closure because cross-
+root pairs are omitted. No production job is currently approved even apart
+from the outage.
 
 ## Required next gate
 

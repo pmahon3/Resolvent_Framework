@@ -483,14 +483,23 @@ implementation.
 This census covers only immediate literal complement/difference and disjoint-
 bridge transitions. It proves no kernel principality, later closure,
 latticehood, orthomodularity, centre, state separation, sigma-completion,
-ODBC, or `Phi`. The next exact question is whether the 486 new roots introduce
-only finitely many old-kernel/source-cut obligation types.
+ODBC, or `Phi`.
+
+An eight-root provenance-diverse pilot already refutes closure of the current
+obligation set. Five roots create right-copy source-cut obligations: three
+have incomparable minimal old uppers and two have incomparable maximal old
+lowers with explicit atom-fold escape. Three controls remain principal on
+both sides. **Executable verified — sampled finite scope**,
+`arr_forced_T_bridge_kernel_pilot.py/.json`, producer `3f584956...`, payload
+`c1cdbb8b...`. Rootwise exhaustion cannot prove closure because it omits
+cross-root pairs; a positive result needs a locality theorem or transition
+congruence.
 
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open; frozen-five grammar refuted | 488 exact immediate bridge classes; 474 require outside parents | classify their old-kernel/source-cut obligation types |
+| Repair grammar | Open; current obligation set and frozen-five grammar refuted | five of eight pilot roots create right-source obligations | classify right-kernel transitions and cross-root locality |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

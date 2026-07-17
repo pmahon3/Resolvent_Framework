@@ -839,6 +839,11 @@ roots require an outside old parent. The 27 coarse buckets do not compress
 the exact behavior, while no immediate root is cylindrical, singleton, or
 activation-supported. The frontier is the two-sided old-kernel and new-
 source-cut classification of the 486 roots, not deeper closure.
+An eight-root pilot already finds five new right-copy kernel obligations:
+three nonleast upper kernels and two nonprincipal lower kernels with fold
+escape. Thus the current finite obligation set is not closed. The frontier
+is a right-source transition/locality theorem, not a full rootwise scan merely
+to repeat the negative verdict.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

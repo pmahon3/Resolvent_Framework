@@ -874,6 +874,10 @@ Thus a fixed-five grammar is refuted, but the immediate layer creates no
 cylindrical, singleton, or activation-supported event. The next controlled
 question is whether the 486 roots have finitely many old-kernel/source-cut
 obligation types.
+The first eight-root kernel pilot already refutes closure of the current
+obligation set: five roots create right-copy source cuts. Rootwise exhaustion
+cannot prove positive closure because cross-root pairs remain. The next
+mathematical target is a right-source transition and locality theorem.
 
 ## Repository Layout
 

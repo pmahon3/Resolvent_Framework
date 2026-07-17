@@ -797,6 +797,16 @@ exhaustive finite scope**, producer `631756c1...`, payload `af993bf5...`.
 The exact next obligation is two-sided old-kernel and new-source-cut
 classification of the 486 new roots, beginning with a local pilot.
 
+That pilot refutes closure of the current obligation set. Five of eight
+provenance-diverse roots create new right-copy obligations: three nonleast
+upper kernels and two nonprincipal lower kernels with explicit atom-fold
+escapes. Three controls remain principal on both sides. **Executable verified
+— sampled finite scope**, producer `3f584956...`, payload `c1cdbb8b...`.
+Coarse bucket size, duplicate provenance, and operation kind are not adequate
+predictors. Rootwise exhaustion cannot prove closure without controlling
+cross-root pairs. The live theorem is a right-source kernel transition and
+one-new-parent locality classification.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

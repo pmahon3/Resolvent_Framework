@@ -807,6 +807,15 @@ predictors. Rootwise exhaustion cannot prove closure without controlling
 cross-root pairs. The live theorem is a right-source kernel transition and
 one-new-parent locality classification.
 
+One-new-parent locality is now **Refuted** in the immediate layer. New roots
+`[8,106]` have an absent literal intersection with incomparable maximal
+current lowers `old_left(1024)` and `old_right(2)` and no interpolant.
+**Executable verified — sampled finite scope**, payload `f67f8531...`.
+A first producer mislabeled newness of the extrema rather than the source
+parents and was rejected before banking. The corrected theorem route is the
+conditional `NF+SS+SD+X` locality calculus; the next exact re-base cell is
+the forced meet for `[8,106]` and its complement-dual join.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

@@ -844,6 +844,10 @@ three nonleast upper kernels and two nonprincipal lower kernels with fold
 escape. Thus the current finite obligation set is not closed. The frontier
 is a right-source transition/locality theorem, not a full rootwise scan merely
 to repeat the negative verdict.
+The first same-half test refutes one-new-parent locality: new roots `[8,106]`
+have a missing intersection with incomparable old maximal lowers `left(1024)`
+and `right(2)`. The frontier is their exact forced-meet/complement-dual-join
+cell and the conditional `NF+SS+SD+X` coverage calculus.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

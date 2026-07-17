@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Five of eight exact bridge roots create new right-copy kernel obligations, refuting closure of the current obligation set. Classify the right-source transition types and prove or refute one-new-parent locality; do not run all 486 merely to repeat the verdict."
+   "current_next_step": "One-new-parent locality is refuted by same-half roots [8,106], whose missing intersection has incomparable old maximal lowers left(1024) and right(2). Construct the exact forced-meet/complement-dual-join rebase cell and test NF+SS+SD+X coverage."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

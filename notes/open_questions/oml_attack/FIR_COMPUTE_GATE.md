@@ -168,6 +168,12 @@ positive root-local census could not prove one-step closure because cross-
 root pairs are omitted. No production job is currently approved even apart
 from the outage.
 
+The first targeted cross-root pilot has now found the exact locality witness
+`[8,106]` (payload `f67f8531...`). Consequently neither the 486-root unary
+scan nor a broad all-pairs scan is the next production workload. The next
+question is one exact forced-meet/complement-dual-join re-base cell and remains
+local/theorem-level. Fir has no currently justified research submission.
+
 ## Required next gate
 
 When the official service is no longer `OUTAGE`, recheck it once. If usable,

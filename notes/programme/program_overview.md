@@ -878,6 +878,10 @@ The first eight-root kernel pilot already refutes closure of the current
 obligation set: five roots create right-copy source cuts. Rootwise exhaustion
 cannot prove positive closure because cross-root pairs remain. The next
 mathematical target is a right-source transition and locality theorem.
+The locality branch is now sharpened negatively: `[8,106]` is a two-new-root
+same-half cut with two incomparable old maximal lowers. Any positive grammar
+must supply total same-half join/difference rules and normal-form coverage;
+the next construction is the exact meet repair for this pair.
 
 ## Repository Layout
 

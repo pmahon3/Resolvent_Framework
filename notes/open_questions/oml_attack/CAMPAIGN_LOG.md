@@ -3443,6 +3443,44 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   theorem is a right-source kernel transition/locality classification; do not
   run all 486 merely to repeat the negative verdict.
 
+### Iteration 308 — conditional locality calculus and sampled kernel taxonomy
+- **Hand proved:** one-new-parent locality follows from four explicit
+  hypotheses: a one-half normal form (`NF`), total represented same-half
+  source joins (`SS`), their complement/difference duals (`SD`), and reduction
+  of every opposite-half pair to containment, top, or an old-new pair (`X`).
+  This is a conditional theorem; none of the four hypotheses is silently
+  inferred from bridge disjointness.
+- **Hand proved:** in a finite atomistic old lattice embedded order-
+  reflectingly as sets, the old lower kernel of a target has a greatest member
+  iff the join of all eligible old atoms lies inside the target. Atom-fold
+  escape is therefore a witness for nonprincipality, not an independent
+  verdict bit. Atomisticity and exhaustive atom enumeration are load-bearing.
+- **Hand proved:** complement exchanges maximal lower and minimal upper
+  kernels after applying the exact universal/existential shadow duality.
+- The eight sampled right kernels have count pairs `P=(1,1)`, `U=(1,2)`, or
+  `L=(2,1)`. **Executable verified — sampled finite scope.** Hostile review
+  rejects calling this an exhaustive grammar or transition congruence: widths
+  above two, `(2,2)`, and within-type behavioral variation remain open.
+
+### Iteration 309 — exact same-half witness refutes one-new-parent locality
+- The first targeted same-half cross-root witness is the pair of new exact
+  bridge classes `[8,106]`. Their literal intersection is absent from the
+  current family and has exactly two incomparable maximal current lowers,
+  `old_left(1024)` and `old_right(2)`, with no interpolant. Thus a cut with
+  two new source parents occurs already in the immediate bridge family.
+  **Executable verified — sampled finite scope**,
+  `arr_forced_T_same_half_cross_root_pilot.py/.json`, payload `f67f8531...`.
+- **Refuted:** one-new-parent locality for the current 486-root layer. Bridge
+  disjointness is unary and does not control same-half binary cuts.
+- **Hostile repair:** the first producer incorrectly tested whether the
+  extrema, rather than the source pair, were new. That run was rejected; the
+  semantic predicate was corrected and the witness appears after two
+  candidate pairs and one exact target.
+- **Pivot:** the positive locality route now requires the full `NF+SS+SD+X`
+  calculus, not a unary kernel census. Treat `[8,106]` and its two old lower
+  extrema as the next exact re-base cell; classify its required meet and
+  complement-dual join before any broader cross-root scan.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

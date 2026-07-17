@@ -124,6 +124,7 @@
 | frozen-five immediate bridge grammar | Executable verified — exhaustive finite scope | refuted: 474/488 exact bridge classes require an outside old parent |
 | exact immediate literal bridge layer | Executable verified — exhaustive finite scope | 498 occurrences, 488 roots, 486 new; zero cylindrical/singleton/activation-supported classes |
 | closure of current finite rebase-obligation set | Executable verified — sampled finite scope | refuted: 5/8 diverse roots create new right-copy kernel obligations |
+| one-new-parent locality in the immediate bridge layer | Executable verified — sampled finite scope | refuted by new-root pair `[8,106]` with two incomparable old maximal lowers |
 | generic selector saturation | Refuted, executable verified exhaustive finite scope | 8-point/12-event split-atom OML; centre is nontrivial |
 | same-carrier centre killing | Refuted, Hand proved + exhaustive finite scope | central singleton persists; all 256 one-subset adjunctions fail |
 | centre-free selector saturation | Refuted, executable verified exhaustive finite scope | 70 inflated split-atom OML survivors; clean 16-event three-block/state-complete control |

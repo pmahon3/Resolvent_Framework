@@ -77,6 +77,12 @@
    486 merely to repeat that verdict. First classify the three nonleast-upper
    and two nonprincipal-lower transition types and prove/refute a one-new-
    parent locality theorem. Cross-root pairs remain outside rootwise audits.
+   That locality theorem is now refuted by the two-new-root pair `[8,106]`:
+   its missing intersection has incomparable maximal current lowers
+   `old_left(1024)` and `old_right(2)` (payload `f67f8531...`). First action
+   is the exact forced-meet/complement-dual-join re-base cell for this pair.
+   Do not broaden the pair scan; a positive locality theorem now requires
+   explicit `NF+SS+SD+X` transition rules.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

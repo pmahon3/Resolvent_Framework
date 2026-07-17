@@ -495,11 +495,27 @@ both sides. **Executable verified — sampled finite scope**,
 cross-root pairs; a positive result needs a locality theorem or transition
 congruence.
 
+The simplest such locality theorem has now been isolated. If every generated
+event has a one-half normal form (`NF`), same-half source joins are total and
+represented (`SS`), the complement/difference dual rules are total (`SD`),
+and opposite-half pairs reduce to containment, top, or old-new pairs (`X`),
+then every two-new-parent cut is resolved. **Hand proved** by the four normal-
+form cases. These hypotheses are sufficient, not established.
+
+In fact one-new-parent locality fails for the current immediate family. New
+roots `[8,106]` have a missing intersection with incomparable maximal current
+lowers `old_left(1024)` and `old_right(2)` and no interpolant. **Executable
+verified — sampled finite scope**, `arr_forced_T_same_half_cross_root_pilot`
+`.py/.json`, payload `f67f8531...`. The exact next repair root is a meet above
+those two lowers and below both new parents, together with its complement-
+dual join. This is a new binary provenance cell, not another unary kernel
+type.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open; current obligation set and frozen-five grammar refuted | five of eight pilot roots create right-source obligations | classify right-kernel transitions and cross-root locality |
+| Repair grammar | Open; unary obligation set and one-new-parent locality refuted | `[8,106]` is a binary same-half repair cell | classify its forced meet and prove/refute `NF+SS+SD+X` coverage |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

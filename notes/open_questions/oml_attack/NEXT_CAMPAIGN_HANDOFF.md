@@ -95,6 +95,11 @@
    residual is existing `right(2)` (payload `84f62011...`). First action is
    the unrestricted three-maxima union test: exact cover forces a unique
    nonorthogonal meet; a proper residual defines the next interval type.
+   The union is exact and residual zero (payload `168a26a...`); all three
+   pairs overlap, so this is a uniquely forced nonorthogonal meet/dual join.
+   First action is to adjoin only that meet and complement and classify forced
+   nested differences plus the first new cut. Track the full overlap-cover
+   signature; maximal-lower counts are insufficient.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

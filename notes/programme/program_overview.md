@@ -891,6 +891,10 @@ The first sampled old-representative pair has three maximal lowers and
 infinite orthogonal-cover number; its minimum residual recurs as `right(2)`.
 The next exact decision is whether their unrestricted union covers the meet
 target or leaves a proper residual.
+The union equals the target exactly and all three pairs overlap. Latticehood
+therefore forces a nonorthogonal-cover meet that ordinary orthogonal closure
+cannot generate. Its one-seed nested/cut transition is the active grammar
+test.
 
 ## Repository Layout
 

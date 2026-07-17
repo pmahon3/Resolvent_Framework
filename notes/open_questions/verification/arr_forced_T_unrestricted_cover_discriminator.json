@@ -1,0 +1,135 @@
+{
+  "complement_dual": {
+    "complements_of_union_maximal_lowers_equal_dual_minimal_uppers": true,
+    "maximal_current_lowers": [
+      {
+        "kind": "new",
+        "label": "root(487)"
+      },
+      {
+        "kind": "old",
+        "label": "old_right(25)"
+      }
+    ],
+    "minimal_current_uppers": [
+      {
+        "kind": "old",
+        "label": "old_left(1349)"
+      },
+      {
+        "kind": "old",
+        "label": "old_right(125)"
+      },
+      {
+        "kind": "special",
+        "label": "Sc"
+      }
+    ],
+    "union_complement_exact_mdd_sha256": "0b0aab5ff68c0da77cd27acdfe4ad52eb140c9c1296da3e773f8ad9906d36305"
+  },
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope for one object",
+  "full_union_already_represented": false,
+  "full_union_current_lower_extrema": [
+    {
+      "kind": "old",
+      "label": "old_left(17082)"
+    },
+    {
+      "kind": "old",
+      "label": "old_right(18306)"
+    },
+    {
+      "kind": "special",
+      "label": "S"
+    }
+  ],
+  "full_union_current_upper_extrema": [
+    {
+      "kind": "new",
+      "label": "root(486)"
+    },
+    {
+      "kind": "old",
+      "label": "old_right(18406)"
+    }
+  ],
+  "full_union_equals_target": true,
+  "full_union_exact_mdd_sha256": "809b2d45da2e83aa06242789a4acf615f570373f5da80e8384b5d2c0f737bad2",
+  "full_union_old_kernels": {
+    "left": {
+      "atom_fold_index": 17082,
+      "atom_fold_inside_target": true,
+      "eligible_old_atom_count": 10,
+      "existential_shadow_root_sha256": "bba711b92a2c11c5d1a91b52585aaa54364793e932c8af42eea249ab48cf297b",
+      "first_atom_fold_escape": null,
+      "greatest_old_lower_exists": true,
+      "least_old_upper_exists": true,
+      "maximal_old_lower_indices": [
+        17082
+      ],
+      "minimal_old_upper_indices": [
+        17407
+      ],
+      "old_lower_count": 384,
+      "old_upper_count": 2,
+      "universal_shadow_root_sha256": "7bed052904a4870dda8e9e3c3b3ffdbdc094ff6211ec97e07a7a34a9b150e5b6"
+    },
+    "right": {
+      "atom_fold_index": 18306,
+      "atom_fold_inside_target": true,
+      "eligible_old_atom_count": 9,
+      "existential_shadow_root_sha256": "20f65f403956bf772afb0ad73f3a73da1a2941f2dca2aec8fd553bf8b513d904",
+      "first_atom_fold_escape": null,
+      "greatest_old_lower_exists": true,
+      "least_old_upper_exists": true,
+      "maximal_old_lower_indices": [
+        18306
+      ],
+      "minimal_old_upper_indices": [
+        18406
+      ],
+      "old_lower_count": 192,
+      "old_upper_count": 8,
+      "universal_shadow_root_sha256": "7277b552e8e4c2dab7d77de80596a3519a4ec7cfcbe8635f945757971800146b"
+    }
+  },
+  "full_union_physical_cardinality": 140563411288,
+  "full_union_residual_exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+  "full_union_residual_physical_cardinality": 0,
+  "full_union_subset_target": true,
+  "pairwise_overlaps": [
+    {
+      "empty": false,
+      "exact_mdd_sha256": "5203775fecd9c7ef32b5a6f011a926006693b090880a264f1a4f0768aeef1791",
+      "left": "old_left(17082)",
+      "physical_cardinality": 105948770008,
+      "right": "old_right(18306)"
+    },
+    {
+      "empty": false,
+      "exact_mdd_sha256": "6e842c27566ea94fa5d77563d16fcd1722b3099a8ba706e9dc28674d10add589",
+      "left": "old_left(17082)",
+      "physical_cardinality": 2,
+      "right": "S"
+    },
+    {
+      "empty": false,
+      "exact_mdd_sha256": "c65ed9344e40d0d83be7d258daf169c9dcc1a74ed5d6bd5e3abce9d9f3439c7e",
+      "left": "old_right(18306)",
+      "physical_cardinality": 2,
+      "right": "S"
+    }
+  ],
+  "payload_sha256": "168a26a99c0b609488e0c8ae7360db8400912d6ae5bb5cd95474ea9f8896d90d",
+  "peak_rss_bytes_darwin": 2001862656,
+  "producer_sha256": "af1e763653622b6f8daedc8763366f2c8e77384bf58217d7cccc90155f26f73d",
+  "reconstruction_seconds": 293.14771637506783,
+  "schema": "arr-forced-T-unrestricted-cover-discriminator-v1",
+  "schema_version": "1.0",
+  "scope": "Only the unrestricted union of the three certified maximal lowers of target 809b2d45 and its complement dual. No pair scan or closure.",
+  "source_meet_payload_sha256": "304ed13bdb227944e6b18d61fb09588ed13d96996fc9d75fc62d7cb9d4df5957",
+  "source_sampled_payload_sha256": "84f6201151287c229e6dee2a7b549c151195a58ff6693ed87c3df0c296a92545",
+  "target_exact_mdd_sha256": "809b2d45da2e83aa06242789a4acf615f570373f5da80e8384b5d2c0f737bad2",
+  "target_physical_cardinality": 140563411288,
+  "wall_seconds": 391.0668757080566
+}

@@ -858,6 +858,10 @@ cover; its minimum residual is the already represented `right(2)`. The
 frontier is the unrestricted exact-cover test for those three maxima, which
 decides uniquely forced nonorthogonal meet versus a proper interpolation
 residual.
+The unrestricted union is exact with zero residual, while every pair
+overlaps. This is the first certified nonorthogonal exact-cover rebase: every
+same-carrier lattice extension must adjoin the target meet and dual join.
+The frontier is the one-seed closure and overlap-signature recurrence.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

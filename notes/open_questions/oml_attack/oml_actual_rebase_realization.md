@@ -533,11 +533,20 @@ pair**, `arr_forced_T_displayed_layer_audit.py/.json`, producer
 `e4376601...`, payload `84f62011...`. The exact next dichotomy is whether the
 unrestricted union of the three maxima covers the target.
 
+It does. The residual is empty and every pair overlaps: the old-left/old-
+right overlap has `105,948,770,008` points, while each overlap with `S` has
+two. Thus every same-carrier lattice extension must adjoin the target as the
+meet even though orthogonal closure cannot synthesize it. **Executable
+verified — exhaustive finite scope for this object**,
+`arr_forced_T_unrestricted_cover_discriminator.py/.json`, producer
+`af1e7636...`, payload `168a26a...`. This is the first nonorthogonal exact-
+cover repair rule; its one-seed closure is the next transition.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open; nonorthogonal recurrence found | sampled old pair has three maxima, `kappa=infinity`, residual `right(2)` | test unrestricted exact cover versus proper residual |
+| Repair grammar | Open; first nonorthogonal exact-cover rule forced | unrestricted cover number 3, orthogonal `kappa=infinity`, residual 0 | classify one-seed closure and overlap-signature recurrence |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

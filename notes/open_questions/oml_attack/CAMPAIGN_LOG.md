@@ -3553,6 +3553,35 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   nonorthogonal-cover meet; otherwise the exact full-union residual is the
   next interpolation type. Do not broaden pair enumeration.
 
+### Iteration 313 — first exact nonorthogonal-cover forced rebase
+- The unrestricted union of `old_left(17082)`, `old_right(18306)`, and `S`
+  equals the sampled meet target exactly; the residual is empty. The target
+  is not represented. Therefore every same-carrier lattice extension must
+  adjoin this exact target as the meet, and its complement as the dual join.
+  **Executable verified — exhaustive finite scope for this object**,
+  `arr_forced_T_unrestricted_cover_discriminator.py/.json`, producer
+  `af1e7636...`, payload `168a26a...`; seed-12345 replay passes.
+- The obstruction is purely nonorthogonal. All three pairs overlap:
+  left/right overlap has `105,948,770,008` points; each overlap with `S` has
+  two points. Thus orthogonal-cover `kappa=infinity` while unrestricted cover
+  number is three.
+- **Hand proved:** whenever persistent represented lowers have unrestricted
+  union exactly `x intersection y`, every same-carrier lattice extension
+  contains that set as `x meet y`, regardless of overlap. Adjoining the
+  forced meet and taking least complement/orthogonal closure is a canonical
+  rebase seed, but that closure need not yet be a lattice.
+- **Hand proved, conditional confluence:** finitely many fixed-carrier exact-
+  cover seeds commute under positive persistent rules; fair firing reaches
+  the same least closure. Termination still needs finitely many possible
+  seeds or a well-founded rank.
+- **Gate audit:** this forced event alone proves no centre, activation,
+  maximal-block, state-extension, sigma, or `Phi` collapse. Point evaluations
+  persist on the unchanged carrier, but classification of all states remains
+  open.
+- **Pivot:** adjoin only this forced nonorthogonal meet and complement, then
+  classify their forced nested differences and the first new cut. The next
+  grammar variable is the overlap-cover signature, not maximal-lower count.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

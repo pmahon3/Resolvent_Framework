@@ -837,6 +837,16 @@ The live distinction is whether the unrestricted union of all three maxima
 equals the target (a uniquely forced nonorthogonal meet) or leaves a genuine
 interpolation residual.
 
+The unrestricted cover test is exact: the union of all three maxima equals
+the target, residual zero, but every pair overlaps. The large left/right
+overlap has `105,948,770,008` points and the two `S` overlaps have two points
+each. Hence orthogonal `kappa=infinity` but unrestricted cover number three.
+Every same-carrier lattice extension must adjoin this target as the meet and
+its complement as the dual join. **Executable verified — exhaustive finite
+scope for this object**, producer `af1e7636...`, payload `168a26a...`.
+This is the first certified nonorthogonal-cover rebase cell. The next action
+is its one-seed nested-difference/cut transition, not another pair scan.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

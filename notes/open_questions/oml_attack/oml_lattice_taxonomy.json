@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "A sampled old-event pair has three maximal lowers, no orthogonal exact cover, and residual right(2). Test whether the unrestricted union of all three maxima equals the target; equality forces a unique nonorthogonal meet, inequality yields the next residual type."
+   "current_next_step": "Three overlapping maximal lowers cover the sampled target exactly, forcing the first nonorthogonal meet/dual join. Adjoin only this seed and classify its nested differences, first new cut, and overlap-cover signature recurrence."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

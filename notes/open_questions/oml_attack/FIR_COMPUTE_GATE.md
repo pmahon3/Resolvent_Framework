@@ -182,6 +182,9 @@ remains `OUTAGE` and no submission is justified.
 A single corrected sampled pair now supplies the next exact cut (payload
 `84f62011...`). Its unrestricted three-lower cover test is a one-object local
 calculation. No Fir workload is justified.
+The discriminator proves exact nonorthogonal coverage (payload `168a26a...`).
+Its one-seed closure remains a bounded local transition, so Fir is still not
+justified.
 
 ## Required next gate
 

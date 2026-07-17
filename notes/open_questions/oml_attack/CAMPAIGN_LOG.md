@@ -3688,3 +3688,34 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   events. Settle `ARR-CYL` first by constructing the exact critical
   two-copy sublogic around `Neg-023` without seeding `g`; only a realized
   cylindrical rebase can enter a third-copy complementary-cover census.
+
+### Iteration 315 — O-child rank refutation and proper-residual pivot
+- Firing the displayed orthogonal exact-cover child yields fourteen immediate
+  occurrences and six genuinely new roots. **Executable verified — exhaustive
+  finite scope for the declared `O,O^c` consequence layer**, producer
+  `arr_forced_T_forced_O_child_audit.py`, payload `fc9c0b22...`.
+- The O target is incomparable with parent `U`, with `U^c`, and with earlier
+  cell `H`. **Refuted:** target containment/cardinality supplies a descending
+  dependency rank.
+- The recorded H/O descriptor tuples differ in five fields. Hostile review
+  retracted the stronger structural-nonisomorphism wording: no pointed-cell
+  isomorphism category or exhaustive search was defined. Structural pointed
+  isomorphism remains **Open**.
+- In the deterministic eight-seed order (meet before join), the first
+  unresolved cut is `meet(new_consequence(0),new_consequence(1))`. Its two
+  maximal displayed lowers overlap on `16,210,089,024` points; their union
+  leaves a proper residual of `21,137,851,696` points, and no orthogonal
+  subset covers the target. This is not a full-layer first-cut claim and does
+  not force a unique next repair.
+- **Hand proved:** for this cut, every meet choice lies between the overlapping
+  lower union `S` and the literal target `I`. Nonminimal choices strictly
+  reduce `I minus S`; the minimal choice `S` resolves the cut with zero
+  residual progress.
+- **Integrity repair:** two pre-banking replays failed only because in-memory
+  tuples became JSON lists. The producer now emits lists, compares its source
+  hash strictly, and uses hostile-review-safe descriptor wording. Final
+  seed-0 emission and seed-12345 replay agree.
+- **Pivot:** adjoin only `S,S^c` and classify their immediate consequences.
+  Either minimal-envelope repair triggers a gate/lower rank, or it becomes a
+  new partial-envelope production rule. Do not enumerate the interpolation
+  interval or claim finite-state grammar closure.

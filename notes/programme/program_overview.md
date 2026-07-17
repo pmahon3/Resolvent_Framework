@@ -899,6 +899,12 @@ The first nonorthogonal seed transitions to an orthogonal exact-cover child
 with zero residual. This supports the parameterized `MEM/O/N/R/PROP` rule
 schema; coverage, dependency well-foundedness, and coherent finite embeddings
 remain the decisive theorem obligations.
+Firing the orthogonal child does not return to the earlier cell and does not
+decrease target inclusion: the named targets are pairwise incomparable. Six
+new consequence roots lead, in the declared restricted scan, to a proper-
+residual cut with two overlapping maximal lowers. Thus the next theorem is a
+minimal-envelope dichotomy, not recurrence: the lower union must either be
+gate-forcing/lower-ranked or become an explicit zero-progress grammar rule.
 
 ## Repository Layout
 

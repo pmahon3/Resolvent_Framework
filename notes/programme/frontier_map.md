@@ -866,6 +866,12 @@ The one-seed closure gives recurrence `N -> O`: four new roots appear, and
 the first child cut has a unique disjoint two-event exact cover. The frontier
 is firing that O child and proving/refuting pointed recurrence with strict
 dependency-rank progress.
+That discriminator refutes strict-target progress: the O target is
+incomparable with its parent and the earlier H cell. Its displayed consequence
+layer has six new roots, and the first cut in the restricted eight-seed order
+has an overlapping two-lower envelope with a proper residual. The frontier is
+the one-object minimal-envelope audit: either adjoining that envelope forces a
+gate/lower rank, or it supplies a new partial-envelope production rule.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

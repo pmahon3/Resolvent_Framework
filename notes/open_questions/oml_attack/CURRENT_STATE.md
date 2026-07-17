@@ -857,6 +857,23 @@ The justified grammar is the parameterized `MEM/O/N/R/PROP` schema. The next
 test is whether firing this `O` child returns, by pointed isomorphism and a
 strict dependency-rank decrease, to a previously classified state.
 
+That test is now negative. The forced `O` target is incomparable with its
+parent `U`, with `U^c`, and with the earlier `H`; target-containment rank is
+therefore refuted. The `H/O` descriptor tuples differ, but structural pointed
+isomorphism is open because no isomorphism category or search was supplied.
+The `O,O^c` consequence layer contains six new roots. The first unresolved
+cut in the deterministic eight-seed scan has overlapping maximal lowers
+`U,old_left(4136)` whose union leaves a proper residual of
+`21,137,851,696` points. **Executable verified — exhaustive finite scope for
+the declared O-child layer**, payload `fc9c0b22...`; this is neither a
+full-layer scan nor a uniquely forced next event.
+
+The exact next theorem is the minimal-envelope dichotomy. If the union `S`
+of those maximal lowers cannot be adjoined gate-safely, every safe meet enters
+the residual and fixed-cut residual descent resumes. If `S,S^c` close safely,
+they define a zero-progress partial-envelope production that must be added to
+the grammar. Audit only this seed and its immediate consequences.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

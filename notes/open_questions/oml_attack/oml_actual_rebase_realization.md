@@ -550,11 +550,36 @@ residual. **Executable verified — exhaustive finite scope for this one-seed
 transition**, `arr_forced_T_nonorthogonal_rebase_audit.py/.json`, producer
 `41d5e6f5...`, payload `63cfb83d...`. Arbitrary-depth coverage remains open.
 
+Firing that displayed `O` child refutes the proposed strict-target rank.
+Its target is incomparable with the parent `U`, with `U^c`, and with the
+earlier orthogonal cell `H`. The recorded `H` and `O` descriptor tuples differ
+in five fields, but no pointed-isomorphism category or exhaustive isomorphism
+search is supplied; structural isomorphism remains open. The `O,O^c` layer
+has fourteen immediate occurrences and six genuinely new exact roots. In the
+source's deterministic eight-seed order (meet before join), the first
+unresolved cut is `meet(new_consequence(0),new_consequence(1))`. Its maximal
+represented lowers are `U` and `old_left(4136)`; they overlap on
+`16,210,089,024` points and their unrestricted union leaves a proper residual
+of `21,137,851,696` points. No orthogonal subset covers the target.
+**Executable verified — exhaustive finite scope for the declared O-child
+layer**, `arr_forced_T_forced_O_child_audit.py/.json`, payload
+`fc9c0b22...`. This is not a full-layer first-cut claim and does not force a
+unique next repair.
+
+**Hand proved (displayed-cut dichotomy).** Let `S` be the unrestricted union
+of those two maximal lowers and `I` their literal intersection target. Any
+event chosen as their meet lies in `[S,I]`. A nonminimal choice strictly
+reduces the fixed residual `I minus S`; the minimal choice `S` resolves the
+cut with no residual progress. Hence a well-founded residual proof must show
+that adjoining `S,S^c` is gate-forcing or creates lower-ranked children.
+Otherwise minimal-envelope repair is a new explicit production rule. The
+next bounded test is exactly that one `S,S^c` seed, not interval branching.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | parameterized `MEM/O/N/R/PROP` schema; coverage open | one-seed recurrence `N -> O` with zero residual | fire O child; prove pointed recurrence and `ON-Coverage/Termination` |
+| Repair grammar | parameterized `MEM/O/N/R/PROP` schema; coverage open | selected chain `N -> O -> proper residual`; strict-target rank refuted | audit the residual's minimal envelope `S,S^c`; prove coverage/well-founded rank |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

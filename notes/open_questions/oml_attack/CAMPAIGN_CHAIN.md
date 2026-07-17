@@ -129,6 +129,8 @@
 | recurrent old-event cover deficit | Executable verified — sampled finite scope for one pair | three maximal lowers, no orthogonal exact cover; minimum residual is existing `right(2)` |
 | nonorthogonal exact-cover rebase | Executable verified — exhaustive finite scope for one object + Hand theorem | three overlapping lowers cover target exactly, so latticehood uniquely forces meet and dual join |
 | one-seed O/N recurrence | Executable verified — exhaustive finite scope for transition | forced nonorthogonal `N` cell creates four roots; first child is rank-zero orthogonal `O` cell |
+| strict-target O/N dependency rank | Refuted, executable verified for named targets | forced `O` target is incomparable with parent `U`, `U^c`, and earlier `H` |
+| O-child proper-residual transition | Executable verified — exhaustive finite scope for declared eight-seed layer | six new roots; restricted first cut has overlapping two-lower envelope and proper residual; next meet is not unique |
 | generic selector saturation | Refuted, executable verified exhaustive finite scope | 8-point/12-event split-atom OML; centre is nontrivial |
 | same-carrier centre killing | Refuted, Hand proved + exhaustive finite scope | central singleton persists; all 256 one-subset adjunctions fail |
 | centre-free selector saturation | Refuted, executable verified exhaustive finite scope | 70 inflated split-atom OML survivors; clean 16-event three-block/state-complete control |

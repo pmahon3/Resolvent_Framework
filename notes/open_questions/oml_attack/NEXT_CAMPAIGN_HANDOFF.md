@@ -100,12 +100,17 @@
    First action is to adjoin only that meet and complement and classify forced
    nested differences plus the first new cut. Track the full overlap-cover
    signature; maximal-lower counts are insufficient.
-   One-seed audit (payload `63cfb83d...`) gives four new roots and recurrence
+   One-seed audit (payload `63cfb83d...`) gives four new roots and transition
    `N -> O`: the first child cut has disjoint exact cover `{root(487),S}`.
-   First action is to fire this `O` child and test pointed isomorphism/rank
-   against the first orthogonal cell. The stable theorem target is
-   `ON-Coverage/Termination`, not a claim that two observed rules are already
-   an exhaustive finite-state grammar.
+   Firing that O child (payload `fc9c0b22...`) refutes strict-target rank: its
+   target is incomparable with parent `U`, `U^c`, and earlier `H`. The H/O
+   descriptor tuples differ; structural pointed isomorphism remains open.
+   Six new consequences expose, in the deterministic eight-seed scan, a cut
+   with overlapping lowers and a proper residual. First action is to adjoin
+   only their minimal envelope and complement and classify its immediate
+   consequences. This decides strict residual progress versus a new partial-
+   envelope production rule. Do not enumerate the interval or call this the
+   first cut of the full layer.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

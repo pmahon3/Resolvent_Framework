@@ -44,9 +44,10 @@ has been cancelled as mathematically unnecessary. The exact-context result
 instead proves a noncompression boundary and pivots the mathematics to
 bounded cut locality/cylindrical reflection.
 
-A new exact parameter space now exists, but it is only a prospective dry
-workload. It is not submission-ready before a local pilot and independent
-verifier:
+A 9,334-pair parameter space exists, but the four-context local pilot has
+shown that it is not currently the discriminating workload: two exact old
+contexts already reopen a two-upper repair interval. The following remains a
+deferred dry specification, not a proposed production job:
 
 ```text
 Mathematical proposition:
@@ -80,12 +81,16 @@ Estimated memory per shard:
 Expected output size:
   Open pending receipt prototype.
 Slurm array and concurrency:
-  Open pending pilot; no submission.
+  Deferred; no submission.
 Source commit:
   Open; must be an immutable producer/verifier commit.
 Input-manifest hash:
   Open.
 ```
+
+The next computation is the small exact repair classification of the two
+known intervals and remains local. There is currently no justified Fir
+research submission.
 
 ## Required next gate
 

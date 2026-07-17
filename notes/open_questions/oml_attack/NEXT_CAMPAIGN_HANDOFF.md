@@ -36,12 +36,12 @@
    every admissible ambient completion, is the forced join of its embedded
    old lower cut cylindrical? It satisfies `G ⊆ h ⊆ R`, but the seeded
    one-copy 256-prefix covers only the conditional branch `h = G`.
-7. **First action:** classify one-old-event extensions of the 16-event
-   restricted control, beginning with the exact 6–8-case critical/incidence
-   pilot. Canonicalize the refined labelled carrier including fibre
-   equivalences; the old 14-atom quotient alone is not a coverage descriptor.
-   Find the first old cylinder whose addition changes the cut join, forces
-   cylindricity, or destroys latticehood.
+7. **First action:** classify the two exact repair intervals created by
+   complement pairs `109/18322` and `100/18331`. For each admissible join,
+   close and test whether the result restores the mixed OML, generates `g`,
+   or creates the next provenance type. Do not launch the 9334-pair census:
+   these four contexts already show that repair, not context enumeration, is
+   the discriminating layer.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

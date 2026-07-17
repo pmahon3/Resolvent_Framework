@@ -676,6 +676,14 @@ verdict. The old 14-atom quotient need not survive an added context because
 the context can split its atoms. A 6–8-case critical/incidence pilot is the
 next local discriminator before any 9334-pair Fir workload.
 
+The four-context pilot already discriminates the live routes. Adding
+`7679/10752` or a shared-disjoint control preserves a 40/20-event centre-free
+OML with mixed join `R`. Adding `109/18322` or `100/18331` instead produces a
+38/32-event nonlattice whose distinguished cut has exactly two minimal upper
+bounds. No case generates `g`. **Executable verified — sampled finite
+scope.** The active repair grammar therefore begins with these two exact
+full-old two-upper intervals; a broad 9334-pair census is premature.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

@@ -830,6 +830,9 @@ exists.
 The minimal actual-generator control closes to a centre-free 16-event OML
 with noncylindrical `Neg-023` as the join. This makes full-old-copy coupling,
 not local OML structure, the active content of `ARR-CYL`.
+The first full-old contexts split sharply: two preserve the mixed OML, while
+the escaping fold and least old upper reopen two-upper cuts. Repairing those
+two intervals is now more informative than enumerating every old context.
 
 ## Repository Layout
 

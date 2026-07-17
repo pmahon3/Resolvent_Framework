@@ -800,3 +800,6 @@ The first restricted actual control is already a centre-free 16-event OML in
 which `Neg-023` itself is the noncylindrical cut join and the literal cylinder
 is absent. Thus local OML laws and centre-freeness do not prove `ARR-CYL`.
 The next finite discriminator is the exact one-old-event extension table.
+Its first four cases suffice to pivot: two controls preserve centre-free OMLs
+with mixed join `R`, while the old fold and old upper create exact two-upper
+nonlattices. The frontier is their repair interval, not a broad context scan.

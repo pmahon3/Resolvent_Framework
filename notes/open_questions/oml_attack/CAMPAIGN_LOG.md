@@ -3157,6 +3157,23 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   contexts and incidence controls, then use its measured refinement sizes to
   decide whether the 9334 complement-pair classification needs Fir.
 
+### Iteration 293 — first full-old contexts reopen the cut
+- Exact refined-carrier extensions were computed for four complement pairs.
+  The `7679/10752` and shared-disjoint controls close to 40- and 20-event
+  centre-free OMLs and preserve noncylindrical `R` as join.
+- The old-fold pair `109/18322` and old-upper pair `100/18331` close to
+  38- and 32-event nonlattices. In each, the distinguished lower pair has
+  exactly two minimal upper bounds; compact exact hashes record those and a
+  first failed lattice pair.
+- No case generates `g`. **Executable verified — sampled finite scope**,
+  producer `f8201ff4...`, payload `e88b81f0...`; one implementation, four
+  complement pairs, not a full-old census.
+- **Refuted:** the first added full-old contexts monotonically force a
+  cylindrical rebase. Instead, two canonical old contexts reopen a
+  two-upper repair interval.
+- **Pivot:** classify and repair those two exact intervals before any 9334-
+  pair census or Fir submission.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

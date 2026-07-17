@@ -1,0 +1,185 @@
+{
+  "category_histogram": {
+    "changes_or_loses_join": 2,
+    "preserves_join_R": 2
+  },
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_cyl_one_context_extensions.py --verify",
+  "evidence_class": "Executable verified \u2014 sampled finite scope",
+  "guard": 100000,
+  "master_refinement_exactness": "Each case generator mask ignores every other context coordinate; complement and disjoint union preserve saturation on those forgotten coordinates, so the master representation is the exact pullback of the case quotient.",
+  "master_truth_atom_count": 37,
+  "payload_sha256": "e88b81f040bb8decb5cbde76e88fd19add548c59a0419e74088605285d8ff130",
+  "producer_sha256": "f8201ff49ab468f06fac5a5059a37c23dfe756859365f187e0cc973b44e5cde1",
+  "records": [
+    {
+      "audit": {
+        "actual_join_count": 1,
+        "actual_join_equals_literal_g": false,
+        "actual_join_equals_target": true,
+        "actual_join_minimal_upper_sha256": [
+          "94a03370e56fe9e586347385a42e5b6c5f22d342383c3a8c72606fb75df8ee35"
+        ],
+        "centre_is_trivial": true,
+        "centre_size": 2,
+        "family_size": 40,
+        "first_failed_lattice_pair": null,
+        "lattice": true,
+        "literal_g_generated": false,
+        "orthomodular": true
+      },
+      "category": "preserves_join_R",
+      "closure_rounds": [
+        3,
+        5,
+        5,
+        5,
+        3,
+        3,
+        3,
+        0
+      ],
+      "context_complement_index": 10752,
+      "context_index": 7679,
+      "disjoint_from_maxima": [
+        false,
+        false
+      ],
+      "guard_reached": false,
+      "selection_label": "mandatory_pair_7679_10752"
+    },
+    {
+      "audit": {
+        "actual_join_count": 2,
+        "actual_join_equals_literal_g": false,
+        "actual_join_equals_target": false,
+        "actual_join_minimal_upper_sha256": [
+          "d4f61405f967b848e328f43687b955a04637be3d1ebb9dc35fcff2d3fcc27ff5",
+          "94a03370e56fe9e586347385a42e5b6c5f22d342383c3a8c72606fb75df8ee35"
+        ],
+        "centre_is_trivial": false,
+        "centre_size": null,
+        "family_size": 38,
+        "first_failed_lattice_pair": {
+          "left_mask_sha256": "91977d729217ffcf19818fbc5e8491c939a739f43df3b451cb48a12db17e0d8c",
+          "maximal_lower_count": 1,
+          "maximal_lower_sha256": [
+            "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4"
+          ],
+          "minimal_upper_count": 2,
+          "minimal_upper_sha256": [
+            "9121da55af3ca5d27fec0cd807eb7a170c4e8e88256f7bcc99a23a89e17eadd1",
+            "c83ead2c72d899b09e4a54269b85ab12f9727cac8269e67fba8c6b43f3cc8b57"
+          ],
+          "right_mask_sha256": "dec657aa9a52f4c730e047ae6de58004e047f2e48ce7378ac3237554b7c809cd"
+        },
+        "lattice": false,
+        "literal_g_generated": false,
+        "orthomodular": false
+      },
+      "category": "changes_or_loses_join",
+      "closure_rounds": [
+        7,
+        6,
+        5,
+        4,
+        2,
+        1,
+        0
+      ],
+      "context_complement_index": 18322,
+      "context_index": 109,
+      "disjoint_from_maxima": [
+        true,
+        true
+      ],
+      "guard_reached": false,
+      "selection_label": "mandatory_pair_109_18322"
+    },
+    {
+      "audit": {
+        "actual_join_count": 2,
+        "actual_join_equals_literal_g": false,
+        "actual_join_equals_target": false,
+        "actual_join_minimal_upper_sha256": [
+          "94a03370e56fe9e586347385a42e5b6c5f22d342383c3a8c72606fb75df8ee35",
+          "6d56336d14723d5f420b6d226b95e510ab4d0f168b6eba0f5f3729c61f293c0f"
+        ],
+        "centre_is_trivial": false,
+        "centre_size": null,
+        "family_size": 32,
+        "first_failed_lattice_pair": {
+          "left_mask_sha256": "98d5b20fa20072c4fdc1086edf3b14056885c7682a51586a938da3b9f9177891",
+          "maximal_lower_count": 1,
+          "maximal_lower_sha256": [
+            "8855508aade16ec573d21e6a485dfd0a7624085c1a14b5ecdd6485de0c6839a4"
+          ],
+          "minimal_upper_count": 2,
+          "minimal_upper_sha256": [
+            "325d76658021f90050bf9dc46e83dbb1d9161557b00d6aad8162e66d60ae341e",
+            "0d5086fdd96c3dede78fd790c27b5898d7e08bc10c2d1d56d07e3383eb605942"
+          ],
+          "right_mask_sha256": "c3a4a3b990da4e982991aefd99b1434f23ef5ed869b55ebb2ed2ffc642620771"
+        },
+        "lattice": false,
+        "literal_g_generated": false,
+        "orthomodular": false
+      },
+      "category": "changes_or_loses_join",
+      "closure_rounds": [
+        7,
+        6,
+        4,
+        2,
+        0
+      ],
+      "context_complement_index": 18331,
+      "context_index": 100,
+      "disjoint_from_maxima": [
+        true,
+        true
+      ],
+      "guard_reached": false,
+      "selection_label": "mandatory_pair_100_18331"
+    },
+    {
+      "audit": {
+        "actual_join_count": 1,
+        "actual_join_equals_literal_g": false,
+        "actual_join_equals_target": true,
+        "actual_join_minimal_upper_sha256": [
+          "94a03370e56fe9e586347385a42e5b6c5f22d342383c3a8c72606fb75df8ee35"
+        ],
+        "centre_is_trivial": true,
+        "centre_size": 2,
+        "family_size": 20,
+        "first_failed_lattice_pair": null,
+        "lattice": true,
+        "literal_g_generated": false,
+        "orthomodular": true
+      },
+      "category": "preserves_join_R",
+      "closure_rounds": [
+        3,
+        2,
+        2,
+        0
+      ],
+      "context_complement_index": 18404,
+      "context_index": 27,
+      "disjoint_from_maxima": [
+        false,
+        false
+      ],
+      "guard_reached": false,
+      "selection_label": "shared_disjoint_type_(False, False)"
+    }
+  ],
+  "runtime_seconds": 221.482411,
+  "schema": "arr-cyl-one-context-extensions-v1",
+  "schema_version": "1.0",
+  "scope": "Exact one-context extensions of the restricted 16-event ARR-CYL control only. The guard is a computational stop, never promoted to closure. No ambient full-old-copy completion, state, sigma, ODBC, or Phi claim.",
+  "selected_context_count": 4,
+  "source_pilot_payload_sha256": "f1df16856c62f7ba4fc164487ce97e1ee34ca5d513b85945d8213a2fad6b87d0",
+  "target_left_cylindrical": false,
+  "target_right_cylindrical": false
+}

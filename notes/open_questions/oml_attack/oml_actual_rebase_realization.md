@@ -135,6 +135,33 @@ Literal equality of masks on a common refined carrier is sufficient but,
 because cylinder embeddings are faithful, usually gives only the same old
 event. Coarse existential/universal incidence is not a coverage theorem.
 
+### Four-context discriminator
+
+An exact refined-carrier pilot tested four complement-pair extensions:
+
+- `7679/10752`: closure has 40 events, is a centre-free OML, and keeps
+  noncylindrical `R` as the distinguished join;
+- `109/18322`: closure has 38 events and is nonlattice; the distinguished cut
+  has two minimal upper bounds;
+- `100/18331`: closure has 32 events and is nonlattice with the same
+  two-upper form;
+- one shared disjoint control: closure has 20 events, is a centre-free OML,
+  and keeps `R`.
+
+No case generates the literal `g` cylinder. The two negative cases carry
+hashes for both distinguished minimal upper bounds and for a first failed
+lattice pair.
+
+Evidence: **Executable verified — sampled finite scope**,
+`arr_cyl_one_context_extensions.py/.json`, producer `f8201ff4...`, payload
+`e88b81f0...`. Emit/verify recompute one implementation; the master-refinement
+exactness is the preceding hand theorem, not an independent executable
+implementation.
+
+Thus the first load-bearing full-old contexts do not force cylindricity:
+they reopen lattice repair. The next exact object is the two-upper repair
+interval created by `109/18322` and `100/18331`.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |

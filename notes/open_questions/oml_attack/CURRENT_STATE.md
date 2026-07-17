@@ -816,6 +816,16 @@ parents and was rejected before banking. The corrected theorem route is the
 conditional `NF+SS+SD+X` locality calculus; the next exact re-base cell is
 the forced meet for `[8,106]` and its complement-dual join.
 
+That binary cell is now exact and forced. With `H=root(8) intersection
+root(106)`, the union `old_left(1024) union old_right(2)` equals `H`, and the
+two old pieces are disjoint. Thus disjoint-union closure immediately adjoins
+the absent `H`; it is then the meet, and `H^c` is the dual join. **Executable
+verified — exhaustive finite scope for this cut**, producer `535fc58f...`,
+payload `ea897f3b...`. Both old kernels are principal. Ten immediate nested/
+dual consequences occur, two already current and eight new. The next exact
+question is whether those eight roots close as a finite orthogonal-repair
+cell or generate another binary source cut.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

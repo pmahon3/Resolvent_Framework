@@ -3481,6 +3481,36 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   extrema as the next exact re-base cell; classify its required meet and
   complement-dual join before any broader cross-root scan.
 
+### Iteration 310 — forced orthogonal meet cell closes the `[8,106]` cut
+- For `x=root(8)`, `y=root(106)`, let
+  `H=x intersection y` and
+  `L=old_left(1024) union old_right(2)`. Exact physical calculation gives
+  `L=H`; the two old pieces are disjoint; `H` is absent from the seed family.
+  Therefore complement/disjoint-union closure must adjoin `H` immediately,
+  and once represented it is the unique meet of `x,y`. Its complement is the
+  complement-dual forced join. **Executable verified — exhaustive finite
+  scope for the displayed cut**, `arr_forced_T_cross_root_meet_interval`
+  `.py/.json`, producer `535fc58f...`, payload `ea897f3b...`; seed-0 emit and
+  seed-12345 replay agree.
+- The cut-local defect rank `|H minus L|` is exactly zero. The general forced-
+  lower-envelope ascent and complement-dual forced-top descent are **Hand
+  proved**; here no choice or transfinite descent remains for this cut.
+- Before adjoining `H`, its maximal current lowers are exactly the two old
+  pieces; its minimal current uppers are `root(8)`, `old_left(1349)`, and
+  `old_right(102)`. For `H^c`, the dual minimal uppers are exactly
+  `old_left(17407)` and `old_right(18429)`. Old kernels of `H,H^c` are
+  principal on both copies with no atom-fold escape.
+- Immediate `H,H^c` nested differences and dual disjoint unions give ten
+  provenance occurrences: two are already current and eight are new.
+  **Executable verified — exhaustive finite scope for this one transition.**
+- **Integrity repairs:** two pre-receipt assertions were rejected in sequence:
+  first `L proper-subset H`, then the inferred overlap of the pieces. Exact
+  computation instead proves `L=H` and disjointness. No failed-run receipt was
+  banked.
+- **Pivot:** classify the eight new immediate consequence roots and test
+  whether they form old-principal orthogonal-repair cells or create a new
+  binary cut. Do not recompute the resolved `[8,106]` interval.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

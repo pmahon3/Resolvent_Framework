@@ -83,6 +83,12 @@
    is the exact forced-meet/complement-dual-join re-base cell for this pair.
    Do not broaden the pair scan; a positive locality theorem now requires
    explicit `NF+SS+SD+X` transition rules.
+   The forced repair is now classified (payload `ea897f3b...`):
+   `H=root(8) intersection root(106)` equals the disjoint union of
+   `old_left(1024)` and `old_right(2)`, so closure must adjoin it and `H^c`.
+   This resolves the source cut with rank zero. It generates eight genuinely
+   new immediate nested/dual consequence roots. First action is their exact
+   kernel/cross-cut classification; do not recompute the `[8,106]` interval.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

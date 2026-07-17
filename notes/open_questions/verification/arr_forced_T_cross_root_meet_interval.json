@@ -1,0 +1,319 @@
+{
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_forced_T_cross_root_meet_interval.py --verify",
+  "complement_dual_source_cut": {
+    "H_maximal_lower_count": 2,
+    "H_maximal_lower_labels": [
+      {
+        "kind": "old",
+        "label": "old_left(1024)"
+      },
+      {
+        "kind": "old",
+        "label": "old_right(2)"
+      }
+    ],
+    "Hc_minimal_upper_count": 2,
+    "Hc_minimal_upper_labels": [
+      {
+        "kind": "old",
+        "label": "old_left(17407)"
+      },
+      {
+        "kind": "old",
+        "label": "old_right(18429)"
+      }
+    ],
+    "exact_duality": true
+  },
+  "current_family_extrema": {
+    "H": {
+      "greatest_current_lower_exists": false,
+      "least_current_upper_exists": false,
+      "lower_extrema": [
+        {
+          "kind": "old",
+          "label": "old_left(1024)"
+        },
+        {
+          "kind": "old",
+          "label": "old_right(2)"
+        }
+      ],
+      "lower_extremum_count": 2,
+      "upper_extrema": [
+        {
+          "kind": "new",
+          "label": "root(8)"
+        },
+        {
+          "kind": "old",
+          "label": "old_left(1349)"
+        },
+        {
+          "kind": "old",
+          "label": "old_right(102)"
+        }
+      ],
+      "upper_extremum_count": 3
+    },
+    "Hc": {
+      "greatest_current_lower_exists": false,
+      "least_current_upper_exists": false,
+      "lower_extrema": [
+        {
+          "kind": "new",
+          "label": "root(9)"
+        },
+        {
+          "kind": "old",
+          "label": "old_left(17082)"
+        },
+        {
+          "kind": "old",
+          "label": "old_right(18329)"
+        }
+      ],
+      "lower_extremum_count": 3,
+      "upper_extrema": [
+        {
+          "kind": "old",
+          "label": "old_left(17407)"
+        },
+        {
+          "kind": "old",
+          "label": "old_right(18429)"
+        }
+      ],
+      "upper_extremum_count": 2
+    }
+  },
+  "current_interpolant_count": 0,
+  "current_interpolants": [],
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope for displayed cut",
+  "forced_meet_status": "H is uniquely forced and is the immediate literal disjoint union of old_left(1024) and old_right(2): L equals H and the pieces are disjoint, so complement/disjoint-union closure must adjoin H",
+  "immediate_one_transition_consequences": [
+    {
+      "already_current": false,
+      "base": "H",
+      "contained_in_H": true,
+      "contained_in_Hc": false,
+      "exact_mdd_sha256": "861072e8c70ebfc63d07ac13c7ba675f82990bf474a2e85ee17eb74dcc810451",
+      "operation": "nested_difference",
+      "physical_cardinality": 11773740160,
+      "source_lower": "old_left(1024)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current": false,
+      "base": "H",
+      "contained_in_H": false,
+      "contained_in_Hc": false,
+      "exact_mdd_sha256": "76af89f632bd7c94895339b00edfc34ee868565074a86ce46ae5c25294aa7bc2",
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 200123799856,
+      "source_lower": "old_left(1024)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current": false,
+      "base": "H",
+      "contained_in_H": true,
+      "contained_in_Hc": false,
+      "exact_mdd_sha256": "e18307eb81a4a30052936f63b96ceef04477741a1a7afab8b62f4e78667903d3",
+      "operation": "nested_difference",
+      "physical_cardinality": 16210089024,
+      "source_lower": "old_right(2)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current": false,
+      "base": "H",
+      "contained_in_H": false,
+      "contained_in_Hc": false,
+      "exact_mdd_sha256": "51277968ef38a3ee7fb223f0f32db89c1f72210d1b45eebe772518554770699c",
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 195687450992,
+      "source_lower": "old_right(2)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current": true,
+      "base": "Hc",
+      "contained_in_H": false,
+      "contained_in_Hc": true,
+      "exact_mdd_sha256": "fd678e2418f0958ddc2cc86f3c80f0d57d38b14db0c1a5b3f93865f9b7965f6e",
+      "operation": "nested_difference",
+      "physical_cardinality": 114722952024,
+      "source_lower": "root(9)",
+      "source_lower_kind": "new"
+    },
+    {
+      "already_current": true,
+      "base": "Hc",
+      "contained_in_H": false,
+      "contained_in_Hc": false,
+      "exact_mdd_sha256": "a603cd6f9e119468fd749cf739b960283a8dddcc25d95b8f96c076512897e391",
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 97174587992,
+      "source_lower": "root(9)",
+      "source_lower_kind": "new"
+    },
+    {
+      "already_current": false,
+      "base": "Hc",
+      "contained_in_H": false,
+      "contained_in_Hc": true,
+      "exact_mdd_sha256": "438ea2be906bc0a79d6e582868c6deeaf3a0f134d10befbe2cdd89fe5da96963",
+      "operation": "nested_difference",
+      "physical_cardinality": 55124039704,
+      "source_lower": "old_left(17082)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current": false,
+      "base": "Hc",
+      "contained_in_H": false,
+      "contained_in_Hc": false,
+      "exact_mdd_sha256": "23cf54d9a50a230b41272f8af00a74873ce2dd0e25dc9c41b55a41b642a130c0",
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 156773500312,
+      "source_lower": "old_left(17082)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current": false,
+      "base": "Hc",
+      "contained_in_H": false,
+      "contained_in_Hc": true,
+      "exact_mdd_sha256": "45c480cdbd14b30a0e126d69f0b26a63ee4ac982daf31ed4d9a62b41265302aa",
+      "operation": "nested_difference",
+      "physical_cardinality": 22840901120,
+      "source_lower": "old_right(18329)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current": false,
+      "base": "Hc",
+      "contained_in_H": false,
+      "contained_in_Hc": false,
+      "exact_mdd_sha256": "e7b672af4e5634bd5dd13ed140ab93163cd44515140ac05e9c5a43c4f24c2892",
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 189056638896,
+      "source_lower": "old_right(18329)",
+      "source_lower_kind": "old"
+    }
+  ],
+  "immediate_one_transition_occurrence_count": 10,
+  "old_kernels": {
+    "H": {
+      "left": {
+        "atom_fold_index": 1024,
+        "atom_fold_inside_target": true,
+        "eligible_old_atom_count": 1,
+        "existential_shadow_root_sha256": "96dceca6b7b3cd7ed6f8b458c1d20c3f8d1209277bf9d40b19e3952fa8edff99",
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "least_old_upper_exists": true,
+        "maximal_old_lower_indices": [
+          1024
+        ],
+        "minimal_old_upper_indices": [
+          1349
+        ],
+        "old_lower_count": 2,
+        "old_upper_count": 384,
+        "universal_shadow_root_sha256": "732f2d847ee0471c710102398f1966c0a84cd876d36557b3f7019cd029865f37"
+      },
+      "right": {
+        "atom_fold_index": 2,
+        "atom_fold_inside_target": true,
+        "eligible_old_atom_count": 1,
+        "existential_shadow_root_sha256": "bb15f61339c77f27d923803f2742f32d58945ba4a273003b4fe9f770897aa788",
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "least_old_upper_exists": true,
+        "maximal_old_lower_indices": [
+          2
+        ],
+        "minimal_old_upper_indices": [
+          102
+        ],
+        "old_lower_count": 2,
+        "old_upper_count": 768,
+        "universal_shadow_root_sha256": "dff6936eeb0ae902b4c8fa6d47cc4e54fef408da7dc2a963f4995085ddaf3d3b"
+      }
+    },
+    "Hc": {
+      "left": {
+        "atom_fold_index": 17082,
+        "atom_fold_inside_target": true,
+        "eligible_old_atom_count": 10,
+        "existential_shadow_root_sha256": "c34a5e763c8b4f54973671c8a6787f27e5ebf85934e8cb0b1db69ce771ca676d",
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "least_old_upper_exists": true,
+        "maximal_old_lower_indices": [
+          17082
+        ],
+        "minimal_old_upper_indices": [
+          17407
+        ],
+        "old_lower_count": 384,
+        "old_upper_count": 2,
+        "universal_shadow_root_sha256": "77c094ec1ab7db6f39994d64941734ceab9ff3b6b43564ecf77311944653735f"
+      },
+      "right": {
+        "atom_fold_index": 18329,
+        "atom_fold_inside_target": true,
+        "eligible_old_atom_count": 11,
+        "existential_shadow_root_sha256": "b37cc16fa05a197edbec2ba35ff5068896eca23e44a9f3c0ef380de28800b8a2",
+        "first_atom_fold_escape": null,
+        "greatest_old_lower_exists": true,
+        "least_old_upper_exists": true,
+        "maximal_old_lower_indices": [
+          18329
+        ],
+        "minimal_old_upper_indices": [
+          18429
+        ],
+        "old_lower_count": 768,
+        "old_upper_count": 2,
+        "universal_shadow_root_sha256": "7e19b229c95803296743f13b522c55223c8b08cb9c879b2ee5a8dae74f4abedd"
+      }
+    }
+  },
+  "payload_sha256": "ea897f3bd829fd6e9a3aee87b163245351b50b703d7e856553d77bd2ec4f5884",
+  "peak_rss_bytes_darwin": 1378222080,
+  "producer_sha256": "535fc58ffc0f978ab94b5693404ae77f6be3bd0b21440b5d1dc82a0744e8afd6",
+  "reconstruction_seconds": 290.9463937919354,
+  "relations": {
+    "H_current": false,
+    "H_exact_mdd_sha256": "8a0a0f4b7ce3069459e8d782cec7bf0f9264b243277b032a93da795f8e289e93",
+    "H_points": 27983829184,
+    "H_subset_x": true,
+    "H_subset_y": true,
+    "Hc_current": false,
+    "Hc_exact_mdd_sha256": "2e56e74dfb8bf8cc8b259964f151e9370312fdfda958e22fdb5ac8038e03c74e",
+    "L_equals_H": true,
+    "L_exact_mdd_sha256": "8a0a0f4b7ce3069459e8d782cec7bf0f9264b243277b032a93da795f8e289e93",
+    "L_points": 27983829184,
+    "L_proper_subset_H": false,
+    "L_subset_H": true,
+    "cut_local_descent_rank_H_minus_L": 0,
+    "lower_piece_overlap_points": 0,
+    "lower_pieces_disjoint": true,
+    "x_equals_H": false,
+    "y_equals_H": false
+  },
+  "schema": "arr-forced-T-cross-root-meet-interval-v1",
+  "schema_version": "1.0",
+  "scope": "Exact interval, old kernels, fixed-current-family extrema, complement duality, and immediate H/Hc nested consequences for source classes 8 and 106 only. No choice of a smaller repair h, closure round, later cross-root pair, lattice, OML, centre, state, sigma, ODBC, MBRC, or Phi claim is made.",
+  "source_bridge_payload_sha256": "af993bf5978612f6ca9088feedc83b939af90bc022f716f4ceb8f269c960b372",
+  "source_classes": [
+    8,
+    106
+  ],
+  "source_cross_root_payload_sha256": "f67f8531587b949ef96321a94608ea430720502477bc19901c928a33a1360ddb",
+  "verification_independence": "One deterministic implementation reusing the authoritative bridge MDD producer and old-event order tables.",
+  "wall_seconds": 425.6339407089399
+}

@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — one-new-parent locality is refuted by a same-half binary repair cell; exact meet re-basing and NF+SS+SD+X coverage are active.",
+   "status": "OPEN — the first binary same-half repair cell is forced and resolves in one orthogonal step; eight consequence roots define the next grammar boundary.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

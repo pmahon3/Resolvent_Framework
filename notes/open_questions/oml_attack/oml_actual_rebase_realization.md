@@ -511,11 +511,22 @@ those two lowers and below both new parents, together with its complement-
 dual join. This is a new binary provenance cell, not another unary kernel
 type.
 
+The binary cell itself is forced without branching. Put
+`H=root(8) intersection root(106)`. Exact calculation gives
+`H=old_left(1024) disjoint-union old_right(2)`. Hence every complement/
+disjoint-union-closed extension contains `H`, which is then the actual meet;
+`H^c` is the complement-dual join. The defect rank is zero. **Executable
+verified — exhaustive finite scope for this cut**,
+`arr_forced_T_cross_root_meet_interval.py/.json`, producer `535fc58f...`,
+payload `ea897f3b...`. The four old-side kernels of `H,H^c` are principal.
+The transition has ten immediate nested/dual occurrences, eight new; these
+are the next grammar boundary.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open; unary obligation set and one-new-parent locality refuted | `[8,106]` is a binary same-half repair cell | classify its forced meet and prove/refute `NF+SS+SD+X` coverage |
+| Repair grammar | Open; first binary cell forced | `[8,106]` meet is an old-old orthogonal union; eight new consequences | classify consequence kernels and cross-cuts |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

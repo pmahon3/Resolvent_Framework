@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "One-new-parent locality is refuted by same-half roots [8,106], whose missing intersection has incomparable old maximal lowers left(1024) and right(2). Construct the exact forced-meet/complement-dual-join rebase cell and test NF+SS+SD+X coverage."
+   "current_next_step": "The [8,106] meet is forced as the disjoint union of old_left(1024) and old_right(2), with dual join and eight new immediate consequences. Classify those consequence kernels and binary cuts; do not recompute the resolved interval."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

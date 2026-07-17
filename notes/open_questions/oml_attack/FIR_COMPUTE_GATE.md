@@ -174,6 +174,11 @@ scan nor a broad all-pairs scan is the next production workload. The next
 question is one exact forced-meet/complement-dual-join re-base cell and remains
 local/theorem-level. Fir has no currently justified research submission.
 
+That exact cell now closes locally (payload `ea897f3b...`) and leaves only
+eight new immediate consequence roots. Their classification is again a small
+local theorem/discriminator, not a Fir workload. Service remains `OUTAGE` and
+no submission is justified.
+
 ## Required next gate
 
 When the official service is no longer `OUTAGE`, recheck it once. If usable,

@@ -731,6 +731,23 @@ states. **Executable verified — exhaustive finite scope**, payload
 force selector saturation. The remaining live mechanism is specifically the
 actual adjacent/full-old-copy coupling.
 
+The exact sufficient coupling is now isolated. `CI_R` says that every
+noncylindrical upper of the two old lowers below the actual target `R` has a
+strictly smaller cylindrical upper. It forces `ARR-CYL` by leastness and is
+**Lean certified** as
+`KernelClosureCalculus.leastUpper_cylindrical_of_interpolation`.
+Horizontal-sum controls show that full-old containment, trivial centre,
+finite sigma-completeness, and order-separating two-valued states do not imply
+`CI_R` without genuine mixed incidence (**Hand proved** over the executable
+clean-control premise).
+
+The next discriminator precedes closure: locate the right-only twelve-event
+atom corresponding to the inflated control's duplicated point and compute
+its exact physical multiplicity after complete labelled full-old signature
+refinement. The current fourteen-word receipt cannot answer this because it
+forgets multiplicity. Singleton refined fibres close the transplant route;
+a non-singleton refined fibre supplies the exact `ARR-K8A-TRANSPLANT` seed.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

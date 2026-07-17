@@ -3267,6 +3267,29 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   a possible saturation mechanism. Test whether the `K=0x8a` three-block
   control can be transplanted into the actual `Neg-023` truth fibre.
 
+### Iteration 300 — cylindrical interpolation and transplant eligibility
+- **Lean certified:** if every noncylindrical upper of a fixed two-element
+  cut below a target admits a strictly smaller cylindrical upper, then the
+  least upper is cylindrical:
+  `KernelClosureCalculus.leastUpper_cylindrical_of_interpolation`, with
+  printed axioms `[propext, Classical.choice, Quot.sound]`.
+- **Hand proved:** the corresponding actual `CI_R` hypothesis implies
+  `ARR-CYL`. Commutation with the two old lowers is insufficient because the
+  noncylindrical target `R` is comparable with both.
+- **Hand proved over the executable clean-control premise:** horizontally
+  summing the `K=0x8a` control with arbitrary finite old OML copies preserves
+  the split join, trivial centre, finite sigma-completeness, and
+  order-separating two-valued states. Thus mere full-old containment is not
+  the missing hypothesis; genuinely mixed incidence is required.
+- **Exact reformulation:** the clean crossing must split an atom of the
+  right-only twelve-event family, not merely one of the fourteen generator
+  truth words. The banked quotient omits physical multiplicities. The next
+  gate is to compute the full-old-labelled multiplicity of the distinguished
+  atom; singleton fibres refute the transplant, while a non-singleton fibre
+  enables the first exact `ARR-K8A-TRANSPLANT` closure audit.
+- **Fir:** no workload submitted. The eligibility computation is local and
+  the official service remains recorded as `OUTAGE`.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

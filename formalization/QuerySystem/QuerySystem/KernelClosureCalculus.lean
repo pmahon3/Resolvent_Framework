@@ -334,6 +334,26 @@ theorem forcedSelector_card_lt_of_not_least
 
 end SelectorUpperCore
 
+/-- A least upper bound is cylindrical whenever every noncylindrical upper
+below the chosen target admits a strictly smaller cylindrical upper.
+
+This is the abstract order-theoretic core of the actual-rebase
+`ARR-CYL` interpolation route.  It does not assert that the interpolation
+hypothesis holds for any concrete assembly. -/
+theorem leastUpper_cylindrical_of_interpolation
+    {A : Type u} [Preorder A] (cylindrical : A → Prop)
+    {a b h target : A}
+    (hleast : a ≤ h ∧ b ≤ h ∧ ∀ x, a ≤ x → b ≤ x → h ≤ x)
+    (htarget : h ≤ target)
+    (hinterpolate :
+      ∀ w, a ≤ w → b ≤ w → w ≤ target → ¬ cylindrical w →
+        ∃ c, cylindrical c ∧ a ≤ c ∧ b ≤ c ∧ c < w) :
+    cylindrical h := by
+  by_contra hnoncyl
+  obtain ⟨c, -, hac, hbc, hch⟩ :=
+    hinterpolate h hleast.1 hleast.2.1 htarget hnoncyl
+  exact (not_lt_of_ge (hleast.2.2 c hac hbc)) hch
+
 #print axioms greatest_intersection
 #print axioms least_complement_of_greatest
 #print axioms exists_greatest_iff_exists_least_complement
@@ -349,6 +369,7 @@ end SelectorUpperCore
 #print axioms isLeastSelectorUpper_iff_forcedSelector_eq
 #print axioms forcedSelector_ssubset_of_not_least
 #print axioms forcedSelector_card_lt_of_not_least
+#print axioms leastUpper_cylindrical_of_interpolation
 
 end KernelClosureCalculus
 end QuerySystem

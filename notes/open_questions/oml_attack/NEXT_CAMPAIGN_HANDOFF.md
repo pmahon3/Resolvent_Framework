@@ -36,11 +36,14 @@
    every admissible ambient completion, is the forced join of its embedded
    old lower cut cylindrical? It satisfies `G ⊆ h ⊆ R`, but the seeded
    one-copy 256-prefix covers only the conditional branch `h = G`.
-7. **First action:** transplant the clean `K=0x8a` 16-event, three-block
-   centre-free split-atom control into the actual `Neg-023` truth fibre while
-   retaining the full old cylinders. Carrier inflation already supplies 70
-   generic survivors; determine the first actual old context or mixed cut
-   that obstructs this transplant, or preserve a passing local assembly.
+7. **First action:** run the exact transplant-eligibility gate. Identify the
+   atom of the right-only twelve-event family corresponding to the clean
+   control's duplicated point, refine it by complete labelled full-old
+   signatures, and compute its physical multiplicity. The fourteen-word
+   quotient is insufficient because it forgets multiplicity. If the refined
+   fibre is non-singleton, transplant `K=0x8a` and audit the full-old closure;
+   if singleton, record the exact obstruction. Use the Lean-certified
+   cylindrical-interpolation lemma as the positive `ARR-CYL` target.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

@@ -295,6 +295,62 @@ Therefore centre-free finite concrete OML laws plus exhaustive two-valued
 state classification still do not force selector saturation. Any positive
 `ARR` theorem must use the actual adjacent-assembly/full-old-copy coupling.
 
+### Cylindrical interpolation is the exact sufficient coupling
+
+Let `a,b` be the two maximal old lower cylinders, let `R` be the actual
+`Neg-023` target, and suppose their join `h` exists in a same-carrier
+concrete lattice `M`.  Consider:
+
+`CI_R`: for every noncylindrical `w in M` with
+`a,b subseteq w subseteq R`, there is a cylindrical `c in M` with
+`a,b subseteq c subsetneq w`.
+
+Then `CI_R` implies that `h` is cylindrical.  Indeed, `R` is an upper bound,
+so leastness gives `h subseteq R`; applying `CI_R` to a noncylindrical `h`
+would produce a strictly smaller upper bound. **Lean certified** as
+`KernelClosureCalculus.leastUpper_cylindrical_of_interpolation` in
+`QuerySystem/KernelClosureCalculus.lean`. Its printed axioms are
+`[propext, Classical.choice, Quot.sound]`. The application of `CI_R` to the
+actual assembly remains **Open**.
+
+Equivalently, every minimal upper of `{a,b}` in the interval below `R` is
+cylindrical. This is weaker and more accurate than commutant rigidity:
+`R` itself is noncylindrical and, being comparable with `a` and `b`, is
+compatible with both.
+
+Mere containment of full old OML copies does not supply `CI_R`. Horizontally
+sum the clean `K=0x8a` centre-free split-selector control with any finite
+two-valued-state-order-separated old OML (or two labelled copies). The
+split join persists, the sum has trivial centre, and independently chosen
+two-valued states order-separate it. **Hand proved**, using the
+**Executable verified — exhaustive finite scope** properties of the clean
+control. This schematic countercontrol deliberately has no actual
+fibre-product mixed incidence. Consequently, genuine mixed coupling rather
+than full-old containment is load-bearing.
+
+### Exact transplant eligibility gate
+
+The clean control must split an atom of the existing right-only twelve-event
+family, not merely one of the fourteen generator-labelled truth words. The
+current receipt records those fourteen nonempty words but not their physical
+multiplicities. The first exact test is therefore:
+
+1. construct every pointed isomorphism from the right-only twelve-event
+   control to the generic twelve-event split-selector base, preserving the
+   two lower generators and `R`;
+2. locate the atom corresponding to the generic duplicated point;
+3. refine it by the complete labelled full-old-cylinder signatures;
+4. determine whether an eligible refined fibre has at least two physical
+   realizations.
+
+If every eligible fibre is singleton, the `K=0x8a` transplant is impossible
+on the actual carrier. If one is non-singleton, transplant the crossing event,
+close with both full old copies and `R`, and audit `CI_R`, every lattice cut,
+orthomodularity, centre, maximal blocks, the distinguished join, absence of
+the literal `g`, and all two-valued states. This is the exact same-carrier
+`ARR-K8A-TRANSPLANT` proposition. It makes no sigma, ODBC, MBRC, or `Phi`
+claim.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |

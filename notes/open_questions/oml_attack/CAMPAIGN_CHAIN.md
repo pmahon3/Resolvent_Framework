@@ -46,6 +46,7 @@
 | `X_p(I)` is the inverse limit of common-witness subsystem section spaces | hand proved | proved |
 | ODBC = ODBC-S + CODBC implies GSD and `Phi` | hand proved using reviewed GSD | proved |
 | abstract section implication `phi_of_odbc_sections` | Lean verified | proved |
+| cylindrical interpolation forces a cylindrical least upper | Lean certified | proved |
 | fine atomic and coarse two-level ODBC reformulations | hand proved | proved |
 | finite generated boundaries imply ODBC | hand proved | proved |
 | exact two-block trivial-centre atlases satisfy ODBC | hand proved | proved |

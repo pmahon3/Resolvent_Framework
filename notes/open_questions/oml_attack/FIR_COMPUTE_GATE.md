@@ -98,6 +98,11 @@ yields 504 word-level selectors (payload `f666a2cb...`). Complete full-old
 physical refinement is not yet specified and is not a Fir production
 candidate.
 
+The full-old physical-signature gate also completes locally (payload
+`1e65c4c7...`) and proves that one simultaneous subset selector exists.
+The next task is structural compact-MDD adjunction and cut preservation, not
+an exact shard space. It is therefore still not a Fir production workload.
+
 ## Required next gate
 
 When the official service is no longer `OUTAGE`, recheck it once. If usable,

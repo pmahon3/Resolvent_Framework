@@ -755,6 +755,15 @@ words with multiplicities `3,3,4`. All are restricted-word split-eligible,
 giving 504 selector combinations. **Executable verified — exhaustive finite
 scope**, payload `f666a2cb...`. This gives no physical multiplicity claim.
 
+Full-old physical eligibility now passes. The full-old signature pair
+recovers each adjacent seven-coordinate point (**Hand proved over executable
+separation premises**), and the exhaustive weighted census covers
+`211897540016` points. The three split fibres have sizes
+`33458986624`, `11773740160`, and `101985908824`, so one simultaneous
+physical selector exists (**Executable verified — exhaustive finite scope**,
+payload `1e65c4c7...`). It is not yet a generated or admissibly adjoinable
+event; compact-MDD adjunction and old-cut preservation are next.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

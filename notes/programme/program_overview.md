@@ -853,6 +853,10 @@ repaired a one-profile under-audit: three actual profiles must be split,
 covering ten labelled words and 504 restricted selectors. Complete full-old
 signature refinement may still separate them, so physical multiplicity
 remains the next eligibility gate.
+The physical gate passes: the full-old signature pair recovers the adjacent
+point, and all three required fibres have enormous multiplicity. The next
+gate is no longer cardinality but whether a compactly represented selector
+can be adjoined while preserving both old OML copies and the `Neg-023` cut.
 
 ## Repository Layout
 

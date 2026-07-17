@@ -818,6 +818,10 @@ the unique five-profile comparison maps the three atoms split by `K=0x8a`
 to actual atoms `0,3,4`, covering ten labelled words and 504 restricted
 selectors. The frontier is complete full-old signature refinement and
 possible adjacent/full-old-copy transplantation.
+That refinement now passes over all `211897540016` adjacent points: the
+three required complete-signature fibres admit one simultaneous physical
+selector. This is subset existence only. The frontier is compact-MDD
+adjunction and preservation of every old cut and the distinguished join.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

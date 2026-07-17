@@ -48,6 +48,11 @@
    `0,3,4` are split, covering ten labelled words and 504 restricted selector
    combinations (payload `f666a2cb...`). Begin complete full-old signature
    refinement; labelled-word counts are not physical multiplicities.
+   That refinement now passes: all three physical signature fibres are huge
+   and one simultaneous subset exists (payload `1e65c4c7...`). The first
+   action is therefore compact-MDD adjunction of a deterministic selector
+   and old-cut/distinguished-join preservation—not another multiplicity
+   census.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

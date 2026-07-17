@@ -1,0 +1,212 @@
+{
+  "adjacent_carrier_complete_signature_count": 211897540016,
+  "all_crossed_atoms_have_at_least_two_complete_signatures": true,
+  "cell_event_predicates": 56,
+  "cell_state_membership_signatures_distinct": 224,
+  "cell_states": 224,
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_k8a_full_old_signature_gate.py --verify",
+  "crossed_actual_atoms": [
+    0,
+    3,
+    4
+  ],
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope",
+  "hand_claim": "Signature completeness, conditional on the executable separation and embedded-cylinder premises.",
+  "hostile_self_review": [
+    "The completeness proof uses the presence of all four embedded cell cylinder families; it is not a theorem for an arbitrary 18,676-event representation.",
+    "A complete signature is a physical point here because the cell predicates separate coordinate labels. This does not make its singleton an event.",
+    "The deterministic selector is only a subset candidate. Generated-event membership is precisely the next unresolved gate.",
+    "The producer shares the ARR construction and MDD implementation with its source; only the aggregate carrier count is externally cross-checked."
+  ],
+  "next_gate": "Represent the deterministic three-crossing selector as a compact MDD and adjoin it to both complete old cylinder copies plus Neg-023; audit the first mixed cut or bounded closure without materializing the carrier.",
+  "old_events_per_copy": 18676,
+  "one_physical_selector_with_transported_orientation_exists": true,
+  "payload_sha256": "1e65c4c76ee70e94079431e271e46ebf68f113c60976c69777f6c7c00651b9cd",
+  "producer_sha256": "e2ef399e81064563b5afd53fd4f1599457fa620b2e5331aa1911952ed37f4945",
+  "profile_atoms": [
+    {
+      "actual_atom": 0,
+      "complete_full_old_signature_count": 33458986624,
+      "generic_atom": 1,
+      "labelled_word_count": 3,
+      "labelled_words": [
+        {
+          "complete_full_old_signature_count": 1738665984,
+          "word": [
+            3,
+            3,
+            0
+          ],
+          "word_index": 0
+        },
+        {
+          "complete_full_old_signature_count": 1260892160,
+          "word": [
+            10,
+            3,
+            0
+          ],
+          "word_index": 7
+        },
+        {
+          "complete_full_old_signature_count": 30459428480,
+          "word": [
+            12,
+            3,
+            0
+          ],
+          "word_index": 10
+        }
+      ],
+      "proper_split_physically_possible": true,
+      "transported_k_membership": "proper"
+    },
+    {
+      "actual_atom": 1,
+      "complete_full_old_signature_count": 53258453848,
+      "generic_atom": 0,
+      "labelled_word_count": 2,
+      "labelled_words": [
+        {
+          "complete_full_old_signature_count": 33878992024,
+          "word": [
+            3,
+            3,
+            1
+          ],
+          "word_index": 1
+        },
+        {
+          "complete_full_old_signature_count": 19379461824,
+          "word": [
+            12,
+            3,
+            1
+          ],
+          "word_index": 11
+        }
+      ],
+      "proper_split_physically_possible": true,
+      "transported_k_membership": "empty"
+    },
+    {
+      "actual_atom": 2,
+      "complete_full_old_signature_count": 11420450560,
+      "generic_atom": 3,
+      "labelled_word_count": 2,
+      "labelled_words": [
+        {
+          "complete_full_old_signature_count": 8077980160,
+          "word": [
+            3,
+            5,
+            1
+          ],
+          "word_index": 2
+        },
+        {
+          "complete_full_old_signature_count": 3342470400,
+          "word": [
+            10,
+            5,
+            1
+          ],
+          "word_index": 8
+        }
+      ],
+      "proper_split_physically_possible": true,
+      "transported_k_membership": "empty"
+    },
+    {
+      "actual_atom": 3,
+      "complete_full_old_signature_count": 11773740160,
+      "generic_atom": 2,
+      "labelled_word_count": 3,
+      "labelled_words": [
+        {
+          "complete_full_old_signature_count": 2028533760,
+          "word": [
+            3,
+            10,
+            1
+          ],
+          "word_index": 3
+        },
+        {
+          "complete_full_old_signature_count": 2077606400,
+          "word": [
+            5,
+            10,
+            1
+          ],
+          "word_index": 5
+        },
+        {
+          "complete_full_old_signature_count": 7667600000,
+          "word": [
+            12,
+            10,
+            1
+          ],
+          "word_index": 12
+        }
+      ],
+      "proper_split_physically_possible": true,
+      "transported_k_membership": "proper"
+    },
+    {
+      "actual_atom": 4,
+      "complete_full_old_signature_count": 101985908824,
+      "generic_atom": 4,
+      "labelled_word_count": 4,
+      "labelled_words": [
+        {
+          "complete_full_old_signature_count": 41346558144,
+          "word": [
+            3,
+            12,
+            1
+          ],
+          "word_index": 4
+        },
+        {
+          "complete_full_old_signature_count": 9696133760,
+          "word": [
+            5,
+            12,
+            1
+          ],
+          "word_index": 6
+        },
+        {
+          "complete_full_old_signature_count": 6817088000,
+          "word": [
+            10,
+            12,
+            1
+          ],
+          "word_index": 9
+        },
+        {
+          "complete_full_old_signature_count": 44126128920,
+          "word": [
+            12,
+            12,
+            1
+          ],
+          "word_index": 13
+        }
+      ],
+      "proper_split_physically_possible": true,
+      "transported_k_membership": "proper"
+    }
+  ],
+  "realized_labelled_word_count": 14,
+  "schema": "arr-k8a-full-old-signature-gate-v1",
+  "schema_version": "1.0",
+  "scope": "Exact weighted-MDD census of all 211,897,540,016 physical points by the fourteen actual ARR labelled words, refined by the complete membership signatures of both full old cylinder copies. It proves existence of a physical subset having the transported K empty/full/proper orientation. It does not prove that subset is in the generated event family, that adjoining it preserves either old copy, or any closure, lattice, OML, centre, state, sigma, ODBC, or Phi claim.",
+  "selector_witness_rule": "Take every complete full-old signature in transported-full atoms, none in transported-empty atoms, and the lexicographically least complete signature in each transported-proper atom.",
+  "signature_completeness_theorem": "Each full old copy contains all four embedded conditional-cell cylinder families. Their 56 cell predicates separate the 224 cell states, so the full-old cylinder membership signature recovers each of the four coordinate state labels. The pair of old-copy signatures therefore recovers the adjacent seven-coordinate point (the shared coordinate occurs in both tuples). Thus the weighted MDD point count is exactly the count of complete labelled full-old signatures, not merely a coarse word multiplicity.",
+  "source_eligibility_payload_sha256": "f666a2cbe00797e42673323a8f0610f81aa6637368bb31fed9281dd19619a126",
+  "verification_independence": "One deterministic implementation reusing the banked ARR producer; the total is independently anchored to the prior union-factor receipt."
+}

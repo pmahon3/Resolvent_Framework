@@ -354,6 +354,33 @@ transports all five atoms and fourteen words; the three split atoms give
 `f666a2cb...`; one implementation reusing the exact quotient producer.
 None is yet a certificate of physical or full-old-refined multiplicity.
 
+The physical gate now passes. **Hand proved:** for a complete realized
+signature map, one set can simultaneously realize prescribed
+empty/full/proper-split behaviour on disjoint signature fibres iff every
+fibre marked split has at least two points. Sufficiency chooses one point in
+each split fibre and takes all full fibres; necessity is immediate. This is
+only a set-existence theorem, not an event-generation or closure theorem.
+
+The pair of full-old signatures is complete in the actual adjacent carrier:
+each old copy contains the four embedded cell-cylinder families, whose 56
+predicates separate all 224 cell labels, so the two four-coordinate
+signatures recover the seven-coordinate adjacent point. **Hand proved over
+executable premises.**
+
+A weighted MDD census accounts for all `211897540016` adjacent points. The
+three transported split atoms contain respectively `33458986624`,
+`11773740160`, and `101985908824` complete signatures. Hence one physical
+subset with the full transported `K=0x8a` empty/proper orientation exists.
+**Executable verified — exhaustive finite scope**,
+`arr_k8a_full_old_signature_gate.py/.json`, producer `e2ef399e...`, payload
+`1e65c4c7...`; one implementation, with the total independently anchored to
+the union-factor receipt and deterministic cross-seed replay.
+
+The selector is not asserted to be generated or admissibly adjoinable.
+The next exact gate is its compact-MDD adjunction to both full old copies and
+`R`, followed first by old-cut and distinguished-join preservation, then
+lattice, centre, block, and state audits.
+
 If every eligible fibre is singleton, the `K=0x8a` transplant is impossible
 on the actual carrier. If one is non-singleton, transplant the crossing event,
 close with both full old copies and `R`, and audit `CI_R`, every lattice cut,

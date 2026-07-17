@@ -3313,6 +3313,25 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   complete. No transplant closure, lattice, state, sigma, ODBC, or `Phi`
   conclusion is drawn.
 
+### Iteration 302 — full-old physical selector eligibility
+- **Hand proved:** for a complete realized signature map, one subset realizes
+  simultaneous empty/full/proper-split fibre prescriptions iff every split
+  fibre has at least two points. This proves seed existence only.
+- **Hand proved over executable premises:** the pair of full-old signatures
+  is injective on the actual adjacent carrier because the 56 embedded cell
+  predicates separate all 224 cell labels and the two four-coordinate tuples
+  recover the seven-coordinate point.
+- The weighted MDD census covers all `211897540016` points. The transported
+  split atoms `0,3,4` have `33458986624`, `11773740160`, and
+  `101985908824` complete signatures, so a simultaneous physical selector
+  exists. **Executable verified — exhaustive finite scope**, producer
+  `e2ef399e...`, payload `1e65c4c7...`, deterministic two-seed replay.
+- **Nonclaim:** the selector is a subset candidate, not a generated event.
+  No old cut, distinguished join, closure, lattice, centre, state, sigma,
+  ODBC, or `Phi` property follows.
+- **Pivot:** build its compact MDD and adjoin it to both full old copies plus
+  `R`; audit cut preservation before attempting broad closure.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

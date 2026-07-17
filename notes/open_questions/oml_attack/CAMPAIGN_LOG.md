@@ -3174,6 +3174,29 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** classify and repair those two exact intervals before any 9334-
   pair census or Fir submission.
 
+### Iteration 294 — selector-stability repair theorem
+- For a two-minimal-upper cut every same-carrier candidate join is uniquely
+  `z = (x union y) union S`, with `S` contained in the exact gap.
+- **Hand proved:** `z` remains the join in its generated closure iff every
+  generated upper of the literal envelope contains `S` (`UP-S`). The dual
+  meet is repaired simultaneously.
+- **Refuted:** interval membership alone guarantees stable repair. The first
+  generated upper omitting part of `S` is the minimal exact countercertificate.
+- Exact finite compression is by stabilizer orbits of the pointed old family;
+  any smaller type must be a transition congruence preserving selector
+  containment.
+
+### Iteration 295 — exact selector cubes
+- On the exact 37-atom quotient, the `109/18322` repair gap has one atom and
+  the `100/18331` gap has four provenance-distinct atoms.
+- Therefore the certified cuts have respectively 2 and 16 candidate joins
+  (18 rooted cases, 16 distinct masks). No generator-labelled automorphism
+  reduces the four-atom cube.
+- Neither interval contains `R` or an existing event; `g` is their nonevent
+  lower endpoint. **Executable verified — sampled finite scope.**
+- **Pivot:** exhaust these 18 exact roots and apply `UP-S`; no arbitrary
+  subset search or Fir workload is warranted.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

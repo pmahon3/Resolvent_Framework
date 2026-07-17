@@ -653,8 +653,11 @@ be applied to the 256-prefix, the actual-rebase-realization gate must be
 closed. In any ambient lattice completion the join `h` of the actual embedded
 old lower cut satisfies `G ⊆ h ⊆ Neg-023`, and is new; however lattice order
 alone does not make `h` cylindrical. **Hand proved.** The exact open theorem
-`ARR-CYL` asks whether every admissible completion of this occurrence has a
-cylindrical `h`. A refutation supplies the first genuine nonlocal mixed repair.
+Same-carrier `ARR-CYL` asks whether every admissible event-family completion
+on the fixed fibre-product carrier, with the old cylinders and occurrence
+fixed, has a cylindrical `h`. A larger-carrier version requires an explicit
+saturation map and is not claimed. A refutation supplies the first genuine
+nonlocal mixed repair.
 The exact statement and order-theoretic control are in
 `oml_actual_rebase_realization.md`.
 
@@ -683,6 +686,18 @@ OML with mixed join `R`. Adding `109/18322` or `100/18331` instead produces a
 bounds. No case generates `g`. **Executable verified — sampled finite
 scope.** The active repair grammar therefore begins with these two exact
 full-old two-upper intervals; a broad 9334-pair census is premature.
+
+Their repair calculus now has an exact **Hand proved** invariant. A candidate
+is `z = l union S` inside the two-upper interval, and it remains the join
+exactly when every generated upper of `l` contains `S` (`UP-S`). The next
+computation must classify pointed-stabilizer selector types or return the
+first complement/disjoint-union transition violating `UP-S`; arbitrary
+selector subsets are prohibited.
+
+The two repair spaces are now finite and exact: one gap atom for
+`109/18322`, four provenance-distinct gap atoms for `100/18331`, hence
+2 + 16 rooted candidates. There is no nontrivial labelled symmetry
+compression. The next census is exactly these 18 roots and remains local.
 
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event

@@ -60,10 +60,17 @@ order alone.
 
 ## Decisive theorem
 
-`ARR-CYL` (**Open**): in every admissible concrete OML completion containing
-the specific actual `left_retained_position11-Neg-023` occurrence and both
-old cylinder copies, the join of the physical-right old lower cut is
-physical-right cylindrical.
+`ARR-CYL` (**Open, same-carrier form**): fix the actual fibre-product carrier,
+its two surjective projections, both faithful old cylinder copies, and the
+specific actual `left_retained_position11-Neg-023` event. In every admissible
+concrete OML event-family completion on that same carrier containing these
+fixed data, the join of the physical-right old lower cut is physical-right
+cylindrical.
+
+For a larger-carrier representation, this statement is not invariant until a
+carrier map to the fixed fibre product and saturated pullback hypotheses for
+the old copies and distinguished event are supplied. No such version is
+claimed here.
 
 - If `ARR-CYL` holds, the trace is a genuine new effective-base event between
   `g` and `z`. The existing 256-prefix applies literally only in the stronger
@@ -158,9 +165,69 @@ Evidence: **Executable verified — sampled finite scope**,
 exactness is the preceding hand theorem, not an independent executable
 implementation.
 
-Thus the first load-bearing full-old contexts do not force cylindricity:
+Thus the first load-bearing single old complement-pair contexts do not force cylindricity:
 they reopen lattice repair. The next exact object is the two-upper repair
 interval created by `109/18322` and `100/18331`.
+
+### Selector-stability theorem
+
+For either failed cut, write `l = x union y`, let `u,v` be its two minimal old
+upper bounds, and put `G = (u intersection v) minus l`. Every same-carrier
+candidate join is uniquely
+
+`z = l union S`, with `S subseteq G`.
+
+Let `C_z` be the complement/disjoint-union closure after adjoining `z`. Then
+
+`z = x join y in C_z`
+
+iff every generated upper `w` of `l` contains `S`.
+
+Evidence: **Hand proved.** An upper `w` contains `z` exactly when it contains
+the selector `S`. The same condition repairs the complement-dual meet.
+
+This is the exact repair grammar obligation (`UP-S`). Interval membership at
+the seed stage is insufficient: a later complement or complementary-cover
+union may produce an upper omitting part of `S`.
+
+More precisely, put
+
+`K_S = intersection {w in C_z : l subseteq w}`
+
+as a literal set and `kappa(S)=K_S minus l`. Since `z` is itself an upper,
+`kappa(S) subseteq S`, and `UP-S` is equivalent to `kappa(S)=S`.
+The empty selector is always stable. If `kappa(S)` is proper in `S`, then in
+every lattice extension containing `C_z` the actual join has the form
+`l union T` for a unique proper subset `T` of `S`. Thus repeated failure of
+this fixed cut strictly descends selector size and terminates on a fixed
+finite carrier. **Hand proved.** The set `K_S` need not itself be an event of
+`C_z`, so `kappa` is not asserted to be an internal closure operator.
+
+Safe finite reduction is by the proved full stabilizer of the pointed family
+acting on actual carrier subsets. A known subgroup only identifies cases
+within its orbits. Any coarser descriptor must be a congruence for complement,
+disjointness, union, selector containment, old cuts, and transition outputs.
+
+For selectors saturated in the current 37-atom refined quotient:
+
+- `109/18322`: one gap atom, hence two rooted candidates;
+- `100/18331`: four provenance-distinct gap atoms, hence sixteen rooted
+  candidates.
+
+The first cube is a face of the second, giving sixteen distinct masks across
+eighteen rooted cases. The generator-labelled truth atoms are singleton
+automorphism classes inside that quotient, so no further quotient-level
+symmetry reduction is justified. Neither interval contains `R` or any
+existing event; `g` is the nonevent lower endpoint. **Executable verified —
+sampled finite scope** on the 37-atom quotient.
+
+This does **not** make the 18 cases exhaustive among same-carrier joins: an
+arbitrary selector may split a refined truth atom. Exhaustive coverage requires
+either a selector-saturation theorem or the proved full pointed automorphism
+action on actual carrier subsets. The 18-case census is therefore a
+saturated-selector local falsifier. Its failures are permanent negative
+certificates; its survivors remain only local candidates because later
+full-old/global events may introduce new uppers.
 
 ## Campaign gate table
 

@@ -44,6 +44,10 @@
    fibre is non-singleton, transplant `K=0x8a` and audit the full-old closure;
    if singleton, record the exact obstruction. Use the Lean-certified
    cylindrical-interpolation lemma as the positive `ARR-CYL` target.
+   The hostile-repaired five-profile gate passes uniquely: actual atoms
+   `0,3,4` are split, covering ten labelled words and 504 restricted selector
+   combinations (payload `f666a2cb...`). Begin complete full-old signature
+   refinement; labelled-word counts are not physical multiplicities.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

@@ -748,6 +748,13 @@ refinement. The current fourteen-word receipt cannot answer this because it
 forgets multiplicity. Singleton refined fibres close the transplant route;
 a non-singleton refined fibre supplies the exact `ARR-K8A-TRANSPLANT` seed.
 
+The actual and generic representations have five profile atoms and a unique
+pointed isomorphism. Hostile review caught and repaired a one-atom
+under-audit: `K=0x8a` splits actual atoms `0,3,4`, covering ten labelled
+words with multiplicities `3,3,4`. All are restricted-word split-eligible,
+giving 504 selector combinations. **Executable verified — exhaustive finite
+scope**, payload `f666a2cb...`. This gives no physical multiplicity claim.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

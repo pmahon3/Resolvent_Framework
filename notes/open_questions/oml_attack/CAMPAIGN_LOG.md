@@ -3290,6 +3290,29 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Fir:** no workload submitted. The eligibility computation is local and
   the official service remains recorded as `OUTAGE`.
 
+### Iteration 301 — restricted transplant eligibility after hostile repair
+- The actual right-only twelve-event representation and the generic
+  split-selector base each have five membership-profile atoms. Their
+  multiplicities are respectively `3,2,2,3,4` labelled words and
+  `1,1,2,2,2` generic points.
+- There is exactly one pointed profile isomorphism preserving the two lower
+  generators and target `R`, with permutation `[1,0,3,2,4]`.
+- Hostile review **Refuted** the first receipt as a complete `K=0x8a`
+  transport: it tracked only the atom containing the duplicated old point,
+  while the crossing event splits three generic representation atoms. Their
+  actual images are atoms `0,3,4`, with labelled-word multiplicities
+  `3,3,4`.
+- The repaired v2 producer transports all five profile atoms and all fourteen
+  words. All three required atoms are split-eligible, producing exactly
+  `6*6*14 = 504` nonempty-proper labelled-word selector combinations.
+  **Executable verified — exhaustive finite scope**, one implementation,
+  producer `f932e5f7...`, payload `f666a2cb...`.
+- This is not a physical-carrier or full-old-refined multiplicity theorem.
+  The next exact gate is to refine all transported word classes by the
+  complete labelled signatures of both full old copies and prove the signature
+  complete. No transplant closure, lattice, state, sigma, ODBC, or `Phi`
+  conclusion is drawn.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

@@ -343,6 +343,17 @@ multiplicities. The first exact test is therefore:
 4. determine whether an eligible refined fibre has at least two physical
    realizations.
 
+The restricted five-profile comparison has a unique pointed permutation
+`[1,0,3,2,4]`. Hostile review **Refuted** and repaired the first one-atom
+receipt: `K=0x8a` splits three generic representation atoms, whose actual
+images are atoms `0,3,4` with word multiplicities `3,3,4`. The v2 receipt
+transports all five atoms and fourteen words; the three split atoms give
+`6*6*14 = 504` restricted selector combinations.
+**Executable verified — exhaustive finite scope**,
+`arr_k8a_transplant_eligibility.py/.json`, producer `f932e5f7...`, payload
+`f666a2cb...`; one implementation reusing the exact quotient producer.
+None is yet a certificate of physical or full-old-refined multiplicity.
+
 If every eligible fibre is singleton, the `K=0x8a` transplant is impossible
 on the actual carrier. If one is non-singleton, transplant the crossing event,
 close with both full old copies and `R`, and audit `CI_R`, every lattice cut,

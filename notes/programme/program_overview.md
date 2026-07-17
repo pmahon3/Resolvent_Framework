@@ -847,6 +847,12 @@ to a fibre before adding transverse incidence.
 The inflation construction succeeds: a clean 16-event centre-free OML
 preserves the split join and has exactly its point states. Only
 assembly-specific full-old coupling remains as a possible saturation force.
+The clean control has a unique pointed isomorphism to the restricted
+right-only `Neg-023` five-profile representation. Hostile review caught and
+repaired a one-profile under-audit: three actual profiles must be split,
+covering ten labelled words and 504 restricted selectors. Complete full-old
+signature refinement may still separate them, so physical multiplicity
+remains the next eligibility gate.
 
 ## Repository Layout
 

@@ -92,6 +92,12 @@ The next computation is the small exact repair classification of the two
 known intervals and remains local. There is currently no justified Fir
 research submission.
 
+The later restricted `ARR-K8A` comparison now passes after hostile repair:
+one pointed five-profile isomorphism transports all three split atoms and
+yields 504 word-level selectors (payload `f666a2cb...`). Complete full-old
+physical refinement is not yet specified and is not a Fir production
+candidate.
+
 ## Required next gate
 
 When the official service is no longer `OUTAGE`, recheck it once. If usable,

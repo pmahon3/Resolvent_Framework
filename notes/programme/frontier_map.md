@@ -813,7 +813,11 @@ extension, and all 256 one-subset adjunctions confirm the no-go. The live
 frontier therefore requires carrier inflation/re-representation.
 That inflation succeeds in 70 centre-free OMLs among 128 distinct closed
 families. The clean 16-event control has three 8-event blocks and only point
-states. The frontier is now actual adjacent/full-old-copy transplantation.
+states. Hostile review caught and repaired the first one-atom transport:
+the unique five-profile comparison maps the three atoms split by `K=0x8a`
+to actual atoms `0,3,4`, covering ten labelled words and 504 restricted
+selectors. The frontier is complete full-old signature refinement and
+possible adjacent/full-old-copy transplantation.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

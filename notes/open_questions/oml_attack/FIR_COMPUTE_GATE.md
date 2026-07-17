@@ -179,6 +179,10 @@ no new consequence roots beyond `H,H^c`; all ten named consequences already
 exist. Targeted cross-copy cut tests remain local, not a Fir workload. Service
 remains `OUTAGE` and no submission is justified.
 
+A single corrected sampled pair now supplies the next exact cut (payload
+`84f62011...`). Its unrestricted three-lower cover test is a one-object local
+calculation. No Fir workload is justified.
+
 ## Required next gate
 
 When the official service is no longer `OUTAGE`, recheck it once. If usable,

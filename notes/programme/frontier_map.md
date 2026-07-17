@@ -853,6 +853,11 @@ two old maximal lowers, so it and its complement are forced in one closure
 step. Full-base correction shows every immediate nested/dual consequence was
 already represented (eight old-copy events, two nonold roots). Targeted
 cross-copy cuts among those named old events are now the frontier.
+A sampled old-event pair has three maximal lowers with no orthogonal exact
+cover; its minimum residual is the already represented `right(2)`. The
+frontier is the unrestricted exact-cover test for those three maxima, which
+decides uniquely forced nonorthogonal meet versus a proper interpolation
+residual.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

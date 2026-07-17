@@ -3528,6 +3528,31 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   writing; no receipt was overwritten. The accepted derivation is bounded-
   memory and exact.
 
+### Iteration 312 — recurrent old-event cut with infinite orthogonal-cover deficit
+- The sampled pair `consequence(0)=old_right(18406)` and
+  `consequence(3)=old_left(17407)` has an absent literal intersection and
+  exactly three maximal represented lowers:
+  `old_left(17082)`, `old_right(18306)`, and special `S`.
+  **Executable verified — sampled finite scope for one pair**, exhaustive
+  extrema and cover audit, `arr_forced_T_displayed_layer_audit.py/.json`,
+  producer `e4376601...`, payload `84f62011...`; seed-12345 replay passes.
+- Of the eight subsets of the three maxima, exactly four are pairwise
+  orthogonal. None covers the target: orthogonal-cover number `kappa` is
+  infinite. The minimum uncovered residual has `11,773,740,160` points and
+  exact root `861072e8...`, namely the already represented
+  `old_right(2)`/named consequence 5.
+- **Refuted for this cut:** the forced orthogonal exact-cover rule. This does
+  not refute lattice completion; it identifies a nonorthogonal-overlap repair
+  type whose residual recurs inside the existing old-event provenance.
+- **Scope discipline:** the pair was selected from a rejected exploratory run
+  and then recomputed independently under corrected full-base membership.
+  No first-pair or 45-pair coverage claim is made. One witness suffices to
+  prove the displayed family is not binary closed.
+- **Pivot:** compute the unrestricted union of all three maximal lowers. If it
+  equals the literal intersection, latticehood uniquely forces a
+  nonorthogonal-cover meet; otherwise the exact full-union residual is the
+  next interpolation type. Do not broaden pair enumeration.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

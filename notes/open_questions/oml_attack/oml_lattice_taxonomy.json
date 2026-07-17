@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The [8,106] repair adds only H,Hc; all ten named consequences already exist after full-base correction. Test targeted cross-copy cuts among their old representatives using orthogonal-cover deficit."
+   "current_next_step": "A sampled old-event pair has three maximal lowers, no orthogonal exact cover, and residual right(2). Test whether the unrestricted union of all three maxima equals the target; equality forces a unique nonorthogonal meet, inequality yields the next residual type."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

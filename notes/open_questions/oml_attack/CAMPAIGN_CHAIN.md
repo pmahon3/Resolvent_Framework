@@ -126,6 +126,7 @@
 | closure of current finite rebase-obligation set | Executable verified — sampled finite scope | refuted: 5/8 diverse roots create new right-copy kernel obligations |
 | one-new-parent locality in the immediate bridge layer | Executable verified — sampled finite scope | refuted by new-root pair `[8,106]` with two incomparable old maximal lowers |
 | `[8,106]` binary rebase cell | Executable verified — exhaustive finite scope for displayed cut | forced meet/dual join add only `H,H^c`; ten consequences all pre-exist after full-base correction |
+| recurrent old-event cover deficit | Executable verified — sampled finite scope for one pair | three maximal lowers, no orthogonal exact cover; minimum residual is existing `right(2)` |
 | generic selector saturation | Refuted, executable verified exhaustive finite scope | 8-point/12-event split-atom OML; centre is nontrivial |
 | same-carrier centre killing | Refuted, Hand proved + exhaustive finite scope | central singleton persists; all 256 one-subset adjunctions fail |
 | centre-free selector saturation | Refuted, executable verified exhaustive finite scope | 70 inflated split-atom OML survivors; clean 16-event three-block/state-complete control |

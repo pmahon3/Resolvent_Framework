@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the first binary repair adds only its forced meet/complement; targeted recurrent cross-copy cuts define the next grammar boundary.",
+   "status": "OPEN — a recurrent three-lower cross-copy cut has infinite orthogonal-cover deficit; unrestricted cover versus residual is active.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

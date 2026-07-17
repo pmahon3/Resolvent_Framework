@@ -90,6 +90,11 @@
    `304ed13b...` proves all ten immediate consequences were already current
    (eight old-copy, two nonold); the earlier eight-new count is retracted.
    Use the named old events only for targeted cross-copy cut tests.
+   The sampled old pair `right(18406),left(17407)` is unresolved: maxima are
+   `left(17082),right(18306),S`, orthogonal-cover `kappa=infinity`, and minimum
+   residual is existing `right(2)` (payload `84f62011...`). First action is
+   the unrestricted three-maxima union test: exact cover forces a unique
+   nonorthogonal meet; a proper residual defines the next interval type.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

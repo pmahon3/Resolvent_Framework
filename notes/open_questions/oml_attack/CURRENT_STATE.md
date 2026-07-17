@@ -827,6 +827,16 @@ old-copy events and two existing nonold roots. The earlier `2 current / 8 new`
 count omitted the full old copies and is retracted. These named occurrences
 may still expose cross-copy cuts, but the repair itself adds only `H,H^c`.
 
+One such targeted old-event pair is already unresolved. The meet target of
+`old_right(18406)` and `old_left(17407)` has maximal lowers
+`old_left(17082)`, `old_right(18306)`, and `S`. No pairwise-orthogonal subset
+covers it (`kappa=infinity`); the minimum residual is exactly the pre-existing
+`old_right(2)`, size `11,773,740,160`. **Executable verified — sampled finite
+scope for this pair**, producer `e4376601...`, payload `84f62011...`.
+The live distinction is whether the unrestricted union of all three maxima
+equals the target (a uniquely forced nonorthogonal meet) or leaves a genuine
+interpolation residual.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

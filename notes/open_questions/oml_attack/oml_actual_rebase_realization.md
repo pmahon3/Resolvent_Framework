@@ -524,11 +524,20 @@ already represented: eight old-copy events and two existing nonold roots.
 The predecessor's eight-new claim omitted the full old copies and is
 retracted.
 
+A sampled pair among those old representatives exposes the next cut.
+`old_right(18406) intersection old_left(17407)` has three maximal represented
+lowers `old_left(17082)`, `old_right(18306)`, and `S`. No orthogonal subset
+covers the target (`kappa=infinity`); the minimum residual is the existing
+event `old_right(2)`. **Executable verified — sampled finite scope for one
+pair**, `arr_forced_T_displayed_layer_audit.py/.json`, producer
+`e4376601...`, payload `84f62011...`. The exact next dichotomy is whether the
+unrestricted union of the three maxima covers the target.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open; first binary cell forced | `[8,106]` adds only `H,H^c`; all named consequences pre-exist | test targeted cross-copy cuts among named old events |
+| Repair grammar | Open; nonorthogonal recurrence found | sampled old pair has three maxima, `kappa=infinity`, residual `right(2)` | test unrestricted exact cover versus proper residual |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

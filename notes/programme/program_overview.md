@@ -887,6 +887,10 @@ orthogonal union of the two old maximal lowers. Adding it and its complement
 resolves the cut and adds no further consequence roots: the earlier eight-new
 count omitted the full old copies. Targeted cross-copy cuts among the named
 old representatives are the next finite grammar boundary.
+The first sampled old-representative pair has three maximal lowers and
+infinite orthogonal-cover number; its minimum residual recurs as `right(2)`.
+The next exact decision is whether their unrestricted union covers the meet
+target or leaves a proper residual.
 
 ## Repository Layout
 

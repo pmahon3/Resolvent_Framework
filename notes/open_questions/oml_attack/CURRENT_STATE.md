@@ -773,13 +773,29 @@ on the two sides. **Executable verified — exhaustive finite scope**, payload
 completion; the next grammar root is the coupled upper interpolant below
 `R∩18322` plus two-sided `S^c` re-basing.
 
-That forced interval top is now exact:
+The canonical maximal interval envelope is now exact:
 `T = R intersection cyl_right(18322)`. It is noncylindrical on both sides
 and absent from the bounded seeds. The left old kernel is principal at
 `13848`; the right kernel remains the incomparable pair `15250,16786`, with
 an atom-fold escape to `18322`. **Executable verified — exhaustive finite
-scope**, payload `9d024359...`. The next discriminating theorem is one-step
-closure of the transition `parents -> T,T^c`, not arbitrary branch depth.
+scope**, payload `9d024359...`. It is not a uniquely forced repair event;
+smaller joins remain possible. Fixed-cut repair has a **Hand proved**
+two-rule calculus: every new upper contains the current forced top or
+strictly intersects it, decreasing `|tau minus l|`. Complement-kernel seeds
+cannot cut the parent top by themselves; only mixed bridges can do so. A
+finite obligation set would yield a terminating sum-of-ranks grammar, but
+obligation-set closure is **Open**. The first attempted `T,T^c` audit was
+excluded for source/receipt mismatch and an incorrect nonemptiness test.
+
+The exact immediate literal bridge layer is now closed: 498 occurrences
+deduplicate to 488 physical MDD classes, 486 new. Of the 488, 474 require an
+old parent outside the frozen five in all enumerated literal representations,
+so the frozen-five grammar is **Refuted**. Twenty-seven coarse descriptor
+buckets are not a grammar (one contains 189 exact roots). No class is
+cylindrical, singleton, or activation-supported. **Executable verified —
+exhaustive finite scope**, producer `631756c1...`, payload `af993bf5...`.
+The exact next obligation is two-sided old-kernel and new-source-cut
+classification of the 486 new roots, beginning with a local pilot.
 
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event

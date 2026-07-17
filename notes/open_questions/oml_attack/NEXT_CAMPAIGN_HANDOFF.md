@@ -58,11 +58,20 @@
    maximal old lower shadows (payload `4ce40c3d...`). First action is to
    classify the required new upper below both and the simultaneous two-sided
    kernel repair. Do not run broad closure.
-   The forced interval top is now
+   The canonical maximal interval envelope is now
    `T=R intersection cyl_right(18322)` (payload `9d024359...`): left kernel
    principal at `13848`, right maxima exactly `15250,16786`. First action is
-   the one-step `T,T^c` transition audit and a proof/refutation that this
-   provenance type closes. No arbitrary subset branching.
+   to test obligation-set closure: enumerate only genuinely mixed generated
+   uppers of the fixed cut and either prove they all contain `T` or bank the
+   first strict descendant and any new source cut. The first `T,T^c` audit
+   was excluded because source/receipt hashes diverged and its nonemptiness
+   test used the wrong shadow. Do not reuse it or run arbitrary branching.
+   The immediate literal layer is now exhaustive: 498 occurrences, 488 exact
+   roots, 486 new; 474 roots require a parent outside the frozen five
+   (payload `af993bf5...`). The 27 coarse buckets are not transition types.
+   First action is a local two-sided old-kernel/source-cut pilot on a small
+   discriminating set, followed by an immutable 486-class manifest. Fir is
+   `OUTAGE`; prepare only, do not connect or submit.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

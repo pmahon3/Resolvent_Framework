@@ -3369,6 +3369,56 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   is whether adjoining `T,T^c` closes this transition or produces a
   higher-rank forced intersection.
 
+### Iteration 305 — forced-top descent and executable integrity boundary
+- **Hand proved:** for a fixed source cut, each newly represented upper is
+  redundant above the current literal forced top or strictly intersects it,
+  decreasing `|tau minus l|`.
+- **Hand proved:** old lower kernels of `W^c` are order-dual to old upper
+  kernels of `W`; a bare complement-kernel repair seed cannot cut the parent
+  top. Any such cut requires genuinely mixed bridge provenance.
+- **Hand proved, conditional:** for finitely many fixed obligations, no new
+  source cuts plus strict progress gives a terminating sum-of-ranks grammar.
+- **Refuted as an evidence artifact:** the first `T,T^c` audit. Producer and
+  receipt hashes diverged, and two nonemptiness flags tested the wrong
+  shadow. Both files were excluded; no provisional result is banked.
+- **Hostile repair:** `T` is the greatest set-theoretic envelope, not a
+  uniquely forced repair event. Smaller joins remain open.
+- **Pivot:** test obligation-set closure using only genuinely mixed uppers of
+  the fixed cut and record the first new source cut.
+
+### Iteration 306 — exact literal-bridge census and frozen-parent refutation
+- The complete immediate literal bridge layer over `T,T^c`, the four old
+  distinguished events, and all disjoint old cylinders contains 498 bridge
+  occurrences and 488 distinct physical MDD event classes. Two classes are
+  already distinguished seeds; 486 are genuinely new. **Executable verified
+  — exhaustive finite scope**, producer
+  `arr_forced_T_literal_bridge_census.py`, producer SHA-256 `631756c1...`,
+  payload `af993bf5...`; deterministic seed-12345 emission and seed-0 replay.
+- Of the 488 exact classes, 474 require an old parent outside the frozen five
+  in every enumerated literal representation. Thus the proposed frozen-five
+  parent grammar is **Refuted** already at the immediate bridge layer.
+- The 488 classes occupy only 27 coarse provenance/signature buckets, but
+  some buckets contain 189 different exact events. The 27 buckets are an
+  observed partition, not an adequate transition grammar. **Executable
+  verified — exhaustive finite scope.** Exact-root or old-kernel information
+  remains necessary.
+- All five previously forced differences are recovered. No immediate bridge
+  is left- or right-cylindrical, a singleton, or supported inside any of the
+  seven coordinate activation cylinders. Hence this layer fires neither the
+  cylindrical reconstruction nor activation-supported-event gates. This is
+  not a later-closure theorem.
+- **Hostile review:** pass on carrier construction, completeness of the
+  disjointness prefilter, exact-root deduplication, count coherence, and the
+  frozen-five negative conclusion. Independence is limited: verification
+  replays the same implementation and authoritative old MDD bank.
+- **Fir gate:** official status remains `OUTAGE`; no connection, transfer, or
+  submission. The next prospective workload is the exact two-sided old-
+  kernel and new-source-cut audit of the 486 new classes, after a local pilot
+  fixes its parameter manifest and resource envelope.
+- **Pivot:** classify kernel/source-cut behavior of a small discriminating
+  set of exact classes, then freeze an exhaustive 486-class manifest. Do not
+  extend closure depth or treat the 27 coarse buckets as Markov states.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

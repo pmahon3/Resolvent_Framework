@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "The forced repair top T=R∩cyl_right(18322) is a new noncylindrical type with left kernel greatest 13848 and right maxima 15250/16786. Audit the one-step T,T^c transition and prove or refute closure of this provenance type; do not branch arbitrarily."
+   "current_next_step": "The immediate literal layer has 488 exact roots (486 new) and refutes the frozen-five grammar. Classify the two-sided old kernels and new source cuts of the 486 roots, beginning with a local pilot; do not extend blind closure depth."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

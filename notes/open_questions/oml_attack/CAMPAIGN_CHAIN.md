@@ -120,6 +120,9 @@
 | one-context extension isomorphism theorem | Hand proved | exact refined labelled carriers determine closure and all gate verdicts |
 | four-context actual-rebase discriminator | Executable verified, sampled finite scope | two OML survivors; old fold/upper contexts create exact two-upper nonlattices |
 | selector upper-core fixed point and strictness | Lean certified + Hand corollary | fixed point and current-core cardinal drop certified; represented join descent only for same-carrier concrete lattice enlargements |
+| fixed-cut forced-top descent and conditional obligation termination | Hand proved | new upper is redundant or strictly shrinks literal top; global termination still needs no-new-source-cut coverage |
+| frozen-five immediate bridge grammar | Executable verified — exhaustive finite scope | refuted: 474/488 exact bridge classes require an outside old parent |
+| exact immediate literal bridge layer | Executable verified — exhaustive finite scope | 498 occurrences, 488 roots, 486 new; zero cylindrical/singleton/activation-supported classes |
 | generic selector saturation | Refuted, executable verified exhaustive finite scope | 8-point/12-event split-atom OML; centre is nontrivial |
 | same-carrier centre killing | Refuted, Hand proved + exhaustive finite scope | central singleton persists; all 256 one-subset adjunctions fail |
 | centre-free selector saturation | Refuted, executable verified exhaustive finite scope | 70 inflated split-atom OML survivors; clean 16-event three-block/state-complete control |

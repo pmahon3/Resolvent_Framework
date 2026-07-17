@@ -108,9 +108,53 @@ That bounded adjunction is now locally classified and fails at one exact cut
 classification, again without an exhaustive shard space. Fir remains
 unjustified even apart from the recorded outage.
 
-The forced interval-top audit also completes locally (payload
-`9d024359...`). Its next gate is one exact `T,T^c` transition, not a
-shardable parameter family. No Fir workload is specified.
+The forced interval-top audit completes locally (payload `9d024359...`).
+The subsequent exact literal-bridge census also completes locally: 498
+occurrences deduplicate to 488 exact roots, of which 486 are new (payload
+`af993bf5...`). This produces the first justified prospective research
+workload, but the outage and incomplete POC still prohibit submission.
+
+```text
+Mathematical proposition:
+  For every new exact immediate literal-bridge root, compute the complete old
+  lower and upper kernels on both old copies and decide whether it creates a
+  new source-cut obligation beyond the current forced-top cut.
+Exact finite parameter set:
+  The 486 canonical new-root IDs in payload af993bf5..., ordered by exact MDD
+  root hash. The immutable manifest remains to be emitted after the pilot.
+Why the workload is exhaustive:
+  The bridge census exhausts all disjoint old-cylinder bridges from the six
+  distinguished events and deduplicates them by exact physical root.
+Shard definition:
+  Contiguous canonical-root-ID ranges; size and count open pending pilot.
+Producer:
+  Open; must consume the committed bridge manifest and emit complete kernels.
+Independent verifier:
+  Open; must independently verify root membership, extrema, folds and source
+  cut witnesses from each receipt.
+Negative witness:
+  Root ID/hash and provenance; side; incomparable maximal old lowers or
+  minimal old uppers; fold escape; and the exact newly forced source cut.
+What a complete positive result proves:
+  Exact Level-1 kernel/source-cut classification of the immediate literal
+  bridge layer and whether the current finite obligation set closes for one
+  transition.
+Explicit nonclaims:
+  No later mixed closure, grammar coverage, latticehood, orthomodularity,
+  centre, states, sigma-completion, ODBC, MBRC or Phi result.
+Estimated CPU per shard:
+  Open pending a local 4-8-root pilot.
+Estimated memory per shard:
+  Open pending pilot; bridge census peak was approximately 1.78 GB.
+Expected output size:
+  Open pending receipt prototype.
+Slurm array and concurrency:
+  Open pending pilot and POC; no submission.
+Source commit:
+  Open until producer/verifier and manifest are committed.
+Input-manifest hash:
+  Open until canonical 486-root manifest emission.
+```
 
 ## Required next gate
 

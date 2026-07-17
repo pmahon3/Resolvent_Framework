@@ -428,23 +428,73 @@ rebase transition: `T` must become the distinguished join, old cuts must be
 transported, and its complement kernels must repair without creating a
 higher-rank target.
 
-If every eligible fibre is singleton, the `K=0x8a` transplant is impossible
-on the actual carrier. If one is non-singleton, transplant the crossing event,
-close with both full old copies and `R`, and audit `CI_R`, every lattice cut,
-orthomodularity, centre, maximal blocks, the distinguished join, absence of
-the literal `g`, and all two-valued states. This is the exact same-carrier
-`ARR-K8A-TRANSPLANT` proposition. It makes no sigma, ODBC, MBRC, or `Phi`
-claim.
+### Forced-top descent calculus
+
+The phrase “forced interval top” means the greatest set-theoretic envelope
+of a repair below the displayed uppers, not a uniquely forced repair event.
+Smaller represented joins below `T` remain possible.
+
+Fix source events `x,y`, put `l=x union y`, and at stage `n` let `U_n` be the
+represented uppers of the fixed source cut below an initial upper. Define
+`tau_n = intersection U_n` and `r_n = |tau_n minus l|`. For every newly
+represented upper `w`, either `tau_n subseteq w` and the upper is redundant
+for this cut, or the new forced top is `tau_n intersection w`, a proper
+subset with strictly smaller rank. If a forced top is represented and every
+later upper contains it, it is the join. **Hand proved.** This is a cut-local
+well-founded rank, not a global repair rank: mixed closure may create new
+source cuts.
+
+Complement gives an exact kernel duality. For an
+orthocomplement-preserving old embedding `i`, `i(a) subseteq W^c` iff
+`W subseteq i(a^perp)`. Hence maximal old lowers of `W^c` correspond to
+minimal old uppers of `W`. **Hand proved.** Moreover, adjoining a seed
+`k subseteq T^c` cannot by itself cut `T`, because its complement contains
+`T`; destabilization requires a genuinely mixed bridge.
+
+For finitely many fixed source cuts, if no transition creates a new source
+cut and every nonterminal transition strictly cuts at least one forced top,
+the sum of the ranks strictly decreases. This gives a finite grammar under
+those hypotheses. **Hand proved.** Closure of the obligation set is the
+exact missing theorem; a new-source-cut witness refutes it and defines the
+next provenance type.
+
+An attempted `T,T^c` executable audit was not banked. Its source and receipt
+hashes diverged after an interrupted optimization, and two nonemptiness flags
+used the universal rather than existential shadow. Both untracked artifacts
+were excluded. No provisional count or transition verdict is evidence.
+
+### Exact immediate literal-bridge layer
+
+Enumerating every disjoint union of `T,T^c` or the four distinguished old
+events with an old cylinder on the opposite side gives 498 occurrences and
+488 distinct physical MDD roots. Two roots are already distinguished seeds;
+486 are new. Of all 488 roots, 474 cannot be represented by the frozen five
+parents plus one old cylinder. Thus the fixed-five grammar is **Refuted**.
+
+The roots form 27 coarse provenance/signature buckets, but the largest bucket
+contains 189 exact roots. This partition is not a transition congruence. No
+root in the layer is cylindrical on either side, a singleton, or supported in
+one of the seven coordinate activation cylinders. **Executable verified —
+exhaustive finite scope**, `arr_forced_T_literal_bridge_census.py/.json`,
+producer `631756c1...`, payload `af993bf5...`; hostile source review passes,
+but the verifier is a deterministic replay rather than an independent
+implementation.
+
+This census covers only immediate literal complement/difference and disjoint-
+bridge transitions. It proves no kernel principality, later closure,
+latticehood, orthomodularity, centre, state separation, sigma-completion,
+ODBC, or `Phi`. The next exact question is whether the 486 new roots introduce
+only finitely many old-kernel/source-cut obligation types.
 
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open | 256-prefix is a seeded shadow control only | realize the actual cut join |
+| Repair grammar | Open; frozen-five grammar refuted | 488 exact immediate bridge classes; 474 require outside parents | classify their old-kernel/source-cut obligation types |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |
-| Activation-event avoidance | Open | not tested for actual `h` | test every generated rebase event |
+| Activation-event avoidance | passes immediate literal layer only | zero of 488 classes lies in a coordinate activation cylinder | test later kernel repairs and closure |
 | Trivial centre | Open | not tested for actual `h` | classify blocks/commutation after closure |
 | State order separation | Open | point-state persistence applies only once events are concrete | audit the completed event family |
 | `Phi`-tameness or obstruction | Open | no admissible completed assembly | classify all relevant states |

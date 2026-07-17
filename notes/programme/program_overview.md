@@ -861,10 +861,19 @@ The first such raw adjunction is nonlattice: `R` conflicts with old join
 `18322`, and the selector complement simultaneously has nonprincipal lower
 kernels on both copies. This refutes literal transplantation, not completion;
 the next object is the exact coupled upper/kernel repair root.
-That root is now explicit: `T=R∩cyl_right(18322)`, a noncylindrical
-two-parent target with asymmetric old kernels. It supplies a finite
-provenance-sensitive transition type whose one-step closure is the next
-theorem-extraction gate.
+The canonical maximal envelope is now explicit:
+`T=R∩cyl_right(18322)`, noncylindrical with asymmetric old kernels. For a
+fixed cut, every new upper is redundant or strictly shrinks this envelope,
+giving a hand-proved finite rank. The remaining global issue is creation of
+new source cuts by mixed bridges. The first one-step executable attempt was
+excluded because its source and receipt diverged and its nonemptiness test
+was wrong; no provisional counts are banked.
+The replacement exact literal-bridge census is bankable: 498 occurrences
+give 488 roots, 486 new, and 474 require a parent outside the frozen five.
+Thus a fixed-five grammar is refuted, but the immediate layer creates no
+cylindrical, singleton, or activation-supported event. The next controlled
+question is whether the 486 roots have finitely many old-kernel/source-cut
+obligation types.
 
 ## Repository Layout
 

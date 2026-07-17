@@ -185,6 +185,9 @@ calculation. No Fir workload is justified.
 The discriminator proves exact nonorthogonal coverage (payload `168a26a...`).
 Its one-seed closure remains a bounded local transition, so Fir is still not
 justified.
+The one-seed recurrence is also locally resolved (payload `63cfb83d...`). Its
+single O-child test remains bounded and theorem-driven; Fir remains
+unjustified.
 
 ## Required next gate
 

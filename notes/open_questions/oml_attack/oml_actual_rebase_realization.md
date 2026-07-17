@@ -542,11 +542,19 @@ verified — exhaustive finite scope for this object**,
 `af1e7636...`, payload `168a26a...`. This is the first nonorthogonal exact-
 cover repair rule; its one-seed closure is the next transition.
 
+That transition is self-structured. `U,U^c` generate four genuinely new
+roots, and the first unresolved cut within the six-object seed domain has
+disjoint maximal lowers `root(487),S` covering its target exactly. Thus the
+observed production is `N -> O`, with orthogonal cover number two and zero
+residual. **Executable verified — exhaustive finite scope for this one-seed
+transition**, `arr_forced_T_nonorthogonal_rebase_audit.py/.json`, producer
+`41d5e6f5...`, payload `63cfb83d...`. Arbitrary-depth coverage remains open.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | Open; first nonorthogonal exact-cover rule forced | unrestricted cover number 3, orthogonal `kappa=infinity`, residual 0 | classify one-seed closure and overlap-signature recurrence |
+| Repair grammar | parameterized `MEM/O/N/R/PROP` schema; coverage open | one-seed recurrence `N -> O` with zero residual | fire O child; prove pointed recurrence and `ON-Coverage/Termination` |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

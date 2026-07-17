@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the first nonorthogonal exact-cover meet is uniquely forced; its one-seed closure and recurrence are active.",
+   "status": "OPEN — a parameterized O/N repair schema has one verified N-to-O recurrence; coverage and well-founded finite-assembly induction remain open.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

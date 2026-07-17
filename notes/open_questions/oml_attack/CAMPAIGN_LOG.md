@@ -3582,6 +3582,35 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   classify their forced nested differences and the first new cut. The next
   grammar variable is the overlap-cover signature, not maximal-lower count.
 
+### Iteration 314 — one-seed recurrence `N -> O`
+- Adjoining the forced nonorthogonal meet `U` and `U^c` produces ten immediate
+  nested/dual occurrences: six already represented and four genuinely new
+  exact roots. **Executable verified — exhaustive finite scope for this
+  one-seed transition**, `arr_forced_T_nonorthogonal_rebase_audit.py/.json`,
+  producer `41d5e6f5...`, payload `63cfb83d...`; seed-12345 replay passes.
+- In the ordered six-object seed domain `{U,U^c,new_0,...,new_3}`, the first
+  unresolved cut occurs after eleven pairs/twenty-one operations:
+  `meet(new_0,new_2)`. Its maximal represented lowers are exactly
+  `root(487)` and `S`.
+- Those two lowers are disjoint and cover the target exactly. Orthogonal
+  cover number is two with unique cover `{root(487),S}` and zero residual.
+  Thus the next repair is rule `O`, a rank-zero forced orthogonal union.
+- **Finite evidence for recurrence:** the observed rule transition is
+  `N -> O`; no unclassified overlap type appears at this depth. This does not
+  prove arbitrary-depth closure, finite-state grammar, or termination.
+- **Hand theorem extraction:** the smallest justified schema is
+  `MEM/O/N/R/PROP`, parameterized by exact parent provenance, cover antichain,
+  overlap hypergraph, full-union residual, membership flags, and dependency
+  edges. It is a finite rule schema, not a finite-state system.
+- **Exact remaining induction theorem (`ON-Coverage/Termination`):** prove
+  complete cut registration by `PROP`, strict residual/provenance progress for
+  every nonterminal transition, well-founded dependency rank, finite target
+  types at each finite assembly, and coherent embeddings under `F subset G`.
+- **Pivot:** fire the forced `O` child once and compare its post-state with the
+  banked first orthogonal cell. A pointed isomorphism plus a strictly smaller
+  dependency rank would give the first proved recursive grammar rule; a new
+  child signature refutes the proposed quotient.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

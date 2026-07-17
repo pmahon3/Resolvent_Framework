@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Three overlapping maximal lowers cover the sampled target exactly, forcing the first nonorthogonal meet/dual join. Adjoin only this seed and classify its nested differences, first new cut, and overlap-cover signature recurrence."
+   "current_next_step": "The first nonorthogonal seed exhibits N-to-O recurrence: four new roots and a child with unique disjoint exact cover. Fire the O child, test pointed isomorphism and strict dependency-rank decrease, and target ON-Coverage/Termination."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },

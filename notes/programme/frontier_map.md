@@ -862,6 +862,10 @@ The unrestricted union is exact with zero residual, while every pair
 overlaps. This is the first certified nonorthogonal exact-cover rebase: every
 same-carrier lattice extension must adjoin the target meet and dual join.
 The frontier is the one-seed closure and overlap-signature recurrence.
+The one-seed closure gives recurrence `N -> O`: four new roots appear, and
+the first child cut has a unique disjoint two-event exact cover. The frontier
+is firing that O child and proving/refuting pointed recurrence with strict
+dependency-rank progress.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

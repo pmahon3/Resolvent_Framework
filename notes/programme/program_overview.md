@@ -895,6 +895,10 @@ The union equals the target exactly and all three pairs overlap. Latticehood
 therefore forces a nonorthogonal-cover meet that ordinary orthogonal closure
 cannot generate. Its one-seed nested/cut transition is the active grammar
 test.
+The first nonorthogonal seed transitions to an orthogonal exact-cover child
+with zero residual. This supports the parameterized `MEM/O/N/R/PROP` rule
+schema; coverage, dependency well-foundedness, and coherent finite embeddings
+remain the decisive theorem obligations.
 
 ## Repository Layout
 

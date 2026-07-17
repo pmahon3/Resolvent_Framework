@@ -847,6 +847,16 @@ scope for this object**, producer `af1e7636...`, payload `168a26a...`.
 This is the first certified nonorthogonal-cover rebase cell. The next action
 is its one-seed nested-difference/cut transition, not another pair scan.
 
+That transition yields the first recurrence. `U,U^c` create four genuinely
+new roots (six other occurrences are old). In the ordered six-seed domain,
+`meet(new_0,new_2)` is unresolved, but its two maximal lowers `root(487),S`
+are disjoint and cover exactly. Hence rule `N` transitions to a rank-zero
+rule `O`. **Executable verified — exhaustive finite scope for this one-seed
+transition**, producer `41d5e6f5...`, payload `63cfb83d...`.
+The justified grammar is the parameterized `MEM/O/N/R/PROP` schema. The next
+test is whether firing this `O` child returns, by pointed isomorphism and a
+strict dependency-rank decrease, to a previously classified state.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

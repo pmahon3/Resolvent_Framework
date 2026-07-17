@@ -3353,6 +3353,22 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - **Pivot:** stop broad selector closure. Classify this exact coupled
   two-upper/two-kernel repair root.
 
+### Iteration 304 — forced interval-top grammar state
+- Define `T = R intersection cyl_right(18322)`. It contains both old lowers,
+  and every repaired join below the two incomparable uppers is below `T`.
+  **Hand proved.**
+- `T` is noncylindrical on both sides, unequal to either parent, and absent
+  from the current single-seed family.
+- Its left old lower kernel is principal with greatest `13848` among 16
+  lowers. Its right kernel has 192 lowers and maxima exactly
+  `15250,16786`; the eight-atom fold escapes to `18322` at atom `10752`.
+  **Executable verified — exhaustive finite scope**, producer
+  `ead0b9df...`, payload `9d024359...`; seed-0 only, one implementation.
+- **Decision boundary:** this is a new provenance-sensitive transition type,
+  not a relabelled depth. Stop broad branching. The exact induction question
+  is whether adjoining `T,T^c` closes this transition or produces a
+  higher-rank forced intersection.
+
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224
   singletons and 16 doubletons. Every doubleton has two distinct restricted

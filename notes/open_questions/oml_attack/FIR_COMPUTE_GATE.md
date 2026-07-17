@@ -108,6 +108,10 @@ That bounded adjunction is now locally classified and fails at one exact cut
 classification, again without an exhaustive shard space. Fir remains
 unjustified even apart from the recorded outage.
 
+The forced interval-top audit also completes locally (payload
+`9d024359...`). Its next gate is one exact `T,T^c` transition, not a
+shardable parameter family. No Fir workload is specified.
+
 ## Required next gate
 
 When the official service is no longer `OUTAGE`, recheck it once. If usable,

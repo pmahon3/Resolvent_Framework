@@ -773,6 +773,14 @@ on the two sides. **Executable verified — exhaustive finite scope**, payload
 completion; the next grammar root is the coupled upper interpolant below
 `R∩18322` plus two-sided `S^c` re-basing.
 
+That forced interval top is now exact:
+`T = R intersection cyl_right(18322)`. It is noncylindrical on both sides
+and absent from the bounded seeds. The left old kernel is principal at
+`13848`; the right kernel remains the incomparable pair `15250,16786`, with
+an atom-fold escape to `18322`. **Executable verified — exhaustive finite
+scope**, payload `9d024359...`. The next discriminating theorem is one-step
+closure of the transition `parents -> T,T^c`, not arbitrary branch depth.
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

@@ -827,6 +827,10 @@ join `18322` are incomparable with no displayed-family interpolant, and
 `S^c` has nonprincipal lower kernels on both old copies. Literal clean-control
 transplantation is closed. The live grammar root is the coupled new upper
 below both displayed uppers plus two-sided kernel re-basing.
+The exact forced top is `T=R∩cyl_right(18322)`. It is noncylindrical on both
+sides, with a principal left old kernel and the original incomparable
+right-kernel pair. This is the first new exact grammar state. The next test is
+the one-step `T,T^c` transition, not another broad selector branch.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

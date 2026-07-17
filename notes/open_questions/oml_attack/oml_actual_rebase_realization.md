@@ -405,6 +405,29 @@ completion. It identifies the exact repair: any completion must adjoin a new
 upper below `R` and old join `18322`, while simultaneously re-basing the
 `S^c` lower kernels. Broad unstructured selector closure is stopped.
 
+The forced interval top is now explicit:
+
+`T = R intersection cyl_right(18322)`.
+
+It contains both old lowers, and every repair join lying below the two
+incomparable bounded uppers lies below `T`. **Hand proved** by set
+intersection. `T` is noncylindrical on both sides, unequal to `R` and
+`cyl_right(18322)`, and equal to no current single seed.
+
+Its left old lower kernel is principal: 16 lowers with greatest element
+`13848`. Its right kernel has 192 lowers with maximal elements exactly
+`15250,16786`; the eight-atom fold escapes `T` at atom `10752`, reaching
+old join `18322` after prior fold `15250`. **Executable verified —
+exhaustive finite scope**, `arr_forced_interval_top_audit.py/.json`,
+producer `ead0b9df...`, payload `9d024359...`; seed-0, one implementation,
+no cross-seed replay.
+
+No closure round was run, and generation of `T` remains **Open**. The exact
+next theorem is whether adjoining `T,T^c` gives a valid provenance-sensitive
+rebase transition: `T` must become the distinguished join, old cuts must be
+transported, and its complement kernels must repair without creating a
+higher-rank target.
+
 If every eligible fibre is singleton, the `K=0x8a` transplant is impossible
 on the actual carrier. If one is non-singleton, transplant the crossing event,
 close with both full old copies and `R`, and audit `CI_R`, every lattice cut,

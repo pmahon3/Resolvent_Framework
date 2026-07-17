@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — full-old physical selector eligibility passes, but its raw bounded adjunction is nonlattice; exact coupled upper/kernel repair classification is active.",
+   "status": "OPEN — the raw selector adjunction is nonlattice and its forced interval top is classified; one-step closure of the new provenance-sensitive repair type is active.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

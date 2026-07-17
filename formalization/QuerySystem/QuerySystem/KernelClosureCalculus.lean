@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Patrick S. Mahon
 -/
 import QuerySystem.FiniteAtomFoldKernel
+import Mathlib.Data.Finset.Card
 
 /-!
 # Abstract kernel-closure calculus
@@ -223,6 +224,116 @@ theorem no_foldl_sup_preservation_of_escaping_upper_bound
   obtain ⟨x, hx, rfl⟩ := hz
   exact hxs x hx
 
+/-! ## Finite selector upper cores -/
+
+section SelectorUpperCore
+
+variable {α : Type*} [DecidableEq α] [Fintype α]
+
+/-- The intersection of all members of `C` which contain the literal `l`. -/
+def selectorUpperCore (C : Finset (Finset α)) (l : Finset α) : Finset α :=
+  Finset.univ.filter fun x => ∀ w ∈ C, l ⊆ w → x ∈ w
+
+/-- `z` is the least member of `C` containing `l`. -/
+def IsLeastSelectorUpper (C : Finset (Finset α)) (l z : Finset α) : Prop :=
+  z ∈ C ∧ l ⊆ z ∧ ∀ w ∈ C, l ⊆ w → z ⊆ w
+
+theorem mem_selectorUpperCore_iff
+    {C : Finset (Finset α)} {l : Finset α} {x : α} :
+    x ∈ selectorUpperCore C l ↔ ∀ w ∈ C, l ⊆ w → x ∈ w := by
+  simp [selectorUpperCore]
+
+theorem literal_subset_selectorUpperCore
+    (C : Finset (Finset α)) (l : Finset α) :
+    l ⊆ selectorUpperCore C l := by
+  intro x hx
+  simp only [mem_selectorUpperCore_iff]
+  intro w _ hlw
+  exact hlw hx
+
+theorem selectorUpperCore_subset_candidate
+    {C : Finset (Finset α)} {l S : Finset α}
+    (hz : l ∪ S ∈ C) :
+    selectorUpperCore C l ⊆ l ∪ S := by
+  intro x hx
+  exact (mem_selectorUpperCore_iff.mp hx)
+    (l ∪ S) hz Finset.subset_union_left
+
+/-- The selector part forced by every currently generated upper. -/
+def forcedSelector (C : Finset (Finset α)) (l : Finset α) : Finset α :=
+  selectorUpperCore C l \ l
+
+theorem forcedSelector_subset
+    {C : Finset (Finset α)} {l S : Finset α}
+    (hz : l ∪ S ∈ C) :
+    forcedSelector C l ⊆ S := by
+  intro x hx
+  have hxcore : x ∈ selectorUpperCore C l := (Finset.mem_sdiff.mp hx).1
+  have hxnotl : x ∉ l := (Finset.mem_sdiff.mp hx).2
+  have hxunion : x ∈ l ∪ S := selectorUpperCore_subset_candidate hz hxcore
+  exact (Finset.mem_union.mp hxunion).resolve_left hxnotl
+
+omit [Fintype α] in
+theorem union_sdiff_literal
+    {l S : Finset α} (hdisj : Disjoint l S) :
+    (l ∪ S) \ l = S := by
+  ext x
+  simp only [Finset.mem_sdiff, Finset.mem_union]
+  constructor
+  · rintro ⟨hl | hs, hnl⟩
+    · exact (hnl hl).elim
+    · exact hs
+  · intro hs
+    exact ⟨Or.inr hs, fun hl => Finset.disjoint_left.mp hdisj hl hs⟩
+
+/-- A candidate selector is stable exactly when it equals the selector forced
+by the upper core.  Closure properties of `C` are not required. -/
+theorem isLeastSelectorUpper_iff_forcedSelector_eq
+    {C : Finset (Finset α)} {l S : Finset α}
+    (hz : l ∪ S ∈ C) (hdisj : Disjoint l S) :
+    IsLeastSelectorUpper C l (l ∪ S) ↔ forcedSelector C l = S := by
+  constructor
+  · rintro ⟨_, _, hleast⟩
+    apply Finset.Subset.antisymm (forcedSelector_subset hz)
+    intro x hxS
+    have hxz : x ∈ l ∪ S := Finset.mem_union_right l hxS
+    have hxcore : x ∈ selectorUpperCore C l := by
+      rw [mem_selectorUpperCore_iff]
+      intro w hw hlw
+      exact hleast w hw hlw hxz
+    exact Finset.mem_sdiff.mpr
+      ⟨hxcore, fun hxl => Finset.disjoint_left.mp hdisj hxl hxS⟩
+  · intro hfixed
+    refine ⟨hz, Finset.subset_union_left, ?_⟩
+    intro w hw hlw x hxz
+    rcases Finset.mem_union.mp hxz with hxl | hxS
+    · exact hlw hxl
+    · have hxforced : x ∈ forcedSelector C l := by
+        simpa [hfixed] using hxS
+      exact (mem_selectorUpperCore_iff.mp
+        (Finset.mem_sdiff.mp hxforced).1) w hw hlw
+
+/-- Failure of selector stability forces strict selector descent. -/
+theorem forcedSelector_ssubset_of_not_least
+    {C : Finset (Finset α)} {l S : Finset α}
+    (hz : l ∪ S ∈ C) (hdisj : Disjoint l S)
+    (hnot : ¬ IsLeastSelectorUpper C l (l ∪ S)) :
+    forcedSelector C l ⊂ S := by
+  refine Finset.ssubset_iff_subset_ne.mpr ⟨forcedSelector_subset hz, ?_⟩
+  intro heq
+  exact hnot ((isLeastSelectorUpper_iff_forcedSelector_eq hz hdisj).2 heq)
+
+/-- Cardinality is a well-founded rank for repeated strict selector descent on
+a fixed finite carrier. -/
+theorem forcedSelector_card_lt_of_not_least
+    {C : Finset (Finset α)} {l S : Finset α}
+    (hz : l ∪ S ∈ C) (hdisj : Disjoint l S)
+    (hnot : ¬ IsLeastSelectorUpper C l (l ∪ S)) :
+    (forcedSelector C l).card < S.card :=
+  Finset.card_lt_card (forcedSelector_ssubset_of_not_least hz hdisj hnot)
+
+end SelectorUpperCore
+
 #print axioms greatest_intersection
 #print axioms least_complement_of_greatest
 #print axioms exists_greatest_iff_exists_least_complement
@@ -234,6 +345,10 @@ theorem no_foldl_sup_preservation_of_escaping_upper_bound
 #print axioms no_greatest_of_same_eligible_old_set
 #print axioms no_sup_preservation_of_escaping_upper_bound
 #print axioms no_foldl_sup_preservation_of_escaping_upper_bound
+#print axioms forcedSelector_subset
+#print axioms isLeastSelectorUpper_iff_forcedSelector_eq
+#print axioms forcedSelector_ssubset_of_not_least
+#print axioms forcedSelector_card_lt_of_not_least
 
 end KernelClosureCalculus
 end QuerySystem

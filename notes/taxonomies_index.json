@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — old fold/upper contexts create exact two-upper repair intervals; classify those repairs before broader ARR-CYL context coverage.",
+   "status": "OPEN — same-carrier centre killing is impossible; carrier-inflated split-atom OMLs are the active selector-saturation gate.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

@@ -30,18 +30,17 @@
    full_cycle_witness_diversity,section_congruence_minimization,
    coordinate_escape_ledger,kernel_observational_congruence}.*`; Lean
    `QuerySystem/{FiniteAtomFoldKernel,KernelClosureCalculus}.lean`.
-6. **Unresolved theorem:** `ARR-CYL`. A 16-event centre-free restricted
+6. **Unresolved theorem:** same-carrier `ARR-CYL`. A 16-event centre-free restricted
    two-copy OML keeps noncylindrical `Neg-023` as the cut join, so any proof
    must use additional full-old-copy or global admissibility data. For the actual `Neg-023` relation in
    every admissible ambient completion, is the forced join of its embedded
    old lower cut cylindrical? It satisfies `G ⊆ h ⊆ R`, but the seeded
    one-copy 256-prefix covers only the conditional branch `h = G`.
-7. **First action:** classify the two exact repair intervals created by
-   complement pairs `109/18322` and `100/18331`. For each admissible join,
-   close and test whether the result restores the mixed OML, generates `g`,
-   or creates the next provenance type. Do not launch the 9334-pair census:
-   these four contexts already show that repair, not context enumeration, is
-   the discriminating layer.
+7. **First action:** inflate/re-represent the central singleton of the
+   12-event split-atom control as a multi-point fibre and add the smallest
+   transverse block. Same-carrier centre killing is impossible by a hand
+   theorem and an exhaustive 256-adjunction census. Audit whether the split
+   join, latticehood, centre, and point order separation survive inflation.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

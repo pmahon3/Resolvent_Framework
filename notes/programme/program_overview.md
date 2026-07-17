@@ -830,9 +830,20 @@ exists.
 The minimal actual-generator control closes to a centre-free 16-event OML
 with noncylindrical `Neg-023` as the join. This makes full-old-copy coupling,
 not local OML structure, the active content of `ARR-CYL`.
-The first full-old contexts split sharply: two preserve the mixed OML, while
+The first single old complement-pair contexts split sharply: two preserve the mixed OML, while
 the escaping fold and least old upper reopen two-upper cuts. Repairing those
 two intervals is now more informative than enumerating every old context.
+The repair selector is a fixed point of its current generated upper core;
+this fixed-point and strict finite-cardinality drop are Lean certified. The
+upper core need not be represented, so actual repair descent remains a
+same-carrier hand corollary and quotient-saturated selectors do not exhaust
+the full carrier.
+Generic selector saturation is refuted by a 12-event split-truth-atom
+concrete OML. Its centre is nontrivial, so any positive mechanism must now
+use centre-freeness or assembly-specific symmetry/block incidence.
+Same-carrier centre killing is impossible because the control contains a
+permanent central singleton. The next construction inflates that singleton
+to a fibre before adding transverse incidence.
 
 ## Repository Layout
 

@@ -118,7 +118,9 @@
 | restricted actual mixed-join control | Executable verified, sampled finite scope | 16-event centre-free OML; noncylindrical `Neg-023` is cut join; full old copy absent |
 | one-context extension isomorphism theorem | Hand proved | exact refined labelled carriers determine closure and all gate verdicts |
 | four-context actual-rebase discriminator | Executable verified, sampled finite scope | two OML survivors; old fold/upper contexts create exact two-upper nonlattices |
-| selector-stability repair criterion | Hand proved | candidate join is stable iff every generated literal-envelope upper contains its selector |
+| selector upper-core fixed point and strictness | Lean certified + Hand corollary | fixed point and current-core cardinal drop certified; represented join descent only for same-carrier concrete lattice enlargements |
+| generic selector saturation | Refuted, executable verified exhaustive finite scope | 8-point/12-event split-atom OML; centre is nontrivial |
+| same-carrier centre killing | Refuted, Hand proved + exhaustive finite scope | central singleton persists; all 256 one-subset adjunctions fail |
 | unary section-context classification | Hand proved | exact lower/upper cut type; same `(E,U)` refuted |
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |

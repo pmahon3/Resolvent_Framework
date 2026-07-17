@@ -196,12 +196,24 @@ More precisely, put
 
 as a literal set and `kappa(S)=K_S minus l`. Since `z` is itself an upper,
 `kappa(S) subseteq S`, and `UP-S` is equivalent to `kappa(S)=S`.
-The empty selector is always stable. If `kappa(S)` is proper in `S`, then in
-every lattice extension containing `C_z` the actual join has the form
-`l union T` for a unique proper subset `T` of `S`. Thus repeated failure of
-this fixed cut strictly descends selector size and terminates on a fixed
-finite carrier. **Hand proved.** The set `K_S` need not itself be an event of
-`C_z`, so `kappa` is not asserted to be an internal closure operator.
+The empty selector is always stable. **Lean certified** on a finite carrier:
+`forcedSelector_subset`, `isLeastSelectorUpper_iff_forcedSelector_eq`,
+`forcedSelector_ssubset_of_not_least`, and
+`forcedSelector_card_lt_of_not_least` in
+`QuerySystem/KernelClosureCalculus.lean`; each reports
+`[propext, Classical.choice, Quot.sound]` and no `sorryAx`.
+
+These Lean theorems concern the literal current upper-core set, which need
+not be an event. Separately, if `D` is a same-carrier concrete
+inclusion-lattice family containing `C_z`, `x`, `y`, and `z`, then its join
+`j=x join_D y` is uniquely `l union T` for a proper subset `T` of `S` whenever
+`z` was not least in `C_z`: literal inclusion gives `l subseteq j subseteq z`,
+and a generated upper witnessing failure of leastness persists in `D` and
+forces `j != z`. Consequently, along nested same-carrier concrete lattice
+enlargements, every later loss of leastness for this fixed pair strictly
+decreases the represented join-selector cardinality, so it occurs only
+finitely often. **Hand proved.** This corollary is not Lean certified and is
+not asserted for abstract lattice embeddings or larger carriers.
 
 Safe finite reduction is by the proved full stabilizer of the pointed family
 acting on actual carrier subsets. A known subgroup only identifies cases
@@ -228,6 +240,41 @@ action on actual carrier subsets. The 18-case census is therefore a
 saturated-selector local falsifier. Its failures are permanent negative
 certificates; its survivors remain only local candidates because later
 full-old/global events may introduce new uppers.
+
+### Generic split-atom control
+
+Selector saturation is false for finite concrete OMLs in general. On an
+eight-point carrier, duplicate each of four old truth profiles, retain the
+six-event old `MO2`, and adjoin `H = A union B union {0}`. The generated
+12-event family is a concrete OML with `A join B = H`; the literal union is
+absent and `H` splits the duplicated truth atom `{0,1}`. All point states are
+additive and order-separating.
+
+Evidence: **Executable verified — exhaustive finite scope**,
+`split_truth_atom_oml_control.py/.json`, producer `9dd8f203...`, payload
+`413e46df...`; one implementation, with deterministic two-seed replays.
+
+The centre is four-element, not trivial. Thus generic OML axioms,
+concreteness, finite sigma-completeness, and point order separation do not
+force saturation, but centre-free/assembly-specific saturation remains
+**Open**.
+
+The centre cannot be killed on this carrier. The control contains singleton
+event `{1}`. In every same-carrier complement/disjoint-union-closed extension
+it remains central: events omitting it are disjoint from it, while for an
+event `x` containing it, `x minus {1}` is again an event by complement and a
+disjoint union. **Hand proved.**
+
+An exhaustive census of all 256 one-subset adjunctions yields 43 distinct
+closed OMLs and no family that both preserves `A join B = H` and has trivial
+centre. **Executable verified — exhaustive finite scope**,
+`split_truth_atom_centre_killing_no_go.py/.json`, producer `03b3f1bb...`,
+payload `dd15096e...`; one implementation, with deterministic two-seed
+replays.
+
+Thus the next construction must inflate or re-represent the carrier so the
+old central singleton pulls back to a multi-point event that a transverse
+block can cross.
 
 ## Campaign gate table
 

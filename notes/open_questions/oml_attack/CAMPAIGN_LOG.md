@@ -3157,7 +3157,7 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   contexts and incidence controls, then use its measured refinement sizes to
   decide whether the 9334 complement-pair classification needs Fir.
 
-### Iteration 293 — first full-old contexts reopen the cut
+### Iteration 293 — first single old complement-pair contexts reopen the cut
 - Exact refined-carrier extensions were computed for four complement pairs.
   The `7679/10752` and shared-disjoint controls close to 40- and 20-event
   centre-free OMLs and preserve noncylindrical `R` as join.
@@ -3168,7 +3168,8 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
 - No case generates `g`. **Executable verified — sampled finite scope**,
   producer `f8201ff4...`, payload `e88b81f0...`; one implementation, four
   complement pairs, not a full-old census.
-- **Refuted:** the first added full-old contexts monotonically force a
+- **Refuted:** the first added single old complement-pair contexts
+  monotonically force a
   cylindrical rebase. Instead, two canonical old contexts reopen a
   two-upper repair interval.
 - **Pivot:** classify and repair those two exact intervals before any 9334-
@@ -3186,16 +3187,69 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   any smaller type must be a transition congruence preserving selector
   containment.
 
-### Iteration 295 — exact selector cubes
+### Iteration 295 — saturated-selector quotient cubes
 - On the exact 37-atom quotient, the `109/18322` repair gap has one atom and
   the `100/18331` gap has four provenance-distinct atoms.
-- Therefore the certified cuts have respectively 2 and 16 candidate joins
-  (18 rooted cases, 16 distinct masks). No generator-labelled automorphism
-  reduces the four-atom cube.
+- Therefore the quotient-saturated subclass has respectively 2 and 16
+  candidate joins (18 rooted cases, 16 distinct masks). No
+  generator-labelled automorphism reduces the four-atom quotient cube.
 - Neither interval contains `R` or an existing event; `g` is their nonevent
   lower endpoint. **Executable verified — sampled finite scope.**
-- **Pivot:** exhaust these 18 exact roots and apply `UP-S`; no arbitrary
-  subset search or Fir workload is warranted.
+- These cases are not exhaustive among same-carrier selectors: an arbitrary
+  selector may split a refined truth atom. **Pivot:** use the 18 cases only as
+  a saturated-selector local falsifier and apply `UP-S`. Exhaustive coverage
+  requires a selector-saturation theorem or a proved full pointed
+  automorphism action on actual carrier subsets; no arbitrary subset search
+  or Fir workload is currently warranted.
+
+### Iteration 296 — selector upper-core certification and census boundary
+- **Lean certified:** on a finite carrier, a selector candidate is least
+  exactly when it equals the literal selector forced by every current upper;
+  failure gives a strict subset and strict cardinal drop. Theorems
+  `forcedSelector_subset`, `isLeastSelectorUpper_iff_forcedSelector_eq`,
+  `forcedSelector_ssubset_of_not_least`, and
+  `forcedSelector_card_lt_of_not_least` in
+  `KernelClosureCalculus.lean` report
+  `[propext, Classical.choice, Quot.sound]`, with no `sorryAx`.
+- **Hand proved, hostile-reviewed scope:** if a same-carrier concrete
+  inclusion-lattice extension contains the current family, its represented
+  join selector is a proper subset whenever the current candidate loses
+  leastness. The Lean upper core need not be an event, so this extension
+  corollary is not promoted to Lean certification or to larger carriers.
+- **Refuted:** the pointed event-family stabilizer alone gives a valid orbit
+  reduction for cylindricity. It need not preserve the labelled fibre
+  relations. The provisional receipt and unmatched producer were excluded
+  from the repository; no selector-census result is banked.
+- **Computational boundary:** the 2+16 truth-atom-saturated candidates do not
+  cover selectors which split a truth atom, and local survivors cannot prove
+  a full-old completion. The next discriminating theorem is selector
+  saturation (or an explicit actual-carrier split-atom refutation), not blind
+  quotient depth.
+
+### Iteration 297 — generic split-truth-atom OML
+- An explicit 8-point, 12-event concrete OML changes an old `MO2` join to an
+  event splitting one duplicated old truth atom; the literal union is absent.
+- Exhaustive closure, all-pair lattice, orthomodularity, point-state
+  additivity, and point order-separation checks pass. **Executable verified —
+  exhaustive finite scope**, producer `9dd8f203...`, payload `413e46df...`.
+- The centre is four-element.
+- **Refuted:** OML laws, concreteness, finite sigma-completeness, and point
+  order separation force selector saturation.
+- **Pivot:** test the centre-free strengthening by a centre-killing extension
+  or a scoped no-go; do not resume quotient selector enumeration.
+
+### Iteration 298 — same-carrier centre-killing no-go
+- **Hand proved:** singleton event `{1}` remains central in every
+  same-carrier complement/disjoint-union-closed extension of the 12-event
+  control.
+- Exhausting all 256 one-subset adjunctions gives 43 distinct closed OMLs;
+  zero both preserve `A join B = H` and have trivial centre. **Executable
+  verified — exhaustive finite scope**, producer `03b3f1bb...`, payload
+  `dd15096e...`.
+- **Construction class closed:** same-carrier centre killing.
+- **Pivot:** inflate/re-represent the singleton as a multi-point fibre and
+  test a transverse block; this is the smallest mechanism not covered by the
+  central-singleton theorem.
 
 ### Iteration 287 — prefix descriptor refutation and schedule theorem
 - The frozen 256-event prefix has 240 proposed descriptor classes: 224

@@ -685,19 +685,43 @@ OML with mixed join `R`. Adding `109/18322` or `100/18331` instead produces a
 38/32-event nonlattice whose distinguished cut has exactly two minimal upper
 bounds. No case generates `g`. **Executable verified — sampled finite
 scope.** The active repair grammar therefore begins with these two exact
-full-old two-upper intervals; a broad 9334-pair census is premature.
+single old complement-pair two-upper intervals; a broad 9334-pair census is
+premature.
 
-Their repair calculus now has an exact **Hand proved** invariant. A candidate
+Their repair calculus now has a Lean-certified finite upper-core invariant. A candidate
 is `z = l union S` inside the two-upper interval, and it remains the join
-exactly when every generated upper of `l` contains `S` (`UP-S`). The next
-computation must classify pointed-stabilizer selector types or return the
-first complement/disjoint-union transition violating `UP-S`; arbitrary
-selector subsets are prohibited.
+exactly when every generated upper of `l` contains `S` (`UP-S`).
+`KernelClosureCalculus.{forcedSelector_subset,
+isLeastSelectorUpper_iff_forcedSelector_eq,
+forcedSelector_ssubset_of_not_least,
+forcedSelector_card_lt_of_not_least}` certifies the fixed-point criterion and
+strict current-core cardinal drop. The upper core need not be an event. The
+represented-join descent theorem is therefore a separate **Hand proved**
+corollary restricted to nested same-carrier concrete inclusion-lattice
+extensions.
 
-The two repair spaces are now finite and exact: one gap atom for
-`109/18322`, four provenance-distinct gap atoms for `100/18331`, hence
-2 + 16 rooted candidates. There is no nontrivial labelled symmetry
-compression. The next census is exactly these 18 roots and remains local.
+On the 37-truth-atom quotient, the saturated parts of the two repair spaces
+have one gap atom for `109/18322` and four provenance-distinct gap atoms for
+`100/18331`, hence 2 + 16 rooted saturated candidates. These are not
+exhaustive same-carrier selectors because a selector may split a truth atom.
+An attempted pointed-family orbit reduction was rejected because it did not
+preserve the labelled fibre relations used by cylindricity. No selector
+census receipt is banked. The next theorem must either justify selector
+saturation or use actual-carrier pointed automorphisms; otherwise further
+quotient enumeration is only a local falsifier.
+
+Generic selector saturation is now **Refuted** even for finite concrete OMLs
+with point order separation. An 8-point, 12-event control changes an old
+`MO2` join to a new event splitting a duplicated truth atom.
+**Executable verified — exhaustive finite scope**, payload `413e46df...`.
+Its centre is four-element, so centre-free/assembly-specific saturation
+remains **Open** and is the next exact discriminator.
+
+Same-carrier centre killing is now closed. Singleton `{1}` stays central in
+every complement/disjoint-union-closed extension (**Hand proved**), and all
+256 one-subset adjunctions confirm the obstruction (**Executable verified —
+exhaustive finite scope**, payload `dd15096e...`). The next live mechanism is
+carrier inflation/re-representation followed by a transverse block.
 
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event

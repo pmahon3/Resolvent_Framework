@@ -20,7 +20,7 @@
    "primary_routes": 2,
    "secondary_routes": 1,
    "open_cruxes": 4,
-   "current_next_step": "Classify the two exact repair intervals created by old complement pairs 109/18322 and 100/18331; test each admissible join before widening context coverage."
+   "current_next_step": "Inflate the central singleton in the 12-event split-atom OML to a multi-point fibre and test the smallest transverse centre-killing block."
   },
   "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
  },
@@ -740,7 +740,7 @@
    "id": "oml.open.full_cycle_controlled_assembly",
    "name": "Full-cycle controlled assembly",
    "status": "adjacent-actual-rebase-provenance-grammar-open",
-   "one_line": "Two full-old contexts reopen the restricted Neg-023 join as exact two-upper nonlattices; their repair intervals are the active grammar gate.",
+   "one_line": "Two single old complement-pair contexts reopen the restricted Neg-023 join as exact two-upper nonlattices; saturated-selector falsification is the active local gate.",
    "detail": "oml_full_cycle_controlled_assembly.md"
   }
  ],

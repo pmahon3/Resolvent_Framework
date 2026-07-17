@@ -799,6 +799,18 @@ gate.
 The first restricted actual control is already a centre-free 16-event OML in
 which `Neg-023` itself is the noncylindrical cut join and the literal cylinder
 is absent. Thus local OML laws and centre-freeness do not prove `ARR-CYL`.
+For the first two-upper repair intervals, selector stability is now a
+Lean-certified upper-core fixed-point condition with strict current-core
+cardinality drop. This does not imply that the upper core is represented.
+The next exact frontier is selector saturation on the actual carrier (or a
+split-truth-atom counterexample), not an exhaustive claim from the 2+16
+quotient-saturated masks.
+The split-truth-atom alternative now exists as an 8-point, 12-event concrete
+OML with point order separation, but it has nontrivial centre. The remaining
+frontier is therefore centre-free/assembly-specific saturation.
+Its central singleton is permanent under every same-carrier concrete-logic
+extension, and all 256 one-subset adjunctions confirm the no-go. The live
+frontier therefore requires carrier inflation/re-representation.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

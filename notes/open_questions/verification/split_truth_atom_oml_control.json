@@ -1,0 +1,89 @@
+{
+  "a_join_b_equals_h": true,
+  "a_join_b_mask_hex": "0xfd",
+  "a_mask_hex": "0xf0",
+  "all_pair_lattice_checked": true,
+  "b_mask_hex": "0xcc",
+  "carrier_size": 8,
+  "centre_is_trivial": false,
+  "centre_masks_hex": [
+    "0x0",
+    "0x2",
+    "0xfd",
+    "0xff"
+  ],
+  "closure_round_addition_counts": [
+    2,
+    2,
+    0
+  ],
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/split_truth_atom_oml_control.py --verify",
+  "complement_closed": true,
+  "disjoint_union_closed": true,
+  "event_count": 12,
+  "event_masks_hex": [
+    "0x0",
+    "0x2",
+    "0xd",
+    "0x31",
+    "0xf",
+    "0x33",
+    "0xcc",
+    "0xf0",
+    "0xce",
+    "0xf2",
+    "0xfd",
+    "0xff"
+  ],
+  "evidence_class": "Executable verified exhaustive finite evidence",
+  "h_mask_hex": "0xfd",
+  "lattice_failure_count": 0,
+  "literal_union_absent": true,
+  "literal_union_mask_hex": "0xfc",
+  "old_event_masks_hex": [
+    "0x0",
+    "0xf",
+    "0x33",
+    "0xcc",
+    "0xf0",
+    "0xff"
+  ],
+  "old_inclusion_and_complement_preserved": true,
+  "old_incompatible_join_not_preserved": true,
+  "old_truth_atoms": [
+    [
+      0,
+      1
+    ],
+    [
+      2,
+      3
+    ],
+    [
+      4,
+      5
+    ],
+    [
+      6,
+      7
+    ]
+  ],
+  "order_separation_failure_count": 0,
+  "orthomodular_comparable_pair_count": 45,
+  "orthomodular_failure_count": 0,
+  "payload_sha256": "413e46df927452a8241b388a84a334d260105cf77003d8c3ea2e7bbd58101235",
+  "point_state_additivity_failure_count": 0,
+  "point_state_count": 8,
+  "point_states_order_separate": true,
+  "producer_sha256": "9dd8f203f1c25476fb14b8fff862d014fd7c384106280f68826b5b50c245e99a",
+  "schema": "split-truth-atom-oml-control-v1",
+  "schema_version": "1.0",
+  "scope": "Generic 8-point finite concrete OML control. It is not an actual two-copy assembly, ARR realization, or join-preserving embedding of the old MO2.",
+  "split_old_truth_atom_count": 1,
+  "split_old_truth_atoms": [
+    [
+      0,
+      1
+    ]
+  ]
+}

@@ -111,12 +111,31 @@
    consequences. This decides strict residual progress versus a new partial-
    envelope production rule. Do not enumerate the interval or call this the
    first cut of the full layer.
+   That seed is closed (payload `70d497ac...`): `ENV,ENV^c` adjoin
+   gate-safely, resolve the displayed cut and dual join uniquely, and leave
+   the residual untouched — the dichotomy lands on a certified zero-progress
+   `PENV` production, so simple residual/inclusion ranks cannot prove
+   termination. The envelope layer's first unresolved cut is an exact
+   orthogonal 2-cover `O` cell (`parent_new(1), old_left(4136)`). First
+   action: build the batched grammar engine over `MEM/N/O/PENV` plus
+   forced-top descent, with checkpointed receipts, halting only on (i) an
+   obligation matched by no rule, (ii) a gate hazard, or (iii) quiescence;
+   then run it. Before its first sustained run, draft the sigma-layer
+   pull-document (target object, CSS/no-GS mechanism, Campaign-13 corridor,
+   consumed finite theorems) and add the independent point-sampler
+   spot-verifier for load-bearing ARR constants, both per
+   `STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`. Budget per its U3: if the
+   engine's first sustained run yields no coverage/termination theorem in
+   reach, cost the direct sharded least-closure computation before more
+   grammar work.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection
    alone; fixed-carrier T-FIN (refuted); deeper scalar kernel prefixes; eager
-   complete bad-vector materialization; or
-   another finite repair-depth chain.
+   complete bad-vector materialization;
+   another finite repair-depth chain; or interactive one-seed rule firing
+   now that the productions are stable — the rebase-level one-seed chain is
+   the same failure mode one level up, and the engine replaces it.
 
 Unresolved assumptions: arbitrary-depth kernel stability, mixed latticehood,
 contextwise cross-copy block factorization, centre/escape/state separation of

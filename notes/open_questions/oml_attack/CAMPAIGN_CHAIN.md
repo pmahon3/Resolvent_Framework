@@ -131,6 +131,8 @@
 | one-seed O/N recurrence | Executable verified — exhaustive finite scope for transition | forced nonorthogonal `N` cell creates four roots; first child is rank-zero orthogonal `O` cell |
 | strict-target O/N dependency rank | Refuted, executable verified for named targets | forced `O` target is incomparable with parent `U`, `U^c`, and earlier `H` |
 | O-child proper-residual transition | Executable verified — exhaustive finite scope for declared eight-seed layer | six new roots; restricted first cut has overlapping two-lower envelope and proper residual; next meet is not unique |
+| minimal-envelope dichotomy at the displayed cut | Executable verified — exhaustive finite scope for one adjunction seed | `ENV,ENV^c` adjoin gate-safe, resolve cut and dual join, residual untouched: certified zero-progress `PENV` production; parents' overlap is old event `old_left(1024)` |
+| envelope-layer first child | Executable verified — exhaustive finite scope for declared six-seed layer | first unresolved cut is exactly orthogonally 2-covered; the next firing is a rank-zero `O` cell, so the selected chain runs `N -> O -> PENV -> O` |
 | generic selector saturation | Refuted, executable verified exhaustive finite scope | 8-point/12-event split-atom OML; centre is nontrivial |
 | same-carrier centre killing | Refuted, Hand proved + exhaustive finite scope | central singleton persists; all 256 one-subset adjunctions fail |
 | centre-free selector saturation | Refuted, executable verified exhaustive finite scope | 70 inflated split-atom OML survivors; clean 16-event three-block/state-complete control |

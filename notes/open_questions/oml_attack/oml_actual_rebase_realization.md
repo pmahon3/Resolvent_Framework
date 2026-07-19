@@ -575,11 +575,40 @@ that adjoining `S,S^c` is gate-forcing or creates lower-ranked children.
 Otherwise minimal-envelope repair is a new explicit production rule. The
 next bounded test is exactly that one `S,S^c` seed, not interval branching.
 
+That test is now banked, and the dichotomy lands on the second branch.
+`ENV = U union old_left(4136)` and `ENV^c` adjoin gate-safely: the displayed
+cut resolves at `ENV`, the dual join at `ENV^c`, the `21,137,851,696`-point
+residual is untouched before and after the fourteen-occurrence consequence
+layer, and the full hazard battery (singleton, activation support,
+cylindricity, old identity) is clean on `ENV`, `ENV^c`, and all four
+genuinely new roots. Forced consequences were counted as gate-forcing by
+construction; none fired. The parents' overlap is exactly the old event
+`old_left(1024)`. Hence minimal-envelope repair is a certified explicit
+**zero-progress production** `PENV` (cover size 2, overlapping parents of
+kinds consequence/old, dependency depth 4; descriptor differs from `H` and
+`O` in five fields; pointed isomorphism open). The envelope layer's own
+first unresolved cut is orthogonally exactly 2-covered by
+`{parent_new(1), old_left(4136)}`, a rank-zero `O` cell, so the selected
+chain extends `N -> O -> PENV -> O` with no new rule needed. **Executable
+verified — exhaustive finite scope for this one adjunction seed**,
+`arr_forced_T_minimal_envelope_audit.py/.json`, payload `70d497ac...`;
+seed-12345 replay agrees on all non-volatile fields.
+
+**Consequence for termination.** With a zero-progress production certified,
+no residual-cardinality or target-inclusion rank can prove selected-chain
+termination. A coverage/termination theorem must rank something else — for
+example the finite multiset of unresolved obligations modulo production
+equivalence — or the chain must be run mechanically to quiescence. The
+mandated vehicle is the batched rule engine of
+`STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md` (U1): apply the certified
+productions in the deterministic scan order with checkpointed receipts and
+halt only on an unmatched obligation, a gate hazard, or quiescence.
+
 ## Campaign gate table
 
 | Gate | Current status | Evidence | Remaining obligation |
 | --- | --- | --- | --- |
-| Repair grammar | parameterized `MEM/O/N/R/PROP` schema; coverage open | selected chain `N -> O -> proper residual`; strict-target rank refuted | audit the residual's minimal envelope `S,S^c`; prove coverage/well-founded rank |
+| Repair grammar | `MEM/O/N/PENV` + forced-top descent; coverage open | selected chain `N -> O -> PENV -> O`; zero-progress production certified (payload `70d497ac...`) | run the batched engine to unmatched obligation/gate hazard/quiescence; prove a non-residual rank or pivot per strategy-review U3 |
 | Latticehood | Open | actual old lower cut has no greatest old member | construct its join in an ambient completion |
 | Orthomodularity | Open | no completed rebase OML | audit after lattice closure |
 | Same-side boundary preservation | Open | `G ⊆ h ⊆ R` | determine the sections of `h` |

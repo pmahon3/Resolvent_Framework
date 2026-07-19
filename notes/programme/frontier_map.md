@@ -872,6 +872,13 @@ layer has six new roots, and the first cut in the restricted eight-seed order
 has an overlapping two-lower envelope with a proper residual. The frontier is
 the one-object minimal-envelope audit: either adjoining that envelope forces a
 gate/lower rank, or it supplies a new partial-envelope production rule.
+The audit lands on the second branch: the envelope adjoins gate-safely with
+zero residual progress, so the repair grammar now contains a certified
+zero-progress production and simple ranks cannot prove termination; the
+envelope layer's first child is again an exact orthogonal O cell. The
+frontier is no longer one-seed audits: build the batched rule engine (halt
+on unmatched obligation, gate hazard, or quiescence) and the sigma-layer
+pull-document, per `STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

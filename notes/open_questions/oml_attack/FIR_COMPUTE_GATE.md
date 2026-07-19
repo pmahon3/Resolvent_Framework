@@ -1,6 +1,6 @@
 # Fir attended-compute gate
 
-Updated: 2026-07-16 (America/Vancouver).
+Updated: 2026-07-18 (America/Vancouver).
 
 ## Service and authentication
 
@@ -12,6 +12,24 @@ Updated: 2026-07-16 (America/Vancouver).
   `python3.11 fir_poc.py connection-status`.
 - No connection, transfer, remote preparation, Slurm submission, monitoring,
   retrieval or cleanup was attempted.
+
+The service gate was rechecked once at the start of the O-child computation
+phase on 2026-07-17. The classification remains **OUTAGE**. The active task is
+a bounded one-seed local audit using about one CPU core and 1.6 GB locally;
+it is neither a justified Fir production workload nor a reason to open an
+attended connection.
+
+The gate was rechecked again at the minimal-envelope phase on 2026-07-18.
+The official page reports "Fir is experiencing an outage" with open
+filesystem, GPU-error, and login-node I/O incidents; the local ControlMaster
+probe reports inactive. Classification remains **OUTAGE**. The completed
+minimal-envelope audit ran locally at 0.80 GB peak in 14 minutes, and the
+mandated batched grammar engine is expected to stay within one core and
+about 2 GB per checkpoint — not a Fir workload. One deferred item from the
+2026-07-18 strategy review (U3): when the engine first halts without a
+coverage theorem in reach, draft a dry shard spec here for the direct
+sharded least-closure computation so the decision is ready if the outage
+clears.
 
 ## POC status
 

@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the parameterized repair schema exhibits N-to-O-to-proper-residual locally; strict-target rank is refuted, and minimal-envelope repair versus gate-forcing is the next exact discriminator.",
+   "status": "OPEN — the repair schema now has a certified zero-progress PENV production (N->O->PENV->O locally); termination needs a non-residual rank or mechanical quiescence; next is the batched grammar engine plus the sigma-layer pull-document (2026-07-18 strategy review).",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

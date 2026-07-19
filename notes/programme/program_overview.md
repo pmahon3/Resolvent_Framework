@@ -905,6 +905,12 @@ new consequence roots lead, in the declared restricted scan, to a proper-
 residual cut with two overlapping maximal lowers. Thus the next theorem is a
 minimal-envelope dichotomy, not recurrence: the lower union must either be
 gate-forcing/lower-ranked or become an explicit zero-progress grammar rule.
+The dichotomy resolves to the zero-progress branch: the envelope adjoins
+gate-safely, the residual is untouched, and the next child is an ordinary
+orthogonal cell. Grammar termination therefore needs a non-residual rank or
+mechanical quiescence, and the campaign pivots from interactive one-seed
+audits to a batched rule engine plus an explicit sigma-layer pull-document,
+per the adversarial strategy review of 2026-07-18.
 
 ## Repository Layout
 

@@ -3719,3 +3719,51 @@ coarse blocks at all (decides whether B′(ii) can be dodged).
   Either minimal-envelope repair triggers a gate/lower rank, or it becomes a
   new partial-envelope production rule. Do not enumerate the interpolation
   interval or claim finite-state grammar closure.
+
+### Iteration 316 — minimal-envelope seed certifies a zero-progress PENV production
+- The banked O-child first cut is reconfirmed exactly: target
+  `88b6bc14...` with `112,130,703,051` points, maximal lowers `U` and
+  `old_left(4136)`, `16,210,089,024`-point overlap, `21,137,851,696`-point
+  residual. The parents' overlap is itself the old event `old_left(1024)` —
+  the left piece of the earlier `H` cell.
+- Adjoining only `ENV = U union old_left(4136)` (`90,992,851,355` points) and
+  `ENV^c` resolves the displayed cut and its complement-dual join uniquely
+  (`ENV` sole maximal lower, `ENV^c` sole minimal upper), both before and
+  after the consequence layer. The residual is untouched and contains no new
+  root. **Executable verified — exhaustive finite scope for this one
+  adjunction seed**, producer `arr_forced_T_minimal_envelope_audit.py`
+  (`562212ad...`), payload `70d497ac...`; the seed-12345 replay agrees on
+  every non-volatile field. Peak RSS 0.80 GB, wall 837 s; all inherited
+  objects are pinned by exact MDD hash and the six O-child consequence roots
+  are rebuilt directly from banked provenance.
+- Gate battery: `ENV`, `ENV^c`, and all four genuinely new consequence roots
+  are non-singleton, lie in no coordinate activation cylinder, are
+  noncylindrical on both sides, and are not old events. The adjunction is
+  **not** gate-forcing; hazardous forced consequences were counted as
+  gate-forcing by construction and none occurred.
+- Fourteen immediate occurrences (2 `ENV` lowers, 5 `ENV^c` lowers); four
+  genuinely new roots: the nested differences and bridges over
+  `old_left(4136)` and `parent_new(1)`.
+- **Dichotomy resolved (second branch):** minimal-envelope repair is a
+  certified explicit **zero-progress production** `PENV` — cover size 2,
+  overlapping parents of kinds consequence/old, dependency depth 4. Its
+  descriptor differs from both `H` and `O` in five fields; pointed
+  isomorphism remains open. Consequently no residual-cardinality or
+  target-inclusion rank can prove selected-chain termination.
+- In the deterministic six-seed envelope layer (meet before join, stop at
+  first unresolved cut: 12 pairs, 24 operations), the first unresolved cut is
+  the join of `envelope_consequence(0),(3)`; its complement-dual target has
+  three maximal lowers and an exhaustive orthogonal **exact 2-cover**
+  `{parent_new(1), old_left(4136)}` — a rank-zero `O` cell. The selected
+  chain continues `N -> O -> PENV -> O` with no new rule needed.
+- **Strategy checkpoint:** an adversarial review of the campaign strategy was
+  run this session (`STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`). Adopted:
+  mechanize the selected chain as a batched rule engine halting on unmatched
+  obligation, gate hazard, or quiescence (U1); write the sigma-layer
+  pull-document before the engine's first sustained run (U2); budget and
+  closure-costing pivot (U3); independent point-sampler spot-verifier for
+  load-bearing ARR constants (U4).
+- **Pivot:** build and run the batched grammar engine over
+  `MEM/N/O/PENV` plus forced-top descent with checkpointed receipts. Do not
+  fire further single seeds interactively; do not enumerate intervals; do not
+  claim grammar closure from engine progress alone.

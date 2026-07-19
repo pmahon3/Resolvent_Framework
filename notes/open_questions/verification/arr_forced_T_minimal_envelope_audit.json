@@ -1,0 +1,687 @@
+{
+  "ENV_cover": {
+    "maximal_lower_count": 2,
+    "maximal_lowers": [
+      {
+        "kind": "consequence",
+        "label": "U"
+      },
+      {
+        "kind": "old",
+        "label": "old_left(4136)"
+      }
+    ],
+    "orthogonal_kappa": "infinity",
+    "orthogonal_minimum_exact_covers": [],
+    "orthogonal_minimum_residual_exact_mdd_sha256s": [
+      "f48b1c2a955c8c0ed01e53b82c12944a4f7a09759b6bce7508c39f9c271e4029"
+    ],
+    "orthogonal_minimum_residual_physical_cardinality": 35731772187,
+    "orthogonal_subset_count": 3,
+    "orthogonal_subset_search": "exhaustive",
+    "pairwise_overlap_signature": [
+      {
+        "empty": false,
+        "exact_mdd_sha256": "e18307eb81a4a30052936f63b96ceef04477741a1a7afab8b62f4e78667903d3",
+        "left": "U",
+        "physical_cardinality": 16210089024,
+        "right": "old_left(4136)"
+      }
+    ],
+    "unrestricted_residual_exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+    "unrestricted_residual_physical_cardinality": 0,
+    "unrestricted_union_equals_target": true
+  },
+  "ENV_exact_mdd_sha256": "be4b832bb7a3ae4573f0fdc105948e6409c83dbd89698bd39aeddf254a79ca22",
+  "ENVc_exact_mdd_sha256": "3c1dd9338ce7c68aee411d7c9d056fa4d0be784b73453773ae7cdc8299773c87",
+  "adjunction_resolution": {
+    "cut_reopened_by_consequences": false,
+    "displayed_cut_resolved_at_ENV": true,
+    "dual_join_resolved_at_ENVc": true,
+    "final_family_lower_extrema": [
+      {
+        "kind": "consequence",
+        "label": "ENV"
+      }
+    ],
+    "post_adjunction_dual_upper_extrema": [
+      {
+        "kind": "consequence",
+        "label": "ENVc"
+      }
+    ],
+    "post_adjunction_lower_extrema": [
+      {
+        "kind": "consequence",
+        "label": "ENV"
+      }
+    ],
+    "residual_exact_mdd_sha256": "efac0e341a0d037846ae7bf86954f3f442bf66f6a67dde8d2d57b87a09079ddf",
+    "residual_physical_cardinality": 21137851696,
+    "residual_untouched_by_ENV": true
+  },
+  "banked_first_cut_reconfirmed": true,
+  "consequence_gate_battery": {
+    "envelope_consequence(0)": {
+      "activation_supported_coordinates": [],
+      "exact_old_representatives": [],
+      "left_cylindrical": false,
+      "physical_cardinality": 101512421141,
+      "right_cylindrical": false,
+      "singleton_hazard": false
+    },
+    "envelope_consequence(1)": {
+      "activation_supported_coordinates": [],
+      "exact_old_representatives": [],
+      "left_cylindrical": false,
+      "physical_cardinality": 176165767829,
+      "right_cylindrical": false,
+      "singleton_hazard": false
+    },
+    "envelope_consequence(2)": {
+      "activation_supported_coordinates": [],
+      "exact_old_representatives": [],
+      "left_cylindrical": false,
+      "physical_cardinality": 110385118875,
+      "right_cylindrical": false,
+      "singleton_hazard": false
+    },
+    "envelope_consequence(3)": {
+      "activation_supported_coordinates": [],
+      "exact_old_representatives": [],
+      "left_cylindrical": false,
+      "physical_cardinality": 35731772187,
+      "right_cylindrical": false,
+      "singleton_hazard": false
+    }
+  },
+  "consequence_gate_hazard": false,
+  "dichotomy_verdict": "zero-progress partial-envelope production: the declared grammar gains an explicit PENV rule",
+  "displayed_cut": {
+    "maximal_lowers": [
+      {
+        "kind": "consequence",
+        "label": "U"
+      },
+      {
+        "kind": "old",
+        "label": "old_left(4136)"
+      }
+    ],
+    "overlap_already_current": true,
+    "overlap_current_label": null,
+    "overlap_exact_mdd_sha256": "e18307eb81a4a30052936f63b96ceef04477741a1a7afab8b62f4e78667903d3",
+    "overlap_exact_old_representatives": [
+      {
+        "index": 1024,
+        "side": "left"
+      }
+    ],
+    "overlap_physical_cardinality": 16210089024,
+    "target_exact_mdd_sha256": "88b6bc142015af4a50a23d030447287ebc1848e55829a8a1175ccc554e9a4527",
+    "target_physical_cardinality": 112130703051
+  },
+  "envelope_gate_hazard": false,
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope for one declared minimal-envelope adjunction seed",
+  "first_unresolved_seed_cut": {
+    "cover_discriminator": {
+      "maximal_lower_count": 3,
+      "maximal_lowers": [
+        {
+          "kind": "consequence",
+          "label": "parent_new(1)"
+        },
+        {
+          "kind": "old",
+          "label": "old_left(4136)"
+        },
+        {
+          "kind": "old",
+          "label": "old_right(1936)"
+        }
+      ],
+      "orthogonal_kappa": 2,
+      "orthogonal_minimum_exact_covers": [
+        [
+          {
+            "kind": "consequence",
+            "label": "parent_new(1)"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(4136)"
+          }
+        ]
+      ],
+      "orthogonal_minimum_residual_exact_mdd_sha256s": [
+        "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      ],
+      "orthogonal_minimum_residual_physical_cardinality": 0,
+      "orthogonal_subset_count": 5,
+      "orthogonal_subset_search": "exhaustive",
+      "pairwise_overlap_signature": [
+        {
+          "empty": false,
+          "exact_mdd_sha256": "b3a0cb1c1eef34af6990564f76e4810441d2130c6698f4fb1d48c3f4b45cc2b4",
+          "left": "old_left(4136)",
+          "physical_cardinality": 39050990144,
+          "right": "old_right(1936)"
+        },
+        {
+          "empty": true,
+          "exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "left": "parent_new(1)",
+          "physical_cardinality": 0,
+          "right": "old_left(4136)"
+        },
+        {
+          "empty": false,
+          "exact_mdd_sha256": "3eed8cfea602c4aac308fd2a30f970fde8d00b03deccdc85f2255690bd194623",
+          "left": "parent_new(1)",
+          "physical_cardinality": 11773740160,
+          "right": "old_right(1936)"
+        }
+      ],
+      "unrestricted_residual_exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "unrestricted_residual_physical_cardinality": 0,
+      "unrestricted_union_equals_target": true
+    },
+    "extrema": [
+      {
+        "kind": "consequence",
+        "label": "parent_new(0)"
+      },
+      {
+        "kind": "old",
+        "label": "old_left(14295)"
+      },
+      {
+        "kind": "old",
+        "label": "old_right(16495)"
+      }
+    ],
+    "left": "envelope_consequence(0)",
+    "operation": "join",
+    "orientation": "complement-dual",
+    "right": "envelope_consequence(3)",
+    "target_exact_mdd_sha256": "d800ec4e3d34caca512e51f0a82fdcdf170f6b586ac0064d28fb9387901da397",
+    "target_physical_cardinality": 137244193328
+  },
+  "gate_battery": {
+    "ENV": {
+      "activation_supported_coordinates": [],
+      "exact_old_representatives": [],
+      "left_cylindrical": false,
+      "physical_cardinality": 90992851355,
+      "right_cylindrical": false,
+      "singleton_hazard": false
+    },
+    "ENVc": {
+      "activation_supported_coordinates": [],
+      "exact_old_representatives": [],
+      "left_cylindrical": false,
+      "physical_cardinality": 120904688661,
+      "right_cylindrical": false,
+      "singleton_hazard": false
+    }
+  },
+  "gate_forcing": false,
+  "genuinely_new_exact_root_count": 4,
+  "genuinely_new_roots": [
+    {
+      "exact_mdd_sha256": "119cc70543842a206e0e5467fb0afe726d5029d992c175f86e7ac1d69ff3a7d0",
+      "label": "envelope_consequence(0)",
+      "physical_cardinality": 101512421141,
+      "provenance": [
+        {
+          "base": "ENVc",
+          "operation": "nested_difference",
+          "source_lower": "parent_new(1)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "7a60dcf5a6f4ed432b0e62f4ee79f8b3dc108e6a7a1a7ff898b795c987f03afb",
+      "label": "envelope_consequence(1)",
+      "physical_cardinality": 176165767829,
+      "provenance": [
+        {
+          "base": "ENV",
+          "operation": "dual_disjoint_union",
+          "source_lower": "old_left(4136)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "f2008cce225e7c61cfa29c7b8700f3aca9d8b639ae2ab98f28929b4198f87c61",
+      "label": "envelope_consequence(2)",
+      "physical_cardinality": 110385118875,
+      "provenance": [
+        {
+          "base": "ENVc",
+          "operation": "dual_disjoint_union",
+          "source_lower": "parent_new(1)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "f48b1c2a955c8c0ed01e53b82c12944a4f7a09759b6bce7508c39f9c271e4029",
+      "label": "envelope_consequence(3)",
+      "physical_cardinality": 35731772187,
+      "provenance": [
+        {
+          "base": "ENV",
+          "operation": "nested_difference",
+          "source_lower": "old_left(4136)"
+        }
+      ]
+    }
+  ],
+  "immediate_occurrence_count": 14,
+  "immediate_occurrences": [
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENV",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "dbe8afed1fd65494e7e684442005f49a9c941003952ac4705fa1d16d56021de8",
+      "exact_old_representatives": [
+        {
+          "index": 15319,
+          "side": "left"
+        },
+        {
+          "index": 16511,
+          "side": "right"
+        }
+      ],
+      "meets_residual": true,
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 172846549872,
+      "source_lower": "U",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENV",
+      "contained_in_displayed_target": true,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "b3a0cb1c1eef34af6990564f76e4810441d2130c6698f4fb1d48c3f4b45cc2b4",
+      "exact_old_representatives": [
+        {
+          "index": 3112,
+          "side": "left"
+        },
+        {
+          "index": 1920,
+          "side": "right"
+        }
+      ],
+      "meets_residual": false,
+      "operation": "nested_difference",
+      "physical_cardinality": 39050990144,
+      "source_lower": "U",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": false,
+      "base": "ENV",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "7a60dcf5a6f4ed432b0e62f4ee79f8b3dc108e6a7a1a7ff898b795c987f03afb",
+      "exact_old_representatives": [],
+      "meets_residual": true,
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 176165767829,
+      "source_lower": "old_left(4136)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_adjunction": false,
+      "base": "ENV",
+      "contained_in_displayed_target": true,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "f48b1c2a955c8c0ed01e53b82c12944a4f7a09759b6bce7508c39f9c271e4029",
+      "exact_old_representatives": [],
+      "meets_residual": false,
+      "operation": "nested_difference",
+      "physical_cardinality": 35731772187,
+      "source_lower": "old_left(4136)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "19552058b92652536a35720aca1dcf5155aa0d6e83de687765b1dbb362e57724",
+      "exact_old_representatives": [
+        {
+          "index": 8431,
+          "side": "left"
+        }
+      ],
+      "meets_residual": false,
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 137676632200,
+      "source_lower": "new_consequence(3)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "37bd18fda4139fd6b70c8f6f06995ccc438ee139cd39112f31619fa0168d2ba3",
+      "exact_old_representatives": [
+        {
+          "index": 10000,
+          "side": "left"
+        }
+      ],
+      "meets_residual": true,
+      "operation": "nested_difference",
+      "physical_cardinality": 74220907816,
+      "source_lower": "new_consequence(3)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "55aa2aefe5087bf45849722df0d4c1877672816f0523d7dae79b88ac22d7ee26",
+      "exact_old_representatives": [
+        {
+          "index": 12783,
+          "side": "right"
+        }
+      ],
+      "meets_residual": false,
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 175073690592,
+      "source_lower": "new_consequence(5)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "ff667062247372e5b60f695838dab7517bc965d7b1c73476519c21da3a5935b1",
+      "exact_old_representatives": [
+        {
+          "index": 5648,
+          "side": "right"
+        }
+      ],
+      "meets_residual": true,
+      "operation": "nested_difference",
+      "physical_cardinality": 36823849424,
+      "source_lower": "new_consequence(5)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": false,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "f2008cce225e7c61cfa29c7b8700f3aca9d8b639ae2ab98f28929b4198f87c61",
+      "exact_old_representatives": [],
+      "meets_residual": true,
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 110385118875,
+      "source_lower": "parent_new(1)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": false,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "119cc70543842a206e0e5467fb0afe726d5029d992c175f86e7ac1d69ff3a7d0",
+      "exact_old_representatives": [],
+      "meets_residual": true,
+      "operation": "nested_difference",
+      "physical_cardinality": 101512421141,
+      "source_lower": "parent_new(1)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "316d8c69424e72aa3cbb7eeeb505de2de62d77533b5f7666ea91a57519a49980",
+      "exact_old_representatives": [],
+      "meets_residual": true,
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 165213759171,
+      "source_lower": "old_left(10000)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "8afddea3fec27a6288a4b99d5b7f1c128780fd85e6ac13aa0d361dab4a9abc85",
+      "exact_old_representatives": [],
+      "meets_residual": false,
+      "operation": "nested_difference",
+      "physical_cardinality": 46683780845,
+      "source_lower": "old_left(10000)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "1cf309ddd25161a902e89d00a5a331fc7f211162a79818b7ff6916013f701b36",
+      "exact_old_representatives": [],
+      "meets_residual": true,
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 127816700779,
+      "source_lower": "old_right(5648)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_adjunction": true,
+      "base": "ENVc",
+      "contained_in_displayed_target": false,
+      "contained_in_residual": false,
+      "exact_mdd_sha256": "c037b0e842b113c35163509658f0d34d9c71ed6ce79b0b64e35169895f786f33",
+      "exact_old_representatives": [],
+      "meets_residual": false,
+      "operation": "nested_difference",
+      "physical_cardinality": 84080839237,
+      "source_lower": "old_right(5648)",
+      "source_lower_kind": "old"
+    }
+  ],
+  "payload_sha256": "70d497acf3faedf3265a94993c406ff2d231ea2356efdb0235ad4fe20b759120",
+  "peak_rss_bytes_darwin": 798720000,
+  "pointed_PENV_comparison": {
+    "ENV_descriptor": {
+      "consequence_multiset_hash_membership": [
+        [
+          "119cc70543842a206e0e5467fb0afe726d5029d992c175f86e7ac1d69ff3a7d0",
+          false
+        ],
+        [
+          "19552058b92652536a35720aca1dcf5155aa0d6e83de687765b1dbb362e57724",
+          true
+        ],
+        [
+          "1cf309ddd25161a902e89d00a5a331fc7f211162a79818b7ff6916013f701b36",
+          true
+        ],
+        [
+          "316d8c69424e72aa3cbb7eeeb505de2de62d77533b5f7666ea91a57519a49980",
+          true
+        ],
+        [
+          "37bd18fda4139fd6b70c8f6f06995ccc438ee139cd39112f31619fa0168d2ba3",
+          true
+        ],
+        [
+          "55aa2aefe5087bf45849722df0d4c1877672816f0523d7dae79b88ac22d7ee26",
+          true
+        ],
+        [
+          "7a60dcf5a6f4ed432b0e62f4ee79f8b3dc108e6a7a1a7ff898b795c987f03afb",
+          false
+        ],
+        [
+          "8afddea3fec27a6288a4b99d5b7f1c128780fd85e6ac13aa0d361dab4a9abc85",
+          true
+        ],
+        [
+          "b3a0cb1c1eef34af6990564f76e4810441d2130c6698f4fb1d48c3f4b45cc2b4",
+          true
+        ],
+        [
+          "c037b0e842b113c35163509658f0d34d9c71ed6ce79b0b64e35169895f786f33",
+          true
+        ],
+        [
+          "dbe8afed1fd65494e7e684442005f49a9c941003952ac4705fa1d16d56021de8",
+          true
+        ],
+        [
+          "f2008cce225e7c61cfa29c7b8700f3aca9d8b639ae2ab98f28929b4198f87c61",
+          false
+        ],
+        [
+          "f48b1c2a955c8c0ed01e53b82c12944a4f7a09759b6bce7508c39f9c271e4029",
+          false
+        ],
+        [
+          "ff667062247372e5b60f695838dab7517bc965d7b1c73476519c21da3a5935b1",
+          true
+        ]
+      ],
+      "cover_overlap_signature": [
+        {
+          "empty": false,
+          "exact_mdd_sha256": "e18307eb81a4a30052936f63b96ceef04477741a1a7afab8b62f4e78667903d3",
+          "left": "U",
+          "physical_cardinality": 16210089024,
+          "right": "old_left(4136)"
+        }
+      ],
+      "cover_size": 2,
+      "cover_unrestricted_residual_cardinality": 0,
+      "current_extrema": {
+        "complement_lower": [
+          {
+            "kind": "consequence",
+            "label": "new_consequence(3)"
+          },
+          {
+            "kind": "consequence",
+            "label": "new_consequence(5)"
+          },
+          {
+            "kind": "consequence",
+            "label": "parent_new(1)"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(10000)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(5648)"
+          }
+        ],
+        "complement_upper": [
+          {
+            "kind": "consequence",
+            "label": "Uc"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(14295)"
+          }
+        ],
+        "object_lower": [
+          {
+            "kind": "consequence",
+            "label": "U"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(4136)"
+          }
+        ],
+        "object_upper": [
+          {
+            "kind": "consequence",
+            "label": "new_consequence(0)"
+          },
+          {
+            "kind": "consequence",
+            "label": "new_consequence(1)"
+          },
+          {
+            "kind": "consequence",
+            "label": "parent_new(0)"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(8431)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(12783)"
+          }
+        ]
+      },
+      "dependency_depth": 4,
+      "parent_provenance_kinds": [
+        "consequence",
+        "old"
+      ]
+    },
+    "banked_H_descriptor_source": "arr_forced_T_forced_O_child_audit.json",
+    "explicit_pointed_isomorphism_search_attempted": false,
+    "isomorphism_status_reason": "the recorded descriptors differ, but no category of pointed cells or exhaustive isomorphism search has been defined",
+    "structural_pointed_isomorphism_status": "open",
+    "verdict": "descriptor inequality only",
+    "versus_H": {
+      "descriptor_tuples_equal": false,
+      "differing_descriptor_fields": [
+        "consequence_multiset_hash_membership",
+        "cover_overlap_signature",
+        "current_extrema",
+        "dependency_depth",
+        "parent_provenance_kinds"
+      ]
+    },
+    "versus_O": {
+      "descriptor_tuples_equal": false,
+      "differing_descriptor_fields": [
+        "consequence_multiset_hash_membership",
+        "cover_overlap_signature",
+        "current_extrema",
+        "dependency_depth",
+        "parent_provenance_kinds"
+      ]
+    }
+  },
+  "producer_sha256": "562212adf0d289649c1e57e8c02447412a93a309c5856ec791f6d00aae6bc422",
+  "reconstruction_seconds": 308.69283125014044,
+  "residual_progress": false,
+  "residual_progress_roots": [],
+  "schema": "arr-forced-T-minimal-envelope-audit-v1",
+  "schema_version": "1.0",
+  "scope": "Only the banked O-child first cut, the single ENV,ENVc adjunction, its immediate nested/dual consequences with gate hazards, and the deterministic envelope-seed pair order (meet before join) through its first unresolved cut. No interval enumeration, closure round, full-layer first-cut claim, isomorphism theorem, latticehood, OML, centre, state, sigma, ODBC, MBRC, or Phi claim.",
+  "seed_object_count": 6,
+  "source_meet_payload_sha256": "304ed13bdb227944e6b18d61fb09588ed13d96996fc9d75fc62d7cb9d4df5957",
+  "source_o_child_payload_sha256": "fc9c0b2208a647b7753a092e9a8497061b64b7a4e48002709cb96e7e707fcec4",
+  "tested_operation_count_before_stop": 24,
+  "tested_pair_count_before_stop": 12,
+  "wall_seconds": 837.4458250829484
+}

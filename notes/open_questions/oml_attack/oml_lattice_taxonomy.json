@@ -22,7 +22,8 @@
    "open_cruxes": 4,
    "current_next_step": "The O-child audit refutes strict-target rank and exposes a proper-residual cut in the restricted eight-seed layer. Adjoin only its minimal overlapping envelope and complement; decide gate-forcing/lower-rank descent versus a new partial-envelope production rule."
   },
-  "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question."
+  "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question.",
+  "current_next_step": "The minimal-envelope seed certifies a zero-progress PENV production (gate-safe, residual untouched); its first child is an exact orthogonal O cell, so the selected chain runs N->O->PENV->O. Next: batched rule engine over MEM/N/O/PENV plus forced-top descent, halting on unmatched obligation, gate hazard, or quiescence; sigma-layer pull-document and independent spot-verifier per the 2026-07-18 strategy review."
  },
  "reductions": [
   {

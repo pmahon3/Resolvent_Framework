@@ -874,6 +874,25 @@ the residual and fixed-cut residual descent resumes. If `S,S^c` close safely,
 they define a zero-progress partial-envelope production that must be added to
 the grammar. Audit only this seed and its immediate consequences.
 
+That dichotomy is now decided at the displayed cut, on the second branch.
+Adjoining only the minimal envelope `ENV = U union old_left(4136)` and its
+complement resolves the cut and its dual join uniquely, leaves the
+`21,137,851,696`-point residual untouched through the fourteen-occurrence
+consequence layer, and fires no gate: `ENV`, `ENV^c`, and all four new
+consequence roots are non-singleton, activation-free, noncylindrical, and not
+old events. The parents' overlap is exactly the old event `old_left(1024)`.
+Minimal-envelope repair is therefore a certified zero-progress production
+`PENV`, so no residual-cardinality or target-inclusion rank can prove
+selected-chain termination. The envelope layer's own first unresolved cut is
+orthogonally exactly 2-covered by `{parent_new(1), old_left(4136)}` — a
+rank-zero `O` cell — so the selected chain continues `N -> O -> PENV -> O`
+mechanically. **Executable verified — exhaustive finite scope for this one
+adjunction seed**, payload `70d497ac...`. The mandated next step is the
+batched rule engine over the certified productions, halting only on an
+obligation matched by no rule, a gate hazard, or quiescence — not another
+interactive one-seed session (see
+`STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`).
+
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event
 to descend to the overlap. **Lean certified** by

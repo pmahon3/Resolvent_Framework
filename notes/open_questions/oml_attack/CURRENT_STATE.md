@@ -923,6 +923,36 @@ payload `12c6f217...`; hostile review passes. These remain coordinate controls,
 with all actual successor and collapse/state/`Phi` fields explicitly
 unevaluated.
 
+## E-thread: linearization engine and extension screen (2026-07-19, unit 1)
+
+E1 (fresh-context adversarial proof-read, s12 standard) CLEARED the
+seed's §1 lemma — for a two-valued f.a. state on a concrete σ-class OML:
+in-closure-of-points ⟺ extendable-to-the-generated-field ⟺ value-1
+family has FIP — as SOUND-WITH-FINDINGS, BPI-only exact, no wrong step
+(receipt `PROOF_READ_2026-07-19_linearization_E1.md`). New corpus-level
+necessary condition, ✎E1-corrected form: **a σ-essential witness state
+is non-extendable — its value-1 family fails FIP at a finite stage
+≥ 3.** This is the *set-intersection shadow* of C11 Lemma C2 (its
+"empty literal set-intersection" leg), NOT C2's blockwise-meet leg,
+which stays latticehood-specific. E2a (pentagon state-layer
+calibration, both banked reps, exhaustive, two-seed replay; payload
+`5153bcac...`) confirmed every seed §3 prediction: canonical rep all
+11 states Dirac with nonempty kernels; reduced rep exactly one
+non-extendable yet σ-additive state (the dropped all-odd state), FIP
+failing first at stage 3 — necessity-not-sufficiency witnessed,
+rep-relativity confirmed, **latticehood does not force FIP** (finite
+scale; retrodicts s15's D3/D4). E2b: DIRECT locator, no ⟦HAND⟧
+fallback — the product-Ulam witness's value-1 core triple {A,B,C}
+fails FIP at stage exactly 3 (payload `4678f610...`); the necessary
+condition fires on the one known σ-essential state. Consequence for
+the σ-layer: the screen localizes the third engine's remaining reach
+to the SECOND inclusion (σ-states catching non-extendable f.a.
+states) exactly when the candidate screen (E4) turns up no lattice
+σ-complete non-extendable carrier. E3 hostile extension-literature
+scout dispatched (one run; verdict note banked beside the receipts);
+E4 = audit-style candidate screen, next session. Stage 0
+(`SIGMA_LAYER_TARGET.md`) waits for E4's verdict and absorbs E5.
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

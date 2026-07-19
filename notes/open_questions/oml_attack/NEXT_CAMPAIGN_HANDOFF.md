@@ -133,7 +133,18 @@
    Stage 0 absorbing E5, then engine build. Budget per its U3: if the
    engine's first sustained run yields no coverage/termination theorem in
    reach, cost the direct sharded least-closure computation before more
-   grammar work.
+   grammar work. E-thread unit 1 (2026-07-19) DONE: E1 cleared
+   (SOUND-WITH-FINDINGS, ✎E1 set-intersection-shadow correction to the
+   C2 identification; receipt `PROOF_READ_2026-07-19_linearization_E1.md`),
+   E2a+E2b cleared (receipts
+   `verification/pentagon_state_layer_calibration.*`,
+   `verification/psi_witness_fip_locator.*`; all seed §3 predictions
+   confirmed; Ψ-witness locator DIRECT, stage 3), E3 scout run banked
+   (`linearization_E3_scout_verdict.md`). **First action of the next
+   session: E4 — Opus-high audit-style candidate screen per seed §5
+   against the E3 verdict note; kill conditions seed §6; only then
+   Stage 0 (`SIGMA_LAYER_TARGET.md`), which gains the linearization
+   clause and the second-inclusion localization from the E-thread.**
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

@@ -4,6 +4,22 @@
 third-engine synthesis; user directed "chase this down." All mathematics
 below is ⟦HAND — unverified⟧ until E1/E2 pass.*
 
+**STATUS (2026-07-19, E-thread unit 1):** E1 CLEARED —
+SOUND-WITH-FINDINGS, no wrong step (§1 lemma + §2 chain verified at the
+s12 standard; BPI-only exact; one ✎E1 correction applied to §2 bullet 1;
+receipt `notes/open_questions/oml_attack/PROOF_READ_2026-07-19_linearization_E1.md`).
+E2a CLEARED — all §3 predictions confirmed (canonical: 11/11 Dirac,
+kernels nonempty; reduced: exactly ONE non-extendable σ-state = the
+dropped all-odd state, FIP fails at stage 3; latticehood⟹FIP refuted;
+receipt `notes/open_questions/verification/pentagon_state_layer_calibration.{py,json}`,
+payload 5153bcac, two-seed replay). E2b CLEARED — DIRECT locator, no
+⟦HAND⟧ fallback: the witness's value-1 core triple {A,B,C} (traces
+1100/1010/0110) fails FIP at stage exactly 3 (receipt
+`notes/open_questions/verification/psi_witness_fip_locator.{py,json}`,
+payload 4678f610); the necessary condition fires on the one known
+σ-essential state. E3 scout dispatched this unit (verdict note banked
+alongside); E4 verdict = next session per §7.
+
 **Claimed type(s):** INSTRUMENTAL — inherits from Theorem 2 (OML-lattice
 σ-essential form). **Bar:** leverage on the parent — a new necessary
 condition on the witness, a candidate-generation pipeline, or a
@@ -39,9 +55,14 @@ With `closure(points) ⊆ closure(St_σ) ⊆ St_fa`:
 - **Necessary condition (new to the corpus):** a σ-essential witness lies
   outside `closure(St_σ)`, hence outside `closure(points)`, hence is
   **non-extendable**: its value-1 family fails FIP at some finite stage
-  `≥ 3`. This identifies C11's Lemma C2 (empty literal set-intersection,
-  nonzero blockwise meets) as exactly the boundary of the point-rescue
-  engine.
+  `≥ 3`. *(✎E1: corrected — this is the **set-intersection shadow** of
+  C11's Lemma C2, i.e. its "empty literal set-intersection, pairwise
+  nonzero" leg; C2's second leg, nonzero **blockwise meets**, is
+  latticehood-specific content that §1 does not touch — lattice meet
+  diverges from set intersection exactly on non-co-blocked meet-zero
+  pairs, the phantom-hub mechanism. "Exactly the boundary" was an
+  overclaim; the shadow is still a new corpus-level necessary condition
+  on the witness.)*
 - **Layer separation:** the two inclusions are the banked factoring —
   B′(i)/pointed-selection governs the first, the coarse/σ factor the
   second. The linearization engine formalizes the reach of the first

@@ -126,8 +126,11 @@
    the adopted roadmap) and add the independent point-sampler
    spot-verifier for load-bearing ARR constants, both per the roadmap and
    session protocol now recorded in
-   `STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`. Session order: Stage 0
-   first (next session), engine build second. Budget per its U3: if the
+   `STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`. Session order (amended 2026-07-18, user-directed): E-thread first —
+   `notes/unsorted/linearization_extension_screen_seed.md` steps E1–E4
+   (lemma proof-read, pentagon/Ψ calibrations, extension-literature
+   scout, candidate screen; model/effort table in seed §7) — then
+   Stage 0 absorbing E5, then engine build. Budget per its U3: if the
    engine's first sustained run yields no coverage/termination theorem in
    reach, cost the direct sharded least-closure computation before more
    grammar work.

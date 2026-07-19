@@ -149,6 +149,15 @@ stays live, and the update is to *how* the next hundred hours are spent.
   stays dormant under the s33 liveness caveat).
 - **Reshuffle triggers:** an engine gate-hazard halt; a torsor-type (T1)
   obstruction from the acyclic Campaign-20 assembly.
+- **Amendment (2026-07-18, user-directed): E-thread inserted before
+  Stage 0.** The linearization/extension-screen seed
+  (`notes/unsorted/linearization_extension_screen_seed.md`) runs E1–E4
+  (lemma proof-read, pentagon + Ψ-witness calibrations, hostile
+  extension-literature scout, candidate screen) in the next one–two
+  sessions; Stage 0 absorbs its output (E5) and gains the linearization
+  clause plus the forced-architecture derivation. Engine build shifts
+  accordingly. Model/effort assignments per stage are recorded in the
+  seed's §7.
 
 **Session protocol.** One session = one writer = one mandated unit (read
 handoff → unit → controllers → commit); engine runs are background jobs

@@ -124,6 +124,40 @@ The review changes no evidence class, retracts no banked result, and does
 not touch the sharpen guardrail: the question stays open, the architecture
 stays live, and the update is to *how* the next hundred hours are spent.
 
+## Adopted roadmap and session protocol (2026-07-18, ratified in session)
+
+- **Stage 0 — pull-document.** Write
+  `notes/open_questions/oml_attack/SIGMA_LAYER_TARGET.md`: the ω₁ target
+  object, the incompatible-activation CSS/no-GS mechanism, the
+  Campaign-13 corridor (face-local MBRC), the walls (Derr–Williamson
+  non-Polish/coarse-riding; Campaign-15 support-two Φ; Campaign-12
+  countably-generated-boundary extension), and the consumed-finite-theorem
+  ledger with evidence classes. Acceptance rule: every later iteration
+  names the clause it serves; clauseless iterations park by default.
+- **Stage 1 — grammar engine.** Build `arr_grammar_engine` (productions
+  MEM/N/O/PENV + forced-top descent; checkpointed receipts; halts only on
+  unmatched obligation, gate hazard, quiescence) plus the U4 cold-context
+  spot-verifier; then sustained runs. One session per halt. Gate: ≈5 rule
+  discoveries or a stalled sustained run → Stage 2.
+- **Stage 2 (conditional) — direct least-closure costing.** Shard spec
+  into `FIR_COMPUTE_GATE.md`; local run needs disk cleared (~10 GB free
+  now); Fir needs outage clear + POC + one user-approved connection.
+- **Stage 3 — the σ-layer.** Attempt the ω₁ assembly through the
+  surviving corridor using the banked transport theorems; success = Φ
+  counterexample, failure = structural Φ-forcing theorem for the class.
+- **Stage 4 — reconcile** with the B′(i)/T4 factoring (pentagon track
+  stays dormant under the s33 liveness caveat).
+- **Reshuffle triggers:** an engine gate-hazard halt; a torsor-type (T1)
+  obstruction from the acyclic Campaign-20 assembly.
+
+**Session protocol.** One session = one writer = one mandated unit (read
+handoff → unit → controllers → commit); engine runs are background jobs
+between sessions with the resume checkpoint named in the handoff; no
+parallel campaign sessions on this branch; subagents only for
+independence — the U4 verifier built cold from the written spec,
+fresh-context adversarial proof-reads at theorem-producing halts,
+`/audit` at pipeline gates, a literature scout before naming or claiming.
+
 ## Pre-engine repo review (2026-07-18, same day)
 
 Mechanical sweep before the engine work starts. **Clean:** working tree

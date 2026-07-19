@@ -121,10 +121,13 @@
    forced-top descent, with checkpointed receipts, halting only on (i) an
    obligation matched by no rule, (ii) a gate hazard, or (iii) quiescence;
    then run it. Before its first sustained run, draft the sigma-layer
-   pull-document (target object, CSS/no-GS mechanism, Campaign-13 corridor,
-   consumed finite theorems) and add the independent point-sampler
-   spot-verifier for load-bearing ARR constants, both per
-   `STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`. Budget per its U3: if the
+   pull-document at `SIGMA_LAYER_TARGET.md` (target object, CSS/no-GS
+   mechanism, Campaign-13 corridor, consumed finite theorems — Stage 0 of
+   the adopted roadmap) and add the independent point-sampler
+   spot-verifier for load-bearing ARR constants, both per the roadmap and
+   session protocol now recorded in
+   `STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`. Session order: Stage 0
+   first (next session), engine build second. Budget per its U3: if the
    engine's first sustained run yields no coverage/termination theorem in
    reach, cost the direct sharded least-closure computation before more
    grammar work.

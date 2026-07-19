@@ -123,3 +123,37 @@ belongs in `FIR_COMPUTE_GATE.md` when drafted.
 The review changes no evidence class, retracts no banked result, and does
 not touch the sharpen guardrail: the question stays open, the architecture
 stays live, and the update is to *how* the next hundred hours are spent.
+
+## Pre-engine repo review (2026-07-18, same day)
+
+Mechanical sweep before the engine work starts. **Clean:** working tree
+clean at `3a6cef5`; every repo path referenced in the 62
+oml_attack/programme documents resolves; both taxonomy JSONs' file
+pointers resolve; no uncommitted Lean changes; all verification receipts
+tracked.
+
+**Machine reality for U3 costing:** this workstation has 16 GB RAM, 10
+cores, and only ~10 GB free disk. The naive 7.17-GB in-RAM lift plausibly
+fits in RAM; free *disk* is the binding constraint for checkpointed
+shards, and closure growth beyond the entry cost is uncosted. So: not
+shown prohibitive, not shown feasible — U3's costing is a real
+deliverable, and disk should be cleared (or Fir restored) before any
+closure run.
+
+**Open decision items (user-owed; no action taken):**
+1. `explore/c-sigma-nerve` worktree + branch (7 commits: parked σ-nerve
+   seed, absorption note, `prediction_entry_DRAFT.md` awaiting manual
+   banking) — merge/inspect, then `git worktree remove`.
+2. `fir-backend-poc` worktree + branch — fully contained in this branch
+   (0 commits ahead); removable if nothing external uses that checkout.
+3. Stale exploration branches `explore/a-strategy-d`,
+   `explore/b-pointfree-descent` (both topics killed/parked 2026-06) —
+   archive or delete.
+4. `main` is 461 commits behind this branch and 4 unpushed ahead of
+   origin/main — merge/push policy is a checkpoint decision; nothing
+   pushed this session.
+5. `notes/unsorted/` Tier-3 backlog (8 pre-programme items) — unchanged,
+   known.
+6. Standing ratification queue: s11–s33 hand+census blocks (s33 only
+   with its liveness caveat), C17/s34 receipts, FIDELITY_REVIEW, abstract
+   length, statistics verdict, ILL hunt.

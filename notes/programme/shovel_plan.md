@@ -302,6 +302,16 @@ graded open problems attract *inhabitants*.
    adds its target: defeat the intrinsic compact-class wall statement);
    Also live: Skeleton C's surviving PP1994 σ-unitality branch
    (ptak_pulmannova_1994.pdf in library).**
+   **Prioritization 2026-07-18 (adversarial strategy review + user
+   direction):** the campaign's next units are, in order, the
+   linearization/extension-screen E-thread
+   (`notes/unsorted/linearization_extension_screen_seed.md`), the
+   sigma-layer pull-document `SIGMA_LAYER_TARGET.md`, then the batched
+   repair-grammar engine — see
+   `notes/open_questions/oml_attack/STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`.
+   The relay-hunt route above (next: period-three k=1 or the
+   higher-slack shared-pentagon cell) stays open but unprioritized; the
+   taxonomy's `current_next_step` is authoritative.
 4. **Theorems 3–4** — positive-selection bound, then one exact Φ-slice.
 5. **Parallel — gate RELAXED (s9b directive: relax the rules, keep the
    tasks).** These remain OWED and tracked, but are no longer user-only;

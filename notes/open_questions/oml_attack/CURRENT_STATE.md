@@ -891,7 +891,11 @@ adjunction seed**, payload `70d497ac...`. The mandated next step is the
 batched rule engine over the certified productions, halting only on an
 obligation matched by no rule, a gate hazard, or quiescence — not another
 interactive one-seed session (see
-`STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`).
+`STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`). Amended same day
+(user-directed): the linearization/extension-screen E-thread
+(`notes/unsorted/linearization_extension_screen_seed.md`) runs before the
+engine build; the sigma-layer pull-document `SIGMA_LAYER_TARGET.md`
+absorbs its output.
 
 One-step pure-cylinder reflection is now closed. A disjoint old cylinder and
 pure third-copy cylinder with old-cylindrical union force the third-copy event

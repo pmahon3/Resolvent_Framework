@@ -879,6 +879,11 @@ envelope layer's first child is again an exact orthogonal O cell. The
 frontier is no longer one-seed audits: build the batched rule engine (halt
 on unmatched obligation, gate hazard, or quiescence) and the sigma-layer
 pull-document, per `STRATEGY_ADVERSARIAL_REVIEW_2026-07-18.md`.
+Amended same day (user-directed): the linearization/extension-screen
+E-thread (`notes/unsorted/linearization_extension_screen_seed.md` —
+non-extendability as a necessary witness condition, pentagon/Ψ
+calibrations, hostile extension-literature scout, candidate screen) runs
+first; Stage 0 absorbs its output; engine build follows.
 The next finite discriminator is the exact one-old-event extension table.
 Its first four cases suffice to pivot: two controls preserve centre-free OMLs
 with mixed join `R`, while the old fold and old upper create exact two-upper

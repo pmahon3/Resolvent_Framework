@@ -23,7 +23,7 @@
    "id": "oml_lattice",
    "name": "OML finite-trace σ-liftability",
    "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
-   "status": "OPEN — the repair schema now has a certified zero-progress PENV production (N->O->PENV->O locally); termination needs a non-residual rank or mechanical quiescence; next is the batched grammar engine plus the sigma-layer pull-document (2026-07-18 strategy review).",
+   "status": "OPEN — zero-progress PENV production certified; prioritization 2026-07-18: extension-screen E-thread (non-extendability = necessary witness condition) then sigma-layer pull-document then batched grammar engine; relay-hunt route open, unprioritized.",
    "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
    "entries": 102
   },

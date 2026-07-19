@@ -911,6 +911,13 @@ orthogonal cell. Grammar termination therefore needs a non-residual rank or
 mechanical quiescence, and the campaign pivots from interactive one-seed
 audits to a batched rule engine plus an explicit sigma-layer pull-document,
 per the adversarial strategy review of 2026-07-18.
+Same-day amendment (user-directed): the linearization/extension-screen
+E-thread runs first — a σ-essential witness must be non-extendable to its
+Boolean envelope (value-1 family fails finite intersection at stage ≥ 3),
+which turns the state-extension literature into a candidate pipeline and
+localizes where latticehood must act. Seed:
+`notes/unsorted/linearization_extension_screen_seed.md`; Stage 0 absorbs
+its output before the engine build.
 
 ## Repository Layout
 

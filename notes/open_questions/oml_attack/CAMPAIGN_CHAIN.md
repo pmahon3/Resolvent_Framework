@@ -140,7 +140,7 @@
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |
 | bounded coordinate-control escape ledger | Executable verified + hostile review | 12 complete rows; no greatest old lower, least old upper exists; actual successor unevaluated |
-| a sigma-essential witness state is non-extendable (its value-1 family fails FIP at a finite stage >= 3) | Hand proved (E1 proof-read) + executable calibration (E2a/E2b) | proved; BPI-exact; fires on the pentagon reduced-rep state and directly on the product-Ulam witness (stage exactly 3) |
+| a sigma-essential witness state is non-extendable (its value-1 family fails FIP at a finite stage >= 3) | Hand proved (E1 proof-read) + executable calibration (E2a/E2b) + **Lean-certified on the witness** (`UlamWitnessCore` §7 `fip_fails_at_stage_three`, axioms `[propext, Quot.sound]` — choice-free, no `ofReduceBool`; clause (i) only) | proved; BPI-exact; fires on the pentagon reduced-rep state and directly on the product-Ulam witness (stage exactly 3). The FIP-stage structure is now machine-checked; the BPI leg (FIP => extendable) stays hand (E1) |
 | perspectivity equals the ODBC nerve bond (W-P identification) | executable rung-1 verified, representation-invariant | refuted: perspectivity is non-selective on finite Greechie OMLs (pentagon 15/15 same-block + 30/30 different-block); a relation relating every atom cannot proxy a structured value-1 bond |
 
 ## Counterexample ledger

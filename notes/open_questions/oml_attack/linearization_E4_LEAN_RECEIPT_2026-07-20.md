@@ -56,3 +56,49 @@ checkout's built Mathlib (v4.29.0) after a full-disk incident (the worktree's
 own 5.6 GB Mathlib build filled the disk; removed + symlinked). Whole package
 rebuilds clean: `lake build QuerySystem.UlamWitnessReceipts` → 1079 jobs,
 exit 0, downstream `psiAmended_ZFC` unaffected.
+
+---
+
+## Gap-filling scan verdict (2026-07-20) — what else is Lean-cheap, and what is not
+
+Task was "fill as many gaps as we can besides the irreducible creative
+problems." After Row 1 landed, a scan of the Lean package for more
+Row-1-shaped facts (small decidable facts on *already-constructed* objects)
+returned **nothing else cheap**:
+
+- **`ConcreteOMLPatterns.lean` / `ConcreteOMLBlocks.lean`** — the C4/C11-adjacent
+  maximal-block / MBRC / Φ⇔dense machinery is **already Lean-certified and
+  closed** (15 + 26 `#print axioms` receipt lines; `two_block_rescue`,
+  `pointed_iff_sigma`, `phi_iff_dense`, `cluster_extension`, `t4At_of_phi` all
+  proved). This is *why* the hostile audit found these rows sound. No gap.
+- **`Omega7Counterexample.lean`** — fully certified finite Boolean-carrier
+  Specker triple (`omega7_no_sigma_extension`). It is the Boolean analogue of
+  the witness cores; the E4 row is exactly the contrast (same {01/02/12}
+  Specker pattern, but the witness carrier is non-`InterClosed`). Closed.
+- **Pentagon / 22-event (E2a)** — **zero Lean presence**; Python-census only.
+  Formalizing it is a *from-scratch finite-OML build* (new object), NOT a
+  missing-fact-on-existing-object — not Row-1-cheap.
+
+**The one genuine remaining non-creative gap = OE (outsider-extremality).**
+Non-vacuous (concrete `L(P(k),P(l))`, `k,l≤4`; not routed through the opaque
+`IsConcrete`/`IsSigmaComplete` predicates of `SigmaEssentialOpenCore.lean`),
+proved-not-open. BUT: its honest Lean deliverable is the **formalized
+hand-lemma** (block floors/ceilings over five named blocks, flexible-fibre
+sections as Boolean expressions in the input coefficients, arbitrary-base
+bound domination — `oml_arbitrary_two_atom_inflation.md` §2). It must NOT be
+`native_decide`d over the 744,810-pair exhaustion — that injects
+`Lean.ofReduceBool` and destroys the clean-receipt property that is the whole
+point. So OE is a **multi-hour / standalone formalization unit**, not a cheap
+gap-fill. **Flagged as the scoped next Lean unit; not started this session.**
+
+**Correctly excluded as irreducible-creative (per the task):** C11 puncture-meet
+in its *valuable* universal form (quantifies over the opaque
+`IsConcrete`/`IsSigmaComplete` axioms ⇒ any Lean statement of it is vacuous —
+the `EncodingDefectCheck` burn; the non-vacuous form needs the hub *constructed*
+at `UlamWitnessOmega1` scale with the countable-meet crux on the infinitary
+line); C12 σ-state extension (infinitary); clause (ii) / σ-point-selection (the
+file itself flags this open); the grand Φ.
+
+**Net:** one row filled cleanly (the cheapest real gap); the remaining
+non-creative gap (OE) is scoped and deferred as too large for this pass; the
+rest are correctly the creative problems the task excluded.

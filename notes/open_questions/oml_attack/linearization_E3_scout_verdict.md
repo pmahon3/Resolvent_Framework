@@ -46,9 +46,30 @@ before E4 treats them as facts.
   **NOT** fire.
 - **(b) Linearization:** Bunce–Wright Mackey–Gleason (Bull. AMS 26
   (1992) 288–293 = arXiv:math/9204228; JLMS 46 (1992) 269–279; JLMS 49
-  (1994) 133–149 vector case; 2025 JBW* follow-up arXiv:2509.03213) is
-  strictly a von-Neumann/JBW* projection-lattice result. **No
-  concrete/set-representable-OML analogue in print.** The one
+  (1994) 133–149 vector case) is strictly a von-Neumann projection-lattice
+  result. **No concrete/set-representable-OML analogue in print.**
+  **⭑ EPV 2025 (arXiv:2509.03213, Escolano–Peralta–Villena, 3 Sep 2025)
+  — the JBW\* vector-measure MGBW solution.** Primary-source VERIFIED
+  this session (abstract): *"if 𝔍 contains no type I₂ direct summand,
+  every bounded finitely additive measure μ: 𝒫(𝔍) → X admits an
+  extension to a bounded linear operator from 𝔍 to X."* This is a
+  positive tameness-forcing theorem — the closest published relative of
+  Stage 3's failure branch (a structural Φ-forcing theorem), but INSIDE
+  JBW\* algebras only. **UNVERIFIED (abstract silent; needs the full-PDF
+  E4 read):** (i) the claimed I₂ non-extension DUAL (every type I₂
+  JBW\* algebra carries a non-extending positive fa measure); (ii) the
+  Prop-3.5 uniform-continuity-via-halving/isoclinic-geometry proof
+  engine. These two feed the parked candidate constraint W-P
+  (`PERSPECTIVITY_WALL_CANDIDATE_2026-07-19.md`) and must be checked
+  before it hardens. **Load-bearing gap EPV does NOT close:** it is a
+  JBW\*-algebra theorem; our concrete Ulam-type carriers are NOT
+  projection lattices of any JBW\* algebra (no Jordan U-operators), so
+  EPV neither forces tameness on nor forbids anything on them. The
+  scout's RESIDUAL charter therefore shifts: not "does an MGBW analogue
+  exist" (answered for JBW\*) but **"does the halving / uniform-continuity
+  mechanism have a purely lattice-theoretic (Jordan-free) formulation
+  reaching concrete OMLs that are not projection lattices of any JBW\*
+  algebra"** — genuinely open per this paper. The one
   circle-crossing paper is Bunce–Navara–Pták–Wright, *Quantum logics
   with Jauch–Piron states*, Quart. J. Math. Oxford 36 (1985) 261–271
   (already the attack note's "critical citation gap" BNPW 1985).
@@ -60,8 +81,10 @@ before E4 treats them as facts.
   comparison: **no direct published statement** connecting
   Gleason/Mackey–Gleason to pointwise σ-approximability of f.a. states
   on L(H); nearest neighborhood = noncommutative Yosida–Hewitt
-  decomposition literature. The comparison stays ⟦HAND⟧, now with a
-  verified empty-neighborhood check.
+  decomposition literature. The comparison can be upgraded to a real
+  citation (EPV 2025 for the positive/tameness side) ONLY after E4
+  verifies the I₂ dual + Prop 3.5 against the full PDF; until then it
+  stays ⟦HAND⟧ with the positive EPV direction verified.
 
 ## Access gaps (E4 must resolve or discount)
 

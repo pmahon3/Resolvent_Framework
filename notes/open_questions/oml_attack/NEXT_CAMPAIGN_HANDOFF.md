@@ -140,11 +140,38 @@
    `verification/pentagon_state_layer_calibration.*`,
    `verification/psi_witness_fip_locator.*`; all seed §3 predictions
    confirmed; Ψ-witness locator DIRECT, stage 3), E3 scout run banked
-   (`linearization_E3_scout_verdict.md`). **First action of the next
-   session: E4 — Opus-high audit-style candidate screen per seed §5
-   against the E3 verdict note; kill conditions seed §6; only then
-   Stage 0 (`SIGMA_LAYER_TARGET.md`), which gains the linearization
-   clause and the second-inclusion localization from the E-thread.**
+   (`linearization_E3_scout_verdict.md`). **Mid-session user input
+   (2026-07-19): the EPV 2025 JBW\* MGBW paper (arXiv:2509.03213) is the
+   closest published relative of Stage 3's failure branch; positive
+   direction verified against the abstract this session (no-I₂ ⇒
+   extension). A parked candidate constraint W-P
+   (`PERSPECTIVITY_WALL_CANDIDATE_2026-07-19.md`) reads the EPV engine as
+   perspectivity-transport poverty and conjectures its σ-scale (lim¹)
+   form — DOWNGRADED to CANDIDATE, not a wall: EPV is a JBW\*-algebra
+   theorem and our carriers are not JBW\* projection lattices, and two of
+   W-P's load-bearing claims (the I₂ non-extension dual, the Prop-3.5
+   uniform-continuity engine) are UNVERIFIED (not in the abstract).**
+
+   **First action of the next session: E4 — Opus-high, audit-style,
+   fresh context.** In order:
+   1. **Verify EPV primary source (full PDF, not abstract):** confirm or
+      refute (i) the type-I₂ non-extension dual, (ii) Prop 3.5 =
+      uniform continuity via projection-halving/isoclinic geometry.
+      Only if confirmed may the ⟦HAND⟧ BW/Φ-tameness comparison be
+      upgraded to a real citation and W-P proceed toward promotion.
+   2. **Candidate screen** per seed §5 against the E3 verdict note; kill
+      conditions seed §6. The one live lead is De Simone–Navara–Pták,
+      Math. Nachr. 2015 (claimed σ-complete non-extendable construction;
+      PAYWALLED — verify primary source; lattice status UNKNOWN).
+   3. **Stage-0 gate for W-P (before any `SIGMA_LAYER_TARGET.md`
+      hardening):** resolve the necessary-vs-sufficient check —
+      *does perspectivity between two blocks capture the ENTIRE nerve
+      bonding constraint, or only part?* (W-P §5). §5 gates whether the
+      W-P §6 finite calibration (perspectivity on pentagon + Ψ-witness)
+      measures the right thing.
+   **Only after 1–3: Stage 0 (`SIGMA_LAYER_TARGET.md`)** — do NOT create
+   it before E4's verdict (session DO-NOT). It gains the linearization
+   clause, the second-inclusion localization, and (if promoted) W-P.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

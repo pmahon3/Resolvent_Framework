@@ -949,9 +949,21 @@ the σ-layer: the screen localizes the third engine's remaining reach
 to the SECOND inclusion (σ-states catching non-extendable f.a.
 states) exactly when the candidate screen (E4) turns up no lattice
 σ-complete non-extendable carrier. E3 hostile extension-literature
-scout dispatched (one run; verdict note banked beside the receipts);
-E4 = audit-style candidate screen, next session. Stage 0
-(`SIGMA_LAYER_TARGET.md`) waits for E4's verdict and absorbs E5.
+scout banked (`linearization_E3_scout_verdict.md`). **EPV 2025
+(arXiv:2509.03213) surfaced as mid-session user input** — the JBW\*
+vector-measure MGBW solution, positive direction verified against the
+abstract (no-I₂ ⇒ bounded fa measures on projections extend to bounded
+linear operators): the closest published relative of Stage 3's Φ-forcing
+failure branch, but INSIDE JBW\* algebras, which our concrete Ulam-type
+carriers are NOT (no Jordan U-operators). A parked candidate constraint
+W-P (`PERSPECTIVITY_WALL_CANDIDATE_2026-07-19.md`) reads the EPV engine
+as perspectivity-transport poverty and conjectures a σ-scale lim¹ form —
+CANDIDATE, not a wall; two load-bearing claims (I₂ non-extension dual,
+Prop-3.5 uniform-continuity engine) UNVERIFIED, pending E4's full-PDF
+read. E4 (next session, Opus-high) = verify EPV primary source →
+candidate screen (seed §5, lead = DNP Math. Nachr. 2015) → resolve W-P's
+necessary-vs-sufficient gate. Stage 0 (`SIGMA_LAYER_TARGET.md`) waits for
+E4's verdict and absorbs E5; it must NOT be created before then.
 
 ## Primary sources
 

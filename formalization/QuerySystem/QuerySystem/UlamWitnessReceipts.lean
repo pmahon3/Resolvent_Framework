@@ -36,5 +36,10 @@ namespace SigmaEssential
 -- the witness block's only disjoint pairs are complement pairs.
 #print axioms Amended.coherent_pattern_fully_additive
 #print axioms Ulam.coreBlock_disjoint_eq_compl
+-- E-thread (E4): the witness's value-1 core family fails FIP at stage exactly 3.
+-- This direction is choice-free at its own content (finite Fin-4 fiber arithmetic);
+-- Classical.choice appears only via the ambient corePattern/kernel machinery, never
+-- from an ultrafilter extension (the BPI leg of the E1 lemma is NOT formalized here).
+#print axioms Ulam.fip_fails_at_stage_three
 
 end SigmaEssential

@@ -472,4 +472,60 @@ theorem witness_iff_coherent (huncount : ¬ (Set.univ : Set M).Countable)
     rintro ⟨s, hs⟩
     exact no_sigma_state_extends huncount hseg m₀ s hs
 
+/-! ## §7. The value-1 family fails FIP at stage *exactly* 3 (E-thread, E4)
+
+The linearization/extension-screen E-thread's corpus-level necessary condition
+(`notes/open_questions/oml_attack/linearization_E4_verdict.md`) is: a
+σ-essential witness state is *non-extendable*, and — sharply — its value-1
+family fails the finite intersection property at a finite stage `≥ 3`.
+
+Here that condition is certified *on the actual product-Ulam witness*. The
+witness state's value-1 core family is exactly `{coreA, coreB, coreC}` (the
+pattern is `1` on each — `corePattern_val_core{A,B,C}`). We show it fails FIP at
+stage **exactly** 3: the triple intersection is empty (`cores_inter_empty`,
+already proved and consumed by `kernel_empty`), while all three *pairwise*
+intersections are nonempty — so no 2-subfamily witnesses the failure, and 3 is
+minimal.
+
+The whole content is finite fiber (`Fin 4`) set arithmetic, discharged by
+`decide` on the second coordinate. **This uses no choice principle** — the
+BPI/ultrafilter dependency lives only in the converse direction (FIP ⟹
+extendable) of the E1 lemma, which is *not* formalized here. The
+`#print axioms` receipts below are the certificate of that: `Classical.choice`
+appears only via the ambient `corePattern`/`kernelL` machinery, never from an
+ultrafilter extension.
+
+*Scope (honest).* This certifies **clause (i)** of the witness (no *Dirac*
+extends, via empty kernel) with its sharp FIP-stage structure. It does **not**
+re-derive that a two-valued state realizing this pattern *exists* — that is
+`corePattern` + the coherence side (`psiAmended_ZFC` upstream), imported, not
+re-proved here. Clause (ii) (σ-point-selection / no non-Dirac extension) is the
+separate, open-mathematics part and is untouched. -/
+
+omit [LinearOrder M] in
+/-- The `A,B` fiber overlap `{0,1} ∩ {0,2} = {0}` is nonempty: `(m₀,0) ∈ A ∩ B`. -/
+theorem coreAB_nonempty (m₀ : M) : (coreA M ∩ coreB M).Nonempty :=
+  ⟨(m₀, 0), by simp [coreA, coreB]⟩
+
+omit [LinearOrder M] in
+/-- The `A,C` fiber overlap `{0,1} ∩ {1,2} = {1}` is nonempty: `(m₀,1) ∈ A ∩ C`. -/
+theorem coreAC_nonempty (m₀ : M) : (coreA M ∩ coreC M).Nonempty :=
+  ⟨(m₀, 1), by simp [coreA, coreC]⟩
+
+omit [LinearOrder M] in
+/-- The `B,C` fiber overlap `{0,2} ∩ {1,2} = {2}` is nonempty: `(m₀,2) ∈ B ∩ C`. -/
+theorem coreBC_nonempty (m₀ : M) : (coreB M ∩ coreC M).Nonempty :=
+  ⟨(m₀, 2), by simp [coreB, coreC]⟩
+
+omit [LinearOrder M] in
+/-- **The value-1 family fails FIP at stage exactly 3.** Packaged: the three
+pairwise intersections are nonempty (so no 2-subfamily fails — stage 3 is
+minimal) yet the triple intersection is empty (the family has *no* common
+point — FIP fails). This is the sharp E4 necessary condition, on the witness. -/
+theorem fip_fails_at_stage_three (m₀ : M) :
+    (coreA M ∩ coreB M).Nonempty ∧ (coreA M ∩ coreC M).Nonempty ∧
+      (coreB M ∩ coreC M).Nonempty ∧
+      coreA M ∩ coreB M ∩ coreC M = (∅ : Set (M × Fin 4)) :=
+  ⟨coreAB_nonempty m₀, coreAC_nonempty m₀, coreBC_nonempty m₀, cores_inter_empty⟩
+
 end SigmaEssential.Ulam

@@ -181,7 +181,21 @@
       clears. **The ladder note carries the ramen-fold crux** (witness
       exists iff latticehood's meets/joins can all be forced while none
       closes the perspectivity loop = the B2 crux with proof-shape) and
-      an EPV-dual discrepancy flag (see below).
+      an EPV-dual discrepancy flag (see below). **Rung 2 is concretized**
+      as the twist-count experiment
+      (`W_P_TWIST_COUNT_EXPERIMENT_2026-07-19.md`): dial = twist count,
+      invariant = winding group (REPORT it, don't assume Z/2), race =
+      where the forced meet/join lands. **Verified test-object constraint
+      (not conditional): the pentagon (finite ⇒ always closes) and the
+      Ψ-witness (NOT a lattice, `sigma_essential_witness.md` Cor 4.4 —
+      no forced meet) are calibration/boundary-demonstration ONLY; the
+      survival-witness outcome is unreachable on them. The real rung-2
+      deliverable is a not-yet-built non-degenerate concrete σ-complete
+      LATTICE with genuine countable structure — do NOT run the two named
+      objects expecting a green light that provably cannot appear.** New
+      named open sub-question **Q-⊥**: is the twist-parity obstruction the
+      SAME as the orthocomplement-compatibility obstruction, or two
+      independent ones? — reportable on the pentagon.
    **⚠ EPV-dual discrepancy (preserve, do not smooth over):** the chat
    handoff asserts the I₂ non-extension dual is "stated flatly, VERIFIED";
    the repo's own WebFetch of the abstract found ONLY the positive

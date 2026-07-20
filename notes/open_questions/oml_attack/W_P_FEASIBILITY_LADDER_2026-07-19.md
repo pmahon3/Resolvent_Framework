@@ -83,6 +83,23 @@ building the RIGHT miniature** (small enough to compute, rich enough to
 show the fight, not degenerate-tame). Treat "what is the right miniature"
 as the real question, not an assumed-easy step.
 
+**Rung 2 concretized** = the twist-count experiment
+(`W_P_TWIST_COUNT_EXPERIMENT_2026-07-19.md`): the dial is the twist count
+(each twist = one forced perspectivity bridge = a tight-pack, not a
+weld), the invariant is the winding/orientation group (REPORT it, do not
+assume ℤ/2), and the race is watched by tracking where the
+latticehood-forced `∧`/`∨` of two tight-packed arcs lands (ON the closing
+bridge = gap filled = witness dead; OFF = strand never closes). **Hard
+constraint verified this session: neither the pentagon (finite ⇒ always
+closes) nor the Ψ-witness (NOT a lattice — `sigma_essential_witness.md`
+Cor 4.4, no forced meet) can produce the survival-witness outcome; they
+are calibration + boundary-demonstration only. The real rung-2
+deliverable is the missing non-degenerate concrete σ-complete LATTICE
+with genuine countable structure.** The experiment also raises a new
+named open sub-question **Q-⊥**: are the twist-parity obstruction and the
+orthocomplement-compatibility obstruction the SAME invariant (orthomodularity
+identifies them) or TWO independent ones? — reportable on the pentagon.
+
 ## Rung 3 — Measure knot (PARK with trigger)
 
 Even a perfect never-closing topology may carry no σ-additive state

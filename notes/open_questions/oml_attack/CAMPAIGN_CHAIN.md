@@ -140,6 +140,8 @@
 | full Boolean section grammar | Hand reduction | joint context congruence exact; finite minimization/coverage open |
 | exact universal-output congruence compression | Hand theorem + executable pilot | refuted: congruence is equality; canonical algebras have 9 atoms/512 elements |
 | bounded coordinate-control escape ledger | Executable verified + hostile review | 12 complete rows; no greatest old lower, least old upper exists; actual successor unevaluated |
+| a sigma-essential witness state is non-extendable (its value-1 family fails FIP at a finite stage >= 3) | Hand proved (E1 proof-read) + executable calibration (E2a/E2b) | proved; BPI-exact; fires on the pentagon reduced-rep state and directly on the product-Ulam witness (stage exactly 3) |
+| perspectivity equals the ODBC nerve bond (W-P identification) | executable rung-1 verified, representation-invariant | refuted: perspectivity is non-selective on finite Greechie OMLs (pentagon 15/15 same-block + 30/30 different-block); a relation relating every atom cannot proxy a structured value-1 bond |
 
 ## Counterexample ledger
 
@@ -301,6 +303,28 @@
   containing the independent 230-event root and firing neither Gate A nor
   Gate B. The PJH defect and `0x70/0x80` meet-residue pattern persist. Hence
   fixed-carrier T-FIN is refuted. The finite OML is `Phi`-tame.
+- E4 candidate screen (linearization/extension E-thread, unit 2): no
+  confirmed sigma-complete LATTICE non-extendable-state carrier exists in
+  print. Every located lattice non-extendable example is FINITE (DNP 2005
+  MO4; the 32-element Ex 2.6 of arXiv:2401.13651), hence sigma-tame. The one
+  live lead, De Simone-Navara-Ptak Math. Nachr. 288 (2015) 1995-2000, stays
+  PRIMARY-SOURCE UNVERIFIED (Wiley paywall; no preprint); whether its claimed
+  sigma-complete construction is a lattice is exactly the unknown. Flagged
+  ILL / user-bound with a promote-on-lattice-confirmation trigger.
+- Frontier localization (not a theorem): with the first inclusion's
+  FIP-via-perspectivity route closed (perspectivity=bond refuted, ledger
+  above), the remaining reach of the third engine is localized to the SECOND
+  inclusion -- sigma-states catching non-extendable finitely additive states,
+  the coarse factor already flagged as hard by Campaigns 11/13. This
+  localizes the open problem; it does not prove Phi.
+- The EPV 2025 type-I2 non-extension wall (arXiv:2509.03213, PDF-verified)
+  constrains the witness LOCUS to the I2-rich/symmetry-poor corner but is
+  mechanistically DISTINCT from the sigma-stage obstruction: its dual is
+  Kadison-elementary (spin factor S3(C), 1/3 != 1/2), not a lim-1/gap
+  phenomenon, and it is JBW*-only whereas the concrete Ulam-type carriers are
+  not JBW* projection lattices. It neither forces nor forbids anything on
+  them. W-P remains a heuristic direction, not a gate; not installed as a
+  constraint.
 
 ## Next automatic pivot
 
@@ -399,3 +423,16 @@ now exists, so conditional re-basing is active.
 refuted by the full-grid survivor; do not resume the impossibility track or
 finite repair depth. Use its failure architecture as the input to overlapping
 rectangles and uncountable assembly.
+
+E-thread unit 2 (E4) is banked (2026-07-20); the grammar-engine roadmap is
+unchanged. The next unit E5 creates the Stage-0 pull-document
+`SIGMA_LAYER_TARGET.md`, absorbing (a) the non-extendability necessary
+condition (theorem-ledger row above), (b) the second-inclusion localization
+(assumption bullets above; this is E4's banked payoff), and (c) the W-P
+direction as a HEURISTIC ONLY -- do not write W-P in as a constraint, since a
+later session must not reject a witness for "perspectivity poverty." Then the
+batched grammar engine over `MEM/N/O/PENV` plus forced-top descent proceeds as
+already specified. Do NOT re-open the perspectivity/twist route: rung 1 killed
+the mechanism (ledger row above). Full E4 detail lives in
+`CURRENT_STATE.md` (E-thread unit 2) and `linearization_E4_verdict.md`; this
+pivot note is the chain-level pointer only.

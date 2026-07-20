@@ -1,7 +1,9 @@
 # Arbitrary-base inflation at two orthogonal atoms
 
-*Campaign 9, 2026-07-14. Exact construction and reductions; arbitrary-base
-latticehood remains open.*
+*Campaign 9, 2026-07-14. Exact construction and reductions. Arbitrary-base
+latticehood and sigma-completeness are PROVED (OE lemma, §1–§2, executable
+kernel over all 16 `L(P(k),P(l))`, `k,l<=4`); the state-classification /
+order-separation gates and the §6 further constructions remain open.*
 
 ## 1. Exact event family
 

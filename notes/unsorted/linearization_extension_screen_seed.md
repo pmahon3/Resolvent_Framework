@@ -17,8 +17,18 @@ payload 5153bcac, two-seed replay). E2b CLEARED — DIRECT locator, no
 1100/1010/0110) fails FIP at stage exactly 3 (receipt
 `notes/open_questions/verification/psi_witness_fip_locator.{py,json}`,
 payload 4678f610); the necessary condition fires on the one known
-σ-essential state. E3 scout dispatched this unit (verdict note banked
-alongside); E4 verdict = next session per §7.
+σ-essential state. E3 scout dispatched (verdict
+`oml_attack/linearization_E3_scout_verdict.md`). **E4 (unit 2,
+2026-07-19/20) DONE — verdict = ABSORB-with-localization**
+(`oml_attack/linearization_E4_verdict.md`): candidate screen found NO
+confirmed σ-complete LATTICE non-extendable carrier (all lattice examples
+in print are finite ⇒ σ-tame; the one live lead DNP 2015 Math. Nachr. is
+paywalled/UNVERIFIED, flagged ILL/user-bound). Localization banked: engine
+must act at the SECOND inclusion. EPV PDF verified (both W-P claims
+confirmed, mechanism Kadison-elementary ⇒ mismatches W-P shape); W-P rung 1
+= perspectivity non-selective ⇒ identification fails ⇒ W-P does not promote
+(heuristic only). NEXT = E5 (absorption into Stage-0
+`SIGMA_LAYER_TARGET.md`, not yet created).
 
 **Claimed type(s):** INSTRUMENTAL — inherits from Theorem 2 (OML-lattice
 σ-essential form). **Bar:** leverage on the parent — a new necessary

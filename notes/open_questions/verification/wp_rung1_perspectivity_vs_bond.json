@@ -1,0 +1,47 @@
+{
+ "charter": "W-P ladder rung 1 (= W-P \u00a75): is perspectivity the whole ODBC bond, or only part / not a faithful proxy at all? Defs pinned to oml_distributed_boundary_compactness.md sec 2-3 + relational_boundary_descent.md sec 3-4.",
+ "correspondence": {
+  "bond": "one global fa state \u03bc charges a proper event of BOTH blocks (state-agreement / measure-type). Computed via the 11 E2a block-consistent states.",
+  "perspective": "E~E' iff common complement c: E\u2228c=E'\u2228c=1, E\u2227c=E'\u2227c=0 (lattice-geometric; distinct elements). Computed on the abstract lattice = representation-invariant.",
+  "relevant_projections": "the two blocks' charged events (DISTINCT cross-block); shared/identical events excluded (self-perspective)."
+ },
+ "note": "rung 1 has NO predicted answer; verdict is DATA. Pentagon result: perspectivity NON-SELECTIVE (universal among atoms, rep-invariant) -> cannot faithfully proxy a structured value-1 bond -> W-P does not promote. No finite object rescues this (Greechie homogeneity); a selective carrier is exactly the not-yet-built rung-2 infinite lattice. The co-charging \"bond\" here is a PROXY, not the ODBC boundary-agreement \u03c1; the 10 separating pairs are ILLUSTRATION (rank-blindness), not a second refutation direction. Independent second signal: EPV I\u2082 dual is Kadison-elementary (EPV receipt), mismatching W-P's lim\u00b9/gap shape.",
+ "payload": {
+  "bond": {
+   "n_bond_cocharged_distinct_crossblock_pairs": 165,
+   "n_of_those_perspective": 155,
+   "n_separating_bonded_not_perspective": 10
+  },
+  "finding": "PERSPECTIVITY IS NON-SELECTIVE: universal among atoms (same-block AND different-block, representation-invariant). A relation that relates everything cannot faithfully proxy any structured value-1 bond. The identification perspectivity=bond FAILS; W-P requires a perspectivity-POOR carrier, which finite homogeneous (Greechie) OMLs structurally are not.",
+  "n_states": 11,
+  "object": "pentagon (E2a build; 22 events, 11 states)",
+  "perspectivity": {
+   "atom_atom_diff_block": [
+    30,
+    30
+   ],
+   "atom_atom_same_block": [
+    15,
+    15
+   ],
+   "proper_distinct_block_pairs_perspective": [
+    110,
+    120
+   ],
+   "universal_among_atoms": true
+  },
+  "proxy_illustration_NOT_verdict": {
+   "all_atom_coatom_rank_mismatch": true,
+   "n_proxy_bonded_not_perspective": 10,
+   "note": "bond here = co-charging PROXY, NOT the ODBC boundary-agreement \u03c1 of Thm 4.2; used only to illustrate the type contrast",
+   "reading": "state-agreement is rank-BLIND, perspectivity is rank-SENSITIVE; near-tautological shadow of atom-universality (must involve a coatom)"
+  },
+  "rung1_verdict": "IDENTIFICATION_FAILS_via_nonselectivity__W_P_DOES_NOT_PROMOTE"
+ },
+ "payload_sha256": "fa19b0c16f1a8e282ff69a1f1f2063829eac5db8042c93ba244154dfba38300a",
+ "replay_seed_hashes": {
+  "20260720": "fa19b0c16f1a8e282ff69a1f1f2063829eac5db8042c93ba244154dfba38300a",
+  "8675309": "fa19b0c16f1a8e282ff69a1f1f2063829eac5db8042c93ba244154dfba38300a"
+ },
+ "script": "wp_rung1_perspectivity_vs_bond.py"
+}

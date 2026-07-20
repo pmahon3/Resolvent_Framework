@@ -205,6 +205,30 @@
    it before E4's verdict (session DO-NOT). It gains the linearization
    clause, the second-inclusion localization, and (if rung 1 + PDF check
    clear) W-P.
+
+   **✅ E4 DONE (unit 2, 2026-07-19/20; verdict
+   `oml_attack/linearization_E4_verdict.md`). First action of the NEXT
+   session = E5** (Fable max, the spec session): create Stage-0
+   `SIGMA_LAYER_TARGET.md` absorbing the E-thread output —
+   (a) the linearization necessary condition (σ-essential witness is
+   non-extendable, value-1 FIP fails at finite stage ≥3);
+   (b) the second-inclusion localization (**engine must act at inclusion 2**:
+   σ-states catching non-extendable f.a. states = the coarse factor) — this
+   is E4's banked payoff, the candidate screen found NO confirmed σ-complete
+   LATTICE non-extendable carrier;
+   (c) the W-P *direction* as a HEURISTIC ONLY (NOT a target clause): W-P
+   does not promote — rung 1 showed perspectivity is non-selective on finite
+   Greechie OMLs (identification perspectivity=bond fails), and EPV's I₂
+   dual is Kadison-elementary (mismatches W-P's lim¹/gap shape). Do NOT
+   write W-P in as a constraint; a later session must not reject a witness
+   for "perspectivity poverty."
+   Then (roadmap unchanged) the batched grammar engine build over
+   MEM/N/O/PENV. Relaxed-gate queue gains: **DNP 2015 ILL** (Math. Nachr.
+   288 (2015) 1995–2000; verify primary source — if it is a σ-complete
+   LATTICE with a non-extendable state, re-audit → promote-to-seed).
+   Receipts this unit: `EPV_2025_PRIMARY_SOURCE_RECEIPT_2026-07-19.md`,
+   `linearization_E4_verdict.md`, `verification/
+   wp_rung1_perspectivity_vs_bond.{py,json}`.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

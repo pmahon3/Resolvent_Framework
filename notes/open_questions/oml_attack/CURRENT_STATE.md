@@ -974,6 +974,60 @@ EPV primary source → candidate screen (seed §5, lead = DNP Math. Nachr.
 2015) → ladder rung 1. Stage 0 (`SIGMA_LAYER_TARGET.md`) waits for E4's
 verdict and absorbs E5; it must NOT be created before then.
 
+## E-thread unit 2 (2026-07-19/20): E4 verdict = ABSORB-with-localization
+
+Full verdict `oml_attack/linearization_E4_verdict.md`. Two SEPARATE
+deliverables.
+
+**SEED VERDICT: ABSORB-with-localization.** Candidate screen (seed §5) tabled
+every literature non-extendable state. The lattice non-extendable examples in
+print are all FINITE (DNP 2005 MO₄; SDS-paper arXiv:2401.13651 Ex 2.6 =
+32-elt lattice) ⇒ σ-tame, not witnesses. The one live lead **DNP 2015
+(Math. Nachr. 288, 1995–2000)** — claimed σ-complete non-extendable — stays
+**PRIMARY-SOURCE UNVERIFIED** (Wiley paywall 402; no preprint). Lattice status
+= the whole unknown, NOT settled. Circumstantial pattern (difference-closed
+systems are generically OMPs not lattices — arXiv:2401.13651 lines 64-65;
+σ-complete constructions rest on σ-classes) supports but does not PROVE it is
+an OMP. Per hostile-prior-art discipline: UNVERIFIED ≠ confirmed candidate ⇒
+**absorb**, DNP 2015 flagged **ILL/user-bound live lead** (trigger: σ-complete
+lattice w/ non-extendable state ⇒ re-audit → promote). Localization banked:
+**the third engine must act at the SECOND inclusion** (σ-states catching
+non-extendable f.a. states — the coarse factor). Seed §6 kills: (a) no-fire
+(screen unpublished — E3), (b) no-fire (E1/E2 cleared), (c) partial — absorb
+with the live lead, thread does not fully close.
+
+**W-P STATUS: does NOT promote** (heuristic only; SEPARATE from seed). Two
+independent signals. (1) **EPV PDF VERIFIED** (receipt
+`EPV_2025_PRIMARY_SOURCE_RECEIPT_2026-07-19.md`): both load-bearing claims
+CONFIRMED from full text — I₂ non-extension dual REAL+sharp (intro + §6
+closing pp.62-63; **EPV-dual discrepancy flag CLEARED** — it was in the body
+not the abstract, chat right / repo abstract-fetch blind), Prop 3.5 (p.18) =
+uniform continuity via halving + isoclinic + symmetry-exchange. ⚠ BUT the
+dual's mechanism is KADISON-ELEMENTARY (spin factor S₃(C), µ=½ on rank-1
+projections, 1/3≠1/2) — mismatches W-P's lim¹/Hausdorff-gap witness SHAPE;
+only the I₂-corner LOCATION matches (heuristic). EPV stays JBW\*-only (our
+carriers not JBW\* proj lattices). ⟦HAND⟧ tags discharged; EPV cannot promote
+W-P. (2) **Rung 1** (receipt `verification/wp_rung1_perspectivity_vs_bond.py/
+.json`, payload fa19b0c1, two-seed replay): perspectivity is NON-SELECTIVE on
+the pentagon — universal among atoms (same-block 15/15 AND diff-block 30/30,
+representation-invariant). A relation that relates everything cannot proxy any
+structured value-1 bond ⇒ the W-P §3 identification perspectivity = ODBC bond
+ρ **FAILS**; they are different-typed (dimensional-equivalence rank-sensitive
+vs state-agreement rank-blind). No finite object rescues this (Greechie
+homogeneity ⇒ perspectivity-universal); a selective carrier = the not-yet-
+built rung-2 infinite lattice. Stage-0 note W-P owes = name the remainder at
+the TYPE level (above). W-P downgraded to *direction*, not gate; NOT installed
+into `SIGMA_LAYER_TARGET.md`. Rung 2/3 not started (need the infinite object;
+object-hunting = scope creep). *(Scope: the oracle's "bond" is a co-charging
+PROXY, not exact ρ; verdict rests on perspectivity non-selectivity alone; the
+10 atom↔coatom separating pairs are ILLUSTRATION of rank-blindness, not a
+theorem about ρ.)*
+
+**Stage 0 (`SIGMA_LAYER_TARGET.md`): still uncreated** (DO-NOT satisfied). E5
+is next: it absorbs the linearization necessary condition, the second-
+inclusion localization, and the W-P direction (as heuristic, not a target
+clause).
+
 ## Primary sources
 
 - `notes/programme/frontier_map.md`

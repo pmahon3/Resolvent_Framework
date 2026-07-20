@@ -65,13 +65,15 @@ else opaque; **no `sorryAx`** (it is an honest cited axiom, not a hidden
 
 `PsiOML : Prop` — does a σ-essential witness exist on a carrier that IS a
 lattice (`MeetsExist`)? A named `Prop`, NEVER assumed. `psiOML_gives_sigmaEssential`
-proves `PsiOML` drops its latticehood conjunct to a bare σ-essential witness —
-so `PsiOML` is STRICTLY STRONGER than the proved Ψ: it adds exactly the lattice
-requirement `L₁` provably fails. **This is the pinned boundary:** the proved
-witness inhabits the OMP existence sentence but, being non-lattice, contributes
-nothing to `PsiOML`. Paper §9 conjectures `PsiOML` is FALSE (every concrete
-σ-complete OML satisfies Φ) — so the OMP/OML line is conjectured to be exactly
-the boundary of σ-essential contextuality.
+proves `PsiOML → Ψ` (a trivial conjunct-drop); the converse `Ψ → PsiOML` is
+FALSE-or-open and is NOT claimed. **The pin is not that implication.** It is the
+pair: `Ψ` (`psiAmended_ZFC`) is a THEOREM (the OMP witness exists in ZFC), while
+`PsiOML` is OPEN, and the proved witness `L₁` provably FAILS the extra
+latticehood conjunct (`witness_carrier_not_lattice`). So the proved witness
+inhabits the OMP existence sentence but, being non-lattice, contributes nothing
+to `PsiOML`: the OMP/OML line is exactly where "proved" turns into "open." Paper
+§9 conjectures `PsiOML` is FALSE (every concrete σ-complete OML satisfies Φ) —
+so that line is conjectured to be the boundary of σ-essential contextuality.
 
 ## What this pins, in one line
 

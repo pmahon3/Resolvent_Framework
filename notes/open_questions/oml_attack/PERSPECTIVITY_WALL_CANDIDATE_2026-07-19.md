@@ -132,7 +132,12 @@ is load-bearing and unverified:
   becomes a newly named object one notch above perspectivity — that
   naming becomes the Stage-0 deliverable.
 
-§5 gates whether §6 measures the right thing.
+§5 gates whether §6 measures the right thing. **§5 = rung 1 of the
+feasibility ladder** (`W_P_FEASIBILITY_LADDER_2026-07-19.md`), which
+supplies the test order (rung 1 identification → rung 2 miniature
+collision → rung 3 measure knot) and the ramen-fold crux locating the
+hard core (witness exists iff latticehood's meets/joins can all be forced
+while none closes the perspectivity loop). Run the ladder, not §6 alone.
 
 ## 6. Finite calibration (cheap, self-falsifying) — after §5
 

@@ -163,15 +163,34 @@
       conditions seed §6. The one live lead is De Simone–Navara–Pták,
       Math. Nachr. 2015 (claimed σ-complete non-extendable construction;
       PAYWALLED — verify primary source; lattice status UNKNOWN).
-   3. **Stage-0 gate for W-P (before any `SIGMA_LAYER_TARGET.md`
-      hardening):** resolve the necessary-vs-sufficient check —
-      *does perspectivity between two blocks capture the ENTIRE nerve
-      bonding constraint, or only part?* (W-P §5). §5 gates whether the
-      W-P §6 finite calibration (perspectivity on pentagon + Ψ-witness)
-      measures the right thing.
+   3. **Rung 1 of the W-P feasibility ladder
+      (`W_P_FEASIBILITY_LADDER_2026-07-19.md`) — the CHEAP gate, an
+      afternoon by hand; do before any `SIGMA_LAYER_TARGET.md`
+      hardening.** Resolve the identification test = W-P §5:
+      *can two blocks share a compatible state-value (agree under some
+      section in `X_p(·)`) WITHOUT their relevant projections being
+      perspective?* NO ⇒ perspectivity = whole bond, W-P §2–§3 is the
+      witness spec, proceed to rung 2. YES ⇒ perspectivity = only part,
+      W-P is at most a necessary heuristic and the twist rides the
+      REMAINDER of the bond (naming it becomes the Stage-0 deliverable).
+      Rung 1 gates whether the §6 finite calibration (perspectivity on
+      pentagon + Ψ-witness) even measures the right thing. Rung 2 (the
+      miniature gap-vs-closure collision — a positive Φ theorem if every
+      forced closure fills the gap, a finite survival witness if not) and
+      rung 3 (measure knot, parked) run ONLY if their predecessor
+      clears. **The ladder note carries the ramen-fold crux** (witness
+      exists iff latticehood's meets/joins can all be forced while none
+      closes the perspectivity loop = the B2 crux with proof-shape) and
+      an EPV-dual discrepancy flag (see below).
+   **⚠ EPV-dual discrepancy (preserve, do not smooth over):** the chat
+   handoff asserts the I₂ non-extension dual is "stated flatly, VERIFIED";
+   the repo's own WebFetch of the abstract found ONLY the positive
+   direction — the I₂ dual was NOT in the abstract. Treat it as UNVERIFIED
+   until E4's full-PDF read (step 1) settles it.
    **Only after 1–3: Stage 0 (`SIGMA_LAYER_TARGET.md`)** — do NOT create
    it before E4's verdict (session DO-NOT). It gains the linearization
-   clause, the second-inclusion localization, and (if promoted) W-P.
+   clause, the second-inclusion localization, and (if rung 1 + PDF check
+   clear) W-P.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

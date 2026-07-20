@@ -960,10 +960,19 @@ W-P (`PERSPECTIVITY_WALL_CANDIDATE_2026-07-19.md`) reads the EPV engine
 as perspectivity-transport poverty and conjectures a σ-scale lim¹ form —
 CANDIDATE, not a wall; two load-bearing claims (I₂ non-extension dual,
 Prop-3.5 uniform-continuity engine) UNVERIFIED, pending E4's full-PDF
-read. E4 (next session, Opus-high) = verify EPV primary source →
-candidate screen (seed §5, lead = DNP Math. Nachr. 2015) → resolve W-P's
-necessary-vs-sufficient gate. Stage 0 (`SIGMA_LAYER_TARGET.md`) waits for
-E4's verdict and absorbs E5; it must NOT be created before then.
+read. A feasibility ladder (`W_P_FEASIBILITY_LADDER_2026-07-19.md`) fixes
+the test order: rung 1 (cheap, by-hand — perspectivity = whole nerve
+bond, or only part? = W-P §5) gates rung 2 (miniature gap-vs-closure
+collision: a positive Φ theorem if forced closures always fill the gap, a
+finite survival witness otherwise) gates rung 3 (measure knot, parked).
+The ladder carries the ramen-fold crux (witness exists iff latticehood's
+meets/joins can all be forced while none closes the perspectivity loop)
+and an EPV-dual discrepancy flag (chat claimed the I₂ non-extension dual
+VERIFIED; the repo's abstract fetch found ONLY the positive direction —
+UNVERIFIED pending E4's PDF read). E4 (next session, Opus-high) = verify
+EPV primary source → candidate screen (seed §5, lead = DNP Math. Nachr.
+2015) → ladder rung 1. Stage 0 (`SIGMA_LAYER_TARGET.md`) waits for E4's
+verdict and absorbs E5; it must NOT be created before then.
 
 ## Primary sources
 

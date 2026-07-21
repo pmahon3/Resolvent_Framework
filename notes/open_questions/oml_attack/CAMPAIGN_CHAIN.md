@@ -533,3 +533,67 @@ run (no clause named, per A2).
 - **W2 inherits** a settled shape for (a) and a conditional one for (b): the
   typing run should split the CH/¬CH cases for (b), or first settle the §3.2
   reading question.
+
+**W2 EXECUTED AND BANKED FOR ESCAPE (a) (2026-07-21).** Workstream W2 of
+`SIGMA_LAYER_TARGET.md` §3, coefficient layer only. Verdict note:
+`W2_COEFFICIENT_NORMALIZATION_2026-07-21.md`. Hostile pass included (§6).
+**The T0/T1/T2 trichotomy re-run is PARKED by user decision** — redundant with
+the parked seed's §6 (audit-certified accurate, and the audit itself called the
+result hollow: T0 restates CSS∧¬GS). Grammar engine not run (no clause named,
+per A2). Escape (b)'s fibres NOT computed — open remainder.
+
+- **σ-fibres for (a) are SINGLETON-OR-EMPTY in ZFC:** `{δ_x}` for `x ≠ i`, `∅`
+  at the puncture `x = i`. **Evidence class: hand proved, choice-free.**
+- **NO COEFFICIENT STRUCTURE AT ALL** — not ℤ/2, not any group, and not even an
+  inhomogeneous set to test for homogeneity. Binary regularity fails because
+  the fibres are **too small** (card 1 or 0), not too large as the parked seed
+  had it. The section system is **set-valued with inclusion bonding**; the
+  obstruction is **lim⁰ death** (every stage nonempty, limit `⋂_J(H∖J) = ∅`).
+- **Key lemma, stronger than the hub's own §3:** no measurable cardinal is
+  `≤ 2^{ω₁}` — a ZFC theorem outright, NOT conditional on "no measurable
+  exists," since a measurable is inaccessible hence a strong limit and can
+  never sit at or below `2^{ω₁}`. This kills EVERY nonprincipal σ-ultrafilter
+  on `G_i` at once; hub §3's Ulam argument kills only the σ-extension of
+  `eval_i`. The two agree; this subsumes it.
+- **⚠ PARKED SEED §5 TEST 1 REFUTED (fibre census), not sharpened.** Two errors:
+  (i) wrong algebra — `A` is the countable-support PRODUCT σ-algebra, not one
+  "of countable/co-countable type" (a cylinder has both size and co-size
+  `2^{ω₁}`); (ii) **category slip** — its "one non-principal state and a proper
+  class of Diracs" imports an **fa-layer** object (hub §3's BPI extension at the
+  puncture, where the σ-fibre is EMPTY) into a **σ-layer** census. Hub §2 proves
+  every σ-state of `A` is a point evaluation, so there is no non-principal state
+  anywhere in the σ layer. **Test 1's CONCLUSIONS stand** (binary regularity
+  fails, lim¹ identification inapplicable, T0); only its stated reason was
+  wrong. The ledger row "omega-one cylinder common hub → T0" is UNAFFECTED.
+- **The originally proposed homogeneity test was corrected before running.** On
+  the correct object it returns a **vacuous yes** (a singleton IS trivially a
+  torsor, under the trivial group) and would have suggested T1-like structure
+  where there is none. Reusable failure mode: never test homogeneity before
+  testing cardinality.
+- **σ/fa side by side — clause (b)'s second inclusion, locally.** σ-fibre:
+  singleton (`x≠i`) / empty (puncture). fa-fibre: **large in both cases**, all
+  members non-principal at the puncture. σ layer RIGID (choice-free), fa layer
+  FLOPPY (BPI-fed). The obstruction sits exactly in the σ/fa gap: **fa survives
+  where σ dies.** This ties W2's output to the banked frontier, not the parked
+  frame.
+- **CONVERSIONS (A1, both pre-registered before computing; the "trivial" branch
+  fired).** (1) **Named design constraint: `coefficient-free σ-fibres (escape
+  (a))`** — any limⁿ route to (a) must first MANUFACTURE coefficients the
+  natural fibres do not supply. (2) (a)'s residue is **algebraic around spent
+  set theory** — the set-theoretic content is discharged by the measurable
+  bound; fibre-level counterpart of W1's degenerate-reduction reading.
+  (3) The isolation's live set-theoretic half **narrows toward (b)**, pending
+  (b)'s §3.2 scope call — stated as a narrowing of where to look, NOT a theorem
+  about (b). (4) The non-trivial branch did not fire, so no set-valued/
+  inhomogeneous limit-theory scout is needed.
+- **NOT claimed:** that limⁿ is or is not the obstruction for (a) (that would
+  promote the derived-limit identification to a premise, Stage-0 §2 forbids);
+  anything about (b)'s fibres. **Open (H1):** robustness under an
+  admissible-OML `B_i` — "no coefficients" is robust to shrinking the block
+  (fewer sets cannot create non-principal σ-states), but the exact
+  singleton/empty pattern would need re-derivation.
+- **PROCESS RULE (user-directed, general):** **parked-seed numerics are
+  quotable only after re-derivation, exactly like external citations.** Second
+  occurrence (first: the index-category conflation corrected in W1). A parked
+  seed's *certified* claims stay citable; its ⟦HAND⟧/un-computed censuses do
+  not — both offenders were self-labelled as un-computed in their own sources.

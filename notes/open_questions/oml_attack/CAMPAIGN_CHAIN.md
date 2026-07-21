@@ -478,26 +478,41 @@ note: `W1_INDEX_CATEGORY_VERDICT_2026-07-21.md`. Hostile pass included (§6), as
 the gate doc §6 requires. W1 only — no W2, no C-a opened, grammar engine not
 run (no clause named, per A2).
 
-- **Escape (a) = ω₁-tower-like, ZFC-robust.** The section system factors
-  through `[ω₁]^{≤ω}` (coordinate-reduction theorem: events are countably
-  supported, σ-states are point evaluations, and the non-extension is Ulam at
-  ω₁ — so the `2^{ω₁}` point-breadth is redundant); and
-  `cof([ω₁]^{≤ω}) = ℵ₁` with a cofinal chain of order type ω₁. **Evidence
-  class: hand proved**, with an explicit scope condition (H1: proved to
-  *factor through*, not that point-index breadth can never be load-bearing).
-  Note `[ω₁]^{≤ω}`-like and ω₁-tower-like COINCIDE here — the gate doc's
-  trichotomy is not a partition at its first two entries.
+- **Escape (a) = `[2^{ω₁}]^{≤ω}`, cof ≥ 2^{ω₁} — cardinal-arithmetic-sensitive.**
+  The atlas is `(B_i)_{i∈H}`, one block per point of `H = 2^{ω₁}`, so a stage
+  is a countable set of BLOCKS and the index poset is `[H]^{≤ω}`. Never an
+  ω₁-tower (`2^{ω₁} ≥ ℵ₂` always); value not ZFC-fixed (Easton). **Evidence
+  class: hand proved.**
 - **Escape (b) = `[𝔠]^{≤ω}`, CH-SENSITIVE.** `cof([κ]^{≤ω}) ≥ κ`, so (b) is
-  cofinally an ω₁-tower iff CH, and strictly wider under ¬CH. Which reading is
-  operative is **OPEN**: the note says "ℵ₁ suffices abstractly" (→ coincides
-  with (a)) while the concrete realization uses Cantor `I = C`. **Evidence
-  class: hand proved (the cofinality); open (the reading).**
+  cofinally an ω₁-tower iff CH, strictly wider under ¬CH. Which reading is
+  operative is **OPEN**: the note says "ℵ₁ suffices abstractly" while the
+  concrete realization uses Cantor `I = C`. **Evidence class: hand proved (the
+  cofinality); open (the reading).**
+- **⚠ RETRACTED WITHIN THE SAME NOTE, before leaving the branch: the claim that
+  (a) reduces to `[ω₁]^{≤ω}` with cofinality ℵ₁ and is "ZFC-robust."** FALSE;
+  three refutations in verdict §2.2. (i) A countable coordinate set leaves
+  `2^{ω₁}` points undetermined, so coordinates cannot index the stages;
+  (ii) cofinality is a cofinal-equivalence invariant and `ℵ₁ ≠ ≥2^{ω₁}`, so no
+  such factorization exists; (iii) hub §4 blocks a global section by ranging
+  over EVERY `x ∈ H`, so point-breadth is load-bearing. **The tell (reusable):
+  the first version indexed (b) by blocks but (a) by coordinates — two rules,
+  one geometry. Rule: the index is whatever the atlas has one block per; check
+  it against a second architecture before trusting it.** `cof([ω₁]^{≤ω}) = ℵ₁`
+  remains true about the *coordinate* poset, which is not the index poset.
 - **Neither is ω^ω-like** in the eventual-domination/scale sense.
-- **Finding: (a) and (b) coincide under CH, diverge under ¬CH.** (a)'s residue
-  is ZFC-robust; (b)'s is axiom-sensitive unless the abstract ℵ₁ reading holds.
-- **C-a/C-b ordering: NO reordering.** §4 permits promoting C-b if W1 makes it
-  cheaper; W1 makes it *not* cheaper — (a) is the ZFC-robust target, (b) the
-  axiom-sensitive one, so C-a remains first. (One line, as §4 asks.)
+- **Finding: same KIND of poset (`[κ]^{≤ω}` over the BLOCK set), different
+  cardinals.** (a) is **never** an ω₁-tower (`cof ≥ ℵ₂` in ZFC); (b) is one
+  **exactly under CH**. So they differ under CH, and both are uncountably
+  cofinal in every model. **For (a), NONE of the gate doc's three named shapes
+  fits, in every model** — an outcome the W1 prompt explicitly licenses. The
+  shape verdicts are ZFC theorems; the cofinality *values* are not ZFC-fixed.
+- **C-a/C-b ordering: NO reordering — but the earlier basis is WITHDRAWN.** W1
+  shows the two are the same shape, so it supplies **no index-structure reason
+  to prefer either**. C-a stays first on its pre-existing A1 grounds, NOT on a
+  robustness advantage (that argument is retracted with §2.2).
+- **Named tameness mechanism RULED OUT (A1 conversion discipline):
+  coordinate-support reduction.** For (a) a countably-cofinal reduction is
+  provably impossible, not merely unavailable.
 - **The index-category fence is CONFIRMED, not contradicted.** `cof = ℵ₁ > ℵ₀`
   proves escape (a) is not countably cofinal, which is exactly the fence's
   operational trigger. ⚠ A refutation of the fence was attempted mid-session

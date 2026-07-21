@@ -4,13 +4,21 @@
 Scope: W1 only — no W2, no C-a, no grammar-engine run (A2 names no clause
 here). Hostile pass in §6, as §6 of the gate doc requires.*
 
-**Headline.** The two escape architectures have index posets of **different
-shape, and the difference is exactly a CH-sensitivity**: escape (a) is
-ZFC-robustly an ω₁-tower; escape (b) is `[𝔠]^{≤ω}`, which coincides with (a)
-under CH and is strictly wider under ¬CH. Neither is ω^ω-like in the
-eventual-domination sense. **The index-category fence
-(`oml_odbc_sigma_nerve_absorption.md` §1) is CONFIRMED, not contradicted** —
-see §5, which records a refutation attempt that failed and why.
+**Headline.** Both index posets are of the **same kind** — countable sets of
+*blocks*, `[κ]^{≤ω}` — but at **different cardinals**: escape (a) is
+`[2^{ω₁}]^{≤ω}` (cof `≥ 2^{ω₁} ≥ ℵ₂`, **never** an ω₁-tower, ZFC); escape (b)
+is `[𝔠]^{≤ω}` (cof `≥ 𝔠`, an ω₁-tower **iff CH**). So they **differ under CH**
+— (b) is a tower there, (a) is not — and both are uncountably cofinal in every
+model. Neither is ω^ω-like. The tempting reduction of (a) to `[ω₁]^{≤ω}` (its
+*coordinate* poset, cofinality ℵ₁) is **false as a cofinality claim** — §2.2.
+**The index-category fence (`oml_odbc_sigma_nerve_absorption.md` §1) is
+CONFIRMED**, a fortiori — see §5, which also records a refutation attempt that
+failed and why.
+
+⚠ **This note's first version claimed the opposite for (a)** ("factors through
+`[ω₁]^{≤ω}`, cofinality ℵ₁, ZFC-robust"). That claim was **WRONG and is
+retracted in §2.2** before ever leaving the branch. The error and its tell are
+recorded rather than quietly fixed, because the tell is reusable.
 
 ---
 
@@ -35,60 +43,68 @@ Object: `oml_omega1_cylinder_hub.md` §2–§4. `I = ω₁`, `H = 2^I`, `A` = th
 countable-support product σ-algebra, `B_i = P(H \ {i})` for `i ∈ H`, atlas
 `(B_i)_{i∈H}`.
 
-### 2.1 The coordinate-reduction theorem (the load-bearing step)
+### 2.1 The index poset is the block poset
 
-**Naive reading (rejected).** The atlas is indexed by points `i ∈ H`, so the
-section-system poset is `[H]^{≤ω} = [2^{ω₁}]^{≤ω}` — of cardinality `2^{ω₁}`,
-none of the three named shapes.
+The atlas is `(B_i)_{i∈H}` — one block per **point** `i ∈ H`. §4 of the hub
+note gives compatible σ-sections over every **countable** subfamily and none
+globally. A stage of the section system is therefore a countable set of
+*blocks*, i.e. a countable `J ⊆ H`.
 
-**Theorem (a).** The section system factors through `[ω₁]^{≤ω}`; that is,
-`[ω₁]^{≤ω}` is cofinal for the obstruction, and the point-breadth `2^{ω₁}` is
-redundant. ⟦HAND⟧
+**Theorem (a).** The section-system index poset for escape (a) is
+`[H]^{≤ω} = [2^{ω₁}]^{≤ω}`, with `cof ≥ 2^{ω₁}`. ⟦HAND⟧
 
-*Proof.* Three facts from the hub note, combined.
+*Proof.* Index set is `H` by the previous paragraph; apply Theorem (b) of §3.1
+at `κ = |H| = 2^{ω₁}`. ∎
 
-1. **Every event is countably supported** (§2): each `E ∈ A` depends on only
-   countably many of the ω₁ coordinates. So the σ-algebra `A` — the thing all
-   the `B_i` share, and hence the thing a compatible section is a section
-   *of* — is already organized by countable *coordinate* sets, not by points.
-2. **Every σ-state of `A` is evaluation at a point** (§2), and a point is
-   pinned by its ω₁ coordinates. A countable stage of the section system sees
-   a countable set of coordinates and can only constrain the evaluation point
-   through those.
-3. **The non-extension is Ulam on ω₁** (§3): the obstruction to extending
-   evaluation at `i` is the `D_α` partition indexed by `α < ω₁`, refuted by
-   Ulam's ZFC theorem that ω₁ carries no nonprincipal countably complete
-   ultrafilter. The failure is therefore *located at the coordinate ordinal*,
-   not at the point index.
-
-Hence the obstruction datum is a function of the countable coordinate set, and
-countable coordinate sets are cofinally ordered by `[ω₁]^{≤ω}`. ∎
-
-This is the step to attack; it is attacked in §6.
-
-### 2.2 Cofinality
-
-**Theorem (a′).** `cof([ω₁]^{≤ω}) = ℵ₁`, and the cofinal family may be taken
-to be a **chain of order type ω₁**. ⟦HAND, standard ZFC⟧
-
-*Proof.* ω₁ is regular, so every countable `J ⊆ ω₁` is bounded:
-`J ⊆ [0,β)` for `β = sup(J)+1 < ω₁`. The initial segments `{[0,β) : β < ω₁}`
-are countable sets (for `β ≥ ω`), are increasing under `⊆`, have order type
-ω₁, and are cofinal by the previous sentence. ∎
-
-**Verdict (a): ω₁-tower-like, ZFC-robust.** Cofinality ℵ₁ outright — no
-cardinal arithmetic hypothesis is used.
-
-**Worth stating: two of the three named shapes coincide here.** `[ω₁]^{≤ω}` *is*
-cofinally an ω₁-tower. The trichotomy of the gate doc ("`[ω₁]^{≤ω}`-like,
-ω₁-tower-like, or ω^ω-like") is not a partition at its first two entries; a
-session need not choose between them for (a). Reporting the coincidence is the
-honest answer rather than forcing one label.
+**Verdict (a): cardinal-arithmetic-sensitive; NOT an ω₁-tower.** `2^{ω₁}` is
+not decided by ZFC (Easton), so the cofinality of (a)'s index poset is not a
+ZFC-fixed value. It is `≥ 2^{ω₁} ≥ ℵ₂` always, so the poset is **never** a
+chain of type ω₁ and never countably cofinal.
 
 **Not ω^ω-like.** ω^ω-likeness in the relevant sense means an
-eventual-domination/scale structure with cofinality 𝔡. The (a) obstruction is
-not a domination scale — it is Ulam measurability at ω₁, which is a ZFC
-theorem with no dependence on cardinal characteristics.
+eventual-domination/scale structure with cofinality 𝔡. (a)'s obstruction is
+not a domination scale — it is Ulam measurability at ω₁.
+
+### 2.2 RETRACTED: the coordinate-reduction "theorem"
+
+This note's first version claimed the section system **factors through**
+`[ω₁]^{≤ω}` — that events are countably supported, σ-states are point
+evaluations, the non-extension is Ulam at ω₁, so the `2^{ω₁}` point-breadth is
+"redundant" — yielding cofinality ℵ₁ and a ZFC-robust ω₁-tower. **That claim
+is false. It is retracted.** Three independent refutations:
+
+1. **A countable coordinate set pins no point.** Fix countable `S ⊆ ω₁`. The
+   points of `H` agreeing on `S` number `2^{|ω₁∖S|} = 2^{ω₁}`. So the step
+   "a countable stage constrains the evaluation point through its coordinates"
+   fails outright: it constrains it not at all, down to `2^{ω₁}` candidates.
+2. **Cofinality is an invariant.** A factorization through `[ω₁]^{≤ω}` would
+   require it to be cofinal in `[2^{ω₁}]^{≤ω}`. Cofinally equivalent posets
+   have equal cofinality, and `ℵ₁ ≠ cof([2^{ω₁}]^{≤ω}) ≥ 2^{ω₁} ≥ ℵ₂`. No
+   limit-preserving reduction exists.
+3. **Point-breadth is load-bearing, by the hub's own §4.** There is no global
+   section "because every common `A` σ-trace is evaluation at some `x`, which
+   does not extend σ-additively to `B_x`" — the failure must block **every**
+   `x ∈ H`, so all `2^{ω₁}` blocks participate. Breadth is what makes the
+   atlas CSS∧¬GS; it is not redundant.
+
+**The tell, recorded because it is reusable.** The first version applied *two
+different rules* to the two architectures: for (b) it indexed by the block/point
+set (`C`), for (a) by the *coordinate* set (ω₁) rather than the block set
+(`H = 2^{ω₁}`). Same geometry, opposite choice. The asymmetry is what made the
+false "they differ, and (a) is the robust one" headline look natural — in (b)
+the coordinates are ℕ (visibly not the index), in (a) they are ω₁ (uncountable,
+hence temptingly index-shaped). **Rule to carry forward: the section-system
+index is whatever the atlas has one block per — check it against a second
+architecture before trusting it.**
+
+**What survives the retraction.** `cof([ω₁]^{≤ω}) = ℵ₁`, with a cofinal chain
+of order type ω₁, remains **true and hand-proved** — as a fact about the
+*coordinate* poset, which is not the index poset. (ω₁ regular ⟹ every countable
+`J ⊆ ω₁` is bounded by `sup(J)+1`; the initial segments `[0,β)` are countable,
+increasing, cofinal.) It is the poset the fence's derived-limit machinery
+*would* engage **if** the obstruction factored through coordinates — and by (1)
+above it does not. **Any such factorization is a TARGET, not established**
+(Stage-0 §2), and refutation (2) makes it false at the cofinality level.
 
 ---
 
@@ -133,28 +149,44 @@ decreasing clopen basis `(U_n)` of §3. There is no domination scale.
 
 ## 4. The finding, stated plainly
 
-**The two architectures differ, and the difference is a set-theoretic
-sensitivity rather than a difference of kind.**
+**Both index posets are `[κ]^{≤ω}` over the BLOCK set — the same kind of poset
+at different cardinals. (a) is never an ω₁-tower; (b) is one exactly under CH.
+So they differ under CH and are both uncountably cofinal always.**
 
 | | escape (a) | escape (b) |
 |---|---|---|
-| index set | ω₁ (after coordinate reduction, §2.1) | 𝔠 concrete / ω₁ abstract (§3.2) |
-| poset | `[ω₁]^{≤ω}` | `[𝔠]^{≤ω}` / `[ω₁]^{≤ω}` |
-| cofinality | **ℵ₁, ZFC** | **≥ 𝔠 — ℵ₁ iff CH** |
-| cofinally a chain? | yes, ω₁-tower | iff CH |
+| block set | `H = 2^{ω₁}` | `C = 𝔠` concrete / ω₁ abstract (§3.2) |
+| index poset | `[2^{ω₁}]^{≤ω}` | `[𝔠]^{≤ω}` / `[ω₁]^{≤ω}` |
+| cofinality | **≥ 2^{ω₁}** (≥ℵ₂ always; value not ZFC-fixed) | **≥ 𝔠** — ℵ₁ iff CH |
+| cofinally a chain? | **never** | iff CH |
+| ω₁-tower-like? | no | iff CH |
 | ω^ω-like? | no | no |
 | grade | hand proved | hand proved, CH-sensitive |
 
-They **coincide under CH** and **diverge under ¬CH**. Per the gate doc's
-§3 warning, this is the substantive content of the "which set theory does the
-residue belong to" question: **(a)'s residue is ZFC-robust; (b)'s residue is
-axiom-sensitive unless the abstract ℵ₁ reading is the operative one.**
+**Answer to "which set theory does the residue belong to."**
+
+- **Escape (a): none of the three named shapes, in every model of ZFC.** It is
+  `[2^{ω₁}]^{≤ω}`, uncountably cofinal with `cof ≥ ℵ₂`, so it is never an
+  ω₁-tower; and it is not a domination scale. The gate doc's menu
+  (`[ω₁]^{≤ω}`-like / ω₁-tower-like / ω^ω-like) simply does not contain the
+  answer. Per the W1 prompt, "none of the three shapes" is a legitimate finding
+  and is banked as such rather than forced into a label.
+- **Escape (b): ω₁-tower-like exactly under CH**, and none of the three
+  otherwise (still not a domination scale). Additionally conditional on §3.2's
+  unresolved reading.
+
+So the residue is **not** ZFC-robustly located in the tower world for either
+architecture, and for (a) it is ZFC-robustly *outside* it. The *shape* verdicts
+just given are themselves ZFC theorems; what is not ZFC-fixed is the *value* of
+the cofinality (`2^{ω₁}`, `𝔠`).
 
 ⚠ **Anti-confirmation-bias note.** The W1 prompt says "if they differ, that is
-itself the finding," which biases toward manufacturing a difference. The
-difference reported here is *not* manufactured: it is a cardinal-arithmetic
-fact about `[𝔠]^{≤ω}` vs `[ω₁]^{≤ω}`, and under CH the claimed difference
-**vanishes**. "They coincide under CH" is reported with equal weight.
+itself the finding," which biases toward manufacturing a difference. The first
+version of this note **did** manufacture one — see §2.2 — by indexing (a) by
+coordinates and (b) by blocks. The corrected difference is real but *smaller
+and differently located* than the retracted one: same **kind** of poset
+(`[κ]^{≤ω}` over blocks), different cardinals, with the only clean qualitative
+split being that (b) becomes an ω₁-tower under CH and (a) never does.
 
 ---
 
@@ -167,12 +199,17 @@ limit, so the correct object is limⁿ, not lim¹.
 
 ### 5.1 What this session's computation does to the fence: CONFIRMS it
 
-Theorem (a′) gives `cof = ℵ₁ > ℵ₀`. So escape (a) is **not countably cofinal**,
-and the fence's operational clause — the ML/closure shortcut is unavailable,
-a CODBC proof must exhibit countably cofinal reduction or use general-index
-derived-limit technology — **applies exactly**, and applies for a now-proved
-reason rather than an assumed one. This is the fence's entire operational
-content, and W1 confirms it.
+Theorem (a) gives `cof ≥ 2^{ω₁} > ℵ₀` and Theorem (b) gives `cof ≥ 𝔠 > ℵ₀`. So
+**neither** escape is countably cofinal, and the fence's operational clause —
+the ML/closure shortcut is unavailable, a CODBC proof must exhibit countably
+cofinal reduction or use general-index derived-limit technology — **applies to
+both**, for a now-proved reason rather than an assumed one. This is the fence's
+entire operational content, and W1 confirms it.
+
+The retraction of §2.2 **strengthens** this rather than weakening it: the
+confirmation now rests on `2^{ω₁} > ℵ₀` and `𝔠 > ℵ₀`, which are ZFC facts
+requiring no cardinal-arithmetic hypothesis at all, instead of on the (false)
+ℵ₁ computation. The fence stands a fortiori.
 
 ### 5.2 A refutation was attempted and it failed — recorded so it is not retried
 
@@ -180,8 +217,14 @@ Mid-session this note's author derived an apparent contradiction with the
 fence and came close to banking a retraction of an audit-certified claim. It
 was wrong. Recorded in full, because the error is attractive:
 
-**The bad argument.** `[ω₁]^{≤ω}` is cofinally an ω₁-*chain* (Theorem a′);
-derived limits are invariant under cofinal subposets; over a chain with
+*(Note: this is a **different** error from the one retracted in §2.2. That one
+was about which poset indexes escape (a); this one is about what derived-limit
+theorems say over `[ω₁]^{≤ω}`. Both were caught before banking. This subsection
+is about `[ω₁]^{≤ω}` as an abstract poset and does **not** depend on (a)'s
+index poset being `[ω₁]^{≤ω}` — which §2.2 shows it is not.)*
+
+**The bad argument.** `[ω₁]^{≤ω}` is cofinally an ω₁-*chain* (§2.2's surviving
+fact); derived limits are invariant under cofinal subposets; over a chain with
 surjective bonding, lim¹ = 0 by Mittag-Leffler; Goblot at cofinality ℵ₁ kills
 limⁿ for n ≥ 2 (n>k+1=2, plus n=k+1=2 when surjective). So surjective bonding
 kills *every* derived limit over `[ω₁]^{≤ω}`, contradicting the fence.
@@ -233,48 +276,62 @@ functor carries the obstruction. ⟦Flagged for W2 or a fence-clarification pass
 
 ## 6. Hostile pass (required by gate doc §6 before banking)
 
-**H1 — "Theorem (a) is a definitional dodge; you chose the index set that gave
-you the answer you wanted."** The strongest objection. Answer: the choice is
-forced by *where the obstruction lives*, not by convenience. §3 of the hub note
-derives the non-extension from the `D_α` partition indexed by `α < ω₁` and
-Ulam's theorem on ω₁; no step of that argument mentions a point of `H` except
-as the thing being separated. A section system whose failure is certified at
-ω₁ cannot have its obstruction carried by `[2^{ω₁}]^{≤ω}` in any way that
-matters. **Residual risk: REAL but bounded.** What is proved is that the
-obstruction *factors through* `[ω₁]^{≤ω}`; what is *not* proved is that no
-finer information is carried by the point index. If a later construction makes
-the point-index breadth load-bearing (e.g. by distinguishing atlas members
-beyond their coordinate support), Theorem (a) must be re-derived. Stated as a
-scope condition, not hidden.
+**H1 — "Is the index really the block set, or could it be the coordinate
+set?"** This is the question the first version got wrong, so it gets the
+sharpest answer. The index is the block set because *that is what the atlas is
+a family over*: `(B_i)_{i∈H}`, one block per point, and §4's sections are over
+countable subfamilies of it. The coordinate set enters the hub note only in
+describing the *internal structure* of the shared algebra `A`, never as an
+index for the section system. Decisive check: a countable coordinate set leaves
+`2^{ω₁}` points undetermined (§2.2(1)), so coordinates cannot even in principle
+index the stages of a system whose sections are point evaluations. **Residual
+risk: LOW.** The remaining way to be wrong is if a future re-posing makes the
+atlas a family over something other than `H` — in which case the index changes
+with it, and this theorem is re-derived, not patched.
 
-**H2 — "cof([𝔠]^{≤ω}) ≥ 𝔠 is trivial."** Granted, and labelled as such — it is
-one line. Its *content* is not the inequality but the CH-sensitivity it exposes
-in (b), which is what makes the (a)/(b) comparison a real finding.
+**H2 — "cof([κ]^{≤ω}) ≥ κ is trivial."** Granted, and labelled as such — it is
+one line. But it is now doing *all* the work for both architectures, which is
+the honest state of affairs: W1's answer is a one-line cardinality argument
+applied twice, and the difficulty was never in the computation but in
+identifying the right index set (H1). Reporting an easy answer as easy is
+preferable to dressing it up.
 
-**H3 — "The (a)/(b) difference is an artifact of reading (b) concretely."**
-Partly conceded — §3.2 records exactly this and marks the reading question
-**open** rather than picking the one that produces a difference. Under the
-abstract ℵ₁ reading the architectures coincide. This is why §4 reports the
-coincidence with equal weight.
+**H3 — "The (a)/(b) comparison is an artifact of reading (b) concretely."**
+Conceded and marked **open** in §3.2. Note the corrected finding is far less
+sensitive to this than the first version was: under *either* (b) reading, both
+architectures are non-countably-cofinal and cardinal-arithmetic-governed. The
+reading question changes *which cardinal*, not the shape verdict.
 
 **H4 — "This is near-tautological, like the §2 restatement the fence warns
-about."** Distinguish. The fence's §2 warns that "CODBC failure manifests at
-uncountable cofinality" is a restatement of CSS∧¬GS. That is not what is
-claimed here. Theorem (a′) computes cofinality *exactly* (ℵ₁, with a chain
-witness), and Theorem (a) identifies *which set* it is the cofinality of —
-neither follows from CSS∧¬GS, which gives only "uncountable."
+about."** Partly **conceded**, more than the first version admitted. The fence's
+§2 warns that "CODBC failure manifests at uncountable cofinality" restates
+CSS∧¬GS. The corrected §4 verdict — both posets uncountably cofinal, governed
+by cardinal arithmetic — is *closer* to that restatement than the retracted
+ℵ₁-tower claim was. What is genuinely more than restatement: the identification
+of the exact cardinals (`2^{ω₁}`, `𝔠`), the proof that the coordinate reduction
+is **false** (§2.2, a real negative result that removes a route), and the
+consequent finding that **none of the three named shapes** applies. The
+"uncountable cofinality" part alone would indeed be near-tautological.
 
 **H5 — "You confirmed a fence you had just tried to refute; is the
-confirmation motivated reasoning in reverse?"** The confirmation rests on
-`cof = ℵ₁ > ℵ₀` (Theorem a′) alone, which was proved before the refutation was
-attempted and is independent of it. The failed refutation is recorded in full
-in §5.2 precisely so a reader can check that the retraction was dropped for a
-stated mathematical reason — a contradiction with a published theorem — and
-not by deference.
+confirmation motivated reasoning in reverse?"** The confirmation rests only on
+`2^{ω₁} > ℵ₀` and `𝔠 > ℵ₀` — ZFC facts independent of the refutation attempt
+and of the retracted claim. The failed refutation is recorded in full in §5.2
+so a reader can check the retraction was dropped for a stated mathematical
+reason (contradiction with a published theorem), not by deference.
+
+**H6 — "The note retracts its own headline mid-file; is anything left
+trustworthy?"** Fair to ask. What is load-bearing and *unaffected* by the
+retraction: §5.2's Goblot/Mardešić–Prasolov analysis (independent of the index
+computation, and the session's most substantive content), the verbatim
+primary-source receipts (§7), and Theorem (b). What changed is the (a)
+computation and everything downstream of it, all corrected in place with the
+error left visible. The retraction was caught *before* the branch left the
+machine, by applying the note's own (b) rule back to (a).
 
 **Not asserted anywhere in this note:** that lim¹ or limⁿ *is* the obstruction
 for either architecture; that (b)'s concrete reading is the operative one; that
-Theorem (a) survives a construction making point-breadth load-bearing.
+any coordinate-level reduction of (a) exists (§2.2 refutes it).
 
 ---
 
@@ -282,12 +339,15 @@ Theorem (a) survives a construction making point-breadth load-bearing.
 
 | Result | Grade |
 |---|---|
-| Theorem (a) — coordinate reduction to `[ω₁]^{≤ω}` | **hand proved** ⟦HAND⟧, scope condition in H1 |
-| Theorem (a′) — `cof([ω₁]^{≤ω}) = ℵ₁`, chain witness | **hand proved**, standard ZFC |
-| Theorem (b) — `cof([κ]^{≤ω}) ≥ κ` | **hand proved**, one line |
-| (b) CH-sensitivity | **hand proved** (from Theorem (b) + `𝔠=ℵ₁ ⟺ CH`) |
+| Theorem (b) — `cof([κ]^{≤ω}) ≥ κ` for uncountable κ | **hand proved**, one line |
+| Theorem (a) — (a)'s index poset is `[2^{ω₁}]^{≤ω}`, `cof ≥ 2^{ω₁}` | **hand proved** ⟦HAND⟧ (index identification + Thm (b)) |
+| (a) cardinal-arithmetic-sensitive, never an ω₁-tower | **hand proved** (`2^{ω₁} ≥ ℵ₂`, value Easton-free) |
+| (b) `[𝔠]^{≤ω}`, CH-sensitivity | **hand proved** (Thm (b) + `𝔠=ℵ₁ ⟺ CH`) |
+| Neither is ω^ω-like; none of the three named shapes fits (a) | **hand proved** |
+| ~~coordinate reduction of (a) to `[ω₁]^{≤ω}`, cof ℵ₁~~ | **RETRACTED — FALSE** (§2.2, three refutations) |
+| `cof([ω₁]^{≤ω}) = ℵ₁` with ω₁-chain witness | **hand proved**, standard ZFC — but about the *coordinate* poset, which is **not** the index poset |
 | Which (b) reading is operative | **open** (§3.2) |
-| Fence confirmed operationally | **hand proved** (from a′: not countably cofinal) |
+| Fence confirmed operationally | **hand proved** (both cofinalities `> ℵ₀`, a fortiori) |
 | §5.3 limⁿ-vs-lim¹ phrasing | **open clarification**, not adjudicated |
 | lim¹/limⁿ identification for these architectures | **TARGET, not established** (Stage-0 §2) |
 
@@ -313,12 +373,23 @@ independently of this session's derivation.
 
 ## 8. What this hands to the next step
 
-- **W2** inherits a settled index shape for (a) (ω₁-tower, ZFC) and a
-  *conditional* one for (b). W2's typing run should be read separately in the
-  CH and ¬CH cases for (b), or should first settle §3.2's reading question.
-- **C-a vs C-b ordering.** No reordering is recommended. The gate doc §4 permits
-  promoting C-b if W1 makes it cheaper; W1 makes it **not cheaper** — (b)'s
-  index structure is the axiom-sensitive one, and (a)'s is ZFC-robust, so (a)
-  remains the target whose closure is unconditional. One line, as §4 asks.
+- **W2** inherits the *same* index shape for both architectures (countable sets
+  of blocks, uncountably cofinal, cardinal-arithmetic-governed) — so the typing
+  run need not branch on architecture at the index level. For (b) it should
+  still split CH/¬CH, or first settle §3.2's reading question.
+- **C-a vs C-b ordering: NO reordering, but the earlier basis is withdrawn.**
+  The gate doc §4 permits promoting C-b if W1 makes it cheaper. W1 does not:
+  the corrected computation shows the two are *the same shape*, so W1 supplies
+  **no index-structure reason to prefer either**. C-a therefore stays first on
+  its pre-existing grounds (it is the main push under A1), not on any
+  robustness advantage — the first version's "(a) is ZFC-robust, so prefer it"
+  argument is **retracted along with §2.2**. One line, as §4 asks.
 - **A fence-clarification pass** (§5.3) is the one new small item: confirm that
   "limⁿ not lim¹" means the general technology, not literally lim² over ω₁.
+- **A new constraint for the witness/proof side**, per the A1 conversion
+  discipline: any closure-based or ML-style globalization argument aimed at
+  either escape must confront an index poset of cofinality `≥ 𝔠` (b) or
+  `≥ 2^{ω₁}` (a). Countably-cofinal reduction is not merely unavailable — for
+  (a) it is *provably impossible* (§2.2(2)), since no poset of cofinality ℵ₁
+  can be cofinal in one of cofinality `≥ 2^{ω₁}`. **Named tameness mechanism
+  ruled out: coordinate-support reduction.**

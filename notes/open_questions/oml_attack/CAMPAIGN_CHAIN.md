@@ -437,3 +437,10 @@ already specified. Do NOT re-open the perspectivity/twist route: rung 1 killed
 the mechanism (ledger row above). Full E4 detail lives in
 `CURRENT_STATE.md` (E-thread unit 2) and `linearization_E4_verdict.md`; this
 pivot note is the chain-level pointer only.
+
+Separate thread (2026-07-20, not part of the grammar-engine roadmap above):
+PsiOML routes (a) then (b) — the pen-and-paper attack on the OML/lattice
+question itself, distinct from this ledger's generated-event/relation-grammar
+work. Full literature groundwork (5 papers read, no direct hit, route (a)
+sharpened, route (b) scaffolded) and handoff in
+`PSIOML_ROUTES_HANDOFF_2026-07-20.md`.

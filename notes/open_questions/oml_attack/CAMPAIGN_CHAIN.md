@@ -471,3 +471,50 @@ question itself, distinct from this ledger's generated-event/relation-grammar
 work. Full literature groundwork (5 papers read, no direct hit, route (a)
 sharpened, route (b) scaffolded) and handoff in
 `PSIOML_ROUTES_HANDOFF_2026-07-20.md`.
+
+**W1 EXECUTED AND BANKED (2026-07-21).** Workstream W1 of
+`SIGMA_LAYER_TARGET.md` §3 (index category determination) is COMPLETE. Verdict
+note: `W1_INDEX_CATEGORY_VERDICT_2026-07-21.md`. Hostile pass included (§6), as
+the gate doc §6 requires. W1 only — no W2, no C-a opened, grammar engine not
+run (no clause named, per A2).
+
+- **Escape (a) = ω₁-tower-like, ZFC-robust.** The section system factors
+  through `[ω₁]^{≤ω}` (coordinate-reduction theorem: events are countably
+  supported, σ-states are point evaluations, and the non-extension is Ulam at
+  ω₁ — so the `2^{ω₁}` point-breadth is redundant); and
+  `cof([ω₁]^{≤ω}) = ℵ₁` with a cofinal chain of order type ω₁. **Evidence
+  class: hand proved**, with an explicit scope condition (H1: proved to
+  *factor through*, not that point-index breadth can never be load-bearing).
+  Note `[ω₁]^{≤ω}`-like and ω₁-tower-like COINCIDE here — the gate doc's
+  trichotomy is not a partition at its first two entries.
+- **Escape (b) = `[𝔠]^{≤ω}`, CH-SENSITIVE.** `cof([κ]^{≤ω}) ≥ κ`, so (b) is
+  cofinally an ω₁-tower iff CH, and strictly wider under ¬CH. Which reading is
+  operative is **OPEN**: the note says "ℵ₁ suffices abstractly" (→ coincides
+  with (a)) while the concrete realization uses Cantor `I = C`. **Evidence
+  class: hand proved (the cofinality); open (the reading).**
+- **Neither is ω^ω-like** in the eventual-domination/scale sense.
+- **Finding: (a) and (b) coincide under CH, diverge under ¬CH.** (a)'s residue
+  is ZFC-robust; (b)'s is axiom-sensitive unless the abstract ℵ₁ reading holds.
+- **C-a/C-b ordering: NO reordering.** §4 permits promoting C-b if W1 makes it
+  cheaper; W1 makes it *not* cheaper — (a) is the ZFC-robust target, (b) the
+  axiom-sensitive one, so C-a remains first. (One line, as §4 asks.)
+- **The index-category fence is CONFIRMED, not contradicted.** `cof = ℵ₁ > ℵ₀`
+  proves escape (a) is not countably cofinal, which is exactly the fence's
+  operational trigger. ⚠ A refutation of the fence was attempted mid-session
+  and **FAILED**; it is recorded in full (verdict §5.2) so it is not retried.
+  The bad step fused Goblot (which at cofinality ℵ₁ kills only limⁿ for n≥2 and
+  says nothing about lim¹) with Mittag-Leffler (an ω-indexed theorem needing
+  limit-stage continuity, not just surjectivity). It is refuted by contradiction
+  against Mardešić–Prasolov's published lim¹A≠0 under CH. **No retraction; the
+  fence stands.** Goblot and the M–P index set were confirmed verbatim against
+  primary text (arXiv:2507.05471) — receipts in verdict §7.
+- **One NEW open item (small):** verdict §5.3 — the fence's phrase "the correct
+  object is limⁿ, not lim¹" is in *surface* tension with Goblot leaving lim¹ as
+  the live invariant at cofinality exactly ℵ₁. Charitable reading (general
+  higher-derived-limit technology, not literally lim² over ω₁) is almost
+  certainly intended. Left **OPEN, deliberately not adjudicated** — deciding it
+  would promote the derived-limit identification from target to premise, which
+  Stage-0 §2 forbids. For W2 or a fence-clarification pass.
+- **W2 inherits** a settled shape for (a) and a conditional one for (b): the
+  typing run should split the CH/¬CH cases for (b), or first settle the §3.2
+  reading question.

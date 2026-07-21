@@ -597,10 +597,43 @@ per A2). Escape (b)'s fibres NOT computed — open remainder.
   set-valued/inhomogeneous limit-theory scout is needed.
 - **NOT claimed:** that limⁿ is or is not the obstruction for (a) (that would
   promote the derived-limit identification to a premise, Stage-0 §2 forbids);
-  anything about (b)'s fibres. **Open (H1):** robustness under an
-  admissible-OML `B_i` — "no coefficients" is robust to shrinking the block
-  (fewer sets cannot create non-principal σ-states), but the exact
-  singleton/empty pattern would need re-derivation.
+  anything about (b)'s fibres. **⚠ OPEN, CORRECTED 2026-07-21 (H1):**
+  robustness under an admissible-OML `B_i` is open in **BOTH** directions —
+  ~~"no coefficients" is robust to shrinking the block (fewer sets cannot
+  create non-principal σ-states)"~~ **[RETRACTED — FALSE].** Coarsening CAN
+  create non-principal σ-states in ZFC with no measurable: the
+  countable/co-countable algebra `CC(S)` on any uncountable `S` carries the
+  co-countable state (σ-additive since of pairwise disjoint sets at most one is
+  co-countable; non-principal since singletons get 0). A σ-state on a
+  sub-algebra is an ultrafilter ON THAT ALGEBRA, not a restriction of one on
+  `P(G_i)` — **fewer sets = fewer obligations, and coarseness is exactly how
+  non-principality gets cheap.** So only the raw `P(G_i)` computation is safe;
+  **both** the fibre pattern **and** the no-coefficients conclusion need
+  re-derivation at the admissible level. ⚑ **Full circle:** Test 1's refuted
+  configuration (one non-principal state among Diracs) is precisely what a
+  coarse admissible block could legitimately produce — if the de-centralized
+  version coarsens blocks, the seed's picture may resurrect at the admissible
+  level, and the originally-proposed homogeneity test becomes the right tool
+  one architecture later than intended.
+- **⚑ THE TWO OPEN ITEMS ARE ONE MECHANISM (user, 2026-07-21).** H1's
+  admissible-version risk and W1 §3.2's scope call for escape (b) are the same
+  question twice: **coarse blocks admit ZFC non-principal σ-states; fine ones
+  do not.** For (b) the fork is sharp — under the **concrete Borel** reading
+  (`B_i = Borel(R_i)`, countably generated + separating) the fibres are
+  **Diracs by an argument easier than W2-1, needing NO measurable bound**
+  (chosen generator sides intersect in ≤1 point; σ-additivity puts value 1
+  there, forcing a point evaluation) ⟦HAND — verified⟧; under the **abstract**
+  reading coarse blocks are permitted and **rich fibres are live**. **Therefore
+  running W2-for-(b) JOINTLY with the §3.2 scope call adjudicates both open
+  items in one move** — the recommended next step, cheaper than separating
+  them. ⚠ The scope call is a **definition decision and belongs to the user**;
+  W2 supplies the consequence of each branch, not the choice.
+- **§4 fa-side justification REPAIRED** (same pass): the old cardinality
+  one-liner (`|P(G_i)| ≫ |A|`) was loose — `F_x` is a *filter*, so its member
+  count is not bounded by `|A|` and cardinality alone exhibits no undecided
+  set. Replaced by transfinite diagonalization over the `2^{ω₁}` punctured
+  cylinders (each of size `2^{ω₁}`), picking a point into and out of each.
+  **Conclusion and grade unaffected.**
 - **PROCESS RULE (user-directed, general):** **parked-seed numerics are
   quotable only after re-derivation, exactly like external citations.** Second
   occurrence (first: the index-category conflation corrected in W1). A parked

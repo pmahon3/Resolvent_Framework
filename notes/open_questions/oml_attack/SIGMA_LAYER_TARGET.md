@@ -129,9 +129,13 @@ Three governing facts:
   TARGET, not an established premise.** Never cite it as settled. (The σ-nerve
   seed itself was PARKED/ABSORBED 2026-07-18 at Phase-2 audit REVISE; its
   keeper is the index-category fence on closure-based CODBC, in
-  `oml_odbc_sigma_nerve_absorption.md` — ⚠ that file lives on the **unmerged**
-  `explore/c-sigma-nerve` branch, NOT on this one; the worktree merge is
-  pending the user. A W1/W2 session needing it must check out that branch.)
+  `oml_odbc_sigma_nerve_absorption.md` §1 — **cherry-picked onto this branch
+  2026-07-20** (commit `cdda1ce`, from `explore/c-sigma-nerve` `723065b`),
+  together with the parked parent's own artifacts in
+  `notes/covered_leads/sigma_nerve_torsor_parked/`. **§1 is a direct W1 input:
+  it already fences closure-based globalization to countably cofinal index
+  systems, and states that over `[ω₁]^{≤ω}`-shaped posets surjective bonding
+  does NOT kill the derived limit, so the correct object is limⁿ, not lim¹.**)
 - **The known obstacles are three, and they are exactly the workstreams of §3.**
 
 ---

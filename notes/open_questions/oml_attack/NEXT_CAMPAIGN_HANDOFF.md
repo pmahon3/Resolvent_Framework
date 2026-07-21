@@ -242,12 +242,16 @@
    Note: C-a/C-b are the SAME targets as PsiOML routes (a)/(b) — one track,
    two directions of attack, not two tracks. Do not re-number them apart.
 
-   **📌 Owed (cheap, next bookkeeping moment — NOT mid-flight):** cherry-pick
-   `oml_odbc_sigma_nerve_absorption.md` from the unmerged `explore/c-sigma-nerve`
-   branch onto the campaign branch. It documents an ABSORBED seed (the
-   index-category fence on closure-based CODBC), so its record belongs in the
-   canon, not stranded on an orphan branch — and W1 is the workstream that will
-   want it. Currently annotated inline in `SIGMA_LAYER_TARGET.md` §2.
+   **✅ DONE 2026-07-20 (commit `cdda1ce`, cherry-pick `-x` of
+   `explore/c-sigma-nerve` `723065b`):** `oml_odbc_sigma_nerve_absorption.md`
+   is now in canon on this branch, with the parked parent's artifacts in
+   `notes/covered_leads/sigma_nerve_torsor_parked/` (4 files; conflicts were
+   delete/unmerged — those files exist only on that branch — resolved by
+   taking the branch versions, nothing dropped). Upgraded from "cheap tidy-up"
+   to done-now because §1 turned out to be a **direct W1 input**, not just an
+   absorbed-seed record: it fences closure-based globalization to countably
+   cofinal index systems and names limⁿ (not lim¹) as the correct obstruction
+   object over `[ω₁]^{≤ω}`. W1 would have had to reconstruct it blind.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

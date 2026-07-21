@@ -229,6 +229,25 @@
    Receipts this unit: `EPV_2025_PRIMARY_SOURCE_RECEIPT_2026-07-19.md`,
    `linearization_E4_verdict.md`, `verification/
    wp_rung1_perspectivity_vs_bond.{py,json}`.
+
+   **✅ E5 DONE (2026-07-20, commit `d1bb8e2`, UNPUSHED — user ff-merges).**
+   Stage-0 `SIGMA_LAYER_TARGET.md` CREATED with clauses (a)/(b)/(c) exactly as
+   specified above — W-P heuristic-only, never a rejection criterion. Also
+   banked: `CAMPAIGN_CHAIN.md` AMENDMENT A2 (grammar engine HARD-GATED —
+   supersedes the "roadmap unchanged" language at item 225 above; `ARR-CYL`
+   retained, re-scoped to clause (b)) and the A1 framing inversion (Φ-primary,
+   ω₁ witness = standing falsifier). **NEXT SESSION = W1** (index-category
+   determination), then W2 (coefficient typing), then campaign C-a. Anchor
+   every session to `SIGMA_LAYER_TARGET.md`; read its §6 standing gates first.
+   Note: C-a/C-b are the SAME targets as PsiOML routes (a)/(b) — one track,
+   two directions of attack, not two tracks. Do not re-number them apart.
+
+   **📌 Owed (cheap, next bookkeeping moment — NOT mid-flight):** cherry-pick
+   `oml_odbc_sigma_nerve_absorption.md` from the unmerged `explore/c-sigma-nerve`
+   branch onto the campaign branch. It documents an ABSORBED seed (the
+   index-category fence on closure-based CODBC), so its record belongs in the
+   canon, not stranded on an orphan branch — and W1 is the workstream that will
+   want it. Currently annotated inline in `SIGMA_LAYER_TARGET.md` §2.
 8. **Do not repeat:** global 7.17-GB MDD lifting; coarse `(E,U)` equality as
    event equality; literal hull realizability as necessary; state projection
    as a conservativity proof; maximal-block factorization from intersection

@@ -425,18 +425,45 @@ refuted by the full-grid survivor; do not resume the impossibility track or
 finite repair depth. Use its failure architecture as the input to overlapping
 rectangles and uncountable assembly.
 
-E-thread unit 2 (E4) is banked (2026-07-20); the grammar-engine roadmap is
-unchanged. The next unit E5 creates the Stage-0 pull-document
+E-thread unit 2 (E4) is banked (2026-07-20); ~~the grammar-engine roadmap is
+unchanged~~ [SUPERSEDED 2026-07-20 by E5 amendment A2 -- see below]. The next
+unit E5 creates the Stage-0 pull-document
 `SIGMA_LAYER_TARGET.md`, absorbing (a) the non-extendability necessary
 condition (theorem-ledger row above), (b) the second-inclusion localization
 (assumption bullets above; this is E4's banked payoff), and (c) the W-P
 direction as a HEURISTIC ONLY -- do not write W-P in as a constraint, since a
 later session must not reject a witness for "perspectivity poverty." Then the
-batched grammar engine over `MEM/N/O/PENV` plus forced-top descent proceeds as
-already specified. Do NOT re-open the perspectivity/twist route: rung 1 killed
+batched grammar engine over `MEM/N/O/PENV` plus forced-top descent ~~proceeds as
+already specified~~ [SUPERSEDED 2026-07-20 by A2 -- see the gate below]. Do NOT
+re-open the perspectivity/twist route: rung 1 killed
 the mechanism (ledger row above). Full E4 detail lives in
 `CURRENT_STATE.md` (E-thread unit 2) and `linearization_E4_verdict.md`; this
 pivot note is the chain-level pointer only.
+
+**AMENDMENT A2 (2026-07-20, user-ratified steering checkpoint; supersedes the
+two struck phrases above, deletes nothing).** The chain-level hostile audit
+(`CHAIN_HOSTILE_AUDIT_2026-07-20.md`, Charter D / strategy review F2-F3) found
+that the finite ARR grammar cannot touch Phi and that no stopping rule is in
+force at 300+ iterations. The user adopts the AUDIT position over the banked
+"unchanged / as already specified" language:
+
+- **Hard gate.** Grammar-engine iterations (`MEM/N/O/PENV` batches, forced-top
+  descent, `ARR-CYL`) run ONLY when the session names, up front, the specific
+  Stage-0 clause of `SIGMA_LAYER_TARGET.md` the iteration serves, together with
+  a declared per-session iteration budget. No clause named, no budget declared
+  => the engine does not run that session.
+- **`ARR-CYL` is RETAINED but RE-SCOPED.** It stays live because it is the
+  second-inclusion frontier question (Stage-0 clause (b)), not as an open-ended
+  grammar track. Cite the clause when running it.
+- **Framing inversion (A1).** Proving Phi is now PRIMARY, targeted at the two
+  surviving escapes named by the audit finding 3: (a) the uncountably-generated
+  separating boundary; (b) the distributed nonseparating quotients. The omega-1
+  witness brief is RETAINED as the standing falsifier -- this is an allocation
+  change, not a belief change. Conversion discipline is mandatory in BOTH
+  directions: every failed proof-step converts to a named witness design
+  constraint; every failed construction converts to a named tameness mechanism.
+- Organizing goal, workstreams W1/W2/W3, and campaigns C-a/C-b: see
+  `SIGMA_LAYER_TARGET.md` (Stage-0 pull-document, created by E5).
 
 Separate thread (2026-07-20, not part of the grammar-engine roadmap above):
 PsiOML routes (a) then (b) — the pen-and-paper attack on the OML/lattice

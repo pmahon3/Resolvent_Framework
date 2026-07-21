@@ -1023,10 +1023,36 @@ PROXY, not exact ρ; verdict rests on perspectivity non-selectivity alone; the
 10 atom↔coatom separating pairs are ILLUSTRATION of rank-blindness, not a
 theorem about ρ.)*
 
-**Stage 0 (`SIGMA_LAYER_TARGET.md`): still uncreated** (DO-NOT satisfied). E5
+~~**Stage 0 (`SIGMA_LAYER_TARGET.md`): still uncreated** (DO-NOT satisfied). E5
 is next: it absorbs the linearization necessary condition, the second-
 inclusion localization, and the W-P direction (as heuristic, not a target
-clause).
+clause).~~ [SUPERSEDED 2026-07-20 — done, see below.]
+
+**Stage 0 (`SIGMA_LAYER_TARGET.md`): CREATED 2026-07-20 (E5 bookkeeping
+session).** It is the pull-document and gate document; it adds no new
+mathematical claims. It absorbs the three banked clauses — (a) the
+non-extendability necessary condition *with its BPI-exact calibration stated
+as the reverse-math baseline*; (b) the second-inclusion localization (banked
+as a frontier-narrowing, NOT Φ-progress, and CONTINGENT on the unverified
+paywalled DNP-2015 lead); (c) W-P as **HEURISTIC ONLY**, never a rejection
+criterion. It additionally carries the frame ratified at the same checkpoint:
+the Isolation Program as organizing goal (Φ ⟺ some named set-theoretic S;
+the lim¹ identification is a TARGET, never a premise), workstreams **W1**
+(index-category determination — first, sharpest), **W2** (coefficient
+normalization — do not assume ℤ/2), **W3** (measure knot — PARKED, trigger
+unchanged), campaigns **C-a** (countable-meet generalization → escape (a);
+main push) and **C-b** (distributed nonseparating quotients → escape (b)),
+the `PsiOML` Lean-pinned falsifier, and the EPV locus constraint (I₂-rich,
+symmetry-poor; mechanism distinct from the σ-stage) as an external wall.
+
+**Framing inversion (A1, ratified 2026-07-20):** proving Φ is now PRIMARY,
+targeted at the two escapes; the ω₁ witness brief is RETAINED as the standing
+falsifier. Allocation change, not belief change. **Grammar engine is now
+HARD-GATED (A2, `CAMPAIGN_CHAIN.md` AMENDMENT A2):** `MEM/N/O/PENV` batches,
+forced-top descent and `ARR-CYL` run ONLY when the session names the Stage-0
+clause served and declares a per-session iteration budget up front; `ARR-CYL`
+is retained, re-scoped to clause (b). Read `SIGMA_LAYER_TARGET.md` §6
+(standing gates) before running anything.
 
 ## Primary sources
 

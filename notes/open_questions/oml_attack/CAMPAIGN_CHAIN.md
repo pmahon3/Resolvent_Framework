@@ -579,13 +579,22 @@ per A2). Escape (b)'s fibres NOT computed — open remainder.
 - **CONVERSIONS (A1, both pre-registered before computing; the "trivial" branch
   fired).** (1) **Named design constraint: `coefficient-free σ-fibres (escape
   (a))`** — any limⁿ route to (a) must first MANUFACTURE coefficients the
-  natural fibres do not supply. (2) (a)'s residue is **algebraic around spent
-  set theory** — the set-theoretic content is discharged by the measurable
-  bound; fibre-level counterpart of W1's degenerate-reduction reading.
-  (3) The isolation's live set-theoretic half **narrows toward (b)**, pending
-  (b)'s §3.2 scope call — stated as a narrowing of where to look, NOT a theorem
-  about (b). (4) The non-trivial branch did not fire, so no set-valued/
-  inhomogeneous limit-theory scout is needed.
+  natural fibres do not supply. (2) **(a)'s OBSTRUCTION is ZFC-trivial — but
+  its index cofinality VALUE is NOT ZFC-fixed, and the two must not be merged.**
+  ZFC-trivial: the fibre coefficient layer (measurable bound, no hypothesis)
+  AND the lim⁰-death mechanism (`⋂_J(H∖J)=∅` because each `x` drops at stage
+  `{x}`, whatever `2^{ω₁}` is). Not ZFC-fixed: the index cofinality value
+  `≥ 2^{ω₁}` (W1) — which never enters the obstruction. ⚑ **Do NOT write
+  "(a)'s residue is spent set theory" and do NOT cite any
+  "degenerate-reduction reading" of W1** — that reduction was RETRACTED (W1
+  verdict §2.2, commit `8497320`) and W1's standing finding is that (a) is
+  cardinal-arithmetic-sensitive; an unqualified "residue is spent" contradicts
+  the W1 row above.
+  (3) The isolation's live set-theoretic half **narrows toward (b)** — resting
+  on **(a)'s obstruction mechanism being ZFC-trivial**, independent of the
+  retracted reduction. Pending (b)'s §3.2 scope call; a narrowing of where to
+  look, NOT a theorem about (b). (4) The non-trivial branch did not fire, so no
+  set-valued/inhomogeneous limit-theory scout is needed.
 - **NOT claimed:** that limⁿ is or is not the obstruction for (a) (that would
   promote the derived-limit identification to a premise, Stage-0 §2 forbids);
   anything about (b)'s fibres. **Open (H1):** robustness under an

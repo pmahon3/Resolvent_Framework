@@ -187,15 +187,29 @@ branch fired.**
   *manufacture* coefficients the natural fibres do not have — e.g. by a
   different fibre functor or an enriched atlas. **Named witness/proof design
   constraint:** `coefficient-free σ-fibres (escape (a))`.
-- **The residue for (a) is algebraic around spent set theory.** The set-theoretic
-  content is discharged by W2-1(1): no measurable `≤ 2^{ω₁}` is a ZFC theorem,
-  and after it is applied nothing set-theoretically live remains at the fibre
-  level. This is the fibre-level counterpart of W1's degenerate-reduction
-  reading for (a).
-- **The isolation's live set-theoretic half narrows toward (b)**, pending (b)'s
-  §3.2 scope call (concrete Cantor `I = C` vs abstract ℵ₁). ⚠ Stated as a
-  narrowing of where to look, **not** as a theorem about (b) — (b)'s own fibres
-  are NOT computed here.
+- **(a)'s OBSTRUCTION is ZFC-trivial, even though its index cofinality VALUE is
+  not ZFC-fixed.** Two things must be kept apart here, and conflating them
+  would resurrect a retracted claim (see the ⚑ below):
+  - *ZFC-trivial:* (i) the fibre coefficient layer — W2-1(1) discharges the
+    set-theoretic content outright (no measurable `≤ 2^{ω₁}`, no hypothesis);
+    and (ii) the **lim⁰-death mechanism** — `⋂_J (H∖J) = ∅` holds because each
+    `x` drops at its own stage `{x}`, *regardless of the value of* `2^{ω₁}`.
+  - *Not ZFC-fixed:* the **value** of (a)'s index cofinality, `≥ 2^{ω₁}`
+    (W1) — which never enters the obstruction.
+
+  > ⚑ **Do NOT phrase this as "(a)'s residue is spent set theory," and do not
+  > cite any "degenerate-reduction reading" of W1.** W1's coordinate-reduction
+  > of (a) to `[ω₁]^{≤ω}` was **RETRACTED** (W1 verdict §2.2, commit
+  > `8497320`); W1's standing finding is that (a) is
+  > **cardinal-arithmetic-sensitive**. An unqualified "residue is spent" would
+  > contradict the W1 row in canon. The correct combined statement is the
+  > two-part one above: **trivial obstruction, non-ZFC-fixed index value.**
+- **The isolation's live set-theoretic half narrows toward (b)** — resting on
+  the ground that **(a)'s obstruction mechanism is ZFC-trivial** (fibres rigid,
+  death by empty intersection), which is independent of the retracted
+  reduction. Pending (b)'s §3.2 scope call (concrete Cantor `I = C` vs abstract
+  ℵ₁). ⚠ Stated as a narrowing of where to look, **not** as a theorem about
+  (b) — (b)'s own fibres are NOT computed here.
 - **Import to scout — NOT needed.** The non-trivial branch (set-valued /
   inhomogeneous limit theory) does not fire, since the fibres are
   singleton-or-empty rather than merely non-group-valued.
@@ -260,6 +274,22 @@ flagged inline in §4 and consistent with clause (a)'s BPI-exactness discipline.
 The *contrast* between the layers is therefore partly a contrast in choice
 strength, which is worth noting and is not hidden.
 
+**H7 — "Is this consistent with W1's *corrected* finding, or does it lean on
+the retracted one?"** Added after H1–H6 missed it: the first draft of §5
+conversion (2) said "(a)'s residue is algebraic around spent set theory … the
+fibre-level counterpart of **W1's degenerate-reduction reading**." **That was a
+defect and is fixed.** W1 has no degenerate-reduction reading — the
+coordinate-reduction of (a) to `[ω₁]^{≤ω}` was retracted (W1 §2.2, commit
+`8497320`), and W1's standing finding is that (a) is
+cardinal-arithmetic-sensitive. The stale phrase would have resurrected in canon
+exactly the claim the previous session killed. Corrected statement: **(a)'s
+*obstruction* is ZFC-trivial (fibre coefficients + the empty-intersection death
+mechanism), while its *index cofinality value* is not ZFC-fixed** — no conflict,
+because the index value never enters the obstruction. **Lesson: a hostile pass
+that checks a note only against its own sources will not catch a contradiction
+with a sibling verdict; cross-check the sibling's *current* state, not your
+memory of it.**
+
 ---
 
 ## 7. Evidence classes
@@ -294,9 +324,18 @@ reused.
 
 - **W2 for escape (b) is the open remainder.** It should be run only after
   (or alongside) the §3.2 reading call from the W1 verdict, since `I = C` vs
-  abstract ℵ₁ changes the block set. Expect a *different* answer: (b)'s
-  fibres are described in the parked seed's Test 2 as continuum-sized — but per
-  §8 that description is un-recomputed and must not be quoted until checked.
+  abstract ℵ₁ changes the block set. **Expect (b) to be coefficient-free
+  *also*, pending recomputation** — the same Dirac argument plausibly applies:
+  `B_i = Borel(R_i)` on a standard Borel space, and `𝔠` is always below the
+  first measurable, so σ-states there should likewise be principal.
+  ⟦HAND — unverified; a prediction to test, not a result⟧
+
+  > ⚑ **Self-catch, per §8.** An earlier draft of this line predicted a
+  > *different* answer for (b) on the strength of the parked seed's Test 2
+  > ("eligible fibres are continuum-sized"). That is exactly an un-recomputed
+  > parked-seed numeric, which §8 forbids quoting. The prediction above is
+  > derived from the same argument as W2-1 instead — and still must be
+  > recomputed before it is used for anything.
 - **C-a is unaffected as a campaign.** W2 constrains the *route* (no limⁿ via
   natural fibres), not the target.
 - **W3 (measure knot) is untouched** and its trigger is unchanged.

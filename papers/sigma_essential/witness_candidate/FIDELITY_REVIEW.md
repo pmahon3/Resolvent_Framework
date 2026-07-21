@@ -136,11 +136,26 @@ def PsiAmended : Prop :=
 **Check:** extension = agreement on B (the paper's s↾B = s₀); the negative
 clause quantifies over ALL σ-additive states — Dirac and non-Dirac, no
 weakening. `PsiAmended` is the localized existence sentence; the admissibility
-predicates are NOT bundled in (they are consequences/paper-level: non-Boolean
-is now also machine-checked — `carrier_not_interClosed` — via the amended
-Boolean baseline; essential irreducibility and non-segregation remain
-paper-level facts about this carrier and do not affect `psiAmended_ZFC`'s
-truth). ✓ with that scope note.
+predicates are NOT bundled in. Status of each, checked independently
+(2026-07-20 re-verification):
+- **non-Boolean**: machine-checked — `carrier_not_interClosed` in
+  `UlamWitnessMain.lean`, clean `#print axioms`.
+- **essential irreducibility** (`cor:centre`, the quotient-by-countable-ideal
+  trivial-centre claim): proved on paper with a substantive hand argument
+  (invokes the normal-form theorem + stripping corollary), **but NOT
+  formalized** — `IsIrreducible` exists in Lean only as an unconnected opaque
+  `axiom` in the exploratory file `SigmaEssentialOpenCore.lean`, never
+  instantiated for `L₁`/`s₀`. This predicate plays no role in
+  `psiAmended_ZFC`'s statement or proof.
+- **non-segregated, non-Polish-representable**: paper states these are
+  consequences of witnesshood itself (§7, lines 910–913), not independent
+  admissibility checks against `L₁`.
+
+So `PsiAmended` is a **strictly weaker sentence** than the paper's
+`Ψ := ∃ L ∈ Adm, ¬Φ(L)`: it omits the essential-irreducibility conjunct of
+`Adm`, and that conjunct is not (yet) machine-checked for this witness. ✓ the
+transcription itself is faithful (no silent error), but the scope note must
+be read as a real gap, not a formality — see the amended verdict below.
 
 ## 6. The carrier, block, and pattern are the paper's
 
@@ -201,10 +216,36 @@ in the receipts. ✓
 
 ---
 
-## Verdict template
+## Verdict — independently re-verified 2026-07-20
 
-If items 1–8 read as faithful transcriptions, then
-`psiAmended_ZFC : PsiAmended` **is** Theorem 7.1 (the amended Ψ, in ZFC), and
-the verification chain is closed at ground-truth level:
-paper ⟷ (this review) ⟷ Lean definitions ⟶ (0-sorry proofs, standard axioms)
-⟶ theorem. Receipts: `UlamWitnessReceipts.lean`.
+Items 1–4 and 6–8: faithful transcriptions, confirmed against primary sources
+(paper `sigma_essential_body.tex` + Lean source, not the review's paraphrase)
+in a fresh-context adversarial pass. `#print axioms psiAmended_ZFC` reconfirmed
+clean from a fresh `lake build`: `[propext, Classical.choice, Quot.sound]`,
+zero sorries.
+
+**Scoped sign-off, not unconditional.** `psiAmended_ZFC : PsiAmended`
+faithfully proves the mathematical heart of Theorem 7.1 — clause (0)
+(coherence) and clause (i)/(ii) (no σ-additive extension, Dirac or not) — for
+the specific product Ulam carrier `L₁`, and non-Boolean-ness is separately
+machine-checked. It does **not** certify the full admissibility bundle `Adm`
+that the paper's target sentence Ψ quantifies over: essential irreducibility
+(`cor:centre`) is proved on paper but not formalized, and is not part of what
+`psiAmended_ZFC` states or proves. `PsiAmended` is thus strictly weaker than Ψ
+as written in the paper.
+
+This does not put the *mathematics* in doubt — `cor:centre` has a written
+proof, checked by hand, not merely asserted — but it means "the verification
+chain is closed" was previously overstated. The honest status: the
+computational core of Theorem 7.1 is machine-checked in ZFC; the
+essential-irreducibility conjunct of admissibility remains a hand-verified,
+unformalized paper-level result. `cor:centre`'s proof leans on the paper's
+normal-form theorem (`thm:normal-form`) and stripping corollary
+(`cor:stripping`). The normal-form theorem's carrier-representation
+machinery IS separately formalized (`nrep_exists`/`Thm 3.5` in
+`UlamWitnessInvariant.lean`, no axiom/sorry) — but `cor:stripping` itself and
+its use inside `cor:centre` are NOT formalized, and no Lean theorem currently
+connects any of this to an `IsIrreducible`-shaped statement about `L₁`.
+Closing this gap is future formalization work, not a re-derivation.
+
+Receipts: `UlamWitnessReceipts.lean`; fresh independent rebuild 2026-07-20.

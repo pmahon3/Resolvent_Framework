@@ -1,6 +1,6 @@
 # Prediction ledger: site regularity and completion
 
-*Updated 2026-08-02. Entries distinguish arbitrary embeddings, regular
+*Updated 2026-08-03. Entries distinguish arbitrary embeddings, regular
 embeddings, MacNeille completion, and the globally quantified proposition
 `PsiOML`.*
 
@@ -162,3 +162,66 @@ quantified `PsiOML` declaration.
 
 **Evidence grade.** Explicit hand proof against read-only Lean definitions; no
 formalization change.
+
+## Entry R-SA-1 — regularity / sigma-additivity pullback gate
+
+*Registered by the gate-check prompt on 2026-08-03.*
+
+**Claim under test (Lemma R).** Pulling a sigma-additive state back along a
+sigma-regular OMP embedding preserves sigma-additivity; for an arbitrary OMP
+embedding, failure at an orthogonal sequence is exactly positive state mass on
+the proposed gap
+
+\[
+  g=\left(\bigvee_n\phi(x_n)\vee
+    \phi\!\left(\bigvee_n x_n\right)'\right)'.
+\]
+
+**Registered adversarial prediction.** The lemma was treated as likely false,
+with the first proposed failure point the existence or orthomodular
+interpretation of `g` in an OMP, where arbitrary meets need not exist. Failure
+of any one of the six stated OMP steps was designated a gate-closing result.
+
+**Outcome.** **SURVIVED — SHARPENED TO AN EXACT IDENTITY.** If
+
+\[
+  x=\bigvee_n\phi(x_n),\qquad
+  y=\phi\!\left(\bigvee_n x_n\right),
+\]
+
+then `x <= y`, the orthogonal join `x ∨ y'` exists, and the OMP
+orthomodular law gives `y = x ∨ g` with `x ⊥ g`. Hence every sigma-additive
+state `s` on the ambient OMP satisfies
+
+\[
+  s(y)=\sum_n s(\phi(x_n))+s(g).
+\]
+
+The pullback fails sigma-additivity at this family if and only if `s(g) > 0`.
+Sigma-regularity makes `x = y` and `g = 0`, proving the pullback claim.
+
+**Hypothesis audit.** For one family it is enough that its image join exists;
+sigma-orthocompleteness of the ambient OMP is the uniform existence
+hypothesis. Part (a) needs only preservation of countable orthogonal joins.
+Full sigma-regularity is sufficient but stronger. Arbitrary regularity is not
+used, and no ambient lattice structure is required.
+
+**Novelty finding.** **FOLKLORE — NOT NOVEL.** The exact gap packaging was not
+located as a named lemma in Pták–Pulmannová, Hamhalter, or Dvurečenskij, but the
+claim is an immediate combination of standard sigma-homomorphism/state
+definitions with the OMP orthogonal-difference law.
+
+**Boolean calibration.** **UNIVERSAL NON-REGULARITY CLAIM REFUTED; ALL-STATES
+LIFT VERIFIED.** The clopen-to-Baire inclusion is regular for finite Boolean
+algebras, so it is not always non-sigma-regular. Whenever an existing
+countable join has a topological gap, however, every finitely additive Boolean
+state is the pullback of a sigma-additive Radon/Baire measure and its exact
+additivity defect is the measure of that gap. All states lift; only states
+charging a fixed gap fail there, and a Dirac measure on any point of a
+nonempty gap supplies at least one such state.
+
+**Status.** **CLOSED — VERIFIED AS FOLKLORE, WITH ONE BOOLEAN PREMISE
+REFUTED.**
+
+**Evidence grade.** Step-by-step hand proof plus primary-source checks; no
+Lean formalization or code changes.

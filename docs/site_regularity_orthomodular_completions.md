@@ -4,6 +4,15 @@
 `oml-descent-sigma-essential-reduction`. This is an adjacent investigation;
 no paper-of-record file or dependency-path file was changed.*
 
+**Follow-up correction (2026-08-02).** The conjecture called C in this audit
+is superseded. Its target incorrectly mixed abstract completion with
+MacNeille completion. The active replacement is C′: if every site of a pasting
+is regular in each containing block, its MacNeille completion is an OML. The
+scope correction and follow-up verdicts are recorded in
+[`site_regularity_prediction_ledger.md`](site_regularity_prediction_ledger.md)
+and
+[`site_regularity_intrinsic_and_state_coupling.md`](site_regularity_intrinsic_and_state_coupling.md).
+
 ## Verdicts
 
 | Item | Verdict | Evidence |
@@ -14,7 +23,7 @@ no paper-of-record file or dependency-path file was changed.*
 | Acyclicity as a necessary condition for completion | **REFUTED** | The five-loop finite/cofinite construction and its blockwise completion are valid |
 | Phase 2 site computation | **VERIFIED** | An explicit site in the Amemiya-Araki OML is non-regular |
 | Pre-registered Phase 2 falsifier | **SCOPE GAP** | Global MacNeille failure excludes a regular completion, not every completion allowed by literal Conjecture C |
-| Conjecture C | **OPEN - NOT ADJUDICATED** | The computation matches the proposed mechanism, but neither necessity nor sufficiency was proved |
+| Conjecture C | **REPLACED - SCOPE ERROR** | Superseded by the MacNeille-specific C′ in the follow-up ledger |
 | Phase 3 | **NOT RUN** | Deliberately descoped; the required Boolean MacNeille infrastructure is absent |
 
 Here "regular" has the meaning stated in the investigation prompt: if a join
@@ -390,10 +399,10 @@ Literal Conjecture C states only that the blockwise paste "yields a
 completion." It does not assert either additional property, and no theorem in
 this investigation derives global regularity from regularity of all site legs.
 Consequently the registered falsifier was only conditionally valid. It did not
-fire, but that is not a verdict-grade prediction hit for Conjecture C as
-written. The conjecture remains unchanged and open; the computation supplies
-mechanistic evidence, not a necessary-condition theorem or a sufficiency
-proof.
+fire, but that is not a verdict-grade prediction hit for Conjecture C as it was
+then written. That claim is now superseded by the MacNeille-specific C′ in the
+follow-up ledger. The computation supplies mechanistic evidence, not a
+necessary-condition theorem or a sufficiency proof.
 
 ## Concrete corpus consequence
 

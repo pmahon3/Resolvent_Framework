@@ -231,6 +231,27 @@ complementation). For an orthogonal family, put
 The \(U_n\) are pairwise disjoint Baire sets, \(G\) is a Baire set, and this
 is exactly the Boolean specialization of \(g=(x\vee y')'\).
 
+### Infinitude does not characterize non-sigma-regularity
+
+The stronger claim that \(j\) is non-sigma-regular if and only if \(B\) is
+infinite is also false. Let \(I\) be uncountable and let \(B\) be the
+finite–cofinite algebra on \(I\). Its Stone space is the one-point
+compactification \(I\cup\{\infty\}\), and \(B\) is infinite. Nevertheless
+\(j\) is sigma-regular. For a countable family \((A_n)\subseteq B\), a
+cofinite member makes \(\bigcup_nA_n\) a cofinite join; if all members are
+finite, their union is either finite and is the join, or is countably infinite
+and has no least cofinite upper bound, so no join exists in \(B\). Hence every
+existing countable join is its set-theoretic union, and \(j\) preserves it;
+the meet case follows by complementation.
+
+The proposed compact-\(P\)-space argument proves a different statement. If
+every countable union of clopens of a zero-dimensional space is clopen, the
+space is a \(P\)-space; and every compact Hausdorff \(P\)-space is finite.
+Indeed, a countably infinite subset would be closed, hence compact, while as a
+countable \(P\)-space it would be discrete. The invalid inference was from
+sigma-regularity to closure under *all* countable clopen unions:
+sigma-regularity tests only families whose join already exists in \(B\).
+
 Now let \(m\) be **any** finitely additive state on \(B\). Fremlin,
 [*Measure Theory*, Chapter 41,
 416Q](https://www1.essex.ac.uk/maths/people/fremlin/chap41.pdf), proves that

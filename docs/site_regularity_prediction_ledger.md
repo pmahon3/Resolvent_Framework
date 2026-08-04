@@ -225,3 +225,116 @@ REFUTED.**
 
 **Evidence grade.** Step-by-step hand proof plus primary-source checks; no
 Lean formalization or code changes.
+
+## Entry D-DIL-1 — sigma-additive dilation of arbitrary OMP states
+
+*Registered by the Option 2 scoping prompt on 2026-08-03.*
+
+**Claim under test.** For which OMPs \(P\) is every finitely additive state
+\(m\) a pullback \(m=s\circ\phi\) along an OMP embedding
+\(\phi:P\hookrightarrow Q\), with \(Q\) sigma-orthocomplete and \(s\)
+sigma-additive?
+
+**Registered adversarial prediction.** Treat a known theorem, a corpus-internal
+answer, or a strictly stronger open completion problem as a successful
+gate-closing outcome. Do not label D open merely because its exact wording was
+not found.
+
+**Outcome.** **PARTIALLY ANSWERED; GENERAL CASE OPEN — ADJACENT.** Navara,
+Pták, and Rogalewicz, Theorem 2.2, provide a state-specific enlargement with a
+unique finitely additive state, but not a sigma-complete carrier or a
+sigma-additive state. Pták's 1987 appendix explicitly records the
+sigma-completeness limitation of the older constructions, while
+Harding–Wang Problem 2 still asks the adjacent state-free OML/OMP
+sigma-completion question. (It also ranges over stateless OMPs, so it is not
+literally a weaker assertion than D.) No general state-preserving
+sigma-complete enlargement theorem or general counterexample was found in the
+named monographs or the adjacent extension literature.
+
+**Positive regimes.** D holds for Boolean algebras; for finite OMPs; by the
+identity for a sigma-additive state on a sigma-complete carrier; for projection
+lattices of von Neumann algebras without a type-\(I_2\) summand via
+Bunce–Wright plus a faithful/GNS direct-sum representation; and for the
+Dvurečenskij–Neubrunn–Pulmannová incomplete-inner-product-space example.
+
+**Named open checkpoint.** After the finite identity regime, Navara's
+sigma-orthocomplete non-Boolean OML \(\mathcal L_{\mathbb N}\), equipped with
+the unique extension of a free-ultrafilter state from its
+\(\mathcal P(\mathbb N)\) sublogic. The state is not sigma-additive; the
+located results neither dilate it nor rule out a dilation. This is a concrete
+published checkpoint, not a cardinal-minimality claim.
+
+**Programme status.** **OPEN — NO MONTHS-SCALE COMMITMENT.** The general
+question is an adjacent paper-scale problem, not an unfinished dependency of
+the sigma-essential paper.
+
+**Evidence grade.** Primary-source literature gate plus hand deductions in
+[dilation_question_scoping.md](dilation_question_scoping.md); no Lean changes.
+
+## Entry CP-REG-1 — infinitude versus clopen sigma-regularity
+
+*Registered by the Option 2 scoping prompt on 2026-08-03.*
+
+**Claim under test.**
+
+\[
+  \operatorname{Clopen}(S(B))\hookrightarrow\operatorname{Baire}(S(B))
+  \text{ is non-sigma-regular}
+  \quad\Longleftrightarrow\quad
+  B\text{ is infinite}.
+\]
+
+**Registered prediction.** The prompt proposed the equivalence via the fact
+that a compact \(P\)-space must be finite; the audit was instructed to seek a
+counterexample.
+
+**Outcome.** **REFUTED.** Let \(B\) be the finite–cofinite algebra on an
+uncountable set \(I\). For any countable family in \(B\), its join exists only
+when its set union is finite or cofinite, and in either case that union is the
+join. Thus the clopen inclusion preserves every existing countable join and,
+by complementation, every existing countable meet, although \(B\) is infinite.
+
+**Error localization.** The compact-\(P\)-space fact is correct: if every
+countable union of clopens is clopen, compactness forces the space to be
+finite. Sigma-regularity is weaker; it tests only countable families whose
+join already exists in \(B\). It does not assert closure under all countable
+clopen unions.
+
+**Status.** **CLOSED — CLAIM REFUTED; STRONGER TOPOLOGICAL FACT CONFIRMED.**
+
+**Evidence grade.** Explicit hand counterexample and compact-\(P\)-space proof,
+also banked in
+[regularity_sigma_additivity_pullback.md](regularity_sigma_additivity_pullback.md).
+
+## Entry Q-MECH-1 — quarantine versus the Boolean lift
+
+*Registered by the Option 2 scoping prompt on 2026-08-03.*
+
+**Claim under test.** Does the quarantine theorem use the same mechanism as
+the Boolean state lift, and therefore already answer D for the corpus's own
+carriers?
+
+**Registered adversarial prediction.** Shared compact zero-dimensional
+hypotheses may conceal either a genuinely shared proof step or a scope error
+between Boolean charges and OMP states.
+
+**Outcome.** **SAME BOOLEAN PREMEASURE ENGINE; OMP-SCOPE INFERENCE REFUTED.**
+Part (ii) is exactly the finite-disjoint-clopen-cover argument: compactness
+makes every charge on \(\operatorname{Clo}(X)\) a premeasure. Part (iii) is
+Horn–Tarski finite-additive extension followed by that same step. Part (i)
+uses compactness differently, through the finite-intersection property of a
+clopen ultrafilter. Zero-dimensionality supplies the clopen Boolean base, and
+metrizability identifies its generated sigma-algebra with the Borel
+sigma-algebra.
+
+**Exact D regime.** The corpus proves D for charges on Boolean subalgebras
+\(B\subseteq\operatorname{Clo}(X)\) when \(X\) is compact,
+zero-dimensional, and metrizable: take the ambient Borel sigma-algebra. It
+also applies to an OMP state already known to extend to such a Boolean
+envelope. It does not prove the required Boolean-envelope extension for an
+arbitrary OMP state, so it does not answer general D on non-Boolean carriers.
+
+**Status.** **CLOSED — CORPUS-INTERNAL MECHANISM; D REMAINS ADJACENT.**
+
+**Evidence grade.** Line-by-line proof audit of Theorem thm:quarantine in the
+paper of record, with the Boolean/OMP type boundary made explicit.

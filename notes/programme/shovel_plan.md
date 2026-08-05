@@ -23,17 +23,23 @@ Nav: `papers/reconstruction/notes/pruning_k2_theorem.md`; frontier item 2 (Joint
 
 ### 2. The OML case at the regularity transition  *(the defining boundary)*
 Does a concrete σ-complete orthomodular **lattice** carry a σ-essential state?
-Conjectured NO. First question the quantum-logic community asks (lattice = their
-default object; the lineage is lattice-titled); the paper's most visible open
-edge. Either exit completes the crossing: lattices tame ⟹ the slogan becomes a
-theorem (*the phenomenon lives strictly between orthomodular poset and
-orthomodular lattice*, non-latticehood certified as discriminator); a lattice
-witness ⟹ bigger result than the current one. Evidence strong (three independent
-meet-destruction mechanisms; every wild object a non-lattice); difficulty real —
-needs an idea, not a refinement. Also quietly discharges the σ-scale
-non-distributivity scoping caveat (spine needs only necessity, proved; the
-sufficiency-side precision IS this question). This is the load-bearing CASE of
-the latticehood family; the full family stays a vacant lot.
+Equivalently, does every concrete, σ-complete, non-Boolean, essentially
+irreducible OML satisfy `Phi`? Conjectured YES for `Phi` (hence NO for such a
+witness). This is the first question the quantum-logic community asks (lattice
+= their default object; the lineage is lattice-titled) and the paper's most
+visible open edge. Either exit settles the regularity boundary: a proof makes
+non-latticehood the discriminator between the amended OMP witness and the OML
+class; a lattice witness is a stronger negative result than the current one.
+Evidence is strong but local to regularity (three independent meet-destruction
+mechanisms; every regularity-wild object constructed so far is a non-lattice).
+Difficulty is real.
+
+**2026-08-04 propagation:** this is no longer the load-bearing case of a
+three-way latticehood family. That family is refuted literally by the complete
+Hilbert lattice's Kochen–Specker failure of sharpness. The problem above is the
+whole surviving latticehood theory front. Skeletons A/B, the three-front
+convergence, and the T4 relay work already target `Phi`, so their record and
+results are unchanged.
 **Attack opened 2026-07-10 s8** — statement of record, mechanisms, skeletons
 A/B/C, scout results: `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`
 (see §Execution-order item 3 for current next-step).
@@ -96,8 +102,9 @@ Nav: frontier item 3 (second descendant); `papers/spine/notes/VERIFICATION_PASS.
 ---
 
 ## The vacant lots (open by design, posed to shovel-readiness)
-- **Latticehood family across all three transitions** — the hard central
-  conjecture (theorem 2 above = its load-bearing case).
+- **OML finite-trace σ-liftability (`latticehood => Phi`)** — the hard central
+  regularity question (theorem 2 above); the former three-transition family is
+  closed as a literal conjecture.
 - **Universal impossibility** (the fork; combinatorics hook). ⚠ Disposition of
   the ACTIVE crossed-cycle sub-attack is the one open sequencing question — see
   interaction note below.

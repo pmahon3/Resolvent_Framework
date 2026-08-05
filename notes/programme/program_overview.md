@@ -81,7 +81,9 @@ revised 2026-05-09 — four-way main equivalence theorem added in §6)
 
 **What it shows:** Whether an empirically adequate theory admits a realist
 completion depends on the algebraic structure of the observation algebra.
-Distributivity is the exact dividing line.
+Distributivity is sufficient for value-definiteness; the central complete OML
+case `L(H)`, `dim H >= 3`, is blocked by Kochen–Specker. It is not a necessary
+condition for VDR across all OMLs.
 
 **Vocabulary:** Three positions, each a constraint on where the dual-space
 measure lives:
@@ -89,11 +91,15 @@ measure lives:
   observations. No claim about an underlying Ω.
 - **Probabilistic Realism (PR):** descent from the dual-space measure to a
   measure on an underlying realisation space.
-- **Value-Definite Realism (VDR):** a global 2-valued homomorphism on the
+- **Value-Definite Realism (VDR):** a global dispersion-free state on the
   observation algebra — every observable simultaneously has a definite value.
+  On a general OML this need not be a lattice homomorphism, and on an infinite
+  carrier it need not be σ-additive unless that clause is stated separately.
 
-These are nested: VDR ⟹ PR ⟹ EA. (PR itself splits into two grades —
-PR_lattice / PR_dual — that the Boolean case fuses; see below.)
+At the σ-additive grade, `VDR_σ ⟹ PR ⟹ EA`. Standalone VDR is only the
+availability predicate above and is not silently promoted to PR on an infinite
+carrier. (PR itself splits into two grades — PR_lattice / PR_dual — that the
+Boolean case fuses; see below.)
 
 **The commensurability theorem (Theorem 4):**
 - *Boolean case:* all three positions are commensurable. Every EA-theory
@@ -220,9 +226,19 @@ do this at all. The common boundary is central under finite algebraic closure;
 whether sigma-completion or incompatible conditional transport can
 de-centralize it while preserving MBRC is open.
 
-**Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
-of different character: pasting (topological), regularity (analytic),
-sharpness (algebraic).
+**Coherence filtration:** write `S_df^σ(A) := S_df(A) ∩ S_σ(A)`. Then
+`S(A) ⊇ S_σ(A) ⊇ S_df^σ(A)` has three transitions of different character:
+pasting (topological), regularity (analytic), and sharpness (algebraic).
+Standalone VDR remains the weaker existence predicate `S_df(A) != empty`;
+on infinite carriers it must not be silently identified with non-emptiness of
+`S_df^σ(A)`.
+
+**Boundary correction (2026-08-04):** these transitions do not share a
+latticehood boundary. Universal compatible-family extension is controlled by
+Vorob'ev acyclicity at pasting; `latticehood => Phi` is the open regularity
+question; distributivity is sufficient for sharpness, while the complete OML
+`L(H)`, `dim H >= 3`, fails sharpness by Kochen–Specker. The former three-way
+latticehood slogan is therefore refuted under its literal reading.
 
 **Mathematical content:** Assembled from Stone duality, Kochen–Specker,
 Gleason, Bub–Clifton, and McDonald–Bimbó (2023) OML duality. The paper
@@ -271,7 +287,12 @@ Rhodes-Morari (1997), elbow stopping = Lepski (1991).
 
 ---
 
-## The Through-Line
+## Historical Through-Line (superseded Paper I–III arc)
+
+This section records the pre-audit Paper I–III programme and is not the current
+three-transition theory front. It is retained as history; its
+“observational-indistinguishability” through-line must not be read as a common
+liftability theorem for pasting, regularity, and sharpness.
 
 Each paper takes the output of the previous as input:
 
@@ -297,7 +318,7 @@ theorem claiming their equivalence under fibre mixing is false (2026-05-14).
 
 ---
 
-## The Three Obstructions
+## Historical Three Obstructions (superseded Paper I–III arc)
 
 | Paper | Obstruction | Status |
 |-------|------------|--------|
@@ -311,6 +332,20 @@ vs p_z² weighting). The skew-product counterexample (X = A^Z × B^Z, h(a,b) = a
 shows collision → 0 while δ = 1/4. The active direction is now a
 negative/clarification note proving geometric and algebraic reconstruction are
 inequivalent.
+
+## Current Three-Transition Map and Theory Front (2026-08-04)
+
+| Transition | Exact boundary/status | Corpus status |
+|---|---|---|
+| Pasting | Vorob'ev acyclicity gives universal extension of compatible local marginals | owned at the acyclic boundary; broader protocol classification remains its own programme |
+| Regularity | `latticehood => Phi` for concrete, σ-complete, non-Boolean, essentially irreducible OMLs | single surviving theory-front question |
+| Sharpness | distributivity is sufficient; complete Hilbert lattices in dimension at least three fail by Kochen–Specker | owned at the stated positive/negative boundary |
+
+There is no common corpus predicate called “liftability” across these rows.
+The literal three-way latticehood conjecture is refuted by the sharpness row.
+The OML attack history is unaffected: Skeletons A/B, the three-front
+convergence, and the T4 relay programme were all directed at `Phi`, which
+remains open and is now the whole theory-front target.
 
 ---
 

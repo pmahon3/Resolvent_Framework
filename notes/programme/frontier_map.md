@@ -88,16 +88,37 @@ vein to open is a real choice between them.
 
 ---
 
-## 1. Bridging layer (spine) — the latticehood family
-**Claim:** latticehood ⟹ liftability ⟹ tameness, conjectured across all three
-transitions (pasting / regularity / sharpness).
-**Evidence:** the corpus's most persistent pattern — three independent
-meet-destruction mechanisms; every wild object provably a non-lattice; every
-lattice met provably tame.
-**Difficulty:** the deepest, hardest thing the corpus owns. Needs a genuinely new
-idea, not a refinement.
-**Role:** the one claim that ties the three transitions together further. This is
-"what would complete the *theory*."
+## 1. Theory layer — OML finite-trace σ-liftability
+**Status correction (2026-08-04, prior-art propagation):** the former
+three-way “latticehood family” is **REFUTED under its literal reading**.
+For `dim H >= 3`, `L(H)` is already a complete orthomodular lattice and has no
+dispersion-free state by Kochen–Specker, so latticehood cannot imply sharpness.
+Nor does the corpus define one liftability predicate across the three arrows.
+
+**Surviving claim:** the single well-typed open question is whether every
+concrete, σ-complete, non-Boolean, essentially irreducible OML satisfies the
+finite-trace σ-liftability predicate `Phi` (`latticehood => Phi`) at the
+**regularity** transition.
+
+**Boundary map:** the three transitions have different known or conjectural
+boundaries: Vorob'ev acyclicity at pasting; latticehood conjecturally at
+regularity; distributivity (sufficient, with Kochen–Specker obstruction) at
+sharpness. Pasting and sharpness are already owned at the stated level.
+
+**Evidence for the surviving question:** the three independent
+meet-destruction mechanisms and every regularity-wild carrier constructed in
+the corpus are non-lattices, while every lattice case actually proved in the
+attack is `Phi`-tame. This evidence is specific to regularity and does not
+support a three-arrow theorem.
+
+**Difficulty and role:** `latticehood => Phi` is now the whole surviving theory
+front. It remains a hard open problem, but no longer carries the additional
+burden of unifying pasting and sharpness.
+
+**Attack continuity:** Skeletons A and B, the three-front convergence, and the
+T4 relay programme all targeted the regularity predicate `Phi`. Their theorem-
+lets, reductions, and negative searches therefore remain valid; only the
+three-way framing has been retired.
 **2026-07-12 boundary centre-removal audit:** the dense-nonopen boundary
 example cannot be made irreducible with only its two blocks: every common
 interface element is central in the OML they generate. The smallest crossed
@@ -106,8 +127,9 @@ is a centre-free concrete σ-complete OML with seven maximal blocks. Every
 overlap-generated boundary saturates its block. The residual fork is coarse
 infinite inflation and finite-face exposure; direct simultaneous selection
 remains primary.
-**2026-07-10:** attack OPENED on the load-bearing case (regularity/OML =
-shovel thm 2) — mechanisms collected, conjecture split, skeletons named:
+**2026-07-10:** attack OPENED on regularity/OML (then described as the
+family's load-bearing case; now the whole surviving target; shovel thm 2) —
+mechanisms collected, conjecture split, skeletons named:
 `notes/open_questions/oml_attack/oml_lattice_regularity_attack.md`. **s9:** first
 banked piece — theorem-let (no non-Boolean concrete σ-class OML has all
 σ-additive states JP; attack note §7c): the "every wild object a
@@ -488,12 +510,14 @@ non-relabeling residue is the σ-essential witness the corpus already owns
 ---
 
 ## The choice, framed
-- **Complete the theory** → latticehood family (deepest; needs a new idea) or its
-  protocol-side rhyme, the pruning-lemma stack (incubating, refinement-shaped).
+- **Complete the theory** → settle the OML regularity question
+  `latticehood => Phi`, or pursue its protocol-side rhyme, the pruning-lemma
+  stack (incubating, refinement-shaped).
 - **Complete the programme** → the statistics layer (tractable, high-value,
   where the motivation started).
-- **The sharp unasked question** → are the carrier-side (latticehood) and
-  protocol-side (impossibility) tameness claims secretly one theorem?
+- **Former unification question** → closed under its literal reading: the three
+  arrows have different predicates and different boundaries. Any future bridge
+  would require a new common definition before it could be conjectured.
 
 Sequencing (dissemination) is a separate decision, orthogonal to which vein opens
 next: σ-essential ships first + alone (standing recommendation; spine §5).
@@ -507,17 +531,15 @@ For a fullsome programme, theory and application each have one *completing*
 target — and they are **decoupled** (a rhyme, not a bridge; the transfer was
 already parked, see below).
 
-**Theory front → latticehood family.** The right target because it *closes*
-rather than extends: it ties the three transitions into one statement
-(latticehood ⟹ liftability ⟹ tameness, uniformly, in all three coordinate
-systems). Proving it makes the corpus's central theorem "the boundary is
-latticehood, everywhere" — a completed theory, not three papers + a spine.
-CAVEAT: also the *hardest* thing the corpus owns; needs a genuinely new idea,
-not a refinement. "Address it" = OPEN THE ATTACK (collect the three
-meet-destruction mechanisms into one frame; ask what a unified
-liftability-from-latticehood argument needs; find where it first breaks) —
-a design/reasoning session likely yielding a sharpened conjecture + a named
-obstruction rather than a proof this session.
+**Theory front → OML finite-trace σ-liftability.** The exact target is:
+does every concrete, σ-complete, non-Boolean, essentially irreducible OML
+satisfy `Phi`? Settling it closes the only surviving latticehood question in
+the corpus. It does not alter the already distinct pasting and sharpness
+boundaries. The attack remains the hardest current theory problem, but it is a
+single question in OML state-extension/regularity rather than a proposed
+three-coordinate unification. The existing attack record is the dependency
+chain beneath it: Skeletons A/B, the fine/coarse/compactness factorisations,
+and the T4 relay exhaustions all address `Phi` directly.
 
 **Applied front → the statistics layer.** Two things at different maturity:
 - *Concrete instance (MITACS, `~/Research/Dynamics/MITACS`):* variable selection

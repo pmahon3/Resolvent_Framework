@@ -7,7 +7,7 @@
   "paths_relative_to": "repository root",
   "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
   "modularity": "Collections are independent registry entries. To add one: author a *_taxonomy.json (per TAXONOMY_SCHEMA.md) and add a row here. To re-parent material across collections as abstraction levels shift, move entries between taxonomies by `id` and update cross-links — no prose rewrite. Entries reference each other across collections via [[file-stem]] wiki-links and shared `id`s, so the tree mutates without breaking references.",
-  "corpus_spine": "papers/spine/ (umbrella note, 5pp): reads the 4-paper corpus as one classification via the filtration S⊇S_σ⊇S_df; its architectural claims (quarantine theorem + tame tower + two-gap ladder) are PROVED as of 2026-07-08. Reference-only. Open bridging conjecture = latticehood family."
+  "corpus_spine": "papers/spine/ (umbrella note, 5pp): reads the corpus through the filtration S⊇S_σ⊇S_df^σ; its architectural claims (quarantine theorem + tame tower + two-gap ladder) are PROVED as of 2026-07-08. Reference-only. The former three-way latticehood conjecture is REFUTED literally; the surviving theory-front question is OML finite-trace σ-liftability (latticehood => Phi) at regularity."
  },
  "collections": [
   {
@@ -98,5 +98,5 @@
    "notes/archive/programme_reception_2026-05/* — reception of a withdrawn programme arc (archived 2026-07-10)"
   ]
  },
- "updated": "2026-07-14"
+ "updated": "2026-08-04"
 }

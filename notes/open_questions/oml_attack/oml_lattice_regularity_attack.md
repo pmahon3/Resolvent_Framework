@@ -33,6 +33,16 @@ meet-destruction mechanisms into one frame; say what a unified
 liftability-from-latticehood argument needs; find where it first breaks.
 Yield = sharpened conjectures + named obstruction, not a proof.*
 
+*Theory-front correction (2026-08-04):* “unified” in the preceding historical
+sentence means unifying the three **regularity-side meet-destruction
+mechanisms**, not unifying pasting, regularity, and sharpness. The literal
+three-transition latticehood family is refuted by the complete Hilbert
+lattice's Kochen–Specker failure of sharpness. The question in §1,
+`latticehood => Phi`, is now the **whole surviving theory-front target**. The
+problem is a single well-typed OML state-extension/regularity question; it no
+longer carries the framing obligation “find one new idea unifying three
+transitions.” All attack results below already concern `Phi` and are unchanged.
+
 *Status of §§1–8: ⟦HAND⟧ framing over verified corpus pointers; no new
 theorem claimed there. §7c (s9), §9 (s11), §10 (s13), and §11 (s15) DO
 bank theorem-lets — ⟦HAND⟧, machine- or adversarially corroborated,
@@ -2212,10 +2222,29 @@ theorem reducing the global problem to a new finite class, or a finite grammar
 not covered here.** Within the exhausted grammar, the forbidden-configuration
 route is closed.
 
+## 33. Theory-front propagation (2026-08-04; framing only)
+
+**Claim-status verdict:** the three-way latticehood conjecture is **REFUTED
+UNDER ITS LITERAL READING**; the regularity conjecture `latticehood => Phi`
+remains **OPEN**. These are different claims. The countercheck is
+`L(H)`, `dim H >= 3`: it is a complete OML but has no dispersion-free state,
+so latticehood cannot force the sharpness arrow. Pasting, regularity, and
+sharpness instead have three different boundaries (Vorob'ev acyclicity,
+conjectural latticehood for `Phi`, and distributivity/Kochen–Specker,
+respectively).
+
+Consequently §1 is not a case study feeding a larger family: it is the entire
+surviving theory front. Skeletons A/B, the three-front convergence, and the T4
+relay work remain live evidence and reductions for this question because they
+were all scoped to `Phi`. What is retired is only the claim that their eventual
+solution would unify the other two transitions, and with it the description
+“needs a genuinely new idea to unify three arrows.” No mathematical claim or
+receipt in §§1–32 changes status as a result of this reframing.
+
 ---
 
-*Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);
-spine §4 scoping caveat (sufficiency side). Companions:
+*Feeds: shovel plan §2; frontier item 1 (the whole surviving theory front);
+spine §4 regularity question. Companions:
 `relational_boundary_descent.md` (exact GSD/gluing formulation,
 finite-interface quarantine, finite-atlas full-block localization, conditional
 boundary-defect localization under face-image openness, a counterexample with

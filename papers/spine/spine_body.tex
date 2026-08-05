@@ -26,74 +26,85 @@ The companion paper on distributivity and realism introduces the organising
 object: on the state space of an observation algebra there is a natural
 filtration
 \[
-  \Sf \;\supseteq\; \Ssig \;\supseteq\; \Sdf,
+  \Sf \;\supseteq\; \Ssig \;\supseteq\; \Sdfsig,
 \]
-from all coherent states, to the $\sigma$-additive ones, to the dispersion-free
-(value-definite) ones. Its three inclusions are transitions of different
-mathematical character, named there:
+from all coherent states, to the $\sigma$-additive ones, to the
+$\sigma$-additive dispersion-free ones. Here
+$\Sdfsig=\Sdf\cap\Ssig$. Standalone value-definite realism is the weaker
+existence predicate $\Sdf\ne\varnothing$; on an infinite carrier it is not
+silently identified with $\Sdfsig\ne\varnothing$. The three transitions are of
+different mathematical character, named there:
 \begin{enumerate}[label=\textup{(\arabic*)}, itemsep=2pt]
   \item \emph{pasting} --- from locally coherent window-data up to a single
     globally realising state ($\EA \to \PR$);
   \item \emph{regularity} --- from a finitely additive global state up to a
     countably additive one ($\PR_{\mathrm{f.a.}} \to \PR_\sigma$);
-  \item \emph{sharpness} --- from a $\sigma$-additive state up to a
-    value-definite one ($\PR \to \VDR$).
+  \item \emph{sharpness} --- existence of a dispersion-free state
+    ($\VDR$); within the displayed filtration the endpoint also carries the
+    separate $\sigma$-additivity requirement.
 \end{enumerate}
-Distributivity collapses the filtration --- on a Boolean algebra all three
-transitions are free --- and non-distributivity can open any of them. The
-corpus-level observation this note records is that \textbf{each companion paper
-is the deep study of exactly one transition}, and that the three locate the
-boundary of their transition in three different coordinate systems.
+Distributivity supplies standalone sharpness and the Boolean pasting result;
+regularity still requires $\sigma$-additivity (and the relevant realisation
+condition). The corpus-level observation this note records is that
+\textbf{each companion paper is the deep study of exactly one transition}, and
+that the three locate their boundaries in different structures.
+
+\paragraph{Notation fence.} EA and PR are source-local symbols. In the
+reconstruction paper they mean overlap-compatible probability tables and
+realisability by one process in a declared class. In the distributivity paper
+they concern a dual-space measure and descent to an underlying realisation
+space. The architectural alignment in this note asserts no translation between
+those definitions.
 
 \begin{table}[h]
 \centering
 \small
 \begin{tabular}{@{}llll@{}}
 \toprule
-Transition & Paper & Boundary (tame side) & Separating object (wild side) \\
+Transition & Paper & Tame condition / status & Wild-side object \\
 \midrule
 pasting
   & commensurability
-  & acyclic reporting; the tamings
-  & odd-ring half-model (a golden-mean PR-box) \\
+  & Vorob'ev acyclicity
+  & odd-ring half-model \\
 regularity
   & $\sigma$-essential
-  & Boolean; Polish-representable
+  & $\Phi$ on OMLs: open
   & the product Ulam carrier, in ZFC \\
 sharpness
   & distributivity \& realism
-  & distributivity
+  & distributivity: sufficient
   & Kochen--Specker (imported, reframed) \\
 \bottomrule
 \end{tabular}
 \caption{The three transitions of the filtration, the paper that studies each,
-the structural boundary separating its tame from its wild side, and the object
-witnessing the wild side. Two of the three witnesses --- the odd-ring half-model
-and the product Ulam carrier --- are constructed in the companion papers rather
-than imported.}
+the established tame condition or boundary status, and an object witnessing
+the wild side. Two of the three witnesses --- the odd-ring half-model and the
+product Ulam carrier --- are constructed in the companion papers rather than
+imported.}
 \label{tab:map}
 \end{table}
 
 The table is the weave. One question --- \emph{when does empirical adequacy
-purchase realism?} --- is answered as a classification (made precise by the tame
-tower of Corollary~\ref{cor:tower}), with the boundary located algebraically
-(distributivity), set-theoretically (beyond Polish, at $\omega_1$), and
-dynamically (odd recurrence). Two of the separating witnesses are new
-constructions; the third (Kochen--Specker) is classical, reframed as the
-sharpness-transition obstruction.
+purchase realism?} --- is organised as a classification (made precise by the
+tame tower of Corollary~\ref{cor:tower}), but not by one uniform structural
+boundary. Pasting has the Vorob'ev acyclicity boundary for universal extension;
+regularity has the open OML predicate $\Phi$; sharpness has distributivity as a
+sufficient condition and Kochen--Specker as its flagship obstruction. Two of
+the separating witnesses are new constructions; the third is classical and
+reframed here.
 
 
 \section{What is genuinely common}\label{sec:common}
 
 Three things hold across all three papers and belong to none of them alone.
 
-\paragraph{Non-distributivity as the discriminator.} In each transition the tame
-side is, at root, a distributive (or distributively-representable) regime, and
-the wild side is entered through non-distributivity: Kochen--Specker needs
-$\dim H \ge 3$; the $\sigma$-essential witness is provably not a lattice; the
-pasting failures are carried by non-distributive constraint geometry. That
-non-distributivity is the tame/wild discriminator in \emph{every} transition is a
-corpus-level pattern no single paper isolates.
+\paragraph{Different structural boundaries.} The commonality is architectural,
+not a shared dichotomy. Pasting asks for gluing and has Vorob'ev acyclicity as
+its universal-extension boundary. Regularity asks for finite-trace
+$\sigma$-liftability and leaves $\Phi$ open on concrete $\sigma$-complete OMLs.
+Sharpness asks for a dispersion-free state; distributivity is sufficient and
+Kochen--Specker blocks the complete Hilbert lattice in dimension at least three.
 
 \paragraph{The observer-first price list.} Section~\ref{sec:moral}: the three
 papers are, together, the statement that $\sigma$-additivity and
@@ -118,13 +129,14 @@ only imported or absent ones. This is a bridge over known mathematics with two
 new construction points; the umbrella claims no more.
 
 
-\section{Two bridging results and the remaining conjecture}\label{sec:open}
+\section{Two bridging results and the surviving regularity question}\label{sec:open}
 
 The two bridging claims that turn the tabulation of \S\ref{sec:filtration} into a
 single classification are settled here --- one negatively (the coherence notions
 are a strictly separated ladder, not one notion), one positively (a compactness
-quarantine sorts the two constructed witnesses into disjoint regimes) --- leaving
-a single open conjecture (the latticehood family).
+quarantine sorts the two constructed witnesses into disjoint regimes). The
+former three-way latticehood conjecture is not a third bridge: it is refuted
+under its literal reading, leaving one regularity question.
 
 \begin{proposition}[the two-gap ladder]\label{prop:ladder}
 The coherence notions of the three papers form a strictly separated ladder,
@@ -219,13 +231,20 @@ charges~\cite{HornTarski1948,RaoRao1983}, classical; the corpus's contribution i
 part (i)'s pointed form, the tower, and the sorting.
 \end{remark}
 
-The one surviving bridging conjecture, now decoupled from the resolved ladder
-question, is the \emph{latticehood family}: in each transition,
-\emph{latticehood} appears to force liftability, hence tameness. Whether the
-orthomodular-lattice form of each paper's boundary question collapses to the tame
-side, and whether the three are one conjecture
-(latticehood $\Rightarrow$ liftability $\Rightarrow$ tameness), is the corpus's
-single open bridging frontier.
+The literal three-way conjecture fails a type check and a counterexample check.
+The corpus defines liftability exactly only at regularity, through the
+finite-trace predicate $\Phi$; and $L(H)$ for $\dim H\geq3$ is already a complete
+orthomodular lattice while Kochen--Specker gives $\Sdf(L(H))=\varnothing$.
+Latticehood therefore cannot imply sharpness.
+
+The surviving theory-front question is: does every concrete,
+$\sigma$-complete, non-Boolean, essentially irreducible orthomodular lattice
+satisfy $\Phi$? Equivalently, whenever a two-valued state on a finite
+orthocomplement-closed substructure is the trace of a global finitely additive
+two-valued state, is the same finite trace realised by some global
+$\sigma$-additive two-valued state? This question belongs wholly to the
+regularity transition. The pasting and sharpness rows retain their own
+boundaries and are not instances of it.
 
 
 \section{Reading and dissemination order}\label{sec:order}
@@ -239,4 +258,5 @@ commensurability paper follows; the distributivity paper may belong to a
 different venue class (foundations of physics) than the two mathematics papers.
 The spine lets each paper travel light while carrying, itself, only the
 corpus-level content: the filtration as shared object, the observer-first moral,
-and the two open bridging questions of \S\ref{sec:open}.
+the two bridging results, and the surviving regularity question of
+\S\ref{sec:open}.

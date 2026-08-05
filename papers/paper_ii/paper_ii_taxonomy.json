@@ -71,10 +71,10 @@
   "concepts": [
     {
       "id": "concept.coherence_filtration",
-      "name": "Coherence filtration S(A)⊇S_σ(A)⊇S_df(A)",
+      "name": "Coherence filtration S(A)⊇S_σ(A)⊇S_df^σ(A)",
       "category": "concept",
       "status": "novel_synthesis",
-      "one_line": "Three transitions (pasting, regularity, sharpness) unified under one distributivity-indexed ladder; not assembled as a single ladder before. Part of the Type-6 bridge contribution.",
+      "one_line": "Three mathematically different transitions (pasting, regularity, sharpness) organised, not identified, by one filtration; standalone VDR is distinguished from the sigma-additive dispersion-free endpoint. Part of the Type-6 bridge contribution.",
       "detail": "PAPER_II_AUDIT_VERDICT.md#filtration"
     }
   ],

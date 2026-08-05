@@ -3,9 +3,22 @@
 Created 2026-07-08. The corpus-level umbrella reading the trilogy (Paper II /
 distributivity&realism, sigma_essential, reconstruction) as one classification
 of "the price of realism", organised by Paper II's filtration
-S ⊇ S_σ ⊇ S_df and its three transitions (pasting / regularity / sharpness).
+S ⊇ S_σ ⊇ S_df^σ and its three transitions (pasting / regularity / sharpness).
+Standalone VDR remains `S_df != empty`; the σ superscript marks the filtration
+endpoint and prevents an implicit infinite-carrier σ-additivity assumption.
 
-## Scope: skeleton, REFERENCE-ONLY (never absorbs the three papers)
+**2026-08-04 propagation:** the former latticehood-family conjecture is
+REFUTED under its literal reading (`L(H)`, `dim H >= 3`, is a complete OML with
+no dispersion-free state). The spine now records three different boundaries
+and the single surviving regularity question `latticehood => Phi`.
+
+## Historical scope at creation (superseded by `VERIFICATION_PASS.md`)
+
+The bullets below preserve the 2026-07-08 pre-replacement state. They are not
+the current section inventory; the ladder and quarantine conjectures were
+subsequently replaced by proved results.
+
+- REFERENCE-ONLY (never absorbs the three papers).
 - §1 observer-first moral (the corpus's stated-once thesis).
 - §2 the filtration + the map table (each paper = one transition; boundary
   coordinate + separating witness per row). The filtration and its three
@@ -41,7 +54,8 @@ S ⊇ S_σ ⊇ S_df and its three transitions (pasting / regularity / sharpness)
 - Per-paper "position in the programme" paragraphs — additive, low-risk, not yet
   written; should reference the spine, not assert the unification.
 
-## NOT DONE / owed
-- The two bridging conjectures must be settled before the spine's central claim
-  ("each paper is one transition, worlds provably disjoint") can be asserted as
-  fact rather than open problem. C1' audit is the highest-value corpus lemma.
+## Historical owed record
+- The two original bridging conjectures were subsequently replaced by the
+  proved ladder/quarantine results. The later latticehood-family conjecture has
+  now been closed negatively at the framing level; only regularity `Phi`
+  remains open.

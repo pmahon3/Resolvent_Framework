@@ -27,12 +27,14 @@ value-definite realism fails outright.
 
 Distributivity guarantees value-definiteness; for the physically
 central case $L(H)$, $\dim H \geq 3$, non-distributivity blocks it.
-The state space admits a natural filtration
+The state space admits the typed filtration
 $\mathcal{S} \supseteq \mathcal{S}_\sigma \supseteq
-\mathcal{S}_{\mathrm{df}}$, whose three transitions --- pasting,
-regularity, sharpness --- are of different mathematical character.
-Distributivity collapses the filtration; non-distributivity can
-(but need not) open it.
+\mathcal{S}_{\mathrm{df}}^\sigma$, whose three transitions --- pasting,
+regularity, sharpness --- are of different mathematical character.  Here
+$\mathcal{S}_{\mathrm{df}}^\sigma=\mathcal{S}_{\mathrm{df}}\cap
+\mathcal{S}_\sigma$; standalone value-definite realism asks only that
+$\mathcal{S}_{\mathrm{df}}$ be nonempty.  Distributivity supplies standalone
+sharpness, but does not by itself make an arbitrary state $\sigma$-additive.
 \end{abstract}
 
 \begin{quote}\small
@@ -96,8 +98,22 @@ Boolean algebras and separate for $L(H)$ (Theorem~\ref{thm:commensurability}).
 Where the distinction matters we write the grade explicitly; an
 unqualified ``PR'' refers to the Boolean case, where the two agree.
 
-\noindent These are nested: VDR implies PR implies EA.  Which
-implications reverse depends on the observation algebra:
+\noindent At the $\sigma$-additive grade these are nested:
+$\mathrm{VDR}_\sigma$ implies PR implies EA.  Standalone VDR is the weaker
+availability predicate $\mathcal{S}_{\mathrm{df}}(A)\ne\varnothing$; on an
+infinite carrier dispersion-freeness alone is not silently taken to imply
+$\sigma$-additivity.  We write $\mathrm{VDR}_\sigma$ for
+$\mathcal{S}_{\mathrm{df}}^\sigma(A)\ne\varnothing$. Which implications
+reverse depends on the observation algebra:
+
+\begin{remark}[Paper-local notation]
+The symbols EA and PR in this paper concern a dual-space measure and its
+descent to an underlying realisation space.  In the companion reconstruction
+paper, EA means overlap-compatible local probability tables and
+$\mathrm{PR}(\mathcal R)$ means realisability by one process in a declared
+class $\mathcal R$.  No equivalence or translation between those pairs of
+definitions is asserted.
+\end{remark}
 
 \smallskip
 \noindent\emph{Compatible observations.}
@@ -608,10 +624,11 @@ $L(H)$):
   \;\overset{(\ast)}{\Longleftarrow}\;
   \underbrace{\text{PR}_{\text{dual}}^{\dagger}}_{\text{fails for }L(H)}
   \;\Longleftarrow\;
-  \underbrace{\text{VDR}^{\dagger}}_{\text{KS-blocked (OML)}}
+  \underbrace{\text{VDR}_{\sigma}^{\dagger}}_{\text{KS-blocked (OML)}}
 \]
-The implications run weak-from-strong: VDR (a global dispersion-free
-state) implies $\text{PR}_{\text{dual}}$ (a dual-space measure);
+The implications run weak-from-strong at the stated grade:
+$\mathrm{VDR}_{\sigma}$ (a global $\sigma$-additive dispersion-free state in
+the dual-realising scope) implies $\text{PR}_{\text{dual}}$ (a dual-space measure);
 $\text{PR}_{\text{dual}}$ implies $\text{PR}_{\text{lat}}$ only
 conditionally (the restriction of $\hat\mu$ to the $\perp$-stable clopens
 is finitely orthoadditive, but its $\sigma$-additivity on the lattice
@@ -734,8 +751,9 @@ the physically and epistemologically central case $\dim H \geq 3$,
 it is the effective dividing line.
 \end{remark}
 
-The containment $\mathcal{S}(A) \supseteq \mathcal{S}_\sigma(A)
-\supseteq \mathcal{S}_{\mathrm{df}}(A)$ is standard in quantum
+The state notions underlying the typed containment
+$\mathcal{S}(A) \supseteq \mathcal{S}_\sigma(A)
+\supseteq \mathcal{S}_{\mathrm{df}}^\sigma(A)$ are standard in quantum
 logic~\cite{PtakPulmannova1991, Kalmbach1983}.  What we add is the
 identification of three transitions of different mathematical
 character, and the observation that distributivity controls which
@@ -744,13 +762,13 @@ are trivial.
 \begin{definition}[Coherence filtration]
 \label{def:hierarchy}
 Let $A$ be a complemented lattice with a family of charges.
-The \emph{state space} of $A$ admits a descending filtration:
+The state space of $A$ admits the descending filtration
 \[
   \mathcal{S}(A)
   \;\supseteq\;
   \mathcal{S}_\sigma(A)
   \;\supseteq\;
-  \mathcal{S}_{\mathrm{df}}(A),
+  \mathcal{S}_{\mathrm{df}}^\sigma(A),
 \]
 where:
 \begin{itemize}
@@ -759,10 +777,16 @@ where:
   \item $\mathcal{S}_\sigma(A) \subseteq \mathcal{S}(A)$ is the
     subset of $\sigma$-additive states
     (probabilistic coherence);
-  \item $\mathcal{S}_{\mathrm{df}}(A) \subseteq
-    \mathcal{S}_\sigma(A)$ is the subset of dispersion-free states
-    (value-definite coherence).
+  \item $\mathcal{S}_{\mathrm{df}}^\sigma(A):=
+    \mathcal{S}_{\mathrm{df}}(A)\cap\mathcal{S}_\sigma(A)$ is the subset of
+    $\sigma$-additive dispersion-free states (the filtration's
+    value-definite endpoint).
 \end{itemize}
+Standalone VDR remains the predicate
+$\mathcal{S}_{\mathrm{df}}(A)\ne\varnothing$, with no automatic
+$\sigma$-additivity clause.  The two formulations agree on finite carriers
+and whenever $\sigma$-additivity is separately established; they are not
+identified on an arbitrary infinite carrier.
 Beneath the filtration sits a local condition:
 \emph{consistency} requires only that each maximal Boolean
 subalgebra of $A$ individually admits a compatible state.
@@ -785,7 +809,7 @@ $\mathcal{S}(A) \to \mathcal{S}_\sigma(A)$
   & Regularity (analytic)
   & Does the state have good limits?
   & $\sigma$-additivity \\[3pt]
-$\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}(A)$
+$\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}^\sigma(A)$
   & Sharpness (algebraic)
   & Can probabilities collapse to $\{0,1\}$?
   & Kochen--Specker \\
@@ -794,13 +818,16 @@ $\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}(A)$
 \end{center}
 \medskip
 
-\noindent Distributivity collapses the filtration.  For a Boolean algebra:
+\noindent Distributivity controls two of the transitions but does not erase
+the regularity question.  For a Boolean algebra:
 \begin{itemize}
   \item \emph{Pasting} is trivial: every local assignment extends
     to a global state (distributivity guarantees compatibility).
   \item \emph{Sharpness} is free: ultrafilters exist (Zorn's lemma),
     so $\mathcal{S}_{\mathrm{df}}(A) \neq \varnothing$
-    unconditionally.
+    unconditionally.  This is standalone VDR; membership in
+    $\mathcal{S}_{\mathrm{df}}^\sigma(A)$ requires the separate
+    $\sigma$-additivity clause.
   \item The only non-trivial transition is \emph{regularity}:
     $\sigma$-additivity of the charges (with the realization condition
     on $\Omega$), as developed above.
@@ -821,8 +848,9 @@ For an OML with $\dim \geq 3$, every transition is non-trivial:
     = \varnothing$ (Kochen--Specker).
 \end{itemize}
 
-\noindent Distributivity is sufficient to collapse the filtration.
-For $L(H)$ with $\dim \geq 3$, non-distributivity opens it fully.
+\noindent Distributivity is sufficient for standalone VDR and the Boolean
+pasting statement; regularity remains the $\sigma$-additivity step.  For
+$L(H)$ with $\dim \geq 3$, Kochen--Specker blocks even standalone VDR.
 
 \begin{remark}[Relation to contextuality hierarchies]
 Abramsky and Brandenburger~\cite{AbramskyBrandenburger2011}

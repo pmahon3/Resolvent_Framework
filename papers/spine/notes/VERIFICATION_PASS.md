@@ -69,3 +69,11 @@ corrected to the 32-point C5 (not 8-point). Everything else verified sound.
   conjecture". Abstract wrapper line + §2 "classification (cor:tower)" flipped.
 - Compiles clean: 5pp, 0 errors, 0 undefined cite/ref, both bibitems resolve.
 PASTE COMPLETE. Spine's central sentence is now FACT, not conjecture.
+
+## 2026-08-04 propagation addendum
+
+The “latticehood conjecture” named above was a conjectural third item, not part
+of the proved ladder/quarantine sentence. The prior-art/type audit refutes its
+literal three-way form using the complete Hilbert lattice's sharpness failure.
+The spine now retains only the regularity question `latticehood => Phi`; the
+verified ladder and quarantine results are unchanged.

@@ -2180,6 +2180,38 @@ $k\le2$ bounds.
 Artifacts: `../verification/census_2026-07-12_s38/` and
 `../verification/audit_s38_p3_optimizer*`.
 
+## 32. Structural constraint from the finite T4 relay exhaustions (2026-08-04, prior-art round)
+
+**Epistemic grade: EXHAUSTIVE BOUNDED EVIDENCE — STRATEGIC CONSTRAINT, NOT A
+THEOREM.** Sections 28–31 exhaust the named 7-loop removable-face relay grammar
+through every currently feasible finite configuration class:
+
+| relay class | exact census | operative outcome |
+|---|---:|---|
+| period one, width 1 | 196 maps per target; all two-cell-girth-valid | zero operative |
+| period one, width 2 | 16,562 maps per target; 9,408 exactly valid | zero operative |
+| period one, width 3 | 794,976 maps per target; 122,500 exactly valid | 22 pass the local screen; all 22 die at downstream geometry |
+| period one, width 4 | 24,048,024 maps; 477,652 exactly valid | only two reach the deep gates; both fail rooted sigma-state order separation |
+| period two, width 1 | 38,416 ordered interface pairs; independently audited over all 230,496 pair/target cases | zero operative |
+| period two, width 2 | 88,510,464 ordered pairs of the 9,408 valid interfaces | zero operative for all target orbits |
+| period three, width 1 | 7,529,536 ordered triples | zero operative for all target orbits |
+
+Read positively, this is evidence that the missing obstruction is **not captured
+by a bounded finite forbidden configuration in this relay grammar**. It shifts
+weight away from a Kuratowski-style or finite Greechie-diagram explanation and
+toward a genuinely infinitary/global mechanism: countable sigma-closure,
+coherent inverse systems, or an uncountable hub. It is therefore a constraint on
+future explanations, not merely a list of failed constructions.
+
+The quantifiers must remain explicit. The census does **not** prove that no
+finite witness exists outside the named 7-loop cell, at larger width or period,
+or in a different assembly grammar. Accordingly the licensed conclusion is not
+“the obstruction is not finitely witnessed” as a theorem. It is: **do not
+re-enter undirected finite search without a new structural discriminator, a
+theorem reducing the global problem to a new finite class, or a finite grammar
+not covered here.** Within the exhausted grammar, the forbidden-configuration
+route is closed.
+
 ---
 
 *Feeds: shovel plan §2; frontier item 1 (this is its load-bearing case);

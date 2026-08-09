@@ -1,6 +1,7 @@
 # Claim-status ledger: `Psi_lat` attack surface
 
-*Recorded 2026-08-06. Full proofs, source links, and definition anchors are in
+*Opened 2026-08-06; entries current through 2026-08-09. Full proofs, source
+links, and definition anchors are in
 [`psi_lat_attack_surface.md`](psi_lat_attack_surface.md). Falsifiers are stated
 at the scope of the corresponding claim. No finite exhaustive search and no
 Lean work were performed.*
@@ -184,3 +185,86 @@ carrier architecture for the later `Adm` audit.
 **Disposition.** Keep the completion-thread verdicts unchanged. Reuse
 “regular/sigma-homomorphic boundary” only for the puncture obstruction, and do
 not promote it to generic chord creation.
+
+## Entry PLA-S11-1 — locality of singleton quarantine
+
+**Claim under test.** The banked s11/T1 proof is either a product-Ulam
+artifact or a general mechanism by which latticehood forces a live mixed
+constraint.
+
+**Falsifier named before proof inspection.** Any use in T1 of an Ulam row or
+column, countability, atomicity, sigma-additivity, a block-selection theorem,
+or the three-core loop.
+
+**Outcome.** **GENERAL AS A PAIRWISE MEET SQUEEZE; LOCAL AS A STATE-KILL
+MECHANISM.** The actual proof uses only the greatest carrier lower bound of
+one pair and the hypothesis that carrier lower bounds cover its literal set
+intersection. Singletons are one sufficient cover. It does not prove the meet
+nonzero or non-null and contains no block or three-cell step. The
+product-Ulam-specific input is that this locally resolved fine structure sits
+under the charged incompatible core overlap.
+
+**Evidence grade.** **REPO-VERIFIED PROOF INSPECTION.** Anchors: T1 in
+`oml_lattice_regularity_attack.md` section 9c and the machine-checked
+`compat_of_locally_resolved` / `compat_of_singletons` statements in
+`ConcreteOMLBlocks.lean`. Full audit:
+[`s11_quarantine_generality.md`](s11_quarantine_generality.md).
+
+## Entry PLA-S11-2 — locally resolved value-one meet lemma
+
+**Candidate.** Let `L` be a concrete sigma-class, `mu` a finitely additive
+two-valued state, and `a,b` value-one events whose carrier meet exists. If
+every point of `a cap b` lies in a carrier event contained in `a cap b`, then
+`a meet b=a cap b` and `mu(a meet b)=1`.
+
+**Falsifier named before the derivation.** A tuple satisfying all displayed
+hypotheses with `mu(a meet b)=0`.
+
+**Outcome.** **HAND-PROVED FROM BANKED T1.** T1 makes the pair compatible;
+finite additivity on the Boolean algebra of the pair makes the value-one
+filter intersection-closed. No sigma-completeness, block, countable-type,
+atomicity, or Ulam hypothesis is used.
+
+**Evidence grade.** **REPO-VERIFIED T1 + ELEMENTARY HAND COROLLARY.**
+
+**Deletion boundary / explicit negative result.** **LOCAL RESOLUTION IS
+ESSENTIAL.** In the banked concrete `MO_omega`, a Dirac state charges private
+events from two distinct blocks while every such mixed meet is `0`; their
+nonempty literal intersections contain no nonempty carrier lower bound.
+Thus concreteness, sigma-completeness, non-Booleanness, essential
+irreducibility, and latticehood do not by themselves force a live mixed meet.
+
+**Relation to `Adm`.** Concreteness and the added lattice hypothesis supply
+the setting, but no `Adm` clause supplies local resolution. The global
+all-singletons form would make the lattice Boolean and therefore conflicts
+with `Adm` at that global scope. Essential irreducibility does not repair the
+gap (`MO_omega`); non-segregation is a trace-rescue condition, not a mixed-meet
+condition.
+
+## Entry PLA-S11-3 — three-cell star test
+
+**Claim under test.** The locally resolved value-one meet lemma either
+shortcuts the banked three-cell conditional-diagonal star or proves that its
+interfaces evade s11.
+
+**Decisive falsifiers named before the test.** A proof that every faithful
+star realization locally resolves one designated value-one mixed
+intersection would falsify flat realization (shortcut). A proof that the
+fenced interface conditions force an unresolved point in every designated
+mixed intersection would establish evasion.
+
+**Outcome.** **UNDETERMINED — ONE EXACT HYPOTHESIS LOCATED.** The star's
+distinct proper nonseparating quotient supports, non-countable-type
+interfaces, and nontrivial countable quotient imply neither the local
+lower-bound cover nor its negation. “Nonseparating” cannot be replaced by
+“locally unresolved.” If the cover is forced, the candidate lemma gives a
+value-one mixed meet; if strict/state-null meets are realized, T1 says the
+cover fails. Deciding which occurs is exactly the pending mixed-cut hand
+calculation.
+
+**Evidence grade.** **REPO-ANCHORED TARGET-SPECIFICATION AUDIT; NO
+CONSTRUCTION OR SEARCH.**
+
+**Disposition.** The pen-and-paper target is unchanged. Test the local-cover
+condition at the first designated mixed cut; do not infer evasion merely from
+the coarse/nonseparating interface labels.

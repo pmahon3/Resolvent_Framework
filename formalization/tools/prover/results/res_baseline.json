@@ -1,0 +1,902 @@
+[
+ {
+  "file": "WindingDichotomy.lean",
+  "name": "coherence_is_conservation",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 1.1
+ },
+ {
+  "file": "OrthomodularMO2.lean",
+  "name": "a_ortho_a'",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.7
+ },
+ {
+  "file": "DescentWitnessFinite.lean",
+  "name": "p_apply",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.9
+ },
+ {
+  "file": "DescentWitnessFinite.lean",
+  "name": "aFam_apply_self",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 5.0
+ },
+ {
+  "file": "DescentWitnessFinite.lean",
+  "name": "star_finite_all",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "cEq_refl",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 4.5
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "cEq_symm",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 4.2
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "cEq_compl",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.1
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "cEq_empty_iff",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 0.4
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "cEq_empty_of_countable",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "sel_false",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "sel_true",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "sel_not",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.4
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "sel_compl",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.3
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "mem_trace",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "trace_compl",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "trace_union",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "trace_iUnion",
+  "ok": true,
+  "proof": "aesop",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.4
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "evenCode_zeroCode",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "evenCode_\u03baA",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "evenCode_\u03baB",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "evenCode_\u03baC",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "nrep_empty",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 2.3
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "nrep_univ",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 2.3
+ },
+ {
+  "file": "UlamWitnessInvariant.lean",
+  "name": "cEq_univ_compl_empty",
+  "ok": true,
+  "proof": "aesop ; exact?",
+  "reason": "closed",
+  "expansions": 2,
+  "secs": 0.1
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "powerDynkin_interClosed",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.9
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "A0_mem_blk",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.6
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "A1_mem_blk",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.2
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "w\u2080_mem_A0",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "w\u2081_mem_A0",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "w\u2080_mem_A1",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "w\u2082_mem_A1",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "w\u2081_mem_A2",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "w\u2082_mem_A2",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "s\u2080_val_A0",
+  "ok": true,
+  "proof": "tauto",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 2.1
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "s\u2080_val_A1",
+  "ok": true,
+  "proof": "tauto",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 2.1
+ },
+ {
+  "file": "Omega7Counterexample.lean",
+  "name": "omega7_not_witness",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "SigmaEssentialBareForm.lean",
+  "name": "qbare_pos_no_global_section",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 3,
+  "secs": 2.3
+ },
+ {
+  "file": "DiscriminabilityFoundations.lean",
+  "name": "counterexampleQS_no_finitary_condition",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 2.9
+ },
+ {
+  "file": "DiscriminabilityFoundations.lean",
+  "name": "sp3CollapseMap_zero",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "DiscriminabilityFoundations.lean",
+  "name": "sp3CollapseMap_one",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "DiscriminabilityFoundations.lean",
+  "name": "sp3CollapseMap_two",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "DiscriminabilityFoundations.lean",
+  "name": "sp3CollapseMap_ne_two",
+  "ok": true,
+  "proof": "decide",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 1.7
+ },
+ {
+  "file": "BoundaryDescent.lean",
+  "name": "overlapEvents_subset",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 1.8
+ },
+ {
+  "file": "BoundaryDescent.lean",
+  "name": "augmentedTrace_finite",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.2
+ },
+ {
+  "file": "BoundaryDescent.lean",
+  "name": "augmentedTrace_subset",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.6
+ },
+ {
+  "file": "BoundaryDescent.lean",
+  "name": "exists_boundary_preserving_point",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.6
+ },
+ {
+  "file": "BoundaryDescent.lean",
+  "name": "quarantinePoint_agrees",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 0.4
+ },
+ {
+  "file": "StoneDualityExtension.lean",
+  "name": "stoneEmbedding_denseRange",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 2.8
+ },
+ {
+  "file": "StoneDualityExtension.lean",
+  "name": "stoneEval_factor",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.8
+ },
+ {
+  "file": "StoneDualityExtension.lean",
+  "name": "stone_agrees_with_caratheodory",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "ODBCSections.lean",
+  "name": "countableSectionSolvable_implies_finite",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 4.4
+ },
+ {
+  "file": "ODBCSections.lean",
+  "name": "odbC_of_countable_compactness",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "ODBCSections.lean",
+  "name": "phi_of_odbc_sections",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.3
+ },
+ {
+  "file": "KernelClosureCalculus.lean",
+  "name": "mem_selectorUpperCore_iff",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 3.5
+ },
+ {
+  "file": "KernelClosureCalculus.lean",
+  "name": "literal_subset_selectorUpperCore",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.4
+ },
+ {
+  "file": "KernelClosureCalculus.lean",
+  "name": "forcedSelector_card_lt_of_not_least",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 1.9
+ },
+ {
+  "file": "UlamWitnessState.lean",
+  "name": "uBool_eq_true_iff",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 1.9
+ },
+ {
+  "file": "UlamWitnessState.lean",
+  "name": "uBool_empty",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.2
+ },
+ {
+  "file": "UlamWitnessState.lean",
+  "name": "mVal_coreA",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessState.lean",
+  "name": "mVal_coreB",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessState.lean",
+  "name": "corePattern_witness",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.2
+ },
+ {
+  "file": "BandClosure.lean",
+  "name": "mem_cell",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.8
+ },
+ {
+  "file": "BandClosure.lean",
+  "name": "cell_union",
+  "ok": true,
+  "proof": "aesop",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.7
+ },
+ {
+  "file": "BandClosure.lean",
+  "name": "cell_inter",
+  "ok": true,
+  "proof": "aesop",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.3
+ },
+ {
+  "file": "BandClosure.lean",
+  "name": "cell_subset_union_left",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.5
+ },
+ {
+  "file": "InnerRegularity.lean",
+  "name": "mem_empty",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 3.8
+ },
+ {
+  "file": "InnerRegularity.lean",
+  "name": "mem_diff",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 4.2
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "has_singleton",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 1.3
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "has_cell",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "has_coreA",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "has_coreB",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "has_coreC",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "corePattern_val_coreA",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 3.5
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "corePattern_val_coreB",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 3.5
+ },
+ {
+  "file": "UlamWitnessCore.lean",
+  "name": "fip_fails_at_stage_three",
+  "ok": true,
+  "proof": "aesop ; exact? ; exact? ; exact? ; exact?",
+  "reason": "closed",
+  "expansions": 5,
+  "secs": 0.3
+ },
+ {
+  "file": "DescentWitnessConsistency.lean",
+  "name": "model_blockVal_ortho",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.8
+ },
+ {
+  "file": "DescentWitnessConsistency.lean",
+  "name": "model_blockVal_inf",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.1
+ },
+ {
+  "file": "DescentWitnessConsistency.lean",
+  "name": "model_blockVal_bot",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "DescentWitnessConsistency.lean",
+  "name": "model_blockVal_pWitness",
+  "ok": true,
+  "proof": "exact?",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 0.0
+ },
+ {
+  "file": "DelayEmbedding.lean",
+  "name": "measurable_delayRefineMap",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 4.0
+ },
+ {
+  "file": "DelayEmbedding.lean",
+  "name": "seqUpperDirected",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 3.9
+ },
+ {
+  "file": "DelayEmbedding.lean",
+  "name": "delay_cyclic_implies_reconstruction",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.9
+ },
+ {
+  "file": "ConcreteOMLPatterns.lean",
+  "name": "isCompact_stFA",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 1.5
+ },
+ {
+  "file": "Commensurability.lean",
+  "name": "distributivity_controls_vdr",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 4,
+  "secs": 3.5
+ },
+ {
+  "file": "ConcreteOMLBlocks.lean",
+  "name": "compat_symm",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 1.3
+ },
+ {
+  "file": "ConcreteOMLBlocks.lean",
+  "name": "Compat.symm",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 3.8
+ },
+ {
+  "file": "ConcreteOMLBlocks.lean",
+  "name": "has",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.1
+ },
+ {
+  "file": "ConcreteOMLBlocks.lean",
+  "name": "empty_mem",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.2
+ },
+ {
+  "file": "ConcreteOMLBlocks.lean",
+  "name": "diff_mem",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.4
+ },
+ {
+  "file": "ConcreteOMLBlocks.lean",
+  "name": "PoorPair.not_compat",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 0.7
+ },
+ {
+  "file": "ConcreteOMLBlocks.lean",
+  "name": "PoorPair.not_mem_common_block",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.7
+ },
+ {
+  "file": "DescentWitnessInfinite.lean",
+  "name": "star_infinite",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 3,
+  "secs": 1.6
+ },
+ {
+  "file": "UlamWitnessMain.lean",
+  "name": "carrier_not_interClosed",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 2,
+  "secs": 2.0
+ },
+ {
+  "file": "UlamWitnessOmega1.lean",
+  "name": "psiAmended_of_coherent",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 3.2
+ },
+ {
+  "file": "SigmaEssentialConjectures.lean",
+  "name": "costume_discriminator",
+  "ok": true,
+  "proof": "aesop ; exact? ; exact?",
+  "reason": "closed",
+  "expansions": 3,
+  "secs": 2.5
+ },
+ {
+  "file": "UltrafilterCharge.lean",
+  "name": "ultrafilterCharge_empty",
+  "ok": true,
+  "proof": "aesop",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 2.4
+ },
+ {
+  "file": "UltrafilterCharge.lean",
+  "name": "ultrafilterCharge_univ",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 0.6
+ },
+ {
+  "file": "MarczewskiTransport.lean",
+  "name": "cocountableClass_approximates",
+  "ok": false,
+  "proof": null,
+  "reason": "exhausted",
+  "expansions": 1,
+  "secs": 5.5
+ },
+ {
+  "file": "EncodingDefectCheck.lean",
+  "name": "extends_refl",
+  "ok": true,
+  "proof": "tauto",
+  "reason": "closed",
+  "expansions": 1,
+  "secs": 4.6
+ }
+]

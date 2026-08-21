@@ -34,6 +34,16 @@ Sorry inventory re-measured and **unchanged**: 1 real `sorry`,
 `StoneDualityExtension.stone_observational_extension` (Yosida–Hewitt). The
 other 29 `sorry` occurrences in the tree are docstring prose.
 
+Same session: a local tactic model (BFS-Prover-V2-7B on tower) was measured
+against 100 of our own short lemmas, matched against a Mathlib-automation
+baseline. Tie at 43/100 each but on 26 different theorems; union 56/100;
+zero contamination from search tactics. Measurement, limits and the resulting
+work plan (PRIMARY: Theorem B + Lemma NG, kit gap 5.3) are in
+`notes/programme/local_prover_stack.md`; harness in
+`formalization/tools/prover/`. Note that `stone_observational_extension` is
+**not** prover-attackable: Mathlib has `AddContent` but no Yosida–Hewitt
+decomposition, so there is no lemma to cite.
+
 ---
 
 ## 2026-05-11 — Papers II+III withdrawn; Lean files retained

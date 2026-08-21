@@ -22,3 +22,6 @@ rev = "main"
 
 [[lean_lib]]
 name = "QuerySystem"
+# Without this, `lake build` compiles only the root module QuerySystem.lean and
+# every submodule under QuerySystem/ goes unchecked.
+globs = ["QuerySystem.+"]

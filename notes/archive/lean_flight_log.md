@@ -5,12 +5,50 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-08-21 — `lake build` covered 1 of 47 files; two files never compiled
+
+`lakefile.toml` declared `[[lean_lib]] name = "QuerySystem"` with no `globs`,
+so `lake build` compiled only the root module `QuerySystem.lean`. Every
+submodule under `QuerySystem/` was unchecked — a green build meant nothing.
+`globs = ["QuerySystem.+"]` added.
+
+With all modules built: **42 of 44 compile.** The two failures were
+`PredictiveState.lean` and `PredictiveOperators.lean`.
+
+`PredictiveState.lean` has never been valid Lean. It uses `Q_*` and `q_*` as
+identifiers (paper notation, `Q_* = Φ_h`, introduced 2026-03-18); `*` is a
+token, so these are parse errors — confirmed against v4.29.0 with a minimal
+`def Q_* : Nat := 1`. Mathlib drift is also present but secondary
+(`Measure.condExp` → top-level `condExp`, `prod_mk` → `prodMk`,
+`comap_measurable` → `measurable_iff_comap_le`); those only surface after
+the parse errors, in a file that never built.
+
+Nothing imports `PredictiveOperators`; it is a dead leaf. Both archived to
+`formalization/QuerySystem/archive/`, matching the precedent set for
+`TopologicalQuerySystem.lean` and `ProkhorovExtension.lean`. Nothing is lost
+that was ever verified — there were no checked proofs to preserve. If the
+measure-theoretic line revives, rebuild against current Mathlib rather than
+porting proofs Lean never accepted.
+
+Sorry inventory re-measured and **unchanged**: 1 real `sorry`,
+`StoneDualityExtension.stone_observational_extension` (Yosida–Hewitt). The
+other 29 `sorry` occurrences in the tree are docstring prose.
+
+---
+
 ## 2026-05-11 — Papers II+III withdrawn; Lean files retained
 
 Papers II and III withdrawn after deep novelty audit revealed all results
 are classical. Lean files (`PredictiveState.lean`, `PredictiveOperators.lean`,
 `ReconstructionTheorem.lean`, `DelayEmbedding.lean`) remain as correct proofs
 of classical results but are no longer load-bearing for any paper claim.
+
+> **⚠ CORRECTION 2026-08-21.** "correct proofs" is false for two of the four.
+> `PredictiveState.lean` has never parsed (`Q_*` / `q_*` are not legal Lean 4
+> identifiers — `*` is a token, not an identifier character), and
+> `PredictiveOperators.lean` imports it. Neither was ever checked by Lean.
+> `ReconstructionTheorem.lean` and `DelayEmbedding.lean` do compile.
+> Both broken files archived 2026-08-21. See the 2026-08-21 entry.
 
 Active formalization: Paper I only (4 files, 1 sorry).
 

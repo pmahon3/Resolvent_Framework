@@ -4,13 +4,7 @@
 
 \usepackage{amssymb, amsthm, amsmath}
 \usepackage{hyperref}
-% `nonreducedgraph` skips the transitive reduction of the dependency graph.
-% Reduction needs graphviz's `tred`; the copy pygraphviz bundles is linked
-% against DLLs it does not ship and cannot run, and a system graphviz install
-% needs elevation. To get the (more readable) reduced graph, install graphviz
-%   winget install --id Graphviz.Graphviz
-% from an elevated shell and delete `nonreducedgraph` below.
-\usepackage[showmore, dep_graph, nonreducedgraph]{blueprint}
+\usepackage[showmore, dep_graph]{blueprint}
 
 \input{macros/common}
 \input{macros/web}

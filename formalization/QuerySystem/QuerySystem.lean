@@ -1,619 +1,73 @@
 /-
-Copyright (c) 2025. All rights reserved.
-Released under Apache 2.0 license as described in the file LICENSE.
-Authors: [Your Name]
--/
-import Mathlib.MeasureTheory.MeasurableSpace.Basic
-import Mathlib.MeasureTheory.Measure.MeasureSpaceDef
-import Mathlib.MeasureTheory.Measure.Map
-import Mathlib.MeasureTheory.Measure.Typeclasses.Finite
-import Mathlib.MeasureTheory.Measure.ProbabilityMeasure
-import Mathlib.Data.ENNReal.Basic
+# QuerySystem -- library root
 
-/-!
-# Query Systems and Observational Determination
+This module is an INDEX: it imports every module of the library and declares
+nothing itself.
 
-This file formalizes query systems: preordered families of measurable spaces with
-compatible refinement maps. The main results are:
+## Why it is an index and not a source file
 
-1. **Observational Determination Theorem**: Two (probability) measures on the projective
-   limit are equal iff they have equal marginals on all queries.
+Until 2026-08-21 this file was a 26K source file that defined `Query`,
+`Refine`, `QuerySystem`, `QuerySystem.Omega` and ~20 more declarations -- all
+of which `QuerySystem/QuerySystem.lean` (82K) ALSO defines. Both were created
+in `8c55137` (2026-03-18); the submodule then received nine commits of
+development while this file's content was last changed in that same first
+commit. Every other module imports `QuerySystem.QuerySystem`; nothing imported
+the root.
 
-2. **Observational Extension Theorem** (in progress): Given compatible marginal measures,
-   there exists a unique measure on the projective limit with those marginals.
+Two modules defining the same names is not merely untidy: importing both is a
+hard error ("environment already contains ..."), which is how this was found --
+the blueprint declaration check could not name an import set that resolved.
 
-## Main Definitions
+The old file is preserved at `archive/QuerySystemRootLegacy.lean`. It is not
+built (only `QuerySystem.+` is globbed). It is the superseded LOWER-directed
+generation of the theory: its one declaration absent from the submodule is
+`finCyl_eq_cyl_of_lowerBound`, whose successor is
+`finCyl_eq_cyl_of_upperBound`. That lemma had no users.
 
-* `Query`: A measurable space representing possible outcomes of a single query
-* `Refine q₁ q₂`: A measurable map between query outcomes representing refinement
-* `QuerySystem`: A preordered family of queries with coherent refinement maps
-* `QuerySystem.Omega`: The projective limit (coherent families of outcomes)
-* `QuerySystem.Cyl i A`: Cylinder set based on query `i` and event `A`
-* `QuerySystem.LowerDirected`: Any two queries have a common coarsening
-* `QuerySystem.CompatibleMarginals`: Marginal measures commute with refinement maps
-
-## Main Results
-
-* `observational_determination`: Uniqueness via π-λ theorem
-* `observational_determination_prob`: Probability measure version
-* `preμ_wellDefined`: Premeasure well-definedness for extension theorem
-
-## Implementation Notes
-
-The refinement order uses the convention `le i j` meaning "i refines to j", so j is
-MORE informative than i. This matches the natural reading where refinement maps go
-FROM coarse TO fine: `π : Outcome_i → Outcome_j` when `le i j`.
-
-## References
-
-* Neutral Operator Framework manuscript
-* Classical Kolmogorov extension theorem
+Because `lakefile.toml` globs `QuerySystem.+` -- the root module AND its
+submodules -- building this index builds the library.
 -/
 
-open MeasureTheory
-open scoped ENNReal
-
-universe u v
-
-/-- A query is a measurable space representing the possible outcomes
-    of asking a single question or making a single observation. -/
-structure Query where
-  Outcome : Type u
-  instMeas : MeasurableSpace Outcome
-
-attribute [instance] Query.instMeas
-
-/-- A refinement between queries is a measurable function showing how
-    outcomes of one query determine outcomes of another. -/
-structure Refine (q₁ q₂ : Query.{u}) where
-  π : q₁.Outcome → q₂.Outcome
-  measurable_π : Measurable π
-
-/-!
-## QuerySystem: A preorder of queries with refinement maps
-
-### Refinement convention
-- `le i j` means "i refines to j" (j is at least as informative as i)
-- `π hij : Outcome_i → Outcome_j` is the induced map
-- The coherence condition on Ω: `x j = (π hij).π (x i)`
-
-### Intuition
-- `i ≤ j` means j observes everything i does (j is more informative)
-- The map `π hij : Outcome_i → Outcome_j` records how answers to i determine answers to j
-- This is an information-loss map: observing j tells you what i would have said
-
-### Lower-directedness for the π-system
-- For the π-system proof, we use `LowerDirected`: `∀ i j, ∃ k, le k i ∧ le k j`
-- This means k is LESS informative than both i and j (a meet-like/lower-directed condition)
-- So we can pull cylinders down to k via the refinement maps
--/
-
-structure QuerySystem where
-  ι : Type v
-  q : ι → Query.{u}
-  le : ι → ι → Prop
-  π : ∀ {i j : ι}, le i j → Refine (q i) (q j)
-
-  le_refl : ∀ i, le i i
-  le_trans : ∀ {i j k}, le i j → le j k → le i k
-
-  π_refl :
-    ∀ i, (π (le_refl i)).π = id
-
-  π_trans :
-    ∀ {i j k} (hij : le i j) (hjk : le j k),
-      (π (le_trans hij hjk)).π =
-      (π hjk).π ∘ (π hij).π
-
-namespace QuerySystem
-
-variable (S : QuerySystem.{u, v})
-
-/-- The projective limit: coherent families of query outcomes.
-
-    An element `ω : Omega` assigns to each query `i` an outcome `ω.1 i`,
-    subject to the coherence condition: whenever `le i j` (i refines to j),
-    we have `ω.1 j = (π hij).π (ω.1 i)`.
-
-    This is analogous to the trajectory space `S^T` in classical stochastic
-    process theory, generalized to arbitrary refinement systems. -/
-def Omega :=
-  { x : ∀ i : S.ι, (S.q i).Outcome //
-      ∀ {i j} (hij : S.le i j),
-        x j = (S.π hij).π (x i) }
-
-/-- Evaluation at query `i`: extracts the outcome for query `i` from a
-    coherent family of outcomes.
-
-    This is the analog of coordinate projection `ω ↦ ω(t)` in the classical
-    construction of stochastic processes. -/
-def eval (i : S.ι) : S.Omega → (S.q i).Outcome :=
-  fun ω => ω.1 i
-
-/-- Cylinder set: realizations where query `i` yields an outcome in `A`.
-
-    These cylinder events generate the observable σ-field, analogous to
-    coordinate cylinders in classical stochastic process theory. -/
-def Cyl (i : S.ι) (A : Set ((S.q i).Outcome)) :
-    Set S.Omega :=
-  { ω | S.eval i ω ∈ A }
-
-/-- The observable σ-field generated by cylinder events.
-
-    This is the σ-algebra generated by all events of the form
-    `Cyl i A` for measurable sets `A ⊆ Outcome_i`.
-
-    Equivalently, it is the smallest σ-algebra making all evaluation
-    maps `eval i : Omega → Outcome_i` measurable. -/
-def sigmaQ : MeasurableSpace S.Omega :=
-  MeasurableSpace.generateFrom
-    { E : Set S.Omega |
-        ∃ i A,
-          MeasurableSet A ∧
-          E = S.Cyl i A }
-
--- Canonical observable measurable structure on Ω:
-instance : MeasurableSpace S.Omega := S.sigmaQ
-
-theorem measurable_eval (i : S.ι) :
-    Measurable (S.eval i) := by
-  -- Measurability is by definition: preimages of measurable sets are measurable.
-  -- For eval i, preimages are exactly cylinders, which are measurable in sigmaQ.
-  intro A hA
-  -- Goal: MeasurableSet (eval i ⁻¹' A) in sigmaQ.
-  -- But eval i ⁻¹' A is exactly Cyl i A.
-  have : MeasurableSet (S.Cyl i A) := by
-    -- `sigmaQ` is `generateFrom` the cylinder family, so each cylinder is measurable.
-    refine MeasurableSpace.measurableSet_generateFrom ?_
-    exact ⟨i, A, hA, rfl⟩
-  simpa [QuerySystem.Cyl, QuerySystem.eval, Set.preimage] using this
-
-/-- Compatible marginals: the measures commute with refinement maps.
-
-    A family `ν` of measures on query outcomes is compatible if whenever
-    `le i j` (i refines to j), the pushforward of `ν i` along the refinement
-    map `π : Outcome_i → Outcome_j` equals `ν j`.
-
-    This is the analog of Kolmogorov consistency for finite-dimensional
-    distributions in classical stochastic process theory. -/
-def CompatibleMarginals
-  (ν : ∀ i : S.ι, Measure ((S.q i).Outcome)) :
-  Prop :=
-  ∀ {i j} (hij : S.le i j),
-    Measure.map (S.π hij).π (ν i) = ν j
-
-/-- Cylinder sets commute with refinement: `Cyl j A = Cyl i (π⁻¹ A)`.
-
-    This expresses that requiring query `j` to yield an outcome in `A`
-    is equivalent to requiring the coarser query `i` to yield an outcome
-    that maps into `A` under the refinement map. -/
-theorem cyl_refine
-  {i j : S.ι} (hij : S.le i j)
-  (A : Set ((S.q j).Outcome)) :
-  S.Cyl j A =
-  S.Cyl i ((S.π hij).π ⁻¹' A) := by
-  ext ω
-  have h := ω.2 hij
-  constructor <;>
-  intro hx <;>
-  simpa [Cyl, eval, Set.preimage, h] using hx
-
-/-- Lower-directed hypothesis: any two queries have a common coarsening.
-    This is a meet-like condition needed for the π-system proof. -/
-def LowerDirected : Prop :=
-  ∀ i j : S.ι, ∃ k : S.ι, S.le k i ∧ S.le k j
-
-/-- Deprecated alias for `LowerDirected`. -/
-@[deprecated LowerDirected (since := "2026-03-04")]
-def Directed : Prop := S.LowerDirected
-
-/-- The generating family of cylinder events used in `sigmaQ`. -/
-def CylGen : Set (Set S.Omega) :=
-  { E : Set S.Omega |
-      ∃ i A, MeasurableSet A ∧ E = S.Cyl i A }
-
-lemma measurableSet_cyl (i : S.ι) (A : Set ((S.q i).Outcome)) (hA : MeasurableSet A) :
-    MeasurableSet (S.Cyl i A) := by
-  -- cylinders are measurable by definition of `sigmaQ = generateFrom CylGen`
-  refine MeasurableSpace.measurableSet_generateFrom ?_
-  exact ⟨i, A, hA, rfl⟩
-
-/-- A convenient rewrite: evaluating the pushforward on `A` equals measuring the cylinder. -/
-lemma map_apply_eval_eq_cyl
-    (P : Measure S.Omega) (i : S.ι) (A : Set ((S.q i).Outcome)) (hA : MeasurableSet A) :
-    (Measure.map (S.eval i) P) A = P (S.Cyl i A) := by
-  -- `Measure.map_apply` + the fact preimage is the cylinder
-  simpa [QuerySystem.Cyl, QuerySystem.eval, Set.preimage]
-    using (Measure.map_apply (S.measurable_eval i) hA)
-
-/-- The cylinder family forms a π-system under lower-directedness.
-
-    When the refinement preorder admits common coarsenings (lower-directedness),
-    any two cylinder sets can be expressed as a single cylinder at a common
-    lower bound. This is the key property needed to apply the π-λ theorem.
-
-    **Proof strategy:** Given cylinders at queries `i` and `j`, use directedness
-    to find a common coarsening `k ≤ i, j`. Pull both cylinders back to `k` and
-    intersect them there. -/
-theorem isPiSystem_CylGen (dir : S.LowerDirected) : IsPiSystem (S.CylGen) := by
-  classical
-  intro s hs t ht _
-  rcases hs with ⟨i, A, hA, rfl⟩
-  rcases ht with ⟨j, B, hB, rfl⟩
-  -- Use directedness: find k below both i and j
-  rcases dir i j with ⟨k, hki, hkj⟩
-  -- Rewrite both cylinders down to k using cyl_refine, then combine
-  have eq : S.Cyl i A ∩ S.Cyl j B = S.Cyl k ((S.π hki).π ⁻¹' A ∩ (S.π hkj).π ⁻¹' B) := by
-    calc S.Cyl i A ∩ S.Cyl j B
-        = S.Cyl k ((S.π hki).π ⁻¹' A) ∩ S.Cyl k ((S.π hkj).π ⁻¹' B) := by
-          rw [S.cyl_refine hki A, S.cyl_refine hkj B]
-      _ = S.Cyl k ((S.π hki).π ⁻¹' A ∩ (S.π hkj).π ⁻¹' B) := by
-          ext ω
-          simp [QuerySystem.Cyl, Set.mem_inter_iff]
-  rw [eq]
-  -- Show this is in CylGen
-  exact ⟨k, (S.π hki).π ⁻¹' A ∩ (S.π hkj).π ⁻¹' B,
-    (hA.preimage (S.π hki).measurable_π).inter (hB.preimage (S.π hkj).measurable_π), rfl⟩
-
-/-- **Observational Determination Theorem**: Measures are determined by marginals.
-
-    Two (finite) measures on the projective limit `Omega` are equal if and only if
-    they induce the same marginal distributions on all query outcomes.
-
-    This is the observational analog of the classical π-λ theorem. It expresses
-    that probabilistic structure is uniquely determined by observable regularities.
-
-    **Proof strategy:**
-    1. Show `P` and `P'` agree on all cylinder events (using hypothesis on marginals)
-    2. Show cylinders form a π-system (using `isPiSystem_CylGen`)
-    3. Apply `ext_of_generate_finite` (the π-λ theorem for finite measures)
-
-    **Mathematical content:** This theorem establishes that observational laws
-    completely determine the underlying probability measure. In the language of
-    the manuscript, "probability measures on the observable structure are uniquely
-    determined by the distributions of a generating family of queries." -/
-theorem observational_determination
-    [Nonempty S.ι]
-    (dir : S.LowerDirected)
-    (P P' : Measure S.Omega)
-    [IsFiniteMeasure P]
-    (h : ∀ i, Measure.map (S.eval i) P = Measure.map (S.eval i) P') :
-    P = P' := by
-  classical
-  -- Show P and P' agree on the generating π-system CylGen
-  have hagree : ∀ s ∈ S.CylGen, P s = P' s := by
-    intro s hs
-    rcases hs with ⟨i, A, hA, rfl⟩
-    -- Evaluate equality of pushforwards on A
-    have hi := congrArg (fun μ : Measure ((S.q i).Outcome) => μ A) (h i)
-    -- Rewrite using map_apply = measure of preimage
-    simpa [S.map_apply_eval_eq_cyl P i A hA, S.map_apply_eval_eq_cyl P' i A hA] using hi
-  -- For finite measures, need to also show agreement on univ
-  have huniv : P Set.univ = P' Set.univ := by
-    -- Pick any index i (exists by Nonempty)
-    obtain ⟨i⟩ := ‹Nonempty S.ι›
-    have hi := congrArg (fun μ : Measure ((S.q i).Outcome) => μ Set.univ) (h i)
-    -- Cyl i univ = univ, so measuring it gives P univ
-    have cyl_univ : S.Cyl i Set.univ = Set.univ := by
-      ext ω
-      simp [QuerySystem.Cyl, QuerySystem.eval]
-    rw [← cyl_univ]
-    have hU : MeasurableSet (Set.univ : Set ((S.q i).Outcome)) := MeasurableSet.univ
-    simpa [S.map_apply_eval_eq_cyl P i Set.univ hU,
-          S.map_apply_eval_eq_cyl P' i Set.univ hU] using hi
-  -- Apply ext_of_generate_finite (requires finite measures)
-  refine ext_of_generate_finite S.CylGen ?_ (S.isPiSystem_CylGen dir) ?_ huniv
-  · -- Show sigmaQ = generateFrom CylGen
-    rfl
-  · -- Show agreement on CylGen
-    exact hagree
-
-/-- Probability-native version of observational determination.
-    If two probability measures on Ω have equal marginals on all queries,
-    then they are equal. -/
-theorem observational_determination_prob
-    [Nonempty S.ι]
-    (dir : S.LowerDirected)
-    (P P' : ProbabilityMeasure S.Omega)
-    (h : ∀ i, Measure.map (S.eval i) P.toMeasure = Measure.map (S.eval i) P'.toMeasure) :
-    P = P' := by
-  -- ProbabilityMeasure.toMeasure is automatically a finite measure
-  classical
-  have : IsFiniteMeasure P.toMeasure := by infer_instance
-  have : IsFiniteMeasure P'.toMeasure := by infer_instance
-  -- ProbabilityMeasure is a subtype, so extensionality on the underlying measures suffices
-  apply ProbabilityMeasure.toMeasure_injective
-  exact S.observational_determination dir P.toMeasure P'.toMeasure h
-
-/-!
-## Observational Extension: Existence of Probability Measures
-
-This section establishes the existence half of the observational uniqueness/extension theorem.
-Given compatible marginal distributions on the query outcomes, we construct a probability
-measure on Ω whose pushforwards recover those marginals.
-
-### Architecture:
-1. Define finite cylinders (intersections of single cylinders)
-2. Use lower-directedness to "compress" any finite cylinder to a single cylinder
-3. Define a premeasure on finite cylinders using the marginals
-4. Prove well-definedness using compatibility
-5. Extend to a full measure on σ(Q)
-6. Verify the marginals are correct
-7. Package as a ProbabilityMeasure
--/
-
-/-- A finite cylinder is an intersection of single-query cylinders.
-    We represent it by a finite set of indices s and for each i ∈ s,
-    a measurable set A i ⊆ Outcome i. -/
-def FinCyl (s : Finset S.ι) (A : ∀ i, Set ((S.q i).Outcome)) : Set S.Omega :=
-  { ω | ∀ i, i ∈ s → S.eval i ω ∈ A i }
-
-lemma measurableSet_finCyl
-    (s : Finset S.ι)
-    (A : ∀ i, Set ((S.q i).Outcome))
-    (hA : ∀ i ∈ s, MeasurableSet (A i)) :
-    MeasurableSet (S.FinCyl s A) := by
-  -- A finite cylinder is a finite intersection of single cylinders, each measurable
-  -- FinCyl s A = ⋂ i ∈ s, Cyl i (A i)
-  classical
-  -- Use finset induction to build up the intersection
-  induction s using Finset.cons_induction with
-  | empty =>
-    -- Empty intersection is univ, which is measurable
-    have : S.FinCyl ∅ A = Set.univ := by
-      ext ω
-      simp [FinCyl]
-    rw [this]
-    exact MeasurableSet.univ
-  | cons i s hi ih =>
-    -- FinCyl (insert i s) A = Cyl i (A i) ∩ FinCyl s A
-    have eq : S.FinCyl (Finset.cons i s hi) A = S.Cyl i (A i) ∩ S.FinCyl s A := by
-      ext ω
-      simp only [FinCyl, Cyl, eval, Finset.mem_cons, Set.mem_inter_iff, Set.mem_setOf_eq]
-      constructor
-      · intro h
-        exact ⟨h i (Or.inl rfl), fun j hj => h j (Or.inr hj)⟩
-      · intro ⟨hi_mem, hs_mem⟩ j hj
-        cases hj with
-        | inl h => subst h; exact hi_mem
-        | inr h => exact hs_mem j h
-    rw [eq]
-    apply MeasurableSet.inter
-    · apply measurableSet_cyl
-      apply hA
-      simp
-    · apply ih
-      intro j hj
-      apply hA
-      simp [hj]
-
-/-- Lower-directedness implies any finite set of indices admits a common lower bound. -/
-lemma lowerBound_finset [Nonempty S.ι] (dir : S.LowerDirected) (s : Finset S.ι) :
-    ∃ k, ∀ i ∈ s, S.le k i := by
-  induction s using Finset.cons_induction with
-  | empty =>
-    -- Empty case: pick any index (guaranteed by Nonempty)
-    obtain ⟨k⟩ := ‹Nonempty S.ι›
-    use k
-    intro i hi
-    simp at hi
-  | cons i s hi ih =>
-    -- Have lower bound k' for s, and need to combine with i
-    rcases ih with ⟨k', hk'⟩
-    rcases dir k' i with ⟨k, hkk', hki⟩
-    use k
-    intro j hj
-    simp at hj
-    cases hj with
-    | inl heq =>
-      subst heq
-      exact hki
-    | inr hmem =>
-      exact S.le_trans hkk' (hk' j hmem)
-
-/-- Compression lemma: A finite intersection of cylinders equals a single cylinder
-    at any common lower bound. Uses coherence of Ω to transport constraints. -/
-lemma finCyl_eq_cyl_of_lowerBound
-    {s : Finset S.ι}
-    {A : ∀ i, Set ((S.q i).Outcome)}
-    {k : S.ι}
-    (hk : ∀ i ∈ s, S.le k i) :
-    S.FinCyl s A = S.Cyl k {o | ∀ (i : S.ι) (hi : i ∈ s), (S.π (hk i hi)).π o ∈ A i} := by
-  ext ω
-  simp only [FinCyl, Cyl, eval, Set.mem_setOf_eq]
-  constructor
-  · -- Forward: FinCyl → Cyl
-    intro hω i hi
-    -- We know ω.1 i ∈ A i from hω
-    have mem_Ai : ω.1 i ∈ A i := hω i hi
-    -- Coherence: ω.1 i = (π hk).π (ω.1 k)
-    have coherence : ω.1 i = (S.π (hk i hi)).π (ω.1 k) := ω.2 (hk i hi)
-    -- Substitute using coherence
-    rw [coherence] at mem_Ai
-    exact mem_Ai
-  · -- Backward: Cyl → FinCyl
-    intro hω i hi
-    -- We know (π hk).π (ω.1 k) ∈ A i from hω
-    have from_cyl : (S.π (hk i hi)).π (ω.1 k) ∈ A i := hω i hi
-    -- Coherence: ω.1 i = (π hk).π (ω.1 k)
-    have coherence : ω.1 i = (S.π (hk i hi)).π (ω.1 k) := ω.2 (hk i hi)
-    -- Substitute
-    rw [coherence]
-    exact from_cyl
-
-/-- Helper: Compatibility gives measure equality on preimages. -/
-lemma compat_apply_preimage
-    {ν : ∀ i, Measure ((S.q i).Outcome)}
-    (compat : S.CompatibleMarginals ν)
-    {k i : S.ι}
-    (hki : S.le k i)
-    (E : Set ((S.q i).Outcome))
-    (hE : MeasurableSet E) :
-    ν i E = ν k ((S.π hki).π ⁻¹' E) := by
-  -- Follows from compatibility: map (π hki) (ν k) = ν i
-  have h := compat hki
-  rw [← h, Measure.map_apply (S.π hki).measurable_π hE]
-
-/-- Premeasure on finite cylinders (definition using choice). -/
-noncomputable def preμ
-    [Nonempty S.ι]
-    (dir : S.LowerDirected)
-    (ν : ∀ i : S.ι, Measure ((S.q i).Outcome))
-    (s : Finset S.ι)
-    (A : ∀ i : S.ι, Set ((S.q i).Outcome)) : ENNReal :=
-  -- Choose a common lower bound k for s
-  let ⟨k, hk⟩ := Classical.indefiniteDescription _ (S.lowerBound_finset dir s)
-  -- Define using ν k on the compressed cylinder
-  ν k {o | ∀ (i : S.ι) (hi : i ∈ s), (S.π (hk i hi)).π o ∈ A i}
-
-/-- **Premeasure Well-Definedness**: Independence of lower bound choice.
-
-    The premeasure `preμ` is defined by choosing an arbitrary lower bound for the
-    index set `s` using `Classical.indefiniteDescription`. This lemma shows that
-    the value doesn't depend on which lower bound is chosen.
-
-    **Proof strategy:**
-    1. Given two lower bounds `k` and `k'` for `s`, use directedness to find a
-       common lower bound `m ≤ k, k'`
-    2. Use compatibility to pull both measures back to `m`
-    3. Show the two pullbacks are equal using:
-       - `π_trans`: functoriality of refinement maps
-       - `Subsingleton.elim`: proof irrelevance for the equality of `le_trans` proofs
-
-    **Mathematical content:** This is a crucial step in the extension theorem.
-    It shows that finite cylinders have well-defined measure despite the arbitrary
-    choice involved in their definition. The key insight is that compatibility
-    of marginals implies that different representations of the same cylinder via
-    different lower bounds yield the same measure. -/
-lemma preμ_wellDefined
-    [Nonempty S.ι]
-    (dir : S.LowerDirected)
-    (ν : ∀ i, Measure ((S.q i).Outcome))
-    (compat : S.CompatibleMarginals ν)
-    (s : Finset S.ι)
-    (A : ∀ i, Set ((S.q i).Outcome))
-    (hA : ∀ i ∈ s, MeasurableSet (A i)) :
-    ∀ {k k' : S.ι} (hk : ∀ i ∈ s, S.le k i) (hk' : ∀ i ∈ s, S.le k' i),
-    ν k {o | ∀ (i : S.ι) (hi : i ∈ s), (S.π (hk i hi)).π o ∈ A i} =
-    ν k' {o | ∀ (i : S.ι) (hi : i ∈ s), (S.π (hk' i hi)).π o ∈ A i} := by
-  intro k k' hk hk'
-  -- Use directedness to find m ≤ k and m ≤ k'
-  rcases dir k k' with ⟨m, hmk, hmk'⟩
-  -- Define the sets we're measuring
-  let Ek := {o : (S.q k).Outcome | ∀ (i : S.ι) (hi : i ∈ s), (S.π (hk i hi)).π o ∈ A i}
-  let Ek' := {o : (S.q k').Outcome | ∀ (i : S.ι) (hi : i ∈ s), (S.π (hk' i hi)).π o ∈ A i}
-
-  -- Helper: measurability of constraint set at a fixed lower bound
-  have measurable_E : ∀ (t : Finset S.ι) (ht_sub : t ⊆ s) (k_lb : S.ι) (hk_lb : ∀ i ∈ t, S.le k_lb i),
-      MeasurableSet {o : (S.q k_lb).Outcome | ∀ (i : S.ι) (hi : i ∈ t), (S.π (hk_lb i hi)).π o ∈ A i} := by
-    intro t ht_sub
-    classical
-    -- Rewrite as finite intersection and use induction
-    induction t using Finset.cons_induction with
-    | empty =>
-      intro k_lb hk_lb
-      -- Empty constraint: set is univ
-      have : {o : (S.q k_lb).Outcome | ∀ (i : S.ι) (hi : i ∈ ∅), (S.π (hk_lb i hi)).π o ∈ A i} = Set.univ := by
-        ext o
-        simp
-      rw [this]
-      exact MeasurableSet.univ
-    | cons i t' hi_notin ih =>
-      intro k_lb hk_lb
-      -- Split off constraint for i from constraints for t'
-      have eq : {o : (S.q k_lb).Outcome | ∀ (j : S.ι) (hj : j ∈ Finset.cons i t' hi_notin),
-                                         (S.π (hk_lb j hj)).π o ∈ A j}
-              = (S.π (hk_lb i (Finset.mem_cons_self i t'))).π ⁻¹' (A i) ∩
-                {o : (S.q k_lb).Outcome | ∀ (j : S.ι) (hj : j ∈ t'),
-                                         (S.π (hk_lb j (Finset.mem_cons_of_mem hj))).π o ∈ A j} := by
-        ext o
-        simp only [Set.mem_setOf_eq, Set.mem_inter_iff, Set.mem_preimage, Finset.mem_cons]
-        constructor
-        · intro h
-          constructor
-          · exact h i (Or.inl rfl)
-          · intro j hj
-            exact h j (Or.inr hj)
-        · intro ⟨hi_mem, ht_mem⟩ j hj
-          cases hj with
-          | inl heq => subst heq; exact hi_mem
-          | inr hmem => exact ht_mem j hmem
-      rw [eq]
-      apply MeasurableSet.inter
-      · -- Preimage of A i is measurable
-        have i_in_s : i ∈ s := ht_sub (Finset.mem_cons_self i t')
-        have hA_i : MeasurableSet (A i) := hA i i_in_s
-        exact hA_i.preimage (S.π (hk_lb i (Finset.mem_cons_self i t'))).measurable_π
-      · -- Apply induction hypothesis to tail
-        have t'_sub_s : t' ⊆ s := fun j hj => ht_sub (Finset.mem_cons_of_mem hj)
-        exact ih t'_sub_s k_lb (fun j hj => hk_lb j (Finset.mem_cons_of_mem hj))
-
-  -- Apply helper to get measurability
-  have hEk : MeasurableSet Ek := measurable_E s (fun _ h => h) k hk
-  have hEk' : MeasurableSet Ek' := measurable_E s (fun _ h => h) k' hk'
-
-  -- Relate ν k Ek to ν m via compatibility
-  have step1 : ν k Ek = ν m ((S.π hmk).π ⁻¹' Ek) := by
-    rw [S.compat_apply_preimage compat hmk Ek hEk]
-  -- Relate ν k' Ek' to ν m via compatibility
-  have step2 : ν k' Ek' = ν m ((S.π hmk').π ⁻¹' Ek') := by
-    rw [S.compat_apply_preimage compat hmk' Ek' hEk']
-
-  -- Show the two preimages are equal using π_trans and proof irrelevance
-  have preimages_eq : (S.π hmk).π ⁻¹' Ek = (S.π hmk').π ⁻¹' Ek' := by
-    ext o
-    simp only [Set.mem_preimage, Set.mem_setOf_eq]
-    constructor <;> intro h i hi
-    · -- Forward: we have ∀ j ∈ s, (π hk j hj).π ((π hmk).π o) ∈ A j
-      --          need to show (π hk' i hi).π ((π hmk').π o) ∈ A i
-      have from_h := h i hi
-      -- Use π_trans: composition equals transitive refinement
-      have eq1 : (S.π (S.le_trans hmk (hk i hi))).π = (S.π (hk i hi)).π ∘ (S.π hmk).π :=
-        S.π_trans hmk (hk i hi)
-      have eq2 : (S.π (S.le_trans hmk' (hk' i hi))).π = (S.π (hk' i hi)).π ∘ (S.π hmk').π :=
-        S.π_trans hmk' (hk' i hi)
-      -- Convert function equalities to pointwise equalities
-      have peq1 : (S.π (hk i hi)).π ((S.π hmk).π o) = (S.π (S.le_trans hmk (hk i hi))).π o :=
-        (congrFun eq1 o).symm
-      have peq2 : (S.π (hk' i hi)).π ((S.π hmk').π o) = (S.π (S.le_trans hmk' (hk' i hi))).π o :=
-        (congrFun eq2 o).symm
-      -- Use proof irrelevance: both le_trans proofs are equal
-      have hproof : S.le_trans hmk (hk i hi) = S.le_trans hmk' (hk' i hi) :=
-        Subsingleton.elim _ _
-      -- Turn proof equality into equality of π maps
-      have hπ : (S.π (S.le_trans hmk (hk i hi))).π = (S.π (S.le_trans hmk' (hk' i hi))).π := by
-        cases hproof
-        rfl
-      -- Apply pointwise
-      have key : (S.π (S.le_trans hmk (hk i hi))).π o = (S.π (S.le_trans hmk' (hk' i hi))).π o := by
-        rw [hπ]
-      -- Combine
-      rw [peq2, key, ← peq1]
-      exact from_h
-    · -- Backward: symmetric
-      have from_h := h i hi
-      have eq1 : (S.π (S.le_trans hmk (hk i hi))).π = (S.π (hk i hi)).π ∘ (S.π hmk).π :=
-        S.π_trans hmk (hk i hi)
-      have eq2 : (S.π (S.le_trans hmk' (hk' i hi))).π = (S.π (hk' i hi)).π ∘ (S.π hmk').π :=
-        S.π_trans hmk' (hk' i hi)
-      have peq1 : (S.π (hk i hi)).π ((S.π hmk).π o) = (S.π (S.le_trans hmk (hk i hi))).π o :=
-        (congrFun eq1 o).symm
-      have peq2 : (S.π (hk' i hi)).π ((S.π hmk').π o) = (S.π (S.le_trans hmk' (hk' i hi))).π o :=
-        (congrFun eq2 o).symm
-      have hproof : S.le_trans hmk (hk i hi) = S.le_trans hmk' (hk' i hi) :=
-        Subsingleton.elim _ _
-      have hπ : (S.π (S.le_trans hmk (hk i hi))).π = (S.π (S.le_trans hmk' (hk' i hi))).π := by
-        cases hproof
-        rfl
-      have key : (S.π (S.le_trans hmk (hk i hi))).π o = (S.π (S.le_trans hmk' (hk' i hi))).π o := by
-        rw [hπ]
-      rw [peq1, key, ← peq2]
-      exact from_h
-
-  -- Combine the pieces
-  calc ν k Ek
-      = ν m ((S.π hmk).π ⁻¹' Ek) := step1
-    _ = ν m ((S.π hmk').π ⁻¹' Ek') := by rw [preimages_eq]
-    _ = ν k' Ek' := step2.symm
-
-end QuerySystem
+import QuerySystem.BandClosure
+import QuerySystem.BoundaryDescent
+import QuerySystem.Commensurability
+import QuerySystem.ConcreteOMLBlocks
+import QuerySystem.ConcreteOMLPatterns
+import QuerySystem.DelayEmbedding
+import QuerySystem.DescentWitnessClosure
+import QuerySystem.DescentWitnessConsistency
+import QuerySystem.DescentWitnessFinite
+import QuerySystem.DescentWitnessInfinite
+import QuerySystem.DiscriminabilityFoundations
+import QuerySystem.EncodingDefectCheck
+import QuerySystem.FibreProductReflection
+import QuerySystem.FiniteAtomFoldKernel
+import QuerySystem.FullCycleAssemblyKernel
+import QuerySystem.InnerRegularity
+import QuerySystem.KernelClosureCalculus
+import QuerySystem.MarczewskiTransport
+import QuerySystem.ODBCRegimes
+import QuerySystem.ODBCSections
+import QuerySystem.Omega7Counterexample
+import QuerySystem.OrthomodularMO2
+import QuerySystem.PruningTheorem
+import QuerySystem.QuerySystem
+import QuerySystem.ReconstructionTheorem
+import QuerySystem.SigmaEssentialAmended
+import QuerySystem.SigmaEssentialBareForm
+import QuerySystem.SigmaEssentialConjectures
+import QuerySystem.SigmaEssentialLocalization
+import QuerySystem.SigmaEssentialOpenCore
+import QuerySystem.StoneDualityExtension
+import QuerySystem.TheoremB
+import QuerySystem.UlamWitnessCore
+import QuerySystem.UlamWitnessFidelity
+import QuerySystem.UlamWitnessInvariant
+import QuerySystem.UlamWitnessLatticeGap
+import QuerySystem.UlamWitnessMain
+import QuerySystem.UlamWitnessOmega1
+import QuerySystem.UlamWitnessReceipts
+import QuerySystem.UlamWitnessState
+import QuerySystem.UltrafilterCharge
+import QuerySystem.WindingDichotomy
+import QuerySystem.WindingInjectivity

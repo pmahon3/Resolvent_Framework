@@ -28,11 +28,26 @@ export PATH="$HERE/blueprint/bin:$PATH"
 export PYTHONUTF8=1
 
 # plastexdepgraph shells out to `tred` (transitive reduction) for the
-# dependency graph. pygraphviz ships the graphviz binaries in its own bin/ but
-# does not put them on PATH.
+# dependency graph. Prefer a real graphviz: the binaries pygraphviz bundles in
+# its own bin/ are linked against DLLs it does not ship and die with
+# "error while loading shared libraries". So pygraphviz's bin is APPENDED as a
+# last resort, never prepended -- prepending it shadows a working tred.
+for d in "/c/Program Files/Graphviz/bin" "/usr/local/bin" "/opt/homebrew/bin"; do
+  if [ -x "$d/tred" ] || [ -x "$d/tred.exe" ]; then export PATH="$d:$PATH"; fi
+done
 PGV_BIN="$(python -c 'import pygraphviz, os; print(os.path.join(os.path.dirname(pygraphviz.__file__), "bin"))' 2>/dev/null || true)"
 if [ -n "${PGV_BIN:-}" ] && [ -d "$PGV_BIN" ]; then
-  export PATH="$PGV_BIN:$PATH"
+  export PATH="$PATH:$PGV_BIN"
+fi
+
+# Fail loudly rather than silently emitting an unreduced graph: web.tex no
+# longer passes `nonreducedgraph`, so a broken tred is a hard error there and
+# the message plasTeX surfaces for it is opaque.
+if ! printf 'digraph{a->b;b->c;a->c;}' | tred >/dev/null 2>&1; then
+  echo "ERROR: no working 'tred' on PATH." >&2
+  echo "  Install graphviz (winget install --id Graphviz.Graphviz), or add" >&2
+  echo "  'nonreducedgraph' to the blueprint options in blueprint/src/web.tex." >&2
+  exit 1
 fi
 
 cd "$HERE/blueprint/src"

@@ -5,6 +5,56 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-08-21 — the duplicate root module, and the globs fix that inverted the bug
+
+Two modules defined the same names. `QuerySystem.lean` (26K, package root) and
+`QuerySystem/QuerySystem.lean` (82K) both declared `Query`, `Refine`,
+`QuerySystem`, `QuerySystem.Omega` and ~20 more. Both were created in
+`8c55137` (2026-03-18); the submodule then took nine commits of development
+while the root's content was never changed again. All eight dependent modules
+import `QuerySystem.QuerySystem`; nothing imported the root.
+
+**How it surfaced.** Not by reading — by trying to write `blueprint/checkdecls.sh`.
+There was no import set that resolved every blueprint `\lean{}` name, because
+importing both modules is a hard error: *environment already contains
+'QuerySystem.instMeasurableSpaceOmega' from QuerySystem*. A duplicate that
+nothing imports is invisible until something has to import everything.
+
+**Not a pure duplicate — a superseded generation.** The root's only declaration
+absent from the submodule is `finCyl_eq_cyl_of_lowerBound`; the submodule
+carries `finCyl_eq_cyl_of_upperBound`. The root is the LOWER-directed version
+of the theory, the submodule the UPPER-directed one that replaced it. The
+orphaned lemma had no users. Preserved, not deleted:
+`archive/QuerySystemRootLegacy.lean`, matching the treatment of
+`PredictiveState`/`PredictiveOperators`. The root is now an index module that
+imports all 43 submodules and declares nothing.
+
+**The worse finding, underneath it.** `globs = ["QuerySystem.+"]` — added in
+`ce55bb4` to fix "lake build compiles only the root module" — does **not**
+cover the root module. Verified: delete `.lake/build/lib/lean/QuerySystem.olean`,
+rebuild, and it is not regenerated; job count is unchanged. So from `ce55bb4`
+until today the root module was the one file going unchecked. The fix for
+"46 of 47 files unbuilt" silently produced "1 of 47 files unbuilt" — the same
+bug inverted, and it would have hidden indefinitely because the unbuilt file
+was the one nothing imports.
+
+`globs = ["QuerySystem", "QuerySystem.+"]` covers both. Job count 2572 -> 2573,
+which is the whole audit trail: one module had been missing all along.
+
+**Blind spot closed at the same time.** `sorries.py` globbed
+`QuerySystem/*.lean` only, so the root module was never scanned by the `sorry`
+ratchet either. It now scans the package-root module as well. Real open goals
+stay at 1 (`stone_observational_extension`).
+
+**Lesson, and it is the same one twice.** Both times the failure was a build
+configuration that looked like it covered everything and did not, and both
+times the evidence was a number nobody had a reason to look at (files
+compiled; jobs run). The CI gate added today checks that the build passes; it
+does not check that the build covers what you think. Job count moving from
+2572 to 2573 was the only signal that anything had been wrong.
+
+---
+
 ## 2026-08-21 — Theorem B formalized (kit gap 5.3); four Lean/Mathlib snags
 
 `QuerySystem/TheoremB.lean`. Builds clean, no `sorry`, receipts

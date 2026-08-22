@@ -41,8 +41,17 @@ DECL = re.compile(r"^\s*(?:@\[[^\]]*\]\s*)?(?:private\s+|protected\s+|noncomputa
                   r"(theorem|lemma|def|instance|example|abbrev)\s+([A-Za-z0-9_'.\u00c0-\u024f\u0370-\u03ff]*)",
                   re.M)
 
+# The library root module (QuerySystem.lean, one level up from SRC) is part of
+# the build too -- scan it as well, or the ratchet has a blind spot exactly
+# where one already cost us: see the header of QuerySystem.lean.
+_ROOT_MODULE = os.path.join(os.path.dirname(SRC), "QuerySystem.lean")
+
+_paths = sorted(glob.glob(os.path.join(SRC, "*.lean")))
+if os.path.isfile(_ROOT_MODULE):
+    _paths.append(_ROOT_MODULE)
+
 real, commented = [], []
-for path in sorted(glob.glob(os.path.join(SRC, "*.lean"))):
+for path in _paths:
     raw = open(path, encoding="utf-8", errors="replace").read()
     code = strip_comments(raw)
     lines_raw = raw.splitlines()

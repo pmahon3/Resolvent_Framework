@@ -34,3 +34,4 @@ stone_measure_exists
 stone_observational_extension
 QuerySystem.observational_extension
 QuerySystem.cylGen_addContent_isSigmaSubadditive
+QuerySystem.isSetRing_CylGen

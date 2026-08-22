@@ -44,12 +44,36 @@ DECL_RE = re.compile(
     r"instance\s|abbrev\s|structure\s|example\s)", re.M)
 
 
+def _is_only_attachment(chunk):
+    """True if `chunk` is a docstring, section comment or bare attribute -- i.e.
+    something that must stay attached to the declaration that FOLLOWS it.
+    Splitting there sends Lean an incomplete command ("unexpected end of input;
+    expected 'lemma'")."""
+    t = chunk.strip()
+    if t.startswith("/-"):
+        j = t.find("-/")
+        return j == -1 or t[j + 2:].strip() == ""
+    if t.startswith("@["):
+        j = t.find("]")
+        return j == -1 or t[j + 1:].strip() == ""
+    return False
+
+
 def decl_spans(src):
-    """Byte spans of top-level declarations, in order."""
+    """Byte spans of top-level declarations, docstrings kept with their bodies."""
     starts = [m.start() for m in DECL_RE.finditer(src)]
     if not starts:
         return []
-    return [(a, b) for a, b in zip(starts, starts[1:] + [len(src)])]
+    raw = list(zip(starts, starts[1:] + [len(src)]))
+    spans, i = [], 0
+    while i < len(raw):
+        a, b = raw[i]
+        while _is_only_attachment(src[a:b]) and i + 1 < len(raw):
+            i += 1
+            b = raw[i][1]
+        spans.append((a, b))
+        i += 1
+    return spans
 
 
 def sorries_of(repl, src):

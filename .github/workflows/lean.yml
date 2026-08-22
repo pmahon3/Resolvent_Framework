@@ -47,3 +47,22 @@ jobs:
       # leanblueprint -- only the Lean build above.
       - name: blueprint declarations resolve
         run: bash formalization/QuerySystem/blueprint/checkdecls.sh
+
+      # formalization/staging/ is deliberately OUTSIDE the lake globs, so that
+      # work in progress can carry `sorry` without breaking the ratchet. That
+      # exemption must not become an exemption from compiling at all: this is
+      # the exact shape of the bug that let PredictiveState.lean sit broken for
+      # months behind a green build.
+      #
+      # So: compile every staging file, but do NOT sorry-gate it. `lake env
+      # lean` reports a sorry as a warning and exits 0, which is the behaviour
+      # wanted here -- a staging file may have sorries, it may not fail to
+      # elaborate.
+      - name: staging files still compile
+        run: |
+          cd formalization/QuerySystem
+          shopt -s nullglob
+          for f in ../staging/*.lean; do
+            echo "--- $f"
+            lake env lean "$f" || { echo "STAGING FAILED TO COMPILE: $f"; exit 1; }
+          done

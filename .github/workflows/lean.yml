@@ -10,9 +10,12 @@
 #   2. the real open-goal count does not grow (`sorries.py` separates `sorry` in
 #      code from `sorry` discussed in docstring prose -- currently 1 and 29).
 #
-# The budget below is deliberate, not incidental. The single real open goal is
-# `stone_observational_extension`, blocked on the Yosida-Hewitt decomposition
-# being absent from Mathlib. Lower the budget to 0 when that is ported.
+# The budget is 0 as of 2026-08-22: the development is sorry-free. The last
+# open goal, `stone_observational_extension`, was not closed by porting
+# Yosida-Hewitt -- it was FALSE as stated (Andersen-Jessen refutes it under
+# `UpperDirected`) and became provable once the hypothesis was corrected to
+# `SequentiallyUpperDirected`. Raising this budget again should be a deliberate,
+# argued act, not a convenience.
 
 name: lean
 
@@ -37,7 +40,7 @@ jobs:
           python-version: '3.12'
 
       - name: sorry ratchet
-        run: python formalization/tools/prover/sorries.py --max 1
+        run: python formalization/tools/prover/sorries.py --max 0
 
       # Every blueprint \lean{...} must name a real declaration. Runs against
       # the committed blueprint/lean_decls, so CI needs no plasTeX or

@@ -762,3 +762,45 @@ assume a compact class / perfect-measure condition on the marginals
 hypothesis. NOT yet formalized: doing so means constructing thick sets in Lean,
 which needs a non-measurable-set construction and is a real project.
 \end{remark}
+
+\begin{remark}[Repaired, and what the repair costs]
+\label{rmk:extension-repaired}
+\uses{rmk:kolmogorov-refuted, thm:observational-extension-seq, thm:sp1-iff}
+\leanok
+\ref{thm:stone-observational-extension} is now \emph{proved}, with
+\texttt{UpperDirected} strengthened to \texttt{SequentiallyUpperDirected}.
+Receipts \texttt{[propext, Classical.choice, Quot.sound]}. The development is
+\texttt{sorry}-free.
+
+The proof does not go through the Stone space and needs no charge theory:
+\ref{thm:sp1-iff} converts collective exhaustion into a genuine measure at each
+level, compatibility transfers because each $\mu_i$ agrees with $\nu_i$ on every
+measurable set, and \ref{thm:observational-extension-seq} finishes on $\Omega$
+directly.
+
+\textbf{What the hypothesis costs.} Sequential upper-directedness says the
+completed query $\bigvee_n Q_n$ is itself a query --- something no finite
+observer realises. It is natural exactly when a query is a $\sigma$-algebra of
+resolvable events and the family is closed under countable joins, and it is not
+a new idealisation: making each query a $\sigma$-algebra already assumes
+completed countable operations, and $\bigcup_n E_n$ is as unphysical as
+$\bigvee_n Q_n$. What it excludes is the finite-dimensional marginal family ---
+precisely where \ref{rmk:kolmogorov-refuted} lives.
+
+\textbf{Three positions, and the theorem for each.} Neither counterexample is
+avoidable, so strength must be paid at one layer or the other:
+\begin{itemize}
+\item completed countable queries admitted:
+  \ref{thm:observational-extension-seq} and
+  \ref{thm:stone-observational-extension} --- proved;
+\item only finite observers, contents rather than measures:
+  \ref{thm:stone-measure-exists} --- proved, no directedness beyond
+  upper, no CE. Free ultrafilters carrying mass are then not a pathology but
+  the trace of observers who never complete their observations;
+\item neither: false, by \ref{rmk:kolmogorov-refuted}.
+\end{itemize}
+The index-layer condition alone is also insufficient
+(\texttt{counterexampleQS\_no\_finitary\_condition}), so a valuation-layer
+condition and an index-layer condition are both required, with a counterexample
+in each direction.
+\end{remark}

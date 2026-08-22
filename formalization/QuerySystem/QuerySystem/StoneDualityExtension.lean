@@ -72,6 +72,12 @@ All Task 0′-A, 0′-B, 0′-C, and 0′-E results are proved (0 sorry).
 * `stoneAddContent_isSigmaSubadditive` — σ-subadditivity via compactness (proved)
 * `stone_measure_exists` — probability measure on stoneSpace AGREEING with the
   content on every cylinder clopen (proved, 0 sorry)
+* `stone_observational_extension` — proved 2026-08-22 under
+  `SequentiallyUpperDirected`. It does NOT go through the Stone space: the
+  statement was false under plain `UpperDirected` (Andersen–Jessen), and once
+  the hypothesis is corrected it follows from `sp1_iff` plus the already-proved
+  `QuerySystem.observational_extension`. The Stone construction in this file
+  stands on its own as the finitely additive theorem.
 * `stone_observational_extension` — (intentional sorry) Stone route main theorem
 * `stone_agrees_with_caratheodory` — both routes produce the same measure (proved)
 
@@ -724,33 +730,49 @@ theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
 -- ---------------------------------------------------------------------------
 -- Task 0′-B/D (continued): Stone observational extension
 -- ---------------------------------------------------------------------------
--- INTENTIONAL SORRY
+-- HISTORY. This carried an intentional `sorry` from its introduction until
+-- 2026-08-22, recorded as blocked on the Yosida-Hewitt decomposition being
+-- absent from Mathlib. That diagnosis was wrong twice over.
 --
--- The full Stone route additionally requires:
---   CE ↔ μ_p = 0 in the Yosida–Hewitt decomposition (proved in Paper I §4,
---   formalized in DiscriminabilityFoundations.lean as sp1_iff);
---   and the conclusion that the Stone-space measure concentrates on
---   range stoneEmbedding (principal ultrafilters), so that the pushforward
---   to S.Omega via stoneEmbedding is well-defined.
--- The Yosida–Hewitt decomposition for charges on Boolean algebras is not
--- currently in Mathlib, so the descent step cannot be completed in Lean.
+-- 1. The statement was FALSE as stated. It assumed only `UpperDirected`, and
+--    `ce_iff_levelwise_continuity` shows CE is exactly per-level σ-additivity.
+--    So the hypotheses read "compatible σ-additive marginals + upper-directed
+--    + surjective evaluations", and the conclusion is the global extension:
+--    Kolmogorov extension with no regularity hypothesis of any kind. The
+--    Andersen-Jessen construction (Sparre Andersen-Jessen 1948) refutes it,
+--    indexed by ℕ under ≤ -- upper-directed, NOT sequentially so. See the
+--    blueprint, `rmk:kolmogorov-refuted`.
+-- 2. No Stone space is needed. With `SequentiallyUpperDirected` -- the natural
+--    hypothesis when queries are σ-algebras closed under countable joins --
+--    `sp1_iff` converts CE into per-level measures and the already-proved
+--    `QuerySystem.observational_extension` finishes directly on `S.Omega`.
+--
+-- The hypothesis is therefore strengthened to `SequentiallyUpperDirected` and
+-- the theorem is proved. Yosida-Hewitt is not required, and neither is any
+-- charge theory.
 
 /-- **Stone observational extension theorem.**
 
-    Under `EvalSurjective`, `UpperDirected`, CE, and discriminability
-    (injectivity of `stoneEmbedding`), there exists a unique probability measure
-    `μ` on `S.Omega` recovering the compatible charges: `μ(Cyl i A) = P.ν i A`
-    for every level `i` and measurable `A`.
+    Under `SequentiallyUpperDirected`, `EvalSurjective` and collective
+    exhaustion, there is a unique probability measure `μ` on `S.Omega`
+    recovering the compatible charges: `μ (Cyl i A) = P.ν i A` for every level
+    `i` and measurable `A`.
 
-    The proof: `stone_measure_exists` gives a measure `P̂` on `stoneSpace S`;
-    CE forces `P̂` to be supported on `range stoneEmbedding` (Yosida–Hewitt +
-    sp1_iff); injectivity of `stoneEmbedding` allows the pushforward to land
-    on `S.Omega`. Uniqueness is `observational_determination`.
+    **Why sequential upper-directedness, and not merely `UpperDirected`.**
+    Under `UpperDirected` alone the statement is false; see the block comment
+    above and `rmk:kolmogorov-refuted` in the blueprint. Sequential
+    upper-directedness is what a countable cover needs in order to be dominated
+    by a single level, and it is the natural condition when a query is a
+    σ-algebra of resolvable events and the query family is closed under
+    countable joins: `⋁ₙ Qₙ` is then itself a query.
 
-    **Intentional sorry**: the support condition (step 2 above) requires the
-    Yosida–Hewitt decomposition, which is not yet in Mathlib. -/
+    **Proof.** `sp1_iff` turns CE into a genuine measure at each level;
+    compatibility transfers because each `μ i` agrees with `P.ν i` on every
+    measurable set; `observational_extension` then extends and
+    `map_apply_eval_eq_cyl` converts marginal recovery into the cylinder form.
+    No Stone space appears. -/
 theorem stone_observational_extension (S : QuerySystem) [Nonempty S.ι]
-    (udir : S.UpperDirected)
+    (sudir : S.SequentiallyUpperDirected)
     (surj : S.EvalSurjective)
     (P : S.NormalizedCompatibleContents)
     (hce : S.CollectivelyExhaustive P.ν) :
@@ -758,12 +780,28 @@ theorem stone_observational_extension (S : QuerySystem) [Nonempty S.ι]
       MeasureTheory.IsProbabilityMeasure μ ∧
       ∀ (i : S.ι) (A : Set ((S.q i).Outcome)), MeasurableSet A →
         μ (S.Cyl i A) = P.ν i A := by
-  -- Step 1: stone_measure_exists gives P̂ on stoneSpace S
-  -- Step 2: CE → P̂ supported on range stoneEmbedding (Yosida–Hewitt, Mathlib gap)
-  -- Step 3: Pushforward μ := (stoneEmbedding⁻¹)_* P̂ is a probability measure on S.Omega
-  -- Step 4: μ(Cyl i A) = P̂({u | Cyl i A ∈ u}) = P.ν i A (by construction)
-  -- Uniqueness: observational_determination (proved in QuerySystem.lean)
-  sorry
+  classical
+  -- CE gives a genuine measure at each level (`sp1_iff`).
+  choose μ hμ using (S.sp1_iff P).mp hce
+  haveI : ∀ i, MeasureTheory.IsProbabilityMeasure (μ i) := by
+    intro i
+    constructor
+    rw [hμ i Set.univ MeasurableSet.univ]
+    exact P.norm i
+  -- Compatibility transfers: `μ i` agrees with `P.ν i` on every measurable set.
+  have hcompat : S.CompatibleMarginals μ := by
+    intro i j hij
+    ext A hA
+    rw [MeasureTheory.Measure.map_apply (S.π hij).measurable_π hA,
+        hμ j _ ((S.π hij).measurable_π hA), ← P.compat hij A hA, hμ i A hA]
+  obtain ⟨Q, ⟨hQprob, hQmarg⟩, hQuniq⟩ := S.observational_extension sudir surj μ hcompat
+  refine ⟨Q, ⟨hQprob, ?_⟩, ?_⟩
+  · intro i A hA
+    rw [← S.map_apply_eval_eq_cyl Q i A hA, hQmarg i, hμ i A hA]
+  · rintro ν' ⟨hν'prob, hν'cyl⟩
+    refine hQuniq ν' ⟨hν'prob, fun i => ?_⟩
+    ext A hA
+    rw [S.map_apply_eval_eq_cyl ν' i A hA, hν'cyl i A hA, ← hμ i A hA]
 
 -- ---------------------------------------------------------------------------
 -- Task 0′-E: Agreement with the Carathéodory route

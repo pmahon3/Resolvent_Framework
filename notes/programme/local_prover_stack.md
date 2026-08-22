@@ -182,19 +182,44 @@ a real gate. Zero subscription cost.
 
 ### SECONDARY — Mace4 bounded search on shovel item 2
 
+**✎2026-08-22 — corrected; do not act on the paragraph below as written.**
+`oml_lattice_regularity_attack.md` §32 (2026-08-04) exhausted the named 7-loop
+removable-face relay grammar through every feasible finite class — up to
+88.5M ordered interface pairs, zero operative — and states the licensed
+conclusion as a directive: *do not re-enter undirected finite search without a
+new structural discriminator, a theorem reducing the global problem to a new
+finite class, or a finite grammar not covered there.* It also shifts weight
+toward a genuinely infinitary mechanism (countable σ-closure, coherent inverse
+systems, an uncountable hub). I wrote the item below without having read §32.
+Mace4 is not forbidden — §32 covers one named grammar — but "genuine evidence
+on the most visible open edge" oversells it, and as written it points back into
+the closed route. Any Mace4 work must first name the grammar §32 does not
+cover.
+
 Finite OMLs are automatically σ-complete, so finite-model search for the
 regularity-transition question is well-posed. This will not prove the
-conjecture, but "no witness up to size N" is genuine evidence on the most
-visible open edge, and Mace4 is CPU-bound — it belongs on Fir's CPU partitions,
-not GPU, and costs nothing against the subscription.
+conjecture, but "no witness up to size N" is evidence, and Mace4 is CPU-bound —
+it belongs on Fir's CPU partitions, not GPU, and costs nothing against the
+subscription.
 
 ### NOT WORTH DOING NOW
 
-**`stone_observational_extension` (the one real `sorry`).** Mathlib has
-`AddContent` but no Yosida–Hewitt decomposition. Closing it does not mean
-finding a proof — it means porting Yosida–Hewitt to Mathlib, a separate project.
-No prover can help: there is no lemma to cite. The existing honest documentation
-of it as an infrastructure gap stands.
+**~~`stone_observational_extension` (the one real `sorry`)~~ — DONE 2026-08-22,
+and the analysis below was wrong in every particular.** It was not an
+infrastructure gap. Mathlib's lack of Yosida–Hewitt was irrelevant: the
+statement was FALSE under its stated hypothesis (`UpperDirected`), refuted by
+Andersen–Jessen 1948, because `ce_iff_levelwise_continuity` shows collective
+exhaustion is only per-level σ-additivity. Corrected to
+`SequentiallyUpperDirected`, it follows from `sp1_iff` plus the already-proved
+`observational_extension` in about twenty lines, with no Stone space and no
+charge theory. The development is now `sorry`-free and CI enforces it.
+
+Worth keeping as a cautionary note on this document's own method: the item was
+ranked "not worth doing" on a cost estimate for porting a theorem that was
+never needed, to close a goal that could not be closed because it was false.
+Neither the cost nor the target survived contact. What surfaced the error was
+not the prover — it was writing the dependency chain out in the blueprint until
+the hypotheses could be read side by side.
 
 **Shovel item 2 as a proving target.** "Difficulty is real" is the standing
 assessment; it is architecture-heavy, the worst ratio under a $20 tier. Gather

@@ -58,3 +58,6 @@ formalization/QuerySystem/blueprint/print/
 formalization/QuerySystem/blueprint/checkdecls.lean
 formalization/QuerySystem/blueprint/checkdecls.log
 formalization/QuerySystem/blueprint/src/*.paux
+
+# grind reports (regenerated)
+*.grind.json

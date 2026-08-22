@@ -145,7 +145,15 @@ def search(repl, case, env, model, max_expansions=40, k=8, verbose=True):
                       "raw": (str(errs[0].get("data"))[:200] if errs else str(r)[:200])}
     pick = sor[0]
     root, goal0 = pick["proofState"], pick["goal"]
+    return search_from(repl, root, goal0, model, max_expansions, k, verbose, t0)
 
+
+def search_from(repl, root, goal0, model, max_expansions=40, k=8, verbose=True, t0=None):
+    """Best-first search from an existing proofState. Split out of `search` so
+    `grind.py` can drive it on the sorries the REPL reports for a whole file,
+    rather than on a reconstructed statement. One implementation, no copy."""
+    if t0 is None:
+        t0 = time.time()
     ctr = itertools.count()
     pq = [(0, next(ctr), root, goal0, [])]
     seen, exp = {goal0}, 0

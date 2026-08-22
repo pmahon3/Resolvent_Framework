@@ -1,16 +1,28 @@
+% Web version of the blueprint. Rendered with:
+%   ./blueprint-web.sh      (which runs `plastex -c plastex.cfg web.tex`)
 \documentclass{report}
 
-\usepackage[showmore]{blueprint}
+\usepackage{amssymb, amsthm, amsmath}
+\usepackage{hyperref}
+% `nonreducedgraph` skips the transitive reduction of the dependency graph.
+% Reduction needs graphviz's `tred`; the copy pygraphviz bundles is linked
+% against DLLs it does not ship and cannot run, and a system graphviz install
+% needs elevation. To get the (more readable) reduced graph, install graphviz
+%   winget install --id Graphviz.Graphviz
+% from an elevated shell and delete `nonreducedgraph` below.
+\usepackage[showmore, dep_graph, nonreducedgraph]{blueprint}
 
-\title{Query Systems: Observational Foundations of Probability}
-\author{Formalized in Lean 4}
+\input{macros/common}
+\input{macros/web}
+
+\home{https://github.com/pmahon3/Resolvent_Framework}
+\github{https://github.com/pmahon3/Resolvent_Framework}
+\dochome{https://github.com/pmahon3/Resolvent_Framework/tree/main/formalization/QuerySystem}
+
+\title{Resolvent Framework --- Lean blueprint}
+\author{P. Mahon}
 
 \begin{document}
-
-\home
-
-\tableofcontents
-
+\maketitle
 \input{content}
-
 \end{document}

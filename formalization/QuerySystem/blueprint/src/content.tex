@@ -113,3 +113,291 @@ The premeasure defined on finite cylinders is well-defined: it doesn't depend on
 \leanok
 Given two lower bounds, use directedness to find a common refinement. Show the measure values agree using compatibility and proof irrelevance for the transitivity witnesses.
 \end{proof}
+
+\begin{theorem}[Observational Extension]
+\label{thm:stone-observational-extension}
+\lean{stone_observational_extension}
+\leanok
+\uses{thm:observational-determination, def:compatible-marginals}
+Let $S$ be a query system that is upper-directed, with surjective evaluations,
+and let $\nu$ be a normalized compatible family of contents that is
+collectively exhaustive. Then there is a unique probability measure $\mu$ on
+$\Omega$ with $\mu(\mathrm{Cyl}_i A) = \nu_i(A)$ for every query $i$ and every
+measurable $A$.
+\end{theorem}
+
+\begin{proof}
+The statement is formalized; the proof is \emph{not}. Uniqueness is
+\ref{thm:observational-determination}. Existence needs the pushforward of the
+Stone-space measure to be supported on the range of the Stone embedding, and
+that support condition is the Yosida--Hewitt decomposition for charges on
+Boolean algebras, which is absent from Mathlib. This is an infrastructure gap
+rather than a mathematical one: closing it means porting a known 1952 theorem
+(Rao and Rao, ch.~10), and there is no lemma in the library to cite in the
+meantime. This is the single open goal in the development.
+\end{proof}
+
+\chapter{The pruning theorem and eventual periodicity of Safe}
+
+Formalizes \texttt{papers/reconstruction/notes/pruning\_theorem\_and\_B.md}
+\S\S2--3. Throughout, $\rho \subseteq A \times A$ is an arbitrary relation on an
+arbitrary alphabet; finiteness of $A$ is assumed only where stated, and no
+strong-connectivity hypothesis is used anywhere.
+
+\section{The two sides: cycles in the layered ring, walks in the tuple digraph}
+
+\begin{definition}[Layer-injective simple cycle]
+\label{def:lisc}
+\lean{Reconstruction.Pruning.IsLISC}
+\leanok
+For $L \geq 1$ the \emph{layered ring} $R_L(\rho)$ has vertex set
+$\mathbb{Z}_L \times A$ and arcs $(i,a) \to (i+1 \bmod L, b)$ for every
+$(a,b) \in \rho$. A simple cycle of \emph{winding} $k$ is a closed walk of
+length $kL$ with all vertices distinct. $\mathrm{LISC}_k(L)$ holds when one
+exists.
+
+Encoded by the state sequence $W$ on positions $t < kL$: $\rho$-steps between
+consecutive positions, a closing $\rho$-step, and the simplicity clause ---
+same layer $(t \bmod L)$ plus same state implies same position --- which is
+exactly layer-injectivity, automatic given simplicity.
+\end{definition}
+
+\begin{definition}[Tuple digraph and rotation walks]
+\label{def:tr}
+\lean{Reconstruction.Pruning.IsTR}
+\leanok
+$T_k(\rho)$ has as vertices the \emph{injective} $k$-tuples $u \in A^k$, with
+arcs $u \to v$ iff $(u_j, v_j) \in \rho$ for every $j$. For $r \in \mathbb{Z}_k$
+let $\sigma_r(u)_j = u_{j+r}$. Then $\mathrm{TR}_k^{(r)}(L)$ holds when some
+length-$L$ walk in $T_k(\rho)$ runs from a $u$ to $\sigma_r(u)$.
+
+Encoded as $\tau : \mathbb{N} \to \mathbb{Z}_k \to A$ with $\tau_i$ injective
+for $i \leq L$, coordinatewise $\rho$-arcs, and endpoint
+$\tau_L\,j = \tau_0\,(j+r)$.
+\end{definition}
+
+\section{Theorem P}
+
+\begin{lemma}[Step 2: extraction]
+\label{lem:extraction}
+\lean{Reconstruction.Pruning.isTR_one_of_isLISC}
+\leanok
+\uses{def:lisc, def:tr}
+For $0 < L$, $\mathrm{LISC}_k(L)$ implies $\mathrm{TR}_k^{(1)}(L)$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{def:lisc, def:tr}
+Read the $k$ strands at each layer: set $\tau_i[j]$ to the state of $W[jL+i]$.
+Injectivity of each $\tau_i$ is forced by simplicity --- distinct vertices at
+the same layer have distinct states --- so off-diagonality is not an extra
+assumption. The endpoint computes to $\sigma_1(\tau_0)$.
+\end{proof}
+
+\begin{lemma}[Step 3: assembly]
+\label{lem:assembly}
+\lean{Reconstruction.Pruning.isLISC_of_isTR_one}
+\leanok
+\uses{def:lisc, def:tr}
+For $0 < L$, $\mathrm{TR}_k^{(1)}(L)$ implies $\mathrm{LISC}_k(L)$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{def:lisc, def:tr}
+Place position $t = jL+i$ at vertex $(i, \tau_i[j])$. Arcs within a strand are
+the tuple-walk arcs; at a strand boundary the rotation endpoint supplies
+$\tau_L[j] = \tau_0[j+1]$, which is the state at position $(j+1)L$, and at
+$j = k-1$ this is the closure. Simplicity follows from the layer clock plus
+injectivity of each $\tau_i$. Ratification kit gap 5.1.
+\end{proof}
+
+\begin{lemma}[Step 4: generator conjugation]
+\label{lem:conjugation}
+\lean{Reconstruction.Pruning.isTR_rot_iff_isTR_one}
+\leanok
+\uses{def:tr}
+If $r$ is a unit of $\mathbb{Z}_k$, that is $\gcd(r,k)=1$, then
+$\mathrm{TR}_k^{(r)}(L)$ holds iff $\mathrm{TR}_k^{(1)}(L)$ does.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{def:tr}
+The slot relabelling $P(u)[j] = u[j\bar r]$, with $\bar r = r^{-1}$, is a
+bijection of injective tuples, preserves arcs (a fixed coordinate permutation),
+and conjugates the rotations via $(j+r)\bar r = j\bar r + 1$. Ring algebra in
+$\mathbb{Z}_k$, so no index chasing is possible. Ratification kit gap 5.2.
+\end{proof}
+
+\begin{theorem}[Theorem P: pruning, phase-parametrized]
+\label{thm:pruning}
+\lean{Reconstruction.Pruning.pruning}
+\leanok
+\uses{lem:extraction, lem:assembly, lem:conjugation}
+For every $\rho$, every $L \geq 1$, every $k \geq 1$ and every $r$ generating
+$\mathbb{Z}_k$, $\mathrm{LISC}_k(L)$ holds iff $\mathrm{TR}_k^{(r)}(L)$ does.
+Exact for every $L$, not merely cofinitely, and with no strong connectivity.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:extraction, lem:assembly, lem:conjugation}
+Conjugate to $r=1$ by \ref{lem:conjugation}, then combine \ref{lem:extraction}
+and \ref{lem:assembly}.
+\end{proof}
+
+\begin{lemma}[Lemma NG: assembly half]
+\label{lem:ng}
+\lean{Reconstruction.Pruning.isLISC_of_isTR_of_orbit}
+\leanok
+\uses{lem:assembly, def:tr, def:lisc}
+Suppose the rotation $r$ closes an orbit of size $m$, witnessed by an injective
+slot map $f : \mathbb{Z}_m \to \mathbb{Z}_k$ with $f(j+1) = f(j) + r$. Then a
+rotation-$r$ tuple walk certifies $\mathrm{LISC}_m(L)$: winding $m$, not
+winding $k$. For a generator $m = k$; for $\gcd(r,k) = d > 1$ it is the
+strictly weaker $m = k/d$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:assembly}
+Read the walk through $f$: this is a rotation-$1$ witness of width $m$, so
+\ref{lem:assembly} assembles it. The instance $m=k$, $f = \mathrm{id}$, $r=1$
+recovers Step 3 exactly, and that instance is checked in the Lean file so the
+parametrization cannot drift.
+
+Not formalized, and recorded as such: the construction of $f$ at
+$m = k/\gcd(r,k)$; that the $d$ orbit cycles are pairwise vertex-disjoint; and
+the refutation half, namely that $\mathrm{LISC}_k$ can genuinely fail while
+$\mathrm{TR}_k^{(r)}$ holds, witnessed by C4dir at $L=2$, which stays
+machine-checked in the oracle.
+\end{proof}
+
+\section{Theorem B}
+
+\begin{definition}[Eventually periodic subset of the naturals]
+\label{def:evperiodic}
+\lean{Reconstruction.Pruning.IsEvPeriodic}
+\leanok
+$S \subseteq \mathbb{N}$ is eventually periodic when there are a threshold $s$
+and a period $p > 0$ with $L \in S$ iff $L+p \in S$, for every $L \geq s$.
+Finite unions, intersections and complements are again eventually periodic,
+with threshold $\max$ and period $\mathrm{lcm}$.
+\end{definition}
+
+\begin{lemma}[The k-cap]
+\label{lem:kcap}
+\lean{Reconstruction.Pruning.le_card_of_isLISC}
+\leanok
+\uses{def:lisc}
+If $0 < L$ and $\mathrm{LISC}_k(L)$ then $k \leq |A|$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{def:lisc}
+The positions $0, L, \dots, (k-1)L$ all sit at layer $0$ and are pairwise
+distinct, so their states are $k$ distinct elements of $A$. Pigeonhole.
+\end{proof}
+
+\begin{definition}[Unsafe and Safe]
+\label{def:unsafe-safe}
+\lean{Reconstruction.Pruning.Safe}
+\leanok
+\uses{def:lisc}
+$\mathrm{Unsafe}(\rho)$ is the set of $L \geq 1$ with $\mathrm{LISC}_k(L)$ for
+some $k \geq 2$, and $\mathrm{Safe}(\rho)$ is its complement among the
+positives. Ring reconstruction $C_L = R_L$ holds exactly on
+$\mathrm{Safe}(\rho)$.
+\end{definition}
+
+\begin{lemma}[Unsafe is a finite union of reachability sets]
+\label{lem:unsafe-biunion}
+\lean{Reconstruction.Pruning.unsafe_eq_biUnion}
+\leanok
+\uses{lem:kcap, thm:pruning, def:unsafe-safe, def:tr}
+For finite $A$, $\mathrm{Unsafe}(\rho)$ is the union of $\mathrm{TR}_k^{(1)}$
+over $2 \leq k \leq |A|$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:kcap, thm:pruning}
+The k-cap bounds the winding by $|A|$, making the union finite; Theorem P
+converts each $\mathrm{LISC}_k$ into $\mathrm{TR}_k^{(1)}$.
+\end{proof}
+
+\begin{lemma}[Deterministic orbits in a finite type are eventually periodic]
+\label{lem:iterate}
+\lean{Reconstruction.Pruning.exists_evPeriodic_iterate}
+\leanok
+\uses{def:evperiodic}
+For $f : \beta \to \beta$ with $\beta$ finite and any $b$, there are $s$ and
+$p > 0$ with $f^{n+p}(b) = f^{n}(b)$ for all $n \geq s$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+The sequence $n \mapsto f^n(b)$ cannot be injective, so it repeats; being
+generated deterministically, it is periodic from the first repeat onward. This
+is the first-repeat argument of the source note, with the Boolean-matrix monoid
+packaging removed.
+\end{proof}
+
+\begin{lemma}[Reachability is an iterate, and matches the raw walk]
+\label{lem:reach-walk}
+\lean{Reconstruction.Pruning.reach_iff_walk}
+\leanok
+\uses{def:tr}
+Length-$n$ reachability in $T_k(\rho)$ is the $n$-th iterate of a single step
+operator on relations over injective tuples, and it holds between $u$ and $v$
+exactly when a raw tuple walk of the shape in \ref{def:tr} runs from $u$ to
+$v$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Induction on $n$, rebuilding the walk one layer at a time. This bridge is what
+the iterate formulation costs, and it is where the work of the formalization
+went.
+\end{proof}
+
+\begin{lemma}[Per-k eventual periodicity]
+\label{lem:evper-tr}
+\lean{Reconstruction.Pruning.isEvPeriodic_isTR}
+\leanok
+\uses{lem:iterate, lem:reach-walk, def:evperiodic, def:tr}
+For finite $A$, the set of $L$ with $\mathrm{TR}_k^{(1)}(L)$ is eventually
+periodic.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:iterate, lem:reach-walk}
+The vertex set of $T_k(\rho)$ is finite, hence so is the type of relations on
+it; apply \ref{lem:iterate} to the step operator and transport along
+\ref{lem:reach-walk}.
+\end{proof}
+
+\begin{theorem}[Theorem B, ratification kit gap 5.3]
+\label{thm:B}
+\lean{Reconstruction.Pruning.isEvPeriodic_safe}
+\leanok
+\uses{lem:unsafe-biunion, lem:evper-tr, def:evperiodic, def:unsafe-safe}
+For every relation $\rho$ on a finite alphabet, $\mathrm{Safe}(\rho)$ is
+eventually periodic: there are a threshold $S$ and a period $P > 0$ with
+$L \in \mathrm{Safe}(\rho)$ iff $L+P \in \mathrm{Safe}(\rho)$, for every
+$L \geq S$. Membership is therefore decided by a finite table, the certificate
+an outsider can run on their own examples.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:unsafe-biunion, lem:evper-tr}
+$\mathrm{Unsafe}$ is a finite union of eventually periodic sets by
+\ref{lem:unsafe-biunion} and \ref{lem:evper-tr}, hence eventually periodic with
+threshold the max of the thresholds and period the lcm of the periods;
+$\mathrm{Safe}$ is its complement among the positives.
+\end{proof}

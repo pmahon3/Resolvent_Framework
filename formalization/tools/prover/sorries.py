@@ -1,6 +1,15 @@
-import re, os, glob, json
+import re, os, glob, json, sys, argparse
 
-SRC = r"C:\Users\pmahon\Research\Mathematics\Resolvent_Framework\formalization\QuerySystem\QuerySystem"
+# Repo-relative so this runs in CI as well as on tower/the Mac.
+_HERE = os.path.dirname(os.path.abspath(__file__))
+_ROOT = os.path.abspath(os.path.join(_HERE, "..", "..", ".."))
+SRC = os.environ.get(
+    "QS_SRC", os.path.join(_ROOT, "formalization", "QuerySystem", "QuerySystem"))
+
+ap = argparse.ArgumentParser(description="separate real open goals from `sorry` in prose")
+ap.add_argument("--max", type=int, default=None,
+                help="ratchet: exit 1 if the real open-goal count exceeds this")
+ARGS = ap.parse_args()
 
 def strip_comments(text):
     """Blank out -- line comments and /- -/ block comments, preserving offsets."""
@@ -71,5 +80,16 @@ for f in sorted(sig):
     n = len(byfile.get(f, []))
     print(f"  {f:<44} real sorries: {n}")
 
-json.dump(real, open(os.path.join(os.path.dirname(__file__), "open_goals.json"), "w"), indent=1)
+json.dump(real, open(os.path.join(_HERE, "open_goals.json"), "w"), indent=1)
 print(f"\nwrote open_goals.json ({len(real)} goals)")
+
+if ARGS.max is not None:
+    print("")
+    if len(real) > ARGS.max:
+        print(f"RATCHET FAIL: {len(real)} real open goals, budget is {ARGS.max}.")
+        print("A new `sorry` was introduced. Close it, or raise the budget deliberately.")
+        sys.exit(1)
+    if len(real) < ARGS.max:
+        print(f"RATCHET: {len(real)} real open goals, budget {ARGS.max} -- tighten"
+              f" the budget in .github/workflows/lean.yml to {len(real)}.")
+    print(f"RATCHET OK: {len(real)} <= {ARGS.max}")

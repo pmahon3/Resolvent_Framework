@@ -69,6 +69,41 @@ The three include a five-component anonymous constructor with side conditions.
 All three were re-checked by splicing them into `staging/ProbeCheck.lean` and
 compiling — the REPL's verdict was not taken on trust.
 
+**Do not read 3/5 as a capability estimate.** Those five goals were written to
+be probe-like. See the next section for what happens on real work.
+
+## What it actually scores: 1 / 28
+
+Retrodiction against `staging/AndersenJessen.lean` — every theorem body blanked
+by `blank.py`, so the goals are exactly the ones already known provable, in
+their real context, at the real level of difficulty.
+
+| | |
+|---|---|
+| closed | **1 / 28** (automation 0, model 1) |
+| wall clock | 2220 s — 37 minutes |
+| mean per goal | 77 s |
+| failure profile | 25 budget, 2 exhausted |
+
+The one success is the most trivial lemma in the file:
+
+    B_subset_A   ⊢ B α k ⊆ A α      unfold B A ; aesop (add simp [abs])
+
+It also failed on lemmas that look mechanical — `Antitone (B α)`,
+`x - y ∈ A α`, `C α k ⊆ A α`, `Antitone (tail α)` — each a three-to-four line
+proof by hand.
+
+**Honest conclusion: the loop does not currently carry this development.** The
+premise it was built on — statements expensive, proofs free — is not supported
+by measurement on this material. 25 of 28 failures hit the search budget rather
+than exhausting it, so the open question is whether a much larger budget moves
+the number; that is cheap to test unattended and is the only further experiment
+worth running on it.
+
+Three numbers have been quoted for this loop: 0/8, 3/5, 1/28. The first two came
+from a broken harness and from self-chosen material respectively. Only 1/28 is
+a measurement of the thing on the work it exists to help with.
+
 If a future run reports a suspiciously round zero, check this first.
 
 ## Prerequisites

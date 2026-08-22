@@ -107,6 +107,28 @@ cost, with kernel-guaranteed correctness. It does not do research.
 
 ---
 
+## 3b. ✎2026-08-22 — measured again, on real work: 1/28
+
+The §3 numbers (43/43/56) are retrodiction against the *QuerySystem* corpus and
+stand as recorded. They should not be generalised to new development, and this
+document previously invited that reading.
+
+Measured on `staging/AndersenJessen.lean` — 28 theorem bodies blanked, goals in
+their real context — the hybrid loop closes **1 of 28** in 37 minutes, and the
+one it closes is the file's most trivial lemma. Automation closes none. Full
+detail, including the failure profile, in `formalization/tools/prover/README.md`.
+
+Why the difference from §3 is not surprising in hindsight: §3 filtered to
+reference proofs ≤ 12 lines and took the shortest 100 of an existing corpus.
+That is the easy end of already-written material. A file being actively
+developed does not look like that.
+
+Consequence for this document's ranking: the local stack's contribution to the
+mechanical tier is, on current evidence, close to zero for *new* work. Every
+result in this development since 2026-08-21 — Theorem B, the extension repair,
+Lemma NG's orbit map, the thick tower — was hand-written. The stack's real
+contribution has been the kernel gate, not tactic generation.
+
 ## 4. Work plan
 
 ### PRIMARY — Theorem B + Lemma NG (kit gap 5.3) — **DONE 2026-08-21**

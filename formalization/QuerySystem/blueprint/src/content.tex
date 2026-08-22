@@ -647,3 +647,63 @@ continuity at $\emptyset$ to $\sigma$-additivity
 (\texttt{addContent\_iUnion\_eq\_sum\_of\_tendsto\_zero}) requires a
 \emph{ring}, and only the semiring structure had been recorded.
 \end{proof}
+
+\section{Is the open goal true? A concern that must be settled first}
+
+\begin{lemma}[Collective exhaustion is per-level $\sigma$-additivity]
+\label{lem:ce-levelwise}
+\lean{QuerySystem.ce_iff_levelwise_continuity}
+\leanok
+\uses{def:collectively-exhaustive, thm:sp1-iff}
+$\nu$ is collectively exhaustive if and only if every $\nu_i$ is continuous at
+$\emptyset$, i.e. $\sigma$-additive.
+\end{lemma}
+
+\begin{proof}
+\leanok
+The definition reads as though the finer level $j$ carries content --- ``some
+$j \geq i$ witnesses the convergence''. It does not. Compatibility gives
+$\nu_i(A) = \nu_j(\pi^{-1}A)$ outright, so the quantity tested at $j$ is
+\emph{equal} to the one at $i$ and the existential is cosmetic.
+\end{proof}
+
+\begin{remark}[The truth of \ref{thm:stone-observational-extension} is open,
+not just its proof]
+\label{rmk:kolmogorov-concern}
+\uses{lem:ce-levelwise, thm:observational-extension-seq}
+Substituting \ref{lem:ce-levelwise} into
+\ref{thm:stone-observational-extension}, its hypotheses read: compatible
+marginals, each $\sigma$-additive, plus upper-directedness and surjective
+evaluations. Its conclusion is the global extension. That is the Kolmogorov
+extension theorem \emph{with no regularity or compactness hypothesis of any
+kind} --- the outcome spaces carry only a $\sigma$-algebra, no topology.
+
+Classically this is not sufficient: Andersen--Jessen (1948) give inverse
+sequences of probability spaces with compatible $\sigma$-additive marginals
+admitting no limit measure, in exactly this measurable-space-only setting. So
+either \texttt{EvalSurjective} rules out every such system --- in which case it
+is doing far more work than its name suggests, and identifying why is the key
+idea of the missing proof --- or the statement is false and needs a further
+hypothesis.
+
+This is a concern, not a refutation: no counterexample has been constructed
+here, and surjectivity of every $\mathrm{eval}_i$ is a strong condition that
+the usual Andersen--Jessen constructions (thin or empty limits) violate.
+
+\textbf{The decisive experiment.} Index by the FINITE subsets of $\mathbb{N}$
+ordered by inclusion. That is upper-directed, and it is \emph{not} sequentially
+upper-directed --- a countable family of finite sets has no finite upper bound
+--- so it sits exactly in the gap between
+\ref{thm:observational-extension-seq}, which is proved, and
+\ref{thm:stone-observational-extension}, which is not. Realising an
+Andersen--Jessen system over that index set with surjective evaluations would
+settle the question negatively; showing it cannot be done would isolate the
+mechanism the proof needs.
+
+Note what this explains about the corpus: \ref{thm:observational-extension-seq}
+was proved with \emph{sequential} upper-directedness, the hypothesis that lets
+one level dominate an entire countable cover. That is the standard way of
+avoiding a regularity assumption. The open theorem drops it and keeps only
+collective exhaustion --- and collective exhaustion, by \ref{lem:ce-levelwise},
+is weaker than it looks.
+\end{remark}

@@ -70,7 +70,8 @@ All Task 0′-A, 0′-B, 0′-C, and 0′-E results are proved (0 sorry).
 * `cylGen_charge_wellDef` — presentation independence for charges (proved)
 * `stoneAddContent` — AddContent on stoneClopens (proved, 0 sorry)
 * `stoneAddContent_isSigmaSubadditive` — σ-subadditivity via compactness (proved)
-* `stone_measure_exists` — probability measure on stoneSpace (proved, 0 sorry)
+* `stone_measure_exists` — probability measure on stoneSpace AGREEING with the
+  content on every cylinder clopen (proved, 0 sorry)
 * `stone_observational_extension` — (intentional sorry) Stone route main theorem
 * `stone_agrees_with_caratheodory` — both routes produce the same measure (proved)
 
@@ -646,7 +647,15 @@ private theorem stoneAddContent_isSigmaSubadditive (S : QuerySystem) [Nonempty S
 
     **Construction:** Transfer `P.ν` to an `AddContent` on `stoneClopens S` via the
     Stone embedding `E ↦ {u | E ∈ u}`.  Prove σ-subadditivity via compactness of the
-    Stone space.  Apply `AddContent.measure` (Carathéodory extension). -/
+    Stone space.  Apply `AddContent.measure` (Carathéodory extension).
+
+    **The agreement clause is load-bearing.** Until 2026-08-22 the conclusion
+    was only `∃ Phat, IsProbabilityMeasure Phat`, which never mentions `P`, so
+    it was satisfied by a Dirac measure at any ultrafilter with `udir`, `surj`
+    and `P` all unused (Lean's own linter said so). The Carathéodory extension
+    the proof builds was discarded at the statement boundary and no downstream
+    step could use it. `stone_observational_extension` Step 1 needs exactly the
+    agreement clause now stated. -/
 theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
     (udir : S.UpperDirected)
     (surj : S.EvalSurjective)
@@ -654,7 +663,8 @@ theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
     haveI : MeasurableSpace (stoneSpace S) :=
       MeasurableSpace.generateFrom (stoneClopens S)
     ∃ Phat : MeasureTheory.Measure (stoneSpace S),
-      MeasureTheory.IsProbabilityMeasure Phat := by
+      MeasureTheory.IsProbabilityMeasure Phat ∧
+      ∀ E ∈ stoneClopens S, Phat E = stoneAddContent S udir surj P E := by
   letI mα : MeasurableSpace (stoneSpace S) :=
     MeasurableSpace.generateFrom (stoneClopens S)
   -- Build the AddContent on stoneClopens
@@ -664,7 +674,8 @@ theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
   have hsigma := stoneAddContent_isSigmaSubadditive S udir surj P
   -- Apply Carathéodory extension
   have hgen_eq : mα = MeasurableSpace.generateFrom (stoneClopens S) := rfl
-  refine ⟨m.measure hsemiring hgen hsigma, ?_⟩
+  refine ⟨m.measure hsemiring hgen hsigma, ?_,
+    fun E hE => AddContent.measure_eq m hsemiring hgen_eq hsigma hE⟩
   constructor
   -- Prove μ(univ) = 1
   -- univ = {u | Set.univ ∈ u} since every ultrafilter contains univ

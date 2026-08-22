@@ -5,6 +5,39 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-08-22 — Smart App Control silently killed the prover arm
+
+`grind.py` stopped working mid-session. Symptom: `repl exited`, or
+`BrokenPipeError`, on every file including ones that had worked minutes before.
+The file under test elaborated fine under `lake env lean`, so it was not the
+mathematics.
+
+Cause: Windows 11 **Smart App Control**, enforce mode. `repl.exe` is unsigned
+and locally built, so it has no cloud reputation, and SAC refuses to execute it:
+*An Application Control policy has blocked this file*. Running it under
+`lake env` turns that into `error: unspecified system_category error (error
+code: 4551)`, and `bfs.py` sends REPL stderr to `DEVNULL` (the fix for the
+64K-pipe deadlock), so all the caller sees is a dead pipe. The diagnostic that
+found it was running `repl.exe` directly from PowerShell.
+
+Worth noting what misled me: `lean.exe` and `lake.exe` are ALSO unsigned and run
+without complaint, because they are widely distributed and carry reputation. So
+"the toolchain works, therefore signing is not the issue" is wrong here — SAC
+discriminates by reputation, not by signature alone, and a locally built binary
+is precisely the case it blocks.
+
+Consequences: `lake build`, `lake env lean`, the sorry ratchet and `checkdecls`
+are unaffected, so CI and every gate still work. Only the REPL search arm is
+dead, on this machine. The measured eval numbers (43/43/56) predate the block
+and stand; they are not reproducible here until it is resolved.
+
+Recorded in `formalization/tools/prover/README.md` with the options, one of
+which — disabling SAC — is irreversible on Windows 11 and should not be taken
+casually for an automation arm that has so far contributed nothing to any
+result in this development.
+
+---
+
 ## 2026-08-21 — the duplicate root module, and the globs fix that inverted the bug
 
 Two modules defined the same names. `QuerySystem.lean` (26K, package root) and

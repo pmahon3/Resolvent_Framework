@@ -331,9 +331,12 @@ tuple walk through `f` is a rotation-`1` witness of width `m`, and Step 3
 assembles it. Instantiating `m = k`, `f = id`, `r = 1` recovers Step 3 exactly
 (checked below), so the parametrization is faithful.
 
+The orbit map is now CONSTRUCTED, not merely assumed: `orbitHom r` is
+`ZMod.lift` applied to `zmultiplesHom`, so `f (j+1) = f j + r` falls out of
+`map_add` rather than needing a case split at the wrap-around. Hence
+`isLISC_addOrderOf_of_isTR`, which needs no supplied `f`.
+
 NOT formalized, recorded honestly:
-* the construction of `f` for `m = k / gcd(r,k)` (`j ↦ j • r`; `ZMod` index
-  bookkeeping, no mathematical content beyond `addOrderOf r = k / gcd(r,k)`);
 * that the `d` orbit cycles are pairwise vertex-disjoint;
 * the refutation half — `LISC_k` can genuinely FAIL while `TR_k^{(r)}` holds.
   Witness C4dir at `L = 2`, machine-checked in the oracle
@@ -357,6 +360,55 @@ theorem isLISC_of_isTR_of_orbit {L m : ℕ} [NeZero m] (hL : 0 < L) {r : ZMod k}
       fun i hi j => harc i hi _, fun j => ?_⟩
   change τ L (f j) = τ 0 (f (j + 1))
   rw [hstep j, hend]
+
+/-- The orbit map `ZMod (addOrderOf r) →+ ZMod k` sending `1 ↦ r`.
+
+Built with `ZMod.lift`, so additivity is free from `map_add` -- the earlier
+hand-rolled version had to prove `f (j+1) = f j + r` by cases on the
+wrap-around at `j = m-1`, which is exactly the `.val` bookkeeping that made it
+not worth doing. -/
+noncomputable def orbitHom (r : ZMod k) : ZMod (addOrderOf r) →+ ZMod k :=
+  ZMod.lift (addOrderOf r) ⟨zmultiplesHom (ZMod k) r, by
+    show ((addOrderOf r : ℕ) : ℤ) • r = 0
+    rw [natCast_zsmul]
+    exact addOrderOf_nsmul_eq_zero r⟩
+
+@[simp] lemma orbitHom_intCast (r : ZMod k) (x : ℤ) :
+    orbitHom r ((x : ZMod (addOrderOf r))) = x • r := by
+  simp [orbitHom]
+
+@[simp] lemma orbitHom_one (r : ZMod k) : orbitHom r 1 = r := by
+  have : ((1 : ℤ) : ZMod (addOrderOf r)) = 1 := by push_cast; ring
+  rw [← this, orbitHom_intCast]
+  simp
+
+lemma orbitHom_succ (r : ZMod k) (j : ZMod (addOrderOf r)) :
+    orbitHom r (j + 1) = orbitHom r j + r := by
+  rw [map_add, orbitHom_one]
+
+lemma orbitHom_injective [NeZero k] (r : ZMod k) : Injective (orbitHom r) := by
+  haveI : NeZero (addOrderOf r) := ⟨(addOrderOf_pos r).ne'⟩
+  rw [injective_iff_map_eq_zero]
+  intro a ha
+  have hval : ((a.val : ℤ) : ZMod (addOrderOf r)) = a := by
+    push_cast
+    simp [ZMod.natCast_val, ZMod.cast_id]
+  rw [← hval, orbitHom_intCast, natCast_zsmul] at ha
+  have hdvd : addOrderOf r ∣ a.val := addOrderOf_dvd_of_nsmul_eq_zero ha
+  have hlt : a.val < addOrderOf r := ZMod.val_lt a
+  have : a.val = 0 := Nat.eq_zero_of_dvd_of_lt hdvd hlt
+  rw [← hval, this]
+  simp
+
+/-- **Lemma NG, orbit-map half.** A rotation-`r` tuple walk certifies a simple
+cycle of winding `addOrderOf r` -- which is `k / gcd(r,k)`, and equals `k`
+exactly when `r` generates. No orbit map need be supplied by hand. -/
+theorem isLISC_addOrderOf_of_isTR [NeZero k] {L : ℕ}
+    (hL : 0 < L) {r : ZMod k} (h : IsTR ρ L r) :
+    IsLISC ρ (addOrderOf r) L := by
+  haveI : NeZero (addOrderOf r) := ⟨(addOrderOf_pos r).ne'⟩
+  exact isLISC_of_isTR_of_orbit hL (orbitHom r) (orbitHom_injective r)
+    (orbitHom_succ r) h
 
 /-- Faithfulness check: at the generator `r = 1` the orbit is everything
 (`m = k`, `f = id`) and Lemma NG degenerates to Step 3 of Theorem P. -/

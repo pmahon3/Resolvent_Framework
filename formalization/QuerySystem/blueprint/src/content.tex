@@ -892,3 +892,29 @@ Note what it does \emph{not} show. This system fails collective exhaustion
 where every level \emph{is} $\sigma$-additive, which is what forces the thick
 sets of \ref{rmk:tower-remaining} and why Andersen--Jessen is harder than this.
 \end{corollary}
+
+\begin{lemma}[Lemma NG, orbit-map half]
+\label{lem:ng-orbit}
+\lean{Reconstruction.Pruning.isLISC_addOrderOf_of_isTR}
+\leanok
+\uses{lem:ng}
+A rotation-$r$ tuple walk certifies a simple cycle of winding
+$\mathrm{addOrderOf}(r) = k/\gcd(r,k)$ --- equal to $k$ exactly when $r$
+generates. No orbit map has to be supplied by hand.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:ng}
+The orbit map is \texttt{ZMod.lift} applied to \texttt{zmultiplesHom}, so
+$f(j+1) = f(j) + r$ falls out of \texttt{map\_add}. An earlier attempt defined
+$f$ by $j \mapsto j.\mathrm{val} \bullet r$ and had to case-split on the
+wrap-around at $j = m-1$; that \texttt{.val} bookkeeping is what made the lemma
+look not worth doing, and it disappears entirely under the universal property.
+Injectivity is the one place \texttt{.val} is still needed, and there it is a
+single divisibility step.
+
+Feeding this to \ref{lem:ng} gives the winding-$m$ conclusion with no data
+argument. Still open: pairwise disjointness of the $d$ orbit cycles, and the
+refutation half (C4dir at $L = 2$), which stays machine-checked in the oracle.
+\end{proof}

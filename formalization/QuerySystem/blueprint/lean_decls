@@ -9,7 +9,6 @@ QuerySystem.isPiSystem_CylGen
 QuerySystem.observational_determination
 QuerySystem.observational_determination_prob
 QuerySystem.preμ_wellDefined
-stone_observational_extension
 Reconstruction.Pruning.IsLISC
 Reconstruction.Pruning.IsTR
 Reconstruction.Pruning.isTR_one_of_isLISC
@@ -25,3 +24,11 @@ Reconstruction.Pruning.exists_evPeriodic_iterate
 Reconstruction.Pruning.reach_iff_walk
 Reconstruction.Pruning.isEvPeriodic_isTR
 Reconstruction.Pruning.isEvPeriodic_safe
+stoneSpace
+stoneEmbedding
+stoneClopens
+QuerySystem.NormalizedCompatibleContents
+QuerySystem.CollectivelyExhaustive
+QuerySystem.sp1_iff
+stone_measure_exists
+stone_observational_extension

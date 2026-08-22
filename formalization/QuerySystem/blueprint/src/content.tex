@@ -114,29 +114,6 @@ The premeasure defined on finite cylinders is well-defined: it doesn't depend on
 Given two lower bounds, use directedness to find a common refinement. Show the measure values agree using compatibility and proof irrelevance for the transitivity witnesses.
 \end{proof}
 
-\begin{theorem}[Observational Extension]
-\label{thm:stone-observational-extension}
-\lean{stone_observational_extension}
-\leanok
-\uses{thm:observational-determination, def:compatible-marginals}
-Let $S$ be a query system that is upper-directed, with surjective evaluations,
-and let $\nu$ be a normalized compatible family of contents that is
-collectively exhaustive. Then there is a unique probability measure $\mu$ on
-$\Omega$ with $\mu(\mathrm{Cyl}_i A) = \nu_i(A)$ for every query $i$ and every
-measurable $A$.
-\end{theorem}
-
-\begin{proof}
-The statement is formalized; the proof is \emph{not}. Uniqueness is
-\ref{thm:observational-determination}. Existence needs the pushforward of the
-Stone-space measure to be supported on the range of the Stone embedding, and
-that support condition is the Yosida--Hewitt decomposition for charges on
-Boolean algebras, which is absent from Mathlib. This is an infrastructure gap
-rather than a mathematical one: closing it means porting a known 1952 theorem
-(Rao and Rao, ch.~10), and there is no lemma in the library to cite in the
-meantime. This is the single open goal in the development.
-\end{proof}
-
 \chapter{The pruning theorem and eventual periodicity of Safe}
 
 Formalizes \texttt{papers/reconstruction/notes/pruning\_theorem\_and\_B.md}
@@ -400,4 +377,173 @@ $\mathrm{Unsafe}$ is a finite union of eventually periodic sets by
 \ref{lem:unsafe-biunion} and \ref{lem:evper-tr}, hence eventually periodic with
 threshold the max of the thresholds and period the lcm of the periods;
 $\mathrm{Safe}$ is its complement among the positives.
+\end{proof}
+
+\chapter{The observational extension theorem and what blocks it}
+
+This chapter exists to make one open goal legible. It is the only real
+\texttt{sorry} in the development, and the reason it is open is an
+\emph{infrastructure} gap rather than a mathematical one: the argument needs a
+Yosida--Hewitt-style decomposition of finitely additive measures, and Mathlib
+has no charge theory at all --- no purely finitely additive measures, no
+decomposition, nothing to cite.
+
+Nodes below carrying no Lean name are stated but not yet formalized. They are
+the work items, in dependency order.
+
+\section{The Stone route}
+
+\begin{definition}[Stone space of a query system]
+\label{def:stone-space}
+\lean{stoneSpace}
+\leanok
+$\mathrm{St}(S)$ is the space of ultrafilters on $\Omega$, i.e. the
+Stone--\v{C}ech compactification of $\Omega$ regarded as a discrete set. It is
+compact, Hausdorff and totally disconnected.
+\end{definition}
+
+\begin{definition}[Stone embedding]
+\label{def:stone-embedding}
+\lean{stoneEmbedding}
+\leanok
+\uses{def:stone-space}
+$\Omega \to \mathrm{St}(S)$, $\omega \mapsto$ the principal ultrafilter at
+$\omega$. Its range is exactly the principal ultrafilters, and it has dense
+range.
+\end{definition}
+
+\begin{definition}[Cylinder clopens]
+\label{def:stone-clopens}
+\lean{stoneClopens}
+\leanok
+\uses{def:stone-space}
+The sets $\{u : E \in u\}$ for $E$ a cylinder event. These are clopen, form a
+set semiring, and generate the $\sigma$-algebra used on $\mathrm{St}(S)$.
+\end{definition}
+
+\begin{definition}[Normalized compatible contents]
+\label{def:ncc}
+\lean{QuerySystem.NormalizedCompatibleContents}
+\leanok
+A family $\nu_i$ of finitely additive contents on the outcome spaces,
+compatible under refinement, each of total mass $1$. Finitely additive only:
+this is the whole point, since assuming $\sigma$-additivity would beg the
+question.
+\end{definition}
+
+\begin{definition}[Collective exhaustion]
+\label{def:collectively-exhaustive}
+\lean{QuerySystem.CollectivelyExhaustive}
+\leanok
+\uses{def:ncc}
+For every index $i$ and every decreasing sequence of measurable events
+shrinking to $\emptyset$, some finer level $j \geq i$ witnesses convergence:
+the charge of the pulled-back sequence at $j$ tends to $0$. This is the
+valuation-layer condition; index-layer conditions provably do not suffice.
+\end{definition}
+
+\begin{theorem}[SP1]
+\label{thm:sp1-iff}
+\lean{QuerySystem.sp1_iff}
+\leanok
+\uses{def:collectively-exhaustive, def:ncc}
+Collective exhaustion holds if and only if every level's content extends to a
+genuine measure on that level's outcome space.
+\end{theorem}
+
+\begin{proof}
+\leanok
+Proved. This is the input the blocked steps below get to use: collective
+exhaustion is available in the strong form ``each $\nu_i$ is countably
+additive''.
+\end{proof}
+
+\section{The chain, and where it breaks}
+
+\begin{theorem}[Step 1: the Stone measure exists and extends the content]
+\label{thm:stone-measure-exists}
+\lean{stone_measure_exists}
+\leanok
+\uses{def:stone-clopens, def:ncc}
+There is a probability measure $\hat P$ on $\mathrm{St}(S)$ with
+$\hat P(E) = m(E)$ for every cylinder clopen $E$, where $m$ is the additive
+content transferred from $\nu$ along the Stone embedding.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{def:stone-clopens}
+Transfer $\nu$ to an additive content on the cylinder clopens; prove
+$\sigma$-subadditivity using compactness of the Stone space (every countable
+cover of a clopen has a finite subcover); apply Carath\'eodory.
+
+\emph{Record.} Until 2026-08-22 the conclusion of this theorem was only
+``$\exists \hat P$, $\hat P$ is a probability measure'', which never mentions
+$\nu$ --- and was therefore satisfied by a Dirac measure at any ultrafilter,
+with the hypotheses unused. The extension the proof builds was discarded at
+the statement boundary. The agreement clause above is what Step 3 actually
+needs.
+\end{proof}
+
+\begin{lemma}[Step 2: the purely finitely additive part vanishes]
+\label{lem:stone-support-principal}
+\uses{thm:stone-measure-exists, thm:sp1-iff, def:stone-embedding}
+Under collective exhaustion, $\hat P$ is concentrated on the range of the
+Stone embedding: $\hat P(\mathrm{St}(S) \setminus \mathrm{ran}\,e) = 0$, where
+$\mathrm{ran}\,e$ is the set of principal ultrafilters.
+
+\textbf{[NOT FORMALIZED --- this is the Yosida--Hewitt step.]}
+\end{lemma}
+
+\begin{proof}
+This is Yosida--Hewitt specialised to a discrete carrier. A bounded charge on
+$\Omega$ splits as $\mu = \mu_c + \mu_p$ with $\mu_c$ countably additive and
+$\mu_p$ purely finitely additive; under Stone duality $\mu_c$ is the part
+carried by the principal ultrafilters and $\mu_p$ the part carried by the free
+ones. Collective exhaustion, via \ref{thm:sp1-iff}, makes every level
+countably additive, which is what forces $\mu_p = 0$.
+
+The general Yosida--Hewitt theorem over an arbitrary Boolean algebra is
+\emph{not} needed. On a discrete carrier the decomposition is concrete: the
+countably additive part is the atomic part $A \mapsto \sum_{x \in A}\mu(\{x\})$
+and the purely finitely additive part is what vanishes on every singleton.
+Mathlib has neither, so both must be built.
+\end{proof}
+
+\begin{lemma}[Step 3: pushforward to $\Omega$]
+\label{lem:stone-pushforward}
+\uses{lem:stone-support-principal, def:stone-embedding}
+Since the Stone embedding is injective and $\hat P$ is concentrated on its
+range, the pushforward along its partial inverse is a probability measure
+$\mu$ on $\Omega$.
+
+\textbf{[NOT FORMALIZED.]}
+\end{lemma}
+
+\begin{lemma}[Step 4: the marginals are the given ones]
+\label{lem:stone-marginals}
+\uses{lem:stone-pushforward, thm:stone-measure-exists}
+$\mu(\mathrm{Cyl}_i A) = \nu_i(A)$ for every query $i$ and measurable $A$,
+by the agreement clause of \ref{thm:stone-measure-exists} and the fact that
+cylinder clopens pull back to cylinders.
+
+\textbf{[NOT FORMALIZED.]}
+\end{lemma}
+
+\begin{theorem}[Observational extension]
+\label{thm:stone-observational-extension}
+\lean{stone_observational_extension}
+\leanok
+\uses{lem:stone-marginals, lem:stone-pushforward, thm:observational-determination}
+For an upper-directed query system with surjective evaluations and a
+collectively exhaustive normalized compatible family $\nu$, there is a unique
+probability measure $\mu$ on $\Omega$ with
+$\mu(\mathrm{Cyl}_i A) = \nu_i(A)$ for every query $i$ and measurable $A$.
+\end{theorem}
+
+\begin{proof}
+Existence is Steps 1--4; uniqueness is
+\ref{thm:observational-determination}. The statement is formalized and the
+proof is not: it is the one open goal in the development, and it is open at
+Step 2.
 \end{proof}

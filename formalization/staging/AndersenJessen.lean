@@ -429,4 +429,113 @@ theorem V_add_finite_measurable_null (hα : Irrational α) (F : Set ℝ)
   rw [hrw]
   exact ⟨a, ha, a', ha', rfl⟩
 
+/-! ### Step 9: the thick tower -/
+
+/-- `V + S` and `V + (A ∖ S)` partition `ℝ`, for any `S ⊆ A`. -/
+theorem V_add_compl {S : Set ℝ} (hSA : S ⊆ (Afull α : Set ℝ)) :
+    {x | ∃ v ∈ V α, ∃ a ∈ S, x = v + a}ᶜ
+      = {x | ∃ v ∈ V α, ∃ a ∈ (Afull α : Set ℝ) \ S, x = v + a} := by
+  ext x
+  simp only [Set.mem_compl_iff, Set.mem_setOf_eq]
+  constructor
+  · intro hx
+    obtain ⟨v, hv, ha⟩ := V_covers α x
+    exact ⟨v, hv, x - v, ⟨ha, fun hmem => hx ⟨v, hv, x - v, hmem, by ring⟩⟩, by ring⟩
+  · rintro ⟨v, hv, a, ⟨haA, haS⟩, rfl⟩ ⟨v', hv', a', ha', heq⟩
+    have hvv : v - v' ∈ Afull α := by
+      have hrw : v - v' = a' - a := by linarith [heq]
+      rw [hrw]
+      exact (Afull α).sub_mem (hSA ha') haA
+    have hveq : v = v' := V_unique α hv hv' hvv
+    subst hveq
+    have : a = a' := by linarith [heq]
+    subst this
+    exact haS ha'
+
+theorem Afull_countable : (Afull α : Set ℝ).Countable := by
+  have him : (Afull α : Set ℝ) = (fun p : ℤ × ℤ => (p.1 : ℝ) + p.2 * α) '' Set.univ := by
+    ext x
+    constructor
+    · rintro ⟨n, m, rfl⟩; exact ⟨(n, m), trivial, rfl⟩
+    · rintro ⟨⟨n, m⟩, -, rfl⟩; exact ⟨n, m, rfl⟩
+  rw [him]
+  exact Set.countable_univ.image _
+
+theorem exists_enumA : ∃ e : ℕ → ℝ, (Afull α : Set ℝ) = Set.range e :=
+  (Afull_countable α).exists_eq_range ⟨0, (Afull α).zero_mem⟩
+
+/-- An enumeration of `A`. -/
+noncomputable def enumA : ℕ → ℝ := (exists_enumA α).choose
+
+theorem enumA_range : (Afull α : Set ℝ) = Set.range (enumA α) := (exists_enumA α).choose_spec
+
+/-- `A` minus its first `k` enumerated elements. -/
+def tail (k : ℕ) : Set ℝ := (Afull α : Set ℝ) \ (enumA α '' Set.Iio k)
+
+theorem tail_antitone : Antitone (tail α) := by
+  intro j k hjk x hx
+  exact ⟨hx.1, fun hmem => hx.2 (by
+    obtain ⟨i, hi, rfl⟩ := hmem
+    exact ⟨i, lt_of_lt_of_le hi hjk, rfl⟩)⟩
+
+theorem tail_iInter : (⋂ k, tail α k) = ∅ := by
+  ext x
+  simp only [Set.mem_iInter, Set.mem_empty_iff_false, iff_false]
+  intro h
+  obtain ⟨hxA, -⟩ := h 0
+  rw [enumA_range α] at hxA
+  obtain ⟨j, rfl⟩ := hxA
+  exact (h (j + 1)).2 ⟨j, Nat.lt_succ_self j, rfl⟩
+
+/-- **The thick tower.** `Xₖ = V + (A minus its first k elements)`. -/
+def X (k : ℕ) : Set ℝ := {x | ∃ v ∈ V α, ∃ a ∈ tail α k, x = v + a}
+
+theorem X_antitone : Antitone (X α) := by
+  intro j k hjk x hx
+  obtain ⟨v, hv, a, ha, rfl⟩ := hx
+  exact ⟨v, hv, a, tail_antitone α hjk ha, rfl⟩
+
+theorem X_iInter : (⋂ k, X α k) = ∅ := by
+  ext x
+  simp only [Set.mem_iInter, Set.mem_empty_iff_false, iff_false]
+  intro h
+  obtain ⟨v, hv, hxv⟩ := V_covers α x
+  have hall : ∀ k, x - v ∈ tail α k := by
+    intro k
+    obtain ⟨v', hv', a, ha, heq⟩ := h k
+    have hvv : v - v' ∈ Afull α := by
+      have hrw : v - v' = a - (x - v) + (x - v) - a + (v - v') := by ring
+      have h2 : v' - v ∈ Afull α := by
+        have : v' - v = (x - v) - a := by linarith [heq]
+        rw [this]
+        exact (Afull α).sub_mem hxv ha.1
+      simpa using (Afull α).neg_mem h2
+    have hveq : v = v' := V_unique α hv hv' hvv
+    subst hveq
+    have : a = x - v := by linarith [heq]
+    rwa [← this]
+  have : x - v ∈ ⋂ k, tail α k := Set.mem_iInter.mpr hall
+  rw [tail_iInter α] at this
+  exact this
+
+/-- **Every `Xₖ` is thick** -- the complement is `V +` a FINITE subset of `A`.
+This is what parity could not deliver past `k = 0`. -/
+theorem X_thick (hα : Irrational α) (k : ℕ) {E : Set ℝ} (hE : MeasurableSet E)
+    (hdisj : E ∩ X α k = ∅) : MeasureTheory.volume E = 0 := by
+  have hsub : E ⊆ (X α k)ᶜ := by
+    intro y hy hyX
+    have hmem : y ∈ E ∩ X α k := ⟨hy, hyX⟩
+    rw [hdisj] at hmem
+    exact hmem
+  have hcompl : ({x | ∃ v ∈ V α, ∃ a ∈ tail α k, x = v + a} : Set ℝ)ᶜ
+      = {x | ∃ v ∈ V α, ∃ a ∈ (Afull α : Set ℝ) \ tail α k, x = v + a} :=
+    V_add_compl α (fun z hz => hz.1)
+  rw [show X α k = {x | ∃ v ∈ V α, ∃ a ∈ tail α k, x = v + a} from rfl, hcompl] at hsub
+  have hfin : ((Afull α : Set ℝ) \ tail α k).Finite := by
+    refine ((Set.finite_Iio k).image (enumA α)).subset ?_
+    rintro z ⟨hzA, hzt⟩
+    by_contra hz
+    exact hzt ⟨hzA, hz⟩
+  exact V_add_finite_measurable_null α hα _ hfin (fun z hz => hz.1) hE hsub
+
 end AndersenJessen

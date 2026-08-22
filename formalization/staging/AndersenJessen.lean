@@ -366,4 +366,67 @@ theorem M_zero_thick (hα : Irrational α) {E : Set ℝ} (hE : MeasurableSet E)
   rw [hdisj] at hmem
   exact hmem
 
+/-! ### Step 8: finiteness beats parity
+
+The parity argument caps out at `k = 0`: a set with all-even differences lies in
+a coset of `Aeven`, and `A / Aeven` has only two classes, so it can never split
+`A` into more than two pieces. For `k > 0` the complement `A ∖ Bₖ` contains all
+odd elements, and odd − odd already exhausts the evens, so no dense witness is
+disjoint from its difference set.
+
+Replace parity by FINITENESS. If `F ⊆ A` is finite then `F - F` is finite, while
+`A` is dense; so a witness in `A` avoiding `F - F` always exists. That gives
+thickness at every level, and it needs no `Bₖ`, no `Cₖ`, and no coset density. -/
+
+theorem Afull_dense (hα : Irrational α) : Dense (Afull α : Set ℝ) := by
+  refine (Aeven_dense α hα).mono ?_
+  rintro x ⟨n, m, rfl⟩
+  exact ⟨2 * n, m, by push_cast; ring⟩
+
+/-- **The replacement for Proposition 13.** For finite `F ⊆ A`, the set `V + F`
+contains no measurable set of positive measure.
+
+`F - F` is finite and `A` is dense, so some element of `A` sits in any
+neighbourhood of `0` while avoiding `F - F`; the transversal then forces it to
+lie in `F - F` after all. -/
+theorem V_add_finite_measurable_null (hα : Irrational α) (F : Set ℝ)
+    (hFfin : F.Finite) (hFA : F ⊆ (Afull α : Set ℝ))
+    {G : Set ℝ} (hG : MeasurableSet G)
+    (hGV : G ⊆ {x | ∃ v ∈ V α, ∃ a ∈ F, x = v + a}) :
+    MeasureTheory.volume G = 0 := by
+  by_contra hpos
+  have hp : 0 < MeasureTheory.volume G := pos_iff_ne_zero.mpr hpos
+  have hnhds : G - G ∈ nhds (0 : ℝ) :=
+    MeasureTheory.Measure.sub_mem_nhds_zero_of_addHaar_pos MeasureTheory.volume G hG hp
+  obtain ⟨U, hUsub, hUopen, hU0⟩ := mem_nhds_iff.mp hnhds
+  -- `U ∖ (F - F)` is open and nonempty: `U` contains an interval, which is
+  -- infinite, and `F - F` is finite.
+  have hdiff_fin : (F - F).Finite := hFfin.sub hFfin
+  have hUopen' : IsOpen (U \ (F - F)) := hUopen.sdiff hdiff_fin.isClosed
+  have hUne : (U \ (F - F)).Nonempty := by
+    obtain ⟨ε, hε, hball⟩ := Metric.isOpen_iff.mp hUopen 0 hU0
+    have hsub : Set.Ioo (-ε) ε ⊆ U := fun y hy => hball (by
+      simp only [Metric.mem_ball, Real.dist_eq, sub_zero, abs_lt]
+      exact ⟨hy.1, hy.2⟩)
+    have hinf : (Set.Ioo (-ε) ε).Infinite := Set.Ioo_infinite (by linarith)
+    obtain ⟨y, hy, hyF⟩ := (hinf.diff hdiff_fin).nonempty
+    exact ⟨y, hsub hy, hyF⟩
+  -- a witness in A avoiding F - F
+  obtain ⟨x, hxA, hxU⟩ := (Afull_dense α hα).exists_mem_open hUopen' hUne
+  obtain ⟨g, hg, g', hg', rfl⟩ : ∃ g ∈ G, ∃ g' ∈ G, x = g - g' := by
+    obtain ⟨g, hg, g', hg', hx⟩ := hUsub hxU.1
+    exact ⟨g, hg, g', hg', hx.symm⟩
+  obtain ⟨v, hv, a, ha, rfl⟩ := hGV hg
+  obtain ⟨v', hv', a', ha', rfl⟩ := hGV hg'
+  have hvv : v - v' ∈ Afull α := by
+    have hrw : v - v' = ((v + a) - (v' + a')) - (a - a') := by ring
+    rw [hrw]
+    exact (Afull α).sub_mem hxA ((Afull α).sub_mem (hFA ha) (hFA ha'))
+  have hveq : v = v' := V_unique α hv hv' hvv
+  subst hveq
+  refine hxU.2 ?_
+  have hrw : (v + a) - (v + a') = a - a' := by ring
+  rw [hrw]
+  exact ⟨a, ha, a', ha', rfl⟩
+
 end AndersenJessen

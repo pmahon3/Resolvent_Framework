@@ -40,8 +40,8 @@ echo "checking $n blueprint declarations against the Lean environment..."
 cd "$PKG"
 
 # lean-action puts elan on PATH for its own step; do not assume it persists.
-if ! command -v lake >/dev/null 2>&1 && [ -x "$HOME/.elan/bin/lake" ]; then
-  export PATH="$HOME/.elan/bin:$PATH"
+if ! command -v lake >/dev/null 2>&1 && [ -x "${HOME:-}/.elan/bin/lake" ]; then
+  export PATH="${HOME:-}/.elan/bin:$PATH"
 fi
 if ! command -v lake >/dev/null 2>&1; then
   echo "CHECKDECLS FAIL: lake is not on PATH -- the check did not run." >&2

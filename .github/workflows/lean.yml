@@ -43,4 +43,4 @@ jobs:
       # the committed blueprint/lean_decls, so CI needs no plasTeX or
       # leanblueprint -- only the Lean build above.
       - name: blueprint declarations resolve
-        run: formalization/QuerySystem/blueprint/checkdecls.sh
+        run: bash formalization/QuerySystem/blueprint/checkdecls.sh

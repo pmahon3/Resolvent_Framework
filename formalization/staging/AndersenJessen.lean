@@ -19,6 +19,7 @@ import Mathlib.Analysis.SpecialFunctions.Log.Basic
 import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 import Mathlib.RingTheory.Int.Basic
 import Mathlib.NumberTheory.Real.Irrational
+import Mathlib.Topology.Algebra.Order.Archimedean
 
 namespace AndersenJessen
 
@@ -126,5 +127,67 @@ theorem B_disjoint_C (hα : Irrational α) : Disjoint (B α 0) (C α 0) := by
   rw [Set.disjoint_left]
   rintro x ⟨n, m, hx, -, he⟩ ⟨n', m', hx', -, he'⟩
   exact he' ((repr_unique α hα (hx.symm.trans hx')).1 ▸ he)
+
+/-! ### Step 5: density
+
+Proposition 13 needs a dense set of ODD elements meeting any neighbourhood of
+`0`. The source proves `Bₖ` and `Cₖ` dense for every `k` by an equidistribution
+argument. That is more than the proof uses: the contradiction it reaches is
+`B₀ ∩ C₀ = ∅`, a parity fact, so density is only ever needed at `k = 0`.
+
+And `C₀` is a coset of a subgroup. `Aeven = 2ℤ + αℤ` is an additive subgroup of
+`ℝ`, dense because it is not cyclic (a generator would make `α` rational), and
+`C₀ = 1 + Aeven`. So the whole equidistribution argument collapses into
+`AddSubgroup.dense_or_cyclic` plus a translation. -/
+
+/-- `2ℤ + αℤ`, as an additive subgroup of `ℝ`. -/
+def Aeven : AddSubgroup ℝ where
+  carrier := {x | ∃ n m : ℤ, x = 2 * (n : ℝ) + m * α}
+  zero_mem' := ⟨0, 0, by norm_num⟩
+  add_mem' := by
+    rintro _ _ ⟨n, m, rfl⟩ ⟨n', m', rfl⟩
+    exact ⟨n + n', m + m', by push_cast; ring⟩
+  neg_mem' := by
+    rintro _ ⟨n, m, rfl⟩
+    exact ⟨-n, -m, by push_cast; ring⟩
+
+theorem Aeven_dense (hα : Irrational α) : Dense (Aeven α : Set ℝ) := by
+  rcases AddSubgroup.dense_or_cyclic (Aeven α) with h | ⟨a, ha⟩
+  · exact h
+  exfalso
+  have h2 : (2 : ℝ) ∈ Aeven α := ⟨1, 0, by norm_num⟩
+  have hA : α ∈ Aeven α := ⟨0, 1, by norm_num⟩
+  rw [ha, AddSubgroup.mem_closure_singleton] at h2 hA
+  obtain ⟨p, hp⟩ := h2
+  obtain ⟨q, hq⟩ := hA
+  rw [zsmul_eq_mul] at hp hq
+  have hp0 : (p : ℝ) ≠ 0 := by
+    intro h0
+    rw [h0, zero_mul] at hp
+    norm_num at hp
+  have : α = ((2 * q : ℤ) : ℝ) / ((p : ℤ) : ℝ) := by
+    rw [eq_div_iff (by exact_mod_cast hp0)]
+    push_cast
+    calc α * (p : ℝ) = ((q : ℝ) * a) * p := by rw [hq]
+      _ = (q : ℝ) * ((p : ℝ) * a) := by ring
+      _ = (q : ℝ) * 2 := by rw [hp]
+      _ = 2 * q := by ring
+  exact Irrational.ne_rational hα (2 * q) p this
+
+theorem C_zero_eq : C α 0 = (fun y => 1 + y) '' (Aeven α : Set ℝ) := by
+  ext x
+  constructor
+  · rintro ⟨n, m, rfl, -, hodd⟩
+    obtain ⟨j, hj⟩ := Int.not_even_iff_odd.mp hodd
+    exact ⟨2 * (j : ℝ) + m * α, ⟨j, m, rfl⟩, by rw [hj]; push_cast; ring⟩
+  · rintro ⟨y, ⟨n, m, rfl⟩, rfl⟩
+    refine ⟨2 * n + 1, m, by push_cast; ring, by positivity, ?_⟩
+    simp [Int.odd_iff]
+
+theorem C_zero_dense (hα : Irrational α) : Dense (C α 0) := by
+  rw [C_zero_eq, dense_iff_closure_eq]
+  have hcont : Continuous (fun y : ℝ => 1 + y) := continuous_const.add continuous_id
+  have h := hcont.range_subset_closure_image_dense (Aeven_dense α hα)
+  refine Set.eq_univ_of_univ_subset fun x _ => h ⟨x - 1, by ring⟩
 
 end AndersenJessen

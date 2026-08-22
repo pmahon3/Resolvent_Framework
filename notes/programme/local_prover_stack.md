@@ -109,7 +109,43 @@ cost, with kernel-guaranteed correctness. It does not do research.
 
 ## 4. Work plan
 
-### PRIMARY — Theorem B + Lemma NG (ratification kit gap 5.3)
+### PRIMARY — Theorem B + Lemma NG (kit gap 5.3) — **DONE 2026-08-21**
+
+`formalization/QuerySystem/QuerySystem/TheoremB.lean`, 360 lines, builds clean,
+receipts `[propext, Classical.choice, Quot.sound]` — no `sorry`, no new axiom.
+
+| Result | Name |
+|---|---|
+| `Safe ρ` eventually periodic (**Theorem B**) | `isEvPeriodic_safe` |
+| `Unsafe ρ` eventually periodic | `isEvPeriodic_unsafe` |
+| `k`-cap: `LISC_k(L)` ⟹ `k ≤ card α` | `le_card_of_isLISC` |
+| `Unsafe = ⋃_{k=2}^{n} TR_k^{(1)}` | `unsafe_eq_biUnion` |
+| per-`k` eventual periodicity | `isEvPeriodic_isTR` |
+| Lemma NG, assembly half | `isLISC_of_isTR_of_orbit` |
+
+**What changed versus the note's proof.** §3(2) runs through the monoid of
+Boolean matrices. In Lean the matrix is unnecessary: `Reach ρ k n` is literally
+the `n`-th iterate of one step operator on `Tup α k → Tup α k → Prop`, a finite
+type when `α` is, so the note's first-repeat argument is just pigeonhole on a
+deterministic orbit (`exists_evPeriodic_iterate`). The bridge between that
+iterate and `IsTR`'s raw walk (`reach_iff_walk`) is where the actual work went.
+
+**Controls, same discipline as the eval.** A formalization can be vacuous the
+way a harness can be broken, so three checks ran before this was believed:
+the empty relation admits no positive-length tuple walk (definitions have
+content); powers of two are provably NOT `IsEvPeriodic` (the predicate is not
+trivially satisfiable); `Safe ⊆ {L | 0 < L}`. All pass.
+
+**Honest note on the stack's role here.** These proofs were written directly —
+the BFS-Prover arm was not invoked. The local stack's contribution to this
+result was the kernel gate (`lake build`, `lake env lean`), not tactic
+generation. No claim is made about model contribution to Theorem B.
+
+**Still open in NG:** the orbit-map construction at `m = k/gcd(r,k)`, pairwise
+disjointness of the `d` cycles, and the refutation half (C4dir at `L = 2`) —
+all instrument-covered, none load-bearing for B.
+
+### (original plan entry, for the record) Theorem B + Lemma NG
 
 Shovel-plan item 1 was "pruning lemma, phase-parametrized **+ theorem-let B**".
 Per `99ba415` (s18), Theorem P Steps 2–4 are formalized at general `k`,

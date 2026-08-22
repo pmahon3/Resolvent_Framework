@@ -5,6 +5,56 @@ Updated as work progresses. Most recent entry at top.
 
 ---
 
+## 2026-08-21 — Theorem B formalized (kit gap 5.3); four Lean/Mathlib snags
+
+`QuerySystem/TheoremB.lean`. Builds clean, no `sorry`, receipts
+`[propext, Classical.choice, Quot.sound]`.
+
+**Design decision that saved the file.** The prose proof (§3(2) of
+`pruning_theorem_and_B.md`) argues through the finite monoid of Boolean
+matrices. Formalizing Boolean matrices and their powers would have been a
+project. Instead `Reach ρ k n` is *defined* so that it is the `n`-th iterate of
+a single step operator on `Tup α k → Tup α k → Prop` — a finite type, because
+`α` is finite and Mathlib has `Fintype Prop`. The whole periodicity argument is
+then `Finite.exists_ne_map_eq_of_infinite` on that orbit. Cost of the
+substitution: `reach_iff_walk`, an induction rebuilding `IsTR`'s raw walk
+`τ : ℕ → ZMod k → α` one layer at a time. That induction was the real work.
+
+**Snags, in the order they bit:**
+
+1. *Recursive call under `variable`.* Inside `def Reach`, writing the recursive
+   call as `Reach ρ k n u w` is a type error — the section variables are already
+   applied to the self-reference, so it must be `Reach n u w`. Error surfaces as
+   "argument ρ ... expected to have type ℕ", which does not point at the cause.
+2. *`rfl` across the iterate step.* `Reach ρ k (n+1) = stepRel ρ k (Reach ρ k n)`
+   is true pointwise but not closed by `rfl` at the function level; needs
+   `funext u v; simp only [Reach, stepRel]`.
+3. *`Nat.mul_lt_mul_right` is an `Iff` in v4.29.0*, not an implication —
+   `(Nat.mul_lt_mul_right hL).mpr`.
+4. *A helper named `Tup.ext` with `k` explicit* got its first explicit argument
+   filled by the proof term, producing a goal of `⊢ ℕ`. Deleted; used
+   `Subtype.ext` directly.
+
+**Lemma NG: scoped down deliberately.** The first attempt routed through
+`addOrderOf r` and `ZMod (addOrderOf r)`. The `.val` arithmetic across the
+wrap-around at `j = m-1` produced motive-not-type-correct rewrites and a
+noncomputable-definition error, and was heading for another hour of `ZMod`
+plumbing with no mathematical content in it. Cut instead to the content:
+`isLISC_of_isTR_of_orbit` takes the orbit map as DATA (injective
+`f : ZMod m → ZMod k` with `f (j+1) = f j + r`) and proves the assembly. The
+`m = k`, `f = id`, `r = 1` instance recovers Step 3 exactly, and that instance
+is checked in the file so the parametrization cannot drift. What was cut is
+recorded in the file header and in `pruning_theorem_and_B.md`, not silently
+dropped.
+
+**Vacuity controls before believing any of it** (same reasoning as the eval's
+null baseline — a vacuous definition reads exactly like a proved theorem):
+the empty relation admits no positive-length tuple walk; `{2^m}` is provably
+NOT `IsEvPeriodic`, so the predicate is not trivially satisfiable; and
+`Safe ⊆ {L | 0 < L}`. All three check out.
+
+---
+
 ## 2026-08-21 — `lake build` covered 1 of 47 files; two files never compiled
 
 `lakefile.toml` declared `[[lean_lib]] name = "QuerySystem"` with no `globs`,

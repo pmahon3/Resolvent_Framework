@@ -41,17 +41,17 @@ ratification kit item 5, gaps 5.1 (Step 3, assembly at general `k`) and 5.2
   remark is the instance `k = 1`: `ZMod 1` is trivial and the rotation is
   the identity — nothing separate to state.)
 
-## NOT formalized (recorded, honest)
-* Lemma NG (non-generators overcount: `gcd(r,k) = d > 1` assembles `d`
-  disjoint winding-`k/d` cycles): the orbit decomposition is extra
-  bookkeeping on top of Step 3; the load-bearing kit gaps are 5.1/5.2,
-  and NG's refutation half is machine-checked in the oracle
-  (`pruning_k2_theorem.md` rot-check, C4dir witness). Future work if the
-  lane needs it in Lean.
-* Theorem B (kit gap 5.3: eventual periodicity of `Safe(ρ)`, the `k`-cap
-  pigeonhole, union bookkeeping) — rides on Theorem P + a first-repeat
-  argument; the instrument (`safe_rho_instrument.py`, 15 targets, 0 fail)
-  covers the computational content. Not encoded here.
+## Downstream (2026-08-21, `QuerySystem/TheoremB.lean`)
+* **Theorem B (kit gap 5.3) is now FORMALIZED** — `isEvPeriodic_safe`,
+  axiom-free beyond `[propext, Classical.choice, Quot.sound]`: the `k`-cap
+  pigeonhole, the finite-union rewrite of `Unsafe` through Theorem P, the
+  first-repeat argument (as an orbit in a finite type rather than a Boolean
+  matrix monoid), and the max/lcm assembly.
+* **Lemma NG: assembly half formalized** (`isLISC_of_isTR_of_orbit`) — a
+  rotation-`r` witness certifies winding `m`, the orbit size, not `k`. Still
+  NOT formalized there: the construction of the orbit map at
+  `m = k / gcd(r,k)`, pairwise disjointness of the `d` cycles, and the
+  refutation half (C4dir at `L = 2`, machine-checked in the oracle).
 
 ## Receipts
 `#print axioms` at file end; everything `[propext, Classical.choice,

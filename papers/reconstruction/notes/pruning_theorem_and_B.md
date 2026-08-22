@@ -25,6 +25,19 @@ composite `pruning`), for an ARBITRARY relation on an ARBITRARY alphabet
 — kit gaps 5.1 and 5.2 discharged. Lemma NG's orbit decomposition and
 Theorem B (gap 5.3) are not formalized (instrument-covered).**
 
+**✎2026-08-21: gap 5.3 CLOSED —
+`formalization/QuerySystem/QuerySystem/TheoremB.lean` (receipts
+`[propext, Classical.choice, Quot.sound]`). `isEvPeriodic_safe`: for every
+`ρ` on a finite alphabet, `Safe ρ` is eventually periodic. All three parts of
+§3 are in Lean — the `k`-cap (`le_card_of_isLISC`), the finite-union rewrite
+(`unsafe_eq_biUnion`), and eventual periodicity per `k` (`isEvPeriodic_isTR`).
+The first-repeat argument is done as a deterministic orbit in a finite type,
+which is the Boolean-matrix argument of §3(2) with the monoid packaging
+removed — `Reach` is literally an iterate, and pigeonhole applies to it.
+Lemma NG: the ASSEMBLY half is formalized (`isLISC_of_isTR_of_orbit`, orbit
+given as data); the orbit-map construction at `m = k/gcd(r,k)`, disjointness
+of the `d` cycles, and the refutation half remain instrument-covered.**
+
 ## 1. Setting
 
 Finite alphabet A, n = |A| ≥ 1. A relation ρ ⊆ A × A; D = the digraph (A, ρ).
@@ -240,7 +253,11 @@ instrument computes the true minimal (s_k, p_k) directly.
 
 **Grade.** Theorem P + Lemma NG + Theorem B: ⟦HAND⟧ — full proof above,
 machine-verified at scale (the 73,728-check scan for P; the anchored instrument
-below for B's certificate). Bridge facts cited. Not Lean.
+below for B's certificate). Bridge facts cited.
+
+**✎2026-08-21: P and B are now ⟦LEAN⟧** (`PruningTheorem.lean`,
+`TheoremB.lean`). NG is ⟦LEAN⟧ for its assembly half only; its refutation half
+stays ⟦MACHINE⟧ (oracle rot-check, C4dir).
 
 ---
 

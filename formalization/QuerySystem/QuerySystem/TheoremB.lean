@@ -1,0 +1,378 @@
+/-
+# Theorem B (kit gap 5.3): `Safe ρ` is eventually periodic
+
+Formalizes `papers/reconstruction/notes/pruning_theorem_and_B.md` §3, the half
+that `PruningTheorem.lean` recorded as NOT formalized. Rides on Theorem P.
+
+## The three parts of the note's Theorem B
+1. **k-cap** — `IsLISC ρ k L` forces `k` distinct states at a layer, so
+   `k ≤ card α`; with Theorem P this rewrites `Unsafe ρ` as a FINITE union
+   `⋃ k ∈ Icc 2 (card α), TR_k^{(1)}`.
+2. **Periodicity** — the note runs this through Boolean matrix powers. Here the
+   matrix is replaced by the reachability relation itself: `Reach ρ k n` is the
+   `n`-th iterate of a single step operator on `Tup α k → Tup α k → Prop`, a
+   FINITE type when `α` is. A deterministic orbit in a finite type is eventually
+   periodic (pigeonhole), which is exactly the note's first-repeat argument with
+   the Boolean-monoid packaging removed.
+3. **Assembly** — finite unions, intersections and complements of eventually
+   periodic sets are eventually periodic (threshold `max`, period `lcm`).
+
+## Encoding note
+`IsTR` is stated with a raw walk `τ : ℕ → ZMod k → α`; `Reach` is stated as an
+iterate so the pigeonhole applies. `reach_iff_walk` is the bridge, and is where
+the work is: it is an induction that rebuilds the walk one layer at a time.
+-/
+import QuerySystem.PruningTheorem
+import Mathlib.Data.Fintype.Pigeonhole
+import Mathlib.Data.Fintype.Sets
+import Mathlib.Data.Nat.GCD.Basic
+import Mathlib.Order.Interval.Finset.Nat
+
+open Function
+
+namespace Reconstruction.Pruning
+
+/-! ## 1. Eventually periodic subsets of `ℕ` -/
+
+/-- `S` is eventually periodic from threshold `s` with period `p`. -/
+def EvPeriodic (S : Set ℕ) (s p : ℕ) : Prop :=
+  ∀ L, s ≤ L → (L ∈ S ↔ L + p ∈ S)
+
+/-- `S` is eventually periodic for *some* threshold and *positive* period. -/
+def IsEvPeriodic (S : Set ℕ) : Prop :=
+  ∃ s p, 0 < p ∧ EvPeriodic S s p
+
+theorem EvPeriodic.mono {S : Set ℕ} {s p s' : ℕ} (h : EvPeriodic S s p) (hs : s ≤ s') :
+    EvPeriodic S s' p :=
+  fun L hL => h L (le_trans hs hL)
+
+theorem EvPeriodic.mul {S : Set ℕ} {s p : ℕ} (h : EvPeriodic S s p) (m : ℕ) :
+    EvPeriodic S s (m * p) := by
+  induction m with
+  | zero => intro L _; simp
+  | succ m ih =>
+      intro L hL
+      have hstep : L + (m + 1) * p = (L + m * p) + p := by ring
+      rw [hstep, ← h (L + m * p) (le_trans hL (Nat.le_add_right _ _))]
+      exact ih L hL
+
+theorem EvPeriodic.of_dvd {S : Set ℕ} {s p q : ℕ} (h : EvPeriodic S s p) (hpq : p ∣ q) :
+    EvPeriodic S s q := by
+  obtain ⟨m, rfl⟩ := hpq
+  simpa [Nat.mul_comm] using h.mul m
+
+theorem isEvPeriodic_empty : IsEvPeriodic (∅ : Set ℕ) :=
+  ⟨0, 1, one_pos, fun _ _ => by simp⟩
+
+theorem isEvPeriodic_pos : IsEvPeriodic {L : ℕ | 0 < L} :=
+  ⟨1, 1, one_pos, fun L hL => by simp only [Set.mem_setOf_eq]; omega⟩
+
+theorem IsEvPeriodic.union {S T : Set ℕ} (hS : IsEvPeriodic S) (hT : IsEvPeriodic T) :
+    IsEvPeriodic (S ∪ T) := by
+  obtain ⟨s₁, p₁, hp₁, h₁⟩ := hS
+  obtain ⟨s₂, p₂, hp₂, h₂⟩ := hT
+  refine ⟨max s₁ s₂, Nat.lcm p₁ p₂, Nat.pos_of_ne_zero ?_, fun L hL => ?_⟩
+  · intro hz
+    rcases Nat.lcm_eq_zero_iff.mp hz with h | h <;> omega
+  · have e₁ := (h₁.of_dvd (Nat.dvd_lcm_left p₁ p₂)) L (le_trans (le_max_left _ _) hL)
+    have e₂ := (h₂.of_dvd (Nat.dvd_lcm_right p₁ p₂)) L (le_trans (le_max_right _ _) hL)
+    simp only [Set.mem_union]
+    exact or_congr e₁ e₂
+
+theorem IsEvPeriodic.inter {S T : Set ℕ} (hS : IsEvPeriodic S) (hT : IsEvPeriodic T) :
+    IsEvPeriodic (S ∩ T) := by
+  obtain ⟨s₁, p₁, hp₁, h₁⟩ := hS
+  obtain ⟨s₂, p₂, hp₂, h₂⟩ := hT
+  refine ⟨max s₁ s₂, Nat.lcm p₁ p₂, Nat.pos_of_ne_zero ?_, fun L hL => ?_⟩
+  · intro hz
+    rcases Nat.lcm_eq_zero_iff.mp hz with h | h <;> omega
+  · have e₁ := (h₁.of_dvd (Nat.dvd_lcm_left p₁ p₂)) L (le_trans (le_max_left _ _) hL)
+    have e₂ := (h₂.of_dvd (Nat.dvd_lcm_right p₁ p₂)) L (le_trans (le_max_right _ _) hL)
+    simp only [Set.mem_inter_iff]
+    exact and_congr e₁ e₂
+
+theorem IsEvPeriodic.compl {S : Set ℕ} (h : IsEvPeriodic S) : IsEvPeriodic Sᶜ := by
+  obtain ⟨s, p, hp, h⟩ := h
+  exact ⟨s, p, hp, fun L hL => not_congr (h L hL)⟩
+
+theorem IsEvPeriodic.diff {S T : Set ℕ} (hS : IsEvPeriodic S) (hT : IsEvPeriodic T) :
+    IsEvPeriodic (S \ T) := by
+  rw [Set.diff_eq]
+  exact hS.inter hT.compl
+
+/-- Finite unions: threshold `max`, period `lcm` — the note's §3(3) bookkeeping. -/
+theorem IsEvPeriodic.biUnion {ι : Type*} (t : Finset ι) (S : ι → Set ℕ)
+    (h : ∀ i ∈ t, IsEvPeriodic (S i)) : IsEvPeriodic (⋃ i ∈ t, S i) := by
+  classical
+  revert h
+  induction t using Finset.induction_on with
+  | empty => intro _; simpa using isEvPeriodic_empty
+  | insert a t ha ih =>
+      intro h
+      rw [Finset.set_biUnion_insert]
+      exact (h a (Finset.mem_insert_self a t)).union
+        (ih fun i hi => h i (Finset.mem_insert_of_mem hi))
+
+/-! ## 2. Deterministic orbits in a finite type are eventually periodic
+
+This is the note's "first repeat" argument. The Boolean-matrix monoid is not
+needed: all that matters is that the sequence is generated by iterating ONE
+function on a FINITE type. -/
+
+theorem exists_evPeriodic_iterate {β : Type*} [Finite β] (f : β → β) (b : β) :
+    ∃ s p, 0 < p ∧ ∀ n, s ≤ n → f^[n + p] b = f^[n] b := by
+  obtain ⟨m, n, hmn, hval⟩ := Finite.exists_ne_map_eq_of_infinite (fun i : ℕ => f^[i] b)
+  -- Order the repeat so the smaller index is the threshold.
+  have key : ∀ m n : ℕ, m < n → f^[m] b = f^[n] b →
+      ∃ s p, 0 < p ∧ ∀ i, s ≤ i → f^[i + p] b = f^[i] b := by
+    intro m n hlt heq
+    refine ⟨m, n - m, by omega, fun i hi => ?_⟩
+    obtain ⟨d, rfl⟩ := Nat.exists_eq_add_of_le hi
+    have hnm : m + (n - m) = n := by omega
+    calc f^[m + d + (n - m)] b
+        = f^[d + (m + (n - m))] b := by ring_nf
+      _ = f^[d] (f^[m + (n - m)] b) := by rw [Function.iterate_add_apply]
+      _ = f^[d] (f^[n] b) := by rw [hnm]
+      _ = f^[d] (f^[m] b) := by rw [heq]
+      _ = f^[d + m] b := by rw [Function.iterate_add_apply]
+      _ = f^[m + d] b := by ring_nf
+  rcases lt_or_gt_of_ne hmn with hlt | hlt
+  · exact key m n hlt hval
+  · exact key n m hlt hval.symm
+
+/-! ## 3. The tuple digraph `T_k(ρ)` as an iterate -/
+
+variable {α : Type*} (ρ : α → α → Prop) (k : ℕ)
+
+/-- Vertices of `T_k(ρ)`: injective `k`-tuples. Finite as soon as `α` is. -/
+def Tup : Type _ := {u : ZMod k → α // Injective u}
+
+instance [Finite α] [NeZero k] : Finite (Tup (α := α) k) :=
+  Subtype.finite
+
+/-- Arcs of `T_k(ρ)`: a `ρ`-step in every coordinate. -/
+def TArc (u v : Tup (α := α) k) : Prop := ∀ j, ρ (u.1 j) (v.1 j)
+
+/-- Rotation by the generator `1`, as a map of vertices. -/
+def rot (u : Tup (α := α) k) : Tup (α := α) k :=
+  ⟨fun j => u.1 (j + 1), fun a b h => by
+    have h' : a + 1 = b + 1 := u.2 h
+    exact add_right_cancel h'⟩
+
+/-- Length-`n` walks in `T_k(ρ)`, as a relation. -/
+def Reach : ℕ → Tup (α := α) k → Tup (α := α) k → Prop
+  | 0, u, v => u = v
+  | n + 1, u, v => ∃ w, Reach n u w ∧ TArc ρ k w v
+
+/-- One step of right-multiplication by the arc relation. This is the note's
+`M ↦ M · M_k`; `Reach` is its orbit starting from the identity. -/
+def stepRel (R : Tup (α := α) k → Tup (α := α) k → Prop) :
+    Tup (α := α) k → Tup (α := α) k → Prop :=
+  fun u v => ∃ w, R u w ∧ TArc ρ k w v
+
+theorem reach_eq_iterate (n : ℕ) : Reach ρ k n = (stepRel ρ k)^[n] Eq := by
+  induction n with
+  | zero => rfl
+  | succ n ih =>
+      rw [Function.iterate_succ_apply', ← ih]
+      funext u v
+      simp only [Reach, stepRel]
+
+/-- **The note's §3(2), first-repeat argument.** The reachability relation lives
+in a finite type and is generated by iterating one function, so it is eventually
+periodic in the walk length. -/
+theorem exists_evPeriodic_reach [Finite α] [NeZero k] :
+    ∃ s p, 0 < p ∧ ∀ n, s ≤ n → Reach ρ k (n + p) = Reach ρ k n := by
+  obtain ⟨s, p, hp, h⟩ := exists_evPeriodic_iterate (stepRel ρ k) Eq
+  exact ⟨s, p, hp, fun n hn => by
+    rw [reach_eq_iterate, reach_eq_iterate, h n hn]⟩
+
+/-! ### The bridge: `Reach` (an iterate) versus `IsTR`'s raw walk -/
+
+theorem reach_iff_walk (n : ℕ) (u v : Tup (α := α) k) :
+    Reach ρ k n u v ↔ ∃ τ : ℕ → ZMod k → α,
+      (∀ i ≤ n, Injective (τ i)) ∧
+      (∀ i < n, ∀ j, ρ (τ i j) (τ (i + 1) j)) ∧ τ 0 = u.1 ∧ τ n = v.1 := by
+  classical
+  induction n generalizing v with
+  | zero =>
+      constructor
+      · intro h
+        have huv : u = v := h
+        exact ⟨fun _ => u.1, fun _ _ => u.2, fun i hi => absurd hi (Nat.not_lt_zero i),
+          rfl, by rw [huv]⟩
+      · rintro ⟨τ, -, -, h0, hn⟩
+        exact Subtype.ext (h0.symm.trans hn)
+  | succ n ih =>
+      constructor
+      · rintro ⟨w, hw, harc⟩
+        obtain ⟨τ', hinj', harc', h0', hn'⟩ := (ih w).mp hw
+        set τ : ℕ → ZMod k → α := fun i => if i = n + 1 then v.1 else τ' i with hτdef
+        have hlt : ∀ i, i ≠ n + 1 → τ i = τ' i := fun i hi => by simp [hτdef, hi]
+        have htop : τ (n + 1) = v.1 := by simp [hτdef]
+        refine ⟨τ, ?_, ?_, ?_, htop⟩
+        · intro i hi
+          by_cases hin : i = n + 1
+          · rw [hin, htop]; exact v.2
+          · rw [hlt i hin]; exact hinj' i (by omega)
+        · intro i hi j
+          by_cases hin : i = n
+          · subst hin
+            rw [hlt i (by omega), htop, hn']
+            exact harc j
+          · rw [hlt i (by omega), hlt (i + 1) (by omega)]
+            exact harc' i (by omega) j
+        · rw [hlt 0 (by omega)]; exact h0'
+      · rintro ⟨τ, hinj, harc, h0, hn⟩
+        refine ⟨⟨τ n, hinj n (by omega)⟩, ?_, ?_⟩
+        · exact (ih _).mpr ⟨τ, fun i hi => hinj i (by omega),
+            fun i hi => harc i (by omega), h0, rfl⟩
+        intro j
+        change ρ (τ n j) (v.1 j)
+        rw [← hn]
+        exact harc n (by omega) j
+
+theorem isTR_one_iff_reach [NeZero k] (L : ℕ) :
+    IsTR ρ L (1 : ZMod k) ↔ ∃ u : Tup (α := α) k, Reach ρ k L u (rot k u) := by
+  constructor
+  · rintro ⟨τ, hinj, harc, hend⟩
+    refine ⟨⟨τ 0, hinj 0 (by omega)⟩, (reach_iff_walk ρ k L _ _).mpr
+      ⟨τ, hinj, harc, rfl, ?_⟩⟩
+    funext j
+    exact hend j
+  · rintro ⟨u, h⟩
+    obtain ⟨τ, hinj, harc, h0, hL⟩ := (reach_iff_walk ρ k L u (rot k u)).mp h
+    refine ⟨τ, hinj, harc, fun j => ?_⟩
+    have : τ L j = u.1 (j + 1) := by rw [hL]; rfl
+    rw [this, ← h0]
+
+/-- Per-`k` eventual periodicity of `TR_k^{(1)}` — the note's §3(2). -/
+theorem isEvPeriodic_isTR [Finite α] [NeZero k] :
+    IsEvPeriodic {L | IsTR ρ L (1 : ZMod k)} := by
+  obtain ⟨s, p, hp, h⟩ := exists_evPeriodic_reach ρ k
+  refine ⟨s, p, hp, fun L hL => ?_⟩
+  simp only [Set.mem_setOf_eq, isTR_one_iff_reach, h L hL]
+
+/-! ## 4. The `k`-cap: a winding-`k` cycle needs `k` states at one layer -/
+
+variable {ρ k}
+
+/-- **The note's §3(1) pigeonhole.** The `k` positions `0, L, …, (k-1)L` all sit
+at layer `0` and are pairwise distinct, so their states are `k` distinct
+elements of `α`. -/
+theorem le_card_of_isLISC [Fintype α] {L : ℕ} (hL : 0 < L) (h : IsLISC ρ k L) :
+    k ≤ Fintype.card α := by
+  obtain ⟨W, -, -, hsimple⟩ := h
+  have hinj : Injective (fun j : Fin k => W (j * L)) := by
+    intro j₁ j₂ hj
+    have h1 : (j₁ : ℕ) * L < k * L := (Nat.mul_lt_mul_right hL).mpr j₁.isLt
+    have h2 : (j₂ : ℕ) * L < k * L := (Nat.mul_lt_mul_right hL).mpr j₂.isLt
+    have hmod : (j₁ : ℕ) * L % L = (j₂ : ℕ) * L % L := by
+      simp [Nat.mul_mod_left]
+    have := hsimple _ _ h1 h2 hmod hj
+    exact Fin.ext (Nat.eq_of_mul_eq_mul_right hL this)
+  simpa using Fintype.card_le_of_injective _ hinj
+
+/-! ## 5. `Unsafe` and `Safe` -/
+
+variable (ρ)
+
+/-- `L` is unsafe when the layered ring carries a simple cycle of winding `≥ 2`. -/
+def Unsafe : Set ℕ := {L | 0 < L ∧ ∃ k, 2 ≤ k ∧ IsLISC ρ k L}
+
+/-- `Safe ρ = ℕ_{≥1} ∖ Unsafe ρ`. -/
+def Safe : Set ℕ := {L | 0 < L} \ Unsafe ρ
+
+/-- **The note's §3(1).** `Unsafe` is a FINITE union of tuple-reachability sets:
+the `k`-cap bounds the winding by `card α`, and Theorem P converts each
+`LISC_k` into `TR_k^{(1)}`. -/
+theorem unsafe_eq_biUnion [Fintype α] :
+    Unsafe ρ = ⋃ k ∈ Finset.Icc 2 (Fintype.card α),
+      {L | 0 < L ∧ IsTR ρ L (1 : ZMod k)} := by
+  ext L
+  simp only [Unsafe, Set.mem_setOf_eq, Set.mem_iUnion, Finset.mem_Icc, exists_prop]
+  constructor
+  · rintro ⟨hL, k, hk2, hlisc⟩
+    haveI : NeZero k := ⟨by omega⟩
+    exact ⟨k, ⟨hk2, le_card_of_isLISC hL hlisc⟩, hL,
+      (pruning hL (isUnit_one (M := ZMod k))).mp hlisc⟩
+  · rintro ⟨k, ⟨hk2, -⟩, hL, htr⟩
+    haveI : NeZero k := ⟨by omega⟩
+    exact ⟨hL, k, hk2, (pruning hL (isUnit_one (M := ZMod k))).mpr htr⟩
+
+/-! ## 6. Theorem B -/
+
+/-- **Theorem B, part 1.** `Unsafe ρ` is eventually periodic. -/
+theorem isEvPeriodic_unsafe [Finite α] : IsEvPeriodic (Unsafe ρ) := by
+  classical
+  haveI := Fintype.ofFinite α
+  rw [unsafe_eq_biUnion ρ]
+  refine IsEvPeriodic.biUnion _ _ fun k hk => ?_
+  rw [Finset.mem_Icc] at hk
+  haveI : NeZero k := ⟨by omega⟩
+  exact isEvPeriodic_pos.inter (isEvPeriodic_isTR ρ k)
+
+/-- **Theorem B (kit gap 5.3).** For every relation `ρ` on a finite alphabet,
+`Safe ρ` is eventually periodic: there are a threshold `S` and a period `P > 0`
+with `L ∈ Safe ρ ↔ L + P ∈ Safe ρ` for every `L ≥ S`. Membership is therefore
+described by a finite table — the note's certificate. -/
+theorem isEvPeriodic_safe [Finite α] : IsEvPeriodic (Safe ρ) :=
+  isEvPeriodic_pos.diff (isEvPeriodic_unsafe ρ)
+
+/-! ## 7. Lemma NG — what a NON-generator rotation actually certifies
+
+The note's Lemma NG: when `gcd(r, k) = d > 1`, a `TR_k^{(r)}` witness does NOT
+certify `LISC_k`. The strands close up along the ORBITS of `j ↦ j + r`, each of
+size `k/d`, so what is certified is `LISC_{k/d}`.
+
+The orbit is the whole content, so it appears here as data: a slot map
+`f : ZMod m → ZMod k` that is injective and carries `+1` to `+r`. Reading the
+tuple walk through `f` is a rotation-`1` witness of width `m`, and Step 3
+assembles it. Instantiating `m = k`, `f = id`, `r = 1` recovers Step 3 exactly
+(checked below), so the parametrization is faithful.
+
+NOT formalized, recorded honestly:
+* the construction of `f` for `m = k / gcd(r,k)` (`j ↦ j • r`; `ZMod` index
+  bookkeeping, no mathematical content beyond `addOrderOf r = k / gcd(r,k)`);
+* that the `d` orbit cycles are pairwise vertex-disjoint;
+* the refutation half — `LISC_k` can genuinely FAIL while `TR_k^{(r)}` holds.
+  Witness C4dir at `L = 2`, machine-checked in the oracle
+  (`pruning_k2_theorem.md` rot-check). -/
+
+section NG
+
+variable {α : Type*} {ρ : α → α → Prop} {k : ℕ}
+
+/-- **Lemma NG (assembly half).** If the rotation `r` closes an orbit of size
+`m` — witnessed by an injective slot map `f : ZMod m → ZMod k` with
+`f (j + 1) = f j + r` — then a rotation-`r` tuple walk certifies a simple cycle
+of winding `m`, NOT of winding `k`. For a generator `m = k`; for
+`gcd(r, k) = d > 1` it is the strictly weaker `m = k / d`. -/
+theorem isLISC_of_isTR_of_orbit {L m : ℕ} [NeZero m] (hL : 0 < L) {r : ZMod k}
+    (f : ZMod m → ZMod k) (hf : Injective f) (hstep : ∀ j, f (j + 1) = f j + r)
+    (h : IsTR ρ L r) : IsLISC ρ m L := by
+  obtain ⟨τ, hinj, harc, hend⟩ := h
+  refine isLISC_of_isTR_one hL
+    ⟨fun i j => τ i (f j), fun i hi a b hab => hf (hinj i hi hab),
+      fun i hi j => harc i hi _, fun j => ?_⟩
+  change τ L (f j) = τ 0 (f (j + 1))
+  rw [hstep j, hend]
+
+/-- Faithfulness check: at the generator `r = 1` the orbit is everything
+(`m = k`, `f = id`) and Lemma NG degenerates to Step 3 of Theorem P. -/
+example [NeZero k] {L : ℕ} (hL : 0 < L) (h : IsTR ρ L (1 : ZMod k)) :
+    IsLISC ρ k L :=
+  isLISC_of_isTR_of_orbit hL id injective_id (fun _ => rfl) h
+
+end NG
+
+/-! ## Receipts -/
+
+#print axioms exists_evPeriodic_iterate
+#print axioms reach_iff_walk
+#print axioms le_card_of_isLISC
+#print axioms unsafe_eq_biUnion
+#print axioms isEvPeriodic_safe
+#print axioms isLISC_of_isTR_of_orbit
+
+end Reconstruction.Pruning

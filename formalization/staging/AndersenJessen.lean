@@ -20,6 +20,10 @@ import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
 import Mathlib.RingTheory.Int.Basic
 import Mathlib.NumberTheory.Real.Irrational
 import Mathlib.Topology.Algebra.Order.Archimedean
+import Mathlib.MeasureTheory.Measure.Lebesgue.EqHaar
+import Mathlib.GroupTheory.QuotientGroup.Basic
+
+open Pointwise
 
 namespace AndersenJessen
 
@@ -189,5 +193,93 @@ theorem C_zero_dense (hα : Irrational α) : Dense (C α 0) := by
   have hcont : Continuous (fun y : ℝ => 1 + y) := continuous_const.add continuous_id
   have h := hcont.range_subset_closure_image_dense (Aeven_dense α hα)
   refine Set.eq_univ_of_univ_subset fun x _ => h ⟨x - 1, by ring⟩
+
+/-! ### Step 6: the transversal and Proposition 13
+
+`V` picks one representative from each coset of `A = ℤ + αℤ` in `ℝ`, via
+`Quotient.out'`. The only property used is that two representatives congruent
+mod `A` are equal.
+
+`Mₖ = V + Bₖ`. Proposition 13's core is that `Mₖ` contains no measurable set of
+positive measure: if it did, Steinhaus would put a neighbourhood of `0` inside
+`Mₖ - Mₖ`, `C₀` is dense so meets it, and any element of `A` in `Mₖ - Mₖ` forces
+the two representatives to coincide and is therefore EVEN -- contradicting the
+oddness of the `C₀` witness. -/
+
+/-- `A = ℤ + αℤ`, as an additive subgroup. -/
+def Afull : AddSubgroup ℝ where
+  carrier := A α
+  zero_mem' := ⟨0, 0, by norm_num⟩
+  add_mem' := by
+    rintro _ _ ⟨n, m, rfl⟩ ⟨n', m', rfl⟩
+    exact ⟨n + n', m + m', by push_cast; ring⟩
+  neg_mem' := by
+    rintro _ ⟨n, m, rfl⟩
+    exact ⟨-n, -m, by push_cast; ring⟩
+
+lemma mem_Afull {x : ℝ} : x ∈ Afull α ↔ ∃ n m : ℤ, x = (n : ℝ) + m * α := Iff.rfl
+
+/-- A transversal of `ℝ ⧸ A`. -/
+noncomputable def V : Set ℝ := Set.range (fun q : ℝ ⧸ Afull α => q.out)
+
+/-- The only property of the transversal that Proposition 13 uses. -/
+theorem V_unique {v v' : ℝ} (hv : v ∈ V α) (hv' : v' ∈ V α)
+    (h : v - v' ∈ Afull α) : v = v' := by
+  obtain ⟨q, rfl⟩ := hv
+  obtain ⟨q', rfl⟩ := hv'
+  have hq : (QuotientAddGroup.mk (s := Afull α) q.out)
+      = QuotientAddGroup.mk q'.out := by
+    rw [QuotientAddGroup.eq]
+    simpa [neg_add_eq_sub, neg_sub] using (Afull α).neg_mem h
+  have : q = q' := by
+    rw [← Quotient.out_eq q, ← Quotient.out_eq q']
+    exact hq
+  rw [this]
+
+/-- `Mₖ = V + Bₖ`. -/
+def M (k : ℕ) : Set ℝ := {x | ∃ v ∈ V α, ∃ b ∈ B α k, x = v + b}
+
+lemma B_sub_mem_B_zero {k : ℕ} {b b' : ℝ} (hb : b ∈ B α k) (hb' : b' ∈ B α k) :
+    b - b' ∈ B α 0 := by
+  obtain ⟨n, m, rfl, -, he⟩ := hb
+  obtain ⟨n', m', rfl, -, he'⟩ := hb'
+  exact ⟨n - n', m - m', by push_cast; ring, by simp, he.sub he'⟩
+
+/-- **Proposition 13, core.** `V + Bₖ` contains no measurable set of positive
+measure. Equivalently, its complement is thick. -/
+theorem M_measurable_subset_null (hα : Irrational α) (k : ℕ)
+    {F : Set ℝ} (hF : MeasurableSet F) (hFM : F ⊆ M α k) :
+    MeasureTheory.volume F = 0 := by
+  by_contra hpos
+  have hp : 0 < MeasureTheory.volume F := pos_iff_ne_zero.mpr hpos
+  -- Steinhaus: F - F is a neighbourhood of 0
+  have hnhds : F - F ∈ nhds (0 : ℝ) :=
+    MeasureTheory.Measure.sub_mem_nhds_zero_of_addHaar_pos MeasureTheory.volume F hF hp
+  obtain ⟨U, hUsub, hUopen, hU0⟩ := mem_nhds_iff.mp hnhds
+  -- C₀ is dense, so it meets U
+  obtain ⟨x, hxC, hxU⟩ := (C_zero_dense α hα).exists_mem_open hUopen ⟨0, hU0⟩
+  obtain ⟨f, hf, f', hf', rfl⟩ : ∃ f ∈ F, ∃ f' ∈ F, x = f - f' := by
+    obtain ⟨f, hf, f', hf', hx⟩ := hUsub hxU
+    exact ⟨f, hf, f', hf', hx.symm⟩
+  obtain ⟨v, hv, b, hb, rfl⟩ := hFM hf
+  obtain ⟨v', hv', b', hb', rfl⟩ := hFM hf'
+  -- the C₀ witness lies in A, which forces the representatives to agree
+  obtain ⟨n, m, hxn, -, hodd⟩ := hxC
+  have hxA : (v + b) - (v' + b') ∈ Afull α := ⟨n, m, hxn⟩
+  have hbb : b - b' ∈ Afull α := by
+    obtain ⟨p, q, hpq, -, -⟩ := B_sub_mem_B_zero α hb hb'
+    exact ⟨p, q, hpq⟩
+  have hvv : v - v' ∈ Afull α := by
+    have : v - v' = ((v + b) - (v' + b')) - (b - b') := by ring
+    rw [this]
+    exact (Afull α).sub_mem hxA hbb
+  have hveq : v = v' := V_unique α hv hv' hvv
+  subst hveq
+  -- so the witness is a difference of two Bₖ elements, hence even
+  have hxB : (v + b) - (v + b') ∈ B α 0 := by
+    have : (v + b) - (v + b') = b - b' := by ring
+    rw [this]
+    exact B_sub_mem_B_zero α hb hb'
+  exact (Set.disjoint_left.mp (B_disjoint_C α hα)) hxB ⟨n, m, hxn, by simp, hodd⟩
 
 end AndersenJessen

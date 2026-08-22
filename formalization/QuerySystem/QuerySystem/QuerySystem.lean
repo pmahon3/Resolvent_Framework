@@ -905,11 +905,16 @@ Under upper-directedness any two cylinders lift to a common level via
 space and stay cylinders. `isSetSemiring_CylGen` already established the harder
 `diff_eq_sUnion'` clause; this records the stronger structure directly.
 
-Why it is wanted: the route from continuity at `∅` to σ-additivity,
+Why it was wanted: the route from continuity at `∅` to σ-additivity,
 `MeasureTheory.addContent_iUnion_eq_sum_of_tendsto_zero`, requires an
-`IsSetRing`, not an `IsSetSemiring`. That route is the one that would close
-`stone_observational_extension` under ordinary (non-sequential)
-upper-directedness -- see the blueprint, `lem:cylgen-sigma-subadd-ce`. -/
+`IsSetRing`, not an `IsSetSemiring`.
+
+That route is now moot -- it was aimed at closing
+`stone_observational_extension` under ordinary upper-directedness, and that
+statement turned out to be false (Andersen-Jessen; blueprint
+`rmk:kolmogorov-refuted`). The lemma is kept because it is a true and
+independently useful strengthening of the cylinder API, not because anything
+currently depends on it. -/
 lemma isSetRing_CylGen [Nonempty S.ι] (udir : S.UpperDirected) :
     IsSetRing S.CylGen := by
   refine ⟨?_, ?_, ?_⟩

@@ -33,28 +33,31 @@ the Stone route proceeds:
 
 2. **Charge → Borel measure** (Task 0′-B): A finitely additive normalized charge
    on the clopen algebra of a compact totally-disconnected Hausdorff space extends
-   uniquely to a regular Borel measure. **Intentional sorry**: the Mathlib
-   `Content` API works on compact sets of a locally compact space; adapting it to
-   charges on the clopen algebra of a Stone space requires infrastructure not yet
-   in Mathlib (Halmos §53–54, Fremlin Vol. 1).
+   uniquely to a regular Borel measure. **Route not taken.** This was planned via
+   Mathlib's `Content` API and was recorded as blocked, since `Content` is built
+   for compact subsets of locally compact spaces rather than clopen algebras.
+   It proved unnecessary: `stone_measure_exists` goes through
+   `AddContent.measure` on `stoneClopens` directly, using compactness only to
+   get σ-subadditivity. Proved, no sorry.
 
 3. **Inverse system** (Task 0′-C): The bonding maps between Stone outcome spaces
    form a cofiltered inverse system of compact Hausdorff spaces.
 
-4. **Inverse limit measure** (Task 0′-D): The compatible family of charges on the
-   Stone outcome spaces extends to a measure on the inverse limit (Choksi's theorem).
-   **Intentional sorry**: not yet in Mathlib.
+4. **Inverse limit measure** (Task 0′-D): planned via Choksi's theorem (1958) on
+   cofiltered inverse systems of compact Hausdorff spaces. **Route not taken and
+   not needed** — see the note on `stone_observational_extension` below: that
+   theorem does not go through the Stone space at all.
 
 5. **Agreement with Carathéodory** (Task 0′-E): Under shared hypotheses both
    routes produce the same measure. Proved from `observational_determination`.
 
 ## Sorry inventory
 
-| Name | Reason |
-|------|--------|
-| `stone_observational_extension` | Mathlib gap: Yosida–Hewitt decomposition |
-
-All Task 0′-A, 0′-B, 0′-C, and 0′-E results are proved (0 sorry).
+**Empty.** As of 2026-08-22 this file, and the whole development, is
+`sorry`-free. `stone_observational_extension` was previously recorded here as
+blocked on Yosida–Hewitt; it was in fact FALSE as stated, and became provable
+once `UpperDirected` was corrected to `SequentiallyUpperDirected` — by a route
+that never touches the Stone space. See the block comment above that theorem.
 `stone_measure_exists` is fully proved via AddContent.measure on stoneClopens.
 
 ## Main definitions and results
@@ -78,7 +81,7 @@ All Task 0′-A, 0′-B, 0′-C, and 0′-E results are proved (0 sorry).
   the hypothesis is corrected it follows from `sp1_iff` plus the already-proved
   `QuerySystem.observational_extension`. The Stone construction in this file
   stands on its own as the finitely additive theorem.
-* `stone_observational_extension` — (intentional sorry) Stone route main theorem
+* `stone_observational_extension` — proved; see the note above (not via the Stone route)
 * `stone_agrees_with_caratheodory` — both routes produce the same measure (proved)
 
 -/
@@ -204,27 +207,20 @@ end StoneBondingMaps
 -- ---------------------------------------------------------------------------
 -- Task 0′-B/D: Charge → measure on Stone space
 -- ---------------------------------------------------------------------------
--- INTENTIONAL SORRY
+-- ROUTE NOT TAKEN (kept for the record; there is no sorry here).
 --
--- The standard result (Halmos §53–54; Fremlin, Measure Theory Vol. 1, 311E)
--- says: on a compact totally-disconnected Hausdorff space, every normalized
--- finitely-additive charge on the clopen algebra extends uniquely to a regular
--- Borel measure. The proof goes through the Content API, but Mathlib's
--- `MeasureTheory.Content` is designed for locally compact spaces and operates
--- on compact subsets, not clopen algebras directly. Wrapping the clopen-algebra
--- charge into a `Content` on the Stone space requires showing that in a
--- compact T2D space the clopen algebra and the compact sets generate the same
--- σ-algebra, and that the charge extends monotonically to compacts. This
--- wrapping is not yet in Mathlib.
+-- The plan was: on a compact totally-disconnected Hausdorff space every
+-- normalized finitely-additive charge on the clopen algebra extends uniquely to
+-- a regular Borel measure (Halmos §53–54; Fremlin Vol. 1, 311E), routed through
+-- Mathlib's `MeasureTheory.Content`; then Choksi (1958) for the inverse limit.
+-- Both were recorded as blocked on missing Mathlib infrastructure.
 --
--- Additionally, Step D uses Choksi's theorem (1958): a compatible family of
--- regular Borel probability measures on a cofiltered inverse system of compact
--- Hausdorff spaces with surjective bonding maps has a unique projective limit.
--- This is not in Mathlib.
---
--- ---------------------------------------------------------------------------
--- Stone measure construction via AddContent
--- ---------------------------------------------------------------------------
+-- Neither was needed. `stoneAddContent` is an `AddContent` on `stoneClopens`
+-- directly, compactness of the Stone space gives σ-subadditivity, and
+-- `AddContent.measure` (Carathéodory) produces the measure. What the Stone
+-- space actually buys is recorded at `stone_measure_exists`: a finitely
+-- additive theorem requiring no collective exhaustion and no directedness
+-- beyond `UpperDirected`.
 
 section StoneMeasureConstruction
 

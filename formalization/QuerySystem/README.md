@@ -71,11 +71,18 @@ These Lean files remain as correct proofs of classical results:
 - `stone_measure_exists`: Stone-space probability measure from finitely-additive charges (0 sorry)
 - `stone_agrees_with_caratheodory`: both routes produce the same measure
 
-## Intentional sorry
+## Sorry inventory
 
-| Sorry | Location | Reason |
-|-------|----------|--------|
-| `stone_observational_extension` | `StoneDualityExtension.lean` | Yosida–Hewitt decomposition not in Mathlib |
+**Empty** as of 2026-08-22 — the development is `sorry`-free, and CI enforces
+it (`.github/workflows/lean.yml`, ratchet budget 0).
+
+`stone_observational_extension` was previously listed here as blocked on the
+Yosida–Hewitt decomposition. That diagnosis was wrong: under its stated
+hypothesis (`UpperDirected`) the theorem was FALSE — Andersen–Jessen (1948)
+refutes it — and once corrected to `SequentiallyUpperDirected` it follows from
+`sp1_iff` plus `observational_extension`, with no Stone space and no charge
+theory. See `blueprint/src/content.tex`, `rmk:kolmogorov-refuted` and
+`rmk:extension-repaired`.
 
 ## Build
 

@@ -103,4 +103,73 @@ theorem no_escapingTower_of_extension
     IsEmpty (S.EscapingTower P) :=
   ⟨fun T => S.not_exists_extension_of_escapingTower P T h⟩
 
+/-! ## The obstruction is not vacuous
+
+A structure nobody can instantiate would make `not_exists_extension_of_escapingTower`
+empty content. The finite–cofinite counterexample already in this development
+carries a tower, which settles that. -/
+
+open Classical in
+/-- An enumeration of `ℚ`. -/
+noncomputable def cexEnum : ℕ → ℚ := (exists_surjective_nat ℚ).choose
+
+lemma cexEnum_surj : Function.Surjective cexEnum := (exists_surjective_nat ℚ).choose_spec
+
+/-- `Eₙ = ℚ ∖ {q₀,…,qₙ}`: cofinite, decreasing, empty intersection. -/
+def cexE (n : ℕ) : Set ℚ := {x | ∀ k ≤ n, x ≠ cexEnum k}
+
+lemma cexE_cofinite (n : ℕ) : (cexE n)ᶜ.Finite := by
+  apply Set.Finite.subset (Set.finite_Iic n |>.image cexEnum)
+  intro x hx
+  simp only [cexE, Set.mem_compl_iff, Set.mem_setOf_eq, not_forall, not_ne_iff] at hx
+  obtain ⟨k, hk, hxk⟩ := hx
+  exact ⟨k, Set.mem_Iic.mpr hk, hxk.symm⟩
+
+lemma cexE_antitone : Antitone cexE := by
+  intro m n hmn x hx k hk
+  exact hx k (_root_.le_trans hk hmn)
+
+lemma cexE_iInter : ⋂ n, cexE n = ∅ := by
+  ext x
+  simp only [cexE, Set.mem_iInter, Set.mem_setOf_eq, Set.mem_empty_iff_false, iff_false]
+  push Not
+  obtain ⟨n, hn⟩ := cexEnum_surj x
+  exact ⟨n, n, Nat.le_refl n, hn.symm⟩
+
+/-- **`EscapingTower` is inhabited.** The finite–cofinite counterexample carries
+one: every `Eₙ` is cofinite, hence in the hyperfilter, hence of content 1, while
+the `Eₙ` shrink to nothing.
+
+This matters as a guard. `not_exists_extension_of_escapingTower` would be empty
+content if no query system could carry a tower; it does not, and this is the
+witness. -/
+noncomputable def counterexampleTower :
+    counterexampleQS.EscapingTower counterexampleNCC where
+  idx _ := (0 : WithTop ℕ)
+  base n := cexE n
+  meas n := MeasurableSpace.measurableSet_generateFrom (Or.inr (cexE_cofinite n))
+  full n := by
+    show (haveI := Classical.dec (cexE n ∈ Filter.hyperfilter ℚ)
+          if cexE n ∈ Filter.hyperfilter ℚ then (1 : ℝ≥0∞) else 0) = 1
+    haveI := Classical.dec (cexE n ∈ Filter.hyperfilter ℚ)
+    rw [if_pos (Filter.mem_hyperfilter_of_finite_compl (cexE_cofinite n))]
+  anti := by
+    intro m n hmn ω hω
+    exact cexE_antitone hmn hω
+  empty := by
+    ext ω
+    simp only [Set.mem_iInter, Set.mem_empty_iff_false, iff_false]
+    intro h
+    have : counterexampleQS.eval (0 : WithTop ℕ) ω ∈ ⋂ n, cexE n := Set.mem_iInter.mpr h
+    rw [cexE_iInter] at this
+    exact this
+
+/-- Consequence: the finite–cofinite system admits no extension. Recovered from
+the abstract obstruction rather than re-argued. -/
+theorem counterexample_no_extension :
+    ¬ ∃ μ : Measure counterexampleQS.Omega, IsProbabilityMeasure μ ∧
+        ∀ (i : counterexampleQS.ι) (A : Set ((counterexampleQS.q i).Outcome)),
+          MeasurableSet A → μ (counterexampleQS.Cyl i A) = counterexampleNCC.ν i A :=
+  counterexampleQS.not_exists_extension_of_escapingTower counterexampleNCC counterexampleTower
+
 end QuerySystem

@@ -38,3 +38,5 @@ QuerySystem.isSetRing_CylGen
 QuerySystem.ce_iff_levelwise_continuity
 QuerySystem.EscapingTower
 QuerySystem.not_exists_extension_of_escapingTower
+QuerySystem.counterexampleTower
+QuerySystem.counterexample_no_extension

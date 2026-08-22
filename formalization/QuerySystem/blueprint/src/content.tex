@@ -858,3 +858,37 @@ transversal, so this is a real construction project.
 Until it is done, the claim that the original statement was false rests on a
 hand check against the source, not on the kernel. The mechanism does not.
 \end{remark}
+
+\begin{theorem}[The obstruction is not vacuous]
+\label{thm:tower-inhabited}
+\lean{QuerySystem.counterexampleTower}
+\leanok
+\uses{def:escaping-tower}
+The finite--cofinite query system carries an escaping tower: with
+$E_n = \mathbb{Q} \setminus \{q_0,\dots,q_n\}$, each $E_n$ is cofinite hence in
+the hyperfilter hence of content $1$, while $\bigcap_n E_n = \emptyset$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+Direct. The point is not the construction --- the same sequence already
+appears in \texttt{counterexampleNCC\_not\_collectivelyExhaustive} --- but that
+\ref{def:escaping-tower} is inhabited. A structure nobody can instantiate would
+make \ref{thm:no-extension-tower} empty content, and this session has already
+turned up one theorem whose statement was satisfiable by a Dirac measure.
+\end{proof}
+
+\begin{corollary}[The finite--cofinite system admits no extension]
+\label{cor:cex-no-extension}
+\lean{QuerySystem.counterexample_no_extension}
+\leanok
+\uses{thm:tower-inhabited, thm:no-extension-tower}
+Recovered from the abstract obstruction rather than re-argued, which is the
+point: the tower is the reusable content of that counterexample.
+
+Note what it does \emph{not} show. This system fails collective exhaustion
+(\texttt{counterexampleNCC\_not\_collectivelyExhaustive}), so it does not touch
+\ref{thm:stone-observational-extension}. Refuting that needs a tower in a system
+where every level \emph{is} $\sigma$-additive, which is what forces the thick
+sets of \ref{rmk:tower-remaining} and why Andersen--Jessen is harder than this.
+\end{corollary}

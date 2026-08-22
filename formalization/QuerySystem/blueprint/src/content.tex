@@ -707,3 +707,58 @@ avoiding a regularity assumption. The open theorem drops it and keeps only
 collective exhaustion --- and collective exhaustion, by \ref{lem:ce-levelwise},
 is weaker than it looks.
 \end{remark}
+
+\begin{remark}[Resolved: the statement is false]
+\label{rmk:kolmogorov-refuted}
+\uses{rmk:kolmogorov-concern, lem:ce-levelwise}
+The concern of \ref{rmk:kolmogorov-concern} is settled, negatively.
+\ref{thm:stone-observational-extension} is \textbf{false as stated}. The
+Andersen--Jessen construction (Sparre Andersen and Jessen 1948; exposition in
+K.~C.~Border, \emph{Kolmogorov Extension Problem}, Prop.~17, itself following
+Halmos \emph{Measure Theory} pp.~68--70) instantiates every hypothesis and
+refutes the conclusion.
+
+\textbf{The construction.} Take $M_k$ decreasing with $X_k = M_k \cap [0,1]$
+\emph{thick} in $[0,1]$ --- full outer measure --- and $X_k \downarrow
+\emptyset$. Thickness makes $\Sigma_k = \{E \cap X_k : E$ Lebesgue
+measurable$\}$ with $\lambda_k(E \cap X_k) = \lambda(E)$ a well defined
+\emph{$\sigma$-additive} probability space. Index by $\mathbb{N}$ under $\leq$;
+put $\mathrm{Outcome}_n = X_0 \times \cdots \times X_n$ with the projections as
+bonding maps; then $\Omega = \prod_k X_k$. Define $P_n$ by pushing $\lambda_n$
+forward along the diagonal $x \mapsto (x,\dots,x)$. These are Kolmogorov
+consistent.
+
+\textbf{The refutation.} The diagonal cylinders
+$D_n = \{(x,\dots,x) \times \prod_{k>n} X_k : x \in X_n\}$ have
+$P(D_n) = \lambda_n(X_n) = 1$ for every $n$, while $\bigcap_n D_n = \emptyset$
+because $X_k \downarrow \emptyset$. No measure can give every term of a
+decreasing sequence mass $1$ and the limit mass $0$.
+
+\textbf{Why every hypothesis holds.} $\mathbb{N}$ is a chain, so
+upper-directed --- and \emph{not} sequentially upper-directed, since
+$(0,1,2,\dots)$ has no upper bound: exactly the gap between this theorem and
+\ref{thm:observational-extension-seq}. The bonding maps and every
+$\mathrm{eval}_n$ are projections onto initial segments, hence surjective
+(each $X_k$ is thick, so nonempty), giving \texttt{EvalSurjective}. Each $P_n$
+is a genuine measure, so collective exhaustion holds by \ref{lem:ce-levelwise}.
+The variance matches: \texttt{QuerySystem} has $\pi :
+\mathrm{Outcome}_j \to \mathrm{Outcome}_i$ for $i \leq j$, the inverse-system
+direction.
+
+\textbf{What fails, and what it costs.} Every level is $\sigma$-additive; the
+failure lives entirely in the passage between levels, which a per-level
+condition cannot see. So the claim that collective exhaustion characterises
+\emph{$\sigma$-additive extensibility} is correct only for the per-level
+reading proved in \ref{thm:sp1-iff}; read as global extensibility it is false,
+and that reading appears in the prose around the definition. This is a defect in
+a central definition of the paper, not in a Lean proof.
+
+Repairs, in increasing order of ambition: assume sequential upper-directedness,
+in which case \ref{thm:observational-extension-seq} already proves it; or
+assume a compact class / perfect-measure condition on the marginals
+(Marczewski), the classical hypothesis, and port that theorem instead.
+
+\textbf{Status.} Verified on paper against the Lean hypotheses, hypothesis by
+hypothesis. NOT yet formalized: doing so means constructing thick sets in Lean,
+which needs a non-measurable-set construction and is a real project.
+\end{remark}

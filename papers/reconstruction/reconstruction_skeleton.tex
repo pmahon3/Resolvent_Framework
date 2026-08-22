@@ -34,8 +34,10 @@ where coherence stops forcing a global process --- is exactly decidable.
 \textbf{conditionally} --- on a single open conjecture (\S\ref{sec:capstone}) ---
 for all total symbolic languages. The decidability of the boundary is
 \textbf{[PROVED]} for a fixed observation length via the winding criterion
-(\S\ref{sec:boundary}), \textbf{[SCOPE: winding-2; the lift to full safety is
-spot-checked, not proved]}.
+(\S\ref{sec:boundary}); the lift from winding-2 to full safety is
+\textbf{[PROVED at general $k$ and Lean-verified, 2026-08-21]} via the pruning
+theorem, which with the $k$-cap also makes $\mathrm{Safe}(\rho)$ eventually
+periodic and effectively computable.
 
 The rest of the paper is the dependency chain beneath
 Goal~\ref{goal:recon}: the geometric reduction that makes ``coherence forces a
@@ -132,9 +134,13 @@ polytope) \textbf{[PROVED; the genericity gate is vacuous for the ring used]}; a
 \emph{flow decomposition} (a polytope vertex is a single simple cycle)
 \textbf{[PROVED on a CLASSICAL, axiomatised decomposition]}; and a
 \emph{layer-injectivity discriminant} (that cycle is layer-injective)
-\textbf{[PROVED, machine-verified in Lean~4]}. \textbf{[SCOPE: the criterion is
-about winding-2 obstructions; that this captures full safety rests on the pruning
-lemma, \S\ref{sec:capstone}, and is spot-checked only.]}
+\textbf{[PROVED, machine-verified in Lean~4]}. \textbf{[SCOPE: the criterion as
+proved here is about winding-2 obstructions; that this captures full safety rests
+on the pruning lemma, \S\ref{sec:capstone}. As of 2026-08-21 that lemma is
+PROVED at general $k$ and machine-verified in Lean~4
+(\texttt{QuerySystem/PruningTheorem.lean}, \texttt{TheoremB.lean}), so the bridge
+is no longer spot-checked. It does not close the capstone: see the forcing
+lemma.]}
 
 \paragraph{Instances of the criterion (deferred; proved in the archive).}
 The criterion is exercised, not merely stated, on worked families. The
@@ -180,9 +186,13 @@ Its two halves are: a \emph{re-characterisation} (residue-safety $=$ balance of 
 signed pair-graph) \textbf{[PROVED, structural]}; and the \emph{forcing} proper
 (primitivity excludes the mixed cases) \textbf{[OPEN]}, framed as two
 Perron--Frobenius exclusions and checked without counterexample across several
-thousand primitive languages. Discharging it, together with the winding-2-to-full
-bridge, closes Conjecture~\ref{conj:universal}. \textbf{This lemma is the single
-result the paper is aiming to prove or to state as its open problem.}
+thousand primitive languages. Discharging it closes
+Conjecture~\ref{conj:universal}: the other half, the winding-2-to-full bridge, is
+no longer outstanding --- the pruning theorem is proved at general $k$ and
+Lean-verified, and with the $k$-cap gives
+$\mathrm{Unsafe}(\rho)=\bigcup_{k=2}^{|A|}\mathrm{TR}_k^{(1)}$, so every winding
+is accounted for. \textbf{The forcing lemma is now the single remaining result
+the paper is aiming to prove or to state as its open problem.}
 
 
 \section{Consequences}\label{sec:consequences}

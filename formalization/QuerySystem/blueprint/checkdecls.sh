@@ -34,20 +34,33 @@ fi
   done < <(cat "$DECLS"; echo)
 } > "$OUT"
 
-n=$(grep -c '^#check' "$OUT")
+n=$(grep -c "^#check" "$OUT")
 echo "checking $n blueprint declarations against the Lean environment..."
 
 cd "$PKG"
-if lake env lean "$OUT" 2>&1 | grep -vE "^$" > "$HERE/checkdecls.log"; then
-  if grep -qiE "error" "$HERE/checkdecls.log"; then
-    echo "CHECKDECLS FAIL -- a blueprint \lean{} name does not exist:" >&2
-    grep -iE "error" -A2 "$HERE/checkdecls.log" >&2
-    exit 1
-  fi
+
+# lean-action puts elan on PATH for its own step; do not assume it persists.
+if ! command -v lake >/dev/null 2>&1 && [ -x "$HOME/.elan/bin/lake" ]; then
+  export PATH="$HOME/.elan/bin:$PATH"
 fi
-if grep -qiE "error" "$HERE/checkdecls.log"; then
-  echo "CHECKDECLS FAIL -- a blueprint \lean{} name does not exist:" >&2
-  grep -iE "error" -A2 "$HERE/checkdecls.log" >&2
+if ! command -v lake >/dev/null 2>&1; then
+  echo "CHECKDECLS FAIL: lake is not on PATH -- the check did not run." >&2
+  exit 1
+fi
+
+# Capture rc explicitly. The earlier version piped lean through grep inside an
+# `if`, which meant a lean that never ran (missing lake, bad file) produced an
+# empty log, matched no "error", and reported OK. A check that passes when it
+# did not run is worse than no check -- it is the exact failure this whole
+# gate exists to prevent.
+set +e
+lake env lean "$OUT" > "$HERE/checkdecls.log" 2>&1
+rc=$?
+set -e
+
+if [ "$rc" -ne 0 ] || grep -qiE "error" "$HERE/checkdecls.log"; then
+  echo "CHECKDECLS FAIL (lean exit $rc) -- a blueprint \lean{} name does not resolve:" >&2
+  cat "$HERE/checkdecls.log" >&2
   exit 1
 fi
 echo "CHECKDECLS OK -- all $n names resolve."

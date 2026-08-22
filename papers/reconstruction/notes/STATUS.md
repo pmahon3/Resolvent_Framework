@@ -11,7 +11,17 @@ structure theory (successor programme to the σ-essential witness).
   winding characterisation + **Lean-certified layer-injectivity discriminant**
   (§5).
 - **Fenced as conjecture (NOT claimed proved):** universal impossibility
-  conjecture + pruning lemma + the named k=2 phase gap (§6).
+  conjecture (§6) — specifically the *forcing lemma*, its one open step.
+- **✎2026-08-21 — no longer fenced:** the **pruning lemma** is proved at general
+  `k` and Lean-verified (`QuerySystem/PruningTheorem.lean`, receipts
+  `[propext, Quot.sound]`), and **theorem-let B** with it
+  (`QuerySystem/TheoremB.lean`): `Safe(ρ)` is eventually periodic and
+  effectively computable. The **named k=2 phase gap** (seed §2.2z) is resolved
+  in the statement rather than patched — the phase is absorbed by the strand
+  decomposition, and quantifying over strand interleavings is quantifying over
+  which rotation closes the linking, which is a generator exactly when
+  `gcd(r,k)=1` (Lemma NG covers the non-generator case). What remains fenced is
+  universal impossibility alone.
 - **Consequences:** reconstruction guarantee, scoped to the tame classes;
   one-phenomenon-three-faces tie to Paper II + σ-essential (§7).
 - **Method note:** verdict-grade discipline + Lean certification (§8).

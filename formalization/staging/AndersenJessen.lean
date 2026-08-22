@@ -245,41 +245,125 @@ lemma B_sub_mem_B_zero {k : ℕ} {b b' : ℝ} (hb : b ∈ B α k) (hb' : b' ∈ 
   obtain ⟨n', m', rfl, -, he'⟩ := hb'
   exact ⟨n - n', m - m', by push_cast; ring, by simp, he.sub he'⟩
 
-/-- **Proposition 13, core.** `V + Bₖ` contains no measurable set of positive
-measure. Equivalently, its complement is thick. -/
-theorem M_measurable_subset_null (hα : Irrational α) (k : ℕ)
-    {F : Set ℝ} (hF : MeasurableSet F) (hFM : F ⊆ M α k) :
+/-- Every real is a transversal representative plus an element of `A`. -/
+theorem V_covers (x : ℝ) : ∃ v ∈ V α, x - v ∈ Afull α := by
+  refine ⟨(QuotientAddGroup.mk (s := Afull α) x).out, ⟨_, rfl⟩, ?_⟩
+  have h : (QuotientAddGroup.mk (s := Afull α))
+      ((QuotientAddGroup.mk (s := Afull α) x).out) = QuotientAddGroup.mk x :=
+    Quotient.out_eq _
+  rw [QuotientAddGroup.eq] at h
+  simpa [neg_add_eq_sub] using h
+
+/-- **Proposition 13, core (general form).** If `S ⊆ A` has all its differences
+even, then `V + S` contains no measurable set of positive measure.
+
+The parity hypothesis is the whole content. Steinhaus makes `F - F` a
+neighbourhood of `0`; `C₀` is dense so meets it; the transversal forces any
+element of `A` in `(V+S) - (V+S)` to be a difference of two `S` elements, hence
+even by hypothesis -- contradicting the oddness of the witness.
+
+Both `V + Bₖ` and `V + C₀` satisfy the hypothesis: even minus even is even, and
+odd minus odd is even. -/
+theorem V_add_measurable_subset_null (hα : Irrational α) (S : Set ℝ)
+    (hSdiff : ∀ a ∈ S, ∀ b ∈ S, a - b ∈ B α 0)
+    {F : Set ℝ} (hF : MeasurableSet F)
+    (hFS : F ⊆ {x | ∃ v ∈ V α, ∃ s ∈ S, x = v + s}) :
     MeasureTheory.volume F = 0 := by
   by_contra hpos
   have hp : 0 < MeasureTheory.volume F := pos_iff_ne_zero.mpr hpos
-  -- Steinhaus: F - F is a neighbourhood of 0
   have hnhds : F - F ∈ nhds (0 : ℝ) :=
     MeasureTheory.Measure.sub_mem_nhds_zero_of_addHaar_pos MeasureTheory.volume F hF hp
   obtain ⟨U, hUsub, hUopen, hU0⟩ := mem_nhds_iff.mp hnhds
-  -- C₀ is dense, so it meets U
   obtain ⟨x, hxC, hxU⟩ := (C_zero_dense α hα).exists_mem_open hUopen ⟨0, hU0⟩
   obtain ⟨f, hf, f', hf', rfl⟩ : ∃ f ∈ F, ∃ f' ∈ F, x = f - f' := by
     obtain ⟨f, hf, f', hf', hx⟩ := hUsub hxU
     exact ⟨f, hf, f', hf', hx.symm⟩
-  obtain ⟨v, hv, b, hb, rfl⟩ := hFM hf
-  obtain ⟨v', hv', b', hb', rfl⟩ := hFM hf'
-  -- the C₀ witness lies in A, which forces the representatives to agree
+  obtain ⟨v, hv, b, hb, rfl⟩ := hFS hf
+  obtain ⟨v', hv', b', hb', rfl⟩ := hFS hf'
   obtain ⟨n, m, hxn, -, hodd⟩ := hxC
   have hxA : (v + b) - (v' + b') ∈ Afull α := ⟨n, m, hxn⟩
   have hbb : b - b' ∈ Afull α := by
-    obtain ⟨p, q, hpq, -, -⟩ := B_sub_mem_B_zero α hb hb'
+    obtain ⟨p, q, hpq, -, -⟩ := hSdiff b hb b' hb'
     exact ⟨p, q, hpq⟩
   have hvv : v - v' ∈ Afull α := by
-    have : v - v' = ((v + b) - (v' + b')) - (b - b') := by ring
-    rw [this]
+    have hrw : v - v' = ((v + b) - (v' + b')) - (b - b') := by ring
+    rw [hrw]
     exact (Afull α).sub_mem hxA hbb
   have hveq : v = v' := V_unique α hv hv' hvv
   subst hveq
-  -- so the witness is a difference of two Bₖ elements, hence even
   have hxB : (v + b) - (v + b') ∈ B α 0 := by
-    have : (v + b) - (v + b') = b - b' := by ring
-    rw [this]
-    exact B_sub_mem_B_zero α hb hb'
+    have hrw : (v + b) - (v + b') = b - b' := by ring
+    rw [hrw]
+    exact hSdiff b hb b' hb'
   exact (Set.disjoint_left.mp (B_disjoint_C α hα)) hxB ⟨n, m, hxn, by simp, hodd⟩
+
+/-- `V + Bₖ` contains no measurable set of positive measure. -/
+theorem M_measurable_subset_null (hα : Irrational α) (k : ℕ)
+    {F : Set ℝ} (hF : MeasurableSet F) (hFM : F ⊆ M α k) :
+    MeasureTheory.volume F = 0 :=
+  V_add_measurable_subset_null α hα (B α k)
+    (fun a ha b hb => B_sub_mem_B_zero α ha hb) hF hFM
+
+/-- Odd minus odd is even. -/
+theorem C_sub_mem_B_zero {c c' : ℝ} (hc : c ∈ C α 0) (hc' : c' ∈ C α 0) :
+    c - c' ∈ B α 0 := by
+  obtain ⟨n, m, rfl, -, ho⟩ := hc
+  obtain ⟨n', m', rfl, -, ho'⟩ := hc'
+  refine ⟨n - n', m - m', by push_cast; ring, by simp, ?_⟩
+  rw [Int.not_even_iff_odd] at ho ho'
+  exact ho.sub_odd ho'
+
+/-- `V + C₀` likewise contains no measurable set of positive measure. -/
+theorem VC_measurable_subset_null (hα : Irrational α)
+    {F : Set ℝ} (hF : MeasurableSet F)
+    (hFM : F ⊆ {x | ∃ v ∈ V α, ∃ c ∈ C α 0, x = v + c}) :
+    MeasureTheory.volume F = 0 :=
+  V_add_measurable_subset_null α hα (C α 0)
+    (fun a ha b hb => C_sub_mem_B_zero α ha hb) hF hFM
+
+/-! ### Step 7: `M₀` is thick
+
+At `k = 0` the transversal decomposition splits `ℝ` exactly: every real is
+`v + a` with `a ∈ A`, and `a` is even or odd, so `M₀ᶜ = V + C₀`. Both halves
+satisfy the parity hypothesis of `V_add_measurable_subset_null`, so neither
+contains a positive-measure measurable set -- which is thickness for each. -/
+
+theorem C_subset_A {k : ℕ} : C α k ⊆ A α := by
+  rintro x ⟨n, m, rfl, -, -⟩
+  exact ⟨n, m, rfl⟩
+
+theorem M_zero_compl (hα : Irrational α) :
+    (M α 0)ᶜ = {x | ∃ v ∈ V α, ∃ c ∈ C α 0, x = v + c} := by
+  ext x
+  simp only [Set.mem_compl_iff, Set.mem_setOf_eq, M]
+  constructor
+  · intro hx
+    obtain ⟨v, hv, n, m, hnm⟩ := V_covers α x
+    by_cases he : Even n
+    · exact absurd ⟨v, hv, x - v, ⟨n, m, hnm, by simp, he⟩, by ring⟩ hx
+    · exact ⟨v, hv, x - v, ⟨n, m, hnm, by simp, he⟩, by ring⟩
+  · rintro ⟨v, hv, c, hc, rfl⟩ ⟨v', hv', b, hb, heq⟩
+    have hcA : c ∈ Afull α := C_subset_A α hc
+    have hbA : b ∈ Afull α := B_subset_A α hb
+    have hvv : v - v' ∈ Afull α := by
+      have hrw : v - v' = b - c := by linarith [heq]
+      rw [hrw]
+      exact (Afull α).sub_mem hbA hcA
+    have hveq : v = v' := V_unique α hv hv' hvv
+    subst hveq
+    have : c = b := by linarith [heq]
+    subst this
+    exact (Set.disjoint_left.mp (B_disjoint_C α hα)) hb hc
+
+/-- **`M₀` is thick**: every measurable set disjoint from it is null. This is
+what makes the trace measure of Proposition 14 well defined. -/
+theorem M_zero_thick (hα : Irrational α) {E : Set ℝ} (hE : MeasurableSet E)
+    (hdisj : E ∩ M α 0 = ∅) : MeasureTheory.volume E = 0 := by
+  refine VC_measurable_subset_null α hα hE ?_
+  rw [← M_zero_compl α hα]
+  intro y hy hyM
+  have hmem : y ∈ E ∩ M α 0 := ⟨hy, hyM⟩
+  rw [hdisj] at hmem
+  exact hmem
 
 end AndersenJessen

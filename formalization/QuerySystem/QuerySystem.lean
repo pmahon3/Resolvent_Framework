@@ -39,6 +39,7 @@ import QuerySystem.DescentWitnessConsistency
 import QuerySystem.DescentWitnessFinite
 import QuerySystem.DescentWitnessInfinite
 import QuerySystem.DiscriminabilityFoundations
+import QuerySystem.ExtensionObstruction
 import QuerySystem.EncodingDefectCheck
 import QuerySystem.FibreProductReflection
 import QuerySystem.FiniteAtomFoldKernel

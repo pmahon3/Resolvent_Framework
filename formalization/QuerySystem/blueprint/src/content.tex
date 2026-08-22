@@ -804,3 +804,57 @@ The index-layer condition alone is also insufficient
 condition and an index-layer condition are both required, with a counterexample
 in each direction.
 \end{remark}
+
+\section{The obstruction, formalized}
+
+\begin{definition}[Escaping tower]
+\label{def:escaping-tower}
+\lean{QuerySystem.EscapingTower}
+\leanok
+\uses{def:cylinder, def:ncc}
+A decreasing sequence of cylinder events, each of full charge, with empty
+intersection. Every finite stage carries all the mass; the limit carries none.
+In Andersen--Jessen these are the diagonal cylinders over a decreasing sequence
+of thick sets.
+\end{definition}
+
+\begin{theorem}[No extension over an escaping tower]
+\label{thm:no-extension-tower}
+\lean{QuerySystem.not_exists_extension_of_escapingTower}
+\leanok
+\uses{def:escaping-tower}
+A query system carrying an escaping tower admits no extension of its charges to
+a probability measure on $\Omega$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+Continuity from above: each stage has measure $1$, the intersection has measure
+$0$, and a constant sequence cannot converge to both.
+
+Note the hypotheses: there are none on $S$. No directedness, no surjectivity,
+no collective exhaustion. The tower alone is fatal --- which is why
+strengthening the index layer was the only available repair for
+\ref{thm:stone-observational-extension}. One cannot patch the conclusion or the
+valuation layer around a tower; one can only assume an index layer rich enough
+that no tower exists.
+\end{proof}
+
+\begin{remark}[What remains unformalized]
+\label{rmk:tower-remaining}
+\uses{thm:no-extension-tower, rmk:kolmogorov-refuted}
+\ref{thm:no-extension-tower} is the framework-specific half of
+\ref{rmk:kolmogorov-refuted} and is now machine-checked. What is not formalized
+is the Andersen--Jessen system that supplies the tower: it needs a decreasing
+sequence of \emph{thick} subsets of $[0,1]$ with empty intersection, built as
+$X_k = (V + B_k) \cap [0,1]$ with $V$ a transversal of
+$\mathbb{R}/(\mathbb{Z}+\alpha\mathbb{Z})$ and
+$B_k = \{n+m\alpha : |n| \geq k,\ n \text{ even}\}$. Thickness follows from the
+measure-theoretic Steinhaus theorem, which Mathlib has as
+\texttt{div\_mem\_nhds\_one\_of\_haar\_pos}; the transversal is
+\texttt{Quotient.out'}. Mathlib has neither thick sets nor a Vitali-style
+transversal, so this is a real construction project.
+
+Until it is done, the claim that the original statement was false rests on a
+hand check against the source, not on the kernel. The mechanism does not.
+\end{remark}

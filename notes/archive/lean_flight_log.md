@@ -32,9 +32,14 @@ dead, on this machine. The measured eval numbers (43/43/56) predate the block
 and stand; they are not reproducible here until it is resolved.
 
 Recorded in `formalization/tools/prover/README.md` with the options, one of
-which — disabling SAC — is irreversible on Windows 11 and should not be taken
-casually for an automation arm that has so far contributed nothing to any
-result in this development.
+which — disabling SAC — is irreversible on Windows 11.
+
+**Resolution, same day:** SAC disabled on `tower`; the REPL arm runs again.
+There was no narrower fix available — SAC has no allowlist, no per-app
+exception, and no folder exclusion, so the only control is on/off and off is
+permanent. Worth stating plainly that this bought back an automation arm which
+has not yet produced a result in this development; the case for it rests on the
+measurement it now finally makes possible, not on anything it has done.
 
 ---
 

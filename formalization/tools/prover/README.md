@@ -19,40 +19,29 @@ Measurement, results and the resulting work plan:
 | `sorries.py` | separates real open goals from `sorry` in docstring prose |
 | `Modelfile.bfs` | Ollama model definition — empty template so the `:::` format is not wrapped in chat markup |
 
-## ⚠ BLOCKED ON THIS MACHINE (2026-08-22): Smart App Control
+## Environment note: Smart App Control (resolved 2026-08-22)
 
-The REPL arm does not run on `tower` any more, and nothing in this directory
-that needs `repl.exe` will work until that is resolved.
+For a few hours on 2026-08-22 the REPL arm did not run on `tower`. Windows 11
+**Smart App Control**, in enforce mode, refuses to execute `repl.exe`: it is
+unsigned and locally built, so it has a unique hash with no cloud reputation,
+which is precisely SAC's target. Under `lake env` the failure surfaces as
+`error code: 4551`, and `bfs.py` sends REPL stderr to `DEVNULL` (the fix for the
+64K-pipe deadlock), so the caller sees only `repl exited` or `BrokenPipeError`.
+It looks like a REPL crash and is not one.
 
-    An Application Control policy has blocked this file
+What misled the diagnosis: `lean.exe` and `lake.exe` are unsigned too and run
+without complaint, because they are widely distributed and carry reputation.
+SAC discriminates on reputation, not signature alone. `lake build`,
+`lake env lean`, the sorry ratchet and `checkdecls` were never affected -- CI
+stayed green throughout. Only the REPL search arm was dead.
 
-Windows 11 **Smart App Control** is in enforce mode
-(`HKLM:\SYSTEM\CurrentControlSet\Control\CI\Policy`,
-`VerifiedAndReputablePolicyState = 1`). `repl.exe` is `NotSigned` and, being a
-local build with a unique hash, has no cloud reputation, so SAC refuses to
-execute it. The failure surfaces as `error code: 4551` from the REPL and
-`repl exited` / `BrokenPipeError` from `bfs.py`, because `Repl` sends stderr to
-`DEVNULL` -- it looks like a REPL crash and is not one.
-
-Note `lean.exe` and `lake.exe` are unsigned too and run fine: they are widely
-distributed and carry reputation. `lake build`, `lake env lean`, the sorry
-ratchet and `checkdecls` are all unaffected. Only the REPL arm is blocked.
-
-Rebuilding does not help -- a fresh build is a new hash with, again, no
-reputation.
-
-Options, none free:
-* disable Smart App Control -- **irreversible** on Windows 11 (off is a one-way
-  door; re-enabling needs an OS reinstall). A real security-posture decision,
-  not a workaround.
-* run the prover arm on another machine (the Mac has no SAC; Fir is gated, see
-  `notes/open_questions/oml_attack/FIR_COMPUTE_GATE.md`).
-* drop the REPL and use splice-and-recompile as `verify.py` does. Correct but
-  impractical for search: one full elaboration per tactic trial, so a 40x8
-  budget is ~320 compiles per goal.
-
-The measured results below were obtained BEFORE the block and stand as recorded;
-they are simply not reproducible on this machine right now.
+**Resolved by disabling Smart App Control on `tower`.** Note this is a one-way
+door on Windows 11: SAC cannot be re-enabled without reinstalling the OS. There
+is no per-app allowlist -- SAC has no exception mechanism at all -- so no
+narrower fix existed. Recorded here because anyone reproducing this harness on
+a fresh Windows 11 machine will hit the same wall, and because the diagnosis
+(`repl.exe` run directly from PowerShell, which reports *An Application Control
+policy has blocked this file*) is not obvious from the symptom.
 
 ## Prerequisites
 

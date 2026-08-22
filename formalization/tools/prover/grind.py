@@ -39,12 +39,62 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bfs import Repl, ReplTimeout, search_from, BASELINE_TACTICS  # noqa: E402
 
 
+DECL_RE = re.compile(
+    r"^(?:/--|@\[|private\s|protected\s|noncomputable\s|theorem\s|lemma\s|def\s|"
+    r"instance\s|abbrev\s|structure\s|example\s)", re.M)
+
+
+def decl_spans(src):
+    """Byte spans of top-level declarations, in order."""
+    starts = [m.start() for m in DECL_RE.finditer(src)]
+    if not starts:
+        return []
+    return [(a, b) for a, b in zip(starts, starts[1:] + [len(src)])]
+
+
 def sorries_of(repl, src):
-    """Every `sorry` in the file, with its proofState and goal."""
-    out = repl.send({"cmd": src})
-    errs = [m for m in (out.get("messages") or [])
-            if m.get("severity") == "error"]
-    return out.get("sorries") or [], errs
+    """Every `sorry` in the file, with a proofState that CAN SEE the file's own
+    definitions.
+
+    Sending the whole file as one `cmd` does NOT do this: the proof states it
+    returns lack that command's own constants, so every tactic mentioning a
+    local definition dies with `unknown constant`, the search exhausts in
+    seconds, and the run looks like a weak model rather than a broken harness.
+    That is exactly the bug `bfs.file_envs` exists to avoid, rediscovered here
+    the hard way.
+
+    So: replay the file declaration by declaration, committing each to the
+    environment before asking for the next one's goals.
+    """
+    spans = decl_spans(src)
+    if not spans:
+        out = repl.send({"cmd": src})
+        return (out.get("sorries") or []), _errs(out)
+
+    prologue = src[:spans[0][0]]
+    env, sorries, errors = None, [], []
+    if prologue.strip():
+        out = repl.send({"cmd": prologue})
+        env = out.get("env", env)
+        errors += _errs(out)
+
+    for a, b in spans:
+        chunk = src[a:b]
+        msg = {"cmd": chunk} if env is None else {"cmd": chunk, "env": env}
+        out = repl.send(msg)
+        env = out.get("env", env)
+        errors += _errs(out)
+        for so in (out.get("sorries") or []):
+            # positions are chunk-relative; make them file-relative
+            if isinstance(so.get("pos"), dict) and "line" in so["pos"]:
+                so["pos"] = dict(so["pos"],
+                                 line=so["pos"]["line"] + src.count(chr(10), 0, a))
+            sorries.append(so)
+    return sorries, errors
+
+
+def _errs(out):
+    return [m for m in (out.get("messages") or []) if m.get("severity") == "error"]
 
 
 def line_of(src, pos):
@@ -112,7 +162,7 @@ def main():
         if proof is None and not a.no_model:
             proof, stats = search_from(repl, s["proofState"], goal, a.model,
                                        max_expansions=a.budget, k=a.k,
-                                       verbose=False)
+                                       verbose=False, extra=extra)
             arm = "model"
         if proof:
             print(f"        CLOSED [{arm}] {' ; '.join(proof)}")

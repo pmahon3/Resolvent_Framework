@@ -43,6 +43,34 @@ a fresh Windows 11 machine will hit the same wall, and because the diagnosis
 (`repl.exe` run directly from PowerShell, which reports *An Application Control
 policy has blocked this file*) is not obvious from the symptom.
 
+## The bug that will silently ruin a run
+
+`grind.py` originally sent the whole file to the REPL as ONE `cmd` and worked on
+the sorries it returned. Proof states obtained that way **cannot see that
+command's own constants**: every tactic naming a local definition dies with
+`unknown constant`, the search empties its queue in about three seconds, and the
+run reports `0/N` as if the model were useless.
+
+It is the same defect `bfs.file_envs` exists to prevent, rediscovered by not
+applying the lesson. What masked it: a file whose goals mention only Mathlib
+names works perfectly (`Smoke.lean` scored 4/4 throughout), so the harness looks
+healthy exactly until it is pointed at real work.
+
+Fixed by replaying declaration by declaration, committing each to the
+environment before asking for the next one's goals. Measured on the same five
+goals, same model, same budget:
+
+| harness | closed |
+|---|---|
+| whole-file `cmd` (broken) | 0 / 5 |
+| per-declaration replay | **3 / 5** |
+
+The three include a five-component anonymous constructor with side conditions.
+All three were re-checked by splicing them into `staging/ProbeCheck.lean` and
+compiling — the REPL's verdict was not taken on trust.
+
+If a future run reports a suspiciously round zero, check this first.
+
 ## Prerequisites
 
 - Ollama serving `bfs-prover:7b-q4`

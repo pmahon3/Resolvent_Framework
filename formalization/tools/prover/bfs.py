@@ -148,7 +148,7 @@ def search(repl, case, env, model, max_expansions=40, k=8, verbose=True):
     return search_from(repl, root, goal0, model, max_expansions, k, verbose, t0)
 
 
-def search_from(repl, root, goal0, model, max_expansions=40, k=8, verbose=True, t0=None):
+def search_from(repl, root, goal0, model, max_expansions=40, k=8, verbose=True, t0=None, extra=None):
     """Best-first search from an existing proofState. Split out of `search` so
     `grind.py` can drive it on the sorries the REPL reports for a whole file,
     rather than on a reconstructed statement. One implementation, no copy."""
@@ -161,7 +161,7 @@ def search_from(repl, root, goal0, model, max_expansions=40, k=8, verbose=True, 
     while pq and exp < max_expansions:
         depth, _, ps, goal, path = heapq.heappop(pq)
         exp += 1
-        for t in tactics(model, goal, k):
+        for t in (tactics(model, goal, k) + (extra or [])):
             try:
                 rr = repl.send({"tactic": t, "proofState": ps})
             except Exception:

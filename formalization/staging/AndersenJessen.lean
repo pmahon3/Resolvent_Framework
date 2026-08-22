@@ -39,7 +39,22 @@ def B (k : ℕ) : Set ℝ := {x | ∃ n m : ℤ, x = (n : ℝ) + m * α ∧ (k :
 integer coordinate. -/
 theorem repr_unique (hα : Irrational α) {n m n' m' : ℤ}
     (h : (n : ℝ) + m * α = (n' : ℝ) + m' * α) : n = n' ∧ m = m' := by
-  sorry
+  -- If m ≠ m' then α = (n' - n)/(m - m') is rational, contradicting hα.
+  have hm : m = m' := by
+    by_contra hne
+    have hd : ((m - m' : ℤ) : ℝ) ≠ 0 := by
+      exact_mod_cast sub_ne_zero.mpr hne
+    have hsub : ((m - m' : ℤ) : ℝ) * α = ((n' - n : ℤ) : ℝ) := by
+      push_cast
+      linarith
+    have hq : α = ((n' - n : ℤ) : ℝ) / ((m - m' : ℤ) : ℝ) := by
+      rw [eq_div_iff hd, mul_comm]
+      exact hsub
+    exact Irrational.ne_rational hα (n' - n) (m - m') hq
+  refine ⟨?_, hm⟩
+  subst hm
+  have hn : (n : ℝ) = (n' : ℝ) := by linarith
+  exact_mod_cast hn
 
 theorem repr_unique_left (hα : Irrational α) {n m n' m' : ℤ}
     (h : (n : ℝ) + m * α = (n' : ℝ) + m' * α) : n = n' :=
@@ -47,42 +62,69 @@ theorem repr_unique_left (hα : Irrational α) {n m n' m' : ℤ}
 
 /-! ### Step 2: `Bₖ` is decreasing with empty intersection -/
 
+theorem B_subset_A {k : ℕ} : B α k ⊆ A α := by
+  rintro x ⟨n, m, rfl, -, -⟩
+  exact ⟨n, m, rfl⟩
+
 theorem B_antitone : Antitone (B α) := by
-  sorry
+  intro k l hkl x hx
+  obtain ⟨n, m, rfl, hn, he⟩ := hx
+  exact ⟨n, m, rfl, le_trans (by exact_mod_cast hkl) hn, he⟩
 
 theorem B_iInter_eq_empty (hα : Irrational α) : (⋂ k : ℕ, B α k) = ∅ := by
-  sorry
+  ext x
+  simp only [Set.mem_iInter, Set.mem_empty_iff_false, iff_false]
+  intro h
+  obtain ⟨n, m, hx, -, -⟩ := h 0
+  obtain ⟨n', m', hx', hn', -⟩ := h (n.natAbs + 1)
+  have hnn : n = n' := (repr_unique α hα (hx.symm.trans hx')).1
+  subst hnn
+  rw [Int.abs_eq_natAbs] at hn'
+  omega
 
 /-! ### Step 3: closure properties used for density
 
-`Bₖ` is closed under negation and under multiplication by even integers; these
-are what let the standard equidistribution argument conclude density from a
-single small element. -/
+`Bₖ` is closed under negation and under multiplication by NONZERO even
+integers; these are what let the standard equidistribution argument conclude
+density from a single small element.
+
+Note the nonzero hypothesis on `j`: without it `j * x = 0`, whose integer
+coordinate is `0`, and `k ≤ |0|` fails for `k > 0`. The first draft of this
+file omitted it and was false. -/
 
 theorem B_neg_mem {k : ℕ} {x : ℝ} (hx : x ∈ B α k) : -x ∈ B α k := by
-  sorry
+  obtain ⟨n, m, rfl, hn, he⟩ := hx
+  refine ⟨-n, -m, by push_cast; ring, ?_, he.neg⟩
+  rwa [abs_neg]
 
-theorem B_even_smul_mem {k : ℕ} {x : ℝ} (j : ℤ) (hj : Even j) (hx : x ∈ B α k) :
-    (j : ℝ) * x ∈ B α k := by
-  sorry
+theorem B_even_smul_mem {k : ℕ} {x : ℝ} (j : ℤ) (hj : Even j) (hj0 : j ≠ 0)
+    (hx : x ∈ B α k) : (j : ℝ) * x ∈ B α k := by
+  obtain ⟨n, m, rfl, hn, he⟩ := hx
+  refine ⟨j * n, j * m, by push_cast; ring, ?_, hj.mul_right n⟩
+  calc (k : ℤ) ≤ |n| := hn
+    _ ≤ |j| * |n| := le_mul_of_one_le_left (abs_nonneg n) (Int.one_le_abs hj0)
+    _ = |j * n| := (abs_mul j n).symm
 
 theorem A_mem_sub {x y : ℝ} (hx : x ∈ A α) (hy : y ∈ A α) : x - y ∈ A α := by
-  sorry
+  obtain ⟨n, m, rfl⟩ := hx
+  obtain ⟨n', m', rfl⟩ := hy
+  exact ⟨n - n', m - m', by push_cast; ring⟩
 
 theorem B_sub_mem_A {k : ℕ} {x y : ℝ} (hx : x ∈ B α k) (hy : y ∈ B α k) :
-    x - y ∈ A α := by
-  sorry
+    x - y ∈ A α :=
+  A_mem_sub α (B_subset_A α hx) (B_subset_A α hy)
 
 /-! ### Step 4: parity separation
 
-`B₀` and `C₀` (odd coordinate) are disjoint. This is the contradiction that
-closes Proposition 13: a difference of two `Bₖ` elements has even coordinate,
-so it cannot lie in the odd part. -/
+The contradiction that closes Proposition 13: a difference of two `Bₖ`
+elements has even integer coordinate, so it cannot lie in the odd part. -/
 
 /-- The odd half of `A`. -/
 def C (k : ℕ) : Set ℝ := {x | ∃ n m : ℤ, x = (n : ℝ) + m * α ∧ (k : ℤ) ≤ |n| ∧ ¬ Even n}
 
 theorem B_disjoint_C (hα : Irrational α) : Disjoint (B α 0) (C α 0) := by
-  sorry
+  rw [Set.disjoint_left]
+  rintro x ⟨n, m, hx, -, he⟩ ⟨n', m', hx', -, he'⟩
+  exact he' ((repr_unique α hα (hx.symm.trans hx')).1 ▸ he)
 
 end AndersenJessen

@@ -63,9 +63,20 @@ def main():
     ap.add_argument("--budget", type=int, default=40)
     ap.add_argument("--k", type=int, default=8)
     ap.add_argument("--timeout", type=int, default=600)
+    ap.add_argument("--pre", default="",
+                    help="extra tactics for the automation arm, ';;'-separated. "
+                         "Use for definitional openers, e.g. "
+                         "--pre 'simp only [B, A, Set.mem_setOf_eq]'. Without an "
+                         "opening move the baseline list cannot touch a goal "
+                         "stated over an opaque def.")
     ap.add_argument("--apply", action="store_true",
                     help="splice closed proofs back into the file")
     a = ap.parse_args()
+
+    extra = [t.strip() for t in a.pre.split(";;") if t.strip()]
+    base = BASELINE_TACTICS + extra
+    if extra:
+        print(f"automation arm extended with {len(extra)} opener(s): {extra}")
 
     src = open(a.target, encoding="utf-8").read()
     t0 = time.time()
@@ -94,8 +105,8 @@ def main():
         proof, stats = None, {}
         # arm 1: Mathlib automation (cheap)
         proof, stats = search_from(repl, s["proofState"], goal, "__baseline__",
-                                   max_expansions=len(BASELINE_TACTICS) + 4,
-                                   k=len(BASELINE_TACTICS), verbose=False)
+                                   max_expansions=2 * len(base) + 8,
+                                   k=len(base), verbose=False, extra=extra)
         arm = "automation"
         # arm 2: the model, only on what automation missed
         if proof is None and not a.no_model:

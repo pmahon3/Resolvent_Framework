@@ -80,10 +80,21 @@ theorem Thick.volume_iUnion {X : Set ℝ} (hX : Thick X) (E : ℕ → Set ℝ)
     volume (⋃ n, E n) = ∑' n, volume (E n) := by
   sorry
 
-/-- A thick subset of `[0,1]` has full outer measure there. -/
-theorem Thick.volume_Icc {X : Set ℝ} (hX : Thick X) (hsub : X ⊆ Set.Icc 0 1)
+/-- A measurable set that covers a thick set on `[0,1]` is conull there.
+
+The earlier form of this carried `hsub : X ⊆ Set.Icc 0 1`, which made it
+vacuous: `Thick` quantifies over every measurable subset of `ℝ`, so a thick set
+confined to `[0,1]` would force `volume (Set.Icc 2 3) = 0`. No `X` satisfies
+both hypotheses, and the prover loop "proved" it by finding that contradiction
+rather than the intended fact. `hsub` is not needed -- `hEX` already puts
+`Set.Icc 0 1 \ E` outside `X`, and it is measurable, so thickness applies. -/
+theorem Thick.volume_Icc {X : Set ℝ} (hX : Thick X)
     {E : Set ℝ} (hE : MeasurableSet E) (hEX : Set.Icc 0 1 \ E ⊆ Set.Icc 0 1 \ X) :
     volume (Set.Icc (0:ℝ) 1 \ E) = 0 := by
-  sorry
+  refine hX (measurableSet_Icc.diff hE) ?_
+  ext x
+  simp only [Set.mem_inter_iff, Set.mem_empty_iff_false, iff_false, not_and]
+  intro hx hxX
+  exact (hEX hx).2 hxX
 
 end Prop14

@@ -110,6 +110,7 @@ def sorries_of(repl, src):
 
     for a, b in spans:
         chunk = src[a:b]
+        env_before = env
         msg = {"cmd": chunk} if env is None else {"cmd": chunk, "env": env}
         out = repl.send(msg)
         env = out.get("env", env)
@@ -117,12 +118,52 @@ def sorries_of(repl, src):
         nm = NAME_RE.search(chunk)
         for so in (out.get("sorries") or []):
             so["decl"] = nm.group(1) if nm else "?"
+            # Keep what `confirm` needs: the declaration's own text and the
+            # environment it was elaborated in.
+            so["_chunk"], so["_env"] = chunk, env_before
             # positions are chunk-relative; make them file-relative
             if isinstance(so.get("pos"), dict) and "line" in so["pos"]:
                 so["pos"] = dict(so["pos"],
                                  line=so["pos"]["line"] + src.count(chr(10), 0, a))
             sorries.append(so)
     return sorries, errors
+
+
+NL = chr(10)
+SORRY_RE = re.compile(r"(?m)^([ 	]*)sorry[ 	]*$")
+
+
+def confirm(repl, so, proof):
+    """Re-elaborate a found proof as real file text.
+
+    The search accepts a tactic when the REPL reports no remaining goals, but
+    that is not the same as the declaration compiling. A `?_` in *term*
+    position (e.g. `rcases h (fun x hx => ?_) hy`) defers its metavariable:
+    the REPL reports no goals while the hole is still unsynthesized, and the
+    file then fails with "don't know how to synthesize placeholder". So splice
+    the proof in and elaborate the whole declaration, which is what the file
+    will do. Returns (ok, detail).
+    """
+    chunk, env = so.get("_chunk"), so.get("_env")
+    if chunk is None:
+        return True, "not confirmed (no chunk)"
+    holes = SORRY_RE.findall(chunk)
+    if len(holes) != 1:
+        return True, f"not confirmed ({len(holes)} sorries in decl)"
+    body = NL.join(holes[0] + t.strip() for t in proof)
+    msg = {"cmd": SORRY_RE.sub(lambda _: body, chunk, count=1)}
+    if env is not None:
+        msg["env"] = env
+    try:
+        out = repl.send(msg)
+    except Exception as e:
+        return False, f"confirm raised {type(e).__name__}"
+    errs = _errs(out)
+    if errs:
+        return False, (errs[0].get("data") or "error")[:120].replace(NL, " ")
+    if out.get("sorries"):
+        return False, "still contains sorry"
+    return True, "confirmed"
 
 
 def _errs(out):
@@ -197,8 +238,16 @@ def main():
                                        verbose=False, extra=extra)
             arm = "model"
         if proof:
-            print(f"        CLOSED [{arm}] {' ; '.join(proof)}")
-        else:
+            ok, why = confirm(repl, s, proof)
+            if not ok:
+                # The search saw no goals but the declaration does not compile.
+                print(f"        REJECTED [{arm}] {why}")
+                print(f"          was: {' ; '.join(proof)}")
+                proof = None
+                stats = dict(stats, reason="rejected", rejected=why)
+            else:
+                print(f"        CLOSED [{arm}] {' ; '.join(proof)}")
+        if not proof:
             print(f"        open ({stats.get('reason')}, {stats.get('secs')}s)")
         results.append({"decl": s.get("decl"), "index": idx - 1,
                         "line": line_of(src, s.get("pos")),

@@ -9,7 +9,10 @@ import os, json, heapq, subprocess, time, urllib.request, itertools, threading, 
 
 PROJ = r"C:\Users\pmahon\Research\Mathematics\Resolvent_Framework\formalization\QuerySystem"
 REPL = r"C:\Users\pmahon\Research\Mathematics\repl\.lake\build\bin\repl.exe"
-OLLAMA = "http://127.0.0.1:11434/api/generate"
+# Endpoint is configurable so a second instance can be driven on another GPU:
+#   CUDA_VISIBLE_DEVICES=1 OLLAMA_HOST=127.0.0.1:11435 ollama serve
+#   OLLAMA_URL=http://127.0.0.1:11435/api/generate python grind.py ...
+OLLAMA = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434/api/generate")
 
 
 from verify import ENV, LAKE  # resolved absolute lake.exe + machine PATH

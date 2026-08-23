@@ -67,3 +67,5 @@ formalization/staging/*_retro.lean
 
 # prover run logs
 formalization/staging/runs/
+
+formalization/staging/*_verify.lean

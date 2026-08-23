@@ -41,3 +41,9 @@ QuerySystem.not_exists_extension_of_escapingTower
 QuerySystem.counterexampleTower
 QuerySystem.counterexample_no_extension
 Reconstruction.Pruning.isLISC_addOrderOf_of_isTR
+AndersenJessen.A
+AndersenJessen.repr_unique
+AndersenJessen.Afull_dense
+AndersenJessen.V_unique
+AndersenJessen.V_add_finite_measurable_null
+AndersenJessen.X_thick

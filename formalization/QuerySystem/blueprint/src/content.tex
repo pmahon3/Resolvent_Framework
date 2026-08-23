@@ -918,3 +918,123 @@ Feeding this to \ref{lem:ng} gives the winding-$m$ conclusion with no data
 argument. Still open: pairwise disjointness of the $d$ orbit cycles, and the
 refutation half (C4dir at $L = 2$), which stays machine-checked in the oracle.
 \end{proof}
+
+\chapter{Andersen--Jessen: the thick tower}
+
+The counterexample that refutes observational extension under plain
+upper-directedness needs one object: a decreasing family of subsets of $[0,1]$,
+each of full outer measure, whose intersection is empty. Every level carries all
+the measure, the limit carries none. That is the non-regularity phenomenon
+itself, and it has no analogue over Polish spaces.
+
+Built here by a shorter route than the source (Border, following
+Halmos pp.~68--70), which uses a parity split. Parity caps out: a set with all
+even differences lies in a coset of $2\mathbb{Z}+\alpha\mathbb{Z}$, and there are
+only two such cosets, so it can never separate more than two pieces. Finiteness
+has no such cap. See \texttt{notes/andersen\_jessen\_brief.md}.
+
+\begin{definition}[The group and its parts]
+\label{def:aj-A}
+\lean{AndersenJessen.A}
+\leanok
+$A = \mathbb{Z} + \alpha\mathbb{Z}$ for $\alpha$ irrational, with $B_k$ its
+elements of even integer coordinate and $|n| \geq k$, and $C_k$ the odd ones.
+\end{definition}
+
+\begin{lemma}[Distinctness --- the keystone]
+\label{lem:aj-repr}
+\lean{AndersenJessen.repr_unique}
+\leanok
+\uses{def:aj-A}
+For $\alpha$ irrational, $n + m\alpha$ determines $n$ and $m$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Otherwise $\alpha = (n'-n)/(m-m')$ is rational. Everything about the tower rests
+on this: it is what gives each element of $A$ a well-defined integer coordinate,
+hence what makes $\bigcap_k B_k = \emptyset$ true.
+\end{proof}
+
+\begin{lemma}[Density]
+\label{lem:aj-dense}
+\lean{AndersenJessen.Afull_dense}
+\leanok
+\uses{def:aj-A}
+$A$ is dense in $\mathbb{R}$.
+\end{lemma}
+
+\begin{proof}
+\leanok
+$2\mathbb{Z}+\alpha\mathbb{Z}$ is a subgroup, so by
+\texttt{AddSubgroup.dense\_or\_cyclic} it is dense or cyclic; a generator $g$
+would give $2 = pg$ and $\alpha = qg$, making $\alpha = 2q/p$ rational. Density
+of $A$ follows by monotonicity. The source instead proves density of $B_k$ and
+$C_k$ for every $k$ by an equidistribution argument; that is not needed.
+\end{proof}
+
+\begin{lemma}[The transversal]
+\label{lem:aj-V}
+\lean{AndersenJessen.V_unique}
+\leanok
+\uses{def:aj-A}
+$V$, a set of coset representatives for $\mathbb{R}/A$, has the only property the
+argument uses: two representatives congruent mod $A$ are equal.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\texttt{Quotient.out} on $\mathbb{R} \mathbin{/} A$.
+\end{proof}
+
+\begin{theorem}[Finiteness beats parity]
+\label{thm:aj-finite}
+\lean{AndersenJessen.V_add_finite_measurable_null}
+\leanok
+\uses{lem:aj-V, lem:aj-dense}
+For FINITE $F \subseteq A$, the set $V + F$ contains no measurable set of
+positive measure.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:aj-dense}
+If it did, Steinhaus
+(\texttt{Measure.sub\_mem\_nhds\_zero\_of\_addHaar\_pos}) puts a neighbourhood
+of $0$ inside $F' - F'$. $F - F$ is finite while $A$ is dense, so some element of
+$A$ lies in that neighbourhood and outside $F - F$; the transversal then forces
+it into $F - F$ after all.
+
+This is the replacement for the source's Proposition 13, and it is what gives
+thickness at EVERY level rather than only at $k = 0$.
+\end{proof}
+
+\begin{theorem}[The thick tower]
+\label{thm:aj-tower}
+\lean{AndersenJessen.X_thick}
+\leanok
+\uses{thm:aj-finite, lem:aj-repr}
+With $A$ enumerated, set $X_k = V + \{a_j : j \geq k\}$. Then $X_k$ is
+decreasing (\texttt{X\_antitone}), $\bigcap_k X_k = \emptyset$
+(\texttt{X\_iInter}), and every $X_k$ is thick: any measurable set disjoint from
+it is null.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:aj-finite}
+$X_k^c = V + \{a_0,\dots,a_{k-1}\}$, a finite subset of $A$, so
+\ref{thm:aj-finite} applies at every $k$. The empty intersection is free from
+the enumeration: each real is $v + a_j$ for exactly one $j$.
+\end{proof}
+
+\begin{remark}[What remains]
+\label{rmk:aj-remaining}
+\uses{thm:aj-tower, def:escaping-tower}
+The tower is the hard half. What is left to reach an \ref{def:escaping-tower}
+instance, and so a kernel-checked refutation: the trace measure on a thick set
+(Proposition 14 --- $\lambda_X(E \cap X) = \lambda(E)$ well defined and
+$\sigma$-additive, for which \ref{thm:aj-tower} is exactly the hypothesis), the
+projective system over $X_0 \times \cdots \times X_n$ with the diagonal maps,
+and the diagonal cylinders themselves.
+\end{remark}

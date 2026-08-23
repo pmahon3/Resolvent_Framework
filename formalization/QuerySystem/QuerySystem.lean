@@ -29,6 +29,7 @@ submodules -- building this index builds the library.
 -/
 
 import QuerySystem.BandClosure
+import QuerySystem.AndersenJessen
 import QuerySystem.BoundaryDescent
 import QuerySystem.Commensurability
 import QuerySystem.ConcreteOMLBlocks

@@ -5,8 +5,8 @@ Goal: a decreasing sequence of THICK subsets of `[0,1]` (full outer measure)
 with empty intersection. Feeding it through `QuerySystem.EscapingTower` refutes
 observational extension under plain `UpperDirected`.
 
-Staging file: NOT under the lake globs, so `sorry`s here do not touch CI.
-Lemmas land in the library only once closed.
+Graduated from `staging/` into the library 2026-08-22: sorry-free, so it now
+carries the ratchet and appears in the blueprint like everything else.
 
 Route (Border, *Kolmogorov Extension Problem*, §6–8, after Halmos pp. 68–70):
   A = ℤ + αℤ, α irrational        -- countable dense subgroup

@@ -42,7 +42,14 @@ theorem Thick.diff_null {X E F : Set ℝ} (hX : Thick X)
 theorem Thick.volume_eq {X E F : Set ℝ} (hX : Thick X)
     (hE : MeasurableSet E) (hF : MeasurableSet F) (h : E ∩ X = F ∩ X) :
     volume E = volume F := by
-  sorry
+  -- both differences are null, so both sets have the measure of their overlap
+  have h1 : volume (E \ F) = 0 := hX.diff_null hE hF h
+  have h2 : volume (F \ E) = 0 := hX.diff_null hF hE h.symm
+  have e1 := measure_inter_add_diff (μ := volume) E hF
+  have e2 := measure_inter_add_diff (μ := volume) F hE
+  rw [h1, add_zero] at e1
+  rw [h2, add_zero] at e2
+  rw [← e1, ← e2, Set.inter_comm]
 
 /-- Traces of measurable sets are closed under complement within `X`. -/
 theorem trace_compl {X E : Set ℝ} :

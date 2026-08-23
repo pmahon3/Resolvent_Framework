@@ -154,6 +154,43 @@ name. Both are reliable. `line` is kept only for reading and is not.
   `lean-toolchain` or oleans will not load
 - This project built: `lake exe cache get && lake build`
 
+## The working recipe
+
+Measured, not assumed. The split that pays:
+
+1. **You write the statements.** This is the expensive half and the one needing
+   judgment — deciding what the lemmas are, and decomposing a theorem into
+   pieces small enough to be searchable. It is also where the errors live: one
+   statement in `AndersenJessen.lean` was simply FALSE as first written
+   (`B_even_smul_mem`, missing `j ≠ 0`), and nothing catches that until someone
+   tries to prove it.
+2. **Tower closes what it can, unattended, overnight.** Zero subscription cost.
+3. **You prove the residue.** It is reliably the load-bearing part.
+
+Worked example — Proposition 14, nine statements written cold:
+
+| | |
+|---|---|
+| closed by the loop | 5 (3 model, 2 automation) |
+| found by the loop, landed by hand | 1 (`thick_X`) |
+| written by hand | 1 (`Thick.volume_eq`) |
+| still open | 2 |
+
+Note which one the loop missed: `Thick.volume_eq`, the well-definedness result
+that is the whole point of Proposition 14 — even though it had already proved
+`Thick.diff_null`, from which `volume_eq` follows in five lines. The pattern is
+consistent across every run here: **connective tissue yes, load-bearing steps
+no.**
+
+### Run production, not retrodiction
+
+Retrodiction (`blank.py` + a file you already proved) is a BENCHMARK. It
+produces no mathematics — the 7/28 run re-derived proofs that already existed,
+for three hours. Useful exactly once, to calibrate; wasteful as a habit.
+
+Point the loop at statements whose proofs do not exist. That is where the five
+new lemmas came from.
+
 ## Run
 
 ```

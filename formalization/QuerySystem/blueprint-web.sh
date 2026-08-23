@@ -53,7 +53,25 @@ fi
 cd "$HERE/blueprint/src"
 
 echo "Rendering blueprint..."
-plastex -c plastex.cfg web.tex
+LOG="$HERE/blueprint/render.log"
+plastex -c plastex.cfg web.tex 2>&1 | tee "$LOG"
+
+# plasTeX reports an undeclared environment as a WARNING and still exits 0, and
+# the damage is silent and severe: it attaches that environment's \label to the
+# PRECEDING theorem, so the theorem loses its own id and drops out of the
+# dependency graph entirely. This is what hid thm:aj-tower
+# (AndersenJessen.X_thick, the main Andersen-Jessen result) -- `remark` was used
+# five times in content.tex but never declared in macros/common.tex. A warning
+# that quietly deletes a theorem from the graph has to be a hard error.
+if grep -qiE "unrecognized command/environment" "$LOG"; then
+  echo >&2
+  echo "ERROR: plasTeX does not recognize an environment used in the blueprint:" >&2
+  grep -iE "unrecognized command/environment" "$LOG" | sort -u | sed 's/^/  /' >&2
+  echo "  Declare it in blueprint/src/macros/common.tex --" >&2
+  echo "  e.g. \newtheorem{remark}[theorem]{Remark} -- then re-render." >&2
+  echo "  Until then any theorem preceding one of these is missing from the graph." >&2
+  exit 1
+fi
 
 echo
 echo "Blueprint written to: formalization/QuerySystem/blueprint/web/index.html"

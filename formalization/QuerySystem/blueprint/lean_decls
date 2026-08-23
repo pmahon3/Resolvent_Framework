@@ -47,4 +47,9 @@ AndersenJessen.Afull_dense
 AndersenJessen.V_unique
 AndersenJessen.V_add_finite_measurable_null
 AndersenJessen.X_thick
+Diagonal.Diag
+Diagonal.Diag_iInter
+Diagonal.pi_inter_diag_eq_empty
+Diagonal.measurableSet_Diag
+Diagonal.no_mass_one_of_iInter_empty
 Reconstruction.Pruning.NG_refutation

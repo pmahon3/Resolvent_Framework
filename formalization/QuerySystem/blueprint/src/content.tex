@@ -1035,9 +1035,89 @@ The tower is the hard half. What is left to reach an \ref{def:escaping-tower}
 instance, and so a kernel-checked refutation: the trace measure on a thick set
 (Proposition 14 --- $\lambda_X(E \cap X) = \lambda(E)$ well defined and
 $\sigma$-additive, for which \ref{thm:aj-tower} is exactly the hypothesis), the
-projective system over $X_0 \times \cdots \times X_n$ with the diagonal maps,
-and the diagonal cylinders themselves.
+projective system over $X_0 \times \cdots \times X_n$ with the diagonal maps.
+The diagonal cylinders themselves are now done --- \ref{thm:diag-empty} and
+\ref{lem:cont-above} below.
 \end{remark}
+
+
+\subsection{The diagonal layer}
+
+\begin{definition}[Diagonal cylinders]
+\label{def:diag-cylinders}
+\lean{Diagonal.Diag}
+\leanok
+$D_n = \{\omega : \omega_i = \omega_0 \text{ for all } i \leq n\}$ inside
+$\mathbb{N} \to \mathbb{R}$ with the product $\sigma$-algebra, and
+$\Pi'(Y) = \{\omega : \omega_k \in Y_k \text{ for all } k\}$ (\texttt{Pi'}).
+The cylinders decrease (\texttt{Diag\_antitone}), and a point of $D_n$ is
+determined on $[0,n]$ by its first coordinate (\texttt{Diag\_eq\_of\_le}).
+Phrased in Mathlib vocabulary rather than over the project's own definitions.
+\end{definition}
+
+\begin{lemma}[The cylinders shrink to the constants]
+\label{lem:diag-inter}
+\lean{Diagonal.Diag_iInter}
+\leanok
+\uses{def:diag-cylinders}
+$\bigcap_n D_n = \{\omega : \omega_i = \omega_0 \text{ for all } i\}$: the
+sequences that are constant outright.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Both inclusions are immediate from the definition; the forward one reads off the
+bound $i \leq n$ at $n = i$.
+\end{proof}
+
+\begin{theorem}[The diagonal escapes]
+\label{thm:diag-empty}
+\lean{Diagonal.pi_inter_diag_eq_empty}
+\leanok
+\uses{lem:diag-inter, thm:aj-tower}
+If $\bigcap_k Y_k = \emptyset$ then $\Pi'(Y) \cap \bigcap_n D_n = \emptyset$.
+Applied to the thick tower $Y_k = X_k$ of \ref{thm:aj-tower}, whose intersection
+is empty, this is the second half of the contradiction: every finite stage
+carries the diagonal, the limit contains nothing.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:diag-inter}
+A point of every $D_n$ is constant by \ref{lem:diag-inter}, so its common value
+$\omega_0$ lies in $Y_k$ for every $k$, i.e.\ in $\bigcap_k Y_k = \emptyset$.
+\end{proof}
+
+\begin{lemma}[The cylinders are measurable]
+\label{lem:diag-measurable}
+\lean{Diagonal.measurableSet_Diag}
+\leanok
+\uses{def:diag-cylinders}
+Each $D_n$ is measurable, so it makes sense to ask for its measure. Coordinate
+evaluation is measurable (\texttt{measurable\_coord}), hence so is agreement of
+two coordinates (\texttt{measurableSet\_eq\_coord}), and $D_n$ is a finite
+intersection of those.
+\end{lemma}
+
+\begin{proof}
+\leanok
+$D_n = \bigcap_{i \leq n} \{\omega : \omega_i = \omega_0\}$, a finite
+intersection of measurable sets.
+\end{proof}
+
+\begin{lemma}[Continuity from above, in the form the contradiction uses]
+\label{lem:cont-above}
+\lean{Diagonal.no_mass_one_of_iInter_empty}
+\leanok
+A probability measure cannot give every term of an antitone measurable sequence
+mass one when the intersection is empty.
+\end{lemma}
+
+\begin{proof}
+\leanok
+The measures converge to that of the intersection, which is $0$; if every term
+were $1$ the limit would be both $0$ and $1$.
+\end{proof}
 
 \begin{theorem}[Lemma NG, refutation half]
 \label{thm:ng-refute}

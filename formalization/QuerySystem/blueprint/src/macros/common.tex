@@ -8,3 +8,8 @@
 
 \theoremstyle{definition}
 \newtheorem{definition}[theorem]{Definition}
+% `remark` was used in content.tex but never declared here. plasTeX then
+% reported unrecognized command/environment: remark and attached each
+% remark's \label to the PRECEDING theorem, silently dropping those
+% theorems from the dependency graph -- thm:aj-tower among them.
+\newtheorem{remark}[theorem]{Remark}

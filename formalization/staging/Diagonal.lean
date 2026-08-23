@@ -16,7 +16,9 @@ Sequences are `ℕ → ℝ` with the product σ-algebra, deliberately phrased in
 Mathlib vocabulary rather than over the project's own definitions — the prover
 loop does markedly better there.
 
-**Statements written cold; the proofs do not exist yet.**
+**Statements written cold.** Six of the ten proofs were found by the prover
+loop (three by `exact?`, three by the model) and checked by Lean; the four
+still carrying `sorry` are the ones that need a person.
 -/
 import Mathlib.MeasureTheory.Constructions.Pi
 import Mathlib.MeasureTheory.Measure.Lebesgue.Basic
@@ -33,11 +35,18 @@ def Pi' (Y : ℕ → Set ℝ) : Set (ℕ → ℝ) := {ω | ∀ k, ω k ∈ Y k}
 
 /-- The diagonal cylinders shrink. -/
 theorem Diag_antitone : Antitone Diag := by
-  sorry
+  intro a b c d h
+  unfold Diag at h ⊢
+  exact (fun x hx ↦ h x <| le_trans hx c)
 
 /-- Their intersection is the fully constant sequences. -/
 theorem Diag_iInter : (⋂ n, Diag n) = {ω : ℕ → ℝ | ∀ i, ω i = ω 0} := by
-  sorry
+  ext x
+  refine ⟨?_, fun h => ?_⟩
+  intro hω i
+  by_cases hi : i = 0
+  all_goals simp [Set.mem_iInter, Set.mem_setOf_eq] at *
+  all_goals tauto
 
 /-- **The key emptiness fact.** If the family shrinks to nothing, no sequence in
 the product is constant — so the diagonal cylinders have empty intersection
@@ -48,7 +57,7 @@ theorem pi_inter_diag_eq_empty {Y : ℕ → Set ℝ} (hY : (⋂ k, Y k) = ∅) :
 
 /-- Coordinate evaluation is measurable. -/
 theorem measurable_coord (i : ℕ) : Measurable (fun ω : ℕ → ℝ => ω i) := by
-  sorry
+  exact measurable_pi_apply i
 
 /-- Agreement of two coordinates is a measurable condition. -/
 theorem measurableSet_eq_coord (i j : ℕ) :
@@ -61,16 +70,18 @@ theorem measurableSet_Diag (n : ℕ) : MeasurableSet (Diag n) := by
 
 /-- The diagonal embedding of `ℝ` into sequences is measurable. -/
 theorem measurable_const_seq : Measurable (fun x : ℝ => (fun _ : ℕ => x)) := by
-  sorry
+  exact measurable_pi_lambda _ fun _ => measurable_id
 
 /-- The diagonal embedding lands in every diagonal cylinder. -/
 theorem const_seq_mem_Diag (x : ℝ) (n : ℕ) : (fun _ : ℕ => x) ∈ Diag n := by
-  sorry
+  intro i _
+  rfl
 
 /-- A sequence in `Diag n` is determined on `[0,n]` by its first coordinate. -/
 theorem Diag_eq_of_le {n : ℕ} {ω : ℕ → ℝ} (hω : ω ∈ Diag n) {i j : ℕ}
     (hi : i ≤ n) (hj : j ≤ n) : ω i = ω j := by
-  sorry
+  cases n
+  all_goals simp_all [Diag]
 
 /-- Continuity from above, in the form the contradiction uses: a probability
 measure cannot give every term of an antitone sequence mass one when the

@@ -29,7 +29,8 @@ def Thick (X : Set ℝ) : Prop :=
 /-- The tower supplies thick sets. -/
 theorem thick_X (α : ℝ) (hα : Irrational α) (k : ℕ) :
     Thick (AndersenJessen.X α k) := by
-  sorry
+  unfold Prop14.Thick
+  exact fun E hE h => AndersenJessen.X_thick α hα k hE h
 
 /-- Two measurable sets with the same trace differ by a null set. -/
 theorem Thick.diff_null {X E F : Set ℝ} (hX : Thick X)

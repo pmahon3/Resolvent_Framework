@@ -336,11 +336,13 @@ The orbit map is now CONSTRUCTED, not merely assumed: `orbitHom r` is
 `map_add` rather than needing a case split at the wrap-around. Hence
 `isLISC_addOrderOf_of_isTR`, which needs no supplied `f`.
 
-NOT formalized, recorded honestly:
-* that the `d` orbit cycles are pairwise vertex-disjoint;
-* the refutation half — `LISC_k` can genuinely FAIL while `TR_k^{(r)}` holds.
-  Witness C4dir at `L = 2`, machine-checked in the oracle
-  (`pruning_k2_theorem.md` rot-check). -/
+The refutation half is now FORMALIZED as well -- see `NG_refutation` at the
+end of this section: at the non-generator `r = 2`, `TR_4^{(2)}(2)` holds,
+`LISC_2(2)` holds, and `LISC_4(2)` fails. It no longer rests on the oracle
+rot-check (`pruning_k2_theorem.md`).
+
+NOT formalized, and now the only remaining gap: that the `d` orbit cycles are
+pairwise vertex-disjoint -- extra bookkeeping, not load-bearing. -/
 
 section NG
 
@@ -415,6 +417,78 @@ theorem isLISC_addOrderOf_of_isTR [NeZero k] {L : ℕ}
 example [NeZero k] {L : ℕ} (hL : 0 < L) (h : IsTR ρ L (1 : ZMod k)) :
     IsLISC ρ k L :=
   isLISC_of_isTR_of_orbit hL id injective_id (fun _ => rfl) h
+
+/-! ### The refutation half -/
+
+/-- The directed 4-cycle: `a → a+1` on `ZMod 4`. -/
+def C4dir : ZMod 4 → ZMod 4 → Prop := fun a b => b = a + 1
+
+/-- Along any walk in a FUNCTIONAL relation the states are forced. -/
+private lemma c4_forced {W : ℕ → ZMod 4} {N : ℕ}
+    (hstep : ∀ t, t + 1 < N → C4dir (W t) (W (t + 1))) :
+    ∀ t, t < N → W t = W 0 + (t : ZMod 4) := by
+  intro t ht
+  induction t with
+  | zero => simp
+  | succ n ih =>
+      have h1 : n + 1 < N := ht
+      have hn := ih (by omega)
+      have := hstep n h1
+      rw [C4dir] at this
+      rw [this, hn]
+      push_cast
+      ring
+
+/-- **Lemma NG, refutation half.** `LISC₄(2)` FAILS for the directed 4-cycle.
+
+`ρ` is a function, so every vertex of the layered ring has out-degree one and
+the walk is determined by its start; it returns to its starting state after four
+steps. A winding-4 simple cycle would need eight pairwise distinct positions,
+but positions `0` and `4` sit at the same layer with the same state. -/
+theorem not_isLISC_C4dir_four : ¬ IsLISC C4dir 4 2 := by
+  rintro ⟨W, hstep, -, hsimple⟩
+  have h4 : W 4 = W 0 := by
+    have hf := c4_forced (N := 4 * 2) hstep 4 (by omega)
+    have hz : ((4 : ℕ) : ZMod 4) = 0 := by decide
+    rw [hf, hz, add_zero]
+  exact absurd (hsimple 0 4 (by omega) (by omega) (by norm_num) h4.symm) (by omega)
+
+/-- `LISC₂(2)` HOLDS for the same relation: the winding-2 cycle
+`(0,0) (1,1) (0,2) (1,3)`. Together with the previous theorem this is exactly
+the overcount NG warns about -- a non-generator rotation certifies winding 2,
+while winding 4 genuinely fails. -/
+theorem isLISC_C4dir_two : IsLISC C4dir 2 2 := by
+  refine ⟨fun t => (t : ZMod 4), fun t ht => ?_, ?_, fun t₁ t₂ h1 h2 hmod hW => ?_⟩
+  · show ((t + 1 : ℕ) : ZMod 4) = ((t : ℕ) : ZMod 4) + 1
+    push_cast
+    ring
+  · show ((0 : ℕ) : ZMod 4) = ((2 * 2 - 1 : ℕ) : ZMod 4) + 1
+    decide
+  · -- the cast is injective below 4, so equal states force equal positions
+    have hv := congrArg ZMod.val hW
+    rwa [ZMod.val_natCast_of_lt (by omega), ZMod.val_natCast_of_lt (by omega)] at hv
+
+/-- The non-generator rotation `r = 2` DOES fire at `k = 4`, `L = 2`: the slot
+walk `τ i j = j + i`. Since `gcd(2,4) = 2` this `r` is not a unit, so Theorem P
+does not apply -- and indeed its conclusion is false here. -/
+theorem isTR_C4dir_four_two : IsTR C4dir 2 (2 : ZMod 4) := by
+  refine ⟨fun i j => j + (i : ZMod 4), fun i hi a b hab => ?_, fun i hi j => ?_, fun j => ?_⟩
+  · exact add_right_cancel hab
+  · show (j + ((i + 1 : ℕ) : ZMod 4)) = (j + (i : ZMod 4)) + 1
+    push_cast
+    ring
+  · show (j + ((2 : ℕ) : ZMod 4)) = (j + 2) + ((0 : ℕ) : ZMod 4)
+    push_cast
+    ring
+
+/-- **Lemma NG, refutation half, complete.** At the non-generator `r = 2`:
+`TR₄^{(2)}(2)` holds, `LISC₂(2)` holds, and `LISC₄(2)` FAILS. So a rotation-`r`
+witness at `gcd(r,k) = d > 1` certifies winding `k/d = 2` and NOT winding `k`,
+which is exactly the overcount the lemma warns about. Theorem P's equivalence
+genuinely requires `r` to generate. -/
+theorem NG_refutation :
+    IsTR C4dir 2 (2 : ZMod 4) ∧ IsLISC C4dir 2 2 ∧ ¬ IsLISC C4dir 4 2 :=
+  ⟨isTR_C4dir_four_two, isLISC_C4dir_two, not_isLISC_C4dir_four⟩
 
 end NG
 

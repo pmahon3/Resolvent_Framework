@@ -1038,3 +1038,29 @@ $\sigma$-additive, for which \ref{thm:aj-tower} is exactly the hypothesis), the
 projective system over $X_0 \times \cdots \times X_n$ with the diagonal maps,
 and the diagonal cylinders themselves.
 \end{remark}
+
+\begin{theorem}[Lemma NG, refutation half]
+\label{thm:ng-refute}
+\lean{Reconstruction.Pruning.NG_refutation}
+\leanok
+\uses{lem:ng, lem:ng-orbit}
+For the directed 4-cycle at $L = 2$ and the non-generator $r = 2$
+($\gcd(2,4) = 2$): $\mathrm{TR}_4^{(2)}(2)$ holds, $\mathrm{LISC}_2(2)$ holds,
+and $\mathrm{LISC}_4(2)$ \emph{fails}.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:ng-orbit}
+The relation is a FUNCTION, so every vertex of the layered ring has out-degree
+one and a walk is determined by its start; it returns to its starting state
+after four steps. A winding-4 simple cycle needs eight pairwise distinct
+positions, but positions $0$ and $4$ share a layer and a state. The
+winding-2 cycle and the rotation-2 slot walk $\tau_i(j) = j + i$ are exhibited
+directly.
+
+So a rotation witness at a non-generator certifies winding $k/d = 2$, not
+winding $k$ --- Theorem P's equivalence genuinely needs $r$ to generate, and
+\ref{lem:ng-orbit} is sharp. This previously rested on the oracle rot-check;
+it is now in the kernel.
+\end{proof}

@@ -114,6 +114,29 @@ Read the numbers with the caveat that these are proofs already written, in a
 file already decomposed into small lemmas. Whether it performs like this on
 lemmas nobody has proved is not something this experiment can answer.
 
+### On UNPROVEN goals: 5 / 9
+
+Everything above is retrodiction — proofs that already existed. The honest test
+is goals whose proofs do not. `staging/Prop14.lean` states nine lemmas toward the
+trace measure on a thick set; overnight at budget 600 the loop closed **five**,
+two by automation and three by the model, all confirmed by compiling.
+
+That is a *higher* rate than the 7/28 retrodiction, which is worth explaining
+rather than celebrating. The Prop14 statements are phrased in Mathlib vocabulary
+— `Set` operations, `volume`, `Disjoint`. The AndersenJessen ones are phrased
+over project-local definitions — `A`, `B`, `C`, `V`, `M`. The model cannot see
+local definitions; it guesses names and hallucinates lemmas.
+
+**The hit rate tracks vocabulary more than difficulty.** The clearest evidence is
+`thick_X`, the most trivial goal in the file — nearly a direct application of
+`AndersenJessen.X_thick`, which is in scope. It exhausted in six seconds,
+because `Thick` is a local `def` and `X_thick` is a name the model has never
+seen. Meanwhile `Thick.disjoint_trace`, which needs a real argument, closed.
+
+Authoring lesson, and it is cheap to act on: state lemmas in Mathlib vocabulary
+where the mathematics allows, and expect nothing on goals over your own
+definitions.
+
 ### Identify results by `decl` or `index`, never by `line`
 
 The REPL's chunk-relative positions came back off by a declaration, so a

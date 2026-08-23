@@ -72,39 +72,55 @@ compiling — the REPL's verdict was not taken on trust.
 **Do not read 3/5 as a capability estimate.** Those five goals were written to
 be probe-like. See the next section for what happens on real work.
 
-## What it actually scores: 1 / 28
+## What it actually scores
 
 Retrodiction against `staging/AndersenJessen.lean` — every theorem body blanked
 by `blank.py`, so the goals are exactly the ones already known provable, in
 their real context, at the real level of difficulty.
 
-| | |
-|---|---|
-| closed | **1 / 28** (automation 0, model 1) |
-| wall clock | 2220 s — 37 minutes |
-| mean per goal | 77 s |
-| failure profile | 25 budget, 2 exhausted |
+| budget | closed | wall | mean/goal |
+|---|---|---|---|
+| 25 | 1 / 28 | 37 min | 77 s |
+| **150** | **7 / 28** | 189 min | 404 s |
 
-The one success is the most trivial lemma in the file:
+All seven from the model arm; **automation closed nothing at either budget**.
+All seven were spliced back and compiled — zero errors, 21 sorries left — so
+this is the compiler's verdict, not the REPL's.
 
-    B_subset_A   ⊢ B α k ⊆ A α      unfold B A ; aesop (add simp [abs])
+Budget is the binding constraint, as the failure profile said it would be
+(25 of 28 hit the budget rather than exhausting at the low setting; 19 of 21 at
+the high one). More budget will probably buy a little more.
 
-It also failed on lemmas that look mechanical — `Antitone (B α)`,
-`x - y ∈ A α`, `C α k ⊆ A α`, `Antitone (tail α)` — each a three-to-four line
-proof by hand.
+**What it closes** — structural lemmas:
 
-**Honest conclusion: the loop does not currently carry this development.** The
-premise it was built on — statements expensive, proofs free — is not supported
-by measurement on this material. 25 of 28 failures hit the search budget rather
-than exhausting it, so the open question is whether a much larger budget moves
-the number; that is cheap to test unattended and is the only further experiment
-worth running on it.
+    B_subset_A      B α k ⊆ A α
+    B_antitone      Antitone (B α)
+    B_neg_mem       -x ∈ B α k
+    A_mem_sub       x - y ∈ A α
+    C_zero_eq       C α 0 = (1 + ·) '' Aeven α
+    C_subset_A      C α k ⊆ A α
+    tail_antitone   Antitone (tail α)
 
-Three numbers have been quoted for this loop: 0/8, 3/5, 1/28. The first two came
-from a broken harness and from self-chosen material respectively. Only 1/28 is
-a measurement of the thing on the work it exists to help with.
+**What it does not** — everything with analytic content: `repr_unique`,
+`Aeven_dense`, `C_zero_dense`, `V_unique`, `V_covers`, `M_zero_compl`,
+`Afull_countable`, and all four `volume … = 0` lemmas.
 
-If a future run reports a suspiciously round zero, check this first.
+That is the real division of labour, and it is worth planning around: the loop
+takes the connective tissue, the arguments with content stay hand-written. It
+is an overnight tool — roughly 27 minutes of unattended tower time per lemma
+closed, and near-zero subscription tokens.
+
+Read the numbers with the caveat that these are proofs already written, in a
+file already decomposed into small lemmas. Whether it performs like this on
+lemmas nobody has proved is not something this experiment can answer.
+
+### Identify results by `decl` or `index`, never by `line`
+
+The REPL's chunk-relative positions came back off by a declaration, so a
+line-based splice put three proofs into the wrong theorems and produced
+compile errors that looked like bad proofs. Sorries are reported in file order,
+so `results[i]` is the i-th `sorry`; each also carries `decl`, the declaration
+name. Both are reliable. `line` is kept only for reading and is not.
 
 ## Prerequisites
 

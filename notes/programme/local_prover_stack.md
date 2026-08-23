@@ -114,17 +114,25 @@ stand as recorded. They should not be generalised to new development, and this
 document previously invited that reading.
 
 Measured on `staging/AndersenJessen.lean` — 28 theorem bodies blanked, goals in
-their real context — the hybrid loop closes **1 of 28** in 37 minutes, and the
-one it closes is the file's most trivial lemma. Automation closes none. Full
-detail, including the failure profile, in `formalization/tools/prover/README.md`.
+their real context — the hybrid loop closes **1 of 28** at budget 25, and
+**7 of 28** at budget 150 (189 minutes). All seven from the model arm;
+automation closes none at either setting. All seven verified by splicing them
+back and compiling. Full detail in `formalization/tools/prover/README.md`.
+
+The seven are structural — subset, antitone, closure under an operation, one
+set equality. The analytic core is untouched: `repr_unique`, the two density
+lemmas, and all four `volume … = 0` results. That is a usable division of
+labour, and a more honest one than any framing in §3.
 
 Why the difference from §3 is not surprising in hindsight: §3 filtered to
 reference proofs ≤ 12 lines and took the shortest 100 of an existing corpus.
 That is the easy end of already-written material. A file being actively
 developed does not look like that.
 
-Consequence for this document's ranking: the local stack's contribution to the
-mechanical tier is, on current evidence, close to zero for *new* work. Every
+Consequence for this document's ranking: at a budget large enough to matter the
+local stack does absorb part of the mechanical tier — roughly a quarter of it
+here, at about 27 minutes of unattended tower time per lemma and near-zero
+subscription tokens. It absorbs none of the tier above. Every
 result in this development since 2026-08-21 — Theorem B, the extension repair,
 Lemma NG's orbit map, the thick tower — was hand-written. The stack's real
 contribution has been the kernel gate, not tactic generation.

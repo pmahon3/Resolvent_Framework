@@ -39,6 +39,12 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from bfs import Repl, ReplTimeout, search_from, BASELINE_TACTICS  # noqa: E402
 
 
+
+NAME_RE = re.compile(
+    r"^\s*(?:private\s+|protected\s+|noncomputable\s+|nonrec\s+)*"
+    r"(?:theorem|lemma|def|instance|abbrev|structure|example)\s+"
+    r"([A-Za-z_][A-Za-z0-9_'.]*)", re.M)
+
 DECL_RE = re.compile(
     r"^(?:/--|@\[|private\s|protected\s|noncomputable\s|theorem\s|lemma\s|def\s|"
     r"instance\s|abbrev\s|structure\s|example\s)", re.M)
@@ -108,7 +114,9 @@ def sorries_of(repl, src):
         out = repl.send(msg)
         env = out.get("env", env)
         errors += _errs(out)
+        nm = NAME_RE.search(chunk)
         for so in (out.get("sorries") or []):
+            so["decl"] = nm.group(1) if nm else "?"
             # positions are chunk-relative; make them file-relative
             if isinstance(so.get("pos"), dict) and "line" in so["pos"]:
                 so["pos"] = dict(so["pos"],
@@ -172,10 +180,10 @@ def main():
     print(f"GRIND {os.path.basename(a.target)}: {len(sors)} sorries\n")
     results = []
     for idx, s in enumerate(sors, 1):
-        ln = line_of(src, s.get("pos"))
+        ln = s.get("decl") or line_of(src, s.get("pos"))
         goal = s.get("goal", "")
         head = goal.split("\n")[-1][:90]
-        print(f"[{idx}/{len(sors)}] L{ln}  {head}")
+        print(f"[{idx}/{len(sors)}] {ln}  {head}")
         proof, stats = None, {}
         # arm 1: Mathlib automation (cheap)
         proof, stats = search_from(repl, s["proofState"], goal, "__baseline__",
@@ -192,7 +200,9 @@ def main():
             print(f"        CLOSED [{arm}] {' ; '.join(proof)}")
         else:
             print(f"        open ({stats.get('reason')}, {stats.get('secs')}s)")
-        results.append({"line": ln, "goal": goal, "closed": bool(proof),
+        results.append({"decl": s.get("decl"), "index": idx - 1,
+                        "line": line_of(src, s.get("pos")),
+                        "goal": goal, "closed": bool(proof),
                         "arm": arm if proof else None, "proof": proof,
                         "stats": stats})
 
@@ -205,8 +215,12 @@ def main():
         print("\nSTILL OPEN -- hand these back to a person:")
         for r in results:
             if not r["closed"]:
-                print(f"  L{r['line']}  {r['goal'].split(chr(10))[-1][:100]}")
+                print(f"  {r.get('decl') or r['line']}  {r['goal'].split(chr(10))[-1][:100]}")
 
+    # NB `index` is the reliable identifier: sorries are reported in file
+    # order, so results[i] is the i-th `sorry` in the file. `line` comes from
+    # the REPL's chunk-relative position and has been observed off by a
+    # declaration -- splice by index or by `decl`, never by `line`.
     rep = a.target + ".grind.json"
     json.dump(results, open(rep, "w", encoding="utf-8"), indent=1)
     print(f"\nreport: {rep}")

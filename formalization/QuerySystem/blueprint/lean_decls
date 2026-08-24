@@ -12,7 +12,6 @@ QuerySystem.observational_determination
 QuerySystem.observational_determination_prob
 QuerySystem.preμ_wellDefined
 stoneSpace
-stoneEmbedding
 stoneClopens
 QuerySystem.NormalizedCompatibleContents
 QuerySystem.CollectivelyExhaustive
@@ -20,7 +19,6 @@ QuerySystem.ce_iff_levelwise_continuity
 QuerySystem.sp1_iff
 QuerySystem.observational_extension
 QuerySystem.cylGen_addContent_isSigmaSubadditive
-QuerySystem.isSetRing_CylGen
 stone_observational_extension
 stone_measure_exists
 QuerySystem.EscapingTower

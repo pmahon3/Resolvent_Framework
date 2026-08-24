@@ -22,6 +22,7 @@ A \emph{refinement} between queries is a measurable function showing how outcome
 \label{def:query-system}
 \lean{QuerySystem}
 \leanok
+\uses{def:query, def:refine}
 A \emph{query system} is a preordered family of queries with coherent refinement maps. It consists of:
 \begin{itemize}
 \item An index type $\iota$
@@ -184,16 +185,6 @@ Stone--\v{C}ech compactification of $\Omega$ regarded as a discrete set. It is
 compact, Hausdorff and totally disconnected.
 \end{definition}
 
-\begin{definition}[Stone embedding]
-\label{def:stone-embedding}
-\lean{stoneEmbedding}
-\leanok
-\uses{def:stone-space}
-$\Omega \to \mathrm{St}(S)$, $\omega \mapsto$ the principal ultrafilter at
-$\omega$. Its range is exactly the principal ultrafilters, and it has dense
-range.
-\end{definition}
-
 \begin{definition}[Cylinder clopens]
 \label{def:stone-clopens}
 \lean{stoneClopens}
@@ -267,7 +258,7 @@ extensibility the characterisation is false (\ref{rmk:kolmogorov-refuted}).
 \label{thm:observational-extension-seq}
 \lean{QuerySystem.observational_extension}
 \leanok
-\uses{lem:cylgen-sigma-subadd, thm:observational-determination, def:compatible-marginals, def:seq-upper-directed, def:eval-surjective}
+\uses{lem:cylgen-sigma-subadd, lem:premu-well-defined, thm:observational-determination, def:compatible-marginals, def:seq-upper-directed, def:eval-surjective}
 If $S$ is \emph{sequentially} upper-directed with surjective evaluations and
 $\nu_i$ is a compatible family of probability \emph{measures}, then there is a
 unique probability measure $P$ on $\Omega$ with
@@ -276,9 +267,11 @@ $\mathrm{map}(\mathrm{eval}_i)\,P = \nu_i$ for every $i$.
 
 \begin{proof}
 \leanok
-\uses{lem:cylgen-sigma-subadd, thm:observational-determination}
+\uses{lem:cylgen-sigma-subadd, lem:premu-well-defined, thm:observational-determination}
 Carath\'eodory on the cylinder semiring directly --- no Stone space. Build the
-cylinder content, prove $\sigma$-subadditivity
+cylinder content --- its value on a cylinder is \texttt{pre}$\mu$ at a
+singleton presentation, so \ref{lem:premu-well-defined} is what makes the
+content well defined at all --- prove $\sigma$-subadditivity
 (\ref{lem:cylgen-sigma-subadd}), extend, recover marginals; uniqueness is
 \ref{thm:observational-determination}.
 \end{proof}
@@ -306,28 +299,6 @@ Andersen--Jessen system that refutes the extension theorem
 (\ref{rmk:kolmogorov-refuted}). Were it true, the Carath\'eodory pipeline
 above --- which past this lemma needs only pairwise upper-directedness ---
 would manufacture the extension that system provably lacks.
-\end{proof}
-
-\begin{lemma}[The cylinder family is a set ring]
-\label{lem:cylgen-setring}
-\lean{QuerySystem.isSetRing_CylGen}
-\leanok
-\uses{def:cylinder, def:upper-directed}
-Under upper-directedness the cylinder events are closed under union and
-difference, not merely under the semiring operations.
-\end{lemma}
-
-\begin{proof}
-\leanok
-Lift both cylinders to a common level with \texttt{cyl\_refine}; union and
-difference are then computed inside one outcome space and stay cylinders.
-
-Recorded for the API, not for the spine: the ring structure was originally
-wanted for the continuity-at-$\emptyset$ route
-(\texttt{addContent\_iUnion\_eq\_sum\_of\_tendsto\_zero} requires a ring),
-which was aimed at exactly the statement \ref{rmk:kolmogorov-refuted} shows is
-false. The lemma is kept as a true strengthening of the cylinder API; nothing
-in the proved chain depends on it.
 \end{proof}
 
 \begin{theorem}[Observational extension from charges]
@@ -525,21 +496,6 @@ strengthening the index layer was the only available repair for
 valuation layer around a tower; one can only assume an index layer rich enough
 that no tower exists.
 \end{proof}
-
-\begin{remark}[What remains unformalized]
-\label{rmk:tower-remaining}
-\uses{thm:no-extension-tower, rmk:kolmogorov-refuted}
-\ref{thm:no-extension-tower} is the framework-specific half of
-\ref{rmk:kolmogorov-refuted} and is machine-checked, and the hard analytic
-object --- the decreasing sequence of \emph{thick} subsets of $\mathbb{R}$
-with empty intersection --- is machine-checked too (\ref{thm:aj-tower}). What
-still separates the hand-checked refutation from a kernel-checked one is the
-layer between them: the trace measure on a thick set and the projective
-system over $X_0 \times \cdots \times X_n$ with the diagonal maps
-(\ref{rmk:aj-remaining}). Until that layer is done, the claim that the
-original statement was false rests on a hand check against the source, not on
-the kernel. The mechanism, and the tower, do not.
-\end{remark}
 
 \begin{theorem}[The obstruction is not vacuous]
 \label{thm:tower-inhabited}

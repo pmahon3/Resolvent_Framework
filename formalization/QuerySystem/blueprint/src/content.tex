@@ -141,12 +141,12 @@ Immediate from \ref{thm:observational-determination}, since a probability measur
 \lean{QuerySystem.preμ_wellDefined}
 \leanok
 \uses{def:compatible-marginals, def:upper-directed}
-The premeasure defined on finite cylinders is well-defined: it doesn't depend on the choice of lower bound used in its definition.
+The premeasure defined on finite cylinders is well-defined: it doesn't depend on the choice of common \emph{upper} bound (refinement level) used in its definition.
 \end{lemma}
 
 \begin{proof}
 \leanok
-Given two lower bounds, use directedness to find a common refinement. Show the measure values agree using compatibility and proof irrelevance for the transitivity witnesses.
+Given two upper bounds, use upper-directedness to find a common refinement of both. Show the measure values agree using compatibility and proof irrelevance for the transitivity witnesses.
 \end{proof}
 
 \chapter{The observational extension theorem, and the obstruction}

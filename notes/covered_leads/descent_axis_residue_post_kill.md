@@ -287,7 +287,7 @@ concreteness. The next move is the audit gate, narrowly pointed.
 4. **The (a)/(b) fork still stands underneath** (`genealogy.md`): even if this
    clears, it is a (b) result. If the user is really an (a) — anti-smuggler —
    then CE/Paper I already delivered, and **Strategy D** (ZFC-independence of a
-   measure-free Boolean algebra, `papers/paper_i/notes/ultralimit_investigation/`)
+   measure-free Boolean algebra, `notes/archive/strategy_d_killed/ultralimit_investigation/`)
    is the more faithful continuation. The descent win, if real, does not by
    itself settle which curiosity is driving.
 5. **Empirical-reconnection arc:** dead 5×, same decorative-σ rock. Not a route.

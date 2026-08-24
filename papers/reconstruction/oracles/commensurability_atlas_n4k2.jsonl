@@ -1,0 +1,5 @@
+{"verdict": "FAMILY_I_COMPLETE", "n": 4, "k": 2, "contexts": [[[0], [1], [2, 3]], [[0], [1, 2], [3]]], "n_family_I": 9, "n_family_II": 6, "sep_facet_cone": "in-cone", "else_witness": null}
+{"verdict": "FAMILY_I_COMPLETE", "n": 4, "k": 2, "contexts": [[[0], [1], [2, 3]], [[0, 1, 2], [3]]], "n_family_I": 5, "n_family_II": 3, "sep_facet_cone": "in-cone", "else_witness": null}
+{"verdict": "FAMILY_I_COMPLETE", "n": 4, "k": 2, "contexts": [[[0], [1], [2, 3]], [[0, 2], [1, 3]]], "n_family_I": 4, "n_family_II": 4, "sep_facet_cone": "in-cone", "else_witness": null}
+{"verdict": "FAMILY_I_COMPLETE", "n": 4, "k": 2, "contexts": [[[0], [1, 2, 3]], [[0, 1], [2, 3]]], "n_family_I": 3, "n_family_II": 3, "sep_facet_cone": "in-cone", "else_witness": null}
+{"verdict": "FAMILY_I_COMPLETE", "n": 4, "k": 2, "contexts": [[[0], [1, 2, 3]], [[0, 1, 2], [3]]], "n_family_I": 3, "n_family_II": 3, "sep_facet_cone": "in-cone", "else_witness": null}

@@ -1,0 +1,77 @@
+{
+ "command": "python3 incompatible_h4_conditional_cell_audit.py --verify",
+ "emitted": "2026-07-14",
+ "generator": "incompatible_h4_conditional_cell_audit.py",
+ "payload": {
+  "audit": {
+   "first_failed_lattice_pair": {
+    "kind": "join",
+    "x": "a:e00",
+    "y": "a:f10"
+   },
+   "lattice_ok": false
+  },
+  "construction": {
+   "atoms": [
+    "e00",
+    "e01",
+    "e10",
+    "e11",
+    "f00",
+    "f01",
+    "f10",
+    "f11"
+   ],
+   "blocks": [
+    [
+     "e00",
+     "e01",
+     "e10",
+     "e11"
+    ],
+    [
+     "f00",
+     "f01",
+     "f10",
+     "f11"
+    ]
+   ],
+   "couplings": [
+    [
+     [
+      "e10",
+      "e11"
+     ],
+     [
+      "f10",
+      "f11"
+     ]
+    ]
+   ],
+   "designated": {
+    "activation_triples": []
+   },
+   "identifications": [
+    [
+     "m:f00+f01",
+     "m:e00+e01"
+    ],
+    [
+     "m:f10+f11",
+     "m:e10+e11"
+    ]
+   ]
+  },
+  "counts": {
+   "atoms": 8,
+   "blocks": 2,
+   "elements": 28
+  },
+  "design": "refuted_bare_subalgebra_paste",
+  "shared_structure": "MINIMAL CORE: two 4-atom Boolean blocks pasted along the nonmaximal four-element subalgebra {0,q,q',1} alone (no cell attached); shows the shared-q latticehood failure is intrinsic to the subalgebra paste, not to the mediator cascades",
+  "verifier_sha256": "f4d7d18a8da5ccc3b2409b93924a4202c3643147fe68bdfef17a2b89d60de96b"
+ },
+ "payload_sha256": "f7e2da4bf5b5b2c014be317b008f586c751eedaf13181987f2a3f2d7370d9aaa",
+ "schema": "oml-finite-cell-receipt",
+ "schema_version": "1.0"
+}

@@ -1,0 +1,427 @@
+{
+  "command": "python3 notes/open_questions/verification/rectangle_no_reconstruction_search.py --verify",
+  "dependency_sha256": "ed9bcd137c077294bad60aa6ab24ae379cfebe8830bac34df1234d2fe1e58ddf",
+  "payload_sha256": "1b027f23b60ca1b2c2963faafa5584a6d5ad31242bb44fc151fd5ec400561880",
+  "result": {
+    "first_reconstruction_prunes": {
+      "q": {
+        "depth": 4,
+        "events_at_detection": 1298,
+        "repair_path_hex": [
+          "0x153f",
+          "0xcaf",
+          "0x3f",
+          "0xf"
+        ]
+      },
+      "r": {
+        "depth": 6,
+        "events_at_detection": 12292,
+        "repair_path_hex": [
+          "0x153f",
+          "0xcaf",
+          "0x3f",
+          "0xd",
+          "0x2232",
+          "0xd0"
+        ]
+      }
+    },
+    "initial_events": 82,
+    "proof_dag": {
+      "0339b852922124e29a660a2e56bdbf24794eded9dfa65c7826c02e35b032c2a8": {
+        "admissible_interval_hex": [
+          "0xd",
+          "0xf"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0xf",
+            "closure_rounds": 0,
+            "events_at_detection": 1298,
+            "forcing_side_atom_hex": "0xf",
+            "outcome": "q-side-atom-forces-reconstruction"
+          },
+          {
+            "candidate_hex": "0xd",
+            "child_id": "5ac6ab83360c8829fbc68f93087d7f13edc69695805597ff284cdabd9d8fcaaf",
+            "closure_rounds": 4,
+            "events": 3456,
+            "outcome": "closed-child"
+          }
+        ],
+        "events": 1296,
+        "failed_pair_hex": [
+          "0x5",
+          "0xc"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0x3f",
+          "0xaf",
+          "0x30f",
+          "0xa0f"
+        ],
+        "outcome": "branched"
+      },
+      "0d3e4c177d915d0f410ea124cd72d9fca4ac5b8b2d5e6ab5000697fccf32a90a": {
+        "admissible_interval_hex": [
+          "0x1011",
+          "0x1111"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0x1111",
+            "closure_rounds": 0,
+            "events_at_detection": 488,
+            "forcing_side_atom_hex": "0x1111",
+            "outcome": "r-side-atom-forces-reconstruction"
+          },
+          {
+            "candidate_hex": "0x1011",
+            "child_id": "0339b852922124e29a660a2e56bdbf24794eded9dfa65c7826c02e35b032c2a8",
+            "closure_rounds": 4,
+            "events": 1296,
+            "outcome": "closed-child"
+          }
+        ],
+        "events": 486,
+        "failed_pair_hex": [
+          "0x11",
+          "0x1010"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0x1313",
+          "0x1515",
+          "0x3311",
+          "0x5511"
+        ],
+        "outcome": "branched"
+      },
+      "0d93dd45847d4622e50789d92d376b9a18663a561a1358ceea58d507c6df385f": {
+        "admissible_interval_hex": [
+          "0x77",
+          "0xf7"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0xf7",
+            "child_id": "a961222a3cfc6a99624d1a4bc3c5828a293f31853523084e45f1e161f1c3ee58",
+            "closure_rounds": 4,
+            "events": 504,
+            "outcome": "closed-child"
+          },
+          {
+            "candidate_hex": "0x77",
+            "child_id": "0d3e4c177d915d0f410ea124cd72d9fca4ac5b8b2d5e6ab5000697fccf32a90a",
+            "closure_rounds": 4,
+            "events": 486,
+            "outcome": "closed-child"
+          }
+        ],
+        "events": 198,
+        "failed_pair_hex": [
+          "0x33",
+          "0x55"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0xff",
+          "0x80f7"
+        ],
+        "outcome": "branched"
+      },
+      "1a90b87fc7f21eac6bb65a034c086702718ae419fa0ed7229e13463c49bbf0d3": {
+        "admissible_interval_hex": [
+          "0xb2",
+          "0xf2"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0xf2",
+            "child_id": "5ac6ab83360c8829fbc68f93087d7f13edc69695805597ff284cdabd9d8fcaaf",
+            "closure_rounds": 4,
+            "events": 3456,
+            "outcome": "closed-child"
+          },
+          {
+            "candidate_hex": "0xb2",
+            "canonical_child_id": "5ac6ab83360c8829fbc68f93087d7f13edc69695805597ff284cdabd9d8fcaaf",
+            "events": 3456,
+            "outcome": "sibling-symmetry-duplicate"
+          }
+        ],
+        "events": 1312,
+        "failed_pair_hex": [
+          "0x32",
+          "0xa2"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0xf6",
+          "0x40f2"
+        ],
+        "outcome": "branched"
+      },
+      "1d4a1ba1c07d6f849ef2231203fcf7fd3773774e226366ca4b99f69bd387c713": {
+        "admissible_interval_hex": [
+          "0xcae",
+          "0xcaf"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0xcaf",
+            "child_id": "a961222a3cfc6a99624d1a4bc3c5828a293f31853523084e45f1e161f1c3ee58",
+            "closure_rounds": 4,
+            "events": 504,
+            "outcome": "closed-child"
+          },
+          {
+            "candidate_hex": "0xcae",
+            "canonical_child_id": "a961222a3cfc6a99624d1a4bc3c5828a293f31853523084e45f1e161f1c3ee58",
+            "events": 504,
+            "outcome": "sibling-symmetry-duplicate"
+          }
+        ],
+        "events": 204,
+        "failed_pair_hex": [
+          "0xaa",
+          "0xc0c"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0x2faf",
+          "0x4cff"
+        ],
+        "outcome": "branched"
+      },
+      "5ac6ab83360c8829fbc68f93087d7f13edc69695805597ff284cdabd9d8fcaaf": {
+        "admissible_interval_hex": [
+          "0x2032",
+          "0x2232"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0x2232",
+            "child_id": "ab00c4c6fe75d82ac7ad291604131048df9509129c0981ff9065cff3fd43bb9b",
+            "closure_rounds": 4,
+            "events": 9216,
+            "outcome": "closed-child"
+          },
+          {
+            "candidate_hex": "0x2032",
+            "closure_rounds": 1,
+            "events_at_detection": 4228,
+            "forcing_side_atom_hex": "0xf00",
+            "outcome": "q-side-atom-forces-reconstruction"
+          }
+        ],
+        "events": 3456,
+        "failed_pair_hex": [
+          "0x32",
+          "0x2030"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0x2332",
+          "0x2a32"
+        ],
+        "outcome": "branched"
+      },
+      "7468c2cc6caf7a7ade45ce3900ed85647cbf6765222c628f64411a4fe5893ded": {
+        "admissible_interval_hex": [
+          "0x537",
+          "0x153f"
+        ],
+        "candidate_count": 4,
+        "children": [
+          {
+            "candidate_hex": "0x153f",
+            "child_id": "1d4a1ba1c07d6f849ef2231203fcf7fd3773774e226366ca4b99f69bd387c713",
+            "closure_rounds": 6,
+            "events": 204,
+            "outcome": "closed-child"
+          },
+          {
+            "candidate_hex": "0x1537",
+            "child_id": "0d93dd45847d4622e50789d92d376b9a18663a561a1358ceea58d507c6df385f",
+            "closure_rounds": 5,
+            "events": 198,
+            "outcome": "closed-child"
+          },
+          {
+            "candidate_hex": "0x53f",
+            "canonical_child_id": "0d93dd45847d4622e50789d92d376b9a18663a561a1358ceea58d507c6df385f",
+            "events": 198,
+            "outcome": "sibling-symmetry-duplicate"
+          },
+          {
+            "candidate_hex": "0x537",
+            "canonical_child_id": "1d4a1ba1c07d6f849ef2231203fcf7fd3773774e226366ca4b99f69bd387c713",
+            "events": 204,
+            "outcome": "sibling-symmetry-duplicate"
+          }
+        ],
+        "events": 82,
+        "failed_pair_hex": [
+          "0x33",
+          "0x505"
+        ],
+        "gap_bits": 2,
+        "minimal_upper_bounds_hex": [
+          "0x3f3f",
+          "0x55ff"
+        ],
+        "outcome": "branched"
+      },
+      "a961222a3cfc6a99624d1a4bc3c5828a293f31853523084e45f1e161f1c3ee58": {
+        "admissible_interval_hex": [
+          "0x3b",
+          "0x3f"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0x3f",
+            "child_id": "0339b852922124e29a660a2e56bdbf24794eded9dfa65c7826c02e35b032c2a8",
+            "closure_rounds": 4,
+            "events": 1296,
+            "outcome": "closed-child"
+          },
+          {
+            "candidate_hex": "0x3b",
+            "child_id": "1a90b87fc7f21eac6bb65a034c086702718ae419fa0ed7229e13463c49bbf0d3",
+            "closure_rounds": 4,
+            "events": 1312,
+            "outcome": "closed-child"
+          }
+        ],
+        "events": 504,
+        "failed_pair_hex": [
+          "0x33",
+          "0x3a"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0xff",
+          "0x53f",
+          "0xc3f"
+        ],
+        "outcome": "branched"
+      },
+      "ab00c4c6fe75d82ac7ad291604131048df9509129c0981ff9065cff3fd43bb9b": {
+        "admissible_interval_hex": [
+          "0xd0",
+          "0xf0"
+        ],
+        "candidate_count": 2,
+        "children": [
+          {
+            "candidate_hex": "0xf0",
+            "closure_rounds": 0,
+            "events_at_detection": 9218,
+            "forcing_side_atom_hex": "0xf0",
+            "outcome": "q-side-atom-forces-reconstruction"
+          },
+          {
+            "candidate_hex": "0xd0",
+            "closure_rounds": 1,
+            "events_at_detection": 12292,
+            "forcing_side_atom_hex": "0x2222",
+            "outcome": "r-side-atom-forces-reconstruction"
+          }
+        ],
+        "events": 9216,
+        "failed_pair_hex": [
+          "0x50",
+          "0xc0"
+        ],
+        "gap_bits": 1,
+        "minimal_upper_bounds_hex": [
+          "0xf2",
+          "0x20f0"
+        ],
+        "outcome": "branched"
+      }
+    },
+    "proof_dag_audit": {
+      "branched_nodes": 9,
+      "candidate_edges": 20,
+      "every_candidate_has_one_disposition": true,
+      "every_closed_or_memo_child_resolves_to_a_node": true
+    },
+    "result_no_unreconstructed_oml": true,
+    "search_status": "complete-no-go",
+    "statistics": {
+      "both_reconstruction_prunes": 0,
+      "candidate_branches": 20,
+      "closed_children_by_size": {
+        "1296": 2,
+        "1312": 1,
+        "198": 1,
+        "204": 1,
+        "3456": 2,
+        "486": 1,
+        "504": 2,
+        "9216": 1
+      },
+      "duplicate_child_prunes": 4,
+      "max_depth": 5,
+      "max_events": 9216,
+      "max_gap_bits": 2,
+      "memo_prunes": 3,
+      "new_symmetry_classes": 9,
+      "nodes_by_depth": {
+        "0": 1,
+        "1": 2,
+        "2": 3,
+        "3": 3,
+        "4": 2,
+        "5": 1
+      },
+      "nodes_entered": 12,
+      "q_reconstruction_prunes": 3,
+      "r_reconstruction_prunes": 2,
+      "terminal_lattices": 0,
+      "terminal_non_oml_lattices": 0,
+      "terminal_omls": 0,
+      "unresolved_frontiers": 0
+    },
+    "symmetry_group_order": 128,
+    "symmetry_validation": {
+      "initial_family_invariant_under_group": true,
+      "same_side_reconstruction_predicate_invariant": true,
+      "shallow_off_vs_on": {
+        "candidate_masks_hex": [
+          "0x153f",
+          "0x1537",
+          "0x53f",
+          "0x537"
+        ],
+        "depth": 1,
+        "depth_2_exact_child_intersection": 5,
+        "incremental_closure_equals_baseline_through_depth_2": true,
+        "new_min_gap_depth_2_closed_children": 6,
+        "old_lex_depth_2_closed_children": 8,
+        "old_new_exact_closed_children_equal_depth_1": true,
+        "old_new_exact_closed_children_equal_depth_2": false,
+        "symmetry_off_candidate_count": 4,
+        "symmetry_off_distinct_closed_children": 4,
+        "symmetry_on_canonical_classes": 2
+      }
+    },
+    "terminal_families": [],
+    "unresolved_closure_frontiers": []
+  },
+  "schema": "rectangle-no-side-reconstruction-search-v2",
+  "schema_version": "2.0",
+  "scope": "complete only inside P(2^4), retaining all 16 profiles and the full K_2,2 edge core",
+  "verifier_sha256": "8ecc4307320dc472eef1cd20be182d7d18825647278891b812920697cc69bb38"
+}

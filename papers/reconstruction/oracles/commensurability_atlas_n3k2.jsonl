@@ -1,0 +1,1 @@
+{"verdict": "FAMILY_I_COMPLETE", "n": 3, "k": 2, "contexts": [[[0], [1, 2]], [[0, 1], [2]]], "n_family_I": 3, "n_family_II": 3, "sep_facet_cone": "in-cone", "else_witness": null}

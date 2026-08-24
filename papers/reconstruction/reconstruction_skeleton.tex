@@ -1,0 +1,237 @@
+% =====================================================================
+% SKELETON — architecture toward the target results.
+% Payoff-first: the reconstruction guarantee is the target; the machinery
+% (C=R -> why-hard -> winding criterion -> universal impossibility) is the
+% dependency chain beneath it. Every node is STATUS-MARKED. Interim results
+% (tamings, parity, PR-box, proof-obligation lemmas) are DEFERRED as
+% instances/obligations, not deleted — they live proved in
+% notes/reconstruction_body_PROVED_ARCHIVE.tex.
+%
+% Status legend used throughout:
+%   [PROVED]        — theorem with a verified proof (archive has it)
+%   [CLASSICAL]     — established elsewhere; we cite and translate
+%   [OPEN]          — conjectural; the gap is named
+%   [SCAFFOLDING]   — a proof-obligation feeding a node above
+%   [SCOPE: …]      — a fenced limitation carried by the node
+% =====================================================================
+
+\section{The target: when do coherent windows determine a process?}\label{sec:target}
+
+A process in time is often seen only through \emph{windows}: overlapping finite
+views, each recording finitely many coordinates over finitely many steps. Each
+window yields a local probability table. The tables may agree wherever they
+overlap and still be produced by no single underlying process. The question of
+this paper is when that cannot happen.
+
+\begin{namedgoal}[Reconstruction guarantee --- the target]\label{goal:recon}
+For a structured class of observation protocols, locally coherent window-statistics
+are induced by a single global process; and the boundary of that class ---
+where coherence stops forcing a global process --- is exactly decidable.
+\end{namedgoal}
+
+\noindent\emph{Status of the target.} The guarantee is established
+\textbf{unconditionally} on three tame families (\S\ref{sec:boundary}), and
+\textbf{conditionally} --- on a single open conjecture (\S\ref{sec:capstone}) ---
+for all total symbolic languages. The decidability of the boundary is
+\textbf{[PROVED]} for a fixed observation length via the winding criterion
+(\S\ref{sec:boundary}); the lift from winding-2 to full safety is
+\textbf{[PROVED at general $k$ and Lean-verified, 2026-08-21]} via the pruning
+theorem, which with the $k$-cap also makes $\mathrm{Safe}(\rho)$ eventually
+periodic and effectively computable.
+
+The rest of the paper is the dependency chain beneath
+Goal~\ref{goal:recon}: the geometric reduction that makes ``coherence forces a
+process'' computable (\S\ref{sec:geometry}), why it cannot be settled at the level
+of individual models (\S\ref{sec:hardness}), the criterion that draws the boundary
+(\S\ref{sec:boundary}), and the conjecture that would make the guarantee
+unconditional (\S\ref{sec:capstone}).
+
+
+\section{The geometric reduction}\label{sec:geometry}
+
+We fix the minimal vocabulary once, one object per sentence, and use nothing before
+it is defined.
+
+A finite \emph{alphabet} $A$ and a finite index set $F\subseteq\bbZ$ give a
+\emph{context}: a partition of $A^F$ into cells. A \emph{protocol} is a finite
+family of contexts. \emph{Window-data} assigns a probability to each cell of each
+context. A \emph{symbolic language} is a relation $\rho\subseteq A\times A$ listing
+the legal adjacent pairs of a shift of finite type; a protocol \emph{reports} on
+the configurations legal for $\rho$.
+
+\begin{definition}[coherence, realisability, commensurability]\label{def:core}
+Window-data is \emph{empirically adequate} ($\EA$) if any two contexts agree on the
+events common to both. It is \emph{realisable in a class} $\Rc$ ($\PR(\Rc)$) if some
+member of $\Rc$ --- all measures, or stationary, or subshift-supported, or
+memory-$m$ Markov: an observer's declared commitment --- induces it. Data is
+\emph{contextual} when $\EA$ but not $\PR(\Rc)$. A protocol is \emph{commensurable}
+when every $\EA$ datum is $\PR(\Rc)$.
+\end{definition}
+
+\begin{remark}[Paper-local notation]
+Here EA is overlap compatibility of local probability tables and
+$\mathrm{PR}(\mathcal R)$ is realisability by one process in a declared class.
+The companion paper on distributivity and realism uses EA for a dual-space
+measure and PR for descent to an underlying realisation space. No translation
+between those source-specific definitions is currently established.
+\end{remark}
+
+\begin{proposition}[commensurability is a polytope equality]\label{prop:cr}
+The $\EA$ data form a polytope $C$ (the coherence polytope) and the $\PR(\Rc)$ data
+a polytope $R\subseteq C$ (the realisability polytope, the convex hull of the global
+configurations' cell-incidence vectors). A protocol is commensurable iff $C=R$; a
+contextual datum is a point of $C\setminus R$, and over rational data a separating
+facet certifies it.
+\end{proposition}
+
+\noindent\textbf{[PROVED, CLASSICAL polyhedral content.]} This is the marginal
+polytope of the Abramsky--Brandenburger presheaf model. Its force here is
+methodological: ``coherence forces a process'' becomes the exactly computable
+question $C=R$, decided by a proof of equality or an exhibited rational witness in
+$C\setminus R$.
+
+
+\section{Why the question lives at the protocol level}\label{sec:hardness}
+
+The reduction $C=R$ is computable per protocol but not classifiable per model: the
+achievable geometry is already universal.
+
+\begin{theorem}[trichotomy]\label{thm:trichotomy}
+Reporting splits into three regimes. \emph{(Acyclic)} If the reporting hypergraph
+is acyclic, the protocol is commensurable for every $\rho$. \emph{(Product)}
+Full-support coordinate protocols are commensurable. \emph{(Variety-typed)}
+Protocols carrying a constraint variety realise, as their coherence polytopes,
+every rational polytope up to affine equivalence.
+\end{theorem}
+
+\noindent\textbf{[PROVED; the three parts are CLASSICAL translations]} ---
+acyclic\,=\,Vorob'ev/running-intersection; product\,=\,product measure;
+variety-typed\,=\,De~Loera--Onn universality with the Pitowsky
+\textsf{NP}-hardness floor. \emph{Consequence, and the reason for the paper's
+altitude:} no finite facet taxonomy classifies contextual \emph{models}, so the
+classification is posed one level up --- a $\forall\exists$ question over
+structured protocol \emph{families} --- where structure can defeat the
+universality. Everything below characterises such families.
+
+
+\section{The boundary: the winding criterion}\label{sec:boundary}
+
+This is the spine. Read a cyclic protocol as recurrence: observe $\rho$ around a
+ring of length $L$. Lift the ring to its \emph{layered graph} --- vertices $(i,a)$
+for site $i\in\bbZ_L$ and state $a\in A$, arcs $(i,a)\to(i{+}1,b)$ for legal pairs
+$(a,b)$. The \emph{winding} of a closed walk is its net site-advance divided by
+$L$. Call a length $L$ \emph{unsafe} for $\rho$ if the length-$L$ ring carries
+contextual data.
+
+\begin{theorem}[winding criterion --- the decidable boundary]\label{thm:winding}
+A length $L$ is unsafe for $\rho$ iff the layered ring carries a layer-injective
+simple cycle of winding $\ge 2$.
+\end{theorem}
+
+\noindent\textbf{[PROVED for fixed $L$]}, via three obligations, each discharged in
+the archive: a \emph{gate identification} ($C$ is the layered graph's circulation
+polytope) \textbf{[PROVED; the genericity gate is vacuous for the ring used]}; a
+\emph{flow decomposition} (a polytope vertex is a single simple cycle)
+\textbf{[PROVED on a CLASSICAL, axiomatised decomposition]}; and a
+\emph{layer-injectivity discriminant} (that cycle is layer-injective)
+\textbf{[PROVED, machine-verified in Lean~4]}. \textbf{[SCOPE: the criterion as
+proved here is about winding-2 obstructions; that this captures full safety rests
+on the pruning lemma, \S\ref{sec:capstone}. As of 2026-08-21 that lemma is
+PROVED at general $k$ and machine-verified in Lean~4
+(\texttt{QuerySystem/PruningTheorem.lean}, \texttt{TheoremB.lean}), so the bridge
+is no longer spot-checked. It does not close the capstone: see the forcing
+lemma.]}
+
+\paragraph{Instances of the criterion (deferred; proved in the archive).}
+The criterion is exercised, not merely stated, on worked families. The
+\emph{parity theorem} --- the golden-mean shift on a ring is commensurable iff $L$
+is even, the odd-ring gap a single extreme point that is its own PR-box --- is the
+smallest nontrivial instance. A \emph{catalogue of ten taming mechanisms} gives
+sufficient conditions for the winding obstruction never to form, organised as
+terminal integrality certificates versus reductions to one. Assembled, these yield
+\emph{Circuit Localization} for symmetric loopless marginal-determined languages,
+where contextuality is excluded by structure rather than search. These are
+\textbf{[PROVED]} and belong in the full paper; here they are the evidence that the
+boundary is real and computable, not the target.
+
+
+\section{The capstone: universal impossibility}\label{sec:capstone}
+
+The winding criterion decides each length. The catalogue of \S\ref{sec:boundary}
+gives sufficient conditions for a language to be safe at \emph{all} lengths. Whether
+those conditions are also \emph{necessary} --- whether the catalogue is complete ---
+is the open capstone that would make Goal~\ref{goal:recon} unconditional.
+
+\begin{conjecture}[universal impossibility]\label{conj:universal}
+No \emph{fork} exists: every total language is either caught by a catalogued taming
+or is contextual at cofinitely many lengths. Equivalently, the winding criterion is
+a complete decision procedure and the reconstruction guarantee is unconditional on
+the total languages.
+\end{conjecture}
+
+\noindent\textbf{[OPEN].} The symmetric case is settled by Circuit Localization;
+the residue is the strongly-connected non-symmetric class, where exhaustive search
+finds no fork at small scale. The intended route reduces the conjecture to a single
+named lemma.
+
+\begin{namedlemma}[the forcing lemma --- the one open step]\label{lem:forcing}
+On a primitive language, an infinite safe set forces a parity obstruction: the
+signed pair-graph of the language is balanced (equivalently, its residue class is
+the even lengths), the only alternative being a finite safe set.
+\end{namedlemma}
+
+\noindent\textbf{[OPEN; VALIDATED, not proved].} The forcing lemma is exactly
+``the tamings are the only sources of residue-safety in a primitive language.''
+Its two halves are: a \emph{re-characterisation} (residue-safety $=$ balance of a
+signed pair-graph) \textbf{[PROVED, structural]}; and the \emph{forcing} proper
+(primitivity excludes the mixed cases) \textbf{[OPEN]}, framed as two
+Perron--Frobenius exclusions and checked without counterexample across several
+thousand primitive languages. Discharging it closes
+Conjecture~\ref{conj:universal}: the other half, the winding-2-to-full bridge, is
+no longer outstanding --- the pruning theorem is proved at general $k$ and
+Lean-verified, and with the $k$-cap gives
+$\mathrm{Unsafe}(\rho)=\bigcup_{k=2}^{|A|}\mathrm{TR}_k^{(1)}$, so every winding
+is accounted for. \textbf{The forcing lemma is now the single remaining result
+the paper is aiming to prove or to state as its open problem.}
+
+
+\section{Consequences}\label{sec:consequences}
+
+On the tame classes of \S\ref{sec:boundary} --- acyclic reporting, symmetric
+marginal-determined languages, even-cyclic golden-mean recurrence --- coherent
+window-statistics determine a global process (Goal~\ref{goal:recon},
+unconditional), and the winding criterion makes the boundary decidable. This is the
+licensing layer beneath process reconstruction in the statistical (measure-plus-shift)
+rather than manifold sense of Takens. By the universality of \S\ref{sec:hardness}
+the boundary is intrinsic, so contextuality is a feature of observing through
+windows: present exactly when the geometry admits the winding obstruction. Where
+Conjecture~\ref{conj:universal} holds, no total language manufactures contextuality
+unless the exchange criterion fires.
+
+The same failure of local coherence to globalise recurs across the programme:
+algebraically in Paper~II (dispersion-free states collapsing realisability on
+non-distributive logics) and set-theoretically in the $\sigma$-essential witness
+(a finitely coherent pattern with no $\sigma$-additive global state). Dynamically
+it is sharpest --- an unwitnessed exchange, two histories trading places around the
+clock of observation without meeting.
+
+
+\section*{Positioning and method}\label{sec:method}
+
+\textbf{Contribution type.} A bridge (Type~6): the polyhedral core is classical
+(marginal polytopes, stable-set integrality, De~Loera--Onn universality,
+signed-minor tightness); the novelty is the observational-dynamical framing, the
+winding criterion, and the Circuit-Localization assembly. This positioning is
+stated, not hedged.
+
+\textbf{Method.} Each commensurability verdict is a theorem or an exact rational
+enumeration; each contextuality verdict an exhibited rational witness in
+$C\setminus R$; sampling is only screening. The layer-injectivity discriminant and
+the flow-decomposition kernel are machine-checked in Lean~4.
+
+\textbf{What is owed to fill this skeleton to a complete paper.} (i) The forcing
+lemma (Lemma~\ref{lem:forcing}): prove it, or state it as the paper's open problem.
+(ii) The winding-2-to-full-safety bridge: prove it applies, or scope every
+boundary claim to winding-2. (iii) Fold the archived proved body
+(parity, PR-box, the ten tamings, Circuit Localization, the three winding
+obligations) back in as \S\ref{sec:boundary}'s instances, ordered define-at-first-use.

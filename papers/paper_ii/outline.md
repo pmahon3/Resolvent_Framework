@@ -91,10 +91,9 @@ sets).  S₀(A) is compact.
 Critical distinction — "realism" is not monolithic:
 
 **Value-definite realism (VDR):** Every observable simultaneously
-has a definite value.  Mathematically: a global 2-valued
-homomorphism on the observation algebra exists.  In the dual
-space: a point in S₀(A) that is dispersion-free for all
-observables.
+has a definite value.  Canonically: a global dispersion-free state
+on the observation algebra exists.  On a general OML this need not
+be a lattice homomorphism; sigma-additivity is a separate clause.
 
 **Probabilistic realism (PR):** There exists an underlying
 probability space (Ω, σ(C), P) generating the observations.
@@ -104,7 +103,9 @@ measure on a realization space.
 **Empirical adequacy (EA):** The measure on the dual space
 agrees with all observations.  No claim about an underlying Ω.
 
-These are nested: VDR ⟹ PR ⟹ EA.
+At the sigma-additive grade, VDR_sigma ⟹ PR ⟹ EA. Standalone VDR
+means only that a dispersion-free state exists and is not silently
+identified with this graded endpoint on an infinite carrier.
 
 | Type | Boolean | OML |
 |------|---------|-----|
@@ -174,14 +175,15 @@ Four levels, each a strengthening:
    all contexts (a state on the OML)
 3. **Probabilistic coherence** — extension to a σ-additive
    measure on the dual space (Gleason-type)
-4. **Value-definite coherence** — a global dispersion-free
-   state (2-valued homomorphism on the full algebra)
+4. **Sigma-additive value-definite coherence** — a global
+   sigma-additive dispersion-free state. Standalone VDR drops the
+   sigma-additivity clause and is not the same endpoint in general.
 
 | Transition | Boolean | OML |
 |-----------|---------|-----|
 | 1 → 2 | Trivial (distributivity) | Non-trivial but possible |
 | 2 → 3 | σ-additivity (Paper I) | Gleason-type extension |
-| 3 → 4 | Available (ultrafilters) | Blocked (Kochen-Specker) |
+| 3 → 4 | Standalone VDR available; sigma endpoint separate | Blocked (Kochen-Specker) |
 
 Paper I lives at transition 2→3.  The OML paper lives at 3→4
 and shows it's exactly where distributivity matters.

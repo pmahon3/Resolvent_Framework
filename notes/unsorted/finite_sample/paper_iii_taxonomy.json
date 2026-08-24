@@ -1,0 +1,256 @@
+{
+  "$meta": {
+    "title": "Paper III — dynamics + observational-resolution taxonomy",
+    "purpose": "Zoom-out index of the Paper-III dynamics / observational-resolution collection. Load first for the shape; follow `detail` pointers to drill in.",
+    "updated": "2026-06-26",
+    "what_is_it": "Finite-sample dynamical reconstruction + an observational-resolution-dimension programme: finite-sample rates n^(-s/(2s+D)) read as driven by observable distinguishability growth (D a resolution exponent, not topological dimension), plus the fibre-mixing/collision bridge connecting geometric refinement to σ-algebra generation.",
+    "status": "MIXED. Three sub-programmes: (1) observational-resolution-dimension = LIVE future target (coherent, dormant from Papers I-III); (2) fibre-mixing bridge = DEAD with a located disintegration error (2026-05-14); (3) operational-boundary = BIFURCATED (chain-detection killed by Kolmogorov extension, smoothness-concentration detection survives). Lyapunov + interaction = deferred separate directions.",
+    "the_shape": "The live core is 'rate exponent D = growth/scale' across many valuations (Cantor, smooth, hyperbolic, logic, spectral) — a unifying remark with 10 guardrails. The dead fibre-mixing thread located one precise error (p_z vs p_z^2 disintegration weighting) that falsifies the bridge theorem both directions but yields a corrected conditional version + a clean geometric-vs-algebraic distinction. Operational-boundary kept one live result (smoothness-concentration: PFA charges can't be uniformly Hölder-smooth).",
+    "categories": {
+      "theorem_target": "a live result being aimed at / formalized",
+      "result": "an established sub-result",
+      "wall": "a guardrail / structural obstruction bounding the programme",
+      "settled_fact": "a reusable established distinction or fact",
+      "dead_route": "a killed attempt (with reason)",
+      "direction": "a deferred future research direction",
+      "lit_placement": "a literature-positioning artifact"
+    },
+    "headline": {
+      "sub_programmes": 3,
+      "located_errors": 1,
+      "dead_routes": 3,
+      "live_targets": 4,
+      "guardrails": 10,
+      "deletions": 1
+    }
+  },
+  "observational_resolution": [
+    {
+      "id": "or.rate_theorem",
+      "name": "Valued-refinement rate theorem",
+      "category": "theorem_target",
+      "status": "live",
+      "one_line": "Classical n^(-s/(2s+D)) made rigorous in the valued-refinement framework; needs the 3 assumptions proved in ≥2 examples before integration.",
+      "detail": "observational_resolution/theorem_spec.md#generic-rate"
+    },
+    {
+      "id": "or.exponent_vs_topology",
+      "name": "Resolution exponent ≠ topology",
+      "category": "result",
+      "status": "settled",
+      "one_line": "Cantor gives D=log2/log3 (topological dim 0); smooth manifolds give D=d. The rate exponent is a scaling exponent, not topology.",
+      "detail": "observational_resolution/index.md#smooth-and-cantor"
+    },
+    {
+      "id": "or.collision_entropy",
+      "name": "Collision-entropy specialization",
+      "category": "result",
+      "status": "settled",
+      "one_line": "For balanced finite algebras, collision entropy H_2 agrees with atom-count entropy; dimensions asymptotically equivalent when atoms are comparable in mass.",
+      "detail": "observational_resolution/theorem_spec.md#collision-version"
+    },
+    {
+      "id": "or.info_geometry",
+      "name": "Observational pseudometric / info-geometry",
+      "category": "result",
+      "status": "settled",
+      "one_line": "d_obs(x,y)=sqrt(D_sym(P_x,P_y)) recovers the Fisher metric locally and a scaling dimension in fractal settings.",
+      "detail": "observational_resolution/index.md#information-geometric"
+    },
+    {
+      "id": "or.valuation_zoo",
+      "name": "Valuation zoo",
+      "category": "result",
+      "status": "settled",
+      "one_line": "Cantor/smooth/hyperbolic/logic/computation/spectral/category valuations all instance D = growth/scale.",
+      "detail": "observational_resolution/index.md#valuation-zoo"
+    },
+    {
+      "id": "or.youngs_formula",
+      "name": "Young's formula as special case",
+      "category": "result",
+      "status": "settled",
+      "one_line": "HD(μ)=h_μ(f)(1/λ1+1/|λ2|) is the measure-relative branch of D_Λ once Papers I/II supply the data.",
+      "detail": "observational_resolution/index.md#youngs-formula"
+    }
+  ],
+  "guardrails": [
+    {
+      "id": "guard.collisions_vanish",
+      "name": "Exact collisions vanish (continuous injective)",
+      "category": "wall",
+      "status": "open",
+      "one_line": "For continuous injective Φ and atomless μ, exact collision probability is 0 — not a dimension; must use finite algebras / ε-coarse collision / covering numbers.",
+      "detail": "observational_resolution/failure_modes.md#exact-collisions"
+    },
+    {
+      "id": "guard.refinement_needs_valuation",
+      "name": "Refinement alone ≠ dimension",
+      "category": "wall",
+      "status": "settled",
+      "one_line": "A refinement sequence needs a valuation Λ(k) (scale/cost/description-length); without Λ, no dimension.",
+      "detail": "observational_resolution/failure_modes.md#refinement-alone"
+    },
+    {
+      "id": "guard.multifractal",
+      "name": "Multifractal / local-global disagreement",
+      "category": "wall",
+      "status": "open",
+      "one_line": "Local, Hausdorff, box, Rényi-q, effective dimensions can differ; no single global D without uniformity (Coates–Gelfert 2025).",
+      "detail": "observational_resolution/failure_modes.md#local-global"
+    },
+    {
+      "id": "guard.valuation_intrinsic",
+      "name": "Valuation may not be intrinsic",
+      "category": "wall",
+      "status": "settled",
+      "one_line": "Deepest risk: Λ externally chosen, not forced. Cantor/smooth/hyperbolic supply it canonically; zeta/logical do not ⟹ theorem conditional on chosen valuation.",
+      "detail": "observational_resolution/failure_modes.md#valuation-intrinsic"
+    },
+    {
+      "id": "guard.quotient_dim",
+      "name": "Observable dimension = quotient dimension",
+      "category": "wall",
+      "status": "settled",
+      "one_line": "Observation collapses states; the relevant dimension is the observable factor X/~, not the hidden space, unless faithfulness is proved.",
+      "detail": "observational_resolution/failure_modes.md#quotient-dimension"
+    },
+    {
+      "id": "guard.scope_creep",
+      "name": "Paper III scope creep",
+      "category": "wall",
+      "status": "settled",
+      "one_line": "Paper III spine is fixed; the observational-dimension programme is at most a restrained remark about D as resolution exponent, not a replacement.",
+      "detail": "observational_resolution/failure_modes.md#scope-creep"
+    }
+  ],
+  "fibre_mixing": [
+    {
+      "id": "fm.bridge_theorem_dead",
+      "name": "Bridge theorem (DEAD — located error)",
+      "category": "dead_route",
+      "status": "killed",
+      "killed": "2026-05-14",
+      "one_line": "Claimed E[Var(1_S|O_L)]=(1/2)∫|1_S−1_S'|²d(μ⊗μ). FALSE: LHS=Σ p_z·μ_z(S)μ_z(Sᶜ) but RHS=Σ p_z²·(...) — disintegration of (μ⊗μ)|R_L weights by p_z² not p_z, since (μ|F_z)^⊗2 = p_z²(μ_z⊗μ_z). Both directions false.",
+      "detail": "../../covered_leads/fibre_mixing.md#disintegration-error"
+    },
+    {
+      "id": "fm.entropy_char_dead",
+      "name": "Entropy characterization (DEAD)",
+      "category": "dead_route",
+      "status": "killed",
+      "one_line": "δ(L)→0 ⟺ H_2(ν_L)→∞ depended on the bridge theorem. Skew-product counterexample (X=A^Z×B^Z, T=σ×σ, h=a_0, S={b_0=0}): δ_L=1/4 ∀L yet collision→0. Equivalence is one-way only.",
+      "detail": "../../covered_leads/fibre_mixing.md#entropy-characterization (content consolidated here; entropy_characterization.md retired)"
+    },
+    {
+      "id": "fm.geometric_vs_algebraic",
+      "name": "Geometric vs algebraic reconstruction",
+      "category": "settled_fact",
+      "status": "settled",
+      "one_line": "Two independent quantities: collision Σ p_z² (geometric fibre refinement) vs algebraic defect δ_L(S)=Σ p_z μ_z(S)μ_z(Sᶜ) (σ-algebra generation). Small fibres do NOT guarantee complete algebraic resolution. The durable yield of the dead thread.",
+      "detail": "../../covered_leads/fibre_mixing.md#two-quantities"
+    },
+    {
+      "id": "fm.corrected_bridge",
+      "name": "Corrected bridge theorem (conditional)",
+      "category": "result",
+      "status": "settled",
+      "one_line": "TRUE version: if large-fibre contribution κ:=∫_{p_z≥ε} p_z·min(α_z,1−α_z)dν ≥ η>0 then ν(G(η))≥2(κ−η). Uses a pointwise UPPER bound (1/2), no ergodicity. The honest replacement.",
+      "detail": "../../archive/dynamics_reconstruction_dead/fibre_mixing/step_07_bridge_theorem.md#correct-statement"
+    },
+    {
+      "id": "fm.irreducibility_parked",
+      "name": "Fibre-mixing irreducibility (PARKED)",
+      "category": "open_question",
+      "status": "parked",
+      "one_line": "Is fibre mixing derivable from a structural condition, or irreducible like CE? Steps 1–5 (continuous logic, LBL vs UFM, irrational-rotation witnesses) show the framing is right but the irreducibility proof/failure-witness stays elusive.",
+      "detail": "../../archive/fibre_mixing_investigation/step1_framing.md"
+    },
+    {
+      "id": "fm.step_a_b",
+      "name": "Bridge Steps A (κ-bound) + B (a.e. balance)",
+      "category": "open_question",
+      "status": "open",
+      "one_line": "Step A: explicit lower bound on the large-fibre contribution κ (analytic, no dynamics). Step B: does ergodicity force a.e. large-fibre balance for near-maximizers? Asserted, proof absent.",
+      "detail": "../../archive/dynamics_reconstruction_dead/fibre_mixing/step_07_bridge_theorem.md#step-b"
+    }
+  ],
+  "operational_boundary": [
+    {
+      "id": "ob.theorem_parked",
+      "name": "Operational boundary theorem (PFA detection)",
+      "category": "theorem_target",
+      "status": "parked",
+      "one_line": "Detect purely-finitely-additive contamination ε via min-contamination estimator trajectory ε̂(n). Chain-detection route KILLED by Kolmogorov extension (PFA vs σ-additive marginals indistinguishable at fixed resolution).",
+      "detail": "operational_boundary_theorem/theorem_spec.md#verdict"
+    },
+    {
+      "id": "ob.chain_detection_dead",
+      "name": "Multi-resolution chain detection (DEAD)",
+      "category": "dead_route",
+      "status": "killed",
+      "one_line": "PFA charge as nested ultrafilter chain across levels, K~log(1/ε) levels. FAILED: adversary spreads contamination over many chains; any projective marginal family is σ-additive-indistinguishable at finite resolution.",
+      "detail": "operational_boundary_theorem/theorem_spec.md#kills-the-argument"
+    },
+    {
+      "id": "ob.smoothness_concentration",
+      "name": "Smoothness-concentration bound (LIVE)",
+      "category": "result",
+      "status": "live",
+      "one_line": "On a compact Stone space, if a PFA charge's marginals are all Hölder-smooth w.r.t. λ, the charge must be σ-additive (non-σ-add ⟹ E_j↓∅ with mass≥c but λ(E_j)→0, contradiction). The surviving novel tool.",
+      "detail": "operational_boundary_theorem/theorem_spec.md#smoothness-concentration"
+    },
+    {
+      "id": "ob.epsilon_trajectory",
+      "name": "ε̂(n) trajectory as consistent PFA test",
+      "category": "result",
+      "status": "live",
+      "one_line": "ε̂(n)→ε_0 a.s.; rate test T_n=ε̂(n)·n^(s/(2s+D)) is O_P(1) under σ-additive H_0, →∞ under PFA H_1. Threshold n≳exp((2s+D)k_0).",
+      "detail": "operational_boundary_theorem/theorem_spec.md#revised-statement"
+    }
+  ],
+  "directions": [
+    {
+      "id": "dir.lyapunov_separation",
+      "name": "Observable separation exponent (Lyapunov, Option 1)",
+      "category": "direction",
+      "status": "live",
+      "one_line": "λ_h(x,y)=limsup (1/n)log d(Φ_h(T^n x),Φ_h(T^n y)); observable separation growth, should recover top Lyapunov under smoothness + faithful reconstruction. Best near-term target.",
+      "detail": "../lyapunov_direction/observational_direction.md#option-1"
+    },
+    {
+      "id": "dir.lyapunov_divergence",
+      "name": "Conditional-law divergence exponent (Option 2)",
+      "category": "direction",
+      "status": "live",
+      "one_line": "λ_obs=limsup (1/t)log D(Π_t(q,·),Π_t(q',·)); growth rate of observational-law distinguishability. KL choice connects to entropy production / Pesin.",
+      "detail": "../lyapunov_direction/observational_direction.md#option-2"
+    },
+    {
+      "id": "dir.interaction",
+      "name": "Interaction-class discrimination (separate programme)",
+      "category": "direction",
+      "status": "parked",
+      "one_line": "Distinguish mutualism/competition/parasitism/commensalism/neutrality via joint query systems + predictive-effect signatures. Standalone ~10–15pp; not part of the core arc.",
+      "detail": "interaction/discrimination_direction.md"
+    }
+  ],
+  "lit_placement": [
+    {
+      "id": "lit.claim_map",
+      "name": "Observational-resolution claim map",
+      "category": "lit_placement",
+      "status": "settled",
+      "one_line": "9 claims with literature anchors, overclaim risks, safe reformulations; isolates the novel piece (observational factorization of D_Λ) from the classical (rate, metric entropy, fractal geometry).",
+      "detail": "observational_resolution/claim_map.md"
+    },
+    {
+      "id": "lit.dimension_review",
+      "name": "Dimension literature review",
+      "category": "lit_placement",
+      "status": "settled",
+      "one_line": "8-domain review (metric entropy, fractal geometry, info dimension, dynamical dim, info geometry, intrinsic-dim learning, algorithmic/logical/spectral, Lawvere) + 3 development levels.",
+      "detail": "observational_resolution/dimension_lit_review.md"
+    }
+  ]
+}

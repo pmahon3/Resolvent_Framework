@@ -22,3 +22,14 @@ rev = "main"
 
 [[lean_lib]]
 name = "QuerySystem"
+# Both entries are needed, and each covers a gap the other leaves.
+#
+# Without a glob at all, `lake build` compiles ONLY the root module
+# QuerySystem.lean and all 43 submodules go unchecked (the state before
+# ce55bb4: a green build meant nothing).
+#
+# But "QuerySystem.+" alone covers the submodules and NOT the root, so between
+# ce55bb4 and 2026-08-21 the root module was the one file going unchecked --
+# the same bug inverted. Verified empirically: with only the glob, deleting
+# .lake/build/lib/lean/QuerySystem.olean and rebuilding does not regenerate it.
+globs = ["QuerySystem", "QuerySystem.+"]

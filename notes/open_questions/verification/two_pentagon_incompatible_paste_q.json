@@ -1,0 +1,51 @@
+{
+  "all_states_are_point_profiles": true,
+  "binary_extrema_failures": 0,
+  "both_activated_profiles": [
+    "11100111",
+    "11111111"
+  ],
+  "both_activated_q_rleft_rright_profiles": [
+    "000",
+    "111"
+  ],
+  "both_activation_point_count": 2,
+  "carrier_point_state_count": 61,
+  "carrier_points": 61,
+  "centre_size": 2,
+  "closure_round_increments": [
+    0
+  ],
+  "complement_closed": true,
+  "completed_events": 40,
+  "disjoint_union_closed": true,
+  "every_nonzero_event_has_point_off_both_activations": true,
+  "exact_shared_event_count": 4,
+  "first_extrema_failure": null,
+  "lattice": true,
+  "left_activation_is_event": false,
+  "left_relation_preserved": true,
+  "maximal_block_count": 10,
+  "maximal_block_sizes": [
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8,
+    8
+  ],
+  "maximal_compatibility_clique_count": 10,
+  "orthomodular": true,
+  "point_states_order_separate": true,
+  "raw_events": 40,
+  "right_activation_is_event": false,
+  "right_relation_preserved": true,
+  "schema": "two-pentagon-incompatible-paste-v1",
+  "shared_boundary": "q",
+  "two_valued_state_count": 61,
+  "union_activation_is_event": false
+}

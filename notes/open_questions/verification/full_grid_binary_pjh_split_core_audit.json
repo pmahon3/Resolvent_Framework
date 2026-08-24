@@ -1,0 +1,1086 @@
+{
+  "binary_cases": 30,
+  "cases": [
+    {
+      "actual_witness_join": "0xf6",
+      "closed_events": 388,
+      "defect_hull_is_absent": true,
+      "defect_join": "0xf6",
+      "defect_join_remains_witness_join": true,
+      "depth": 1,
+      "event_family_sha256": "54b618cfbe7b0e9535e60e5148aa884bdbbb9da6b59c09c21ef7a16be48f04a1",
+      "first_failed_literal_union": "0xb2",
+      "first_failed_pair": [
+        "0x32",
+        "0xa2"
+      ],
+      "first_failed_upper_intersection": "0xf2",
+      "lattice": false,
+      "node_id": 2,
+      "profile_family_events": 204,
+      "pulled_events": 204,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x176",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 7,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x2322",
+      "closed_events": 984,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x2322",
+      "defect_join_remains_witness_join": true,
+      "depth": 2,
+      "event_family_sha256": "5df257e42484fac00968977839e6e63374d901171bd05169ba161c3b2090fd11",
+      "first_failed_literal_union": "0x544",
+      "first_failed_pair": [
+        "0x44",
+        "0x504"
+      ],
+      "first_failed_upper_intersection": "0x8544",
+      "lattice": false,
+      "node_id": 3,
+      "profile_family_events": 504,
+      "pulled_events": 504,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x4322",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 13,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x4544",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x4544",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "430e40e03f17e98997af5121efed99b005cbbbc1461ef7477812cf9f5b819e89",
+      "first_failed_literal_union": "0x704",
+      "first_failed_pair": [
+        "0x300",
+        "0x504"
+      ],
+      "first_failed_upper_intersection": "0xf04",
+      "lattice": false,
+      "node_id": 4,
+      "profile_family_events": 1312,
+      "pulled_events": 1312,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x8544",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 14,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0xf00",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0xf00",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "4ca5c2315a101ef9f511b17d812a312bc6ae0eddab776f4e90e79c2d0f2ca229",
+      "first_failed_literal_union": "0x1088",
+      "first_failed_pair": [
+        "0x88",
+        "0x1008"
+      ],
+      "first_failed_upper_intersection": "0x11088",
+      "lattice": false,
+      "node_id": 5,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1700",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 11,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x8888",
+      "closed_events": 18432,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x8888",
+      "defect_join_remains_witness_join": true,
+      "depth": 5,
+      "event_family_sha256": "43eeb7cf56136cec8c87860314e6a8e25d2a24c9a151e8436b75f45cfef7e414",
+      "first_failed_literal_union": null,
+      "first_failed_pair": null,
+      "first_failed_upper_intersection": null,
+      "lattice": true,
+      "node_id": 6,
+      "profile_family_events": 9216,
+      "pulled_events": 9216,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x10888",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 15,
+      "terminal_structure": {
+        "central_factor_interval_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          6,
+          6
+        ],
+        "central_factor_sizes_match_B9_times_MO2_squared": true,
+        "centre_atoms": 11,
+        "centre_events": 2048,
+        "centre_is_trivial": false,
+        "centre_sample": [
+          "0x0",
+          "0x1",
+          "0x2",
+          "0x3",
+          "0x4",
+          "0x5",
+          "0x6",
+          "0x7",
+          "0x10",
+          "0x11",
+          "0x12",
+          "0x13",
+          "0x14",
+          "0x15",
+          "0x16",
+          "0x17"
+        ],
+        "centre_sha256": "9e3ade3bde8cbb6ecb584512f56f9c7e6650529c5570b5c0570f4a1806a05186",
+        "distinct_point_state_signatures": 17,
+        "formal_carrier_is_point_reduced": true,
+        "lattice_atom_sizes": {
+          "1": 9,
+          "2": 8
+        },
+        "lattice_atoms": 17,
+        "point_evaluations_order_separate_by_concreteness": true
+      }
+    },
+    {
+      "actual_witness_join": "0xf04",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0xf04",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "c7b5604bcc925fa0efc6ef1e853046d39e078d5ff640336bc8029f34c4fd6526",
+      "first_failed_literal_union": "0xb00",
+      "first_failed_pair": [
+        "0x300",
+        "0xa00"
+      ],
+      "first_failed_upper_intersection": "0xf00",
+      "lattice": false,
+      "node_id": 10,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1704",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 11,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1700",
+      "closed_events": 18432,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1700",
+      "defect_join_remains_witness_join": true,
+      "depth": 5,
+      "event_family_sha256": "deac5cd264b6e86caa5deccc4cc5ffd7fe96b6a065b7b12609d3cc4a19c2f3d5",
+      "first_failed_literal_union": null,
+      "first_failed_pair": null,
+      "first_failed_upper_intersection": null,
+      "lattice": true,
+      "node_id": 12,
+      "profile_family_events": 9216,
+      "pulled_events": 9216,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1b00",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 10,
+      "terminal_structure": {
+        "central_factor_interval_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          6,
+          6
+        ],
+        "central_factor_sizes_match_B9_times_MO2_squared": true,
+        "centre_atoms": 11,
+        "centre_events": 2048,
+        "centre_is_trivial": false,
+        "centre_sample": [
+          "0x0",
+          "0x1",
+          "0x2",
+          "0x3",
+          "0x8",
+          "0x9",
+          "0xa",
+          "0xb",
+          "0x10",
+          "0x11",
+          "0x12",
+          "0x13",
+          "0x18",
+          "0x19",
+          "0x1a",
+          "0x1b"
+        ],
+        "centre_sha256": "9a24ae3fc46e59a9476e6d0a946d57f89611ecd34d32f24eeaf944fab2d8d84c",
+        "distinct_point_state_signatures": 17,
+        "formal_carrier_is_point_reduced": true,
+        "lattice_atom_sizes": {
+          "1": 9,
+          "2": 8
+        },
+        "lattice_atoms": 17,
+        "point_evaluations_order_separate_by_concreteness": true
+      }
+    },
+    {
+      "actual_witness_join": "0xf06",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0xf06",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "af7e6076957024b1b492319457e7ed8968de2fec1b3dfdd9d1ba5bdd815161d3",
+      "first_failed_literal_union": "0xb02",
+      "first_failed_pair": [
+        "0x302",
+        "0xa02"
+      ],
+      "first_failed_upper_intersection": "0xf02",
+      "lattice": false,
+      "node_id": 15,
+      "profile_family_events": 1296,
+      "pulled_events": 1296,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1706",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 11,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1702",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1702",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "d45fe3d5b79995ca3755dff005f65332cbc82f31030070f1f0d8010b4051c47f",
+      "first_failed_literal_union": "0x1500",
+      "first_failed_pair": [
+        "0x500",
+        "0x1400"
+      ],
+      "first_failed_upper_intersection": "0x1700",
+      "lattice": false,
+      "node_id": 17,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1b02",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 10,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1b00",
+      "closed_events": 18432,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1b00",
+      "defect_join_remains_witness_join": true,
+      "depth": 5,
+      "event_family_sha256": "a0af543dd74c83fa3563606ef9b0a217ae8d647596990138b118206e2a264bee",
+      "first_failed_literal_union": null,
+      "first_failed_pair": null,
+      "first_failed_upper_intersection": null,
+      "lattice": true,
+      "node_id": 19,
+      "profile_family_events": 9216,
+      "pulled_events": 9216,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1d00",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 9,
+      "terminal_structure": {
+        "central_factor_interval_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          6,
+          6
+        ],
+        "central_factor_sizes_match_B9_times_MO2_squared": true,
+        "centre_atoms": 11,
+        "centre_events": 2048,
+        "centre_is_trivial": false,
+        "centre_sample": [
+          "0x0",
+          "0x1",
+          "0x4",
+          "0x5",
+          "0x8",
+          "0x9",
+          "0xc",
+          "0xd",
+          "0x10",
+          "0x11",
+          "0x14",
+          "0x15",
+          "0x18",
+          "0x19",
+          "0x1c",
+          "0x1d"
+        ],
+        "centre_sha256": "1040c6630b3c77464b2ff1e027fbd1592236a2fcf28adbf882970ff47c78ab7a",
+        "distinct_point_state_signatures": 17,
+        "formal_carrier_is_point_reduced": true,
+        "lattice_atom_sizes": {
+          "1": 9,
+          "2": 8
+        },
+        "lattice_atoms": 17,
+        "point_evaluations_order_separate_by_concreteness": true
+      }
+    },
+    {
+      "actual_witness_join": "0x172",
+      "closed_events": 984,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x172",
+      "defect_join_remains_witness_join": true,
+      "depth": 2,
+      "event_family_sha256": "8f4bbad79f773b2462e855836809412d2e47bf927a8c9d6d421f62a538f081af",
+      "first_failed_literal_union": "0x150",
+      "first_failed_pair": [
+        "0x50",
+        "0x140"
+      ],
+      "first_failed_upper_intersection": "0x170",
+      "lattice": false,
+      "node_id": 21,
+      "profile_family_events": 504,
+      "pulled_events": 504,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1b2",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 6,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x2322",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x2322",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "e93fd3f37c6ba1c592ce8ca7edf1915d35ce032f1e2f56157b88c7debd721791",
+      "first_failed_literal_union": "0x544",
+      "first_failed_pair": [
+        "0x44",
+        "0x504"
+      ],
+      "first_failed_upper_intersection": "0x8544",
+      "lattice": false,
+      "node_id": 22,
+      "profile_family_events": 1312,
+      "pulled_events": 1312,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x4322",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 13,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x4544",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x4544",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "504adacd820b1fb98ef6674bb2c3ae5875b36dcb93a1febcfdcb510d98a75fbd",
+      "first_failed_literal_union": "0xb00",
+      "first_failed_pair": [
+        "0x300",
+        "0xa00"
+      ],
+      "first_failed_upper_intersection": "0xf00",
+      "lattice": false,
+      "node_id": 23,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x8544",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 14,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1b0",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1b0",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "18f59ed709e28cfe7a239ad68bc861e40e671ce1086545999ed11dcd61d5648e",
+      "first_failed_literal_union": "0x642",
+      "first_failed_pair": [
+        "0x42",
+        "0x602"
+      ],
+      "first_failed_upper_intersection": "0x4642",
+      "lattice": false,
+      "node_id": 24,
+      "profile_family_events": 1296,
+      "pulled_events": 1296,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1d0",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 5,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x2322",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x2322",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "fbb1261bff319b734e6e2c7255fd2749a53ef2298d214e605c40f1ae6aee82f3",
+      "first_failed_literal_union": "0xd00",
+      "first_failed_pair": [
+        "0x500",
+        "0xc00"
+      ],
+      "first_failed_upper_intersection": "0xf00",
+      "lattice": false,
+      "node_id": 25,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x4322",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 13,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x77",
+      "closed_events": 378,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x77",
+      "defect_join_remains_witness_join": true,
+      "depth": 1,
+      "event_family_sha256": "044588ec74972ca62d53a6acbac3fb6c20c1e135ea394dfe3f9e4efe8855a8de",
+      "first_failed_literal_union": "0x15",
+      "first_failed_pair": [
+        "0x5",
+        "0x14"
+      ],
+      "first_failed_upper_intersection": "0x17",
+      "lattice": false,
+      "node_id": 27,
+      "profile_family_events": 198,
+      "pulled_events": 198,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x7b",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 2,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1b",
+      "closed_events": 972,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1b",
+      "defect_join_remains_witness_join": true,
+      "depth": 2,
+      "event_family_sha256": "0d729cee5059e0cb1ca4f379bd63ac7849d66c2dce6cc0b6591040bd38bf753e",
+      "first_failed_literal_union": "0x1a0",
+      "first_failed_pair": [
+        "0xa0",
+        "0x180"
+      ],
+      "first_failed_upper_intersection": "0x1e0",
+      "lattice": false,
+      "node_id": 28,
+      "profile_family_events": 486,
+      "pulled_events": 486,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1d",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 1,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0xf7",
+      "closed_events": 378,
+      "defect_hull_is_absent": true,
+      "defect_join": "0xf7",
+      "defect_join_remains_witness_join": true,
+      "depth": 1,
+      "event_family_sha256": "35b1dd760dc5a37227e314bdd654fd9a7b7205c29c48ac931f24821b7816f7f3",
+      "first_failed_literal_union": "0xb3",
+      "first_failed_pair": [
+        "0x33",
+        "0xa2"
+      ],
+      "first_failed_upper_intersection": "0xf3",
+      "lattice": false,
+      "node_id": 30,
+      "profile_family_events": 198,
+      "pulled_events": 198,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x177",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 7,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0xf07",
+      "closed_events": 972,
+      "defect_hull_is_absent": true,
+      "defect_join": "0xf07",
+      "defect_join_remains_witness_join": true,
+      "depth": 2,
+      "event_family_sha256": "ab13390abe37ad581c7709ada9197d057ed1778ee02da732ab29a2ddd9b8627c",
+      "first_failed_literal_union": "0xb03",
+      "first_failed_pair": [
+        "0xa02",
+        "0x303"
+      ],
+      "first_failed_upper_intersection": "0xf03",
+      "lattice": false,
+      "node_id": 31,
+      "profile_family_events": 486,
+      "pulled_events": 486,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1707",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 11,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1703",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1703",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "24efc6b91f86cf699291fd00ac4bac0389033f0013aa64b5a86c61915df99cc1",
+      "first_failed_literal_union": "0x1501",
+      "first_failed_pair": [
+        "0x501",
+        "0x1400"
+      ],
+      "first_failed_upper_intersection": "0x1701",
+      "lattice": false,
+      "node_id": 33,
+      "profile_family_events": 1296,
+      "pulled_events": 1296,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1b03",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 10,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1b01",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1b01",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "1859e1e3fbef14a8ba771ca197e7f61ebc2b957c236ed3daf17dd42c56163529",
+      "first_failed_literal_union": "0x1a00",
+      "first_failed_pair": [
+        "0x1200",
+        "0x1800"
+      ],
+      "first_failed_upper_intersection": "0x1b00",
+      "lattice": false,
+      "node_id": 35,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1d01",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 9,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1d00",
+      "closed_events": 18432,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1d00",
+      "defect_join_remains_witness_join": true,
+      "depth": 5,
+      "event_family_sha256": "0389c8d6ef45bbc1db2582d791169be4510703036b80c8291519a3afac011ff8",
+      "first_failed_literal_union": null,
+      "first_failed_pair": null,
+      "first_failed_upper_intersection": null,
+      "lattice": true,
+      "node_id": 37,
+      "profile_family_events": 9216,
+      "pulled_events": 9216,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1e00",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 8,
+      "terminal_structure": {
+        "central_factor_interval_sizes": [
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          2,
+          6,
+          6
+        ],
+        "central_factor_sizes_match_B9_times_MO2_squared": true,
+        "centre_atoms": 11,
+        "centre_events": 2048,
+        "centre_is_trivial": false,
+        "centre_sample": [
+          "0x0",
+          "0x2",
+          "0x4",
+          "0x6",
+          "0x8",
+          "0xa",
+          "0xc",
+          "0xe",
+          "0x20",
+          "0x22",
+          "0x24",
+          "0x26",
+          "0x28",
+          "0x2a",
+          "0x2c",
+          "0x2e"
+        ],
+        "centre_sha256": "341458374ed59c5f9b11ed834fbb7a1183ec4c07afbe84808ba0f8b07ff25031",
+        "distinct_point_state_signatures": 17,
+        "formal_carrier_is_point_reduced": true,
+        "lattice_atom_sizes": {
+          "1": 9,
+          "2": 8
+        },
+        "lattice_atoms": 17,
+        "point_evaluations_order_separate_by_concreteness": true
+      }
+    },
+    {
+      "actual_witness_join": "0x173",
+      "closed_events": 984,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x173",
+      "defect_join_remains_witness_join": true,
+      "depth": 2,
+      "event_family_sha256": "8d3104fe241979ba02e8f3e4f1c249268b688475221d1e460ab22f8348c39804",
+      "first_failed_literal_union": "0x151",
+      "first_failed_pair": [
+        "0x51",
+        "0x140"
+      ],
+      "first_failed_upper_intersection": "0x171",
+      "lattice": false,
+      "node_id": 39,
+      "profile_family_events": 504,
+      "pulled_events": 504,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1b3",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 6,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1b1",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1b1",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "e0f5c949adc00bc49cfc5845c48ab52ad97190cfcf8ed852fa597c7a75fb6d5f",
+      "first_failed_literal_union": "0x1a0",
+      "first_failed_pair": [
+        "0x120",
+        "0x180"
+      ],
+      "first_failed_upper_intersection": "0x1b0",
+      "lattice": false,
+      "node_id": 40,
+      "profile_family_events": 1312,
+      "pulled_events": 1312,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1d1",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 5,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1d0",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1d0",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "bddae08228ee8b9d735320905e9c48dc33f1b286098df4ffc845e8be2b437571",
+      "first_failed_literal_union": "0x1c00",
+      "first_failed_pair": [
+        "0x1400",
+        "0x1800"
+      ],
+      "first_failed_upper_intersection": "0x1e00",
+      "lattice": false,
+      "node_id": 41,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1e0",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 4,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x159d",
+      "closed_events": 388,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x159d",
+      "defect_join_remains_witness_join": true,
+      "depth": 1,
+      "event_family_sha256": "54b1f7717375d300fb855db4170455164a5360731a2abae1d80e4b823a27099e",
+      "first_failed_literal_union": "0x77",
+      "first_failed_pair": [
+        "0x67",
+        "0x76"
+      ],
+      "first_failed_upper_intersection": "0x7f",
+      "lattice": false,
+      "node_id": 43,
+      "profile_family_events": 204,
+      "pulled_events": 204,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x159e",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 0,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x77",
+      "closed_events": 984,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x77",
+      "defect_join_remains_witness_join": true,
+      "depth": 2,
+      "event_family_sha256": "aad769294bc6f89568a11ed4487e2ac243fbfb5efd81fc5d9ce82a551c95fff5",
+      "first_failed_literal_union": "0x15",
+      "first_failed_pair": [
+        "0x5",
+        "0x14"
+      ],
+      "first_failed_upper_intersection": "0x17",
+      "lattice": false,
+      "node_id": 44,
+      "profile_family_events": 504,
+      "pulled_events": 504,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x7b",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 2,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x172",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x172",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "6fb62dc4e1f4fcca5e85184febc92a6e09b060500d6d2d7450bcf96c22817655",
+      "first_failed_literal_union": "0x150",
+      "first_failed_pair": [
+        "0x50",
+        "0x140"
+      ],
+      "first_failed_upper_intersection": "0x170",
+      "lattice": false,
+      "node_id": 45,
+      "profile_family_events": 1312,
+      "pulled_events": 1312,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1b2",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 6,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1b0",
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1b0",
+      "defect_join_remains_witness_join": true,
+      "depth": 4,
+      "event_family_sha256": "1d91cab813fcca5137f2873771c884220c7fbc6cf579e87c5618ba141a8658db",
+      "first_failed_literal_union": "0x1a00",
+      "first_failed_pair": [
+        "0xa00",
+        "0x1800"
+      ],
+      "first_failed_upper_intersection": "0x1e00",
+      "lattice": false,
+      "node_id": 46,
+      "profile_family_events": 3456,
+      "pulled_events": 3456,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1d0",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 5,
+      "terminal_structure": null
+    },
+    {
+      "actual_witness_join": "0x1b",
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join": "0x1b",
+      "defect_join_remains_witness_join": true,
+      "depth": 3,
+      "event_family_sha256": "ee5f663f6a30910c32972d76c749f5b6c3ab7b7bc04d0b03419111a562be8fc5",
+      "first_failed_literal_union": "0x1a0",
+      "first_failed_pair": [
+        "0xa0",
+        "0x180"
+      ],
+      "first_failed_upper_intersection": "0x1e0",
+      "lattice": false,
+      "node_id": 47,
+      "profile_family_events": 1296,
+      "pulled_events": 1296,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false,
+      "split_atom_complement_choice": "0x1d",
+      "split_atoms_are_events": [
+        false,
+        false
+      ],
+      "split_profile": 1,
+      "terminal_structure": null
+    }
+  ],
+  "command": "python3 notes/open_questions/verification/full_grid_binary_pjh_split_core_audit.py --verify",
+  "outcome_histogram": [
+    {
+      "cases": 2,
+      "closed_events": 378,
+      "defect_hull_is_absent": true,
+      "defect_join_remains_witness_join": true,
+      "lattice": false,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false
+    },
+    {
+      "cases": 2,
+      "closed_events": 388,
+      "defect_hull_is_absent": true,
+      "defect_join_remains_witness_join": true,
+      "lattice": false,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false
+    },
+    {
+      "cases": 2,
+      "closed_events": 972,
+      "defect_hull_is_absent": true,
+      "defect_join_remains_witness_join": true,
+      "lattice": false,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false
+    },
+    {
+      "cases": 4,
+      "closed_events": 984,
+      "defect_hull_is_absent": true,
+      "defect_join_remains_witness_join": true,
+      "lattice": false,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false
+    },
+    {
+      "cases": 8,
+      "closed_events": 2592,
+      "defect_hull_is_absent": true,
+      "defect_join_remains_witness_join": true,
+      "lattice": false,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false
+    },
+    {
+      "cases": 8,
+      "closed_events": 6912,
+      "defect_hull_is_absent": true,
+      "defect_join_remains_witness_join": true,
+      "lattice": false,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false
+    },
+    {
+      "cases": 4,
+      "closed_events": 18432,
+      "defect_hull_is_absent": true,
+      "defect_join_remains_witness_join": true,
+      "lattice": true,
+      "q_boundary_reconstructed": false,
+      "r_boundary_reconstructed": false
+    }
+  ],
+  "payload_sha256": "da2df4a79596c428c32e2dd50d20882201e02e001f28946627910399e3af20f8",
+  "producer_sha256": "b6bf75913a441633d6094d4dd02f258e9ba5df19b03b3ce367689bc495616612",
+  "schema": "full-grid-binary-pjh-split-core-v1",
+  "schema_version": "1.0",
+  "scope": "Exact complement/disjoint-union closure and lattice audit on the formal 17-atom split-profile cores for the thirty binary atlas defects, including an exact all-pairs lattice decision by subset zeta/Mobius transform. No physical-fibre realization, activation classification, terminal completion, larger-carrier, or sigma-limit claim.",
+  "source_atlas": "full_grid_core16_pjh_defect_atlas.json",
+  "source_atlas_payload_sha256": "12eefe07a077a8ec64d497d6616e165ffa36de33c987d98e428191093ae0fe6e"
+}

@@ -1,0 +1,381 @@
+{
+  "atom_orbits": [
+    [
+      1,
+      4,
+      10,
+      40
+    ],
+    [
+      2,
+      3,
+      6,
+      8,
+      16,
+      22,
+      28,
+      34
+    ]
+  ],
+  "automorphism_count": 128,
+  "checks": {
+    "all_jointly_coherent_distinct_pairs_have_disjoint_support": true,
+    "all_jointly_coherent_raw_relations_factorize": true,
+    "atom_count": 12,
+    "jointly_coherent_second_selectors": [
+      2,
+      3,
+      6,
+      8
+    ],
+    "no_jointly_coherent_distinct_pair_has_direct_fibre_overlap": true,
+    "orbit_sizes": [
+      4,
+      8
+    ],
+    "q0_support": [
+      "B",
+      "D0",
+      "D1"
+    ]
+  },
+  "pairs_with_q0": [
+    {
+      "actual_overlap_relation": "none: no block contains both selector intervals",
+      "common_support_blocks": [],
+      "jointly_coherent_with_q0": true,
+      "minimal_block_cycle": [
+        "B",
+        "Ca",
+        "D0",
+        "D1",
+        "D2"
+      ],
+      "minimal_block_cycle_length": 5,
+      "one_block_sees_both_fibres": false,
+      "priority": "control-disjoint-rectangular",
+      "relation_factorizes_at_raw_atlas_level": true,
+      "second_mask": 51,
+      "second_selector": 2,
+      "support_relation": "disjoint"
+    },
+    {
+      "actual_overlap_relation": "none: no block contains both selector intervals",
+      "common_support_blocks": [],
+      "jointly_coherent_with_q0": true,
+      "minimal_block_cycle": [
+        "B",
+        "Ca",
+        "D0",
+        "D1",
+        "D2"
+      ],
+      "minimal_block_cycle_length": 5,
+      "one_block_sees_both_fibres": false,
+      "priority": "control-disjoint-rectangular",
+      "relation_factorizes_at_raw_atlas_level": true,
+      "second_mask": 204,
+      "second_selector": 3,
+      "support_relation": "disjoint"
+    },
+    {
+      "actual_overlap_relation": "requires a separate completed-inflation audit",
+      "common_support_blocks": [
+        "B",
+        "D0"
+      ],
+      "jointly_coherent_with_q0": false,
+      "minimal_block_cycle": [
+        "B",
+        "D0",
+        "D1",
+        "D3"
+      ],
+      "minimal_block_cycle_length": 4,
+      "one_block_sees_both_fibres": true,
+      "priority": "reject-orthogonal",
+      "relation_factorizes_at_raw_atlas_level": false,
+      "second_mask": 240,
+      "second_selector": 4,
+      "support_relation": "crossed"
+    },
+    {
+      "actual_overlap_relation": "none: no block contains both selector intervals",
+      "common_support_blocks": [],
+      "jointly_coherent_with_q0": true,
+      "minimal_block_cycle": [
+        "B",
+        "Cb",
+        "D1",
+        "D0",
+        "D3"
+      ],
+      "minimal_block_cycle_length": 5,
+      "one_block_sees_both_fibres": false,
+      "priority": "control-disjoint-rectangular",
+      "relation_factorizes_at_raw_atlas_level": true,
+      "second_mask": 1285,
+      "second_selector": 6,
+      "support_relation": "disjoint"
+    },
+    {
+      "actual_overlap_relation": "none: no block contains both selector intervals",
+      "common_support_blocks": [],
+      "jointly_coherent_with_q0": true,
+      "minimal_block_cycle": [
+        "B",
+        "Cb",
+        "D1",
+        "D0",
+        "D3"
+      ],
+      "minimal_block_cycle_length": 5,
+      "one_block_sees_both_fibres": false,
+      "priority": "control-disjoint-rectangular",
+      "relation_factorizes_at_raw_atlas_level": true,
+      "second_mask": 2570,
+      "second_selector": 8,
+      "support_relation": "disjoint"
+    },
+    {
+      "actual_overlap_relation": "requires a separate completed-inflation audit",
+      "common_support_blocks": [
+        "B",
+        "D1"
+      ],
+      "jointly_coherent_with_q0": false,
+      "minimal_block_cycle": [
+        "B",
+        "D0",
+        "D1",
+        "D2"
+      ],
+      "minimal_block_cycle_length": 4,
+      "one_block_sees_both_fibres": true,
+      "priority": "reject-orthogonal",
+      "relation_factorizes_at_raw_atlas_level": false,
+      "second_mask": 3840,
+      "second_selector": 10,
+      "support_relation": "crossed"
+    },
+    {
+      "actual_overlap_relation": "requires a separate completed-inflation audit",
+      "common_support_blocks": [
+        "D0"
+      ],
+      "jointly_coherent_with_q0": false,
+      "minimal_block_cycle": [
+        "B",
+        "Ca",
+        "D0",
+        "D1"
+      ],
+      "minimal_block_cycle_length": 4,
+      "one_block_sees_both_fibres": true,
+      "priority": "reject-orthogonal",
+      "relation_factorizes_at_raw_atlas_level": false,
+      "second_mask": 13056,
+      "second_selector": 16,
+      "support_relation": "crossed"
+    },
+    {
+      "actual_overlap_relation": "requires a separate completed-inflation audit",
+      "common_support_blocks": [
+        "D1"
+      ],
+      "jointly_coherent_with_q0": false,
+      "minimal_block_cycle": [
+        "B",
+        "Cb",
+        "D1",
+        "D0"
+      ],
+      "minimal_block_cycle_length": 4,
+      "one_block_sees_both_fibres": true,
+      "priority": "reject-orthogonal",
+      "relation_factorizes_at_raw_atlas_level": false,
+      "second_mask": 20560,
+      "second_selector": 22,
+      "support_relation": "crossed"
+    },
+    {
+      "actual_overlap_relation": "requires a separate completed-inflation audit",
+      "common_support_blocks": [
+        "D1"
+      ],
+      "jointly_coherent_with_q0": false,
+      "minimal_block_cycle": [
+        "B",
+        "Cb",
+        "D1",
+        "D0"
+      ],
+      "minimal_block_cycle_length": 4,
+      "one_block_sees_both_fibres": true,
+      "priority": "reject-orthogonal",
+      "relation_factorizes_at_raw_atlas_level": false,
+      "second_mask": 41120,
+      "second_selector": 28,
+      "support_relation": "crossed"
+    },
+    {
+      "actual_overlap_relation": "requires a separate completed-inflation audit",
+      "common_support_blocks": [
+        "D0"
+      ],
+      "jointly_coherent_with_q0": false,
+      "minimal_block_cycle": [
+        "B",
+        "Ca",
+        "D0",
+        "D1"
+      ],
+      "minimal_block_cycle_length": 4,
+      "one_block_sees_both_fibres": true,
+      "priority": "reject-orthogonal",
+      "relation_factorizes_at_raw_atlas_level": false,
+      "second_mask": 52224,
+      "second_selector": 34,
+      "support_relation": "crossed"
+    },
+    {
+      "actual_overlap_relation": "requires a separate completed-inflation audit",
+      "common_support_blocks": [
+        "B"
+      ],
+      "jointly_coherent_with_q0": false,
+      "minimal_block_cycle": [
+        "B",
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ],
+      "minimal_block_cycle_length": 5,
+      "one_block_sees_both_fibres": true,
+      "priority": "reject-orthogonal",
+      "relation_factorizes_at_raw_atlas_level": false,
+      "second_mask": 61440,
+      "second_selector": 40,
+      "support_relation": "crossed"
+    }
+  ],
+  "q0": 1,
+  "schema": "seven-block-two-fibre-cycle-v1",
+  "scope": "atom-interval substitutions in the certified finite skeleton; not an infinite sigma-completeness certificate",
+  "selectors": [
+    {
+      "automorphism_orbit": 0,
+      "event": 1,
+      "mask": 15,
+      "support": [
+        "B",
+        "D0",
+        "D1"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 2,
+      "mask": 51,
+      "support": [
+        "Ca",
+        "D2"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 3,
+      "mask": 204,
+      "support": [
+        "Ca",
+        "D2"
+      ]
+    },
+    {
+      "automorphism_orbit": 0,
+      "event": 4,
+      "mask": 240,
+      "support": [
+        "B",
+        "D0",
+        "D3"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 6,
+      "mask": 1285,
+      "support": [
+        "Cb",
+        "D3"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 8,
+      "mask": 2570,
+      "support": [
+        "Cb",
+        "D3"
+      ]
+    },
+    {
+      "automorphism_orbit": 0,
+      "event": 10,
+      "mask": 3840,
+      "support": [
+        "B",
+        "D1",
+        "D2"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 16,
+      "mask": 13056,
+      "support": [
+        "Ca",
+        "D0"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 22,
+      "mask": 20560,
+      "support": [
+        "Cb",
+        "D1"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 28,
+      "mask": 41120,
+      "support": [
+        "Cb",
+        "D1"
+      ]
+    },
+    {
+      "automorphism_orbit": 1,
+      "event": 34,
+      "mask": 52224,
+      "support": [
+        "Ca",
+        "D0"
+      ]
+    },
+    {
+      "automorphism_orbit": 0,
+      "event": 40,
+      "mask": 61440,
+      "support": [
+        "B",
+        "D2",
+        "D3"
+      ]
+    }
+  ],
+  "verdict": "No jointly coherent distinct atom pair has overlapping propagation support. Cycles in the block-incidence graph therefore carry no two-coordinate overlap equation, so the raw two-fibre relation is rectangular."
+}

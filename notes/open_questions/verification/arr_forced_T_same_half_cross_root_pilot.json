@@ -1,0 +1,284 @@
+{
+  "algebraically_pruned_pair_count": 1,
+  "candidate_pair_count": 25,
+  "candidate_selection_order": [
+    {
+      "classes": [
+        8,
+        14
+      ],
+      "kind": "A/A",
+      "reason": "two_pilot_failures"
+    },
+    {
+      "classes": [
+        8,
+        106
+      ],
+      "kind": "A/A",
+      "reason": "two_pilot_failures"
+    },
+    {
+      "classes": [
+        14,
+        106
+      ],
+      "kind": "A/A",
+      "reason": "two_pilot_failures"
+    },
+    {
+      "classes": [
+        15,
+        105
+      ],
+      "kind": "D/D",
+      "reason": "two_pilot_failures"
+    },
+    {
+      "classes": [
+        8,
+        42
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        8,
+        292
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        8,
+        482
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        14,
+        42
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        14,
+        292
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        14,
+        482
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        42,
+        106
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        106,
+        292
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        106,
+        482
+      ],
+      "kind": "A/A",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        15,
+        43
+      ],
+      "kind": "D/D",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        15,
+        293
+      ],
+      "kind": "D/D",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        15,
+        483
+      ],
+      "kind": "D/D",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        43,
+        105
+      ],
+      "kind": "D/D",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        105,
+        293
+      ],
+      "kind": "D/D",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        105,
+        483
+      ],
+      "kind": "D/D",
+      "reason": "failure_vs_189_bucket_quantile"
+    },
+    {
+      "classes": [
+        42,
+        292
+      ],
+      "kind": "A/A",
+      "reason": "within_189_bucket_quantiles"
+    },
+    {
+      "classes": [
+        42,
+        482
+      ],
+      "kind": "A/A",
+      "reason": "within_189_bucket_quantiles"
+    },
+    {
+      "classes": [
+        292,
+        482
+      ],
+      "kind": "A/A",
+      "reason": "within_189_bucket_quantiles"
+    },
+    {
+      "classes": [
+        43,
+        293
+      ],
+      "kind": "D/D",
+      "reason": "within_189_bucket_quantiles"
+    },
+    {
+      "classes": [
+        43,
+        483
+      ],
+      "kind": "D/D",
+      "reason": "within_189_bucket_quantiles"
+    },
+    {
+      "classes": [
+        293,
+        483
+      ],
+      "kind": "D/D",
+      "reason": "within_189_bucket_quantiles"
+    }
+  ],
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_forced_T_same_half_cross_root_pilot.py --verify",
+  "current_family_definition": "two full 18,676-event old cylinder copies plus R,Rc,S,Sc,T,Tc plus the 488 exact immediate literal roots; exact-root deduplicated",
+  "evidence_class": "Executable verified \u2014 sampled finite scope",
+  "exact_literal_targets_audited": 1,
+  "first_two_new_source_parent_unresolved_cut": {
+    "classes": [
+      8,
+      106
+    ],
+    "extrema": [
+      {
+        "kind": "old",
+        "label": "old_left(1024)"
+      },
+      {
+        "kind": "old",
+        "label": "old_right(2)"
+      }
+    ],
+    "kind": "A/A",
+    "mode": "lower",
+    "selection_reason": "two_pilot_failures",
+    "two_new_source_parents": true
+  },
+  "pairs_processed_before_stop": 2,
+  "payload_sha256": "f67f8531587b949ef96321a94608ea430720502477bc19901c928a33a1360ddb",
+  "peak_rss_bytes_darwin": 1772847104,
+  "producer_sha256": "0d31361d271503394989781b612b4fc28d721a52236243d434f9c29a7790d4fe",
+  "reconstruction_seconds": 291.18471699999645,
+  "records": [
+    {
+      "classes": [
+        8,
+        14
+      ],
+      "kind": "A/A",
+      "pruned": "comparable",
+      "selection_reason": "two_pilot_failures"
+    },
+    {
+      "audits": [
+        {
+          "exactly_two_new_extrema": false,
+          "extrema": [
+            {
+              "kind": "old",
+              "label": "old_left(1024)"
+            },
+            {
+              "kind": "old",
+              "label": "old_right(2)"
+            }
+          ],
+          "extremum_count": 2,
+          "interpolant_exists": false,
+          "literal_target_already_current": false,
+          "mode": "lower"
+        }
+      ],
+      "classes": [
+        8,
+        106
+      ],
+      "kind": "A/A",
+      "literal_intersection_is_current": false,
+      "literal_union_is_current": false,
+      "pruned": null,
+      "selection_reason": "two_pilot_failures"
+    }
+  ],
+  "schema": "arr-forced-T-same-half-cross-root-pilot-v1",
+  "schema_version": "1.0",
+  "scope": "Deterministic targeted same-half pairs incident to five pilot failures and first/middle/last controls from 189-occurrence buckets. Extrema are exact in the fixed current family only. The run stops at the first two-new-source-parent cut and performs no closure, repair, lattice, OML, centre, state, sigma, ODBC, MBRC, or Phi audit.",
+  "source_bridge_payload_sha256": "af993bf5978612f6ca9088feedc83b939af90bc022f716f4ceb8f269c960b372",
+  "source_kernel_pilot_payload_sha256": "c1cdbb8b2875a097d70d0a7d2245d0a53cffa2cc5161f0a0b293882231442ceb",
+  "stopped_early": true,
+  "verification_independence": "One deterministic implementation reusing the authoritative exact bridge MDD producer and old-event order tables.",
+  "wall_seconds": 303.4189433749998
+}

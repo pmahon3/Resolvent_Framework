@@ -1,0 +1,1558 @@
+{
+  "all_edges_resolve_to_replayed_nodes": true,
+  "all_interval_endpoints_included": true,
+  "all_terminal_nodes_reconstruct_a_side": true,
+  "branching_histogram": {
+    "2": 30,
+    "4": 1
+  },
+  "candidate_hull_edges": 64,
+  "command": "python3 notes/open_questions/verification/full_grid_core16_pjh_defect_atlas.py --verify",
+  "dag_nodes": 48,
+  "distinct_failed_intervals": 24,
+  "internal_forcing_nodes": 31,
+  "maximum_depth": 6,
+  "payload_sha256": "12eefe07a077a8ec64d497d6616e165ffa36de33c987d98e428191093ae0fe6e",
+  "possible_first_defect_edges_after_lower_endpoint_exclusion": 33,
+  "possible_first_defect_shape": {
+    "binary_upper_choices": 30,
+    "root_nonlower_choices": 3
+  },
+  "producer_sha256": "e16d7b650fbb68bca608735058b74bab49d474bc1ce1101d213c36f5a50d3d0e",
+  "profile_points": 16,
+  "reconstructing_terminal_nodes": 17,
+  "records": [
+    {
+      "candidate_hulls_hex": [
+        "0x357",
+        "0x35f",
+        "0x1357",
+        "0x135f"
+      ],
+      "depth": 0,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x357",
+          "child_family_sha256": "75ba61665071d2af49b6bd8b0142fdf55cf68cd16c26f6c6d50b2b05debd924d",
+          "target_node_id": 2,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x35f",
+          "child_family_sha256": "7b9e58f13bfb9dde299f853ea24c3ab2f94e7e7f493cd851b75ad1a9f5e29902",
+          "target_node_id": 27,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x1357",
+          "child_family_sha256": "47a462c03bcb52aca891d3474966dde2f824c5234e3867ea7f1a7b049e3f7842",
+          "target_node_id": 30,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x135f",
+          "child_family_sha256": "2e740f054a8e4ad73d9c0b91be8ab6495fa053f5a322b74fe3e782fab091bd23",
+          "target_node_id": 43,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 82,
+      "failed_lower_hex": "0x357",
+      "failed_upper_hex": "0x135f",
+      "gap_bits": 2,
+      "node_family_sha256": "94bc666adb65f7426d7c3c02fe79707617a187ff94b74fdb80ab7ec781cb03d1",
+      "node_id": 1,
+      "path_choices_hex": [],
+      "upper_bound_count": 3,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x55",
+        "0x303"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x76",
+        "0xf6"
+      ],
+      "depth": 1,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x76",
+          "child_family_sha256": "def96c0bdbe2e1e85e8c752c83d7881012a3746678ed6d82f6092d51c95cea62",
+          "target_node_id": 3,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf6",
+          "child_family_sha256": "ee64a4d5ee32e1adf2daa5ea6e122fa9076c04e384f07a8aa7d7a3e6c8e9b779",
+          "target_node_id": 21,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 204,
+      "failed_lower_hex": "0x76",
+      "failed_upper_hex": "0xf6",
+      "gap_bits": 1,
+      "node_family_sha256": "75ba61665071d2af49b6bd8b0142fdf55cf68cd16c26f6c6d50b2b05debd924d",
+      "node_id": 2,
+      "path_choices_hex": [
+        "0x357"
+      ],
+      "upper_bound_count": 16,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x32",
+        "0x54"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x322",
+        "0x2322"
+      ],
+      "depth": 2,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x322",
+          "child_family_sha256": "be72dc8050a319f5f8435bebc35f18dfde6674f9dfd543d326813421197cc5ec",
+          "target_node_id": 4,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x2322",
+          "child_family_sha256": "8cd90a16faa89cc0ad8480e8e37fedc05e4d06d12f85b90ec00af9428a0ab0de",
+          "target_node_id": 15,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 504,
+      "failed_lower_hex": "0x322",
+      "failed_upper_hex": "0x2322",
+      "gap_bits": 1,
+      "node_family_sha256": "def96c0bdbe2e1e85e8c752c83d7881012a3746678ed6d82f6092d51c95cea62",
+      "node_id": 3,
+      "path_choices_hex": [
+        "0x357",
+        "0x76"
+      ],
+      "upper_bound_count": 56,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x22",
+        "0x302"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x544",
+        "0x4544"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x544",
+          "child_family_sha256": "f667447cc7d313ed2d7275865cebaf32058258e42dc37a553e30f1537952a72c",
+          "target_node_id": 5,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x4544",
+          "child_family_sha256": "5c21432c2d964b91e03cd7bb2be0e50694d7eb1be22526dc636a11ffff90739f",
+          "target_node_id": 10,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 1312,
+      "failed_lower_hex": "0x544",
+      "failed_upper_hex": "0x4544",
+      "gap_bits": 1,
+      "node_family_sha256": "be72dc8050a319f5f8435bebc35f18dfde6674f9dfd543d326813421197cc5ec",
+      "node_id": 4,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x322"
+      ],
+      "upper_bound_count": 144,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x44",
+        "0x504"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x700",
+        "0xf00"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x700",
+          "child_family_sha256": "c11d643519bc6751aab60bdb08191888d9dbb73be392778b1f8e62e10dd1b4e6",
+          "target_node_id": 6,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf00",
+          "child_family_sha256": "70be5d7a10683449ca220715a26ce805288d124d267bea2aef929c51a19a7fca",
+          "target_node_id": 9,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0x700",
+      "failed_upper_hex": "0xf00",
+      "gap_bits": 1,
+      "node_family_sha256": "f667447cc7d313ed2d7275865cebaf32058258e42dc37a553e30f1537952a72c",
+      "node_id": 5,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x322",
+        "0x544"
+      ],
+      "upper_bound_count": 576,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x300",
+        "0x500"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x888",
+        "0x8888"
+      ],
+      "depth": 5,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x888",
+          "child_family_sha256": "bef40177d47807af18ab706ff1561ec45ce2ad0402814abcac34fcf94c4c9ea8",
+          "target_node_id": 7,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x8888",
+          "child_family_sha256": "f41cb164690febb64856c2ed07f8a9f44785106d6c35003576c14da03603a12b",
+          "target_node_id": 8,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 9216,
+      "failed_lower_hex": "0x888",
+      "failed_upper_hex": "0x8888",
+      "gap_bits": 1,
+      "node_family_sha256": "c11d643519bc6751aab60bdb08191888d9dbb73be392778b1f8e62e10dd1b4e6",
+      "node_id": 6,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x322",
+        "0x544",
+        "0x700"
+      ],
+      "upper_bound_count": 1536,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x88",
+        "0x808"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x704",
+        "0xf04"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x704",
+          "child_family_sha256": "1de1e41c444801f89bd41a9b447c6b80ade98e0972afbd057c7ea79082e80273",
+          "target_node_id": 11,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf04",
+          "child_family_sha256": "098741a8a8ce4df371a3630aafc0c4ec7de76eb2d5a38b50d678c58393a2883d",
+          "target_node_id": 12,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0x704",
+      "failed_upper_hex": "0xf04",
+      "gap_bits": 1,
+      "node_family_sha256": "5c21432c2d964b91e03cd7bb2be0e50694d7eb1be22526dc636a11ffff90739f",
+      "node_id": 10,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x322",
+        "0x4544"
+      ],
+      "upper_bound_count": 384,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x300",
+        "0x504"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xb00",
+        "0xf00"
+      ],
+      "depth": 5,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xb00",
+          "child_family_sha256": "2450483158c09652d2a59c30607467b4ac6f82302c1c09f958ee33fbbbeeed7b",
+          "target_node_id": 13,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf00",
+          "child_family_sha256": "20271c1f9bd7ea4e7d82514eefd6e0abe5330421363050d924b34ce253b709ec",
+          "target_node_id": 14,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 9216,
+      "failed_lower_hex": "0xb00",
+      "failed_upper_hex": "0xf00",
+      "gap_bits": 1,
+      "node_family_sha256": "098741a8a8ce4df371a3630aafc0c4ec7de76eb2d5a38b50d678c58393a2883d",
+      "node_id": 12,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x322",
+        "0x4544",
+        "0xf04"
+      ],
+      "upper_bound_count": 1536,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x300",
+        "0xa00"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x706",
+        "0xf06"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x706",
+          "child_family_sha256": "ff27b252d97c52ce55c76b7557fa4ca8b180e983335258ad21c7297ff3412eb8",
+          "target_node_id": 16,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf06",
+          "child_family_sha256": "5ab6e2e80809358ce40804896e48111f4c587be0d0e0b376179323f0412f56d0",
+          "target_node_id": 17,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 1296,
+      "failed_lower_hex": "0x706",
+      "failed_upper_hex": "0xf06",
+      "gap_bits": 1,
+      "node_family_sha256": "8cd90a16faa89cc0ad8480e8e37fedc05e4d06d12f85b90ec00af9428a0ab0de",
+      "node_id": 15,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x2322"
+      ],
+      "upper_bound_count": 96,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x302",
+        "0x504"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xb02",
+        "0xf02"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xb02",
+          "child_family_sha256": "4991589275fd7acb7d19914a3099aec5a68fe81b5c86d2ab99781f3ab0f72002",
+          "target_node_id": 18,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf02",
+          "child_family_sha256": "dd71602a8f4de3831833e0e54b23c3b5893e24fcfd808f2254793065f69d458d",
+          "target_node_id": 19,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0xb02",
+      "failed_upper_hex": "0xf02",
+      "gap_bits": 1,
+      "node_family_sha256": "5ab6e2e80809358ce40804896e48111f4c587be0d0e0b376179323f0412f56d0",
+      "node_id": 17,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x2322",
+        "0xf06"
+      ],
+      "upper_bound_count": 384,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x302",
+        "0xa02"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xd00",
+        "0xf00"
+      ],
+      "depth": 5,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xd00",
+          "child_family_sha256": "c46125452e073f8152b9889f1a49a6b23ffb5a60f822014721b59cbce3204b70",
+          "target_node_id": 20,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf00",
+          "child_family_sha256": "20271c1f9bd7ea4e7d82514eefd6e0abe5330421363050d924b34ce253b709ec",
+          "target_node_id": 14,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 9216,
+      "failed_lower_hex": "0xd00",
+      "failed_upper_hex": "0xf00",
+      "gap_bits": 1,
+      "node_family_sha256": "dd71602a8f4de3831833e0e54b23c3b5893e24fcfd808f2254793065f69d458d",
+      "node_id": 19,
+      "path_choices_hex": [
+        "0x357",
+        "0x76",
+        "0x2322",
+        "0xf06",
+        "0xf02"
+      ],
+      "upper_bound_count": 1536,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x500",
+        "0xc00"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xb2",
+        "0xf2"
+      ],
+      "depth": 2,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xb2",
+          "child_family_sha256": "511138fb5ea6e1332bae113ecb4e25e3733064d1aa8414532626b53440b75e16",
+          "target_node_id": 22,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf2",
+          "child_family_sha256": "bbbcfc730749ac63a92766c03f331c99250287221347dbfb24a95f1103a7a4aa",
+          "target_node_id": 24,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 504,
+      "failed_lower_hex": "0xb2",
+      "failed_upper_hex": "0xf2",
+      "gap_bits": 1,
+      "node_family_sha256": "ee64a4d5ee32e1adf2daa5ea6e122fa9076c04e384f07a8aa7d7a3e6c8e9b779",
+      "node_id": 21,
+      "path_choices_hex": [
+        "0x357",
+        "0xf6"
+      ],
+      "upper_bound_count": 56,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x32",
+        "0xa2"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x322",
+        "0x2322"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x322",
+          "child_family_sha256": "147f52732747bc1fcd6adb9abe7c9973d08519c63c18e622833b0d71b6e393e4",
+          "target_node_id": 23,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x2322",
+          "child_family_sha256": "5ab6e2e80809358ce40804896e48111f4c587be0d0e0b376179323f0412f56d0",
+          "target_node_id": 17,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 1312,
+      "failed_lower_hex": "0x322",
+      "failed_upper_hex": "0x2322",
+      "gap_bits": 1,
+      "node_family_sha256": "511138fb5ea6e1332bae113ecb4e25e3733064d1aa8414532626b53440b75e16",
+      "node_id": 22,
+      "path_choices_hex": [
+        "0x357",
+        "0xf6",
+        "0xb2"
+      ],
+      "upper_bound_count": 144,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x22",
+        "0x302"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x544",
+        "0x4544"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x544",
+          "child_family_sha256": "70be5d7a10683449ca220715a26ce805288d124d267bea2aef929c51a19a7fca",
+          "target_node_id": 9,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x4544",
+          "child_family_sha256": "098741a8a8ce4df371a3630aafc0c4ec7de76eb2d5a38b50d678c58393a2883d",
+          "target_node_id": 12,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0x544",
+      "failed_upper_hex": "0x4544",
+      "gap_bits": 1,
+      "node_family_sha256": "147f52732747bc1fcd6adb9abe7c9973d08519c63c18e622833b0d71b6e393e4",
+      "node_id": 23,
+      "path_choices_hex": [
+        "0x357",
+        "0xf6",
+        "0xb2",
+        "0x322"
+      ],
+      "upper_bound_count": 384,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x44",
+        "0x504"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xd0",
+        "0xf0"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xd0",
+          "child_family_sha256": "246fbd106a7e717835da814495adbf8f906b195ff1a9c846ea72471da2c0a029",
+          "target_node_id": 25,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf0",
+          "child_family_sha256": "f45bc67c9b1953aba61e7b9e4dc85afc9ae8d0a3d9f8af70c42e43dead734246",
+          "target_node_id": 26,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 1296,
+      "failed_lower_hex": "0xd0",
+      "failed_upper_hex": "0xf0",
+      "gap_bits": 1,
+      "node_family_sha256": "bbbcfc730749ac63a92766c03f331c99250287221347dbfb24a95f1103a7a4aa",
+      "node_id": 24,
+      "path_choices_hex": [
+        "0x357",
+        "0xf6",
+        "0xf2"
+      ],
+      "upper_bound_count": 216,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x50",
+        "0xc0"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x322",
+        "0x2322"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x322",
+          "child_family_sha256": "70be5d7a10683449ca220715a26ce805288d124d267bea2aef929c51a19a7fca",
+          "target_node_id": 9,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x2322",
+          "child_family_sha256": "dd71602a8f4de3831833e0e54b23c3b5893e24fcfd808f2254793065f69d458d",
+          "target_node_id": 19,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0x322",
+      "failed_upper_hex": "0x2322",
+      "gap_bits": 1,
+      "node_family_sha256": "246fbd106a7e717835da814495adbf8f906b195ff1a9c846ea72471da2c0a029",
+      "node_id": 25,
+      "path_choices_hex": [
+        "0x357",
+        "0xf6",
+        "0xf2",
+        "0xd0"
+      ],
+      "upper_bound_count": 384,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x22",
+        "0x302"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x3b",
+        "0x3f"
+      ],
+      "depth": 1,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x3b",
+          "child_family_sha256": "ee64a4d5ee32e1adf2daa5ea6e122fa9076c04e384f07a8aa7d7a3e6c8e9b779",
+          "target_node_id": 21,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x3f",
+          "child_family_sha256": "cb1829c6411f30837966ea75daaeb1b587d35243e3468b7622e130ea30fc3a8f",
+          "target_node_id": 28,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 198,
+      "failed_lower_hex": "0x3b",
+      "failed_upper_hex": "0x3f",
+      "gap_bits": 1,
+      "node_family_sha256": "7b9e58f13bfb9dde299f853ea24c3ab2f94e7e7f493cd851b75ad1a9f5e29902",
+      "node_id": 27,
+      "path_choices_hex": [
+        "0x35f"
+      ],
+      "upper_bound_count": 14,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x33",
+        "0x3a"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xd",
+        "0xf"
+      ],
+      "depth": 2,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xd",
+          "child_family_sha256": "bbbcfc730749ac63a92766c03f331c99250287221347dbfb24a95f1103a7a4aa",
+          "target_node_id": 24,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf",
+          "child_family_sha256": "3659e3b6c26a3fa053274f751e2593fe6d4a724031fb8704f9346348506ace80",
+          "target_node_id": 29,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 486,
+      "failed_lower_hex": "0xd",
+      "failed_upper_hex": "0xf",
+      "gap_bits": 1,
+      "node_family_sha256": "cb1829c6411f30837966ea75daaeb1b587d35243e3468b7622e130ea30fc3a8f",
+      "node_id": 28,
+      "path_choices_hex": [
+        "0x35f",
+        "0x3f"
+      ],
+      "upper_bound_count": 81,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x5",
+        "0xc"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x77",
+        "0xf7"
+      ],
+      "depth": 1,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x77",
+          "child_family_sha256": "5933ee76cb8ca8be1fa8401364e9538bc349329d9fc425347cb97e048e0ed852",
+          "target_node_id": 31,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf7",
+          "child_family_sha256": "e1c00a3d6869841084d1f6386de173176c096427f0d35e67cd353c830461213b",
+          "target_node_id": 39,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 198,
+      "failed_lower_hex": "0x77",
+      "failed_upper_hex": "0xf7",
+      "gap_bits": 1,
+      "node_family_sha256": "47a462c03bcb52aca891d3474966dde2f824c5234e3867ea7f1a7b049e3f7842",
+      "node_id": 30,
+      "path_choices_hex": [
+        "0x1357"
+      ],
+      "upper_bound_count": 9,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x33",
+        "0x55"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x707",
+        "0xf07"
+      ],
+      "depth": 2,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x707",
+          "child_family_sha256": "4b53a3e7d8ed63e3bb7aefd60818a4b85d2cd3670602db61a4afbdd92262f835",
+          "target_node_id": 32,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf07",
+          "child_family_sha256": "069d2a47d5952baef82423202dfbe2fa58176a055500654695d080ac3510d5ef",
+          "target_node_id": 33,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 486,
+      "failed_lower_hex": "0x707",
+      "failed_upper_hex": "0xf07",
+      "gap_bits": 1,
+      "node_family_sha256": "5933ee76cb8ca8be1fa8401364e9538bc349329d9fc425347cb97e048e0ed852",
+      "node_id": 31,
+      "path_choices_hex": [
+        "0x1357",
+        "0x77"
+      ],
+      "upper_bound_count": 24,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x303",
+        "0x505"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xb03",
+        "0xf03"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xb03",
+          "child_family_sha256": "88f43ebac975c0f2b6bde9a77f6d663de6f59262cb328280209ec7b5c21021f7",
+          "target_node_id": 34,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf03",
+          "child_family_sha256": "e063a3b0a34a229407a0aff78f2e7158abf0b9ff94f02a663f3a1bc10b3a5e60",
+          "target_node_id": 35,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 1296,
+      "failed_lower_hex": "0xb03",
+      "failed_upper_hex": "0xf03",
+      "gap_bits": 1,
+      "node_family_sha256": "069d2a47d5952baef82423202dfbe2fa58176a055500654695d080ac3510d5ef",
+      "node_id": 33,
+      "path_choices_hex": [
+        "0x1357",
+        "0x77",
+        "0xf07"
+      ],
+      "upper_bound_count": 96,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x303",
+        "0xa02"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xd01",
+        "0xf01"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xd01",
+          "child_family_sha256": "a1ddacc76c5599b7fe33d8ee91280fc337af07056b03c2eaf65ce4eb667fad45",
+          "target_node_id": 36,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf01",
+          "child_family_sha256": "6c57ca4eb599a304168b6f5bfe92d5dcddd3858a61f1508c98227ac1107b33a1",
+          "target_node_id": 37,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0xd01",
+      "failed_upper_hex": "0xf01",
+      "gap_bits": 1,
+      "node_family_sha256": "e063a3b0a34a229407a0aff78f2e7158abf0b9ff94f02a663f3a1bc10b3a5e60",
+      "node_id": 35,
+      "path_choices_hex": [
+        "0x1357",
+        "0x77",
+        "0xf07",
+        "0xf03"
+      ],
+      "upper_bound_count": 384,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x501",
+        "0xc00"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xe00",
+        "0xf00"
+      ],
+      "depth": 5,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xe00",
+          "child_family_sha256": "02b4cd325e2d1d801598f5918e48ef4314a0a6df762663473820d9a961149d66",
+          "target_node_id": 38,
+          "target_outcome": "terminal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf00",
+          "child_family_sha256": "20271c1f9bd7ea4e7d82514eefd6e0abe5330421363050d924b34ce253b709ec",
+          "target_node_id": 14,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 9216,
+      "failed_lower_hex": "0xe00",
+      "failed_upper_hex": "0xf00",
+      "gap_bits": 1,
+      "node_family_sha256": "6c57ca4eb599a304168b6f5bfe92d5dcddd3858a61f1508c98227ac1107b33a1",
+      "node_id": 37,
+      "path_choices_hex": [
+        "0x1357",
+        "0x77",
+        "0xf07",
+        "0xf03",
+        "0xf01"
+      ],
+      "upper_bound_count": 1536,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0xa00",
+        "0xc00"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xb3",
+        "0xf3"
+      ],
+      "depth": 2,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xb3",
+          "child_family_sha256": "069d2a47d5952baef82423202dfbe2fa58176a055500654695d080ac3510d5ef",
+          "target_node_id": 33,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf3",
+          "child_family_sha256": "ce04dfa6b5b41c7e4dce23e4051d0aa365851d62aed6ed9b312f9da72174b84c",
+          "target_node_id": 40,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 504,
+      "failed_lower_hex": "0xb3",
+      "failed_upper_hex": "0xf3",
+      "gap_bits": 1,
+      "node_family_sha256": "e1c00a3d6869841084d1f6386de173176c096427f0d35e67cd353c830461213b",
+      "node_id": 39,
+      "path_choices_hex": [
+        "0x1357",
+        "0xf7"
+      ],
+      "upper_bound_count": 36,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x33",
+        "0xa2"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xd1",
+        "0xf1"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xd1",
+          "child_family_sha256": "e063a3b0a34a229407a0aff78f2e7158abf0b9ff94f02a663f3a1bc10b3a5e60",
+          "target_node_id": 35,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf1",
+          "child_family_sha256": "705374c2da7b1f766a3a6229cdc083522ba052d4efa491dfa72f089ef456b8e4",
+          "target_node_id": 41,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 1312,
+      "failed_lower_hex": "0xd1",
+      "failed_upper_hex": "0xf1",
+      "gap_bits": 1,
+      "node_family_sha256": "ce04dfa6b5b41c7e4dce23e4051d0aa365851d62aed6ed9b312f9da72174b84c",
+      "node_id": 40,
+      "path_choices_hex": [
+        "0x1357",
+        "0xf7",
+        "0xf3"
+      ],
+      "upper_bound_count": 144,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x51",
+        "0xc0"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xe0",
+        "0xf0"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xe0",
+          "child_family_sha256": "6c57ca4eb599a304168b6f5bfe92d5dcddd3858a61f1508c98227ac1107b33a1",
+          "target_node_id": 37,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf0",
+          "child_family_sha256": "45950fa8c0ac7052a33482a7f1922482008d5852b5422807d7aac135b815458c",
+          "target_node_id": 42,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0xe0",
+      "failed_upper_hex": "0xf0",
+      "gap_bits": 1,
+      "node_family_sha256": "705374c2da7b1f766a3a6229cdc083522ba052d4efa491dfa72f089ef456b8e4",
+      "node_id": 41,
+      "path_choices_hex": [
+        "0x1357",
+        "0xf7",
+        "0xf3",
+        "0xf1"
+      ],
+      "upper_bound_count": 576,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0xa0",
+        "0xc0"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xace",
+        "0xacf"
+      ],
+      "depth": 1,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xace",
+          "child_family_sha256": "e1c00a3d6869841084d1f6386de173176c096427f0d35e67cd353c830461213b",
+          "target_node_id": 39,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xacf",
+          "child_family_sha256": "45111c8b96909962648a7b80123debcbc306234bcc0e037805dbfac330e56c7a",
+          "target_node_id": 44,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 204,
+      "failed_lower_hex": "0xace",
+      "failed_upper_hex": "0xacf",
+      "gap_bits": 1,
+      "node_family_sha256": "2e740f054a8e4ad73d9c0b91be8ab6495fa053f5a322b74fe3e782fab091bd23",
+      "node_id": 43,
+      "path_choices_hex": [
+        "0x135f"
+      ],
+      "upper_bound_count": 6,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0xcc",
+        "0xa0a"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0x3b",
+        "0x3f"
+      ],
+      "depth": 2,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0x3b",
+          "child_family_sha256": "94457633474f507196c5efc5fb902b464abab115dcf7b0e48c5d24dc02852483",
+          "target_node_id": 45,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0x3f",
+          "child_family_sha256": "601cdce0861afaa20e7bbb67b3149c3343c4ca28e7ff6eb0bf0aa6558eabe6f1",
+          "target_node_id": 47,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 504,
+      "failed_lower_hex": "0x3b",
+      "failed_upper_hex": "0x3f",
+      "gap_bits": 1,
+      "node_family_sha256": "45111c8b96909962648a7b80123debcbc306234bcc0e037805dbfac330e56c7a",
+      "node_id": 44,
+      "path_choices_hex": [
+        "0x135f",
+        "0xacf"
+      ],
+      "upper_bound_count": 36,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x33",
+        "0x3a"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xb2",
+        "0xf2"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xb2",
+          "child_family_sha256": "5ab6e2e80809358ce40804896e48111f4c587be0d0e0b376179323f0412f56d0",
+          "target_node_id": 17,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf2",
+          "child_family_sha256": "2cd39f8e784ace6c9aa4b0d7844295d416d688cca2eb432d265d796cf729d968",
+          "target_node_id": 46,
+          "target_outcome": "internal"
+        }
+      ],
+      "events_in_profile_family": 1312,
+      "failed_lower_hex": "0xb2",
+      "failed_upper_hex": "0xf2",
+      "gap_bits": 1,
+      "node_family_sha256": "94457633474f507196c5efc5fb902b464abab115dcf7b0e48c5d24dc02852483",
+      "node_id": 45,
+      "path_choices_hex": [
+        "0x135f",
+        "0xacf",
+        "0x3b"
+      ],
+      "upper_bound_count": 144,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x32",
+        "0xa2"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xd0",
+        "0xf0"
+      ],
+      "depth": 4,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xd0",
+          "child_family_sha256": "dd71602a8f4de3831833e0e54b23c3b5893e24fcfd808f2254793065f69d458d",
+          "target_node_id": 19,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf0",
+          "child_family_sha256": "45950fa8c0ac7052a33482a7f1922482008d5852b5422807d7aac135b815458c",
+          "target_node_id": 42,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 3456,
+      "failed_lower_hex": "0xd0",
+      "failed_upper_hex": "0xf0",
+      "gap_bits": 1,
+      "node_family_sha256": "2cd39f8e784ace6c9aa4b0d7844295d416d688cca2eb432d265d796cf729d968",
+      "node_id": 46,
+      "path_choices_hex": [
+        "0x135f",
+        "0xacf",
+        "0x3b",
+        "0xf2"
+      ],
+      "upper_bound_count": 576,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x50",
+        "0xc0"
+      ]
+    },
+    {
+      "candidate_hulls_hex": [
+        "0xd",
+        "0xf"
+      ],
+      "depth": 3,
+      "edges": [
+        {
+          "can_be_first_pjh_defect": false,
+          "candidate_hull_hex": "0xd",
+          "child_family_sha256": "2cd39f8e784ace6c9aa4b0d7844295d416d688cca2eb432d265d796cf729d968",
+          "target_node_id": 46,
+          "target_outcome": "internal"
+        },
+        {
+          "can_be_first_pjh_defect": true,
+          "candidate_hull_hex": "0xf",
+          "child_family_sha256": "0916eb5b84395bc15364d82a4b421894d64090cddb77ec987172ca9a33d79ede",
+          "target_node_id": 48,
+          "target_outcome": "terminal"
+        }
+      ],
+      "events_in_profile_family": 1296,
+      "failed_lower_hex": "0xd",
+      "failed_upper_hex": "0xf",
+      "gap_bits": 1,
+      "node_family_sha256": "601cdce0861afaa20e7bbb67b3149c3343c4ca28e7ff6eb0bf0aa6558eabe6f1",
+      "node_id": 47,
+      "path_choices_hex": [
+        "0x135f",
+        "0xacf",
+        "0x3f"
+      ],
+      "upper_bound_count": 216,
+      "upper_is_absent": true,
+      "upper_is_intersection_of_all_upper_bounds": true,
+      "witness_pair_hex": [
+        "0x5",
+        "0xc"
+      ]
+    }
+  ],
+  "records_sha256": "c248c25a2ccbea5b97a66ccf8d036b433d1166f841f05295f0ef2b2d7a8161c3",
+  "schema": "full-grid-core16-pjh-defect-atlas-v1",
+  "schema_version": "1.0",
+  "source_payload_sha256": "ac85cc57b1b3e2bd2a5095d79aa10f896fc3233d3737fb567a51dfd6a374161d",
+  "source_producer_sha256": "efe95762884b9d529349b0b796c0f0283d3c14da4f3d31faf360e426643474a9",
+  "source_receipt": "full_grid_2x2_rectangle_core16_exhaustive.json",
+  "terminal_checks": [
+    {
+      "family_sha256": "bef40177d47807af18ab706ff1561ec45ce2ad0402814abcac34fcf94c4c9ea8",
+      "node_id": 7,
+      "q_side_atom_words_hex": [
+        "0xf",
+        "0xf0",
+        "0xf00",
+        "0xf000"
+      ],
+      "r_side_atom_words_hex": [],
+      "reconstructs_q0q1": true,
+      "reconstructs_r0r1": false,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "f41cb164690febb64856c2ed07f8a9f44785106d6c35003576c14da03603a12b",
+      "node_id": 8,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "70be5d7a10683449ca220715a26ce805288d124d267bea2aef929c51a19a7fca",
+      "node_id": 9,
+      "q_side_atom_words_hex": [
+        "0xf",
+        "0xf0",
+        "0xf00",
+        "0xf000"
+      ],
+      "r_side_atom_words_hex": [],
+      "reconstructs_q0q1": true,
+      "reconstructs_r0r1": false,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "1de1e41c444801f89bd41a9b447c6b80ade98e0972afbd057c7ea79082e80273",
+      "node_id": 11,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "2450483158c09652d2a59c30607467b4ac6f82302c1c09f958ee33fbbbeeed7b",
+      "node_id": 13,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "20271c1f9bd7ea4e7d82514eefd6e0abe5330421363050d924b34ce253b709ec",
+      "node_id": 14,
+      "q_side_atom_words_hex": [
+        "0xf",
+        "0xf0",
+        "0xf00",
+        "0xf000"
+      ],
+      "r_side_atom_words_hex": [],
+      "reconstructs_q0q1": true,
+      "reconstructs_r0r1": false,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "ff27b252d97c52ce55c76b7557fa4ca8b180e983335258ad21c7297ff3412eb8",
+      "node_id": 16,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "4991589275fd7acb7d19914a3099aec5a68fe81b5c86d2ab99781f3ab0f72002",
+      "node_id": 18,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "c46125452e073f8152b9889f1a49a6b23ffb5a60f822014721b59cbce3204b70",
+      "node_id": 20,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "f45bc67c9b1953aba61e7b9e4dc85afc9ae8d0a3d9f8af70c42e43dead734246",
+      "node_id": 26,
+      "q_side_atom_words_hex": [
+        "0xf",
+        "0xf0",
+        "0xf00",
+        "0xf000"
+      ],
+      "r_side_atom_words_hex": [],
+      "reconstructs_q0q1": true,
+      "reconstructs_r0r1": false,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "3659e3b6c26a3fa053274f751e2593fe6d4a724031fb8704f9346348506ace80",
+      "node_id": 29,
+      "q_side_atom_words_hex": [
+        "0xf",
+        "0xf0",
+        "0xf00",
+        "0xf000"
+      ],
+      "r_side_atom_words_hex": [],
+      "reconstructs_q0q1": true,
+      "reconstructs_r0r1": false,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "4b53a3e7d8ed63e3bb7aefd60818a4b85d2cd3670602db61a4afbdd92262f835",
+      "node_id": 32,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "88f43ebac975c0f2b6bde9a77f6d663de6f59262cb328280209ec7b5c21021f7",
+      "node_id": 34,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "a1ddacc76c5599b7fe33d8ee91280fc337af07056b03c2eaf65ce4eb667fad45",
+      "node_id": 36,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "02b4cd325e2d1d801598f5918e48ef4314a0a6df762663473820d9a961149d66",
+      "node_id": 38,
+      "q_side_atom_words_hex": [],
+      "r_side_atom_words_hex": [
+        "0x1111",
+        "0x2222",
+        "0x4444",
+        "0x8888"
+      ],
+      "reconstructs_q0q1": false,
+      "reconstructs_r0r1": true,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "45950fa8c0ac7052a33482a7f1922482008d5852b5422807d7aac135b815458c",
+      "node_id": 42,
+      "q_side_atom_words_hex": [
+        "0xf",
+        "0xf0",
+        "0xf00",
+        "0xf000"
+      ],
+      "r_side_atom_words_hex": [],
+      "reconstructs_q0q1": true,
+      "reconstructs_r0r1": false,
+      "terminal_lattice_certified_by_source_receipt": true
+    },
+    {
+      "family_sha256": "0916eb5b84395bc15364d82a4b421894d64090cddb77ec987172ca9a33d79ede",
+      "node_id": 48,
+      "q_side_atom_words_hex": [
+        "0xf",
+        "0xf0",
+        "0xf00",
+        "0xf000"
+      ],
+      "r_side_atom_words_hex": [],
+      "reconstructs_q0q1": true,
+      "reconstructs_r0r1": false,
+      "terminal_lattice_certified_by_source_receipt": true
+    }
+  ],
+  "theorem_scope": "finite first-defect atlas conditional on the hand PJH descent argument and the banked exhaustive P(16) covering theorem; no claim that a full-grid terminal realizes or excludes any defect"
+}

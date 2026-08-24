@@ -1,0 +1,1495 @@
+\documentclass[11pt,reqno]{amsart}
+% Reader-facing companion (repo nav): companion_probability_without_a_joint_world.md
+% (same directory) — informal supplement to this survey, 2026-07-09.
+\usepackage[margin=1in]{geometry}
+
+% ---------- Packages ----------
+\usepackage{amssymb,mathtools}
+\usepackage[hidelinks]{hyperref}
+\usepackage[shortlabels]{enumitem}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{tikz}
+\usetikzlibrary{calc}
+
+% ---------- Theorem environments ----------
+\theoremstyle{plain}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{problem}{Open Problem}
+
+% ---------- Commands ----------
+\newcommand{\CO}{\mathrm{CO}}
+\newcommand{\tr}{\operatorname{tr}}
+
+% ---------- Title ----------
+\title[$\sigma$-Additive Probability on Orthomodular Lattices]
+  {$\sigma$-Additive Probability on Orthomodular Lattices:\\
+   A Survey and an Open Problem}
+\author{Patrick S.\ Mahon}
+\date{June 2026}
+
+\begin{document}
+
+\begin{abstract}
+On a Boolean algebra, a finitely coherent probability extends to a countably
+additive measure by classical machinery (Carath\'{e}odory; Loomis--Sikorski; Stone).
+On a non-distributive orthomodular lattice (OML) this machinery fails. We survey
+the problem and isolate a precise open question, splitting it into two axes the
+Boolean case fuses: the \emph{extension} axis (does a state extend to a charge on the
+dual?), a Horn--Tarski feasibility question settled negatively for $L(H)$; and the
+\emph{descent} axis (does the charge concentrate on the physical points?). The
+combinatorial route fails --- $\prod_n\mathrm{MO}_2$ is concrete, $\sigma$-complete
+and non-Boolean yet \emph{segregated} (non-distributivity confined to finite blocks)
+--- because a faithful set representation forces the OML Boolean
+(Theorem~\ref{thm:floor}). Reading ``no hidden realisation'' as not being a mixture
+of dispersion-free states makes a relational measure a \emph{contextual} state
+(Lemma~\ref{lem:relational}). The open question: \emph{does a non-Boolean,
+$\sigma$-complete, concrete OML carry a $\sigma$-additive contextual state whose
+contextuality is $\sigma$-essential} --- witnessed by no finite sub-OML? The finite
+case is inhabited (Wright's pentagon), so only the $\sigma$-essential refinement
+remains, a compactness failure of CE type. Recent work on Dynkin-systems
+(Derr--Williamson~\cite{DerrWilliamson2023}) settles it \emph{negatively under a
+Polish/Borel-regularity hypothesis}, leaving a two-part residue --- whether a
+witness can be non-Polish-representable (a descriptive-set-theory question), or
+can carry a non-principal blockwise restriction past the binding
+inner-regularity leg (Remark~\ref{rem:dw}).
+\end{abstract}
+
+\maketitle
+
+% ==================================================================
+\section{Introduction}
+\label{sec:intro}
+% ==================================================================
+
+All measurement is finite, yet the frameworks that organise empirical
+knowledge --- probability theory, quantum mechanics --- rest on infinite
+structures. The passage from finite observation to infinite structure is
+not automatic; it requires a commitment no finite body of evidence can
+compel. In probability theory the locus of that commitment is
+\emph{countable additivity}:
+\[
+  A_1 \supseteq A_2 \supseteq \cdots, \quad \bigcap_n A_n = \varnothing
+  \quad\Longrightarrow\quad \mu(A_n) \to 0.
+\]
+De~Finetti~\cite{deFinetti1974} held that only finite additivity is
+empirically grounded; Kolmogorov~\cite{Kolmogorov} adopted
+$\sigma$-additivity as an axiom.
+
+The same tension recurs once observations need not be jointly performable.
+An observation \emph{context} --- a set of measurements performable together
+--- is Boolean; \emph{pasting} contexts along their shared observations (the
+horizontal-sum / partial-Boolean-algebra construction~\cite{Kalmbach1983})
+returns:
+\[
+  \begin{aligned}
+  \text{contexts mutually compatible} &\ \Rightarrow\ \text{Boolean algebra},\\
+  \text{incompatible} &\ \Rightarrow\ \text{non-distributive OML.}
+  \end{aligned}
+\]
+The pasting of incompatible Boolean blocks is a non-distributive OML
+(Kalmbach~\cite{Kalmbach1983}), and its failure to remain Boolean is exactly the
+contextuality obstruction of the partial-Boolean-algebra / sheaf account
+(Abramsky--Brandenburger~\cite{AbramskyBrandenburger2011};
+Budroni--Morchio~\cite{BudroniMorchio2010}). The OML is thus \emph{forced} by the
+context structure, not postulated; for non-quantum examples the incompatibility must be operationally
+imposed, since classical observables on a common space jointly distribute
+(Kolmogorov) and stay Boolean. The closed subspaces of a Hilbert space $H$ form the
+prototype $L(H)$, not the premise.
+
+On a non-distributive OML, Carath\'{e}odory's outer measure does not apply. For
+$L(H)$ it is rescued by Gleason's theorem~\cite{Gleason1957}, with no general-OML
+analogue known. Non-distributivity \emph{per se} does not remove the two-valued
+homomorphisms the Boolean engine needs ($\mathrm{MO}_3$ keeps them), but it removes
+the \emph{guarantee}; for $L(H)$, $\dim\geq3$, they fail outright
+(Kochen--Specker~\cite{KochenSpecker1967}). Whether enough survive is a question of
+\emph{concreteness}, not non-distributivity: an OML is \emph{concrete}
+(Definition~\ref{def:omp}) when it carries an order-determining set of two-valued
+states (Gudder~\cite{Gudder1979}), and this is the qualifier on which the open
+problem turns.
+
+\paragraph{The organising split.} The question splits into two axes the Boolean case
+fuses: \emph{extension} (does a state extend to a charge on $S_0(A)$? --- settled,
+none does on $L(H)$) and \emph{descent} (does the charge concentrate on the physical
+points? --- open).
+
+\paragraph{The relational standpoint.} Following De~Finetti~\cite{deFinetti1974}
+(probability without a presupposed sample space) and Birkhoff--von~Neumann
+(propositions as a lattice, not subsets of a phase space), we start from the
+propositions and ask what their order alone determines --- the measure-theoretic
+counterpart of pointless topology. The dual is then the McDonald--Bimb\'{o} space of
+\emph{filters} (\S\ref{sec:dual}), and a positive answer would be a $\sigma$-additive
+probability theory on a non-distributive lattice, the non-Boolean analogue of localic
+measure theory (made precise in \S\ref{sec:problem} as a \emph{contextual} state;
+cf.~\cite{mahon2025}).
+
+% ==================================================================
+\section{Preliminaries}
+\label{sec:prelim}
+% ==================================================================
+
+We collect the lattice-theoretic apparatus; all notions are standard.
+
+\subsection{Orthomodular lattices}
+\label{sec:oml}
+
+\begin{definition}[Orthocomplemented lattice]\label{def:ocl}
+A \emph{bounded lattice} is a partially ordered set in which every pair
+$a,b$ has a join $a \vee b$ and meet $a \wedge b$, with greatest element
+$\mathbf 1$ and least element $\mathbf 0$. An \emph{orthocomplementation}
+is a map $a \mapsto a^\perp$ satisfying, for all $a,b$:
+\begin{enumerate}[label=(\roman*), noitemsep]
+  \item $a \wedge a^\perp = \mathbf 0$ and $a \vee a^\perp = \mathbf 1$
+    (complement),
+  \item $a^{\perp\perp} = a$ (involution),
+  \item $a \leq b \Rightarrow b^\perp \leq a^\perp$ (order-reversing).
+\end{enumerate}
+\end{definition}
+
+\begin{definition}[Incomparable; meet-zero; orthogonal]\label{def:ortho}
+For elements $a,b$ of an orthocomplemented lattice, three relations of
+increasing strength:
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item \emph{incomparable}: $a\not\leq b$ and $b\not\leq a$ --- neither
+    entails the other (an order condition);
+  \item \emph{meet-zero}: $a\wedge b=\mathbf 0$ --- no common refinement;
+  \item \emph{orthogonal}, written $a\perp b$: $a\leq b^\perp$ (equivalently
+    $b\leq a^\perp$) --- one entails the other's negation, \emph{decisively
+    incompatible}.
+\end{itemize}
+Each implies the one above it ($a\perp b\Rightarrow a\wedge b=\mathbf 0
+\Rightarrow$ incomparable, for $a,b\notin\{\mathbf 0,\mathbf 1\}$). For two
+\emph{distinct atoms}, incomparable and meet-zero coincide --- an atom has only
+$\mathbf 0$ below it, so $a\wedge b\in\{\mathbf 0,a\}$, and $a\wedge b=a$ would
+force $a\leq b$; orthogonality remains strictly stronger.
+\end{definition}
+
+\begin{remark}[Meet-zero versus orthogonal]\label{rem:gap}
+The implication $a\perp b\Rightarrow a\wedge b=\mathbf 0$ reverses in every
+Boolean algebra, but fails once the lattice is non-distributive: there
+meet-zero is strictly weaker than orthogonality. The distinctions developed
+below all turn on this separation.
+\end{remark}
+
+\begin{definition}[Orthomodular lattice]\label{def:oml}
+An orthocomplemented lattice $A$ is \emph{orthomodular} if
+\begin{equation}\label{eq:oml-law}
+  a \leq b \quad\Longrightarrow\quad b = a \vee (a^\perp \wedge b).
+\end{equation}
+A \emph{Boolean algebra} is the special case where $\wedge$ distributes
+over $\vee$; every Boolean algebra is orthomodular, not conversely. The
+motivating non-Boolean example is $L(H)$, the closed subspaces of a
+Hilbert space with $a^\perp$ the orthogonal complement.
+\end{definition}
+
+\begin{definition}[Completeness notions]\label{def:complete}
+Two countable-completeness conditions on an OML $A$ are distinguished
+throughout, the second strictly weaker. Here $\bigvee_n a_n$ denotes the
+\emph{join} (least upper bound) of $\{a_n\}$ in the order of $A$, unique when
+it exists; ``$\exists\,\bigvee_n a_n\in A$'' asserts that it does.
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item $A$ is \emph{$\sigma$-complete} if
+    \[
+      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A:\quad
+      \exists\,\textstyle\bigvee_n a_n\in A
+    \]
+    (equivalently every countable family has a meet, by
+    $\bigwedge_n a_n=(\bigvee_n a_n^\perp)^\perp$);
+  \item $A$ is \emph{$\sigma$-orthocomplete} if
+    \[
+      \forall\,\{a_n\}_{n\in\mathbb N}\subseteq A
+      \ \bigl(a_i\perp a_j\ \text{for } i\neq j\bigr):\quad
+      \exists\,\textstyle\bigvee_n a_n\in A.
+    \]
+\end{itemize}
+The orthogonal families are a subclass of all countable families, so
+$\sigma$-completeness quantifies over a strictly larger domain and is the
+stronger hypothesis: $\sigma$-completeness $\Rightarrow$ $\sigma$-orthocompleteness.
+Only the weaker condition is needed below. For a state $s$,
+$\sigma$-additivity is the requirement that
+\[
+  s\Bigl(\textstyle\bigvee_n a_n\Bigr)=\sum_n s(a_n)
+\]
+for every countable pairwise-orthogonal family $\{a_n\}$. Its left side invokes
+$\bigvee_n a_n$ \emph{only} for orthogonal families ---
+so $\sigma$-orthocompleteness is exactly the hypothesis that makes it
+well-posed. Full $\sigma$-completeness is the stronger condition manipulated
+by the Loomis--Sikorski representation (\S\ref{sec:ls}).
+\end{definition}
+
+\begin{example}[$\mathrm{MO}_n$, and the gap made concrete]\label{ex:mo}
+$\mathrm{MO}_n$ is the lattice with $\mathbf 0$, $\mathbf 1$, and $n$
+complementary pairs of incomparable atoms, all sharing only $\mathbf 0$
+and $\mathbf 1$. The geometric model is $n$ lines through the origin: each
+line $a$ is orthogonal to its perpendicular $a^\perp$, while two atoms from
+distinct pairs are non-perpendicular lines. It is orthomodular and
+non-distributive ($n \geq 2$): two atoms drawn from \emph{distinct}
+complementary pairs have
+\[
+  a \wedge b = \mathbf 0 \quad(\text{meet only at the origin})
+  \qquad\text{yet}\qquad a \not\perp b,
+\]
+so meet-zero $\neq$ orthogonal already here. $\mathrm{MO}_3$ is the smallest
+non-distributive OML.
+
+\begin{figure}[h]
+\centering
+\begin{tikzpicture}[scale=1.0, baseline=(current bounding box.center)]
+  % ---- Left: geometric model (MO_2 as lines in R^2) ----
+  \begin{scope}[shift={(0,0)}]
+    \def\R{1.7}
+    % the four atom-lines (two orthogonal pairs)
+    \draw[thick] (-\R,0) -- (\R,0)  node[right] {$a_1$};        % horizontal
+    \draw[thick] (0,-\R) -- (0,\R)  node[above] {$a_1^\perp$};  % vertical
+    \draw[thick] ({-\R*0.707},{-\R*0.707}) -- ({\R*0.707},{\R*0.707})
+        node[above right] {$a_2$};                              % +45
+    \draw[thick] ({-\R*0.707},{\R*0.707}) -- ({\R*0.707},{-\R*0.707})
+        node[below right] {$a_2^\perp$};                        % -45
+    % right-angle mark: a_1 \perp a_1^\perp
+    \draw (0.22,0) -- (0.22,0.22) -- (0,0.22);
+    % the a_1 -- a_2 angle (45deg): NOT orthogonal
+    \draw[->] (0.62,0) arc (0:45:0.62);
+    \node at (0.96,0.27) {\scriptsize $45^\circ$};
+    % origin = 0
+    \fill (0,0) circle (1.6pt);
+    \node[below left] at (0,0) {\scriptsize $\mathbf 0$};
+    \node[align=center] at (0,-2.25)
+      {\scriptsize $a_1\!\perp\!a_1^\perp$ (right angle),\\[-2pt]
+       \scriptsize $a_1\!\not\perp\!a_2$ but $a_1\wedge a_2=\mathbf 0$};
+  \end{scope}
+
+  % ---- Right: Hasse diagram of MO_3 ----
+  \begin{scope}[shift={(6.4,0)}]
+    \def\y{1.55}
+    \coordinate (top) at (0,\y);
+    \coordinate (bot) at (0,-\y);
+    \fill (top) circle (1.6pt) node[above] {$\mathbf 1$};
+    \fill (bot) circle (1.6pt) node[below] {$\mathbf 0$};
+    % six atoms across the middle
+    \foreach \i/\lab in {1/{p},2/{p^\perp},3/{q},4/{q^\perp},5/{r},6/{r^\perp}} {
+      \coordinate (m\i) at ({(\i-3.5)*0.78},0);
+      \fill (m\i) circle (1.4pt);
+      \draw (bot) -- (m\i) -- (top);
+      \node[font=\scriptsize] at ({(\i-3.5)*0.78},0.32) {$\lab$};
+    }
+    \node[align=center] at (0,-2.25)
+      {\scriptsize complementary pairs $(p,p^\perp),(q,q^\perp),(r,r^\perp)$;\\[-2pt]
+       \scriptsize any two non-paired atoms meet at $\mathbf 0$, join at $\mathbf 1$};
+  \end{scope}
+\end{tikzpicture}
+\caption{$\mathrm{MO}_n$ illustrated. \emph{Left:} the geometric model for
+$\mathrm{MO}_2$ --- four atoms as lines through the origin in $\mathbb R^2$.
+The pair $a_1,a_1^\perp$ meets at a right angle (orthogonal), whereas
+$a_1,a_2$ meet at $45^\circ$: their lattice meet is still $\mathbf 0$ (only the
+origin in common), yet they are \emph{not} orthogonal --- the meet-zero
+$\neq$ orthogonal gap. \emph{Right:} the Hasse diagram of $\mathrm{MO}_3$,
+the smallest non-distributive OML: three complementary pairs of incomparable
+atoms between $\mathbf 0$ and $\mathbf 1$.}
+\label{fig:mo}
+\end{figure}
+\end{example}
+
+\begin{definition}[OMP; order-determining states; concrete logic]\label{def:omp}
+An \emph{orthomodular poset} (OMP) weakens Definition~\ref{def:oml}: joins
+$a \vee b$ are required only for \emph{orthogonal} pairs. A set $S$ of states
+on $A$ is \emph{order-determining} if it separates the order, i.e.
+\[
+  \bigl(s(a)\leq s(b)\ \text{for all } s\in S\bigr)\ \Longrightarrow\ a\leq b.
+\]
+An OMP is a \emph{concrete logic} (equivalently \emph{set-representable}) if it
+embeds into $(\mathcal P(X), \subseteq, X \setminus(-))$ for some set $X$,
+preserving existing orthogonal joins --- i.e.\ its propositions are modelled as
+actual \emph{sets of outcomes}. Concreteness is equivalent to admitting an
+order-determining set of \emph{two-valued} states (Gudder~\cite{Gudder1979}),
+and it is the property that separates the open frontier from the settled cases
+(\S\ref{sec:problem}).
+\end{definition}
+
+\begin{remark}[Concreteness does not close the gap]\label{rem:concrete}
+A set-representable OMP needs only closure under complement and \emph{disjoint}
+union~\cite{BuresovaPtak2024}; intersection-closure would force a field of
+sets, hence Boolean. The lattice meet $a\wedge b$ is the greatest $L$-member
+inside $A\cap B$, so
+\[
+  \underbrace{A\cap B=\varnothing}_{\text{orthogonal}}
+  \ \Longrightarrow\
+  \underbrace{a\wedge b=\mathbf 0}_{\text{meet-zero}},
+  \qquad\text{but not conversely.}
+\]
+Concreteness does not force the converse: $\mathrm{MO}_3$ is itself concrete
+(Definition~\ref{def:omp}; Gudder~\cite{Gudder1979}), so the paradigmatic
+meet-zero-$\neq$-orthogonal example is already a concrete logic. What closes the gap is a
+richness/atomicity condition, not concreteness:
+\[
+  a\wedge b=\mathbf 0 \;\Rightarrow\; a\perp b,
+\]
+equivalently: every nonempty $A\cap B$ contains a nonzero $L$-member ---
+the abstract form being Tkadlec's \emph{Boolean orthoposet}
+condition~\cite{Tkadlec1994} (which does \emph{not} mean Boolean
+\emph{algebra}).
+\end{remark}
+
+\subsection{The state/meet-additive/charge ladder}
+\label{sec:ladder}
+
+\begin{definition}[State; meet-additive state; charge-extendible]\label{def:ladder}
+Let $A$ be an OML. A \emph{state} is a map $s : A \to [0,1]$ with
+$s(\mathbf 1)=1$ that is additive on \emph{orthogonal} pairs:
+$s(a \vee b) = s(a) + s(b)$ whenever $a \perp b$; that is, a probability
+assignment whose additivity is guaranteed only on decisively incompatible
+propositions. Three strengthenings, differing in which pairs additivity is
+demanded on and strictly increasing in general (Example~\ref{ex:strict} on
+$\mathrm{MO}_3$):
+\begin{enumerate}[label=(\arabic*), noitemsep]
+  \item \emph{State}: $\ s(a\vee b)=s(a)+s(b)$ whenever $a\perp b$.
+  \item \emph{Meet-additive}: $\ s(a\vee b)=s(a)+s(b)$ whenever
+    $a\wedge b=\mathbf 0$ (binary, strictly stronger --- it reaches the gap
+    pairs of Definition~\ref{def:ortho}). We avoid the word ``valuation''
+    here: in lattice theory it denotes the modular function
+    $v(a)+v(b)=v(a\wedge b)+v(a\vee b)$, a different condition.
+  \item \emph{Charge-extendible}: $\ \sum_i s(a_i)\leq 1$ for every
+    pairwise-meet-zero family $\{a_i\}$ ($a_i\wedge a_j=\mathbf 0$, $i\neq j$;
+    strictly stronger again). This is the condition necessary for extension to
+    a charge on the dual space (Definition~\ref{def:charge}) and the
+    \emph{extension} condition of \S\ref{sec:axes}.
+\end{enumerate}
+\end{definition}
+
+\begin{example}[The ladder is strict]\label{ex:strict}
+On $\mathrm{MO}_3$ with complementary pairs $(p,p^\perp),(q,q^\perp),
+(r,r^\perp)$, the maximally mixed $s \equiv \tfrac12$ is meet-additive
+(clears~(2)) yet fails~(3) at $\{p,q,r\}$:
+$\tfrac12+\tfrac12+\tfrac12 = \tfrac32 > 1$. So no state on
+$\mathrm{MO}_3$ is charge-extendible.
+\end{example}
+
+\begin{definition}[Normal and singular states on $L(H)$]\label{def:normalsing}
+On $A = L(H)$ a state $s$ is
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item \emph{normal} if it is completely additive on every orthogonal family
+    of projections,
+    \[
+      s\Bigl(\textstyle\bigvee_{i\in I} p_i\Bigr)=\sum_{i\in I} s(p_i)
+      \quad\text{for all (not only countable) orthogonal } \{p_i\},
+    \]
+    equivalently $s(\cdot)=\tr(\rho\,\cdot)$ for a density operator $\rho$
+    (Gleason~\cite{Gleason1957}, $\dim\!\geq\!3$);
+  \item \emph{singular} (purely) if
+    \[
+      s(e)=0 \quad\text{for every finite-rank projection } e.
+    \]
+\end{itemize}
+Every state decomposes into a normal and a singular part (Takesaki); the two
+classes are exactly those distinguished by the arguments of \S\ref{sec:axes}.
+\end{definition}
+
+\subsection{The McDonald--Bimb\'{o} dual space}
+\label{sec:dual}
+
+\begin{definition}[Dual space; representation map]\label{def:dual}
+The McDonald--Bimb\'{o} duality~\cite{McDonaldBimbo2023} assigns to an OML
+$A$ a compact space
+\[
+  S_0(A) = \bigl(F(A), \subseteq, \perp_A, P(A), T\bigr),
+\]
+where $F(A)$ is the set of \emph{filters} of $A$, ordered by $\subseteq$
+and carrying an orthogonality relation $\perp_A$ and a Stone topology $T$,
+and $P(A) = \{\,{\uparrow}p : p\in A\,\} \subseteq F(A)$, with
+${\uparrow}p=\{a\in A : a\geq p\}$, is the set of \emph{principal} filters ---
+the ``physical points,'' the realisation datum (canonical, unlike the
+non-canonical pure points of the Boolean case). For $a \in A$ set
+$h(a) = \{x \in F(A) : a \in x\}$; then $h$ is an OML isomorphism onto the
+$\perp$-stable clopens $\CO(S_0(A))^\dagger$. Define $\mu(h(a)) = s(a)$.
+Here $h(a)$ is the set of points at which $a$ holds and $\mu$ is the state
+transported onto those sets; the open problem is whether $\mu$ is preserved
+under countable operations on them.
+\end{definition}
+
+\begin{definition}[Charge]\label{def:charge}
+A \emph{charge} on $S_0(A)$ is a map $\nu : \CO(S_0(A)) \to [0,1]$ on the
+\emph{full} Boolean algebra of clopen subsets (not merely the $\perp$-stable
+ones in the image of $h$), with
+\[
+  \nu(S_0(A))=1,
+  \qquad
+  \nu(U\cup V)=\nu(U)+\nu(V) \ \text{ whenever } U\cap V=\varnothing.
+\]
+A state $s$ \emph{extends to a charge} if some such $\nu$ satisfies
+$\nu(h(a)) = s(a)$ for all $a \in A$. Because $h$ preserves
+meets, a pairwise-meet-zero family in $A$ maps to disjoint clopens, so a
+charge necessarily satisfies $\sum_i s(a_i)\le 1$ over such families --- the
+charge-extendibility condition of Definition~\ref{def:ladder}(3).
+\end{definition}
+
+\begin{remark}[The duality is finitary]\label{rem:finitary}
+The representation map $h$ satisfies
+\[
+  \begin{aligned}
+  h\Bigl(\bigvee_{i\leq n} a_i\Bigr)&=\Bigl(\bigcup_{i\leq n} h(a_i)\Bigr)^{\perp\perp}
+    && (\text{finite}),\\
+  h\Bigl(\bigvee_{n} a_n\Bigr)&\neq\Bigl(\bigcup_{n} h(a_n)\Bigr)^{\perp\perp}
+    && (\text{countable}):
+  \end{aligned}
+\]
+finitary OML homomorphisms need not preserve infinite suprema. This is the
+central obstruction the open problem of \S\ref{sec:problem} confronts, and it
+is self-dual: since $a\mapsto a^\perp$ is an order anti-isomorphism,
+$\bigwedge_n a_n=(\bigvee_n a_n^\perp)^\perp$, so the failure for countable
+meets is the De~Morgan dual of the failure for countable joins. The rival
+duality of Cannon--D\"{o}ring~\cite{Cannon2013} is also finitary and carries no
+measure; we use McDonald--Bimb\'{o} because it carries $P(A)$ as explicit
+structure.
+\end{remark}
+
+\subsection{The Boolean engine: Stone duality}
+\label{sec:ls}
+
+In the Boolean case the descent equivalence
+\[
+  \sigma\text{-additive}
+  \quad\Longleftrightarrow\quad
+  \text{the measure concentrates on the physical points}
+\]
+is proved through \emph{Stone duality}, in four steps~\cite{mahon2025}:
+\begin{enumerate}[label=\textup{(S\arabic*)}, noitemsep, topsep=2pt]
+  \item a Boolean event algebra $B$ embeds in the clopen algebra
+    $\CO(\mathrm{St}\,B)$ of its Stone space;
+  \item a charge on $B$ extends to a Baire measure on $\mathrm{St}\,B$
+    (Carath\'{e}odory);
+  \item $\sigma$-additivity $\iff$ the measure vanishes on meagre Baire sets
+    (Rao--Rao~\cite{rao1983});
+  \item meagre-null $\iff$ the measure lives on the ultrafilters closed under
+    countable intersection $=$ the realised points.
+\end{enumerate}
+Steps (S3)--(S4) are the measure-theoretic face of the
+\emph{Loomis--Sikorski} representation,
+\[
+  \text{$\sigma$-complete Boolean algebra}
+  \;\cong\;
+  (\text{$\sigma$-tribe of sets})\,/\,(\text{$\sigma$-ideal}),
+\]
+the countable-join bookkeeping that drives the equivalence. The contrast with
+the OML case is exact: the Boolean engine (Stone duality together with the
+Loomis--Sikorski representation) has \emph{no} known OML analogue
+(\S\ref{sec:routes}). Supplying such an engine, or proving none exists, is the open
+problem of \S\ref{sec:problem}.
+
+\begin{remark}[Why the bridge fails: meet-closed but not join-prime]
+\label{rem:bridge}
+A ``realised'' point $x$ carries two conditions, which Rao--Rao's
+``vanishes on meagre sets'' makes coincide in the Boolean case:
+\[
+  \begin{aligned}
+  &\text{(M)}\ \ \text{closed under countable meets};\\
+  &\text{(J)}\ \ x\ni\textstyle\bigvee_n a_n \Rightarrow x\ni a_n\ \text{for some }n
+    \quad(\text{off the join-defect}).
+  \end{aligned}
+\]
+Non-distributivity separates them. For a principal filter $x={\uparrow}p$,
+condition~(M) always holds, whereas (J) can fail: $p\leq\bigvee_n a_n$ does not
+force $p\leq a_n$ for some~$n$.
+In $L(H)$ this is witnessed by $a_n=\mathrm{span}(e_n)$ and
+$p=\mathrm{span}(e_1+e_2)$:
+\[
+  p \;\leq\; \textstyle\bigvee_n a_n = H,
+  \qquad\text{yet}\qquad
+  p \;\not\leq\; a_n \ \ \text{for every } n.
+\]
+So ${\uparrow}p$ is a realised point lying inside the join-defect
+$D = h(\bigvee_n a_n)\setminus\bigcup_n h(a_n)$. Topologically ${\uparrow}p$ is
+\emph{isolated} in $S_0(L(H))$, hence:
+\[
+  D \text{ non-meagre (OML)}
+  \qquad\text{vs.}\qquad
+  D \text{ nowhere dense (Boolean)}.
+\]
+This is the finitary obstruction of Remark~\ref{rem:finitary} on the dual:
+the category route (clopens modulo the meagre ideal) fails on the same $D$
+as the measure route, and reduces to the MacNeille completion of
+\S\ref{sec:routes}(ii).
+\end{remark}
+
+% ==================================================================
+\section{Extension and descent}
+\label{sec:axes}
+% ==================================================================
+
+The central question --- \emph{when does a state $s$ on an OML $A$ extend
+to a $\sigma$-additive measure on $S_0(A)$?} --- splits into two
+\emph{independent} axes that the Boolean case fuses.
+\begin{description}[style=nextline, leftmargin=0pt, itemsep=4pt]
+  \item[\normalfont\itshape Extension.] Does $s$ extend to a finitely additive
+    charge on the \emph{full} Boolean clopen algebra of $S_0(A)$? This is governed
+    by the meet-zero/orthogonal gap (\S\ref{sec:oml}) and is \emph{settled}: it is a
+    Horn--Tarski/Pitowsky feasibility question, a decidable linear program in the
+    finite case, and can fail for every state.
+  \item[\normalfont\itshape Descent.] Once extended, does the charge concentrate on
+    the physical points $P(A)$? This is governed by $\sigma$-additivity --- it needs
+    the missing engine (\S\ref{sec:ls}) --- and is \emph{open}.
+\end{description}
+
+\noindent The extension axis is the abstract form of a familiar question:
+extending a finitely-additive assignment on incompatible propositions to a
+single joint distribution is exactly the feasibility problem behind the
+Bell inequalities (Fine~\cite{Fine1982}: a Bell model exists iff the
+correlations admit a joint distribution; Pitowsky~\cite{Pitowsky1989}: the
+Bell inequalities are the facets of a correlation polytope), and Bell and
+Kochen--Specker non-classicality are jointly an extension problem for partial
+Boolean algebras (Budroni--Morchio~\cite{BudroniMorchio2010}, with the
+necessary-and-sufficient conditions of Horn--Tarski~\cite{HornTarski1948}).
+It is also the marginal problem of probability theory --- extending consistent
+marginals to a joint law (Kellerer~\cite{Kellerer1964}) --- and the
+coherence/extendability question of imprecise probability
+(Walley~\cite{Walley1991}); the equivalence of these formulations to the
+quantum-logical one is made precise by Derr--Williamson~\cite{DerrWilliamson2023}.
+What is distinctive here is only that the extension is sought against the dual
+$S_0(A)$ rather than within a fixed scenario; the obstruction is the same
+finitary one, and it is settled. Two observations pin it down.
+
+\begin{proposition}[Finite case]\label{prop:finite}
+For finite $A$ the extension condition is a decidable linear program
+(Horn--Tarski~\cite{HornTarski1948} / Pitowsky correlation-polytope
+feasibility~\cite{Pitowsky1989}; Budroni--Morchio~\cite{BudroniMorchio2010}
+for the partial-Boolean-algebra formulation); since $h$ preserves meets,
+meet-zero elements map to disjoint clopens and a charge must satisfy
+$\sum_i s(a_i) \leq 1$ over pairwise-meet-zero families. It can fail for
+\emph{every} state ($\mathrm{MO}_3$, Example~\ref{ex:strict}).
+\end{proposition}
+
+\begin{proposition}[Infinite $L(H)$, all states]\label{prop:lh}
+Let $\dim H = \infty$. \emph{No} state on $L(H)$ --- normal or singular
+--- extends to a charge on $S_0(L(H))$.
+\end{proposition}
+
+\begin{proof}[Proof sketch]
+Embed $\mathrm{MO}_2$ in $L(H)$ with \emph{infinite-dimensional} atoms: writing
+$H=H_0\otimes\mathbb C^2$ ($\dim H_0=\infty$), the four subspaces
+$H_0\otimes\mathbb Ce,\ H_0\otimes\mathbb Cf,\ H_0\otimes\mathbb C(e{+}f),\
+H_0\otimes\mathbb C(e{-}f)$ are pairwise meet-zero with $a_i\vee a_i^\perp=H$. Two
+counts of $\sum_i s(a_i)$ now collide. Orthoadditivity with $s(\mathbf 1)=1$ gives
+$s(a_i)+s(a_i^\perp)=1$, so for every state
+\[
+  \sum_i s(a_i)=2 .
+\]
+The meet-preserving $h$ sends this pairwise-meet-zero family to disjoint sets, so any
+charge satisfies
+\[
+  \sum_i s(a_i)\le 1 .
+\]
+The two are incompatible for every state, so none extends. The construction is finite
+($n=4$), so $\sigma$-completeness plays no role; the infinite-dimensional atoms are what
+carry the obstruction past the finite-rank states to the singular ones (where every
+finite-rank projection has measure zero), closing the axis completely.
+\end{proof}
+
+% ==================================================================
+\section{What is known}
+\label{sec:known}
+% ==================================================================
+
+The extension axis is settled --- on $L(H)$ no state extends
+(Proposition~\ref{prop:lh}); the descent axis turns on whether the Boolean
+engine of \S\ref{sec:ls} has an OML analogue. Three things bear on that:
+\begin{enumerate}[label=\textbf{\arabic*.}, noitemsep, topsep=2pt]
+  \item the Boolean benchmark such an analogue must match (\S\ref{sec:known}.1);
+  \item the partial OML results, positive and obstructive (\S\ref{sec:known}.2);
+  \item the routes already known to be blocked (\S\ref{sec:routes}).
+\end{enumerate}
+
+\subsection{The Boolean benchmark}
+The conditions an OML engine would have to reproduce. The
+Kelley--Vladimirov--Pt\'{a}k characterisation (Fremlin~\cite{Fremlin3},
+Thm 391D) is complete: a Boolean algebra carries a strictly positive
+$\sigma$-additive measure iff it satisfies all three conditions below ---
+each of which loses its meaning off the distributive world.
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.56\linewidth}@{}}
+\toprule
+\textbf{Boolean (KVP) condition} & \textbf{OML analogue} \\
+\midrule
+Dedekind $\sigma$-completeness & exists ($\sigma$-orthocompleteness) \\[2pt]
+weak $(\sigma,\infty)$-distributivity
+  & none --- relies on $\bigwedge$ distributing over $\bigvee$ \\[2pt]
+chargeability
+  & none --- no structural characterisation on OMLs \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Known results for general OMLs}
+\textbf{Positive} (require structure rich enough to approximate Hilbert-space
+geometry):
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item Gleason~\cite{Gleason1957} --- on $L(H)$ for a \emph{separable} Hilbert space
+    of $\dim\geq3$, every countably additive measure on the projection lattice has the
+    trace form $s(\cdot)=\tr(\rho\,\cdot)$: $\sigma$-additivity \emph{on the lattice}.
+  \item Bunce--Wright~\cite{BunceWright1992} --- the projection-lattice (JBW) form;
+    Chetcuti--Dvure\v{c}enskij~\cite{ChetcutiDvurecenskij2005}.
+\end{itemize}
+\textbf{Obstructive} (Boolean machinery cannot be transplanted):
+\begin{itemize}[noitemsep, topsep=2pt]
+  \item Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994} --- a
+    \emph{finitary} condition (\emph{subadditive}-unitality
+    $s(a\vee b)\le s(a)+s(b)$, no countable joins) already collapses the
+    \emph{lattice} to Boolean (their Thm 1); the OM\emph{poset} version fails
+    (M\"uller's set-representable counterexample~\cite{Muller1993}).
+  \item Navara~\cite{Navara1992} --- regularity does not force
+    $\sigma$-additivity; with R\"{u}ttimann's decomposition of states into
+    completely additive and purely finitely additive parts~\cite{Ruttimann1994},
+    this shows the finitely-additive/$\sigma$-additive gap is structurally
+    serious on quantum logics, not a routine strengthening --- part of why the
+    open problem is hard. \quad Pt\'{a}k~\cite{Ptak1987} --- exotic state
+    spaces via Greechie pasting.
+\end{itemize}
+
+\subsection{Three routes to a $\sigma$-OML engine}
+\label{sec:routes}
+The descent argument needs an OML analogue of the Boolean engine --- a
+$\sigma$-Stone duality, equivalently a Loomis--Sikorski representation. Routes
+(i),(ii) are closed by \emph{theorem}; route (iii) is open in the strong sense (no
+construction known, none ruled out), and is the Open Problem of \S\ref{sec:problem}.
+\begin{enumerate}[label=(\roman*)]
+  \item \textbf{RDP / effect-algebra.} Loomis--Sikorski holds for $\sigma$-MV
+    algebras~\cite{Dvurecenskij2000} and for monotone $\sigma$-complete effect
+    algebras \emph{with} the Riesz Decomposition Property
+    \cite{Dvurecenskij2006}; but a lattice
+    effect algebra has RDP iff it is MV, and OML $\cap$ MV $=$ Boolean
+    (Kalmbach~\cite{Kalmbach1983}): $\text{OML}+\text{RDP}\iff\text{Boolean}$. The
+    \emph{sharp-skeleton} evasion (represent the OML as the sharp elements of an
+    ambient RDP effect algebra) also closes: in an RDP effect algebra the sharp
+    elements coincide with the centre, hence are Boolean (Jen\v{c}a 2001, Cor.~4.3,
+    via Greechie--Foulis--Pulmannov\'a~\cite{GreechieFoulisPulmannova1995}).
+  \item \textbf{MacNeille completion.} The MacNeille completion of an OML need not
+    be orthomodular (Harding~\cite{Harding1991}), so one cannot complete to absorb
+    countable joins; the topological version (clopens of $S_0(A)$ modulo the meagre
+    ideal) is the same completion and collapses non-distributivity
+    (Remark~\ref{rem:bridge}).
+  \item \textbf{$\sigma$-Stone duality.} None is known, none ruled out: the existing
+    dualities are finitary (McDonald--Bimb\'{o}, Remark~\ref{rem:finitary}) or
+    equational with no set/tribe representation (Freytes~\cite{Freytes2020}), but no
+    theorem forbids a countable-join-preserving one. This is route~(c) of the
+    faithfulness trichotomy (\S\ref{sec:reduction}): a representation faithful on
+    countable \emph{orthogonal} joins without forcing distributivity.
+\end{enumerate}
+
+\subsection{Prior art on point-free quantum probability}
+\label{sec:priorart}
+Every existing point-free or directed-context construction fails at least one
+of the two requirements --- $\sigma$-additivity and a natively
+non-distributive structure --- as tabulated below.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=3.2cm, leftmargin=3.6cm]
+  \item[Gleason tradition]
+    Varadarajan~\cite{Varadarajan1985}, Kalmbach~\cite{Kalmbach1983},
+    Pt\'{a}k--Pulmannov\'{a}~\cite{PtakPulmannova1994}: $\sigma$-additive on
+    a non-distributive OML, but real-valued on a fixed lattice --- not
+    point-free.
+  \item[D\"{o}ring 2009]
+    \cite{Doering2009measures} point-free on the spectral presheaf over a
+    directed poset --- but provably only \emph{finitely additive}, on a
+    distributive Heyting algebra.
+  \item[Bohrification (HLS)]
+    \cite{HeunenLandsmanSpitters2009, HeunenLandsmanSpitters2011}
+    point-free and the internal valuation \emph{is} $\sigma$-additive
+    (Scott-continuous) --- but factors through an internally
+    \emph{distributive} locale, $\sigma$-additive only per commutative
+    context. Non-distributivity is tamed, not carried natively.
+  \item[Localic valuations]
+    Vickers~\cite{Vickers2008}, Simpson~\cite{Simpson2012},
+    Coquand--Spitters~\cite{CoquandSpitters2009}: point-free
+    $\sigma$-additive, but on \emph{frames} --- distributive by definition.
+  \item[OML Stone dualities]
+    McDonald--Bimb\'{o}~\cite{McDonaldBimbo2023} and
+    Cannon--D\"{o}ring~\cite{Cannon2013}: purely structural, no measure,
+    no $\sigma$-version.
+\end{description}
+The open case is their conjunction, met by no existing construction:
+\begin{center}
+\fbox{\parbox{0.92\linewidth}{\centering point-free $\times$
+$\sigma$-additive $\times$ natively non-distributive $\times$
+directed-system-built.}}
+\end{center}
+
+\begin{remark}[The boundary of the negative results]\label{rem:miss}
+Two qualifications delimit what is ruled out.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=1.2cm, leftmargin=1.5cm, topsep=2pt]
+  \item[(i)] \textbf{No impossibility theorem covers the concrete class.} The
+    known no-go results are finite or two-valued, and the one positive
+    occupant is non-concrete:
+    \[
+      L(H)\ (\dim\!\geq\!3):\quad
+      \text{no two-valued states at all (Kochen--Specker~\cite{KochenSpecker1967})},
+    \]
+    a fortiori none order-determining. Concreteness is the qualifier on which
+    the open frontier turns.
+  \item[(ii)] \textbf{No $\sigma$-Loomis--Sikorski exists} (route~(c),
+    \S\ref{sec:reduction}): the dualities take infinite joins as a closure, not a
+    union (Remark~\ref{rem:finitary}). Not to be overstated, though: Gudder's
+    concrete logics~\cite{Gudder1979} \emph{are} set-representable non-Boolean
+    orthoposets --- but as point-ful posets, not via a $\sigma$-Loomis--Sikorski
+    theorem.
+\end{description}
+\end{remark}
+
+\subsection{The topos approach}
+\label{sec:topos}
+The topos / Bohrification programme is the one machinery supplying a point-free
+\emph{and} $\sigma$-additive valuation on a quantum logic, so it is the natural
+candidate --- but it takes route~(b) of the trichotomy (\S\ref{sec:reduction}): in
+both principal constructions the valuation lives on a \emph{distributive} object,
+its countable additivity routed through per-context Boolean blocks, hence sidesteps
+rather than settles route~(c).
+
+\begin{center}
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.14\linewidth}>{\raggedright\arraybackslash}p{0.36\linewidth}>{\raggedright\arraybackslash}p{0.38\linewidth}@{}}
+\toprule
+ & \textbf{Bohrification (HLS)} & \textbf{D\"{o}ring--Isham} \\
+\midrule
+measure on
+  & internal Gelfand spectrum $\Sigma(A)$, a compact regular frame
+  & clopen subobjects $\mathrm{Sub}_{cl}(\Sigma)$, a Heyting algebra \\
+why distributive
+  & a frame: $\bigvee$ distributes \cite[Def.~6.11]{HeunenLandsmanSpitters2011}
+  & a locale, not a $\sigma$-algebra \cite{Doering2009measures} \\
+how $\mathrm{Proj}$ enters
+  & Thm~6.19 bijection; the measure restricts to a $\sigma$-Boolean morphism on each
+    Boolean sublattice (Def.~6.17(a))
+  & daseinisation, which ``cannot preserve both [joins and meets]''
+    \cite{Wolters2013} \\
+additivity left
+  & block-by-block, glued by naturality; never crosses a non-commuting join
+  & only \emph{finitely} additive; $\sigma$ per-block, normal states only \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\noindent Two route-(b) details specific to the topos case: HLS confines all
+additivity inside Boolean contexts (the antithesis of $\sigma$-essential
+contextuality), and its non-distributive object $\mathrm{Proj}(A)$ is the
+non-concrete Gleason / $L(H)$ lattice (Rmk~\ref{rem:miss}), not the concrete class in
+question --- so of the four requirements (point-free, $\sigma$-additive, natively
+non-distributive, directed-system-built) it misses exactly native non-distributivity.
+
+% ==================================================================
+\section{The open problem}
+\label{sec:problem}
+% ==================================================================
+
+\begin{problem}
+Does there exist a concrete, $\sigma$-complete, non-Boolean OML $L$ and a
+$\sigma$-additive state $w$ on $L$ such that
+\[
+  \begin{aligned}
+  &\text{\emph{(contextual)}} && w\notin\overline{\mathrm{conv}}\,(S_{\mathrm{df}}^\sigma);\\
+  &\text{\emph{($\sigma$-essential)}} &\quad& w|_F\in\overline{\mathrm{conv}}\,
+    (S_{\mathrm{df}}(F))\ \text{for every finite sub-OML }F\subseteq L\,?
+  \end{aligned}
+\]
+That is, $w$ has no global hidden joint over the dispersion-free states, yet its
+restriction to every finite sub-OML does. Equivalently: can one prove no such
+$(L,w)$ exists?
+\end{problem}
+
+\begin{remark}[Relation to Derr--Williamson 2023]\label{rem:dw}
+The problem above is not plainly open: it must be read against
+Derr--Williamson~\cite{DerrWilliamson2023}, who study coherent probabilities on
+\emph{pre-Dynkin-systems} (concrete orthomodular posets) and \emph{Dynkin-systems}
+(concrete $\sigma$-complete OMLs) from the imprecise-probability side. Three distinct
+levels of statement are involved, and should not be conflated:
+\begin{enumerate}[label=(\alph*), noitemsep, topsep=2pt]
+  \item a finite-additive extendability criterion (their Theorem~4.5, a Horn--Tarski
+    feasibility condition) matching ``non-contextual on every finite sub-OML'';
+  \item a \emph{countably additive} extension to the ambient Borel $\sigma$-algebra
+    (their Theorem~D.6), valid \emph{under the hypotheses} that the OML is realised
+    as a Dynkin-system $D_\sigma$ of Borel sets of a \emph{Polish} space $\Omega$
+    with $\sigma(D_\sigma)=\mathrm{Borel}(\Omega)$ and inner-regular $\sigma$-blocks
+    --- a result they obtain by specialising
+    Maharam's extension theorem~\cite[Thm~8.1]{Maharam1972} (Hausdorff base,
+    inner-regular measures); and
+  \item the inference from (b) to non-contextuality of $w$, below, which is the
+    survey's own step.
+\end{enumerate}
+
+The link to the present formulation is one-directional but in the direction that
+matters. A point $\omega\in\Omega$ gives the evaluation $\delta_\omega$, which is a
+two-valued and (since $A_n\downarrow\varnothing\Rightarrow\omega\notin A_n$
+eventually) $\sigma$-additive dispersion-free state; a countably additive $\nu$ on
+$\mathrm{Borel}(\Omega)$ with $\nu|_{D_\sigma}=w$ exhibits $w$ as a barycentre,
+\[
+  w(A)=\int_\Omega \delta_\omega(A)\,d\nu(\omega)
+  \quad\Longrightarrow\quad
+  w\in\overline{\mathrm{conv}}\,(S_{\mathrm{df}}^\sigma).
+\]
+Thus
+\[
+  \text{$\sigma$-extendable}\ \Longrightarrow\ \text{non-contextual},
+\]
+and through Theorem~D.6 the implication
+``finitely non-contextual everywhere $\Rightarrow$ globally non-contextual'' holds
+\emph{whenever the OML admits such a Polish Borel realisation}: under that
+hypothesis the $\sigma$-essential cell is empty, and no witness exists. (The converse,
+non-contextual $\Rightarrow\sigma$-extendable, does not hold --- the
+dispersion-free states properly contain the point evaluations $\delta_\omega$ --- but
+it is not needed for the negative conclusion.)
+
+The residue is then a single condition, the representability the whole problem turns
+on: can a $\sigma$-essential witness exist that admits \emph{no} Polish Borel
+realisation ($S_{\mathrm{df}}^\sigma$
+non-Polish / analytic-but-not-Borel)?
+\emph{(Update 2026-07-10: the residue is in fact two conditions. The
+inner-regularity leg of (b) is independently binding --- Maharam's
+regularity sense requires the compact approximants inside the block, and an
+inner-regular two-valued finitely additive state is necessarily a Dirac
+restriction --- so a witness also escapes Theorem~D.6, on every Polish
+realisation, whenever some blockwise restriction is non-principal
+(``coarse-riding''). See
+\texttt{sigma\_essential\_prior\_art\_verdict.md}, Addendum s13, and
+\texttt{oml\_lattice\_regularity\_attack.md} \S10.)} This is a descriptive-set-theory question,
+equivalent to the absence of a $\sigma$-Loomis--Sikorski representation
+(\S\ref{sec:routes}); the off-centre/non-band constraints of \S\ref{sec:first} are its
+lattice-side counterpart. One caution concerns the $\sigma$-version of the (A)/(B)
+point-space equivocation (Remark~\ref{rem:AB}): Derr--Williamson's Polish hypothesis is
+on the underlying \emph{point set} $\Omega$, and obtaining such an $\Omega$ for an
+abstract concrete $\sigma$-complete OML is itself the missing engine, not a free input.
+\end{remark}
+
+\begin{remark}[The two sides that must be married]\label{rem:marriage}
+A witness is one object discharging two requirements that repel; each failed
+construction secured one side and collapsed the other.
+\begin{description}[noitemsep,topsep=2pt]
+  \item[Set-theoretic side.] A two-valued $\sigma$-additive non-principal $w$ with
+    \emph{no} global hidden joint. On a Boolean base such an object is a countably
+    complete non-principal ultrafilter, hence a measurable cardinal (Ulam); the
+    witness is its non-distributive analogue. Boundary: Derr--Williamson
+    (Remark~\ref{rem:dw}); the resolving mechanism would be a Loomis--Sikorski
+    $\sigma$-representation, which \emph{fails} for non-distributive $L$.
+  \item[Order-theoretic side.] $L$ genuinely non-Boolean: not intersection-closed,
+    \[
+      (a\vee b)\wedge a^{\perp}\neq b\wedge a^{\perp}\quad\text{(some $a,b$),}
+    \]
+    irreducibly non-central, and lacking the Riesz decomposition property every
+    Boolean $\sigma$-representation needs. Wright~\cite{Wright1978} places the target
+    strictly above the finite floor; RDP-failure on $\mathrm{MO}_2$ is why the
+    set-theoretic side's gluing cannot be imported.
+\end{description}
+\noindent\emph{Why they repel.} The strength-carrying object of the first side is an
+ultrafilter, which is intersection-closed; the second side forbids exactly that. The
+ultrafilter Blecher--Weaver~\cite{BlecherWeaver2017} consume lives on the diagonal masa
+$\ell^{\infty}(\kappa)$ (projections $=$ subsets), whereas on a concrete non-Boolean
+$\sigma$-OML $\mathcal{F}_s=\{A:s(A)=1\}$ is a filter for \emph{no} two-valued $s$:
+meet-closure fails already for $\delta_\omega$, since in any concrete $\mathrm{MO}_2$
+the atoms $a,b$ have $a\cap b\neq\varnothing$ yet $a\wedge b=0$, so
+\[
+  \delta_\omega(a)=\delta_\omega(b)=1,\qquad \delta_\omega(a\wedge b)=0 .
+\]
+So every object carrying the requisite strength is masa-bound, while every
+$\mathsf{ZFC}$-constructed non-Boolean two-valued $\sigma$-additive state
+(Navara--Pt\'{a}k~\cite{NavaraPtak1983}) carries none; no known object is both. This is
+structural absence, not an impossibility theorem. The problem is set-theoretic in
+difficulty, order-theoretic in content.
+\end{remark}
+
+\noindent Here ``relational'' means \emph{no hidden realisation}: the measure is not
+recoverable from an auxiliary space of definite states behind the propositions. Three
+point-spaces must be kept distinct: the
+\emph{canonical} dual $P(A)=\{{\uparrow}p\}$ (one principal filter per element,
+\S\ref{sec:dual}); the \emph{dispersion-free states} (the hidden-variable points);
+and the \emph{external (A)-points} (Gleason's Hilbert rays, Remark~\ref{rem:AB}).
+$P(A)$ is \emph{permitted}; the objection is only to a measure built on an
+illicitly introduced space --- the (A)-points, equivalently a global hidden-variable joint over the
+dispersion-free states. By Lemma~\ref{lem:relational} a state has a hidden
+realisation iff it is a mixture of dispersion-free states, so a relational measure is
+precisely a \emph{contextual} state. This is a condition on the dispersion-free
+states, not on $P(A)$: a witness is point-rich on $P(A)$ yet has no global
+dispersion-free joint.
+
+\subsection{Reduction to contextuality}
+\label{sec:reduction}
+\label{sec:predicate}
+
+\paragraph{The universal floor.} The naive route --- realise the lattice as honest
+sets so that a measure becomes a measure on a space --- is closed for every
+non-Boolean OML.
+
+\begin{theorem}[Universal floor]\label{thm:floor}
+A \emph{faithful set representation} of an OML $L$ --- an injective
+$h:L\to\mathcal P(\Omega)$ with $h(a\wedge b)=h(a)\cap h(b)$, $h(a\vee b)=h(a)\cup
+h(b)$, $h(a^\perp)=\Omega\setminus h(a)$ (a $\sigma$-tribe / Loomis--Sikorski
+representation when $\sigma$-joins are preserved) --- exists only if $L$ is Boolean.
+\end{theorem}
+\begin{proof}[Proof sketch]
+Set operations $\cap,\cup,{}^c$ on $\mathcal P(\Omega)$ distribute, so the image
+$h(L)$ is a distributive sublattice; $h$ injective and lattice-preserving makes $L$
+isomorphic to a distributive ortholattice, i.e.\ Boolean.
+\end{proof}
+
+\noindent The universal floor (Theorem~\ref{thm:floor}) fixes \emph{where} a
+$\sigma$-engine may relinquish faithfulness, a trichotomy organising
+\S\S\ref{sec:routes}--\ref{sec:priorart}:
+\textbf{(a)} all $\wedge,\vee$ as $\cap,\cup$ forces Boolean (Theorem~\ref{thm:floor}),
+and is \emph{excluded};
+\textbf{(b)} all joins but in a \emph{distributive} ambient object (frame/topos) is
+$\sigma$-additive only per Boolean context (\S\ref{sec:topos}), and \emph{sidesteps}
+rather than settles the question;
+\textbf{(c)} only countable \emph{orthogonal} joins, faithful to order and $\perp$ but
+not to the distributivity-forcing meets --- a concrete logic, exactly what
+$\sigma$-additivity invokes --- is \emph{the remaining open route}
+(\S\ref{sec:routes}(iii)), elaborated next.
+Route (c) is the candidate for the missing $\sigma$-duality --- the contravariant
+equivalence one would want, between concrete $\sigma$-complete OMLs and a category of
+$\sigma$-spaces whose points are the dispersion-free states. The universal floor fixes
+three features of the right-side object:
+\begin{itemize}[noitemsep, topsep=2pt, leftmargin=1.5em]
+  \item non-distributivity cannot live in the sets (faithful
+    $\wedge,\vee\mapsto\cap,\cup$ forces Boolean, Theorem~\ref{thm:floor}); it sits
+    instead in the meet being a sub-intersection under the Gudder/concrete-logic functor
+    (orthogonal joins as disjoint unions, set-complement);
+  \item the descent space is $S_{\mathrm{df}}^\sigma$, \emph{not} the principal points
+    $P(A)$ (which are permitted; Remark~\ref{rem:AB});
+  \item the field of sets is $\sigma$-generated, not a Stone clopen algebra.
+\end{itemize}
+Under that functor the \emph{representation} is settled: a concrete
+$\sigma$-Dynkin-system does not collapse to Boolean (Remark~\ref{rem:concrete};
+$\prod_n\mathrm{MO}_2$ inhabits it). But this is a \emph{definitional pin}, not a theorem
+--- fixing the target to $\sigma$-Dynkin-systems makes the representation hold by the
+chosen functor. The entire weight therefore rests on the one remaining clause, the
+\emph{measure descent}: whether a $\sigma$-additive state is a mixture of the
+$S_{\mathrm{df}}^\sigma$, off the regular-realisable case (Remark~\ref{rem:dw}). So a
+concrete OML has an order-determining family of dispersion-free states, and the one open
+question is whether every state is a mixture of them.
+
+\paragraph{The reduction.} The following equivalence reduces ``no hidden
+realisation'' to a spanning condition on the dispersion-free states. Its content is
+not new --- for a Bell scenario it is Fine's theorem~\cite{Fine1982} (a joint
+distribution exists iff a deterministic hidden-variable model does), and the
+convex-geometric form is Pitowsky's correlation-polytope picture~\cite{Pitowsky1989};
+the formulation for a general (concrete) OML, with dispersion-free states as the
+deterministic vertices, is the natural lift, in the lineage of the
+sheaf-theoretic account of contextuality~\cite{AbramskyBrandenburger2011}.
+
+\begin{lemma}[Relational $=$ contextual]\label{lem:relational}
+Let $L$ be a concrete OML with dispersion-free state space $S_{\mathrm{df}}$, and
+$w$ a state on $L$. Then $w$ admits a hidden realisation --- a probability measure
+on a space of global two-valued valuations of $L$ inducing $w$ --- if and only if
+$w \in \overline{\mathrm{conv}}\,(S_{\mathrm{df}})$. We call $w$ \emph{contextual}
+when it is not.
+\end{lemma}
+\begin{proof}[Proof sketch]
+A global two-valued valuation of $L$ is exactly a dispersion-free state, so a
+hidden realisation is a probability measure $\mu$ on $S_{\mathrm{df}}$ with
+$w(a)=\int \omega(a)\,d\mu(\omega)$ for all $a$ --- i.e.\ $w$ is the barycentre of
+$\mu$. The barycentres of probability measures on the (weak-$*$ compact) set
+$S_{\mathrm{df}}$ are exactly $\overline{\mathrm{conv}}(S_{\mathrm{df}})$. The
+handle is \emph{spanning}, not simplicity: non-uniqueness of $\mu$ is irrelevant;
+only its \emph{existence} matters.
+\end{proof}
+
+\noindent The object sought is therefore a concrete $\sigma$-complete OML with a
+$\sigma$-additive state outside the dispersion-free hull
+(Figures~\ref{fig:mo2hull} and~\ref{fig:pentagonhull}).
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=0.92]
+  \fill[blue!12] (0,0) rectangle (3,3);
+  \draw[blue!55,thick] (0,0) rectangle (3,3);
+  \draw[->] (-0.3,0)--(3.6,0) node[right]{\footnotesize $s(a)$};
+  \draw[->] (0,-0.3)--(0,3.6) node[above]{\footnotesize $s(b)$};
+  \node[font=\scriptsize] at (3.0,-0.26){$1$}; \node[font=\scriptsize] at (-0.2,3.0){$1$};
+  \foreach \x/\y in {0/0,3/0,0/3,3/3}{\fill[black] (\x,\y) circle (2.2pt);}
+  \fill[red] (1.5,1.15) circle (2.4pt);
+  \node[red!70!black,font=\scriptsize,anchor=south] at (1.5,1.28){$w$};
+  \node[font=\footnotesize,align=center] at (1.5,2.05)
+    {$S(\mathrm{MO}_2)$\\$=\overline{\mathrm{conv}}(S_{\mathrm{df}})$};
+\end{tikzpicture}
+\caption{$\mathrm{MO}_2$: the state space is the square $[0,1]^2$ (a state is fixed by
+$(s(a),s(b))$), and the four dispersion-free states are its corners, so
+$\overline{\mathrm{conv}}(S_{\mathrm{df}})$ is the whole square. Every state $w$ is a
+mixture of corners --- none is contextual. Thus non-distributivity alone does not
+produce contextuality (contrast Figure~\ref{fig:pentagonhull}): it requires a loop, not
+merely incompatible elements.}
+\label{fig:mo2hull}
+\end{figure}
+
+\paragraph{Why $\sigma$-essential.} The finite version of this is already inhabited.
+Wright's pentagon~\cite{Wright1978} is a finite, concrete OML --- a Greechie loop of
+five three-atom blocks, hence a lattice --- with an order-determining family of
+dispersion-free states, yet it carries a non-classical $\{0,\tfrac12\}$-valued state
+outside their closed convex hull. The reason is a vertex-sum collision. The five atoms
+form a $5$-cycle in which consecutive atoms share a block, so a dispersion-free state
+takes at most one of each adjacent pair to $1$, hence at most $2$ of the $5$; its hull
+therefore satisfies
+\[
+  \textstyle\sum_{i=1}^5 \omega(a_i)\ \le\ 2 .
+\]
+The $\{0,\tfrac12\}$ state --- legitimate, each block summing to $1$ --- instead has
+\[
+  \textstyle\sum_{i=1}^5 \omega(a_i)\ =\ \tfrac52 ,
+\]
+so it lies outside the hull (this is the KCBS inequality~\cite{KCBS2008}). Thus
+``concrete OML with a contextual state'' is a $1978$ fact, and the general spanning
+statement is false.
+
+What Wright does \emph{not} supply is contextuality that requires the countable
+structure: the pentagon's is witnessed by a finite sub-OML, namely itself. A
+$\sigma$-essential witness must therefore be contextual in the $\sigma$-complete whole
+but in no finite sub-OML. This is not a device to evade Wright: ``every finite piece has
+a global section, the countable whole has none'' is a \emph{compactness failure} of
+exactly the type by which countable additivity is not first-order axiomatizable over
+finitely additive coherence (Remark~\ref{rem:ce}).
+
+\begin{figure}[ht]
+\centering
+\begin{tikzpicture}[scale=1.0]
+  % --- the lattice (top): Greechie 5-loop of atoms a_1..a_5, centred high ---
+  \foreach \i/\ang in {1/90,2/162,3/234,4/306,5/18}{
+    \coordinate (v\i) at ($(0,3.0)+(\ang:0.85)$);}
+  \draw[gray!70,thick] (v1)--(v2)--(v3)--(v4)--(v5)--cycle;
+  \foreach \i in {1,...,5}{\fill[black] (v\i) circle (2.0pt);}
+  \node[font=\scriptsize,above] at (v1){$a_1$};
+  \node[font=\scriptsize,left] at (v2){$a_2$};
+  \node[font=\scriptsize,below=1pt] at (v3){$a_3$};
+  \node[font=\scriptsize,below=1pt] at (v4){$a_4$};
+  \node[font=\scriptsize,right] at (v5){$a_5$};
+  \node[gray!55!black,font=\scriptsize,anchor=west] at (1.5,3.0){edge $=$ shared block};
+  % === ZONE 2: projection arrow + label, centred, in its own band (y ~ 1.4-2.0) ===
+  \draw[->,gray!60] (0,2.0)--(0,1.0);
+  \node[gray!55!black,font=\scriptsize,anchor=west] at (0,1.5){$f(s)=\textstyle\sum_i s(a_i)$};
+  % === ZONE 3: the value axis (y = axy and below) ===
+  \def\axy{0.1}
+  \draw[->] (-2.4,\axy)--(2.3,\axy) node[right]{\footnotesize $f$};
+  \foreach \v/\lab in {0/0,1/1,2/2,3/3}
+     {\draw (-2.4+\v,{\axy-0.08})--(-2.4+\v,{\axy+0.08});
+      \node[font=\scriptsize,below] at (-2.4+\v,{\axy-0.05}){$\lab$};}
+  % image of the hull under f: the interval [0,2], bracketed segment ON the axis
+  \draw[orange!70!black,line width=2.6pt] (-2.4,\axy)--(-0.4,\axy);
+  \draw[orange!70!black,thick] (-2.4,{\axy-0.13})--(-2.4,{\axy+0.13});
+  \draw[orange!70!black,thick] (-0.4,{\axy-0.13})--(-0.4,{\axy+0.13});
+  \foreach \v in {1,2}{\fill[black] (-2.4+\v,\axy) circle (1.8pt);}
+  % [0,2] label just above the bracket, left of the f=2 mark
+  \node[orange!60!black,font=\scriptsize,anchor=south] at (-1.4,{\axy+0.12})
+     {$f\bigl(\overline{\mathrm{conv}}(S_{\mathrm{df}})\bigr)=[0,2]$};
+  % separating face f=2: short dashed mark + label BELOW the axis
+  \draw[red!60!black,thick,dashed] (-0.4,{\axy-0.05})--(-0.4,{\axy-0.38});
+  \node[red!55!black,font=\scriptsize,anchor=north] at (-0.4,{\axy-0.38}){$f=2$};
+  % the witness: dot on the axis at f=2.5, label above-right (clear of [0,2] and f=2)
+  \fill[red] (0.1,\axy) circle (2.6pt);
+  \node[red!70!black,font=\scriptsize,anchor=south west] at (0.05,{\axy+0.12}){$w:f=\tfrac52$};
+\end{tikzpicture}
+\caption{Wright's pentagon (a Greechie $5$-loop; left), and the same hull-membership
+question read off a separating functional (right). The state space is $5$-dimensional
+and undrawable, but $f(s)=\sum_i s(a_i)$ projects it faithfully to $\mathbb R$: every
+dispersion-free state has $f\le2$ (the odd loop admits no two adjacent atoms valued
+$1$), so $f(\overline{\mathrm{conv}}(S_{\mathrm{df}}))=[0,2]$. The non-classical state
+$w\equiv\tfrac12$ has $f=\tfrac52$, past the face $f=2$, hence outside the hull ---
+contextual. (Here $f$ is a \emph{chosen} separating functional for this $w$; by the
+separating-hyperplane theorem a state is contextual iff \emph{some} linear functional
+sends it past the hull's image.)}
+\label{fig:pentagonhull}
+\end{figure}
+
+\paragraph{Status.} No witness has been constructed: the product
+$\prod_n\mathrm{MO}_2$ fails (its contextual states are only finitely additive ---
+diffuse states on its central $P(\mathbb N)$, which $\sigma$-additivity forces to
+concentrate on points, killing the contextuality, \S\ref{sec:why-sigma}); Wright is
+finite; no other construction is known. On the negative side, the cell is now known
+to be \emph{empty for every OML admitting a Polish Borel point-realisation}
+(Derr--Williamson, Remark~\ref{rem:dw}). What remains genuinely open is therefore the
+\emph{non-representable} case: a witness, if one exists, must admit no such
+realisation --- which is precisely the absence of a $\sigma$-Loomis--Sikorski
+representation (\S\ref{sec:routes}), a descriptive-set-theory question.
+
+\begin{remark}[The compactness-failure analogy]\label{rem:ce}
+The $\sigma$-essential requirement places the open problem alongside a known
+Boolean phenomenon. Over a Boolean algebra, countable additivity of a finitely
+additive charge is not first-order axiomatizable: an ultraproduct of $\sigma$-additive
+charges can be finitely additive but not $\sigma$-additive, so every finite test is
+passed while the global property fails~\cite{mahon2025}. The $\sigma$-essential
+contextual state is the non-distributive analogue, but with one sharpening the Boolean
+case obscures: the obstruction is \emph{finitely detected but globally caused}. Each
+finite sub-OML is classically interpretable --- its restriction lies in the full local
+hull $\overline{\mathrm{conv}}(S_{\mathrm{df}}(F))$ --- yet contextuality is detected
+already at a single finite $F$, against the strictly smaller hull
+$\overline{\mathrm{conv}}(\{s|_F:s\in S_{\mathrm{df}}^\sigma\})$ of restrictions of the
+\emph{global} $\sigma$-states. The gap between the two is what the countable whole
+supplies; it is not a property that emerges only in the limit (a vanishing-in-the-limit
+margin would be failure of $\sigma$-additivity itself, the segregated $\prod_n\mathrm
+{MO}_2$ case, not a witness).
+\end{remark}
+
+\subsection{The combinatorial route}
+\label{sec:why-sigma}
+
+One might seek the object among concrete $\sigma$-orthocomplete OMLs,
+on the grounds that a state's $\sigma$-additivity invokes $\bigvee_n a_n$ only
+for orthogonal families (Definition~\ref{def:complete}). This route is
+settled, and does not produce the object. The property that would
+make $\sigma$-additivity genuinely exceed finite additivity on a concrete
+non-Boolean lattice is the interleaving condition
+\begin{equation}\label{eq:interleave}
+\textbf{(}\bigstar\textbf{)}\quad
+\exists\, p,\ \exists\,\{a_n\}\text{ infinite orthogonal},\quad
+p \wedge a_n = 0\ (\forall n),\quad p \not\perp a_n\ (\forall n),
+\end{equation}
+and $(\bigstar)$ is satisfied \emph{trivially} by the plain product
+$\prod_n \mathrm{MO}_2$: take $a_n = a$ in coordinate $n$ (zero elsewhere), and
+$p = \bigvee_n b_n$ where $b_n = b$ in coordinate $n$ (zero elsewhere) --- a
+genuine countable \emph{orthogonal} join, so $p=(b,b,b,\dots)$ exists by
+$\sigma$-orthocompleteness. Then $p\wedge a_n=0$ (coordinate $n$: $a\wedge b=0$
+in $\mathrm{MO}_2$; elsewhere $a_n=0$) and $p\not\perp a_n$ (coordinate $n$:
+$b\not\leq a^\perp$). Since $\prod_n \mathrm{MO}_2$ is concrete, $\sigma$-complete
+(a product of finite, hence complete, lattices), non-Boolean, and infinite, it
+satisfies $(\bigstar)$ and \emph{every} combinatorial hypothesis one might
+impose --- yet it is exactly the \emph{segregated} object the open problem must
+exclude. Call an OML \emph{segregated} when its non-distributivity is confined to a
+direct product (or central decomposition) of finite blocks, so that every
+dispersion-free state factors through the blocks and the infinitary structure carries
+no contextuality of its own. So the combinatorial axioms ($\sigma$-completeness,
+concreteness, $(\bigstar)$) are \emph{not} the discriminator; the missing ingredient is
+\emph{non-segregation}, a structural rather than a closure property.
+
+\begin{remark}[Absence of two-valued homomorphisms; the Boolean boundary]\label{rem:inhabited}
+The universal closure above (a faithful set representation forces distributivity)
+already rules out the point-based route for every non-Boolean OML; $\prod_n\mathrm{MO}_2$
+shows the failure concretely, at the level of points.
+
+First, $\mathrm{MO}_2$ admits \emph{no} two-valued homomorphism. Each of its four
+separating two-valued states ($a\mapsto0,\ b\mapsto0$, and so on) fails subadditivity,
+\[
+  \omega(a\vee b)=\omega(\mathbf 1)=1 \ >\ 0=\omega(a)+\omega(b),
+\]
+so none preserves $\vee$. The product inherits this: the diagonal copy
+$\{\mathbf 0,\mathbf 1,(a,a,\dots),(a^\perp,\dots),(b,b,\dots),(b^\perp,\dots)\}$ is a
+sub-$\mathrm{MO}_2$, and any homomorphism of $\prod_n\mathrm{MO}_2$ would restrict to one
+on it, of which there are none. (This is special to $\mathrm{MO}_2$ and its products: a
+generic non-Boolean OML such as $\mathbf 2\times\mathrm{MO}_2$ \emph{does} carry
+homomorphisms, e.g.\ a projection. The universal obstruction is the distributivity
+argument, not homomorphism-scarcity.) So $\prod_n\mathrm{MO}_2$ is concrete
+(Definition~\ref{def:omp}: order-determining two-valued \emph{states}) and
+$\sigma$-complete, yet carries no two-valued homomorphism at all --- the point-free
+target is forced, not engineered.
+
+The same arithmetic records the sharp Boolean boundary. An OML is Boolean iff it admits a
+\emph{unital} set of \emph{subadditive} states --- one giving each nonzero $a$ value $1$
+for some such state (Pt\'ak--Pulmannov\'a~\cite[Thm~1]{PtakPulmannova1994}, for OMLs; the
+orthomodular-poset version fails). A concrete non-Boolean OML cannot have its separating
+two-valued states form such a set: some must fail subadditivity --- above, all four of
+$\mathrm{MO}_2$'s do. The property that forces Boolean is therefore subadditivity, a
+finitary condition, not $\sigma$-additivity.
+\end{remark}
+
+\noindent The lesson survives elaboration. Navara's
+construction~\cite{Navara1992} --- once its stateless Greechie block (the source of
+non-concreteness) is replaced by $\mathrm{MO}_2$ --- yields a concrete,
+$\sigma$-orthocomplete, non-Boolean OML carrying $(\bigstar)$; yet it is
+$\prod_n\mathrm{MO}_2$ with scaffolding, segregated in the same way, with no
+$\sigma$-tribe representation. So $(\bigstar)$ and concreteness together are easy and
+do \emph{not} reach the open problem: the missing ingredient is non-segregation, and
+that is what the witness must supply.
+
+\medskip
+\noindent The known results constrain the open ($\sigma$-complete) problem from both
+sides without closing it: \emph{no} impossibility theorem covers the concrete class
+(Remark~\ref{rem:miss}), while the two \emph{theorem-closed} routes to an engine
+--- RDP and MacNeille (\S\ref{sec:routes}(i),(ii)) --- are ruled out, leaving
+only the third, $\sigma$-Stone duality, which is itself open. What is required is
+not a new idea in the abstract but a representation in that gap:
+non-distributive enough to evade routes (i),(ii), yet $\sigma$-faithful where the
+known dualities are merely finitary.
+
+\begin{remark}[Why $L(H)$+Gleason does \emph{not} already settle this ---
+the (A)/(B) point-space equivocation]\label{rem:AB}
+``Probability from relations, point-free'' may \emph{look} delivered by
+$L(H)$+Gleason. It is not: the appearance rests on conflating two point-spaces, and
+\emph{realisation} is defined as concentration on the second. The two are (A) the
+Hilbert rays of $H$, which Gleason \emph{requires} --- the density $\rho$ in
+$s=\tr(\rho\,\cdot)$ is built from them --- and (B) the McDonald--Bimb\'{o} dual
+filters $P(A)$, which Gleason \emph{removes}, but only by being a representation
+theorem. Gleason is thus the \emph{most} point-ful result available (every
+lattice state corresponds to the point datum $\rho$). What $L(H)$ exhibits is a
+\emph{separation}, not point-freeness: $\sigma$-additive measures exist on the
+lattice (Gleason, for normal states), yet on the dual $S_0(L(H))$ no state extends
+to a charge at all (Proposition~\ref{prop:lh}), so a fortiori none concentrates on
+$P(A)$. It cannot serve as the existence proof required, so the point-free
+$\sigma$-additive structure of \S\ref{sec:problem} is the only candidate engine.
+\end{remark}
+
+\subsection{Two axes of obstruction}
+\label{sec:twoaxes}
+The recurring confusion of this subject
+(Remarks~\ref{rem:inhabited}, \ref{rem:AB}) is best held as a
+$2\times2$ table on two \emph{independent} axes, which must not be collapsed
+into one.
+\begin{itemize}
+  \item \textbf{Axis 1 --- distributivity $=$ commutativity.} One condition in two
+    dialects: a family of projections commutes \emph{iff} the lattice they generate
+    is distributive. ``Commutativity'' is the operator word, ``distributivity'' the
+    lattice word, for the \emph{same} dividing line --- not different sides.
+  \item \textbf{Axis 2 --- concreteness.} A non-Boolean lattice can be
+    \emph{point-rich in rays} (atoms $=$ $1$-dim subspaces) yet \emph{point-free in
+    valuations} (no two-valued homomorphisms, Kochen--Specker), or the reverse: the
+    two senses of ``point'' come apart (the (A)/(B) equivocation, Rmk~\ref{rem:AB}).
+\end{itemize}
+\begin{center}
+\begin{tabular}{@{}>{\raggedright\arraybackslash}p{0.17\linewidth}>{\raggedright\arraybackslash}p{0.33\linewidth}>{\raggedright\arraybackslash}p{0.42\linewidth}@{}}
+\toprule
+ & \textbf{distributive\newline(commuting)} & \textbf{non-distributive\newline(non-commuting)} \\
+\midrule
+\textbf{concrete}\newline(valuations span) & classical: Boolean $\sigma$-algebra,
+  Loomis--Sikorski free & the descent witness lives here: a concrete
+  $\sigma$-complete non-Boolean OML ($\prod_n\mathrm{MO}_2$ lies here, but
+  segregated) \\[4pt]
+\textbf{non-concrete}\newline(KS: few valuations) & atomless measure algebra
+  (valuation-poor) & $L(H)$: rays abundant, valuations KS-barred --- the operator /
+  e.s.a.\ world, the excluded pole \\
+\bottomrule
+\end{tabular}
+\end{center}
+\noindent There is not one ``lattice $\leftrightarrow$ space'' dictionary but two,
+one per row: \emph{Birkhoff--von Neumann} (bottom row) sends elements to closed
+subspaces and atoms to \textbf{rays}, with $a\vee b$ the closed span --- rich in
+ray-points, KS-barred from valuation-points, hence non-concrete; \emph{Stone /
+concrete-logic} (Gudder, top row) sends elements to sets of outcomes and atoms to
+points of $\Omega$ --- rich in valuation-points, hence concrete. The operator
+question and the descent question share Axis~1 but sit in opposite rows: spectral
+projections \emph{force} $L(H)$ (bottom-right), whereas the descent witness must be
+top-right. So the descent problem is the one cell no operator algebra can occupy ---
+why a witness must be a pasting / countable colimit of concrete blocks, not a
+Hilbert-space construction, and why $L(H)$+Gleason cannot settle it. In this language
+the open problem (route~(iii)) is exactly: \emph{is there a
+logic\,$\leftrightarrow$\,geometry dictionary for the top-right cell?} --- and a
+$\sigma$-Loomis--Sikorski for concrete OMLs is that missing dictionary. Axes~1 and~2
+are independent: non-distributivity does not entail non-concreteness, and a witness
+must be concrete and non-distributive simultaneously.
+
+% ==================================================================
+\section{Directions}
+\label{sec:first}
+% ==================================================================
+
+With the extension axis closed on $L(H)$ (Proposition~\ref{prop:lh}), the
+combinatorial route shown to deliver only segregated objects
+(\S\ref{sec:why-sigma}), and the question reduced to a $\sigma$-essential contextual
+state (\S\ref{sec:predicate}), the problem admits two mutually exclusive resolutions:
+construct such a state, or prove none exists. The second is already established in the
+Polish-representable case (Derr--Williamson, Remark~\ref{rem:dw}), so both turn on a
+single feature --- whether a witness can fail to admit a regular Borel
+point-realisation.
+\begin{description}[style=nextline, font=\normalfont\bfseries,
+    labelwidth=2.6cm, leftmargin=3.0cm]
+  \item[Exhibit a $\sigma$-essential witness]
+    Construct an infinite concrete OML $L$ carrying a $\sigma$-additive state $w$ that
+    is contextual yet witnessed by no finite sub-OML. The object can be pinned down.
+    Write, for a finite sub-OML $F$,
+    \[
+      A_F := \overline{\mathrm{conv}}\,(S_{\mathrm{df}}(F)),
+      \qquad
+      B_F := \overline{\mathrm{conv}}\,\{\,s|_F : s\in S_{\mathrm{df}}^\sigma\,\},
+    \]
+    the full local dispersion-free hull and the hull of restrictions of the
+    \emph{global} $\sigma$-states. The inclusion
+    \[
+      B_F\ \subseteq\ A_F
+    \]
+    always holds, since a restriction $s|_F$ of a global dispersion-free state is a
+    dispersion-free state on $F$. The two defining properties of $w$ now combine.
+    Because $w$ is contextual, $w\notin\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$;
+    this hull is compact, so by Hahn--Banach a finite-support functional separates $w$
+    from it, and the elements in its support generate a finite sub-OML $F$ with
+    \[
+      w|_F\ \notin\ B_F .
+    \]
+    Because $w$ is $\sigma$-essential, on that same $F$
+    \[
+      w|_F\ \in\ A_F .
+    \]
+    The two statements, with $B_F\subseteq A_F$, give $w|_F\in A_F\setminus B_F$, so
+    \[
+      B_F\ \subsetneq\ A_F .
+    \]
+    The upshot: contextuality is finitely \emph{detected} --- it shows at the single
+    finite $F$ --- though no finite sub-OML is itself contextual, and the whole target
+    reduces to this one \emph{restriction gap}, the failure of the global
+    $\sigma$-states to restrict onto the full local hull. The obstruction is therefore
+    carried by the $\sigma$-structure, not by any finite block.
+
+    One necessary condition follows. The witness must be \emph{off-centre} (irreducible,
+    with non-central infinite blocks): a central decomposition would route the
+    infinitary content into a Boolean centre, where $\sigma$-additivity concentrates the
+    contextual states onto points and removes them --- this is the $\prod_n\mathrm{MO}_2$
+    mechanism (\S\ref{sec:why-sigma}). The two obvious recipes both fail this test: a
+    compactness-failure limit (Remark~\ref{rem:ce}) collapses to non-$\sigma$-additivity,
+    and a pasting or countable colimit of Wright-type blocks collapses to segregation.
+  \item[Prove no such witness exists]
+    A spanning theorem: the restriction gap above is always empty (off a contextual
+    finite sub-OML, Wright), so $\sigma$-essential relational probability is
+    operationally invisible --- present finitely or not at all. This is already
+    established in the Polish-representable case (Derr--Williamson,
+    Remark~\ref{rem:dw}); a full result must extend it to the non-representable case,
+    where their Theorem~D.6 hypothesis is unavailable. The Boolean boundary
+    (subadditivity of a unital set of states, Remark~\ref{rem:inhabited}) is a natural
+    lever, but cannot reuse the $\prod_n\mathrm{MO}_2$ mechanism, vacuous off-centre.
+\end{description}
+
+\noindent This also settles a subsidiary question: whether a singular state might
+extend where no normal state does, which would give a first example of extension
+without concentration. Proposition~\ref{prop:lh} excludes it by a \emph{finite} family
+($n=4$), so the singular case --- which was expected to require infinitary methods ---
+is a self-contained finitary matter, not governed by the finitary-to-$\sigma$ passage
+that carries the open question.
+
+\appendix
+% ==================================================================
+\section{Glossary of definitions}
+\label{app:glossary}
+% ==================================================================
+
+A self-contained list of the notions used in the paper. Entries that restate a
+numbered definition in the body cross-reference it; the remaining entries are stated
+here. Throughout, $L$ is an orthomodular lattice with orthocomplementation
+$a\mapsto a^\perp$, bottom $\mathbf 0$, top $\mathbf 1$.
+
+\subsection*{Lattice notions}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[Orthocomplemented lattice; orthomodular lattice (OML).]
+  A bounded lattice with an order-reversing, involutive complement $a^\perp$
+  satisfying $a\vee a^\perp=\mathbf 1$, $a\wedge a^\perp=\mathbf 0$
+  (Definition~\ref{def:ocl}); it is \emph{orthomodular} if $a\leq b\Rightarrow
+  b=a\vee(b\wedge a^\perp)$ (Definition~\ref{def:oml}). A \emph{Boolean algebra} is a
+  distributive OML.
+\item[Orthogonal; meet-zero; incomparable.]
+  $a\perp b$ means $a\leq b^\perp$; \emph{meet-zero} means $a\wedge b=\mathbf 0$.
+  Orthogonal implies meet-zero; the converse fails off the Boolean case, and that gap
+  drives the subject (Definition~\ref{def:ortho}).
+\item[Compatible; block.]
+  $a,b$ are \emph{compatible} if they generate a Boolean subalgebra, equivalently
+  $a=(a\wedge b)\vee(a\wedge b^\perp)$. A \emph{block} is a maximal pairwise-compatible
+  subset of $L$; it is a maximal Boolean sub-OML, and every OML is the union of its
+  blocks. (In a concrete logic, compatibility of $A,B$ is $A=(A\cap B)\cup(A\cap
+  B^c)$.)
+\item[Completeness.]
+  $L$ is \emph{$\sigma$-complete} if every countable subset has a join; it is
+  \emph{$\sigma$-orthocomplete} if every countable \emph{pairwise-orthogonal} family
+  has a join (Definition~\ref{def:complete}).
+\item[Centre; irreducible.]
+  The \emph{centre} $Z(L)$ is the set of elements compatible with all of $L$; it is a
+  Boolean subalgebra. $L$ is \emph{irreducible} if $Z(L)=\{\mathbf 0,\mathbf 1\}$
+  (no nontrivial direct-product decomposition).
+\item[$\mathrm{MO}_n$; $L(H)$.]
+  $\mathrm{MO}_n$ is the modular ortholattice with $\mathbf 0,\mathbf 1$ and $n$
+  complementary atom-pairs ($\mathrm{MO}_2$: atoms $a,a^\perp,b,b^\perp$, all distinct
+  meets $\mathbf 0$); it is non-distributive for $n\geq 2$. $L(H)$ is the lattice of
+  closed subspaces of a Hilbert space $H$ (orthocomplement $=$ orthogonal complement,
+  join $=$ closed span), the prototype non-distributive OML.
+\end{description}
+
+\subsection*{Representations}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[OMP; concrete logic; order-determining states.]
+  An \emph{orthomodular poset} (OMP) weakens an OML to a partial join (only of
+  orthogonal elements). $L$ is a \emph{concrete logic} (set-representable) if it
+  embeds in some $\mathcal P(\Omega)$ with $a^\perp\mapsto\Omega\setminus a$ and
+  orthogonal joins as disjoint unions, equivalently if it carries an
+  \emph{order-determining} (separating) family of two-valued states
+  (Definition~\ref{def:omp}).
+\item[Faithful set representation; $\sigma$-tribe.]
+  An injection $h:L\to\mathcal P(\Omega)$ with $h(a\wedge b)=h(a)\cap h(b)$,
+  $h(a\vee b)=h(a)\cup h(b)$, $h(a^\perp)=\Omega\setminus h(a)$ (preserving
+  \emph{all} meets and joins as $\cap,\cup$); a \emph{$\sigma$-tribe} /
+  Loomis--Sikorski representation also preserves countable joins. By
+  Theorem~\ref{thm:floor} only Boolean $L$ admits one. (Contrast a concrete logic,
+  which preserves only \emph{orthogonal} joins as unions.)
+\item[Dual space $S_0(A)$; canonical points $P(A)$.]
+  $S_0(A)$ is the McDonald--Bimb\'o space of filters of $A$; $P(A)=\{{\uparrow}p:p\in
+  A\}$ is the set of principal filters, one per element (Definition~\ref{def:dual}).
+\end{description}
+
+\subsection*{States and measures}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[State; meet-additive; charge.]
+  A \emph{state} is $s:L\to[0,1]$ with $s(\mathbf 1)=1$ and $s(a\vee b)=s(a)+s(b)$
+  for $a\perp b$ (Definition~\ref{def:ladder}); a \emph{charge} is a finitely
+  additive set function on a Boolean algebra (Definition~\ref{def:charge}).
+\item[$\sigma$-additive state.]
+  A state $s$ with $s\bigl(\bigvee_n a_n\bigr)=\sum_n s(a_n)$ for every countable
+  pairwise-orthogonal $\{a_n\}$ (Definition~\ref{def:complete}).
+\item[Dispersion-free state.]
+  A two-valued state, i.e.\ a state taking only the values $0,1$ (equivalently a
+  $\{0,1\}$-homomorphism on each block); $S_{\mathrm{df}}$ denotes their set and
+  $S_{\mathrm{df}}^\sigma$ the $\sigma$-additive ones. These are the deterministic /
+  hidden-variable points.
+\item[Normal; singular state on $L(H)$.]
+  $s$ is \emph{normal} if $s(\cdot)=\tr(\rho\,\cdot)$ for a density operator $\rho$;
+  \emph{singular} if $s$ vanishes on every finite-rank projection
+  (Definition~\ref{def:normalsing}).
+\item[Subadditive state.]
+  A state $s$ with $s(a\vee b)\leq s(a)+s(b)$ for \emph{all} $a,b$ (not only
+  orthogonal pairs). A family of states is \emph{unital} if for each $a\neq\mathbf 0$
+  some member gives $s(a)=1$.
+\end{description}
+
+\subsection*{The descent vocabulary}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[Contextual state.]
+  A state $w$ that is \emph{not} in the closed convex hull
+  $\overline{\mathrm{conv}}(S_{\mathrm{df}})$ of the dispersion-free states ---
+  equivalently (Lemma~\ref{lem:relational}) a state with no hidden realisation, i.e.\
+  not a mixture of dispersion-free states. A non-contextual state is one that is such
+  a mixture.
+\item[$\sigma$-essentially contextual state.]
+  A $\sigma$-additive state $w$ on a $\sigma$-complete $L$ that is \emph{contextual}
+  --- $w\notin\overline{\mathrm{conv}}(S_{\mathrm{df}}^\sigma)$ --- yet whose
+  restriction to \emph{every finite sub-OML} of $L$ is non-contextual. (All three
+  clauses are required: $\sigma$-additive, globally contextual, finitely
+  non-contextual. The finite version without the third clause is already inhabited,
+  Wright's pentagon.)
+\item[Extension axis; descent axis.]
+  The \emph{extension} axis asks whether a state extends to a charge on the full
+  clopen algebra of $S_0(A)$ (a Horn--Tarski feasibility question); the
+  \emph{descent} axis asks whether such a charge concentrates on the physical points
+  $P(A)$ (governed by $\sigma$-additivity). See \S\ref{sec:axes}.
+\item[Segregated.]
+  Of an OML: one whose non-distributivity is confined to finite blocks, so that
+  $S_{\mathrm{df}}=S_{\mathrm{df}}^\sigma$ and no $\sigma$-essential leak is possible
+  (e.g.\ $\prod_n\mathrm{MO}_2$, \S\ref{sec:why-sigma}).
+\end{description}
+
+\subsection*{Prior-art objects (\S\ref{sec:problem}, Remark~\ref{rem:dw})}
+
+\begin{description}[style=nextline, leftmargin=1.5em, itemsep=3pt]
+\item[Pre-Dynkin-system; Dynkin-system.]
+  In Derr--Williamson's terminology, a \emph{pre-Dynkin-system} on $\Omega$ is a
+  concrete OMP (a family of subsets containing $\Omega$, closed under complement and
+  under disjoint unions); a \emph{Dynkin-system} additionally is closed under
+  countable disjoint unions --- a concrete $\sigma$-complete OML.
+\item[$\sigma$-extendable.]
+  In Derr--Williamson, a countably additive probability $\mu_\sigma$ on a
+  Dynkin-system $D_\sigma\subseteq\mathrm{Borel}(\Omega)$ ($\Omega$ Polish) is
+  \emph{$\sigma$-extendable} if it extends to a countably additive probability on
+  $\mathrm{Borel}(\Omega)$.
+\item[Polish space; inner regular.]
+  A \emph{Polish} space is a separable completely metrizable space. A measure $\mu$
+  is \emph{inner regular} if $\mu(F)=\sup\{\mu(K):K\subseteq F,\ K\text{ compact}\}$.
+\end{description}
+
+\bibliographystyle{plain}
+\bibliography{references_oml}
+
+\end{document}

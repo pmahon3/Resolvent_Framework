@@ -1,0 +1,81 @@
+{
+  "activation_cylinders_are_events": [
+    false,
+    false
+  ],
+  "all_three_cell_embeddings_order_faithful": true,
+  "cell_events_by_cell": [
+    56,
+    56,
+    56
+  ],
+  "centre_events": 2,
+  "centre_is_trivial": true,
+  "closed_events": 18618,
+  "closure_cap": 100000,
+  "closure_completed": true,
+  "command": "python3 notes/open_questions/verification/full_grid_terminal_split_three_cell_corner_quotient.py --verify",
+  "compatible_triples_are_completable_by_cell11": true,
+  "defect_join_remains_witness_join": true,
+  "extra_normal_forms": 186,
+  "first_exact_cut_failure": null,
+  "formal_terminal_events": 18432,
+  "hull_repaired": false,
+  "lattice": true,
+  "local_cell_states": 224,
+  "minimum_number_of_cell11_completions_per_triple": 1,
+  "new_event_pairs_tested": 3462948,
+  "nonzero_activation_supported_events": [
+    0,
+    0
+  ],
+  "normal_form_representation_exact": true,
+  "old_profile_core_q_meet_points": 103180,
+  "old_profile_core_q_meet_whole_profile_words": [
+    "0100",
+    "0101",
+    "0110"
+  ],
+  "old_terminal_sublattice_preserved": true,
+  "payload_sha256": "0957dde36d6fe9e35e0d790d24a42ecdf3df05e2eaca6c1bd306865a109ea3c9",
+  "point_evaluations_order_separate_by_concreteness": true,
+  "producer_sha256": "a41aca2b327def448d904bace10cf15c1d4fd0cba100c7ccf4de8f73324ddc97",
+  "projected_states_by_cell": [
+    224,
+    224,
+    224
+  ],
+  "q0_complement_meet_q1_exists": true,
+  "q0_complement_meet_q1_is_proper": true,
+  "q0_complement_meet_q1_points": 103180,
+  "q0_complement_q1_literal_intersection_points": 128524,
+  "q_boundary_reconstructed": false,
+  "q_meet_increment_is_row0_activation_supported": false,
+  "q_meet_increment_partial_profile_words": [],
+  "q_meet_increment_points": 0,
+  "q_meet_increment_whole_profile_words": [],
+  "q_meet_partial_profile_words": [],
+  "q_meet_residue_is_event": false,
+  "q_meet_residue_partial_profile_words": [],
+  "q_meet_residue_points": 25344,
+  "q_meet_residue_whole_profile_words": [
+    "0111"
+  ],
+  "q_meet_whole_profile_words": [
+    "0100",
+    "0101",
+    "0110"
+  ],
+  "quotient_points": 553648,
+  "r_boundary_reconstructed": false,
+  "residue_extracted": false,
+  "schema": "full-grid-terminal-split-three-cell-corner-quotient-v1",
+  "schema_version": "1.0",
+  "scope": "Exact completable triple quotient for node6 and cells 00,01,10 with one cell00-definable split. No cell11, alternative split, maximal-block, or arbitrary-base claim.",
+  "selected_split_off_both_activations": true,
+  "selected_split_points": 9504,
+  "selected_split_sha256": "adc2008b1ea63c66c3facb0e03cc879bf68f2ccc71cdbc5930aaa18a8764d29d",
+  "selected_split_source_state_event_sha256": [
+    "ae31a846410eff44a1133601bbc9bdab774ffea3e4aa10a4a5e8009752b7799c"
+  ]
+}

@@ -1,0 +1,175 @@
+{
+  "cap_unchanged": 256,
+  "closure_extended": false,
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/adjacent_ar_reb_001_doubleton_old_context.py --verify",
+  "critical_context_rows": [
+    [
+      {
+        "disjoint": true,
+        "old_index": 100,
+        "old_subset_x": false,
+        "union_location": "absent",
+        "union_old_cut": {
+          "lower": 5750,
+          "upper": null
+        },
+        "union_root_sha256": "c48d4afd3c6892402bcff8ae16f574ae7d463c0783645ef60edd2f3a891765c4",
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 109,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 1645,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 3181,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 7679,
+        "old_subset_x": false,
+        "x_subset_old": true
+      },
+      {
+        "disjoint": true,
+        "old_index": 10752,
+        "old_subset_x": false,
+        "union_location": "new",
+        "union_old_cut": {
+          "lower": null,
+          "upper": 17947
+        },
+        "union_root_sha256": "2062fc24abff5c41134e0f9eb34d71e2373ff0f2f5e338af1cf88c70c395a916",
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 15250,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 16786,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 18322,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 18331,
+        "old_subset_x": false,
+        "x_subset_old": true
+      }
+    ],
+    [
+      {
+        "disjoint": true,
+        "old_index": 100,
+        "old_subset_x": false,
+        "union_location": "absent",
+        "union_old_cut": {
+          "lower": 5750,
+          "upper": null
+        },
+        "union_root_sha256": "76330d872edbc35fe4361e3e485d5f21c8f7a0e80715e935f3bced074f1dcf41",
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 109,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 1645,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 3181,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 7679,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 10752,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 15250,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 16786,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 18322,
+        "old_subset_x": false,
+        "x_subset_old": false
+      },
+      {
+        "disjoint": false,
+        "old_index": 18331,
+        "old_subset_x": false,
+        "x_subset_old": true
+      }
+    ]
+  ],
+  "critical_controls_split_doubleton": true,
+  "critical_old_indices": [
+    100,
+    109,
+    1645,
+    3181,
+    7679,
+    10752,
+    15250,
+    16786,
+    18322,
+    18331
+  ],
+  "doubleton_root_sha256": [
+    "4d4062cd6e2bd41a462cac35c4a8dfc776a176d1ce847133f6195228a7cc0657",
+    "2572f79ebb4b45e5fdefed548a02b4af0b085c739206443fe305f1dd5bdcd09a"
+  ],
+  "evidence_class": "Executable verified \u2014 sampled finite scope",
+  "first_full_scan_difference": null,
+  "full_old_scan": null,
+  "payload_sha256": "162c6fb330cfd0a97d6c9b6b11105ce16a46d481036d1c804c12205e613e23e0",
+  "producer_sha256": "d3eeef9be466ed2016f42b4cccfec1641852f3e8f66624d9118fe5df78bdac07",
+  "schema": "adjacent-ar-reb-001-doubleton-old-context-v1",
+  "schema_version": "1.0",
+  "scope": "Exact old-context test for one inadequate frozen-prefix doubleton. Critical controls first; all-old scan only if needed. No new closure root, raised cap, lattice, OML, state, sigma, ODBC, or Phi claim.",
+  "source_prefix_payload_sha256": "7f98fcc1e8bd6e91cb8f8391159d32c1499035f7300355cb120cf225623fb61a"
+}

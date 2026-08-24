@@ -1,0 +1,167 @@
+{
+  "centre_masks": [
+    "0x0",
+    "0xfffffffff"
+  ],
+  "checks": {
+    "all_states_are_point_states": true,
+    "closure_stabilized": true,
+    "complement_closed": true,
+    "disjoint_union_closed": true,
+    "every_named_block_has_unique_container": true,
+    "expected_coordinate_relation": true,
+    "expected_joint_charged_relation": true,
+    "expected_maximal_block_count": true,
+    "orthomodular": true,
+    "trivial_centre": true,
+    "unique_binary_extrema": true
+  },
+  "closure_round_event_counts": [
+    648,
+    1128,
+    1128
+  ],
+  "distinct_intersection_cuts": 18712,
+  "event_sha256": "be4a7a6390ede8736b5efdc771c23782be1808711636dd46ea9897e5e512f133",
+  "events": 1128,
+  "maximal_compatibility_blocks": [
+    {
+      "contains_named_blocks": [
+        "A00"
+      ],
+      "id": 0,
+      "sha256": "aa628eac586b3b808268682e9e2eed7c9efca369420b2f5b42d1b92a97b972a9",
+      "size": 512
+    },
+    {
+      "contains_named_blocks": [
+        "A01"
+      ],
+      "id": 1,
+      "sha256": "7fb8ef3bb3e95b5219f3e5610163647bc3515962b0b73ed167373bd70be47911",
+      "size": 256
+    },
+    {
+      "contains_named_blocks": [
+        "C01"
+      ],
+      "id": 2,
+      "sha256": "aef5c204c77e1181d350582508292f7a20f609f061261b21330ff791634726fe",
+      "size": 256
+    },
+    {
+      "contains_named_blocks": [],
+      "id": 3,
+      "sha256": "200d5e34ba044920c60f1afd6573d19cbf79258e47d95637991f279608b920f9",
+      "size": 256
+    },
+    {
+      "contains_named_blocks": [],
+      "id": 4,
+      "sha256": "daa09ebf81bbfe77d50c9cbcb73a8cc30e7020b06db5e13ed8f0b83c580590af",
+      "size": 256
+    },
+    {
+      "contains_named_blocks": [],
+      "id": 5,
+      "sha256": "8cc83b29ce6be1b7d34219c67286be1cb20d530f3a8dc8663d4ab4d905845c0c",
+      "size": 128
+    },
+    {
+      "contains_named_blocks": [],
+      "id": 6,
+      "sha256": "9046164dbe7a79c7b244b633a6b47622c3502828464764248c5ba8e15b561f84",
+      "size": 128
+    },
+    {
+      "contains_named_blocks": [
+        "A10"
+      ],
+      "id": 7,
+      "sha256": "38e1ca73f16e0b620a139428ea30f64b972d30cd9aa8e14fbb029df46f708876",
+      "size": 128
+    },
+    {
+      "contains_named_blocks": [
+        "A11"
+      ],
+      "id": 8,
+      "sha256": "6c1f55f06b3a55f4aa36916180841c8d9d72913ad09e39014139198107efa44b",
+      "size": 64
+    }
+  ],
+  "named_block_containers": {
+    "A00": [
+      0
+    ],
+    "A01": [
+      1
+    ],
+    "A10": [
+      7
+    ],
+    "A11": [
+      8
+    ],
+    "C01": [
+      2
+    ]
+  },
+  "ordered_comparable_pairs": 40311,
+  "ordered_compatible_pairs": 488128,
+  "ordered_pairs": 1272384,
+  "points": 36,
+  "raw_events": 648,
+  "schema": "five-block-nonatomic-pair-orthogonal-completion-v1",
+  "selector_masks": [
+    "0x00ff",
+    "0x0f0f"
+  ],
+  "state_audit": {
+    "compatible_block_ultrafilter_states": 24,
+    "distinct_point_states": 24,
+    "evidence": "exhaustive compatible-maximal-block ultrafilter enumeration plus finite consequence",
+    "finite_fa_equals_sigma": true,
+    "joint_charged_q0_r0_relation": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "joint_selector_region_mask": "0xffff",
+    "phi": true,
+    "point_states_order_separate": true,
+    "q0_mask": "0x553333",
+    "q0_r0_relation": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        0
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "r0_mask": "0x55005555"
+  }
+}

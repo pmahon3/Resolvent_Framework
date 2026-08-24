@@ -1,0 +1,231 @@
+{
+  "claim": "For every core pair and exceptional-column set in each stated balanced finite quotient, if the cores are disjoint off the exceptional set and every type survives, their union off that set is the restriction of a core.",
+  "runs": [
+    {
+      "core_count": 88,
+      "core_sha256": "30b7853e8b952c08c4c1a2c63dbeba0998b70ef9140f6da3a3cd7c570d10f46b",
+      "first_type_erasing_failure": {
+        "erased_types": [
+          1
+        ],
+        "exceptional_mask": 1,
+        "left": [
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          []
+        ],
+        "right": [
+          [
+            "g",
+            "Vj",
+            "R"
+          ],
+          [],
+          [
+            "h",
+            "Vi",
+            "R"
+          ]
+        ],
+        "target_outside": [
+          [],
+          [
+            "g"
+          ],
+          [
+            "h",
+            "Vi",
+            "R"
+          ]
+        ]
+      },
+      "n_columns": 3,
+      "type_erasing_admissible_pairs_checked": 19126,
+      "type_surviving_admissible_pairs_checked": 735,
+      "type_surviving_failures": 0,
+      "type_word": "123"
+    },
+    {
+      "core_count": 180,
+      "core_sha256": "32f29dd4f8df45534c9e2c83fdf37ac6bce89e855b54ede5489845db6fbc4899",
+      "first_type_erasing_failure": {
+        "erased_types": [
+          1
+        ],
+        "exceptional_mask": 9,
+        "left": [
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          []
+        ],
+        "right": [
+          [
+            "g",
+            "Vj",
+            "R"
+          ],
+          [],
+          [
+            "h",
+            "Vi",
+            "R"
+          ],
+          [
+            "g",
+            "Vj",
+            "R"
+          ],
+          [],
+          [
+            "h",
+            "Vi",
+            "R"
+          ]
+        ],
+        "target_outside": [
+          [],
+          [
+            "g"
+          ],
+          [
+            "h",
+            "Vi",
+            "R"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "h",
+            "Vi",
+            "R"
+          ]
+        ]
+      },
+      "n_columns": 6,
+      "type_erasing_admissible_pairs_checked": 341118,
+      "type_surviving_admissible_pairs_checked": 103565,
+      "type_surviving_failures": 0,
+      "type_word": "123123"
+    },
+    {
+      "core_count": 700,
+      "core_sha256": "557c1ae647d2a9a411aba0f0ce1c3ddb9672fefd35fa6f90aa54e15d663bc60e",
+      "first_type_erasing_failure": {
+        "erased_types": [
+          1
+        ],
+        "exceptional_mask": 73,
+        "left": [
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "g"
+          ],
+          []
+        ],
+        "right": [
+          [
+            "g",
+            "Vj",
+            "R"
+          ],
+          [],
+          [
+            "h",
+            "Vi",
+            "R"
+          ],
+          [
+            "g",
+            "Vj",
+            "R"
+          ],
+          [],
+          [
+            "h",
+            "Vi",
+            "R"
+          ],
+          [
+            "g",
+            "Vj",
+            "R"
+          ],
+          [],
+          [
+            "h",
+            "Vi",
+            "R"
+          ]
+        ],
+        "target_outside": [
+          [],
+          [
+            "g"
+          ],
+          [
+            "h",
+            "Vi",
+            "R"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "h",
+            "Vi",
+            "R"
+          ],
+          [],
+          [
+            "g"
+          ],
+          [
+            "h",
+            "Vi",
+            "R"
+          ]
+        ]
+      },
+      "n_columns": 9,
+      "type_erasing_admissible_pairs_checked": 25981318,
+      "type_surviving_admissible_pairs_checked": 26770371,
+      "type_surviving_failures": 0,
+      "type_word": "123123123"
+    }
+  ],
+  "scope": "Exhaustive finite quotients only; does not prove arbitrary-base or countable-family splicing."
+}

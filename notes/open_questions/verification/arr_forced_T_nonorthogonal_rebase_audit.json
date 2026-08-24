@@ -1,0 +1,288 @@
+{
+  "U_exact_mdd_sha256": "809b2d45da2e83aa06242789a4acf615f570373f5da80e8384b5d2c0f737bad2",
+  "Uc_exact_mdd_sha256": "0b0aab5ff68c0da77cd27acdfe4ad52eb140c9c1296da3e773f8ad9906d36305",
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope for one rebase seed layer",
+  "first_unresolved_seed_cut": {
+    "cover_discriminator": {
+      "maximal_lower_count": 2,
+      "maximal_lowers": [
+        {
+          "kind": "new",
+          "label": "root(487)"
+        },
+        {
+          "kind": "special",
+          "label": "S"
+        }
+      ],
+      "orthogonal_kappa": 2,
+      "orthogonal_minimum_exact_covers": [
+        [
+          {
+            "kind": "new",
+            "label": "root(487)"
+          },
+          {
+            "kind": "special",
+            "label": "S"
+          }
+        ]
+      ],
+      "orthogonal_minimum_residual_exact_mdd_sha256s": [
+        "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d"
+      ],
+      "orthogonal_minimum_residual_physical_cardinality": 0,
+      "orthogonal_subset_count": 4,
+      "orthogonal_subset_search": "exhaustive",
+      "pairwise_overlap_signature": [
+        {
+          "empty": true,
+          "exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "left": "root(487)",
+          "physical_cardinality": 0,
+          "right": "S"
+        }
+      ],
+      "unrestricted_residual_exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+      "unrestricted_residual_physical_cardinality": 0,
+      "unrestricted_union_equals_target": true
+    },
+    "extrema": [
+      {
+        "kind": "new",
+        "label": "root(487)"
+      },
+      {
+        "kind": "special",
+        "label": "S"
+      }
+    ],
+    "left": "new_consequence(0)",
+    "operation": "meet",
+    "orientation": "direct",
+    "right": "new_consequence(2)",
+    "target_exact_mdd_sha256": "803fd9af09b4285b21d2614b1556ed15e9c853fa220fd252874c4eac4692d187",
+    "target_physical_cardinality": 51941861211
+  },
+  "genuinely_new_exact_root_count": 4,
+  "genuinely_new_roots": [
+    {
+      "exact_mdd_sha256": "0ca4aa198580387deb73ed1aed70300f92c003935ea247ac4d811aba77c48ba6",
+      "label": "new_consequence(0)",
+      "physical_cardinality": 192505272496,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "dual_disjoint_union",
+          "source_lower": "root(487)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "95232f9c77afd7ddd7a641f9017ea9ae6b87fe5219bc35d7f35b28bd8c90ddbc",
+      "label": "new_consequence(1)",
+      "physical_cardinality": 19392267520,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "nested_difference",
+          "source_lower": "root(487)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "a95fec543af6e72a3ef762739f5f1d181c1e4219ca0ca3c163aa2db4a496a3fc",
+      "label": "new_consequence(2)",
+      "physical_cardinality": 71334128731,
+      "provenance": [
+        {
+          "base": "U",
+          "operation": "dual_disjoint_union",
+          "source_lower": "S"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "f1778d59f3a12373ecc0d3f8c9eb0149a592633b01f26b13c2692e433792275f",
+      "label": "new_consequence(3)",
+      "physical_cardinality": 140563411285,
+      "provenance": [
+        {
+          "base": "U",
+          "operation": "nested_difference",
+          "source_lower": "S"
+        }
+      ]
+    }
+  ],
+  "immediate_occurrence_count": 10,
+  "immediate_occurrences": [
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "861072e8c70ebfc63d07ac13c7ba675f82990bf474a2e85ee17eb74dcc810451",
+      "exact_old_representatives": [
+        {
+          "index": 2,
+          "side": "right"
+        }
+      ],
+      "operation": "nested_difference",
+      "physical_cardinality": 11773740160,
+      "source_lower": "old_left(17082)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "76af89f632bd7c94895339b00edfc34ee868565074a86ce46ae5c25294aa7bc2",
+      "exact_old_representatives": [
+        {
+          "index": 18429,
+          "side": "right"
+        }
+      ],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 200123799856,
+      "source_lower": "old_left(17082)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "45c480cdbd14b30a0e126d69f0b26a63ee4ac982daf31ed4d9a62b41265302aa",
+      "exact_old_representatives": [
+        {
+          "index": 258,
+          "side": "left"
+        }
+      ],
+      "operation": "nested_difference",
+      "physical_cardinality": 22840901120,
+      "source_lower": "old_right(18306)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "e7b672af4e5634bd5dd13ed140ab93163cd44515140ac05e9c5a43c4f24c2892",
+      "exact_old_representatives": [
+        {
+          "index": 18173,
+          "side": "left"
+        }
+      ],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 189056638896,
+      "source_lower": "old_right(18306)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "U",
+      "exact_mdd_sha256": "f1778d59f3a12373ecc0d3f8c9eb0149a592633b01f26b13c2692e433792275f",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 140563411285,
+      "source_lower": "S",
+      "source_lower_kind": "special"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "U",
+      "exact_mdd_sha256": "a95fec543af6e72a3ef762739f5f1d181c1e4219ca0ca3c163aa2db4a496a3fc",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 71334128731,
+      "source_lower": "S",
+      "source_lower_kind": "special"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "95232f9c77afd7ddd7a641f9017ea9ae6b87fe5219bc35d7f35b28bd8c90ddbc",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 19392267520,
+      "source_lower": "root(487)",
+      "source_lower_kind": "new"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "0ca4aa198580387deb73ed1aed70300f92c003935ea247ac4d811aba77c48ba6",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 192505272496,
+      "source_lower": "root(487)",
+      "source_lower_kind": "new"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "Uc",
+      "exact_mdd_sha256": "e18307eb81a4a30052936f63b96ceef04477741a1a7afab8b62f4e78667903d3",
+      "exact_old_representatives": [
+        {
+          "index": 1024,
+          "side": "left"
+        }
+      ],
+      "operation": "nested_difference",
+      "physical_cardinality": 16210089024,
+      "source_lower": "old_right(25)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "Uc",
+      "exact_mdd_sha256": "51277968ef38a3ee7fb223f0f32db89c1f72210d1b45eebe772518554770699c",
+      "exact_old_representatives": [
+        {
+          "index": 17407,
+          "side": "left"
+        }
+      ],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 195687450992,
+      "source_lower": "old_right(25)",
+      "source_lower_kind": "old"
+    }
+  ],
+  "payload_sha256": "63cfb83d72a5e97f1367ee0fa00087bce694c270e4d05392cc3ad9a5299fe08e",
+  "peak_rss_bytes_darwin": 2002092032,
+  "pre_rebase_U_maximal_lowers": [
+    {
+      "kind": "old",
+      "label": "old_left(17082)"
+    },
+    {
+      "kind": "old",
+      "label": "old_right(18306)"
+    },
+    {
+      "kind": "special",
+      "label": "S"
+    }
+  ],
+  "pre_rebase_Uc_maximal_lowers": [
+    {
+      "kind": "new",
+      "label": "root(487)"
+    },
+    {
+      "kind": "old",
+      "label": "old_right(25)"
+    }
+  ],
+  "producer_sha256": "41d5e6f53f5425be491a1efdd0d3ff15033ff3d2403a29d9c9ca4a1311a5b767",
+  "reconstruction_seconds": 290.66545804194175,
+  "schema": "arr-forced-T-nonorthogonal-rebase-audit-v1",
+  "schema_version": "1.0",
+  "scope": "Only U,Uc immediate nested/dual consequences and cuts among U,Uc plus genuinely new roots, stopping at the first unresolved cut. No unrelated pair scan or closure.",
+  "seed_object_count": 6,
+  "source_meet_payload_sha256": "304ed13bdb227944e6b18d61fb09588ed13d96996fc9d75fc62d7cb9d4df5957",
+  "source_unrestricted_cover_payload_sha256": "168a26a99c0b609488e0c8ae7360db8400912d6ae5bb5cd95474ea9f8896d90d",
+  "tested_operation_count_before_stop": 21,
+  "tested_pair_count_before_stop": 11,
+  "wall_seconds": 907.6253419999266
+}

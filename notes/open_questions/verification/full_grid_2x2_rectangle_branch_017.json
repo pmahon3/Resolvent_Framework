@@ -1,0 +1,69 @@
+{
+ "emitted": "2026-07-14",
+ "generator": "full_grid_2x2_rectangle_repair_search.py",
+ "payload": {
+  "certificate": {
+   "event_label": "cyl[0000,0100,1000,1100]",
+   "event_sha256": "1da40e1a5a0cd55f331a4018383c8cd68c8ac708b6c4af7019d75dba15b9ba7c",
+   "flags": [
+    "same_side_r0r1"
+   ],
+   "method": "word_closure_L3",
+   "word": "1111",
+   "words_materialized_at_detection": 487
+  },
+  "depth": 3,
+  "outcome": "monotone_certificate",
+  "path": [
+   {
+    "closure_added": 116,
+    "repaired_pair": [
+     "e00@00",
+     "e00@11"
+    ],
+    "trace_profiles": [
+     "0000",
+     "0001",
+     "0010",
+     "0100",
+     "0101",
+     "1000",
+     "1010",
+     "1100"
+    ],
+    "trace_word": "1537"
+   },
+   {
+    "closure_added": 304,
+    "repaired_pair": [
+     "e00@00",
+     "e00@01"
+    ],
+    "trace_profiles": [
+     "0000",
+     "0001",
+     "0010",
+     "0100",
+     "0101",
+     "0110"
+    ],
+    "trace_word": "0077"
+   },
+   {
+    "repaired_pair": [
+     "cyl[0000,0100]",
+     "cyl[0100,1100]"
+    ],
+    "trace_profiles": [
+     "0000",
+     "0100",
+     "1000",
+     "1100"
+    ],
+    "trace_word": "1111"
+   }
+  ]
+ },
+ "payload_sha256": "6920dc219c4178cb18c82ddd816419ae17f79b7828fd1fed0619ac57ae558138",
+ "schema": "full-grid-2x2-rectangle-repair-v1"
+}

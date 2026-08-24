@@ -1,0 +1,42 @@
+{
+  "all_declared_cylindrical_pairs_have_represented_saturated_opposite_trace": true,
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/adjacent_one_step_cylindrical_reflection.py --verify",
+  "event_pair_weighted_counts": {
+    "left": {
+      "declared": 24807,
+      "not_represented_saturated": 0,
+      "represented_saturated": 24807
+    },
+    "right": {
+      "declared": 24807,
+      "not_represented_saturated": 0,
+      "represented_saturated": 24807
+    }
+  },
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope",
+  "exhaustive_scope": "All declared disjoint exact shadow-type pairs in both orientations; model-specific represented-overlap trace check.",
+  "first_counterexample": null,
+  "interpretation": "The proposed one-step implication holds on every exact shadow type.",
+  "left_saturated_trace_count": 56,
+  "neg023_cut_locality": "not touched: Neg-023 is a complemented actual-relation occurrence, not a declared first-round disjoint cylinder pair in this census.",
+  "payload_sha256": "cbf14ddef5480b3604309c23b16a046d8be01b18e5e8d4ac9b8ac5f5eb70dfcc",
+  "producer_sha256": "8cf10f5c50e9ed686caae119c01956990a005a98f4ce9d3f6cfd863139e6fee3",
+  "right_saturated_trace_count": 56,
+  "schema": "adjacent-one-step-cylindrical-reflection-v1",
+  "schema_version": "1.0",
+  "scope": "Exact census of all disjoint (E,U) shadow-type pairs for the certified adjacent full-cycle factors. Tests cylinder shape and membership of globally saturated opposite traces in the common overlap trace set; does not test exact partial section roots, generated closure, extrema persistence, latticehood, OML, sigma, ODBC, or Phi.",
+  "shadow_type_counts": {
+    "left": {
+      "declared": 785,
+      "not_represented_saturated": 0,
+      "represented_saturated": 785
+    },
+    "right": {
+      "declared": 809,
+      "not_represented_saturated": 0,
+      "represented_saturated": 809
+    }
+  },
+  "shared_saturated_trace_count": 56,
+  "source_tagged_shadow_payload_sha256": "b893c79f422daa549c57970f70212bfdf2593214a6e4267a33d045c809ae29f2"
+}

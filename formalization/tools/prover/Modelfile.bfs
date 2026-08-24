@@ -1,0 +1,12 @@
+FROM zeyu-zheng/BFS-Prover-V2-7B
+
+# BFS-Prover-V2 is a step-level tactic generator, not a chat model.
+# It expects a bare Lean tactic state terminated by ":::" and emits one tactic.
+# An empty template keeps Ollama from wrapping the prompt in chat markup.
+TEMPLATE """{{ .Prompt }}"""
+
+PARAMETER temperature 0.7
+PARAMETER top_p 0.95
+PARAMETER num_ctx 4096
+PARAMETER stop ":::"
+PARAMETER stop "\n\n"

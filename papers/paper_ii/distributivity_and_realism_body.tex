@@ -9,9 +9,9 @@ observations.  For a directed system of Boolean
 algebras carrying compatible charges, the Stone construction produces
 an unconditional measure on the dual space, and every observable
 admits a simultaneous definite value via ultrafilters.  The passage to
-a probability measure on an underlying state space requires only
-$\sigma$-additivity, and the choice of state space is unconstrained by
-the algebra~\cite{mahon2026}.
+a probability measure on an underlying state space turns on
+$\sigma$-additivity of the charges, together with a Loomis--Sikorski
+realization condition on the choice of state space.
 
 For orthomodular lattices --- the algebraic framework for incompatible
 observations --- the situation is structurally different.  The
@@ -27,12 +27,14 @@ value-definite realism fails outright.
 
 Distributivity guarantees value-definiteness; for the physically
 central case $L(H)$, $\dim H \geq 3$, non-distributivity blocks it.
-The state space admits a natural filtration
+The state space admits the typed filtration
 $\mathcal{S} \supseteq \mathcal{S}_\sigma \supseteq
-\mathcal{S}_{\mathrm{df}}$, whose three transitions --- pasting,
-regularity, sharpness --- are of different mathematical character.
-Distributivity collapses the filtration; non-distributivity can
-(but need not) open it.
+\mathcal{S}_{\mathrm{df}}^\sigma$, whose three transitions --- pasting,
+regularity, sharpness --- are of different mathematical character.  Here
+$\mathcal{S}_{\mathrm{df}}^\sigma=\mathcal{S}_{\mathrm{df}}\cap
+\mathcal{S}_\sigma$; standalone value-definite realism asks only that
+$\mathcal{S}_{\mathrm{df}}$ be nonempty.  Distributivity supplies standalone
+sharpness, but does not by itself make an arbitrary state $\sigma$-additive.
 \end{abstract}
 
 \begin{quote}\small
@@ -92,12 +94,26 @@ dual-space measure unconditionally).  In the OML case it is not, and PR
 accordingly refines into two grades --- $\text{PR}_{\text{lat}}$, a
 measure on the lattice, and $\text{PR}_{\text{dual}}$, a measure on the
 dual space concentrating on the physical points --- which coincide for
-Boolean algebras and separate for $L(H)$ (\S\ref{thm:commensurability}).
+Boolean algebras and separate for $L(H)$ (Theorem~\ref{thm:commensurability}).
 Where the distinction matters we write the grade explicitly; an
 unqualified ``PR'' refers to the Boolean case, where the two agree.
 
-\noindent These are nested: VDR implies PR implies EA.  Which
-implications reverse depends on the observation algebra:
+\noindent At the $\sigma$-additive grade these are nested:
+$\mathrm{VDR}_\sigma$ implies PR implies EA.  Standalone VDR is the weaker
+availability predicate $\mathcal{S}_{\mathrm{df}}(A)\ne\varnothing$; on an
+infinite carrier dispersion-freeness alone is not silently taken to imply
+$\sigma$-additivity.  We write $\mathrm{VDR}_\sigma$ for
+$\mathcal{S}_{\mathrm{df}}^\sigma(A)\ne\varnothing$. Which implications
+reverse depends on the observation algebra:
+
+\begin{remark}[Paper-local notation]
+The symbols EA and PR in this paper concern a dual-space measure and its
+descent to an underlying realisation space.  In the companion reconstruction
+paper, EA means overlap-compatible local probability tables and
+$\mathrm{PR}(\mathcal R)$ means realisability by one process in a declared
+class $\mathcal R$.  No equivalence or translation between those pairs of
+definitions is asserted.
+\end{remark}
 
 \smallskip
 \noindent\emph{Compatible observations.}
@@ -107,8 +123,8 @@ distributive lattice.  Every Boolean algebra admits 2-valued
 homomorphisms (ultrafilters exist by Zorn's lemma).  In this
 setting, all three positions are available and mutually
 commensurable.  The passage from EA to PR requires
-$\sigma$-additivity of the charges~\cite{mahon2026}; the further
-passage to VDR is free.
+$\sigma$-additivity of the charges (and a realization condition on
+$\Omega$, developed below); the further passage to VDR is free.
 
 \smallskip
 \noindent\emph{Incompatible observations.}
@@ -134,21 +150,58 @@ shows that for the prototypical case $L(H)$ with $\dim H \geq 3$,
 no 2-valued homomorphism exists: VDR is blocked.  Probabilistic
 realism on the \emph{lattice} remains available via Gleason's
 theorem~\cite{Gleason1957}, but its \emph{dual-space} form fails for
-normal states (no extension to a charge on $S_0(L(H))$); empirical
-adequacy is unconditional in the $\perp$-stable set-function sense.
+normal states (no extension to a charge on the McDonald--Bimb\'{o} dual
+space $S_0(L(H))$, Definition~\ref{def:oml-dual}).  Empirical adequacy
+itself is hedged in the OML case: it is the orthogonally additive set
+function on the $\perp$-stable clopens, which always exists, rather
+than a full measure on the dual space --- promotion to such a measure
+is the extension step that fails for $L(H)$.
 
 \smallskip
 Distributivity guarantees value-definiteness; for $L(H)$ with
-$\dim H \geq 3$, its absence blocks it.  The individual ingredients ---
-Stone duality, the Kochen--Specker theorem, Gleason's theorem, the
-Bub--Clifton uniqueness result, and the recent McDonald--Bimb\'{o}
-duality for orthomodular lattices~\cite{McDonaldBimbo2023} --- are
-known.  What has not been stated is the synthesis: that
-distributivity of the observation algebra is the condition
-controlling which of the three positions are available, and that the
-state space admits a filtration whose transitions are of different
-mathematical character.  We begin with the Boolean
-case~\cite{mahon2026}.
+$\dim H \geq 3$, its absence blocks it.  Every ingredient is known.  The
+mathematical ones are Stone duality, the Kochen--Specker theorem,
+Gleason's theorem, the Bub--Clifton uniqueness result, and the recent
+McDonald--Bimb\'{o} duality for orthomodular
+lattices~\cite{McDonaldBimbo2023}.  The philosophical architecture is
+older still: the distinction between a probabilistic state and a
+value-definite one is van Fraassen's own dynamical-state/value-state
+distinction~\cite{vanFraassen1991}, elaborated throughout the
+modal-interpretation literature~\cite{Bub1997, DieksVermaas1995, Bueno2014}
+--- our EA, PR, and VDR \emph{formalise, rather than originate}, that
+hierarchy.  That value-definiteness is separable from realism and rests
+on the Boolean structure of jointly performable observations is
+Stairs~\cite{Stairs1983}; that the realism question turns on
+distributivity is the Putnam~\cite{Putnam1968}--Dummett dispute; that
+the Boolean/non-Boolean event structure is primitive is
+Bub--Pitowsky~\cite{BubPitowsky2010}.  In the von Neumann algebra
+setting, the separation between a state qua measure on the lattice and
+the Kochen--Specker absence of global points is the content of the topos
+program --- Isham--Butterfield's reading of Kochen--Specker as the
+non-existence of a global section~\cite{IshamButterfield1998} and
+D\"{o}ring's measures on the spectral presheaf~\cite{Doring2008} --- and
+the question whether such dual-space measures amount to realism has been
+pressed directly by Eva~\cite{Eva2017}.
+
+What we add is neither a new philosophical thesis nor a new theorem but
+a \emph{bridge}: we carry this separation across the McDonald--Bimb\'{o}
+duality --- a quantum-logic result with no prior contact with the
+philosophy-of-science literature --- read it against the van Fraassen
+empirical-adequacy/realism debate, and organise EA,
+$\text{PR}_{\text{lat}}$, $\text{PR}_{\text{dual}}$, and VDR onto a
+single axis indexed by distributivity.  The dual-space measures of the
+topos program live on the spectral presheaf~\cite{Doring2008,
+CannonDoring2018} --- a diagram over the category of commutative
+contexts; ours live on the McDonald--Bimb\'{o} dual space $S_0(A)$, a
+single topological space carrying the principal filters $P(A)$ as
+distinguished structure.  It is in those terms --- a measure on
+$S_0(A)$ concentrating on $P(A)$ --- that the $\sigma$-additive passage
+to the dual space, and its failure for $L(H)$, has not previously been
+isolated.
+We begin with the Boolean case.\footnote{The Boolean construction is
+self-contained here; a fuller treatment of the directed-system Stone
+extension and the realization condition is developed
+in~\cite{mahon2026}.}
 
 Let $(\iota, \leq)$ be a directed set indexing a family of Boolean
 algebras $\{B_i\}_{i \in \iota}$ with injective homomorphisms
@@ -174,7 +227,14 @@ $\omega \in \Omega$ determines a principal ultrafilter
 Any compatible family of normalised charges extends to a
 $\sigma$-additive Baire probability measure $\hat{\mu}$ on
 $\St(\mathcal{C})$ --- unconditionally, with no assumption of
-$\sigma$-additivity~\cite[Theorem~1]{choksi1958},~\cite{mahon2026}.  This is the
+$\sigma$-additivity.  Each charge extends to a regular Baire measure on
+the compact, totally disconnected $\St(B_i)$: the clopens are compact,
+so any countable clopen cover of a clopen set has a finite subcover,
+making a finitely additive charge automatically countably additive on
+the clopen algebra (a premeasure), which Carath\'{e}odory
+extends~\cite{rao1983, Halmos1950}; compatibility then
+assembles these into $\hat{\mu}$ on the inverse limit
+$\St(\mathcal{C})$~\cite[Theorem~1]{choksi1958}.  This is the
 \emph{empirically adequate} object: it agrees with all charges on
 cylinder events.
 
@@ -185,8 +245,10 @@ $(\Omega, \sigma(\mathcal{C}))$ requires
   \hat{\mu}\!\bigl(\pure(\Omega)\bigr) = 1,
 \]
 i.e., that $\hat{\mu}$ concentrates on the principal ultrafilters.
-This holds if and only if each $\ell_i$ is
-$\sigma$-additive~\cite{mahon2026}.
+Such concentration implies each $\ell_i$ is $\sigma$-additive; the
+converse holds when $\Omega$ realizes every countably-complete
+ultrafilter of $\mathcal{C}$, a Loomis--Sikorski condition that is
+automatic for countably generated systems but not in general.
 
 Every Boolean algebra admits lattice ultrafilters --- maximal proper
 filters --- by Zorn's lemma.  On a Boolean algebra, maximality
@@ -202,8 +264,7 @@ argument fails, and maximal proper filters need not be 2-valued.
 Moreover, any subset $S \subseteq \St(\mathcal{C})$ that projects
 surjectively onto each $\St(B_i)$ can serve as a realisation space:
 set $\Omega = S$ with evaluation maps given by the restriction maps.
-The algebra imposes no constraint on the choice of
-$\Omega$~\cite{mahon2026}.
+The algebra imposes no constraint on the choice of $\Omega$.
 
 \begin{proposition}[Boolean commensurability]
 \label{prop:boolean-comm}
@@ -211,17 +272,23 @@ For a directed system of Boolean algebras with compatible charges:
 \begin{enumerate}[label=(\alph*)]
   \item EA is unconditional: $\hat{\mu}$ on $\St(\mathcal{C})$
     always exists.
-  \item PR holds iff each $\ell_i$ is $\sigma$-additive.
+  \item PR requires each $\ell_i$ to be $\sigma$-additive, and is
+    equivalent to it under the Loomis--Sikorski realization condition
+    on $\Omega$ (automatic for countably generated systems).
   \item VDR holds unconditionally: $\St(\mathcal{C})$ consists
     entirely of 2-valued homomorphisms.
 \end{enumerate}
-The only obstruction is $\sigma$-additivity at the EA--PR
-transition, and it is a condition on the charges, not the algebra.
+The obstruction at the EA--PR transition is $\sigma$-additivity of the
+charges, together with the Loomis--Sikorski realization condition on
+$\Omega$ (automatic for countably generated systems); both are
+conditions on the charges and the realization, not on the algebra.
 \end{proposition}
 
 \begin{proof}
-Part~(a) is the Stone construction~\cite{choksi1958, mahon2026}.
-Part~(b) is~\cite[Theorem~1]{mahon2026}.  Part~(c): ultrafilters on
+Part~(a) is the Stone construction above~\cite{rao1983, choksi1958}.
+Part~(b): descent to $\Omega$ requires $\hat\mu(\pure(\Omega)) = 1$,
+which forces each $\ell_i$ $\sigma$-additive, and conversely under the
+realization condition (discussion above).  Part~(c): ultrafilters on
 a Boolean algebra are exactly the 2-valued homomorphisms; their
 existence follows from Zorn's lemma applied to the filter generated
 by any non-zero element.
@@ -305,12 +372,14 @@ all $a \in A$.
 \end{definition}
 
 \noindent A dispersion-free state assigns a definite truth value
-to every proposition in $A$.  Every 2-valued homomorphism is
+to every proposition in $A$ --- the statistical/dispersion-free
+distinction in the standard quantum-logic
+sense~\cite{BeltramettiCassinelli1981}.  Every 2-valued homomorphism is
 dispersion-free; the converse holds on Boolean algebras (where
 dispersion-free states are exactly the ultrafilters) and on
 $L(H)$, but \emph{fails} on a general OML: a dispersion-free state
 need not be multiplicative across incompatible propositions.  The
-minimal witness is $MO_2$ (the horizontal sum of two Boolean
+minimal witness is $\mathrm{MO}_2$ (the horizontal sum of two Boolean
 $2^2$ blocks): assigning $1$ to one atom of each block gives a
 dispersion-free state $s$, yet for the gap pair $a, b$ with
 $a \wedge b = 0$ and $s(a) = s(b) = 1$ one has
@@ -330,8 +399,9 @@ obstruction is specific to $\dim H \geq 3$.
 
 \begin{theorem}[Gleason~\cite{Gleason1957}]
 \label{thm:gleason}
-If $\dim H \geq 3$, every $\sigma$-additive state on $L(H)$ is of
-the form $s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
+If $H$ is a separable Hilbert space with $\dim H \geq 3$, every
+$\sigma$-additive state on $L(H)$ is of the form
+$s(P) = \mathrm{tr}(\rho P)$ for a unique density operator
 $\rho$ on~$H$.
 \end{theorem}
 
@@ -378,6 +448,15 @@ Moreover, $A \cong \CO(S_0(A))^\dagger$, the OML of clopen
 $\perp$-stable subsets of $S_0(A)$.
 \end{theorem}
 
+\noindent
+A subset $U \subseteq S_0(A)$ is \emph{$\perp$-stable} if
+$U = U^{\perp\perp}$, where
+$U^\perp = \{x : x \perp_A y \text{ for all } y \in U\}$ ---
+i.e.\ $U$ is closed under the double dual-orthocomplement.
+We write $\CO(S_0(A))^\dagger$ for the sub-OML of clopen
+$\perp$-stable subsets; its meet is intersection and its complement the
+dual orthocomplement, but its join is \emph{not} set union.
+
 The critical differences from Stone duality:
 
 \medskip
@@ -399,8 +478,7 @@ Orthogonality & Trivial & Non-trivial ($\perp_A$) \\
 \noindent In Stone duality, the principal filters (i.e., the
 principal ultrafilters $\pure(\omega)$ for $\omega \in \Omega$) are
 \emph{invisible}: they play no distinguished role in the dual space.
-Which ultrafilters are principal depends on the choice of
-$\Omega$~\cite{mahon2026}.
+Which ultrafilters are principal depends on the choice of $\Omega$.
 
 In the McDonald--Bimb\'{o} duality, $P(A)$ is \emph{part of the
 structure} of the dual space: the orthomodular frame conditions
@@ -410,7 +488,11 @@ the distinction between realised and unrealised observation-patterns
 is constrained by the algebra.  Distributivity is the condition
 under which this constraint vanishes.
 
-$S_0(A)$ is compact, so the topological machinery applies.\label{sec:descent}
+\subsection{Descent to the dual space and its obstruction}
+\label{sec:descent}
+
+\noindent
+$S_0(A)$ is compact, so the topological machinery applies.
 But the algebraic input is weaker.  A state $s$ on $A$ defines
 \[
   \mu(h(a)) = s(a)
@@ -437,15 +519,21 @@ operator via the Born rule.  This is a measure on $A$ itself, and is
 \emph{not} the same as a measure on the dual space $S_0(A)$ --- a
 distinction the Boolean case obscures and the OML case forces.  Indeed
 the passage to the dual space \emph{fails} for $L(H)$: no normal
-(Gleason) state extends to a charge on the clopens of $S_0(L(H))$, by a
-clustering argument inside a single two-dimensional subspace.\footnote{%
-Fix a $2$-dimensional subspace $e$.  For $k$ distinct lines $p_1, \dots,
-p_k \subset e$ the $2k$ lines $\{p_i, p_i^\perp\}$ are pairwise
-meet-zero, so $h$ sends them to pairwise-disjoint clopens, and a charge
-forces $\sum_i [s(p_i) + s(p_i^\perp)] = k\, s(e) \leq 1$ for every $k$;
-hence any state with $s(e) > 0$ for some finite-dimensional $e$ ---
-every normal state --- fails.  $\sigma$-completeness of the lattice is
-irrelevant; the obstruction is finitary.  Only \emph{singular} states
+(Gleason) state extends to a charge on the clopens of $S_0(L(H))$.  This
+is a finitary non-extendability of the
+Kochen--Specker~\cite{KochenSpecker1967} and Pitowsky
+correlation-polytope~\cite{Pitowsky1989} type, whose mechanism we
+sketch rather than prove in full.\footnote{%
+Within a single $2$-dimensional subspace $e$, the lines
+$p$ and their orthocomplements-within-$e$ furnish, for every $k$,
+$2k$ pairwise meet-zero elements whose $\perp$-stable clopen images are
+pairwise disjoint, while orthoadditivity gives
+$s(p) + s(e \ominus p) = s(e)$.  A charge would then force
+$k\,s(e) \leq 1$ for all $k$, so $s(e) = 0$ for every
+finite-dimensional $e$ --- excluding every normal state.  This is the
+$2$-dimensional case of the Pitowsky correlation-polytope
+condition~\cite{Pitowsky1989}; $\sigma$-completeness of the lattice is
+irrelevant, the obstruction being finitary.  Only \emph{singular} states
 ($s(e) = 0$ on all finite-dimensional $e$) escape, and whether one
 extends is open.}  For general OMLs the extension problem is
 open.\footnote{The extension splits into two axes that the Boolean
@@ -465,12 +553,28 @@ governs.  For $L(H)$, Gleason settles the lattice measure, but the
 extension axis itself fails (preceding footnote): Gleason does
 \emph{not} deliver the dual-space measure.}
 
+The conceptual separation between a measure on the lattice and the
+non-existence of a measure concentrated on points is, in the von
+Neumann algebra setting, already present in D\"{o}ring's analysis of
+the spectral presheaf~\cite{Doring2008}: states correspond to measures
+on the clopen subobjects of the presheaf $\Sigma$
+($\text{PR}_{\text{lat}}$ in our terms), while the absence of global
+sections of $\Sigma$ is the Kochen--Specker obstruction
+($\text{PR}_{\text{dual}}$ failing).  Our contribution is not this
+separation as such but its transposition: we phrase it through the
+McDonald--Bimb\'{o} duality for orthomodular lattices rather than the
+topos-theoretic presheaf, identify $\sigma$-additivity as the precise
+marker of the descent axis (D\"{o}ring's measures are finitely additive
+in general), and read the whole off against the van Fraassen empirical
+adequacy/realism debate, a framing absent from the topos literature.
+
 Even when probabilistic descent succeeds, value-definite descent
 does not.  The Bub--Clifton
 theorem~\cite{BubClifton1996} addresses what \emph{can} be
 salvaged:
 
-\begin{theorem}[Bub--Clifton~\cite{BubClifton1996}]
+\begin{theorem}[Bub--Clifton~\cite{BubClifton1996};
+Halvorson--Clifton~\cite{HalvorsonClifton1999}]
 \label{thm:bub-clifton}
 Given a state $\rho$ on $L(H)$ and a preferred observable $R$,
 there is a unique maximal sublattice
@@ -498,7 +602,10 @@ maximal Boolean subalgebras.
 The status of the three positions depends on the algebra.  In the OML
 case probabilistic realism splits into two grades that the Boolean case
 fuses: $\text{PR}_{\text{lat}}$, a $\sigma$-additive measure on the
-\emph{lattice} $A$ (Gleason, for $L(H)$), and $\text{PR}_{\text{dual}}$,
+\emph{lattice} $A$ --- states as measures on the projection lattice in
+the sense of the algebraic quantum-logic
+tradition~\cite{Redei1998} (Gleason, for $L(H)$) --- and
+$\text{PR}_{\text{dual}}$,
 a measure on the \emph{dual} $S_0(A)$ concentrating on the physical
 points.  We take $\text{PR}_{\text{dual}}$ to be the \emph{stronger}
 grade --- a dual-space measure restricts, on the $\perp$-stable clopens,
@@ -517,10 +624,11 @@ $L(H)$):
   \;\overset{(\ast)}{\Longleftarrow}\;
   \underbrace{\text{PR}_{\text{dual}}^{\dagger}}_{\text{fails for }L(H)}
   \;\Longleftarrow\;
-  \underbrace{\text{VDR}^{\dagger}}_{\text{KS-blocked (OML)}}
+  \underbrace{\text{VDR}_{\sigma}^{\dagger}}_{\text{KS-blocked (OML)}}
 \]
-The implications run weak-from-strong: VDR (a global dispersion-free
-state) implies $\text{PR}_{\text{dual}}$ (a dual-space measure);
+The implications run weak-from-strong at the stated grade:
+$\mathrm{VDR}_{\sigma}$ (a global $\sigma$-additive dispersion-free state in
+the dual-realising scope) implies $\text{PR}_{\text{dual}}$ (a dual-space measure);
 $\text{PR}_{\text{dual}}$ implies $\text{PR}_{\text{lat}}$ only
 conditionally (the restriction of $\hat\mu$ to the $\perp$-stable clopens
 is finitely orthoadditive, but its $\sigma$-additivity on the lattice
@@ -528,15 +636,16 @@ needs $\hat\mu$ to be null on countable-join defects --- free in the
 Boolean case, conditional in general; see~$(\ast)$); and
 $\text{PR}_{\text{lat}}$ implies EA.  For
 $L(H)$ the two strongest positions are not realised: VDR by
-Kochen--Specker, and $\text{PR}_{\text{dual}}$ by the clustering argument
-above --- the \emph{upward} extension construction
+Kochen--Specker, and $\text{PR}_{\text{dual}}$ by the
+Kochen--Specker / Pitowsky non-extendability of \S\ref{sec:descent}
+--- the \emph{upward} extension construction
 $\text{PR}_{\text{lat}} \to \text{PR}_{\text{dual}}$ (build a dual-space
 measure from the lattice measure) is obstructed, governed by
 distributivity rather than $\sigma$-additivity.  Gleason delivers
 $\text{PR}_{\text{lat}}$ but Gleason does not climb to
 $\text{PR}_{\text{dual}}$.  The two grades coincide only in the Boolean
 case, where the extension is free and the ladder collapses to the single
-$\text{EA} \Leftarrow \text{PR}$ of Paper~I.  ($\ast$)~The arrow
+$\text{EA} \Leftarrow \text{PR}$ of the Boolean case.  ($\ast$)~The arrow
 $\text{PR}_{\text{lat}} \Leftarrow \text{PR}_{\text{dual}}$ is free in
 the Boolean case but holds only conditionally in general (it requires a
 $\sigma$-continuity hypothesis on the dual measure that the finitary
@@ -553,11 +662,12 @@ Let $A$ be a complemented lattice.
     \begin{itemize}
       \item EA is unconditional
         \textup{(}Stone construction\textup{)}.
-      \item PR holds iff the charges are $\sigma$-additive
-        \textup{\cite{mahon2026}}.  Here $\text{PR}_{\text{lat}}$ and
-        $\text{PR}_{\text{dual}}$ coincide: the extension step is free,
-        so a lattice measure and a dual-space measure stand or fall
-        together.
+      \item PR requires the charges to be $\sigma$-additive, and is
+        equivalent to it under the Loomis--Sikorski realization
+        condition on $\Omega$.  Here
+        $\text{PR}_{\text{lat}}$ and $\text{PR}_{\text{dual}}$ coincide:
+        the $\perp$-stable extension step is free, so a lattice measure
+        and a dual-space measure stand or fall together.
       \item VDR holds unconditionally
         \textup{(}ultrafilters exist\textup{)}.
     \end{itemize}
@@ -572,16 +682,18 @@ Let $A$ be a complemented lattice.
         function $\mu(h(a)) = s(a)$ on the $\perp$-stable clopens, which
         always exists.  It is \emph{not} a genuine Baire measure on
         $S_0(A)$: promoting it to one is the extension step, which for
-        $L(H)$ \emph{fails} for every normal state (the clustering
-        argument above) and for general OMLs is open.  The unconditional
+        $L(H)$ \emph{fails} for every normal state
+        (\S\ref{sec:descent}) and for general OMLs is open.  The unconditional
         claim is thus about the clopen set function, not the dual-space
         measure.}
       \item $\text{PR}_{\text{lat}}$ holds \textup{(}Gleason,
         Theorem~\textup{\ref{thm:gleason})}: a $\sigma$-additive measure
         on the lattice $L(H)$.
       \item $\text{PR}_{\text{dual}}$ \emph{fails} for every normal
-        state: no charge on $S_0(L(H))$ exists (clustering argument
-        above), so a fortiori none concentrating on $P(A)$.  Equivalently,
+        state: no charge on $S_0(L(H))$ \emph{extending $s$} exists
+        (Kochen--Specker / Pitowsky non-extendability,
+        \S\ref{sec:descent}), so a fortiori none concentrating on
+        $P(A)$.  Equivalently,
         the extension step $\text{PR}_{\text{lat}} \to
         \text{PR}_{\text{dual}}$ is obstructed --- the one transition the
         Boolean case leaves free.
@@ -600,9 +712,10 @@ Part~(a) is Proposition~\ref{prop:boolean-comm}.  For
 part~(b): $\text{PR}_{\text{lat}}$ follows from Gleason's theorem
 (Theorem~\ref{thm:gleason}), which supplies a $\sigma$-additive measure
 on the lattice $L(H)$ for any $\sigma$-additive state.
-$\text{PR}_{\text{dual}}$ fails for normal states by the clustering
-argument above: no charge on the clopens of $S_0(L(H))$ exists, so no
-Baire measure on $S_0(L(H))$ and a fortiori none concentrating on
+$\text{PR}_{\text{dual}}$ fails for normal states by the
+Kochen--Specker / Pitowsky non-extendability of \S\ref{sec:descent}: no
+charge on the clopens of $S_0(L(H))$ \emph{extending $s$} exists, so no
+such Baire measure on $S_0(L(H))$ and a fortiori none concentrating on
 $P(A)$.  EA holds in the $\perp$-stable set-function sense
 unconditionally --- the assignment $\mu(h(a)) = s(a)$ on
 $\CO(S_0(A))^\dagger$ always exists; note this does \emph{not} go via
@@ -628,7 +741,7 @@ The dimensional restriction is necessary.  For $\dim H = 2$,
 $L(\mathbb{C}^2)$ is non-distributive but admits dispersion-free
 states.  More generally, horizontal sums of Boolean algebras and
 certain finite OMLs are non-distributive yet admit dispersion-free
-states~\cite[Chapter~4]{Kalmbach1983} --- though, as $MO_2$ shows,
+states~\cite[Chapter~4]{Kalmbach1983} --- though, as $\mathrm{MO}_2$ shows,
 these dispersion-free states need not be 2-valued homomorphisms.
 The sharp characterisation for general OMLs is: VDR is available
 iff $A$ admits a dispersion-free state, which is a property of $A$,
@@ -638,8 +751,9 @@ the physically and epistemologically central case $\dim H \geq 3$,
 it is the effective dividing line.
 \end{remark}
 
-The containment $\mathcal{S}(A) \supseteq \mathcal{S}_\sigma(A)
-\supseteq \mathcal{S}_{\mathrm{df}}(A)$ is standard in quantum
+The state notions underlying the typed containment
+$\mathcal{S}(A) \supseteq \mathcal{S}_\sigma(A)
+\supseteq \mathcal{S}_{\mathrm{df}}^\sigma(A)$ are standard in quantum
 logic~\cite{PtakPulmannova1991, Kalmbach1983}.  What we add is the
 identification of three transitions of different mathematical
 character, and the observation that distributivity controls which
@@ -648,13 +762,13 @@ are trivial.
 \begin{definition}[Coherence filtration]
 \label{def:hierarchy}
 Let $A$ be a complemented lattice with a family of charges.
-The \emph{state space} of $A$ admits a descending filtration:
+The state space of $A$ admits the descending filtration
 \[
   \mathcal{S}(A)
   \;\supseteq\;
   \mathcal{S}_\sigma(A)
   \;\supseteq\;
-  \mathcal{S}_{\mathrm{df}}(A),
+  \mathcal{S}_{\mathrm{df}}^\sigma(A),
 \]
 where:
 \begin{itemize}
@@ -663,10 +777,16 @@ where:
   \item $\mathcal{S}_\sigma(A) \subseteq \mathcal{S}(A)$ is the
     subset of $\sigma$-additive states
     (probabilistic coherence);
-  \item $\mathcal{S}_{\mathrm{df}}(A) \subseteq
-    \mathcal{S}_\sigma(A)$ is the subset of dispersion-free states
-    (value-definite coherence).
+  \item $\mathcal{S}_{\mathrm{df}}^\sigma(A):=
+    \mathcal{S}_{\mathrm{df}}(A)\cap\mathcal{S}_\sigma(A)$ is the subset of
+    $\sigma$-additive dispersion-free states (the filtration's
+    value-definite endpoint).
 \end{itemize}
+Standalone VDR remains the predicate
+$\mathcal{S}_{\mathrm{df}}(A)\ne\varnothing$, with no automatic
+$\sigma$-additivity clause.  The two formulations agree on finite carriers
+and whenever $\sigma$-additivity is separately established; they are not
+identified on an arbitrary infinite carrier.
 Beneath the filtration sits a local condition:
 \emph{consistency} requires only that each maximal Boolean
 subalgebra of $A$ individually admits a compatible state.
@@ -689,7 +809,7 @@ $\mathcal{S}(A) \to \mathcal{S}_\sigma(A)$
   & Regularity (analytic)
   & Does the state have good limits?
   & $\sigma$-additivity \\[3pt]
-$\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}(A)$
+$\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}^\sigma(A)$
   & Sharpness (algebraic)
   & Can probabilities collapse to $\{0,1\}$?
   & Kochen--Specker \\
@@ -698,16 +818,19 @@ $\mathcal{S}_\sigma(A) \to \mathcal{S}_{\mathrm{df}}(A)$
 \end{center}
 \medskip
 
-\noindent Distributivity collapses the filtration.  For a Boolean algebra:
+\noindent Distributivity controls two of the transitions but does not erase
+the regularity question.  For a Boolean algebra:
 \begin{itemize}
   \item \emph{Pasting} is trivial: every local assignment extends
     to a global state (distributivity guarantees compatibility).
   \item \emph{Sharpness} is free: ultrafilters exist (Zorn's lemma),
     so $\mathcal{S}_{\mathrm{df}}(A) \neq \varnothing$
-    unconditionally.
+    unconditionally.  This is standalone VDR; membership in
+    $\mathcal{S}_{\mathrm{df}}^\sigma(A)$ requires the separate
+    $\sigma$-additivity clause.
   \item The only non-trivial transition is \emph{regularity}:
-    $\sigma$-additivity of the charges.  This is the content
-    of~\cite{mahon2026}.
+    $\sigma$-additivity of the charges (with the realization condition
+    on $\Omega$), as developed above.
 \end{itemize}
 For an OML with $\dim \geq 3$, every transition is non-trivial:
 \begin{itemize}
@@ -725,8 +848,9 @@ For an OML with $\dim \geq 3$, every transition is non-trivial:
     = \varnothing$ (Kochen--Specker).
 \end{itemize}
 
-\noindent Distributivity is sufficient to collapse the filtration.
-For $L(H)$ with $\dim \geq 3$, non-distributivity opens it fully.
+\noindent Distributivity is sufficient for standalone VDR and the Boolean
+pasting statement; regularity remains the $\sigma$-additivity step.  For
+$L(H)$ with $\dim \geq 3$, Kochen--Specker blocks even standalone VDR.
 
 \begin{remark}[Relation to contextuality hierarchies]
 Abramsky and Brandenburger~\cite{AbramskyBrandenburger2011}
@@ -747,7 +871,7 @@ coherence demands.
 The standard philosophical debate between scientific realism and
 constructive empiricism treats the question as uniform: either
 theories aim at truth or they aim at empirical adequacy.  The
-algebraic analysis above shows that the question is
+algebraic analysis above lets us recast that choice as
 \emph{parametrised} by the observation algebra.  For Boolean
 observations, the mathematics does not prefer one position over
 another.  For non-Boolean observations ($\dim \geq 3$), VDR is
@@ -756,18 +880,46 @@ position~\cite{vanFraassen1980} is the generic one, and
 value-definite realism is the special case --- the case in which
 the observation algebra happens to be distributive.
 
-This reframing retroactively sharpens classical debates.
+That value-definiteness is \emph{separable} from realism --- that the
+realist is not, qua realist, entitled to simultaneous definite values,
+and that what underwrites them is the Boolean (distributive) structure
+of jointly performable observations --- is not new with us.  It is the
+conclusion Stairs~\cite{Stairs1983} reached directly: the requirement
+that all magnitudes carry classically definite values constrains the
+admissible structures for reasons independent of realism, turning on
+Boolean representability rather than on realist commitment; his
+realism-without-value-definiteness position is, in the present
+vocabulary, the $\text{PR}$ layer with $\mathcal{S}_{\mathrm{df}}$
+empty.  The parallel link between realism and distributivity is the
+Putnam~\cite{Putnam1968}--Dummett battleground (Putnam revises logic to
+keep value-definiteness; we instead read its loss off the algebra), and
+the primacy of the Boolean/non-Boolean event structure over any hidden
+dynamics is the Bub--Pitowsky~\cite{BubPitowsky2010} thesis, itself
+continuous with Pitowsky's reading of quantum mechanics as a
+non-classical theory of probability on the projection
+lattice~\cite{Pitowsky2006}; the broader algebraic-foundations setting
+is surveyed in Landsman~\cite{Landsman2017}.  What the
+filtration adds to these is not a new philosophical position but an
+organising one: it locates EA, $\text{PR}_{\text{lat}}$,
+$\text{PR}_{\text{dual}}$, and VDR on a single axis indexed by
+distributivity, and separates the obstructions (pasting, regularity,
+sharpness) that the debate treats as one.
+
+Several classical positions translate directly into this vocabulary,
+which is offered as a uniform restatement rather than a sharpening of
+any one of them.
 The EPR argument for completeness~\cite{EPR1935} amounts to the
 demand that all observables simultaneously possess definite values
---- i.e., VDR.  The Kochen--Specker theorem shows this is
-algebraically blocked for $\dim H \geq 3$.  Bohr's
+--- i.e., VDR --- which the Kochen--Specker theorem blocks
+algebraically for $\dim H \geq 3$.  Bohr's
 complementarity corresponds to the non-triviality of the pasting
 transition: incompatible contexts cannot be simultaneously
 realised.
 Bell's beables~\cite{HalvorsonClifton1999} --- the observables
 that \emph{can} have definite values --- are the elements of the
 maximal Boolean subalgebra $D(\rho, R)$
-(Theorem~\ref{thm:bub-clifton}).  De~Finetti's operationalism is
+(Theorem~\ref{thm:bub-clifton}), restating Bub--Clifton in this
+vocabulary.  De~Finetti's operationalism is
 EA in the Boolean case; Pitowsky~\cite{Pitowsky1989} develops the
 quantum analogue via Dutch book arguments on $L(H)$.
 
@@ -780,11 +932,29 @@ administrable treatments in experimental design --- produces an
 observation algebra via categorical
 gluing~\cite{Gunji2026}.  If the contexts are mutually compatible,
 the colimit is Boolean and VDR is available.  If not, the colimit
-is orthomodular and VDR may be blocked.  The commensurability
-theorem thus provides a diagnostic across domains: when a
-deterministic latent-state model fails, the failure may be
-algebraic --- the observation algebra does not support VDR ---
-rather than a consequence of noise or insufficient data.
+is orthomodular and VDR may be blocked.  In principle this suggests a
+diagnostic: when a deterministic latent-state model fails, the failure
+may be algebraic --- the observation algebra does not support VDR ---
+rather than a consequence of noise or insufficient data.  We state this
+only to mark its limits.  By the equivalence used
+above\footnote{Non-distributivity of the colimit is equivalent to the
+non-existence of a joint distribution, i.e.\ to contextuality as failure
+of a global section~\cite{AbramskyBrandenburger2011, Fine1982}; the
+categorical form of this equivalence, orthomodularity as the obstruction
+to a global section, is~\cite{Gunji2026}.} ``the
+failure is algebraic, not statistical'' is the same diagnostic as ``the
+failure is contextuality, not nuisance,'' which the
+Contextuality-by-Default programme~\cite{DzhafarovKujala2017,
+CervantesDzhafarov2018} already operationalises on empirical data ---
+and operationalises in the harder regime, since the sheaf/orthomodular
+formulation requires consistent connectedness (no marginal-selectivity
+violation), whereas real data routinely violates it and
+Contextuality-by-Default is built to handle that case.  The
+contribution here is therefore not a new empirical test; it is the
+placement of that already-finitary diagnostic within the filtration,
+where the one obstruction it cannot see --- the $\sigma$-additive,
+dual-space ($\text{PR}_{\text{dual}}$) layer, which is infinitary ---
+becomes visible as a distinct transition.
 
 Several directions remain open:
 \begin{enumerate}
@@ -792,8 +962,9 @@ Several directions remain open:
     Does every state on a general OML extend to a $\sigma$-additive
     measure on $S_0(A)$, as in the Boolean case?  For $L(H)$ the answer
     is \emph{negative} for \emph{every} state: Gleason supplies the
-    lattice measure but no dual-space charge exists --- the clustering
-    argument of \S\ref{sec:descent} settles the normal states, and a
+    lattice measure but no dual-space charge exists --- the
+    Kochen--Specker / Pitowsky non-extendability of \S\ref{sec:descent}
+    settles the normal states, and a
     finite family of infinite-dimensional, pairwise-meet-zero subspaces
     (a copy of $\mathrm{MO}_2$ with infinite-dimensional atoms) settles
     the singular states. The general OML case remains open.

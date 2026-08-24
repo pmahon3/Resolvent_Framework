@@ -1,0 +1,15 @@
+% Macros and settings shared by the pdf and web builds.
+% The theorem-like environments below are the ones that appear in the
+% dependency graph.
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+% `remark` was used in content.tex but never declared here. plasTeX then
+% reported unrecognized command/environment: remark and attached each
+% remark's \label to the PRECEDING theorem, silently dropping those
+% theorems from the dependency graph -- thm:aj-tower among them.
+\newtheorem{remark}[theorem]{Remark}

@@ -1,5 +1,17 @@
 # Stone Spatialization of the Yosida-Hewitt Decomposition
 
+> **✎2026-08-22.** This note is not a dead end after all — it describes the
+> decomposition that underlies the settled picture. Mass on principal
+> ultrafilters is the σ-additive part; mass on non-principal ultrafilters is the
+> purely finitely additive part. What was resolved is which side you are
+> entitled to: with completed countable queries the free part vanishes and you
+> get `stone_observational_extension`; without them the free part is genuinely
+> there and the right theorem is `stone_measure_exists`, the finitely additive
+> one. Neither hypothesis is dispensable — Andersen–Jessen kills the
+> valuation-layer condition alone, `counterexampleQS_no_finitary_condition`
+> kills the index-layer condition alone, and `ce_independence` shows the two are
+> independent. See the blueprint, `rmk:extension-repaired`.
+
 ## Summary
 
 The Stone construction spatializes the Yosida-Hewitt decomposition.

@@ -1,16 +1,26 @@
+% Web version of the blueprint. Rendered with:
+%   ./blueprint-web.sh      (which runs `plastex -c plastex.cfg web.tex`)
 \documentclass{report}
 
-\usepackage[showmore]{blueprint}
+\usepackage{amssymb, amsthm, amsmath}
+\usepackage{hyperref}
+% thms: include `remark` among the dependency-graph node types. The default
+% (definition+lemma+proposition+theorem+corollary) silently drops remarks and
+% their \uses edges from the graph -- which hid rmk:phi-open, the arc's
+% culminating OPEN node, and the Andersen-Jessen refutation record.
+\usepackage[showmore, dep_graph, thms=definition+lemma+proposition+theorem+corollary+remark]{blueprint}
 
-\title{Query Systems: Observational Foundations of Probability}
-\author{Formalized in Lean 4}
+\input{macros/common}
+\input{macros/web}
+
+\home{https://github.com/pmahon3/Resolvent_Framework}
+\github{https://github.com/pmahon3/Resolvent_Framework}
+\dochome{https://github.com/pmahon3/Resolvent_Framework/tree/main/formalization/QuerySystem}
+
+\title{Resolvent Framework --- Lean blueprint}
+\author{P. Mahon}
 
 \begin{document}
-
-\home
-
-\tableofcontents
-
+\maketitle
 \input{content}
-
 \end{document}

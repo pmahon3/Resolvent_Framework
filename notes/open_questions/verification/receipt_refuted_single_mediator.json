@@ -1,0 +1,60 @@
+{
+ "command": "python3 incompatible_h4_conditional_cell_audit.py --verify",
+ "emitted": "2026-07-14",
+ "generator": "incompatible_h4_conditional_cell_audit.py",
+ "payload": {
+  "audit": {
+   "first_failed_lattice_pair": {
+    "kind": "join",
+    "x": "a:e00",
+    "y": "a:t"
+   },
+   "lattice_ok": false
+  },
+  "construction": {
+   "atoms": [
+    "e00",
+    "e01",
+    "e10",
+    "e11",
+    "s1",
+    "s2",
+    "t"
+   ],
+   "blocks": [
+    [
+     "e00",
+     "e01",
+     "e10",
+     "e11"
+    ],
+    [
+     "e10",
+     "s1",
+     "t"
+    ],
+    [
+     "e01",
+     "s2",
+     "t"
+    ]
+   ],
+   "couplings": [],
+   "designated": {
+    "activation_triples": []
+   },
+   "identifications": []
+  },
+  "counts": {
+   "atoms": 7,
+   "blocks": 3,
+   "elements": 22
+  },
+  "design": "refuted_single_mediator",
+  "shared_structure": "one mediator atom cohabits both difference atoms of E (3-loop)",
+  "verifier_sha256": "f4d7d18a8da5ccc3b2409b93924a4202c3643147fe68bdfef17a2b89d60de96b"
+ },
+ "payload_sha256": "359307e8e6e6850d9687511fbe6fc2118a38b9fab75106c866e7f1977f174e90",
+ "schema": "oml-finite-cell-receipt",
+ "schema_version": "1.0"
+}

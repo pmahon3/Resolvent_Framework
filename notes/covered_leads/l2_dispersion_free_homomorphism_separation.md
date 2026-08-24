@@ -114,7 +114,7 @@ object that would have been new (strict point-free / non-concrete) is
 exactly what L₂ admittedly is not.
 
 Source seed (moved from `open_questions/verification/`):
-`l2_state_space_separation.md` content preserved below for reference.
+`l2_state_space_separation_seed.md` content preserved below for reference.
 
 ---
 

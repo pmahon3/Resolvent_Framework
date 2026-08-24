@@ -1,0 +1,413 @@
+{
+  "centre": [
+    "0x0",
+    "0xfffffffff"
+  ],
+  "clique_records": [
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(0, 1)"
+        ],
+        [
+          "(1, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A00_0",
+        "A00_1",
+        "HJOINT"
+      ],
+      "id": 0,
+      "sha256": "739bd917c7a9a11f",
+      "size": 512
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(0, 1)"
+        ],
+        [
+          "(1, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 1,
+      "sha256": "912078fade2c2d75",
+      "size": 512
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(0, 1)"
+        ],
+        [
+          "(1, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 2,
+      "sha256": "dbb14827cf529295",
+      "size": 512
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(0, 1)"
+        ],
+        [
+          "(1, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A10"
+      ],
+      "id": 3,
+      "sha256": "e35f692b3616584b",
+      "size": 512
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(0, 1)"
+        ],
+        [
+          "(1, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "C01_0",
+        "C01_1"
+      ],
+      "id": 4,
+      "sha256": "34cfe664c4260fca",
+      "size": 256
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)",
+          "(0, 1)",
+          "(1, 0)",
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A01"
+      ],
+      "id": 5,
+      "sha256": "f76f070c80aeeb54",
+      "size": 64
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)",
+          "(0, 1)",
+          "(1, 0)",
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 6,
+      "sha256": "2d77f0053a7411c6",
+      "size": 64
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)",
+          "(0, 1)",
+          "(1, 0)",
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [],
+      "id": 7,
+      "sha256": "b48958e688e3f341",
+      "size": 64
+    },
+    {
+      "b0_fibre_shapes": [
+        [
+          "(0, 0)"
+        ],
+        [
+          "(1, 1)"
+        ]
+      ],
+      "b2_fibre_shapes": [
+        [
+          "(0, 0)",
+          "(0, 1)",
+          "(1, 0)",
+          "(1, 1)"
+        ]
+      ],
+      "contains_named_blocks": [
+        "A11"
+      ],
+      "id": 8,
+      "sha256": "805d8865e5b6fe9f",
+      "size": 64
+    }
+  ],
+  "closure_rounds": [
+    664,
+    1352,
+    1352
+  ],
+  "distinct_cuts": 17464,
+  "elapsed_construction_s": 4.0,
+  "elapsed_total_s": 4.0,
+  "events": 1352,
+  "events_inside_b2": 15,
+  "first_disjoint_union_failure": {
+    "cardinalities": [
+      4,
+      4
+    ],
+    "left_mask": "0x55",
+    "left_signature": [
+      "A00_0",
+      "A00_1",
+      "A01",
+      "C01_0",
+      "C01_1",
+      "HJOINT"
+    ],
+    "right_mask": "0xa0a",
+    "right_signature": [
+      "A10",
+      "A11"
+    ],
+    "union_mask": "0xa5f"
+  },
+  "joint_hub": true,
+  "joint_split_count": 4,
+  "joint_split_events_in_b2": [
+    "0x11110000",
+    "0x22220000",
+    "0x44440000",
+    "0x88880000"
+  ],
+  "k": 2,
+  "maximal_block_sizes": [
+    512,
+    512,
+    512,
+    512,
+    256,
+    64,
+    64,
+    64,
+    64
+  ],
+  "maximal_blocks": 9,
+  "named_block_containers": {
+    "A00_0": [
+      0
+    ],
+    "A00_1": [
+      0
+    ],
+    "A01": [
+      5
+    ],
+    "A10": [
+      3
+    ],
+    "A11": [
+      8
+    ],
+    "C01_0": [
+      4
+    ],
+    "C01_1": [
+      4
+    ],
+    "HJOINT": [
+      0
+    ]
+  },
+  "orthomodular": true,
+  "points": 36,
+  "raw_events": 664,
+  "schema": "five-block-conditional-diagonal-star-v1",
+  "states": {
+    "all_states_are_point_states": true,
+    "count": 24,
+    "distinct_point_profiles": 24,
+    "full_relation_x_y1_yk": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        1,
+        1
+      ],
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "joint_charged_relation_x_y1_yk": [
+      [
+        0,
+        0,
+        0
+      ],
+      [
+        1,
+        1,
+        1
+      ]
+    ],
+    "pairwise_joint_charged": {
+      "x_y0_joint": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "x_y1_joint": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "y0_y1_joint": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ]
+    }
+  },
+  "trivial_centre": true
+}

@@ -1,0 +1,413 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{task}{Sub-task}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{target}{The open target}
+
+% ---------- Commands ----------
+\newcommand{\Clop}{\operatorname{Clop}}
+\newcommand{\St}{\operatorname{St}}
+\newcommand{\coz}{\operatorname{coz}}
+\newcommand{\cl}{\operatorname{cl}}
+\newcommand{\Y}{Y_n}
+\newcommand{\T}{\mathfrak{T}}
+\newcommand{\Ks}{K_s}
+
+\title{Strategy D: A Non-$\sigma$-Complete, Non-Atomic, Measure-Free\\
+Boolean Algebra? --- A Working Problem-Set}
+\author{Patrick S.\ Mahon}
+\date{Problem-set --- June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent A self-contained kit for attacking ``Strategy D'' and, concretely, its
+sharpest live entry point: \emph{is the clopen algebra of the Argyros pre-Gleason
+space $\beta\Y$ $\sigma$-complete?} Everything needed to sit with pen and paper is
+defined inline: Boolean algebras and Stone duality; $\sigma$-completeness, basic
+disconnectedness, cozero sets; measure-free algebras; the Argyros construction
+$(\Y,\T)$ from~\cite{Argyros1983}; and the Gillman--Jerison
+machinery~\cite{GJ} that reduces the question to one intrinsic predicate in $\Y$.
+The open target is stated formally (\S\ref{sec:target}) and broken into sub-tasks
+(\S\ref{sec:tasks}) carrying the constraints established so far (three candidate
+families killed by one ``interior-overshoot'' mechanism; the strong-zero-dimensionality
+sub-lemma). Companion narrative + status: \texttt{strategy\_d\_dossier.md},
+\texttt{argyros\_sigma\_completeness\_handoff.md}. This document is presentation, not
+proof: the central question is open; included results are cited or short and
+self-verifying. GJ page scans:
+\texttt{notes/literature\_review/literature/gillman\_jerison\_pages/}.
+\end{abstract}
+
+\tableofcontents
+
+% ==================================================================
+\section*{Why this matters}
+\addcontentsline{toc}{section}{Why this matters}
+% ==================================================================
+
+\noindent\textbf{The question behind the question.} This problem-set serves the
+\emph{coherence/completion} programme: when an observer's system of finite
+distinctions is completed --- pushed to its Stone space, the ideal limit of
+everything the distinctions can resolve --- can that completed ``horizon'' always
+carry an honest ($\sigma$-additive) probability? In the classical/well-behaved
+case it can. Strategy D asks whether there is a completed horizon so structured
+that it \emph{cannot}: a Boolean algebra (equivalently a Stone space) that is rich
+enough to be atomless and non-$\sigma$-complete, yet admits \emph{no} strictly
+positive countably-additive probability at all. It is the sharp test of whether
+``coherence completes to probability'' has genuine exceptions, or holds broadly.
+
+\medskip
+\noindent\textbf{What an answer decides} (either way is informative):
+\begin{itemize}[nosep]
+  \item \textbf{Positive} (such a $B$ exists) $\Rightarrow$ some coherent,
+    non-atomic completed horizons are \emph{structurally measure-free}: honest
+    probability is not merely underdetermined there, it is \emph{unavailable}.
+    Probability-inhospitable horizons exist. (And a \emph{ZFC} example --- the live
+    candidate here --- would be a clean, axiom-free such object.)
+  \item \textbf{Negative} (no such $B$) $\Rightarrow$ $\sigma$-additive probability
+    is \emph{broadly available} in the non-$\sigma$-complete non-atomic regime. The
+    weight then shifts from \emph{existence} to \emph{selection}: not ``can honest
+    probability live here?'' but ``which admissibility/support condition --- a
+    CE-like commitment --- picks out the relevant measure or governs descent to
+    realised states?''
+\end{itemize}
+
+\medskip
+\noindent\textbf{Why it is hard, and where it sits.} The regime is genuinely
+delicate: the problem is likely independent of ZFC, and the nearest known
+constructions (Argyros, Kunen, Fedorchuk) each miss exactly one of the three
+conditions. The live entry point below is a single, ZFC, fully-specified candidate
+--- the Argyros \emph{pre-Gleason} space --- where two of the three conditions hold
+outright and only $\sigma$-completeness is open. That makes it a rare thing: a
+deep set-theoretic-topology question with a completely concrete, hand-checkable
+reduction (\S\ref{sec:gj}--\ref{sec:obstruction}). Whichever way it resolves, it
+sharpens the programme's central theme --- whether the completion of a distinction
+system is automatically a probability space.
+
+% ==================================================================
+\section{The problem, and the reductions that frame it}\label{sec:problem}
+% ==================================================================
+
+\begin{target}[Strategy D]
+Does there exist a Boolean algebra $B$ that is simultaneously
+\begin{enumerate}[label=\textup{(\roman*)},nosep]
+  \item \emph{non-$\sigma$-complete};
+  \item \emph{non-atomic} (atomless); and
+  \item \emph{measure-free}: $B$ carries no strictly positive $\sigma$-additive
+    probability measure?
+\end{enumerate}
+(On a non-$\sigma$-complete $B$, ``$\sigma$-additive'' is read for disjoint countable
+families whose join exists in $B$.) Likely independent of ZFC; nearest known
+constructions miss at least one condition.
+\end{target}
+
+The three conditions translate, under Stone duality (\S\ref{sec:stone}), into three
+topological conditions on $K=\St(B)$; the live work is to find a $K$ meeting all
+three. The sharpest current candidate is the \emph{pre-Gleason} Argyros space
+(\S\ref{sec:argyros}), where (ii),(iii) hold in ZFC and only (i) is open.
+
+% ==================================================================
+\section{Boolean algebras and Stone duality}\label{sec:stone}
+% ==================================================================
+
+\begin{definition}[Boolean algebra; the relevant notions]\label{def:ba}
+A Boolean algebra $B$ is a complemented distributive lattice $(B,\vee,\wedge,{}',0,1)$.
+\begin{itemize}[nosep]
+  \item $B$ is \emph{$\sigma$-complete} if every countable subset has a supremum in $B$.
+  \item An \emph{atom} is a minimal nonzero element; $B$ is \emph{atomless} if it has none.
+  \item A \emph{measure} is a finitely additive $\mu\colon B\to[0,1]$, $\mu(1)=1$;
+    \emph{strictly positive} if $\mu(b)>0$ for $b\neq 0$; \emph{$\sigma$-additive}
+    if $\mu(\bigvee_n b_n)=\sum_n\mu(b_n)$ for disjoint countable families with a join.
+\end{itemize}
+\end{definition}
+
+\begin{theorem}[Stone duality]\label{thm:stone}
+$B\mapsto \St(B)$ (the space of ultrafilters, with the topology generated by
+$\widehat b=\{U:b\in U\}$) is a duality between Boolean algebras and compact
+Hausdorff totally disconnected (\emph{Stone}) spaces, with $B\cong\Clop(\St(B))$
+(clopen algebra). Dictionary:
+\[
+\renewcommand{\arraystretch}{1.25}
+\begin{array}{ll}
+\textbf{Boolean } B & \textbf{Stone space } K=\St(B)\\
+\hline
+\text{atomless} & \text{no isolated points}\\
+\sigma\text{-complete} & \text{basically disconnected (Def.~\ref{def:bd})}\\
+\text{measure-free} & \text{no strictly positive Radon probability measure}
+\end{array}
+\]
+\end{theorem}
+
+\begin{definition}[Cozero set; basically/extremally disconnected]\label{def:bd}
+In a topological space $X$: a \emph{cozero set} is $\coz(f)=\{x:f(x)\neq0\}$ for
+continuous $f\colon X\to\mathbb R$ (in a zero-dimensional space, exactly the
+countable unions of clopens). Then~\cite[1H]{GJ}:
+\[
+  X \text{ \emph{basically disconnected}} \;:\Longleftrightarrow\;
+  \cl(G)\text{ is open for every cozero set }G;
+\]
+\[
+  X \text{ \emph{extremally disconnected}} \;:\Longleftrightarrow\;
+  \cl(U)\text{ is open for every open }U.
+\]
+(Extremally $\Rightarrow$ basically.)
+\end{definition}
+
+\begin{theorem}[Loomis--Sikorski, Boolean form]\label{thm:ls}
+For a Boolean algebra $B$: $B$ is $\sigma$-complete $\iff$ $\St(B)$ is basically
+disconnected $\iff$ every countable subset $\{b_n\}\subseteq B$ has a supremum,
+realised by $\cl(\bigcup_n\widehat{b_n})$ being clopen.
+\end{theorem}
+
+% ==================================================================
+\section{The Gillman--Jerison lever}\label{sec:gj}
+% ==================================================================
+
+Two facts from~\cite{GJ} (page scans in the repo) reduce ``$\St(B)$ basically
+disconnected'' to a condition on a base space and supply the witness shape.
+
+\begin{theorem}[$\beta X$ transfer; GJ 6M.1]\label{thm:6M}
+For a completely regular space $X$: $\beta X$ (Stone--\v Cech) is basically
+disconnected $\iff$ $X$ is basically disconnected. (Likewise extremally; clean
+biconditional, no side condition.)
+\end{theorem}
+
+\begin{theorem}[The non-b.d.\ witness shape; GJ 6W]\label{thm:6W}
+In $\beta\mathbb N\setminus\mathbb N$, the closure of the union of a
+\emph{strictly increasing} sequence of clopen sets is never open; hence
+$\beta\mathbb N\setminus\mathbb N$ is not basically disconnected. More generally
+$\beta X\setminus X$ is not basically disconnected for infinite discrete $X$.
+\end{theorem}
+
+\begin{remark}[The route around $\beta X$ --- intrinsic, unconditional]\label{rem:intrinsic}
+For the question below the object is $B=\Clop(\Y)$ and we need $\St(B)$ basically
+disconnected. By Thm.~\ref{thm:ls} this is \emph{unconditional}: $B$ is
+$\sigma$-complete $\iff$ every countable clopen union in $\St(B)$ has clopen
+closure. Pulling back, this is intrinsic to $B=\Clop(\Y)$ and needs no
+compactification. The GJ $\beta X$ form (Thm.~\ref{thm:6M}) gives the cleaner
+``compute in $\Y$ directly'' route \emph{only} under the sub-lemma that $\Y$ is
+\emph{strongly} zero-dimensional ($\dim\Y=0$, equivalently $\beta\Y$
+zero-dimensional, equivalently $\St(\Clop\Y)=\beta\Y$); see Task~\ref{task:szd}.
+Thm.~\ref{thm:6W} gives the \emph{witness template}: a strictly increasing clopen
+sequence with non-open-closure union.
+\end{remark}
+
+% ==================================================================
+\section{The Argyros pre-Gleason construction $(\Y,\T)$}\label{sec:argyros}
+% ==================================================================
+
+From Argyros~\cite[\S1.0--1.3]{Argyros1983}, read directly. Fix $n\ge 2$.
+
+\begin{definition}[The tree $T$]\label{def:tree}
+Choose pairwise-disjoint triples $S_{m,j}\in[\omega]^3$ ($m<\omega$, $1\le j\le 3^m$).
+Set $T_m=\bigcup_{j}[S_{m,j}]^2$ (the $2$-element subsets of each triple), so
+$|T_m|=3^{m+1}$, and $T=\bigcup_m T_m\subseteq[\omega]^2$. Order: for $s\in T_m$,
+$t\in T_{m+1}$, $s\prec t$ iff $s,t\in[S_{m+1,j}]^2$ for some $j$. A \emph{branch}
+$\Sigma$ is a maximal chain; it selects one pair from a nested sequence of triples.
+\end{definition}
+
+\begin{definition}[Anti-diagonals and the space]\label{def:space}
+For a pair $s=\{k,l\}\in[\omega]^2$ let $\Ks=\{x\in\{0,1\}^s : x_k\neq x_l\}$ (the
+\emph{anti-diagonal}: the two assignments on $s$ that differ). The space:
+\[
+  \Y=\{0,1\}^{\omega}\ \text{as a set;}\quad
+  \T = \text{topology with subbasis }
+  \bigl(\text{usual product-clopens}\bigr)\ \cup\ \{V_\Sigma:\Sigma\text{ a branch}\},
+\]
+\[
+  V_\Sigma = \prod_{s\in\Sigma}\Ks \times \{0,1\}^{\omega\setminus\bigcup\Sigma}
+  = \{x : x_k\neq x_l \text{ for every pair } \{k,l\}\in\Sigma\}.
+\]
+Each $V_\Sigma$ is \emph{closed} in the usual topology, hence $\T$-\emph{clopen}.
+Basic $\T$-clopen sets: $V = U\cap\bigcap_{j=1}^{k}V_{\Sigma_j}$, $U$ usual-clopen.
+$(\Y,\T)$ is completely regular Hausdorff, zero-dimensional ($\operatorname{ind}=0$:
+it has a clopen base), and has no isolated points.
+\end{definition}
+
+\begin{theorem}[Argyros 1.9~\cite{Argyros1983}]\label{thm:argyros}
+For $n\ge2$, $X_n:=\beta\Y$ has property $(\ast)$, hence the countable chain
+condition, and carries \emph{no} strictly positive measure. (So $\Clop(\beta\Y)$ is
+measure-free; and $\beta\Y$ is compact, zero-dimensional, no isolated points.)
+\end{theorem}
+
+\begin{remark}[Pre-Gleason vs.\ Gleason --- do not conflate]\label{rem:gleason}
+The famous ``Argyros example'' cited as \emph{extremally} disconnected
+(Comfort--Negrepontis 6.25) is the \emph{Gleason cover} $G(X_n)$, which is
+extremally disconnected (hence $\sigma$-complete --- the \emph{wrong} row for
+Strategy D) by construction. The present object is $\beta\Y$ itself, \emph{before}
+the Gleason step. Its $\sigma$-completeness is exactly what is open.
+\end{remark}
+
+\begin{fact}[Clopen algebras agree]\label{fact:clop}
+$\Clop(\beta\Y)\cong\Clop(\Y)$ (each clopen of $\Y$ and its complement are
+completely separated, so extend uniquely to $\beta\Y$). So the question
+``$\Clop(\beta\Y)$ $\sigma$-complete?'' $=$ ``$\Clop(\Y)$ $\sigma$-complete?''
+\end{fact}
+
+% ==================================================================
+\section{The open target}\label{sec:target}
+% ==================================================================
+
+\begin{mdframed}[backgroundcolor=black!5,linewidth=0.8pt]
+\begin{target}[Step 1, the live entry point]
+\textbf{Is $\Clop(\Y)$ $\sigma$-complete?} Equivalently (Thm.~\ref{thm:ls},
+Fact~\ref{fact:clop}, Def.~\ref{def:bd}):
+\[
+  \textbf{Does every countable union of }\T\textbf{-clopens in }\Y
+  \textbf{ have }\T\textbf{-open closure?}
+\]
+\begin{itemize}[nosep]
+  \item \textbf{NO} (some countable clopen union has non-open closure) $\Rightarrow$
+    $\Clop(\Y)$ non-$\sigma$-complete. Combined with Thm.~\ref{thm:argyros}
+    (measure-free) and no-isolated-points (atomless), $\beta\Y$ is a
+    \textbf{ZFC Strategy D example}.
+  \item \textbf{YES} $\Rightarrow$ $\beta\Y$ basically disconnected; this route is
+    closed (fall back to a consistency construction under $\Diamond$/CH).
+\end{itemize}
+\end{target}
+\end{mdframed}
+
+\begin{remark}[Status]\label{rem:status}
+Open, with the prior leaning \textbf{toward YES (route closed)} --- see the
+obstruction (\S\ref{sec:obstruction}). Not yet a proof either way.
+\end{remark}
+
+% ==================================================================
+\section{What is established: three families killed by one mechanism}\label{sec:obstruction}
+% ==================================================================
+
+Three candidate non-$\sigma$-completeness families all turn out to \emph{have}
+suprema; the third reveals a structural obstruction. (All elementary; verify by
+hand.) The relevant principle: in a field of sets, a countable family $\{A_k\}$ has
+a supremum $\iff$ $\cl(\bigcup_k A_k)$ is open (then it is the least clopen upper
+bound); the closure is the only obstacle.
+
+\begin{proposition}[Single branch]\label{prop:single}
+For one branch $\Sigma$, $V_\Sigma=\bigcap_m U^m$ for decreasing usual-clopens
+$U^m$; so $A_m=\Y\setminus U^m$ increases to $\Y\setminus V_\Sigma$, which is clopen
+(as $V_\Sigma$ is). Set-union in the algebra $\Rightarrow$ sup exists. \hfill$\times$
+\end{proposition}
+
+\begin{proposition}[Coordinate / all-zeros]\label{prop:zeros}
+The point $\bar 0=(0,0,\dots)$ lies in \emph{no} $V_\Sigma$ (every pair-restriction
+of $\bar 0$ is the diagonal $(0,0)\notin\Ks$), so $\T$ agrees with the usual
+topology at $\bar0$. With $C_m=[0^m1]$ (usual-clopen), $\bigcup_m C_m=\Y\setminus\{\bar0\}$,
+whose $\T$-closure is $\Y$ ($\bar0$ a limit). Every clopen upper bound is $\Y$;
+$\sup=\Y$ exists. \hfill$\times$
+\end{proposition}
+
+\begin{proposition}[$V_\Sigma$-accumulation to a limit branch]\label{prop:accum}
+Let branches $\Sigma_1,\Sigma_2,\dots$ share longer and longer initial segments,
+converging to a limit branch $\Sigma_*$; set $A_k=V_{\Sigma_k}$. Then
+$V_{\Sigma_*}\subseteq\cl_\T(\bigcup_k V_{\Sigma_k})$ (an \emph{overshoot}):
+post-divergence pairs of $\Sigma_*$ and $\Sigma_k$ lie on \emph{disjoint} triples
+(Def.~\ref{def:tree}), so the anti-diagonal constraints are jointly satisfiable,
+so every $\T$-neighbourhood of an $x\in V_{\Sigma_*}$ meets some $V_{\Sigma_k}$.
+\emph{But this is not a witness:} $V_{\Sigma_*}$ is itself a subbasic $\T$-open set,
+so every overshoot point is \emph{interior} to the closure; thus
+$\cl=(\text{open union})\cup(\text{interior overshoot})$ is open, $\sup$ exists.
+\hfill$\times$
+\end{proposition}
+
+\begin{mdframed}[backgroundcolor=black!4,linewidth=0.4pt]
+\textbf{The obstruction.} A witness needs a countable clopen union with
+\emph{non-open} closure --- a closure point that is \emph{not interior}. But the
+new closure points produced by $V_\Sigma$-accumulation always land \emph{inside} an
+open $V_\Sigma$, hence interior. So \emph{$V_\Sigma$-built families cannot witness
+non-$\sigma$-completeness}: the same mechanism kills all three. A genuine witness
+needs a closure point lying in \emph{no} $V_\Sigma$ --- a true boundary point ---
+and the abundance of open $V_\Sigma$ makes that hard. This shifts the prior toward
+``route closed.'' \emph{(Strong structural argument, not yet a formalised theorem:
+the step ``the only new closure points come from $V_\Sigma$-accumulation'' wants
+tightening --- see Task~\ref{task:tighten}.)}
+\end{mdframed}
+
+% ==================================================================
+\section{Sub-tasks --- the pen-and-paper frontier}\label{sec:tasks}
+% ==================================================================
+
+\subsection*{Witness side (lower-probability per the obstruction)}
+
+\begin{task}[A non-interior closure point]\label{task:witness}
+Find a countable family of $\T$-clopens $\{A_k\}$ and a point
+$x\in\cl_\T(\bigcup_k A_k)$ such that $x$ lies in \emph{no} $V_\Sigma$ contained in
+the closure --- i.e.\ $x$ has no $\T$-open neighbourhood $\subseteq$ closure.
+(By \S\ref{sec:obstruction}, $V_\Sigma$-built families fail; this needs a
+genuinely different family. The all-zeros point $\bar0$ is the archetype of a
+``point in no $V_\Sigma$,'' yet its closure was still $\Y$, open --- understand why
+and whether any family avoids that.) Success $\Rightarrow$ ZFC Strategy D example.
+\end{task}
+
+\subsection*{Impossibility side (where the evidence points)}
+
+\begin{task}[Tighten the obstruction to a theorem]\label{task:tighten}
+Prove the structural claim of \S\ref{sec:obstruction}: \emph{every} countable union
+of $\T$-clopens has open $\T$-closure (equivalently $\Y$ basically disconnected,
+equivalently $\Clop(\Y)$ $\sigma$-complete). The crux is to show the only closure
+points of $\bigcup_k A_k$ beyond the (open) union itself arise from
+$V_\Sigma$-accumulation and are therefore interior. Use the basic-clopen normal form
+$V=U\cap\bigcap_j V_{\Sigma_j}$ (Def.~\ref{def:space}) and Argyros's separation
+analysis~\cite[1.3]{Argyros1983}.
+\end{task}
+
+\begin{task}[The strong-zero-dimensionality sub-lemma]\label{task:szd}
+Decide: is $(\Y,\T)$ \emph{strongly} zero-dimensional ($\dim\Y=0$)? This is
+\emph{not} free from the clopen base ($\operatorname{ind}\Y=0$): $\T$ is strictly
+finer than the product topology, which can break the Lindel\"of condition that would
+upgrade $\operatorname{ind}=0$ to $\dim=0$. If \textbf{yes}, then $\beta\Y$ is
+zero-dimensional, $\St(\Clop\Y)=\beta\Y$, and GJ 6M (Thm.~\ref{thm:6M}) lets the
+whole question be computed as ``every cozero set of $\Y$ has $\T$-open closure''
+directly. Needed for the impossibility direction; the witness direction routes
+around it (Rmk.~\ref{rem:intrinsic}).
+\end{task}
+
+\begin{task}[Fallback: consistency construction]\label{task:cons}
+If $\Y$ is basically disconnected (route closed), pivot to: construct a Strategy D
+algebra under $\Diamond$/CH (attack mode C of the dossier), and separately inspect
+the Kunen and Fedorchuk examples against the three conditions.
+\end{task}
+
+\begin{remark}[Discipline]\label{rem:discipline}
+The basic-disconnectedness verdict is not Lean-checkable and the prior on a clean
+ZFC positive is low (decades of expert work nearby). Treat a candidate witness
+(Task~\ref{task:witness}) as a hypothesis to attack: is its closure point genuinely
+non-interior? Treat a candidate impossibility proof (Task~\ref{task:tighten}) as
+needing the ``only-$V_\Sigma$-accumulation'' step rigorous, not assumed.
+\end{remark}
+
+% ==================================================================
+\begin{thebibliography}{9}
+\bibitem{Argyros1983} S.~A.~Argyros, \emph{On compact spaces without strictly
+  positive measure}, Pacific J.\ Math.\ \textbf{105} (1983), no.~2, 257--272.
+\bibitem{GJ} L.~Gillman and M.~Jerison, \emph{Rings of Continuous Functions},
+  Van Nostrand, 1960. (\S1H basically/extremally disconnected; \S6M $\beta X$
+  transfer; \S6W the increasing-clopen non-b.d.\ witness. Page scans:
+  \texttt{notes/literature\_review/literature/gillman\_jerison\_pages/}.)
+\bibitem{CN} W.~W.~Comfort and S.~Negrepontis, \emph{Chain Conditions in
+  Topology}, Cambridge Univ.\ Press, 1982. (Ch.~6; Thm.~6.25 = Gleason-cover
+  Argyros example, Lemma 6.2 = Gleason spaces.)
+\bibitem{Fremlin} D.~H.~Fremlin, \emph{Measure Theory}, vol.~5, \S531--539
+  (measure-free / Maharam-type background).
+\end{thebibliography}
+
+\end{document}

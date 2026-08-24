@@ -1,0 +1,102 @@
+{
+ "$meta": {
+  "title": "Taxonomies registry — the tree of problem-collection taxonomies",
+  "purpose": "The single entry point to every collection taxonomy. Each collection has a JSON taxonomy = a zoom-out index of its attempts; this file registers them so the tree itself is navigable as collections come and go. Load THIS first, then the collection taxonomy, then its `detail` leaves — three zoom levels.",
+  "updated": "2026-07-16",
+  "schema_doc": "notes/TAXONOMY_SCHEMA.md",
+  "paths_relative_to": "repository root",
+  "how_to_use": "Pick a collection by `status`/`one_line`; open its `taxonomy`; scan that file's category one-liners for the 50,000-ft shape; follow a `detail` pointer to the leaf md for full reasoning.",
+  "modularity": "Collections are independent registry entries. To add one: author a *_taxonomy.json (per TAXONOMY_SCHEMA.md) and add a row here. To re-parent material across collections as abstraction levels shift, move entries between taxonomies by `id` and update cross-links — no prose rewrite. Entries reference each other across collections via [[file-stem]] wiki-links and shared `id`s, so the tree mutates without breaking references.",
+  "corpus_spine": "papers/spine/ (umbrella note, 5pp): reads the corpus through the filtration S⊇S_σ⊇S_df^σ; its architectural claims (quarantine theorem + tame tower + two-gap ladder) are PROVED as of 2026-07-08. Reference-only. The former three-way latticehood conjecture is REFUTED literally; the surviving theory-front question is OML finite-trace σ-liftability (latticehood => Phi) at regularity."
+ },
+ "collections": [
+  {
+   "id": "sigma_essential",
+   "name": "σ-essential contextual state / OML descent",
+   "taxonomy": "notes/open_questions/sigma_essential_taxonomy.json",
+   "status": "RESOLVED-AMENDED: the OMP witness is Lean-certified and promoted. The OML/lattice form and literal irreducibility remain open; the lattice attack now has its own taxonomy.",
+   "one_line": "The amended OMP form is a ZFC theorem; the OML finite-trace liftability problem is tracked separately in oml_lattice_taxonomy.json.",
+   "entries": 99,
+   "pruned": "CHARTED ledger + 4 dead maps retired; unique content extracted to load_bearing_facts / construction_runs / navara_ptak leaves"
+  },
+  {
+   "id": "oml_lattice",
+   "name": "OML finite-trace σ-liftability",
+   "taxonomy": "notes/open_questions/oml_attack/oml_lattice_taxonomy.json",
+   "status": "OPEN — zero-progress PENV production certified; prioritization 2026-07-18: extension-screen E-thread (non-extendability = necessary witness condition) then sigma-layer pull-document then batched grammar engine; relay-hunt route open, unprioritized.",
+   "one_line": "Does latticehood force every finitely additive two-valued state to be finitely approximable by σ-additive states?",
+   "entries": 102
+  },
+  {
+   "id": "reconstruction_commensurability",
+   "name": "Reconstruction / commensurability classification",
+   "taxonomy": "papers/reconstruction/notes/commensurability_taxonomy.json",
+   "status": "OPEN - active successor programme. Pruning lemma CLOSED all k. Universal impossibility (tamings complete) = ACTIVE ATTACK, own branch — Joint 2 REDUCED 2026-07-09 to a single named lemma L-B (primitive => balanced-or-finite-safe = 2 Perron-Frobenius exclusions; VALIDATED ~3100 primitives 0-cex, OPEN). Validated object: unsafe at L <=> swap-monodromy 2-fold cover closes = bar-D unbalanced. R1 backbone: ~25,700 primitives (A=3+A=4 FULL) 0-cex to primitive+infinite-safe=>evens. SCOPE: winding-2 (bridge to full-safety checked not proved). PAPER: papers/reconstruction/ (10pp, Type-6 bridge; winding criterion + CL assembly; all 8 owed Phase-4 proofs HAND-VERIFIED 2026-07-09 + 2 editorial fixes applied). Winding kernel + Lemma 2 CERTIFICATE-GRADE in Lean.",
+   "one_line": "When does pairwise coherence force realisability (EA=>PR(R))? Facet-shape taxonomy of conv(cell-incidence vectors); all hardness in the constraint variety. ~16 substantial theorems (parity, free/acyclic, tamings #7-#10, forest-counting, symmetric-MD Circuit Localization, symmetric expulsion, SCC reduction, PRUNING LEMMA all-k). Winding criterion = the spine (iff, closed). Universal impossibility = the completeness theorem that would de-taxonomize the tamings; ACTIVE (see universal_impossibility_taxonomy.json).",
+   "entries": 126
+  },
+  {
+   "id": "universal_impossibility",
+   "name": "Universal impossibility — completeness theorem for the tamings",
+   "taxonomy": "papers/reconstruction/notes/universal_impossibility_taxonomy.json",
+   "status": "OPEN - ACTIVE ATTACK (no half measures, 2026-07-09). The paper needs this to complete: converts 'ten sufficient tamings (a collection, reads as stamp-collecting)' into 'one N&S classification (a theorem)'. Reduces via Joint 1 (pruning lemma, CLOSED all k this session) + Joint 2 (OPEN). Joint-2 crux CORRECTED: NOT 'the non-symmetric case' (golden-mean refuted — its safety is signability/TU firing on the bipartite residue); the real crux = the tamings are the ONLY sources of residue-safety in a primitive language (= 'tamings complete'). Counterexample hunt is CO-EQUAL (fork could exist >=5 states; evidence thin). Win = full theorem OR reduction to one named lemma (the paper's stated open problem).",
+   "one_line": "Are the ten tamings EXHAUSTIVE (no fork)? Spun off the reconstruction collection 2026-07-09 when the 'ten stamps' feel was diagnosed as the missing completeness theorem. Joint 1 closed (pruning, all k, 73728-check scan); Joint 2 open (sources-of-residue-safety = tamings). Subtargets: girth-locking rigour, potential/phase-code independence. Parallel fork-hunt at scale.",
+   "entries": 18
+  },
+  {
+   "id": "kappa_q",
+   "name": "κ_Q characterization ladder",
+   "taxonomy": "notes/covered_leads/kappa_q_taxonomy.json",
+   "status": "PARKED (revives on the T1 temperature test)",
+   "one_line": "How much of a hidden variable Z can be characterized from the conditional kernel κ_Q? A 4-level ladder, levels 1-3 attainable, level 4 not ('limit of definiteness'). All contribution-type claims audited to fail.",
+   "entries": 23,
+   "pruned": "none (no redundant index; pure addition)"
+  },
+  {
+   "id": "paper_iii",
+   "name": "Paper III — dynamics + observational resolution",
+   "taxonomy": "notes/unsorted/finite_sample/paper_iii_taxonomy.json",
+   "status": "MIXED (observational-resolution live; fibre-mixing dead; operational-boundary bifurcated)",
+   "one_line": "Finite-sample rates as observable-distinguishability growth (D = resolution exponent, not topology), plus the dead fibre-mixing bridge (located p_z-vs-p_z² error) and the surviving smoothness-concentration PFA test.",
+   "entries": 27,
+   "pruned": "entropy_characterization.md (redundant kill-marker; content in fibre_mixing.md)"
+  },
+  {
+   "id": "relational_prob",
+   "name": "Relational probability / reconstruction",
+   "taxonomy": "notes/covered_leads/relational_prob_taxonomy.json",
+   "status": "ARCHIVE-ONLY (all routes killed)",
+   "one_line": "Can relational morphisms / σ-additive disintegration / contextuality give a novel reconstruction theorem? Four routes, all killed on prior-art or triviality. Fence: classical observables always jointly distribute.",
+   "entries": 8,
+   "pruned": "none (disintegration_diagnostic.md re-attributed to paper_iii, not double-listed)"
+  },
+  {
+   "id": "ce_nonderivability",
+   "name": "Paper I / Collective-Exhaustion non-derivability",
+   "taxonomy": "notes/unsorted/foundations/ce_nonderivability/ce_taxonomy.json",
+   "status": "PARKED (fact survives; Paper I headline killed)",
+   "one_line": "Can collective exhaustion (σ-additivity under Stone completion) be derived from first-order coherence? No — irreducible. Fact survives (folklore); Paper I sunk by the σ-Loomis–Sikorski realization gap; 6 kills recorded.",
+   "entries": 20,
+   "pruned": "none (development.md Bucket-C findings indexed in place)"
+  },
+  {
+   "id": "paper_ii",
+   "name": "Paper II — EA/PR/VDR, van Fraassen-to-duality",
+   "taxonomy": "papers/paper_ii/paper_ii_taxonomy.json",
+   "status": "REVISE (the SURVIVOR — strongest novelty zone)",
+   "one_line": "Indexes realism positions EA⊂PR⊂VDR by distributivity, bridging McDonald–Bimbó OML duality to van Fraassen. Type-6 bridge clears; crown jewel sound; 4 blocking citation/notation fixes before submission.",
+   "entries": 19,
+   "pruned": "none (excludes stale programme_reception/ meta — kept as standalone historical docs)"
+  }
+ ],
+ "not_yet_taxonomized": {
+  "note": "Programme-meta material that is NOT a problem-collection and is intentionally NOT given a taxonomy. Kept as standalone docs.",
+  "items": [
+   "notes/programme/program_overview.md — authoritative state doc (per CLAUDE.md)",
+   "notes/programme/genealogy.md + genealogy_vision.md — programme narrative (historical pair)",
+   "notes/programme/contribution_evaluation.md — the 7-type audit framework",
+   "notes/archive/programme_reception_2026-05/* — reception of a withdrawn programme arc (archived 2026-07-10)"
+  ]
+ },
+ "updated": "2026-08-04"
+}

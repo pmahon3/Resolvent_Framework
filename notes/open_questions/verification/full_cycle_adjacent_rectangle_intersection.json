@@ -1,0 +1,23 @@
+{
+  "R_contains_all_shared_cell_traces": true,
+  "R_position11_saturated_trace_count": 56,
+  "S_contains_all_shared_cell_traces": true,
+  "S_position00_saturated_trace_count": 56,
+  "base_full_cycle_payload_sha256": "7dc91cd1938b63741d0315aa35fb1222d2aa366c97a3f6b9e67fe0d6fdc766b0",
+  "command": "python3 notes/open_questions/verification/full_cycle_adjacent_rectangle_intersection.py --verify",
+  "common_equals_56_event_shared_cell": true,
+  "common_saturated_trace_count": 56,
+  "completed_events_each": 18676,
+  "evidence_class": "executable verified exhaustive over all completed events and macrofibres",
+  "extra_common_trace_count": 0,
+  "intersection_theorem": "The two completed grammar pullbacks intersect exactly in the 56-event shared conditional cell.",
+  "orientation_R": "shared global D11 is local position11; node6 split source remains local D00 and is not shared",
+  "orientation_S": "reoriented rectangle rows {1,2}, columns {1,2}; shared global D11 is local position00, so the node6 split source lies in the shared cell; state labels are identified literally with no q/r or activation permutation",
+  "payload_sha256": "d51b57b847707dc8dd79397662c3dbbac72243d9a5e867cbf139bb76d9f8ec69",
+  "producer_sha256": "dfbe123fb5ccc2477ce74dc3eba04d81024ec1c34db1e4cf528f1c58176f7354",
+  "proof_method": "For each closed event and each macrofibre, reduced-MDD restriction to the shared coordinate must leave a terminal root. Truth values are then checked for equality across every occurrence of each of the 224 shared states. Surjective fibre-product pullbacks are equal exactly when these traces are equal.",
+  "schema": "full-cycle-adjacent-rectangle-intersection-v1",
+  "schema_version": "1.0",
+  "shared_cell_trace_count": 56,
+  "smallest_extra_common_traces": []
+}

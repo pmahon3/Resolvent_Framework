@@ -1,0 +1,755 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{mathtools}
+\usepackage{enumitem}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{shapes,positioning}
+
+% ---------------------------------------------------------------------
+% Status-labelling discipline. Every mathematical claim below carries one
+% of these five tags, defined here and used consistently throughout.
+% ---------------------------------------------------------------------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{extthm}[theorem]{External Theorem}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{remark}
+\newtheorem{heuristic}[theorem]{Heuristic}
+\newtheorem{falsified}[theorem]{Falsified}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{example}[theorem]{Example}
+
+\title{Where the Problem Stands: Contextual States on Concrete Orthomodular
+Lattices\\[4pt]\large A hand-held mathematical exposition}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{center}
+\begin{minipage}{0.92\textwidth}
+\small
+\noindent\textbf{How to read this document.} \textbf{Theorem / Proposition /
+Corollary / Lemma}: proved in this programme's own work (proof given, marked
+where compressed). \textbf{External Theorem}: proved in the literature, cited
+not re-derived. \textbf{Conjecture}: precise, open, not asserted.
+\textbf{Heuristic}: an unproved intuition. \textbf{Falsified}: investigated
+and shown false, recorded so it is not retried under a new name.
+\end{minipage}
+\end{center}
+
+\bigskip
+
+\section*{Summary}
+\addcontentsline{toc}{section}{Summary}
+
+Can a concrete system of yes/no questions carry a probability assignment that
+is consistent at every finite stage, yet has no countably-additive completion?
+Formally: a two-valued state $s_0$ on a finite piece of a concrete
+$\sigma$-class $L$ that is finitely coherent (agrees with \emph{some} global
+finitely additive state) but extends to \emph{no} global $\sigma$-additive
+one. If $L$ is only an \emph{orthomodular poset} (meets not required), the
+answer is \textbf{yes} — Theorem~\ref{thm:main} below, ZFC, no extra
+hypotheses. If $L$ must be an \emph{orthomodular lattice} (every pair has a
+meet), the answer is \textbf{conjectured no} (Conjecture~\ref{conj:main}) and
+open. Three obstruction results plus one external theorem all point toward
+``no'': the obstacle is a genuinely infinitary, $\omega_1$-scale combinatorial
+question (\S5), and no finite method can reach it. Two precise open routes are
+stated in \S7.
+
+\tableofcontents
+
+% =======================================================================
+\section{The setting, from scratch}
+% =======================================================================
+
+We build the objects the problem is about, slowly. Nothing here requires
+quantum logic; only Boolean algebras, measures, and order theory. Each
+definition gets a one-sentence gloss, a formal statement, and a computation.
+
+\subsection{Why orthomodular lattices, informally}
+
+Classical probability assumes every pair of events is compatible: the events
+of an experiment form a Boolean algebra. Drop that assumption — keep only
+``$A$ implies $B$'' and ``the complement of $A$,'' but stop requiring that any
+two events have a joint refinement — and what survives is an
+\emph{orthomodular lattice}. Everything below is pure mathematics about such
+structures; no physics is assumed.
+
+\subsection{Orthomodular lattices}
+
+\begin{definition}[Orthomodular lattice]
+\label{def:oml}
+\textbf{Gloss:} events with a well-behaved ``did not happen'' operation, but
+no distributive law.
+
+\smallskip
+\noindent A bounded lattice $L$ ($0,1,\wedge,\vee$) with an order-reversing
+involution $a\mapsto a^\perp$ such that
+\[
+  a\vee a^\perp = 1,\qquad a\wedge a^\perp = 0,\qquad a\le b\Rightarrow
+  b^\perp\le a^\perp,\qquad a^{\perp\perp}=a,
+\]
+and, the \emph{orthomodular law},
+\[
+  a\le b \ \Longrightarrow\ b = a\vee(b\wedge a^\perp).
+\]
+$L$ is Boolean exactly when every two elements are compatible (distributivity
+holds); the interesting case is when they are not.
+\end{definition}
+
+\begin{example}[$MO_2$: the smallest non-Boolean case]
+\label{ex:mo2}
+Six elements: $0,1$, atoms $a,a^\perp,b,b^\perp$, with
+\[
+  a\wedge b = 0,\qquad a\vee b = 1,\qquad a\wedge b^\perp = 0,\qquad
+  a\vee b^\perp = 1,
+\]
+symmetrically in $a^\perp,b^\perp$. Check orthomodularity directly: the only
+nontrivial instance of $a\le b\Rightarrow b=a\vee(b\wedge a^\perp)$ has $a\le
+b$ forcing $a\in\{0,b\}$, so it holds vacuously or trivially — no case
+produces a violation. Distributivity fails at
+\[
+  a\wedge(b\vee b^\perp) = a\wedge 1 = a,\qquad\text{but}\qquad
+  (a\wedge b)\vee(a\wedge b^\perp) = 0\vee 0 = 0,
+\]
+and $a\neq 0$. So $MO_2$ is orthomodular but not Boolean — the minimal such
+example. Every finite orthomodular lattice, $MO_2$ included, turns out to be
+\emph{tame} in the sense of Definition~\ref{def:tame} — Proposition
+\ref{prop:finite-obstruction} below.
+\end{example}
+
+\begin{example}[The pentagon]
+\label{ex:pentagon}
+Five atoms $p_1,\dots,p_5$ in a cycle; $p_i$ compatible with $p_{i+1}$ (indices
+mod 5, sharing a Boolean block $\{0,p_i,p_{i+1},p_i^\perp\wedge
+p_{i+1}^\perp,1\}$), incompatible with $p_{i+2}$. Finite, concrete,
+non-Boolean, and — used again in \S8 — a standard test bed precisely because
+finiteness forces tameness regardless of what else is true of it.
+\end{example}
+
+\subsection{Concrete (set-representable) orthomodular lattices}
+
+\begin{definition}[Concrete $\sigma$-class; OMP vs.\ OML]
+\label{def:concrete}
+\textbf{Gloss:} subsets of a set $\Omega$, closed under complement and
+countable disjoint union; a lattice exactly when every pair also has a
+genuine set-theoretic meet inside the family.
+
+\smallskip
+\noindent Fix $\Omega$. A \emph{concrete $\sigma$-class} $L\subseteq
+\mathcal P(\Omega)$ contains $\emptyset,\Omega$, is closed under
+complement $E\mapsto\Omega\setminus E$, and closed under countable unions of
+pairwise-disjoint members. Order is $\subseteq$. Every such $L$ is
+automatically an \textbf{OMP} (orthomodular poset — pairs need not have a
+meet in $L$). If additionally every $A,B\in L$ have a $\subseteq$-greatest
+lower bound in $L$, call $L$ an \textbf{OML} (orthomodular lattice). The OMP
+vs.\ OML distinction is the entire subject of this document.
+\end{definition}
+
+Concreteness matters: an abstract orthomodular lattice can be represented in
+exotic non-set ways, but a concrete one is tied to honest membership facts.
+(The projection lattice of a Hilbert space generically fails to be concrete —
+Kochen--Specker — but every object below is concrete by definition, so that
+obstruction never enters here.)
+
+\subsection{States}
+
+\begin{definition}[Two-valued state]
+\label{def:state}
+\textbf{Gloss:} a yes/no probability, additive over disjoint unions.
+
+\smallskip
+\noindent For $B\subseteq L$ closed under complement, a state is
+$s:B\to\{0,1\}$, $s(\Omega)=1$, with
+\[
+  s\Big(\bigcup_i A_i\Big) = \sum_i s(A_i)
+\]
+for every pairwise-disjoint $\{A_i\}\subseteq B$ with union in $B$: finite
+family for \emph{finitely additive}, countable family for
+\emph{$\sigma$-additive}. For $\omega\in\Omega$, $\delta_\omega(E) :=
+\mathbf 1[\omega\in E]$ is always $\sigma$-additive — a \emph{Dirac} state;
+every other state is \emph{non-Dirac}.
+\end{definition}
+
+The entire problem lives in the gap between ``additive over finite unions''
+and ``additive over countable unions.''
+
+\subsection{Blocks}
+
+\begin{definition}[Block]
+\label{def:block}
+\textbf{Gloss:} the largest all-compatible piece containing a given event —
+an ordinary Boolean $\sigma$-algebra sitting inside $L$.
+
+\smallskip
+\noindent A \emph{block} of $L$ is a maximal pairwise-compatible subfamily.
+Every element of $L$ lies in some block (Zorn's lemma), and each block, on
+its own, is a Boolean $\sigma$-algebra of subsets of $\Omega$.
+\end{definition}
+
+All non-classicality lives \emph{between} blocks, never inside one — the
+single fact the rest of this document is built on (made precise as Theorem
+\ref{thm:blocks-boolean}).
+
+\subsection{Essential contextual states}
+
+\begin{definition}[Essential contextual state]
+\label{def:essential}
+\textbf{Gloss:} a finite probability fragment consistent at the finite level,
+yet incompatible with \emph{every} countably-additive completion.
+
+\smallskip
+\noindent Fix a concrete $\sigma$-class $L$, a finite $\perp$-closed
+$B\subseteq L$, and a state $s_0$ on $B$. Call $s_0$ \emph{finitely coherent
+on $L$} if it extends to some finitely additive state on all of $L$. Call
+$s_0$ \emph{$\sigma$-essential} if it is finitely coherent on $L$ but no
+$\sigma$-additive state on $L$ extends it.
+\end{definition}
+
+The finite-coherence clause is load-bearing, not decorative — quantified
+precisely in Proposition~\ref{prop:amendment}: without it, a
+self-contradictory fragment that no state of any kind extends would trivially
+(and vacuously) satisfy the definition.
+
+\begin{definition}[Tame]
+\label{def:tame}
+$L$ is \emph{tame} ($\Phi(L)$) if every finitely coherent finite pattern on
+$L$ extends to a $\sigma$-additive state — i.e.\ $L$ carries no
+$\sigma$-essential state.
+\end{definition}
+
+% =======================================================================
+\section{The central question, stated}
+% =======================================================================
+
+\begin{conjecture}[The central conjecture]
+\label{conj:main}
+Every concrete $\sigma$-complete orthomodular \textbf{lattice} is tame.
+\end{conjecture}
+
+\begin{center}
+\begin{tabular}{ll}
+\hline
+OMP (Definition~\ref{def:concrete}, no meet requirement) & \textbf{false} — witness exists, Thm.~\ref{thm:main}\\
+OML (meets required) & \textbf{open} — Conjecture~\ref{conj:main}\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{A second, equivalent, face}
+
+\begin{theorem}[Cluster reformulation]
+\label{thm:phi-cluster}
+Call $\mathcal C\subseteq L$ finite an \emph{f.a.-coherent cluster} if some
+finitely additive state on $L$ assigns $1$ to every member. Then:
+\begin{enumerate}[label=(\alph*)]
+\item (block form) every finite pattern on a block, coherent with some
+  finitely additive state on $L$, extends to a $\sigma$-additive state on
+  $L$;
+\item (cluster form) every f.a.-coherent cluster $\mathcal C$ is assigned $1$
+  throughout by a single $\sigma$-additive state.
+\end{enumerate}
+are equivalent.
+\end{theorem}
+
+\emph{Proof.} (a)$\Rightarrow$(b): given $\mathcal C$, let $\mu$ witness its
+coherence; the pattern $s_0 := \mu|_{\perp\text{-closure}(\mathcal C)}$ is a
+block-level finite pattern coherent with $\mu$, so (a) extends it
+$\sigma$-additively, and that extension assigns $1$ throughout $\mathcal C$
+by construction. (b)$\Rightarrow$(a): given a coherent block pattern $s_0$ on
+$B$, let $\mathcal C := \{A\in B: s_0(A)=1\}$; this is an f.a.-coherent
+cluster, so (b) gives a $\sigma$-additive state assigning it $1$ throughout,
+and $\perp$-closure forces the same state to assign the $s_0$-false members
+$0$, so it agrees with $s_0$ on all of $B$. $\hfill\square$
+
+Both directions use no property of $L$ beyond $\perp$-closure — in
+particular, no latticehood. Machine-verified in both directions.
+
+We do \emph{not} present a third independent face. The tempting split ``no
+Dirac state realizes the pattern'' / ``no non-Dirac state does either'' is a
+tautology (every $\sigma$-state is one or the other), not a reformulation —
+its real content is Theorem~\ref{thm:localization} in \S3.
+
+% =======================================================================
+\section{What is proved: the solid ground}
+% =======================================================================
+
+\subsection{All non-classicality lives between blocks}
+
+\begin{theorem}[Blocks are Boolean $\sigma$-fields]
+\label{thm:blocks-boolean}
+Every block $M$ of a concrete $\sigma$-class $L$, restricted to itself, is a
+Boolean $\sigma$-algebra of subsets of $\Omega$: closed under complement and
+countable disjoint union, with every such union already inside $M$.
+Consequently a countable disjoint family is tested for $\sigma$-additivity
+inside the single block containing it.
+\end{theorem}
+
+\emph{Proof sketch.} Maximality of $M$ as a pairwise-compatible family forces
+closure under the Boolean operations restricted to $M$ (standard
+maximality argument). $\hfill\square$
+
+\emph{What this buys.} The search for a witness reduces entirely to an
+\emph{assembly} question — how finite patterns on different blocks can or
+cannot be jointly realized — never a within-block question.
+
+\subsection{Why finite coherence is load-bearing}
+
+\begin{proposition}[Boolean baseline]
+\label{prop:amendment}
+If $L$ is (all of) a Boolean $\sigma$-algebra and $s_0$ is finitely coherent
+on $L$, then $s_0$ extends to a Dirac state on $L$. So a Boolean carrier is
+tame for free, not merely by conjecture.
+\end{proposition}
+
+\emph{Proof.} Let $\mu\supseteq s_0$ witness coherence, $B_0$ the finite
+Boolean subalgebra generated by $B$. Its atoms partition $\Omega$ into
+finitely many pieces $a_1,\dots,a_k$; finite additivity gives
+\[
+  1 = \mu(\Omega) = \sum_{j=1}^k \mu(a_j),
+\]
+each $\mu(a_j)\in\{0,1\}$, so exactly one $a_{j_0}$ has $\mu(a_{j_0})=1$ and
+$a_{j_0}\neq\emptyset$. Any $\omega\in a_{j_0}$ gives $\delta_\omega$ agreeing
+with $\mu$ on $B_0$, since each member of $B_0$ either contains $a_{j_0}$ or
+is disjoint from it. $\hfill\square$
+
+\emph{Why it matters.} Drop finite coherence and a self-contradictory pattern
+(no global finitely additive state agrees with it at all) trivially fails to
+extend $\sigma$-additively — for a reason with nothing to do with countable
+additivity. Proposition~\ref{prop:amendment} shows the clause is not merely
+excluding degenerate cases: on the \emph{most} classical carrier, finite
+coherence already forces the strongest possible outcome. Any genuine witness
+must live where this forcing fails — non-Boolean, as \S4's theorem does.
+
+\subsection{Countably generated blocks force triviality}
+
+\begin{theorem}[Countably generated boundary extension]
+\label{thm:ctbly-gen}
+Let $A\subseteq L$ be a Boolean $\sigma$-subalgebra generated by countably
+many $(a_n)_{n<\omega}$, faithfully $\sigma$-embedded into a
+$\sigma$-complete OML $L$ whose $\sigma$-states order-separate points. Then
+every $\sigma$-state $\mu$ on $A$ extends to one on $L$.
+\end{theorem}
+
+\emph{Proof.} Set $b_n := a_n$ if $\mu(a_n)=1$, else $b_n:=a_n^\perp$; each
+finite meet $b_1\wedge\cdots\wedge b_n$ has $\mu$-value $1$. $\sigma$-additivity
+of $\mu$ forces
+\[
+  c_\mu := \bigwedge_{n<\omega} b_n \ \neq\ 0.
+\]
+Order-separation in $L$ supplies a $\sigma$-state on $L$ charging the image
+of $c_\mu$; it agrees with $\mu$ on each generator $a_n$, hence on all of
+$A$. $\hfill\square$
+
+\emph{What this buys.} Any witness confined to — or faithfully,
+separatingly embedded in — a countably generated piece always extends. A
+witness, if one exists on a lattice, cannot be countably generated in this
+sense.
+
+\subsection{The Dirac/non-Dirac partition}
+
+\begin{theorem}[Localization to the non-Dirac core]
+\label{thm:localization}
+For finite $\perp$-closed $B\subseteq L$ and state $s_0$ on $B$: $s_0$
+extends to no $\sigma$-state on $L$ $\iff$
+\[
+  \underbrace{\bigcap\{A\in B : s_0(A)=1\} = \emptyset}_{\text{(i) no Dirac
+  extension}} \quad\text{and}\quad \underbrace{\text{no non-Dirac
+  $\sigma$-state extends $s_0$.}}_{\text{(ii)}}
+\]
+\end{theorem}
+
+\emph{Proof.} Every $\sigma$-state is Dirac or non-Dirac, mutually exclusive
+and jointly exhaustive, so ``none extends'' $\iff$ (i) and (ii). For (i):
+$\delta_\omega|_B = s_0$ iff $\omega$ lies in every $s_0$-true member of $B$
+(the $s_0$-false members are automatic by $\perp$-closure). $\hfill\square$
+
+This is a tautology — ``a state is Dirac or it isn't'' — not an independent
+reformulation. Its use: (i) is a purely finite, checkable condition that
+Theorem~\ref{thm:main}'s construction shows can be arranged \emph{independently}
+of (ii). All difficulty collapses onto (ii).
+
+\subsection{The necessary condition, with its exact choice-strength}
+
+\begin{theorem}[Non-extendability $\Leftrightarrow$ FIP, calibrated]
+\label{thm:nonextend}
+For $s_0$ on finite $\perp$-closed $B$, let $V := \{A\in B : s_0(A)=1\}$.
+TFAE:
+\begin{enumerate}[label=(\arabic*)]
+\item some $\omega\in\bigcap V$ (Dirac realization);
+\item $s_0$ extends to the Boolean $\sigma$-algebra generated by $B$;
+\item $V$ has the \emph{finite intersection property} (FIP): every finite
+  subfamily of $V$ has nonempty intersection.
+\end{enumerate}
+$(1)\Rightarrow(3)$ and $(2)\Rightarrow(3)$: plain ZF. $(3)\Rightarrow(2)$:
+exactly the Boolean Prime Ideal theorem (BPI) — every proper filter extends
+to an ultrafilter — and no weaker principle suffices.
+\end{theorem}
+
+\emph{Proof.} $(1)\Rightarrow(3)$: $\omega$ witnesses every finite
+subfamily's intersection. $(2)\Rightarrow(3)$: an extension is finitely
+additive and two-valued on the generated algebra, so finite meets of
+value-$1$ sets stay value-$1$, hence nonempty. $(3)\Rightarrow(2)$: FIP makes
+$V$ a filter base; BPI extends it to an ultrafilter on the generated algebra;
+read off the two-valued state. $\hfill\square$
+
+\begin{corollary}
+\label{cor:stage3}
+If $s_0$ is $\sigma$-essential, then (no Dirac realizes it, by definition)
+$V$ fails FIP: some finite subfamily of $V$ has empty intersection. This
+consequence is a plain ZF fact — the contrapositive of $(1)\Leftrightarrow(3)$
+needs no choice; only the abstract three-way equivalence sits at BPI.
+\end{corollary}
+
+\emph{What this buys.} Any witness search reduces to finite value-$1$
+families failing FIP at some checkable finite stage. Checked directly against
+Theorem~\ref{thm:main}: its value-$1$ family fails FIP at
+\[
+  |V_{\text{crit}}| = 3,
+\]
+the smallest possible stage. Reverse-math reading: the \emph{obstruction}
+(finite-stage FIP failure, used as a necessary condition) is choice-free;
+only the \emph{positive} extension direction needs BPI and nothing stronger.
+
+\subsection{The finite obstruction results}
+
+\begin{proposition}[No finite witness; the two-cell obstruction]
+\label{prop:finite-obstruction}
+No finite concrete OMP carries a $\sigma$-essential state (finite $\Rightarrow$
+every finitely additive state is automatically $\sigma$-additive — nothing
+infinite to fail to converge on). Further: no concrete $\sigma$-complete
+\textbf{OML} can contain two Boolean blocks that (a) each faithfully,
+separatingly represent the same decreasing clopen sequence $(U_n)_{n<\omega}$
+converging to a point, and (b) send that sequence to \emph{different} points
+$i\neq j$ in the two blocks — because
+\[
+  \bigwedge_{n<\omega} U_n
+\]
+is computed once, in the ambient lattice, and cannot equal $\{i\}$ as seen
+from one block and (something containing) $\{j\}\neq\{i\}$ as seen from the
+other.
+\end{proposition}
+
+\emph{Proof.} The countable meet of a fixed decreasing family is an intrinsic
+feature of a $\sigma$-complete lattice, computed via complementation and
+countable-join closure; both faithful embeddings realize the \emph{same}
+ambient meet, so it cannot disagree with itself. $\hfill\square$
+
+\emph{What this buys.} Rules out the most natural gluing construction — two
+Cantor-space-like blocks glued along a shared countable boundary — regardless
+of where the gluing sits in the structure.
+
+\begin{proposition}[The countably-generated route is fully closed]
+\label{prop:ctbly-gen-full}
+Combine Theorem~\ref{thm:ctbly-gen} with the Lusin--Souslin injection theorem
+(countably many countably-generated quotient algebras of a standard Borel
+space that jointly separate points already generate the full Borel
+$\sigma$-algebra): no countably-generated, faithfully separating boundary
+structure — however many countably-generated pieces are combined — supports
+a witness.
+\end{proposition}
+
+\emph{What this buys.} Any surviving construction must be genuinely,
+unavoidably uncountably generated.
+
+% =======================================================================
+\section{The one existing witness: a proved ZFC theorem}
+% =======================================================================
+
+\begin{theorem}[A $\sigma$-essential state exists, in ZFC]
+\label{thm:main}
+There is a concrete $\sigma$-complete orthomodular \textbf{poset} $L$ on
+$\Omega$, $|\Omega|=\aleph_1$, carrying a $\sigma$-essential state. Plain
+ZFC; no large cardinal or independence hypothesis.
+\end{theorem}
+
+\emph{Construction.} Let $M$ have $|M|=\aleph_1$, well-ordered with every
+initial segment countable.
+
+\smallskip
+\noindent\textbf{Step 1 (Ulam matrix).} Build $\{C_{\alpha,n} :
+\alpha<\omega_1,\ n<\omega\}\subseteq \mathcal P(M)$ with
+\[
+  \bigsqcup_{n<\omega} C_{\alpha,n} = M \setminus (\text{countable set}),
+  \qquad
+  C_{\alpha,n}\cap C_{\beta,n} = \emptyset\ (\alpha\neq\beta).
+\]
+(Each row disjoint and co-countable; each column pairwise disjoint across
+rows.)
+
+\smallskip
+\noindent\textbf{Step 2 (rigidity).} Let $\Omega = M\times\{1,2,3,4\}$,
+$D_{\alpha,n} := C_{\alpha,n}\times\{1,2,3,4\}$, and let $L$ be generated by
+all singletons, the cells $D_{\alpha,n}$, and the three sets of Step 3. Claim:
+every non-Dirac candidate fails. If a $\sigma$-state kills every singleton
+(hence, by $\sigma$-additivity, every countable set), then in each row
+exactly one cell has value $1$. The map
+\[
+  \alpha \ \longmapsto\ n(\alpha) := \text{the unique } n \text{ with }
+  s(D_{\alpha,n})=1
+\]
+sends $\omega_1\to\omega$; since $|\omega_1|>\aleph_0$, some fiber is
+uncountable, so pick $\alpha\neq\beta$ with $n(\alpha)=n(\beta)=n^\ast$. Then
+$D_{\alpha,n^\ast}\cap D_{\beta,n^\ast}=\emptyset$ (column-disjointness), so
+additivity forces
+\[
+  s\big(D_{\alpha,n^\ast}\sqcup D_{\beta,n^\ast}\big) = s(D_{\alpha,n^\ast}) +
+  s(D_{\beta,n^\ast}) = 2,
+\]
+impossible for a $\{0,1\}$-valued state. Hence no non-Dirac $\sigma$-state
+exists: every $\sigma$-state on $L$ is Dirac.
+
+\smallskip
+\noindent\textbf{Step 3 (the pattern).} Let
+\[
+  A := M\times\{1,2\},\qquad B := M\times\{1,3\},\qquad C := M\times\{2,3\}.
+\]
+Then
+\[
+  A\cap B = M\times\{1\},\qquad A\cap C = M\times\{2\},\qquad B\cap C =
+  M\times\{3\},
+\]
+all nonempty, but
+\[
+  A\cap B\cap C = \emptyset.
+\]
+So $V=\{A,B,C\}$ fails FIP at stage exactly $3$ — matching Corollary
+\ref{cor:stage3} at the minimum possible value. Fix a non-principal
+ultrafilter $\mathcal U$ on $M$ and define $m$ on $L$ by voting through
+$\mathcal U$; a short parity computation on the four fibers shows $m(A)=m(B)=
+m(C)=1$ simultaneously, consistently, with no point witnessing all three.
+This $m$ is a global finitely additive state, so $s_0 := m|_{\perp
+\text{-closure}(A,B,C)}$ is finitely coherent.
+
+\smallskip
+\noindent\textbf{Conclusion.} $s_0$ is finitely coherent (by $m$); by
+rigidity (Step 2) the only candidate $\sigma$-extensions are Dirac; no
+$\omega\in\Omega$ lies in $A\cap B\cap C=\emptyset$. So no $\sigma$-state
+extends $s_0$: it is $\sigma$-essential. $\hfill\square$
+
+\begin{proposition}[Not a lattice]
+\label{prop:not-lattice}
+In $L$, $A\wedge B$ does not exist: every member of $L$ inside $A\cap B =
+M\times\{1\}$ is countable (only countable sets and their complements/finite
+combinations lie in $L$'s generated structure at that fiber), and among the
+countable subsets of the uncountable set $M\times\{1\}$ there is no largest
+one — given any countable $S\subsetneq M\times\{1\}$, adjoin one more point
+of $M\times\{1\}\setminus S$ to get a strictly larger member of $L$.
+\end{proposition}
+
+\emph{Why this is the crux.} Theorem~\ref{thm:main} resolves the poset form
+completely and says nothing about the lattice form, because its carrier is
+not a lattice. Every later section is about this one gap.
+
+% =======================================================================
+\section{The external boundary result: measure extension on operator
+algebras}
+% =======================================================================
+
+\begin{extthm}[Escolano--Peralta--Villena, 2025]
+\label{thm:epv}
+Let $J$ be a JBW$^\ast$-algebra with projection lattice $P(J)$, and suppose
+$J$ has no direct summand of type $I_2$ (the spin-factor case, the
+operator-algebraic analogue of $MO_2$). Then every bounded finitely additive
+measure on $P(J)$ extends to a bounded linear functional on $J$ (and, via
+Hahn--Banach, every Banach-space-valued one extends to a bounded operator).
+\emph{Sharp:} if $J$ has a type-$I_2$ summand, there is a bounded finitely
+additive measure on $P(J)$ that does \emph{not} extend.
+\end{extthm}
+
+\emph{Mechanism, in one line.} Away from type $I_2$, every bounded finitely
+additive measure on $P(J)$ is automatically uniformly continuous — via
+projection halving, small symmetric motions, and isoclinic interpolation —
+and uniform continuity upgrades to linear extendability by standard
+functional analysis. This is a \emph{finite}, elementary mechanism: no
+uncountable cardinals, ultrafilters, or countable additivity in the sense of
+Definition~\ref{def:state} enter.
+
+\begin{remark}[What it does and does not tell us]
+\label{rem:epv-scope}
+\emph{Does:} narrows where an analogous phenomenon could live — the
+symmetry-poor, type-$I_2$-rich regime, nowhere else.
+
+\emph{Does not:} (1) it is a statement about JBW$^\ast$ projection lattices,
+which need carry no compatible norm or Jordan structure — the concrete
+$\sigma$-classes of Definition~\ref{def:concrete} are not, in general, of
+this type, so the theorem neither forbids nor supplies a witness on them
+directly; (2) the sharp (dual) direction's own mechanism is a finite
+rank-counting clash inside a $3$-dimensional spin factor —
+\[
+  \tfrac13 \ne \tfrac12
+\]
+— categorically not the $\omega_1$-scale infinitary mechanism
+Conjecture~\ref{conj:main} would need if false; (3) it narrows a
+\emph{location}, not a proof — it supplies no argument for whether a witness
+exists there.
+\end{remark}
+
+In one sentence: Theorem~\ref{thm:epv} narrows a target in an adjacent world;
+it is not a step toward a proof here.
+
+% =======================================================================
+\section{Where the difficulty actually is: the honest crux}
+% =======================================================================
+
+A lattice-form witness, if one exists, must satisfy all four at once:
+\[
+\begin{array}{ll}
+\text{(i)} & \text{uncountably generated (Thm.~\ref{thm:ctbly-gen}, Prop.~\ref{prop:ctbly-gen-full})}\\
+\text{(ii)} & \text{symmetry-poor (Thm.~\ref{thm:epv}, heuristic pointer only)}\\
+\text{(iii)} & \text{FIP-failing at some finite stage, yet finitely coherent (Thm.~\ref{thm:nonextend})}\\
+\text{(iv)} & \text{survives lattice closure}
+\end{array}
+\]
+
+\subsection{Why (iv) is the genuine obstacle}
+
+Theorem~\ref{thm:main} achieves (i)--(iii) with room to spare and provably
+fails (iv) (Proposition~\ref{prop:not-lattice}). Requiring $L$ to be a lattice
+means: for \emph{every} pair, a meet must be manufactured and adjoined
+consistently with the orthomodular law and all prior additivity constraints.
+Doing this coherently for the uncountably many pairs forced by (i) is an
+$\omega_1$-level combinatorial question: can a coherent system of forced
+meets and joins be built across an uncountable index set without collapsing
+the essential pattern to a single point?
+
+\begin{remark}[Why finite methods cannot reach this]
+\label{rem:finite-methods}
+Every finite construction tried has produced only tame objects — forced, not
+unlucky, by Proposition~\ref{prop:finite-obstruction}: finiteness makes
+$\sigma$-additivity automatic, so no finite object can ever exhibit (iv)
+failing at the uncountable scale (i) demands.
+\end{remark}
+
+\subsection{The current assessment}
+
+\begin{remark}[Where the evidence leans — assessment, not theorem]
+\label{rem:assessment}
+Evidence leans toward Conjecture~\ref{conj:main} being \textbf{true}:
+\begin{enumerate}[label=(\alph*)]
+\item the two-cell countable-meet obstruction (Prop.~\ref{prop:finite-obstruction});
+\item the countably-generated closure (Thm.~\ref{thm:ctbly-gen} + Prop.~\ref{prop:ctbly-gen-full});
+\item every attempted uncountable ``hub'' construction has, on inspection,
+  either collapsed back to the classical center or destroyed
+  order-separation;
+\item every candidate lattice-theoretic survival mechanism has, on
+  inspection, either needed exactly the distributivity being ruled out, or
+  been falsified outright (\S8).
+\end{enumerate}
+If proved, Conjecture~\ref{conj:main} becomes: latticehood alone forces every
+finitely coherent pattern to extend $\sigma$-additively — a clean structural
+theorem independent of any construction above.
+\end{remark}
+
+% =======================================================================
+\section{The two open directions, precisely}
+% =======================================================================
+
+\subsection{Route (a): does the countable-meet obstruction generalize?}
+
+\begin{conjecture}[Generalized countable-meet obstruction]
+\label{conj:route-a}
+Does Proposition~\ref{prop:finite-obstruction}'s two-cell mechanism forbid
+\emph{every} faithful, order-separating, countably-generated hub shared
+between two blocks of a concrete $\sigma$-complete OML — not just the
+specific Cantor-space gluing?
+\end{conjecture}
+
+If proved: eliminates every countably-generated-boundary construction at
+once. If it fails: the surviving instance is a concrete design template for
+a witness attempt.
+
+\subsection{Route (b): the distributed nonseparating quotient route}
+
+\begin{conjecture}[Distributed nonseparating quotient route]
+\label{conj:route-b}
+Is there a concrete $\sigma$-complete OML, built from uncountably-generated
+boundary data whose $\sigma$-states do \emph{not} order-separate points
+across the whole structure — evading Theorem~\ref{thm:ctbly-gen}'s
+hypothesis by distributing nonseparating quotient copies so no global
+$\sigma$-state assembles, while every finite and countable sub-piece stays
+consistent?
+\end{conjecture}
+
+If constructible as a genuine lattice: refutes Conjecture~\ref{conj:main}
+outright. If provably impossible: the complementary half of a full proof,
+alongside (a).
+
+Read together: (a) attacks the countably-generated case in full generality;
+(b) attacks the uncountably-generated nonseparating case (a) does not cover.
+A witness, if one exists, must refute (b) constructively while already
+escaping (a)'s mechanism.
+
+% =======================================================================
+\section{What is heuristic, not yet mathematics}
+% =======================================================================
+
+\begin{falsified}[Dimensional-equivalence as a proxy for shared-boundary
+agreement]
+\label{fals:perspectivity}
+Tested hypothesis: the lattice-theoretic analogue of Murray--von Neumann
+equivalence of projections — call two atoms $p,q$ \emph{equivalent} if
+related by a dimension-preserving symmetry of the lattice — might proxy for
+``forced to agree under every state assigning both value $1$ on a shared
+boundary'' (the relation actually doing work in \S3). \textbf{Falsified}: on
+the pentagon (Example~\ref{ex:pentagon}) and every finite homogeneous OML,
+\[
+  p \sim q \quad \text{for \emph{every} pair } p,q
+\]
+— a purely structural consequence of finite homogeneity (any two atoms are
+joined by a chain of complementary pairs). A relation identically true on
+every pair cannot proxy a relation that must be selective. The two relations
+are also of different type: one rank-sensitive, one rank-blind. Dead; not to
+recur under a new name.
+\end{falsified}
+
+\begin{falsified}[A winding/parity invariant]
+\label{fals:winding}
+Built directly on Claim~\ref{fals:perspectivity}: a hoped-for integer
+invariant tracking how forced meets/joins wind around a cycle of incompatible
+atoms, meant to detect whether requirement (iv) could hold. Falls with its
+foundation — an identically-true relation carries no invariant. Independently:
+the two available test objects are structurally incapable of exhibiting the
+phenomenon at all — the pentagon is finite, hence automatically tame
+(Prop.~\ref{prop:finite-obstruction}); Theorem~\ref{thm:main}'s witness is
+provably \emph{not} a lattice (Prop.~\ref{prop:not-lattice}), hence has no
+forced meets for a winding invariant to be about. Two independent reasons the
+idea dies.
+\end{falsified}
+
+\begin{heuristic}[A legitimate, unexplored forwarding lead]
+\label{heur:z2states}
+$\mathbb Z_2$-valued states (valued in the two-element group, not $\{0,1\}$
+read as reals) on symmetric-difference-closed orthomodular structures are a
+real, previously studied class in the literature — distinct in kind from the
+falsified ad hoc invariant of Claim~\ref{fals:winding}, which does not appear
+in the literature under any name. Whether they bear on the essential-witness
+question is entirely open and unexplored: named here as a place to look
+next, not as a result or even a formulated conjecture.
+\end{heuristic}
+
+% =======================================================================
+\section*{Closing remark}
+\addcontentsline{toc}{section}{Closing remark}
+
+A witness to genuinely contextual, $\sigma$-inextendable probability data is
+constructed and proved, unconditionally, in ZFC (Theorem~\ref{thm:main}) —
+one order-theoretic notch below the structure the field cares about (poset,
+not lattice). Whether latticehood alone forces every such pattern to dissolve
+is Conjecture~\ref{conj:main}, open. Three obstruction results and one
+external theorem in an adjacent world point toward ``yes, it dissolves,'' but
+the obstruction, if it exists, is a genuinely infinitary $\omega_1$-question
+(\S5) that no finite method can reach even in principle. Two precise routes
+(\S6) remain: either one's resolution, in either direction, is genuine
+progress.
+
+\end{document}

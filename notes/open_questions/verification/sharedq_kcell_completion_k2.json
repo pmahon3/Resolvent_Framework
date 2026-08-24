@@ -1,0 +1,184 @@
+{
+ "emitted": "2026-07-14",
+ "generator": "sharedq_kcell_completion_audit.py",
+ "payload": {
+  "abstract_states_equal_points": true,
+  "abstract_two_valued_state_count": 4964,
+  "activation_cylinder_points": 2,
+  "activation_is_event": false,
+  "added_events": [
+   "e10@1+e00@2",
+   "e10@1+e01@2",
+   "e10@2+e00@1",
+   "e10@2+e01@1",
+   "e11@1+e00@2",
+   "e11@1+e01@2",
+   "e11@2+e00@1",
+   "e11@2+e01@1"
+  ],
+  "carrier_points": 4964,
+  "carrier_points_formula_2_sum_n_pow_k": 4964,
+  "cell_states": 224,
+  "centre": [
+   "0",
+   "1"
+  ],
+  "closure_added_by_round": [
+   8,
+   0
+  ],
+  "closure_added_formula_4k_kminus1": 8,
+  "closure_stabilizes_in_one_substantive_round": true,
+  "completed_complement_closed": true,
+  "completed_disjoint_union_closed": true,
+  "completed_events": 110,
+  "completed_events_formula": 110,
+  "completed_orthomodular": true,
+  "completed_unique_binary_extrema": true,
+  "events_with_proper_slice_trace": 100,
+  "every_nonzero_event_has_off_cylinder_point": true,
+  "joint_activated_relation_q_r1_to_rk": [
+   "000",
+   "111"
+  ],
+  "joint_output_boundaries": {
+   "r1,r2": {
+    "compatible": false,
+    "equalizer_is_event": false,
+    "intersection_is_event": false,
+    "only_marginal_joint_cylinders_represented": true,
+    "represented_joint_boolean_cylinder_count": 6,
+    "some_maximal_block_contains_both": false
+   }
+  },
+  "joint_relation_is_diagonal": true,
+  "k": 2,
+  "maximal_block_count": 26,
+  "maximal_block_count_formula_11k_plus_k2": 26,
+  "maximal_block_event_sizes": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   16,
+   16,
+   16,
+   16
+  ],
+  "maximal_blocks_all_boolean_complete": true,
+  "mixed_block_examples": [
+   [
+    "e00@2",
+    "e01@2",
+    "e10@1",
+    "e11@1"
+   ],
+   [
+    "e00@1",
+    "e01@1",
+    "e10@2",
+    "e11@2"
+   ]
+  ],
+  "mixed_private_coordinate_blocks": 2,
+  "mixed_private_coordinate_blocks_formula_k_kminus1": 2,
+  "nonzero_events_inside_activation": 0,
+  "point_evaluations_order_separate": true,
+  "point_profiles_injective": true,
+  "projections": {
+   "cell1": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "fiber_counts": {
+     "00000": 792,
+     "00001": 504,
+     "00010": 504,
+     "00011": 792,
+     "00100": 117,
+     "00101": 52,
+     "00110": 52,
+     "00111": 117,
+     "01000": 273,
+     "01001": 168,
+     "01010": 168,
+     "01011": 273,
+     "01100": 35,
+     "01101": 14,
+     "01110": 14,
+     "01111": 35,
+     "10000": 273,
+     "10001": 168,
+     "10010": 168,
+     "10011": 273,
+     "10100": 35,
+     "10101": 14,
+     "10110": 14,
+     "10111": 35,
+     "11000": 24,
+     "11001": 12,
+     "11010": 12,
+     "11011": 24,
+     "11100": 1,
+     "11111": 1
+    },
+    "off_111_all_four_qr_profiles": true
+   },
+   "cell2": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "off_111_all_four_qr_profiles": true
+   }
+  },
+  "q_commutant_size": 36,
+  "q_is_central": false,
+  "raw_bad_formula_8k_kminus1": 16,
+  "raw_bad_unordered_pairs": 16,
+  "raw_events": 102,
+  "raw_events_formula_10_plus_46k": 102,
+  "raw_first_failure": {
+   "maximal_lower_bounds": [
+    "0"
+   ],
+   "minimal_upper_bounds": [
+    "e00@1+e01@1+e10@1",
+    "e01@2+e10@2+e11@2"
+   ],
+   "x": "e01@2",
+   "y": "e10@1"
+  },
+  "raw_is_lattice": false,
+  "repair_pair_local_qside_x_qprimeside": true,
+  "schema": "sharedq-kcell-completion-v1",
+  "shared_structure": "H4 activation atoms a1,a2,a3 and the four-element subalgebra {0,q,q',1}; private coordinate blocks E_i and outputs r_i = e11@i v e01@i",
+  "slice_trace_single_cell_invariant": true,
+  "state_completeness_reduction_premises": {
+   "every_added_event_disjoint_union_of_two_raw_events": true,
+   "every_cell_state_has_repeated_fibre_extension": true,
+   "every_raw_event_is_single_cell_or_shared": true
+  }
+ },
+ "payload_sha256": "cf9c4e064dc6e8688e4f1b7fb24a4fb203a83238c7b3053bc050775f4bed7afb",
+ "schema": "sharedq-kcell-completion-v1"
+}

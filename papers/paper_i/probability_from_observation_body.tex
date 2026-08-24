@@ -13,18 +13,21 @@ equivalently, vanishing of the purely finitely additive part in the
 Yosida--Hewitt decomposition.  No weaker condition suffices:
 compatibility renders every witnessing formulation equivalent to
 $\sigma$-additivity itself.  No first-order condition can force
-it~\cite{MahonCE2026}.  Two
+it~\cite{FaginHalpernMegiddo1990}.  Two
 constructions --- Carath\'{e}odory and Stone --- realise the extension.
 
 The Stone route requires no assumption of $\sigma$-additivity: any
 compatible charges produce a Baire probability measure on the Stone
 space $\mathrm{St}(\mathcal{C})$ --- unconditionally.  The resulting
-measure may, however, assign mass to non-principal ultrafilters.  Under
-discriminability, $\sigma$-additivity is equivalent to concentration of
-this measure on the principal ultrafilters.  The passage from coherent
-charges to probability is thus not a derivation but a geometric
-commitment: $\sigma$-additivity determines where the mass lives, not
-whether it exists.
+measure may, however, assign mass to non-principal ultrafilters.
+Whenever this measure concentrates on the principal ultrafilters it
+descends to a $\sigma$-additive measure on $\Omega$; the converse ---
+that $\sigma$-additivity forces such concentration --- holds only when
+$\Omega$ realizes every countably-complete ultrafilter of
+$\mathcal{C}$, a Loomis--Sikorski realization condition that is not
+automatic.  The passage from coherent charges to probability is thus
+not a derivation but a geometric commitment: where the mass lives is a
+choice of realization space, not a consequence of the charges alone.
 
 \end{abstract}
 
@@ -106,7 +109,7 @@ yet
 mass persists because $\bigcap_n E_n = \varnothing$ is a countable fact
 no finite check can see.  In general, $\sigma$-additivity is not
 first-order axiomatizable among finitely additive probability Boolean
-algebras~\cite{MahonCE2026, Hoover1978, FaginHalpernMegiddo1990}.
+algebras~\cite{Hoover1978, FaginHalpernMegiddo1990}.
 If $\sigma$-additivity is to be \emph{recovered} rather than assumed,
 the condition must fall on the charges themselves.
 
@@ -131,9 +134,11 @@ Two constructions realise the extension --- one by Carath\'{e}odory
 (\S\ref{I:sec:cara}), one by Stone duality (\S\ref{I:sec:stone}).
 The Stone route requires no assumption of $\sigma$-additivity: it
 produces a probability measure on
-$\mathrm{St}(\mathcal{C})$ unconditionally.  Under discriminability,
-$\sigma$-additivity is equivalent to concentration of this measure on
-realised states (Corollary~\ref{I:cor:stone-support}).
+$\mathrm{St}(\mathcal{C})$ unconditionally.  Concentration of this
+measure on the realised states yields $\sigma$-additivity on $\Omega$;
+the converse requires that $\Omega$ realize every countably-complete
+ultrafilter, a Loomis--Sikorski condition that is not automatic
+(Corollary~\ref{I:cor:stone-support}).
 
 \begin{definition}[Observational structure]
 \label{I:def:obs-structure}
@@ -410,10 +415,11 @@ $\mathcal{E}_i$,
 
 \noindent No first-order condition can force CE:
 $\sigma$-additivity is not first-order axiomatizable among finitely
-additive probability Boolean algebras~\cite{MahonCE2026, Los1955}.
-It is, however, the exact condition needed:
+additive probability Boolean algebras~\cite{FaginHalpernMegiddo1990, Los1955}.
+Under compatibility, CE is simply a name for $\sigma$-additivity of each
+$\ell_i$, as the following records:
 
-\begin{theorem}[CE Characterisation]
+\begin{proposition}[CE Characterisation]
 \label{I:thm:sp1}
 Let $\{\ell_i\}$ be a normalized compatible family of finitely-additive
 charges on a directed system.  The following are equivalent:
@@ -422,7 +428,7 @@ charges on a directed system.  The following are equivalent:
   \item $\ell_i$ extends uniquely to a $\sigma$-additive measure on
         $\sigma(\mathcal{E}_i)$ for every $i$.
 \end{enumerate}
-\end{theorem}
+\end{proposition}
 
 \begin{proof}
 \emph{(i) $\Rightarrow$ (ii).}
@@ -549,26 +555,68 @@ events.
 
 \begin{proposition}[Support condition]
 \label{I:prop:B2}
-If $\mu$ satisfies CE, then $\hat{\mu}$ is supported on
-$\mathrm{pure}(\Omega)$.
+Let $\Sigma \subseteq \mathrm{St}(\mathcal{C})$ be the set of
+countably-complete ultrafilters of $\mathcal{C}$ (those closed under
+countable intersection).  If $\mu$ satisfies CE, then $\hat{\mu}$ is
+supported on $\Sigma$.  If in addition $\Omega$ \emph{realizes
+$\mathcal{C}$}, in the sense that
+$\mathrm{pure}(\Omega) \supseteq \Sigma$ up to a $\hat{\mu}$-null set
+\textup{(}equivalently $\hat{\mu}(\Sigma \setminus \mathrm{pure}(\Omega)) = 0$\textup{)},
+then $\hat{\mu}$ is supported on $\mathrm{pure}(\Omega)$ and
+$\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.
 \end{proposition}
 
 \begin{proof}
 By Theorem~\ref{I:thm:sp1}, CE gives $\mu_p = 0$, so $\mu$ is
-$\sigma$-additive.  Rao and Rao~\cite[Theorem~10.5.3]{rao1983}
-characterise $\sigma$-additivity by the vanishing of $\hat{\mu}$
-on meagre Baire sets in $\mathrm{St}(\mathcal{C})$; the algebraic
-counterpart is that $\hat{\mu}$ assigns full mass to ultrafilters
-closed under countable intersection.  Each principal ultrafilter
-$\mathrm{pure}(\omega)$ is closed under countable intersection, so
-$\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.
+$\sigma$-additive.  The null ideal of the canonical Baire measure on a
+Stone space coincides with the meagre ideal~\cite[\S321K, \S314M]{Fremlin3};
+so $\hat\mu$ vanishes on meagre Baire sets, and its algebraic
+counterpart is that $\hat{\mu}$ assigns full mass to the
+countably-complete ultrafilters, so $\hat{\mu}(\Sigma) = 1$.  Each
+principal ultrafilter $\mathrm{pure}(\omega)$ is countably complete, so
+$\mathrm{pure}(\Omega) \subseteq \Sigma$; but $\Sigma$ may also contain
+non-principal countably-complete ultrafilters not realized by any point
+of $\Omega$ --- whether it does is precisely the Loomis--Sikorski
+realization question, not settled by the charges.  Under the realization
+hypothesis $\hat{\mu}(\Sigma \setminus \mathrm{pure}(\Omega)) = 0$, the
+two conclusions follow.
 \end{proof}
+
+\noindent
+The realization hypothesis is a condition on the \emph{realization space}
+$\Omega$, not on $\mathcal{C}$ alone.  It holds when $\Omega$ is standard
+Borel (Polish with its Borel structure): there a two-valued
+$\sigma$-additive measure is a point mass, so every countably-complete
+ultrafilter charged by $\hat\mu$ is realized by a point of $\Omega$ and
+$\Sigma = \mathrm{pure}(\Omega)$ up to a null set (Loomis--Sikorski
+representation~\cite{Halmos1950}).  In this regime the Stone route
+reproduces the Kolmogorov extension: the niceness that closes the gap is
+also what collapses the construction to the classical theorem.
+
+Outside it the hypothesis can fail.  An unrealized
+$\mathrm{pure}(\Omega)$-mass would have to sit on a \emph{non-principal}
+countably-complete ultrafilter of $\mathcal{C}$ --- a ``phantom point''
+of the Stone space carrying $\hat\mu$-mass with no underlying $\omega$.
+But such an ultrafilter is an exotic object: a set admits a non-principal
+countably-complete ultrafilter only when its cardinality reaches a
+\emph{measurable cardinal}, a large-cardinal threshold far beyond any
+countable or standard-Borel $\Omega$, where by definition none exists.
+So the gap cannot bite on the observation spaces of ordinary practice; it
+opens only for realization spaces large enough to host such a point, and
+ruling those out is exactly the $\sigma$-additive Loomis--Sikorski
+realization problem.  This is a genuine set-theoretic boundary on the
+construction, not a step the present methods close --- and it is the same
+realization wall met, in the non-distributive (orthomodular) setting, by
+the question of whether a $\sigma$-additive state descends to the dual
+space; in both places the obstruction is the existence of measure-bearing
+points with no underlying realization.
 
 \begin{theorem}[Stone observational extension]
 \label{I:thm:stone-main}
 Under Surjective Evaluation, Discriminability, common coarsenings,
-and~CE, a compatible family of normalised charges extends to a unique
-$P \in \mathcal{P}(\Omega, \sigma(\mathcal{C}))$ with
+CE, and the realization hypothesis of
+Proposition~\ref{I:prop:B2}, a compatible family of normalised charges
+extends to a unique $P \in \mathcal{P}(\Omega, \sigma(\mathcal{C}))$ with
 \[
   P(\mathrm{Cyl}(i, A)) = \mu_i(\mathrm{Cyl}(i, A))
   \qquad (i \in \iota,\; A \in \mathcal{O}_i).
@@ -577,7 +625,8 @@ $P \in \mathcal{P}(\Omega, \sigma(\mathcal{C}))$ with
 
 \begin{proof}
 Proposition~\ref{I:prop:invlim} gives $\hat{\mu}$ on
-$\mathrm{St}(\mathcal{C})$.  Proposition~\ref{I:prop:B2} gives
+$\mathrm{St}(\mathcal{C})$.  Under the realization hypothesis,
+Proposition~\ref{I:prop:B2} gives
 $\hat{\mu}(\mathrm{pure}(\Omega)) = 1$.  Define
 \[
   P(A) = \hat{\mu}\!\bigl(\mathrm{pure}(A)\bigr)
@@ -619,17 +668,19 @@ with $\ell_{i,p} = 0$.
 
 \begin{corollary}
 \label{I:cor:stone-support}
-Under Discriminability
-(Definition~\ref{I:def:discriminability}),
-\textup{(i)--(iii)} are each equivalent to
-\[
-  \hat{\mu}\!\bigl(\mathrm{pure}(\Omega)\bigr) = 1,
-\]
-where $\hat{\mu}$ is the Baire measure on $\mathrm{St}(\mathcal{C})$.
+Let $\hat{\mu}$ be the Baire measure on $\mathrm{St}(\mathcal{C})$.  If
+$\hat{\mu}(\mathrm{pure}(\Omega)) = 1$ then \textup{(i)--(iii)} hold.
+The converse holds under the realization hypothesis of
+Proposition~\ref{I:prop:B2}; without it, \textup{(i)--(iii)} guarantee
+only that $\hat{\mu}$ concentrates on the countably-complete
+ultrafilters $\Sigma$, which may strictly contain
+$\mathrm{pure}(\Omega)$.
 \end{corollary}
 
 \begin{proof}
-Proposition~\ref{I:prop:B2}.
+Proposition~\ref{I:prop:B2}.  For the first implication, full mass on
+$\mathrm{pure}(\Omega)$ lets $\hat{\mu}$ descend to a $\sigma$-additive
+measure on $\Omega$, which forces each $\ell_i$ $\sigma$-additive.
 \end{proof}
 
 \noindent When any of these holds and $(\iota, \leq)$ admits sequential
@@ -652,14 +703,13 @@ realised states --- and which are artefacts of insufficient resolution
 --- is a central problem wherever latent structure must be inferred
 from observable data.
 
-It's worth noting the gap between unconditional                                                                                                      
-Stone measure and conditional descent to realisation is a distinction                                                                                                      
-familiar in the philosophy of science. The constructive  empiricist holds                                                                                                  
-that empirical adequacy --- agreement with all observable phenomena                                                                                                        
---- does not require commitment to unobservable                                                                                                                            
-structure~\cite{vanFraassen1980}.  The Stone construction makes                                                                                                            
-this precise: $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is empirically                                                                                                   
-adequate by construction; the passage to $P$ on
+The gap between the unconditional Stone measure and the conditional
+descent to realisation is a distinction familiar in the philosophy of
+science.  The constructive empiricist holds that empirical adequacy ---
+agreement with all observable phenomena --- does not require commitment
+to unobservable structure~\cite{vanFraassen1980}.  The Stone construction
+makes this precise: $\hat{\mu}$ on $\mathrm{St}(\mathcal{C})$ is
+empirically adequate by construction; the passage to $P$ on
 $(\Omega,\,\sigma(\mathcal{C}))$ is the additional commitment.
 \ifstandalone
 \bibliographystyle{plain}

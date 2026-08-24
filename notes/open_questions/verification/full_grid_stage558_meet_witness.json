@@ -1,0 +1,195 @@
+{
+  "carrier_points": 6186568,
+  "command": "python3 notes/open_questions/verification/full_grid_stage558_meet_witness_audit.py --emit",
+  "hull_gap_event_without_event_hulls": [
+    {
+      "birth": "stage2",
+      "event_sha256": "2c1f35ecf4434091f674060a47417f2e7b7f727185053ee689744a775e654417",
+      "hull_gap_sha256": "faa7ba2f6f07573e9b6eaeddd9b4b2888c210660d16be5bdd9d38b3f861d6123",
+      "interior_is_event": false,
+      "points": 3395004,
+      "saturation_is_event": false,
+      "split_fibres": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "birth": "stage2",
+      "event_sha256": "e9340ad778b5e49996bbba161891650d1fcd954dc7311a700cf8090b6b6744e8",
+      "hull_gap_sha256": "faa7ba2f6f07573e9b6eaeddd9b4b2888c210660d16be5bdd9d38b3f861d6123",
+      "interior_is_event": false,
+      "points": 2791564,
+      "saturation_is_event": false,
+      "split_fibres": [
+        [
+          0,
+          0,
+          0,
+          0
+        ],
+        [
+          0,
+          0,
+          1,
+          0
+        ],
+        [
+          0,
+          1,
+          0,
+          0
+        ],
+        [
+          0,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          0
+        ],
+        [
+          1,
+          0,
+          0,
+          1
+        ],
+        [
+          1,
+          0,
+          1,
+          0
+        ],
+        [
+          1,
+          0,
+          1,
+          1
+        ],
+        [
+          1,
+          1,
+          0,
+          0
+        ],
+        [
+          1,
+          1,
+          0,
+          1
+        ],
+        [
+          1,
+          1,
+          1,
+          0
+        ],
+        [
+          1,
+          1,
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "independence": "same shared components as the main isolation audit (grid.build, repair selections); all checks freshly computed",
+  "meet_event": {
+    "activation_points": [
+      4,
+      0
+    ],
+    "birth": "stage2",
+    "contains_whole_fibre_0101": true,
+    "equals_fibre0101_disjoint_union_sel2": true,
+    "extra_part_is_second_repair_block": true,
+    "fibre0101_activation_free": true,
+    "identity": "q0^c wedge q1 = complement of the unique proper upper bound of (q0, q1^c)",
+    "points": 336404,
+    "sel2_fully_activated_row0": true,
+    "sha256": "50ca1d1b7ed5e5d8cc5f04ec6772c8bdb8f3be6f9629a2a9da6a5edfc88cc83c"
+  },
+  "pair": "q0 join with complement of q1 (side q, signs (1,0))",
+  "payload_sha256": "4cd553be1d4cd5187c4afb36fc340a9bd573b147651bd5507897611a1446a55d",
+  "producer_sha256": "cfbd306a652440cbf6f1e67cd40abe388209ce0293f1e8c4bbd685b5f0e08f9b",
+  "proper_upper_bound_birth": "stage2",
+  "proper_upper_bound_sha256": "ef726889d5a8088f4afc17b8c116354ecdbe901ce0e7a9642acc070ff8496d57",
+  "schema": "full-grid-stage558-meet-witness-v1",
+  "schema_version": "1.0",
+  "scope": "one exact 558-event branch; witness identification only",
+  "upper_bounds_at_stage558": 2
+}

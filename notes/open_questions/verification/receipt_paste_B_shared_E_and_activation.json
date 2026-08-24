@@ -1,0 +1,382 @@
+{
+ "command": "python3 incompatible_h4_conditional_cell_audit.py --verify",
+ "emitted": "2026-07-14",
+ "generator": "incompatible_h4_conditional_cell_audit.py",
+ "payload": {
+  "audit": {
+   "centre": [
+    "0",
+    "1"
+   ],
+   "escape_every_nonzero_event_charged_off_111": {
+    "a1,a2,a3": true
+   },
+   "first_failed_lattice_pair": null,
+   "h4_controls": {
+    "a1,a2,a3": {
+     "generated_subOML_size": 8,
+     "is_H4_horizontal_sum": true,
+     "mo3_relations_ok": true
+    }
+   },
+   "lattice_ok": true,
+   "maximal_blocks": [
+    [
+     "a1",
+     "p11",
+     "u1"
+    ],
+    [
+     "a1",
+     "p11B",
+     "u1B"
+    ],
+    [
+     "a2",
+     "p12",
+     "v1"
+    ],
+    [
+     "a2",
+     "p12B",
+     "v1B"
+    ],
+    [
+     "a3",
+     "n1",
+     "p15"
+    ],
+    [
+     "a3",
+     "n1B",
+     "p15B"
+    ],
+    [
+     "a3",
+     "n2",
+     "p25"
+    ],
+    [
+     "a3",
+     "n2B",
+     "p25B"
+    ],
+    [
+     "e00",
+     "e01",
+     "e10",
+     "e11"
+    ],
+    [
+     "e01",
+     "s2",
+     "t2"
+    ],
+    [
+     "e01",
+     "s2B",
+     "t2B"
+    ],
+    [
+     "e10",
+     "s1",
+     "t1"
+    ],
+    [
+     "e10",
+     "s1B",
+     "t1B"
+    ],
+    [
+     "m1",
+     "n1",
+     "t1"
+    ],
+    [
+     "m1",
+     "p14",
+     "w1"
+    ],
+    [
+     "m1B",
+     "n1B",
+     "t1B"
+    ],
+    [
+     "m1B",
+     "p14B",
+     "w1B"
+    ],
+    [
+     "m2",
+     "n2",
+     "t2"
+    ],
+    [
+     "m2",
+     "p24",
+     "w1"
+    ],
+    [
+     "m2B",
+     "n2B",
+     "t2B"
+    ],
+    [
+     "m2B",
+     "p24B",
+     "w1B"
+    ],
+    [
+     "u1",
+     "v1",
+     "w1"
+    ],
+    [
+     "u1B",
+     "v1B",
+     "w1B"
+    ]
+   ],
+   "maximal_blocks_equal_declared": true,
+   "no_event_represents_111_cylinder": {
+    "a1,a2,a3": true
+   },
+   "order_determination_ok": true,
+   "ortholattice_ok": true,
+   "orthomodular_ok": true,
+   "orthomodular_witness": null,
+   "state_additivity_ok": true,
+   "support_map_injective_ok": true
+  },
+  "construction": {
+   "atoms": [
+    "a1",
+    "a2",
+    "a3",
+    "e00",
+    "e01",
+    "e10",
+    "e11",
+    "m1",
+    "m1B",
+    "m2",
+    "m2B",
+    "n1",
+    "n1B",
+    "n2",
+    "n2B",
+    "p11",
+    "p11B",
+    "p12",
+    "p12B",
+    "p14",
+    "p14B",
+    "p15",
+    "p15B",
+    "p24",
+    "p24B",
+    "p25",
+    "p25B",
+    "s1",
+    "s1B",
+    "s2",
+    "s2B",
+    "t1",
+    "t1B",
+    "t2",
+    "t2B",
+    "u1",
+    "u1B",
+    "v1",
+    "v1B",
+    "w1",
+    "w1B"
+   ],
+   "blocks": [
+    [
+     "a1",
+     "p11",
+     "u1"
+    ],
+    [
+     "a2",
+     "p12",
+     "v1"
+    ],
+    [
+     "u1",
+     "v1",
+     "w1"
+    ],
+    [
+     "a3",
+     "n1",
+     "p15"
+    ],
+    [
+     "m1",
+     "p14",
+     "w1"
+    ],
+    [
+     "m1",
+     "n1",
+     "t1"
+    ],
+    [
+     "a3",
+     "n2",
+     "p25"
+    ],
+    [
+     "m2",
+     "p24",
+     "w1"
+    ],
+    [
+     "m2",
+     "n2",
+     "t2"
+    ],
+    [
+     "e10",
+     "s1",
+     "t1"
+    ],
+    [
+     "e01",
+     "s2",
+     "t2"
+    ],
+    [
+     "e00",
+     "e01",
+     "e10",
+     "e11"
+    ],
+    [
+     "a1",
+     "p11B",
+     "u1B"
+    ],
+    [
+     "a2",
+     "p12B",
+     "v1B"
+    ],
+    [
+     "u1B",
+     "v1B",
+     "w1B"
+    ],
+    [
+     "a3",
+     "n1B",
+     "p15B"
+    ],
+    [
+     "m1B",
+     "p14B",
+     "w1B"
+    ],
+    [
+     "m1B",
+     "n1B",
+     "t1B"
+    ],
+    [
+     "a3",
+     "n2B",
+     "p25B"
+    ],
+    [
+     "m2B",
+     "p24B",
+     "w1B"
+    ],
+    [
+     "m2B",
+     "n2B",
+     "t2B"
+    ],
+    [
+     "e10",
+     "s1B",
+     "t1B"
+    ],
+    [
+     "e01",
+     "s2B",
+     "t2B"
+    ]
+   ],
+   "couplings": [],
+   "designated": {
+    "activation_triples": [
+     [
+      "a1",
+      "a2",
+      "a3"
+     ]
+    ],
+    "q": "m:e10+e11",
+    "r": "m:e01+e11"
+   },
+   "identifications": []
+  },
+  "counts": {
+   "atoms": 41,
+   "blocks": 23,
+   "elements": 90,
+   "two_valued_states": 2644
+  },
+  "design": "paste_B",
+  "projections": {
+   "a1,a2,a3|q,r": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "fiber_counts": {
+     "00000": 484,
+     "00001": 196,
+     "00010": 196,
+     "00011": 484,
+     "00100": 81,
+     "00101": 16,
+     "00110": 16,
+     "00111": 81,
+     "01000": 169,
+     "01001": 64,
+     "01010": 64,
+     "01011": 169,
+     "01100": 25,
+     "01101": 4,
+     "01110": 4,
+     "01111": 25,
+     "10000": 169,
+     "10001": 64,
+     "10010": 64,
+     "10011": 169,
+     "10100": 25,
+     "10101": 4,
+     "10110": 4,
+     "10111": 25,
+     "11000": 16,
+     "11001": 4,
+     "11010": 4,
+     "11011": 16,
+     "11100": 1,
+     "11111": 1
+    },
+    "off_111_all_four_qr_profiles": true
+   }
+  },
+  "shared_structure": "shared MAXIMAL block E AND shared activation triple (redundant enforcement copy)",
+  "verifier_sha256": "f4d7d18a8da5ccc3b2409b93924a4202c3643147fe68bdfef17a2b89d60de96b"
+ },
+ "payload_sha256": "63775a221aa808305ff14ca28666639c0bb011183ffed323d1e43e721cbdaf46",
+ "schema": "oml-finite-cell-receipt",
+ "schema_version": "1.0"
+}

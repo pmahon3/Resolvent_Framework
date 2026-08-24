@@ -1,0 +1,152 @@
+{
+  "carrier_points": 6186568,
+  "cell_atom_permutation_certificates": {
+    "arm_maps_224_state_set_bijectively": true,
+    "arm_maps_declared_blocks_to_declared_blocks": true,
+    "complement_maps_224_state_set_bijectively": true,
+    "complement_maps_declared_blocks_to_declared_blocks": true,
+    "third_partial_selector_factor_sets_arm_invariant": true
+  },
+  "command": "python3 notes/open_questions/verification/full_grid_stage558_named_stabilizer.py --verify",
+  "dependency_payload_sha256": "a9fac75913dbd5d35cdfe6ff0f28357da41ecd84e56180fc32bdaf51f4f11264",
+  "final_named_stabilizer_generators": [
+    "independent a1/a2 arm swap in row 0",
+    "independent a1/a2 arm swap in row 1"
+  ],
+  "final_named_stabilizer_order": 4,
+  "macrofibre_action": {
+    "all_pieces_fixed_setwise": false,
+    "distinct_permutations": 4,
+    "element_cycle_counts": [
+      {
+        "cycles": 160,
+        "element": "R0C0K0A00",
+        "fixed_subsets": "1461501637330902918203684832716283019655932542976"
+      },
+      {
+        "cycles": 116,
+        "element": "R0C0K0A01",
+        "fixed_subsets": "83076749736557242056487941267521536"
+      },
+      {
+        "cycles": 116,
+        "element": "R0C0K0A10",
+        "fixed_subsets": "83076749736557242056487941267521536"
+      },
+      {
+        "cycles": 96,
+        "element": "R0C0K0A11",
+        "fixed_subsets": "79228162514264337593543950336"
+      }
+    ],
+    "orbit_size_histogram": {
+      "1": 32,
+      "2": 40,
+      "4": 12
+    },
+    "orbits": 84,
+    "permutation_sha256": "8921962254cc81afc560dc4d6e92f85de8831e7a101d8954328a7b8424152578",
+    "pieces": 160,
+    "saturated_subset_orbits_burnside": "365375409332767267945596527428665083283002884096"
+  },
+  "missing_faithfulness_theorem": "every gate/provenance-preserving concrete automorphism of the 558-event set system induces one of the 32 named semantic descriptor transformations",
+  "named_equals_full_gate_preserving_stabilizer": "open",
+  "named_generators": {
+    "column_swap": "swap cell columns and r0,r1",
+    "global_qr_complement": {
+      "e00": "e11",
+      "e11": "e00"
+    },
+    "row_arm_swaps": {
+      "a1": "a2",
+      "a2": "a1",
+      "p11": "p12",
+      "p12": "p11",
+      "u1": "v1",
+      "v1": "u1"
+    },
+    "row_swap": "swap cell rows and q0,q1/activation rows"
+  },
+  "named_root_descriptor_action_is_faithful": true,
+  "named_root_group_order": 32,
+  "payload_sha256": "90034307105591ccb92801b57d2d922e97bcd59d0701b1abbd93d000e18a2c72",
+  "producer_sha256": "4695de7db7167afa1f1b86b11ba90fcf2a74e67903f3666bebee566688eeaaec",
+  "schema": "full-grid-stage558-named-stabilizer-v1",
+  "schema_version": "1.0",
+  "scope": "exact action of the stated named 32-element semantic group on macro descriptors and its exact stabilizer; not the full 6M-point concrete automorphism group",
+  "stabilizer_filtration": {
+    "enlargement_macrofibres": {
+      "elements": [
+        "R0C0K0A00",
+        "R0C0K0A01",
+        "R0C0K0A10",
+        "R0C0K0A11"
+      ],
+      "order": 4
+    },
+    "fattened_meet_components": {
+      "elements": [
+        "R0C0K0A00",
+        "R0C0K0A01",
+        "R0C0K0A10",
+        "R0C0K0A11"
+      ],
+      "order": 4
+    },
+    "literal_cylinder": {
+      "elements": [
+        "R0C0K0A00",
+        "R0C0K0A01",
+        "R0C0K0A10",
+        "R0C0K0A11"
+      ],
+      "order": 4
+    },
+    "named_root": {
+      "elements": [
+        "R0C0K0A00",
+        "R0C0K0A01",
+        "R0C0K0A10",
+        "R0C0K0A11",
+        "R0C0K1A00",
+        "R0C0K1A01",
+        "R0C0K1A10",
+        "R0C0K1A11",
+        "R0C1K0A00",
+        "R0C1K0A01",
+        "R0C1K0A10",
+        "R0C1K0A11",
+        "R0C1K1A00",
+        "R0C1K1A01",
+        "R0C1K1A10",
+        "R0C1K1A11",
+        "R1C0K0A00",
+        "R1C0K0A01",
+        "R1C0K0A10",
+        "R1C0K0A11",
+        "R1C0K1A00",
+        "R1C0K1A01",
+        "R1C0K1A10",
+        "R1C0K1A11",
+        "R1C1K0A00",
+        "R1C1K0A01",
+        "R1C1K0A10",
+        "R1C1K0A11",
+        "R1C1K1A00",
+        "R1C1K1A01",
+        "R1C1K1A10",
+        "R1C1K1A11"
+      ],
+      "order": 32
+    },
+    "repair_provenance": {
+      "elements": [
+        "R0C0K0A00",
+        "R0C0K0A01",
+        "R0C0K0A10",
+        "R0C0K0A11"
+      ],
+      "order": 4
+    }
+  }
+}

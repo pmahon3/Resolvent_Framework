@@ -1,0 +1,1256 @@
+{
+  "closure_cap_unchanged": 256,
+  "closure_depth_not_extended": true,
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/adjacent_ar_reb_001_prefix_classification.py --verify",
+  "descriptor_class_count": 240,
+  "descriptor_class_size_histogram": {
+    "1": 224,
+    "2": 16
+  },
+  "descriptor_inadequate_class_count": 16,
+  "evidence_class": "Executable verified \u2014 sampled finite scope",
+  "first_descriptor_divergences": [
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "00f0865264a883442808d1eae06e1c7189587f9fe89eebf2d01a16c934d61073",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5650,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "014c703b222d595a115c9c3cd3e37a1ddbcc8aeb38e25277761be4ad743d9148",
+            "exact_section_root_signature_sha256": "4d4062cd6e2bd41a462cac35c4a8dfc776a176d1ce847133f6195228a7cc0657",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "0e8b75266beff4a05bfc019574506ef768d1c64bb39f3c01969ea0f175b4557f"
+              ]
+            },
+            "root_sha256": "4d4062cd6e2bd41a462cac35c4a8dfc776a176d1ce847133f6195228a7cc0657"
+          },
+          "root_sha256": "4d4062cd6e2bd41a462cac35c4a8dfc776a176d1ce847133f6195228a7cc0657"
+        },
+        {
+          "behavior_sha256": "f4c56b45c38606db41f7abb4ed24def7b5433a1ce71557f3cdc83eab165b2f7d",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5650,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "014c703b222d595a115c9c3cd3e37a1ddbcc8aeb38e25277761be4ad743d9148",
+            "exact_section_root_signature_sha256": "2572f79ebb4b45e5fdefed548a02b4af0b085c739206443fe305f1dd5bdcd09a",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "20ccd7cd0a5484fa122be021b19e93fe97bf152d320e08591f10a391574008b4"
+              ]
+            },
+            "root_sha256": "2572f79ebb4b45e5fdefed548a02b4af0b085c739206443fe305f1dd5bdcd09a"
+          },
+          "root_sha256": "2572f79ebb4b45e5fdefed548a02b4af0b085c739206443fe305f1dd5bdcd09a"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "014c703b222d595a115c9c3cd3e37a1ddbcc8aeb38e25277761be4ad743d9148",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "a57a9419db54a6de83251ade25737c8284d0f9b7dc492ecad662010847e52e51",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 274,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "1dfbe86881c9c3cb9eb1869108ba968d1e66a8be025337693004dc81af32fd56",
+            "exact_section_root_signature_sha256": "e2a84d431f1ff6e0b292d87fbebbfaf756b254ef7e280cf030bd2afd99a2da47",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "5e6cbee482ad8e2e4a76b8945a43703587fcf05c3eb271fd2da75f4be7e9d0d8"
+              ]
+            },
+            "root_sha256": "e2a84d431f1ff6e0b292d87fbebbfaf756b254ef7e280cf030bd2afd99a2da47"
+          },
+          "root_sha256": "e2a84d431f1ff6e0b292d87fbebbfaf756b254ef7e280cf030bd2afd99a2da47"
+        },
+        {
+          "behavior_sha256": "e454ed7df59e3a236c0273fbdb3f5180e8b454d27e61cb788403776f05b61b7d",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 274,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "1dfbe86881c9c3cb9eb1869108ba968d1e66a8be025337693004dc81af32fd56",
+            "exact_section_root_signature_sha256": "98c702b1d9e01a2411fef7f7d577c5d4857d503f7f9b1af930ddddfa45876d78",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "3bade5dd1ec34318baf43c718670d4b5148a374b1c07e1336260c1c245a0e3de"
+              ]
+            },
+            "root_sha256": "98c702b1d9e01a2411fef7f7d577c5d4857d503f7f9b1af930ddddfa45876d78"
+          },
+          "root_sha256": "98c702b1d9e01a2411fef7f7d577c5d4857d503f7f9b1af930ddddfa45876d78"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "1dfbe86881c9c3cb9eb1869108ba968d1e66a8be025337693004dc81af32fd56",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "6b1087fa62dd826f2837e39f3b13d38bfad6c5d1b52007f935d839e6f91b9701",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 6018,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "1e5b70e5b651a1ce57714b14665a68b2af66500f6fa345b521f6d281ac13c1a5",
+            "exact_section_root_signature_sha256": "c8e0ac36dfa949f6b5e861aeb133e5c993f82f509079dc50a86e975ac0091ca6",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "3b81d9b2e3b19946d187a3484fbc8fffbb58680ba7cbdfd3ffa3b7dfee6cc465"
+              ]
+            },
+            "root_sha256": "c8e0ac36dfa949f6b5e861aeb133e5c993f82f509079dc50a86e975ac0091ca6"
+          },
+          "root_sha256": "c8e0ac36dfa949f6b5e861aeb133e5c993f82f509079dc50a86e975ac0091ca6"
+        },
+        {
+          "behavior_sha256": "abe177a6c84cb3d812fc5d3e2ec6de30559d284c8af418b8a820f65ef3c5b7a2",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 6018,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "1e5b70e5b651a1ce57714b14665a68b2af66500f6fa345b521f6d281ac13c1a5",
+            "exact_section_root_signature_sha256": "8d568d50d68a3843e203032c952e2302df3544bc24491c02e30e28846c1f9007",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "147d5e08fc2f3cbfa6eae1460de76b5b5a7b460fc1a9132583f2a408cb0e123d"
+              ]
+            },
+            "root_sha256": "8d568d50d68a3843e203032c952e2302df3544bc24491c02e30e28846c1f9007"
+          },
+          "root_sha256": "8d568d50d68a3843e203032c952e2302df3544bc24491c02e30e28846c1f9007"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "1e5b70e5b651a1ce57714b14665a68b2af66500f6fa345b521f6d281ac13c1a5",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "22bb6ea85cac83596d12cc4b28dafbd72c20b45e81b899ec8a4ee59372eedc9e",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5888,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "31c3faca6be83d1d659049365677078c6884717f1818510b2fcf791194b25cc0",
+            "exact_section_root_signature_sha256": "9972891cb4fec88de17357d51fdbd24f42dba50e8374b94dc34a63d5f3c8635f",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "3e64383dddf48f4fcdc5847f4a4093ae8c39bdbd4e96713361f6dab41a3852a4"
+              ]
+            },
+            "root_sha256": "9972891cb4fec88de17357d51fdbd24f42dba50e8374b94dc34a63d5f3c8635f"
+          },
+          "root_sha256": "9972891cb4fec88de17357d51fdbd24f42dba50e8374b94dc34a63d5f3c8635f"
+        },
+        {
+          "behavior_sha256": "671a28e476546f141e374ded2619d7259fee1ead7276837eda5d82f986d2cd52",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5888,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "31c3faca6be83d1d659049365677078c6884717f1818510b2fcf791194b25cc0",
+            "exact_section_root_signature_sha256": "8c6e0c6c198c04917c963bf7e20b40308ea3066261f153547534cb4f11f5bc81",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "65392fd09fa350cfa57d74342d8994f9dc0be04ee9054b910a272862422ef6ce"
+              ]
+            },
+            "root_sha256": "8c6e0c6c198c04917c963bf7e20b40308ea3066261f153547534cb4f11f5bc81"
+          },
+          "root_sha256": "8c6e0c6c198c04917c963bf7e20b40308ea3066261f153547534cb4f11f5bc81"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "31c3faca6be83d1d659049365677078c6884717f1818510b2fcf791194b25cc0",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "9744344262de84404f013b27f4faee9a9ec35cfef93ab4cf6b03de22db023af8",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 144,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "36df7e37ec739e506211aa57950affd4e2eee9c19fa0ef43eafb5322118ace50",
+            "exact_section_root_signature_sha256": "9cd01f5fe120acc8ec1dae3b697c4575e57ca21c6ff85171600359f8473ad67e",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "05b1a21890cd1017bda5e8c5ebe181aef73994ce85bf4764c135431551cf6b72"
+              ]
+            },
+            "root_sha256": "9cd01f5fe120acc8ec1dae3b697c4575e57ca21c6ff85171600359f8473ad67e"
+          },
+          "root_sha256": "9cd01f5fe120acc8ec1dae3b697c4575e57ca21c6ff85171600359f8473ad67e"
+        },
+        {
+          "behavior_sha256": "aa2126018f4f3266a15e4548bfa37b86f04cdd231405bfab0c462c1169adf2d0",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 144,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "36df7e37ec739e506211aa57950affd4e2eee9c19fa0ef43eafb5322118ace50",
+            "exact_section_root_signature_sha256": "03c4122bf8f0b080a6dc322fdd3b2fa35adf2ff3a70990e328d1db6256978465",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "56524642eb39dd4f7e97e3302f867d9cb298bc97333a01d93a191386b2751c33"
+              ]
+            },
+            "root_sha256": "03c4122bf8f0b080a6dc322fdd3b2fa35adf2ff3a70990e328d1db6256978465"
+          },
+          "root_sha256": "03c4122bf8f0b080a6dc322fdd3b2fa35adf2ff3a70990e328d1db6256978465"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "36df7e37ec739e506211aa57950affd4e2eee9c19fa0ef43eafb5322118ace50",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "3bb03d8c2cbbe5e9cddb48ea258fdd38f187b36c7379b248371049b840e9447b",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 896,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "589f334d6c1c304d8ad813c2cd883f1b7baf0e3128aefbdaf8be1262928cf2c5",
+            "exact_section_root_signature_sha256": "fcc85cdb68f3314a646b0223f8830d104ac0656b35e45cfa5a89b10e01c84026",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "1458cc3e61aefc8c776b397e9c9b2bacb8cba306a991ddb7f052ff7234da819e"
+              ]
+            },
+            "root_sha256": "fcc85cdb68f3314a646b0223f8830d104ac0656b35e45cfa5a89b10e01c84026"
+          },
+          "root_sha256": "fcc85cdb68f3314a646b0223f8830d104ac0656b35e45cfa5a89b10e01c84026"
+        },
+        {
+          "behavior_sha256": "78c818ee05ec57ee9bff8eebdcee25a1637bae8b783a2aca62223b9dce374a5e",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 896,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "589f334d6c1c304d8ad813c2cd883f1b7baf0e3128aefbdaf8be1262928cf2c5",
+            "exact_section_root_signature_sha256": "be3207006ada4473fa597f3bb6b37409aa73323d77aaaab217cbc0e9af40e775",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "2f972eca719314e97f50b1ada7c957b84183fa684a670cfd847baa1d9da10404"
+              ]
+            },
+            "root_sha256": "be3207006ada4473fa597f3bb6b37409aa73323d77aaaab217cbc0e9af40e775"
+          },
+          "root_sha256": "be3207006ada4473fa597f3bb6b37409aa73323d77aaaab217cbc0e9af40e775"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "589f334d6c1c304d8ad813c2cd883f1b7baf0e3128aefbdaf8be1262928cf2c5",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "066b7a4e0c74f2cf756d1fd6865512d18330247dd8eb1fe0e760c4804e59a1ca",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 914,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "5f791517c9f0b34c6ec1d439d45d530cb51b030a288bac992e0869b8ac449ce5",
+            "exact_section_root_signature_sha256": "8b1a0ee3d70f70bb9d6a1fa02110662acb7eae20f2dcd7ffae024351040a6fad",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "1f71723eb3857e9bbf6d797c7ffa1f251a5527880c1c6c3cfa7491ca74d386d4"
+              ]
+            },
+            "root_sha256": "8b1a0ee3d70f70bb9d6a1fa02110662acb7eae20f2dcd7ffae024351040a6fad"
+          },
+          "root_sha256": "8b1a0ee3d70f70bb9d6a1fa02110662acb7eae20f2dcd7ffae024351040a6fad"
+        },
+        {
+          "behavior_sha256": "8d2e7fc6a1fd4ee960acce008b650e3699321cf6c4bf509d57f3772b8640100b",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 914,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "5f791517c9f0b34c6ec1d439d45d530cb51b030a288bac992e0869b8ac449ce5",
+            "exact_section_root_signature_sha256": "56216bcb22b08eb9289d10b353725eaaeb85e113880987eaad927c1b4745b776",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "13b5602380d69acdef081fcdca43c26f05042aa0ed94351db97cb671c7bd251d"
+              ]
+            },
+            "root_sha256": "56216bcb22b08eb9289d10b353725eaaeb85e113880987eaad927c1b4745b776"
+          },
+          "root_sha256": "56216bcb22b08eb9289d10b353725eaaeb85e113880987eaad927c1b4745b776"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "5f791517c9f0b34c6ec1d439d45d530cb51b030a288bac992e0869b8ac449ce5",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "5a7b1750d10893b59934b7f8f958c77121b5ccd283e3b6685632c22dc4d81757",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 912,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "5feb9206d5b4661ab5ab25242a7a2b5388ec69bd1507babca149189ed1a36fb3",
+            "exact_section_root_signature_sha256": "b964f6082e661713faf9ea787d6c2f9ae01413d89fd51c9c7170193d281c672b",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "5a627c1e9e8c386efc4be3b6e2c83c74132d222ee6365921a6ee948cb627a3d2"
+              ]
+            },
+            "root_sha256": "b964f6082e661713faf9ea787d6c2f9ae01413d89fd51c9c7170193d281c672b"
+          },
+          "root_sha256": "b964f6082e661713faf9ea787d6c2f9ae01413d89fd51c9c7170193d281c672b"
+        },
+        {
+          "behavior_sha256": "add4619d4f87f6bdfc4aaa3e996a580982eb9f87fe014c022978a5de99bf4125",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 912,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "5feb9206d5b4661ab5ab25242a7a2b5388ec69bd1507babca149189ed1a36fb3",
+            "exact_section_root_signature_sha256": "8f98669b29683ef1b3aadda82f9d671e6a5ff38f7ac5a1c481a8910a2224bfb4",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "4b71633fc76e214adec71ed1ca1f7080da7df061a8200b072d342921d1eee529"
+              ]
+            },
+            "root_sha256": "8f98669b29683ef1b3aadda82f9d671e6a5ff38f7ac5a1c481a8910a2224bfb4"
+          },
+          "root_sha256": "8f98669b29683ef1b3aadda82f9d671e6a5ff38f7ac5a1c481a8910a2224bfb4"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "5feb9206d5b4661ab5ab25242a7a2b5388ec69bd1507babca149189ed1a36fb3",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "490c2e2f47043fb8ebf751fca3c003dd3d95f0ee5a47b7615604ff37dc1da432",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 258,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "72ba46df142e0e0eb79c719e3f64f28e2b8891bb449d9f2f7f95701e846cd4d3",
+            "exact_section_root_signature_sha256": "d5fa58f89a580c6168e61010bef2916a652430ff635bb2a87dae73b2f1128cc0",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "2e93df40e0206949d61d532f0e90af6f1cc4771e346a6b164c7060f50e3f41a2"
+              ]
+            },
+            "root_sha256": "d5fa58f89a580c6168e61010bef2916a652430ff635bb2a87dae73b2f1128cc0"
+          },
+          "root_sha256": "d5fa58f89a580c6168e61010bef2916a652430ff635bb2a87dae73b2f1128cc0"
+        },
+        {
+          "behavior_sha256": "c1bcf69857b9ed916f0e779cf4670115260535c9a96c0ce7b06f88c3d86ce23b",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 258,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "72ba46df142e0e0eb79c719e3f64f28e2b8891bb449d9f2f7f95701e846cd4d3",
+            "exact_section_root_signature_sha256": "937d7ad97414937cae29b3dfd86dab37d5601d85dfb8ee303e910ff778f9eab1",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "4b8b946400c41aecbb15da6b780566abc21f252ee68871e1cfc51a4cfee9d598"
+              ]
+            },
+            "root_sha256": "937d7ad97414937cae29b3dfd86dab37d5601d85dfb8ee303e910ff778f9eab1"
+          },
+          "root_sha256": "937d7ad97414937cae29b3dfd86dab37d5601d85dfb8ee303e910ff778f9eab1"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "72ba46df142e0e0eb79c719e3f64f28e2b8891bb449d9f2f7f95701e846cd4d3",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "9f835f29bb23a7c6d788ef11e7be0b698509b9c176b4238ecb70d12141af7479",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5778,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "932b18dbaed6e5b6929a7670564802d1de3acba058edd756edb44ab2d1101bd9",
+            "exact_section_root_signature_sha256": "dbe176e0e983c542f0c669b5c8061ab838d5f1688077a4c612f7deeb7ef0c960",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "378c56d5a047a14cb2e70d004ac9c9f98a8e6bcd9fa6786f597d81d89cfb64df"
+              ]
+            },
+            "root_sha256": "dbe176e0e983c542f0c669b5c8061ab838d5f1688077a4c612f7deeb7ef0c960"
+          },
+          "root_sha256": "dbe176e0e983c542f0c669b5c8061ab838d5f1688077a4c612f7deeb7ef0c960"
+        },
+        {
+          "behavior_sha256": "b3af47bc3f011df40f607191f053a011a8f529e8aed47972dfe3c41769561efe",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5778,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "932b18dbaed6e5b6929a7670564802d1de3acba058edd756edb44ab2d1101bd9",
+            "exact_section_root_signature_sha256": "a27a0f316054fc8292c1136e4b42f2e1e9a3dd90ae6562a24a21702b3e9ce8a1",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "05fd4ab078c7deb03cd24dcdc4588353d14458d238060f430338f2efdaa28132"
+              ]
+            },
+            "root_sha256": "a27a0f316054fc8292c1136e4b42f2e1e9a3dd90ae6562a24a21702b3e9ce8a1"
+          },
+          "root_sha256": "a27a0f316054fc8292c1136e4b42f2e1e9a3dd90ae6562a24a21702b3e9ce8a1"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "932b18dbaed6e5b6929a7670564802d1de3acba058edd756edb44ab2d1101bd9",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "558091752c782ce975afdaaae14eae6722720a1937dc9d0573235c2bf7cc955c",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 658,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "b3d4914c4663cce40b8042b0165242a35ce82bc69c2fe7aa7662f61c92f27f7f",
+            "exact_section_root_signature_sha256": "c0c0e173b236110dbecdbfad020b3f808af4ab286b40898314ffb8cf44a96195",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "0aafd2dbe4774b85fdbf9d937ace3e4e290d62b102dbd0e900c28796f98f21eb"
+              ]
+            },
+            "root_sha256": "c0c0e173b236110dbecdbfad020b3f808af4ab286b40898314ffb8cf44a96195"
+          },
+          "root_sha256": "c0c0e173b236110dbecdbfad020b3f808af4ab286b40898314ffb8cf44a96195"
+        },
+        {
+          "behavior_sha256": "88b5ebe0f7ef6ac110068cb89dfe8224b1b6c9173d9fe974ab7294a4163a06c4",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 658,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "b3d4914c4663cce40b8042b0165242a35ce82bc69c2fe7aa7662f61c92f27f7f",
+            "exact_section_root_signature_sha256": "fb5f7dbd48e16937f4608ab0e241b86370a58e89f6ab196d3237d0e5086ea93d",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "6b32da1f4fb62d98070fe1f6bfacb858c169bf3723eb955c070c29199ebd4752"
+              ]
+            },
+            "root_sha256": "fb5f7dbd48e16937f4608ab0e241b86370a58e89f6ab196d3237d0e5086ea93d"
+          },
+          "root_sha256": "fb5f7dbd48e16937f4608ab0e241b86370a58e89f6ab196d3237d0e5086ea93d"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "b3d4914c4663cce40b8042b0165242a35ce82bc69c2fe7aa7662f61c92f27f7f",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "fd68a42acca5cf375350268b90913855b39d8301e4104948f1e57351b7675182",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5904,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "b558731c1c05badc6db324cc41ca911a68c4a3e6546f2b05dc15b7d752b8b863",
+            "exact_section_root_signature_sha256": "a6ec198dc5254bf3d2cfbc3a12d7831bf07f4e979e94de2fc738b4b851cef5e3",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "02f5c682df9bd4a6fa83433292d8a9fbd1a508c57c0b755c34f0552c87acbba4"
+              ]
+            },
+            "root_sha256": "a6ec198dc5254bf3d2cfbc3a12d7831bf07f4e979e94de2fc738b4b851cef5e3"
+          },
+          "root_sha256": "a6ec198dc5254bf3d2cfbc3a12d7831bf07f4e979e94de2fc738b4b851cef5e3"
+        },
+        {
+          "behavior_sha256": "ff3c50205c00cc35a7ec2d9221b6d05c09ec2c2625f27132e27ca92f8e09b390",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5904,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "b558731c1c05badc6db324cc41ca911a68c4a3e6546f2b05dc15b7d752b8b863",
+            "exact_section_root_signature_sha256": "50d9840e2fe0b9c92b060eb54eb38f178b340579f622c179223a606ab2c567c4",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "34edaf1773afe9bbaae5c1f9bde0866799c6645ff071302719d90299e2443c4f"
+              ]
+            },
+            "root_sha256": "50d9840e2fe0b9c92b060eb54eb38f178b340579f622c179223a606ab2c567c4"
+          },
+          "root_sha256": "50d9840e2fe0b9c92b060eb54eb38f178b340579f622c179223a606ab2c567c4"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "b558731c1c05badc6db324cc41ca911a68c4a3e6546f2b05dc15b7d752b8b863",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "25b1e15ee2606d169883c5404dc662e0ef2495d288c389c0c55e3b3a25b30c0f",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5634,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "b825a586da84a1d6fe8ecb39c8672aea747dea4a9a74e0cc3e402a95bc078bee",
+            "exact_section_root_signature_sha256": "24651d50dc149845b9efbebc7aced271b5ce7b4bb919a8225d3338eb38e2b3e9",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "5d60e48c7dc3c98d281b4d1be2efd68bc4fd82b72891850b0924861fd9180b20"
+              ]
+            },
+            "root_sha256": "24651d50dc149845b9efbebc7aced271b5ce7b4bb919a8225d3338eb38e2b3e9"
+          },
+          "root_sha256": "24651d50dc149845b9efbebc7aced271b5ce7b4bb919a8225d3338eb38e2b3e9"
+        },
+        {
+          "behavior_sha256": "582a405ea02764ca35d067a68101c11cd56ead896bae0fd7c44eb51ca92464b0",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5634,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "b825a586da84a1d6fe8ecb39c8672aea747dea4a9a74e0cc3e402a95bc078bee",
+            "exact_section_root_signature_sha256": "dced1e2d5b15f582ea1127cb24bc1e9bdc520ae04f8f2432cb7db32b6e48deff",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "0ff1928e163fdbc28313ff9961ed3da87103c770ad9b2890c5015900a5d8f3d3"
+              ]
+            },
+            "root_sha256": "dced1e2d5b15f582ea1127cb24bc1e9bdc520ae04f8f2432cb7db32b6e48deff"
+          },
+          "root_sha256": "dced1e2d5b15f582ea1127cb24bc1e9bdc520ae04f8f2432cb7db32b6e48deff"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "b825a586da84a1d6fe8ecb39c8672aea747dea4a9a74e0cc3e402a95bc078bee",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "08fa10073a248c67ee902866ba8b907a483d34fd16c8abe8c8502f43bf62aa48",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5122,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "cab78fba333f9bea82e8479754af58417dc99670bc4f4bd9839d60dc8af706f0",
+            "exact_section_root_signature_sha256": "d46dc0bbf44e4e943d7c443cff1835d8c99a33e5c9906647bc0e137603b31766",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "07aec6da868218c216b20f2d42769d89ee58378901efc8693d37947cde0cfac9"
+              ]
+            },
+            "root_sha256": "d46dc0bbf44e4e943d7c443cff1835d8c99a33e5c9906647bc0e137603b31766"
+          },
+          "root_sha256": "d46dc0bbf44e4e943d7c443cff1835d8c99a33e5c9906647bc0e137603b31766"
+        },
+        {
+          "behavior_sha256": "6cd364a0ef401c372910be7233a849fdc8c435cc69b801ef0b094fb586e8a761",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5122,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "cab78fba333f9bea82e8479754af58417dc99670bc4f4bd9839d60dc8af706f0",
+            "exact_section_root_signature_sha256": "0066772d82e7f84cd98eb63e7ccdc4ee9d4949a09bf37d8ab41ec455b9f627a4",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "6a9a57c70fe5a743e59b99dc7a0cd4cb56d688d13eda42055baf9206bb0113ab"
+              ]
+            },
+            "root_sha256": "0066772d82e7f84cd98eb63e7ccdc4ee9d4949a09bf37d8ab41ec455b9f627a4"
+          },
+          "root_sha256": "0066772d82e7f84cd98eb63e7ccdc4ee9d4949a09bf37d8ab41ec455b9f627a4"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "cab78fba333f9bea82e8479754af58417dc99670bc4f4bd9839d60dc8af706f0",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "6a51672879971036026f9d57d6c1cddfcb0a81a302fd0b1bb0a4b68f52af3414",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5120,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "eb5a3eb9c9e0493a7658a1ab76bdfd5bbdbe9edc559ba97d329fa908b872c16c",
+            "exact_section_root_signature_sha256": "ffc1c17d6b290d8d78f41bc51d4c2300c82802d5268362cbf0c85aefd8ffab90",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "2ed0ea6e937796c9d61dfcc008822415db750034a7b7b86216f8158a00be0829"
+              ]
+            },
+            "root_sha256": "ffc1c17d6b290d8d78f41bc51d4c2300c82802d5268362cbf0c85aefd8ffab90"
+          },
+          "root_sha256": "ffc1c17d6b290d8d78f41bc51d4c2300c82802d5268362cbf0c85aefd8ffab90"
+        },
+        {
+          "behavior_sha256": "a496f06b54bed0ba463c6329639181071f0bb50064d3d20c98787c42f687dd63",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 5120,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "eb5a3eb9c9e0493a7658a1ab76bdfd5bbdbe9edc559ba97d329fa908b872c16c",
+            "exact_section_root_signature_sha256": "473af21ac581a727462ace01ec426996231044f9390f4964c15b93ba8c40bc7a",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "46fd76e89f4c345247701c5b8682ea4c81bec6aa8833adf36e8d0d592ecd6599"
+              ]
+            },
+            "root_sha256": "473af21ac581a727462ace01ec426996231044f9390f4964c15b93ba8c40bc7a"
+          },
+          "root_sha256": "473af21ac581a727462ace01ec426996231044f9390f4964c15b93ba8c40bc7a"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "eb5a3eb9c9e0493a7658a1ab76bdfd5bbdbe9edc559ba97d329fa908b872c16c",
+      "distinct_behavior_count": 2
+    },
+    {
+      "behavior_examples": [
+        {
+          "behavior_sha256": "22674582a4601d44aecccbe7a1ebeb966d1a20c15bdd8acff0a1926740ce9687",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 6034,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "ff5420d0795344254e893f8e7b9f1390e6fab76707ed3287076e6bf9cbc08148",
+            "exact_section_root_signature_sha256": "ac5df379e6413cfae247daa19712880f6bc4fa76ea49a81cd57130dade970473",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "0136f27011eb3c9aa84dc6c5753e398637ded395d2fe563f2fc3f06bf262400d"
+              ]
+            },
+            "root_sha256": "ac5df379e6413cfae247daa19712880f6bc4fa76ea49a81cd57130dade970473"
+          },
+          "root_sha256": "ac5df379e6413cfae247daa19712880f6bc4fa76ea49a81cd57130dade970473"
+        },
+        {
+          "behavior_sha256": "e83cca0d6b35eb54139f5bbdddf0e760c9bd1f984802fcc6a91c83bfd6f11d08",
+          "exact_record": {
+            "descriptor": {
+              "below_escaping_old_join": false,
+              "contains_changed_atom": false,
+              "contains_changed_prior": false,
+              "contains_forced_g": false,
+              "depth": 2,
+              "envelope_relation": "below",
+              "g_relation": "cross",
+              "old_lower_index": 6034,
+              "old_upper_index": null,
+              "operator": "complement_of_disjoint_union",
+              "parent_depths": [
+                0,
+                1
+              ],
+              "physical_side_mapping": "target_side",
+              "target_relation": "below"
+            },
+            "descriptor_sha256": "ff5420d0795344254e893f8e7b9f1390e6fab76707ed3287076e6bf9cbc08148",
+            "exact_section_root_signature_sha256": "1830810f0515720cc8b131228053a3ea61677b80df1e88883e677e27ff87c43d",
+            "provenance": {
+              "depth": 2,
+              "operator": "complement_of_disjoint_union",
+              "parents": [
+                "7474fc6e2b5f78759827c286d57472ca295ee65d895221cae231a9444d2c9e7e",
+                "226b1ad1c11a66952329dfbace3e0fd1f17902c96f591c7514a5331d067207e2"
+              ]
+            },
+            "root_sha256": "1830810f0515720cc8b131228053a3ea61677b80df1e88883e677e27ff87c43d"
+          },
+          "root_sha256": "1830810f0515720cc8b131228053a3ea61677b80df1e88883e677e27ff87c43d"
+        }
+      ],
+      "class_size": 2,
+      "descriptor_sha256": "ff5420d0795344254e893f8e7b9f1390e6fab76707ed3287076e6bf9cbc08148",
+      "distinct_behavior_count": 2
+    }
+  ],
+  "first_sufficient_refinement_candidate": "some refinement beyond the parent-depth multiset is required; exact parent-root/provenance incidence is the first sufficient candidate exposed by these witnesses, not proved minimal",
+  "fixed_new_event_count": 256,
+  "payload_sha256": "7f98fcc1e8bd6e91cb8f8391159d32c1499035f7300355cb120cf225623fb61a",
+  "producer_sha256": "92a0a18ac97271d1618031fa574b2be0abbc52466979c33339ab05b208cb5eac",
+  "records_chained_sha256": "d8a862db65636ec19760ff31547a57d45c858d36d24459af182fa127b5890ad1",
+  "schema": "adjacent-ar-reb-001-prefix-classification-v1",
+  "schema_version": "1.0",
+  "scope": "Exact classification of the already generated AR-REB-001 256-event prefix. Behaviour tests use only complement and new/new disjoint unions already present. No cap/depth extension, old/new full table, lattice, OML, centre, state, sigma, ODBC, or Phi claim.",
+  "source_ar_reb_payload_sha256": "e300f31d4f050bf6b17552de43aa60a3a258bd6bf2f14e49a415abe43a2f746d",
+  "verdict": "candidate provenance descriptor is not behaviorally adequate on frozen prefix"
+}

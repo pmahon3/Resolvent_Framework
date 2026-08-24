@@ -5,6 +5,15 @@ sequence of conjectures, refutations, and problem-shifts across the full
 631-commit history (2024-09 → 2026-06), recovered so the shape of the whole
 is visible from outside the turn-to-turn.*
 
+> **⚑ Post-dating update (2026-06-25):** since this was written, two states
+> below changed — the **logic/companion note** went from "parked" to
+> **RETIRED** (broken proof + folklore: FHM 1990 + Loeb 1975), and **Paper I**
+> is now **PARKED** (audited 2026-06-23: σ-Loomis–Sikorski realization gap +
+> folklore dichotomy, claims made honest). The OML σ-essential thread
+> **resolved into a reduction** (witness ⟺ σ-point-selection; forcing parked
+> as premature). This historical narrative is left as-was; current state is in
+> `program_overview.md` and the `papers/*/PAPER_*_AUDIT_VERDICT.md` files.
+
 This document exists because the programme spent two months contracting
 (three papers + four active leads in early May → one open question by 2026-06-06,
 since closed: see the thread-map footnote below) and
@@ -125,10 +134,13 @@ QUERY SYSTEM  (2026-03-18, the unlock) ── dynamics = directed observations
                                    see `program_overview.md` item 4.
 ```
 
-*(For the current descent-axis status — now CLOSED/PARKED after the `/audit full`
-on concreteness (2026-06-10) — see `program_overview.md` (item 4, authoritative)
-and the axis's own single-source `notes/covered_leads/descent_axis_residue_post_kill.md`.
-This document narrates history, not live state.)*
+*(For the current descent-axis status — the L_MO₂ lead was killed by the `/audit full`
+on concreteness (2026-06-10), then the axis was REFRAMED under Reading 1 to a live
+*uninhabited* open problem (σ-essential contextual state), which by 2026-06-17 carries
+a landed structural dichotomy + an Exit-B inclination (not a verdict). See
+`program_overview.md` (item 4, authoritative) and the L_MO₂ residue at
+`notes/covered_leads/descent_axis_residue_post_kill.md`. This document narrates history,
+not live state.)*
 
 ---
 
@@ -215,7 +227,7 @@ incompatible propositions at all?). *Nothing here is done.*
 |-------------------------|--------------------------------------------------------------------|----------------------------------------------------------------|
 | Is the descent question right? | **No** — harder variant whose novel part (non-distrib.) is incidental | **Yes** — non-distributivity *is* the whole novel content      |
 | What's already done?    | Paper I delivered it (Boolean). You'd polish a closed thing.        | Nothing — point-free σ-add. on non-distrib. lattices is vacant |
-| Still-open relative     | Strategy D / ZFC-independence (more continuous with 2024 origin)   | The descent check itself — one derivation from go/park         |
+| Still-open relative     | ~~Strategy D / ZFC-independence~~ **RETIRED 2026-06-18** (killed on prior-art; see the dated update below) — the (a)-line has no open target left | The descent check itself — one derivation from go/park         |
 
 ### How to feel which one you are (sit with these; don't answer fast)
 
@@ -253,3 +265,28 @@ This is suggestive that the driving curiosity was (a) all along — but choosing
 Reading 1 for a problem is not the same as self-diagnosing the curiosity, so the
 fork stays **open** by the doc's own standard. Recorded so it can inform the call,
 not make it.
+
+*Update 2026-06-18 — Strategy D KILLED on prior-art (the (a) "still-open relative"
+is retired, NOT delivered).* The worked math (`Clop(Y,𝔗)`, Argyros pre-Gleason, is
+not σ-complete) is TRUE but clears no contribution bar (/audit full): **Gaifman 1964**
+already inhabits the ZFC cell, stronger (atomless BA, no strictly-positive
+*finitely*-additive measure); non-σ-complete + atomless are trivial, measure-freeness
+is Argyros's published theorem; "Strategy D" was a private name, never field-open
+(the "ZFC-independent" prior was a misreading off the completion/Gleason cover). See
+[[strategy_d_resolved]] + `strategy_d_AUDIT_VERDICT.md`. So the (a)/anti-smuggler face
+has **one** delivered result (CE/Paper I); the (b)/incompatibility face (OML
+σ-essential descent) remains the lone open thread (Exit-B inclination, untooled). The
+row-221 "Still-open relative = Strategy D" is superseded (the relative is retired, not
+solved). This does NOT settle the fork — but it removes the (a)-side's last *open*
+target, so continuing OML descent is now an explicitly (b)-committed choice.
+
+*Update 2026-06-20 — the (b)-face is no longer plainly open either.* Prior-art
+(Derr–Williamson 2023, via Maharam 1972 §8) settles OML σ-essential descent
+NEGATIVELY in the Polish-representable case; it is open only for
+non-(topologically-)representable witnesses = the σ-Loomis–Sikorski wall (see
+`oml_onboarding` Rmk `rem:dw`, `sigma_essential_prior_art_verdict.md`). So neither
+face now has a *plainly-open* lead: (a)'s was retired (Strategy D), (b)'s is settled
+in the representable case with a sharply-located descriptive-set-theory residue.
+Both prior leads resolved against the literature within 48h, both by cross-field
+papers found only on hostile search — the standing lesson (run hostile cross-field
+prior-art FIRST) is now doubly earned.

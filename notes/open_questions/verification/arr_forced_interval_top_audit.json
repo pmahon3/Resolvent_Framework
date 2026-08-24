@@ -1,0 +1,68 @@
+{
+  "T_equals_R": false,
+  "T_equals_right_old_18322": false,
+  "T_is_upper_of_distinguished_cut": true,
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_forced_interval_top_audit.py --verify",
+  "definition": "T = R intersection cyl_right(old event 18322)",
+  "distinguished_lower_indices": [
+    15250,
+    16786
+  ],
+  "equal_to_any_current_single_seed": false,
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope",
+  "forced_interval_theorem": "For every concrete relation h, if both distinguished lowers are subsets of h and h is a subset of R and of cyl_right(18322), then h is a subset of T. This is set intersection and needs no closure or lattice assumption.",
+  "generated_by_complement_disjoint_union_closure_of_current_seeds": "Open \u2014 no closure rounds were run.",
+  "hostile_self_review": [
+    "T is a set target, not yet a generated event.",
+    "A greatest old lower kernel does not force T into an ambient OML.",
+    "Noncylindricity excludes equality with an old cylinder seed but not generation by later mixed closure.",
+    "The left seven-bit pattern extension shares the source MDD engine and was not independently reimplemented."
+  ],
+  "left_cylindrical": false,
+  "left_existential_shadow_root_sha256": "5e251f8e593b6b8772d220ba847075d3e8410373010598df82ab5c0a0177914d",
+  "left_old_lower_kernel": {
+    "atom_fold_index": 13848,
+    "atom_fold_inside_shadow": true,
+    "eligible_old_atom_count": 4,
+    "first_atom_fold_escape": null,
+    "greatest_old_lower_exists": true,
+    "maximal_old_lower_indices": [
+      13848
+    ],
+    "old_lower_count": 16,
+    "universal_shadow_root_sha256": "c2b962509546529d063bc80bb7f1c40769da43f9fac349db30bffd6e39ca65b5"
+  },
+  "left_old_seed_index_if_cylindrical": null,
+  "left_universal_shadow_root_sha256": "c2b962509546529d063bc80bb7f1c40769da43f9fac349db30bffd6e39ca65b5",
+  "lower_15250_subset_T": true,
+  "lower_16786_subset_T": true,
+  "payload_sha256": "9d024359af3bffbe25effd89934e37897c0cec0f04647bc36aef6cd023e1b31a",
+  "producer_sha256": "ead0b9dfc0ad734e72f70d69f420d54989f84b160727253ff8f3077a9fd4e1d0",
+  "right_cylindrical": false,
+  "right_existential_shadow_root_sha256": "bcff2b2e31c7dbfc18ed9cfa685e607255e0299a77b8bf97e965491ca6689b64",
+  "right_old_event_index": 18322,
+  "right_old_lower_kernel": {
+    "atom_fold_index": 18322,
+    "atom_fold_inside_shadow": false,
+    "eligible_old_atom_count": 8,
+    "first_atom_fold_escape": {
+      "atom_index": 10752,
+      "escaping_join_index": 18322,
+      "prior_index": 15250
+    },
+    "greatest_old_lower_exists": false,
+    "maximal_old_lower_indices": [
+      15250,
+      16786
+    ],
+    "old_lower_count": 192,
+    "universal_shadow_root_sha256": "5f0670219d13f0229fc4e0bc0ae150beb4f21b8e4e74e715cc05e4f747651d4f"
+  },
+  "right_old_seed_index_if_cylindrical": null,
+  "right_universal_shadow_root_sha256": "5f0670219d13f0229fc4e0bc0ae150beb4f21b8e4e74e715cc05e4f747651d4f",
+  "schema": "arr-forced-interval-top-audit-v1",
+  "schema_version": "1.0",
+  "scope": "Exact MDD quantifier shadows and exhaustive old-lower kernel folds for the single set target T. It proves the displayed forced-interval property and seed/cylindricity tests only. No closure, lattice, OML, centre, state, sigma, ODBC, or Phi claim.",
+  "source_selector_cut_payload_sha256": "4ce40c3dbadc03800eafb3e9ba7f9f6e310335546adcb00b4191d75381c39bf9",
+  "verification_independence": "One deterministic implementation reusing the authoritative ARR and selector-cut MDD producer."
+}

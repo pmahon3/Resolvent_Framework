@@ -10,18 +10,24 @@ partially fill that gap.
 
 ## Current state of the programme
 
-**No active standalone leads as of 2026-05-18.**
-Dynamics/reconstruction remains a source of examples and
-contrasts, but not a current research direction.
+**Authoritative state doc: `notes/programme/program_overview.md`.**
+Frontier structure: `notes/programme/frontier_map.md`. Work plan:
+`notes/programme/shovel_plan.md` (adopted 2026-07-10 — four theorems
+to prove + vacant lots shipped as invitations).
 
-Papers I and II are synthesis/positioning. Paper II (EA/PR/VDR,
-van Fraassen-to-duality) is the strongest novelty zone.
+Active flagship: **reconstruction/commensurability**
+(`papers/reconstruction/` — paper skeleton + notes/ hubs + oracles/).
+σ-essential: amended form is a machine-checked ZFC theorem; paper
+dissemination-ready (`papers/sigma_essential/`); OML/lattice +
+positive-selection + Φ-slice forms open (shovel plan). Paper I parked;
+Paper II is the survivor (Type-6); `papers/spine/` reads the corpus
+as one classification.
+
 Publication is not a goal of this repo — the work is
 research-oriented. Papers may be shared eventually but the
 driver is understanding, not shipping.
 
-See `notes/covered_leads/` and `notes/knowledge_map/` for full state.
-No active standalone leads as of 2026-05-18.
+Zoom-out navigation: `notes/taxonomies_index.json` (load FIRST).
 
 ## The research workflow (FOLLOW THIS)
 
@@ -36,7 +42,9 @@ No active standalone leads as of 2026-05-18.
 2. **Skeptical audit** → GATE: evaluate against each claimed type's bar.
    Default: `/audit full` for Phase 2. Use `pure`/`applied` for
    targeted re-audits only.
-3. **Problem statement** (md) → `notes/active_leads/`
+3. **Problem statement** (md) → the lane's home
+   (`papers/<lane>/notes/` for paper-bound work, else
+   `notes/open_questions/`)
 4. **Mathematical work** (user does this, not LLM)
 5. **Formalization** (Lean, novel results ONLY)
 6. **Draft** (LaTeX, editorial principles)
@@ -84,8 +92,6 @@ Broader lens, not broader standard. Each type has a concrete bar.
   a dead one alive. Both guardrail conditions must hold (see lifecycle).
 - **Verify LLM proofs independently.** Lean or manual check only.
 
-## Custom agents (`.claude/agents/`)
-
 ## Skill: `/audit` (`.claude/skills/audit/`)
 
 Research audit with mode argument. Gates the pipeline at Phase 2
@@ -122,9 +128,44 @@ before commits that touch many files, or when the repo feels
 cluttered) to catch orphaned files, stale cross-references,
 and structural drift.
 
+## Memory hygiene (the auto-memory at `~/.claude/.../memory/`)
+
+The memory dir has a **hot path** (`MEMORY.md`, loaded into context
+every session) and a **cold path** (topic files, loaded on demand).
+Keep the hot path tiny; let the cold path hold detail. The failure
+mode to prevent: appending a session log to the `MEMORY.md` index
+line each session — paid on every startup, forever.
+
+**Rules:**
+- **`MEMORY.md` entry = one line: title + one-sentence current-status
+  hook + pointer.** Hard target ~200 chars (the flagship active-thread
+  entry may run ~400). NEVER a per-session log, NEVER a proof, NEVER a
+  paragraph. If you're tempted, the content goes in the topic file.
+- **Per-session detail lives ONLY in the topic file**, appended as a
+  dated block. The index entry's hook gets *updated in place* to the
+  new current status — it does not grow.
+- **Preserve actionable specifics in the hook** (a citation gap, a
+  file/line to fix, an open sub-question) — those are easy to lose and
+  cheap to keep. Drop re-derivable narrative.
+- **Topic-file cap ~40 KB.** Past that, `Read` truncates (~25 K tokens)
+  and the file stops being usable whole. When a running log exceeds it,
+  collapse the *oldest* sessions into a short "settled facts" summary
+  at the top and keep recent sessions verbatim — ask first, since this
+  discards reasoning-trail detail.
+- **Before trimming index prose, verify the pointed-to file holds the
+  detail** (it usually duplicates the index — then trimming loses
+  nothing). Update the topic file's frontmatter `description` when the
+  thread's status changes, so recall still matches.
+- **Periodic check:** when `MEMORY.md` nears its size limit, scan for
+  the longest lines (`awk '{print length": "NR}' MEMORY.md | sort -rn`)
+  and collapse the offenders — they are almost always leaked session
+  logs.
+
 ## Communication preferences
 
 - Direct, concise. No preamble, no trailing summaries.
+- **Concision is prioritized:** Be extremely brief. Sacrifice conversational formatting for the sake of brevity.
+- **Direct Output:** Do not open responses with compliments, pleasantries, or validations of the idea.
 - Stop and reassess at natural checkpoints.
 - Honest sorry tracking: precise proof sketches, not "TODO."
 - One conceptual layer at a time.
@@ -153,20 +194,28 @@ infrastructure sorrys can remain honestly documented.
   skills/             ← /audit (pure, applied, or both)
 
 papers/
-  paper_i/            ← Synthesis (expository, not novel)
-  paper_ii/           ← EA/PR/VDR vocabulary (strongest contribution)
+  reconstruction/     ← ACTIVE flagship (skeleton + notes/ hubs + oracles/)
+  sigma_essential/    ← Ψ witness paper (machine-checked; dissemination-ready)
+  spine/              ← Corpus-level umbrella (reference-only)
+  paper_i/            ← Synthesis (audited, parked)
+  paper_ii/           ← EA/PR/VDR vocabulary (the survivor, Type-6)
   archive/            ← Withdrawn/canned/dead papers
 
 formalization/
-  QuerySystem/        ← Lean 4 / Mathlib (1 sorry total)
+  QuerySystem/        ← Lean 4 / Mathlib
 
 notes/
+  taxonomies_index.json ← Zoom-out registry (load FIRST)
   open_questions/     ← Precise, open, dormant (re-audit on new input)
   covered_leads/      ← Known results + dead leads (reference)
-  unsorted/           ← Needs individual assessment
+  unsorted/           ← Needs individual assessment (Tier 3)
   knowledge_map/      ← Research control panel
   reading_directions/ ← Guided reading with questions
   literature_review/  ← LaTeX lit review + PDF library
-  programme/          ← Orientation, synthesis, reception
+  conceptual_sketches/← Informal exploratory sketches
+  programme/          ← program_overview + frontier_map + shovel_plan
   archive/            ← Dead ends and superseded
+
+archive/              ← Pre-programme material (articles, thesis,
+                        superseded drafts, phase 1–3 artifacts)
 ```

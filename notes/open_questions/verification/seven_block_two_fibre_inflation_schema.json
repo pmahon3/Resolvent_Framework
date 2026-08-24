@@ -1,0 +1,405 @@
+{
+  "approximants": [
+    {
+      "checks": {
+        "all_boundaries_saturate": true,
+        "centre_is_trivial": true,
+        "dynkin_complement_closed": true,
+        "dynkin_disjoint_union_closed": true,
+        "dynkin_is_lattice": true,
+        "fibre_relation_is_rectangular": true,
+        "maximal_blocks_equal_expected_seven": true,
+        "monodromy_is_identity_product": true,
+        "orthomodular": true,
+        "raw_complement_closed": true,
+        "raw_disjoint_union_closed": false
+      },
+      "completed_candidate": {
+        "centre_size": 2,
+        "fibre_relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "fibre_relation_size": 4,
+        "maximal_block_count": 7,
+        "maximal_block_names": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "maximal_block_sizes": [
+          16,
+          16,
+          32,
+          32,
+          32,
+          32,
+          32
+        ]
+      },
+      "counts": {
+        "closure_round_sizes": [
+          112,
+          112
+        ],
+        "dynkin_closed_events": 112,
+        "expanded_carrier_points": 26,
+        "global_two_valued_states": 26,
+        "raw_events": 88
+      },
+      "datum": {
+        "A_atoms": 2,
+        "C_atoms": 2,
+        "seed_blocks": {
+          "A": "B",
+          "C": "D2"
+        },
+        "selectors": {
+          "q0": 1,
+          "r": 2
+        },
+        "supports": {
+          "q0": [
+            "B",
+            "D0",
+            "D1"
+          ],
+          "r": [
+            "D2",
+            "Ca"
+          ]
+        }
+      },
+      "schema": "seven-block-two-fibre-inflation-v1",
+      "scope": "finite approximant only; no infinite sigma-completeness inference"
+    },
+    {
+      "checks": {
+        "all_boundaries_saturate": true,
+        "centre_is_trivial": true,
+        "dynkin_complement_closed": true,
+        "dynkin_disjoint_union_closed": true,
+        "dynkin_is_lattice": true,
+        "fibre_relation_is_rectangular": true,
+        "maximal_blocks_equal_expected_seven": true,
+        "monodromy_is_identity_product": true,
+        "orthomodular": true,
+        "raw_complement_closed": true,
+        "raw_disjoint_union_closed": false
+      },
+      "completed_candidate": {
+        "centre_size": 2,
+        "fibre_relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "fibre_relation_size": 6,
+        "maximal_block_count": 7,
+        "maximal_block_names": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "maximal_block_sizes": [
+          16,
+          16,
+          32,
+          32,
+          32,
+          64,
+          64
+        ]
+      },
+      "counts": {
+        "closure_round_sizes": [
+          160,
+          160
+        ],
+        "dynkin_closed_events": 160,
+        "expanded_carrier_points": 32,
+        "global_two_valued_states": 32,
+        "raw_events": 120
+      },
+      "datum": {
+        "A_atoms": 2,
+        "C_atoms": 3,
+        "seed_blocks": {
+          "A": "B",
+          "C": "D2"
+        },
+        "selectors": {
+          "q0": 1,
+          "r": 2
+        },
+        "supports": {
+          "q0": [
+            "B",
+            "D0",
+            "D1"
+          ],
+          "r": [
+            "D2",
+            "Ca"
+          ]
+        }
+      },
+      "schema": "seven-block-two-fibre-inflation-v1",
+      "scope": "finite approximant only; no infinite sigma-completeness inference"
+    },
+    {
+      "checks": {
+        "all_boundaries_saturate": true,
+        "centre_is_trivial": true,
+        "dynkin_complement_closed": true,
+        "dynkin_disjoint_union_closed": true,
+        "dynkin_is_lattice": true,
+        "fibre_relation_is_rectangular": true,
+        "maximal_blocks_equal_expected_seven": true,
+        "monodromy_is_identity_product": true,
+        "orthomodular": true,
+        "raw_complement_closed": true,
+        "raw_disjoint_union_closed": false
+      },
+      "completed_candidate": {
+        "centre_size": 2,
+        "fibre_relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "fibre_relation_size": 6,
+        "maximal_block_count": 7,
+        "maximal_block_names": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "maximal_block_sizes": [
+          16,
+          16,
+          32,
+          32,
+          64,
+          64,
+          64
+        ]
+      },
+      "counts": {
+        "closure_round_sizes": [
+          176,
+          176
+        ],
+        "dynkin_closed_events": 176,
+        "expanded_carrier_points": 32,
+        "global_two_valued_states": 32,
+        "raw_events": 120
+      },
+      "datum": {
+        "A_atoms": 3,
+        "C_atoms": 2,
+        "seed_blocks": {
+          "A": "B",
+          "C": "D2"
+        },
+        "selectors": {
+          "q0": 1,
+          "r": 2
+        },
+        "supports": {
+          "q0": [
+            "B",
+            "D0",
+            "D1"
+          ],
+          "r": [
+            "D2",
+            "Ca"
+          ]
+        }
+      },
+      "schema": "seven-block-two-fibre-inflation-v1",
+      "scope": "finite approximant only; no infinite sigma-completeness inference"
+    },
+    {
+      "checks": {
+        "all_boundaries_saturate": true,
+        "centre_is_trivial": true,
+        "dynkin_complement_closed": true,
+        "dynkin_disjoint_union_closed": true,
+        "dynkin_is_lattice": true,
+        "fibre_relation_is_rectangular": true,
+        "maximal_blocks_equal_expected_seven": true,
+        "monodromy_is_identity_product": true,
+        "orthomodular": true,
+        "raw_complement_closed": true,
+        "raw_disjoint_union_closed": false
+      },
+      "completed_candidate": {
+        "centre_size": 2,
+        "fibre_relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "fibre_relation_size": 9,
+        "maximal_block_count": 7,
+        "maximal_block_names": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "maximal_block_sizes": [
+          16,
+          16,
+          64,
+          64,
+          64,
+          64,
+          64
+        ]
+      },
+      "counts": {
+        "closure_round_sizes": [
+          224,
+          224
+        ],
+        "dynkin_closed_events": 224,
+        "expanded_carrier_points": 40,
+        "global_two_valued_states": 40,
+        "raw_events": 152
+      },
+      "datum": {
+        "A_atoms": 3,
+        "C_atoms": 3,
+        "seed_blocks": {
+          "A": "B",
+          "C": "D2"
+        },
+        "selectors": {
+          "q0": 1,
+          "r": 2
+        },
+        "supports": {
+          "q0": [
+            "B",
+            "D0",
+            "D1"
+          ],
+          "r": [
+            "D2",
+            "Ca"
+          ]
+        }
+      },
+      "schema": "seven-block-two-fibre-inflation-v1",
+      "scope": "finite approximant only; no infinite sigma-completeness inference"
+    }
+  ],
+  "schema": "seven-block-two-fibre-inflation-v1"
+}

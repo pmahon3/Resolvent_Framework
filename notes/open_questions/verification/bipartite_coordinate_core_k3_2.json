@@ -1,0 +1,68 @@
+{
+  "centre_size": 2,
+  "closure_rounds": [
+    72,
+    0
+  ],
+  "completed_events": 144,
+  "first_lattice_failure": {
+    "maximal_lower_bounds_hex": [
+      "0x0"
+    ],
+    "minimal_upper_bound_supports": [
+      [
+        "q1",
+        "r0"
+      ],
+      [
+        "q0",
+        "r1"
+      ]
+    ],
+    "minimal_upper_bounds_hex": [
+      "0x33ff33ff",
+      "0x5555ffff"
+    ],
+    "x_hex": "0x3333",
+    "x_support": [
+      "q0",
+      "r0"
+    ],
+    "y_hex": "0x550055",
+    "y_support": [
+      "q1",
+      "r1"
+    ]
+  },
+  "lattice": false,
+  "m": 3,
+  "maximal_block_size_histogram": {
+    "16": 24
+  },
+  "maximal_blocks": 24,
+  "maximal_blocks_and_centre_semantics": "set-Boolean compatibility (four truth cells present)",
+  "n": 2,
+  "orthomodular": false,
+  "pairwise_joint_reconstruction": {
+    "q0-q1": false,
+    "q0-q2": false,
+    "q0-r0": true,
+    "q0-r1": true,
+    "q1-q2": false,
+    "q1-r0": true,
+    "q1-r1": true,
+    "q2-r0": true,
+    "q2-r1": true,
+    "r0-r1": false
+  },
+  "payload_sha256": "de1e1708fa547722e7116de2e3deb097382c6e567b207c1954978baf0472a84d",
+  "points": 32,
+  "raw_events": 72,
+  "schema": "bipartite-coordinate-core-v1",
+  "support_histogram": {
+    "0": 2,
+    "1": 10,
+    "2": 60,
+    "3": 72
+  }
+}

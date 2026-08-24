@@ -32,7 +32,7 @@ Directory conventions:
   `notes/literature_review/`;
 - guided reading questions live in `notes/reading_directions/`;
 - programme-wide reception reports live under
-  `notes/programme/programme_reception/`;
+  `notes/archive/programme_reception_2026-05/`;
 - superseded material stays under `notes/archive/`.
 
 Architectural layers:
@@ -42,7 +42,7 @@ Architectural layers:
 | Foundations | `foundations/` | logic, coherence, CE, Stone/Boolean support, rational-object probes |
 | Dynamics and reconstruction | `dynamics_reconstruction/` | Paper II/Paper III bridge, fibre mixing, Lyapunov directions |
 | Finite sample | `finite_sample/` | empirical witnesses, rates, observational resolution, interaction/certification |
-| Programme reception | `programme_reception/` | field placement, novelty, audience-specific rhetoric |
+| Programme reception (archived) | `notes/archive/programme_reception_2026-05/` | field placement, novelty, audience-specific rhetoric |
 
 This is intentionally not a perfect taxonomy.  Some directions are genuinely
 cross-layer.  Place a note where its current mathematical work happens, and use
@@ -67,11 +67,11 @@ File conventions:
 
 Path examples:
 
-- `notes/unsorted/foundations/coherence_completion/index.md`;
-- `notes/unsorted/foundations/coherence_completion/mathematical_language.md`;
+- `notes/archive/coherence_completion_parked/index.md`;
+- `notes/archive/coherence_completion_parked/mathematical_language.md`;
 - `notes/unsorted/finite_sample/observational_resolution/theorem_spec.md`;
-- `notes/unsorted/foundations/coherence_completion/logic_lit_review.md`;
-- `notes/programme/programme_reception/novelty_audit.md`.
+- `notes/archive/coherence_completion_parked/logic_lit_review.md`;
+- `notes/archive/programme_reception_2026-05/novelty_audit.md`.
 
 ## Recurring Motifs
 
@@ -106,6 +106,14 @@ valuation of refinement is the quantitative analogue for dimension/rates.
 
 ## Active Clusters
 
+> **2026-07-10 status banner:** live research state is NOT tracked in this file.
+> Zoom-out navigation = `notes/taxonomies_index.json` (load FIRST); state =
+> `notes/programme/program_overview.md`; plan = `notes/programme/shovel_plan.md`.
+> The ACTIVE flagship (reconstruction/commensurability) lives in
+> `papers/reconstruction/` (notes/ hubs + oracles/). The clusters below are the
+> DORMANT / Tier-3 pile (mostly `notes/unsorted/` subdirs); each file carries its
+> own status marker, which wins over anything written here.
+
 The clusters below are organized by programme architecture first, then by
 operational role inside each topic.
 
@@ -118,15 +126,15 @@ Central question:
 
 Primary notes:
 
-- `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` — conceptual seed and
+- `notes/archive/coherence_completion_parked/conceptual_schema.md` — conceptual seed and
   schema: consistency, coherence, admissibility, failure modes.
-- `notes/unsorted/foundations/coherence_completion/mathematical_language.md` — formal
+- `notes/archive/coherence_completion_parked/mathematical_language.md` — formal
   language, definitions, theorem templates, and candidate examples.
-- `notes/unsorted/foundations/coherence_completion/paper_sketch.md` — exposition/paper-shape
+- `notes/archive/coherence_completion_parked/paper_sketch.md` — exposition/paper-shape
   sketch; not the proof notebook.
-- `notes/unsorted/foundations/coherence_completion/logic_lit_review.md` — mathematical
+- `notes/archive/coherence_completion_parked/logic_lit_review.md` — mathematical
   logic placement and opportunity map.
-- `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md` —
+- `notes/archive/coherence_completion_parked/philosophy_lit_review.md` —
   philosophical scaffold, to be compressed or discarded once the mathematical
   path is stable.
 
@@ -134,55 +142,57 @@ Do not merge these.  The clean division is:
 
 | Need | Edit |
 |---|---|
-| active philosophy ↔ math iteration | `notes/unsorted/foundations/coherence_completion/development.md` |
-| conceptual vocabulary | `notes/unsorted/foundations/coherence_completion/conceptual_schema.md` |
-| definitions / lemmas / theorem targets | `notes/unsorted/foundations/coherence_completion/mathematical_language.md` |
-| eventual article narrative | `notes/unsorted/foundations/coherence_completion/paper_sketch.md` |
-| logic literature placement | `notes/unsorted/foundations/coherence_completion/logic_lit_review.md` |
-| philosophical scaffolding | `notes/unsorted/foundations/coherence_completion/philosophy_lit_review.md` |
+| active philosophy ↔ math iteration | `notes/archive/coherence_completion_parked/development.md` |
+| conceptual vocabulary | `notes/archive/coherence_completion_parked/conceptual_schema.md` |
+| definitions / lemmas / theorem targets | `notes/archive/coherence_completion_parked/mathematical_language.md` |
+| eventual article narrative | `notes/archive/coherence_completion_parked/paper_sketch.md` |
+| logic literature placement | `notes/archive/coherence_completion_parked/logic_lit_review.md` |
+| philosophical scaffolding | `notes/archive/coherence_completion_parked/philosophy_lit_review.md` |
 
 Current mathematical front:
 
-- Strategy D, via Boolean algebra / Stone duality / Radon measure support.
+- **OML σ-essential descent** (non-Boolean) — **NOT plainly open (2026-06-20):**
+  prior-art (Derr–Williamson 2023, via Maharam 1972 §8) settles it NEGATIVELY in the
+  Polish-representable case; open ONLY for non-(topologically-)representable witnesses
+  = exactly the σ-Loomis–Sikorski wall. See `notes/open_questions/kits/oml_onboarding.tex`
+  (survey, Rmk `rem:dw`), `sigma_essential_prior_art_verdict.md`, and the
+  `sigma_essential_construction_attempt` memory.
+- *Strategy D — RETIRED 2026-06-18* (killed on prior-art; see below).
 - Fibre mixing was a candidate second example but the bridge theorem
   is false (2026-05-14). No current second example.
 
-### Foundations: Strategy D and CE Non-Derivability
+### Foundations: Strategy D (RETIRED 2026-06-18) and CE Non-Derivability
 
-Central question:
+> **⛔ Strategy D KILLED 2026-06-18 (`/audit full`, prior-art).** The central
+> question below — does a non-σ-complete, non-atomic, measure-free Boolean
+> algebra exist? — has a *positive* ZFC answer and is **not a contribution**.
+> **Gaifman 1964** (PJM 14(1):61–73, Thm 2.2 + property (†)) already exhibits one,
+> in ZFC and 19 years prior, *stronger* (no strictly-positive finitely-additive
+> measure). The Argyros pre-Gleason witness (`Clop(Y,𝔗)` not σ-complete) is true
+> math but the non-σ-complete + atomless legs are trivial and the only hard
+> ingredient (measure-freeness) is Argyros's published theorem; "Strategy D" was
+> this programme's private name, never field-open. **Retired as a research
+> target.** Verdict: `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`.
+> The notes below are the closed reasoning trail, retained for the record.
+
+Central question (now ANSWERED — positive in ZFC, non-novel; see banner):
 
 > Does there exist a non-sigma-complete, non-atomic Boolean algebra admitting no
 > sigma-additive probability, in the appropriate strictly-positive/support
 > sense?
 
-Primary notes:
+Reasoning-trail notes (closed; retained for the record):
 
-- `notes/unsorted/foundations/ce_nonderivability/index.md` — parent overview connecting the
-  companion note, ultralimit representation, and Strategy D.
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md` —
-  active launchpad for the Strategy D investigation.
-- `papers/paper_i/notes/ultralimit_investigation/row5_candidate.md` — detailed
-  row-5 history, corrections, and hierarchy.
-- `papers/paper_i/notes/ultralimit_investigation/stone_geometric_translation.md`
-  — Stone-space translation and support geometry.
-
-Consolidation decision:
-
-- Keep `strategy_d_dossier.md` as the entry point.
-- Keep `row5_candidate.md` as the historical/detail note.
-- Keep `stone_geometric_translation.md` as the dictionary/proof-translation
-  note.
-- Do not fold these into the coherence notes; Strategy D is a concrete
-  subproblem with its own technical trail.
-
-Immediate next tasks:
-
-1. Verify the exact Stone duality equivalence between sigma-completeness and
-   basic disconnectedness.
-2. Separate "no sigma-additive probability" from "no strictly positive
-   sigma-additive probability".
-3. Check the set-theoretic topology literature around measure-free compact
-   zero-dimensional spaces.
+- `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md` —
+  the kill verdict (Gaifman 1964 prior-art). **Entry point.**
+- `notes/archive/strategy_d_killed/ultralimit_investigation/argyros_sigma_completeness_RESOLVED.md`
+  — the (correct, non-novel) math, under an AUDIT-KILL banner.
+- `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_dossier.md` — the
+  (closed) reduction trail; carries a kill banner.
+- `notes/unsorted/foundations/ce_nonderivability/index.md` — parent overview
+  (stale on Strategy-D status; CE content stands).
+- `notes/archive/strategy_d_killed/ultralimit_investigation/{row5_candidate,stone_geometric_translation}.md`
+  — historical detail / Stone translation.
 
 ### Finite Sample: Observational Resolution Dimension
 
@@ -292,12 +302,11 @@ Role:
 
 ### Programme Reception: General Literature and Reception Reports
 
-Primary notes:
+**ARCHIVED 2026-07-10** (reception of the pre-July programme arc) →
+`notes/archive/programme_reception_2026-05/`:
 
-- `notes/programme/programme_reception/historical_placement.md`
-- `notes/programme/programme_reception/field_by_field.md`
-- `notes/programme/programme_reception/novelty_audit.md`
-- `notes/programme/programme_reception/novelty_summary.md`
+- `historical_placement.md`, `field_by_field.md`, `novelty_audit.md`,
+  `novelty_summary.md`
 
 Role:
 
@@ -310,12 +319,20 @@ Role:
 
 ## Programme-Level Notes
 
-- `notes/programme/program_overview.md` — public-facing repository overview and
-  submission status.
-- `notes/programme/program_synthesis.md` — internal architecture and dependency
-  structure.
-- `notes/programme/arxiv_prep.md` — submission logistics.
-- `notes/programme/lean_flight_log.md` — Lean-specific work log.
+The current trio (state → veins → dig-order):
+
+- `notes/programme/program_overview.md` — THE authoritative state doc.
+- `notes/programme/frontier_map.md` — the layered open-problem map.
+- `notes/programme/shovel_plan.md` — adopted work plan (2026-07-10): four
+  theorems to prove + vacant lots as invitations.
+- `notes/programme/contribution_evaluation.md` — the 7 contribution types
+  (methodology reference used by /audit).
+
+Archived 2026-07-10 → `notes/archive/`: `program_synthesis.md` (self-declared
+stale snapshot), `tetralemma_plan.md` + `arxiv_prep.md` (mooted by Paper I park
++ no-publication-pressure stance), `lean_flight_log.md` (abandoned log).
+The genealogy pair (`genealogy.md`, `genealogy_vision.md`) stays — historical
+narrative, self-disclaiming currency.
 
 These should stay high-level.  They should link to active future notes rather
 than absorb their content.

@@ -96,7 +96,7 @@ instrument?"
 - `notes/reading_directions/`: the finite/countable boundary
   literature (Howson, Frot, Espíndola, Biesel) documents the
   inaccessibility side.
-- `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`:
+- `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_dossier.md`:
   Strategy D — the question of whether the boundary can be
   structurally absent (no σ-additive measures at all).
 

@@ -1,0 +1,371 @@
+{
+  "activated_111_group_is_singleton": true,
+  "activated_111_has_no_proper_nonempty_trace": true,
+  "coherent_qr11_complement_pairs": 19,
+  "coherent_qr11_trace_count": 38,
+  "coherent_qr11_trace_family_sha256": "ef93e5591071470876365e2c78ba52704b1c5a93043925695519adcc5e9ee02a",
+  "command": "python3 notes/open_questions/verification/full_grid_cell11_qr11_trace_alphabet.py --verify",
+  "dependency_sha256": {
+    "full_grid_terminal_split_one_cell_quotient.py": "80384e1e8d817edca8f510d84b1820475f6c369c8c43f824466238650909ce09",
+    "sharedq_kcell_completion_audit.py": "59c783364894cfd8e9c50736a7525f2c831a016b89db5954ef8964bd5a24b981"
+  },
+  "payload_sha256": "ecfe849e17147dc6fb031a5b26ed5fcb647ebee5f014fbade212a1fa441f375b",
+  "per_activation": [
+    {
+      "activation": [
+        0,
+        0,
+        0
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 22,
+      "proper_trace_family_sha256": "b4ec22e73ea4402cd41a6cfe34e7a86705d2b415fd29a0b7127d853013f3dbc3",
+      "state_count": 22,
+      "state_indices_sha256": "b6f00d5aab9ca6f364d954e241553965f9e6a9f8fa23e26e3b24d1c3424bbb1e",
+      "trace_count": 24,
+      "trace_family_sha256": "8ed8d58ea67a9f19124d4a3c852a89039d53f407ec53a188c76e79643aba05de",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 4,
+          "traces": 1
+        },
+        {
+          "points": 6,
+          "traces": 2
+        },
+        {
+          "points": 8,
+          "traces": 4
+        },
+        {
+          "points": 9,
+          "traces": 2
+        },
+        {
+          "points": 10,
+          "traces": 2
+        },
+        {
+          "points": 12,
+          "traces": 2
+        },
+        {
+          "points": 13,
+          "traces": 2
+        },
+        {
+          "points": 14,
+          "traces": 4
+        },
+        {
+          "points": 16,
+          "traces": 2
+        },
+        {
+          "points": 18,
+          "traces": 1
+        },
+        {
+          "points": 22,
+          "traces": 1
+        }
+      ]
+    },
+    {
+      "activation": [
+        0,
+        0,
+        1
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 14,
+      "proper_trace_family_sha256": "73ac0685e8a3bc321657347aca05baad0ce55976a126cb93fa2034937758cb2c",
+      "state_count": 9,
+      "state_indices_sha256": "d3c163ae42936df5fb133ab9837e50212d9caee1c85381a05c7011fa34b61542",
+      "trace_count": 16,
+      "trace_family_sha256": "bc121df14e3e3043f693825c08f4a1d71dbaecf0928b8a0ae14c437181702148",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 1,
+          "traces": 1
+        },
+        {
+          "points": 4,
+          "traces": 6
+        },
+        {
+          "points": 5,
+          "traces": 6
+        },
+        {
+          "points": 8,
+          "traces": 1
+        },
+        {
+          "points": 9,
+          "traces": 1
+        }
+      ]
+    },
+    {
+      "activation": [
+        0,
+        1,
+        0
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 18,
+      "proper_trace_family_sha256": "7cbe94a1b9ae217e340d2ad7442b6ca17b96fe2450bb2508c3d8e752c3c8fd80",
+      "state_count": 13,
+      "state_indices_sha256": "83c146d5335f03c980c6e762793205ed086f085f25d4f094c7979d7fd037e0d4",
+      "trace_count": 20,
+      "trace_family_sha256": "ebfbbda8f50737fecb5916a9cfced007b304c45893db9f4fe0c69f94723fde79",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 3,
+          "traces": 2
+        },
+        {
+          "points": 4,
+          "traces": 1
+        },
+        {
+          "points": 5,
+          "traces": 4
+        },
+        {
+          "points": 6,
+          "traces": 2
+        },
+        {
+          "points": 7,
+          "traces": 2
+        },
+        {
+          "points": 8,
+          "traces": 4
+        },
+        {
+          "points": 9,
+          "traces": 1
+        },
+        {
+          "points": 10,
+          "traces": 2
+        },
+        {
+          "points": 13,
+          "traces": 1
+        }
+      ]
+    },
+    {
+      "activation": [
+        0,
+        1,
+        1
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 10,
+      "proper_trace_family_sha256": "bd509afaceae827624166e6b8080f078b70a5f8036e01fe7606bb8b62e093582",
+      "state_count": 5,
+      "state_indices_sha256": "5a9f23c9ded71cc07867b63806a0eb93e8cf7f2e7343a106c96f7d013de77639",
+      "trace_count": 12,
+      "trace_family_sha256": "c66de15b7bf267063509a73360a42d1cab11fa1fcd7a907924b1aacd6f5d6cc3",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 1,
+          "traces": 1
+        },
+        {
+          "points": 2,
+          "traces": 4
+        },
+        {
+          "points": 3,
+          "traces": 4
+        },
+        {
+          "points": 4,
+          "traces": 1
+        },
+        {
+          "points": 5,
+          "traces": 1
+        }
+      ]
+    },
+    {
+      "activation": [
+        1,
+        0,
+        0
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 18,
+      "proper_trace_family_sha256": "7cbe94a1b9ae217e340d2ad7442b6ca17b96fe2450bb2508c3d8e752c3c8fd80",
+      "state_count": 13,
+      "state_indices_sha256": "88110b6518209b9c60e9c3c08d6362b7fdd071dc7b2071fcb5460d699c047138",
+      "trace_count": 20,
+      "trace_family_sha256": "ebfbbda8f50737fecb5916a9cfced007b304c45893db9f4fe0c69f94723fde79",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 3,
+          "traces": 2
+        },
+        {
+          "points": 4,
+          "traces": 1
+        },
+        {
+          "points": 5,
+          "traces": 4
+        },
+        {
+          "points": 6,
+          "traces": 2
+        },
+        {
+          "points": 7,
+          "traces": 2
+        },
+        {
+          "points": 8,
+          "traces": 4
+        },
+        {
+          "points": 9,
+          "traces": 1
+        },
+        {
+          "points": 10,
+          "traces": 2
+        },
+        {
+          "points": 13,
+          "traces": 1
+        }
+      ]
+    },
+    {
+      "activation": [
+        1,
+        0,
+        1
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 10,
+      "proper_trace_family_sha256": "bd509afaceae827624166e6b8080f078b70a5f8036e01fe7606bb8b62e093582",
+      "state_count": 5,
+      "state_indices_sha256": "150f5bb05095e913cd7cac1087618a185346e6b8f7d6c68ee5f108e85a415609",
+      "trace_count": 12,
+      "trace_family_sha256": "c66de15b7bf267063509a73360a42d1cab11fa1fcd7a907924b1aacd6f5d6cc3",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 1,
+          "traces": 1
+        },
+        {
+          "points": 2,
+          "traces": 4
+        },
+        {
+          "points": 3,
+          "traces": 4
+        },
+        {
+          "points": 4,
+          "traces": 1
+        },
+        {
+          "points": 5,
+          "traces": 1
+        }
+      ]
+    },
+    {
+      "activation": [
+        1,
+        1,
+        0
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 4,
+      "proper_trace_family_sha256": "f7b42e8f0aae3623745d7f147b1198a7d9ab591d7bcf56aa84091de17264d260",
+      "state_count": 4,
+      "state_indices_sha256": "f6b733f89e799048c92d90dc0d404ce1f96300bf1f2964184cc681bdcc2457e7",
+      "trace_count": 6,
+      "trace_family_sha256": "d399d37fa4c60c31a1726f0e2d1398ee3c65e1dd59240b77c1db4f25108f40b0",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 2,
+          "traces": 4
+        },
+        {
+          "points": 4,
+          "traces": 1
+        }
+      ]
+    },
+    {
+      "activation": [
+        1,
+        1,
+        1
+      ],
+      "complement_closed": true,
+      "proper_nonempty_trace_count": 0,
+      "proper_trace_family_sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+      "state_count": 1,
+      "state_indices_sha256": "080a9ed428559ef602668b4c00f114f1a11c3f6b02a435f0bdc154578e4d7f22",
+      "trace_count": 2,
+      "trace_family_sha256": "6b1d74b09bd1051bc6070d7a421215703f65451200a4f4e9a27c240a6a786893",
+      "trace_size_histogram": [
+        {
+          "points": 0,
+          "traces": 1
+        },
+        {
+          "points": 1,
+          "traces": 1
+        }
+      ]
+    }
+  ],
+  "producer_sha256": "ca323eaabfbb860e900d3b2508d795171f6bcfcf7784cdf56654938bce16685f",
+  "qr11_state_indices_sha256": "2f5635bedd52cf603b23e743c31c69084d02550635a9279f27653bd7c9f15fb3",
+  "qr11_states": 72,
+  "schema": "full-grid-cell11-qr11-trace-alphabet-v1",
+  "schema_version": "1.0",
+  "scope": "Exact restrictions of the 56 certified cell events to local state groups with q=r=1. Direct-residue alphabet only; no four-cell closure, lattice, gate, or trace-sufficiency claim.",
+  "single_cell_events": 56,
+  "single_cell_states": 224
+}

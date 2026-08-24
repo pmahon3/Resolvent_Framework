@@ -33,28 +33,31 @@ the Stone route proceeds:
 
 2. **Charge → Borel measure** (Task 0′-B): A finitely additive normalized charge
    on the clopen algebra of a compact totally-disconnected Hausdorff space extends
-   uniquely to a regular Borel measure. **Intentional sorry**: the Mathlib
-   `Content` API works on compact sets of a locally compact space; adapting it to
-   charges on the clopen algebra of a Stone space requires infrastructure not yet
-   in Mathlib (Halmos §53–54, Fremlin Vol. 1).
+   uniquely to a regular Borel measure. **Route not taken.** This was planned via
+   Mathlib's `Content` API and was recorded as blocked, since `Content` is built
+   for compact subsets of locally compact spaces rather than clopen algebras.
+   It proved unnecessary: `stone_measure_exists` goes through
+   `AddContent.measure` on `stoneClopens` directly, using compactness only to
+   get σ-subadditivity. Proved, no sorry.
 
 3. **Inverse system** (Task 0′-C): The bonding maps between Stone outcome spaces
    form a cofiltered inverse system of compact Hausdorff spaces.
 
-4. **Inverse limit measure** (Task 0′-D): The compatible family of charges on the
-   Stone outcome spaces extends to a measure on the inverse limit (Choksi's theorem).
-   **Intentional sorry**: not yet in Mathlib.
+4. **Inverse limit measure** (Task 0′-D): planned via Choksi's theorem (1958) on
+   cofiltered inverse systems of compact Hausdorff spaces. **Route not taken and
+   not needed** — see the note on `stone_observational_extension` below: that
+   theorem does not go through the Stone space at all.
 
 5. **Agreement with Carathéodory** (Task 0′-E): Under shared hypotheses both
    routes produce the same measure. Proved from `observational_determination`.
 
 ## Sorry inventory
 
-| Name | Reason |
-|------|--------|
-| `stone_observational_extension` | Mathlib gap: Yosida–Hewitt decomposition |
-
-All Task 0′-A, 0′-B, 0′-C, and 0′-E results are proved (0 sorry).
+**Empty.** As of 2026-08-22 this file, and the whole development, is
+`sorry`-free. `stone_observational_extension` was previously recorded here as
+blocked on Yosida–Hewitt; it was in fact FALSE as stated, and became provable
+once `UpperDirected` was corrected to `SequentiallyUpperDirected` — by a route
+that never touches the Stone space. See the block comment above that theorem.
 `stone_measure_exists` is fully proved via AddContent.measure on stoneClopens.
 
 ## Main definitions and results
@@ -70,8 +73,15 @@ All Task 0′-A, 0′-B, 0′-C, and 0′-E results are proved (0 sorry).
 * `cylGen_charge_wellDef` — presentation independence for charges (proved)
 * `stoneAddContent` — AddContent on stoneClopens (proved, 0 sorry)
 * `stoneAddContent_isSigmaSubadditive` — σ-subadditivity via compactness (proved)
-* `stone_measure_exists` — probability measure on stoneSpace (proved, 0 sorry)
-* `stone_observational_extension` — (intentional sorry) Stone route main theorem
+* `stone_measure_exists` — probability measure on stoneSpace AGREEING with the
+  content on every cylinder clopen (proved, 0 sorry)
+* `stone_observational_extension` — proved 2026-08-22 under
+  `SequentiallyUpperDirected`. It does NOT go through the Stone space: the
+  statement was false under plain `UpperDirected` (Andersen–Jessen), and once
+  the hypothesis is corrected it follows from `sp1_iff` plus the already-proved
+  `QuerySystem.observational_extension`. The Stone construction in this file
+  stands on its own as the finitely additive theorem.
+* `stone_observational_extension` — proved; see the note above (not via the Stone route)
 * `stone_agrees_with_caratheodory` — both routes produce the same measure (proved)
 
 -/
@@ -197,27 +207,20 @@ end StoneBondingMaps
 -- ---------------------------------------------------------------------------
 -- Task 0′-B/D: Charge → measure on Stone space
 -- ---------------------------------------------------------------------------
--- INTENTIONAL SORRY
+-- ROUTE NOT TAKEN (kept for the record; there is no sorry here).
 --
--- The standard result (Halmos §53–54; Fremlin, Measure Theory Vol. 1, 311E)
--- says: on a compact totally-disconnected Hausdorff space, every normalized
--- finitely-additive charge on the clopen algebra extends uniquely to a regular
--- Borel measure. The proof goes through the Content API, but Mathlib's
--- `MeasureTheory.Content` is designed for locally compact spaces and operates
--- on compact subsets, not clopen algebras directly. Wrapping the clopen-algebra
--- charge into a `Content` on the Stone space requires showing that in a
--- compact T2D space the clopen algebra and the compact sets generate the same
--- σ-algebra, and that the charge extends monotonically to compacts. This
--- wrapping is not yet in Mathlib.
+-- The plan was: on a compact totally-disconnected Hausdorff space every
+-- normalized finitely-additive charge on the clopen algebra extends uniquely to
+-- a regular Borel measure (Halmos §53–54; Fremlin Vol. 1, 311E), routed through
+-- Mathlib's `MeasureTheory.Content`; then Choksi (1958) for the inverse limit.
+-- Both were recorded as blocked on missing Mathlib infrastructure.
 --
--- Additionally, Step D uses Choksi's theorem (1958): a compatible family of
--- regular Borel probability measures on a cofiltered inverse system of compact
--- Hausdorff spaces with surjective bonding maps has a unique projective limit.
--- This is not in Mathlib.
---
--- ---------------------------------------------------------------------------
--- Stone measure construction via AddContent
--- ---------------------------------------------------------------------------
+-- Neither was needed. `stoneAddContent` is an `AddContent` on `stoneClopens`
+-- directly, compactness of the Stone space gives σ-subadditivity, and
+-- `AddContent.measure` (Carathéodory) produces the measure. What the Stone
+-- space actually buys is recorded at `stone_measure_exists`: a finitely
+-- additive theorem requiring no collective exhaustion and no directedness
+-- beyond `UpperDirected`.
 
 section StoneMeasureConstruction
 
@@ -646,7 +649,15 @@ private theorem stoneAddContent_isSigmaSubadditive (S : QuerySystem) [Nonempty S
 
     **Construction:** Transfer `P.ν` to an `AddContent` on `stoneClopens S` via the
     Stone embedding `E ↦ {u | E ∈ u}`.  Prove σ-subadditivity via compactness of the
-    Stone space.  Apply `AddContent.measure` (Carathéodory extension). -/
+    Stone space.  Apply `AddContent.measure` (Carathéodory extension).
+
+    **The agreement clause is load-bearing.** Until 2026-08-22 the conclusion
+    was only `∃ Phat, IsProbabilityMeasure Phat`, which never mentions `P`, so
+    it was satisfied by a Dirac measure at any ultrafilter with `udir`, `surj`
+    and `P` all unused (Lean's own linter said so). The Carathéodory extension
+    the proof builds was discarded at the statement boundary and no downstream
+    step could use it. `stone_observational_extension` Step 1 needs exactly the
+    agreement clause now stated. -/
 theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
     (udir : S.UpperDirected)
     (surj : S.EvalSurjective)
@@ -654,7 +665,8 @@ theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
     haveI : MeasurableSpace (stoneSpace S) :=
       MeasurableSpace.generateFrom (stoneClopens S)
     ∃ Phat : MeasureTheory.Measure (stoneSpace S),
-      MeasureTheory.IsProbabilityMeasure Phat := by
+      MeasureTheory.IsProbabilityMeasure Phat ∧
+      ∀ E ∈ stoneClopens S, Phat E = stoneAddContent S udir surj P E := by
   letI mα : MeasurableSpace (stoneSpace S) :=
     MeasurableSpace.generateFrom (stoneClopens S)
   -- Build the AddContent on stoneClopens
@@ -664,7 +676,8 @@ theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
   have hsigma := stoneAddContent_isSigmaSubadditive S udir surj P
   -- Apply Carathéodory extension
   have hgen_eq : mα = MeasurableSpace.generateFrom (stoneClopens S) := rfl
-  refine ⟨m.measure hsemiring hgen hsigma, ?_⟩
+  refine ⟨m.measure hsemiring hgen hsigma, ?_,
+    fun E hE => AddContent.measure_eq m hsemiring hgen_eq hsigma hE⟩
   constructor
   -- Prove μ(univ) = 1
   -- univ = {u | Set.univ ∈ u} since every ultrafilter contains univ
@@ -713,33 +726,49 @@ theorem stone_measure_exists (S : QuerySystem) [Nonempty S.ι]
 -- ---------------------------------------------------------------------------
 -- Task 0′-B/D (continued): Stone observational extension
 -- ---------------------------------------------------------------------------
--- INTENTIONAL SORRY
+-- HISTORY. This carried an intentional `sorry` from its introduction until
+-- 2026-08-22, recorded as blocked on the Yosida-Hewitt decomposition being
+-- absent from Mathlib. That diagnosis was wrong twice over.
 --
--- The full Stone route additionally requires:
---   CE ↔ μ_p = 0 in the Yosida–Hewitt decomposition (proved in Paper I §4,
---   formalized in DiscriminabilityFoundations.lean as sp1_iff);
---   and the conclusion that the Stone-space measure concentrates on
---   range stoneEmbedding (principal ultrafilters), so that the pushforward
---   to S.Omega via stoneEmbedding is well-defined.
--- The Yosida–Hewitt decomposition for charges on Boolean algebras is not
--- currently in Mathlib, so the descent step cannot be completed in Lean.
+-- 1. The statement was FALSE as stated. It assumed only `UpperDirected`, and
+--    `ce_iff_levelwise_continuity` shows CE is exactly per-level σ-additivity.
+--    So the hypotheses read "compatible σ-additive marginals + upper-directed
+--    + surjective evaluations", and the conclusion is the global extension:
+--    Kolmogorov extension with no regularity hypothesis of any kind. The
+--    Andersen-Jessen construction (Sparre Andersen-Jessen 1948) refutes it,
+--    indexed by ℕ under ≤ -- upper-directed, NOT sequentially so. See the
+--    blueprint, `rmk:kolmogorov-refuted`.
+-- 2. No Stone space is needed. With `SequentiallyUpperDirected` -- the natural
+--    hypothesis when queries are σ-algebras closed under countable joins --
+--    `sp1_iff` converts CE into per-level measures and the already-proved
+--    `QuerySystem.observational_extension` finishes directly on `S.Omega`.
+--
+-- The hypothesis is therefore strengthened to `SequentiallyUpperDirected` and
+-- the theorem is proved. Yosida-Hewitt is not required, and neither is any
+-- charge theory.
 
 /-- **Stone observational extension theorem.**
 
-    Under `EvalSurjective`, `UpperDirected`, CE, and discriminability
-    (injectivity of `stoneEmbedding`), there exists a unique probability measure
-    `μ` on `S.Omega` recovering the compatible charges: `μ(Cyl i A) = P.ν i A`
-    for every level `i` and measurable `A`.
+    Under `SequentiallyUpperDirected`, `EvalSurjective` and collective
+    exhaustion, there is a unique probability measure `μ` on `S.Omega`
+    recovering the compatible charges: `μ (Cyl i A) = P.ν i A` for every level
+    `i` and measurable `A`.
 
-    The proof: `stone_measure_exists` gives a measure `P̂` on `stoneSpace S`;
-    CE forces `P̂` to be supported on `range stoneEmbedding` (Yosida–Hewitt +
-    sp1_iff); injectivity of `stoneEmbedding` allows the pushforward to land
-    on `S.Omega`. Uniqueness is `observational_determination`.
+    **Why sequential upper-directedness, and not merely `UpperDirected`.**
+    Under `UpperDirected` alone the statement is false; see the block comment
+    above and `rmk:kolmogorov-refuted` in the blueprint. Sequential
+    upper-directedness is what a countable cover needs in order to be dominated
+    by a single level, and it is the natural condition when a query is a
+    σ-algebra of resolvable events and the query family is closed under
+    countable joins: `⋁ₙ Qₙ` is then itself a query.
 
-    **Intentional sorry**: the support condition (step 2 above) requires the
-    Yosida–Hewitt decomposition, which is not yet in Mathlib. -/
+    **Proof.** `sp1_iff` turns CE into a genuine measure at each level;
+    compatibility transfers because each `μ i` agrees with `P.ν i` on every
+    measurable set; `observational_extension` then extends and
+    `map_apply_eval_eq_cyl` converts marginal recovery into the cylinder form.
+    No Stone space appears. -/
 theorem stone_observational_extension (S : QuerySystem) [Nonempty S.ι]
-    (udir : S.UpperDirected)
+    (sudir : S.SequentiallyUpperDirected)
     (surj : S.EvalSurjective)
     (P : S.NormalizedCompatibleContents)
     (hce : S.CollectivelyExhaustive P.ν) :
@@ -747,12 +776,28 @@ theorem stone_observational_extension (S : QuerySystem) [Nonempty S.ι]
       MeasureTheory.IsProbabilityMeasure μ ∧
       ∀ (i : S.ι) (A : Set ((S.q i).Outcome)), MeasurableSet A →
         μ (S.Cyl i A) = P.ν i A := by
-  -- Step 1: stone_measure_exists gives P̂ on stoneSpace S
-  -- Step 2: CE → P̂ supported on range stoneEmbedding (Yosida–Hewitt, Mathlib gap)
-  -- Step 3: Pushforward μ := (stoneEmbedding⁻¹)_* P̂ is a probability measure on S.Omega
-  -- Step 4: μ(Cyl i A) = P̂({u | Cyl i A ∈ u}) = P.ν i A (by construction)
-  -- Uniqueness: observational_determination (proved in QuerySystem.lean)
-  sorry
+  classical
+  -- CE gives a genuine measure at each level (`sp1_iff`).
+  choose μ hμ using (S.sp1_iff P).mp hce
+  haveI : ∀ i, MeasureTheory.IsProbabilityMeasure (μ i) := by
+    intro i
+    constructor
+    rw [hμ i Set.univ MeasurableSet.univ]
+    exact P.norm i
+  -- Compatibility transfers: `μ i` agrees with `P.ν i` on every measurable set.
+  have hcompat : S.CompatibleMarginals μ := by
+    intro i j hij
+    ext A hA
+    rw [MeasureTheory.Measure.map_apply (S.π hij).measurable_π hA,
+        hμ j _ ((S.π hij).measurable_π hA), ← P.compat hij A hA, hμ i A hA]
+  obtain ⟨Q, ⟨hQprob, hQmarg⟩, hQuniq⟩ := S.observational_extension sudir surj μ hcompat
+  refine ⟨Q, ⟨hQprob, ?_⟩, ?_⟩
+  · intro i A hA
+    rw [← S.map_apply_eval_eq_cyl Q i A hA, hQmarg i, hμ i A hA]
+  · rintro ν' ⟨hν'prob, hν'cyl⟩
+    refine hQuniq ν' ⟨hν'prob, fun i => ?_⟩
+    ext A hA
+    rw [S.map_apply_eval_eq_cyl ν' i A hA, hν'cyl i A hA, ← hμ i A hA]
 
 -- ---------------------------------------------------------------------------
 -- Task 0′-E: Agreement with the Carathéodory route

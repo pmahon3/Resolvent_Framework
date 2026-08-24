@@ -1,0 +1,961 @@
+{
+  "architecture_table": [
+    {
+      "candidate_quotient_edges": 2,
+      "common_blocks": [
+        "B",
+        "D0"
+      ],
+      "orbit": "O2",
+      "pair": [
+        5,
+        51
+      ],
+      "result": "redundant-identical",
+      "shared_regions_block_1": {
+        "left_private": 4,
+        "outside": 0,
+        "right_private": 50,
+        "shared": 1
+      },
+      "shared_regions_block_2": {
+        "left_private": 4,
+        "outside": 0,
+        "right_private": 50,
+        "shared": 1
+      }
+    },
+    {
+      "candidate_quotient_edges": 2,
+      "common_blocks": [
+        "B",
+        "D2"
+      ],
+      "orbit": "O3",
+      "pair": [
+        15,
+        45
+      ],
+      "result": "redundant-identical",
+      "shared_regions_block_1": {
+        "left_private": 10,
+        "outside": 0,
+        "right_private": 40,
+        "shared": 5
+      },
+      "shared_regions_block_2": {
+        "left_private": 10,
+        "outside": 0,
+        "right_private": 40,
+        "shared": 5
+      }
+    }
+  ],
+  "checks": {
+    "both_orbits_have_two_common_blocks": true,
+    "both_repeat_identical_data": true,
+    "duplicate_second_edge_is_implied": true,
+    "o3_has_smaller_cycle": true,
+    "transverse_control_is_not_redundant": true
+  },
+  "finite_controls": [
+    {
+      "components": [
+        [
+          "L0",
+          "L1",
+          "R0",
+          "R1"
+        ],
+        [
+          "L2",
+          "L3",
+          "R2",
+          "R3"
+        ]
+      ],
+      "edge_logically_implied_by_others": [
+        true,
+        true
+      ],
+      "edge_relations": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "functional_left_to_right": false,
+      "functional_right_to_left": false,
+      "left_degree_sequence": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "left_ultrafilters": 4,
+      "name": "duplicate",
+      "rectangular": false,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "relation_size": 8,
+      "right_degree_sequence": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "right_ultrafilters": 4
+    },
+    {
+      "components": [
+        [
+          "L0",
+          "L1",
+          "R0",
+          "R1"
+        ],
+        [
+          "L2",
+          "L3",
+          "R2",
+          "R3"
+        ]
+      ],
+      "edge_logically_implied_by_others": [
+        true,
+        false
+      ],
+      "edge_relations": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "functional_left_to_right": false,
+      "functional_right_to_left": false,
+      "left_degree_sequence": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "left_ultrafilters": 4,
+      "name": "nested",
+      "rectangular": false,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "relation_size": 8,
+      "right_degree_sequence": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "right_ultrafilters": 4
+    },
+    {
+      "components": [
+        [
+          "L0",
+          "R0"
+        ],
+        [
+          "L1",
+          "R1"
+        ],
+        [
+          "L2",
+          "R2"
+        ],
+        [
+          "L3",
+          "R3"
+        ]
+      ],
+      "edge_logically_implied_by_others": [
+        false,
+        false
+      ],
+      "edge_relations": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            3
+          ]
+        ]
+      ],
+      "functional_left_to_right": true,
+      "functional_right_to_left": true,
+      "left_degree_sequence": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "left_ultrafilters": 4,
+      "name": "jointly_generating",
+      "rectangular": false,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "relation_size": 4,
+      "right_degree_sequence": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "right_ultrafilters": 4
+    },
+    {
+      "components": [
+        [
+          "L0",
+          "R0"
+        ],
+        [
+          "L1",
+          "R1"
+        ],
+        [
+          "L2",
+          "R3"
+        ],
+        [
+          "L3",
+          "R2"
+        ]
+      ],
+      "edge_logically_implied_by_others": [
+        false,
+        false
+      ],
+      "edge_relations": [
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ]
+      ],
+      "functional_left_to_right": true,
+      "functional_right_to_left": true,
+      "left_degree_sequence": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "left_ultrafilters": 4,
+      "name": "transverse_proper",
+      "rectangular": false,
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "relation_size": 4,
+      "right_degree_sequence": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "right_ultrafilters": 4
+    }
+  ],
+  "minimal_serious_candidate": "O3: symmetric 3+3 support, four-cycle, and equal interval sizes",
+  "orbits": [
+    {
+      "boolean_regions_in_each_common_block": [
+        {
+          "block": "B",
+          "regions": {
+            "left_private": 4,
+            "outside": 0,
+            "right_private": 50,
+            "shared": 1
+          }
+        },
+        {
+          "block": "D0",
+          "regions": {
+            "left_private": 4,
+            "outside": 0,
+            "right_private": 50,
+            "shared": 1
+          }
+        }
+      ],
+      "candidate_quotient_edges": 2,
+      "classification": "duplicate identical edges; single-pullback reduction",
+      "common_block_exchange_symmetries": 0,
+      "common_blocks": [
+        "B",
+        "D0"
+      ],
+      "cycle_overlap_algebras": [
+        {
+          "blocks": [
+            "B",
+            "Ca"
+          ],
+          "events": [
+            0,
+            5,
+            50,
+            55
+          ]
+        },
+        {
+          "blocks": [
+            "Ca",
+            "D0"
+          ],
+          "events": [
+            0,
+            5,
+            16,
+            21,
+            34,
+            39,
+            50,
+            55
+          ]
+        },
+        {
+          "blocks": [
+            "D0",
+            "D2"
+          ],
+          "events": [
+            0,
+            5,
+            50,
+            55
+          ]
+        },
+        {
+          "blocks": [
+            "D2",
+            "D3"
+          ],
+          "events": [
+            0,
+            15,
+            40,
+            55
+          ]
+        },
+        {
+          "blocks": [
+            "D3",
+            "B"
+          ],
+          "events": [
+            0,
+            4,
+            11,
+            15,
+            40,
+            44,
+            51,
+            55
+          ]
+        }
+      ],
+      "generated_sub_oml": [
+        0,
+        1,
+        4,
+        5,
+        50,
+        51,
+        54,
+        55
+      ],
+      "induced_common_block_data_equal": true,
+      "inequivalent_quotient_edges": 1,
+      "orbit": "O2",
+      "pair": [
+        5,
+        51
+      ],
+      "region_carrier_sizes": {
+        "left_private": 4,
+        "outside": 0,
+        "right_private": 8,
+        "shared": 4
+      },
+      "region_propagation_supports": {
+        "left_private": [
+          "B",
+          "D0",
+          "D3"
+        ],
+        "outside": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "right_private": [
+          "B",
+          "Ca",
+          "D0",
+          "D2"
+        ],
+        "shared": [
+          "B",
+          "D0",
+          "D1"
+        ]
+      },
+      "selector_interval_sizes": [
+        6,
+        16
+      ],
+      "stabilizer_size": 16,
+      "support_cycle": [
+        "B",
+        "Ca",
+        "D0",
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "boolean_regions_in_each_common_block": [
+        {
+          "block": "B",
+          "regions": {
+            "left_private": 10,
+            "outside": 0,
+            "right_private": 40,
+            "shared": 5
+          }
+        },
+        {
+          "block": "D2",
+          "regions": {
+            "left_private": 10,
+            "outside": 0,
+            "right_private": 40,
+            "shared": 5
+          }
+        }
+      ],
+      "candidate_quotient_edges": 2,
+      "classification": "duplicate identical edges; single-pullback reduction",
+      "common_block_exchange_symmetries": 0,
+      "common_blocks": [
+        "B",
+        "D2"
+      ],
+      "cycle_overlap_algebras": [
+        {
+          "blocks": [
+            "B",
+            "D1"
+          ],
+          "events": [
+            0,
+            1,
+            10,
+            11,
+            44,
+            45,
+            54,
+            55
+          ]
+        },
+        {
+          "blocks": [
+            "D1",
+            "D2"
+          ],
+          "events": [
+            0,
+            10,
+            45,
+            55
+          ]
+        },
+        {
+          "blocks": [
+            "D2",
+            "D3"
+          ],
+          "events": [
+            0,
+            15,
+            40,
+            55
+          ]
+        },
+        {
+          "blocks": [
+            "D3",
+            "B"
+          ],
+          "events": [
+            0,
+            4,
+            11,
+            15,
+            40,
+            44,
+            51,
+            55
+          ]
+        }
+      ],
+      "generated_sub_oml": [
+        0,
+        5,
+        10,
+        15,
+        40,
+        45,
+        50,
+        55
+      ],
+      "induced_common_block_data_equal": true,
+      "inequivalent_quotient_edges": 1,
+      "orbit": "O3",
+      "pair": [
+        15,
+        45
+      ],
+      "region_carrier_sizes": {
+        "left_private": 4,
+        "outside": 0,
+        "right_private": 4,
+        "shared": 8
+      },
+      "region_propagation_supports": {
+        "left_private": [
+          "B",
+          "D1",
+          "D2"
+        ],
+        "outside": [
+          "B",
+          "Ca",
+          "Cb",
+          "D0",
+          "D1",
+          "D2",
+          "D3"
+        ],
+        "right_private": [
+          "B",
+          "D2",
+          "D3"
+        ],
+        "shared": [
+          "B",
+          "Ca",
+          "D0",
+          "D2"
+        ]
+      },
+      "selector_interval_sizes": [
+        16,
+        16
+      ],
+      "stabilizer_size": 32,
+      "support_cycle": [
+        "B",
+        "D1",
+        "D2",
+        "D3"
+      ]
+    }
+  ],
+  "schema": "seven-block-two-edge-pair-v1",
+  "scope": "fixed finite skeleton plus finite Stone-relation controls; no infinite OML claim",
+  "theorem_instance": {
+    "application": "Both O2 and O3 common blocks repeat the same four-region Boolean datum; D1=D2 as embedded subalgebras, so their two equations reduce to one pullback.",
+    "statement": "In an orthomodular lattice, a fixed pair e,f has block-independent meet, complement regions, and generated orthosublattice. Hence two maximal Boolean blocks containing the same pair cannot by themselves induce inequivalent overlap subalgebras."
+  }
+}

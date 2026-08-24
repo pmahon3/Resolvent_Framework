@@ -16,6 +16,23 @@ structure of observation already contains.
 
 ### Paper I — Probability from Observation
 
+> **⚠ AUDITED + FIXED + PARKED 2026-06-23.** A two-pronged hostile audit found a
+> FATAL proof error in the headline Stone-route claim (Prop "Support condition":
+> it inferred the Stone measure concentrates on the *principal* ultrafilters
+> `pure(Ω)` from concentration on the *countably-complete* ultrafilters Σ — the
+> missing step is the σ-Loomis–Sikorski realization gap, the same failure mode
+> that retired the companion note) and folklore contribution pieces (the Stone
+> dichotomy is owned by Lacy 1974 / Bhaskara Rao 1983 = the paper's own cite /
+> Choksi / Mallory–Sion; CE is a name for continuity-at-∅ by the paper's own
+> remark). THE VISE: the realization hypothesis that fixes the proof collapses
+> the Stone route to Kolmogorov, so no regime is both correct and novel. The
+> paper's claims have been MADE HONEST (abstract, B2, Stone-main, Corollary now
+> realization-conditional; CE demoted to a Proposition) and the paper is PARKED —
+> no submission as a novelty/theorem paper. The CE/geometric-commitment content
+> survives as honest exposition only. **The description below is the pre-audit
+> framing and overstates the contribution; see banner + `PAPER_I_AUDIT_VERDICT.md`
+> + memory `paper_i_audited_parked.md`.** (Paper II is unaffected.)
+
 **What it shows:** A coherent family of observations determines a unique probability
 measure on the observable σ-algebra.
 
@@ -41,15 +58,19 @@ measure on the observable σ-algebra.
    completion of the sample space. This observation connects Paper I to Paper II: when
    reconstruction holds, the Stone space *is* the state space.
 
-**CE metatheorem (companion note):** The same ultraproduct argument shows the
-obstruction is not an artifact of the query-system formalism — in the more primitive
-first-order language of Boolean algebras with finitely additive charge, countable
-additivity is likewise not first-order axiomatizable. Companion note (3 pages)
-proves this in full.
+**CE metatheorem (now Paper-I internal synthesis; standalone note RETIRED
+2026-06-23):** In the first-order language of Boolean algebras with finitely
+additive charge, countable additivity is not first-order axiomatizable. This fact
+holds and is used inside Paper I (cited to FHM 1990 / Łoś). The **standalone
+companion note is RETIRED — do not submit**: its proof was broken (same defect it
+was withdrawn for) and the corrected result is FOLKLORE (stated in FHM 1990, the
+note's own cited ref; proved via Loeb 1975 saturation). Clears no contribution
+bar. See memory `countable_additivity_note_proof_broken.md`.
 
 **Lean:** `DiscriminabilityFoundations.lean`, `QuerySystem.lean`,
-`StoneDualityExtension.lean`, `TopologicalQuerySystem.lean`,
-`ProkhorovExtension.lean`, `DelayEmbedding.lean`
+`StoneDualityExtension.lean`, `DelayEmbedding.lean`
+(+ `TopologicalQuerySystem.lean`, `ProkhorovExtension.lean` — archived,
+`formalization/QuerySystem/archive/`)
 
 **LaTeX:** `papers/paper_i/probability_from_observation.tex` (complete, 8 pages;
 revised 2026-05-09 — four-way main equivalence theorem added in §6)
@@ -60,7 +81,9 @@ revised 2026-05-09 — four-way main equivalence theorem added in §6)
 
 **What it shows:** Whether an empirically adequate theory admits a realist
 completion depends on the algebraic structure of the observation algebra.
-Distributivity is the exact dividing line.
+Distributivity is sufficient for value-definiteness; the central complete OML
+case `L(H)`, `dim H >= 3`, is blocked by Kochen–Specker. It is not a necessary
+condition for VDR across all OMLs.
 
 **Vocabulary:** Three positions, each a constraint on where the dual-space
 measure lives:
@@ -68,11 +91,15 @@ measure lives:
   observations. No claim about an underlying Ω.
 - **Probabilistic Realism (PR):** descent from the dual-space measure to a
   measure on an underlying realisation space.
-- **Value-Definite Realism (VDR):** a global 2-valued homomorphism on the
+- **Value-Definite Realism (VDR):** a global dispersion-free state on the
   observation algebra — every observable simultaneously has a definite value.
+  On a general OML this need not be a lattice homomorphism, and on an infinite
+  carrier it need not be σ-additive unless that clause is stated separately.
 
-These are nested: VDR ⟹ PR ⟹ EA. (PR itself splits into two grades —
-PR_lattice / PR_dual — that the Boolean case fuses; see below.)
+At the σ-additive grade, `VDR_σ ⟹ PR ⟹ EA`. Standalone VDR is only the
+availability predicate above and is not silently promoted to PR on an infinite
+carrier. (PR itself splits into two grades — PR_lattice / PR_dual — that the
+Boolean case fuses; see below.)
 
 **The commensurability theorem (Theorem 4):**
 - *Boolean case:* all three positions are commensurable. Every EA-theory
@@ -88,11 +115,130 @@ PR_lattice / PR_dual — that the Boolean case fuses; see below.)
   was the L(H) PR error, corrected in Paper II and the open-questions note.
   See `papers/paper_ii/two_grades_of_pr.md` (the two-grades vocabulary and
   the pending Paper II decision; the problem statement itself is the survey
-  `notes/open_questions/oml_onboarding.{tex,md}`).
+  `notes/open_questions/kits/oml_onboarding.tex`).
 
-**Coherence filtration:** S(A) ⊇ S_σ(A) ⊇ S_df(A) with three transitions
-of different character: pasting (topological), regularity (analytic),
-sharpness (algebraic).
+**OML campaign update (2026-07-13).** The active construction frontier is
+the B′(i)/T4 boundary-selection residue. For the rotating graph triple,
+same-type, and transversal trace invariants now exclude W events, graph
+intersections, unintended singleton collectors, and collector restrictions
+with uncountable variation modulo countable support. The global normal
+form is exact: universal transversal anchors plus one cylinder and countable
+local patching prove Gate N, but Gate L fails by a certified missing-profile
+join obstruction. The earlier
+proper-interface-twist language below is historical. Current index:
+`notes/open_questions/oml_attack/CURRENT_STATE.md`.
+
+The theorem-side continuation proves `Φ iff T4At` for at most countable
+maximal-block atlases whose blocks are countably generated. Thus any surviving
+fine-block counterexample is necessarily an uncountable distributed-atlas
+phenomenon; finite relational interval saturation alone does not imply T4.
+The endgame audit proves that T4At gives hereditary one-block boundary
+escape, but a Cantor singleton cover realizes every local defect using a
+countably generated Boolean sigma-block while every countable subatlas
+escapes. Its common-interface paste is central and has no separating
+sigma-states. Coarse restrictions characterize liftability only as a
+coherent inverse system; the club field refutes naive local satisfiability.
+Both halves reduce to OML distributed-boundary compactness. Campaign 1 now
+records the exact theorem in `oml_distributed_boundary_compactness.md`:
+ODBC-S supplies a common-global-f.a.-witness section on every countable block
+subsystem, while CODBC globalizes these objectwise sections. Their
+conjunction is GSD/Phi. CODBC alone is not sufficient, a quantifier gap
+found by hostile review. The abstract section implication is Lean verified
+in `ODBCSections.lean`.
+
+Campaign 2 proves that finite profile cut-saturation, though necessary in
+the typed closure calculus, does not imply any common-state Helly property.
+Finite generated boundaries and exact two-block trivial-centre atlases
+satisfy ODBC. A closed-relative-eligibility hypothesis yields global
+compactness by FIP, but `P(N)` refutes that hypothesis generically. Tree and
+cycle incidence, bonding-map surjectivity, Mittag--Leffler stabilization and
+compact fibres provide no unconditional route. The next construction target
+is the centre-free coarse three-block section hierarchy, whose singleton,
+pair, and triple gates are separately open.
+
+Campaign 3 constructs the exact Cantor CSS-without-GS system and proves the
+standard-Borel relation realization formula `T_sigma=R`,
+`T_fa=closure(R)`. Countably generated separating sigma-boundaries expose
+the omitted singleton, invertible transports identify boundary ranges, and
+repeated selector pairs cannot generate inequivalent embedded interfaces.
+The live architecture is narrowed to nondeterministic nonclosed
+correspondences with proper coordinate subalgebras; the 44-event survivor is
+the lattice-completion control.
+
+Campaign 4 banks the fine locally-countable/countable-subcover defect
+theorem and the coarse countable-intersection-reflection theorem. The former
+uses T4At plus Baire; the latter turns separately solvable countably
+generated envelopes into one coherent Dirac lift. Point-countability and
+the club field are exact controls. Coarse ODBC is canonically the full
+ODBC/Phi statement, so only added CIR-like OML structure makes it a genuine
+specialization.
+
+Campaign 6 integrates the full implication graph and rejects ODBC itself as
+a non-tautological final residue: `Phi`, GSD, ODBC, and coarse ODBC are
+equivalent. The remaining decision programme requires normalization of every
+failure to a transported-boundary presentation and a complete
+realization-or-mixed-cut-collapse theorem. These BOC clauses are open;
+conditional regime packaging is Lean verified in `ODBCRegimes.lean`.
+
+Campaign 7 hostile audit finds no retraction but blocks completion:
+the Lean section system is only abstract fixed-witness packaging; no
+construction passes the OML/state gates; BOC is incomplete without both
+failure modes and an effective branch criterion; and the linked chain had
+only 44 meaningful pre-audit iterations.
+
+Campaign 8 reaches the iteration threshold and advances the construction:
+finite-degree N-G is impossible by countable components, while selectors
+`0x000f` and `0x3300` give three independently verified finite
+two-coordinate centre-free five-block OMLs. They are Phi-tame; the
+arbitrary-base multi-coefficient lattice/maximal-block theorem is open.
+
+Campaign 9 sharpens that theorem to outsider extremality (OE) plus a
+five-form signature census. Complement closure is proved and sigma closure
+is conditional on binary closure. Six finite grids pass, but the orthogonal
+coordinates are alternative under every two-valued state and hence
+conditionally Phi-tame. A non-atomic three-region pair is next.
+
+OE has since been proved: the greatest per-block floor dominates every
+outsider coefficient, and all 16 finite truth-region kernels, including the
+1220-event `P(4)xP(4)` case, are independently verified. The arbitrary-base
+two-atom family is therefore a concrete sigma-complete OML. Maximal blocks,
+centre, and the unconditional state theorem remain open.
+
+Campaign 10 completes that finite test. Raw non-atomic substitution fails
+latticehood, while canonical mixed-cut completion produces a centre-free
+nine-block OML. An independently verified diagonal variant preserves its
+conditional diagonal relation after completion. Both are finite and
+Phi-tame. The single-edge density theorem forces the next construction to
+be a genuinely distributed uncountable-incidence network.
+
+Campaign 11 realizes the punctured-Cantor star locally but proves a two-cell
+countable-meet obstruction to every shared faithful countably generated hub,
+without using centrality. Maximal-block state gluing must use L-relative
+sigma-additivity because maximal blocks need not be sigma-complete. The live
+assembly routes are distributed nonseparating quotient copies or a genuinely
+uncountably generated separating boundary.
+
+Campaign 12 realizes that second escape at Boolean-atlas level. The
+`2^{omega1}` countable-support cylinder sigma-algebra embeds faithfully into
+every puncture powerset; the missing evaluation has an fa but no sigma
+extension by Ulam's theorem. Countably generated faithful boundaries cannot
+do this at all. The common boundary is central under finite algebraic closure;
+whether sigma-completion or incompatible conditional transport can
+de-centralize it while preserving MBRC is open.
+
+**Coherence filtration:** write `S_df^σ(A) := S_df(A) ∩ S_σ(A)`. Then
+`S(A) ⊇ S_σ(A) ⊇ S_df^σ(A)` has three transitions of different character:
+pasting (topological), regularity (analytic), and sharpness (algebraic).
+Standalone VDR remains the weaker existence predicate `S_df(A) != empty`;
+on infinite carriers it must not be silently identified with non-emptiness of
+`S_df^σ(A)`.
+
+**Boundary correction (2026-08-04):** these transitions do not share a
+latticehood boundary. Universal compatible-family extension is controlled by
+Vorob'ev acyclicity at pasting; `latticehood => Phi` is the open regularity
+question; distributivity is sufficient for sharpness, while the complete OML
+`L(H)`, `dim H >= 3`, fails sharpness by Kochen–Specker. The former three-way
+latticehood slogan is therefore refuted under its literal reading.
 
 **Mathematical content:** Assembled from Stone duality, Kochen–Specker,
 Gleason, Bub–Clifton, and McDonald–Bimbó (2023) OML duality. The paper
@@ -141,7 +287,12 @@ Rhodes-Morari (1997), elbow stopping = Lepski (1991).
 
 ---
 
-## The Through-Line
+## Historical Through-Line (superseded Paper I–III arc)
+
+This section records the pre-audit Paper I–III programme and is not the current
+three-transition theory front. It is retained as history; its
+“observational-indistinguishability” through-line must not be read as a common
+liftability theorem for pasting, regularity, and sharpness.
 
 Each paper takes the output of the previous as input:
 
@@ -167,7 +318,7 @@ theorem claiming their equivalence under fibre mixing is false (2026-05-14).
 
 ---
 
-## The Three Obstructions
+## Historical Three Obstructions (superseded Paper I–III arc)
 
 | Paper | Obstruction | Status |
 |-------|------------|--------|
@@ -182,13 +333,27 @@ shows collision → 0 while δ = 1/4. The active direction is now a
 negative/clarification note proving geometric and algebraic reconstruction are
 inequivalent.
 
+## Current Three-Transition Map and Theory Front (2026-08-04)
+
+| Transition | Exact boundary/status | Corpus status |
+|---|---|---|
+| Pasting | Vorob'ev acyclicity gives universal extension of compatible local marginals | owned at the acyclic boundary; broader protocol classification remains its own programme |
+| Regularity | `latticehood => Phi` for concrete, σ-complete, non-Boolean, essentially irreducible OMLs | single surviving theory-front question |
+| Sharpness | distributivity is sufficient; complete Hilbert lattices in dimension at least three fail by Kochen–Specker | owned at the stated positive/negative boundary |
+
+There is no common corpus predicate called “liftability” across these rows.
+The literal three-way latticehood conjecture is refuted by the sharpness row.
+The OML attack history is unaffected: Skeletons A/B, the three-front
+convergence, and the T4 relay programme were all directed at `Phi`, which
+remains open and is now the whole theory-front target.
+
 ---
 
 ## Paper Status (updated 2026-05-18)
 
 | Paper | Status |
 |-------|--------|
-| Companion note | Complete, 3 pages |
+| Companion note | ⛔ RETIRED 2026-06-23 (broken proof + folklore result; do not submit) |
 | I | Synthesis, not novel. Complete, 7 pages |
 | II | EA/PR/VDR framing novel; math classical. Complete, 9 pages |
 | III | Withdrawn (rediscovery) |
@@ -200,27 +365,178 @@ inequivalent.
 
 Ordered by downstream leverage:
 
-**Status 2026-06-12 (two open problems, both uninhabited; no confirmed lead).**
-After the L_MO₂ concreteness kill (2026-06-10), the descent axis had an *afterlife*
-(2026-06-11/12): pursuing it under **Reading 1** (relational = no hidden
-realisation; user's chosen framing) reduced the prize to a sharp, principled,
-**uninhabited** open problem — *is there a σ-complete concrete OML carrying a
-σ-essential contextual state?* — which reconnects to CE/Paper I (a compactness
-failure). Simultaneously **Strategy D** advanced: its step 1 (is `Clop(Yₙ)`
-σ-complete?) is now a GJ-grounded reduction to two precise sub-questions
-(limit-branch witness; strong-zero-dim sub-lemma). So the frontier is **two
-well-posed open problems with identified levers, neither inhabited** — not "no
-leads," not "confirmed leads." Both are (a)-aligned (incompatibility face = OML
-descent; anti-smuggler face = Strategy D). Working layer:
-`notes/open_questions/{reading1_prize_reduction,direction2_gate_finding,subsession_sigma_essential_via_CE}.md`,
-`papers/paper_i/notes/ultralimit_investigation/argyros_sigma_completeness_{handoff,scratch}.md`.
+**⚑⚑ AMENDED Ψ = MACHINE-CHECKED ZFC THEOREM (2026-07-06)
+⟦LEAN — 0-sorry end-to-end; axioms = [propext, Classical.choice, Quot.sound] only⟧.**
+The **Product Ulam Carrier** (`papers/sigma_essential/witness_candidate/`) cleared
+adversarial verification (two independent proof passes, no mathematical error; verdict —
+outcome (i), qualified — in `witness_candidate/VERIFICATION_VERDICT.md`) and was then
+**formalized end-to-end in Lean the same day**: `psiAmended_ZFC`
+(`formalization/QuerySystem/QuerySystem/UlamWitnessMain.lean`) proves Ψ on
+**σ-classes/OMPs, coherence-amended, irreducible mod the countable ideal, in ZFC** — the
+full chain (encoding fix `SigmaEssentialAmended`; Ulam matrix + rigidity Thm 5.1 + empty
+kernel `UlamWitnessCore`; ω₁ instantiation `UlamWitnessOmega1`; §3 trace invariant with
+the complete disjointness table `UlamWitnessInvariant`; §6 vote state + coherence
+`UlamWitnessState`), receipts in `UlamWitnessReceipts.lean`. The Ω₇ example — the
+amendment-forcing counterexample refuting [M] Prop 2.1 as literally stated — is also
+machine-checked (`Omega7Counterexample.lean`), so the coherence amendment's
+**repair-not-retreat** status is itself certified. Per-statement:
+Ψ (OMP + coherence + irred-mod-ctble) — **ZFC theorem, Lean-certified**;
+Ψ on **lattices (OML)** — OPEN, conjectured *opposite* (latticehood ⟹ Φ);
+attack ACTIVE 2026-07-10 s8–s12 (shovel thm 2): banked ⟦HAND⟧ theorem-lets
+(blocks are σ-fields; singleton/product-Ulam mechanism unavailable on
+lattices; Dirac realization on ctbly generated blocks), conjecture
+sharpened to B′(i)/(ii), s12 proof-read SOUND —
+`notes/open_questions/oml_attack/oml_lattice_regularity_attack.md` §9;
+current construction frontier (2026-07-13): the approved 44-event finite
+proper-boundary survivor has a hand-proved centre-free sigma-complete
+one-interval inflation with a noncompact eligible slice, but common-fibre
+point replacement proves it Phi-tame; a global 60-form finite-pattern audit
+confirms the arbitrary-base five-block classification beyond the earlier
+centralizer checks, sigma-completeness remains hand-proved, and the smallest
+`P(2)` whole-interface triangle twist is either nonfaithful or gauge-trivial;
+the next gate is a proper-interface twist or a second inequivalent
+coordinate;
+Ψ with **literal irreducibility** (no-singletons regime) — OPEN
+(s11: now waits on the same missing coarse-rigidity engine as the
+lattice case; attack note §9d).
+**Remaining before "SOLVED" in full**: (1) definitional-fidelity read (~15 min: the Lean
+definitions vs paper v2 Defs 1.2–1.4 — the only remaining trust surface; note
+`LocalState`'s weaker constraint is harmless, coherence forces full statehood); (2) gate
+β — hand-check Pták–Pulmannová 1991 + Navara's Handbook survey (novelty, not
+correctness; scout verdict was ADJACENT/apparently-empty — "new assembly of classical
+parts closing the beyond-Polish Derr–Williamson cell"); (3) Phase-2 `/audit full` for
+the write-up question. Reversal trigger (binding): downgrade only on a prior-art hit or
+a located definitional-fidelity flaw.
 
-The L_MO₂ kill itself stands (6th death of the arc: L_MO₂ **IS** concrete —
-conjecture "richness starves concreteness" FALSE as worded — but the witness is
-trivial, ∏ₙ MO₂ has the bundle, and the Boolean boundary is Pták–Pulmannová 1994's
-*subadditivity*). Canonical kill record (parked):
-`notes/covered_leads/descent_axis_residue_post_kill.md`. The reframed live problem
-supersedes it as the *open* question.
+**⚑ NEW ACTIVE THREAD (2026-07-06): reconstruction / commensurability classification.**
+With the amended Ψ machine-checked, the programme reorients toward **practical
+reconstruction, foundations-first** (user decision, design session = the witness
+capture session continued). Division of labour: design session does mathematical
+planning/design via discussion; this repo verifies (Lean + audit tools); writing
+after verification. Vocabulary locked: **EA/PR(𝓡)** — coherent window data = EA;
+realisability relative to a *declared* realisation class 𝓡 = PR(𝓡) (the observer's
+commitment lattice); **commensurability** of a protocol = EA ⟹ PR(𝓡) universally.
+Seed (full round-log) + declared types:
+`papers/reconstruction/notes/commensurability_classification_seed.md`. **NAV: load
+`papers/reconstruction/notes/commensurability_taxonomy.json` FIRST** (the load-first index —
+26 anchors, 65-entry ledger, all detail pointers).
+
+**STATE 2026-07-08 (the early "open queue" below is superseded — axis-reduction /
+T1 / Bonferroni were all resolved or refuted in the atlas rounds; see taxonomy).**
+A proved structure theory now exists: the **parity theorem** (golden-mean ring
+commensurable ⟺ L even), the **free/acyclic theorem** (= Vorob'ev), the
+**trichotomy** (variety-typed protocols are De Loera–Onn universal), **ten taming
+mechanisms**, and **symmetric-loopless Circuit Localization** (the fork excluded by
+structure). **Lemma 2** (the layer-injectivity discriminant) is **certificate-grade
+in Lean** (`formalization/QuerySystem/QuerySystem/WindingInjectivity.lean`,
+0-sorry). OPEN: the **universal impossibility conjecture** (fork never exists) ⟶
+pruning lemma ⟶ a k=2 residual with a named **phase gap**, resting/incubating.
+*[UPDATE 2026-07-10: the phase gap was a wrong-proxy artifact, dissolved —
+pruning is now **Theorem P**, proved for all k with the effective Safe(ρ)
+instrument (shovel thm 1 DONE, s7, fresh-context proof-read SOUND s10);
+lock-avoidance lemma proved s5 (L-B half-closed, bar-D aperiodic half open).
+Current joint-2 state: frontier map §2 + `pruning_theorem_and_B.md`.]*
+FORMAL WRITE-UP: **`papers/reconstruction/`** (8pp; hostile prior-art pass done ⟹
+contribution is **Type 6** bridge, the novel core = the observational/dynamical
+EA/PR framing + winding criterion + CL assembly, the polyhedral facts classical;
+owed proof-writing + verdict in `papers/reconstruction/notes/STATUS.md`). Method
+signature: five instrument near-misses all caught pre-record by ground-truth
+cross-check ⟹ a verdict-grade ladder (witness-unsafe > exact/theorem-safe >
+screening). σ-essential frontier triple (OML conjecture / no-singletons /
+positive-selection strength) stands separately in the taxonomy.
+
+**[SUPERSEDED-IN-PART 2026-07-06]** The block below stands as the record for the
+**literal (lattice / literal-irreducibility) forms only**. Its mathematical content
+(walls, import-sweep kills) is unrefuted; its strategic judgment ("not close") is
+falsified for the amended/OMP form — the 13-carrier sample contained no two-layer design
+(Boolean rigidity layer ⊗ native parity incompatibility, coupled only through the
+countable ideal). Not a verdict swing: the prior swings re-read one proposition; this
+update splits it on new evidence (a verified object).
+
+**⚑ CURRENT STATUS 2026-07-02 — σ-essential: the frontier is now LOCALIZED to a named
+technique, not "invent from scratch." The sharpening phase is DONE; what remains is human
+mathematics.** This session took the 2026-07-01 "invent a non-distributive primitive"
+frontier and localized it three notches. To be caught up on WHERE TO FOCUS, read THIS block.
+
+- **IMPORT SWEEP COMPLETE** (`fact.import_sweep_complete`), stronger than "literature
+  closed": every EXISTING object-class proposed as the skeleton bottoms at Wall A via a
+  two-reason partition — **R1** Boolean-ambient ⟹ meet-closed ⟹ rescued, or **R2**
+  non-concrete-where-non-distributive ⟹ fails C1 by Kochen–Specker. Swept: set-theory catalog
+  [R1], manuals/Feldman–Wilce, pBAs + Abramsky–Barbosa duality [R2, atom-founded], **quantum
+  relations/graphs** [R2, non-commutativity of M⊆B(H) = exactly what fails C1; II₁/tracial buys
+  measure- not set-concreteness]. Geometric/topological variants foreclosed as a FAMILY
+  (`fact.geometry_forecloses_family`): inside a block, Cantor uniqueness makes all refinement
+  orders isomorphic; between blocks, topological gluing (Möbius = ℤ/2 twist = cohomology class)
+  is razor-rescued. ⚠ import-complete ≠ impossibility.
+- **THE FRONTIER HAS A NAME + A TECHNIQUE.** The missing object = a **combinatorial
+  (non-operator-algebraic) source of NON-SEGREGATED non-distributivity** — the "fourth cell"
+  past R1 / R2 / R3-segregated-∏ₙMO₂ (`fact.fourth_cell_spec`). The order-combinatorial gluing
+  space is a **5-axis map** (`fact.gluing_axis_map`): 4 axes pinned by deaths (overlap
+  richness, closure type, block size = **infinite ATOMIC**, centrality = non-central); the
+  ONE open axis is **incidence shape**, and all that is known is **NOT a tree**. The positive
+  route is the **realization-theorem push** (Navara–Rogalewicz / Harding–Navara build
+  non-simplex/non-segregated state spaces by Boolean-block pasting → carry to concrete + σ
+  SIMULTANEOUSLY). **Reading plan WRITTEN:** `notes/reading_directions/realization_technique/realization_technique_reading.tex`
+  (dependency-ordered, anchored to the conjunction gap; Harding 2004 in hand confirms the
+  concreteness half + locates the finiteness dependency).
+- **WHY IT'S HARD, at max sharpness — the 3↔5 tension:** you need infinite ATOMIC blocks
+  whose overlap-incidence is NOT a tree, but the only known way to BUILD infinite atomic
+  blocks is iterated refinement, which IS a tree → Dirac-domination (the recursive-MO₂ death,
+  `carrier.recursive_mo2_substitution`, now a Lean detector `TreeIncidence`, 0-sorry, axiom-clean).
+  The tree that makes blocks infinite is the tree that makes σ-states Dirac.
+- **IMPOSSIBILITY side: BLOCKED, not near.** The only live ¬Ψ lane = force state-concrete
+  (i) → σ-tribe (iii); NO importable route (RDP⟺MV confines the machinery to the Boolean
+  complement of the Ψ config; `strat.impossibility_i_to_iii`). The false universal "(A)
+  infinite-atomic+non-central+concrete ⟹ tree" is strictly STRONGER than ¬Ψ (probably false —
+  tree is a property of the construction, not the object), NOT a stepping-stone.
+- **NARROWING IS DONE.** New-world and impossibility stay indistinguishable because ONE object
+  gates both (a non-tree infinite-atomic gluing: build it → witness; prove none exists → ¬Ψ).
+  "Keep tightening the lasso" now returns sampled points, not the theorem. The next move is the
+  **investment decision**: learn the realization/pasting technique (plan written) or attempt the
+  non-RDP (i)→(iii) theorem. Neither is manufacturable at the schematic.
+
+**NET: the frontier is one named object — a concrete σ-complete OML built by INFINITE
+NON-TREE pasting of infinite atomic Boolean blocks (= the realization-theorem push), OR a
+non-RDP (i)→(iii) impossibility theorem.** Both are human learn-then-try; the paper
+(`papers/sigma_essential/`) is the stable boundary map (unchanged — this session's directional
+findings are correctly NOT in it, being search-navigation not Ψ-boundary). Zoom-out nav =
+`sigma_essential_taxonomy.json`; trails = `sigma_essential_construction_runs.md` (2026-07-02
+blocks); Lean scaffold 0-sorry incl. the tree-detector. (The prior "invent from scratch"
+framing this localizes, and the earlier dated status blocks, are folded into the settled
+results + session-history pointers below.)
+
+### Settled results (de-dated — stated once, detail in the pointed-to files)
+
+- **Localization / reduction (the spine, verified).** A concrete σ-essential witness
+  exists iff **(i)** no point-evaluation (Dirac) extends the finite pattern *and* **(ii)**
+  no non-Dirac σ-additive two-valued state does — and (i) is freely arrangeable
+  (Navara–Pták), so the entire content is clause (ii) = Wall A. Machine-checked (Lean
+  `localization`, 0-sorry). Full statement: `notes/open_questions/sigma_essential/sigma_essential_reduction_writeup.md`.
+- **Derr–Williamson Polish boundary (`rem:dw`) — amended s13.** On a Polish-representable
+  carrier with **blockwise inner-regular** restrictions every finitely-coherent pattern
+  globalises — no witness (DW 2023 Thm D.6, via Maharam §8; topological hypothesis
+  load-bearing). *s13 (2026-07-10):* the inner-regularity leg is independently binding
+  (an (8.1)-regular two-valued state is a compactly witnessed Dirac restriction), so a
+  witness must be **non-Polish / non-standard-Borel OR coarse-riding** (some blockwise
+  restriction non-principal — escapes D.6 on every Polish rep). Backing:
+  `notes/open_questions/sigma_essential/sigma_essential_prior_art_verdict.md` (Addendum s13);
+  `oml_lattice_regularity_attack.md` §10; survey `oml_onboarding.tex` (`rem:dw`).
+- **Import sweep complete + the fourth-cell spec + the 5-axis gluing map** — the current
+  frontier's structural results; see the 2026-07-02 block above and the taxonomy facts
+  `fact.import_sweep_complete`, `fact.fourth_cell_spec`, `fact.gluing_axis_map`.
+
+### Session history (trails, not current state — pointers only)
+
+The reasoning trails behind the frontier live in the leaves, not this overview:
+`sigma_essential_construction_runs.md` (2026-06-25 → 07-02 trails, incl. the import
+sweep, the recursive-MO₂ death, the geometry foreclosure), `sigma_essential_taxonomy.json`
+(zoom-out index of every recorded approach), `sigma_essential_large_cardinal_bounds.md`
+(§3f–§3s move-space sweep = the 06-27 "literature closed" + 07-01 "invent from scratch"
+framings, both superseded by the 2026-07-02 frontier), `forcing_programme_status.md`
+(forcing parked-as-premature), and `notes/archive/sigma_sessions_1_8b_narration.md` +
+`archive/sigma_duality_targets_superseded.md` (the earliest sessions, archived). The
+forcing scout, σ-duality two-hull probe, and B–W masa-transfer threads all bottomed at
+the same Wall A and are recorded there.
 
 Previously listed directions closed or parked:
 - **Mechanistic feasibility from observational coherence** — PARKED
@@ -269,19 +585,24 @@ Open directions — the extension boundary:
    Duanmu-Weiss (2018), Cardona et al. (2025), Fremlin §326-328
    checked — none address this question. Not an independent
    direction.
-3. **Strategy D** — Does there exist
-   a non-σ-complete non-atomic measure-free Boolean algebra?
-   Equivalently: compact, totally disconnected, no isolated points,
-   not basically disconnected, no strictly positive Radon probability.
-   Likely independent of ZFC. Nearest examples (Argyros, Kunen,
-   Fedorchuk) miss at least one condition. Plebanek (2024 survey)
-   confirms the exact parameter regime is open.
-   **Step 1 advanced 2026-06-12 (GJ-grounded):** "is `Clop(Yₙ)` σ-complete?"
-   (the Argyros pre-Gleason candidate) reduces via Gillman–Jerison 1H/6M/6W to two
-   precise sub-questions — a limit-branch witness (strictly increasing clopens with
-   no least upper bound ⟹ ZFC example) and a named strong-zero-dim sub-lemma.
-   See `papers/paper_i/notes/ultralimit_investigation/strategy_d_dossier.md`
-   (+ `argyros_sigma_completeness_handoff.md`).
+3. **Strategy D** — Does there exist a non-σ-complete non-atomic measure-free
+   Boolean algebra? **KILLED AS A CONTRIBUTION 2026-06-18 (/audit full, prior-art).**
+   The answer is YES in ZFC and the worked witness (`Clop(Y,𝔗)` not σ-complete,
+   gap family `A_k=[0^{k-1}11]` at `0̄`) is correct math — but it clears **no
+   contribution bar**. **Gaifman 1964** (PJM 14(1):61–73, Thm 2.2 + property (†))
+   already exhibits, IN ZFC and 19 years prior, an atomless BA with no strictly-
+   positive FINITELY-additive measure — strictly stronger than the no-σ-additive
+   leg. The non-σ-complete + atomless conditions are trivial; the only hard
+   ingredient (measure-freeness) is Argyros's published theorem. "Strategy D" was
+   this programme's PRIVATE name, never a field-recognized open problem; the
+   "likely ZFC-independent" prior was a local misreading (σ-completeness read off
+   the completion/Gleason cover, not the base algebra — C–N 6.23/6.25 record the
+   completed forms). L_MO₂-shape kill (true + trivial + occupied) — the first kill of the Strategy-D (a)-line, NOT a descent-arc death.
+   RETIRED as a research target. Survives: a one-line Gaifman-1964 citation, no
+   contribution. Verdict:
+   `notes/archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md`;
+   the `..._RESOLVED.md` writeup carries an AUDIT-KILL banner (math retained);
+   memory [[strategy_d_resolved]].
 4. **OML extension problem** (algebraic face) — What replaces
    Carathéodory when the algebra isn't Boolean? Pták-Pulmannová
    (1994): conditions strong enough to force σ-additivity collapse
@@ -292,65 +613,346 @@ Open directions — the extension boundary:
    governed by σ-additivity; σ-additivity governs only the *descent
    axis* (concentration on physical points). Boolean fuses them
    (extension free); OML separates them (extension is the open
-   problem). See the survey `notes/open_questions/oml_onboarding.{tex,md}`
+   problem). See the survey `notes/open_questions/kits/oml_onboarding.tex`
    (archived predecessor: `notes/archive/oml_extension_problem_superseded.md`).
 
-   **Descent-axis status — L_MO₂ KILLED 2026-06-10, then REFRAMED to a live open
-   problem 2026-06-11/12.** The extension axis is fully closed on L(H) (no state
-   extends, Prop 3.2). The L_MO₂ concreteness lead was killed by `/audit full` (the
-   three findings below). **But the axis did not stay closed:** pursued under
-   Reading 1 it reduced to a sharp, principled, *uninhabited* open problem (see the
-   afterlife note at the end of this item). First the kill, then the reframe.
-
-   The audit resolved the question — *is L_MO₂ concrete?* — and killed the lead on
-   a cell the framing did not predict. **L_MO₂ IS concrete** (so "richness starves
-   concreteness" is FALSE as worded), via three findings:
-   - **The loaded premise was false.** V is a **Kalmbach horizontal sum (blocks
-     glued only at {0,1})**, NOT atom-sharing Greechie pasting (Navara p. 428,
-     read directly: "construct the horizontal sum 𝒱 … see [5] [=Kalmbach
-     1983]"). Pure horizontal sums of concretes are concrete; **statelessness**,
-     not the horizontal sum, was Navara's only source of non-concreteness, and
-     the MO₂-swap removes it. Concreteness is then mechanical (MO₂ → 𝒯×MO₂ →
-     hsum → W=∏V → L⊆W, order inherited / separation restricts).
-   - **No contribution — trivial + occupied.** The full bundle (concrete +
-     σ-orthocomplete + non-Boolean + (★)) is exhibited by plain **∏ₙ MO₂** with
-     zero Navara scaffolding; the constancy-cut existed to extract non-σ-additive
-     states from a *stateless* block and is inert once the block is stateful.
-     Types 1/3/5 FAIL on triviality.
-   - **Already characterized, more sharply.** **Pták–Pulmannová 1994**: an OML is
-     Boolean iff it has a unital set of *subadditive* measures — the forcing
-     property is **subadditivity**, not σ-additivity/concreteness. The conjecture
-     named the wrong discriminator.
-
-   6th death of the arc, NEW reason (triviality + prior-art, not decorative-σ and
-   not the predicted concreteness-failure). The (★)=YES Lean structure stands as
-   established but was always irrelevant to the kill. Nothing routed to Paper II.
-   Canonical record (parked): `notes/covered_leads/descent_axis_residue_post_kill.md`;
-   derivation history (archived): `notes/archive/oml_descent_inhabitation_dead/inhabitation_check.md`.
-
-   **AFTERLIFE — the reframed live problem (2026-06-11/12).** Pursuing the descent
-   question under **Reading 1** (relational = no hidden realisation; the user's
-   chosen framing of the (a)/(b) fork) reduced it, via Fine's theorem, to a
-   *contextuality* question: a relational measure ⟺ a **contextual** state (not
-   spanned by the dispersion-free states). Bounded by Wright 1978 (a *finite*
-   concrete OML with a contextual state), the only live cell is **σ-essential**
-   contextuality — contextual in the σ-complete whole but in no finite sub-OML, a
-   *compactness failure* that reconnects to CE/Paper I. Status: well-posed,
-   principled, **uninhabited** (no witness — ∏ₙMO₂ fails it, Wright is finite — and
-   no impossibility proof); two Phase-4 exits (build a σ-essential witness / prove
-   a spanning-impossibility). The CE-routing subsession (2026-06-12) returned
-   **GAP** — CE can't settle non-emptiness; the Boolean Stone-kill of ∏ₙMO₂ doesn't
-   transfer (it controls only the Boolean center, vacuous off-center). This
-   **sharpens both exits**: a witness must put its infinitary structure off-center
-   (irreducible/non-central-infinite — products of finite blocks excluded; pasting
-   constructions the place to look), and the impossibility direction can't reuse
-   the ∏ₙMO₂ mechanism. The survey `notes/open_questions/oml_onboarding.{md,tex}`
-   is committed to this Reading-1 framing; working layer:
-   `reading1_prize_reduction.md`, `sigma_essential_nonemptiness_finding.md`,
-   `direction2_gate_finding.md`, `subsession_sigma_essential_via_CE.md`.
+   **Descent-axis history (Sessions 1–8b, 2026-06-10 → 06-17) — ARCHIVED.** The full
+   reasoning-trail (L_MO₂ kill+reframe, the five-property death map, band-family
+   trichotomy→dichotomy, the Harding–Wang wall, the Lean bites) is relocated verbatim
+   to `notes/archive/sigma_sessions_1_8b_narration.md` (it predates the 2026-06-25
+   reduction and the 2026-07-02 frontier — read as history). Current state: the
+   frontier block at the top of this section + `sigma_essential_taxonomy.json`. Later
+   trails (06-25 → 07-02): `sigma_essential_construction_runs.md`.
 5. **Foundational topology / zeta** — speculative.
 
 ---
+
+## Current OML frontier (2026-07-14)
+
+Unconditional state-normal completion of the omega-one puncture atlas is
+excluded, while face-local nonnormal completion remains open. The decisive
+finite gate is direct incompatible conditional transport (`111 => q=r`) with
+order-separating off-pattern escape states. See
+`notes/open_questions/oml_attack/oml_puncture_normality_and_incompatible_transport.md`.
+
+The finite gate now passes: a literal `MO3` conditional cell and its shared
+fixed-pattern closure are verified through three cells. The exact residue is
+arbitrary-finite repair followed by countable-disjoint-union closure; finite
+formulas have not been promoted to that theorem.
+
+Campaign 15 now proves the one-hub arbitrary-index family sigma-complete and
+Phi-tame. The live construction is two-dimensional: the stripped grouped
+coordinate K22 core has an explicit crossed-rectangle lattice failure, so the
+full four-cell conditional grid was tested in Campaign 16.  Its semantics
+survive but latticehood still fails.  A single literal repair never suffices;
+two known iterated coordinate-core completions are OMLs only after rebuilding
+the same-side `q0,q1` Boolean boundary.  Whether all distributed-preserving
+repair branches fail is now one exact finite search problem; no universal
+reconstruction theorem is yet claimed.
+
+Campaign 17 supplies that theorem for literal macro completions: exhaustive
+interval branching proves that every `P(16)` OML completion reconstructs the
+`q`-side or `r`-side Boolean algebra. This closes the stripped architecture,
+but not repairs varying inside the conditional cells' auxiliary fibres. The
+next construction gate is the smallest fine-fibre rectangle repair on the
+full `2x2` carrier.
+
+Campaign 18 passes that gate at two nonterminal depths: 64/128-point first
+repairs and a four-point second repair preserve both distributed boundaries
+and off-activation order-separation witnesses. They do not yield a lattice,
+and the next interval widens. The active problem is to identify a finite
+repair grammar or a monotone obstruction, not to enumerate arbitrary subsets
+of million-point intervals.
+
+Campaign 19 replaces the putative infinite repair grammar by an exact finite
+terminal problem. A third repair reaches 558 events and refutes monotone gap,
+width, and gap-descriptor recurrence models. Since the full-grid carrier is
+finite, unrestricted repair chains necessarily terminate, and every
+same-carrier completion contains a terminal repair family. T-FIN asks whether
+all such terminals reconstruct a same-side Boolean boundary or create an
+activation-supported event. Coordinate-closed completions already reconstruct
+a side; non-profile-measurable joins and larger-carrier sigma-completions are
+the remaining escapes.
+
+At the 558-event checkpoint, simple hull-gap laminarity fails and no nested
+hull pair isolates one profile fibre. A same-side lattice meet nevertheless
+appears as a whole profile fibre plus a four-point escape block. This
+fattened-fibre meet, not further arbitrary repair depth, was the exact T-FIN
+test object at that checkpoint. Its remaining interval is executable-classified into 160
+whole macrofibres; terminal saturation for this partition is open, so the
+next discriminating question is partial-macrofibre splitting rather than
+enumeration of the saturated subclass.
+
+The terminal residue calculus further packages both same-side boundaries as
+two four-residue squares with event-valued line and total unions but no event
+singletons or triples in a preserving terminal. This finite shadow is only a
+necessary descriptor: coherent lifting of within-fibre subsets, or a theorem
+forcing collapse when the two squares couple through the edge cells, remains
+open.
+
+The minimal bare square is the six-event `MO2` set OML, so its identities
+alone cannot collapse. Profile-join-hull closure (PJH) is sufficient: it makes
+the saturated events a concrete `P(16)` completion and forces reconstruction.
+The current exact computation is therefore certificate-local PJH along the
+finite stripped-core forcing DAG.
+
+That DAG now yields a self-audited finite first-defect atlas with 31 internal
+states and 64 candidate hull edges; all 17 no-defect terminals reconstruct a
+side. The remaining fixed-carrier problem is whether any recorded nonevent
+hull type survives terminal latticehood and activation escape.
+
+Only 33 nonlower hull edges can actually be first defects. A full coordinate
+symmetry audit finds the lex atlas stabilizer trivial, and all sixteen profile
+fibres occur. The residue is therefore provenance-sensitive rather than a
+coordinate-orbit classification.
+
+The first nonevent-hull join is nevertheless activation-escaping: it contains
+at least three complete profile fibres, each with off-activation points for
+both rows. Any activation collapse must be generated later in the repair
+closure. This focuses the finite route on one-fibre split cores and their
+derived cuts rather than on the first join itself.
+
+The minimal one-fibre census found four terminal profile OMLs among thirty
+binary defects. All four are the same reducible product
+`B_9 x MO2 x MO2`: they show that a nonevent hull can persist through
+latticehood, but not yet through essential irreducibility or the original
+conditional-cell couplings. Those couplings are now the decisive finite gate.
+
+One full conditional cell can in fact be restored without collapse. The exact
+892-point quotient closes to a centre-free 18496-event OML retaining the PJH
+defect, both distributed boundary gaps, and row-0 activation escape. It is
+finite and therefore `Phi`-tame; the second same-row cell is now the live
+coupling test.
+
+Campaign 19 then opened a parallel impossibility track. Every proposed T-FIN
+implication is tested against the formal, one-cell, and same-row marginal
+OMLs. The first hypothesis not already refuted must involve transverse or
+full-grid coupling; the cells-00/10 quotient was the next test and subsequently
+survived.
+
+The full same-row pair also survives: its exact 9928-point marginal is a
+centre-free 18554-event OML with two faithful cell embeddings. Consequently
+the remaining finite pressure is transverse, beginning with cell 10 and the
+second activation pattern, rather than repeated sharing along one row.
+
+That transverse quotient passes as well. All two-cell coupling orientations
+therefore admit centre-free gate-avoiding PJH controls. The first untested
+finite architecture is the three-cell corner containing a complete row and
+column.
+
+At the same-row rung, the exact node-6 same-side meet is stable: its three
+whole profile fibres persist and the fourth remains a nonevent. This closes
+forced strict same-row meet growth as an impossibility route without claiming
+stability under the three-cell corner.
+
+The transverse rung has the same outcome. Its meet is again the saturated
+`0x70` event and the full `0111` residue remains absent. Strict advance is
+therefore not forced by either kind of second cell; the corner is the first
+configuration capable of coupling both mechanisms.
+
+The three-cell corner couples both mechanisms and still survives. Its exact
+canonical-normal-form completion is a centre-free finite OML preserving the
+defect, both activation escapes, both distributed boundaries, and the stable
+same-side meet. The finite programme has therefore narrowed to one remaining
+step: adjoining the actual fourth-cell event algebra and auditing the full
+cycle.
+
+That full-cycle step succeeds. An exact macro-fibre MDD completion produces a
+centre-free 18676-event concrete OML on the full compatible four-cell carrier,
+while neither T-FIN gate fires. Fixed-carrier T-FIN is therefore false. This
+settles the finite architectural question negatively but not `Phi`, since the
+finite completion is automatically `Phi`-tame. The programme now scales the
+surviving grammar toward a sigma-complete uncountable CSS/no-global-section
+assembly.
+
+At the first assembly rung, adjacent completed rectangles share exactly their
+declared 56-event conditional cell. This proves interface intersection and
+carrier surjectivity. First-round tagged-grid analysis shows that mixed OR
+tags require product-rectangle complements. Literal local coordinate hulls
+already fail, but the first 71-state failure has unique old lower and upper
+envelopes. Conservative inclusion is now characterized exactly by a
+deflationary kernel retraction, so the next finite-support gate is uniqueness
+of greatest old lower shadows for every mixed transition, not literal hull
+realizability.
+The first 100 symbolic transitions pass. A scalar exhaustive scan is not
+informative at its projected all-event scale; the 91-atom replay agrees while
+reducing the test count 205.15-fold. Atomisticity reduces the complete
+obstruction to strict-overshoot joins with one old atom.
+The earlier 3.1-million-kernel and 282.1-million-atom figures were rectangular
+pre-admissibility ceilings. Exact disjoint-existential filtering leaves 55722
+live `(A,U)` kernels, 5070702 possible atom visits, and at most 10141404
+uncached bad-mask calls, reopening a streaming exhaustive scan.
+Eager complete retained-event-by-atom descriptor construction nevertheless
+crosses the present feasibility boundary (12 minutes and roughly 1 GiB RSS,
+no receipt or verdict). The next controlled test is per-state restricted-root
+class interning on 8--16 deterministically spread shared states, measuring containment-class
+compression before scaling to the complete horn atlas.
+The repaired census now checks every macrofibre and the correct atomic-order
+direction. It finds 1433764 strict horns; on 12 deterministically spread shared
+states and both orientations, 448200 per-state trace words intern to 2740
+exact classes. **Executable verified** by one producer under two hash seeds,
+payload `d8290f39...`; this is not a global-vector theorem. The next run is a
+bounded grouped-versus-scalar streaming differential with per-retained-event
+cache eviction.
+The repaired differential passes 1233 exact live kernels with grouped/scalar
+agreement, zero escapes and identical before/after MDD snapshots. **Executable
+verified** (bounded, single producer), payload `c8587f5b...`. The abstract
+fold criterion and strict escaping extension are **Lean certified** in
+`FiniteAtomFoldKernel.lean`. A separate 500-spread-event-per-orientation run is
+the next scale discriminator; it is not yet the complete 55722-kernel theorem.
+The scale run covers 1640 kernels with no escape but grows to 52602242 assigned
+comparisons and fails whole-receipt cross-seed equality, so the next
+representation is sparse queried containment-pair interning. **Executable
+verified** bounded observation; deterministic receipt reproduction is
+**Open**. Independently, **Hand proved** second-round calculus shows
+intersection safety, complement/least-upper duality, and the bridge-atom union
+criterion; concrete `MO2` controls **Refute** automatic closure.
+`KernelClosureCalculus.lean` **Lean certifies** the abstract intersection,
+complement-duality, cover-fold and bridge-union implications with base-join,
+bridge eligibility and cover hypotheses explicit.
+The sparse containment-pair implementation is **Executable verified** on 355
+sampled kernels: 11951 compressed bad-mask decisions agree exactly with the
+direct MDD oracle under seeds 0 and 12345 (payload `b06e5ff0...`). The empty
+mask is tautological for every retained event, leaving 18370 nontrivial kernels.
+The next finite-support test is join-rich and per-`A`-evicted; exhaustive
+sharding is conditional on that bounded peak.
+The join-rich gate now passes 2509 nonempty kernels with exact differential
+agreement on 27469 queries (payload `b47a55f8...`). **Executable verified**
+bounded evidence. The checkpointed scan is complete: 32 frozen shards verify
+all 18370 nonempty kernels, while 37352 empty-mask kernels are discharged by
+hand, giving 55722/55722 first-round conservative shadows with zero failure
+(master payload `bf3f7d29...`). Hostile review and selected cross-seed replays
+pass. The finite-support frontier is no longer first-round exhaustion:
+a hostile audit shows that the bounded complement/bridge failures are Boolean
+operations on one-coordinate universal shadows, not shadows recomputed from
+actual generated relations. The active problem is therefore the exact
+restricted relation-section grammar: form actual terms fibrewise, then compute
+their universal old-lower shadows and kernels.
+The first such bounded quotient tests 156 actual relation occurrences and
+finds zero bad retained-side lower kernels. The old coordinate calculus reports 22 false failures
+and differs on 55 complement/disjoint-union shadows (payload `3d6f97c8...`).
+This is positive finite-support evidence; witness diversity within a fixed
+coarse shadow class is the next exact grammar gate.
+The gate refutes the coarse descriptor: 14/17 sampled exact-root substitutions
+within fixed `(E,U)` change the simultaneous section pattern, but no bad actual
+kernel appears (payload `39bd3fe0...`). The next finite-support theorem is an
+exact minimized section-congruence transition table, with re-basing conditional
+on a genuine actual-event escape.
+Exact universal-output minimization cannot reduce the state: each canonical
+algebra has 9 atoms/512 elements and any top-preserving Boolean congruence is
+equality (payload `2ebe78a9...`). The next workload tests only the weaker exact
+old-kernel observational quotient. Its two-sided form finds seven genuine
+opposite-side lower-kernel escapes and refutes typed observation congruence
+in 13 groups. The next construction is the forced ambient re-base at the
+first actual escape; successor OML and collapse gates remain open.
+The first shadow pilot finds two maximal old lowers, a new proper seeded
+one-copy literal envelope, and at least 256 shadow candidates in one capped
+round. It does not establish that the seed cylinders are actual two-copy
+events. The next gate is actual rebase realization, not closure-depth
+extension.
+The first coarse prefix descriptor fails on 16 doubletons. Exact
+parent-incidence is the next nonminimal state. Fixed-seed closure is
+order-independent under every fair schedule by finitarity, but assembly
+associativity and finite grammar remain open.
+One fixed old context separates every remaining doubleton only by exact-root
+identity, so finite semantic compression stops. The programme now targets a
+support-indexed exact-root normal form plus bounded cut locality and
+cylindrical reflection across finite assemblies.
+Lean now closes pure one-step cylindrical reflection. `ARR-CYL`, or explicit
+construction of the actual mixed cut join, is the next gate. Mixed
+complementary-cover classification is suspended until an actual rebase seed
+exists.
+The minimal actual-generator control closes to a centre-free 16-event OML
+with noncylindrical `Neg-023` as the join. This makes full-old-copy coupling,
+not local OML structure, the active content of `ARR-CYL`.
+The first single old complement-pair contexts split sharply: two preserve the mixed OML, while
+the escaping fold and least old upper reopen two-upper cuts. Repairing those
+two intervals is now more informative than enumerating every old context.
+The repair selector is a fixed point of its current generated upper core;
+this fixed-point and strict finite-cardinality drop are Lean certified. The
+upper core need not be represented, so actual repair descent remains a
+same-carrier hand corollary and quotient-saturated selectors do not exhaust
+the full carrier.
+Generic selector saturation is refuted by a 12-event split-truth-atom
+concrete OML. Its centre is nontrivial, so any positive mechanism must now
+use centre-freeness or assembly-specific symmetry/block incidence.
+Same-carrier centre killing is impossible because the control contains a
+permanent central singleton. The next construction inflates that singleton
+to a fibre before adding transverse incidence.
+The inflation construction succeeds: a clean 16-event centre-free OML
+preserves the split join and has exactly its point states. Only
+assembly-specific full-old coupling remains as a possible saturation force.
+The clean control has a unique pointed isomorphism to the restricted
+right-only `Neg-023` five-profile representation. Hostile review caught and
+repaired a one-profile under-audit: three actual profiles must be split,
+covering ten labelled words and 504 restricted selectors. Complete full-old
+signature refinement may still separate them, so physical multiplicity
+remains the next eligibility gate.
+The physical gate passes: the full-old signature pair recovers the adjacent
+point, and all three required fibres have enormous multiplicity. The next
+gate is no longer cardinality but whether a compactly represented selector
+can be adjoined while preserving both old OML copies and the `Neg-023` cut.
+The first such raw adjunction is nonlattice: `R` conflicts with old join
+`18322`, and the selector complement simultaneously has nonprincipal lower
+kernels on both copies. This refutes literal transplantation, not completion;
+the next object is the exact coupled upper/kernel repair root.
+The canonical maximal envelope is now explicit:
+`T=R∩cyl_right(18322)`, noncylindrical with asymmetric old kernels. For a
+fixed cut, every new upper is redundant or strictly shrinks this envelope,
+giving a hand-proved finite rank. The remaining global issue is creation of
+new source cuts by mixed bridges. The first one-step executable attempt was
+excluded because its source and receipt diverged and its nonemptiness test
+was wrong; no provisional counts are banked.
+The replacement exact literal-bridge census is bankable: 498 occurrences
+give 488 roots, 486 new, and 474 require a parent outside the frozen five.
+Thus a fixed-five grammar is refuted, but the immediate layer creates no
+cylindrical, singleton, or activation-supported event. The next controlled
+question is whether the 486 roots have finitely many old-kernel/source-cut
+obligation types.
+The first eight-root kernel pilot already refutes closure of the current
+obligation set: five roots create right-copy source cuts. Rootwise exhaustion
+cannot prove positive closure because cross-root pairs remain. The next
+mathematical target is a right-source transition and locality theorem.
+The locality branch is now sharpened negatively: `[8,106]` is a two-new-root
+same-half cut with two incomparable old maximal lowers. Any positive grammar
+must supply total same-half join/difference rules and normal-form coverage;
+the next construction is the exact meet repair for this pair.
+The repair is forced: the set intersection of roots `[8,106]` is exactly the
+orthogonal union of the two old maximal lowers. Adding it and its complement
+resolves the cut and adds no further consequence roots: the earlier eight-new
+count omitted the full old copies. Targeted cross-copy cuts among the named
+old representatives are the next finite grammar boundary.
+The first sampled old-representative pair has three maximal lowers and
+infinite orthogonal-cover number; its minimum residual recurs as `right(2)`.
+The next exact decision is whether their unrestricted union covers the meet
+target or leaves a proper residual.
+The union equals the target exactly and all three pairs overlap. Latticehood
+therefore forces a nonorthogonal-cover meet that ordinary orthogonal closure
+cannot generate. Its one-seed nested/cut transition is the active grammar
+test.
+The first nonorthogonal seed transitions to an orthogonal exact-cover child
+with zero residual. This supports the parameterized `MEM/O/N/R/PROP` rule
+schema; coverage, dependency well-foundedness, and coherent finite embeddings
+remain the decisive theorem obligations.
+Firing the orthogonal child does not return to the earlier cell and does not
+decrease target inclusion: the named targets are pairwise incomparable. Six
+new consequence roots lead, in the declared restricted scan, to a proper-
+residual cut with two overlapping maximal lowers. Thus the next theorem is a
+minimal-envelope dichotomy, not recurrence: the lower union must either be
+gate-forcing/lower-ranked or become an explicit zero-progress grammar rule.
+The dichotomy resolves to the zero-progress branch: the envelope adjoins
+gate-safely, the residual is untouched, and the next child is an ordinary
+orthogonal cell. Grammar termination therefore needs a non-residual rank or
+mechanical quiescence, and the campaign pivots from interactive one-seed
+audits to a batched rule engine plus an explicit sigma-layer pull-document,
+per the adversarial strategy review of 2026-07-18.
+Same-day amendment (user-directed): the linearization/extension-screen
+E-thread runs first — a σ-essential witness must be non-extendable to its
+Boolean envelope (value-1 family fails finite intersection at stage ≥ 3),
+which turns the state-extension literature into a candidate pipeline and
+localizes where latticehood must act. Seed:
+`notes/unsorted/linearization_extension_screen_seed.md`; Stage 0 absorbs
+its output before the engine build.
 
 ## Repository Layout
 

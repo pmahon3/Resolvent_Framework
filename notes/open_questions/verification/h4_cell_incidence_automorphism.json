@@ -1,0 +1,103 @@
+{
+  "all_graph_automorphisms_extend_to_event_order": true,
+  "automorphisms": [
+    {
+      "atom_map": {
+        "a1": "a1",
+        "a2": "a2",
+        "a3": "a3",
+        "e00": "e00",
+        "e01": "e01",
+        "e10": "e10",
+        "e11": "e11",
+        "m1": "m1",
+        "m2": "m2",
+        "n1": "n1",
+        "n2": "n2",
+        "p11": "p11",
+        "p12": "p12",
+        "p14": "p14",
+        "p15": "p15",
+        "p24": "p24",
+        "p25": "p25",
+        "s1": "s1",
+        "s2": "s2",
+        "t1": "t1",
+        "t2": "t2",
+        "u1": "u1",
+        "v1": "v1",
+        "w1": "w1"
+      },
+      "event_permutation_sha256": "da2ae4d6b36748f2a318f23e7ab1dfdf45acdc9d049bd80e59de82a60895f562",
+      "point_permutation_sha256": "7e47dde9a2e52a0067f80a149abf606ea4ec25690637632d34561432c0738877"
+    },
+    {
+      "atom_map": {
+        "a1": "a2",
+        "a2": "a1",
+        "a3": "a3",
+        "e00": "e00",
+        "e01": "e01",
+        "e10": "e10",
+        "e11": "e11",
+        "m1": "m1",
+        "m2": "m2",
+        "n1": "n1",
+        "n2": "n2",
+        "p11": "p12",
+        "p12": "p11",
+        "p14": "p14",
+        "p15": "p15",
+        "p24": "p24",
+        "p25": "p25",
+        "s1": "s1",
+        "s2": "s2",
+        "t1": "t1",
+        "t2": "t2",
+        "u1": "v1",
+        "v1": "u1",
+        "w1": "w1"
+      },
+      "event_permutation_sha256": "800ab3a35ea777934efcafdf5e93d7ecdb069734d6b5f45fede0b1d06402abf6",
+      "point_permutation_sha256": "d4270a5ba6183fe0029390650056169ba7274570c3957f0739398bcfa57ee69f"
+    }
+  ],
+  "command": "python3 notes/open_questions/verification/h4_cell_incidence_automorphism.py --verify",
+  "events": 56,
+  "gate_color_convention": {
+    "fixed_events": [
+      "a3",
+      "q",
+      "r"
+    ],
+    "setwise_activation_arm_pair": [
+      "a1",
+      "a2"
+    ]
+  },
+  "gate_fixed_group_order": 2,
+  "intrinsic_lattice_atoms": 24,
+  "intrinsic_maximal_blocks": 12,
+  "maximal_block_size_histogram": {
+    "3": 11,
+    "4": 1
+  },
+  "named_equals_full_provenance_fixed_group": true,
+  "named_subgroup_order": 2,
+  "payload_sha256": "7b1223bfcb55de3d7d9178b25cf2cc7727c1be1e0a1be18674fa4fb61bb97eb2",
+  "point_signatures_unique": true,
+  "producer_sha256": "ebe123d678ab9f34c936b09fd73214ebd0ad8acbeabe7bf3a1735e77b6bb18d0",
+  "proof_certificate": "intrinsic atom/block automorphism exhaustion plus unique point-signature lift",
+  "provenance_color_convention": {
+    "additional_fixed_events": [
+      "n1",
+      "s1"
+    ]
+  },
+  "provenance_fixed_group_order": 2,
+  "schema": "h4-cell-incidence-automorphism-v1",
+  "schema_version": "1.0",
+  "scope": "exact single-cell 224-point/56-event incidence-code group under displayed colors; no full-grid faithfulness claim",
+  "states": 224,
+  "uncoloured_orthogonality_graph_automorphisms": 32
+}

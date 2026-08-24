@@ -1,0 +1,293 @@
+{
+  "models": [
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 220,
+      "event_sha256": "db1e5abb831c4b8121625739c6529b21454ba690fbf6747ac9b19cea77ba66a1",
+      "events": 44,
+      "fibre_atoms": [
+        1,
+        1
+      ],
+      "points": 16,
+      "unordered_input_pairs": 990
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 468,
+      "event_sha256": "fc0feb03cce139d42eef9a40355667c3b53adc1e69516c3a8c3b88259424c1be",
+      "events": 68,
+      "fibre_atoms": [
+        1,
+        2
+      ],
+      "points": 20,
+      "unordered_input_pairs": 2346
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 964,
+      "event_sha256": "863123937f66e9597b9ba2848cc49a5970f36eeebcfbdf4c07b6f858447ff028",
+      "events": 116,
+      "fibre_atoms": [
+        1,
+        3
+      ],
+      "points": 24,
+      "unordered_input_pairs": 6786
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 1956,
+      "event_sha256": "f9a2b6613621e8b9eaf684650312ff092c445d3230d1f29886e943220fe5641d",
+      "events": 212,
+      "fibre_atoms": [
+        1,
+        4
+      ],
+      "points": 28,
+      "unordered_input_pairs": 22578
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 460,
+      "event_sha256": "0aa5fb503116ab4e49352baa053960080b959184ba281800e2a20ac8ad890c53",
+      "events": 76,
+      "fibre_atoms": [
+        2,
+        1
+      ],
+      "points": 20,
+      "unordered_input_pairs": 2926
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 980,
+      "event_sha256": "137c50c056e4034c9362b65be614fe423b90c5cdb6958789ed82dec35fbf3e7a",
+      "events": 116,
+      "fibre_atoms": [
+        2,
+        2
+      ],
+      "points": 24,
+      "unordered_input_pairs": 6786
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 2020,
+      "event_sha256": "70addd521ceff6d3922e9137baa625e7db54b373da724c165d7b9caf5165130b",
+      "events": 196,
+      "fibre_atoms": [
+        2,
+        3
+      ],
+      "points": 28,
+      "unordered_input_pairs": 19306
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 4100,
+      "event_sha256": "e5a8022507a5bc38c8e976d84b485bef8ef3278b9a7f485a2f7dc5c65990c4c0",
+      "events": 356,
+      "fibre_atoms": [
+        2,
+        4
+      ],
+      "points": 32,
+      "unordered_input_pairs": 63546
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 940,
+      "event_sha256": "0eb353164f56ea30eef487d74fafa3594827fac207f43ebddb6f86b5309d08fd",
+      "events": 140,
+      "fibre_atoms": [
+        3,
+        1
+      ],
+      "points": 24,
+      "unordered_input_pairs": 9870
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 2004,
+      "event_sha256": "6212d002490d153ce4a61151d84eece3a1b8b52831dbb4ea65c4a03a119df6d8",
+      "events": 212,
+      "fibre_atoms": [
+        3,
+        2
+      ],
+      "points": 28,
+      "unordered_input_pairs": 22578
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 4132,
+      "event_sha256": "6cd42332c6850841bd45e6a0e213c1af381db494ce7b8861c03c8211a08c571e",
+      "events": 356,
+      "fibre_atoms": [
+        3,
+        3
+      ],
+      "points": 32,
+      "unordered_input_pairs": 63546
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 8388,
+      "event_sha256": "43d7a659e1d7e92e003f0f0fd8971046fd937d19263ae93fbad6c57935080c91",
+      "events": 644,
+      "fibre_atoms": [
+        3,
+        4
+      ],
+      "points": 36,
+      "unordered_input_pairs": 207690
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 1900,
+      "event_sha256": "f22c2d109533afce4b56e70401df0120c0a9ff319230c4ae47e243866c13c090",
+      "events": 268,
+      "fibre_atoms": [
+        4,
+        1
+      ],
+      "points": 28,
+      "unordered_input_pairs": 36046
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 4052,
+      "event_sha256": "86738f65e5d3e601fc9a62ba05d3345a3f4d2c49777d19b659409216264d28a2",
+      "events": 404,
+      "fibre_atoms": [
+        4,
+        2
+      ],
+      "points": 32,
+      "unordered_input_pairs": 81810
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 8356,
+      "event_sha256": "c57321337e2f7dfb17e9e8bf81ac6a91748978bfbabde1df6ec71bbf1d1df0a1",
+      "events": 676,
+      "fibre_atoms": [
+        4,
+        3
+      ],
+      "points": 36,
+      "unordered_input_pairs": 228826
+    },
+    {
+      "checks": {
+        "binary_disjoint_union_closed": true,
+        "complement_closed": true,
+        "orthomodular": true,
+        "unique_binary_extrema": true,
+        "winner_formula_certified": true
+      },
+      "distinct_intersection_cuts": 16964,
+      "event_sha256": "4c37669be2c65bccf9f55ecd6eaab91cf28e75d2d19e4e04f7ba8568d0b7d232",
+      "events": 1220,
+      "fibre_atoms": [
+        4,
+        4
+      ],
+      "points": 40,
+      "unordered_input_pairs": 744810
+    }
+  ],
+  "schema": "five-block-two-atom-oe-kernel-v1"
+}

@@ -158,7 +158,7 @@ finished reception documents. This seed parks as a known restatement. Filed:
   2026-05-14).
 - Paper II forcing (compatible→Boolean, incompatible→OML; the discriminator
   used to close the contextuality branch): `papers/paper_ii/`,
-  `notes/open_questions/oml_onboarding.{md,tex}` §1.
+  `notes/open_questions/kits/oml_onboarding.tex` §1.
 - "Stone/Takens = rhyme not structure" (`0ff3387`) — the standing warning
   against framing-analogies in this corner.
 - CE / Part I novelty locus: `notes/programme/programme_reception/`.

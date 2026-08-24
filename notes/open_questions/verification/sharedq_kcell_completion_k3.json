@@ -1,0 +1,239 @@
+{
+ "emitted": "2026-07-14",
+ "generator": "sharedq_kcell_completion_audit.py",
+ "payload": {
+  "abstract_states_equal_points": null,
+  "abstract_two_valued_state_count": null,
+  "activation_cylinder_points": 2,
+  "activation_is_event": false,
+  "added_events": [
+   "e10@1+e00@2",
+   "e10@1+e00@3",
+   "e10@1+e01@2",
+   "e10@1+e01@3",
+   "e10@2+e00@1",
+   "e10@2+e00@3",
+   "e10@2+e01@1",
+   "e10@2+e01@3",
+   "e10@3+e00@1",
+   "e10@3+e00@2",
+   "e10@3+e01@1",
+   "e10@3+e01@2",
+   "e11@1+e00@2",
+   "e11@1+e00@3",
+   "e11@1+e01@2",
+   "e11@1+e01@3",
+   "e11@2+e00@1",
+   "e11@2+e00@3",
+   "e11@2+e01@1",
+   "e11@2+e01@3",
+   "e11@3+e00@1",
+   "e11@3+e00@2",
+   "e11@3+e01@1",
+   "e11@3+e01@2"
+  ],
+  "carrier_points": 136556,
+  "carrier_points_formula_2_sum_n_pow_k": 136556,
+  "cell_states": 224,
+  "centre": [
+   "0",
+   "1"
+  ],
+  "closure_added_by_round": [
+   24,
+   0
+  ],
+  "closure_added_formula_4k_kminus1": 24,
+  "closure_stabilizes_in_one_substantive_round": true,
+  "completed_complement_closed": true,
+  "completed_disjoint_union_closed": true,
+  "completed_events": 172,
+  "completed_events_formula": 172,
+  "completed_orthomodular": true,
+  "completed_unique_binary_extrema": true,
+  "events_with_proper_slice_trace": 162,
+  "every_nonzero_event_has_off_cylinder_point": true,
+  "joint_activated_relation_q_r1_to_rk": [
+   "0000",
+   "1111"
+  ],
+  "joint_output_boundaries": {
+   "r1,r2": {
+    "compatible": false,
+    "equalizer_is_event": false,
+    "intersection_is_event": false,
+    "only_marginal_joint_cylinders_represented": true,
+    "represented_joint_boolean_cylinder_count": 6,
+    "some_maximal_block_contains_both": false
+   },
+   "r1,r3": {
+    "compatible": false,
+    "equalizer_is_event": false,
+    "intersection_is_event": false,
+    "only_marginal_joint_cylinders_represented": true,
+    "represented_joint_boolean_cylinder_count": 6,
+    "some_maximal_block_contains_both": false
+   },
+   "r2,r3": {
+    "compatible": false,
+    "equalizer_is_event": false,
+    "intersection_is_event": false,
+    "only_marginal_joint_cylinders_represented": true,
+    "represented_joint_boolean_cylinder_count": 6,
+    "some_maximal_block_contains_both": false
+   }
+  },
+  "joint_relation_is_diagonal": true,
+  "k": 3,
+  "maximal_block_count": 42,
+  "maximal_block_count_formula_11k_plus_k2": 42,
+  "maximal_block_event_sizes": [
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   8,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16,
+   16
+  ],
+  "maximal_blocks_all_boolean_complete": true,
+  "mixed_block_examples": [
+   [
+    "e00@3",
+    "e01@3",
+    "e10@1",
+    "e11@1"
+   ],
+   [
+    "e00@3",
+    "e01@3",
+    "e10@2",
+    "e11@2"
+   ]
+  ],
+  "mixed_private_coordinate_blocks": 6,
+  "mixed_private_coordinate_blocks_formula_k_kminus1": 6,
+  "nonzero_events_inside_activation": 0,
+  "point_evaluations_order_separate": true,
+  "point_profiles_injective": true,
+  "projections": {
+   "cell1": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "fiber_counts": {
+     "00000": 28512,
+     "00001": 18144,
+     "00010": 18144,
+     "00011": 28512,
+     "00100": 1521,
+     "00101": 676,
+     "00110": 676,
+     "00111": 1521,
+     "01000": 5733,
+     "01001": 3528,
+     "01010": 3528,
+     "01011": 5733,
+     "01100": 245,
+     "01101": 98,
+     "01110": 98,
+     "01111": 245,
+     "10000": 5733,
+     "10001": 3528,
+     "10010": 3528,
+     "10011": 5733,
+     "10100": 245,
+     "10101": 98,
+     "10110": 98,
+     "10111": 245,
+     "11000": 144,
+     "11001": 72,
+     "11010": 72,
+     "11011": 144,
+     "11100": 1,
+     "11111": 1
+    },
+    "off_111_all_four_qr_profiles": true
+   },
+   "cell2": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "off_111_all_four_qr_profiles": true
+   },
+   "cell3": {
+    "contains_11100": true,
+    "contains_11111": true,
+    "excludes_11101": true,
+    "excludes_11110": true,
+    "off_111_all_four_qr_profiles": true
+   }
+  },
+  "q_commutant_size": 64,
+  "q_is_central": false,
+  "raw_bad_formula_8k_kminus1": 48,
+  "raw_bad_unordered_pairs": 48,
+  "raw_events": 148,
+  "raw_events_formula_10_plus_46k": 148,
+  "raw_first_failure": {
+   "maximal_lower_bounds": [
+    "0"
+   ],
+   "minimal_upper_bounds": [
+    "e00@1+e01@1+e10@1",
+    "e01@3+e10@3+e11@3"
+   ],
+   "x": "e01@3",
+   "y": "e10@1"
+  },
+  "raw_is_lattice": false,
+  "repair_pair_local_qside_x_qprimeside": true,
+  "schema": "sharedq-kcell-completion-v1",
+  "shared_structure": "H4 activation atoms a1,a2,a3 and the four-element subalgebra {0,q,q',1}; private coordinate blocks E_i and outputs r_i = e11@i v e01@i",
+  "slice_trace_single_cell_invariant": true,
+  "state_completeness_reduction_premises": {
+   "every_added_event_disjoint_union_of_two_raw_events": true,
+   "every_cell_state_has_repeated_fibre_extension": true,
+   "every_raw_event_is_single_cell_or_shared": true
+  }
+ },
+ "payload_sha256": "116bd07d757cb26014abf2ff427bdf462e0ee24eb618c96252113d7591a75b3d",
+ "schema": "sharedq-kcell-completion-v1"
+}

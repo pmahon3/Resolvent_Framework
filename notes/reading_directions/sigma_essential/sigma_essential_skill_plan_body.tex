@@ -1,0 +1,74 @@
+\noindent The object: a concrete $\sigma$-complete non-Boolean irreducible OML carrying a
+finite two-valued state on a $\perp$-closed subposet that extends to no global
+$\sigma$-additive two-valued state. Localized to $\sigma$-point-selection failure; frontier
+is non-Polish / non-standard-Borel / irreducibly non-central. Sources in dependency order,
+each with the question to read it for.
+
+\section{Descriptive set theory}
+
+\noindent\textbf{Kechris, \emph{Classical Descriptive Set Theory}}~\cite{Kechris1995}.
+Borel / analytic / co-analytic hierarchy $\to$ Borel equivalence relations $\to$ the
+Glimm--Effros dichotomy; then uniformization.
+\begin{itemize}[leftmargin=*]
+  \item State Glimm--Effros precisely (non-smooth $\iff$ $E_0$ embeds $\iff$ no Borel
+    two-valued transversal). Which word does not transport to clause~(ii)? (``Borel.'')
+  \item Co-analytic uniformization-failure: why is its obstruction real-valued / over a
+    standard-Borel base, hence Derr--Williamson-killed?
+\end{itemize}
+
+\noindent\textbf{Gao, \emph{Invariant Descriptive Set Theory}}~\cite{Gao2009} (after
+Kechris). $E_0$ / $E_\infty$ / hyperfinite / turbulence.
+\begin{itemize}[leftmargin=*]
+  \item Define hyperfinite; state Adams--Kechris. Why is $E_\infty$ non-hyperfiniteness
+    orthogonal to clause~(ii)?
+\end{itemize}
+
+\section{Large cardinals and forcing}
+
+\noindent\textbf{Jech, \emph{Set Theory}}~\cite{Jech2003}.
+\begin{itemize}[leftmargin=*]
+  \item Filters, ideals, ultrafilters: why is $\mathcal{F}_s = \{A : s(A)=1\}$ not a filter
+    on a non-Boolean concrete OML, even for a Dirac state? ($MO_2$:
+    $a\cap b\neq\varnothing$ as sets yet $a\wedge b = 0$.)
+  \item Measurable cardinals, Ulam matrices: re-derive the matrix by hand; locate the line
+    needing non-orthogonal unions / comprehension.
+  \item Forcing: why does set-forcing preserve measurability (L\'evy--Solovay)?
+\end{itemize}
+
+\noindent\textbf{Kanamori, \emph{The Higher Infinite}}~\cite{Kanamori2009} (after Jech, if
+the strength path calls). Measurable $\to$ ultrapower $\to$ elementary embedding
+$j\colon V\to M$.
+\begin{itemize}[leftmargin=*]
+  \item The UB route transports $U$ along $j$, but $U$ lives on Boolean
+    $\mathcal{P}(\kappa)$; why is transport to orthogonal-only a costume?
+\end{itemize}
+
+\section{Primary sources (read for technique)}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Navara--Pt\'ak}~\cite{NavaraPtak1983}. Re-derive their ZFC non-Dirac
+    $\sigma$-state. What makes $L_{f,g}$ support it, and why is it not a witness?
+  \item \textbf{Derr--Williamson}~\cite{DerrWilliamson2023} $+$
+    \textbf{Maharam~\S8}~\cite{Maharam1972}. Where is inner-regularity load-bearing in
+    Thm~D.6 / Maharam~\S8.2?
+  \item \textbf{Blecher--Weaver}~\cite{BlecherWeaver2017}. Identify the
+    ultrafilter-from-masa step (Prop.~2.3); state the masa-free question it leaves open for
+    the concrete two-valued case.
+\end{itemize}
+
+\section{Notes}
+
+\begin{itemize}[leftmargin=*]
+  \item \textbf{Companion plan (the positive-construction route):} the
+    import sweep left one \emph{lead} for building a witness --- the realization
+    theorems (Navara--Rogalewicz, Harding--Navara), pushed to concrete $+$
+    $\sigma$-complete. That technique has its own dependency-ordered reading plan,
+    \texttt{realization\_technique\_reading.tex}, anchored to the conjunction gap. This
+    plan (DST $+$ large cardinals) is for the impossibility / independence side; that one
+    is for the positive side.
+  \item Start: Kechris (Borel equivalence relations $\to$ Glimm--Effros).
+  \item Definability-vs-existence first: bounds \S3f and \S3j, plus the Lean polarity gate.
+  \item Operator algebra (masas, von Neumann algebras) is not on the critical path: the
+    masa route is dead, so light functional analysis suffices for Blecher--Weaver.
+  \item Chapter numbers are convenience pointers; navigate by topic.
+\end{itemize}

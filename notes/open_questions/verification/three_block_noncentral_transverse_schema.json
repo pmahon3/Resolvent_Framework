@@ -1,0 +1,68 @@
+{
+  "carrier": {
+    "events": 56,
+    "maximal_block_count": 7,
+    "maximal_block_sizes": [
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "points": 16
+  },
+  "completion_gates": {
+    "all_named_blocks_maximal": true,
+    "centre_size": 2,
+    "closed_under_complement": true,
+    "closed_under_disjoint_binary_union": true,
+    "full_maximal_boundaries_saturated": true,
+    "full_maximal_boundary_sizes": [
+      16,
+      16,
+      16,
+      16,
+      16,
+      16,
+      16
+    ],
+    "latticehood": true,
+    "orthomodularity": true,
+    "sigma_completeness_by_finiteness": true,
+    "trivial_centre": true
+  },
+  "schema": "three-block-noncentral-transverse-v1",
+  "scope": "one explicit finite 56-event completion; no multi-block or infinite classification",
+  "selected_triangle": [
+    "A01",
+    "C01",
+    "A10"
+  ],
+  "state_gates": {
+    "every_selected_triangle_state_extends": true,
+    "global_coherent_block_states": 16,
+    "global_states_equal_point_evaluations": true,
+    "phi_tame_by_finiteness": true,
+    "point_evaluations_order_separate": true,
+    "selected_triangle_coherent_states": 12,
+    "selected_triangle_extendable_states": 12,
+    "sigma_essential_state": false
+  },
+  "transverse_triangle": {
+    "incident_joint_closure_sizes": [
+      8,
+      8,
+      8
+    ],
+    "incident_joint_closures_proper": true,
+    "interfaces_distinct_at_each_endpoint": true,
+    "nontrivial_interface_events_noncentral": true,
+    "pairwise_interface_sizes": [
+      4,
+      4,
+      4
+    ]
+  }
+}

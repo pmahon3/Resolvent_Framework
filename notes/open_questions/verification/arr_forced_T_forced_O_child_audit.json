@@ -1,0 +1,597 @@
+{
+  "O_exact_mdd_sha256": "803fd9af09b4285b21d2614b1556ed15e9c853fa220fd252874c4eac4692d187",
+  "Oc_exact_mdd_sha256": "dded70d6569fcba1a9777a546498d576cc537f72c3ed643114576bb6291d86c1",
+  "evidence_class": "Executable verified \u2014 exhaustive finite scope for one forced O-child seed layer",
+  "exact_containment": {
+    "H_exact_mdd_sha256": "8a0a0f4b7ce3069459e8d782cec7bf0f9264b243277b032a93da795f8e289e93",
+    "H_subset_O": false,
+    "O_proper_subset_H": false,
+    "O_proper_subset_parent_U": false,
+    "O_subset_H": false,
+    "O_subset_parent_U": false,
+    "O_subset_parent_Uc": false,
+    "parent_U_exact_mdd_sha256": "809b2d45da2e83aa06242789a4acf615f570373f5da80e8384b5d2c0f737bad2",
+    "parent_U_subset_O": false,
+    "parent_Uc_subset_O": false
+  },
+  "first_unresolved_seed_cut": {
+    "cover_discriminator": {
+      "maximal_lower_count": 2,
+      "maximal_lowers": [
+        {
+          "kind": "consequence",
+          "label": "U"
+        },
+        {
+          "kind": "old",
+          "label": "old_left(4136)"
+        }
+      ],
+      "orthogonal_kappa": "infinity",
+      "orthogonal_minimum_exact_covers": [],
+      "orthogonal_minimum_residual_exact_mdd_sha256s": [
+        "0a61e62ad8f41c4f614ddb54a940793e912e33a156a22a27d4dbf6d583e25d98"
+      ],
+      "orthogonal_minimum_residual_physical_cardinality": 56869623883,
+      "orthogonal_subset_count": 3,
+      "orthogonal_subset_search": "exhaustive",
+      "pairwise_overlap_signature": [
+        {
+          "empty": false,
+          "exact_mdd_sha256": "e18307eb81a4a30052936f63b96ceef04477741a1a7afab8b62f4e78667903d3",
+          "left": "U",
+          "physical_cardinality": 16210089024,
+          "right": "old_left(4136)"
+        }
+      ],
+      "unrestricted_residual_exact_mdd_sha256": "efac0e341a0d037846ae7bf86954f3f442bf66f6a67dde8d2d57b87a09079ddf",
+      "unrestricted_residual_physical_cardinality": 21137851696,
+      "unrestricted_union_equals_target": false
+    },
+    "extrema": [
+      {
+        "kind": "consequence",
+        "label": "U"
+      },
+      {
+        "kind": "old",
+        "label": "old_left(4136)"
+      }
+    ],
+    "left": "new_consequence(0)",
+    "operation": "meet",
+    "orientation": "direct",
+    "right": "new_consequence(1)",
+    "target_exact_mdd_sha256": "88b6bc142015af4a50a23d030447287ebc1848e55829a8a1175ccc554e9a4527",
+    "target_physical_cardinality": 112130703051
+  },
+  "genuinely_new_exact_root_count": 6,
+  "genuinely_new_roots": [
+    {
+      "exact_mdd_sha256": "1cf309ddd25161a902e89d00a5a331fc7f211162a79818b7ff6916013f701b36",
+      "label": "new_consequence(0)",
+      "physical_cardinality": 127816700779,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "dual_disjoint_union",
+          "source_lower": "old_right(7568)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "316d8c69424e72aa3cbb7eeeb505de2de62d77533b5f7666ea91a57519a49980",
+      "label": "new_consequence(1)",
+      "physical_cardinality": 165213759171,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "dual_disjoint_union",
+          "source_lower": "old_left(13112)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "84db2544266a5dba30ee2115bb33eb36fcdd7258b376fcfb1ce3be1437809db7",
+      "label": "new_consequence(2)",
+      "physical_cardinality": 153574480435,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "dual_disjoint_union",
+          "source_lower": "old_right(15248)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "8afddea3fec27a6288a4b99d5b7f1c128780fd85e6ac13aa0d361dab4a9abc85",
+      "label": "new_consequence(3)",
+      "physical_cardinality": 46683780845,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "nested_difference",
+          "source_lower": "old_left(13112)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "981565730daee987394ed4b6dfaba0a112b3fa8a070e61a9d82b25c6725e6266",
+      "label": "new_consequence(4)",
+      "physical_cardinality": 58323059581,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "nested_difference",
+          "source_lower": "old_right(15248)"
+        }
+      ]
+    },
+    {
+      "exact_mdd_sha256": "c037b0e842b113c35163509658f0d34d9c71ed6ce79b0b64e35169895f786f33",
+      "label": "new_consequence(5)",
+      "physical_cardinality": 84080839237,
+      "provenance": [
+        {
+          "base": "Uc",
+          "operation": "nested_difference",
+          "source_lower": "old_right(7568)"
+        }
+      ]
+    }
+  ],
+  "immediate_occurrence_count": 14,
+  "immediate_occurrences": [
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "5882f6e09eed5872aed85ec88bcab5a12a085e61424cd2151a677749e04a7193",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 211897540013,
+      "source_lower": "root(487)",
+      "source_lower_kind": "new"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "390019571f66f26091b584ef61bf348d376fa3dbe2dfb20701344770cb4c9536",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 3,
+      "source_lower": "root(487)",
+      "source_lower_kind": "new"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "ee2315dcdc0e2264e0f6bc4c3ddf9c8994f7410921e044342a318249398b12ab",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 159955678808,
+      "source_lower": "S",
+      "source_lower_kind": "special"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "U",
+      "exact_mdd_sha256": "320e75bf8f43b6e8d0aff9ed0eed9cd63686abbb503577d1885f112624334c92",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 51941861208,
+      "source_lower": "S",
+      "source_lower_kind": "special"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "Uc",
+      "exact_mdd_sha256": "a95fec543af6e72a3ef762739f5f1d181c1e4219ca0ca3c163aa2db4a496a3fc",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 71334128731,
+      "source_lower": "parent_new(1)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "Uc",
+      "exact_mdd_sha256": "f1778d59f3a12373ecc0d3f8c9eb0149a592633b01f26b13c2692e433792275f",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 140563411285,
+      "source_lower": "parent_new(1)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "Uc",
+      "exact_mdd_sha256": "0ca4aa198580387deb73ed1aed70300f92c003935ea247ac4d811aba77c48ba6",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 192505272496,
+      "source_lower": "parent_new(3)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_rebase": true,
+      "base": "Uc",
+      "exact_mdd_sha256": "95232f9c77afd7ddd7a641f9017ea9ae6b87fe5219bc35d7f35b28bd8c90ddbc",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 19392267520,
+      "source_lower": "parent_new(3)",
+      "source_lower_kind": "consequence"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "316d8c69424e72aa3cbb7eeeb505de2de62d77533b5f7666ea91a57519a49980",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 165213759171,
+      "source_lower": "old_left(13112)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "8afddea3fec27a6288a4b99d5b7f1c128780fd85e6ac13aa0d361dab4a9abc85",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 46683780845,
+      "source_lower": "old_left(13112)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "84db2544266a5dba30ee2115bb33eb36fcdd7258b376fcfb1ce3be1437809db7",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 153574480435,
+      "source_lower": "old_right(15248)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "981565730daee987394ed4b6dfaba0a112b3fa8a070e61a9d82b25c6725e6266",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 58323059581,
+      "source_lower": "old_right(15248)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "1cf309ddd25161a902e89d00a5a331fc7f211162a79818b7ff6916013f701b36",
+      "exact_old_representatives": [],
+      "operation": "dual_disjoint_union",
+      "physical_cardinality": 127816700779,
+      "source_lower": "old_right(7568)",
+      "source_lower_kind": "old"
+    },
+    {
+      "already_current_after_rebase": false,
+      "base": "Uc",
+      "exact_mdd_sha256": "c037b0e842b113c35163509658f0d34d9c71ed6ce79b0b64e35169895f786f33",
+      "exact_old_representatives": [],
+      "operation": "nested_difference",
+      "physical_cardinality": 84080839237,
+      "source_lower": "old_right(7568)",
+      "source_lower_kind": "old"
+    }
+  ],
+  "payload_sha256": "fc9c0b2208a647b7753a092e9a8497061b64b7a4e48002709cb96e7e707fcec4",
+  "peak_rss_bytes_darwin": 1732870144,
+  "pointed_H_O_comparison": {
+    "H_descriptor": {
+      "consequence_multiset_hash_membership": [
+        [
+          "23cf54d9a50a230b41272f8af00a74873ce2dd0e25dc9c41b55a41b642a130c0",
+          true
+        ],
+        [
+          "438ea2be906bc0a79d6e582868c6deeaf3a0f134d10befbe2cdd89fe5da96963",
+          true
+        ],
+        [
+          "45c480cdbd14b30a0e126d69f0b26a63ee4ac982daf31ed4d9a62b41265302aa",
+          true
+        ],
+        [
+          "51277968ef38a3ee7fb223f0f32db89c1f72210d1b45eebe772518554770699c",
+          true
+        ],
+        [
+          "76af89f632bd7c94895339b00edfc34ee868565074a86ce46ae5c25294aa7bc2",
+          true
+        ],
+        [
+          "861072e8c70ebfc63d07ac13c7ba675f82990bf474a2e85ee17eb74dcc810451",
+          true
+        ],
+        [
+          "a603cd6f9e119468fd749cf739b960283a8dddcc25d95b8f96c076512897e391",
+          true
+        ],
+        [
+          "e18307eb81a4a30052936f63b96ceef04477741a1a7afab8b62f4e78667903d3",
+          true
+        ],
+        [
+          "e7b672af4e5634bd5dd13ed140ab93163cd44515140ac05e9c5a43c4f24c2892",
+          true
+        ],
+        [
+          "fd678e2418f0958ddc2cc86f3c80f0d57d38b14db0c1a5b3f93865f9b7965f6e",
+          true
+        ]
+      ],
+      "cover_overlap_signature": [
+        {
+          "empty": true,
+          "exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "left": "old_left(1024)",
+          "physical_cardinality": 0,
+          "right": "old_right(2)"
+        }
+      ],
+      "cover_size": 2,
+      "cover_unrestricted_residual_cardinality": 0,
+      "current_extrema": {
+        "complement_lower": [
+          {
+            "kind": "new",
+            "label": "root(9)"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(17082)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(18329)"
+          }
+        ],
+        "complement_upper": [
+          {
+            "kind": "old",
+            "label": "old_left(17407)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(18429)"
+          }
+        ],
+        "object_lower": [
+          {
+            "kind": "old",
+            "label": "old_left(1024)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(2)"
+          }
+        ],
+        "object_upper": [
+          {
+            "kind": "new",
+            "label": "root(8)"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(1349)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(102)"
+          }
+        ]
+      },
+      "dependency_depth": 1,
+      "parent_provenance_kinds": [
+        "old",
+        "old"
+      ]
+    },
+    "O_descriptor": {
+      "consequence_multiset_hash_membership": [
+        [
+          "0ca4aa198580387deb73ed1aed70300f92c003935ea247ac4d811aba77c48ba6",
+          true
+        ],
+        [
+          "1cf309ddd25161a902e89d00a5a331fc7f211162a79818b7ff6916013f701b36",
+          false
+        ],
+        [
+          "316d8c69424e72aa3cbb7eeeb505de2de62d77533b5f7666ea91a57519a49980",
+          false
+        ],
+        [
+          "320e75bf8f43b6e8d0aff9ed0eed9cd63686abbb503577d1885f112624334c92",
+          true
+        ],
+        [
+          "390019571f66f26091b584ef61bf348d376fa3dbe2dfb20701344770cb4c9536",
+          true
+        ],
+        [
+          "5882f6e09eed5872aed85ec88bcab5a12a085e61424cd2151a677749e04a7193",
+          true
+        ],
+        [
+          "84db2544266a5dba30ee2115bb33eb36fcdd7258b376fcfb1ce3be1437809db7",
+          false
+        ],
+        [
+          "8afddea3fec27a6288a4b99d5b7f1c128780fd85e6ac13aa0d361dab4a9abc85",
+          false
+        ],
+        [
+          "95232f9c77afd7ddd7a641f9017ea9ae6b87fe5219bc35d7f35b28bd8c90ddbc",
+          true
+        ],
+        [
+          "981565730daee987394ed4b6dfaba0a112b3fa8a070e61a9d82b25c6725e6266",
+          false
+        ],
+        [
+          "a95fec543af6e72a3ef762739f5f1d181c1e4219ca0ca3c163aa2db4a496a3fc",
+          true
+        ],
+        [
+          "c037b0e842b113c35163509658f0d34d9c71ed6ce79b0b64e35169895f786f33",
+          false
+        ],
+        [
+          "ee2315dcdc0e2264e0f6bc4c3ddf9c8994f7410921e044342a318249398b12ab",
+          true
+        ],
+        [
+          "f1778d59f3a12373ecc0d3f8c9eb0149a592633b01f26b13c2692e433792275f",
+          true
+        ]
+      ],
+      "cover_overlap_signature": [
+        {
+          "empty": true,
+          "exact_mdd_sha256": "6e340b9cffb37a989ca544e6bb780a2c78901d3fb33738768511a30617afa01d",
+          "left": "root(487)",
+          "physical_cardinality": 0,
+          "right": "S"
+        }
+      ],
+      "cover_size": 2,
+      "cover_unrestricted_residual_cardinality": 0,
+      "current_extrema": {
+        "complement_lower": [
+          {
+            "kind": "consequence",
+            "label": "parent_new(1)"
+          },
+          {
+            "kind": "consequence",
+            "label": "parent_new(3)"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(13112)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(15248)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(7568)"
+          }
+        ],
+        "complement_upper": [
+          {
+            "kind": "new",
+            "label": "root(486)"
+          },
+          {
+            "kind": "special",
+            "label": "Sc"
+          }
+        ],
+        "object_lower": [
+          {
+            "kind": "new",
+            "label": "root(487)"
+          },
+          {
+            "kind": "special",
+            "label": "S"
+          }
+        ],
+        "object_upper": [
+          {
+            "kind": "consequence",
+            "label": "parent_new(0)"
+          },
+          {
+            "kind": "consequence",
+            "label": "parent_new(2)"
+          },
+          {
+            "kind": "old",
+            "label": "old_left(5319)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(10863)"
+          },
+          {
+            "kind": "old",
+            "label": "old_right(3183)"
+          }
+        ]
+      },
+      "dependency_depth": 3,
+      "parent_provenance_kinds": [
+        "new",
+        "special"
+      ]
+    },
+    "descriptor_tuples_equal": false,
+    "differing_descriptor_fields": [
+      "consequence_multiset_hash_membership",
+      "cover_overlap_signature",
+      "current_extrema",
+      "dependency_depth",
+      "parent_provenance_kinds"
+    ],
+    "explicit_pointed_isomorphism_search_attempted": false,
+    "isomorphism_status_reason": "the recorded descriptors differ, but no category of pointed cells or exhaustive isomorphism search has been defined",
+    "structural_pointed_isomorphism_status": "open",
+    "verdict": "descriptor inequality only"
+  },
+  "pre_rebase_O_maximal_lowers": [
+    {
+      "kind": "new",
+      "label": "root(487)"
+    },
+    {
+      "kind": "special",
+      "label": "S"
+    }
+  ],
+  "pre_rebase_Oc_maximal_lowers": [
+    {
+      "kind": "consequence",
+      "label": "parent_new(1)"
+    },
+    {
+      "kind": "consequence",
+      "label": "parent_new(3)"
+    },
+    {
+      "kind": "old",
+      "label": "old_left(13112)"
+    },
+    {
+      "kind": "old",
+      "label": "old_right(15248)"
+    },
+    {
+      "kind": "old",
+      "label": "old_right(7568)"
+    }
+  ],
+  "producer_sha256": "de92fecf5835e2f70b57cb1d3f8f7dec75d9632d782f31b9c578c79940ac0385",
+  "reconstruction_seconds": 289.68618566694204,
+  "schema": "arr-forced-T-forced-O-child-audit-v1",
+  "schema_version": "1.0",
+  "scope": "Only O,Oc immediate nested/dual consequences and the deterministic eight-seed pair order (meet before join) through its first unresolved cut; descriptor-tuple comparison versus H only. No unrelated pair scan, full-layer first-cut claim, isomorphism theorem, or closure.",
+  "seed_object_count": 8,
+  "source_meet_payload_sha256": "304ed13bdb227944e6b18d61fb09588ed13d96996fc9d75fc62d7cb9d4df5957",
+  "source_parent_rebase_payload_sha256": "63cfb83d72a5e97f1367ee0fa00087bce694c270e4d05392cc3ad9a5299fe08e",
+  "tested_operation_count_before_stop": 27,
+  "tested_pair_count_before_stop": 14,
+  "wall_seconds": 1103.9231735419016
+}

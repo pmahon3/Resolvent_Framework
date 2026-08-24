@@ -9,8 +9,9 @@ import Mathlib.Topology.Instances.ENNReal.Lemmas
 /-!
 # The ultrafilter charge on P(ℕ)
 
-This file formalizes the measure-theoretic core of the companion note
-"Countable Additivity is Not First-Order Axiomatizable":
+The theorems in this file are CORRECT and self-contained. They formalize the
+true measure-theoretic sub-lemma: the ultrafilter charge on `P(ℕ)` is finitely
+additive but not σ-additive.
 
 * `ultrafilterCharge U A` is `1` if `A ∈ U`, else `0`.
 * It is finitely additive (`ultrafilterCharge_union_of_disjoint`).
@@ -20,9 +21,15 @@ This file formalizes the measure-theoretic core of the companion note
 * It equals the pointwise ultralimit of Dirac evaluations
   (`ultrafilterCharge_eq_one_iff_dirac`).
 
-Together these show that the class of σ-additive probability structures is
-not closed under ultraproducts (hence not first-order axiomatizable, by
-Łoś's theorem — the model-theoretic wrapper is standard and not formalized here).
+⚠ NOTE (2026-06-23): this file originally supported the companion note
+"Countable Additivity is Not First-Order Axiomatizable", which has been
+**RETIRED** (broken proof + folklore result — see memory
+`countable_additivity_note_proof_broken.md`). The note's faulty step inferred
+"not first-order axiomatizable" by transporting the non-σ-additivity *of this
+charge on P(ℕ)* to the *ultraproduct's* charge — an invalid bridge (the
+ultraproduct/ultrapower charge is in fact σ-additive by ℵ₁-saturation). The
+theorems below DO NOT make that inference and are unaffected; they prove only
+the genuine fact about `P(ℕ)`. Kept as correct, reusable Mathlib-verified content.
 -/
 
 noncomputable section

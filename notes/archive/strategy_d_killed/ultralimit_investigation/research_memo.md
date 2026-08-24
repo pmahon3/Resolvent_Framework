@@ -1,0 +1,161 @@
+---
+name: Research memorandum — CE non-derivability and the ultralimit representation investigation
+description: Synthesis document: main theorem, secondary investigation, classification by regime, what was ruled out, current frontier, and next steps
+type: project
+---
+
+# CE Non-Derivability and the Ultralimit Representation Investigation: Current Status
+
+> **⛔ STALE ON STRATEGY-D STATUS (2026-06-18).** The "Strategy D — Open" section
+> below is superseded: Strategy D was KILLED 2026-06-18 (`/audit full`, prior-art)
+> — positive ZFC answer, not a contribution (Gaifman 1964 inhabits the cell,
+> stronger; never field-open). RETIRED. The CE non-derivability content STANDS.
+> Verdict: `strategy_d_AUDIT_VERDICT.md`.
+
+*Research memorandum. Date: 2026-04-18.*  
+*Archival record in: `finite_cofinite_calculation.md`, `rung3_multidimensional_pfa.md`, `stone_geometric_translation.md`, `row5_candidate.md`, `subalgebra_embedding_lemma.md`.*  
+*Formal proof in: `papers/paper_i/notes/countable_additivity_not_first_order.tex`.*
+
+---
+
+## 1. Main Theorem Already Proved
+
+**Status: Settled. Written up. Targeting APAL.**
+
+In the first-order language $\mathcal{L}_{\mathrm{BA},\mu}$ of Boolean algebras equipped with a normalized finitely additive charge, no first-order theory characterizes those models whose charge extends to a $\sigma$-additive measure on the generated $\sigma$-algebra. Equivalently, countable additivity is not first-order axiomatizable among finitely additive probability Boolean algebras.
+
+The proof is a single ultraproduct argument. Dirac charges $\delta_n$ on the finite-cofinite algebra $\mathcal{E}$ over $\mathbb{Q}$ are individually $\sigma$-additive. Their ultraproduct along a non-principal ultrafilter extending the cofinite filter is the finite-cofinite charge $\ell$, which assigns mass 1 to every cofinite set and mass 0 to every finite set. The sequence $A_k = \mathbb{Q} \setminus \{q_0, \ldots, q_k\}$ is decreasing with empty intersection yet $\ell(A_k) = 1$ for all $k$: $\ell$ is not $\sigma$-additive. By Łoś's theorem, any first-order theory satisfied by all $\delta_n$ is satisfied by the ultraproduct — but the ultraproduct fails $\sigma$-additivity. Contradiction.
+
+The same argument gives CE non-derivability as a corollary: no accumulation of first-order structural conditions on a directed system of Boolean charge spaces can imply collective exhaustion, since the finite-cofinite charge witnesses failure of CE while satisfying every first-order condition.
+
+**Why it matters.** The non-axiomatizability theorem relocates a foundational dispute from the domain of terminological disagreement to the domain of logical necessity. It shows that the gap between finitely additive coherence and genuine probability cannot be closed by any first-order structural condition — some extra admissibility condition (CE, or an equivalent) is logically unavoidable, not merely a convenient choice.
+
+---
+
+## 2. Secondary Investigation
+
+The non-axiomatizability proof produces the finite-cofinite charge $\ell$ as an ultraproduct of $\sigma$-additive charges. That raises a sharper question: which purely finitely additive charges on a Boolean algebra $B$ arise as *pointwise ultralimits* of $\sigma$-additive probabilities on the *same* algebra?
+
+Precisely: given a purely finitely additive probability $\ell$ on $B$, does there exist a sequence $(\mu_n)$ of $\sigma$-additive probabilities on $B$ and a non-principal ultrafilter $\mathcal{U}$ such that $\ell(A) = \lim_{\mathcal{U}} \mu_n(A)$ for all $A \in B$?
+
+This question is natural — the companion note already answers it positively for the finite-cofinite charge — and it has a clean dichotomy: on a $\sigma$-algebra the answer is never (Nikodym), on a general Boolean algebra it depends on the algebra's structure.
+
+---
+
+## 3. What Is Settled
+
+### 3a. The σ-algebra case — **Settled (negative)**
+
+On a $\sigma$-algebra $\Sigma$, no purely finitely additive charge is a pointwise ultralimit of $\sigma$-additive measures. Any sequence of $\sigma$-additive probabilities on $\Sigma$ has any pointwise ultralimit itself $\sigma$-additive, by the Nikodym–Vitali–Hahn–Saks convergence theorem (Dunford–Schwartz IV.9.8). The interchange of the ultralimit with the countable sum $\sum_k \mu_n(A_k)$ is the non-trivial step; it does not follow from the pointwise identity alone and is where the theorem lives.
+
+**Consequence.** The representation question is entirely about Boolean algebras that are not $\sigma$-complete. The finite-cofinite algebra is not a convenient example but the minimal natural setting where the Nikodym obstruction disappears.
+
+### 3b. The atomic case — **Settled (positive)**
+
+If $B$ is atomic, every $\sigma$-additive probability on $B$ is a countable convex combination of Dirac masses at atoms. The atoms correspond to the *principal ultrafilters* $\mathrm{Prin}(B)$ in the Stone space $\mathrm{St}(B)$, and atomicity is equivalent to $\mathrm{Prin}(B)$ being dense in $\mathrm{St}(B)$. This density is exactly what makes approximation possible: every finitely additive probability on $B$ is a pointwise limit (sequential, if $B$ is countably generated) of $\sigma$-additive probabilities on $B$.
+
+This covers the finite-cofinite algebra $\mathcal{E}$, all partition extensions $\mathcal{E}_k$ (algebras generated by $\mathcal{E}$ and a finite partition of $\mathbb{N}$ into infinite pieces), and $\mathcal{E}_\omega$ (countably many pieces). In each case $\mathrm{pfa}(\mathcal{E}_k) \cong \Delta_{k-1}$ (the $(k-1)$-simplex), and the "spread mass uniformly within each piece" construction gives the approximating sequence explicitly.
+
+### 3c. The concrete non-atomic case — **Settled (positive)**
+
+**Subalgebra embedding lemma.** If $B$ embeds join-preservingly into a $\sigma$-algebra $\Sigma$ carrying a strictly positive $\sigma$-additive probability $\nu$, then $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$: every ultrafilter on $B$ is in the support of some $\sigma$-additive probability on $B$. In particular, $B$ is not measure-free, and the representation problem on $B$ is positive.
+
+*Join-preserving* means: whenever $\bigvee_n a_n$ exists in $B$, the image in $\Sigma$ is $\bigcup_n \iota(a_n)$. Restriction of $\nu$ to $B$ then satisfies $\sigma$-additivity on $B$ directly.
+
+This covers all "concrete" non-$\sigma$-complete non-atomic algebras: interval algebras, Borel subalgebras of standard measure spaces, the clopen algebra of any compact metrizable space with a strictly positive Borel measure. In particular, the clopen algebra of the Cantor set (= the free $\sigma$-algebra on countably many generators) is covered: Lebesgue measure on the Cantor set is strictly positive on all clopens and provides the embedding.
+
+**Corollary.** Every countably generated non-atomic Boolean algebra carries a strictly positive $\sigma$-additive probability. If $B$ is countably generated, its Stone space embeds into $\{0,1\}^\omega$ and is compact metrizable. If $B$ is also non-atomic, the Stone space has no isolated points. By Brouwer's theorem, a compact metrizable zero-dimensional space with no isolated points is homeomorphic to the Cantor set. The homeomorphism provides the join-preserving embedding needed for the subalgebra embedding lemma.
+
+### 3d. The vacuous case — **Settled (positive)**
+
+When $B$ has very few countable joins, $\sigma$-additivity becomes vacuous: the condition $\mu(\bigvee_n a_n) = \sum_n \mu(a_n)$ only fires when the join $\bigvee_n a_n$ exists in $B$, and if this almost never happens, $\sigma$-additivity reduces to finite additivity.
+
+The canonical example is $\mathcal{Q} = \mathcal{P}(\mathbb{N})/\mathrm{fin}$. A pairwise disjoint sequence $(A_n)$ in $\mathcal{Q}$ (meaning $A_n \cap A_m$ finite for $n \neq m$) with infinitely many nonzero terms has no join in $\mathcal{Q}$: if $[S]$ were the join, one can always find a strictly smaller upper bound $[S \setminus \{a_n\}]$ where $a_n \in A_n \cap S$ is a selector, contradicting minimality. So the only disjoint sequences with an existing join are those with at most finitely many nonzero terms — and for those, $\sigma$-additivity reduces to finite additivity, which holds automatically. Every finitely additive probability on $\mathcal{Q}$ is therefore $\sigma$-additive on $\mathcal{Q}$.
+
+### 3e. The canonical decomposition theorem — **Settled**
+
+For any Boolean algebra $B$ and any element $A \in B$, there is a canonical isomorphism $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$, where $B{\upharpoonright}A = \{C \in B : C \leq A\}$ with operations inherited from $B$. The isomorphism sends $C$ to $(C \wedge A,\, C \wedge A^c)$.
+
+**Consequence for $\sigma$-additivity.** If $\nu$ is $\sigma$-additive on $B{\upharpoonright}A$, then $\tilde\nu(C) = \nu(C \wedge A)$ is $\sigma$-additive on $B$: when $\bigvee_n C_n$ exists in $B$, meets distribute over the existing join (a theorem of Boolean algebras), so $(\bigvee_n C_n) \wedge A = \bigvee_n (C_n \wedge A)$ exists in $B{\upharpoonright}A$ and $\tilde\nu$ inherits $\sigma$-additivity.
+
+**Consequence for the open row.** If $\mathrm{Supp}_\sigma(B) \subsetneq \mathrm{St}(B)$, there is a nonzero $A \in B$ with $\hat{A} \cap \mathrm{Supp}_\sigma(B) = \emptyset$. Every $\sigma$-additive probability on $B$ assigns $\mu(A) = 0$. By the extension argument, $B{\upharpoonright}A$ admits no $\sigma$-additive probability (if it did, the extension $\tilde\nu$ would charge $A$). So $B \cong (B{\upharpoonright}A) \times (B{\upharpoonright}A^c)$ with $B{\upharpoonright}A$ measure-free.
+
+Any failure of full $\sigma$-additive support is witnessed by a direct-product decomposition with a measure-free factor.
+
+### 3f. The weak distributivity thread — **Settled (does not apply)**
+
+Džamonja–Plebanek (*J. Symbolic Logic* **73**, 2008) prove in ZFC: for a Boolean *$\sigma$-algebra*, weakly distributive + strictly positive finitely additive measure $\Leftrightarrow$ strictly positive $\sigma$-additive measure. The same result appears in Fremlin *Measure Theory* §391D and Plebanek (*Proc. AMS* **136**, 2008). These are sharp ZFC theorems in the $\sigma$-complete case.
+
+None of them apply to non-$\sigma$-complete Boolean algebras. The proofs use countable suprema in essential ways; in a non-$\sigma$-complete algebra those suprema may not exist, and $\sigma$-additivity of a measure on $B$ is already weaker (it only fires when joins exist in $B$). Weak distributivity is not a necessary condition on a Strategy D counterexample, and non-weak-distributivity cannot be promoted to a fifth condition on that basis.
+
+---
+
+## 4. What Was Ruled Out
+
+**Direct-product strategy via $\mathcal{P}(\mathbb{N})/\mathrm{fin}$.** An earlier approach attempted to construct a negative example $B = \mathcal{I} \times \mathcal{Q}$ (interval algebra times the quotient), using a claimed fact that $\mathcal{Q}$ supports no $\sigma$-additive probability. That claim is false: every finitely additive probability on $\mathcal{Q}$ is $\sigma$-additive (see §3d). The direct-product strategy based on $\mathcal{Q}$ is eliminated.
+
+**Indecomposable row-5 algebras.** An "indecomposable" negative instance would be a Boolean algebra $B$ with $\mathrm{Supp}_\sigma(B) \subsetneq \mathrm{St}(B)$ that is not itself a direct product with a measure-free factor. The canonical decomposition theorem (§3e) shows this is impossible: any gap in $\sigma$-additive support forces a direct-product decomposition. There is no such thing as an indecomposable negative instance.
+
+**Strategies A, B, C.** Three construction strategies (entangled Boolean extensions, quotient algebras with measure-free tails, forcing-generic constructions) all required indecomposable negative instances. Since those cannot exist, all three strategies are eliminated. What remains is Strategy D: the direct question of whether a measure-free factor of the required type exists at all.
+
+**Weak distributivity as a non-$\sigma$-complete obstruction.** The Džamonja–Plebanek theorem was initially identified as a candidate for a fifth necessary condition (Strategy D counterexamples must fail weak distributivity). On careful reading, the theorem applies only to $\sigma$-complete algebras; no analogous result is known for incomplete algebras. The weak distributivity thread is closed.
+
+---
+
+## 5. Current Frontier
+
+**Strategy D — Open.**
+
+> Does there exist a non-$\sigma$-complete non-atomic Boolean algebra that is measure-free (admits no $\sigma$-additive probability)?
+
+If yes: pair it with any Boolean algebra carrying a $\sigma$-additive probability to get a direct-product negative instance for the representation problem.
+
+If no: every non-$\sigma$-complete non-atomic Boolean algebra that is not measure-free has $\mathrm{Supp}_\sigma(B) = \mathrm{St}(B)$ (since any gap would require a measure-free factor, which cannot exist). The open row of the hierarchy collapses, and the representation problem is positive in all non-$\sigma$-complete non-atomic cases.
+
+**Four necessary conditions on any counterexample.**
+
+A Strategy D counterexample must be: (a) non-$\sigma$-complete, (b) non-atomic, (c) measure-free, (d) uncountably generated. Conditions (a)–(c) are by definition. Condition (d) follows because every countably generated non-atomic Boolean algebra carries a strictly positive $\sigma$-additive probability (by the Brouwer–Cantor reduction and the subalgebra embedding lemma — see §3c).
+
+**Topological reformulation.**
+
+Strategy D is equivalent to the following topological existence question:
+
+> Does there exist a compact totally disconnected Hausdorff space $K$ with no isolated points, not basically disconnected, and carrying no strictly positive Radon probability measure?
+
+Here: no isolated points $=$ non-atomicity of $\mathrm{Clop}(K)$; not basically disconnected $=$ $\mathrm{Clop}(K)$ is not a $\sigma$-algebra (i.e., non-$\sigma$-completeness); no strictly positive Radon measure $=$ measure-freeness of $\mathrm{Clop}(K)$. This reformulation connects Strategy D to the established literature on Radon-measure-free compact spaces.
+
+**Set-theoretic sensitivity.**
+
+The pattern of known results in that literature strongly suggests Strategy D is independent of ZFC:
+
+- Under MA + ¬CH: compact spaces of weight $< \mathfrak{c}$ carry strictly positive Radon measures (Fremlin §531–534). This narrows but does not exclude Strategy D counterexamples (they would need weight $\geq \mathfrak{c}$ under MA + ¬CH).
+- Under $\diamondsuit$: measure-free compact spaces of weight $\omega_1$ have been constructed (Kunen 1981, Fedorchuk 1976). Whether any such example is totally disconnected, non-atomic, and not basically disconnected remains to be verified.
+
+No ZFC construction of a counterexample is known, and no ZFC proof that none exists.
+
+---
+
+## 6. What Would Move the Problem Next
+
+**Route 1 — Forcing/consistency.** The most natural next step. Attempt to construct, under $\diamondsuit$ or a similar combinatorial principle, a compact totally disconnected non-atomic non-basically-disconnected measure-free space — equivalently, a non-$\sigma$-complete non-atomic Boolean algebra admitting no $\sigma$-additive probability. Entry point: Kunen (1981) and Fedorchuk (1976) for measure-free compacta; then verify the non-atomic and non-basically-disconnected conditions. This is a set-theoretic topology project, not a Boolean-algebra project.
+
+**Route 2 — Consistency of non-existence.** Show, under MA + $\neg$CH or similar axioms, that every non-$\sigma$-complete non-atomic Boolean algebra carries a strictly positive $\sigma$-additive probability. This would establish the positive half of an independence result. Entry point: Fremlin *Measure Theory* §531–534 on Radon measures under Martin's Axiom.
+
+**Route 3 — Targeted literature pass.** The Radon-measure-free compact space literature (Fremlin vol. 5, §531–534; Plebanek's survey articles on measures on Boolean algebras) may already contain results that answer Strategy D, or that reduce it further. The non-basically-disconnected and non-atomic conditions are additional constraints that may not have been studied in combination with measure-freeness. A targeted pass through this literature is cheaper than a forcing project and might close the gap.
+
+**What is not useful.** Further internal reorganization of the current notes. Further ZFC Boolean-algebra arguments. Weak distributivity. The Džamonja–Plebanek theorem and its analogues. These threads have been exhausted.
+
+---
+
+## Summary Table
+
+| Regime | Answer | Method |
+|---|---|---|
+| $\sigma$-algebra (σ-complete, non-atomic) | **Negative** | Nikodym / Dunford–Schwartz IV.9.8 |
+| Atomic $B$ | **Positive** | Density of $\mathrm{Prin}(B)$ in $\mathrm{St}(B)$ |
+| Non-atomic, joins into measure algebra | **Positive** | Subalgebra embedding lemma |
+| Countably generated, non-atomic | **Positive** | Brouwer + subalgebra embedding lemma |
+| Few joins (e.g., $\mathcal{P}(\mathbb{N})/\mathrm{fin}$) | **Positive (vacuous)** | σ-additivity reduces to finite additivity |
+| Non-$\sigma$-complete, non-atomic, intermediate joins | **Open** | Strategy D |
+
+The open row requires a measure-free direct-product factor that is itself non-$\sigma$-complete and non-atomic. Strategy D asks whether such a factor can exist. The Boolean-algebraic methods employed throughout this investigation do not reach that question; it lives at the set-theoretic/forcing level.

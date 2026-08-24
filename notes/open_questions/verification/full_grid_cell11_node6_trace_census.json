@@ -1,0 +1,172 @@
+{
+  "carrier_points": 6186568,
+  "cell11_event_orbit_size_histogram": {
+    "1": 44,
+    "2": 6
+  },
+  "cell11_event_orbits": 50,
+  "cell11_events": 56,
+  "command": "python3 notes/open_questions/verification/full_grid_cell11_node6_trace_census.py --verify",
+  "dependencies": {
+    "full_grid_2x2_conditional_cell_audit.py": "1b72ff14226576e6e53d2800bf2135d962ceda915d0a1a5bb658f8a0790ad7ac",
+    "sharedq_kcell_completion_audit.py": "59c783364894cfd8e9c50736a7525f2c831a016b89db5954ef8964bd5a24b981"
+  },
+  "distinct_proper_residue_traces": 36,
+  "distinct_residue_traces_including_empty_full": 38,
+  "distinct_ternary_words": 21,
+  "formal_atoms": 17,
+  "payload_sha256": "c88ed02dca2f5429543c560ff38612dc03b16fef6e39918e5421cc16eaf6ab58",
+  "producer_sha256": "370f7380f4434d5a47a1f4641a8682be7578c69de59c879047097a1f537a5da1",
+  "proper_atom_count_per_word_histogram": {
+    "0": 16,
+    "13": 4,
+    "17": 1
+  },
+  "proper_residue_trace_orbits": 30,
+  "proven_symmetry": "row-1 arm involution a1<->a2,u1<->v1,p11<->p12",
+  "residue_event_trace_classes": {
+    "empty": 8,
+    "full": 8,
+    "proper": 40
+  },
+  "residue_points": 341440,
+  "residue_profile_atom_mask_hex": "0x80",
+  "residue_profile_word": "0111",
+  "residue_trace_orbit_size_histogram": {
+    "1": 26,
+    "2": 6
+  },
+  "residue_trace_orbits": 32,
+  "schema": "full-grid-cell11-node6-trace-census-v1",
+  "schema_version": "1.0",
+  "scope": "exact cell11 event traces on one full-carrier node6 17-atom partition; only the certified row-1 arm involution; no closure, lattice, boundary, or terminal claim",
+  "selected_profile15_split_points": 128040,
+  "selected_source_event_sha256": "ae31a846410eff44a1133601bbc9bdab774ffea3e4aa10a4a5e8009752b7799c",
+  "selected_source_expressions": [
+    [
+      "a3"
+    ]
+  ],
+  "selected_source_full_carrier_pullback_points": 672304,
+  "selected_source_local_state_points": 56,
+  "selected_split_eligible_candidates": 36,
+  "selected_split_rule": "trace on profile15 of the unique local source event with authoritative SHA; agrees with first by (cardinality,mask) among eligible traces",
+  "ternary_alphabet": {
+    "0": "empty",
+    "1": "proper",
+    "2": "full"
+  },
+  "word_multiplicity_histogram": {
+    "1": 16,
+    "2": 4,
+    "32": 1
+  },
+  "word_rows": [
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "00000000000000000"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "00000202000002022"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "00002020000020200"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "00002222000022222"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "02020000020200000"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "02020202020202022"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "02022020020220200"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "02022222020222222"
+    },
+    {
+      "multiplicity": 2,
+      "proper_atoms": 13,
+      "word": "10101111101011111"
+    },
+    {
+      "multiplicity": 2,
+      "proper_atoms": 13,
+      "word": "11110101111101011"
+    },
+    {
+      "multiplicity": 32,
+      "proper_atoms": 17,
+      "word": "11111111111111111"
+    },
+    {
+      "multiplicity": 2,
+      "proper_atoms": 13,
+      "word": "11112121111121211"
+    },
+    {
+      "multiplicity": 2,
+      "proper_atoms": 13,
+      "word": "12121111121211111"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "20200000202000000"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "20200202202002022"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "20202020202020200"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "20202222202022222"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "22220000222200000"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "22220202222202022"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "22222020222220200"
+    },
+    {
+      "multiplicity": 1,
+      "proper_atoms": 0,
+      "word": "22222222222222222"
+    }
+  ],
+  "word_rows_sha256": "48336c67bb946c570df42ca10a473ffd47dc76c3e18990003c1a897e2b4c6184"
+}

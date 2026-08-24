@@ -1,0 +1,667 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{mdframed}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{task}{Sub-task}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem*{target}{The open target}
+
+% ---------- Commands ----------
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\MOO}{\mathrm{MO}_2}
+\newcommand{\df}{\mathrm{df}}            % dispersion-free
+\newcommand{\St}{\operatorname{St}}
+\newcommand{\Clop}{\operatorname{Clop}}
+\newcommand{\conv}{\overline{\operatorname{conv}}}
+\newcommand{\bp}[1]{\begin{mdframed}[backgroundcolor=black!4,linewidth=0.4pt]#1\end{mdframed}}
+
+\title{Relational $\sigma$-Additive Probability on Orthomodular Lattices:\\
+A Working Problem-Set}
+\author{Patrick S.\ Mahon}
+\date{Problem-set --- June 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+\noindent A self-contained kit for attacking the descent-axis open problem under
+the \emph{Reading-1} (relational $=$ no hidden realisation) framing. Everything
+needed to sit down with pen and paper is defined inline: orthomodular lattices and
+the orthogonal/meet-zero gap; states, dispersion-free states, concreteness;
+contextuality and the Fine equivalence; the centre and the Stone/Loomis--Sikorski
+correspondence; and the construction $\prod_n\MOO$. The open target is stated
+formally (\S\ref{sec:target}), reduced to a single existence question, and ---
+following the June~2026 analysis (\S\ref{sec:reduction}) --- further reduced to one
+deciding lemma about countable orthogonal families. The concrete sub-tasks
+(\S\ref{sec:tasks}) carry the constraints established so far (the Wright bound; the
+off-centre requirement; the outcome-cardinality and tightness refinements).
+Companion narrative: \texttt{oml\_onboarding.\{tex,md\}},
+\texttt{reading1\_prize\_reduction.md}, \texttt{sigma\_essential\_nonemptiness\_finding.md},
+\texttt{sigma\_essential\_construction\_attempt.md}.
+This document is presentation, not proof: open questions are flagged as open;
+included proofs are short and self-verifying or cited.
+\end{abstract}
+
+\tableofcontents
+
+% ==================================================================
+\section*{Why this matters}
+\addcontentsline{toc}{section}{Why this matters}
+% ==================================================================
+
+\noindent\textbf{The question behind the question.} Classical probability is built
+on a sample space: a set $\Omega$ of definite states, with events as its subsets.
+A measure is then an average over those states. The programme this problem-set
+serves asks whether probability can be had \emph{without} that scaffolding ---
+\emph{relationally}, from the entailment order of propositions alone, with no
+underlying space of hidden definite states to descend from. In the Boolean
+(classical) case the answer is yes and well understood (this is the content of the
+CE / Paper-I results: coherence forces a unique $\sigma$-additive measure, no
+$\Omega$ assumed). The open frontier is the \emph{non-Boolean} case, where some
+propositions are \emph{incompatible} --- not jointly decidable --- so the event
+algebra is an orthomodular lattice rather than a Boolean one. There, classical
+probability has no room for the incompatibility, and whether an honest
+($\sigma$-additive) relational probability theory exists at all is unsettled.
+
+\medskip
+\noindent\textbf{Why ``contextual'' is the precise form of ``relational.''} A
+measure that is secretly an average over hidden definite states is \emph{not}
+relational --- it is classical probability in disguise. By Fine's theorem
+(Thm.~\ref{thm:fine}) ``average over hidden states'' is exactly
+\emph{non-contextual}. So the relational prize is a \emph{contextual}
+$\sigma$-additive state: probability with no global hidden joint, genuinely on the
+non-distributive lattice. This is the measure-theoretic analogue of \emph{localic}
+(point-free) topology --- spaces recovered from their lattices of opens --- but in
+the one regime localic measure theory does not reach: the \emph{non-distributive}
+one.
+
+\medskip
+\noindent\textbf{What an answer decides.} A \emph{witness}
+(\S\ref{sec:tasks}, Exit A) would be the first genuine relational $\sigma$-additive
+probability on a non-Boolean lattice --- a new object, and a positive resolution of
+a two-year programme thread. An \emph{impossibility proof} (Exit B) would be just
+as decisive in the other direction: it would show that the relational content the
+programme seeks is \emph{operationally invisible} --- present finitely, but unable
+to survive the passage to the countable level --- turning a philosophical worry
+into a theorem. The finite case is already settled (Wright's pentagon,
+\S\ref{sec:wright}); the entire live question is whether the phenomenon can be
+\emph{$\sigma$-essential}, i.e.\ forced by the infinite structure and not visible in
+any finite piece. That ``finite coherence vs.\ the countable commitment'' shape is
+the same one at the heart of CE / Paper~I --- which is why this problem, though it
+wears quantum-logic clothing, rejoins the programme's origin rather than departing
+from it.
+
+% ==================================================================
+\section{Orthomodular lattices and the orthogonal/meet-zero gap}
+% ==================================================================
+
+\begin{definition}[Orthomodular lattice]\label{def:oml}
+An \emph{orthomodular lattice} (OML) is a bounded lattice $(L,\wedge,\vee,0,1)$
+with an order-reversing involution $a\mapsto a^{\perp}$ such that
+\[
+  a\vee a^{\perp}=1,\qquad a\wedge a^{\perp}=0,\qquad (a^{\perp})^{\perp}=a,
+\]
+and satisfying the \emph{orthomodular law}:
+\[
+  a\le b \;\Longrightarrow\; b = a \vee (b\wedge a^{\perp}).
+\]
+Write $a\perp b$ (``$a$ \emph{orthogonal} $b$'') for $a\le b^{\perp}$. $L$ is
+\emph{Boolean} iff it is distributive.
+\end{definition}
+
+\begin{definition}[The two relations, and the gap]\label{def:gap}
+For $a,b\in L$:
+\[
+  a\perp b \;:\Longleftrightarrow\; a\le b^{\perp}
+  \qquad\text{(orthogonal)},\qquad\qquad
+  a\wedge b = 0
+  \qquad\text{(meet-zero)}.
+\]
+Always $a\perp b \Rightarrow a\wedge b=0$. The converse \emph{fails} in a
+non-Boolean OML; the failure is the source of everything here.
+\end{definition}
+
+\begin{example}[$\MOO$, the minimal gap]\label{ex:mo2}
+$\MOO=\{0,1,a,a^{\perp},b,b^{\perp}\}$ (the ``Chinese lantern''): four atoms,
+each pair of distinct atoms joining to $1$ and meeting to $0$. So
+$a\wedge b=0$ but $a\not\le b^{\perp}$ (as $b^{\perp}\in\{b^{\perp}\}$ and
+$a\neq b^{\perp}$), i.e.\ $a\wedge b=0$ yet $a\not\perp b$. $\MOO$ is the smallest
+non-Boolean OML and the unit of every construction below.
+\end{example}
+
+\begin{definition}[Completeness notions]\label{def:complete}
+$L$ is \emph{$\sigma$-complete} if every countable family $\{a_n\}\subseteq L$ has
+a join $\bigvee_n a_n\in L$. $L$ is \emph{$\sigma$-orthocomplete} if this holds for
+every countable \emph{pairwise-orthogonal} family. ($\sigma$-complete $\Rightarrow$
+$\sigma$-orthocomplete; the converse fails on non-Boolean OMLs.)
+\end{definition}
+
+\begin{definition}[Centre]\label{def:centre}
+$z\in L$ is \emph{central} if it is compatible with every element and $L\cong
+[0,z]\times[0,z^{\perp}]$ as OMLs. The \emph{centre} $Z(L)=\{$central elements$\}$
+is a Boolean subalgebra; $L$ is \emph{irreducible} if $Z(L)=\{0,1\}$.
+\end{definition}
+
+% ==================================================================
+\section{States, dispersion-free states, concreteness}
+% ==================================================================
+
+\begin{definition}[State]\label{def:state}
+A \emph{state} on $L$ is $s\colon L\to[0,1]$ with $s(1)=1$ and finite additivity on
+orthogonal pairs: $s(a\vee b)=s(a)+s(b)$ whenever $a\perp b$. It is
+\emph{$\sigma$-additive} if $s(\bigvee_n a_n)=\sum_n s(a_n)$ for countable
+pairwise-orthogonal $\{a_n\}$ (join taken in $L$). A state is \emph{dispersion-free}
+(2-valued) if $s(L)\subseteq\{0,1\}$.
+\end{definition}
+
+\begin{definition}[Concrete logic]\label{def:concrete}
+A set $S$ of states is \emph{order-determining} if
+$\bigl(\forall s\in S:\,s(a)\le s(b)\bigr)\Rightarrow a\le b$. $L$ is
+\emph{concrete} (equivalently \emph{set-representable}) iff it admits an
+order-determining set of \emph{dispersion-free} states (Gudder~\cite{Gudder1979}).
+Equivalently, $L$ embeds into some $(\mathcal P(X),\subseteq,\,X\setminus(-))$
+preserving existing orthogonal joins.
+\end{definition}
+
+\begin{remark}[Separating vs.\ spanning --- the load-bearing distinction]\label{rem:sepspan}
+Concreteness asks the dispersion-free states to \emph{separate} the order. It does
+\emph{not} ask them to \emph{span} the state space (i.e.\ that every state be a
+mixture of them). The whole problem lives in this gap; keep it in view.
+\end{remark}
+
+\begin{fact}[$\MOO$ has no dispersion-free homomorphism, but is concrete]\label{fact:mo2states}
+$\MOO$ has exactly four order-determining dispersion-free \emph{states} (each
+sending one atom-pair to $0$ and the other to $1$), so $\MOO$ is concrete. None is
+a lattice \emph{homomorphism}: for the state $s$ with $s(a)=s(b)=0$ one has
+$s(a\vee b)=s(1)=1\neq 0=\max(s(a),s(b))$ (equivalently $1>0=s(a)+s(b)$, so $s$ is
+not subadditive). \emph{Concrete uses states, not homomorphisms.}
+\end{fact}
+
+% ==================================================================
+\section{Contextuality and the Fine equivalence}\label{sec:context}
+% ==================================================================
+
+The Reading-1 reading of ``relational'' --- the measure carries \emph{no hidden
+realisation} --- is made precise by contextuality. Fix a concrete OML $L$ with
+order-determining dispersion-free set $S_{\df}$.
+
+\begin{definition}[Contextual state]\label{def:contextual}
+A $\sigma$-additive state $w$ on $L$ is \emph{non-contextual} if it lies in the
+closed convex hull $\conv(S_{\df}^{\sigma})$ of the \emph{$\sigma$-additive}
+dispersion-free states $S_{\df}^{\sigma}\subseteq S_{\df}$ (in the topology of
+pointwise convergence on $L$); otherwise \emph{contextual}.
+\end{definition}
+
+\begin{remark}[Why the hidden variables must be $\sigma$-additive --- else the problem collapses]\label{rem:sigmadf}
+The restriction to $S_{\df}^{\sigma}$ (genuine $\sigma$-additive valuations, not
+merely finitely-additive ``free-ultrafilter'' points) is \emph{forced} for the
+relational reading. $S_{\df}$ is \emph{compact} (closed in $\{0,1\}^{L}$ by Tychonoff;
+each $\hat a=\{s:s(a)=1\}$ clopen), so a finitely-additive global section on the
+clopen field always upgrades to a $\sigma$-additive Radon measure on $S_{\df}$ by
+Carath\'eodory (continuity at $\emptyset$ is free on a compact space). Hence
+non-contextuality \emph{over all of $S_{\df}$} would hold automatically whenever it
+holds on every finite sub-OML --- the problem would close trivially (Exit~B by fiat),
+and the ``hidden variables'' would include the fake points the programme excludes
+(Rmk.~\ref{rem:nofaithful}). The whole open content is whether $w$ can be carried by
+the \emph{genuine} points $S_{\df}^{\sigma}$.
+\end{remark}
+
+\begin{theorem}[Fine, in lattice form]\label{thm:fine}
+For a concrete $L$, the following are equivalent for a $\sigma$-additive state $w$:
+\begin{enumerate}[label=\textup{(\roman*)},nosep]
+  \item $w$ is non-contextual ($w\in\conv(S_{\df}^{\sigma})$);
+  \item $w=\int_{S_{\df}^{\sigma}} s\,d\mu(s)$ for a probability measure $\mu$
+    concentrated on the $\sigma$-additive points $S_{\df}^{\sigma}$
+    \textup{(}a \emph{global hidden joint by genuine points}\textup{)};
+  \item the context-wise distributions $w$ induces on the Boolean blocks of $L$
+    admit a single global joint distribution reproducing all of them.
+\end{enumerate}
+A dispersion-free state \emph{is} a deterministic global section, so a global joint
+and a hull-decomposition are the same object (Fine~\cite{Fine1982};
+Abramsky--Brandenburger~\cite{AbramskyBrandenburger2011}).
+\end{theorem}
+
+\begin{remark}[Three point-spaces --- do not conflate]\label{rem:threepoints}
+The recurring trap. Distinguish:
+\begin{enumerate}[label=\textup{(\Alph*)},nosep]
+  \item the \emph{external} points (e.g.\ Hilbert rays of $H$ for $L(H)$): an
+    auxiliary space the measure could be reduced to (Gleason's $\rho$ in
+    $s=\tr(\rho\,\cdot)$). Reading-1 \emph{forbids} reduction to these.
+  \item the \emph{canonical dual} points $P(A)=\{{\uparrow}p:p\in L\}$ (principal
+    filters --- one per \emph{element}): built from $L$, hence \emph{permitted}.
+  \item the \emph{dispersion-free states} $S_{\df}$ (one per consistent global
+    \emph{valuation}): the hidden-variable points of Def.~\ref{def:contextual}.
+\end{enumerate}
+``Relational $=$ contextual'' is a condition on (C), \emph{not} on (B): a witness is
+point-\emph{rich} on $P(A)$ yet has no global $S_{\df}$-joint. (A), (B), (C) are
+genuinely different objects.
+\end{remark}
+
+\begin{target}
+\emph{Relational $\sigma$-additive probability $=$ a contextual $\sigma$-additive
+state on a concrete OML.} (The formal open problem is \S\ref{sec:target}.)
+\end{target}
+
+% ==================================================================
+\section{The Boolean engine, and why it does not transfer}\label{sec:boolean}
+% ==================================================================
+
+\begin{theorem}[Stone / Loomis--Sikorski]\label{thm:stone}
+For a Boolean algebra $B$ with Stone space $\St(B)$:
+$B$ is $\sigma$-complete iff $\St(B)$ is \emph{basically disconnected} (the closure
+of every cozero set is open); and a finitely-additive state on $B$ is
+$\sigma$-additive iff, viewed as a measure on $\St(B)$, it concentrates on the
+\emph{principal} (isolated/atomic) part. In particular a $\sigma$-additive state on
+$\mathcal P(\mathbb N)$ is atomic: $w=\sum_n w(\{n\})\delta_n$.
+\end{theorem}
+
+\begin{theorem}[Pt\'ak--Pulmannov\'a~\cite{PtakPulmannova1994}]\label{thm:pp}
+An OML is Boolean iff it carries a unital set of \emph{subadditive} states. Hence the
+Boolean-forcing property is \emph{subadditivity}, \emph{not} $\sigma$-additivity:
+$\sigma$-additivity alone does not collapse a non-Boolean OML, so non-Boolean
+$\sigma$-additive states genuinely exist.
+\end{theorem}
+
+\begin{remark}[The Boolean kill-mechanism, and its Boolean-only hinge]\label{rem:transfer}
+On a Boolean algebra the chain ``$\sigma$-additive $\Rightarrow$ concentrates on
+principal ultrafilters $\Rightarrow$ non-contextual'' is forced, because there
+\[
+  \text{principal ultrafilter} = \text{atom} = \text{dispersion-free state}.
+\]
+This triple identity is \emph{Boolean-only}. On an OML with centre $Z(L)$:
+$w$ restricted to $Z(L)$ is a $\sigma$-additive Boolean measure, so (by
+Thm.~\ref{thm:stone}) it concentrates on the \emph{central atoms} --- but a central
+atom $z$ subtends a (possibly non-Boolean) block $[0,z]$, and a state with
+$w(z)=1$ can be \emph{contextual within} $[0,z]$. So
+\[
+  \underbrace{\sigma\text{-add}\Rightarrow\text{concentrate on central atoms}}_{\text{transfers}},
+  \qquad
+  \underbrace{\text{concentrate}\Rightarrow\text{non-contextual}}_{\text{Boolean-only; FAILS}}.
+\]
+For \emph{irreducible} $L$ ($Z(L)=\{0,1\}$) the centre argument says only $w(1)=1$
+--- vacuous. \emph{The Boolean kill-mechanism evaporates exactly off-centre, where a
+witness would live.} (Routing verdict: \texttt{sigma\_essential\_nonemptiness\_finding.md}.)
+\end{remark}
+
+\begin{remark}[Why no faithful set representation --- the universal floor]\label{rem:nofaithful}
+A faithful $\sigma$-tribe / Loomis--Sikorski representation realises $L$ as a field
+of sets, preserving $\wedge,\vee$ as $\cap,\cup$; its image is a sublattice of a
+Boolean algebra, hence distributive, forcing $L$ Boolean. So \emph{no} non-Boolean
+OML admits one. A relational measure can therefore never arise from a faithful
+descent to points --- the target is necessarily ``point-free'' in the sense of
+Rmk.~\ref{rem:threepoints}(A), \emph{not} of (B).
+\end{remark}
+
+% ==================================================================
+\section{The construction $\prod_n\MOO$, and what it settles}\label{sec:product}
+% ==================================================================
+
+\begin{definition}[$\prod_n\MOO$]\label{def:product}
+The full direct product of countably many copies of $\MOO$, coordinatewise
+operations. It is concrete (coordinate states separate), $\sigma$-complete (product
+of finite complete lattices), non-Boolean, infinite. Its centre contains
+$\prod_n\{0,1\}\cong\mathcal P(\mathbb N)$.
+\end{definition}
+
+\begin{proposition}[The interleaving property $(\bigstar)$ is cheap]\label{prop:star}
+There exist $p$ and an infinite orthogonal family $\{a_n\}$ in $\prod_n\MOO$ with
+$p\wedge a_n=0$ and $p\not\perp a_n$ for all $n$. \textup{(}Take $a_n=a$ in
+coordinate $n$, $0$ elsewhere; $b_n=b$ in coordinate $n$, $0$ elsewhere;
+$p=\bigvee_n b_n=(b,b,b,\dots)$, a genuine orthogonal join. Coordinate $n$:
+$a\wedge b=0$ but $b\not\le a^{\perp}$.\textup{)} So ``$(\bigstar)$ $+$ concrete $+$
+$\sigma$-complete $+$ non-Boolean'' is satisfied by a one-line object: it is
+\emph{not} the discriminator.
+\end{proposition}
+
+\begin{proposition}[$\prod_n\MOO$ is not a witness --- contextuality is only finitely additive]\label{prop:prodnotwitness}
+Every $\sigma$-additive state on $\prod_n\MOO$ is non-contextual (in
+$\conv(S_{\df})$). Sketch: a contextual state would have to act diffusely on the
+central $\mathcal P(\mathbb N)$ (a free-ultrafilter/Banach-limit type state); but by
+Thm.~\ref{thm:stone} a $\sigma$-additive state on $\mathcal P(\mathbb N)$ is atomic,
+hence concentrates on coordinates, hence is a countable mixture of coordinate
+dispersion-free states. The contextual states exist only in the \emph{finitely
+additive} layer; $\sigma$-additivity kills them. (This is the CE / Paper-I
+compactness phenomenon, and the reason $\prod_n\MOO$ fails: all its infinitary
+structure is \emph{central}.)
+\end{proposition}
+
+% ==================================================================
+\section{The bound: Wright's pentagon}\label{sec:wright}
+% ==================================================================
+
+\begin{theorem}[Wright~\cite{Wright1978}]\label{thm:wright}
+There is a \emph{finite}, \emph{concrete} OML --- the pentagon (pentagram) logic, a
+Greechie loop of length five (hence a lattice) --- with an order-determining family
+of dispersion-free states, carrying a state \emph{not} in their convex hull, i.e.\
+a \emph{contextual} state.
+\end{theorem}
+
+\begin{remark}[What Wright settles, and what it leaves]\label{rem:wright}
+A finite OML is vacuously $\sigma$-complete and its states vacuously $\sigma$-additive.
+So ``concrete $\sigma$-complete non-Boolean OML with a $\sigma$-additive contextual
+state'' is \emph{already inhabited} by Wright --- and the general spanning theorem
+``every state is a dispersion-free mixture'' is \emph{false}. What Wright does
+\emph{not} give: contextuality requiring the \emph{countable} structure. Its
+contextuality is witnessed by a finite sub-OML (itself). That single missing
+qualifier --- \textbf{$\sigma$-essential} --- is the entire open content.
+\end{remark}
+
+% ==================================================================
+\section{The open target}\label{sec:target}
+% ==================================================================
+
+\begin{mdframed}[backgroundcolor=black!5,linewidth=0.8pt]
+\begin{target}
+\textbf{($\sigma$-essential contextuality).} Does there exist a concrete,
+$\sigma$-complete, non-Boolean OML $L$ and a $\sigma$-additive state $w$ on $L$ such
+that:
+\begin{enumerate}[label=\textup{(\arabic*)},nosep]
+  \item $w$ is \emph{contextual} --- $w\notin\conv(S_{\df})$ (no global hidden
+    joint over the dispersion-free states); and
+  \item the contextuality is \emph{$\sigma$-essential} --- the restriction of $w$
+    to \emph{every finite sub-OML} of $L$ \emph{is} non-contextual (so the
+    obstruction lives only in the countable structure)?
+\end{enumerate}
+Equivalently: a relational $\sigma$-additive probability whose relationality is not
+already present finitely. \textbf{Or:} prove no such $(L,w)$ exists.
+\end{target}
+\end{mdframed}
+
+\begin{remark}[Status]\label{rem:status}
+\textbf{Well-posed, principled, uninhabited.} No witness ($\prod_n\MOO$ fails by
+Prop.~\ref{prop:prodnotwitness}; Wright is finite, Rmk.~\ref{rem:wright}); no
+impossibility proof. The CE-routing analysis (Rmk.~\ref{rem:transfer}) returned
+\emph{GAP}: CE neither forbids nor produces a witness. The June~2026 analysis
+(\S\ref{sec:reduction}) localises both exits to a \emph{single} lemma.
+\end{remark}
+
+\begin{remark}[The two sides the witness must marry]\label{rem:marriage}
+A witness discharges two requirements that repel; each exit attacks one.
+\begin{description}[noitemsep,topsep=2pt]
+  \item[Set-theoretic (Exit~A target).] A two-valued $\sigma$-additive non-principal
+    $w$ with no global section. Boolean base $\Rightarrow$ countably complete
+    non-principal ultrafilter $=$ measurable cardinal (Ulam); the witness is its
+    non-distributive analogue. Mechanism would be Loomis--Sikorski
+    (Thm.~\ref{thm:stone}), which \emph{fails} non-distributively.
+  \item[Order-theoretic (carrier constraint).] Not intersection-closed,
+    $(a\vee b)\wedge a^{\perp}\neq b\wedge a^{\perp}$; irreducibly non-central
+    (Task~\ref{task:offcentre}); no RDP. Wright (Thm.~\ref{thm:wright}) is strictly
+    below; RDP-failure on $\MOO$ blocks importing the gluing.
+\end{description}
+\noindent\emph{Repulsion (root).} The first side's object is an ultrafilter
+(intersection-closed); the second forbids it. Blecher--Weaver's ultrafilter lives on
+the diagonal masa $\ell^\infty(\kappa)$~\cite{BlecherWeaver2017}, but on a concrete
+non-Boolean $\sigma$-OML $\mathcal F_s=\{A:s(A)=1\}$ is a filter for no two-valued $s$
+(meet-closure fails already for $\delta_\omega$: $a\cap b\neq\varnothing$ yet
+$a\wedge b=0$ in $\MOO$). So strength-carriers are masa-bound and $\mathsf{ZFC}$-built
+non-Boolean two-valued states (Navara--Pt\'ak~\cite{NavaraPtak1983}) carry none --- no
+known object is both. \emph{Exit~A}: build set-theoretically heavy, masa-escaping.
+\emph{Exit~B}: bar the escape. Structural absence either way, not a theorem in hand.
+\end{remark}
+
+% ==================================================================
+\section{Reduction: from gluing to section $\sigma$-tightness (June 2026)}\label{sec:reduction}
+% ==================================================================
+
+This section records the sharpening of the open target into a single decidable
+lemma. It supersedes the earlier ``paste Wright blocks'' programme: that route is
+\emph{dead} (Rmk.~\ref{rem:loopdead}). Everything here is verified by hand or cited.
+
+\begin{remark}[Loop-pasting is dead]\label{rem:loopdead}
+Contextuality of a Greechie loop $L_n$ ($n$ Boolean blocks pasted cyclically) is a
+\emph{parity} phenomenon, not a length threshold: the dispersion-free states fail to
+span iff $n$ is \emph{odd}, for \emph{every} odd $n$ (hull bound $=$ independence
+number $\alpha(C_n)=\lfloor n/2\rfloor$; Wright's $\tfrac12$-on-intertwines state
+needs $n/2$; $n/2>(n-1)/2$ iff $n$ odd). So a tower of odd loops is contextual at
+\emph{every finite stage} (Reading-1 fails; same species as $\prod_n\MOO$'s
+finitely-additive contextuality), and even loops never span-fail. The loop-parity
+effect is a \emph{finite, finitely-additive} witness --- never $\sigma$-essential.
+Pasting contextual blocks cannot manufacture contextuality-only-at-infinity.
+\end{remark}
+
+\begin{proposition}[The finitely-additive global section always exists]\label{prop:facompact}
+Let $w$ be a $\sigma$-additive state on a concrete OML $L$, non-contextual on every
+finite sub-OML. Then a \emph{finitely-additive} global hidden joint $\mu$ exists
+(a charge on the event algebra $A$ marginalising to $w$ on every context).
+\emph{Proof.} The finitely-additive probability charges on $A$ form a weak-$*$
+compact set (Banach--Alaoglu in $[0,1]^A$). For each finite sub-OML $F$, the set
+$K_F=\{\mu:\mu|_F=w|_F\}$ is weak-$*$ closed; finite-local-non-contextuality makes
+each $K_F$ nonempty and any finite intersection (a single larger finite sub-OML)
+nonempty. Compactness $+$ finite-intersection-property gives
+$\bigcap_F K_F\neq\varnothing$. \qed
+\emph{Note the compactness is of the \textbf{charge} space} $\mathrm{ba}(A)$, not of
+the assignment space $\Lambda=\prod_i O_i$; the former holds regardless of
+outcome cardinality. So the obstruction sits cleanly and solely at the
+$\sigma$-additivity upgrade of $\mu$.
+\end{proposition}
+
+\begin{remark}[The intra-context horn is barred]\label{rem:nointra}
+A $\sigma$-additive $w$ restricts to a $\sigma$-additive state on every
+sub-$\sigma$-algebra, hence $w|_C$ is $\sigma$-additive on every context $C$. The
+global $\mu$'s marginal on $C$ \emph{is} $w|_C$. So $\mu$'s per-context marginals
+are automatically $\sigma$-additive: \emph{the $\sigma$-failure of $\mu$ can never
+be visible in a single context's marginal.} This kills the ``decorative-$\sigma$''
+candidate (a density/free-ultrafilter charge dressed as a scenario): it would force
+the $\sigma$-failure into one Boolean marginal, breaking the $\sigma$-additivity of
+$w$. The trilemma (central $\mid$ intra-context $\mid$ cross-contextual) collapses to
+a dilemma: \emph{neither} central (Rmk.~\ref{rem:transfer}) \emph{nor} intra-context.
+\end{remark}
+
+\begin{remark}[The gap is a non-tight projective family]\label{rem:nontight}
+By Prop.~\ref{prop:facompact} and Rmk.~\ref{rem:nointra}, a witness is exactly:
+$\mu$ a finitely-additive joint with $\sigma$-additive context-marginals but
+\emph{no} $\sigma$-additive version --- a \emph{non-tight projective family}
+(Daniell--Kolmogorov extension failing for want of tightness, the regime where the
+assignment space $\Lambda$ is non-compact: countably/uncountably many outcomes per
+measurement). The one rigorous treatment of infinite AB scenarios
+(Barbosa--Abramsky, continuous-variable~\cite{BarbosaAbramsky2022}) \emph{defines}
+global sections as \emph{Radon} (tight $\Rightarrow$ $\sigma$-additive) measures ---
+assuming the gap shut by fiat. \emph{Verify} this Radon restriction directly in
+their \S3--4 before leaning on it. The gate: classical non-tight families are
+Boolean (factor through a product $=$ one distributive context); the witness needs
+non-tightness \emph{coupled} to non-distributivity, not merely \emph{adjacent} to it.
+\end{remark}
+
+\begin{lemma}[A single orthogonal family is always block-contained --- hence \emph{not} the locus]\label{lem:famblock}
+Every countable orthogonal family $\{a_i\}$ in a concrete $\sigma$-complete OML is
+contained in a Boolean sub-$\sigma$-algebra (a block). \emph{Proof.} Orthogonality
+survives countable joins: $a\le a_i^{\perp}\ \forall i\Rightarrow a\le\bigwedge_i
+a_i^{\perp}=(\bigvee_i a_i)^{\perp}$. So $S\mapsto\bigvee_{i\in S}a_i$
+($S\subseteq\mathbb N$) is a Boolean $\sigma$-homomorphism into $L$ with mutually
+orthogonal generators; the elements are pairwise compatible (Foulis--Holland), so
+they generate a Boolean sub-$\sigma$-algebra, which extends to a block by Zorn. \qed
+\end{lemma}
+
+\begin{remark}[Why this is the wrong locus --- correcting an earlier framing]\label{rem:wronglocus}
+An earlier draft posed ``can an orthogonal family escape every block?'' as the
+deciding question. Lem.~\ref{lem:famblock} answers it \emph{yes, near-trivially} ---
+and that resolves \emph{nothing}. A state restricted to one orthogonal family is a
+classical distribution over orthogonal outcomes, hence \emph{never} contextual: the
+$\sigma$-failure cannot live inside a single family. The $\sigma$-condition is
+\emph{constrained on} orthogonal families (Def.~\ref{def:state}); the contextuality
+\emph{lives on} the incompatible \emph{overlap between distinct} families. The locus
+is the \textbf{gluing}, not any one family.
+\end{remark}
+
+\begin{remark}[The locus is the gluing across contexts]\label{rem:gluinglocus}
+So the obstruction, if any, is in the $\sigma$-additive \emph{global} upgrade across
+the cover of contexts --- the finitely-additive joint always exists
+(Prop.~\ref{prop:facompact}) and the per-context marginals are forced
+$\sigma$-additive (Rmk.~\ref{rem:nointra}). The precise placement of that upgrade
+question is Target~\ref{tgt:upgrade} below; first a lemma that clears away a
+\emph{wrong} placement (F1).
+\end{remark}
+
+\begin{lemma}[Compatibility survives countable joins --- F1 holds in \emph{every} $\sigma$-complete OML]\label{lem:F1}
+Let $L$ be $\sigma$-complete, $b\in L$, and $\{a_i\}$ a countable pairwise-compatible
+family with $b\,C\,a_i$ for all $i$. Then $b\,C\,\bigvee_i a_i$. \emph{Proof.} Put
+$u=\bigvee_i(a_i\wedge b)\le b$ and $v=\bigvee_i(a_i\wedge b^{\perp})\le b^{\perp}$
+(exist by $\sigma$-completeness). Then $\bigvee_i a_i=u\vee v$: ``$\le$'' since
+$a_i=(a_i\wedge b)\vee(a_i\wedge b^{\perp})$ (as $b\,C\,a_i$); ``$\ge$'' since
+$a_i\wedge b,\ a_i\wedge b^{\perp}\le\bigvee_i a_i$. Now $b$ commutes with $u$
+($u\le b$) and with $v$ ($v\le b^{\perp}$, so $v\perp b$); by Foulis--Holland
+$b\wedge(u\vee v)=(b\wedge u)\vee(b\wedge v)=u\vee 0=u$ and dually
+$b^{\perp}\wedge(u\vee v)=v$, whence $(p\wedge b)\vee(p\wedge b^{\perp})=u\vee v=p$
+for $p=\bigvee_i a_i$. \qed
+\end{lemma}
+
+\begin{remark}[F1 is true but does \emph{not} discriminate --- correcting a detour]\label{rem:F1notgate}
+An earlier draft made F1 (``blocks are maximal Boolean $\sigma$-subalgebras'') the
+pivot. Lem.~\ref{lem:F1} settles it \emph{true in all $\sigma$-complete OMLs} (the
+commutant $\{a:a\,C\,b\}$ is a $\sigma$-sub-OML; Kalmbach~\cite{Kalmbach1983}) ---
+\emph{using no concreteness and no $\sigma$-additive states}. And F1 \emph{does not
+imply Exit B.} The conflation: gluing $\sigma$-additive block-marginals into a global
+\emph{state on $L$} is trivial --- that state is just $w$. The contextuality question
+is gluing into a global \emph{section on $S_{\df}^{\sigma}$} (a $\sigma$-additive
+\emph{mixture of $\sigma$-additive dispersion-free states}, i.e.\ \emph{spanning by
+genuine points}, Thm.~\ref{thm:fine}). F1 is a \emph{within-block} fact and bears
+only on the former. \emph{Independence,
+sharply:} on $L(H)$ every block is $\sigma$-closed (commuting projections generate a
+von Neumann algebra, F1 holds) yet there are \emph{no} dispersion-free states at all
+(Kochen--Specker) --- F1 holds, spanning fails maximally. So F1 $\not\Rightarrow$
+Exit~B. Drop F1 as the gate.
+\end{remark}
+
+\begin{proposition}[The $\sigma$-representing measure on $S_{\df}$ always exists --- the upgrade is \emph{free}]\label{prop:sdfcompact}
+$S_{\df}$ is \emph{compact} (closed in $\{0,1\}^{L}$ by Tychonoff --- each
+orthogonal-pair additivity condition constrains three coordinates, hence is closed;
+each $\hat a=\{s:s(a)=1\}$ is clopen). Hence the finitely-additive section
+$\mu$ of Prop.~\ref{prop:facompact}, defined on the clopen field $\langle\hat a\rangle$,
+has continuity at $\emptyset$ for free (clopen $F_n\downarrow\emptyset$ are eventually
+empty by compactness) and extends, by Carath\'eodory, to a $\sigma$-additive Radon
+measure on $S_{\df}$ with $\mu(\hat a)=w(a)$. \emph{So a $\sigma$-additive global
+section on $S_{\df}$ always exists --- whenever $w$ is non-contextual on every finite
+sub-OML.} The ``$\sigma$-upgrade'' is \emph{not} the obstruction.
+\end{proposition}
+
+\begin{mdframed}[backgroundcolor=black!5,linewidth=0.8pt]
+\begin{target}[The real discriminator: support on the \emph{genuine} points $S_{\df}^{\sigma}$]\label{tgt:upgrade}
+By Prop.~\ref{prop:sdfcompact}, $w$ is always a $\sigma$-additive mixture of
+\emph{some} dispersion-free states --- but $\mu$ lives on \emph{all} of $S_{\df}$,
+including the merely finitely-additive ``fake points''
+$S_{\df}\setminus S_{\df}^{\sigma}$. For each countable orthogonal family with join
+$p$, the gap set $G=\hat p\setminus\bigsqcup_i\hat a_i=\{s:s(p)=1,\,s(a_i)=0\ \forall
+i\}$ is closed and $\mu$-null ($\mu(\hat p)=w(p)=\sum w(a_i)=\mu(\bigsqcup\hat a_i)$).
+\emph{But} $S_{\df}\setminus S_{\df}^{\sigma}=\bigcup_{\text{families}}G$ is an
+\textbf{uncountable} union of $\mu$-null sets, which may carry positive measure; and
+$S_{\df}^{\sigma}$ (an intersection of uncountably many opens) is generally non-Borel.
+\begin{itemize}[nosep]
+  \item \textbf{Exit A (witness)} $\Leftrightarrow$ a $\sigma$-additive $w$ whose
+    \emph{every} representing $\mu$ must charge $S_{\df}\setminus S_{\df}^{\sigma}$
+    ($w$ not carriable by genuine $\sigma$-additive hidden variables).
+  \item \textbf{Exit B (impossibility)} $\Leftrightarrow$ every such $w$ admits a
+    $\mu$ with inner measure $\mu_{*}(S_{\df}^{\sigma})=1$.
+\end{itemize}
+This is a \emph{support-on-a-non-Borel-conull-set} / additivity-of-the-null-ideal
+($\mathrm{add}(\mathrm{null})$, real-valued-measurable-cardinal) question. Infinite
+outcomes are what make it non-vacuous: an \emph{infinite block} makes
+$\sigma$-additivity a real constraint on dispersion-free states, i.e.\ makes
+$S_{\df}^{\sigma}\subsetneq S_{\df}$ possible. $L(H)$ is not concrete, so the concrete
+case is genuinely open.
+\end{target}
+\end{mdframed}
+
+% ==================================================================
+\section{Sub-tasks --- the pen-and-paper frontier}\label{sec:tasks}
+% ==================================================================
+
+% LANDED 2026-06-17 (record: sigma_essential_construction_attempt memory;
+% programme/program_overview.md AFTERLIFE; reading1_prize_reduction.md update; that file is now notes/archive/reading1_prize_reduction_superseded.md).
+% Structural dichotomy for Target~\ref{tgt:upgrade}, not yet folded into the body:
+%   S_df^sigma(L) = S_df \cap \bigcap_{block B} O_B,  O_B = {s : s principal on B}, open.
+%   ==> <= aleph_0 ATOMIC blocks  =>  mu(fakes)=0  =>  no leak (Exit B), any ground set.
+%       [conullity via per-block-nullity + countability, NOT via G_delta; G_delta => conull is
+%        false in general -- S_df^sigma G_delta is a parallel topological sibling, not the cause.]
+%   Necessary for any witness: UNCOUNTABLY MANY infinite atomic blocks (S_df^sigma non-G_delta).
+%   Only live construction target: uncountably many ATOMIC blocks on a COUNTABLE ground set
+%     (|L| = continuum) -- the partition-logic non-G_delta question. "One non-atomic block" is
+%     STRUCK (Boolean => reducible + distributive => fails irreducible + non-Boolean).
+%   Caveat: S_df^sigma strictly contains the point-evaluations (consistent atom-threads are
+%     sigma-additive even when no point); w must dodge closed-conv of ALL threads.
+% (PDF deliberately left unrebuilt per the user; this comment keeps the source current.)
+The deciding question (Target~\ref{tgt:upgrade}) is the frontier; the sub-tasks below
+are its two horns. Standing checkpoints throughout: the witness OML must remain
+\emph{$\sigma$-complete} and \emph{irreducible}, and must be \emph{infinite-outcome}
+(non-compact $\Lambda$, Rmk.~\ref{rem:nontight}); do not drop these in the
+scenario-language translation. The constraints of Rmk.~\ref{rem:transfer},
+Prop.~\ref{prop:prodnotwitness}, and \S\ref{sec:reduction} prune the search.
+
+\subsection*{Exit A --- build a $\sigma$-essential witness}
+
+\begin{task}[A $w$ supported off the genuine points]\label{task:escape}
+Exhibit a concrete $\sigma$-complete \emph{irreducible} OML with an \emph{infinite
+block} and a $\sigma$-additive state $w$, non-contextual on every finite sub-OML, such
+that \emph{every} representing measure $\mu$ on $S_{\df}$ (one always exists,
+Prop.~\ref{prop:sdfcompact}) must charge the fake points
+$S_{\df}\setminus S_{\df}^{\sigma}$ --- i.e.\ $w$ is \emph{not} a $\sigma$-additive
+mixture of $\sigma$-additive dispersion-free states (Target~\ref{tgt:upgrade},
+Exit~A). \emph{Why this suffices:} that is exactly a $\sigma$-additive relational
+state with no genuine hidden-variable realisation. \emph{Where to look:} the infinite
+block makes $S_{\df}^{\sigma}\subsetneq S_{\df}$ (Rmk.~\ref{rem:sigmadf}); the task is
+to force $\mu$'s mass onto the non-Borel conull complement --- an
+$\mathrm{add}(\mathrm{null})$/measure-concentration construction --- \emph{not} pasted
+contextual blocks (Rmk.~\ref{rem:loopdead}), \emph{not} products of finite blocks
+(off-centre, Rmk.~\ref{rem:transfer}), \emph{not} a single orthogonal family
+(Rmk.~\ref{rem:wronglocus}), \emph{not} an intra-block density charge
+(Rmk.~\ref{rem:nointra}).
+\end{task}
+
+\begin{task}[Off-centre, infinite-outcome]\label{task:offcentre}
+Maintain that the infinite non-Boolean structure sits \emph{off-centre} ($L$
+irreducible, or relevant infinite blocks non-central): if all infinitary structure
+is central, Stone over the centre (Thm.~\ref{thm:stone}) forces atomicity and kills
+contextuality $\sigma$-additively (Prop.~\ref{prop:prodnotwitness}). Combined with
+Rmk.~\ref{rem:nontight}, the infinite-dimensionality must enter through
+\emph{outcome multiplicity}, not mere lattice size. \emph{Excludes products of
+finite blocks and finite-outcome colimits a priori.}
+\end{task}
+
+\subsection*{Exit B --- prove no witness exists}
+
+\begin{task}[A genuine-point support theorem for concrete OMLs]\label{task:impossible}
+Prove the ``support'' horn of Target~\ref{tgt:upgrade}: every $\sigma$-additive state
+on a concrete $\sigma$-complete OML admits a representing measure $\mu$ on $S_{\df}$
+with inner measure $\mu_{*}(S_{\df}^{\sigma})=1$ --- $w$ is carried by the
+\emph{genuine} ($\sigma$-additive) dispersion-free points. \emph{Why this suffices:}
+$\sigma$-essential contextuality is then impossible.
+\textbf{Constraint:} this is \emph{not} F1 (Lem.~\ref{lem:F1}, the within-block fact,
+is already true and does not suffice, Rmk.~\ref{rem:F1notgate}), and \emph{not} the
+$\sigma$-upgrade on $S_{\df}$ (free, Prop.~\ref{prop:sdfcompact}); the content is that
+$\mu$ can be \emph{concentrated} on the non-Borel conull set $S_{\df}^{\sigma}$ --- a
+measure-support / $\mathrm{add}(\mathrm{null})$ statement where the fake points carry
+no forced mass. Nor may it reuse the $\prod_n\MOO$/Stone-over-centre mechanism
+(vacuous off-centre, Rmk.~\ref{rem:transfer}). \emph{Such a theorem reinstates the
+empiricist-underdetermination conclusion as a theorem}
+(\texttt{direction2\_gate\_finding.md}).
+\end{task}
+
+\begin{remark}[Discipline]\label{rem:discipline}
+Neither exit is decidable by a quick computation; both are Phase-4 mathematics. The
+recurring failure mode in this material is the clean ``$X$, therefore $Y$'' step
+that needs a qualifier (the Boolean triple identity of Rmk.~\ref{rem:transfer} is
+the paradigm). Verify transfers; do not assume them. A candidate witness is checked
+by: is its claimed contextual state genuinely outside $\conv(S_{\df})$, and is the
+obstruction genuinely absent from every finite sub-OML?
+\end{remark}
+
+\bibliographystyle{plain}
+\bibliography{references_oml}
+
+\end{document}

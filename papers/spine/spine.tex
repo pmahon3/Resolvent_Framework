@@ -1,0 +1,81 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{remark}[theorem]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\Sf}{\mathcal{S}}
+\newcommand{\Ssig}{\mathcal{S}_\sigma}
+\newcommand{\Sdf}{\mathcal{S}_{\mathrm{df}}}
+\newcommand{\Sdfsig}{\mathcal{S}_{\mathrm{df}}^\sigma}
+\newcommand{\EA}{\mathrm{EA}}
+\newcommand{\PR}{\mathrm{PR}}
+\newcommand{\VDR}{\mathrm{VDR}}
+\newcommand{\Rc}{\mathcal{R}}
+
+% ---------- Standalone flag ----------
+\newif\ifstandalone
+\standalonetrue
+
+% ---------- Title ----------
+\title{The Price of Realism:\\
+A Filtration of the State Space and Three Studies of Its Transitions}
+\author{Patrick S.\ Mahon\thanks{%
+  Research Computing Group, Simon Fraser University, Burnaby, BC, Canada.
+  \texttt{pmahon@sfu.ca}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Finitely additive coherence is what observation natively supplies;
+$\sigma$-additivity and value-definiteness are further \emph{representation
+properties} --- signatures of a world, not of the data. This umbrella note reads
+three companion papers as one classification of the price of those signatures.
+The organising object is a filtration of the state space,
+$\Sf \supseteq \Ssig \supseteq \Sdfsig$, whose three transitions --- \emph{pasting},
+\emph{regularity}, \emph{sharpness} --- are introduced in the companion paper on
+distributivity and realism. That paper studies the sharpness transition
+(distributivity versus value-definiteness, Kochen--Specker); the paper on a
+$\sigma$-essential contextual state studies the regularity transition (finite
+versus countable additivity, resolved by a witness constructed in ZFC at
+$\omega_1$); and the paper on commensurability of observation protocols studies
+the pasting transition (local coherence versus global realisability, with a
+taming catalogue and an odd-ring separating witness). We tabulate the three
+transitions against the coordinate in which each locates its boundary ---
+algebraic, set-theoretic, dynamical --- and record what is genuinely common: the
+observer-first reading, the fact that the three boundaries are different, and a
+method (pre-registered predictions, witness-grade verdicts, machine-checked
+lemmas). The two bridging claims are settled here ---
+one negatively (the coherence notions form a strictly separated, witness-inhabited
+ladder rather than one notion), one positively (a compactness quarantine sorts the
+two constructed witnesses into provably disjoint regimes, upgrading the tabulation
+to a classification). A prior-art/type audit refutes the former three-way
+latticehood conjecture: complete Hilbert lattices fail sharpness. The surviving
+open theory question is the regularity predicate $\Phi$ for concrete
+$\sigma$-complete OMLs. This note references the three papers; it does not absorb
+them.
+\end{abstract}
+
+\ifstandalone
+\input{spine_body}
+\bibliographystyle{plain}
+\bibliography{references}
+\fi
+
+\end{document}

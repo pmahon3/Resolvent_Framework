@@ -1,0 +1,671 @@
+{
+  "all_distinct_closures_are_omls": true,
+  "candidate_subset_count": 256,
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/split_truth_atom_centre_killing_no_go.py --verify",
+  "distinct_closed_family_count": 43,
+  "evidence_class": "Executable verified exhaustive finite evidence plus Hand proved same-carrier singleton-centrality no-go",
+  "hand_theorem": "If {p} is an event in a complement/disjoint-union-closed family of subsets, then {p} is central in every same-carrier extension with those closures: for each event x, either p is absent and x is disjoint from {p}, or p is present and x\\{p} is the complement of {p} union complement(x).",
+  "payload_sha256": "dd15096e0997b3133d89784ed2b2a7dcee8254df9c4995b881dfe368db10c495",
+  "preserving_centre_free_candidate_count": 0,
+  "producer_sha256": "03b3f1bbc6c151899367dfda6edfd5ce249ddc79bdc5c846ac800bca35a12b34",
+  "rows": [
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 12,
+      "family_sha256": "14df8c31c749a6bd273ade772268e9c1c339b8fd64f2679a9997b13f1e83aad7",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x0"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "399df858b7bed41793bfcad4ff7eefcb4f7db5024dfd365af06d07ba1c699708",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x14"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "70ef425d719aaa6fa56fdb0cac601fae8579eade3b00fc509958df34dbd3cc25",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x15"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "2eb901ccb4ccb728ea819000f8daedbf9b4c28346b892758fceb771d9b225b6d",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x18"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "4694e79627b1987eb34620c65c6e95c37940e275e9fe9f64c623ef649e9e0926",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x19"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "52d1082442142c2a0532eac98e7286d1fc9d29b1f157b6a536fbac1f3574636e",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x1c"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "744c8faf998b7c125812c53e8c0dfaa27fdd559523a9822699b93577595b44fc",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x24"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "c785768635b3993e11f799f86c39e2d6c7fe685f041b695b62ba955fd92d6f1c",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x25"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "523b41e27df116f488d1b8f404c69f3bb7656041113b1f9065b4af0d37519d84",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x28"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "df99dd5f05ec35167e27a93268d889167b14594851d7cf39cce229e8b655f91a",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x29"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "75b57be222724c1f69169597087ba748d92f58a4a3937d4084b9dd9ebe027d43",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x2c"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "030e6f497c4e6d0c520bcf99f2955424ddfb688b3e44dcb71ffb40c45a8e4e5c",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x34"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "3262a3aa7ca129ca710a63ee66b0c5c540a0880c7ecfc37248f8d4f80c828aa1",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x38"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "a7604a1e1bed77a46889a3482e07968e2d6a2c947754af8d28633ae80c00afda",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x3c"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "9c25e596620bb3491848c672a7cbaefd4e2d15fddaa4283f8c370de73beddf1a",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x41"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "f97239ec3ae599f1fc2c0bb040c125db5ef9b2732263ae635baf0ce4163b7a7a",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x45"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "8f43fcb4d492d8bf05a232b7ef8bbf5e4bf06f20933e972c02b0be2ad4745d00",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x49"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "2276daaab92a6aa1e778a0c1cf32379ac0516117afc00cf8245fe55b5ce67e07",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x51"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "75352bf459e06000bdbd3cba432cb15d3a191842cdd64a57d15d07b017ee87a5",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x54"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "53db577432b8228387ae2fb61f4613184c9cd29c13869ada5c0846e354351382",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x55"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "78e7cb3499a773e75d879bc2c72c4867d3c47bd75e2fa5faea07ded7a9eff74d",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x58"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "0dd42eebfa86171198bdc5ed2c2095826fe2dc795b7917750957275e5b47dcfb",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x59"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "deee54a8b29ec80c970896ceba2ab41491bdacf5ee19caff34cc0addbe341d0f",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x5c"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "75bfa5e49d9afef4ba4fe0de6738497846a2887e2b1c86f8aec973b0e4381592",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x61"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "34f662c59f3bece7df2a9eba406b7502f6c3b8aee337c3f758932f35bfed4e0e",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x64"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "dd21126338fcdb4f76011ac2056f3e6f0439069e1452c108a99751bd9d0665bf",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x65"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "15f2293551eceb1183e887fd65b1424deb9e6275123e481d38408fe2a8b415d2",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x68"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "f0261f51b78a282b53b8c457d45e8b88604ace0ba428dfb79abad9d386191152",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x69"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "1706fb62b8279f5a431c1cb1e687ed78e5b8903e1c83cf95cc19726e8bd007d9",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x6c"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "64497e8ec025b23f584ea256601652048efbecb136f9c1e5e167b1cd3ba1ab4f",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x74"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "b5194b8a16b6ef5a23aee27e450ab889f4ebf5f778f059629ba05d3f91260691",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x78"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 16,
+      "family_sha256": "dca457b09d7445c0028b3fef2671700043b1fa9d4d21068f57afc951d0f453cd",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x7c"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 20,
+      "family_sha256": "609b121ee968efccecd9dbc8d31ca460fdd67381f415d31efbd9be3cf61a0346",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x44"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 20,
+      "family_sha256": "3de2c674418a32ce3224b89d85b42d1b2c2c27ea61f2965c818f0b1c6bcbf238",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x48"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 20,
+      "family_sha256": "0af86829e16b789bb73b5a647f9d135ee69a297796b376225df84dde22c52009",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x50"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 20,
+      "family_sha256": "efe749be18a8f136f789d18c8d9934452e33c66ef9c2397b82731df0b5bde826",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x60"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0x4",
+        "0x6",
+        "0xf9",
+        "0xfb",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 24,
+      "family_sha256": "6605becd4d84057da940e24a84078910ab4a54d1eb4ad7e2fa3eaab7a5dc52a5",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x4"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0x8",
+        "0xa",
+        "0xf5",
+        "0xf7",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 24,
+      "family_sha256": "5dc28db0b62c6e470d88a35de2fcc715e4964a350dc85ca41ac27de025ff075a",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x5"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0x10",
+        "0x12",
+        "0xed",
+        "0xef",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 24,
+      "family_sha256": "cb9d98b4fc8f724bb4a1fa75e01646b27576be5e83f118df0a5b1d23588f9a0f",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x10"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0x20",
+        "0x22",
+        "0xdd",
+        "0xdf",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 24,
+      "family_sha256": "41b6f02d71f4f8eee80b5a7f975d70c2e8cb6ac9bf3b167f8a8fba4932bbc903",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x11"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0x40",
+        "0x42",
+        "0xbd",
+        "0xbf",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 24,
+      "family_sha256": "10b29c88d345084094caa6157f98fbe4e681726126cceb66d032df608f30ca9d",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x40"
+    },
+    {
+      "a_join_b_mask_hex": "0xfd",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x2",
+        "0x7d",
+        "0x7f",
+        "0x80",
+        "0x82",
+        "0xfd",
+        "0xff"
+      ],
+      "event_count": 24,
+      "family_sha256": "031a83b9c47da317680869700fce688d95617bc7393601484f09c87dda066039",
+      "preserves_a_join_b_equals_h": true,
+      "representative_adjoined_mask_hex": "0x4c"
+    },
+    {
+      "a_join_b_mask_hex": "0xfc",
+      "centre_free": false,
+      "centre_masks_hex": [
+        "0x0",
+        "0x1",
+        "0x2",
+        "0x3",
+        "0xc",
+        "0xd",
+        "0xe",
+        "0xf",
+        "0x30",
+        "0x31",
+        "0x32",
+        "0x33",
+        "0x3c",
+        "0x3d",
+        "0x3e",
+        "0x3f",
+        "0xc0",
+        "0xc1",
+        "0xc2",
+        "0xc3",
+        "0xcc",
+        "0xcd",
+        "0xce",
+        "0xcf",
+        "0xf0",
+        "0xf1",
+        "0xf2",
+        "0xf3",
+        "0xfc",
+        "0xfd",
+        "0xfe",
+        "0xff"
+      ],
+      "event_count": 32,
+      "family_sha256": "eccba54c46334bae1d3de317358254d35a22da690c70ee3fc755751b2a29e072",
+      "preserves_a_join_b_equals_h": false,
+      "representative_adjoined_mask_hex": "0x1"
+    }
+  ],
+  "schema": "split-truth-atom-centre-killing-no-go-v1",
+  "schema_version": "1.0",
+  "scope": "Exhaustive over all 256 one-subset adjunctions to the fixed 8-point control, followed by exact complement/disjoint-union closure and all-pair lattice/OM/centre audit. The accompanying singleton-centrality theorem closes every same-carrier extension, not only this one-event census. No larger-carrier claim.",
+  "singleton_central_event_mask_hex": "0x2"
+}

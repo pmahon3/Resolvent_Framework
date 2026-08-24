@@ -1,0 +1,85 @@
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{booktabs}
+
+% ---------- Theorem environments ----------
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{question}[theorem]{Question}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{namedgoal}[theorem]{Goal}
+\newtheorem{namedlemma}[theorem]{Named Lemma}
+
+% ---------- Commands ----------
+\newcommand{\bbN}{\mathbb{N}}
+\newcommand{\bbZ}{\mathbb{Z}}
+\newcommand{\bbR}{\mathbb{R}}
+\newcommand{\Rc}{\mathcal{R}}
+\newcommand{\EA}{\mathrm{EA}}
+\newcommand{\PR}{\mathrm{PR}}
+\newcommand{\STAB}{\mathrm{STAB}}
+\newcommand{\FSTAB}{\mathrm{FSTAB}}
+\newcommand{\TR}{\mathrm{TR}}
+\newcommand{\LISC}{\mathrm{LISC}}
+\newcommand{\ind}{\mathbf{1}}
+
+% ---------- Standalone flag ----------
+\newif\ifstandalone
+\standalonetrue
+
+% ---------- Title ----------
+\title{Commensurability of Observation Protocols:\\
+When Coherent Windows Determine a Process}
+\author{Patrick S.\ Mahon\thanks{%
+  Research Computing Group, Simon Fraser University, Burnaby, BC, Canada.
+  \texttt{pmahon@sfu.ca}}}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Observing a process through overlapping finite windows yields local statistics; we
+ask when locally coherent window-statistics must arise from a single global
+process. This is a \emph{skeleton} toward that target: the architecture and its
+status, not a finished paper. An observation protocol is \emph{commensurable} when
+empirical adequacy (pairwise coherence, $\EA$) forces realisability by a declared
+class ($\PR(\Rc)$); the failure is contextuality in the sense of
+Abramsky--Brandenburger, taken from the observational side. Geometrically, a
+protocol is commensurable iff its coherence polytope $C$ equals its realisability
+polytope $R$, so contextuality is an exactly computable separation with a rational
+witness. The spine is a \emph{winding criterion}: for a symbolic language observed
+around a ring, a length is contextual exactly when the layered ring carries a
+layer-injective winding-$\ge2$ cycle; this makes the boundary of the guarantee
+decidable (its combinatorial kernel is machine-verified in Lean~4). The
+reconstruction guarantee holds unconditionally on three tame families and would
+hold for all total languages if the catalogue of taming mechanisms were complete
+--- the open \emph{universal impossibility} capstone. We reduce that capstone to a
+single named forcing lemma (primitivity forces a parity obstruction), validated
+without counterexample but not proved, and state honestly what remains: the forcing
+lemma, and the lift of the winding criterion from winding-2 to full safety. The
+worked results that populate the criterion --- the parity theorem and its PR-box,
+the taming catalogue, Circuit Localization --- are established and deferred to the
+body; the skeleton points at where they slot beneath the target.
+\end{abstract}
+
+\ifstandalone
+\input{reconstruction_skeleton}
+\bibliographystyle{plain}
+\bibliography{references}
+\fi
+
+\end{document}

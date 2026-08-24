@@ -1,0 +1,262 @@
+\section{The observer-first reading}\label{sec:moral}
+
+An observer running a protocol obtains, natively, a family of finite relative
+frequencies that cohere across overlapping views. That is all observation
+supplies. Two further properties are routinely assumed of the state such data
+``comes from'' --- that it is countably additive, and that it assigns definite
+truth values --- but neither is given by the data. They are \emph{representation
+properties}: signatures of the world being observed and of the protocol used to
+observe it, not of empirical adequacy itself. The programme these three papers
+form is the price list for those signatures: what structure a world's language
+and an observer's protocol must have before countable additivity and
+value-definiteness come for free, and --- in two cases settled by explicit
+construction --- proofs that outside that structure the signatures can be
+genuinely absent while coherence remains.
+
+This note is an umbrella. It states the shared object, tabulates how the three
+papers divide the labour, records the corpus-level commonalities and the
+genuinely corpus-level open questions, and points to each paper for the
+mathematics. It deliberately does not merge them: each paper travels to its own
+audience, and the spine carries only what no single paper can say alone.
+
+
+\section{The filtration and its three transitions}\label{sec:filtration}
+
+The companion paper on distributivity and realism introduces the organising
+object: on the state space of an observation algebra there is a natural
+filtration
+\[
+  \Sf \;\supseteq\; \Ssig \;\supseteq\; \Sdfsig,
+\]
+from all coherent states, to the $\sigma$-additive ones, to the
+$\sigma$-additive dispersion-free ones. Here
+$\Sdfsig=\Sdf\cap\Ssig$. Standalone value-definite realism is the weaker
+existence predicate $\Sdf\ne\varnothing$; on an infinite carrier it is not
+silently identified with $\Sdfsig\ne\varnothing$. The three transitions are of
+different mathematical character, named there:
+\begin{enumerate}[label=\textup{(\arabic*)}, itemsep=2pt]
+  \item \emph{pasting} --- from locally coherent window-data up to a single
+    globally realising state ($\EA \to \PR$);
+  \item \emph{regularity} --- from a finitely additive global state up to a
+    countably additive one ($\PR_{\mathrm{f.a.}} \to \PR_\sigma$);
+  \item \emph{sharpness} --- existence of a dispersion-free state
+    ($\VDR$); within the displayed filtration the endpoint also carries the
+    separate $\sigma$-additivity requirement.
+\end{enumerate}
+Distributivity supplies standalone sharpness and the Boolean pasting result;
+regularity still requires $\sigma$-additivity (and the relevant realisation
+condition). The corpus-level observation this note records is that
+\textbf{each companion paper is the deep study of exactly one transition}, and
+that the three locate their boundaries in different structures.
+
+\paragraph{Notation fence.} EA and PR are source-local symbols. In the
+reconstruction paper they mean overlap-compatible probability tables and
+realisability by one process in a declared class. In the distributivity paper
+they concern a dual-space measure and descent to an underlying realisation
+space. The architectural alignment in this note asserts no translation between
+those definitions.
+
+\begin{table}[h]
+\centering
+\small
+\begin{tabular}{@{}llll@{}}
+\toprule
+Transition & Paper & Tame condition / status & Wild-side object \\
+\midrule
+pasting
+  & commensurability
+  & Vorob'ev acyclicity
+  & odd-ring half-model \\
+regularity
+  & $\sigma$-essential
+  & $\Phi$ on OMLs: open
+  & the product Ulam carrier, in ZFC \\
+sharpness
+  & distributivity \& realism
+  & distributivity: sufficient
+  & Kochen--Specker (imported, reframed) \\
+\bottomrule
+\end{tabular}
+\caption{The three transitions of the filtration, the paper that studies each,
+the established tame condition or boundary status, and an object witnessing
+the wild side. Two of the three witnesses --- the odd-ring half-model and the
+product Ulam carrier --- are constructed in the companion papers rather than
+imported.}
+\label{tab:map}
+\end{table}
+
+The table is the weave. One question --- \emph{when does empirical adequacy
+purchase realism?} --- is organised as a classification (made precise by the
+tame tower of Corollary~\ref{cor:tower}), but not by one uniform structural
+boundary. Pasting has the Vorob'ev acyclicity boundary for universal extension;
+regularity has the open OML predicate $\Phi$; sharpness has distributivity as a
+sufficient condition and Kochen--Specker as its flagship obstruction. Two of
+the separating witnesses are new constructions; the third is classical and
+reframed here.
+
+
+\section{What is genuinely common}\label{sec:common}
+
+Three things hold across all three papers and belong to none of them alone.
+
+\paragraph{Different structural boundaries.} The commonality is architectural,
+not a shared dichotomy. Pasting asks for gluing and has Vorob'ev acyclicity as
+its universal-extension boundary. Regularity asks for finite-trace
+$\sigma$-liftability and leaves $\Phi$ open on concrete $\sigma$-complete OMLs.
+Sharpness asks for a dispersion-free state; distributivity is sufficient and
+Kochen--Specker blocks the complete Hilbert lattice in dimension at least three.
+
+\paragraph{The observer-first price list.} Section~\ref{sec:moral}: the three
+papers are, together, the statement that $\sigma$-additivity and
+value-definiteness are representation properties with a computable price, and two
+proofs that the price is real (the two constructed witnesses).
+
+\paragraph{Method.} The corpus shares a working method, stated once here without
+ceremony: predictions are pre-registered before testing; a verdict of
+``realisable/tame'' is admitted only from a theorem or an exact enumeration, of
+``contextual/wild'' only from an exhibited witness; and load-bearing
+combinatorial lemmas are machine-checked (the $\sigma$-essential main theorem and
+the commensurability paper's layer-injectivity discriminant are certified in
+Lean~4).
+
+\paragraph{The novelty ledger, honestly.} The classical mathematics each paper
+uses is credited there as classical (Gleason and Kochen--Specker for sharpness;
+Derr--Williamson, Ulam, and the Boolean baseline for regularity;
+Wainwright--Jordan, Vorob'ev, De~Loera--Onn and stable-set theory for pasting).
+The corpus's own contribution is the observer-first framing, the filtration as
+its organising object, and two constructed witnesses where the literature had
+only imported or absent ones. This is a bridge over known mathematics with two
+new construction points; the umbrella claims no more.
+
+
+\section{Two bridging results and the surviving regularity question}\label{sec:open}
+
+The two bridging claims that turn the tabulation of \S\ref{sec:filtration} into a
+single classification are settled here --- one negatively (the coherence notions
+are a strictly separated ladder, not one notion), one positively (a compactness
+quarantine sorts the two constructed witnesses into disjoint regimes). The
+former three-way latticehood conjecture is not a third bridge: it is refuted
+under its literal reading, leaving one regularity question.
+
+\begin{proposition}[the two-gap ladder]\label{prop:ladder}
+The coherence notions of the three papers form a strictly separated ladder,
+\[
+  \text{pairwise-}\EA \;\supsetneq\; \text{finite coherence}
+  \;\supsetneq\; \sigma\text{-realizability},
+\]
+and both strict inclusions are inhabited by the corpus's own witnesses. The first
+gap: the golden-mean odd-ring half-model (commensurability programme,
+machine-verified) --- the pentagon protocol $C_5$ over $\{0,1\}^5$ with the
+half-model $s(a,b)=\tfrac12$ for $a\neq b$ and $0$ for $a=b$ --- is pairwise-$\EA$
+yet admits \emph{no} finitely additive state on its generated closure: its
+support would have to be a proper $2$-colouring of an odd cycle, of which there
+are none (equivalently, the stable-set bound $\sum_j \mu(a_j)\le\alpha(C_5)=2$ is
+exceeded by the half-model's value $5/2$). The second gap: the product Ulam
+carrier's pattern is finitely coherent with no $\sigma$-additive extension. Hence
+the three papers' notions are not one notion evaluated at different rungs; they
+are the three rungs, provably distinct.
+\end{proposition}
+
+\begin{remark}
+The correct corpus-level claim is therefore the rhyme, now made exact: each paper
+studies coherence-at-a-rung, the rungs are strictly ordered, and each strict
+inclusion is witnessed inside the corpus. What survives of the ``one notion''
+intuition is structural, not extensional: every rung is a finite-additive gluing
+condition over a widening class of admissible families.
+\end{remark}
+
+\begin{theorem}[quarantine]\label{thm:quarantine}
+Let $X$ be a compact zero-dimensional metrizable space and $\mathrm{Clo}(X)$ its
+clopen algebra.
+\begin{enumerate}[label=\textup{(\roman*)}]
+\item Every finitely additive two-valued state $s$ on any subalgebra
+  $B \subseteq \mathrm{Clo}(X)$ is the restriction of a point evaluation.
+  Consequently a finitely coherent two-valued pattern over clopen events always
+  has a realizing point: clauses \textup{(0)} and \textup{(i)} of the
+  $\sigma$-essential recipe cannot coexist, and the $\sigma$-essential phenomenon
+  is impossible over compact clopen carriers.
+\item Every finitely additive probability charge on $\mathrm{Clo}(X)$ is a
+  premeasure and extends uniquely to a Borel probability measure on $X$.
+\item Every charge on a subalgebra of $\mathrm{Clo}(X)$ --- in particular on the
+  algebra generated by any protocol's contexts --- extends to $\mathrm{Clo}(X)$,
+  hence realizes as a Borel measure. The only obstruction to realization in the
+  dynamical regime is finite-additive.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+(i) $F=\{C \in B : s(C)=1\}$ is a filter of $B$ (if $s(C)=s(D)=1$ then
+$s(C\cap D) + s(C\cup D) = s(C)+s(D) = 2$ forces $s(C\cap D)=1$, and $s$ is
+monotone with $s(\varnothing)=0$); extend $F$ to an ultrafilter $U$ of
+$\mathrm{Clo}(X)$. $U$ is a family of nonempty closed subsets of a compact space
+with the finite intersection property, so some $x \in \bigcap U$; then
+$s(C)=1 \Rightarrow x \in C$ and
+$s(C)=0 \Rightarrow s(C^{\perp})=1 \Rightarrow x \notin C$, i.e.\
+$s=\delta_x\!\restriction\!B$. (ii) If clopen $C = \bigsqcup_n C_n$ with all
+$C_n$ clopen, compactness of $C$ and disjointness of the open cover force all but
+finitely many $C_n$ empty, so $\sigma$-additivity on $\mathrm{Clo}(X)$ reduces to
+finite additivity; the Carath\'eodory--Hahn extension then gives a Borel measure
+on $\sigma(\mathrm{Clo}(X))$, which is the Borel $\sigma$-algebra since the clopen
+sets form a basis, uniquely (the measure is finite, hence $\sigma$-finite; $\pi$--$\lambda$).
+(iii) Charge extension from a subalgebra
+(Horn--Tarski~\cite{HornTarski1948}, in the finitely additive category; their
+countably additive analogue can fail, which is why part (ii) supplies
+$\sigma$-additivity separately), then (ii); see Rao--Rao~\cite{RaoRao1983} for the
+charge/Stone-space correspondence.
+\end{proof}
+
+\begin{corollary}[the tame tower; the witnesses are sorted]\label{cor:tower}
+The tame results of the corpus form a tower:
+finite carriers \textup{(Wright; the Boolean baseline)} $\subseteq$
+compact clopen carriers \textup{(Theorem~\ref{thm:quarantine})} $\subseteq$
+Polish-representable carriers \textup{(Derr--Williamson)}. In particular the two
+constructed witnesses inhabit provably disjoint regimes --- the pasting witness
+lives on a compact carrier where the regularity transition is free, and the
+regularity witness lives at $\omega_1$, past the tower --- so the corpus's table
+is a classification, not a collection.
+\end{corollary}
+
+\begin{remark}[why the witness escapes; scope; credit]\label{rem:quarantine-scope}
+Theorem~\ref{thm:quarantine}(i) is the Boolean baseline's atom argument with
+``finite'' upgraded to ``compact'': the same proof at two scales, and the
+compactness hypothesis is exactly what the $\sigma$-essential witness escapes by
+living at $\omega_1$, where the clopen family loses the finite intersection
+property. The quarantine and the regularity witness are therefore consistent, not
+in tension: the theorem proves the witness \emph{cannot} descend to the compact
+dynamical regime. The theorem quarantines realization by \emph{measures}; whether
+exotic $\sigma$-classes generated inside a Borel structure satisfy the lifting
+property $\Phi$ is the $\sigma$-essential paper's open characterization question,
+untouched here. Parts (ii)--(iii) are Stone duality for
+charges~\cite{HornTarski1948,RaoRao1983}, classical; the corpus's contribution is
+part (i)'s pointed form, the tower, and the sorting.
+\end{remark}
+
+The literal three-way conjecture fails a type check and a counterexample check.
+The corpus defines liftability exactly only at regularity, through the
+finite-trace predicate $\Phi$; and $L(H)$ for $\dim H\geq3$ is already a complete
+orthomodular lattice while Kochen--Specker gives $\Sdf(L(H))=\varnothing$.
+Latticehood therefore cannot imply sharpness.
+
+The surviving theory-front question is: does every concrete,
+$\sigma$-complete, non-Boolean, essentially irreducible orthomodular lattice
+satisfy $\Phi$? Equivalently, whenever a two-valued state on a finite
+orthocomplement-closed substructure is the trace of a global finitely additive
+two-valued state, is the same finite trace realised by some global
+$\sigma$-additive two-valued state? This question belongs wholly to the
+regularity transition. The pasting and sharpness rows retain their own
+boundaries and are not instances of it.
+
+
+\section{Reading and dissemination order}\label{sec:order}
+
+For a reader: distributivity \& realism first (it introduces the filtration),
+then $\sigma$-essential (the deepest single result), then commensurability (the
+broadest). For dissemination the crown result travels first and alone: the
+$\sigma$-essential paper is self-contained and Lean-certified, and its
+Derr--Williamson cell-closure framing does not depend on the other two. The
+commensurability paper follows; the distributivity paper may belong to a
+different venue class (foundations of physics) than the two mathematics papers.
+The spine lets each paper travel light while carrying, itself, only the
+corpus-level content: the filtration as shared object, the observer-first moral,
+the two bridging results, and the surviving regularity question of
+\S\ref{sec:open}.

@@ -1,0 +1,102 @@
+{
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/arr_cyl_critical_sublattice_pilot.py --verify",
+  "contextual_ar_reb_indices": [
+    15250,
+    16786,
+    10752,
+    18322,
+    18331
+  ],
+  "evidence_class": "Executable verified \u2014 sampled finite scope",
+  "family_cap": 20000,
+  "g_seeded": false,
+  "generator_indices": [
+    1645,
+    3181,
+    15250,
+    16786
+  ],
+  "occurrence_link": {
+    "occurrence_id": "left_retained_position11-Neg-023",
+    "opposite_universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3",
+    "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+  },
+  "old_generator_family_exact": true,
+  "old_generator_family_size": 4,
+  "payload_sha256": "f1df16856c62f7ba4fc164487ce97e1ee34ca5d513b85945d8213a2fad6b87d0",
+  "producer_sha256": "dec02775cdbd7aea853c392e3543b82f9b55c40f0659afec3b06c1c73b1cb27c",
+  "result": {
+    "both_closure_hit_cap": false,
+    "both_copy": {
+      "actual_join_count": 1,
+      "actual_join_equals_literal_union": false,
+      "actual_join_equals_target": true,
+      "all_family_upper_count": 2,
+      "capped": false,
+      "family_size": 16,
+      "interval_upper_count": 1,
+      "least_upper_count": 1,
+      "least_upper_equals_literal_union": false,
+      "least_upper_equals_target": true,
+      "least_upper_sha256": "022a987c79b58d5f9039b985318242f6856fdbb5068c39b848a6af5e71f7ce34",
+      "literal_union_generated": false,
+      "target_generated": true
+    },
+    "both_copy_closure_rounds": [
+      1,
+      2,
+      2,
+      0
+    ],
+    "both_copy_structural_audit": {
+      "centre_is_trivial": true,
+      "centre_size": 2,
+      "lattice": true,
+      "orthomodular": true
+    },
+    "category": "both_copy_closure_preserves_target_only_cut",
+    "literal_union_mask_sha256": "21234f47b1c46620378ddbbb9f04f6b88fdaeab95e572fd35e1ea439fa548759",
+    "physical_literal_union_equals_recorded_g": true,
+    "physical_literal_union_root_sha256": "5f0670219d13f0229fc4e0bc0ae150beb4f21b8e4e74e715cc05e4f747651d4f",
+    "realized_truth_atom_count": 14,
+    "right_closure_hit_cap": false,
+    "right_only": {
+      "actual_join_count": 1,
+      "actual_join_equals_literal_union": false,
+      "actual_join_equals_target": true,
+      "all_family_upper_count": 2,
+      "capped": false,
+      "family_size": 12,
+      "interval_upper_count": 1,
+      "least_upper_count": 1,
+      "least_upper_equals_literal_union": false,
+      "least_upper_equals_target": true,
+      "least_upper_sha256": "022a987c79b58d5f9039b985318242f6856fdbb5068c39b848a6af5e71f7ce34",
+      "literal_union_generated": false,
+      "target_generated": true
+    },
+    "right_only_closure_rounds": [
+      1,
+      2,
+      2,
+      0
+    ],
+    "right_only_structural_audit": {
+      "centre_is_trivial": false,
+      "centre_size": 4,
+      "lattice": true,
+      "orthomodular": true
+    },
+    "target_left_cylindrical": false,
+    "target_mask_sha256": "022a987c79b58d5f9039b985318242f6856fdbb5068c39b848a6af5e71f7ce34",
+    "target_right_cylindrical": false
+  },
+  "runtime_seconds": 219.895246,
+  "schema": "arr-cyl-critical-sublattice-pilot-v1",
+  "schema_version": "1.0",
+  "scope": "Exact finite truth-signature quotient generated only by cylinders of the two maximal lowers 15250/16786 and complements, plus actual Neg-023. Any lattice/OML verdict is restricted-generator control only, not an ambient completion of the full old copy. No 6.2M carrier, full old-copy sublogic, state, sigma, ODBC, or Phi claim.",
+  "shared_overlap_trace_count": 56,
+  "source_actual_event_payload_sha256": "3d6f97c80ff21de11da3d748acb1d7635fa926386bf376ae921c0b7c1cdab6e9",
+  "source_actual_kernel_payload_sha256": "1abffb96a52d7f4247879f69df120c5b1caa3cb99dc7371a1a3b0dfcb82dbdaa",
+  "source_ar_reb_payload_sha256": "e300f31d4f050bf6b17552de43aa60a3a258bd6bf2f14e49a415abe43a2f746d"
+}

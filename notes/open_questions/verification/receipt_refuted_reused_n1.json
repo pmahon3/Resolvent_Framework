@@ -1,0 +1,115 @@
+{
+ "command": "python3 incompatible_h4_conditional_cell_audit.py --verify",
+ "emitted": "2026-07-14",
+ "generator": "incompatible_h4_conditional_cell_audit.py",
+ "payload": {
+  "audit": {
+   "first_failed_lattice_pair": {
+    "kind": "join",
+    "x": "a:m1",
+    "y": "a:m2"
+   },
+   "lattice_ok": false
+  },
+  "construction": {
+   "atoms": [
+    "a1",
+    "a2",
+    "a3",
+    "e00",
+    "e01",
+    "e10",
+    "e11",
+    "m1",
+    "m2",
+    "n1",
+    "p11",
+    "p12",
+    "p14",
+    "p15",
+    "p24",
+    "s1",
+    "s2",
+    "t1",
+    "t2",
+    "u1",
+    "v1",
+    "w1"
+   ],
+   "blocks": [
+    [
+     "a1",
+     "p11",
+     "u1"
+    ],
+    [
+     "a2",
+     "p12",
+     "v1"
+    ],
+    [
+     "u1",
+     "v1",
+     "w1"
+    ],
+    [
+     "a3",
+     "n1",
+     "p15"
+    ],
+    [
+     "m1",
+     "p14",
+     "w1"
+    ],
+    [
+     "m1",
+     "n1",
+     "t1"
+    ],
+    [
+     "m2",
+     "p24",
+     "w1"
+    ],
+    [
+     "m2",
+     "n1",
+     "t2"
+    ],
+    [
+     "e10",
+     "s1",
+     "t1"
+    ],
+    [
+     "e01",
+     "s2",
+     "t2"
+    ],
+    [
+     "e00",
+     "e01",
+     "e10",
+     "e11"
+    ]
+   ],
+   "couplings": [],
+   "designated": {
+    "activation_triples": []
+   },
+   "identifications": []
+  },
+  "counts": {
+   "atoms": 22,
+   "blocks": 11,
+   "elements": 52
+  },
+  "design": "refuted_reused_n1",
+  "shared_structure": "cascade 2 reuses n1 (4-loop)",
+  "verifier_sha256": "f4d7d18a8da5ccc3b2409b93924a4202c3643147fe68bdfef17a2b89d60de96b"
+ },
+ "payload_sha256": "de8900e9387a46f205e41557d4dc99a033f63fcbc9465a2fb3112c3f88f95ca1",
+ "schema": "oml-finite-cell-receipt",
+ "schema_version": "1.0"
+}

@@ -1,0 +1,2099 @@
+{
+  "automorphisms": {
+    "certified_by": "atom permutations preserving the atomistic event family",
+    "count": 128,
+    "lattice_atoms": [
+      1,
+      2,
+      3,
+      4,
+      6,
+      8,
+      10,
+      16,
+      22,
+      28,
+      34,
+      40
+    ]
+  },
+  "checks": {
+    "all_42_pairs_equivalent": false,
+    "minimal_relation_has_size_8": true,
+    "minimal_relation_nonfunctional_both_directions": true,
+    "minimal_relation_nonrectangular": true,
+    "orbit_sizes": [
+      4,
+      8,
+      4,
+      16,
+      2,
+      8
+    ],
+    "pair_5_11_orbit_size": 4,
+    "qualifying_pair_count": 42,
+    "qualifying_pair_orbit_count": 6
+  },
+  "completion": {
+    "all_pair_lattice_certificate": {
+      "all_have_greatest_lower_bound": true,
+      "all_have_least_upper_bound": true,
+      "distinct_intersection_counts": {
+        "B:B": 131072,
+        "B:Ca": 1154884,
+        "B:Cb": 1154884,
+        "B:D0": 385024,
+        "B:D1": 385024,
+        "B:D2": 393152,
+        "B:D3": 393152,
+        "Ca:Ca": 16,
+        "Ca:Cb": 226,
+        "Ca:D3": 1210,
+        "Cb:Cb": 16,
+        "D0:Ca": 49144,
+        "D0:Cb": 148276,
+        "D0:D0": 16384,
+        "D0:D1": 613120,
+        "D0:D2": 1154884,
+        "D0:D3": 86032,
+        "D1:Ca": 148276,
+        "D1:Cb": 49144,
+        "D1:D1": 16384,
+        "D1:D2": 86032,
+        "D1:D3": 1154884,
+        "D2:Ca": 376,
+        "D2:Cb": 1210,
+        "D2:D2": 128,
+        "D2:D3": 4790,
+        "D3:Cb": 376,
+        "D3:D3": 128
+      },
+      "method": "enumerate every distinct set intersection for every block pair; the union of all blockwise interiors is the greatest possible lower bound"
+    },
+    "blocks": {
+      "B": {
+        "A_full_atoms": 4,
+        "C_full_atoms": 4,
+        "atoms": 17,
+        "boundary_events": 131072,
+        "events": 131072
+      },
+      "Ca": {
+        "A_full_atoms": 0,
+        "C_full_atoms": 0,
+        "atoms": 4,
+        "boundary_events": 16,
+        "events": 16
+      },
+      "Cb": {
+        "A_full_atoms": 0,
+        "C_full_atoms": 0,
+        "atoms": 4,
+        "boundary_events": 16,
+        "events": 16
+      },
+      "D0": {
+        "A_full_atoms": 4,
+        "C_full_atoms": 0,
+        "atoms": 14,
+        "boundary_events": 16384,
+        "events": 16384
+      },
+      "D1": {
+        "A_full_atoms": 0,
+        "C_full_atoms": 4,
+        "atoms": 14,
+        "boundary_events": 16384,
+        "events": 16384
+      },
+      "D2": {
+        "A_full_atoms": 0,
+        "C_full_atoms": 0,
+        "atoms": 7,
+        "boundary_events": 128,
+        "events": 128
+      },
+      "D3": {
+        "A_full_atoms": 0,
+        "C_full_atoms": 0,
+        "atoms": 7,
+        "boundary_events": 128,
+        "events": 128
+      }
+    },
+    "centre_size": 2,
+    "checks": {
+      "all_boundaries_saturate": true,
+      "centre_is_trivial": true,
+      "completion_complement_closed": true,
+      "completion_disjoint_union_closed": true,
+      "completion_is_lattice": true,
+      "orthomodular": true,
+      "raw_complement_closed": true,
+      "raw_disjoint_union_closed": false,
+      "seven_blocks_are_maximal": true,
+      "seven_blocks_cover_completion": true
+    },
+    "closure": {
+      "canonical_dynkin_equals_seven_block_union": true,
+      "canonical_dynkin_fixed_point_count": 147592,
+      "canonical_dynkin_recomputed": true,
+      "counts_agree": true,
+      "direct_seven_block_union_count": 147592
+    },
+    "model": {
+      "A_atoms": 4,
+      "C_atoms": 4,
+      "D_atoms": 2,
+      "carrier_points": 68,
+      "completed_events": 147592,
+      "raw_events": 131112
+    },
+    "pairwise_intersection_sizes": {
+      "B:Ca": 4,
+      "B:Cb": 4,
+      "B:D0": 8192,
+      "B:D1": 8192,
+      "B:D2": 64,
+      "B:D3": 64,
+      "Ca:Cb": 2,
+      "Ca:D3": 2,
+      "D0:Ca": 8,
+      "D0:Cb": 2,
+      "D0:D1": 512,
+      "D0:D2": 4,
+      "D0:D3": 32,
+      "D1:Ca": 2,
+      "D1:Cb": 8,
+      "D1:D2": 32,
+      "D1:D3": 4,
+      "D2:Ca": 8,
+      "D2:Cb": 2,
+      "D2:D3": 4,
+      "D3:Cb": 8
+    },
+    "relation": {
+      "blocks_seeing_both_full_coordinates": [
+        "B"
+      ],
+      "degree_sequence_left": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "degree_sequence_right": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "nonfunctional": true,
+      "nonrectangular": true,
+      "pairs": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "quotient_edges_after_completion": 1,
+      "size": 8
+    },
+    "scope": "finite 4-2-4 approximant; no infinite sigma-completeness inference"
+  },
+  "controls": {
+    "full_common_factor": {
+      "atom_counts": {
+        "A": 2,
+        "C": 2,
+        "D": 2
+      },
+      "checks": {
+        "functional_left_to_right": true,
+        "functional_right_to_left": true,
+        "rectangular": false,
+        "restriction_maps_surjective": true
+      },
+      "left_degree_sequence": [
+        1,
+        1
+      ],
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          1,
+          1
+        ]
+      ],
+      "relation_size": 2,
+      "restriction_maps": {
+        "A_to_D": [
+          0,
+          1
+        ],
+        "C_to_D": [
+          0,
+          1
+        ]
+      },
+      "right_degree_sequence": [
+        1,
+        1
+      ]
+    },
+    "larger_finite": [
+      {
+        "atom_counts": {
+          "A": 2,
+          "C": 2,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "relation_size": 4,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          2,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 2,
+          "C": 3,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          3,
+          3
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "relation_size": 6,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 2,
+          "C": 4,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          4,
+          4
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "relation_size": 8,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          2,
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 3,
+          "C": 2,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          2,
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "relation_size": 6,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          3,
+          3
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 3,
+          "C": 3,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          3,
+          3,
+          3
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "relation_size": 9,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 3,
+          "C": 4,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          4,
+          4,
+          4
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "relation_size": 12,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          3,
+          3,
+          3,
+          3
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 4,
+          "C": 2,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "relation_size": 8,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          4,
+          4
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 4,
+          "C": 3,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          3,
+          3,
+          3,
+          3
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "relation_size": 12,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 4,
+          "C": 4,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          4,
+          4,
+          4,
+          4
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            0
+          ],
+          [
+            3,
+            1
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "relation_size": 16,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "C_to_D": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          4,
+          4,
+          4,
+          4
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 2,
+          "C": 2,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": true,
+          "functional_right_to_left": true,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          1,
+          1
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ]
+        ],
+        "relation_size": 2,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            1
+          ],
+          "C_to_D": [
+            0,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          1,
+          1
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 2,
+          "C": 3,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": true,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          1,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "relation_size": 3,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            1
+          ],
+          "C_to_D": [
+            0,
+            0,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 2,
+          "C": 4,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": true,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ]
+        ],
+        "relation_size": 4,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            1
+          ],
+          "C_to_D": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 3,
+          "C": 2,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": true,
+          "functional_right_to_left": false,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          1,
+          1,
+          1
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ]
+        ],
+        "relation_size": 3,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            1
+          ],
+          "C_to_D": [
+            0,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          1,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 3,
+          "C": 3,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          1,
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ]
+        ],
+        "relation_size": 5,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            1
+          ],
+          "C_to_D": [
+            0,
+            0,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 3,
+          "C": 4,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          2,
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "relation_size": 6,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            1
+          ],
+          "C_to_D": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          1,
+          1,
+          2,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 4,
+          "C": 2,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": true,
+          "functional_right_to_left": false,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            1
+          ],
+          [
+            3,
+            1
+          ]
+        ],
+        "relation_size": 4,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "C_to_D": [
+            0,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          2,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 4,
+          "C": 3,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          1,
+          1,
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            3,
+            2
+          ]
+        ],
+        "relation_size": 6,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "C_to_D": [
+            0,
+            0,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          2,
+          2,
+          2
+        ]
+      },
+      {
+        "atom_counts": {
+          "A": 4,
+          "C": 4,
+          "D": 2
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": false,
+          "rectangular": false,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            2,
+            2
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            3,
+            2
+          ],
+          [
+            3,
+            3
+          ]
+        ],
+        "relation_size": 8,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "C_to_D": [
+            0,
+            0,
+            1,
+            1
+          ]
+        },
+        "right_degree_sequence": [
+          2,
+          2,
+          2,
+          2
+        ]
+      }
+    ],
+    "minimal_4_2_4": {
+      "atom_counts": {
+        "A": 4,
+        "C": 4,
+        "D": 2
+      },
+      "checks": {
+        "functional_left_to_right": false,
+        "functional_right_to_left": false,
+        "rectangular": false,
+        "restriction_maps_surjective": true
+      },
+      "left_degree_sequence": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "relation": [
+        [
+          0,
+          0
+        ],
+        [
+          0,
+          1
+        ],
+        [
+          1,
+          0
+        ],
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "relation_size": 8,
+      "restriction_maps": {
+        "A_to_D": [
+          0,
+          0,
+          1,
+          1
+        ],
+        "C_to_D": [
+          0,
+          0,
+          1,
+          1
+        ]
+      },
+      "right_degree_sequence": [
+        2,
+        2,
+        2,
+        2
+      ]
+    },
+    "one_side_trivial": {
+      "left": {
+        "atom_counts": {
+          "A": 1,
+          "C": 4,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": false,
+          "functional_right_to_left": true,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          4
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ]
+        ],
+        "relation_size": 4,
+        "restriction_maps": {
+          "A_to_D": [
+            0
+          ],
+          "C_to_D": [
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          1,
+          1,
+          1,
+          1
+        ]
+      },
+      "right": {
+        "atom_counts": {
+          "A": 4,
+          "C": 1,
+          "D": 1
+        },
+        "checks": {
+          "functional_left_to_right": true,
+          "functional_right_to_left": false,
+          "rectangular": true,
+          "restriction_maps_surjective": true
+        },
+        "left_degree_sequence": [
+          1,
+          1,
+          1,
+          1
+        ],
+        "relation": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            2,
+            0
+          ],
+          [
+            3,
+            0
+          ]
+        ],
+        "relation_size": 4,
+        "restriction_maps": {
+          "A_to_D": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "C_to_D": [
+            0
+          ]
+        },
+        "right_degree_sequence": [
+          4
+        ]
+      }
+    }
+  },
+  "intrinsic_pair": {
+    "a=e_meet_f_compl": 4,
+    "c=e_compl_meet_f": 10,
+    "common_maximal_blocks": [
+      "B"
+    ],
+    "d=e_meet_f": 1,
+    "e": 5,
+    "f": 11,
+    "interval_sizes": {
+      "[0,a]": 2,
+      "[0,c]": 2,
+      "[0,d]": 2,
+      "[0,e]": 6,
+      "[0,f]": 6
+    },
+    "r=(e_join_f)_compl": 40,
+    "supports": {
+      "a": [
+        "B",
+        "D0",
+        "D3"
+      ],
+      "c": [
+        "B",
+        "D1",
+        "D2"
+      ],
+      "d": [
+        "B",
+        "D0",
+        "D1"
+      ],
+      "e": [
+        "B",
+        "Ca",
+        "D0",
+        "D2"
+      ],
+      "f": [
+        "B",
+        "Cb",
+        "D1",
+        "D3"
+      ]
+    }
+  },
+  "qualifying_pair_orbits": [
+    {
+      "common_blocks": [
+        "B"
+      ],
+      "invariants": {
+        "carrier_region_cardinalities": [
+          4,
+          4,
+          4
+        ],
+        "common_block_count": 1,
+        "generated_sub_oml_size": 16,
+        "interval_sizes": [
+          6,
+          6
+        ],
+        "meet_event": 1,
+        "support_cycle_length": 7,
+        "support_intersection_size": 1,
+        "support_sizes": [
+          4,
+          4
+        ]
+      },
+      "meet_event": 1,
+      "members": [
+        [
+          5,
+          11
+        ],
+        [
+          5,
+          44
+        ],
+        [
+          11,
+          50
+        ],
+        [
+          44,
+          50
+        ]
+      ],
+      "orbit_size": 4,
+      "priority": "primary-(5,11)-architecture",
+      "representative": [
+        5,
+        11
+      ],
+      "support_cycle": [
+        "B",
+        "Ca",
+        "D0",
+        "D1",
+        "Cb",
+        "D3",
+        "D2"
+      ]
+    },
+    {
+      "common_blocks": [
+        "B",
+        "D0"
+      ],
+      "invariants": {
+        "carrier_region_cardinalities": [
+          4,
+          4,
+          8
+        ],
+        "common_block_count": 2,
+        "generated_sub_oml_size": 8,
+        "interval_sizes": [
+          6,
+          16
+        ],
+        "meet_event": 1,
+        "support_cycle_length": 5,
+        "support_intersection_size": 2,
+        "support_sizes": [
+          3,
+          4
+        ]
+      },
+      "meet_event": 1,
+      "members": [
+        [
+          5,
+          51
+        ],
+        [
+          5,
+          54
+        ],
+        [
+          11,
+          45
+        ],
+        [
+          11,
+          54
+        ],
+        [
+          15,
+          44
+        ],
+        [
+          15,
+          50
+        ],
+        [
+          44,
+          51
+        ],
+        [
+          45,
+          50
+        ]
+      ],
+      "orbit_size": 8,
+      "priority": "separate-orbit-control",
+      "representative": [
+        5,
+        51
+      ],
+      "support_cycle": [
+        "B",
+        "Ca",
+        "D0",
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "common_blocks": [
+        "B",
+        "D2"
+      ],
+      "invariants": {
+        "carrier_region_cardinalities": [
+          8,
+          4,
+          4
+        ],
+        "common_block_count": 2,
+        "generated_sub_oml_size": 8,
+        "interval_sizes": [
+          16,
+          16
+        ],
+        "meet_event": 5,
+        "support_cycle_length": 4,
+        "support_intersection_size": 2,
+        "support_sizes": [
+          3,
+          3
+        ]
+      },
+      "meet_event": 5,
+      "members": [
+        [
+          15,
+          45
+        ],
+        [
+          15,
+          51
+        ],
+        [
+          45,
+          54
+        ],
+        [
+          51,
+          54
+        ]
+      ],
+      "orbit_size": 4,
+      "priority": "separate-orbit-control",
+      "representative": [
+        15,
+        45
+      ],
+      "support_cycle": [
+        "B",
+        "D1",
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "common_blocks": [
+        "D3"
+      ],
+      "invariants": {
+        "carrier_region_cardinalities": [
+          8,
+          4,
+          4
+        ],
+        "common_block_count": 1,
+        "generated_sub_oml_size": 8,
+        "interval_sizes": [
+          16,
+          12
+        ],
+        "meet_event": 7,
+        "support_cycle_length": 4,
+        "support_intersection_size": 1,
+        "support_sizes": [
+          2,
+          3
+        ]
+      },
+      "meet_event": 7,
+      "members": [
+        [
+          15,
+          47
+        ],
+        [
+          15,
+          49
+        ],
+        [
+          15,
+          52
+        ],
+        [
+          15,
+          53
+        ],
+        [
+          21,
+          51
+        ],
+        [
+          21,
+          54
+        ],
+        [
+          27,
+          45
+        ],
+        [
+          27,
+          54
+        ],
+        [
+          33,
+          45
+        ],
+        [
+          33,
+          54
+        ],
+        [
+          39,
+          51
+        ],
+        [
+          39,
+          54
+        ],
+        [
+          45,
+          52
+        ],
+        [
+          45,
+          53
+        ],
+        [
+          47,
+          51
+        ],
+        [
+          49,
+          51
+        ]
+      ],
+      "orbit_size": 16,
+      "priority": "separate-orbit-control",
+      "representative": [
+        15,
+        47
+      ],
+      "support_cycle": [
+        "B",
+        "Cb",
+        "D3",
+        "D2"
+      ]
+    },
+    {
+      "common_blocks": [
+        "B"
+      ],
+      "invariants": {
+        "carrier_region_cardinalities": [
+          8,
+          4,
+          4
+        ],
+        "common_block_count": 1,
+        "generated_sub_oml_size": 8,
+        "interval_sizes": [
+          16,
+          16
+        ],
+        "meet_event": 14,
+        "support_cycle_length": 5,
+        "support_intersection_size": 1,
+        "support_sizes": [
+          3,
+          3
+        ]
+      },
+      "meet_event": 14,
+      "members": [
+        [
+          15,
+          54
+        ],
+        [
+          45,
+          51
+        ]
+      ],
+      "orbit_size": 2,
+      "priority": "separate-orbit-control",
+      "representative": [
+        15,
+        54
+      ],
+      "support_cycle": [
+        "B",
+        "D0",
+        "D1",
+        "D2",
+        "D3"
+      ]
+    },
+    {
+      "common_blocks": [
+        "Ca"
+      ],
+      "invariants": {
+        "carrier_region_cardinalities": [
+          8,
+          4,
+          4
+        ],
+        "common_block_count": 1,
+        "generated_sub_oml_size": 8,
+        "interval_sizes": [
+          12,
+          12
+        ],
+        "meet_event": 18,
+        "support_cycle_length": 3,
+        "support_intersection_size": 1,
+        "support_sizes": [
+          2,
+          2
+        ]
+      },
+      "meet_event": 18,
+      "members": [
+        [
+          21,
+          52
+        ],
+        [
+          21,
+          53
+        ],
+        [
+          27,
+          47
+        ],
+        [
+          27,
+          49
+        ],
+        [
+          33,
+          47
+        ],
+        [
+          33,
+          49
+        ],
+        [
+          39,
+          52
+        ],
+        [
+          39,
+          53
+        ]
+      ],
+      "orbit_size": 8,
+      "priority": "separate-orbit-control",
+      "representative": [
+        21,
+        52
+      ],
+      "support_cycle": [
+        "Ca",
+        "D0",
+        "D2"
+      ]
+    }
+  ],
+  "schema": "seven-block-nonatomic-pullback-v1",
+  "scope": "finite skeleton orbit classification and finite Boolean pullback controls; infinite sigma-completeness is not inferred",
+  "starting_pair": [
+    5,
+    11
+  ]
+}

@@ -1,0 +1,785 @@
+{
+ "$meta": {
+  "title": "OML lattice form — finite-trace σ-liftability",
+  "purpose": "Zoom-out index of the OML/lattice attack. Load this first; follow detail pointers into the working note for proofs, scope, and session receipts.",
+  "updated": "2026-07-16",
+  "what_is_it": "Does every finitely additive two-valued state on a concrete σ-complete OML have each finite trace reproduced by some σ-additive two-valued state?",
+  "status": "OPEN — conjectured latticehood implies Φ; no proof or OML counterexample.",
+  "the_shape": "Φ is density of σ-additive states inside finitely additive states, not equality. Compact eligible local slices imply eventwise selection, so any bad face needs a noncompact slice. The 44-event centre-free five-block survivor is banked as a finite result. Its one-interval q0 inflation preserves exactly five maximal blocks, sigma-completeness, trivial centre, the proper C01 boundary, and a noncompact local slice at hand-proof level, but remains Phi-tame because its single fibre coordinate separates. A global 60-form truth-vector audit closes the compatibility-clique gap left by centralizer checks; the smallest P(2) triangle twist is either nonfaithful or gauge-trivial.",
+  "categories": {
+   "reductions": "equivalent formulations and proved reductions defining the current normal form",
+   "fine_block_route": "countably generated blocks: atomic selection, density, and repointing",
+   "coarse_block_route": "non-principal block states and cross-block compact transport",
+   "unitality_route": "the surviving state-separation branch of the former JP skeleton",
+   "counterexample_construction": "increasingly strong probes toward a concrete OML witness",
+   "mechanism_exclusions": "failed lemmas or mechanisms with their exact scope",
+   "external_sufficient_conditions": "known tame regions where Φ holds"
+  },
+  "headline": {
+   "entries": 102,
+   "primary_routes": 2,
+   "secondary_routes": 1,
+   "open_cruxes": 4,
+   "current_next_step": "The O-child audit refutes strict-target rank and exposes a proper-residual cut in the restricted eight-seed layer. Adjoin only its minimal overlapping envelope and complement; decide gate-forcing/lower-rank descent versus a new partial-envelope production rule."
+  },
+  "scope_note": "Spun out of sigma_essential_taxonomy.json. The successful OMP witness and the original construction history remain there; this taxonomy owns only the lattice-form question.",
+  "current_next_step": "Prioritized 2026-07-18: (1) linearization/extension-screen E-thread (notes/unsorted/linearization_extension_screen_seed.md — E1 lemma proof-read, E2 pentagon/Psi FIP calibrations, E3 extension-literature scout, E4 candidate screen); (2) sigma-layer pull-document SIGMA_LAYER_TARGET.md absorbing E5; (3) batched rule engine over MEM/N/O/PENV plus forced-top descent, halting on unmatched obligation, gate hazard, or quiescence. Relay-hunt route (period-three k=1 / shared-pentagon cell) open, unprioritized."
+ },
+ "reductions": [
+  {
+   "id": "oml.problem.phi",
+   "name": "Finite-trace σ-liftability Φ",
+   "status": "open",
+   "one_line": "Φ(L): every finite trace realized by a global finitely additive two-valued state is realized by some global σ-additive two-valued state.",
+   "detail": "oml_lattice_regularity_attack.md#1-statement-of-record"
+  },
+  {
+   "id": "oml.reduction.phi_density",
+   "name": "Φ as Stone density",
+   "status": "proved-hand",
+   "one_line": "Φ(L) iff St_σ(L) is dense in St_fa(L) inside {0,1}^L; equality of the two state spaces is not required.",
+   "detail": "oml_lattice_regularity_attack.md#11d-stone-density-reframe-of-φ",
+   "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): phi_iff_dense machine-checked axiom-free -- Phi iff St_sigma dense in St_fa on the Cantor cube over the carrier; plus isClosed_stFA (f.a. states = closed constraint set, kit gap 4.2(a)) and isCompact_stFA (Tychonoff). Also phi_iff_phiCluster (cluster form, latticehood-free both ways) + cluster_extension"
+  },
+  {
+   "id": "oml.reduction.blockwise",
+   "name": "Blockwise gluing reduction",
+   "status": "proved-hand",
+   "one_line": "σ-additivity is blockwise, so global σ-states are exactly coherent choices of σ-states across Boolean blocks.",
+   "detail": "oml_lattice_regularity_attack.md#9b-the-gluing-reduction-any-concrete-σ-class--no-latticehood",
+   "lean": "ConcreteOMLBlocks.lean (2026-07-11 s17): A1a exists_isMaxBlock_superset, A1b IsMaxBlock.{empty,univ,compl,iUnion}_mem, A1c isSigmaOn_carrier_iff_maxBlocks -- axiom-free (classical base only), #print axioms receipts in file"
+  },
+  {
+   "id": "oml.reduction.general_boundary_descent",
+   "name": "General relational boundary descent",
+   "status": "exact-reformulation-hand-reviewed",
+   "one_line": "Phi is equivalent to choosing one finitely additive extension whose trace on every overlap-generated boundary admits a pattern-preserving local sigma lift; matching all lifts to that common trace makes them glue.",
+   "detail": "relational_boundary_descent.md#4-exact-full-general-formulation-and-proved-boundary-lemmas"
+  },
+  {
+   "id": "oml.reduction.boundary_regularity_counterexample",
+   "name": "Genuine OML dense-nonopen boundary",
+   "status": "constructed-hand-coarse-reducible",
+   "one_line": "A countable-coordinate sigma-field times MO2 is a concrete sigma-complete OML with two maximal blocks whose actual sigma-field boundary has dense nonopen point and sigma-liftable loci, already on a one-event face; one private Boolean generator suffices.",
+   "detail": "oml_boundary_regularity.md#3-a-genuine-oml-boundary-with-dense-nonopen-σ-liftable-locus"
+  },
+  {
+   "id": "oml.reduction.compact_local_selection",
+   "name": "Compact local sigma-selection",
+   "status": "proved-hand",
+   "one_line": "If every eligible local sigma-state slice for a coherent finite face is compact, the face sigma-lifts: a global finitely additive witness makes every finite family of eventwise overlap equations solvable by local Dirac states. Thus every bad face has a noncompact eligible slice.",
+   "detail": "oml_boundary_regularity.md#7-direct-simultaneous-selection"
+  },
+  {
+   "id": "oml.obstruction.irreducible_boundary_realization",
+   "name": "Irreducible boundary realization skeleton",
+   "status": "finite-skeleton-constructed-topological-inflation-open",
+   "one_line": "Every two-block interface is central, but completing two crossed interfaces intervalwise produces a 56-event centre-free concrete sigma-complete OML with seven maximal blocks; every generated boundary equals its full block.",
+   "detail": "oml_irreducible_boundary_test.md"
+  },
+  {
+   "id": "oml.obstruction.common_base_inflation",
+   "name": "Seven-block common-base inflation dichotomy",
+   "status": "proved-hand-executable-finite-certificate",
+   "one_line": "A times L* is a concrete sigma-complete OML with exactly the seven inflated blocks, saturated boundaries, and face-exposed dense-nonopen local sigma topology, but its centre is A times {0,1}; every nontrivial common-base inflation is therefore reducible.",
+   "detail": "oml_seven_block_inflation.md"
+  },
+  {
+   "id": "oml.construct.distributed_one_interval",
+   "name": "Distributed one-interval inflation",
+   "status": "constructed-hand-finite-exhaustive-phi-tame",
+   "one_line": "Replacing q0 by one Boolean fibre propagates through exactly B,D0,D1; the closure has seven maximal blocks, trivial centre, saturated boundaries, and a face-exposed noncompact sigma slice, but every finite face sigma-lifts by fibrewise replacement.",
+   "detail": "oml_distributed_sigma_selection.md"
+  },
+  {
+   "id": "oml.exclusion.two_atom_monodromy",
+   "name": "Two-fibre atom-substitution no-go",
+   "status": "proved-hand-lean-trace-step-finite-exhaustive",
+   "one_line": "Every atom jointly chargeable with q0 has disjoint propagation support. The smallest pair occupies a five-cycle and closes as a centre-free seven-block OML, but its fibre relation is the full product, monodromy is identity, and independent point replacement proves Phi-tameness.",
+   "detail": "oml_two_fibre_monodromy.md"
+  },
+  {
+   "id": "oml.reduction.two_block_rescue",
+   "name": "Two-block rescue",
+   "status": "proved-hand",
+   "one_line": "A coherent value-1 pattern supported in at most two blocks is Dirac-rescued; any witness needs at least three blocks.",
+   "detail": "oml_lattice_regularity_attack.md#11a-two-block-rescue-any-concrete-σ-class-oml--no-countable-generation",
+   "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): two_block_rescue machine-checked axiom-free -- value-1 part covered by two maximal blocks implies Dirac-rescued; only use of latticehood is A2 in-block inter-closure (val_finsetInf), exactly as the note says"
+  },
+  {
+   "id": "oml.reduction.cluster_normal_form",
+   "name": "Cluster normal form",
+   "status": "proved-hand",
+   "one_line": "The open frontier reduces to coherent clusters of at least three pairwise-incompatible block-meets with pairwise intersections but empty global kernel.",
+   "detail": "oml_lattice_regularity_attack.md#11b-cluster-reduction-normal-form-for-the-frontier"
+  },
+  {
+   "id": "oml.reduction.fine_coarse",
+   "name": "Fine/coarse factorization",
+   "status": "settled-reduction",
+   "one_line": "The lattice question factors into B′(i) for countably generated blocks and a separate coarse-block coherence question.",
+   "detail": "oml_lattice_regularity_attack.md#10d-consequence-skeleton-a-demoted--2a-does-not-finish-theorem-2"
+  },
+  {
+   "id": "oml.reduction.t4_stone_projection",
+   "name": "T4 as Stone projection",
+   "status": "proved-hand-reduction",
+   "one_line": "T4 holds exactly when each cluster face reaches a principal block atom; for countably generated blocks this is equivalent to nonempty restriction-image interior and to the proposed basic-open interpolation form.",
+   "detail": "oml_lattice_regularity_attack.md#14-local-interior-collapses-to-t4-on-a-fine-block-2026-07-11-session-20"
+  },
+  {
+   "id": "oml.reduction.t4_feasible_tree",
+   "name": "Finite-generator tree and σ-completion gap",
+   "status": "failed-reduction-sharpened",
+   "one_line": "Finite feasible branches determine only generator-algebra traces, not f.a. ultrafilters on the generated σ-field; their compact fibres expose the missing atom-charge step rather than proving T4.",
+   "detail": "oml_lattice_regularity_attack.md#15-finite-generator-tree-test-the-σ-completion-gap-reappears-2026-07-11-session-21"
+  },
+  {
+   "id": "oml.reduction.full_block_localization_finite_atlas",
+   "name": "Finite-atlas full-block localization",
+   "status": "proved-hand",
+   "one_line": "For finitely many countably generated blocks, absence of a global sigma-state localizes after a finite face refinement to one block whose full restriction is non-sigma; this is not boundary-defect localization.",
+   "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
+  },
+  {
+   "id": "oml.open.boundary_defect_topological_regularity",
+   "name": "Boundary-defect topological regularity",
+   "status": "open-with-conditional-theorem",
+   "one_line": "A finite distributed boundary-defect cover localizes if each sigma-liftable locus is open on the relevant face restriction image; finite/discrete and compact/proper-image cases work, but countable generation alone does not.",
+   "detail": "relational_boundary_descent.md#9-local-versus-distributed-traps-and-uniform-tails"
+  },
+  {
+   "id": "oml.construct.boc_two_coordinate",
+   "name": "BOC normalization and two-coordinate inflation",
+   "status": "finite-structural-pass-arbitrary-base-open",
+   "one_line": "Locally countable finite-arity CSS globalizes, forcing N-G hubs; an explicit two-selector inflation passes exact finite OML gates in three approximants but remains arbitrary-base open.",
+   "detail": "oml_boc_normalization_and_two_coordinate.md"
+  },
+  {
+   "id": "oml.construct.arbitrary_two_atom",
+   "name": "Arbitrary-base orthogonal two-atom inflation",
+   "status": "sigma-complete-oml-state-gates-open",
+   "one_line": "Outsider extremality and all 16 truth-region kernels prove a concrete sigma-complete OML at arbitrary base; maximal blocks, centre, and unconditional state gates remain open.",
+   "detail": "oml_arbitrary_two_atom_inflation.md"
+  },
+  {
+   "id": "oml.construct.nonatomic_relation_cell",
+   "name": "Non-atomic mixed-cut relation cell",
+   "status": "finite-relation-cell-passed-distributed-assembly-open",
+   "one_line": "Canonical completion repairs the raw non-atomic atlas into a centre-free nine-block OML, and a conditional diagonal relation survives; one edge is Phi-tame, so an uncountable distributed assembly is required.",
+   "detail": "oml_nonatomic_pair_cut_completion.md"
+  },
+  {
+   "id": "oml.construct.distributed_relation_assembly",
+   "name": "Distributed relation-cell assembly",
+   "status": "shared-countable-hub-refuted-distributed-quotients-open",
+   "one_line": "The punctured-Cantor star has exact local Boolean cells, but two punctures give incompatible countable meets on a shared countably generated boundary; MBRC distributed quotient assembly remains open.",
+   "detail": "oml_distributed_relation_cell_assembly.md"
+  },
+  {
+   "id": "oml.construct.omega1_cylinder_hub",
+   "name": "Omega-one cylinder hub",
+   "status": "exact-boolean-css-no-gs-oml-completion-open",
+   "one_line": "The uncountably generated countable-support cylinder boundary has faithful puncture embeddings, compatible fa tuples, countable sigma sections and no global sigma section; raw algebraic closure is central and sigma-completion is open.",
+   "detail": "oml_omega1_cylinder_hub.md"
+  },
+  {
+   "id": "oml.reduction.global_odbc_integration",
+   "name": "Global ODBC integration and BOC residue",
+   "status": "integrated-open",
+   "one_line": "Phi, GSD, ODBC and coarse ODBC are equivalent; fine CSR and coarse CIR are nonexhaustive sufficient conditions, leaving normalization plus realization-or-collapse completeness open.",
+   "detail": "oml_global_integration.md",
+   "lean": "ODBCRegimes.lean: conditional regime coverage packaging only"
+  },
+  {
+   "id": "oml.reduction.fine_coarse_odbc_specializations",
+   "name": "Fine incidence and coarse CIR specializations",
+   "status": "conditional-positive-unconditional-open",
+   "one_line": "Fine countable-subcover reflection plus T4At implies Phi; coarse CIR upgrades separate envelopes to a coherent Dirac lift, while coarse ODBC itself is the full conjecture.",
+   "detail": "oml_fine_coarse_odbc_specializations.md"
+  },
+  {
+   "id": "oml.obstruction.minimal_distributed_countermodel",
+   "name": "Minimal distributed countermodel and realization gates",
+   "status": "abstract-complete-boolean-local-realization-oml-open",
+   "one_line": "Cantor singleton CSS-without-GS is exact and Borel relations realize R versus closure(R), but countably generated puncture embeddings, invertible transport, and repeated selectors fail before an OML counterexample.",
+   "detail": "oml_minimal_distributed_countermodel.md"
+  },
+  {
+   "id": "oml.reduction.cut_saturation_odbc",
+   "name": "Cut-saturation and relative-eligibility audit",
+   "status": "mixed-positive-and-refuted",
+   "one_line": "Finite profile cut-saturation is necessary in typed event calculi but does not imply ODBC-S; finite boundaries and exact two-block trivial-centre atlases are tame, while relative closed eligibility gives the strongest generic compactness theorem.",
+   "detail": "oml_cut_saturation_and_odbc.md"
+  },
+  {
+   "id": "oml.reduction.odbc_exact",
+   "name": "Exact ODBC factorization",
+   "status": "hand-proved-lean-abstract-core",
+   "one_line": "For each finite face, common-witness section spaces X_p(J) split the missing theorem into ODBC-S (countable subsystem sections) and CODBC (globalization); together they are GSD/Phi, while CODBC alone is insufficient.",
+   "detail": "oml_distributed_boundary_compactness.md",
+   "lean": "ODBCSections.lean: abstract finite/countable/global section hierarchy and phi_of_odbc_sections; no OML realization claim"
+  },
+  {
+   "id": "oml.obstruction.distributed_boundary_defect",
+   "name": "Distributed boundary defect",
+   "status": "abstract-fine-boundary-realized-oml-gates-open",
+   "one_line": "Cantor singleton defects cover a compact finite face while every countable subfamily and every one-block finite refinement escapes; each local relation is realized by Clop(2^N) inside Borel(2^N minus {x}). The common-interface paste is central and lacks separating sigma-states, so OML realization remains open.",
+   "detail": "oml_endgame_selection_residue.md#2-the-cantor-singleton-cover-refutes-topology-only-selection"
+  }
+ ],
+ "fine_block_route": [
+  {
+   "id": "oml.fine.bprime_i",
+   "name": "B′(i): countably generated blocks imply Φ",
+   "status": "primary-open",
+   "one_line": "On carriers whose blocks are countably generated, prove that every finitely coherent finite trace has a coherent pointed global realization.",
+   "detail": "oml_lattice_regularity_attack.md#9d-the-reduced-picture-and-conjecture-b",
+   "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): BPrimeI stated as named open Prop (universe-polymorphic; hypotheses = MeetsExist + CountablyGeneratedBlocks); ladder equivalences phi_iff_phiCluster / phi_iff_dense / phiCluster_iff_pointedSelection machine-checked"
+  },
+  {
+   "id": "oml.fine.pointed_iff_sigma",
+   "name": "Pointed iff σ on fine blocks",
+   "status": "proved-hand",
+   "one_line": "For countably generated blocks, global σ-states are exactly coherent blockwise atomic selections.",
+   "detail": "oml_lattice_regularity_attack.md#11c-on-countably-generated-blocks-the-σ-side-is-free-pointed-σ",
+   "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): P= FULLY machine-checked, axiom-free -- pointed_iff_sigma (iff), isSigmaOn_of_blockwisePointed (backward leg: NO countable generation, NO latticehood -- banked sharpening formal), blockwisePointed_of_isSigmaOn (forward via T3), phiCluster_iff_pointedSelection (selection reading). T3 engine: dirac_realization_of_countablyGenerated"
+  },
+  {
+   "id": "oml.fine.pointed_density",
+   "name": "Pointed-state density",
+   "status": "equivalent-open",
+   "one_line": "B′(i) is equivalent to density of blockwise-pointed states among finitely additive two-valued states.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.fine.one_block_repointing",
+   "name": "One-block repointing crux",
+   "status": "open",
+   "one_line": "Given a coherent cluster plus existing block pointings, can one point one further block while preserving finite-additive coherence?",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.fine.t4",
+   "name": "T4 finitary shadow",
+   "status": "necessary-hereditary-local-sufficiency-proved-global-open",
+   "one_line": "Every coherent cluster admits a coherent atom from each further block; this implies hereditary one-block full and boundary escape on every finite refinement, but Cantor singleton defects show that a simultaneous completion principle is still necessary.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit",
+   "lean": "ConcreteOMLPatterns.lean (2026-07-11 s18): T4At/T4 stated as named open Props (never sorry); NECESSITY direction machine-checked axiom-free: t4At_of_phi / bPrimeI_implies_T4 (B'(i) => T4; the T3 kernel is proved to be an atom of the block). Converse NOT stated -- crux red flag respected"
+  },
+  {
+   "id": "oml.fine.countable_atlas_t4_equivalence",
+   "name": "Countable fine-atlas T4 equivalence",
+   "status": "proved-hand-twice-reviewed-with-lean-forward-direction",
+   "one_line": "If there are at most countably many maximal blocks and each is countably generated, then Phi iff T4At. Baire localizes any no-sigma finite face at one block; T4 inserts an atom and contradicts the trap. Thus any fine counterexample needs an uncountable genuinely distributed atlas.",
+   "detail": "relational_boundary_descent.md#theorem-90a-countable-fine-atlas-t4-is-equivalent-to-φ-hand-proved-and-twice-reviewed",
+   "lean": "Forward direction Phi=>T4At is existing axiom-free theorem t4At_of_phi; Baire converse is hand proved and not yet formalized."
+  },
+  {
+   "id": "oml.fine.fibre_saturation",
+   "name": "Finite-stage fibre saturation",
+   "status": "proved-sufficient-condition-demoted",
+   "one_line": "FS plus a branch carrier proves T4, but FS is exactly universal principality of the whole branch fibre and fails even in a complete Boolean algebra containing a principal state on that branch.",
+   "detail": "oml_lattice_regularity_attack.md#17-fs-demoted-countable-certificates-and-affine-cancellation-2026-07-11-session-23"
+  }
+ ],
+ "coarse_block_route": [
+  {
+   "id": "oml.coarse.bprime_ii",
+   "name": "B′(ii): coarse-block coherence",
+   "status": "primary-open-restatement-split",
+   "one_line": "Adds the local problem of characterizing and selecting non-point sigma lifts on coarse boundaries; the locus is inhabited (coarse toy). Split 2026-07-13: countable-type coarse blocks have defect exactly free-on-countable and reduce to countable atom-killing (the relay engine); the genuinely open residue is non-countable-type state-coarse sigma-fields.",
+   "detail": "oml_coarse_inhabitation_and_defect.md"
+  },
+  {
+   "id": "oml.coarse.club_field_anatomy",
+   "name": "Club-field defect anatomy",
+   "status": "proved-hand",
+   "one_line": "The stationary/nonstationary field on omega1 is state-coarse but NOT countable-type: sigma-states are Diracs plus the club state (Ulam), and the defect is free-on-nonstationary with no uniform countable witness; yet the field is locally full below nonstationary sets, so disjointness traps stay void, and club blocks must be cylinderized (T1). Residual open engine: regressive/Fodor rigidity over stationary localizers.",
+   "detail": "oml_type_partition_obstruction.md#3-the-club-field-state-coarse-not-countable-type--and-still-fenced"
+  },
+  {
+   "id": "oml.coarse.countable_type_anatomy",
+   "name": "Countable-type defect anatomy",
+   "status": "proved-hand",
+   "one_line": "On sigma-fields of countable type over an atom partition, sigma-states are exactly atom-principal states plus (uncountable index) the co-atom-countable state; the sigma-defect is exactly free-on-countable concentration, so trapping there needs one cheap co-atom-countable exclusion plus the countable atom-killing problem.",
+   "detail": "oml_coarse_inhabitation_and_defect.md#2-countable-type-σ-fields-state-classification-and-defect-anatomy"
+  },
+  {
+   "id": "oml.coarse.inverse_limit_characterization",
+   "name": "Coherent countable inverse-limit characterization",
+   "status": "proved-hand-with-zfc-counterexample-to-naive-form",
+   "one_line": "A coarse boundary trace sigma-lifts iff its lifts on all countably generated block subalgebras can be chosen coherently. The club state on the NS/co-NS field over omega1 lifts on every countably generated restriction but has no full power-set sigma-lift.",
+   "detail": "oml_endgame_selection_residue.md#4-exact-coarse-inverse-limit-characterization"
+  },
+  {
+   "id": "oml.coarse.nonprincipal_states",
+   "name": "Non-principal block σ-states",
+   "status": "inhabited-blockwise",
+   "one_line": "Coarse σ-fields can carry non-principal two-valued σ-states, so point-selection does not describe the entire σ-side.",
+   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series",
+   "lean": "MarczewskiTransport.lean (2026-07-11 s18): the omega_1 coarse killer certified axiom-free -- cocountableState is a sigma-additive TwoValuedState, non-Dirac, on a NOT-countably-generated sigma-field (corollary of T3); cocountableClass (with empty set adjoined) is countably compact and Marczewski-approximates it. InnerRegularity.lean: it fails (8.1) at a specific F on uncountable second-countable Hausdorff (condensation point route) and somewhere on every uncountable Hausdorff (via theorem-let R)"
+  },
+  {
+   "id": "oml.coarse.compact_transport",
+   "name": "Cross-block compact transport",
+   "status": "open-engine",
+   "one_line": "The required regularity is one countably compact class that Marczewski-approximates every interlocking block in-block, not merely a Polish representation.",
+   "detail": "oml_lattice_regularity_attack.md#11e-the-marczewski-read-what-the-pulls-actually-say",
+   "lean": "MarczewskiTransport.lean (2026-07-11 s18): the CORRECTED (s16) criterion machine-checked axiom-free -- CountablyCompactClass (M 1953 sequence form) + ApproximatesOn (value-1 inner witness D in Bl, D<=K<=E) => IsMaxBlock.isSigmaOn_of_compact_class (in-block 4(i)) + compact_transport (OML form via A1c). The approximation-vs-refinement inequivalence is now structural: the Lean hypothesis IS approximation"
+  },
+  {
+   "id": "oml.coarse.dw_regularization",
+   "name": "DW/Maharam regularization",
+   "status": "sufficient-condition-demoted",
+   "one_line": "Inner regularity plus a common intersection-stable compact witness can upgrade finite additivity, but representability alone does not supply that witness.",
+   "detail": "oml_lattice_regularity_attack.md#10a-anatomy-of-the-dw-engine-reading-result"
+  }
+ ],
+ "unitality_route": [
+  {
+   "id": "oml.unitality.pp1994",
+   "name": "PP1994 unitality/subadditivity engine",
+   "status": "secondary-open",
+   "one_line": "A sufficiently separating unital subadditive family of σ-states could force Booleanity and thereby constrain a counterexample.",
+   "detail": "oml_lattice_regularity_attack.md#7c-session-9-2026-07-10-mpt-1992-primary-text-pulled--bnpw-resolved-by-derivation-skeleton-cs-first-half-refuted"
+  },
+  {
+   "id": "oml.unitality.jp",
+   "name": "Universal JP forcing",
+   "status": "refuted-as-stated",
+   "one_line": "Latticehood does not force every σ-state to be Jauch–Piron; MO₂ refutes the first formulation, leaving only narrower hypotheses.",
+   "detail": "oml_lattice_regularity_attack.md#7c-session-9-2026-07-10-mpt-1992-primary-text-pulled--bnpw-resolved-by-derivation-skeleton-cs-first-half-refuted"
+  }
+ ],
+ "counterexample_construction": [
+  {
+   "id": "oml.construct.exhaustive_boundary_survivor",
+   "name": "Five-block proper-boundary survivor",
+   "status": "banked-finite-with-globally-audited-hand-proved-one-interval-inflation-tame",
+   "one_line": "The approved 44-event finite result retains a proper C01 boundary; a global 60-form truth-vector audit confirms that its arbitrary-base q0 inflation has exactly five maximal blocks, while sigma-completeness remains hand-proved. It is Phi-tame, and the eight smallest P(2) triangle edge twists are either nonfaithful or gauge-trivial.",
+   "detail": "oml_exhaustive_boundary_survivor.md"
+  },
+  {
+   "id": "oml.construct.three_block_noncentral_transverse",
+   "name": "Three-block noncentral proper-closure triangle",
+   "status": "constructed-executable-finite-full-boundary-saturated",
+   "one_line": "The centre-free 56-event completion contains a three-block triangle with distinct four-element interfaces and eight-element proper joint closure at every vertex; all 12 coherent two-valued triangle states extend, but all seven full maximal-block boundaries saturate and the finite OML is Phi-tame.",
+   "detail": "oml_three_block_noncentral_transverse_candidate.md"
+  },
+  {
+   "id": "oml.construct.proper_joint_closure_two_block",
+   "name": "Five-atom proper-joint-closure transverse square",
+   "status": "constructed-hand-executable-finite-centre-killed",
+   "one_line": "The scoped-minimal five-atom P/Q versus P/R pattern completes as the 48-event concrete OML MO2 x P(3), with two maximal blocks and full state extension, but its 16-event joint closure is exactly its centre, so it is reducible and Phi-tame.",
+   "detail": "oml_proper_joint_closure_candidate.md"
+  },
+  {
+   "id": "oml.construct.coarse_toy",
+   "status": "inhabited-conditional-hand",
+   "name": "Coarse-block toy",
+   "one_line": "SETTLED (2026-07-13, conditional on the banked arbitrary-base inflation): the q0 inflation with the aleph1-piece fibre A* is in the admissible class, essentially irreducible, with three state-coarse blocks and a global non-principal sigma-state; Theorem 2's coarse factor is NOT vacuous. The toy is Phi-tame.",
+   "detail": "oml_coarse_inhabitation_and_defect.md"
+  },
+  {
+   "id": "oml.construct.t4_counterexample",
+   "name": "T4 counterexample hunt",
+   "status": "open-falsification",
+   "one_line": "A coherent cluster and further block violating T4 would refute B′(i) outright.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.construct.pentagon_kill_cell",
+   "name": "Pentagon contextual atom-kill cell",
+   "status": "inhabited-finite-cell",
+   "one_line": "A three-input pattern in the finite Greechie pentagon uniquely and contextually forces a fourth incompatible atom to zero; the obstacle is countable high-girth assembly, not a single OML cell.",
+   "detail": "oml_lattice_regularity_attack.md#18-cyclic-gadget-census-four-loop-kill-five-loop-cell-2026-07-11-session-24"
+  },
+  {
+   "id": "oml.construct.pentagon_serial_relay",
+   "name": "Pentagon serial relay",
+   "status": "failed-architecture",
+   "one_line": "The pentagon propagates a 1/0 signal, but its outputs are co-contextual; direct serial identification creates a three-loop, as does using master-block targets as the zero rail.",
+   "detail": "oml_lattice_regularity_attack.md#19-pentagon-gluing-geometry-direct-fan-out-and-serial-relay-2026-07-11-session-25"
+  },
+  {
+   "id": "oml.construct.spaced_master_relay",
+   "name": "Spaced-master pentagon relay",
+   "status": "killed-sigma-state-nonseparation",
+   "one_line": "The relay/free state extends blockwise, but its absorbing regime is forced by a two-element trace that no σ-state realizes, so σ-states create a false order and cannot give a concrete representation.",
+   "detail": "oml_lattice_regularity_attack.md#21-spaced-master-candidate-killed-σ-state-separation-forces-an-essential-ternary-trigger-2026-07-11-session-27"
+  },
+  {
+   "id": "oml.construct.essential_ternary_trigger",
+   "name": "Essential ternary trigger",
+   "status": "inhabited-exhaustive-pentagon",
+   "one_line": "The pentagon has 45 essential ternary triggers; a master-ready variant forces atom a9 to zero while every proper input subset permits both target values.",
+   "detail": "oml_lattice_regularity_attack.md#22-essential-ternary-trigger-exists-in-the-pentagon-2026-07-11-session-28"
+  },
+  {
+   "id": "oml.construct.indirect_ternary_relay",
+   "name": "Indirect two-overlap ternary relay",
+   "status": "killed-omega-nonseparation",
+   "one_line": "The relay is finitely essential and structurally complete, but one required order witness enters the absorbing free basin and has no principal-master continuation, so σ-states impose a false order.",
+   "detail": "oml_lattice_regularity_attack.md#24-indirect-relay-killed-finite-escape-is-not-ω-live-2026-07-11-session-30"
+  },
+  {
+   "id": "oml.construct.all_odd_relay",
+   "name": "All-odd removable-state relay",
+   "status": "killed-corrected-liveness",
+   "one_line": "The all-odd state is uniquely removable, but every two-port relay either makes it σ-live (so T4 holds) or loses other indispensable order witnesses; no map passes the corrected local screen.",
+   "detail": "oml_lattice_regularity_attack.md#26-corrected-removable-state-census-kills-all-two-port-pentagon-relays-2026-07-11-session-32"
+  },
+  {
+   "id": "oml.reduction.omega_live_separation",
+   "name": "ω-live σ-state separation screen",
+   "status": "necessary-computational-screen",
+   "one_line": "A relay candidate must have σ-live automaton states order-determine every cell and compatible σ-live paths separate cross-cell non-orders; finite proper-trace escape is insufficient.",
+   "detail": "oml_lattice_regularity_attack.md#24-indirect-relay-killed-finite-escape-is-not-ω-live-2026-07-11-session-30"
+  },
+  {
+   "id": "oml.construct.full_witness",
+   "name": "Full concrete OML witness",
+   "status": "open-ultimate",
+   "one_line": "Construct L in the admissible concrete σ-complete OML class with a finite trace in im St_fa but outside im St_σ.",
+   "detail": "oml_lattice_regularity_attack.md#5-falsification-side-kept-honest"
+  },
+  {
+   "id": "oml.construct.k3plus_two_cell",
+   "name": "Two-cell k>=3 identifications",
+   "status": "exit-b-complete",
+   "one_line": "Two-cell route complete. k>=6 has no girth-valid map; k=4,5 die at the screen; k=3 gives four screen-survivors with the ideal ten-state live set but all four die downstream, two at global girth and two at master-cycle girth. Liveness is independently validated by a rooted product-graph oracle; the late s33 alarm confused the one-sided model with a two-sided convention.",
+   "detail": "oml_lattice_regularity_attack.md#27-next-finite-classes-k3-two-cell-exit-b-one-port-three-cell-unconditional-no-go-and-a-richer-removable-face-found-2026-07-11-session-33"
+  },
+  {
+   "id": "oml.construct.three_cell_relay",
+   "name": "Three-pentagon period-3 relays",
+   "status": "exit-b-one-port-two-port-design-class",
+   "one_line": "One-port period-3 relays: unconditional no-go (full 10^6 product, zero survivors at every phase). Two-port: no-go within the s_*-preserving design class (275^3 = 2.08e7 triples, zero survivors at every phase); outside that design class remains open. Liveness is independently validated under the stated one-sided convention.",
+   "detail": "oml_lattice_regularity_attack.md#27-next-finite-classes-k3-two-cell-exit-b-one-port-three-cell-unconditional-no-go-and-a-richer-removable-face-found-2026-07-11-session-33"
+  },
+  {
+   "id": "oml.construct.removable_face",
+   "name": "Richer removable-face relays",
+   "status": "period1-k1to4-and-period2-k1to2-bounded-exit-b",
+   "one_line": "For the 7-loop face C={a0,a3,a11}, period-one injective ports k<=4, period-two ports k<=2, and period-three width one are closed. Session 38 exhausts 7,529,536 triples with zero operative survivors.",
+   "detail": "oml_lattice_regularity_attack.md#31-period-three-width-one-exhaustive-no-go-and-failure-concentration-2026-07-12-session-38"
+  },
+  {
+   "id": "oml.construct.cyclic_order_coupling",
+   "name": "Cyclic order-coupled coarse triple",
+   "status": "closed-fully-visible-hand",
+   "one_line": "The three cyclic order events over three coarse coordinates on kappa^3 admit no fully transversely visible concrete sigma-complete OML realization with a finitely coherent cluster: visibility supplies pointwise resolution, so T1 forces compatibility (then 2BR kills the f.a. witness) or the meet fails by an omega1-chain (piecewise closure exemplar). Partial-visibility residue open.",
+   "detail": "oml_cyclic_order_coupling.md"
+  },
+  {
+   "id": "oml.construct.rotating_small_piece",
+   "name": "Rotating small-piece graph triple",
+   "status": "design-spec-open-gates",
+   "one_line": "Three graph events over an Ulam cylinder base. Gate N PASSED by exact anchor synthesis/countable patching; Gate L FAILED: cyl(T1) and G12 have no join by an empty interval in the 88-profile invariant. M, C, Z, F, and Phi were not entered.",
+   "detail": "oml_rotating_small_piece_candidate.md"
+  },
+  {
+   "id": "oml.construct.nonatomic_pullback_completion",
+   "name": "Non-atomic (5,11) pullback completion",
+   "status": "proved-finite-exhaustive-infinite-shape-hand",
+   "one_line": "The 4-2-4 carrier closes to a 147592-event centre-free seven-block OML with exactly one nonrectangular nonfunctional quotient edge; the countable-coordinate arbitrary-base model is Phi-tame by common-point extension.",
+   "detail": "oml_nonatomic_pullback_completion.md"
+  }
+ ],
+ "mechanism_exclusions": [
+  {
+   "id": "oml.exclusion.type_partition",
+   "name": "Type-partition obstruction",
+   "status": "proved-hand",
+   "one_line": "Per-atom pairwise-disjointness sigma-kills over a localizer whose kill-type cells are events (automatic for countable atom families or locally full bases) contradict the finitely additive witness itself, block-free on any concrete sigma-class; disjointness is a finitely additive killer, so witness asymmetry must come from countable disjoint-union geometry or Ulam-type completeness failure.",
+   "detail": "oml_type_partition_obstruction.md#2-the-obstruction-theorem"
+  },
+  {
+   "id": "oml.exclusion.no_fubini_forcing",
+   "name": "No-Fubini value forcing",
+   "status": "proved-hand",
+   "one_line": "Two-valued sigma-additivity has no Fubini: any event persistently splitting a countably closed dichotomy base (e.g. any order event over the coarse box filter) is sigma-value-free over that marginal, so no witness can force coupling values through countable/co-countable marginal structure; forcing must use in-block countable disjoint-union geometry.",
+   "detail": "oml_cyclic_order_coupling.md#2-the-no-fubini-lemma-coupling-values-cannot-be-forced-through-coarse-marginals"
+  },
+  {
+   "id": "oml.exclusion.pointwise_resolved_overlap",
+   "name": "Pointwise-resolved overlap mechanism",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "If the set intersection of an intended incompatible pair is exhausted by L-events below it, latticehood forces compatibility (T1 second form), after which 2BR kills the pattern; realizations keeping the exhaustion visible lose latticehood by an omega1-chain of lower bounds.",
+   "detail": "oml_cyclic_order_coupling.md#5-exact-conclusion-mechanism-entry-and-residue"
+  },
+  {
+   "id": "oml.exclusion.countable_cocountable_fibre",
+   "name": "Countable/co-countable fibre fence",
+   "status": "proved-hand",
+   "one_line": "A one-interval inflation is essentially irreducible iff its fibre algebra survives the countable quotient; ctble/coctble(omega1) fibres die there (quotient = the four-element Boolean algebra over the realized crossed half-traces, centre everything), so purely countable/co-countable coarse structure leaves the admissible class.",
+   "detail": "oml_coarse_inhabitation_and_defect.md#3-the-essential-irreducibility-fence"
+  },
+  {
+   "id": "oml.exclusion.jointly_generating_transverse",
+   "name": "Jointly-generating transverse-overlap collapse",
+   "status": "proved-hand-executable-four-point-control",
+   "one_line": "Two common embedded overlap families that jointly generate both endpoint Boolean blocks force those blocks to coincide; the minimal four-point transverse relation is a permutation graph, so only proper-joint-closure architectures remain open.",
+   "detail": "oml_transverse_overlap_collapse.md"
+  },
+  {
+   "id": "oml.exclusion.two_common_block_duplicate",
+   "name": "Two-common-block duplicate-edge no-go",
+   "status": "proved-hand-executable-fixed-skeleton",
+   "one_line": "For O2 (5,51) and O3 (15,45), both common blocks contain the same four lattice regions, so the apparent two equations are identical embedded restrictions and reduce to one pullback; no new completion or infinite model is asserted.",
+   "detail": "oml_two_edge_pullback_completion.md"
+  },
+  {
+   "id": "oml.exclusion.singleton_quarantine",
+   "name": "Singleton quarantine",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "Fine singleton rigidity of the product-Ulam type destroys latticehood; this excludes that mechanism, not every possible OML witness.",
+   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series",
+   "lean": "ConcreteOMLBlocks.lean (2026-07-11 s18): T1 machine-checked axiom-free in the s12 sharpened form -- compat_of_locally_resolved (pointwise carrier cover of the overlap forces compat, no exhaustion), compat_of_singletons, interClosed_of_singletons (all-singletons lattice is Boolean); PoorPair anatomy (P1) incl. propagation + singleton-freeness"
+  },
+  {
+   "id": "oml.exclusion.overlap_dichotomy",
+   "name": "Boolean-or-horizontal overlap dichotomy",
+   "status": "refuted-lemma",
+   "one_line": "The finite Greechie pentagon refutes the proposed structural dichotomy while satisfying Φ automatically.",
+   "detail": "oml_lattice_regularity_attack.md#9a-two-corrections-to-the-record"
+  },
+  {
+   "id": "oml.exclusion.disjoint_union_overlap",
+   "name": "Disjoint-union-only overlaps",
+   "status": "proved-unavailable",
+   "one_line": "Blocks and their overlaps in the concrete σ-class OML setting are σ-fields, so the OMP witness's overlap geometry cannot persist.",
+   "detail": "oml_lattice_regularity_attack.md#9c-what-latticehood-buys-the-t-series",
+   "lean": "ConcreteOMLBlocks.lean (2026-07-11 s17-s18): A2 FULLY machine-checked, AXIOM-FREE -- IsMaxBlock.inter_mem + toMeasurableSpace (blocks are sigma-fields) + overlapMeasurableSpace (overlaps are sigma-fields). The anticipated Foulis-Holland axiom proved unnecessary: meet squeeze compat_of_locally_resolved + set distributivity gives commutant closure (compat_inter_left); Bruns-Harding now cited for the abstract theorem only"
+  },
+  {
+   "id": "oml.exclusion.polish_alone",
+   "name": "Polish representation alone",
+   "status": "demoted-strategy",
+   "one_line": "Polish representability without in-block regularity and a shared compact witness does not prove Φ.",
+   "detail": "oml_lattice_regularity_attack.md#10d-consequence-skeleton-a-demoted--2a-does-not-finish-theorem-2"
+  },
+  {
+   "id": "oml.exclusion.kernel_intrinsic",
+   "name": "Empty kernel as intrinsic obstruction",
+   "status": "refuted-framing",
+   "one_line": "K(s)=∅ depends on the chosen concrete representation and cannot classify the abstract OML state by itself.",
+   "detail": "oml_lattice_regularity_attack.md#11c-on-countably-generated-blocks-the-σ-side-is-free-pointed-σ"
+  },
+  {
+   "id": "oml.exclusion.maharam_82_repointing",
+   "name": "Maharam (8.2) for one-block repointing",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "Every empty-kernel cluster violates (8.2) before a new atom is chosen, so classical positive set-field gluing is too strong to decide T4.",
+   "detail": "oml_lattice_regularity_attack.md#12-maharam-82-test-of-the-repointing-crux-2026-07-11-session-19"
+  },
+  {
+   "id": "oml.exclusion.finite_carrier_atom_killing",
+   "name": "Finite compatible carrier atom-killing",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "An all-remainder construction cannot kill every atom of a countably atomic block using one reused value-one carrier or finitely many jointly compatible carrier certificates.",
+   "detail": "oml_lattice_regularity_attack.md#16-fibre-saturation-and-the-finite-certificate-obstruction-2026-07-11-session-22"
+  },
+  {
+   "id": "oml.exclusion.affine_shared_tail",
+   "name": "Affine shared-tail atom killing",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "Paired exact-one equations with a shared partition tail force literal equality of their distinguished carrier sets, so chains of such cancellations reduce to the reused-carrier obstruction.",
+   "detail": "oml_lattice_regularity_attack.md#17-fs-demoted-countable-certificates-and-affine-cancellation-2026-07-11-session-23"
+  },
+  {
+   "id": "oml.exclusion.four_loop_gadget",
+   "name": "Four-loop contextual propagation",
+   "status": "proved-mechanism-exclusion",
+   "one_line": "The smallest separated cyclic exact-one implication gadget is a concrete σ-class OMP but not a lattice; opposite atoms have two incomparable minimal upper bounds.",
+   "detail": "oml_lattice_regularity_attack.md#18-cyclic-gadget-census-four-loop-kill-five-loop-cell-2026-07-11-session-24"
+  },
+  {
+   "id": "oml.exclusion.direct_pentagon_fanout",
+   "name": "Direct pentagon fan-out",
+   "status": "proved-architecture-exclusion",
+   "one_line": "Two private pentagon cells sharing a distance-two input pair create an induced four-loop; the obstruction is sharp and does not cover one-port serial cactus assemblies.",
+   "detail": "oml_lattice_regularity_attack.md#19-pentagon-gluing-geometry-direct-fan-out-and-serial-relay-2026-07-11-session-25"
+  },
+  {
+   "id": "oml.exclusion.exact_one_forest_cloning",
+   "name": "Exact-one cloning on incidence forests",
+   "status": "proved-architecture-exclusion",
+   "one_line": "With one 1/0 seed pair, unit propagation on a finite linear incidence forest can create at most one fresh value-one vertex; repeatable propagation requires a cycle.",
+   "detail": "oml_lattice_regularity_attack.md#20-a-composable-pentagon-repeater-and-the-spaced-master-candidate-2026-07-11-session-26"
+  },
+  {
+   "id": "oml.exclusion.fresh_three_port_two_cell",
+   "name": "Fresh explicit three-port two-cell relay",
+   "status": "exhausted-no-go",
+   "one_line": "Among all 24 fresh value-compatible three-port pentagon maps, none is both essential and girth five; indirect two-overlap conversion remains possible.",
+   "detail": "oml_lattice_regularity_attack.md#23-essential-composition-and-an-indirect-two-overlap-relay-2026-07-11-session-29"
+  },
+  {
+   "id": "oml.exclusion.pentagon_ternary_absorbing",
+   "name": "Pentagon essential ternary absorbing faces",
+   "status": "proved-architecture-exclusion",
+   "one_line": "All 45 essential ternary trigger fibres exclude the uniquely removable state and contain an indispensable order witness, so making them nonprincipal destroys σ-state order separation.",
+   "detail": "oml_lattice_regularity_attack.md#25-ω-live-census-ternary-route-killed-removable-state-relay-found-2026-07-11-session-31"
+  },
+  {
+   "id": "oml.exclusion.pentagon_two_port_removable",
+   "name": "Pentagon two-port removable-state relays",
+   "status": "exhausted-no-go",
+   "one_line": "Of 4,050 maps, 45 are girth-five with a free but non-σ-live all-odd state; none retain local order determination, so the whole two-port class is eliminated.",
+   "detail": "oml_lattice_regularity_attack.md#26-corrected-removable-state-census-kills-all-two-port-pentagon-relays-2026-07-11-session-32"
+  }
+ ],
+ "campaign_13_frontier": [
+  {
+   "id": "oml.frontier.puncture_normality",
+   "name": "Puncture normality and incompatible transport",
+   "status": "proved-reduction-open-finite-gate",
+   "one_line": "Unconditional state-normal omega-one completion has no sigma-states; an admissible failure must use face-local nonnormal escape and a direct incompatible 111-implies-equality cell.",
+   "detail": "oml_puncture_normality_and_incompatible_transport.md"
+  }
+ ],
+ "campaign_14_cells": [
+  {
+   "id": "oml.cell.incompatible_pentagon",
+   "name": "Incompatible pentagon conditional cell",
+   "status": "executable-verified-finite-gate",
+   "one_line": "The centre-free 22-event pentagon realizes direct 111-implies-q-equals-r, has no activation event, and gives every nonzero event an off-activation charging state.",
+   "detail": "oml_incompatible_pentagon_cell.md"
+  },
+  {
+   "id": "oml.cell.literal_mo3_conditional",
+   "name": "Literal MO3 conditional cell",
+   "status": "executable-verified-fixed-interface-k3",
+   "one_line": "A 56-event centre-free OML realizes the full off-face relation; its fixed-interface concrete closure preserves the diagonal through three cells with pair-local repairs.",
+   "detail": "oml_h4_conditional_cell_and_finite_pastes.md"
+  }
+ ],
+ "campaign_15_closure": [
+  {
+   "id": "oml.tame.arbitrary_index_one_hub",
+   "name": "Arbitrary-index one-hub tameness",
+   "status": "proved-hand-executable-kernel",
+   "one_line": "The fixed-interface support-two family is sigma-complete with Stfa=Stsigma for every nonempty index set, hence satisfies Phi.",
+   "detail": "oml_arbitrary_index_one_hub_tameness.md"
+  },
+  {
+   "id": "oml.obstruction.bipartite_rectangle",
+   "name": "Bipartite crossed-rectangle cut",
+   "status": "executable-refuted-core",
+   "one_line": "The stripped K22/K23/K32 grouped coordinate closures remain nonlattices; opposite edges have incomparable rectangle bounds.",
+   "detail": "oml_bipartite_coordinate_core.md"
+  }
+ ],
+ "campaign_16_rectangle": [
+  {
+   "id": "oml.obstruction.full_conditional_rectangle",
+   "name": "Full conditional two-by-two rectangle failure",
+   "status": "executable-refuted-lattice-gate",
+   "one_line": "The 198-event full conditional grid closes orthogonally to 230 events while preserving its exact relations, but retains two incomparable rectangle upper bounds.",
+   "detail": "oml_full_grid_2x2_failure.md"
+  },
+  {
+   "id": "oml.control.iterated_rectangle_repairs",
+   "name": "Iterated stripped rectangle repairs",
+   "status": "executable-two-branches-universal-open",
+   "one_line": "Two explicit repair branches give 1296- and 3456-event concrete OMLs, both reconstructing Bool(q0,q1); all-branch distributed-preserving completion remains open.",
+   "detail": "oml_rectangle_repair_and_full_atlas_criteria.md#11-single-repair-insufficiency-and-two-terminal-controls"
+  }
+ ],
+ "campaign_17_macro_completion": [
+  {
+   "id": "oml.no_go.k22_macro_completion_reconstruction",
+   "name": "K22 macro-completion reconstruction",
+   "status": "exhaustive-finite-theorem",
+   "one_line": "Every concrete OML subfamily of P(2^4) containing the four K22 edge algebras reconstructs Bool(q0,q1) or Bool(r0,r1).",
+   "detail": "oml_distributed_rectangle_completion_search.md"
+  }
+ ],
+ "campaign_18_fine_fibre": [
+  {
+   "id": "oml.control.full_grid_fine_fibre_repairs",
+   "name": "Two-depth fine-fibre rectangle repairs",
+   "status": "executable-nonterminal-controls",
+   "one_line": "Whole classes of 64/128 points and a secondary four-point class repair successive joins without side reconstruction or activation collapse, but all closures remain nonlattices.",
+   "detail": "oml_fine_fibre_rectangle_repair.md"
+  }
+ ],
+ "campaign_19_terminal_reduction": [
+  {
+   "id": "oml.theorem.fixed_carrier_repair_termination",
+   "name": "Fixed-carrier fine-repair termination",
+   "status": "hand-proved-hostile-reviewed",
+   "one_line": "Every unrestricted repair chain on the finite full-grid carrier terminates at a finite concrete OML, and every same-carrier completion contains such a terminal.",
+   "detail": "oml_fine_repair_termination_and_terminal_dichotomy.md"
+  },
+  {
+   "id": "oml.open.tfin_terminal_dichotomy",
+   "name": "T-FIN terminal dichotomy",
+   "status": "refuted-executable-full-cycle",
+   "one_line": "Refuted: an exact centre-free full-grid OML completion reconstructs neither boundary and creates no nonzero activation-supported event.",
+   "detail": "oml_fine_repair_termination_and_terminal_dichotomy.md#4-exact-finite-theorem-of-record"
+  },
+  {
+   "id": "oml.theorem.coordinate_closed_reconstruction",
+   "name": "Coordinate-closed completion reconstruction",
+   "status": "hand-theorem-executable-core",
+   "one_line": "Every full-grid completion whose profile-measurable pairs have profile-measurable joins reconstructs Bool(q0,q1) or Bool(r0,r1).",
+   "detail": "oml_distributed_rectangle_completion_search.md"
+  },
+  {
+   "id": "oml.open.nonprofile_splitter_incidence",
+   "name": "Non-profile fibre-splitter incidence",
+   "status": "fixed-carrier-tfin-refuted-full-cycle-survivor",
+   "one_line": "A centre-free full four-cell concrete OML avoids both T-FIN gates, refuting the fixed-carrier dichotomy; the live route is controlled sigma-complete uncountable assembly.",
+   "detail": "oml_nonprofile_fibre_splitter_calculus.md"
+  }
+ ],
+ "campaign_20_controlled_assembly": [
+  {
+   "id": "oml.open.full_cycle_controlled_assembly",
+   "name": "Full-cycle controlled assembly",
+   "status": "adjacent-actual-rebase-provenance-grammar-open",
+   "one_line": "Two single old complement-pair contexts reopen the restricted Neg-023 join as exact two-upper nonlattices; saturated-selector falsification is the active local gate.",
+   "detail": "oml_full_cycle_controlled_assembly.md"
+  }
+ ],
+ "external_sufficient_conditions": [
+  {
+   "id": "oml.tame.boolean",
+   "name": "Boolean carriers",
+   "status": "settled-tame",
+   "one_line": "Boolean σ-algebras satisfy finite-trace σ-liftability.",
+   "detail": "oml_lattice_regularity_attack.md#1-statement-of-record"
+  },
+  {
+   "id": "oml.tame.finite",
+   "name": "Finite carriers",
+   "status": "settled-tame",
+   "one_line": "Finite carriers satisfy Φ because finite and countable additivity coincide.",
+   "detail": "oml_lattice_regularity_attack.md#11f-the-reduction-ladder-the-crux-and-exit"
+  },
+  {
+   "id": "oml.tame.horizontal",
+   "name": "Horizontal sums",
+   "status": "settled-tame",
+   "one_line": "Horizontal-sum-like carriers lie in the known tame region, though they do not exhaust concrete irreducible OMLs.",
+   "detail": "oml_lattice_regularity_attack.md#9a-two-corrections-to-the-record"
+  },
+  {
+   "id": "oml.tame.finite_interface",
+   "name": "Finite-interface quarantine",
+   "status": "lean-raw-overlaps-generated-boundary-equivalence-hand",
+   "one_line": "Lean proves that finite raw overlap families at every maximal block force every finitely coherent pattern to have a global sigma-additive two-valued extension; the equivalent finite generated-boundary formulation remains an elementary hand step.",
+   "detail": "relational_boundary_descent.md#6-finite-interface-quarantine"
+  },
+  {
+   "id": "oml.tame.single_pullback_common_point",
+   "name": "Single pullback with common-point extension",
+   "status": "proved-hand",
+   "one_line": "A one-edge A-D-C compatibility system is Phi-tame when every coherent finite endpoint trace admits sigma-additive endpoint extensions over one common D state; graph shape alone is insufficient.",
+   "detail": "oml_nonatomic_pullback_completion.md#9-single-pullback-tameness-exact-theorem"
+  }
+ ]
+}

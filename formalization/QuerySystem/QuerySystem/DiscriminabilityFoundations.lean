@@ -794,6 +794,41 @@ theorem sp1_iff
       simp only [hπ_id, Set.preimage_id]
       exact S.sp1_necessity P hext i E hE_meas hE_anti hE_empty⟩⟩
 
+/-- **Collective exhaustion collapses to per-level continuity at `∅`.**
+
+`CollectivelyExhaustive` reads as though the finer level `j` carries content:
+"*some* `j ≥ i` witnesses the convergence". It does not. `CompatibleContents`
+gives `ν i A = ν j ((π hij).π ⁻¹' A)` outright, so the quantity tested at `j`
+is *equal* to the quantity at `i`, and the existential is cosmetic. CE says
+exactly that every `ν i` is continuous at `∅` — that is, σ-additive.
+
+This is the same fact `sp1_iff` proves via extendability; recorded here
+directly from the definitions because it matters for reading the hypotheses of
+`stone_observational_extension`. With this, that theorem's assumptions are
+"compatible marginals, each σ-additive" plus upper-directedness and surjective
+evaluations — i.e. Kolmogorov extension with no regularity or compactness
+hypothesis of any kind (the outcome spaces carry only a `MeasurableSpace`).
+Classically that is not sufficient, and here it is refuted outright: see the
+blueprint at `rmk:kolmogorov-refuted` — the Andersen–Jessen system meets every
+hypothesis of the plain-upper-directedness statement and admits no extension,
+which is why `stone_observational_extension` now assumes
+`SequentiallyUpperDirected`. -/
+theorem ce_iff_levelwise_continuity (P : S.NormalizedCompatibleContents) :
+    S.CollectivelyExhaustive P.ν ↔
+      ∀ (i : S.ι) (E : ℕ → Set (S.q i).Outcome), (∀ n, MeasurableSet (E n)) →
+        (∀ n, E (n + 1) ⊆ E n) → (⋂ n, E n = ∅) →
+        Filter.Tendsto (fun n => P.ν i (E n)) Filter.atTop (nhds 0) := by
+  constructor
+  · intro h i E hmeas hanti hempty
+    obtain ⟨j, hij, htend⟩ := h i E hmeas hanti hempty
+    have heq : ∀ n, P.ν j ((S.π hij).π ⁻¹' E n) = P.ν i (E n) :=
+      fun n => (P.compat hij (E n) (hmeas n)).symm
+    simpa only [heq] using htend
+  · intro h i E hmeas hanti hempty
+    exact ⟨i, S.le_refl i, by
+      have hid : (S.π (S.le_refl i)).π = id := S.π_refl i
+      simpa only [hid, Set.preimage_id] using h i E hmeas hanti hempty⟩
+
 /-!
 ## Part V: The program-order bridge theorem
 

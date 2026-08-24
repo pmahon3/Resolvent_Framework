@@ -1,0 +1,57 @@
+{
+ "emitted": "2026-07-14",
+ "generator": "full_grid_2x2_rectangle_repair_search.py",
+ "payload": {
+  "commands": {
+   "produce": "python3 full_grid_2x2_rectangle_repair_search.py --emit",
+   "verify": "python3 full_grid_2x2_rectangle_repair_verify.py --stage all"
+  },
+  "files_sha256": {
+   "full_grid_2x2_rectangle_branch_000.json": "aa9feb77bdddb4f4dad8f8acb796466c4e79096f790ca4374295de1cd70e1d39",
+   "full_grid_2x2_rectangle_branch_001.json": "0998eddb08d7e87934e40138008f9d39867fb753e28d5c4b081d737a8d5f362e",
+   "full_grid_2x2_rectangle_branch_002.json": "9cd9849b241ac0dd4761b1d5da9a0c07baada3124e91f00f24cd068d7edc2c8c",
+   "full_grid_2x2_rectangle_branch_003.json": "8bb48954d79cbb64485445be1684d430f91b7424f91dac01d0312e6231d7452c",
+   "full_grid_2x2_rectangle_branch_004.json": "7c49299e544bb58476ae22e81c02f164863290e89619ffa7419850b85f9a11ac",
+   "full_grid_2x2_rectangle_branch_005.json": "d20232a6c1b22edadb666bead051ac87b50b7ea73fb606c9b8688630f928a891",
+   "full_grid_2x2_rectangle_branch_006.json": "b2d5c6de9a0e28577bc59480987e810b28990ec84b68fd65fddeb40764ab48fa",
+   "full_grid_2x2_rectangle_branch_007.json": "5e35e2182c0b11a8c98b4237f97fcf421833e06afbba79982e1be9ad03ae94b5",
+   "full_grid_2x2_rectangle_branch_008.json": "a2889a0e2a945ffca4371c03f3c3d8066fba0a6b80631697fede3a9c777a2469",
+   "full_grid_2x2_rectangle_branch_009.json": "6af1e71a5bcef1c5ddde19be5bf0a36d6ed096d4ccf270990536d0bf5f6e9847",
+   "full_grid_2x2_rectangle_branch_010.json": "2cc3aac4842e42cf7ad3c6ef08a551f35679028bbf8e70823e71c1cc7dfe6981",
+   "full_grid_2x2_rectangle_branch_011.json": "f0ffcced7c4edbe9573957910cabbe04f5f94c7a65a38d2e7bfafb670d50d368",
+   "full_grid_2x2_rectangle_branch_012.json": "1c30ba2e64d0827d60ec6180b6dd4e8638a8bde055182fdce59419818625a456",
+   "full_grid_2x2_rectangle_branch_013.json": "d85fb64d1a708e1c23391b66cfb049ae30d0f6ec793780b1d44043da0b84f8a8",
+   "full_grid_2x2_rectangle_branch_014.json": "d6298b0715b74fa97785d1a0e1f32a91c453e5c8012e007b8d6d97839a20bb4c",
+   "full_grid_2x2_rectangle_branch_015.json": "bed3a0948ffc498118adb8cf4b9ce1f87381632c60589ccee3e1c20caac9864a",
+   "full_grid_2x2_rectangle_branch_016.json": "bf58a5b335bbf8a0451be032d1f14dcc233cb6ecc3634b83002e9299820f89c8",
+   "full_grid_2x2_rectangle_branch_017.json": "0388a35c6ccbafd5bcc65b504a16e216621ea59644ee519661626cc8f6d3ae6d",
+   "full_grid_2x2_rectangle_branch_018.json": "30bf0ec7b37243add14bd6145740aa73bdfb7917e9a019425a8d1c16e99b1dfc",
+   "full_grid_2x2_rectangle_branch_019.json": "22c4b715f0e9cc5879eca7bd3ba63dd3c511596ada3cf7c7974b136b9184af17",
+   "full_grid_2x2_rectangle_branch_020.json": "a383e0b6d465421b6aa76ee69fcaffb472a45492935796174c606fc82ae296fa",
+   "full_grid_2x2_rectangle_branch_021.json": "8f43d4d597a7a2eda09f20c9894202fa88e0ca5b7ce6107987b09b1e519cb2ad",
+   "full_grid_2x2_rectangle_branch_022.json": "5691fa1e21f30d0708f6504c05f17b64de4a5ed93d2f59d31accc6858ee8e34a",
+   "full_grid_2x2_rectangle_branch_023.json": "c1270d28510c12e98ff4b3c471e2b3260569927afd9fede0d32535ee6dd716ef",
+   "full_grid_2x2_rectangle_branch_024.json": "ee4b1d676549c90e3d9f6173483c8c4a4c847da6fbb9d056563b1007a0108b71",
+   "full_grid_2x2_rectangle_branch_025.json": "b464e3a8fdc7495745797c9fa89d48507162b121eab0b972a0baa3053ef6fd96",
+   "full_grid_2x2_rectangle_branch_026.json": "bbbd6dca7e21a05cb592dcbf1282c3a7ee2845c2ab608f488590ff3ae5148498",
+   "full_grid_2x2_rectangle_branch_027.json": "1b6256d501af7de30f817960907ded77c97ba0cd1954c053c36107afbdce5d5b",
+   "full_grid_2x2_rectangle_branch_028.json": "3507d99a375294978255eceb641e8093a19f549bb518268ffd85a9650770d1b3",
+   "full_grid_2x2_rectangle_branch_029.json": "e241a8351546cccee9af47756ec3308c83ea2ad3888a13c1193bf371a5899fd4",
+   "full_grid_2x2_rectangle_cascade.json": "8f09b11f83f59a36c283eeb8b380ad994b2716d0e0130185a7f55f22e5bcefec",
+   "full_grid_2x2_rectangle_core16_exhaustive.json": "4c734c6f15baf5d86905503f7715120448d0e844cd7da6a6441d24ce02ae17df",
+   "full_grid_2x2_rectangle_witnesses.json": "5125afc8e1e57ffe6b9ed5c307b5ba51b4cce62c6323e108768e05ddced2bcb9"
+  },
+  "scope": "the 16-point core search is exhaustive over every interval subset; the full-carrier class-K cascade is a capped partial exploration with unresolved leaves; no closure is claimed canonical and no 2x2 result is promoted to arbitrary grids",
+  "source_sha256": {
+   "full_grid_2x2_rectangle_repair_search.py": "efe95762884b9d529349b0b796c0f0283d3c14da4f3d31faf360e426643474a9",
+   "full_grid_2x2_rectangle_repair_verify.py": "4cc0097e0c28ced2d83d799b8b86c9ba4d66a101a5554e347c7c96b38e31c485"
+  },
+  "stages": [
+   "witnesses",
+   "core16",
+   "cascade"
+  ]
+ },
+ "payload_sha256": "405f78701140f3946540bb46ea7c2cd95cff3896929ae71ab23285efb50ef089",
+ "schema": "full-grid-2x2-rectangle-repair-v1"
+}

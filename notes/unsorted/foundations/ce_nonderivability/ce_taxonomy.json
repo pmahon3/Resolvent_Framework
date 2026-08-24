@@ -1,0 +1,57 @@
+{
+  "$meta": {
+    "title": "Paper I / Collective-Exhaustion non-derivability — attempt taxonomy",
+    "purpose": "Zoom-out index of the CE (collective exhaustion) non-derivability collection. Load first for the shape; follow `detail` pointers to drill in.",
+    "updated": "2026-06-26",
+    "what_is_it": "CE = collective exhaustion: that σ-additivity of a finitely-additive charge holds under Stone completion. The collection asks whether CE can be DERIVED from first-order coherence of the base Boolean algebra + its refinement system. Answer: no — CE is an irreducible commitment.",
+    "status": "PARKED with fully-recorded kills. The CE non-derivability FACT survives (folklore: Łoś + Loeb 1975 + FHM 1990). Paper I's headline (novel beyond Kolmogorov) does NOT survive audit (σ-Loomis–Sikorski realization gap, Prop B2). Coherence/completion direction parked (Howson 2008 owns the core). The standalone companion note was retired (double kill: broken proof + folklore).",
+    "the_shape": "Three layers. (1) The settled core: CE non-derivability fact + the irreducibility theorem (no structural condition implies CE; ultrafilter counterexample) + the four-faces vocabulary. (2) The kills: Paper I headline (σ-LS gap), companion note (folklore FHM 1990), Strategy D (Gaifman 1964 ZFC-stronger), Simpson conjecture (δ_U counterexample), CE-as-sheaf / CE-as-gluing (both = the σ-additivity tautology, no cohomological unification). (3) The open frontier: the ultralimit-representation ladder (rungs 1-3 RESOLVED positive, rung 4 was Strategy-D, now retired) + the philosophical reading (CE = volitional honesty about infinity, possibly Gödel-undecidable).",
+    "categories": {
+      "settled_fact": "an established result / vocabulary that survives",
+      "kill": "an attempt killed on prior-art, error, or triviality",
+      "wall": "the structural obstruction kills bottom out at",
+      "ladder_rung": "a rung of the ultralimit-representation investigation",
+      "concept": "a conceptual finding (often from the dated development log)",
+      "open_question": "a genuinely open sub-question"
+    },
+    "headline": {"settled_core": 3, "kills": 6, "walls": 1, "ladder_rungs": 4, "concepts": 4, "overall": "PARKED, fact survives"}
+  },
+
+  "settled_core": [
+    {"id": "fact.ce_nonderivable", "name": "CE non-derivability fact", "status": "settled", "one_line": "σ-additivity under Stone completion cannot be forced by first-order coherence on the base BA. Folklore (FHM 1990, Loeb 1975); verified via Łoś ultraproduct witness. Survives as Paper-I internal synthesis.", "detail": "index.md#part-i"},
+    {"id": "fact.ce_irreducibility", "name": "CE irreducibility theorem", "status": "settled", "one_line": "No condition in the index structure (SUD, UD, refinement) or algebraic structure (normalization, compatibility, finite additivity) implies CE. Proof: an ultrafilter observer satisfies all structural conditions while failing CE (SUD+NCC ↛ CE; fcContent on ℚ).", "detail": "../../../archive/ce_irreducibility_superseded.md"},
+    {"id": "fact.four_faces", "name": "Four faces of CE (vocabulary)", "status": "settled", "one_line": "CE has four equivalent faces: measure-theoretic (σ-additivity), Yosida–Hewitt (pure-charge decomposition), Stone-support (μ̂ concentrates on pure points), model-theoretic (Łoś). Reusable vocabulary.", "detail": "../../../archive/coherence_completion_parked/mathematical_language.md#zone-a"}
+  ],
+
+  "kills": [
+    {"id": "kill.paper_i", "name": "Paper I headline (novel beyond Kolmogorov)", "status": "killed", "killed": "2026-06-23", "one_line": "Prop B2 'Support condition' asserts μ̂(pure(Ω))=1 but the σ-complete-ultrafilters-realized step is unproved = the σ-Loomis–Sikorski realization gap. THE VISE: under realization hypotheses B2 reproduces Kolmogorov (folklore); under the general regime B2 is false. No regime both correct AND novel.", "detail": "../../../../papers/paper_i/notes/PAPER_I_AUDIT_VERDICT.md"},
+    {"id": "kill.companion_note", "name": "Companion note (countable additivity not first-order axiomatizable)", "status": "killed", "killed": "2026-06-23", "one_line": "DOUBLE KILL — withdrawn ultraproduct-of-Diracs proof has a fatal ℵ₁-saturation defect; the corrected ultrapower proof is SOUND but the result is FOLKLORE (FHM 1990, Loeb 1975). Retired to memory only.", "detail": "index.md#part-i"},
+    {"id": "kill.strategy_d", "name": "Strategy D (measure-free non-σ-complete atomless BA)", "status": "killed", "killed": "2026-06-18", "one_line": "Gaifman 1964 (PJM 14:61) already exhibits an atomless BA with no strictly-positive FINITELY-additive measure — STRONGER, in ZFC. Never field-open; the 'empty cell' was an artifact of the literature recording these algebras only in completed form.", "detail": "../../../archive/strategy_d_killed/ultralimit_investigation/strategy_d_AUDIT_VERDICT.md"},
+    {"id": "kill.simpson_conjecture", "name": "Simpson sublocale conjecture", "status": "killed", "killed": "2026-05-16", "one_line": "δ_U (Dirac at a free ultrafilter, purely f.a.) gives a one-point spatial measure-1 sublocale, refuting the conjecture; classically the non-spatiality Simpson studies (constructive) vanishes. CE is irreducibly about the Boolean (clopen) sublattice.", "detail": "../../../archive/simpson_sublocale_dead.md"},
+    {"id": "kill.ce_as_sheaf", "name": "CE as sheaf condition", "status": "killed", "killed": "2026-05-17", "one_line": "Dictionary translation, not a theorem. The finite/countable boundary is invisible to a finitary Grothendieck topology; the countable-partition topology that sees it just restates the σ-additivity definition.", "detail": "../../../archive/ce_as_sheaf_condition_dead.md"},
+    {"id": "kill.ce_as_gluing", "name": "CE as cohomological gluing obstruction", "status": "killed", "killed": "2026-05-17", "one_line": "Zafiris localization: σ-completeness is an axiom not forced by the sheaf condition; states stay finitely-additive throughout; no cohomology computed. Biesel 2024: σ-additive ↔ sheaf only for countable covers (the tautology). No unification with Abramsky–Brandenburger.", "detail": "../../../archive/ce_as_gluing_obstruction_dead.md"}
+  ],
+
+  "walls": [
+    {"id": "wall.sigma_ls_realization", "name": "σ-Loomis–Sikorski realization gap", "status": "settled", "one_line": "σ-complete ultrafilters need not be realized as points — the standing wall that sinks Paper I's Prop B2 and that the companion note also hit. The same realization gap recurs across the programme (cf. σ-essential rem:dw).", "detail": "../../../../papers/paper_i/notes/PAPER_I_AUDIT_VERDICT.md"}
+  ],
+
+  "ladder_rungs": [
+    {"id": "rung.1_ultrafilter", "name": "Rung 1 — ultrafilter-generated {0,1}-charges", "status": "settled", "one_line": "RESOLVED positive: pointwise ultralimit of Dirac charges represents. The base case.", "detail": "index.md#part-ii"},
+    {"id": "rung.2_finite_cofinite", "name": "Rung 2 — finite-cofinite algebra", "status": "settled", "one_line": "RESOLVED positive: pfa(E) one-dimensional; ℓ_fc = limit of (1/k)Σδ_n.", "detail": "index.md#part-ii"},
+    {"id": "rung.3_atomic", "name": "Rung 3 — atomic / non-atomic / minimal-join", "status": "settled", "one_line": "RESOLVED positive across 3a (atomic, density of principal UFs), 3b (interval algebra Lebesgue), 3c (P(ℕ)/fin, σ-additivity reduces to finite, vacuous).", "detail": "index.md#part-ii"},
+    {"id": "rung.4_intermediate", "name": "Rung 4 — non-σ-complete non-atomic intermediate join", "status": "killed", "one_line": "Canonical decomposition theorem (B≅(B↾A)×(B↾A^c); gap ⟹ measure-free factor) + subalgebra embedding lemma. The OPEN case reduced to Strategy D — now RETIRED (Gaifman 1964). So the ladder's frontier is closed by prior-art.", "detail": "index.md#part-ii"}
+  ],
+
+  "concepts": [
+    {"id": "concept.punnett", "name": "Consistency/Coherence Punnett square", "status": "settled", "one_line": "2×2: Consistent+Coherent (classical probability), Consistent+Incoherent (Łoś / CE failure), Inconsistent+Coherent (Gleason / quantum), Inconsistent+Incoherent (Kochen–Specker). Axes = distributivity vs state-extension/σ-additivity. Organizes, does not predict (intuition pump, demoted from theorem target).", "detail": "../../../archive/coherence_completion_parked/development.md#2026-05-15"},
+    {"id": "concept.howson", "name": "Howson 2008 placement", "status": "settled", "one_line": "Howson (2008, BJPS) 'De Finetti, Countable Additivity...' owns the core: consistency has compactness (finitary), σ-additivity doesn't = 'missing completeness theorem'. This prior-art is why the coherence/completion paper is parked.", "detail": "../../../archive/coherence_completion_parked/development.md#2026-05-15"},
+    {"id": "concept.locale_layers", "name": "Locale-theoretic CE characterization (Layers 1-3)", "status": "settled", "one_line": "Layer 1 (shallow +): CE restatable on complemented frame-elements (clopens) — restates, doesn't derive. Layer 2 (deep −): CE/non-CE indistinguishable on general opens (compactness forces τ-additivity both ways). Layer 3: Simpson conjecture DEAD. ∴ CE is not frame-internal classically beyond the Layer-1 tautology.", "detail": "../../../archive/coherence_completion_parked/development.md#2026-05-16"},
+    {"id": "concept.oml_center", "name": "OML center-obstruction mechanism", "status": "open", "one_line": "Tentative: admissibility for a non-Boolean OML = CE applied to its CENTER. Pták 1987 'exotic logics' give σ-orthocomplete OMLs with f.a. but no σ-add states (center C(L)≅BA with no σ-add probability). Gleason exceptionality: L(H) is a factor (trivial center) so geometry forces σ-additivity, bypassing the center obstruction.", "detail": "../../../archive/coherence_completion_parked/development.md#2026-05-16"}
+  ],
+
+  "open_questions": [
+    {"id": "open.philosophical", "name": "CE as volitional commitment (Gödel-undecidable?)", "status": "open", "one_line": "Philosophical reading (LIVE): the finite/countable gap is a COMMITMENT gap, not structural — CE = a finite observer's volitional honesty about an infinity it cannot reach. Suspicion: CE-justification is formally undecidable (any formal condition is satisfiable by an ultrafilter failing CE).", "detail": "../../../archive/ce_irreducibility_superseded.md"},
+    {"id": "open.ultralimit_paper", "name": "Ultralimit-representation paper (staged targets)", "status": "parked", "one_line": "Proposed paper: σ-algebra obstruction (Nikodym) + finite-cofinite (done) + multidimensional pfa (done) + Stone/βℕ reformulation + measure-free Radon-free spaces (likely ZFC-independent). Methodology viable even though individual proofs aren't novel.", "detail": "index.md#part-iii"}
+  ]
+}

@@ -898,6 +898,47 @@ lemma isSetSemiring_CylGen [Nonempty S.ι] (udir : S.UpperDirected) :
       by simp [Set.PairwiseDisjoint, Set.pairwise_singleton],
       by simp [hdiff]⟩
 
+/-- `CylGen` is a set **ring**, not merely a semiring.
+
+Under upper-directedness any two cylinders lift to a common level via
+`cyl_refine`, where union and difference are computed inside a single outcome
+space and stay cylinders. `isSetSemiring_CylGen` already established the harder
+`diff_eq_sUnion'` clause; this records the stronger structure directly.
+
+Why it was wanted: the route from continuity at `∅` to σ-additivity,
+`MeasureTheory.addContent_iUnion_eq_sum_of_tendsto_zero`, requires an
+`IsSetRing`, not an `IsSetSemiring`.
+
+That route is now moot -- it was aimed at closing
+`stone_observational_extension` under ordinary upper-directedness, and that
+statement turned out to be false (Andersen-Jessen; blueprint
+`rmk:kolmogorov-refuted`). The lemma is kept because it is a true and
+independently useful strengthening of the cylinder API, not because anything
+currently depends on it. -/
+lemma isSetRing_CylGen [Nonempty S.ι] (udir : S.UpperDirected) :
+    IsSetRing S.CylGen := by
+  refine ⟨?_, ?_, ?_⟩
+  · obtain ⟨i⟩ := ‹Nonempty S.ι›
+    exact ⟨i, ∅, MeasurableSet.empty, by ext ω; simp [Cyl, eval]⟩
+  · intro s t hs ht
+    obtain ⟨i, A, hA, rfl⟩ := hs
+    obtain ⟨j, B, hB, rfl⟩ := ht
+    rcases udir i j with ⟨k, hik, hjk⟩
+    refine ⟨k, (S.π hik).π ⁻¹' A ∪ (S.π hjk).π ⁻¹' B,
+      (hA.preimage (S.π hik).measurable_π).union
+        (hB.preimage (S.π hjk).measurable_π), ?_⟩
+    rw [S.cyl_refine hik A, S.cyl_refine hjk B]
+    ext ω; simp [Cyl, eval]
+  · intro s t hs ht
+    obtain ⟨i, A, hA, rfl⟩ := hs
+    obtain ⟨j, B, hB, rfl⟩ := ht
+    rcases udir i j with ⟨k, hik, hjk⟩
+    refine ⟨k, (S.π hik).π ⁻¹' A ∩ ((S.π hjk).π ⁻¹' B)ᶜ,
+      (hA.preimage (S.π hik).measurable_π).inter
+        (hB.preimage (S.π hjk).measurable_π).compl, ?_⟩
+    rw [S.cyl_refine hik A, S.cyl_refine hjk B]
+    ext ω; simp [Cyl, eval, Set.mem_diff]
+
 /-- **Finite additivity for `preμ` on disjoint finite-cylinder presentations.**
 
     If two measurable finite cylinders `C` and `D` have disjoint sets, and their

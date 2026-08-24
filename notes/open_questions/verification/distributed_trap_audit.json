@@ -1,0 +1,54 @@
+{
+  "schema": 2,
+  "scope": "finite discrete abstract relational trace atlas; not a concrete sigma-class OML realization",
+  "face": [
+    0,
+    1,
+    2
+  ],
+  "defect_loci": {
+    "B0": [
+      0
+    ],
+    "B1": [
+      1
+    ],
+    "B2": [
+      2
+    ]
+  },
+  "good_loci": {
+    "B0": [
+      1,
+      2
+    ],
+    "B1": [
+      0,
+      2
+    ],
+    "B2": [
+      0,
+      1
+    ]
+  },
+  "union_covers_face": true,
+  "no_individual_covers_face": true,
+  "cover_irredundant": true,
+  "simultaneously_good_state_exists": false,
+  "locus_topology": "all defect loci are clopen in the finite discrete face",
+  "refinement_model": "all nonempty subsets of the finite face",
+  "some_finite_refinement_localizes": true,
+  "singleton_localizations": {
+    "0": [
+      "B0"
+    ],
+    "1": [
+      "B1"
+    ],
+    "2": [
+      "B2"
+    ]
+  },
+  "refutes_unrefined_local_trapping": true,
+  "refutes_finite_refinement_localization": false
+}

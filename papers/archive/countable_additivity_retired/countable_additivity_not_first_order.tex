@@ -1,0 +1,219 @@
+% ============================================================================
+% ⛔ RETIRED 2026-06-23 — DO NOT SUBMIT. Archived for record only.
+%
+% DOUBLE KILL:
+%  (1) The proof below (ultraproduct of Diracs on P(N)) is FATALLY BROKEN — the
+%      same diagonal-copy / aleph_1-saturation defect for which this note was
+%      previously WITHDRAWN from PAMS. The witness A_k={k,k+1,...} does NOT
+%      decrease to 0 in the ultraproduct's Boolean algebra (it is trapped above
+%      [d], d(n)=A_n, with mu*([d])=1); and by aleph_1-saturation the ultraproduct
+%      charge IS sigma-additive (Loeb phenomenon), so NO ultraproduct over a
+%      nonprincipal ultrafilter on N can witness the result.
+%  (2) A CORRECT proof exists (ultrapower of the ultrafilter charge: M=(P(N),l)
+%      non-sigma-additive, N=M^N/U saturated hence sigma-additive, M elem.equiv. N
+%      => not FO-axiomatizable) but the RESULT IS FOLKLORE: stated in
+%      Fagin-Halpern-Megiddo 1990 (this note's own cited reference) and proved via
+%      Loeb 1975 saturation; standard motivation across model-theory-of-measure.
+%      Clears no contribution bar (Type 1 + Type 2 FAIL).
+%
+% The CE non-derivability FACT survives only as internal synthesis in Paper I
+% ("Probability from Observation"), which cites FHM 1990 / Los directly.
+% Full verdict: memory countable_additivity_note_proof_broken.md.
+% ============================================================================
+\documentclass[11pt]{article}
+
+% ---------- Packages ----------
+\usepackage[a4paper,margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage[numbers]{natbib}
+
+% ---------- Theorem environments ----------
+\newtheorem{proposition}{Proposition}
+\newtheorem{corollary}[proposition]{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{definition}[proposition]{Definition}
+\newtheorem{remark}[proposition]{Remark}
+
+% ---------- Commands ----------
+\newcommand{\Lmu}{\mathcal{L}_{\mathrm{BA},\mu}}
+\newcommand{\Tfa}{T_{\mathrm{fa}}}
+\newcommand{\N}{\mathbb{N}}
+
+% ---------- Title ----------
+\title{Countable Additivity is Not First-Order Axiomatizable}
+\author{Patrick S.\ Mahon}
+\date{}
+
+\begin{document}
+\maketitle
+
+\begin{quote}
+\small
+\textbf{2020 Mathematics Subject Classification.}
+03C20 (primary); 28A60, 60A10 (secondary).
+
+\smallskip
+\textbf{Keywords.}
+countable additivity, first-order axiomatizability, ultraproduct,
+Boolean algebra, finitely additive measure, \L{}o\'s's theorem.
+\end{quote}
+
+\begin{abstract}
+In the first-order language of Boolean algebras equipped with a normalized finitely
+additive charge, no first-order theory characterizes the models in which the charge
+is $\sigma$-additive.  In particular, countable additivity is not first-order
+axiomatizable among finitely additive probability Boolean algebras.  The proof is a
+single ultraproduct argument via \L{}o\'{s}'s theorem: Dirac masses on $\mathcal{P}(\N)$
+are individually $\sigma$-additive, but the charge induced on the diagonal copy of
+$\mathcal{P}(\N)$ in their ultraproduct is the $\{0,1\}$-valued ultrafilter charge,
+which is purely finitely additive --- contradicting \L{}o\'{s}'s theorem if any
+first-order axiomatization existed.
+\end{abstract}
+
+A property of structures is first-order axiomatizable in a language $L$ if there exists
+a set of $L$-sentences whose models are exactly the structures satisfying it.
+\L{}o\'{s}'s theorem gives the key diagnostic: if a property fails in an ultraproduct
+of structures that individually satisfy it, no first-order axiomatization exists.
+
+Countable additivity distinguishes $\sigma$-additive measures from finitely additive
+charges.  That it cannot be expressed by a single first-order sentence is clear: the
+condition quantifies over countable sequences, unavailable in first-order logic.  Its
+non-first-order character is treated as background knowledge in the probability logic
+literature~\cite{Hoover1978,Keisler1985,FaginHalpernMegiddo1990}.
+
+The philosophical significance of this gap was articulated by
+Howson~\cite{Howson2008}, who observed that de~Finetti's consistency criterion
+(finite additivity) shares two structural features with first-order
+logic --- absoluteness and compactness --- and that both fail for
+$\sigma$-additivity.  He identified a missing ``completeness theorem telling us
+that the rules of probability extend to finite but not countable additivity''
+\cite[p.~17]{Howson2008}.  The ultraproduct argument below makes this
+observation precise: the class of $\sigma$-additive structures is not
+elementary, so no first-order coherence condition can enforce
+$\sigma$-additivity.\footnote{A parallel non-axiomatizability result holds in the
+pure Boolean algebra language (without charge predicates): the property of
+admitting a strictly positive $\sigma$-additive probability --- characterized
+algebraically by Kantorovich--Vulikh--Pinsker (Dedekind $\sigma$-completeness $+$
+weak $(\sigma,\infty)$-distributivity $+$ chargeability;
+see~\cite[391D]{Fremlin3}) --- is not first-order axiomatizable.  This follows
+from Tarski's classification of atomless Boolean algebras: the Lebesgue measure
+algebra satisfies all three KVP conditions, while the Cohen algebra
+$\mathrm{RO}(2^{<\omega})$ is Dedekind complete and chargeable but fails weak
+$(\sigma,\infty)$-distributivity; yet both are atomless and hence elementarily
+equivalent.}
+
+We record a short self-contained ultraproduct proof in the
+Boolean-algebra-with-charge setting, showing non-axiomatizability by \emph{any}
+set of sentences, not merely a single formula.
+
+\medskip
+
+Let $\Lmu$ be the one-sorted first-order language with:
+\begin{itemize}
+  \item Boolean operations $\wedge, \vee, \neg, 0, 1$;
+  \item for each rational $q \in [0,1] \cap \mathbb{Q}$, unary relation symbols
+        $M_{\leq q}(x)$ and $M_{\geq q}(x)$, intended to mean
+        $\mu(x) \leq q$ and $\mu(x) \geq q$ respectively.
+\end{itemize}
+
+A structure for $\Lmu$ is a Boolean algebra $B$ together with a $[0,1]$-valued finitely
+additive probability $\mu$, encoded through the truth of the predicates $M_{\leq q}$
+and $M_{\geq q}$.  Using rational comparison predicates rather than a function symbol
+into $[0,1]$ avoids introducing a second numeric sort.
+
+\begin{definition}[First-order theory of finitely additive probabilities]
+Let $\Tfa$ be the $\Lmu$-theory axiomatizing:
+\begin{enumerate}[label=(\roman*)]
+  \item $B$ is a Boolean algebra;
+  \item normalization: $\mu(0) = 0$ and $\mu(1) = 1$;
+  \item monotonicity: $x \leq y \Rightarrow \mu(x) \leq \mu(y)$;
+  \item finite additivity: for all rationals $r, s$ with $r + s \leq 1$,
+        \[
+          x \wedge y = 0 \wedge M_{\leq r}(x) \wedge M_{\leq s}(y)
+          \;\Rightarrow\; M_{\leq r+s}(x \vee y),
+        \]
+        and similarly for lower bounds.
+\end{enumerate}
+The theory $\Tfa$ may be supplemented with rational-cut coherence axioms
+(monotonicity of the predicates in $q$, and $M_{\leq 1}(x)$, $M_{\geq 0}(x)$
+for all $x$) to ensure that the predicates determine a unique value
+$\mu(x) \in [0,1]$ for each element; the proof below does not depend on whether
+these are included.
+\end{definition}
+
+\noindent
+The class of Boolean algebras with normalized finitely additive probability is
+first-order axiomatizable in $\Lmu$.  Countable additivity, by contrast, requires
+quantification over an arbitrary countable sequence $(a_n)_{n \in \N}$ --- not
+available in first-order logic --- and so is not a sentence of $\Lmu$.
+
+\medskip
+
+\begin{proposition}[$\sigma$-additivity is not first-order axiomatizable]
+\label{prop:not-fo}
+There is no first-order $\Lmu$-theory $T \supseteq \Tfa$ such that, for every
+$(B, \mu) \models \Tfa$,
+\[
+  (B, \mu) \models T \quad\Longleftrightarrow\quad \mu \text{ is $\sigma$-additive}.
+\]
+In particular, countable additivity is not first-order axiomatizable among
+finitely additive probability Boolean algebras.
+\end{proposition}
+
+\begin{proof}
+Let $\delta_n$ be the Dirac probability at $n \in \N$ on the $\sigma$-algebra
+$\mathcal{P}(\N)$.  Each $(\mathcal{P}(\N), \delta_n)$ is a model of $\Tfa$ in
+which $\delta_n$ is $\sigma$-additive.  Suppose for contradiction that a theory
+$T$ as described exists; then each $(\mathcal{P}(\N), \delta_n) \models T$.
+
+Let $\mathcal{U}$ be a nonprincipal ultrafilter on $\N$.  By \L{}o\'{s}'s
+theorem \cite{Los1955}, the ultraproduct
+$\prod_\mathcal{U}(\mathcal{P}(\N),\delta_n)$ also models $T$.  The charge
+induced on the diagonal copy of $\mathcal{P}(\N)$ is
+\[
+  \ell(A) = \lim_\mathcal{U} \delta_n(A) = \lim_\mathcal{U} \mathbf{1}_{n \in A}.
+\]
+This is the $\{0,1\}$-valued charge corresponding to $\mathcal{U}$: $\ell(A) = 1$
+iff $A \in \mathcal{U}$.  Since $\mathcal{U}$ is nonprincipal, $\ell(\{n\}) = 0$
+for every $n$, yet $\ell(\N) = 1$.  Thus the sets $A_k = \{k, k+1, \ldots\}$
+satisfy $A_0 \supseteq A_1 \supseteq \cdots$ and $\bigcap_k A_k = \varnothing$,
+yet $\ell(A_k) = 1$ for all $k$ (since $A_k \in \mathcal{U}$ for all $k$, as
+$\mathcal{U}$ is nonprincipal).  Hence $\ell$ is not $\sigma$-additive.
+
+If the ultraproduct's charge were $\sigma$-additive, its restriction to the
+diagonal copy of $\mathcal{P}(\N)$ would be $\sigma$-additive; but this
+restriction is $\ell$, which is not.  Hence the ultraproduct does not satisfy
+$\sigma$-additivity, contradicting \L{}o\'{s}'s theorem applied to the
+assumption that each $(\mathcal{P}(\N), \delta_n) \models T$.
+\end{proof}
+
+\begin{remark}
+The ultraproduct $\prod_\mathcal{U}(\mathcal{P}(\N),\delta_n)$ is an
+$\Lmu$-structure in its own right; $\ell$ is the charge induced on the diagonal
+copy of $\mathcal{P}(\N)$ inside it.  The diagonal copy is isomorphic to
+$\mathcal{P}(\N)$ as a Boolean algebra, and $\ell$ is the $\{0,1\}$-valued
+ultrafilter charge on it: a purely finitely additive probability that is not
+$\sigma$-additive.
+\end{remark}
+
+\medskip
+
+The proof exhibits a purely finitely additive charge --- the ultrafilter charge on
+$\mathcal{P}(\N)$ --- as a $\mathcal{U}$-ultralimit of $\sigma$-additive
+probabilities.  This shows that the class of $\sigma$-additive structures is not
+closed under ultraproducts, hence not first-order axiomatizable.  A natural
+follow-up question is which purely finitely additive charges on a Boolean algebra
+arise as pointwise ultralimits of $\sigma$-additive probabilities on the same
+algebra; the answer depends sensitively on the algebra's structural properties.
+We note only that on a general Boolean algebra $\sigma$-additive probabilities may
+fail to exist at all: Gaifman~\cite{Gaifman1964} exhibits, in ZFC, an atomless
+Boolean algebra carrying no strictly positive finitely additive (a fortiori no
+$\sigma$-additive) measure.
+
+\bibliographystyle{plain}
+\bibliography{../references}
+
+\end{document}

@@ -5,7 +5,7 @@ holds the PR-realism *overlay* on the OML extension/descent split and the
 one **unresolved Paper II decision**. The underlying mathematics — the two
 axes, the finitary wall, the L(H) clustering result, the "does descent do
 independent work" question — lives in the standalone survey
-`notes/open_questions/oml_onboarding.{tex,md}` and is not restated here;
+`notes/open_questions/kits/oml_onboarding.tex` and is not restated here;
 this note only adds what is specific to the EA/PR/VDR vocabulary.
 
 ## The two grades
@@ -117,7 +117,7 @@ architecture decision is pending on Paper II.
 
 ## Cross-references
 
-- Survey / problem statement: `notes/open_questions/oml_onboarding.{tex,md}`
+- Survey / problem statement: `notes/open_questions/kits/oml_onboarding.tex`
 - Archived predecessor (full audit trail): `notes/archive/oml_extension_problem_superseded.md`
 - Paper II body: `papers/paper_ii/distributivity_and_realism_body.tex`
 - Verification: `notes/open_questions/verification/mb_primeness_check.md`,

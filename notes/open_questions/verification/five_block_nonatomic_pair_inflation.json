@@ -1,0 +1,93 @@
+{
+  "block_sizes": {
+    "A00": 512,
+    "A01": 64,
+    "A10": 64,
+    "A11": 64,
+    "C01": 64
+  },
+  "centre_size": null,
+  "checks": {
+    "complement_closed": true,
+    "disjoint_union_closed": false,
+    "named_blocks_maximal": false,
+    "orthomodular": false,
+    "trivial_centre": false,
+    "unique_binary_extrema": false
+  },
+  "event_sha256": "eb94d1c97a2440bb02aae4e39319a1b8cdd06dd7c387bcb4a00fc155de82b5c7",
+  "events": 648,
+  "fibre_atoms": [
+    2,
+    2
+  ],
+  "first_disjoint_union_failure": {
+    "cardinalities": [
+      4,
+      6
+    ],
+    "left_mask": "0x1111",
+    "left_signature": [
+      "A00"
+    ],
+    "right_mask": "0xa00cc",
+    "right_signature": [
+      "A10",
+      "A11"
+    ],
+    "union_mask": "0xa11dd"
+  },
+  "first_extrema_failure": {
+    "cardinalities": [
+      4,
+      6
+    ],
+    "left_mask": "0x1111",
+    "left_signature": [
+      "A00"
+    ],
+    "lower_extrema": 1,
+    "right_mask": "0xa00cc",
+    "right_signature": [
+      "A10",
+      "A11"
+    ],
+    "upper_extrema": 2
+  },
+  "generated_boolean_atom_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2,
+    2
+  ],
+  "generated_boolean_atoms": 24,
+  "ordered_compatible_pairs": null,
+  "ordered_disjoint_pairs": 23959,
+  "ordered_pairs": 419904,
+  "points": 36,
+  "schema": "five-block-nonatomic-pair-inflation-v1",
+  "selector_masks": [
+    "0x00ff",
+    "0x0f0f"
+  ]
+}

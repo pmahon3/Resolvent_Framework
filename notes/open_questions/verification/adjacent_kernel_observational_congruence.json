@@ -1,0 +1,2727 @@
+{
+  "command": "PYTHONHASHSEED=0 python3 notes/open_questions/verification/adjacent_kernel_observational_congruence.py --verify",
+  "compatible_on_reachable_occurrences": false,
+  "evidence_class": "Executable verified \u2014 sampled finite scope",
+  "first_incompatibility": {
+    "child_examples": [
+      {
+        "child_observation": {
+          "left_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 1223,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 1223
+          },
+          "right_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 9709,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 9709
+          }
+        },
+        "exact_disjoint_parents": true,
+        "left_universal_shadow_root_sha256": "89bcc0cd650496ba32907f93e6c4257446b3655e5d4db5b0c3790569e8ec81dc",
+        "occurrence_id": "left_retained_position11-OrthoOr-062",
+        "parent_occurrence_ids": [
+          "left_retained_position11-And-009",
+          "left_retained_position11-Neg-018"
+        ],
+        "parent_signature_sha256": [
+          "f668bd55b30f578d882ae6d9b4c04732ffeddbfda03bd9cd4f2dd9c08de7ce4f",
+          "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+        ],
+        "right_universal_shadow_root_sha256": "560c8278404cb5718f7dc12c8f4b32a6835031bd93e401d65f56b7ac073223e0",
+        "semantic_signature_sha256": "be39817a57b54fa2026fef5cf81b4f6c6b4a953c72a38811892636d55849eab0"
+      },
+      {
+        "child_observation": {
+          "left_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 4327,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 4327
+          },
+          "right_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 9709,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 9709
+          }
+        },
+        "exact_disjoint_parents": true,
+        "left_universal_shadow_root_sha256": "8d6b94533dbf22646b4e3de76579aea3dbbd1f88c61151a8a2d29663c1c0ad92",
+        "occurrence_id": "left_retained_position11-OrthoOr-066",
+        "parent_occurrence_ids": [
+          "left_retained_position11-And-010",
+          "left_retained_position11-Neg-018"
+        ],
+        "parent_signature_sha256": [
+          "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326",
+          "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+        ],
+        "right_universal_shadow_root_sha256": "560c8278404cb5718f7dc12c8f4b32a6835031bd93e401d65f56b7ac073223e0",
+        "semantic_signature_sha256": "aebb67a1e42e14d07e1e26220755aca60a77d8c0f325406a76ac288acbad6be6"
+      }
+    ],
+    "distinct_child_observation_count": 2,
+    "first_differing_component": {
+      "component": "greatest_old_lower_index",
+      "first_value": 1223,
+      "second_value": 4327,
+      "side": "left_shadow"
+    },
+    "kind": "OrthoOr",
+    "orientation": "left_retained_position11",
+    "parent_observations": [
+      {
+        "left_shadow": {
+          "greatest_old_lower_exists": true,
+          "greatest_old_lower_index": 258,
+          "least_old_upper_exists": true,
+          "least_old_upper_index": 258
+        },
+        "right_shadow": {
+          "greatest_old_lower_exists": true,
+          "greatest_old_lower_index": 0,
+          "least_old_upper_exists": true,
+          "least_old_upper_index": 0
+        }
+      },
+      {
+        "left_shadow": {
+          "greatest_old_lower_exists": true,
+          "greatest_old_lower_index": 1093,
+          "least_old_upper_exists": true,
+          "least_old_upper_index": 1093
+        },
+        "right_shadow": {
+          "greatest_old_lower_exists": true,
+          "greatest_old_lower_index": 9600,
+          "least_old_upper_exists": true,
+          "least_old_upper_index": 9609
+        }
+      }
+    ],
+    "typed_parent_observation_sha256": "156b763dd0f3700b6e2e8431cde32f9801a3367a34ddbf53ae9000fb2660dd72"
+  },
+  "neg_sanity_interpretation": "A Neg conflict here does not contradict complement-stability of the abstract K=(lower,upper) section type: the observed objects are universal shadows of full relations, and the universal shadow of a complement is not generally the complement of the universal shadow.",
+  "orientation_records": [
+    {
+      "bound_nonexistence_counts": {
+        "And:left_shadow:greatest_old_lower": 0,
+        "And:left_shadow:least_old_upper": 2,
+        "And:right_shadow:greatest_old_lower": 0,
+        "And:right_shadow:least_old_upper": 0,
+        "Leaf:left_shadow:greatest_old_lower": 0,
+        "Leaf:left_shadow:least_old_upper": 3,
+        "Leaf:right_shadow:greatest_old_lower": 0,
+        "Leaf:right_shadow:least_old_upper": 0,
+        "Neg:left_shadow:greatest_old_lower": 0,
+        "Neg:left_shadow:least_old_upper": 0,
+        "Neg:right_shadow:greatest_old_lower": 2,
+        "Neg:right_shadow:least_old_upper": 0,
+        "OrthoOr:left_shadow:greatest_old_lower": 0,
+        "OrthoOr:left_shadow:least_old_upper": 11,
+        "OrthoOr:right_shadow:greatest_old_lower": 5,
+        "OrthoOr:right_shadow:least_old_upper": 0
+      },
+      "endpoint_failure_count": 23,
+      "endpoint_failure_count_by_side_kind": {
+        "left_shadow:upper:And": 2,
+        "left_shadow:upper:Leaf": 3,
+        "left_shadow:upper:OrthoOr": 11,
+        "right_shadow:lower:Neg": 2,
+        "right_shadow:lower:OrthoOr": 5
+      },
+      "endpoint_failures": [
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 9,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 9
+            }
+          },
+          "endpoint": "upper",
+          "kind": "Leaf",
+          "left_universal_shadow_root_sha256": "796cc8b2d1401bb673582287479028497a546828ed8a96dab2db7ecc6bd0a976",
+          "occurrence_id": "left_retained_position11-Leaf-000",
+          "parent_occurrence_ids": [],
+          "parent_signature_sha256": [],
+          "right_universal_shadow_root_sha256": "2ee23ac1a88578831c35559336ae6412ec1afbb771238a97249bcc80059b4f47",
+          "semantic_signature_sha256": "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "Leaf",
+          "left_universal_shadow_root_sha256": "6c68f4d6ab790818fe21b2e3bd6b0552924da9f06226585bde2c29805ab51d34",
+          "occurrence_id": "left_retained_position11-Leaf-001",
+          "parent_occurrence_ids": [],
+          "parent_signature_sha256": [],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "23642d24a63aa77b67d06cfd05cda8cef5f7a6fc520fc1552767ceae78e19a38",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 770,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "Leaf",
+          "left_universal_shadow_root_sha256": "667a41510d23be638b603f599d61846fb4c7de14a8dda2164669a5a6c4155b1d",
+          "occurrence_id": "left_retained_position11-Leaf-004",
+          "parent_occurrence_ids": [],
+          "parent_signature_sha256": [],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "01c930b08912421ccb424efbc59501797ae60adfcc30d2ff2cf49f1bf629ffb2",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "And",
+          "left_universal_shadow_root_sha256": "98d9bf27e4b17e9d429f7d3e1a5bba526b368a3a4e15a0ae03992a0002048cdb",
+          "occurrence_id": "left_retained_position11-And-011",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-003",
+            "left_retained_position11-Leaf-004"
+          ],
+          "parent_signature_sha256": [
+            "97bfc204ba358b898021115198aca6c4cd410efe6065bf93eceff2a4403524c8",
+            "01c930b08912421ccb424efbc59501797ae60adfcc30d2ff2cf49f1bf629ffb2"
+          ],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "And",
+          "left_universal_shadow_root_sha256": "98d9bf27e4b17e9d429f7d3e1a5bba526b368a3a4e15a0ae03992a0002048cdb",
+          "occurrence_id": "left_retained_position11-And-012",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-003",
+            "left_retained_position11-Leaf-005"
+          ],
+          "parent_signature_sha256": [
+            "97bfc204ba358b898021115198aca6c4cd410efe6065bf93eceff2a4403524c8",
+            "1e2577fdbae38cca1947ce4b1fe6cef0383a2bf820f63215daad4b5c81eee89a"
+          ],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 14557,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 14557
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": false,
+              "greatest_old_lower_index": null,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 18331
+            }
+          },
+          "endpoint": "lower",
+          "kind": "Neg",
+          "left_universal_shadow_root_sha256": "00276a9c2924f4cf7374a4ddd1558d0632a28eb166361b7c7b1a1081df2fe6c2",
+          "occurrence_id": "left_retained_position11-Neg-023",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-010"
+          ],
+          "parent_signature_sha256": [
+            "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326"
+          ],
+          "right_universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3",
+          "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185",
+          "side": "right_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 1357,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 1357
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": false,
+              "greatest_old_lower_index": null,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13211
+            }
+          },
+          "endpoint": "lower",
+          "kind": "Neg",
+          "left_universal_shadow_root_sha256": "569282bff1ccedda0479906e8dcd53a46002f568ade732cba539fe93824213c3",
+          "occurrence_id": "left_retained_position11-Neg-025",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-012"
+          ],
+          "parent_signature_sha256": [
+            "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd"
+          ],
+          "right_universal_shadow_root_sha256": "403afba398ec9ebdbe00be24c627dd099de80b6a6587ea2bc63ecd2d3ccf66b9",
+          "semantic_signature_sha256": "eeb496aab5de7208955151d3621440b954c26b1c5e9818ac47de252d1b81de53",
+          "side": "right_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5129,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5129
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "29f0ec4d3b6ade44c2a69be160a8390a694c29d46f572847e9321a741e999d09",
+          "occurrence_id": "left_retained_position11-OrthoOr-026",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-000",
+            "left_retained_position11-Leaf-001"
+          ],
+          "parent_signature_sha256": [
+            "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+            "23642d24a63aa77b67d06cfd05cda8cef5f7a6fc520fc1552767ceae78e19a38"
+          ],
+          "right_universal_shadow_root_sha256": "7ed9b94171e0a6a4cfe790d0bf6ce1de3fa12469a62ba71038303cb842b18225",
+          "semantic_signature_sha256": "e042d00f90370025614f4c9a5e0cabfdd216d3586e81ee7ea3e11bb2eb274c61",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5129,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5129
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "4020916df23400c9d48501226c63071709f8ea17e8035f9b221b81c02ee431ed",
+          "occurrence_id": "left_retained_position11-OrthoOr-028",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-000",
+            "left_retained_position11-And-011"
+          ],
+          "parent_signature_sha256": [
+            "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+            "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16"
+          ],
+          "right_universal_shadow_root_sha256": "7ed9b94171e0a6a4cfe790d0bf6ce1de3fa12469a62ba71038303cb842b18225",
+          "semantic_signature_sha256": "1c411f0f76138b13cc6a7e2796e24625ed3d41acd062e7e786abfb75dfa3d751",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5129,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5129
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "4020916df23400c9d48501226c63071709f8ea17e8035f9b221b81c02ee431ed",
+          "occurrence_id": "left_retained_position11-OrthoOr-029",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-000",
+            "left_retained_position11-And-012"
+          ],
+          "parent_signature_sha256": [
+            "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+            "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd"
+          ],
+          "right_universal_shadow_root_sha256": "7ed9b94171e0a6a4cfe790d0bf6ce1de3fa12469a62ba71038303cb842b18225",
+          "semantic_signature_sha256": "357faaa719709d947dcdc569106810060c4fbd6347e9ef9a556c22c72b783973",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "6c68f4d6ab790818fe21b2e3bd6b0552924da9f06226585bde2c29805ab51d34",
+          "occurrence_id": "left_retained_position11-OrthoOr-032",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-001",
+            "left_retained_position11-And-007"
+          ],
+          "parent_signature_sha256": [
+            "23642d24a63aa77b67d06cfd05cda8cef5f7a6fc520fc1552767ceae78e19a38",
+            "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7"
+          ],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "fa97b43558164cd1f4c66cf393b96e6232bce795e08b320f5f234e881fd12ee7",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "98d9bf27e4b17e9d429f7d3e1a5bba526b368a3a4e15a0ae03992a0002048cdb",
+          "occurrence_id": "left_retained_position11-OrthoOr-033",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-001",
+            "left_retained_position11-And-009"
+          ],
+          "parent_signature_sha256": [
+            "23642d24a63aa77b67d06cfd05cda8cef5f7a6fc520fc1552767ceae78e19a38",
+            "f668bd55b30f578d882ae6d9b4c04732ffeddbfda03bd9cd4f2dd9c08de7ce4f"
+          ],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "708cfb0eab17b9cec35a0a03b470c6fb62b75a40fda5f7f43fdd6c27c60c2d6e",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "98d9bf27e4b17e9d429f7d3e1a5bba526b368a3a4e15a0ae03992a0002048cdb",
+          "occurrence_id": "left_retained_position11-OrthoOr-034",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-001",
+            "left_retained_position11-And-010"
+          ],
+          "parent_signature_sha256": [
+            "23642d24a63aa77b67d06cfd05cda8cef5f7a6fc520fc1552767ceae78e19a38",
+            "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326"
+          ],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "c0f6fd60d2a90097c1cca6efb2b30e34b27e5ad31d7b2c8a790d3d9ba9c55396",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 1093,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 14720,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 14729
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "e8fdfaaa957aa861899b00ccfd15b34dfaa9ac4b76edc1af4cf29aedc6bfe275",
+          "occurrence_id": "left_retained_position11-OrthoOr-036",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-001",
+            "left_retained_position11-Neg-018"
+          ],
+          "parent_signature_sha256": [
+            "23642d24a63aa77b67d06cfd05cda8cef5f7a6fc520fc1552767ceae78e19a38",
+            "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+          ],
+          "right_universal_shadow_root_sha256": "cb7e60cd795253c2eacf9cb81aaa51d541cc8565829e36101bb5bbc2301c7cc0",
+          "semantic_signature_sha256": "d3c3e9ca8c55bc96ba9521063d6618ff5c1877f5a6c765ca43c800e5d1db3a0f",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 1479,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 14847,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 14847
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "b6d48226c75fe7dffede4d33248acf735fecd553395879b86b996d189471ff75",
+          "occurrence_id": "left_retained_position11-OrthoOr-040",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-004",
+            "left_retained_position11-Neg-018"
+          ],
+          "parent_signature_sha256": [
+            "01c930b08912421ccb424efbc59501797ae60adfcc30d2ff2cf49f1bf629ffb2",
+            "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+          ],
+          "right_universal_shadow_root_sha256": "0a8c3ed844dab8abd0626c42ea213f7249bc1f6a4bc5c229362c65ee5b4a6af9",
+          "semantic_signature_sha256": "6f575296b5c0531cb2fe7dabdad8717e649dbc09bcebd415733e2b5adc7cde00",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 14557,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 14557
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": false,
+              "greatest_old_lower_index": null,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 18331
+            }
+          },
+          "endpoint": "lower",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "00276a9c2924f4cf7374a4ddd1558d0632a28eb166361b7c7b1a1081df2fe6c2",
+          "occurrence_id": "left_retained_position11-OrthoOr-049",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-006",
+            "left_retained_position11-Neg-023"
+          ],
+          "parent_signature_sha256": [
+            "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61",
+            "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+          ],
+          "right_universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3",
+          "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185",
+          "side": "right_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "98d9bf27e4b17e9d429f7d3e1a5bba526b368a3a4e15a0ae03992a0002048cdb",
+          "occurrence_id": "left_retained_position11-OrthoOr-051",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-007",
+            "left_retained_position11-And-011"
+          ],
+          "parent_signature_sha256": [
+            "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+            "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16"
+          ],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "708cfb0eab17b9cec35a0a03b470c6fb62b75a40fda5f7f43fdd6c27c60c2d6e",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 258,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 5120,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 5120
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "98d9bf27e4b17e9d429f7d3e1a5bba526b368a3a4e15a0ae03992a0002048cdb",
+          "occurrence_id": "left_retained_position11-OrthoOr-052",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-007",
+            "left_retained_position11-And-012"
+          ],
+          "parent_signature_sha256": [
+            "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+            "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd"
+          ],
+          "right_universal_shadow_root_sha256": "caa5bdd140bf6a046f0dcb8d00866558476096fa7c157f3345bb1df5cb831928",
+          "semantic_signature_sha256": "c0f6fd60d2a90097c1cca6efb2b30e34b27e5ad31d7b2c8a790d3d9ba9c55396",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 15069,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 15069
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": false,
+              "greatest_old_lower_index": null,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 18331
+            }
+          },
+          "endpoint": "lower",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "d278aad6bf45b59afd45a19d6c6058d46d221b6f2ce8e59594d7fc4b63052804",
+          "occurrence_id": "left_retained_position11-OrthoOr-057",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-007",
+            "left_retained_position11-Neg-023"
+          ],
+          "parent_signature_sha256": [
+            "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+            "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+          ],
+          "right_universal_shadow_root_sha256": "4d76827be040c7f1c9ad67872dc1f48edee8b14879e49c68e85a2af468d525f0",
+          "semantic_signature_sha256": "bc20d7e71a354038f8ceeb5d3606b825adef0c9bb87f1f442f8f424afa5a11e7",
+          "side": "right_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 15327,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 15327
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": false,
+              "greatest_old_lower_index": null,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 18431
+            }
+          },
+          "endpoint": "lower",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "dd588bded49ba67acec425f2984ab27882c700c9f6c8e08ab6f8f1c04a943a13",
+          "occurrence_id": "left_retained_position11-OrthoOr-064",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-009",
+            "left_retained_position11-Neg-023"
+          ],
+          "parent_signature_sha256": [
+            "f668bd55b30f578d882ae6d9b4c04732ffeddbfda03bd9cd4f2dd9c08de7ce4f",
+            "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+          ],
+          "right_universal_shadow_root_sha256": "4950b3e66ca6a6c6623852e88b1da8157ee8e5073266fcee048baa29256345e1",
+          "semantic_signature_sha256": "dd68479faed6080a5daad13157c7680bf3e6e93ba44941cba02ac33a02fe4234",
+          "side": "right_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 15194,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 15194
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": false,
+              "greatest_old_lower_index": null,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 18038
+            }
+          },
+          "endpoint": "lower",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "e69b83184aa8de7c5abdec1c51df38f5e278eda49e45b3a0567b0557d074d46f",
+          "occurrence_id": "left_retained_position11-OrthoOr-065",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-010",
+            "left_retained_position11-Neg-015"
+          ],
+          "parent_signature_sha256": [
+            "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326",
+            "b1897920bcb798bf1965aa311b2f4bde0459239cf6ac1081d65269e199c77e4c"
+          ],
+          "right_universal_shadow_root_sha256": "f059f7382de3b9b78b8ac1855a81b8dd3530ad8d51acbd557ea18f6f827283d7",
+          "semantic_signature_sha256": "a9d2a285117c837d49fa73e901e1843c30389768f2ca622887bb0736f0d2552e",
+          "side": "right_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 1223,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 14820,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 14829
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "bfdc0846101e0e857de4c709a3642c1692005d0885ea7079bcb6aa3b789e6c0e",
+          "occurrence_id": "left_retained_position11-OrthoOr-069",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-011",
+            "left_retained_position11-Neg-018"
+          ],
+          "parent_signature_sha256": [
+            "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16",
+            "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+          ],
+          "right_universal_shadow_root_sha256": "60be09903c6a6fefe10bb063658f4060b8b991961120cca9f81c54909cc971c4",
+          "semantic_signature_sha256": "de6e93be75ab74c7cee3191e1433b6a849a56f290f9029573f6f5406222b1d97",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 15327,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 15327
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": false,
+              "greatest_old_lower_index": null,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 18047
+            }
+          },
+          "endpoint": "lower",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "dd588bded49ba67acec425f2984ab27882c700c9f6c8e08ab6f8f1c04a943a13",
+          "occurrence_id": "left_retained_position11-OrthoOr-070",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-012",
+            "left_retained_position11-Neg-016"
+          ],
+          "parent_signature_sha256": [
+            "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd",
+            "25179ee82810d4daa7c5206f9be020a5dee478efe6ac07420970629085fdaa8f"
+          ],
+          "right_universal_shadow_root_sha256": "a5c29bda0e54d09db9a43f40e2ad8917b31a66f6112dee83c3f7190f4f400bba",
+          "semantic_signature_sha256": "07398898b4f91db91847182e6d9e119a95e34410afbad0900ec2f0484052df55",
+          "side": "right_shadow"
+        }
+      ],
+      "first_bound_nonexistence": {
+        "And:left_shadow:least_old_upper": {
+          "child_observation": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 258,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "occurrence_id": "left_retained_position11-And-011",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-003",
+            "left_retained_position11-Leaf-004"
+          ],
+          "parent_signature_sha256": [
+            "97bfc204ba358b898021115198aca6c4cd410efe6065bf93eceff2a4403524c8",
+            "01c930b08912421ccb424efbc59501797ae60adfcc30d2ff2cf49f1bf629ffb2"
+          ],
+          "semantic_signature_sha256": "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16",
+          "universal_shadow_root_sha256": "98d9bf27e4b17e9d429f7d3e1a5bba526b368a3a4e15a0ae03992a0002048cdb"
+        },
+        "Leaf:left_shadow:least_old_upper": {
+          "child_observation": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "occurrence_id": "left_retained_position11-Leaf-000",
+          "parent_occurrence_ids": [],
+          "parent_signature_sha256": [],
+          "semantic_signature_sha256": "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+          "universal_shadow_root_sha256": "796cc8b2d1401bb673582287479028497a546828ed8a96dab2db7ecc6bd0a976"
+        },
+        "Neg:right_shadow:greatest_old_lower": {
+          "child_observation": {
+            "greatest_old_lower_exists": false,
+            "greatest_old_lower_index": null,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 18331
+          },
+          "occurrence_id": "left_retained_position11-Neg-023",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-010"
+          ],
+          "parent_signature_sha256": [
+            "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326"
+          ],
+          "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185",
+          "universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3"
+        },
+        "OrthoOr:left_shadow:least_old_upper": {
+          "child_observation": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "occurrence_id": "left_retained_position11-OrthoOr-026",
+          "parent_occurrence_ids": [
+            "left_retained_position11-Leaf-000",
+            "left_retained_position11-Leaf-001"
+          ],
+          "parent_signature_sha256": [
+            "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+            "23642d24a63aa77b67d06cfd05cda8cef5f7a6fc520fc1552767ceae78e19a38"
+          ],
+          "semantic_signature_sha256": "e042d00f90370025614f4c9a5e0cabfdd216d3586e81ee7ea3e11bb2eb274c61",
+          "universal_shadow_root_sha256": "29f0ec4d3b6ade44c2a69be160a8390a694c29d46f572847e9321a741e999d09"
+        },
+        "OrthoOr:right_shadow:greatest_old_lower": {
+          "child_observation": {
+            "greatest_old_lower_exists": false,
+            "greatest_old_lower_index": null,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 18331
+          },
+          "occurrence_id": "left_retained_position11-OrthoOr-049",
+          "parent_occurrence_ids": [
+            "left_retained_position11-And-006",
+            "left_retained_position11-Neg-023"
+          ],
+          "parent_signature_sha256": [
+            "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61",
+            "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+          ],
+          "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185",
+          "universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3"
+        }
+      },
+      "first_endpoint_failure": {
+        "child_observation": {
+          "left_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "right_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 9,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 9
+          }
+        },
+        "endpoint": "upper",
+        "kind": "Leaf",
+        "left_universal_shadow_root_sha256": "796cc8b2d1401bb673582287479028497a546828ed8a96dab2db7ecc6bd0a976",
+        "occurrence_id": "left_retained_position11-Leaf-000",
+        "parent_occurrence_ids": [],
+        "parent_signature_sha256": [],
+        "right_universal_shadow_root_sha256": "2ee23ac1a88578831c35559336ae6412ec1afbb771238a97249bcc80059b4f47",
+        "semantic_signature_sha256": "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+        "side": "left_shadow"
+      },
+      "first_lower_endpoint_failure": {
+        "child_observation": {
+          "left_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 14557,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 14557
+          },
+          "right_shadow": {
+            "greatest_old_lower_exists": false,
+            "greatest_old_lower_index": null,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 18331
+          }
+        },
+        "endpoint": "lower",
+        "kind": "Neg",
+        "left_universal_shadow_root_sha256": "00276a9c2924f4cf7374a4ddd1558d0632a28eb166361b7c7b1a1081df2fe6c2",
+        "occurrence_id": "left_retained_position11-Neg-023",
+        "parent_occurrence_ids": [
+          "left_retained_position11-And-010"
+        ],
+        "parent_signature_sha256": [
+          "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326"
+        ],
+        "right_universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3",
+        "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185",
+        "side": "right_shadow"
+      },
+      "first_upper_endpoint_failure": {
+        "child_observation": {
+          "left_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "right_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 9,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 9
+          }
+        },
+        "endpoint": "upper",
+        "kind": "Leaf",
+        "left_universal_shadow_root_sha256": "796cc8b2d1401bb673582287479028497a546828ed8a96dab2db7ecc6bd0a976",
+        "occurrence_id": "left_retained_position11-Leaf-000",
+        "parent_occurrence_ids": [],
+        "parent_signature_sha256": [],
+        "right_universal_shadow_root_sha256": "2ee23ac1a88578831c35559336ae6412ec1afbb771238a97249bcc80059b4f47",
+        "semantic_signature_sha256": "7a0cff725b4f208ea26117c0eaafd4f41dd969eebb63f4558f5a09c2c655a25e",
+        "side": "left_shadow"
+      },
+      "group_transition_sha256": "c00493986878b6c271895f65a125be0ad10174f88daeadd2d44fb54b84a3e605",
+      "incompatible_group_count": 13,
+      "incompatible_group_count_by_kind": {
+        "And": 0,
+        "Neg": 3,
+        "OrthoOr": 10
+      },
+      "incompatible_groups": [
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 1223,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 1223
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 9709,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 9709
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "89bcc0cd650496ba32907f93e6c4257446b3655e5d4db5b0c3790569e8ec81dc",
+              "occurrence_id": "left_retained_position11-OrthoOr-062",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-009",
+                "left_retained_position11-Neg-018"
+              ],
+              "parent_signature_sha256": [
+                "f668bd55b30f578d882ae6d9b4c04732ffeddbfda03bd9cd4f2dd9c08de7ce4f",
+                "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+              ],
+              "right_universal_shadow_root_sha256": "560c8278404cb5718f7dc12c8f4b32a6835031bd93e401d65f56b7ac073223e0",
+              "semantic_signature_sha256": "be39817a57b54fa2026fef5cf81b4f6c6b4a953c72a38811892636d55849eab0"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 4327,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 4327
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 9709,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 9709
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "8d6b94533dbf22646b4e3de76579aea3dbbd1f88c61151a8a2d29663c1c0ad92",
+              "occurrence_id": "left_retained_position11-OrthoOr-066",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-010",
+                "left_retained_position11-Neg-018"
+              ],
+              "parent_signature_sha256": [
+                "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326",
+                "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+              ],
+              "right_universal_shadow_root_sha256": "560c8278404cb5718f7dc12c8f4b32a6835031bd93e401d65f56b7ac073223e0",
+              "semantic_signature_sha256": "aebb67a1e42e14d07e1e26220755aca60a77d8c0f325406a76ac288acbad6be6"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 1223,
+            "second_value": 4327,
+            "side": "left_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 258,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 258
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 1093,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 1093
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 9600,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 9609
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "156b763dd0f3700b6e2e8431cde32f9801a3367a34ddbf53ae9000fb2660dd72"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 17919,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 17919
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18422,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "f24d93a3fa80d93c963cfaf89ddcbdaf40084caa5995756904213123b71a5917",
+              "occurrence_id": "left_retained_position11-OrthoOr-046",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-006",
+                "left_retained_position11-Neg-020"
+              ],
+              "parent_signature_sha256": [
+                "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61",
+                "2f566dd8d4222ca928249e7ca374421c3154983429d11cd6648bba85447a3c82"
+              ],
+              "right_universal_shadow_root_sha256": "b3931692b8f4c4084e2a3ec326deccfa8f1e104306de5f6f993465dade7d17d4",
+              "semantic_signature_sha256": "2f566dd8d4222ca928249e7ca374421c3154983429d11cd6648bba85447a3c82"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18431,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18431,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639",
+              "occurrence_id": "left_retained_position11-OrthoOr-055",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-007",
+                "left_retained_position11-Neg-020"
+              ],
+              "parent_signature_sha256": [
+                "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+                "2f566dd8d4222ca928249e7ca374421c3154983429d11cd6648bba85447a3c82"
+              ],
+              "right_universal_shadow_root_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639",
+              "semantic_signature_sha256": "30b108d730811e6a5e79a558c479c14a727d92cac26513b31bad10ee52154e4a"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 17919,
+            "second_value": 18431,
+            "side": "left_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 17919,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 17919
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 18422,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 18431
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "1bb7350e041d6a2c493d352f70312af0ad446038d859ed02207eb9eb0474e32e"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18431,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18431,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                }
+              },
+              "exact_disjoint_parents": null,
+              "left_universal_shadow_root_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639",
+              "occurrence_id": "left_retained_position11-Neg-019",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-006"
+              ],
+              "parent_signature_sha256": [
+                "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61"
+              ],
+              "right_universal_shadow_root_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639",
+              "semantic_signature_sha256": "30b108d730811e6a5e79a558c479c14a727d92cac26513b31bad10ee52154e4a"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 17919,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 17919
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18422,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                }
+              },
+              "exact_disjoint_parents": null,
+              "left_universal_shadow_root_sha256": "f24d93a3fa80d93c963cfaf89ddcbdaf40084caa5995756904213123b71a5917",
+              "occurrence_id": "left_retained_position11-Neg-020",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-007"
+              ],
+              "parent_signature_sha256": [
+                "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7"
+              ],
+              "right_universal_shadow_root_sha256": "b3931692b8f4c4084e2a3ec326deccfa8f1e104306de5f6f993465dade7d17d4",
+              "semantic_signature_sha256": "2f566dd8d4222ca928249e7ca374421c3154983429d11cd6648bba85447a3c82"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 18431,
+            "second_value": 17919,
+            "side": "left_shadow"
+          },
+          "kind": "Neg",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "279dc883fa6e417d21874e50310dff096924c2fd9540d3670ceabb6694d197e9"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 1223,
+                  "least_old_upper_exists": false,
+                  "least_old_upper_index": null
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 14820,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 14829
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "bfdc0846101e0e857de4c709a3642c1692005d0885ea7079bcb6aa3b789e6c0e",
+              "occurrence_id": "left_retained_position11-OrthoOr-069",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-011",
+                "left_retained_position11-Neg-018"
+              ],
+              "parent_signature_sha256": [
+                "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16",
+                "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+              ],
+              "right_universal_shadow_root_sha256": "60be09903c6a6fefe10bb063658f4060b8b991961120cca9f81c54909cc971c4",
+              "semantic_signature_sha256": "de6e93be75ab74c7cee3191e1433b6a849a56f290f9029573f6f5406222b1d97"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 4327,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 17895
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 14820,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 14829
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "cab262ebb224a189875c25ecdfe4f8fe5a01d95ef4323eb160b188417b25013e",
+              "occurrence_id": "left_retained_position11-OrthoOr-071",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-012",
+                "left_retained_position11-Neg-018"
+              ],
+              "parent_signature_sha256": [
+                "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd",
+                "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+              ],
+              "right_universal_shadow_root_sha256": "60be09903c6a6fefe10bb063658f4060b8b991961120cca9f81c54909cc971c4",
+              "semantic_signature_sha256": "88ef774b30deb42663312f772d4b5811ea47235fa469c5dbd41aa580c9e44cb2"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 1223,
+            "second_value": 4327,
+            "side": "left_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 258,
+                "least_old_upper_exists": false,
+                "least_old_upper_index": null
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 5120,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 5120
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 1093,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 1093
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 9600,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 9609
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "2f559557f758fb42f4cf1c80f01961d920582c0ef634c9633e752eb6f7f7c18f"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 17661,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 17661
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18322,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18331
+                }
+              },
+              "exact_disjoint_parents": null,
+              "left_universal_shadow_root_sha256": "59a7030a65a4455dae516f96d294176f746f2deebe16fd0834d069643a86c908",
+              "occurrence_id": "left_retained_position11-Neg-022",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-009"
+              ],
+              "parent_signature_sha256": [
+                "f668bd55b30f578d882ae6d9b4c04732ffeddbfda03bd9cd4f2dd9c08de7ce4f"
+              ],
+              "right_universal_shadow_root_sha256": "72af115455f73216647cbe1d9eec778830d59200b92adab24a43e32722d94219",
+              "semantic_signature_sha256": "86505f3b413c8bbf8dee51916d447d7873def4005c095a3cc41d39fbd5d7199b"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 14557,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 14557
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": false,
+                  "greatest_old_lower_index": null,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18331
+                }
+              },
+              "exact_disjoint_parents": null,
+              "left_universal_shadow_root_sha256": "00276a9c2924f4cf7374a4ddd1558d0632a28eb166361b7c7b1a1081df2fe6c2",
+              "occurrence_id": "left_retained_position11-Neg-023",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-010"
+              ],
+              "parent_signature_sha256": [
+                "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326"
+              ],
+              "right_universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3",
+              "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 17661,
+            "second_value": 14557,
+            "side": "left_shadow"
+          },
+          "kind": "Neg",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 258,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 258
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "40deea142810f336247ffc35ce81e88ffe112ceaf0b898d0c2321575e09b8d76"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 15327,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 15327
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 16511,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 16511
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "dd588bded49ba67acec425f2984ab27882c700c9f6c8e08ab6f8f1c04a943a13",
+              "occurrence_id": "left_retained_position11-OrthoOr-068",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-011",
+                "left_retained_position11-Neg-016"
+              ],
+              "parent_signature_sha256": [
+                "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16",
+                "25179ee82810d4daa7c5206f9be020a5dee478efe6ac07420970629085fdaa8f"
+              ],
+              "right_universal_shadow_root_sha256": "f3c9e1dae8e74b73bbb9f57bfb8a213188b85030085217438b47032ee5e5aded",
+              "semantic_signature_sha256": "c9219175b0a8e8733861e3b3bf63f570032e2cdf1e56ec0661841600b63df408"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 15327,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 15327
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": false,
+                  "greatest_old_lower_index": null,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18047
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "dd588bded49ba67acec425f2984ab27882c700c9f6c8e08ab6f8f1c04a943a13",
+              "occurrence_id": "left_retained_position11-OrthoOr-070",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-012",
+                "left_retained_position11-Neg-016"
+              ],
+              "parent_signature_sha256": [
+                "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd",
+                "25179ee82810d4daa7c5206f9be020a5dee478efe6ac07420970629085fdaa8f"
+              ],
+              "right_universal_shadow_root_sha256": "a5c29bda0e54d09db9a43f40e2ad8917b31a66f6112dee83c3f7190f4f400bba",
+              "semantic_signature_sha256": "07398898b4f91db91847182e6d9e119a95e34410afbad0900ec2f0484052df55"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_exists",
+            "first_value": true,
+            "second_value": false,
+            "side": "right_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 258,
+                "least_old_upper_exists": false,
+                "least_old_upper_index": null
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 5120,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 5120
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 1357,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 1357
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 11291,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 11291
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "46357806627a0ed28c89c446e7c62682d03e897f5219bb2238f22c83057a62c3"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 15327,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 15327
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": false,
+                  "greatest_old_lower_index": null,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "dd588bded49ba67acec425f2984ab27882c700c9f6c8e08ab6f8f1c04a943a13",
+              "occurrence_id": "left_retained_position11-OrthoOr-064",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-009",
+                "left_retained_position11-Neg-023"
+              ],
+              "parent_signature_sha256": [
+                "f668bd55b30f578d882ae6d9b4c04732ffeddbfda03bd9cd4f2dd9c08de7ce4f",
+                "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+              ],
+              "right_universal_shadow_root_sha256": "4950b3e66ca6a6c6623852e88b1da8157ee8e5073266fcee048baa29256345e1",
+              "semantic_signature_sha256": "dd68479faed6080a5daad13157c7680bf3e6e93ba44941cba02ac33a02fe4234"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18431,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18431,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18431
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639",
+              "occurrence_id": "left_retained_position11-OrthoOr-067",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-010",
+                "left_retained_position11-Neg-023"
+              ],
+              "parent_signature_sha256": [
+                "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326",
+                "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+              ],
+              "right_universal_shadow_root_sha256": "95d18359cd645bf6b979ae9ec4cb589c84958bde75f2707fd78fc6ba848ab639",
+              "semantic_signature_sha256": "30b108d730811e6a5e79a558c479c14a727d92cac26513b31bad10ee52154e4a"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 15327,
+            "second_value": 18431,
+            "side": "left_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 258,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 258
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 14557,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 14557
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": false,
+                "greatest_old_lower_index": null,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 18331
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "99a84dd1cf30256e02988660393b6de1dd14fa692a16e6fa7f94b8a0719992c4"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 1093,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 1093
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 9600,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 9609
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "74df933234c01de759a2f3d3b465f8b98a788191923c6089752d16e8a6de391d",
+              "occurrence_id": "left_retained_position11-OrthoOr-044",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-006",
+                "left_retained_position11-Neg-018"
+              ],
+              "parent_signature_sha256": [
+                "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61",
+                "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+              ],
+              "right_universal_shadow_root_sha256": "9acdb439407e27d312dbcfa68f57ae4b87422e7531647bc150c5a32828852ffe",
+              "semantic_signature_sha256": "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 1093,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 1093
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 9609,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 9609
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "74df933234c01de759a2f3d3b465f8b98a788191923c6089752d16e8a6de391d",
+              "occurrence_id": "left_retained_position11-OrthoOr-054",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-007",
+                "left_retained_position11-Neg-018"
+              ],
+              "parent_signature_sha256": [
+                "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+                "5e2e49754dd689cd339acc6153105229b013d6b20c7e5be917417bc2a5237329"
+              ],
+              "right_universal_shadow_root_sha256": "3a8acd05927b978810ab612ff4ce7b43022fc98c426ea6223f6d477f9b774456",
+              "semantic_signature_sha256": "f006179ae8115b028f704dcf4af31ae2b58924061ad8be088483dd66955755f7"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 9600,
+            "second_value": 9609,
+            "side": "right_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 1093,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 1093
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 9600,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 9609
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "b9904d994d1a598c147bada9d9c1ad39905543a53c7a48fe1642162ec72e1ef8"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 14557,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 14557
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": false,
+                  "greatest_old_lower_index": null,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18331
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "00276a9c2924f4cf7374a4ddd1558d0632a28eb166361b7c7b1a1081df2fe6c2",
+              "occurrence_id": "left_retained_position11-OrthoOr-049",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-006",
+                "left_retained_position11-Neg-023"
+              ],
+              "parent_signature_sha256": [
+                "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61",
+                "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+              ],
+              "right_universal_shadow_root_sha256": "d5915700da7c9d748c41b8fb97d6300ab60786c684ad9484c24816c2e072cfa3",
+              "semantic_signature_sha256": "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 15069,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 15069
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": false,
+                  "greatest_old_lower_index": null,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18331
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "d278aad6bf45b59afd45a19d6c6058d46d221b6f2ce8e59594d7fc4b63052804",
+              "occurrence_id": "left_retained_position11-OrthoOr-057",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-007",
+                "left_retained_position11-Neg-023"
+              ],
+              "parent_signature_sha256": [
+                "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+                "6b048d77733df8711fd75428ead07e246cb53d6af0de8e08945be3caac147185"
+              ],
+              "right_universal_shadow_root_sha256": "4d76827be040c7f1c9ad67872dc1f48edee8b14879e49c68e85a2af468d525f0",
+              "semantic_signature_sha256": "bc20d7e71a354038f8ceeb5d3606b825adef0c9bb87f1f442f8f424afa5a11e7"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 14557,
+            "second_value": 15069,
+            "side": "left_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 14557,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 14557
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": false,
+                "greatest_old_lower_index": null,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 18331
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "c7a34492818454aba8adc2aeae4ff0d0fa37be9ece9b34a48295eb161ff1502a"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 17661,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 17661
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18322,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18331
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "59a7030a65a4455dae516f96d294176f746f2deebe16fd0834d069643a86c908",
+              "occurrence_id": "left_retained_position11-OrthoOr-048",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-006",
+                "left_retained_position11-Neg-022"
+              ],
+              "parent_signature_sha256": [
+                "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61",
+                "86505f3b413c8bbf8dee51916d447d7873def4005c095a3cc41d39fbd5d7199b"
+              ],
+              "right_universal_shadow_root_sha256": "72af115455f73216647cbe1d9eec778830d59200b92adab24a43e32722d94219",
+              "semantic_signature_sha256": "86505f3b413c8bbf8dee51916d447d7873def4005c095a3cc41d39fbd5d7199b"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18173,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18173
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 18331,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18331
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "48cee621620e313a38728adb92b9864ca2b0792eaf8b8dd97a3dc82224a26acd",
+              "occurrence_id": "left_retained_position11-OrthoOr-056",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-007",
+                "left_retained_position11-Neg-022"
+              ],
+              "parent_signature_sha256": [
+                "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+                "86505f3b413c8bbf8dee51916d447d7873def4005c095a3cc41d39fbd5d7199b"
+              ],
+              "right_universal_shadow_root_sha256": "a4ff0fc623f3e8c182f9efea5e5c9809cc24c344003946f3021cd0374e137a4f",
+              "semantic_signature_sha256": "eb6e532924c98ba2c34d771c1ad6e76294c3f5c567c533f82fb890bc363f2dbf"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 17661,
+            "second_value": 18173,
+            "side": "left_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 17661,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 17661
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 18322,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 18331
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "e7830f3448d0900457c98a18661a3f5465b4e5ac2ae931463b055b1943fe1567"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 15194,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 15194
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 16502,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 16502
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "e69b83184aa8de7c5abdec1c51df38f5e278eda49e45b3a0567b0557d074d46f",
+              "occurrence_id": "left_retained_position11-OrthoOr-061",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-009",
+                "left_retained_position11-Neg-015"
+              ],
+              "parent_signature_sha256": [
+                "f668bd55b30f578d882ae6d9b4c04732ffeddbfda03bd9cd4f2dd9c08de7ce4f",
+                "b1897920bcb798bf1965aa311b2f4bde0459239cf6ac1081d65269e199c77e4c"
+              ],
+              "right_universal_shadow_root_sha256": "fb0bd6f3020f5d7a46250d8f9eb1724c9dc6c99b17b3d5d276208a92185b2c14",
+              "semantic_signature_sha256": "35801aa4b4bd5adcafeb908776bdae9991e55c62ac453408d8c44a66bbb74501"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 15194,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 15194
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": false,
+                  "greatest_old_lower_index": null,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 18038
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "e69b83184aa8de7c5abdec1c51df38f5e278eda49e45b3a0567b0557d074d46f",
+              "occurrence_id": "left_retained_position11-OrthoOr-065",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-010",
+                "left_retained_position11-Neg-015"
+              ],
+              "parent_signature_sha256": [
+                "7b2edddfd129f46c49829391f3b372109d889b2f9ec0995df2bd68bdc42f5326",
+                "b1897920bcb798bf1965aa311b2f4bde0459239cf6ac1081d65269e199c77e4c"
+              ],
+              "right_universal_shadow_root_sha256": "f059f7382de3b9b78b8ac1855a81b8dd3530ad8d51acbd557ea18f6f827283d7",
+              "semantic_signature_sha256": "a9d2a285117c837d49fa73e901e1843c30389768f2ca622887bb0736f0d2552e"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_exists",
+            "first_value": true,
+            "second_value": false,
+            "side": "right_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 258,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 258
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 14424,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 14424
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 16402,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 16402
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "e8c84398aa2b1e828fafa0cc004b237ae98110a533f82b3ed0842fc69311f5e2"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 14424,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 14424
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 16402,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 16402
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "1c5712bfb7346d91933b77322bf899119c744764b643246f1254074fadec1c5f",
+              "occurrence_id": "left_retained_position11-OrthoOr-042",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-006",
+                "left_retained_position11-Neg-015"
+              ],
+              "parent_signature_sha256": [
+                "21beb08b17071265443c4f7f108a28459e8f4ef69ba211b51a44f88366d07d61",
+                "b1897920bcb798bf1965aa311b2f4bde0459239cf6ac1081d65269e199c77e4c"
+              ],
+              "right_universal_shadow_root_sha256": "d4053e09504fcf8cf04320ebcbc27aff9038ac16e00c14b1bc80ec7b08e85461",
+              "semantic_signature_sha256": "b1897920bcb798bf1965aa311b2f4bde0459239cf6ac1081d65269e199c77e4c"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 14936,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 14936
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 16402,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 16402
+                }
+              },
+              "exact_disjoint_parents": true,
+              "left_universal_shadow_root_sha256": "fa88b115584349761cdfb7c3b73c31e88a671923f52e263bd68fd71156d9fd31",
+              "occurrence_id": "left_retained_position11-OrthoOr-053",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-007",
+                "left_retained_position11-Neg-015"
+              ],
+              "parent_signature_sha256": [
+                "5a77821d66aded88591726186dfe2026b8f4309092e41211103e4cec2d7fd9a7",
+                "b1897920bcb798bf1965aa311b2f4bde0459239cf6ac1081d65269e199c77e4c"
+              ],
+              "right_universal_shadow_root_sha256": "d4053e09504fcf8cf04320ebcbc27aff9038ac16e00c14b1bc80ec7b08e85461",
+              "semantic_signature_sha256": "a67b54e85f2b5421b1a0e55592700bc2f91609f53272d2c2d800db3fc53fadf1"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 14424,
+            "second_value": 14936,
+            "side": "left_shadow"
+          },
+          "kind": "OrthoOr",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 0,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 0
+              }
+            },
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 14424,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 14424
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 16402,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 16402
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "fa3d77143291bed7d5814e7363ca1d7d3d9400b3a519a65b3f5c72c5c52272e5"
+        },
+        {
+          "child_examples": [
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 4461,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 4461
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 13211,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 13211
+                }
+              },
+              "exact_disjoint_parents": null,
+              "left_universal_shadow_root_sha256": "4506103fe7877e8a0ccb7592daed5246a511add613292109a50db318a230ed3a",
+              "occurrence_id": "left_retained_position11-Neg-024",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-011"
+              ],
+              "parent_signature_sha256": [
+                "8754585a3b26c006c097413b0e2ab458016038e77e649066abe6cd3dabb1ed16"
+              ],
+              "right_universal_shadow_root_sha256": "01b2009fec82b6554aab877dc482bcfcfe153474a90ff9f0e7f54f65b597784f",
+              "semantic_signature_sha256": "957078769029795cbbbdc18074aab4e37eee25007aeb9047ae356fdccc8a3492"
+            },
+            {
+              "child_observation": {
+                "left_shadow": {
+                  "greatest_old_lower_exists": true,
+                  "greatest_old_lower_index": 1357,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 1357
+                },
+                "right_shadow": {
+                  "greatest_old_lower_exists": false,
+                  "greatest_old_lower_index": null,
+                  "least_old_upper_exists": true,
+                  "least_old_upper_index": 13211
+                }
+              },
+              "exact_disjoint_parents": null,
+              "left_universal_shadow_root_sha256": "569282bff1ccedda0479906e8dcd53a46002f568ade732cba539fe93824213c3",
+              "occurrence_id": "left_retained_position11-Neg-025",
+              "parent_occurrence_ids": [
+                "left_retained_position11-And-012"
+              ],
+              "parent_signature_sha256": [
+                "1f1762633c2cc5fca6991359d344b6e3e33ab45e60bac366cc54b653dbc60afd"
+              ],
+              "right_universal_shadow_root_sha256": "403afba398ec9ebdbe00be24c627dd099de80b6a6587ea2bc63ecd2d3ccf66b9",
+              "semantic_signature_sha256": "eeb496aab5de7208955151d3621440b954c26b1c5e9818ac47de252d1b81de53"
+            }
+          ],
+          "distinct_child_observation_count": 2,
+          "first_differing_component": {
+            "component": "greatest_old_lower_index",
+            "first_value": 4461,
+            "second_value": 1357,
+            "side": "left_shadow"
+          },
+          "kind": "Neg",
+          "parent_observations": [
+            {
+              "left_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 258,
+                "least_old_upper_exists": false,
+                "least_old_upper_index": null
+              },
+              "right_shadow": {
+                "greatest_old_lower_exists": true,
+                "greatest_old_lower_index": 5120,
+                "least_old_upper_exists": true,
+                "least_old_upper_index": 5120
+              }
+            }
+          ],
+          "typed_parent_observation_sha256": "fbdc91ebf2577f7f6ed423504fc5673d78339d8c9e0b88c8cc71756e778d3c55"
+        }
+      ],
+      "orientation": "left_retained_position11",
+      "reachable_occurrence_count": 72,
+      "shadow_role_mapping": {
+        "left_shadow": "retained_physical_left",
+        "right_shadow": "opposite_physical_right"
+      },
+      "typed_parent_observation_group_count": 50
+    },
+    {
+      "bound_nonexistence_counts": {
+        "And:left_shadow:greatest_old_lower": 0,
+        "And:left_shadow:least_old_upper": 3,
+        "And:right_shadow:greatest_old_lower": 0,
+        "And:right_shadow:least_old_upper": 0,
+        "Leaf:left_shadow:greatest_old_lower": 0,
+        "Leaf:left_shadow:least_old_upper": 2,
+        "Leaf:right_shadow:greatest_old_lower": 0,
+        "Leaf:right_shadow:least_old_upper": 0,
+        "Neg:left_shadow:greatest_old_lower": 0,
+        "Neg:left_shadow:least_old_upper": 0,
+        "Neg:right_shadow:greatest_old_lower": 0,
+        "Neg:right_shadow:least_old_upper": 0,
+        "OrthoOr:left_shadow:greatest_old_lower": 0,
+        "OrthoOr:left_shadow:least_old_upper": 5,
+        "OrthoOr:right_shadow:greatest_old_lower": 0,
+        "OrthoOr:right_shadow:least_old_upper": 0
+      },
+      "endpoint_failure_count": 10,
+      "endpoint_failure_count_by_side_kind": {
+        "left_shadow:upper:And": 3,
+        "left_shadow:upper:Leaf": 2,
+        "left_shadow:upper:OrthoOr": 5
+      },
+      "endpoint_failures": [
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 129,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 129
+            }
+          },
+          "endpoint": "upper",
+          "kind": "Leaf",
+          "left_universal_shadow_root_sha256": "c448d90af51cafdb942fb2f297e530d609f91326e6a242156a8f0849a46aece8",
+          "occurrence_id": "right_retained_position00-Leaf-000",
+          "parent_occurrence_ids": [],
+          "parent_signature_sha256": [],
+          "right_universal_shadow_root_sha256": "90670762526a895df8054a8dbe05a300703d10c75950ed1a20c717c30ad89235",
+          "semantic_signature_sha256": "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 13824,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13824
+            }
+          },
+          "endpoint": "upper",
+          "kind": "Leaf",
+          "left_universal_shadow_root_sha256": "ad16c57b1d510a7ca42274549fedf7683536a498eeaaa8186583de06888114e5",
+          "occurrence_id": "right_retained_position00-Leaf-001",
+          "parent_occurrence_ids": [],
+          "parent_signature_sha256": [],
+          "right_universal_shadow_root_sha256": "768e3ac98c3fe709802489d91703f1c409cc53ab5952ef3e6615244f92d7795a",
+          "semantic_signature_sha256": "18d6b3bf4918abdc02e3c64dbbd74bf791de7a20a4379cf050e2fd034244b60a",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 0
+            }
+          },
+          "endpoint": "upper",
+          "kind": "And",
+          "left_universal_shadow_root_sha256": "93847c2a490ca5e492151e5d07ea9933a0b724a9ed7cdcdfd206507b1ce040dc",
+          "occurrence_id": "right_retained_position00-And-007",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-000",
+            "right_retained_position00-Leaf-004"
+          ],
+          "parent_signature_sha256": [
+            "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+            "8d228865b37c88daebca4a90d1ae8adb946ce358e406c841030ff002f17134bf"
+          ],
+          "right_universal_shadow_root_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+          "semantic_signature_sha256": "7755d4126b53249067486b1aed2370bd1f36ed5b2453e4283515515b6dbdea03",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 32,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 0
+            }
+          },
+          "endpoint": "upper",
+          "kind": "And",
+          "left_universal_shadow_root_sha256": "3576abee11e50b5a75b8bd4079f86a1c7f33156e3b201e986130db460fb57dc5",
+          "occurrence_id": "right_retained_position00-And-009",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-002",
+            "right_retained_position00-Leaf-004"
+          ],
+          "parent_signature_sha256": [
+            "4029f519d3787fb28bf670e9812bdb79c06226584b76ddf20ec15191d95fefd5",
+            "8d228865b37c88daebca4a90d1ae8adb946ce358e406c841030ff002f17134bf"
+          ],
+          "right_universal_shadow_root_sha256": "dd5663e191f7a259e2af1f6576cbd91f73ece3769d48b72a0dcfdf767931d0ff",
+          "semantic_signature_sha256": "6e6d829d724074d4f8707e3a64680eec60dc4605dca59471991ff6b50057b42f",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 32,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 13824,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13824
+            }
+          },
+          "endpoint": "upper",
+          "kind": "And",
+          "left_universal_shadow_root_sha256": "69940e2401f8422811bd9fc167e9abb5ecac5f7d7db318bce73764d099a898b6",
+          "occurrence_id": "right_retained_position00-And-011",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-003",
+            "right_retained_position00-Leaf-004"
+          ],
+          "parent_signature_sha256": [
+            "d9eb5f35dc7972c51b1748e4f9008d2575b262c6dbd0fe8acc6bcd76b6d4d496",
+            "8d228865b37c88daebca4a90d1ae8adb946ce358e406c841030ff002f17134bf"
+          ],
+          "right_universal_shadow_root_sha256": "768e3ac98c3fe709802489d91703f1c409cc53ab5952ef3e6615244f92d7795a",
+          "semantic_signature_sha256": "bb722e20b144848b7b8b1fd34d5fff02b817e4d212a79b3b9106a806ea9580de",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 13889,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13889
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "64d7645193fbef4a8c0055872fae287057049c097ea32495685f594da139e5ba",
+          "occurrence_id": "right_retained_position00-OrthoOr-028",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-000",
+            "right_retained_position00-Leaf-001"
+          ],
+          "parent_signature_sha256": [
+            "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+            "18d6b3bf4918abdc02e3c64dbbd74bf791de7a20a4379cf050e2fd034244b60a"
+          ],
+          "right_universal_shadow_root_sha256": "9528500d5b821934a8f4db8aa03a09deef0a9233788cca77f720c8fd21854c28",
+          "semantic_signature_sha256": "32e591890d127ab4f5898b04e3cd6cc4e0b0e00fa0d97826d69bad0626f4933f",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 32,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 13889,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13889
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "e08db7cd7f0a2f4b45ca647e1f63198854512cfb0d59d9a13afc3a266a2551ee",
+          "occurrence_id": "right_retained_position00-OrthoOr-030",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-000",
+            "right_retained_position00-And-011"
+          ],
+          "parent_signature_sha256": [
+            "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+            "bb722e20b144848b7b8b1fd34d5fff02b817e4d212a79b3b9106a806ea9580de"
+          ],
+          "right_universal_shadow_root_sha256": "9528500d5b821934a8f4db8aa03a09deef0a9233788cca77f720c8fd21854c28",
+          "semantic_signature_sha256": "f5a155cd7676783ba857a1cf25388b78819960ab496afbac2b234be0f4d67f9f",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 0,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 13824,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13824
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "6bd1d6599ab4aa77c5a19dc91a081858abadf334d984dafcf0b728e6ec872c29",
+          "occurrence_id": "right_retained_position00-OrthoOr-035",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-001",
+            "right_retained_position00-And-007"
+          ],
+          "parent_signature_sha256": [
+            "18d6b3bf4918abdc02e3c64dbbd74bf791de7a20a4379cf050e2fd034244b60a",
+            "7755d4126b53249067486b1aed2370bd1f36ed5b2453e4283515515b6dbdea03"
+          ],
+          "right_universal_shadow_root_sha256": "768e3ac98c3fe709802489d91703f1c409cc53ab5952ef3e6615244f92d7795a",
+          "semantic_signature_sha256": "6a236861c509b3b68d221004c51f0d21ab9951a6196889565108e653ed843d4e",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 32,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 13824,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13824
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "69c131d679329a02ef6ca86da86706ca24798abf562cfb0f4caa41c8ae6fd7b2",
+          "occurrence_id": "right_retained_position00-OrthoOr-036",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-001",
+            "right_retained_position00-And-009"
+          ],
+          "parent_signature_sha256": [
+            "18d6b3bf4918abdc02e3c64dbbd74bf791de7a20a4379cf050e2fd034244b60a",
+            "6e6d829d724074d4f8707e3a64680eec60dc4605dca59471991ff6b50057b42f"
+          ],
+          "right_universal_shadow_root_sha256": "768e3ac98c3fe709802489d91703f1c409cc53ab5952ef3e6615244f92d7795a",
+          "semantic_signature_sha256": "29ef3be16370c6411089cc46d370fa00af184459b2391e7256ab388732961940",
+          "side": "left_shadow"
+        },
+        {
+          "child_observation": {
+            "left_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 32,
+              "least_old_upper_exists": false,
+              "least_old_upper_index": null
+            },
+            "right_shadow": {
+              "greatest_old_lower_exists": true,
+              "greatest_old_lower_index": 13824,
+              "least_old_upper_exists": true,
+              "least_old_upper_index": 13824
+            }
+          },
+          "endpoint": "upper",
+          "kind": "OrthoOr",
+          "left_universal_shadow_root_sha256": "69c131d679329a02ef6ca86da86706ca24798abf562cfb0f4caa41c8ae6fd7b2",
+          "occurrence_id": "right_retained_position00-OrthoOr-056",
+          "parent_occurrence_ids": [
+            "right_retained_position00-And-007",
+            "right_retained_position00-And-011"
+          ],
+          "parent_signature_sha256": [
+            "7755d4126b53249067486b1aed2370bd1f36ed5b2453e4283515515b6dbdea03",
+            "bb722e20b144848b7b8b1fd34d5fff02b817e4d212a79b3b9106a806ea9580de"
+          ],
+          "right_universal_shadow_root_sha256": "768e3ac98c3fe709802489d91703f1c409cc53ab5952ef3e6615244f92d7795a",
+          "semantic_signature_sha256": "29ef3be16370c6411089cc46d370fa00af184459b2391e7256ab388732961940",
+          "side": "left_shadow"
+        }
+      ],
+      "first_bound_nonexistence": {
+        "And:left_shadow:least_old_upper": {
+          "child_observation": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "occurrence_id": "right_retained_position00-And-007",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-000",
+            "right_retained_position00-Leaf-004"
+          ],
+          "parent_signature_sha256": [
+            "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+            "8d228865b37c88daebca4a90d1ae8adb946ce358e406c841030ff002f17134bf"
+          ],
+          "semantic_signature_sha256": "7755d4126b53249067486b1aed2370bd1f36ed5b2453e4283515515b6dbdea03",
+          "universal_shadow_root_sha256": "93847c2a490ca5e492151e5d07ea9933a0b724a9ed7cdcdfd206507b1ce040dc"
+        },
+        "Leaf:left_shadow:least_old_upper": {
+          "child_observation": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "occurrence_id": "right_retained_position00-Leaf-000",
+          "parent_occurrence_ids": [],
+          "parent_signature_sha256": [],
+          "semantic_signature_sha256": "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+          "universal_shadow_root_sha256": "c448d90af51cafdb942fb2f297e530d609f91326e6a242156a8f0849a46aece8"
+        },
+        "OrthoOr:left_shadow:least_old_upper": {
+          "child_observation": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "occurrence_id": "right_retained_position00-OrthoOr-028",
+          "parent_occurrence_ids": [
+            "right_retained_position00-Leaf-000",
+            "right_retained_position00-Leaf-001"
+          ],
+          "parent_signature_sha256": [
+            "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+            "18d6b3bf4918abdc02e3c64dbbd74bf791de7a20a4379cf050e2fd034244b60a"
+          ],
+          "semantic_signature_sha256": "32e591890d127ab4f5898b04e3cd6cc4e0b0e00fa0d97826d69bad0626f4933f",
+          "universal_shadow_root_sha256": "64d7645193fbef4a8c0055872fae287057049c097ea32495685f594da139e5ba"
+        }
+      },
+      "first_endpoint_failure": {
+        "child_observation": {
+          "left_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "right_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 129,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 129
+          }
+        },
+        "endpoint": "upper",
+        "kind": "Leaf",
+        "left_universal_shadow_root_sha256": "c448d90af51cafdb942fb2f297e530d609f91326e6a242156a8f0849a46aece8",
+        "occurrence_id": "right_retained_position00-Leaf-000",
+        "parent_occurrence_ids": [],
+        "parent_signature_sha256": [],
+        "right_universal_shadow_root_sha256": "90670762526a895df8054a8dbe05a300703d10c75950ed1a20c717c30ad89235",
+        "semantic_signature_sha256": "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+        "side": "left_shadow"
+      },
+      "first_lower_endpoint_failure": null,
+      "first_upper_endpoint_failure": {
+        "child_observation": {
+          "left_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 0,
+            "least_old_upper_exists": false,
+            "least_old_upper_index": null
+          },
+          "right_shadow": {
+            "greatest_old_lower_exists": true,
+            "greatest_old_lower_index": 129,
+            "least_old_upper_exists": true,
+            "least_old_upper_index": 129
+          }
+        },
+        "endpoint": "upper",
+        "kind": "Leaf",
+        "left_universal_shadow_root_sha256": "c448d90af51cafdb942fb2f297e530d609f91326e6a242156a8f0849a46aece8",
+        "occurrence_id": "right_retained_position00-Leaf-000",
+        "parent_occurrence_ids": [],
+        "parent_signature_sha256": [],
+        "right_universal_shadow_root_sha256": "90670762526a895df8054a8dbe05a300703d10c75950ed1a20c717c30ad89235",
+        "semantic_signature_sha256": "17c357b1a36f1cb100f0dc350256ad4717625050d3593a16952698207674ebd7",
+        "side": "left_shadow"
+      },
+      "group_transition_sha256": "bad678981ecf093a0396ffa22bc54d30f51f35a460c2921f13f23274e07e7d7b",
+      "incompatible_group_count": 0,
+      "incompatible_group_count_by_kind": {
+        "And": 0,
+        "Neg": 0,
+        "OrthoOr": 0
+      },
+      "incompatible_groups": [],
+      "orientation": "right_retained_position00",
+      "reachable_occurrence_count": 84,
+      "shadow_role_mapping": {
+        "left_shadow": "retained_physical_right",
+        "right_shadow": "opposite_physical_left"
+      },
+      "typed_parent_observation_group_count": 78
+    }
+  ],
+  "payload_sha256": "1abffb96a52d7f4247879f69df120c5b1caa3cb99dc7371a1a3b0dfcb82dbdaa",
+  "producer_sha256": "2a28e951b94870f73c3cd860480a85428041a7c6e07424394fcfbfcf4c66e18e",
+  "schema": "adjacent-kernel-observational-congruence-v1",
+  "schema_version": "1.0",
+  "scope": "The canonical fixed six-generator reachable Leaf/And/Neg/OrthoOr occurrences from the actual-event audit only. No full 512-element transition enumeration, other witnesses, arbitrary depth, closure, OML, sigma, ODBC, or Phi claim.",
+  "source_actual_event_payload_sha256": "3d6f97c80ff21de11da3d748acb1d7635fa926386bf376ae921c0b7c1cdab6e9",
+  "verdict": "kernel/dual-upper observation is not a typed Boolean congruence",
+  "verification_independence": "Single deterministic instrumentation sharing the actual-event producer's exact MDD grammar and leaf selection."
+}

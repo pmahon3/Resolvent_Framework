@@ -1,0 +1,332 @@
+{
+ "base_run_check_counts": {
+  "additivity_instances": 47740,
+  "complement": 44,
+  "disjoint_union": 92,
+  "lattice_pairs": 462,
+  "pairwise_value1": 1210
+ },
+ "payload": {
+  "dropped_state_is_all_odd": true,
+  "predictions": {
+   "P1_canonical_all_kernels_nonempty": true,
+   "P2_canonical_all_point_representable": true,
+   "P3_reduced_nonextendable_sigma_state_count": 1,
+   "P4_min_failing_stages": [
+    3
+   ],
+   "P5_rep_relativity_confirmed": true,
+   "P6_latticehood_does_not_force_FIP": true
+  },
+  "reps": {
+   "canonical": {
+    "census": [
+     {
+      "fip": true,
+      "kernel": [
+       7
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 7,
+      "state_signature": "0000001111100000111111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       10
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 10,
+      "state_signature": "0000010110101001011111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       4
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 4,
+      "state_signature": "0000101011010010101111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       8
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 8,
+      "state_signature": "0000110010011011001111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       6
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 6,
+      "state_signature": "0001000101100101110111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       3
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 3,
+      "state_signature": "0001100001010111100111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       5
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 5,
+      "state_signature": "0010001001100110111011",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       9
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 9,
+      "state_signature": "0010010000101111011011",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       2
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 2,
+      "state_signature": "0100001110011000111101",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       1
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 1,
+      "state_signature": "0101000100011101110101",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       0
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 0,
+      "state_signature": "0110001000011110111001",
+      "value1_size": 11
+     }
+    ],
+    "n_events": 22,
+    "n_states": 11,
+    "points": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     7,
+     8,
+     9,
+     10
+    ]
+   },
+   "reduced": {
+    "census": [
+     {
+      "fip": false,
+      "kernel": [],
+      "kernel_empty": true,
+      "min_failing_stage": 3,
+      "point_representable": false,
+      "representing_point": null,
+      "state_signature": "0000001111100000111111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       10
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 10,
+      "state_signature": "0000010110101001011111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       4
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 4,
+      "state_signature": "0000101011010010101111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       8
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 8,
+      "state_signature": "0000110010011011001111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       6
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 6,
+      "state_signature": "0001000101100101110111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       3
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 3,
+      "state_signature": "0001100001010111100111",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       5
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 5,
+      "state_signature": "0010001001100110111011",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       9
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 9,
+      "state_signature": "0010010000101111011011",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       2
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 2,
+      "state_signature": "0100001110011000111101",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       1
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 1,
+      "state_signature": "0101000100011101110101",
+      "value1_size": 11
+     },
+     {
+      "fip": true,
+      "kernel": [
+       0
+      ],
+      "kernel_empty": false,
+      "min_failing_stage": null,
+      "point_representable": true,
+      "representing_point": 0,
+      "state_signature": "0110001000011110111001",
+      "value1_size": 11
+     }
+    ],
+    "n_events": 22,
+    "n_states": 11,
+    "points": [
+     0,
+     1,
+     2,
+     3,
+     4,
+     5,
+     6,
+     8,
+     9,
+     10
+    ]
+   }
+  },
+  "unique_valid_proper_subsets": 1
+ },
+ "payload_sha256": "5153bcac5beb2d66e2c717e42669dd0e0b1c17a89612d9aef566ccf7d5e68d0c",
+ "replay_seed_hashes": {
+  "20260719": "5153bcac5beb2d66e2c717e42669dd0e0b1c17a89612d9aef566ccf7d5e68d0c",
+  "8675309": "5153bcac5beb2d66e2c717e42669dd0e0b1c17a89612d9aef566ccf7d5e68d0c"
+ },
+ "scope": "Greechie 5-cycle only, both banked concrete reps; finite carrier so fa = sigma; extendability read off via the E1-verified lemma (finite carrier: FIP iff kernel nonempty iff point-representable)",
+ "script": "pentagon_state_layer_calibration.py",
+ "verdict": "ALL PREDICTIONS CONFIRMED"
+}

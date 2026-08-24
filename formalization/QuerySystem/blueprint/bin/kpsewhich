@@ -1,0 +1,45 @@
+#!/bin/sh
+# POSIX twin of kpsewhich.bat, for Linux/macOS (CI runs on ubuntu-latest).
+#
+# plasTeX 3.1 resolves every \input target through kpsewhich (TeX.kpsewhich).
+# Its fallback for a missing kpsewhich is not a real search: it tests
+# `name in os.listdir(path)` over TEXINPUTS (default "."), which matches only
+# FLAT names. So `web.tex` resolves from the CWD, but `macros/common.tex` --
+# the file that defines every theorem environment -- never can, and the render
+# dies with "Could not find any file named: macros/common.tex".
+#
+# Only kpsewhich.bat existed until 2026-08-24. Windows takes the shell=True
+# branch and cmd.exe runs the .bat, so the render worked here; Linux takes the
+# shell=False branch, finds no kpsewhich at all, and every CI run failed.
+# Style packages are not our problem: plasTeX implements the standard ones in
+# Python, and blueprint.sty is implemented by the leanblueprint plugin.
+[ -n "$1" ] || exit 1
+
+abspath() {
+  d=$(dirname -- "$1")
+  b=$(basename -- "$1")
+  printf '%s/%s\n' "$(cd -- "$d" 2>/dev/null && pwd)" "$b"
+}
+
+if [ -f "$1" ]; then
+  abspath "$1"
+  exit 0
+fi
+
+# TEXINPUTS is colon-separated on POSIX (semicolon on Windows).
+if [ -n "${TEXINPUTS:-}" ]; then
+  saved_IFS=$IFS
+  IFS=:
+  for d in $TEXINPUTS; do
+    IFS=$saved_IFS
+    [ -n "$d" ] || continue
+    if [ -f "$d/$1" ]; then
+      abspath "$d/$1"
+      exit 0
+    fi
+    IFS=:
+  done
+  IFS=$saved_IFS
+fi
+
+exit 1

@@ -1,0 +1,6 @@
+# Scripts that CI executes on Linux must keep LF endings regardless of the
+# committer's platform. This repo is developed on Windows with
+# core.autocrlf=true, and a CRLF shebang makes Linux fail the whole script with
+# "bad interpreter: /bin/sh^M" -- a failure mode with no useful error message.
+*.sh text eol=lf
+formalization/QuerySystem/blueprint/bin/kpsewhich text eol=lf

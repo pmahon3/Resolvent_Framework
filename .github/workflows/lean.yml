@@ -73,7 +73,16 @@ jobs:
           pip install --quiet leanblueprint
           cd formalization/QuerySystem
           cp blueprint/lean_decls /tmp/lean_decls.committed
-          bash blueprint-web.sh
+          # Annotate a render crash. Only the staleness branch below used
+          # `::error::`, so when the render itself died (it did, on every run
+          # from 2026-08-23 to 2026-08-24: no POSIX kpsewhich, so plasTeX could
+          # not resolve even web.tex) the job surfaced nothing but "Process
+          # completed with exit code 1" and the cause had to be read out of the
+          # raw log.
+          bash blueprint-web.sh || {
+            echo "::error::blueprint render failed -- see the plasTeX output above"
+            exit 1
+          }
           if ! diff -u /tmp/lean_decls.committed blueprint/lean_decls; then
             echo "::error::blueprint/lean_decls is stale -- run"
             echo "  formalization/QuerySystem/blueprint-web.sh and commit the result"

@@ -1,3 +1,345 @@
+\chapter{The $\sigma$-essential witness, and the OML gap}
+
+The flagship result. \texttt{psiAmended\_ZFC} is a ZFC theorem with zero
+sorries, axioms exactly \texttt{[propext, Classical.choice, Quot.sound]}: a
+concrete $\sigma$-complete orthomodular \emph{poset} carrying a finite
+two-valued pattern that is finitely coherent yet extends to no global
+$\sigma$-additive two-valued state.
+
+This chapter is the fidelity spine. Every definition on the path from the
+paper's statement to the Lean theorem appears as a node with its Lean name
+attached, so \texttt{checkdecls} enforces the paper--Lean correspondence rather
+than leaving it to a hand-maintained side-by-side. The chapter closes on what is
+\emph{not} settled: the same question with latticehood adjoined.
+
+
+This section is the formal spine of \texttt{papers/sigma\_essential/}. Its
+purpose here is fidelity: every definition on the path from the paper's
+statement to \texttt{psiAmended\_ZFC} appears as a node with its Lean name
+attached, so that \texttt{checkdecls} enforces the paper--Lean correspondence
+that \texttt{FIDELITY\_REVIEW.md} currently records by hand.
+
+\section{The carrier and its states}
+
+\begin{definition}[$\sigma$-class = concrete $\sigma$-complete OMP]
+\label{def:sigma-class}
+\lean{MeasurableSpace.DynkinSystem}
+\leanok
+A family $L \subseteq \mathcal{P}(\Omega)$ with $\emptyset, \Omega \in L$,
+closed under complement, and closed under countable \emph{disjoint} unions.
+Formalized as Mathlib's \texttt{DynkinSystem}: \texttt{has\_iUnion\_nat} takes
+\texttt{Pairwise (Disjoint on f)}, so this is a $\sigma$-class and \emph{not} a
+$\sigma$-algebra --- the distinction the whole question turns on.
+\end{definition}
+
+\begin{definition}[$\sigma$-additive two-valued state]
+\label{def:two-valued-state}
+\lean{SigmaEssential.TwoValuedState}
+\leanok
+\uses{def:sigma-class}
+$s : L \to \{0,1\}$ with $s(\Omega) = 1$, additive over countable orthogonal
+joins. The paper's $s(\bigcup_n A_n) = \sum_n s(A_n)$ becomes ``union true
+if and only if some member true''; the at-most-one half is \emph{derived}
+(\texttt{val\_at\_most\_one}) rather than assumed, which makes the structure
+weaker-or-equal and the derived lemma restores equality.
+\end{definition}
+
+\begin{definition}[Finitely additive two-valued state]
+\label{def:finadd-state}
+\lean{SigmaEssential.Amended.FinAddState}
+\leanok
+\uses{def:sigma-class}
+Pair additivity only. Finite-family additivity is derived
+(\texttt{val\_sUnion\_finset}). Nothing $\sigma$-additive is assumed, so the
+coherence clause quantifies over exactly the paper's finitely additive states.
+\end{definition}
+
+\begin{definition}[The local pattern]
+\label{def:local-pattern}
+\lean{SigmaEssential.Amended.LocalState}
+\leanok
+\uses{def:sigma-class}
+A two-valued assignment on a finite $\perp$-closed block $B \subseteq L$.
+\textbf{The one substantive encoding choice:} \texttt{LocalState} demands only
+complement-additivity inside $B$, weaker in general than the paper's Def 1.2
+restricted to $B$. It is closed both ways below.
+\end{definition}
+
+\begin{lemma}[The weaker encoding is upgraded by coherence]
+\label{lem:pattern-fully-additive}
+\lean{SigmaEssential.Amended.coherent_pattern_fully_additive}
+\leanok
+\uses{def:local-pattern, def:finadd-state}
+A finitely coherent \texttt{LocalState} satisfies \emph{every} Def-1.2
+constraint on $B$. Since $\sigma$-essentiality requires coherence, the pattern
+is a genuine paper-state wherever the definition applies.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Coherence supplies a finitely additive extension on all of $L$; its additivity restricts to every Def-1.2 constraint on the finite block $B$.
+\end{proof}
+
+\begin{lemma}[On the witness block the encodings coincide outright]
+\label{lem:coreblock-disjoint}
+\lean{SigmaEssential.Ulam.coreBlock_disjoint_eq_compl}
+\leanok
+\uses{def:local-pattern, def:core-block}
+On the witness's own block the only disjoint pairs are the complement pairs
+--- the twelve cross-intersections are nonempty --- so for \emph{this} $B$,
+\texttt{LocalState} equals Def 1.2-on-$B$ exactly, coherence or not.
+\end{lemma}
+
+\begin{proof}
+\leanok
+The twelve cross-intersections of the three cores and their complements are each exhibited nonempty, so the only disjoint pairs are the complement pairs.
+\end{proof}
+
+\section{$\sigma$-essentiality and $\Psi$}
+
+\begin{definition}[$\sigma$-essential contextual state]
+\label{def:sigma-essential}
+\lean{SigmaEssential.Amended.IsSigmaEssentialL}
+\leanok
+\uses{def:local-pattern, def:two-valued-state, def:finadd-state}
+$s_0$ is finitely coherent (extends to \emph{some} finitely additive
+two-valued state on all of $L$) and extends to \textbf{no} global
+$\sigma$-additive two-valued state. Extension means agreement on $B$; the
+negative clause quantifies over all $\sigma$-additive states, Dirac and
+non-Dirac alike.
+\end{definition}
+
+\begin{definition}[The amended $\Psi$]
+\label{def:psi-amended}
+\lean{SigmaEssential.Amended.PsiAmended}
+\leanok
+\uses{def:sigma-essential}
+The localized existence sentence: some $\Omega$, $\sigma$-class, block and
+pattern with $s_0$ $\sigma$-essential. Admissibility predicates are not
+bundled in --- non-Booleanness is \ref{lem:carrier-not-boolean}; essential
+irreducibility and non-segregation are paper-level facts about the carrier and
+do not affect the truth of \ref{thm:psi-amended-zfc}.
+\end{definition}
+
+\begin{theorem}[Localization --- the whole content is clause (ii)]
+\label{thm:localization}
+\lean{SigmaEssential.localization}
+\leanok
+\uses{def:sigma-essential}
+A witness exists if and only if (i) no point-evaluation extends the finite
+pattern \emph{and} (ii) no non-Dirac $\sigma$-additive two-valued state does.
+Clause (i) is freely arrangeable by the Navara--Pt\'ak intersection device, so
+the entire difficulty is clause (ii) --- Wall A.
+\end{theorem}
+
+\begin{proof}
+\leanok
+A global $\sigma$-additive two-valued state either agrees with a point evaluation on the carrier or does not; splitting on that alternative gives clauses (i) and (ii).
+\end{proof}
+
+\section{The witness carrier}
+
+\begin{definition}[Ulam matrix]
+\label{def:ulam-matrix}
+\lean{SigmaEssential.Ulam.UlamMatrix}
+\leanok
+Rows disjoint, rows covering above the index, columns exactly disjoint.
+\end{definition}
+
+\begin{definition}[Carrier, block, pattern]
+\label{def:core-block}
+\lean{SigmaEssential.Ulam.carrier}
+\leanok
+\uses{def:ulam-matrix, def:sigma-class}
+$\Omega = \omega_1 \times \{1,2,3,4\}$ with cores $A_1 = M\times\{1,2\}$,
+$A_2 = M\times\{1,3\}$, $A_3 = M\times\{2,3\}$; $L$ the least $\sigma$-class
+containing singletons, cells and cores; $B$ the $\perp$-closure of the cores;
+$s_0 \equiv 1$ on the three cores, encoded as the majority vote of three marked
+points (self-dual, so the complement values are forced).
+\end{definition}
+
+\begin{lemma}[The $\omega_1$ instantiation]
+\label{lem:omega1}
+\lean{SigmaEssential.Ulam.M₁}
+\leanok
+\uses{def:core-block}
+$M_1 = \omega_1$ as a type: uncountable, with every initial segment countable.
+These two facts are the only inputs the abstract development consumes, and both
+are discharged from Mathlib's ordinal API --- no extra axioms in the receipts.
+\end{lemma}
+
+\begin{proof}
+\leanok
+From Mathlib's ordinal API: cardinality $\aleph_1$ gives uncountability, and $\mathrm{typein} < \omega_1$ gives countability of every initial segment.
+\end{proof}
+
+\begin{theorem}[Rigidity --- every $\sigma$-state is Dirac on the carrier]
+\label{thm:rigidity}
+\lean{SigmaEssential.Ulam.rigidity}
+\leanok
+\uses{def:core-block, lem:omega1, def:two-valued-state}
+The conclusion is \texttt{IsDiracOn}, ``agrees with $\delta_\omega$ on $L$'',
+not structure-equality --- the paper never constrains a state off the carrier,
+and the kernel argument evaluates only on carrier sets.
+\end{theorem}
+
+\begin{proof}
+\leanok
+Exact column disjointness forces all but countably many columns to miss the support of a $\sigma$-additive two-valued state; row covering above the index then pins the support to a single point.
+\end{proof}
+
+\begin{lemma}[The carrier is not Boolean]
+\label{lem:carrier-not-boolean}
+\lean{SigmaEssential.Ulam.carrier_not_interClosed}
+\leanok
+\uses{def:core-block}
+$L_1$ is not intersection-closed. Machine-checked against the amended Boolean
+baseline, so non-Booleanness is not a prose caveat.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Two carrier sets are exhibited whose intersection is not in the carrier.
+\end{proof}
+
+\begin{theorem}[$\Psi$ amended, in ZFC]
+\label{thm:psi-amended-zfc}
+\lean{SigmaEssential.Ulam.psiAmended_ZFC}
+\leanok
+\uses{thm:rigidity, def:psi-amended, lem:pattern-fully-additive, lem:coreblock-disjoint, lem:carrier-not-boolean}
+The amended $\Psi$ holds on $\sigma$-classes/OMPs, coherence-amended and
+irreducible modulo the countable ideal, in ZFC. Zero sorries end to end; axioms
+exactly \texttt{[propext, Classical.choice, Quot.sound]}.
+\end{theorem}
+
+\begin{proof}
+\leanok
+Assembled at $\omega_1$ via \ref{lem:omega1}. Zero sorries; \texttt{\#print axioms} returns exactly \texttt{[propext, Classical.choice, Quot.sound]}.
+\end{proof}
+
+\begin{theorem}[$\Omega_7$: the amendment is forced, not a retreat]
+\label{thm:omega7}
+\lean{SigmaEssential.Omega7.omega7_not_witness}
+\leanok
+\uses{def:sigma-essential}
+The literal (unamended) definition admits a Boolean ``witness''; the amended
+definition excludes it. So the coherence amendment repairs a real defect rather
+than weakening the claim until it became provable.
+\end{theorem}
+
+\begin{proof}
+\leanok
+On the seven-point Boolean carrier the literal definition is satisfied while coherence fails, so the amended definition excludes the object the literal one admits.
+\end{proof}
+
+\begin{theorem}[Thm 3.5 --- normal form for carrier sets]
+\label{thm:normal-form}
+\lean{SigmaEssential.Ulam.nrep_exists}
+\leanok
+\uses{def:core-block, def:ulam-matrix}
+Every set in the carrier has a normalized representation. This is the
+$\S$3 trace invariant: representation rigidity fixes coordinate 3 as the
+anchor, and the disjointness table settles all four cases --- including the
+parity-triangle impossibility (case IV), which is what makes the invariant
+complete rather than merely sufficient. Proved by \texttt{GenerateHas}
+induction with the trichotomy inline.
+\end{theorem}
+
+\begin{proof}
+\leanok
+By \texttt{GenerateHas} induction. The disjointness table supplies all four cases, including the parity-triangle impossibility, and the trichotomy is inline.
+\end{proof}
+
+\begin{theorem}[$\S$6 --- the vote state, and coherence]
+\label{thm:vote-state}
+\lean{SigmaEssential.Ulam.corePattern_coherent}
+\leanok
+\uses{thm:normal-form, def:finadd-state, def:core-block}
+The majority-vote assignment is a genuine finitely additive two-valued state on
+the whole carrier and it extends the core pattern. This discharges the positive
+clause of $\sigma$-essentiality: the pattern really is finitely coherent, so
+the theorem is not vacuous for want of a finitely additive extension. Built as
+an ultrafilter of cocountable sets, with \texttt{mVal} well defined by
+representation rigidity and additivity read off the disjointness table.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\texttt{mVal} is well defined by representation rigidity (3.2); additivity is read off the disjointness table (3.3); agreement with the pattern on the three cores is Cor 6.4.
+\end{proof}
+
+\begin{theorem}[The witness, assembled]
+\label{thm:core-pattern-witness}
+\lean{SigmaEssential.Ulam.corePattern_witness}
+\leanok
+\uses{thm:vote-state, thm:rigidity, def:sigma-essential}
+Coherence (\ref{thm:vote-state}) together with rigidity (\ref{thm:rigidity})
+gives a pattern that is finitely coherent and has no global $\sigma$-additive
+extension --- a $\sigma$-essential contextual state. \ref{thm:psi-amended-zfc}
+is this at $\omega_1$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+Coherence gives the positive clause, rigidity the negative one.
+\end{proof}
+
+\section{The OML gap --- the open question}
+
+\begin{lemma}[The witness carrier is not a lattice]
+\label{lem:witness-not-lattice}
+\lean{SigmaEssential.Ulam.witness_carrier_not_lattice}
+\leanok
+\uses{def:core-block}
+$L_1$ has no meet at the cores: a greatest lower bound would have to be the
+slab $M \times \{0\}$, which is not in the carrier. This is exactly why
+\ref{thm:psi-amended-zfc} does not settle the lattice case --- and it is the
+formal counterpart of the recurring observation that every regularity-wild
+object built so far is a non-lattice.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Modulo the one cited fact (Cor 4.1): every carrier lower bound of the cores lies inside the slab $M \times \{0\}$, so a greatest one would have to be the slab, which the carrier omits.
+\end{proof}
+
+\begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]
+\label{def:psi-oml}
+\lean{SigmaEssential.Ulam.PsiOML}
+\leanok
+\uses{def:psi-amended}
+The same existence sentence with latticehood adjoined to the carrier. Stated in
+Lean as a \texttt{Prop}, never assumed.
+\end{definition}
+
+\begin{lemma}[The lattice form is stronger]
+\label{lem:psi-oml-implies}
+\lean{SigmaEssential.Ulam.psiOML_gives_sigmaEssential}
+\leanok
+\uses{def:psi-oml, def:psi-amended}
+$\Psi_{\mathrm{OML}}$ implies $\Psi$: an OML witness drops its latticehood
+conjunct.
+\end{lemma}
+
+\begin{proof}
+\leanok
+Drop the latticehood conjunct from the witness package.
+\end{proof}
+
+\begin{remark}[$\Phi$, and what is actually open]
+\label{rmk:phi-open}
+\uses{def:psi-oml, lem:witness-not-lattice}
+The open question is $\Phi$: does every concrete, $\sigma$-complete,
+non-Boolean, essentially irreducible OML have each finite trace of each
+finitely additive two-valued state reproduced by some $\sigma$-additive one?
+Conjectured \emph{yes} --- hence no lattice witness, i.e.\ the negation of
+$\Psi_{\mathrm{OML}}$. This is the whole surviving latticehood theory front:
+the former three-way latticehood family is refuted under its literal reading by
+the complete Hilbert lattice's Kochen--Specker failure of sharpness. Nothing in
+this section is evidence either way; it exists so that the settled OMP result
+and the open lattice gap are visible as one picture.
+\end{remark}
+
 \chapter{Query Systems and Observational Foundations}
 
 This formalization develops query systems: preordered families of measurable spaces with compatible refinement maps.
@@ -377,6 +719,60 @@ $\mathrm{Unsafe}$ is a finite union of eventually periodic sets by
 \ref{lem:unsafe-biunion} and \ref{lem:evper-tr}, hence eventually periodic with
 threshold the max of the thresholds and period the lcm of the periods;
 $\mathrm{Safe}$ is its complement among the positives.
+\end{proof}
+
+\section{Lemma NG}
+
+\begin{lemma}[Lemma NG, orbit-map half]
+\label{lem:ng-orbit}
+\lean{Reconstruction.Pruning.isLISC_addOrderOf_of_isTR}
+\leanok
+\uses{lem:ng}
+A rotation-$r$ tuple walk certifies a simple cycle of winding
+$\mathrm{addOrderOf}(r) = k/\gcd(r,k)$ --- equal to $k$ exactly when $r$
+generates. No orbit map has to be supplied by hand.
+\end{lemma}
+
+\begin{proof}
+\leanok
+\uses{lem:ng}
+The orbit map is \texttt{ZMod.lift} applied to \texttt{zmultiplesHom}, so
+$f(j+1) = f(j) + r$ falls out of \texttt{map\_add}. An earlier attempt defined
+$f$ by $j \mapsto j.\mathrm{val} \bullet r$ and had to case-split on the
+wrap-around at $j = m-1$; that \texttt{.val} bookkeeping is what made the lemma
+look not worth doing, and it disappears entirely under the universal property.
+Injectivity is the one place \texttt{.val} is still needed, and there it is a
+single divisibility step.
+
+Feeding this to \ref{lem:ng} gives the winding-$m$ conclusion with no data
+argument. Still open: pairwise disjointness of the $d$ orbit cycles, and the
+refutation half (C4dir at $L = 2$), which stays machine-checked in the oracle.
+\end{proof}
+
+\begin{theorem}[Lemma NG, refutation half]
+\label{thm:ng-refute}
+\lean{Reconstruction.Pruning.NG_refutation}
+\leanok
+\uses{lem:ng, lem:ng-orbit}
+For the directed 4-cycle at $L = 2$ and the non-generator $r = 2$
+($\gcd(2,4) = 2$): $\mathrm{TR}_4^{(2)}(2)$ holds, $\mathrm{LISC}_2(2)$ holds,
+and $\mathrm{LISC}_4(2)$ \emph{fails}.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{lem:ng-orbit}
+The relation is a FUNCTION, so every vertex of the layered ring has out-degree
+one and a walk is determined by its start; it returns to its starting state
+after four steps. A winding-4 simple cycle needs eight pairwise distinct
+positions, but positions $0$ and $4$ share a layer and a state. The
+winding-2 cycle and the rotation-2 slot walk $\tau_i(j) = j + i$ are exhibited
+directly.
+
+So a rotation witness at a non-generator certifies winding $k/d = 2$, not
+winding $k$ --- Theorem P's equivalence genuinely needs $r$ to generate, and
+\ref{lem:ng-orbit} is sharp. This previously rested on the oracle rot-check;
+it is now in the kernel.
 \end{proof}
 
 \chapter{The observational extension theorem and what blocks it}
@@ -893,33 +1289,7 @@ where every level \emph{is} $\sigma$-additive, which is what forces the thick
 sets of \ref{rmk:tower-remaining} and why Andersen--Jessen is harder than this.
 \end{corollary}
 
-\begin{lemma}[Lemma NG, orbit-map half]
-\label{lem:ng-orbit}
-\lean{Reconstruction.Pruning.isLISC_addOrderOf_of_isTR}
-\leanok
-\uses{lem:ng}
-A rotation-$r$ tuple walk certifies a simple cycle of winding
-$\mathrm{addOrderOf}(r) = k/\gcd(r,k)$ --- equal to $k$ exactly when $r$
-generates. No orbit map has to be supplied by hand.
-\end{lemma}
-
-\begin{proof}
-\leanok
-\uses{lem:ng}
-The orbit map is \texttt{ZMod.lift} applied to \texttt{zmultiplesHom}, so
-$f(j+1) = f(j) + r$ falls out of \texttt{map\_add}. An earlier attempt defined
-$f$ by $j \mapsto j.\mathrm{val} \bullet r$ and had to case-split on the
-wrap-around at $j = m-1$; that \texttt{.val} bookkeeping is what made the lemma
-look not worth doing, and it disappears entirely under the universal property.
-Injectivity is the one place \texttt{.val} is still needed, and there it is a
-single divisibility step.
-
-Feeding this to \ref{lem:ng} gives the winding-$m$ conclusion with no data
-argument. Still open: pairwise disjointness of the $d$ orbit cycles, and the
-refutation half (C4dir at $L = 2$), which stays machine-checked in the oracle.
-\end{proof}
-
-\chapter{Andersen--Jessen: the thick tower}
+\chapter{Andersen--Jessen: the thick tower and the diagonal layer}
 
 The counterexample that refutes observational extension under plain
 upper-directedness needs one object: a decreasing family of subsets of $[0,1]$,
@@ -1040,8 +1410,7 @@ The diagonal cylinders themselves are now done --- \ref{thm:diag-empty} and
 \ref{lem:cont-above} below.
 \end{remark}
 
-
-\subsection{The diagonal layer}
+\section{The diagonal layer}
 
 \begin{definition}[Diagonal cylinders]
 \label{def:diag-cylinders}
@@ -1118,358 +1487,3 @@ mass one when the intersection is empty.
 The measures converge to that of the intersection, which is $0$; if every term
 were $1$ the limit would be both $0$ and $1$.
 \end{proof}
-
-\begin{theorem}[Lemma NG, refutation half]
-\label{thm:ng-refute}
-\lean{Reconstruction.Pruning.NG_refutation}
-\leanok
-\uses{lem:ng, lem:ng-orbit}
-For the directed 4-cycle at $L = 2$ and the non-generator $r = 2$
-($\gcd(2,4) = 2$): $\mathrm{TR}_4^{(2)}(2)$ holds, $\mathrm{LISC}_2(2)$ holds,
-and $\mathrm{LISC}_4(2)$ \emph{fails}.
-\end{theorem}
-
-\begin{proof}
-\leanok
-\uses{lem:ng-orbit}
-The relation is a FUNCTION, so every vertex of the layered ring has out-degree
-one and a walk is determined by its start; it returns to its starting state
-after four steps. A winding-4 simple cycle needs eight pairwise distinct
-positions, but positions $0$ and $4$ share a layer and a state. The
-winding-2 cycle and the rotation-2 slot walk $\tau_i(j) = j + i$ are exhibited
-directly.
-
-So a rotation witness at a non-generator certifies winding $k/d = 2$, not
-winding $k$ --- Theorem P's equivalence genuinely needs $r$ to generate, and
-\ref{lem:ng-orbit} is sharp. This previously rested on the oracle rot-check;
-it is now in the kernel.
-\end{proof}
-
-\section{The $\sigma$-essential witness (OMP), and the OML gap}
-
-This section is the formal spine of \texttt{papers/sigma\_essential/}. Its
-purpose here is fidelity: every definition on the path from the paper's
-statement to \texttt{psiAmended\_ZFC} appears as a node with its Lean name
-attached, so that \texttt{checkdecls} enforces the paper--Lean correspondence
-that \texttt{FIDELITY\_REVIEW.md} currently records by hand.
-
-\subsection{The carrier and its states}
-
-\begin{definition}[$\sigma$-class = concrete $\sigma$-complete OMP]
-\label{def:sigma-class}
-\lean{MeasurableSpace.DynkinSystem}
-\leanok
-A family $L \subseteq \mathcal{P}(\Omega)$ with $\emptyset, \Omega \in L$,
-closed under complement, and closed under countable \emph{disjoint} unions.
-Formalized as Mathlib's \texttt{DynkinSystem}: \texttt{has\_iUnion\_nat} takes
-\texttt{Pairwise (Disjoint on f)}, so this is a $\sigma$-class and \emph{not} a
-$\sigma$-algebra --- the distinction the whole question turns on.
-\end{definition}
-
-\begin{definition}[$\sigma$-additive two-valued state]
-\label{def:two-valued-state}
-\lean{SigmaEssential.TwoValuedState}
-\leanok
-\uses{def:sigma-class}
-$s : L \to \{0,1\}$ with $s(\Omega) = 1$, additive over countable orthogonal
-joins. The paper's $s(\bigcup_n A_n) = \sum_n s(A_n)$ becomes ``union true
-if and only if some member true''; the at-most-one half is \emph{derived}
-(\texttt{val\_at\_most\_one}) rather than assumed, which makes the structure
-weaker-or-equal and the derived lemma restores equality.
-\end{definition}
-
-\begin{definition}[Finitely additive two-valued state]
-\label{def:finadd-state}
-\lean{SigmaEssential.Amended.FinAddState}
-\leanok
-\uses{def:sigma-class}
-Pair additivity only. Finite-family additivity is derived
-(\texttt{val\_sUnion\_finset}). Nothing $\sigma$-additive is assumed, so the
-coherence clause quantifies over exactly the paper's finitely additive states.
-\end{definition}
-
-\begin{definition}[The local pattern]
-\label{def:local-pattern}
-\lean{SigmaEssential.Amended.LocalState}
-\leanok
-\uses{def:sigma-class}
-A two-valued assignment on a finite $\perp$-closed block $B \subseteq L$.
-\textbf{The one substantive encoding choice:} \texttt{LocalState} demands only
-complement-additivity inside $B$, weaker in general than the paper's Def 1.2
-restricted to $B$. It is closed both ways below.
-\end{definition}
-
-\begin{lemma}[The weaker encoding is upgraded by coherence]
-\label{lem:pattern-fully-additive}
-\lean{SigmaEssential.Amended.coherent_pattern_fully_additive}
-\leanok
-\uses{def:local-pattern, def:finadd-state}
-A finitely coherent \texttt{LocalState} satisfies \emph{every} Def-1.2
-constraint on $B$. Since $\sigma$-essentiality requires coherence, the pattern
-is a genuine paper-state wherever the definition applies.
-\end{lemma}
-
-\begin{proof}
-\leanok
-Coherence supplies a finitely additive extension on all of $L$; its additivity restricts to every Def-1.2 constraint on the finite block $B$.
-\end{proof}
-
-\begin{lemma}[On the witness block the encodings coincide outright]
-\label{lem:coreblock-disjoint}
-\lean{SigmaEssential.Ulam.coreBlock_disjoint_eq_compl}
-\leanok
-\uses{def:local-pattern, def:core-block}
-On the witness's own block the only disjoint pairs are the complement pairs
---- the twelve cross-intersections are nonempty --- so for \emph{this} $B$,
-\texttt{LocalState} equals Def 1.2-on-$B$ exactly, coherence or not.
-\end{lemma}
-
-\begin{proof}
-\leanok
-The twelve cross-intersections of the three cores and their complements are each exhibited nonempty, so the only disjoint pairs are the complement pairs.
-\end{proof}
-
-\subsection{$\sigma$-essentiality and $\Psi$}
-
-\begin{definition}[$\sigma$-essential contextual state]
-\label{def:sigma-essential}
-\lean{SigmaEssential.Amended.IsSigmaEssentialL}
-\leanok
-\uses{def:local-pattern, def:two-valued-state, def:finadd-state}
-$s_0$ is finitely coherent (extends to \emph{some} finitely additive
-two-valued state on all of $L$) and extends to \textbf{no} global
-$\sigma$-additive two-valued state. Extension means agreement on $B$; the
-negative clause quantifies over all $\sigma$-additive states, Dirac and
-non-Dirac alike.
-\end{definition}
-
-\begin{definition}[The amended $\Psi$]
-\label{def:psi-amended}
-\lean{SigmaEssential.Amended.PsiAmended}
-\leanok
-\uses{def:sigma-essential}
-The localized existence sentence: some $\Omega$, $\sigma$-class, block and
-pattern with $s_0$ $\sigma$-essential. Admissibility predicates are not
-bundled in --- non-Booleanness is \ref{lem:carrier-not-boolean}; essential
-irreducibility and non-segregation are paper-level facts about the carrier and
-do not affect the truth of \ref{thm:psi-amended-zfc}.
-\end{definition}
-
-\begin{theorem}[Localization --- the whole content is clause (ii)]
-\label{thm:localization}
-\lean{SigmaEssential.localization}
-\leanok
-\uses{def:sigma-essential}
-A witness exists if and only if (i) no point-evaluation extends the finite
-pattern \emph{and} (ii) no non-Dirac $\sigma$-additive two-valued state does.
-Clause (i) is freely arrangeable by the Navara--Pt\'ak intersection device, so
-the entire difficulty is clause (ii) --- Wall A.
-\end{theorem}
-
-\begin{proof}
-\leanok
-A global $\sigma$-additive two-valued state either agrees with a point evaluation on the carrier or does not; splitting on that alternative gives clauses (i) and (ii).
-\end{proof}
-
-\subsection{The witness carrier}
-
-\begin{definition}[Ulam matrix]
-\label{def:ulam-matrix}
-\lean{SigmaEssential.Ulam.UlamMatrix}
-\leanok
-Rows disjoint, rows covering above the index, columns exactly disjoint.
-\end{definition}
-
-\begin{definition}[Carrier, block, pattern]
-\label{def:core-block}
-\lean{SigmaEssential.Ulam.carrier}
-\leanok
-\uses{def:ulam-matrix, def:sigma-class}
-$\Omega = \omega_1 \times \{1,2,3,4\}$ with cores $A_1 = M\times\{1,2\}$,
-$A_2 = M\times\{1,3\}$, $A_3 = M\times\{2,3\}$; $L$ the least $\sigma$-class
-containing singletons, cells and cores; $B$ the $\perp$-closure of the cores;
-$s_0 \equiv 1$ on the three cores, encoded as the majority vote of three marked
-points (self-dual, so the complement values are forced).
-\end{definition}
-
-\begin{lemma}[The $\omega_1$ instantiation]
-\label{lem:omega1}
-\lean{SigmaEssential.Ulam.M₁}
-\leanok
-\uses{def:core-block}
-$M_1 = \omega_1$ as a type: uncountable, with every initial segment countable.
-These two facts are the only inputs the abstract development consumes, and both
-are discharged from Mathlib's ordinal API --- no extra axioms in the receipts.
-\end{lemma}
-
-\begin{proof}
-\leanok
-From Mathlib's ordinal API: cardinality $\aleph_1$ gives uncountability, and $\mathrm{typein} < \omega_1$ gives countability of every initial segment.
-\end{proof}
-
-\begin{theorem}[Rigidity --- every $\sigma$-state is Dirac on the carrier]
-\label{thm:rigidity}
-\lean{SigmaEssential.Ulam.rigidity}
-\leanok
-\uses{def:core-block, lem:omega1, def:two-valued-state}
-The conclusion is \texttt{IsDiracOn}, ``agrees with $\delta_\omega$ on $L$'',
-not structure-equality --- the paper never constrains a state off the carrier,
-and the kernel argument evaluates only on carrier sets.
-\end{theorem}
-
-\begin{proof}
-\leanok
-Exact column disjointness forces all but countably many columns to miss the support of a $\sigma$-additive two-valued state; row covering above the index then pins the support to a single point.
-\end{proof}
-
-\begin{lemma}[The carrier is not Boolean]
-\label{lem:carrier-not-boolean}
-\lean{SigmaEssential.Ulam.carrier_not_interClosed}
-\leanok
-\uses{def:core-block}
-$L_1$ is not intersection-closed. Machine-checked against the amended Boolean
-baseline, so non-Booleanness is not a prose caveat.
-\end{lemma}
-
-\begin{proof}
-\leanok
-Two carrier sets are exhibited whose intersection is not in the carrier.
-\end{proof}
-
-\begin{theorem}[$\Psi$ amended, in ZFC]
-\label{thm:psi-amended-zfc}
-\lean{SigmaEssential.Ulam.psiAmended_ZFC}
-\leanok
-\uses{thm:rigidity, def:psi-amended, lem:pattern-fully-additive, lem:coreblock-disjoint, lem:carrier-not-boolean}
-The amended $\Psi$ holds on $\sigma$-classes/OMPs, coherence-amended and
-irreducible modulo the countable ideal, in ZFC. Zero sorries end to end; axioms
-exactly \texttt{[propext, Classical.choice, Quot.sound]}.
-\end{theorem}
-
-\begin{proof}
-\leanok
-Assembled at $\omega_1$ via \ref{lem:omega1}. Zero sorries; \texttt{\#print axioms} returns exactly \texttt{[propext, Classical.choice, Quot.sound]}.
-\end{proof}
-
-\begin{theorem}[$\Omega_7$: the amendment is forced, not a retreat]
-\label{thm:omega7}
-\lean{SigmaEssential.Omega7.omega7_not_witness}
-\leanok
-\uses{def:sigma-essential}
-The literal (unamended) definition admits a Boolean ``witness''; the amended
-definition excludes it. So the coherence amendment repairs a real defect rather
-than weakening the claim until it became provable.
-\end{theorem}
-
-\begin{proof}
-\leanok
-On the seven-point Boolean carrier the literal definition is satisfied while coherence fails, so the amended definition excludes the object the literal one admits.
-\end{proof}
-
-\begin{theorem}[Thm 3.5 --- normal form for carrier sets]
-\label{thm:normal-form}
-\lean{SigmaEssential.Ulam.nrep_exists}
-\leanok
-\uses{def:core-block, def:ulam-matrix}
-Every set in the carrier has a normalized representation. This is the
-$\S$3 trace invariant: representation rigidity fixes coordinate 3 as the
-anchor, and the disjointness table settles all four cases --- including the
-parity-triangle impossibility (case IV), which is what makes the invariant
-complete rather than merely sufficient. Proved by \texttt{GenerateHas}
-induction with the trichotomy inline.
-\end{theorem}
-
-\begin{proof}
-\leanok
-By \texttt{GenerateHas} induction. The disjointness table supplies all four cases, including the parity-triangle impossibility, and the trichotomy is inline.
-\end{proof}
-
-\begin{theorem}[$\S$6 --- the vote state, and coherence]
-\label{thm:vote-state}
-\lean{SigmaEssential.Ulam.corePattern_coherent}
-\leanok
-\uses{thm:normal-form, def:finadd-state, def:core-block}
-The majority-vote assignment is a genuine finitely additive two-valued state on
-the whole carrier and it extends the core pattern. This discharges the positive
-clause of $\sigma$-essentiality: the pattern really is finitely coherent, so
-the theorem is not vacuous for want of a finitely additive extension. Built as
-an ultrafilter of cocountable sets, with \texttt{mVal} well defined by
-representation rigidity and additivity read off the disjointness table.
-\end{theorem}
-
-\begin{proof}
-\leanok
-\texttt{mVal} is well defined by representation rigidity (3.2); additivity is read off the disjointness table (3.3); agreement with the pattern on the three cores is Cor 6.4.
-\end{proof}
-
-\begin{theorem}[The witness, assembled]
-\label{thm:core-pattern-witness}
-\lean{SigmaEssential.Ulam.corePattern_witness}
-\leanok
-\uses{thm:vote-state, thm:rigidity, def:sigma-essential}
-Coherence (\ref{thm:vote-state}) together with rigidity (\ref{thm:rigidity})
-gives a pattern that is finitely coherent and has no global $\sigma$-additive
-extension --- a $\sigma$-essential contextual state. \ref{thm:psi-amended-zfc}
-is this at $\omega_1$.
-\end{theorem}
-
-\begin{proof}
-\leanok
-Coherence gives the positive clause, rigidity the negative one.
-\end{proof}
-
-\subsection{The OML gap --- the open question}
-
-\begin{lemma}[The witness carrier is not a lattice]
-\label{lem:witness-not-lattice}
-\lean{SigmaEssential.Ulam.witness_carrier_not_lattice}
-\leanok
-\uses{def:core-block}
-$L_1$ has no meet at the cores: a greatest lower bound would have to be the
-slab $M \times \{0\}$, which is not in the carrier. This is exactly why
-\ref{thm:psi-amended-zfc} does not settle the lattice case --- and it is the
-formal counterpart of the recurring observation that every regularity-wild
-object built so far is a non-lattice.
-\end{lemma}
-
-\begin{proof}
-\leanok
-Modulo the one cited fact (Cor 4.1): every carrier lower bound of the cores lies inside the slab $M \times \{0\}$, so a greatest one would have to be the slab, which the carrier omits.
-\end{proof}
-
-\begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]
-\label{def:psi-oml}
-\lean{SigmaEssential.Ulam.PsiOML}
-\leanok
-\uses{def:psi-amended}
-The same existence sentence with latticehood adjoined to the carrier. Stated in
-Lean as a \texttt{Prop}, never assumed.
-\end{definition}
-
-\begin{lemma}[The lattice form is stronger]
-\label{lem:psi-oml-implies}
-\lean{SigmaEssential.Ulam.psiOML_gives_sigmaEssential}
-\leanok
-\uses{def:psi-oml, def:psi-amended}
-$\Psi_{\mathrm{OML}}$ implies $\Psi$: an OML witness drops its latticehood
-conjunct.
-\end{lemma}
-
-\begin{proof}
-\leanok
-Drop the latticehood conjunct from the witness package.
-\end{proof}
-
-\begin{remark}[$\Phi$, and what is actually open]
-\label{rmk:phi-open}
-\uses{def:psi-oml, lem:witness-not-lattice}
-The open question is $\Phi$: does every concrete, $\sigma$-complete,
-non-Boolean, essentially irreducible OML have each finite trace of each
-finitely additive two-valued state reproduced by some $\sigma$-additive one?
-Conjectured \emph{yes} --- hence no lattice witness, i.e.\ the negation of
-$\Psi_{\mathrm{OML}}$. This is the whole surviving latticehood theory front:
-the former three-way latticehood family is refuted under its literal reading by
-the complete Hilbert lattice's Kochen--Specker failure of sharpness. Nothing in
-this section is evidence either way; it exists so that the settled OMP result
-and the open lattice gap are visible as one picture.
-\end{remark}

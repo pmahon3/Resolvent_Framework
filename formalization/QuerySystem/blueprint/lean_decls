@@ -5,6 +5,7 @@ QuerySystem.Omega
 QuerySystem.Cyl
 QuerySystem.CompatibleMarginals
 QuerySystem.LowerDirected
+QuerySystem.UpperDirected
 QuerySystem.isPiSystem_CylGen
 QuerySystem.observational_determination
 QuerySystem.observational_determination_prob

@@ -66,6 +66,13 @@ A query system is \emph{lower-directed} if any two queries have a common coarsen
 $\forall i\ j, \exists k, k \le i \land k \le j$.
 \end{definition}
 
+\begin{definition}[Upper-directed]
+\label{def:upper-directed}
+\lean{QuerySystem.UpperDirected}
+\leanok
+A query system is \emph{upper-directed} if any two queries have a common refinement: $\forall i\,j, \exists k, i \le k \land j \le k$. This, not lower-directedness, is what the extension arguments actually use --- a query system pieces together finer information, and directedness has to run that direction.
+\end{definition}
+
 \section{Main Results}
 
 \subsection{Observational Determination}
@@ -74,9 +81,14 @@ $\forall i\ j, \exists k, k \le i \land k \le j$.
 \label{lem:pi-system}
 \lean{QuerySystem.isPiSystem_CylGen}
 \leanok
-\uses{def:cylinder, def:lower-directed}
+\uses{def:cylinder, def:upper-directed}
 Under lower-directedness, the cylinder family forms a $\pi$-system.
 \end{lemma}
+
+\begin{proof}
+\leanok
+Upper-directedness gives a common refinement of any two cylinder-generating queries; intersect the pulled-back events there.
+\end{proof}
 
 \begin{theorem}[Observational Determination]
 \label{thm:observational-determination}
@@ -99,13 +111,18 @@ Apply the $\pi$-$\lambda$ theorem to the cylinder $\sigma$-algebra. The cylinder
 If two probability measures on $\Omega$ have equal marginals on all queries, then they are equal.
 \end{theorem}
 
+\begin{proof}
+\leanok
+Immediate from \ref{thm:observational-determination}, since a probability measure is in particular a finite measure.
+\end{proof}
+
 \subsection{Observational Extension}
 
 \begin{lemma}[Premeasure Well-Definedness]
 \label{lem:premu-well-defined}
 \lean{QuerySystem.preμ_wellDefined}
 \leanok
-\uses{def:compatible-marginals, def:lower-directed}
+\uses{def:compatible-marginals, def:upper-directed}
 The premeasure defined on finite cylinders is well-defined: it doesn't depend on the choice of lower bound used in its definition.
 \end{lemma}
 
@@ -326,7 +343,7 @@ countably many cylinder clopens).
 \label{lem:cylgen-setring}
 \lean{QuerySystem.isSetRing_CylGen}
 \leanok
-\uses{def:cylinder, def:lower-directed}
+\uses{def:cylinder, def:upper-directed}
 Under upper-directedness the cylinder events are closed under union and
 difference, not merely under the semiring operations.
 \end{lemma}
@@ -586,6 +603,11 @@ Note what it does \emph{not} show. This system fails collective exhaustion
 where every level \emph{is} $\sigma$-additive, which is what forces the thick
 sets of \ref{rmk:tower-remaining} and why Andersen--Jessen is harder than this.
 \end{corollary}
+
+\begin{proof}
+\leanok
+Instantiate \ref{thm:no-extension-tower} at the finite--cofinite escaping tower of \ref{thm:tower-inhabited}.
+\end{proof}
 
 \chapter{Andersen--Jessen: the thick tower and the diagonal layer}
 

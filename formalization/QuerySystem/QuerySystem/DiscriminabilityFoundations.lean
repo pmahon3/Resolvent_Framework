@@ -808,9 +808,11 @@ directly from the definitions because it matters for reading the hypotheses of
 "compatible marginals, each σ-additive" plus upper-directedness and surjective
 evaluations — i.e. Kolmogorov extension with no regularity or compactness
 hypothesis of any kind (the outcome spaces carry only a `MeasurableSpace`).
-Classically that is not sufficient; see the blueprint discussion at
-`lem:cylgen-sigma-subadd-ce`, which records this as an open question about the
-truth of the statement, not merely its proof. -/
+Classically that is not sufficient, and here it is refuted outright: see the
+blueprint at `rmk:kolmogorov-refuted` — the Andersen–Jessen system meets every
+hypothesis of the plain-upper-directedness statement and admits no extension,
+which is why `stone_observational_extension` now assumes
+`SequentiallyUpperDirected`. -/
 theorem ce_iff_levelwise_continuity (P : S.NormalizedCompatibleContents) :
     S.CollectivelyExhaustive P.ν ↔
       ∀ (i : S.ι) (E : ℕ → Set (S.q i).Outcome), (∀ n, MeasurableSet (E n)) →

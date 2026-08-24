@@ -24,6 +24,13 @@ on:
   pull_request:
   workflow_dispatch:
 
+# The rendered blueprint is published to GitHub Pages from `main` (see the
+# `deploy` job). Pages allows one concurrent deployment; queue rather than
+# cancel, so a run that already passed the gates still publishes.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -99,3 +106,36 @@ jobs:
             echo "--- $f"
             lake env lean "$f" || { echo "STAGING FAILED TO COMPILE: $f"; exit 1; }
           done
+
+      # LAST, deliberately: every gate above must pass before the blueprint is
+      # published. `blueprint/web/` is a build artefact (gitignored) -- it is
+      # rendered fresh by the step above, never served from a committed copy,
+      # so what Pages shows cannot drift from what CI checked.
+      - name: package the rendered blueprint for Pages
+        if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: formalization/QuerySystem/blueprint/web
+
+  # Publishes to https://pmahon3.github.io/Resolvent_Framework/
+  #
+  # One-time repo setup this needs: Settings -> Pages -> Build and deployment ->
+  # Source = "GitHub Actions". Without it the deploy step fails with "Pages is
+  # not enabled"; nothing else in the workflow is affected.
+  #
+  # `main` only: a blueprint published from a feature branch would advertise
+  # unreviewed status tags as the project's public record.
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

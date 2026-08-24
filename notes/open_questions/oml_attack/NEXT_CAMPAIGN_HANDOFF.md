@@ -223,9 +223,19 @@
    write W-P in as a constraint; a later session must not reject a witness
    for "perspectivity poverty."
    Then (roadmap unchanged) the batched grammar engine build over
-   MEM/N/O/PENV. Relaxed-gate queue gains: **DNP 2015 ILL** (Math. Nachr.
-   288 (2015) 1995–2000; verify primary source — if it is a σ-complete
-   LATTICE with a non-extendable state, re-audit → promote-to-seed).
+   MEM/N/O/PENV. Relaxed-gate queue gains: ~~**DNP 2015 ILL**~~ **RESOLVED
+   2026-08-23, DOES NOT PROMOTE** (Math. Nachr. 288 (2015) 1995–2000; PDF
+   now in `literature/desimone_navara_ptak_2015_states_symmetric_difference
+   .pdf`; receipt `DNP_2015_SOURCE_CHECK_2026-08-23.md`). Thm 3 IS a
+   lattice (MO₁₅) with a non-extendable 2-valued state but is FINITE on 10
+   points; Thms 4–6, the σ-complete part, are extension-POSITIVE and never
+   claim latticehood.
+   ⚠ **Gate wording corrected.** It read "if it is a σ-complete LATTICE
+   with a non-extendable state → promote". A finite lattice is *vacuously*
+   σ-complete, so MO₁₅ satisfies that literally while being σ-tame and
+   useless as a witness. The gate is, and always was meant to be, **an
+   INFINITE concrete σ-complete non-Boolean lattice** (Q3's object). Any
+   future screen row must be judged against the infinite form.
    Receipts this unit: `EPV_2025_PRIMARY_SOURCE_RECEIPT_2026-07-19.md`,
    `linearization_E4_verdict.md`, `verification/
    wp_rung1_perspectivity_vs_bond.{py,json}`.

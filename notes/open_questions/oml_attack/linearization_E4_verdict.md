@@ -32,7 +32,8 @@ Every literature non-extendable state located, tabled by carrier / lattice? /
 | DNP 2005 (arXiv math-ph/0311012) Ex 2.2 | MO₄ (10 elts, X=6 pts) | **YES** (MO₄) | **NO (finite)** | 2-valued, no signed-measure extension | finite ⇒ σ-tame; not a witness |
 | DNP 2005 Thm 2.3 | X_even (even-card subsets) | rep of MO_{n} | NO (finite) | POSITIVE (all states extend) | the extendable side |
 | SDS paper (arXiv:2401.13651) Ex 2.6 | 32-elt difference-closed | **YES (stated: "it is a lattice, 32 elts")** | **NO (finite)** | 2-valued s, no ext over exp S | finite ⇒ σ-tame; not a witness |
-| **DNP 2015 (Math. Nachr. 288, 1995–2000)** | difference-closed σ-system | **UNKNOWN — the whole question** | **σ-complete CLAIMED** | 2-valued fails to extend (secondary snippets) | **PAYWALLED; primary text UNVERIFIED** |
+| ~~DNP 2015~~ **Thm 3** (Math. Nachr. 288) | MO₁₅ on Ω={0..9}, 4 generators | **YES** ("thus D is even a lattice") | **NO (finite, 10 pts)** | 2-valued s, no ext over exp Ω; obstruction is Dirac-exclusion | finite ⇒ σ-tame; not a witness |
+| ~~DNP 2015~~ **Thms 4–6** (same paper) | Σ_S(Ω,D), infinite σ-complete | **NOT CLAIMED** (closure props only) | **YES** | **POSITIVE** — states countably carried (Thm 5), and under ¬RM every σ-complete system σ-embeds in one where all states extend (Thm 6) | the extendable side; **screen row CLOSED 2026-08-23**, primary text read |
 | ODL / Order 2022 (stateless SDS-OML) | SDS-closed OML | YES (lattice) | — | state space EMPTY | degenerate; no witness state |
 | Pták 2023 (arXiv:2401.13798) | set-repr. point-distinguishing OMP | — | — | every 2-valued state Dirac | positive class; no witness |
 
@@ -59,11 +60,18 @@ generically set-systems/OMPs. This matches the Ψ-witness's own status (a
 σ-complete OM POSET, not a lattice — `sigma_essential_witness.md` Cor 4.4) and
 the DW wall.
 
-**Localization banked (seed §5 fallback):** no confirmed σ-complete LATTICE
-non-extendable carrier ⇒ *the third engine must act at the SECOND inclusion*
-(σ-states catching non-extendable f.a. states), exactly the coarse factor
-that Campaigns 11/13 already flagged as the hard one. This is the seed's
-intended payoff on an empty screen.
+**Localization banked (seed §5 fallback):** no confirmed **INFINITE**
+σ-complete LATTICE non-extendable carrier ⇒ *the third engine must act at the
+SECOND inclusion* (σ-states catching non-extendable f.a. states), exactly the
+coarse factor that Campaigns 11/13 already flagged as the hard one. This is
+the seed's intended payoff on an empty screen.
+
+> **INFINITE inserted 2026-08-23**, when the DNP 2015 primary text arrived. A
+> *finite* lattice is vacuously σ-complete, and DNP Thm 3 is exactly that —
+> MO₁₅ on 10 points, a genuine lattice with a genuine non-extendable 2-valued
+> state. Read literally, the old wording promotes it. The screen always meant
+> Q3's infinite object; the qualifier is now explicit so no later row misfires
+> on the same technicality. See `DNP_2015_SOURCE_CHECK_2026-08-23.md`.
 
 ### Why absorb, not kill, and not promote
 

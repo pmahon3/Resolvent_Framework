@@ -21,9 +21,12 @@ payload 4678f610); the necessary condition fires on the one known
 `oml_attack/linearization_E3_scout_verdict.md`). **E4 (unit 2,
 2026-07-19/20) DONE — verdict = ABSORB-with-localization**
 (`oml_attack/linearization_E4_verdict.md`): candidate screen found NO
-confirmed σ-complete LATTICE non-extendable carrier (all lattice examples
-in print are finite ⇒ σ-tame; the one live lead DNP 2015 Math. Nachr. is
-paywalled/UNVERIFIED, flagged ILL/user-bound). Localization banked: engine
+confirmed **INFINITE** σ-complete LATTICE non-extendable carrier (all lattice
+examples in print are finite ⇒ σ-tame). **Screen CLOSED 2026-08-23**: the one
+live lead, DNP 2015 Math. Nachr., was pulled and read — its lattice example
+(Thm 3, MO₁₅) is finite, and its σ-complete constructions (Thms 4–6) are
+extension-POSITIVE and never claimed to be lattices. Receipt
+`oml_attack/DNP_2015_SOURCE_CHECK_2026-08-23.md`. Localization banked: engine
 must act at the SECOND inclusion. EPV PDF verified (both W-P claims
 confirmed, mechanism Kadison-elementary ⇒ mismatches W-P shape); W-P rung 1
 = perspectivity non-selective ⇒ identification fails ⇒ W-P does not promote

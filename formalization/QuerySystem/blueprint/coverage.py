@@ -32,15 +32,44 @@ DECL_RE = re.compile(
     r"(?:theorem|lemma|def|abbrev|structure|inductive|instance)\s+([A-Za-z_][\w']*)")
 
 
+NS_RE = re.compile(r"(?m)^namespace\s+([A-Za-z_][\w.']*)")
+END_RE = re.compile(r"(?m)^end\s+([A-Za-z_][\w.']*)")
+
+
+def qualified_names(src):
+    """Fully-qualified declaration names in one module.
+
+    Matching on the bare declaration name is not sound: `BoundaryDescent`
+    defines its own `TwoValuedState` and `Omega7Counterexample` defines `A`,
+    which collide with `SigmaEssential.TwoValuedState` and `AndersenJessen.A`
+    and silently marked both modules covered. So track the namespace stack and
+    compare the qualified name against lean_decls exactly.
+    """
+    names, stack = set(), []
+    for line in src.split("\n"):
+        m = NS_RE.match(line)
+        if m:
+            stack.append(m.group(1))
+            continue
+        m = END_RE.match(line)
+        if m:
+            if stack and stack[-1] == m.group(1):
+                stack.pop()
+            continue
+        m = DECL_RE.match(line)
+        if m:
+            names.add(".".join(stack + [m.group(1)]))
+    return names
+
+
 def uncovered():
-    decls = [l.strip() for l in io.open(DECLS, encoding="utf-8") if l.strip()]
-    tails = set(d.split(".")[-1] for d in decls)
+    decls = set(l.strip() for l in io.open(DECLS, encoding="utf-8") if l.strip())
     out = []
     for m in sorted(os.listdir(MODS)):
         if not m.endswith(".lean"):
             continue
         src = io.open(os.path.join(MODS, m), encoding="utf-8", errors="replace").read()
-        if not (set(DECL_RE.findall(src)) & tails):
+        if not (qualified_names(src) & decls):
             out.append(m)
     return out
 

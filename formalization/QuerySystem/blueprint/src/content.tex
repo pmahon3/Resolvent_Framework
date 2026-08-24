@@ -1209,6 +1209,11 @@ constraint on $B$. Since $\sigma$-essentiality requires coherence, the pattern
 is a genuine paper-state wherever the definition applies.
 \end{lemma}
 
+\begin{proof}
+\leanok
+Coherence supplies a finitely additive extension on all of $L$; its additivity restricts to every Def-1.2 constraint on the finite block $B$.
+\end{proof}
+
 \begin{lemma}[On the witness block the encodings coincide outright]
 \label{lem:coreblock-disjoint}
 \lean{SigmaEssential.Ulam.coreBlock_disjoint_eq_compl}
@@ -1218,6 +1223,11 @@ On the witness's own block the only disjoint pairs are the complement pairs
 --- the twelve cross-intersections are nonempty --- so for \emph{this} $B$,
 \texttt{LocalState} equals Def 1.2-on-$B$ exactly, coherence or not.
 \end{lemma}
+
+\begin{proof}
+\leanok
+The twelve cross-intersections of the three cores and their complements are each exhibited nonempty, so the only disjoint pairs are the complement pairs.
+\end{proof}
 
 \subsection{$\sigma$-essentiality and $\Psi$}
 
@@ -1256,6 +1266,11 @@ Clause (i) is freely arrangeable by the Navara--Pt\'ak intersection device, so
 the entire difficulty is clause (ii) --- Wall A.
 \end{theorem}
 
+\begin{proof}
+\leanok
+A global $\sigma$-additive two-valued state either agrees with a point evaluation on the carrier or does not; splitting on that alternative gives clauses (i) and (ii).
+\end{proof}
+
 \subsection{The witness carrier}
 
 \begin{definition}[Ulam matrix]
@@ -1287,6 +1302,11 @@ These two facts are the only inputs the abstract development consumes, and both
 are discharged from Mathlib's ordinal API --- no extra axioms in the receipts.
 \end{lemma}
 
+\begin{proof}
+\leanok
+From Mathlib's ordinal API: cardinality $\aleph_1$ gives uncountability, and $\mathrm{typein} < \omega_1$ gives countability of every initial segment.
+\end{proof}
+
 \begin{theorem}[Rigidity --- every $\sigma$-state is Dirac on the carrier]
 \label{thm:rigidity}
 \lean{SigmaEssential.Ulam.rigidity}
@@ -1297,6 +1317,11 @@ not structure-equality --- the paper never constrains a state off the carrier,
 and the kernel argument evaluates only on carrier sets.
 \end{theorem}
 
+\begin{proof}
+\leanok
+Exact column disjointness forces all but countably many columns to miss the support of a $\sigma$-additive two-valued state; row covering above the index then pins the support to a single point.
+\end{proof}
+
 \begin{lemma}[The carrier is not Boolean]
 \label{lem:carrier-not-boolean}
 \lean{SigmaEssential.Ulam.carrier_not_interClosed}
@@ -1305,6 +1330,11 @@ and the kernel argument evaluates only on carrier sets.
 $L_1$ is not intersection-closed. Machine-checked against the amended Boolean
 baseline, so non-Booleanness is not a prose caveat.
 \end{lemma}
+
+\begin{proof}
+\leanok
+Two carrier sets are exhibited whose intersection is not in the carrier.
+\end{proof}
 
 \begin{theorem}[$\Psi$ amended, in ZFC]
 \label{thm:psi-amended-zfc}
@@ -1316,6 +1346,11 @@ irreducible modulo the countable ideal, in ZFC. Zero sorries end to end; axioms
 exactly \texttt{[propext, Classical.choice, Quot.sound]}.
 \end{theorem}
 
+\begin{proof}
+\leanok
+Assembled at $\omega_1$ via \ref{lem:omega1}. Zero sorries; \texttt{\#print axioms} returns exactly \texttt{[propext, Classical.choice, Quot.sound]}.
+\end{proof}
+
 \begin{theorem}[$\Omega_7$: the amendment is forced, not a retreat]
 \label{thm:omega7}
 \lean{SigmaEssential.Omega7.omega7_not_witness}
@@ -1325,6 +1360,11 @@ The literal (unamended) definition admits a Boolean ``witness''; the amended
 definition excludes it. So the coherence amendment repairs a real defect rather
 than weakening the claim until it became provable.
 \end{theorem}
+
+\begin{proof}
+\leanok
+On the seven-point Boolean carrier the literal definition is satisfied while coherence fails, so the amended definition excludes the object the literal one admits.
+\end{proof}
 
 \begin{theorem}[Thm 3.5 --- normal form for carrier sets]
 \label{thm:normal-form}
@@ -1339,6 +1379,11 @@ complete rather than merely sufficient. Proved by \texttt{GenerateHas}
 induction with the trichotomy inline.
 \end{theorem}
 
+\begin{proof}
+\leanok
+By \texttt{GenerateHas} induction. The disjointness table supplies all four cases, including the parity-triangle impossibility, and the trichotomy is inline.
+\end{proof}
+
 \begin{theorem}[$\S$6 --- the vote state, and coherence]
 \label{thm:vote-state}
 \lean{SigmaEssential.Ulam.corePattern_coherent}
@@ -1352,6 +1397,11 @@ an ultrafilter of cocountable sets, with \texttt{mVal} well defined by
 representation rigidity and additivity read off the disjointness table.
 \end{theorem}
 
+\begin{proof}
+\leanok
+\texttt{mVal} is well defined by representation rigidity (3.2); additivity is read off the disjointness table (3.3); agreement with the pattern on the three cores is Cor 6.4.
+\end{proof}
+
 \begin{theorem}[The witness, assembled]
 \label{thm:core-pattern-witness}
 \lean{SigmaEssential.Ulam.corePattern_witness}
@@ -1362,6 +1412,11 @@ gives a pattern that is finitely coherent and has no global $\sigma$-additive
 extension --- a $\sigma$-essential contextual state. \ref{thm:psi-amended-zfc}
 is this at $\omega_1$.
 \end{theorem}
+
+\begin{proof}
+\leanok
+Coherence gives the positive clause, rigidity the negative one.
+\end{proof}
 
 \subsection{The OML gap --- the open question}
 
@@ -1376,6 +1431,11 @@ slab $M \times \{0\}$, which is not in the carrier. This is exactly why
 formal counterpart of the recurring observation that every regularity-wild
 object built so far is a non-lattice.
 \end{lemma}
+
+\begin{proof}
+\leanok
+Modulo the one cited fact (Cor 4.1): every carrier lower bound of the cores lies inside the slab $M \times \{0\}$, so a greatest one would have to be the slab, which the carrier omits.
+\end{proof}
 
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]
 \label{def:psi-oml}
@@ -1394,6 +1454,11 @@ Lean as a \texttt{Prop}, never assumed.
 $\Psi_{\mathrm{OML}}$ implies $\Psi$: an OML witness drops its latticehood
 conjunct.
 \end{lemma}
+
+\begin{proof}
+\leanok
+Drop the latticehood conjunct from the witness package.
+\end{proof}
 
 \begin{remark}[$\Phi$, and what is actually open]
 \label{rmk:phi-open}

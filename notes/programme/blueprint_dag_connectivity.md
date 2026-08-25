@@ -119,6 +119,76 @@ Left for the human.
 
 ---
 
+## AMENDMENT 3 — 2026-08-25 (tower): [B] resolved by writing the bridge, not by annotating
+
+Amendment 2 recorded that `ReconstructionTheorem` could not be attached by
+annotation, and that a real bridge needed a lemma identifying the delay query
+system's `delayEval` with `delayMap`. That lemma is now written, and the lane is
+in.
+
+### The bridge (in `DelayEmbedding.lean`, `ReconstructionBridge` section)
+
+- `orbitStream h T x` — the sensor stream a state emits.
+- `delayEval_orbitStream` — sampling that stream at `(d, τ)` returns exactly the
+  delay-coordinate vector `(h (T^(kτ) x))_{k<d}`.
+- `delayEval_orbitStream_one` — at unit lag, `Φ_h` truncated to `d` coordinates.
+- `delayQueryAlgebra` — the σ-algebra the queries induce on the state space.
+- `delayQueryAlgebra_eq_delayObservableAlgebra` — **it equals `𝒪_h`**.
+
+All five rest on `[propext, Classical.choice, Quot.sound]`.
+
+The two modelling questions Amendment 2 flagged, answered and written into the
+blueprint prose so they can be disagreed with:
+
+1. *Whose space is the query system's type parameter?* The **observation**
+   space. `delayQuerySystem Y` samples streams `ℤ → Y`; at `Y = ℝ` its outcomes
+   are tuples of sensor readings. The state space enters only through
+   `orbitStream`. A state is never an outcome of a delay query.
+2. *Which time direction?* `delayEval` samples the **past** (`0, -τ, …`) while
+   reconstruction iterates `T` **forward**. They agree once reading the stream
+   backwards is reading the orbit forwards — the ordinary delay-coordinate
+   convention. The alternative (past = backward iterates) needs `T` invertible;
+   for invertible `T` the two generate the same σ-algebra, and for
+   non-invertible `T` only the convention taken here exists.
+
+Checked before blueprinting, because a bridge to a decorative node is not a
+bridge: `delayEval` is load-bearing in the query system. `evalSurjective` — the
+hypothesis the fixed-lag extension theorem consumes — is proved through
+`delayEval_surjective`, and coherent families are literally built as
+`ω.1 (d',τ') = delayEval d' τ' s`.
+
+### Result
+
+10 nodes, covering `ReconstructionTheorem.lean` (baseline 22 → 21).
+
+| | after refactor | after lane |
+|---|---|---|
+| nodes | 110 | 120 |
+| edges | 180 | 196 |
+| components | 5 | **5** |
+| main component | 48 | **58** |
+
+The lane **merged** rather than forming the sixth island Amendment 2 predicted —
+because the bridge theorem `\uses` both `def:delay-query` (query-system side,
+already in the main component) and the reconstruction nodes. Gates: 125
+declarations, 123 closed, 2 cited, 0 uncited.
+
+One thing the proof turned up that is worth keeping: **unit lag alone already
+generates `𝒪_h`**. The `≥` direction only ever uses queries `(n+1, 1)`, so the
+lag parameter τ adds no resolution to the observable algebra. It matters for the
+refinement order, not for what the queries can ultimately resolve.
+
+What this does **not** do: it does not transfer the extension theorem.
+`thm:delay-not-sud` still puts the delay query system on the wrong side of
+sequential upper-directedness. The gain is that reconstruction is now a
+statement in the query system's own vocabulary.
+
+The remaining components are the σ-essential lane (28), pruning (17), the MO₂
+ladder (16), and one isolated node (`lem:cont-above`). The 58/28 split is the
+one the original measurement called structural and it is unchanged.
+
+---
+
 ## The measurement
 
 95 nodes, 127 edges, 1.34 edges/node. **Five connected components** (undirected):

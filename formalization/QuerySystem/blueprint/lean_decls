@@ -51,6 +51,16 @@ delayQuerySystem.not_seqUpperDirected
 delayFixedLagBoundedSystem
 delayFixedLagBoundedSystem.seqUpperDirected
 delayFixedLagBoundedSystem.observational_extension_fixedLag
+delayMap
+observableAlgebra
+delayObservableAlgebra
+observableAlgebra_eq_comap
+density_bridge
+reconstruction_iff_lpMeas
+delay_reconstruction_iff
+orbitStream
+delayEval_orbitStream
+delayQueryAlgebra_eq_delayObservableAlgebra
 SigmaEssential.Block
 SigmaEssential.InterClosed
 SigmaEssential.TwoValuedState.val_inter

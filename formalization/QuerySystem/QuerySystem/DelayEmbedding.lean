@@ -617,4 +617,112 @@ theorem delay_cyclic_implies_reconstruction
     Dense (lpMeas ℝ ℝ (delayObservableAlgebra h T) 2 μ : Set (Lp ℝ 2 μ)) :=
   cyclic_implies_dense μ h T hh hT hmem h_cyclic
 
+/-! ### The bridge to the delay *query system*
+
+Everything above this point relates `ReconstructionTheorem`'s objects to each
+other. This subsection is the missing join to the first half of the file: the
+delay query system of §1--§3, which until now shared a file with the
+reconstruction material and nothing else -- no declaration, hence no dependency
+edge.
+
+**The two modelling questions, answered explicitly.**
+
+*Whose space is the query system's type parameter?* The observation space.
+`delayQuerySystem Y` samples streams `ℤ → Y`, so instantiating it at `Y = ℝ`
+makes its outcomes tuples of sensor readings. The state space `X` never appears
+in it; it enters only through the map `orbitStream` below. A state is not an
+outcome of any delay query -- only its observations are.
+
+*Which time direction?* `delayEval d τ` samples a stream at `0, -τ, …, -(d-1)τ`
+-- the past -- while the reconstruction side uses forward iterates `T^[n]`. The
+identification that makes them agree is that reading the stream backwards is
+running the orbit forwards: the stream of `x` carries at time `t` the
+observation of the state `(-t)` steps ahead. This is the ordinary delay-
+coordinate convention: at unit lag the delay vector is
+`(h x, h (T x), …, h (T^(d-1) x))`.
+
+The alternative reading -- past times as *backward* iterates -- needs `T`
+invertible and produces a genuinely bi-infinite object. That is the ℤ-vs-ℕ
+point already recorded in this file's header: for invertible `T` the two
+generate the same σ-algebra, so nothing below would change, but for
+non-invertible `T` only the convention taken here is available at all. -/
+
+/-- The **observation stream** of a state: the sensor stream a state emits as
+the system runs. Reading it backwards in time reads the orbit forwards. -/
+def orbitStream (h : X → ℝ) (T : X → X) (x : X) : SensorStream ℝ :=
+  fun t => h (T^[(-t).toNat] x)
+
+@[simp] lemma orbitStream_neg_natCast (h : X → ℝ) (T : X → X) (x : X) (n : ℕ) :
+    orbitStream h T x (-(n : ℤ)) = h (T^[n] x) := by
+  simp [orbitStream]
+
+/-- **Sampling the orbit stream is taking delay coordinates.** The delay query
+`(d, τ)`, applied to the stream a state emits, returns exactly that state's
+delay-coordinate vector at lag `τ`. -/
+theorem delayEval_orbitStream (h : X → ℝ) (T : X → X) (d τ : ℕ) (x : X) :
+    delayEval d τ (orbitStream h T x) = fun k : Fin d => h (T^[k.val * τ] x) := by
+  funext k
+  have hc : ((k.val : ℤ) * (τ : ℤ)).toNat = k.val * τ := by
+    rw [← Nat.cast_mul]; exact Int.toNat_natCast _
+  simp [delayEval, orbitStream, hc]
+
+/-- At unit lag the delay-coordinate vector is `Φ_h` truncated to its first `d`
+coordinates -- the query system's outcomes and the reconstruction map are the
+same data, read at finite and infinite depth respectively. -/
+theorem delayEval_orbitStream_one (h : X → ℝ) (T : X → X) (d : ℕ) (x : X) :
+    delayEval d 1 (orbitStream h T x) = fun k : Fin d => delayMap h T x k.val := by
+  funext k
+  simp [delayEval_orbitStream, delayMap]
+
+/-- The σ-algebra the delay *queries* induce on the state space, by pulling each
+query's outcome back along `orbitStream`. This is the query system's view of
+`X`. -/
+@[reducible] noncomputable def delayQueryAlgebra (h : X → ℝ) (T : X → X) : MeasurableSpace X :=
+  ⨆ (d : ℕ) (τ : ℕ),
+    MeasurableSpace.comap (fun x => delayEval d τ (orbitStream h T x)) inferInstance
+
+/-- **The bridge.** The delay query system and the reconstruction theorem see the
+same σ-algebra on the state space: what the queries can resolve is exactly the
+observable algebra `𝒪_h`.
+
+`≤` holds because every coordinate of every query is some `h ∘ T^[n]`. `≥`
+holds because every `h ∘ T^[n]` is a coordinate of some query -- take `d = n+1`
+at unit lag. The negative indices of the ℤ-indexed family are `h` itself, by
+`Int.toNat` collapsing them to `0`, and are covered by `d = 1`. -/
+theorem delayQueryAlgebra_eq_delayObservableAlgebra (h : X → ℝ) (T : X → X) :
+    delayQueryAlgebra h T = delayObservableAlgebra h T := by
+  apply le_antisymm
+  · -- Every coordinate of every query is some `h ∘ T^[n]`, so each query map is
+    -- measurable for the observable algebra, and its comap therefore sits below.
+    refine iSup_le fun d => iSup_le fun τ => ?_
+    have hmeas : Measurable[delayObservableAlgebra h T]
+        (fun x => delayEval d τ (orbitStream h T x)) := by
+      -- The domain σ-algebra here is not the ambient one, and the pi lemmas
+      -- take theirs by instance synthesis rather than by unification -- so make
+      -- it the ambient one for the duration. `letI`, not `haveI`: the body has
+      -- to stay visible or it no longer matches the goal.
+      letI m : MeasurableSpace X := delayObservableAlgebra h T
+      rw [funext fun x => delayEval_orbitStream h T d τ x]
+      refine measurable_pi_lambda _ fun k => ?_
+      have := observableAlgebra_measurable (fun n : ℤ => h ∘ T^[n.toNat])
+        ((k.val * τ : ℕ) : ℤ)
+      simpa [m, delayObservableAlgebra, Function.comp] using this
+    exact hmeas.comap_le
+  · -- Conversely every generator `h ∘ T^[n]` is a coordinate of the query
+    -- `(n+1, 1)`; the negative indices of the ℤ-indexed family collapse to `h`
+    -- itself under `Int.toNat` and are covered by `d = 1`.
+    refine observableAlgebra_le fun n => ?_
+    set m : ℕ := n.toNat with hm
+    have hcomap :
+        MeasurableSpace.comap (fun x => delayEval (m + 1) 1 (orbitStream h T x))
+            inferInstance ≤ delayQueryAlgebra h T :=
+      le_iSup_of_le (m + 1) (le_iSup_of_le 1 le_rfl)
+    refine Measurable.mono ?_ hcomap le_rfl
+    have hco : Measurable[MeasurableSpace.comap
+        (fun x => delayEval (m + 1) 1 (orbitStream h T x)) inferInstance]
+        (fun x => delayEval (m + 1) 1 (orbitStream h T x)) :=
+      Measurable.of_comap_le le_rfl
+    have := (measurable_pi_apply (⟨m, Nat.lt_succ_self m⟩ : Fin (m + 1))).comp hco
+    simpa [delayEval_orbitStream, Function.comp] using this
+
 end ReconstructionBridge

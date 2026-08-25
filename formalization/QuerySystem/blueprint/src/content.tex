@@ -2345,3 +2345,126 @@ So a rotation witness at a non-generator certifies winding $k/d = 2$, not
 winding $k$ --- Theorem P's equivalence genuinely needs $r$ to generate, and
 \ref{lem:ng-orbit} is sharp.
 \end{proof}
+
+\section{Relational delay systems: the pruning objects as delay data}
+
+\ref{rmk:lag-is-ring-length} left a dictionary and named the obstruction to
+turning it into a theorem: the delay chapter observes a \emph{function}, the
+pruning chapter studies a \emph{relation}, and specialising pruning to a
+deterministic $\rho$ trivialises it. So the join carries the delay side up to
+relations.
+
+A relation has no orbit map, but it has a \emph{trajectory space}, and delay
+queries apply to a trajectory space exactly as they apply to a stream.
+
+\begin{definition}[The subshift of a relation]
+  \label{def:subshift}
+  \uses{def:delay-query}
+  \lean{QuerySystem.RelationalDelay.Subshift}
+  \leanok
+  $\Sigma_{\rho} = \{\omega : \mathbb{Z} \to A \mid \rho(\omega_{t+1},
+  \omega_t) \text{ for all } t\}$, the bi-infinite $\rho$-trajectories inside
+  the sensor streams. The orientation is the one \ref{def:orbit-stream} already
+  fixed and \ref{def:delay-query}'s backward sampling forces: reading the stream
+  backwards runs the relation forwards.
+\end{definition}
+
+\begin{definition}[The trajectory of a cycle]
+  \label{def:cycle-stream}
+  \uses{def:subshift, def:lisc}
+  \lean{QuerySystem.RelationalDelay.cycleStream}
+  \leanok
+  From a cycle witness $W$ and modulus $n$, the stream carrying $W$ at index
+  $(-t) \bmod n$. The negation is the time convention; the modulus makes it
+  bi-infinite and $n$-periodic (\texttt{cycleStream\_periodic}).
+\end{definition}
+
+\begin{lemma}[A cycle is a trajectory]
+  \label{lem:cycle-stream-subshift}
+  \uses{def:cycle-stream, def:subshift, def:lisc}
+  \lean{QuerySystem.RelationalDelay.cycleStream_mem_subshift}
+  \leanok
+  $\mathrm{cycleStream}\,W\,(kL) \in \Sigma_{\rho}$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:cycle-stream}
+  Interior positions are the cycle's own arcs. The one position where the index
+  rolls over is where the closing arc $\rho(W_{kL-1}, W_0)$ is spent --- which is
+  the only place the \emph{cycle} hypothesis, as opposed to the walk hypothesis,
+  is used.
+\end{proof}
+
+\begin{theorem}[The bridge: layer-injectivity is delay-injectivity]
+  \label{thm:lisc-delay-witness}
+  \uses{lem:cycle-stream-subshift, def:lisc, def:delay-query, thm:lag-algebra}
+  \lean{QuerySystem.RelationalDelay.isLISC_delay_witness}
+  \leanok
+  If $\mathrm{LISC}_k(L)$ then there is a $\rho$-trajectory $\omega$, periodic
+  of period $kL$, whose depth-$k$, lag-$L$ delay query is \textbf{injective}.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:cycle-stream-subshift, def:lisc}
+  Take $\omega = \mathrm{cycleStream}\,W\,(kL)$; \ref{lem:cycle-stream-subshift}
+  gives membership and periodicity is immediate. For injectivity: the delay
+  query at lag $L$ and depth $k$ samples $\omega$ at $0, -L, \dots, -(k-1)L$,
+  and those are precisely the positions $0, L, \dots, (k-1)L$ of the cycle ---
+  the $k$ positions sharing layer $0$. \ref{def:lisc}'s simplicity clause says
+  exactly that these carry distinct states.
+
+  So the two chapters' injectivity conditions are one condition. Layer
+  injectivity in the layered ring \emph{is} injectivity of the lag-$L$ delay
+  query on the trajectory, and this is why the two lanes kept meeting the same
+  combinatorics from opposite sides.
+\end{proof}
+
+\begin{corollary}[$\mathrm{Unsafe}$, in the delay vocabulary]
+  \label{cor:unsafe-delay}
+  \uses{thm:lisc-delay-witness, def:unsafe-safe}
+  \lean{QuerySystem.RelationalDelay.unsafe_delay_witness}
+  \leanok
+  $L \in \mathrm{Unsafe}(\rho)$ yields a periodic $\rho$-trajectory on which
+  lag-$L$ sampling fails to collapse: it resolves $k \geq 2$ distinct strands
+  where safety would see one.
+\end{corollary}
+
+\begin{proof}
+  \leanok
+  \uses{thm:lisc-delay-witness, def:unsafe-safe}
+  \ref{def:unsafe-safe} unfolds to an $\mathrm{LISC}_k(L)$ with $k \geq 2$;
+  apply \ref{thm:lisc-delay-witness}.
+\end{proof}
+
+\begin{lemma}[The bridge is not vacuous]
+  \label{lem:lisc-inhabited}
+  \uses{thm:lisc-delay-witness}
+  \lean{QuerySystem.RelationalDelay.isLISC_complete_bool,
+        QuerySystem.RelationalDelay.exists_delay_witness_complete_bool}
+  \leanok
+  The complete relation on $\{\bot,\top\}$ has $\mathrm{LISC}_2(1)$, so
+  \ref{thm:lisc-delay-witness} fires and its conclusion is inhabited.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  Steps and closure are trivially available; simplicity is the two-case check
+  that the cycle's two states differ. An implication with an unsatisfiable
+  hypothesis proves nothing, so this is recorded rather than assumed.
+\end{proof}
+
+\begin{remark}[What the deterministic side still lacks]
+  \label{rmk:no-deterministic-embedding}
+  \uses{thm:lisc-delay-witness, def:orbit-stream}
+  There is deliberately no deterministic embedding here. The state stream
+  $t \mapsto T^{(-t)^{+}}x$ is \emph{not} a member of $\Sigma_{\mathrm{graph}(T)}$:
+  the clamp at $(-t)^{+}$ makes the positive half constant, so the trajectory
+  condition there would demand $x = Tx$. A non-invertible $T$ genuinely has only
+  a one-sided orbit. Bi-infinite trajectories for deterministic dynamics need
+  $T$ bijective, or a one-sided stream type; neither is assumed, and
+  \ref{thm:lisc-delay-witness} needs neither, because a cycle witness supplies a
+  bi-infinite periodic trajectory outright.
+\end{remark}
+

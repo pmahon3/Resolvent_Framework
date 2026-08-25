@@ -131,3 +131,10 @@ Reconstruction.Pruning.isEvPeriodic_isTR
 Reconstruction.Pruning.isEvPeriodic_safe
 Reconstruction.Pruning.isLISC_addOrderOf_of_isTR
 Reconstruction.Pruning.NG_refutation
+QuerySystem.RelationalDelay.Subshift
+QuerySystem.RelationalDelay.cycleStream
+QuerySystem.RelationalDelay.cycleStream_mem_subshift
+QuerySystem.RelationalDelay.isLISC_delay_witness
+QuerySystem.RelationalDelay.unsafe_delay_witness
+QuerySystem.RelationalDelay.isLISC_complete_bool
+QuerySystem.RelationalDelay.exists_delay_witness_complete_bool

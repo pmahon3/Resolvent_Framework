@@ -396,4 +396,51 @@ theorem psi_concreteSigma_open_content_is_witness :
   · rintro ⟨Ω, d, s₀, B, hw⟩
     exact ⟨Ω, d, s₀, B, (concreteSigmaOrtho_iff_witness s₀ B).mpr hw⟩
 
+
+/-! ### The two structural conjuncts of `prop:adm`, discharged
+
+`prop:adm` says the witness carrier is "concrete and σ-complete (by
+construction)". Read against the paper's Definition (body l.14) -- a concrete
+σ-complete orthomodular poset is a family `L ⊆ P(Ω)` containing `∅, Ω`, closed
+under complement, and closed under countable DISJOINT unions -- those two
+conjuncts say exactly that the carrier is a σ-class, i.e. a `DynkinSystem`.
+That is the setup, so both hold for every carrier in this development.
+
+⚠ **Why this is not the `True`-substitution failure.** `ADMISSIBILITY_SCOPE.md`
+warns that replacing an `Admissible` conjunct with something provable of every
+`DynkinSystem` silently weakens `TargetA_sharp`, a named conjecture. The
+distinction is whether the conjunct is *supposed* to be structural:
+
+* concrete, σ-complete -- structural BY DEFINITION. The paper says "by
+  construction" and means it. Discharging them loses nothing, because they were
+  never a constraint on WHICH carrier; they define the category.
+* irreducible, non-segregated -- genuine constraints that cut down the carriers.
+  `IsIrreducible` and `IsNonSegregated` stay axioms until proved as forcing
+  lemmas about witnesses (non-segregation: `Blocks.witness_not_segregated`).
+
+The paper's other gloss of concreteness -- "exactly order-determination by
+two-valued states (Gudder, Harding)", body l.100 -- is a cited THEOREM relating
+two notions, not a competing definition. Formalizing it would mean proving the
+Gudder characterization for no gain here. -/
+
+/-- **Concreteness.** The elements are sets, the order is inclusion, the
+orthocomplement is set complement. -/
+def IsConcreteCarrier {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
+  d.Has ∅ ∧ d.Has Set.univ ∧ ∀ {A}, d.Has A → d.Has Aᶜ
+
+/-- **σ-completeness.** Closure under countable disjoint unions. -/
+def IsSigmaCompleteCarrier {Ω : Type*} (d : DynkinSystem Ω) : Prop :=
+  ∀ {f : ℕ → Set Ω}, Pairwise (Function.onFun Disjoint f) →
+    (∀ i, d.Has (f i)) → d.Has (⋃ i, f i)
+
+theorem isConcreteCarrier {Ω : Type*} (d : DynkinSystem Ω) : IsConcreteCarrier d :=
+  ⟨d.has_empty, d.has_univ, fun h => d.has_compl h⟩
+
+theorem isSigmaCompleteCarrier {Ω : Type*} (d : DynkinSystem Ω) :
+    IsSigmaCompleteCarrier d :=
+  fun hdisj hf => d.has_iUnion_nat hdisj hf
+
+#print axioms isConcreteCarrier
+#print axioms isSigmaCompleteCarrier
+
 end SigmaEssential.OpenCore

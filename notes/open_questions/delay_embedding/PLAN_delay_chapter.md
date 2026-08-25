@@ -196,3 +196,45 @@ settled against the source before `def:pred-sufficient`, `def:markov-order` and
 
 Revised order: (1) settle the sufficiency definition against the source;
 (2) `def:pred-sufficient`; (3) `def:markov-order`; (4) `thm:sufficiency`.
+
+
+---
+
+## Update 2026-08-25 (2): decision 3's prerequisite — THREE definitions, no current source
+
+Before formalizing predictive sufficiency I checked whether the source draft is
+current. It is not, and the situation is worse than "superseded".
+
+**No paper in `papers/` defines predictive sufficiency.** The only two
+definitions in the repo are both archived, and **they do not agree**:
+
+1. `archive/superseded_drafts/predictive_experiments` (l.515) — a FACTORIZATION
+   condition: `Q` is predictively sufficient if for every admissible `Q'` there
+   is measurable `ψ : O_Q → O_{Q'}` with `Π_{Q'} = Π_Q ∘ ψ`. Characterized by
+   `F ⊥ Q' | Q`.
+2. `papers/archive/paper_ii_dynamics_from_probability` (`cor:sufficiency`) — a
+   CONDITIONAL EXPECTATION identity: `E[g(F) | σ(Q)] = E[g(F) | σ(Q_*)]` a.e.,
+   a corollary of predictive factorization through the minimal predictive state
+   map `Q_*`.
+3. `DelayEmbedding.lean`'s header gloss — "injectivity of `φ_{d,τ}` on the
+   support".
+
+(2) is a consequence of factorization through `Q_*`; (1) quantifies over other
+queries; (3) is neither. They may be related, but they are not the same
+statement, and nothing in the current corpus adjudicates.
+
+### Consequence for the plan
+
+Option (a) — "formalize the factorization definition" — presumes a settled
+definition to be faithful TO. There isn't one. Formalizing any of the three now
+would be picking a winner by accident.
+
+**Revised recommendation: (d), park it**, until a current paper states the
+definition. `def:delay-pred-map` (`predLaw`, `predLaw_ae_eq_condExp`) stands on
+its own — it is the conditional law of the next sample given the window, which
+is well defined regardless of how sufficiency is eventually stated, and every
+version above is phrased in terms of exactly that object.
+
+The remaining items (`def:markov-order`, `thm:sufficiency`) depend on the
+sufficiency definition and are parked with it. `prop:stationarity` does not and
+could be done independently if wanted.

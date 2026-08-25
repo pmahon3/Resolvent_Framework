@@ -28,9 +28,9 @@ Because `lakefile.toml` globs `QuerySystem.+` -- the root module AND its
 submodules -- building this index builds the library.
 -/
 
-import QuerySystem.BandClosure
+import QuerySystem.AJNoExtension
 import QuerySystem.AndersenJessen
-import QuerySystem.Diagonal
+import QuerySystem.BandClosure
 import QuerySystem.BoundaryDescent
 import QuerySystem.Commensurability
 import QuerySystem.ConcreteOMLBlocks
@@ -40,9 +40,10 @@ import QuerySystem.DescentWitnessClosure
 import QuerySystem.DescentWitnessConsistency
 import QuerySystem.DescentWitnessFinite
 import QuerySystem.DescentWitnessInfinite
+import QuerySystem.Diagonal
 import QuerySystem.DiscriminabilityFoundations
-import QuerySystem.ExtensionObstruction
 import QuerySystem.EncodingDefectCheck
+import QuerySystem.ExtensionObstruction
 import QuerySystem.FibreProductReflection
 import QuerySystem.FiniteAtomFoldKernel
 import QuerySystem.FullCycleAssemblyKernel
@@ -63,6 +64,7 @@ import QuerySystem.SigmaEssentialLocalization
 import QuerySystem.SigmaEssentialOpenCore
 import QuerySystem.StoneDualityExtension
 import QuerySystem.TheoremB
+import QuerySystem.ThickTrace
 import QuerySystem.UlamWitnessCore
 import QuerySystem.UlamWitnessFidelity
 import QuerySystem.UlamWitnessInvariant

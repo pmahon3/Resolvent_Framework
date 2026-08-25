@@ -589,4 +589,52 @@ theorem isCompact_stFA : IsCompact (stFA d) :=
 #print axioms isClosed_stFA
 #print axioms isCompact_stFA
 
+/-! ## §7. Segregation, and the fourth admissibility conjunct
+
+`rem:segregated` calls a carrier *segregated* when every countable orthogonal
+family lies in a single block whose σ-additive two-valued states rescue every
+finite trace, and `lem:horizontal` shows segregated carriers satisfy Φ -- so a
+witness must be non-segregated.
+
+Stated structurally, segregation is exactly blockwise-pointedness of every
+finitely additive state, and then `lem:horizontal` is *derived* rather than
+assumed: `isSigmaOn_of_blockwisePointed` (§11c) is the gluing step.
+
+This retires the `IsNonSegregated` conjunct of `SigmaEssentialOpenCore.Admissible`
+in the honest direction -- as a forcing theorem about witnesses, not as a
+definition handed to the predicate. Same shape as `witness_not_polish` and
+`witness_not_intersection_closed`. -/
+
+/-- **Segregated carrier (`rem:segregated`), structural form.** Every finitely
+additive state is blockwise pointed: each maximal block supplies a kernel point,
+so blockwise σ-additive states are available to rescue any trace. -/
+def SegregatedStructural (d : DynkinSystem Ω) : Prop :=
+  ∀ μ : Amended.FinAddState d, BlockwisePointed μ
+
+/-- **`lem:horizontal`, derived.** On a segregated carrier every finitely
+additive state is σ-additive. The content is `isSigmaOn_of_blockwisePointed`:
+blockwise σ globalizes, no cross-block constraint existing. -/
+theorem isSigmaOn_of_segregated (hseg : SegregatedStructural d)
+    (μ : Amended.FinAddState d) : IsSigmaOn μ (Carrier d) :=
+  isSigmaOn_of_blockwisePointed μ (hseg μ)
+
+/-- **Φ holds on a segregated carrier.** A finitely coherent pattern has a
+finitely additive realization, which segregation upgrades to a genuine
+σ-additive two-valued state -- so the pattern is not σ-essential. -/
+theorem no_witness_of_segregated {B : Block d} (hseg : SegregatedStructural d)
+    (s₀ : Amended.LocalState d B) (hcoh : Amended.FinitelyCoherent s₀) :
+    ¬ Amended.IsSigmaEssentialL s₀ := by
+  rintro ⟨_, hno⟩
+  obtain ⟨μ, hμ⟩ := hcoh
+  exact hno ⟨μ.toTwoValued (isSigmaOn_of_segregated hseg μ), by
+    intro A hA; exact (hμ A hA)⟩
+
+/-- **A witness carrier is non-segregated (the forcing lemma).** One of the six
+admissibility conjuncts of `prop:adm`, proved rather than assumed. -/
+theorem witness_not_segregated {B : Block d} {s₀ : Amended.LocalState d B}
+    (hw : Amended.IsSigmaEssentialL s₀) : ¬ SegregatedStructural d :=
+  fun hseg => no_witness_of_segregated hseg s₀ hw.1 hw
+
+#print axioms witness_not_segregated
+
 end SigmaEssential.Blocks

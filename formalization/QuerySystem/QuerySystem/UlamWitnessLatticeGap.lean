@@ -104,15 +104,58 @@ theorem greatest_lowerBound_eq_slab (U : UlamMatrix M) {m : Set (M × Fin 4)}
       simp only [coreB, mem_preimage, mem_insert_iff, mem_singleton_iff, hp0]; tauto
   exact hub hsing_lb rfl
 
-/-- **The one cited fact (Corollary 4.1).** The slab `M × {0}` (the paper's
-`M × {1}`, the missing meet region) is NOT a member of the carrier. Its class
-pattern is the odd-weight `1000`, excluded by the Normal Form Theorem 3.5
-(`L ⊆ P̃`). CITED to
-`papers/sigma_essential/witness_candidate/sigma_essential_witness.md` Cor 4.1 /
-Cor 4.4 (proved there via the full §3 invariant machinery). NOT re-proved here;
-formalizing §3 is the flagged next unit. -/
-axiom slab0_not_mem (U : UlamMatrix M) (huncount : ¬ (Set.univ : Set M).Countable) :
-    ¬ (carrier U).Has (Prod.snd ⁻¹' ({0} : Set (Fin 4)))
+/-- The traces of the slab `M × {0}`: everything at coordinate `0`, nothing
+elsewhere. -/
+theorem trace_slab (f : Fin 4) :
+    trace (Prod.snd ⁻¹' ({0} : Set (Fin 4))) f
+      = (if f = 0 then (Set.univ : Set M) else ∅) := by
+  ext x
+  simp only [trace, Set.mem_setOf_eq, Set.mem_preimage, Set.mem_singleton_iff]
+  split <;> simp_all
+
+/-- In any representation of the slab, coordinate `0`'s code differs from every
+other coordinate's: the `f = 0` trace is co-countable and the rest are countable,
+so equal codes would make one set both. -/
+theorem slab_codes_differ (huncount : ¬ (Set.univ : Set M).Countable)
+    (ξ : Set M) (κ : Fin 4 → Bool) {f : Fin 4} (hf : f ≠ 0)
+    (h : Represents (Prod.snd ⁻¹' ({0} : Set (Fin 4))) ξ κ) :
+    κ 0 ≠ κ f := by
+  intro hEq
+  have h0 := h 0; have hg := h f
+  rw [trace_slab] at h0 hg
+  rw [if_pos rfl] at h0
+  rw [if_neg hf] at hg
+  rw [hEq] at h0
+  unfold CEq at h0 hg
+  apply huncount
+  refine Set.Countable.mono ?_ (h0.union hg)
+  intro x _
+  by_cases hx : x ∈ sel ξ (κ f)
+  · right; simp [Set.mem_symmDiff, hx]
+  · left;  simp [Set.mem_symmDiff, hx]
+
+/-- **Corollary 4.1 (proved).** The slab `M × {0}` (the paper's `M × {1}`, the
+missing meet region) is NOT a member of the carrier.
+
+Formerly a cited `axiom` -- Cor 4.1 of
+`papers/sigma_essential/witness_candidate/sigma_essential_witness.md`, proved
+there via the full §3 invariant machinery and not re-proved here. It is proved
+here now: §3 IS formalized (`nrep_exists`, Thm 3.5), so the paper's argument
+runs in the kernel. Any representation must give coordinate `0` a code differing
+from the other three (`slab_codes_differ`), i.e. the odd-weight `1000` or its
+complement `0111`, and `EvenCode` excludes both. -/
+theorem slab0_not_mem (U : UlamMatrix M)
+    (huncount : ¬ (Set.univ : Set M).Countable) :
+    ¬ (carrier U).Has (Prod.snd ⁻¹' ({0} : Set (Fin 4))) := by
+  intro hmem
+  obtain ⟨ξ, κ, hEven, _hκ3, hrep⟩ := nrep_exists huncount hmem
+  have d1 := slab_codes_differ huncount ξ κ (by decide : (1:Fin 4) ≠ 0) hrep
+  have d2 := slab_codes_differ huncount ξ κ (by decide : (2:Fin 4) ≠ 0) hrep
+  have d3 := slab_codes_differ huncount ξ κ (by decide : (3:Fin 4) ≠ 0) hrep
+  unfold EvenCode at hEven
+  revert hEven
+  cases h0 : κ 0 <;> cases h1 : κ 1 <;> cases h2 : κ 2 <;> cases h3 : κ 3 <;>
+    simp_all
 
 /-- **The pin (proved, modulo the one cited fact).** The witness carrier is NOT a
 lattice: `MeetsExist` fails at `(coreA, coreB)`. A greatest lower bound would
@@ -173,5 +216,274 @@ and only the one membership is imported. -/
 #print axioms greatest_lowerBound_eq_slab
 #print axioms witness_carrier_not_lattice
 #print axioms psiOML_gives_sigmaEssential
+
+/-! ## §5. The centre, and essential irreducibility (`cor:centre`)
+
+`prop:adm` needs the witness carrier to be *essentially irreducible*: trivial
+centre in the quotient by the countable ideal. The paper computes the centre
+exactly (`cor:centre`): the central elements are precisely the countable and
+co-countable carrier sets.
+
+Formalized here as far as the code analysis reaches. The remaining steps --
+reading `[E₁] = [E₂] ∈ {0,1}` off the surviving codes, repeating with `coreB`
+and `coreC` for a common constant, and forcing the fourth class by parity --
+are mechanical given `central_meet_code` but are not yet written. Nothing below
+is assumed: `IsCentral` is a definition and every result is a theorem. -/
+
+/-- **Centre of the concrete carrier.** `E` is central when it lies in the
+carrier and is compatible with every carrier element -- concretely (the
+`Blocks.Compat` test), every intersection `E ∩ A` is again in the carrier. -/
+def IsCentral (U : UlamMatrix M) (E : Set (M × Fin 4)) : Prop :=
+  (carrier U).Has E ∧ ∀ A, (carrier U).Has A → (carrier U).Has (E ∩ A)
+
+/-- Meeting with `coreA = M × {0,1}` empties coordinates 2 and 3. -/
+theorem trace_inter_coreA_23 (E : Set (M × Fin 4)) {f : Fin 4} (hf : f = 2 ∨ f = 3) :
+    trace (E ∩ coreA M) f = ∅ := by
+  ext x
+  simp only [trace, Set.mem_setOf_eq, Set.mem_inter_iff, coreA,
+    Set.mem_preimage, Set.mem_insert_iff, Set.mem_singleton_iff,
+    Set.mem_empty_iff_false, iff_false, not_and]
+  intro _
+  rcases hf with rfl | rfl <;> decide
+
+/-- A countable trace forces its selected set countable. -/
+theorem sel_countable_of_trace_countable
+    {E : Set (M × Fin 4)} {ξ : Set M} {b : Bool} {f : Fin 4}
+    (hr : CEq (trace E f) (sel ξ b)) (hc : (trace E f).Countable) :
+    (sel ξ b).Countable := by
+  refine Set.Countable.mono ?_ (hc.union hr)
+  intro x hx
+  by_cases hxf : x ∈ trace E f
+  · left; exact hxf
+  · right; simp [CEq, Set.mem_symmDiff, hxf, hx]
+
+/-- **`cor:stripping`, the impossibility half.** Countable coordinates 2 and 3
+force `κ 2 = κ 3`: otherwise the two selected sets are `ξ` and `ξᶜ`, both
+countable, making `M` countable. This is what kills the weight-2 cosets. -/
+theorem codes_eq_of_traces_countable (huncount : ¬ (Set.univ : Set M).Countable)
+    {E : Set (M × Fin 4)} {ξ : Set M} {κ : Fin 4 → Bool}
+    (hrep : Represents E ξ κ)
+    (h2 : (trace E 2).Countable) (h3 : (trace E 3).Countable) :
+    κ 2 = κ 3 := by
+  by_contra hne
+  have c2 := sel_countable_of_trace_countable (hrep 2) h2
+  have c3 := sel_countable_of_trace_countable (hrep 3) h3
+  apply huncount
+  cases e2 : κ 2 <;> cases e3 : κ 3 <;> rw [e2] at c2 <;> rw [e3] at c3
+  · exact absurd (e2.trans e3.symm) hne
+  · simpa using c3.union c2
+  · simpa using c2.union c3
+  · exact absurd (e2.trans e3.symm) hne
+
+/-- **The code restriction for central sets.** For central `E`, the carrier set
+`E ∩ coreA` has coordinates 2,3 empty, so `cor:stripping` plus normalization
+leaves only `zeroCode` and `κA`: the weight-2 cosets `κB`, `κC` are excluded.
+This is the step `cor:centre` runs three times (with `coreA`, `coreB`, `coreC`)
+to force a common trace class. -/
+theorem central_meet_code (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    ∃ ξ κ, NRep (E ∩ coreA M) ξ κ ∧ (κ = zeroCode ∨ κ = κA) := by
+  obtain ⟨ξ, κ, hEven, hκ3, hrep⟩ := nrep_exists huncount (hc.2 _ (has_coreA U))
+  refine ⟨ξ, κ, ⟨hEven, hκ3, hrep⟩, ?_⟩
+  have h2 : (trace (E ∩ coreA M) 2).Countable := by
+    rw [trace_inter_coreA_23 E (Or.inl rfl)]; exact Set.countable_empty
+  have h3 : (trace (E ∩ coreA M) 3).Countable := by
+    rw [trace_inter_coreA_23 E (Or.inr rfl)]; exact Set.countable_empty
+  have hk2 : κ 2 = false := by
+    rw [codes_eq_of_traces_countable huncount hrep h2 h3, hκ3]
+  rcases normalized_code_cases hEven hκ3 with h | h | h | h
+  · exact Or.inl h
+  · exact Or.inr h
+  · exfalso; rw [h] at hk2; simp [κB] at hk2
+  · exfalso; rw [h] at hk2; simp [κC] at hk2
+
+#print axioms central_meet_code
+
+/-! ### `cor:centre`: propagating the code across all three cores -/
+
+/-- Generic: meeting with `Prod.snd ⁻¹' S` empties coordinates outside `S`. -/
+theorem trace_inter_out (E : Set (M × Fin 4)) (S : Set (Fin 4)) {f : Fin 4} (hf : f ∉ S) :
+    trace (E ∩ Prod.snd ⁻¹' S) f = ∅ := by
+  ext x
+  simp only [trace, Set.mem_setOf_eq, Set.mem_inter_iff, Set.mem_preimage,
+    Set.mem_empty_iff_false, iff_false, not_and]
+  intro _ hS; exact hf hS
+
+/-- Generic: meeting with `Prod.snd ⁻¹' S` leaves coordinates inside `S` alone. -/
+theorem trace_inter_in (E : Set (M × Fin 4)) (S : Set (Fin 4)) {f : Fin 4} (hf : f ∈ S) :
+    trace (E ∩ Prod.snd ⁻¹' S) f = trace E f := by
+  ext x
+  simp only [trace, Set.mem_setOf_eq, Set.mem_inter_iff, Set.mem_preimage]
+  exact ⟨fun h => h.1, fun h => ⟨h, hf⟩⟩
+
+/-- **Two coordinates inside a core carry countably-equal traces.** If the two
+"outside" coordinates of a core are empty, the code is constant on the two
+"inside" ones, so their traces agree mod countable. -/
+theorem traces_agree_of_core (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E)
+    (S : Set (Fin 4)) (hS : (carrier U).Has (Prod.snd ⁻¹' S))
+    (i j o p : Fin 4) (hi : i ∈ S) (hj : j ∈ S) (ho : o ∉ S) (hp : p ∉ S)
+    (hxor : ∀ k : Fin 4 → Bool, EvenCode k → k o = k p → k i = k j) :
+    CEq (trace E i) (trace E j) := by
+  obtain ⟨ξ, κ, hEven, hκ3, hrep⟩ := nrep_exists huncount (hc.2 _ hS)
+  -- the two outside coordinates are empty, hence countable
+  have hco : (trace (E ∩ Prod.snd ⁻¹' S) o).Countable := by
+    rw [trace_inter_out E S ho]; exact Set.countable_empty
+  have hcp : (trace (E ∩ Prod.snd ⁻¹' S) p).Countable := by
+    rw [trace_inter_out E S hp]; exact Set.countable_empty
+  -- so κ o = κ p (else ξ and ξᶜ both countable)
+  have hkop : κ o = κ p := by
+    by_contra hne
+    have c1 := sel_countable_of_trace_countable (hrep o) hco
+    have c2 := sel_countable_of_trace_countable (hrep p) hcp
+    apply huncount
+    cases e1 : κ o <;> cases e2 : κ p <;> rw [e1] at c1 <;> rw [e2] at c2
+    · exact absurd (e1.trans e2.symm) hne
+    · simpa using c2.union c1
+    · simpa using c1.union c2
+    · exact absurd (e1.trans e2.symm) hne
+  -- even weight + κ o = κ p forces κ i = κ j (the other two coordinates)
+  have hkij : κ i = κ j := hxor κ hEven hkop
+  -- equal codes on i,j: traces both ≈ sel ξ (κ i)
+  have ri := hrep i; have rj := hrep j
+  rw [trace_inter_in E S hi] at ri
+  rw [trace_inter_in E S hj] at rj
+  rw [hkij] at ri
+  exact cEq_trans ri (cEq_symm rj)
+
+
+/-- `coreA = M × {0,1}`: traces 0 and 1 agree. -/
+theorem central_t01 (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    CEq (trace E 0) (trace E 1) :=
+  traces_agree_of_core huncount U hc {0,1} (has_coreA U)
+    0 1 2 3 (by decide) (by decide) (by decide) (by decide)
+    (by intro k hk h; revert hk h; unfold EvenCode; cases k 0 <;> cases k 1 <;> cases k 2 <;> cases k 3 <;> simp_all)
+
+/-- `coreB = M × {0,2}`: traces 0 and 2 agree. -/
+theorem central_t02 (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    CEq (trace E 0) (trace E 2) :=
+  traces_agree_of_core huncount U hc {0,2} (has_coreB U)
+    0 2 1 3 (by decide) (by decide) (by decide) (by decide)
+    (by intro k hk h; revert hk h; unfold EvenCode; cases k 0 <;> cases k 1 <;> cases k 2 <;> cases k 3 <;> simp_all)
+
+/-- `coreC = M × {1,2}`: traces 1 and 2 agree. -/
+theorem central_t12 (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    CEq (trace E 1) (trace E 2) :=
+  traces_agree_of_core huncount U hc {1,2} (has_coreC U)
+    1 2 0 3 (by decide) (by decide) (by decide) (by decide)
+    (by intro k hk h; revert hk h; unfold EvenCode; cases k 0 <;> cases k 1 <;> cases k 2 <;> cases k 3 <;> simp_all)
+
+
+/-- **The fourth coordinate, by parity.** `E` itself is in the carrier, so it
+has a normalized representation; with the first three trace classes equal
+(`central_t01`, `central_t02`, `central_t12`), the even-weight condition forces
+the code to be constant, hence all four traces countably equal. -/
+theorem central_all_traces (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    ∃ ξ, ∀ f, CEq (trace E f) ξ := by
+  obtain ⟨ξ, κ, hEven, hκ3, hrep⟩ := nrep_exists huncount hc.1
+  have t01 := central_t01 huncount U hc
+  have t02 := central_t02 huncount U hc
+  -- code is constant: coords 0,1,2 carry countably-equal traces, and κ 3 = false
+  -- equal traces force equal codes: if κ a ≠ κ b then sel ξ (κ a) = (sel ξ (κ b))ᶜ,
+  -- and CEq of a set with its own complement makes M countable.
+  have codes_eq : ∀ a b : Fin 4, CEq (trace E a) (trace E b) → κ a = κ b := by
+    intro a b hab
+    by_contra hne
+    have ra := hrep a; have rb := hrep b
+    have : CEq (sel ξ (κ a)) (sel ξ (κ b)) :=
+      cEq_trans (cEq_symm ra) (cEq_trans hab rb)
+    apply not_cEq_self_compl huncount ξ
+    cases ea : κ a <;> cases eb : κ b <;> rw [ea] at this <;> rw [eb] at this
+    · exact absurd (ea.trans eb.symm) hne
+    · simpa using this
+    · exact cEq_symm (by simpa using this)
+    · exact absurd (ea.trans eb.symm) hne
+  have k01 : κ 0 = κ 1 := codes_eq 0 1 t01
+  have k02 : κ 0 = κ 2 := codes_eq 0 2 t02
+  -- three equal + even weight + κ3 = false forces all four equal to false
+  have hconst : ∀ f, κ f = κ 3 := by
+    have h0 : κ 0 = false := by
+      revert hEven; unfold EvenCode
+      cases e0 : κ 0 <;> cases e1 : κ 1 <;> cases e2 : κ 2 <;> cases e3 : κ 3 <;>
+        simp_all
+    have h1 : κ 1 = false := by rw [← k01]; exact h0
+    have h2 : κ 2 = false := by rw [← k02]; exact h0
+    intro f
+    rw [hκ3]
+    fin_cases f <;> simpa using ‹_›
+  refine ⟨sel ξ (κ 3), fun f => ?_⟩
+  have := hrep f
+  rwa [hconst f] at this
+
+
+/-- A set all of whose four traces are countable is itself countable. -/
+theorem countable_of_traces_countable {E : Set (M × Fin 4)}
+    (h : ∀ f, (trace E f).Countable) : E.Countable := by
+  have : E ⊆ ⋃ f : Fin 4, (fun x => (x, f)) '' (trace E f) := by
+    rintro ⟨x, f⟩ hx
+    exact Set.mem_iUnion.mpr ⟨f, ⟨x, hx, rfl⟩⟩
+  exact Set.Countable.mono this
+    (Set.countable_iUnion fun f => ((h f).image _))
+
+/-- **The reduction `cor:centre` now rests on.** A central `E` has all four
+traces countably equal to one `ξ`; so `E` is countable exactly when `ξ` is, and
+co-countable exactly when `ξᶜ` is. What remains for `cor:centre` is the paper's
+`[E] ∈ {0,1}`: that `ξ ≈ ∅` or `ξ ≈ M`. That does NOT follow from the invariant
+alone (`def:invariant` permits any `ξ`), so it needs centrality used a second
+time, beyond the code analysis. -/
+theorem central_countable_iff (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    ∃ ξ, (∀ f, CEq (trace E f) ξ) ∧ (ξ.Countable → E.Countable) := by
+  obtain ⟨ξ, hξ⟩ := central_all_traces huncount U hc
+  refine ⟨ξ, hξ, fun hcnt => ?_⟩
+  refine countable_of_traces_countable (fun f => ?_)
+  refine Set.Countable.mono ?_ (hcnt.union (hξ f))
+  intro x hx
+  by_cases hxξ : x ∈ ξ
+  · left; exact hxξ
+  · right; simp [CEq, Set.mem_symmDiff, hx, hxξ]
+
+#print axioms central_all_traces
+#print axioms central_countable_iff
+
+/-! ### The ξ-triviality step: the cell route, and why it does not close
+
+`cor:centre` needs one more thing than `central_all_traces` gives: that the
+common `ξ` is itself trivial (`ξ ≈ ∅` or `ξ ≈ M`), the paper's `[E] ∈ {0,1}`.
+That does NOT follow from the invariant -- `def:invariant` permits any `ξ` --
+so centrality has to be used a second time.
+
+The natural attempt is to intersect with cells, which are carrier generators.
+The two lemmas below are what that yields, and they are reusable. What they do
+NOT yield is the constraint: normalizing `E ∩ cell` gives `ξ ∩ C α n ≈ η` for an
+EXISTENTIALLY BOUND `η`, which says nothing. A real constraint has to bring in
+the Ulam matrix's combinatorics (`row_cover`, `col_disjoint`) together with
+countable initial segments -- the hypothesis set `rigidity` carries as
+`hseg : ∀ β, (Set.Iio β).Countable`. Note `central_all_traces` does not take
+`hseg`, so either these lemmas gain that hypothesis or the argument goes
+elsewhere. Recorded so the route is not re-walked. -/
+
+/-- Trace of an intersection with a cell. -/
+theorem trace_inter_cell (U : UlamMatrix M) (E : Set (M × Fin 4)) (α : M) (n : ℕ)
+    (f : Fin 4) : trace (E ∩ cell U α n) f = trace E f ∩ U.C α n := by
+  ext x; simp [trace, cell]
+
+/-- For a set whose traces are all `≈ ξ`, every trace of `E ∩ cell` is
+`≈ ξ ∩ C α n`. -/
+theorem cell_traces (U : UlamMatrix M)
+    {E : Set (M × Fin 4)} {ξ : Set M} (hξ : ∀ f, CEq (trace E f) ξ)
+    (α : M) (n : ℕ) (f : Fin 4) :
+    CEq (trace (E ∩ cell U α n) f) (ξ ∩ U.C α n) := by
+  rw [trace_inter_cell]
+  refine Set.Countable.mono ?_ (hξ f)
+  intro x hx
+  simp only [Set.mem_symmDiff, Set.mem_inter_iff] at hx ⊢
+  rcases hx with ⟨⟨h1, h2⟩, h3⟩ | ⟨⟨h1, h2⟩, h3⟩
+  · exact Or.inl ⟨h1, fun hxi => h3 ⟨hxi, h2⟩⟩
+  · exact Or.inr ⟨h1, fun hxi => h3 ⟨hxi, h2⟩⟩
 
 end SigmaEssential.Ulam

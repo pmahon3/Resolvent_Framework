@@ -32,6 +32,10 @@ AndersenJessen.V_add_finite_measurable_null
 AndersenJessen.X_thick
 AndersenJessen.X_antitone
 AndersenJessen.X_iInter
+ThickTrace.ThickFor
+ThickTrace.traceMeasure
+ThickTrace.traceMeasure_apply
+ASM.AJ_no_extension_unconditional
 Diagonal.Diag
 Diagonal.Diag_iInter
 Diagonal.pi_inter_diag_eq_empty

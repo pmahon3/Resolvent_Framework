@@ -39,7 +39,12 @@ classical and citable.
 
 NOT settled by the citation, and still needing a human pass:
 
-1. **The `EvalSurjective` instantiation.** Our theorem carries a hypothesis the
+1. **The `EvalSurjective` instantiation.** *(RESOLVED 2026-08-24 — CONFIRMED,
+   and now machine-checked: `staging/H1_EvalSurjective.lean`, receipt
+   `[propext, Classical.choice, Quot.sound]`. Note `Omega` is the subtype of
+   coherent families, not the bare product; the argument survives because
+   initial-segment restriction makes coherence automatically satisfiable.
+   The original reasoning, kept below, was correct.)* Our theorem carries a hypothesis the
    classical statement never mentions: every `eval_i : Ω → Outcome_i` is
    surjective. In Border's presentation of A–J the bonding maps are projections
    and `Ω = ∏ₖ Xₖ`, so `eval_n` is a projection onto an initial segment and is

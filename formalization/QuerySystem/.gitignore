@@ -1,1 +1,3 @@
 /.lake
+blueprint/axiomcheck.lean
+blueprint/axiomcheck.log

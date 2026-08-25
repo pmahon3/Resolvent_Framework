@@ -413,10 +413,13 @@ assume a compact class / perfect-measure condition on the marginals
 (Marczewski), the classical hypothesis, and port that theorem instead.
 
 \textbf{Status.} Verified on paper against the Lean hypotheses, hypothesis by
-hypothesis (the surjectivity check is the one hand-verified load-bearing step;
-see \texttt{notes/programme/human\_worklist\_2026-08-23.md} H1). The thick
-tower itself is now machine-checked (\ref{thm:aj-tower}); what still separates
-the hand check from a kernel-checked refutation is the trace-measure and
+hypothesis. The surjectivity check --- the one load-bearing step that was
+hand-verified --- is now machine-checked: \texttt{staging/H1\_EvalSurjective.lean}
+proves \texttt{EvalSurjective} for the Andersen--Jessen shape against
+\texttt{Omega} and \texttt{eval} themselves, receipts \texttt{[propext,
+Classical.choice, Quot.sound]} (worklist H1, resolved 2026-08-24). The thick
+tower itself is machine-checked too (\ref{thm:aj-tower}); what still separates
+this from a kernel-checked refutation is the trace-measure and
 projective-system layer of \ref{rmk:aj-remaining}.
 \end{remark}
 

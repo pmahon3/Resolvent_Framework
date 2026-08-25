@@ -49,17 +49,32 @@ lag-`L` query. Read in the delay chapter's vocabulary: `L` is unsafe exactly
 when lag-`L` sampling of some periodic trajectory fails to collapse, seeing `k ≥ 2`
 distinct strands where safety would see one.
 
-## What is not proved, and why not
+## The deterministic case is a subclass of this, not a parallel to it
 
-The deterministic embedding is **absent on purpose**. `stateStream T x` --
-`t ↦ T^[(-t).toNat] x` -- is *not* a member of `Subshift (graph T)`: `Int.toNat`
-clamps the positive half to the constant `x`, so the trajectory condition there
-would demand `x = T x`. A non-invertible `T` genuinely has only a one-sided
-orbit, and pretending otherwise is the kind of statement that typechecks and
-says nothing. Bi-infinite trajectories for deterministic dynamics need `T`
-bijective, or a one-sided stream type; neither is assumed here, and the bridge
-below does not need either, because a LISC witness supplies a genuinely
-bi-infinite periodic trajectory outright.
+The relational description is the general one, so the deterministic theory has
+to appear *inside* it at `ρ = graph T`. It does, and the final section proves
+it: for a `graphRel T`-trajectory `ω`, the delay data the relational picture
+assigns to `ω` is literally the delay data the deterministic picture assigns to
+`ω 0` (`delayEval_comp_eq_orbitStream`). `orbitStream` and everything proved
+from it are the `ρ = graph T` instance, not a lookalike development.
+
+The obstruction to this is narrower than it first appears, and the earlier
+reading of it was the wrong shape. `stateStream T x` really is not a member of
+`Subshift (graphRel T)` -- `Int.toNat` clamps its positive half constant, so the
+trajectory condition there would demand `x = T x`. But **delay queries never
+sample positive times**: `delayEval` reads at `0, -τ, …, -(d-1)τ`
+(`delayEval_congr_nonpos`). Disagreement on the positive half is disagreement
+about something no query in the theory can observe, so requiring agreement there
+was requiring more than the theory uses.
+
+What genuinely does not transfer is smaller and is a condition on `T`, not on
+observation: being the base of a bi-infinite trajectory forces
+`ω 0 ∈ range (T^[n])` for every `n` (`graphSubshift_base_mem_range`), so a
+non-surjective `T` has points no relational trajectory can be based at -- while
+the delay data of those points is still perfectly well defined by `orbitStream`.
+The two halves of a trajectory carry the asymmetry: the non-positive half is the
+forward orbit of the base point, the positive half is a coherent choice of
+backward orbit, and only the second can fail to exist.
 -/
 
 namespace QuerySystem
@@ -202,6 +217,101 @@ theorem exists_delay_witness_complete_bool :
       (∀ t : ℤ, ω (t + ((2 * 1 : ℕ) : ℤ)) = ω t) ∧
       Function.Injective (delayEval 2 1 ω) :=
   isLISC_delay_witness two_pos one_pos isLISC_complete_bool
+
+/-! ## The deterministic case as a subclass, not a parallel construction
+
+The relational description is the general one, so the deterministic theory
+should appear *inside* it as the special case `ρ = graph T` rather than beside
+it. This section does that, and in doing so corrects the shape of the
+obstruction recorded above.
+
+The obstruction is real but narrower than "no embedding". `stateStream T x` is
+genuinely not a member of `Subshift (graphRel T)` — the clamp makes its positive
+half constant. But **the delay queries never sample positive times**: `delayEval`
+reads at `0, -τ, …, -(d-1)τ`. So disagreement on the positive half is
+disagreement about something no query in the theory can observe, and demanding
+agreement there was demanding more than the theory uses.
+
+On the half that is observed, the two pictures coincide exactly. -/
+
+/-- The graph of a map, as a relation. -/
+def graphRel (T : α → α) : α → α → Prop := fun a b => b = T a
+
+/-- **Delay queries only see non-positive times.** Two streams agreeing there
+are indistinguishable to every delay query. -/
+theorem delayEval_congr_nonpos {ω₁ ω₂ : SensorStream α} (d τ : ℕ)
+    (hEq : ∀ t : ℤ, t ≤ 0 → ω₁ t = ω₂ t) :
+    delayEval d τ ω₁ = delayEval d τ ω₂ := by
+  funext k
+  exact hEq _ (neg_nonpos.mpr (Int.natCast_nonneg _))
+
+/-- A `graphRel T`-trajectory reads the forward orbit of its base point at
+non-positive times. This is the sense in which such a trajectory *is* an orbit. -/
+theorem graphSubshift_neg {T : α → α} {ω : SensorStream α}
+    (hω : ω ∈ Subshift (graphRel T)) (n : ℕ) :
+    ω (-(n : ℤ)) = T^[n] (ω 0) := by
+  induction n with
+  | zero => simp
+  | succ m ih =>
+      have h := hω (-(m + 1 : ℤ))
+      simp only [graphRel] at h
+      have hstep : (-(m + 1 : ℤ)) + 1 = -(m : ℤ) := by ring
+      rw [hstep] at h
+      rw [show (-((m : ℤ) + 1)) = (-(m + 1 : ℕ) : ℤ) by push_cast; ring] at h
+      rw [h, ih, Function.iterate_succ_apply']
+
+/-- The delay data of a deterministic trajectory is the orbit's delay data. -/
+theorem delayEval_graphSubshift {T : α → α} {ω : SensorStream α}
+    (hω : ω ∈ Subshift (graphRel T)) (d τ : ℕ) :
+    delayEval d τ ω = fun k : Fin d => T^[k.val * τ] (ω 0) := by
+  funext k
+  simpa using graphSubshift_neg hω (k.val * τ)
+
+/-- **Deterministic is a subclass.** For an observable `h`, the delay data the
+*relational* picture assigns to a `graphRel T`-trajectory is literally the delay
+data the *deterministic* picture assigns to its base point.
+
+So `orbitStream` and everything proved from it — `delayEval_orbitStream`,
+`delayQueryAlgebraAtLag_eq`, the reconstruction bridge — are the `ρ = graph T`
+instance of the relational description, not a separate development that happens
+to look similar. -/
+theorem delayEval_comp_eq_orbitStream {T : α → α} {ω : SensorStream α}
+    (hω : ω ∈ Subshift (graphRel T)) (h : α → ℝ) (d τ : ℕ) :
+    delayEval d τ (fun t => h (ω t)) = delayEval d τ (orbitStream h T (ω 0)) := by
+  funext k
+  rw [delayEval_orbitStream]
+  simpa using congrArg h (graphSubshift_neg hω (k.val * τ))
+
+/-- Positive times of a trajectory are *preimages*: `ω 0 = T^[n] (ω n)`. The
+two halves of a `graphRel T`-trajectory play different roles -- the non-positive
+half is the forward orbit of the base point, the positive half is a coherent
+choice of backward orbit. -/
+theorem graphSubshift_pos {T : α → α} {ω : SensorStream α}
+    (hω : ω ∈ Subshift (graphRel T)) (n : ℕ) :
+    T^[n] (ω (n : ℤ)) = ω 0 := by
+  induction n with
+  | zero => simp
+  | succ m ih =>
+      have h := hω (m : ℤ)
+      simp only [graphRel] at h
+      rw [show ((m : ℤ) + 1) = ((m + 1 : ℕ) : ℤ) by push_cast; ring] at h
+      rw [Function.iterate_succ_apply, ← h, ih]
+
+/-- The one thing that genuinely does not transfer: not every point is the base
+of a bi-infinite trajectory. Being one forces `ω 0 ∈ range (T^[n])` for every
+`n`, i.e. a full backward orbit.
+
+This is a condition on `T` -- surjectivity onto the part of the space one cares
+about -- not on delay observation, and it is the honest residue of the
+"one-sided orbit" issue. A non-surjective `T` has points no relational
+trajectory can be based at, while the delay data of those points is still
+perfectly well defined by `orbitStream`. So the deterministic picture is the
+`ρ = graph T` case of the relational one *on delay data*, which is what the
+theory observes, and is strictly larger in base points. -/
+theorem graphSubshift_base_mem_range {T : α → α} {ω : SensorStream α}
+    (hω : ω ∈ Subshift (graphRel T)) (n : ℕ) :
+    ω 0 ∈ Set.range (T^[n]) :=
+  ⟨ω (n : ℤ), graphSubshift_pos hω n⟩
 
 end RelationalDelay
 end QuerySystem

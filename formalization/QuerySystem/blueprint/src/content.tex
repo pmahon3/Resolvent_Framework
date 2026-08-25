@@ -2455,16 +2455,85 @@ queries apply to a trajectory space exactly as they apply to a stream.
   hypothesis proves nothing, so this is recorded rather than assumed.
 \end{proof}
 
-\begin{remark}[What the deterministic side still lacks]
-  \label{rmk:no-deterministic-embedding}
-  \uses{thm:lisc-delay-witness, def:orbit-stream}
-  There is deliberately no deterministic embedding here. The state stream
-  $t \mapsto T^{(-t)^{+}}x$ is \emph{not} a member of $\Sigma_{\mathrm{graph}(T)}$:
-  the clamp at $(-t)^{+}$ makes the positive half constant, so the trajectory
-  condition there would demand $x = Tx$. A non-invertible $T$ genuinely has only
-  a one-sided orbit. Bi-infinite trajectories for deterministic dynamics need
-  $T$ bijective, or a one-sided stream type; neither is assumed, and
-  \ref{thm:lisc-delay-witness} needs neither, because a cycle witness supplies a
-  bi-infinite periodic trajectory outright.
+\subsection{The deterministic case, as a subclass}
+
+The relational description is the general one, so the deterministic theory has
+to sit \emph{inside} it at $\rho = \mathrm{graph}(T)$ rather than beside it.
+It does.
+
+\begin{lemma}[Delay queries see only non-positive times]
+  \label{lem:delay-nonpos}
+  \uses{def:delay-query}
+  \lean{QuerySystem.RelationalDelay.delayEval_congr_nonpos}
+  \leanok
+  Streams agreeing at every $t \leq 0$ are indistinguishable to every delay
+  query.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \ref{def:delay-query} samples at $0, -\tau, \dots, -(d-1)\tau$.
+\end{proof}
+
+\begin{lemma}[The two halves of a deterministic trajectory]
+  \label{lem:graph-subshift-halves}
+  \uses{def:subshift, def:orbit-stream}
+  \lean{QuerySystem.RelationalDelay.graphSubshift_neg,
+        QuerySystem.RelationalDelay.graphSubshift_pos}
+  \leanok
+  For $\omega \in \Sigma_{\mathrm{graph}(T)}$: the non-positive half is the
+  forward orbit of the base point, $\omega(-n) = T^n(\omega_0)$; the positive
+  half is a coherent backward orbit, $T^n(\omega_n) = \omega_0$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:subshift}
+  Induction in each direction; the trajectory condition read forwards and
+  backwards respectively.
+\end{proof}
+
+\begin{theorem}[Deterministic is a subclass]
+  \label{thm:deterministic-subclass}
+  \uses{lem:graph-subshift-halves, lem:delay-nonpos, def:orbit-stream, thm:delay-eval-orbit}
+  \lean{QuerySystem.RelationalDelay.delayEval_comp_eq_orbitStream}
+  \leanok
+  For $\omega \in \Sigma_{\mathrm{graph}(T)}$ and an observable $h$, the delay
+  data the relational picture assigns to $\omega$ is literally the delay data
+  the deterministic picture assigns to $\omega_0$.
+
+  So \ref{def:orbit-stream} and everything proved from it ---
+  \ref{thm:delay-eval-orbit}, \ref{thm:lag-algebra},
+  \ref{thm:query-reconstruction-bridge} --- are the $\rho = \mathrm{graph}(T)$
+  instance of this chapter, not a parallel development that resembles it.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:graph-subshift-halves}
+  Both sides evaluate at $-(k\tau)$, and \ref{lem:graph-subshift-halves} says
+  that is $T^{k\tau}(\omega_0)$.
+\end{proof}
+
+\begin{remark}[The honest residue]
+  \label{rmk:deterministic-residue}
+  \uses{thm:deterministic-subclass}
+  \lean{QuerySystem.RelationalDelay.graphSubshift_base_mem_range}
+  \leanok
+  An earlier draft of this section claimed there was no deterministic embedding
+  at all, on the grounds that the state stream $t \mapsto T^{(-t)^{+}}x$ is not
+  in $\Sigma_{\mathrm{graph}(T)}$ --- the clamp makes its positive half
+  constant, so the trajectory condition there would demand $x = Tx$. That is
+  true and it is the wrong shape of objection: by \ref{lem:delay-nonpos} the
+  positive half is never sampled, so agreement there was never something the
+  theory needed.
+
+  What genuinely does not transfer is smaller, and is a condition on $T$ rather
+  than on observation. Being the base of a bi-infinite trajectory forces
+  $\omega_0 \in \mathrm{range}(T^n)$ for every $n$, so a non-surjective $T$ has
+  points no relational trajectory can be based at --- while the delay data of
+  those points is perfectly well defined by \ref{def:orbit-stream}. The
+  deterministic picture is the $\rho = \mathrm{graph}(T)$ case on delay data,
+  which is what the theory observes, and is strictly larger in base points.
 \end{remark}
 

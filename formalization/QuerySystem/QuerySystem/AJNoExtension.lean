@@ -26,6 +26,7 @@ Graduated from `staging/` 2026-08-24. Axiom-free.
 -/
 import QuerySystem.ThickTrace
 import QuerySystem.ExtensionObstruction
+import QuerySystem.Diagonal
 
 open MeasureTheory Set QuerySystem
 open scoped ENNReal
@@ -145,21 +146,49 @@ theorem cyl_antitone : Antitone (fun n : ℕ => (Sys α).Cyl n (base α n)) := b
   rw [ω.2 (show (Sys α).le m n from hmn)]
   exact hω _ _
 
+/-- The **common-value sequence** of a coherent family: at level `k`, the real
+number its top coordinate carries.
+
+This map is the whole content of the reduction to `Diagonal`. That file proves
+the emptiness fact over plain sequences `ℕ → ℝ`, and a coherent family is not a
+sequence, so something has to carry it there. The two facts
+`Diagonal.pi_inter_diag_eq_empty` consumes then come from different places:
+membership in the tower levels is the subtype and needs no hypothesis at all,
+while constancy needs both the coherence and the base cylinders. -/
+def toSeq (ω : (Sys α).Omega) : ℕ → ℝ := fun k => (ω.1 k ⟨k, by omega⟩).1
+
+/-- Every entry lies in its own tower level -- immediately, by the subtype. -/
+theorem toSeq_mem_pi (ω : (Sys α).Omega) :
+    toSeq α ω ∈ Diagonal.Pi' (fun k => AndersenJessen.X α k) :=
+  fun k => (ω.1 k ⟨k, by omega⟩).2
+
+/-- On the base cylinders the sequence is constant. Two moves, and neither
+alone suffices: coherence carries coordinate `0` down from level `i` to level
+`0`, and `base` carries it across level `i` from coordinate `0` to coordinate
+`i`. -/
+theorem toSeq_mem_diag (ω : (Sys α).Omega)
+    (hall : ∀ n, ω ∈ (Sys α).Cyl n (base α n)) (n : ℕ) :
+    toSeq α ω ∈ Diagonal.Diag n := by
+  intro i _
+  have hco : (ω.1 (0 : ℕ)) ⟨0, by omega⟩ = (ω.1 i) ⟨0, by omega⟩ := by
+    rw [ω.2 (show (Sys α).le (0 : ℕ) i from Nat.zero_le i)]; rfl
+  have hb : ((ω.1 i) ⟨0, by omega⟩).1 = ((ω.1 i) ⟨i, by omega⟩).1 := hall i _ _
+  show ((ω.1 i) ⟨i, by omega⟩).1 = ((ω.1 (0 : ℕ)) ⟨0, by omega⟩).1
+  rw [hco, hb]
+
+/-- **The tower escapes.** Routed through `Diagonal.pi_inter_diag_eq_empty`
+rather than re-running the argument: a point of every base cylinder maps to a
+constant sequence lying in every tower level, and `X_iInter` says there is no
+such thing. -/
 theorem cyl_iInter_empty : (⋂ n, (Sys α).Cyl n (base α n)) = ∅ := by
   ext ω
   simp only [Set.mem_iInter, Set.mem_empty_iff_false, iff_false]
   intro hall
-  set r : ℝ := (ω.1 (0 : ℕ) ⟨0, by omega⟩).1 with hr
-  have hmem : ∀ k, r ∈ AndersenJessen.X α k := by
-    intro k
-    have hco := ω.2 (show (Sys α).le (0 : ℕ) k from Nat.zero_le k)
-    have hd : (ω.1 k ⟨0, by omega⟩).1 = (ω.1 k ⟨k, by omega⟩).1 := hall k _ _
-    have h0 : r = (ω.1 k ⟨0, by omega⟩).1 := by rw [hr, hco]; rfl
-    rw [h0, hd]
-    exact (ω.1 k ⟨k, by omega⟩).2
-  have : r ∈ ⋂ k, AndersenJessen.X α k := Set.mem_iInter.mpr hmem
-  rw [AndersenJessen.X_iInter α] at this
-  exact this
+  have hmem : toSeq α ω ∈
+      Diagonal.Pi' (fun k => AndersenJessen.X α k) ∩ ⋂ n, Diagonal.Diag n :=
+    ⟨toSeq_mem_pi α ω, Set.mem_iInter.mpr (toSeq_mem_diag α ω hall)⟩
+  rw [Diagonal.pi_inter_diag_eq_empty (AndersenJessen.X_iInter α)] at hmem
+  exact hmem
 
 /-- **The escaping tower over the Andersen-Jessen system.** -/
 noncomputable def Tower

@@ -55,6 +55,70 @@ Island 2 (the diagonal layer, 4 nodes) is untouched and still the next item.
 
 ---
 
+## AMENDMENT 2 — 2026-08-25 (tower): island 2 is closed, and [B] is not what it looked like
+
+### Island 2 (the diagonal layer) — closed
+
+`AJNoExtension.cyl_iInter_empty` now routes through
+`Diagonal.pi_inter_diag_eq_empty` instead of re-running the argument.
+`grep 'Diagonal\.'` over the library no longer returns nothing.
+
+The carrying map is the content: a coherent family is not a sequence, so
+`ASM.toSeq ω : k ↦ (ω_k)_k` reads off the top coordinate at each level. The two
+facts `pi_inter_diag_eq_empty` consumes come from different places, which is
+what makes the reduction non-trivial rather than a rename — every entry lies in
+its own `X k` by the subtype and needs no hypothesis at all, while constancy
+needs *both* the coherence (coordinate `0` from level `i` down to level `0`) and
+the base cylinders (coordinate `0` across to coordinate `i` at level `i`).
+
+With the Lean routed, the blueprint edge `thm:aj-no-extension → thm:diag-empty`
+became *true* and was added. Before the refactor it would have been a lie: the
+prose described the argument the diagonal layer proves while the Lean proof did
+it again by hand.
+
+| | before | after ladder | after refactor |
+|---|---|---|---|
+| nodes | 98 | 110 | 110 |
+| edges | 160 | 179 | 180 |
+| components | 6 | 6 | **5** |
+| diagonal island | 4 | 4 | **absorbed into 48** |
+
+`ASM.AJ_no_extension_unconditional` still rests on `propext, Classical.choice,
+Quot.sound` only. One edge, because one duplicated argument was removed.
+
+### [B] `ReconstructionTheorem` — the stated rationale does not hold
+
+The claim was that it "imports QuerySystem (covered) AND is imported by
+DelayEmbedding (covered)", so a node would land *between* two things already in
+the graph. Both ends fail, at the node level rather than the module level:
+
+1. **Nothing is used from `QuerySystem`.** `ReconstructionTheorem.lean` imports
+   `QuerySystem.QuerySystem` and references no declaration from it. The import
+   is inert; there is no edge to ch0 to be had.
+2. **The covered `DelayEmbedding` nodes do not depend on it.** The ten delay
+   nodes in the blueprint are all query-system side (`delayQuery`, `delayEval`,
+   `delayQuerySystem`, `not_seqUpperDirected`, the fixed-lag chain). The five
+   declarations that *do* consume `ReconstructionTheorem` —
+   `delayObservableAlgebra`, `delayObservableAlgebra_eq_comap`,
+   `delayMap_shift_intertwining`, `delay_reconstruction_iff`,
+   `delay_cyclic_implies_reconstruction` — are **none of them blueprint nodes**.
+
+`DelayEmbedding.lean` is really two mathematically disjoint halves sharing a
+file: the delay query system over `SensorStream X`, and a "Reconstruction
+bridge" section over `(X, h : X → ℝ, T : X → X)`. They share no declaration.
+Coverage cannot see this — it asks only that a module have *some* covered
+declaration, so a module can be half-blueprinted and read as done.
+
+So adding `ReconstructionTheorem` alone yields a **new sixth island**, which is
+what the table below ranks as value "none". A real bridge needs a lemma
+identifying the delay query system's `delayEval` with `delayMap` — i.e.
+instantiating the sensor stream as an orbit `n ↦ T^[n] x` and the outcome space
+as `ℝ` via `h`. That is mathematics and a modelling decision about whether the
+query system's `X` is the state space or the observation space, not annotation.
+Left for the human.
+
+---
+
 ## The measurement
 
 95 nodes, 127 edges, 1.34 edges/node. **Five connected components** (undirected):

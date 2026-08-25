@@ -614,7 +614,7 @@ a.e.-disjoint representatives.
 
 \begin{theorem}[Andersen--Jessen admits no extension]
 \label{thm:aj-no-extension}
-\uses{thm:trace-measure, def:escaping-tower, thm:no-extension-tower}
+\uses{thm:trace-measure, def:escaping-tower, thm:no-extension-tower, thm:diag-empty}
 \lean{ASM.AJ_no_extension_unconditional}
 \leanok
 The Andersen--Jessen query system carries compatible $\sigma$-additive
@@ -624,16 +624,24 @@ $\Omega$.
 
 \begin{proof}
 \leanok
-\uses{thm:trace-measure, thm:no-extension-tower}
+\uses{thm:trace-measure, thm:no-extension-tower, thm:diag-empty}
 The levels carry trace measures (\ref{thm:trace-measure}) over the restricted
 base, so each is a probability measure, and they are compatible along the
 tower's inclusions. Pushing them along the diagonal gives Kolmogorov-consistent
 marginals; the commutation $\mathrm{bond} \circ \mathrm{diag} = \mathrm{diag}
 \circ \mathrm{incl}$ is definitional. The diagonal cylinders then form an
 escaping tower: each carries full mass because the diagonal map lands in the
-diagonal, and their intersection is empty because a coherent family lying in
-all of them pins a single real, which would have to belong to every $X_k$
-against \ref{thm:aj-tower}. \ref{thm:no-extension-tower} finishes.
+diagonal, and their intersection is empty by \ref{thm:diag-empty}.
+
+That last step is where the diagonal layer is spent. A coherent family is not a
+sequence, so it is carried to one by $\mathrm{toSeq}\,\omega : k \mapsto
+(\omega_k)_k$, reading off the top coordinate at each level. Two facts about
+that sequence are needed, and they come from different places: every entry lies
+in its own $X_k$ by the subtype alone, while constancy needs both the coherence
+(to move coordinate $0$ down from level $i$ to level $0$) and the base cylinders
+(to move it across level $i$ from coordinate $0$ to coordinate $i$).
+\ref{thm:diag-empty} then supplies the emptiness, against \ref{thm:aj-tower},
+and \ref{thm:no-extension-tower} finishes.
 
 This is what makes the falsity of the original \texttt{UpperDirected} statement
 a theorem of the kernel rather than a hand check against the source.

@@ -35,14 +35,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Build QuerySystem (elan + Mathlib cache + lake build)
         uses: leanprover/lean-action@v1
         with:
           lake-package-directory: formalization/QuerySystem
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
 
@@ -96,6 +96,23 @@ jobs:
       # the blueprint's scope, so this fails only on NEW ones.
       - name: blueprint coverage ratchet
         run: python formalization/QuerySystem/blueprint/coverage.py
+
+      # The three gates above cannot see an `axiom`. `lake build` accepts one,
+      # sorries.py counts no `sorry` in one, and checkdecls only asserts the
+      # NAME resolves -- so a node can sit under a `\leanok` proof block, pass
+      # everything, and still rest on an unproved stub. That is exactly what
+      # slab0_not_mem did until 2026-08-24, when it turned out its dependency
+      # (the §3 normal form) had been formalized all along.
+      #
+      # `#print axioms` over every blueprint declaration is the discriminating
+      # check: a declaration is closed iff its dependencies are a subset of
+      # {propext, Classical.choice, Quot.sound}. The development is at 90/90
+      # clean, so this gate is absolute rather than ratcheted. If a genuinely
+      # cited axiom is added later (the CLAUDE.md rule allows them), this will
+      # fail and the fix is an explicit allowlist in axiomcheck.sh -- not
+      # deleting the gate.
+      - name: blueprint declarations rest on standard axioms only
+        run: bash formalization/QuerySystem/blueprint/axiomcheck.sh
 
       # formalization/staging/ is deliberately OUTSIDE the lake globs, so that
       # work in progress can carry `sorry` without breaking the ratchet. That

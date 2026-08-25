@@ -1,5 +1,14 @@
 # The frontier map (2026-07-08)
 
+> **2026-08-25 — PARTIALLY SUPERSEDED on formalization status.** The framing
+> below stands; the per-result statuses do not. Since 2026-08-04: the
+> Andersen–Jessen refutation is kernel-checked, `slab0_not_mem` is proved,
+> `prop:adm` is at 5 of 6 conjuncts, and the blueprint is 104 declarations with
+> zero repo-local axioms. **Φ is unmoved** — none of it bears on the theory
+> front either way. Read `program_overview.md` §"STATE AS OF 2026-08-25" first;
+> where this file disagrees with it, that section wins.
+
+
 > **2026-07-10:** which veins get dug, and in what order, is now fixed —
 > see `shovel_plan.md` (four theorems to prove + vacant lots as invitations).
 

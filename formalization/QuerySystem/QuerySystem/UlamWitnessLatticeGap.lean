@@ -486,4 +486,32 @@ theorem cell_traces (U : UlamMatrix M)
   · exact Or.inl ⟨h1, fun hxi => h3 ⟨hxi, h2⟩⟩
   · exact Or.inr ⟨h1, fun hxi => h3 ⟨hxi, h2⟩⟩
 
+
+/-! ### Countable initial segments: the lever the cell route lacked
+
+`ADMISSIBILITY_SCOPE.md` records that the ξ-triviality step -- the half of
+`cor:centre` still missing -- needs more than the code analysis, and that the
+cell route stalls because `E ∩ cell` yields only an existentially bound `η`.
+
+The missing input is the hypothesis the paper uses freely: it builds the carrier
+on `ω₁`, where initial segments are countable ("simultaneous choice by AC", body
+l.503). `thm:rigidity` already carries it in Lean, and `UlamWitnessOmega1`
+discharges it for `M₁`. With it, each ROW is conull, so the cells of one row
+partition a conull set -- which is what a counting argument can bite on. -/
+
+/-- **Each row is conull, given countable initial segments.** Everything above
+`α` is covered by `row_cover`; everything below is countable by `hseg`. -/
+theorem row_conull (hseg : ∀ β : M, (Set.Iio β).Countable) (U : UlamMatrix M)
+    (α : M) : ((⋃ n, U.C α n)ᶜ).Countable := by
+  refine Set.Countable.mono ?_ ((hseg α).union (Set.countable_singleton α))
+  intro x hx
+  by_contra hxn
+  simp only [Set.mem_union, Set.mem_Iio, Set.mem_singleton_iff, not_or] at hxn
+  obtain ⟨hlt, hne⟩ := hxn
+  have : α < x := lt_of_le_of_ne (not_lt.mp hlt) (Ne.symm hne)
+  obtain ⟨n, hn⟩ := U.row_cover this
+  exact hx (Set.mem_iUnion.mpr ⟨n, hn⟩)
+
+#print axioms row_conull
+
 end SigmaEssential.Ulam

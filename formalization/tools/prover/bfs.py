@@ -196,7 +196,19 @@ def search_from(repl, root, goal0, model, max_expansions=40, k=8, verbose=True, 
 
 
 if __name__ == "__main__":
-    import argparse
+    import argparse, sys
+
+    # Goals and tactics contain Lean's Unicode (⊢, ᭺, ∀). When stdout is a
+    # pipe or a file, Python picks the locale encoding -- cp1252 on Windows --
+    # and the first `print` of a tactic raises UnicodeEncodeError from *inside*
+    # `search`, which the case loop then records as `err:UnicodeEncodeError`.
+    # A case that had already closed its proof is scored as a failure that way,
+    # so this is not cosmetic: it silently loses solved cases on one platform.
+    for _s in (sys.stdout, sys.stderr):
+        try:
+            _s.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     ap = argparse.ArgumentParser()
     ap.add_argument("--model", default="bfs-prover:7b-q4")
     ap.add_argument("--n", type=int, default=10)
@@ -205,6 +217,16 @@ if __name__ == "__main__":
     ap.add_argument("--max-lines", type=int, default=12)
     ap.add_argument("--evalset", default="evalset.json",
                     help="eval set to run against (default: the full corpus)")
+    # Splitting one matched run across two GPUs. The pool is selected FIRST and
+    # sliced after, so every case sees the same env it would see in the whole
+    # run -- `file_envs` rebuilds each case's environment from the source before
+    # its own declaration, not from the cases that preceded it. A shard is a
+    # scheduling device, not a different experiment.
+    ap.add_argument("--shard", default=None, metavar="I/M",
+                    help="run only shard I of M (0-based) of the selected pool")
+    ap.add_argument("--out", default=None,
+                    help="results file (default res_bfs.json; set per shard so "
+                         "concurrent runs do not clobber each other)")
     a = ap.parse_args()
 
     HERE = os.path.dirname(os.path.abspath(__file__))
@@ -214,8 +236,15 @@ if __name__ == "__main__":
                    if c["proof_lines"] <= a.max_lines and c["file"] not in BROKEN],
                   key=lambda c: (c["proof_chars"], c["name"]))[:a.n]
 
+    shard = ""
+    if a.shard:
+        i, m = (int(x) for x in a.shard.split("/"))
+        n = len(pool)
+        pool = pool[n * i // m : n * (i + 1) // m]
+        shard = f"  shard={i}/{m}"
+
     print("=" * 92)
-    print(f"BFS SEARCH  model={a.model}  cases={len(pool)}  k={a.k}  budget={a.budget}")
+    print(f"BFS SEARCH  model={a.model}  cases={len(pool)}  k={a.k}  budget={a.budget}{shard}")
     print("=" * 92)
 
     byfile = {}
@@ -253,4 +282,4 @@ if __name__ == "__main__":
 
     print("\n" + "=" * 92)
     print(f"  solved {solved}/{len(pool)} = {100.0*solved/max(len(pool),1):.1f}%")
-    json.dump(rows, open(os.path.join(HERE, "res_bfs.json"), "w"), indent=1)
+    json.dump(rows, open(os.path.join(HERE, a.out or "res_bfs.json"), "w"), indent=1)

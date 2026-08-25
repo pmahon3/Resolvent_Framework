@@ -1,5 +1,106 @@
 # Structure from Observation — Programme Overview
 
+## STATE AS OF 2026-08-25 (read this first)
+
+This document below the fold was last revised **2026-08-04** and much of it is
+now out of date on the formalization side. The sections on the central
+question, the three papers, and the frontier structure remain accurate as
+*framing*; the per-result statuses do not. Where they disagree with this
+section, this section wins. `frontier_map.md`, `shovel_plan.md` and
+`taxonomies_index.json` are stale from the same date.
+
+**Ground truth for what is proved is now the Lean development plus its four CI
+gates**, not this file. Run them; they cannot be argued with:
+
+```
+python formalization/tools/prover/sorries.py --max 0
+bash   formalization/QuerySystem/blueprint/checkdecls.sh
+python formalization/QuerySystem/blueprint/coverage.py
+bash   formalization/QuerySystem/blueprint/axiomcheck.sh
+```
+
+### The blueprint is the current map
+
+104 declarations across 7 chapters, **all resting on standard axioms only**
+(`propext`, `Classical.choice`, `Quot.sound`) — no repo-local axiom anywhere in
+it. Zero sorries. Published: https://pmahon3.github.io/Resolvent_Framework/
+
+`axiomcheck.sh` is new (2026-08-24) and closes a real hole: the other three
+gates cannot see an `axiom`. A node could sit under a `\leanok` proof block,
+pass everything, and rest on an unproved stub — `slab0_not_mem` did exactly
+that until it turned out to be provable from machinery already present.
+
+### What changed since 2026-08-04
+
+**Andersen–Jessen is kernel-checked** (`ASM.AJ_no_extension_unconditional`).
+The claim that the `UpperDirected` form of `stone_observational_extension` is
+FALSE no longer rests on a hand check against the 1948 source. Both halves are
+closed: H1 machine-checked the hypothesis match (`EvalSurjective`), and the
+trace-measure / projective-system layer — the thing `rmk:aj-remaining` had
+flagged as missing since the chapter was written — is built. Mathlib could not
+supply the trace measure (`Measure.comap` returns junk on a thick set with
+thick complement), so it is constructed directly.
+
+**Delay embeddings land on the wrong side of the hypothesis.** The delay query
+system is upper-directed and **not** sequentially upper-directed
+(`not_seqUpperDirected`). So the gap the AJ counterexample opens is reached by
+an ordinary object, not only by a construction built to break things, and the
+extension theorem's honest scope is the bounded fixed-lag subsystem. Recorded
+alongside it: Paper 1 states its extension theorem at a scope its own
+hypothesis does not reach (its Def. 3.3 is the finite-subfamily property, which
+is plain upper-directedness).
+
+**σ-essential.** `slab0_not_mem` proved — §3 Normal Form was already
+formalized, so the paper's Cor 4.1 runs in the kernel and
+`witness_carrier_not_lattice` is no longer proved-modulo-a-citation.
+`prop:adm` is at **5 of 6** conjuncts: `witness_not_intersection_closed`,
+`witness_not_polish`, `witness_not_segregated` (new), plus concrete and
+σ-complete discharged as structural-by-definition. `IsIrreducible` remains an
+axiom.
+
+**The one open item with a proof idea.** `cor:centre` is half done: the code
+analysis is in the kernel (`central_all_traces` — all four traces of a central
+set are countably equal to a single ξ). What remains is ξ-triviality (ξ ≈ ∅ or
+ξ ≈ M), which does NOT follow from the invariant. `row_conull` is the lever:
+with countable initial segments each row covers M up to a countable set, so one
+row's cells partition a conull set. Closing this closes the Ψ-fidelity gap —
+`PsiAmended` still does not carry essential irreducibility as a hypothesis, so
+it is strictly weaker than the paper's Ψ.
+
+### Where the accurate detail lives
+
+The per-thread notes are current; this file's lower sections are not.
+
+| thread | current doc |
+|---|---|
+| admissibility, `cor:centre`, ξ-triviality | `notes/open_questions/oml_attack/ADMISSIBILITY_SCOPE.md` |
+| what the OML side can put in the blueprint | `notes/open_questions/oml_attack/BLUEPRINT_OML_SURVEY.md` |
+| AJ trace-measure layer | `notes/open_questions/aj_tower/SCOPE_trace_projective_layer.md` |
+| delay chapter + predictive gaps | `notes/open_questions/delay_embedding/PLAN_delay_chapter.md` |
+| blueprint DAG connectivity | `notes/programme/blueprint_dag_connectivity.md` |
+| owed human checks | `notes/programme/human_worklist_2026-08-23.md` |
+
+### The frontier, restated
+
+The theory front is unchanged and still **Φ**: does every concrete,
+σ-complete, non-Boolean, essentially irreducible OML have each finite trace of
+each finitely additive two-valued state reproduced by a σ-additive one?
+Conjectured yes, which would mean no lattice witness. Nothing proved since
+2026-08-04 bears on it either way — the work has been closing the gap between
+what the papers claim and what the kernel certifies, not advancing Φ.
+
+### The standing hazard
+
+Four times this week a statement compiled cleanly and proved nothing, each
+caught by reading a source rather than by a gate: a vacuous existentially-bound
+lemma; a "concreteness" predicate true of every `DynkinSystem` that would have
+turned a conjunct of a named conjecture into `True`; a `full` field needing an
+undischargeable measurability hypothesis; and a predictive-sufficiency gloss
+that is not the source's definition. **A clean axiom receipt does not tell you
+the statement is the intended one.**
+
+---
+
 ## The Central Question
 
 When an observer makes structured observations of a system — querying it at

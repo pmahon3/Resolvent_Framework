@@ -137,6 +137,86 @@ result in this development since 2026-08-21 — Theorem B, the extension repair,
 Lemma NG's orbit map, the thick tower — was hand-written. The stack's real
 contribution has been the kernel gate, not tactic generation.
 
+## 3c. ✎2026-08-25 (tower) — a matched null baseline, and the model beats it by one
+
+Run on `ThickTrace.lean` + `AJNoExtension.lean`, both written 2026-08-24, in
+neither the training corpus nor `evalset.json`. Budget 150, k = 6, both GPUs.
+
+**The pool is 22, not 28.** `--n 28` is filtered by `proof_lines <= 12` and by
+the two non-compiling files, leaving 22. So this is *not* matched to §3b's 28
+after all, and the four cases §3b's successor prediction named as expected
+misses — `measure_eq_of_preimage_eq`, `traceVal_iUnion`, `cyl_iInter_empty`,
+`marg_compat` — are all above the line and were never in the run. Half the
+prediction was untestable as configured.
+
+| arm | solved |
+|---|---|
+| `bfs-prover:7b-q4`, budget 150, k=6 | **9 / 22** |
+| `__baseline__` (Mathlib automation, no model) | **8 / 22** |
+
+The baseline is the number that matters, and it had not been run matched before.
+
+```
+both (6)        ajTrace_compat, bond_diag, diag_preimage_base,
+                incl_preimage, incl_val, unitBase_univ
+model only (3)  measurableSet_base, measurable_incl, traceMeasure_univ
+base only  (2)  AJ_no_extension_unconditional, measurableSet_subtype_iff
+neither   (11)
+```
+
+So the model's contribution over `exact? / aesop / simp_all / decide / omega /
+…` on this set is **+3 −2 = +1 case**. Six of its nine solves are cases the
+automation closes on its own. On the evidence here the model arm is close to
+indistinguishable from Mathlib search, and §3b's "all seven from the model arm;
+automation closes none" does not reproduce — because §3b never ran the
+automation arm on the same cases at the same budget.
+
+One case is degenerate and should be dropped from future sets:
+`AJ_no_extension_unconditional` is closed by the baseline in **one expansion**
+with `exact?`, because the eval environment contains everything earlier in its
+own file and the theorem follows from the lemma directly above it. It measures
+nothing about either arm.
+
+### A harness bug that was inflating failures
+
+Five cases first came back `err:UnicodeEncodeError` — including three the
+prediction named as expected model hits. With stdout redirected to a file,
+Python selects the locale encoding (cp1252 on Windows), so the first `print` of
+a tactic containing `⊢`, `ᗮ` or `∀` raises **inside** `search`, and the case
+loop records the exception as a failure. A case whose proof had already closed
+was being scored as a miss. `bfs.py` now reconfigures stdout/stderr to UTF-8 at
+entry rather than relying on the caller's environment. Shard 0 went 2/11 → 5/11
+on re-run, recovering exactly the three cases that had errored — so the bug was
+worth roughly 4 of 22 on this platform, and any prior Windows run of this
+harness is suspect by the same amount.
+
+### Reproduction
+
+```
+cd formalization/tools/prover
+python verify.py 4 evalset_session.json          # self-test first
+OLLAMA_URL=http://127.0.0.1:11434/api/generate python bfs.py \
+  --evalset evalset_session.json --model bfs-prover:7b-q4 \
+  --n 28 --budget 150 --k 6 --shard 0/2 --out res_bfs_shard0.json
+OLLAMA_URL=http://127.0.0.1:11435/api/generate python bfs.py ... --shard 1/2 ...
+python bfs.py --evalset evalset_session.json --model __baseline__ \
+  --n 28 --budget 150 --k 6 --out res_bfs_baseline.json
+```
+
+`--shard I/M` and `--out` are new. The pool is selected before it is sliced, so
+each case sees the environment it would see in the whole run — a shard is a
+scheduling device, not a different experiment. The second GPU needs its own
+server, and needs Vulkan off, or it grabs the first card regardless of
+`CUDA_VISIBLE_DEVICES`:
+
+```
+CUDA_VISIBLE_DEVICES=1 OLLAMA_VULKAN=0 OLLAMA_HOST=127.0.0.1:11435 ollama serve
+```
+
+Self-test on tower after `lake build`: 4/4 ground truth, 4/4 sorry rejected,
+4/4 garbage rejected, null baseline 2/4 — identical to the mac. Before the
+build it read 3/4, from a missing `.olean` rather than anything in the harness.
+
 ## 4. Work plan
 
 ### PRIMARY — Theorem B + Lemma NG (kit gap 5.3) — **DONE 2026-08-21**

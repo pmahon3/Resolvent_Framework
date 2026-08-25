@@ -186,3 +186,41 @@ So closing this requires a decision: either those lemmas gain that hypothesis
 (check the paper actually assumes it where `cor:centre` is stated), or the
 argument goes somewhere other than cells. That is a mathematical choice, not a
 tactic fix — which is why this stops here rather than being pushed through.
+
+
+---
+
+## Update 2026-08-25: `hseg` adopted (user decision), and the lever it supplies
+
+Decision 1 resolved: **the centre chain gains
+`hseg : ∀ β : M, (Set.Iio β).Countable`.**
+
+Justification from the source, not convenience. The paper builds the carrier on
+$\omega_1$ specifically and derives the Ulam matrix by fixing injections
+$g_\beta : \{\gamma<\beta\} \to \omega$, with the parenthetical *"initial
+segments are countable; simultaneous choice by AC"* (body l.503). Countable
+initial segments are not an extra hypothesis there — they are a property of
+$\omega_1$ the construction uses freely. `thm:rigidity` already carries the same
+hypothesis in Lean, and `UlamWitnessOmega1` discharges it for `M₁`, whose header
+names it as one of "the two facts Lemma 2.1 needs".
+
+### The lever, verified
+
+`hseg` + `row_cover` gives, for every $\alpha$:
+
+```
+row_conull : ((⋃ n, U.C α n)ᶜ).Countable
+```
+
+— each row covers `M` up to a countable set (everything above α by `row_cover`,
+everything below by `hseg`, plus α itself). **Machine-checked.**
+
+This is what the cell route lacked. Previously `E ∩ cell` gave only
+`ξ ∩ C α n ≈ η` with `η` existentially bound and no way to relate the cells to
+each other. Now the rows are conull, so the cells of a single row form a
+countable partition of a conull set — which is the kind of statement a
+σ-additivity/counting argument can bite on.
+
+NOT yet the ξ-triviality lemma. What remains is to run the argument: relate
+`ξ ∩ C α n` across `n` and conclude `ξ ≈ ∅` or `ξ ≈ M`. The lever exists; the
+argument is not written.

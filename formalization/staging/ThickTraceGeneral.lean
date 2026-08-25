@@ -159,4 +159,43 @@ theorem ajTrace_univ (α : ℝ) (hα : Irrational α) (k : ℕ) :
 
 #print axioms ajThickFor
 #print axioms ajTrace_univ
+
+/-! ## Compatibility along inclusions, in the general setting
+
+Unit 3's `ajTrace_compat` was stated for `Thick` (i.e. `volume`), while mass 1
+needs `ThickFor unitBase`. `NormalizedCompatibleContents` wants `compat` AND
+`norm` on ONE family, so compatibility is re-proved here over the same base
+measure. The proof is verbatim -- `Measure.ext` plus `traceMeasure_apply`
+twice -- since nothing in it used any property of `volume`. -/
+
+/-- Inclusion of subtypes induced by `Y ⊆ X`. -/
+def incl {X Y : Set Ω} (h : Y ⊆ X) (y : ↥Y) : ↥X := ⟨y.1, h y.2⟩
+
+theorem measurable_incl {X Y : Set Ω} (h : Y ⊆ X) : Measurable (incl h) := by
+  rintro S ⟨E, hE, rfl⟩
+  exact ⟨E, hE, rfl⟩
+
+theorem incl_preimage {X Y : Set Ω} (h : Y ⊆ X) (E : Set Ω) :
+    incl h ⁻¹' (Subtype.val ⁻¹' E : Set ↥X) = (Subtype.val ⁻¹' E : Set ↥Y) := rfl
+
+/-- The inclusion preserves underlying values -- needed by `full`. -/
+theorem incl_val {X Y : Set Ω} (h : Y ⊆ X) (y : ↥Y) : (incl h y).1 = y.1 := rfl
+
+/-- **Trace measures are compatible along inclusions, over any base measure.** -/
+theorem map_incl_traceMeasure {X Y : Set Ω} (hX : ThickFor μ X) (hY : ThickFor μ Y)
+    (h : Y ⊆ X) : (traceMeasure hY).map (incl h) = traceMeasure hX := by
+  refine Measure.ext fun S hS => ?_
+  obtain ⟨E, hE, rfl⟩ := (measurableSet_subtype_iff S).mp hS
+  rw [Measure.map_apply (measurable_incl h) hS, incl_preimage,
+      traceMeasure_apply hY hE, traceMeasure_apply hX hE]
+
+/-- **The tower instance, over the unit base.** Now `compat` and `norm` live on
+the same family. -/
+theorem ajTrace_compat (α : ℝ) (hα : Irrational α) {m n : ℕ} (h : m ≤ n) :
+    (traceMeasure (ajThickFor α hα n)).map (incl (AndersenJessen.X_antitone α h))
+      = traceMeasure (ajThickFor α hα m) :=
+  map_incl_traceMeasure (ajThickFor α hα m) (ajThickFor α hα n) _
+
+#print axioms map_incl_traceMeasure
+#print axioms ajTrace_compat
 end G

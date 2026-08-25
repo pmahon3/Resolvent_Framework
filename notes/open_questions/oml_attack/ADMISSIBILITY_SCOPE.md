@@ -118,3 +118,41 @@ bookkeeping, not fidelity.
 Do not touch the four axioms until the corresponding forcing lemma is proved.
 Each should be RETIRED by a theorem about the witness, not DEFINED into
 existence.
+
+
+---
+
+## Update 2026-08-24: `cor:centre` part 2 — and where it actually stops
+
+Proved and committed (all `[propext, Classical.choice, Quot.sound]`):
+
+- `trace_inter_out` / `trace_inter_in` — generic core-intersection trace calculus
+- `traces_agree_of_core` — the two "inside" coordinates of a core carry
+  countably-equal traces, given the two "outside" ones are empty
+- `central_t01`, `central_t02`, `central_t12` — instantiated at coreA/B/C
+- `central_all_traces` — **all four traces of a central set are countably equal
+  to a single ξ** (the code is constant: three coordinates agree, `κ 3 = false`,
+  and even weight forces the fourth)
+- `countable_of_traces_countable`, `central_countable_iff` — the reduction
+
+### The remaining gap, stated precisely
+
+`cor:centre` claims a central `E` is countable **or co-countable**. What is
+proved is the reduction: `E` is countable iff `ξ` is.
+
+The missing step is the paper's `[E] ∈ {0,1}` — that `ξ ≈ ∅` or `ξ ≈ M`.
+
+⚠ **This does NOT follow from the invariant.** `def:invariant` says only that the
+traces are `ξ^(κ_f)` for *some* `ξ`; it permits any `ξ` whatsoever. I initially
+assumed the code analysis would deliver the dichotomy and it does not — the code
+being constant gives "all traces ≈ ξ", not "ξ is trivial".
+
+So the step needs **centrality used a second time**, beyond the code: compatibility
+of `E` with sets that separate an uncountable-and-co-uncountable `ξ` (the cells
+`D_{α,n}`, presumably — that is where the Ulam matrix's almost-disjointness would
+bite). The paper's proof compresses this into "the analysis of `cor:stripping`",
+which is why it read as mechanical.
+
+Do not close this by weakening the statement. The honest options are: find the
+cell-based separation argument, or leave `cor:centre` as the reduction plus a
+named open step.

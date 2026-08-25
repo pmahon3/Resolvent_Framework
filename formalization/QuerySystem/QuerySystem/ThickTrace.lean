@@ -1,35 +1,46 @@
 /-
-# The trace measure over an arbitrary base measure, and mass 1
+# The trace measure on a thick set
 
-Supersedes the `volume`-only construction in `ThickTrace.lean` for the purpose
-of unit 4's `full` field.
+Border, *Kolmogorov Extension Problem*, Prop. 14: for `X` thick in `Ω` (every
+measurable set disjoint from `X` is null), the traces `{E ∩ X : E measurable}`
+carry a measure `λ_X (E ∩ X) = μ E`.
 
-## Why the generalization was needed
+## Why this is not `Measure.comap`
 
-`NormalizedCompatibleContents` requires total mass 1. The `volume`-based trace
-measure gives `lambda_X (univ) = volume (univ) = infinity`, and the obvious fix
--- confining the levels to `[0,1]` -- does NOT work: `X alpha k n [0,1]` is not
-thick in `R` (Icc 2 3 is measurable, disjoint from it, and has measure 1), so
-the `Thick`-based construction does not apply to it at all.
+`Measure.comap` is guarded:
 
-The fix is to restrict the AMBIENT measure instead of the set. `X alpha k` IS
-thick for `volume.restrict (Icc 0 1)`, that measure has total mass 1, and the
-levels stay exactly as `AndersenJessen.X` builds them -- so `X_antitone`,
-`X_iInter` and `X_thick` all apply unchanged.
+    if Injective f ∧ ∀ s, MeasurableSet s → NullMeasurableSet (f '' s) μ
+    then ... else 0
 
-`ThickFor mu X` is the notion; every result of `ThickTrace.lean` goes through
-with `volume` replaced by `mu`, including well-definedness (the only place
-thickness is spent).
+For `X` thick with thick complement, subsets of `X` are not generally
+null-measurable, the guard fails, and comap returns **junk (`0`)**.
+`Measure.Subtype.measureSpace` is defined as exactly that comap, so it
+degenerates too, and `Subtype.volume_univ` needs `NullMeasurableSet X`, which a
+thick-complement thick set cannot have. Mathlib has no thick-set trace measure.
 
-  ajThickFor    each tower level is thick for the restricted measure
-  ajTrace_univ  its trace measure is a PROBABILITY measure
+The σ-algebra is fine -- it is Mathlib's `Subtype.instMeasurableSpace`, which is
+definitionally `MeasurableSpace.comap Subtype.val`. Only the MEASURE has to be
+built, which is done here with `Measure.ofMeasurable`.
 
-Axiom-free: [propext, Classical.choice, Quot.sound].
+## Base measure
+
+Stated for an arbitrary base `μ`, not just `volume`. That generality is not
+decoration: `NormalizedCompatibleContents` needs total mass 1, and
+`λ_X (univ) = volume (univ) = ∞`. Confining the levels to `[0,1]` does NOT fix
+it -- `X ∩ [0,1]` is not thick in `ℝ` (`Icc 2 3` is measurable, disjoint from
+it, and has measure 1), so the construction would not apply at all. Restricting
+the AMBIENT measure does fix it: `X` is thick for `volume.restrict (Icc 0 1)`,
+which has mass 1, and the levels stay as `AndersenJessen.X` builds them, so
+`X_antitone`, `X_iInter` and `X_thick` all still apply.
+
+Graduated from `staging/` 2026-08-24. Axiom-free.
 -/
 import QuerySystem.AndersenJessen
+
 open MeasureTheory Set
 open scoped ENNReal
-namespace G
+
+namespace ThickTrace
 variable {Ω : Type*} [MeasurableSpace Ω] {X : Set Ω} {μ : Measure Ω}
 
 /-- `X` is **thick for μ**: every measurable set disjoint from `X` is μ-null.
@@ -157,8 +168,6 @@ theorem ajTrace_univ (α : ℝ) (hα : Irrational α) (k : ℕ) :
     traceMeasure (ajThickFor α hα k) (Set.univ) = 1 := by
   rw [traceMeasure_univ, unitBase_univ]
 
-#print axioms ajThickFor
-#print axioms ajTrace_univ
 
 /-! ## Compatibility along inclusions, in the general setting
 
@@ -196,6 +205,4 @@ theorem ajTrace_compat (α : ℝ) (hα : Irrational α) {m n : ℕ} (h : m ≤ n
       = traceMeasure (ajThickFor α hα m) :=
   map_incl_traceMeasure (ajThickFor α hα m) (ajThickFor α hα n) _
 
-#print axioms map_incl_traceMeasure
-#print axioms ajTrace_compat
-end G
+end ThickTrace

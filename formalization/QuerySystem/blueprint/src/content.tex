@@ -567,14 +567,77 @@ eventually falls out of every tail.
 \begin{remark}[What remains]
 \label{rmk:aj-remaining}
 \uses{thm:aj-tower, def:escaping-tower}
-The tower is the hard half. What is left to reach an \ref{def:escaping-tower}
-instance, and so a kernel-checked refutation: the trace measure on a thick set
-(Proposition 14 --- $\lambda_X(E \cap X) = \lambda(E)$ well defined and
-$\sigma$-additive, for which \ref{thm:aj-tower} is exactly the hypothesis), the
-projective system over $X_0 \times \cdots \times X_n$ with the diagonal maps.
-The diagonal cylinders themselves are now done --- \ref{thm:diag-empty} and
-\ref{lem:cont-above} below.
+The tower was the hard half, and the layer above it --- the trace measure and
+the projective system --- is now done too: see \ref{thm:trace-measure} and
+\ref{thm:aj-no-extension}. The refutation is kernel-checked; nothing here rests
+on a hand check any more.
 \end{remark}
+
+\section{The trace measure, and the refutation}
+
+\begin{definition}[Thickness, relative to a base measure]
+\label{def:thick-for}
+\lean{ThickTrace.ThickFor}
+\leanok
+$X$ is \emph{thick for} $\mu$ when every measurable set disjoint from $X$ is
+$\mu$-null. Stating it for an arbitrary base rather than for Lebesgue measure
+is what makes the total mass finite: the marginals need mass $1$, and
+$\lambda(\mathbb{R}) = \infty$. Confining the levels to $[0,1]$ does not work
+--- $X_k \cap [0,1]$ is not thick in $\mathbb{R}$ --- but restricting the
+\emph{ambient} measure to $\mathrm{Icc}\,0\,1$ does, and leaves the levels
+exactly as \ref{thm:aj-tower} builds them.
+\end{definition}
+
+\begin{theorem}[The trace measure on a thick set]
+\label{thm:trace-measure}
+\uses{def:thick-for, thm:aj-tower}
+\lean{ThickTrace.traceMeasure, ThickTrace.traceMeasure_apply}
+\leanok
+For $X$ thick for $\mu$, the traces $\{E \cap X\}$ carry a measure with
+$\lambda_X(E \cap X) = \mu(E)$ (Border, Prop.~14).
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:aj-tower}
+Not obtainable from \texttt{Measure.comap}: that is guarded by ``every
+measurable subset has null-measurable image'' and returns $0$ when the guard
+fails, which it does for a thick set with thick complement ---
+\texttt{Measure.Subtype.measureSpace} is that comap, so it degenerates too. The
+$\sigma$-algebra is fine (it is the comap $\sigma$-algebra); only the measure
+must be built, via \texttt{Measure.ofMeasurable}. Well-definedness is the one
+place thickness is spent: two measurable sets with the same trace differ by a
+measurable set disjoint from $X$, hence null, and \ref{thm:aj-tower} is exactly
+that hypothesis. $\sigma$-additivity follows because disjoint traces force
+a.e.-disjoint representatives.
+\end{proof}
+
+\begin{theorem}[Andersen--Jessen admits no extension]
+\label{thm:aj-no-extension}
+\uses{thm:trace-measure, def:escaping-tower, thm:no-extension-tower}
+\lean{ASM.AJ_no_extension_unconditional}
+\leanok
+The Andersen--Jessen query system carries compatible $\sigma$-additive
+probability marginals and admits no extension to a probability measure on
+$\Omega$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:trace-measure, thm:no-extension-tower}
+The levels carry trace measures (\ref{thm:trace-measure}) over the restricted
+base, so each is a probability measure, and they are compatible along the
+tower's inclusions. Pushing them along the diagonal gives Kolmogorov-consistent
+marginals; the commutation $\mathrm{bond} \circ \mathrm{diag} = \mathrm{diag}
+\circ \mathrm{incl}$ is definitional. The diagonal cylinders then form an
+escaping tower: each carries full mass because the diagonal map lands in the
+diagonal, and their intersection is empty because a coherent family lying in
+all of them pins a single real, which would have to belong to every $X_k$
+against \ref{thm:aj-tower}. \ref{thm:no-extension-tower} finishes.
+
+This is what makes the falsity of the original \texttt{UpperDirected} statement
+a theorem of the kernel rather than a hand check against the source.
+\end{proof}
 
 \section{The diagonal layer}
 

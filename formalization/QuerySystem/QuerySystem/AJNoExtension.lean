@@ -1,38 +1,35 @@
 /-
-# Unit 4 assembly: the Andersen-Jessen system admits no extension
+# The Andersen-Jessen system admits no extension
 
-The end of `notes/open_questions/aj_tower/SCOPE_trace_projective_layer.md`.
-This is the layer `rmk:aj-remaining` names as separating the hand-checked
-Andersen-Jessen refutation from a kernel-checked one.
+The refutation, kernel-checked end to end. This is the layer
+`rmk:aj-remaining` names as separating the hand-checked Andersen-Jessen
+counterexample from a kernel-checked one.
 
-  Sys              the projective system (unit 2's shape) over the tower levels
-  marg / marg_compat   the diagonal marginals and their Kolmogorov consistency
-  NCC              them, packaged as NormalizedCompatibleContents
-  measurableSet_base / cyl_antitone / cyl_iInter_empty   the tower's three
-                   structural fields
-  Tower            the EscapingTower instance -- all five fields
-  AJ_no_extension  not_exists_extension_of_escapingTower applied to it
+The original `UpperDirected` form of `stone_observational_extension` claimed:
+compatible sigma-additive marginals + upper-directedness + surjective
+evaluations ==> a limit measure. Every one of those hypotheses holds in the
+system built here, and the conclusion fails -- so the original statement was
+false, and correcting `UpperDirected` to `SequentiallyUpperDirected` was the
+necessary repair, not a convenience.
 
-`AJ_no_extension` is stated for any level measures satisfying `hmu`
-(compatibility along the tower inclusions) and `hnorm` (mass 1). Those are
-exactly what the trace measures over `volume.restrict (Icc 0 1)` supply --
-`ThickTraceGeneral.ajTrace_compat` and `ajTrace_univ` -- and `ajThickFor` here
-restates the thickness input.
+  Sys              the projective system over the tower levels
+  marg_compat      Kolmogorov consistency of the diagonal marginals
+  NCC              packaged as NormalizedCompatibleContents
+  Tower            the EscapingTower -- all five fields
+  AJ_no_extension  the obstruction theorem applied
 
-REMAINING (bookkeeping, not mathematics): feed the trace measures in as `mu` to
-get a fully unconditional statement in one theorem. The pieces are proved on
-both sides; what is missing is that `ThickTraceGeneral` and this file each
-define their own copy of the trace-measure construction, so the two have to be
-unified into one library module before they can be composed literally. Until
-then AJ_no_extension is conditional on hypotheses that are separately proved
-rather than substituted.
+Level measures come from `ThickTrace` (the trace measure over
+`volume.restrict (Icc 0 1)`), whose `ajTrace_compat` and `ajTrace_univ`
+discharge this file's `hmu` and `hnorm`.
 
-Axiom-free throughout: [propext, Classical.choice, Quot.sound].
+Graduated from `staging/` 2026-08-24. Axiom-free.
 -/
-import QuerySystem.AndersenJessen
-import QuerySystem
+import QuerySystem.ThickTrace
+import QuerySystem.ExtensionObstruction
+
 open MeasureTheory Set QuerySystem
 open scoped ENNReal
+
 namespace ASM
 variable (α : ℝ) (hα : Irrational α)
 
@@ -54,13 +51,10 @@ def Sys : QuerySystem where
 
 /-! ## The pieces, restated locally -/
 
-def ThickFor (μ : Measure ℝ) (X : Set ℝ) : Prop :=
-  ∀ ⦃E : Set ℝ⦄, MeasurableSet E → E ∩ X = ∅ → μ E = 0
-
-noncomputable abbrev unitBase : Measure ℝ := volume.restrict (Set.Icc 0 1)
-
+/-- The tower inclusion -- `ThickTrace.incl` at the tower's nesting, so the
+compatibility lemma there applies to it directly. -/
 def incl {m n : ℕ} (h : m ≤ n) (y : Lev α n) : Lev α m :=
-  ⟨y.1, AndersenJessen.X_antitone α h y.2⟩
+  ThickTrace.incl (AndersenJessen.X_antitone α h) y
 
 def diag (n : ℕ) (x : Lev α n) : Out α n := fun i => incl α (by omega) x
 
@@ -104,7 +98,7 @@ theorem marg_compat
 
 
 
-/-- Every measure is an AddContent on the measurable sets. -/
+/-- Every measure is an `AddContent` on the measurable sets. -/
 noncomputable def ofMeasure {Ω : Type*} [MeasurableSpace Ω] (μ : Measure Ω) :
     AddContent ℝ≥0∞ {s : Set Ω | MeasurableSet s} where
   toFun := fun s => μ s
@@ -206,21 +200,33 @@ theorem AJ_no_extension
 supply (`ThickTraceGeneral.ajTrace_compat`, `ajTrace_univ`). Restating the two
 constructions locally so the final theorem is unconditional. -/
 
-theorem ajThickFor (k : ℕ) (hα : Irrational α) :
-    ThickFor unitBase (AndersenJessen.X α k) := by
-  intro E hE h
-  rw [unitBase, Measure.restrict_apply hE]
-  refine AndersenJessen.X_thick α hα k (hE.inter measurableSet_Icc) ?_
-  ext x
-  simp only [mem_inter_iff, mem_empty_iff_false, iff_false, not_and]
-  rintro ⟨hxE, _⟩ hxX
-  have : x ∈ E ∩ AndersenJessen.X α k := ⟨hxE, hxX⟩
-  rw [h] at this; exact this
+/-! ## The unconditional statement
 
-theorem unitBase_univ : unitBase Set.univ = 1 := by
-  simp [unitBase, Measure.restrict_apply MeasurableSet.univ]
+`hmu` and `hnorm` are exactly what `ThickTrace` supplies for the tower, so they
+can now be substituted rather than assumed. -/
 
-#print axioms Tower
-#print axioms AJ_no_extension
-#print axioms ajThickFor
+/-- The tower's level measures: the trace measure over `volume.restrict (Icc 0 1)`. -/
+noncomputable def ajMu (hα : Irrational α) (k : ℕ) : Measure (Lev α k) :=
+  ThickTrace.traceMeasure (ThickTrace.ajThickFor α hα k)
+
+theorem ajMu_compat (hα : Irrational α) {m n : ℕ} (h : m ≤ n) :
+    (ajMu α hα n).map (incl α h) = ajMu α hα m :=
+  ThickTrace.map_incl_traceMeasure (ThickTrace.ajThickFor α hα m)
+    (ThickTrace.ajThickFor α hα n) (AndersenJessen.X_antitone α h)
+
+theorem ajMu_univ (hα : Irrational α) (n : ℕ) : ajMu α hα n Set.univ = 1 :=
+  ThickTrace.ajTrace_univ α hα n
+
+/-- **THE THEOREM, unconditional.** The Andersen-Jessen query system carries
+compatible σ-additive probability marginals and admits no extension to a
+probability measure on `Ω`. Kernel-checked; no hand step. -/
+theorem AJ_no_extension_unconditional (hα : Irrational α) :
+    ¬ ∃ μ : Measure (Sys α).Omega, IsProbabilityMeasure μ ∧
+        ∀ (i : (Sys α).ι) (A : Set ((Sys α).q i).Outcome), MeasurableSet A →
+          μ ((Sys α).Cyl i A)
+            = (NCC α (ajMu α hα) (ajMu_compat α hα) (ajMu_univ α hα)).ν i A :=
+  AJ_no_extension α (ajMu α hα) (ajMu_compat α hα) (ajMu_univ α hα)
+
+#print axioms AJ_no_extension_unconditional
+
 end ASM

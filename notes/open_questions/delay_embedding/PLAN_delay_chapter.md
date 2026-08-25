@@ -154,3 +154,45 @@ without sorry-gating, and the ratchet is at 0 with a hard CI gate.
    definitions, and getting the statements right is the whole risk.
 4. `thm:sufficiency` last; it is the real theorem.
 5. Takens: never, unless Mathlib grows the machinery.
+
+
+---
+
+## Update 2026-08-25: restrict chosen; φ built; a correction to Phase 2's order
+
+**Decision: restrict** (option (b)). The predictive layer lives in a separate
+module carrying `[StandardBorelSpace X] [Nonempty X]`; `DelayEmbedding.lean`
+keeps its bare `[MeasurableSpace X]` and every structural result keeps its
+generality. `staging/DelayPredictive.lean`.
+
+**`def:delay-pred-map` DONE**, axiom-free:
+
+- `predLaw P d τ = condDistrib (fun ω => ω 1) (delayEval d τ) P`
+- `predLaw_ae_eq_condExp` — the defining property, φ computes the conditional
+  expectation of an indicator of the next sample given the window.
+
+Route note: `Measure.condKernel` on a hand-built joint law stalls on the
+`IsCondKernel` instance. `condDistrib` (in `Probability/Kernel/CondDistrib.lean`,
+which the first survey missed) is the purpose-built tool and works immediately.
+
+### ⚠ Correction: `def:pred-sufficient` is NOT next
+
+The plan above put `def:pred-sufficient` beside `def:delay-pred-map` as an easy
+pair. That was based on `DelayEmbedding.lean`'s header gloss, "injectivity of
+`φ_{d,τ}` on the support". **The source says something materially different**
+(`archive/superseded_drafts/predictive_experiments`, Def. at l.515):
+
+> $Q$ is predictively sufficient if for every admissible query $Q'$ there is a
+> measurable $\psi : O_Q \to O_{Q'}$ with $\Pi_{Q'} = \Pi_Q \circ \psi$
+
+— a **factorization condition quantified over all other queries**, with
+characterization $F \perp Q' \mid Q$. Injectivity of φ is neither that
+definition nor obviously equivalent to it.
+
+Formalizing the gloss would yield a clean-compiling theorem about the wrong
+statement — the `IsConcrete` failure mode again. **The definition has to be
+settled against the source before `def:pred-sufficient`, `def:markov-order` and
+`thm:sufficiency` are attempted**, and that is a reading task, not a Lean task.
+
+Revised order: (1) settle the sufficiency definition against the source;
+(2) `def:pred-sufficient`; (3) `def:markov-order`; (4) `thm:sufficiency`.

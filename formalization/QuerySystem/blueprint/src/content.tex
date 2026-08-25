@@ -1074,6 +1074,79 @@ answers, both of which could have gone the other way:
   now a statement in the query system's own vocabulary.
 \end{remark}
 
+\subsection{Fixed lag, and where the pruning chapter's index lives}
+
+\ref{thm:query-reconstruction-bridge} ranges over every lag, and its proof shows
+unit lag alone already attains the supremum --- so $\tau$ is invisible to it.
+That is a fact about the \emph{supremum}, and it is what has kept this chapter
+and the pruning chapter apart: the reconstruction question takes the sup and
+washes the lag out, while the pruning question is asked at a fixed lag, which
+the sup destroys.
+
+Fixing $\tau$ puts it back, and the two indices turn out to be the same index.
+\ref{def:delay-query} samples at $0, -\tau, \dots, -(d-1)\tau$ --- stroboscopic
+sampling --- while \ref{def:lisc}'s layered ring $R_L$ has vertex set
+$\mathbb{Z}_L \times A$, its layer being position mod $L$. The delay chapter's
+lag is the pruning chapter's ring length.
+
+\begin{theorem}[Lag-$\tau$ data is unit-lag data of the power map]
+  \label{thm:delay-eval-iterate}
+  \uses{thm:delay-eval-orbit, def:delay-map}
+  \lean{delayEval_orbitStream_iterate}
+  \leanok
+  $\mathrm{delayEval}\,d\,\tau\,(\mathrm{orbitStream}\,h\,T\,x)
+   = (\Phi_h^{T^{\tau}}(x)_k)_{k<d}$.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:delay-eval-orbit}
+  $T^{k\tau} = (T^{\tau})^{k}$.
+\end{proof}
+
+\begin{theorem}[Fixed lag resolves exactly the observable algebra of $T^{\tau}$]
+  \label{thm:lag-algebra}
+  \uses{thm:delay-eval-iterate, def:observable-algebra, def:delay-query}
+  \lean{delayQueryAlgebraAtLag, delayQueryAlgebraAtLag_eq}
+  \leanok
+  Let $\mathrm{delayQueryAlgebraAtLag}\,h\,T\,\tau$ be the $\sigma$-algebra
+  induced by the delay queries \emph{at the single lag} $\tau$. Then
+  \[ \mathrm{delayQueryAlgebraAtLag}\,h\,T\,\tau = \mathcal{O}_h(T^{\tau}). \]
+  Stroboscopic observation at lag $\tau$ is therefore not a degraded view of
+  $T$; it is the same reconstruction question asked of $T^{\tau}$. In general
+  $\mathcal{O}_h(T^{\tau}) < \mathcal{O}_h(T)$ strictly --- the intermediate
+  times are genuinely lost --- which is the content
+  \ref{thm:query-reconstruction-bridge} cannot see. At $\tau = 1$ nothing is
+  lost (\texttt{delayQueryAlgebraAtLag\_one}).
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:delay-eval-iterate}
+  Both inclusions as in \ref{thm:query-reconstruction-bridge}, with $T^{\tau}$
+  in place of $T$: every coordinate at lag $\tau$ is some $h \circ (T^{\tau})^n$
+  by \ref{thm:delay-eval-iterate}, and conversely each such generator is
+  coordinate $n$ of the query $(n+1, \tau)$.
+\end{proof}
+
+\begin{remark}[What this buys against the pruning chapter]
+  \label{rmk:lag-is-ring-length}
+  \uses{thm:lag-algebra}
+  $\mathrm{Safe}(\rho)$ (\ref{def:unsafe-safe}) is a statement about which ring
+  lengths reconstruct; \ref{thm:lag-algebra} says what ``reconstructs at lag
+  $\tau$'' means on the measure-theoretic side. The two chapters are asking one
+  question in two vocabularies, and this is the dictionary entry.
+
+  It is not yet a theorem connecting them, and the gap is specific. Pruning's
+  $\rho \subseteq A \times A$ is a \emph{relation}; the delay side's $T$ is a
+  \emph{function}. Specialising pruning to a deterministic $\rho$ looks to
+  trivialise it --- a functional graph has out-degree one, so its cycles are
+  disjoint and $\mathrm{LISC}_k(L)$ collapses to ``some cycle has length exactly
+  $kL$'' --- so the content of \ref{thm:pruning} lives in the nondeterministic
+  case. Closing the gap therefore means carrying the delay side to relations,
+  not restricting pruning to maps.
+\end{remark}
+
 \section{The predictive layer, and what is not formalized}
 \label{sec:delay-gaps}
 
@@ -1862,6 +1935,103 @@ this section is evidence either way; it exists so that the settled OMP result
 and the open lattice gap are visible as one picture.
 \end{remark}
 
+\section{The data regime is quarantined}
+
+The chapters above build a witness; this section shows it cannot reach the
+objects the delay chapter observes with. It is C1$'$ of
+\texttt{papers/reconstruction/notes/commensurability\_classification\_seed.md}
+\S2.3, which asks for it in the form: \emph{finite-alphabet delay logics are
+compact/clopen, so the $\sigma$-essential pathology provably cannot occur in the
+data regime}.
+
+It is true, and the reason is not the one the note gives. Finiteness and
+compactness are properties of the data regime and neither is used. What is used
+is that observational outcomes are \emph{measurable sets}: a query's outcome
+space carries a $\sigma$-algebra, a $\sigma$-algebra is intersection-closed, and
+\ref{lem:boolean-no-witness} then forbids a witness outright. The quarantine
+therefore holds at any alphabet, finite or not.
+
+\begin{lemma}[A $\sigma$-algebra is a Boolean carrier]
+  \label{lem:sigma-algebra-interclosed}
+  \uses{def:interclosed}
+  \lean{QuerySystem.Quarantine.interClosed_ofMeasurableSpace}
+  \leanok
+  The Dynkin system of measurable sets of any $\sigma$-algebra satisfies
+  \ref{def:interclosed}.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:interclosed}
+  $\sigma$-algebras are closed under binary intersection.
+\end{proof}
+
+\begin{theorem}[The quarantine]
+  \label{thm:quarantine}
+  \uses{lem:sigma-algebra-interclosed, lem:boolean-no-witness, def:sigma-essential}
+  \lean{QuerySystem.Quarantine.no_witness_ofMeasurableSpace,
+        QuerySystem.Quarantine.query_no_witness}
+  \leanok
+  No local pattern on a $\sigma$-algebra carrier is $\sigma$-essential. In
+  particular no query's outcome logic carries a witness --- for every query,
+  with no hypothesis on it.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:sigma-algebra-interclosed, lem:boolean-no-witness}
+  \ref{lem:sigma-algebra-interclosed} supplies the hypothesis of
+  \ref{lem:boolean-no-witness}.
+\end{proof}
+
+\begin{corollary}[C$1'$: the delay logic is safe]
+  \label{cor:delay-quarantine}
+  \uses{thm:quarantine, def:delay-query}
+  \lean{QuerySystem.Quarantine.delayQuery_no_witness}
+  \leanok
+  The delay query at depth $d$ and lag $\tau$ over any alphabet carries no
+  $\sigma$-essential witness.
+\end{corollary}
+
+\begin{proof}
+  \leanok
+  \uses{thm:quarantine}
+  \ref{thm:quarantine} at \ref{def:delay-query}.
+\end{proof}
+
+\begin{lemma}[The separation is real]
+  \label{lem:witness-not-sigma-algebra}
+  \uses{lem:carrier-not-boolean, lem:sigma-algebra-interclosed}
+  \lean{QuerySystem.Quarantine.witness_carrier_not_ofMeasurableSpace}
+  \leanok
+  $L_1$ is not the Dynkin system of \emph{any} $\sigma$-algebra.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{lem:carrier-not-boolean, lem:sigma-algebra-interclosed}
+  Every such is intersection-closed by \ref{lem:sigma-algebra-interclosed}, and
+  \ref{lem:carrier-not-boolean} says $L_1$ is not. So
+  \ref{lem:sigma-algebra-interclosed} is a genuine separation between the two
+  regimes rather than a hypothesis nothing violates.
+\end{proof}
+
+\begin{remark}[What is and is not quarantined]
+  \label{rmk:quarantine-scope}
+  \uses{thm:quarantine}
+  This quarantines the \emph{carrier}. It does not say the data regime is free
+  of contextuality: EA-without-PR gaps are about families of states across
+  contexts, which is a different axis and is where the pruning and
+  commensurability work lives. Nothing here bears on those.
+
+  What it does settle is the direction of the worry. The witness was built to
+  show a $\sigma$-class can fail to be a $\sigma$-algebra in a way that defeats
+  $\sigma$-additive extension; the reconstruction lane asked whether its own
+  foundations were exposed to that. They are not, and the reason is structural
+  rather than quantitative --- so no finiteness, compactness or clopen-ness
+  hypothesis needs to be carried anywhere to keep it.
+\end{remark}
+
 \chapter{The pruning theorem and eventual periodicity of Safe}
 
 The certificate layer of the reconstruction/commensurability lane
@@ -2175,3 +2345,195 @@ So a rotation witness at a non-generator certifies winding $k/d = 2$, not
 winding $k$ --- Theorem P's equivalence genuinely needs $r$ to generate, and
 \ref{lem:ng-orbit} is sharp.
 \end{proof}
+
+\section{Relational delay systems: the pruning objects as delay data}
+
+\ref{rmk:lag-is-ring-length} left a dictionary and named the obstruction to
+turning it into a theorem: the delay chapter observes a \emph{function}, the
+pruning chapter studies a \emph{relation}, and specialising pruning to a
+deterministic $\rho$ trivialises it. So the join carries the delay side up to
+relations.
+
+A relation has no orbit map, but it has a \emph{trajectory space}, and delay
+queries apply to a trajectory space exactly as they apply to a stream.
+
+\begin{definition}[The subshift of a relation]
+  \label{def:subshift}
+  \uses{def:delay-query}
+  \lean{QuerySystem.RelationalDelay.Subshift}
+  \leanok
+  $\Sigma_{\rho} = \{\omega : \mathbb{Z} \to A \mid \rho(\omega_{t+1},
+  \omega_t) \text{ for all } t\}$, the bi-infinite $\rho$-trajectories inside
+  the sensor streams. The orientation is the one \ref{def:orbit-stream} already
+  fixed and \ref{def:delay-query}'s backward sampling forces: reading the stream
+  backwards runs the relation forwards.
+\end{definition}
+
+\begin{definition}[The trajectory of a cycle]
+  \label{def:cycle-stream}
+  \uses{def:subshift, def:lisc}
+  \lean{QuerySystem.RelationalDelay.cycleStream}
+  \leanok
+  From a cycle witness $W$ and modulus $n$, the stream carrying $W$ at index
+  $(-t) \bmod n$. The negation is the time convention; the modulus makes it
+  bi-infinite and $n$-periodic (\texttt{cycleStream\_periodic}).
+\end{definition}
+
+\begin{lemma}[A cycle is a trajectory]
+  \label{lem:cycle-stream-subshift}
+  \uses{def:cycle-stream, def:subshift, def:lisc}
+  \lean{QuerySystem.RelationalDelay.cycleStream_mem_subshift}
+  \leanok
+  $\mathrm{cycleStream}\,W\,(kL) \in \Sigma_{\rho}$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:cycle-stream}
+  Interior positions are the cycle's own arcs. The one position where the index
+  rolls over is where the closing arc $\rho(W_{kL-1}, W_0)$ is spent --- which is
+  the only place the \emph{cycle} hypothesis, as opposed to the walk hypothesis,
+  is used.
+\end{proof}
+
+\begin{theorem}[The bridge: layer-injectivity is delay-injectivity]
+  \label{thm:lisc-delay-witness}
+  \uses{lem:cycle-stream-subshift, def:lisc, def:delay-query, thm:lag-algebra}
+  \lean{QuerySystem.RelationalDelay.isLISC_delay_witness}
+  \leanok
+  If $\mathrm{LISC}_k(L)$ then there is a $\rho$-trajectory $\omega$, periodic
+  of period $kL$, whose depth-$k$, lag-$L$ delay query is \textbf{injective}.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:cycle-stream-subshift, def:lisc}
+  Take $\omega = \mathrm{cycleStream}\,W\,(kL)$; \ref{lem:cycle-stream-subshift}
+  gives membership and periodicity is immediate. For injectivity: the delay
+  query at lag $L$ and depth $k$ samples $\omega$ at $0, -L, \dots, -(k-1)L$,
+  and those are precisely the positions $0, L, \dots, (k-1)L$ of the cycle ---
+  the $k$ positions sharing layer $0$. \ref{def:lisc}'s simplicity clause says
+  exactly that these carry distinct states.
+
+  So the two chapters' injectivity conditions are one condition. Layer
+  injectivity in the layered ring \emph{is} injectivity of the lag-$L$ delay
+  query on the trajectory, and this is why the two lanes kept meeting the same
+  combinatorics from opposite sides.
+\end{proof}
+
+\begin{corollary}[$\mathrm{Unsafe}$, in the delay vocabulary]
+  \label{cor:unsafe-delay}
+  \uses{thm:lisc-delay-witness, def:unsafe-safe}
+  \lean{QuerySystem.RelationalDelay.unsafe_delay_witness}
+  \leanok
+  $L \in \mathrm{Unsafe}(\rho)$ yields a periodic $\rho$-trajectory on which
+  lag-$L$ sampling fails to collapse: it resolves $k \geq 2$ distinct strands
+  where safety would see one.
+\end{corollary}
+
+\begin{proof}
+  \leanok
+  \uses{thm:lisc-delay-witness, def:unsafe-safe}
+  \ref{def:unsafe-safe} unfolds to an $\mathrm{LISC}_k(L)$ with $k \geq 2$;
+  apply \ref{thm:lisc-delay-witness}.
+\end{proof}
+
+\begin{lemma}[The bridge is not vacuous]
+  \label{lem:lisc-inhabited}
+  \uses{thm:lisc-delay-witness}
+  \lean{QuerySystem.RelationalDelay.isLISC_complete_bool,
+        QuerySystem.RelationalDelay.exists_delay_witness_complete_bool}
+  \leanok
+  The complete relation on $\{\bot,\top\}$ has $\mathrm{LISC}_2(1)$, so
+  \ref{thm:lisc-delay-witness} fires and its conclusion is inhabited.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  Steps and closure are trivially available; simplicity is the two-case check
+  that the cycle's two states differ. An implication with an unsatisfiable
+  hypothesis proves nothing, so this is recorded rather than assumed.
+\end{proof}
+
+\subsection{The deterministic case, as a subclass}
+
+The relational description is the general one, so the deterministic theory has
+to sit \emph{inside} it at $\rho = \mathrm{graph}(T)$ rather than beside it.
+It does.
+
+\begin{lemma}[Delay queries see only non-positive times]
+  \label{lem:delay-nonpos}
+  \uses{def:delay-query}
+  \lean{QuerySystem.RelationalDelay.delayEval_congr_nonpos}
+  \leanok
+  Streams agreeing at every $t \leq 0$ are indistinguishable to every delay
+  query.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \ref{def:delay-query} samples at $0, -\tau, \dots, -(d-1)\tau$.
+\end{proof}
+
+\begin{lemma}[The two halves of a deterministic trajectory]
+  \label{lem:graph-subshift-halves}
+  \uses{def:subshift, def:orbit-stream}
+  \lean{QuerySystem.RelationalDelay.graphSubshift_neg,
+        QuerySystem.RelationalDelay.graphSubshift_pos}
+  \leanok
+  For $\omega \in \Sigma_{\mathrm{graph}(T)}$: the non-positive half is the
+  forward orbit of the base point, $\omega(-n) = T^n(\omega_0)$; the positive
+  half is a coherent backward orbit, $T^n(\omega_n) = \omega_0$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:subshift}
+  Induction in each direction; the trajectory condition read forwards and
+  backwards respectively.
+\end{proof}
+
+\begin{theorem}[Deterministic is a subclass]
+  \label{thm:deterministic-subclass}
+  \uses{lem:graph-subshift-halves, lem:delay-nonpos, def:orbit-stream, thm:delay-eval-orbit}
+  \lean{QuerySystem.RelationalDelay.delayEval_comp_eq_orbitStream}
+  \leanok
+  For $\omega \in \Sigma_{\mathrm{graph}(T)}$ and an observable $h$, the delay
+  data the relational picture assigns to $\omega$ is literally the delay data
+  the deterministic picture assigns to $\omega_0$.
+
+  So \ref{def:orbit-stream} and everything proved from it ---
+  \ref{thm:delay-eval-orbit}, \ref{thm:lag-algebra},
+  \ref{thm:query-reconstruction-bridge} --- are the $\rho = \mathrm{graph}(T)$
+  instance of this chapter, not a parallel development that resembles it.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:graph-subshift-halves}
+  Both sides evaluate at $-(k\tau)$, and \ref{lem:graph-subshift-halves} says
+  that is $T^{k\tau}(\omega_0)$.
+\end{proof}
+
+\begin{remark}[The honest residue]
+  \label{rmk:deterministic-residue}
+  \uses{thm:deterministic-subclass}
+  \lean{QuerySystem.RelationalDelay.graphSubshift_base_mem_range}
+  \leanok
+  An earlier draft of this section claimed there was no deterministic embedding
+  at all, on the grounds that the state stream $t \mapsto T^{(-t)^{+}}x$ is not
+  in $\Sigma_{\mathrm{graph}(T)}$ --- the clamp makes its positive half
+  constant, so the trajectory condition there would demand $x = Tx$. That is
+  true and it is the wrong shape of objection: by \ref{lem:delay-nonpos} the
+  positive half is never sampled, so agreement there was never something the
+  theory needed.
+
+  What genuinely does not transfer is smaller, and is a condition on $T$ rather
+  than on observation. Being the base of a bi-infinite trajectory forces
+  $\omega_0 \in \mathrm{range}(T^n)$ for every $n$, so a non-surjective $T$ has
+  points no relational trajectory can be based at --- while the delay data of
+  those points is perfectly well defined by \ref{def:orbit-stream}. The
+  deterministic picture is the $\rho = \mathrm{graph}(T)$ case on delay data,
+  which is what the theory observes, and is strictly larger in base points.
+\end{remark}
+

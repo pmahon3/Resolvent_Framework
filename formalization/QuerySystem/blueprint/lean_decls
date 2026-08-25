@@ -61,6 +61,9 @@ delay_reconstruction_iff
 orbitStream
 delayEval_orbitStream
 delayQueryAlgebra_eq_delayObservableAlgebra
+delayEval_orbitStream_iterate
+delayQueryAlgebraAtLag
+delayQueryAlgebraAtLag_eq
 SigmaEssential.Block
 SigmaEssential.InterClosed
 SigmaEssential.TwoValuedState.val_inter
@@ -105,6 +108,11 @@ SigmaEssential.Ulam.corePattern_coherent
 SigmaEssential.Ulam.corePattern_witness
 SigmaEssential.Ulam.witness_carrier_not_lattice
 SigmaEssential.Ulam.PsiOML
+QuerySystem.Quarantine.interClosed_ofMeasurableSpace
+QuerySystem.Quarantine.no_witness_ofMeasurableSpace
+QuerySystem.Quarantine.query_no_witness
+QuerySystem.Quarantine.delayQuery_no_witness
+QuerySystem.Quarantine.witness_carrier_not_ofMeasurableSpace
 Reconstruction.Pruning.IsLISC
 Reconstruction.Pruning.IsTR
 Reconstruction.Pruning.isTR_one_of_isLISC
@@ -123,3 +131,15 @@ Reconstruction.Pruning.isEvPeriodic_isTR
 Reconstruction.Pruning.isEvPeriodic_safe
 Reconstruction.Pruning.isLISC_addOrderOf_of_isTR
 Reconstruction.Pruning.NG_refutation
+QuerySystem.RelationalDelay.Subshift
+QuerySystem.RelationalDelay.cycleStream
+QuerySystem.RelationalDelay.cycleStream_mem_subshift
+QuerySystem.RelationalDelay.isLISC_delay_witness
+QuerySystem.RelationalDelay.unsafe_delay_witness
+QuerySystem.RelationalDelay.isLISC_complete_bool
+QuerySystem.RelationalDelay.exists_delay_witness_complete_bool
+QuerySystem.RelationalDelay.delayEval_congr_nonpos
+QuerySystem.RelationalDelay.graphSubshift_neg
+QuerySystem.RelationalDelay.graphSubshift_pos
+QuerySystem.RelationalDelay.delayEval_comp_eq_orbitStream
+QuerySystem.RelationalDelay.graphSubshift_base_mem_range

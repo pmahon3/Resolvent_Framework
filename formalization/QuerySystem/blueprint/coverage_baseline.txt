@@ -18,7 +18,6 @@ KernelClosureCalculus.lean
 MarczewskiTransport.lean
 ODBCRegimes.lean
 ODBCSections.lean
-OrthomodularMO2.lean
 ReconstructionTheorem.lean
 SigmaEssentialBareForm.lean
 SigmaEssentialConjectures.lean

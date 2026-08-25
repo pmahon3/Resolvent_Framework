@@ -40,6 +40,15 @@ Diagonal.Diag_iInter
 Diagonal.pi_inter_diag_eq_empty
 Diagonal.measurableSet_Diag
 Diagonal.no_mass_one_of_iInter_empty
+SigmaEssential.Block
+SigmaEssential.InterClosed
+SigmaEssential.TwoValuedState.val_inter
+QuerySystem.OrthomodularLattice
+QuerySystem.MO2
+QuerySystem.MO2.instOrthomodularLattice
+QuerySystem.MO2.gap
+SigmaEssential.Amended.FinitelyCoherent
+SigmaEssential.Amended.boolean_baseline
 MeasurableSpace.DynkinSystem
 SigmaEssential.TwoValuedState
 SigmaEssential.Amended.FinAddState

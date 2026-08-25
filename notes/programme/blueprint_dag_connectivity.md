@@ -189,12 +189,13 @@ one the original measurement called structural and it is unchanged.
 
 ---
 
-## AMENDMENT 4 — 2026-08-25 (tower): the two structural splits are closed
+## AMENDMENT 4 — 2026-08-25 (tower): the pruning split is closed; the 43/27 split is not
 
 Amendment 2 said the 43/27 split "needs mathematics, not annotation" and
-Amendment 3 said the same of pruning. Both turned out to have their mathematics
-already named in the lane's own notes, unformalized. Three steps, all
-kernel-checked, no sorries:
+Amendment 3 said the same of pruning. **Pruning's did have its mathematics
+available and it is now closed. The 43/27 one did not, and an attempt to close
+it was withdrawn** — see (b), which is the useful part of this entry. Three
+steps, all kernel-checked, no sorries:
 
 ### (a) Fixed lag — `delayQueryAlgebraAtLag_eq`
 
@@ -209,22 +210,31 @@ is what pruning asks. The sup destroys exactly the parameter pruning is indexed
 by. Not an edge, and deliberately not blueprinted as one: a dictionary is not a
 dependency.
 
-### (b) C1′ — the quarantine (**closes the 43/27 split**)
+### (b) C1′ — the quarantine — **WRITTEN, THEN REMOVED 2026-08-25**
 
-The seed's C1′ asks: finite-alphabet delay logics are compact/clopen, so the
-σ-essential pathology cannot occur in the data regime. True, and the stated
-reason is wrong. Finiteness and compactness are not used. What is used is that
-observational outcomes are **measurable sets**: a query's outcome space carries
-a σ-algebra, σ-algebras are intersection-closed, and `boolean_no_witness_amended`
-then forbids a witness. Holds at any alphabet.
+Claimed at the time to close the 43/27 split. It did close it, and the closure
+was worthless, which is not the same thing.
 
-`witness_carrier_not_ofMeasurableSpace` keeps it from being a hypothesis nothing
-violates: `L₁` is not the Dynkin system of *any* σ-algebra. And
-`Omega7Counterexample` already inhabits the other side, so the theorem rules on
-objects that exist.
+The content: a query's outcome space carries a σ-algebra, σ-algebras are
+intersection-closed, so `boolean_no_witness_amended` forbids a witness on one.
+That much is true and mildly worth knowing — it says C1′ holds for structural
+reasons rather than the finiteness/compactness ones the seed gives.
 
-**Components 5 → 4.** The delay/classical/reconstruction component (61) and the
-σ-essential component (28) merge into 94.
+But the *edge* came from `delayQuery_no_witness`, a pure instantiation of the
+general statement at a delay query, adding nothing beyond naming a delay object
+inside a σ-essential theorem. Removing the module puts the count straight back
+to **4 components** with the σ-essential lane re-separated at 28 — which is the
+proof that nothing but the instantiation was holding it. User called it an
+arbitrary bolt-on and removed it; the judgement is right, and it is the same
+objection this file raised against asserting `\uses` edges from prose, in Lean
+form instead of LaTeX form.
+
+**The 43/27 split is therefore still open**, and still needs mathematics. What
+would count is a theorem in which the two lanes constrain each other, not one
+whose statement merely mentions both.
+
+Worth salvaging if anyone wants it later, as a σ-essential-lane fact with no
+delay content: `L₁` is not the Dynkin system of *any* σ-algebra.
 
 ### (c) Relational delay — `isLISC_delay_witness` (**closes the pruning split**)
 
@@ -243,12 +253,13 @@ Non-vacuity recorded, not assumed: `isLISC_complete_bool`.
 
 | | start of session | now |
 |---|---|---|
-| components | 6 | **3** |
-| main component | 43 | **118** |
+| components | 6 | **4** |
+| main component | 43 | **88** |
 | blueprint declarations | 104 | **140** |
 | axiom receipts | 104 closed | 138 closed, 2 cited, 0 uncited |
 
-What remains separate: the **MO₂ ladder** (16) and one isolated node
+What remains separate: the **σ-essential lane** (28) — the 43/27 split, still
+open, see (b); the **MO₂ ladder** (16); and one isolated node
 (`lem:cont-above`). The ladder is the honest one — nothing in the σ-essential
 lane consumes `star_infinite`, and the `\uses` edges all run *into* MO₂ because
 that is the real dependency direction.

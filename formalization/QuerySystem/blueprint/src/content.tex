@@ -343,10 +343,17 @@ extensibility \emph{per level} (\ref{thm:sp1-iff}) and not globally. The
 alternative to assuming sequentiality is a compact-class or perfect-measure
 condition on the marginals (Marczewski), the classical hypothesis.
 
-The hypothesis-match above is verified by hand against the source rather than
-in the kernel; the surjectivity clause is the load-bearing step. The thick
-tower is machine-checked (\ref{thm:aj-tower}), and \ref{rmk:aj-remaining}
-states what remains to make the whole refutation kernel-checked.
+The hypothesis-match above is verified against the source hypothesis by
+hypothesis. Its load-bearing step, the surjectivity clause, is no longer a hand
+check: \texttt{staging/H1\_EvalSurjective.lean} proves \texttt{EvalSurjective}
+for this shape against \texttt{Omega} and \texttt{eval} themselves, receipts
+\texttt{[propext, Classical.choice, Quot.sound]}. Note $\Omega$ is the subtype
+of \emph{coherent} families, not the bare product --- surjectivity onto a
+projective limit can fail with every level nonempty --- but here the bonding
+maps are initial-segment restrictions, so coherence is automatically
+satisfiable and nonemptiness of each $X_k$ suffices. The thick tower is
+machine-checked too (\ref{thm:aj-tower}); \ref{rmk:aj-remaining} states what
+remains to make the whole refutation kernel-checked.
 
 What sequentiality costs is that the completed query $\bigvee_n Q_n$ must
 itself be a query. That is natural when a query is a $\sigma$-algebra of
@@ -648,6 +655,158 @@ The measures converge to that of the intersection, which is $0$; if every term
 were $1$ the limit would be both $0$ and $1$.
 \end{proof}
 
+\chapter{From Boolean to orthomodular: where distributivity is spent}
+
+Everything above is the distributive case. A query system's outcome
+$\sigma$-algebras are Boolean, and the extension questions there are settled by
+$\sigma$-additivity together with an index-layer condition.
+
+This chapter is the hinge to the chapter that follows. It isolates the single
+predicate separating that regime from the orthomodular one, and shows the
+distributive side of the separation is closed. The point of stating it as one
+predicate is that distributivity is not diffused through the theory: it is
+spent in exactly one step, and what fails on a non-Boolean structure fails
+because that step is unavailable.
+
+\section{The pivot}
+
+\begin{definition}[Block]
+  \label{def:se-block}
+  \uses{def:sigma-class}
+  \lean{SigmaEssential.Block}
+  \leanok
+  A finite $\bot$-closed family of carrier sets --- a finite context, the
+  orthomodular analogue of a finite sub-algebra. States are compared on blocks,
+  never globally: the encoding discipline that keeps a local pattern from being
+  a global state in disguise.
+\end{definition}
+
+\begin{definition}[Intersection-closure: the pivot]
+  \label{def:interclosed}
+  \uses{def:sigma-class}
+  \lean{SigmaEssential.InterClosed}
+  \leanok
+  $\mathrm{InterClosed}(d)$ says $A, A' \in d \Rightarrow A \cap A' \in d$.
+
+  A Dynkin system with this property is exactly a $\sigma$-algebra, by Dynkin's
+  $\pi$--$\lambda$ theorem. So this one predicate is the Boolean/orthomodular
+  divide: \textbf{with} it the carrier is distributive and the earlier chapters
+  apply; \textbf{without} it the carrier is a concrete orthomodular structure in
+  which lattice meet need not be set intersection, and need not exist at all.
+\end{definition}
+
+\begin{lemma}[Distributivity is spent here, and only here]
+  \label{lem:val-inter}
+  \uses{def:interclosed, def:two-valued-state}
+  \lean{SigmaEssential.TwoValuedState.val_inter}
+  \leanok
+  On an intersection-closed carrier a two-valued state is \emph{multiplicative}:
+  if $A$ and $A'$ are true, so is $A \cap A'$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:interclosed}
+  $A = (A \cap A') \sqcup (A \cap A'^{c})$ is a disjoint union inside $d$. Since
+  $A \cap A'^{c} \subseteq A'^{c}$ and $A'$ is true, monotonicity makes
+  $A \cap A'^{c}$ false; additivity on the disjoint pair forces $A \cap A'$ true.
+
+  This is the only place distributivity is used in the development, and exactly
+  the step that fails on a non-Boolean orthomodular lattice: the disjoint
+  decomposition of $A$ along $A'$ needs the meet to be set intersection and to
+  lie in the carrier.
+\end{proof}
+
+\section{MO$_2$: the smallest non-distributive witness}
+
+\begin{definition}[Orthomodular lattice]
+  \label{def:oml}
+  \lean{QuerySystem.OrthomodularLattice}
+  \leanok
+  A bounded lattice with an order-reversing involution $x \mapsto x^{\perp}$
+  satisfying $x \wedge x^{\perp} = \bot$, $x \vee x^{\perp} = \top$, and the
+  orthomodular law $x \le y \Rightarrow y = x \vee (y \wedge x^{\perp})$.
+  Distributivity is not assumed; a distributive one is a Boolean algebra.
+\end{definition}
+
+\begin{definition}[MO$_2$]
+  \label{def:mo2}
+  \uses{def:oml}
+  \lean{QuerySystem.MO2}
+  \leanok
+  The six-element lattice $\{\bot, a, a', b, b', \top\}$ with the four middle
+  elements pairwise incomparable, $a^{\perp} = a'$ and $b^{\perp} = b'$.
+\end{definition}
+
+\begin{theorem}[MO$_2$ is an orthomodular lattice]
+  \label{thm:mo2-oml}
+  \uses{def:mo2, def:oml}
+  \lean{QuerySystem.MO2.instOrthomodularLattice}
+  \leanok
+  MO$_2$ satisfies every orthomodular lattice axiom.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:mo2}
+  All laws are decidable over a six-element type; the instance discharges them
+  by \texttt{decide}.
+\end{proof}
+
+\begin{theorem}[The non-distributive gap]
+  \label{thm:mo2-gap}
+  \uses{thm:mo2-oml}
+  \lean{QuerySystem.MO2.gap}
+  \leanok
+  In MO$_2$, $a \wedge b = \bot$ while $a \not\le b^{\perp}$.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:mo2}
+  By decision over the finite type.
+
+  This is the concrete content of non-distributivity, and what \ref{lem:val-inter}
+  needs and cannot get: meeting to $\bot$ no longer implies orthogonality, so the
+  disjoint decomposition used there is unavailable. MO$_2$ is the smallest
+  structure where the Boolean argument breaks.
+\end{proof}
+
+\section{The distributive case is closed}
+
+\begin{definition}[Finite coherence]
+  \label{def:fincoherent}
+  \uses{def:local-pattern}
+  \lean{SigmaEssential.Amended.FinitelyCoherent}
+  \leanok
+  The pattern is realized by some finitely additive global state. This is the
+  amendment: coherence sits \emph{in} the definition, which is what repairs the
+  Boolean baseline.
+\end{definition}
+
+\begin{theorem}[Boolean baseline]
+  \label{thm:boolean-baseline}
+  \uses{def:interclosed, def:fincoherent, lem:val-inter}
+  \lean{SigmaEssential.Amended.boolean_baseline}
+  \leanok
+  On an intersection-closed carrier every finitely coherent local pattern has
+  nonempty kernel: some Dirac state extends it.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:val-inter}
+  Fold the pattern-true block sets under intersection. Multiplicativity
+  (\ref{lem:val-inter}) keeps every partial intersection true, hence nonempty,
+  and the block is finite, so the total intersection is nonempty. Any point of it
+  carries the required Dirac state. Coherence supplies the state that
+  distributivity then converts into a point.
+
+  Its contrapositive, \ref{lem:boolean-no-witness} in the next chapter, is what
+  forces any witness to be non-Boolean --- and \ref{lem:carrier-not-boolean}
+  confirms the constructed witness is exactly that.
+\end{proof}
+
 \chapter{The $\sigma$-essential witness, and the OML gap}
 
 The flagship result. \texttt{psiAmended\_ZFC} is a ZFC theorem with zero
@@ -702,7 +861,7 @@ coherence clause quantifies over exactly the paper's finitely additive states.
 \label{def:local-pattern}
 \lean{SigmaEssential.Amended.LocalState}
 \leanok
-\uses{def:sigma-class}
+\uses{def:sigma-class, def:se-block}
 A two-valued assignment on a finite $\perp$-closed block $B \subseteq L$.
 \textbf{The one substantive encoding choice:} \texttt{LocalState} demands only
 complement-additivity inside $B$, weaker in general than the paper's Def 1.2
@@ -787,7 +946,7 @@ A global $\sigma$-additive two-valued state either agrees with a point evaluatio
 \label{lem:boolean-no-witness}
 \lean{SigmaEssential.Amended.boolean_no_witness_amended}
 \leanok
-\uses{def:sigma-essential}
+\uses{def:sigma-essential, thm:boolean-baseline, def:interclosed}
 On an intersection-closed (Boolean) carrier no $\sigma$-essential contextual
 state exists: coherence alone folds the finitely many true sets of the block to
 a nonempty intersection, and any point of it gives a Dirac extension. This is

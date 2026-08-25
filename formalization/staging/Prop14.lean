@@ -8,13 +8,20 @@ then `Σ_X = {E ∩ X : E measurable}` is a σ-algebra on `X` and
 `AndersenJessen.X_thick` is exactly the hypothesis this consumes.
 
 Statements written 2026-08-22 as the honest test of the prover loop: goals whose
-proofs did not exist. Overnight at budget 600 the loop closed **5 of 9**, all
-verified by compiling. The five below carrying tactic proofs are its output,
-unedited; the four `sorry`s are what it could not reach.
+proofs did not exist. Overnight at budget 600 the loop closed 5 of 9, verified by
+compiling.
 
-Notably the four it missed include `Thick.volume_eq`, the well-definedness
-result that is the mathematical point of Proposition 14 — even though it closed
-`Thick.diff_null`, from which `volume_eq` follows in a line or two.
+**Closed out 2026-08-24: this file is now sorry-free.** `Thick.volume_eq` (the
+well-definedness result that is the mathematical point of Proposition 14) and
+the remaining goals were finished by hand; the last one, `Thick.volume_iUnion`,
+reduces to `measure_iUnion₀` once `disjoint_trace` turns disjoint traces into
+a.e.-disjointness.
+
+This is unit 1 of `notes/open_questions/aj_tower/SCOPE_trace_projective_layer.md`
+at the *lemma* level. It is NOT yet the trace measure as a bundled `Measure` on
+the subtype — that still has to be built, and cannot go through
+`Measure.comap`/`Subtype.measureSpace`, which return junk (`0`) for a thick set
+with thick complement.
 -/
 import QuerySystem.AndersenJessen
 
@@ -78,7 +85,12 @@ theorem Thick.volume_iUnion {X : Set ℝ} (hX : Thick X) (E : ℕ → Set ℝ)
     (hE : ∀ n, MeasurableSet (E n))
     (hdisj : Pairwise (fun m n => Disjoint (E m ∩ X) (E n ∩ X))) :
     volume (⋃ n, E n) = ∑' n, volume (E n) := by
-  sorry
+  -- disjoint traces make the overlaps null (`disjoint_trace`), i.e. the family
+  -- is pairwise a.e.-disjoint; that is exactly what `measure_iUnion₀` wants.
+  have hae : Pairwise (fun m n => MeasureTheory.AEDisjoint volume (E m) (E n)) := by
+    intro m n hmn
+    exact hX.disjoint_trace (hE m) (hE n) (hdisj hmn)
+  exact measure_iUnion₀ hae (fun n => (hE n).nullMeasurableSet)
 
 /-- A measurable set that covers a thick set on `[0,1]` is conull there.
 

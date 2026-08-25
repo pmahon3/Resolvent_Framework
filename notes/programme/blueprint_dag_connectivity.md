@@ -189,6 +189,82 @@ one the original measurement called structural and it is unchanged.
 
 ---
 
+## AMENDMENT 4 — 2026-08-25 (tower): the two structural splits are closed
+
+Amendment 2 said the 43/27 split "needs mathematics, not annotation" and
+Amendment 3 said the same of pruning. Both turned out to have their mathematics
+already named in the lane's own notes, unformalized. Three steps, all
+kernel-checked, no sorries:
+
+### (a) Fixed lag — `delayQueryAlgebraAtLag_eq`
+
+`delayQueryAlgebraAtLag h T τ = 𝒪_h(T^τ)`. Stroboscopic observation at lag `τ`
+is not a degraded view of `T`; it is the same reconstruction question asked of
+`T^τ`.
+
+This explains why the delay and pruning chapters never met. The all-lags bridge
+takes a supremum and unit lag already attains it, so `τ` is invisible to it —
+but at *fixed* `τ` the algebra is strictly smaller, and the fixed-lag question
+is what pruning asks. The sup destroys exactly the parameter pruning is indexed
+by. Not an edge, and deliberately not blueprinted as one: a dictionary is not a
+dependency.
+
+### (b) C1′ — the quarantine (**closes the 43/27 split**)
+
+The seed's C1′ asks: finite-alphabet delay logics are compact/clopen, so the
+σ-essential pathology cannot occur in the data regime. True, and the stated
+reason is wrong. Finiteness and compactness are not used. What is used is that
+observational outcomes are **measurable sets**: a query's outcome space carries
+a σ-algebra, σ-algebras are intersection-closed, and `boolean_no_witness_amended`
+then forbids a witness. Holds at any alphabet.
+
+`witness_carrier_not_ofMeasurableSpace` keeps it from being a hypothesis nothing
+violates: `L₁` is not the Dynkin system of *any* σ-algebra. And
+`Omega7Counterexample` already inhabits the other side, so the theorem rules on
+objects that exist.
+
+**Components 5 → 4.** The delay/classical/reconstruction component (61) and the
+σ-essential component (28) merge into 94.
+
+### (c) Relational delay — `isLISC_delay_witness` (**closes the pruning split**)
+
+`LISC_k(L)` yields a ρ-trajectory, periodic of period `kL`, whose depth-`k`
+lag-`L` delay query is **injective**. The delay query's sample times
+`0, -L, …, -(k-1)L` are exactly the cycle positions sharing layer `0`, and
+`IsLISC`'s simplicity clause says those carry distinct states. **Layer-injectivity
+is delay-injectivity** — the same condition in two vocabularies, which is why
+the lanes kept reaching the same combinatorics from opposite sides.
+
+Non-vacuity recorded, not assumed: `isLISC_complete_bool`.
+
+**Components 4 → 3.** Pruning (17) merges into the main component, now 118.
+
+### The arc
+
+| | start of session | now |
+|---|---|---|
+| components | 6 | **3** |
+| main component | 43 | **118** |
+| blueprint declarations | 104 | **140** |
+| axiom receipts | 104 closed | 138 closed, 2 cited, 0 uncited |
+
+What remains separate: the **MO₂ ladder** (16) and one isolated node
+(`lem:cont-above`). The ladder is the honest one — nothing in the σ-essential
+lane consumes `star_infinite`, and the `\uses` edges all run *into* MO₂ because
+that is the real dependency direction.
+
+### Still open, and named
+
+The deterministic embedding. `stateStream T x` is **not** in
+`Subshift (graph T)`: `Int.toNat` clamps the positive half constant, so the
+trajectory condition would demand `x = T x`. A non-invertible `T` has a
+one-sided orbit only. Bi-infinite trajectories for deterministic dynamics need
+`T` bijective or a one-sided stream type. The bridge does not need either — a
+cycle witness is bi-infinite outright — but anything wanting to run the bridge
+*backwards*, from delay data to a pruning certificate, will hit this first.
+
+---
+
 ## The measurement
 
 95 nodes, 127 edges, 1.34 edges/node. **Five connected components** (undirected):

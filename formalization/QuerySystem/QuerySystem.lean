@@ -55,6 +55,7 @@ import QuerySystem.ODBCSections
 import QuerySystem.Omega7Counterexample
 import QuerySystem.OrthomodularMO2
 import QuerySystem.PruningTheorem
+import QuerySystem.Quarantine
 import QuerySystem.QuerySystem
 import QuerySystem.ReconstructionTheorem
 import QuerySystem.SigmaEssentialAmended

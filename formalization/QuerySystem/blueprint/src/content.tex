@@ -1935,6 +1935,103 @@ this section is evidence either way; it exists so that the settled OMP result
 and the open lattice gap are visible as one picture.
 \end{remark}
 
+\section{The data regime is quarantined}
+
+The chapters above build a witness; this section shows it cannot reach the
+objects the delay chapter observes with. It is C1$'$ of
+\texttt{papers/reconstruction/notes/commensurability\_classification\_seed.md}
+\S2.3, which asks for it in the form: \emph{finite-alphabet delay logics are
+compact/clopen, so the $\sigma$-essential pathology provably cannot occur in the
+data regime}.
+
+It is true, and the reason is not the one the note gives. Finiteness and
+compactness are properties of the data regime and neither is used. What is used
+is that observational outcomes are \emph{measurable sets}: a query's outcome
+space carries a $\sigma$-algebra, a $\sigma$-algebra is intersection-closed, and
+\ref{lem:boolean-no-witness} then forbids a witness outright. The quarantine
+therefore holds at any alphabet, finite or not.
+
+\begin{lemma}[A $\sigma$-algebra is a Boolean carrier]
+  \label{lem:sigma-algebra-interclosed}
+  \uses{def:interclosed}
+  \lean{QuerySystem.Quarantine.interClosed_ofMeasurableSpace}
+  \leanok
+  The Dynkin system of measurable sets of any $\sigma$-algebra satisfies
+  \ref{def:interclosed}.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{def:interclosed}
+  $\sigma$-algebras are closed under binary intersection.
+\end{proof}
+
+\begin{theorem}[The quarantine]
+  \label{thm:quarantine}
+  \uses{lem:sigma-algebra-interclosed, lem:boolean-no-witness, def:sigma-essential}
+  \lean{QuerySystem.Quarantine.no_witness_ofMeasurableSpace,
+        QuerySystem.Quarantine.query_no_witness}
+  \leanok
+  No local pattern on a $\sigma$-algebra carrier is $\sigma$-essential. In
+  particular no query's outcome logic carries a witness --- for every query,
+  with no hypothesis on it.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{lem:sigma-algebra-interclosed, lem:boolean-no-witness}
+  \ref{lem:sigma-algebra-interclosed} supplies the hypothesis of
+  \ref{lem:boolean-no-witness}.
+\end{proof}
+
+\begin{corollary}[C$1'$: the delay logic is safe]
+  \label{cor:delay-quarantine}
+  \uses{thm:quarantine, def:delay-query}
+  \lean{QuerySystem.Quarantine.delayQuery_no_witness}
+  \leanok
+  The delay query at depth $d$ and lag $\tau$ over any alphabet carries no
+  $\sigma$-essential witness.
+\end{corollary}
+
+\begin{proof}
+  \leanok
+  \uses{thm:quarantine}
+  \ref{thm:quarantine} at \ref{def:delay-query}.
+\end{proof}
+
+\begin{lemma}[The separation is real]
+  \label{lem:witness-not-sigma-algebra}
+  \uses{lem:carrier-not-boolean, lem:sigma-algebra-interclosed}
+  \lean{QuerySystem.Quarantine.witness_carrier_not_ofMeasurableSpace}
+  \leanok
+  $L_1$ is not the Dynkin system of \emph{any} $\sigma$-algebra.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{lem:carrier-not-boolean, lem:sigma-algebra-interclosed}
+  Every such is intersection-closed by \ref{lem:sigma-algebra-interclosed}, and
+  \ref{lem:carrier-not-boolean} says $L_1$ is not. So
+  \ref{lem:sigma-algebra-interclosed} is a genuine separation between the two
+  regimes rather than a hypothesis nothing violates.
+\end{proof}
+
+\begin{remark}[What is and is not quarantined]
+  \label{rmk:quarantine-scope}
+  \uses{thm:quarantine}
+  This quarantines the \emph{carrier}. It does not say the data regime is free
+  of contextuality: EA-without-PR gaps are about families of states across
+  contexts, which is a different axis and is where the pruning and
+  commensurability work lives. Nothing here bears on those.
+
+  What it does settle is the direction of the worry. The witness was built to
+  show a $\sigma$-class can fail to be a $\sigma$-algebra in a way that defeats
+  $\sigma$-additive extension; the reconstruction lane asked whether its own
+  foundations were exposed to that. They are not, and the reason is structural
+  rather than quantitative --- so no finiteness, compactness or clopen-ness
+  hypothesis needs to be carried anywhere to keep it.
+\end{remark}
+
 \chapter{The pruning theorem and eventual periodicity of Safe}
 
 The certificate layer of the reconstruction/commensurability lane

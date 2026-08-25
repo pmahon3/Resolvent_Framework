@@ -4,10 +4,6 @@ BoundaryDescent.lean
 Commensurability.lean
 ConcreteOMLBlocks.lean
 ConcreteOMLPatterns.lean
-DescentWitnessClosure.lean
-DescentWitnessConsistency.lean
-DescentWitnessFinite.lean
-DescentWitnessInfinite.lean
 EncodingDefectCheck.lean
 FibreProductReflection.lean
 FiniteAtomFoldKernel.lean

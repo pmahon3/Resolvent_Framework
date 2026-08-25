@@ -58,6 +58,17 @@ QuerySystem.OrthomodularLattice
 QuerySystem.MO2
 QuerySystem.MO2.instOrthomodularLattice
 QuerySystem.MO2.gap
+QuerySystem.L2N
+QuerySystem.piOrtho
+QuerySystem.p
+QuerySystem.star_finite
+QuerySystem.L2
+QuerySystem.star_infinite
+QuerySystem.instPiOrthomodularLattice
+QuerySystem.ConsistencyModel.axioms_consistent
+QuerySystem.ClosureLegs.meet_bot_iff_blockwise
+QuerySystem.ClosureLegs.mo2_cap_two
+QuerySystem.ClosureLegs.aW_pairwise_ortho
 SigmaEssential.Amended.FinitelyCoherent
 SigmaEssential.Amended.boolean_baseline
 MeasurableSpace.DynkinSystem

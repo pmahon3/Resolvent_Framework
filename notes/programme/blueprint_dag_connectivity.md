@@ -4,6 +4,57 @@
 are absent that currently keep the DAG a set of parallel chains rather than a
 connected structure.
 
+## AMENDMENT 2026-08-25 (tower): island 1 is closed
+
+The descent-witness ladder is now in the blueprint. Blueprint declarations went
+104 -> 115; the four `DescentWitness*` modules moved off the coverage baseline
+(26 -> 22 uncovered).
+
+Measured with `scratchpad/dagcheck.py` (a different parser from the one that
+produced the numbers below, so compare the deltas, not the absolutes):
+
+| | before | after |
+|---|---|---|
+| nodes | 98 | 110 |
+| edges | 160 | 179 |
+| components | 6 | 6 |
+| MO2 component | **4** | **16** |
+
+So the MO2 island is no longer a dead end — it is the 4-rung ladder
+`def:mo2 -> def:l2n -> thm:star-finite -> def:navara-l2 -> thm:star-infinite`
+with the consistency and closure legs hanging off it. What did **not** happen:
+the component count is unchanged, and the ladder did not attach to the 28-node
+ch4/ch5 body. Growing an island is not the same as connecting one. The
+`\uses` edges all run *into* MO2, because that is the real dependency
+direction — nothing in the σ-essential lane consumes `star_infinite`.
+
+Two things found on the way in, both recorded because they change what the
+nodes mean:
+
+1. **The consistency model did not cover `L2.instOML`.** `DescentWitnessConsistency`
+   realized the ten blockwise axioms using a bare `mOrtho` function, and its
+   docstring claimed all eleven. But there was no product `OrthomodularLattice`
+   instance anywhere in the library, so the eleventh axiom — that `L₂` *is* an
+   OML — was unmodelled, and it is the one that gives `⊓`, `≤`, `ᗮ`, `⊥` in the
+   other ten their meaning. Fixed by proving `instPiOrthomodularLattice`
+   (products of OMLs are OMLs, coordinatewise) and identifying `mOrtho` with
+   that structure's orthocomplement definitionally (`mOrtho_eq_ortho`).
+   `axioms_consistent` now carries both as conjuncts. This is the standing
+   hazard in its usual costume: everything compiled, and the gap was only
+   visible by reading what the model did *not* say.
+
+2. **`axiomcheck.sh` grew a citation-keyed allowlist** (`axiom_allowlist.txt`),
+   because `star_infinite` rests on Navara's eleven cited axioms and the gate
+   was absolute. The allowlist is not a weakening: an unlisted axiom still fails
+   hard, an allowlist entry without a citation is a hard error, entries used by
+   no node are reported as stale, and cited declarations are counted *separately*
+   from closed ones so the number of things actually proved stays visible. The
+   gate now reads `115 declarations: 113 closed, 2 cited, 0 uncited`.
+
+Island 2 (the diagonal layer, 4 nodes) is untouched and still the next item.
+
+---
+
 ## The measurement
 
 95 nodes, 127 edges, 1.34 edges/node. **Five connected components** (undirected):

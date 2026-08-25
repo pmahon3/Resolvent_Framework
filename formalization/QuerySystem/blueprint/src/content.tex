@@ -1027,6 +1027,250 @@ because that step is unavailable.
   structure where the Boolean argument breaks.
 \end{proof}
 
+\section{The descent ladder: MO$_2$ carried to infinity}
+
+MO$_2$ above is a six-element counterexample, and on its own that is all it is.
+This section is what it was built for. The gap $a \wedge b = \bot$ with
+$a \not\le b^{\perp}$ relates \emph{one} element to \emph{one} other; the
+descent question asks for one element interleaved in the same way with an
+\emph{infinite orthogonal family}. The construction that delivers this is
+Navara's, and the route to it is a ladder: replicate the gap across finitely
+many blocks, then across countably many.
+
+Every rung is stated over a product of MO$_2$ copies with order, meet,
+orthocomplement and bottom all computed coordinatewise. That is the whole
+reason the ladder climbs: the star condition is a coordinatewise test, so it
+survives replication, and each rung reduces to \ref{thm:mo2-gap} at a single
+block.
+
+\subsection{Rung 2: finite truncation}
+
+\begin{definition}[Finite truncation $L_2^N$]
+  \label{def:l2n}
+  \uses{def:mo2}
+  \lean{QuerySystem.L2N}
+  \leanok
+  $L_2^N := \mathrm{Fin}\,N \to \mathrm{MO}_2$, carrying the product lattice
+  order: $x \le y$ iff $x_i \le y_i$ at every block $i$.
+\end{definition}
+
+\begin{definition}[Coordinatewise orthocomplement]
+  \label{def:pi-ortho}
+  \uses{def:l2n}
+  \lean{QuerySystem.piOrtho}
+  \leanok
+  $(x^{\perp})_i := (x_i)^{\perp}$.
+\end{definition}
+
+\begin{definition}[The witness and the family]
+  \label{def:descent-witness}
+  \uses{def:l2n, def:pi-ortho}
+  \lean{QuerySystem.p}
+  \leanok
+  $p := b$ on every block, and $a_i := a$ on block $i$, $\bot$ elsewhere
+  (\texttt{QuerySystem.aFam}). The family is orthogonal because its members have
+  disjoint supports; $p$ meets all of them.
+\end{definition}
+
+\begin{theorem}[$(\star)$ at every finite truncation]
+  \label{thm:star-finite}
+  \uses{def:descent-witness, thm:mo2-gap}
+  \lean{QuerySystem.star_finite}
+  \leanok
+  For every $N$ and every block $i < N$,
+  \[ p \sqcap a_i = \bot \quad\text{and}\quad p \not\le a_i^{\perp}. \]
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:mo2-gap}
+  Both halves are coordinatewise tests. For the meet: off block $i$ the element
+  $a_i$ is $\bot$, and on block $i$ the meet is $b \sqcap a = \bot$ by
+  \ref{thm:mo2-gap}. For the non-orthogonality: $\le$ on the product is
+  pointwise, so $p \le a_i^{\perp}$ would force $b \le a^{\perp}$ at block $i$,
+  which \ref{thm:mo2-gap} refutes.
+
+  One block suffices to refute an inequality; every block must be checked to
+  confirm one. That asymmetry is why the second half costs a single instance and
+  the first is where the work is.
+\end{proof}
+
+\subsection{Rung 3: the infinite object, and what is assumed}
+
+Navara's $L_2$ is a genuine infinite object and a published construction
+(PAMS 115 (1992) 425--431, p.~428). Per the repository's convention it is
+\emph{assumed}, not reformalized. Eleven axioms record its carrier, the fact
+that it is an orthomodular lattice, and --- the load-bearing point --- that it
+is built as a \textbf{sublogic of the product}, so its order, orthocomplement,
+bottom and meet are the restrictions of the coordinatewise ones. Two more name
+the witness $p = \bigvee_n b|_{C_n}$ and the family $a_n = a|_{C_n}$.
+
+\emph{None of the eleven mentions $(\star)$.} What is proved is that $(\star)$
+follows from the blockwise description, and it follows for the reason it did at
+Rung 2: reduction to \ref{thm:mo2-gap} at a single block. The content assumed is
+the existence of the object; the content proved is what the object does.
+
+\begin{definition}[Navara's $L_2$, blockwise]
+  \label{def:navara-l2}
+  \uses{def:mo2, def:oml}
+  \lean{QuerySystem.L2}
+  \leanok
+  The carrier of the $(\beta)$-construction over a countable block index set,
+  with block evaluation $\mathrm{blockVal} : L_2 \to \mathbb{N} \to
+  \mathrm{MO}_2$ and the sublogic-of-product axioms
+  \texttt{le\_iff\_blockwise}, \texttt{blockVal\_ortho}, \texttt{blockVal\_inf},
+  \texttt{blockVal\_bot}. Cited, not proved.
+\end{definition}
+
+\begin{theorem}[$(\star)$ at infinity]
+  \label{thm:star-infinite}
+  \uses{def:navara-l2, thm:star-finite, thm:mo2-gap}
+  \lean{QuerySystem.star_infinite}
+  \leanok
+  For Navara's witness $p$ and every $n$ in the countable orthogonal family,
+  \[ p \sqcap a_n = \bot \quad\text{and}\quad p \not\le a_n^{\perp}. \]
+  So $L_2$ is a concrete, $\sigma$-orthocomplete, non-Boolean orthomodular
+  lattice in which one element is meet-zero against an infinite orthogonal
+  family while orthogonal to no member of it.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:navara-l2, thm:mo2-gap}
+  Verbatim the Rung-2 argument, with \texttt{le\_iff\_blockwise} supplying the
+  coordinatewise order that the product structure gave for free. Antisymmetry of
+  the blockwise order reduces the meet to a blockwise identity; the
+  non-orthogonality is refuted at block $n$.
+\end{proof}
+
+\begin{remark}[What this refutes, and what it does not]
+  \label{rmk:descent-refutation}
+  \uses{thm:star-infinite}
+  This is a second concrete witness alongside $L(H)$, and it tells against the
+  reading on which richness starves concreteness: $L_2$ is rich enough to
+  exercise descent and concrete all the same. It bears on $\Phi$ only
+  indirectly. $\Phi$ is a question about \emph{states}, and nothing here
+  constructs a finitely additive two-valued state with no $\sigma$-additive
+  reproduction.
+\end{remark}
+
+\subsection{The axioms are consistent}
+
+An axiom set with no model proves everything, so \ref{thm:star-infinite} is
+worth exactly what the consistency of the eleven axioms behind it is worth.
+That obligation is discharged by exhibiting a model, not argued.
+
+\begin{theorem}[Products of orthomodular lattices are orthomodular]
+  \label{thm:prod-oml}
+  \uses{def:oml}
+  \lean{QuerySystem.instPiOrthomodularLattice}
+  \leanok
+  If each $\alpha_i$ is an orthomodular lattice then so is $\prod_i \alpha_i$,
+  with lattice operations, bounds and orthocomplement all coordinatewise.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  Every law of the class is an equation or an implication between elements, and
+  the product order, lattice and bounded-order structures are pointwise; so each
+  law follows from the same law in each factor, applied at each coordinate. The
+  instance is built \emph{from} the existing product lattice and bounded-order
+  structures rather than restating them, so no second, non-defeq copy of the
+  operations is introduced.
+\end{proof}
+
+\begin{theorem}[A model of the Rung-3 axioms]
+  \label{thm:descent-consistent}
+  \uses{def:navara-l2, thm:prod-oml}
+  \lean{QuerySystem.ConsistencyModel.axioms_consistent}
+  \leanok
+  Take $M := \mathbb{N} \to \mathrm{MO}_2$ with all operations coordinatewise,
+  $p := b$ everywhere, $a_n := a$ on block $n$. Then every one of the eleven
+  Rung-3 axioms is a \emph{theorem} about $M$, and $(\star)$ holds in it
+  directly. Hence the axiom set is consistent and \ref{thm:star-infinite} is not
+  vacuous.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:prod-oml}
+  Each blockwise axiom is the corresponding product lemma. The remaining
+  obligation is the axiom asserting that $L_2$ \emph{is} an orthomodular
+  lattice: without it the symbols $\sqcap$, $\le$, $^{\perp}$ and $\bot$ in the
+  other ten are undefined, so a model supplying only those ten would establish
+  the consistency of a fragment with no vocabulary. \ref{thm:prod-oml} supplies
+  it, and the model's orthocomplement is definitionally that structure's
+  (\texttt{mOrtho\_eq\_ortho}) rather than a similarly-defined function that
+  happens to agree.
+\end{proof}
+
+\subsection{Closure: the family is genuinely infinite and orthogonal}
+
+$(\star)$ is a descent statement only if $\{a_n\}$ really is an infinite
+orthogonal family. Otherwise it is \ref{thm:mo2-gap} in disguise. These legs
+check that, together with one structural fact about how far MO$_2$ can be
+pushed.
+
+\begin{lemma}[The tests localize per block]
+  \label{lem:legs-localize}
+  \uses{thm:descent-consistent}
+  \lean{QuerySystem.ClosureLegs.meet_bot_iff_blockwise}
+  \leanok
+  In $M$, $x \sqcap y = \bot$ iff $x_n \sqcap y_n = \bot$ at every block, and
+  $x \le y^{\perp}$ iff $x_n \le (y_n)^{\perp}$ at every block
+  (\texttt{ortho\_iff\_blockwise}). Both hold for arbitrary supports, not only
+  for single-block elements --- which is what licenses the blockwise reading of
+  $p$, whose support is all of $\mathbb{N}$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  Function extensionality and the pointwise product lemmas.
+\end{proof}
+
+\begin{lemma}[MO$_2$ caps orthogonal families at two]
+  \label{lem:mo2-cap-two}
+  \uses{def:mo2}
+  \lean{QuerySystem.ClosureLegs.mo2_cap_two}
+  \leanok
+  No three nonzero elements of MO$_2$ are pairwise orthogonal; equivalently, any
+  pairwise-orthogonal triple has a $\bot$ member
+  (\texttt{mo2\_pairwise\_ortho\_one\_zero}).
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  Finite case check over the six-element type.
+
+  This is why the family has to be spread across blocks rather than found inside
+  one: a single MO$_2$ admits no infinite orthogonal family, so the infinitude in
+  \ref{thm:star-infinite} comes from the block index and from nowhere else.
+\end{proof}
+
+\begin{lemma}[The witness family is infinite and orthogonal]
+  \label{lem:afam-ortho}
+  \uses{lem:legs-localize, lem:mo2-cap-two}
+  \lean{QuerySystem.ClosureLegs.aW_pairwise_ortho}
+  \leanok
+  For $n \ne m$, $a_n \le a_m^{\perp}$. The family is indexed by $\mathbb{N}$,
+  so it is infinite --- which by \ref{lem:mo2-cap-two} it could not have been
+  inside a single block.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  \uses{lem:legs-localize}
+  Blockwise by \ref{lem:legs-localize}. At block $k$ the only case that could
+  fail is $k = n = m$, excluded by $n \ne m$; the rest are $a \le \top$,
+  $\bot \le a^{\perp}$ and $\bot \le \top$.
+
+  Closure here is \emph{witness-scoped}. The supports $C_n = \{n\}$ are
+  singletons, on which Navara's constancy clause is vacuous, so the join
+  $p = \bigvee_n b|_{C_n}$ lands in the sublogic automatically. The general
+  $\sigma$-orthocompleteness of the construction, for arbitrary $C$, is the
+  cited classical result assumed at \ref{def:navara-l2} and is not reproved.
+\end{proof}
+
 \section{The distributive case is closed}
 
 \begin{definition}[Finite coherence]

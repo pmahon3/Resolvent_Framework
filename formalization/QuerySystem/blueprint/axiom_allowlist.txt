@@ -1,0 +1,38 @@
+# Repo-local axioms that a blueprint node may rest on, each keyed to a citation.
+#
+# The default in axiomcheck.sh is absolute: a blueprint declaration must rest on
+# {propext, Classical.choice, Quot.sound} and nothing else. This file is the ONE
+# documented exception, and it exists for the case CLAUDE.md permits -- "don't
+# formalize known results; `axiom` with citation". An entry here is an assertion
+# that the axiom states a published classical fact, checked against the primary
+# source, and NOT that it was inconvenient to prove.
+#
+# Format:  <fully-qualified axiom name> <TAB> <citation>
+# The citation is mandatory. A line with a bare name is a hard error -- an
+# uncited axiom on the allowlist would be exactly the unproved stub this gate
+# exists to catch. An axiom absent from this file still fails the gate.
+#
+# Entries listed here but used by no blueprint declaration are reported as stale
+# so the file cannot silently accumulate permissions nothing needs.
+
+# --- Navara's (beta)-construction, the Rung-3 infinite descent witness --------
+# M. Navara, "An alternative proof of Shultz's theorem", Proc. Amer. Math. Soc.
+# 115 (1992) 425-431. The construction on p. 428 builds the logic L_2 as a
+# SUBLOGIC OF THE PRODUCT of MO_2 blocks; the axioms below record its carrier,
+# its inherited (coordinatewise) order, orthocomplement, bottom and meet, and
+# the two witness elements. Read against the primary source 2026-06-10.
+#
+# None of these mentions (*) -- the descent statement proved on top of them is
+# QuerySystem.star_infinite, and their joint consistency is discharged by the
+# explicit model in QuerySystem.ConsistencyModel.axioms_consistent.
+QuerySystem.L2	Navara, PAMS 115 (1992) p. 428 -- carrier of the (beta)-construction
+QuerySystem.L2.instOML	Navara, PAMS 115 (1992) p. 428 -- "L is a logic ... also a lattice"
+QuerySystem.blockVal	Navara, PAMS 115 (1992) p. 428 -- elements are functions on blocks
+QuerySystem.le_iff_blockwise	Navara, PAMS 115 (1992) p. 428 -- L_2 is a sublogic of the product, so the order is the restricted product order
+QuerySystem.blockVal_ortho	Navara, PAMS 115 (1992) p. 428 -- closed under orthocomplements in W, computed coordinatewise
+QuerySystem.blockVal_bot	Navara, PAMS 115 (1992) p. 428 -- bottom of the product sublogic
+QuerySystem.blockVal_inf	Navara, PAMS 115 (1992) p. 428 -- meet in a sublogic of a product, where it exists
+QuerySystem.pWitness	Navara, PAMS 115 (1992) p. 428 -- the element p = \/_n b|C_n, existing by sigma-orthocomplete closure
+QuerySystem.blockVal_pWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of p
+QuerySystem.aWitness	Navara, PAMS 115 (1992) p. 428 -- the orthogonal family a_n = a|C_n
+QuerySystem.blockVal_aWitness	Navara, PAMS 115 (1992) p. 428 -- block-values of a_n

@@ -1074,6 +1074,79 @@ answers, both of which could have gone the other way:
   now a statement in the query system's own vocabulary.
 \end{remark}
 
+\subsection{Fixed lag, and where the pruning chapter's index lives}
+
+\ref{thm:query-reconstruction-bridge} ranges over every lag, and its proof shows
+unit lag alone already attains the supremum --- so $\tau$ is invisible to it.
+That is a fact about the \emph{supremum}, and it is what has kept this chapter
+and the pruning chapter apart: the reconstruction question takes the sup and
+washes the lag out, while the pruning question is asked at a fixed lag, which
+the sup destroys.
+
+Fixing $\tau$ puts it back, and the two indices turn out to be the same index.
+\ref{def:delay-query} samples at $0, -\tau, \dots, -(d-1)\tau$ --- stroboscopic
+sampling --- while \ref{def:lisc}'s layered ring $R_L$ has vertex set
+$\mathbb{Z}_L \times A$, its layer being position mod $L$. The delay chapter's
+lag is the pruning chapter's ring length.
+
+\begin{theorem}[Lag-$\tau$ data is unit-lag data of the power map]
+  \label{thm:delay-eval-iterate}
+  \uses{thm:delay-eval-orbit, def:delay-map}
+  \lean{delayEval_orbitStream_iterate}
+  \leanok
+  $\mathrm{delayEval}\,d\,\tau\,(\mathrm{orbitStream}\,h\,T\,x)
+   = (\Phi_h^{T^{\tau}}(x)_k)_{k<d}$.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:delay-eval-orbit}
+  $T^{k\tau} = (T^{\tau})^{k}$.
+\end{proof}
+
+\begin{theorem}[Fixed lag resolves exactly the observable algebra of $T^{\tau}$]
+  \label{thm:lag-algebra}
+  \uses{thm:delay-eval-iterate, def:observable-algebra, def:delay-query}
+  \lean{delayQueryAlgebraAtLag, delayQueryAlgebraAtLag_eq}
+  \leanok
+  Let $\mathrm{delayQueryAlgebraAtLag}\,h\,T\,\tau$ be the $\sigma$-algebra
+  induced by the delay queries \emph{at the single lag} $\tau$. Then
+  \[ \mathrm{delayQueryAlgebraAtLag}\,h\,T\,\tau = \mathcal{O}_h(T^{\tau}). \]
+  Stroboscopic observation at lag $\tau$ is therefore not a degraded view of
+  $T$; it is the same reconstruction question asked of $T^{\tau}$. In general
+  $\mathcal{O}_h(T^{\tau}) < \mathcal{O}_h(T)$ strictly --- the intermediate
+  times are genuinely lost --- which is the content
+  \ref{thm:query-reconstruction-bridge} cannot see. At $\tau = 1$ nothing is
+  lost (\texttt{delayQueryAlgebraAtLag\_one}).
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{thm:delay-eval-iterate}
+  Both inclusions as in \ref{thm:query-reconstruction-bridge}, with $T^{\tau}$
+  in place of $T$: every coordinate at lag $\tau$ is some $h \circ (T^{\tau})^n$
+  by \ref{thm:delay-eval-iterate}, and conversely each such generator is
+  coordinate $n$ of the query $(n+1, \tau)$.
+\end{proof}
+
+\begin{remark}[What this buys against the pruning chapter]
+  \label{rmk:lag-is-ring-length}
+  \uses{thm:lag-algebra}
+  $\mathrm{Safe}(\rho)$ (\ref{def:unsafe-safe}) is a statement about which ring
+  lengths reconstruct; \ref{thm:lag-algebra} says what ``reconstructs at lag
+  $\tau$'' means on the measure-theoretic side. The two chapters are asking one
+  question in two vocabularies, and this is the dictionary entry.
+
+  It is not yet a theorem connecting them, and the gap is specific. Pruning's
+  $\rho \subseteq A \times A$ is a \emph{relation}; the delay side's $T$ is a
+  \emph{function}. Specialising pruning to a deterministic $\rho$ looks to
+  trivialise it --- a functional graph has out-degree one, so its cycles are
+  disjoint and $\mathrm{LISC}_k(L)$ collapses to ``some cycle has length exactly
+  $kL$'' --- so the content of \ref{thm:pruning} lives in the nondeterministic
+  case. Closing the gap therefore means carrying the delay side to relations,
+  not restricting pruning to maps.
+\end{remark}
+
 \section{The predictive layer, and what is not formalized}
 \label{sec:delay-gaps}
 

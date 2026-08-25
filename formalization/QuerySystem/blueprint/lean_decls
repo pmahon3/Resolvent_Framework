@@ -61,6 +61,9 @@ delay_reconstruction_iff
 orbitStream
 delayEval_orbitStream
 delayQueryAlgebra_eq_delayObservableAlgebra
+delayEval_orbitStream_iterate
+delayQueryAlgebraAtLag
+delayQueryAlgebraAtLag_eq
 SigmaEssential.Block
 SigmaEssential.InterClosed
 SigmaEssential.TwoValuedState.val_inter

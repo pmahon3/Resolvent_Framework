@@ -725,4 +725,77 @@ theorem delayQueryAlgebra_eq_delayObservableAlgebra (h : X → ℝ) (T : X → X
     have := (measurable_pi_apply (⟨m, Nat.lt_succ_self m⟩ : Fin (m + 1))).comp hco
     simpa [delayEval_orbitStream, Function.comp] using this
 
+/-! #### Fixed lag: where the pruning lane's index lives
+
+`delayQueryAlgebra` ranges over every lag, and the proof above shows unit lag
+alone already achieves the supremum -- so `τ` is invisible to it. That is a fact
+about the *supremum*, and it is exactly what has kept this chapter and the
+pruning chapter apart: the reconstruction question takes the sup and washes the
+lag out, while the pruning question is asked at a fixed lag, which the sup
+destroys.
+
+Fixing `τ` puts it back. `delayEval d τ` samples at `0, -τ, …, -(d-1)τ` --
+stroboscopic sampling -- and the pruning chapter's layered ring `R_L` has vertex
+set `ℤ_L × A`, its layer index being position mod `L`. Same structure: the
+delay chapter's lag is the pruning chapter's ring length. The identity below is
+what makes that a theorem rather than a resemblance. -/
+
+/-- **Lag-`τ` data is the unit-lag data of the `τ`-th power map.** -/
+theorem delayEval_orbitStream_iterate (h : X → ℝ) (T : X → X) (d τ : ℕ) (x : X) :
+    delayEval d τ (orbitStream h T x) = fun k : Fin d => delayMap h (T^[τ]) x k.val := by
+  rw [delayEval_orbitStream]
+  funext k
+  simp [delayMap, ← Function.iterate_mul, Nat.mul_comm]
+
+/-- The σ-algebra the delay queries induce **at one fixed lag** `τ`, rather than
+across all of them. -/
+@[reducible] noncomputable def delayQueryAlgebraAtLag
+    (h : X → ℝ) (T : X → X) (τ : ℕ) : MeasurableSpace X :=
+  ⨆ d : ℕ, MeasurableSpace.comap (fun x => delayEval d τ (orbitStream h T x)) inferInstance
+
+/-- **Fixed lag resolves exactly the observable algebra of the power map.**
+
+`delayQueryAlgebraAtLag h T τ = 𝒪_h(T^τ)`. So stroboscopic observation at lag
+`τ` is not a weaker way of looking at `T`; it is the *same* reconstruction
+question asked of `T^τ`. In general `𝒪_h(T^τ) < 𝒪_h(T)` strictly -- the
+intermediate times are genuinely lost -- which is why the fixed-lag question has
+content that `delayQueryAlgebraEqDelayObservableAlgebra` cannot see.
+
+This is the lemma that gives the pruning lane a definitional anchor here:
+`Safe(ρ)` is a statement about which lags reconstruct, and this says what
+"reconstructs at lag `τ`" means on the measure-theoretic side. -/
+theorem delayQueryAlgebraAtLag_eq (h : X → ℝ) (T : X → X) (τ : ℕ) :
+    delayQueryAlgebraAtLag h T τ = delayObservableAlgebra h (T^[τ]) := by
+  apply le_antisymm
+  · refine iSup_le fun d => ?_
+    have hmeas : Measurable[delayObservableAlgebra h (T^[τ])]
+        (fun x => delayEval d τ (orbitStream h T x)) := by
+      letI m : MeasurableSpace X := delayObservableAlgebra h (T^[τ])
+      rw [funext fun x => delayEval_orbitStream_iterate h T d τ x]
+      refine measurable_pi_lambda _ fun k => ?_
+      have := observableAlgebra_measurable
+        (fun n : ℤ => h ∘ (T^[τ])^[n.toNat]) ((k.val : ℕ) : ℤ)
+      simpa [m, delayObservableAlgebra, delayMap, Function.comp] using this
+    exact hmeas.comap_le
+  · refine observableAlgebra_le fun n => ?_
+    set m : ℕ := n.toNat with hm
+    have hcomap :
+        MeasurableSpace.comap (fun x => delayEval (m + 1) τ (orbitStream h T x))
+            inferInstance ≤ delayQueryAlgebraAtLag h T τ :=
+      le_iSup_of_le (m + 1) le_rfl
+    refine Measurable.mono ?_ hcomap le_rfl
+    have hco : Measurable[MeasurableSpace.comap
+        (fun x => delayEval (m + 1) τ (orbitStream h T x)) inferInstance]
+        (fun x => delayEval (m + 1) τ (orbitStream h T x)) :=
+      Measurable.of_comap_le le_rfl
+    have := (measurable_pi_apply (⟨m, Nat.lt_succ_self m⟩ : Fin (m + 1))).comp hco
+    simpa [delayEval_orbitStream_iterate, delayMap, Function.comp] using this
+
+/-- Unit lag is the case where no information is lost: `T^1 = T`. Together with
+`delayQueryAlgebraAtLag_eq` this is the sharp form of the remark that the
+supremum over lags is already attained at `τ = 1`. -/
+theorem delayQueryAlgebraAtLag_one (h : X → ℝ) (T : X → X) :
+    delayQueryAlgebraAtLag h T 1 = delayObservableAlgebra h T := by
+  simpa using delayQueryAlgebraAtLag_eq h T 1
+
 end ReconstructionBridge

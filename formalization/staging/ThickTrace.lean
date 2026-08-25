@@ -90,8 +90,10 @@ theorem volume_eq_of_preimage_eq (hX : Thick X) {E F : Set ℝ}
   rw [← e1, ← e2, Set.inter_comm]
 
 
-/-- The subtype carries the comap σ-algebra. -/
-instance : MeasurableSpace ↥X := MeasurableSpace.comap Subtype.val inferInstance
+-- The subtype's σ-algebra is Mathlib's `Subtype.instMeasurableSpace`, which is
+-- definitionally `MeasurableSpace.comap Subtype.val` -- checked, so no instance
+-- is declared here. Only the MEASURE degenerates under `comap`; the σ-algebra
+-- is fine.
 
 theorem measurableSet_subtype_iff (S : Set ↥X) :
     MeasurableSet S ↔ ∃ E : Set ℝ, MeasurableSet E ∧ Subtype.val ⁻¹' E = S :=
@@ -188,6 +190,45 @@ theorem ajTrace_apply (α : ℝ) (hα : Irrational α) (k : ℕ)
     ajTrace α hα k (Subtype.val ⁻¹' E) = volume E :=
   traceMeasure_apply (thick_X α hα k) hE
 
+/-! ## Thickness relative to a base set, and total mass 1
+
+`Thick` above quantifies over every measurable subset of `ℝ`, which is
+INCOMPATIBLE with `X ⊆ [0,1]`: such an `X` would force `volume (Icc 2 3) = 0`.
+(`Prop14.lean`'s `Thick.volume_Icc` docstring records the same trap.) But
+`NormalizedCompatibleContents` needs total mass 1, and `traceMeasure_univ`
+gives `volume (univ : Set ℝ) = ⊤`.
+
+Border's construction uses `Xₖ` thick **in `[0,1]`**, which resolves both: the
+relativized notion is compatible with confinement, and the total mass is
+`volume (Icc 0 1) = 1`. -/
+
+/-- `X` is **thick in `A`**: every measurable subset of `A` disjoint from `X`
+is null. -/
+def ThickIn (A X : Set ℝ) : Prop :=
+  ∀ ⦃E : Set ℝ⦄, MeasurableSet E → E ⊆ A → E ∩ X = ∅ → volume E = 0
+
+/-- Thickness in all of `ℝ` gives thickness in any base set. -/
+theorem thickIn_of_thick {A X : Set ℝ} (hX : Thick X) : ThickIn A X :=
+  fun _ hE _ h => hX hE h
+
+/-- **The AJ tower, confined to `[0,1]`.** `X α k ∩ [0,1]` is thick in `[0,1]`
+-- the form Border's construction needs, and the form that carries mass 1. -/
+theorem ajThickIn (α : ℝ) (hα : Irrational α) (k : ℕ) :
+    ThickIn (Set.Icc 0 1) (AndersenJessen.X α k ∩ Set.Icc 0 1) := by
+  intro E hE hEsub h
+  refine AndersenJessen.X_thick α hα k hE ?_
+  ext x
+  simp only [Set.mem_inter_iff, Set.mem_empty_iff_false, iff_false, not_and]
+  intro hxE hxX
+  have : x ∈ E ∩ (AndersenJessen.X α k ∩ Set.Icc 0 1) := ⟨hxE, hxX, hEsub hxE⟩
+  rw [h] at this
+  exact this
+
+/-- The base has mass 1, so a trace measure relative to `[0,1]` is a
+probability measure. -/
+theorem volume_Icc_one : volume (Set.Icc (0:ℝ) 1) = 1 := by simp
+
 #print axioms ajTrace
 #print axioms ajTrace_apply
+#print axioms ajThickIn
 end ThickTrace

@@ -718,6 +718,198 @@ The measures converge to that of the intersection, which is $0$; if every term
 were $1$ the limit would be both $0$ and $1$.
 \end{proof}
 
+\chapter{Delay embeddings: a system on the wrong side of the hypothesis}
+
+The extension theorem of the previous chapters needs
+\ref{def:seq-upper-directed}, and \S\ref{sec:sequentiality} showed the plain
+upper-directed form is false. That leaves a question the counterexample alone
+does not answer: is the gap between the two hypotheses a pathology, reachable
+only by a construction built to break things, or does an ordinary system fall
+into it?
+
+It is not a pathology. The delay query system --- the standard object of
+time-series reconstruction, reading $d$ samples at lag $\tau$ --- is
+upper-directed and \emph{not} sequentially upper-directed
+(\ref{thm:delay-not-sud}). So the extension theorem does not apply to it, and
+this is not a defect of the formalization but a fact about delay embeddings.
+What does apply is the bounded fixed-lag subsystem (\ref{thm:delay-extension}),
+and that is the honest scope of the result.
+
+This chapter is otherwise independent of the $\sigma$-essential material: it
+shares the query-system core of Chapter 1 and nothing below it.
+
+\section{The delay system}
+
+\begin{definition}[Delay query]
+\label{def:delay-query}
+\uses{def:query}
+\lean{delayQuery, delayEval}
+\leanok
+Over a sensor alphabet $X$, the observation space is the bi-infinite stream
+space $\Omega = X^{\mathbb{Z}}$. The query at $(d,\tau)$ reads $d$ samples
+backwards at lag $\tau$:
+\[
+  \mathrm{eval}_{d,\tau}(\omega)
+    = (\omega_0, \omega_{-\tau}, \omega_{-2\tau}, \dots, \omega_{-(d-1)\tau})
+    \in X^d .
+\]
+\end{definition}
+
+\begin{definition}[Delay refinement]
+\label{def:delay-refine}
+\uses{def:delay-query, def:refine}
+\lean{delayLe, delayRefineMap}
+\leanok
+$(d,\tau) \leq (d',\tau')$ when $\tau' \mid \tau$ and $d' > (d-1)(\tau/\tau')$:
+the finer lag divides the coarser one, and the finer window is long enough to
+span the coarser one. The refinement map keeps the coordinates at positions
+$0, \tau/\tau', \dots, (d-1)\tau/\tau'$.
+\end{definition}
+
+\begin{theorem}[The delay system is a query system]
+\label{thm:delay-qs}
+\uses{def:delay-query, def:delay-refine, def:query-system}
+\lean{delayQuerySystem}
+\leanok
+$(d,\tau) \mapsto$ the delay query, with the refinement above, satisfies the
+query-system axioms.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{def:delay-refine}
+Reflexivity and transitivity of the order are divisibility and arithmetic;
+$\pi_{\mathrm{refl}}$ and $\pi_{\mathrm{trans}}$ are index computations on
+coordinate selections.
+\end{proof}
+
+\begin{theorem}[Upper-directed]
+\label{thm:delay-upper}
+\uses{thm:delay-qs, def:upper-directed}
+\lean{delayQuerySystem.upperDirected}
+\leanok
+Any two delay queries have a common refinement.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{def:delay-refine}
+Take lag $\gcd(\tau,\tau')$ and depth
+$\max\{(d-1)(\tau/\gcd), (d'-1)(\tau'/\gcd)\} + 1$. The gcd divides both lags,
+and the depth is chosen to span both windows.
+\end{proof}
+
+\section{The gap, exhibited}
+
+\begin{theorem}[The delay system is NOT sequentially upper-directed]
+\label{thm:delay-not-sud}
+\uses{thm:delay-qs, def:seq-upper-directed}
+\lean{delayQuerySystem.not_seqUpperDirected}
+\leanok
+There is no single query above the whole sequence $u_n = (n+2,\ 1)$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{def:delay-refine}
+An upper bound $(d'',\tau'')$ would need $\tau'' \mid 1$, hence $\tau''=1$, and
+then $(n+2)-1 = n+1 < d''$ for every $n$ --- impossible for a finite $d''$.
+Deepening the window is free, but no finite window contains all of them.
+
+Note what separates this from \ref{thm:delay-upper}: upper-directedness asks
+for a bound above any \emph{two} queries, and gcd-plus-max supplies one;
+sequential upper-directedness asks for a bound above a countable family, and
+the depths are unbounded. The two hypotheses differ exactly here, and the delay
+system sits between them.
+\end{proof}
+
+\begin{proposition}[A definitional mismatch with the source, recorded]
+\label{prop:delay-mismatch}
+\uses{thm:delay-not-sud}
+Paper 1's Proposition 2 establishes that every \emph{finite} subfamily of delay
+queries has a common refinement, and its Definition 3.3 calls this ``sequential
+upper-directedness''. That is not the condition of
+\ref{def:seq-upper-directed}, which quantifies over a countable family and is
+strictly stronger; the finite-subfamily property is exactly
+\ref{thm:delay-upper}. The Lean development uses the stronger reading, so the
+paper's extension theorem is stated at a scope its hypothesis does not reach,
+and \ref{thm:delay-not-sud} is the witness. The repair is the fixed-lag
+restriction below, not a weakening of the theorem.
+\end{proposition}
+
+\section{Where the extension theorem does apply}
+
+\begin{definition}[Bounded fixed-lag subsystem]
+\label{def:delay-fixed-lag}
+\uses{def:delay-query}
+\lean{delayFixedLagBoundedSystem}
+\leanok
+Fix a lag $\tau_0$ and a maximum depth $N$; index by $\{d \leq N\}$ with the
+order $d \leq d'$ and coordinate-truncation refinement.
+\end{definition}
+
+\begin{theorem}[The bounded subsystem is sequentially upper-directed]
+\label{thm:delay-fixed-sud}
+\uses{def:delay-fixed-lag, def:seq-upper-directed}
+\lean{delayFixedLagBoundedSystem.seqUpperDirected}
+\leanok
+$N$ is a universal upper bound.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{def:delay-fixed-lag}
+Every index is $\leq N$, so the constant family at $N$ bounds any sequence. The
+obstruction of \ref{thm:delay-not-sud} was unbounded depth, and bounding the
+depth removes it.
+\end{proof}
+
+\begin{theorem}[Extension for bounded fixed-lag delay embeddings]
+\label{thm:delay-extension}
+\uses{thm:delay-fixed-sud, thm:observational-extension-seq, def:delay-fixed-lag}
+\lean{delayFixedLagBoundedSystem.observational_extension_fixedLag}
+\leanok
+For fixed $\tau_0$ and $N$, any compatible family of probability marginals on
+$\{X^d : d \leq N\}$ extends \emph{uniquely} to a probability measure on
+$\Omega$.
+\end{theorem}
+
+\begin{proof}
+\leanok
+\uses{thm:delay-fixed-sud, thm:observational-extension-seq}
+\ref{thm:delay-fixed-sud} supplies sequential upper-directedness and
+\texttt{evalSurjective} the realizability hypothesis; the extension theorem
+applies directly.
+
+This is the honest scope of the delay-embedding extension result:
+finite-window, fixed-lag. \ref{thm:delay-not-sud} is why it cannot be stated for
+the full system, and \S\ref{sec:sequentiality} is why the hypothesis cannot
+simply be weakened to \ref{def:upper-directed} --- that form is refuted.
+\end{proof}
+
+\section{The predictive layer, and what is not formalized}
+\label{sec:delay-gaps}
+
+The structural theory above is complete. The probabilistic half of Paper 1 ---
+the predictive law map $\varphi_{d,\tau} : X^d \to \mathcal{P}(X)$, predictive
+sufficiency as injectivity of $\varphi$ on the support, the $\tau$-Markov order
+$m(\tau,P)$, the characterization $d \geq m(\tau,P) \iff$ sufficiency, and
+stationarity of the delay distributions --- is not formalized.
+
+The obstruction recorded when the file was written, that Lean lacked
+conditional-distribution infrastructure, no longer holds: Mathlib now has
+disintegration for standard Borel spaces
+(\texttt{Measure.condKernel}, \texttt{Measure.disintegrate}). The live
+constraint is different and worth stating precisely, because it is a question
+about \emph{statements} rather than proofs: disintegration requires the target
+to be standard Borel, while everything above is proved for an arbitrary
+measurable sensor alphabet. Defining $\varphi_{d,\tau}$ therefore either
+narrows the whole chapter or applies only to a subclass. The structural results
+deserve their generality, so the second is the intended reading.
+
+Takens' theorem is a separate matter: it needs generic-embedding machinery that
+Mathlib does not have at all, and it is not a near-term target.
+
 \chapter{From Boolean to orthomodular: where distributivity is spent}
 
 Everything above is the distributive case. A query system's outcome

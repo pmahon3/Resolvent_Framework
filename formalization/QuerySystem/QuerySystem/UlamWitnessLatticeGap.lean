@@ -104,15 +104,58 @@ theorem greatest_lowerBound_eq_slab (U : UlamMatrix M) {m : Set (M × Fin 4)}
       simp only [coreB, mem_preimage, mem_insert_iff, mem_singleton_iff, hp0]; tauto
   exact hub hsing_lb rfl
 
-/-- **The one cited fact (Corollary 4.1).** The slab `M × {0}` (the paper's
-`M × {1}`, the missing meet region) is NOT a member of the carrier. Its class
-pattern is the odd-weight `1000`, excluded by the Normal Form Theorem 3.5
-(`L ⊆ P̃`). CITED to
-`papers/sigma_essential/witness_candidate/sigma_essential_witness.md` Cor 4.1 /
-Cor 4.4 (proved there via the full §3 invariant machinery). NOT re-proved here;
-formalizing §3 is the flagged next unit. -/
-axiom slab0_not_mem (U : UlamMatrix M) (huncount : ¬ (Set.univ : Set M).Countable) :
-    ¬ (carrier U).Has (Prod.snd ⁻¹' ({0} : Set (Fin 4)))
+/-- The traces of the slab `M × {0}`: everything at coordinate `0`, nothing
+elsewhere. -/
+theorem trace_slab (f : Fin 4) :
+    trace (Prod.snd ⁻¹' ({0} : Set (Fin 4))) f
+      = (if f = 0 then (Set.univ : Set M) else ∅) := by
+  ext x
+  simp only [trace, Set.mem_setOf_eq, Set.mem_preimage, Set.mem_singleton_iff]
+  split <;> simp_all
+
+/-- In any representation of the slab, coordinate `0`'s code differs from every
+other coordinate's: the `f = 0` trace is co-countable and the rest are countable,
+so equal codes would make one set both. -/
+theorem slab_codes_differ (huncount : ¬ (Set.univ : Set M).Countable)
+    (ξ : Set M) (κ : Fin 4 → Bool) {f : Fin 4} (hf : f ≠ 0)
+    (h : Represents (Prod.snd ⁻¹' ({0} : Set (Fin 4))) ξ κ) :
+    κ 0 ≠ κ f := by
+  intro hEq
+  have h0 := h 0; have hg := h f
+  rw [trace_slab] at h0 hg
+  rw [if_pos rfl] at h0
+  rw [if_neg hf] at hg
+  rw [hEq] at h0
+  unfold CEq at h0 hg
+  apply huncount
+  refine Set.Countable.mono ?_ (h0.union hg)
+  intro x _
+  by_cases hx : x ∈ sel ξ (κ f)
+  · right; simp [Set.mem_symmDiff, hx]
+  · left;  simp [Set.mem_symmDiff, hx]
+
+/-- **Corollary 4.1 (proved).** The slab `M × {0}` (the paper's `M × {1}`, the
+missing meet region) is NOT a member of the carrier.
+
+Formerly a cited `axiom` -- Cor 4.1 of
+`papers/sigma_essential/witness_candidate/sigma_essential_witness.md`, proved
+there via the full §3 invariant machinery and not re-proved here. It is proved
+here now: §3 IS formalized (`nrep_exists`, Thm 3.5), so the paper's argument
+runs in the kernel. Any representation must give coordinate `0` a code differing
+from the other three (`slab_codes_differ`), i.e. the odd-weight `1000` or its
+complement `0111`, and `EvenCode` excludes both. -/
+theorem slab0_not_mem (U : UlamMatrix M)
+    (huncount : ¬ (Set.univ : Set M).Countable) :
+    ¬ (carrier U).Has (Prod.snd ⁻¹' ({0} : Set (Fin 4))) := by
+  intro hmem
+  obtain ⟨ξ, κ, hEven, _hκ3, hrep⟩ := nrep_exists huncount hmem
+  have d1 := slab_codes_differ huncount ξ κ (by decide : (1:Fin 4) ≠ 0) hrep
+  have d2 := slab_codes_differ huncount ξ κ (by decide : (2:Fin 4) ≠ 0) hrep
+  have d3 := slab_codes_differ huncount ξ κ (by decide : (3:Fin 4) ≠ 0) hrep
+  unfold EvenCode at hEven
+  revert hEven
+  cases h0 : κ 0 <;> cases h1 : κ 1 <;> cases h2 : κ 2 <;> cases h3 : κ 3 <;>
+    simp_all
 
 /-- **The pin (proved, modulo the one cited fact).** The witness carrier is NOT a
 lattice: `MeetsExist` fails at `(coreA, coreB)`. A greatest lower bound would

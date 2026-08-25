@@ -1137,14 +1137,20 @@ object built so far is a non-lattice.
 
 \begin{proof}
 \leanok
-The reduction is fully proved in Lean: forced by the singletons, a greatest
-carrier lower bound of the cores would have to equal the slab $M \times \{0\}$
-(\texttt{greatest\_lowerBound\_eq\_slab}). That the slab is NOT in the carrier
-is the one cited fact --- the declared \texttt{axiom slab0\_not\_mem}, Cor 4.1
-of the paper (normal-form exclusion, class pattern $1000$), imported per the
-don't-re-formalize-known-results rule. \texttt{\#print axioms} shows exactly
-that axiom and nothing else opaque; formalizing the \S3 invariant behind it is
-the flagged next unit.
+Fully proved in Lean, end to end. Forced by the singletons, a greatest carrier
+lower bound of the cores would have to equal the slab $M \times \{0\}$
+(\texttt{greatest\_lowerBound\_eq\_slab}), and the slab is not in the carrier
+(\texttt{slab0\_not\_mem}).
+
+That last fact was a cited \texttt{axiom} --- Cor 4.1 of the paper, imported
+under the don't-re-formalize-known-results rule --- until the \S3 invariant
+machinery it rests on turned out to be formalized already
+(\texttt{nrep\_exists}, Theorem 3.5). The paper's argument now runs in the
+kernel: any normalized representation must give coordinate $0$ a code differing
+from the other three (\texttt{slab\_codes\_differ}, since the $f = 0$ trace is
+co-countable and the rest are countable), so the code is the odd-weight $1000$
+or its complement $0111$, and \texttt{EvenCode} excludes both.
+\texttt{\#print axioms} now returns the standard three and nothing else.
 \end{proof}
 
 \begin{definition}[$\Psi_{\mathrm{OML}}$ --- the lattice form]

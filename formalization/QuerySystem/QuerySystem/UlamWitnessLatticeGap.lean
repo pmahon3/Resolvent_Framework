@@ -450,4 +450,40 @@ theorem central_countable_iff (huncount : ¬ (Set.univ : Set M).Countable)
 #print axioms central_all_traces
 #print axioms central_countable_iff
 
+/-! ### The ξ-triviality step: the cell route, and why it does not close
+
+`cor:centre` needs one more thing than `central_all_traces` gives: that the
+common `ξ` is itself trivial (`ξ ≈ ∅` or `ξ ≈ M`), the paper's `[E] ∈ {0,1}`.
+That does NOT follow from the invariant -- `def:invariant` permits any `ξ` --
+so centrality has to be used a second time.
+
+The natural attempt is to intersect with cells, which are carrier generators.
+The two lemmas below are what that yields, and they are reusable. What they do
+NOT yield is the constraint: normalizing `E ∩ cell` gives `ξ ∩ C α n ≈ η` for an
+EXISTENTIALLY BOUND `η`, which says nothing. A real constraint has to bring in
+the Ulam matrix's combinatorics (`row_cover`, `col_disjoint`) together with
+countable initial segments -- the hypothesis set `rigidity` carries as
+`hseg : ∀ β, (Set.Iio β).Countable`. Note `central_all_traces` does not take
+`hseg`, so either these lemmas gain that hypothesis or the argument goes
+elsewhere. Recorded so the route is not re-walked. -/
+
+/-- Trace of an intersection with a cell. -/
+theorem trace_inter_cell (U : UlamMatrix M) (E : Set (M × Fin 4)) (α : M) (n : ℕ)
+    (f : Fin 4) : trace (E ∩ cell U α n) f = trace E f ∩ U.C α n := by
+  ext x; simp [trace, cell]
+
+/-- For a set whose traces are all `≈ ξ`, every trace of `E ∩ cell` is
+`≈ ξ ∩ C α n`. -/
+theorem cell_traces (U : UlamMatrix M)
+    {E : Set (M × Fin 4)} {ξ : Set M} (hξ : ∀ f, CEq (trace E f) ξ)
+    (α : M) (n : ℕ) (f : Fin 4) :
+    CEq (trace (E ∩ cell U α n) f) (ξ ∩ U.C α n) := by
+  rw [trace_inter_cell]
+  refine Set.Countable.mono ?_ (hξ f)
+  intro x hx
+  simp only [Set.mem_symmDiff, Set.mem_inter_iff] at hx ⊢
+  rcases hx with ⟨⟨h1, h2⟩, h3⟩ | ⟨⟨h1, h2⟩, h3⟩
+  · exact Or.inl ⟨h1, fun hxi => h3 ⟨hxi, h2⟩⟩
+  · exact Or.inr ⟨h1, fun hxi => h3 ⟨hxi, h2⟩⟩
+
 end SigmaEssential.Ulam

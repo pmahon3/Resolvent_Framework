@@ -156,3 +156,33 @@ which is why it read as mechanical.
 Do not close this by weakening the statement. The honest options are: find the
 cell-based separation argument, or leave `cor:centre` as the reduction plus a
 named open step.
+
+
+### Negative result 2026-08-24: the cell route does not deliver ξ-triviality
+
+Attempted and recorded so it is not re-walked.
+
+The missing step is `ξ ≈ ∅` or `ξ ≈ M`. The natural attempt intersects the
+central `E` with cells, which are carrier generators, so `E ∩ cell U α n` lies
+in the carrier and normalizes. Two reusable lemmas came out and are committed
+in `UlamWitnessLatticeGap.lean`:
+
+- `trace_inter_cell` — `trace (E ∩ cell) f = trace E f ∩ C α n`
+- `cell_traces` — for `E` with all traces `≈ ξ`, every trace of `E ∩ cell` is
+  `≈ ξ ∩ C α n`
+
+**What it does NOT deliver.** Normalizing `E ∩ cell` gives `ξ ∩ C α n ≈ η` with
+`η` EXISTENTIALLY BOUND — a statement with no content. A version of that was
+written, typechecked, and deliberately NOT committed: it compiles and proves
+nothing, which is exactly the kind of thing that looks like progress in a diff.
+
+**What a real constraint needs.** The Ulam matrix's combinatorics —
+`row_cover` and `col_disjoint` — together with countable initial segments,
+i.e. `hseg : ∀ β : M, (Set.Iio β).Countable`. That is the hypothesis set
+`rigidity` (Thm 5.1) carries explicitly.
+
+⚠ `central_all_traces` and the rest of the centre chain do NOT take `hseg`.
+So closing this requires a decision: either those lemmas gain that hypothesis
+(check the paper actually assumes it where `cor:centre` is stated), or the
+argument goes somewhere other than cells. That is a mathematical choice, not a
+tactic fix — which is why this stops here rather than being pushed through.

@@ -217,4 +217,86 @@ and only the one membership is imported. -/
 #print axioms witness_carrier_not_lattice
 #print axioms psiOML_gives_sigmaEssential
 
+/-! ## §5. The centre, and essential irreducibility (`cor:centre`)
+
+`prop:adm` needs the witness carrier to be *essentially irreducible*: trivial
+centre in the quotient by the countable ideal. The paper computes the centre
+exactly (`cor:centre`): the central elements are precisely the countable and
+co-countable carrier sets.
+
+Formalized here as far as the code analysis reaches. The remaining steps --
+reading `[E₁] = [E₂] ∈ {0,1}` off the surviving codes, repeating with `coreB`
+and `coreC` for a common constant, and forcing the fourth class by parity --
+are mechanical given `central_meet_code` but are not yet written. Nothing below
+is assumed: `IsCentral` is a definition and every result is a theorem. -/
+
+/-- **Centre of the concrete carrier.** `E` is central when it lies in the
+carrier and is compatible with every carrier element -- concretely (the
+`Blocks.Compat` test), every intersection `E ∩ A` is again in the carrier. -/
+def IsCentral (U : UlamMatrix M) (E : Set (M × Fin 4)) : Prop :=
+  (carrier U).Has E ∧ ∀ A, (carrier U).Has A → (carrier U).Has (E ∩ A)
+
+/-- Meeting with `coreA = M × {0,1}` empties coordinates 2 and 3. -/
+theorem trace_inter_coreA_23 (E : Set (M × Fin 4)) {f : Fin 4} (hf : f = 2 ∨ f = 3) :
+    trace (E ∩ coreA M) f = ∅ := by
+  ext x
+  simp only [trace, Set.mem_setOf_eq, Set.mem_inter_iff, coreA,
+    Set.mem_preimage, Set.mem_insert_iff, Set.mem_singleton_iff,
+    Set.mem_empty_iff_false, iff_false, not_and]
+  intro _
+  rcases hf with rfl | rfl <;> decide
+
+/-- A countable trace forces its selected set countable. -/
+theorem sel_countable_of_trace_countable
+    {E : Set (M × Fin 4)} {ξ : Set M} {b : Bool} {f : Fin 4}
+    (hr : CEq (trace E f) (sel ξ b)) (hc : (trace E f).Countable) :
+    (sel ξ b).Countable := by
+  refine Set.Countable.mono ?_ (hc.union hr)
+  intro x hx
+  by_cases hxf : x ∈ trace E f
+  · left; exact hxf
+  · right; simp [CEq, Set.mem_symmDiff, hxf, hx]
+
+/-- **`cor:stripping`, the impossibility half.** Countable coordinates 2 and 3
+force `κ 2 = κ 3`: otherwise the two selected sets are `ξ` and `ξᶜ`, both
+countable, making `M` countable. This is what kills the weight-2 cosets. -/
+theorem codes_eq_of_traces_countable (huncount : ¬ (Set.univ : Set M).Countable)
+    {E : Set (M × Fin 4)} {ξ : Set M} {κ : Fin 4 → Bool}
+    (hrep : Represents E ξ κ)
+    (h2 : (trace E 2).Countable) (h3 : (trace E 3).Countable) :
+    κ 2 = κ 3 := by
+  by_contra hne
+  have c2 := sel_countable_of_trace_countable (hrep 2) h2
+  have c3 := sel_countable_of_trace_countable (hrep 3) h3
+  apply huncount
+  cases e2 : κ 2 <;> cases e3 : κ 3 <;> rw [e2] at c2 <;> rw [e3] at c3
+  · exact absurd (e2.trans e3.symm) hne
+  · simpa using c3.union c2
+  · simpa using c2.union c3
+  · exact absurd (e2.trans e3.symm) hne
+
+/-- **The code restriction for central sets.** For central `E`, the carrier set
+`E ∩ coreA` has coordinates 2,3 empty, so `cor:stripping` plus normalization
+leaves only `zeroCode` and `κA`: the weight-2 cosets `κB`, `κC` are excluded.
+This is the step `cor:centre` runs three times (with `coreA`, `coreB`, `coreC`)
+to force a common trace class. -/
+theorem central_meet_code (huncount : ¬ (Set.univ : Set M).Countable)
+    (U : UlamMatrix M) {E : Set (M × Fin 4)} (hc : IsCentral U E) :
+    ∃ ξ κ, NRep (E ∩ coreA M) ξ κ ∧ (κ = zeroCode ∨ κ = κA) := by
+  obtain ⟨ξ, κ, hEven, hκ3, hrep⟩ := nrep_exists huncount (hc.2 _ (has_coreA U))
+  refine ⟨ξ, κ, ⟨hEven, hκ3, hrep⟩, ?_⟩
+  have h2 : (trace (E ∩ coreA M) 2).Countable := by
+    rw [trace_inter_coreA_23 E (Or.inl rfl)]; exact Set.countable_empty
+  have h3 : (trace (E ∩ coreA M) 3).Countable := by
+    rw [trace_inter_coreA_23 E (Or.inr rfl)]; exact Set.countable_empty
+  have hk2 : κ 2 = false := by
+    rw [codes_eq_of_traces_countable huncount hrep h2 h3, hκ3]
+  rcases normalized_code_cases hEven hκ3 with h | h | h | h
+  · exact Or.inl h
+  · exact Or.inr h
+  · exfalso; rw [h] at hk2; simp [κB] at hk2
+  · exfalso; rw [h] at hk2; simp [κC] at hk2
+
+#print axioms central_meet_code
+
 end SigmaEssential.Ulam

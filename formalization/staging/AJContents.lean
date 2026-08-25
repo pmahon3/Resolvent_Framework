@@ -17,11 +17,10 @@ Two pieces, both general rather than tower-specific:
 The tower supplies the inclusions: `X_antitone` gives `X n subset X m` for
 `m <= n`, which is the right direction (checked).
 
-WHAT REMAINS for the tower instance: discharging
-`(mu n).map (incl h) = mu m` for `mu k := ajTrace`. Both sides send a
-measurable `S = E n X_m` to `lambda E`, so it should follow from
-`traceMeasure_apply` on each side -- but it is NOT yet written, and it is the
-last mathematical step of unit 3.
+DISCHARGED 2026-08-24: the tower instance of `(mu n).map (incl h) = mu m` is
+`ThickTrace.ajTrace_compat`, off `map_incl_traceMeasure` -- both sides send a
+trace `E n X` to `lambda E`, and the inclusion pulls a trace back to the trace
+definitionally. Unit 3 is complete.
 
 Axiom-free: [propext, Classical.choice, Quot.sound].
 -/

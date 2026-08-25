@@ -231,4 +231,39 @@ theorem volume_Icc_one : volume (Set.Icc (0:ℝ) 1) = 1 := by simp
 #print axioms ajTrace
 #print axioms ajTrace_apply
 #print axioms ajThickIn
+
+/-! ## Compatibility along inclusions -- the last step of unit 3
+
+`marginal_compat` (unit 3) reduces Kolmogorov consistency of the AJ marginals to
+`(μ n).map (incl h) = μ m` on the base measures. For trace measures that holds
+for the simplest possible reason: both sides send a trace `E ∩ X` to `λ E`. -/
+
+/-- Inclusion of subtypes induced by `Y ⊆ X`. -/
+def incl {X Y : Set ℝ} (h : Y ⊆ X) (y : ↥Y) : ↥X := ⟨y.1, h y.2⟩
+
+theorem measurable_incl {X Y : Set ℝ} (h : Y ⊆ X) : Measurable (incl h) := by
+  rintro S ⟨E, hE, rfl⟩
+  exact ⟨E, hE, rfl⟩
+
+/-- The inclusion pulls a trace back to the trace -- definitionally. -/
+theorem incl_preimage {X Y : Set ℝ} (h : Y ⊆ X) (E : Set ℝ) :
+    incl h ⁻¹' (Subtype.val ⁻¹' E : Set ↥X) = (Subtype.val ⁻¹' E : Set ↥Y) := rfl
+
+/-- **Trace measures are compatible along inclusions.** -/
+theorem map_incl_traceMeasure {X Y : Set ℝ} (hX : Thick X) (hY : Thick Y)
+    (h : Y ⊆ X) : (traceMeasure hY).map (incl h) = traceMeasure hX := by
+  refine Measure.ext fun S hS => ?_
+  obtain ⟨E, hE, rfl⟩ := (measurableSet_subtype_iff S).mp hS
+  rw [Measure.map_apply (measurable_incl h) hS, incl_preimage,
+      traceMeasure_apply hY hE, traceMeasure_apply hX hE]
+
+/-- **The AJ tower instance.** `X_antitone` gives `X n ⊆ X m` for `m ≤ n`, so
+the tower's trace measures satisfy exactly the hypothesis `marginal_compat`
+needs. -/
+theorem ajTrace_compat (α : ℝ) (hα : Irrational α) {m n : ℕ} (h : m ≤ n) :
+    (ajTrace α hα n).map (incl (AndersenJessen.X_antitone α h)) = ajTrace α hα m :=
+  map_incl_traceMeasure (thick_X α hα m) (thick_X α hα n) _
+
+#print axioms map_incl_traceMeasure
+#print axioms ajTrace_compat
 end ThickTrace

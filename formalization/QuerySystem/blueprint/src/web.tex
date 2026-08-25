@@ -4,11 +4,12 @@
 
 \usepackage{amssymb, amsthm, amsmath}
 \usepackage{hyperref}
-% thms: include `remark` among the dependency-graph node types. The default
-% (definition+lemma+proposition+theorem+corollary) silently drops remarks and
-% their \uses edges from the graph -- which hid rmk:phi-open, the arc's
-% culminating OPEN node, and the Andersen-Jessen refutation record.
-\usepackage[showmore, dep_graph, thms=definition+lemma+proposition+theorem+corollary+remark]{blueprint}
+% The dependency graph carries mathematical objects only -- definitions,
+% lemmas, theorems, corollaries. `remark` is deliberately NOT among the node
+% types (this is plastexdepgraph's default): remarks here are commentary and
+% status notes, and a graph node for one asserts a dependency structure that
+% commentary does not have.
+\usepackage[showmore, dep_graph]{blueprint}
 
 \input{macros/common}
 \input{macros/web}

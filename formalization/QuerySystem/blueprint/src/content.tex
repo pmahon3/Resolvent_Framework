@@ -22,6 +22,7 @@ A \emph{refinement} between queries is a measurable function showing how outcome
 \label{def:query-system}
 \lean{QuerySystem}
 \leanok
+\uses{def:query, def:refine}
 A \emph{query system} is a preordered family of queries with coherent refinement maps. It consists of:
 \begin{itemize}
 \item An index type $\iota$
@@ -121,19 +122,6 @@ Two (finite) measures on the projective limit $\Omega$ are equal if and only if 
 Apply the $\pi$-$\lambda$ theorem to the cylinder $\sigma$-algebra. The cylinders form a $\pi$-system by \ref{lem:pi-system}, and the hypothesis gives agreement on all cylinders.
 \end{proof}
 
-\begin{theorem}[Observational Determination for Probability Measures]
-\label{thm:observational-determination-prob}
-\lean{QuerySystem.observational_determination_prob}
-\leanok
-\uses{thm:observational-determination}
-If two probability measures on $\Omega$ have equal marginals on all queries, then they are equal.
-\end{theorem}
-
-\begin{proof}
-\leanok
-Immediate from \ref{thm:observational-determination}, since a probability measure is in particular a finite measure.
-\end{proof}
-
 \subsection{Observational Extension}
 
 \begin{lemma}[Premeasure Well-Definedness]
@@ -151,27 +139,15 @@ Given two upper bounds, use upper-directedness to find a common refinement of bo
 
 \chapter{The observational extension theorem, and the obstruction}
 
-Nothing in this chapter is open, and the development is \texttt{sorry}-free.
-It records the extension layer as it actually stands after the 2026-08-22/23
-correction:
-\begin{itemize}
-\item the extension theorem is \emph{proved}, axiom-free, under
-  \emph{sequential} upper-directedness
-  (\ref{thm:observational-extension-seq}, \ref{thm:stone-observational-extension});
-\item under plain upper-directedness the statement --- and with it the
-  $\sigma$-subadditivity lemma this chapter long recorded as ``the open
-  problem'' --- is \textbf{false}, by Andersen--Jessen
-  (\ref{rmk:kolmogorov-refuted});
-\item the mechanism of that failure, the escaping tower, is machine-checked
-  (\ref{thm:no-extension-tower});
-\item the Stone space buys a genuinely finitely additive theorem needing no
-  collective exhaustion and no directedness beyond upper
-  (\ref{thm:stone-measure-exists}).
-\end{itemize}
-An earlier version of this chapter framed the whole thing around a blocked
-Yosida--Hewitt decomposition. That diagnosis was wrong twice over: the
-statement it was meant to close was false as stated, and the repaired
-statement needs no charge theory at all.
+From a compatible family of finitely additive charges to a single probability
+measure on $\Omega$. The extension theorem holds under \emph{sequential}
+upper-directedness (\ref{thm:observational-extension-seq},
+\ref{thm:stone-observational-extension}); under plain upper-directedness it is
+false, and \S\ref{sec:sequentiality} exhibits the counterexample. The
+mechanism of that failure --- an escaping tower --- is machine-checked
+(\ref{thm:no-extension-tower}). On the Stone space there is a genuinely
+finitely additive theorem, needing no collective exhaustion and no
+directedness beyond upper (\ref{thm:stone-measure-exists}).
 
 \section{Charges, collective exhaustion, and the Stone space}
 
@@ -182,16 +158,6 @@ statement needs no charge theory at all.
 $\mathrm{St}(S)$ is the space of ultrafilters on $\Omega$, i.e. the
 Stone--\v{C}ech compactification of $\Omega$ regarded as a discrete set. It is
 compact, Hausdorff and totally disconnected.
-\end{definition}
-
-\begin{definition}[Stone embedding]
-\label{def:stone-embedding}
-\lean{stoneEmbedding}
-\leanok
-\uses{def:stone-space}
-$\Omega \to \mathrm{St}(S)$, $\omega \mapsto$ the principal ultrafilter at
-$\omega$. Its range is exactly the principal ultrafilters, and it has dense
-range.
 \end{definition}
 
 \begin{definition}[Cylinder clopens]
@@ -240,7 +206,7 @@ $j \geq i$ witnesses the convergence''. It does not. Compatibility gives
 $\nu_i(A) = \nu_j(\pi^{-1}A)$ outright, so the quantity tested at $j$ is
 \emph{equal} to the one at $i$ and the existential is cosmetic. CE is
 therefore strictly a per-level condition; it cannot see the passage between
-levels, and \ref{rmk:kolmogorov-refuted} shows the failure of extension lives
+levels, and \S\ref{sec:sequentiality} shows the failure of extension lives
 exactly there.
 \end{proof}
 
@@ -255,10 +221,10 @@ genuine measure on that level's outcome space.
 
 \begin{proof}
 \leanok
-Proved. This is the form the extension theorem consumes: collective
-exhaustion is available as ``each $\nu_i$ is countably additive''. It
-characterises \emph{per-level} extensibility only; read as global
-extensibility the characterisation is false (\ref{rmk:kolmogorov-refuted}).
+This is the form the extension theorem consumes: collective exhaustion is
+available as ``each $\nu_i$ is countably additive''. It characterises
+\emph{per-level} extensibility only; read as global extensibility the
+characterisation is false (\S\ref{sec:sequentiality}).
 \end{proof}
 
 \section{The extension theorem}
@@ -267,7 +233,7 @@ extensibility the characterisation is false (\ref{rmk:kolmogorov-refuted}).
 \label{thm:observational-extension-seq}
 \lean{QuerySystem.observational_extension}
 \leanok
-\uses{lem:cylgen-sigma-subadd, thm:observational-determination, def:compatible-marginals, def:seq-upper-directed, def:eval-surjective}
+\uses{lem:cylgen-sigma-subadd, lem:premu-well-defined, thm:observational-determination, def:compatible-marginals, def:seq-upper-directed, def:eval-surjective}
 If $S$ is \emph{sequentially} upper-directed with surjective evaluations and
 $\nu_i$ is a compatible family of probability \emph{measures}, then there is a
 unique probability measure $P$ on $\Omega$ with
@@ -276,9 +242,11 @@ $\mathrm{map}(\mathrm{eval}_i)\,P = \nu_i$ for every $i$.
 
 \begin{proof}
 \leanok
-\uses{lem:cylgen-sigma-subadd, thm:observational-determination}
+\uses{lem:cylgen-sigma-subadd, lem:premu-well-defined, thm:observational-determination}
 Carath\'eodory on the cylinder semiring directly --- no Stone space. Build the
-cylinder content, prove $\sigma$-subadditivity
+cylinder content --- its value on a cylinder is \texttt{pre}$\mu$ at a
+singleton presentation, so \ref{lem:premu-well-defined} is what makes the
+content well defined at all --- prove $\sigma$-subadditivity
 (\ref{lem:cylgen-sigma-subadd}), extend, recover marginals; uniqueness is
 \ref{thm:observational-determination}.
 \end{proof}
@@ -303,31 +271,9 @@ no single $\nu_m$ dominates a countable cover --- and that gap is not a gap in
 ingenuity: with ordinary upper-directedness plus collective exhaustion in
 place of sequentiality, this lemma is \textbf{false}, by the same
 Andersen--Jessen system that refutes the extension theorem
-(\ref{rmk:kolmogorov-refuted}). Were it true, the Carath\'eodory pipeline
+(\S\ref{sec:sequentiality}). Were it true, the Carath\'eodory pipeline
 above --- which past this lemma needs only pairwise upper-directedness ---
 would manufacture the extension that system provably lacks.
-\end{proof}
-
-\begin{lemma}[The cylinder family is a set ring]
-\label{lem:cylgen-setring}
-\lean{QuerySystem.isSetRing_CylGen}
-\leanok
-\uses{def:cylinder, def:upper-directed}
-Under upper-directedness the cylinder events are closed under union and
-difference, not merely under the semiring operations.
-\end{lemma}
-
-\begin{proof}
-\leanok
-Lift both cylinders to a common level with \texttt{cyl\_refine}; union and
-difference are then computed inside one outcome space and stay cylinders.
-
-Recorded for the API, not for the spine: the ring structure was originally
-wanted for the continuity-at-$\emptyset$ route
-(\texttt{addContent\_iUnion\_eq\_sum\_of\_tendsto\_zero} requires a ring),
-which was aimed at exactly the statement \ref{rmk:kolmogorov-refuted} shows is
-false. The lemma is kept as a true strengthening of the cylinder API; nothing
-in the proved chain depends on it.
 \end{proof}
 
 \begin{theorem}[Observational extension from charges]
@@ -353,117 +299,74 @@ uniqueness clause included. No Stone space and no charge theory are needed.
 \end{proof}
 
 \section{Sequentiality is not removable}
+\label{sec:sequentiality}
 
-\begin{remark}[Under plain upper-directedness the statement is false]
-\label{rmk:kolmogorov-refuted}
-\uses{lem:ce-levelwise, thm:observational-extension-seq}
-\ref{thm:stone-observational-extension} originally assumed only
-\emph{ordinary} upper-directedness. By \ref{lem:ce-levelwise} its hypotheses
-then read: compatible marginals, each $\sigma$-additive, plus
-upper-directedness and surjective evaluations --- the Kolmogorov extension
-theorem \emph{with no regularity or compactness hypothesis of any kind} (the
-outcome spaces carry only a $\sigma$-algebra). That statement is
-\textbf{false}, and so, for the same reason, is the once-open claim that
-ordinary upper-directedness plus collective exhaustion makes the cylinder
-content $\sigma$-subadditive (formerly ``the open problem'' of this chapter;
-see \ref{lem:cylgen-sigma-subadd}). The
-Andersen--Jessen construction (Sparre Andersen and Jessen 1948; exposition in
-K.~C.~Border, \emph{Kolmogorov Extension Problem}, Prop.~17, itself following
-Halmos \emph{Measure Theory} pp.~68--70) instantiates every hypothesis and
-refutes the conclusion.
+Drop sequentiality to plain upper-directedness and the hypotheses of
+\ref{thm:stone-observational-extension} read, via \ref{lem:ce-levelwise}:
+compatible marginals, each $\sigma$-additive, plus upper-directedness and
+surjective evaluations. That is Kolmogorov extension with no regularity or
+compactness hypothesis of any kind --- the outcome spaces carry only a
+$\sigma$-algebra --- and it is false. The Andersen--Jessen construction
+(Sparre Andersen and Jessen 1948; exposition in K.~C.~Border,
+\emph{Kolmogorov Extension Problem}, Prop.~17, following Halmos
+\emph{Measure Theory} pp.~68--70) instantiates every hypothesis and refutes
+the conclusion.
 
-\textbf{The construction.} Take $M_k$ decreasing with $X_k = M_k \cap [0,1]$
-\emph{thick} in $[0,1]$ --- full outer measure --- and $X_k \downarrow
-\emptyset$. Thickness makes $\Sigma_k = \{E \cap X_k : E$ Lebesgue
-measurable$\}$ with $\lambda_k(E \cap X_k) = \lambda(E)$ a well defined
-\emph{$\sigma$-additive} probability space. Index by $\mathbb{N}$ under $\leq$;
-put $\mathrm{Outcome}_n = X_0 \times \cdots \times X_n$ with the projections as
-bonding maps; then $\Omega = \prod_k X_k$. Define $P_n$ by pushing $\lambda_n$
+\emph{The construction.} Take $X_k \subseteq [0,1]$ \emph{thick} --- full
+outer measure --- and decreasing with $X_k \downarrow \emptyset$. Thickness
+makes $\Sigma_k = \{E \cap X_k : E \text{ Lebesgue measurable}\}$ with
+$\lambda_k(E \cap X_k) = \lambda(E)$ a well defined \emph{$\sigma$-additive}
+probability space. Index by $\mathbb{N}$ under $\leq$; put
+$\mathrm{Outcome}_n = X_0 \times \cdots \times X_n$ with the projections as
+bonding maps, so $\Omega = \prod_k X_k$; define $P_n$ by pushing $\lambda_n$
 forward along the diagonal $x \mapsto (x,\dots,x)$. These are Kolmogorov
 consistent.
 
-\textbf{The refutation.} The diagonal cylinders
+\emph{The refutation.} The diagonal cylinders
 $D_n = \{(x,\dots,x) \times \prod_{k>n} X_k : x \in X_n\}$ have
 $P(D_n) = \lambda_n(X_n) = 1$ for every $n$, while $\bigcap_n D_n = \emptyset$
-because $X_k \downarrow \emptyset$. No measure can give every term of a
+because $X_k \downarrow \emptyset$. No measure gives every term of a
 decreasing sequence mass $1$ and the limit mass $0$.
 
-\textbf{Why every hypothesis holds.} $\mathbb{N}$ is a chain, so
-upper-directed --- and \emph{not} sequentially upper-directed, since
-$(0,1,2,\dots)$ has no upper bound: exactly the gap between this theorem and
-\ref{thm:observational-extension-seq}. The bonding maps and every
-$\mathrm{eval}_n$ are projections onto initial segments, hence surjective
-(each $X_k$ is thick, so nonempty), giving \texttt{EvalSurjective}. Each $P_n$
-is a genuine measure, so collective exhaustion holds by \ref{lem:ce-levelwise}.
-The variance matches: \texttt{QuerySystem} has $\pi :
-\mathrm{Outcome}_j \to \mathrm{Outcome}_i$ for $i \leq j$, the inverse-system
-direction.
+\emph{Every hypothesis holds.} $\mathbb{N}$ is a chain, hence upper-directed,
+and \emph{not} sequentially upper-directed, since $(0,1,2,\dots)$ has no upper
+bound --- exactly the gap. Every $\mathrm{eval}_n$ is a projection onto an
+initial segment, hence surjective (each $X_k$ is thick, so nonempty). Each
+$P_n$ is a genuine measure, so collective exhaustion holds by
+\ref{lem:ce-levelwise}. The variance matches: \texttt{QuerySystem} has
+$\pi : \mathrm{Outcome}_j \to \mathrm{Outcome}_i$ for $i \leq j$, the
+inverse-system direction.
 
-\textbf{What fails, and what it costs.} Every level is $\sigma$-additive; the
-failure lives entirely in the passage between levels, which a per-level
-condition cannot see. So the claim that collective exhaustion characterises
-\emph{$\sigma$-additive extensibility} is correct only for the per-level
-reading proved in \ref{thm:sp1-iff}; read as global extensibility it is false,
-and that reading appears in the prose around the definition. This is a defect in
-a central definition of the paper, not in a Lean proof.
+So the failure lives entirely in the passage between levels, where a per-level
+condition cannot see it: collective exhaustion characterises $\sigma$-additive
+extensibility \emph{per level} (\ref{thm:sp1-iff}) and not globally. The
+alternative to assuming sequentiality is a compact-class or perfect-measure
+condition on the marginals (Marczewski), the classical hypothesis.
 
-Repairs, in increasing order of ambition: assume sequential upper-directedness,
-in which case \ref{thm:observational-extension-seq} already proves it; or
-assume a compact class / perfect-measure condition on the marginals
-(Marczewski), the classical hypothesis, and port that theorem instead.
+The hypothesis-match above is verified against the source hypothesis by
+hypothesis. Its load-bearing step, the surjectivity clause, is no longer a hand
+check: \texttt{staging/H1\_EvalSurjective.lean} proves \texttt{EvalSurjective}
+for this shape against \texttt{Omega} and \texttt{eval} themselves, receipts
+\texttt{[propext, Classical.choice, Quot.sound]}. Note $\Omega$ is the subtype
+of \emph{coherent} families, not the bare product --- surjectivity onto a
+projective limit can fail with every level nonempty --- but here the bonding
+maps are initial-segment restrictions, so coherence is automatically
+satisfiable and nonemptiness of each $X_k$ suffices. The thick tower is
+machine-checked too (\ref{thm:aj-tower}); \ref{rmk:aj-remaining} states what
+remains to make the whole refutation kernel-checked.
 
-\textbf{Status.} Verified on paper against the Lean hypotheses, hypothesis by
-hypothesis. The surjectivity check --- the one load-bearing step that was
-hand-verified --- is now machine-checked: \texttt{staging/H1\_EvalSurjective.lean}
-proves \texttt{EvalSurjective} for the Andersen--Jessen shape against
-\texttt{Omega} and \texttt{eval} themselves, receipts \texttt{[propext,
-Classical.choice, Quot.sound]} (worklist H1, resolved 2026-08-24). The thick
-tower itself is machine-checked too (\ref{thm:aj-tower}); what still separates
-this from a kernel-checked refutation is the trace-measure and
-projective-system layer of \ref{rmk:aj-remaining}.
-\end{remark}
-
-\begin{remark}[Repaired, and what the repair costs]
-\label{rmk:extension-repaired}
-\uses{rmk:kolmogorov-refuted, thm:observational-extension-seq, thm:sp1-iff, thm:stone-measure-exists}
-\leanok
-\ref{thm:stone-observational-extension} is now \emph{proved}, with
-\texttt{UpperDirected} strengthened to \texttt{SequentiallyUpperDirected}.
-Receipts \texttt{[propext, Classical.choice, Quot.sound]}. The development is
-\texttt{sorry}-free.
-
-The proof does not go through the Stone space and needs no charge theory:
-\ref{thm:sp1-iff} converts collective exhaustion into a genuine measure at each
-level, compatibility transfers because each $\mu_i$ agrees with $\nu_i$ on every
-measurable set, and \ref{thm:observational-extension-seq} finishes on $\Omega$
-directly.
-
-\textbf{What the hypothesis costs.} Sequential upper-directedness says the
-completed query $\bigvee_n Q_n$ is itself a query --- something no finite
-observer realises. It is natural exactly when a query is a $\sigma$-algebra of
-resolvable events and the family is closed under countable joins, and it is not
-a new idealisation: making each query a $\sigma$-algebra already assumes
+What sequentiality costs is that the completed query $\bigvee_n Q_n$ must
+itself be a query. That is natural when a query is a $\sigma$-algebra of
+resolvable events closed under countable joins, and it is not a fresh
+idealisation --- making each query a $\sigma$-algebra already assumes
 completed countable operations, and $\bigcup_n E_n$ is as unphysical as
-$\bigvee_n Q_n$. What it excludes is the finite-dimensional marginal family ---
-precisely where \ref{rmk:kolmogorov-refuted} lives.
-
-\textbf{Three positions, and the theorem for each.} Neither counterexample is
-avoidable, so strength must be paid at one layer or the other:
-\begin{itemize}
-\item completed countable queries admitted:
-  \ref{thm:observational-extension-seq} and
-  \ref{thm:stone-observational-extension} --- proved;
-\item only finite observers, contents rather than measures:
-  \ref{thm:stone-measure-exists} --- proved, no directedness beyond
-  upper, no CE. Free ultrafilters carrying mass are then not a pathology but
-  the trace of observers who never complete their observations;
-\item neither: false, by \ref{rmk:kolmogorov-refuted}.
-\end{itemize}
-The index-layer condition alone is also insufficient
-(\texttt{counterexampleQS\_no\_finitary\_condition}), so a valuation-layer
-condition and an index-layer condition are both required, with a counterexample
-in each direction.
-\end{remark}
+$\bigvee_n Q_n$. What it excludes is precisely the finite-dimensional marginal
+family above. Weakening instead to finitely additive contents keeps a theorem
+without it (\ref{thm:stone-measure-exists}); assuming neither leaves nothing,
+and the index layer alone does not suffice either
+(\texttt{counterexampleQS\_no\_finitary\_condition}), so a valuation-layer and
+an index-layer condition are both required, with a counterexample in each
+direction.
 
 \section{The finitely additive theorem on the Stone space}
 
@@ -475,9 +378,9 @@ in each direction.
 There is a probability measure $\hat P$ on $\mathrm{St}(S)$ with
 $\hat P(E) = m(E)$ for every cylinder clopen $E$, where $m$ is the additive
 content transferred from $\nu$ along the Stone embedding. No collective
-exhaustion and no directedness beyond upper: this is the middle position of
-\ref{rmk:extension-repaired}, the theorem for observers who never complete
-their observations.
+exhaustion and no directedness beyond upper: this is the theorem available to
+an observer who never completes a countable family of queries, and on it free
+ultrafilters carrying mass are not a pathology but the trace of exactly that.
 \end{theorem}
 
 \begin{proof}
@@ -485,13 +388,9 @@ their observations.
 \uses{def:stone-clopens}
 Transfer $\nu$ to an additive content on the cylinder clopens; prove
 $\sigma$-subadditivity using compactness of the Stone space (every countable
-cover of a clopen has a finite subcover); apply Carath\'eodory.
-
-\emph{Record.} Until 2026-08-22 the conclusion of this theorem was only
-``$\exists \hat P$, $\hat P$ is a probability measure'', which never mentions
-$\nu$ --- and was therefore satisfied by a Dirac measure at any ultrafilter,
-with the hypotheses unused. The extension the proof builds was discarded at
-the statement boundary. The agreement clause above is the content.
+cover of a clopen has a finite subcover); apply Carath\'eodory. The agreement
+clause is the content of the statement: without it the conclusion never
+mentions $\nu$ and is satisfied by a Dirac measure at any ultrafilter.
 \end{proof}
 
 \section{The obstruction, formalized}
@@ -529,21 +428,6 @@ valuation layer around a tower; one can only assume an index layer rich enough
 that no tower exists.
 \end{proof}
 
-\begin{remark}[What remains unformalized]
-\label{rmk:tower-remaining}
-\uses{thm:no-extension-tower, rmk:kolmogorov-refuted}
-\ref{thm:no-extension-tower} is the framework-specific half of
-\ref{rmk:kolmogorov-refuted} and is machine-checked, and the hard analytic
-object --- the decreasing sequence of \emph{thick} subsets of $\mathbb{R}$
-with empty intersection --- is machine-checked too (\ref{thm:aj-tower}). What
-still separates the hand-checked refutation from a kernel-checked one is the
-layer between them: the trace measure on a thick set and the projective
-system over $X_0 \times \cdots \times X_n$ with the diagonal maps
-(\ref{rmk:aj-remaining}). Until that layer is done, the claim that the
-original statement was false rests on a hand check against the source, not on
-the kernel. The mechanism, and the tower, do not.
-\end{remark}
-
 \begin{theorem}[The obstruction is not vacuous]
 \label{thm:tower-inhabited}
 \lean{QuerySystem.counterexampleTower}
@@ -558,9 +442,8 @@ the hyperfilter hence of content $1$, while $\bigcap_n E_n = \emptyset$.
 \leanok
 Direct. The point is not the construction --- the same sequence already
 appears in \texttt{counterexampleNCC\_not\_collectivelyExhaustive} --- but that
-\ref{def:escaping-tower} is inhabited. A structure nobody can instantiate would
-make \ref{thm:no-extension-tower} empty content, and this session has already
-turned up one theorem whose statement was satisfiable by a Dirac measure.
+\ref{def:escaping-tower} is inhabited, without which
+\ref{thm:no-extension-tower} would be empty content.
 \end{proof}
 
 \begin{corollary}[The finite--cofinite system admits no extension]
@@ -574,7 +457,7 @@ point: the tower is the reusable content of that counterexample.
 Note what it does \emph{not} show. This system fails collective exhaustion
 (\texttt{counterexampleNCC\_not\_collectivelyExhaustive}), so it does not
 refute the plain-upper-directedness extension statement
-(\ref{rmk:kolmogorov-refuted}). Refuting that needs a tower in a system
+(\S\ref{sec:sequentiality}). Refuting that needs a tower in a system
 where every level \emph{is} $\sigma$-additive, which is what forces the thick
 sets of \ref{thm:aj-tower} and why Andersen--Jessen is harder than this.
 \end{corollary}
@@ -592,13 +475,12 @@ each of full outer measure, whose intersection is empty. Every level carries all
 the measure, the limit carries none. That is the non-regularity phenomenon
 itself, and it has no analogue over Polish spaces.
 
-Built here by a shorter route than the source (Border, following
-Halmos pp.~68--70), which uses a parity split. Parity caps out: a set with all
-even differences lies in a coset of $2\mathbb{Z}+\alpha\mathbb{Z}$, and there are
-only two such cosets, so it can never separate more than two pieces. Finiteness
-has no such cap. The Lean file retains the source's parity layer
-(\texttt{B}, \texttt{C}, \texttt{M}, \texttt{repr\_unique}) as a record of the
-route, but the tower below rests on the finiteness argument alone.
+The tower is built from \emph{finiteness} rather than the parity split of the
+source (Border, following Halmos pp.~68--70). Parity caps out: a set with all
+even differences lies in a coset of $2\mathbb{Z}+\alpha\mathbb{Z}$, of which
+there are two, so it can never separate more than two pieces and gives
+thickness only at $k = 0$. A finite set has no such cap, and
+\ref{thm:aj-finite} gives thickness at every level.
 See \texttt{notes/andersen\_jessen\_brief.md}.
 
 \begin{definition}[The group]
@@ -622,8 +504,7 @@ $A$ is dense in $\mathbb{R}$.
 $2\mathbb{Z}+\alpha\mathbb{Z}$ is a subgroup, so by
 \texttt{AddSubgroup.dense\_or\_cyclic} it is dense or cyclic; a generator $g$
 would give $2 = pg$ and $\alpha = qg$, making $\alpha = 2q/p$ rational. Density
-of $A$ follows by monotonicity. The source instead proves density of $B_k$ and
-$C_k$ for every $k$ by an equidistribution argument; that is not needed.
+of $A$ follows by monotonicity.
 \end{proof}
 
 \begin{lemma}[The transversal]
@@ -1275,20 +1156,6 @@ The same existence sentence with latticehood (\texttt{MeetsExist}) adjoined to
 the carrier. Stated in Lean as a \texttt{Prop}, never assumed.
 \end{definition}
 
-\begin{lemma}[The lattice form is stronger]
-\label{lem:psi-oml-implies}
-\lean{SigmaEssential.Ulam.psiOML_gives_sigmaEssential}
-\leanok
-\uses{def:psi-oml, def:psi-amended}
-$\Psi_{\mathrm{OML}}$ implies $\Psi$: an OML witness drops its latticehood
-conjunct.
-\end{lemma}
-
-\begin{proof}
-\leanok
-Drop the latticehood conjunct from the witness package.
-\end{proof}
-
 \begin{remark}[$\Phi$, and what is actually open]
 \label{rmk:phi-open}
 \uses{def:psi-oml, lem:witness-not-lattice}
@@ -1509,9 +1376,7 @@ statement is about iterates directly; \ref{def:evperiodic} is not consumed.)
 \begin{proof}
 \leanok
 The sequence $n \mapsto f^n(b)$ cannot be injective, so it repeats; being
-generated deterministically, it is periodic from the first repeat onward. This
-is the first-repeat argument of the source note, with the Boolean-matrix monoid
-packaging removed.
+generated deterministically, it is periodic from the first repeat onward.
 \end{proof}
 
 \begin{lemma}[Reachability is an iterate, and matches the raw walk]
@@ -1586,17 +1451,12 @@ generates. No orbit map has to be supplied by hand.
 \leanok
 \uses{lem:ng}
 The orbit map is \texttt{ZMod.lift} applied to \texttt{zmultiplesHom}, so
-$f(j+1) = f(j) + r$ falls out of \texttt{map\_add}. An earlier attempt defined
-$f$ by $j \mapsto j.\mathrm{val} \bullet r$ and had to case-split on the
-wrap-around at $j = m-1$; that \texttt{.val} bookkeeping is what made the lemma
-look not worth doing, and it disappears entirely under the universal property.
-Injectivity is the one place \texttt{.val} is still needed, and there it is a
-single divisibility step.
+$f(j+1) = f(j) + r$ falls out of \texttt{map\_add} rather than a case split on
+the wrap-around at $j = m-1$. Injectivity is the one place \texttt{.val} is
+needed, and there it is a single divisibility step.
 
 Feeding this to \ref{lem:ng} gives the winding-$m$ conclusion with no data
-argument. Still open: pairwise disjointness of the $d$ orbit cycles. The
-refutation half is no longer oracle-only --- it is \ref{thm:ng-refute}, in the
-kernel.
+argument. Still open: pairwise disjointness of the $d$ orbit cycles.
 \end{proof}
 
 \begin{theorem}[Lemma NG, refutation half]
@@ -1621,6 +1481,5 @@ directly.
 
 So a rotation witness at a non-generator certifies winding $k/d = 2$, not
 winding $k$ --- Theorem P's equivalence genuinely needs $r$ to generate, and
-\ref{lem:ng-orbit} is sharp. This previously rested on the oracle rot-check;
-it is now in the kernel.
+\ref{lem:ng-orbit} is sharp.
 \end{proof}

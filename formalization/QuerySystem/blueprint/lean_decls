@@ -9,10 +9,8 @@ QuerySystem.SequentiallyUpperDirected
 QuerySystem.EvalSurjective
 QuerySystem.isPiSystem_CylGen
 QuerySystem.observational_determination
-QuerySystem.observational_determination_prob
 QuerySystem.preμ_wellDefined
 stoneSpace
-stoneEmbedding
 stoneClopens
 QuerySystem.NormalizedCompatibleContents
 QuerySystem.CollectivelyExhaustive
@@ -20,7 +18,6 @@ QuerySystem.ce_iff_levelwise_continuity
 QuerySystem.sp1_iff
 QuerySystem.observational_extension
 QuerySystem.cylGen_addContent_isSigmaSubadditive
-QuerySystem.isSetRing_CylGen
 stone_observational_extension
 stone_measure_exists
 QuerySystem.EscapingTower
@@ -73,7 +70,6 @@ SigmaEssential.Ulam.corePattern_coherent
 SigmaEssential.Ulam.corePattern_witness
 SigmaEssential.Ulam.witness_carrier_not_lattice
 SigmaEssential.Ulam.PsiOML
-SigmaEssential.Ulam.psiOML_gives_sigmaEssential
 Reconstruction.Pruning.IsLISC
 Reconstruction.Pruning.IsTR
 Reconstruction.Pruning.isTR_one_of_isLISC

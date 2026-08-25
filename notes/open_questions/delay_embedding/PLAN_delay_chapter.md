@@ -1,0 +1,156 @@
+# Delay embedding: blueprint chapter + the predictive-sufficiency gaps
+
+**Written 2026-08-25.** Survey + plan. No new math.
+
+## Why this is worth doing
+
+`DelayEmbedding.lean` (620 lines, 26 declarations) formalizes the delay query
+system: the query at `(d,τ)` reads `d` samples at lag `τ`, with refinement
+`(d,τ) ≤ (d',τ')` iff `τ' ∣ τ` and `d' > (d-1)(τ/τ')`.
+
+Its punchline is one theorem:
+
+```
+theorem not_seqUpperDirected : ¬ (delayQuerySystem X).SequentiallyUpperDirected
+```
+
+The full delay system is upper-directed but **NOT** sequentially upper-directed.
+That is exactly the hypothesis `stone_observational_extension` needs and whose
+`UpperDirected` form is FALSE — refuted by Andersen–Jessen, now kernel-checked
+(`thm:aj-no-extension`, 2026-08-24). So delay embedding is a **natural, concrete
+system landing on the wrong side of the very hypothesis the AJ counterexample
+forced.** The extension theorem applies only after passing to
+`delayFixedLagBoundedSystem` (fixed lag, bounded depth), where
+`seqUpperDirected` does hold.
+
+That is the chapter's reason to exist, and it is already proved.
+
+## Verified status (2026-08-25)
+
+- 26 declarations, **axiom-clean** (`[propext, Classical.choice, Quot.sound]`)
+  on `delayQuerySystem`, `upperDirected`, `not_seqUpperDirected`,
+  `observational_extension_fixedLag`, `delay_cyclic_implies_reconstruction`.
+- **No real sorries.** The one `sorry` string is inside a docstring.
+- Imports `QuerySystem.QuerySystem` (in the blueprint, ch0) and
+  `QuerySystem.ReconstructionTheorem` (uncovered).
+- Blueprint decls it genuinely uses: `QuerySystem`, `Query`, `Omega`,
+  `UpperDirected`, `SequentiallyUpperDirected`, `observational_extension`.
+  These are **real Lean dependencies**, so they become **real DAG edges** — not
+  the prose-only kind the AJ chapter had before this week.
+
+## PHASE 1 — the chapter (do this now, standalone)
+
+Add a chapter on the STRUCTURAL half only. Everything in it is proved and
+axiom-clean; it must not be coupled to the disintegration project below.
+
+Nodes:
+
+| node | Lean |
+|---|---|
+| `def:delay-query` | `delayQuery`, `delayEval` |
+| `def:delay-refine` | `delayLe`, `delayRefineMap` |
+| `thm:delay-qs` | `delayQuerySystem` |
+| `thm:delay-upper` | `delayQuerySystem.upperDirected` |
+| `thm:delay-not-sud` | `delayQuerySystem.not_seqUpperDirected` ← **the point** |
+| `thm:delay-surj` | `delayQuerySystem.evalSurjective` |
+| `thm:delay-compat` | `delayQuerySystem.compatibleMarginals` |
+| `def:delay-fixed-lag` | `delayFixedLagBoundedSystem` |
+| `thm:delay-fixed-sud` | `delayFixedLagBoundedSystem.seqUpperDirected` |
+| `thm:delay-extension` | `observational_extension_fixedLag` |
+
+Expected new cross-chapter edges into ch0/ch1: `def:query-system`,
+`def:upper-directed`, `def:seq-upper-directed`, `thm:observational-extension-seq`.
+That would make it the **second** chapter with real incoming mathematical edges.
+
+Build `thm:delay-not-sud` as the chapter's centre, with prose (NOT a remark node —
+remarks were deliberately removed from the graph) pointing at
+`thm:aj-no-extension`.
+
+Record the six gaps below as a **prose section**, following the `sec:sequentiality`
+precedent.
+
+Coverage baseline moves 27 → 26. Regenerate deliberately in the same commit.
+
+## PHASE 2 — the predictive-sufficiency gaps
+
+The file's header lists six unformalized Paper-1 results:
+
+| gap | status after today's check |
+|---|---|
+| `def:delay-pred-map` φ_{d,τ} : Xᵈ → P(X) | **now supported** — see below |
+| `def:pred-sufficient` | supported |
+| `def:markov-order` | supported |
+| `thm:sufficiency` d ≥ m(τ,P) ↔ sufficiency | supported |
+| `prop:stationarity` | supported |
+| `cor:takens` | ⛔ **OUT OF SCOPE — see below** |
+
+### The unlock
+
+The 2025 note says these "require conditional probability infrastructure beyond
+the current scope". **Mathlib now has it**: `MeasureTheory.Measure.condKernel`
+and `Measure.disintegrate` (`ρ.fst ⊗ₘ ρCond = ρ`) in
+`Probability/Kernel/Disintegration/StandardBorel.lean`. Verified present.
+
+### ⚠ BLOCKING decision before any code
+
+`Measure.condKernel` requires `[StandardBorelSpace Ω] [Nonempty Ω]`.
+`DelayEmbedding` is stated for bare `[MeasurableSpace X]`. **So φ_{d,τ} cannot
+be defined at the file's current generality.** Two options, and this is a
+statement-fidelity call, not an implementation detail:
+
+- (a) `X` gains `[StandardBorelSpace X]`, and every existing structural theorem
+  either inherits it or gets split. Costs generality in the part that currently
+  has none.
+- (b) The predictive section is stated for a restricted subclass and says so
+  in the blueprint.
+
+**(b) is recommended** — the structural results are genuinely general and
+should not be narrowed to buy the probabilistic ones. Decide before writing.
+
+This is the same shape as two errors already made this session (`Thick` vs
+`ThickFor`; the trivial `IsConcrete` reading). Resolve it in the plan.
+
+*Side note, no action:* `StandardBorelSpace` is the same neighbourhood as
+`PolishRepresentable`, a cited axiom in the σ-essential lane where
+Derr–Williamson kills witnesses on Polish carriers. Different lane, no edge —
+but worth being conscious of rather than surprised by.
+
+### ⛔ Takens is out of scope
+
+`cor:takens` needs generic-embedding / differential-topology machinery.
+**Mathlib has nothing on Takens** (checked: no hits). Listing it beside the
+other five makes the plan look tractable when one item is a research project.
+Drop it from the deliverable; keep it as prose.
+
+## PHASE 3 — the archived modules: DO NOT ASSUME THEY WORK
+
+`archive/PredictiveState.lean` (639L, 14 decls) and
+`archive/PredictiveOperators.lean` (332L, 16 decls) import exactly the kernel /
+disintegration machinery Phase 2 needs, so they look like a head start.
+
+**They are not.** Commit `ce55bb4` says it outright: *"archive two that never
+compiled."* Confirmed today:
+
+- 28 errors. Applying the two obvious Mathlib renames (`Measurable.prodMk`,
+  `comap_le_iff_le_map`) takes it to 23 — so renames are a small minority.
+- Several errors are `set Q_* := ...`. **`Q_*` is not a valid Lean identifier**
+  — `*` cannot appear in a name. That code never parsed, in any Mathlib version.
+- `Measure.condExp` does not exist as a field (3 errors).
+- `PredictiveOperators`' single error is a missing `.olean` from
+  `PredictiveState`, so its 16 declarations are **unverified, not clean**.
+
+Treat these as a **design sketch to read, not a codebase to repair.** The
+mathematical intent (predictive kernel, minimal predictive state map,
+factorization) is worth mining; the proofs are not.
+
+Destination when rewritten: `staging/`, not the library — CI compiles staging
+without sorry-gating, and the ratchet is at 0 with a hard CI gate.
+
+## Recommended order
+
+1. **Phase 1 now.** Self-contained, all proved, gives the real ch0/ch1 edges.
+2. **Decide the StandardBorel question** (a) vs (b).
+3. Phase 2 `def:delay-pred-map` + `def:pred-sufficient` first — they are
+   definitions, and getting the statements right is the whole risk.
+4. `thm:sufficiency` last; it is the real theorem.
+5. Takens: never, unless Mathlib grows the machinery.

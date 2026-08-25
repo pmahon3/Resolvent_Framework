@@ -5,9 +5,20 @@ essential because `sorry` elaborates cleanly and would otherwise score as a pass
 """
 import os, re, subprocess, tempfile, json
 
-PROJ = r"C:\Users\pmahon\Research\Mathematics\Resolvent_Framework\formalization\QuerySystem"
+# The package root. Derived from this file's location so the harness runs on
+# `tower` (Windows) and on the laptop (macOS) without editing; the eval sets
+# record absolute per-case paths anyway, and those are rewritten in `splice`.
+PROJ = os.path.normpath(os.path.join(
+    os.path.dirname(os.path.abspath(__file__)), "..", "..", "QuerySystem"))
+
+WINDOWS = os.name == "nt"
+
 
 def _machine_path():
+    """On Windows read the SYSTEM+USER Path, since a service-spawned python may
+    inherit a stripped one. Elsewhere the inherited PATH is already right."""
+    if not WINDOWS:
+        return os.environ.get("PATH", "")
     p = subprocess.run(
         ["powershell", "-NoProfile", "-Command",
          '[System.Environment]::GetEnvironmentVariable("Path","Machine") + ";" + '
@@ -19,9 +30,18 @@ def _machine_path():
 ENV = dict(os.environ, PATH=_machine_path())
 
 # Windows CreateProcess resolves the exe against the CALLING process's PATH,
-# not env=, so `lake` must be an absolute path.
-LAKE = next((os.path.join(d, "lake.exe") for d in ENV["PATH"].split(os.pathsep)
-             if d and os.path.isfile(os.path.join(d, "lake.exe"))), "lake")
+# not env=, so `lake` must be an absolute path. POSIX honours env= directly, but
+# resolving anyway costs nothing and keeps the two paths identical.
+_LAKE_EXE = "lake.exe" if WINDOWS else "lake"
+LAKE = next((os.path.join(d, _LAKE_EXE) for d in ENV["PATH"].split(os.pathsep)
+             if d and os.path.isfile(os.path.join(d, _LAKE_EXE))),
+            os.path.expanduser("~/.elan/bin/lake") if not WINDOWS else "lake")
+
+def case_path(case):
+    """Absolute path of a case's source file on THIS machine."""
+    p = os.path.join(PROJ, "QuerySystem", case["file"])
+    return p if os.path.isfile(p) else case["path"]
+
 
 FENCE = re.compile(r"^\s*```(?:lean4?)?\s*|\s*```\s*$", re.M)
 
@@ -40,7 +60,10 @@ def clean(candidate: str) -> str:
 
 def verify(case, candidate, timeout=180, allow_search=False):
     """Return (ok, reason, stdout+stderr)."""
-    src = open(case["path"], encoding="utf-8", errors="replace").read()
+    # Resolve against PROJ rather than trusting the recorded absolute path: an
+    # eval set built on one machine must run on the other.
+    src_path = case_path(case)
+    src = open(src_path, encoding="utf-8", errors="replace").read()
     body = clean(candidate)
     if not body:
         return False, "empty", ""
@@ -83,7 +106,8 @@ def verify(case, candidate, timeout=180, allow_search=False):
 if __name__ == "__main__":
     import sys, time
     HERE = os.path.dirname(os.path.abspath(__file__))
-    cases = json.load(open(os.path.join(HERE, "evalset.json"), encoding="utf-8"))
+    evalset = sys.argv[2] if len(sys.argv) > 2 else "evalset.json"
+    cases = json.load(open(os.path.join(HERE, evalset), encoding="utf-8"))
     n = int(sys.argv[1]) if len(sys.argv) > 1 else 4
 
     # smoke tests: shortest proofs, so failures are the harness not the maths

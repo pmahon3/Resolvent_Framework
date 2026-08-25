@@ -15,7 +15,7 @@ REPL = r"C:\Users\pmahon\Research\Mathematics\repl\.lake\build\bin\repl.exe"
 OLLAMA = os.environ.get("OLLAMA_URL", "http://127.0.0.1:11434/api/generate")
 
 
-from verify import ENV, LAKE  # resolved absolute lake.exe + machine PATH
+from verify import ENV, LAKE, case_path  # resolved lake + machine PATH + per-machine paths
 
 
 class ReplTimeout(Exception):
@@ -203,10 +203,12 @@ if __name__ == "__main__":
     ap.add_argument("--k", type=int, default=8)
     ap.add_argument("--budget", type=int, default=40)
     ap.add_argument("--max-lines", type=int, default=12)
+    ap.add_argument("--evalset", default="evalset.json",
+                    help="eval set to run against (default: the full corpus)")
     a = ap.parse_args()
 
     HERE = os.path.dirname(os.path.abspath(__file__))
-    cases = json.load(open(os.path.join(HERE, "evalset.json"), encoding="utf-8"))
+    cases = json.load(open(os.path.join(HERE, a.evalset), encoding="utf-8"))
     BROKEN = {"PredictiveState.lean", "PredictiveOperators.lean"}  # do not compile
     pool = sorted([c for c in cases
                    if c["proof_lines"] <= a.max_lines and c["file"] not in BROKEN],
@@ -218,7 +220,7 @@ if __name__ == "__main__":
 
     byfile = {}
     for c in pool:
-        byfile.setdefault(c["path"], []).append(c)
+        byfile.setdefault(case_path(c), []).append(c)
 
     solved, rows, i = 0, [], 0
     for path, cs in byfile.items():

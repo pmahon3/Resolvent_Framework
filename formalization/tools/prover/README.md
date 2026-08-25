@@ -213,3 +213,30 @@ python compare.py
 
 Paths are absolute to the tower checkout; edit `PROJ` / `REPL` / `SRC` for
 another machine.
+
+## Running against a specific eval set (added 2026-08-24)
+
+`mkeval.py` builds `evalset.json` over the whole corpus. To measure against a
+subset -- e.g. newly written code, which is the case §3b says is missing --
+build a second file and pass it:
+
+```
+python bfs.py --evalset evalset_session.json --model bfs-prover:7b-q4 \
+              --n 28 --budget 150 --k 6
+python verify.py 4 evalset_session.json        # self-test on that set first
+```
+
+`evalset_session.json` (28 cases) is the two modules written on 2026-08-24 --
+`ThickTrace.lean` and `AJNoExtension.lean`, the trace measure and the
+Andersen-Jessen refutation. It is deliberately matched to the AndersenJessen
+run of §3b: same n, same budget, and code that did not exist when the model was
+trained or when the corpus was built. Proof sizes: p25=2, p50=5, p90=17,
+max=25 lines; 12 of 28 term-mode.
+
+**Cross-platform.** `verify.py` derived `PROJ` from a hardcoded `C:\` path and
+looked only for `lake.exe`, so the harness ran on `tower` alone. `PROJ` is now
+derived from the file's own location and the exe name is chosen by platform,
+and `case_path()` resolves each case against `PROJ` rather than trusting the
+absolute path recorded at build time -- so an eval set built on one machine
+runs on the other. Self-test passes on macOS (4/4 ground truth, 4/4 sorry
+rejected, 4/4 garbage rejected).

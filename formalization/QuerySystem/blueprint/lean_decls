@@ -41,6 +41,16 @@ Diagonal.Diag_iInter
 Diagonal.pi_inter_diag_eq_empty
 Diagonal.measurableSet_Diag
 Diagonal.no_mass_one_of_iInter_empty
+delayQuery
+delayEval
+delayLe
+delayRefineMap
+delayQuerySystem
+delayQuerySystem.upperDirected
+delayQuerySystem.not_seqUpperDirected
+delayFixedLagBoundedSystem
+delayFixedLagBoundedSystem.seqUpperDirected
+delayFixedLagBoundedSystem.observational_extension_fixedLag
 SigmaEssential.Block
 SigmaEssential.InterClosed
 SigmaEssential.TwoValuedState.val_inter

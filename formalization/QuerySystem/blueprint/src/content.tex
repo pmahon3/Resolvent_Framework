@@ -1662,6 +1662,17 @@ The twelve cross-intersections of the three cores and their complements are each
 
 \section{$\sigma$-essentiality and $\Psi$}
 
+The definition below carries a coherence clause, and that clause is the whole
+difference between this development and the paper's first version. It is
+constitutive, not a convenience, and the evidence sits in this section rather
+than after the flagship: \ref{thm:omega7} exhibits a Boolean object that the
+clause-free definition calls a witness and this one does not.
+
+So there is one definition of $\sigma$-essentiality here, not two in
+succession. The Lean names carry \texttt{Amended} because the paper's v1
+definition lacked the clause and was superseded; the word records a fact about
+the source, and nothing below is a second attempt at a first idea.
+
 \begin{definition}[$\sigma$-essential contextual state]
 \label{def:sigma-essential}
 \lean{SigmaEssential.Amended.IsSigmaEssentialL}
@@ -1674,7 +1685,7 @@ negative clause quantifies over all $\sigma$-additive states, Dirac and
 non-Dirac alike.
 \end{definition}
 
-\begin{definition}[The amended $\Psi$]
+\begin{definition}[$\Psi$: the localized existence sentence]
 \label{def:psi-amended}
 \lean{SigmaEssential.Amended.PsiAmended}
 \leanok
@@ -1684,6 +1695,10 @@ pattern with $s_0$ $\sigma$-essential. Admissibility predicates are not
 bundled in --- non-Booleanness is \ref{lem:carrier-not-boolean}; essential
 irreducibility and non-segregation are paper-level facts about the carrier and
 do not affect the truth of \ref{thm:psi-amended-zfc}.
+
+The Lean name is \texttt{PsiAmended}. There is no unamended $\Psi$ in play to
+contrast it with: that one is superseded by \ref{thm:omega7}, not competing
+with this.
 \end{definition}
 
 \begin{theorem}[Localization --- the whole content is clause (ii)]
@@ -1723,6 +1738,28 @@ Via \texttt{boolean\_baseline}: the finitely additive extension supplied by
 coherence is multiplicative on the intersection-closed carrier, so the block's
 true sets have the finite intersection property; a common point is a kernel
 point.
+\end{proof}
+
+\begin{theorem}[$\Omega_7$: why the coherence clause is constitutive]
+\label{thm:omega7}
+\lean{SigmaEssential.Omega7.omega7_no_sigma_extension, SigmaEssential.Omega7.omega7_not_coherent, SigmaEssential.Omega7.omega7_not_witness}
+\leanok
+\uses{def:sigma-essential, lem:boolean-no-witness}
+Drop the coherence clause from \ref{def:sigma-essential} and a Boolean
+carrier acquires a ``witness''. Keep it and that object is excluded. The clause
+is therefore load-bearing: without it the definition is satisfied by something
+no Boolean carrier should admit, which is what \ref{lem:boolean-no-witness}
+forbids.
+\end{theorem}
+
+\begin{proof}
+\leanok
+On the seven-point Boolean carrier $\Omega_7$ the pattern has empty kernel and
+no $\sigma$-additive two-valued extension
+(\texttt{omega7\_no\_sigma\_extension}) --- the literal definition's
+``witness'' half --- while coherence fails
+(\texttt{omega7\_not\_coherent}, via \ref{lem:boolean-no-witness}), so the
+amended definition excludes the object the literal one admits.
 \end{proof}
 
 \section{The witness carrier}
@@ -1809,26 +1846,6 @@ exactly \texttt{[propext, Classical.choice, Quot.sound]}.
 \ref{thm:core-pattern-witness} assembled at $\omega_1$ via \ref{lem:omega1}.
 Zero sorries; \texttt{\#print axioms} returns exactly
 \texttt{[propext, Classical.choice, Quot.sound]}.
-\end{proof}
-
-\begin{theorem}[$\Omega_7$: the amendment is forced, not a retreat]
-\label{thm:omega7}
-\lean{SigmaEssential.Omega7.omega7_no_sigma_extension, SigmaEssential.Omega7.omega7_not_coherent, SigmaEssential.Omega7.omega7_not_witness}
-\leanok
-\uses{def:sigma-essential, lem:boolean-no-witness}
-The literal (unamended) definition admits a Boolean ``witness''; the amended
-definition excludes it. So the coherence amendment repairs a real defect rather
-than weakening the claim until it became provable.
-\end{theorem}
-
-\begin{proof}
-\leanok
-On the seven-point Boolean carrier $\Omega_7$ the pattern has empty kernel and
-no $\sigma$-additive two-valued extension
-(\texttt{omega7\_no\_sigma\_extension}) --- the literal definition's
-``witness'' half --- while coherence fails
-(\texttt{omega7\_not\_coherent}, via \ref{lem:boolean-no-witness}), so the
-amended definition excludes the object the literal one admits.
 \end{proof}
 
 \begin{theorem}[Thm 3.5 --- normal form for carrier sets]

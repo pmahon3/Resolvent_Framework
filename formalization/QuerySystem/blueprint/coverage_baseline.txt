@@ -8,9 +8,7 @@ EncodingDefectCheck.lean
 FibreProductReflection.lean
 FiniteAtomFoldKernel.lean
 FullCycleAssemblyKernel.lean
-InnerRegularity.lean
 KernelClosureCalculus.lean
-MarczewskiTransport.lean
 ODBCRegimes.lean
 ODBCSections.lean
 SigmaEssentialBareForm.lean

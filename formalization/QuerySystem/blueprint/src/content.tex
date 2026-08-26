@@ -834,7 +834,7 @@ the depths are unbounded. The two hypotheses differ exactly here, and the delay
 system sits between them.
 \end{proof}
 
-\begin{proposition}[A definitional mismatch with the source, recorded]
+\begin{remark}[A definitional mismatch with the source, recorded]
 \label{prop:delay-mismatch}
 \uses{thm:delay-not-sud}
 Paper 1's Proposition 2 establishes that every \emph{finite} subfamily of delay
@@ -846,7 +846,7 @@ strictly stronger; the finite-subfamily property is exactly
 paper's extension theorem is stated at a scope its hypothesis does not reach,
 and \ref{thm:delay-not-sud} is the witness. The repair is the fixed-lag
 restriction below, not a weakening of the theorem.
-\end{proposition}
+\end{remark}
 
 \section{Where the extension theorem does apply}
 
@@ -1937,6 +1937,179 @@ the complete Hilbert lattice's Kochen--Specker failure of sharpness. Nothing in
 this section is evidence either way; it exists so that the settled OMP result
 and the open lattice gap are visible as one picture.
 \end{remark}
+
+\section{Inner regularity: what forces $\sigma$-additivity, and what refuses it}
+
+The witness above is a finitely additive two-valued state with no $\sigma$-additive
+extension. That raises the complementary question: what would \emph{force}
+$\sigma$-additivity, and how close does the boundary run? Two answers, in
+opposite directions, and a counterexample that fixes the gap between them.
+
+\subsection{Transport: a compact class forces the $\sigma$-condition}
+
+\begin{definition}[Countably compact class]
+  \label{def:countably-compact-class}
+  \lean{SigmaEssential.Blocks.CountablyCompactClass}
+  \leanok
+  A family $\mathcal{K}$ of sets such that every sequence from $\mathcal{K}$
+  with the finite intersection property has nonempty total intersection.
+\end{definition}
+
+\begin{definition}[Marczewski approximation, two-valued in-block form]
+  \label{def:approximates-on}
+  \uses{def:countably-compact-class, def:finadd-state}
+  \lean{SigmaEssential.Blocks.ApproximatesOn}
+  \leanok
+  Every value-$1$ member $E$ of the family carries a value-$1$ inner witness
+  sandwiched below a class member: $D \subseteq K \subseteq E$ with
+  $K \in \mathcal{K}$. Two-valuedness is what collapses Marczewski's general
+  $\eta$-form to this.
+\end{definition}
+
+\begin{theorem}[Compact transport]
+  \label{thm:compact-transport}
+  \uses{def:approximates-on, def:countably-compact-class, def:sigma-class}
+  \lean{SigmaEssential.Blocks.compact_transport,
+        SigmaEssential.Blocks.IsMaxBlock.isSigmaOn_of_compact_class}
+  \leanok
+  On a carrier where meets exist, a finitely additive two-valued state
+  approximated on every maximal block by a countably compact class satisfies the
+  $\sigma$-condition on the whole carrier.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:approximates-on}
+  Run inside one maximal block and glue. Tails of a disjoint sequence are
+  value-$1$, so their inner witnesses have value-$1$ --- hence nonempty ---
+  finite intersections; the sandwiching compacts therefore have the finite
+  intersection property, and countable compactness contradicts the empty tail
+  intersection. Marczewski 1953, 4(i), two-valued.
+\end{proof}
+
+\subsection{Forcing: (8.1) makes a finitely additive state Dirac}
+
+\begin{definition}[A field of sets and a two-valued state on it]
+  \label{def:set-field}
+  \lean{SigmaEssential.Blocks.SetField, SigmaEssential.Blocks.FieldState}
+  \leanok
+  Finite closure only --- no $\sigma$-structure anywhere. Theorem-let R is a
+  finitely additive statement and is stated where that is all there is.
+\end{definition}
+
+\begin{definition}[Inner regularity (8.1)]
+  \label{def:inner-regular-81}
+  \uses{def:set-field}
+  \lean{SigmaEssential.Blocks.InnerRegular81}
+  \leanok
+  Every value-$1$ member of the field contains a value-$1$ in-field
+  \emph{compact}.
+\end{definition}
+
+\begin{theorem}[Theorem-let R: (8.1) forces Dirac]
+  \label{thm:dirac-forcing}
+  \uses{def:inner-regular-81, def:set-field}
+  \lean{SigmaEssential.Blocks.dirac_forcing}
+  \leanok
+  On a Hausdorff space, a two-valued finitely additive state satisfying (8.1)
+  has nonempty $\mathcal{K}_1$ (its value-$1$ in-field compacts), nonempty
+  $D = \bigcap \mathcal{K}_1$, and \emph{equals} $\delta_\omega$ on the field
+  for every $\omega \in D$.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:inner-regular-81}
+  The finite intersection property is the machine-checked content: value-$1$
+  in-field compacts are $\cap$-stable (compact $\cap$ closed, and Hausdorff
+  makes compacts closed), finite intersections are value-$1$ hence nonempty, and
+  compactness of one fixed member turns an empty total intersection into an
+  empty finite one. Both nonemptiness claims are conclusions, not hypotheses.
+  \textbf{No $\sigma$-additivity is used anywhere.}
+\end{proof}
+
+\subsection{The gap: the co-countable state refuses}
+
+\begin{definition}[The co-countable state]
+  \label{def:cocountable-state}
+  \uses{def:sigma-class, def:two-valued-state}
+  \lean{SigmaEssential.Blocks.cocountableMeasurableSpace,
+        SigmaEssential.Blocks.cocountableState}
+  \leanok
+  On an uncountable $\Omega$, the countable/co-countable $\sigma$-field with the
+  state that is $1$ exactly on the co-countable sets. The coarse killer state of
+  the $\omega_1$ scoping bank; nothing below uses more than uncountability.
+\end{definition}
+
+\begin{lemma}[It is not Dirac]
+  \label{lem:cocountable-not-dirac}
+  \uses{def:cocountable-state}
+  \lean{SigmaEssential.Blocks.cocountableState_not_dirac}
+  \leanok
+  For every $\omega$ there is a carrier set of value $1$ missing $\omega$ ---
+  namely $\{\omega\}^{c}$.
+\end{lemma}
+
+\begin{proof}
+  \leanok
+  A singleton is countable, so its complement is co-countable and carries
+  value $1$.
+\end{proof}
+
+\begin{theorem}[Theorem-let P: (8.1) fails, at a named set]
+  \label{thm:cocountable-fails-81}
+  \uses{def:cocountable-state, def:inner-regular-81}
+  \lean{SigmaEssential.Blocks.cocountable_fails_81_at}
+  \leanok
+  On an uncountable second-countable Hausdorff space, (8.1) fails at the
+  specific set $F = X \setminus \{x\}$ for $x$ a condensation point. Second
+  countability subsumes Polish, so this is a strengthening of the note's
+  statement.
+\end{theorem}
+
+\begin{proof}
+  \leanok
+  \uses{def:cocountable-state}
+  Via \texttt{exists\_condensation\_point}, replacing the Cantor--Bendixson
+  route: ``closed co-countable contains the perfect kernel'' is consumed only at
+  the chosen point, where ``no countable open neighbourhood'' already suffices.
+\end{proof}
+
+\begin{corollary}[The all-Hausdorff strengthening]
+  \label{cor:cocountable-fails-hausdorff}
+  \uses{thm:dirac-forcing, lem:cocountable-not-dirac, def:inner-regular-81}
+  \lean{SigmaEssential.Blocks.cocountable_fails_81_hausdorff}
+  \leanok
+  On \emph{any} uncountable Hausdorff space the co-countable state fails (8.1)
+  somewhere --- no second countability needed.
+\end{corollary}
+
+\begin{proof}
+  \leanok
+  \uses{thm:dirac-forcing, lem:cocountable-not-dirac}
+  By \ref{thm:dirac-forcing}, (8.1) would make the state a Dirac restriction,
+  and \ref{lem:cocountable-not-dirac} says it is none. The reduction to R is
+  what removes the countability hypothesis of \ref{thm:cocountable-fails-81}.
+\end{proof}
+
+\begin{proposition}[The Hausdorff red flag]
+  \label{prop:cofinite-red-flag}
+  \uses{thm:dirac-forcing}
+  \lean{SigmaEssential.Blocks.not_t2Space_cofiniteTopology}
+  \leanok
+  Hausdorffness is not decoration in \ref{thm:dirac-forcing}. On the cofinite
+  topology over an infinite set, with the finite/cofinite field and the cofinite
+  state, every set is compact and (8.1) holds --- yet the state is not Dirac. By
+  \ref{thm:dirac-forcing} that space cannot be Hausdorff, which it is not.
+\end{proposition}
+
+\begin{proof}
+  \leanok
+  \uses{thm:dirac-forcing}
+  Run \ref{thm:dirac-forcing} on the cofinite data and read the contradiction
+  backwards: the counterexample to dropping $T_2$ doubles as a proof that the
+  cofinite topology fails $T_2$.
+\end{proof}
 
 \chapter{The pruning theorem and eventual periodicity of Safe}
 

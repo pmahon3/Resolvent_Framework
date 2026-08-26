@@ -1669,9 +1669,19 @@ than after the flagship: \ref{thm:omega7} exhibits a Boolean object that the
 clause-free definition calls a witness and this one does not.
 
 So there is one definition of $\sigma$-essentiality here, not two in
-succession. The Lean names carry \texttt{Amended} because the paper's v1
-definition lacked the clause and was superseded; the word records a fact about
-the source, and nothing below is a second attempt at a first idea.
+succession.
+
+The Lean names carry \texttt{Amended}, and that qualifier is a scar, not
+information. It does not record a paper amendment: the unqualified
+\texttt{IsSigmaEssential} and \texttt{Psi} in this library are a formalization
+defect from 2026-07-06 --- the scaffold typed the local pattern as a
+\emph{global} state, so the pattern extends itself, the predicate is
+unsatisfiable, and \texttt{EncodingDefect.psi\_false} certifies it false as an
+artefact of the encoding rather than a fact about the mathematics. The live
+definition is qualified only because the defective one still holds the plain
+name. Read \texttt{Amended} and the \texttt{L} suffix as spelling mistakes the
+library has not yet corrected, and the definition below as simply the
+definition.
 
 \begin{definition}[$\sigma$-essential contextual state]
 \label{def:sigma-essential}
@@ -1696,9 +1706,11 @@ bundled in --- non-Booleanness is \ref{lem:carrier-not-boolean}; essential
 irreducibility and non-segregation are paper-level facts about the carrier and
 do not affect the truth of \ref{thm:psi-amended-zfc}.
 
-The Lean name is \texttt{PsiAmended}. There is no unamended $\Psi$ in play to
-contrast it with: that one is superseded by \ref{thm:omega7}, not competing
-with this.
+The Lean name is \texttt{PsiAmended}; see the section preamble for why the
+qualifier is there and why it carries no content. What \ref{thm:omega7} refutes
+is the clause-free \emph{mathematical} reading, which is this definition minus
+its coherence conjunct --- a different thing from the encoding defect the name
+is avoiding.
 \end{definition}
 
 \begin{theorem}[Localization --- the whole content is clause (ii)]
@@ -1710,8 +1722,10 @@ $s_0$ is a witness if and only if (0) it is finitely coherent, (i) no
 point-evaluation extends it ($K(s_0) = \emptyset$), \emph{and} (ii) no
 non-Dirac $\sigma$-additive two-valued state does. Clause (i) is freely
 arrangeable by the Navara--Pt\'ak intersection device, so the entire
-difficulty is clause (ii) --- Wall A. (The pre-amendment two-clause form is
-\texttt{SigmaEssential.localization}.)
+difficulty is clause (ii) --- Wall A. (\texttt{SigmaEssential.localization} is
+the same statement over the defective encoding, kept only because
+\texttt{EncodingDefectCheck} refutes that encoding; it is not an earlier
+mathematical form of this.)
 \end{theorem}
 
 \begin{proof}
